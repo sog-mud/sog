@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.46 2001-12-10 12:08:41 cs Exp $
+ * $Id: handler.c,v 1.182.2.47 2001-12-10 19:28:32 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1201,6 +1201,11 @@ void obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch)
 	obj->carried_by		= ch;
 	obj->in_room		= NULL;
 	obj->in_obj		= NULL;
+
+	if (CAN_WEAR(obj, ITEM_WEAR_CLANMARK)
+	||  obj->pObjIndex->item_type == ITEM_TATTOO)
+		return;
+
 	ch->carry_number	+= get_obj_number(obj);
 	ch->carry_weight	+= get_obj_weight(obj);
 }
@@ -1239,6 +1244,11 @@ void obj_from_char(OBJ_DATA *obj)
 
 	obj->carried_by		= NULL;
 	obj->next_content	= NULL;
+
+	if (CAN_WEAR(obj, ITEM_WEAR_CLANMARK)
+	||  obj->pObjIndex->item_type == ITEM_TATTOO)
+		return;
+
 	ch->carry_number	-= get_obj_number(obj);
 	ch->carry_weight	-= get_obj_weight(obj);
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.26 2001-12-04 20:37:48 tatyana Exp $
+ * $Id: spellfun.c,v 1.181.2.27 2001-12-10 19:28:17 tatyana Exp $
  */
 
 /***************************************************************************
@@ -805,10 +805,22 @@ void spell_create_food(int sn, int level, CHAR_DATA *ch, void *vo)
 
 void spell_create_rose(int sn, int level, CHAR_DATA *ch, void *vo)
 {
+	int carry_w, carry_n;
 	OBJ_DATA *rose = create_obj(get_obj_index(OBJ_VNUM_ROSE), 0);
+
+	if (rose == NULL)
+		return;
+
 	act("$n has created $p.", ch, rose, NULL, TO_ROOM);
 	act("You create $p.", ch, rose, NULL, TO_CHAR);
-	obj_to_char(rose, ch);
+
+	if (((carry_n = can_carry_n(ch)) >= 0 &&
+	      ch->carry_number + get_obj_number(rose) > carry_n)
+	||  ((carry_w = can_carry_w(ch)) >= 0 &&
+	     get_carry_weight(ch) + get_obj_weight(rose) > carry_w))
+		obj_to_room(rose, ch->in_room);
+	else
+		obj_to_char(rose, ch);
 }
 
 void spell_create_spring(int sn, int level,CHAR_DATA *ch,void *vo)
@@ -2555,6 +2567,7 @@ void spell_holy_hammer(int sn, int level, CHAR_DATA *ch, void *vo)
 {
 	OBJ_DATA *hammer;
 	AFFECT_DATA af;
+	int carry_w, carry_n;
 
 	hammer = create_obj(get_obj_index(OBJ_VNUM_HOLY_HAMMER), 0);
 	hammer->level = ch->level;
@@ -2576,7 +2589,13 @@ void spell_holy_hammer(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	affect_to_obj(hammer, &af);
 
-	obj_to_char(hammer, ch);
+	if (((carry_n = can_carry_n(ch)) >= 0 &&
+	      ch->carry_number + get_obj_number(hammer) > carry_n)
+	||  ((carry_w = can_carry_w(ch)) >= 0 &&
+	     get_carry_weight(ch) + get_obj_weight(hammer) > carry_w))
+		obj_to_room(hammer, ch->in_room);
+	else
+		obj_to_char(hammer, ch);
 
 	act ("You create a Holy Hammer.", ch, NULL, NULL, TO_CHAR);
 	act ("$n creates a Holy Hammer.", ch, NULL, NULL, TO_ROOM);
@@ -3772,6 +3791,7 @@ void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo)
 	||  IS_SET(victim->in_room->room_flags, ROOM_SAFE | ROOM_NORECALL |
 						ROOM_PEACE | ROOM_NOSUMMON)
 	||  IS_SET(ch->in_room->area->area_flags, AREA_CLOSED)
+	||  IS_SET(victim->in_room->area->area_flags, AREA_CLOSED)
 	||  room_is_private(ch->in_room)
 	||  IS_SET(victim->imm_flags, IMM_SUMMON)
 	||  saves_spell(level, victim, DAM_OTHER)
@@ -3783,10 +3803,28 @@ void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo)
 	     victim->in_room->exit[5] == NULL))
 		failed = TRUE;
 	else if (IS_NPC(victim)) {
+		CHAR_DATA *master = NULL;
+
 		if (victim->pMobIndex->pShop != NULL
 		||  IS_SET(victim->pMobIndex->act, ACT_AGGRESSIVE)
 		||  IS_SET(ch->in_room->room_flags, ROOM_NOMOB)
 		||  NPC(victim)->hunter)
+			failed = TRUE;
+
+		/*
+		 * can't summon charmed creature if master
+		 * has PLR_NOSUMMON or !in_PK, the same for mounts
+		 */
+		if (IS_AFFECTED(victim, AFF_CHARM)
+		&&  victim->master != NULL)
+			master = victim->master;
+		else if (victim->mount != NULL)
+			master = victim->mount;
+
+		if (master != NULL
+		&&  (!in_PK(ch, master) ||
+		     (!IS_NPC(master) &&
+		      IS_SET(PC(master)->plr_flags, PLR_NOSUMMON))))
 			failed = TRUE;
 	} else {
 		if (victim->level >= LEVEL_HERO
@@ -3822,15 +3860,37 @@ void spell_teleport(int sn, int level, CHAR_DATA *ch, void *vo)
 	||  IS_SET(victim->in_room->room_flags, ROOM_NORECALL)
 	||  (victim != ch && IS_SET(victim->imm_flags,IMM_SUMMON))
 	||  (!IS_NPC(ch) && victim->fighting != NULL)
-	||  (victim != ch
-	&&  (saves_spell(level - 5, victim,DAM_OTHER)))) {
+	||  (!IS_NPC(victim) &&	!in_PK(ch, victim))
+	||  (victim != ch &&
+             (saves_spell(level - 5, victim,DAM_OTHER)))) {
 		char_puts("You failed.\n", ch);
 		return;
+	}
+	/*
+	 * can't teleport charmed creature if master
+	 * !in_PK, the same for mounts
+	 */
+	if (IS_NPC(victim)) {
+		CHAR_DATA *master = NULL;
+
+		if (IS_AFFECTED(victim, AFF_CHARM)
+		&&  victim->master != NULL)
+			master = victim->master;
+		else if (victim->mount != NULL)
+			master = victim->mount;
+
+		if (master != NULL
+		&&  (!in_PK(ch, master) ||
+		     (!IS_NPC(master) &&
+		      saves_spell(level - 5, master, DAM_OTHER)))) {
+			char_puts("You failed.\n", ch);
+			return;
+		}
 	}
 
 	transfer_char(victim, ch, get_random_room(victim, NULL),
 		      "$N vanishes!",
-		      "You have been teleported!", 
+		      "You have been teleported!",
 		      "$N slowly fades into existence.");
 }
 
