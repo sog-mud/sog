@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.209 2000-04-17 07:12:32 fjoe Exp $
+ * $Id: act_obj.c,v 1.210 2000-05-17 03:11:25 avn Exp $
  */
 
 /***************************************************************************
@@ -3804,7 +3804,6 @@ void do_outfit(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj;
 	class_t *cl = class_lookup(ch->class);
-	int vnum;
 
 	if ((ch->level > 5 && !IS_IMMORTAL(ch))
 	||  IS_NPC(ch) || cl == NULL) {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.15 2000-04-16 09:21:45 fjoe Exp $
+ * $Id: eventfun.c,v 1.16 2000-05-17 03:11:28 avn Exp $
  */
 
 
@@ -32,19 +32,6 @@
 
 #include "merc.h"
 #include "fight.h"
-
-DECLARE_EVENT_FUN(event_enter_lshield		);
-DECLARE_EVENT_FUN(event_enter_shocking		);
-DECLARE_EVENT_FUN(event_enter_thieftrap		);
-DECLARE_EVENT_FUN(event_enter_mist		);
-DECLARE_EVENT_FUN(event_update_plague		);
-DECLARE_EVENT_FUN(event_update_poison		);
-DECLARE_EVENT_FUN(event_update_slow		);
-DECLARE_EVENT_FUN(event_update_sleep		);
-DECLARE_EVENT_FUN(event_update_espirit		);
-DECLARE_EVENT_FUN(event_leave_lshield		);
-DECLARE_EVENT_FUN(event_enter_rlight		);
-DECLARE_EVENT_FUN(event_update_rlight		);
 
 void show_owner(CHAR_DATA *ch, AFFECT_DATA *af)
 {
@@ -340,6 +327,13 @@ EVENT_FUN(event_updatechar_crippled_hands)
 		char_puts("The pain pulses in your crippled hands.", ch);
 		damage(ch, ch, ch->level/2, "crippled hands", DAM_HARM, TRUE);
 	}
+}
+
+EVENT_FUN(event_updatechar_bonedragon)
+{
+	if (af->duration < 3 && ch->master)
+		act("You feel your dragon is about to hatch.",
+			ch->master, NULL, NULL, TO_CHAR);
 }
 
 EVENT_FUN(event_timeoutchar_bonedragon)
