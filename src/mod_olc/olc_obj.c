@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.99 2001-09-25 11:49:11 kostik Exp $
+ * $Id: olc_obj.c,v 1.100 2001-11-15 13:51:47 tatyana Exp $
  */
 
 #include <ctype.h>
@@ -604,6 +604,7 @@ OLC_FUN(objed_clone)
 	pObj->material		= str_qdup(pFrom->material);
 	mlstr_cpy(&pObj->short_descr, &pFrom->short_descr);
 	mlstr_cpy(&pObj->description, &pFrom->description);
+	mlstr_cpy(&pObj->gender, &pFrom->gender);
 
 	objval_destroy(pObj->item_type, pObj->value);
 	pObj->item_type		= pFrom->item_type;

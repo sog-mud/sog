@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.44 2001-09-12 12:32:39 fjoe Exp $
+ * $Id: effects.c,v 1.45 2001-11-15 13:51:48 tatyana Exp $
  */
 
 /***************************************************************************
@@ -80,7 +80,8 @@ acid_effect(void *vo, int level, int dam)
 
 		if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
 		||  OBJ_IS(obj, OBJ_NOPURGE)
-		||  number_range(0,4) == 0)
+		||  CAN_WEAR(obj, ITEM_WEAR_CLANMARK)
+		||  number_range(0, 4) == 0)
 			return;
 
 		chance = level / 4 + dam / 10;
@@ -292,6 +293,7 @@ fire_effect(void *vo, int level, int dam)
 		const char *msg;
 
 		if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
+		||  CAN_WEAR(obj, ITEM_WEAR_CLANMARK)
 		||  number_range(0, 4) == 0)
 			return;
 
@@ -443,6 +445,7 @@ shock_effect(void *vo,int level, int dam)
 
 		if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
 		||  OBJ_IS(obj, OBJ_NOPURGE)
+		||  CAN_WEAR(obj, ITEM_WEAR_CLANMARK)
 		||  number_range(0,4) == 0)
 		    return;
 
@@ -517,6 +520,7 @@ sand_effect(void *vo, int level, int dam)
 		const char *msg;
 
 		if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
+		||  CAN_WEAR(obj, ITEM_WEAR_CLANMARK)
 		||  OBJ_IS(obj, OBJ_NOPURGE)
 		||  number_range(0,4) == 0)
 			return;

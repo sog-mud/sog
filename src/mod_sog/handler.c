@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.341 2001-11-09 16:09:17 kostik Exp $
+ * $Id: handler.c,v 1.342 2001-11-15 13:51:48 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3153,8 +3153,9 @@ wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 			return FALSE;
 
 		if (!free_hands(ch)) {
-			act_puts("Your hands are full.",
-				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+			act_puts("Your hands are already occuped, "
+				 "you can't wear $p.",
+				 ch, obj, NULL, TO_CHAR, POS_DEAD);
 			return FALSE;
 		}
 
@@ -3218,8 +3219,9 @@ wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 			return FALSE;
 
 		if (!free_hands(ch)) {
-			act_puts("Your hands are full.",
-				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+			act_puts("Your hands are already occuped, "
+				 "you can't hold $p.",
+				 ch, obj, NULL, TO_CHAR, POS_DEAD);
 			return FALSE;
 		}
 
@@ -5092,7 +5094,11 @@ pc_name_ok(const char *name)
 	/*
 	 * Reserved words.
 	 */
-	if (is_name(name, "chronos all auto immortals self someone something the you demise balance circle loner honor none clan"))		// notrans
+	if (is_name(name, "chronos all auto immortals self someone something "
+			  "the you demise balance circle loner honor none clan "
+			  "aulin lirail dakkorn amtinor cariel ulwark vilirna "
+			  "calamir trorgrim gwinnerai irian stivrosh moarith "
+		          "lessa trussk hathir ilissa sog"))	// notrans
 		return FALSE;
 
 	/*

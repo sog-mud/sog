@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.339 2001-11-12 09:04:24 avn Exp $
+ * $Id: fight.c,v 1.340 2001-11-15 13:51:48 tatyana Exp $
  */
 
 /***************************************************************************
@@ -781,7 +781,8 @@ handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 			/* corpse exists and not empty */
 			if (IS_SET(f_plr, PLR_AUTOLOOT))
 				dofun("get", ch, "all corpse");	// notrans
-			else if (IS_SET(f_plr, PLR_AUTOGOLD))
+			else if (IS_SET(f_plr, PLR_AUTOGOLD)
+			     &&  !IS_AFFECTED(ch, AFF_BLIND))
 				get_gold_corpse(ch, corpse);
 		}
 

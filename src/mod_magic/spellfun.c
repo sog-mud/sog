@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.276 2001-11-12 09:43:38 kostik Exp $
+ * $Id: spellfun.c,v 1.277 2001-11-15 13:51:46 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1737,12 +1737,17 @@ SPELL_FUN(spell_magic_missile, sn, level, ch, vo)
 	int dam;
 
 	if (is_sn_affected(victim, "protective shield"))  {
-		const char *text = LEVEL(ch) > 4 ? "missiles" : "missile";
+		int count = 1;
 
-		act("Your magic $t fizzle out near your victim.",
-		    ch, NULL, victim, TO_CHAR);
-		act("Your shield blocks $N's magic $t.",
-		    victim, text, ch, TO_CHAR);
+		count += LEVEL(ch) > 4 ? 1 : 0;
+		count += LEVEL(ch) > 8 ? 1 : 0;
+		count += LEVEL(ch) > 12 ? 1 : 0;
+		count += LEVEL(ch) > 16 ? 1 : 0;
+
+		act("Your magic $qj{missile} fizzle out near your victim.",
+		    ch, (const void *) count, NULL, TO_CHAR);
+		act("Your shield blocks $N's magic $qj{missile}.",
+		    victim, (const void *) count, ch, TO_CHAR);
 		return;
 	}
 
@@ -3216,7 +3221,7 @@ SPELL_FUN(spell_disintegrate, sn, level, ch, vo)
 	OBJ_DATA *tattoo, *clanmark;
 	PC_DATA *vpc;
 
-	if (saves_spell(level+9, victim, DAM_ENERGY)
+	if (saves_spell(level + 9, victim, DAM_ENERGY)
 	||  dice_wlb(1, 3, victim, NULL) == 1
 	||  IS_IMMORTAL(victim)
 	||  IS_CLAN_GUARD(victim)

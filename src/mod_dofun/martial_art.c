@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.204 2001-11-06 07:22:50 kostik Exp $
+ * $Id: martial_art.c,v 1.205 2001-11-15 13:51:43 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2371,7 +2371,7 @@ DO_FUN(do_nerve, ch, argument)
 		return;
 	}
 
-	if (is_safe(ch,victim))
+	if (is_safe(ch, victim))
 		return;
 
 	WAIT_STATE(ch, skill_beats("nerve"));
@@ -2607,9 +2607,9 @@ DO_FUN(do_caltrops, ch, argument)
 		return;
 	}
 
-	if (is_safe(ch,victim))
+	if (is_safe(ch, victim))
 		return;
-	
+
 	act("You throw a handful of sharp spikes at the feet of $N.",
 	    ch, NULL, victim, TO_CHAR);
 	act("$n throws a handful of sharp spikes at your feet!",
@@ -2723,8 +2723,8 @@ DO_FUN(do_throw, ch, argument)
 		chance -= 20;
 
 	/* stats */
-	chance += get_curr_stat(ch,STAT_STR);
-	chance -= get_curr_stat(victim,STAT_DEX) * 4/3;
+	chance += get_curr_stat(ch, STAT_STR);
+	chance -= get_curr_stat(victim, STAT_DEX) * 4/3;
 
 	if (IS_AFFECTED(victim, AFF_FLYING))
 		chance += 10;
@@ -2749,7 +2749,7 @@ DO_FUN(do_throw, ch, argument)
 		    ch, NULL, victim, TO_VICT);
 		act("$n throws $N to the ground with stunning force.",
 		    ch, NULL, victim, TO_NOTVICT);
-		WAIT_STATE(victim,2 * get_pulse("violence"));
+		WAIT_STATE(victim, 2 * get_pulse("violence"));
 
 		damage(ch, victim,
 		(LEVEL(ch) + get_curr_stat(ch, STAT_STR)) * free_hands(ch),
