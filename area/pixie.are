@@ -1289,7 +1289,7 @@ if isimmort $n
 break
 else
 if level $n >= 50
-mob transfer $n 6004
+mob gtransfer $n 6004
 say There is no room for so advanced travellers.
 tell $n I'm sorry, but you are too strong for travelling here.
 endif
@@ -1299,11 +1299,10 @@ endif
 giggle
 tell $n I hope you have enough money.
 mob echoat $n An air sprite has transfered you.
-mob transfer $n 35469
+mob gtransfer $n 35469
 mob echo An air sprite has transfered $n.
 'I hope $n has enough money.
-drop leaf
-mob purge
+mob junk all.leaf
 ~
 #35482
 'Good day.. Give me 100 gold coins and I'll transfer you from here. And I'll give you one emerald. Maybe...
@@ -1312,22 +1311,21 @@ mob purge
 mob echo Leprechaun puts coins in its pot.
 if carries $n 35468
 'You have already got a gem. Go away from here...
-mob transfer $n 35479
+mob gtransfer $n 35479
 else
 if rand 35
 'Today I'll give you a gem. But next time... Who knows...
 mob oload 35468
 give gem to $n
 'Go away now..
-mob transfer $n 35485
+mob gtransfer $n 35485
 else
 'Go away, go away... I have nothing for you...
-mob transfer $n 35484
+mob gtransfer $n 35484
 endif
 endif
-drop 250 gold
-drop emerald
-mob purge
+mob junk all.gold
+mob junk all.emerald
 ~
 #35484
 'You are so nice. Thank you. Take this branch as reward.
@@ -1350,8 +1348,8 @@ endif
 ~
 #35487
 'Thank you, adventure. You may visit secret forest meadow.
-mob transfer $n 35468
-mob otransfer branch 15000
+mob gtransfer $n 35468
+mob junk all.branch
 ~
 #35488
 if rand 50
