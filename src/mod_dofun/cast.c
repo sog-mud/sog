@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cast.c,v 1.5.2.4 2002-01-30 04:46:32 tatyana Exp $
+ * $Id: cast.c,v 1.5.2.5 2002-09-27 09:28:38 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -382,6 +382,19 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			}
 			else
 				check_improve(ch, gsn_improved_benediction,
+					      FALSE, 1);
+		}
+
+		if (IS_SET(spell->group, GROUP_CURATIVE)
+		&&  (chance = get_skill(ch, gsn_improved_curative))) {
+			if (number_percent() < chance) {
+				slevel = LEVEL(ch);
+				slevel += chance/10;
+				check_improve(ch, gsn_improved_curative,
+					      TRUE, 1);
+			}
+			else
+				check_improve(ch, gsn_improved_curative,
 					      FALSE, 1);
 		}
 
