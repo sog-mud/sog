@@ -374,9 +374,9 @@ stand stand female 30
 
 #OBJECTS
 #3700
-mace sub merc~
-a sub issue mace~
-You see a sub issue mace here.~
+mace sub merc булава~
+@eng a sub issue mace@rus ~~тренировочная~~ ~~булава~~~
+@eng You see a sub issue mace here.@rus Ты видишь тренировочную булаву (mace).~
 bronze~
 weapon U AN
 mace 1 6 pound 0
@@ -384,15 +384,17 @@ mace 1 6 pound 0
 A
 18 1
 E
-mace~
-You see a mace of great but cheap craftsmanship.  Imprinted on the side is:
+mace булава~
+@eng You see a mace of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
+@rus Ты видишь искусно смастеренную, но дешевую булаву. На рукояти ты видишь
+выгравированные буквы: "Мерктяжмаш".
 ~
-G none
+G female
 #3701
-dagger sub merc~
-a sub issue dagger~
-You see a sub issue dagger here.~
+dagger sub merc кинжал~
+@eng a sub issue dagger@rus тренировочный кинжал~
+@eng You see a sub issue dagger here.@rus Ты видишь тренировочный кинжал (dagger).~
 bronze~
 weapon U AN
 dagger 1 4 pierce 0
