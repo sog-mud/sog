@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.10 2000-06-09 12:18:49 fjoe Exp $
+ * $Id: act_obj.c,v 1.165.2.11 2000-08-04 09:30:18 kostik Exp $
  */
 
 /***************************************************************************
@@ -2949,7 +2949,8 @@ void do_second_wield(CHAR_DATA * ch, const char *argument)
 		    ch, obj, NULL, TO_ROOM);
 		return;
 	}
-	if (IS_WEAPON_STAT(obj, WEAPON_TWO_HANDS)) {
+	if (IS_WEAPON_STAT(obj, WEAPON_TWO_HANDS)
+	|| obj->value[0] == WEAPON_STAFF) {
 		char_puts("You can't dual wield two-handed weapon!\n", ch);
 		return;
 	}
