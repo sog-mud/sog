@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.61 2003-10-10 16:15:07 fjoe Exp $
+ * $Id: updfun.c,v 1.62 2004-02-19 16:54:49 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -1859,7 +1859,15 @@ save_corpse_contents(OBJ_DATA *corpse)
 	if (corpse->carried_by) {
 		for (obj = corpse->contains; obj; obj = obj_next) {
 			obj_next = obj->next_content;
-			obj_to_char(obj, corpse->carried_by);
+
+			if (obj->item_type == ITEM_MONEY) {
+				corpse->carried_by->silver +=
+				    INT(obj->value[0]);
+				corpse->carried_by->gold +=
+				    INT(obj->value[1]);
+				extract_obj(obj, 0);
+			} else
+				obj_to_char_check(obj, corpse->carried_by);
 		}
 		return;
 	}
