@@ -776,6 +776,14 @@ Form 3 сожгли~
 End
 
 #RULE
+Name замечает~
+BaseLen 6
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
 Name вялым~
 BaseLen 3
 Form 1 -ой~
@@ -1371,6 +1379,14 @@ Form 3 -ны~
 End
 
 #RULE
+Name преграждает~
+BaseLen 9
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
 Name подвешен~
 BaseLen 8
 Form 1 -а~
@@ -1583,6 +1599,14 @@ BaseLen 8
 Form 1 -ась~
 Form 2 -ось~
 Form 3 -ись~
+End
+
+#RULE
+Name слышит~
+BaseLen 4
+Form 1 -ит~
+Form 2 -ит~
+Form 3 -ат~
 End
 
 #RULE
@@ -2654,6 +2678,14 @@ BaseLen 9
 Form 1 -а~
 Form 2 -о~
 Form 3 -ы~
+End
+
+#RULE
+Name ищет~
+BaseLen 2
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ут~
 End
 
 #RULE
@@ -4035,6 +4067,14 @@ BaseLen 6
 Form 1 -а~
 Form 2 -о~
 Form 3 -ы~
+End
+
+#RULE
+Name идет~
+BaseLen 2
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ут~
 End
 
 #RULE
