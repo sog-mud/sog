@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: scan_pfiles.c,v 1.5 2001-08-28 16:37:39 avn Exp $
+ * $Id: scan_pfiles.c,v 1.6 2002-11-20 14:39:43 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -77,7 +77,7 @@ rip_limited_eq(CHAR_DATA *ch, OBJ_DATA *container)
 
 /*
  * Count all objects in pfiles
- * Remove limited objects (with probability 1/10)
+ * Remove limited objects
  * Update rating list
  */
 void scan_pfiles()
@@ -125,12 +125,12 @@ void scan_pfiles()
 
 		/* Remove limited eq from the pfile if it's two weeks old */
 		if (dstat(PLAYER_PATH, dp->d_name, &s) < 0) {
-			log(LOG_ERROR, "scan_pfiles: unable to stat %s.",
-			    dp->d_name);
-		} else {
-			should_clear =
-			    (current_time - s.st_mtime) > 60*60*24*14;
+			log(LOG_ERROR, "scan_pfiles: %s%c%s: stat: %s",
+			    PLAYER_PATH, PATH_SEPARATOR, dp->d_name,
+			    strerror(errno));
+			continue;
 		}
+		should_clear = (current_time - s.st_mtime) > 60*60*24*14;
 
 		for (obj = ch->carrying; obj; obj = obj_next) {
 			obj_next = obj->next_content;
@@ -191,4 +191,3 @@ void scan_pfiles()
 	    dfexist(TMP_PATH, EQCHECK_SAVE_ALL_FILE) ?
 		"yes" : "no");					// notrans
 }
-

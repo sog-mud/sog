@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.200 2002-03-20 20:42:34 fjoe Exp $
+ * $Id: save.c,v 1.201 2002-11-20 14:39:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -40,6 +40,10 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <errno.h>
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
@@ -132,6 +136,34 @@ char_save(CHAR_DATA *ch, int flags)
 	}
 	fprintf(fp, "#END\n");
 	fclose(fp);
+
+	if (IS_SET(flags, SAVE_F_PSCAN)) {
+		/*
+		 * restore atime/mtime
+		 */
+		struct stat s;
+		struct timeval tv[2];
+		char fname[PATH_MAX];
+
+		if (dstat(PLAYER_PATH, name, &s) < 0) {
+			log(LOG_INFO, "char_save: %s%c%s: stat: %s",
+			    PLAYER_PATH, PATH_SEPARATOR, name, strerror(errno));
+			goto err;
+		}
+
+		TIMESPEC_TO_TIMEVAL(&tv[0], &s.st_atimespec);
+		TIMESPEC_TO_TIMEVAL(&tv[1], &s.st_mtimespec);
+
+		snprintf(fname, sizeof(fname), "%s%c%s",
+			 PLAYER_PATH, PATH_SEPARATOR, TMP_FILE);
+		if (utimes(fname, tv) < 0) {
+			log(LOG_INFO, "char_save: %s: utimes: %s",
+			    fname, strerror(errno));
+			goto err;
+		}
+	}
+
+err:
 	d2rename(PLAYER_PATH, TMP_FILE, PLAYER_PATH, name);
 }
 
@@ -631,9 +663,9 @@ fread_char(CHAR_DATA *ch, rfile_t *fp, int flags)
 				break;
 			}
 			if (IS_TOKEN(fp, "Attr")) {
-				int stat;
-				for (stat = 0; stat < MAX_STAT; stat++)
-					ch->perm_stat[stat] = fread_number(fp);
+				int st;
+				for (st = 0; st < MAX_STAT; st++)
+					ch->perm_stat[st] = fread_number(fp);
 				fMatch = TRUE;
 				break;
 			}
@@ -934,9 +966,9 @@ fread_pet(CHAR_DATA *ch, rfile_t *fp, int flags)
 				break;
 			}
 			if (IS_TOKEN(fp, "Attr")) {
-				int stat;
-				for (stat = 0; stat < MAX_STAT; stat++)
-					pet->perm_stat[stat] = fread_number(fp);
+				int st;
+				for (st = 0; st < MAX_STAT; st++)
+					pet->perm_stat[st] = fread_number(fp);
 				fMatch = TRUE;
 				break;
 			}
