@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.44 2003-09-30 00:31:38 fjoe Exp $
+ * $Id: flag.c,v 1.45 2004-02-10 14:13:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -166,7 +166,7 @@ flag_istring(const flaginfo_t *f, flag_t val)
  Called by:	act_olc.c, olc.c, and olc_save.c.
  ****************************************************************************/
 const char *
-flag_string(const flaginfo_t *flag_table, flag_t bits)
+flag_string_def(const flaginfo_t *flag_table, flag_t bits, flag_t def_bits)
 {
 	static char buf[NBUFS][BUFSZ];
 	static int cnt = 0;
@@ -176,8 +176,7 @@ flag_string(const flaginfo_t *flag_table, flag_t bits)
 
 	cnt = (cnt + 1) % NBUFS;
 	buf[cnt][0] = '\0';
-	flag_table++;
-	for (flag = 0; flag_table[flag].name; flag++) {
+	for (flag = 1; flag_table[flag].name; flag++) {
 		switch (ttype) {
 		case TABLE_BITVAL:
 			if (IS_SET(bits, flag_table[flag].bit)) {
@@ -201,18 +200,21 @@ flag_string(const flaginfo_t *flag_table, flag_t bits)
 		}
 	}
 
-/*
- * if got there then buf[cnt] is filled with bitval names
- * or (in case the table is TABLE_INTVAL) value was not found
- *
- */
+	/*
+	 * if got there then buf[cnt] is filled with bitval names
+	 * or (in case the table is TABLE_INTVAL) value was not found
+	 */
 	switch (ttype) {
 	case TABLE_BITVAL:
-		return buf[cnt][0] ? buf[cnt]+1 : "none";
+		return buf[cnt][0] ? buf[cnt]+1 :
+			def_bits ? flag_string_def(flag_table, def_bits, 0) :
+			"none";
 		/* NOT REACHED */
 
 	case TABLE_INTVAL:
-		return "unknown";				// notrans
+		return def_bits >= 0 ?
+		    flag_string_def(flag_table, def_bits, -1) :
+		    "unknown";				// notrans
 		/* NOT REACHED */
 
 	default:
@@ -220,6 +222,13 @@ flag_string(const flaginfo_t *flag_table, flag_t bits)
 		buf[cnt][0] = '\0';
 		return buf[cnt];
 	}
+}
+
+const char *
+flag_string(const flaginfo_t *flag_table, flag_t bits)
+{
+	return flag_string_def(flag_table, bits,
+	    flag_table->bit == TABLE_BITVAL ? 0 : -1);
 }
 
 void
