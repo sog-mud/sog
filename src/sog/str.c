@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.c,v 1.26 2001-07-08 20:16:34 fjoe Exp $
+ * $Id: str.c,v 1.27 2001-07-09 05:56:11 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -51,7 +51,7 @@ int str_real_count;
 int str_alloc_mem;
 #endif
 
-#define strhash(s)	(hashstr(s, 64, MAX_STRING_HASH))
+#define strhash(s, len)	(hashstr((s), UMIN((len), 64), MAX_STRING_HASH))
 
 typedef struct str str;
 struct str {
@@ -120,12 +120,14 @@ free_string(const char *p)
 {
 	str *s, *q;
 	int hash;
+	size_t len;
 
 	if (IS_NULLSTR(p))
 		return;
 
 	str_count--;
-	hash = strhash(p);
+	len = strlen(p);
+	hash = strhash(p, len);
 	for (q = NULL, s = hash_str[hash]; s; s = s->next) {
 		if (!strcmp(GET_DATA(s), p))
 			break;
@@ -441,7 +443,7 @@ static str *
 str_lookup(const char *p, int *hash, size_t len)
 {
 	str *s;
-	for (s = hash_str[*hash = strhash(p)]; s; s = s->next) {
+	for (s = hash_str[*hash = strhash(p, len)]; s; s = s->next) {
 		const char *q = GET_DATA(s);
 		if (!strncmp(q, p, len) && q[len] == '\0')
 			return s;
