@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.143 1999-12-20 12:09:51 kostik Exp $
+ * $Id: martial_art.c,v 1.144 1999-12-20 12:44:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -586,7 +586,7 @@ void do_entangle(CHAR_DATA *ch, const char *argument)
 	
 		af.owner	= victim;
 		af.modifier	= 0;
-		af.location	= APPLY_NONE;
+		INT(af.location)= APPLY_NONE;
 		affect_to_char(ch, &af);
 		
 		check_improve(ch, "entanglement", TRUE, 3);

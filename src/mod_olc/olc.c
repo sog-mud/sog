@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.106 1999-12-20 12:40:29 fjoe Exp $
+ * $Id: olc.c,v 1.107 1999-12-20 12:44:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1072,8 +1072,7 @@ olced_addaffect(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 	if (arg[0] != '\0' && skill_lookup(arg) == NULL) {
 		BUFFER *output = buf_new(-1);
 		buf_add(output, "Valid types are spell/prayer names (listed below) and empty type (''):\n");
-		skills_dump(output, ST_SPELL);
-		skills_dump(output, ST_PRAYER);
+		skills_dump(output, -1);
 		page_to_char(buf_string(output), ch);
 		buf_free(output);
 		return FALSE;
