@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.75 2000-06-07 08:55:17 fjoe Exp $
+# $Id: Makefile,v 1.76 2001-01-07 20:50:13 fjoe Exp $
 #
 
 .include "${.CURDIR}/Makefile.modules"
@@ -25,6 +25,9 @@ ctags:
 
 gtags:
 	gtags -co .
+
+checktrans:
+	./checktrans.pl mod_*/*.c sog/**/*.c > checktrans.out
 
 .include "Makefile.osdep"
 .include <bsd.subdir.mk>
