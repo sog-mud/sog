@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.32.2.6 2000-04-04 05:42:20 fjoe Exp $
+ * $Id: gsn.c,v 1.32.2.7 2000-04-10 12:45:36 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -169,7 +169,6 @@ int gsn_fire_shield;
 int gsn_fear;
 int gsn_settraps;
 int gsn_mental_attack;
-int gsn_secondary_attack;
 int gsn_mortal_strike;
 int gsn_shield_cleave;
 int gsn_weapon_cleave;
@@ -395,7 +394,6 @@ namedp_t gsn_table[] =
 	{ "gsn_fear",			&gsn_fear			},
 	{ "gsn_settraps",		&gsn_settraps			},
 	{ "gsn_mental_attack",		&gsn_mental_attack		},
-	{ "gsn_secondary_attack",	&gsn_secondary_attack		},
 	{ "gsn_mortal_strike",		&gsn_mortal_strike		},
 	{ "gsn_shield_cleave",		&gsn_shield_cleave		},
 	{ "gsn_weapon_cleave",		&gsn_weapon_cleave		},

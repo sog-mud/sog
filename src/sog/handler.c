@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.18 2000-03-31 13:56:54 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.19 2000-04-10 12:45:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1415,6 +1415,7 @@ void strip_obj_affects(CHAR_DATA *ch, OBJ_DATA *obj, AFFECT_DATA *paf)
 void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 {
 	int i;
+	int wear_loc;
 
 	if (obj->wear_loc == WEAR_NONE) {
 		bug("Unequip_char: already unequipped.", 0);
@@ -1428,7 +1429,8 @@ void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 
 	for (i = 0; i < 4; i++)
 		ch->armor[i]	+= apply_ac(obj, obj->wear_loc,i);
-	obj->wear_loc	 = -1;
+	wear_loc = obj->wear_loc;
+	obj->wear_loc	 = WEAR_NONE;
 
 	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
 		strip_obj_affects(ch, obj, obj->pObjIndex->affected);
@@ -1441,6 +1443,16 @@ void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 		--ch->in_room->light;
 
 	oprog_call(OPROG_REMOVE, obj, ch, NULL);
+
+	if (wear_loc == WEAR_WIELD
+	&&  (obj = get_eq_char(ch, WEAR_SECOND_WIELD)) != NULL) {
+		act("You wield your second weapon as your first!.",
+		    ch, NULL, NULL, TO_CHAR);
+		act("$N wields his second weapon as first!",
+		    ch, NULL, NULL, TO_ROOM);
+		unequip_char(ch, obj);
+		equip_char(ch, obj, WEAR_WIELD);
+	}
 }
 
 /*

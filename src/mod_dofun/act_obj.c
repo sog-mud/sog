@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.5 2000-04-05 14:23:52 osya Exp $
+ * $Id: act_obj.c,v 1.165.2.6 2000-04-10 12:45:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1031,6 +1031,12 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 	int             liquid;
 	one_argument(argument, arg, sizeof(arg));
 
+	if (ch->fighting != NULL) {
+		act_puts("You can't drink while fighting.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		return;
+	}
+
 	if (arg[0] == '\0') {
 		for (obj = ch->in_room->contents; obj; obj= obj->next_content) {
 			if (obj->pObjIndex->item_type == ITEM_FOUNTAIN)
@@ -1125,7 +1131,6 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 	}
 	if (obj->value[0] > 0)
 		obj->value[1] = UMAX(obj->value[1]-amount,0);
-	return;
 }
 
 void do_eat(CHAR_DATA * ch, const char *argument)
@@ -1142,6 +1147,7 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 		char_puts("You do not have that item.\n", ch);
 		return;
 	}
+
 	if (!IS_IMMORTAL(ch)) {
 		if ((obj->pObjIndex->item_type != ITEM_FOOD ||
 		     IS_SET(obj->extra_flags, ITEM_NOT_EDIBLE))
@@ -1154,13 +1160,18 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 			return;
 		}
 	}
+
+	if (obj->pObjIndex->item_type == ITEM_FOOD
+	&&  ch->fighting != NULL) {
+		act_puts("You can't eat while fighting.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		return;
+	}
+
 	act("$n eats $p.", ch, obj, NULL, TO_ROOM);
 	act_puts("You eat $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
-	if (ch->fighting != NULL)
-		WAIT_STATE(ch, 3 * PULSE_VIOLENCE);
 
 	switch (obj->pObjIndex->item_type) {
-
 	case ITEM_FOOD:
 		if (!IS_NPC(ch)) {
 			int             condition;
@@ -1214,6 +1225,9 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 		break;
 
 	case ITEM_PILL:
+		if (ch->fighting != NULL)
+			WAIT_STATE(ch, 3 * PULSE_VIOLENCE);
+
 		obj_cast_spell(obj->value[1], obj->value[0], ch, ch);
 		if (IS_EXTRACTED(ch))
 			break;

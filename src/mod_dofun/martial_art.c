@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.1 1999-11-26 07:06:17 fjoe Exp $
+ * $Id: martial_art.c,v 1.114.2.2 2000-04-10 12:45:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -290,7 +290,6 @@ void do_flee(CHAR_DATA *ch, const char *argument)
  */
 void disarm(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 {
-	OBJ_DATA *obj2;
 	int skill;
 
 	if (IS_OBJ_STAT(obj, ITEM_NOREMOVE)) {
@@ -333,17 +332,6 @@ void disarm(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 		&&  victim->wait == 0
 		&&  can_see_obj(victim,obj))
 			get_obj(victim, obj, NULL, NULL);
-	}
-
-	if ((obj2 = get_eq_char(victim, WEAR_SECOND_WIELD)) != NULL) {
-		act_puts("You wield your second weapon as your first!.",
-			 ch, NULL, victim, TO_VICT, POS_FIGHTING);
-		act_puts("$N wields his second weapon as first!",
-			 ch, NULL, victim, TO_CHAR, POS_FIGHTING);
-		act_puts("$N wields his second weapon as first!",
-			 ch, NULL, victim, TO_NOTVICT, POS_FIGHTING);
-		unequip_char(victim, obj2);
-		equip_char(victim, obj2, WEAR_WIELD);
 	}
 }
 
