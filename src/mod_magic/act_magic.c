@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_magic.c,v 1.24 2000-02-19 14:26:58 avn Exp $
+ * $Id: act_magic.c,v 1.25 2000-03-10 11:44:56 kostik Exp $
  */
 
 #include <stdio.h>
@@ -381,31 +381,6 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			}
 			else 
 				check_improve(ch, "spell craft", FALSE, 1);
-		}
-
-
-		if (IS_SET(spell->group, GROUP_MALADICTIONS)
-		&&  (chance = get_skill(ch, "improved maladiction"))) {
-			if (number_percent() < chance) {
-				slevel = LEVEL(ch);
-				slevel += chance/20;
-				check_improve(ch, "improved maladiction",
-					      TRUE, 1);
-			} else
-				check_improve(ch, "improved maladiction",
-					      FALSE, 1);
-		}
-
-		if (IS_SET(spell->group, GROUP_BENEDICTIONS)
-		&&  (chance = get_skill(ch, "improved benediction"))) {
-			if (number_percent() < chance) {
-				slevel = LEVEL(ch);
-				slevel += chance/10;
-				check_improve(ch, "improved benediction",
-					      TRUE, 1);
-			} else 
-				check_improve(ch, "improved benediction",
-					      FALSE, 1);
 		}
 
 		if ((chance = get_skill(ch, "mastering spell"))

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.180 2000-03-07 09:21:53 avn Exp $
+ * $Id: spellfun2.c,v 1.181 2000-03-10 11:44:56 kostik Exp $
  */
 
 /***************************************************************************
@@ -4087,7 +4087,7 @@ void spell_restoring_light(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	char_puts("Ok.\n", ch);
 }
 
-void spell_lesser_golem(const char *sn, int level, CHAR_DATA *ch, void *vo)	
+void spell_flesh_golem(const char *sn, int level, CHAR_DATA *ch, void *vo)	
 {
 	CHAR_DATA *gch;
 	CHAR_DATA *golem;
@@ -4101,8 +4101,8 @@ void spell_lesser_golem(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	  return;
 	}
 
-	char_puts("You attempt to create a lesser golem.\n",ch);
-	act("$n attempts to create a lesser golem.",ch,NULL,NULL,TO_ROOM);
+	char_puts("You attempt to create a flesh golem.\n",ch);
+	act("$n attempts to create a flesh golem.",ch,NULL,NULL,TO_ROOM);
 
 	for (gch = npc_list; gch; gch = gch->next) {
 		if (IS_AFFECTED(gch,AFF_CHARM)
@@ -4137,8 +4137,8 @@ void spell_lesser_golem(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	NPC(golem)->dam.dice_type = 10;
 	golem->damroll = level / 2;
 
-	char_puts("You created a lesser golem!\n",ch);
-	act("$n creates a lesser golem!",ch,NULL,NULL,TO_ROOM);
+	char_puts("You created a flesh golem!\n",ch);
+	act("$n creates a flesh golem!",ch,NULL,NULL,TO_ROOM);
 
 	af.where		= TO_AFFECTS;
 	af.type               = sn;

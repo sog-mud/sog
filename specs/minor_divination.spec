@@ -17,4 +17,12 @@ Adept 75
 Max 100
 End
 
+#SKILL
+Skill 'identify'
+Level 10
+Rating 1
+Adept 75
+Max 100
+End
+
 #$

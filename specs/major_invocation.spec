@@ -26,4 +26,49 @@ Adept 75
 Max 100
 End
 
+#SKILL
+Skill 'shocking grasp'
+Level 9
+Rating 1
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
+Skill 'iceball'
+Level 34
+Rating 1
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
+Skill 'chain lightning'
+Level 31
+Rating 1
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
+Skill 'web'
+Level 30
+Rating 1
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
+Skill 'fire shield'
+Level 30
+Rating 1
+Min 1
+Adept 75
+Max 100
+End
+
 #$

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.295 2000-03-05 17:14:40 avn Exp $
+ * $Id: merc.h,v 1.296 2000-03-10 11:44:56 kostik Exp $
  */
 
 /***************************************************************************
@@ -360,7 +360,7 @@ struct spec_type
 #define GROUP_NONE		0
 #define GROUP_WEAPONSMASTER	(A)
 #define GROUP_ATTACK		(B)
-#define GROUP_BEGUILING 	(C)
+
 #define GROUP_BENEDICTIONS	(D)
 #define GROUP_COMBAT		(E)
 #define GROUP_CREATION		(F)
@@ -377,7 +377,7 @@ struct spec_type
 #define GROUP_TRANSPORTATION	(Q)
 #define GROUP_WEATHER		(R)
 #define GROUP_FIGHTMASTER	(S)
-#define GROUP_SUDDENDEATH	(T)
+
 #define GROUP_MEDITATION	(U)
 #define GROUP_CLAN		(V)
 #define GROUP_DEFENSIVE 	(W)

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.136 2000-03-05 17:14:50 avn Exp $
+ * $Id: tables.c,v 1.137 2000-03-10 11:44:57 kostik Exp $
  */
 
 /***************************************************************************
@@ -890,7 +890,6 @@ flaginfo_t skill_groups[] =
 	{ "none",		GROUP_NONE,		TRUE	},
 	{ "weaponsmaster",	GROUP_WEAPONSMASTER,	TRUE	},
 	{ "attack",		GROUP_ATTACK,		TRUE	},
-	{ "beguiling",		GROUP_BEGUILING,	TRUE	},
 	{ "benedictions",	GROUP_BENEDICTIONS,	TRUE	},
 	{ "combat",		GROUP_COMBAT,		TRUE	},
 	{ "creation",		GROUP_CREATION,		TRUE	},
@@ -907,7 +906,6 @@ flaginfo_t skill_groups[] =
 	{ "transportation",	GROUP_TRANSPORTATION,	TRUE	},
 	{ "weather",		GROUP_WEATHER,		TRUE	},
 	{ "fightmaster",	GROUP_FIGHTMASTER,	TRUE	},
-	{ "suddendeath",	GROUP_SUDDENDEATH,	TRUE	},
 	{ "meditation",		GROUP_MEDITATION,	TRUE	},
 	{ "clan",		GROUP_CLAN,		TRUE	},
 	{ "defensive",		GROUP_DEFENSIVE,	TRUE	},

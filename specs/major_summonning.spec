@@ -17,4 +17,22 @@ Adept 75
 Max 100
 End
 
+#SKILL
+Skill 'demon summon'
+Level 30
+Rating 1
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
+Skill 'find familiar'
+Level 1
+Rating 1
+Min 1
+Adept 75
+Max 100
+End
+
 #$

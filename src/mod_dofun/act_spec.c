@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_spec.c,v 1.7 1999-12-16 12:24:42 fjoe Exp $
+ * $Id: act_spec.c,v 1.8 2000-03-10 11:44:56 kostik Exp $
  */
 
 #include <sys/types.h>
@@ -117,3 +117,115 @@ void do_specialize(CHAR_DATA* ch, const char* argument)
 			 ch, NULL, output, TO_CHAR, POS_DEAD);
 	}
 }
+
+void do_magicschool(CHAR_DATA *ch, const char *argument) 
+{
+
+	char *major_school = NULL;
+	char *minor_school;
+	char *school_name;
+
+	bool major = FALSE;
+
+	char arg[MAX_INPUT_LENGTH];
+
+	if (argument[0] == '\0') {
+		act("Syntax : school [major|minor] school name.", 
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	argument = one_argument(argument, arg, sizeof(arg));
+
+	if (argument[0] == '\0') {
+		act("Syntax : school [major|minor] school name.", 
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if (!str_prefix(arg, "major"))
+		major = TRUE;
+	else if(str_prefix(arg, "minor")) {
+		act("Syntax : school [major|minor] school name.", 
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if (!str_prefix(argument, "abjuration")) {
+		major_school 	= "major_abjuration";
+		minor_school 	= "minor_abjuration";
+		school_name 	= "abjuration";
+	} else if (!str_prefix(argument, "alteration")
+		|| !str_prefix(argument, "transmutation")) {
+		major_school 	= "major_alteration";
+		minor_school 	= "minor_alteration";
+		school_name	= "alteration";
+	} else if (!str_prefix(argument, "divination")) {
+		minor_school 	= "minor_divination";
+		if (major) {
+			act("You cannot choose divination as major school.",
+				ch, NULL, NULL, TO_CHAR);
+			return;
+		}
+		school_name	= "divination";  
+	} else if (!str_prefix(argument, "charm")
+		|| !str_prefix(argument, "enchantment")) {
+		minor_school 	= "minor_charm";
+		major_school	= "major_charm";
+		school_name	= "enchantment/charm";
+	} else if (!str_prefix(argument, "conjuration")
+		|| !str_prefix(argument, "summonning")) {
+		minor_school	= "minor_summonning";
+		major_school	= "major_summonning";
+		school_name	= "conjuration/summonning";
+	} else if (!str_prefix(argument, "illusion")) {
+		minor_school	= "minor_illusion";
+		major_school	= "major_illusion";
+		school_name	= "illusion";
+	} else if (!str_prefix(argument, "necromancy")) {
+		minor_school 	= "minor_necromancy";
+		major_school	= "major_necromancy";
+		school_name	= "necromancy";
+	} else {
+		act("No such magic school.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if (major) {
+		char * repl = has_spec(ch, minor_school) ? minor_school : NULL;
+		if (has_spec(ch, major_school)) {
+			act("$T is already your major school.",
+				ch, NULL, school_name, TO_CHAR);
+			return;
+		}
+
+		if (spec_replace(ch, repl, major_school) == NULL) {
+			act("You have chosen $T as your major magic school.",
+				ch, NULL, school_name, TO_CHAR);
+		} else {
+			act("You cannot choose $T as your major school.",
+				ch, NULL, school_name, TO_CHAR);
+		}
+	} else {
+		if (has_spec(ch, major_school)) {
+			act("$T is already your major school.",
+				ch, NULL, school_name, TO_CHAR);
+			return;
+		}
+
+		if (has_spec(ch, minor_school)) {
+			act("$T is already your minor school.",
+				ch, NULL, school_name, TO_CHAR);
+			return;
+		}
+
+		if (spec_replace(ch, NULL, minor_school) == NULL) {
+			act("You have chosen $T as your minor magic school.",
+				ch, NULL, school_name, TO_CHAR);
+		} else {
+			act("You cannot choose $T as your magic school.",
+				ch, NULL, school_name, TO_CHAR);
+		}
+	}
+}
+

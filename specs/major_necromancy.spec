@@ -133,4 +133,13 @@ Adept 75
 Max 100
 End
 
+#SKILL
+Skill 'death wave'
+Level 40
+Rating 1
+Min 1
+Adept 75
+Max 100
+End
+
 #$
