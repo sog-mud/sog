@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.241 2001-06-30 11:45:50 kostik Exp $
+ * $Id: spellfun.c,v 1.242 2001-07-04 19:21:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4159,57 +4159,57 @@ void spell_brew(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	case ITEM_TREASURE:
 		switch(number_bits(3)) {
 		case 0:
-	  		spell = "cure critical";
-	  		break;
+			spell = "cure critical wounds";
+			break;
 		case 1:
-	  		spell = "haste";
-	  		break;
+			spell = "haste";
+			break;
 		case 2:
-	  		spell = "frenzy";
-	  		break;
+			spell = "frenzy";
+			break;
 		case 3:
-	  		spell = "create spring";
-	  		break;
+			spell = "create spring";
+			break;
 		case 4:
-	  		spell = "holy word";
-	  		break;
+			spell = "holy word";
+			break;
 		case 5:
-	  		spell = "invisibility";
-	  		break;
+			spell = "invisibility";
+			break;
 		case 6:
-	  		spell = "cure light";
-	  		break;
+			spell = "cure light wounds";
+			break;
 		case 7:
-	  		spell = "cure serious";
-	  		break;
+			spell = "cure serious wounds";
+			break;
 		}
 		break;
 
 	case ITEM_KEY:
 		switch (number_bits(3)) {
 		case 0:
-	  		spell = "detect magic";
-	 		break;
+			spell = "detect magic";
+			break;
 		case 1:
-	  		spell = "detect invis";
-	  		break;
+			spell = "detect invis";
+			break;
 		case 2:
-	  		spell = "pass door";
-	  		break;
+			spell = "pass door";
+			break;
 		case 3:
-	  		spell = "detect hidden";
-	  		break;
+			spell = "detect hidden";
+			break;
 		case 4:
-	  		spell = "improved detect";
-	  		break;
+			spell = "improved detect";
+			break;
 		case 5:
-	  		spell = "acute vision";
-	  		break;
+			spell = "acute vision";
+			break;
 		case 6:
-	  		spell = "detect good";
-	  		break;
+			spell = "detect good";
+			break;
 		case 7:
-	  		spell = "detect evil";
+			spell = "detect evil";
 			break;
 		}
 		break;
@@ -4224,7 +4224,7 @@ void spell_brew(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	extract_obj(vial, 0);
 }
 
-void spell_shadowlife(const char *sn, int level, CHAR_DATA *ch, void *vo)	
+void spell_shadowlife(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	CHAR_DATA *shadow;
@@ -4244,13 +4244,13 @@ void spell_shadowlife(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act("You give life to $N's shadow!", ch, NULL, victim, TO_CHAR);
 	act("$n gives life to $N's shadow!", ch, NULL, victim, TO_NOTVICT);
 	act("$n gives life to your shadow!", ch, NULL, victim, TO_VICT);
-	
+
 	shadow = create_mob_of(get_mob_index(MOB_VNUM_SHADOW),
 			       &victim->short_descr);
 
 	for (i = 0; i < MAX_STAT; i++)
 		shadow->perm_stat[i] = ch->perm_stat[i];
-	
+
 	shadow->max_hit = (3 * ch->max_hit) / 4;
 	shadow->hit = shadow->max_hit;
 	shadow->max_mana = (3 * ch->max_mana) / 4;
@@ -4264,20 +4264,20 @@ void spell_shadowlife(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	shadow->silver = 0;
 
 	NPC(shadow)->target = victim;
-	
+
 	af.where	= TO_AFFECTS;
 	af.type         = sn;
-	af.level        = level; 
+	af.level        = level;
 	af.duration     = 24;
 	af.bitvector    = 0;
 	af.modifier     = 0;
 	INT(af.location)= APPLY_NONE;
 	af.owner	= NULL;
-	affect_to_char(ch, &af);  
+	affect_to_char(ch, &af);
 
 	char_to_room(shadow, ch->in_room);
 	multi_hit(shadow, victim, NULL);
-}  
+}
 
 #define OBJ_VNUM_RULER_BADGE		70
 
@@ -4340,7 +4340,7 @@ void spell_ruler_badge(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	obj_to_char(badge, victim);
 	equip_char(ch, badge, WEAR_NECK);
-}    
+}
 
 void spell_remove_badge(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
@@ -4419,7 +4419,7 @@ void spell_golden_aura(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *vch = vo;
 
 	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
-		if (!is_same_group(vch, ch)) 
+		if (!is_same_group(vch, ch))
 			continue;
 
 		if (is_affected(vch, sn)
@@ -4432,7 +4432,7 @@ void spell_golden_aura(const char *sn, int level, CHAR_DATA *ch, void *vo)
 				    ch, NULL, vch, TO_CHAR);
 			continue;
 		}
-	
+
 		af.where	= TO_AFFECTS;
 		af.type		= sn;
 		af.level	= level;
@@ -4442,16 +4442,16 @@ void spell_golden_aura(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		af.bitvector	= AFF_PROTECT_EVIL;
 		af.owner	= NULL;
 		affect_to_char(vch, &af);
-		  
+
 		af.modifier	= level / 8;
 		af.bitvector	= 0;
 		INT(af.location)= APPLY_HITROLL;
 		affect_to_char(vch, &af);
-	
+
 		af.modifier	=  -level / 8;
 		INT(af.location)= APPLY_SAVING_SPELL;
 		affect_to_char(vch, &af);
-	
+
 		act_char("You feel a golden aura around you.", vch);
 		if (ch != vch)
 			act("A golden aura surrounds $N.",
@@ -4557,11 +4557,11 @@ void spell_white_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 
 	if (IS_AFFECTED(ch, AFF_TURNED)) {
-		act("Return to your natural form first.", 
+		act("Return to your natural form first.",
 			ch, NULL, NULL, TO_CHAR);
 		return;
 	}
-	
+
 	free_string(PC(ch)->form_name);
 	PC(ch)->form_name = str_dup("white dragon");
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.26 2001-06-24 21:12:44 avn Exp $
+ * $Id: eventfun.c,v 1.27 2001-07-04 19:21:13 fjoe Exp $
  */
 
 
@@ -212,7 +212,7 @@ EVENT_FUN(event_update_rlight, ch, af)
 		spellfun_call("cure poison", NULL, af->level, ch, ch);
 	if (IS_AFFECTED(ch, AFF_PLAGUE))
 		spellfun_call("cure disease", NULL, af->level, ch, ch);
-	spellfun_call("cure critical", NULL, af->level, ch, ch);
+	spellfun_call("cure critical wounds", NULL, af->level, ch, ch);
 
 }
 

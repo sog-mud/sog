@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: healer.c,v 1.49 2001-02-25 12:28:08 fjoe Exp $
+ * $Id: healer.c,v 1.50 2001-07-04 19:21:12 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -51,19 +51,19 @@ typedef struct {
 heal_t heal_table[] =
 {
     { "light",							// notrans
-      "cure light wounds",	"cure light",		0, 1000		},
+      "cure light wounds",	"cure light wounds",	0, 1000		},
 
     { "serious",						// notrans
-      "cure serious wounds",	"cure serious",		0, 1500		},
+      "cure serious wounds",	"cure serious wounds",	0, 1500		},
 
     { "critical",						// notrans
-      "cure critical wounds",	"cure critical",	0, 2500		},
+      "cure critical wounds",	"cure critical wounds",	0, 2500		},
 
     { "heal",							// notrans
-      "healing spell",	 	"heal",          	0, 5000		},
+      "healing spell",		"heal",			0, 5000		},
 
     { "blind",							// notrans
-      "cure blindness",	 	"cure blindness",	0, 2000		},
+      "cure blindness",		"cure blindness",	0, 2000		},
 
     { "disease",						// notrans
       "cure disease",		"cure disease",		0, 1500		},

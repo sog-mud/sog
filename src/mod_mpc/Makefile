@@ -1,8 +1,8 @@
 #
-# $Id: Makefile,v 1.7 2001-06-25 16:51:19 fjoe Exp $
+# $Id: Makefile,v 1.8 2001-07-04 19:21:17 fjoe Exp $
 #
 
-SRCS=		mpc.y mpc_iter.c mpc_lex.c mpc_c.c mpc_const.c
+SRCS=		mpc.y mpc_dynafun.c mpc_iter.c mpc_lex.c mpc_c.c mpc_const.c
 CLEANFILES+=	mpc_const.c
 
 mpc_const.c:	../include/merc.h genconst.sh genconst.sed

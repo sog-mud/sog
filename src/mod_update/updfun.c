@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.26 2001-06-25 16:51:25 fjoe Exp $
+ * $Id: updfun.c,v 1.27 2001-07-04 19:21:19 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -1410,11 +1410,11 @@ potion_cure_level(OBJ_DATA *potion)
 	int i;
 
 	for (i = 1; i < 5;i++) {
-		if (IS_SKILL(potion->value[i].s, "cure critical"))
+		if (IS_SKILL(potion->value[i].s, "cure critical wounds"))
 			cl += 3;
-		if (IS_SKILL(potion->value[i].s, "cure light"))
+		if (IS_SKILL(potion->value[i].s, "cure light wounds"))
 			cl += 1;
-		if (IS_SKILL(potion->value[i].s, "cure serious"))
+		if (IS_SKILL(potion->value[i].s, "cure serious wounds"))
 			cl += 2;
 		if (IS_SKILL(potion->value[i].s, "heal"))
 			cl += 4;

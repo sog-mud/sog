@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.h,v 1.13 2001-06-25 16:51:04 fjoe Exp $
+ * $Id: spec.h,v 1.14 2001-07-04 19:21:07 fjoe Exp $
  */
 
 #ifndef _SPEC_H_
@@ -49,10 +49,7 @@ struct spec_t {
 	const char *spec_name;	/* spec name, also used as file name	*/
 	flag_t spec_class;	/* spec class				*/
 	varr spec_skills;	/* spec_skill_t				*/
-#if 0
-	XXX
-	varr spec_deps;		/* cc_expr_t				*/
-#endif
+	const char *trigger;	/* mpc trigger				*/
 	flag_t spec_flags;	/* SPF_CHANGED - for OLC		*/
 };
 
@@ -61,8 +58,8 @@ extern hash_t specs;
 typedef struct spec_skill_t spec_skill_t;
 struct spec_skill_t {
 	const char *	sn;		/* skill name			*/
-	int 		level;		/* level needed to gain skill	*/
-	int 		rating;		/* how hard it is to learn	*/
+	int		level;		/* level needed to gain skill	*/
+	int		rating;		/* how hard it is to learn	*/
 
 	int		min;		/* min (initial) skill percents */
 	int		adept;		/* adept percents		*/

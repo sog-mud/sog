@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_spec.c,v 1.19 2001-06-25 16:51:36 fjoe Exp $
+ * $Id: db_spec.c,v 1.20 2001-07-04 19:21:25 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -33,10 +33,6 @@
 #include "db.h"
 
 DECLARE_DBLOAD_FUN(load_spec);
-#if 0
-XXX
-DECLARE_DBLOAD_FUN(load_spec_r);
-#endif
 DECLARE_DBLOAD_FUN(load_spec_skill);
 
 DECLARE_DBINIT_FUN(init_specs);
@@ -44,10 +40,6 @@ DECLARE_DBINIT_FUN(init_specs);
 DBFUN dbfun_specs[] =
 {
 	{ "SPEC",	load_spec,	NULL	},		// notrans
-#if 0
-	XXX
-	{ "R",		load_spec_r,	NULL	},		// notrans
-#endif
 	{ "SKILL",	load_spec_skill,NULL	},		// notrans
 	{ NULL, NULL, NULL }
 };
@@ -69,9 +61,8 @@ static hashdata_t h_specs =
 DBINIT_FUN(init_specs)
 {
 	if (DBDATA_VALID(dbdata)) {
-		db_set_arg(dbdata, "R", NULL);
 		db_set_arg(dbdata, "SKILL", NULL);
-	} else 
+	} else
 		hash_init(&specs, &h_specs);
 }
 
@@ -96,7 +87,6 @@ DBLOAD_FUN(load_spec)
 						sp.spec_name, &sp)) == NULL) {
 					log(LOG_ERROR, "load_spec: duplicate spec name");
 				} else {
-					db_set_arg(dbdata, "R", psp);
 					db_set_arg(dbdata, "SKILL", psp);
 				}
 				spec_destroy(&sp);
@@ -110,6 +100,9 @@ DBLOAD_FUN(load_spec)
 		case 'N':
 			SKEY("Name", sp.spec_name, fread_string(fp));
 			break;
+		case 'T':
+			SKEY("Trigger", sp.trigger, fread_string(fp));
+			break;
 		}
 
 		if (!fMatch) {
@@ -119,22 +112,6 @@ DBLOAD_FUN(load_spec)
 		}
 	}
 }
-
-#if 0
-XXX
-DBLOAD_FUN(load_spec_r)
-{
-	spec_t *spec = arg;
-
-	if (!spec) {
-		log(LOG_ERROR, "load_spec_r: No #SPEC seen yet");
-		fread_to_end(fp);
-		return;
-	}
-
-	fread_cc_vexpr(&spec->spec_deps, "spec", fp);		// notrans
-}
-#endif
 
 DBLOAD_FUN(load_spec_skill)
 {

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.300 2001-06-30 11:45:49 kostik Exp $
+ * $Id: fight.c,v 1.301 2001-07-04 19:21:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -986,8 +986,24 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 
 	if (IS_EXTRACTED(victim))
 		return FALSE;
-	if (!victim->in_room || !ch->in_room)
+	if (victim->in_room == NULL || ch->in_room == NULL)
 		return FALSE;
+
+	/*
+	 * strip sleeping affects
+	 */
+	if (IS_AFFECTED(victim, AFF_SLEEP)) {
+		REMOVE_BIT(victim->affected_by, AFF_SLEEP);
+		affect_bit_strip(victim, TO_AFFECTS, AFF_SLEEP);
+	}
+
+	/*
+	 * strip calm affects
+	 */
+	if (IS_AFFECTED(victim, AFF_CALM)) {
+		REMOVE_BIT(victim->affected_by, AFF_CALM);
+		affect_bit_strip(victim, TO_AFFECTS, AFF_CALM);
+	}
 
 	if (victim != ch) {
 		/*
@@ -1006,6 +1022,12 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 							   NULL, TRIG_KILL);
 #endif
 			}
+
+			/*
+			 * stand up if victim was bashed (and is not idle)
+			 */
+			if (IS_NPC(victim) || PC(victim)->idle_timer <= 4)
+				victim->position = POS_FIGHTING;
 		}
 
 		if (victim->position > POS_STUNNED) {
@@ -1362,11 +1384,6 @@ set_fighting(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (ch->fighting != NULL) {
 		log(LOG_BUG, "set_fighting: already fighting");
 		return;
-	}
-
-	if (IS_AFFECTED(ch, AFF_SLEEP)) {
-		REMOVE_BIT(ch->affected_by, AFF_SLEEP);
-		affect_bit_strip(ch, TO_AFFECTS, AFF_SLEEP);
 	}
 
 	ch->on = NULL;
@@ -2483,11 +2500,11 @@ check_dodge(CHAR_DATA *ch, CHAR_DATA *victim)
 
 		/* now the attack */
 		if (number_percent() < (chance / 20)) {
-			act("$n loses his position and falls down!",
+			act("$n loses $gn{his} position and falls down!",
 			    ch, NULL, victim, TO_VICT);
 			act("As $N moves you lose your position and fall down!",
 			    ch, NULL, victim, TO_CHAR);
-			act("As $N dodges $n's attack, $n loses his position "
+			act("As $N dodges $n's attack, $n loses $gn{his} position "
 			    "and falls down.", ch, NULL, victim, TO_NOTVICT);
 
 			WAIT_STATE(ch, skill_beats("trip"));

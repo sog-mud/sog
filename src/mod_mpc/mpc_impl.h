@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_impl.h,v 1.10 2001-06-25 16:51:20 fjoe Exp $
+ * $Id: mpc_impl.h,v 1.11 2001-07-04 19:21:17 fjoe Exp $
  */
 
 #ifndef _MPC_CODE_H_
@@ -95,22 +95,24 @@ struct prog_t {
 	BUFFER *errbuf;		/**< error msg buffer			*/
 	int lineno;		/**< current line number		*/
 
-	int ip;			/**< program instruction pointer	*/
-	varr code;		/**< (void *) program code		*/
-
 	hash_t strings;		/**< (const char *) string space	*/
 	hash_t syms;		/**< (sym_t) symbols			*/
 
+	/* compiler data */
 	varr cstack;		/**< (void *) compiler stack		*/
 	varr args;		/**< (int) argument type stack		*/
 	int curr_block;		/**< current block depth		*/
 
-	varr jumptabs;		/**< (varr ) 'switch' jump tables	*/
-	varr iterdata;		/**< (iterdata_t) 'foreach' iter data	*/
-
 	int curr_jumptab;	/**< current jumptab			*/
 	int curr_break_addr;	/**< current 'break' info		*/
 	int curr_continue_addr;	/**< current 'continue' info		*/
+
+	/* runtime data */
+	int ip;			/**< program instruction pointer	*/
+	varr code;		/**< (void *) program code		*/
+
+	varr jumptabs;		/**< (varr ) 'switch' jump tables	*/
+	varr iterdata;		/**< (iterdata_t) 'foreach' iter data	*/
 
 	jmp_buf jmpbuf;		/**< jmp buf				*/
 	varr data;		/**< data stack				*/
@@ -146,6 +148,12 @@ prog_execute(prog_t *prog, int *errcode);
  */
 void
 mpc_init();
+
+/**
+ * Destroy mpc environment
+ */
+void
+mpc_fini();
 
 /**
  * Lexer

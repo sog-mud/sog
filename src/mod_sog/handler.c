@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.292 2001-06-30 11:45:52 kostik Exp $
+ * $Id: handler.c,v 1.293 2001-07-04 19:21:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1321,23 +1321,26 @@ void deduct_cost(CHAR_DATA *ch, int cost)
 
 	ch->gold -= gold;
 	ch->silver -= silver;
-} 
+}
 
 static inline void
-money_form(size_t lang, char *buf, size_t len, uint num, const char *name)
+money_form(size_t lang, char *buf, size_t len, int num, const char *name)
 {
 	char tmp[MAX_STRING_LENGTH];
 
+	if (num < 0)
+		return;
+
 	strnzcpy(tmp, sizeof(tmp),
 		 word_form(GETMSG(name, lang), 1, lang, RULES_CASE));
-	strnzcpy(buf, len, word_form(tmp, num, lang, RULES_QTY));
+	strnzcpy(buf, len, word_form(tmp, (unsigned) num, lang, RULES_QTY));
 }
 
 static MLSTR_FOREACH_FUN(money_descr_cb, lang, p, ap)
 {
-	uint num1 = va_arg(ap, uint);
+	int num1 = va_arg(ap, int);
 	const char *name1 = va_arg(ap, const char *);
-	uint num2 = va_arg(ap, uint);
+	int num2 = va_arg(ap, int);
 	const char *name2 = va_arg(ap, const char *);
 
 	char buf1[MAX_STRING_LENGTH];
@@ -1380,7 +1383,7 @@ OBJ_DATA *create_money(int gold, int silver)
 		pObjIndex = get_obj_index(OBJ_VNUM_GOLD_SOME);
 		obj = create_obj(pObjIndex, 0);
 		mlstr_foreach(&obj->short_descr, money_descr_cb,
-			      (unsigned)gold, "gold coins", -1, NULL);
+			      gold, "gold coins", -1, NULL);
 		INT(obj->value[1]) = gold;
 		obj->cost	= 100*gold;
 		obj->weight	= gold/5;
@@ -1388,7 +1391,7 @@ OBJ_DATA *create_money(int gold, int silver)
 		pObjIndex = get_obj_index(OBJ_VNUM_SILVER_SOME);
 		obj = create_obj(pObjIndex, 0);
 		mlstr_foreach(&obj->short_descr, money_descr_cb,
-			      (unsigned)silver, "silver coins", -1, NULL);
+			      silver, "silver coins", -1, NULL);
 		INT(obj->value[0]) = silver;
 		obj->cost	= silver;
 		obj->weight	= silver/20;
@@ -1396,8 +1399,7 @@ OBJ_DATA *create_money(int gold, int silver)
 		pObjIndex = get_obj_index(OBJ_VNUM_COINS);
 		obj = create_obj(pObjIndex, 0);
 		mlstr_foreach(&obj->short_descr, money_descr_cb,
-			      (unsigned)silver, "silver coins",
-			      (unsigned)gold, "gold coins");
+			      silver, "silver coins", gold, "gold coins");
 		INT(obj->value[0]) = silver;
 		INT(obj->value[1]) = gold;
 		obj->cost	= 100*gold + silver;

@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.15 2001-06-25 16:51:20 fjoe Exp $
+ * $Id: mpc.y,v 1.16 2001-07-04 19:21:18 fjoe Exp $
  */
 
 /*
@@ -1189,9 +1189,6 @@ prog_init(prog_t *prog)
 	prog->errbuf = buf_new(0);
 	prog->lineno = 0;
 
-	prog->ip = 0;
-	varr_init(&prog->code, &v_ints);
-
 	hash_init(&prog->strings, &h_strings);
 	hash_init(&prog->syms, &h_syms);
 
@@ -1199,12 +1196,15 @@ prog_init(prog_t *prog)
 	varr_init(&prog->args, &v_ints);
 	prog->curr_block = 0;
 
-	varr_init(&prog->jumptabs, &v_jumptabs);
-	varr_init(&prog->iterdata, &v_iterdata);
-
 	prog->curr_jumptab = -1;
 	prog->curr_break_addr = INVALID_ADDR;
 	prog->curr_continue_addr = INVALID_ADDR;
+
+	prog->ip = 0;
+	varr_init(&prog->code, &v_ints);
+
+	varr_init(&prog->jumptabs, &v_jumptabs);
+	varr_init(&prog->iterdata, &v_iterdata);
 
 	varr_init(&prog->data, &v_vos);
 }
@@ -1218,13 +1218,13 @@ prog_destroy(prog_t *prog)
 
 	buf_free(prog->errbuf);
 
-	varr_destroy(&prog->code);
-
 	hash_destroy(&prog->strings);
 	hash_destroy(&prog->syms);
 
 	varr_destroy(&prog->cstack);
 	varr_destroy(&prog->args);
+
+	varr_destroy(&prog->code);
 
 	varr_destroy(&prog->jumptabs);
 	varr_destroy(&prog->iterdata);
@@ -1243,14 +1243,14 @@ prog_compile(prog_t *prog)
 	buf_clear(prog->errbuf);
 	prog->lineno = 1;
 
-	varr_erase(&prog->code);
-
 	hash_erase(&prog->strings);
 	hash_erase(&prog->syms);
 
 	varr_erase(&prog->cstack);
 	varr_erase(&prog->args);
 	prog->curr_block = 0;
+
+	varr_erase(&prog->code);
 
 	varr_erase(&prog->jumptabs);
 	varr_erase(&prog->iterdata);
@@ -1452,35 +1452,6 @@ alloc_string(prog_t *prog, const char *s)
 		p = hash_insert(&prog->strings, s, &s);
 	return *p;
 }
-
-#if defined(MPC)
-void
-print(int i)
-{
-	fprintf(stderr, "===> %s: %d\n", __FUNCTION__, i);
-}
-
-void
-print2(int i, int j)
-{
-	fprintf(stderr, "===> %s: %d, %d\n", __FUNCTION__, i, j);
-}
-
-void
-prints(const char *s)
-{
-	fprintf(stderr, "===> %s: '%s'\n", __FUNCTION__, s);
-}
-
-static dynafun_data_t mpc_dynafun_tab[] = {
-	{ "number_range",	MT_INT, 2,	{ MT_INT, MT_INT }	},
-	{ "print",		MT_VOID, 1,	{ MT_INT }		},
-	{ "print2",		MT_VOID, 2,	{ MT_INT, MT_INT }	},
-	{ "prints",		MT_VOID, 1,	{ MT_STR }		},
-	{ "nonexistent",	MT_VOID, 0				},
-	{ NULL }
-};
-#endif
 
 #if defined(MPC)
 static void

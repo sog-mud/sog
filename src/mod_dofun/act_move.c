@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.259 2001-06-30 11:45:47 kostik Exp $
+ * $Id: act_move.c,v 1.260 2001-07-04 19:21:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3419,8 +3419,8 @@ void do_forest(CHAR_DATA* ch, const char* argument)
 	}
 
 	one_argument(argument, arg, sizeof(arg));
-	if (*arg == '\0') {
-		act_char("Usage: forest {{ attack | defense | normal }", ch);
+	if (arg[0] == '\0') {
+		act_char("Usage: forest {{ attack | defence | normal $}", ch);
 		return;
 	}
 

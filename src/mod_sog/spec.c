@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.c,v 1.25 2001-06-25 16:51:31 fjoe Exp $
+ * $Id: spec.c,v 1.26 2001-07-04 19:21:22 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -68,10 +68,7 @@ spec_init(spec_t *spec)
 	spec->spec_class = 0;
 
 	varr_init(&spec->spec_skills, &v_spec_skills);
-#if 0
-	XXX
-	cc_vexpr_init(&spec->spec_deps);
-#endif
+	spec->trigger = str_empty;
 }
 
 spec_t *
@@ -80,10 +77,7 @@ spec_cpy(spec_t *dst, const spec_t *src)
 	dst->spec_name = str_qdup(src->spec_name);
 	dst->spec_class = src->spec_class;
 	varr_cpy(&dst->spec_skills, &src->spec_skills);
-#if 0
-	XXX
-	varr_cpy(&dst->spec_deps, &src->spec_deps);
-#endif
+	dst->trigger = str_qdup(src->trigger);
 	return dst;
 }
 
@@ -92,10 +86,7 @@ spec_destroy(spec_t *spec)
 {
 	free_string(spec->spec_name);
 	varr_destroy(&spec->spec_skills);
-#if 0
-	XXX
-	varr_destroy(&spec->spec_deps);
-#endif
+	free_string(spec->trigger);
 }
 
 spec_skill_t *

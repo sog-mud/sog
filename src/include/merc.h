@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.331 2001-06-26 17:29:41 fjoe Exp $
+ * $Id: merc.h,v 1.332 2001-07-04 19:21:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2076,8 +2076,7 @@ bool	is_leader(CHAR_DATA *ch, CHAR_DATA *lch);
 int	opposite_door(int door);
 
 /* interp.c */
-void	interpret	(CHAR_DATA *ch, const char *argument);
-void	interpret_raw	(CHAR_DATA *ch, const char *argument, bool is_order);
+void	interpret	(CHAR_DATA *ch, const char *argument, bool is_order);
 uint	number_argument (const char *argument, char *arg, size_t len);
 uint	mult_argument	(const char *argument, char *arg, size_t len);
 const char *	one_argument	(const char *argument, char *arg_first, size_t);
@@ -2252,7 +2251,7 @@ void delevel		(CHAR_DATA *ch);
 
 void make_visible(CHAR_DATA *ch, bool at_will);
 
-bool (*olc_interpret)(DESCRIPTOR_DATA *d, const char *argument);
+extern bool (*olc_interpret)(DESCRIPTOR_DATA *d, const char *argument);
 
 flag_t wiznet_lookup	(const char *name);
 

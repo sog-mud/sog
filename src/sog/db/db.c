@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.246 2001-06-26 17:29:52 fjoe Exp $
+ * $Id: db.c,v 1.247 2001-07-04 19:21:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -380,6 +380,7 @@ void db_load_dir(DBDATA *dbdata, const char *path, const char *ext)
 	snprintf(mask, sizeof(mask), "*%s", ext);	// notrans
 
 	for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp)) {
+#if 0
 #if defined (LINUX) || defined (WIN32)
 		if (strlen(dp->d_name) < 3)
 			continue;
@@ -387,6 +388,9 @@ void db_load_dir(DBDATA *dbdata, const char *path, const char *ext)
 		if (dp->d_namlen < 3 || dp->d_type != DT_REG)
 			continue;
 #endif
+#endif
+		if (dp->d_type != DT_REG)
+			continue;
 
 		if (fnmatch(mask, dp->d_name, 0) == FNM_NOMATCH)
 			continue;

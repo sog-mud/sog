@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.72 2001-06-25 16:51:33 fjoe Exp $
+ * $Id: act.c,v 1.73 2001-07-04 19:21:24 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -78,7 +78,7 @@ _format_short(const mlstring *mlshort, const char *name, const CHAR_DATA *to,
 
         if (!IS_SET(to->comm, COMM_NOENG)
 	&&  sshort != mlstr_mval(mlshort)) {
-        	static char buf[MAX_STRING_LENGTH];
+		static char buf[MAX_STRING_LENGTH];
 		char buf2[MAX_STRING_LENGTH];
 		const char *format;
 
@@ -93,7 +93,7 @@ _format_short(const mlstring *mlshort, const char *name, const CHAR_DATA *to,
 		else
 			format = "%s (%s)";			// notrans
 
-        	one_argument(name, buf2, sizeof(buf2));
+		one_argument(name, buf2, sizeof(buf2));
 		snprintf(buf, sizeof(buf), format, sshort, buf2);
 		sshort = buf;
 	}
@@ -148,9 +148,9 @@ const char *PERS2(const CHAR_DATA *ch, const CHAR_DATA *to, size_t to_lang, int 
 		if (ch->shapeform) {
 			if (IS_SET(act_flags, ACT_FORMSH)) {
 				return _format_short(
-					&ch->shapeform->index->short_desc, 
+					&ch->shapeform->index->short_desc,
 					ch->shapeform->index->name,
-				     	to, to_lang, act_flags);
+					to, to_lang, act_flags);
 			}
 
 			return smash_tilde(
@@ -233,7 +233,7 @@ static char *translate(const CHAR_DATA *ch, const CHAR_DATA *victim,
 const char *he_she [] = { "it",  "he",  "she", "they" };	// notrans
 const char *him_her[] = { "it",  "him", "her", "them" };	// notrans
 const char *his_her[] = { "its", "his", "her", "their" };	// notrans
- 
+
 struct tdata {
 	char	type;
 	int	arg;
@@ -586,7 +586,7 @@ void act_buf(const char *format, const CHAR_DATA *ch, const CHAR_DATA *to,
 			case '$':
 				i = "$";		// notrans
 				break;
-				
+
 			case '{':
 				i = "{{";		// notrans
 				break;
@@ -596,7 +596,7 @@ void act_buf(const char *format, const CHAR_DATA *ch, const CHAR_DATA *to,
 				break;
 
 /* text arguments */
-			case 't': 
+			case 't':
 				TEXT_ARG(arg1, opt->act_flags);
 				break;
 
@@ -632,12 +632,12 @@ void act_buf(const char *format, const CHAR_DATA *ch, const CHAR_DATA *to,
 				gml = glob_lookup(arg1);
 				GMLTEXT_ARG(gml, opt->act_flags & ~ACT_STRANS);
 				break;
-			
+
 			case 'W':
 				gml = glob_lookup(arg3);
 				GMLTEXT_ARG(gml, opt->act_flags & ~ACT_STRANS);
 				break;
-			
+
 /* room arguments */
 			case 'r':
 				CHECK_TYPE(ROOM1, MT_ROOM);
@@ -682,27 +682,27 @@ void act_buf(const char *format, const CHAR_DATA *ch, const CHAR_DATA *to,
 				CHECK_TYPE(ch, MT_CHAR);
 				i = he_she[PERS_SEX(ch, to, opt->to_lang)];
 				break;
-	
+
 			case 'E':
 				CHECK_TYPE(VCH, MT_CHAR);
 				i = he_she[PERS_SEX(VCH, to, opt->to_lang)];
 				break;
-	
+
 			case 'm':
 				CHECK_TYPE(ch, MT_CHAR);
 				i = him_her[PERS_SEX(ch, to, opt->to_lang)];
 				break;
-	
+
 			case 'M':
 				CHECK_TYPE(VCH, MT_CHAR);
 				i = him_her[PERS_SEX(VCH, to, opt->to_lang)];
 				break;
-	
+
 			case 's':
 				CHECK_TYPE(ch, MT_CHAR);
 				i = his_her[PERS_SEX(ch, to, opt->to_lang)];
 				break;
-	
+
 			case 'S':
 				CHECK_TYPE(VCH, MT_CHAR);
 				i = his_her[PERS_SEX(VCH, to, opt->to_lang)];
@@ -875,7 +875,7 @@ void act_buf(const char *format, const CHAR_DATA *ch, const CHAR_DATA *to,
 				s++;
 				continue;
 			}
-	
+
 			if (i != NULL) {
 				while (point < buf + buf_len - 3 && *i)
 					*point++ = *i++;
@@ -909,7 +909,7 @@ act_args(const CHAR_DATA *ch, const CHAR_DATA *vch, int act_flags)
 
 	return ch->in_room->people;
 }
- 
+
 static bool
 act_skip(const CHAR_DATA *ch, const CHAR_DATA *vch, const CHAR_DATA *to,
 	 int act_flags, int min_pos)
@@ -1017,9 +1017,9 @@ void act_puts3(const char *format, const CHAR_DATA *ch,
 		}
 		return;
 	}
-		
+
 	for(; to; to = to->next_in_room) {
-		if (act_skip(ch, vch, to, act_flags, min_pos)) 
+		if (act_skip(ch, vch, to, act_flags, min_pos))
 			continue;
 
 		act_raw(ch, to, arg1, arg2, arg3,
@@ -1045,9 +1045,9 @@ void act_mlputs3(mlstring *mlformat, const CHAR_DATA *ch,
 		}
 		return;
 	}
-		
+
 	for(; to; to = to->next_in_room) {
-		if (act_skip(ch, vch, to, act_flags, min_pos)) 
+		if (act_skip(ch, vch, to, act_flags, min_pos))
 			continue;
 
 		act_raw(ch, to, arg1, arg2, arg3,
@@ -1059,18 +1059,13 @@ const char *
 act_speech(CHAR_DATA *ch, CHAR_DATA *vch, const char *text, const void *arg)
 {
 	static char buf[MAX_STRING_LENGTH];
+	actopt_t opt;
 
-	if (arg) {
-		actopt_t opt;
+	opt.to_lang = GET_LANG(vch);
+	opt.act_flags = ACT_NOUCASE | ACT_NOLF;
 
-		opt.to_lang = GET_LANG(vch);
-		opt.act_flags = ACT_NOUCASE | ACT_NOLF;
-
-		act_buf(text, ch, ch, arg, NULL, NULL, &opt, buf, sizeof(buf));
-		text = buf;
-	}
-
-	return text;
+	act_buf(text, ch, ch, arg, NULL, NULL, &opt, buf, sizeof(buf));
+	return buf;
 }
 
 void act_yell(CHAR_DATA *ch, const char *text, const void *arg,
@@ -1126,7 +1121,7 @@ void act_say(CHAR_DATA *ch, const char *text, const void *arg)
 			continue;
 		act_puts("$n says '{G$t{x'", ch,
 			 act_speech(ch, vch, text, arg), vch,
-		 	 TO_VICT | ACT_TOBUF | ACT_NOTWIT | ACT_SPEECH(ch),
+			 TO_VICT | ACT_TOBUF | ACT_NOTWIT | ACT_SPEECH(ch),
 			 POS_RESTING);
 	}
 }

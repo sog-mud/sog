@@ -1,16 +1,16 @@
 /*
- * $Id: interp.c,v 1.177 2001-06-21 16:16:59 avn Exp $
+ * $Id: interp.c,v 1.178 2001-07-04 19:21:21 fjoe Exp $
  */
 
 /***************************************************************************
- *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *	
+ *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
  *	 Serdar BULUT {Chronos}		bulut@rorqual.cc.metu.edu.tr       *
- *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *	
- *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *	
- *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *	
+ *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *
+ *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *
+ *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *
  *     By using this code, you have agreed to follow the terms of the      *
- *     ANATOLIA license, in the file Anatolia/anatolia.licence             *	
+ *     ANATOLIA license, in the file Anatolia/anatolia.licence             *
  ***************************************************************************/
 
 /***************************************************************************
@@ -63,6 +63,11 @@ void interpret_social(social_t *soc, CHAR_DATA *ch, const char *argument);
 #define LOG_NEVER	2
 
 /*
+ * OLC hook
+ */
+bool (*olc_interpret)(DESCRIPTOR_DATA *d, const char *argument);
+
+/*
  * Log-all switch.
  */
 bool				fLogAll		= FALSE;
@@ -74,16 +79,12 @@ bool				fLogAll		= FALSE;
 FILE				*imm_log;
 #endif
 
-void interpret(CHAR_DATA *ch, const char *argument)
-{
-	interpret_raw(ch, argument, FALSE);
-}
-
 /*
  * The main entry point for executing commands.
  * Can be recursively called from 'at', 'order', 'force'.
  */
-void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
+void
+interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 {
 	char command[MAX_INPUT_LENGTH];
 	const char *logline;
@@ -114,7 +115,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	 */
 
 #ifdef IMMORTALS_LOGS
- 	if (IS_IMMORTAL(ch)) {
+	if (IS_IMMORTAL(ch)) {
 		if ((imm_log = dfopen(GODS_PATH, IMMLOG_FILE, "a+"))) {
 			fprintf(imm_log, "%s [%s] %s\n",
 				strtime(time(NULL)), ch->name, logline);
@@ -528,10 +529,10 @@ void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 	}
 
 	if (argument[0] == '!') {
-		interpret(d->character, argument+1);
+		interpret(d->character, argument+1, FALSE);
 		return;
 	}
 
 	if (olc_interpret == NULL || !olc_interpret(d, argument))
-		interpret(d->character, argument);
+		interpret(d->character, argument, FALSE);
 }

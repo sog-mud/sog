@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.74 2001-06-24 10:50:52 avn Exp $
+ * $Id: special.c,v 1.75 2001-07-04 19:21:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -818,14 +818,14 @@ bool spec_mayor(CHAR_DATA *ch)
 		dofun("get", ch, "gatekey");
 		dofun("unlock", ch, "gate");
 		dofun("open", ch, "gate");
-		interpret(ch, "emote unlocks the gate key from the gate.");
+		interpret(ch, "emote unlocks the gate key from the gate.", FALSE);
 		break;
 
 	case 'C':
 		dofun("close", ch, "gate");
 		dofun("lock", ch, "gate");
 		dofun("drop", ch, "key");
-		interpret(ch, "emote locks the gate key to the gate, with chain.");
+		interpret(ch, "emote locks the gate key to the gate, with chain.", FALSE);
 		for (key = ch->in_room->contents; key; key = key->next_content)
 			if (key->pObjIndex->vnum == 3379)
 				break;
@@ -980,7 +980,7 @@ bool spec_guard(CHAR_DATA *ch)
 			else {
 				dofun("say", ch,
 				      "Ok, my dear! I have just remembered.");
-				interpret(ch, "smile");
+				interpret(ch, "smile", FALSE);
 			}
 		}
 

@@ -23,41 +23,82 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.2 2001-06-26 17:29:48 fjoe Exp $
+ * $Id: init_mpc.c,v 1.3 2001-07-04 19:21:18 fjoe Exp $
  */
 
 #include <setjmp.h>
+#include <stdarg.h>
+#include <stdio.h>
+#include <dlfcn.h>
 
 #include <typedef.h>
 #include <memalloc.h>
 #include <log.h>
+#include <varr.h>
+#include <hash.h>
+#include <dynafun.h>
+#include <module.h>
 
 #include "_mpc.h"
 #include "mpc_const.h"
+
+#if !defined(MPC)
+static dynafun_data_t local_dynafun_tab[] = {
+	{ "act_char",		MT_VOID, 2,	{ MT_CHAR, MT_STR }	},
+	{ "has_spec",		MT_INT, 4,
+	  { MT_CHAR, MT_STR, MT_STR, MT_STR }				},
+	{ "level",		MT_INT, 1,	{ MT_CHAR }		},
+	{ "spclass_count",	MT_INT, 4,
+	  { MT_CHAR, MT_STR, MT_STR, MT_STR }				},
+	{ NULL }
+};
+#endif
+
+static dynafun_data_t core_dynafun_tab[] = {
+	{ "number_range",	MT_INT, 2,	{ MT_INT, MT_INT }	},
+#if defined(MPC)
+	{ "print",		MT_VOID, 1,	{ MT_INT }		},
+	{ "print2",		MT_VOID, 2,	{ MT_INT, MT_INT }	},
+	{ "prints",		MT_VOID, 1,	{ MT_STR }		},
+	{ "nonexistent",	MT_VOID, 0				},
+#endif
+	{ NULL }
+};
 
 #if !defined(MPC)
 int
 _module_load(module_t *m)
 {
 	mpc_init();
+	dynafun_tab_register(local_dynafun_tab, m);
 	return 0;
 }
 
 int
 _module_unload(module_t *m)
 {
+	dynafun_tab_unregister(local_dynafun_tab);
+	mpc_fini();
 	return 0;
 }
 #endif
 
+/*
+ * keep this alphabetically sorted
+ */
 const char *mpc_dynafuns[] = {
-	"number_range",
 #if !defined(MPC)
+	"act_char",
+	"has_spec",
+	"level",
+	"number_range",
+	"spclass_count",
 #else
+	"nonexistent",
+	"number_range",
 	"print",
 	"print2",
 	"prints",
-	"nonexistent",
 #endif
 	NULL
 };
@@ -67,9 +108,7 @@ mpc_init()
 {
 	int_const_t *ic;
 	const char **pp;
-#if defined(MPC)
 	module_t m;
-#endif
 
 	hash_init(&glob_syms, &h_syms);
 
@@ -112,14 +151,25 @@ mpc_init()
 
 #if defined(MPC)
 	init_dynafuns();
+#endif
 
 	m.dlh = dlopen(NULL, 0);
 	if (m.dlh == NULL) {
+#if defined(MPC)
 		fprintf(stderr, "dlopen: %s", dlerror());
 		exit(1);
+#else
+		log(LOG_ERROR, "%s: dlopen: %s", __FUNCTION__, dlerror());
+		return;
+#endif
+
 	}
 
-	dynafun_tab_register(mpc_dynafun_tab, &m);
-#endif
+	dynafun_tab_register(core_dynafun_tab, &m);
 }
 
+void
+mpc_fini()
+{
+	dynafun_tab_unregister(core_dynafun_tab);
+}

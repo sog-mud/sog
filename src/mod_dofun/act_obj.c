@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.238 2001-06-26 18:21:42 fjoe Exp $
+ * $Id: act_obj.c,v 1.239 2001-07-04 19:21:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3209,7 +3209,7 @@ void do_label(CHAR_DATA* ch, const char *argument)
 	act_char("Ok.", ch);
 }
 
-#define OBJ_VNUM_HAMMER 		6522
+#define OBJ_VNUM_HAMMER			6522
 
 void do_repair(CHAR_DATA *ch, const char *argument)
 {
@@ -3222,7 +3222,7 @@ void do_repair(CHAR_DATA *ch, const char *argument)
 		if (IS_NPC(mob) && MOB_IS(mob, MOB_REPAIRMAN))
 			break;
 	}
- 
+
 	if (mob == NULL) {
 		act_char("You can't do that here.", ch);
 		return;
@@ -3254,7 +3254,7 @@ void do_repair(CHAR_DATA *ch, const char *argument)
 
 	if (obj->cost == 0) {
 		act_say(mob, "$p is beyond repair.", obj);
-   		return;
+		return;
 	}
 
 	cost = ((obj->level * 10) +
@@ -3270,8 +3270,10 @@ void do_repair(CHAR_DATA *ch, const char *argument)
 
 	ch->gold -= cost;
 	mob->gold += cost;
-	act_puts("$n takes $p from $N, repairs it, and returns it to $N.",
-		 mob, obj, ch, TO_ROOM, POS_RESTING);
+	act_puts("$N takes $p from you, repairs it, and returns it back.",
+		 ch, obj, mob, TO_CHAR, POS_RESTING);
+	act_puts("$N takes $p from $n, repairs it, and returns it back.",
+		 ch, obj, mob, TO_ROOM, POS_RESTING);
 	obj->condition = 100;
 }
 
@@ -3297,7 +3299,7 @@ void do_estimate(CHAR_DATA *ch, const char *argument)
 	
 	if (arg[0] == '\0')
 	{
-	do_say(mob,"Try estimate <item>");
+	do_say(mob,"Try estimate <item>.");
    	return; 
 	} 
 	if ((obj = (get_obj_carry(ch, arg))) == NULL)
@@ -3565,6 +3567,14 @@ static void sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 	int             silver;
 	CHAR_DATA      *gch;
 	int             members;
+
+	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room) {
+		if (gch->on == obj) {
+			act("$N appears to be using $p.",
+			    ch, obj, gch, TO_CHAR);
+			return;
+		}
+	}
 
 	if (!CAN_WEAR(obj, ITEM_TAKE) || OBJ_IS(obj, OBJ_NOSAC)) {
 		act_puts("$p is not an acceptable sacrifice.",

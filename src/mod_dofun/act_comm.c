@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.234 2001-06-26 17:29:42 fjoe Exp $
+ * $Id: act_comm.c,v 1.235 2001-07-04 19:21:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -240,7 +240,7 @@ void do_say(CHAR_DATA *ch, const char *argument)
 	}
 
 	argument = garble(ch, argument);
-	act_say(ch, argument, NULL);
+	act_say(ch, "$t", argument);
 
 #if 0
 	XXX
@@ -491,7 +491,7 @@ void do_yell(CHAR_DATA *ch, const char *argument)
 	argument = garble(ch, argument);
 	act_puts("You yell '{M$t{x'",
 		 ch, argument, NULL, TO_CHAR | ACT_SPEECH(ch), POS_DEAD);
-	act_yell(ch, argument, NULL, NULL);
+	act_yell(ch, "$t", argument, NULL);
 }
 
 void do_shout(CHAR_DATA *ch, const char *argument)
@@ -653,7 +653,7 @@ void do_clan(CHAR_DATA *ch, const char *argument)
 	argument = garble(ch, argument);
 	act_puts("[CLAN] $lu{$n}: {C$t{x",
 		 ch, argument, NULL, TO_CHAR | ACT_SPEECH(ch), POS_DEAD);
-	act_clan(ch, argument, NULL);
+	act_clan(ch, "$t", argument);
 }
 
 void do_implore(CHAR_DATA *ch, const char *argument)
@@ -812,7 +812,7 @@ order_cb(void *vo, va_list ap)
 		return NULL;
 
 	act("$n orders you to '$t', you do.", ch, argument, victim, TO_VICT);
-	interpret_raw(victim, argument, TRUE);
+	interpret(victim, argument, TRUE);
 	*pfound = TRUE;
 	return NULL;
 }
@@ -865,7 +865,7 @@ void do_order(CHAR_DATA *ch, const char *argument)
 	}
 
 	act("$n orders you to '$t', you do.", ch, argument, victim, TO_VICT);
-	interpret_raw(victim, argument, TRUE);
+	interpret(victim, argument, TRUE);
 	WAIT_STATE(ch, get_pulse("violence"));
 	act_char("Ok.", ch);
 }
@@ -1769,7 +1769,7 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 	if (!*arg1 || !*arg2) {
 		act_char("Usage: promote <char name> <commoner | secondary>", ch);
 		if (IS_IMMORTAL(ch))
-			act_char("    or: promote <char name> <leader>", ch);
+			act_char("   or: promote <char name> <leader>", ch);
 		return;
 	}
 
@@ -2161,7 +2161,7 @@ toggle_t toggle_table[] =
 	  "Raw string mode off."
 	},
 
-	{ "short equipment",
+	{ "short equipment",					// notrans
 	  "short equipment mode",
 	  NULL, comm_flags,	COMM_SHORT_EQ,
 	  "You will no longer see empty equipment slots.",

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.275 2001-06-30 11:45:47 kostik Exp $
+ * $Id: act_wiz.c,v 1.276 2001-07-04 19:21:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -754,7 +754,7 @@ void do_at(CHAR_DATA *ch, const char *argument)
 	if (IS_EXTRACTED(ch))
 		return;
 
-	interpret(ch, argument);
+	interpret(ch, argument, FALSE);
 
 	/* handle 'at xxx quit' */
 	if (IS_EXTRACTED(ch))
@@ -2867,7 +2867,7 @@ force_cb(void *vo, va_list ap)
 		return NULL;
 	act_puts("$n forces you to '$t'.",
 		 ch, argument, vch, TO_VICT, POS_DEAD);
-	interpret_raw(vch, argument, TRUE);
+	interpret(vch, argument, TRUE);
 	return NULL;
 }
 
@@ -2947,7 +2947,7 @@ void do_force(CHAR_DATA *ch, const char *argument)
 
 	act_puts("$n forces you to '$t'.",
 		 ch, argument, victim, TO_VICT, POS_DEAD);
-	interpret(victim, argument);
+	interpret(victim, argument, FALSE);
 
 	act_char("Ok.", ch);
 }
