@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.232 2001-02-21 19:07:09 fjoe Exp $
+ * $Id: spellfun.c,v 1.233 2001-03-09 21:33:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -7676,7 +7676,9 @@ void spell_death_ripple(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		||  v_counter > level/10)
 			return;
 
-		act("You feel someone's breath from the $T.", next_room->people, NULL, from_dir_name[rev_dir[door]], TO_ALL);
+		act("You feel someone's breath from $T.",
+		    next_room->people, NULL, from_dir_name[rev_dir[door]],
+		    TO_ALL);
 		this_room = next_room;
 		vo_foreach(this_room, &iter_char_room, death_ripple_cb,
 			   sn, level, ch, dam, door, &v_counter);
