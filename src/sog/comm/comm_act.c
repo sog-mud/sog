@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.24 1999-06-10 11:47:33 fjoe Exp $
+ * $Id: comm_act.c,v 1.25 1999-06-10 13:39:21 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -257,6 +257,22 @@ door_name(const char *name)
 	return buf;
 }
 
+#define CHECK_STRING(p)						\
+	if (p == NULL) {					\
+		log("act_buf: format '%s', NULL string arg",	\
+		    format);					\
+		i = NULL;					\
+		break;						\
+	}
+
+#define CHECK_STRING2(p)					\
+	if (p == NULL) {					\
+		log("act_buf: format '%s', NULL string arg",	\
+		    format);					\
+		sp--;						\
+		break;						\
+	}
+
 #define CHECK_TYPE(p, mem_type)					\
 	if (!mem_is(p, mem_type)) {				\
 		log("act_buf: format '%s', expected type %d",	\
@@ -430,24 +446,29 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 /* text arguments */
 			case 't': 
 			case 'u':
+				CHECK_STRING(arg1);
 				i = act_format_text(arg1, ch, to, opt);
 				break;
 
 			case 'T':
+				CHECK_STRING(arg2);
 				i = act_format_text(arg2, ch, to, opt);
 				break;
 
 			case 'U':
+				CHECK_STRING(arg3);
 				i = act_format_text(arg3, ch, to, opt);
 				break;
 
 			case 'b':
+				CHECK_STRING(arg1);
 				act_buf(arg1, ch, to, arg1, arg2, arg3, opt,
 					tmp, sizeof(tmp));
 				i = tmp;
 				break;
 
 			case 'B':
+				CHECK_STRING(arg2);
 				act_buf(arg2, ch, to, arg1, arg2, arg3, opt,
 					tmp, sizeof(tmp));
 				i = tmp;
@@ -546,6 +567,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 
 /* door arguments */
 			case 'd':
+				CHECK_STRING(arg2);
 				i = GETMSG(door_name(arg2), to->lang);
 				break;
 
@@ -578,6 +600,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 				case 'g':
 					switch (subcode) {
 					case 'd':
+						CHECK_STRING(arg2);
 						tstack[sp].arg =
 						    msg_gender(door_name(arg2));
 						break;
@@ -618,16 +641,19 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 
 					case 't':
 					case 'u':
+						CHECK_STRING(arg1);
 						tstack[sp].arg =
 							msg_gender(arg1);
 						break;
 
 					case 'T':
+						CHECK_STRING(arg2);
 						tstack[sp].arg =
 							msg_gender(arg2);
 						break;
 
 					case 'U':
+						CHECK_STRING(arg3);
 						tstack[sp].arg =
 							msg_gender(arg3);
 						break;

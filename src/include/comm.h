@@ -1,5 +1,5 @@
 /*
- * $Id: comm.h,v 1.27 1999-05-20 11:23:08 fjoe Exp $
+ * $Id: comm.h,v 1.28 1999-06-10 13:39:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,8 +49,6 @@ void	write_to_buffer	(DESCRIPTOR_DATA *d, const char *txt, unsigned int length);
 void	bust_a_prompt	(CHAR_DATA *ch);
 
 void	char_puts(const char *txt, CHAR_DATA *ch);
-#define char_nputs(msgid, ch) char_puts(msg(msgid, ch), ch)
-#define char_mlputs(m, ch) char_puts(mlstr_cval(m, ch), ch)
 void	char_printf(CHAR_DATA *ch, const char *format, ...);
 
 void	send_to_char(const char *txt, CHAR_DATA *ch);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.243 1999-06-10 11:47:23 fjoe Exp $
+ * $Id: act_info.c,v 1.244 1999-06-10 13:39:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -199,8 +199,17 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 			break;
 		}
 	}
-	else
-		strnzcat(buf, sizeof(buf), format_descr(obj->description, ch));
+	else {
+		char tmp[MAX_STRING_LENGTH];
+		actopt_t opt;
+
+		opt.to_lang = ch->lang;
+		opt.act_flags = ACT_NOUCASE | ACT_NOLF;
+
+		act_buf(format_descr(obj->description, ch), ch, ch,
+			NULL, NULL, NULL, &opt, tmp, sizeof(tmp));
+		strnzcat(buf, sizeof(buf), tmp);
+	}
 	return buf;
 }
 
@@ -404,7 +413,8 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		char_puts("[{DIncog{x] ", ch);
 
 	if (IS_NPC(victim) && victim->position == victim->start_pos) {
-		char_puts(format_descr(victim->long_descr, ch), ch);
+		act_puts(format_descr(victim->long_descr, ch),
+			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 		return;
 	}
 
@@ -598,8 +608,8 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	else
 		desc = mlstr_mval(doppel->description);
 
-	if (!IS_NULLSTR(desc))
-		char_puts(desc, ch);
+	if (!IS_NULLSTR(desc)) 
+		act_puts(desc, ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 	else
 		act_puts("You see nothing special about $m.",
 			 victim, NULL, ch, TO_VICT, POS_DEAD);
@@ -1056,9 +1066,11 @@ void do_look_room(CHAR_DATA *ch, int flags)
 
 		char_puts("\n", ch);
 
- 		if (!IS_SET(flags, LOOK_F_NORDESC))
-			char_printf(ch, "  %s",
-				    mlstr_cval(ch->in_room->description, ch));
+ 		if (!IS_SET(flags, LOOK_F_NORDESC)) {
+			act_puts("  $b", ch,
+				 mlstr_cval(ch->in_room->description, ch), NULL,
+				 TO_CHAR | ACT_NOLF, POS_DEAD);
+		}
 
 		if (!IS_NPC(ch) && IS_SET(ch->plr_flags, PLR_AUTOEXIT)) {
 			char_puts("\n", ch);
@@ -1169,7 +1181,9 @@ void do_look(CHAR_DATA *ch, const char *argument)
 			ed = ed_lookup(arg3, obj->ed);
 			if (ed != NULL)
 				if (++count == number) {
-					char_mlputs(ed->description, ch);
+					act_puts(mlstr_cval(ed->description, ch),
+						 ch, NULL, NULL,
+						 TO_CHAR | ACT_NOLF, POS_DEAD);
 					return;
 				}
 				else
@@ -1179,7 +1193,9 @@ void do_look(CHAR_DATA *ch, const char *argument)
 
 			if (ed != NULL)
 				if (++count == number) {
-					char_mlputs(ed->description, ch);
+					act_puts(mlstr_cval(ed->description, ch),
+						 ch, NULL, NULL,
+						 TO_CHAR | ACT_NOLF, POS_DEAD);
 					return;
 				}
 				else
@@ -1199,23 +1215,27 @@ void do_look(CHAR_DATA *ch, const char *argument)
 			ed = ed_lookup(arg3, obj->ed);
 			if (ed != NULL)
 				if (++count == number) {
-					char_mlputs(ed->description, ch);
+					act_puts(mlstr_cval(ed->description, ch),
+						 ch, NULL, NULL,
+						 TO_CHAR | ACT_NOLF, POS_DEAD);
 					return;
 				}
 
 			ed = ed_lookup(arg3, obj->pIndexData->ed);
 			if (ed != NULL)
 				if (++count == number) {
-					char_mlputs(ed->description, ch);
+					act_puts(mlstr_cval(ed->description, ch),
+						 ch, NULL, NULL,
+						 TO_CHAR | ACT_NOLF, POS_DEAD);
 					return;
 				}
 		}
 
 		if (is_name(arg3, obj->name))
 			if (++count == number) {
-				char_puts(format_descr(obj->description, ch),
-					  ch);
-				char_puts("\n", ch);
+				act_puts(format_descr(obj->description, ch),
+					 ch, NULL, NULL, TO_CHAR | ACT_NOLF,
+					 POS_DEAD);
 				return;
 			}
 	}
@@ -1223,7 +1243,8 @@ void do_look(CHAR_DATA *ch, const char *argument)
 	ed = ed_lookup(arg3, ch->in_room->ed);
 	if (ed != NULL) {
 		if (++count == number) {
-			char_mlputs(ed->description, ch);
+			act_puts(mlstr_cval(ed->description, ch),
+				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 			return;
 		}
 	}
@@ -1257,7 +1278,8 @@ void do_look(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!IS_NULLSTR(mlstr_mval(pexit->description)))
-		char_mlputs(pexit->description, ch);
+		act_puts(mlstr_cval(pexit->description, ch),
+			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 	else
 		char_puts("Nothing special there.\n", ch);
 
@@ -2151,7 +2173,7 @@ void do_description(CHAR_DATA *ch, const char *argument)
 
 	one_argument(argument, arg, sizeof(arg));
 
-	if (str_cmp(arg, "edit") == 0) {
+	if (!str_prefix(arg, "edit")) {
 		string_append(ch, mlstr_convert(&ch->description, -1));
 		return;
 	}
