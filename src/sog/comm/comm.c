@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.39 2004-02-22 20:33:07 fjoe Exp $
+ * $Id: comm.c,v 1.200.2.40 2004-02-22 23:37:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1102,7 +1102,7 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 					d->mccp_support = 2;
 
 				if (p[2] == TELOPT_COMPRESS
-				&& d->mccp_support != 2)
+				&&  d->mccp_support != 2)
 					d->mccp_support = 1;
 			}
 			/* FALLTHROUGH */
@@ -1118,28 +1118,21 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 			if (q == NULL) {
 				q = strchr(p, '\0');
 				d->wait_for_se = 1; 
-			}
-			else {
+			} else {
 				q++; 
 				d->wait_for_se = 0; 
 			}
 			break;
 
 		case IAC:
-			if (d->character
-			&& !IS_SET(d->character->comm, COMM_NOTELNET))
-				memmove(p, p+1, strlen(p));
-			p++;
-			continue;
-			/* NOTREACHED */
+			*p = d->codepage->from[*p++];
+			if (d->character != NULL
+			&&  IS_SET(d->character->comm, COMM_NOTELNET))
+				continue;
+			q = p + 1;
+			break;
 
 		default:
-			if (d->character
-			&& IS_SET(d->character->comm, COMM_NOTELNET)) {
-				p++;
-				continue;
-				/* NOTREACHED */
-			}
 			q = p + 2;
 			break;
 		}
@@ -1175,7 +1168,10 @@ again:
 		if (inbuf[i] == '\0') {
 			if (inbuf == d->inbuf
 			&&  d->character != NULL
-			&&  d->character->wait == 0) {
+			&&  d->character->wait == 0
+			&&  d->showstr_point == NULL
+			&&  d->pString == NULL
+			&&  d->connected == CON_PLAYING) {
 				/*
 				 * Try again with queued commands buffer
 				 */
@@ -1354,8 +1350,7 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 			if (d->pString) {
 				char_puts("  > ", ch);
 				ga = TRUE;
-			}
-			else {
+			} else if (d->qbuf[0] == '\0') {
 				CHAR_DATA *victim;
 
 				/* battle prompt */
