@@ -1,5 +1,5 @@
 /*
- * $Id: nanny.c,v 1.9 2001-12-10 15:30:56 fjoe Exp $
+ * $Id: nanny.c,v 1.10 2001-12-15 13:47:52 matrim Exp $
  */
 
 /***************************************************************************
@@ -90,6 +90,11 @@ static int	search_sockets(DESCRIPTOR_DATA *d);
 
 static const char echo_off_str[] = { IAC, WILL, TELOPT_ECHO, '\0' };
 static const char echo_on_str[] = { IAC, WONT, TELOPT_ECHO, '\0' };
+
+/* mccp compression negotiation strings */
+static const char compress_do[] = { IAC, DO, TELOPT_COMPRESS, '\0' };
+static const char compress_dont[] = { IAC, DONT, TELOPT_COMPRESS, '\0' };
+
 
 static int iNumPlayers = 0;
 
@@ -259,7 +264,7 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 		if (!IS_SET(PC(ch)->plr_flags, PLR_NEW)) {
 			/* Old player */
-			write_to_descriptor(d->descriptor, echo_off_str, 0);
+			write_to_descriptor(d, echo_off_str, 0);
 			act_puts("Password: ",
 				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 			d->connected = CON_GET_OLD_PASSWORD;
@@ -333,7 +338,7 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 			act_char("New character.", ch);
 			act_puts("Give me a password for $n: ",
 				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
-			write_to_descriptor(d->descriptor, echo_off_str, 0);
+			write_to_descriptor(d, echo_off_str, 0);
 			d->connected = CON_GET_NEW_PASSWORD;
 			break;
 
@@ -379,7 +384,11 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 			return;
 		}
 
-		write_to_descriptor(d->descriptor, echo_on_str, 0);
+		write_to_descriptor(d, echo_on_str, 0);
+
+		if (ch->desc->mccp_support)
+			dofun("compress", ch, "on");
+
 		send_to_char("\n", ch);
 		dofun("help", ch, "RACETABLE");
 		act_puts("What is your race ('help <race>' for more information)? ",
@@ -631,8 +640,7 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 			if (ch->endur == 2)
 				close_descriptor(d, SAVE_F_NONE);
 			else {
-				write_to_descriptor(
-				    d->descriptor, echo_off_str, 0);
+				write_to_descriptor(d, echo_off_str, 0);
 				act_puts("Password: ",
 					 ch, NULL, NULL,
 					 TO_CHAR | ACT_NOLF, POS_DEAD);
@@ -647,7 +655,10 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 			act_char("Type 'password null <new password>' to fix.", ch);
 		}
 
-		write_to_descriptor(d->descriptor, echo_on_str, 0);
+		write_to_descriptor(d, echo_on_str, 0);
+
+		if (ch->desc->mccp_support)
+			dofun("compress", ch, "on");
 
 		if (check_playing(d, ch->name)
 		||  check_reconnect(d, TRUE))

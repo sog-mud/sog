@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.32 2001-12-03 22:39:04 fjoe Exp $
+ * $Id: sog.h,v 1.33 2001-12-15 13:47:48 matrim Exp $
  */
 
 #ifndef _SOG_H_
@@ -815,6 +815,12 @@ DECLARE_PROC1(bust_a_prompt,
 	      ARG(DESCRIPTOR_DATA), d)
 DECLARE_PROC2(close_descriptor,
 	      ARG(DESCRIPTOR_DATA), dclose, ARG(int), save_flags)
+
+/*--- mccp.c */
+DECLARE_FUN1(bool, compressStart,
+	     ARG(DESCRIPTOR_DATA), desc)
+DECLARE_FUN1(bool, compressEnd,
+	     ARG(DESCRIPTOR_DATA), desc)
 
 /*--- mpc_helpers.c */
 DECLARE_PROC2(mob_interpret,

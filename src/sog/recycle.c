@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.142 2001-12-10 21:50:40 fjoe Exp $
+ * $Id: recycle.c,v 1.143 2001-12-15 13:47:53 matrim Exp $
  */
 
 /***************************************************************************
@@ -1683,6 +1683,13 @@ new_descriptor(int fd)
 	d->descriptor = fd;
 	d->connected = CON_GET_CODEPAGE;
 	d->codepage = 0;
+
+	/* mccp data init */
+	d->bytes_sent	= 0;
+	d->bytes_income	= 0;
+	d->mccp_support	= 0;
+	d->out_compress	= NULL;
+
 	outbuf_init(&d->out_buf, 1024);
 	outbuf_init(&d->snoop_buf, 0);
 	d->dvdata = dvdata_new();

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.383 2001-12-10 21:50:38 fjoe Exp $
+ * $Id: merc.h,v 1.384 2001-12-15 13:47:47 matrim Exp $
  */
 
 /***************************************************************************
@@ -133,6 +133,7 @@ enum {
 #include <forms.h>
 #include <vo_iter.h>
 #include <trig.h>
+#include <mccp.h>
 
 #define PFILE_VERSION	12
 #define AREA_VERSION	7
@@ -355,6 +356,13 @@ struct descriptor_data
 	const char *		showstr_head;
 	const char *		showstr_point;
 	uint			codepage;
+
+/* mccp data */
+	z_stream *		out_compress;
+	unsigned char *		out_compress_buf;
+	int			mccp_support;
+	unsigned int		bytes_sent;
+	unsigned int		bytes_income;
 
 /* OLC stuff */
 	olced_t	*		olced;

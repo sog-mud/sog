@@ -23,28 +23,32 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.h,v 1.3 2001-12-15 13:47:52 matrim Exp $
+ * $Id: mccp.h,v 1.1 2001-12-15 13:47:47 matrim Exp $
  */
 
-#ifndef _COMM_H_
-#define _COMM_H_
+/*
+ * mccp.c - support functions for mccp (the Mud Client Compression Protocol)
+ *
+ * see http://homepages.ihug.co.nz/~icecube/compress/ and README.Rom24-mccp
+ *
+ * Copyright (c) 1999, Oliver Jowett <icecube@ihug.co.nz>.
+ *
+ * This code may be freely distributed and used if this copyright notice is
+ * retained intact.
+ */
 
-struct codepage {
-	const char *name;
-	u_char *from;
-	u_char *to;
-};
+#ifndef _MCCP_H_
+#define _MCCP_H_
 
-extern struct codepage codepages[];
-extern size_t codepages_sz;
+#include <zlib.h>
 
-void write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, size_t len);
-void write_to_snoop(DESCRIPTOR_DATA *d, const char *txt, size_t len);
-/* mccp */
-bool write_to_descriptor(DESCRIPTOR_DATA *d, const char *txt, size_t length);
-bool write_to_descriptor_2(int desc, const char *txt, size_t length);
+#define TELOPT_COMPRESS		85
+#define TELOPT_COMPRESS2	86
+#define COMPRESS_BUF_SIZE	16384
 
+void *	zlib_alloc(void *opaque, unsigned int items, unsigned int size);
+void	zlib_free(void *opaque, void *address);
+bool	processCompressed(DESCRIPTOR_DATA *desc);
+bool	writeCompressed(DESCRIPTOR_DATA *desc, const char *txt, int length);
 
-void charset_print(DESCRIPTOR_DATA *d);
-
-#endif /* _COMM_H_ */
+#endif
