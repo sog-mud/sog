@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.18 2001-03-11 21:11:27 fjoe Exp $
+ * $Id: act_comm.c,v 1.187.2.19 2001-03-11 21:29:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -755,8 +755,9 @@ void do_save(CHAR_DATA *ch, const char *argument)
 	}
 
 	/*
-	 * save_char intentionally omitted
+	 * char_save intentionally omitted
 	 */
+	act_puts("Saving.", ch, NULL, NULL, TO_CHAR, POS_DEAD);
 
 	WAIT_STATE(ch, PULSE_VIOLENCE);
 }
