@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.27 2002-09-09 14:01:08 tatyana Exp $
+ * $Id: martial_art.c,v 1.114.2.28 2002-09-28 08:59:55 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1153,11 +1153,12 @@ void do_ambush(CHAR_DATA *ch, const char *argument)
 	||  IS_NPC(ch)
 	||  number_percent() < chance) {
 		check_improve(ch, gsn_ambush, TRUE, 1);
-		one_hit(ch, victim, gsn_ambush,WEAR_WIELD);
+		one_hit(ch, victim, gsn_ambush, WEAR_WIELD);
 	}
 	else {
 		check_improve(ch, gsn_ambush, FALSE, 1);
-		damage(ch, victim, 0, gsn_ambush, DAM_NONE, TRUE);
+		act("Your attack was not so much surprising.",
+		    ch, NULL, NULL, TO_CHAR);
 	}
 	yell(victim, ch, "Help! I've been ambushed by $i!");
 }
