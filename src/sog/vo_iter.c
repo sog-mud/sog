@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: vo_iter.c,v 1.1 2000-01-04 19:28:05 fjoe Exp $
+ * $Id: vo_iter.c,v 1.2 2000-01-05 08:55:32 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -54,6 +54,8 @@ next_char_world(void *vo)
 static void *
 first_char_room(void *cont)
 {
+	if (cont == NULL)
+		return NULL;
 	return ((ROOM_INDEX_DATA *) cont)->people;
 }
 
@@ -78,18 +80,24 @@ next_obj_world(void *vo)
 static void *
 first_obj_room(void *cont)
 {
+	if (cont == NULL)
+		return NULL;
 	return ((ROOM_INDEX_DATA *) cont)->contents;
 }
 
 static void *
 first_obj_char(void *cont)
 {
+	if (cont == NULL)
+		return NULL;
 	return ((CHAR_DATA *) cont)->carrying;
 }
 
 static void *
 first_obj_obj(void *cont)
 {
+	if (cont == NULL)
+		return NULL;
 	return ((OBJ_DATA *) cont)->contains;
 }
 
