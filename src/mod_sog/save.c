@@ -45,7 +45,11 @@
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
-#include <malloc.h>
+#ifdef BSD44
+#	include <stdlib.h>
+#else
+#	include <malloc.h>
+#endif
 #include "merc.h"
 #include "recycle.h"
 #include "lookup.h"

@@ -344,6 +344,8 @@ void do_settraps( CHAR_DATA *ch, char *argument )
 #if	defined(linux)
 void bcopy(const void *src,void *dest,int n);
 void bzero(void *s,int n);
+#elif	defined(BSD44)
+#include <string.h>
 #else
 void bcopy(char *s1,char* s2,int len);
 void bzero(char *sp,int len);

@@ -63,10 +63,16 @@ extern	int	_filbuf		args( (FILE *) );
 #endif
 
 #if !defined(OLD_RAND)
-long random();
-void srandom(unsigned int);
-int getpid();
-time_t time(time_t *tloc);
+#ifdef BSD44
+#	include <stdlib.h>
+#	include <unistd.h>
+#	include <time.h>
+#else
+	long random();
+	void srandom(unsigned int);
+	int getpid();
+	time_t time(time_t *tloc);
+#endif
 #endif
 
 

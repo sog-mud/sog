@@ -36,7 +36,10 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
+#ifndef BSD44
 #include <libio.h>
+#endif
+
 /*
  * Accommodate old non-Ansi compilers.
  */
@@ -2850,6 +2853,10 @@ char *	crypt		args( ( const char *key, const char *salt ) );
 #endif
 
 #if	defined(linux)
+char *	crypt		args( ( const char *key, const char *salt ) );
+#endif
+
+#if	defined(BSD44)
 char *	crypt		args( ( const char *key, const char *salt ) );
 #endif
 
