@@ -5,9 +5,10 @@ Recall 33002
 MsgPrays @eng $n says '{GDamn me!{x'@rus $n произносит: '{GДа чтоб я под землю провалился!{x'~
 MsgVanishes @eng $n falls underground screaming 'AAAAAAAAAAAAAAAARGHHHH!'@rus $n с треском проваливается под землю!~
 Flags hidden~
-Skill 'thumbling' 30
+Skill 'thumbling' 15
 Skill 'mortal strike' 63
 Skill 'clan recall' 1
+Skill 'spellbane' 10
 Skill 'deathblow' 20
 Skill 'truesight' 25
 End

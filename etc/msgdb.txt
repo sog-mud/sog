@@ -540,11 +540,11 @@ You peek at the inventory:
 @eng {Rfighting{x@rus {Rсражаешься{x~
 @eng {cstanding{x@rus {cстоишь{x~
 @eng $n leaves.@rus $n удаляется.~
-@eng $n leaves, riding on %s.@rus $n удаляется верхом на %s.~
+@eng $n leaves, riding on $N.@rus $n удаляется верхом на $N.~
 @eng $n leaves $t.@rus $n удаляется на $t.~
 @eng $n leaves $t, riding on $N.@rus $n удаляется на $t верхом на $N.~
-@eng $n steps into $p, riding on $N@rus $n въезжает в $p верхом на $N~
-@eng $n steps into $p@rus $n входит в $p~
+@eng $n steps into $p, riding on $N.@rus $n въезжает в $p верхом на $N.~
+@eng $n steps into $p.@rus $n входит в $p.~
 @eng $n struggles vainly against the webs which hold $m in place.@rus $n безуспешно пытается вырватся из держащей его паутины.~
 @eng You can't bash doors while mounted.
 @rus Ты не можешь выбивать двери верхом.
@@ -1380,7 +1380,7 @@ Use 'desc edit' to edit your description.
 @rus Ты пьянеешь.
 ~
 @eng This unworthy container won't hold $p.@rus В этот дурацкий контейнер не влезает $p.~
-@eng $n utters the words, '$t'.@rus $n бормочет, '$t'.~
+@eng $n utters the words, '$t'.@rus $n бормочет: "$t."~
 @eng $n says '{GDamn me!{x'@rus $n произносит '{GДа чтоб я под землю провалился!{x'~
 @eng $n falls underground screaming 'AAAAAAAAAAARHHHHHH!'@rus $n с треском проваливается под землю!~
 @eng You reach for the True Source and feel something stopping you.
