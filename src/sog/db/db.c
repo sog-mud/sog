@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.89 1998-11-23 06:38:19 fjoe Exp $
+ * $Id: db.c,v 1.90 1998-12-01 10:54:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -119,9 +119,6 @@ WEATHER_DATA		weather_info;
 
 ROOM_INDEX_DATA	*	top_affected_room;
 int			reboot_counter;
-
-/* for limited objects */
-int total_levels; 
 
 /*
  * Locals.
@@ -334,7 +331,6 @@ void boot_db(void)
 	fix_exits();
 	check_mob_progs();
 	load_limited_objects();
-	log_printf("Total non-immortal levels > 5: %d", total_levels);
 
 	convert_objects();           /* ROM OLC */
 	area_update();
@@ -505,7 +501,7 @@ void print_resetmsg(AREA_DATA *pArea)
 			continue;
 
 		if (is_empty)
-			char_puts("You hear some squeaking sounds...\n\r", ch);
+			char_puts("You hear some squeaking sounds...\n", ch);
 		else
 			char_mlputs(pArea->resetmsg, ch);
 	}
@@ -547,7 +543,7 @@ void area_update(void)
 					&&  get_skill(ch, gsn_track) > 50
 					&& !IS_SET(ch->in_room->room_flags,
 								ROOM_INDOORS))
-					char_puts("Rain devastates the tracks on the ground.\n\r", ch);
+					char_puts("Rain devastates the tracks on the ground.\n", ch);
 				}
 
 				for (i = pArea->min_vnum; i < pArea->max_vnum;
@@ -767,7 +763,7 @@ void reset_room(ROOM_INDEX_DATA *pRoom)
 		         (pObjIndex->count >= pObjIndex->limit))
 		      {
 		        last = FALSE;
-		        dump_to_scr("Reseting area: [P] OBJ limit reached\n\r");
+		        dump_to_scr("Reseting area: [P] OBJ limit reached\n");
 		        break;
 		      }
 
@@ -1597,11 +1593,6 @@ const char *fread_string(FILE *fp)
 			bug("Fread_string: EOF", 0);
 			return str_empty;
  
-		case '\n':
-			*plast++ = '\n';
-			*plast++ = '\r';
-			break;
- 
 		case '\r':
 			break;
  
@@ -1824,7 +1815,7 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 	BUFFER *output;
 
 	if (argument[0] != '\0') {
-		char_puts("No argument is used with this command.\n\r",ch);
+		char_puts("No argument is used with this command.\n",ch);
 		return;
 	}
 
@@ -1835,7 +1826,7 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 		pArea2 = pArea2->next;
 
 	output = buf_new(-1);
-	buf_add(output, "Current areas of Muddy Realms: \n\r");
+	buf_add(output, "Current areas of Muddy Realms: \n");
 	for (iArea = 0; iArea < iAreaHalf; iArea++) {
 		buf_printf(output,"{{%2d %3d} {B%-20.20s{x %8.8s ",
 			pArea1->min_level,pArea1->max_level,
@@ -1847,14 +1838,14 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 				pArea2->min_level,pArea2->max_level,
 				pArea2->name,
 				pArea2->credits);
-		buf_add(output, "\n\r");
+		buf_add(output, "\n");
 
 		pArea1 = pArea1->next;
 		if (pArea2 != NULL)
 			pArea2 = pArea2->next;
 	}
 
-	buf_add(output,"\n\r");	
+	buf_add(output,"\n");	
 	page_to_char(buf_string(output), ch);	
 	buf_free(output);
 }
@@ -1866,24 +1857,24 @@ void do_memory(CHAR_DATA *ch, const char *argument)
 	extern int str_count;
 	extern int str_real_count;
 
-	char_printf(ch, "Affects  : %d\n\r", top_affect );
-	char_printf(ch, "Areas    : %d\n\r", top_area   );
-	char_printf(ch, "ExDes    : %d\n\r", top_ed     );
-	char_printf(ch, "Exits    : %d\n\r", top_exit   );
-	char_printf(ch, "Helps    : %d\n\r", top_help   );
-	char_printf(ch, "Socials  : %d\n\r", social_count);
-	char_printf(ch, "Mobs     : %d (%d new format, %d in use)\n\r",
+	char_printf(ch, "Affects  : %d\n", top_affect );
+	char_printf(ch, "Areas    : %d\n", top_area   );
+	char_printf(ch, "ExDes    : %d\n", top_ed     );
+	char_printf(ch, "Exits    : %d\n", top_exit   );
+	char_printf(ch, "Helps    : %d\n", top_help   );
+	char_printf(ch, "Socials  : %d\n", social_count);
+	char_printf(ch, "Mobs     : %d (%d new format, %d in use)\n",
 					top_mob_index, newmobs, mobile_count); 
-	char_printf(ch, "Objs     : %d (%d new format)\n\r",
+	char_printf(ch, "Objs     : %d (%d new format)\n",
 					top_obj_index, newobjs); 
-	char_printf(ch, "Resets   : %d\n\r", top_reset  );
-	char_printf(ch, "Rooms    : %d\n\r", top_room   );
-	char_printf(ch, "Shops    : %d\n\r", top_shop   );
-	char_printf(ch, "Buffers  : %d (%d bytes)\n\r",
+	char_printf(ch, "Resets   : %d\n", top_reset  );
+	char_printf(ch, "Rooms    : %d\n", top_room   );
+	char_printf(ch, "Shops    : %d\n", top_shop   );
+	char_printf(ch, "Buffers  : %d (%d bytes)\n",
 					nAllocBuf, sAllocBuf);
-	char_printf(ch, "strings  : %d (%d allocated)\n\r",
+	char_printf(ch, "strings  : %d (%d allocated)\n",
 			str_count, str_real_count);
-	char_printf(ch, "mlstrings: %d (%d allocated)\n\r",
+	char_printf(ch, "mlstrings: %d (%d allocated)\n",
 			mlstr_count, mlstr_real_count);
 }
 
@@ -2205,7 +2196,7 @@ void append_file(CHAR_DATA *ch, const char *file, const char *str)
 	fclose(fpReserve);
 	if ((fp = dfopen(TMP_PATH, file, "a")) == NULL) {
 		perror(file);
-		char_puts("Could not open the file!\n\r", ch);
+		char_puts("Could not open the file!\n", ch);
 	}
 	else {
 		fprintf(fp, "[%5d] %s: %s\n",
@@ -2243,17 +2234,12 @@ void load_limited_objects()
 {
 	struct dirent *dp;
 
-	int i;
 	DIR *dirp;
 	FILE *pfile;
 	char letter;
 	char *word;
 	bool fReadLevel;
-	char buf2[160];
 	int vnum;
-
-	total_levels = 0;
-
 
 	if ((dirp = opendir(PLAYER_PATH)) == NULL) {
 		bug("Load_limited_objects: unable to open player directory.",
@@ -2265,7 +2251,7 @@ void load_limited_objects()
 		const char* pname;
 
 #if defined (LINUX) || defined (WIN32)
-		if (strlen (dp->d_name) < 3)
+		if (strlen(dp->d_name) < 3)
 			continue;
 #else
 		if (dp->d_namlen < 3 || dp->d_type != DT_REG)
@@ -2280,26 +2266,7 @@ void load_limited_objects()
 		pname = NULL;
 		for (letter = fread_letter(pfile); letter != EOF;
 						letter = fread_letter(pfile)) {
-			if (letter == 'L') {
-				if (!fReadLevel) {
-				
-				word = fread_word(pfile);
-			      
-				if (!str_cmp(word, "evl")
-				||  !str_cmp(word,"ev")
-				||  !str_cmp(word, "evel")) {
-					i = fread_number(pfile);
-					fReadLevel = TRUE;
-					total_levels += UMAX(0,i - 5);
-					snprintf(buf2, sizeof(buf2),
-						 "[%s] += %d\n\r",
-						 dp->d_name, UMAX(0, i-5));
-					dump_to_scr(buf2);
-					continue;
-				}
-				}
-			}
-			else if (letter == '#') {
+			if (letter == '#') {
 				word = fread_word(pfile);
 
 				if (!str_cmp(word, "O")
@@ -2309,7 +2276,8 @@ void load_limited_objects()
 				  if (get_obj_index(vnum) != NULL)
 				  	get_obj_index(vnum)->count++;
 				}
-			} else if (letter == 'P') {
+			}
+			else if (letter == 'P') {
 				word = fread_word(pfile);
 
 				if (!str_cmp(word, "C_Killed")) {

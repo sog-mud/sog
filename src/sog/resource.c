@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: resource.c,v 1.41 1998-11-02 05:28:53 fjoe Exp $
+ * $Id: resource.c,v 1.42 1998-12-01 10:54:47 fjoe Exp $
  */
 
 #if defined (SUNOS) || defined (WIN32)
@@ -126,7 +126,7 @@ static const char* msgid_name_lookup(int msgid);
 char *fix_msg(char* p)
 {
 	static char buf[MAX_STRING_LENGTH];
-	char a[] = "\n\r\a";
+	char a[] = "\n\a";
 	char b[] = "nra";
 	int i;
 

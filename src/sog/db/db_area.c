@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.19 1998-11-12 12:36:00 fjoe Exp $
+ * $Id: db_area.c,v 1.20 1998-12-01 10:54:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1045,7 +1045,7 @@ DBLOAD_FUN(load_socials)
 		}
 #if defined(social_debug) 
 		else 
-			fprintf(stderr,"%s\n\r",temp);
+			fprintf(stderr,"%s\n",temp);
 #endif
 		for (i = 0; i < SOC_MAX; i++) {
 			social.val[i] = fread_string(fp);
