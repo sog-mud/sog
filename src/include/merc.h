@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.52 1998-07-15 08:47:07 fjoe Exp $
+ * $Id: merc.h,v 1.53 1998-07-19 21:19:08 efdi Exp $
  */
 
 /***************************************************************************
@@ -126,7 +126,7 @@ typedef void SPELL_FUN	(int sn, int level, CHAR_DATA *ch, void *vo,
 #define MAX_ALIAS		50
 #define MAX_CLASS		13
 #define MAX_PC_RACE		19	/* 18 */
-#define MAX_CLAN		9
+#define MAX_CLAN		10
 #define MAX_RELIGION		18
 #define MAX_LEVEL		100
 #define LEVEL_HERO		(MAX_LEVEL - 9)
@@ -182,6 +182,7 @@ typedef void SPELL_FUN	(int sn, int level, CHAR_DATA *ch, void *vo,
 #define CLAN_KNIGHT	6
 #define CLAN_LIONS	7
 #define CLAN_HUNTER	8
+#define CLAN_CONFEDEACY 9
 
 /*
  * Cabal structure

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.53 1998-07-14 07:47:43 fjoe Exp $
+ * $Id: fight.c,v 1.54 1998-07-19 21:19:07 efdi Exp $
  */
 
 /***************************************************************************
@@ -1054,7 +1054,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt ,bool secondary)
 		  {
 		    act("You deliver a blow of deadly force!",ch,NULL,NULL,TO_CHAR);
 		    act("$n delivers a blow of deadly force!",ch,NULL,NULL,TO_ROOM);
-		    if (clan_ok(ch,gsn_deathblow)) {
+		    if (clan_ok(ch,gsn_deathblow) && ch->level >= 20) {
 		      dam *= ((float)ch->level) / 20;
 		      check_improve(ch,gsn_deathblow,TRUE,1);
 		    }

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.20 1998-07-15 08:47:05 fjoe Exp $
+ * $Id: martial_art.c,v 1.21 1998-07-19 21:19:07 efdi Exp $
  */
 
 /***************************************************************************
@@ -2183,33 +2183,26 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 
 void do_truesight(CHAR_DATA *ch, const char *argument)
 {
-	if (ch_skill_nok(ch,gsn_truesight))
-	return;
-
-	if (!clan_ok(ch,gsn_truesight))
-	return;
-
-	if (is_affected(ch,gsn_truesight))
-	{
-		send_to_char("Your eyes are as sharp as they will get.\n\r",ch);
+	if (ch_skill_nok(ch, gsn_truesight))
 		return;
-	}
 
-	if (ch->mana < 50)
-	{
-		send_to_char("You cannot seem to focus enough.\n\r",ch);
+	if (!clan_ok(ch, gsn_truesight))
+		return;
+
+	if (is_affected(ch,gsn_truesight)) {
+		send_to_char("Your eyes are as sharp as they will get.\n\r",ch);
 		return;
 	}
 
 	WAIT_STATE(ch, skill_table[gsn_truesight].beats);
 
-	if (!IS_NPC(ch) && number_percent() < ch->pcdata->learned[gsn_truesight])
-	{
+	if (!IS_NPC(ch)
+	&&  number_percent() < ch->pcdata->learned[gsn_truesight]) {
 		AFFECT_DATA af;
 		
-		af.where  = TO_DETECTS;
-		af.type 	= gsn_truesight;
-		af.level 	= ch->level;
+		af.where    = TO_DETECTS;
+		af.type     = gsn_truesight;
+		af.level    = ch->level;
 		af.duration = ch->level/2 + 5;
 		af.location = APPLY_NONE;
 		af.modifier = 0;
@@ -2228,21 +2221,15 @@ void do_truesight(CHAR_DATA *ch, const char *argument)
 		af.bitvector = DETECT_MAGIC;
 		affect_to_char(ch,&af);
 
-		ch->mana -= 50;
-
 		act("You look around sharply!",ch,NULL,NULL,TO_CHAR);
 		act("$n looks more enlightened.",ch,NULL,NULL,TO_ROOM);
 		check_improve(ch,gsn_truesight,TRUE,1);
-	}
-	else
-	{
-		ch->mana -= 25;
-
-	send_to_char("You look about sharply, but you don't see anything new.\n\r"
-			  ,ch);
+	} else {
+		send_to_char("You look about sharply, but you don't see "
+			     "anything new.\n\r" ,ch);
 		act("$n looks around sharply but doesn't seem enlightened.",
 			ch,NULL,NULL,TO_ROOM);
-		check_improve(ch,gsn_truesight,FALSE,1);
+		check_improve(ch, gsn_truesight, FALSE, 1);
 	}
 
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.99 1998-07-19 01:03:43 efdi Exp $
+ * $Id: act_info.c,v 1.100 1998-07-19 21:19:06 efdi Exp $
  */
 
 /***************************************************************************
@@ -1698,7 +1698,7 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
 	char const *class;
 	char *pk;
 	char *wizi;
-/*	char *clan; */
+	char clan[MAX_STRING_LENGTH]; 
 	char *afk;
 	char *act;
 	char *title;
@@ -1727,15 +1727,12 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
 		race = pc_race_table[RACE(wch)].who_name;
 	else 
 		race = "     ";
-/*
-	if ((wch->clan && ch->clan ==  wch->clan)
-	||  IS_IMMORTAL(ch)
-	||  (IS_SET(wch->act, PLR_CANINDUCT) && wch->clan == 1)
-	||  wch->clan == CLAN_HUNTER)
-		clan = clan_table[wch->clan].short_name;
-	else
-		clan = EMPTY_STRING;
-*/
+
+	*clan = '\0';
+	if (wch->clan
+	&&  (ch->clan == wch->clan || IS_IMMORTAL(ch)))
+		snprintf(clan, MAX_STRING_LENGTH, "[{c%s{x] ",
+			 clan_table[wch->clan].short_name);
 
 	if (IS_SET(wch->comm, COMM_AFK))
 		afk = "{c[AFK]{x ";
@@ -1768,11 +1765,12 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
 	snprintf(level, sizeof(level), "%3d", wch->level);
 	trusted = IS_TRUSTED(ch, LEVEL_IMMORTAL) || ch == wch ||
 		  wch->level >= LEVEL_HERO;
-	sprintf(strend(output), "[{C%s{x %s {Y%s{x] %s%s%s%s%s%s{x\n\r",
+	sprintf(strend(output), "[{C%s{x %s {Y%s{x] %s%s%s%s%s%s%s{x\n\r",
 		trusted ? level
 			: (get_curr_stat(wch, STAT_CHA) < 18) ? level : "   ",
 		race,
 		class,
+		clan,
 		afk,
 		wizi,
 		pk,

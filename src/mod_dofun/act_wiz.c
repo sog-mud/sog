@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.41 1998-07-19 17:04:34 efdi Exp $
+ * $Id: act_wiz.c,v 1.42 1998-07-19 21:19:07 efdi Exp $
  */
 
 /***************************************************************************
@@ -4022,7 +4022,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		char_puts("    str int wis dex con cha sex class level\n\r",ch);
 		char_puts("    race gold hp mana move practice align\n\r",	ch);
 		char_puts("    train thirst drunk full hometown ethos\n\r",	ch);
-		char_puts("    pumped noghost\n\r", ch);
+		char_puts("    pumped noghost clan\n\r", ch);
 
 /*** Added By KIO ***/
 		char_puts("    questp questt relig bloodlust desire security\n\r",	ch);
@@ -4503,9 +4503,24 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 		victim->act &= ~PLR_GHOST;
-		char_puts("Ok.\n\r", ch);
+		char_nputs(OK, ch);
+		return;
 	}
 
+	if (!str_prefix(arg2, "clan")) {
+		int clan;
+		if (IS_NPC(victim)) {
+			char_puts("Not on NPC.\n\r", ch);
+			return;
+		}
+		if ((clan = atoi(arg3)) >= MAX_CLAN || clan < 0) {
+			char_puts("Incorrect clan number.\n\r", ch);
+			return;
+		}
+		victim->clan = clan;
+		char_nputs(OK, ch);
+		return;
+	}
 	/*
 	 * Generate usage message.
 	 */
