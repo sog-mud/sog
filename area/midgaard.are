@@ -1340,7 +1340,7 @@ a torch~
 A large torch.~
 wood~
 light 0 A
-0 0 BEF 0 0
+0 0 50 0 0
 0 30 4 G
 #3031
 lantern~
@@ -1348,7 +1348,7 @@ a hooded brass lantern~
 A hooded brass lantern has been left here.~
 brass~
 light 0 A
-0 0 BDEFGH 0 0
+0 0 250 0 0
 0 40 75 P
 E
 letters~
@@ -2994,7 +2994,7 @@ a war banner~
 A war banner is on the floor here.~
 cloth~
 light AG A
-0 0 CEFGHI 0 0
+0 0 500 0 0
 8 10 640 P
 A
 17 -2
@@ -6094,15 +6094,20 @@ You see the Temple Square.
 0 -1 3005
 S
 #3005
-The Temple Square~
-You are standing on the temple square.  Huge marble steps lead up to the
+@eng The Temple Square@rus Соборная Площадь~
+@eng You are standing on the temple square.  Huge marble steps lead up to the
 temple gate.  The entrance to the Clerics Guild is to the west, and the old
 Grunting Boar Inn, is to the east.  Just south of here you see the market
 square, the center of Midgaard.
+@rus Ты стоишь на Соборной Площади. Большие мраморные ступени ведут к воротам
+собора. На западе (west) ты видишь вход в Гильдию Клериков, а на
+востоке (east) -- таверну "Хрюкающий Кабан". На юг отсюда -- рыночная площадь,
+центр Мидгаарда.
 ~
 0 S 1
 D0
-You see the temple.
+@eng You see the temple.
+@rus Ты видишь собор.
 ~
 ~
 0 -1 3001
@@ -7813,7 +7818,7 @@ E 0 3364 0 1		*	A city guard signet ring: on the left finger
 E 0 3350 0 16		*	A standard issue sword: wielded
 E 0 3353 0 5		*	A standard issue vest: on the body
 E 0 3355 0 4		*	A standard issue cloak: around the neck (2)
-O 0 3135 0 3005		* A fountain (The Temple Square)
+O 0 3135 0 3005		* A fountain (Temple Square)
 M 0 3061 5 3006 5	* the janitor (Entrance to the Grunting Boar Inn)
 M 0 3040 1 3007 1	* the bartender (The Grunting Boar)
 G 0 3000 0		*	A barrel of beer
