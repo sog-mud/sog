@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_form.c,v 1.16 1999-02-19 15:22:24 fjoe Exp $
+ * $Id: olc_form.c,v 1.17 1999-02-20 16:29:19 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -49,24 +49,26 @@ DECLARE_OLC_FUN(formed_list	);
 
 DECLARE_OLC_FUN(formed_name	);
 DECLARE_OLC_FUN(formed_baselen	);
-DECLARE_OLC_FUN(formed_form	);
+DECLARE_OLC_FUN(formed_add	);
 DECLARE_OLC_FUN(formed_del	);
+DECLARE_OLC_FUN(formed_formdel	);
 
 OLC_CMD_DATA olc_cmds_form[] =
 {
-	{ "create",	formed_create	},
-	{ "edit",	formed_edit	},
-	{ "touch",	formed_touch	},
-	{ "show",	formed_show	},
-	{ "list",	formed_list	},
+	{ "create",		formed_create	},
+	{ "edit",		formed_edit	},
+	{ "touch",		formed_touch	},
+	{ "show",		formed_show	},
+	{ "list",		formed_list	},
 
-	{ "name",	formed_name	},
-	{ "base",	formed_baselen	},
-	{ "form",	formed_form	},
-	{ "deletefor",	olced_spell_out	},
-	{ "deleteform",	formed_del	},
+	{ "name",		formed_name	},
+	{ "base",		formed_baselen	},
+	{ "add",		formed_add	},
+	{ "del",		formed_del	},
+	{ "form_delet",		olced_spell_out	},
+	{ "form_delete",	formed_formdel	},
 
-	{ "commands",	show_commands	},
+	{ "commands",		show_commands	},
 	{ NULL }
 };
 
@@ -372,41 +374,41 @@ OLC_FUN(formed_baselen)
 	return TRUE;
 }
 
-OLC_FUN(formed_form)
+OLC_FUN(formed_add)
 {
 	WORD_DATA *w;
-	bool add;
-	int num;
 	char arg[MAX_STRING_LENGTH];
-	char arg2[MAX_STRING_LENGTH];
 
 	argument = one_argument(argument, arg, sizeof(arg));
-	argument = one_argument(argument, arg2, sizeof(arg2));
-
-	if (!str_prefix(arg, "add"))
-		add = TRUE;
-	else if (!str_prefix(arg, "delete"))
-		add = FALSE;
-	else {
+	if (argument[0] == '\0' || !is_number(arg)) {
 		do_help(ch, "'OLC FORM'");
 		return FALSE;
 	}
 
-	if ((add && argument[0] == '\0') || !is_number(arg2)) {
-		do_help(ch, "'OLC FORM'");
-		return FALSE;
-	}
-
-	num = atoi(arg2);
 	EDIT_WORD(ch, w);
-	if (add)
-		word_form_add(w, num, argument);
-	else
-		word_form_del(w, num);
+	word_form_add(w, atoi(arg), argument);
+	char_puts("Form added.\n", ch);
 	return TRUE;
 }
 
 OLC_FUN(formed_del)
+{
+	WORD_DATA *w;
+	char arg[MAX_STRING_LENGTH];
+
+	argument = one_argument(argument, arg, sizeof(arg));
+	if (!is_number(arg)) {
+		do_help(ch, "'OLC FORM'");
+		return FALSE;
+	}
+
+	EDIT_WORD(ch, w);
+	word_form_del(w, atoi(arg));
+	char_puts("Form deleted.\n", ch);
+	return TRUE;
+}
+
+OLC_FUN(formed_formdel)
 {
 	varr *hash;
 	WORD_DATA *w;

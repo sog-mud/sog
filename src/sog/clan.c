@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.34 1999-02-19 09:47:54 fjoe Exp $
+ * $Id: clan.c,v 1.35 1999-02-20 16:29:15 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -93,9 +93,11 @@ void do_petitio(CHAR_DATA *ch, const char *argument)
 }
 
 /*
- * update_lists - remove 'victim' from leader and second lists of 'clan'
+ * clan_update_lists - remove 'victim' from leader and second lists of 'clan'
+ *		       if memb is TRUE 'victim' will be delete from members
+ *		       list
  */
-static void update_lists(CLAN_DATA *clan, CHAR_DATA *victim)
+void clan_update_lists(CLAN_DATA *clan, CHAR_DATA *victim, bool memb)
 {
 	const char **nl = NULL;
 
@@ -110,6 +112,9 @@ static void update_lists(CLAN_DATA *clan, CHAR_DATA *victim)
 	}
 	if (nl)
 		name_delete(nl, victim->name, NULL, NULL);
+
+	if (memb)
+		name_delete(&clan->member_list, victim->name, NULL, NULL);
 }
 
 void do_petition(CHAR_DATA *ch, const char *argument)
@@ -227,9 +232,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 				return;
 			}
 
-			update_lists(clan, victim);
-			name_delete(&clan->member_list, victim->name,
-				    NULL, NULL);
+			clan_update_lists(clan, victim, TRUE);
 			clan_save(clan);
 
 			victim->clan = CLAN_NONE;
@@ -304,8 +307,8 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->pcdata->petition) {
-		char_puts("You have already petitioned to another clan.\n", ch);
+	if (ch->clan) {
+		char_puts("You cannot leave your clan this way.\n", ch);
 		return;
 	}
 
@@ -363,7 +366,7 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		update_lists(clan, victim);
+		clan_update_lists(clan, victim, FALSE);
 		name_add(&clan->leader_list, victim->name, NULL, NULL);
 		clan_save(clan);
 
@@ -381,7 +384,7 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		update_lists(clan, victim);
+		clan_update_lists(clan, victim, FALSE);
 		name_add(&clan->second_list, victim->name, NULL, NULL);
 		clan_save(clan);
 
@@ -398,7 +401,7 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		update_lists(clan, victim);
+		clan_update_lists(clan, victim, FALSE);
 		clan_save(clan);
 
 		victim->pcdata->clan_status = CLAN_COMMONER;

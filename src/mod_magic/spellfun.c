@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.123 1999-02-19 18:45:49 fjoe Exp $
+ * $Id: spellfun.c,v 1.124 1999-02-20 16:29:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -5227,9 +5227,9 @@ void spell_take_revenge(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		return;
 	}
 
-	for (obj = object_list; obj != NULL; obj = obj->next) {
+	for (obj = object_list; obj; obj = obj->next) {
 		if (obj->pIndexData->vnum != OBJ_VNUM_CORPSE_PC
-		||  !str_cmp(ch->name, mlstr_mval(obj->owner)))
+		||  !IS_OWNER(ch, obj))
 			continue;
 
 		found = TRUE;

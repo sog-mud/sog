@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.54 1999-02-19 09:48:02 fjoe Exp $
+ * $Id: obj_prog.c,v 1.55 1999-02-20 16:29:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -454,7 +454,7 @@ bool death_prog_ranger_staff(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 int get_prog_spec_weapon(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg) 
 {
-	if (!str_cmp(mlstr_mval(obj->owner), ch->name)) {
+	if (IS_OWNER(ch, obj)) {
 		if (IS_AFFECTED(ch, AFF_POISON) && (dice(1,5)==1))  {
 			char_puts("Your weapon glows blue.", ch);
 			act("$n's weapon glows blue.", ch, NULL, NULL, TO_ROOM);
@@ -492,7 +492,7 @@ int get_prog_spec_weapon(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 int get_prog_quest_obj(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg) 
 {
-	if (!str_cmp(mlstr_mval(obj->owner), ch->name)) {
+	if (IS_OWNER(ch, obj)) {
 		if (IS_AFFECTED(ch, AFF_POISON) && (dice(1, 5) == 1)) {
 			act("$p glows blue.", ch, obj, NULL, TO_ROOM);
 			act_puts("$p glows blue.", ch, obj, NULL, TO_CHAR,
@@ -1544,7 +1544,7 @@ int wear_prog_katana_sword(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	if (obj->pIndexData->item_type == ITEM_WEAPON 
 	&&  IS_WEAPON_STAT(obj, WEAPON_KATANA)
-	&&  !str_cmp(mlstr_mval(obj->owner), ch->name)) {
+	&&  IS_OWNER(ch, obj)) {
 		if (ch->level <= 10)
 			obj->value[2] = 3;
 		else if (ch->level > 10 && ch->level <= 20)
@@ -1670,7 +1670,7 @@ int remove_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 int wear_prog_quest_weapon(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
-	if (!str_cmp(mlstr_mval(obj->owner), ch->name))  {
+	if (IS_OWNER(ch, obj)) {
 		act_puts("Your weapon starts glowing.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		     if (                  ch->level <= 20) obj->value[2] = 3;
@@ -1694,7 +1694,7 @@ int wear_prog_quest_weapon(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 int get_prog_quest_reward(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg) 
 {
-	if (!str_cmp(mlstr_mval(obj->owner), ch->name))  {
+	if (IS_OWNER(ch, obj)) {
 		act_puts("Your $p starts glowing.",
 			 ch, obj, NULL, TO_CHAR, POS_SLEEPING);
 		return 0;

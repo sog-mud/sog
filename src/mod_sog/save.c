@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.99 1999-02-19 09:48:04 fjoe Exp $
+ * $Id: save.c,v 1.100 1999-02-20 16:29:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -250,8 +250,6 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 				      race_name(pcdata->race));
 		if (pcdata->plevels > 0)
 			fprintf(fp, "PLev %d\n", pcdata->plevels);
-		if (pcdata->petition)
-			fprintf(fp, "Peti %d\n", pcdata->petition);
 		fprintf(fp, "Plyd %d\n",
 			pcdata->played + (int) (current_time - ch->logon));
 		fprintf(fp, "Not  %ld %ld %ld %ld %ld\n",
@@ -427,10 +425,10 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 		}
 	}
 
-/* do not save named objs if ch is not owner */
+/* do not save named quest rewards if ch is not owner */
 	if (!IS_IMMORTAL(ch)
-	&&  !mlstr_null(obj->owner)
-	&&  str_cmp(mlstr_mval(obj->owner), ch->name)) {
+	&&  IS_SET(obj->pIndexData->extra_flags, ITEM_QUEST)
+	&&  !IS_OWNER(ch, obj)) {
 		log_printf("%s: '%s' of %s",
 			   ch->name, obj->name,
 			   mlstr_mval(obj->owner));
@@ -955,7 +953,6 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			}
 			break;
 		case 'P':
-			KEY("Peti", ch->pcdata->petition, fread_number(fp));
 			KEY("PLev", ch->pcdata->plevels, fread_number(fp));
 			SKEY("Password", ch->pcdata->pwd);
 			SKEY("Pass", ch->pcdata->pwd);

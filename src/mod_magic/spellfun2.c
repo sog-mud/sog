@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.84 1999-02-20 12:54:29 fjoe Exp $
+ * $Id: spellfun2.c,v 1.85 1999-02-20 16:29:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2504,8 +2504,7 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo, int target)
 		if (obj->pIndexData->item_type == ITEM_CORPSE_PC
 		&&  obj->in_room
 		&&  IS_SET(obj->in_room->room_flags, ROOM_BATTLE_ARENA)
-		&&  obj->owner
-		&&  str_cmp(ch->name, mlstr_mval(obj->owner))) {
+		&&  !IS_OWNER(ch, obj)) {
 			char_puts("You cannot do that.\n", ch);
 			return;
 		}

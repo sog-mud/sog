@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.98 1999-02-19 09:48:03 fjoe Exp $
+ * $Id: act_quest.c,v 1.99 1999-02-20 16:29:18 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -664,13 +664,11 @@ static void quest_complete(CHAR_DATA *ch, char *arg)
 	}
 
 	if (ch->pcdata->questobj > 0)
-		for (obj = ch->carrying; obj != NULL; obj = obj_next) {
+		for (obj = ch->carrying; obj; obj = obj_next) {
 			obj_next = obj->next_content;
 
-			if (obj != NULL
-			&&  obj->pIndexData->vnum == ch->pcdata->questobj
-			&&  strstr(mlstr_mval(obj->ed->description),
-							ch->name) != NULL) {
+			if (obj->pIndexData->vnum == ch->pcdata->questobj
+			&&  IS_OWNER(ch, obj)) {
 				act_puts("You hand {W$p{x to $N.",
 					 ch, obj, questor, TO_CHAR, POS_DEAD);
 				act("$n hands {W$p{x to $N.",
@@ -821,7 +819,7 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 		for (obj = object_list; obj != NULL; obj = obj_next) {
 			obj_next = obj->next;
 			if (obj->pIndexData->vnum == item_vnum 
-			&&  !str_cmp(mlstr_mval(obj->owner), ch->name)) {
+			&&  IS_OWNER(ch, obj)) {
 				extract_obj(obj);
 				break;
 			}

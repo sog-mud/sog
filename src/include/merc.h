@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.157 1999-02-20 12:54:30 fjoe Exp $
+ * $Id: merc.h,v 1.158 1999-02-20 16:29:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1113,6 +1113,7 @@ enum {
 
 #define IS_HARA_KIRI(ch) (IS_SET((ch)->plr_flags, PLR_HARA_KIRI))
 #define IS_CLAN_GUARD(ch) (IS_NPC(ch) && IS_SET(ch->pIndexData->act, ACT_CLAN_GUARD))
+#define IS_OWNER(ch, obj) (!mlstr_cmp(ch->short_descr, obj->owner))
 
 #define IS_PUMPED(ch) (IS_SET((ch)->plr_flags, PLR_PUMPED))
 #define SET_FIGHT_TIME(ch)					\

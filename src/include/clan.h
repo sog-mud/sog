@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.h,v 1.13 1999-02-15 18:19:38 fjoe Exp $
+ * $Id: clan.h,v 1.14 1999-02-20 16:29:15 fjoe Exp $
  */
 
 #ifndef _CLAN_H_
@@ -71,7 +71,6 @@ struct clan_data
 
 CLAN_DATA *	clan_new	(void);		/* allocate new clan data */
 void		clan_free	(CLAN_DATA*);	/* free clan data */
-void		clan_save	(CLAN_DATA*);	/* save clan to disk */
 int		cn_lookup	(const char* name); /* clan number lookup */
 const char*	clan_name	(int cn);	/* clan name lookup */
 bool		clan_item_ok	(int cn);	/* check clan item */
@@ -90,5 +89,11 @@ struct clan_skill {
 
 #define clan_skill_lookup(clan, sn) \
 	((CLAN_SKILL*) varr_bsearch(&clan->skills, &sn, cmpint))
+
+/*
+ * clan lists utils
+ */
+void	clan_update_lists	(CLAN_DATA *clan, CHAR_DATA *victim, bool memb);
+void	clan_save		(CLAN_DATA *clan);
 
 #endif

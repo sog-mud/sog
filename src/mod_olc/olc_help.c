@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_help.c,v 1.28 1999-02-19 15:22:24 fjoe Exp $
+ * $Id: olc_help.c,v 1.29 1999-02-20 16:29:19 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -48,19 +48,19 @@ DECLARE_OLC_FUN(helped_text		);
 
 OLC_CMD_DATA olc_cmds_help[] =
 {
-	{ "create",	helped_create	},
-	{ "edit",	helped_edit	},
-	{ "touch",	helped_touch	},
-	{ "show",	helped_show	},
-	{ "list",	helped_list	},
-	{ "deletehel",	olced_spell_out	},
-	{ "deletehelp",	helped_del	},
+	{ "create",		helped_create	},
+	{ "edit",		helped_edit	},
+	{ "touch",		helped_touch	},
+	{ "show",		helped_show	},
+	{ "list",		helped_list	},
+	{ "help_delet",		olced_spell_out	},
+	{ "help_delete",	helped_del	},
 
-	{ "level",	helped_level	},
-	{ "keywords",	helped_keyword	},
-	{ "text",	helped_text	},
+	{ "level",		helped_level	},
+	{ "keywords",		helped_keyword	},
+	{ "text",		helped_text	},
 
-	{ "commands",	show_commands	},
+	{ "commands",		show_commands	},
 	{ NULL }
 };
 

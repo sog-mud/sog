@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.44 1999-02-20 12:54:31 fjoe Exp $
+ * $Id: olc.c,v 1.45 1999-02-20 16:29:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -227,13 +227,14 @@ bool olced_name(CHAR_DATA *ch, const char *argument,
 	OLC_CMD_DATA *cmd;
 	OLCED_DATA *olced;
 	VALIDATE_FUN *validator;
+	bool changed;
 	char arg[MAX_INPUT_LENGTH];
 
 	if ((cmd = olc_cmd_lookup(ch, fun)) == NULL
 	||  (olced = olced_lookup(ch->desc->editor)) == NULL)
 		return FALSE;
 
-	one_argument(argument, arg, sizeof(arg));
+	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		char_printf(ch, "Syntax: %s string\n", cmd->name);
 		return FALSE;
@@ -242,8 +243,18 @@ bool olced_name(CHAR_DATA *ch, const char *argument,
 	if ((validator = cmd->arg1) && !validator(ch, argument))
 		return FALSE;
 
-	name_toggle(pStr, arg, ch, olced->name);
-	return TRUE;
+	changed = FALSE;
+	for (; arg[0]; argument = one_argument(argument, arg, sizeof(arg))) {
+		if (!str_cmp(arg, "all")) {
+			char_printf(ch, "%s: %s: Illegal name.\n",
+				    olced->name, arg);
+			continue;
+		}
+		changed = TRUE;
+		name_toggle(pStr, arg, ch, olced->name);
+	}
+
+	return changed;
 }
 
 bool olced_str(CHAR_DATA *ch, const char *argument,

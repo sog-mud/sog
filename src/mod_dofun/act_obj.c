@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.124 1999-02-20 12:54:28 fjoe Exp $
+ * $Id: act_obj.c,v 1.125 1999-02-20 16:29:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -82,8 +82,7 @@ bool can_loot(CHAR_DATA * ch, OBJ_DATA * obj)
 	 */
 	if (obj->in_room
 	&&  IS_SET(obj->in_room->room_flags, ROOM_BATTLE_ARENA)
-	&&  obj->owner
-	&&  !is_name(mlstr_mval(obj->owner), ch->name))
+	&&  !IS_OWNER(ch, obj))
 		return FALSE;
 
 	return TRUE;
@@ -100,8 +99,7 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 	      obj->pIndexData->item_type == ITEM_CORPSE_NPC) &&
 	     (!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM)) &&
 	     !IS_IMMORTAL(ch) &&
-	     obj->owner &&
-	     !is_name(mlstr_mval(obj->owner), ch->name))) {
+	     !IS_OWNER(ch, obj))) {
 		char_puts("You can't take that.\n", ch);
 		return;
 	}

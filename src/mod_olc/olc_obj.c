@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.36 1999-02-20 12:54:31 fjoe Exp $
+ * $Id: olc_obj.c,v 1.37 1999-02-20 16:29:20 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -83,8 +83,8 @@ OLC_CMD_DATA olc_cmds_obj[] =
 	{ "touch",	objed_touch					},
 	{ "show",	objed_show					},
 	{ "list",	objed_list					},
-	{ "deleteob",	olced_spell_out					},
-	{ "deleteobj",	objed_del					},
+	{ "obj_delet",	olced_spell_out					},
+	{ "obj_delete",	objed_del					},
 
 	{ "addaffect",	objed_addaffect					},
 	{ "addapply",	objed_addapply					},

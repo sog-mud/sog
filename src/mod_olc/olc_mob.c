@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.34 1999-02-19 15:22:24 fjoe Exp $
+ * $Id: olc_mob.c,v 1.35 1999-02-20 16:29:19 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -339,7 +339,7 @@ OLC_FUN(mobed_show)
 		buf_printf(buf, "Invis level: [%d]\n", pMob->invis_level);
 
 	if (pMob->fvnum)
-		buf_printf(buf, "Female vnum: [%d]\n", pMob->invis_level);
+		buf_printf(buf, "Female vnum: [%d]\n", pMob->fvnum);
 
 /* ROM values end */
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.123 1999-02-19 13:43:24 kostik Exp $
+ * $Id: act_wiz.c,v 1.124 1999-02-20 16:29:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3867,13 +3867,27 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		victim->clan = cn;
-		victim->pcdata->petition = cn;
-		victim->pcdata->clan_status = CLAN_COMMONER;
-		update_skills(victim);
+		if (cn != victim->clan) {
+			CLAN_DATA *clan;
+
+			if ((clan = clan_lookup(victim->clan))) {
+				clan_update_lists(clan, victim, TRUE);
+				clan_save(clan);
+			}
+
+			clan = CLAN(cn);
+			name_add(&clan->member_list, victim->name, NULL, NULL);
+			clan_save(clan);
+
+			victim->clan = cn;
+			victim->pcdata->clan_status = CLAN_COMMONER;
+			update_skills(victim);
+		}
+
 		char_puts("Ok.\n", ch);
 		return;
 	}
+
 	/*
 	 * Generate usage message.
 	 */
