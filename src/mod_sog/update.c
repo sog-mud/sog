@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update.c,v 1.211 2003-09-30 00:31:35 fjoe Exp $
+ * $Id: update.c,v 1.212 2003-10-10 16:14:55 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -34,86 +34,7 @@
 
 #include <sog.h>
 
-#include <update.h>
-#include "update_impl.h"
-
-DECLARE_MODINIT_FUN(_module_boot);
-
-MODINIT_FUN(_module_boot, m)
-{
-	int hour, day, month;
-
-	/*
-	 * Set time and weather.
-	 */
-	hour = (current_time - 650336715) / (get_pulse("char") / PULSE_PER_SCD);
-	time_info.hour	= hour  % 24;
-	day		= hour  / 24;
-	time_info.day	= day   % 35;
-	month		= day   / 35;
-	time_info.month	= month % 17;
-	time_info.year	= month / 17;
-
-	     if (time_info.hour <  5) weather_info.sunlight = SUN_DARK;
-	else if (time_info.hour <  6) weather_info.sunlight = SUN_RISE;
-	else if (time_info.hour < 19) weather_info.sunlight = SUN_LIGHT;
-	else if (time_info.hour < 20) weather_info.sunlight = SUN_SET;
-	else                          weather_info.sunlight = SUN_DARK;
-
-	weather_info.change	= 0;
-	weather_info.mmhg	= 960;
-	if (time_info.month >= 7 && time_info.month <= 12)
-		weather_info.mmhg += number_range(1, 50);
-	else
-		weather_info.mmhg += number_range(1, 80);
-
-	     if (weather_info.mmhg <=  980) weather_info.sky = SKY_LIGHTNING;
-	else if (weather_info.mmhg <= 1000) weather_info.sky = SKY_RAINING;
-	else if (weather_info.mmhg <= 1020) weather_info.sky = SKY_CLOUDY;
-	else                                weather_info.sky = SKY_CLOUDLESS;
-
-	scan_pfiles();
-	update_one("area");
-
-	return 0;
-}
-
-void
-uhandler_load(const char *mod_name)
-{
-	module_t *m;
-	uhandler_t *hdlr;
-
-	if ((m = mod_lookup(mod_name)) == NULL) {
-		printlog(LOG_ERROR, "%s: %s: unknown module",
-		    __FUNCTION__, mod_name);
-		return;
-	}
-
-	C_FOREACH(hdlr, &uhandlers) {
-		if (m->mod_id != hdlr->mod)
-			continue;
-
-		hdlr->fun = dlsym(m->dlh, hdlr->fun_name);
-		if (hdlr->fun == NULL)
-			printlog(LOG_ERROR, "%s: %s", __FUNCTION__, dlerror());
-	}
-}
-
-void
-uhandler_unload(const char *mod_name)
-{
-	uhandler_t *hdlr;
-	module_t *m;
-
-	if ((m = mod_lookup(mod_name)) == NULL)
-		return;
-
-	C_FOREACH(hdlr, &uhandlers) {
-		if (m->mod_id == hdlr->mod)
-			hdlr->fun = NULL;
-	}
-}
+static void uhandler_update(uhandler_t *hdlr);
 
 void
 update_handler(void)
@@ -126,6 +47,15 @@ update_handler(void)
 			uhandler_update(hdlr);
 		}
 	}
+}
+
+void *
+update_one_handler(const char *hdlr_name)
+{
+	uhandler_t *hdlr = uhandler_search(hdlr_name);
+	if (hdlr)
+		uhandler_update(hdlr);
+	return hdlr;
 }
 
 int
@@ -142,15 +72,6 @@ get_pulse(const char *hdlr_name)
 	return hdlr->ticks;
 }
 
-void *
-update_one(const char *hdlr_name)
-{
-	uhandler_t *hdlr = uhandler_search(hdlr_name);
-	if (hdlr)
-		uhandler_update(hdlr);
-	return hdlr;
-}
-
 void
 update_reset(const char *hdlr_name)
 {
@@ -160,114 +81,30 @@ update_reset(const char *hdlr_name)
 	hdlr->cnt = hdlr->ticks;
 }
 
-void
-gain_condition(CHAR_DATA *ch, int iCond, int value)
+/*--------------------------------------------------------------------
+ * local functions
+ */
+
+static void
+uhandler_update(uhandler_t *hdlr)
 {
-	int condition;
-	int damage_hunger;
-
-	if (value == 0 || IS_NPC(ch) || ch->level >= LEVEL_IMMORTAL)
+        if (hdlr->fun == NULL) {
+		printlog(LOG_INFO, "uhandler_update: %s: NULL update fun",
+		    hdlr->name);
 		return;
-
-	if (IS_VAMPIRE(ch)
-	&&  (iCond == COND_THIRST ||
-	     iCond == COND_FULL ||
-	     iCond == COND_HUNGER))
-		return;
-
-	condition = PC(ch)->condition[iCond];
-
-	PC(ch)->condition[iCond] = URANGE(-6, condition + value, 96);
-
-	if (iCond == COND_FULL && (PC(ch)->condition[COND_FULL] < 0))
-		PC(ch)->condition[COND_FULL] = 0;
-
-	if ((iCond == COND_DRUNK) && (PC(ch)->condition[COND_DRUNK] < 1)) 
-		PC(ch)->condition[COND_DRUNK] = 0;
-
-	if (PC(ch)->condition[iCond] < 1
-	&&  PC(ch)->condition[iCond] > -6) {
-		switch (iCond) {
-		case COND_HUNGER:
-			act_char("You are hungry.", ch);
-			break;
-
-		case COND_THIRST:
-			act_char("You are thirsty.", ch);
-			break;
-
-		case COND_DRUNK:
-			if (condition != 0)
-				act_char("You are sober.", ch);
-			break;
-
-		case COND_BLOODLUST:
-			if (condition != 0)
-				act_char("You are hungry for blood.", ch);
-			break;
-
-		case COND_DESIRE:
-			if (condition != 0)
-				act_char("You are missing your home.", ch);
-			break;
-		}
 	}
 
-	if (PC(ch)->condition[iCond] == -6 && ch->level >= LEVEL_PK) {
-		switch (iCond) {
-		case COND_HUNGER:
-			act_char("You are starving!", ch);
-			act("$n is starving!",  ch, NULL, NULL, TO_ROOM);
-			damage_hunger = ch->max_hit * number_range(2, 4) / 100;
-			if (!damage_hunger)
-				damage_hunger = 1;
-			damage(ch, ch, damage_hunger, NULL, DAM_F_HUNGER);
-			if (ch->position == POS_SLEEPING)
-				return;
-			break;
+	if (hdlr->iter_cl == NULL)
+		((UPDATE_FUN *) hdlr->fun)();
+	else {
+		void *vo;
 
-		case COND_THIRST:
-			act_char("You are dying of thirst!", ch);
-			act("$n is dying of thirst!", ch, NULL, NULL, TO_ROOM);
-			damage_hunger = ch->max_hit * number_range(2, 4) / 100;
-			if (!damage_hunger)
-				damage_hunger = 1;
-			damage(ch, ch, damage_hunger, NULL, DAM_F_THIRST);
-			if (ch->position == POS_SLEEPING)
-				return;
-			break;
-
-		case COND_BLOODLUST:
-			act_char("You are suffering from thirst of blood!", ch);
-			act("$n is suffering from thirst of blood!",
-			    ch, NULL, NULL, TO_ROOM);
-			if (ch->in_room && ch->in_room->people
-			&&  ch->fighting == NULL) {
-				CHAR_DATA *vch;
-
-				if (!IS_AWAKE(ch))
-					dofun("stand", ch, str_empty);
-				foreach (vch, char_in_room(ch->in_room)) {
-					bloodthirst(ch, vch);
-				} end_foreach(vch);
-				if (ch->fighting != NULL)
-					break;
-			}
-
-			damage_hunger = ch->max_hit * number_range(2, 4) / 100;
-			if (!damage_hunger)
-				damage_hunger = 1;
-			damage(ch, ch, damage_hunger, NULL, DAM_F_HUNGER);
-			if (ch->position == POS_SLEEPING)
-				return;
-			break;
-
-		case COND_DESIRE:
-			act_char("You want to go your home!", ch);
-			act("$n desires for $s home!", ch, NULL, NULL, TO_ROOM);
-			if (ch->position >= POS_STANDING)
-				move_char(ch, number_door(), 0);
-			break;
-		}
+		foreach (vo, iter_new(hdlr->iter_cl, NULL)) {
+			if (((UPDATE_FOREACH_FUN *) hdlr->fun)(vo))
+				break;
+		} end_foreach(vo);
 	}
+
+	if (!IS_NULLSTR(hdlr->notify))
+		wiznet(hdlr->notify, NULL, NULL, WIZ_TICKS, 0, 0);
 }

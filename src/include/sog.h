@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.46 2003-10-10 14:28:01 fjoe Exp $
+ * $Id: sog.h,v 1.47 2003-10-10 16:14:10 fjoe Exp $
  */
 
 #ifndef _SOG_H_
@@ -365,6 +365,10 @@ DECLARE_FUN4(CHAR_DATA, get_char_spell,
 DECLARE_PROC1(hometown_print_avail,
 	      ARG(CHAR_DATA), ch)
 DECLARE_PROC0(reboot_mud)
+DECLARE_PROC3(gain_condition,
+	      ARG(CHAR_DATA), ch, ARG(int), iCond, ARG(int), value)
+DECLARE_FUN2(bool, bloodthirst,
+	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim)
 DECLARE_PROC2(show_flags,
 	      ARG(CHAR_DATA), ch, ARG(flaginfo_t), flag_table)
 
@@ -880,6 +884,15 @@ DECLARE_FUN3(bool, saves_dispel,
 DECLARE_FUN4(bool, spellbane,
 	     ARG(CHAR_DATA), bch, ARG(CHAR_DATA), ch,
 	     ARG(int), bane_chance, ARG(int), bane_damage)
+
+/*--- update.c */
+DECLARE_PROC0(update_handler)
+DECLARE_FUN1(pvoid_t, update_one_handler,
+	     ARG(cchar_t), hdlr_name)
+DECLARE_FUN1(int, get_pulse,
+	     ARG(cchar_t), hdlr_name)
+DECLARE_PROC1(update_reset,
+	      ARG(cchar_t), hdlr_name)
 
 __MODULE_END_DECL
 

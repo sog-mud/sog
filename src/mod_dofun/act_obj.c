@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.291 2003-10-10 14:28:07 fjoe Exp $
+ * $Id: act_obj.c,v 1.292 2003-10-10 16:14:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,7 +49,6 @@
 #include <lang.h>
 
 #include <sog.h>
-#include <update.h>
 
 DECLARE_DO_FUN(do_get);
 DECLARE_DO_FUN(do_put);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_auction.c,v 1.6 2001-11-30 21:17:58 fjoe Exp $
+ * $Id: init_auction.c,v 1.7 2003-10-10 16:14:14 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -35,27 +35,21 @@
 #include <module.h>
 #include <container.h>
 
-#include <update.h>
+#include <merc.h>
 
 DECLARE_MODINIT_FUN(_module_load);
 DECLARE_MODINIT_FUN(_module_unload);
 
 MODINIT_FUN(_module_load, m)
 {
-	cmd_t *cmd;
-
-	C_FOREACH(cmd, &commands)
-		cmd_load(cmd, MODULE, m);
-	uhandler_load(m->name);
+	cmd_mod_load(m);
+	uhandler_mod_load(m);
 	return 0;
 }
 
 MODINIT_FUN(_module_unload, m)
 {
-	cmd_t *cmd;
-
-	uhandler_unload(m->name);
-	C_FOREACH(cmd, &commands)
-		cmd_unload(cmd, MODULE);
+	uhandler_mod_unload(m);
+	cmd_mod_unload(m);
 	return 0;
 }

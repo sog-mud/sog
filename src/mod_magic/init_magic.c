@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_magic.c,v 1.21 2003-10-10 14:28:16 fjoe Exp $
+ * $Id: init_magic.c,v 1.22 2003-10-10 16:14:43 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -39,11 +39,8 @@ DECLARE_MODINIT_FUN(_module_unload);
 
 MODINIT_FUN(_module_load, m)
 {
-	cmd_t *cmd;
 	skill_t *sk;
 
-	C_FOREACH(cmd, &commands)
-		cmd_load(cmd, MODULE, m);
 	C_FOREACH(sk, &skills) {
 		if (sk->skill_type == ST_SPELL
 		||  sk->skill_type == ST_PRAYER) {
@@ -59,7 +56,6 @@ MODINIT_FUN(_module_load, m)
 
 MODINIT_FUN(_module_unload, m)
 {
-	cmd_t *cmd;
 	skill_t *sk;
 
 	C_FOREACH(sk, &skills) {
@@ -67,7 +63,5 @@ MODINIT_FUN(_module_unload, m)
 		||  sk->skill_type == ST_PRAYER)
 			sk->fun = NULL;
 	}
-	C_FOREACH(cmd, &commands)
-		cmd_unload(cmd, MODULE);
 	return 0;
 }

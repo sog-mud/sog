@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.60 2003-09-30 00:31:35 fjoe Exp $
+ * $Id: updfun.c,v 1.61 2003-10-10 16:15:07 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -33,9 +33,6 @@
 #include <merc.h>
 
 #include <sog.h>
-
-#include <update.h>
-#include "update_impl.h"
 
 DECLARE_UPDATE_FOREACH_FUN(violence_update_foreach);
 DECLARE_UPDATE_FOREACH_FUN(mobile_update_foreach);
@@ -1453,29 +1450,6 @@ UPDATE_FUN(area_update)
 		else if (pArea->nplayer == 0)
 			pArea->empty = TRUE;
 	}
-}
-
-/*----------------------------------------------------------------------------
- * semi-locals
- */
-
-bool
-bloodthirst(CHAR_DATA *ch, CHAR_DATA *victim)
-{
-	if (IS_IMMORTAL(victim))
-		return FALSE;
-
-	if (ch != victim
-	&&  can_see(ch, victim)
-	&&  !is_safe_nomessage(ch, victim)) {
-		dofun("yell", ch, "BLOOD! I NEED BLOOD!");
-		multi_hit(ch, victim, NULL);
-		if (IS_EXTRACTED(ch)
-		||  ch->fighting != NULL)
-			return TRUE;
-	}
-
-	return FALSE;
 }
 
 /*----------------------------------------------------------------------------

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.324 2003-09-30 00:31:10 fjoe Exp $
+ * $Id: act_wiz.c,v 1.325 2003-10-10 16:14:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -126,6 +126,8 @@ DECLARE_DO_FUN(do_maxrnd);
 DECLARE_DO_FUN(do_modules);
 DECLARE_DO_FUN(do_shutdown);
 DECLARE_DO_FUN(do_reboot);
+DECLARE_DO_FUN(do_settick);
+DECLARE_DO_FUN(do_tick);
 
 /* local command procedures */
 DECLARE_DO_FUN(do_rstat);
@@ -4966,4 +4968,67 @@ DO_FUN(do_reboot, ch, argument)
 	}
 
 	do_reboot(ch, "");
+}
+
+DO_FUN(do_settick, ch, argument)
+{
+	uhandler_t *hdlr;
+	char arg[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH];
+	int val;
+
+	argument = one_argument(argument, arg, sizeof(arg));
+
+	if (arg[0] == '\0') {
+		BUFFER *buf;
+
+		buf = buf_new(0);
+		buf_append(buf, "    Name       Module     Iterator    Max   Cur     Function\n");	// notrans
+		buf_append(buf, "----------- ----------- ------------ ----- ----- ---------------\n");	// notrans
+		C_FOREACH(hdlr, &uhandlers) {
+			buf_printf(buf, BUF_END,
+			    "[%9s] [%9s] [%10s] %5d %5d %c%s\n", // notrans
+			    hdlr->name,
+			    flag_string(module_names, hdlr->mod),
+			    hdlr->iter_cl != NULL ?
+			        flag_string(iterator_classes, (flag_t) hdlr->iter_cl) : "none",
+			    hdlr->ticks,
+			    hdlr->cnt,
+			    hdlr->fun != NULL ? ' ' : '*',
+			    hdlr->fun_name);
+		}
+		page_to_char(buf_string(buf), ch);
+		buf_free(buf);
+		return;
+	}
+
+	one_argument(argument, arg2, sizeof(arg2));
+	val = atoi(arg2);
+	if (!val) {
+		act_char("Non-zero, please.", ch);
+		return;
+	}
+
+	C_FOREACH(hdlr, &uhandlers) {
+		if (!str_cmp(arg, hdlr->name)) {
+			hdlr->ticks = val;
+			return;
+		}
+	}
+
+	dofun("help", ch, "'WIZ SETTICK'");
+}
+
+DO_FUN(do_tick, ch, argument)
+{
+	char arg[MAX_INPUT_LENGTH];
+
+	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0')  {
+		dofun("help", ch, "'WIZ TICK'");
+		return;
+	}
+
+	if (update_one_handler(arg))
+		return;
+	do_tick(ch, str_empty);
 }

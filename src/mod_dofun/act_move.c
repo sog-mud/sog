@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.299 2003-10-10 14:28:07 fjoe Exp $
+ * $Id: act_move.c,v 1.300 2003-10-10 16:14:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -98,6 +98,8 @@ DECLARE_DO_FUN(do_enter);
 DECLARE_DO_FUN(do_settraps);
 DECLARE_DO_FUN(do_forest);
 DECLARE_DO_FUN(do_breathhold);
+DECLARE_DO_FUN(do_cast);
+DECLARE_DO_FUN(do_pray);
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_look);
@@ -2870,7 +2872,17 @@ DO_FUN(do_breathhold, ch, argument)
 	WAIT_STATE(ch, skill_beats("hold breath"));
 }
 
-/*
+DO_FUN(do_cast, ch, argument)
+{
+	cast_spell_or_prayer(ch, argument, ST_SPELL);
+}
+
+DO_FUN(do_pray, ch, argument)
+{
+	cast_spell_or_prayer(ch, argument, ST_PRAYER);
+}
+
+/*--------------------------------------------------------------------
  * static functions
  */
 static int

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.374 2003-10-10 14:28:21 fjoe Exp $
+ * $Id: handler.c,v 1.375 2003-10-10 16:14:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -48,7 +48,6 @@
 #include <merc.h>
 #include <lang.h>
 
-#include <update.h>
 #include <quest.h>
 
 #include <sog.h>
@@ -6118,6 +6117,137 @@ reboot_mud(void)
 	}
 
 	merc_down = TRUE;
+}
+
+void
+gain_condition(CHAR_DATA *ch, int iCond, int value)
+{
+	int condition;
+	int damage_hunger;
+
+	if (value == 0 || IS_NPC(ch) || ch->level >= LEVEL_IMMORTAL)
+		return;
+
+	if (IS_VAMPIRE(ch)
+	&&  (iCond == COND_THIRST ||
+	     iCond == COND_FULL ||
+	     iCond == COND_HUNGER))
+		return;
+
+	condition = PC(ch)->condition[iCond];
+
+	PC(ch)->condition[iCond] = URANGE(-6, condition + value, 96);
+
+	if (iCond == COND_FULL && (PC(ch)->condition[COND_FULL] < 0))
+		PC(ch)->condition[COND_FULL] = 0;
+
+	if ((iCond == COND_DRUNK) && (PC(ch)->condition[COND_DRUNK] < 1))
+		PC(ch)->condition[COND_DRUNK] = 0;
+
+	if (PC(ch)->condition[iCond] < 1
+	&&  PC(ch)->condition[iCond] > -6) {
+		switch (iCond) {
+		case COND_HUNGER:
+			act_char("You are hungry.", ch);
+			break;
+
+		case COND_THIRST:
+			act_char("You are thirsty.", ch);
+			break;
+
+		case COND_DRUNK:
+			if (condition != 0)
+				act_char("You are sober.", ch);
+			break;
+
+		case COND_BLOODLUST:
+			if (condition != 0)
+				act_char("You are hungry for blood.", ch);
+			break;
+
+		case COND_DESIRE:
+			if (condition != 0)
+				act_char("You are missing your home.", ch);
+			break;
+		}
+	}
+
+	if (PC(ch)->condition[iCond] == -6 && ch->level >= LEVEL_PK) {
+		switch (iCond) {
+		case COND_HUNGER:
+			act_char("You are starving!", ch);
+			act("$n is starving!",  ch, NULL, NULL, TO_ROOM);
+			damage_hunger = ch->max_hit * number_range(2, 4) / 100;
+			if (!damage_hunger)
+				damage_hunger = 1;
+			damage(ch, ch, damage_hunger, NULL, DAM_F_HUNGER);
+			if (ch->position == POS_SLEEPING)
+				return;
+			break;
+
+		case COND_THIRST:
+			act_char("You are dying of thirst!", ch);
+			act("$n is dying of thirst!", ch, NULL, NULL, TO_ROOM);
+			damage_hunger = ch->max_hit * number_range(2, 4) / 100;
+			if (!damage_hunger)
+				damage_hunger = 1;
+			damage(ch, ch, damage_hunger, NULL, DAM_F_THIRST);
+			if (ch->position == POS_SLEEPING)
+				return;
+			break;
+
+		case COND_BLOODLUST:
+			act_char("You are suffering from thirst of blood!", ch);
+			act("$n is suffering from thirst of blood!",
+			    ch, NULL, NULL, TO_ROOM);
+			if (ch->in_room && ch->in_room->people
+			&&  ch->fighting == NULL) {
+				CHAR_DATA *vch;
+
+				if (!IS_AWAKE(ch))
+					dofun("stand", ch, str_empty);
+				foreach (vch, char_in_room(ch->in_room)) {
+					bloodthirst(ch, vch);
+				} end_foreach(vch);
+				if (ch->fighting != NULL)
+					break;
+			}
+
+			damage_hunger = ch->max_hit * number_range(2, 4) / 100;
+			if (!damage_hunger)
+				damage_hunger = 1;
+			damage(ch, ch, damage_hunger, NULL, DAM_F_HUNGER);
+			if (ch->position == POS_SLEEPING)
+				return;
+			break;
+
+		case COND_DESIRE:
+			act_char("You want to go your home!", ch);
+			act("$n desires for $s home!", ch, NULL, NULL, TO_ROOM);
+			if (ch->position >= POS_STANDING)
+				move_char(ch, number_door(), 0);
+			break;
+		}
+	}
+}
+
+bool
+bloodthirst(CHAR_DATA *ch, CHAR_DATA *victim)
+{
+	if (IS_IMMORTAL(victim))
+		return FALSE;
+
+	if (ch != victim
+	&&  can_see(ch, victim)
+	&&  !is_safe_nomessage(ch, victim)) {
+		dofun("yell", ch, "BLOOD! I NEED BLOOD!");
+		multi_hit(ch, victim, NULL);
+		if (IS_EXTRACTED(ch)
+		||  ch->fighting != NULL)
+			return TRUE;
+	}
+
+	return FALSE;
 }
 
 /*****************************************************************************

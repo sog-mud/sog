@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.407 2003-10-10 14:28:00 fjoe Exp $
+ * $Id: merc.h,v 1.408 2003-10-10 16:14:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2250,6 +2250,36 @@ extern avltree_info_t c_info_effects;
 
 #define effect_lookup(en) ((effect_t*) c_strkey_lookup(&effects, (en)))
 #define effect_search(en) ((effect_t*) c_strkey_search(&effects, (en)))
+
+/*----------------------------------------------------------------------
+ * update handlers stuff
+ */
+
+struct uhandler_t {
+	const char *name;	/* update handler name */
+	const char *fun_name;	/* update handler function name */
+
+	const char *notify;	/* update handler notification message */
+				/* (printed to wiznet when handler */
+				/*  is triggered) */
+
+	int ticks;		/* ticks between uhandlers */
+	vo_iter_class_t *iter_cl;/* update handler iterator class */
+	int mod;		/* module where update handler */
+				/* implementation resides */
+
+	int cnt;		/* current tick counter */
+	void *fun;		/* update handler function */
+};
+
+extern avltree_t	uhandlers;
+extern avltree_info_t	c_info_uhandlers;
+
+#define uhandler_lookup(ln) ((uhandler_t*) c_strkey_lookup(&uhandlers, (ln)))
+#define uhandler_search(ln) ((uhandler_t*) c_strkey_search(&uhandlers, (ln)))
+
+void uhandler_mod_load(module_t *m);
+void uhandler_mod_unload(module_t *m);
 
 /*----------------------------------------------------------------------
  * skills stuff

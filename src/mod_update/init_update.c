@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_update.c,v 1.19 2003-09-30 00:31:35 fjoe Exp $
+ * $Id: init_update.c,v 1.20 2003-10-10 16:15:07 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,146 +31,60 @@
 
 #include <merc.h>
 #include <module.h>
-#include <db.h>
-#include <rwfile.h>
 
-#include <update.h>
-#include "update_impl.h"
+#include <sog.h>
 
 DECLARE_MODINIT_FUN(_module_load);
 DECLARE_MODINIT_FUN(_module_unload);
-
-static void
-uhandler_init(uhandler_t *hdlr)
-{
-	hdlr->name = str_empty;
-	hdlr->fun_name = str_empty;
-	hdlr->notify = str_empty;
-	hdlr->ticks = 0;
-	hdlr->iter_cl = NULL;
-	hdlr->mod = MOD_UPDATE;
-	hdlr->cnt = 0;
-	hdlr->fun = NULL;
-}
-
-static void
-uhandler_destroy(uhandler_t *hdlr)
-{
-	free_string(hdlr->name);
-	free_string(hdlr->fun_name);
-	free_string(hdlr->notify);
-}
-
-static avltree_info_t c_info_uhandlers = {
-	&avltree_ops,
-
-	(e_init_t) uhandler_init,
-	(e_destroy_t) uhandler_destroy,
-
-	MT_PVOID, sizeof(uhandler_t), ke_cmp_str
-};
-
-DECLARE_DBLOAD_FUN(load_uhandler);
-
-DBFUN dbfun_uhandlers[] =
-{
-	{ "UHANDLER",	load_uhandler, NULL	},		// notrans
-	{ NULL, NULL, NULL }
-};
-
-DBDATA db_uhandlers = { dbfun_uhandlers, NULL, 0 };
+DECLARE_MODINIT_FUN(_module_boot);
 
 MODINIT_FUN(_module_load, m)
 {
-	cmd_t *cmd;
-
-	c_init(&uhandlers, &c_info_uhandlers);
-	db_load_file(&db_uhandlers, ETC_PATH, UHANDLERS_CONF);
-
-	C_FOREACH(cmd, &commands)
-		cmd_load(cmd, MODULE, m);
-	uhandler_load(m->name);
-	update_register(m);
+	uhandler_mod_load(m);
 	return 0;
 }
 
 MODINIT_FUN(_module_unload, m)
 {
-	cmd_t *cmd;
-
-	update_unregister();
-	uhandler_unload(m->name);
-	C_FOREACH(cmd, &commands)
-		cmd_unload(cmd, MODULE);
-	c_destroy(&uhandlers);
+	uhandler_mod_unload(m);
 	return 0;
 }
 
-DBLOAD_FUN(load_uhandler)
+MODINIT_FUN(_module_boot, m)
 {
-	uhandler_t *hdlr = NULL;
+	int hour, day, month;
 
-	for (;;) {
-		bool fMatch = FALSE;
+	/*
+	 * Set time and weather.
+	 */
+	hour = (current_time - 650336715) / (get_pulse("char") / PULSE_PER_SCD);
+	time_info.hour	= hour  % 24;
+	day		= hour  / 24;
+	time_info.day	= day   % 35;
+	month		= day   / 35;
+	time_info.month	= month % 17;
+	time_info.year	= month / 17;
 
-		fread_keyword(fp);
-		switch (rfile_tokfl(fp)) {
-		case 'E':
-			CHECK_VAR(hdlr, "Name");
+	     if (time_info.hour <  5) weather_info.sunlight = SUN_DARK;
+	else if (time_info.hour <  6) weather_info.sunlight = SUN_RISE;
+	else if (time_info.hour < 19) weather_info.sunlight = SUN_LIGHT;
+	else if (time_info.hour < 20) weather_info.sunlight = SUN_SET;
+	else                          weather_info.sunlight = SUN_DARK;
 
-			if (IS_TOKEN(fp, "End")) {
-				hdlr->cnt = number_range(1, hdlr->ticks);
-				if (IS_NULLSTR(hdlr->fun_name))
-					printlog(LOG_ERROR, "load_uhandler: fun name undefined");
-				else if (!hdlr->ticks) {
-					printlog(LOG_ERROR, "load_uhandler: ticks undefined");
-					hdlr->ticks = 1;
-				}
-				return;
-			}
-			break;
+	weather_info.change	= 0;
+	weather_info.mmhg	= 960;
+	if (time_info.month >= 7 && time_info.month <= 12)
+		weather_info.mmhg += number_range(1, 50);
+	else
+		weather_info.mmhg += number_range(1, 80);
 
-		case 'F':
-			CHECK_VAR(hdlr, "Name");
+	     if (weather_info.mmhg <=  980) weather_info.sky = SKY_LIGHTNING;
+	else if (weather_info.mmhg <= 1000) weather_info.sky = SKY_RAINING;
+	else if (weather_info.mmhg <= 1020) weather_info.sky = SKY_CLOUDY;
+	else                                weather_info.sky = SKY_CLOUDLESS;
 
-			SKEY("Fun", hdlr->fun_name, fread_string(fp));
-			break;
+	scan_pfiles();
+	update_one_handler("area");
 
-		case 'I':
-			CHECK_VAR(hdlr, "Name");
-
-			KEY("IteratorClass", hdlr->iter_cl,
-			    (vo_iter_class_t *) (uintptr_t) fread_fword(
-				iterator_classes, fp));
-			break;
-
-		case 'M':
-			CHECK_VAR(hdlr, "Name");
-
-			KEY("Module", hdlr->mod,
-			    fread_fword(module_names, fp));
-			break;
-
-		case 'N':
-			SPKEY("Name", hdlr->name, fread_string(fp),
-			      &uhandlers, hdlr);
-
-			CHECK_VAR(hdlr, "Name");
-
-			SKEY("Notify", hdlr->notify, fread_string(fp));
-			break;
-
-		case 'T':
-			CHECK_VAR(hdlr, "Name");
-
-			KEY("Ticks", hdlr->ticks, fread_number(fp));
-			break;
-		}
-
-		if (!fMatch) {
-			printlog(LOG_ERROR, "%s: %s: Unknown keyword",
-			    __FUNCTION__, rfile_tok(fp));
-			fread_to_eol(fp);
-		}
-	}
+	return 0;
 }

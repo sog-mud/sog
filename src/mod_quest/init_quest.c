@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_quest.c,v 1.10 2001-11-30 21:18:01 fjoe Exp $
+ * $Id: init_quest.c,v 1.11 2003-10-10 16:14:50 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -34,7 +34,7 @@
 #include <container.h>
 #include <cmd.h>
 
-#include <update.h>
+#include <merc.h>
 
 #include <module.h>
 #define MODULE_INIT MOD_QUEST
@@ -47,23 +47,17 @@ DECLARE_MODINIT_FUN(_module_unload);
 
 MODINIT_FUN(_module_load, m)
 {
-	cmd_t *cmd;
-
-	C_FOREACH(cmd, &commands)
-		cmd_load(cmd, MODULE, m);
+	cmd_mod_load(m);
 	dynafun_tab_register(__mod_tab(MODULE), m);
-	uhandler_load(m->name);
+	uhandler_mod_load(m);
 	chquest_init();
 	return 0;
 }
 
 MODINIT_FUN(_module_unload, m)
 {
-	cmd_t *cmd;
-
-	uhandler_unload(m->name);
+	uhandler_mod_unload(m);
 	dynafun_tab_unregister(__mod_tab(MODULE));
-	C_FOREACH(cmd, &commands)
-		cmd_unload(cmd, MODULE);
+	cmd_mod_unload(m);
 	return 0;
 }

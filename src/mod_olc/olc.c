@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.161 2003-09-30 00:31:23 fjoe Exp $
+ * $Id: olc.c,v 1.162 2003-10-10 16:14:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -136,16 +136,13 @@ const char *skip_commands[] = { "n", "w", "e", "s", "u", "d" };
 
 MODINIT_FUN(_module_load, m)
 {
-	cmd_t *cmd;
-
 	olc_interpret = dlsym(m->dlh, "_olc_interpret");
 	if (olc_interpret == NULL) {
 		printlog(LOG_INFO, "_module_load(mod_olc): %s", dlerror());
 		return -1;
 	}
 
-	C_FOREACH(cmd, &commands)
-		cmd_load(cmd, MODULE, m);
+	cmd_mod_load(m);
 	qsort(skip_commands, NSKIP_COMMANDS, sizeof(*skip_commands), cmpstr);
 	return 0;
 }
@@ -153,7 +150,6 @@ MODINIT_FUN(_module_load, m)
 MODINIT_FUN(_module_unload, m)
 {
 	DESCRIPTOR_DATA *d;
-	cmd_t *cmd;
 
 	/* drop all the builders out OLC editors */
 	for (d = descriptor_list; d; d = d->next) {
@@ -167,8 +163,7 @@ MODINIT_FUN(_module_unload, m)
 		edit_done(d);
 	}
 
-	C_FOREACH(cmd, &commands)
-		cmd_unload(cmd, MODULE);
+	cmd_mod_unload(m);
 	olc_interpret = NULL;
 	return 0;
 }

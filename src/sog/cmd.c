@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.c,v 1.29 2003-09-30 00:31:38 fjoe Exp $
+ * $Id: cmd.c,v 1.30 2003-10-10 16:15:10 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -74,10 +74,14 @@ varr_info_t c_info_commands =
 };
 
 void
-cmd_load(cmd_t *cmd, int cmd_mod, module_t *m)
+cmd_mod_load(module_t *m)
 {
-	if (cmd_mod < 0
-	||  cmd_mod == cmd->cmd_mod) {
+	cmd_t *cmd;
+
+	C_FOREACH(cmd, &commands) {
+		if (m->mod_id != cmd->cmd_mod)
+			continue;
+
 		cmd->do_fun = dlsym(m->dlh, cmd->dofun_name);
 		if (cmd->do_fun == NULL)
 			printlog(LOG_INFO, "cmd_load: %s", dlerror());
@@ -85,11 +89,14 @@ cmd_load(cmd_t *cmd, int cmd_mod, module_t *m)
 }
 
 void
-cmd_unload(cmd_t *cmd, int cmd_mod)
+cmd_mod_unload(module_t *m)
 {
-	if (cmd_mod < 0
-	||  cmd_mod == cmd->cmd_mod)
-		cmd->do_fun = NULL;
+	cmd_t *cmd;
+
+	C_FOREACH(cmd, &commands) {
+		if (m->mod_id == cmd->cmd_mod)
+			cmd->do_fun = NULL;
+	}
 }
 
 void

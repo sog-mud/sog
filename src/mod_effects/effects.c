@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.48 2003-10-10 14:28:13 fjoe Exp $
+ * $Id: effects.c,v 1.49 2003-10-10 16:14:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,8 +46,6 @@
 #include <time.h>
 
 #include <merc.h>
-
-#include <update.h>
 
 #include <sog.h>
 

@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.160 2003-10-10 14:28:26 fjoe Exp $
+ * $Id: recycle.c,v 1.161 2003-10-10 16:15:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -42,6 +42,7 @@
 
 #include <sys/time.h>
 #include <assert.h>
+#include <dlfcn.h>
 #include <regex.h>
 #include <stdio.h>
 #include <string.h>
@@ -49,6 +50,8 @@
 
 #include <merc.h>
 #include <rwfile.h>
+#include <module.h>
+#include <module_decl.h>
 #include <mprog.h>
 
 flag_t		mud_options;
@@ -1305,6 +1308,68 @@ avltree_info_t c_info_effects =
 
 	MT_PVOID, sizeof(effect_t), ke_cmp_str
 };
+
+/*--------------------------------------------------------------------
+ * uhandler_t
+ */
+
+avltree_t uhandlers;
+
+static void
+uhandler_init(uhandler_t *hdlr)
+{
+	hdlr->name = str_empty;
+	hdlr->fun_name = str_empty;
+	hdlr->notify = str_empty;
+	hdlr->ticks = 0;
+	hdlr->iter_cl = NULL;
+	hdlr->mod = MOD_UPDATE;
+	hdlr->cnt = 0;
+	hdlr->fun = NULL;
+}
+
+static void
+uhandler_destroy(uhandler_t *hdlr)
+{
+	free_string(hdlr->name);
+	free_string(hdlr->fun_name);
+	free_string(hdlr->notify);
+}
+
+avltree_info_t c_info_uhandlers = {
+	&avltree_ops,
+
+	(e_init_t) uhandler_init,
+	(e_destroy_t) uhandler_destroy,
+
+	MT_PVOID, sizeof(uhandler_t), ke_cmp_str
+};
+
+void
+uhandler_mod_load(module_t *m)
+{
+	uhandler_t *hdlr;
+
+	C_FOREACH(hdlr, &uhandlers) {
+		if (m->mod_id != hdlr->mod)
+			continue;
+
+		hdlr->fun = dlsym(m->dlh, hdlr->fun_name);
+		if (hdlr->fun == NULL)
+			printlog(LOG_ERROR, "%s: %s", __FUNCTION__, dlerror());
+	}
+}
+
+void
+uhandler_mod_unload(module_t *m)
+{
+	uhandler_t *hdlr;
+
+	C_FOREACH(hdlr, &uhandlers) {
+		if (m->mod_id == hdlr->mod)
+			hdlr->fun = NULL;
+	}
+}
 
 /*--------------------------------------------------------------------
  * skill_t

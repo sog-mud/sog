@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: healer.c,v 1.60 2003-10-10 14:28:08 fjoe Exp $
+ * $Id: healer.c,v 1.61 2003-10-10 16:14:28 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -34,7 +34,6 @@
 #include <merc.h>
 
 #include <sog.h>
-#include <update.h>
 
 DECLARE_DO_FUN(do_heal);
 

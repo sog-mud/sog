@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.279 2003-09-30 00:31:08 fjoe Exp $
+ * $Id: act_comm.c,v 1.280 2003-10-10 16:14:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -55,7 +55,6 @@
 #include <note.h>
 
 #include <sog.h>
-#include <update.h>
 
 #include "toggle.h"
 

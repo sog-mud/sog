@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.436 2003-10-10 14:28:06 fjoe Exp $
+ * $Id: act_info.c,v 1.437 2003-10-10 16:14:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -55,7 +55,6 @@
 #include <lang.h>
 
 #include <sog.h>
-#include <update.h>
 #include <quest.h>
 
 #if defined(SUNOS) || defined(SVR4) || defined(LINUX)
