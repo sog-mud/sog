@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.22 1998-12-01 10:53:56 fjoe Exp $
+ * $Id: string_edit.c,v 1.23 1998-12-07 05:51:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -403,23 +403,12 @@ const char *string_linedel(const char *string, int line)
 
 	buf[0] = '\0';
 
-	for (; *strtmp != '\0'; strtmp++)
-	{
+	for (; *strtmp != '\0'; strtmp++) {
 		if (cnt != line)
 			buf[tmp++] = *strtmp;
 
 		if (*strtmp == '\n')
-		{
-			if (*(strtmp + 1) == '\r')
-			{
-				if (cnt != line)
-					buf[tmp++] = *(++strtmp);
-				else
-					++strtmp;
-			}
-
 			cnt++;
-		}
 	}
 
 	buf[tmp] = '\0';
@@ -440,13 +429,11 @@ const char *string_lineadd(const char *string, char *newstr, int line)
 	if (newstr[0] == '.')
 		newstr++;
 
-	for (; *strtmp != '\0' || (!done && cnt == line); strtmp++)
-	{
-		if (cnt == line && !done)
-		{
+	for (; *strtmp != '\0' || (!done && cnt == line); strtmp++) {
+		if (cnt == line && !done) {
 			strcat(buf, newstr);
 			strcat(buf, "\n");
-			tmp += strlen(newstr) + 2;
+			tmp += strlen(newstr) + 1;
 			cnt++;
 			done = TRUE;
 		}
@@ -457,12 +444,7 @@ const char *string_lineadd(const char *string, char *newstr, int line)
 			break;
 
 		if (*strtmp == '\n')
-		{
-			if (*(strtmp + 1) == '\r')
-				buf[tmp++] = *(++strtmp);
-
 			cnt++;
-		}
 
 		buf[tmp] = '\0';
 	}
@@ -477,10 +459,8 @@ const char *getline(const char *str, char *buf)
 	int tmp = 0;
 	bool found = FALSE;
 
-	while (*str)
-	{
-		if (*str == '\n')
-		{
+	while (*str) {
+		if (*str == '\n') {
 			found = TRUE;
 			break;
 		}
@@ -488,8 +468,7 @@ const char *getline(const char *str, char *buf)
 		buf[tmp++] = *(str++);
 	}
 
-	if (found)
-	{
+	if (found) {
 		if (*(str + 1) == '\r')
 			str += 2;
 		else
@@ -509,8 +488,7 @@ char *numlines(const char *string)
 
 	buf[0] = '\0';
 
-	while (*string)
-	{
+	while (*string) {
 		string = getline(string, tmpb);
 		sprintf(buf2, "%2d. %s\n", cnt++, tmpb);
 		strcat(buf, buf2);

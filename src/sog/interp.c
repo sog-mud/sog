@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.94 1998-12-01 10:53:52 fjoe Exp $
+ * $Id: interp.c,v 1.95 1998-12-07 05:51:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1015,7 +1015,7 @@ void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
     if (ch->prefix[0] != '\0' && str_prefix("prefix",argument))
     {
 	if (strlen(ch->prefix) + strlen(argument) > MAX_INPUT_LENGTH)
-	    char_puts("Line to long, prefix not processed.\r\n",ch);
+	    char_puts("Line to long, prefix not processed.\n",ch);
 	else
 	{
 	    sprintf(prefix,"%s %s",ch->prefix,argument);
@@ -1050,7 +1050,7 @@ void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 	    }
 	    if (strlen(buf) > MAX_INPUT_LENGTH)
 	    {
-		char_puts("Alias substitution too long. Truncated.\r\n",ch);
+		char_puts("Alias substitution too long. Truncated.\n",ch);
 		buf[MAX_INPUT_LENGTH -1] = '\0';
 	    }
 	}

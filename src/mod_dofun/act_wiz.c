@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.95 1998-12-01 12:44:36 fjoe Exp $
+ * $Id: act_wiz.c,v 1.96 1998-12-07 05:51:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3152,18 +3152,18 @@ void do_holylight(CHAR_DATA *ch, const char *argument)
 
 DO_FUN(do_prefi)
 {
-	char_puts("You cannot abbreviate the prefix command.\r\n", ch);
+	char_puts("You cannot abbreviate the prefix command.\n", ch);
 }
 
 DO_FUN(do_prefix)
 {
 	if (argument[0] == '\0') {
 		if (ch->prefix[0] == '\0') {
-			char_puts("You have no prefix to clear.\r\n",ch);
+			char_puts("You have no prefix to clear.\n",ch);
 			return;
 		}
 
-		char_puts("Prefix removed.\r\n",ch);
+		char_puts("Prefix removed.\n",ch);
 		free_string(ch->prefix);
 		ch->prefix = str_empty;
 		return;
@@ -3171,7 +3171,7 @@ DO_FUN(do_prefix)
 
 	free_string(ch->prefix);
 	ch->prefix = str_dup(argument);
-	char_printf(ch, "Prefix set to '%s'.\r\n", argument);
+	char_printf(ch, "Prefix set to '%s'.\n", argument);
 }
 
 void advance(CHAR_DATA *victim, int level)
