@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.213 2000-04-17 14:08:53 fjoe Exp $
+ * $Id: spellfun.c,v 1.214 2000-04-19 10:29:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3202,7 +3202,7 @@ void spell_sanctuary(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	if (is_affected(victim, "black shroud")) {
+	if (IS_AFFECTED(victim, AFF_BLACK_SHROUD)) {
 		if (victim == ch)
 	 		char_puts("But you are surrounded by black shroud.\n",
 				  ch);
