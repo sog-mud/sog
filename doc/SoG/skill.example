@@ -1,0 +1,34 @@
+#
+# $Id: skill.example,v 1.1 2004-02-27 15:00:25 tatyana Exp $
+#
+
+#SKILL
+Name ~
+Gender ~
+Type
+Group
+MinPos
+Target 
+Beats
+Rank
+MinMana
+Flags
+Fun
+NounDamage ~
+NounGender ~
+DamClass
+SpellFun 
+Effect ~
+Event 
+WearOff ~
+ObjWearOff ~
+End
+
+Target: ignore, charoff, chardef, charself, objinv, objchardef, objcharoff
+MinPos: dead, mort, incap, stun, sleep, rest, sit, fight, stand
+Event   enter_room, leave_room, update_room, timeout_room, update_char,
+ types:	update_fast_char, timeout_char, aff_remove_char
+Flags:	range, area_attack, questionable, form, missile, shadow
+Rank:	1-7
+Type:	skill, spell, prayer, damtype
+Effect: acid, cold, fire, poison, shock, sand, scream
