@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.25 2001-07-08 07:43:00 kostik Exp $
+ * $Id: act_comm.c,v 1.187.2.26 2001-08-25 04:46:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -797,7 +797,7 @@ void do_follow(CHAR_DATA *ch, const char *argument)
 	if (!IS_NPC(victim)
 	&&  IS_SET(PC(victim)->plr_flags, PLR_NOFOLLOW)
 	&&  !IS_IMMORTAL(ch)) {
-		act("$N doesn't seem to want any followers.\n",
+		act("$N doesn't seem to want any followers.",
 		    ch, NULL, victim, TO_CHAR);
 		return;
 	}
