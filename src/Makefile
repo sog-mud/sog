@@ -1,31 +1,32 @@
 #
-# $Id: Makefile,v 1.26 1998-09-29 01:06:35 fjoe Exp $
+# $Id: Makefile,v 1.27 1998-09-29 08:59:31 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
 INCLUDES	= -I . -I ../msgdb
-CFLAGS		=  -g -Wall -O -pipe $(INCLUDES)
-LFLAGS		=  -g
+CFLAGS		= -pg -g -Wall -O -pipe $(INCLUDES)
+LFLAGS		= -pg -g
+LIBS		=
 INSTALL_PATH	= ..
 
 #
 # for SUNOS
-#CFLAGS += -DSUNOS
-#LFLAGS += -lsocket -lnsl
-#CFILES += compat/strsep.c compat/snprintf.c
-#OFILES += strsep.o snprintf.o
+#CFLAGS	+= -DSUNOS
+#LIBS	+= -lsocket -lnsl
+#CFILES	+= compat/strsep.c compat/snprintf.c
+#OFILES	+= strsep.o snprintf.o
 
 #
 # for FreeBSD
-CFLAGS += -DBSD44
-LFLAGS += -lcrypt
+CFLAGS	+= -DBSD44
+LIBS	+= -lcrypt
 
 #
 # for Unixware 2.x
-#CFLAGS += -DSVR4 -DOLD_RAND
-#LFLAGS += -lsocket -lnsl -lcrypt
-#CFILES += compat/strsep.c
-#OFILES += strsep.o
+#CFLAGS	+= -DSVR4 -DOLD_RAND
+#LIBS	+= -lsocket -lnsl -lcrypt
+#CFILES	+= compat/strsep.c
+#OFILES	+= strsep.o
 
 #
 # Generally Makefile should not be edited below this line
@@ -69,7 +70,7 @@ OFILES = act_comm.o act_info.o act_move.o act_obj.o act_wiz.o auction.o\
 
 muddy: $(OFILES)
 	rm -f muddy
-	$(LD) $(LFLAGS) -o muddy $(OFILES)
+	$(LD) $(LFLAGS) -o muddy $(OFILES) $(LIBS)
 
 .c.o: 
 	$(CC) $(CFLAGS) -c $<
