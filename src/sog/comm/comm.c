@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.175 1999-04-17 09:02:50 fjoe Exp $
+ * $Id: comm.c,v 1.176 1999-04-17 10:12:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -957,8 +957,10 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 			break;
 
 		case IAC:
-			q = p+1;
-			break;
+			memmove(p, p+1, strlen(p));
+			p++;
+			continue;
+			/* NOTREACHED */
 
 		default:
 			q = p+2;
