@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.148 1999-05-17 14:10:17 fjoe Exp $
+ * $Id: spellfun.c,v 1.149 1999-05-19 08:05:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2798,7 +2798,7 @@ void spell_draining_touch(int sn, int level, CHAR_DATA *ch, void *vo, int target
 	act("$n touches $N with $s fingers.", ch, NULL, victim, TO_NOTVICT);
 	act("$n touches you with $s fingers.", ch, NULL, victim, TO_VICT);
 
-	if (JUST_KILLED(victim)) return;
+	if (IS_EXTRACTED(victim)) return;
 
 	if (!is_affected(victim,sn)
 	    && !saves_spell(level-5, victim, DAM_NEGATIVE)) {

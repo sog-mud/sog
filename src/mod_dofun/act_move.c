@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.168 1999-05-18 12:09:16 avn Exp $
+ * $Id: act_move.c,v 1.169 1999-05-19 08:05:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -410,7 +410,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
   		mount->riding = TRUE;
 	}
 
-	if (!JUST_KILLED(ch))
+	if (!IS_EXTRACTED(ch))
 		do_look(ch, "auto");
 
 	if (in_room == to_room) /* no circular follows */
@@ -440,7 +440,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		move_char(fch, door, TRUE);
 	}
 
-	if (JUST_KILLED(ch))
+	if (IS_EXTRACTED(ch))
 		return TRUE;
 
 	room_has_pc = FALSE;
@@ -3639,7 +3639,7 @@ void do_enter(CHAR_DATA *ch, const char *argument)
   		mount->riding = TRUE;
 	}
 
-	if (!JUST_KILLED(ch))
+	if (!IS_EXTRACTED(ch))
 		do_look(ch,"auto");
 
 	/* charges */
@@ -3691,7 +3691,7 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 		extract_obj(portal, 0);
 	}
 
-	if (JUST_KILLED(ch))
+	if (IS_EXTRACTED(ch))
 		return;
 
 	/* 

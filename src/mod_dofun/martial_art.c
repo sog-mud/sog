@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.90 1999-05-18 19:58:23 fjoe Exp $
+ * $Id: martial_art.c,v 1.91 1999-05-19 08:05:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1444,7 +1444,7 @@ void do_caltrops(CHAR_DATA *ch, const char *argument)
 	}
 
 	damage(ch, victim, LEVEL(ch), gsn_caltrops, DAM_PIERCE, TRUE);
-	if (JUST_KILLED(victim))
+	if (IS_EXTRACTED(victim))
 		return;
 
 	if (!is_affected(victim, gsn_caltrops)) {

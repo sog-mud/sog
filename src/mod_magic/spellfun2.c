@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.104 1999-05-19 06:00:54 fjoe Exp $
+ * $Id: spellfun2.c,v 1.105 1999-05-19 08:05:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -408,7 +408,7 @@ void spell_mental_knife(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	if (saves_spell(level,victim, DAM_MENTAL))
 	      dam /= 2;
 	damage(ch,victim,dam,sn,DAM_MENTAL, TRUE);
-	if (JUST_KILLED(victim))
+	if (IS_EXTRACTED(victim))
 		return;
 
 	if (!is_affected(victim,sn) && !saves_spell(level, victim, DAM_MENTAL))
@@ -492,7 +492,7 @@ void spell_demon_summon(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	affect_to_char(ch, &af);  
 
 	char_to_room(demon,ch->in_room);
-	if (JUST_KILLED(demon))
+	if (IS_EXTRACTED(demon))
 		return;
 
 	if (number_percent() < 40)
@@ -1244,7 +1244,7 @@ void spell_wrath(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	if (saves_spell(level, victim, DAM_HOLY))
 		dam /= 2;
 	damage(ch, victim, dam, sn, DAM_HOLY, TRUE);
-	if (JUST_KILLED(victim))
+	if (IS_EXTRACTED(victim))
 		return;
 
 	if (IS_AFFECTED(victim, AFF_CURSE)
@@ -1999,7 +1999,7 @@ void spell_entangle(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		dam /= 2;
 	
 	damage(ch, victim, dam, sn, DAM_PIERCE, TRUE);
-	if (JUST_KILLED(victim))
+	if (IS_EXTRACTED(victim))
 		return;
 	
 	act("The thorny plants spring up around $n, entangling $s legs!",
@@ -2621,7 +2621,7 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo, int target)
 
 		extract_obj(obj, 0);
 		char_to_room(undead, ch->in_room);
-		if (!JUST_KILLED(undead))
+		if (!IS_EXTRACTED(undead))
 			do_wear(undead, "all");
 		return;
 	}
@@ -3153,7 +3153,7 @@ void spell_lion_help(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	affect_to_char(ch, &af);  
 	lion->hunting = victim;
 	char_to_room(lion, ch->in_room);
-	if (!JUST_KILLED(lion))
+	if (!IS_EXTRACTED(lion))
 		return;
 	hunt_victim(lion);
 }
@@ -3253,7 +3253,7 @@ void turn_spell(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	dam = (dam * align * align) / 1000000;
 	damage(ch, victim, dam, sn, DAM_HOLY, TRUE);
-	if (!JUST_KILLED(victim))
+	if (!IS_EXTRACTED(victim))
 		do_flee(victim, str_empty);
 }
 
@@ -5145,7 +5145,7 @@ void spell_mirror(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		if (new_mirrors == order) {
 			char_from_room(victim);
 			char_to_room(victim, gch->in_room);
-			if (JUST_KILLED(victim))
+			if (IS_EXTRACTED(victim))
 				break;
 		}
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.33 1999-04-15 09:14:17 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.34 1999-05-19 08:05:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -659,17 +659,17 @@ void do_mpat(CHAR_DATA *ch, const char *argument)
     on = ch->on;
     char_from_room(ch);
     char_to_room(ch, location);
-    if (JUST_KILLED(ch))
+    if (IS_EXTRACTED(ch))
 	return;
 
 	interpret(ch, argument);
 
-	if (ch->extracted)
+	if (IS_EXTRACTED(ch))
 		return;
 
 	char_from_room(ch);
 	char_to_room(ch, original);
-	if (!JUST_KILLED(ch))
+	if (!IS_EXTRACTED(ch))
 		ch->on = on;
 }
  
@@ -739,7 +739,7 @@ void do_mptransfer(CHAR_DATA *ch, const char *argument)
 	stop_fighting(victim, TRUE);
     char_from_room(victim);
     char_to_room(victim, location);
-    if (!JUST_KILLED(victim))
+    if (!IS_EXTRACTED(victim))
     	do_look(victim, "auto");
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.169 1999-05-18 19:58:22 fjoe Exp $
+ * $Id: fight.c,v 1.170 1999-05-19 08:05:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1188,7 +1188,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	int dam2;
 	int loc;
 
-	if (JUST_KILLED(victim))
+	if (IS_EXTRACTED(victim))
 		return FALSE;
 
 	if (victim != ch) {

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.178 1999-05-15 09:28:25 fjoe Exp $
+ * $Id: comm.c,v 1.179 1999-05-19 08:05:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2348,7 +2348,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			}
 		}
 
-		if (!JUST_KILLED(ch)) {
+		if (!IS_EXTRACTED(ch)) {
 			do_look(ch, "auto");
 			do_unread(ch, "login");  
 		}

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.133 1999-05-15 13:01:30 fjoe Exp $
+ * $Id: db.c,v 1.134 1999-05-19 08:05:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -652,7 +652,7 @@ void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 		pMob = create_mob(pMobIndex);
 		pMob->zone = pRoom->area;
 		char_to_room(pMob, pRoom);
-		if (JUST_KILLED(pMob))
+		if (IS_EXTRACTED(pMob))
 			LastMob = NULL;
 		else
             		LastMob = pMob;

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.123 1999-05-12 18:54:49 avn Exp $
+ * $Id: update.c,v 1.124 1999-05-19 08:05:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -60,6 +60,7 @@ DECLARE_DO_FUN(do_yell		);
 DECLARE_DO_FUN(do_asave		);
 
 void	back_home		(CHAR_DATA *ch);
+void	hatchout_dragon		(CHAR_DATA *ch, AFFECT_DATA *paf);
 
 /*
  * Local functions.
@@ -562,7 +563,7 @@ void mobile_update(void)
 
 		ch_next = ch->next;
 
-		if (ch->extracted) {
+		if (IS_EXTRACTED(ch)) {
 			log_printf("mobile_update: extracted char");
 			continue;
 		}
@@ -1153,7 +1154,7 @@ void char_update(void)
 						save_char_obj(ch, FALSE);
   					char_from_room(ch);
 					char_to_room(ch, get_room_index(ROOM_VNUM_LIMBO));
-					if (JUST_KILLED(ch))
+					if (IS_EXTRACTED(ch))
 						continue;
 				}
 			}
@@ -1192,9 +1193,26 @@ void char_update(void)
 				&&  !IS_NULLSTR(sk->msg_off)) 
 					act_puts(sk->msg_off, ch, NULL, NULL,
 						 TO_CHAR, POS_DEAD);
+
+				/*
+				 * this code will be replaced
+				 * with aff_remove callbacks
+				 */
+				if (paf->type == gsn_bone_dragon) {
+					hatchout_dragon(ch, paf);
+
+					if (IS_EXTRACTED(ch)) {
+						aff_free(paf);
+						break;
+					}
+				}
+
 				affect_remove(ch, paf);
 			}
 		}
+
+		if (IS_EXTRACTED(ch))
+			continue;
 
 		/*
 		 * Careful with the damages here,
@@ -1694,7 +1712,7 @@ void aggr_update(void)
 				&&  !is_safe_nomessage(wch,vch)) {
 					act_puts("{RMORE BLOOD! MORE BLOOD! MORE BLOOD!!!{x", wch,NULL,NULL,TO_CHAR,POS_RESTING);
 					do_murder(wch, vch->name);
-					if (JUST_KILLED(wch))
+					if (IS_EXTRACTED(wch))
 						continue;
 				}
 			}
@@ -2343,3 +2361,48 @@ void clan_item_update(void)
 		}
 	}
 }
+
+void hatchout_dragon(CHAR_DATA *coc, AFFECT_DATA *paf)
+{
+	CHAR_DATA *ch, *drag;
+	int i, dlev;
+
+	if (!IS_NPC(coc)
+	||  coc->pIndexData->vnum != MOB_VNUM_COCOON)
+		return;
+
+	if ((ch = coc->master) == NULL) {
+		log("Hatchout_dragon: no master set!");
+		extract_char(coc, 0);
+		return;
+	}
+
+	dlev = ch->level*2/3 + paf->level/14;
+
+	act("Cocoon explodes and nasty dracolich emerges!",
+	    coc, NULL, NULL, TO_ALL);
+
+	drag = create_mob(get_mob_index(MOB_VNUM_BONE_DRAGON));
+	for (i=0; i < MAX_STATS; i++)
+		drag->perm_stat[i] = UMIN(25, 15+dlev/10);
+	drag->perm_stat[STAT_STR] += 3;
+	drag->perm_stat[STAT_DEX] += 1;
+	drag->perm_stat[STAT_CON] += 1;
+	drag->max_hit = UMIN(30000, number_range(100*dlev, 200*dlev));
+	drag->hit = drag->max_hit;
+	drag->max_mana = dice(dlev, 30);
+	drag->mana = drag->max_mana;
+	drag->level = dlev;
+	for (i = 0; i < 3; i++)
+		drag->armor[i] = interpolate(dlev, 100, -120);
+	drag->armor[3] = interpolate(dlev, 100, -40);
+	drag->gold = 0;
+	drag->timer = 0;
+	drag->damage[DICE_NUMBER] = number_fuzzy(13);
+	drag->damage[DICE_TYPE] = number_fuzzy(9);
+	drag->damage[DICE_BONUS] = dlev/2 + dice(3, 11);
+	drag->master = drag->leader = ch;
+	char_to_room(drag, coc->in_room);
+	extract_char(coc, 0);
+}
+

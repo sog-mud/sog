@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.148 1999-05-18 14:15:25 fjoe Exp $
+ * $Id: act_wiz.c,v 1.149 1999-05-19 08:05:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -728,7 +728,7 @@ void do_transfer(CHAR_DATA *ch, const char *argument)
 	char_puts("Ok.\n", ch);
 
 	char_to_room(victim, location);
-	if (JUST_KILLED(victim))
+	if (IS_EXTRACTED(victim))
 		return;
 
 	do_look(victim, "auto");
@@ -764,18 +764,18 @@ void do_at(CHAR_DATA *ch, const char *argument)
 	char_from_room(ch);
 
 	char_to_room(ch, location);
-	if (JUST_KILLED(ch))
+	if (IS_EXTRACTED(ch))
 		return;
 
 	interpret(ch, argument);
 
 	/* handle 'at xxx quit' */
-	if (JUST_KILLED(ch) || ch->extracted)
+	if (IS_EXTRACTED(ch))
 		return;
 
 	char_from_room(ch);
 	char_to_room(ch, original);
-	if (JUST_KILLED(ch))
+	if (IS_EXTRACTED(ch))
 		return;
 	ch->on = on;
 }
@@ -850,7 +850,7 @@ void do_goto(CHAR_DATA *ch, const char *argument)
 				    rch, NULL, ch, TO_CHAR);
 
 	char_to_room(ch, location);
-	if (JUST_KILLED(ch))
+	if (IS_EXTRACTED(ch))
 		return;
 	do_look(ch, "auto");
 
@@ -907,7 +907,7 @@ void do_violate(CHAR_DATA *ch, const char *argument)
 				    rch, NULL, ch, TO_CHAR);
 	
 	char_to_room(ch, location);
-	if (JUST_KILLED(ch))
+	if (IS_EXTRACTED(ch))
 		return;
 	do_look(ch, "auto");
 }
@@ -4164,7 +4164,6 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 		return;
 	}
 
-
 /* delete old pfile */
 	if (str_cmp(new_name, old_name)) {
 		DESCRIPTOR_DATA *d;
@@ -4193,22 +4192,31 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 		}
 
 		if (victim->clan && (clan = clan_lookup(victim->clan))) {
-		bool touched = FALSE;
+			bool touched = FALSE;
 
-		if (name_delete(&clan->member_list, old_name, NULL, NULL)) {
-			touched = TRUE;
-			name_add(&clan->member_list, new_name, NULL, NULL);
-		}
-		if (name_delete(&clan->leader_list, old_name, NULL, NULL)) {
-			touched = TRUE;
-			name_add(&clan->leader_list, new_name, NULL, NULL);
-		}
-		if (name_delete(&clan->second_list, old_name, NULL, NULL)) {
-			touched = TRUE;
-			name_add(&clan->second_list, new_name, NULL, NULL);
-		}
-		if (touched)
-			clan_save(clan);
+			if (name_delete(&clan->member_list, old_name,
+					NULL, NULL)) {
+				touched = TRUE;
+				name_add(&clan->member_list, new_name,
+					 NULL, NULL);
+			}
+
+			if (name_delete(&clan->leader_list, old_name,
+					NULL, NULL)) {
+				touched = TRUE;
+				name_add(&clan->leader_list, new_name,
+					 NULL, NULL);
+			}
+
+			if (name_delete(&clan->second_list, old_name,
+					NULL, NULL)) {
+				touched = TRUE;
+				name_add(&clan->second_list, new_name,
+					 NULL, NULL);
+			}
+
+			if (touched)
+				clan_save(clan);
 		}
 
 		/* change object owners */

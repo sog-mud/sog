@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.187 1999-05-17 14:10:19 fjoe Exp $
+ * $Id: merc.h,v 1.188 1999-05-19 08:05:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1807,7 +1807,7 @@ void SET_ORG_RACE(CHAR_DATA *ch, int race);
 #define IS_DRUNK(ch)	(IS_NPC(ch)  ? \
 			      FALSE : ch->pcdata->condition[COND_DRUNK] > 10)
 
-#define JUST_KILLED(ch)		(ch->last_death_time >= current_time)
+#define IS_EXTRACTED(ch)	(ch->extracted || ch->last_death_time >= current_time)
 #define CAN_FLEE(ch, cl)	((cl)->death_limit < 0 || \
 			         (ch)->level < MIN_PK_LEVEL)
 /*
