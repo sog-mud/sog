@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.c,v 1.27 2004-02-22 19:43:38 fjoe Exp $
+ * $Id: comm.c,v 1.28 2004-02-22 20:30:15 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -1086,7 +1086,9 @@ read_from_buffer(DESCRIPTOR_DATA *d)
 again:
 	for (i = 0; inbuf[i] != '\n' && inbuf[i] != '\r'; i++) {
 		if (inbuf[i] == '\0') {
-			if (inbuf == d->inbuf) {
+			if (inbuf == d->inbuf
+			&&  d->character != NULL
+			&&  d->character->wait == 0) {
 				/*
 				 * Try again with queued commands buffer
 				 */
