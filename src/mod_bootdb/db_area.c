@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.136 2001-09-16 12:04:25 fjoe Exp $
+ * $Id: db_area.c,v 1.137 2001-09-16 18:14:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -556,12 +556,13 @@ DBLOAD_FUN(load_rooms)
 			if (letter == 'S')
 				break;
 
-			if (letter == 'H') /* healing room */
+			if (letter == 'm') {
+				if (trig_fread_list(&pRoomIndex->mp_trigs, fp))
+					x_room_add(pRoomIndex);
+			} else if (letter == 'H') /* healing room */
 				pRoomIndex->heal_rate = fread_number(fp);
-
 			else if (letter == 'M') /* mana room */
 				pRoomIndex->mana_rate = fread_number(fp);
-
 			else if (letter == 'D') {
 				EXIT_DATA *pexit;
 				int locks;

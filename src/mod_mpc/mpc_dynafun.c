@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.c,v 1.20 2001-09-16 12:04:29 fjoe Exp $
+ * $Id: mpc_dynafun.c,v 1.21 2001-09-16 18:14:20 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -395,6 +395,33 @@ int
 obj_cost(OBJ_DATA *obj)
 {
 	return obj->cost;
+}
+
+int
+char_vnum(CHAR_DATA *ch)
+{
+	if (!IS_NPC(ch))
+		return 0;
+
+	return ch->pMobIndex->vnum;
+}
+
+const char *
+char_hometown(CHAR_DATA *ch)
+{
+	if (!IS_NPC(ch))
+		return hometown_name(PC(ch)->hometown);
+
+	if (NPC(ch)->zone)
+		return NPC(ch)->zone->name;
+
+	return ch->in_room->area->name;
+}
+
+bool
+is_owner_name(OBJ_DATA *obj, const char *name)
+{
+	return is_name_strict(name, mlstr_mval(&obj->owner));
 }
 
 #else /* !defined(MPC) */

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.407 2001-09-15 19:23:29 fjoe Exp $
+ * $Id: act_info.c,v 1.408 2001-09-16 18:14:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -222,7 +222,7 @@ DO_FUN(do_socials, ch, argument)
 
 	do {
 		mob_index = get_mob_index(number_range(1, top_vnum_mob));
-		// XXX should skip mobs with act triggers :)
+		// XXX MPC ACT should skip mobs with act triggers :)
 	} while (mob_index == NULL);
 
 	/*
@@ -587,7 +587,7 @@ look_obj(CHAR_DATA *ch, OBJ_DATA *obj, ED_DATA *ed, bool show_desc)
 	} else if (show_desc) {
 		act_puts(format_long(&obj->description, ch),
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-	} else
+	} else if (!OBJ_HAS_TRIGGER(obj, TRIG_OBJ_LOOK))
 		act_char("You see nothing special about it.", ch);
 
 	pull_obj_trigger(TRIG_OBJ_LOOK, obj, ch, NULL);
@@ -1949,25 +1949,26 @@ DO_FUN(do_request, ch, argument)
 	act("You request $p from $N.",	 ch, obj, victim, TO_CHAR);
 	act("$n requests $p from you.", ch, obj, victim, TO_VICT);
 
-#if 0
-	XXX
-	oprog_call(OPROG_GIVE, obj, ch, victim);
-#endif
+	pull_obj_trigger(TRIG_OBJ_GIVE, obj, victim, ch);
 
-	ch->move -= (50 + ch->level);
-	ch->move = UMAX(ch->move, 0);
-	ch->hit -= 3 * (ch->level / 2);
-	ch->hit = UMAX(ch->hit, 0);
+	if (!IS_EXTRACTED(ch)) {
+		ch->move -= (50 + ch->level);
+		ch->move = UMAX(ch->move, 0);
+		ch->hit -= 3 * (ch->level / 2);
+		ch->hit = UMAX(ch->hit, 0);
 
-	act("You feel grateful for the trust of $N.",
-	    ch, NULL, victim, TO_CHAR);
-	act_char("and for the goodness you have seen in the world.", ch);
+		paf = aff_new(TO_AFFECTS, "reserved");
+		paf->level = ch->level;
+		paf->duration = ch->level / 10;
+		affect_to_char(ch, paf);
+		aff_free(paf);
 
-	paf = aff_new(TO_AFFECTS, "reserved");
-	paf->level = ch->level;
-	paf->duration = ch->level / 10;
-	affect_to_char(ch, paf);
-	aff_free(paf);
+		if (!IS_EXTRACTED(victim)) {
+			act("You feel grateful for the trust of $N.",
+			    ch, NULL, victim, TO_CHAR);
+			act_char("and for the goodness you have seen in the world.", ch);
+		}
+	}
 }
 
 DO_FUN(do_hometown, ch, argument)
@@ -3467,7 +3468,6 @@ DO_FUN(do_glist, ch, argument)
 	int col = 0;
 
 	one_argument(argument, arg, sizeof(arg));
-	
 	if (arg[0] == '\0') {
 		act_char("Syntax: glist <group>.", ch);
 		act_char("Use 'glist ?' to get the list of groups.", ch);
@@ -3695,11 +3695,9 @@ DO_FUN(do_demand, ch, argument)
 	act("You demand $p from $N.",	ch, obj, victim, TO_CHAR  );
 	act("$n demands $p from you.", ch, obj, victim, TO_VICT  );
 
-#if 0
-	XXX
-	oprog_call(OPROG_GIVE, obj, ch, victim);
-#endif
-	act_char("Your power makes all around the world shivering.", ch);
+	pull_obj_trigger(TRIG_OBJ_GIVE, obj, victim, ch);
+	if (!IS_EXTRACTED(ch))
+		act_char("Your power makes all around the world shivering.", ch);
 }
 
 DO_FUN(do_control, ch, argument)

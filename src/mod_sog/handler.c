@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.328 2001-09-15 19:23:36 fjoe Exp $
+ * $Id: handler.c,v 1.329 2001-09-16 18:14:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1576,6 +1576,24 @@ FOREACH_CB_FUN(pull_obj_trigger_cb, p, ap)
 }
 
 static
+FOREACH_CB_FUN(pull_mob_exit_cb, p, ap)
+{
+	CHAR_DATA *vch = (CHAR_DATA *) p;
+
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	char *arg = va_arg(ap, char *);
+
+	if (!can_see(vch, ch))
+		return NULL;
+
+	if (pull_mob_trigger(TRIG_MOB_EXIT, vch, ch, arg) > 0
+	||  IS_EXTRACTED(ch))
+		return p;
+
+	return NULL;
+}
+
+static
 FOREACH_CB_FUN(pull_mob_greet_cb, p, ap)
 {
 	CHAR_DATA *vch = (CHAR_DATA *) p;
@@ -1597,22 +1615,49 @@ FOREACH_CB_FUN(pull_mob_greet_cb, p, ap)
 	return NULL;
 }
 
-static
-FOREACH_CB_FUN(pull_mob_exit_cb, p, ap)
+bool
+pull_exit_triggers(CHAR_DATA *ch, int door)
 {
-	CHAR_DATA *vch = (CHAR_DATA *) p;
+	const char *dir = door == -1 ? "portal" : dir_name[door];
 
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	char *arg = va_arg(ap, char *);
+	if (!IS_NPC(ch)
+	&&  vo_foreach(ch->in_room, &iter_char_room, pull_mob_exit_cb,
+		       ch, dir) != NULL)
+		return FALSE;
 
-	if (!can_see(vch, ch))
-		return NULL;
+	return TRUE;
+}
 
-	if (pull_mob_trigger(TRIG_MOB_EXIT, vch, ch, arg) > 0
-	||  IS_EXTRACTED(ch))
-		return p;
+bool
+pull_greet_entry_triggers(CHAR_DATA *ch, ROOM_INDEX_DATA *to_room, int door)
+{
+	const char *dir = door == -1 ? "portal" : dir_name[door];
 
-	return NULL;
+	/*
+	 * pull GREET and ENTRY triggers
+	 *
+	 * if someone is following the char, these triggers get activated
+	 * for the followers before the char, but it's safer this way...
+	 */
+	if (!IS_NPC(ch)) {
+		if (vo_foreach(to_room, &iter_char_room, pull_mob_greet_cb,
+			       ch, dir))
+			return FALSE;
+
+		if (vo_foreach(to_room, &iter_obj_room, pull_obj_trigger_cb,
+			       TRIG_OBJ_GREET, ch, dir))
+			return FALSE;
+
+		if (vo_foreach(ch, &iter_obj_char, pull_obj_trigger_cb,
+			       TRIG_OBJ_ENTRY, ch, NULL))
+			return FALSE;
+	}
+
+	pull_mob_trigger(TRIG_MOB_ENTRY, ch, NULL, NULL);
+	if (IS_EXTRACTED(ch))
+		return FALSE;
+
+	return TRUE;
 }
 
 bool
@@ -1919,9 +1964,7 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 	/*
 	 * Exit trigger, if activated, bail out. Only PCs are triggered.
 	 */
-	if (!IS_NPC(ch)
-	&&  vo_foreach(ch->in_room, &iter_char_room, pull_mob_exit_cb, ch,
-		       dir_name[door]) != NULL)
+	if (!pull_exit_triggers(ch, door))
 		return FALSE;
 
 	if (!HAS_INVIS(ch, ID_SNEAK | ID_CAMOUFLAGE)
@@ -2028,28 +2071,7 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 	if (IS_EXTRACTED(ch))
 		return FALSE;
 
-	/*
-	 * pull GREET and ENTRY triggers
-	 *
-	 * if someone is following the char, these triggers get activated
-	 * for the followers before the char, but it's safer this way...
-	 */
-	if (!IS_NPC(ch)) {
-		if (vo_foreach(to_room, &iter_char_room, pull_mob_greet_cb,
-			       ch, dir_name[door]))
-			return FALSE;
-
-		if (vo_foreach(to_room, &iter_obj_room, pull_obj_trigger_cb,
-			       TRIG_OBJ_GREET, ch, dir_name[door]))
-			return FALSE;
-
-		if (vo_foreach(ch, &iter_obj_char, pull_obj_trigger_cb,
-			       TRIG_OBJ_ENTRY, ch, NULL))
-			return FALSE;
-	}
-
-	pull_mob_trigger(TRIG_MOB_ENTRY, ch, NULL, NULL);
-	if (IS_EXTRACTED(ch))
+	if (!pull_greet_entry_triggers(ch, to_room, door))
 		return FALSE;
 
 	return TRUE;
@@ -2818,15 +2840,6 @@ quaff_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 bool
 wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 {
-#if 0
-	XXX
-	if (cc_vexpr_check(&obj->pObjIndex->restrictions,
-	    "obj_wear", ch)) {					// notrans
-		act("You can't use $p.", ch, obj, NULL, TO_CHAR);
-		return;
-	}
-#endif
-
 	if (IS_NPC(ch)
 	&&  (!IS_SET(ch->form, FORM_BIPED) ||
 	     !IS_SET(ch->form, FORM_SENTIENT))) {
@@ -3217,11 +3230,8 @@ give_obj(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 		return FALSE;
 	}
 
-	if (IS_NPC(victim) && victim->pMobIndex->pShop != NULL) {
-#if 0
-	XXX
-	&&  !HAS_TRIGGER(victim, TRIG_GIVE)) {
-#endif
+	if (IS_NPC(victim) && victim->pMobIndex->pShop != NULL
+	&&  !MOB_HAS_TRIGGER(victim, TRIG_OBJ_GIVE)) {
 		tell_char(victim, ch, "Sorry, you'll have to sell that.");
 		return FALSE;
 	}
@@ -3271,10 +3281,63 @@ give_obj(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 			return FALSE;
 	}
 
-#if 0
-	XXX MPC
-	oprog_call(OPROG_GIVE, obj, ch, victim);
-#endif
+	pull_obj_trigger(TRIG_OBJ_GIVE, obj, ch, victim);
+	if (!mem_is(obj, MT_OBJ) || IS_EXTRACTED(ch) || IS_EXTRACTED(victim))
+		return FALSE;
+
+	return TRUE;
+}
+
+bool
+drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
+{
+	obj_to_room(obj, ch->in_room);
+
+	act("$n drops $p.", ch, obj, NULL,
+	    TO_ROOM | (HAS_INVIS(ch, ID_SNEAK) ? ACT_NOMORTAL : 0));
+	act_puts("You drop $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
+
+	pull_obj_trigger(TRIG_OBJ_DROP, obj, ch, NULL);
+	if (!mem_is(obj, MT_OBJ) || IS_EXTRACTED(ch))
+		return FALSE;
+
+	if (obj->in_room == NULL)
+		return TRUE;
+
+	if (obj->pObjIndex->vnum == OBJ_VNUM_POTION_VIAL
+	&&  number_percent() < 51) {
+		switch (ch->in_room->sector_type) {
+		case SECT_FOREST:
+		case SECT_DESERT:
+		case SECT_AIR:
+		case SECT_WATER_NOSWIM:
+		case SECT_WATER_SWIM:
+		case SECT_FIELD:
+			break;
+		default:
+			act("$p cracks and shaters into tiny pieces.",
+			    ch, obj, NULL, TO_ROOM);
+			act("$p cracks and shaters into tiny pieces.",
+			    ch, obj, NULL, TO_CHAR);
+			extract_obj(obj, 0);
+			return FALSE;
+		}
+	}
+
+	if (!floating_time(obj) && IS_WATER(ch->in_room)) {
+		act("$p sinks down the water.", ch, obj, NULL,
+		    TO_ROOM | (HAS_INVIS(ch, ID_SNEAK) ? ACT_NOMORTAL : 0));
+		act("$p sinks down the water.", ch, obj, NULL, TO_CHAR);
+		extract_obj(obj, 0);
+		return FALSE;
+	} else if (IS_OBJ_STAT(obj, ITEM_MELT_DROP)) {
+		act("$p dissolves into smoke.", ch, obj, NULL,
+		    TO_ROOM | (HAS_INVIS(ch, ID_SNEAK) ? ACT_NOMORTAL : 0));
+		act("$p dissolves into smoke.", ch, obj, NULL, TO_CHAR);
+		extract_obj(obj, 0);
+		return FALSE;
+	}
+
 	return TRUE;
 }
 

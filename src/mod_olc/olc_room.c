@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.96 2001-09-15 17:12:49 fjoe Exp $
+ * $Id: olc_room.c,v 1.97 2001-09-16 18:14:22 fjoe Exp $
  */
 
 #include "olc.h"
@@ -55,6 +55,8 @@ DECLARE_OLC_FUN(roomed_mana		);
 DECLARE_OLC_FUN(roomed_room		);
 DECLARE_OLC_FUN(roomed_sector		);
 DECLARE_OLC_FUN(roomed_clone		);
+DECLARE_OLC_FUN(roomed_trigadd		);
+DECLARE_OLC_FUN(roomed_trigdel		);
 DECLARE_OLC_FUN(roomed_del		);
 
 olc_cmd_t olc_cmds_room[] =
@@ -84,6 +86,8 @@ olc_cmd_t olc_cmds_room[] =
 
 	{ "room",	roomed_room,	NULL,		room_flags	},
 	{ "sector",	roomed_sector,	NULL,		sector_types	},
+	{ "trigadd",	roomed_trigadd,	NULL,		NULL		},
+	{ "trigdel",	roomed_trigdel,	NULL,		NULL		},
 
 	{ "delete_roo",	olced_spell_out, NULL,		NULL		},
 	{ "delete_room", roomed_del,	NULL,		NULL		},
@@ -456,6 +460,32 @@ OLC_FUN(roomed_clone)
 
 	dofun("look", ch, str_empty);
 	return TRUE;
+}
+
+OLC_FUN(roomed_trigadd)
+{
+	ROOM_INDEX_DATA *pRoom;
+	EDIT_ROOM(ch, pRoom);
+
+	if (olced_trigadd(ch, argument, &pRoom->mp_trigs)) {
+		x_room_add(pRoom);
+		return TRUE;
+	}
+
+	return FALSE;
+}
+
+OLC_FUN(roomed_trigdel)
+{
+	ROOM_INDEX_DATA *pRoom;
+	EDIT_ROOM(ch, pRoom);
+
+	if (olced_trigdel(ch, argument, &pRoom->mp_trigs)) {
+		x_room_del(pRoom);
+		return TRUE;
+	}
+
+	return FALSE;
 }
 
 OLC_FUN(roomed_del)

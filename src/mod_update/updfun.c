@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.47 2001-09-16 12:04:31 fjoe Exp $
+ * $Id: updfun.c,v 1.48 2001-09-16 18:14:27 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -240,12 +240,8 @@ FOREACH_CB_FUN(mobile_update_cb, vo, ap)
 			return NULL;
 	}
 
-	if (ch->in_room->area->empty
-	&&  !IS_SET(f_act, ACT_UPDATE_ALWAYS))
-		return NULL;
-
 #if 0
-	XXX MPC
+	XXX MPC DELAY
 		if (HAS_TRIGGER(ch, TRIG_DELAY)
 		&&  NPC(ch)->mprog_delay > 0) {
 			if (--NPC(ch)->mprog_delay <= 0) {
@@ -257,6 +253,10 @@ FOREACH_CB_FUN(mobile_update_cb, vo, ap)
 
 	if (pull_mob_trigger(TRIG_MOB_RANDOM, ch, NULL, NULL) > 0
 	||  IS_EXTRACTED(ch))
+		return NULL;
+
+	if (ch->in_room->area->empty
+	&&  !IS_SET(f_act, ACT_UPDATE_ALWAYS))
 		return NULL;
 
 /* potion using and stuff for intelligent mobs */
@@ -839,15 +839,12 @@ FOREACH_CB_FUN(obj_update_cb, vo, ap)
 
 	update_obj_affects(obj);
 
-#if 0
-	XXX
-	if ((t_obj->in_room != NULL &&
-	     t_obj->in_room->area->nplayer > 0)
-        ||  (t_obj->carried_by &&
-	     t_obj->carried_by->in_room &&
-	     t_obj->carried_by->in_room->area->nplayer > 0))
-		oprog_call(OPROG_AREA, obj, NULL, NULL);
-#endif
+	if (t_obj->in_room != NULL
+	||  t_obj->carried_by != NULL) {
+		pull_obj_trigger(TRIG_OBJ_RANDOM, obj, NULL, NULL);
+		if (!mem_is(obj, MT_OBJ))
+			return NULL;
+	}
 
 	if (material_is(obj, MATERIAL_SUSC_HEAT)
 	&&  update_melt_obj(obj))
@@ -986,13 +983,10 @@ UPDATE_FUN(light_update)
 UPDATE_FUN(room_update)
 {
 	ROOM_INDEX_DATA *room;
-	ROOM_INDEX_DATA *room_next;
 
-	for (room = top_affected_room; room; room = room_next) {
+	for (room = x_room_list; room != NULL; room = room->x_next) {
 		AFFECT_DATA *paf;
 		AFFECT_DATA *paf_next;
-
-		room_next = room->aff_next;
 
 		for (paf = room->affected; paf != NULL; paf = paf_next) {
 			paf_next = paf->next;
@@ -1006,6 +1000,8 @@ UPDATE_FUN(room_update)
 				affect_remove_room(room, paf);
 			}
 		}
+
+		pull_room_trigger(TRIG_ROOM_RANDOM, room, NULL, NULL);
 	}
 }
 
@@ -1122,7 +1118,7 @@ UPDATE_FUN(raffect_update)
 {
 	ROOM_INDEX_DATA *room;
 
-	for (room = top_affected_room; room ; room = room->aff_next)
+	for (room = x_room_list; room != NULL; room = room->x_next)
 		vo_foreach(room, &iter_char_room, raff_update_cb, room);
 }
 
@@ -1238,7 +1234,7 @@ UPDATE_FUN(area_update)
 		pArea->age = number_range(0, 3);
 		if (IS_SET(pArea->area_flags, AREA_UPDATE_FREQUENTLY))
 			pArea->age = 15 - 2;
-		else if (pArea->nplayer == 0) 
+		else if (pArea->nplayer == 0)
 			pArea->empty = TRUE;
 	}
 }

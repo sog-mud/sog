@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.40 2001-09-15 17:12:42 fjoe Exp $
+ * $Id: mpc.y,v 1.41 2001-09-16 18:14:20 fjoe Exp $
  */
 
 /*
@@ -1455,9 +1455,15 @@ _mprog_compile(mprog_t *mp)
 			return MPC_ERR_COMPILE;
 		if (var_add(mpc, "$n", MT_CHAR) < 0)
 			return MPC_ERR_COMPILE;
+		if (var_add(mpc, "$N", MT_CHAR) < 0)
+			return MPC_ERR_COMPILE;
 		break;
 
 	case MP_T_ROOM:
+		if (var_add(mpc, "$r", MT_ROOM) < 0)
+			return MPC_ERR_COMPILE;
+		if (var_add(mpc, "$n", MT_CHAR) < 0)
+			return MPC_ERR_COMPILE;
 		break;
 
 	case MP_T_SPEC:
@@ -1533,9 +1539,15 @@ _mprog_execute(mprog_t *mp, void *arg1, void *arg2, void *arg3, void *arg4)
 			execerr(MPC_ERR_RUNTIME);
 		if (var_assign(mpc, "$n", MT_CHAR, arg2) < 0)
 			execerr(MPC_ERR_RUNTIME);
+		if (var_assign(mpc, "$N", MT_CHAR, arg2) < 0)
+			execerr(MPC_ERR_RUNTIME);
 		break;
 
 	case MP_T_ROOM:
+		if (var_assign(mpc, "$r", MT_ROOM, arg1) < 0)
+			execerr(MPC_ERR_RUNTIME);
+		if (var_assign(mpc, "$n", MT_CHAR, arg2) < 0)
+			execerr(MPC_ERR_RUNTIME);
 		break;
 
 	case MP_T_SPEC:

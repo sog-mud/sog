@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.26 2001-09-16 12:04:24 fjoe Exp $
+ * $Id: sog.h,v 1.27 2001-09-16 18:14:11 fjoe Exp $
  */
 
 #ifndef _SOG_H_
@@ -127,6 +127,11 @@ DECLARE_FUN2(bool, unequip_char,
 DECLARE_FUN2(OBJ_DATA, get_eq_char,
 	     ARG(CHAR_DATA), ch, ARG(int), iWear)
 
+DECLARE_FUN2(int, pull_exit_triggers,
+	     ARG(CHAR_DATA), ch, ARG(int), door)
+DECLARE_FUN3(int, pull_greet_entry_triggers,
+	     ARG(CHAR_DATA), ch, ARG(ROOM_INDEX_DATA), to_room, ARG(int), door)
+
 /*
  * move_char flags
  */
@@ -182,6 +187,8 @@ DECLARE_FUN3(bool, remove_obj,
 	     ARG(CHAR_DATA), ch, ARG(int), iWear, ARG(bool), fReplace)
 DECLARE_FUN3(bool, give_obj,
 	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(OBJ_DATA), obj)
+DECLARE_FUN2(bool, drop_obj,
+	     ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj)
 DECLARE_FUN2(bool, open_obj,
 	     ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj)
 DECLARE_FUN2(bool, close_obj,

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.22 2001-09-16 12:04:32 fjoe Exp $
+ * $Id: trig.c,v 1.23 2001-09-16 18:14:29 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -104,10 +104,14 @@ trig_init_list(varr *v)
 void
 trig_destroy_list(varr *v)
 {
-	c_destroy(v);
+	/*
+	 * c_erase instead of c_destroy because trig_destroy_list is used
+	 * in free_room_index and x_room_del examines v->nused
+	 */
+	c_erase(v);
 }
 
-void
+bool
 trig_fread_list(varr *v, rfile_t *fp)
 {
 	trig_t *trig;
@@ -117,12 +121,13 @@ trig_fread_list(varr *v, rfile_t *fp)
 		log(LOG_ERROR, "trig_fread: %s: unknown mptrig type",
 		    rfile_tok(fp));
 		fread_to_eol(fp);
-		return;
+		return FALSE;
 	}
 
 	trig = trig_new(v, trig_type);
 	trig->trig_prog = fread_strkey(fp, &mprogs);
 	trig_set_arg(trig, fread_string(fp));
+	return TRUE;
 }
 
 static
@@ -281,6 +286,14 @@ pull_obj_trigger(int trig_type,
 }
 
 int
+pull_room_trigger(int trig_type,
+		  ROOM_INDEX_DATA *room, CHAR_DATA *ch, void *arg)
+{
+	return pull_trigger_list(
+	    trig_type, &room->mp_trigs, MP_T_ROOM, room, ch, arg);
+}
+
+int
 pull_spec_trigger(spec_t *spec, CHAR_DATA *ch,
 		  const char *spn_rm, const char *spn_add)
 {
@@ -290,6 +303,12 @@ pull_spec_trigger(spec_t *spec, CHAR_DATA *ch,
 	return pull_one_trigger(
 	    &spec->mp_trig, MP_T_SPEC,
 	    ch, (void *) (uintptr_t) spn_rm, (void *) (uintptr_t) spn_add);
+}
+
+bool
+has_trigger(varr *v, int trig_type)
+{
+	return varr_bsearch(v, &trig_type, cmpint) != NULL;
 }
 
 /*--------------------------------------------------------------------

@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.71 2001-09-13 18:56:56 fjoe Exp $
+ * $Id: affects.c,v 1.72 2001-09-16 18:14:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -704,15 +704,12 @@ affect_to_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
 		return;
 	}
 
-	if (!room->affected) {
-		room->aff_next = top_affected_room;
-		top_affected_room = room;
-	}
-
 	paf_new		= aff_dup(paf);
 	paf_new->next	= room->affected;
 	room->affected	= paf_new;
 	affect_modify_room(room, paf_new, TRUE);
+
+	x_room_add(room);
 }
 
 static void
@@ -761,23 +758,7 @@ affect_remove_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
 	affect_check_room(room, paf->where);
 	aff_free(paf);
 
-/* remove room from affected rooms list if there are no other affects */
-	if (room->affected == NULL) {
-		ROOM_INDEX_DATA *r;
-		ROOM_INDEX_DATA *r_prev = NULL;
-
-		for (r = top_affected_room; r != NULL; r = r->next) {
-			if (r == room)
-				break;
-			r_prev = r;
-		}
-
-		if (r_prev == NULL)
-			top_affected_room = room->aff_next;
-		else
-			r_prev->next = room->next;
-		room->aff_next = NULL;
-	}
+	x_room_del(room);
 }
 
 /*
@@ -812,39 +793,49 @@ is_sn_affected_room(ROOM_INDEX_DATA *room, const char *sn)
 	return FALSE;
 }
 
+typedef void (*aff_remove_t)(void *, AFFECT_DATA *);
+
+static void
+strip_raff_list(AFFECT_DATA *af, aff_remove_t aff_remove,
+		CHAR_DATA *ch, void *vo)
+{
+	while (af != NULL) {
+		AFFECT_DATA *af_next = af->next;
+
+		if (af->owner == ch)
+			aff_remove(vo, af);
+
+		af = af_next;
+	}
+}
+
 void
 strip_raff_owner(CHAR_DATA *ch)
 {
-	ROOM_INDEX_DATA *room, *room_next;
+	ROOM_INDEX_DATA *room;
 	CHAR_DATA *rch, *rch_next;
 	OBJ_DATA *obj, *obj_next;
-	AFFECT_DATA *af, *af_next;
 
-	for (room = top_affected_room; room; room = room_next) {
-		room_next = room->aff_next;
-
-		for (af = room->affected; af; af = af_next) {
-			af_next = af->next;
-			if (af->owner == ch) affect_remove_room(room, af);
-		}
+	for (room = x_room_list; room != NULL; room = room->x_next) {
+		strip_raff_list(
+		    room->affected, (aff_remove_t) affect_remove_room,
+		    ch, room);
 	}
 
-	for (rch = top_affected_char; rch; rch = rch_next) {
+	for (rch = top_affected_char; rch != NULL; rch = rch_next) {
 		rch_next = rch->aff_next;
 
-		for (af = rch->affected; af; af = af_next) {
-			af_next = af->next;
-			if (af->owner == ch) affect_remove(rch, af);
-		}
+		strip_raff_list(
+		    rch->affected, (aff_remove_t) affect_remove,
+		    ch, rch);
 	}
 
-	for (obj = top_affected_obj; obj; obj = obj_next) {
+	for (obj = top_affected_obj; obj != NULL; obj = obj_next) {
 		obj_next = obj->aff_next;
 
-		for (af = obj->affected; af; af = af_next) {
-			af_next = af->next;
-			if (af->owner == ch) affect_remove_obj(obj, af);
-		}
+		strip_raff_list(
+		    obj->affected, (aff_remove_t) affect_remove_obj,
+		    ch, obj);
 	}
 }
 

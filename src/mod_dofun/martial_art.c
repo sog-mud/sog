@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.201 2001-09-16 12:04:26 fjoe Exp $
+ * $Id: martial_art.c,v 1.202 2001-09-16 18:14:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4647,40 +4647,9 @@ DO_FUN(do_dishonor, ch, argument)
 	check_improve(ch, "dishonor", FALSE, 1);
 }
 
-DO_FUN(do_surrender, ch, argument)
-{
-	CHAR_DATA *mob;
-
-	if (!IS_NPC(ch)) {
-		act_char("Huh?", ch);
-		return;
-	}
-
-	if ((mob = ch->fighting) == NULL) {
-		act_char("But you're not fighting!", ch);
-		return;
-	}
-	act("You surrender to $N!", ch, NULL, mob, TO_CHAR);
-	act("$n surrenders to you!", ch, NULL, mob, TO_VICT);
-	act("$n tries to surrender to $N!", ch, NULL, mob, TO_NOTVICT);
-	stop_fighting(ch, TRUE);
-
-	if (!IS_NPC(ch) && IS_NPC(mob)) {
-#if 0
-	XXX
-	&&  (!HAS_TRIGGER(mob, TRIG_SURR) ||
-	     !mp_percent_trigger(mob, ch, NULL, NULL, TRIG_SURR))) {
-#endif
-		act("$N seems to ignore your cowardly act!",
-		    ch, NULL, mob, TO_CHAR);
-		multi_hit(mob, ch, NULL);
-	}
-}
-
 static inline bool
 check_yell(CHAR_DATA *ch, CHAR_DATA *victim, bool fighting)
 {
 	return (!IS_NPC(ch) && !IS_NPC(victim) &&
 		victim->position > POS_STUNNED && !fighting);
 }
-

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.86 2001-09-15 19:23:35 fjoe Exp $
+ * $Id: act.c,v 1.87 2001-09-16 18:14:23 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -941,7 +941,7 @@ act_skip(CHAR_DATA *ch, CHAR_DATA *vch, CHAR_DATA *to,
 	if (IS_NPC(to)
 	&&  to->desc == NULL)
 #if 0
-	XXX
+	XXX MPC ACT
 	&&  !HAS_TRIGGER(to, TRIG_ACT))
 #endif
 		return TRUE;
@@ -1001,7 +1001,7 @@ act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 		}
 	} else {
 #if 0
-		XXX
+		XXX MPC ACT
 		if (!IS_SET(act_flags, ACT_NOTRIG))
 			mp_act_trigger(tmp, to, ch, arg1, arg2, TRIG_ACT);
 #endif

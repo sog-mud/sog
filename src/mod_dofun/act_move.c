@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.280 2001-09-15 19:23:31 fjoe Exp $
+ * $Id: act_move.c,v 1.281 2001-09-16 18:14:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2839,7 +2839,7 @@ enter_cb(void *vo, va_list ap)
 /* RT Enter portals */
 DO_FUN(do_enter, ch, argument)
 {
-	ROOM_INDEX_DATA *location;
+	ROOM_INDEX_DATA *to_room;
 	ROOM_INDEX_DATA *old_room;
 	OBJ_DATA *portal;
 	CHAR_DATA *mount;
@@ -2879,24 +2879,24 @@ DO_FUN(do_enter, ch, argument)
 
 	if (IS_SET(INT(portal->value[2]), GATE_RANDOM)
 	||  INT(portal->value[3]) == -1) {
-		location = get_random_room(ch, NULL);
-		INT(portal->value[3]) = location->vnum; /* keeps record */
+		to_room = get_random_room(ch, NULL);
+		INT(portal->value[3]) = to_room->vnum; /* keeps record */
 	} else if (IS_SET(INT(portal->value[2]), GATE_BUGGY)
 	       &&  (number_percent() < 5))
-		location = get_random_room(ch, NULL);
+		to_room = get_random_room(ch, NULL);
 	else
-		location = get_room_index(INT(portal->value[3]));
+		to_room = get_room_index(INT(portal->value[3]));
 
-	if (location == NULL
-	||  location == old_room
-	||  !can_see_room(ch, location)
-	||  (room_is_private(location) && !IS_TRUSTED(ch, LEVEL_IMP))) {
+	if (to_room == NULL
+	||  to_room == old_room
+	||  !can_see_room(ch, to_room)
+	||  (room_is_private(to_room) && !IS_TRUSTED(ch, LEVEL_IMP))) {
 		act("$p doesn't seem to go anywhere.", ch, portal,NULL,TO_CHAR);
 		return;
 	}
 
 	if (IS_NPC(ch) && IS_SET(ch->pMobIndex->act, ACT_AGGRESSIVE)
-	&&  IS_SET(location->room_flags, ROOM_LAW)) {
+	&&  IS_SET(to_room->room_flags, ROOM_LAW)) {
 	        act_char("Something prevents you from leaving...", ch);
 	        return;
 	}
@@ -2904,6 +2904,9 @@ DO_FUN(do_enter, ch, argument)
 	if (pull_obj_trigger(TRIG_OBJ_ENTER, portal, ch, NULL) > 0
 	||  !mem_is(portal, MT_OBJ)
 	||  IS_EXTRACTED(ch))
+		return;
+
+	if (!pull_exit_triggers(ch, -1))
 		return;
 
 	act(MOUNTED(ch) ? "$n steps into $p, riding on $N." :
@@ -2919,12 +2922,12 @@ DO_FUN(do_enter, ch, argument)
 
 	if (IS_SET(INT(portal->value[2]), GATE_GOWITH)) {
 		/* take the gate along */
-		obj_to_room(portal, location);
+		obj_to_room(portal, to_room);
 	}
 
-	char_to_room(ch, location);
+	char_to_room(ch, to_room);
 	if (mount) {
-		char_to_room(mount, location);
+		char_to_room(mount, to_room);
 		ch->riding = TRUE;
 		mount->riding = TRUE;
 	}
@@ -2951,10 +2954,13 @@ DO_FUN(do_enter, ch, argument)
 	}
 
 	/* protect against circular follows */
-	if (old_room == location)
+	if (old_room == to_room)
 		return;
 
-	vo_foreach(old_room, &iter_char_room, enter_cb, ch, portal, argument);
+	if (!IS_EXTRACTED(ch)) {
+		vo_foreach(old_room, &iter_char_room, enter_cb,
+			   ch, portal, argument);
+	}
 
 	if (mem_is(portal, MT_OBJ) && INT(portal->value[0]) == -1) {
 		act("$p fades out of existence.", ch, portal, NULL, TO_CHAR);
@@ -2966,18 +2972,7 @@ DO_FUN(do_enter, ch, argument)
 	if (IS_EXTRACTED(ch))
 		return;
 
-#if 0
-	XXX
-	/*
-	 * If someone is following the char, these triggers get
-	 * activated for the followers before the char,
-	 * but it's safer this way...
-	 */
-	if (IS_NPC(ch) && HAS_TRIGGER(ch, TRIG_ENTRY))
-		mp_percent_trigger(ch, NULL, NULL, NULL, TRIG_ENTRY);
-	if (!IS_NPC(ch))
-		mp_greet_trigger(ch);
-#endif
+	pull_greet_entry_triggers(ch, to_room, -1);
 }
 
 DO_FUN(do_settraps, ch, argument)

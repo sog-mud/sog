@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.36 2001-09-16 12:04:28 fjoe Exp $
+ * $Id: init_mpc.c,v 1.37 2001-09-16 18:14:19 fjoe Exp $
  */
 
 #include <dlfcn.h>
@@ -265,6 +265,7 @@ const char *mpc_dynafuns[] = {
 	"char_fighting",
 	"char_gold",
 	"char_hit",
+	"char_hometown",
 	"char_level",
 	"char_max_hit",
 	"char_position",
@@ -274,6 +275,7 @@ const char *mpc_dynafuns[] = {
 	"char_sex",
 	"char_silver",
 	"char_size",
+	"char_vnum",
 	"close_door",
 	"close_obj",
 	"cold_effect",
@@ -282,6 +284,7 @@ const char *mpc_dynafuns[] = {
 	"damage",
 	"dice",
 	"dofun",
+	"drop_obj",
 	"extract_obj",
 	"fire_effect",
 	"get_char_area",
@@ -312,6 +315,7 @@ const char *mpc_dynafuns[] = {
 	"is_neutral",
 	"is_npc",
 	"is_owner",
+	"is_owner_name",
 	"is_safe",
 	"is_safe_nomessage",
 	"is_sn_affected",

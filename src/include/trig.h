@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.h,v 1.13 2001-09-15 19:23:28 fjoe Exp $
+ * $Id: trig.h,v 1.14 2001-09-16 18:14:11 fjoe Exp $
  */
 
 #ifndef _TRIG_H_
@@ -44,13 +44,12 @@
 #define TRIG_MOB_SPEECH		9		/* arg: text		*/
 #define TRIG_MOB_EXIT		10		/* arg: dir (or "all")	*/
 #define TRIG_MOB_DELAY		11		/* arg: probability	*/
-#define TRIG_MOB_SURR		12		/* arg: probability	*/
-#define TRIG_MOB_LOOK		13		/* arg: probability	*/
-#define TRIG_MOB_OPEN		14		/* arg: obj vnum/name	*/
-#define TRIG_MOB_GET		15		/* arg: obj vnum/name	*/
-#define TRIG_MOB_TELL		16		/* arg: text		*/
-#define TRIG_MOB_CMD		17		/* arg: cmd		*/
-#define TRIG_MOB_YELL		18		/* arg: text		*/
+#define TRIG_MOB_LOOK		12		/* arg: probability	*/
+#define TRIG_MOB_OPEN		13		/* arg: obj vnum/name	*/
+#define TRIG_MOB_GET		14		/* arg: obj vnum/name	*/
+#define TRIG_MOB_TELL		15		/* arg: text		*/
+#define TRIG_MOB_CMD		16		/* arg: cmd		*/
+#define TRIG_MOB_YELL		17		/* arg: text		*/
 
 /* obj triggers */
 #define TRIG_OBJ_WEAR		100		/* arg: probability	*/
@@ -72,6 +71,10 @@
 #define TRIG_OBJ_LOCK		116		/* arg: probability	*/
 #define TRIG_OBJ_UNLOCK		117		/* arg: probability	*/
 
+/* room triggers */
+#define TRIG_ROOM_RANDOM	200		/* arg: probability	*/
+#define TRIG_ROOM_CMD		201		/* arg: cmd		*/
+
 /* spec triggers */
 #define TRIG_SPEC		300
 
@@ -83,7 +86,8 @@
 #define HAS_OBJ_ARG(trig)	(trig->trig_type == TRIG_MOB_GIVE ||	\
 				 trig->trig_type == TRIG_MOB_OPEN ||	\
 				 trig->trig_type == TRIG_MOB_GET)
-#define HAS_CMD_ARG(trig)	(trig->trig_type == TRIG_MOB_CMD)
+#define HAS_CMD_ARG(trig)	(trig->trig_type == TRIG_MOB_CMD ||	\
+				 trig->trig_type == TRIG_ROOM_CMD)
 #define HAS_EXIT_ARG(trig)	(trig->trig_type == TRIG_MOB_GREET ||	\
 				 trig->trig_type == TRIG_MOB_EXIT ||	\
 				 trig->trig_type == TRIG_OBJ_GREET)
@@ -132,7 +136,7 @@ void trig_destroy_list(varr *v);
 /**
  * Read trigger from file and insert it into trigger list
  */
-void trig_fread_list(varr *v, rfile_t *fp);
+bool trig_fread_list(varr *v, rfile_t *fp);
 
 /**
  * Write list of triggers to file
@@ -171,9 +175,27 @@ int pull_obj_trigger(int trig_type,
 		     OBJ_DATA *obj, CHAR_DATA *ch, void *arg);
 
 /**
+ * Pull room trigger of specified type
+ */
+int pull_room_trigger(int trig_type,
+		      ROOM_INDEX_DATA *room, CHAR_DATA *ch, void *arg);
+
+/**
  * Pull trigger
  */
 int pull_spec_trigger(spec_t *spec,
 		      CHAR_DATA *ch, const char *spn_rm, const char *spn_add);
+
+/**
+ * Check if trigger is in list
+ */
+bool has_trigger(varr *v, int trig_type);
+
+#define MOB_HAS_TRIGGER(mob, trig)					\
+	(IS_NPC(mob) && has_trigger(&(mob)->pMobIndex->mp_trigs, (trig)))
+#define OBJ_HAS_TRIGGER(obj, trig)					\
+	has_trigger(&(obj)->pObjIndex->mp_trigs, (trig))
+#define ROOM_HAS_TRIGGER(room, trig)					\
+	has_trigger(&(room)->mp_trigs, (trig))
 
 #endif /* _TRIG_H_ */

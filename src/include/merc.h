@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.368 2001-09-15 17:12:32 fjoe Exp $
+ * $Id: merc.h,v 1.369 2001-09-16 18:14:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1721,7 +1721,7 @@ struct room_history_data
 struct room_index_data
 {
 	ROOM_INDEX_DATA *	next;
-	ROOM_INDEX_DATA *	aff_next;
+	ROOM_INDEX_DATA *	x_next;
 	CHAR_DATA *		people;
 	OBJ_DATA *		contents;
 	ED_DATA *		ed;
@@ -1742,6 +1742,7 @@ struct room_index_data
 	ROOM_HISTORY_DATA *	history;
 	AFFECT_DATA *		affected;
 	flag_t			affected_by;
+	varr			mp_trigs;
 };
 
 #define GET_HEAL_RATE(r)	((r)->heal_rate + (r)->heal_rate_mod)
@@ -1890,7 +1891,7 @@ extern		DESCRIPTOR_DATA   *	descriptor_free;
 
 extern		OBJ_DATA	  *	object_list;
 
-extern		ROOM_INDEX_DATA   *	top_affected_room;
+extern		ROOM_INDEX_DATA   *	x_room_list;
 extern		CHAR_DATA	  *	top_affected_char;
 extern		OBJ_DATA	  *	top_affected_obj;
 
@@ -1939,8 +1940,12 @@ void		free_area		(AREA_DATA *pArea);
 
 EXIT_DATA	*new_exit		(void);
 void		free_exit		(EXIT_DATA *pExit);
+
 ROOM_INDEX_DATA *new_room_index		(void);
 void		free_room_index		(ROOM_INDEX_DATA *pRoom);
+void		x_room_add		(ROOM_INDEX_DATA *pRoom);
+void		x_room_del		(ROOM_INDEX_DATA *pRoom);
+
 SHOP_DATA	*new_shop		(void);
 void		free_shop		(SHOP_DATA *pShop);
 OBJ_INDEX_DATA	*new_obj_index		(void);

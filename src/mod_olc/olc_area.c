@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.108 2001-09-15 17:12:46 fjoe Exp $
+ * $Id: olc_area.c,v 1.109 2001-09-16 18:14:22 fjoe Exp $
  */
 
 #include "olc.h"
@@ -1093,6 +1093,8 @@ save_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex)
 	if (pRoomIndex->mana_rate != 100 || pRoomIndex->heal_rate != 100)
 		fprintf (fp, "M %d H %d\n", pRoomIndex->mana_rate,
 					    pRoomIndex->heal_rate);
+
+	trig_fwrite_list("m", &pRoomIndex->mp_trigs, fp);
 
 	fprintf(fp, "S\n");
 }

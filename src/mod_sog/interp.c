@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.190 2001-09-15 19:23:37 fjoe Exp $
+ * $Id: interp.c,v 1.191 2001-09-16 18:14:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -326,10 +326,17 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 		/*
 		 * pull mob 'cmd' triggers
 		 */
-		if (!IS_NPC(ch)
-		&&  vo_foreach(ch->in_room, &iter_char_room, pull_mob_cmd_cb,
-			       ch, save_argument) != NULL)
-			return;
+		if (!IS_NPC(ch)) {
+			if (vo_foreach(ch->in_room, &iter_char_room,
+				       pull_mob_cmd_cb, ch, save_argument))
+				return;
+
+			if (pull_room_trigger(TRIG_ROOM_CMD,
+				ch->in_room, ch,
+				(void *) (uintptr_t) save_argument) > 0
+			||  IS_EXTRACTED(ch))
+				return;
+		}
 
 		act_char("Huh?", ch);
 		return;

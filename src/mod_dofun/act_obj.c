@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.265 2001-09-15 19:23:31 fjoe Exp $
+ * $Id: act_obj.c,v 1.266 2001-09-16 18:14:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -110,7 +110,6 @@ static OBJ_DATA *	get_obj_keeper	(CHAR_DATA * ch, CHAR_DATA * keeper,
 static void		sac_obj		(CHAR_DATA * ch, OBJ_DATA *obj);
 static bool		put_obj		(CHAR_DATA *ch, OBJ_DATA *container,
 					 OBJ_DATA *obj, int* count);
-static void		drop_obj	(CHAR_DATA *ch, OBJ_DATA *obj);
 
 DO_FUN(do_get, ch, argument)
 {
@@ -446,15 +445,14 @@ DO_FUN(do_drop, ch, argument)
 			act_char("You do not have that item.", ch);
 			return;
 		}
+
 		if (!can_drop_obj(ch, obj)) {
 			act_char("You can't let go of it.", ch);
 			return;
 		}
 		drop_obj(ch, obj);
-	}
-	else {
+	} else {
 /* 'drop all' or 'drop all.obj' */
-
 		if (!IS_NPC(ch) && IS_AFFECTED(ch, AFF_CHARM)) {
 			do_say(ch, "Nah, I won't do that.");
 			return;
@@ -470,7 +468,10 @@ DO_FUN(do_drop, ch, argument)
 			&&  can_drop_obj(ch, obj)) {
 				found = TRUE;
 				obj->last_owner = NULL;
+
 				drop_obj(ch, obj);
+				if (IS_EXTRACTED(ch))
+					return;
 			}
 		}
 
@@ -1851,10 +1852,7 @@ DO_FUN(do_steal, ch, argument)
 		check_improve(ch, "steal", TRUE, 1);
 	}
 
-#if 0
-	XXX
-	oprog_call(OPROG_GET, obj, ch, NULL);
-#endif
+	pull_obj_trigger(TRIG_OBJ_GET, obj, ch, NULL);
 }
 
 /*
@@ -3739,53 +3737,6 @@ static bool put_obj(CHAR_DATA *ch, OBJ_DATA *container,
 	}
 
 	return TRUE;
-}
-
-static void
-drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
-{
-	obj_to_room(obj, ch->in_room);
-
-	act("$n drops $p.", ch, obj, NULL,
-	    TO_ROOM | (HAS_INVIS(ch, ID_SNEAK) ? ACT_NOMORTAL : 0));
-	act_puts("You drop $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
-
-	if (obj->pObjIndex->vnum == OBJ_VNUM_POTION_VIAL
-	&&  number_percent() < 51) {
-		switch (ch->in_room->sector_type) {
-		case SECT_FOREST:
-		case SECT_DESERT:
-		case SECT_AIR:
-		case SECT_WATER_NOSWIM:
-		case SECT_WATER_SWIM:
-		case SECT_FIELD:
-			break;
-		default:
-			act("$p cracks and shaters into tiny pieces.",
-			    ch, obj, NULL, TO_ROOM);
-			act("$p cracks and shaters into tiny pieces.",
-			    ch, obj, NULL, TO_CHAR);
-			extract_obj(obj, 0);
-			return;
-		}
-	}
-
-#if 0
-	XXX
-	oprog_call(OPROG_DROP, obj, ch, NULL);
-#endif
-
-	if (!floating_time(obj) && IS_WATER(ch->in_room)) {
-		act("$p sinks down the water.", ch, obj, NULL,
-		    TO_ROOM | (HAS_INVIS(ch, ID_SNEAK) ? ACT_NOMORTAL : 0));
-		act("$p sinks down the water.", ch, obj, NULL, TO_CHAR);
-		extract_obj(obj, 0);
-	} else if (IS_OBJ_STAT(obj, ITEM_MELT_DROP)) {
-		act("$p dissolves into smoke.", ch, obj, NULL,
-		    TO_ROOM | (HAS_INVIS(ch, ID_SNEAK) ? ACT_NOMORTAL : 0));
-		act("$p dissolves into smoke.", ch, obj, NULL, TO_CHAR);
-		extract_obj(obj, 0);
-	}
 }
 
 #define OBJ_VNUM_SCHOOL_VEST		3703

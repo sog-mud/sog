@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.302 2001-09-15 17:12:40 fjoe Exp $
+ * $Id: act_wiz.c,v 1.303 2001-09-16 18:14:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1091,10 +1091,6 @@ DO_FUN(do_rstat, ch, argument)
 
 DO_FUN(do_ostat, ch, argument)
 {
-#if 0
-	XXX
-	int i;
-#endif
 	BUFFER *output;
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
@@ -1199,27 +1195,8 @@ DO_FUN(do_ostat, ch, argument)
 				   FOA_F_NODURATION);
 	format_obj_affects(output, obj->affected, 0);
 
-#if 0
-	XXX
-	if (obj->pObjIndex->oprogs) {
-		buf_append(output, "Object progs:\n");		// notrans
-		for (i = 0; i < OPROG_MAX; i++) {
-			if (obj->pObjIndex->oprogs[i] != NULL) {
-				buf_printf(output, BUF_END,
-				    "%s: %s\n", // notrans
-				    optype_table[i],
-				    oprog_name_lookup(obj->pObjIndex->oprogs[i]));
-			}
-		}
-	}
-#endif
-
 	buf_printf(output, BUF_END, "Damage condition: %d (%s)\n", // notrans
 		   obj->condition, get_cond_alias(obj));
-#if 0
-	XXX
-	print_cc_vexpr(&obj->pObjIndex->restrictions, "Restrictions:", output); // notrans
-#endif
 
 	send_to_char(buf_string(output), ch);
 	buf_free(output);
@@ -4192,13 +4169,10 @@ DO_FUN(do_affrooms, ch, argument)
 
 	buf = buf_new(GET_LANG(ch));
 
-	if (!top_affected_room)
-		buf_append(buf, "No affected rooms.\n");	// notrans
-	else
-		buf_append(buf, "Affected rooms:\n");		// notrans
-
-	for (room = top_affected_room; room ; room = room->aff_next)
+	for (room = x_room_list; room != NULL; room = room->x_next) {
 		for (af = room->affected; af; af = af->next) {
+			if (!count)
+				buf_append(buf, "Affected rooms:\n"); // notrans
 			count++;
 			buf_printf(buf, BUF_END,
 				    "%d) [Vnum: %5d] "		// notrans
@@ -4211,6 +4185,10 @@ DO_FUN(do_affrooms, ch, argument)
 				    af->level,
 				    af->duration);
 		}
+	}
+
+	if (!count)
+		buf_append(buf, "No affected rooms.\n");	// notrans
 
 	count = 0;
 	if (!top_affected_char)
@@ -4670,44 +4648,57 @@ DO_FUN(do_mpstat, ch, argument)
 {
 	char arg[MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
-	NPC_DATA *npc;
+	OBJ_DATA *obj;
 	BUFFER *buf;
 
-	one_argument(argument, arg, sizeof(arg));
+	int vnum;
+	mlstring *descr;
+	varr *trig_list;
 
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		act_char("Mpstat whom?", ch);		// notrans
 		return;
 	}
 
-	if ((victim = get_char_world(ch, arg)) == NULL) {
-		act_char("No such creature.", ch);
-		return;
-	}
+	if (!str_cmp(arg, "room")) {
+		vnum = ch->in_room->vnum;
+		descr = &ch->in_room->name;
+		trig_list = &ch->in_room->mp_trigs;
+	} else if ((victim = get_char_here(ch, arg)) != NULL) {
+		if (!IS_NPC(victim)) {
+			act_char("That is not a mobile.", ch);
+			return;
+		}
 
-	if (!IS_NPC(victim)) {
-		act_char("That is not a mobile.", ch);
+		vnum = victim->pMobIndex->vnum;
+		descr = &victim->short_descr;
+		trig_list = &victim->pMobIndex->mp_trigs;
+	} else if ((obj = get_obj_here_all(ch, arg)) != NULL) {
+		vnum = obj->pObjIndex->vnum;
+		descr = &obj->short_descr;
+		trig_list = &obj->pObjIndex->mp_trigs;
+	} else {
+		act_char("Nothing like that in hell, heaven or earth.", ch);
 		return;
 	}
 
 	buf = buf_new(0);
 	buf_printf(buf, BUF_END, "Mobile #%-6d [%s]\n",		// notrans
-		   victim->pMobIndex->vnum, mlstr_mval(&victim->short_descr));
-
-	npc = NPC(victim);
+		   vnum, mlstr_mval(descr));
 
 #if 0
-	XXX MPC
+	XXX MPC DELAY
 	buf_printf(buf, BUF_END, "Delay   %-6d [%s]\n",		// notrans
 		   npc->mprog_delay,
 		   npc->mprog_target == NULL ?
 			"No target" : npc->mprog_target->name); // notrans
 #endif
 
-	if (c_size(&victim->pMobIndex->mp_trigs) == 0)
+	if (c_size(trig_list) == 0)
 		buf_append(buf, "No triggers set.\n");		// notrans
 	else
-		trig_dump_list(&victim->pMobIndex->mp_trigs, buf);
+		trig_dump_list(trig_list, buf);
 
 	page_to_char(buf_string(buf), ch);
 	buf_free(buf);

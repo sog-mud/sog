@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.136 2001-09-15 17:12:54 fjoe Exp $
+ * $Id: recycle.c,v 1.137 2001-09-16 18:14:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -60,7 +60,7 @@ WEATHER_DATA	weather_info;
 AUCTION_DATA	auction;
 rating_t	rating_table[RATING_TABLE_SIZE];
 
-ROOM_INDEX_DATA	*top_affected_room = NULL;
+ROOM_INDEX_DATA	*x_room_list = NULL;
 CHAR_DATA	*top_affected_char = NULL;
 OBJ_DATA	*top_affected_obj = NULL;
 
@@ -832,6 +832,7 @@ new_room_index(void)
 	memset(pRoom, 0, sizeof(*pRoom));
 	pRoom->heal_rate = 100;
 	pRoom->mana_rate = 100;
+	trig_init_list(&pRoom->mp_trigs);
 
         room_count++;
 	return pRoom;
@@ -859,8 +860,56 @@ free_room_index(ROOM_INDEX_DATA *pRoom)
 	for (pReset = pRoom->reset_first; pReset; pReset = pReset->next)
 		reset_free(pReset);
 
+	trig_destroy_list(&pRoom->mp_trigs);
+	x_room_del(pRoom);
+
 	room_count--;
 	mem_free(pRoom);
+}
+
+void
+x_room_add(ROOM_INDEX_DATA *room)
+{
+	ROOM_INDEX_DATA *r;
+
+	if (room->affected == NULL
+	&&  !ROOM_HAS_TRIGGER(room, TRIG_ROOM_RANDOM))
+		return;
+
+	for (r = x_room_list; r != NULL; r = r->x_next) {
+		if (r == room) {
+			/* already there */
+			return;
+		}
+	}
+
+	room->x_next = x_room_list;
+	x_room_list = room;
+}
+
+void
+x_room_del(ROOM_INDEX_DATA *room)
+{
+	ROOM_INDEX_DATA *r;
+	ROOM_INDEX_DATA *r_prev = NULL;
+
+	if (room->affected != NULL
+	||  ROOM_HAS_TRIGGER(room, TRIG_ROOM_RANDOM))
+		return;
+
+	for (r = x_room_list, r_prev = NULL; r != NULL; r = r->x_next) {
+		if (r == room)
+			break;
+		r_prev = r;
+	}
+
+	if (r != NULL) {
+		if (r_prev == NULL)
+			x_room_list = room->x_next;
+		else
+			r_prev->x_next = room->x_next;
+	}
+	room->x_next = NULL;
 }
 
 /*
