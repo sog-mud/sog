@@ -1149,7 +1149,7 @@ FGU 0 0 0 H 0 0
 8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
 EFNR
-stand stand none 18
+stand stand none 0
 0 0 tiny unknown
 #9573
 lion spotted~

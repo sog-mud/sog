@@ -312,7 +312,7 @@ centipede~
 28 0 6d12+703 279d1+1 2d12+7 'thrust'
 -8 -8 -8 6
 E
-stand stand either 10000
+stand stand either 0
 0 0 medium unknown
 r bash 50
 r pierce -33

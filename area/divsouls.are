@@ -1397,7 +1397,7 @@ BFG 0 0 G ABH 0 0
 37 15 50d5+1900 1d10+750 8d7+15 'shbite'
 -20 -20 -20 -15
 EFM
-stand stand either 1600
+stand stand either 0
 0 0 large unknown
 r cold 50
 r lightning 999
@@ -1658,7 +1658,7 @@ BCG 0 0 0 0 0 11677
 40 6 50d6+3000 1d10+900 5d10+5 'peckb'
 -25 -25 -25 -24
 CDEJ
-stand stand male 110
+stand stand male 0
 0 0 large unknown
 r lightning 33
 r acid -50

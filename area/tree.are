@@ -70,7 +70,7 @@ BGH 0 0 0 AB -800 2903
 10 0 2d7+121 99d1+1 2d4+2 'punch'
 1 1 1 8
 CF
-stand stand either 800
+stand stand either 0
 0 0 medium unknown
 r bash -33
 r cold -33
@@ -216,7 +216,7 @@ C 0 0 0 B 100 2911
 10 0 2d7+121 99d1+1 2d4+2 'punch'
 1 1 1 8
 ABC
-stand stand either 800
+stand stand either 0
 0 0 medium unknown
 r bash -33
 r cold -33

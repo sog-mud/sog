@@ -33,7 +33,7 @@ BGJTe 0 HV 0 ABH 0 0
 100 50 1d1+30000 100d10+5000 10d10+200 'none'
 -5 -5 -5 -5
 ACDEFHKOPQT
-stand stand none 10000
+stand stand none 0
 0 0 gargantuan unknown
 M grall 47000 100~
 M exall 47001 3~

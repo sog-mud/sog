@@ -284,7 +284,7 @@ CGH 0 0 0 M 500 0
 5 0 2d6+60 49d1+1 1d6+1 'bite'
 5 5 5 9
 BDEI
-stand stand either 35
+stand stand either 0
 B V medium unknown
 #14512
 dog~
@@ -328,7 +328,7 @@ CG 0 NO 0 0 0 0
 35 0 10d10+1300 349d1+1 4d7+11 'peck'
 -11 -11 -11 5
 ADIJ
-stand stand female 5000
+stand stand female 0
 0 0 small unknown
 r slash -50
 r fire 999

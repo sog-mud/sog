@@ -664,7 +664,7 @@ CFG 0 0 0 HM -950 0
 39 25 100d5+1650 1d100+1500 7d10+22 'claw'
 -24 -23 -23 -7
 CDJK
-stand stand none 1000
+stand stand none 0
 0 0 large unknown
 r fire 33
 r cold -50
@@ -685,7 +685,7 @@ BCFG 0 O 0 H -800 0
 41 25 100d5+1900 1d100+900 6d11+26 'bite'
 -25 -25 -26 -10
 DEFI
-stand stand none 1000
+stand stand none 0
 0 0 medium unknown
 r acid 33
 r mental -50
@@ -703,7 +703,7 @@ BCFG 0 T B HM -855 0
 40 25 100d5+1950 1d100+950 8d8+25 'claw'
 -25 -25 -25 -10
 DEFJ
-stand stand none 1000
+stand stand none 0
 0 0 large unknown
 r bash 33
 r pierce 33

@@ -294,7 +294,7 @@ BTe 0 H 0 AB 0 0
 60 0 50d10+8000 1d1+100 11d5+33 'punch'
 -30 -30 -30 -15
 R
-stand stand none 10000
+stand stand none 0
 0 0 large unknown
 r bash 50
 r pierce 50
@@ -344,7 +344,7 @@ BEVe 0 H 0 AB 0 0
 60 0 50d10+8000 1d1+100 11d5+33 'punch'
 -30 -30 -30 -15
 0
-stand stand none 10000
+stand stand none 0
 0 0 large unknown
 r cold 50
 r poison -33
@@ -359,7 +359,7 @@ lizard~
 60 0 50d10+8000 1d1+100 11d5+33 'punch'
 -30 -30 -30 -15
 0
-stand stand none 10000
+stand stand none 0
 0 0 large unknown
 r cold 50
 r poison -33
@@ -374,7 +374,7 @@ lizard~
 60 0 50d10+8000 1d1+100 11d5+33 'punch'
 -30 -30 -30 -15
 0
-stand stand none 10000
+stand stand none 0
 0 0 large unknown
 r cold 50
 r poison -33
@@ -389,7 +389,7 @@ lizard~
 60 0 50d10+8000 1d1+100 11d5+33 'punch'
 -30 -30 -30 -15
 0
-stand stand none 10000
+stand stand none 0
 0 0 large unknown
 r cold 50
 r poison -33
@@ -404,7 +404,7 @@ lizard~
 60 0 50d10+8000 1d1+100 11d5+33 'punch'
 -30 -30 -30 -15
 0
-stand stand none 10000
+stand stand none 0
 0 0 large unknown
 r cold 50
 r poison -33
@@ -419,7 +419,7 @@ lizard~
 60 0 50d10+8000 1d1+100 11d5+33 'punch'
 -30 -30 -30 -15
 0
-stand stand none 10000
+stand stand none 0
 0 0 large unknown
 r cold 50
 r poison -33
@@ -434,7 +434,7 @@ lizard~
 60 0 50d10+8000 1d1+100 11d5+33 'punch'
 -30 -30 -30 -15
 0
-stand stand none 10000
+stand stand none 0
 0 0 large unknown
 r cold 50
 r poison -33
@@ -449,7 +449,7 @@ lizard~
 60 0 50d10+8000 1d1+100 11d5+33 'punch'
 -30 -30 -30 -15
 0
-stand stand none 10000
+stand stand none 0
 0 0 large unknown
 r cold 50
 r poison -33

@@ -366,7 +366,7 @@ BCF 0 0 0 0 -1000 0
 9 0 8d8+70 1d1+199 1d8+2 'chomp'
 30 30 30 50
 0
-stand stand none 880
+stand stand none 0
 0 0 large unknown
 r bash -33
 r cold -33
@@ -434,7 +434,7 @@ BF 0 0 0 0 0 0
 4 0 8d8+16 10d10+1 1d4+2 'bite'
 60 60 60 75
 0
-stand stand none 270
+stand stand none 0
 0 0 large unknown
 r bash -33
 r cold -33

@@ -25,7 +25,7 @@ BGY 0 TV 0 H 1000 0
 40 1 15d10+1850 1d400+800 4d8+13 'pierce'
 -20 -20 -20 -20
 EFHIJK
-stand stand either 400
+stand stand either 0
 0 PQW large unknown
 r fire -50
 r poison 33
@@ -46,7 +46,7 @@ BGY 0 TV 0 H 1000 0
 35 1 10d10+1300 1d400+800 4d7+11 'pierce'
 -17 -17 -17 -17
 EFHIJK
-stand stand either 275
+stand stand either 0
 0 PQW large unknown
 r fire -50
 r poison 33
@@ -65,7 +65,7 @@ G 0 H 0 0 1000 0
 60 2 5d10+9500 1d400+5000 8d6+28 'slash'
 -50 -50 -50 -50
 EIJKP
-stand stand male 1000
+stand stand male 0
 0 0 large unknown
 r fire -50
 r acid -50
@@ -112,7 +112,7 @@ BGY 0 TV 0 ABHKLM 1000 0
 60 1 50d10+9500 1d400+400 8d6+28 'pierce'
 -50 -50 -50 -50
 EFHIKR
-stand stand male 1200
+stand stand male 0
 0 PQW large unknown
 r fire -50
 r poison 33
@@ -132,7 +132,7 @@ BGY 0 TV 0 ABHKLM 1000 0
 59 1 50d10+9000 1d400+400 8d6+26 'pierce'
 -48 -48 -48 -48
 EFHIKR
-stand stand male 1100
+stand stand male 0
 0 PQW large unknown
 r fire -50
 r poison 33
@@ -152,7 +152,7 @@ BGY 0 TV 0 ABHKLM 1000 0
 58 1 50d10+8500 1d400+400 8d6+24 'pierce'
 -47 -47 -47 -47
 EFHIKR
-stand stand male 1000
+stand stand male 0
 0 PQW large unknown
 r fire -50
 r poison 33
@@ -172,7 +172,7 @@ BGY 0 TV 0 ABHKLM 1000 0
 54 1 50d10+6500 1d400+400 7d6+22 'pierce'
 -45 -45 -45 -45
 EFHIKR
-stand stand male 900
+stand stand male 0
 0 PQW large unknown
 r fire -50
 r poison 33
@@ -192,7 +192,7 @@ BGY 0 TV 0 ABHKLM 1000 0
 60 1 50d10+11500 1d400+400 9d6+28 'pierce'
 -60 -60 -60 -60
 EFHIKR
-stand stand male 1200
+stand stand male 0
 0 PQW large unknown
 r fire -50
 r poison 33
@@ -212,7 +212,7 @@ BGY 0 TV 0 ABHKLM 1000 0
 50 1 50d10+4500 1d400+400 5d8+19 'pierce'
 -42 -42 -42 -42
 EFHIKR
-stand stand male 800
+stand stand male 0
 0 PQW large unknown
 r fire -50
 r poison 33
@@ -231,7 +231,7 @@ BGHUY 0 0 0 0 -1000 0
 40 0 15d10+1850 1d300+340 4d8+13 'suction'
 -33 -33 -33 -33
 CU
-stand stand either 200
+stand stand either 0
 c 0 small unknown
 r fire 50
 r cold 50
@@ -631,7 +631,7 @@ BGY 0 TV 0 ABHKLM -1000 0
 50 1 50d10+4500 1d400+400 5d8+79 'pierce'
 -42 -42 -42 -42
 EFHIKR
-stand stand male 800
+stand stand male 0
 0 PQW large unknown
 r fire -50
 r poison 33
@@ -651,7 +651,7 @@ CGH 0 V 0 0 300 0
 1 1 2d6+10 1d200+200 1d4+0 'bite'
 9 9 9 9
 U
-stand stand either 10
+stand stand either 0
 0 0 small unknown
 r fire -50
 r cold 33
@@ -673,7 +673,7 @@ GU 0 V 0 0 0 0
 5 0 2d6+60 2d100+100 1d6+1 'none'
 5 5 5 5
 0
-stand stand either 100
+stand stand either 0
 O 0 tiny unknown
 r energy -50
 #1832
@@ -691,7 +691,7 @@ GU 0 V 0 0 0 0
 5 0 2d8+60 2d100+100 1d8+1 'none'
 3 3 3 3
 U
-stand stand either 100
+stand stand either 0
 O 0 tiny unknown
 r lightning 33
 r energy -50
@@ -709,7 +709,7 @@ GU 0 V 0 0 0 0
 5 0 2d6+60 2d100+100 1d9+1 'none'
 4 4 4 4
 0
-stand stand either 100
+stand stand either 0
 O 0 tiny unknown
 r lightning 33
 r energy -50
@@ -727,7 +727,7 @@ GU 0 V 0 0 0 0
 5 0 2d8+60 2d100+100 1d9+5 'none'
 2 2 2 2
 0
-stand stand either 100
+stand stand either 0
 O 0 tiny unknown
 r lightning 33
 r energy -50
@@ -744,7 +744,7 @@ GU 0 V 0 0 0 0
 4 0 2d6+60 2d100+100 1d7+2 'none'
 4 4 4 4
 0
-stand stand either 100
+stand stand either 0
 O 0 tiny unknown
 r lightning 33
 r energy -50
@@ -762,7 +762,7 @@ GU 0 V 0 0 0 0
 6 0 2d9+60 2d100+100 1d9+9 'none'
 0 0 0 0
 0
-stand stand either 100
+stand stand either 0
 O 0 tiny unknown
 M act 1809 gets a small well-woven nest~
 r lightning 33
@@ -781,7 +781,7 @@ GU 0 V 0 0 0 0
 3 0 2d4+60 2d100+100 1d6+5 'pierce'
 3 3 3 3
 0
-stand stand either 100
+stand stand either 0
 O 0 tiny unknown
 M act 1807 gets a small moss and lichen nest~
 r lightning 33
@@ -820,7 +820,7 @@ GHUY 0 V 0 0 0 0
 3 0 2d6+35 1d300+300 1d6+0 'scratch'
 7 7 7 7
 U
-stand stand either 40
+stand stand either 0
 0 0 small unknown
 r bash -50
 r pierce 33
@@ -839,7 +839,7 @@ GHUY 0 V 0 0 0 0
 7 0 2d6+90 1d300+400 1d8+1 'bite'
 4 4 4 4
 U
-stand stand either 110
+stand stand either 0
 0 0 medium unknown
 r fire -50
 r lightning 33

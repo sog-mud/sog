@@ -179,7 +179,7 @@ CFGH 0 0 BG H -100 0
 16 0 3d9+233 8d9+100 2d6+4 'none'
 -2 -2 -2 7
 EFNR
-stand stand female 500
+stand stand female 0
 0 0 medium unknown
 r cold 50
 r poison -33

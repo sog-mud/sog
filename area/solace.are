@@ -596,7 +596,7 @@ BF 0 0 0 A 100 0
 5 0 2d6+60 5d5+100 1d6+1 'charge'
 5 5 5 9
 0
-stand stand none 1000
+stand stand none 0
 0 0 medium unknown
 r light 50
 #10241
@@ -737,7 +737,7 @@ BCI 0 0 0 0 0 0
 12 0 2d10+150 5d5+100 1d10+3 'claw'
 0 0 0 7
 0
-stand stand either 1000
+stand stand either 0
 0 0 medium unknown
 #10251
 Raven~
@@ -766,7 +766,7 @@ BCI 0 0 0 0 0 0
 18 0 3d9+283 5d5+1000 2d7+4 'claw'
 -3 -3 -3 6
 E
-stand stand either 1000
+stand stand either 0
 0 0 medium unknown
 #10253
 Battle falcon~
@@ -781,7 +781,7 @@ BCI 0 0 0 0 0 0
 21 0 4d10+360 5d5+1000 4d4+5 'claw'
 -5 -5 -5 5
 E
-stand stand either 1000
+stand stand either 0
 0 0 medium unknown
 #0
 

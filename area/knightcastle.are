@@ -106,7 +106,7 @@ BIJWZ 0 HV 0 BH 1000 0
 25 10 2d100+1000 1d200+1600 6d4+9 'wrath'
 -10 -10 -10 -5
 N
-stand stand male 5000
+stand stand male 0
 0 0 medium unknown
 r charm 999
 #95204
@@ -124,7 +124,7 @@ BIJWZ 0 HV 0 BH 1000 0
 45 20 25d10+3000 1d200+1600 7d6+25 'wrath'
 -20 -20 -20 -10
 N
-stand stand male 5000
+stand stand male 0
 0 0 medium unknown
 r charm 999
 #95205
@@ -142,7 +142,7 @@ BIJWZ 0 HV G BH 1000 0
 55 30 50d10+6000 1d200+1600 6d7+25 'wrath'
 -30 -30 -30 -20
 JN
-stand stand male 5000
+stand stand male 0
 0 0 medium unknown
 r fire 33
 r cold 33
@@ -177,7 +177,7 @@ BIJWZ 0 HTUV AG ABH 1000 0
 70 30 100d10+9500 1d20+1600 6d10+30 'wrath'
 -40 -40 -40 -30
 N
-stand stand male 5000
+stand stand male 0
 0 0 medium unknown
 r fire 33
 r cold 33
@@ -214,7 +214,7 @@ BIJWZ 0 HTUVa 0 ABDFH 1000 0
 85 50 100d12+16250 1d20+1600 6d15+50 'wrath'
 -50 -50 -50 -40
 DNO
-stand stand male 5000
+stand stand male 0
 0 0 medium unknown
 r fire 33
 r cold 33

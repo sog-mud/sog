@@ -490,7 +490,7 @@ EJe 0 HNOUVYc 0 ABL 0 0
 150 250 1d1+28000 1d1+25000 50d60+100 'divine'
 -66 -66 -66 -66
 CDEFHIKNO
-stand stand male 100000
+stand stand male 0
 0 0 huge unknown
 r bash 999
 r pierce 83
@@ -1323,13 +1323,13 @@ pill G 0 AO
 0 1 1 P
 g @rus none~
 #76
-spot renegade~
-@eng Bloody spot of renegade@rus Кровавое пятно ренегада~
-@eng Whisp of skin with bloody spot lies here.@rus Кусок кожи с кровавым пятном лежит здесь.~
+spot renegade whisp skin кусок пятно~
+@eng Bloody spot of renegade@rus ~~Кровавое~~ ~~пятно~~ ренегада~
+@eng Whisp of skin with bloody spot lies here.@rus Кусок (whisp) кожи с кровавым пятном лежит здесь.~
 flesh~
 trash HM CE AS
 0 0 0 0 0
-0 0 0 P
+1 0 0 P
 #80
 golden dagger кинжал~
 @eng a golden dagger@rus ~~золотистый~~ ~~кинжал~~~

@@ -444,7 +444,7 @@ BFGQ 0 H 0 A 0 0
 27 0 5d10+650 27d9+100 2d10+7 'none'
 -8 -8 -8 4
 IKR
-stand stand none 750
+stand stand none 0
 0 0 medium unknown
 r bash -33
 r cold -33

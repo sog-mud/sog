@@ -76,7 +76,7 @@ BFGJ 0 0 0 H 0 0
 10 0 2d7+121 99d1+1 2d4+2 'claw'
 1 1 1 8
 CFI
-stand stand either 20
+stand stand either 0
 0 0 medium unknown
 r cold 50
 r acid 33
@@ -541,7 +541,7 @@ BG 0 NO 0 ABH 0 0
 12 0 2d10+150 119d1+1 1d10+3 'cleave'
 0 0 0 8
 0
-stand stand male 10
+stand stand male 0
 0 0 medium unknown
 #5761
 werewolf man~

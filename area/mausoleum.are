@@ -195,7 +195,7 @@ BFJ 0 JV ABG ABH -1000 0
 40 30 10d50+2000 1d1+200 8d3+23 'acbite'
 -1 -1 -1 -1
 ADEF
-stand stand none 1
+stand stand none 0
 C B large unknown
 g @eng none@rus male~
 r fire 33

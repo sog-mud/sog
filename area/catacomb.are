@@ -196,7 +196,7 @@ BF 0 0 0 BH -100 0
 15 0 3d9+208 7d9+100 2d6+3 'none'
 -2 -2 -2 7
 ENR
-stand stand male 50
+stand stand male 0
 0 0 medium unknown
 r light 50
 #2014

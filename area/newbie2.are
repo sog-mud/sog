@@ -21,7 +21,7 @@ BC 0 0 0 H -750 0
 5 0 2d6+60 49d1+1 1d6+1 'pierce'
 5 5 5 9
 B
-stand stand male 150
+stand stand male 0
 0 0 medium unknown
 r bash -33
 r cold -33
@@ -121,7 +121,7 @@ BFGJ 0 0 0 0 -250 0
 1 0 2d6+8 9d1+1 1d4+0 'punch'
 9 9 9 10
 F
-stand stand male 110
+stand stand male 0
 0 0 medium unknown
 r cold 50
 r poison -33
@@ -156,7 +156,7 @@ CGH 0 0 G H -800 0
 3 0 2d6+35 29d1+1 1d6+0 'smash'
 7 7 7 10
 H
-stand stand male 130
+stand stand male 0
 0 0 medium unknown
 r cold 50
 r poison -33
@@ -175,7 +175,7 @@ BFGJ 0 0 0 H -1000 0
 7 0 2d6+80 69d1+1 1d8+1 'blast'
 4 4 4 9
 I
-stand stand male 170
+stand stand male 0
 0 0 medium unknown
 r charm 999
 #18610
@@ -191,7 +191,7 @@ BFGJ 0 0 A AH -850 0
 6 0 2d7+71 59d1+1 1d7+0 'bite'
 4 4 4 9
 J
-stand stand either 140
+stand stand either 0
 0 0 medium unknown
 r charm 999
 #18611

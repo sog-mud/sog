@@ -187,7 +187,7 @@ FR 0 TV 0 J 0 0
 20 0 5d30+150 20d10+100 4d5+15 'pierce'
 5 5 5 3
 FUZ
-stand stand none 20
+stand stand none 0
 0 0 small unknown
 g @eng none@rus female~
 F par AD
@@ -214,7 +214,7 @@ FRe 0 HTVac 0 J 0 0
 50 0 105d10+4500 50d10+200 5d20+47 'flame'
 -20 -20 -20 -15
 AFHKZ
-stand stand none 3
+stand stand none 0
 0 0 giant unknown
 g @eng none@rus male~
 r bash -33
@@ -234,7 +234,7 @@ fire elemental~
 20 0 5d30+150 20d10+100 4d5+15 'flame'
 5 5 5 3
 FHUZ
-stand stand none 20
+stand stand none 0
 0 0 small unknown
 g @eng none@rus male~
 r bash -33
@@ -294,7 +294,7 @@ BTe 0 Ld 0 J 800 0
 50 0 120d15+10000 50d10+100 5d19+40 'slime'
 -50 -50 -50 -50
 ACEOZ
-sleep sleep none 20000
+sleep sleep none 0
 0 0 huge unknown
 g @eng none@rus male~
 F aff T
@@ -310,7 +310,7 @@ B 0 0 0 0 0 0
 10 0 3d22+100 10d10+100 2d5+3 'slice'
 7 7 7 8
 ORZ
-stand stand none 200
+stand stand none 0
 0 0 medium unknown
 F par ACDEFHKP
 a 'water breathing' to_affects 10 -1 0 0 0

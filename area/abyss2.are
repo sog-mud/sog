@@ -306,7 +306,7 @@ BF 0 0 0 AH -1000 0
 40 0 15d10+1700 399d1+1 4d8+11 'slime'
 -13 -13 -13 7
 A
-stand stand male 4504
+stand stand male 0
 0 0 giant unknown
 r lightning 33
 r acid 33
@@ -513,7 +513,7 @@ B 0 0 0 0 0 0
 32 0 10d10+900 319d1+1 6d4+8 'punch'
 -10 -10 -10 5
 0
-stand stand male 4500
+stand stand male 0
 D 0 medium unknown
 F for AZ
 F par AD
@@ -536,7 +536,7 @@ B 0 0 0 0 0 0
 32 0 10d10+900 319d1+1 6d4+8 'punch'
 -10 -10 -10 5
 0
-stand stand male 10000
+stand stand male 0
 D 0 medium unknown
 F for Z
 F par AD
@@ -557,7 +557,7 @@ B 0 H 0 0 0 0
 32 0 10d10+900 319d1+1 6d4+8 'punch'
 -10 -10 -10 5
 0
-stand stand male 4906
+stand stand male 0
 D 0 medium unknown
 F for Z
 F par AD
@@ -578,7 +578,7 @@ B 0 0 0 0 0 0
 32 0 10d10+900 319d1+1 6d4+8 'punch'
 -10 -10 -10 5
 0
-stand stand male 4111
+stand stand male 0
 D 0 medium unknown
 F for Z
 F par AD

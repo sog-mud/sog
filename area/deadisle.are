@@ -178,7 +178,7 @@ BFT 0 Vc 0 ABCD 0 0
 45 40 100d50+5000 0d0+0 10d6+60 'thwack'
 -50 -50 -50 -50
 EFK
-stand stand none 10000
+stand stand none 0
 0 0 huge unknown
 r bash 50
 r pierce 50

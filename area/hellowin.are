@@ -25,7 +25,7 @@ GJVWZe 0 H 0 ABM 1000 0
 50 0 1d1+1 0d0+0 0d0+0 'bite'
 0 0 0 0
 0
-stand stand male 10000
+stand stand male 0
 H 0 small unknown
 r bash 999
 r pierce 999

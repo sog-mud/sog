@@ -21,7 +21,7 @@ BGe 0 0 0 0 0 0
 30 0 7d10+800 1d8+200 4d8+13 'crush'
 -25 -25 -25 -25
 E
-stand stand male 1000
+stand stand male 0
 0 0 medium unknown
 #5601
 bird aarakocra delicacy vendor~
@@ -36,7 +36,7 @@ BGe 0 0 0 0 0 0
 34 0 12d10+900 1d8+200 5d8+10 'crush'
 -25 -25 -25 -25
 E
-stand stand male 10000
+stand stand male 0
 0 0 medium unknown
 #5602
 bird aarakocra trinket vendor~
@@ -52,7 +52,7 @@ BGe 0 0 0 0 0 0
 34 0 8d10+900 1d8+200 5d9+10 'crush'
 -25 -25 -25 -25
 0
-stand stand male 10000
+stand stand male 0
 0 0 medium unknown
 #5603
 bird aarakocran young child boy~
@@ -67,7 +67,7 @@ CGH 0 0 G 0 100 0
 15 -1 2d20+200 2d4+180 2d6+3 'crush'
 -3 -2 -3 7
 0
-stand stand male 340
+stand stand male 0
 0 0 medium unknown
 #5604
 bird aarakocran young child girl~
@@ -82,7 +82,7 @@ CGH 0 0 G 0 -100 0
 16 0 2d20+210 2d4+180 2d6+3 'crush'
 -3 -2 -3 7
 ENU
-stand stand male 440
+stand stand male 0
 0 0 medium unknown
 #5605
 bird aarakocran taxidermist~
@@ -100,7 +100,7 @@ BGJ 0 0 0 0 -200 0
 23 0 7d10+900 1d8+180 5d4+13 'crush'
 -25 -25 -25 -25
 ENU
-stand stand male 1000
+stand stand male 0
 0 0 medium unknown
 r bash 999
 r pierce 999
@@ -135,7 +135,7 @@ BGe 0 0 0 0 0 0
 34 0 10d10+900 1d8+180 5d9+13 'claw'
 -25 -25 -25 -25
 E
-stand stand male 10000
+stand stand male 0
 0 0 medium unknown
 #5608
 bird aarakocra child lame~
@@ -151,7 +151,7 @@ BG 0 0 0 0 -100 0
 14 0 2d12+150 1d1+99 2d5+4 'crush'
 -3 -3 -3 5
 E
-stand stand male 1000
+stand stand male 0
 0 0 medium unknown
 #5609
 bird aarakocra commander military~
@@ -166,7 +166,7 @@ BCFGJ 0 H B AB 0 0
 30 0 3d30+1200 1d9+250 4d6+8 'crush'
 -9 -9 -9 5
 CER
-stand stand male 1000
+stand stand male 0
 0 0 medium unknown
 #5610
 bird aarakocra commander holy~
@@ -181,7 +181,7 @@ BCFG 0 HN B AB 0 0
 30 0 3d30+1200 1d9+250 6d4+8 'crush'
 -9 -9 -9 5
 CER
-stand stand male 1000
+stand stand male 0
 0 0 medium unknown
 #5611
 bird aarakocran warrior~
@@ -196,7 +196,7 @@ FG 0 0 0 AB -100 0
 27 0 5d10+650 4d60+4 5d4+7 'crush'
 -5 -6 -6 5
 CEIR
-stand stand male 1000
+stand stand male 0
 0 0 medium unknown
 #5612
 bird aarakocran guard warrior~
@@ -211,7 +211,7 @@ BFGT 0 0 0 AB 100 5612
 24 0 20d6+470 4d60+4 2d10+6 'crush'
 -6 -6 -6 6
 CDEIJKR
-stand stand male 1000
+stand stand male 0
 0 0 medium unknown
 #5613
 bird aarakocran revolutionary castro~
@@ -229,7 +229,7 @@ BGH 0 0 0 ABK 100 0
 24 0 20d8+430 4d60+4 2d10+6 'crush'
 -6 -6 -6 4
 E
-stand stand male 1000
+stand stand male 0
 0 0 medium unknown
 #5614
 bird aarakocra junk dealer fred~
@@ -244,7 +244,7 @@ BCGJe 0 0 0 0 0 0
 34 0 1d1+30000 1d80+20 5d4+40 'crush'
 -25 -25 -25 -25
 CE
-stand stand male 1000
+stand stand male 0
 0 0 medium unknown
 r bash 999
 r pierce 999
@@ -276,7 +276,7 @@ CH 0 0 G 0 -100 0
 16 0 20d5+200 2d4+180 2d6+4 'crush'
 -2 -2 -2 7
 CE
-stand stand female 1000
+stand stand female 0
 0 0 medium unknown
 #5616
 bird aarakocran matron~
@@ -292,7 +292,7 @@ CGH 0 0 G 0 -100 0
 16 0 2d7+250 2d4+180 2d6+4 'crush'
 -2 -1 -3 5
 CE
-stand stand female 1000
+stand stand female 0
 0 0 medium unknown
 #5617
 bird aarakocran clansman~
@@ -307,7 +307,7 @@ CGH 0 0 G 0 -100 0
 18 0 2d9+300 2d4+180 2d7+4 'crush'
 -4 -4 -4 7
 CER
-stand stand male 1000
+stand stand male 0
 0 0 medium unknown
 #5618
 bird aarakocran captain~
@@ -323,7 +323,7 @@ BFG 0 0 0 AB -100 0
 28 0 5d10+560 4d60+40 5d4+7 'crush'
 -8 -8 -8 5
 CER
-stand stand male 1000
+stand stand male 0
 0 0 medium unknown
 #5619
 bird aarakocran secretary~
@@ -340,7 +340,7 @@ BFG 0 0 0 AB -100 0
 25 0 5d10+550 4d60+40 2d10+7 'crush'
 -7 -7 -7 6
 CE
-stand stand male 1000
+stand stand male 0
 0 0 medium unknown
 #5620
 bird aarakocra aarakocran weapons vendor~
@@ -358,7 +358,7 @@ BGe 0 0 0 0 0 0
 34 0 10d10+1500 1d8+200 5d10+30 'crush'
 -25 -25 -25 -25
 CEIR
-stand stand male 1000
+stand stand male 0
 0 0 medium unknown
 #5621
 bird aarakocra aarakocran armorer armourer~
@@ -373,7 +373,7 @@ BGe 0 0 0 0 0 0
 34 0 11d11+1500 1d8+200 5d6+30 'crush'
 -25 -25 -25 -25
 CEIKR
-stand stand male 1000
+stand stand male 0
 0 0 medium unknown
 #5622
 bird aarakocra aarakocran shaman holy guildmaster~
@@ -388,7 +388,7 @@ BGJO D H 0 0 0 0
 30 0 10d10+1200 1d1+99 5d9+16 'crush'
 -25 -25 -25 -25
 CEIKR
-stand stand male 1000
+stand stand male 0
 0 0 medium unknown
 r bash 999
 r pierce 999
@@ -419,7 +419,7 @@ BGJSe D 0 0 H 0 0
 19 0 10d10+400 1d8+20 10d5+10 'crush'
 -25 -25 -25 -25
 EIKNR
-stand stand male 1000
+stand stand male 0
 0 0 medium unknown
 r bash 999
 r pierce 999
@@ -452,7 +452,7 @@ BJT D 0 0 0 0 0
 30 0 1d1+1500 1d8+200 5d9+15 'crush'
 -25 -25 -25 -25
 CDEIJKR
-stand stand male 1000
+stand stand male 0
 0 0 medium unknown
 r bash 999
 r pierce 999
@@ -484,7 +484,7 @@ CGT 0 0 0 0 1000 0
 19 0 2d6+310 1d1+99 2d7+5 'crush'
 -4 -4 -4 2
 CDEIR
-stand stand female 1000
+stand stand female 0
 0 0 medium unknown
 #5626
 bird aarakocra aarakocran cityguard guard~
@@ -499,7 +499,7 @@ CG 0 0 0 0 1000 0
 17 0 2d6+260 1d1+99 3d4+4 'crush'
 -4 -4 -4 6
 CDER
-stand stand male 1000
+stand stand male 0
 0 0 medium unknown
 #5627
 bird aarakocra aarakocran cityguard guard~
@@ -514,7 +514,7 @@ BCG 0 0 0 0 1000 5627
 18 0 2d6+260 1d1+99 4d3+4 'crush'
 -4 -4 -4 6
 CDEIR
-stand stand male 1000
+stand stand male 0
 0 0 medium unknown
 #5628
 bat breakfast lunch dinner snack appetizer~
@@ -539,7 +539,7 @@ BFH 0 0 0 0 -400 0
 5 0 1d6+55 1d4+36 1d6+1 'grep'
 7 7 7 9
 0
-stand stand male 1000
+stand stand male 0
 0 0 small unknown
 r light 50
 #5629

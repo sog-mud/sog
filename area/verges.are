@@ -97,7 +97,7 @@ BG 0 0 0 0 350 0
 40 0 15d10+1850 5d5+1000 4d8+13 'charge'
 -13 -13 -13 -2
 0
-stand stand male 4999
+stand stand male 0
 C BJK huge unknown
 F for Z
 r bash -33

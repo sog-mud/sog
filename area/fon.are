@@ -74,7 +74,7 @@ W 0 0 0 0 500 0
 11 0 2d8+105 1d1+99 1d3+3 'bite'
 1 10 1 0
 0
-stand stand none 50
+stand stand none 0
 HM 0 tiny unknown
 r fire 33
 r cold -50
@@ -94,7 +94,7 @@ W 0 0 0 0 500 0
 13 0 2d7+103 1d1+99 1d5+3 'bite'
 1 10 1 0
 F
-stand stand none 50
+stand stand none 0
 HM 0 tiny unknown
 r fire 33
 r cold -50

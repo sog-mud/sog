@@ -74,7 +74,7 @@ BFGH 0 N 0 AH -1000 0
 10 0 2d7+121 5d5+100 2d4+2 'beating'
 1 1 1 7
 0
-stand stand female 1000
+stand stand female 0
 0 0 large unknown
 #15704
 hawk familiar~
@@ -88,7 +88,7 @@ BFGH 0 N 0 AH -1000 0
 12 0 2d10+150 5d5+100 1d10+3 'claw'
 0 0 0 7
 0
-stand stand none 1000
+stand stand none 0
 0 0 small unknown
 #15705
 troll guard~
@@ -125,7 +125,7 @@ BG 0 HN 0 H 0 0
 26 0 5d10+600 5d5+1000 3d7+7 'pound'
 -7 -7 -7 4
 EFNU
-stand stand none 1000
+stand stand none 0
 0 0 medium unknown
 r bash -33
 r pierce -33
@@ -260,7 +260,7 @@ BFG 0 0 0 H 0 0
 19 0 3d9+308 5d5+1000 2d7+5 'cleave'
 -4 -4 -4 5
 EFNU
-stand stand none 1000
+stand stand none 0
 0 0 large unknown
 r cold 50
 r poison -33
@@ -278,7 +278,7 @@ BFG 0 N 0 H -400 0
 16 0 3d9+233 5d5+1000 2d6+4 'bite'
 -2 -2 -2 6
 ENQ
-stand stand none 1000
+stand stand none 0
 0 0 medium unknown
 r fire 50
 r cold 50

@@ -204,7 +204,7 @@ snake~
 54 0 50d10+5250 5d5+5000 7d6+22 'bite'
 -24 -24 -24 -1
 FH
-stand stand none 1000
+stand stand none 0
 0 0 medium unknown
 r cold 50
 r poison 999
@@ -259,7 +259,7 @@ lizard~
 54 0 50d10+5250 5d5+5000 7d6+22 'slash'
 -24 -24 -24 -1
 U
-stand stand none 1000
+stand stand none 0
 0 0 medium unknown
 r cold 50
 r poison -33
@@ -508,7 +508,7 @@ song bird~
 70 0 50d10+9750 5d5+5000 8d10+40 'claw'
 -40 -40 -40 -6
 EI
-stand stand female 1000
+stand stand female 0
 0 0 medium unknown
 #17042
 hawkman hawk man~
@@ -525,7 +525,7 @@ F 0 0 0 0 0 0
 72 0 50d10+10250 5d5+5000 8d11+42 'claw'
 -42 -42 -42 -7
 EI
-stand stand male 1000
+stand stand male 0
 0 0 medium unknown
 #17043
 hawklord hawk lord man~
@@ -542,7 +542,7 @@ song bird~
 74 0 50d10+10700 5d5+5000 9d10+44 'claw'
 -44 -44 -44 -8
 EI
-stand stand male 1000
+stand stand male 0
 0 0 medium unknown
 #17044
 terra-kan bird terra kan~
@@ -559,7 +559,7 @@ song bird~
 76 0 50d10+11500 5d5+5000 10d10+46 'claw'
 -46 -46 -46 -9
 EI
-stand stand none 1000
+stand stand none 0
 0 0 medium unknown
 #17045
 pirate gambling~
@@ -694,7 +694,7 @@ B 0 0 0 0 0 0
 80 0 50d10+13500 5d5+5000 13d9+50 'claw'
 -50 -50 -50 -13
 0
-stand stand male 1000
+stand stand male 0
 0 0 medium unknown
 #17053
 pack howling wolf~
@@ -709,7 +709,7 @@ BF 0 0 0 0 0 0
 82 0 50d10+14500 5d5+5000 10d12+52 'bite'
 -52 -52 -52 -15
 E
-stand stand none 1000
+stand stand none 0
 0 0 medium unknown
 #17054
 bear cave~
@@ -725,7 +725,7 @@ B 0 0 0 0 0 0
 82 0 50d10+14500 5d5+5000 10d12+52 'claw'
 -52 -52 -52 -15
 CF
-stand stand male 1000
+stand stand male 0
 0 0 medium unknown
 r bash -33
 r cold -33
