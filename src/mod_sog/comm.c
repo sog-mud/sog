@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.c,v 1.28 2004-02-22 20:30:15 fjoe Exp $
+ * $Id: comm.c,v 1.29 2004-02-22 23:22:18 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -1014,7 +1014,7 @@ read_from_descriptor(DESCRIPTOR_DATA *d)
 					d->mccp_support = 2;
 
 				if (p[2] == TELOPT_COMPRESS
-				&& d->mccp_support != 2)
+				&&  d->mccp_support != 2)
 					d->mccp_support = 1;
 			}
 			/* FALLTHROUGH */
@@ -1030,28 +1030,21 @@ read_from_descriptor(DESCRIPTOR_DATA *d)
 			if (q == NULL) {
 				q = strchr(p, '\0');
 				d->wait_for_se = 1;
-			}
-			else {
+			} else {
 				q++;
 				d->wait_for_se = 0;
 			}
 			break;
 
 		case IAC:
-			if (d->character
-			&& !IS_SET(d->character->comm, COMM_NOTELNET))
-				memmove(p, p+1, strlen(p));
-			p++;
-			continue;
-			/* NOTREACHED */
+			*p = CODEPAGE(d->codepage).from[*p++];
+			if (d->character != NULL
+			&&  IS_SET(d->character->comm, COMM_NOTELNET))
+				continue;
+			q = p + 1;
+			break;
 
 		default:
-			if (d->character
-			&& IS_SET(d->character->comm, COMM_NOTELNET)) {
-				p++;
-				continue;
-				/* NOTREACHED */
-			}
 			q = p + 2;
 			break;
 		}
@@ -1088,7 +1081,11 @@ again:
 		if (inbuf[i] == '\0') {
 			if (inbuf == d->inbuf
 			&&  d->character != NULL
-			&&  d->character->wait == 0) {
+			&&  d->character->wait == 0
+			&&  !D_IS_SERVICE(d)
+			&&  d->showstr_point == NULL
+			&&  d->pString == NULL
+			&&  d->connected == CON_PLAYING) {
 				/*
 				 * Try again with queued commands buffer
 				 */
@@ -1290,7 +1287,7 @@ process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 	/*
 	 * Bust a prompt.
 	 */
-	if (!merc_down && ch) {
+	if (!merc_down && ch && d->qbuf[0] != '\0') {
 		if (d->showstr_point) {
 			act_puts("[Hit Return to continue]",
 				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
