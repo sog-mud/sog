@@ -14,6 +14,7 @@ HPRate 100
 ManaRate 60
 AddExp 500
 StatMod 2 1 1 1 1 5
+DeathLimit 10
 Skill 'armor' 10 1
 Skill 'bless' 12 1
 Skill 'calm' 60 1
