@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.87 2001-09-16 18:14:23 fjoe Exp $
+ * $Id: act.c,v 1.88 2001-09-16 19:00:25 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -861,6 +861,10 @@ act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 					switch(subcode = *s++) {
 					case 'j':
 						tstack[sp].arg = NUM1;
+						break;
+
+					case 'K':
+						tstack[sp].arg = NUM2;
 						break;
 
 					case 'J':
