@@ -1,6 +1,7 @@
 #AREADATA
 Ver 5
 Name New Thalos~
+Builders alister~
 VNUMs 9500 9799
 Credits Conner~
 Security 9
@@ -311,11 +312,13 @@ EFNU
 stand stand male 505
 0 0 tiny unknown
 #9516
-abdul armorer~
-Abdul the armorer~
-Abdul stands here, waiting to help you.~
-Abdul returns your gaze with a steady eye. You quickly glance away under
+abdul armorer абдула оружейник~
+@eng Abdul the armorer@rus ~~оружейник~~ Абдула~
+@eng Abdul stands here, waiting to help you.@rus Абдула (Abdula) стоит у стойки, предлагая свою помощь.~
+@eng Abdul returns your gaze with a steady eye. You quickly glance away under
 his cold stare and place your order.
+@rus Абдула презрительно холодным взглядом смотрит на тебя.
+И ты отводишь свои глаза от него, начиная усиленно рассматривать окружающие  тебя товары.
 ~
 human~
 BTVYe E 0 0 A 800 0
@@ -325,10 +328,12 @@ EFNU
 stand stand male 505
 0 0 tiny unknown
 #9517
-igor weaponsmith~
-Igor the weaponsmith~
-Igor stands here doing... something.~
-You see a small dwarf with a large hump on his left shoulder.
+igor weaponsmith игорь кузнец~
+@eng Igor the weaponsmith@rus ~~Игорь~~ кузнец~
+@eng Igor stands here doing... something.@rus Игорь (Igor) стоит .....что то мастеря.~
+@eng You see a small dwarf with a large hump on his left shoulder.
+@rus Перед тобой маленький дварф с большим горбом.
+И как он умудряеться махать молотом, изготовляя свой ассортимент.
 ~
 human~
 BTVYe EF 0 0 A 800 0
@@ -542,11 +547,13 @@ CDEIKLU
 stand stand male 60
 0 0 tiny unknown
 #9533
-nomad merchant~
-a nomad merchant~
-A nomad merchant looks you over.~
-This robust fellow returns your gaze with a smile, but something inside
+merchant nomad бродячий торговец~
+@eng a nomad merchant@rus ~~бродячий~~ ~~торговец~~~
+@eng A nomad merchant looks you over.@rus Бродячий торговец (merchant) смотрит на тебя, как на возможного покупателя.~
+@eng This robust fellow returns your gaze with a smile, but something inside
 tells you not to trust him very far.
+@rus Эта детинушка добродушно улыбается тебе, но не стоит доверять ему.
+Так как внешность зачастую бывает обманчива.
 ~
 human~
 CFHT 0 0 0 0 -100 0
@@ -582,11 +589,13 @@ BEFJNU
 stand stand male 11
 0 0 tiny unknown
 #9536
-dockworker~
-the dockworker~
-A strong dockworker walks by moving crates.~
-Although seemingly dull witted, this hulking mass carries the huge
+dockworker рабочий доков~
+@eng the dockworker@rus ~~рабочий~~ доков~
+@eng A strong dockworker walks by moving crates.@rus Сильный докер (dockworker) перетаскивает грузы.~
+@eng Although seemingly dull witted, this hulking mass carries the huge
 crates from the boats like so many lilies.
+@rus Рабочий доков может с легкостью переносить огромные тюки на большие
+расстояния.
 ~
 human~
 GT 0 0 0 0 0 0
@@ -596,11 +605,13 @@ EFNU
 stand stand male 60
 0 0 tiny unknown
 #9537
-man tax collector~
-the tax collector~
-A small man walks around scribbling in a notebook.~
-The city's tax collector walks from store to store collecting the
+man tax collector сборщик налогов~
+@eng the tax collector@rus ~~сборщик~~ налогов~
+@eng A small man walks around scribbling in a notebook.@rus маленький человек (tax collector) ходит вокруг, записывая что-то в блокнот.~
+@eng The city's tax collector walks from store to store collecting the
 Sultan's fee for living in his grand city.
+@rus Этот человек много ходит по улицам, собирая налоги с населения.
+Ведь собирать налоги велел Султан, тем самым оплачивая свое проживание.
 ~
 human~
 GH 0 0 0 0 0 0
@@ -609,6 +620,7 @@ GH 0 0 0 0 0 0
 EFNU
 stand stand male 3
 0 0 tiny unknown
+g @eng male@rus male~
 #9538
 gord~
 Gord~
@@ -662,11 +674,13 @@ EIKU
 stand stand male 615
 0 0 tiny unknown
 #9542
-man wandering prophet~
-the wandering prophet~
-A small grey-haired man walks around spouting gospel.~
-This sad case may have been an evangelist in another lifetime. He is known
+man wandering prophet проповедник~
+@eng the wandering prophet@rus проповедник~
+@eng A small grey-haired man walks around spouting gospel.@rus Маленький человек (man) с серыми волосами ходит по кругу, распевая псалмы.~
+@eng This sad case may have been an evangelist in another lifetime. He is known
 to stand on corners and accost passers-by with his doomsday preaching.
+@rus Этот чудак, вероятно, в прошлой жизни был Евангелистом. Он известен тем,
+что оглашает каждый свой шаг своими видениями о конце света.
 ~
 human~
 HQ 0 0 0 0 0 0
@@ -689,10 +703,12 @@ EFNU
 stand stand male 1
 0 0 tiny unknown
 #9544
-vulture~
-the vulture~
-A vulture circles above you.~
-As you look up at this bird, you see the only thing it wants is a corpse.
+vulture стервятник~
+@eng the vulture@rus стервятник~
+@eng A vulture circles above you.@rus Стервятник (vulture) кружится вокруг тебя.~
+@eng As you look up at this bird, you see the only thing it wants is a corpse.
+@rus Увидев эту птицу, ты понимаешь, что все ее мысли зациклены на
+тухлом мясе.
 ~
 human~
 GH 0 0 0 H -200 0
@@ -915,10 +931,11 @@ EFNU
 stand stand male 1
 0 0 tiny unknown
 #9561
-sultans guard~
-the sultan's guard~
-A guard stands here, protecting the innocent.~
-You see a trained fighter, ready to help those in need.
+sultans guard стражник султана~
+@eng the sultan's guard@rus ~~стражник~~ султана~
+@eng A guard stands here, protecting the innocent.@rus Стражник султана (guard) стоит здесь, защищая невиновных.~
+@eng You see a trained fighter, ready to help those in need.
+@rus Ты видишь тренированного бойца,готового оказать помощь нуждающемся.
 ~
 human~
 GHT 0 0 0 0 1000 0
@@ -927,11 +944,13 @@ GHT 0 0 0 0 1000 0
 CDEIKLU
 stand stand male 45
 0 0 tiny unknown
+C Invaders
 #9562
-sultans guard~
-the sultans guard~
-A guard stands here, watching the gate.~
-You see a trained fighter, ready to defend the city.
+sultans guard rus охранник султана~
+@eng the sultans guard@rus ~~охранник~~ султана~
+@eng A guard stands here, watching the gate.@rus Охраник (guard) стоит на карауле, у ворот.~
+@eng You see a trained fighter, ready to defend the city.
+@rus Ты видишь тренированного бойца, который всегда готов защищать свой город.
 ~
 human~
 BGT 0 0 0 0 1000 0
@@ -995,10 +1014,11 @@ EFNU
 stand stand male 1150
 0 0 tiny unknown
 #9567
-horse~
-a horse~
-A horse stands here.~
-You see one of the fine arabian beasts known about the land.
+horse лошадь~
+@eng a horse@rus лошадь~
+@eng A horse stands here.@rus Лошадь (horse) стоит здесь.~
+@eng You see one of the fine arabian beasts known about the land.
+@rus Ты видишь самого прекрасного арабского скакуна на этой земле.
 ~
 human~
 CGHU 0 0 0 0 0 0
@@ -1008,12 +1028,14 @@ EFNU
 stand stand male 3
 0 0 tiny unknown
 #9568
-tourist~
-a tourist~
-A tourist stands here looking lost.~
-You see a small round japanese man, with a camera around his neck and
+tourist турист~
+@eng a tourist@rus турист~
+@eng A tourist stands here looking lost.@rus Турист (tourist) стоит здесь, потерянно оглядываясь.~
+@eng You see a small round japanese man, with a camera around his neck and
 a nose guard. He's looking at a small road map that he seems to be holding
 upside down.
+@rus Ты видишь мелкого японца, с камерой на шее и в очках. Он смотрит
+на небольшую дорожную карту, которую, кстати, держит вверх-тормашками.
 ~
 human~
 CGH 0 0 0 0 0 0
@@ -1206,11 +1228,13 @@ EFNU
 stand stand male 1190
 0 0 tiny unknown
 #9582
-royal guard elite~
-The Royal Guard~
-An Elite Royal Guard stands here smiling happily.~
-You see one of the Royal Guards from Midgaard who seems to have gone
+royal guard elite элитный королевский охранник~
+@eng The Royal Guard@rus ~~королевский~~ ~~охранник~~~
+@eng An Elite Royal Guard stands here smiling happily.@rus Элитный королевский охраник (guard) стоит, счастливо улыбаясь.~
+@eng You see one of the Royal Guards from Midgaard who seems to have gone
 through some training.
+@rus Ты видишь перед собой королевского охранника из Мидгарда.
+Он неплохо тренирован.
 ~
 human~
 GHTU 0 H 0 A 1000 0
@@ -1343,10 +1367,11 @@ EFNU
 stand stand none 1190
 0 0 tiny unknown
 #9592
-guard bodyguard~
-the bodyguard~
-A bodyguard stands here.~
-A big, strong, helpful, trustworthy guard.
+guard bodyguard телохранитель~
+@eng the bodyguard@rus телохранитель~
+@eng A bodyguard stands here.@rus Телохранитель (bodyguard) очень подозрительно смотрит на тебя.~
+@eng A big, strong, helpful, trustworthy guard.
+@rus Ты видишь большого, сильного, но доверчивого телохранителя.
 ~
 human~
 T 0 0 0 0 1000 0

@@ -287,9 +287,94 @@ D4
 Z 0 44000
 S
 #44100
-The 1st Tower.~
+@eng Altar~
 ~
-0 C inside
+0 K inside
+D1
+~
+~
+~
+~
+Z 0 44101
+S
+#44101
+@eng {Wdirty road.{x~
+~
+0 R inside
+D1
+~
+~
+~
+~
+Z 0 44102
+D3
+~
+~
+~
+~
+Z 0 44100
+S
+#44102
+@eng the way on dirty road~
+~
+0 R inside
+D0
+~
+~
+~
+~
+Z 0 44103
+D3
+~
+~
+~
+~
+Z 0 44101
+S
+#44103
+@eng after the bend on dirty road.~
+~
+0 R inside
+D0
+~
+~
+~
+~
+Z 0 44104
+D2
+~
+~
+~
+~
+Z 0 44102
+S
+#44104
+@eng dirty road.~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 44105
+D2
+~
+~
+~
+~
+Z 0 44103
+S
+#44105
+@eng dirty road before the dump.~
+~
+0 0 inside
+D2
+~
+~
+~
+~
+Z 0 44104
 S
 #44200
 ~

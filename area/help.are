@@ -5560,7 +5560,7 @@ immortal _GREETING~
 * Added multi-language support command. See '{Clanguage{x' command.
 * Added short mode for flags. See '{CHELP TOGGLE{x'.
 * {CGossip{x and {Cmusic{x channels added.
-* Use '{Cbug{x' command or mail to {Cmud@@iclub.nsu.ru{x for bug reports
+* Use '{Cbug{x' command or mail to {Csog@@any.ru{x for bug reports
   and suggestions.
 * Players who use russian codepages, see '{CHELP RUSSIAN{x'.
 * Check out our homepage at {Chttp://sog.any.ru/{x.
