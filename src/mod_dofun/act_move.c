@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.66 1998-07-12 11:26:06 efdi Exp $
+ * $Id: act_move.c,v 1.67 1998-07-14 07:47:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -57,6 +57,7 @@
 #include "act_move.h"
 #include "mob_prog.h"
 #include "obj_prog.h"
+#include "mlstring.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_look		);
@@ -341,8 +342,10 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 		      number_percent() < get_skill(ch,gsn_quiet_movement))
 		    {
 		    if (MOUNTED(ch))
+			/* XXX */
 			act_nprintf(ch, NULL, dir_name[door], TO_ROOM, POS_RESTING, 
-				LEAVES_RIDING_ON, MOUNTED(ch)->short_descr);
+				LEAVES_RIDING_ON,
+				mlstr_cval(MOUNTED(ch)->short_descr, ch));
 		      else
 			act_nprintf(ch, NULL, dir_name[door], TO_ROOM, POS_RESTING, 
 				LEAVES);
@@ -351,8 +354,10 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 		else 
 		  {
 		     if (MOUNTED(ch))
+			/* XXX */
 			act_nprintf(ch, NULL, dir_name[door], TO_ROOM, POS_RESTING, 
-				LEAVES_T_RIDING_ON, MOUNTED(ch)->short_descr);
+				LEAVES_T_RIDING_ON,
+				mlstr_cval(MOUNTED(ch)->short_descr, ch));
   	   else
 			act_nprintf(ch, NULL, dir_name[door], TO_ROOM, POS_RESTING, 
 				LEAVES_T);
@@ -3274,7 +3279,7 @@ void do_mount(CHAR_DATA *ch, const char *argument)
   }    
 
   if((mount->mount) && (!mount->riding) && (mount->mount != ch)) {
-	char_nprintf(ch, S_BELONGS_TO_S, mount->short_descr,
+	char_nprintf(ch, S_BELONGS_TO_S, mlstr_cval(mount->short_descr, ch),
 		             mount->mount->name);
 	return;
   } 
@@ -3869,10 +3874,12 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 	        return;
 	}
 
+	/* XXX */
 	act_nprintf(ch, portal, NULL, TO_ROOM, POS_RESTING,
 		   MOUNTED(ch) ? HERA_STEPS_INTO_RIDING_ON :
 				 HERA_STEPS_INTO,
-		   MOUNTED(ch) ? MOUNTED(ch)->short_descr : NULL);
+		   MOUNTED(ch) ? mlstr_cval(MOUNTED(ch)->short_descr, ch) :
+				 NULL);
 	
 	act(IS_SET(portal->value[2], GATE_NORMAL_EXIT) ?
 	    "You enter $p." :

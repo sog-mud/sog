@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.36 1998-07-13 00:19:04 fjoe Exp $
+ * $Id: handler.c,v 1.37 1998-07-14 07:47:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -58,6 +58,7 @@
 #include "raffects.h"
 #include "interp.h"
 #include "tables.h"
+#include "mlstring.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_return	);
@@ -2637,7 +2638,7 @@ OBJ_DATA *create_money(int gold, int silver)
 	else if (silver == 0)
 	{
 	    obj = create_object(get_obj_index(OBJ_VNUM_GOLD_SOME), 0);
-		str_printf(&obj->short_descr, gold);
+		mlstr_printf(obj->short_descr, gold);
 	    obj->value[1]           = gold;
 	    obj->cost               = gold;
 		obj->weight		= gold/5;
@@ -2645,7 +2646,7 @@ OBJ_DATA *create_money(int gold, int silver)
 	else if (gold == 0)
 	{
 	    obj = create_object(get_obj_index(OBJ_VNUM_SILVER_SOME), 0);
-		str_printf(&obj->short_descr, silver);
+		mlstr_printf(obj->short_descr, silver);
 	    obj->value[0]           = silver;
 	    obj->cost               = silver;
 		obj->weight		= silver/20;
@@ -2654,7 +2655,7 @@ OBJ_DATA *create_money(int gold, int silver)
 	else
 	{
 		obj = create_object(get_obj_index(OBJ_VNUM_COINS), 0);
-		str_printf(&obj->short_descr, silver, gold);
+		mlstr_printf(obj->short_descr, silver, gold);
 		obj->value[0]		= silver;
 		obj->value[1]		= gold;
 		obj->cost		= 100 * gold + silver;
@@ -3478,7 +3479,7 @@ char *PERS(CHAR_DATA *ch, CHAR_DATA *looker)
 {
 	if (can_see(looker, ch)) {
 		if (IS_NPC(ch))
-			return ch->short_descr;
+			return mlstr_cval(ch->short_descr, looker);
 		else if (IS_VAMPIRE(ch) && !IS_IMMORTAL(looker))
 			return "an ugly creature";
 		return ch->name;

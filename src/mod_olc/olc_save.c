@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.8 1998-07-11 20:55:14 fjoe Exp $
+ * $Id: olc_save.c,v 1.9 1998-07-14 07:47:49 fjoe Exp $
  */
 
 /**************************************************************************
@@ -161,9 +161,9 @@ void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 
     fprintf(fp, "#%d\n",	pMobIndex->vnum);
     fprintf(fp, "%s~\n",	pMobIndex->player_name);
-    fprintf(fp, "%s~\n",	pMobIndex->short_descr);
-    mlstr_fwrite(fp,		pMobIndex->long_descr);
-    mlstr_fwrite(fp,		pMobIndex->description);
+    mlstr_fwrite(fp, NULL,	pMobIndex->short_descr);
+    mlstr_fwrite(fp, NULL,	pMobIndex->long_descr);
+    mlstr_fwrite(fp, NULL,	pMobIndex->description);
     fprintf(fp, "%s~\n",	race_table[race].name);
     fprintf(fp, "%s ",		fwrite_flag(pMobIndex->act &
 					    ~race_table[pMobIndex->race].act,
@@ -291,17 +291,17 @@ void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 {
     char letter;
     AFFECT_DATA *pAf;
-    EXTRA_DESCR_DATA *pEd;
+    ED_DATA *pEd;
     char buf[MAX_STRING_LENGTH];
 
-    fprintf(fp, "#%d\n",    pObjIndex->vnum);
-    fprintf(fp, "%s~\n",    pObjIndex->name);
-    fprintf(fp, "%s~\n",    pObjIndex->short_descr);
-    fprintf(fp, "%s~\n",    fix_string(pObjIndex->description));
-    fprintf(fp, "%s~\n",    pObjIndex->material);
-    fprintf(fp, "%s ",      item_name(pObjIndex->item_type));
-    fprintf(fp, "%s ",      fwrite_flag(pObjIndex->extra_flags, buf));
-    fprintf(fp, "%s\n",     fwrite_flag(pObjIndex->wear_flags,  buf));
+    fprintf(fp, "#%d\n",	pObjIndex->vnum);
+    fprintf(fp, "%s~\n",	pObjIndex->name);
+    mlstr_fwrite(fp, NULL,	pObjIndex->short_descr);
+    mlstr_fwrite(fp, NULL,	pObjIndex->description);
+    fprintf(fp, "%s~\n",	pObjIndex->material);
+    fprintf(fp, "%s ",		item_name(pObjIndex->item_type));
+    fprintf(fp, "%s ",		fwrite_flag(pObjIndex->extra_flags, buf));
+    fprintf(fp, "%s\n",		fwrite_flag(pObjIndex->wear_flags,  buf));
 
 /*
  *  Using fwrite_flag to write most values gives a strange
@@ -448,13 +448,10 @@ void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 	}
     }
 
-    for(pEd = pObjIndex->extra_descr; pEd; pEd = pEd->next)
-    {
-        fprintf(fp, "E\n%s~\n%s~\n", pEd->keyword,
-		 fix_string(pEd->description));
+    for(pEd = pObjIndex->ed; pEd; pEd = pEd->next) {
+        fprintf(fp, "E\n%s~\n", pEd->keyword);
+	mlstr_fwrite(fp, NULL, pEd->description);
     }
-
-    return;
 }
  
 
@@ -495,7 +492,7 @@ void save_objects(FILE *fp, AREA_DATA *pArea)
 void save_rooms(FILE *fp, AREA_DATA *pArea)
 {
     ROOM_INDEX_DATA *pRoomIndex;
-    EXTRA_DESCR_DATA *pEd;
+    ED_DATA *pEd;
     EXIT_DATA *pExit;
     int iHash;
     int door;
@@ -510,18 +507,16 @@ void save_rooms(FILE *fp, AREA_DATA *pArea)
     		char buf[MAX_STRING_LENGTH];
 
                 fprintf(fp, "#%d\n",	pRoomIndex->vnum);
-		mlstr_fwrite(fp,	pRoomIndex->name);
-		mlstr_fwrite(fp,	pRoomIndex->description);
+		mlstr_fwrite(fp, NULL,	pRoomIndex->name);
+		mlstr_fwrite(fp, NULL,	pRoomIndex->description);
 		fprintf(fp, "0 ");
                 fprintf(fp, "%s ",	fwrite_flag(pRoomIndex->room_flags,
 						    buf));
                 fprintf(fp, "%d\n",	pRoomIndex->sector_type);
 
-                for (pEd = pRoomIndex->extra_descr; pEd;
-                      pEd = pEd->next)
-                {
-                    fprintf(fp, "E\n%s~\n%s~\n", pEd->keyword,
-                                                  fix_string(pEd->description));
+                for (pEd = pRoomIndex->ed; pEd; pEd = pEd->next) {
+                    fprintf(fp, "E\n%s~\n", pEd->keyword);
+		    mlstr_fwrite(fp, NULL, pEd->description);
                 }
                 for(door = 0; door < MAX_DIR; door++)	/* I hate this! */
                 {
@@ -565,11 +560,11 @@ void save_rooms(FILE *fp, AREA_DATA *pArea)
 			    locks = 4;
 
                         fprintf(fp, "D%d\n",      pExit->orig_door);
-			mlstr_fwrite(fp,	pExit->description);
+			mlstr_fwrite(fp, NULL,	  pExit->description);
                         fprintf(fp, "%s~\n",      pExit->keyword);
                         fprintf(fp, "%d %d %d\n", locks,
-                                                   pExit->key,
-                                                   pExit->u1.to_room->vnum);
+                                                  pExit->key,
+                                                  pExit->u1.to_room->vnum);
                     }
                 }
 		if (pRoomIndex->mana_rate != 100 || pRoomIndex->heal_rate != 100)
@@ -612,7 +607,7 @@ void save_specials(FILE *fp, AREA_DATA *pArea)
 #if defined(VERBOSE)
                 fprintf(fp, "M %d %s\t* %s\n", pMobIndex->vnum,
                                                spec_name(pMobIndex->spec_fun),
-                                               pMobIndex->short_descr);
+                                               mlstr_mval(pMobIndex->short_descr));
 #else
                 fprintf(fp, "M %d %s\n", pMobIndex->vnum,
                               spec_name(pMobIndex->spec_fun));
@@ -718,7 +713,7 @@ void save_resets(FILE *fp, AREA_DATA *pArea)
                 pReset->arg2,
                 pReset->arg3,
 		pReset->arg4,
-                pLastMob->short_descr,
+                mlstr_mval(pLastMob->short_descr),
                 mlstr_mval(pRoom->name));
             break;
 
@@ -728,7 +723,7 @@ void save_resets(FILE *fp, AREA_DATA *pArea)
 	    fprintf(fp, "O 0 %d 0 %d\t\t* %s (%s)\n", 
 	        pReset->arg1,
                 pReset->arg3,
-                capitalize(pLastObj->short_descr),
+                mlstr_mval(pLastObj->short_descr),
                 mlstr_mval(pRoom->name));
             break;
 
@@ -739,14 +734,14 @@ void save_resets(FILE *fp, AREA_DATA *pArea)
 	        pReset->arg2,
                 pReset->arg3,
                 pReset->arg4,
-                capitalize(get_obj_index(pReset->arg3)->short_descr),
-                capitalize(get_obj_index(pReset->arg1)->short_descr));
+                mlstr_mval(get_obj_index(pReset->arg3)->short_descr),
+                mlstr_mval(get_obj_index(pReset->arg1)->short_descr));
             break;
 
 	case 'G':
 	    fprintf(fp, "G 0 %d 0\t\t*\t%s\n",
 	        pReset->arg1,
-	        capitalize(get_obj_index(pReset->arg1)->short_descr));
+	        mlstr_mval(get_obj_index(pReset->arg1)->short_descr));
             if (!pLastMob)
                 log_printf("save_resets: !NO_MOB! in [%s]", pArea->file_name);
             break;
@@ -755,7 +750,7 @@ void save_resets(FILE *fp, AREA_DATA *pArea)
 	    fprintf(fp, "E 0 %d 0 %d\t\t*\t%s: %s\n",
 	        pReset->arg1,
                 pReset->arg3,
-                capitalize(get_obj_index(pReset->arg1)->short_descr),
+                mlstr_mval(get_obj_index(pReset->arg1)->short_descr),
                 flag_string(wear_loc_strings, pReset->arg3));
             if (!pLastMob)
                 log_printf("save_resets: !NO_MOB! in [%s]", pArea->file_name);
@@ -888,7 +883,7 @@ void save_olimits(FILE *fp, AREA_DATA *pArea)
 		if ((pObj = get_obj_index(i)) != NULL
 		&&  pObj->limit != -1)
 			fprintf(fp, "O %d %d\t* %s\n",
-				i, pObj->limit, pObj->short_descr);
+				i, pObj->limit, mlstr_mval(pObj->short_descr));
 	}
 
 	fprintf(fp, "S\n\n\n\n");
@@ -905,7 +900,7 @@ void save_omprog(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 				pObjIndex->vnum,
 				optype_table[i],
 				oprog_name_lookup(pObjIndex->oprogs[i]),
-				pObjIndex->short_descr);
+				mlstr_mval(pObjIndex->short_descr));
 }
 
 
@@ -934,7 +929,7 @@ void save_practicer(FILE *fp, MOB_INDEX_DATA *pMobIndex)
     			fprintf(fp, "M %d %s\t* %s\n",
 				pMobIndex->vnum,
 				f->name,
-				pMobIndex->short_descr);
+				mlstr_mval(pMobIndex->short_descr));
 }
 
 
@@ -1018,7 +1013,7 @@ void save_area(AREA_DATA *pArea)
     fprintf(fp, "Security %d\n",	pArea->security);
     fprintf(fp, "LevelRange %d %d\n",	pArea->low_range, pArea->high_range);
     if (pArea->resetmsg != NULL)
-    	fprintf(fp, "ResetMessage %s~\n",fix_string(pArea->resetmsg));
+	mlstr_fwrite(fp, "ResetMessage", pArea->resetmsg);
     if (pArea->area_flag)
     	fprintf(fp, "Flags %s\n",	fwrite_flag(pArea->area_flag, buf));
     fprintf(fp, "End\n\n\n\n");

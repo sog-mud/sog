@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.62 1998-07-13 16:27:21 efdi Exp $
+ * $Id: act_comm.c,v 1.63 1998-07-14 07:47:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -64,6 +64,7 @@
 #include "buffer.h"
 #include "auction.h"
 #include "lookup.h"
+#include "mlstring.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_quit	);
@@ -1061,8 +1062,8 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 		obj_next = obj->next;
 		if (obj->pIndexData->vnum >= QUEST_OBJ_FIRST
 		&&  obj->pIndexData->vnum <= QUEST_OBJ_LAST)
-			if (obj->extra_descr == NULL ||
-			    strstr(obj->extra_descr->description,
+			if (obj->ed == NULL ||
+			    strstr(mlstr_mval(obj->ed->description),
 							ch->name) != NULL)
 				extract_obj(obj);
 			else if (obj->carried_by == ch) {

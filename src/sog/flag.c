@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.4 1998-07-11 20:55:09 fjoe Exp $
+ * $Id: flag.c,v 1.5 1998-07-14 07:47:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -80,7 +80,7 @@ const struct flag_stat_type flag_stat_table[] =
     {   res_flags,              FALSE   },
     {   vuln_flags,             FALSE   },
     {   weapon_class,           TRUE    },
-    {   weapon_type2,            FALSE   },
+    {   weapon_type2,           FALSE   },
     {   apply_types,		TRUE	},
     {   0,			0	}
 };

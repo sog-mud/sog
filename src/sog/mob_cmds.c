@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.5 1998-07-11 20:55:13 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.6 1998-07-14 07:47:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -52,6 +52,7 @@
 #include "interp.h"
 #include "util.h"
 #include "lookup.h"
+#include "mlstring.h"
 
 DECLARE_DO_FUN(do_look 	);
 extern ROOM_INDEX_DATA *find_location(CHAR_DATA *, char *);
@@ -195,18 +196,14 @@ void do_mpstat(CHAR_DATA *ch, const char *argument)
 	return;
     }
 
-    sprintf(arg, "Mobile #%-6d [%s]\n\r",
-	victim->pIndexData->vnum, victim->short_descr);
-    send_to_char(arg, ch);
+    char_printf(ch, "Mobile #%-6d [%s]\n\r", mlstr_mval(victim->short_descr));
 
-    sprintf(arg, "Delay   %-6d [%s]\n\r",
-	victim->mprog_delay,
-	victim->mprog_target == NULL 
-		? "No target" : victim->mprog_target->name);
-    send_to_char(arg, ch);
+    char_printf(ch, "Delay   %-6d [%s]\n\r",
+		victim->mprog_delay,
+		victim->mprog_target == NULL ?
+		"No target" : victim->mprog_target->name);
 
-    if (!victim->pIndexData->mprog_flags)
-    {
+    if (!victim->pIndexData->mprog_flags) {
 	send_to_char("[No programs set]\n\r", ch);
 	return;
     }

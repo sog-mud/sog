@@ -1,5 +1,5 @@
 /*
- * $Id: olc_act.c,v 1.6 1998-07-11 20:55:14 fjoe Exp $
+ * $Id: olc_act.c,v 1.7 1998-07-14 07:47:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -322,7 +322,7 @@ REDIT(redit_rlist)
 			found = TRUE;
 			buf_printf(buffer, "[%5d] %-17.16s",
 				vnum,
-				capitalize(mlstr_val(ch, pRoomIndex->name)));
+				capitalize(mlstr_cval(pRoomIndex->name, ch)));
 			if (++col % 3 == 0)
 				buf_add(buffer, "\n\r");
 		}
@@ -368,7 +368,7 @@ REDIT(redit_mlist)
 				found = TRUE;
 				buf_printf(buffer, "[%5d] %-17.16s",
 					   pMobIndex->vnum,
-					   capitalize(pMobIndex->short_descr));
+					   mlstr_mval(pMobIndex->short_descr));
 				if (++col % 3 == 0)
 					buf_add(buffer, "\n\r");
 			}
@@ -418,7 +418,7 @@ REDIT(redit_olist)
 				found = TRUE;
 				buf_printf(buffer, "[%5d] %-17.16s",
 					   pObjIndex->vnum,
-					   capitalize(pObjIndex->short_descr));
+					   mlstr_mval(pObjIndex->short_descr));
 				if (++col % 3 == 0)
 					buf_add(buffer, "\n\r");
 			}
@@ -1010,8 +1010,8 @@ REDIT(redit_show)
 	output = buf_new(0);
 	
 	buf_add(output, "Description:\n\r");
-	mlstr_buf(output, "", pRoom->description);
-	mlstr_buf(output, "Name:       ", pRoom->name);
+	mlstr_dump(output, "", pRoom->description);
+	mlstr_dump(output, "Name:       ", pRoom->name);
 	buf_printf(output, "Area:       [%5d] %s\n\r",
 		   pRoom->area->vnum, pRoom->area->name);
 	buf_printf(output, "Vnum:       [%5d]\n\rSector:     [%s]\n\r",
@@ -1030,11 +1030,11 @@ REDIT(redit_show)
 	if (!IS_NULLSTR(pRoom->owner))
 		buf_printf(output, "Owner     : [%s]\n\r", pRoom->owner);
 
-	if (pRoom->extra_descr) {
-		EXTRA_DESCR_DATA *ed;
+	if (pRoom->ed) {
+		ED_DATA *ed;
 
 		buf_add(output, "Desc Kwds:  [");
-		for (ed = pRoom->extra_descr; ed != NULL; ed = ed->next) {
+		for (ed = pRoom->ed; ed != NULL; ed = ed->next) {
 			buf_add(output, ed->keyword);
 			if (ed->next != NULL)
 				buf_add(output, " ");
@@ -1114,7 +1114,7 @@ REDIT(redit_show)
 			if (!IS_NULLSTR(pexit->keyword))
 				buf_printf(output, "Kwds: [%s]\n\r",
 					   pexit->keyword);
-			mlstr_buf(output, "", pexit->description);
+			mlstr_dump(output, "", pexit->description);
 		}
 	}
 
@@ -1478,14 +1478,16 @@ REDIT(redit_down)
 REDIT(redit_ed)
 {
 	ROOM_INDEX_DATA *pRoom;
-	EXTRA_DESCR_DATA *ed;
+	ED_DATA *ed;
 	char command[MAX_INPUT_LENGTH];
 	char keyword[MAX_INPUT_LENGTH];
+	char lang[MAX_INPUT_LENGTH];
 
 	EDIT_ROOM(ch, pRoom);
 
 	argument = one_argument(argument, command);
-	one_argument(argument, keyword);
+	argument = one_argument(argument, keyword);
+	argument = one_argument(argument, lang);
 
 	if (command[0] == '\0' || keyword[0] == '\0')
 	{
@@ -1496,109 +1498,86 @@ REDIT(redit_ed)
 		return FALSE;
 	}
 
-	if (!str_cmp(command, "add"))
-	{
-		if (keyword[0] == '\0')
-		{
-			send_to_char("Syntax:  ed add [keyword]\n\r", ch);
+	if (!str_cmp(command, "add")) {
+		if (keyword[0] == '\0' || lang[0] == '\0') {
+			send_to_char("Syntax:  ed add keyword lang\n\r", ch);
 			return FALSE;
 		}
 
-		ed			=   new_extra_descr();
+		ed			=   ed_new();
 		ed->keyword		=   str_dup(keyword);
-		ed->description		=   str_dup("");
-		ed->next		=   pRoom->extra_descr;
-		pRoom->extra_descr	=   ed;
+		ed->description		=   mlstr_new();
+		ed->next		=   pRoom->ed;
+		pRoom->ed	=   ed;
 
-		string_append(ch, &ed->description);
+		mlstr_append(ch, ed->description, lang);
 
 		return TRUE;
 	}
 
 
-	if (!str_cmp(command, "edit"))
-	{
-		if (keyword[0] == '\0')
-		{
-			send_to_char("Syntax:  ed edit [keyword]\n\r", ch);
+	if (!str_cmp(command, "edit")) {
+		if (keyword[0] == '\0' || lang[0] == '\0') {
+			send_to_char("Syntax:  ed edit keyword lang\n\r", ch);
 			return FALSE;
 		}
 
-		for (ed = pRoom->extra_descr; ed; ed = ed->next)
-		{
-			if (is_name(keyword, ed->keyword))
-			break;
-		}
-
-		if (!ed)
-		{
+		ed = ed_lookup(keyword, pRoom->ed);
+		if (ed == NULL) {
 			send_to_char("REdit:  Extra description keyword not found.\n\r", ch);
 			return FALSE;
 		}
 
-		string_append(ch, &ed->description);
+		mlstr_append(ch, ed->description, lang);
 
 		return TRUE;
 	}
 
 
-	if (!str_cmp(command, "delete"))
-	{
-		EXTRA_DESCR_DATA *ped = NULL;
+	if (!str_cmp(command, "delete")) {
+		ED_DATA *ped = NULL;
 
-		if (keyword[0] == '\0')
-		{
-			send_to_char("Syntax:  ed delete [keyword]\n\r", ch);
+		if (keyword[0] == '\0') {
+			send_to_char("Syntax:  ed delete keyword\n\r", ch);
 			return FALSE;
 		}
 
-		for (ed = pRoom->extra_descr; ed; ed = ed->next)
-		{
+		for (ed = pRoom->ed; ed; ed = ed->next) {
 			if (is_name(keyword, ed->keyword))
-			break;
+				break;
 			ped = ed;
 		}
 
-		if (!ed)
-		{
+		if (ed == NULL) {
 			send_to_char("REdit:  Extra description keyword not found.\n\r", ch);
 			return FALSE;
 		}
 
-		if (!ped)
-			pRoom->extra_descr = ed->next;
+		if (ped == NULL)
+			pRoom->ed = ed->next;
 		else
 			ped->next = ed->next;
 
-		free_extra_descr(ed);
+		free_ed(ed);
 
 		send_to_char("Extra description deleted.\n\r", ch);
 		return TRUE;
 	}
 
 
-	if (!str_cmp(command, "format"))
-	{
-		if (keyword[0] == '\0')
-		{
-			send_to_char("Syntax:  ed format [keyword]\n\r", ch);
+	if (!str_cmp(command, "format")) {
+		if (keyword[0] == '\0') {
+			send_to_char("Syntax:  ed format keyword\n\r", ch);
 			return FALSE;
 		}
 
-		for (ed = pRoom->extra_descr; ed; ed = ed->next)
-		{
-			if (is_name(keyword, ed->keyword))
-			break;
-		}
-
-		if (!ed)
-		{
+		ed = ed_lookup(keyword, pRoom->ed);
+		if (ed == NULL) {
 			send_to_char("REdit:  Extra description keyword not found.\n\r", ch);
 			return FALSE;
 		}
 
-		ed->description = format_string(ed->description);
-
+		mlstr_format(ed->description);
 		send_to_char("Extra description formatted.\n\r", ch);
 		return TRUE;
 	}
@@ -1805,7 +1784,7 @@ REDIT(redit_mreset)
 
 	char_printf(ch, "%s (%d) has been loaded and added to resets.\n\r"
 		"There will be a maximum of %d loaded to this room.\n\r",
-		capitalize(pMobIndex->short_descr),
+		mlstr_mval(pMobIndex->short_descr),
 		pMobIndex->vnum,
 		pReset->arg2);
 	act("$n has created $N!", ch, NULL, newmob, TO_ROOM);
@@ -1946,7 +1925,7 @@ REDIT(redit_oreset)
 		obj_to_room(newobj, pRoom);
 
 		char_printf(ch, "%s (%d) has been loaded and added to resets.\n\r",
-			capitalize(pObjIndex->short_descr),
+			mlstr_mval(pObjIndex->short_descr),
 			pObjIndex->vnum);
 	}
 	else
@@ -1970,9 +1949,9 @@ REDIT(redit_oreset)
 
 		char_printf(ch, "%s (%d) has been loaded into "
 			"%s (%d) and added to resets.\n\r",
-			capitalize(newobj->short_descr),
+			mlstr_mval(newobj->short_descr),
 			newobj->pIndexData->vnum,
-			to_obj->short_descr,
+			mlstr_mval(to_obj->short_descr),
 			to_obj->pIndexData->vnum);
 	}
 	else
@@ -1999,7 +1978,7 @@ REDIT(redit_oreset)
 		{
 			char_printf(ch,
 			    "%s (%d) has wear flags: [%s]\n\r",
-			    capitalize(pObjIndex->short_descr),
+			    mlstr_mval(pObjIndex->short_descr),
 			    pObjIndex->vnum,
 			flag_string(wear_flags, pObjIndex->wear_flags));
 			return FALSE;
@@ -2059,10 +2038,10 @@ REDIT(redit_oreset)
 
 		char_printf(ch, "%s (%d) has been loaded "
 			"%s of %s (%d) and added to resets.\n\r",
-			capitalize(pObjIndex->short_descr),
+			mlstr_mval(pObjIndex->short_descr),
 			pObjIndex->vnum,
 			flag_string(wear_loc_strings, pReset->arg3),
-			to_mob->short_descr,
+			mlstr_mval(to_mob->short_descr),
 			to_mob->pIndexData->vnum);
 		send_to_char(output, ch);
 	}
@@ -2081,23 +2060,22 @@ REDIT(redit_oreset)
 /*
  * Object Editor Functions.
  */
-void show_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *obj)
+void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *obj)
 {
-	switch(obj->item_type)
-	{
-		default:	/* No values. */
-			break;
+	switch(obj->item_type) {
+	default:	/* No values. */
+		break;
 		     
-		case ITEM_LIGHT:
-		     if (obj->value[2] == -1 || obj->value[2] == 999) /* ROM OLC */
-			char_printf(ch, "[v2] Light:  Infinite[-1]\n\r");
-		     else
-			char_printf(ch, "[v2] Light:  [%d]\n\r", obj->value[2]);
-			break;
+	case ITEM_LIGHT:
+		if (obj->value[2] == -1 || obj->value[2] == 999) /* ROM OLC */
+			buf_printf(output, "[v2] Light:  Infinite[-1]\n\r");
+		else
+			buf_printf(output, "[v2] Light:  [%d]\n\r", obj->value[2]);
+		break;
 
-		case ITEM_WAND:
-		case ITEM_STAFF:
-		     char_printf(ch,
+	case ITEM_WAND:
+	case ITEM_STAFF:
+		buf_printf(output,
 			"[v0] Level:          [%d]\n\r"
 			"[v1] Charges Total:  [%d]\n\r"
 			"[v2] Charges Left:   [%d]\n\r"
@@ -2107,10 +2085,10 @@ void show_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *obj)
 			obj->value[2],
 			obj->value[3] != -1 ? skill_table[obj->value[3]].name
 			                    : "none");
-			break;
+		break;
 
-		case ITEM_PORTAL:
-			char_printf(ch,
+	case ITEM_PORTAL:
+		buf_printf(output,
 			    "[v0] Charges:        [%d]\n\r"
 			    "[v1] Exit Flags:     %s\n\r"
 			    "[v2] Portal Flags:   %s\n\r"
@@ -2119,10 +2097,10 @@ void show_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *obj)
 			    flag_string(exit_flags, obj->value[1]),
 			    flag_string(portal_flags , obj->value[2]),
 			    obj->value[3]);
-			break;
+		break;
 			
-		case ITEM_FURNITURE:          
-			char_printf(ch,
+	case ITEM_FURNITURE:          
+		buf_printf(output,
 			    "[v0] Max people:      [%d]\n\r"
 			    "[v1] Max weight:      [%d]\n\r"
 			    "[v2] Furniture Flags: %s\n\r"
@@ -2133,12 +2111,12 @@ void show_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *obj)
 			    flag_string(furniture_flags, obj->value[2]),
 			    obj->value[3],
 			    obj->value[4]);
-			break;
+		break;
 
-		case ITEM_SCROLL:
-		case ITEM_POTION:
-		case ITEM_PILL:
-		     char_printf(ch,
+	case ITEM_SCROLL:
+	case ITEM_POTION:
+	case ITEM_PILL:
+		buf_printf(output,
 			"[v0] Level:  [%d]\n\r"
 			"[v1] Spell:  %s\n\r"
 			"[v2] Spell:  %s\n\r"
@@ -2153,12 +2131,12 @@ void show_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *obj)
 			                    : "none",
 			obj->value[4] != -1 ? skill_table[obj->value[4]].name
 			                    : "none");
-			break;
+		break;
 
 /* ARMOR for ROM */
 
-		 case ITEM_ARMOR:
-			char_printf(ch,
+	case ITEM_ARMOR:
+		buf_printf(output,
 			"[v0] Ac pierce       [%d]\n\r"
 			"[v1] Ac bash         [%d]\n\r"
 			"[v2] Ac slash        [%d]\n\r"
@@ -2172,19 +2150,19 @@ void show_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *obj)
 /* WEAPON changed in ROM: */
 /* I had to split the output here, I have no idea why, but it helped -- Hugin */
 /* It somehow fixed a bug in showing scroll/pill/potions too ?! */
-		case ITEM_WEAPON:
-		     char_printf(ch, "[v0] Weapon class:   %s\n\r",
-			     flag_string(weapon_class, obj->value[0]));
-			char_printf(ch, "[v1] Number of dice: [%d]\n\r", obj->value[1]);
-			char_printf(ch, "[v2] Type of dice:   [%d]\n\r", obj->value[2]);
-			char_printf(ch, "[v3] Type:           %s\n\r",
+	case ITEM_WEAPON:
+		buf_printf(output, "[v0] Weapon class:   %s\n\r",
+			    flag_string(weapon_class, obj->value[0]));
+		buf_printf(output, "[v1] Number of dice: [%d]\n\r", obj->value[1]);
+		buf_printf(output, "[v2] Type of dice:   [%d]\n\r", obj->value[2]);
+		buf_printf(output, "[v3] Type:           %s\n\r",
 			    attack_table[obj->value[3]].name);
- 	    char_printf(ch, "[v4] Special type:   %s\n\r",
-			     flag_string(weapon_type2,  obj->value[4]));
-			break;
+		buf_printf(output, "[v4] Special type:   %s\n\r",
+			    flag_string(weapon_type2,  obj->value[4]));
+		break;
 
-		case ITEM_CONTAINER:
-			char_printf(ch,
+	case ITEM_CONTAINER:
+		buf_printf(output,
 			"[v0] Weight:     [%d kg]\n\r"
 			"[v1] Flags:      [%s]\n\r"
 			"[v2] Key:     %s [%d]\n\r"
@@ -2192,16 +2170,16 @@ void show_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *obj)
 			"[v4] Weight Mult [%d]\n\r",
 			obj->value[0],
 			flag_string(container_flags, obj->value[1]),
-		         get_obj_index(obj->value[2])
-		             ? get_obj_index(obj->value[2])->short_descr
-		             : "none",
-		         obj->value[2],
-		         obj->value[3],
-		         obj->value[4]);
-			break;
+		        get_obj_index(obj->value[2]) ?
+			mlstr_mval(get_obj_index(obj->value[2])->short_descr) :
+			"none",
+		        obj->value[2],
+		        obj->value[3],
+		        obj->value[4]);
+		break;
 
-		case ITEM_DRINK_CON:
-			char_printf(ch,
+	case ITEM_DRINK_CON:
+		buf_printf(output,
 			    "[v0] Liquid Total: [%d]\n\r"
 			    "[v1] Liquid Left:  [%d]\n\r"
 			    "[v2] Liquid:       %s\n\r"
@@ -2210,371 +2188,361 @@ void show_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *obj)
 			    obj->value[1],
 			    liq_table[obj->value[2]].liq_name,
 			    obj->value[3] != 0 ? "Yes" : "No");
-			break;
+		break;
 
-		case ITEM_FOUNTAIN:
-			char_printf(ch,
+	case ITEM_FOUNTAIN:
+		buf_printf(output,
 			    "[v0] Liquid Total: [%d]\n\r"
 			    "[v1] Liquid Left:  [%d]\n\r"
 			    "[v2] Liquid:	    %s\n\r",
 			    obj->value[0],
 			    obj->value[1],
 			    liq_table[obj->value[2]].liq_name);
-			break;
+		break;
 			    
-		case ITEM_FOOD:
-			char_printf(ch,
+	case ITEM_FOOD:
+		buf_printf(output,
 			"[v0] Food hours: [%d]\n\r"
 			"[v1] Full hours: [%d]\n\r"
 			"[v3] Poisoned:   %s\n\r",
 			obj->value[0],
 			obj->value[1],
 			obj->value[3] != 0 ? "Yes" : "No");
-			break;
+		break;
 
-		case ITEM_MONEY:
-		     char_printf(ch, "[v0] Gold:   [%d]\n\r", obj->value[0]);
-			break;
+	case ITEM_MONEY:
+		buf_printf(output, "[v0] Gold:   [%d]\n\r", obj->value[0]);
+		break;
 	}
 }
 
 
 
-bool set_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj, int value_num, const char *argument)
+bool set_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj,
+		    int value_num, const char *argument)
 {
-	switch(pObj->item_type)
-	{
-		 default:
-		     break;
+	BUFFER *output;
+
+	output = buf_new(0);
+	switch(pObj->item_type) {
+	default:
+		break;
 		     
-		 case ITEM_LIGHT:
-			switch (value_num)
-			{
-			    default:
-			    do_help(ch, "ITEM_LIGHT");
-			        return FALSE;
-			    case 2:
-			        send_to_char("HOURS OF LIGHT SET.\n\r\n\r", ch);
-			        pObj->value[2] = atoi(argument);
-			        break;
-			}
-		     break;
-
-		 case ITEM_WAND:
-		 case ITEM_STAFF:
-			switch (value_num)
-			{
-			    default:
-			    do_help(ch, "ITEM_STAFF_WAND");
-			        return FALSE;
-			    case 0:
-			        send_to_char("SPELL LEVEL SET.\n\r\n\r", ch);
-			        pObj->value[0] = atoi(argument);
-			        break;
-			    case 1:
-			        send_to_char("TOTAL NUMBER OF CHARGES SET.\n\r\n\r", ch);
-			        pObj->value[1] = atoi(argument);
-			        break;
-			    case 2:
-			        send_to_char("CURRENT NUMBER OF CHARGES SET.\n\r\n\r", ch);
-			        pObj->value[2] = atoi(argument);
-			        break;
-			    case 3:
-			        send_to_char("SPELL TYPE SET.\n\r", ch);
-			        pObj->value[3] = skill_lookup(argument);
-			        break;
-			}
-		     break;
-
-		 case ITEM_SCROLL:
-		 case ITEM_POTION:
-		 case ITEM_PILL:
-			switch (value_num)
-			{
-			    default:
-			    do_help(ch, "ITEM_SCROLL_POTION_PILL");
-			        return FALSE;
-			    case 0:
-			        send_to_char("SPELL LEVEL SET.\n\r\n\r", ch);
-			        pObj->value[0] = atoi(argument);
-			        break;
-			    case 1:
-			        send_to_char("SPELL TYPE 1 SET.\n\r\n\r", ch);
-			        pObj->value[1] = skill_lookup(argument);
-			        break;
-			    case 2:
-			        send_to_char("SPELL TYPE 2 SET.\n\r\n\r", ch);
-			        pObj->value[2] = skill_lookup(argument);
-			        break;
-			    case 3:
-			        send_to_char("SPELL TYPE 3 SET.\n\r\n\r", ch);
-			        pObj->value[3] = skill_lookup(argument);
-			        break;
-			    case 4:
-			        send_to_char("SPELL TYPE 4 SET.\n\r\n\r", ch);
-			        pObj->value[4] = skill_lookup(argument);
-			        break;
- 	    }
+	case ITEM_LIGHT:
+		switch (value_num) {
+		default:
+			do_help(ch, "ITEM_LIGHT");
+			return FALSE;
+		case 2:
+			buf_add(output, "HOURS OF LIGHT SET.\n\r\n\r");
+			pObj->value[2] = atoi(argument);
 			break;
+		}
+		break;
+
+	case ITEM_WAND:
+	case ITEM_STAFF:
+		switch (value_num) {
+		default:
+			do_help(ch, "ITEM_STAFF_WAND");
+			return FALSE;
+		case 0:
+			buf_add(output, "SPELL LEVEL SET.\n\r\n\r");
+			pObj->value[0] = atoi(argument);
+			break;
+		case 1:
+			buf_add(output, "TOTAL NUMBER OF CHARGES SET.\n\r\n\r");
+			pObj->value[1] = atoi(argument);
+			break;
+		case 2:
+			buf_add(output, "CURRENT NUMBER OF CHARGES SET.\n\r\n\r");
+			pObj->value[2] = atoi(argument);
+			break;
+		case 3:
+			buf_add(output, "SPELL TYPE SET.\n\r");
+			pObj->value[3] = skill_lookup(argument);
+			break;
+		}
+		break;
+
+	case ITEM_SCROLL:
+	case ITEM_POTION:
+	case ITEM_PILL:
+		switch (value_num) {
+		default:
+			do_help(ch, "ITEM_SCROLL_POTION_PILL");
+			return FALSE;
+		case 0:
+			buf_add(output, "SPELL LEVEL SET.\n\r\n\r");
+			pObj->value[0] = atoi(argument);
+			break;
+		case 1:
+			buf_add(output, "SPELL TYPE 1 SET.\n\r\n\r");
+			pObj->value[1] = skill_lookup(argument);
+			break;
+		case 2:
+			buf_add(output, "SPELL TYPE 2 SET.\n\r\n\r");
+			pObj->value[2] = skill_lookup(argument);
+			break;
+		case 3:
+			buf_add(output, "SPELL TYPE 3 SET.\n\r\n\r");
+			pObj->value[3] = skill_lookup(argument);
+			break;
+		case 4:
+			buf_add(output, "SPELL TYPE 4 SET.\n\r\n\r");
+			pObj->value[4] = skill_lookup(argument);
+			break;
+ 		}
+		break;
 
 /* ARMOR for ROM: */
 
-		 case ITEM_ARMOR:
-			switch (value_num)
-			{
-			    default:
-			    do_help(ch, "ITEM_ARMOR");
-			    return FALSE;
-			    case 0:
-			    send_to_char("AC PIERCE SET.\n\r\n\r", ch);
-			    pObj->value[0] = atoi(argument);
-			    break;
-			    case 1:
-			    send_to_char("AC BASH SET.\n\r\n\r", ch);
-			    pObj->value[1] = atoi(argument);
-			    break;
-			    case 2:
-			    send_to_char("AC SLASH SET.\n\r\n\r", ch);
-			    pObj->value[2] = atoi(argument);
-			    break;
-			    case 3:
-			    send_to_char("AC EXOTIC SET.\n\r\n\r", ch);
-			    pObj->value[3] = atoi(argument);
-			    break;
-			}
+	case ITEM_ARMOR:
+		switch (value_num) {
+		default:
+			do_help(ch, "ITEM_ARMOR");
+			return FALSE;
+		case 0:
+			buf_add(output, "AC PIERCE SET.\n\r\n\r");
+			pObj->value[0] = atoi(argument);
 			break;
+		case 1:
+			buf_add(output, "AC BASH SET.\n\r\n\r");
+			pObj->value[1] = atoi(argument);
+			break;
+		case 2:
+			buf_add(output, "AC SLASH SET.\n\r\n\r");
+			pObj->value[2] = atoi(argument);
+			break;
+		case 3:
+			buf_add(output, "AC EXOTIC SET.\n\r\n\r");
+			pObj->value[3] = atoi(argument);
+			break;
+		}
+		break;
 
 /* WEAPONS changed in ROM */
 
-		 case ITEM_WEAPON:
-			switch (value_num)
-			{
-			    default:
-			    do_help(ch, "ITEM_WEAPON");
-			        return FALSE;
-			    case 0:
-			    send_to_char("WEAPON CLASS SET.\n\r\n\r", ch);
-			    pObj->value[0] = flag_value(weapon_class, argument);
-			    break;
-			    case 1:
-			        send_to_char("NUMBER OF DICE SET.\n\r\n\r", ch);
-			        pObj->value[1] = atoi(argument);
-			        break;
-			    case 2:
-			        send_to_char("TYPE OF DICE SET.\n\r\n\r", ch);
-			        pObj->value[2] = atoi(argument);
-			        break;
-			    case 3:
-			        send_to_char("WEAPON TYPE SET.\n\r\n\r", ch);
-			        pObj->value[3] = attack_lookup(argument);
-			        break;
-			    case 4:
-		             send_to_char("SPECIAL WEAPON TYPE TOGGLED.\n\r\n\r", ch);
-			    pObj->value[4] ^= (flag_value(weapon_type2, argument) != NO_FLAG
-			    ? flag_value(weapon_type2, argument) : 0);
-			    break;
-			}
-		     break;
-
-		case ITEM_PORTAL:
-			switch (value_num)
-			{
-			    default:
-			        do_help(ch, "ITEM_PORTAL");
-			        return FALSE;
-			        
-				case 0:
-				    send_to_char("CHARGES SET.\n\r\n\r", ch);
-				    pObj->value[0] = atoi (argument);
-				    break;
-				case 1:
-				    send_to_char("EXIT FLAGS SET.\n\r\n\r", ch);
-				    pObj->value[1] = flag_value(exit_flags, argument);
-				    break;
-				case 2:
-				    send_to_char("PORTAL FLAGS SET.\n\r\n\r", ch);
-				    pObj->value[2] = flag_value(portal_flags, argument);
-				    break;
-				case 3:
-				    send_to_char("EXIT VNUM SET.\n\r\n\r", ch);
-				    pObj->value[3] = atoi (argument);
-				    break;
-		   }
-		   break;
-
-		case ITEM_FURNITURE:
-			switch (value_num)
-			{
-			    default:
-			        do_help(ch, "ITEM_FURNITURE");
-			        return FALSE;
-			        
-			    case 0:
-			        send_to_char("NUMBER OF PEOPLE SET.\n\r\n\r", ch);
-			        pObj->value[0] = atoi (argument);
-			        break;
-			    case 1:
-			        send_to_char("MAX WEIGHT SET.\n\r\n\r", ch);
-			        pObj->value[1] = atoi (argument);
-			        break;
-			    case 2:
-			        send_to_char("FURNITURE FLAGS TOGGLED.\n\r\n\r", ch);
-			        pObj->value[2] ^= (flag_value(furniture_flags, argument) != NO_FLAG
-			        ? flag_value(furniture_flags, argument) : 0);
-			        break;
-			    case 3:
-			        send_to_char("HEAL BONUS SET.\n\r\n\r", ch);
-			        pObj->value[3] = atoi (argument);
-			        break;
-			    case 4:
-			        send_to_char("MANA BONUS SET.\n\r\n\r", ch);
-			        pObj->value[4] = atoi (argument);
-			        break;
-			}
+	case ITEM_WEAPON:
+		switch (value_num) {
+		default:
+			do_help(ch, "ITEM_WEAPON");
+			return FALSE;
+		case 0:
+			buf_add(output, "WEAPON CLASS SET.\n\r\n\r");
+			pObj->value[0] = flag_value(weapon_class, argument);
 			break;
+		case 1:
+			buf_add(output, "NUMBER OF DICE SET.\n\r\n\r");
+			pObj->value[1] = atoi(argument);
+			break;
+		case 2:
+			buf_add(output, "TYPE OF DICE SET.\n\r\n\r");
+			pObj->value[2] = atoi(argument);
+			break;
+		case 3:
+			buf_add(output, "WEAPON TYPE SET.\n\r\n\r");
+			pObj->value[3] = attack_lookup(argument);
+			break;
+		case 4:
+			buf_add(output, "SPECIAL WEAPON TYPE TOGGLED.\n\r\n\r");
+			pObj->value[4] ^= (flag_value(weapon_type2, argument) != NO_FLAG
+			? flag_value(weapon_type2, argument) : 0);
+			break;
+		}
+		break;
+
+	case ITEM_PORTAL:
+		switch (value_num) {
+		default:
+			do_help(ch, "ITEM_PORTAL");
+			return FALSE;
+			        
+		case 0:
+			buf_add(output, "CHARGES SET.\n\r\n\r");
+				     pObj->value[0] = atoi (argument);
+			break;
+		case 1:
+			buf_add(output, "EXIT FLAGS SET.\n\r\n\r");
+			pObj->value[1] = flag_value(exit_flags, argument);
+			break;
+		case 2:
+			buf_add(output, "PORTAL FLAGS SET.\n\r\n\r");
+			pObj->value[2] = flag_value(portal_flags, argument);
+			break;
+		case 3:
+			buf_add(output, "EXIT VNUM SET.\n\r\n\r");
+			pObj->value[3] = atoi (argument);
+			break;
+		}
+		break;
+
+	case ITEM_FURNITURE:
+		switch (value_num) {
+		default:
+			do_help(ch, "ITEM_FURNITURE");
+			return FALSE;
+			        
+		case 0:
+			buf_add(output, "NUMBER OF PEOPLE SET.\n\r\n\r");
+			pObj->value[0] = atoi (argument);
+			break;
+		case 1:
+			buf_add(output, "MAX WEIGHT SET.\n\r\n\r");
+			pObj->value[1] = atoi (argument);
+			break;
+		case 2:
+		        buf_add(output, "FURNITURE FLAGS TOGGLED.\n\r\n\r");
+			pObj->value[2] ^= (flag_value(furniture_flags, argument) != NO_FLAG
+			? flag_value(furniture_flags, argument) : 0);
+			break;
+		case 3:
+			buf_add(output, "HEAL BONUS SET.\n\r\n\r");
+			pObj->value[3] = atoi (argument);
+			break;
+		case 4:
+			buf_add(output, "MANA BONUS SET.\n\r\n\r");
+			pObj->value[4] = atoi (argument);
+			break;
+		}
+		break;
 		   
-		 case ITEM_CONTAINER:
-			switch (value_num)
-			{
+	case ITEM_CONTAINER:
+		switch (value_num) {
 			int value;
 			
-			default:
-			    do_help(ch, "ITEM_CONTAINER");
-			        return FALSE;
-			case 0:
-			        send_to_char("WEIGHT CAPACITY SET.\n\r\n\r", ch);
-			        pObj->value[0] = atoi(argument);
-			        break;
-			case 1:
-			        if ((value = flag_value(container_flags, argument))
-			          != NO_FLAG)
-			    	TOGGLE_BIT(pObj->value[1], value);
-			    else
-			    {
-			do_help (ch, "ITEM_CONTAINER");
+		default:
+			do_help(ch, "ITEM_CONTAINER");
 			return FALSE;
-			    }
-			        send_to_char("CONTAINER TYPE SET.\n\r\n\r", ch);
-			        break;
-			case 2:
-			    if (atoi(argument) != 0)
-			    {
-			if (!get_obj_index(atoi(argument)))
-			{
-			    send_to_char("THERE IS NO SUCH ITEM.\n\r\n\r", ch);
-			    return FALSE;
-			}
-
-			if (get_obj_index(atoi(argument))->item_type != ITEM_KEY)
-			{
-			    send_to_char("THAT ITEM IS NOT A KEY.\n\r\n\r", ch);
-			    return FALSE;
-			}
-			    }
-			    send_to_char("CONTAINER KEY SET.\n\r\n\r", ch);
-			    pObj->value[2] = atoi(argument);
-			    break;
-			case 3:
-			    send_to_char("CONTAINER MAX WEIGHT SET.\n\r", ch);
-			    pObj->value[3] = atoi(argument);
-			    break;
-			case 4:
-			    send_to_char("WEIGHT MULTIPLIER SET.\n\r\n\r", ch);
-			    pObj->value[4] = atoi (argument);
-			    break;
-			}
+		case 0:
+			buf_add(output, "WEIGHT CAPACITY SET.\n\r\n\r");
+			pObj->value[0] = atoi(argument);
 			break;
-
-		case ITEM_DRINK_CON:
-			switch (value_num)
-			{
-			    default:
-			    do_help(ch, "ITEM_DRINK");
-/* OLC		    do_help(ch, "liquids");    */
-			        return FALSE;
-			    case 0:
-			        send_to_char("MAXIMUM AMOUT OF LIQUID HOURS SET.\n\r\n\r", ch);
-			        pObj->value[0] = atoi(argument);
-			        break;
-			    case 1:
-			        send_to_char("CURRENT AMOUNT OF LIQUID HOURS SET.\n\r\n\r", ch);
-			        pObj->value[1] = atoi(argument);
-			        break;
-			    case 2:
-			        send_to_char("LIQUID TYPE SET.\n\r\n\r", ch);
-			        pObj->value[2] = (liq_lookup(argument) != -1 ?
-			        		       liq_lookup(argument) : 0);
-			        break;
-			    case 3:
-			        send_to_char("POISON VALUE TOGGLED.\n\r\n\r", ch);
-			        pObj->value[3] = (pObj->value[3] == 0) ? 1 : 0;
-			        break;
+		case 1:
+			if ((value = flag_value(container_flags, argument))
+			          != NO_FLAG)
+				TOGGLE_BIT(pObj->value[1], value);
+			else {
+				do_help (ch, "ITEM_CONTAINER");
+				return FALSE;
 			}
-		     break;
+			buf_add(output, "CONTAINER TYPE SET.\n\r\n\r");
+			break;
+		case 2:
+			if (atoi(argument) != 0) {
+				if (!get_obj_index(atoi(argument))) {
+					buf_add(output, "THERE IS NO SUCH ITEM.\n\r\n\r");
+					return FALSE;
+				}
 
-		case ITEM_FOUNTAIN:
-			switch (value_num)
-			{
-				default:
-			    do_help(ch, "ITEM_FOUNTAIN");
+				if (get_obj_index(atoi(argument))->item_type != ITEM_KEY) {
+					buf_add(output, "THAT ITEM IS NOT A KEY.\n\r\n\r");
+					return FALSE;
+				}
+			}
+			buf_add(output, "CONTAINER KEY SET.\n\r\n\r");
+			pObj->value[2] = atoi(argument);
+			break;
+		case 3:
+			buf_add(output, "CONTAINER MAX WEIGHT SET.\n\r");
+			pObj->value[3] = atoi(argument);
+			break;
+		case 4:
+			buf_add(output, "WEIGHT MULTIPLIER SET.\n\r\n\r");
+			pObj->value[4] = atoi (argument);
+			break;
+		}
+		break;
+
+	case ITEM_DRINK_CON:
+		switch (value_num) {
+		default:
+			do_help(ch, "ITEM_DRINK");
 /* OLC		    do_help(ch, "liquids");    */
-			        return FALSE;
-			    case 0:
-			        send_to_char("MAXIMUM AMOUT OF LIQUID HOURS SET.\n\r\n\r", ch);
-			        pObj->value[0] = atoi(argument);
-			        break;
-			    case 1:
-			        send_to_char("CURRENT AMOUNT OF LIQUID HOURS SET.\n\r\n\r", ch);
-			        pObj->value[1] = atoi(argument);
-			        break;
-			    case 2:
-			        send_to_char("LIQUID TYPE SET.\n\r\n\r", ch);
-			        pObj->value[2] = (liq_lookup(argument) != -1 ?
+			return FALSE;
+		case 0:
+			buf_add(output, "MAXIMUM AMOUT OF LIQUID HOURS SET.\n\r\n\r");
+			pObj->value[0] = atoi(argument);
+			break;
+		case 1:
+			buf_add(output, "CURRENT AMOUNT OF LIQUID HOURS SET.\n\r\n\r");
+			pObj->value[1] = atoi(argument);
+			break;
+		case 2:
+			buf_add(output, "LIQUID TYPE SET.\n\r\n\r");
+			pObj->value[2] = (liq_lookup(argument) != -1 ?
 			        		       liq_lookup(argument) : 0);
-			        break;
-		     }
+			break;
+		case 3:
+			buf_add(output, "POISON VALUE TOGGLED.\n\r\n\r");
+			pObj->value[3] = (pObj->value[3] == 0) ? 1 : 0;
+			break;
+		}
+		break;
+
+	case ITEM_FOUNTAIN:
+		switch (value_num) {
+		default:
+			do_help(ch, "ITEM_FOUNTAIN");
+/* OLC		    do_help(ch, "liquids");    */
+			return FALSE;
+		case 0:
+			buf_add(output, "MAXIMUM AMOUT OF LIQUID HOURS SET.\n\r\n\r");
+			pObj->value[0] = atoi(argument);
+			break;
+		case 1:
+			buf_add(output, "CURRENT AMOUNT OF LIQUID HOURS SET.\n\r\n\r");
+			pObj->value[1] = atoi(argument);
+			break;
+		case 2:
+			buf_add(output, "LIQUID TYPE SET.\n\r\n\r");
+			pObj->value[2] = (liq_lookup(argument) != -1 ?
+						liq_lookup(argument) : 0);
+			break;
+		}
 		break;
 			    	
-		case ITEM_FOOD:
-			switch (value_num)
-			{
-			    default:
-			    do_help(ch, "ITEM_FOOD");
-			        return FALSE;
-			    case 0:
-			        send_to_char("HOURS OF FOOD SET.\n\r\n\r", ch);
-			        pObj->value[0] = atoi(argument);
-			        break;
-			    case 1:
-			        send_to_char("HOURS OF FULL SET.\n\r\n\r", ch);
-			        pObj->value[1] = atoi(argument);
-			        break;
-			    case 3:
-			        send_to_char("POISON VALUE TOGGLED.\n\r\n\r", ch);
-			        pObj->value[3] = (pObj->value[3] == 0) ? 1 : 0;
-			        break;
-			}
-		     break;
+	case ITEM_FOOD:
+		switch (value_num) {
+		default:
+			do_help(ch, "ITEM_FOOD");
+			return FALSE;
+		case 0:
+			buf_add(output, "HOURS OF FOOD SET.\n\r\n\r");
+			pObj->value[0] = atoi(argument);
+			break;
+		case 1:
+			buf_add(output, "HOURS OF FULL SET.\n\r\n\r");
+			pObj->value[1] = atoi(argument);
+			break;
+		case 3:
+			buf_add(output, "POISON VALUE TOGGLED.\n\r\n\r");
+			pObj->value[3] = (pObj->value[3] == 0) ? 1 : 0;
+			break;
+		}
+		break;
 
-		case ITEM_MONEY:
-			switch (value_num)
-			{
-			    default:
-			    do_help(ch, "ITEM_MONEY");
-			        return FALSE;
-			    case 0:
-			        send_to_char("GOLD AMOUNT SET.\n\r\n\r", ch);
-			        pObj->value[0] = atoi(argument);
-			        break;
-			case 1:
-			    send_to_char("SILVER AMOUNT SET.\n\r\n\r", ch);
-			    pObj->value[1] = atoi(argument);
-			    break;
-			}
-		     break;
+	case ITEM_MONEY:
+		switch (value_num) {
+		default:
+			do_help(ch, "ITEM_MONEY");
+			return FALSE;
+		case 0:
+			buf_add(output, "GOLD AMOUNT SET.\n\r\n\r");
+			pObj->value[0] = atoi(argument);
+			break;
+		case 1:
+			buf_add(output, "SILVER AMOUNT SET.\n\r\n\r");
+			pObj->value[1] = atoi(argument);
+			break;
+		}
+		break;
 	}
 
-	show_obj_values(ch, pObj);
+	show_obj_values(output, pObj);
+
+	char_puts(buf_string(output), ch);
+	buf_free(output);
 
 	return TRUE;
 }
@@ -2586,70 +2554,71 @@ OEDIT(oedit_show)
 	OBJ_INDEX_DATA *pObj;
 	AFFECT_DATA *paf;
 	int cnt;
+	BUFFER *output;
 
 	EDIT_OBJ(ch, pObj);
 
-	char_printf(ch, "Name:        [%s]\n\rArea:        [%5d] %s\n\r",
+	output = buf_new(0);
+	buf_printf(output, "Name:        [%s]\n\rArea:        [%5d] %s\n\r",
 		pObj->name,
 		!pObj->area ? -1        : pObj->area->vnum,
 		!pObj->area ? "No Area" : pObj->area->name);
 
 
-	char_printf(ch, "Vnum:        [%5d]\n\rType:        [%s]\n\r",
+	buf_printf(output, "Vnum:        [%5d]\n\rType:        [%s]\n\r",
 		pObj->vnum,
 		flag_string(type_flags, pObj->item_type));
 
 	if (pObj->limit == -1)
-		char_printf(ch, "Limit:       [%5d]\n\r", pObj->limit);
+		buf_printf(output, "Limit:       [%5d]\n\r", pObj->limit);
 	else
-		char_puts("Limit:       [none]\n\r", ch);
+		buf_add(output, "Limit:       [none]\n\r");
 
-	char_printf(ch, "Level:       [%5d]\n\r", pObj->level);
+	buf_printf(output, "Level:       [%5d]\n\r", pObj->level);
 
-	char_printf(ch, "Wear flags:  [%s]\n\r",
+	buf_printf(output, "Wear flags:  [%s]\n\r",
 		flag_string(wear_flags, pObj->wear_flags));
 
-	char_printf(ch, "Extra flags: [%s]\n\r",
+	buf_printf(output, "Extra flags: [%s]\n\r",
 		flag_string(extra_flags, pObj->extra_flags));
 
-	char_printf(ch, "Material:    [%s]\n\r",                /* ROM */
+	buf_printf(output, "Material:    [%s]\n\r",                /* ROM */
 		pObj->material);
 
-	char_printf(ch, "Condition:   [%5d]\n\r",               /* ROM */
+	buf_printf(output, "Condition:   [%5d]\n\r",               /* ROM */
 		pObj->condition);
 
-	char_printf(ch, "Weight:      [%5d]\n\rCost:        [%5d]\n\r",
+	buf_printf(output, "Weight:      [%5d]\n\rCost:        [%5d]\n\r",
 		pObj->weight, pObj->cost);
 
-	if (pObj->extra_descr)
-	{
-		EXTRA_DESCR_DATA *ed;
+	if (pObj->ed) {
+		ED_DATA *ed;
 
-		send_to_char("Ex desc kwd: ", ch);
+		buf_add(output, "Ex desc kwd: ");
 
-		for (ed = pObj->extra_descr; ed; ed = ed->next)
-			char_printf(ch, "[%s]", ed->keyword);
+		for (ed = pObj->ed; ed; ed = ed->next)
+			buf_printf(output, "[%s]", ed->keyword);
 
-		send_to_char("\n\r", ch);
+		buf_add(output, "\n\r");
 	}
 
-	char_printf(ch, "Short desc:  %s\n\rLong desc:\n\r     %s\n\r",
-		pObj->short_descr, pObj->description);
+	mlstr_dump(output, "Short desc: ", pObj->short_descr);
+	mlstr_dump(output, "Long desc: ", pObj->description);
 
-	for (cnt = 0, paf = pObj->affected; paf; paf = paf->next)
-	{
-		if (cnt == 0)
-		{
-			send_to_char("Number Modifier Affects\n\r", ch);
-			send_to_char("------ -------- -------\n\r", ch);
+	for (cnt = 0, paf = pObj->affected; paf; paf = paf->next) {
+		if (cnt == 0) {
+			buf_add(output, "Number Modifier Affects\n\r");
+			buf_add(output, "------ -------- -------\n\r");
 		}
-		char_printf(ch, "[%4d] %-8d %s\n\r", cnt,
+		buf_printf(output, "[%4d] %-8d %s\n\r", cnt,
 			paf->modifier,
 			flag_string(apply_flags, paf->location));
 		cnt++;
 	}
 
-	show_obj_values(ch, pObj);
+	show_obj_values(output, pObj);
+	char_puts(buf_string(output), ch);
+	buf_free(output);
 
 	return FALSE;
 }
@@ -2852,16 +2821,12 @@ OEDIT(oedit_short)
 
 	EDIT_OBJ(ch, pObj);
 
-	if (argument[0] == '\0')
-	{
-		send_to_char("Syntax:  short [string]\n\r", ch);
+	if (argument[0] == '\0') {
+		send_to_char("Syntax:  short lang [string]\n\r", ch);
 		return FALSE;
 	}
 
-	free_string(pObj->short_descr);
-	pObj->short_descr = str_dup(argument);
-	pObj->short_descr[0] = LOWER(pObj->short_descr[0]);
-
+	mlstr_change(pObj->short_descr, argument);
 	send_to_char("Short description set.\n\r", ch);
 	return TRUE;
 }
@@ -2874,16 +2839,12 @@ OEDIT(oedit_long)
 
 	EDIT_OBJ(ch, pObj);
 
-	if (argument[0] == '\0')
-	{
-		send_to_char("Syntax:  long [string]\n\r", ch);
+	if (argument[0] == '\0') {
+		send_to_char("Syntax:  long lang [string]\n\r", ch);
 		return FALSE;
 	}
-		 
-	free_string(pObj->description);
-	pObj->description = str_dup(argument);
-	pObj->description[0] = UPPER(pObj->description[0]);
 
+	mlstr_change(pObj->description, argument);
 	send_to_char("Long description set.\n\r", ch);
 	return TRUE;
 }
@@ -3076,17 +3037,18 @@ OEDIT(oedit_create)
 OEDIT(oedit_ed)
 {
 	OBJ_INDEX_DATA *pObj;
-	EXTRA_DESCR_DATA *ed;
+	ED_DATA *ed;
 	char command[MAX_INPUT_LENGTH];
 	char keyword[MAX_INPUT_LENGTH];
+	char lang[MAX_INPUT_LENGTH];
 
 	EDIT_OBJ(ch, pObj);
 
 	argument = one_argument(argument, command);
-	one_argument(argument, keyword);
+	argument = one_argument(argument, keyword);
+		   one_argument(argument, lang);
 
-	if (command[0] == '\0')
-	{
+	if (command[0] == '\0') {
 		send_to_char("Syntax:  ed add [keyword]\n\r", ch);
 		send_to_char("         ed delete [keyword]\n\r", ch);
 		send_to_char("         ed edit [keyword]\n\r", ch);
@@ -3094,108 +3056,83 @@ OEDIT(oedit_ed)
 		return FALSE;
 	}
 
-	if (!str_cmp(command, "add"))
-	{
-		if (keyword[0] == '\0')
-		{
-			send_to_char("Syntax:  ed add [keyword]\n\r", ch);
+	if (!str_cmp(command, "add")) {
+		if (keyword[0] == '\0' || lang[0] == '\0') {
+			send_to_char("Syntax:  ed add keyword lang\n\r", ch);
 			return FALSE;
 		}
 
-		ed                  =   new_extra_descr();
-		ed->keyword         =   str_dup(keyword);
-		ed->next            =   pObj->extra_descr;
-		pObj->extra_descr   =   ed;
+		ed			= ed_new();
+		ed->keyword		= str_dup(keyword);
+		ed->description		= mlstr_new();
+		ed->next		= pObj->ed;
+		pObj->ed	= ed;
 
-		string_append(ch, &ed->description);
+		mlstr_append(ch, ed->description, lang);
 
 		return TRUE;
 	}
 
-	if (!str_cmp(command, "edit"))
-	{
-		if (keyword[0] == '\0')
-		{
+	if (!str_cmp(command, "edit")) {
+		if (keyword[0] == '\0' || lang[0] == '\0') {
 			send_to_char("Syntax:  ed edit [keyword]\n\r", ch);
 			return FALSE;
 		}
 
-		for (ed = pObj->extra_descr; ed; ed = ed->next)
-		{
-			if (is_name(keyword, ed->keyword))
-			break;
-		}
-
-		if (!ed)
-		{
+		ed = ed_lookup(keyword, pObj->ed);
+		if (ed == NULL) {
 			send_to_char("OEdit:  Extra description keyword not found.\n\r", ch);
 			return FALSE;
 		}
 
-		string_append(ch, &ed->description);
-
+		mlstr_append(ch, ed->description, lang);
 		return TRUE;
 	}
 
-	if (!str_cmp(command, "delete"))
-	{
-		EXTRA_DESCR_DATA *ped = NULL;
+	if (!str_cmp(command, "delete")) {
+		ED_DATA *ped = NULL;
 
-		if (keyword[0] == '\0')
-		{
-			send_to_char("Syntax:  ed delete [keyword]\n\r", ch);
+		if (keyword[0] == '\0') {
+			send_to_char("Syntax:  ed delete keyword\n\r", ch);
 			return FALSE;
 		}
 
-		for (ed = pObj->extra_descr; ed; ed = ed->next)
-		{
+		for (ed = pObj->ed; ed; ed = ed->next) {
 			if (is_name(keyword, ed->keyword))
-			break;
+				break;
 			ped = ed;
 		}
 
-		if (!ed)
-		{
+		if (ed == NULL) {
 			send_to_char("OEdit:  Extra description keyword not found.\n\r", ch);
 			return FALSE;
 		}
 
-		if (!ped)
-			pObj->extra_descr = ed->next;
+		if (ped == NULL)
+			pObj->ed = ed->next;
 		else
 			ped->next = ed->next;
 
-		free_extra_descr(ed);
+		free_ed(ed);
 
 		send_to_char("Extra description deleted.\n\r", ch);
 		return TRUE;
 	}
 
 
-	if (!str_cmp(command, "format"))
-	{
-		EXTRA_DESCR_DATA *ped = NULL;
-
-		if (keyword[0] == '\0')
-		{
-			send_to_char("Syntax:  ed format [keyword]\n\r", ch);
+	if (!str_cmp(command, "format")) {
+		if (keyword[0] == '\0') {
+			send_to_char("Syntax:  ed format keyword\n\r", ch);
 			return FALSE;
 		}
 
-		for (ed = pObj->extra_descr; ed; ed = ed->next)
-		{
-			if (is_name(keyword, ed->keyword))
-			break;
-			ped = ed;
-		}
-
-		if (!ed)
-		{
+		ed = ed_lookup(keyword, pObj->ed);
+		if (ed == NULL) {
 		         send_to_char("OEdit:  Extra description keyword not found.\n\r", ch);
 		         return FALSE;
 		}
 
-		ed->description = format_string(ed->description);
+		mlstr_format(ed->description);
 
 		send_to_char("Extra description formatted.\n\r", ch);
 		return TRUE;
@@ -3459,9 +3396,9 @@ MEDIT(medit_show)
 		buf_printf(buf, "Practicer:   [%s]\n\r",
 			flag_string(skill_groups, pMob->practicer));
 
-	buf_printf(buf, "Short descr: %s\n\r", pMob->short_descr);
-	mlstr_buf(buf, "Long descr: ", pMob->long_descr);
-	mlstr_buf(buf, "Description: ", pMob->description);
+	mlstr_dump(buf, "Short descr: ", pMob->short_descr);
+	mlstr_dump(buf, "Long descr: ", pMob->long_descr);
+	mlstr_dump(buf, "Description: ", pMob->description);
 
 	if (pMob->pShop) {
 		SHOP_DATA *pShop;
@@ -3699,15 +3636,12 @@ MEDIT(medit_short)
 
 	EDIT_MOB(ch, pMob);
 
-	if (argument[0] == '\0')
-	{
-		send_to_char("Syntax:  short [string]\n\r", ch);
+	if (argument[0] == '\0') {
+		send_to_char("Syntax:  short lang [string]\n\r", ch);
 		return FALSE;
 	}
 
-	free_string(pMob->short_descr);
-	pMob->short_descr = str_dup(argument);
-
+	mlstr_change(pMob->short_descr, argument);
 	send_to_char("Short description set.\n\r", ch);
 	return TRUE;
 }

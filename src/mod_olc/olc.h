@@ -2,7 +2,7 @@
 #define _OLC_H_
 
 /*
- * $Id: olc.h,v 1.4 1998-07-11 20:55:14 fjoe Exp $
+ * $Id: olc.h,v 1.5 1998-07-14 07:47:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -286,16 +286,12 @@ DECLARE_OLC_FUN(mpedit_list		);
 /*
  * Prototypes
  */
-/* mem.c - memory prototypes. */
-#define ED	EXTRA_DESCR_DATA
 RESET_DATA	*new_reset_data		(void);
 void		free_reset_data		(RESET_DATA *pReset);
 AREA_DATA	*new_area		(void);
 void		free_area		(AREA_DATA *pArea);
 EXIT_DATA	*new_exit		(void);
 void		free_exit		(EXIT_DATA *pExit);
-ED 		*new_extra_descr	(void);
-void		free_extra_descr	(ED *pExtra);
 ROOM_INDEX_DATA *new_room_index		(void);
 void		free_room_index		(ROOM_INDEX_DATA *pRoom);
 AFFECT_DATA	*new_affect		(void);
@@ -306,8 +302,6 @@ OBJ_INDEX_DATA	*new_obj_index		(void);
 void		free_obj_index		(OBJ_INDEX_DATA *pObj);
 MOB_INDEX_DATA	*new_mob_index		(void);
 void		free_mob_index		(MOB_INDEX_DATA *pMob);
-#undef	ED
-
 void		show_liqlist		(CHAR_DATA *ch);
 void		show_damlist		(CHAR_DATA *ch);
 

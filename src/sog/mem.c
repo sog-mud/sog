@@ -1,5 +1,5 @@
 /*
- * $Id: mem.c,v 1.4 1998-07-11 20:55:13 fjoe Exp $
+ * $Id: mem.c,v 1.5 1998-07-14 07:47:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -40,7 +40,7 @@ extern          int                     top_room;
 extern		int			top_mprog_index;
 
 AREA_DATA		*	area_free;
-EXTRA_DESCR_DATA	*	extra_descr_free;
+ED_DATA	*	ed_free;
 EXIT_DATA		*	exit_free;
 ROOM_INDEX_DATA		*	room_index_free;
 OBJ_INDEX_DATA		*	obj_index_free;
@@ -51,7 +51,7 @@ HELP_DATA		*	help_free;
 
 HELP_DATA		*	help_last;
 
-void	free_extra_descr	args( ( EXTRA_DESCR_DATA *pExtra ) );
+void	free_ed	args( ( ED_DATA *pExtra ) );
 void	free_affect		args( ( AFFECT_DATA *af ) );
 void	free_mprog              args ( ( MPROG_LIST *mp ) );
 
@@ -201,7 +201,7 @@ ROOM_INDEX_DATA *new_room_index( void )
     pRoom->next             =   NULL;
     pRoom->people           =   NULL;
     pRoom->contents         =   NULL;
-    pRoom->extra_descr      =   NULL;
+    pRoom->ed      =   NULL;
     pRoom->area             =   NULL;
 
     for ( door=0; door < MAX_DIR; door++ )
@@ -226,11 +226,11 @@ ROOM_INDEX_DATA *new_room_index( void )
 void free_room_index( ROOM_INDEX_DATA *pRoom )
 {
     int door;
-    EXTRA_DESCR_DATA *pExtra;
+    ED_DATA *pExtra;
     RESET_DATA *pReset;
 
     mlstr_free(pRoom->name);
-    mlstr_free( pRoom->description );
+    mlstr_free(pRoom->description);
     free_string( pRoom->owner );
 
     for ( door = 0; door < MAX_DIR; door++ )
@@ -239,9 +239,9 @@ void free_room_index( ROOM_INDEX_DATA *pRoom )
             free_exit( pRoom->exit[door] );
     }
 
-    for ( pExtra = pRoom->extra_descr; pExtra; pExtra = pExtra->next )
+    for ( pExtra = pRoom->ed; pExtra; pExtra = pExtra->next )
     {
-        free_extra_descr( pExtra );
+        free_ed( pExtra );
     }
 
     for ( pReset = pRoom->reset_first; pReset; pReset = pReset->next )
@@ -315,12 +315,12 @@ OBJ_INDEX_DATA *new_obj_index( void )
     }
 
     pObj->next          =   NULL;
-    pObj->extra_descr   =   NULL;
+    pObj->ed   =   NULL;
     pObj->affected      =   NULL;
     pObj->area          =   NULL;
     pObj->name          =   str_dup( "no name" );
-    pObj->short_descr   =   str_dup( "(no short description)" );
-    pObj->description   =   str_dup( "(no description)" );
+    pObj->short_descr   =   mlstr_new();
+    pObj->description   =   mlstr_new();
     pObj->vnum          =   0;
     pObj->item_type     =   ITEM_TRASH;
     pObj->extra_flags   =   0;
@@ -343,22 +343,18 @@ OBJ_INDEX_DATA *new_obj_index( void )
 
 void free_obj_index( OBJ_INDEX_DATA *pObj )
 {
-    EXTRA_DESCR_DATA *pExtra;
+    ED_DATA *pExtra;
     AFFECT_DATA *pAf;
 
     free_string( pObj->name );
-    free_string( pObj->short_descr );
-    free_string( pObj->description );
+    mlstr_free(pObj->short_descr);
+    mlstr_free(pObj->description);
 
     for ( pAf = pObj->affected; pAf; pAf = pAf->next )
-    {
         free_affect( pAf );
-    }
 
-    for ( pExtra = pObj->extra_descr; pExtra; pExtra = pExtra->next )
-    {
-        free_extra_descr( pExtra );
-    }
+    for ( pExtra = pObj->ed; pExtra; pExtra = pExtra->next )
+        free_ed( pExtra );
     
     pObj->next              = obj_index_free;
     obj_index_free          = pObj;
@@ -387,7 +383,7 @@ MOB_INDEX_DATA *new_mob_index( void )
     pMob->pShop         =   NULL;
     pMob->area          =   NULL;
     pMob->player_name   =   str_dup( "no name" );
-    pMob->short_descr   =   str_dup( "(no short description)" );
+    pMob->short_descr   =   mlstr_new();
     pMob->long_descr    =   mlstr_new();
     pMob->description   =   mlstr_new();
     pMob->vnum          =   0;
@@ -435,7 +431,7 @@ MOB_INDEX_DATA *new_mob_index( void )
 void free_mob_index( MOB_INDEX_DATA *pMob )
 {
     free_string( pMob->player_name );
-    free_string( pMob->short_descr );
+    mlstr_free(pMob->short_descr);
     mlstr_free(pMob->long_descr);
     mlstr_free(pMob->description);
     free_mprog(pMob->mprogs);

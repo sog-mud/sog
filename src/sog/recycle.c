@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.11 1998-07-11 20:55:15 fjoe Exp $
+ * $Id: recycle.c,v 1.12 1998-07-14 07:47:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -158,37 +158,52 @@ void free_descriptor(DESCRIPTOR_DATA *d)
 }
 
 /* stuff for recycling extended descs */
-EXTRA_DESCR_DATA *extra_descr_free;
+ED_DATA *ed_free;
 
-EXTRA_DESCR_DATA *new_extra_descr(void)
+ED_DATA *ed_new(void)
 {
-    EXTRA_DESCR_DATA *ed;
+    ED_DATA *ed;
 
-    if (extra_descr_free == NULL)
+    if (ed_free == NULL)
 	ed = alloc_perm(sizeof(*ed));
     else
     {
-	ed = extra_descr_free;
-	extra_descr_free = extra_descr_free->next;
+	ed = ed_free;
+	ed_free = ed_free->next;
     }
 
-    ed->keyword = &str_empty[0];
-    ed->description = &str_empty[0];
     VALIDATE(ed);
     return ed;
 }
 
-void free_extra_descr(EXTRA_DESCR_DATA *ed)
+ED_DATA * ed_dup(const ED_DATA *ed)
+{
+	ED_DATA *ed_new;
+
+	if (ed_free == NULL)
+		ed_new = alloc_perm(sizeof(*ed));
+	else {
+		ed_new = ed_free;
+		ed_free = ed_free->next;
+	}
+
+	ed_new->keyword = str_dup(ed->keyword);
+	ed_new->description = mlstr_dup(ed->description);
+	VALIDATE(ed_new);
+	return ed_new;
+}
+
+void free_ed(ED_DATA *ed)
 {
     if (!IS_VALID(ed))
 	return;
 
     free_string(ed->keyword);
-    free_string(ed->description);
+    mlstr_free(ed->description);
     INVALIDATE(ed);
     
-    ed->next = extra_descr_free;
-    extra_descr_free = ed;
+    ed->next = ed_free;
+    ed_free = ed;
 }
 
 
@@ -249,7 +264,7 @@ OBJ_DATA *new_obj(void)
 void free_obj(OBJ_DATA *obj)
 {
     AFFECT_DATA *paf, *paf_next;
-    EXTRA_DESCR_DATA *ed, *ed_next;
+    ED_DATA *ed, *ed_next;
 
 
     if (!IS_VALID(obj))
@@ -262,22 +277,20 @@ void free_obj(OBJ_DATA *obj)
     }
     obj->affected = NULL;
 
-    for (ed = obj->extra_descr; ed != NULL; ed = ed_next )
-    {
+    for (ed = obj->ed; ed != NULL; ed = ed_next ) {
 	ed_next = ed->next;
-	free_extra_descr(ed);
-     }
-     obj->extra_descr = NULL;
+	free_ed(ed);
+    }
+    obj->ed = NULL;
    
-    free_string( obj->name        );
-    free_string( obj->description );
-    free_string( obj->short_descr );
-    free_string( obj->owner     );
+    free_string(obj->name);
+    mlstr_free(obj->description);
+    mlstr_free(obj->short_descr);
+    free_string(obj->owner);
     INVALIDATE(obj);
 
     obj->next   = obj_free;
     obj_free    = obj; 
-
 }
 
 
@@ -301,7 +314,7 @@ CHAR_DATA *new_char (void)
     *ch				= ch_zero;
     VALIDATE(ch);
     ch->name                    = &str_empty[0];
-    ch->short_descr             = &str_empty[0];
+    ch->short_descr             = mlstr_new();
     ch->long_descr              = mlstr_new();
     ch->description             = mlstr_new();
     ch->prompt                  = &str_empty[0];
@@ -364,7 +377,7 @@ void free_char (CHAR_DATA *ch)
     }
 
     free_string(ch->name);
-    free_string(ch->short_descr);
+    mlstr_free(ch->short_descr);
     mlstr_free(ch->long_descr);
     mlstr_free(ch->description);
     free_string(ch->prompt);

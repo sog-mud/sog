@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.18 1998-07-11 22:09:12 fjoe Exp $
+ * $Id: martial_art.c,v 1.19 1998-07-14 07:47:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,6 +51,7 @@
 #include "util.h"
 #include "log.h"
 #include "lookup.h"
+#include "mlstring.h"
 
 #ifdef SUNOS
 #	include <stdarg.h>
@@ -2126,8 +2127,8 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 					       level);
 			trophy->timer = ch->level * 2;
 
-			str_printf(&trophy->short_descr, part->from);
-			str_printf(&trophy->description, part->from);
+			mlstr_printf(trophy->short_descr, part->from);
+			mlstr_printf(trophy->description, part->from);
 
 			trophy->cost  = 0;
 			trophy->level = ch->level;
@@ -3404,12 +3405,9 @@ void do_katana(CHAR_DATA *ch, const char *argument)
 
 		katana->value[2] = ch->level / 10;
 
-		katana->extra_descr = new_extra_descr();
-		katana->extra_descr->description = str_dup(katana->pIndexData->extra_descr->description);
-		str_printf(&katana->extra_descr->description, ch->name);
-		katana->extra_descr->keyword =
-			str_dup(katana->pIndexData->extra_descr->keyword);
-		katana->extra_descr->next = NULL;
+		katana->ed = ed_dup(katana->pIndexData->ed);
+		katana->ed->next = NULL;
+		mlstr_printf(katana->ed->description, ch->name);
 			
 		obj_to_char(katana, ch);
 		check_improve(ch, gsn_katana, TRUE, 1);

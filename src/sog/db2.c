@@ -1,5 +1,5 @@
 /*
- * $Id: db2.c,v 1.16 1998-07-11 20:55:10 fjoe Exp $
+ * $Id: db2.c,v 1.17 1998-07-14 07:47:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -239,7 +239,7 @@ void load_mobiles(FILE *fp)
 	pMobIndex->new_format		= TRUE;
 	newmobs++;
         pMobIndex->player_name          = fread_string(fp);
-        pMobIndex->short_descr          = fread_string(fp);
+        pMobIndex->short_descr          = mlstr_fread(fp);
         pMobIndex->long_descr           = mlstr_fread(fp);
         pMobIndex->description          = mlstr_fread(fp);
 	pMobIndex->race		 	= race_lookup(fread_string(fp));
@@ -451,8 +451,8 @@ void load_objects(FILE *fp)
 	pObjIndex->reset_num		= 0;
 	newobjs++;
         pObjIndex->name                 = fread_string(fp);
-        pObjIndex->short_descr          = fread_string(fp);
-        pObjIndex->description          = fread_string(fp);
+        pObjIndex->short_descr          = mlstr_fread(fp);
+        pObjIndex->description          = mlstr_fread(fp);
         pObjIndex->material		= fread_string(fp);
 
 	p = fread_word(fp);
@@ -598,12 +598,12 @@ void load_objects(FILE *fp)
  
             else if (letter == 'E')
             {
-                EXTRA_DESCR_DATA *ed;
+                ED_DATA *ed;
  
                 ed                      = alloc_perm(sizeof(*ed));
                 ed->keyword             = fread_string(fp);
-                ed->description         = fread_string(fp);
-		SLIST_ADD(EXTRA_DESCR_DATA, pObjIndex->extra_descr, ed);
+                ed->description         = mlstr_fread(fp);
+		SLIST_ADD(ED_DATA, pObjIndex->ed, ed);
                 top_ed++;
             }
  

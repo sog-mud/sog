@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.11 1998-07-11 22:09:09 fjoe Exp $
+# $Id: Makefile,v 1.12 1998-07-14 07:47:39 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
@@ -51,5 +51,5 @@ resinstall:
 bininstall:
 	install -c -m 554 muddy $(INSTALL_PATH)/area
 
-install: resinstall bininstall
+install: muddy resinstall bininstall
 

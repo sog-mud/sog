@@ -2,7 +2,7 @@
 #define _RECYCLE_H_
 
 /*
- * $Id: recycle.h,v 1.4 1998-07-03 15:18:46 fjoe Exp $
+ * $Id: recycle.h,v 1.5 1998-07-14 07:47:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -66,10 +66,9 @@ void	free_descriptor  (DESCRIPTOR_DATA *d);
 #undef DD
 
 /* extra descr recycling */
-#define ED EXTRA_DESCR_DATA
-ED	*new_extra_descr  (void);
-void	free_extra_descr  (EXTRA_DESCR_DATA *ed);
-#undef ED
+ED_DATA	*ed_new  (void);
+ED_DATA	*ed_dup  (const ED_DATA *ed);
+void	free_ed  (ED_DATA *ed);
 
 /* affect recycling */
 #define AD AFFECT_DATA

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.52 1998-07-13 00:19:03 fjoe Exp $
+ * $Id: fight.c,v 1.53 1998-07-14 07:47:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -65,6 +65,7 @@
 #include "act_move.h"
 #include "mob_prog.h"
 #include "obj_prog.h"
+#include "mlstring.h"
 
 #define MAX_DAMAGE_MESSAGE 34
 
@@ -862,7 +863,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt ,bool secondary)
 			 AFFECT_DATA *paf;
 
 			 if (IS_WEAPON_STAT(katana,WEAPON_KATANA)
-			    && strstr(katana->extra_descr->description,ch->name) != NULL)
+			    && strstr(mlstr_mval(katana->ed->description), ch->name) != NULL)
 			 {
 			  katana->cost++;
 			  if (katana->cost > 249)
@@ -893,7 +894,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt ,bool secondary)
 			 AFFECT_DATA *paf;
 
 			 if (IS_WEAPON_STAT(katana,WEAPON_KATANA)
-			    && strstr(katana->extra_descr->description,ch->name)!=NULL)
+			    && strstr(mlstr_mval(katana->ed->description),ch->name)!=NULL)
 			 {
 			  katana->cost++;
 			  if (katana->cost > 249)
@@ -1903,9 +1904,9 @@ void make_corpse(CHAR_DATA *ch)
 	char *name;
 	int i;
 
-	if (IS_NPC(ch))
-	{
-		name		= ch->short_descr;
+	if (IS_NPC(ch)) {
+		/* XXX */
+		name		= mlstr_mval(ch->short_descr);
 		corpse		= create_object(get_obj_index(OBJ_VNUM_CORPSE_NPC), 0);
 		corpse->timer	= number_range(3, 6);
 		if (ch->gold > 0 || ch->silver > 0)
@@ -1916,7 +1917,8 @@ void make_corpse(CHAR_DATA *ch)
 		      obj_to_obj(create_money(ch->gold, ch->silver), corpse);
 		    ch->gold = 0;
 		}
-		corpse->from = str_dup(ch->short_descr);
+		/* XXX */
+		corpse->from = str_dup(mlstr_mval(ch->short_descr));
 		corpse->cost = 0;
 	}
 	else
@@ -1947,8 +1949,8 @@ void make_corpse(CHAR_DATA *ch)
 
 	corpse->level = ch->level;
 
-	str_printf(&corpse->short_descr, name);
-	str_printf(&corpse->description, name);
+	mlstr_printf(corpse->short_descr, name);
+	mlstr_printf(corpse->description, name);
 
 	for (obj = ch->carrying; obj != NULL; obj = obj_next)
 	{
@@ -2060,12 +2062,14 @@ void death_cry_org(CHAR_DATA *ch, int part)
 		OBJ_DATA *obj;
 		char *name;
 
-		name		= IS_NPC(ch) ? ch->short_descr : ch->name;
+		/* XXX */
+		name		= IS_NPC(ch) ? mlstr_mval(ch->short_descr) :
+						ch->name;
 		obj		= create_object(get_obj_index(vnum), 0);
 		obj->timer	= number_range(4, 7);
 
-		str_printf(&obj->short_descr, name);
-		str_printf(&obj->description, name);
+		mlstr_printf(obj->short_descr, name);
+		mlstr_printf(obj->description, name);
 
 		obj->from = str_dup(name);
 
@@ -2744,9 +2748,10 @@ void do_murder(CHAR_DATA *ch, const char *argument)
 		do_yell(victim, "Help! I am being attacked by someone!");
 	else {
 		if (IS_NPC(ch))
+			/* XXX */
 			doprintf(do_yell, victim,
 				"Help! I am being attacked by %s!",
-				ch->short_descr);
+				mlstr_mval(ch->short_descr));
 		else
 			doprintf(do_yell, victim,
 				 "Help! I am being attacked by %s!",

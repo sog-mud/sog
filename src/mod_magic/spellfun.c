@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.31 1998-07-13 12:32:02 efdi Exp $
+ * $Id: spellfun.c,v 1.32 1998-07-14 07:47:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1730,20 +1730,15 @@ void spell_create_rose(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		return;
 	}
 	rose = create_object(get_obj_index(OBJ_VNUM_ROSE), 0);
-	str_printf(&rose->short_descr, target_name);
-	str_printf(&rose->description, target_name);
-	rose->extra_descr = new_extra_descr();
-	rose->extra_descr->description =                            
-		str_dup(rose->pIndexData->extra_descr->description);
-	str_printf(&rose->extra_descr->description, target_name);
-	rose->extra_descr->keyword =                            
-		str_dup(rose->pIndexData->extra_descr->keyword);
-	rose->extra_descr->next = NULL;                         
+	mlstr_printf(rose->short_descr, target_name);
+	mlstr_printf(rose->description, target_name);
+	rose->ed = ed_dup(rose->pIndexData->ed);
+	rose->ed->next = NULL;                         
+	mlstr_printf(rose->ed->description, target_name);
                                                           
 	act("$n has created $p", ch, rose, NULL, TO_ROOM);
-	char_printf(ch, "You create %s.\n\r", rose->short_descr);
+	act("You create $p", ch, rose, NULL, TO_CHAR);
 	obj_to_char(rose, ch);
-	return;
 }
 
 void spell_create_spring(int sn,int level,CHAR_DATA *ch,void *vo,int target)
@@ -3974,13 +3969,13 @@ void spell_locate_object(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		{
 		    if (IS_IMMORTAL(ch) && in_obj->in_room != NULL)
 			buf_printf(buffer, "One is in %s [Room %d]\n\r",
-				mlstr_val(ch, in_obj->in_room->name),
+				mlstr_cval(in_obj->in_room->name, ch),
 				in_obj->in_room->vnum);
 		    else
 			buf_printf(buffer, "One is in %s\n\r",
 			    in_obj->in_room == NULL ?
 			    "somewhere" :
-			    mlstr_val(ch, in_obj->in_room->name));
+			    mlstr_cval(in_obj->in_room->name, ch));
 		}
 
 		if (number >= max_found)
@@ -5210,13 +5205,13 @@ void spell_find_object(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		else {
 			if (IS_IMMORTAL(ch) && in_obj->in_room != NULL)
 				buf_printf(buffer, "One is in %s [Room %d]\n\r",
-					mlstr_val(ch, in_obj->in_room->name),
+					mlstr_cval(in_obj->in_room->name, ch),
 					in_obj->in_room->vnum);
 			else
 				buf_printf(buffer, "One is in %s\n\r",
 					in_obj->in_room == NULL ?
 					"somewhere" :
-					mlstr_val(ch, in_obj->in_room->name));
+					mlstr_cval(in_obj->in_room->name, ch));
 		}
 
 		if (number >= max_found)
@@ -5786,7 +5781,8 @@ void spell_take_revenge(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 	for (obj = object_list; obj != NULL; obj = obj->next) {
 		if (obj->pIndexData->vnum != OBJ_VNUM_CORPSE_PC
-		||  !is_name(ch->name, obj->short_descr))
+		/* XXX */
+		||  !is_name(ch->name, mlstr_mval(obj->short_descr)))
 			continue;
 
 		found = TRUE;

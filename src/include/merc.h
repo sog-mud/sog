@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.49 1998-07-12 11:26:08 efdi Exp $
+ * $Id: merc.h,v 1.50 1998-07-14 07:47:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -72,7 +72,7 @@ typedef struct	buf_data		BUFFER;
 typedef struct	char_data		CHAR_DATA;
 typedef struct	descriptor_data 	DESCRIPTOR_DATA;
 typedef struct	exit_data		EXIT_DATA;
-typedef struct	extra_descr_data	EXTRA_DESCR_DATA;
+typedef struct	ed_data			ED_DATA;
 typedef struct	help_data		HELP_DATA;
 typedef struct	help_area_data		HELP_AREA;
 typedef struct	kill_data		KILL_DATA;
@@ -1694,6 +1694,7 @@ enum {
 #define COMM_LONG		(aa)
 #define COMM_NOTELNET		(bb)
 #define COMM_NOIAC		(cc)
+#define COMM_NOENG		(dd)
 
 /* IAC replacement if COMM_NOIAC is set */
 /* COMM_NOIAC is useful to map 'Ñ' (IAC) to 'ñ' when using win1251 codepage */
@@ -1755,7 +1756,7 @@ struct	mob_index_data
 	int			count;
 	int			killed;
 	char *			player_name;
-	char *			short_descr;
+	mlstring *		short_descr;
 	mlstring *		long_descr;
 	mlstring *		description;
 	int			act;
@@ -1821,7 +1822,7 @@ struct	char_data
 	char *			name;
 	int			id;
 	int			version;
-	char *			short_descr;
+	mlstring *		short_descr;
 	mlstring *		long_descr;
 	mlstring *		description;
 	char *			prompt;
@@ -1964,12 +1965,12 @@ struct	liq_type
 /*
  * Extra description data for a room or object.
  */
-struct	extra_descr_data
+struct	ed_data
 {
-	EXTRA_DESCR_DATA *	next;		/* Next in list 	    */
+	ED_DATA *	next;		/* Next in list 	    */
 	bool			valid;
 	char *			keyword;	/* Keyword in look/examine  */
-	char *			description;	/* What to see		    */
+	mlstring *		description;	/* What to see		    */
 };
 
 
@@ -1998,13 +1999,13 @@ enum {
 struct	obj_index_data
 {
 	OBJ_INDEX_DATA *	next;
-	EXTRA_DESCR_DATA *	extra_descr;
+	ED_DATA *	ed;
 	AFFECT_DATA *		affected;
 	AREA_DATA *		area;		/* OLC */
 	bool			new_format;
 	char *			name;
-	char *			short_descr;
-	char *			description;
+	mlstring *		short_descr;
+	mlstring *		description;
 	int			vnum;
 	int			reset_num;
 	char *			material;
@@ -2034,7 +2035,7 @@ struct	obj_data
 	OBJ_DATA *		in_obj;
 	OBJ_DATA *		on;
 	CHAR_DATA * 		carried_by;
-	EXTRA_DESCR_DATA *	extra_descr;
+	ED_DATA *	ed;
 	AFFECT_DATA *		affected;
 	OBJ_INDEX_DATA *	pIndexData;
 	ROOM_INDEX_DATA *	in_room;
@@ -2042,8 +2043,8 @@ struct	obj_data
 	bool			enchanted;
 	char *			owner;
 	char *			name;
-	char *			short_descr;
-	char *			description;
+	mlstring *		short_descr;
+	mlstring *		description;
 	int			item_type;
 	int 			extra_flags;
 	int 			wear_flags;
@@ -2139,7 +2140,7 @@ struct	area_data
 	int		area_flags;	/* OLC */
 	int		security;	/* OLC */ /* Value 1-9  */
 	unsigned int	count;
-	char *		resetmsg;
+	mlstring *	resetmsg;
 	int		area_flag;
 };
 
@@ -2160,7 +2161,7 @@ struct	room_index_data
 	ROOM_INDEX_DATA *	aff_next;
 	CHAR_DATA * 		people;
 	OBJ_DATA *		contents;
-	EXTRA_DESCR_DATA *	extra_descr;
+	ED_DATA *	ed;
 	AREA_DATA * 		area;
 	EXIT_DATA * 		exit	[6];
 	RESET_DATA *		reset_first;	/* OLC */

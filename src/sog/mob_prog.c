@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.20 1998-07-11 20:55:13 fjoe Exp $
+ * $Id: mob_prog.c,v 1.21 1998-07-14 07:47:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,6 +54,7 @@
 #include "log.h"
 #include "interp.h"
 #include "tables.h"
+#include "mlstring.h"
 
 extern int flag_lookup(const char *word, const struct flag_type *flag_table);
 
@@ -736,7 +737,8 @@ void expand_arg(char *buf,
             case 'i':
 		one_argument(mob->name, fname);
 		i = fname;                         		break;
-            case 'I': i = mob->short_descr;                     break;
+	    /* XXX */
+            case 'I': i = mlstr_mval(mob->short_descr);         break;
             case 'n': 
 		i = someone;
 		if (ch != NULL && can_see(mob, ch))
@@ -745,8 +747,9 @@ void expand_arg(char *buf,
 		    i = capitalize(fname);
 		}						break;
             case 'N': 
+		/* XXX */
 	    	i = (ch != NULL && can_see(mob, ch))
-		? (IS_NPC(ch) ? ch->short_descr : ch->name)
+		? (IS_NPC(ch) ? mlstr_mval(ch->short_descr) : ch->name)
 		: someone;                         		break;
             case 't': 
 		i = someone;
@@ -756,8 +759,9 @@ void expand_arg(char *buf,
 		     i = capitalize(fname);
 		}						break;
             case 'T': 
+		/* XXX */
 	    	i = (vch != NULL && can_see(mob, vch))
-		? (IS_NPC(vch) ? vch->short_descr : vch->name)
+		? (IS_NPC(vch) ? mlstr_mval(vch->short_descr) : vch->name)
 		: someone;                         		break;
             case 'r': 
 		if (rch == NULL) 
@@ -769,10 +773,11 @@ void expand_arg(char *buf,
 		    i = capitalize(fname);
 		} 						break;
             case 'R': 
+		/* XXX */
 		if (rch == NULL) 
 		    rch = get_random_char(mob);
 		i  = (rch != NULL && can_see(mob, rch))
-		? (IS_NPC(ch) ? ch->short_descr : ch->name)
+		? (IS_NPC(ch) ? mlstr_mval(ch->short_descr) : ch->name)
 		:someone;					break;
 	    case 'q':
 		i = someone;
@@ -782,9 +787,12 @@ void expand_arg(char *buf,
 		    i = capitalize(fname);
 		} 						break;
 	    case 'Q':
-	    	i = (mob->mprog_target != NULL && can_see(mob, mob->mprog_target))
-		? (IS_NPC(mob->mprog_target) ? mob->mprog_target->short_descr : mob->mprog_target->name)
-		: someone;                         		break;
+	    	i = (mob->mprog_target != NULL &&
+		     can_see(mob, mob->mprog_target)) ?
+		(IS_NPC(mob->mprog_target) ?
+		mlstr_mval(mob->mprog_target->short_descr) :
+		mob->mprog_target->name) :
+		someone;                         		break;
             case 'j': i = he_she  [URANGE(0, mob->sex, 2)];     break;
             case 'e': 
 	    	i = (ch != NULL && can_see(mob, ch))
@@ -849,7 +857,7 @@ void expand_arg(char *buf,
 		} 						break;
             case 'O':
                 i = (obj1 != NULL && can_see_obj(mob, obj1))
-                ? obj1->short_descr
+                ? mlstr_mval(obj1->short_descr)
                 : something;					break;
             case 'p':
 		i = something;
@@ -860,7 +868,7 @@ void expand_arg(char *buf,
 		} 						break;
             case 'P':
             	i = (obj2 != NULL && can_see_obj(mob, obj2))
-                ? obj2->short_descr
+                ? mlstr_mval(obj2->short_descr)
                 : something;					break;
         }
  
@@ -870,8 +878,6 @@ void expand_arg(char *buf,
  
     }
     *point = '\0';
- 
-    return;
 }    
 
 /*

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.94 1998-07-13 11:46:39 efdi Exp $
+ * $Id: act_info.c,v 1.95 1998-07-14 07:47:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -129,8 +129,8 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 	static char buf[MAX_STRING_LENGTH];
 
 	buf[0] = '\0';
-	if ((fShort && IS_NULLSTR(obj->short_descr))
-	||  IS_NULLSTR(obj->description))
+	if ((fShort && mlstr_null(obj->short_descr))
+	||  mlstr_null(obj->description))
 		return buf;
 
 	if (IS_SET(ch->comm, COMM_LONG)) {
@@ -167,7 +167,7 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 	}
 
 	if (fShort) {
-		strcat(buf, obj->short_descr);
+		strcat(buf, mlstr_cval(obj->short_descr, ch));
 		if (obj->pIndexData->vnum > 5)	/* not money, gold, etc */
 			sprintf(strend(buf), " [{g%s{x]",
 				get_cond_alias(obj, ch));
@@ -178,7 +178,7 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 		char* p;
 
 		p = strend(buf);
-		strcat(buf, obj->short_descr);
+		strcat(buf, mlstr_cval(obj->short_descr, ch));
 		p[0] = UPPER(p[0]);
 		switch(dice(1,3)) {
 		case 1:
@@ -193,7 +193,7 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 		}
 	}
 	else
-		strcat(buf, obj->description);
+		strcat(buf, mlstr_cval(obj->description, ch));
 	return buf;
 }
 
@@ -386,7 +386,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	if (IS_NPC(victim) && victim->position == victim->start_pos) {
 		char_printf(ch, "%s{g%s{x",
-			    buf, mlstr_val(ch, victim->long_descr));
+			    buf, mlstr_cval(victim->long_descr, ch));
 		return;
 	}
 
@@ -427,7 +427,8 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		else
 			msgnum = SLEEPING_IN;
 
-		sprintf(strend(buf), msg(msgnum, ch), victim->on->short_descr);
+		sprintf(strend(buf), msg(msgnum, ch),
+			mlstr_cval(victim->on->short_descr, ch));
 		break;
 
 	case POS_RESTING:
@@ -442,7 +443,8 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			msgnum = RESTING_ON;
 		else
 			msgnum = RESTING_IN;
-		sprintf(strend(buf), msg(msgnum, ch), victim->on->short_descr);
+		sprintf(strend(buf), msg(msgnum, ch),
+			mlstr_cval(victim->on->short_descr, ch));
 		break;
 
 	case POS_SITTING:
@@ -457,7 +459,8 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			msgnum = SITTING_ON;
 		else
 			msgnum = SITTING_IN;
-		sprintf(strend(buf), msg(msgnum, ch), victim->on->short_descr);
+		sprintf(strend(buf), msg(msgnum, ch),
+			mlstr_cval(victim->on->short_descr, ch));
 		break;
 
 	case POS_STANDING:
@@ -476,7 +479,8 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			msgnum = STANDING_ON;
 		else
 			msgnum = STANDING;
-		sprintf(strend(buf), msg(msgnum, ch), victim->on->short_descr);
+		sprintf(strend(buf), msg(msgnum, ch),
+			mlstr_cval(victim->on->short_descr, ch));
 		break;
 
 	case POS_FIGHTING:
@@ -1127,7 +1131,8 @@ void do_look(CHAR_DATA *ch, const char *argument)
 	EXIT_DATA *pexit;
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
-	char *desc;
+	ED_DATA *ed;
+	char *p;
 	int door;
 	int number,count;
 
@@ -1162,7 +1167,8 @@ void do_look(CHAR_DATA *ch, const char *argument)
 
 	if (arg1[0] == '\0' || !str_cmp(arg1, "auto")) {
 		/* 'look' or 'look auto' */
-		char_printf(ch, "{W%s{x", mlstr_val(ch, ch->in_room->name), ch);
+		char_printf(ch, "{W%s{x",
+			    mlstr_cval(ch->in_room->name, ch), ch);
 
 		if ((IS_IMMORTAL(ch) && (IS_NPC(ch) ||
 					 IS_SET(ch->act, PLR_HOLYLIGHT)))
@@ -1174,7 +1180,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 		if (arg1[0] == '\0'
 		||  (!IS_NPC(ch) && !IS_SET(ch->comm, COMM_BRIEF)))
 			char_printf(ch, "  %s",
-				    mlstr_val(ch, ch->in_room->description));
+				    mlstr_cval(ch->in_room->description, ch));
 
 		if (!IS_NPC(ch) && IS_SET(ch->act, PLR_AUTOEXIT)) {
 			send_to_char("\n\r", ch);
@@ -1234,21 +1240,20 @@ void do_look(CHAR_DATA *ch, const char *argument)
 	for (obj = ch->carrying; obj != NULL; obj = obj->next_content) {
 		if (can_see_obj(ch, obj)) {
 			/* player can see object */
-			desc = get_extra_descr(arg3, obj->extra_descr);
-			if (desc != NULL)
+			ed = ed_lookup(arg3, obj->ed);
+			if (ed != NULL)
 				if (++count == number) {
-					send_to_char(desc, ch);
+					char_mlputs(ed->description, ch);
 					return;
-					}
+				}
 				else
 					continue;
 
-			desc = get_extra_descr(arg3,
-						obj->pIndexData->extra_descr);
+			ed = ed_lookup(arg3, obj->pIndexData->ed);
 
-			if (desc != NULL)
+			if (ed != NULL)
 				if (++count == number) {
-					send_to_char(desc, ch);
+					char_mlputs(ed->description, ch);
 					return;
 				}
 				else
@@ -1256,8 +1261,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 
 			if (is_name(arg3, obj->name))
 				if (++count == number) {
-					send_to_char(
-					  msg(NOTHING_SPECIAL_IT, ch), ch);
+					char_nputs(NOTHING_SPECIAL_IT, ch);
 					return;
 				}
 		}
@@ -1266,34 +1270,33 @@ void do_look(CHAR_DATA *ch, const char *argument)
 	for (obj = ch->in_room->contents;
 	     obj != NULL; obj = obj->next_content) {
 		if (can_see_obj(ch, obj)) {
-			desc = get_extra_descr(arg3, obj->extra_descr);
-			if (desc != NULL)
-					if (++count == number) {
-					send_to_char(desc, ch);
+			ed = ed_lookup(arg3, obj->ed);
+			if (ed != NULL)
+				if (++count == number) {
+					char_mlputs(ed->description, ch);
 					return;
-					}
+				}
 
-			desc = get_extra_descr(arg3,
-						obj->pIndexData->extra_descr);
-			if (desc != NULL)
-					if (++count == number) {
-					send_to_char(desc, ch);
+			ed = ed_lookup(arg3, obj->pIndexData->ed);
+			if (ed != NULL)
+				if (++count == number) {
+					char_mlputs(ed->description, ch);
 					return;
-					}
+				}
 		}
 
 		if (is_name(arg3, obj->name))
 			if (++count == number) {
-				send_to_char(obj->description, ch);
+				char_mlputs(obj->description, ch);
 				send_to_char("\n\r",ch);
 				return;
 			}
 	}
 
-	desc = get_extra_descr(arg3, ch->in_room->extra_descr);
-	if (desc != NULL) {
+	ed = ed_lookup(arg3, ch->in_room->ed);
+	if (ed != NULL) {
 		if (++count == number) {
-			char_puts(desc, ch);
+			char_mlputs(ed->description, ch);
 			return;
 		}
 	}
@@ -1323,8 +1326,8 @@ void do_look(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!IS_NULLSTR(desc = mlstr_mval(pexit->description)))
-		char_puts(desc, ch);
+	if (!IS_NULLSTR(p = mlstr_mval(pexit->description)))
+		char_puts(p, ch);
 	else
 		char_nputs(NOTHING_SPECIAL_THERE, ch);
 
@@ -1339,8 +1342,6 @@ void do_look(CHAR_DATA *ch, const char *argument)
 			act_nprintf(ch, NULL, pexit->keyword, TO_CHAR,
 					POS_DEAD, THE_D_IS_OPEN);
 	}
-
-	return;
 }
 
 
@@ -1466,7 +1467,7 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 					capitalize(dir_name[door]),
 					room_dark(pexit->u1.to_room) ?
 					msg(TOO_DARK_TO_TELL, ch) :
-					mlstr_val(ch, pexit->u1.to_room->name));
+					mlstr_cval(pexit->u1.to_room->name, ch));
 				p = strend(buf);
 				if (IS_IMMORTAL(ch))
 					sprintf(p, msg(ROOM_D, ch),
@@ -2181,7 +2182,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 					ch->level < LEVEL_IMMORTAL) ?
 					"{r[{RPK{r]{x " : "     ",
 					PERS(victim, ch),
-					mlstr_val(ch, victim->in_room->name));
+					mlstr_cval(victim->in_room->name, ch));
 			}
 		}
 		if (!found)
@@ -2198,7 +2199,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 				found = TRUE;
 				char_printf(ch, "%-28s %s\n\r",
 					PERS(victim, ch),
-					mlstr_val(ch, victim->in_room->name));
+					mlstr_cval(victim->in_room->name, ch));
 				break;
 			}
 		}
@@ -3978,8 +3979,8 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 			str = "wooden";
 
 		str_printf(&arrow->name, str);
-		str_printf(&arrow->short_descr, str);
-		str_printf(&arrow->description, str);
+		mlstr_printf(arrow->short_descr, str);
+		mlstr_printf(arrow->description, str);
 
 		if (color)
 			affect_to_obj(arrow, &saf);

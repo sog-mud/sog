@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.43 1998-07-12 11:26:07 efdi Exp $
+ * $Id: act_obj.c,v 1.44 1998-07-14 07:47:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2370,6 +2370,7 @@ find_keeper(CHAR_DATA * ch)
 	}
 	return keeper;
 }
+
 /* insert an object at the right spot for the keeper */
 void 
 obj_to_keeper(OBJ_DATA * obj, CHAR_DATA * ch)
@@ -2380,7 +2381,7 @@ obj_to_keeper(OBJ_DATA * obj, CHAR_DATA * ch)
 		t_obj_next = t_obj->next_content;
 
 		if (obj->pIndexData == t_obj->pIndexData
-		    && !str_cmp(obj->short_descr, t_obj->short_descr)) {
+		&& !mlstr_cmp(obj->short_descr, t_obj->short_descr)) {
 			if (IS_OBJ_STAT(t_obj, ITEM_INVENTORY)) {
 				extract_obj(obj);
 				return;
@@ -2404,6 +2405,7 @@ obj_to_keeper(OBJ_DATA * obj, CHAR_DATA * ch)
 	ch->carry_number += get_obj_number(obj);
 	ch->carry_weight += get_obj_weight(obj);
 }
+
 /* get an object from a shopkeeper's list */
 OBJ_DATA       *
 get_obj_keeper(CHAR_DATA * ch, CHAR_DATA * keeper, const char *argument)
@@ -2425,7 +2427,7 @@ get_obj_keeper(CHAR_DATA * ch, CHAR_DATA * keeper, const char *argument)
 			/* skip other objects of the same name */
 			while (obj->next_content != NULL
 			  && obj->pIndexData == obj->next_content->pIndexData
-			       && !str_cmp(obj->short_descr, obj->next_content->short_descr))
+			  && !mlstr_cmp(obj->short_descr, obj->next_content->short_descr))
 				obj = obj->next_content;
 		}
 	}
@@ -2460,7 +2462,7 @@ get_cost(CHAR_DATA * keeper, OBJ_DATA * obj, bool fBuy)
 		if (!IS_OBJ_STAT(obj, ITEM_SELL_EXTRACT))
 			for (obj2 = keeper->carrying; obj2; obj2 = obj2->next_content) {
 				if (obj->pIndexData == obj2->pIndexData
-				    && !str_cmp(obj->short_descr, obj2->short_descr))
+				&& !mlstr_cmp(obj->short_descr, obj2->short_descr))
 					return 0;
 /*
 	 	    if (IS_OBJ_STAT(obj2,ITEM_INVENTORY))
@@ -2615,7 +2617,7 @@ do_buy(CHAR_DATA * ch, const char *argument)
 		for (t_obj = obj->next_content; count < number && t_obj != NULL;
 		     t_obj = t_obj->next_content) {
 			if (t_obj->pIndexData == obj->pIndexData
-			    && !str_cmp(t_obj->short_descr, obj->short_descr))
+			&& !mlstr_cmp(t_obj->short_descr, obj->short_descr))
 				count++;
 			else
 				break;
@@ -2727,7 +2729,7 @@ do_list(CHAR_DATA * ch, const char *argument)
 				char_printf(ch, "[%2d] %8d - %s\n\r",
 					    pet->level,
 					    10 * pet->level * pet->level,
-					    pet->short_descr);
+					    mlstr_cval(pet->short_descr, ch));
 			}
 		}
 		if (!found)
@@ -2756,19 +2758,21 @@ do_list(CHAR_DATA * ch, const char *argument)
 				}
 				if (IS_OBJ_STAT(obj, ITEM_INVENTORY))
 					char_printf(ch, "[%2d %5d -- ] %s\n\r",
-					 obj->level, cost, obj->short_descr);
+					 obj->level, cost,
+					mlstr_cval(obj->short_descr, ch));
 				else {
 					count = 1;
 
 					while (obj->next_content != NULL
 					       && obj->pIndexData == obj->next_content->pIndexData
-					       && !str_cmp(obj->short_descr,
+					       && !mlstr_cmp(obj->short_descr,
 					   obj->next_content->short_descr)) {
 						obj = obj->next_content;
 						count++;
 					}
 					char_printf(ch, "[%2d %5d %2d ] %s\n\r",
-						    obj->level, cost, count, obj->short_descr);
+						    obj->level, cost, count,
+						    mlstr_cval(obj->short_descr, ch));
 				}
 			}
 		}
@@ -3340,8 +3344,10 @@ do_butcher(CHAR_DATA * ch, const char *argument)
 		for (i = 0; i < numsteaks; i++) {
 			steak = create_object(get_obj_index(OBJ_VNUM_STEAK), 0);
 
-			str_printf(&steak->short_descr, obj->short_descr);
-			str_printf(&steak->description, obj->short_descr);
+			mlstr_printf(steak->short_descr,
+					mlstr_mval(obj->short_descr));
+			mlstr_printf(steak->description,
+					mlstr_mval(obj->short_descr));
 			obj_to_room(steak, ch->in_room);
 		}
 	} else {

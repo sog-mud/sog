@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.38 1998-07-13 11:09:00 fjoe Exp $
+ * $Id: save.c,v 1.39 1998-07-14 07:47:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -168,8 +168,6 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 	fprintf(fp, "Home %d\n", ch->hometown);
 	fprintf(fp, "Clan %d\n", ch->clan);
 
-	if (ch->short_descr[0] != '\0')
-		fprintf(fp, "ShD  %s~\n", ch->short_descr);
 	if (!IS_NULLSTR(mlstr_mval(ch->description)))
 		fprintf(fp, "Desc %s~\n", mlstr_mval(ch->description));
 	if (ch->prompt != NULL || !str_cmp(ch->prompt, DEFAULT_PROMPT))
@@ -206,7 +204,6 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 				format_flags(ch->act & ~(PLR_NOEXP |
 							 PLR_CHANGED_AFF |
 							 PLR_GHOST)));
-
 	if (ch->affected_by != 0) {
 		if (IS_NPC(ch))
 			fprintf(fp, "AfBy %s\n", format_flags(ch->affected_by));
@@ -375,10 +372,12 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp)
 	fprintf(fp, "Name %s~\n", pet->name);
 	fprintf(fp, "LogO %ld\n", current_time);
 	fprintf(fp, "Clan %d\n", pet->clan);
-	if (pet->short_descr != pet->pIndexData->short_descr)
-		fprintf(fp, "ShD  %s~\n", pet->short_descr);
-	if (!IS_NULLSTR(mlstr_mval(pet->description)))
-		fprintf(fp, "Desc %s~\n", mlstr_mval(pet->description));
+	if (mlstr_cmp(pet->short_descr, pet->pIndexData->short_descr) != 0)
+		mlstr_fwrite(fp, "ShD", pet->short_descr);
+	if (mlstr_cmp(pet->long_descr, pet->pIndexData->long_descr) != 0)
+		mlstr_fwrite(fp, "LnD", pet->short_descr);
+	if (mlstr_cmp(pet->description, pet->pIndexData->description) != 0)
+		mlstr_fwrite(fp, "Desc", pet->short_descr);
 	if (RACE(pet) != pet->pIndexData->race)	/* serdar ORG_RACE */
 		fprintf(fp, "Race %s~\n", race_table[ORG_RACE(pet)].name);
 	fprintf(fp, "Sex  %d\n", pet->sex);
@@ -439,7 +438,7 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp)
 void 
 fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 {
-	EXTRA_DESCR_DATA *ed;
+	ED_DATA *ed;
 	AFFECT_DATA    *paf;
 	int             i;
 	/*
@@ -452,8 +451,6 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 	for (i = 1; i < MAX_CLAN; i++)
 		if (obj->pIndexData->vnum == clan_table[i].obj_vnum)
 			return;
-
-
 
 	/*
 	 * Castrate storage characters.
@@ -471,12 +468,11 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 		|| obj->pIndexData->vnum == QUEST_ITEM2
 		|| obj->pIndexData->vnum == QUEST_ITEM3
 		|| obj->pIndexData->vnum == OBJ_VNUM_EYED_SWORD)
-	  if (strstr(obj->short_descr,ch->name) == NULL)
-		{
-		 act("$p vanishes!",ch,obj,NULL,TO_CHAR);
-		 extract_obj(obj);
-		 return;
-		}
+	if (strstr(mlstr_mval(obj->short_descr), ch->name) == NULL) {
+		act("$p vanishes!",ch,obj,NULL,TO_CHAR);
+		extract_obj(obj);
+		return;
+	}
 */
 
 	fprintf(fp, "#O\n");
@@ -493,10 +489,10 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 
 	if (obj->name != obj->pIndexData->name)
 		fprintf(fp, "Name %s~\n", obj->name);
-	if (obj->short_descr != obj->pIndexData->short_descr)
-		fprintf(fp, "ShD  %s~\n", obj->short_descr);
-	if (obj->description != obj->pIndexData->description)
-		fprintf(fp, "Desc %s~\n", obj->description);
+	if (mlstr_cmp(obj->short_descr, obj->pIndexData->short_descr) != 0)
+		mlstr_fwrite(fp, "ShD", obj->short_descr);
+	if (mlstr_cmp(obj->description, obj->pIndexData->description) != 0)
+		mlstr_fwrite(fp, "Desc", obj->short_descr);
 	if (obj->extra_flags != obj->pIndexData->extra_flags)
 		fprintf(fp, "ExtF %d\n", obj->extra_flags);
 	if (obj->wear_flags != obj->pIndexData->wear_flags)
@@ -564,17 +560,15 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 			);
 	}
 
-	for (ed = obj->extra_descr; ed != NULL; ed = ed->next) {
-		fprintf(fp, "ExDe %s~ %s~\n",
-			ed->keyword, ed->description);
+	for (ed = obj->ed; ed != NULL; ed = ed->next) {
+		fprintf(fp, "ExDe %s~ ", ed->keyword);
+		mlstr_fwrite(fp, NULL, ed->description);
 	}
 
 	fprintf(fp, "End\n\n");
 
 	if (obj->contains != NULL)
 		fwrite_obj(ch, obj->contains, fp, iNest + 1);
-
-	return;
 }
 
 
@@ -1167,8 +1161,8 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			KEY("Save", ch->saving_throw, fread_number(fp));
 			KEY("Scro", ch->lines, fread_number(fp));
 			KEY("Sex", ch->sex, fread_number(fp));
-			KEY("ShortDescr", ch->short_descr, fread_string(fp));
-			KEY("ShD", ch->short_descr, fread_string(fp));
+			KEY("ShortDescr", ch->short_descr, mlstr_fread(fp));
+			KEY("ShD", ch->short_descr, mlstr_fread(fp));
 			KEY("Sec", ch->pcdata->security, fread_number(fp));
 			KEY("Silv", ch->silver, fread_number(fp));
 
@@ -1388,6 +1382,7 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'L':
+			KEY("LnD",  pet->description, mlstr_fread(fp));
 			KEY("Levl", pet->level, fread_number(fp));
 			KEY("LogO", lastlogoff, fread_number(fp));
 			break;
@@ -1412,7 +1407,7 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 		case 'S':
 			KEY("Save", pet->saving_throw, fread_number(fp));
 			KEY("Sex", pet->sex, fread_number(fp));
-			KEY("ShD", pet->short_descr, fread_string(fp));
+			KEY("ShD", pet->short_descr, mlstr_fread(fp));
 			KEY("Silv", pet->silver, fread_number(fp));
 			break;
 
@@ -1461,8 +1456,8 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 	if (obj == NULL) {	/* either not found or old style */
 		obj = new_obj();
 		obj->name = str_dup("");
-		obj->short_descr = str_dup("");
-		obj->description = str_dup("");
+		obj->short_descr = mlstr_new();
+		obj->description = mlstr_new();
 	}
 	fNest = FALSE;
 	fVnum = TRUE;
@@ -1533,8 +1528,8 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'D':
-			KEY("Description", obj->description, fread_string(fp));
-			KEY("Desc", obj->description, fread_string(fp));
+			KEY("Description", obj->description, mlstr_fread(fp));
+			KEY("Desc", obj->description, mlstr_fread(fp));
 			break;
 
 		case 'E':
@@ -1548,13 +1543,12 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 			KEY("ExtF", obj->extra_flags, fread_number(fp));
 
 			if (!str_cmp(word, "ExtraDescr") || !str_cmp(word, "ExDe")) {
-				EXTRA_DESCR_DATA *ed;
-				ed = new_extra_descr();
-
+				ED_DATA *ed;
+				ed = ed_new();
 				ed->keyword = fread_string(fp);
-				ed->description = fread_string(fp);
-				ed->next = obj->extra_descr;
-				obj->extra_descr = ed;
+				ed->description = mlstr_fread(fp);
+				ed->next = obj->ed;
+				obj->ed = ed;
 				fMatch = TRUE;
 			}
 			if (!str_cmp(word, "End")) {
@@ -1639,8 +1633,8 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'S':
-			KEY("ShortDescr", obj->short_descr, fread_string(fp));
-			KEY("ShD", obj->short_descr, fread_string(fp));
+			KEY("ShortDescr", obj->short_descr, mlstr_fread(fp));
+			KEY("ShD", obj->short_descr, mlstr_fread(fp));
 
 			if (!str_cmp(word, "Spell")) {
 				int             iValue;

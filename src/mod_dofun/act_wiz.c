@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.39 1998-07-13 11:46:40 efdi Exp $
+ * $Id: act_wiz.c,v 1.40 1998-07-14 07:47:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -105,19 +105,19 @@ void do_clan_scan(CHAR_DATA *ch, const char *argument)
 {
 	int i;
 
-	for(i = 1; i<MAX_CLAN; i++) {
+	for(i = 1; i < MAX_CLAN; i++) {
 		char_printf(ch, "  Cabal: %s, room %d, item %d, ptr: %s ", 
 			    clan_table[i].short_name, clan_table[i].room_vnum, 
 			    clan_table[i].obj_vnum,
 			    clan_table[i].obj_ptr != NULL ?
-					clan_table[i].obj_ptr->short_descr :
-					"(NULL)");
+			    mlstr_mval(clan_table[i].obj_ptr->short_descr) :
+			    "(NULL)");
 		if (clan_table[i].obj_ptr != NULL) {
 			char *p;
 
 			p = clan_table[i].obj_ptr->in_room != NULL ?
-			    mlstr_val(ch, clan_table[i].obj_ptr->in_room->name):
-			    "(NULL)";
+			  mlstr_cval(clan_table[i].obj_ptr->in_room->name, ch) :
+			  "(NULL)";
 			char_printf(ch, "now_in_room: %s", p);
 		}
 		char_puts("\n\r", ch);
@@ -126,22 +126,21 @@ void do_clan_scan(CHAR_DATA *ch, const char *argument)
 
 void do_objlist(CHAR_DATA *ch, const char *argument)
 {
-FILE *fp;
-OBJ_DATA *obj;
-AFFECT_DATA *paf;
+	FILE *fp;
+	OBJ_DATA *obj;
+	AFFECT_DATA *paf;
 
-	 if ((fp=fopen("objlist.txt", "w+")) == NULL)
-	 {
-	    char_puts("File error.\n\r", ch);
-	    return;
+	 if ((fp=fopen("objlist.txt", "w+")) == NULL) {
+	 	char_puts("File error.\n\r", ch);
+	 	return;
 	 }
 
-	 for(obj=object_list; obj!=NULL; obj = obj->next)
-	 {
-	 if (obj->pIndexData->affected != NULL)		
+	 for(obj = object_list; obj != NULL; obj = obj->next) {
+	 if (obj->pIndexData->affected != NULL)	
 	 /*  if (obj->item_type == ITEM_WEAPON)	*/
 	 {
-	   fprintf(fp, "\n#Obj: %s (Vnum : %d) \n", obj->short_descr ,obj->pIndexData->vnum);
+	   fprintf(fp, "\n#Obj: %s (Vnum : %d) \n",
+		mlstr_mval(obj->short_descr) ,obj->pIndexData->vnum);
 	fprintf(fp,
 		"Object '%s' is type %s, extra flags %s.\nWeight is %d, value is %d, level is %d.\n",
 
@@ -297,7 +296,6 @@ AFFECT_DATA *paf;
 
 void do_limited(CHAR_DATA *ch, const char *argument)
 {
-
 	extern int top_obj_index;
 	OBJ_DATA *obj;
 	OBJ_INDEX_DATA *obj_index;
@@ -318,7 +316,7 @@ void do_limited(CHAR_DATA *ch, const char *argument)
 	}
 	nMatch = 0;
 	      char_printf(ch, "%-35s [%5d]  Limit: %3d  Current: %3d\n\r", 
-			   obj_index->short_descr, 
+			   mlstr_mval(obj_index->short_descr), 
 			   obj_index->vnum,
 		           obj_index->limit, 
 			   obj_index->count);
@@ -330,10 +328,12 @@ void do_limited(CHAR_DATA *ch, const char *argument)
 			char_printf(ch, "Carried by %-30s\n\r", obj->carried_by->name);
 		      else if (obj->in_room != NULL) 
 			char_printf(ch, "At %-20s [%d]\n\r",
-				mlstr_val(ch, obj->in_room->name),
+				mlstr_cval(obj->in_room->name, ch),
 				obj->in_room->vnum);
 		      else if (obj->in_obj != NULL) 
-			char_printf(ch, "In %-20s [%d] \n\r", obj->in_obj->short_descr, obj->in_obj->pIndexData->vnum);
+			char_printf(ch, "In %-20s [%d] \n\r",
+				mlstr_mval(obj->in_obj->short_descr),
+				obj->in_obj->pIndexData->vnum);
 		    }
 		    char_printf(ch, "  %d found in game. %d should be in pFiles.\n\r", 
 				ingameCount, obj_index->count-ingameCount);
@@ -348,15 +348,13 @@ void do_limited(CHAR_DATA *ch, const char *argument)
 		if (obj_index->limit != -1)  {
 		  lCount++;
 	      char_printf(ch, "%-37s [%5d]  Limit: %3d  Current: %3d\n\r", 
-			   obj_index->short_descr, 
+			   mlstr_mval(obj_index->short_descr), 
 			   obj_index->vnum,
 		           obj_index->limit, 
 			   obj_index->count);
 		}
 	  }
 	char_printf(ch, "\n\r%d of %d objects are limited.\n\r", lCount, nMatch);
-	return;
-
 }
 
 void do_wiznet(CHAR_DATA *ch, const char *argument)
@@ -796,7 +794,7 @@ void do_disconnect(CHAR_DATA *ch, const char *argument)
 	        if (d->descriptor == desc)
 	        {
 	        	close_socket(d);
-			char_nputs(OK, ch);
+	        	char_puts("Ok.\n\r", ch);
 	        	return;
 	        }
 		}
@@ -819,7 +817,7 @@ void do_disconnect(CHAR_DATA *ch, const char *argument)
 		if (d == victim->desc)
 		{
 		    close_socket(d);
-		    char_nputs(OK, ch);
+		    char_puts("Ok.\n\r", ch);
 		    return;
 		}
 	}
@@ -1023,7 +1021,7 @@ void do_transfer(CHAR_DATA *ch, const char *argument)
 	if (ch != victim)
 		act("$n has transferred you.", ch, NULL, victim, TO_VICT);
 	do_look(victim, "auto");
-	char_nputs(OK, ch);
+	char_puts("Ok.\n\r", ch);
 }
 
 
@@ -1296,7 +1294,7 @@ void do_rstat(CHAR_DATA *ch, const char *argument)
 		buf_printf(output, "Roomflags %s\n\r", 
 			   flag_room_name(ch->in_room->room_flags));
 
-	mlstr_buf(output, "Name: ", location->name);
+	mlstr_dump(output, "Name: ", location->name);
 	buf_printf(output, "Area: '%s'\n\rOwner: '%s'\n\r",
 		   location->area->name,
 		   location->owner);
@@ -1312,13 +1310,13 @@ void do_rstat(CHAR_DATA *ch, const char *argument)
 	buf_printf(output, "Room flags: [%s].\n\r",
 		   flag_string(room_flags, location->room_flags));
 	buf_add(output, "Description:\n\r");
-	mlstr_buf(output, "", location->description);
+	mlstr_dump(output, "", location->description);
 
-	if (location->extra_descr != NULL) {
-		EXTRA_DESCR_DATA *ed;
+	if (location->ed != NULL) {
+		ED_DATA *ed;
 
 		buf_add(output, "Extra description keywords: '");
-		for (ed = location->extra_descr; ed; ed = ed->next) {
+		for (ed = location->ed; ed; ed = ed->next) {
 			buf_add(output, ed->keyword);
 			if (ed->next != NULL)
 				buf_add(output, " ");
@@ -1354,7 +1352,7 @@ void do_rstat(CHAR_DATA *ch, const char *argument)
 		    		pexit->key,
 		    		pexit->exit_info,
 		    		pexit->keyword);
-			mlstr_buf(output, "Description: ",
+			mlstr_dump(output, "Description: ",
 				     pexit->description);
 		}
 	}
@@ -1365,8 +1363,6 @@ void do_rstat(CHAR_DATA *ch, const char *argument)
 	char_puts(buf_string(output), ch);
 	buf_free(output);
 }
-
-
 
 void do_ostat(CHAR_DATA *ch, const char *argument)
 {
@@ -1384,245 +1380,176 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((obj = get_obj_world(ch, argument)) == NULL) {
-		char_puts("Nothing like that in hell, earth, or heaven.\n\r", ch);
+		char_puts("Nothing like that in hell, heaven or earth.\n\r", ch);
 		return;
 	}
 
-	char_printf(ch, "Name(s): %s\n\r", obj->name);
+	output = buf_new(0);
+	buf_printf(output, "Name(s): %s\n\r", obj->name);
 
-	char_printf(ch, "Vnum: %d  Format: %s  Type: %s  Resets: %d\n\r",
+	buf_printf(output, "Vnum: %d  Format: %s  Type: %s  Resets: %d\n\r",
 		obj->pIndexData->vnum, obj->pIndexData->new_format ? "new" : "old",
 		item_type_name(obj), obj->pIndexData->reset_num);
 
-	char_printf(ch, "Short description: %s\n\rLong description: %s\n\r",
-		obj->short_descr, obj->description);
+	mlstr_dump(output, "Short description: ", obj->short_descr);
+	mlstr_dump(output, "Long description: ", obj->description);
 
-	char_printf(ch, "Wear bits: %s\n\r", wear_bit_name(obj->wear_flags));
-	char_printf(ch, "Extra bits: %s\n\r", extra_bit_name(obj->extra_flags));
-	char_printf(ch, "Number: %d/%d  Weight: %d/%d/%d (10th pounds)\n\r",
+	buf_printf(output, "Wear bits: %s\n\r", wear_bit_name(obj->wear_flags));
+	buf_printf(output, "Extra bits: %s\n\r", extra_bit_name(obj->extra_flags));
+	buf_printf(output, "Number: %d/%d  Weight: %d/%d/%d (10th pounds)\n\r",
 		1,           get_obj_number(obj),
 		obj->weight, get_obj_weight(obj),get_true_weight(obj));
 
-	char_printf(ch, "Level: %d  Cost: %d  Condition: %d  Timer: %d Count: %d\n\r",
+	buf_printf(output, "Level: %d  Cost: %d  Condition: %d  Timer: %d Count: %d\n\r",
 		obj->level, obj->cost, obj->condition, obj->timer, obj->pIndexData->count);
 
-	char_printf(ch,
+	buf_printf(output,
 		"In room: %d  In object: %s  Carried by: %s  Wear_loc: %d\n\r",
 		obj->in_room    == NULL    ?        0 : obj->in_room->vnum,
-		obj->in_obj     == NULL    ? "(none)" : obj->in_obj->short_descr,
+		obj->in_obj     == NULL    ? "(none)" : mlstr_mval(obj->in_obj->short_descr),
 		obj->carried_by == NULL    ? "(none)" : 
 		    can_see(ch,obj->carried_by) ? obj->carried_by->name
 					 	: "someone",
 		obj->wear_loc);
 	
-	char_printf(ch, "Values: %d %d %d %d %d\n\r",
+	buf_printf(output, "Values: %d %d %d %d %d\n\r",
 		obj->value[0], obj->value[1], obj->value[2], obj->value[3],
 		obj->value[4]);
 	
 	/* now give out vital statistics as per identify */
 	
-	switch (obj->item_type)
-	{
-		case ITEM_SCROLL: 
-		case ITEM_POTION:
-		case ITEM_PILL:
-		    char_printf(ch, "Level %d spells of:", obj->value[0]);
+	switch (obj->item_type) {
+		int i;
+	case ITEM_SCROLL: 
+	case ITEM_POTION:
+	case ITEM_PILL:
+		buf_printf(output, "Level %d spells of:", obj->value[0]);
 
-		    if (obj->value[1] >= 0 && obj->value[1] < MAX_SKILL)
-		    {
-		    	char_puts(" '", ch);
-		    	char_puts(skill_table[obj->value[1]].name, ch);
-		    	char_puts("'", ch);
-		    }
-
-		    if (obj->value[2] >= 0 && obj->value[2] < MAX_SKILL)
-		    {
-		    	char_puts(" '", ch);
-		    	char_puts(skill_table[obj->value[2]].name, ch);
-		    	char_puts("'", ch);
-		    }
-
-		    if (obj->value[3] >= 0 && obj->value[3] < MAX_SKILL)
-		    {
-		    	char_puts(" '", ch);
-		    	char_puts(skill_table[obj->value[3]].name, ch);
-		    	char_puts("'", ch);
-		    }
-
-		    if (obj->value[4] >= 0 && obj->value[4] < MAX_SKILL)
-		    {
-			char_puts(" '",ch);
-			char_puts(skill_table[obj->value[4]].name,ch);
-			char_puts("'",ch);
-		    }
-
-		    char_puts(".\n\r", ch);
+		for (i = 1; i < 5; i++)
+			if (obj->value[i] >= 0 && obj->value[i] < MAX_SKILL) 
+				buf_printf(output, " '%s'",
+					   skill_table[obj->value[i]].name);
+		buf_add(output, ".\n\r");
 		break;
 
-		case ITEM_WAND: 
-		case ITEM_STAFF: 
-		    char_printf(ch, "Has %d(%d) charges of level %d",
-		    	obj->value[1], obj->value[2], obj->value[0]);
+	case ITEM_WAND: 
+	case ITEM_STAFF: 
+		buf_printf(output, "Has %d(%d) charges of level %d",
+			   obj->value[1], obj->value[2], obj->value[0]);
 	  
-		    if (obj->value[3] >= 0 && obj->value[3] < MAX_SKILL)
-		    {
-		    	char_puts(" '", ch);
-		    	char_puts(skill_table[obj->value[3]].name, ch);
-		    	char_puts("'", ch);
-		    }
+		if (obj->value[3] >= 0 && obj->value[3] < MAX_SKILL) 
+			buf_printf(output, " '%s'",
+				   skill_table[obj->value[3]].name);
+		buf_add(output, ".\n\r");
+		break;
 
-		    char_puts(".\n\r", ch);
-			break;
-
-		case ITEM_DRINK_CON:
-		    char_printf(ch,"It holds %s-colored %s.\n\r",
-			liq_table[obj->value[2]].liq_color,
-			liq_table[obj->value[2]].liq_name);
-		    break;
-			
+	case ITEM_DRINK_CON:
+		buf_printf(output, "It holds %s-colored %s.\n\r",
+			   liq_table[obj->value[2]].liq_color,
+			   liq_table[obj->value[2]].liq_name);
+		break;
 	  
-		case ITEM_WEAPON:
-		    char_puts("Weapon type is ",ch);
-		    switch (obj->value[0])
-		    {
-		    	case(WEAPON_EXOTIC): 
-			    char_puts("exotic\n\r",ch);
-			    break;
-		    	case(WEAPON_SWORD): 
-			    char_puts("sword\n\r",ch);
-			    break;	
-		    	case(WEAPON_DAGGER): 
-			    char_puts("dagger\n\r",ch);
-			    break;
-		    	case(WEAPON_SPEAR):
-			    char_puts("spear/staff\n\r",ch);
-			    break;
-		    	case(WEAPON_MACE): 
-			    char_puts("mace/club\n\r",ch);	
-			    break;
-		   	case(WEAPON_AXE): 
-			    char_puts("axe\n\r",ch);	
-			    break;
-		    	case(WEAPON_FLAIL): 
-			    char_puts("flail\n\r",ch);
-			    break;
-		    	case(WEAPON_WHIP): 
-			    char_puts("whip\n\r",ch);
-			    break;
-		    	case(WEAPON_POLEARM): 
-			    char_puts("polearm\n\r",ch);
-			    break;
-		    	case(WEAPON_BOW): 
-			    char_puts("bow\n\r",ch);
-			    break;
-		    	case(WEAPON_ARROW): 
-			    char_puts("arrow\n\r",ch);
-			    break;
-		    	case(WEAPON_LANCE): 
-			    char_puts("lance\n\r",ch);
-			    break;
-		    	default: 
-			    char_puts("unknown\n\r",ch);
-			    break;
-		    }
-		    if (obj->pIndexData->new_format)
-		    	char_printf(ch,"Damage is %dd%d (average %d)\n\r",
+	case ITEM_WEAPON:
+		buf_printf(output, "%s\n\r",
+			   flag_name_lookup(weapon_class, obj->value[0]));
+		if (obj->pIndexData->new_format)
+		    	buf_printf(output,"Damage is %dd%d (average %d)\n\r",
 			    obj->value[1],obj->value[2],
 			    (1 + obj->value[2]) * obj->value[1] / 2);
-		    else
-		    	char_printf(ch, "Damage is %d to %d (average %d)\n\r",
-		    	    obj->value[1], obj->value[2],
-		    	    (obj->value[1] + obj->value[2]) / 2);
+		else
+			buf_printf(output,
+				   "Damage is %d to %d (average %d)\n\r",
+				   obj->value[1], obj->value[2],
+				   (obj->value[1] + obj->value[2]) / 2);
 
-		    char_printf(ch,"Damage noun is %s.\n\r",
-			attack_table[obj->value[3]].noun);
+		buf_printf(output, "Damage noun is %s.\n\r",
+			   attack_table[obj->value[3]].noun);
 		    
-		    if (obj->value[4])  /* weapon flags */
-		        char_printf(ch,"Weapons flags: %s\n\r",
-			    weapon_bit_name(obj->value[4]));
+		if (obj->value[4])  /* weapon flags */
+		        buf_printf(output,"Weapons flags: %s\n\r",
+				   weapon_bit_name(obj->value[4]));
 		break;
 
-		case ITEM_ARMOR:
-		    char_printf(ch, 
+	case ITEM_ARMOR:
+		buf_printf(output, 
 		    "Armor class is %d pierce, %d bash, %d slash, and %d vs. magic\n\r",
 		        obj->value[0], obj->value[1], obj->value[2], obj->value[3]);
 		break;
 
-	    case ITEM_CONTAINER:
-	        char_printf(ch,"Capacity: %d#  Maximum weight: %d#  flags: %s\n\r",
+	case ITEM_CONTAINER:
+	        buf_printf(output,"Capacity: %d#  Maximum weight: %d#  flags: %s\n\r",
 	            obj->value[0], obj->value[3], cont_bit_name(obj->value[1]));
 	        if (obj->value[4] != 100)
-	            char_printf(ch,"Weight multiplier: %d%%\n\r",
+	            buf_printf(output,"Weight multiplier: %d%%\n\r",
 			    obj->value[4]);
-	    break;
+		break;
 	}
 
 
-	if (obj->extra_descr != NULL || obj->pIndexData->extra_descr != NULL)
-	{
-		EXTRA_DESCR_DATA *ed;
+	if (obj->ed != NULL || obj->pIndexData->ed != NULL) {
+		ED_DATA *ed;
 
-		char_puts("Extra description keywords: '", ch);
+		buf_add(output, "Extra description keywords: '");
 
-		for (ed = obj->extra_descr; ed != NULL; ed = ed->next)
+		for (ed = obj->ed; ed != NULL; ed = ed->next)
 		{
-		    char_puts(ed->keyword, ch);
+		    buf_add(output, ed->keyword);
 		    if (ed->next != NULL)
-		    	char_puts(" ", ch);
+		    	buf_add(output, " ");
 		}
 
-		for (ed = obj->pIndexData->extra_descr; ed != NULL; ed = ed->next)
+		for (ed = obj->pIndexData->ed; ed != NULL; ed = ed->next)
 		{
-		    char_puts(ed->keyword, ch);
+		    buf_add(output, ed->keyword);
 		    if (ed->next != NULL)
-			char_puts(" ", ch);
+			buf_add(output, " ");
 		}
 
-		char_puts("'\n\r", ch);
+		buf_add(output, "'\n\r");
 	}
 
 	for (paf = obj->affected; paf != NULL; paf = paf->next)
 	{
-		char_printf(ch, "Affects %s by %d, level %d",
+		buf_printf(output, "Affects %s by %d, level %d",
 		    affect_loc_name(paf->location), paf->modifier,paf->level);
 		if (paf->duration > -1)
-		    char_printf(ch,", %d hours.\n\r",paf->duration);
+		    buf_printf(output,", %d hours.\n\r",paf->duration);
 		else
-		    char_puts(".\n\r", ch);
+		    buf_add(output, ".\n\r");
 		if (paf->bitvector)
 		{
 		    switch(paf->where)
 		    {
 			case TO_AFFECTS:
-			    char_printf(ch,"Adds %s affect.\n",
+			    buf_printf(output,"Adds %s affect.\n",
 				affect_bit_name(paf->bitvector));
 			    break;
 	            case TO_WEAPON:
-	                char_printf(ch,"Adds %s weapon flags.\n",
+	                buf_printf(output,"Adds %s weapon flags.\n",
 	                    weapon_bit_name(paf->bitvector));
 			    break;
 			case TO_OBJECT:
-			    char_printf(ch,"Adds %s object flag.\n",
+			    buf_printf(output,"Adds %s object flag.\n",
 				extra_bit_name(paf->bitvector));
 			    break;
 			case TO_IMMUNE:
-			    char_printf(ch,"Adds immunity to %s.\n",
+			    buf_printf(output,"Adds immunity to %s.\n",
 				imm_bit_name(paf->bitvector));
 			    break;
 			case TO_RESIST:
-			    char_printf(ch,"Adds resistance to %s.\n\r",
+			    buf_printf(output,"Adds resistance to %s.\n\r",
 				imm_bit_name(paf->bitvector));
 			    break;
 			case TO_VULN:
-			    char_printf(ch,"Adds vulnerability to %s.\n\r",
+			    buf_printf(output,"Adds vulnerability to %s.\n\r",
 				imm_bit_name(paf->bitvector));
 			    break;
 			case TO_DETECTS:
-			    char_printf(ch,"Adds %s detection.\n\r",
+			    buf_printf(output,"Adds %s detection.\n\r",
 				detect_bit_name(paf->bitvector));
 			    break;
 			default:
-			    char_printf(ch,"Unknown bit %d: %d\n\r",
+			    buf_printf(output,"Unknown bit %d: %d\n\r",
 				paf->where,paf->bitvector);
 			    break;
 		    }
@@ -1632,57 +1559,55 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 	if (!obj->enchanted)
 	for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next)
 	{
-		char_printf(ch, "Affects %s by %d, level %d.\n\r",
+		buf_printf(output, "Affects %s by %d, level %d.\n\r",
 		    affect_loc_name(paf->location), paf->modifier,paf->level);
 	    if (paf->bitvector)
 	    {
 	        switch(paf->where)
 	        {
 	            case TO_AFFECTS:
-	                char_printf(ch,"Adds %s affect.\n",
+	                buf_printf(output,"Adds %s affect.\n",
 	                    affect_bit_name(paf->bitvector));
 	                break;
 	            case TO_OBJECT:
-	                char_printf(ch,"Adds %s object flag.\n",
+	                buf_printf(output,"Adds %s object flag.\n",
 	                    extra_bit_name(paf->bitvector));
 	                break;
 	            case TO_IMMUNE:
-	                char_printf(ch,"Adds immunity to %s.\n",
+	                buf_printf(output,"Adds immunity to %s.\n",
 	                    imm_bit_name(paf->bitvector));
 	                break;
 	            case TO_RESIST:
-	                char_printf(ch,"Adds resistance to %s.\n\r",
+	                buf_printf(output,"Adds resistance to %s.\n\r",
 	                    imm_bit_name(paf->bitvector));
 	                break;
 	            case TO_VULN:
-	                char_printf(ch,"Adds vulnerability to %s.\n\r",
+	                buf_printf(output,"Adds vulnerability to %s.\n\r",
 	                    imm_bit_name(paf->bitvector));
 	                break;
 	            case TO_DETECTS:
-	                char_printf(ch,"Adds %s detection.\n\r",
+	                buf_printf(output,"Adds %s detection.\n\r",
 	                    detect_bit_name(paf->bitvector));
 	                break;
 	            default:
-	                char_printf(ch,"Unknown bit %d: %d\n\r",
+	                buf_printf(output,"Unknown bit %d: %d\n\r",
 	                    paf->where,paf->bitvector);
 	                break;
 	        }
 	    }
 	}
 
-	output = buf_new(0);
 	buf_add(output, "Object progs:\n");
 	for (i = 0; i < OPROG_MAX; i++)
 		if (obj->pIndexData->oprogs[i] != NULL)
 			buf_printf(output, "%s: %s\n",
 				 optype_table[i],
 				 oprog_name_lookup(obj->pIndexData->oprogs[i]));
+	buf_printf(output,"Damage condition : %d (%s)\n\r", obj->condition,
+				get_cond_alias(obj, ch));	
+
 	char_puts(buf_string(output), ch);
 	buf_free(output);
-
-	char_printf(ch,"Damage condition : %d (%s)\n\r", obj->condition,
-				get_cond_alias(obj, ch));	
-	return;
 }
 
 
@@ -1841,9 +1766,9 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 	if (!IS_NPC(victim))
 		buf_printf(output, "Security: %d.\n\r", victim->pcdata->security);
 
-	buf_printf(output, "Short description: %s\n\r", victim->short_descr);
+	mlstr_dump(output, "Short description: ", victim->short_descr);
 	if (IS_NPC(victim))
-		mlstr_buf(output, "Long description: ", victim->long_descr);
+		mlstr_dump(output, "Long description: ", victim->long_descr);
 
 	if (IS_NPC(victim) && victim->spec_fun != 0)
 		buf_printf(output, "Mobile has special procedure %s.\n\r",
@@ -1952,15 +1877,14 @@ void do_mfind(CHAR_DATA *ch, const char *argument)
 		    {
 			found = TRUE;
 			char_printf(ch, "[%5d] %s\n\r",
-			    pMobIndex->vnum, pMobIndex->short_descr);
+			    pMobIndex->vnum,
+				mlstr_mval(pMobIndex->short_descr));
 		    }
 		}
 	}
 
 	if (!found)
 		char_puts("No mobiles by that name.\n\r", ch);
-
-	return;
 }
 
 
@@ -2001,15 +1925,14 @@ void do_ofind(CHAR_DATA *ch, const char *argument)
 		    {
 			found = TRUE;
 			char_printf(ch, "[%5d] %s\n\r",
-			    pObjIndex->vnum, pObjIndex->short_descr);
+			    pObjIndex->vnum,
+				mlstr_mval(pObjIndex->short_descr));
 		    }
 		}
 	}
 
 	if (!found)
 		char_puts("No objects by that name.\n\r", ch);
-
-	return;
 }
 
 
@@ -2044,16 +1967,18 @@ void do_owhere(CHAR_DATA *ch, const char *argument)
 			buf_printf(buffer,
 				   "%3d) %s is carried by %s [Room %d]\n\r",
 				number,
-				obj->short_descr,PERS(in_obj->carried_by, ch),
+				mlstr_mval(obj->short_descr),
+				PERS(in_obj->carried_by, ch),
 				in_obj->carried_by->in_room->vnum);
 		else if (in_obj->in_room != NULL
 		     &&  can_see_room(ch, in_obj->in_room))
 	        	buf_printf(buffer, "%3d) %s is in %s [Room %d]\n\r",
-	        		number, obj->short_descr,
-				mlstr_val(ch, in_obj->in_room->name), 
+	        		number, mlstr_mval(obj->short_descr),
+				mlstr_cval(in_obj->in_room->name, ch), 
 				in_obj->in_room->vnum);
 		else
-			buf_printf(buffer, "%3d) %s is somewhere\n\r",number, obj->short_descr);
+			buf_printf(buffer, "%3d) %s is somewhere\n\r",number,
+				mlstr_mval(obj->short_descr));
 	
 	    if (number >= max_found)
 	        break;
@@ -2090,13 +2015,14 @@ void do_mwhere(CHAR_DATA *ch, const char *argument)
 			count++;
 			if (d->original != NULL)
 			    buf_printf(buffer,"%3d) %s (in the body of %s) is in %s [%d]\n\r",
-				count, d->original->name,victim->short_descr,
-				mlstr_val(ch, victim->in_room->name),
+				count, d->original->name,
+				mlstr_mval(victim->short_descr),
+				mlstr_mval(victim->in_room->name),
 				victim->in_room->vnum);
 			else
 			    buf_printf(buffer,"%3d) %s is in %s [%d]\n\r",
 				count, victim->name,
-				mlstr_val(ch, victim->in_room->name),
+				mlstr_mval(victim->in_room->name),
 				victim->in_room->vnum);
 		    }
 		}
@@ -2118,9 +2044,10 @@ void do_mwhere(CHAR_DATA *ch, const char *argument)
 		    count++;
 		    buf_printf(buffer, "%3d) [%5d] %-28s [%5d] %s\n\r", count,
 			IS_NPC(victim) ? victim->pIndexData->vnum : 0,
-			IS_NPC(victim) ? victim->short_descr : victim->name,
+			IS_NPC(victim) ? mlstr_mval(victim->short_descr) :
+				victim->name,
 			victim->in_room->vnum,
-			mlstr_val(ch, victim->in_room->name));
+			mlstr_mval(victim->in_room->name));
 		}
 	}
 
@@ -2278,8 +2205,8 @@ void do_snoop(CHAR_DATA *ch, const char *argument)
 	victim->desc->snoop_by = ch->desc;
 	wiznet_printf(ch,NULL,WIZ_SNOOPS,WIZ_SECURE,get_trust(ch),
 		      "$N starts snooping on %s",
-		      (IS_NPC(ch) ? victim->short_descr : victim->name));
-	char_nputs(OK, ch);
+		      (IS_NPC(ch) ? mlstr_mval(victim->short_descr) : victim->name));
+	char_puts("Ok.\n\r", ch);
 	return;
 }
 
@@ -2315,7 +2242,7 @@ void do_switch(CHAR_DATA *ch, const char *argument)
 
 	if (victim == ch)
 	{
-		char_nputs(OK, ch);
+		char_puts("Ok.\n\r", ch);
 		return;
 	}
 
@@ -2339,7 +2266,7 @@ void do_switch(CHAR_DATA *ch, const char *argument)
 	}
 
 	wiznet_printf(ch,NULL,WIZ_SWITCHES,WIZ_SECURE,get_trust(ch),
-		      "$N switches into %s",victim->short_descr);
+		      "$N switches into %s", mlstr_mval(victim->short_descr));
 
 	ch->desc->character = victim;
 	ch->desc->original  = ch;
@@ -2350,7 +2277,7 @@ void do_switch(CHAR_DATA *ch, const char *argument)
 	    victim->prompt = str_dup(ch->prompt);
 	victim->comm = ch->comm;
 	victim->lines = ch->lines;
-	char_nputs(OK, victim);
+	char_puts("Ok.\n\r", victim);
 	return;
 }
 
@@ -2377,12 +2304,12 @@ void do_return(CHAR_DATA *ch, const char *argument)
 	}
 
 	wiznet_printf(ch->desc->original,0,WIZ_SWITCHES,WIZ_SECURE,
-			get_trust(ch), "$N returns from %s.",ch->short_descr);
+			get_trust(ch), "$N returns from %s.",
+			mlstr_mval(ch->short_descr));
 	ch->desc->character       = ch->desc->original;
 	ch->desc->original        = NULL;
 	ch->desc->character->desc = ch->desc; 
 	ch->desc                  = NULL;
-	return;
 }
 
 /* trust levels for load and clone */
@@ -2528,8 +2455,7 @@ void do_clone(CHAR_DATA *ch, const char *argument)
 	    act("$n has created $N.",ch,NULL,clone,TO_ROOM);
 	    act("You clone $N.",ch,NULL,clone,TO_CHAR);
 		wiznet_printf(ch,NULL,WIZ_LOAD,WIZ_SECURE,get_trust(ch),
-			"$N clones %s.",clone->short_descr);
-	    return;
+			"$N clones %s.",mlstr_mval(clone->short_descr));
 	}
 }
 
@@ -2589,9 +2515,8 @@ void do_mload(CHAR_DATA *ch, const char *argument)
 	char_to_room(victim, ch->in_room);
 	act("$n has created $N!", ch, NULL, victim, TO_ROOM);
 	wiznet_printf(ch,NULL,WIZ_LOAD,WIZ_SECURE,get_trust(ch),
-			"$N loads %s.",victim->short_descr);
-	char_nputs(OK, ch);
-	return;
+			"$N loads %s.", mlstr_mval(victim->short_descr));
+	char_puts("Ok.\n\r", ch);
 }
 
 
@@ -2642,7 +2567,7 @@ void do_oload(CHAR_DATA *ch, const char *argument)
 		obj_to_room(obj, ch->in_room);
 	act("$n has created $p!", ch, obj, NULL, TO_ROOM);
 	wiznet("$N loads $p.",ch,obj,WIZ_LOAD,WIZ_SECURE,get_trust(ch));
-	char_nputs(OK, ch);
+	char_puts("Ok.\n\r", ch);
 	return;
 }
 
@@ -2679,7 +2604,7 @@ void do_purge(CHAR_DATA *ch, const char *argument)
 		}
 
 		act("$n purges the room!", ch, NULL, NULL, TO_ROOM);
-		char_nputs(OK, ch);
+		char_puts("Ok.\n\r", ch);
 		return;
 	}
 
@@ -2844,9 +2769,8 @@ void do_restore(CHAR_DATA *ch, const char *argument)
 	act("$n has restored you.", ch, NULL, victim, TO_VICT);
 	wiznet_printf(ch,NULL,WIZ_RESTORE,WIZ_SECURE,get_trust(ch),
 			"$N restored %s",
-		IS_NPC(victim) ? victim->short_descr : victim->name);
-	char_nputs(OK, ch);
-	return;
+		IS_NPC(victim) ? mlstr_mval(victim->short_descr) : victim->name);
+	char_puts("Ok.\n\r", ch);
 }
 
 		
@@ -3122,7 +3046,7 @@ void do_peace(CHAR_DATA *ch, const char *argument)
 		    REMOVE_BIT(rch->act,ACT_AGGRESSIVE);
 	}
 
-	char_nputs(OK, ch);
+	char_puts("Ok.\n\r", ch);
 	return;
 }
 
@@ -3381,14 +3305,16 @@ void do_string(CHAR_DATA *ch, const char *argument)
 		}
 		
 		if (!str_prefix(arg2, "short")) {
-			free_string(victim->short_descr);
-			victim->short_descr = str_dup(arg3);
+			if (!IS_NPC(victim)) {
+				char_puts(" Not on PC's.\n\r", ch);
+				return;
+			}
+			mlstr_change(victim->short_descr, arg3);
 			return;
 		}
 
 		if (!str_prefix(arg2, "desc")) {
-			char_puts("Sorry, this option is temporarily "
-				  "disabled\n\r", ch);
+			mlstr_change_desc(victim->description, arg3);
 			return;
 		}
 
@@ -3442,33 +3368,32 @@ void do_string(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (!str_prefix(arg2, "short")) {
-			free_string(obj->short_descr);
-			obj->short_descr = str_dup(arg3);
+			mlstr_change(obj->short_descr, arg3);
 			return;
 		}
 
 		if (!str_prefix(arg2, "long")) {
-			free_string(obj->description);
-			obj->description = str_dup(arg3);
+			mlstr_change(obj->short_descr, arg3);
 			return;
 		}
 
 		if (!str_prefix(arg2, "ed") || !str_prefix(arg2, "extended")) {
-			EXTRA_DESCR_DATA *ed;
+			ED_DATA *ed;
 
 			argument = one_argument(argument, arg3);
 			if (argument == NULL) {
-				char_puts("Syntax: oset <object> ed <keyword> <string>\n\r",
+				char_puts("Syntax: oset <object> ed <keyword> lang <string>\n\r",
 				ch);
 				return;
 			}
 
 
-			ed = new_extra_descr();
-			ed->keyword		= str_dup(arg3    );
-			ed->description	= str_add(argument, "\n\r", NULL);
-			ed->next		= obj->extra_descr;
-			obj->extra_descr	= ed;
+			ed = ed_new();
+			ed->keyword		= str_dup(arg3);
+			ed->description		= mlstr_new();
+			ed->next		= obj->ed;
+			mlstr_change_desc(ed->description, argument);
+			obj->ed	= ed;
 			return;
 		}
 	}
@@ -3817,7 +3742,7 @@ void do_force(CHAR_DATA *ch, const char *argument)
 		interpret(victim, argument);
 	}
 
-	char_nputs(OK, ch);
+	char_puts("Ok.\n\r", ch);
 	return;
 }
 
@@ -4568,8 +4493,8 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			char_puts("Not on NPC.\n\r", ch);
 			return;
 		}
-		REMOVE_BIT(victim->act, PLR_GHOST);
-		char_nputs(OK, ch);
+		victim->act &= ~PLR_GHOST;
+		char_puts("Ok.\n\r", ch);
 	}
 
 	/*
@@ -4716,7 +4641,7 @@ void do_ititle(CHAR_DATA *ch, const char *argument)
 	}
 
 	set_title(victim, argument);
-	char_nputs(OK, ch);
+	char_puts("Ok.\n\r", ch);
 }
 
 /*
@@ -4847,12 +4772,12 @@ void do_notitle(CHAR_DATA *ch, const char *argument)
 	if (IS_SET(victim->act, PLR_NOTITLE)) {
 	 	REMOVE_BIT(victim->act,PLR_NOTITLE);
 	 	char_puts("You can change your title again.\n\r",victim);
-		char_nputs(OK, ch);
+	 	char_puts("Ok.\n\r", ch);
 	}
 	else {		       
 		SET_BIT(victim->act,PLR_NOTITLE);
 		char_puts("You won't be able to change your title anymore.\n\r",victim);
-		char_nputs(OK, ch);
+		char_puts("Ok.\n\r", ch);
 	}
 }
 	   
@@ -4901,7 +4826,7 @@ void do_affrooms(CHAR_DATA *ch, const char *argument)
 		room_next = room->aff_next;
 		count++;
 		char_printf(ch, "%d) [Vnum : %5d] %s\n\r",
-			count, room->vnum , mlstr_val(ch, room->name));
+			count, room->vnum , mlstr_cval(room->name, ch));
 	}
 }
 

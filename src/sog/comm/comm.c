@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.71 1998-07-13 18:44:22 efdi Exp $
+ * $Id: comm.c,v 1.72 1998-07-14 07:47:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -791,15 +791,11 @@ void init_descriptor(int control)
 	/*
 	 * Send the greeting.
 	 */
-	{
 	if (help_greeting[0] == '.')
 	    write_to_buffer(dnew, help_greeting+1, 0);
 	else
 	    write_to_buffer(dnew, help_greeting  , 0);
 	cp_print(dnew);
-	}
-
-	return;
 }
 
 
@@ -849,26 +845,14 @@ void close_socket(DESCRIPTOR_DATA *dclose)
 
 	close(dclose->descriptor);
 	free_descriptor(dclose);
-	return;
 }
-
-#ifdef 0
-int nindex(unsigned char *str, int s, int n)
-{
-	unsigned char *cp;
-	if ((cp = (unsigned char*) memchr(str, s, n)) == NULL)
-		return(-1);
-	return (int)(cp-str);
-}
-#endif
-
 
 bool read_from_descriptor(DESCRIPTOR_DATA *d)
 {
 	int iOld;
 	int iStart;
 	unsigned char *p, *q;
-#ifdef 0
+#if 0
 	static int cm_stage = 1;
 #endif
 
@@ -1349,7 +1333,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 				      IS_SET(ch->act,PLR_HOLYLIGHT)) ||
 				     (check_blind_raw(ch) &&
 				      !room_is_dark(ch))) ?
-				     mlstr_val(ch, ch->in_room->name) :
+				     mlstr_cval(ch->in_room->name, ch) :
 				     "darkness";
 			else
 				i = " ";
@@ -2835,13 +2819,13 @@ void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 
 		case 'p':
 			i = can_see_obj(to, obj1)
-			  ? obj1->short_descr
+			  ? mlstr_cval(obj1->short_descr, to)
 			  : "something";
 			break;
 
 		case 'P':
 			i = can_see_obj(to, obj2)
-			  ? obj2->short_descr
+			  ? mlstr_cval(obj2->short_descr, to)
 			  : "something";
 			break;
 
@@ -2852,13 +2836,6 @@ void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 			    one_argument((char *) arg2, fname);
 			    i = fname;
 			}
-			break;
-
-		case 'G':
-			if (ch->alignment < 0)
-			    i = "Belan";
-			else
-			    i = "Thoth";
 			break;
 		}
 		++str;

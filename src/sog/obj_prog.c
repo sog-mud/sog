@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.17 1998-07-12 11:26:08 efdi Exp $
+ * $Id: obj_prog.c,v 1.18 1998-07-14 07:47:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,6 +53,7 @@
 #include "fight.h"
 #include "log.h"
 #include "lookup.h"
+#include "mlstring.h"
 
 int one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool second);
 
@@ -459,10 +460,10 @@ bool death_prog_ranger_staff(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 
 int get_prog_spec_weapon(OBJ_DATA *obj, CHAR_DATA *ch, void *arg) 
 {
-	if (obj->extra_descr == NULL)
+	if (obj->ed == NULL)
 		return 0;
 
-	if (strstr(obj->extra_descr->description, ch->name) != NULL)  {
+	if (strstr(mlstr_mval(obj->ed->description), ch->name) != NULL)  {
 	if (IS_AFFECTED(ch, AFF_POISON) && (dice(1,5)==1))  {
 	  send_to_char("Your weapon glows blue.", ch);
 	  act("$n's weapon glows blue.", ch, NULL, NULL, TO_ROOM);
@@ -496,10 +497,10 @@ int get_prog_spec_weapon(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 
 int get_prog_quest_obj(OBJ_DATA *obj, CHAR_DATA *ch, void *arg) 
 {
-	if (obj->extra_descr == NULL)
+	if (obj->ed == NULL)
 		return 0;
 
-	if (strstr(obj->extra_descr->description, ch->name) != NULL) {
+	if (strstr(mlstr_mval(obj->ed->description), ch->name) != NULL) {
 		if (IS_AFFECTED(ch, AFF_POISON) && (dice(1, 5) == 1)) {
 			send_to_char("Your weapon glows blue.", ch);
 			act("$n's weapon glows blue.", ch, NULL, NULL, TO_ROOM);
@@ -604,11 +605,11 @@ bool sac_prog_clan_item(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 		act_printf(get_room_index(clan_table[i].room_vnum)->people,
 			   NULL,NULL, TO_CHAR, POS_RESTING,
 			   "You see %s forming again slowly.\n\r", 
-			   container->short_descr);
+			   mlstr_mval(container->short_descr));
 		act_printf(get_room_index(clan_table[i].room_vnum)->people,
 			   NULL, NULL, TO_ROOM, POS_RESTING,
 			   "You see %s forming again slowly.\n\r", 
-			   container->short_descr);
+			   mlstr_mval(container->short_descr));
 	}
 	}
 	else
@@ -1625,7 +1626,7 @@ int wear_prog_katana_sword(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (obj->item_type == ITEM_WEAPON 
 		&& IS_WEAPON_STAT(obj,WEAPON_KATANA)
-		&& strstr(obj->extra_descr->description, ch->name) != NULL)
+		&& strstr(mlstr_mval(obj->ed->description), ch->name) != NULL)
 	{
 	if (ch->level <= 10)			obj->value[2] = 3;
 	else if (ch->level > 10 && ch->level <= 20)   obj->value[2] = 4;
@@ -1696,7 +1697,7 @@ int wear_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	AFFECT_DATA af;
 
-	if (strstr(obj->extra_descr->description, "cold") != NULL)  
+	if (strstr(mlstr_mval(obj->ed->description), "cold") != NULL)  
 	{
 	if (!is_affected(ch, gsn_fire_shield))
 	{
@@ -1735,7 +1736,7 @@ int remove_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (is_affected(ch, gsn_fire_shield)) {
 		affect_strip(ch, gsn_fire_shield);
-		if (strstr(obj->extra_descr->description, "cold") != NULL)  
+		if (strstr(mlstr_mval(obj->ed->description), "cold") != NULL)  
 			send_to_char("You have become normal to cold attacks.\n\r", ch);
 		else
 			send_to_char("You have become normal to fire attacks.\n\r", ch);
@@ -1746,7 +1747,7 @@ int remove_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 
 int wear_prog_quest_weapon(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
-	if (strstr(obj->short_descr, ch->name) != NULL)  {
+	if (strstr(mlstr_mval(obj->short_descr), ch->name) != NULL)  {
 		send_to_char("Your weapon starts glowing.\n\r",ch);
 		     if (                  ch->level <= 20) obj->value[2] = 3;
 		else if (ch->level > 20 && ch->level <= 30) obj->value[2] = 4;
@@ -1770,7 +1771,7 @@ int wear_prog_quest_weapon(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 
 int get_prog_quest_reward(OBJ_DATA *obj, CHAR_DATA *ch, void *arg) 
 {
-	if (strstr(obj->short_descr, ch->name) != NULL)  {
+	if (strstr(mlstr_mval(obj->short_descr), ch->name) != NULL)  {
 		act_puts("Your $p starts glowing.\n\r",
 			 ch,obj,NULL,TO_CHAR,POS_SLEEPING);
 		return 0;

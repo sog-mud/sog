@@ -1,5 +1,5 @@
 /*
- * $Id: repair.c,v 1.2 1998-07-11 20:55:15 fjoe Exp $
+ * $Id: repair.c,v 1.3 1998-07-14 07:47:50 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -8,6 +8,7 @@
 #include "comm.h"
 #include "util.h"
 #include "interp.h"
+#include "mlstring.h"
 
 void damage_to_obj(CHAR_DATA *ch,OBJ_DATA *wield, OBJ_DATA *worn, int damage) 
 {
@@ -204,8 +205,10 @@ void do_repair(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (obj->cost == 0) {
-	doprintf(do_say, mob, "%s is beyond repair.\n\r", obj->short_descr);
-   	return;
+		/* XXX */
+		doprintf(do_say, mob, "%s is beyond repair.\n\r",
+			 mlstr_mval(obj->short_descr));
+   		return;
 	}
 
 	cost = ((obj->level * 10) +
@@ -213,19 +216,16 @@ void do_repair(CHAR_DATA *ch, const char *argument)
 	cost /= 100;
 
 	if (cost > ch->gold) {
-	do_say(mob,"You do not have enough gold for my services.");
-	return;
+		do_say(mob,"You do not have enough gold for my services.");
+		return;
 	}
 
 	WAIT_STATE(ch,PULSE_VIOLENCE);
 
 	ch->gold -= cost;
 	mob->gold += cost;
-	act_printf(ch, NULL, mob, TO_ROOM, POS_RESTING,
-			   "$N takes %s from $n, repairs it, and returns it to $n",
-		   obj->short_descr); 
-	char_printf(ch, "%s takes %s, repairs it, and returns it\n\r",
-		    mob->short_descr, obj->short_descr);
+	act_puts("$n takes $p from $N, repairs it, and returns it to $N",
+		 mob, obj, ch, TO_ROOM, POS_RESTING);
 	obj->condition = 100;
 }
 
@@ -286,12 +286,14 @@ void do_estimate(CHAR_DATA *ch, const char *argument)
 
 void do_restring(CHAR_DATA *ch, const char *argument)
 {
+	CHAR_DATA *mob;
+#if 0
 	char arg  [MAX_INPUT_LENGTH];
 	char arg1 [MAX_INPUT_LENGTH];
 	char arg2 [MAX_INPUT_LENGTH];
-	CHAR_DATA *mob;
 	OBJ_DATA *obj;
 	int cost = 2000;
+#endif
 
 	for (mob = ch->in_room->people; mob; mob = mob->next_in_room)
 	{
@@ -299,9 +301,13 @@ void do_restring(CHAR_DATA *ch, const char *argument)
 	        break;
 	}
  
+#if 0
 	if (mob == NULL) {
+#endif
 	    send_to_char("You can't do that here.\n\r", ch);
 	    return;
+#if 0
+	/* XXX */
 	}
 
 	argument = one_argument(argument, arg);
@@ -324,32 +330,27 @@ void do_restring(CHAR_DATA *ch, const char *argument)
 
 	cost += (obj->level * 1500);
 
-	if (cost > ch->gold)
-	{
+	if (cost > ch->gold) {
 		act("$N says 'You do not have enough gold for my services.'",
 		  ch,NULL,mob,TO_CHAR);
 		return;
 	}
 	
-	if (!str_prefix(arg1, "name"))
-	{
+	if (!str_prefix(arg1, "name")) {
 		free_string(obj->name);
 		obj->name = str_dup(arg2);
 	}
 	else
-	if (!str_prefix(arg1, "short"))
-	{
+	if (!str_prefix(arg1, "short")) {
 		free_string(obj->short_descr);
 	    obj->short_descr = str_dup(arg2);
 	}
 	else
-	if (!str_prefix(arg1, "long"))
-	{
+	if (!str_prefix(arg1, "long")) {
 		free_string(obj->description);
 		obj->description = str_dup(arg2);
 	}
-	else
-	{
+	else {
 		send_to_char("That's not a valid Field.\n\r",ch);
 		return;
 	}
@@ -363,6 +364,7 @@ void do_restring(CHAR_DATA *ch, const char *argument)
 	char_printf(ch, "%s takes your item, tinkers with it, and returns %s to you.\n\r", mob->short_descr, obj->short_descr);
 	send_to_char("Remember, if we find your new string offensive, we will not be happy.\n\r", ch);
 	send_to_char(" This is your ONE AND ONLY Warning.\n\r", ch);
+#endif
 }
 
 void check_shield_destroyed(CHAR_DATA *ch, CHAR_DATA *victim,bool second)
@@ -627,18 +629,18 @@ void do_smithing(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch,2 * PULSE_VIOLENCE);
 	if (number_percent() > get_skill(ch,gsn_smithing)) {
 		check_improve(ch, gsn_smithing, FALSE, 8);
-		act_printf(ch, NULL, obj, TO_ROOM, POS_RESTING,
-			   "$n tries to repair %s with the hammer but fails.",
-			   obj->short_descr); 
-		char_printf(ch, "You failed to repair %s\n\r",
-			    obj->short_descr);
+		act_puts("$n tries to repair $p with the hammer but fails.",
+			 ch, obj, NULL, TO_ROOM, POS_RESTING);
+		act_puts("You failed to repair $p.",
+			 ch, obj, NULL, TO_CHAR, POS_RESTING);
 		hammer->condition -= 25;
 	}
 	else {
 		check_improve(ch, gsn_smithing, TRUE, 4);
-		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
-			   "$n repairs %s with the hammer.", obj->short_descr); 
-		char_printf(ch, "You repair %s\n\r", obj->short_descr);
+		act_puts("$n repairs $p with the hammer.",
+			 ch, obj, NULL, TO_ROOM, POS_RESTING);
+		act_puts("You repair $p.",
+			 ch, obj, NULL, TO_CHAR, POS_RESTING);
 		obj->condition = UMAX(100, obj->condition +
 					   (get_skill(ch,gsn_smithing) / 2));
 		hammer->condition -= 25;

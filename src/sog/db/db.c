@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.41 1998-07-12 06:51:08 fjoe Exp $
+ * $Id: db.c,v 1.42 1998-07-14 07:47:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -643,7 +643,7 @@ void load_area(FILE *fp)
 	pArea->nplayer		= 0;
 	pArea->empty		= FALSE;
 	pArea->count		= 0;
-	pArea->resetmsg		= NULL;
+	pArea->resetmsg		= mlstr_new();
 	pArea->area_flag	= 0;
 
 	if (area_first == NULL)
@@ -684,6 +684,14 @@ void load_area(FILE *fp)
 			break;				\
 		}
 
+#define MLSKEY(string, field)				\
+		if (!str_cmp(word, string)) {		\
+			mlstr_free(field);		\
+			field = mlstr_fread(fp);	\
+			fMatch = TRUE;			\
+			break;				\
+		}
+
 
 
 /* OLC
@@ -716,7 +724,7 @@ void load_areadata(FILE *fp)
 	pArea->low_range	= 0;
 	pArea->high_range	= 0;          
 	pArea->area_flag	= 0;
-	pArea->resetmsg		= NULL;
+	pArea->resetmsg		= mlstr_new();
 /*  pArea->recall       = ROOM_VNUM_TEMPLE;        ROM OLC */
  
 	for (; ;) {
@@ -757,7 +765,7 @@ void load_areadata(FILE *fp)
 			SKEY("Name", pArea->name);
 			break;
 		case 'R':
-			SKEY("ResetMessage", pArea->resetmsg);
+			MLSKEY("ResetMessage", pArea->resetmsg);
 			break;
 		case 'S':
 			KEY("Security", pArea->security, fread_number(fp));
@@ -910,7 +918,7 @@ void load_old_mob(FILE *fp)
 		pMobIndex->area		  = area_last;
 		pMobIndex->new_format	  = FALSE;
 		pMobIndex->player_name	  = fread_string(fp);
-		pMobIndex->short_descr	  = fread_string(fp);
+		pMobIndex->short_descr	  = mlstr_fread(fp);
 		pMobIndex->long_descr	  = mlstr_fread(fp);
 		pMobIndex->description	  = mlstr_fread(fp);
 
@@ -1063,13 +1071,11 @@ void load_old_obj(FILE *fp)
 		pObjIndex->new_format	= FALSE;
 		pObjIndex->reset_num	= 0;
 		pObjIndex->name		= fread_string(fp);
-		pObjIndex->short_descr	= fread_string(fp);
-		pObjIndex->description	= fread_string(fp);
+		pObjIndex->short_descr	= mlstr_fread(fp);
+		pObjIndex->description	= mlstr_fread(fp);
 		/* Action description */  fread_string(fp);
 
 		pObjIndex->material	= "copper";
-		pObjIndex->short_descr[0] = LOWER(pObjIndex->short_descr[0]);
-		pObjIndex->description[0] = UPPER(pObjIndex->description[0]);
 		pObjIndex->material	= str_dup("");
 
 		pObjIndex->item_type	= fread_number(fp);
@@ -1117,13 +1123,13 @@ void load_old_obj(FILE *fp)
 			}
 
 			else if (letter == 'E') {
-				EXTRA_DESCR_DATA *ed;
+				ED_DATA *ed;
 
 				ed		= alloc_perm(sizeof(*ed));
 				ed->keyword	= fread_string(fp);
-				ed->description	= fread_string(fp);
-				SLIST_ADD(EXTRA_DESCR_DATA,
-					  pObjIndex->extra_descr, ed);
+				ed->description	= mlstr_fread(fp);
+				SLIST_ADD(ED_DATA,
+					  pObjIndex->ed, ed);
 				top_ed++;
 			}
 
@@ -1367,7 +1373,7 @@ void load_rooms(FILE *fp)
 		pRoomIndex->owner	= str_dup("");
 		pRoomIndex->people	= NULL;
 		pRoomIndex->contents	= NULL;
-		pRoomIndex->extra_descr	= NULL;
+		pRoomIndex->ed	= NULL;
 		pRoomIndex->history     = NULL;
 		pRoomIndex->area	= area_last;
 		pRoomIndex->vnum	= vnum;
@@ -1459,13 +1465,13 @@ void load_rooms(FILE *fp)
 				top_exit++;
 			}
 			else if (letter == 'E') {
-				EXTRA_DESCR_DATA *ed;
+				ED_DATA *ed;
 	
 				ed		= alloc_perm(sizeof(*ed));
 				ed->keyword	= fread_string(fp);
-				ed->description	= fread_string(fp);
-				SLIST_ADD(EXTRA_DESCR_DATA,
-					  pRoomIndex->extra_descr, ed);
+				ed->description	= mlstr_fread(fp);
+				SLIST_ADD(ED_DATA,
+					  pRoomIndex->ed, ed);
 				top_ed++;
 			}
 
@@ -1729,14 +1735,35 @@ void fix_exits(void)
 }
 
 
+void print_resetmsg(AREA_DATA *pArea)
+{
+	DESCRIPTOR_DATA *d;
+	bool is_empty = mlstr_null(pArea->resetmsg);
+	
+	for (d = descriptor_list; d != NULL; d = d->next) {
+		CHAR_DATA *ch;
+
+		if (d->connected != CON_PLAYING)
+			continue;
+
+		ch = d->character;
+		if (IS_NPC(ch) || !IS_AWAKE(ch) || ch->in_room->area != pArea)
+			continue;
+
+		if (is_empty)
+			char_puts("You hear some squeaking sounds...\n\r", ch);
+		else
+			char_mlputs(pArea->resetmsg, ch);
+	}
+}
+
+
 /*
  * Repopulate areas periodically.
  */
 void area_update(void)
 {
 	AREA_DATA *pArea;
-	DESCRIPTOR_DATA *d;
-	char buf[MAX_STRING_LENGTH];
 
 	for (pArea = area_first; pArea != NULL; pArea = pArea->next) {
 		if (++pArea->age < 3)
@@ -1785,42 +1812,29 @@ void area_update(void)
 			}
 
 			reset_area(pArea);
-		    wiznet_printf(NULL, NULL, WIZ_RESETS, 0, 0,
+			wiznet_printf(NULL, NULL, WIZ_RESETS, 0, 0,
 		    		"%s has just been reset.", pArea->name);
 
-		    if (pArea->resetmsg)
-		    	snprintf(buf, sizeof(buf), "%s\n\r",pArea->resetmsg);
-		    else
-			snprintf(buf, sizeof(buf),
-				"You hear some squeaking sounds...\n\r");	
+			print_resetmsg(pArea);
 
-		    for (d = descriptor_list; d != NULL; d = d->next)
-		       {
-		     	 if (d->connected == CON_PLAYING
-		      	    &&   IS_AWAKE(d->character) 
-			    &&   d->character->in_room) 
-			    if (d->character->in_room->area == pArea)
-				send_to_char(buf, d->character);
-		       }
-
-		    pArea->age = number_range(0, 3);
-		    pRoomIndex = get_room_index(200);
-		    if (pRoomIndex != NULL && pArea == pRoomIndex->area)
-			pArea->age = 15 - 2;
-		    pRoomIndex = get_room_index(210);
-		    if (pRoomIndex != NULL && pArea == pRoomIndex->area)
-			pArea->age = 15 - 2;
-		    pRoomIndex = get_room_index(220);
-		    if (pRoomIndex != NULL && pArea == pRoomIndex->area)
-			pArea->age = 15 - 2;
-		    pRoomIndex = get_room_index(230);
-		    if (pRoomIndex != NULL && pArea == pRoomIndex->area)
-			pArea->age = 15 - 2;
-		    pRoomIndex = get_room_index(ROOM_VNUM_SCHOOL);
-		    if (pRoomIndex != NULL && pArea == pRoomIndex->area)
-			pArea->age = 15 - 2;
-		    else if (pArea->nplayer == 0) 
-			pArea->empty = TRUE;
+			pArea->age = number_range(0, 3);
+			pRoomIndex = get_room_index(200);
+			if (pRoomIndex != NULL && pArea == pRoomIndex->area)
+				pArea->age = 15 - 2;
+			pRoomIndex = get_room_index(210);
+			if (pRoomIndex != NULL && pArea == pRoomIndex->area)
+				pArea->age = 15 - 2;
+			pRoomIndex = get_room_index(220);
+			if (pRoomIndex != NULL && pArea == pRoomIndex->area)
+				pArea->age = 15 - 2;
+			pRoomIndex = get_room_index(230);
+			if (pRoomIndex != NULL && pArea == pRoomIndex->area)
+				pArea->age = 15 - 2;
+			pRoomIndex = get_room_index(ROOM_VNUM_SCHOOL);
+			if (pRoomIndex != NULL && pArea == pRoomIndex->area)
+				pArea->age = 15 - 2;
+			else if (pArea->nplayer == 0) 
+				pArea->empty = TRUE;
 		}
 	}
 }
@@ -2510,9 +2524,11 @@ void reset_room( ROOM_INDEX_DATA *pRoom )
 		    &&   pReset->command == 'E' 
 		    &&   pObj->level < LastMob->level -5 && pObj->level < 45))
 			fprintf(stderr,
-			    "Err: obj %s (%d) -- %d, mob %s (%d) -- %d\n",
-			    pObj->short_descr,pObj->pIndexData->vnum,pObj->level,
-			    LastMob->short_descr,LastMob->pIndexData->vnum,LastMob->level);
+				"Err: obj %s (%d) -- %d, mob %s (%d) -- %d\n",
+				mlstr_mval(pObj->short_descr),
+				pObj->pIndexData->vnum,pObj->level,
+				mlstr_mval(LastMob->short_descr),
+				LastMob->pIndexData->vnum,LastMob->level);
 		}
 		else
 		    break;
@@ -2631,7 +2647,7 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 	mob->pIndexData	= pMobIndex;
 
 	mob->name	= str_dup(pMobIndex->player_name);    /* OLC */
-	mob->short_descr= str_dup(pMobIndex->short_descr);    /* OLC */
+	mob->short_descr= mlstr_dup(pMobIndex->short_descr);    /* OLC */
 	mob->long_descr	= mlstr_dup(pMobIndex->long_descr);     /* OLC */
 	mob->description= mlstr_dup(pMobIndex->description);    /* OLC */
 	mob->id		= get_mob_id();
@@ -2908,7 +2924,7 @@ void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
 	/* start fixing values */ 
 	clone->name 	= str_dup(parent->name);
 	clone->version	= parent->version;
-	clone->short_descr	= str_dup(parent->short_descr);
+	clone->short_descr	= mlstr_dup(parent->short_descr);
 	clone->long_descr	= mlstr_dup(parent->long_descr);
 	clone->description	= mlstr_dup(parent->description);
 	clone->group	= parent->group;
@@ -3036,8 +3052,8 @@ OBJ_DATA *create_object_org(OBJ_INDEX_DATA *pObjIndex, int level, bool Count)
 
 
 	obj->name	= str_dup(pObjIndex->name);		/* OLC */
-	obj->short_descr= str_dup(pObjIndex->short_descr);	/* OLC */
-	obj->description= str_dup(pObjIndex->description);	/* OLC */
+	obj->short_descr= mlstr_dup(pObjIndex->short_descr);	/* OLC */
+	obj->description= mlstr_dup(pObjIndex->description);	/* OLC */
 	obj->material	= str_dup(pObjIndex->material);
 	obj->item_type	= pObjIndex->item_type;
 	obj->extra_flags= pObjIndex->extra_flags;
@@ -3166,15 +3182,15 @@ void clone_object(OBJ_DATA *parent, OBJ_DATA *clone)
 {
 	int i;
 	AFFECT_DATA *paf;
-	EXTRA_DESCR_DATA *ed,*ed_new;
+	ED_DATA *ed,*ed_new;
 
 	if (parent == NULL || clone == NULL)
 		return;
 
 	/* start fixing the object */
 	clone->name 	= str_dup(parent->name);
-	clone->short_descr 	= str_dup(parent->short_descr);
-	clone->description	= str_dup(parent->description);
+	clone->short_descr 	= mlstr_dup(parent->short_descr);
+	clone->description	= mlstr_dup(parent->description);
 	clone->item_type	= parent->item_type;
 	clone->extra_flags	= parent->extra_flags;
 	clone->wear_flags	= parent->wear_flags;
@@ -3199,13 +3215,10 @@ void clone_object(OBJ_DATA *parent, OBJ_DATA *clone)
 		affect_to_obj(clone,paf);
 
 	/* extended desc */
-	for (ed = parent->extra_descr; ed != NULL; ed = ed->next)
-	{
-		ed_new                  = new_extra_descr();
-		ed_new->keyword    	= str_dup(ed->keyword);
-		ed_new->description     = str_dup(ed->description);
-		ed_new->next           	= clone->extra_descr;
-		clone->extra_descr  	= ed_new;
+	for (ed = parent->ed; ed != NULL; ed = ed->next) {
+		ed_new                  = ed_dup(ed);
+		ed_new->next           	= clone->ed;
+		clone->ed  	= ed_new;
 	}
 
 }
@@ -3222,7 +3235,7 @@ void clear_char(CHAR_DATA *ch)
 
 	*ch			= ch_zero;
 	ch->name		= &str_empty[0];
-	ch->short_descr		= &str_empty[0];
+	ch->short_descr		= mlstr_new();
 	ch->long_descr		= mlstr_new();
 	ch->description		= mlstr_new();
 	ch->prompt              = &str_empty[0];
@@ -3250,12 +3263,11 @@ void clear_char(CHAR_DATA *ch)
 /*
  * Get an extra description from a list.
  */
-char *get_extra_descr(const char *name, EXTRA_DESCR_DATA *ed)
+ED_DATA *ed_lookup(const char *name, ED_DATA *ed)
 {
-	for (; ed != NULL; ed = ed->next)
-	{
-		if (is_name((char *) name, ed->keyword))
-		    return ed->description;
+	for (; ed != NULL; ed = ed->next) {
+		if (is_name(name, ed->keyword))
+			return ed;
 	}
 	return NULL;
 }
@@ -4155,7 +4167,7 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 		    nMatch++;
 		    fprintf(fp,"#%-4d %3d active %3d killed     %s\n",
 			pMobIndex->vnum,pMobIndex->count,
-			pMobIndex->killed,pMobIndex->short_descr);
+			pMobIndex->killed,mlstr_mval(pMobIndex->short_descr));
 		}
 	fclose(fp);
 
@@ -4171,7 +4183,8 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 		    nMatch++;
 		    fprintf(fp,"#%-4d %3d active %3d reset      %s\n",
 			pObjIndex->vnum,pObjIndex->count,
-			pObjIndex->reset_num,pObjIndex->short_descr);
+			pObjIndex->reset_num,
+			mlstr_mval(pObjIndex->short_descr));
 		}
 
 	/* close file */
@@ -4728,14 +4741,12 @@ void load_practicer(FILE *fp)
 
 void load_resetmsg(FILE *fp)
 {
-	current_area->resetmsg = fread_string(fp);
-	return;
+	current_area->resetmsg = mlstr_fread(fp);
 }
 
 void load_aflag(FILE *fp)
 {
 	current_area->area_flag = fread_flags(fp);
-	return;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * $Id: mlstring.c,v 1.2 1998-07-11 20:55:13 fjoe Exp $
+ * $Id: mlstring.c,v 1.3 1998-07-14 07:47:48 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -11,6 +11,7 @@
 #include "log.h"
 #include "string_edit.h"
 #include "buffer.h"
+#include "mlstring.h"
 
 /*
  * multi-language string implementation
@@ -28,11 +29,6 @@ struct mlstring {
 		char** lstr;
 	} u;
 	int nlang;
-};
-
-mlstring mlstr_empty = {
-	{ "" },
-	0
 };
 
 mlstring *mlstr_new(void)
@@ -69,7 +65,7 @@ mlstring *mlstr_fread(FILE *fp)
 	while (*s) {
 		char *q;
 
-		/* p points at lang id */
+		/* s points at lang id */
 		q = strchr(s, ' ');
 		if (q == NULL)
 			db_error("mlstr_fread", "no ` ' after `@' found");
@@ -83,13 +79,19 @@ mlstring *mlstr_fread(FILE *fp)
 			db_error("mlstr_fread", "lang %s: redefined", s);
 
 		/* q points at msg */
-		s = strchr(q, '@');
-		if (s == NULL)
-			s = strchr(q, '\0');
-		else
-			*s++ = '\0';
-
 		ml->u.lstr[lang] = str_dup(q);
+
+		/* find next '@', skip "@@" */
+		while (TRUE) {
+			s = strchr(q, '@');
+			if (s == NULL) {
+				s = strchr(q, '\0');
+				break;
+			}
+			if (*++s != '@')
+				break;
+			q = s+1;
+		}
 	}
 
 	/* some diagnostics */
@@ -97,12 +99,16 @@ mlstring *mlstr_fread(FILE *fp)
 		if (ml->u.lstr[lang] == NULL)
 			log_printf("mlstr_fread: lang %s: undefined",
 				 lang_table[lang]);
+	free_string(p);
 	return ml;
 }
 
-void mlstr_fwrite(FILE *fp, const mlstring *ml)
+void mlstr_fwrite(FILE *fp, const char* name, const mlstring *ml)
 {
 	int lang;
+
+	if (name != NULL)
+		fprintf(fp, "%s ", name);
 
 	if (ml->nlang == 0) {
 		fprintf(fp, "%s~\n", fix_string(ml->u.str));
@@ -131,7 +137,7 @@ void mlstr_free(mlstring *ml)
 	ml->nlang = 0;
 }
 
-mlstring *mlstr_dup(mlstring *ml)
+mlstring *mlstr_dup(const mlstring *ml)
 {
 	int lang;
 	mlstring *ml_new;
@@ -173,24 +179,39 @@ void mlstr_printf(mlstring *ml,...)
 	va_end(ap);
 }
 
-char * mlstr_val(CHAR_DATA *ch, const mlstring *ml)
+char * mlstr_val(const mlstring *ml, int lang)
 {
-	int lang;
-
 	if (ml->nlang == 0)
 		return ml->u.str;
-	if (ch->lang >= ml->nlang || ch->lang < 0)
+	if (lang >= ml->nlang || lang < 0)
 		lang = 0;
-	else
-		lang = ch->lang;
 	return ml->u.lstr[lang];
 }
 
-char * mlstr_mval(const mlstring *ml)
+bool mlstr_null(const mlstring *ml)
 {
-	if (ml->nlang == 0)
-		return ml->u.str;
-	return ml->u.lstr[0];
+	char *mval = mlstr_mval(ml);
+	return (mval == NULL) || (*mval == '\0');
+}
+
+int mlstr_cmp(const mlstring *ml1, const mlstring *ml2)
+{
+	int lang;
+	int res;
+
+	if (ml1->nlang != ml2->nlang)
+		return  ml1->nlang - ml2->nlang;
+
+	if (ml1->nlang == 0)
+		return str_cmp(ml1->u.str, ml2->u.str);
+
+	for (lang = 0; lang < ml1->nlang; lang++) {
+		res = str_cmp(ml1->u.lstr[lang], ml2->u.lstr[lang]);
+		if (res)
+			return res;
+	}
+
+	return 0;
 }
 
 char** mlstr_convert(mlstring *ml, int newlang)
@@ -282,12 +303,12 @@ bool mlstr_change_desc(mlstring *ml, const char *argument)
 
 	p = mlstr_convert(ml, lang);
 	free_string(*p);
-	*p = str_add(argument, "\n", NULL);
+	*p = str_add(argument, "\n\r", NULL);
 	**p = UPPER(**p);
 	return TRUE;
 }
 
-void mlstr_buf(BUFFER *buf, const char *name, const mlstring *ml)
+void mlstr_dump(BUFFER *buf, const char *name, const mlstring *ml)
 {
 	char space[MAX_STRING_LENGTH];
 	size_t namelen;

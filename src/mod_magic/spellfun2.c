@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.25 1998-07-13 12:32:03 efdi Exp $
+ * $Id: spellfun2.c,v 1.26 1998-07-14 07:47:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1769,8 +1769,9 @@ void spell_shadowlife(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	shadow->sex = victim->sex;
 	shadow->gold = 0;
 
-	name		= IS_NPC(victim) ? victim->short_descr : victim->name;
-	str_printf(&shadow->short_descr, name);
+	/* XXX */
+	name = IS_NPC(victim) ? mlstr_mval(victim->short_descr) : victim->name;
+	mlstr_printf(shadow->short_descr, name);
 	mlstr_printf(shadow->long_descr, name);
 	mlstr_printf(shadow->description, name);
 	
@@ -2066,7 +2067,7 @@ void spell_squire(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	squire->armor[3] = interpolate(squire->level,100,0);
 	squire->gold = 0;
 
-	str_printf(&squire->short_descr, ch->name);
+	mlstr_printf(squire->short_descr, ch->name);
 	mlstr_printf(squire->long_descr, ch->name);
 	mlstr_printf(squire->description, ch->name);
 	
@@ -2815,14 +2816,15 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
 
 		str_printf(&undead->name, obj->name);
 
-		p = obj->short_descr;
+		/* XXX */
+		p = mlstr_mval(obj->short_descr);
 		if (!str_prefix("The corpse of ", p))
 			p += strlen("The corpse of ");
 
 		if (!str_prefix("The undead body of ", p))
 			p += strlen("The undead body of ");
 
-		str_printf(&undead->short_descr, p);
+		mlstr_printf(undead->short_descr, p);
 		mlstr_printf(undead->long_descr, p);
 
 		for (obj2 = obj->contains; obj2; obj2 = next) {
@@ -2847,9 +2849,11 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
 			   "With mystic power, %s animates %s!",
 			   ch->name, obj->name); 
 
+		/* XXX */
 		act_printf(ch,NULL,NULL,TO_CHAR, POS_RESTING,
 		  	   "%s looks at you and plans to make you "
-			   "pay for distrurbing its rest!", obj->short_descr); 
+			   "pay for distrurbing its rest!",
+			   mlstr_mval(obj->short_descr)); 
 		extract_obj (obj);
 		return;
 	}
@@ -3266,16 +3270,13 @@ void spell_eyed_sword (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	eyed->pit = hometown_table[ch->hometown].pit[i];
 	eyed->level = ch->level;
 
-	str_printf(&eyed->short_descr, ch->name);
-	str_printf(&eyed->description, ch->name);
+	/* XXX */
+	mlstr_printf(eyed->short_descr, ch->name);
+	mlstr_printf(eyed->description, ch->name);
 
-	eyed->extra_descr = new_extra_descr();
-	eyed->extra_descr->description = 
-			str_dup(eyed->pIndexData->extra_descr->description);
-	str_printf(&eyed->extra_descr->description, ch->name);
-	eyed->extra_descr->keyword = 
-			str_dup(eyed->pIndexData->extra_descr->keyword);
-	eyed->extra_descr->next = NULL;
+	eyed->ed = ed_dup(eyed->pIndexData->ed);
+	eyed->ed->next = NULL;
+	mlstr_printf(eyed->ed->description, ch->name);
 
 	eyed->value[2] = (ch->level / 10) + 3;  
 	eyed->level = ch->level;
@@ -3438,17 +3439,14 @@ void spell_magic_jar(int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	fire->pit = hometown_table[ch->hometown].pit[i];
 	fire->level = ch->level;
 
+	/* XXX */
 	str_printf(&fire->name, victim->name);
-	str_printf(&fire->short_descr, victim->name);
-	str_printf(&fire->description, victim->name);
+	mlstr_printf(fire->short_descr, victim->name);
+	mlstr_printf(fire->description, victim->name);
 
-	fire->extra_descr = new_extra_descr();
-	fire->extra_descr->description = 
-			str_dup(fire->pIndexData->extra_descr->description);
-	str_printf(&fire->extra_descr->description, victim->name);
-	fire->extra_descr->keyword = 
-			str_dup(fire->pIndexData->extra_descr->keyword);
-	fire->extra_descr->next = NULL;
+	fire->ed = ed_dup(fire->pIndexData->ed);
+	fire->ed->next = NULL;
+	mlstr_printf(fire->ed->description, victim->name);
 
 	fire->level = ch->level;
 	fire->cost = 0;
@@ -3712,16 +3710,12 @@ void spell_fire_shield (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	fire->pit = hometown_table[ch->hometown].pit[i];
 	fire->level = ch->level;
 
-	str_printf(&fire->short_descr, arg);
-	str_printf(&fire->description, arg);
+	mlstr_printf(fire->short_descr, arg);
+	mlstr_printf(fire->description, arg);
 
-	fire->extra_descr = new_extra_descr();
-	fire->extra_descr->description = 
-			str_dup(fire->pIndexData->extra_descr->description);
-	str_printf(&fire->extra_descr->description, arg);
-	fire->extra_descr->keyword = 
-			str_dup(fire->pIndexData->extra_descr->keyword);
-	fire->extra_descr->next = NULL;
+	fire->ed = ed_dup(fire->pIndexData->ed);
+	fire->ed->next = NULL;
+	mlstr_printf(fire->ed->description, arg);
 
 	fire->level = ch->level;
 	fire->cost = 0;

@@ -1,5 +1,5 @@
 /*
- * $Id: olc.c,v 1.5 1998-07-11 20:55:13 fjoe Exp $
+ * $Id: olc.c,v 1.6 1998-07-14 07:47:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1006,9 +1006,9 @@ void display_resets(CHAR_DATA *ch)
 
             pMob = pMobIndex;
             buf_printf(buf, "M[%5d] %-13.13s in room             R[%5d] %2d-%2d %-15.15s\n\r",
-                       pReset->arg1, pMob->short_descr, pReset->arg3,
-                       pReset->arg2, pReset->arg4,
-			mlstr_val(ch, pRoomIndex->name));
+                       pReset->arg1, mlstr_mval(pMob->short_descr),
+			pReset->arg3, pReset->arg2, pReset->arg4,
+			mlstr_cval(pRoomIndex->name, ch));
 
 	    /*
 	     * Check for pet shop.
@@ -1041,8 +1041,8 @@ void display_resets(CHAR_DATA *ch)
 
             buf_printf(buf, "O[%5d] %-13.13s in room             "
                           "R[%5d]       %-15.15s\n\r",
-                          pReset->arg1, pObj->short_descr,
-                          pReset->arg3, mlstr_val(ch, pRoomIndex->name));
+                          pReset->arg1, mlstr_mval(pObj->short_descr),
+                          pReset->arg3, mlstr_mval(pRoomIndex->name));
 
 	    break;
 
@@ -1064,11 +1064,11 @@ void display_resets(CHAR_DATA *ch)
 	    buf_printf(buf,
 		"O[%5d] %-13.13s inside              O[%5d] %2d-%2d %-15.15s\n\r",
 		pReset->arg1,
-		pObj->short_descr,
+		mlstr_mval(pObj->short_descr),
 		pReset->arg3,
 		pReset->arg2,
 		pReset->arg4,
-		pObjToIndex->short_descr);
+		mlstr_mval(pObjToIndex->short_descr));
 
 	    break;
 
@@ -1091,20 +1091,20 @@ void display_resets(CHAR_DATA *ch)
 	        buf_printf(buf,
 		"O[%5d] %-13.13s in the inventory of S[%5d]       %-15.15s\n\r",
 		pReset->arg1,
-		pObj->short_descr,                           
+		mlstr_mval(pObj->short_descr),                           
 		pMob->vnum,
-		pMob->short_descr );
+		mlstr_mval(pMob->short_descr));
 	    }
 	    else
 	    buf_printf(buf,
 		"O[%5d] %-13.13s %-19.19s M[%5d]       %-15.15s\n\r",
 		pReset->arg1,
-		pObj->short_descr,
+		mlstr_mval(pObj->short_descr),
 		(pReset->command == 'G') ?
 		    flag_string(wear_loc_strings, WEAR_NONE)
 		  : flag_string(wear_loc_strings, pReset->arg3),
 		  pMob->vnum,
-		  pMob->short_descr);
+		  mlstr_mval(pMob->short_descr));
 
 	    break;
 
@@ -1118,7 +1118,7 @@ void display_resets(CHAR_DATA *ch)
 	    buf_printf(buf, "R[%5d] %s door of %-19.19s reset to %s\n\r",
 		pReset->arg1,
 		capitalize(dir_name[ pReset->arg2 ]),
-		mlstr_val(ch, pRoomIndex->name),
+		mlstr_cval(pRoomIndex->name, ch),
 		flag_string(door_resets, pReset->arg3));
 
 	    break;
@@ -1133,7 +1133,7 @@ void display_resets(CHAR_DATA *ch)
 	    }
 
 	    buf_printf(buf, "R[%5d] Exits are randomized in %s\n\r",
-		pReset->arg1, mlstr_val(ch, pRoomIndex->name));
+		pReset->arg1, mlstr_cval(pRoomIndex->name, ch));
 
 	    break;
 	}

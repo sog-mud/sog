@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.48 1998-07-11 22:09:13 fjoe Exp $
+ * $Id: quest.c,v 1.49 1998-07-14 07:47:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -434,7 +434,7 @@ static void quest_info(CHAR_DATA *ch, char* arg)
 			if (ch->pcdata->questroom)
 				char_nprintf(ch, QUEST_INFO_LOCATION,
 					ch->pcdata->questroom->area->name, 
-					mlstr_val(ch, ch->pcdata->questroom->name));
+					mlstr_cval(ch->pcdata->questroom->name, ch));
 		}
 		else 
 			char_nputs(QUEST_ARENT_ON_QUEST, ch);
@@ -447,11 +447,11 @@ static void quest_info(CHAR_DATA *ch, char* arg)
 		questinfo = get_mob_index(ch->pcdata->questmob);
 		if (questinfo != NULL) {
 			char_nprintf(ch, QUEST_SLAY_DREADED,
-				     questinfo->short_descr);
+				     mlstr_cval(questinfo->short_descr, ch));
 			if (ch->pcdata->questroom)
 				char_nprintf(ch, QUEST_INFO_LOCATION,
 					ch->pcdata->questroom->area->name, 
-					mlstr_val(ch, ch->pcdata->questroom->name));
+					mlstr_cval(ch->pcdata->questroom->name, ch));
 		} else 
 			char_nputs(QUEST_ARENT_ON_QUEST, ch);
 		return;
@@ -639,14 +639,11 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		eyed->pit = hometown_table[ch->hometown].pit[i];
 		eyed->level = ch->level;
 
-		str_printf(&eyed->description, ch->name);
+		mlstr_printf(eyed->description, ch->name);
 
-		eyed->extra_descr = new_extra_descr();
-		eyed->extra_descr->description = str_dup(eyed->pIndexData->extra_descr->description);
-		str_printf(&eyed->extra_descr->description, ch->name);
-		eyed->extra_descr->keyword =
-				str_dup(eyed->pIndexData->extra_descr->keyword);
-		eyed->extra_descr->next = NULL;
+		eyed->ed = ed_dup(eyed->pIndexData->ed);
+		eyed->ed->next = NULL;
+		mlstr_printf(eyed->ed->description, ch->name);
 
 		eyed->cost = 0;
 		eyed->timer = 30;
@@ -655,29 +652,30 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		ch->pcdata->questobj = eyed->pIndexData->vnum;
 
 		quest_tell(ch, questor, msg(QUEST_VILE_PILFERERS, ch),
-			   eyed->short_descr);
+			   mlstr_cval(eyed->short_descr, ch));
 		quest_tell(ch, questor, msg(QUEST_MY_COURT_WIZARDESS, ch));
 	}
 	else {	/* Quest to kill a mob */
 		if (IS_GOOD(ch)) {
 			quest_tell(ch, questor,
 				   msg(QUEST_RUNES_MOST_HEINOUS, ch),
-				   victim->short_descr);
+				   mlstr_cval(victim->short_descr, ch));
 			quest_tell(ch, questor,
 				   vmsg(QUEST_HAS_MURDERED, ch, victim),
-				   victim->short_descr, number_range(2, 20));
+				   mlstr_cval(victim->short_descr, ch),
+				   number_range(2, 20));
 			quest_tell(ch, questor, msg(QUEST_THE_PENALTY_IS, ch));
 		}
 		else {
 			quest_tell(ch, questor, msg(QUEST_ENEMY_OF_MINE, ch),
-				   victim->short_descr);
+				   mlstr_cval(victim->short_descr, ch));
 			quest_tell(ch, questor,
 				   msg(QUEST_ELIMINATE_THREAT, ch));
 		}
 
 		quest_tell(ch, questor, msg(QUEST_SEEK_S_OUT, ch),
-			   victim->short_descr,
-			   mlstr_val(ch, victim->in_room->name));
+			   mlstr_cval(victim->short_descr, ch),
+			   mlstr_cval(victim->in_room->name, ch));
 
 		ch->pcdata->questmob = victim->pIndexData->vnum;
 		victim->hunter = ch;
@@ -690,7 +688,7 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 	 */
 	quest_tell(ch, questor, msg(QUEST_LOCATION_IS_IN_AREA, ch),
 		   victim->in_room->area->name,
-		   mlstr_val(ch, victim->in_room->name));
+		   mlstr_cval(victim->in_room->name, ch));
 
 	ch->pcdata->questgiver = questor->pIndexData->vnum;
 	ch->pcdata->questtime = number_range(15, 30);
@@ -736,7 +734,7 @@ static void quest_complete(CHAR_DATA *ch, char *arg)
 
 			if (obj != NULL
 			&&  obj->pIndexData->vnum == ch->pcdata->questobj
-			&&  strstr(obj->extra_descr->description,
+			&&  strstr(mlstr_mval(obj->ed->description),
 							ch->name) != NULL) {
 				act_nprintf(ch, obj, questor, TO_CHAR, 
 					POS_DEAD, QUEST_YOU_HAND_P);
@@ -842,8 +840,9 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 		/* `quest trouble' */
 		for (obj = object_list; obj != NULL; obj = obj_next) {
 			obj_next = obj->next;
+			/* XXX */
 			if (obj->pIndexData->vnum == item_vnum 
-			&&  strstr(obj->short_descr, ch->name)) {
+			&&  strstr(mlstr_mval(obj->short_descr), ch->name)) {
 				extract_obj(obj);
 				break;
 			}
@@ -873,11 +872,11 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 
 	obj = create_object(get_obj_index(item_vnum), ch->level);
 
-	str_printf(&obj->short_descr,
-		   IS_GOOD(ch) ?	"holy" :
-		   IS_NEUTRAL(ch) ?	"blue-green" : 
-					"evil", 
-		   ch->name);
+	mlstr_printf(obj->short_descr,
+			IS_GOOD(ch) ?		"holy" :
+			IS_NEUTRAL(ch) ?	"blue-green" : 
+						"evil", 
+			ch->name);
 	obj_to_char(obj, ch);
 
 	act_nprintf(ch, obj, questor, TO_ROOM, POS_RESTING, 

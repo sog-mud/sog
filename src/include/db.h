@@ -2,7 +2,7 @@
 #define _DB_H_
 
 /*
- * $Id: db.h,v 1.14 1998-07-11 20:55:10 fjoe Exp $
+ * $Id: db.h,v 1.15 1998-07-14 07:47:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -67,7 +67,7 @@ OBJ_DATA *	create_object_org (OBJ_INDEX_DATA *pObjIndex,int level,
 				   bool Count);
 void	clone_object	(OBJ_DATA *parent, OBJ_DATA *clone); 
 void	clear_char	(CHAR_DATA *ch);
-char *	get_extra_descr	(const char *name, EXTRA_DESCR_DATA *ed);
+ED_DATA * ed_lookup(const char *name, ED_DATA *ed);
 MOB_INDEX_DATA *	get_mob_index	(int vnum);
 OBJ_INDEX_DATA *	get_obj_index	(int vnum);
 ROOM_INDEX_DATA *	get_room_index	(int vnum);
