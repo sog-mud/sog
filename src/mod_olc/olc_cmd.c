@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_cmd.c,v 1.29 2002-11-21 13:31:27 fjoe Exp $
+ * $Id: olc_cmd.c,v 1.30 2004-02-10 14:15:52 fjoe Exp $
  */
 
 #include "olc.h"
@@ -166,7 +166,7 @@ OLC_FUN(cmded_save)
 			flag_string(position_table, cmnd->min_pos));
 		if (cmnd->min_level) {
 			fprintf(fp, "min_level %s\n",
-				fix_word(flag_istring(level_table, cmnd->min_level)));
+				fix_word(flag_string_int(level_table, cmnd->min_level)));
 		}
 
 		if (cmnd->cmd_log != LOG_NORMAL) {
@@ -241,7 +241,7 @@ OLC_FUN(cmded_show)
 		   flag_string(position_table, cmnd->min_pos));
 	if (cmnd->min_level) {
 		buf_printf(output, BUF_END, "Min level  [%s]\n",
-			flag_istring(level_table, cmnd->min_level));
+			flag_string_int(level_table, cmnd->min_level));
 	}
 	if (cmnd->cmd_log) {
 		buf_printf(output, BUF_END, "Log        [%s]\n",

@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.45 2004-02-10 14:13:35 fjoe Exp $
+ * $Id: flag.c,v 1.46 2004-02-10 14:15:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -146,7 +146,7 @@ flag_ilookup(const flaginfo_t *f, flag_t val)
 }
 
 const char *
-flag_istring(const flaginfo_t *f, flag_t val)
+flag_string_int(const flaginfo_t *f, flag_t val)
 {
 	static char buf[MAX_STRING_LENGTH];
 
