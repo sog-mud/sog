@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.207 2004-02-22 19:43:39 fjoe Exp $
+ * $Id: interp.c,v 1.208 2004-02-24 09:58:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -247,15 +247,18 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 		return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_STUN)
-	&&  !IS_SET(cmd_flg, CMD_HARMLESS)) {
-		act_char("You are STUNNED to do that.", ch);
-		return;
-	}
+	if (!IS_SET(cmd_flg, CMD_HARMLESS)) {
+		if (IS_AFFECTED(ch, AFF_STUN)) {
+			act_char("You are STUNNED to do that.", ch);
+			return;
+		}
 
-	if (!IS_NPC(ch) && ch->wait > 0 && !IS_SET(cmd_flg, CMD_HARMLESS)) {
-		append_to_qbuf(ch->desc, save_argument);
-		return;
+		if (!IS_NPC(ch)
+		&&  ch->desc != NULL
+		&&  (ch->wait > 0 || !QBUF_IN_SYNC(ch->desc))) {
+			append_to_qbuf(ch->desc, save_argument);
+			return;
+		}
 	}
 
 	if (IS_SET(cmd_flg, CMD_STRICT_MATCH)
