@@ -76,9 +76,32 @@ Form 3 -лись~
 End
 
 #RULE
+Name прогорел~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name гаснет~
+BaseLen 4
+Form 3 -ут~
+End
+
+#RULE
 Name принесен~
 BaseLen 8
 Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name самим~
+BaseLen 3
+Form 1 -ой~
+Form 3 -ими~
 End
 
 #RULE
@@ -199,8 +222,20 @@ Form 2 -о~
 End
 
 #RULE
+Name может~
+BaseLen 2
+Form 3 -гут~
+End
+
+#RULE
 Name его~
 Form 1 ее~
+End
+
+#RULE
+Name ним~
+Form 1 ней~
+Form 3 ними~
 End
 
 #$
