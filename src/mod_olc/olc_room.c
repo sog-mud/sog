@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.99 2001-10-21 21:34:01 fjoe Exp $
+ * $Id: olc_room.c,v 1.100 2001-11-15 20:30:41 avn Exp $
  */
 
 #include "olc.h"
@@ -1029,11 +1029,6 @@ DO_FUN(do_resets, ch, argument)
 	char arg6[MAX_INPUT_LENGTH];
 	ROOM_INDEX_DATA *room = ch->in_room;
 
-	if (!IS_BUILDER(ch, room->area)) {
-		act_char("Resets: Insufficient security for editing this room.", ch);
-		return;
-	}
-
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	argument = one_argument(argument, arg2, sizeof(arg2));
 	argument = one_argument(argument, arg3, sizeof(arg3));
@@ -1050,6 +1045,11 @@ DO_FUN(do_resets, ch, argument)
 			display_resets(ch);
 		else
 			act_char("No resets in this room.", ch);
+		return;
+	}
+
+	if (!IS_BUILDER(ch, room->area)) {
+		act_char("Resets: Insufficient security for editing this room.", ch);
 		return;
 	}
 
@@ -1100,7 +1100,13 @@ DO_FUN(do_resets, ch, argument)
 		 * delete a reset
 		 * --------------
 		 */
-		RESET_DATA *reset;
+		RESET_DATA *reset, *reset_next;
+		int deleted = 0;
+
+		if (!is_number(arg2)) {
+			do_resets(ch, "?");
+			return;
+		}
 
 		if (room->reset_first == NULL) {
 			act_char("No resets in this room.", ch);
@@ -1114,10 +1120,22 @@ DO_FUN(do_resets, ch, argument)
 			return;
 		}
 
-		reset_del(room, reset);
-		reset_free(reset);
+		do {
+			reset_next = reset->next;
+			reset_del(room, reset);
+			reset_free(reset);
+			deleted++;
+			reset = reset_next;
+		} while (reset != NULL && strchr("GEP", reset->command) != NULL);
+
 		TOUCH_AREA(room->area);
-		act_char("Reset deleted.", ch);
+		act_puts("Deleted $j reset(s).", ch, (void*)deleted, NULL,
+			TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
+		return;
+	}
+
+	if (!str_prefix(arg1, "delete")) {
+		olced_spell_out(ch, str_empty, NULL);
 		return;
 	}
 
