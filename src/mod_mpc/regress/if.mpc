@@ -1,0 +1,15 @@
+int i = number_range(0, 2);
+print(i);
+
+int j;
+
+if (i == 0) {
+	j = number_range(3, 4);
+	print(j);
+} else if (i == 1) {
+	j = number_range(5, 10);
+	print(j);
+} else {
+	j = number_range(15, 20);
+	print(j);
+}

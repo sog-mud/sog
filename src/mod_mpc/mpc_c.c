@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_c.c,v 1.4 2001-06-18 18:21:26 fjoe Exp $
+ * $Id: mpc_c.c,v 1.5 2001-06-19 11:46:03 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -184,6 +184,29 @@ c_push_retval(prog_t *prog)
 	 * push the result
 	 */
 	push(prog, vo);
+}
+
+void
+c_if(prog_t *prog)
+{
+	int then_ip;
+	int else_ip;
+	int next_ip;
+	vo_t *v;
+
+	TRACE;
+
+	then_ip = (int) code_get(prog);
+	else_ip = (int) code_get(prog);
+	next_ip = (int) code_get(prog);
+
+	execute(prog, prog->ip);
+	v = pop(prog);
+	if (v->i)
+		execute(prog, then_ip);
+	else
+		execute(prog, else_ip);
+	prog->ip = next_ip;
 }
 
 /*--------------------------------------------------------------------
@@ -430,7 +453,15 @@ static void
 mpc_assert(prog_t *prog, const char *ctx, int e, const char *fmt, ...)
 {
 	if (!e) {
-		// XXX log error message
+		char buf[MAX_STRING_LENGTH];
+		va_list ap;
+
+		va_start(ap, fmt);
+		vsnprintf(buf, sizeof(buf), fmt, ap);
+		va_end(ap);
+
+		fprintf(stderr, "Runtime error: %s: %s\n", ctx, buf);
+
 		longjmp(prog->jmpbuf, -1);
 	}
 }

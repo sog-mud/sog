@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.5 2001-06-18 18:21:26 fjoe Exp $
+ * $Id: mpc.y,v 1.6 2001-06-19 11:46:03 fjoe Exp $
  */
 
 /*
@@ -127,11 +127,13 @@ argtype_get(prog_t *prog, int n, int index)
 /**
  * Append opcode to program (compiled) text
  */
-static void
+static int
 code(prog_t *prog, const void *opcode)
 {
+	int old_ip = prog->code.nused;
 	const void **o = varr_enew(&prog->code);
 	*o = opcode;
+	return old_ip;
 }
 
 /**
@@ -154,22 +156,6 @@ code3(prog_t *prog,
 	code(prog, opcode1);
 	code(prog, opcode2);
 	code(prog, opcode3);
-}
-
-/*--------------------------------------------------------------------
- * string space manipulation functions
- */
-
-/**
- * Make sure the string is allocated in program string space
- */
-extern inline const char *
-alloc_string(prog_t *prog, const char *s)
-{
-	const char **p = hash_lookup(&prog->strings, s);
-	if (p == NULL)
-		p = hash_insert(&prog->strings, s, s);
-	return *p;
 }
 
 #define SYM_LOOKUP(sym, ident, symtype)					\
@@ -242,6 +228,29 @@ alloc_string(prog_t *prog, const char *s)
 		SYM_LOOKUP(sym, (ident), SYM_VAR);			\
 		INT_UOP((opname), c_uop_fun, sym->s.var.type_tag, (rv));\
 		code(prog, sym->name);					\
+	} while (0)
+
+#define PUSH_ADDRESS()							\
+	do {								\
+		int *p = (int *) varr_enew(&prog->cstack);		\
+		*p = prog->code.nused;					\
+	} while (0)
+
+#define PEEK_ADDRESS(addr)						\
+	do {								\
+		int *p = (int *) varr_get(				\
+		    &prog->cstack, prog->cstack.nused - 1);		\
+		if (p == NULL) {					\
+			compile_error(prog, "compiler stack underflow");\
+			YYERROR;					\
+		}							\
+		addr = *p;						\
+	} while (0)
+
+#define POP_ADDRESS(addr)						\
+	do {								\
+		PEEK_ADDRESS(addr);					\
+		prog->cstack.nused--;					\
 	} while (0)
 
 %}
@@ -350,6 +359,41 @@ stmt:	';'
 		 */
 		code2(prog, c_pop, (const void *) $1);
 	}
+	| if {
+		/* next */
+		int addr;
+		POP_ADDRESS(addr);
+		((int *) VARR_GET(&prog->code, addr))[2] = prog->code.nused;
+	}
+	| '{' stmt_list '}'
+	;
+
+if:	L_IF {
+		code(prog, c_if);
+		PUSH_ADDRESS();
+		/* then, else, next */
+		code3(prog, (void *) -1, (void *) -1, (void *) -1);
+	} '(' cond ')' {
+		/* then */
+		int addr;
+		PEEK_ADDRESS(addr);
+		((int *) VARR_GET(&prog->code, addr))[0] = prog->code.nused;
+	} statement optional_else
+	;
+
+cond:	expr	{ code(prog, c_stop); }
+	;
+
+statement: stmt { code(prog, c_stop); }
+	;
+
+optional_else: /* empty */
+	| L_ELSE {
+		/* else */
+		int addr;
+		PEEK_ADDRESS(addr);
+		((int *) VARR_GET(&prog->code, addr))[1] = prog->code.nused;
+	} statement
 	;
 
 expr:	  L_IDENT assign expr %prec '=' {
@@ -912,6 +956,8 @@ badch:
 	return ' ';
 }
 
+hash_t glob_syms;
+
 static void
 sym_init(sym_t *sym)
 {
@@ -952,17 +998,6 @@ sym_cpy(sym_t *dst, const sym_t *src)
 	}
 
 	return dst;
-}
-
-sym_t *
-sym_lookup(prog_t *prog, const char *name)
-{
-	sym_t *sym;
-
-	if ((sym = (sym_t *) hash_lookup(&glob_syms, name)) != NULL)
-		return sym;
-
-	return (sym_t *) hash_lookup(&prog->syms, name);
 }
 
 varrdata_t v_ints = {
@@ -1010,6 +1045,7 @@ prog_init(prog_t *prog)
 	prog->lineno = 0;
 
 	varr_init(&prog->code, &v_ints);
+	varr_init(&prog->cstack, &v_ints);
 	hash_init(&prog->strings, &h_strings);
 	hash_init(&prog->syms, &h_syms);
 	varr_init(&prog->args, &v_ints);
@@ -1023,6 +1059,7 @@ prog_destroy(prog_t *prog)
 	free((void *) prog->text);
 	buf_free(prog->errbuf);
 	varr_destroy(&prog->code);
+	varr_destroy(&prog->cstack);
 	hash_destroy(&prog->strings);
 	hash_destroy(&prog->syms);
 	varr_destroy(&prog->args);
@@ -1051,16 +1088,35 @@ int
 prog_execute(prog_t *prog)
 {
 	int rv;
-	prog->ip = 0;
 
-	if ((rv = setjmp(prog->jmpbuf)) == 0) {
-		while (prog->ip < prog->code.nused) {
-			c_fun *c = (c_fun *) VARR_GET(&prog->code, prog->ip++);
-			(*c)(prog);
-		}
-	}
+	if ((rv = setjmp(prog->jmpbuf)) == 0)
+		execute(prog, 0);
 
 	return rv;
+}
+
+void
+execute(prog_t *prog, int ip)
+{
+	prog->ip = ip;
+	while (prog->ip < prog->code.nused) {
+		c_fun *c = (c_fun *) VARR_GET(&prog->code, prog->ip++);
+
+		if (*c == c_stop)
+			break;
+		(*c)(prog);
+	}
+}
+
+sym_t *
+sym_lookup(prog_t *prog, const char *name)
+{
+	sym_t *sym;
+
+	if ((sym = (sym_t *) hash_lookup(&glob_syms, name)) != NULL)
+		return sym;
+
+	return (sym_t *) hash_lookup(&prog->syms, name);
 }
 
 void
@@ -1077,7 +1133,14 @@ compile_error(prog_t *prog, const char *fmt, ...)
 		   prog->name, prog->lineno, buf);
 }
 
-hash_t glob_syms;
+const char *
+alloc_string(prog_t *prog, const char *s)
+{
+	const char **p = hash_lookup(&prog->strings, s);
+	if (p == NULL)
+		p = hash_insert(&prog->strings, s, s);
+	return *p;
+}
 
 #if defined(MPC)
 void

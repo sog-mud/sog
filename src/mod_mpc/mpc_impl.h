@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_impl.h,v 1.4 2001-06-18 18:21:26 fjoe Exp $
+ * $Id: mpc_impl.h,v 1.5 2001-06-19 11:46:02 fjoe Exp $
  */
 
 #ifndef _MPC_CODE_H_
@@ -37,6 +37,34 @@
 #include <hash.h>
 #include <str.h>
 
+/**
+ * Symbol types
+ */
+enum symtype_t {
+	SYM_KEYWORD,		/**< 'if', 'else', 'continue' etc. */
+	SYM_FUNC,		/**< functions */
+	SYM_VAR			/**< variables */
+};
+typedef enum symtype_t symtype_t;
+
+/**
+ * Symbol
+ */
+struct sym_t {
+	const char *name;
+	symtype_t type;
+	union {
+		struct {
+			int type_tag;
+			vo_t data;
+			bool is_const;
+		} var;
+	} s;
+};
+typedef struct sym_t sym_t;
+
+extern hash_t glob_syms;		/* (sym_t) */
+
 struct prog_t {
 	const char *name;	/**< program name			*/
 
@@ -48,7 +76,8 @@ struct prog_t {
 	int lineno;		/**< current line number		*/
 
 	int ip;			/**< program instruction pointer	*/
-	varr code;		/**< (void **) program code		*/
+	varr code;		/**< (void *) program code		*/
+	varr cstack;		/**< (void *) compiler stack		*/
 	hash_t strings;		/**< (const char *) string space	*/
 	hash_t syms;		/**< (sym_t) symbols			*/
 	varr args;		/**< (int) argument type stack		*/
@@ -83,34 +112,6 @@ int
 prog_execute(prog_t *prog);
 
 /**
- * Symbol types
- */
-enum symtype_t {
-	SYM_KEYWORD,		/**< 'if', 'else', 'continue' etc. */
-	SYM_FUNC,		/**< functions */
-	SYM_VAR			/**< variables */
-};
-typedef enum symtype_t symtype_t;
-
-/**
- * Symbol
- */
-struct sym_t {
-	const char *name;
-	symtype_t type;
-	union {
-		struct {
-			int type_tag;
-			vo_t data;
-			bool is_const;
-		} var;
-	} s;
-};
-typedef struct sym_t sym_t;
-
-extern hash_t glob_syms;		/* (sym_t) */
-
-/**
  * Lookup symbol by name
  */
 sym_t *
@@ -122,6 +123,16 @@ sym_lookup(prog_t *prog, const char *name);
 void
 compile_error(prog_t *prog, const char *fmt, ...)
 	__attribute__ ((format(printf, 2, 3)));
+
+/**
+ * Make sure the string is allocated in program string space
+ */
+const char *alloc_string(prog_t *prog, const char *s);
+
+/**
+ * Execute program from specified position
+ */
+void execute(prog_t *prog, int ip);
 
 /*--------------------------------------------------------------------
  * direct data stack manipulation opcodes
@@ -158,6 +169,10 @@ c_push_var(prog_t *prog);
  */
 void
 c_push_retval(prog_t *prog);
+
+#define c_stop 0
+
+void	c_if(prog_t *prog);		/* if */
 
 /*--------------------------------------------------------------------
  * binary operations
