@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest.c,v 1.4 1999-05-24 09:02:09 fjoe Exp $
+ * $Id: chquest.c,v 1.5 1999-05-25 12:13:03 fjoe Exp $
  */
 
 /*
@@ -279,9 +279,11 @@ static void chquest_stopq(chquest_t *q, int flags)
 {
 	log_printf("chquest_stopq: stopped quest for '%s' (vnum %d)",
 		   mlstr_mval(q->obj_index->short_descr), q->obj_index->vnum);
-	if (!IS_SET(flags, STOP_F_NOEXTRACT))
-		extract_obj(q->obj, XO_F_NOCHQUEST);
-	q->obj = NULL;
+	if (q->obj != NULL) {
+		if (!IS_SET(flags, STOP_F_NOEXTRACT))
+			extract_obj(q->obj, XO_F_NOCHQUEST);
+		q->obj = NULL;
+	}
 	q->delay = -1;
 }
 
