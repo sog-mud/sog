@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.156 1998-10-30 06:56:30 fjoe Exp $
+ * $Id: act_info.c,v 1.157 1998-11-02 03:29:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1619,12 +1619,12 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 	}
 	else {
 		if (r && r->pcdata)
-			buf_add(output, r->pcdata->who_name);
+			buf_printf(output, "%5.5s", r->pcdata->who_name);
 		else 
 			buf_add(output, "     ");
 
 		if (IS_IMMORTAL(ch))
-			buf_printf(output, " %s", cl->who_name);
+			buf_printf(output, " %3.3s", cl->who_name);
 	}
 	buf_add(output, "] ");
 

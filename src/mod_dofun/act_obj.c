@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.87 1998-10-28 19:46:01 fjoe Exp $
+ * $Id: act_obj.c,v 1.88 1998-11-02 03:29:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1559,7 +1559,7 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 			return;
 		}
 		act("$n wields $p.", ch, obj, NULL, TO_ROOM);
-		act_puts("You wield $p", ch, obj, NULL, TO_CHAR, POS_DEAD);
+		act_puts("You wield $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 		obj = equip_char(ch, obj, WEAR_WIELD);
 		if (dual)
 			equip_char(ch, dual, WEAR_SECOND_WIELD);

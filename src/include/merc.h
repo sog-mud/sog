@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.109 1998-10-30 06:56:34 fjoe Exp $
+ * $Id: merc.h,v 1.110 1998-11-02 03:29:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1050,7 +1050,6 @@ enum {
 #define PLR_BOUGHT_PET		(B)
 
 /* RT auto flags */
-#define PLR_AUTOLOOK		(B)
 #define PLR_AUTOASSIST		(C)
 #define PLR_AUTOEXIT		(D)
 #define PLR_AUTOLOOT		(E)
@@ -1062,6 +1061,7 @@ enum {
 #define PLR_NOTITLE		(K)
 /* RT personal flags */
 #define PLR_NOEXP		(L)
+#define PLR_AUTOLOOK		(M)
 #define PLR_HOLYLIGHT		(N)
 #define PLR_CANLOOT		(P)
 #define PLR_NOSUMMON		(Q)
