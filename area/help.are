@@ -180,6 +180,7 @@ color it would normally be in, such as a gossip, the color is magenta, so:
 
 Other {{? sequences are:
          {{*     beep    {{\     new line
+         {{z     reset to previous color
 
 Color is courtesy of Lope from Loping Through The MUD.
 Direct questions to ant@solace.mh.se or leave at note at Loping
@@ -3144,14 +3145,12 @@ Syntax: help reward ... for more information about the quest reward.
 Syntax of the auction command is:
 
 auction (no parameters) - will show the current item's stats
-auction <item name>	- will auction an item, if no auction is going on
-auction on		- will make the channel auction on
-auction off		- will make the channel auction off
+auction <item> <price>  - will auction an <item>, if no auction is going on.
+                          <price> is the starting price for an item.
+auction on | off	- will make the channel auction on/off
 auction bet <bet>	- will bet on the item
 auction stop		- will stop the auction, return the gold to the last
-			  better and transfer the item to seller(imm only).
-
-Notice that auction is must-colored,to make you aware!
+			  better and transfer the item to seller (imm only).
 ~
 -1 CHA CHARISMA~
 	* Charisma is regenerated again. If your charisma is below 18

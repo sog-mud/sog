@@ -261,9 +261,9 @@ armor J AD
 D D D 0 AC
 25 70 1250 G
 A
-5 1
-A
 17 2
+A
+5 1
 #4205
 armour white rook~
 some White Rook Armour~
@@ -273,9 +273,9 @@ armor K AD
 D D D 0 AC
 25 70 1250 G
 A
-5 1
-A
 17 2
+A
+5 1
 #4206
 lance black knight~
 the Lance of the Black Knight~
@@ -285,9 +285,9 @@ weapon BJ AN
 lance 5 5 pierce D
 17 50 2250 P
 A
-23 5
-A
 19 3
+A
+23 5
 #4207
 lance white knight~
 the Lance of the White Knight~
@@ -297,9 +297,9 @@ weapon BK AN
 lance 5 5 pierce D
 17 50 2300 P
 A
-23 5
-A
 19 3
+A
+23 5
 #4208
 staff black bishop~
 the Staff of the Black Bishop~
@@ -325,9 +325,9 @@ armor AGJL AE
 AD AD AD A A
 32 50 5000 G
 A
-4 1
-A
 3 1
+A
+4 1
 #4211
 crown white queen~
 the Crown of the White Queen~
@@ -337,9 +337,9 @@ armor AGKL AE
 AD AD AD A A
 32 50 5000 G
 A
-4 1
-A
 3 1
+A
+4 1
 #4212
 sceptre black king~
 the Black King's Sceptre~
@@ -349,9 +349,9 @@ treasure JL AO
 0 0 0 0 0
 32 10 7900 P
 A
-18 1
-A
 1 1
+A
+18 1
 #4213
 sceptre white king~
 the White King's Sceptre~
@@ -361,9 +361,9 @@ treasure KL AO
 0 0 0 0 0
 32 10 7900 P
 A
-18 1
-A
 1 1
+A
+18 1
 #4214
 key black treasury~
 the Key to the Black Treasury~

@@ -255,6 +255,20 @@ AO 0 0 0
 N M 0 0
 stand stand male 0
 0 0 medium unknown
+#50
+junkseller junk seller~
+Junkseller~
+A HUGE dragon is here, selling junk.
+~
+This mighty dragon wants to sell some junk to you.
+~
+dragon~
+A ADEFHNOUVYce 0 0
+150 250 1d1+28000 1d1+1 50d60+100 divine
+-66 -66 -66 -66
+CDEFHIKNO AB 0 0
+stand stand male 100000
+0 0 huge unknown
 #0
 
 
@@ -283,7 +297,7 @@ A pile of gold coins.~
 gold~
 money 0 A
 0 0 0 0 0
-0 10 0 P
+7 10 0 P
 #4
 coins silver gcash~
 %d silver coins~
@@ -534,6 +548,18 @@ A
 2 2
 A
 1 2
+#35
+conscience karmael~
+the cloud circle around Karmael named Conscience of Karamel~
+The cloud circle around Karmael named Conscience of Karamel~
+shit~
+trash AEIR APQ
+0 0 0 0 0
+0 0 0 P
+A
+18 8
+A
+2 8
 #42
 vial potion~
 a potion vial~
@@ -1049,6 +1075,7 @@ S
 M 11 spec_special_guard	* the guard
 M 13 spec_cast_mage	* a fiery demon
 *M 15 spec_stalker	* the stalker
+M 50 spec_breath_any	* Junkseller
 S
 
 
@@ -1059,6 +1086,7 @@ S
 
 
 #SHOPS
+50 0 0 0 0 0 100 100 0 23
 0
 
 
