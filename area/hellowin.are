@@ -11,9 +11,9 @@ End
 #MOBILES
 #34400
 bear~
-@eng {ysympathetic bear{w@rus {y~~симпатичный~~ ~~педвежонок~~{x~
-@eng {ySmall sympathetic bear is munching raspberry here.{w
-@rus {yМаленький и симпатичный педвежонок жует малину.{w
+@eng {ysympathetic bear{x@rus {y~~симпатичный~~ ~~педвежонок~~{x~
+@eng {ySmall sympathetic bear is munching raspberry here.{x
+@rus {yМаленький и симпатичный педвежонок жует малину.{x
 ~
 @eng Very sympathetic bear is munching raspberry which grows on bush,
 but same you can see than he is corking something in leaves.
@@ -218,6 +218,15 @@ wand CF 0 AO
 100 1 1 'improved identify' 0
 10 1 5000 P
 g @rus none~
+#34412
+basket малина корзина raspberries~
+@eng basket with raspberries@rus {y~~корзинка~~{M свежей малины{x~
+@eng Basket with raspberries lies here.@rus Полная корзинка (basket) ароматно пахнущей малины.~
+magic~
+food 0 0 AO
+CFG BD 0 0 0
+1 1 10 P
+g @eng none@rus female~
 #34450
 claws когти~
 @eng tiger's claws@rus ~~когти~~ тигра~
@@ -314,11 +323,9 @@ S
 #0
 
 #RESETS
-M 0 34400 1 34400 1	* {ysympathetic bear{w ({GClearing in the woods{w)
-G 0 34406 0		*	{ysympathetic bear{w: {rHot and tasty bite of roasted meat{w
-G 0 34407 0		*	{ysympathetic bear{w: {WHeeled glass filled with {BKosoruloFF{W vodka{w
 O 0 34405 0 34400	* fallen tree ({GClearing in the woods{w)
 O 0 34404 0 34400	* {WSpring with crystal and clear water{w ({GClearing in the woods{w)
+M 0 34400 1 34400 1	* {ysympathetic bear{w ({GClearing in the woods{w)
 S
 
 #SHOPS

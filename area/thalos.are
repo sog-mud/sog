@@ -590,7 +590,7 @@ g @rus none~
 
 #ROOMS
 #5200
-The Grand Gate of Thalos~
+@eng The Grand Gate of Thalos@rus Главные Врата Талоса~
 You stand in the archway of a gigantic stone archway. The two
 steel gates have been forced open and have rusted in place. A hollow
 gust of wind blows by you into the deserted, and seemingly destroyed,
@@ -614,7 +614,7 @@ the streets. You see strange beasts stalking the shadows.
 Z 0 5201
 S
 #5201
-Main Street~
+@eng Main Street@rus Главный Проспект~
 This was once a magnificent street, but now is in total ruin. The
 streets are barren and windswept and the silence is unending.  A dark alley
 leads north and south.  Howls and screams echo through the deserted city.
@@ -650,7 +650,7 @@ Main Street lies this way.
 Z 0 5202
 S
 #5202
-Main Street~
+@eng Main Street@rus Главный Проспект~
 This was once a magnificent street, but now is in total ruin. The
 streets are barren and windswept and the silence is unending. On one
 side is a collapsed house while on the other is the entrance to a large
@@ -1401,7 +1401,7 @@ A small side street runs past the tavern.
 Z 0 5213
 S
 #5231
-South wing of the city hall~
+@eng South wing of the city hall@rus Южное крыло ратуши~
 You stand in a large room attached to this end of the hallway which
 leads back north to the reception area.  Pedestals and columns have fallen
 and most of the valuable items have been taken, leaving worthless debris.
@@ -1424,7 +1424,7 @@ D1
 Z 0 5234
 S
 #5232
-The city hall~
+@eng The city hall@rus Ратуша~
 This is the main reception area of Thalos' city hall. The walls have
 been charred and scored massively and debris is spread from wall to wall.
 A large gaping hole in the west wall allows you to see out to one of
@@ -1461,7 +1461,7 @@ D3
 Z 0 5212
 S
 #5233
-East wing of the city hall~
+@eng East wing of the city hall@rus Восточное крыло ратуши~
 Here lies the remnants of a fancy office, possibly the mayor's. A few
 withered plants and broken pieces of furniture make this place anything
 but fancy, though. The only thing remaining intact here is a large
@@ -1522,7 +1522,7 @@ The alley runs by this building.
 Z 0 5255
 S
 #5236
-A collapsed home~
+@eng A collapsed home@rus Полуразрушившийся дом~
 All that's left of this house is a few scattered piles of rubble
 and a very large blast crater. Obviously someone or something important
 was once housed here. A shrieking howl chills your blood.
@@ -1927,7 +1927,7 @@ It looks in bad shape inside, but structurally intact.
 Z 0 5235
 S
 #5256
-A trail at the end of the dwarf forest~
+@eng A trail at the end of the dwarf forest@rus Тропа на опушке карликового леса~
 The trail ends here, with short, dry stumps of trees all around you.
 To the west, you can see the ruins of a huge city.  Something about it gives
 you an uneasy feeling.  To the east is your way back to home and safety.
@@ -1949,7 +1949,7 @@ You see Thalos!
 Z 0 5200
 S
 #5257
-A trail at the end of the dwarf forest~
+@eng A trail at the end of the dwarf forest@rus Тропа на опушке карликового леса~
 A side trail here leads from the dwarf forest.  It is definitely drier
 and hotter here.  The trail continues to the west, and to the east, you see
 the intersection.

@@ -4646,11 +4646,14 @@ Syntax: {creset{x random <num>
 Syntax: {creset{x delete <reset_num>
 Syntax: {creset{x probability <reset_num> <num>
 Syntax: {creset{x now
+Syntax: {creset{x clear
 
 <reset_vnum> for '{creset obj{x' is the number of reset after which
 new reset will be inserted.
  
 {creset{x without params shows resets in room.
+'{creset{x now' will reset room immediately.
+'{creset{x clear' will delete all resets in the room (use with care!).
 ~
 0 MOB_AC~
 The values ROM generates for a merc format mob is:
@@ -5207,7 +5210,7 @@ See also: {CHELP 'OLC FORMS INTRO'{x
  
 ~
 0 'CLAN KNIGHT' KNIGHT~
-@eng ..Deep chaos fell on the World. Seven Cabals had come to being. Chaos, Terror 
+@eng ...Deep chaos fell on the World. Seven Cabals had come to being. Chaos, Terror 
 and Disorder had been fighting with Law, Order, and Justice. The seventh one, 
 somewhat called Equilibrium, obeyed neither the Law, nor the Chaos...
  
@@ -5218,7 +5221,7 @@ sometimes the outlawers and innocents as well...
   Only Knights, bold and noble defenders of Justice, have not forgotten their
 ideals. Scattered by the Darkness, they rose again and again to stand in the 
 way of Death, Chaos and Terror...
-@rus ... Хаос воцарился в мире.  Мир разделился  на семь частей.  Хаос,  Террор  и 
+@rus .... Хаос воцарился в мире.  Мир разделился  на семь частей.  Хаос,  Террор  и 
 Беспорядок встали с одной стороны, Закон, Порядок и Справедливость - с другой.
 Приверженцы Равновесия  поставили себя вне Закона,  но отказались подчиниться 
 Хаосу...

@@ -207,7 +207,7 @@ r sound 999
 ~
 human~
 0 0 0 0 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 'none'
+0 0 1d1+1 0d0+0 0d0+0 'none'
 0 0 0 0
 0
 stand stand female 0
@@ -776,14 +776,15 @@ M 0 15002 1 15002 1	* cockroach (Cell)
 M 0 15003 1 15002 1	* a rat (Cell)
 O 0 15006 0 15002	* bed (Cell)
 M 0 15010 1 15010 1	* {DDevil{x (In the air ...)
-M 0 15016 1 15015 1	* pine (In the forest)
+M 0 15016 2 15015 1	* pine (In the forest)
+G 0 15000 0		*	pine: strange pill
+M 0 15016 2 15015 1	* pine (In the forest)
 M 0 15015 1 15016 1	* gray squirrel (In the forest)
 S
 
 #SHOPS
 15000 5 9 19 0 0 100 100 0 23
 15005 0 0 0 0 0 100 100 0 23
-15016 0 0 0 0 0 100 100 0 23
 0
 
 #OLIMITS

@@ -1286,7 +1286,7 @@ the hidden~
 Z 0 4615
 S
 #4617
-@eng Western check point.@rus Перед закрытой дверью~
+@eng Western check point@rus Перед закрытой дверью~
 @eng A pile of bodies lies by the doorway here, while burdened zombies dump
 more corpses slowly in with the rest. To the west appears to be some
 sort of important room in the building.
@@ -1902,8 +1902,8 @@ P 0 4611 0 0 1	* a coffin: a staff of wrath
 M 0 4602 2 4616 2	* a young vampire (The dark priest's workroom.)
 E 0 4601 0 16		*	a young vampire<wielded>: a Frostbrand sword
 E 0 4617 0 12		*	a young vampire<about the shoulders>: a rat-eaten poncho
-M 0 4600 35 4617 9	* a disgusting, rotting Zombie (Western check point.)
-M 0 4601 40 4617 10	* the Ju-ju zombie (Western check point.)
+M 0 4600 35 4617 9	* a disgusting, rotting Zombie (Western check point)
+M 0 4601 40 4617 10	* the Ju-ju zombie (Western check point)
 G 0 4600 0		*	the Ju-ju zombie: a small black skeleton key
 O 0 4615 0 4618	* a corpse of an elfin wizard (Central main area of the Mausoleum.)
 M 0 4600 35 4618 9	* a disgusting, rotting Zombie (Central main area of the Mausoleum.)

@@ -558,8 +558,8 @@ killer penguin~
 the killer penguin~
 A small penguin waddles around on the ice.
 ~
-What a cute little penguin! Wait, why is it looking at you that way?
-HEY! Penguins don't have teeth!
+What a cute little penguin!  Wait, why is it looking at you that way? 
+HEY!  Penguins don't have teeth!  
 ~
 human~
 BFR 0 0 0 H -876 0
@@ -3540,12 +3540,11 @@ Z -1 10484
 S
 #10475
 Meat Locker~
-Rows of beef and other meats hang from large steel hooks. You notice that 
-many of the things hanging from the hooks are corpses of people. They 
-reach out to you as you pass them as if to plead for help from their frozen 
-mouths. 
-The meat locker continues to the south and west.
-There is a freezer door to the east.
+Rows of beef and other meats hang from large steel hooks. You notice
+that many of the things hanging from the hooks are corpses of people.
+They reach out to you as you pass them as if to plead for help from their
+frozen mouths. The meat locker continues to the south and west. There is
+is a freezer door to the east.
 ~
 0 AD inside
 D1

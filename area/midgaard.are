@@ -11577,12 +11577,6 @@ E 0 3364 0 1		*	the cityguard<on the left finger>: a city guard signet ring
 E 0 3350 0 16		*	the cityguard<wielded>: a standard issue sword
 E 0 3353 0 5		*	the cityguard<on the body>: a standard issue vest
 E 0 3360 0 10		*	the cityguard<on the arms>: a pair of standard issue sleeves
-M 0 3067 2 3041 2	* the cityguard (Inside the East Gate of Midgaard)
-E 0 3365 0 0		*	the cityguard<as a light>: a war banner
-E 0 3364 0 1		*	the cityguard<on the left finger>: a city guard signet ring
-E 0 3350 0 16		*	the cityguard<wielded>: a standard issue sword
-E 0 3353 0 5		*	the cityguard<on the body>: a standard issue vest
-E 0 3354 0 11		*	the cityguard<as a shield>: a standard issue shield
 M 0 3065 2 3044 1	* the beggar (Poor Alley)
 M 0 3063 5 3045 5	* the vagabond (Alley at Levee)
 E 0 3021 0 16		*	the vagabond<wielded>: a small sword

@@ -1276,7 +1276,7 @@ A Mcloaf of Mcbread has been left here.~
 copper~
 food 0 0 A
 CE 0 0 0 0
-0 5 0 P
+0 5 50 P
 g @rus none~
 #10242
 Mcdonut~
@@ -1285,7 +1285,7 @@ A chocolate Mcdonut has been left here.~
 copper~
 food 0 0 A
 BD 0 0 0 0
-0 5 0 P
+0 5 30 P
 g @rus none~
 #10243
 mcbagel~
@@ -1294,7 +1294,7 @@ A Mcbagel has been left here.~
 copper~
 food 0 0 A
 BD 0 0 0 0
-0 5 0 P
+0 5 30 P
 g @rus none~
 #10244
 mcpastry~
@@ -1303,7 +1303,7 @@ A Mcpastry has been left here~
 copper~
 food 0 0 A
 CD 0 0 0 0
-0 5 0 P
+0 5 35 P
 g @rus none~
 #10245
 chocolate chip cookie~
@@ -1312,7 +1312,7 @@ A chocolate chip cookie has been left here~
 copper~
 food 0 0 A
 ABC 0 0 0 0
-0 5 0 P
+0 5 15 P
 g @rus none~
 #10246
 peanut butter cookie~
@@ -1321,7 +1321,7 @@ A peanut butter cookie has been left here.~
 copper~
 food 0 0 A
 ABC 0 0 0 0
-0 5 0 P
+0 5 15 P
 g @rus none~
 #10247
 oatmeal cookie~
@@ -1330,7 +1330,7 @@ A oatmeal  cookie has been left here.~
 copper~
 food 0 0 A
 ABC 0 0 0 0
-0 5 0 P
+0 5 15 P
 g @rus none~
 #10248
 sugar cookie~
@@ -1339,7 +1339,7 @@ A sugar cookie has been left here.~
 copper~
 food 0 0 A
 ABC 0 0 0 0
-0 5 0 P
+0 5 15 P
 g @rus none~
 #10249
 taxes fines~
@@ -1368,7 +1368,7 @@ A carrot has been left here.~
 copper~
 food 0 0 A
 AC 0 0 0 0
-0 2 0 P
+0 2 10 P
 g @rus none~
 #10252
 cauliflower~
@@ -1377,7 +1377,7 @@ A cauliflower has been left here.~
 copper~
 food 0 0 A
 AC 0 0 0 0
-0 2 0 P
+0 2 15 P
 g @rus none~
 #10253
 bell pepper~
@@ -1386,7 +1386,7 @@ A bell pepper has been left here.~
 copper~
 food 0 0 A
 AC 0 0 0 0
-0 2 0 P
+0 2 15 P
 g @rus none~
 #10254
 celery stick~
@@ -1395,7 +1395,7 @@ A celery stick has been left here.~
 copper~
 food 0 0 A
 AC 0 0 0 0
-0 2 0 P
+0 2 15 P
 g @rus none~
 #10255
 glass ice tea~
@@ -1440,7 +1440,7 @@ An apple has been left here.~
 copper~
 food 0 0 A
 AC 0 0 0 0
-0 2 0 P
+0 2 25 P
 g @rus none~
 #10260
 grape~
@@ -1449,7 +1449,7 @@ A grape has been left here.~
 copper~
 food 0 0 A
 AB 0 0 0 0
-0 2 0 P
+0 2 15 P
 g @rus none~
 #10261
 orange~
@@ -1458,7 +1458,7 @@ An orange has been left here.~
 copper~
 food 0 0 A
 BC 0 0 0 0
-0 2 0 P
+0 2 30 P
 g @rus none~
 #10262
 pear~
@@ -1467,7 +1467,7 @@ A pear has been left here.~
 copper~
 food 0 0 A
 BC 0 0 0 0
-0 2 0 P
+0 2 30 P
 g @rus none~
 #10263
 charm solace~
@@ -1560,15 +1560,6 @@ pill G 0 A
 20 'poison' 'know alignment' 'blindness' ''
 5 1 50 P
 g @rus none~
-#10274
-rutabaga~
-rutabaga~
-A small rutabaga is lying here.~
-copper~
-pill G 0 A
-20 'detect magic' 'dispel magic' 'stone skin' ''
-5 1 50 P
-g @rus none~
 #10275
 Scuba tank~
 scuba tank~
@@ -1576,7 +1567,7 @@ A scuba tank is here.~
 copper~
 boat 0 0 AK
 0 0 0 0 0
-0 30 0 P
+0 30 200 P
 g @rus none~
 #10276
 Scuba flippers~
@@ -1613,7 +1604,7 @@ A belt pouch is laying here.~
 copper~
 container 0 0 AL
 50 A 0 0 0
-0 5 0 P
+0 5 400 P
 g @rus none~
 #10280
 cloak storage~
@@ -1622,7 +1613,7 @@ A cloak is on the ground in a pile.~
 copper~
 container G 0 AC
 125 A 0 0 0
-0 5 0 P
+0 5 600 P
 g @rus none~
 #10281
 ring holding~
@@ -1631,7 +1622,7 @@ A small ring with a hinge is here collecting dust.~
 copper~
 container G 0 AB
 300 A 0 0 0
-0 3 0 P
+0 3 800 P
 g @rus none~
 #10282
 travellers robe~
@@ -1837,8 +1828,8 @@ safe deposit box~
 A strong metal box is embedded in the wall.~
 copper~
 container 0 0 0
-10000 AC 0 0 0
-14 0 140 P
+1 ACD 10305 0 0
+14 500 140 P
 E
 safe deposit box~
 You see a strong metal box used to keep the town deposits in.
@@ -1850,7 +1841,7 @@ a lot of gold coins~
 A lot of gold is here.~
 copper~
 money 0 0 A
-140 0 0 0 0
+0 25 0 0 0
 14 0 140 P
 g @rus none~
 #10304
@@ -1916,12 +1907,10 @@ g @rus none~
 #ROOMS
 #10201
 Gateway to Solace~
-This is the gateway to the town of Solace. It keeps the monsters out and
-the people in. This is a quiet farming town on the shores of Crytalmir
-Lake.
-There is a sign nailed to a nearby tree.
-There is a plaque embedded in the road.
-There is a Gate to the south.
+This is the gateway to the town of Solace.  It keeps the monsters out and
+the people in.  This is a quiet farming town on the shores of Crytalmir
+Lake.  There is a sign nailed to a nearby tree.  There is a plaque embedded
+in the road.  There is a Gate to the south.  
 ~
 0 0 city
 E
@@ -2061,7 +2050,7 @@ You see the main road of Solace.
 Z -1 10203
 S
 #10205
-Intersection at Main Road.~
+Intersection at Main Road~
 Here there is an intersection at the main road.
 You see to the east and west, smaller houses and some more shops.
 To the road continues to the north.
@@ -2174,7 +2163,7 @@ You see East Gullen Way.
 Z -1 10207
 S
 #10209
-Corner of East Gullen and Ketra Road.~
+Corner of East Gullen and Ketra Road~
 This is the Corner of East Gullen Way and Ketra Road.
 Everything is amazingly clean here.
 But this doesn't look like the wealthier part of town.
@@ -2197,7 +2186,7 @@ You see East Gullen way.
 Z -1 10208
 S
 #10210
-Ketra Road.~
+Ketra Road~
 It is one of the sidestreets of Solace. But even here there are shops.
 Most of it is run down houses and shacks.
 Even though this looks like the poorer part of town, it is amazingly clean.
@@ -2219,7 +2208,7 @@ You see Ketra Road.
 Z -1 10211
 S
 #10211
-Ketra Road.~
+Ketra Road~
 It is one of the sidestreets of Solace. But even here there are shops.
 Most of it is run down houses and shacks.
 Even though this looks like the poorer part of town, it is amazingly clean.
@@ -2248,7 +2237,7 @@ door~
 ABZ -1 10254
 S
 #10212
-Ketra Road.~
+Ketra Road~
 It is one of the sidestreets of Solace. But even here there are shops.
 Most of it is run down houses and shacks.
 Even though this looks like the poorer part of town, it is amazingly clean.
@@ -2277,7 +2266,7 @@ door~
 ABZ -1 10255
 S
 #10213
-Southeast Guardpost and Watchtower.~
+Southeast Guardpost and Watchtower~
 This is the Southeast guardpost and guardpost of Solace.
 It is used as a watch station and coffee break area for the town guards.
 There are some stairs in the corner leading up to the watchtower.
@@ -2318,7 +2307,7 @@ You see stairs leading up to the watchtower.
 Z -1 10260
 S
 #10214
-Small Alleyway.~
+Small Alleyway~
 You are walking down a small alleyway along the north wall of the town.
 ~
 0 0 city
@@ -2338,7 +2327,7 @@ You see a small alleyway.
 Z -1 10215
 S
 #10215
-Small Alleyway.~
+Small Alleyway~
 You are walking down a small alleyway along the north wall of the town.
 ~
 0 0 city
@@ -2365,7 +2354,7 @@ You see a small alleyway.
 Z -1 10216
 S
 #10216
-Small Alleyway.~
+Small Alleyway~
 You are walking down a small alleyway along the north wall of the town.
 ~
 0 0 city
@@ -2385,7 +2374,7 @@ You see the gateway to the town.
 Z -1 10201
 S
 #10217
-Small Alleyway.~
+Small Alleyway~
 You are walking down a small alleyway along the north wall of the town.
 ~
 0 0 city
@@ -2405,7 +2394,7 @@ You see a small alleyway.
 Z -1 10218
 S
 #10218
-Small Alleyway.~
+Small Alleyway~
 You are walking down a small alleyway along the north wall of the town.
 ~
 0 0 city
@@ -2432,7 +2421,7 @@ You see a small alleyway.
 Z -1 10219
 S
 #10219
-Small Alleyway.~
+Small Alleyway~
 You are walking down a small alleyway along the north wall of the town.
 ~
 0 0 city
@@ -2452,7 +2441,7 @@ You see the Southwest Guardpost.
 Z -1 10220
 S
 #10220
-Southwest Guardpost and Watchtower.~
+Southwest Guardpost and Watchtower~
 This is the Southwest guardpost and guardpost of Solace.
 It is used as a watch station and coffee break area for the town guards.
 There are some stairs in the corner leading up to the watchtower.
@@ -2493,7 +2482,7 @@ You see stairs leading up to the watchtower.
 Z -1 10261
 S
 #10221
-Harvest Road.~
+Harvest Road~
 You are walking down Harvest Road.
 It is quiet and peacefull here. The smell of baked goods and other foods
 fill the air.
@@ -2551,7 +2540,7 @@ You see Harvest Road.
 Z -1 10221
 S
 #10223
-Harvest Road.~
+Harvest Road~
 You are walking down Harvest Road.
 It is quiet and peacefull here. The smell of baked goods and other foods
 fill the air.
@@ -2573,7 +2562,7 @@ You see Harvest Road.
 Z -1 10222
 S
 #10224
-Corner of West Gullen Way and Harvest Road.~
+Corner of West Gullen Way and Harvest Road~
 This is the corner of West Gullen and Harvest road.
 To the south you can smell baked goods and other food.
 To the east are various small shops and houses.
@@ -2701,11 +2690,10 @@ Z -1 10205
 S
 #10229
 End of the Main Road~
-The main road of Solace stops here. Other smaller roadways lead off
-in various directions.
-To the west is the marketplace, where farmers go to sell thier harvests.
-Farther north you see a large building.
-To the East is the Townguard Administration Building.
+The main road of Solace stops here.  Other smaller roadways lead off in
+various directions.  To the west is the marketplace, where farmers go to
+sell thier harvests.  Farther north you see a large building.  To the East
+is the Townguard Administration Building.  
 ~
 0 0 city
 D0
@@ -2738,7 +2726,7 @@ You see the Marketplace.
 Z -1 10230
 S
 #10230
-Marketplace.~
+Marketplace~
 This is the Marketplace of Solace. Where the farmers come to sell their
 crops. The smell of vegetables and fruit fill the air. There are a couple
 other vendors selling trinkets and other items.
@@ -2785,7 +2773,7 @@ You see the Marketplace.
 Z -1 10231
 S
 #10231
-Marketplace.~
+Marketplace~
 This is the Marketplace of Solace. Where the farmers come to sell their
 crops. The smell of vegetables and fruit fill the air. There are a couple
 other vendors selling trinkets and other items.
@@ -2821,7 +2809,7 @@ You see the Marketplace.
 Z -1 10232
 S
 #10232
-Marketplace.~
+Marketplace~
 This is the Marketplace of Solace. Where the farmers come to sell their
 crops. The smell of vegetables and fruit fill the air. There are a couple
 other vendors selling trinkets and other items.
@@ -2857,7 +2845,7 @@ You see the Marketplace.
 Z -1 10233
 S
 #10233
-Marketplace.~
+Marketplace~
 This is the Marketplace of Solace. Where the farmers come to sell their
 crops. The smell of vegetables and fruit fill the air. There are a couple
 other vendors selling trinkets and other items.
@@ -2888,7 +2876,7 @@ You see Jhen's Vegtable Cart.
 Z -1 10234
 S
 #10234
-Jhen's Vegetable Cart.~
+Jhen's Vegetable Cart~
 This is where Jhen the farmer comes to sell his crops. His wooden vegtable
 cart stands here filled with all sorts of vegetables. All his vegtables are 
 unusually large. What kind of plant food does he use anyway...?
@@ -2914,7 +2902,7 @@ You see the marketplace.
 Z -1 10233
 S
 #10235
-Krista's Fruit Stand.~
+Krista's Fruit Stand~
 This is where Krista peddles her fruits. Every year she travels from her
 orchards in the mountains to Solace to sell her fruit. Everything seems
 to have an unusually small size. I wonder if she shrinks heads too...
@@ -2940,7 +2928,7 @@ You see the marketplace.
 Z -1 10232
 S
 #10236
-Janni's Souvenirs.~
+Janni's Souvenirs~
 This is Janni's Souvenir shop. He makes trinkets year round that he peddles
 here in the market. You wouldn't want to leave Solace without a souvenir
 would you?
@@ -2993,7 +2981,7 @@ You see the marketplace.
 Z -1 10230
 S
 #10238
-Molin's Mulburry Extracts.~
+Molin's Mulburry Extracts~
 This is the shop of the famous mulburry extract. Known throughout the
 valley to quech the thirst of even the thirstiest traveller. What else it does
 is just rumor. That person recovered in a month anyway...
@@ -3076,7 +3064,7 @@ You see the marketplace.
 Z -1 10231
 S
 #10241
-Croben's Containers.~
+Croben's Containers~
 This is the catch all, hold all, container shop. Croben sell all sorts.
 Just take your pick. And no he doesn't know how much each one holds.
 What...you think he has nothing better to do than fill each container
@@ -3103,7 +3091,7 @@ You see the marketplace.
 Z -1 10230
 S
 #10242
-Matt's Brewery.~
+Matt's Brewery~
 Matt could never find enough to drink. So to solve this he started his own
 brewery. "You can never drink enough" is Matt's logo and offers plenty
 to drink.
@@ -3129,7 +3117,7 @@ You see West Gullen Way.
 Z -1 10225
 S
 #10243
-a House.~
+A House~
 This is a small house off of West Gullen Way. It is not your house and you
 were not invited. Why are you here?
 ~
@@ -3143,7 +3131,7 @@ door~
 ABZ -1 10226
 S
 #10244
-a House.~
+A House~
 This is a small house off of West Gullen Way. It is sparsely furnished and
 very tidy. a small fire burns warmly in the fireplace. The sweet smell of 
 flowers is present. Ahhh....what a nice home.
@@ -3158,7 +3146,7 @@ door~
 ABZ -1 10227
 S
 #10245
-Cookie's Cookie Cookery.~
+Cookie's Cookie Cookery~
 This is the cookie shop of who else...Cookie. She's not in right now
 but there are many delicious cookies to munch on if you want to wait till
 she returns.
@@ -3180,7 +3168,7 @@ door~
 ABZ -1 10250
 S
 #10246
-a House.~
+A House~
 This is a small house off of the main street. It is well furnished and
 very tidy. a small fire burns warmly in the fireplace. The sweet smell of 
 flowers is present. Ahhh....what a nice home.
@@ -3195,7 +3183,7 @@ door~
 ABZ -1 10202
 S
 #10247
-Old Gambling Parlor.~
+Old Gambling Parlor~
 This used to be a very popular and busy gambling parlor. But the Captain
 of the Guard lost big here once and thereafter declared gambling illegal.
 It has been closed for many years. It is dusty and full of cobwebs.
@@ -3235,7 +3223,7 @@ You see Harvest road.
 Z -1 10221
 S
 #10249
-a House.~
+A House~
 This is a small house off of the main street. It is well furnished and
 very tidy. a small fire burns warmly in the fireplace. The sweet smell of 
 flowers is present. Ahhh....what a nice home.
@@ -3250,7 +3238,7 @@ door~
 ABZ -1 10222
 S
 #10250
-Cookie's Relaxing Room.~
+Cookie's Relaxing Room~
 This is where Cookie comes to unwind. She comes here sometimes to just
 munch on cookies and talk to her friends.
 ~
@@ -3264,7 +3252,7 @@ door~
 ABZ -1 10245
 S
 #10251
-a House.~
+A House~
 This is a small house off of West Gullen Way. It is not your house and you
 were not invited. Why are you here?
 ~
@@ -3278,7 +3266,7 @@ door~
 ABZ -1 10206
 S
 #10252
-The Marilyn's Bird Factory.~
+The Marilyn's Bird Factory~
 This is Marilyn's Bird Factory. There are a wide variety of birds here.
 Buy a pet. Take it home. A loving companion to keep you company.
 ~
@@ -3462,7 +3450,7 @@ door ~
 ABZ -1 10256
 S
 #10260
-Inside Southeast Watchtower.~
+Inside Southeast Watchtower~
 You are inside the Southeast Watchtower.
 From up here you can see above the trees and most of the valley.
 There is a beautiful view of Crystalmir lake.
@@ -3480,12 +3468,11 @@ You see stairs leading down to the guardpost.
 Z -1 10213
 S
 #10261
-Inside Southwest Watchtower.~
-You are inside the Southwest Watchtower.
-From up here you can see above the trees and most of the valley.
-There is a beautiful view of Crystalmir lake.
-You are however not suppose to be up here. If the guards catch you up
-here you are likely to be in BIG trouble...
+Inside Southwest Watchtower~
+You are inside the Southwest Watchtower.  From up here you can see above
+the trees and most of the valley.  There is a beautiful view of Crystalmir
+lake.  You are however not suppose to be up here.  If the guards catch you
+up here you are likely to be in BIG trouble...  
 ~
 0 D city
 D5
@@ -3497,7 +3484,7 @@ You see stairs leading down to the guardpost.
 Z -1 10220
 S
 #10262
-Dusty road.~
+Dusty road~
 This dusty road looks well traveled. To the East you see the Townguard
 Administration Building.
 ~
@@ -3518,7 +3505,7 @@ You see the end of Main road.
 Z -1 10229
 S
 #10263
-Townguard Administration Building.~
+Townguard Administration Building~
 Before you stands the Townguard Administration Building. This is a large
 building with various statues and other artwork decorating the building.
 There is a door the east.
@@ -3540,7 +3527,7 @@ You see a dusty road.
 Z -1 10262
 S
 #10264
-Entrance Hall.~
+Entrance Hall~
 The entrance hall is made entirely of marble and granite. It seems sort of
 extravagant for a townguard administration building. The 30 foot high
 ceiling seems to dwarf everything in the hallway. The Seal of the Town
@@ -3572,7 +3559,7 @@ door~
 ABZ -1 10263
 S
 #10265
-Marble Corridor.~
+Marble Corridor~
 This corridor is also decorated with paintings and sculptures. Marble
 columns line the walls. Crystal chandeliers hang from the ceiling.
 A door to the Town Clerk's office is to the west.
@@ -3601,13 +3588,11 @@ door officedoor~
 ABZ -1 10266
 S
 #10266
-Town Clerk.~
-This is where you pay your fines and taxes.
-The Town Clerk's desk sits in front of you. There are chairs and a
-few tables along the walls. There is a metal door on the west wall
-behind the clerk's desk.
-The hallway is to the east.
-A heavy metal depository door is to the west.
+Town Clerk~
+This is where you pay your fines and taxes.  The Town Clerk's desk sits
+in front of you.  There are chairs and a few tables along the walls.  There
+is a metal door on the west wall behind the clerk's desk.  The hallway is to
+the east.  A heavy metal depository door is to the west.  
 ~
 0 D city
 D1
@@ -3626,11 +3611,10 @@ the safe~
 ABCZ 10305 10267
 S
 #10267
-Deposits Room.~
-This is a large safe like room. All payments for taxes and fines are deposited
-here by the clerk. The walls are made of white marble and have gold deposit
-boxes set into them.
-The safe door is to the east.
+Deposits Room~
+This is a large safe like room.  All payments for taxes and fines are
+deposited here by the clerk.  The walls are made of white marble and have
+gold deposit boxes set into them.  The safe door is to the east.  
 ~
 0 D city
 D1
@@ -3642,10 +3626,10 @@ the safe~
 ABCZ 10305 10266
 S
 #10268
-Marble Corridor.~
-This corridor is also decorated with paintings and sculptures. Marble
-columns line the walls. Crystal chandeliers hang from the ceiling.
-A pair of heavy double doors lie to the north.
+Marble Corridor~
+This corridor is also decorated with paintings and sculptures.  Marble
+columns line the walls. Crystal chandeliers hang from the ceiling. A pair
+of heavy double doors lie to the north.  
 ~
 0 D city
 D0
@@ -3671,7 +3655,7 @@ You see a marble corridor.
 Z -1 10265
 S
 #10269
-Water Fountain.~
+Water Fountain~
 There is a very large water fountain here. Large marble lion heads spout
 water from their mouths and stone fish spit water from the base of the
 fountain.
@@ -3686,11 +3670,11 @@ You see marble corridor.
 Z -1 10268
 S
 #10270
-Hallway Intersection.~
-This is the intersection of four large hallways. Light streams in from the 
-stainglass skylight above. Large double doors close off each hallway.
-The doors are made of oak and encrusted with gold patterns.
-A pair of double doors are in each direction.
+Hallway Intersection~
+This is the intersection of four large hallways.  Light streams in from
+the stainglass skylight above.  Large double doors close off each hallway. 
+The doors are made of oak and encrusted with gold patterns.  A pair of
+double doors are in each direction.  
 ~
 0 D city
 D0
@@ -3823,11 +3807,10 @@ Z -1 10273
 S
 #10275
 Administration Hallway~
-The hallway is just as extravagant as all the others in this building.
-Gem mosaics cover the walls, and intricate patterns are carved in the
-gold laden floors. This doesn't look like an admistration building,
-more like a palace.
-There is an oak door to the north.
+The hallway is just as extravagant as all the others in this building. 
+Gem mosaics cover the walls, and intricate patterns are carved in the gold
+laden floors.  This doesn't look like an admistration building, more like a
+palace.  There is an oak door to the north.  
 ~
 0 D city
 D0
@@ -3945,7 +3928,7 @@ You see more of a very large room.
 Z -1 10278
 S
 #10280
-West end of Bar.~
+West end of Bar~
 You are standing of the west end of the bar. This is a darker corner where
 less seems to occur. Maybe a beer and a nap would be nice.
 ~
@@ -3959,7 +3942,7 @@ You see main bar.
 Z -1 10281
 S
 #10281
-Inn of the Last Home.~
+Inn of the Last Home~
 The Inn of the Last Home never changes. The polished wooden bar curves
 around several living branches. An old man weaves stories in the corner and
 delights the crowd gathered about him. The delicate windows of stained
@@ -3997,7 +3980,7 @@ You see a wooden staircase.
 Z -1 10290
 S
 #10282
-Outside the Inn of the Last Home.~
+Outside the Inn of the Last Home~
 The Inn of the Last Home rests within the trunk of a huge vallenwood tree.
 Warm laughter tumbles from the inn. The worn steps wind around the heavy
 trunk up to the familiar, carved door.
@@ -4065,7 +4048,7 @@ You see a hallway.
 Z -1 10274
 S
 #10285
-Guards Room.~
+Guards Room~
 There are many barrels and chests of food in here. All of it looks spoiled.
 This is where the town guards hang out when not on duty.
 You see an oak door to the south.
@@ -4175,7 +4158,7 @@ You see a hallway.
 Z -1 10288
 S
 #10290
-Second Floor of the Inn.~
+Second Floor of the Inn~
 You are at the top of a wooden staircase. Downstairs is the bar.
 To the west you can hear laughter and the low murmur of voices.
 ~
@@ -4196,7 +4179,7 @@ You see a wooden staircase.
 Z -1 10281
 S
 #10291
-North End of Bar.~
+North End of Bar~
 A smoky fire struggles in the blackened stove, feebly challenging
 the gloom in the town. In sharp contrast to the usual lively crowd,
 the few patrons present are lost in their own thoughts. No one
@@ -4213,7 +4196,7 @@ You see main bar.
 Z -1 10281
 S
 #10292
-Captain's Office.~
+Captain's Office~
 This is the office of the Captain of the Guard. Leather couches
 and a solid marble desk sit against the far wall. A weapons
 cabinet stands against the west wall. The Captain has a large
@@ -4291,7 +4274,7 @@ You see a hallway.
 Z -1 10293
 S
 #10295
-Lieutenant's Reception Area.~
+Lieutenant's Reception Area~
 This is the waiting room for meetings with the Lieutenant Commander.
 The furniture is made of vallenwood and the walls are covered with
 finger paintings. Various crayon drawings are framed behind the
@@ -4429,7 +4412,7 @@ door~
 ABZ -1 10311
 S
 #10302
-Captain's Meeting room.~
+Captain's Meeting room~
 You are standing in the meeting room of the Captain of the Guard. This
 is where he holds his administrative meetings and other official functions.
 A large meeting tables sits in the middle of the room.
@@ -4477,7 +4460,7 @@ You see a hallway.
 Z -1 10293
 S
 #10304
-Guards Room.~
+Guards Room~
 There are many barrels and chests of food in here. All of it looks spoiled.
 This is where the town guards hang out when not on duty.
 There is an oak door to the north.
@@ -4492,7 +4475,7 @@ door~
 ABZ -1 10314
 S
 #10305
-Lieutenant's Office.~
+Lieutenant's Office~
 This is the Office of the Lieutenant Commander. He basicially does
 nothing all day. Hence the fingerpainting tacked to all the walls.
 The furniture is more fitting to a 7 year old than that of a commander.
@@ -4555,7 +4538,7 @@ You see a hallway.
 Z -1 10297
 S
 #10308
-Reading Room.~
+Reading Room~
 This is an afternoon reading room. Its especially nice on sunny days when
 the afternoon sun shines through the large picture window. Many books
 line the walls. All look pretty boring and seem to be more for show than
@@ -4658,7 +4641,7 @@ You see a hallway.
 Z -1 10310
 S
 #10312
-Captain's Waiting Room.~
+Captain's Waiting Room~
 This is the Reception area for the the Captain of the Guard. A large portrait
 of the Captain is on the north wall. With the amount of extravagance and 
 expensive items that decorate this room you wonder how he gets away with
@@ -4715,11 +4698,10 @@ ABZ -1 10312
 S
 #10314
 Administration Hallway~
-The hallway is just as extravagant as all the others in this building.
-Gem mosaics cover the walls, and intricate patterns are carved in the
-gold laden floors. This doesn't look like an admistration building,
-more like a palace.
-There is an oak door to the south.
+The hallway is just as extravagant as all the others in this building. 
+Gem mosaics cover the walls, and intricate patterns are carved in the gold
+laden floors.  This doesn't look like an admistration building, more like a
+palace.  There is an oak door to the south.  
 ~
 0 D city
 D1
@@ -4861,86 +4843,74 @@ E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10301 0 16		*	Townguard<wielded>: enchanted bow
 M 0 10216 3 10201 1	* field rat (Gateway to Solace)
 M 0 10241 1 10203 1	* old lady (Main Road)
-M 0 10215 1 10205 1	* Townguard (Intersection at Main Road.)
+M 0 10216 10 10205 1	* field rat (Intersection at Main Road)
+M 0 10215 1 10209 1	* Townguard (Corner of East Gullen and Ketra Road)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10237 0 16		*	Townguard<wielded>: enchanted longsword
-M 0 10215 1 10205 1	* Townguard (Intersection at Main Road.)
+M 0 10215 1 10209 1	* Townguard (Corner of East Gullen and Ketra Road)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10238 0 16		*	Townguard<wielded>: enchanted hammer
-M 0 10215 1 10205 1	* Townguard (Intersection at Main Road.)
+M 0 10215 1 10209 1	* Townguard (Corner of East Gullen and Ketra Road)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10239 0 16		*	Townguard<wielded>: enchanted pike
-M 0 10215 1 10205 1	* Townguard (Intersection at Main Road.)
+M 0 10215 1 10209 1	* Townguard (Corner of East Gullen and Ketra Road)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10301 0 16		*	Townguard<wielded>: enchanted bow
-M 0 10216 3 10205 1	* field rat (Intersection at Main Road.)
-M 0 10215 1 10209 1	* Townguard (Corner of East Gullen and Ketra Road.)
+M 0 10216 1 10210 1	* field rat (Ketra Road)
+M 0 10206 3 10211 1	* Citizen of Solace (Ketra Road)
+M 0 10204 1 10213 1	* Townguard (Southeast Guardpost and Watchtower)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10237 0 16		*	Townguard<wielded>: enchanted longsword
-M 0 10215 1 10209 1	* Townguard (Corner of East Gullen and Ketra Road.)
+M 0 10204 1 10213 1	* Townguard (Southeast Guardpost and Watchtower)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10238 0 16		*	Townguard<wielded>: enchanted hammer
-M 0 10215 1 10209 1	* Townguard (Corner of East Gullen and Ketra Road.)
-E 0 10236 0 5		*	Townguard<on the body>: black platemail
-E 0 10239 0 16		*	Townguard<wielded>: enchanted pike
-M 0 10215 1 10209 1	* Townguard (Corner of East Gullen and Ketra Road.)
-E 0 10236 0 5		*	Townguard<on the body>: black platemail
-E 0 10301 0 16		*	Townguard<wielded>: enchanted bow
-M 0 10216 1 10210 1	* field rat (Ketra Road.)
-M 0 10206 3 10211 1	* Citizen of Solace (Ketra Road.)
-M 0 10204 1 10213 1	* Townguard (Southeast Guardpost and Watchtower.)
+M 0 10216 2 10218 1	* field rat (Small Alleyway)
+M 0 10204 1 10220 1	* Townguard (Southwest Guardpost and Watchtower)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10237 0 16		*	Townguard<wielded>: enchanted longsword
-M 0 10204 1 10213 1	* Townguard (Southeast Guardpost and Watchtower.)
-E 0 10236 0 5		*	Townguard<on the body>: black platemail
-E 0 10238 0 16		*	Townguard<wielded>: enchanted hammer
-M 0 10216 2 10218 1	* field rat (Small Alleyway.)
-M 0 10204 1 10220 1	* Townguard (Southwest Guardpost and Watchtower.)
-E 0 10236 0 5		*	Townguard<on the body>: black platemail
-E 0 10237 0 16		*	Townguard<wielded>: enchanted longsword
-M 0 10204 1 10220 1	* Townguard (Southwest Guardpost and Watchtower.)
+M 0 10204 1 10220 1	* Townguard (Southwest Guardpost and Watchtower)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10238 0 16		*	Townguard<wielded>: enchanted hammer
 M 0 10216 3 10222 1	* field rat (Harvest Road)
 M 0 10241 1 10222 1	* old lady (Harvest Road)
-M 0 10215 1 10224 1	* Townguard (Corner of West Gullen Way and Harvest Road.)
+M 0 10215 1 10224 1	* Townguard (Corner of West Gullen Way and Harvest Road)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10237 0 16		*	Townguard<wielded>: enchanted longsword
-M 0 10215 1 10224 1	* Townguard (Corner of West Gullen Way and Harvest Road.)
+M 0 10215 1 10224 1	* Townguard (Corner of West Gullen Way and Harvest Road)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10238 0 16		*	Townguard<wielded>: enchanted hammer
-M 0 10215 1 10224 1	* Townguard (Corner of West Gullen Way and Harvest Road.)
+M 0 10215 1 10224 1	* Townguard (Corner of West Gullen Way and Harvest Road)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10239 0 16		*	Townguard<wielded>: enchanted pike
-M 0 10215 1 10224 1	* Townguard (Corner of West Gullen Way and Harvest Road.)
+M 0 10215 1 10224 1	* Townguard (Corner of West Gullen Way and Harvest Road)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10301 0 16		*	Townguard<wielded>: enchanted bow
 M 0 10242 1 10226 1	* tired adventurer (West Gullen Way)
-M 0 10206 3 10231 1	* Citizen of Solace (Marketplace.)
-M 0 10241 1 10231 1	* old lady (Marketplace.)
-M 0 10215 1 10233 1	* Townguard (Marketplace.)
+M 0 10206 3 10231 1	* Citizen of Solace (Marketplace)
+M 0 10241 1 10231 1	* old lady (Marketplace)
+M 0 10215 1 10233 1	* Townguard (Marketplace)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10237 0 16		*	Townguard<wielded>: enchanted longsword
-M 0 10215 1 10233 1	* Townguard (Marketplace.)
+M 0 10215 1 10233 1	* Townguard (Marketplace)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10238 0 16		*	Townguard<wielded>: enchanted hammer
-M 0 10215 1 10233 1	* Townguard (Marketplace.)
+M 0 10215 1 10233 1	* Townguard (Marketplace)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10239 0 16		*	Townguard<wielded>: enchanted pike
-M 0 10215 1 10233 1	* Townguard (Marketplace.)
+M 0 10215 1 10233 1	* Townguard (Marketplace)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10301 0 16		*	Townguard<wielded>: enchanted bow
-M 0 10219 1 10234 1	* Jhen the farmer (Jhen's Vegetable Cart.)
+M 0 10219 1 10234 1	* Jhen the farmer (Jhen's Vegetable Cart)
 G 0 10251 0		*	Jhen the farmer: carrot
 G 0 10252 0		*	Jhen the farmer: cauliflower
 G 0 10253 0		*	Jhen the farmer: bell pepper
 G 0 10254 0		*	Jhen the farmer: celery stick
-M 0 10220 1 10235 1	* Krista the fruit peddler (Krista's Fruit Stand.)
+M 0 10220 1 10235 1	* Krista the fruit peddler (Krista's Fruit Stand)
 G 0 10259 0		*	Krista the fruit peddler: apple
 G 0 10260 0		*	Krista the fruit peddler: a grape
 G 0 10261 0		*	Krista the fruit peddler: a orange
 G 0 10262 0		*	Krista the fruit peddler: a pear
-M 0 10221 1 10236 1	* Janni (Janni's Souvenirs.)
+M 0 10221 1 10236 1	* Janni (Janni's Souvenirs)
 G 0 10263 0		*	Janni: the charm of Solace
 G 0 10264 0		*	Janni: the ring of Solace
 G 0 10265 0		*	Janni: the earrings of Solace
@@ -4949,60 +4919,56 @@ G 0 10266 0		*	Nisi the grocer: a frozen pizza crust
 G 0 10267 0		*	Nisi the grocer: a frozen pumpkin
 G 0 10268 0		*	Nisi the grocer: a frozen side of beef
 G 0 10269 0		*	Nisi the grocer: a frozen asparagus spear
-M 0 10223 1 10238 1	* Molin the brewer (Molin's Mulburry Extracts.)
-G 0 10270 0		*	Molin the brewer: mulburry extract
-G 0 10270 0		*	Molin the brewer: mulburry extract
-G 0 10270 0		*	Molin the brewer: mulburry extract
+M 0 10223 1 10238 1	* Molin the brewer (Molin's Mulburry Extracts)
 G 0 10270 0		*	Molin the brewer: mulburry extract
 M 0 10224 1 10239 1	* Rashan the farmer (Rashan's Rutabagas)
 G 0 10271 0		*	Rashan the farmer: rutabaga
 G 0 10272 0		*	Rashan the farmer: rutabaga
-G 0 10274 0		*	Rashan the farmer: rutabaga
 M 0 10225 1 10240 1	* Lexie (Lexie's Scuba Shop)
 G 0 10275 0		*	Lexie: scuba tank
 G 0 10276 0		*	Lexie: scuba flippers
 G 0 10277 0		*	Lexie: scuba snorkle
 G 0 10278 0		*	Lexie: dive belt
-M 0 10226 1 10241 1	* Croben (Croben's Containers.)
+M 0 10226 1 10241 1	* Croben (Croben's Containers)
 G 0 10279 0		*	Croben: belt pouch
 G 0 10280 0		*	Croben: cloak of storage
 G 0 10281 0		*	Croben: ring of holding
-M 0 10208 1 10242 1	* Matt the brewmaster (Matt's Brewery.)
+M 0 10208 1 10242 1	* Matt the brewmaster (Matt's Brewery)
 E 0 10240 0 5		*	Matt the brewmaster<on the body>: chamorro ringmail
 G 0 10255 0		*	Matt the brewmaster: a glass of ice tea
 G 0 10256 0		*	Matt the brewmaster: a glass of water
 G 0 10257 0		*	Matt the brewmaster: a glass of koca colah
 G 0 10258 0		*	Matt the brewmaster: a bottle of Snapple ice tea
-M 0 10206 3 10243 1	* Citizen of Solace (a House.)
-M 0 10207 3 10243 1	* woman (a House.)
-M 0 10238 2 10243 1	* child (a House.)
-M 0 10206 4 10244 1	* Citizen of Solace (a House.)
-M 0 10207 3 10244 1	* woman (a House.)
-M 0 10238 3 10244 1	* child (a House.)
-M 0 10210 1 10245 1	* Cookie's Helper (Cookie's Cookie Cookery.)
+M 0 10206 3 10243 1	* Citizen of Solace (A House)
+M 0 10207 3 10243 1	* woman (A House)
+M 0 10238 2 10243 1	* child (A House)
+M 0 10206 4 10244 1	* Citizen of Solace (A House)
+M 0 10207 3 10244 1	* woman (A House)
+M 0 10238 3 10244 1	* child (A House)
+M 0 10210 1 10245 1	* Cookie's Helper (Cookie's Cookie Cookery)
 G 0 10245 0		*	Cookie's Helper: chocolate chip cookie
 G 0 10246 0		*	Cookie's Helper: peanut butter cookie
 G 0 10247 0		*	Cookie's Helper: oatmeal  cookie
 G 0 10248 0		*	Cookie's Helper: sugar cookie
-M 0 10206 5 10246 1	* Citizen of Solace (a House.)
-M 0 10207 4 10246 1	* woman (a House.)
-M 0 10238 6 10246 1	* child (a House.)
-M 0 10241 1 10246 1	* old lady (a House.)
-M 0 10216 2 10247 1	* field rat (Old Gambling Parlor.)
-M 0 10237 10 10247 1	* Ghost of gambler (Old Gambling Parlor.)
+M 0 10206 5 10246 1	* Citizen of Solace (A House)
+M 0 10207 4 10246 1	* woman (A House)
+M 0 10238 6 10246 1	* child (A House)
+M 0 10241 1 10246 1	* old lady (A House)
+M 0 10237 10 10247 1	* Ghost of gambler (Old Gambling Parlor)
+M 0 10216 10 10247 1	* field rat (Old Gambling Parlor)
 M 0 10209 1 10248 1	* the Mcbaker (The McBakery)
 G 0 10241 0		*	the Mcbaker: Mcbread
 G 0 10242 0		*	the Mcbaker: Mcdonut
 G 0 10243 0		*	the Mcbaker: Mcbagel
 G 0 10244 0		*	the Mcbaker: Mcpastry
-M 0 10206 4 10249 1	* Citizen of Solace (a House.)
-M 0 10207 2 10249 1	* woman (a House.)
-M 0 10238 3 10249 1	* child (a House.)
-M 0 10206 3 10251 1	* Citizen of Solace (a House.)
-M 0 10207 2 10251 1	* woman (a House.)
-M 0 10238 2 10251 1	* child (a House.)
-M 0 10241 1 10251 1	* old lady (a House.)
-M 0 10211 1 10252 1	* Marilyn (The Marilyn's Bird Factory.)
+M 0 10206 4 10249 1	* Citizen of Solace (A House)
+M 0 10207 2 10249 1	* woman (A House)
+M 0 10238 3 10249 1	* child (A House)
+M 0 10206 3 10251 1	* Citizen of Solace (A House)
+M 0 10207 2 10251 1	* woman (A House)
+M 0 10238 2 10251 1	* child (A House)
+M 0 10241 1 10251 1	* old lady (A House)
+M 0 10211 1 10252 1	* Marilyn (The Marilyn's Bird Factory)
 M 0 10253 1 10253 1	* the battle falcon (Pet Storage)
 M 0 10252 1 10253 1	* the hunting hawk (Pet Storage)
 M 0 10251 1 10253 1	* the raven (Pet Storage)
@@ -5010,59 +4976,53 @@ M 0 10250 1 10253 1	* the macaw (Pet Storage)
 M 0 10216 3 10254 1	* field rat (Storage Building)
 M 0 10239 5 10254 1	* rat (Storage Building)
 M 0 10240 4 10254 5	* bat (Storage Building)
-M 0 10213 2 10255 1	* ghost of waiter (Jander's)
 M 0 10214 1 10255 1	* ghost of a barkeeper (Jander's)
 G 0 10307 0		*	ghost of a barkeeper: a drink called, "a Flaming homer"
 G 0 10308 0		*	ghost of a barkeeper: a jello shot
 G 0 10309 0		*	ghost of a barkeeper: a drink called, "bloody heads"
-M 0 10216 2 10255 1	* field rat (Jander's)
-M 0 10213 2 10256 1	* ghost of waiter (Jander's Poolhall)
-M 0 10216 2 10256 1	* field rat (Jander's Poolhall)
+M 0 10216 10 10255 1	* field rat (Jander's)
+M 0 10213 6 10255 1	* ghost of waiter (Jander's)
+M 0 10216 10 10256 1	* field rat (Jander's Poolhall)
+M 0 10213 10 10256 1	* ghost of waiter (Jander's Poolhall)
 M 0 10213 6 10257 1	* ghost of waiter (Jander's Restaurant)
-M 0 10216 2 10257 1	* field rat (Jander's Restaurant)
+M 0 10216 10 10257 1	* field rat (Jander's Restaurant)
 M 0 10212 1 10259 1	* Ghost of Jander (Jander's Office)
-M 0 10205 1 10260 1	* Townguard (Inside Southeast Watchtower.)
+M 0 10205 1 10260 1	* Townguard (Inside Southeast Watchtower)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10239 0 16		*	Townguard<wielded>: enchanted pike
-M 0 10205 1 10260 1	* Townguard (Inside Southeast Watchtower.)
+M 0 10205 1 10260 1	* Townguard (Inside Southeast Watchtower)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10301 0 16		*	Townguard<wielded>: enchanted bow
-M 0 10205 1 10261 1	* Townguard (Inside Southwest Watchtower.)
+M 0 10205 1 10261 1	* Townguard (Inside Southwest Watchtower)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10239 0 16		*	Townguard<wielded>: enchanted pike
-M 0 10205 1 10261 1	* Townguard (Inside Southwest Watchtower.)
+M 0 10205 1 10261 1	* Townguard (Inside Southwest Watchtower)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10301 0 16		*	Townguard<wielded>: enchanted bow
-M 0 10206 2 10262 1	* Citizen of Solace (Dusty road.)
-M 0 10215 1 10264 1	* Townguard (Entrance Hall.)
+M 0 10206 2 10262 1	* Citizen of Solace (Dusty road)
+M 0 10215 1 10264 1	* Townguard (Entrance Hall)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10237 0 16		*	Townguard<wielded>: enchanted longsword
-M 0 10215 1 10264 1	* Townguard (Entrance Hall.)
+M 0 10215 1 10264 1	* Townguard (Entrance Hall)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10238 0 16		*	Townguard<wielded>: enchanted hammer
-M 0 10215 1 10264 1	* Townguard (Entrance Hall.)
+M 0 10215 1 10264 1	* Townguard (Entrance Hall)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10239 0 16		*	Townguard<wielded>: enchanted pike
-M 0 10215 1 10264 1	* Townguard (Entrance Hall.)
+M 0 10215 1 10264 1	* Townguard (Entrance Hall)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10301 0 16		*	Townguard<wielded>: enchanted bow
-M 0 10217 1 10266 1	* Town Clerk (Town Clerk.)
+M 0 10217 1 10266 1	* Town Clerk (Town Clerk)
 E 0 10249 0 16		*	Town Clerk<wielded>: taxes and fines
 E 0 10305 0 17		*	Town Clerk<held in the hands>: a depository key
-M 0 10218 4 10267 2	* Treasury Guards (Deposits Room.)
+O 0 10302 0 10267	* safe deposit box (Deposits Room)
+P 0 10303 1 0 1	* safe deposit box: a lot of gold coins
+M 0 10218 2 10267 2	* Treasury Guards (Deposits Room)
 E 0 10236 0 5		*	Treasury Guards<on the body>: black platemail
 E 0 10250 0 16		*	Treasury Guards<wielded>: enchanted two-handed sword
-O 0 10302 0 10267	* safe deposit box (Deposits Room.)
-O 0 10302 0 10267	* safe deposit box (Deposits Room.)
-O 0 10302 0 10267	* safe deposit box (Deposits Room.)
-O 0 10302 0 10267	* safe deposit box (Deposits Room.)
-P 0 10303 1 0 1	* safe deposit box: a lot of gold coins
-P 0 10303 1 0 1	* safe deposit box: a lot of gold coins
-P 0 10303 1 0 1	* safe deposit box: a lot of gold coins
-P 0 10303 1 0 1	* safe deposit box: a lot of gold coins
-M 0 10241 1 10268 1	* old lady (Marble Corridor.)
-M 0 10232 1 10269 1	* bratty boy (Water Fountain.)
-O 0 10304 0 10269	* a fountain (Water Fountain.)
+M 0 10241 1 10268 1	* old lady (Marble Corridor)
+M 0 10232 1 10269 1	* bratty boy (Water Fountain)
+O 0 10304 0 10269	* a fountain (Water Fountain)
 M 0 10241 1 10273 1	* old lady (Sergeant's Reception Room)
 M 0 10249 1 10273 1	* Secretary (Sergeant's Reception Room)
 M 0 10233 3 10278 1	* mage (West end of Common Room)
@@ -5098,58 +5058,58 @@ E 0 10285 0 17		*	Cleric<held in the hands>: travellers holy symbol
 E 0 10291 0 16		*	Cleric<wielded>: a travellers hammer
 E 0 10282 0 12		*	Cleric<about the shoulders>: travellers robe
 M 0 10242 2 10279 1	* tired adventurer (East end of Common Room)
-M 0 10233 2 10280 1	* mage (West end of Bar.)
+M 0 10233 2 10280 1	* mage (West end of Bar)
 E 0 10282 0 12		*	mage<about the shoulders>: travellers robe
 E 0 10283 0 16		*	mage<wielded>: travellers dagger
 E 0 10284 0 17		*	mage<held in the hands>: travellers spellbook
-M 0 10234 2 10280 1	* Thief (West end of Bar.)
+M 0 10234 2 10280 1	* Thief (West end of Bar)
 E 0 10283 0 16		*	Thief<wielded>: travellers dagger
 E 0 10286 0 5		*	Thief<on the body>: a travellers vest
 E 0 10287 0 3		*	Thief<around the neck>: a travellers cloak
-M 0 10235 2 10280 1	* Warrior (West end of Bar.)
+M 0 10235 2 10280 1	* Warrior (West end of Bar)
 E 0 10288 0 16		*	Warrior<wielded>: a travellers sword
 E 0 10289 0 5		*	Warrior<on the body>: a travellers scalemail
 E 0 10290 0 11		*	Warrior<as a shield>: a travellers shield
-M 0 10236 2 10280 1	* Cleric (West end of Bar.)
+M 0 10236 2 10280 1	* Cleric (West end of Bar)
 E 0 10285 0 17		*	Cleric<held in the hands>: travellers holy symbol
 E 0 10291 0 16		*	Cleric<wielded>: a travellers hammer
 E 0 10282 0 12		*	Cleric<about the shoulders>: travellers robe
-M 0 10242 1 10280 1	* tired adventurer (West end of Bar.)
-M 0 10233 2 10281 1	* mage (Inn of the Last Home.)
+M 0 10242 1 10280 1	* tired adventurer (West end of Bar)
+M 0 10233 2 10281 1	* mage (Inn of the Last Home)
 E 0 10282 0 12		*	mage<about the shoulders>: travellers robe
 E 0 10283 0 16		*	mage<wielded>: travellers dagger
 E 0 10284 0 17		*	mage<held in the hands>: travellers spellbook
-M 0 10234 2 10281 1	* Thief (Inn of the Last Home.)
+M 0 10234 2 10281 1	* Thief (Inn of the Last Home)
 E 0 10283 0 16		*	Thief<wielded>: travellers dagger
 E 0 10286 0 5		*	Thief<on the body>: a travellers vest
 E 0 10287 0 3		*	Thief<around the neck>: a travellers cloak
-M 0 10235 2 10281 1	* Warrior (Inn of the Last Home.)
+M 0 10235 2 10281 1	* Warrior (Inn of the Last Home)
 E 0 10288 0 16		*	Warrior<wielded>: a travellers sword
 E 0 10289 0 5		*	Warrior<on the body>: a travellers scalemail
 E 0 10290 0 11		*	Warrior<as a shield>: a travellers shield
-M 0 10236 2 10281 1	* Cleric (Inn of the Last Home.)
+M 0 10236 2 10281 1	* Cleric (Inn of the Last Home)
 E 0 10285 0 17		*	Cleric<held in the hands>: travellers holy symbol
 E 0 10291 0 16		*	Cleric<wielded>: a travellers hammer
 E 0 10282 0 12		*	Cleric<about the shoulders>: travellers robe
-M 0 10206 1 10281 1	* Citizen of Solace (Inn of the Last Home.)
-M 0 10227 1 10281 1	* Otik Sandath (Inn of the Last Home.)
+M 0 10206 1 10281 1	* Citizen of Solace (Inn of the Last Home)
+M 0 10227 1 10281 1	* Otik Sandath (Inn of the Last Home)
 G 0 10307 0		*	Otik Sandath: a drink called, "a Flaming homer"
 G 0 10308 0		*	Otik Sandath: a jello shot
 G 0 10309 0		*	Otik Sandath: a drink called, "bloody heads"
-M 0 10228 1 10281 1	* Tika the barmaid (Inn of the Last Home.)
+M 0 10228 1 10281 1	* Tika the barmaid (Inn of the Last Home)
 G 0 10307 0		*	Tika the barmaid: a drink called, "a Flaming homer"
 G 0 10308 0		*	Tika the barmaid: a jello shot
 G 0 10309 0		*	Tika the barmaid: a drink called, "bloody heads"
-M 0 10215 1 10282 1	* Townguard (Outside the Inn of the Last Home.)
+M 0 10215 1 10282 1	* Townguard (Outside the Inn of the Last Home)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10237 0 16		*	Townguard<wielded>: enchanted longsword
-M 0 10215 1 10282 1	* Townguard (Outside the Inn of the Last Home.)
+M 0 10215 1 10282 1	* Townguard (Outside the Inn of the Last Home)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10238 0 16		*	Townguard<wielded>: enchanted hammer
-M 0 10215 1 10282 1	* Townguard (Outside the Inn of the Last Home.)
+M 0 10215 1 10282 1	* Townguard (Outside the Inn of the Last Home)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10239 0 16		*	Townguard<wielded>: enchanted pike
-M 0 10215 1 10282 1	* Townguard (Outside the Inn of the Last Home.)
+M 0 10215 1 10282 1	* Townguard (Outside the Inn of the Last Home)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10301 0 16		*	Townguard<wielded>: enchanted bow
 M 0 10203 1 10283 1	* Sergeant at Arms (Sergeant's Office)
@@ -5167,28 +5127,28 @@ E 0 10235 0 16		*	Sergeant at Arms<wielded>: a red steel warhammer called, "Mage
 E 0 10212 0 1		*	Sergeant at Arms<on the left finger>: an Solace signet ring
 E 0 10234 0 14		*	Sergeant at Arms<on the left wrist>: a red bracer
 E 0 10234 0 15		*	Sergeant at Arms<on the right wrist>: a red bracer
-M 0 10215 1 10285 1	* Townguard (Guards Room.)
+M 0 10215 1 10285 1	* Townguard (Guards Room)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10237 0 16		*	Townguard<wielded>: enchanted longsword
-M 0 10215 1 10285 1	* Townguard (Guards Room.)
+M 0 10215 1 10285 1	* Townguard (Guards Room)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10238 0 16		*	Townguard<wielded>: enchanted hammer
-M 0 10215 1 10285 1	* Townguard (Guards Room.)
+M 0 10215 1 10285 1	* Townguard (Guards Room)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10239 0 16		*	Townguard<wielded>: enchanted pike
-M 0 10215 1 10285 1	* Townguard (Guards Room.)
+M 0 10215 1 10285 1	* Townguard (Guards Room)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10301 0 16		*	Townguard<wielded>: enchanted bow
-M 0 10204 1 10285 1	* Townguard (Guards Room.)
+M 0 10204 1 10285 1	* Townguard (Guards Room)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10237 0 16		*	Townguard<wielded>: enchanted longsword
-M 0 10204 1 10285 1	* Townguard (Guards Room.)
+M 0 10204 1 10285 1	* Townguard (Guards Room)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10238 0 16		*	Townguard<wielded>: enchanted hammer
-M 0 10204 1 10285 1	* Townguard (Guards Room.)
+M 0 10204 1 10285 1	* Townguard (Guards Room)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10239 0 16		*	Townguard<wielded>: enchanted pike
-M 0 10204 1 10285 1	* Townguard (Guards Room.)
+M 0 10204 1 10285 1	* Townguard (Guards Room)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10301 0 16		*	Townguard<wielded>: enchanted bow
 M 0 10215 1 10287 1	* Townguard (Long Hallway)
@@ -5203,26 +5163,26 @@ E 0 10239 0 16		*	Townguard<wielded>: enchanted pike
 M 0 10215 1 10287 1	* Townguard (Long Hallway)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10301 0 16		*	Townguard<wielded>: enchanted bow
-M 0 10233 2 10291 1	* mage (North End of Bar.)
+M 0 10233 2 10291 1	* mage (North End of Bar)
 E 0 10282 0 12		*	mage<about the shoulders>: travellers robe
 E 0 10283 0 16		*	mage<wielded>: travellers dagger
 E 0 10284 0 17		*	mage<held in the hands>: travellers spellbook
-M 0 10234 2 10291 1	* Thief (North End of Bar.)
+M 0 10234 2 10291 1	* Thief (North End of Bar)
 E 0 10283 0 16		*	Thief<wielded>: travellers dagger
 E 0 10286 0 5		*	Thief<on the body>: a travellers vest
 E 0 10287 0 3		*	Thief<around the neck>: a travellers cloak
-M 0 10235 2 10291 1	* Warrior (North End of Bar.)
+M 0 10235 2 10291 1	* Warrior (North End of Bar)
 E 0 10288 0 16		*	Warrior<wielded>: a travellers sword
 E 0 10289 0 5		*	Warrior<on the body>: a travellers scalemail
 E 0 10290 0 11		*	Warrior<as a shield>: a travellers shield
-M 0 10236 2 10291 1	* Cleric (North End of Bar.)
+M 0 10236 2 10291 1	* Cleric (North End of Bar)
 E 0 10285 0 17		*	Cleric<held in the hands>: travellers holy symbol
 E 0 10291 0 16		*	Cleric<wielded>: a travellers hammer
 E 0 10282 0 12		*	Cleric<about the shoulders>: travellers robe
-M 0 10229 1 10291 1	* Thief (North End of Bar.)
-M 0 10230 3 10291 1	* old man (North End of Bar.)
-M 0 10231 1 10291 1	* boy (North End of Bar.)
-M 0 10201 1 10292 1	* Captain of the Guard (Captain's Office.)
+M 0 10229 1 10291 1	* Thief (North End of Bar)
+M 0 10230 3 10291 1	* old man (North End of Bar)
+M 0 10231 1 10291 1	* boy (North End of Bar)
+M 0 10201 1 10292 1	* Captain of the Guard (Captain's Office)
 E 0 10201 0 6		*	Captain of the Guard<over the head>: the obsidian helmet
 E 0 10298 0 5		*	Captain of the Guard<on the body>: a suit of obsidian plate armor
 E 0 10202 0 10		*	Captain of the Guard<on the arms>: obsidian sleeves
@@ -5239,9 +5199,9 @@ E 0 10211 0 16		*	Captain of the Guard<wielded>: a black hilted sword called, "D
 E 0 10212 0 1		*	Captain of the Guard<on the left finger>: an Solace signet ring
 E 0 10213 0 14		*	Captain of the Guard<on the left wrist>: a obsidian bracer
 E 0 10213 0 15		*	Captain of the Guard<on the right wrist>: a obsidian bracer
-O 0 10214 0 10292	* a weapons cabinet (Captain's Office.)
+O 0 10214 0 10292	* a weapons cabinet (Captain's Office)
 P 0 10215 1 0 1	* a weapons cabinet: a black hilted sword called, "Dragonslicer"
-M 0 10248 1 10295 1	* Secretary (Lieutenant's Reception Area.)
+M 0 10248 1 10295 1	* Secretary (Lieutenant's Reception Area)
 M 0 10241 1 10296 1	* old lady (Administration Hallway)
 M 0 10242 1 10299 1	* tired adventurer (Private Room)
 M 0 10243 1 10300 1	* Magnus wizard (Private Room)
@@ -5251,34 +5211,34 @@ M 0 10244 1 10301 1	* Lord Doom (Private Room)
 E 0 10294 0 5		*	Lord Doom<on the body>: crystal plate armor
 E 0 10297 0 16		*	Lord Doom<wielded>: crystal longsword
 E 0 10296 0 11		*	Lord Doom<as a shield>: crystal shield
-M 0 10245 1 10302 1	* Foreign Trade Representative (Captain's Meeting room.)
+M 0 10245 1 10302 1	* Foreign Trade Representative (Captain's Meeting room)
 G 0 10303 0		*	Foreign Trade Representative: a lot of gold coins
-M 0 10246 3 10302 1	* bodyguard (Captain's Meeting room.)
-M 0 10215 1 10304 1	* Townguard (Guards Room.)
+M 0 10246 3 10302 1	* bodyguard (Captain's Meeting room)
+M 0 10215 1 10304 1	* Townguard (Guards Room)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10237 0 16		*	Townguard<wielded>: enchanted longsword
-M 0 10215 1 10304 1	* Townguard (Guards Room.)
+M 0 10215 1 10304 1	* Townguard (Guards Room)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10238 0 16		*	Townguard<wielded>: enchanted hammer
-M 0 10215 1 10304 1	* Townguard (Guards Room.)
+M 0 10215 1 10304 1	* Townguard (Guards Room)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10239 0 16		*	Townguard<wielded>: enchanted pike
-M 0 10215 1 10304 1	* Townguard (Guards Room.)
+M 0 10215 1 10304 1	* Townguard (Guards Room)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10301 0 16		*	Townguard<wielded>: enchanted bow
-M 0 10204 1 10304 1	* Townguard (Guards Room.)
+M 0 10204 1 10304 1	* Townguard (Guards Room)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10237 0 16		*	Townguard<wielded>: enchanted longsword
-M 0 10204 1 10304 1	* Townguard (Guards Room.)
+M 0 10204 1 10304 1	* Townguard (Guards Room)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10238 0 16		*	Townguard<wielded>: enchanted hammer
-M 0 10204 1 10304 1	* Townguard (Guards Room.)
+M 0 10204 1 10304 1	* Townguard (Guards Room)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10239 0 16		*	Townguard<wielded>: enchanted pike
-M 0 10204 1 10304 1	* Townguard (Guards Room.)
+M 0 10204 1 10304 1	* Townguard (Guards Room)
 E 0 10236 0 5		*	Townguard<on the body>: black platemail
 E 0 10301 0 16		*	Townguard<wielded>: enchanted bow
-M 0 10202 1 10305 1	* Lieutenant Commander (Lieutenant's Office.)
+M 0 10202 1 10305 1	* Lieutenant Commander (Lieutenant's Office)
 E 0 10216 0 6		*	Lieutenant Commander<over the head>: the steel helmet
 E 0 10299 0 5		*	Lieutenant Commander<on the body>: a suit of steel plate armor
 E 0 10217 0 10		*	Lieutenant Commander<on the arms>: steel sleeves
@@ -5293,8 +5253,8 @@ E 0 10225 0 16		*	Lieutenant Commander<wielded>: black hilted sword called, "Shi
 E 0 10212 0 1		*	Lieutenant Commander<on the left finger>: an Solace signet ring
 E 0 10224 0 14		*	Lieutenant Commander<on the left wrist>: a steel bracer
 E 0 10224 0 15		*	Lieutenant Commander<on the right wrist>: a steel bracer
-M 0 10206 1 10308 1	* Citizen of Solace (Reading Room.)
-M 0 10247 1 10312 1	* Secretary (Captain's Waiting Room.)
+M 0 10206 1 10308 1	* Citizen of Solace (Reading Room)
+M 0 10247 1 10312 1	* Secretary (Captain's Waiting Room)
 S
 
 #SHOPS
