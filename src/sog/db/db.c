@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.169.2.24 2002-10-16 11:30:06 tatyana Exp $
+ * $Id: db.c,v 1.169.2.25 2002-10-18 07:11:58 tatyana Exp $
  */
 
 /***************************************************************************
@@ -419,7 +419,8 @@ void boot_db(void)
 	db_load_list(&db_clans, CLANS_PATH, CLAN_LIST);
 	db_load_list(&db_areas, AREA_PATH, AREA_LIST);
 	db_load_file(&db_hometowns, ETC_PATH, HOMETOWNS_CONF);
-	db_load_file(&db_black_market, ETC_PATH, BLACK_MARKET_CONF);
+	if (dfexist(ETC_PATH, BLACK_MARKET_CONF))
+		db_load_file(&db_black_market, ETC_PATH, BLACK_MARKET_CONF);
 
 	/*
 	 * load modules

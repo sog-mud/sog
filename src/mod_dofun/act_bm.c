@@ -31,7 +31,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_bm.c,v 1.1.2.1 2002-10-16 11:30:00 tatyana Exp $
+ * $Id: act_bm.c,v 1.1.2.2 2002-10-18 07:11:57 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -90,7 +90,7 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 	if (!str_cmp(arg, "list")) {
 		uint counter = 0;
 		if (item == NULL) {
-			act("{DBLACK MARKET]{x You can buy nothing today!",
+			act("{D[BLACK MARKET]{x You can buy nothing today!",
 			    ch, NULL, NULL, TO_CHAR);
 			return;
 		}
@@ -99,13 +99,8 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 			counter++;
 			act("[$j] ", ch, (const void *) counter, NULL,
 			    TO_CHAR | ACT_NOLF);
-			act_puts3 ("$P (lim by $j, lev $J): ",
-				   ch,
-				   (const void *) item->obj->pObjIndex->limit,
-				   item->obj,
-				   (const void *) item->obj->level,
-				   TO_CHAR | ACT_NOUCASE | ACT_NOCANSEE,
-				   POS_DEAD);
+			act("$P: ", ch, NULL, item->obj,
+			    TO_CHAR | ACT_NOUCASE | ACT_NOCANSEE);
 			if (IS_IMMORTAL(ch)) {
 				act_puts3("	current bet - $J; "
 					  "seller - $t; buyer - $T.",
@@ -416,7 +411,51 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 		save_black_market();
 		return;
 	}
+
+	if (!str_cmp(arg, "show")) {
+/* sell item */
+		uint number;
+		bool found = FALSE;
+		BUFFER *output;
+
+		argument = one_argument(argument, arg, sizeof(arg));
+		number = number_argument(arg, arg1, sizeof(arg1));
+
+		for (item = bmitem_list; item != NULL && item->obj != NULL;
+				item = item->next)
+			if ((arg1[0] == '\0' ||
+			     is_name(arg1, item->obj->name))
+			&&  !--number) {
+				found  = TRUE;
+				break;
+			}
+
+		if (!found) {
+			act ("{D[BLACK MARKET]{x There is no such item in "
+			     "sale.", ch, NULL, NULL, TO_CHAR);
+			return;
+		}
+
+		if (IS_SET(item->obj->pObjIndex->extra_flags, ITEM_NOIDENT)) {
+			act("[BLACK MARKET] True nature of the $P is unknown.",
+			    ch, NULL, item->obj, TO_CHAR);
+			return;
+		}
+
+		output = buf_new(-1);
+		format_obj(output, item->obj);
+		if (!IS_SET(item->obj->extra_flags, ITEM_ENCHANTED))
+			format_obj_affects(output,
+					   item->obj->pObjIndex->affected,
+					   FOA_F_NODURATION);
+		format_obj_affects(output, item->obj->affected, 0);
+		page_to_char(buf_string(output), ch);
+		buf_free(output);
+		return;
+	}
+
 	do_help(ch, "'BLACK MARKET'");
+
 }
 
 static void
