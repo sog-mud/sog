@@ -6254,17 +6254,20 @@ D2
 Z -1 3046
 S
 #3057
-In the air...~
-WOW you can fly!  You are floating in the air above Temple Square of Midgaard.
+@eng In the air...@rus В воздухе...~
+@eng WOW you can fly!  You are floating in the air above Temple Square of Midgaard.
+@rus Вау! Ты умеешь летать! И ты поднялся прямо над храмовой площадью. 
 ~
 0 CS air
 D4
-More of the same.
+@eng More of the same.
+@rus То же самое.
 ~
 ~
 Z 0 1017
 D5
-Back down on the earth where you should be!
+@eng Back down on the earth where you should be!
+@rus Родная земля.
 ~
 ~
 Z 0 3005

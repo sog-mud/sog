@@ -793,12 +793,12 @@ A
 19 4
 G none
 #36196
-~
-~
-~
+lembas wafers~
+delicious lembas wafers~
+A wide-known elven bread lies here.~
 unknown~
-container 0 0
-0 0 0 0 0
+food 0 AO
+BCG AC 0 0 0
 0 0 0 P
 G none
 #36197
@@ -818,17 +818,6 @@ unknown~
 pill 0 AO
 150 'detect fade' 'improved detect' 'detect hidden' 'acute vision'
 10 3 0 P
-G none
-#36199
-test obj~
-test~
-test~
-unknown~
-weapon 0 AO
-dagger 10 10 pierce 0
-0 0 0 P
-F
-A 0 0 V
 G none
 #0
 

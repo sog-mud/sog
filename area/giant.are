@@ -262,8 +262,8 @@ adamantite~
 weapon BEIM AN
 dagger 7 7 pierce H
 50 50 2500 P
-A
--255 20
+F
+S 'knife' 20 0
 A
 18 3
 A
@@ -408,8 +408,8 @@ adamantite~
 armor AB AG
 8 8 8 8 8
 50 50 8000 P
-A
--276 30
+F
+S 'kick' 30 0
 A
 19 5
 A
@@ -521,8 +521,8 @@ copper~
 armor ABJK AG
 8 8 8 8 8
 50 80 8000 P
-A
--306 25
+F
+S 'trip' 25 0
 A
 18 4
 A

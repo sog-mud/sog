@@ -922,6 +922,15 @@ furniture R 0
 A 0 D 0 0
 0 1 1 P
 G none
+#38202
+poisoned pill~
+Strange pill.~
+Someone left strange pill here.~
+unknown~
+pill 0 A
+11 'poison' 'plague' 'blindness' 'weaken'
+20 1 1 P
+G none
 #38500
 spiked skullsmasher ebony kris~
 the ebony kris~

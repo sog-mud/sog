@@ -174,6 +174,38 @@ fountain RTYa AP
 -1 -1 'salt water' 0 0
 1 20000 2147483647 P
 G none
+#34450
+claws когти~
+@eng tiger's claws@rus ~~когти~~ тигра~
+@eng Strange claws lie here.@rus Непонятного вида когти (claws) брошены здесь.~
+claw~
+clothing Yh AH
+0 0 0 0 0
+10 1 10000 P
+F
+S 'grip' 75 A
+F
+S 'master hand' 50 A
+F
+S 'hand block' 75 A
+F
+S 'disarm' 75 A
+G plural
+#34451
+manual reference book справочник энциклопедия~
+@eng Reference manual@rus "~~Энциклопедия~~ юных сурков"~
+@eng The book about all you want to know lies here.@rus Большая толстая энциклопедия (manual) кем-то оставлена здесь.~
+paper~
+treasure Ah AO
+0 0 0 0 0
+10 1 10000 P
+F
+S 'locate object' 75 A
+F
+S 'identify' 100 A
+F
+S 'lore' 100 A
+G none
 #0
 
 #ROOMS

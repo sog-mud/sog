@@ -2871,36 +2871,6 @@ these items. Also these items cannot get damage. As you lost one of them
 because of crashes note to gods.
 
 ~
--1 RINGREWARD 'QUEST REWARD RING'~
-Object 'ring hero' is type {cweapon{x, extra flags glow magic bless nopurge burn_proof.
-Weight is 30, value is 100000, level is 21.
-Armor class is 12 pierce, 12 bash, 12 slash, and 9 vs. magic.
-Affects moves by 500.
-Affects hp by 150.
-Affects mana by 150.
-Affects dam roll by 5.
-Affects hit roll by 10.
-Affects armor class by -20.
-Affects charisma by 1.
-~
--1 GIRTHREWARD 'QUEST REWARD GIRTH'~
-Object 'girth hero' is type armor, extra flags glow magic bless nopurge burn_proof.
-Weight is 30, value is 100000, level is 21.
-Armor class is 12 pierce, 12 bash, 12 slash, and 9 vs. magic.
-Affects armor class by -30.
-Adds detect_evil detect_good detect_invis detect_magic infrared affect.
-Affects damage roll by 10.
-Adds resistance to magic.
-Affects hit roll by 10.
-Affects moves by 500.
-Affects hp by 200.
-Affects mana by 200.
-Affects charisma by 1.
-Affects intelligence by 3.
-Affects constitution by 3.
-Affects wisdom by 2.
-Affects strength by 2.
-~
 -1 'QUEST AUTOMAGIC'~
 quest points   : show quest points
 	quest info     : shows what must you do for finish the quest
@@ -3681,22 +3651,6 @@ Syntax: exd add keyword lang
 ~
 0 'protection negative'~
 Characters affected by 'protection negative' are immune to negative attack, for example 'energy drain', 'hand of undead', 'corruption'
-~
-0 SONGREWARD 'QUEST REWARD SONG'~
-Object 'song hero' is type container, extra flags bless nopurge nosac burnproof
-Weight is 0, value is 0, level is 21.
-Capacity: 150#  Maximum weight: 600#  flags: none
-Weight multiplier: 5%
-Affects savingspell by -15.
-Affects hitroll by 15.
-Affects strength by 2.
-Affects dexterity by 2.
-Affects wisdom by 2.
-Affects charisma by 1.
-Affects damroll by 15.
-Affects move by 500.
-Affects mana by 150.
-Affects hp by 200.
 ~
 0 'OLC ALIST'~
 Syntax: alist area [substr]

@@ -509,23 +509,6 @@ weapon AGIKL AN
 mace 9 0 divine I
 0 0 0 P
 G male
-#19
-teeth зубы vampiric~
-@eng Vampiric teeth@rus ~~зубы~~ вампира~
-@eng Terrible vampiric teeth lies here.@rus Какой-то вампир забыл здесь свои зубы (teeth).~
-bone~
-treasure Yh AOP
-0 0 0 0 0
-10 1 10000 P
-F
-S 'vampiric bite' 100 A
-F
-S 'vampire' 100 A
-F
-S 'vampiric blast' 100 A
-F
-S 'vampiric touch' 100 A
-G plural
 #20
 mushroom грибок~
 @eng a Magic Mushroom@rus ~~Волшебный~~ ~~Мухомор~~~
@@ -567,7 +550,7 @@ tail dragon хвост~
 @eng Dragon's tail@rus ~~хвост~~ дракона~
 @eng Dragon's tail lies here.@rus Очень странно. Это самый натуральный драконий хвост (tail).~
 flesh~
-clothing Yh AFP
+clothing Yh AF
 0 0 0 0 0
 10 1 10000 P
 A
@@ -630,7 +613,7 @@ gloves перчатки~
 @eng black gloves@rus ~~черные~~ ~~перчатки~~~
 @eng Black gloves lie here.@rus Черные перчатки (gloves) валяются на земле.~
 unknown~
-armor Yh AHP
+armor Yh AH
 -20 -20 -20 -20 0
 10 1 10000 P
 F
@@ -751,7 +734,7 @@ pillow big подушка~
 @eng Big Soft Pillow@rus ~~большая~~ ~~мягкая~~ ~~подушка~~~
 @eng The big soft pillow lies here.@rus Большая подушка (pillow) так и манит к себе.~
 unknown~
-furniture Ah AP
+furniture Ah A
 A CFG EK DFGHIJ DFGHIJ
 10 1 10000 P
 G female
@@ -760,7 +743,7 @@ bell small колокольчик~
 @eng Small silver bell@rus ~~маленький~~ ~~серебряный~~ ~~колокольчик~~~
 @eng Small silver bell lies here.@rus В пыли мягким серебрянным светом поблескивает колокольчик (bell).~
 silver~
-jewelry AGh AOP
+jewelry AGh AO
 0 0 0 0 0
 10 0 0 P
 F
@@ -800,7 +783,7 @@ sack sands мешок~
 @eng sack filled with sands@rus ~~мешок~~ с песком~
 @eng Sack filled with sands lies here.@rus Небольшой мешок (sack) из холстины валяется на земле.~
 canvas~
-container h AOP
+container h AO
 0 C 0 500 5
 0 100 10000 P
 F
@@ -851,7 +834,7 @@ cloud облако~
 @eng the small cloud@rus ~~маленькое~~ ~~облако~~~
 @eng The small cloud is floating around your head.@rus Маленькое облако (cloud) висит в воздухе прямо перед тобой.~
 energy~
-container GIYh APQ
+container GIYh AQ
 150 A 0 600 5
 10 5 10000 P
 F
@@ -886,7 +869,7 @@ cloak плащ~
 @eng Cloak of The Lord Protector@rus ~~плащ~~ Лорда-Защитника~
 @eng The beautiful black cloak lies here.@rus Красивый плащ (cloak) из черной кожи лежит здесь.~
 skin~
-armor GIYh ADP
+armor GIYh AD
 -20 -20 -20 -20 0
 10 1 10000 P
 F
@@ -931,9 +914,11 @@ ring кольцо golden золотое колечко~
 @eng Golden Ring@rus ~~золотое~~ ~~колечко~~~
 @eng The golden ring lies here.@rus Кольцо (ring), сделанное из драгоценного металла, лежит здесь.~
 gold~
-jewelry Yh ABP
+jewelry Yh AB
 0 0 0 0 0
 10 0 10000 P
+F
+S 'camouflage move' 100 A
 F
 A 13 100 P
 A
@@ -952,7 +937,7 @@ ring кольцо silver серебряное колечко~
 @eng Silver Ring@rus ~~серебряное~~ ~~колечко~~~
 @eng Silver ring lies here.@rus Кольцо (ring), выкованное из серебра, лежит здесь.~
 silver~
-jewelry Yh ABP
+jewelry Yh AB
 0 0 0 0 0
 10 0 0 P
 F
@@ -1142,7 +1127,7 @@ tattoo ATUY AR
 G none
 #68
 skin rabbit шкура шкурка~
-@eng Rabbit's skin@rus ~~крольчья~~ ~~шкурка~~~
+@eng Rabbit's skin@rus ~~кроличья~~ ~~шкурка~~~
 @eng Rabbit's skin lies here.@rus Кроличья шкурка (skin) валяется здесь.~
 skin~
 trash Ah AG
@@ -1159,6 +1144,31 @@ A 12 100 U
 F
 A 13 100 P
 G female
+#69
+amulet амулет holy~
+@eng holy amulet@rus ~~священный~~ ~~амулет~~~
+@eng Holy amulet lies here.@rus Светящийся белый амулет (amulet) лежит здесь.~
+magic~
+jewelry GIh AC
+0 0 0 0 0
+10 1 10000 P
+A
+12 250
+A
+13 250
+A
+6 5
+A
+8 5
+A
+20 -25
+F
+S 'holy word' 100 A
+F
+S 'bless' 100 A
+F
+S 'benediction' 100 A
+G male
 #70
 badge значок~
 @eng silver ruler badge@rus ~~серебряный~~ ~~значок~~ Рулера~

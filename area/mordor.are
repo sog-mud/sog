@@ -9,6 +9,51 @@ Flags closed noquest~
 End
 
 #OBJECTS
+#30098
+svetilka~
+svetilka~
+Some Light lies here~
+unknown~
+light 0 AO
+0 0 -1 0 0
+50 0 0 P
+F
+A 0 0 P
+F
+A 0 0 T
+F
+A 0 0 U
+F
+A 0 0 E
+F
+A 0 0 Z
+F
+A 0 0 e
+F
+A 0 0 g
+F
+A 0 0 Q
+F
+A 0 0 f
+F
+A 0 0 B
+F
+A 0 0 J
+F
+A 0 0 m
+F
+A 0 0 t
+F
+A 0 0 l
+F
+A 0 0 F
+F
+A 0 0 D
+F
+A 0 0 G
+F
+A 0 0 C
+G none
 #30099
 fountain~
 fountain~
@@ -62,6 +107,11 @@ S
 D 0 30001 0 1	* Before the Gate of Mordor: door to the north: closed
 D 0 30002 2 1	* Guard Room behind the Gate: door to the south: closed
 O 0 30099 0 30000	* fountain (Road to Mountain)
+O 0 30098 0 30000	* svetilka (Road to Mountain)
+S
+
+#OLIMITS
+O 30098 1	* svetilka
 S
 
 #$

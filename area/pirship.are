@@ -92,7 +92,7 @@ O 0 702 0 700	* Rum bottle (Captain's cabin)
 S
 
 #OLIMITS
-O 703 1	* Rod Of Rage
+O 703 0	* Rod Of Rage
 S
 
 #MOBPROGS

@@ -106,7 +106,7 @@ stand stand male 0
 хвостом.
 ~
 unique~
-ABI BFHPQTVZcefglm 1000 0
+ABIX BFHPQTVZcefglm 1000 0
 95 1000 10d10+500 10d10+500 15d15+500 bite
 0 0 0 0
 ACDEFGHIJKNO ACD 0 0
@@ -234,10 +234,10 @@ divinity~
 weapon 0 AN
 mace 2000 2000 stab BCDEGHI
 100 0 0 P
-A
--260 1000
-A
--355 500
+F
+S 'critical strike' 1000 0
+F
+S 'resistance' 500 0
 A
 8 100
 F

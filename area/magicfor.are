@@ -1,5 +1,6 @@
 #AREADATA
 Name Magic Forest~
+Builders learza~
 VNUMs 1800 1899
 Credits Xyza~
 Security 9
@@ -8,9 +9,10 @@ End
 
 #MOBILES
 #1801
-unicorn white~
-a white unicorn~
-A white unicorn regards you warily.
+unicorn white единорог белый~
+@eng a white unicorn@rus белый единорог~
+@eng A white unicorn regards you warily.
+@rus Белый единорог осторожно приветствует тебя.
 ~
 This beautiful creature is the whitest of whites, its eyes sparkling like
 sapphires, its spiral horn and cloven hooves of a shiny silver. Graceful,
@@ -953,8 +955,8 @@ soft leather~
 armor BGI AG
 11 11 11 11 0
 50 50 3700 P
-A
--276 50
+F
+S 'kick' 50 0
 A
 3 1
 A
@@ -1489,10 +1491,13 @@ G none
 
 #ROOMS
 #1801
-Northwest Corner~
-To the north and west you see a finely constructed wall, too high to peer
+@eng Northwest Corner@rus Северо-западный угол~
+@eng To the north and west you see a finely constructed wall, too high to peer
 over. The foliage is thick here, with tall trees. You hear the songs of
 birds overhead.
+@rus На севере и западе ты видешь хорошо отстроенную стену, слишком высокую,
+чтобы выглянуть над ней. Здесь густая растительность и высокие деревья.
+Над головой ты слышишь пение птиц.
 ~
 0 0 forest
 D0
@@ -1510,11 +1515,15 @@ D2
 Z -1 1809
 S
 #1802
-In the Thick Wood~
-To the north you see a well-constructed wall, too high to peer over. The
+@eng In the Thick Wood@rus В Густом Лесу~
+@eng To the north you see a well-constructed wall, too high to peer over. The
 foliage is thick here, preventing you from touching the wall. You hear the
 songs of birds overhead. Looking up, you see that the trees here are very
 tall.
+@rus На севере ты видишь хорошо отстроенную стену, слишком высокую чтобы
+выглянуть над ней. Густая кустарник не да÷т тебе дбраться до стены.
+Над твоей головой поют птицы. Взклянув вверх, ты понимаешь, что деревья
+здесь высокие.
 ~
 0 0 forest
 D1
@@ -1531,10 +1540,13 @@ D3
 Z -1 1801
 S
 #1803
-By the Wall~
-A finely-made wall is to your north, too high to peer over. The shrubs are
+@eng By the Wall@rus Возле Стены~
+@eng A finely-made wall is to your north, too high to peer over. The shrubs are
 thick here, and the trees tall. From above, you can hear the chirping of
 birds.
+@rus Хорошо построенная стена на севере прямо перед тобой, слишком высока, чтобы
+выглЯнуть над ней. Здесь высокие деревья и густой кустарник. Сверху доносится
+щебетание птиц.
 ~
 0 0 forest
 D1
@@ -1551,10 +1563,13 @@ D3
 Z -1 1802
 S
 #1804
-By the Wall~
-A finely-made wall is to your north, too high to peer over. A thicket of
+@eng By the Wall@rus Возле Стены~
+@eng A finely-made wall is to your north, too high to peer over. A thicket of
 shrubs and vines keeps you from touching the wall. The trees are tall. From
 above, you can hear birdsong.
+@rus Хорошо построеннаЯ стена на севере прЯмо перед тобой слишком высока, чтобы
+выглЯнуть над ней. Заросли кустарника и виноградная лоза не дают приблизиться
+к ней. ДеревьЯ высокие. Сверху доносится птичья трель.
 ~
 0 0 forest
 D1
@@ -1571,10 +1586,13 @@ D3
 Z -1 1803
 S
 #1805
-By the Wall~
-A finely-made wall is to your north, too high to peer over. The shrubbery is
+@eng By the Wall@rus Возле Стены~
+@eng A finely-made wall is to your north, too high to peer over. The shrubbery is
 thick here; the trees are tall. From above, you can hear the songs of birds.
 To the east the forest darkens.
+@rus Хорошо построеннаЯ стена на севере прЯмо перед тобой слишком высока, чтобы
+выглЯнуть над ней. Здесь высокие дервья и пышный кустарник. Сверху доносится
+пение птиц. На востоке лес мрачнеет.
 ~
 0 0 forest
 D1
@@ -1591,11 +1609,15 @@ D3
 Z -1 1804
 S
 #1806
-By the Dark Wall~
-The forest is dark here, with hardly a ray of sunshine breaking through the
+@eng By the Dark Wall@rus Возле Мрачной Стены~
+@eng The forest is dark here, with hardly a ray of sunshine breaking through the
 canopy of leaves above you. To the north is a high wall, too high to peer
 over. You hear faint birdsong from the west. The shrubbery is thick here,
 but not as thick as to the west.
+@rus Лес здесь мрачный, с большим трудом солнечные лучи пробиваютсЯ сквозь листву.
+На севере находится высокая стена, слишком высокая чтобы выглянуть над ней.
+С запада доносится слабая птичья трель. Кустарник тут тоже густой, правда
+не такой пышный, как на западе.
 ~
 0 A forest
 D1
@@ -1612,11 +1634,14 @@ D3
 Z -1 1805
 S
 #1807
-By the Dark Wall~
-The forest is dark here, with hardly a ray of sunshine breaking through the
+@eng By the Dark Wall@rus Возле Мрачной Стены~
+@eng The forest is dark here, with hardly a ray of sunshine breaking through the
 canopy of leaves above you. To the north is a high wall, too high to peer
 over. You hear very faint birdsong from the west. The shrubbery is thickening
 again here.
+@rus Лес здесь мрачный, с большим трудом солнечные лучи пробиваютсЯ сквозь листву.
+На севере находится высокая стена, слишком высокая чтобы выглянуть над ней.
+Слабая птичья трель доносится с запада. Кустарник снова сгущаетсЯ.
 ~
 0 A forest
 D1
@@ -1633,9 +1658,11 @@ D3
 Z -1 1806
 S
 #1808
-Northwest Corner~
-To the north and west you see a very dark wall, too high to peer over. The
+@eng Northeast Corner@rus Северо-восточный угол~
+@eng To the north and east you see a very dark wall, too high to peer over. The
 foliage here is very thick, as is the canopy of leaves above you.
+@rus На севере и востоке ты видишь очень мрачную стену, слишком высокую чтобы выглянуть
+над ней. Растительность здесь очень пышная, как лесной полог над головой.
 ~
 0 A forest
 D2
@@ -1648,11 +1675,15 @@ D3
 Z -1 1807
 S
 #1809
-By the Western Wall~
-The wall you see to the west is well-constructed, but it is too high to peer
+@eng By the Western Wall@rus Возле Западной Стены~
+@eng The wall you see to the west is well-constructed, but it is too high to peer
 over. The foliage here is thick, preventing you from approaching the wall and
 examining it more closely. The trees here are tall. From above come the songs
 of birds.
+@rus Стена, что возвышаетеся на западе, неплохо отстроена, но она слишком высокая,
+чтобы выглянуть над ней. Пышная растительность мешает подойти к стене и 
+изучить её с более близкого расстояния. Деревья здесь высокие. Сверху доносится
+пение птиц.
 ~
 0 0 forest
 D0
@@ -1669,9 +1700,11 @@ D2
 Z -1 1817
 S
 #1810
-Clearing~
-All around the foliage is thick, but here the bushes and trees have given
+@eng Clearing@rus Опушка~
+@eng All around the foliage is thick, but here the bushes and trees have given
 way to a glade of soft grass waving in the gentle breeze.
+@rus Вся растительность вокруг очень густая, но здесь лес расступается, давая проход
+на полянку с мягкой травкой, развевающейся под лёгким ветерком.
 ~
 0 0 forest
 D0
@@ -1692,9 +1725,11 @@ D3
 Z -1 1809
 S
 #1811
-End of the Path~
-The path ends here, and all around you are tall trees and thick foliage. You
+@eng End of the Path@rus Конец Тропинки~
+@eng The path ends here, and all around you are tall trees and thick foliage. You
 hear the songs of birds above you. To your west is a clearing.
+@rus Тропинка тут заканчивается, вокруг тебя только высокие деревья и густая
+растительность. Ты слышишь пение птиц над головой. На запад от тебя опушка.
 ~
 0 0 forest
 D0
@@ -1715,9 +1750,11 @@ D3
 Z -1 1810
 S
 #1812
-In the Thick Woods~
-The shrubs are thick here, but not thick enough that you cannot navigate
+@eng In the Thick Woods@rus В Густом Лесу~
+@eng The shrubs are thick here, but not thick enough that you cannot navigate
 through them. The trees are tall. From above you hear the chirping of birds.
+@rus Здесь густой кустарник, хотя и недостаточно густой, чтобы ты не мог пройти
+сквозь него. Деревья высоки. Сверху ты слышишь щебетание птиц.
 ~
 0 0 forest
 D0
@@ -1738,10 +1775,12 @@ D3
 Z -1 1811
 S
 #1813
-In the Thick Wood~
-The wood is thick here, so thick and thorny that to the east the way is
+@eng In the Thick Wood@rus В Густом Лесу~
+@eng The wood is thick here, so thick and thorny that to the east the way is
 impassable. The trees are tall, and from above you can hear the songs of
 birds.
+@rus Лес здесь настолько густой и колючий, что путь на восток становится
+непроходимым. С макушек высоких деревьев доносятся птичиье пение.
 ~
 0 0 forest
 D0
@@ -1758,10 +1797,13 @@ D3
 Z -1 1812
 S
 #1814
-End of Path in the Dark Wood~
-The canopy of leaves above you has just about blocked out all the light. The
+@eng End of Path in the Dark Wood@rus Конец Тропинки в Дремучем Лесу~
+@eng The canopy of leaves above you has just about blocked out all the light. The
 path goes no farther north, but continues south. The shrubbery is thick
 around you. You hear the faint song of birds to the west.
+@rus Лесной полог над тобой полностью закрыл весь свет. Тропинка больше не идёт на
+север, но продолжается на юг. Вокруг тебя густой кустарник. С запада доносится
+слабая трель.
 ~
 0 A forest
 D0
@@ -1778,10 +1820,13 @@ D2
 Z -1 1822
 S
 #1815
-In the Dark Wood~
-The foliage is so thick here it's a wonder you can move. Up above, the trees
+@eng In the Dark Wood@rus В Дремучем Лесу~
+@eng The foliage is so thick here it's a wonder you can move. Up above, the trees
 form a dark canopy keeping most of the light out. You hear the very faint
 songs of birds from the west.
+@rus Растительность здесь настолько густа, что просто удивительно, как ты еще
+можешь передвигаться. Кроны деревьев сдерживают весь солнечный свет.
+Ты слышишь слабую трель с запада.
 ~
 0 A forest
 D0
@@ -1802,10 +1847,13 @@ D3
 Z -1 1814
 S
 #1816
-By the Dark Eastern Wall~
-To the east is a dark wall too high too peek over, and all around is thick
+@eng By the Dark Eastern Wall@rus Возле Тёмной Восточной Стены~
+@eng To the east is a dark wall too high too peek over, and all around is thick
 dark foliage. Above your head, the canopy of leaves is thick and keeps light
 out.
+@rus На востоке от тебя находется тёмная стена, слишком высокая, чтобы выглянуть
+над ней, а вокруг мрачная густая растительность.  Крона над твоей головой
+очень густая. Она сдерживает весь свет.
 ~
 0 A forest
 D0
@@ -1822,11 +1870,15 @@ D3
 Z -1 1815
 S
 #1817
-By the Western Wall~
-The wall you see to the west is well-constructed, but it is too high to peer
+@eng By the Western Wall@rus Возле Западной Стены~
+@eng The wall you see to the west is well-constructed, but it is too high to peer
 over. The foliage here is thick and the trees tall. From above come the songs
 of birds. Looking to the south you see that the way is impassable, blocked
 by thick shrubs and thorny bushes.
+@rus Стена, что на западе от тебя, хорошо сработана, но она слишком высока, чтобы
+выглянуть над ней. Здесь пышная растительность. Сверху доносится пение птиц.
+Взглянув на юг, ты понимаешь, что пройти туда не представляется возможым,
+путь загораживает пышный и колючий кустарник.
 ~
 0 0 forest
 D0
@@ -1839,12 +1891,17 @@ D1
 Z -1 1818
 S
 #1818
-Small Pool in the Glade~
-Surrounded by thick foliage and tall trees, the soft grass in the clearing
+@eng Small Pool in the Glade@rus Маленький Родничок на Поляне~
+@eng Surrounded by thick foliage and tall trees, the soft grass in the clearing
 is broken only by a small pool of clear, sweet water, gurgling up from
 underground, and snaking a small ways until it finds a path back underground.
 Looking down at it, the shape is sort of like a ball with a snaky tail. Shiny
 white rocks line the perimeter of the pool. The glade continues to the north.
+@rus Окружённая пышным кустарником и высокими деревьями, мягкая травка на полянке
+соседствует лишь только с маленьким родничком с прозрачной, сладковатой водой,
+бьющей из-под земли, которая чуть струится, чтобы опять вернуться под землю.
+Посмотрев на него, создаётся впечатление клубка расползающихся змей. Светящиеся
+белые камни окружают родничок. Полянка продолжается на север.
 ~
 0 0 forest
 D0
@@ -3436,7 +3493,7 @@ M 0 1840 14 1806 1	* a fallow deer (By the Dark Wall)
 O 0 1842 0 1806	* a small well-woven nest (By the Dark Wall)
 P 0 1843 11 1842 4	* a small well-woven nest: an egg
 M 0 1836 5 1806 1	* a red-eyed vireo (By the Dark Wall)
-M 0 1840 14 1808 1	* a fallow deer (Northwest Corner)
+M 0 1840 14 1808 1	* a fallow deer (Northeast Corner)
 O 0 1839 0 1809	* a small bush (By the Western Wall)
 P 0 1838 4 1839 1	* a small bush: a small moss and lichen nest
 P 0 1837 8 1838 2	* a small moss and lichen nest: a bean-sized white egg
