@@ -1,16 +1,18 @@
 #AREADATA
 Name Festival Town~
+Builders agrael kami~
 VNUMs 36300 36499
-Credits Builder~
+Credits Agrael Kami~
 Security 9
-LevelRange 1 50
+LevelRange 1 100
+Flags closed~
 End
 
 #MOBILES
 #36300
 grand father old man~
 Grandfather~
-you see a powerful old man standing here
+You see a powerful old man standing here.
 ~
 You see here a majestic old man with a gray hair and a long beard 
 lowered on his cape. He looks as a person, who past throu a lot of 
@@ -18,7 +20,7 @@ trials and knew the reality of life.
 ~
 human~
 AGRT BCDEFGHNO 0 0
-120 0 100d40+30000 100d10+15000 16d16+70 wrath
+120 0 100d50+40000 100d10+15000 19d16+80 wrath
 -80 -80 -80 -70
 AEFIJKN ABJKQ IO NPZ
 stand stand male 9000
@@ -26,7 +28,7 @@ L 0 medium unknown
 #36301
 Green Bowman~
 green bowman~
-a tall man stands here shooting arrows
+A tall man stands here shooting arrows.
 ~
 A tall man dressed all in green stands here. A red plume flows above 
 his hat. He looks at you then scans to the north, preparing an arrow
@@ -35,7 +37,7 @@ stay away of the pass he is shooting.
 ~
 human~
 AGT FNPUZ 1000 0
-87 0 100d20+22000 85d10+1000 13d10+70 punch
+91 0 100d20+27000 85d10+1000 13d10+70 punch
 -60 -60 -60 -58
 EFHIJKLNPY ABIX LQ FG
 stand stand male 5000
@@ -43,7 +45,7 @@ stand stand male 5000
 #36302
 Acute Eye red man~
 Acute Eye~
-a sneaky red-skinned man throws axes northward
+A sneaky red-skinned man throws axes northward.
 ~
 This man seems to be very strong. His eyes glows red and you realize
 that you'll never be such a person like he. You are to fall on your
@@ -51,7 +53,7 @@ knees and to bow before him.
 ~
 human~
 AGT JPUVc 0 0
-85 0 90d19+17000 82d10+1000 11d11+60 punch
+90 0 91d20+22000 82d10+1000 11d11+60 punch
 -55 -55 -55 -53
 AEFHIJKN T H I
 stand stand male 10000
@@ -59,7 +61,7 @@ stand stand male 10000
 #36303
 tumbu yumbu black man~
 Tumbu-Yumbu~
-a man with black hair stands here
+A man with black hair stands here.
 ~
 "Such a pity that you forget your bag! Your would be able to gather
 some memories about my life." - says Tumbu-Yumbu and smiles at you.
@@ -74,7 +76,7 @@ stand stand male 3000
 #36304
 lee huang wang black man~
 Lee Huang Wang~
-a man dressed in black screams and attacks!
+A man dressed in black screams and attacks!
 ~
 You are lucky! Fortunatly, he attacks not you but a target at the 
 northern edge of the lawn. His dark clothes shine brightly for being
@@ -82,7 +84,7 @@ polished.
 ~
 human~
 AGT OUa -300 0
-85 0 95d19+18000 85d10+1000 11d11+70 pound
+90 0 95d20+23000 85d10+1000 11d11+70 pound
 -60 -65 -65 -55
 ADEFIJK 0 IP HN
 stand stand male 10000
@@ -90,7 +92,7 @@ stand stand male 10000
 #36305
 veteran old warrior~
 Old Veteran~
-An old man is drinking ale here. He is half asleep
+An old man is drinking ale here. He is half asleep.
 ~
 An old veteran, who surely took a part in all the battles you've
 ever heard, sits here, forgotten by his relatives as well as all
@@ -99,15 +101,15 @@ now he cannot leave his crumpled flask filled with ale.
 ~
 human~
 AGT FTVac 100 0
-85 0 90d20+17000 82d10+1000 12d10+65 charge
+95 0 101d20+30000 82d10+1000 12d10+65 charge
 -60 -50 -60 -70
-ADEFHIKLN B IKLQX EHT
-stand stand male 100
+ADEFHIKLN B DIKLQX EHT
+sit rest male 100
 0 0 medium unknown
 #36306
 monk fat~
 Monk~
-a very fat monk is here, drinking ale from the enormous barrel
+A very fat monk is here, drinking ale from the enormous barrel.
 ~
 Just a monk. Dressed in just a simple brown robe. But the barrel
 he holds contains more then 100 litres! You wonder, if he needs
@@ -123,7 +125,7 @@ stand stand male 10000
 #36307
 boy little son banker~
 Banker's son~
-a little boy sits here playing with his toy
+A little boy sits here playing with his to.
 ~
 A boy your see wears simple trousers and a shirt. He sits at
 this darkened room and barely cry. All that he may do is to 
@@ -140,7 +142,7 @@ sit sit male 100
 #36308
 little boy son mayor~
 Mayor's son~
-a little boy is here, burning a shrub
+A little boy is here, burning a shrub.
 ~
 That little boy is very-well dressed. You recognize him as a son
 of the Mayor of the town. Sun-glasses he wears look very fashious
@@ -158,7 +160,7 @@ stand stand male 20
 #36309
 woman wife mayor~
 Mayor's Wife~
-a nervous woman screams loudly as you trespass her room
+A nervous woman screams loudly as you trespass her room.
 ~
 Mayor's wife looks very nervous. Probably you'd better go away 
 while she has not summoned guards by her cry! She wears a 
@@ -174,7 +176,7 @@ stand stand female 5000
 #36310
 fat man mayor~
 Mayor~
-a fat man stands here with a big smile on his face
+A fat man stands here with a big smile on his face.
 ~
 A low and very fatty man walks about the fountain. He wears a 
 festival suit as do other inhabitants of the town. There is a 
@@ -190,7 +192,7 @@ stand stand male 20000
 #36311
 clerk~
 Clerk~
-a tired clerk sits here
+A tired clerk sits here.
 ~
 A clerk looks very tired. Shurely he worked all the week past
 but today he yet has to do a lot of deal. He scribes something
@@ -207,7 +209,7 @@ sit sit male 1235
 #36312
 archivarius old man~
 Archivarius~
-an old man looks at you
+An old man looks at you.
 ~
 An old man covered in dark gray clothes sits at the table. He 
 scribes something on the piece of paper. He rises up his eyes 
@@ -223,7 +225,7 @@ sit sit male 9856
 #36313
 rodent ugly rat~
 Rodent~
-a large ugly rat sits in the corner
+A large ugly rat sits in the corner.
 ~
 A large ugly rat sits in the corner staring her red eyes at you.
 ~
@@ -237,7 +239,7 @@ P 0 small unknown
 #36314
 spider dust small~
 Spider~
-a small spider sits here collecting dust
+A small spider sits here collecting dust.
 ~
 A small spider sits on his web. His dusty web holds remains of
 some insects.
@@ -267,7 +269,7 @@ sit sit male 10895
 #36316
 warrior competition~
 warrior on competition~
-A warrior wants to compete with you
+A warrior wants to compete with you.
 ~
 You see a strong man, clad in tournament clothes and wielding a 
 tournament weapon. He ask you for challenge.
@@ -282,7 +284,7 @@ stand stand male 10000
 #36317
 hooligan young man~
 hooligan~
-A young man looks like hooligan
+A young man looks like hooligan.
 ~
 A youngster stands before you grinning happily. He looks like
 he was fighting with all cats all over the countryside, so he
@@ -296,9 +298,9 @@ FHJT 0 0 0
 stand stand male 0
 0 0 medium unknown
 #36318
-training mob~
-some clothes~
-you see a strange figure standing there
+training mob strange~
+trainihg mob~
+You see a strange figure standing there.
 ~
 A training mob stands here waiting for you to fight!
 ~
@@ -312,7 +314,7 @@ B 0 medium unknown
 #36319
 hedgehog ezhik~
 hedgehog~
-A wise little hedgehog hurries by his own business
+A wise little hedgehog hurries by his own business.
 ~
 A hedgehog carries an apple to his cave. He looks at you
 angrilly.
@@ -327,7 +329,7 @@ AG DEF small unknown
 #36320
 boy small~
 a small boy~
-A small boy plays in the fountain
+A small boy plays in the fountain.
 ~
 A boy who seems to be one of the town children plays naked
 in the water bowl.
@@ -342,7 +344,7 @@ stand stand male 0
 #36321
 girl small~
 a small girl~
-A small girl is playing in the fountain
+A small girl is playing in the fountain.
 ~
 A girl who seems to be one of the town children plays naked
 in the water bowl.
@@ -357,7 +359,7 @@ stand stand female 0
 #36322
 citizen male~
 a citizen~
-A citizen celebrates a festival
+A citizen celebrates a festival.
 ~
 A male citizen of the Festival Town beckons you to take a part 
 in the celebration.
@@ -372,7 +374,7 @@ stand stand male 300
 #36323
 citizen female~
 a citizen~
-A citizen celebrates a festival
+A citizen celebrates a festival.
 ~
 A female citizen of the Festival Town beckons you to take a part 
 in the celebration.
@@ -386,8 +388,8 @@ stand stand female 500
 0 0 medium unknown
 #36324
 clown~
-a clown~
-a clown walks by on stilts
+clown~
+A clown walks by on stilts.
 ~
 A funny clown shows you his painted face, then removes his big red
 nose, set it back and falls down laughing.
@@ -401,8 +403,8 @@ stand stand male 2500
 0 0 medium unknown
 #36325
 juggler~
-a juggler~
-a juggler trys to get your attention
+juggler~
+A juggler trys to get your attention.
 ~
 A man who pretends to be a mage shows your his skills. He get money
 from your pocket and money suddenly disappear!
@@ -416,8 +418,8 @@ stand stand male 3500
 0 0 medium unknown
 #36326
 vendor~
-a vendor~
-a vendor is here selling goods
+vendor~
+A vendor is here selling goods.
 ~
 A vendor is here selling goods.
 ~
@@ -431,12 +433,12 @@ stand stand male 100000
 #36327
 guard gate~
 Gate guard~
-A gate guard smiles at you happily
+A gate guard smiles at you happily.
 ~
 A gate guard smiles at you and invites in the town.
 ~
 human~
-AGT DFHTU 500 0
+AGTY DFHTU 500 0
 25 0 50d40+2000 25d10+1000 10d3+20 slash
 -30 -30 -30 -20
 CEFHIJKLNc 0 0 0
@@ -444,8 +446,8 @@ stand stand male 2450
 0 0 medium unknown
 #36328
 thief~
-a hidden figure~
-a hidden figure is here doing something
+hidden figure~
+A hidden figure is here doing something.
 ~
 A dark robe is flying in the air and you suddenly catch an
 angry look out from it.
@@ -459,8 +461,8 @@ stand stand male 2000
 S 0 medium unknown
 #36329
 pickpocket thief~
-a pickpocket~
-a thief here trys to look like a good citizen
+pickpocket~
+A thief here trys to look like a good citizen.
 ~
 A male citizen of the Festival Town beckons you to take a part 
 in the celebration.
@@ -475,7 +477,7 @@ stand stand male 2300
 #36330
 bat~
 a bat~
-a HUGE bat attacks you!
+A HUGE bat attacks you!
 ~
 Wow! Don't you have time to look at this beast? Run away! Run aw..
 ~
@@ -487,9 +489,9 @@ AFGHT DFUc -1000 0
 stand stand male 0
 0 0 small unknown
 #36331
-cat~
-a black cat~
-a black form screams and attacks!
+cat black~
+black cat~
+A black form screams and attacks.
 ~
 A black lightning hits your head! You have been blinded!
 ~
@@ -509,10 +511,10 @@ A powerful mage clad in white stands here.
 ~
 human~
 AGHR DH 1000 0
-85 0 90d20+16000 85d10+10000 11d9+50 magic
+90 0 90d20+16000 85d10+10000 11d9+50 magic
 -70 -65 -70 -55
 FIKVY 0 0 0
-stand stand male 20000
+sit sit male 20000
 0 0 medium unknown
 #36333
 mage white neutral~
@@ -523,10 +525,10 @@ A powerful mage clad in white stands here.
 ~
 human~
 AGHR DH 1000 0
-85 0 90d20+16000 85d10+10000 11d9+50 magic
+90 0 90d20+16000 85d10+10000 11d9+50 magic
 -70 -60 -70 -60
 FIKVY 0 0 0
-stand stand male 23000
+sit sit male 23000
 0 0 medium unknown
 #36334
 mage white chaos~
@@ -537,10 +539,10 @@ A powerful mage clad in white stands here.
 ~
 human~
 AGHR DH 1000 0
-85 0 90d20+16000 85d10+10000 11d9+50 magic
+90 0 90d20+16000 85d10+10000 11d9+50 magic
 -70 -60 -70 -60
 FIKVY 0 0 0
-stand stand male 15000
+sit sit male 15000
 0 0 medium unknown
 #36335
 mage grey law~
@@ -551,10 +553,10 @@ A powerful mage clad in grey stands here.
 ~
 human~
 AGHR DH 0 0
-85 0 90d20+16000 85d10+10000 11d9+50 magic
+90 0 90d20+16000 85d10+10000 11d9+50 magic
 -70 -70 -70 -60
 FIKVY 0 0 0
-stand stand male 14000
+sit sit male 14000
 0 0 medium unknown
 #36336
 mage grey neutral~
@@ -565,10 +567,10 @@ A powerful mage clad in grey stands here.
 ~
 human~
 AGHR DH 0 0
-85 0 90d20+16000 85d10+10000 11d9+50 magic
+90 0 90d20+16000 85d10+10000 11d9+50 magic
 -70 -65 -70 -60
 FIKVY 0 0 0
-stand stand male 50000
+sit sit male 50000
 0 0 medium unknown
 #36337
 mage grey chaos~
@@ -579,10 +581,10 @@ A powerful mage clad in grey stands here.
 ~
 human~
 AGHR DH 0 0
-85 0 90d20+16000 85d10+10000 11d9+50 magic
+90 0 90d20+16000 85d10+10000 11d9+50 magic
 -70 -60 -70 -70
 FIKVY 0 0 0
-stand stand male 10000
+sit sit male 10000
 0 0 medium unknown
 #36338
 mage dark law~
@@ -593,10 +595,10 @@ A powerful mage clad in black stands here.
 ~
 human~
 AGHR Du -1000 0
-85 0 90d20+16000 85d10+10000 11d9+50 magic
+90 0 90d20+16000 85d10+10000 11d9+50 magic
 -70 -60 -70 -60
 FIKVY 0 0 0
-stand stand male 14000
+sit sit male 14000
 0 0 medium unknown
 #36339
 mage dark neutral~
@@ -607,29 +609,29 @@ A powerful mage clad in black stands here.
 ~
 human~
 AGHR Du -1000 0
-85 0 90d20+16000 85d10+10000 11d9+50 magic
+90 0 90d20+16000 85d10+10000 11d9+50 magic
 -60 -80 -60 -50
 FIKVY 0 0 0
-stand stand male 5090
+sit sit male 5090
 0 0 medium unknown
 #36340
 mage dark chaos~
 Dark Chaos~
-a powerful mage stands here
+A powerful mage stands here.
 ~
 A powerful mage clad in black stands here.
 ~
 human~
 AGHR Du -1000 0
-85 0 90d20+16000 85d10+10000 11d9+50 magic
+90 0 90d20+16000 85d10+10000 11d9+50 magic
 -65 -65 -65 -60
 FIKVY 0 0 0
-stand stand male 3500
+sit sit male 3500
 0 0 medium unknown
 #36341
 mage earthquaker~
 Earthquaker~
-a mage stands here causing earthquake
+A mage stands here causing earthquake.
 ~
 A powerful mage clad in brown stands here.
 ~
@@ -642,8 +644,8 @@ stand stand male 4500
 0 0 medium unknown
 #36342
 mage wimpy~
-a wimpy mage~
-a mage stands here
+wimpy mage~
+A mage stands here.
 ~
 A wimpy mage tries to cast spell but cannot...
 ~
@@ -655,9 +657,9 @@ FIK 0 0 0
 stand stand male 1300
 0 0 medium unknown
 #36343
+gekko dragon~
 gekko~
-a gekko~
-You see a little dragon crossing the desert
+You see a little dragon crossing the desert.
 ~
 A little gragon looks like a brown-green lightning with
 a short tail.
@@ -671,8 +673,8 @@ stand stand male 0
 Z 0 small unknown
 #36344
 servant~
-a servant~
-a servant hurries by serving
+servant~
+A servant hurries by serving.
 ~
 a servant hurries by serving
 ~
@@ -685,8 +687,8 @@ stand stand male 600
 0 0 medium unknown
 #36345
 vendor~
-a vendor~
-a vendor is here selling goods
+vendor~
+A vendor is here selling goods.
 ~
 a vendor is here selling goods
 ~
@@ -699,8 +701,8 @@ stand stand male 100000
 0 0 medium unknown
 #36346
 vendor~
-a vendor~
-a vendor is here selling goods
+vendor~
+A vendor is here selling goods.
 ~
 a vendor is here selling goods
 ~
@@ -713,8 +715,8 @@ stand stand male 100000
 0 0 medium unknown
 #36347
 vendor~
-a vendor~
-a vendor is here selling goods
+vendor~
+A vendor is here selling goods.
 ~
 a vendor is here selling goods
 ~
@@ -727,13 +729,13 @@ stand stand male 100000
 0 0 medium unknown
 #36348
 vendor~
-a vendor~
-a vendor is here selling goods
+vendor~
+A vendor is here selling goods.
 ~
 a vendor is here selling goods
 ~
 human~
-AGT 0 0 0
+AGTY 0 0 0
 50 0 80d40+12000 50d10+1000 8d8+36 punch
 -20 -30 -30 -30
 EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
@@ -741,8 +743,8 @@ stand stand male 100000
 0 0 medium unknown
 #36349
 target~
-a target~
-[TARGET] you see a target standing here
+target~
+[TARGET] You see a target standing here.
 ~
 White and black strips surround the apple painted in the middle
 of the wooden shield.
@@ -756,8 +758,8 @@ stand stand none 0
 M 0 large unknown
 #36350
 bird~
-a tiny bird~
-A tiny bird flies here
+tiny bird~
+A tiny bird flies here.
 ~
 A tiny bird flies here.
 ~
@@ -770,7 +772,7 @@ stand stand male 0
 W 0 tiny unknown
 #36351
 sentipede~
-a sentipede~
+sentipede~
 A sentipede is here, searching for food.
 ~
 A sentipede is here, searching for food.
@@ -784,8 +786,8 @@ stand stand none 0
 Xc DEF small unknown
 #36352
 snake small~
-a small snake~
-you see a small snake sleathing along the floor
+small snake~
+You see a small snake sleathing along the floor.
 ~
 You see a small snake sleathing along the floor
 ~
@@ -798,7 +800,7 @@ stand stand female 0
 Y 0 small unknown
 #36353
 insect small~
-a small insect~
+small insect~
 A small insect drops on you.
 ~
 A small insect.
@@ -813,7 +815,7 @@ c DEF tiny unknown
 #36354
 salamander mother dragon~
 mother of salamanders~
-A fire dragon looks like a salamander
+A fire dragon looks like a salamander.
 ~
 A fire dragon looks like a salamander.
 ~
@@ -824,17 +826,130 @@ ACGR DHPRVc 0 0
 FHI HX KOS 0
 sleep sleep female 5000
 0 B large unknown
+#36355
+paladin~
+Paladin~
+Paladin stands here smiling at you.
+~
+Grand Paladin offers you some armor and weapons.
+~
+human~
+AGTY 0 0 0
+50 0 80d40+12000 50d10+1000 8d8+36 punch
+-20 -30 -30 -30
+EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
+stand stand male 100000
+0 0 medium unknown
+#36356
+ranger~
+Ranger~
+Ranger stands here smiling at you.
+~
+An old ranger greets you, forester!
+~
+human~
+AGTY 0 0 0
+50 0 80d40+12000 50d10+1000 8d8+36 punch
+-20 -30 -30 -30
+EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
+sit sit male 100000
+0 0 medium unknown
+#36357
+samurai~
+Samurai~
+Samurai stands here smiling at you.
+~
+Samurai looks at you suspiciously. Try to tell with him.
+~
+human~
+AGTY 0 0 0
+50 0 80d40+12000 50d10+1000 8d8+36 punch
+-20 -30 -30 -30
+EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
+sit sit male 100000
+0 0 medium unknown
+#36358
+warrior~
+Warrior~
+Warrior stands here smiling at you.
+~
+Warrior offers you some armor and weapons.
+~
+human~
+AGTY 0 0 0
+50 0 80d40+12000 50d10+1000 8d8+36 punch
+-20 -30 -30 -30
+EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
+sit sit male 100000
+0 0 medium unknown
+#36359
+witch~
+Witch~
+Witch stands here smiling at you.
+~
+Witch offers you some wands.
+~
+human~
+AGTY 0 0 0
+50 0 80d40+12000 50d10+1000 8d8+36 punch
+-20 -30 -30 -30
+EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
+sit sit male 100000
+0 0 medium unknown
+#36360
+vampire~
+Vampire~
+Vampire stands here grinning at you.
+~
+Vampire grins at you evilly and offers you flasks of
+red liquid.
+~
+human~
+AGTY 0 0 0
+50 0 80d40+12000 50d10+1000 8d8+36 punch
+-20 -30 -30 -30
+EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
+sit sit male 100000
+0 0 medium unknown
+#36361
+clerick~
+Clerick~
+Clerick stands here smiling at you.
+~
+Clerick offers you some amulets.
+~
+human~
+AGTY 0 0 0
+50 0 80d40+12000 50d10+1000 8d8+36 punch
+-20 -30 -30 -30
+EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
+sit sit male 100000
+0 0 medium unknown
+#36362
+mage~
+Mage~
+Mage stands here smiling at you.
+~
+Mage offers you some ingridients.
+~
+human~
+AGTY 0 0 0
+50 0 80d40+12000 50d10+1000 8d8+36 punch
+-20 -30 -30 -30
+EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
+stand stand male 100000
+0 0 medium unknown
 #0
 
 #OBJECTS
 #36300
 bracer feathery~
 feathery bracer~
-beautiful color feathers lie here~
+Beautiful color feathers lie here.~
 feathers~
 armor A AM
 25 25 25 10 0
-86 20 1000 P
+90 20 1000 P
 A
 1 2
 A
@@ -849,10 +964,10 @@ G none
 #36301
 tomahawk axe~
 tomahawk~
-a small throwing axe lies on the ground~
+A small throwing axe lies on the ground.~
 steel~
 weapon BY AN
-axe 15 10 slash DE
+axe 15 7 slash DE
 90 40 10000 P
 A
 18 11
@@ -862,7 +977,7 @@ G none
 #36302
 necklace tooth~
 tooth necklace~
-a set of teeth lies here~
+A set of teeth lies here.~
 horn~
 armor BG AC
 26 28 26 20 0
@@ -879,7 +994,7 @@ G none
 #36303
 skirt palm~
 short palm skirt~
-a bunch of palm leaves lies on the ground~
+A bunch of palm leaves lies on the ground.~
 bamboo~
 armor I AF
 20 20 20 10 0
@@ -898,13 +1013,11 @@ G none
 #36304
 bracer charisma feathery~
 bracer of charisma~
-a feathery bracer is hanging here~
+A feathery bracer is hanging here.~
 feathers~
 armor AGI AI
 25 25 25 19 0
-85 5 5000 P
-A
-26 5
+90 5 5000 P
 A
 12 35
 A
@@ -917,11 +1030,11 @@ G none
 #36305
 shield ebony~
 ebony shield~
-an ebony shield lies neglected~
+An ebony shield lies neglected.~
 ebony~
 armor CE AJ
 35 35 35 15 0
-85 60 6700 P
+90 60 6700 P
 A
 1 -1
 A
@@ -936,11 +1049,11 @@ G none
 #36306
 skin leo~
 leo skin~
-a sneaking lion tries to bite you~
+A sneaking lion tries to bite you.~
 hard leather~
 armor H AK
-20 26 24 19 0
-85 15 15000 P
+25 26 24 19 0
+90 15 15000 P
 A
 1 2
 A
@@ -950,8 +1063,6 @@ A
 A
 13 75
 A
-18 5
-A
 19 8
 A
 24 -5
@@ -959,11 +1070,11 @@ G none
 #36307
 stick reet spear bamboo~
 reet stick~
-a long piece of bamboo lies here~
+A long piece of bamboo lies here.~
 bamboo~
 weapon BI AN
-spear 11 9 pierce C
-85 10 100 P
+spear 11 10 pierce C
+95 10 100 P
 A
 18 10
 A
@@ -972,7 +1083,7 @@ G none
 #36308
 casque black helm~
 black casque~
-a strange helm gets your attention~
+A strange helm gets your attention.~
 iron~
 armor E AE
 30 30 30 20 0
@@ -985,7 +1096,7 @@ G none
 #36309
 plate black scale~
 black scale platemail~
-a plate glows in dark~
+A plate glows in dark.~
 black dragonscale~
 armor ABCEG AD
 35 35 35 27 0
@@ -1002,7 +1113,7 @@ G none
 #36310
 gauntlets black dragon~
 black dragon gauntlets~
-a pair of dark scale gauntlets is waiting to be worn~
+A pair of dark scale gauntlets is waiting to be worn.~
 black dragonscale~
 armor ABCEG AH
 30 30 30 24 0
@@ -1015,7 +1126,7 @@ G none
 #36311
 plates leg black dragon~
 black dragon leg plates~
-a pile of black scale lies here~
+A pile of black scale lies here.~
 black dragonscale~
 armor ABCEG AF
 28 28 28 16 0
@@ -1030,7 +1141,7 @@ G none
 #36312
 bow short~
 short bow~
-a short wooden bow lies here~
+A short wooden bow lies here.~
 wood~
 weapon G AN
 bow 8 10 blast 0
@@ -1043,7 +1154,7 @@ G none
 #36313
 boots black scale dragon~
 black dragon boots~
-a pair of scale dragon boots sits here~
+A pair of scale dragon boots sits here.~
 black dragonscale~
 armor ABCEG AG
 31 28 31 20 0
@@ -1058,7 +1169,7 @@ G none
 #36314
 pot ink girth~
 ink-pot~
-an ink-pot is hanging on a rope~
+An ink-pot is hanging on a rope.~
 quartz~
 armor AGIY AL
 0 0 0 0 0
@@ -1068,12 +1179,12 @@ A
 G none
 #36315
 apple~
-an apple~
-an apple lies here~
+apple~
+An apple lies here.~
 food~
 food A A
-A BD 0 0 0
-0 1 15 P
+AC B 0 0 0
+1 10 15 P
 E
 paper~
 part one
@@ -1081,12 +1192,12 @@ part one
 G none
 #36316
 cookie~
-a cookie~
-a cookie lies here~
+cookie~
+A cookie lies here.~
 bread~
 food U A
-A CE 0 0 0
-0 1 34 P
+CE AC 0 0 0
+1 20 34 P
 E
 paper~
 part two
@@ -1095,7 +1206,7 @@ G none
 #36317
 bookmark leather long~
 bookmark~
-a long leather strip lies here~
+A long leather strip lies here.~
 soft leather~
 weapon HM AN
 whip 9 11 blast G
@@ -1114,19 +1225,17 @@ G none
 #36318
 cloak illusory mist~
 illusory cloak~
-a cloud of mist is shimmering around you~
+A cloud of mist is shimmering around you.~
 air~
 armor ABCFGIORWY AK
 0 0 0 0 0
-90 0 0 P
+100 0 0 P
 A
 3 2
 A
 4 2
 A
 12 200
-A
-13 200
 A
 14 500
 A
@@ -1141,11 +1250,11 @@ G none
 #36319
 sword long illusory mist~
 illusory longsword~
-a cloud of mist shaped like a sword is floating here~
+A cloud of mist shaped like a sword is floating here.~
 air~
-weapon ACFGORWY AN
+weapon ACFGMORWY AN
 sword 13 13 slash DFG
-99 250 0 P
+100 250 100000 P
 A
 2 1
 A
@@ -1158,10 +1267,10 @@ G none
 #36320
 arrow silver~
 silver arrow~
-a silver arrow glows brightly~
+A silver arrow glows brightly.~
 silver~
 weapon AIORY AO
-arrow 15 15 pierce DG
+arrow 15 15 pierce AG
 90 10 0 P
 A
 18 20
@@ -1171,7 +1280,7 @@ G none
 #36321
 ring bowman~
 bowman's ring~
-a large ring lies here~
+A large ring lies here.~
 mithril~
 armor BGIT AB
 20 18 20 15 0
@@ -1184,23 +1293,17 @@ A
 18 10
 A
 19 7
-A
-24 -1
 G none
 #36322
 hat green red~
 green hat~
-a green hat with a bright red plume lies here~
+A green hat with a bright red plume hangs here.~
 fur~
 armor AGIR AE
 30 25 30 20 0
 89 10 10000 P
 A
 2 1
-A
-26 1
-A
-13 80
 A
 18 10
 A
@@ -1209,7 +1312,7 @@ G none
 #36323
 vest green~
 green vest~
-a green vest lies here~
+A green vest lies here forgotten.~
 silk~
 armor AGI AD
 32 30 32 21 0
@@ -1230,7 +1333,7 @@ G none
 #36324
 leggings leather~
 leather leggings~
-a pair of leggings lies here~
+A pair of leggings lies here in the dirt.~
 soft leather~
 armor BGTY AF
 32 30 32 23 0
@@ -1251,7 +1354,7 @@ G none
 #36325
 boots leather thin~
 thin leather boots~
-some leather boots sits here~
+Some leather boots sits here.~
 soft leather~
 armor BG AG
 35 33 35 26 0
@@ -1272,32 +1375,26 @@ G none
 #36326
 bow long~
 longbow~
-a huge bow lies here neglected~
+A huge bow lies here neglected.~
 ebony~
 weapon BG AN
-bow 5 20 blast 0
+bow 6 20 blast 0
 89 30 14000 P
 A
-26 1
-A
 18 8
-A
-19 8
 G none
 #36327
 head band~
 headband~
-a headband is waiting to be worn~
+A headband is waiting to be worn.~
 feathers~
 armor ABGI AE
 23 23 23 18 0
-85 0 2400 P
+89 0 2400 P
 A
 2 1
 A
 4 2
-A
-26 1
 A
 13 65
 A
@@ -1314,7 +1411,7 @@ G none
 #36328
 belt snake~
 snake belt~
-a long snake slithers along the grass~
+A long snake slithers along the grass.~
 snakeskin~
 armor ABGHIM AL
 25 28 25 25 0
@@ -1333,15 +1430,13 @@ G none
 #36329
 leggings scalp~
 scalp leggings~
-someone has left a pile of scalps here~
+Someone has left a pile of scalps here.~
 fur~
 armor CEG AF
 26 24 26 15 0
 88 23 1000 P
 A
 4 -1
-A
-26 2
 A
 13 65
 A
@@ -1354,7 +1449,7 @@ G none
 #36330
 moccasins boots soft~
 some moccasins~
-a pair of soft boots sits here~
+A pair of soft boots sits here.~
 soft leather~
 armor C AG
 23 18 23 15 0
@@ -1373,13 +1468,11 @@ G none
 #36331
 spiritus vini~
 spiritus vini~
-a strange aura floats here~
+A strange aura floats here.~
 nothingness~
-armor BGP AQ
+armor BG AQ
 0 0 0 0 0
 90 0 0 P
-A
-2 -3
 A
 13 100
 A
@@ -1388,19 +1481,15 @@ A
 18 -5
 A
 19 10
-A
-24 -5
 G none
 #36332
 waistcoat dirty~
-a dirty waistcoat~
-an old dusty waistcoat lies here in the dirt~
+dirty waistcoat~
+An old dusty waistcoat lies here in the dirt.~
 silk~
 armor AGY AK
 28 28 28 24 0
 87 20 18000 P
-A
-26 5
 A
 18 10
 A
@@ -1410,8 +1499,8 @@ A
 G none
 #36333
 belt shoulder~
-a shoulder belt~
-a strip of leather is here~
+shoulder belt~
+A strip of leather is here.~
 hard leather~
 container GY AL
 150 E 0 150 50
@@ -1429,32 +1518,28 @@ A
 G none
 #36334
 sword veteran old~
-an old veteran's sword~
-a sword lies here~
+old veteran's sword~
+A rusted sword lies here.~
 steel~
-weapon BMT N
-sword 9 9 slash D
-87 100 10000 A
-A
-18 5
-A
-19 9
+weapon BMTY AN
+sword 11 9 slash D
+90 100 10000 A
 G none
 #36335
 flask crumpled~
-a crumpled flask~
-an old crumpled flask lies here neglected~
+crumpled flask~
+An old crumpled flask lies here neglected.~
 tin~
-drink GIY O
-100 100 'ale' 3 0
+drink GIY AO
+100 100 'ale' 0 0
 0 10 3450 P
 G none
 #36336
 glasses sun~
 some sun-glasses~
-some glasses waiting to be worn~
+Some glasses waiting to be worn.~
 glass~
-armor 0 E
+armor 0 AE
 2 2 2 0 0
 5 5 100 P
 A
@@ -1467,16 +1552,16 @@ G none
 #36337
 match~
 a match~
-a small wooden stick lies here~
+A small wooden stick lies here.~
 wood~
-wand U O
+wand U AO
 10 1 1 'fireball' 0
 1 0 1 P
 G none
 #36338
 match box~
 a match box~
-a box with strange carvings lies here~
+A box with strange carvings lies here.~
 wood~
 container 0 AO
 60 E 0 1 100
@@ -1485,22 +1570,20 @@ G none
 #36339
 wig strange~
 a wig~
-a strange pile of furs lies here~
+A strange pile of furs lies here.~
 wool~
-armor AM E
+armor AM AE
 15 15 15 18 0
 50 20 1000 P
 A
 4 -3
 A
-6 1
-A
 12 100
 G none
 #36340
 hat cowboy dusty~
-a cowboy's hat~
-a dusty piece of leather dropped here~
+cowboy's hat~
+A dusty piece of leather dropped here.~
 kid leather~
 armor M E
 24 20 27 17 0
@@ -1512,8 +1595,6 @@ A
 A
 5 1
 A
-26 1
-A
 13 80
 A
 18 5
@@ -1522,34 +1603,30 @@ A
 G none
 #36341
 staff strength~
-a staff of strength~
-a wooden staff lies here~
+staff of strength~
+A wooden staff lies here.~
 wood~
 staff A O
 91 10 10 'earthquake' 0
 81 30 4500 P
 A
-26 1
-A
 18 2
 G none
 #36342
 suit festival~
-a festival suit~
-a festival-looking suit lies here~
+festival suit~
+A festival-looking suit lies here.~
 satin~
-armor A D
+armor A AD
 12 12 12 12 0
 25 20 8900 P
-A
-26 2
 A
 18 1
 G none
 #36343
 toy boy key~
-a boy's toy~
-a bright toy lies here~
+boy's toy~
+A bright toy lies here.~
 hardwood~
 key A A
 0 0 0 0 0
@@ -1558,7 +1635,7 @@ G none
 #36344
 pris grand~
 Grand Pris~
-a brightly glowing medal is waiting to be worn~
+A brightly glowing medal is waiting to be worn.~
 gold~
 armor AGIORY AC
 30 30 30 25 0
@@ -1573,10 +1650,6 @@ A
 4 1
 A
 5 1
-A
-6 1
-A
-26 3
 A
 12 100
 A
@@ -1594,8 +1667,8 @@ A
 G none
 #36345
 robe dark grey~
-a dark gray robe~
-a dark gray robe is hanging on the hook~
+dark gray robe~
+A dark gray robe is hanging on the hook.~
 linen~
 armor 0 AD
 10 10 10 10 0
@@ -1609,8 +1682,8 @@ A
 G none
 #36346
 sleeves accuracy~
-a sleeves of accuracy~
-someone has left some sleeves here~
+sleeves of accuracy~
+Someone has left some sleeves here.~
 linen~
 armor 0 AH
 10 10 10 10 0
@@ -1624,8 +1697,8 @@ A
 G none
 #36347
 pen goose~
-a goose pen~
-a feather shaped like a pen lies here~
+goose pen~
+A feather shaped like a pen lies here.~
 feathers~
 weapon BIJK AN
 exotic 5 7 pierce 0
@@ -1639,8 +1712,8 @@ A
 G none
 #36348
 scroll dispatch witch hunt~
-a witch-hunt dispatch~
-a scroll lies on the table~
+witch-hunt dispatch~
+A scroll lies on the table.~
 kid leather~
 scroll ABGITU AO
 35 'cancellation' 'curse' 'dispel evil' 'dispel magic'
@@ -1648,17 +1721,17 @@ scroll ABGITU AO
 G none
 #36349
 scroll rescript witch hunt~
-a witch-hunt rescript~
-a scroll with a big circle stamp hangs on the wall~
+witch-hunt rescript~
+A scroll with a big circle stamp hangs on the wall.~
 kid leather~
 scroll ABGUY AO
 90 'dispel magic' 'dispel evil' 'cancellation' 'weaken'
-75 0 0 P
+95 0 0 P
 G none
 #36350
 ring tournament~
-a tournament ring~
-a ring engraved with a short inscription lies here~
+tournament ring~
+A ring engraved with a short inscription lies here.~
 iron~
 armor 0 AB
 8 8 8 5 0
@@ -1670,8 +1743,8 @@ A
 G none
 #36351
 scarf tournament~
-a tournament scarf~
-a scarf with a short inscription lies on the ground~
+tournament scarf~
+A scarf with a short inscription lies on the ground.~
 iron~
 armor 0 AC
 10 10 10 5 0
@@ -1683,8 +1756,8 @@ A
 G none
 #36352
 helm tournament~
-a tournament helm~
-an iron helm lies here~
+tournament helm~
+An iron helm lies here.~
 iron~
 armor 0 AE
 15 15 15 10 0
@@ -1694,8 +1767,8 @@ A
 G none
 #36353
 plate breast tournament~
-a tournament breast plate~
-a plate with dark carvings lies here neglected~
+tournament breast plate~
+A plate with dark carvings lies here neglected.~
 iron~
 armor 0 AD
 15 15 15 10 0
@@ -1708,7 +1781,7 @@ G none
 #36354
 plate leg tournament~
 tournament leg's plate~
-a pile of a tournament armor lies here~
+A pile of a tournament armor lies here.~
 iron~
 armor 0 AF
 10 10 10 5 0
@@ -1721,7 +1794,7 @@ G none
 #36355
 boots plated tournament~
 tournament plated boots~
-hard heavy boots sit here~
+Hard heavy boots sit here.~
 iron~
 armor 0 AG
 15 15 15 6 0
@@ -1732,7 +1805,7 @@ G none
 #36356
 arm plate tournament~
 tournament arm plates~
-some plates lie here~
+Some plates lie here.~
 iron~
 armor 0 AI
 10 10 10 10 0
@@ -1742,8 +1815,8 @@ A
 G none
 #36357
 shield tournament~
-a tournament shield~
-a small shield lies on the ground~
+tournament shield~
+A small shield lies on the ground.~
 iron~
 armor 0 AJ
 20 20 20 18 0
@@ -1753,8 +1826,8 @@ A
 G none
 #36358
 cloak tournament~
-a tournament cloak~
-a cloak with an inscription lies here~
+tournament cloak~
+A cloak with an inscription lies here.~
 iron~
 armor 0 AK
 15 10 10 10 0
@@ -1765,7 +1838,7 @@ G none
 #36359
 gauntlets tournament~
 tournament gauntlets~
-some gauntlets has been dropped here~
+Aome gauntlets has been dropped here.~
 iron~
 armor 0 AH
 15 15 15 10 0
@@ -1775,8 +1848,8 @@ A
 G none
 #36360
 tournament sword~
-a tournament sword~
-a long sword is stuck in the ground~
+tournament sword~
+A long sword is stuck in the ground.~
 iron~
 weapon 0 AN
 sword 7 7 slash 0
@@ -1784,8 +1857,8 @@ sword 7 7 slash 0
 G none
 #36361
 statue mayor~
-a Mayor's statue~
-A bronze statue of Mayor stands here~
+Mayor's statue~
+A bronze statue of Mayor stands here.~
 bronze~
 jewelry RY A
 0 0 0 0 0
@@ -1793,8 +1866,8 @@ jewelry RY A
 G none
 #36362
 mace tournament~
-a tournament mace~
-a large mace lies on the ground~
+tournament mace~
+A large mace lies on the ground.~
 iron~
 weapon 0 AN
 mace 10 5 crush 0
@@ -1802,7 +1875,7 @@ mace 10 5 crush 0
 G none
 #36363
 statue~
-a statue~
+statue~
 WOW! You see YOUR statue standing here!~
 bronze~
 jewelry RY A
@@ -1811,26 +1884,26 @@ jewelry RY A
 G none
 #36364
 battle pill~
-a battle pill~
-a battle pill lies here~
+battle pill~
+A battle pill lies here.~
 food~
 pill 0 AO
-85 'armor' 'stone skin' 'shield' ''
+95 'armor' 'stone skin' 'shield' 'protective shield'
 75 0 2500 P
 G none
 #36365
 pill magic~
-a magic pill~
-a magic pill lies here~
+magic pill~
+A magic pill lies here.~
 food~
 pill 0 AO
-85 'haste' 'enhanced armor' 'giant strength' 'bless'
+95 'haste' 'enhanced armor' 'giant strength' 'bless'
 75 0 2450 P
 G none
 #36366
 star morning tournament~
-a tournament morningstar~
-a heavy metal ball glows on the grass~
+tournament morningstar~
+A heavy metal ball glows on the grass.~
 iron~
 weapon A AN
 flail 16 3 crush 0
@@ -1838,8 +1911,8 @@ flail 16 3 crush 0
 G none
 #36367
 fountain marble~
-a marble fountain~
-A marble fountain is in the middle of the stone basin.~
+marble fountain~
+A marble Fountain is in the middle of the stone basin.~
 marble~
 fountain ABRY 0
 10000 10000 'water' 0 0
@@ -1847,8 +1920,8 @@ fountain ABRY 0
 G none
 #36368
 guard breast plate~
-a guard breast plate~
-a pile of armor lies here~
+guard breast plate~
+A pile of armor lies here.~
 steel~
 armor 0 AD
 10 10 10 5 0
@@ -1858,8 +1931,8 @@ A
 G none
 #36369
 shield guard~
-a guard shield~
-a shield lies here~
+guard shield~
+A shield lies here.~
 shell~
 armor 0 AJ
 15 15 15 10 0
@@ -1871,8 +1944,8 @@ A
 G none
 #36370
 cape guard~
-a guard cape~
-a guard cape lies on the ground~
+guard cape~
+A guard cape lies on the ground.~
 fur~
 armor 0 AK
 10 10 10 5 0
@@ -1882,8 +1955,8 @@ A
 G none
 #36371
 sword guard~
-a guard sword~
-a short sword gleams here~
+guard sword~
+A short sword gleams here.~
 steel~
 weapon A AN
 sword 6 6 pierce 0
@@ -1891,8 +1964,8 @@ sword 6 6 pierce 0
 G none
 #36372
 axe tournament~
-a tournament axe~
-a HUGE axe lies here~
+tournament axe~
+A HUGE axe lies here.~
 iron~
 weapon 0 AN
 axe 6 9 chop 0
@@ -1901,7 +1974,7 @@ G none
 #36373
 gloves hedgehog~
 hedgehog's gloves~
-some gloves lies on the grass~
+Some gloves lies on the grass.~
 fur~
 armor BGIM AH
 5 6 5 3 0
@@ -1918,13 +1991,11 @@ G none
 #36374
 some stilts~
 some stilts~
-some stilts has been dropped here~
+Some stilts has been dropped here.~
 wood~
 armor 0 AG
 10 12 15 5 0
 25 20 2000 P
-A
-26 2
 A
 14 300
 A
@@ -1932,8 +2003,8 @@ A
 G none
 #36375
 safe~
-a safe~
-a steel safe stands in the corner~
+safe~
+A steel safe stands in the corner.~
 steel~
 container ABRTY 0
 300 ABCDE 36343 300 100
@@ -1942,7 +2013,7 @@ G none
 #36376
 key room~
 room key~
-a key from the back room lies here~
+A key from the back room lies here.~
 iron~
 key 0 AO
 0 0 0 0 0
@@ -1951,16 +2022,16 @@ G none
 #36377
 bureau~
 bureau~
-a bureau stands at the south wall~
+A bureau stands at the south wall.~
 hardwood~
 container R AO
-10 ABCDE 36378 10 100
+100 ABCDE 36378 10 100
 0 10000 0 P
 G none
 #36378
 bureau key~
 bureau key~
-a key from a bureau lies on the grass~
+A key from a bureau lies on the grass.~
 silver~
 key 0 AO
 0 0 0 0 0
@@ -1972,13 +2043,13 @@ oak~
 A huge oak stands here, gleaming in a holy white light.~
 hardwood~
 container R 0
-10 E 0 10 100
+20000 E 0 10 100
 0 10000 0 P
 G none
 #36380
 key secret~
-a secret key~
-a secret key lies here~
+secret key~
+A secret key lies here.~
 adamantite~
 key FTU AO
 0 0 0 0 0
@@ -1987,29 +2058,29 @@ G none
 #36381
 cell secret~
 secret cell~
-a secret cell~
+A secret cell.~
 steel~
 container ABFGRTY 0
 100 ABCDE 36380 100 100
 0 10000 0 P
 G none
 #36382
-portrait~
-portrait~
-A portrait of Grandfather hangs on the wall.~
-diamond~
-portal R 0
-ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz A 36358 0
-0 10000 0 P
+shield paladin~
+Holy shield of Paladins~
+A small shield of Paladins lies here.~
+titanium~
+armor IKLR AJ
+30 30 30 30 0
+50 100 34500 P
 G none
 #36383
-wall~
-wall~
-A long wide mirror stands by the wall.~
-~
-portal R 0
-ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz A 36357 0
-0 10000 0 P
+lance paladin~
+Holy lance of Paladins~
+Holy lance of Paladins lies here.~
+titanium~
+weapon IKLR AN
+lance 11 5 charge 0
+50 100 56700 P
 G none
 #36384
 hole dark~
@@ -2017,22 +2088,22 @@ hole~
 A dark hole beckons you amidst the bushes.~
 ebony~
 portal RY 0
-ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz A 36348 0
+0 EMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz A 36348 0
 0 1000 0 P
 G none
 #36385
 book shelf~
-a bookshelf~
-a bookshelf hangs on the wall~
+bookshelf~
+A bookshelf hangs on the wall.~
 wood~
 container ARTY 0
-30 E -1 1 100
+100 E -1 100 100
 0 10000 0 P
 G none
 #36386
 book iluvatar one~
 Book of Iluvatar~
-a huge volume stands on the shelf ~
+A huge volume stands on the shelf.~
 kid leather~
 treasure ARY A
 0 0 0 0 0
@@ -2041,7 +2112,7 @@ G none
 #36387
 book abrazak~
 Book of abrazak~
-a huge volume stands on the shelf ~
+A huge volume stands on the shelf.~
 kid leather~
 treasure ARY A
 0 0 0 0 0
@@ -2050,7 +2121,7 @@ G none
 #36388
 book diablo~
 Book of Diablo~
-a huge volume stands on the shelf ~
+A huge volume stands on the shelf.~
 kid leather~
 treasure AERY A
 0 0 0 0 0
@@ -2059,7 +2130,7 @@ G none
 #36389
 book hedin~
 Book of Hedin~
-a huge volume stands on the shelf ~
+A huge volume stands on the shelf.~
 kid leather~
 treasure ARY A
 0 0 0 0 0
@@ -2068,7 +2139,7 @@ G none
 #36390
 book phobos~
 Book of Phobos~
-a huge volume stands on the shelf ~
+A huge volume stands on the shelf.~
 kid leather~
 treasure ARY A
 0 0 0 0 0
@@ -2077,7 +2148,7 @@ G none
 #36391
 book lothar~
 Book of Lothar~
-a huge volume stands on the shelf ~
+A huge volume stands on the shelf.~
 kid leather~
 treasure ARY A
 0 0 0 0 0
@@ -2086,7 +2157,7 @@ G none
 #36392
 book eidu~
 Book of Eidu~
-a huge volume stands on the shelf ~
+A huge volume stands on the shelf.~
 kid leather~
 treasure ARY A
 0 0 0 0 0
@@ -2095,16 +2166,16 @@ G none
 #36393
 book marewell~
 Book of Marewell~
-a huge volume stands on the shelf ~
+A huge volume stands on the shelf.~
 kid leather~
-treasure 0 0
+treasure A 0
 0 0 0 0 0
 0 0 0 P
 G none
 #36394
 duncan book~
 Book of Dunkan~
-a huge volume stands on the shelf ~
+A huge volume stands on the shelf.~
 kid leather~
 treasure ARY A
 0 0 0 0 0
@@ -2113,7 +2184,7 @@ G none
 #36395
 book leon~
 Book of Leon~
-a huge volume stands on the shelf ~
+A huge volume stands on the shelf.~
 kid leather~
 treasure AGRY A
 0 0 0 0 0
@@ -2122,7 +2193,7 @@ G none
 #36396
 book arwen~
 Book of Arwen~
-a huge volume stands on the shelf ~
+A huge volume stands on the shelf.~
 kid leather~
 treasure ARY A
 0 0 0 0 0
@@ -2131,7 +2202,7 @@ G none
 #36397
 book arborn~
 Book of Arborn~
-a huge volume stands on the shelf ~
+A huge volume stands on the shelf.~
 kid leather~
 treasure AIRY A
 0 0 0 0 0
@@ -2140,7 +2211,7 @@ G none
 #36398
 book jullyroger~
 Book of JullyRoger~
-a huge volume stands on the shelf ~
+A huge volume stands on the shelf.~
 kid leather~
 treasure AGRY A
 0 0 0 0 0
@@ -2149,7 +2220,7 @@ G none
 #36399
 book gelios~
 Book of Gelios~
-a huge volume stands on the shelf ~
+A huge volume stands on the shelf.~
 kid leather~
 treasure ARY A
 0 0 0 0 0
@@ -2157,93 +2228,93 @@ treasure ARY A
 G none
 #36400
 book setepios~
-Book of Setepios~
-a huge volume stands on the shelf ~
+Book of Shamash~
+A huge volume stands on the shelf.~
 kid leather~
-treasure ABRY A
+treasure ARY A
 0 0 0 0 0
 0 0 0 P
 G none
 #36401
 book immortal~
 book of immortal~
-A huge volume stands on the shelf~
+A huge volume stands on the shelf.~
 ~
-treasure 0 0
+treasure 0 A
 0 0 0 0 0
 0 0 0 P
 G none
 #36402
 book immortal~
 book of immortal~
-A huge volume stands on the shelf~
+A huge volume stands on the shelf.~
 ~
-treasure 0 0
+treasure 0 A
 0 0 0 0 0
 0 0 0 P
 G none
 #36403
 book immortal~
 book of immortal~
-A huge volume stands on the shelf~
+A huge volume stands on the shelf.~
 ~
-treasure 0 0
+treasure 0 A
 0 0 0 0 0
 0 0 0 P
 G none
 #36404
 book immortal~
 book of immortal~
-A huge volume stands on the shelf~
+A huge volume stands on the shelf.~
 ~
-treasure 0 0
+treasure 0 A
 0 0 0 0 0
 0 0 0 P
 G none
 #36405
 book immortal~
 book of immortal~
-A huge volume stands on the shelf~
+A huge volume stands on the shelf.~
 ~
-treasure 0 0
+treasure 0 A
 0 0 0 0 0
 0 0 0 P
 G none
 #36406
 book immortal~
 book of immortal~
-A huge volume stands on the shelf~
+A huge volume stands on the shelf.~
 ~
-treasure 0 0
+treasure 0 A
 0 0 0 0 0
 0 0 0 P
 G none
 #36407
 book immortal~
 book of immortal~
-A huge volume stands on the shelf~
+A huge volume stands on the shelf.~
 ~
-treasure 0 0
+treasure 0 A
 0 0 0 0 0
 0 0 0 P
 G none
 #36408
-book immortal~
-book of immortal~
-A huge volume stands on the shelf~
-~
-treasure 0 0
-0 0 0 0 0
-0 0 0 P
+monk mace~
+Monk's mace~
+A heavy looking mace stands here.~
+wood~
+weapon GI AN
+mace 8 13 crush 0
+0 100 0 P
 G none
 #36409
-book immortal~
-book of immortal~
-A huge volume stands on the shelf~
-~
-treasure 0 0
-0 0 0 0 0
-0 0 0 P
+barrel huge ale~
+barrel of ale~
+A HUGE barrel of ale sits here.~
+wood~
+drink B A
+1000 1000 'ale' 0 0
+0 100 4500 P
 G none
 #36410
 gap~
@@ -2251,17 +2322,17 @@ gap~
 A gap between roots of the shrub looks very interesting.~
 wood~
 portal 0 0
-ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz A 36352 0
+0 EMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz A 36352 0
 0 10000 0 P
 G none
 #36411
 cape white~
-a white cape~
-a white cape lies here.~
+white cape~
+A white cape lies here.~
 silk~
 armor AGHKLM AK
 35 35 35 30 0
-85 10 5000 P
+90 10 5000 P
 A
 3 2
 A
@@ -2269,13 +2340,11 @@ A
 A
 12 150
 A
-13 150
-A
 24 -10
 G none
 #36412
 cape grey~
-a grey cape~
+grey cape~
 A grey cape lies here.~
 silk~
 armor AGHJKM AK
@@ -2288,13 +2357,11 @@ A
 A
 12 150
 A
-13 150
-A
 24 -10
 G none
 #36413
 cape dark~
-a dark cape~
+dark cape~
 A dark cape lies here.~
 silk~
 armor AEGHJLM AK
@@ -2307,16 +2374,14 @@ A
 A
 12 150
 A
-13 150
-A
 24 -10
 G none
 #36414
 mask clown~
-a clown mask~
+clown mask~
 A strange painted face looks at you.~
 plastic~
-armor CEMN AE
+armor CEM AE
 12 12 10 5 0
 25 10 1000 P
 A
@@ -2326,10 +2391,6 @@ A
 A
 4 -1
 A
-6 1
-A
-26 1
-A
 12 25
 A
 13 10
@@ -2338,12 +2399,12 @@ A
 G none
 #36415
 ball crystall quartz~
-a quartz crystall~
-A strange glowing ball shimmers on the dirt~
+quartz crystall~
+A strange glowing ball shimmers on the dirt.~
 quartz~
 light AG A
 0 0 -1 0 0
-85 10 4560 P
+90 10 4560 P
 A
 1 5
 A
@@ -2361,12 +2422,12 @@ A
 G none
 #36416
 pill heal~
-a healing pill~
+healing pill~
 Someone has left a pill of death here.~
 food~
 pill ABG AO
-40 'heal' 'refresh' '' ''
-30 5 5500 P
+90 'heal' 'refresh' 'heal' ''
+70 5 5500 P
 G none
 #36417
 pill energize~
@@ -2374,19 +2435,163 @@ an energize pill~
 Someone has left a deadly-looking pill here.~
 food~
 pill ABGM AO
-85 '' '' 'teleport' ''
+95 'refresh' 'teleport' 'heal' 'mana restore'
 75 0 25000 P
 A
 12 200
 G none
 #36418
 pill great~
-a great battle pill~
+great battle pill~
 A HUGE pill seems to be able to heal all of your wounds.~
 gut~
 pill 0 AO
 20 'blindness' 'weaken' 'slow' 'calm'
 10 0 1000 P
+G none
+#36419
+pill debugiing~
+strange pill~
+A pill of debugging lies here.~
+unknown~
+pill 0 A
+80 'detect hidden' 'detect invis' 'pass door' 'fly'
+0 0 0 P
+G none
+#36420
+portrait~
+portrait~
+A portrait of Grandfather hangs on the wall.~
+diamond~
+portal AR 0
+0 EMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz A 36358 0
+0 10000 0 P
+G none
+#36421
+wall~
+wall~
+A long wide mirror stands by the wall.~
+glass~
+portal 0 A
+0 EMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz A 36357 0
+0 10000 0 P
+G none
+#36422
+flask blood~
+flask of blood~
+A flask of blood lies here.~
+glass~
+drink E AO
+10 10 'blood' 0 0
+10 10 1000 P
+G none
+#36423
+arrow titanium~
+titanium arrow~
+A heavy looking arrow lies in the dirt.~
+titanium~
+weapon 0 AO
+arrow 10 10 pierce 0
+82 10 1500 P
+G none
+#36424
+staff green cold~
+green staff~
+A staff covered in bark lies here.~
+wood~
+staff B AO
+20 10 10 'protection cold' 0
+10 100 100 P
+G none
+#36425
+staff broom~
+witch's broom~
+Witch's broom sweeps around you in a cloud of dust.~
+wood~
+staff B AO
+10 10 10 'fly' 0
+10 50 2500 P
+G none
+#36426
+ring holy silver~
+holy ring~
+A silver ring lies here.~
+unknown~
+armor I AB
+0 0 0 0 0
+15 0 5600 P
+G none
+#36427
+amulet holy silver~
+holy amulet~
+Shiny silver amulet glows in the dirt.~
+silver~
+armor AI AC
+0 0 0 0 0
+25 10 12900 P
+G none
+#36428
+helm iron~
+iron helm~
+An iron helm lies here.~
+iron~
+armor 0 AE
+20 20 20 18 0
+25 40 4500 P
+G none
+#36429
+mace iron heavy~
+heavy iron mace~
+A huge mace stands at the corner.~
+iron~
+weapon 0 AN
+mace 8 8 crush 0
+60 100 16700 P
+G none
+#36430
+eye dragon~
+eye of dragon~
+Dragon Eye lies in dust.~
+unknown~
+trash GU AO
+0 0 0 0 0
+10 5 1000 P
+G none
+#36431
+toad tongue~
+toad tongue~
+A tongue of toad is convulsing on the floor.~
+unknown~
+trash GU AO
+0 0 0 0 0
+0 5 1000 P
+G none
+#36432
+dried bat~
+dried bat~
+Dried bat rustles with wings.~
+unknown~
+trash GU AO
+0 0 0 0 0
+10 5 1000 P
+G none
+#36433
+sword katana samurai~
+katana~
+A Sword of samurai humms quietly in your hands.~
+steel~
+weapon AHM AN
+sword 5 10 slash DE
+50 100 30000 P
+G none
+#36434
+kimono~
+kimono~
+Kimono hangs here.~
+silk~
+armor I AD
+20 21 21 18 0
+50 20 20000 P
 G none
 #0
 
@@ -2401,7 +2606,7 @@ enter the town.
 D0
 ~
 ~
-Z -1 36336
+Z 0 36336
 S
 #36301
 Fountain~
@@ -2411,7 +2616,7 @@ and teasing one another. Light catches the water and creates
 small, shimmering rainbows.
 
 ~
-0 0 swim
+0 0 field
 D0
 ~
 ~
@@ -3165,7 +3370,7 @@ Z -1 36335
 D2
 ~
 ~
-Z -1 36300
+Z 0 36300
 S
 #36337
 Entrance to the Bank Office~
@@ -3286,7 +3491,7 @@ On the walls you can see beautiful paintings. Some carvings
 stand on the shelves. His kimono and katana sword seem to be
 locked in a small chest sitting by the corner.
 ~
-0 DJ inside
+0 D inside
 E
 chest~
 It's locked.
@@ -3304,7 +3509,7 @@ carvings and rocks lies on the stands and shelves. An
 ashen longbow stands by the corner and wooden arrows
 fill a quiver hanging on the back wall.
 ~
-0 DJ inside
+0 D inside
 D3
 ~
 ~
@@ -3333,7 +3538,7 @@ Z -1 36331
 S
 #36348
 Vampire's House~
-Simply house of a dreaded vampire.
+Simply the house of a dreaded vampire.
 ~
 0 AD inside
 D1
@@ -3853,7 +4058,7 @@ A dark hill, filled with a black magic, covered with fairy
 mists, shows you a deserted line to the south. Far you can
 see a lit hill.
 ~
-0 0 hills
+0 0 desert
 D2
 ~
 ~
@@ -3864,7 +4069,7 @@ Deserted Lawn~
 Earlier it was a lawn. But mage's casts deserted it and you
 can see only a sand.
 ~
-0 0 air
+0 0 desert
 D0
 ~
 ~
@@ -3879,7 +4084,7 @@ Deserted Lawn~
 Earlier it was a lawn. But mage's casts deserted it and you
 can see only a sand.
 ~
-0 0 air
+0 0 desert
 D0
 ~
 ~
@@ -3894,7 +4099,7 @@ Deserted Lawn~
 Earlier it was a lawn. But mage's casts deserted it and you
 can see only a sand.
 ~
-0 0 air
+0 0 desert
 D0
 ~
 ~
@@ -3913,7 +4118,7 @@ Deserted Lawn~
 Earlier it was a lawn. But mage's casts deserted it and you
 can see only a sand.
 ~
-0 0 air
+0 0 desert
 D0
 ~
 ~
@@ -3932,7 +4137,7 @@ Deserted Lawn~
 Earlier it was a lawn. But mage's casts deserted it and you
 can see only a sand.
 ~
-0 0 air
+0 0 desert
 D0
 ~
 ~
@@ -3951,7 +4156,7 @@ Deserted Lawn~
 Earlier it was a lawn. But mage's casts deserted it and you
 can see only a sand.
 ~
-0 0 air
+0 0 desert
 D0
 ~
 ~
@@ -3966,7 +4171,7 @@ Deserted Lawn~
 Earlier it was a lawn. But mage's casts deserted it and you
 can see only a sand.
 ~
-0 0 air
+0 0 desert
 D0
 ~
 ~
@@ -3981,7 +4186,7 @@ Lit Hill~
 You are on the top of a lit hill. North spreads the desert
 you have left just now. South you can see Festival Town.
 ~
-0 0 hills
+0 0 desert
 D0
 ~
 ~
@@ -3993,7 +4198,7 @@ You are beside a small shrub. You can't go back to the north,
 but under your feet you can barely see a dark hole. May be
 there is a way home?
 ~
-0 0 forest
+0 C forest
 S
 #36389
 Rocky Mountain~
@@ -4134,7 +4339,7 @@ Z -1 36394
 D2
 ~
 ~
-Z -1 36388
+Z 0 36388
 D3
 ~
 ~
@@ -4196,9 +4401,9 @@ Z -1 36326
 S
 #36399
 Deep in the Dark Forest~
-You have come far deep in the dark forest. You are lost...
+   You have come far deep in the dark forest. You are lost...
 ~
-0 N forest
+0 CN forest
 S
 #36400
 Entrance Cave~
@@ -5077,8 +5282,7 @@ You are walking along the main street. Brightly colored houses
 are on the sides of the street. Some of them are closed, other
 opened and you can catch some shadows inside. Probably, all the
 inhabitants celebrate the Festival. You here some noises from
-the northern part of town.
-
+the northern part of the town.
 ~
 0 0 city
 D0
@@ -5091,9 +5295,10 @@ D2
 Z -1 36330
 S
 #36440
-2nd Line Street~
-This street can be simply called "the 2nd"
-
+Intersection~
+You are at the intersection of the 2nd Line and Main street.
+A smart grate blocks path northward, south lies the central
+part of the town. East and west 2nd Line continues.
 ~
 0 0 city
 D0
@@ -5245,10 +5450,10 @@ D2
 Z -1 36450
 S
 #36450
-1st Line Street~
-You walk along the street called simply "the 1st". Small
-houses are on the northern side of the street.
-
+Intersection~
+You are at the intersection of the 1st Line and Main street.
+North lies the town you are to visit now. East and west
+the 1st Line continues. South you can return to the gates.
 ~
 0 0 city
 D0
@@ -5387,14 +5592,14 @@ S
 #0
 
 #SPECIALS
-M 36300 spec_thief	* Grandfather
+M 36300 spec_breath_any	* Grandfather
 M 36306 spec_cast_cleric	* Monk
 M 36310 spec_mayor	* Mayor
 M 36312 spec_cast_mage	* Archivarius
 M 36315 spec_cast_mage	* Librarian
 M 36327 spec_guard	* Gate guard
-M 36328 spec_thief	* a hidden figure
-M 36329 spec_thief	* a pickpocket
+M 36328 spec_thief	* hidden figure
+M 36329 spec_thief	* pickpocket
 M 36332 spec_breath_acid	* White Law
 M 36333 spec_breath_frost	* White Neutrality
 M 36334 spec_breath_gas	* White Chaos
@@ -5405,7 +5610,7 @@ M 36338 spec_breath_fire	* Dark Law
 M 36339 spec_breath_frost	* Dark Neutrality
 M 36340 spec_breath_acid	* Dark Chaos
 M 36341 spec_cast_mage	* Earthquaker
-M 36343 spec_breath_fire	* a gekko
+M 36343 spec_breath_fire	* gekko
 S
 
 #RESETS
@@ -5436,156 +5641,163 @@ D 0 36359 5 1	* Mayor's Office: door to the down: closed
 D 0 36360 3 1	* Archives: door to the west: closed
 D 0 36389 5 1	* Rocky Mountain: door to the down: closed
 D 0 36400 4 1	* Entrance Cave: door to the up: closed
-D 0 36440 0 1	* 2nd Line Street: door to the north: closed
+D 0 36440 0 1	* Intersection: door to the north: closed
 M 0 36319 3 36300 1	* hedgehog (Path to the Festival Town)
-G 0 36315 0		*	an apple
+G 0 36315 0		*	apple
 M 0 36310 1 36301 1	* Mayor (Fountain)
-E 0 36342 0 5		*	a festival suit: on the body
-E 0 36340 0 6		*	a cowboy's hat: over the head
-O 0 36367 0 36301	* a marble fountain (Fountain)
-M 0 36320 0 36301 0	* a small boy (Fountain)
-M 0 36320 0 36301 0	* a small boy (Fountain)
-M 0 36321 0 36301 0	* a small girl (Fountain)
-M 0 36321 0 36301 0	* a small girl (Fountain)
-M 0 36324 2 36302 1	* a clown (The Lawn)
-E 0 36342 0 5		*	a festival suit: on the body
+E 0 36342 0 5		*	festival suit: on the body
+E 0 36340 0 6		*	cowboy's hat: over the head
+O 0 36367 0 36301	* marble fountain (Fountain)
+M 0 36320 10 36301 1	* a small boy (Fountain)
+M 0 36321 10 36301 1	* a small girl (Fountain)
+M 0 36324 2 36302 1	* clown (The Lawn)
+E 0 36342 0 5		*	festival suit: on the body
 E 0 36374 0 8		*	some stilts: on the feet
-E 0 36414 0 6		*	a clown mask: over the head
-M 0 36321 0 36302 0	* a small girl (The Lawn)
+E 0 36414 0 6		*	clown mask: over the head
+M 0 36321 4 36302 1	* a small girl (The Lawn)
 M 0 36323 4 36302 1	* a citizen (The Lawn)
-E 0 36342 0 5		*	a festival suit: on the body
-M 0 36324 2 36307 1	* a clown (The Lawn)
-E 0 36342 0 5		*	a festival suit: on the body
+E 0 36342 0 5		*	festival suit: on the body
+M 0 36324 2 36307 1	* clown (The Lawn)
+E 0 36342 0 5		*	festival suit: on the body
 E 0 36374 0 8		*	some stilts: on the feet
-E 0 36414 0 6		*	a clown mask: over the head
+E 0 36414 0 6		*	clown mask: over the head
 M 0 36323 3 36307 1	* a citizen (The Lawn)
-E 0 36342 0 5		*	a festival suit: on the body
-M 0 36322 2 36307 1	* a citizen (The Lawn)
-E 0 36342 0 5		*	a festival suit: on the body
+E 0 36342 0 5		*	festival suit: on the body
 M 0 36322 3 36310 1	* a citizen (Walkway)
-E 0 36342 0 5		*	a festival suit: on the body
+E 0 36342 0 5		*	festival suit: on the body
 M 0 36327 1 36310 1	* Gate guard (Walkway)
-E 0 36368 0 5		*	a guard breast plate: on the body
-E 0 36371 0 16		*	a guard sword: wielded
-E 0 36369 0 11		*	a guard shield: as a shield
-E 0 36370 0 12		*	a guard cape: about the shoulders
-M 0 36329 0 36312 1	* a pickpocket (Walkway)
-E 0 36342 0 5		*	a festival suit: on the body
+E 0 36368 0 5		*	guard breast plate: on the body
+E 0 36371 0 16		*	guard sword: wielded
+E 0 36369 0 11		*	guard shield: as a shield
+E 0 36370 0 12		*	guard cape: about the shoulders
+M 0 36329 0 36312 1	* pickpocket (Walkway)
+E 0 36342 0 5		*	festival suit: on the body
 E 0 36338 0 17		*	a match box: held in the hands
-M 0 36326 1 36313 1	* a vendor (Walkway)
-G 0 36364 0		*	a battle pill
-G 0 36365 0		*	a magic pill
-G 0 36416 0		*	a healing pill
+M 0 36326 1 36313 1	* vendor (Walkway)
+G 0 36364 0		*	battle pill
+G 0 36365 0		*	magic pill
+G 0 36416 0		*	healing pill
 G 0 36417 0		*	an energize pill
-G 0 36418 0		*	a great battle pill
-M 0 36345 1 36317 1	* a vendor (Walkway)
+G 0 36418 0		*	great battle pill
+M 0 36345 1 36317 1	* vendor (Walkway)
 G 0 36337 0		*	a match
 G 0 36338 0		*	a match box
-G 0 36341 0		*	a staff of strength
+G 0 36341 0		*	staff of strength
 M 0 36323 2 36318 1	* a citizen (Walkway)
-E 0 36342 0 5		*	a festival suit: on the body
-M 0 36325 1 36318 1	* a juggler (Walkway)
+E 0 36342 0 5		*	festival suit: on the body
+M 0 36325 1 36318 1	* juggler (Walkway)
 E 0 36337 0 17		*	a match: held in the hands
 E 0 36336 0 6		*	some sun-glasses: over the head
-G 0 36315 0		*	an apple
-G 0 36315 0		*	an apple
-G 0 36315 0		*	an apple
-G 0 36315 0		*	an apple
-M 0 36346 0 36321 1	* a vendor (Walkway)
-G 0 36363 0		*	a statue
-G 0 36361 0		*	a Mayor's statue
-M 0 36325 2 36324 1	* a juggler (Walkway)
-E 0 36342 0 5		*	a festival suit: on the body
-E 0 36347 0 16		*	a goose pen: wielded
-M 0 36329 1 36324 1	* a pickpocket (Walkway)
-E 0 36342 0 5		*	a festival suit: on the body
-M 0 36347 0 36325 1	* a vendor (Walkway)
-G 0 36315 0		*	an apple
-G 0 36316 0		*	a cookie
+G 0 36315 0		*	apple
+G 0 36315 0		*	apple
+G 0 36315 0		*	apple
+G 0 36315 0		*	apple
+M 0 36346 1 36321 1	* vendor (Walkway)
+G 0 36363 0		*	statue
+G 0 36361 0		*	Mayor's statue
+M 0 36325 2 36324 1	* juggler (Walkway)
+E 0 36342 0 5		*	festival suit: on the body
+E 0 36347 0 16		*	goose pen: wielded
+M 0 36329 1 36324 1	* pickpocket (Walkway)
+E 0 36342 0 5		*	festival suit: on the body
+M 0 36347 1 36325 1	* vendor (Walkway)
+G 0 36315 0		*	apple
+G 0 36316 0		*	cookie
 M 0 36322 1 36327 1	* a citizen (Small Path)
-E 0 36342 0 5		*	a festival suit: on the body
-M 0 36350 0 36333 0	* a tiny bird (Main Street)
+E 0 36342 0 5		*	festival suit: on the body
+M 0 36350 10 36333 1	* tiny bird (Main Street)
 M 0 36327 3 36335 2	* Gate guard (The Gates)
-E 0 36368 0 5		*	a guard breast plate: on the body
-E 0 36369 0 11		*	a guard shield: as a shield
-E 0 36370 0 12		*	a guard cape: about the shoulders
-E 0 36371 0 16		*	a guard sword: wielded
-M 0 36327 0 36335 2	* Gate guard (The Gates)
-E 0 36368 0 5		*	a guard breast plate: on the body
-E 0 36369 0 11		*	a guard shield: as a shield
-E 0 36370 0 12		*	a guard cape: about the shoulders
-E 0 36371 0 16		*	a guard sword: wielded
-M 0 36350 0 36338 0	* a tiny bird (Entrance to the Mayor's Residence)
-M 0 36344 5 36339 1	* a servant (Entrance Hall)
-E 0 36345 0 5		*	a dark gray robe: on the body
-O 0 36375 0 36341	* a safe (Dark Room)
-P 0 36380 1 36375 1	* a safe: a secret key
-P 0 36315 1 36375 1	* a safe: an apple
-M 0 36307 0 36343 1	* Banker's son (Bedroom)
-G 0 36343 0		*	a boy's toy
-M 0 36328 2 36346 1	* a hidden figure (Warrior's House)
-M 0 36330 0 36348 0	* a bat (Vampire's House)
-M 0 36331 0 36349 1	* a black cat (Witch's House)
-G 0 36364 0		*	a battle pill
-G 0 36365 0		*	a magic pill
-M 0 36328 2 36351 1	* a hidden figure (Mage's House)
+E 0 36368 0 5		*	guard breast plate: on the body
+E 0 36369 0 11		*	guard shield: as a shield
+E 0 36370 0 12		*	guard cape: about the shoulders
+E 0 36371 0 16		*	guard sword: wielded
+M 0 36350 10 36338 1	* tiny bird (Entrance to the Mayor's Residence)
+M 0 36344 5 36339 1	* servant (Entrance Hall)
+E 0 36345 0 5		*	dark gray robe: on the body
+O 0 36377 0 36340	* bureau (Office)
+P 0 36376 1 36377 1	* bureau: room key
+O 0 36375 0 36341	* safe (Dark Room)
+P 0 36380 1 36375 1	* safe: secret key
+P 0 36315 1 36375 1	* safe: apple
+M 0 36307 1 36343 1	* Banker's son (Bedroom)
+G 0 36343 0		*	boy's toy
+M 0 36357 1 36344 1	* Samurai (Samurai's House)
+G 0 36433 0		*	katana
+G 0 36434 0		*	kimono
+M 0 36356 1 36345 1	* Ranger (Ranger's House)
+G 0 36424 0		*	green staff
+G 0 36423 0		*	titanium arrow
+M 0 36358 1 36346 1	* Warrior (Warrior's House)
+G 0 36428 0		*	iron helm
+G 0 36429 0		*	heavy iron mace
+M 0 36328 2 36346 1	* hidden figure (Warrior's House)
+M 0 36355 1 36347 1	* Paladin (Paladin's House)
+G 0 36382 0		*	Holy shield of Paladins
+G 0 36383 0		*	Holy lance of Paladins
+M 0 36360 1 36348 1	* Vampire (Vampire's House)
+G 0 36422 0		*	flask of blood
+M 0 36330 5 36348 1	* a bat (Vampire's House)
+M 0 36359 1 36349 1	* Witch (Witch's House)
+G 0 36425 0		*	witch's broom
+M 0 36331 1 36349 1	* black cat (Witch's House)
+M 0 36361 1 36350 1	* Clerick (Cleric's House)
+G 0 36426 0		*	holy ring
+G 0 36427 0		*	holy amulet
+M 0 36362 1 36351 1	* Mage (Mage's House)
+G 0 36430 0		*	eye of dragon
+G 0 36432 0		*	dried bat
+G 0 36431 0		*	toad tongue
+M 0 36328 2 36351 1	* hidden figure (Mage's House)
 M 0 36311 1 36353 1	* Clerk (Secretary's Office)
-E 0 36345 0 5		*	a dark gray robe: on the body
-E 0 36346 0 9		*	a sleeves of accuracy: on the hands
-E 0 36347 0 16		*	a goose pen: wielded
-G 0 36348 0		*	a witch-hunt dispatch
-M 0 36309 0 36355 1	* Mayor's Wife (Living Room)
+E 0 36345 0 5		*	dark gray robe: on the body
+E 0 36346 0 9		*	sleeves of accuracy: on the hands
+E 0 36347 0 16		*	goose pen: wielded
+G 0 36348 0		*	witch-hunt dispatch
+M 0 36309 1 36355 1	* Mayor's Wife (Living Room)
 E 0 36339 0 6		*	a wig: over the head
-E 0 36342 0 5		*	a festival suit: on the body
-G 0 36316 0		*	a cookie
-O 0 36316 0 36355	* a cookie (Living Room)
-O 0 36316 0 36355	* a cookie (Living Room)
-O 0 36315 0 36355	* an apple (Living Room)
-M 0 36344 4 36356 4	* a servant (Dining Hall)
-E 0 36342 0 5		*	a festival suit: on the body
-M 0 36344 0 36356 4	* a servant (Dining Hall)
-E 0 36342 0 5		*	a festival suit: on the body
-M 0 36344 0 36356 4	* a servant (Dining Hall)
-E 0 36342 0 5		*	a festival suit: on the body
-M 0 36344 0 36356 4	* a servant (Dining Hall)
-E 0 36342 0 5		*	a festival suit: on the body
-O 0 36382 0 36357	* portrait (Great Library)
+E 0 36342 0 5		*	festival suit: on the body
+G 0 36316 0		*	cookie
+O 0 36316 0 36355	* cookie (Living Room)
+O 0 36315 0 36355	* apple (Living Room)
+M 0 36344 4 36356 4	* servant (Dining Hall)
+E 0 36342 0 5		*	festival suit: on the body
 M 0 36315 1 36357 1	* Librarian (Great Library)
-E 0 36346 0 9		*	a sleeves of accuracy: on the hands
-E 0 36345 0 5		*	a dark gray robe: on the body
-E 0 36349 0 17		*	a witch-hunt rescript: held in the hands
+E 0 36346 0 9		*	sleeves of accuracy: on the hands
+E 0 36345 0 5		*	dark gray robe: on the body
+E 0 36349 0 17		*	witch-hunt rescript: held in the hands
 E 0 36317 0 16		*	bookmark: wielded
-M 0 36314 0 36357 1	* Spider (Great Library)
-O 0 36385 0 36357	* a bookshelf (Great Library)
-P 0 36386 1 36385 1	* a bookshelf: Book of Iluvatar
-P 0 36387 1 36385 1	* a bookshelf: Book of abrazak
-P 0 36388 1 36385 1	* a bookshelf: Book of Diablo
-P 0 36389 1 36385 1	* a bookshelf: Book of Hedin
-P 0 36390 1 36385 1	* a bookshelf: Book of Phobos
-P 0 36391 1 36385 1	* a bookshelf: Book of Lothar
-P 0 36392 1 36385 1	* a bookshelf: Book of Eidu
-P 0 36393 1 36385 1	* a bookshelf: Book of Marewell
-P 0 36394 1 36385 1	* a bookshelf: Book of Dunkan
-P 0 36395 1 36385 1	* a bookshelf: Book of Leon
-P 0 36396 1 36385 1	* a bookshelf: Book of Arwen
-P 0 36397 1 36385 1	* a bookshelf: Book of Arborn
-P 0 36398 1 36385 1	* a bookshelf: Book of JullyRoger
-P 0 36399 1 36385 1	* a bookshelf: Book of Gelios
-P 0 36361 1 36385 1	* a bookshelf: a Mayor's statue
-O 0 36383 0 36358	* wall (Lost in time)
-M 0 36300 0 36358 1	* Grandfather (Lost in time)
+M 0 36314 1 36357 1	* Spider (Great Library)
+O 0 36385 0 36357	* bookshelf (Great Library)
+P 0 36386 1 36385 1	* bookshelf: Book of Iluvatar
+P 0 36387 1 36385 1	* bookshelf: Book of abrazak
+P 0 36388 1 36385 1	* bookshelf: Book of Diablo
+P 0 36389 1 36385 1	* bookshelf: Book of Hedin
+P 0 36390 1 36385 1	* bookshelf: Book of Phobos
+P 0 36391 1 36385 1	* bookshelf: Book of Lothar
+P 0 36392 1 36385 1	* bookshelf: Book of Eidu
+P 0 36393 1 36385 1	* bookshelf: Book of Marewell
+P 0 36394 1 36385 1	* bookshelf: Book of Dunkan
+P 0 36395 1 36385 1	* bookshelf: Book of Leon
+P 0 36396 1 36385 1	* bookshelf: Book of Arwen
+P 0 36397 1 36385 1	* bookshelf: Book of Arborn
+P 0 36398 1 36385 1	* bookshelf: Book of JullyRoger
+P 0 36399 1 36385 1	* bookshelf: Book of Gelios
+P 0 36400 1 36385 1	* bookshelf: Book of Shamash
+O 0 36420 0 36357	* portrait (Great Library)
+O 0 36421 0 36358	* wall (Lost in time)
+M 0 36300 1 36358 1	* Grandfather (Lost in time)
 E 0 36318 0 12		*	illusory cloak: about the shoulders
 E 0 36319 0 16		*	illusory longsword: wielded
 O 0 36381 0 36359	* secret cell (Mayor's Office)
 P 0 36344 1 36381 1	* secret cell: Grand Pris
-M 0 36312 0 36360 1	* Archivarius (Archives)
+M 0 36312 1 36360 1	* Archivarius (Archives)
 E 0 36314 0 13		*	ink-pot: around the waist
-E 0 36345 0 5		*	a dark gray robe: on the body
-E 0 36346 0 9		*	a sleeves of accuracy: on the hands
-E 0 36349 0 17		*	a witch-hunt rescript: held in the hands
-G 0 36316 0		*	a cookie
-G 0 36348 0		*	a witch-hunt dispatch
-M 0 36313 0 36360 0	* Rodent (Archives)
+E 0 36345 0 5		*	dark gray robe: on the body
+E 0 36346 0 9		*	sleeves of accuracy: on the hands
+E 0 36349 0 17		*	witch-hunt rescript: held in the hands
+G 0 36316 0		*	cookie
+G 0 36348 0		*	witch-hunt dispatch
+M 0 36313 1 36360 1	* Rodent (Archives)
 M 0 36301 1 36361 1	* green bowman (The edge of the Forest)
 E 0 36320 0 17		*	silver arrow: held in the hands
 E 0 36322 0 6		*	green hat: over the head
@@ -5594,7 +5806,7 @@ E 0 36324 0 7		*	leather leggings: on the legs
 E 0 36325 0 8		*	thin leather boots: on the feet
 E 0 36326 0 16		*	longbow: wielded
 E 0 36321 0 1		*	bowman's ring: on the left finger
-M 0 36302 0 36361 1	* Acute Eye (The edge of the Forest)
+M 0 36302 1 36361 1	* Acute Eye (The edge of the Forest)
 E 0 36327 0 6		*	headband: over the head
 E 0 36328 0 13		*	snake belt: around the waist
 E 0 36329 0 7		*	scalp leggings: on the legs
@@ -5602,14 +5814,14 @@ E 0 36330 0 8		*	some moccasins: on the feet
 E 0 36300 0 15		*	feathery bracer: on the right wrist
 E 0 36301 0 16		*	tomahawk: wielded
 E 0 36300 0 14		*	feathery bracer: on the left wrist
-M 0 36303 0 36361 1	* Tumbu-Yumbu (The edge of the Forest)
+M 0 36303 1 36361 1	* Tumbu-Yumbu (The edge of the Forest)
 E 0 36302 0 4		*	tooth necklace: around the neck (2)
 E 0 36303 0 7		*	short palm skirt: on the legs
 E 0 36304 0 10		*	bracer of charisma: on the arms
 E 0 36306 0 12		*	leo skin: about the shoulders
 E 0 36307 0 16		*	reet stick: wielded
 E 0 36305 0 11		*	ebony shield: as a shield
-M 0 36304 0 36361 1	* Lee Huang Wang (The edge of the Forest)
+M 0 36304 1 36361 1	* Lee Huang Wang (The edge of the Forest)
 E 0 36308 0 6		*	black casque: over the head
 E 0 36309 0 5		*	black scale platemail: on the body
 E 0 36310 0 9		*	black dragon gauntlets: on the hands
@@ -5619,162 +5831,158 @@ E 0 36313 0 8		*	black dragon boots: on the feet
 E 0 36321 0 1		*	bowman's ring: on the left finger
 M 0 36319 2 36363 1	* hedgehog (Shooting Place)
 E 0 36373 0 9		*	hedgehog's gloves: on the hands
-G 0 36315 0		*	an apple
-M 0 36349 4 36367 4	* a target (The edge of the Forest)
-M 0 36349 0 36367 4	* a target (The edge of the Forest)
-M 0 36349 0 36367 4	* a target (The edge of the Forest)
-M 0 36349 0 36367 4	* a target (The edge of the Forest)
-M 0 36318 0 36368 1	* some clothes (The edge of the Forest)
-E 0 36357 0 11		*	a tournament shield: as a shield
-E 0 36360 0 16		*	a tournament sword: wielded
-M 0 36350 0 36368 0	* a tiny bird (The edge of the Forest)
+G 0 36315 0		*	apple
+M 0 36349 4 36367 4	* target (The edge of the Forest)
+M 0 36318 1 36368 1	* trainihg mob (The edge of the Forest)
+E 0 36357 0 11		*	tournament shield: as a shield
+E 0 36360 0 16		*	tournament sword: wielded
+M 0 36350 10 36368 1	* tiny bird (The edge of the Forest)
 M 0 36306 1 36369 1	* Monk (Strange Grove)
-E 0 36362 0 16		*	a tournament mace: wielded
+E 0 36408 0 16		*	Monk's mace: wielded
 E 0 36323 0 5		*	green vest: on the body
 E 0 36324 0 7		*	leather leggings: on the legs
-M 0 36348 0 36369 1	* a vendor (Strange Grove)
-G 0 36335 0		*	a crumpled flask
+G 0 36409 0		*	barrel of ale
+M 0 36348 1 36369 1	* vendor (Strange Grove)
+G 0 36335 0		*	crumpled flask
+G 0 36409 0		*	barrel of ale
 M 0 36316 3 36370 1	* warrior on competition (Wasted Lawn)
-E 0 36350 0 2		*	a tournament ring: on the right finger
-E 0 36351 0 4		*	a tournament scarf: around the neck (2)
+E 0 36350 0 2		*	tournament ring: on the right finger
+E 0 36351 0 4		*	tournament scarf: around the neck (2)
 E 0 36354 0 7		*	tournament leg's plate: on the legs
 E 0 36355 0 8		*	tournament plated boots: on the feet
-E 0 36362 0 16		*	a tournament mace: wielded
+E 0 36362 0 16		*	tournament mace: wielded
 M 0 36316 2 36372 1	* warrior on competition (Wasted Lawn)
-E 0 36350 0 2		*	a tournament ring: on the right finger
-E 0 36351 0 4		*	a tournament scarf: around the neck (2)
-E 0 36352 0 6		*	a tournament helm: over the head
-E 0 36353 0 5		*	a tournament breast plate: on the body
-E 0 36360 0 16		*	a tournament sword: wielded
+E 0 36350 0 2		*	tournament ring: on the right finger
+E 0 36351 0 4		*	tournament scarf: around the neck (2)
+E 0 36352 0 6		*	tournament helm: over the head
+E 0 36353 0 5		*	tournament breast plate: on the body
+E 0 36360 0 16		*	tournament sword: wielded
 M 0 36317 3 36373 1	* hooligan (Wasted Lawn)
 E 0 36338 0 17		*	a match box: held in the hands
-E 0 36342 0 5		*	a festival suit: on the body
-M 0 36316 0 36374 1	* warrior on competition (Wasted Lawn)
-E 0 36350 0 2		*	a tournament ring: on the right finger
-E 0 36351 0 4		*	a tournament scarf: around the neck (2)
-E 0 36357 0 11		*	a tournament shield: as a shield
-E 0 36358 0 12		*	a tournament cloak: about the shoulders
-E 0 36372 0 16		*	a tournament axe: wielded
+E 0 36342 0 5		*	festival suit: on the body
+M 0 36316 4 36374 1	* warrior on competition (Wasted Lawn)
+E 0 36350 0 2		*	tournament ring: on the right finger
+E 0 36351 0 4		*	tournament scarf: around the neck (2)
+E 0 36357 0 11		*	tournament shield: as a shield
+E 0 36358 0 12		*	tournament cloak: about the shoulders
+E 0 36372 0 16		*	tournament axe: wielded
 M 0 36317 2 36375 1	* hooligan (Wasted Lawn)
 E 0 36337 0 17		*	a match: held in the hands
-E 0 36342 0 5		*	a festival suit: on the body
+E 0 36342 0 5		*	festival suit: on the body
 M 0 36316 4 36376 1	* warrior on competition (Wasted Lawn)
-E 0 36350 0 2		*	a tournament ring: on the right finger
-E 0 36351 0 4		*	a tournament scarf: around the neck (2)
+E 0 36350 0 2		*	tournament ring: on the right finger
+E 0 36351 0 4		*	tournament scarf: around the neck (2)
 E 0 36356 0 10		*	tournament arm plates: on the arms
 E 0 36359 0 9		*	tournament gauntlets: on the hands
-E 0 36366 0 16		*	a tournament morningstar: wielded
-M 0 36350 0 36376 0	* a tiny bird (Wasted Lawn)
-M 0 36305 0 36378 1	* Old Veteran (Wasted Lawn)
+E 0 36366 0 16		*	tournament morningstar: wielded
+M 0 36350 10 36376 1	* tiny bird (Wasted Lawn)
+M 0 36305 1 36378 1	* Old Veteran (Wasted Lawn)
 E 0 36331 0 18		*	spiritus vini: floating nearby
-E 0 36332 0 12		*	a dirty waistcoat: about the shoulders
-E 0 36333 0 13		*	a shoulder belt: around the waist
-E 0 36334 0 16		*	an old veteran's sword: wielded
-E 0 36335 0 17		*	a crumpled flask: held in the hands
-M 0 36340 0 36379 1	* Dark Chaos (Dark Hill)
-E 0 36376 0 0		*	room key: as a light
-E 0 36374 0 12		*	some stilts: about the shoulders
-M 0 36343 3 36379 1	* a gekko (Dark Hill)
-G 0 36316 0		*	a cookie
-M 0 36339 0 36380 1	* Dark Neutrality (Deserted Lawn)
-E 0 36376 0 0		*	room key: as a light
-E 0 36374 0 12		*	some stilts: about the shoulders
-M 0 36338 0 36381 1	* Dark Law (Deserted Lawn)
-E 0 36376 0 0		*	room key: as a light
-E 0 36374 0 12		*	some stilts: about the shoulders
-M 0 36343 0 36382 1	* a gekko (Deserted Lawn)
-G 0 36316 0		*	a cookie
-M 0 36337 0 36382 1	* Grey Chaos (Deserted Lawn)
-E 0 36373 0 12		*	hedgehog's gloves: about the shoulders
-E 0 36376 0 0		*	room key: as a light
+E 0 36332 0 12		*	dirty waistcoat: about the shoulders
+E 0 36333 0 13		*	shoulder belt: around the waist
+E 0 36334 0 16		*	old veteran's sword: wielded
+E 0 36335 0 17		*	crumpled flask: held in the hands
+M 0 36340 1 36379 1	* Dark Chaos (Dark Hill)
+E 0 36415 0 0		*	quartz crystall: as a light
+E 0 36413 0 12		*	dark cape: about the shoulders
+M 0 36343 3 36379 1	* gekko (Dark Hill)
+G 0 36316 0		*	cookie
+M 0 36339 1 36380 1	* Dark Neutrality (Deserted Lawn)
+E 0 36415 0 0		*	quartz crystall: as a light
+E 0 36413 0 12		*	dark cape: about the shoulders
+M 0 36338 1 36381 1	* Dark Law (Deserted Lawn)
+E 0 36415 0 0		*	quartz crystall: as a light
+E 0 36413 0 12		*	dark cape: about the shoulders
+M 0 36343 5 36382 1	* gekko (Deserted Lawn)
+G 0 36316 0		*	cookie
+M 0 36337 1 36382 1	* Grey Chaos (Deserted Lawn)
+E 0 36415 0 0		*	quartz crystall: as a light
+E 0 36412 0 12		*	grey cape: about the shoulders
 M 0 36317 4 36382 1	* hooligan (Deserted Lawn)
 E 0 36337 0 17		*	a match: held in the hands
 G 0 36338 0		*	a match box
-M 0 36336 0 36383 1	* True Neutrality (Deserted Lawn)
-E 0 36373 0 12		*	hedgehog's gloves: about the shoulders
-E 0 36376 0 0		*	room key: as a light
-M 0 36335 0 36384 1	* Grey Law (Deserted Lawn)
-E 0 36376 0 0		*	room key: as a light
-E 0 36373 0 12		*	hedgehog's gloves: about the shoulders
-M 0 36334 0 36385 1	* White Chaos (Deserted Lawn)
-E 0 36376 0 0		*	room key: as a light
-E 0 36372 0 12		*	a tournament axe: about the shoulders
-M 0 36333 0 36386 1	* White Neutrality (Deserted Lawn)
-E 0 36372 0 12		*	a tournament axe: about the shoulders
-E 0 36376 0 0		*	room key: as a light
-M 0 36332 0 36387 1	* White Law (Lit Hill)
-E 0 36376 0 0		*	room key: as a light
-E 0 36372 0 12		*	a tournament axe: about the shoulders
-M 0 36343 3 36387 1	* a gekko (Lit Hill)
+M 0 36336 1 36383 1	* True Neutrality (Deserted Lawn)
+E 0 36415 0 0		*	quartz crystall: as a light
+E 0 36412 0 12		*	grey cape: about the shoulders
+M 0 36335 1 36384 1	* Grey Law (Deserted Lawn)
+E 0 36415 0 0		*	quartz crystall: as a light
+E 0 36412 0 12		*	grey cape: about the shoulders
+M 0 36334 1 36385 1	* White Chaos (Deserted Lawn)
+E 0 36415 0 0		*	quartz crystall: as a light
+E 0 36411 0 12		*	white cape: about the shoulders
+M 0 36333 1 36386 1	* White Neutrality (Deserted Lawn)
+E 0 36415 0 0		*	quartz crystall: as a light
+E 0 36411 0 12		*	white cape: about the shoulders
+M 0 36332 1 36387 1	* White Law (Lit Hill)
+E 0 36415 0 0		*	quartz crystall: as a light
+E 0 36411 0 12		*	white cape: about the shoulders
+M 0 36343 3 36387 1	* gekko (Lit Hill)
 M 0 36308 1 36388 1	* Mayor's son (Small Shrub)
 E 0 36337 0 17		*	a match: held in the hands
 G 0 36338 0		*	a match box
-O 0 36371 0 36388	* a guard sword (Small Shrub)
+O 0 36410 0 36388	* gap (Small Shrub)
 M 0 36341 1 36389 1	* Earthquaker (Rocky Mountain)
 E 0 36314 0 13		*	ink-pot: around the waist
 E 0 36323 0 5		*	green vest: on the body
-E 0 36341 0 17		*	a staff of strength: held in the hands
+E 0 36341 0 17		*	staff of strength: held in the hands
 G 0 36338 0		*	a match box
-M 0 36319 0 36389 1	* hedgehog (Rocky Mountain)
+M 0 36319 10 36389 1	* hedgehog (Rocky Mountain)
 E 0 36373 0 9		*	hedgehog's gloves: on the hands
-G 0 36315 0		*	an apple
-M 0 36343 0 36390 0	* a gekko (Hills)
-M 0 36342 4 36390 1	* a wimpy mage (Hills)
-E 0 36347 0 16		*	a goose pen: wielded
-G 0 36365 0		*	a magic pill
-M 0 36317 0 36390 1	* hooligan (Hills)
-E 0 36345 0 5		*	a dark gray robe: on the body
-M 0 36350 7 36391 2	* a tiny bird (Hills)
-M 0 36350 0 36391 2	* a tiny bird (Hills)
-M 0 36342 0 36393 1	* a wimpy mage (Hills)
-G 0 36364 0		*	a battle pill
-M 0 36323 1 36393 1	* a citizen (Hills)
-E 0 36342 0 5		*	a festival suit: on the body
-M 0 36350 0 36394 0	* a tiny bird (Hills)
-M 0 36342 2 36395 1	* a wimpy mage (Hills)
+G 0 36315 0		*	apple
+M 0 36343 5 36390 1	* gekko (Hills)
+M 0 36342 4 36390 1	* wimpy mage (Hills)
+E 0 36347 0 16		*	goose pen: wielded
+G 0 36365 0		*	magic pill
+M 0 36317 1 36390 1	* hooligan (Hills)
+E 0 36345 0 5		*	dark gray robe: on the body
+M 0 36350 11 36391 1	* tiny bird (Hills)
+M 0 36342 5 36393 1	* wimpy mage (Hills)
+G 0 36364 0		*	battle pill
+M 0 36323 11 36393 1	* a citizen (Hills)
+E 0 36342 0 5		*	festival suit: on the body
+M 0 36350 12 36394 1	* tiny bird (Hills)
+M 0 36342 2 36395 1	* wimpy mage (Hills)
 E 0 36337 0 17		*	a match: held in the hands
-E 0 36345 0 5		*	a dark gray robe: on the body
-M 0 36342 3 36396 1	* a wimpy mage (Hills)
-E 0 36342 0 5		*	a festival suit: on the body
-M 0 36350 0 36398 0	* a tiny bird (Path to the Forest)
-M 0 36353 0 36398 0	* a small insect (Path to the Forest)
+E 0 36345 0 5		*	dark gray robe: on the body
+M 0 36342 3 36396 1	* wimpy mage (Hills)
+E 0 36342 0 5		*	festival suit: on the body
+M 0 36350 10 36398 1	* tiny bird (Path to the Forest)
+M 0 36353 10 36398 2	* small insect (Path to the Forest)
 O 0 36379 0 36399	* oak (Deep in the Dark Forest)
 P 0 36378 1 36379 1	* oak: bureau key
 O 0 36384 0 36399	* hole (Deep in the Dark Forest)
-M 0 36351 0 36402 0	* a sentipede (Wide Tunnel)
-M 0 36352 0 36403 0	* a small snake (Wide Tunnel)
-M 0 36353 0 36406 0	* a small insect (A rocky path around the lake)
-M 0 36351 0 36406 0	* a sentipede (A rocky path around the lake)
-M 0 36352 0 36408 0	* a small snake (A rocky path around the lake)
-M 0 36353 0 36408 0	* a small insect (A rocky path around the lake)
-M 0 36351 0 36410 0	* a sentipede (A rocky path around the lake)
-M 0 36352 0 36411 0	* a small snake (A rocky path around the lake)
-M 0 36353 0 36414 0	* a small insect (A rocky path around the lake)
-M 0 36352 0 36415 0	* a small snake (A rocky path around the lake)
-M 0 36351 0 36415 0	* a sentipede (A rocky path around the lake)
-M 0 36353 0 36417 0	* a small insect (A rocky path around the lake)
-M 0 36351 0 36417 0	* a sentipede (A rocky path around the lake)
-M 0 36352 0 36420 0	* a small snake (A rocky path around the lake)
-M 0 36352 0 36420 0	* a small snake (A rocky path around the lake)
+M 0 36351 10 36402 2	* sentipede (Wide Tunnel)
+M 0 36352 10 36403 2	* small snake (Wide Tunnel)
+M 0 36353 10 36406 2	* small insect (A rocky path around the lake)
+M 0 36351 10 36406 1	* sentipede (A rocky path around the lake)
+M 0 36352 10 36408 1	* small snake (A rocky path around the lake)
+M 0 36353 10 36408 2	* small insect (A rocky path around the lake)
+M 0 36351 10 36410 1	* sentipede (A rocky path around the lake)
+M 0 36352 10 36411 1	* small snake (A rocky path around the lake)
+M 0 36353 10 36414 2	* small insect (A rocky path around the lake)
+M 0 36352 10 36415 1	* small snake (A rocky path around the lake)
+M 0 36351 10 36415 1	* sentipede (A rocky path around the lake)
+M 0 36353 10 36417 2	* small insect (A rocky path around the lake)
+M 0 36351 10 36417 1	* sentipede (A rocky path around the lake)
+M 0 36352 10 36420 1	* small snake (A rocky path around the lake)
 M 0 36354 1 36429 1	* mother of salamanders (A Small Island)
-G 0 36416 0		*	a healing pill
-M 0 36353 0 36430 0	* a small insect (Flying above the lake)
-M 0 36330 0 36432 0	* a bat (Flying above the lake)
-M 0 36330 0 36432 0	* a bat (Flying above the lake)
-M 0 36330 0 36435 0	* a bat (Flying above the lake)
-M 0 36330 0 36437 0	* a bat (Flying above the lake)
-M 0 36328 0 36439 0	* a hidden figure (Main Street)
-M 0 36322 0 36445 0	* a citizen (Small house)
-M 0 36320 0 36445 0	* a small boy (Small house)
-M 0 36323 0 36446 0	* a citizen (Small house)
-M 0 36321 0 36446 0	* a small girl (Small house)
-M 0 36321 0 36447 0	* a small girl (Small house)
-M 0 36323 0 36448 0	* a citizen (Small house)
-M 0 36323 0 36455 0	* a citizen (Small house)
-M 0 36322 0 36456 0	* a citizen (Small house)
-M 0 36350 0 36456 0	* a tiny bird (Small house)
-M 0 36323 0 36457 0	* a citizen (Small house)
-M 0 36320 0 36458 0	* a small boy (Small house)
+G 0 36416 0		*	healing pill
+M 0 36353 10 36430 2	* small insect (Flying above the lake)
+M 0 36330 10 36432 2	* a bat (Flying above the lake)
+M 0 36330 10 36435 2	* a bat (Flying above the lake)
+M 0 36330 10 36437 2	* a bat (Flying above the lake)
+M 0 36328 3 36439 1	* hidden figure (Main Street)
+M 0 36322 10 36445 1	* a citizen (Small house)
+M 0 36320 10 36445 1	* a small boy (Small house)
+M 0 36323 10 36446 1	* a citizen (Small house)
+M 0 36321 10 36446 1	* a small girl (Small house)
+M 0 36321 10 36447 1	* a small girl (Small house)
+M 0 36323 10 36448 1	* a citizen (Small house)
+M 0 36323 10 36455 1	* a citizen (Small house)
+M 0 36322 10 36456 1	* a citizen (Small house)
+M 0 36350 10 36456 1	* tiny bird (Small house)
+M 0 36323 10 36457 1	* a citizen (Small house)
+M 0 36320 10 36458 1	* a small boy (Small house)
 S
 
 #SHOPS
@@ -5783,7 +5991,22 @@ S
 36346 33 0 0 0 0 100 50 0 23
 36347 19 0 0 0 0 100 50 0 23
 36348 17 0 0 0 0 100 50 0 23
+36355 0 9 5 0 0 100 50 7 23
+36356 0 15 5 0 0 100 50 5 23
+36357 0 9 5 0 0 100 90 7 22
+36358 0 9 5 0 0 100 80 7 23
+36359 0 4 3 2 0 100 25 5 23
+36360 0 17 0 0 0 100 10 1 7
+36361 0 9 0 0 0 100 0 7 23
+36362 0 13 0 0 0 75 80 5 22
 0
+
+#OLIMITS
+O 36318 1	* illusory cloak
+O 36319 1	* illusory longsword
+O 36320 3	* silver arrow
+O 36344 1	* Grand Pris
+S
 
 #HELPS
 1 festival~

@@ -81,6 +81,22 @@ A Z 0 0
 FH B 0 S
 stand stand either 0
 G 0 small unknown
+#15005
+kitten cat кошечка karapupa~
+@eng little furry kitten@rus ~~маленькая~~ ~~пушистая~~ ~~кошечка~~~
+@eng Beautiful furry kitten sits here.
+@rus Очаровательная пушистая кошечка (kitten) сидит здесь, зажав в лапах странную палку.
+~
+@eng Furry kitten with big beautiful eyes.
+@rus Маленькое пушистое существо глядит на тебя большими влажными глазами.
+~
+cat~
+Ae DHPTclmt 1000 0
+150 250 1d1+28000 1d1+25000 50d60+100 divine
+-66 -66 -66 -66
+ACDEIJKNO BCDU 0 0
+stand stand female 100000
+0 0 small unknown
 #15010
 devil~
 @eng {DDevil{x@rus {DЧерт{x~
@@ -616,6 +632,10 @@ S
 S
 #0
 
+#SPECIALS
+M 15005 spec_breath_any	* little furry kitten
+S
+
 #RESETS
 M 0 15000 1 15000 1	* Avatar of abrazak (Abrazak's Lair.)
 M 0 15000 1 15000 1	* Avatar of abrazak (Abrazak's Lair.)
@@ -631,6 +651,7 @@ M 0 15015 1 15016 1	* gray squirrel (In the forest)
 S
 
 #SHOPS
+15005 0 0 0 0 0 100 100 0 23
 15016 0 0 0 0 0 100 100 0 23
 0
 
@@ -650,6 +671,13 @@ if rand 25
 mob vforce 50 mob oload 15008
 mob vforce 50 drop invader
 endif
+if mobexists karapupa
+else
+mob mload 15005
+endif
+mob vforce 15005 mob oload 34411
+mob vforce 15005 mob goto 15000 
+mob vforce 15005 cast 'teleport'
 ~
 #15001
 cast 'shadowlife' $n

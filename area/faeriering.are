@@ -1,5 +1,5 @@
 #AREADATA
-Name Faerie Ring~
+Name Faerie Fire~
 VNUMs 29101 29114
 Credits Lok~
 Security 9
@@ -28,7 +28,7 @@ ACHMVW ABCDEFGHIJKO tiny unknown
 nixie faerie никси~
 @eng a fluttering nixie@rus ~~порхающий~~ никси~
 @eng A fluttering nixie rummages through your possessions looking for wine! 
-@rus Никси (nixie) весело порхает вокруг, разыскивая вино.
+@rus Никси (nixie) весело порхает вокруг, занятый поисками бутылочки вина.
 ~
 @eng The nixie, like the pixie has dragonfly wings, but is taller (9"). 
 @rus Никси... Похож на пикси, тоже имеет стрекозиные крылья, но повыше -- аж
@@ -78,12 +78,15 @@ EFHNU 0 C Z
 stand stand male 30
 AHMV ABCDEFGHIJK small unknown
 #29105
-puck faerie~
-Puck~
-Uh oh! You see Puck!
+puck faerie мистер пак~
+@eng Puck@rus ~~мистер~~ ~~Пак~~~
+@eng Uh oh! You see Puck!
+@rus Ой, ой, ой, это же сам мистер Пак (Puck).
 ~
-Puck is an amazing 3' tall. He snaps his head back and forth in quick darting 
+@eng Puck is an amazing 3' tall. He snaps his head back and forth in quick darting 
 motions checking if his pile is still there.
+@rus Существо трех футов ростом. Быстрый и подвижный, а в рукаве, кажется,
+он прячет не что-нибудь, а острые метательные ножи.
 ~
 unique~
 ABCES QV 0 0
@@ -350,10 +353,15 @@ G male
 
 #ROOMS
 #29101
-Forest Clearing~
-You stand in a grassy clearing in the forest. Moonlight causes the shadows
+@eng Forest Clearing@rus Лесная опушка~
+@eng You stand in a grassy clearing in the forest. Moonlight causes the shadows
 to move in an eerie dance. There is a strange circle of mushrooms about30' in 
 diameter in the center of the clearing.
+@rus Ты стоишь на лесной опушке. Молодая зеленая травка образует здесь мягкий 
+ковер, который так и манит присесть. Лунный свет заставляет вести ночные
+тени непрерывный танец, от которого становится немного не по себе. А в 
+центре поляны, на который ты стоишь, растет огромный гриб -- не меньше
+30 дюймов в диаметре.
 ~
 0 C forest
 E
@@ -366,16 +374,22 @@ D3
 ~
 Z -1 3513
 D5
-A small trap door~
+@eng A small trap door.@rus Маленькая дверца.
+~
 door trap~
 ABZ -1 29102
 S
 #29102
-Entrance Hall~
-You are in a cramped, low ceiling tunnel. Roots dangle overhead and caress 
+@eng Entrance Hall@rus На входе~
+@eng You are in a cramped, low ceiling tunnel. Roots dangle overhead and caress 
 you. There are tiny doors to the north, south and west, which you think you 
 could crawl your way into. A ladder fashioned of woven roots leads up. You 
 hear sounds of a raucous celebration to the east.
+@rus Ты очутился в узком туннеле с низким потолком. Корни каких-то растений
+болтаются прямо у тебя над головой и периодически неприятно задевают 
+тебя. На севере, юге и западе видны маленькие дверцы, в которые при
+некотором старании ты смог бы пролезть. А на востоке, судя по звукам,
+отмечается какое-то торжество.
 ~
 0 D inside
 D0
@@ -400,7 +414,7 @@ door trap~
 ABZ -1 29101
 S
 #29103
-Puck's Room~
+@eng Puck's Room@rus Комната мистера Пака~
 You are hunched over in Puck's room. You know this by the sign that says 
 "Pucks stuff- keep your grubby hands off". There is a bed of forest leaves, 
 some rude hollowed out shelves, a tiny table with a half full jack of ale, 
@@ -487,10 +501,14 @@ Little People's Bar and Grill~
 Z -1 29104
 S
 #29108
-Hall of the Faerie Queen~
-You stand in the hall of the Faerie Queen. Rainbow colors dance across the 
+@eng Hall of the Faerie Queen@rus Резиденция повелительницы фейри~
+@eng You stand in the hall of the Faerie Queen. Rainbow colors dance across the 
 room in a colorful display. Faerie folk flutter furiously fanning forge fires. 
 Say that 3 times fast. Maybe you should have had that faerie wine.
+@rus Ты находишься в резиденции королевы и повелительницы народа фейри. Все
+цвета радуги здесь словно ожили и устоили совершенно невообразимый танец
+красок. Тебе хочется подольше задержаться здесь, чтобы познакомиться
+и с самим народом фейри и необычайно вкусным вином, которое они делают.
 ~
 0 D inside
 E
