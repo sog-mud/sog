@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.h,v 1.2 1999-10-26 13:52:50 fjoe Exp $
+ * $Id: rwfile.h,v 1.3 1999-10-29 06:54:17 fjoe Exp $
  */
 
 #ifndef _RFILE_H_
@@ -56,10 +56,10 @@ const char *	rfile_tok(rfile_t *fp);
 #define rfile_close(fp)		fclose(fp)
 #define rfile_feof(fp)		feof(fp)
 
-extern const char _token[MAX_STRING_LENGTH];
+extern char _token[MAX_STRING_LENGTH];
 
 #define		IS_TOKEN(fp, k)		(!str_cmp(_token, (k)))
-#define		rfile_token(fp)		(_token)
+#define		rfile_tok(fp)		(_token)
 #define		rfile_tokfl(fp)		(UPPER(_token[0]))
 
 #endif /* USE_MMAP */

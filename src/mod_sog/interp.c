@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.164 1999-09-08 10:40:10 fjoe Exp $
+ * $Id: interp.c,v 1.165 1999-10-29 06:54:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -382,25 +382,6 @@ void interpret_social(social_t *soc, CHAR_DATA *ch, const char *argument)
 				break;
 		}
 	}
-}
-
-/*
- * Return true if an argument is completely numeric.
- */
-bool is_number(const char *argument)
-{
-	if (IS_NULLSTR(argument))
-    		return FALSE;
- 
-	if (*argument == '+' || *argument == '-')
-    		argument++;
- 
-	for (; *argument != '\0'; argument++) {
-    		if (!isdigit(*argument))
-        		return FALSE;
-	}
- 
-	return TRUE;
 }
 
 static uint x_argument(const char *argument, char c, char *arg, size_t len)

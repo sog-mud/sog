@@ -23,32 +23,36 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.c,v 1.2 1999-10-26 13:52:52 fjoe Exp $
+ * $Id: rwfile.c,v 1.3 1999-10-29 06:54:18 fjoe Exp $
  */
 
 static char str_end[] = "End";
 
 int line_number;
 
-#ifdef USE_MMAP
-
-#include <sys/types.h>
-#include <sys/mman.h>
-#include <sys/stat.h>
 #include <ctype.h>
-#include <errno.h>
-#include <fcntl.h>
 #include <limits.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
+#include <stdlib.h>
 
 #include "typedef.h"
 #include "const.h"
 #include "rfile.h"
 #include "log.h"
 #include "str.h"
+#include "flag.h"
+#include "db.h"
+#include "util.h"
+
+#ifdef USE_MMAP
+
+#include <sys/types.h>
+#include <sys/mman.h>
+#include <sys/stat.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 static int
 count_lf(const char *p, off_t len)
@@ -241,7 +245,7 @@ fread_keyword(rfile_t *fp)
 
 #else /* USE_MMAP */
 
-const char _token[MAX_STRING_LENGTH];
+char _token[MAX_STRING_LENGTH];
 
 static int last_c;
 
@@ -296,12 +300,11 @@ fread_word(rfile_t *fp)
 			if (cEnd == ' ')
 				xungetc(fp);
 			*pword = '\0';
-			return _token;
+			return;
 		}
 	}
 
 	db_error("fread_word", "word too long");
-	return NULL;
 }
 
 void
@@ -431,6 +434,26 @@ int fread_number(rfile_t *fp)
 		xungetc(fp);
 
 	return number;
+}
+
+static flag64_t
+flag_convert(char letter)
+{
+	flag64_t bitsum = 0;
+	char i;
+
+	if ('A' <= letter && letter <= 'Z') {
+		bitsum = A;
+		for (i = letter; i > 'A'; i--)
+			bitsum <<= 1;
+	}
+	else if ('a' <= letter && letter <= 'z') {
+		bitsum = aa;
+		for (i = letter; i > 'a'; i--)
+			bitsum <<= 1;
+	}
+
+	return bitsum;
 }
 
 flag64_t fread_flags(rfile_t *fp)

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.179 1999-10-26 13:52:56 fjoe Exp $
+ * $Id: db.c,v 1.180 1999-10-29 06:54:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -289,7 +289,7 @@ void db_parse_file(DBDATA *dbdata, const char *path, const char *file)
 		return;
 	}
 
-	log("Loading %s", filename);
+/*	log("Loading %s", filename); */
 
 	for (; ;) {
 		DBFUN *fn;
@@ -1664,25 +1664,6 @@ void fwrite_ival(FILE *fp, const flag_t *table, const char *name, int val)
 
 	if (!IS_NULLSTR(name))
 		fputc('\n', fp);
-}
-
-flag64_t flag_convert(char letter)
-{
-	flag64_t bitsum = 0;
-	char i;
-
-	if ('A' <= letter && letter <= 'Z') {
-		bitsum = A;
-		for (i = letter; i > 'A'; i--)
-			bitsum <<= 1;
-	}
-	else if ('a' <= letter && letter <= 'z') {
-		bitsum = aa;
-		for (i = letter; i > 'a'; i--)
-			bitsum <<= 1;
-	}
-
-	return bitsum;
 }
 
 void fwrite_string(FILE *fp, const char *name, const char *str)

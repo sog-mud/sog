@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.c,v 1.22 1999-06-24 16:33:18 fjoe Exp $
+ * $Id: util.c,v 1.23 1999-10-29 06:54:18 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -132,9 +132,29 @@ const char *cstrfirst(const char *cstr)
 	return cstr;
 }
 
+/*
+ * Return true if an argument is completely numeric.
+ */
+bool is_number(const char *argument)
+{
+	if (IS_NULLSTR(argument))
+    		return FALSE;
+ 
+	if (*argument == '+' || *argument == '-')
+    		argument++;
+ 
+	for (; *argument != '\0'; argument++) {
+    		if (!isdigit(*argument))
+        		return FALSE;
+	}
+ 
+	return TRUE;
+}
+
 char *strtime(time_t time)
 {
 	char *p = ctime(&time);
 	p[24] = '\0';
 	return p;
 }
+

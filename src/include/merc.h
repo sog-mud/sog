@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.245 1999-10-25 14:41:05 kostik Exp $
+ * $Id: merc.h,v 1.246 1999-10-29 06:54:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2007,7 +2007,6 @@ void	set_leader(CHAR_DATA *ch, CHAR_DATA *lch);
 /* interp.c */
 void	interpret	(CHAR_DATA *ch, const char *argument);
 void	interpret_raw	(CHAR_DATA *ch, const char *argument, bool is_order);
-bool	is_number	(const char *argument);
 uint	number_argument (const char *argument, char *arg, size_t len);
 uint	mult_argument	(const char *argument, char *arg, size_t len);
 const char *	one_argument	(const char *argument, char *arg_first, size_t);
@@ -2114,7 +2113,6 @@ ED_DATA * ed_lookup(const char *name, ED_DATA *ed);
 MOB_INDEX_DATA *	get_mob_index	(int vnum);
 OBJ_INDEX_DATA *	get_obj_index	(int vnum);
 ROOM_INDEX_DATA *	get_room_index	(int vnum);
-flag64_t	flag_convert	(char letter);
 int	number_fuzzy	(int number);
 int	number_range	(int from, int to);
 int	number_percent	(void);
