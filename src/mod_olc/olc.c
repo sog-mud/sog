@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.104 1999-12-20 08:31:20 fjoe Exp $
+ * $Id: olc.c,v 1.105 1999-12-20 10:46:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -991,7 +991,7 @@ olced_cc_vexpr(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 
 	p = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0')
-		OLC_ERROR("'OLC RULESET'");
+		OLC_ERROR("'OLC CC_EXPR'");
 
 	if (!str_prefix(arg, "show")) {
 		BUFFER *buf = buf_new(-1);
@@ -1007,7 +1007,7 @@ olced_cc_vexpr(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 
 		argument = one_argument(p, arg, sizeof(arg));
 		if (!is_number(arg))
-			OLC_ERROR("'OLC RULESET'");
+			OLC_ERROR("'OLC CC_EXPR'");
 
 		num = atoi(arg);
 		e = varr_get(v, num);
@@ -1037,7 +1037,7 @@ olced_cc_vexpr(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 	} else {
 		if (!str_prefix(arg, "add")) {
 			if (p[0] == '\0')
-				OLC_ERROR("'OLC RULESET'");
+				OLC_ERROR("'OLC CC_EXPR'");
 			argument = p;
 		}
 
