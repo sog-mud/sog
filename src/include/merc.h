@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.3 1998-04-14 08:54:32 fjoe Exp $
+ * $Id: merc.h,v 1.4 1998-04-15 10:43:29 efdi Exp $
  */
 
 /***************************************************************************
@@ -2096,6 +2096,7 @@ struct	char_data
     bool		riding;	/* mount data */
     CHAR_DATA	*	mount;
     sh_int		language;
+    sh_int		i_lang; /* interface language */
 };
 
 

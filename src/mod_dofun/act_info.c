@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.4 1998-04-14 11:36:15 efdi Exp $
+ * $Id: act_info.c,v 1.5 1998-04-15 10:43:28 efdi Exp $
  */
 
 /***************************************************************************
@@ -74,30 +74,30 @@ DECLARE_DO_FUN( do_scan2  	);
 
 char *get_stat_alias( CHAR_DATA *ch, int which );
 
-char *	const	where_name	[] =
+int	const	where_name	[] =
 {
-	"<used as light>     ",
-	"<worn on finger>    ",
-	"<worn on finger>    ",
-	"<worn around neck>  ",
-	"<worn around neck>  ",
-	"<worn on torso>     ",
-	"<worn on head>      ",
-	"<worn on legs>      ",
-	"<worn on feet>      ",
-	"<worn on hands>     ",
-	"<worn on arms>      ",
-	"<worn as shield>    ",
-	"<worn about body>   ",
-	"<worn about waist>  ",
-	"<worn around wrist> ",
-	"<worn around wrist> ",
-	"<wielded>           ",
-	"<held>              ",
-	"<floating nearby>   ",
-	"<scratched tattoo>  ",
-	"<dual wielded>      ",
-	"<stuck in>          "
+	EQ_USED_AS_LIGHT,
+	EQ_WORN_ON_FINGER_1,
+	EQ_WORN_ON_FINGER_2,
+	EQ_WORN_AROUND_NECK_1,
+	EQ_WORN_AROUND_NECK_2,
+	EQ_WORN_ON_TORSO,
+	EQ_WORN_ON_HEAD,
+	EQ_WORN_ON_LEGS,
+	EQ_WORN_ON_FEET,
+	EQ_WORN_ON_HANDS,
+	EQ_WORN_ON_ARMS,
+	EQ_WORN_AS_SHIELD,
+	EQ_WORN_ABOUT_BODY,
+	EQ_WORN_ABOUT_WAIST,
+	EQ_WORN_AROUND_WRIST_1,
+	EQ_WORN_AROUND_WRIST_2,
+	EQ_WIELDED,
+	EQ_HELD,
+	EQ_FLOATING_NEARBY,
+	EQ_SCRATCHED_TATTOO,
+	EQ_DUAL_WIELDED,
+	EQ_STUCK_IN,
 };
 
 
@@ -412,25 +412,25 @@ void show_char_to_char_0( CHAR_DATA *victim, CHAR_DATA *ch )
 	{
 	    if (IS_SET(victim->on->value[2],SLEEP_AT))
   	    {
-		sprintf(message," is sleeping at %s.",
+		sprintf(message, msg(INFO_SLEEPING_AT, ch->i_lang),
 		    victim->on->short_descr);
 		strcat(buf,message);
 	    }
 	    else if (IS_SET(victim->on->value[2],SLEEP_ON))
 	    {
-		sprintf(message," is sleeping on %s.",
+		sprintf(message, msg(INFO_SLEEPING_ON, ch->i_lang),
 		    victim->on->short_descr); 
 		strcat(buf,message);
 	    }
 	    else
 	    {
-		sprintf(message, " is sleeping in %s.",
+		sprintf(message, msg(INFO_SLEEPING_IN, ch->i_lang),
 		    victim->on->short_descr);
 		strcat(buf,message);
 	    }
 	}
 	else 
-	    strcat(buf," is sleeping here.");
+	    strcat(buf, msg(INFO_SLEEPING, ch->i_lang));
 	break;
 	case POS_RESTING:  
 	    if (victim->on != NULL)
@@ -529,7 +529,7 @@ void show_char_to_char_0( CHAR_DATA *victim, CHAR_DATA *ch )
 
 	strcat( buf, "\n\r" );
 	buf[0] = UPPER(buf[0]);
-	send_to_char( buf, ch );
+	act( buf, ch, NULL, NULL, TO_CHAR );
 	return;
 }
 
@@ -624,9 +624,9 @@ void show_char_to_char_1( CHAR_DATA *victim, CHAR_DATA *ch )
 		act( "$N is using:", ch, NULL, victim, TO_CHAR );
 		found = TRUE;
 	    }
-	    send_to_char( where_name[iWear], ch );
-	    send_to_char( format_obj_to_char( obj, ch, TRUE ), ch );
-	    send_to_char( "\n\r", ch );
+	    act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING, "%s%s\n\r", 
+				msg(where_name[iWear], ch->i_lang), 
+				format_obj_to_char(obj, ch, TRUE));
 	}
 	}
 	iWear = WEAR_SECOND_WIELD;
@@ -641,9 +641,9 @@ void show_char_to_char_1( CHAR_DATA *victim, CHAR_DATA *ch )
 		act( "$N is using:", ch, NULL, victim, TO_CHAR );
 		found = TRUE;
 	    }
-	    send_to_char( where_name[iWear], ch );
-	    send_to_char( format_obj_to_char( obj, ch, TRUE ), ch );
-	    send_to_char( "\n\r", ch );
+	    act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING, "%s%s\n\r", 
+				msg(where_name[iWear], ch->i_lang), 
+				format_obj_to_char(obj, ch, TRUE));
 	}
 
 	for ( iWear = WEAR_HOLD; iWear < WEAR_SECOND_WIELD; iWear++ )
@@ -659,9 +659,9 @@ void show_char_to_char_1( CHAR_DATA *victim, CHAR_DATA *ch )
 		act( "$N is using:", ch, NULL, victim, TO_CHAR );
 		found = TRUE;
 	    }
-	    send_to_char( where_name[iWear], ch );
-	    send_to_char( format_obj_to_char( obj, ch, TRUE ), ch );
-	    send_to_char( "\n\r", ch );
+	    act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING, "%s%s\n\r", 
+				msg(where_name[iWear], ch->i_lang), 
+				format_obj_to_char(obj, ch, TRUE));
 	}
 	}
 
@@ -678,9 +678,9 @@ void show_char_to_char_1( CHAR_DATA *victim, CHAR_DATA *ch )
 		act( "$N is using:", ch, NULL, victim, TO_CHAR );
 		found = TRUE;
 	    }
-	    send_to_char( where_name[iWear], ch );
-	    send_to_char( format_obj_to_char( obj, ch, TRUE ), ch );
-	    send_to_char( "\n\r", ch );
+	    act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING, "%s%s\n\r", 
+				msg(where_name[iWear], ch->i_lang), 
+				format_obj_to_char(obj, ch, TRUE));
 	}
 	}
 
@@ -1982,7 +1982,7 @@ void do_equipment( CHAR_DATA *ch, char *argument )
 	if ( ( obj = get_eq_char( ch, iWear ) ) == NULL )
 	    continue;
 
-	send_to_char( where_name[iWear], ch );
+	send_to_char( msg(where_name[iWear], ch->i_lang), ch );
 	if ( can_see_obj( ch, obj ) )
 	{
 	    sprintf(buf,"%s\n\r", format_obj_to_char( obj, ch, TRUE ) );
@@ -1998,7 +1998,7 @@ void do_equipment( CHAR_DATA *ch, char *argument )
 	iWear = WEAR_SECOND_WIELD;
 	if ( ( obj = get_eq_char( ch, iWear ) ) != NULL )
 	 {
-	send_to_char( where_name[iWear], ch );
+	send_to_char( msg(where_name[iWear], ch->i_lang), ch );
 	if ( can_see_obj( ch, obj ) )
 	{
 	    sprintf(buf,"%s\n\r", format_obj_to_char( obj, ch, TRUE ) );
@@ -2016,7 +2016,7 @@ void do_equipment( CHAR_DATA *ch, char *argument )
 	if ( ( obj = get_eq_char( ch, iWear ) ) == NULL )
 	    continue;
 
-	send_to_char( where_name[iWear], ch );
+	send_to_char( msg(where_name[iWear], ch->i_lang), ch );
 	if ( can_see_obj( ch, obj ) )
 	{
 	    sprintf(buf,"%s\n\r", format_obj_to_char( obj, ch, TRUE ) );
@@ -2033,7 +2033,7 @@ void do_equipment( CHAR_DATA *ch, char *argument )
 	for( obj = ch->carrying; obj != NULL; obj = obj->next_content )
 	{
 	if ( obj->wear_loc != iWear ) continue;
-	send_to_char( where_name[iWear], ch );
+	send_to_char( msg(where_name[iWear], ch->i_lang), ch );
 	if ( can_see_obj( ch, obj ) )
 	{
 	    sprintf(buf,"%s\n\r", format_obj_to_char( obj, ch, TRUE ) );
@@ -2062,7 +2062,7 @@ void do_compare( CHAR_DATA *ch, char *argument )
 	OBJ_DATA *obj2;
 	int value1;
 	int value2;
-	char *msg;
+	char *cmsg;
 
 	argument = one_argument( argument, arg1 );
 	argument = one_argument( argument, arg2 );
@@ -2102,24 +2102,24 @@ void do_compare( CHAR_DATA *ch, char *argument )
 	return;
 	}
 
-	msg		= NULL;
+	cmsg		= NULL;
 	value1	= 0;
 	value2	= 0;
 
 	if ( obj1 == obj2 )
 	{
-	msg = "You compare $p to itself.  It looks about the same.";
+	cmsg = "You compare $p to itself.  It looks about the same.";
 	}
 	else if ( obj1->item_type != obj2->item_type )
 	{
-	msg = "You can't compare $p and $P.";
+	cmsg = "You can't compare $p and $P.";
 	}
 	else
 	{
 	switch ( obj1->item_type )
 	{
 	default:
-	    msg = "You can't compare $p and $P.";
+	    cmsg = "You can't compare $p and $P.";
 	    break;
 
 	case ITEM_ARMOR:
@@ -2141,14 +2141,14 @@ void do_compare( CHAR_DATA *ch, char *argument )
 	}
 	}
 
-	if ( msg == NULL )
+	if ( cmsg == NULL )
 	{
-	     if ( value1 == value2 ) msg = "$p and $P look about the same.";
-	else if ( value1  > value2 ) msg = "$p looks better than $P.";
-	else                         msg = "$p looks worse than $P.";
+	     if ( value1 == value2 ) cmsg = "$p and $P look about the same.";
+	else if ( value1  > value2 ) cmsg = "$p looks better than $P.";
+	else                         cmsg = "$p looks worse than $P.";
 	}
 
-	act( msg, ch, obj1, obj2, TO_CHAR );
+	act( cmsg, ch, obj1, obj2, TO_CHAR );
 	return;
 }
 
@@ -2250,7 +2250,7 @@ void do_consider( CHAR_DATA *ch, char *argument )
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
-	char *msg;
+	char *cmsg;
 	char *align;
 	int diff;
 
@@ -2276,13 +2276,13 @@ void do_consider( CHAR_DATA *ch, char *argument )
 
 	diff = victim->level - ch->level;
 
-	     if ( diff <= -10 ) msg = "You can kill $N naked and weaponless.";
-	else if ( diff <=  -5 ) msg = "$N is no match for you.";
-	else if ( diff <=  -2 ) msg = "$N looks like an easy kill.";
-	else if ( diff <=   1 ) msg = "The perfect match!";
-	else if ( diff <=   4 ) msg = "$N says 'Do you feel lucky, punk?'.";
-	else if ( diff <=   9 ) msg = "$N laughs at you mercilessly.";
-	else                    msg = "Death will thank you for your gift.";
+	     if ( diff <= -10 ) cmsg = "You can kill $N naked and weaponless.";
+	else if ( diff <=  -5 ) cmsg = "$N is no match for you.";
+	else if ( diff <=  -2 ) cmsg = "$N looks like an easy kill.";
+	else if ( diff <=   1 ) cmsg = "The perfect match!";
+	else if ( diff <=   4 ) cmsg = "$N says 'Do you feel lucky, punk?'.";
+	else if ( diff <=   9 ) cmsg = "$N laughs at you mercilessly.";
+	else                    cmsg = "Death will thank you for your gift.";
 
 	if (IS_EVIL(ch) && IS_EVIL(victim))
 	  align = "$N grins evilly with you.";
@@ -2301,7 +2301,7 @@ void do_consider( CHAR_DATA *ch, char *argument )
 	else
 	  align = "$N looks very disinterested.";
 
-	act( msg, ch, NULL, victim, TO_CHAR );
+	act( cmsg, ch, NULL, victim, TO_CHAR );
 	act( align, ch, NULL, victim, TO_CHAR);
 	return;
 }
