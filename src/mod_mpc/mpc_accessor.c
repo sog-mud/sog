@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_accessor.c,v 1.5 2004-02-19 17:16:47 fjoe Exp $
+ * $Id: mpc_accessor.c,v 1.6 2004-02-21 20:10:05 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -318,29 +318,30 @@ AFFECT_SET_INT(level)
 AFFECT_GET_INT(duration)
 AFFECT_SET_INT(duration)
 GET_BEGIN(affect, location)
-	if (!HAS_STR_LOCATION(vo->aff))
+	if (HAS_INT_LOCATION(vo->aff))
 		v.i = INT(vo->aff->location);
 	else
 		v.i = -1;
 GET_END
 SET_BEGIN(affect, location)
-	if (HAS_STR_LOCATION(vo->aff))
+	if (HAS_INT_LOCATION(vo->aff))
 		INT(vo->aff->location) = nv.i;
 	else
 		nv.i = -1;
 SET_END
 GET_BEGIN(affect, str_location)
-	if (HAS_STR_LOCATION(vo->aff))
-		v.s = vo->aff->location.s;
-	else
+	if (HAS_INT_LOCATION(vo->aff))
 		v.s = str_empty;
+	else
+		v.s = vo->aff->location.s;
 GET_END
 SET_BEGIN(affect, str_location)
-	if (HAS_STR_LOCATION(vo->aff)) {
+	if (HAS_INT_LOCATION(vo->aff))
+		nv.s = str_empty;
+	else {
 		free_string(vo->aff->location.s);
 		vo->aff->location.s = str_qdup(nv.s);
-	} else
-		nv.s = str_empty;
+	}
 SET_END
 AFFECT_GET_INT(modifier)
 AFFECT_SET_INT(modifier)

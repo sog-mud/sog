@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: affect.c,v 1.72 2004-02-21 20:03:47 fjoe Exp $
+ * $Id: affect.c,v 1.73 2004-02-21 20:10:06 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -47,10 +47,10 @@ aff_new(int where, const char *sn)
 	paf->type = str_dup(sn);
 	paf->level = 0;
 	paf->duration = 0;
-	if (HAS_STR_LOCATION(paf))
-		paf->location.s = str_empty;
-	else
+	if (HAS_INT_LOCATION(paf))
 		INT(paf->location) = 0;
+	else
+		paf->location.s = str_empty;
 	paf->modifier = 0;
 	paf->bitvector = 0;
 	paf->owner = NULL;
@@ -63,10 +63,10 @@ aff_dup(const AFFECT_DATA *paf)
 	AFFECT_DATA *naf = aff_new(paf->where, paf->type);
 	naf->level	= paf->level;
 	naf->duration	= paf->duration;
-	if (HAS_STR_LOCATION(naf))
-		naf->location.s = str_qdup(paf->location.s);
-	else
+	if (HAS_INT_LOCATION(naf))
 		INT(naf->location) = INT(paf->location);
+	else
+		naf->location.s = str_qdup(paf->location.s);
 	naf->modifier	= paf->modifier;
 	naf->bitvector	= paf->bitvector;
 	naf->owner	= paf->owner;
@@ -76,7 +76,7 @@ aff_dup(const AFFECT_DATA *paf)
 void
 aff_free(AFFECT_DATA *af)
 {
-	if (HAS_STR_LOCATION(af))
+	if (!HAS_INT_LOCATION(af))
 		free_string(af->location.s);
 	free_string(af->type);
 	mem_free(af);

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.417 2004-02-21 20:03:44 fjoe Exp $
+ * $Id: merc.h,v 1.418 2004-02-21 20:10:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2248,13 +2248,6 @@ where_t *where_lookup(flag_t where);
 				 (paf)->where == TO_FORMRESISTS)
 #define HAS_INT_LOCATION(paf)	(IS_APPLY_AFFECT(paf) ||	\
 				 IS_RESIST_AFFECT(paf))
-
-#define HAS_STR_LOCATION(paf)						\
-	((paf)->where == TO_SKILLS ||					\
-	 (paf)->where == TO_RACE ||					\
-	 (paf)->where == TO_FORM ||					\
-	 (paf)->where == TO_TRIG)
-
 #define IS_FORM_APPLY(paf)						\
 	((paf)->where == TO_AFFECTS &&					\
 	 (INT((paf)->location) == APPLY_FORM_HITROLL ||			\
