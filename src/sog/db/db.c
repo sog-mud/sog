@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.237 2001-01-24 17:25:29 fjoe Exp $
+ * $Id: db.c,v 1.238 2001-01-24 18:15:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1995,10 +1995,6 @@ void scan_pfiles()
 		} else {
 			should_clear =
 			    (current_time - s.st_mtime) > 60*60*24*14;
-			if (should_clear) {
-				log(LOG_INFO, "scan_pfiles: %s: more than two weeks old: stripping all limited eq",
-				    ch->name);
-			}
 		}
 
 		for (obj = ch->carrying; obj; obj = obj_next) {
