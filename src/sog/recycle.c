@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.52 1999-06-10 18:19:02 fjoe Exp $
+ * $Id: recycle.c,v 1.53 1999-06-10 22:29:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -424,7 +424,7 @@ void mptrig_free(MPTRIG *mp)
 	free(mp);
 }
 
-RESET_DATA *new_reset_data(void)
+RESET_DATA *reset_new(void)
 {
 	RESET_DATA *pReset;
 
@@ -435,7 +435,7 @@ RESET_DATA *new_reset_data(void)
 	return pReset;
 }
 
-void free_reset_data(RESET_DATA *pReset)
+void reset_free(RESET_DATA *pReset)
 {
 	if (!pReset)
 		return;
@@ -551,7 +551,7 @@ void free_room_index(ROOM_INDEX_DATA *pRoom)
 	ed_free(pRoom->ed);
 
 	for (pReset = pRoom->reset_first; pReset; pReset = pReset->next)
-		free_reset_data(pReset);
+		reset_free(pReset);
 
 	top_room--;
 	mem_free(pRoom);
@@ -622,6 +622,7 @@ MOB_INDEX_DATA *new_mob_index(void)
 	MOB_INDEX_DATA *pMob;
 
         pMob = calloc(1, sizeof(*pMob));
+
 	pMob->name		= str_dup(str_empty);
 	pMob->act		= ACT_NPC;
 	pMob->race		= rn_lookup("human");

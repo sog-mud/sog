@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.37 1999-06-10 18:19:00 fjoe Exp $
+ * $Id: mlstring.c,v 1.38 1999-06-10 22:29:50 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -427,10 +427,33 @@ static void cb_addnl(int lang, const char **p, void *arg)
 	*(bool*) arg = TRUE;
 }
 
+static void cb_stripnl(int lang, const char **p, void *arg)
+{
+	char buf[MAX_STRING_LENGTH];
+	size_t len = strlen(*p);
+
+	if (*p == NULL
+	||  (len = strlen(*p)) == 0
+	||  (*p)[len-1] != '\n')
+		return;
+
+	strnzncpy(buf, sizeof(buf), *p, len-1);
+	free_string(*p);
+	*p = str_dup(buf);
+	*(bool*) arg = TRUE;
+}
+
 bool mlstr_addnl(mlstring *mlp)
 {
 	bool changed = FALSE;
 	mlstr_foreach(mlp, &changed, cb_addnl);
+	return changed;
+}
+
+bool mlstr_stripnl(mlstring *mlp)
+{
+	bool changed = FALSE;
+	mlstr_foreach(mlp, &changed, cb_stripnl);
 	return changed;
 }
 

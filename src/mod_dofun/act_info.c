@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.246 1999-06-10 18:18:51 fjoe Exp $
+ * $Id: act_info.c,v 1.247 1999-06-10 22:29:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -490,6 +490,8 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			if (!IS_NPC(victim)
 			&&  !IS_SET(ch->comm, COMM_BRIEF))
 				arg = victim->pcdata->title;
+			else
+				arg = str_empty;
 	
 			if (MOUNTED(victim)) {
 				arg3 = MOUNTED(victim);

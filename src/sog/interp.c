@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.150 1999-06-10 14:33:26 fjoe Exp $
+ * $Id: interp.c,v 1.151 1999-06-10 22:29:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -97,7 +97,7 @@ cmd_t cmd_table[] =
      */
     { "at",             do_at,          POS_DEAD,       L6,  LOG_NORMAL, CMD_KEEP_HIDE  },
     { "cast",		do_cast,	POS_FIGHTING,	 0,  LOG_NORMAL, CMD_NOORDER },
-    { "auction",        do_auction,     POS_SLEEPING,    0,  LOG_NORMAL	},
+    { "auction",        do_auction,     POS_RESTING,     0,  LOG_NORMAL	},
     { "buy",		do_buy,		POS_RESTING,	 0,  LOG_NORMAL	},
     { "channels",       do_channels,    POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "dual",		do_second_wield,POS_RESTING,	 0,  LOG_NORMAL },

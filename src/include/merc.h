@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.199 1999-06-10 18:19:00 fjoe Exp $
+ * $Id: merc.h,v 1.200 1999-06-10 22:29:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2079,10 +2079,11 @@ void		nuke_char_obj	(CHAR_DATA *ch);
 SPEC_FUN *	spec_lookup	(const char *name);
 char *	spec_name	(SPEC_FUN *function);
 
-void new_reset(ROOM_INDEX_DATA *pRoom, RESET_DATA *pReset);
 
-RESET_DATA	*new_reset_data		(void);
-void		free_reset_data		(RESET_DATA *pReset);
+RESET_DATA *	reset_new	(void);
+void		reset_free	(RESET_DATA *pReset);
+void		reset_add	(RESET_DATA *pReset, ROOM_INDEX_DATA *pRoom,
+				 int num);
 
 AREA_DATA	*new_area		(void);
 AREA_DATA *	area_lookup		(int vnum);
@@ -2172,7 +2173,6 @@ MOB_INDEX_DATA *	get_mob_index	(int vnum);
 OBJ_INDEX_DATA *	get_obj_index	(int vnum);
 ROOM_INDEX_DATA *	get_room_index	(int vnum);
 flag64_t	flag_convert	(char letter);
-void *	alloc_perm	(int sMem);
 int	number_fuzzy	(int number);
 int	number_range	(int from, int to);
 int	number_percent	(void);

@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.49 1999-06-10 18:19:05 fjoe Exp $
+ * $Id: db_area.c,v 1.50 1999-06-10 22:29:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -109,18 +109,14 @@ DBLOAD_FUN(load_area)
 {
 	AREA_DATA *pArea;
 
-	pArea = alloc_perm(sizeof(*pArea));
-	pArea->reset_first	= NULL;
-	pArea->reset_last	= NULL;
-	pArea->help_first	= NULL;
-	pArea->help_last	= NULL;
+	pArea = new_area();
 	free_string(fread_string(fp));		/* file name */
+	free_string(pArea->file_name);
 	pArea->file_name	= get_filename(filename);
-	pArea->builders		= str_empty;
 
 	pArea->security		= 9;
-	pArea->vnum		= top_area;
 
+	free_string(pArea->name);
 	pArea->name		= fread_string(fp);
 	fread_letter(fp);			/* '{' */
 	pArea->min_level	= fread_number(fp);
@@ -131,10 +127,7 @@ DBLOAD_FUN(load_area)
 	pArea->min_vnum		= fread_number(fp);
 	pArea->max_vnum		= fread_number(fp);
 	pArea->age		= 15;
-	pArea->nplayer		= 0;
 	pArea->empty		= FALSE;
-	pArea->count		= 0;
-	pArea->area_flags	= 0;
 
 	if (area_first == NULL)
 		area_first = pArea;
@@ -164,19 +157,11 @@ DBLOAD_FUN(load_areadata)
 	char *		word;
 	bool		fMatch;
 
-	pArea			= alloc_perm(sizeof(*pArea));
+	pArea			= new_area();
 	pArea->age		= 15;
-	pArea->nplayer		= 0;
+	free_string(pArea->file_name);
 	pArea->file_name	= get_filename(filename);
-	pArea->builders		= str_empty;
-	pArea->vnum		= top_area;
-	pArea->name		= str_dup("New Area");
 	pArea->security		= 9;                    /* 9 -- Hugin */
-	pArea->min_vnum		= 0;
-	pArea->max_vnum		= 0;
-	pArea->area_flags	= 0;
-	pArea->min_level	= 0;
-	pArea->max_level	= 0;          
  
 	for (; ;) {
 		word   = feof(fp) ? "End" : fread_word(fp);
@@ -300,9 +285,10 @@ DBLOAD_FUN(load_old_mob)
 		}
 		fBootDb = TRUE;
 
-		pMobIndex		= alloc_perm(sizeof(*pMobIndex));
+		pMobIndex		= new_mob_index();
 
 		pMobIndex->vnum		= vnum;
+		free_string(pMobIndex->name);
 		pMobIndex->name	= fread_string(fp);
 		mlstr_fread(fp, &pMobIndex->short_descr);
 		mlstr_fread(fp, &pMobIndex->long_descr);
@@ -476,14 +462,19 @@ DBLOAD_FUN(load_old_obj)
 		}
 		fBootDb = TRUE;
 
-		pObjIndex		= alloc_perm(sizeof(*pObjIndex));
+		pObjIndex		= new_obj_index();
 		pObjIndex->vnum		= vnum;
 		pObjIndex->reset_num	= 0;
 
 		pObjIndex->name		= fread_string(fp);
 		mlstr_fread(fp, &pObjIndex->short_descr);
+
 		mlstr_fread(fp, &pObjIndex->description);
+		if (mlstr_stripnl(&pObjIndex->description))
+			touch_area(area_current);
+
 		/* Action description */  fread_string(fp);
+		free_string(pObjIndex->material);
 		pObjIndex->material	= str_dup("copper");
 
 		pObjIndex->item_type	= fread_number(fp);
@@ -516,7 +507,7 @@ DBLOAD_FUN(load_old_obj)
 			if (letter == 'A') {
 				AFFECT_DATA *paf;
 
-				paf		= alloc_perm(sizeof(*paf));
+				paf		= aff_new();
 				paf->where	= TO_OBJECT;
 				paf->type	= -1;
 				paf->level	= 20; /* RT temp fix */
@@ -603,7 +594,7 @@ DBLOAD_FUN(load_resets)
 			continue;
 		}
 
-		pReset		= alloc_perm(sizeof(*pReset));
+		pReset		= reset_new();
 		pReset->command	= letter;
 		/* if_flag */	  fread_number(fp);
 		pReset->arg1	= fread_number(fp);
@@ -628,7 +619,7 @@ DBLOAD_FUN(load_resets)
 			||  (pRoom = get_room_index(pReset->arg3)) == NULL)
 				break;
 
-			new_reset(pRoom, pReset);
+			reset_add(pReset, pRoom, 0);
 			pLastRoom = pRoom;
 			break;
 
@@ -638,7 +629,7 @@ DBLOAD_FUN(load_resets)
 				break;
 
 			pObj->reset_num++;
-			new_reset(pRoom, pReset);
+			reset_add(pReset, pRoom, 0);
 			pLastRoom = pRoom;
 
 			if (IS_SET(pObj->extra_flags, ITEM_OLDSTYLE)) {
@@ -666,7 +657,7 @@ DBLOAD_FUN(load_resets)
 				return;
 			}
 
-			new_reset(pLastRoom, pReset);
+			reset_add(pReset, pLastRoom, 0);
 			pObj->reset_num++;
 
 			if (IS_SET(pObj->extra_flags, ITEM_OLDSTYLE))
@@ -687,7 +678,7 @@ DBLOAD_FUN(load_resets)
 			}
 
 			pObj->reset_num++;
-			new_reset(pLastRoom, pReset);
+			reset_add(pReset, pLastRoom, 0);
 
 			if (IS_SET(pObj->extra_flags, ITEM_OLDSTYLE)) {
 				if (!pLastMob) {
@@ -779,7 +770,7 @@ DBLOAD_FUN(load_resets)
 			}
 
 			if (pRoom)
-				new_reset(pRoom, pReset);
+				reset_add(pReset, pRoom, 0);
 
 			break;
 		}
@@ -855,7 +846,8 @@ DBLOAD_FUN(load_rooms)
 					return;
 				}
 	
-				pexit			= alloc_perm(sizeof(*pexit));
+				pexit			= new_exit();
+
 				mlstr_fread(fp, &pexit->description);
 				if (mlstr_addnl(&pexit->description))
 					touch_area(area_current);
@@ -952,7 +944,7 @@ DBLOAD_FUN(load_shops)
 		MOB_INDEX_DATA *pMobIndex;
 		int iTrade;
 
-		pShop			= alloc_perm(sizeof(*pShop));
+		pShop			= new_shop();
 		pShop->keeper		= fread_number(fp);
 		if (pShop->keeper == 0)
 		    break;
@@ -1124,7 +1116,7 @@ DBLOAD_FUN(load_mobiles)
 	}
         fBootDb = TRUE;
  
-        pMobIndex                       = alloc_perm(sizeof(*pMobIndex));
+        pMobIndex                       = new_mob_index();
 
         pMobIndex->vnum                 = vnum;
 	newmobs++;
@@ -1194,6 +1186,7 @@ DBLOAD_FUN(load_mobiles)
 	pMobIndex->parts		= fread_flags(fp) | r->parts;
 	/* size */
 	pMobIndex->size			= fread_fword(size_table, fp);
+	free_string(pMobIndex->material);
 	pMobIndex->material		= str_dup(fread_word(fp));
  
 	for (; ;)
@@ -1332,14 +1325,19 @@ DBLOAD_FUN(load_objects)
 	}
         fBootDb = TRUE;
  
-        pObjIndex                       = alloc_perm(sizeof(*pObjIndex));
+        pObjIndex                       = new_obj_index();
 
         pObjIndex->vnum                 = vnum;
 	pObjIndex->reset_num		= 0;
 	newobjs++;
         pObjIndex->name                 = fread_string(fp);
         mlstr_fread(fp, &pObjIndex->short_descr);
+
         mlstr_fread(fp, &pObjIndex->description);
+	if (mlstr_stripnl(&pObjIndex->description))
+		touch_area(area_current);
+
+	free_string(pObjIndex->material);
         pObjIndex->material		= fread_string(fp);
 	pObjIndex->oprogs		= NULL;
 
@@ -1423,7 +1421,7 @@ DBLOAD_FUN(load_objects)
             if (letter == 'A') {
                 AFFECT_DATA *paf;
  
-                paf                     = alloc_perm(sizeof(*paf));
+                paf                     = aff_new();
 		paf->where		= TO_OBJECT;
                 paf->type               = -1;
                 paf->level              = pObjIndex->level;
@@ -1443,7 +1441,7 @@ DBLOAD_FUN(load_objects)
 		pObjIndex->gender = fread_fword(gender_table, fp);
 	    } else if (letter == 'S') {
 		AFFECT_DATA *paf;
-		paf = alloc_perm(sizeof(*paf));
+		paf = aff_new();
 		paf->where = TO_SKILLS;
 		paf->type = -1;
 		paf->level = pObjIndex->level;
@@ -1456,7 +1454,7 @@ DBLOAD_FUN(load_objects)
 	    } else if (letter == 'F') {
                 AFFECT_DATA *paf;
  
-                paf                     = alloc_perm(sizeof(*paf));
+                paf                     = aff_new();
 		letter 			= fread_letter(fp);
 		switch (letter)
 	 	{

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.48 1999-06-10 18:19:06 fjoe Exp $
+ * $Id: olc_room.c,v 1.49 1999-06-10 22:29:52 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -105,7 +105,6 @@ olc_cmd_t olc_cmds_room[] =
 
 static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		       olc_cmd_t *cmd, int door);
-static void add_reset(ROOM_INDEX_DATA *room, RESET_DATA *pReset, int index);
 
 OLC_FUN(roomed_create)
 {
@@ -476,13 +475,13 @@ OLC_FUN(roomed_mreset)
 	/*
 	 * Create the mobile reset.
 	 */
-	pReset              = new_reset_data();
+	pReset              = reset_new();
 	pReset->command	= 'M';
 	pReset->arg1	= pMobIndex->vnum;
 	pReset->arg2	= is_number(arg2) ? atoi(arg2) : MAX_MOB;
 	pReset->arg3	= pRoom->vnum;
 	pReset->arg4	= is_number(argument) ? atoi (argument) : 1;
-	add_reset(pRoom, pReset, 0/* Last slot*/);
+	reset_add(pReset, pRoom, 0);
 
 	/*
 	 * Create the mobile.
@@ -612,13 +611,13 @@ OLC_FUN(roomed_oreset)
 	 */
 	if (arg2[0] == '\0')
 	{
-		pReset		= new_reset_data();
+		pReset		= reset_new();
 		pReset->command	= 'O';
 		pReset->arg1	= pObjIndex->vnum;
 		pReset->arg2	= 0;
 		pReset->arg3	= pRoom->vnum;
 		pReset->arg4	= 0;
-		add_reset(pRoom, pReset, 0/* Last slot*/);
+		reset_add(pReset, pRoom, 0);
 
 		newobj = create_obj(pObjIndex, 0);
 		obj_to_room(newobj, pRoom);
@@ -634,13 +633,13 @@ OLC_FUN(roomed_oreset)
 	if (argument[0] == '\0'
 	&& ((to_obj = get_obj_list(ch, arg2, pRoom->contents)) != NULL))
 	{
-		pReset		= new_reset_data();
+		pReset		= reset_new();
 		pReset->command	= 'P';
 		pReset->arg1	= pObjIndex->vnum;
 		pReset->arg2	= 0;
 		pReset->arg3	= to_obj->pIndexData->vnum;
 		pReset->arg4	= 1;
-		add_reset(pRoom, pReset, 0/* Last slot*/);
+		reset_add(pReset, pRoom,  0);
 
 		newobj = create_obj(pObjIndex, 0);
 		newobj->cost = 0;
@@ -687,7 +686,7 @@ OLC_FUN(roomed_oreset)
 			return FALSE;
 		}
 
-		pReset		= new_reset_data();
+		pReset		= reset_new();
 		pReset->arg1	= pObjIndex->vnum;
 		pReset->arg2	= wear_loc;
 		if (pReset->arg2 == WEAR_NONE)
@@ -696,7 +695,7 @@ OLC_FUN(roomed_oreset)
 			pReset->command = 'E';
 		pReset->arg3	= wear_loc;
 
-		add_reset(pRoom, pReset, 0/* Last slot*/);
+		reset_add(pReset, pRoom, 0);
 
 		olevel  = URANGE(0, to_mob->level - 2, LEVEL_HERO);
 		 newobj = create_obj(pObjIndex, 0);
@@ -1260,7 +1259,7 @@ void display_resets(CHAR_DATA *ch)
 
 	/*
 	 * Doors are set in rs_flags don't need to be displayed.
-	 * If you want to display them then uncomment the new_reset
+	 * If you want to display them then uncomment the reset_add
 	 * line in the case 'D' in load_resets in db.c and here.
 	 */
 	case 'D':
@@ -1395,7 +1394,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		  pRoom->reset_last = pRoom->reset_last->next);
 	    }
 
-	    free_reset_data(pReset);
+	    reset_free(pReset);
 	    touch_area(pRoom->area);
 	    char_puts("Reset deleted.\n", ch);
 	}
@@ -1418,7 +1417,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		    char_puts("Mob no existe.\n",ch);
 		    return;
 		  }
-		pReset = new_reset_data();
+		pReset = reset_new();
 		pReset->command = 'M';
 		pReset->arg1    = atoi(arg3);
 		pReset->arg2    = is_number(arg4) ? atoi(arg4) : 1; /* Max # */
@@ -1432,7 +1431,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 	     */
 	    if (!str_cmp(arg2, "obj"))
 	    {
-		pReset = new_reset_data();
+		pReset = reset_new();
 		pReset->arg1    = atoi(arg3);
 		/*
 		 * Inside another object.
@@ -1498,7 +1497,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 			pReset->command = 'E';
 		}
 	    }
-	    add_reset(pRoom, pReset, atoi(arg1));
+	    reset_add(pReset, pRoom, atoi(arg1));
 	    touch_area(pRoom->area);
 	    char_puts("Reset added.\n", ch);
 	}
@@ -1510,11 +1509,12 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 				char_puts("Invalid argument.\n", ch);
 				return;
 			}
-		pReset = new_reset_data ();
+		pReset = reset_new();
 		pReset->command = 'R';
 		pReset->arg1 = pRoom->vnum;
 		pReset->arg2 = atoi(arg3);
-		add_reset(pRoom, pReset, atoi(arg1));
+		reset_add(pReset, pRoom, atoi(arg1));
+
 		touch_area(pRoom->area);
 		char_puts("Random exits reset added.\n", ch);
 	}
@@ -1530,47 +1530,3 @@ void do_resets(CHAR_DATA *ch, const char *argument)
     }
 }
 
-/* Static functions */
-
-/*****************************************************************************
- Name:		add_reset
- Purpose:	Inserts a new reset in the given index slot.
- Called by:	do_resets(olc.c).
- ****************************************************************************/
-static void add_reset(ROOM_INDEX_DATA *room, RESET_DATA *pReset, int index)
-{
-    RESET_DATA *reset;
-    int iReset = 0;
-
-    if (!room->reset_first)
-    {
-	room->reset_first	= pReset;
-	room->reset_last	= pReset;
-	pReset->next		= NULL;
-	return;
-    }
-
-    index--;
-
-    if (index == 0)	/* First slot (1) selected. */
-    {
-	pReset->next = room->reset_first;
-	room->reset_first = pReset;
-	return;
-    }
-
-    /*
-     * If negative slot(<= 0 selected) then this will find the last.
-     */
-    for (reset = room->reset_first; reset->next; reset = reset->next)
-    {
-	if (++iReset == index)
-	    break;
-    }
-
-    pReset->next	= reset->next;
-    reset->next		= pReset;
-    if (!pReset->next)
-	room->reset_last = pReset;
-    return;
-}

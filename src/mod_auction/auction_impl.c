@@ -1,5 +1,5 @@
 /*
- * $Id: auction_impl.c,v 1.37 1999-06-10 20:05:27 fjoe Exp $
+ * $Id: auction_impl.c,v 1.38 1999-06-10 22:29:49 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -18,27 +18,25 @@ AUCTION_DATA auction = { NULL };
  *  Adopted to Anatolia MUD by chronos.                                    *
  ***************************************************************************/
 
-void talk_auction(const char *fmt, ...)
+void act_auction(const char *fmt,
+		 const void *arg1, const void *arg2, const void *arg3,
+		 int act_flags, int min_pos)
 {
-	va_list ap;
-	char buf[MAX_STRING_LENGTH];
 	DESCRIPTOR_DATA *d;
-	CHAR_DATA *original;
-
-	va_start(ap, fmt);
-	vsnprintf(buf, sizeof(buf), fmt, ap);
-	va_end(ap);
 
 	for (d = descriptor_list; d != NULL; d = d->next) {
-		/* if switched */
-		original = d->original ? d->original : d->character;
-		if (d->connected == CON_PLAYING
-		&&  !IS_SET(original->comm, COMM_NOAUCTION))
-			act_puts("{YAUCTION{x: $t",
-				 original, buf, NULL, TO_CHAR, POS_DEAD);
+		CHAR_DATA *ch = d->original ? d->original : d->character;
+
+		if (d->connected != CON_PLAYING
+		||  IS_SET(ch->comm, COMM_NOAUCTION))
+			continue;
+
+		act_puts("{YAUCTION{x: ", ch, NULL, NULL,
+			 TO_CHAR | ACT_NOLF, min_pos);
+		act_puts3(fmt, ch, arg1, arg2, arg3,
+			  TO_CHAR | act_flags, min_pos);
 	}
 }
-
 
 /*
   This function allows the following kinds of bets to be made:
@@ -183,7 +181,7 @@ void auction_give_obj(CHAR_DATA* victim)
 {
 	OBJ_DATA *obj = auction.item;
 
-	act("The auctioneer appears before you in a puff of smoke "
+	act("The auctioneer appears before you in a puff of smoke\n"
 	    "and hands you $p.", victim, obj, NULL, TO_CHAR);
 	act("The auctioneer appears before $n and hands $m $p.",
 	    victim, obj, NULL, TO_ROOM);
@@ -213,18 +211,19 @@ void auction_update(void)
 	switch (++auction.going) { /* increase the going state */
 	case 1 : /* going once */
 	case 2 : /* going twice */
-	        if (auction.bet > 0)
-			/* XXX */
-			talk_auction("%s: going %s for %d.",
-				fix_short(mlstr_mval(&auction.item->short_descr)),
-	                	((auction.going == 1) ? "once" : "twice"),
-				auction.bet);
-	        else 
-			/* XXX */
-	        	talk_auction("%s: going %s, starting price %d.",
-				     fix_short(mlstr_mval(&auction.item->short_descr)),
-	                	     ((auction.going == 1) ? "once" : "twice"),
-				     auction.starting);
+	        if (auction.bet > 0) {
+			act_auction("$p: going $T for $J gold.",
+				    auction.item, 
+				    (auction.going == 1) ? "once" : "twice",
+				    (const void*) auction.bet,
+				    ACT_FORMSH, POS_RESTING);
+	        } else {
+	        	act_auction("$p: going $T, starting price $J gold.",
+				    auction.item, 
+				    (auction.going == 1) ? "once" : "twice",
+				    (const void*) auction.starting,
+				    ACT_FORMSH, POS_RESTING);
+		}
 	        break;
 
 	 case 3 : /* SOLD! */
@@ -232,30 +231,30 @@ void auction_update(void)
 			int tax;
 			int pay;
 
-			/* XXX */
-	        	talk_auction("%s: sold to %s for %d.",
-				     fix_short(mlstr_mval(&auction.item->short_descr)),
-				     auction.buyer->invis_level >= LEVEL_HERO ?
-				     "an immortal" : auction.buyer->name,
-				     auction.bet);
+	        	act_auction("$p: sold to $N for $J gold.",
+				    auction.item, auction.buyer,
+				    (const void*) auction.bet,
+				    ACT_FORMSH, POS_RESTING);
 
 			auction_give_obj(auction.buyer);
 
-			tax = (auction.bet * 15) / 100;
 			pay = (auction.bet * 85) / 100;
+			tax = auction.bet - pay;
 
 			 /* give him the money */
-			char_printf(auction.seller,
-				    "The auctioneer pays you %d gold, "
-				    "charging an auction fee of %d.\n",
-				    pay, tax);
+			act_puts3("The auctioneer pays you $j gold, "
+				  "charging an auction fee of $J gold.",
+				  auction.seller, (const void*) pay,
+				  NULL, (const void*) tax, TO_CHAR, POS_DEAD);
 			auction.seller->pcdata->bank_g += pay;
-		}
-	        else { /* not sold */
-			/* XXX */
-	        	talk_auction("No bets received for %s.",
-				     fix_short(mlstr_mval(&auction.item->short_descr)));
-			talk_auction("object has been removed from auction.");
+		} else {
+			/* not sold */
+	        	act_auction("No bets received for $p.",
+				    auction.item, NULL, NULL,
+				    ACT_FORMSH, POS_RESTING);
+			act_auction("Object has been removed from auction.",
+				    NULL, NULL, NULL,
+				    ACT_FORMSH, POS_RESTING);
 			auction_give_obj(auction.seller);
 	        }
         }
@@ -317,24 +316,26 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 		else { /* stop the auction */
-			talk_auction("Sale of %s has been stopped "
-				     "by an Immortal.",
-				     fix_short(mlstr_mval(&auction.item->short_descr)));
+			act_auction("Sale of $p has been stopped by $N.",
+				    auction.item, ch, NULL,
+				    ACT_FORMSH, POS_DEAD);
 			auction_give_obj(auction.seller);
 
 			/* return money to the buyer */
 			if (auction.buyer != NULL) {
 				auction.buyer->gold += auction.bet;
-				char_puts("Your money has been returned.\n",
-					  auction.buyer);
+				act_puts("Your money has been returned.",
+					 auction.buyer, NULL, NULL,
+					 TO_CHAR, POS_DEAD);
 	    		}
 
 			/* return money to the seller */
 			if (auction.seller != NULL) {
 				auction.seller->gold +=
 					(auction.starting * 20) / 100;
-				char_puts("Your money has been returned.\n",
-					  auction.seller);
+				act_puts("Your money has been returned.",
+					 auction.seller, NULL, NULL,
+					 TO_CHAR, POS_DEAD);
 			}
 	    		return;
 		}
@@ -343,46 +344,51 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 	        int newbet;
 
 		if (auction.item == NULL) {
-	        	char_puts ("There isn't anything being auctioned "
-				      "right now.\n",ch);
+	        	act_puts("There isn't anything being auctioned "
+				 "right now.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 	        	return;
 		}
 
 		if (ch == auction.seller) {
-			char_puts("You cannot bet on your own "
-				     "equipment...:)\n",ch);
+			act_puts("You cannot bet on your own equipment...:)",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			return;
 		}
 
 	        /* make - perhaps - a bet now */
 	        if (argument[0] == '\0') {
-			char_puts ("Bet how much?\n",ch);
+			act_puts("Bet how much?",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			return;
 	        }
 
-		newbet = parsebet (auction.bet, argument);
+		newbet = parsebet(auction.bet, argument);
 
 	        if (newbet > ch->gold) {
-	        	char_puts("You don't have that much money!\n", ch);
+	        	act_puts("You don't have that much money!",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 	        	return;
 	        }
 
 		if (auction.bet > 0) {
 			if (newbet < auction.bet + 1) {
-				char_puts("You must bid at least 1 gold "
-					  "over the current bet.\n", ch);
+				act_puts("You must bid at least 1 gold "
+					 "over the current bet.",
+					 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 	        		return;
 	        	}
 		}
 		else {
 			if (newbet < auction.starting) {
-				char_puts("You cannot bid less than the "
-					  "starting price.\n", ch);
+				act_puts("You cannot bid less than the "
+					 "starting price.",
+					 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 				return;
 			}
 		}
 
-	        /* the actual bet is "Ok.\n"! */
+	        /* the actual bet is OK! */
 
 	        /* return the gold to the last buyer, if one exists */
 	        if (auction.buyer != NULL)
@@ -394,9 +400,9 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 	        auction.going = 0;
 	        auction.pulse = PULSE_AUCTION; /* start the auction over again */
 
-	        talk_auction("A bet of %d gold has been received on %s.",
-			     newbet,
-			     fix_short(mlstr_mval(&auction.item->short_descr)));
+	        act_auction("A bet of $J gold has been received on $p.",
+			    auction.item, NULL, (const void*) newbet,
+			    ACT_FORMSH, POS_RESTING);
 	        return;
 	}
 
@@ -405,13 +411,14 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 	obj = get_obj_carry (ch, arg1); /* does char have the item ? */ 
 
 	if (obj == NULL) {
-		char_puts("You aren't carrying that.\n",ch);
+		act_puts("You aren't carrying that.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
 
 	if (auction.item != NULL) {
-		act ("Try again later - $p is being auctioned right now!",
-		     ch, auction.item, NULL, TO_CHAR);
+		act_puts("Try again later - $p is being auctioned right now!",
+			 ch, auction.item, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
 
@@ -419,7 +426,10 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 	if (starting[0] == '\0')
 		auction.starting = MIN_START_PRICE;
 	else if ((auction.starting = atoi(starting)) < MIN_START_PRICE) {
-		char_printf(ch, "You must specify the starting price (at least %d gold).\n", MIN_START_PRICE);
+		act_puts("You must specify the starting price "
+			 "(at least $j gold).\n",
+			 ch, (const void*) MIN_START_PRICE, NULL,
+			 TO_CHAR, POS_DEAD);
 		return;
 	}
 
@@ -454,13 +464,17 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 	case ITEM_FOOD:
 		tax = (auction.starting * 20) / 100;
 		if (ch->gold < tax) {
-			char_printf(ch, "You do not have enough gold to pay "
-					"an auction fee of %d gold.\n", tax);
+			act_puts("You do not have enough gold to pay "
+				 "an auction fee of $j gold.",
+				 ch, (const void*) tax, NULL,
+				 TO_CHAR, POS_DEAD);
 			return;
 		}
 
-		char_printf(ch, "The auctioneer charges you an auction fee "
-				"of %d gold.\n", tax);
+		act_puts("The auctioneer charges you an auction fee "
+			 "of $j gold.",
+			 ch, (const void*) tax, NULL,
+			 TO_CHAR, POS_DEAD);
 		ch->gold -= tax;
 
 		obj_from_char(obj);
@@ -471,8 +485,8 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 		auction.pulse = PULSE_AUCTION;
 		auction.going = 0;
 
-		talk_auction("A new item has been received: {Y%s{x.",
-			     fix_short(mlstr_mval(&obj->short_descr)));
+		act_auction("A new item has been received: {Y$p{x.",
+			    obj, NULL, NULL, ACT_FORMSH, POS_RESTING);
 		break;
 	} /* switch */
 }

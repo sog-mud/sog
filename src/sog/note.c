@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.56 1999-05-31 12:10:22 fjoe Exp $
+ * $Id: note.c,v 1.57 1999-06-10 22:29:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -74,11 +74,12 @@ note_t *new_note()
 	note_t *note;
 
 	if (note_free == NULL)
-		note = alloc_perm(sizeof(*note));
+		note = malloc(sizeof(*note));
 	else { 
 		note = note_free;
 		note_free = note_free->next;
 	}
+	memset(note, 0, sizeof(*note));
 	return note;
 }
 
@@ -250,7 +251,7 @@ void load_thread(const char *name, note_t **list, int type, time_t free_time)
 		} while (isspace(letter));
 		ungetc(letter, fp);
  
-		pnote = alloc_perm(sizeof(*pnote));
+		pnote = new_note();
  
 		if (str_cmp(p = fread_word(fp), "sender"))
 			break;

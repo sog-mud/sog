@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.153 1999-06-10 18:19:04 fjoe Exp $
+ * $Id: db.c,v 1.154 1999-06-10 22:29:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -431,30 +431,43 @@ void vnum_check(AREA_DATA *area, int vnum)
 	}
 }
 
-/*
- * Adds a reset to a room.  OLC
- * Similar to add_reset in olc.c
- */
-void new_reset(ROOM_INDEX_DATA *pR, RESET_DATA *pReset)
+/*****************************************************************************
+ Name:		reset_add
+ Purpose:	Inserts a new reset in the given index slot.
+ Called by:	do_resets(olc.c).
+ ****************************************************************************/
+void reset_add(RESET_DATA *pReset, ROOM_INDEX_DATA *room, int num)
 {
-	RESET_DATA *pr;
- 
-	if (!pR)
+	RESET_DATA *reset;
+	int iReset = 0;
+
+	if (!room->reset_first) {
+		room->reset_first	= pReset;
+		room->reset_last	= pReset;
+		pReset->next		= NULL;
 		return;
- 
-	pr = pR->reset_last;
- 
-	if (!pr) {
-		 pR->reset_first = pReset;
-		 pR->reset_last  = pReset;
-	}
-	else {
-		 pR->reset_last->next = pReset;
-		 pR->reset_last       = pReset;
-		 pR->reset_last->next = NULL;
 	}
 
-	top_reset++;
+	num--;
+
+	if (num == 0)	{ /* First slot (1) selected. */
+		pReset->next = room->reset_first;
+		room->reset_first = pReset;
+		return;
+	}
+
+	/*
+	 * If negative slot(<= 0 selected) then this will find the last.
+	 */
+	for (reset = room->reset_first; reset->next; reset = reset->next) {
+		if (++iReset == num)
+			break;
+	}
+
+	pReset->next	= reset->next;
+	reset->next	= pReset;
+	if (!pReset->next)
+		room->reset_last = pReset;
 }
 
 /*
@@ -1675,21 +1688,6 @@ char *fread_word(FILE *fp)
 
 	db_error("fread_word", "word too long");
 	return NULL;
-}
-
-void *alloc_mem(int sMem)
-{
-	return calloc(1, sMem);
-}
-
-void free_mem(void *p, int sMem)
-{
-	free(p);
-}
-
-void *alloc_perm(int sMem)
-{
-	return calloc(1, sMem);
 }
 
 #define SKIP_CLOSED(pArea)						\

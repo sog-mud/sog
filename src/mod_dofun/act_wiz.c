@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.154 1999-06-10 18:18:54 fjoe Exp $
+ * $Id: act_wiz.c,v 1.155 1999-06-10 22:29:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1765,6 +1765,7 @@ void do_mwhere(CHAR_DATA *ch, const char *argument)
 	buffer = NULL;
 	for (victim = char_list; victim; victim = victim->next)
 		if (victim->in_room
+		&&  can_see(ch, victim)
 		&&  is_name(argument, victim->name)) {
 			if (buffer == NULL)
 				buffer = buf_new(-1);
@@ -2685,15 +2686,15 @@ void do_set(CHAR_DATA *ch, const char *argument)
 	if (!str_prefix(arg,"object")) {
 		do_oset(ch,argument);
 		return;
-
 	}
 
 	if (!str_prefix(arg,"room")) {
 		do_rset(ch,argument);
 		return;
 	}
+
 	/* echo syntax */
-	do_set(ch,str_empty);
+	do_set(ch, str_empty);
 }
 
 void do_sset(CHAR_DATA *ch, const char *argument)
@@ -3412,12 +3413,17 @@ void do_advance(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((level = atoi(arg2)) < 1 || level > MAX_LEVEL) {
-		char_puts("Level must be 1 to 100.\n", ch);
+		char_printf(ch, "Level must be in range 1..%d.\n", MAX_LEVEL);
 		return;
 	}
 
 	if (level > ch->level) {
 		char_puts("Limited to your level.\n", ch);
+		return;
+	}
+
+	if (victim->level >= ch->level) {
+		char_puts("You are not allowed to do that.\n", ch);
 		return;
 	}
 
