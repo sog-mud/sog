@@ -3,7 +3,7 @@ Name Rulers~
 Item 95101
 Mark 95105
 Altar 95102
-SkillSpec clan_rulers
+SkillSpec 'clan_rulers'
 End
 
 #$
