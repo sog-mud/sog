@@ -16,14 +16,16 @@ Comrade Dzerzhinskii~
 Перед тобой живая легенда. Твои колени подкашиваются в благовейном трепете.
 ~
 human~
-ABRTVe ADFHNOVae 1000 0
+ABRTVe HNOVa 1000 0
 91 100 1d1+25000 1d1+4000 1d1+200 none
 -10 -10 -10 -10
 AEFIJKN AB 0 0
 stand stand male 0
 G 0 medium unknown
+A det ADFe
 F for AHMV
 F par ABCDEFGHIJK
+M grall 35000 100~
 #35001
 Comrade Mauzer~
 Comrade Mauzer~
@@ -32,12 +34,53 @@ Comrade Mauzer~
 Это конец.
 ~
 human~
-ABRTVe DFHVae 1000 0
+ABRTVe HVa 1000 0
 91 100 1d1+25000 1d1+4000 1d1+200 none
 -10 -10 -10 -10
 AEFIJKN AB 0 0
 stand stand none 0
 G 0 medium unknown
+A det ADFe
+F for AHMV
+F par ABCDEFGHIJK
+M grall 35000 100~
+#35002
+barmaid~
+@eng barmaid Margareth@rus полногрудая официантка~
+@eng Barmaid Margareth
+@rus Полногрудая брюнетка подмигнула тебе, подавая очередную порцию.
+~
+@eng none
+@rus Ты посмотрел на красивую стройную девушку.
+Приглядевшись, ты заметил, что это скорее молодая женщина 
+Ее густые черные волосы выдают в ней уроженку Mirkwooda
+а упругая грудь так и притягивает к себе взоры
+Она неспешно обходит посетителей, бросая изредка лукавые взгляды
+Но ты замечаешь, что она никому не отдает предпочтения
+~
+elf~
+ABGe 0 1000 0
+100 0 1d1+10000000 0d0+0 1d1+100000000 none
+0 0 0 0
+0 AB 0 0
+stand stand female 0
+0 0 medium unknown
+A det ADFHYZe
+#35003
+healer~
+healer~
+@eng {WA healer of {cHKBD{z is here, selling spells.{x
+@rus {WВахтерша-санитарка {cНКВД{z тут, она продает свои заклинания.{x
+~
+~
+human~
+ABGae 0 1000 0
+100 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand female 0
+0 0 medium unknown
+A det ADFHYZe
 F for AHMV
 F par ABCDEFGHIJK
 #0
@@ -53,12 +96,44 @@ furniture R PQ
 0 0 0 P
 #35001
 fountain~
-фонтан~
+@eng fountain@rus фонтан~
 Маленькая стойка с фонтанчиком кристально чистой холодной воды тут.~
-unknown~
-fountain R P
-0 0 'water' 0 0
+железо~
+furniture RS P
+CFG EIJKN EH CFG CFG
 0 0 0 P
+#35002
+capuchino coffee~
+cup of capuchino~
+There is a piping hot cup of coffee here.~
+unknown~
+drink 0 A
+1 1 'coffee' 0 0
+0 10 100 P
+#35003
+beer bottle~
+a bottle of HKBD beer~
+A small bottle , tipped on its side drips on the ground~
+unknown~
+drink 0 A
+10 10 'beer' 0 0
+0 0 100 P
+#35004
+dry gin~
+a bottle of dry gin~
+Ty vidish bolshuu zapotevshuu butyl', napolnennuyu vozhdelennym napitkom~
+unknown~
+drink 0 A
+10 10 'vodka' 0 0
+0 0 100 P
+#35005
+peace of cake~
+peace of root birthday's cake~
+A peace of huge cake with 38 candles waits for you to join the party!~
+unknown~
+food 0 A
+A A 0 0 0
+0 0 100 P
 #0
 
 #ROOMS
@@ -79,6 +154,10 @@ D2
 ~
 door~
 ABDZ 0 35001
+D5
+~
+~
+Z 0 35006
 S
 #35001
 Приемная~
@@ -170,11 +249,25 @@ D0
 ~
 Z 0 35004
 S
+#35006
+@eng @rus Камера пыток~
+@eng @rus Кругом ты видишь различные приспособления , предназначение которых тебе
+не слишком понятно . Поразмыслив , ты приходишь к выводу , что эти  
+игрушки сделаны с целью помочь тебе пораскинуть мозгами ( по всей комнате )
+или "отбросить копыта" . 
+~
+0 X 0
+D4
+~
+~
+Z 0 35000
+S
 #0
 
 #SPECIALS
 M 35000 spec_breath_lightning	* Comrade Dzerzhinskii
 M 35001 spec_breath_lightning	* Comrade Mauzer
+M 35003 spec_cast_adept	* healer
 S
 
 #RESETS
@@ -182,11 +275,42 @@ D 0 35000 2 1	* Dark hallway: door to the south: closed
 D 0 35001 0 1	* Приемная: door to the north: closed
 M 0 35001 1 35000 1	* Comrade Mauzer (Dark hallway)
 M 0 35000 1 35000 1	* Comrade Dzerzhinskii (Dark hallway)
-O 0 35001 0 35002	* фонтан (Кафетерий)
+O 0 35001 0 35002	* fountain (Кафетерий)
+M 0 35002 1 35002 1	* barmaid Margareth (Кафетерий)
+E 0 35005 0 0		*	peace of root birthday's cake: as a light
+E 0 35004 0 0		*	a bottle of dry gin: as a light
+E 0 35002 0 0		*	cup of capuchino: as a light
+E 0 35003 0 0		*	a bottle of HKBD beer: as a light
+M 0 35003 1 35003 1	* healer (Вахтерская)
 S
+
+#SHOPS
+35002 0 19 17 0 0 100 100 0 23
+0
 
 #OLIMITS
 O 35000 0	* board of fame
 S
+
+#MOBPROGS
+#35000
+if isimmort $n
+bow $n
+say Welcome, товарищ $n!
+end
+endif
+if clan $n Hkbd 
+say Приветствую , товарищ $n.
+end
+endif
+if isghost $n
+say А вас , товарищ $n , я попрошу задержаться.
+mob transfer $n 32000
+end
+endif
+yell Товарищи , в наших рядах есть товарищ $n , который нам вовсе не товарищ ! 
+mob kill $n
+~
+#0
 
 #$

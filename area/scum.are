@@ -15,17 +15,15 @@ mummy~
 @rus Королевская мумия тянет к тебе свои высохшие руки
 ~
 ~
-undead~
-ABORTe HNOVZae -1000 0
+zombie~
+ABORTe HNOVa -1000 0
 91 100 1d1+25000 1d1+4000 1d1+200 bite
 -10 -10 -10 -10
-ACEFJKLNOQSU AB 0 0
+ACEFJKLNOQSU A 0 NSY
 stand stand male 0
 I 0 large unknown
-F aff J
-F det CG
-F imm LQR
-F res MO
+A det DFZe
+M grall 40000 100~
 #40001
 zombie~
 @eng Large Zombie@rus Огромный живой труп~
@@ -34,22 +32,56 @@ zombie~
 ~
 ~
 zombie~
-ABORTe CDFHNOVZae -1000 0
+ABORTe HNOVa -1000 0
 91 100 1d1+25000 1d1+4000 1d1+200 bite
 -10 -10 -10 -10
 ACDEIJKLO A 0 0
 stand stand female 0
 I 0 large unknown
+A det CDFZe
 F aff d
 F imm BL
 F res I
+M grall 40000 100~
+#40002
+healer~
+healer~
+@eng {WA healer of {cHKBD{z is here, selling spells.{x
+@rus {WВахтерша-санитарка {cНКВД{z тут, она продает свои заклинания.{x
+~
+~
+human~
+ABGae 0 1000 0
+100 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+A det ADFHYZe
+F for AHMV
+F par ABCDEFGHIJK
+#40003
+witch~
+@eng Grand Witch@rus Верховная Ведьма~
+@eng Grand Witch
+@rus Верховная Ведьма, повелительница НЕЧИСТИ, она любила только одного,             и то он плохо кончил.
+~
+~
+human~
+ABGae J -1000 0
+100 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 LQR MO NSY
+stand stand male 0
+0 0 medium unknown
+A det ACDFGHYZe
 #0
 
 #OBJECTS
 #40000
 child~
 @eng corpse of child@rus тела младенца~
-@eng Bloody corpse of child here.@rus Окровавленное тело только что убитого младенца брошено здесь.~
+@eng {RBloody{x corpse of child here.@rus {RОкровавленное{x тело только что убитого младенца брошено здесь.~
 unknown~
 fountain R P
 0 0 'blood' 0 0
@@ -94,11 +126,11 @@ Z 0 40000
 S
 #40002
 @eng {DDark cave{x@rus {DТемная пещера{x~
-@eng @rus {DТы попал в пещеру, являющуюся  скоплением  всевозможной нечести. Именно
+@eng @rus {DТы попал в пещеру, являющуюся  скоплением  всевозможной нечисти. Именно
 здесь темные маги устраивают свои жуткие оргии. Воздух буквально пропитан
 колдовством. Кругом валяются окровавленные, полуобъеденные тела - остатки
 недавнего пиршества. Из воздуха постоянно  появляются и исчезают странные
-существа имя которым может быть только одно - НЕЧИСТЬ!{x
+существа имя которым может быть только одно - {RНЕЧИСТЬ!{x
 ~
 0 A 0
 D2
@@ -111,12 +143,32 @@ S
 #SPECIALS
 M 40000 spec_breath_lightning	* Royal Mummy
 M 40001 spec_breath_lightning	* Large Zombie
+M 40002 spec_cast_adept	* healer
+M 40003 spec_cast_adept	* Grand Witch
 S
 
 #RESETS
 M 0 40000 1 40001 1	* Royal Mummy ({DDirty vault{x)
 M 0 40001 1 40001 1	* Large Zombie ({DDirty vault{x)
 O 0 40000 0 40002	* corpse of child ({DDark cave{x)
+M 0 40003 1 40002 1	* Grand Witch ({DDark cave{x)
 S
+
+#MOBPROGS
+#40000
+if isimmort $n 
+tip $n
+end
+endif
+if clan $n scum
+bow $n 
+say Welcome, brother!
+end
+endif
+yae $n
+yell $n! Prepare to die!
+mob kill $n
+~
+#0
 
 #$

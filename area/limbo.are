@@ -17,12 +17,13 @@ This dark form seems like it wants to get back at %s for keeping it
 below them for so long....better not get in its way!
 ~
 human~
-AW JPVZf 0 0
+AW JPVf 0 0
 0 0 0d0+0 0d0+0 5d3+15 slash
 0 0 0 0
 EFN EKL H IN
 stand stand male 0
 0 0 medium unknown
+A det Z
 #11
 special guard~
 the guard~
@@ -59,12 +60,13 @@ A red, fiery demon is looking around very angry.
 A big red demon, you feel like it is flaming.
 ~
 unique~
-AB JZ -1000 0
+AB J -1000 0
 40 0 1d1+1 1d1+1 2d4+20 slash
 -15 -15 -15 -15
 FHI 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det Z
 #14
 nightwalker~
 A Nightwalker~
@@ -74,12 +76,13 @@ This is a Nightwalker summoned from the shadows. Bloody eyes seem glowing.
 This creature has a horible look.
 ~
 human~
-AOTc DFJ -750 0
+AOTc J -750 0
 20 3 16d15+240 1d1+152 5d3+20 punch
 0 0 0 0
 DEJ G AB M
 stand stand male 0
 0 0 medium unknown
+A det DF
 #15
 stalker guard~
 the stalker~
@@ -88,12 +91,13 @@ A Stalker stands here, red with anger!
 Angry, very angry.
 ~
 storm giant~
-ATc FHJNVf 1000 0
+ATc HJNVf 1000 0
 20 3 16d15+160 1d1+149 4d9+15 slash
 0 0 0 0
 QT 0 AB M
 stand stand male 0
 0 0 medium unknown
+A det F
 #16
 squire~
 the squire~
@@ -103,12 +107,13 @@ This noble squire is serving his apprenticeship in the ways of honor
 and chivalry under his master.
 ~
 human~
-ATc FHJNVf 1000 0
+ATc HJNVf 1000 0
 20 3 16d15+160 1d1+149 3d10+12 slash
 0 0 0 0
 EN 0 AB M
 stand stand male 0
 0 0 medium unknown
+A det F
 #17
 mirror~
 the mirror~
@@ -261,12 +266,13 @@ A HUGE dragon is here, selling junk.
 This mighty dragon wants to sell some junk to you.
 ~
 dragon~
-Ae DEFHNOUVYce 0 0
+Ae HNOUVYc 0 0
 150 250 1d1+28000 1d1+1 50d60+100 divine
 -66 -66 -66 -66
 CDEFHIKNO AB 0 0
 stand stand male 100000
 0 0 huge unknown
+A det DEFe
 #0
 
 #OBJECTS
@@ -470,7 +476,7 @@ trash 0 0
 sword hero~
 the %s Sword of %s~
 An enormous, huge SWORD lies here, filling the room with its power.~
-platinum~
+energy~
 weapon AGIOY ANP
 sword 10 4 slash D
 21 100 100000 G
@@ -496,7 +502,7 @@ A
 dagger hero~
 the %s Dagger of %s~
 An enormous, huge DAGGER lies here, filling the room with its power.~
-platinum~
+energy~
 weapon AGIOY ANP
 dagger 10 4 pierce D
 21 100 100000 G
@@ -522,7 +528,7 @@ A
 mace hero~
 the %s Mace of %s~
 An enormous, huge MACE lies here, filling the room with its power.~
-platinum~
+energy~
 weapon AGIOY ANP
 mace 10 4 pound D
 21 100 100000 G
@@ -935,7 +941,7 @@ The spirit of %s is in this vial.
 girth hero~
 the %s Girth of %s~
 An enormous, huge GIRTH lies here, filling the room with its power.~
-platinum~
+energy~
 armor AGIOY ALP
 CD CD CD AD B
 21 30 100000 G
@@ -967,7 +973,7 @@ D 0 0 CDEG
 ring hero~
 the %s Ring of %s~
 An enormous, RING lies here, filling the room with its power.~
-platinum~
+energy~
 armor AGIOY ABP
 CD CD CD AD A
 21 30 100000 G
@@ -987,7 +993,7 @@ A 14 500 TU
 weapon hero~
 the %s Weapon of %s~
 An enormous, huge WEAPON lies here, filling the room with its power.~
-platinum~
+energy~
 weapon AGIOY ANP
 exotic 10 4 slash D
 21 100 100000 G

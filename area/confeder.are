@@ -16,12 +16,13 @@ the healer~
 ~
 ~
 human~
-ABQVae DFH 1000 0
+ABQVae H 1000 0
 100 10 1d1+29099 1d1+1999 10d20+50 divine
 -150 -150 -150 -100
 FHIK ABC D 0
 stand stand male 5000
 0 0 huge unknown
+A det DF
 #33001
 fafhrd guard~
 @eng {BFafhrd{x@rus {BФафхрд{x~
@@ -34,15 +35,16 @@ fafhrd guard~
 недоброжелательно скользит по тебе, он готов к бою.
 ~
 human~
-ABGSTe BCDFHPQTVZe 1000 0
+ABGSTe BHPQTV 1000 0
 91 100 2d500+25000 1d1+3999 1d1+200 divine
 -10 -10 -10 -10
 ABCEFHJKL AB CDJKPTYZ R
 stand stand male 0
 0 0 large unknown
+A det CDFZe
 F for AM
 F par K
-M GREET 33000 100~
+M greet 33000 100~
 #33002
 grey mousecatcher guard~
 @eng {DGrey MouseCatcher{w@rus {DСерый Мышелов{w~
@@ -56,14 +58,15 @@ and dangerous and he's smirking while loking at you.
 тебя пробирает дрожь.
 ~
 human~
-ABCGRSTe BCDFGHNOPQTVZe 0 0
+ABCGRSTe BHNOPQTV 0 0
 91 100 2d500+25000 1d1+3999 1d1+200 acbite
 -10 -10 -10 -10
 ABEFHJKO AB CDEFGHIJK 0
 stand stand none 0
 0 0 medium unknown
+A det CDFGZe
 F par BCDEFGHI
-M GREET 33000 100~
+M greet 33000 100~
 #0
 
 #OBJECTS

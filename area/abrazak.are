@@ -22,9 +22,11 @@ ABGOVXc H 0 0
 0 ABDFGIJLMOPQRTXYZ 0 0
 stand stand male 2147483647
 CIK 0 huge unknown
-M RANDOM 15000 2~
-M RANDOM 15000 1~
-M BRIBE 15000 1~
+M random 15000 2~
+M random 15000 1~
+M bribe 15000 1~
+M speech 15001 shadow~
+M speech 15002 demon~
 #15010
 devil~
 @eng {DDevil{x@rus {DЧерт{x~
@@ -33,12 +35,13 @@ devil~
 ~
 ~
 pig~
-AGRTe CDEFGHVZac -1000 0
+AGRTe HVac -1000 0
 150 1000 1d1+10000 1d1+10000 1d1+100 shbite
 -100 -100 -100 -100
 0 ABCEFGHIJKLMNOPQRTXYZ 0 0
 stand stand male 0
 0 0 small unknown
+A det CDEFGZ
 #0
 
 #OBJECTS
@@ -66,6 +69,26 @@ blood~
 fountain ABCEFI 0
 0 0 'blood' 0 0
 0 0 0 P
+#15003
+stats~
+stats~
+stats~
+unknown~
+trash 0 AO
+0 0 0 0 0
+0 0 0 P
+A
+2 100
+A
+4 100
+A
+5 100
+A
+6 100
+A
+3 100
+A
+1 100
 #15010
 eng kosa~
 {DScythe{x~
@@ -150,7 +173,7 @@ A
 @eng You are in Abrazak's office..  Hmmm...  It's very strange place.  
 @rus Ты попал в офис абразака..... Достаточно странное место... 
 ~
-0 CK 3
+0 C 3
 D2
 ~
 ~
@@ -200,6 +223,12 @@ mob vforce 50 wave
 mob vforce 50 mob goto 15000
 mob vforce 50 mob cast 'teleport'
 mob vforce 50 yell Hey! I have some funny junk for you !
+~
+#15001
+mob cast 'shadowlife' $n
+~
+#15002
+mob cast 'demon summon'
 ~
 #15100
 ~

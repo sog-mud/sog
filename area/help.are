@@ -79,7 +79,6 @@ PROMPT <%*> where the %* are the various variables you may set yourself.
         %o :  Display opponents percent hit
         %r :  Display the room name you are in
 	%e :  Display the exits from the room in NESWDU style
-	%c :  Display a carriage return (useful for multi-line prompts)
         %R :  Display the vnum you are in (IMMORTAL ONLY)
         %z :  Display the area name you are in (IMMORTAL ONLY)
 	%n :  Display your name
@@ -1971,6 +1970,7 @@ Fire Giant  FiGia    Str,Con  Int,Dex   500     evil, "bash","enh. damage"
 Frost Giant FrGia    Str,Con  Int,Dex   500     evil, "bash","enh. damage"
 Githyanki   Githy    Int,Dex  Wis,Con   250     evil, "sword", "dagger"
 Satyr       Satyr      Dex      Int     250     neutral, "camouf.", "ambush"
+Felar       Felar    Dex,Con  Str,Int   450     
 Troll       Troll    Str,Con  Int,Dex   400     evil, regenerate, "fast healing"
 
 What is your race (help <race> for more information)?~
@@ -3234,7 +3234,7 @@ lvnum <lower>       - set the lower vnum
 uvnum <upper>       - set the upper vnum
 <flags>             - area flags, type ? AREA for a list
 ~
-0 REDIT~
+0 'OLC REDIT'~
 Syntax: edit room		-Enters the editor for the current room.
 
 The following commands are available from within the REDITOR:
@@ -3255,7 +3255,7 @@ room <flags>        - room attributes, type ? ROOM for a list
 sector <type>       - terrain of room, type ? SECTOR for a list
 <direction>         - see help EXIT, or type <dir> ?
 ~
-0 EXIT~
+0 'OLC EXITS'~
 For exits, type the direction (north/s/e/w) followed by:
 
 dig <vnum>         - creates the room and makes a two way link
@@ -3265,7 +3265,7 @@ key <object vnum>  - makes specified object the vnum of the key required
 name <door name>   - makes the door's name/keywords = to the given name
 desc               - edit the description of the exit
 delete             - delete this exit
-<exit-flags>       - type ? EXIT for a list(make exit door, locked etc.)
+flag               - toggle exit flag
 
 The exit flags are presented in the following manner.  The capitalized
 flags are ones not included in the reset info.  i.e. closed is due to
@@ -3657,49 +3657,152 @@ fin
 ~
 0 PRICES~
 Прайс-лист на клан и все прилагающиеся услуги:
-ver 1.0
-by Askold
-
-******************************************************
-Наименование:                               | Цена:
-******************************************************
-1.Создание нового клана                     | 5000qp
-  -включает в себя 6 клановых скилов        |
-   и клановый канал.                        |
-------------------------------------------------------
-2.Дополнительные клановые скилы (3 штуки)   | 5000qp*n
-  -где n есть номер доп. покупки.           |
-------------------------------------------------------
-3.Клановые помещения (1 комната)            | 100qp
-  -комната, описание, фонтан, диван.        |
-------------------------------------------------------
-4.Вход в клан:                              |
-  -из Мидгарда/Олд Мидгарда/Титан валей     | 300qp
-  -из Другого города                        | 200qp
-  -Не город                                 | 100qp
-------------------------------------------------------
-5.Клановые guards (1 штука)                 | 250qp
-  -сторож, который будет охранять клан,     |
-   убивая всех чужих.                       |
-------------------------------------------------------
-6.Клановый healer (1 штука)                 | 250qp
-------------------------------------------------------
-7.Создание магазина в клан. комнате.        | 300qp
-  -моб, который будет продавать что-то.     |
-------------------------------------------------------
-8.Всевозможные извращения                   | договор.
-  -как-то статуи членам клана итп.          |
-------------------------------------------------------
-9.Создание клановой вещи                    | 2000qp
-  -по договоренности.                       |
-   продаваться будет у кланового продавца   |
-******************************************************
+ver 2.0
+ 
+{WСоздание нового клана:{x
+-включает в себя 6 (не более) клановых скилов и клановый канал - {W 5000 qp {x
+каждый скил - {W 250 qp {x
+{WКлановые помещения{x (1 комната):
+-комната (не safe, norecal - по желанию), описание, фонтан - {W100 qp{x
+{WВход в клан{x:
+- из HomeTown - {W200qp{x
+- из другого места - {W100qp{x
+{WКлановые стражники{x (1 штука, max - 2):
+Охраняет клан убивая всех чужих, со всеми детектами - {W250qp{x
+{W Клановый лекарь{x: {W250qp{x
+{WКлановый продавец{x - {W300qp{x
+{WКлановая вещь{x:
+- по договоренности, продаваться будет у кланового продавца - {W2000qp{x
+{WДиван для ускоренного восстановления hp/mana{x:
+%1 (max 200%) - {W5qp{x
+ 
+Всевозможные извращения - по договоренности :)
+ 
+Список существующих скиллов:
+Battleragers:
+mortal strike -- skill - первый удар при нападении делает до упора сильным.
+bandage -- skill - вроде как regenrate вешает... не понятно пока.
+clan recall -- skill - ну ясно (правда не так все просто, как кажется).
+bloodthirst -- skill - нечто типа frenzy.
+spellbane -- skill - вешает какую-то рульную защиту от магии.
+resistance -- skill - дамадж * 3 / 5. 
+deathblow -- skill - во время комбата круто поднимает дамадж.
+trophy -- spell - съедаешь руки и ноги, а у тебя +hroll/+droll.
+truesight -- spell - detect hidden, invis, improved invis, magic, camouf.
+ 
+Chaos:
+disgrace -- spell - уменьшает CHA у victim'а на время.
+confuse -- spell - заставляет victim'а кинутся на одну из PC в комнате.
+chaos blade -- spell - создает мечик который в бою кастит confuse, garble...
+randomizer -- spell - делает в комнате по-настоящему рандомные выходы.
+disperse -- spell - телепортит всех кого может из комнаты.
+ 
+Invader:
+evil spirit -- spell - вешает на комнату и людей в ней аффект 'can't quit'.
+nightwalker -- spell - делает моба.
+eyes of intrigue -- spell - делает look в комнате любого player'а.
+fade -- skill - еще одна разновидность invis/hide.
+shadow cloak -- spell - affects AC by -(caster's level).
+nightfall -- spell - гасит лампочки в комнате.
+shadowlife -- spell - делается моб тоакой же (почти) как victim и кидается на него.
+ 
+Ruler:
+ruler aura -- spell - make victim immune to charm.
+wanted -- comm  - ставит/снимает флажок wanted с любого игрока.
+judge -- comm  - говорит ethos и align любого игрока.
+manacles -- spell - ослябляет и чармит игрока с флажком WANTED.
+shield of ruler -- spell -- создает предмет -- довольно классный шилд.
+guard call -- spell - делает двух мобох по параматрам похожих на кастующего
+stalker -- spell - для главных в клане - делает моба как victim и тут же стравливает их.
+ruler badge -- spell - создает шмотку на шею (по левелу).
+remove badge -- spell - соответственно.
+ 
+Shalafi:
+transform -- spell - max_hit * 2
+mental knife -- spell - бьет ментальным дамаджем и вешает минуса на INT.
+demon summon -- spell - делает моба, по парметрам как вызывающий, но с вероятностью начала драки с ним. (типа who dares disturb me???)
+tesseract -- spell - gate, но улетаешь со всей группой.
+brew -- spell - из ITEM_TRASH, ITEM_TREASURE и ITEM_KEY делает potions с всякими хорошими спеллами и наливает их в potion vial. (случайно).
+mastering spell -- skill - от +1 до +4 левел к спеллам.
+scourge -- spell - наносит огневой дамадж и пытается повесить posion, blind и weaken..
+ 
+Hunter:
+hunt -- skill - самый настоящий hunt.
+find object -- spell - locate object.
+path find -- skill - как-то влияет на endur -- а это - на saves vs spell.
+wolf -- spell - делает моба.
+world find -- skill - нужен для hunt'а.
+"armor use"     -- skill - перманентный affect на AC = -level/2 
+take revenge -- spell - телепортит к трупу (после недавней смерти).
+ 
+Knight:
+golden aura -- spell - немного лучше protectiom evil.
+dragonplate -- spell - делает какую-то шмотку.
+squire -- spell - делает моба.
+dragonsword -- spell - делает мечик по левелу.
+holy armor -- spell - минуса на AC.
+riding -- skill - самый что ни на есть riding.
+ 
+При выборе скиллов необходимо обратить внимание на ролевые аспекты, то есть если вам не удасться доказать, что определенный скилл подходит для вашей роли в игре, этот скилл вы не получите.
+Кроме того, возможно создание новых скиллов, при этом вы должны хорошо продумать как этот скилл будет работать, и суметь это четко объяснить. Естественно, что создание новых скиллов требует некоторого времени.
+ 
 ~
 0 'OLC ED'~
 Syntax: ed add keyword lang
         ed edit keyword lang
         ed delete keyword
         ed format keyword
+~
+0 'OLC HEDIT'~
+Syntax: hedit create keyword
+        hedit edit [num.]keyword
+~
+0 'CLAN Scum' Scum~
+@eng @rus В тяжелые для тьмы времена, когда силы света стали угрожать самому
+существованию черной магии, последняя выжившая нечисть решила забыть все старые
+обиды и объединиться в клан c целью установить власть черной магии (,а значит
+и свою) во всем мире. В клан нечисти могут вступать только evil'ы и склонные к
+кровавым убийствам neutral'ы. Поскольку основным оружием нечисти является 
+черная магия, в клан принимаются только вампиры, некроманты, варлоки и ведьмы.
+Отношение клана к врагам: поскольку после своей смерти враги, хоть и против
+своей воли, становятся слугами нечисти, каждый член клана должен иметь по
+крайней мере одного врага. Тем не менее, врагов должно быть не слишком много,
+поэтому их нужно периодически убивать и превращать в своих рабов, а если рабов  
+хватает - тогда в лягушек, ящериц, змей и прочую гадость.
+Экономическая политика клана: в трудные дни экономических кризисов клан
+оказывает платные(дорогие) магические услуги населению, как-то: превращение
+врагов в лягушек, сжигание их на костре, растворение в кислоте, а так же
+заражение их всяческими болезнями и отравление мышьяком.
+Лидеры клана :
+Dark Elf   Warlock     Voland {r[{RWanted{r]{x
+Dark Elf   Necromancer Karabas
+{x {x {x {x {x {x {x {x {x {x {x {xVampire     Osya {rthe Mosquito{x
+~
+0 'CLAN HKBD' HKBD~
+Название клана: НКВД.
+Лидеры : Kelter, Holod, Oleg, Root, Thorn.
+Цели: установление в мире порядка.
+Устав:
+Мы созданы для создания и поддержки порядка в мире.
+Поэтому только сильнейший может стать членом нашей организации.
+Мы создаем законы Мира и о многих из них вы сможете узнать в новостях.
+А их лучше знать, потому что незнание не освобождает от ответственности.
+Вступающий  в НКВД клянеться:
+1. Всегда подчиняться лидерам.
+2. Служить организации  и следить за исполнением законов.
+3. В любой ситуации помогать своему коллеге.
+4. В случае невозможности выполнения пункта 2, немедленно поставить в 
+известность организацию.
+5. В случае, если пункт 2 противоречит  с  волей Бога или Богов,
+подчиниться их воле и также немедленно оповестить организацию.
+ 
+.                       Да воцариться в Мире Порядок!
+~
+0 'OLC MEDIT'~
+Syntax: medit [create] vnum
+~
+0 'protection negative'~
+Characters affected by 'protection negative' are immune to negative attack, for example 'energy drain', 'hand of undead', 'corruption'
 ~
 -1 $~
 

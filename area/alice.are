@@ -1,7 +1,7 @@
 #AREADATA
 Name Wonderland~
 Builders None~
-VNUMs 20000 21075
+VNUMs 20000 21200
 Credits Yaegar~
 Security 9
 LevelRange 35 45
@@ -26,9 +26,9 @@ EFNU 0 0 0
 stand stand female 0
 0 0 medium unknown
 F par GHIJK
-M ACT 21002 looks at you.~
-M KILL 21001 100~
-M GREET 21000 100~
+M act 21002 looks at you.~
+M kill 21001 100~
+M greet 21000 100~
 #21001
 white rabbit~
 a white rabbit~
@@ -46,14 +46,14 @@ AGHT HJNPT 400 0
 ENR 0 BEI F
 stand stand male 0
 HM BGI medium unknown
-M GREET 21003 100~
-M ACT 21024 leaves up.~
-M ACT 21024 leaves down.~
-M ACT 21024 leaves east.~
-M ACT 21024 leaves west.~
-M ACT 21024 leaves north.~
-M ACT 21024 leaves south.~
-M ACT 21024 leaves.~
+M greet 21003 100~
+M act 21024 leaves up.~
+M act 21024 leaves down.~
+M act 21024 leaves east.~
+M act 21024 leaves west.~
+M act 21024 leaves north.~
+M act 21024 leaves south.~
+M act 21024 leaves.~
 #21002
 mouse~
 a mouse~
@@ -70,7 +70,14 @@ AGHT J 400 0
 ENU 0 0 0
 stand stand male 0
 HM B medium unknown
-M GREET 21004 100~
+M greet 21004 100~
+M act 21025 leaves north.~
+M act 21025 leaves south.~
+M act 21025 leaves up.~
+M act 21025 leaves down.~
+M act 21025 leaves east.~
+M act 21025 leaves west.~
+M act 21025 leaves.~
 #21003
 duck~
 a duck~
@@ -86,7 +93,14 @@ AGHT 0 400 0
 EFNU 0 0 0
 stand stand female 0
 HMV B medium unknown
-M GREET 21005 100~
+M greet 21005 100~
+M act 21026 leaves north.~
+M act 21026 leaves south.~
+M act 21026 leaves up.~
+M act 21026 leaves down.~
+M act 21026 leaves east.~
+M act 21026 leaves west.~
+M act 21026 leaves.~
 #21004
 dodo~
 a dodo~
@@ -104,8 +118,15 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 F par GHIJK
-M ACT 21007 looks at you.~
-M GREET 21006 100~
+M act 21007 looks at you.~
+M greet 21006 100~
+M act 21027 leaves north.~
+M act 21027 leaves south.~
+M act 21027 leaves up.~
+M act 21027 leaves down.~
+M act 21027 leaves east.~
+M act 21027 leaves west.~
+M act 21027 leaves.~
 #21005
 lory~
 a lory~
@@ -122,9 +143,16 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 F par GHIJK
-M ACT 21010 looks at you.~
-M GREET 21009 100~
-M ACT 21008 tells you~
+M act 21010 looks at you.~
+M greet 21009 100~
+M act 21008 tells you~
+M act 21028 leaves north.~
+M act 21028 leaves south.~
+M act 21028 leaves up.~
+M act 21028 leaves down.~
+M act 21028 leaves east.~
+M act 21028 leaves west.~
+M act 21028 leaves.~
 #21006
 eaglet~
 an eaglet~
@@ -141,7 +169,14 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 F par GHIJK
-M GREET 21011 100~
+M greet 21011 100~
+M act 21029 leaves north.~
+M act 21029 leaves south.~
+M act 21029 leaves up.~
+M act 21029 leaves down.~
+M act 21029 leaves east.~
+M act 21029 leaves west.~
+M act 21029 leaves.~
 #21007
 magpie~
 an elderly magpie~
@@ -158,7 +193,14 @@ EFNU 0 0 0
 stand stand female 0
 0 0 medium unknown
 F par GHIJK
-M GREET 21012 100~
+M greet 21012 100~
+M act 21030 leaves north.~
+M act 21030 leaves south.~
+M act 21030 leaves up.~
+M act 21030 leaves down.~
+M act 21030 leaves east.~
+M act 21030 leaves west.~
+M act 21030 leaves.~
 #21008
 owl~
 an owl~
@@ -175,7 +217,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 F par GHIJK
-M GREET 21013 100~
+M greet 21013 100~
 #21009
 old crab~
 an old crab~
@@ -191,7 +233,7 @@ EFNU 0 0 0
 stand stand female 0
 0 0 medium unknown
 F par GHIJK
-M GREET 21015 100~
+M greet 21015 100~
 #21010
 young crab~
 a young crab~
@@ -207,7 +249,7 @@ EFNU 0 0 0
 stand stand female 0
 0 0 medium unknown
 F par GHIJK
-M GREET 21014 100~
+M greet 21014 100~
 #21011
 bill lizard~
 Bill the lizard~
@@ -223,9 +265,9 @@ ABGHT 0 400 0
 EFNU 0 0 0
 stand stand male 0
 HMV B medium unknown
-M GREET 21016 100~
-M KILL 21017 100~
-M DEATH 21018 100~
+M greet 21016 100~
+M kill 21017 100~
+M death 21018 100~
 #21012
 guinea pig~
 a guinea pig~
@@ -241,8 +283,8 @@ ABGHT 0 400 0
 EFNU 0 0 0
 stand stand male 0
 HM B medium unknown
-M GREET 21019 100~
-M ACT 21020 looks at you.~
+M greet 21019 100~
+M act 21020 looks at you.~
 #21013
 puppy~
 a puppy dog~
@@ -258,15 +300,15 @@ ABGHT J 400 0
 EFNU 0 0 0
 stand stand male 0
 HM B medium unknown
-M GREET 21021 100~
-M ACT 21022 tells you~
-M ACT 21023 leaves north.~
-M ACT 21023 leaves south.~
-M ACT 21023 leaves east.~
-M ACT 21023 leaves west.~
-M ACT 21023 leaves up.~
-M ACT 21023 leaves down.~
-M ACT 21023 leaves.~
+M greet 21021 100~
+M act 21022 tells you~
+M act 21023 leaves north.~
+M act 21023 leaves south.~
+M act 21023 leaves east.~
+M act 21023 leaves west.~
+M act 21023 leaves up.~
+M act 21023 leaves down.~
+M act 21023 leaves.~
 #21014
 caterpillar~
 the caterpillar~
@@ -283,6 +325,15 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 F par GHIJK
+M greet 21031 100~
+M act 21032 looks at you.~
+M act 21033 leaves north.~
+M act 21033 leaves south.~
+M act 21033 leaves up.~
+M act 21033 leaves down.~
+M act 21033 leaves east.~
+M act 21033 leaves west.~
+M act 21033 leaves.~
 #21015
 pigeon~
 a pigeon~
@@ -300,6 +351,15 @@ EFNU 0 0 0
 stand stand female 0
 0 0 medium unknown
 F par GHIJK
+M greet 21034 100~
+M act 21035 looks at you.~
+M act 21036 leaves north.~
+M act 21036 leaves south.~
+M act 21036 leaves up.~
+M act 21036 leaves down.~
+M act 21036 leaves east.~
+M act 21036 leaves west.~
+M act 21036 leaves.~
 #21016
 fish footman~
 a fish-footman~
@@ -316,6 +376,8 @@ ABGT 0 400 0
 EFNR 0 0 0
 stand stand male 0
 0 0 medium unknown
+M greet 21037 100~
+M act 21038 looks at you.~
 #21017
 frog footman~
 a frog-footman~
@@ -333,6 +395,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 F par GHIJK
+M act 21039 tells you~
 #21018
 duchess~
 the Duchess~
@@ -350,6 +413,9 @@ EFNU 0 0 0
 stand stand female 0
 0 0 medium unknown
 F par GHIJK
+M greet 21040 100~
+M random 21041 5~
+M act 21041 tells you~
 #21019
 pig baby~
 the Duchess' baby~
@@ -366,6 +432,7 @@ ABGT 0 0 0
 EFNR 0 0 0
 stand stand male 0
 0 0 medium unknown
+M greet 21042 100~
 #21020
 cook~
 the cook~
@@ -383,6 +450,15 @@ EFNU 0 0 0
 stand stand female 0
 0 0 medium unknown
 F par GHIJK
+M greet 21043 100~
+M act 21044 says ~
+M act 21045 leaves north.~
+M act 21045 leaves south.~
+M act 21045 leaves up.~
+M act 21045 leaves down.~
+M act 21045 leaves east.~
+M act 21045 leaves west.~
+M act 21045 leaves.~
 #21021
 cheshire cat~
 a Cheshire Cat~
@@ -402,6 +478,16 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 F par GHIJK
+M greet 21046 100~
+M random 21047 5~
+M act 21048 looks at you.~
+M act 21049 leaves north.~
+M act 21049 leaves south.~
+M act 21049 leaves up.~
+M act 21049 leaves down.~
+M act 21049 leaves east.~
+M act 21049 leaves west.~
+M act 21049 leaves.~
 #21022
 mad hatter~
 the Mad Hatter~
@@ -428,6 +514,16 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 F par GHIJK
+M greet 21050 100~
+M act 21051 looks at you.~
+M act 21052 tells you ~
+M act 21054 leaves north.~
+M act 21054 leaves south.~
+M act 21054 leaves up.~
+M act 21054 leaves down.~
+M act 21054 leaves east.~
+M act 21054 leaves west.~
+M act 21054 leaves.~
 #21023
 march hare~
 the March Hare~
@@ -445,6 +541,14 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 F par GHIJK
+M greet 21050 100~
+M act 21054 leaves north.~
+M act 21054 leaves south.~
+M act 21054 leaves up.~
+M act 21054 leaves down.~
+M act 21054 leaves east.~
+M act 21054 leaves west.~
+M act 21054 leaves.~
 #21024
 dormouse~
 the Dormouse~
@@ -463,6 +567,8 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 F par GHIJK
+M greet 21055 100~
+M random 21056 5~
 #21027
 gardener heart five card~
 a gardener~
@@ -479,6 +585,12 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 F par GHIJK
+M greet 21057 100~
+M act 21058 tells you~
+M act 21058 says~
+M act 21058 tells you~
+M act 21058 says~
+M greet 21059 100~
 #21028
 gardener heart seven card~
 a gardener~
@@ -495,6 +607,9 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 F par GHIJK
+M greet 21059 100~
+M act 21058 says~
+M act 21058 tells you~
 #21029
 gardener heart two card~
 a gardener~
@@ -511,6 +626,15 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 F par GHIJK
+M greet 21060 100~
+M random 21061 4~
+M act 21062 leaves north.~
+M act 21062 leaves south.~
+M act 21062 leaves up.~
+M act 21062 leaves down.~
+M act 21062 leaves east.~
+M act 21062 leaves west.~
+M act 21062 leaves.~
 #21030
 soldier club card~
 a soldier~
@@ -526,6 +650,8 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 F par GHIJK
+M greet 21063 100~
+M act 21064 looks at you.~
 #21031
 courtier diamond card~
 a courtier~
@@ -541,6 +667,15 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 F par GHIJK
+M greet 21065 100~
+M act 21066 looks at you.~
+M act 21067 leaves north.~
+M act 21067 leaves south.~
+M act 21067 leaves up.~
+M act 21067 leaves down.~
+M act 21067 leaves east.~
+M act 21067 leaves west.~
+M act 21067 leaves.~
 #21032
 child card hearts heart~
 a child of the Queen~
@@ -556,6 +691,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 F par GHIJK
+M greet 21068 100~
 #21033
 king hearts~
 the King of Hearts~
@@ -573,6 +709,15 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 F par GHIJK
+M greet 21069 100~
+M act 21070 looks at you.~
+M act 21071 leaves north.~
+M act 21071 leaves south.~
+M act 21071 leaves up.~
+M act 21071 leaves down.~
+M act 21071 leaves east.~
+M act 21071 leaves west.~
+M act 21071 leaves.~
 #21034
 queen hearts~
 the Queen of Hearts~
@@ -583,13 +728,24 @@ demanding that the heads of the causes of them be lopped off. No-one's head
 ever actually DOES get lopped off, but that doesn't deter her.
 ~
 human~
-AGIJLNPQRSTYa HJN -400 0
+AGIJLNPQRSTYa JN -400 0
 45 0 10d136+786 45d10+100 5d15+26 slash
 -18 -18 -18 -4
 EFNU 0 0 0
 stand stand female 0
 0 0 medium unknown
 F par GHIJK
+M greet 21072 100~
+M act 21072 leaves north.~
+M act 21072 leaves south.~
+M act 21072 leaves up.~
+M act 21072 leaves down.~
+M act 21072 leaves east.~
+M act 21072 leaves west.~
+M act 21072 leaves.~
+M act 21073 looks at you.~
+M kill 21074 100~
+M act 21075 tells you~
 #21035
 knave hearts~
 the Knave of Hearts~
@@ -607,6 +763,9 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 F par GHIJK
+M act 21048 looks at you.~
+M greet 21076 100~
+M act 21077 tells you ~
 #21036
 flamingo~
 a flamingo~
@@ -623,6 +782,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 F par GHIJK
+M greet 21078 100~
 #21037
 hedgehog~
 a hedgehog~
@@ -658,6 +818,15 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 F par GHIJK
+M greet 21079 100~
+M act 21080 tells you ~
+M act 21081 leaves north.~
+M act 21081 leaves south.~
+M act 21081 leaves up.~
+M act 21081 leaves down.~
+M act 21081 leaves east.~
+M act 21081 leaves west.~
+M act 21081 leaves.~
 #21039
 mock turtle~
 the Mock Turtle~
@@ -669,13 +838,14 @@ word out. The Turtle has the head of a pig, the shell of a turtle and the
 legs and tail of a cow. How peculiar!
 ~
 human~
-ABGTX H 500 0
+ABGT H 500 0
 42 0 10d119+700 42d10+100 5d14+24 pierce
 -16 -16 -16 -3
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 F par GHIJK
+M greet 21083 100~
 #21040
 gryphon~
 a Gryphon~
@@ -687,13 +857,18 @@ and Writhing, the three branches of Arithmetic- Ambition, Distraction,
 Uglification and Derision, and of course the classics- Laughing and Grief.
 ~
 human~
-ABDGTX HJRT 500 0
+ABDGT HJRT 500 0
 45 0 10d136+786 45d10+100 5d15+26 pound
 -18 -18 -18 -4
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 F par GHIJK
+M greet 21084 100~
+M act 21085 tells you~
+M act 21086 looks at you.~
+M kill 21087 100~
+M death 21088 100~
 #21041
 juror~
 a juror~
@@ -1509,7 +1684,7 @@ D1
 You see a small golden door partially obscured by a curtain.
 ~
 curtain golden~
-ABCZ 21013 21012
+ABCDZ 21013 21012
 D2
 ~
 ~
@@ -1616,7 +1791,7 @@ Z -1 21013
 D3
 ~
 ~
-ABCZ 21013 21006
+ABCDZ 21013 21006
 S
 #21013
 Outside the Rabbit's House~
@@ -2651,7 +2826,7 @@ M 0 21000 1 21050 1	* Alice (A Croquet Lawn)
 E 0 21057 0 16		*	a flamingo: wielded
 E 0 21000 0 5		*	a pretty blue frock: on the body
 E 0 21001 0 13		*	a white apron: around the waist
-E 0 21002 0 21008		*	a pair of black shoes: none
+E 0 21002 0 21008		*	a pair of black shoes: unknown
 G 0 21003 0		*	a thimble
 M 0 21036 4 21050 1	* a flamingo (A Croquet Lawn)
 M 0 21033 1 21051 1	* the King of Hearts (A Croquet Lawn)
@@ -2767,6 +2942,216 @@ say Bring me my gloves!
 ~
 #21025
 tell $n Don't let me hear that name again!
+~
+#21026
+emote waddles away.
+~
+#21027
+say The race is over! But who has won?
+~
+#21028
+emote sits and sulks.
+~
+#21029
+emote starts running around madly!
+~
+#21030
+say Farewell!
+~
+#21031
+say Who are YOU?
+emote puffs on its hookah.
+~
+#21032
+mob cast 'fly' $n
+mob cast 'fly' self
+say Now everyone's high!
+~
+#21033
+tell $n One side will make you stronger, the other will make you weaker.
+~
+#21034
+yell Serpent!
+say I've tried every way but nothing seems to suit them!
+~
+#21035
+emote trembles in rage!
+~
+#21036
+tell $n Good riddance, snake!
+~
+#21037
+if carries $n 21029
+else
+mob oload 21029
+give invitation $n
+say For the Duchess, an invitation from the Queen to play croquet.
+if mobhere frog footman
+mob force frog say For the Duchess, an invitation from the Queen to play croquet.
+endif
+endif
+~
+#21038
+say There's no sense in knocking.
+~
+#21039
+say I shall sit here. Till tomorrow.
+~
+#21040
+yell PIG!
+emote stares at the baby in her lap.
+~
+#21041
+say You don't know much, and that's a fact!
+~
+#21042
+emote cries and sneezes a lot.
+~
+#21043
+emote stirs the soup.
+~
+#21044
+emote hurls a plate at the Duchess! *>CRASH<*
+~
+#21045
+mob echoat $n The cook hurls a plate at you!
+mob echoaround $n The cook hurls a plate at the $n! *>CRASH<*
+~
+#21046
+mob echoat $n Cheshire Cat grins at you.
+mob echoaround $n Cheshire Cat grins at $n.
+~
+#21047
+say In that direction lives the March Hare.
+say And in that direction lives the Mad Hatter.
+~
+#21048
+mob cast 'invisibility' self
+~
+#21049
+tell $n Do you play croquet with the Queen today? I'll see you there!
+emote waves its tail and vanishes.
+~
+#21050
+say No room! No room!
+~
+#21051
+say Why is a raven like a writing desk?
+~
+#21052
+say I have no idea!
+~
+#21053
+say Tea!
+mob oload 21045
+give tea $r
+~
+#21054
+emote begins to stuff the dormouse into a teapot.
+~
+#21055
+emote snores loudly.
+~
+#21056
+say Once upon a time there were three little sisters-
+~
+#21057
+say I couldn't help it. Seven jogged my elbow!
+emote returns to painting the bush.
+~
+#21058
+emote stares at two accusingly.
+~
+#21059
+emote returns to painting the bush.
+~
+#21060
+say Look out now, Five! Don't go splashing paint over me like that!
+~
+#21061
+say This should have been a red rose tree, but we planted a white by mistake.
+~
+#21062
+yell THE QUEEN! THE QUEEN!
+~
+#21063
+emote quickly bends over as someone whacks a hedgehog at him.
+~
+#21064
+tell $n You lookin' to be clubbed?
+~
+#21065
+emote swings his flamingo and sends a hedgehog scuttling under a soldier card.
+~
+#21066
+emote smiles and nods.
+~
+#21067
+emote runs off after another hedgehog.
+~
+#21068
+say Ga Ga Goo Goo!
+~
+#21069
+say Greetings!
+~
+#21070
+say Hmph!
+~
+#21071
+emote strolls off, flamingo in hand.
+~
+#21072
+yell Off with their heads!
+~
+#21073
+tell $n Off with YOUR head!
+mob cast 'sanctuary' self
+~
+#21074
+yell GUARDS! HELP!
+mob cast 'flamestrike' $n
+~
+#21075
+tell $n Tsk! Such impertinence!
+~
+#21076
+emote hurriedly hides a tart behind his back.
+~
+#21077
+say Nothing!
+~
+#21078
+emote is fleeing madly away from some angry courtiers.
+~
+#21079
+say You can't chop off a head with no body!
+~
+#21080
+tell $n Can YOU?
+~
+#21081
+emote wanders off muttering to himself.
+~
+#21083
+emote is far too upset to talk.
+~
+#21084
+say It's so amusing. She never chops anyone's heads off, you know.
+~
+#21085
+tell $n The Mock Turtle is east then south of here.
+~
+#21086
+mob cast 'fly' $n
+~
+#21087
+emote screeches and attacks!
+~
+#21088
+yell I am slain!
+~
+#21089
 ~
 #0
 
