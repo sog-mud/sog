@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.2 1999-11-18 15:35:35 fjoe Exp $
+ * $Id: comm.c,v 1.200.2.3 1999-11-19 14:31:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2020,8 +2020,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			break;
 		}
 
-		SET_ORG_RACE(ch, race);
 		ch->race = race;
+		PC(ch)->race = race;
 		for (i=0; i < MAX_STATS;i++)
 			ch->mod_stat[i] = 0;
 

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.3 1999-11-19 11:36:14 fjoe Exp $
+ * $Id: merc.h,v 1.234.2.4 1999-11-19 14:31:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1851,12 +1851,6 @@ int trust_level(CHAR_DATA *ch);
 					PC(ch)->race)
 
 #define LEVEL(ch)		((ch)->level + (ch)->add_level)
-
-#if defined(WIN32)
-void SET_ORG_RACE(CHAR_DATA *ch, int race);
-#else
-#	define SET_ORG_RACE(victim, race)	ORG_RACE(victim) = race
-#endif
 
 #define GET_EXP(ch)		(IS_NPC(ch) ? 0 : PC(ch)->exp)
 #define GET_PET(ch)		(IS_NPC(ch) ? NULL : PC(ch)->pet)

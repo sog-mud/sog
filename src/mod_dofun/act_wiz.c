@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.2 1999-11-19 11:36:12 fjoe Exp $
+ * $Id: act_wiz.c,v 1.186.2.3 1999-11-19 14:31:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3618,7 +3618,8 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		}
 
 		victim->race = race;
-		SET_ORG_RACE(victim, race);
+		if (!IS_NPC(victim))
+			PC(victim)->race = race;
 		update_skills(victim);
 		PC(victim)->exp = exp_for_level(victim, victim->level);
 		PC(victim)->exp_tl = 0;

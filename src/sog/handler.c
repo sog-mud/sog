@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.4 1999-11-19 11:36:15 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.5 1999-11-19 14:31:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3378,16 +3378,6 @@ const char *get_stat_alias(CHAR_DATA *ch, int stat)
 	else			i = 5;
 	return stat_aliases[stat][i];
 }
-
-#ifdef WIN32
-void SET_ORG_RACE(CHAR_DATA *ch, int race)
-{
-	if (IS_NPC(ch))
-		ch->pMobIndex->race = race;
-	else
-		PC(ch)->race = race;
-}
-#endif
 
 /*
  * returns TRUE if lch is one of the leaders of ch
