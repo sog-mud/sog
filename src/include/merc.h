@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.255 1999-11-23 16:04:55 fjoe Exp $
+ * $Id: merc.h,v 1.256 1999-11-24 11:18:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1401,7 +1401,7 @@ struct pc_data
 	time_t			last_offence;
 	flag32_t		trust;
 	flag32_t		plr_flags;
-	flag32_t		wiznet; /* wiz stuff */
+	flag32_t		wiznet;		/* wiz stuff */
 	int			condition	[MAX_COND];
 	varr			learned;	/* pc_skill_t */
 	varr			specs;		/* spec names */
@@ -1435,7 +1435,7 @@ struct pc_data
 	CHAR_DATA * 		reply;		/* for do_reply */
 	note_t * 		pnote;
 
-	int 			exp;	/* total exp */
+	int 			exp;		/* total exp */
 	int			practice;
 	int			train;
 

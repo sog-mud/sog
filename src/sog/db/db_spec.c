@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_spec.c,v 1.6 1999-11-18 18:41:34 fjoe Exp $
+ * $Id: db_spec.c,v 1.7 1999-11-24 11:18:41 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -33,6 +33,7 @@
 #include "db.h"
 
 DECLARE_DBLOAD_FUN(load_spec);
+DECLARE_DBLOAD_FUN(load_spec_deps);
 DECLARE_DBLOAD_FUN(load_spec_skill);
 
 DECLARE_DBINIT_FUN(init_specs);
@@ -40,6 +41,7 @@ DECLARE_DBINIT_FUN(init_specs);
 DBFUN dbfun_specs[] =
 {
 	{ "SPEC",	load_spec	},
+	{ "DEPS",	load_spec_deps	},
 	{ "SKILL",	load_spec_skill	},
 	{ NULL }
 };
@@ -106,13 +108,27 @@ DBLOAD_FUN(load_spec)
 	}
 }
 
+DBLOAD_FUN(load_spec_deps)
+{
+	spec_t *spec = arg;
+
+	if (!spec) {
+		db_error("load_spec_deps", "No #SPEC seen yet");
+		fread_to_end(fp);
+		return;
+	}
+
+	fread_cc_rules(fp, "spec", &spec->spec_deps);
+}
+
 DBLOAD_FUN(load_spec_skill)
 {
 	spec_t *spec = arg;
 	spec_skill_t *spec_sk;
 
 	if (!spec) {
-		db_error("load_skill_spec", "No #SPEC seen yet");
+		db_error("load_spec_skill", "No #SPEC seen yet");
+		fread_to_end(fp);
 		return;
 	}
 
@@ -128,7 +144,7 @@ DBLOAD_FUN(load_spec_skill)
 		case 'E':
 			if (IS_TOKEN(fp, "End")) {
 				if (IS_NULLSTR(spec_sk->sn)) {
-					db_error("load_skill_spec",
+					db_error("load_spec_skill",
 						 "skill name undefined");
 					spec->spec_skills.nused--;
 				} else {

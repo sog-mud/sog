@@ -23,12 +23,24 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_obj_wear.c,v 1.3 1999-11-24 07:22:22 fjoe Exp $
+ * $Id: cc_obj_wear.c,v 1.4 1999-11-24 11:18:41 fjoe Exp $
  */
 
 #include <stdio.h>
 #include "merc.h"
 
+/*
+ * varags for this cc_rulecl:
+ *	CHAR_DATA * ch		- character to check
+ */
+
+/*
+ * race is in list
+ *
+ * arg format: <race name>...
+ * return values: TRUE is ch's race is in specified list
+ *		  otherwise FALSE
+ */
 bool
 cc_obj_wear_race(const char *arg, va_list ap)
 {
@@ -36,6 +48,13 @@ cc_obj_wear_race(const char *arg, va_list ap)
 	return _is_name(ch->race, arg, str_cmp);
 }
 
+/*
+ * class is in list
+ *
+ * arg format: <race name>...
+ * return values: TRUE is ch's class is in specified list
+ *		  otherwise FALSE
+ */
 bool
 cc_obj_wear_class(const char *arg, va_list ap)
 {
@@ -43,6 +62,12 @@ cc_obj_wear_class(const char *arg, va_list ap)
 	return _is_name(ch->class, arg, str_cmp);
 }
 
+/*
+ * min size
+ *
+ * arg format: <size> (see size_table[] for valid values)
+ * return values: TRUE is ch's size is not greater then <size>
+ */
 bool
 cc_obj_wear_minsize(const char *arg, va_list ap)
 {

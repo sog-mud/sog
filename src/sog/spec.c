@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.c,v 1.9 1999-11-22 14:54:27 fjoe Exp $
+ * $Id: spec.c,v 1.10 1999-11-24 11:18:41 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -59,10 +59,14 @@ spec_init(spec_t *spec)
 	varr_init(&spec->spec_skills, sizeof(spec_skill_t), 4);
 	spec->spec_skills.e_init = (varr_e_init_t) spec_skill_init;
 	spec->spec_skills.e_destroy = strkey_destroy;
+
+	varr_init(&spec->spec_deps, sizeof(cc_ruleset_t), 1);
+	spec->spec_deps.e_init = (varr_e_init_t) cc_ruleset_init;
+	spec->spec_deps.e_destroy = (varr_e_destroy_t) cc_ruleset_destroy;
 }
 
 /*
- * spec->spec_skills is not copied
+ * spec->spec_skills and spec->spec_deps are not copied
  * this behavior is intentional
  */
 spec_t *
@@ -78,6 +82,7 @@ spec_destroy(spec_t *spec)
 {
 	free_string(spec->spec_name);
 	varr_destroy(&spec->spec_skills);
+	varr_destroy(&spec->spec_deps);
 }
 
 void spec_skill_init(spec_skill_t *spec_sk)
@@ -297,12 +302,12 @@ bool spec_add(CHAR_DATA *ch, const char *spn)
 	const char **pspn;
 
 	if (IS_NULLSTR(spn))
-		return FALSE;
+		return TRUE;
 
 	STRKEY_CHECK(&specs, spn, "spec_add");
 
 	pspn = varr_bsearch(&PC(ch)->specs, &spn, cmpstr);
-	if (pspn)
+	if (pspn != NULL)
 		return FALSE;
 
 	pspn = varr_enew(&PC(ch)->specs);
@@ -316,7 +321,7 @@ bool spec_del(CHAR_DATA *ch, const char *spn)
 	const char **pspn;
 
 	if (IS_NULLSTR(spn))
-		return FALSE;
+		return TRUE;
 
 	STRKEY_CHECK(&specs, spn, "spec_add");
 
@@ -428,7 +433,49 @@ void spec_update(CHAR_DATA *ch)
 		update_skills(ch);
 }
 
-bool spec_can_gain(CHAR_DATA *ch, const char *spn)
+static void *
+replace_cb(void *p, va_list ap)
 {
-	return FALSE;
+	const char **pspn = (const char **) p;
+
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	const char *spn_rm = va_arg(ap, const char *);
+	const char *spn_add = va_arg(ap, const char *);
+
+	spec_t *spec;
+
+	if (!str_cmp(*pspn, spn_rm))
+		return NULL;
+
+	if ((spec = spec_lookup(*pspn)) != NULL
+	&&  !cc_rules_check("spec", &spec->spec_deps, ch, spn_rm, spn_add))
+		return p;
+
+	return NULL;
+}
+
+int
+spec_replace(CHAR_DATA *ch, const char *spn_rm, const char *spn_add)
+{
+	spec_t *spec;
+
+	if (IS_NPC(ch))
+		return -1;
+
+	if ((spec = spec_lookup(spn_add)) != NULL
+	&&  !cc_rules_check("spec", &spec->spec_deps, ch, spn_rm, spn_add))
+		return -1;
+
+	if (varr_foreach(&PC(ch)->specs, replace_cb, ch, spn_rm, spn_add))
+		return -1;
+
+	if (!spec_del(ch, spn_rm))
+		return -1;
+
+	if (!spec_add(ch, spn_add)) {
+		spec_add(ch, spn_rm);
+		return -1;
+	}
+
+	return 0;
 }

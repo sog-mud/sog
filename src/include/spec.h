@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.h,v 1.2 1999-10-21 12:51:54 fjoe Exp $
+ * $Id: spec.h,v 1.3 1999-11-24 11:18:41 fjoe Exp $
  */
 
 #ifndef _SPEC_H_
@@ -43,6 +43,7 @@ struct spec_t {
 	const char *spec_name;	/* spec name, also used as file name	*/
 	flag32_t spec_class;	/* spec class				*/
 	varr spec_skills;	/* spec_skill_t				*/
+	varr spec_deps;		/* cc_ruleset_t -- spec deps		*/
 };
 
 extern hash_t specs;
@@ -75,6 +76,6 @@ bool spec_del		(CHAR_DATA *ch, const char *spn);
 void update_skills	(CHAR_DATA *ch);
 void spec_update	(CHAR_DATA *ch);
 
-bool spec_can_gain	(CHAR_DATA *ch, const char *spn);
+int spec_replace(CHAR_DATA *ch, const char *spn_rm, const char *spn_add);
 
 #endif
