@@ -7571,9 +7571,9 @@ D5
 @eng You see a trapdoor.
 @rus В полу ты видишь люк (trapdoor).
 ~
-trapdoor~
-the trapdoor~
-~
+trapdoor люк~
+@eng the trapdoor@rus люк~
+@rus male~
 ABZ -1 3062
 S
 #3049

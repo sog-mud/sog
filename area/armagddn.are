@@ -200,7 +200,7 @@ fire, smoke and brimstone as it rears.
 ~
 human~
 FT 0 0 0 ABH -1000 0
-45 30 100d10+1500 2d500+1500 10d10+30 'pound'
+45 30 100d10+2000 2d500+1500 9d9+30 'pound'
 -29 -29 -29 -12
 CDEFK
 stand stand male 900
@@ -218,7 +218,7 @@ fire, smoke and brimstone as it rears.
 ~
 human~
 FT 0 0 0 ABH -1000 0
-45 30 100d10+1500 2d500+1500 10d10+30 'pound'
+45 30 100d10+2000 2d500+1500 9d9+30 'pound'
 -29 -29 -29 -12
 CDEFK
 stand stand male 900
@@ -236,7 +236,7 @@ fire, smoke and brimstone as it rears.
 ~
 human~
 FT 0 0 0 ABH -1000 0
-45 30 100d10+1500 2d500+1500 10d10+30 'magic'
+45 30 100d10+2000 2d500+1500 9d9+30 'magic'
 -29 -29 -29 -12
 CDEFK
 stand stand male 900
@@ -254,7 +254,7 @@ fire, smoke and brimstone as it rears.
 ~
 human~
 FT 0 0 0 ABH -1000 0
-45 30 100d10+1500 2d500+1500 10d10+30 'magic'
+45 30 100d10+2000 2d500+1500 9d9+30 'magic'
 -29 -29 -29 -12
 CDEFK
 stand stand male 900

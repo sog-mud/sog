@@ -9,11 +9,13 @@ End
 
 #MOBILES
 #6500
-dwarf guard~
-the dwarven guard~
-A dwarven guard is here.
+dwarf guard стражник гном~
+@eng the dwarven guard@rus ~~гном~~-~~стражник~~~
+@eng A dwarven guard is here.
+@rus Гном-стражник (guard) стоит здесь.
 ~
-The guard looks very tough and mean.
+@eng The guard looks very tough and mean.
+@rus Он выглядит крутым и недобрым.
 ~
 dwarf~
 B 0 0 0 A 500 0
@@ -23,11 +25,13 @@ EFNR
 stand stand male 500
 0 0 medium unknown
 #6501
-dwarf worker miner~
-the dwarven worker~
-A dwarven mining worker is here.
+dwarf worker miner гном забойщик~
+@eng the dwarven worker@rus ~~гном~~-~~забойщик~~~
+@eng A dwarven mining worker is here.
+@rus Гном-забойщик (mining worker) отдыхает от работы.
 ~
-He is very dirty, and looks extremely over-worked.
+@eng He is very dirty, and looks extremely over-worked.
+@rus Он очень грязный и кажется ужасно усталым.
 ~
 dwarf~
 G 0 0 0 0 900 0
@@ -37,11 +41,13 @@ EFNR
 stand stand male 175
 0 0 medium unknown
 #6502
-wraith~
-the wraith~
-A wraith is awaiting your first move here.
+wraith призрак~
+@eng the wraith@rus призрак~
+@eng A wraith is awaiting your first move here.
+@rus Черный призрак (wraith) ждет твоего первого движения.
 ~
-A black, almost transparent wraith.
+@eng A black, almost transparent wraith.
+@rus Черный, почти прозрачный призрак.
 ~
 human~
 B 0 0 0 ABH -900 0
@@ -51,7 +57,7 @@ EFNU
 stand stand male 2500
 0 0 medium unknown
 #6503
-storekeeper~
+storekeeper продавец~
 the storekeeper~
 There is the Hide & Tooth storekeeper standing here, waiting patiently.
 ~
@@ -435,7 +441,7 @@ used for a while.
 ~
 g @rus none~
 #6520
-map castle strangelove~
+map castle strangelove карта замок~
 a map of Castle Strangelove~
 A rolled up map is here.~
 paper~
@@ -443,8 +449,8 @@ map 0 0 A
 A 0 0 0 0
 0 10 500 P
 E
-map castle strangelove~
-.
+map castle strangelove карта замок~
+@eng .
 * * * Castle Strangelove * * *       __________
  = = ==================== = =        \ Queen's \
       			              \ Bedroom \
@@ -482,8 +488,46 @@ map castle strangelove~
                               \
                            To Dwarven
                              Kingdom
+@rus * * * Замок Странная Любовь  * * *   __________       
+  = = ==================== = =        \  Спальня\ 
+                                       \ Королевы\ 
+                                       \_________\  
+                                                *        
+                               __________    ____\_____ 
+  Север Вверх                  \Верхняя  \    \  Комната\ 
+        \   |                   \площадка \----\         \ 
+          \ |                    \_________\    \_________\  
+ Запад ---- + ---- Восток           |                        
+            | \                _____|____                       
+            |   \              \         \                      
+          Вниз  Юг              \ лестница\    [] - Для прохода здесь   
+                                 \_________\        потребуется ключ от замка.
+                                    |               Ключ от замка есть у 
+                               _____|____           Ухмыляющихся гномов  
+                               \         \          в казарме.   
+                                \лестница \                      
+                                 \_________\    * - Для прохода здесь 
+                                    |               потребуется темно-зеленый 
+                __________     _____|____           ключ. Этот ключ есть у  
+                \ Вход в  \    \ Внутри  \          призрака в винном погребе 
+                 \ Замок   \-[]-\ Замка   \         или у одного из гномийских 
+                   \_________\    \_________\       стражников в Темном  
+                                                    проходе.
+                           \                     
+                         ____\_____               
+                         \Проход к \       
+                          \ Замку   \           
+                           \_________\                 
+                                    \                   
+                   __________     ____\_____                
+                   \ Дверь   \    \ Проход к\         
+                    \ царства \----\ Замку   \     
+                     \_________\    \_________\        
+                              \                             
+                           К Гномийскому         
+                             Царству                  
 ~
-g @rus none~
+g @rus female~
 #6521
 iron bars~
 a chunk of iron bars~
@@ -506,29 +550,36 @@ g @rus none~
 
 #ROOMS
 #6500
-Path to Dwarven Village~
-All around you are the mountains of the southern range, home of dwarves and 
+@eng Path to Dwarven Village@rus Дорога в деревню гномов~
+@eng All around you are the mountains of the southern range, home of dwarves and 
 giants.  You can climb back down the mountains to the west and leave these 
 realms, or seek riches in the northern mineshafts.  A dirt road leads south, 
 towards a small building.  You can hear crying and shrieking coming from it.
+@rus Вокруг раскинулись горы южного хребта, дома гномов и великанов. 
+Ты можешь пойти на запад и, спустившись вниз, покинуть эту страну,
+или искать богатства в северных шахтах. Грунтовая дорога ведет на 
+юг, к небольшому зданию. Ты слышишь доносящиеся оттуда плач и крики. 
 ~
 0 0 field
 D0
-The path continues.
+@eng The path continues.
+@rus Дорога продолжается.  
 ~
 ~
 ~
 ~
 Z -1 6501
 D2
-You hear the patter of little feet.
+@eng You hear the patter of little feet.
+@rus Ты слышишь топот маленьких ножек.
 ~
 ~
 ~
 ~
 Z -1 6601
 D3
-A rocky road leads back to Midgaard and the mines of Moria.
+@eng A rocky road leads back to Midgaard and the mines of Moria.
+@rus Каменистая дорога ведет назад в Митгард и к шахтам Мории.
 ~
 ~
 ~
@@ -536,20 +587,24 @@ A rocky road leads back to Midgaard and the mines of Moria.
 Z -1 6562
 S
 #6501
-Path, base of mountain~
-Now you are at the bottom of a rugged mountain.  The forest around you is
+@eng Path, base of mountain@rus Дорога у основания горы~
+@eng Now you are at the bottom of a rugged mountain.  The forest around you is
 very dense, and it seems very dark to the north.
+@rus Ты находишься у подножья скалистой горы. Лес вокруг
+очень плотный, и темнеет к северу.            
 ~
 0 0 hills
 D0
-The path continues up the mountain.
+@eng The path continues up the mountain.
+@rus Дорога ведет дальше вверх по горе.
 ~
 ~
 ~
 ~
 Z -1 6502
 D2
-The path heads toward the main city.
+@eng The path heads toward the main city.
+@rus Дорога направляется к главному городу.
 ~
 ~
 ~
@@ -557,20 +612,24 @@ The path heads toward the main city.
 Z -1 6500
 S
 #6502
-Path, middle of mountain~
-Standing on the middle of the mountain, you can easily see the turning
+@eng Path, middle of mountain@rus Дорога на середине горы~
+@eng Standing on the middle of the mountain, you can easily see the turning
 point to the south, and the top of the mountain is very near to the north.
+@rus Стоя у середины горы, нетрудно увидеть поворот на юг,
+вершина горы очень близко на севере.
 ~
 0 0 mountain
 D0
-The top of the mountain is easily seen from here.
+@eng The top of the mountain is easily seen from here.
+@rus Отсюда хорошо видна вершина горы.
 ~
 ~
 ~
 ~
 Z -1 6503
 D2
-The base of the mountain is near.
+@eng The base of the mountain is near.
+@rus Недалеко основание горы.
 ~
 ~
 ~
@@ -578,28 +637,34 @@ The base of the mountain is near.
 Z -1 6501
 S
 #6503
-Top of mountain~
-You are now on the top of the mountain.  To the south you see a path
+@eng Top of mountain@rus Вершина горы~
+@eng You are now on the top of the mountain.  To the south you see a path
 leading down the mountain.  To the east and west you see entrances to
 what seems like mines.
+@rus Ты $gn{оказался} на вершине горы. На юг уходит дорога, 
+ведущая вниз с горы. На западе и востоке видны входы во
+что-то, напоминающее шахты.
 ~
 0 0 hills
 D1
-An entrance to the mountain which seems to lead underground.
+@eng An entrance to the mountain which seems to lead underground.
+@rus Вход в гору, ведущий, кажется, под землю. 
 ~
 ~
 ~
 ~
 Z -1 6540
 D2
-The path leads down the mountain to the main city.
+@eng The path leads down the mountain to the main city.
+@rus Дорога ведет вниз по горе к главному городу.
 ~
 ~
 ~
 ~
 Z -1 6502
 D3
-There is an entrance to the mountain.
+@eng There is an entrance to the mountain.
+@rus Здесь вход в гору.
 ~
 ~
 ~
@@ -607,10 +672,13 @@ There is an entrance to the mountain.
 Z -1 6505
 S
 #6504
-Narrow Path~
-This is a narrow path leading to the Dwarven Kingdom.  It looks less
+@eng Narrow Path@rus Узкая тропа~
+@eng This is a narrow path leading to the Dwarven Kingdom.  It looks less
 travelled than the others, and it is very creepy.  The path opens up
 to the south, and continues to the north.
+@rus Это - узкая тропа, ведущая в Царство Гномов. Она кажется менее хоженой,
+нежели прочие, и от нее мурашки по коже бегут. Тропа расширяется к югу
+и идет дальше на север.
 ~
 0 D inside
 D0

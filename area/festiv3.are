@@ -24,12 +24,12 @@ lots of trials and known the reality of life.
 фунт лиха.
 ~
 ghost~
-JT I U A AB 0 0
+JT I 0 A AB 0 0
 110 0 100d40+30000 100d10+15000 19d16+80 'wrath'
 -80 -80 -80 -70
 DEHKO
 stand stand male 0
-0 0 medium unknown
+D 0 medium unknown
 F act O
 M death 36301 100~
 M fight 36300 40~
