@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.291 2000-02-10 14:08:41 fjoe Exp $
+ * $Id: merc.h,v 1.292 2000-02-19 14:13:46 avn Exp $
  */
 
 /***************************************************************************
@@ -1251,6 +1251,7 @@ struct char_data
 	DESCRIPTOR_DATA *	desc;
 
 	CHAR_DATA * 		next;
+	CHAR_DATA *		aff_next;
 	CHAR_DATA * 		next_in_room;
 
 	CHAR_DATA * 		master;
@@ -1512,6 +1513,7 @@ struct obj_index_data
 struct obj_data
 {
 	OBJ_DATA *		next;
+	OBJ_DATA *		aff_next;
 	OBJ_DATA *		next_content;
 	OBJ_DATA *		contains;
 	OBJ_DATA *		in_obj;
@@ -1824,6 +1826,8 @@ extern		OBJ_DATA	  *	object_list;
 extern		MPCODE	 	 *	mpcode_list;
 
 extern		ROOM_INDEX_DATA   *	top_affected_room;
+extern		CHAR_DATA	  *	top_affected_char;
+extern		OBJ_DATA	  *	top_affected_obj;
 
 extern		char			bug_buf 	[];
 extern		time_t			current_time;
