@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.64 1999-11-23 16:04:56 fjoe Exp $
+ * $Id: olc_obj.c,v 1.65 1999-11-24 07:22:24 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -306,7 +306,7 @@ OLC_FUN(objed_show)
 
 	show_obj_values(output, pObj);
 	varr_foreach(&pObj->restrictions, print_cc_ruleset_cb,
-		     output, "obj", "Restrictions:\n");
+		     output, "obj_wear", "Restrictions:\n");
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 
@@ -934,7 +934,7 @@ OLC_FUN(objed_restrictions)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_cc_rules(ch, argument, cmd, "obj", &pObj->restrictions);
+	return olced_cc_rules(ch, argument, cmd, "obj_wear", &pObj->restrictions);
 }
 
 void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj)

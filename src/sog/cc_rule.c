@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_rule.c,v 1.4 1999-11-23 16:04:56 fjoe Exp $
+ * $Id: cc_rule.c,v 1.5 1999-11-24 07:22:25 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -75,19 +75,19 @@ cc_rulecl_lookup(const char *rcn)
 }
 
 cc_rulefun_t *
-cc_rulefun_lookup(cc_rulecl_t *rcl, const char *keyword)
+cc_rulefun_lookup(cc_rulecl_t *rcl, const char *type)
 {
 	if (rcl == NULL)
 		return NULL;
 
-	return (cc_rulefun_t *) varr_bsearch(&rcl->rulefuns, &keyword, cmpstr);
+	return (cc_rulefun_t *) varr_bsearch(&rcl->rulefuns, &type, cmpstr);
 }
 
 void
 cc_ruleset_init(cc_ruleset_t *rs)
 {
 	rs->order = CC_O_DENY_ALLOW;
-	rs->keyword = str_empty;
+	rs->type = str_empty;
 
 	varr_init(&rs->allow, sizeof(const char *), 1);
 	rs->allow.e_init = (varr_e_init_t) strkey_init;
@@ -101,23 +101,30 @@ cc_ruleset_init(cc_ruleset_t *rs)
 void
 cc_ruleset_destroy(cc_ruleset_t *rs)
 {
-	free_string(rs->keyword);
+	free_string(rs->type);
 	varr_destroy(&rs->allow);
 	varr_destroy(&rs->deny);
 }
 
 void
-fread_cc_ruleset(rfile_t *fp, const char *rcn, varr *v)
+fread_cc_rules(rfile_t *fp, const char *rcn, varr *v)
 {
 	cc_rulecl_t *rcl = cc_rulecl_lookup(rcn);
 	cc_ruleset_t *rs;
+	const char *type;
 
 	if (rcl == NULL) {
 		db_error("fread_cc_ruleset: %s: unknown cc_rule class", rcn);
+		fread_to_end(fp);
 		return;
 	}
 
-	rs = varr_enew(v);
+	type = fread_sword(fp);
+	if ((rs = cc_ruleset_lookup(v, type)) == NULL) {
+		rs = varr_enew(v);
+		rs->type = type;
+	}
+
 	for (;;) {
 		bool fMatch = FALSE;
 
@@ -138,17 +145,8 @@ fread_cc_ruleset(rfile_t *fp, const char *rcn, varr *v)
 			}
 			break;
 		case 'E':
-			if (IS_TOKEN(fp, "End")) {
-				if (IS_NULLSTR(rs->keyword)) {
-					db_error("fread_cc_ruleset",
-						 "cc_ruleset keyword undefined");
-					varr_edelete(v, rs);
-				}
+			if (IS_TOKEN(fp, "End"))
 				return;
-			}
-			break;
-		case 'K':
-			SKEY("Keyword", rs->keyword, fread_sword(fp));
 			break;
 		case 'O':
 			KEY("Order", rs->order,
@@ -191,10 +189,9 @@ fwrite_cc_ruleset_cb(void *p, va_list ap)
 	rcn = va_arg(ap, const char *);
 	pre = va_arg(ap, const char *);
 
-	fprintf(fp, "%s"
-		    "keyword %s\n"
+	fprintf(fp, "%s%s\n"
 		    "order %s\n",
-		pre, fix_word(rs->keyword),
+		pre, fix_word(rs->type),
 		fix_word(flag_string(cc_order_types, rs->order)));
 
 	switch (rs->order) {
@@ -250,8 +247,8 @@ print_cc_ruleset_cb(void *p, va_list ap)
 			"        [%s%s]\n"
 			"        order %s\n",
 		   pre,
-		   fix_word(rs->keyword),
-		   cc_rulefun_lookup(rcl, rs->keyword) ? "" : " (UNDEF)",
+		   fix_word(rs->type),
+		   cc_rulefun_lookup(rcl, rs->type) ? "" : " (UNDEF)",
 		   fix_word(flag_string(cc_order_types, rs->order)));
 
 	switch (rs->order) {
@@ -297,7 +294,7 @@ cc_rules_check(const char *rcn, varr *v, ...)
 static void
 cc_rulefun_init(cc_rulefun_t *rfun)
 {
-	rfun->keyword = str_empty;
+	rfun->type = str_empty;
 	rfun->fun_name = str_empty;
 	rfun->fun = NULL;
 }
@@ -305,7 +302,7 @@ cc_rulefun_init(cc_rulefun_t *rfun)
 static void
 cc_rulefun_destroy(cc_rulefun_t *rfun)
 {
-	free_string(rfun->keyword);
+	free_string(rfun->type);
 	free_string(rfun->fun_name);
 }
 
@@ -330,7 +327,7 @@ ruleset_match_cb(void *p, va_list ap)
 	cc_rulecl_t *rcl = va_arg(ap, cc_rulecl_t *);
 	va_list ap2 = va_arg(ap, va_list);
 
-	cc_rulefun_t *rfun = cc_rulefun_lookup(rcl, rs->keyword);
+	cc_rulefun_t *rfun = cc_rulefun_lookup(rcl, rs->type);
 	bool ok;
 
 	if (rfun == NULL
@@ -364,6 +361,6 @@ ruleset_match_cb(void *p, va_list ap)
 		ok = FALSE;
 	}
 
-	return ok ? NULL : (void *) rs->keyword;
+	return ok ? NULL : (void *) rs->type;
 }
 

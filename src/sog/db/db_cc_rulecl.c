@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_cc_rulecl.c,v 1.1 1999-11-22 14:54:28 fjoe Exp $
+ * $Id: db_cc_rulecl.c,v 1.2 1999-11-24 07:22:28 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -78,17 +78,17 @@ DBLOAD_FUN(load_cc_rulecl)
 				return;
 			}
 			break;
-		case 'K':
-			if (IS_TOKEN(fp, "Keyword")) {
+		case 'N':
+			KEY("Name", rcl->name, fread_sword(fp));
+			break;
+		case 'T':
+			if (IS_TOKEN(fp, "Type")) {
 				cc_rulefun_t *rfun = varr_enew(&rcl->rulefuns);
-				rfun->keyword = fread_sword(fp);
+				rfun->type = fread_sword(fp);
 				rfun->fun_name = fread_sword(fp);
 				varr_qsort(&rcl->rulefuns, cmpstr);
 				fMatch = TRUE;
 			}
-			break;
-		case 'N':
-			KEY("Name", rcl->name, fread_sword(fp));
 			break;
 		}
 

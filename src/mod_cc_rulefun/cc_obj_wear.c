@@ -23,23 +23,34 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_obj_wear.c,v 1.2 1999-11-23 12:14:30 fjoe Exp $
+ * $Id: cc_obj_wear.c,v 1.3 1999-11-24 07:22:22 fjoe Exp $
  */
 
 #include <stdio.h>
 #include "merc.h"
 
 bool
-cc_obj_race(const char *arg, va_list ap)
+cc_obj_wear_race(const char *arg, va_list ap)
 {
 	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
 	return _is_name(ch->race, arg, str_cmp);
 }
 
 bool
-cc_obj_class(const char *arg, va_list ap)
+cc_obj_wear_class(const char *arg, va_list ap)
 {
 	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
 	return _is_name(ch->class, arg, str_cmp);
+}
+
+bool
+cc_obj_wear_minsize(const char *arg, va_list ap)
+{
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+
+	if (!str_cmp(arg, "all"))
+		return TRUE;
+
+	return ch->size <= flag_value(size_table, arg);
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.82 1999-11-23 16:04:55 fjoe Exp $
+ * $Id: olc.c,v 1.83 1999-11-24 07:22:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -822,7 +822,7 @@ olced_cc_rules(CHAR_DATA *ch, const char *argument,
 	       olc_cmd_t *cmd, const char *rcn, varr *v)
 {
 	char arg[MAX_INPUT_LENGTH];
-	char keyword[MAX_INPUT_LENGTH];
+	char type[MAX_INPUT_LENGTH];
 	varr *v2;
 	bool add;
 	cc_ruleset_t *rs;
@@ -834,23 +834,23 @@ olced_cc_rules(CHAR_DATA *ch, const char *argument,
 	if (!str_prefix(arg, "show")) {
 		BUFFER *buf = buf_new(-1);
 		varr_foreach(v, print_cc_ruleset_cb,
-			     buf, "obj", "Restrictions:\n");
+			     buf, "obj_wear", "Restrictions:\n");
 		page_to_char(buf_string(buf), ch);
 		buf_free(buf);
 		return FALSE;
 	}
 
-	argument = one_argument(argument, keyword, sizeof(keyword));
-	if (keyword[0] == '\0')
+	argument = one_argument(argument, type, sizeof(type));
+	if (type[0] == '\0')
 		CC_RULES_ERR;
 
 	/*
 	 * parse 'order'
 	 */
 	if (!str_prefix(arg, "order")) {
-		if ((rs = cc_ruleset_lookup(v, keyword)) == NULL) {
-			char_printf(ch, "%s: %s: no rules for keyword '%s' defined.\n",
-				    OLCED(ch)->name, cmd->name, keyword);
+		if ((rs = cc_ruleset_lookup(v, type)) == NULL) {
+			char_printf(ch, "%s: %s: no rules for type '%s' defined.\n",
+				    OLCED(ch)->name, cmd->name, type);
 			return FALSE;
 		}
 		
@@ -868,7 +868,7 @@ olced_cc_rules(CHAR_DATA *ch, const char *argument,
 		CC_RULES_ERR;
 
 	/*
-	 * sanity checking for 'xxx keyword add ...'
+	 * sanity checking for 'xxx type add ...'
 	 */
 	if (add) {
 		cc_rulecl_t *rcl;
@@ -879,9 +879,9 @@ olced_cc_rules(CHAR_DATA *ch, const char *argument,
 			return FALSE;
 		}
 
-		if (cc_rulefun_lookup(rcl, keyword) == NULL) {
-			char_printf(ch, "%s: %s: %s: unknown keyword for cc_rule class '%s'.\n",
-				    OLCED(ch)->name, cmd->name, keyword, rcn);
+		if (cc_rulefun_lookup(rcl, type) == NULL) {
+			char_printf(ch, "%s: %s: %s: unknown type for cc_rule class '%s'.\n",
+				    OLCED(ch)->name, cmd->name, type, rcn);
 			return FALSE;
 		}
 	}
@@ -890,13 +890,13 @@ olced_cc_rules(CHAR_DATA *ch, const char *argument,
 	 * lookup ruleset
 	 * if not found build new if adding, bail out if deleting
 	 */
-	if ((rs = cc_ruleset_lookup(v, keyword)) == NULL) {
+	if ((rs = cc_ruleset_lookup(v, type)) == NULL) {
 		if (add) {
 			rs = varr_enew(v);
-			rs->keyword = str_dup(keyword);
+			rs->type = str_dup(type);
 		} else {
-			char_printf(ch, "%s: %s: no rules for keyword '%s' defined.\n",
-				    OLCED(ch)->name, cmd->name, keyword);
+			char_printf(ch, "%s: %s: no rules for type '%s' defined.\n",
+				    OLCED(ch)->name, cmd->name, type);
 			return FALSE;
 		}
 	}
@@ -931,12 +931,14 @@ olced_cc_rules(CHAR_DATA *ch, const char *argument,
 		num = atoi(arg);
 		p = varr_get(v2, num);
 		if (p == NULL) {
-			char_printf(ch, "%s: %s: no arg with number '%s' for keyword '%s'.\n",
-				    OLCED(ch)->name, cmd->name, arg, keyword);
+			char_printf(ch, "%s: %s: no arg with number '%s' for type '%s'.\n",
+				    OLCED(ch)->name, cmd->name, arg, type);
 			return FALSE;
 		}
 
 		varr_edelete(v2, p);
+		if (cc_ruleset_isempty(rs))
+			varr_edelete(v, rs);
 		char_printf(ch, "%s: %s: arg deleted.\n",
 			    OLCED(ch)->name, cmd->name);
 	}

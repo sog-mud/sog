@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.200 1999-11-23 16:04:56 fjoe Exp $
+ * $Id: handler.c,v 1.201 1999-11-24 07:22:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -548,12 +548,6 @@ OBJ_DATA * equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 			   ch->name,
 			   flag_string(wear_loc_flags, iWear));
 		}
-		return NULL;
-	}
-
-	if (cc_rules_check("obj", &obj->pObjIndex->restrictions, ch)) {
-		act("You cannot wear, wield or hold $p.",
-		    ch, obj, NULL, TO_CHAR);
 		return NULL;
 	}
 
@@ -3815,8 +3809,14 @@ bool remove_obj(CHAR_DATA * ch, int iWear, bool fReplace)
  * Optional replacement of existing objects.
  * Big repetitive code, ick.
  */
-void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
+void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 {
+	if (cc_rules_check("obj_wear", &obj->pObjIndex->restrictions, ch)) {
+		act("You can't wear, wield or hold $p.",
+		    ch, obj, NULL, TO_CHAR);
+		return;
+	}
+
 	if (obj->pObjIndex->item_type == ITEM_LIGHT) {
 		if (!remove_obj(ch, WEAR_LIGHT, fReplace))
 			return;
@@ -3826,6 +3826,7 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		equip_char(ch, obj, WEAR_LIGHT);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WEAR_FINGER)) {
 		if (get_eq_char(ch, WEAR_FINGER_L) != NULL
 		&&  get_eq_char(ch, WEAR_FINGER_R) != NULL
@@ -3841,6 +3842,7 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 			equip_char(ch, obj, WEAR_FINGER_L);
 			return;
 		}
+
 		if (get_eq_char(ch, WEAR_FINGER_R) == NULL) {
 			act("$n wears $p on $s right finger.",
 			    ch, obj, NULL, TO_ROOM);
@@ -3849,15 +3851,17 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 			equip_char(ch, obj, WEAR_FINGER_R);
 			return;
 		}
+
 		bug("Wear_obj: no free finger.", 0);
 		char_puts("You already wear two rings.\n", ch);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WEAR_NECK)) {
 		if (get_eq_char(ch, WEAR_NECK_1) != NULL
-		    && get_eq_char(ch, WEAR_NECK_2) != NULL
-		    && !remove_obj(ch, WEAR_NECK_1, fReplace)
-		    && !remove_obj(ch, WEAR_NECK_2, fReplace))
+		&&  get_eq_char(ch, WEAR_NECK_2) != NULL
+		&&  !remove_obj(ch, WEAR_NECK_1, fReplace)
+		&&  !remove_obj(ch, WEAR_NECK_2, fReplace))
 			return;
 
 		if (get_eq_char(ch, WEAR_NECK_1) == NULL) {
@@ -3868,6 +3872,7 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 			equip_char(ch, obj, WEAR_NECK_1);
 			return;
 		}
+
 		if (get_eq_char(ch, WEAR_NECK_2) == NULL) {
 			act("$n wears $p around $s neck.",
 			    ch, obj, NULL, TO_ROOM);
@@ -3876,87 +3881,105 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 			equip_char(ch, obj, WEAR_NECK_2);
 			return;
 		}
+
 		bug("Wear_obj: no free neck.", 0);
 		char_puts("You already wear two neck items.\n", ch);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WEAR_BODY)) {
 		if (!remove_obj(ch, WEAR_BODY, fReplace))
 			return;
+
 		act("$n wears $p on $s torso.", ch, obj, NULL, TO_ROOM);
 		act_puts("You wear $p on your torso.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		equip_char(ch, obj, WEAR_BODY);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WEAR_HEAD)) {
 		if (!remove_obj(ch, WEAR_HEAD, fReplace))
 			return;
+
 		act("$n wears $p on $s head.", ch, obj, NULL, TO_ROOM);
 		act_puts("You wear $p on your head.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		equip_char(ch, obj, WEAR_HEAD);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WEAR_LEGS)) {
 		if (!remove_obj(ch, WEAR_LEGS, fReplace))
 			return;
+
 		act("$n wears $p on $s legs.", ch, obj, NULL, TO_ROOM);
 		act_puts("You wear $p on your legs.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		equip_char(ch, obj, WEAR_LEGS);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WEAR_FEET)) {
 		if (!remove_obj(ch, WEAR_FEET, fReplace))
 			return;
+
 		act("$n wears $p on $s feet.", ch, obj, NULL, TO_ROOM);
 		act_puts("You wear $p on your feet.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		equip_char(ch, obj, WEAR_FEET);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WEAR_HANDS)) {
 		if (!remove_obj(ch, WEAR_HANDS, fReplace))
 			return;
+
 		act("$n wears $p on $s hands.", ch, obj, NULL, TO_ROOM);
 		act_puts("You wear $p on your hands.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		equip_char(ch, obj, WEAR_HANDS);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WEAR_ARMS)) {
 		if (!remove_obj(ch, WEAR_ARMS, fReplace))
 			return;
+
 		act("$n wears $p on $s arms.", ch, obj, NULL, TO_ROOM);
 		act_puts("You wear $p on your arms.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		equip_char(ch, obj, WEAR_ARMS);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WEAR_ABOUT)) {
 		if (!remove_obj(ch, WEAR_ABOUT, fReplace))
 			return;
+
 		act("$n wears $p on $s torso.", ch, obj, NULL, TO_ROOM);
 		act_puts("You wear $p on your torso.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		equip_char(ch, obj, WEAR_ABOUT);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WEAR_WAIST)) {
 		if (!remove_obj(ch, WEAR_WAIST, fReplace))
 			return;
+
 		act("$n wears $p about $s waist.", ch, obj, NULL, TO_ROOM);
 		act_puts("You wear $p about your waist.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		equip_char(ch, obj, WEAR_WAIST);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WEAR_WRIST)) {
 		if (get_eq_char(ch, WEAR_WRIST_L) != NULL
-		    && get_eq_char(ch, WEAR_WRIST_R) != NULL
-		    && !remove_obj(ch, WEAR_WRIST_L, fReplace)
-		    && !remove_obj(ch, WEAR_WRIST_R, fReplace))
+		&&  get_eq_char(ch, WEAR_WRIST_R) != NULL
+		&&  !remove_obj(ch, WEAR_WRIST_L, fReplace)
+		&&  !remove_obj(ch, WEAR_WRIST_R, fReplace))
 			return;
 
 		if (get_eq_char(ch, WEAR_WRIST_L) == NULL) {
@@ -3967,6 +3990,7 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 			equip_char(ch, obj, WEAR_WRIST_L);
 			return;
 		}
+
 		if (get_eq_char(ch, WEAR_WRIST_R) == NULL) {
 			act("$n wears $p around $s right wrist.",
 			    ch, obj, NULL, TO_ROOM);
@@ -3975,12 +3999,13 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 			equip_char(ch, obj, WEAR_WRIST_R);
 			return;
 		}
+
 		bug("Wear_obj: no free wrist.", 0);
 		char_puts("You already wear two wrist items.\n", ch);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WEAR_SHIELD)) {
-		
 		if (!remove_obj(ch, WEAR_SHIELD, fReplace))
 			return;
 
@@ -3995,9 +4020,11 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		equip_char(ch, obj, WEAR_SHIELD);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WIELD)) {
 		int             skill;
 		OBJ_DATA       *dual;
+
 		if ((dual = get_eq_char(ch, WEAR_SECOND_WIELD)) != NULL)
 			unequip_char(ch, dual);
 
@@ -4017,16 +4044,17 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 				equip_char(ch, dual, WEAR_SECOND_WIELD);
 			return;
 		}
+
 		if ((WEAPON_IS(obj, WEAPON_STAFF) ||
-		    (IS_WEAPON_STAT(obj, WEAPON_TWO_HANDS) &&
-		     !IS_NPC(ch) && ch->size < SIZE_LARGE))
-		    && free_hands(ch) < 2) {
-				char_puts("You need two hands free for that"
-					" weapon.\n", ch);
+		    (IS_WEAPON_STAT(obj, WEAPON_TWO_HANDS)
+		&&  !IS_NPC(ch) && ch->size < SIZE_LARGE))
+		&&  free_hands(ch) < 2) {
+			char_puts("You need two hands free for that weapon.\n", ch);
 			if (dual)
 				equip_char(ch, dual, WEAR_SECOND_WIELD);
 			return;
 		}
+
 		act("$n wields $p.", ch, obj, NULL, TO_ROOM);
 		act_puts("You wield $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 		obj = equip_char(ch, obj, WEAR_WIELD);
@@ -4061,6 +4089,7 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_HOLD)) {
 		if (!remove_obj(ch, WEAR_HOLD, fReplace))
 			return;
@@ -4076,9 +4105,11 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		equip_char(ch, obj, WEAR_HOLD);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WEAR_FLOAT)) {
 		if (!remove_obj(ch, WEAR_FLOAT, fReplace))
 			return;
+
 		act("$n releases $p to float next to $m.",
 		    ch, obj, NULL, TO_ROOM);
 		act_puts("You release $p and it floats next to you.",
@@ -4086,9 +4117,11 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		equip_char(ch, obj, WEAR_FLOAT);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WEAR_TATTOO) && IS_IMMORTAL(ch)) {
 		if (!remove_obj(ch, WEAR_TATTOO, fReplace))
 			return;
+
 		act("$n now uses $p as tattoo of $s religion.",
 		    ch, obj, NULL, TO_ROOM);
 		act_puts("You now use $p as the tattoo of your religion.",
@@ -4096,9 +4129,11 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		equip_char(ch, obj, WEAR_TATTOO);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WEAR_CLANMARK)) {
 		if (!remove_obj(ch, WEAR_CLANMARK, fReplace))
 			return;
+
 		act("$n now uses $p as $s clan mark.",
 		    ch, obj, NULL, TO_ROOM);
 		act_puts("You now use $p as  your clan mark.",
@@ -4106,8 +4141,11 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		equip_char(ch, obj, WEAR_CLANMARK);
 		return;
 	}
-	if (fReplace)
-		char_puts("You can't wear, wield, or hold that.\n", ch);
+
+	if (fReplace) {
+		act("You can't wear, wield or hold $p.",
+		    ch, obj, NULL, TO_CHAR);
+	}
 }
 
 void wiznet(const char *msg, CHAR_DATA *ch, const void *arg,

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_rule.h,v 1.4 1999-11-23 16:04:55 fjoe Exp $
+ * $Id: cc_rule.h,v 1.5 1999-11-24 07:22:22 fjoe Exp $
  */
 
 #ifndef _CC_RULE_H_
@@ -54,12 +54,12 @@ typedef bool (*cc_fun_t)(const char *arg, va_list ap);
  * condition checking function
  */
 typedef struct cc_rulefun_t {
-	const char *keyword;			/* rule_fun keyword	*/
+	const char *type;			/* rule_fun type	*/
 	const char *fun_name;			/* rule_fun name	*/
 	cc_fun_t fun;				/* rule_fun 		*/
 } cc_rulefun_t;
 
-cc_rulefun_t *cc_rulefun_lookup(cc_rulecl_t *rcl, const char *keyword);
+cc_rulefun_t *cc_rulefun_lookup(cc_rulecl_t *rcl, const char *type);
 
 /*
  * order types
@@ -78,7 +78,7 @@ enum {
  * a set of cc_rule's with checking order
  */
 typedef struct cc_ruleset_t {
-	const char *keyword;	/* keyword		*/
+	const char *type;	/* type			*/
 	flag32_t order;		/* order		*/
 	varr allow;		/* allow arg's		*/
 	varr deny;		/* deny arg's		*/
@@ -87,10 +87,10 @@ typedef struct cc_ruleset_t {
 void	cc_ruleset_init		(cc_ruleset_t *);
 void	cc_ruleset_destroy	(cc_ruleset_t *);
 
-#define cc_ruleset_lookup(v, keyword) \
-	((cc_ruleset_t *) varr_foreach((v), strkey_search_cb, (keyword)))
+#define cc_ruleset_lookup(v, type) \
+	((cc_ruleset_t *) varr_foreach((v), strkey_search_cb, (type)))
 
-void	fread_cc_ruleset	(rfile_t *fp, const char *rcn, varr *v);
+void	fread_cc_rules		(rfile_t *fp, const char *rcn, varr *v);
 void *	fwrite_cc_ruleset_cb	(void *p, va_list ap);
 void *	print_cc_ruleset_cb	(void *p, va_list ap);
 

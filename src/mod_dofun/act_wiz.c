@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.200 1999-11-23 16:04:53 fjoe Exp $
+ * $Id: act_wiz.c,v 1.201 1999-11-24 07:22:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1188,7 +1188,7 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 	buf_printf(output, "Damage condition: %d (%s)\n",
 		   obj->condition, get_cond_alias(obj));
 	varr_foreach(&obj->pObjIndex->restrictions, print_cc_ruleset_cb,
-		     output, "obj", "Restrictions:\n");
+		     output, "obj_wear", "Restrictions:\n");
 	send_to_char(buf_string(output), ch);
 	buf_free(output);
 }
@@ -3630,6 +3630,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			PC(victim)->race = str_qdup(r->name);
 		}
 			
+		race_setstats(victim, victim->race);
 		spec_update(victim);
 		PC(victim)->exp = exp_for_level(victim, victim->level);
 		return;
