@@ -184,6 +184,17 @@ Form 6 -у~
 End
 
 #RULE
+Name хламида~
+BaseLen 6
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name дьявольский~
 BaseLen 9
 Form 1 -ого~
@@ -2994,6 +3005,7 @@ End
 
 #RULE
 Name часы~
+BaseLen 3
 Form 1 -ов~
 Form 2 -ам~
 Form 3 -ы~
@@ -4130,6 +4142,17 @@ Form 6 -у~
 End
 
 #RULE
+Name наперсточник~
+BaseLen 12
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
+End
+
+#RULE
 Name бублик~
 BaseLen 6
 Form 1 -а~
@@ -4967,6 +4990,17 @@ Form 3 -а~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -а~
+End
+
+#RULE
+Name майка~
+BaseLen 4
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
 End
 
 #RULE
@@ -7999,6 +8033,17 @@ Form 3 -у~
 Form 4 -ой~
 Form 5 -е~
 Form 6 -у~
+End
+
+#RULE
+Name цепной~
+BaseLen 4
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ой~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
 End
 
 #RULE
