@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.91 1999-10-07 12:37:22 kostik Exp $
+ * $Id: tables.c,v 1.92 1999-10-12 13:56:25 avn Exp $
  */
 
 /***************************************************************************
@@ -1326,13 +1326,17 @@ flag_t desc_con_table[] =
 	{ NULL }
 };
 
-flag_t rspell_events[] =
+flag_t events_table[] =
 {
 	{ "",			TABLE_BITVAL				},
 
-	{ "enter",		REVENT_ENTER,			TRUE	},
-	{ "leave",		REVENT_LEAVE,			TRUE	},
-	{ "update",		REVENT_UPDATE,			TRUE	},
+	{ "enter_room",		EVENT_ROOM_ENTER,		TRUE	},
+	{ "leave_room",		EVENT_ROOM_LEAVE,		TRUE	},
+	{ "update_room",	EVENT_ROOM_UPDATE,		TRUE	},
+	{ "timeout_room",	EVENT_ROOM_TIMEOUT,		TRUE	},
+	{ "update_char",	EVENT_CHAR_UPDATE,		TRUE	},
+	{ "update_fast_char",	EVENT_CHAR_UPDFAST,		TRUE	},
+	{ "timeout_char",	EVENT_CHAR_TIMEOUT,		TRUE	},
 	{ NULL }
 };
 

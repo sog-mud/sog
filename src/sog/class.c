@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.17 1999-10-06 09:56:04 fjoe Exp $
+ * $Id: class.c,v 1.18 1999-10-12 13:56:20 avn Exp $
  */
 
 #include <stdio.h>
@@ -152,11 +152,6 @@ int get_max_train(CHAR_DATA *ch, int stat)
 
 /* ORG_RACE && RACE serdar*/
 	return UMIN(25, 20 + r->race_pcdata->stats[stat] + cl->stats[stat]);
-}
-
-bool clan_ok(CHAR_DATA *ch, int sn) 
-{
-	return TRUE;
 }
 
 const char *title_lookup(CHAR_DATA *ch)

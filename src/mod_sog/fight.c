@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.205 1999-10-11 11:52:17 kostik Exp $
+ * $Id: fight.c,v 1.206 1999-10-12 13:56:21 avn Exp $
  */
 
 /***************************************************************************
@@ -453,10 +453,22 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 			check_improve (ch, "forest fighting", TRUE, 8);
 			if (ch->fighting != victim)
 				return;
+			chance /= 3;
+		}
+	}
+
+	if (get_eq_char(ch, WEAR_SECOND_WIELD) != NULL) {
+		chance = get_skill(ch, "second weapon") / 2;
+		if (IS_AFFECTED(ch, AFF_HASTE)) 
+			chance = chance * 3 / 2;
+		if (number_percent() < chance) {
+			one_hit(ch, victim, dt, WEAR_SECOND_WIELD);
+			check_improve(ch, "second weapon", TRUE, 2);
+			if (ch->fighting != victim)
+				return;
 			secondary_hit(ch, victim, dt);
 			if (ch->fighting != victim)
 				return;
-			chance /= 3;
 		}
 	}
 
@@ -529,23 +541,6 @@ void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 
 	if (ch->wait > 0)
 		return;
-
-#if 0
-	switch (number_range(0, 2)) {
-	case 1:
-		if (IS_SET(act, ACT_MAGE)) {
-			mob_cast_mage(ch, victim);
-			return;
-		}
-		break;
-	case 2:
-		if (IS_SET(act, ACT_CLERIC)) {
-			mob_cast_cleric(ch, victim);
-			return;
-		}
-		break;
-	}
-#endif
 
 	/* now for the skills */
 
@@ -1043,6 +1038,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 				af.location  = APPLY_STR;
 				af.modifier  = -1;
 				af.bitvector = AFF_POISON;
+				af.events    = EVENT_CHAR_UPDATE;
 				affect_join(victim, &af);
 			}
 
@@ -1601,6 +1597,26 @@ bool is_safe_spell(CHAR_DATA *ch, CHAR_DATA *victim, bool area)
 	}
 
 	return is_safe(ch, victim);
+}
+
+bool is_safe_rspell_nom(AFFECT_DATA *af, CHAR_DATA *victim)
+{
+	if (af->owner) return is_safe_nomessage(victim, af->owner);
+	bug("is_safe_rspell_nom: no affect owner", 0);
+	affect_remove_room(victim->in_room, af);
+	return TRUE; /* protected from broken room affects */ 
+}
+
+
+bool is_safe_rspell(AFFECT_DATA *af, CHAR_DATA *victim)
+{
+  if (is_safe_rspell_nom(af,victim))
+	{
+	  act("The gods protect you from the spell of room.",
+	      victim, NULL, NULL, TO_CHAR);
+	  return TRUE;
+	}
+  else return FALSE;
 }
 
 /*

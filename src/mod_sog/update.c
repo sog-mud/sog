@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.158 1999-10-06 09:56:11 fjoe Exp $
+ * $Id: update.c,v 1.159 1999-10-12 13:56:25 avn Exp $
  */
 
 /***************************************************************************
@@ -51,8 +51,6 @@
 #include "chquest.h"
 #include "auction.h"
 #include "quest.h"
-
-void	hatchout_dragon		(CHAR_DATA *ch, AFFECT_DATA *paf);
 
 /*
  * Local functions.
@@ -674,6 +672,9 @@ void mobile_update(void)
 			bust_prompt = TRUE;
 		}
 
+		check_events(ch, ch->affected, EVENT_CHAR_UPDFAST);
+		if (IS_EXTRACTED(ch)) continue;
+
 		if (ch->desc
 		&&  bust_prompt
 		&&  !ch->desc->pString
@@ -1220,141 +1221,20 @@ void char_update(void)
 					act_puts(sk->msg_off, ch, NULL, NULL,
 						 TO_CHAR, POS_DEAD);
 
-				/*
-				 * this code will be replaced
-				 * with aff_remove callbacks
-				 */
-				if (SKILL_IS(paf->type, "bone dragon")) {
-					hatchout_dragon(ch, paf);
+				check_one_event(ch, paf, EVENT_CHAR_TIMEOUT);
 
-					if (IS_EXTRACTED(ch))
-						break;
-				}
+				if (IS_EXTRACTED(ch))
+					break;
 
 				affect_remove(ch, paf);
 			}
 		}
+		check_events(ch, ch->affected, EVENT_CHAR_UPDATE);
 
-		if (IS_EXTRACTED(ch))
-			continue;
+		if (IS_EXTRACTED(ch)) continue;
 
-		/*
-		 * Careful with the damages here,
-		 *   MUST NOT refer to ch after damage taken,
-		 *   as it may be lethal damage (on NPC).
-		 */
-
-		if (is_affected(ch, "witch curse")) {
-			AFFECT_DATA *af, witch;
-	
-			if (ch->in_room == NULL)
-				continue;
-
-			act("The witch curse makes $n feel $s life slipping away.",
-			    ch, NULL, NULL, TO_ROOM);
-			char_puts("The witch curse makes you feeling your life slipping away.\n", ch);
-	
-			for (af = ch->affected; af!= NULL; af = af->next)
-				if (SKILL_IS(af->type, "witch curse"))
-					break;
-
-			if (af == NULL)
-				continue;
-
-			if (af->level == 1)
-				continue;
-
-			witch.where = af->where;
-			witch.type  = af->type;
-			witch.level = af->level;
-			witch.duration = af->duration;
-			witch.location = af->location;
-			witch.modifier = af->modifier * 2;
-			witch.bitvector = 0;
-	
-			affect_remove(ch, af);
-			affect_to_char(ch ,&witch);
-			ch->hit = UMIN(ch->hit, ch->max_hit);
-			if (ch->hit < 1) {
-				if (IS_IMMORTAL(ch))
-					ch->hit = 1;
-				else {
-					ch->position = POS_DEAD;
-					handle_death(ch, ch);
-					continue;
-				}
-			}
-		}
-
-		if (IS_AFFECTED(ch, AFF_PLAGUE) && ch != NULL) {
-			AFFECT_DATA *af, plague;
-			CHAR_DATA *vch;
-			int dam;
-
-			if (ch->in_room == NULL)
-				continue;
-	        
-			act("$n writhes in agony as plague sores erupt from $s skin.",
-			    ch, NULL, NULL, TO_ROOM);
-			char_puts("You writhe in agony from the plague.\n", ch);
-			for (af = ch->affected; af != NULL; af = af->next)
-				if (SKILL_IS(af->type, "plague"))
-					break;
-	    
-			if (af == NULL) {
-				REMOVE_BIT(ch->affected_by, AFF_PLAGUE);
-				continue;
-			}
-	    
-			if (af->level == 1)
-				continue;
-	    
-			plague.where 	 = TO_AFFECTS;
-			plague.type 	 = "plague";
-			plague.level 	 = af->level - 1; 
-			plague.duration	 = number_range(1,2 * plague.level);
-			plague.location	 = APPLY_STR;
-			plague.modifier	 = -5;
-			plague.bitvector = AFF_PLAGUE;
-	    
-			for (vch = ch->in_room->people; vch != NULL; 
-			     vch = vch->next_in_room) {
-				if (!saves_spell(plague.level + 2, 
-						 vch, DAM_DISEASE) 
-				&& !IS_IMMORTAL(vch) 
-				&& !IS_AFFECTED(vch, AFF_PLAGUE) 
-				&& number_bits(2) == 0) {
-					char_puts("You feel hot and feverish.\n", vch);
-					act("$n shivers and looks very ill.",
-					    vch, NULL, NULL, TO_ROOM);
-					affect_join(vch, &plague);
-				}
-			}
-
-			dam = UMIN(ch->level, af->level/5 + 1);
-			ch->mana -= dam;
-			ch->move -= dam;
-			damage(ch, ch, dam, "plague", DAM_DISEASE,FALSE);
-			if (number_range(1, 100) < 70)
-				damage(ch, ch, UMAX(ch->max_hit/20, 50), 
-				       "plague", DAM_DISEASE, TRUE);
-		}
-		else if (IS_AFFECTED(ch, AFF_POISON) && ch != NULL
-		     &&  !IS_AFFECTED(ch, AFF_SLOW)) {
-			AFFECT_DATA *poison;
-
-			poison = affect_find(ch->affected, "poison");
-
-			if (poison != NULL) {
-				act("$n shivers and suffers.",
-				    ch, NULL, NULL, TO_ROOM); 
-				char_puts("You shiver and suffer.\n", ch);
-				damage(ch, ch, poison->level/10 + 1, "poison",
-				       DAM_POISON, TRUE);
-			}
-		}
-		else if (ch->position == POS_INCAP 
-		     &&  number_range(0, 1) == 0)
+		if (ch->position == POS_INCAP 
+		&&  number_range(0, 1) == 0)
 			damage(ch, ch, 1, TYPE_UNDEFINED, DAM_NONE, FALSE);
 		else if (ch->position == POS_MORTAL)
 			damage(ch, ch, 1, TYPE_UNDEFINED, DAM_NONE, FALSE);
@@ -1974,8 +1854,8 @@ void room_update(void)
 	ROOM_INDEX_DATA *room_next;
 
 	for (room = top_affected_room; room; room = room_next) {
-		ROOM_AFFECT_DATA *paf;
-		ROOM_AFFECT_DATA *paf_next;
+		AFFECT_DATA *paf;
+		AFFECT_DATA *paf_next;
 
 		room_next = room->aff_next;
 
@@ -1987,8 +1867,10 @@ void room_update(void)
 				if (number_range(0,4) == 0 && paf->level > 0)
 					paf->level--;
 			}
-			else if (paf->duration == 0)
+			else if (paf->duration == 0) {
+				check_one_event(NULL, paf, EVENT_ROOM_TIMEOUT);
 				affect_remove_room(room, paf);
+			}
 		}
 	}
 }
@@ -2005,7 +1887,8 @@ void room_affect_update(void)
 
 		for (vch = room->people; vch; vch = vch_next) {
 			vch_next = vch->next_in_room;
-			check_room_affects(vch, room, REVENT_UPDATE);
+			check_events(vch, room->affected,
+				EVENT_ROOM_UPDATE);
 		}
 	}
 }
@@ -2160,55 +2043,5 @@ void clan_item_update(void)
 		else 
 			bug("clan_item_update: no altar_ptr for clan %d", i);
 	}
-}
-
-void hatchout_dragon(CHAR_DATA *coc, AFFECT_DATA *paf)
-{
-	CHAR_DATA *ch, *drag;
-	int i, dlev;
-
-	if (!IS_NPC(coc)
-	||  coc->pMobIndex->vnum != MOB_VNUM_COCOON)
-		return;
-
-	if ((ch = coc->master) == NULL) {
-		bug("hatchout_dragon: no master set!");
-		extract_char(coc, 0);
-		return;
-	}
-
-	dlev = ch->level * 2 / 3 + paf->level / 14;
-
-	act("Cocoon explodes and nasty dracolich emerges!",
-	    coc, NULL, NULL, TO_ALL);
-
-	drag = create_mob(get_mob_index(MOB_VNUM_BONE_DRAGON));
-	for (i=0; i < MAX_STATS; i++)
-		drag->perm_stat[i] = UMIN(25, 15 + dlev / 10);
-	drag->perm_stat[STAT_STR] += 3;
-	drag->perm_stat[STAT_DEX] += 1;
-	drag->perm_stat[STAT_CON] += 1;
-	drag->max_hit = UMIN(30000, number_range(100*dlev, 200*dlev));
-	drag->hit = drag->max_hit;
-	drag->max_mana = dice(dlev, 30);
-	drag->mana = drag->max_mana;
-	drag->level = dlev;
-	for (i = 0; i < 3; i++)
-		drag->armor[i] = interpolate(dlev, 100, -120);
-	drag->armor[3] = interpolate(dlev, 100, -40);
-	drag->gold = 0;
-	NPC(drag)->dam.dice_number = number_fuzzy(13);
-	NPC(drag)->dam.dice_type = number_fuzzy(9);
-	drag->damroll = dlev/2 + dice(3, 11);
-
-        if (GET_PET(ch) == NULL) {
-	        add_follower(drag, ch);
-	        drag->leader = ch;
-	        PC(ch)->pet = drag;
-	} else {
-        drag->master = drag->leader = ch;	
-	}
-	char_to_room(drag, coc->in_room);
-	extract_char(coc, 0);
 }
 

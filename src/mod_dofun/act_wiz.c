@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.187 1999-10-06 09:55:52 fjoe Exp $
+ * $Id: act_wiz.c,v 1.188 1999-10-12 13:56:14 avn Exp $
  */
 
 /***************************************************************************
@@ -3970,7 +3970,7 @@ void do_affrooms(CHAR_DATA *ch, const char *argument)
 {
 	ROOM_INDEX_DATA *room;
 	ROOM_INDEX_DATA *room_next;
-	ROOM_AFFECT_DATA *raf;
+	AFFECT_DATA *af;
 	int count = 0;
 
 	if (!top_affected_room) 
@@ -3978,7 +3978,7 @@ void do_affrooms(CHAR_DATA *ch, const char *argument)
 
 	for (room = top_affected_room; room ; room = room_next) {
 		room_next = room->aff_next;
-		for (raf = room->affected; raf; raf = raf->next) {
+		for (af = room->affected; af; af = af->next) {
 			count++;
 			char_printf(ch,
 				    "%d) [Vnum: %5d] "
@@ -3986,10 +3986,10 @@ void do_affrooms(CHAR_DATA *ch, const char *argument)
 				    "for {c%d{x hours.\n",
 				    count,
 				    room->vnum,
-				    raf->type,
-				    mlstr_mval(&raf->owner->short_descr),
-				    raf->level,
-				    raf->duration);
+				    af->type,
+				    mlstr_mval(&af->owner->short_descr),
+				    af->level,
+				    af->duration);
 		}
 	}
 }
@@ -4296,8 +4296,6 @@ void do_memory(CHAR_DATA *ch, const char *argument)
 
 	char_printf(ch, "Affects  : %d (%d bytes)\n",
 		    top_affect, top_affect * sizeof(AFFECT_DATA));
-	char_printf(ch, "RAffects : %d (%d bytes)\n",
-		    top_raffect, top_raffect * sizeof(ROOM_AFFECT_DATA));
 	char_printf(ch, "Areas    : %d (%d bytes)\n",
 		    top_area, top_area * sizeof(AREA_DATA));
 	char_printf(ch, "ExDes    : %d (%d bytes)\n",

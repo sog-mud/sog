@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.50 1999-10-06 09:56:01 fjoe Exp $
+ * $Id: olc_area.c,v 1.51 1999-10-12 13:56:18 avn Exp $
  */
 
 #include "olc.h"
@@ -1085,7 +1085,12 @@ static void save_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex)
  			else
  				REMOVE_BIT(pExit->rs_flags, EX_ISDOOR);
  
-			fprintf(fp, "D%d\n",      pExit->orig_door);
+			if (pExit->size == SIZE_GARGANTUAN)
+				fprintf(fp, "D%d\n",      pExit->orig_door);
+			else
+				fprintf(fp, "D%d %s\n", 
+					pExit->orig_door,
+					flag_string(size_table, pExit->size));
 			mlstr_fwrite(fp, NULL,	  &pExit->description);
 			fprintf(fp, "%s~\n",      pExit->keyword);
 			fprintf(fp, "%s %d %d\n",

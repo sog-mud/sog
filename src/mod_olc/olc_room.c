@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.58 1999-10-07 18:04:38 fjoe Exp $
+ * $Id: olc_room.c,v 1.59 1999-10-12 13:56:19 avn Exp $
  */
 
 #include "olc.h"
@@ -77,12 +77,12 @@ olc_cmd_t olc_cmds_room[] =
 	{ "clan",	roomed_clan			},
 	{ "clone",	roomed_clone			},
 
-	{ "north",	roomed_north			},
-	{ "south",	roomed_south			},
-	{ "east",	roomed_east			},
-	{ "west",	roomed_west			},
-	{ "up",		roomed_up			},
-	{ "down",	roomed_down			},
+	{ "north",	roomed_north,	size_table	},
+	{ "south",	roomed_south,	size_table	},
+	{ "east",	roomed_east,	size_table	},
+	{ "west",	roomed_west,	size_table	},
+	{ "up",		roomed_up,	size_table	},
+	{ "down",	roomed_down,	size_table	},
 
 /* New reset commands. */
 	{ "mreset",	roomed_mreset			},
@@ -217,10 +217,6 @@ OLC_FUN(roomed_show)
 	buf_printf(output, "Room flags: [%s]\n",
 		   flag_string(room_flags, pRoom->room_flags));
 
-	if (pRoom->affected_by)
-		buf_printf(output, "Affected  : [%s]\n",
-			   flag_string(raffect_flags, pRoom->affected_by));
-
 	if (pRoom->heal_rate != 100 || pRoom->mana_rate != 100)
 		buf_printf(output, "Health rec: [%d]\nMana rec  : [%d]\n",
 			   pRoom->heal_rate, pRoom->mana_rate);
@@ -289,6 +285,9 @@ OLC_FUN(roomed_show)
 			strnzcpy(reset_state, sizeof(reset_state),
 				 flag_string(exit_flags, pexit->rs_flags));
 			state = flag_string(exit_flags, pexit->exit_info);
+			if (pexit->size != SIZE_GARGANTUAN)
+				buf_printf(output, "Exit size: [%s]\n",
+					flag_string(size_table, pexit->size));
 			buf_add(output, " Exit flags: [");
 			for (; ;) {
 				state = one_argument(state, word, sizeof(word));
@@ -1057,6 +1056,26 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 			return FALSE;
 		}
 		return TRUE;
+	}
+
+	if (!str_prefix(command, "size")) {
+		if (!pRoom->exit[door]) {
+			char_puts("RoomEd: Exit does not exist.\n",ch);
+			return FALSE;
+		}
+
+		if (arg[0] == '?') {
+			BUFFER *output;
+
+			output = buf_new(-1);
+			buf_printf(output, "Valid size values are:\n");
+			show_flags_buf(output, size_table);
+			page_to_char(buf_string(output), ch);
+			buf_free(output);
+			return FALSE;
+		}
+
+		return olced_flag32(ch, arg, cmd, &pRoom->exit[door]->size);
 	}
 
 	return FALSE;

@@ -1,5 +1,5 @@
 /*
- * $Id: affects.h,v 1.1 1999-10-06 09:55:57 fjoe Exp $
+ * $Id: affects.h,v 1.2 1999-10-12 13:56:16 avn Exp $
  */
 
 /***************************************************************************
@@ -57,6 +57,8 @@ struct affect_data
 	vo_t		location;
 	int		modifier;
 	flag64_t 	bitvector;
+	CHAR_DATA *	owner;
+	flag32_t	events;
 };
 
 /* where definitions */
@@ -88,9 +90,16 @@ void	affect_remove	(CHAR_DATA *ch, AFFECT_DATA *paf);
 void	affect_remove_obj (OBJ_DATA *obj, AFFECT_DATA *paf);
 void	affect_strip	(CHAR_DATA *ch, const char *sn);
 void	affect_bit_strip(CHAR_DATA *ch, int where, flag64_t bits);
+void	affect_join(CHAR_DATA *ch, AFFECT_DATA *paf);
 #define is_affected(ch, sn) affect_find((ch)->affected, (sn))
 AFFECT_DATA *is_bit_affected	(CHAR_DATA *ch, int where, flag64_t bits);
 int	has_obj_affect	(CHAR_DATA *ch, int vector);
+
+/* room affects */
+void	affect_to_room		(ROOM_INDEX_DATA *room, AFFECT_DATA *paf);
+void	affect_remove_room	(ROOM_INDEX_DATA *room, AFFECT_DATA *paf);
+void	affect_strip_room	(ROOM_INDEX_DATA *ch, const char *sn);
+bool	is_affected_room	(ROOM_INDEX_DATA *ch, const char *sn);
 
 /* format_obj_affects flags */
 #define FOA_F_NODURATION	(A)	/* do not show duration		*/

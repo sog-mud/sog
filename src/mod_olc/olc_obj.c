@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.56 1999-10-06 09:56:02 fjoe Exp $
+ * $Id: olc_obj.c,v 1.57 1999-10-12 13:56:19 avn Exp $
  */
 
 #include <sys/types.h>
@@ -975,7 +975,7 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj)
 			INT_VAL(pObj->value[0]),
 			INT_VAL(pObj->value[1]),
 			INT_VAL(pObj->value[2]),
-			STR_VAL(pObj->value[3]));
+			STR_VAL1(pObj->value[3]));
 		break;
 
 	case ITEM_PORTAL:
@@ -1016,10 +1016,10 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj)
 			"[v3] Spell:  %s\n"
 			"[v4] Spell:  %s\n",
 			INT_VAL(pObj->value[0]),
-			STR_VAL(pObj->value[1]),
-			STR_VAL(pObj->value[2]),
-			STR_VAL(pObj->value[3]),
-			STR_VAL(pObj->value[4]));
+			STR_VAL1(pObj->value[1]),
+			STR_VAL1(pObj->value[2]),
+			STR_VAL1(pObj->value[3]),
+			STR_VAL1(pObj->value[4]));
 		break;
 
 /* ARMOR for ROM */
@@ -1155,8 +1155,12 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 			INT_VAL(pObj->value[2]) = atoi(argument);
 			break;
 		case 3:
-			if (!str_cmp(argument, "?")
-			||  (sk = skill_lookup(argument)) == 0) {
+			if (!str_cmp(argument, "none")) {
+				STR_VAL_ASSIGN(pObj->value[3], str_dup(str_empty));
+				break;
+			}
+			if (!str_cmp(argument, "?") 
+			|| (sk = skill_lookup(argument)) == 0) {
 				show_skills(output, ST_SPELL);
 				return 2;
 			}
@@ -1178,6 +1182,11 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 		case 2:
 		case 3:
 		case 4:
+			if (!str_cmp(argument, "none")) {
+				STR_VAL_ASSIGN(pObj->value[value_num],
+					str_dup(str_empty));
+				break;
+			}
 			if (!str_cmp(argument, "?")
 			||  (sk = skill_lookup(argument)) == 0) {
 				show_skills(output, ST_SPELL);

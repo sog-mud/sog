@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.170 1999-10-06 09:56:14 fjoe Exp $
+ * $Id: db.c,v 1.171 1999-10-12 13:56:26 avn Exp $
  */
 
 /***************************************************************************
@@ -129,7 +129,6 @@ const char TMP_FILE		[] = "romtmp";
 
 const char HOMETOWNS_CONF	[] = "hometowns.conf";	/* hometowns */
 const char SKILLS_CONF		[] = "skills.conf";	/* skills */
-const char RSPELLS_CONF		[] = "rspells.conf";	/* room affects */
 const char SOCIALS_CONF		[] = "socials.conf";	/* socials */
 const char SYSTEM_CONF		[] = "system.conf";	/* system conf */
 const char LANG_CONF		[] = "lang.conf";	/* lang definitions */
@@ -185,7 +184,6 @@ AREA_DATA *		area_first;
 AREA_DATA *		area_last;
 
 int			top_affect;
-int			top_raffect;
 int			top_area;
 int			top_ed;
 int			top_exit;
@@ -443,7 +441,6 @@ void boot_db(void)
 
 	db_load_file(&db_skills, ETC_PATH, SKILLS_CONF);
 	db_load_dir(&db_spec, SPEC_PATH, SPEC_MASK);
-	db_load_file(&db_rspells, ETC_PATH, RSPELLS_CONF);
 	db_load_file(&db_damtype, ETC_PATH, DAMTYPE_CONF);
 
 	db_load_list(&db_races, RACES_PATH, RACE_LIST);
@@ -1612,7 +1609,7 @@ int fread_number(FILE *fp)
 
 	if (c == '|')
 		number += fread_number(fp);
-	else if (c != ' ')
+	else
 		xungetc(c, fp);
 
 	return number;

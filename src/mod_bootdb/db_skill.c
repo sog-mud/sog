@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_skill.c,v 1.12 1999-10-06 09:56:15 fjoe Exp $
+ * $Id: db_skill.c,v 1.13 1999-10-12 13:56:27 avn Exp $
  */
 
 #include <stdio.h>
@@ -81,6 +81,27 @@ DBLOAD_FUN(load_skill)
 				}
 				skill_destroy(&sk);
 				return;
+			}
+			if (!str_cmp(word, "Event")) {
+				flag32_t event = fread_fword(events_table, fp);
+				const char *fun_name = str_dup(fread_word(fp));
+				event_fun_t *evf;
+
+				if (!event) {
+					db_error("load_event", "unknown event");
+				}
+				for (evf = sk.eventlist; evf; evf = evf->next)
+					if (!str_cmp(evf->fun_name, fun_name)) {
+						db_error("load_event",
+							 "duplicate fun name");
+						return;
+					}
+				evf = calloc(1, sizeof(event_fun_t));
+				evf->event = event;
+				evf->fun_name = fun_name;
+				evf->next = sk.eventlist;
+				sk.eventlist = evf;
+				fMatch = TRUE;
 			}
 			break;
 		case 'F':

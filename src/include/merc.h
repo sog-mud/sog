@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.236 1999-10-11 11:52:16 kostik Exp $
+ * $Id: merc.h,v 1.237 1999-10-12 13:56:16 avn Exp $
  */
 
 /***************************************************************************
@@ -91,7 +91,6 @@
 
 #include "race.h"
 #include "affect.h"
-#include "raffect.h"
 #include "class.h"
 #include "clan.h"
 #include "spec.h"
@@ -1573,6 +1572,7 @@ struct exit_data
 {
 	vo_t		to_room;
 	flag32_t	exit_info;
+	flag32_t	size;
 	int		key;
 	const char *	keyword;
 	mlstring	description;
@@ -1668,9 +1668,8 @@ struct room_index_data
 	int			heal_rate;
 	int			mana_rate;
 	ROOM_HISTORY_DATA * 	history;
-	ROOM_AFFECT_DATA *	affected;
+	AFFECT_DATA *		affected;
 	flag32_t		affected_by;
-	flag32_t		revents;
 };
 
 /*
@@ -1813,13 +1812,6 @@ void SET_ORG_RACE(CHAR_DATA *ch, int race);
 #define IS_BUILDER(ch, Area)	(!IS_NPC(ch) && !IS_SWITCHED(ch) &&	      \
 				 (PC(ch)->security >= (Area)->security || \
 				  is_name(ch->name, Area->builders)))
-
-/*
- * room macros
- */
-
-#define IS_ROOM_AFFECTED(room, sn)	(IS_SET((room)->affected_by, (sn)))
-#define IS_RAFFECTED(room, sn)	(IS_SET((room)->affected_by, (sn)))
 
 #define MOUNTED(ch)	((!IS_NPC(ch) && ch->mount && ch->riding) ? \
 				ch->mount : NULL)
@@ -1992,8 +1984,6 @@ bool	can_see_obj	(CHAR_DATA *ch, OBJ_DATA *obj);
 bool	can_see_room	(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex);
 bool	can_drop_obj	(CHAR_DATA *ch, OBJ_DATA *obj);
 void	room_record	(const char *name, ROOM_INDEX_DATA *room,int door);
-bool	is_safe_rspell	(ROOM_AFFECT_DATA *raf, CHAR_DATA *victim);
-REVENT_FUN*	get_event_fun	(int sn, int event);
 int	count_charmed	(CHAR_DATA *ch);
 
 /*
@@ -2083,8 +2073,6 @@ EXIT_DATA	*new_exit		(void);
 void		free_exit		(EXIT_DATA *pExit);
 ROOM_INDEX_DATA *new_room_index		(void);
 void		free_room_index		(ROOM_INDEX_DATA *pRoom);
-AFFECT_DATA	*aff_new		(void);
-void		aff_free		(AFFECT_DATA* pAf);
 SHOP_DATA	*new_shop		(void);
 void		free_shop		(SHOP_DATA *pShop);
 OBJ_INDEX_DATA	*new_obj_index		(void);
@@ -2117,6 +2105,10 @@ void	ed_free		(ED_DATA *ed);
 AFFECT_DATA *	aff_new	(void);
 AFFECT_DATA *	aff_dup	(const AFFECT_DATA *af);
 void		aff_free(AFFECT_DATA *af);
+
+/* event function lists */
+event_fun_t *	evf_new();
+void		evf_free(event_fun_t *evf);
 
 /* object recycling */
 OBJ_DATA *	new_obj	(void);

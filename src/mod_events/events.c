@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rspellfn.c,v 1.3 1999-10-06 09:56:03 fjoe Exp $
+ * $Id: events.c,v 1.1 1999-10-12 13:56:16 avn Exp $
  */
 
 #include <stdio.h>
@@ -34,8 +34,7 @@
 #include "varr.h"
 #include "hash.h"
 #include "log.h"
-#include "raffect.h"
-
+#include "skills.h"
 #include "module.h"
 
 static void *load_cb(void *p, void *d);
@@ -43,50 +42,41 @@ static void *unload_cb(void *p, void *d);
 
 int _module_load(module_t* m)
 {
-	hash_foreach(&rspells, load_cb, m);
+	hash_foreach(&skills, load_cb, m);
 	return 0;
 }
 
 int _module_unload(module_t *m)
 {
-	hash_foreach(&rspells, unload_cb, NULL);
+	hash_foreach(&skills, unload_cb, NULL);
 	return 0;
 }
 
 static void *
 load_cb(void *p, void *d)
 {
-	rspell_t *rsp = (rspell_t*) p;
+	skill_t *sk = (skill_t*) p;
 	module_t *m = (module_t *) d;
+	event_fun_t *evf;
 
-	if (IS_SET(rsp->revents, REVENT_ENTER)) {
-		rsp->enter_fun = dlsym(m->dlh, rsp->enter_fun_name);
-		if (rsp->enter_fun == NULL) 
-			wizlog("_module_load(rspells): %s", dlerror());
+        for (evf = sk->eventlist; evf; evf = evf->next) {
+		evf->fun = dlsym(m->dlh, evf->fun_name);
+		if (evf->fun == NULL)
+			wizlog("_module_load(events): %s", dlerror());
 	}
-
-	if (IS_SET(rsp->revents, REVENT_LEAVE)) {
-		rsp->leave_fun = dlsym(m->dlh, rsp->leave_fun_name);
-		if (rsp->leave_fun == NULL) 
-			wizlog("_module_load(rspells): %s", dlerror());
-	}
-
-	if (IS_SET(rsp->revents, REVENT_UPDATE)) {
-		rsp->update_fun = dlsym(m->dlh, rsp->update_fun_name);
-		if (rsp->update_fun == NULL) 
-			wizlog("_module_load(rspells): %s", dlerror());
-	}
-
+	
 	return NULL;
 }
 
 static void *
 unload_cb(void *p, void *d)
 {
-	rspell_t *rsp = (rspell_t*) p;
-	rsp->enter_fun = NULL;
-	rsp->leave_fun = NULL;
-	rsp->update_fun = NULL;
+	skill_t *sk = (skill_t*) p;
+	event_fun_t *evf;
+
+	for (evf = sk->eventlist; evf; evf = evf->next)
+		evf->fun = NULL;
+
 	return NULL;
 }
 

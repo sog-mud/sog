@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.49 1999-10-06 09:55:58 fjoe Exp $
+ * $Id: db.h,v 1.50 1999-10-12 13:56:16 avn Exp $
  */
 
 #ifndef _DB_H_
@@ -104,7 +104,7 @@ extern DBDATA db_langs;
 extern DBDATA db_msg;
 extern DBDATA db_races;
 extern DBDATA db_skills;
-extern DBDATA db_rspells;
+extern DBDATA db_events;
 extern DBDATA db_socials;
 extern DBDATA db_spec;
 extern DBDATA db_system;
@@ -113,8 +113,6 @@ void db_load_file(DBDATA *, const char *path, const char *file);
 void db_set_arg(DBDATA *, const char* name, void *arg);
 
 extern int fBootDb;
-
-void	init_raff_table	(void);
 
 int	xgetc	(FILE *fp);
 void	xungetc	(int c, FILE *fp);
@@ -194,7 +192,6 @@ extern int		top_vnum_mob;
 extern int		top_vnum_obj;
 extern int		top_vnum_room;
 extern int  		top_affect;
-extern int		top_raffect;
 extern int		top_ed; 
 extern int		top_area;
 extern int		top_exit;
@@ -234,7 +231,6 @@ extern const char NULL_FILE	[];
 
 extern const char HOMETOWNS_CONF[];
 extern const char SKILLS_CONF	[];
-extern const char RSPELLS_CONF	[];
 extern const char SOCIALS_CONF	[];
 extern const char SYSTEM_CONF	[];
 extern const char LANG_CONF	[];

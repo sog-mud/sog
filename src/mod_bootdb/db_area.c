@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.59 1999-10-06 09:56:15 fjoe Exp $
+ * $Id: db_area.c,v 1.60 1999-10-12 13:56:27 avn Exp $
  */
 
 /***************************************************************************
@@ -877,6 +877,7 @@ DBLOAD_FUN(load_rooms)
 			else if (letter == 'D') {
 				EXIT_DATA *pexit;
 				int locks;
+				char c;
 	
 				door = fread_number(fp);
 				if (door < 0 || door > 5) {
@@ -887,7 +888,9 @@ DBLOAD_FUN(load_rooms)
 				}
 	
 				pexit			= new_exit();
-
+                                c = xgetc(fp);
+				if (c == ' ') 
+					pexit->size = fread_fword(size_table, fp);
 				mlstr_fread(fp, &pexit->description);
 				if (mlstr_addnl(&pexit->description))
 					TOUCH_AREA(area_current);

@@ -1,5 +1,5 @@
 /*
- * $Id: affect.c,v 1.1 1999-10-06 09:56:03 fjoe Exp $
+ * $Id: affect.c,v 1.2 1999-10-12 13:56:20 avn Exp $
  */
 
 /***************************************************************************
@@ -538,6 +538,201 @@ void affect_join(CHAR_DATA *ch, AFFECT_DATA *paf)
 	affect_to_char(ch, paf);
 }
 
+/*
+ * Apply or remove an affect to a room.
+ */
+void affect_modify_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf, bool fAdd)
+{
+	int mod;
+
+	mod = paf->modifier;
+
+	if (fAdd)
+	{
+		switch (paf->where)
+		{
+		case TO_ROOM_AFFECTS:
+		      SET_BIT(room->affected_by, paf->bitvector);
+		    break;
+		case TO_ROOM_FLAGS:
+		      SET_BIT(room->room_flags, paf->bitvector);
+		    break;
+		case TO_ROOM_CONST:
+		    break;
+		}
+	}
+	else
+	{
+	    switch (paf->where)
+	    {
+	    case TO_ROOM_AFFECTS:
+	          REMOVE_BIT(room->affected_by, paf->bitvector);
+	        break;
+		case TO_ROOM_FLAGS:
+		      REMOVE_BIT(room->room_flags, paf->bitvector);
+		    break;
+	    case TO_ROOM_CONST:
+	        break;
+	    }
+		mod = 0 - mod;
+	}
+
+	switch (INT_VAL(paf->location))
+	{
+	default:
+		bug("Affect_modify_room: unknown location %d.", paf->location);
+		return;
+
+	case APPLY_ROOM_NONE:					break;
+	case APPLY_ROOM_HEAL:	room->heal_rate   += mod;	break;
+	case APPLY_ROOM_MANA:	room->mana_rate   += mod;	break;
+	case APPLY_ROOM_SECT:	room->sector_type += mod;	break;
+	}
+}
+
+/*
+ * Give an affect to a room.
+ */
+void affect_to_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
+{
+	AFFECT_DATA *paf_new;
+
+	if (paf->owner == NULL) {
+		log("[*****] BUG: affect_to_room: NULL owner");
+		return;
+	}
+
+	if (!room->affected) {
+		room->aff_next = top_affected_room;
+		top_affected_room = room;
+	}
+
+	paf_new = aff_new();
+
+	*paf_new	= *paf;
+	paf_new->next	= room->affected;
+	room->affected	= paf_new;
+
+	affect_modify_room(room, paf_new, TRUE);
+}
+
+void affect_check_room(ROOM_INDEX_DATA *room,int where,int vector)
+{
+	AFFECT_DATA *paf;
+
+	if (vector == 0)
+		return;
+
+	for (paf = room->affected; paf != NULL; paf = paf->next)
+		if (paf->where == where && paf->bitvector == vector)
+		{
+		    switch (where)
+		    {
+		        case TO_ROOM_AFFECTS:
+			      SET_BIT(room->affected_by,vector);
+			    break;
+			case TO_ROOM_FLAGS:
+		      	      SET_BIT(room->room_flags, vector);
+		    	    break;
+		        case TO_ROOM_CONST:
+			    break;
+		    }
+		    return;
+		}
+}
+
+/*
+ * Remove an affect from a room.
+ */
+void affect_remove_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
+{
+	int where;
+	int vector;
+
+
+	if (room->affected == NULL) {
+		bug("Affect_remove_room: no affect.", 0);
+		return;
+	}
+
+	affect_modify_room(room, paf, FALSE);
+	where = paf->where;
+	vector = paf->bitvector;
+
+	if (paf == room->affected)
+		room->affected	= paf->next;
+	else
+	{
+		AFFECT_DATA *prev;
+
+		for (prev = room->affected; prev != NULL; prev = prev->next)
+		{
+		    if (prev->next == paf)
+		    {
+			prev->next = paf->next;
+			break;
+		    }
+		}
+
+		if (prev == NULL)
+		{
+		    bug("Affect_remove_room: cannot find paf.", 0);
+		    return;
+		}
+	}
+
+	if (!room->affected) {
+		ROOM_INDEX_DATA *prev;
+
+		if (top_affected_room  == room)
+			top_affected_room = room->aff_next;
+		else {
+			for(prev = top_affected_room;
+				prev->aff_next && prev->aff_next != room;
+				prev = prev->aff_next);
+			if (prev == NULL) {
+				bug("Affect_remove_room: cannot find room.", 0);
+				return;
+			}
+			prev->aff_next = room->aff_next;
+		}
+		room->aff_next = NULL;
+	}
+
+	aff_free(paf);
+
+	affect_check_room(room,where,vector);
+}
+
+/*
+ * Strip all affects of a given sn.
+ */
+void affect_strip_room(ROOM_INDEX_DATA *room, const char *sn)
+{
+	AFFECT_DATA *paf;
+	AFFECT_DATA *paf_next;
+
+	for (paf = room->affected; paf != NULL; paf = paf_next) {
+		paf_next = paf->next;
+		if (SKILL_IS(paf->type, sn))
+			affect_remove_room(room, paf);
+	}
+}
+
+/*
+ * Return true if a room is affected by a spell.
+ */
+bool is_affected_room(ROOM_INDEX_DATA *room, const char *sn)
+{
+	AFFECT_DATA *paf;
+
+	for (paf = room->affected; paf != NULL; paf = paf->next) {
+		if (SKILL_IS(paf->type, sn))
+			return TRUE;
+	}
+
+	return FALSE;
+}
 /*----------------------------------------------------------------------------
  * show affects stuff
  */

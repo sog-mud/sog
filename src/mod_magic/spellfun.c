@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.182 1999-10-06 09:56:15 fjoe Exp $
+ * $Id: spellfun.c,v 1.183 1999-10-12 13:56:28 avn Exp $
  */
 
 /***************************************************************************
@@ -524,7 +524,7 @@ void spell_chain_lightning(const char *sn, int level,CHAR_DATA *ch, void *vo)
 void spell_healing_light(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	AFFECT_DATA af2;
-	ROOM_AFFECT_DATA af;
+	AFFECT_DATA af;
 
 	if (is_affected_room(ch->in_room, sn))
 	{
@@ -540,7 +540,7 @@ void spell_healing_light(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier  = level * 3 / 2;
 	af.bitvector = 0;
 	af.owner     = ch;
-	af.revents    = 0;
+	af.events    = 0;
 	affect_to_room(ch->in_room, &af);
 
 	af2.where     = TO_AFFECTS;
@@ -2729,13 +2729,14 @@ void spell_plague(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where     = TO_AFFECTS;
-	af.type 	 = sn;
-	af.level	 = level * 3/4;
-	af.duration  = (10 + level / 10);
-	af.location  = APPLY_STR;
-	af.modifier  = -1 * UMAX(1,3 + level / 15); 
-	af.bitvector = AFF_PLAGUE;
+	af.where	= TO_AFFECTS;
+	af.type 	= sn;
+	af.level	= level * 3/4;
+	af.duration	= (10 + level / 10);
+	af.location	= APPLY_STR;
+	af.modifier	= -1 * UMAX(1,3 + level / 15); 
+	af.bitvector	= AFF_PLAGUE;
+	af.events	= EVENT_CHAR_UPDATE;
 	affect_join(victim,&af);
 
 	char_puts
@@ -2814,6 +2815,7 @@ void spell_poison(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.location  = APPLY_STR;
 	af.modifier  = -2;
 	af.bitvector = AFF_POISON;
+	af.events    = EVENT_CHAR_UPDATE;
 	affect_join(victim, &af);
 	char_puts("You feel very sick.\n", victim);
 	act("$n looks very ill.",victim,NULL,NULL,TO_ROOM);
@@ -3459,7 +3461,7 @@ void spell_word_of_recall(const char *sn, int level, CHAR_DATA *ch,void *vo)
 
 	if (IS_SET(victim->in_room->room_flags, ROOM_NORECALL)
 	||  IS_AFFECTED(victim, AFF_CURSE)
-	||  IS_RAFFECTED(victim->in_room, RAFF_CURSE)) {
+	||  IS_AFFECTED(victim->in_room, RAFF_CURSE)) {
 		char_puts("Spell failed.\n", victim);
 		return;
 	}
@@ -3772,7 +3774,7 @@ void spell_find_object(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void spell_lightning_shield(const char *sn, int level, CHAR_DATA *ch, void *vo) 
 {
 	AFFECT_DATA af2;
-	ROOM_AFFECT_DATA af;
+	AFFECT_DATA af;
 
 	if (is_affected_room(ch->in_room, sn))
 	{
@@ -3794,7 +3796,7 @@ void spell_lightning_shield(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier  = 0;
 	af.bitvector = 0;
 	af.owner     = ch;
-	af.revents    = REVENT_ENTER | REVENT_LEAVE;
+	af.events    = EVENT_ROOM_ENTER | EVENT_ROOM_LEAVE;
 	affect_to_room(ch->in_room, &af);
 
 	af2.where     = TO_AFFECTS;
@@ -3813,7 +3815,7 @@ void spell_lightning_shield(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void spell_shocking_trap(const char *sn, int level, CHAR_DATA *ch, void *vo) 
 {
 	AFFECT_DATA af2;
-	ROOM_AFFECT_DATA af;
+	AFFECT_DATA af;
 
 	if (is_affected_room(ch->in_room, sn))
 	{
@@ -3835,7 +3837,7 @@ void spell_shocking_trap(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier  = 0;
 	af.bitvector = 0;
 	af.owner     = ch;
-	af.revents     = REVENT_ENTER;
+	af.events     = EVENT_ROOM_ENTER;
 	affect_to_room(ch->in_room, &af);
 
 	af2.where     = TO_AFFECTS;

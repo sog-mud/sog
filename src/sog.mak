@@ -16,11 +16,11 @@ COMM_OFILES = comm\ban.obj comm\charset.obj comm\comm.obj comm\comm_act.obj\
 	    	  comm\comm_colors.obj comm\comm_info.obj comm\resolver.obj
 
 DB_CFILES = db\cmd.c db\db.c db\db_area.c db\db_clan.c db\db_class.c\
-		    db\db_skills.c db\db_lang.c db\db_race.c\
-		    db\gsn.c db\lang.c db\msg.c db\resource.c db\spellfn.c db\word.c
+	    db\db_skills.c db\db_lang.c db\db_race.c\
+	    db\gsn.c db\lang.c db\msg.c db\resource.c db\spellfn.c db\word.c
 DB_OFILES = db\cmd.obj db\db.obj db\db_area.obj db\db_clan.obj db\db_class.obj\
-			db\db_skills.obj db\db_lang.obj db\db_race.obj db\gsn.obj\
-			db\lang.obj db\msg.obj db\resource.obj db\spellfn.obj db\word.obj
+	    db\db_skills.obj db\db_lang.obj db\db_race.obj db\gsn.obj\
+	    db\lang.obj db\msg.obj db\resource.obj db\spellfn.obj db\word.obj
 
 
 OLC_CFILES = olc\olc.c olc\olc_area.c olc\olc_clan.c olc\olc_help.c\
@@ -45,20 +45,20 @@ COMPAT_OFILES = compat\winstuff.obj compat\strsep.obj compat\strcasecmp.obj\
 
 CFILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c auction.c\
          buffer.c clan.c class.c\
-		 effects.c fight.c flag.c handler.c healer.c help.c hometown.c\
-		 hunt.c interp.c log.c lookup.c magic.c magic2.c martial_art.c mem.c\
-		 mlstring.c mob_cmds.c mob_prog.c namedp.c note.c obj_prog.c quest.c\
-		 race.c raffects.c rating.c recycle.c religion.c repair.c\
-		 save.c skills.c special.c str.c string_edit.c\
-		 tables.c update.c util.c varr.c\
-		 $(COMM_CFILES) $(DB_CFILES) $(OLC_CFILES) $(COMPAT_CFILES)
+	 effects.c event.c fight.c flag.c handler.c healer.c help.c hometown.c\
+	 hunt.c interp.c log.c lookup.c magic.c magic2.c martial_art.c mem.c\
+	 mlstring.c mob_cmds.c mob_prog.c namedp.c note.c obj_prog.c quest.c\
+	 race.c rating.c recycle.c religion.c repair.c\
+	 save.c skills.c special.c str.c string_edit.c\
+	 tables.c update.c util.c varr.c\
+	 $(COMM_CFILES) $(DB_CFILES) $(OLC_CFILES) $(COMPAT_CFILES)
 
 OFILES = act_comm.obj act_info.obj act_move.obj act_obj.obj act_wiz.obj\
-     auction.obj buffer.obj clan.obj class.obj effects.obj fight.obj flag.obj\
-     handler.obj healer.obj help.obj hometown.obj hunt.obj interp.obj log.obj\
-     lookup.obj magic.obj magic2.obj martial_art.obj mem.obj mlstring.obj\
+     auction.obj buffer.obj clan.obj class.obj effects.obj event.obj fight.obj\
+     flag.obj handler.obj healer.obj help.obj hometown.obj hunt.obj interp.obj\
+     log.obj lookup.obj magic.obj magic2.obj martial_art.obj mem.obj mlstring.obj\
      mob_cmds.obj mob_prog.obj namedp.obj note.obj obj_prog.obj quest.obj\
-	 race.obj raffects.obj rating.obj recycle.obj religion.obj repair.obj\
+	 race.obj rating.obj recycle.obj religion.obj repair.obj\
 	 save.obj skills.obj special.obj str.obj string_edit.obj tables.obj\
      update.obj util.obj varr.obj\
 	 $(COMM_OFILES) $(DB_OFILES) $(OLC_OFILES) $(COMPAT_OFILES)

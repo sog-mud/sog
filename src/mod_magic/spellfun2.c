@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.140 1999-10-06 09:56:17 fjoe Exp $
+ * $Id: spellfun2.c,v 1.141 1999-10-12 13:56:30 avn Exp $
  */
 
 /***************************************************************************
@@ -3620,6 +3620,8 @@ void spell_witch_curse(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.location     = APPLY_HIT;
 	af.modifier     = - level;
 	af.bitvector    = 0;
+	af.events	= EVENT_CHAR_UPDATE;
+	af.owner	= ch;
 	affect_to_char(victim, &af);
 
 	act("Now $n got the path to death.", victim, NULL, NULL, TO_ROOM);
@@ -3844,7 +3846,7 @@ void spell_dragon_skin(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void spell_mind_light(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	AFFECT_DATA af2;
-	ROOM_AFFECT_DATA af;
+	AFFECT_DATA af;
 
 	if (is_affected_room(ch->in_room, sn))
 	{
@@ -3860,7 +3862,7 @@ void spell_mind_light(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier  = level * 3 / 2;
 	af.bitvector = 0;
 	af.owner     = ch;
-	af.revents    = 0;
+	af.events    = 0;
 	affect_to_room(ch->in_room, &af);
 
 	af2.where     = TO_AFFECTS;
@@ -3988,7 +3990,7 @@ void spell_severity_force(const char *sn, int level, CHAR_DATA *ch, void *vo
 void spell_randomizer(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	AFFECT_DATA af2;
-	ROOM_AFFECT_DATA af;
+	AFFECT_DATA af;
 
 	if (is_affected(ch, sn))
 	{
@@ -4030,7 +4032,7 @@ void spell_randomizer(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier  = 0;
 	af.bitvector = RAFF_RANDOMIZER;
 	af.owner     = ch;
-	af.revents    = 0;
+	af.events    = 0;
 	affect_to_room(ch->in_room, &af);
 
 	af2.where     = TO_AFFECTS;
@@ -4158,7 +4160,6 @@ void spell_group_heal(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 void spell_restoring_light(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	ROOM_AFFECT_DATA raf;
 	AFFECT_DATA af;
 
 	if (is_affected_room(ch->in_room, sn)) {
@@ -4169,16 +4170,16 @@ void spell_restoring_light(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		char_puts("Rest a while, you're tired from previous one.\n", ch);
 		return;
 	}
-	raf.where     = TO_ROOM_AFFECTS;
-	raf.type      = sn;
-	raf.level     = level;
-	raf.duration  = level / 25;
-	raf.location  = APPLY_NONE;
-	raf.modifier  = 0;
-	raf.bitvector = 0;
-	raf.owner     = ch;
-	raf.revents    = REVENT_UPDATE | REVENT_ENTER;
-	affect_to_room(ch->in_room, &raf);
+	af.where     = TO_ROOM_AFFECTS;
+	af.type      = sn;
+	af.level     = level;
+	af.duration  = level / 25;
+	af.location  = APPLY_NONE;
+	af.modifier  = 0;
+	af.bitvector = 0;
+	af.owner     = ch;
+	af.events    = EVENT_ROOM_UPDATE | EVENT_ROOM_ENTER;
+	affect_to_room(ch->in_room, &af);
 
 	af.where	= TO_AFFECTS;
 	af.type		= sn;
@@ -4187,6 +4188,7 @@ void spell_restoring_light(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.location	= APPLY_NONE;
 	af.modifier	= 0;
 	af.bitvector	= 0;
+	af.events	= 0;
 	affect_to_char(ch, &af);
 
 	act("The room becomes lit with warm light.", ch, NULL, NULL, TO_ROOM);
@@ -4508,7 +4510,7 @@ void spell_sanctify_lands(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 void spell_deadly_venom(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	ROOM_AFFECT_DATA af;
+	AFFECT_DATA af;
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_LAW))
 	{
@@ -4529,7 +4531,7 @@ void spell_deadly_venom(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier  = 0;
 	af.bitvector = 0;
 	af.owner     = ch;
-	af.revents    = REVENT_UPDATE;
+	af.events    = EVENT_ROOM_UPDATE;
 	affect_to_room(ch->in_room, &af);
 
 	char_puts("The room starts to be filled by poison.\n",ch);   
@@ -4538,7 +4540,7 @@ void spell_deadly_venom(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 void spell_cursed_lands(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	ROOM_AFFECT_DATA af;
+	AFFECT_DATA af;
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_LAW))
 	{
@@ -4559,7 +4561,7 @@ void spell_cursed_lands(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier  = 0;
 	af.bitvector = RAFF_CURSE;
 	af.owner     = ch;
-	af.revents    = 0;
+	af.events    = 0;
 	affect_to_room(ch->in_room, &af);
 
 	char_puts("The gods has forsaken the room.\n",ch);   
@@ -4568,7 +4570,7 @@ void spell_cursed_lands(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 void spell_lethargic_mist(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	 ROOM_AFFECT_DATA af;
+	 AFFECT_DATA af;
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_LAW))
 	{
@@ -4589,7 +4591,7 @@ void spell_lethargic_mist(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier  = 0;
 	af.bitvector = 0;
 	af.owner     = ch;
-	af.revents    = REVENT_UPDATE | REVENT_ENTER;
+	af.events    = EVENT_ROOM_UPDATE | EVENT_ROOM_ENTER;
 	affect_to_room(ch->in_room, &af);
 
 	char_puts("The air in the room makes you slowing down.\n",ch);   
@@ -4598,7 +4600,7 @@ void spell_lethargic_mist(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 void spell_black_death(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	ROOM_AFFECT_DATA af;
+	AFFECT_DATA af;
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_LAW))
 	{
@@ -4619,7 +4621,7 @@ void spell_black_death(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier  = 0;
 	af.bitvector = 0;
 	af.owner     = ch;
-	af.revents    = REVENT_UPDATE;
+	af.events    = EVENT_ROOM_UPDATE;
 	affect_to_room(ch->in_room, &af);
 
 	char_puts("The room starts to be filled by disease.\n",ch);   
@@ -4628,7 +4630,7 @@ void spell_black_death(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 void spell_mysterious_dream(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	ROOM_AFFECT_DATA af;
+	AFFECT_DATA af;
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_LAW))
 	{
@@ -4649,7 +4651,7 @@ void spell_mysterious_dream(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier  = 0;
 	af.bitvector = 0;
 	af.owner     = ch;
-	af.revents    = REVENT_UPDATE | REVENT_ENTER;
+	af.events    = EVENT_ROOM_UPDATE | EVENT_ROOM_ENTER;
 	affect_to_room(ch->in_room, &af);
 
 	char_puts("The room starts to be seen good place to sleep.\n",ch);   
@@ -4912,10 +4914,10 @@ void spell_evil_spirit(const char *sn, int level, CHAR_DATA *ch, void *vo)
  AREA_DATA *pArea = ch->in_room->area;
  ROOM_INDEX_DATA *room;
  AFFECT_DATA af2;
- ROOM_AFFECT_DATA af;
+ AFFECT_DATA af;
  int i;
 
- if (IS_RAFFECTED(ch->in_room, RAFF_ESPIRIT)
+ if (IS_AFFECTED(ch->in_room, RAFF_ESPIRIT)
 	|| is_affected_room(ch->in_room,sn))
 	{
 	 char_puts("The zone is already full of evil spirit.\n",ch);
@@ -4950,7 +4952,7 @@ void spell_evil_spirit(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier  = 0;
 	af.bitvector = RAFF_ESPIRIT;
 	af.owner     = ch;
-	af.revents    = REVENT_UPDATE;
+	af.events    = EVENT_ROOM_UPDATE;
 
 	for (i=pArea->min_vnum; i<pArea->max_vnum; i++)  
 	{
@@ -5539,6 +5541,11 @@ void spell_water_breathing(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *vch = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
+	if (IS_AFFECTED(ch, AFF_WATER_BREATHING)) {
+		char_puts("You can already breath under water", ch);
+		return;
+	}
+
 	af.where	= TO_AFFECTS;
 	af.type		= sn;
 	af.level	= level; 
@@ -5554,6 +5561,11 @@ void spell_free_action(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *vch = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
+
+	if (is_affected(ch, sn)) {
+		char_puts("Your movements are already free.\n", ch);
+		return;
+	}
 
 	af.where	= TO_AFFECTS;
 	af.type		= "free action";

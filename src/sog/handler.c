@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.185 1999-10-11 11:52:18 kostik Exp $
+ * $Id: handler.c,v 1.186 1999-10-12 13:56:22 avn Exp $
  */
 
 /***************************************************************************
@@ -367,7 +367,8 @@ void char_from_room(CHAR_DATA *ch)
 	}
 
 	if (ch->in_room->affected)
-		  check_room_affects(ch, ch->in_room, REVENT_LEAVE);
+		  check_events(ch, ch->in_room->affected,
+			EVENT_ROOM_LEAVE);
 
 	if (!IS_NPC(ch))
 		--ch->in_room->area->nplayer;
@@ -500,7 +501,8 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 		if (IS_IMMORTAL(ch))
 			dofun("raffects", ch, str_empty);
 		else {
-			check_room_affects(ch, ch->in_room, REVENT_ENTER);
+			check_events(ch, ch->in_room->affected,
+				EVENT_ROOM_ENTER);
 			if (IS_EXTRACTED(ch))
 				return;
 		}
@@ -975,14 +977,14 @@ void extract_obj(OBJ_DATA *obj, int flags)
 void strip_raff_owner(CHAR_DATA *ch)
 {
 	ROOM_INDEX_DATA *room, *room_next;
-	ROOM_AFFECT_DATA *raf, *raf_next;
+	AFFECT_DATA *af, *af_next;
 
 	for (room = top_affected_room; room; room = room_next) {
 		room_next = room->aff_next;
 
-		for (raf = room->affected; raf; raf = raf_next) {
-			raf_next = raf->next;
-			if (raf->owner == ch) affect_remove_room(room, raf);
+		for (af = room->affected; af; af = af_next) {
+			af_next = af->next;
+			if (af->owner == ch) affect_remove_room(room, af);
 		}
 	}
 }
@@ -2856,7 +2858,7 @@ void quit_char(CHAR_DATA *ch, int flags)
 			return;
 		}
 
-		if (ch->in_room && IS_RAFFECTED(ch->in_room, RAFF_ESPIRIT)) {
+		if (ch->in_room && IS_AFFECTED(ch->in_room, RAFF_ESPIRIT)) {
 			char_puts("Evil spirits in the area prevents you from leaving.\n", ch);
 			return;
 		}
@@ -3351,7 +3353,15 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		return FALSE;
 	}
 
-	if (IS_ROOM_AFFECTED(in_room, RAFF_RANDOMIZER) && !is_charge) {
+	if (ch->size > pexit->size) {
+		act_puts("$d is too narrow for you to pass.",
+			ch, NULL, pexit->keyword, TO_CHAR, POS_DEAD);
+		act("$n tries to leave through $d, but almost stucks there.",
+			ch, NULL, pexit->keyword, TO_ROOM);
+		return FALSE;
+	}
+
+	if (IS_AFFECTED(in_room, RAFF_RANDOMIZER) && !is_charge) {
 		int d0;
 		while (1) {
 			d0 = number_range(0, MAX_DIR-1);

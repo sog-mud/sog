@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.75 1999-10-06 09:56:10 fjoe Exp $
+ * $Id: skills.c,v 1.76 1999-10-12 13:56:24 avn Exp $
  */
 
 /***************************************************************************
@@ -473,10 +473,13 @@ void skill_init(skill_t *sk)
 	sk->restrict_race = str_empty;
 	sk->group = 0;
 	sk->skill_type = 0;
+	sk->eventlist = NULL;
 }
 
 skill_t *skill_cpy(skill_t *dst, const skill_t *src)
 {
+	event_fun_t *evfs, *evfd;
+
 	dst->name = str_qdup(src->name);
 	dst->fun_name = str_qdup(src->fun_name);
 	dst->fun = src->fun;
@@ -492,19 +495,74 @@ skill_t *skill_cpy(skill_t *dst, const skill_t *src)
 	dst->restrict_race = str_qdup(src->restrict_race);
 	dst->group = src->group;
 	dst->skill_type = src->skill_type;
+
+	for (evfs = src->eventlist; evfs; evfs = evfs->next) {
+		evfd = evf_new();
+		evfd->event = evfs->event;
+		evfd->fun_name = str_qdup(evfs->fun_name);
+		evfd->fun = evfs->fun;
+		evfd->next = dst->eventlist;
+		dst->eventlist = evfd;
+	}
+
 	return dst;
 }
 
 void skill_destroy(skill_t *sk)
 {
+	event_fun_t *evf, *evf_next;
+
 	free_string(sk->name);
 	free_string(sk->fun_name);
 	free_string(sk->noun_damage);
 	free_string(sk->msg_off);
 	free_string(sk->msg_obj);
 	free_string(sk->restrict_race);
+
+	for (evf = sk->eventlist; evf; evf = evf_next) {
+		evf_next = evf->next;
+		free_string(evf->fun_name);
+		evf_free(evf);
+	}
 }
 
+
+/*
+ *  routine that checks for matching events and calls event function
+ */
+void check_one_event(CHAR_DATA *ch, AFFECT_DATA *paf, flag32_t event)
+{
+	skill_t *sk;
+	event_fun_t *evf;
+
+	if (!IS_SET(paf->events, event))
+		return;
+
+	if ((sk = skill_lookup(paf->type)) == NULL) {
+		bug("unknown skill");
+		return;
+	}
+
+	for (evf = sk->eventlist; evf; evf = evf->next)
+		if (evf->event == event) break;
+
+	if (evf && evf->fun)
+		(evf->fun)(ch, paf);
+}
+
+void check_events(CHAR_DATA *ch, AFFECT_DATA *list, flag32_t event)
+{
+	AFFECT_DATA *paf, *paf_next;
+
+	for (paf = list; paf != NULL; paf = paf_next) {
+
+		paf_next = paf->next;
+		check_one_event(ch, paf, event);
+
+		if (IS_EXTRACTED(ch))
+			break;
+	}
+}
 /*-----------------------------------------------------------------------------
  * mob skills stuff
  */
@@ -766,3 +824,4 @@ MOB_SKILL(mob_weapon)
 {
 	return 40 + 5 * mob->level / 2;
 }
+

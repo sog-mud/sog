@@ -807,6 +807,15 @@ trash e AO
 0 0 0 0 0
 0 0 0 P
 G none
+#36178
+~
+~
+~
+unknown~
+wand 0 0
+0 0 0 '' 0
+0 0 0 P
+G none
 #36195
 bag сумка~
 {Cstrangely light bag{x~
@@ -870,7 +879,7 @@ S
 Shooting place~
 ~
 0 0 underwater
-D2
+D2 large
 ~
 ~
 Z 0 36102

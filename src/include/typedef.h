@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.31 1999-10-06 09:56:00 fjoe Exp $
+ * $Id: typedef.h,v 1.32 1999-10-12 13:56:18 avn Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -61,7 +61,6 @@ typedef struct pc_data 			PC_DATA;
 typedef struct reset_data		RESET_DATA;
 typedef struct room_index_data 		ROOM_INDEX_DATA;
 typedef struct shop_data		SHOP_DATA;
-typedef struct room_affect_data		ROOM_AFFECT_DATA;
 typedef struct time_info_data		TIME_INFO_DATA;
 typedef struct weather_data		WEATHER_DATA;
 typedef struct room_history_data	ROOM_HISTORY_DATA;
@@ -76,8 +75,7 @@ typedef struct clan_t			clan_t;
 typedef struct pcrace_t			pcrace_t;
 typedef struct rclass_t			rclass_t;
 
-typedef struct rspell_t			rspell_t;
-
+typedef struct event_fun_t		event_fun_t;
 typedef struct lang_t			lang_t;
 typedef struct cmd_t			cmd_t;
 typedef struct pose_t			pose_t;
@@ -102,6 +100,7 @@ union vo_t {
 
 #define INT_VAL(v)		((v).i)
 #define STR_VAL(v)		(IS_NULLSTR((v).s) ? str_empty: (v).s)
+#define STR_VAL1(v)		(IS_NULLSTR((v).s) ? "none" : (v).s)
 #define FLAGS_VAL(v)		(format_flags(INT_VAL(v)))
 #define SFLAGS_VAL(t, v)	(flag_string((t), INT_VAL(v)))
 #define STR_VAL_ASSIGN(v, str)			\
@@ -115,17 +114,17 @@ typedef bool	SPEC_FUN	(CHAR_DATA *ch);
 typedef void	SPELL_FUN	(const char *sn, int level,
 				 CHAR_DATA *ch, void *vo);
 typedef int	OPROG_FUN	(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg);
-typedef void	REVENT_FUN	(ROOM_INDEX_DATA *room, CHAR_DATA *ch,
-				 ROOM_AFFECT_DATA *raf);
+typedef void	EVENT_FUN	(CHAR_DATA *ch, AFFECT_DATA *af);
+
 #define args(a) a
 #define DECLARE_SPEC_FUN(fun) 	SPEC_FUN  fun
 #define DECLARE_DO_FUN(fun) 	DO_FUN fun
 #define DECLARE_OPROG_FUN(fun)	OPROG_FUN fun
-#define DECLARE_REVENT_FUN(fun)	REVENT_FUN fun
+#define DECLARE_EVENT_FUN(fun)	EVENT_FUN fun
 
 #define SPEC_FUN(fun)	bool	fun(CHAR_DATA *ch)
 #define OPROG_FUN(fun)	int	fun(OBJ_DATA *obj, CHAR_DATA *ch, void *arg);
-#define REVENT_FUN(fun)	void	fun(ROOM_INDEX_DATA *room, CHAR_DATA *ch, ROOM_AFFECT_DATA *raf)
+#define EVENT_FUN(fun)	void	fun(CHAR_DATA *ch, AFFECT_DATA *af)
 
 /* WIN32 Microsoft specific definitions */
 #if defined (WIN32)

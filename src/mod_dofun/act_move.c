@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.204 1999-10-07 12:37:07 kostik Exp $
+ * $Id: act_move.c,v 1.205 1999-10-12 13:56:10 avn Exp $
  */
 
 /***************************************************************************
@@ -1318,7 +1318,7 @@ void do_recall(CHAR_DATA *ch, const char *argument)
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_NORECALL)
 	||  IS_AFFECTED(ch, AFF_CURSE) 
-	||  IS_RAFFECTED(ch->in_room, RAFF_CURSE)) {
+	||  IS_AFFECTED(ch->in_room, RAFF_CURSE)) {
 		char_puts("The gods have forsaken you.\n", ch);
 		return;
 	}
@@ -2261,7 +2261,7 @@ void do_crecall(CHAR_DATA *ch, const char *argument)
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_NORECALL)
 	||  IS_AFFECTED(ch, AFF_CURSE) 
-	||  IS_RAFFECTED(ch->in_room, RAFF_CURSE)) {
+	||  IS_AFFECTED(ch->in_room, RAFF_CURSE)) {
 		char_puts("The gods have forsaken you.\n", ch);
 		return;
 	}
@@ -2632,6 +2632,7 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 		            af.location  = APPLY_STR;
 		            af.modifier  = -1;
 		            af.bitvector = AFF_POISON;
+			    af.events    = EVENT_CHAR_UPDATE;
 		            affect_join(victim, &af);
 		      	 }
 
@@ -2810,7 +2811,7 @@ void do_charge(CHAR_DATA *ch, const char *argument)
 			if ((pexit=ch->in_room->exit[direction]) == NULL
 			|| (to_room = pexit->to_room.r) == NULL
 			|| !can_see_room(ch, to_room)
-			|| IS_ROOM_AFFECTED(ch->in_room, RAFF_RANDOMIZER)
+			|| IS_AFFECTED(ch->in_room, RAFF_RANDOMIZER)
 			|| IS_SET(pexit->exit_info, EX_CLOSED)) {
 				WAIT_STATE(ch, skill_beats("charge") * 2);
 				return;
@@ -3099,7 +3100,7 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 	&&  !IS_TRUSTED(ch, LEVEL_IMMORTAL)
 	&&  (IS_AFFECTED(ch, AFF_CURSE) ||
 	     IS_SET(old_room->room_flags, ROOM_NORECALL) ||
-	     IS_RAFFECTED(old_room, RAFF_CURSE))) {
+	     IS_AFFECTED(old_room, RAFF_CURSE))) {
 		char_puts("Something prevents you from leaving...\n",ch);
 		return;
 	}
@@ -3253,7 +3254,7 @@ void do_settraps(CHAR_DATA *ch, const char *argument)
 
 	if (IS_NPC(ch) || number_percent() <  chance * 7 / 10) {
 	  AFFECT_DATA af2;
-	  ROOM_AFFECT_DATA af;
+	  AFFECT_DATA af;
 
 	  check_improve(ch, "settraps", TRUE, 1);
 
@@ -3277,7 +3278,7 @@ void do_settraps(CHAR_DATA *ch, const char *argument)
 	  af.modifier	= 0;
 	  af.bitvector	= 0;
 	  af.owner	= ch;
-	  af.revents	= REVENT_ENTER;
+	  af.events	= EVENT_ROOM_ENTER;
 	  affect_to_room(ch->in_room, &af);
 
 	  af2.where     = TO_AFFECTS;

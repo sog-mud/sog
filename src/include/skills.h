@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.h,v 1.17 1999-10-06 09:56:00 fjoe Exp $
+ * $Id: skills.h,v 1.18 1999-10-12 13:56:18 avn Exp $
  */
 
 #ifndef _SKILLS_H_
@@ -40,6 +40,17 @@
 
 #define ST_SKILL	0
 #define ST_SPELL	1
+
+/*
+ * EVENTs for room affects
+ */
+#define EVENT_ROOM_ENTER		(A)
+#define EVENT_ROOM_LEAVE		(B)
+#define EVENT_ROOM_UPDATE		(C)
+#define EVENT_ROOM_TIMEOUT		(D)
+#define EVENT_CHAR_UPDATE		(E)
+#define EVENT_CHAR_UPDFAST		(F)
+#define	EVENT_CHAR_TIMEOUT		(G)
 
 typedef struct skill_t skill_t;
 struct skill_t {
@@ -58,6 +69,14 @@ struct skill_t {
 	const char *	restrict_race;		/* race restrictions */
 	flag32_t	group;			/* skill group */
 	flag32_t	skill_type;		/* skill type */
+	event_fun_t *	eventlist;		/* list of events */
+};
+
+struct event_fun_t {
+	struct event_fun_t	*next;
+	const char *		fun_name;
+	EVENT_FUN *		fun;
+	flag32_t		event;
 };
 
 extern hash_t skills;
@@ -70,6 +89,11 @@ void mob_skill_init(void);
 void skill_init(skill_t *sk);
 skill_t *skill_cpy(skill_t *dst, const skill_t *src);
 void skill_destroy(skill_t *sk);
+
+void		check_one_event		(CHAR_DATA *ch, AFFECT_DATA *af,
+					flag32_t event);
+void		check_events		(CHAR_DATA *ch, AFFECT_DATA *list,
+					flag32_t event);
 
 /*
  * misc skill lookup functions

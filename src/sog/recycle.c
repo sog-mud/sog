@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.65 1999-10-06 09:56:09 fjoe Exp $
+ * $Id: recycle.c,v 1.66 1999-10-12 13:56:24 avn Exp $
  */
 
 /***************************************************************************
@@ -60,6 +60,16 @@ extern int	top_mprog_index;
 extern int	top_ed;
 
 void	aff_free(AFFECT_DATA *af);
+
+event_fun_t *evf_new(void)
+{
+	return calloc(1, sizeof(event_fun_t));
+}
+
+void evf_free(event_fun_t * evf)
+{
+	free(evf);
+}
 
 ED_DATA *ed_new(void)
 {
@@ -126,12 +136,6 @@ AFFECT_DATA *aff_new(void)
 	return calloc(1, sizeof(AFFECT_DATA));
 }
 
-ROOM_AFFECT_DATA *raff_new(void)
-{
-	top_raffect++;
-	return calloc(1, sizeof(ROOM_AFFECT_DATA));
-}
-
 AFFECT_DATA *aff_dup(const AFFECT_DATA *paf)
 {
 	AFFECT_DATA *naf = aff_new();
@@ -142,6 +146,8 @@ AFFECT_DATA *aff_dup(const AFFECT_DATA *paf)
 	naf->location	= paf->location;
 	naf->modifier	= paf->modifier;
 	naf->bitvector	= paf->bitvector;
+	naf->owner	= paf->owner;
+	naf->events	= paf->events;
 	return naf;
 }
 
@@ -150,13 +156,6 @@ void aff_free(AFFECT_DATA *af)
 	free_string(af->type);
 	free(af);
 	top_affect--;
-}
-
-void raff_free(ROOM_AFFECT_DATA *raf)
-{
-	free_string(raf->type);
-	free(raf);
-	top_raffect--;
 }
 
 OBJ_DATA *free_obj_list;
@@ -543,6 +542,7 @@ EXIT_DATA *new_exit(void)
 
         pExit = calloc(1, sizeof(*pExit));
 	pExit->keyword = str_empty;
+	pExit->size = SIZE_GARGANTUAN;
 
         top_exit++;
 	return pExit;

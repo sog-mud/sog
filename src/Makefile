@@ -1,8 +1,8 @@
 #
-# $Id: Makefile,v 1.60 1999-09-25 11:28:37 fjoe Exp $
+# $Id: Makefile,v 1.61 1999-10-12 13:56:06 avn Exp $
 #
 
-SUBDIR = core dofun olc rspells sog spellfun
+SUBDIR = core dofun events olc sog spellfun
 
 all: abi_version.h _SUBDIRUSE
 
@@ -21,7 +21,7 @@ abi_version.h: Makefile.inc
 ctags:
 	ctags -dtw include/*.h sog/comm/*.[ch] sog/db/*.[ch] sog/*.[ch]\
 		core/*.[ch] dofun/*.[ch] spellfun/*.[ch] olc/*.[ch]\
-		rspells/*.[ch]
+		events/*.[ch]
 
 gtags:
 	gtags -co .
