@@ -391,15 +391,15 @@ small tablet~
 D0
 ~
 ~
-0 -1 8801
+Z -1 8801
 D1
 ~
 ~
-0 -1 7860
+Z -1 7860
 D2
 ~
 ~
-0 -1 8855
+Z -1 8855
 S
 #8801
 The Path Through Mirkwood~
@@ -412,11 +412,11 @@ you can't shake the feeling that you're being watched.
 D0
 ~
 ~
-0 -1 8802
+Z -1 8802
 D2
 ~
 ~
-0 -1 8800
+Z -1 8800
 S
 #8802
 The Path Through Mirkwood~
@@ -429,11 +429,11 @@ you can't shake the feeling that you're being watched.
 D0
 ~
 ~
-0 -1 8803
+Z -1 8803
 D2
 ~
 ~
-0 -1 8801
+Z -1 8801
 S
 #8803
 A Fork in the Path~
@@ -445,15 +445,15 @@ you involuntarily jump.
 D1
 ~
 ~
-0 -1 8804
+Z -1 8804
 D2
 ~
 ~
-0 -1 8802
+Z -1 8802
 D3
 ~
 ~
-0 -1 8820
+Z -1 8820
 S
 #8804
 A Broad Path~
@@ -466,11 +466,11 @@ impression that it has been recently cleared.
 D1
 ~
 ~
-0 -1 8805
+Z -1 8805
 D3
 ~
 ~
-0 -1 8803
+Z -1 8803
 S
 #8805
 Another Junction~
@@ -482,15 +482,15 @@ to the south the trail becomes significantly narrower, and overgrown.
 D0
 ~
 ~
-0 -1 8806
+Z -1 8806
 D2
 ~
 ~
-0 -1 8808
+Z -1 8808
 D3
 ~
 ~
-0 -1 8804
+Z -1 8804
 S
 #8806
 A Bend in the Road~
@@ -502,11 +502,11 @@ it still looms large ahead of you.
 D1
 ~
 ~
-0 -1 8807
+Z -1 8807
 D2
 ~
 ~
-0 -1 8805
+Z -1 8805
 S
 #8807
 Plains~
@@ -518,7 +518,7 @@ due east toward the west gate of the distant fortress.
 D3
 ~
 ~
-0 -1 8806
+Z -1 8806
 S
 #8808
 The Southern Trail~
@@ -530,11 +530,11 @@ be any quick end to it either.
 D0
 ~
 ~
-0 -1 8805
+Z -1 8805
 D2
 ~
 ~
-0 -1 8809
+Z -1 8809
 S
 #8809
 The Southern Trail~
@@ -547,15 +547,15 @@ You spy a rope ladder ascending to a platform in a nearby tree.
 D0
 ~
 ~
-0 -1 8808
+Z -1 8808
 D2
 ~
 ~
-0 -1 8811
+Z -1 8811
 D4
 ~
 ~
-0 -1 8810
+Z -1 8810
 S
 #8810
 A Guard Post~
@@ -568,7 +568,7 @@ reception if there is a guard present...
 D5
 ~
 ~
-0 -1 8809
+Z -1 8809
 S
 #8811
 The Southern Trail~
@@ -582,15 +582,15 @@ to be a little less overgrown.
 D0
 ~
 ~
-0 -1 8809
+Z -1 8809
 D1
 ~
 ~
-0 -1 8813
+Z -1 8813
 D2
 ~
 ~
-0 -1 8812
+Z -1 8812
 S
 #8812
 A Dead End~
@@ -601,7 +601,7 @@ guess you had better turn back...
 D0
 ~
 ~
-0 -1 8811
+Z -1 8811
 S
 #8813
 The Eastern Path~
@@ -613,11 +613,11 @@ only occasionally to hack away an overhanging branch or vine.
 D1
 ~
 ~
-0 -1 8814
+Z -1 8814
 D3
 ~
 ~
-0 -1 8811
+Z -1 8811
 S
 #8814
 The Eastern Path~
@@ -629,11 +629,11 @@ only occasionally to hack away an overhanging branch or vine.
 D1
 ~
 ~
-0 -1 8815
+Z -1 8815
 D3
 ~
 ~
-0 -1 8813
+Z -1 8813
 S
 #8815
 A Bend in the Path~
@@ -643,11 +643,11 @@ You have reached a point where the path bends to the north.
 D0
 ~
 ~
-0 -1 8816
+Z -1 8816
 D3
 ~
 ~
-0 -1 8814
+Z -1 8814
 S
 #8816
 The Northern Path~
@@ -659,11 +659,11 @@ north.
 D0
 ~
 ~
-0 -1 8817
+Z -1 8817
 D2
 ~
 ~
-0 -1 8815
+Z -1 8815
 S
 #8817
 The Northern Path~
@@ -676,15 +676,15 @@ Another path runs to the east of here.
 D0
 ~
 ~
-0 -1 8819
+Z -1 8819
 D1
 ~
 ~
-0 -1 8818
+Z -1 8818
 D2
 ~
 ~
-0 -1 8816
+Z -1 8816
 S
 #8818
 The End of the Path~
@@ -695,7 +695,7 @@ clear water. You feel strangely at ease here.
 D3
 ~
 ~
-0 -1 8817
+Z -1 8817
 S
 #8819
 Approaching the Holy Grove~
@@ -708,11 +708,11 @@ peace.
 D2
 ~
 ~
-0 -1 8817
+Z -1 8817
 D5
 ~
 ~
-0 -1 8904
+Z -1 8904
 S
 #8820
 The Western Path~
@@ -724,15 +724,15 @@ eastern side of the road.
 D1
 ~
 ~
-0 -1 8803
+Z -1 8803
 D3
 ~
 ~
-0 -1 8822
+Z -1 8822
 D4
 ~
 ~
-0 -1 8821
+Z -1 8821
 S
 #8821
 A Guard Post~
@@ -745,7 +745,7 @@ reception if there is a guard present...
 D5
 ~
 ~
-0 -1 8820
+Z -1 8820
 S
 #8822
 A Bend to the North~
@@ -755,11 +755,11 @@ The path bends to the north here, running for some distance toward a stream.
 D0
 ~
 ~
-0 -1 8823
+Z -1 8823
 D1
 ~
 ~
-0 -1 8820
+Z -1 8820
 S
 #8823
 A Northern Path~
@@ -770,11 +770,11 @@ previous paths. There is a wide stream dead ahead.
 D0
 ~
 ~
-0 -1 8824
+Z -1 8824
 D2
 ~
 ~
-0 -1 8822
+Z -1 8822
 S
 #8824
 A Stream~
@@ -785,15 +785,15 @@ spell. Mind you, you could always whip out your rod and start angling :)
 D0
 ~
 ~
-0 -1 8825
+Z -1 8825
 D1
 ~
 ~
-0 -1 8866
+Z -1 8866
 D2
 ~
 ~
-0 -1 8823
+Z -1 8823
 S
 #8825
 A Northern Path~
@@ -805,15 +805,15 @@ A broad, tree-lined path runs to the east.
 D0
 ~
 ~
-0 -1 8826
+Z -1 8826
 D1
 ~
 ~
-0 -1 8856
+Z -1 8856
 D2
 ~
 ~
-0 -1 8824
+Z -1 8824
 S
 #8826
 A Junction~
@@ -824,15 +824,15 @@ choice. You still have the feeling you're being watched...
 D0
 ~
 ~
-0 -1 8830
+Z -1 8830
 D2
 ~
 ~
-0 -1 8825
+Z -1 8825
 D3
 ~
 ~
-0 -1 8827
+Z -1 8827
 S
 #8827
 The Western Path~
@@ -843,11 +843,11 @@ beautiful valley below.
 D1
 ~
 ~
-0 -1 8826
+Z -1 8826
 D5
 ~
 ~
-0 -1 8828
+Z -1 8828
 S
 #8828
 The Hill~
@@ -858,11 +858,11 @@ beautiful valley below.
 D4
 ~
 ~
-0 -1 8827
+Z -1 8827
 D5
 ~
 ~
-0 -1 8829
+Z -1 8829
 S
 #8829
 The Base of the Hill~
@@ -873,11 +873,11 @@ above.
 D1
 ~
 ~
-0 -1 7800
+Z -1 7800
 D4
 ~
 ~
-0 -1 8828
+Z -1 8828
 S
 #8830
 A Northern Path~
@@ -888,15 +888,15 @@ previous paths. There is a narrow path to the east.
 D0
 ~
 ~
-0 -1 8832
+Z -1 8832
 D1
 ~
 ~
-0 -1 8831
+Z -1 8831
 D2
 ~
 ~
-0 -1 8826
+Z -1 8826
 S
 #8831
 A Narrow Path~
@@ -907,7 +907,7 @@ through Mirkwood. Up ahead the path ends in a dead end.
 D3
 ~
 ~
-0 -1 8830
+Z -1 8830
 S
 #8832
 A Northern Path~
@@ -918,11 +918,11 @@ previous paths.
 D0
 ~
 ~
-0 -1 8833
+Z -1 8833
 D2
 ~
 ~
-0 -1 8830
+Z -1 8830
 S
 #8833
 A Northern Path~
@@ -933,11 +933,11 @@ previous paths. There is a broad junction to the north.
 D0
 ~
 ~
-0 -1 8834
+Z -1 8834
 D2
 ~
 ~
-0 -1 8832
+Z -1 8832
 S
 #8834
 A Broad Junction~
@@ -949,15 +949,15 @@ sickly-looking, dying trees of unidentifiable type.
 D0
 ~
 ~
-0 -1 8835
+Z -1 8835
 D1
 ~
 ~
-0 -1 8841
+Z -1 8841
 D2
 ~
 ~
-0 -1 8833
+Z -1 8833
 S
 #8835
 An Evil Section of the Forest~
@@ -970,11 +970,11 @@ branches obscures your view.
 D0
 ~
 ~
-0 -1 8836
+Z -1 8836
 D2
 ~
 ~
-0 -1 8834
+Z -1 8834
 S
 #8836
 An Evil Section of the Forest~
@@ -987,11 +987,11 @@ branches obscures your view.
 D2
 ~
 ~
-0 -1 8835
+Z -1 8835
 D3
 ~
 ~
-0 -1 8837
+Z -1 8837
 S
 #8837
 An Evil Section of the Forest~
@@ -1005,11 +1005,11 @@ The dying screams of some animal can be heard.
 D1
 ~
 ~
-0 -1 8836
+Z -1 8836
 D3
 ~
 ~
-0 -1 8838
+Z -1 8838
 S
 #8838
 An Evil Section of the Forest~
@@ -1025,15 +1025,15 @@ To the north you see a shadowy area of the forest.
 D0
 ~
 ~
-0 -1 6137
+Z -1 6137
 D1
 ~
 ~
-0 -1 8837
+Z -1 8837
 D3
 ~
 ~
-0 -1 8839
+Z -1 8839
 S
 #8839
 An Evil Section of the Forest~
@@ -1048,11 +1048,11 @@ gash in the side of a grey cliff face.
 D1
 ~
 ~
-0 -1 8838
+Z -1 8838
 D2
 ~
 ~
-0 -1 8840
+Z -1 8840
 S
 #8840
 The Cliff Face~
@@ -1063,7 +1063,7 @@ you should continue into the inky darkness beyond...
 D0
 ~
 ~
-0 -1 8839
+Z -1 8839
 S
 #8841
 A Bend in the Path~
@@ -1073,11 +1073,11 @@ You reach a bend in the path, where you can head north or west.
 D0
 ~
 ~
-0 -1 8842
+Z -1 8842
 D3
 ~
 ~
-0 -1 8834
+Z -1 8834
 S
 #8842
 A Bend in the Path~
@@ -1087,11 +1087,11 @@ You reach a bend in the path, where you can head south or east.
 D1
 ~
 ~
-0 -1 8843
+Z -1 8843
 D2
 ~
 ~
-0 -1 8841
+Z -1 8841
 S
 #8843
 A Junction~
@@ -1103,15 +1103,15 @@ becomes significantly narrower, and overgrown.
 D0
 ~
 ~
-0 -1 8845
+Z -1 8845
 D2
 ~
 ~
-0 -1 8844
+Z -1 8844
 D3
 ~
 ~
-0 -1 8842
+Z -1 8842
 S
 #8844
 A Dead End~
@@ -1122,11 +1122,11 @@ from a nearby oak tree, disappearing in its bushy branches above.
 D0
 ~
 ~
-0 -1 8843
+Z -1 8843
 D4
 ~
 ~
-0 -1 8846
+Z -1 8846
 S
 #8845
 A Bend in the Path~
@@ -1138,15 +1138,15 @@ runs to the north.
 D0
 ~
 ~
-0 -1 8868
+Z -1 8868
 D1
 ~
 ~
-0 -1 8847
+Z -1 8847
 D2
 ~
 ~
-0 -1 8843
+Z -1 8843
 S
 #8846
 A Guard Post~
@@ -1159,7 +1159,7 @@ reception if there is a guard present...
 D5
 ~
 ~
-0 -1 8844
+Z -1 8844
 S
 #8847
 A T-Junction~
@@ -1171,15 +1171,15 @@ into the forest.
 D1
 ~
 ~
-0 -1 8848
+Z -1 8848
 D2
 ~
 ~
-0 -1 8849
+Z -1 8849
 D3
 ~
 ~
-0 -1 8845
+Z -1 8845
 S
 #8848
 Cultivated Field~
@@ -1190,7 +1190,7 @@ a small watch-tower near a wide stream.
 D3
 ~
 ~
-0 -1 8847
+Z -1 8847
 S
 #8849
 A Desolate Section of the Forest~
@@ -1202,11 +1202,11 @@ far off to the south.
 D0
 ~
 ~
-0 -1 8847
+Z -1 8847
 D1
 ~
 ~
-0 -1 8850
+Z -1 8850
 S
 #8850
 A Desolate Section of the Forest~
@@ -1218,11 +1218,11 @@ far off to the south.
 D2
 ~
 ~
-0 -1 8851
+Z -1 8851
 D3
 ~
 ~
-0 -1 8849
+Z -1 8849
 S
 #8851
 A Desolate Section of the Forest~
@@ -1235,11 +1235,11 @@ To the south is a particularly dark patch of forest.
 D0
 ~
 ~
-0 -1 8850
+Z -1 8850
 D3
 ~
 ~
-0 -1 8852
+Z -1 8852
 S
 #8852
 The Path to Firetop Mountain~
@@ -1250,11 +1250,11 @@ mountain range. far in the distance looms Firetop Mountain.
 D0
 ~
 ~
-0 -1 8853
+Z -1 8853
 D1
 ~
 ~
-0 -1 8851
+Z -1 8851
 S
 #8853
 The Path Continues~
@@ -1265,11 +1265,11 @@ distant peak.
 D0
 ~
 ~
-0 -1 8854
+Z -1 8854
 D2
 ~
 ~
-0 -1 8852
+Z -1 8852
 S
 #8854
 The Path Continues~
@@ -1281,11 +1281,11 @@ D0
 It is entrance to Firetop Mountain 
 ~
 ~
-0 -1 5735
+Z -1 5735
 D2
 ~
 ~
-0 -1 8853
+Z -1 8853
 S
 #8855
 Approaching Mirkwood~
@@ -1296,11 +1296,11 @@ abruptly turns to the north and you continue.
 D0
 ~
 ~
-0 -1 8800
+Z -1 8800
 D4
 ~
 ~
-0 -1 338
+Z -1 338
 S
 #8856
 A Broad Tree-Lined Path~
@@ -1313,11 +1313,11 @@ However, intruders are frowned upon here, so be on your guard.
 D1
 ~
 ~
-0 -1 8857
+Z -1 8857
 D3
 ~
 ~
-0 -1 8825
+Z -1 8825
 S
 #8857
 A Broad Tree-Lined Path~
@@ -1331,11 +1331,11 @@ The entrance is directly before you.
 D1
 ~
 ~
-1 8813 8858
+ABCZ 8813 8858
 D3
 ~
 ~
-0 -1 8856
+Z -1 8856
 S
 #8858
 Inside the Cave~
@@ -1348,15 +1348,15 @@ The enchantments here prohibit spellcasting of any form.
 D0
 ~
 ~
-0 -1 8859
+Z -1 8859
 D2
 ~
 ~
-0 -1 8864
+Z -1 8864
 D3
 ~
 ~
-1 8813 8857
+ABCZ 8813 8857
 S
 #8859
 Inside the Cave~
@@ -1368,11 +1368,11 @@ natives are hostile...
 D1
 ~
 ~
-1 0 8860
+ABZ 0 8860
 D2
 ~
 ~
-0 -1 8858
+Z -1 8858
 S
 #8860
 A Guard Room~
@@ -1383,15 +1383,15 @@ be happy to see you. You fancy you can hear muffled cries for help.
 D0
 ~
 ~
-1 8812 8867
+ABCZ 8812 8867
 D1
 ~
 ~
-1 0 8861
+ABZ 0 8861
 D3
 ~
 ~
-1 0 8859
+ABZ 0 8859
 S
 #8861
 Storage Room~
@@ -1404,11 +1404,11 @@ them down to Lake Town.
 D3
 ~
 ~
-1 0 8860
+ABZ 0 8860
 D5
 ~
 ~
-1 0 8862
+ABZ 0 8862
 S
 #8862
 The River~
@@ -1419,11 +1419,11 @@ and eventually to Lake Town.
 D2
 ~
 ~
-0 -1 8863
+Z -1 8863
 D4
 ~
 ~
-1 0 8861
+ABZ 0 8861
 S
 #8863
 The River~
@@ -1434,11 +1434,11 @@ and eventually to Lake Town.
 D0
 ~
 ~
-0 -1 8862
+Z -1 8862
 D2
 ~
 ~
-0 -1 8866
+Z -1 8866
 S
 #8864
 Inside the Cave~
@@ -1450,11 +1450,11 @@ natives are hostile...
 D0
 ~
 ~
-0 0 8858
+Z 0 8858
 D1
 ~
 ~
-1 0 8865
+ABZ 0 8865
 S
 #8865
 The Throne Room of Thrandul~
@@ -1466,7 +1466,7 @@ Dour guards glare at you on all sides.
 D3
 ~
 ~
-1 0 8864
+ABZ 0 8864
 S
 #8866
 The River~
@@ -1477,11 +1477,11 @@ and eventually to Lake Town.
 D0
 ~
 ~
-0 -1 8863
+Z -1 8863
 D3
 ~
 ~
-0 -1 8824
+Z -1 8824
 S
 #8867
 A Cell~
@@ -1492,7 +1492,7 @@ single inhabitant.
 D2
 ~
 ~
-1 0 8860
+ABCZ 0 8860
 S
 #8868
 A Northern Path~
@@ -1503,11 +1503,11 @@ section of the woods.
 D0
 ~
 ~
-0 -1 8869
+Z -1 8869
 D2
 ~
 ~
-0 -1 8845
+Z -1 8845
 S
 #8869
 A Northern Path~
@@ -1518,11 +1518,11 @@ see some sort of clearing.
 D0
 ~
 ~
-0 -1 9001
+Z -1 9001
 D2
 ~
 ~
-0 -1 8868
+Z -1 8868
 S
 #0
 

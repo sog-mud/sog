@@ -777,12 +777,12 @@ D0
 The entrance street continues.
 ~
 ~
-0 -1 12301
+Z -1 12301
 D4
 You can look up and barely make out the sun far, far above you.
 ~
 ~
-0 -1 5358
+Z -1 5358
 S
 #12301
 Entrance Street~
@@ -803,12 +803,12 @@ D0
 The Temple of Anthar
 ~
 ~
-0 -1 12302
+Z -1 12302
 D2
 Entrance street to Antharia.
 ~
 ~
-0 -1 12300
+Z -1 12300
 S
 #12302
 Temple of Anthar~
@@ -839,17 +839,17 @@ D1
 One of the main roads of Antharia.
 ~
 ~
-0 -1 12303
+Z -1 12303
 D2
 The entrance road of Antharia.
 ~
 ~
-0 -1 12301
+Z -1 12301
 D3
 One of the main roads of Antharia.
 ~
 ~
-0 -1 12309
+Z -1 12309
 S
 #12303
 Main Road of Antharia~
@@ -866,17 +866,17 @@ D0
 Temple Circle.
 ~
 ~
-0 -1 12304
+Z -1 12304
 D1
 Main road of Antharia.
 ~
 ~
-0 -1 12337
+Z -1 12337
 D3
 Temple of Anthar.
 ~
 ~
-0 -1 12302
+Z -1 12302
 S
 #12304
 Temple Circle~
@@ -895,12 +895,12 @@ D0
 Temple Circle.
 ~
 ~
-0 -1 12305
+Z -1 12305
 D2
 Main street of Antharia.
 ~
 ~
-0 -1 12303
+Z -1 12303
 S
 #12305
 Temple Circle~
@@ -917,12 +917,12 @@ D2
 Temple Circle.
 ~
 ~
-0 -1 12304
+Z -1 12304
 D3
 Temple Circle.
 ~
 ~
-0 -1 12306
+Z -1 12306
 S
 #12306
 Temple Circle at Kaer's Bridge~
@@ -942,17 +942,17 @@ D0
 Kaer's Bridge.
 ~
 ~
-0 -1 12318
+Z -1 12318
 D1
 Temple Circle.
 ~
 ~
-0 -1 12305
+Z -1 12305
 D3
 Temple Circle.
 ~
 ~
-0 -1 12307
+Z -1 12307
 S
 #12307
 Temple Circle~
@@ -969,12 +969,12 @@ D1
 Temple circle.
 ~
 ~
-0 -1 12306
+Z -1 12306
 D2
 Temple circle.
 ~
 ~
-0 -1 12308
+Z -1 12308
 S
 #12308
 Temple Circle~
@@ -991,12 +991,12 @@ D0
 Temple circle.
 ~
 ~
-0 -1 12307
+Z -1 12307
 D2
 Main street of Antharia.
 ~
 ~
-0 -1 12309
+Z -1 12309
 S
 #12309
 Main Street of Antharia~
@@ -1013,17 +1013,17 @@ D0
 Temple Circle.
 ~
 ~
-0 -1 12308
+Z -1 12308
 D1
 Before the Temple of Anthar.
 ~
 ~
-0 -1 12302
+Z -1 12302
 D3
 Main street of Antharia.
 ~
 ~
-0 -1 12310
+Z -1 12310
 S
 #12310
 Main Street Before Zaertses'~
@@ -1037,17 +1037,17 @@ D1
 Main street of Antharia.
 ~
 ~
-0 -1 12309
+Z -1 12309
 D2
 Zaertses' House of Relics.
 ~
 ~
-0 -1 12340
+Z -1 12340
 D3
 Main street of Antharia.
 ~
 ~
-0 -1 12311
+Z -1 12311
 S
 #12311
 Main Street of Antharia~
@@ -1058,12 +1058,12 @@ D0
 Main street of Antharia
 ~
 ~
-0 -1 12312
+Z -1 12312
 D1
 Main street of Antharia
 ~
 ~
-0 -1 12310
+Z -1 12310
 S
 #12312
 Main Street of Antharia~
@@ -1074,12 +1074,12 @@ D0
 Main street of Antharia.
 ~
 ~
-0 -1 12314
+Z -1 12314
 D2
 Main Street of Antharia.
 ~
 ~
-0 -1 12311
+Z -1 12311
 S
 #12314
 Main Street of Antharia~
@@ -1097,12 +1097,12 @@ D0
 East intersection
 ~
 ~
-0 -1 12315
+Z -1 12315
 D2
 Main street of Antharia
 ~
 ~
-0 -1 12312
+Z -1 12312
 S
 #12315
 East Intersection -- Main and Center~
@@ -1126,22 +1126,22 @@ D0
 Main street of Antharia.
 ~
 ~
-0 -1 12320
+Z -1 12320
 D1
 Center street.
 ~
 ~
-0 -1 12316
+Z -1 12316
 D2
 Main street of Antharia.
 ~
 ~
-0 -1 12314
+Z -1 12314
 D3
 Street of Guilds.
 ~
 ~
-0 -1 12350
+Z -1 12350
 S
 #12316
 Center Street~
@@ -1156,12 +1156,12 @@ D1
 Center street.
 ~
 ~
-0 -1 12317
+Z -1 12317
 D3
 Main street of Antharia.
 ~
 ~
-0 -1 12315
+Z -1 12315
 S
 #12317
 Center Street~
@@ -1192,22 +1192,22 @@ D0
 Ertuvia's shop.
 ~
 ~
-0 -1 12344
+Z -1 12344
 D1
 Center street.
 ~
 ~
-0 -1 12319
+Z -1 12319
 D2
 Kaer's Bridge.
 ~
 ~
-0 -1 12318
+Z -1 12318
 D3
 Center street.
 ~
 ~
-0 -1 12316
+Z -1 12316
 S
 #12318
 Kaer's Bridge~
@@ -1225,12 +1225,12 @@ D0
 Center street.
 ~
 ~
-0 -1 12317
+Z -1 12317
 D2
 Temple Circle.
 ~
 ~
-0 -1 12306
+Z -1 12306
 S
 #12319
 Center Street~
@@ -1248,17 +1248,17 @@ D0
 Heaustf's armory.
 ~
 ~
-0 -1 12345
+Z -1 12345
 D1
 Main street of Antharia.
 ~
 ~
-0 -1 12333
+Z -1 12333
 D3
 Center street.
 ~
 ~
-0 -1 12317
+Z -1 12317
 S
 #12320
 Main Road of Antharia~
@@ -1279,12 +1279,12 @@ D0
 Main street of Antharia.
 ~
 ~
-0 -1 12321
+Z -1 12321
 D2
 East intersection.
 ~
 ~
-0 -1 12315
+Z -1 12315
 S
 #12321
 Main Road of Antharia~
@@ -1296,12 +1296,12 @@ D1
 Main road of Antharia.
 ~
 ~
-0 -1 12322
+Z -1 12322
 D2
 Main road of Antharia.
 ~
 ~
-0 -1 12320
+Z -1 12320
 S
 #12322
 Main Road of Antharia~
@@ -1325,16 +1325,16 @@ D1
 The main street of Antharia.
 ~
 ~
-0 -1 12323
+Z -1 12323
 D3
 Bend in the main road.
 ~
 ~
-0 -1 12321
+Z -1 12321
 D4
 ~
 ~
-2 12315 12366
+ABCFZ 12315 12366
 S
 #12323
 Main Road of Antharia~
@@ -1350,12 +1350,12 @@ D1
 Main road of Antharia.
 ~
 ~
-0 -1 12324
+Z -1 12324
 D3
 Main road of Antharia.
 ~
 ~
-0 -1 12322
+Z -1 12322
 S
 #12324
 Main Road of Antharia~
@@ -1380,17 +1380,17 @@ D1
 Small intersection.
 ~
 ~
-0 -1 12326
+Z -1 12326
 D2
 Shop of Cyrtpea.
 ~
 ~
-0 -1 12348
+Z -1 12348
 D3
 Main road of Antharia.
 ~
 ~
-0 -1 12323
+Z -1 12323
 S
 #12326
 Small Intersection~
@@ -1407,17 +1407,17 @@ D1
 a new road.
 ~
 ~
-0 -1 12327
+Z -1 12327
 D2
 Main street of Antharia.
 ~
 ~
-0 -1 12332
+Z -1 12332
 D3
 Main road of Antharia.
 ~
 ~
-0 -1 12324
+Z -1 12324
 S
 #12327
 A New Road~
@@ -1429,12 +1429,12 @@ D1
 Zoo gate.
 ~
 ~
-0 -1 12328
+Z -1 12328
 D3
 Main street of Antharia.
 ~
 ~
-0 -1 12326
+Z -1 12326
 S
 #12328
 Zoo Gate~
@@ -1457,7 +1457,7 @@ D3
 a new road.
 ~
 ~
-0 -1 12327
+Z -1 12327
 S
 #12332
 Main Road of Antharia~
@@ -1478,12 +1478,12 @@ D0
 Main street of Antharia.
 ~
 ~
-0 -1 12326
+Z -1 12326
 D2
 East intersection of Antharia.
 ~
 ~
-0 -1 12333
+Z -1 12333
 S
 #12333
 East Intersection -- Main and Center~
@@ -1504,17 +1504,17 @@ D0
 Main street of Antharia.
 ~
 ~
-0 -1 12332
+Z -1 12332
 D2
 Main street of Antharia.
 ~
 ~
-0 -1 12334
+Z -1 12334
 D3
 Center street.
 ~
 ~
-0 -1 12319
+Z -1 12319
 S
 #12334
 Main Street of Antharia~
@@ -1526,12 +1526,12 @@ D0
 Main street of Antharia.
 ~
 ~
-0 -1 12333
+Z -1 12333
 D2
 Main street of Antharia.
 ~
 ~
-0 -1 12335
+Z -1 12335
 S
 #12335
 Main Road at Eatery~
@@ -1548,17 +1548,17 @@ D0
 Main road of Antharia.
 ~
 ~
-0 -1 12334
+Z -1 12334
 D1
 Irghum's Antharian Eatery.
 ~
 ~
-0 -1 12341
+Z -1 12341
 D2
 Main road of Antharia.
 ~
 ~
-0 -1 12336
+Z -1 12336
 S
 #12336
 Turn in the Main Road~
@@ -1574,12 +1574,12 @@ D0
 MAin road of Antharia.
 ~
 ~
-0 -1 12335
+Z -1 12335
 D3
 Main road of Antharia.
 ~
 ~
-0 -1 12337
+Z -1 12337
 S
 #12337
 Main Road of Antharia~
@@ -1597,12 +1597,12 @@ D1
 Main road of Antharia
 ~
 ~
-0 -1 12336
+Z -1 12336
 D3
 Main road of Antharia
 ~
 ~
-0 -1 12303
+Z -1 12303
 S
 #12340
 Zaertses' House of Relics~
@@ -1621,7 +1621,7 @@ D0
 Main street of Antharia.
 ~
 ~
-0 -1 12310
+Z -1 12310
 S
 #12341
 Irghum's Antharian Eatery~
@@ -1638,7 +1638,7 @@ D3
 Main street of Antharia.
 ~
 ~
-0 -1 12335
+Z -1 12335
 S
 #12344
 Ertuvia's Weapon Shop~
@@ -1654,7 +1654,7 @@ D2
 Center street.
 ~
 ~
-0 -1 12317
+Z -1 12317
 S
 #12345
 Heaustf's Armory~
@@ -1670,7 +1670,7 @@ D2
 Center street.
 ~
 ~
-0 -1 12319
+Z -1 12319
 S
 #12348
 Workplace of Cyrtpea the Sorceress~
@@ -1690,7 +1690,7 @@ D0
 Main road of Antharia
 ~
 ~
-0 -1 12324
+Z -1 12324
 S
 #12350
 Guild Street~
@@ -1705,12 +1705,12 @@ D1
 West intersection.
 ~
 ~
-0 -1 12315
+Z -1 12315
 D3
 Guild street.
 ~
 ~
-0 -1 12351
+Z -1 12351
 S
 #12351
 Guild Street~
@@ -1725,22 +1725,22 @@ D0
 Human guild.
 ~
 ~
-0 -1 12360
+Z -1 12360
 D1
 Guild street.
 ~
 ~
-0 -1 12350
+Z -1 12350
 D2
 Illithid Guild.
 ~
 ~
-0 -1 12370
+Z -1 12370
 D3
 Guild street.
 ~
 ~
-0 -1 12352
+Z -1 12352
 S
 #12352
 Guild Street~
@@ -1755,22 +1755,22 @@ D0
 Avian Guild.
 ~
 ~
-0 -1 12371
+Z -1 12371
 D1
 Guild street.
 ~
 ~
-0 -1 12351
+Z -1 12351
 D2
 Dwarven guild.
 ~
 ~
-0 -1 12365
+Z -1 12365
 D3
 Guild street.
 ~
 ~
-0 -1 12353
+Z -1 12353
 S
 #12353
 Guild Street~
@@ -1785,22 +1785,22 @@ D0
 Druid guild.
 ~
 ~
-0 -1 12361
+Z -1 12361
 D1
 Guild street.
 ~
 ~
-0 -1 12352
+Z -1 12352
 D2
 Elven guild.
 ~
 ~
-0 -1 12364
+Z -1 12364
 D3
 Guild street.
 ~
 ~
-0 -1 12354
+Z -1 12354
 S
 #12354
 Guild Street~
@@ -1815,17 +1815,17 @@ D0
 Kender guild.
 ~
 ~
-0 -1 12362
+Z -1 12362
 D1
 Guild street.
 ~
 ~
-0 -1 12353
+Z -1 12353
 D2
 Antharian guild.
 ~
 ~
-0 -1 12363
+Z -1 12363
 S
 #12360
 Human Guild~
@@ -1839,7 +1839,7 @@ D2
 Guild street.
 ~
 ~
-0 -1 12351
+Z -1 12351
 S
 #12361
 Druid's Guild~
@@ -1853,7 +1853,7 @@ D2
 Guild street.
 ~
 ~
-0 -1 12353
+Z -1 12353
 S
 #12362
 Kender Guild~
@@ -1867,7 +1867,7 @@ D2
 Guild street.
 ~
 ~
-0 -1 12354
+Z -1 12354
 S
 #12363
 Antharian Guild~
@@ -1885,7 +1885,7 @@ D0
 Guild street.
 ~
 ~
-0 -1 12354
+Z -1 12354
 S
 #12364
 Elven Guild~
@@ -1899,7 +1899,7 @@ D0
 Guild street.
 ~
 ~
-0 -1 12353
+Z -1 12353
 S
 #12365
 Dwarven Guild~
@@ -1913,7 +1913,7 @@ D0
 Guild street.
 ~
 ~
-0 -1 12352
+Z -1 12352
 S
 #12366
 Forgotten Room~
@@ -1935,7 +1935,7 @@ D0
 Guild street.
 ~
 ~
-0 -1 12351
+Z -1 12351
 S
 #12371
 Avian Guild~
@@ -1949,7 +1949,7 @@ D2
 Guild street.
 ~
 ~
-0 -1 12352
+Z -1 12352
 S
 #0
 
@@ -2208,37 +2208,6 @@ S
 
 
 #HELPS
-100 ANTHARIA_CREDITS~
-.
-    I give full permission of this area to be used under the condition that 
-nothing be removed or changed in this area, except bit flags.
-    This area was designed to be the intial starting point of a race of 
-underwater beings that had a complex history and culture.  You will find 
-that, if you go through the room descriptions carefully, there are many 
-places that you could add to this area.  For example, antharia.are tells 
-and hints of a great temple; therefore, you could write a temple area to 
-be connected to this area using the history below and the knowledge of 
-the area rooms, etc.   Other possible area ideas based on antharia.are 
-would be: a zoo including some interesting creatures that antharias had 
-kept from the time of their submersion to animals that they have 
-encountered under the water (which you will find a great connection point 
-for), a temple area (explained above), or Grand Antharia which you will 
-see MANY hints about in the area file itself.  In other words, I believe 
-this area could help many builders with new and creative ways to add to 
-their muds.
-     
-     I do ask that you inform me if you use this area, and if you write 
-any more areas that use the idea of Antharia.  
-------------------
-Current Email:  reece@@tinuviel.cs.wcu.edu
-Current muds:  Barren Realms:  dogwood.liii.com 8000
-	       Evermore MUD :  204.215.32.27 4000
-Current BBSs:  ISCA:           bbs.isca.uiowa.edu  (name: Bugle Boy)
-
-
-Thanks,
-Amadeus
-~
 0 ANTHARIA~
 This is taken from the latest edition of the Barren Realms High
 School History textbook..

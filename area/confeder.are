@@ -124,11 +124,11 @@ BDEHJ ABCDEFGHNOPQSUVWXYa AEHK 0 0
 D0
 ~
 ~
-0 0 33001
+Z 0 33001
 D2
 ~
 ~
-0 0 3008
+Z 0 3008
 S
 #33001
 @eng {DVery Dark Room{x@rus {DОчень темная комната{x~
@@ -145,11 +145,11 @@ S
 D0
 ~
 ~
-0 0 33002
+Z 0 33002
 D2
 ~
 ~
-0 0 33000
+Z 0 33000
 S
 #33002
 @eng Spacious Hall of Confederacy@rus Просторная Зала Серой Лиги~
@@ -165,11 +165,11 @@ S
 D0
 ~
 ~
-0 0 33003
+Z 0 33003
 D2
 ~
 ~
-0 0 33001
+Z 0 33001
 S
 #33003
 @eng Rest Room of Confederacy@rus Комната Отдыха Серой Лиги~
@@ -184,7 +184,7 @@ S
 D2
 ~
 ~
-0 0 33002
+Z 0 33002
 S
 #0
 

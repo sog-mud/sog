@@ -601,12 +601,12 @@ D0
 A dusty path heads towards the eastern road.
 ~
 ~
-0 -1 3526
+Z -1 3526
 D1
 You see a dusty path.
 ~
 ~
-0 -1 1502
+Z -1 1502
 S
 #1502
 A Dusty Path~
@@ -618,17 +618,17 @@ D0
 You see a small house.
 ~
 ~
-0 -1 1509
+Z -1 1509
 D1
 You see a road.
 ~
 ~
-0 -1 1503
+Z -1 1503
 D3
 You see a path.
 ~
 ~
-0 -1 1501
+Z -1 1501
 S
 #1503
 A Road in the Village~
@@ -640,22 +640,22 @@ D0
 You see a road.
 ~
 ~
-0 -1 1505
+Z -1 1505
 D1
 You see a path.
 ~
 ~
-0 -1 1504
+Z -1 1504
 D2
 You see a road.
 ~
 ~
-0 -1 1507
+Z -1 1507
 D3
 You see a road.
 ~
 ~
-0 -1 1502
+Z -1 1502
 S
 #1504
 A Dusty Path~
@@ -672,22 +672,22 @@ D0
 You see a house.
 ~
 ~
-0 -1 1512
+Z -1 1512
 D1
 You see a path.
 ~
 ~
-0 -1 1559
+Z -1 1559
 D2
 You see a house.
 ~
 ~
-0 -1 1513
+Z -1 1513
 D3
 You see a road.
 ~
 ~
-0 -1 1503
+Z -1 1503
 S
 #1505
 A Road in the Village~
@@ -699,22 +699,22 @@ D0
 You see a road.
 ~
 ~
-0 -1 1506
+Z -1 1506
 D1
 You see a house.
 ~
 ~
-0 -1 1511
+Z -1 1511
 D2
 You see a road.
 ~
 ~
-0 -1 1503
+Z -1 1503
 D3
 You see a house.
 ~
 ~
-0 -1 1510
+Z -1 1510
 S
 #1506
 A Road in the Village~
@@ -726,12 +726,12 @@ D0
 You see a road.
 ~
 ~
-0 -1 1526
+Z -1 1526
 D2
 You see a road.
 ~
 ~
-0 -1 1505
+Z -1 1505
 S
 #1507
 A Road in the Village~
@@ -743,17 +743,17 @@ D0
 You see a road.
 ~
 ~
-0 -1 1503
+Z -1 1503
 D2
 You see a road.
 ~
 ~
-0 -1 1508
+Z -1 1508
 D3
 You see a shop.
 ~
 ~
-0 -1 1514
+Z -1 1514
 S
 #1508
 A Road in the Village~
@@ -765,22 +765,22 @@ D0
 You see a road.
 ~
 ~
-0 -1 1507
+Z -1 1507
 D1
 You see a shop.
 ~
 ~
-0 -1 1516
+Z -1 1516
 D2
 You see a small path.
 ~
 ~
-0 -1 1517
+Z -1 1517
 D3
 You see a shop.
 ~
 ~
-0 -1 1515
+Z -1 1515
 S
 #1509
 A Small Gnome House~
@@ -792,7 +792,7 @@ D2
 You see a path.
 ~
 ~
-0 -1 1502
+Z -1 1502
 S
 #1510
 A Small Gnome House~
@@ -804,7 +804,7 @@ D1
 You see a path.
 ~
 ~
-0 -1 1505
+Z -1 1505
 S
 #1511
 A Small Gnome House~
@@ -816,7 +816,7 @@ D3
 You see a path.
 ~
 ~
-0 -1 1505
+Z -1 1505
 S
 #1512
 A Small Gnome House~
@@ -828,7 +828,7 @@ D2
 You see a path.
 ~
 ~
-0 -1 1504
+Z -1 1504
 S
 #1513
 A Small Gnome House~
@@ -840,7 +840,7 @@ D0
 You see a path.
 ~
 ~
-0 -1 1504
+Z -1 1504
 S
 #1514
 A Gnome Shop~
@@ -852,7 +852,7 @@ D1
 You see a road.
 ~
 ~
-0 -1 1507
+Z -1 1507
 S
 #1515
 A Gnome Shop~
@@ -864,7 +864,7 @@ D1
 You see a road.
 ~
 ~
-0 -1 1508
+Z -1 1508
 S
 #1516
 A Gnome Shop~
@@ -876,7 +876,7 @@ D3
 You see a road.
 ~
 ~
-0 -1 1508
+Z -1 1508
 S
 #1517
 Path by a Stream~
@@ -892,17 +892,17 @@ D0
 You see a road.
 ~
 ~
-0 -1 1508
+Z -1 1508
 D2
 You see the stream.
 ~
 ~
-0 -1 1520
+Z -1 1520
 D3
 You see a small path.
 ~
 ~
-0 -1 1518
+Z -1 1518
 S
 #1518
 Path by a Stream~
@@ -923,17 +923,17 @@ D1
 You see a small path.
 ~
 ~
-0 -1 1517
+Z -1 1517
 D2
 You see the stream.
 ~
 ~
-0 -1 1521
+Z -1 1521
 D3
 You see a small hut that is starting to fall apart.
 ~
 ~
-0 -1 1519
+Z -1 1519
 S
 #1519
 A Small Hut~
@@ -952,7 +952,7 @@ D1
 You see a small path.
 ~
 ~
-0 -1 1518
+Z -1 1518
 S
 #1520
 On the Stream~
@@ -964,17 +964,17 @@ D0
 You see a small path.
 ~
 ~
-0 -1 1517
+Z -1 1517
 D2
 You see a grassy field.
 ~
 ~
-0 -1 1522
+Z -1 1522
 D3
 You see a small stream.
 ~
 ~
-0 -1 1521
+Z -1 1521
 S
 #1521
 On the Stream~
@@ -986,12 +986,12 @@ D0
 You see a small path.
 ~
 ~
-0 -1 1518
+Z -1 1518
 D1
 You see a small stream.
 ~
 ~
-0 -1 1520
+Z -1 1520
 S
 #1522
 The Field of Mice's Dreams~
@@ -1003,12 +1003,12 @@ D0
 You see a small stream.
 ~
 ~
-0 -1 1520
+Z -1 1520
 D1
 You see a dark mysterious cave.
 ~
 ~
-0 -1 1523
+Z -1 1523
 S
 #1523
 The Dark Cave~
@@ -1019,12 +1019,12 @@ and try to look ahead, you think you see something move.
 D0
 ~
 ~
-0 -1 1524
+Z -1 1524
 D3
 You see a grassy field.
 ~
 ~
-0 -1 1522
+Z -1 1522
 S
 #1524
 Darker Cave~
@@ -1035,7 +1035,7 @@ life as something emerges out of the shadows.
 D2
 ~
 ~
-0 -1 1523
+Z -1 1523
 S
 #1526
 A Dusty Path~
@@ -1051,17 +1051,17 @@ D0
 You see a large white house.
 ~
 ~
-0 -1 1558
+Z -1 1558
 D2
 You see a road.
 ~
 ~
-0 -1 1506
+Z -1 1506
 D3
 You see the gateway to a large fortress.
 ~
 ~
-0 -1 1527
+Z -1 1527
 S
 #1527
 The Iron Gateway~
@@ -1073,12 +1073,12 @@ D1
 You see a small path.
 ~
 ~
-0 -1 1526
+Z -1 1526
 D3
 You see a long hallway.
 ~
 ~
-0 -1 1528
+Z -1 1528
 S
 #1528
 A Long Hallway~
@@ -1092,22 +1092,22 @@ D0
 You see the barracks.
 ~
 ~
-0 -1 1530
+Z -1 1530
 D1
 You see the gateway.
 ~
 ~
-0 -1 1527
+Z -1 1527
 D2
 You see a storage room.
 ~
 ~
-0 -1 1532
+Z -1 1532
 D3
 You see a long hallway.
 ~
 ~
-0 -1 1529
+Z -1 1529
 S
 #1529
 A Long Hallway~
@@ -1120,17 +1120,17 @@ D1
 You see a long hallway.
 ~
 ~
-0 -1 1528
+Z -1 1528
 D2
 You see the mess hall.
 ~
 ~
-0 -1 1534
+Z -1 1534
 D3
 You see a small room.
 ~
 ~
-0 -1 1535
+Z -1 1535
 S
 #1530
 The Barracks~
@@ -1143,12 +1143,12 @@ D1
 You see a small storage room.
 ~
 ~
-0 -1 1531
+Z -1 1531
 D2
 You see a long hallway.
 ~
 ~
-0 -1 1528
+Z -1 1528
 S
 #1531
 A Small Storage Room~
@@ -1160,7 +1160,7 @@ D3
 You see the barracks.
 ~
 ~
-0 -1 1530
+Z -1 1530
 S
 #1532
 A Small Storage Room~
@@ -1172,12 +1172,12 @@ D0
 You see a long hallway.
 ~
 ~
-0 -1 1528
+Z -1 1528
 D1
 You see a small room.
 ~
 ~
-0 -1 1533
+Z -1 1533
 S
 #1533
 A Small Storage Room~
@@ -1189,7 +1189,7 @@ D3
 You see a small room.
 ~
 ~
-0 -1 1532
+Z -1 1532
 S
 #1534
 The Mess Hall~
@@ -1202,7 +1202,7 @@ D0
 You see a long hallway.
 ~
 ~
-0 -1 1529
+Z -1 1529
 S
 #1535
 A Small Room~
@@ -1213,12 +1213,12 @@ D1
 You see a long hallway.
 ~
 ~
-0 -1 1529
+Z -1 1529
 D5
 You see darkness.
 ~
 ~
-0 -1 1536
+Z -1 1536
 S
 #1536
 A Small Unused Room~
@@ -1231,12 +1231,12 @@ D1
 You see a rusty door.
 ~
 rusty door~
-2 1500 1537
+ABCFZ 1500 1537
 D4
 You see a small room.
 ~
 ~
-0 -1 1535
+Z -1 1535
 S
 #1537
 Dark Hallway~
@@ -1248,16 +1248,16 @@ and a door leads off to the east.
 D1
 ~
 ~
-0 -1 1538
+Z -1 1538
 D2
 ~
 ~
-0 -1 1539
+Z -1 1539
 D3
 You see a rusty door.
 ~
 door~
-2 1500 1536
+AFZ 1500 1536
 S
 #1538
 Torture Chamber~
@@ -1273,7 +1273,7 @@ almost feel them pulling your arms out of their sockets.
 D3
 ~
 ~
-0 -1 1537
+Z -1 1537
 S
 #1539
 Dark Hallway~
@@ -1284,19 +1284,19 @@ some kind of molded slime.  Doors lead east and west.
 D0
 ~
 ~
-0 -1 1537
+Z -1 1537
 D1
 ~
 ~
-0 -1 1542
+Z -1 1542
 D2
 ~
 ~
-0 -1 1540
+Z -1 1540
 D3
 ~
 ~
-0 -1 1541
+Z -1 1541
 S
 #1540
 Dark Hallway~
@@ -1307,19 +1307,19 @@ some kind of molded slime.  Doors lead east and west.
 D0
 ~
 ~
-0 -1 1539
+Z -1 1539
 D1
 ~
 ~
-0 -1 1544
+Z -1 1544
 D2
 ~
 ~
-0 -1 1543
+Z -1 1543
 D3
 ~
 ~
-0 -1 1545
+Z -1 1545
 S
 #1541
 Prison Cell~
@@ -1330,7 +1330,7 @@ an unbearable stench.
 D1
 ~
 ~
-0 -1 1539
+Z -1 1539
 S
 #1542
 Prison Cell~
@@ -1341,7 +1341,7 @@ an unbearable stench.
 D3
 ~
 ~
-0 -1 1539
+Z -1 1539
 S
 #1543
 Prison Cell~
@@ -1352,7 +1352,7 @@ an unbearable stench.
 D0
 ~
 ~
-0 -1 1540
+Z -1 1540
 S
 #1544
 Prison Cell~
@@ -1363,7 +1363,7 @@ an unbearable stench.
 D3
 ~
 ~
-0 -1 1540
+Z -1 1540
 S
 #1545
 End of the Dark Hallway~
@@ -1374,12 +1374,12 @@ life.  Something lumbers its way out of the shadows.
 D1
 ~
 ~
-0 -1 1540
+Z -1 1540
 D3
 You see a decaying door.
 ~
 door~
-2 1501 1546
+ABCFZ 1501 1546
 S
 #1546
 A Ladder~
@@ -1390,11 +1390,11 @@ D1
 You see a decaying door.
 ~
 door~
-2 1501 1545
+ABCFZ 1501 1545
 D5
 ~
 ~
-0 -1 1547
+Z -1 1547
 S
 #1547
 Lair~
@@ -1405,11 +1405,11 @@ around the corner.
 D2
 ~
 ~
-0 -1 1548
+Z -1 1548
 D4
 ~
 ~
-0 -1 1546
+Z -1 1546
 S
 #1548
 A Damp Hallway~
@@ -1420,15 +1420,15 @@ seems to be greater here, as well as your fear.
 D0
 ~
 ~
-0 -1 1547
+Z -1 1547
 D1
 ~
 ~
-0 -1 1549
+Z -1 1549
 D3
 ~
 ~
-0 -1 1551
+Z -1 1551
 S
 #1549
 A Damp Hallway~
@@ -1439,11 +1439,11 @@ seems to be greater here, as well as your fear.
 D2
 ~
 ~
-0 -1 1550
+Z -1 1550
 D3
 ~
 ~
-0 -1 1548
+Z -1 1548
 S
 #1550
 A Damp Hallway~
@@ -1454,11 +1454,11 @@ seems to be greater here, as well as your fear.
 D0
 ~
 ~
-0 -1 1549
+Z -1 1549
 D2
 ~
 ~
-0 -1 1555
+Z -1 1555
 S
 #1551
 A Damp Hallway~
@@ -1469,11 +1469,11 @@ seems to be greater here, as well as your fear.
 D1
 ~
 ~
-0 -1 1548
+Z -1 1548
 D2
 ~
 ~
-0 -1 1552
+Z -1 1552
 S
 #1552
 A Damp Hallway~
@@ -1484,11 +1484,11 @@ seems to be greater here, as well as your fear.
 D0
 ~
 ~
-0 -1 1551
+Z -1 1551
 D2
 ~
 ~
-0 -1 1553
+Z -1 1553
 S
 #1553
 A Damp Hallway~
@@ -1499,11 +1499,11 @@ seems to be greater here, as well as your fear.
 D0
 ~
 ~
-0 -1 1552
+Z -1 1552
 D1
 ~
 ~
-0 -1 1554
+Z -1 1554
 S
 #1554
 A Damp Hallway~
@@ -1514,15 +1514,15 @@ seems to be greater here, as well as your fear.
 D0
 ~
 ~
-0 -1 1556
+Z -1 1556
 D1
 ~
 ~
-0 -1 1555
+Z -1 1555
 D3
 ~
 ~
-0 -1 1553
+Z -1 1553
 S
 #1555
 A Damp Hallway~
@@ -1533,11 +1533,11 @@ seems to be greater here, as well as your fear.
 D0
 ~
 ~
-0 -1 1550
+Z -1 1550
 D3
 ~
 ~
-0 -1 1554
+Z -1 1554
 S
 #1556
 The End of the Hallway~
@@ -1548,11 +1548,11 @@ danger.  Before you looms the source of the great heat.
 D1
 ~
 ~
-0 -1 1557
+Z -1 1557
 D2
 ~
 ~
-0 -1 1554
+Z -1 1554
 S
 #1557
 The Altar~
@@ -1563,7 +1563,7 @@ shape of a bat.  A passageway leads off to the west.
 D3
 ~
 ~
-0 -1 1556
+Z -1 1556
 S
 #1558
 The Chief's House~
@@ -1576,7 +1576,7 @@ D2
 You see a path.
 ~
 ~
-0 -1 1526
+Z -1 1526
 S
 #1559
 The Unused Path~
@@ -1588,12 +1588,12 @@ D1
 You see a path.
 ~
 ~
-0 -1 1560
+Z -1 1560
 D3
 You see a path.
 ~
 ~
-0 -1 1504
+Z -1 1504
 S
 #1560
 The Overgrown Path~
@@ -1605,12 +1605,12 @@ D1
 You see a clearing.
 ~
 ~
-0 -1 1561
+Z -1 1561
 D3
 You see a path.
 ~
 ~
-0 -1 1559
+Z -1 1559
 S
 #1561
 The Clearing~
@@ -1622,12 +1622,12 @@ D0
 You see a mine shaft.
 ~
 ~
-0 -1 1562
+Z -1 1562
 D3
 You see a path.
 ~
 ~
-0 -1 1560
+Z -1 1560
 S
 #1562
 Entrance to the Mine Shaft~
@@ -1639,12 +1639,12 @@ D1
 You see the shaft.
 ~
 ~
-0 -1 1563
+Z -1 1563
 D2
 You see the clearing.
 ~
 ~
-0 -1 1561
+Z -1 1561
 S
 #1563
 Mine Shaft~
@@ -1656,22 +1656,22 @@ D0
 You see a small mine shaft.
 ~
 ~
-0 -1 1582
+Z -1 1582
 D1
 You see the shaft.
 ~
 ~
-0 -1 1564
+Z -1 1564
 D2
 You see the shaft.
 ~
 ~
-0 -1 1574
+Z -1 1574
 D3
 You see the entrance.
 ~
 ~
-0 -1 1562
+Z -1 1562
 S
 #1564
 Mine Shaft~
@@ -1683,22 +1683,22 @@ D0
 You see a large room.
 ~
 ~
-0 -1 1583
+Z -1 1583
 D1
 You see the shaft.
 ~
 ~
-0 -1 1565
+Z -1 1565
 D2
 You see a large room.
 ~
 ~
-0 -1 1573
+Z -1 1573
 D3
 You see the shaft.
 ~
 ~
-0 -1 1563
+Z -1 1563
 S
 #1565
 Mine Shaft~
@@ -1711,17 +1711,17 @@ D1
 You see the walkway.
 ~
 ~
-0 -1 1566
+Z -1 1566
 D2
 You see a large room.
 ~
 ~
-0 -1 1572
+Z -1 1572
 D3
 You see the shaft.
 ~
 ~
-0 -1 1564
+Z -1 1564
 S
 #1566
 Walkway~
@@ -1734,12 +1734,12 @@ D2
 You see the walkway.
 ~
 ~
-0 -1 1567
+Z -1 1567
 D3
 You see the shaft.
 ~
 ~
-0 -1 1565
+Z -1 1565
 S
 #1567
 Walkway~
@@ -1752,12 +1752,12 @@ D0
 You see the walkway.
 ~
 ~
-0 -1 1566
+Z -1 1566
 D2
 You see a large hall.
 ~
 ~
-0 -1 1568
+Z -1 1568
 S
 #1568
 The Grand Hall~
@@ -1770,12 +1770,12 @@ D0
 You see the walkway.
 ~
 ~
-0 -1 1567
+Z -1 1567
 D2
 You see a large room.
 ~
 ~
-0 -1 1569
+Z -1 1569
 S
 #1569
 The Throne Room~
@@ -1787,7 +1787,7 @@ D0
 You see a large hall.
 ~
 ~
-0 -1 1568
+Z -1 1568
 S
 #1570
 The Treasury~
@@ -1799,7 +1799,7 @@ D0
 You see a large room.
 ~
 ~
-0 -1 1571
+Z -1 1571
 S
 #1571
 Guarded Room~
@@ -1811,12 +1811,12 @@ D0
 You see a large room.
 ~
 ~
-0 -1 1572
+Z -1 1572
 D2
 You see a large room.
 ~
 ~
-0 -1 1570
+Z -1 1570
 S
 #1572
 Guarded Room~
@@ -1828,12 +1828,12 @@ D0
 You see a large room.
 ~
 ~
-0 -1 1565
+Z -1 1565
 D2
 You see a large room.
 ~
 ~
-0 -1 1571
+Z -1 1571
 S
 #1573
 Hobgoblin Armory~
@@ -1845,7 +1845,7 @@ D0
 You see the shaft.
 ~
 ~
-0 -1 1564
+Z -1 1564
 S
 #1574
 Mine Shaft~
@@ -1858,12 +1858,12 @@ D0
 You see the shaft.
 ~
 ~
-0 -1 1563
+Z -1 1563
 D2
 You see a dark and nasty room.
 ~
 ~
-0 -1 1575
+Z -1 1575
 S
 #1575
 Entrance to a Dungeon~
@@ -1876,22 +1876,22 @@ D0
 You see the shaft.
 ~
 ~
-0 -1 1574
+Z -1 1574
 D1
 You see a cell.
 ~
 ~
-0 -1 1577
+Z -1 1577
 D2
 You see a dark and nasty room.
 ~
 ~
-0 -1 1576
+Z -1 1576
 D3
 You see a cell.
 ~
 ~
-0 -1 1581
+Z -1 1581
 S
 #1576
 A Dungeon~
@@ -1904,22 +1904,22 @@ D0
 You see a dark and nasty room.
 ~
 ~
-0 -1 1575
+Z -1 1575
 D1
 You see a cell.
 ~
 ~
-0 -1 1578
+Z -1 1578
 D2
 You see a cell.
 ~
 ~
-0 -1 1579
+Z -1 1579
 D3
 You see a cell.
 ~
 ~
-0 -1 1580
+Z -1 1580
 S
 #1577
 A Jail Cell~
@@ -1931,7 +1931,7 @@ D3
 You see a dark and nasty room.
 ~
 ~
-0 -1 1575
+Z -1 1575
 S
 #1578
 The Jail Cell~
@@ -1943,7 +1943,7 @@ D3
 You see a dark and nasty room.
 ~
 ~
-0 -1 1576
+Z -1 1576
 S
 #1579
 The Jail Cell~
@@ -1955,7 +1955,7 @@ D0
 You see a dark and nasty room.
 ~
 ~
-0 -1 1576
+Z -1 1576
 S
 #1580
 The Jail Cell~
@@ -1967,7 +1967,7 @@ D1
 You see a dark and nasty room.
 ~
 ~
-0 -1 1576
+Z -1 1576
 S
 #1581
 The Jail Cell~
@@ -1979,7 +1979,7 @@ D1
 You see a dark and nasty room.
 ~
 ~
-0 -1 1575
+Z -1 1575
 S
 #1582
 Small Mine Shaft~
@@ -1991,12 +1991,12 @@ D0
 You see a small mine shaft.
 ~
 ~
-0 -1 1588
+Z -1 1588
 D2
 You see the shaft.
 ~
 ~
-0 -1 1563
+Z -1 1563
 S
 #1583
 Hobgoblin Barracks~
@@ -2009,17 +2009,17 @@ D0
 You see a large room.
 ~
 ~
-0 -1 1584
+Z -1 1584
 D1
 You see the mess hall.
 ~
 ~
-0 -1 1585
+Z -1 1585
 D2
 You see the mine shaft.
 ~
 ~
-0 -1 1564
+Z -1 1564
 S
 #1584
 Hobgoblin Barracks~
@@ -2030,7 +2030,7 @@ What are you DOING here?
 D2
 You see a large room~
 ~
-0 -1 1583
+Z -1 1583
 S
 #1585
 Mess Hall~
@@ -2043,17 +2043,17 @@ D0
 You see a small room.
 ~
 ~
-0 -1 1586
+Z -1 1586
 D1
 You see a kitchen.
 ~
 ~
-0 -1 1587
+Z -1 1587
 D3
 You see a large room.
 ~
 ~
-0 -1 1583
+Z -1 1583
 S
 #1586
 A Store Room~
@@ -2064,7 +2064,7 @@ D2
 You see the mess hall.
 ~
 ~
-0 -1 1585
+Z -1 1585
 S
 #1587
 The Kitchen~
@@ -2077,7 +2077,7 @@ D3
 You see the mess hall.
 ~
 ~
-0 -1 1585
+Z -1 1585
 S
 #1588
 A Small Mine Shaft~
@@ -2089,17 +2089,17 @@ D0
 You see an almost caved in area.
 ~
 ~
-0 -1 1589
+Z -1 1589
 D2
 You see a small mine shaft.
 ~
 ~
-0 -1 1582
+Z -1 1582
 D5
 You see a hole.
 ~
 ~
-0 -1 1590
+Z -1 1590
 S
 #1589
 Hermit's Lair~
@@ -2112,7 +2112,7 @@ D2
 You see a small mine shaft.
 ~
 ~
-0 -1 1588
+Z -1 1588
 S
 #1590
 A Hole~
@@ -2123,7 +2123,7 @@ D4
 You see a small mine shaft.
 ~
 ~
-0 -1 1588
+Z -1 1588
 S
 #0
 

@@ -861,15 +861,15 @@ wish here.
 D1
 ~
 ~
-0 -1 8193
+Z -1 8193
 D2
 ~
 ~
-0 -1 8187
+Z -1 8187
 D3
 ~
 ~
-0 -1 8191
+Z -1 8191
 S
 #8193
 The Garden~
@@ -883,15 +883,15 @@ your surroundings.
 D1
 ~
 ~
-0 -1 8194
+Z -1 8194
 D2
 ~
 ~
-0 -1 8188
+Z -1 8188
 D3
 ~
 ~
-0 -1 8192
+Z -1 8192
 S
 #8194
 The Garden~
@@ -905,11 +905,11 @@ your surroundings.
 D2
 ~
 ~
-0 -1 8189
+Z -1 8189
 D3
 ~
 ~
-0 -1 8193
+Z -1 8193
 S
 #8195
 A Murky Mist~
@@ -923,15 +923,15 @@ to the east. A gaping hole looms out of the fog in the ground to the right.
 D0
 ~
 ~
-0 -1 8197
+Z -1 8197
 D2
 ~
 ~
-0 -1 8164
+Z -1 8164
 D5
 ~
 ~
-0 -1 8196
+Z -1 8196
 S
 #8196
 The Dragon's Lair~
@@ -944,7 +944,7 @@ at least 90% sure you have entered the lair of one...
 D4
 ~
 ~
-0 -1 8195
+Z -1 8195
 S
 #8197
 A Murky Mist~
@@ -958,11 +958,11 @@ to the east.
 D0
 ~
 ~
-0 -1 8198
+Z -1 8198
 D2
 ~
 ~
-0 -1 8195
+Z -1 8195
 S
 #8198
 A Murky Mist~
@@ -977,11 +977,11 @@ ahead.
 D0
 ~
 ~
-0 -1 8199
+Z -1 8199
 D2
 ~
 ~
-0 -1 8197
+Z -1 8197
 S
 #8199
 A Dark Tunnel~
@@ -995,7 +995,7 @@ escape.
 D2
 ~
 ~
-0 -1 8198
+Z -1 8198
 S
 #8100
 A Dusty Trail~
@@ -1014,11 +1014,11 @@ W E L C O M E    T O    G H O S T T O W N
 D0
 ~
 ~
-0 -1 8101
+Z -1 8101
 D2
 ~
 ~
-0 -1 9584
+Z -1 9584
 S
 #8101
 The Town~
@@ -1032,11 +1032,11 @@ choice.
 D0
 ~
 ~
-0 -1 8102
+Z -1 8102
 D2
 ~
 ~
-0 -1 8100
+Z -1 8100
 S
 #8102
 The Main Street~
@@ -1049,15 +1049,15 @@ right. Up ahead lies a small town square.
 D0
 ~
 ~
-0 -1 8106
+Z -1 8106
 D1
 ~
 ~
-1 0 8104
+ABZ 0 8104
 D3
 ~
 ~
-1 0 8103
+ABZ 0 8103
 S
 #8103
 A Ruined House~
@@ -1070,7 +1070,7 @@ to kill...
 D1
 ~
 ~
-1 0 8102
+ABZ 0 8102
 S
 #8104
 A Ruined House~
@@ -1083,7 +1083,7 @@ to kill...
 D3
 ~
 ~
-1 0 8102
+ABZ 0 8102
 S
 #8105
 The Town Square~
@@ -1096,11 +1096,11 @@ There is a well in the middle of the square.
 D0
 ~
 ~
-0 -1 8108
+Z -1 8108
 D1
 ~
 ~
-0 -1 8106
+Z -1 8106
 S
 #8106
 The Town Square~
@@ -1113,19 +1113,19 @@ There is a well in the middle of the square.
 D0
 ~
 ~
-0 -1 8109
+Z -1 8109
 D1
 ~
 ~
-0 -1 8107
+Z -1 8107
 D2
 ~
 ~
-0 -1 8102
+Z -1 8102
 D3
 ~
 ~
-0 -1 8105
+Z -1 8105
 S
 #8107
 The Town Square~
@@ -1138,11 +1138,11 @@ There is a well in the middle of the square.
 D0
 ~
 ~
-0 -1 8110
+Z -1 8110
 D3
 ~
 ~
-0 -1 8106
+Z -1 8106
 S
 #8108
 The Town Square~
@@ -1155,19 +1155,19 @@ There is a well in the middle of the square.
 D0
 ~
 ~
-0 -1 8111
+Z -1 8111
 D1
 ~
 ~
-0 -1 8109
+Z -1 8109
 D2
 ~
 ~
-0 -1 8105
+Z -1 8105
 D3
 ~
 ~
-0 -1 8114
+Z -1 8114
 S
 #8109
 The Well in the Town Square~
@@ -1179,19 +1179,19 @@ the well, as a small amount of grass has managed to grow around it.
 D0
 ~
 ~
-0 -1 8112
+Z -1 8112
 D1
 ~
 ~
-0 -1 8110
+Z -1 8110
 D2
 ~
 ~
-0 -1 8106
+Z -1 8106
 D3
 ~
 ~
-0 -1 8108
+Z -1 8108
 S
 #8110
 The Town Square~
@@ -1204,19 +1204,19 @@ There is a well in the middle of the square.
 D0
 ~
 ~
-0 -1 8113
+Z -1 8113
 D1
 ~
 ~
-0 -1 8124
+Z -1 8124
 D2
 ~
 ~
-0 -1 8107
+Z -1 8107
 D3
 ~
 ~
-0 -1 8109
+Z -1 8109
 S
 #8111
 The Town Square~
@@ -1229,11 +1229,11 @@ There is a well in the middle of the square.
 D1
 ~
 ~
-0 -1 8112
+Z -1 8112
 D2
 ~
 ~
-0 -1 8108
+Z -1 8108
 S
 #8112
 The Town Square~
@@ -1246,19 +1246,19 @@ There is a well in the middle of the square.
 D0
 ~
 ~
-0 -1 8134
+Z -1 8134
 D1
 ~
 ~
-0 -1 8113
+Z -1 8113
 D2
 ~
 ~
-0 -1 8109
+Z -1 8109
 D3
 ~
 ~
-0 -1 8111
+Z -1 8111
 S
 #8113
 The Town Square~
@@ -1271,11 +1271,11 @@ There is a well in the middle of the square.
 D2
 ~
 ~
-0 -1 8110
+Z -1 8110
 D3
 ~
 ~
-0 -1 8112
+Z -1 8112
 S
 #8114
 A Side Street~
@@ -1286,19 +1286,19 @@ Square. Houses lie to the north and south.
 D0
 ~
 ~
-1 0 8115
+ABZ 0 8115
 D1
 ~
 ~
-0 -1 8108
+Z -1 8108
 D2
 ~
 ~
-1 0 8116
+ABZ 0 8116
 D3
 ~
 ~
-0 -1 8117
+Z -1 8117
 S
 #8115
 A Ruined House~
@@ -1311,7 +1311,7 @@ to kill...
 D2
 ~
 ~
-1 0 8114
+ABZ 0 8114
 S
 #8116
 A Ruined House~
@@ -1324,7 +1324,7 @@ to kill...
 D0
 ~
 ~
-1 0 8114
+ABZ 0 8114
 S
 #8117
 A Side Street~
@@ -1335,19 +1335,19 @@ Square. Houses lie to the north and south.
 D0
 ~
 ~
-1 0 8118
+ABZ 0 8118
 D1
 ~
 ~
-0 -1 8114
+Z -1 8114
 D2
 ~
 ~
-1 0 8119
+ABZ 0 8119
 D3
 ~
 ~
-0 -1 8120
+Z -1 8120
 S
 #8118
 A Ruined House~
@@ -1360,7 +1360,7 @@ to kill...
 D2
 ~
 ~
-1 0 8117
+ABZ 0 8117
 S
 #8119
 A Ruined House~
@@ -1373,7 +1373,7 @@ to kill...
 D0
 ~
 ~
-1 0 8117
+ABZ 0 8117
 S
 #8120
 A Side Street~
@@ -1384,19 +1384,19 @@ Square. Houses lie to the north, west and south.
 D0
 ~
 ~
-1 0 8121
+ABZ 0 8121
 D1
 ~
 ~
-0 -1 8117
+Z -1 8117
 D2
 ~
 ~
-1 0 8122
+ABZ 0 8122
 D3
 ~
 ~
-1 0 8123
+ABZ 0 8123
 S
 #8121
 A Ruined House~
@@ -1409,7 +1409,7 @@ to kill...
 D2
 ~
 ~
-1 0 8120
+ABZ 0 8120
 S
 #8122
 A Ruined House~
@@ -1422,7 +1422,7 @@ to kill...
 D0
 ~
 ~
-1 0 8120
+ABZ 0 8120
 S
 #8123
 A Ruined House~
@@ -1435,7 +1435,7 @@ to kill...
 D1
 ~
 ~
-1 0 8120
+ABZ 0 8120
 S
 #8124
 A Side Street~
@@ -1446,19 +1446,19 @@ Square. Houses lie to the north and south.
 D0
 ~
 ~
-1 0 8125
+ABZ 0 8125
 D1
 ~
 ~
-0 -1 8127
+Z -1 8127
 D2
 ~
 ~
-1 0 8126
+ABZ 0 8126
 D3
 ~
 ~
-0 -1 8110
+Z -1 8110
 S
 #8125
 A Ruined House~
@@ -1471,7 +1471,7 @@ to kill...
 D2
 ~
 ~
-1 0 8124
+ABZ 0 8124
 S
 #8126
 A Ruined House~
@@ -1484,7 +1484,7 @@ to kill...
 D0
 ~
 ~
-1 0 8124
+ABZ 0 8124
 S
 #8127
 A Side Street~
@@ -1495,19 +1495,19 @@ Square. Houses lie to the north and south.
 D0
 ~
 ~
-1 0 8128
+ABZ 0 8128
 D1
 ~
 ~
-0 -1 8130
+Z -1 8130
 D2
 ~
 ~
-1 0 8129
+ABZ 0 8129
 D3
 ~
 ~
-0 -1 8124
+Z -1 8124
 S
 #8128
 A Ruined House~
@@ -1520,7 +1520,7 @@ to kill...
 D2
 ~
 ~
-1 0 8127
+ABZ 0 8127
 S
 #8129
 A Ruined House~
@@ -1533,7 +1533,7 @@ to kill...
 D0
 ~
 ~
-1 0 8127
+ABZ 0 8127
 S
 #8130
 A Side Street~
@@ -1544,19 +1544,19 @@ Square. Houses lie to the north, east and south.
 D0
 ~
 ~
-1 0 8131
+ABZ 0 8131
 D1
 ~
 ~
-1 0 8133
+ABZ 0 8133
 D2
 ~
 ~
-1 0 8132
+ABZ 0 8132
 D3
 ~
 ~
-0 -1 8127
+Z -1 8127
 S
 #8131
 A Ruined House~
@@ -1569,7 +1569,7 @@ to kill...
 D2
 ~
 ~
-1 0 8130
+ABZ 0 8130
 S
 #8132
 A Ruined House~
@@ -1582,7 +1582,7 @@ to kill...
 D0
 ~
 ~
-1 0 8130
+ABZ 0 8130
 S
 #8133
 A Ruined House~
@@ -1595,7 +1595,7 @@ to kill...
 D3
 ~
 ~
-1 0 8130
+ABZ 0 8130
 S
 #8134
 Main Street~
@@ -1606,19 +1606,19 @@ North toward an intersection. Houses line the street.
 D0
 ~
 ~
-0 -1 8137
+Z -1 8137
 D1
 ~
 ~
-1 0 8136
+ABZ 0 8136
 D2
 ~
 ~
-0 -1 8112
+Z -1 8112
 D3
 ~
 ~
-1 0 8135
+ABZ 0 8135
 S
 #8135
 A Ruined House~
@@ -1631,7 +1631,7 @@ to kill...
 D1
 ~
 ~
-1 0 8134
+ABZ 0 8134
 S
 #8136
 A Ruined House~
@@ -1644,7 +1644,7 @@ to kill...
 D3
 ~
 ~
-1 0 8134
+ABZ 0 8134
 S
 #8137
 An Intersection~
@@ -1657,15 +1657,15 @@ enshrouded in dark fog...
 D0
 ~
 ~
-0 -1 8155
+Z -1 8155
 D2
 ~
 ~
-0 -1 8134
+Z -1 8134
 D3
 ~
 ~
-0 -1 8138
+Z -1 8138
 S
 #8138
 The Road to the Mayor's House~
@@ -1678,11 +1678,11 @@ here.
 D1
 ~
 ~
-0 -1 8137
+Z -1 8137
 D3
 ~
 ~
-0 -1 8139
+Z -1 8139
 S
 #8139
 A Junction~
@@ -1695,15 +1695,15 @@ as some very tall, sinister-looking trees.
 D0
 ~
 ~
-0 -1 8171
+Z -1 8171
 D1
 ~
 ~
-0 -1 8138
+Z -1 8138
 D3
 ~
 ~
-0 -1 8140
+Z -1 8140
 S
 #8140
 Outside the Mayor's House~
@@ -1716,11 +1716,11 @@ you to suspect that perhaps someone (or thing) important now resides here...
 D1
 ~
 ~
-0 -1 8139
+Z -1 8139
 D3
 ~
 ~
-1 0 8141
+ABZ 0 8141
 S
 #8141
 The Hallway~
@@ -1733,19 +1733,19 @@ south of here.
 D0
 ~
 ~
-1 0 8143
+ABZ 0 8143
 D1
 ~
 ~
-1 0 8140
+ABZ 0 8140
 D2
 ~
 ~
-1 0 8142
+ABZ 0 8142
 D3
 ~
 ~
-0 -1 8144
+Z -1 8144
 S
 #8142
 A Room in the Mayor's Manse~
@@ -1758,7 +1758,7 @@ not to vomit.
 D0
 ~
 ~
-1 0 8141
+ABZ 0 8141
 S
 #8143
 A Room in the Mayor's Manse~
@@ -1771,7 +1771,7 @@ not to vomit.
 D2
 ~
 ~
-1 0 8141
+ABZ 0 8141
 S
 #8144
 The Hallway~
@@ -1784,19 +1784,19 @@ south of here.
 D0
 ~
 ~
-1 0 8146
+ABZ 0 8146
 D1
 ~
 ~
-0 0 8141
+Z 0 8141
 D2
 ~
 ~
-1 0 8145
+ABZ 0 8145
 D3
 ~
 ~
-0 -1 8147
+Z -1 8147
 S
 #8145
 A Room in the Mayor's Manse~
@@ -1809,7 +1809,7 @@ not to vomit.
 D0
 ~
 ~
-1 0 8144
+ABZ 0 8144
 S
 #8146
 A Room in the Mayor's Manse~
@@ -1822,7 +1822,7 @@ not to vomit.
 D2
 ~
 ~
-1 0 8144
+ABZ 0 8144
 S
 #8147
 The Stairway~
@@ -1833,11 +1833,11 @@ dreadful stench emanating from upstairs, makes you reluctant to proceed...
 D1
 ~
 ~
-0 -1 8144
+Z -1 8144
 D4
 ~
 ~
-0 -1 8148
+Z -1 8148
 S
 #8148
 The Stairway~
@@ -1849,11 +1849,11 @@ breathe, and steel yourself to continue.
 D1
 ~
 ~
-0 -1 8149
+Z -1 8149
 D5
 ~
 ~
-0 -1 8147
+Z -1 8147
 S
 #8149
 The Hallway~
@@ -1865,19 +1865,19 @@ and south of here. The hall ends at an impressive portal to the east.
 D0
 ~
 ~
-1 0 8150
+ABZ 0 8150
 D1
 ~
 ~
-1 0 8152
+ABZ 0 8152
 D2
 ~
 ~
-1 0 8151
+ABZ 0 8151
 D3
 ~
 ~
-0 -1 8148
+Z -1 8148
 S
 #8150
 A Room in the Mayor's Manse~
@@ -1890,7 +1890,7 @@ not to vomit.
 D2
 ~
 ~
-1 0 8149
+ABZ 0 8149
 S
 #8151
 A Room in the Mayor's Manse~
@@ -1903,7 +1903,7 @@ not to vomit.
 D0
 ~
 ~
-1 0 8149
+ABZ 0 8149
 S
 #8152
 The Mayor's Study~
@@ -1917,15 +1917,15 @@ behind this sits a plush leather chair. Wonder whose domain this is...?
 D0
 ~
 ~
-1 0 8153
+ABZ 0 8153
 D2
 ~
 ~
-1 0 8154
+ABZ 0 8154
 D3
 ~
 ~
-1 0 8149
+ABZ 0 8149
 S
 #8153
 A Bedroom~
@@ -1942,7 +1942,7 @@ evil-looking gentleman of middle years.
 D2
 ~
 ~
-1 0 8152
+ABZ 0 8152
 S
 #8154
 A Bedroom~
@@ -1957,7 +1957,7 @@ the very least...
 D0
 ~
 ~
-1 0 8152
+ABZ 0 8152
 S
 #8155
 A Murky Mist~
@@ -1970,11 +1970,11 @@ clutching at your heart.
 D1
 ~
 ~
-0 -1 8156
+Z -1 8156
 D2
 ~
 ~
-0 -1 8137
+Z -1 8137
 S
 #8156
 A Murky Mist~
@@ -1987,15 +1987,15 @@ clutching at your heart.
 D0
 ~
 ~
-0 -1 8159
+Z -1 8159
 D2
 ~
 ~
-0 -1 8157
+Z -1 8157
 D3
 ~
 ~
-0 -1 8155
+Z -1 8155
 S
 #8157
 A Small House~
@@ -2007,11 +2007,11 @@ directly to the east.
 D0
 ~
 ~
-0 -1 8156
+Z -1 8156
 D1
 ~
 ~
-1 0 8158
+ABZ 0 8158
 S
 #8158
 Temporary Residence of a Demon~
@@ -2025,7 +2025,7 @@ of ORCUS! If he isn't here, leave quickly. If he is...
 D3
 ~
 ~
-1 0 8157
+ABZ 0 8157
 S
 #8159
 A Murky Mist~
@@ -2038,15 +2038,15 @@ clutching at your heart.
 D0
 ~
 ~
-0 -1 8163
+Z -1 8163
 D1
 ~
 ~
-0 -1 8160
+Z -1 8160
 D2
 ~
 ~
-0 -1 8156
+Z -1 8156
 S
 #8160
 A Clearing~
@@ -2058,11 +2058,11 @@ can see shapes moving about.
 D1
 ~
 ~
-1 0 8161
+ABZ 0 8161
 D3
 ~
 ~
-0 -1 8159
+Z -1 8159
 S
 #8161
 The Interior of the Cottage~
@@ -2074,11 +2074,11 @@ can see a staircase leading down.
 D1
 ~
 ~
-0 -1 8162
+Z -1 8162
 D3
 ~
 ~
-1 0 8160
+ABZ 0 8160
 S
 #8162
 A Staircase~
@@ -2090,7 +2090,7 @@ what may below, but can see only darkness.
 D3
 ~
 ~
-0 -1 8161
+Z -1 8161
 S
 #8163
 A Murky Mist~
@@ -2103,11 +2103,11 @@ clutching at your heart.
 D0
 ~
 ~
-0 -1 8164
+Z -1 8164
 D2
 ~
 ~
-0 -1 8159
+Z -1 8159
 S
 #8164
 A Murky Mist~
@@ -2121,15 +2121,15 @@ to the east.
 D0
 ~
 ~
-0 -1 8195
+Z -1 8195
 D1
 ~
 ~
-0 -1 8165
+Z -1 8165
 D2
 ~
 ~
-0 -1 8163
+Z -1 8163
 S
 #8165
 Outside The Crypt~
@@ -2153,11 +2153,11 @@ The runes on the door read-
 D1
 ~
 ~
-1 0 8166
+ABZ 0 8166
 D3
 ~
 ~
-0 -1 8164
+Z -1 8164
 S
 #8166
 Inside The Crypt~
@@ -2170,11 +2170,11 @@ You hope you don't run into the spinner of these webs.
 D3
 ~
 ~
-1 0 8165
+ABZ 0 8165
 D5
 ~
 ~
-0 -1 8167
+Z -1 8167
 S
 #8167
 The Crypt Proper~
@@ -2187,19 +2187,19 @@ arched ceiling.
 D0
 ~
 ~
-1 0 8168
+ABZ 0 8168
 D1
 ~
 ~
-1 0 8170
+ABZ 0 8170
 D2
 ~
 ~
-1 0 8169
+ABZ 0 8169
 D4
 ~
 ~
-0 -1 8166
+Z -1 8166
 S
 #8168
 A Room In the Crypt~
@@ -2212,7 +2212,7 @@ is it...?
 D2
 ~
 ~
-1 0 8167
+ABZ 0 8167
 S
 #8169
 A Room In the Crypt~
@@ -2225,7 +2225,7 @@ is it...?
 D0
 ~
 ~
-1 0 8167
+ABZ 0 8167
 S
 #8170
 A Room In the Crypt~
@@ -2238,7 +2238,7 @@ is it...?
 D3
 ~
 ~
-1 0 8167
+ABZ 0 8167
 S
 #8171
 The Path To The Garden~
@@ -2250,11 +2250,11 @@ thorns that look like teeth...
 D0
 ~
 ~
-0 -1 8172
+Z -1 8172
 D2
 ~
 ~
-0 -1 8139
+Z -1 8139
 S
 #8172
 The Path To The Garden~
@@ -2268,15 +2268,15 @@ of branches.
 D0
 ~
 ~
-0 -1 8173
+Z -1 8173
 D2
 ~
 ~
-0 -1 8171
+Z -1 8171
 D5
 ~
 ~
-0 -1 8174
+Z -1 8174
 S
 #8173
 The Path To The Garden~
@@ -2289,11 +2289,11 @@ through, you become reluctant to enter. It looks like a virtual maze...
 D0
 ~
 ~
-0 0 8177
+Z 0 8177
 D2
 ~
 ~
-0 -1 8172
+Z -1 8172
 S
 #8174
 A Bolthole~
@@ -2305,7 +2305,7 @@ too petrified to leave his hole.
 D4
 ~
 ~
-0 -1 8172
+Z -1 8172
 S
 #8175
 The Garden~
@@ -2319,11 +2319,11 @@ your surroundings.
 D0
 ~
 ~
-0 -1 8180
+Z -1 8180
 D1
 ~
 ~
-0 -1 8176
+Z -1 8176
 S
 #8176
 The Garden~
@@ -2337,15 +2337,15 @@ your surroundings.
 D0
 ~
 ~
-0 -1 8181
+Z -1 8181
 D1
 ~
 ~
-0 -1 8177
+Z -1 8177
 D3
 ~
 ~
-0 -1 8175
+Z -1 8175
 S
 #8177
 The Garden~
@@ -2359,15 +2359,15 @@ your surroundings.
 D0
 ~
 ~
-0 -1 8182
+Z -1 8182
 D1
 ~
 ~
-0 -1 8178
+Z -1 8178
 D3
 ~
 ~
-0 -1 8176
+Z -1 8176
 S
 #8178
 The Garden~
@@ -2381,15 +2381,15 @@ your surroundings.
 D0
 ~
 ~
-0 -1 8183
+Z -1 8183
 D1
 ~
 ~
-0 -1 8179
+Z -1 8179
 D3
 ~
 ~
-0 -1 8177
+Z -1 8177
 S
 #8179
 The Garden~
@@ -2403,11 +2403,11 @@ your surroundings.
 D0
 ~
 ~
-0 -1 8184
+Z -1 8184
 D3
 ~
 ~
-0 -1 8178
+Z -1 8178
 S
 #8180
 The Garden~
@@ -2421,15 +2421,15 @@ your surroundings.
 D0
 ~
 ~
-0 -1 8185
+Z -1 8185
 D1
 ~
 ~
-0 -1 8181
+Z -1 8181
 D2
 ~
 ~
-0 -1 8175
+Z -1 8175
 S
 #8181
 The Garden~
@@ -2443,19 +2443,19 @@ your surroundings.
 D0
 ~
 ~
-0 -1 8186
+Z -1 8186
 D1
 ~
 ~
-0 -1 8182
+Z -1 8182
 D2
 ~
 ~
-0 -1 8176
+Z -1 8176
 D3
 ~
 ~
-0 -1 8180
+Z -1 8180
 S
 #8182
 The Garden~
@@ -2469,19 +2469,19 @@ your surroundings.
 D0
 ~
 ~
-0 -1 8187
+Z -1 8187
 D1
 ~
 ~
-0 -1 8183
+Z -1 8183
 D2
 ~
 ~
-0 -1 8177
+Z -1 8177
 D3
 ~
 ~
-0 -1 8181
+Z -1 8181
 S
 #8183
 The Garden~
@@ -2495,19 +2495,19 @@ your surroundings.
 D0
 ~
 ~
-0 -1 8188
+Z -1 8188
 D1
 ~
 ~
-0 -1 8184
+Z -1 8184
 D2
 ~
 ~
-0 -1 8178
+Z -1 8178
 D3
 ~
 ~
-0 -1 8182
+Z -1 8182
 S
 #8184
 The Garden~
@@ -2521,15 +2521,15 @@ your surroundings.
 D0
 ~
 ~
-0 -1 8189
+Z -1 8189
 D2
 ~
 ~
-0 -1 8179
+Z -1 8179
 D3
 ~
 ~
-0 -1 8183
+Z -1 8183
 S
 #8185
 The Garden~
@@ -2543,15 +2543,15 @@ your surroundings.
 D0
 ~
 ~
-0 -1 8190
+Z -1 8190
 D1
 ~
 ~
-0 -1 8186
+Z -1 8186
 D2
 ~
 ~
-0 -1 8180
+Z -1 8180
 S
 #8186
 The Garden~
@@ -2565,19 +2565,19 @@ your surroundings.
 D0
 ~
 ~
-0 -1 8191
+Z -1 8191
 D1
 ~
 ~
-0 -1 8187
+Z -1 8187
 D2
 ~
 ~
-0 -1 8181
+Z -1 8181
 D3
 ~
 ~
-0 -1 8185
+Z -1 8185
 S
 #8187
 The Garden~
@@ -2591,19 +2591,19 @@ your surroundings.
 D0
 ~
 ~
-0 -1 8192
+Z -1 8192
 D1
 ~
 ~
-0 -1 8188
+Z -1 8188
 D2
 ~
 ~
-0 -1 8182
+Z -1 8182
 D3
 ~
 ~
-0 -1 8186
+Z -1 8186
 S
 #8188
 The Garden~
@@ -2617,19 +2617,19 @@ your surroundings.
 D0
 ~
 ~
-0 -1 8193
+Z -1 8193
 D1
 ~
 ~
-0 -1 8189
+Z -1 8189
 D2
 ~
 ~
-0 -1 8183
+Z -1 8183
 D3
 ~
 ~
-0 -1 8187
+Z -1 8187
 S
 #8189
 The Garden~
@@ -2643,15 +2643,15 @@ your surroundings.
 D0
 ~
 ~
-0 -1 8194
+Z -1 8194
 D2
 ~
 ~
-0 -1 8184
+Z -1 8184
 D3
 ~
 ~
-0 -1 8188
+Z -1 8188
 S
 #8190
 The Garden~
@@ -2665,11 +2665,11 @@ your surroundings.
 D1
 ~
 ~
-0 -1 8191
+Z -1 8191
 D2
 ~
 ~
-0 -1 8185
+Z -1 8185
 S
 #8191
 The Garden~
@@ -2683,15 +2683,15 @@ your surroundings.
 D1
 ~
 ~
-0 -1 8192
+Z -1 8192
 D2
 ~
 ~
-0 -1 8186
+Z -1 8186
 D3
 ~
 ~
-0 -1 8190
+Z -1 8190
 S
 #0
 

@@ -253,12 +253,12 @@ D0
 You reach civilization again.
 ~
 ~
-0 0 6124
+Z 0 6124
 D2
 You find the stench is stronger inside.
 ~
 ~
-0 0 2803
+Z 0 2803
 S
 #2802
 Troll's Larder~
@@ -277,7 +277,7 @@ You welcome the fresh breeze coming from the east, but wrinkle your nose when
 the stench bears down on you once more.
 ~
 ~
-0 0 2803
+Z 0 2803
 S
 #2803
 Troll's Living Room~
@@ -289,25 +289,25 @@ D0
 There is a trail of bone shards and fragments leading north.
 ~
 ~
-0 0 2801
+Z 0 2801
 D1
 Good God!  You spy corpses all over the floor in there.  It looks like a
 virtual graveyard in there.
 ~
 ~
-0 0 2804
+Z 0 2804
 D2
 Whoa!  You reel back from the stench.  You believe you have found the source
 of this bad smell.
 ~
 ~
-0 0 2805
+Z 0 2805
 D3
 You puke as you watch worms crawl between this room and the room west of here
 as they bore new holes into a corpse laying on the far wall of the west room.
 ~
 ~
-0 0 2802
+Z 0 2802
 S
 #2804
 The Playpen~
@@ -326,7 +326,7 @@ You welcome the fresh breeze coming from the west, but wrinkle your nose when
 the stench bears down on you once more.
 ~
 ~
-0 0 2803
+Z 0 2803
 S
 #2805
 Troll's Bedroom~
@@ -342,7 +342,7 @@ You welcome the fresh breeze coming from the north, but wrinkle your nose when
 the stench bears down on you once more.
 ~
 ~
-0 0 2803
+Z 0 2803
 S
 #0
 

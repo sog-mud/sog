@@ -255,22 +255,22 @@ D0
 Through the solid iron bars you see Elm Street. 
 ~
 grate~
-1 -1 3124
+ABZ -1 3124
 D1
 The gravel path leads eastwards between the dark evergreen trees.
 ~
 ~
-0 -1 3650
+Z -1 3650
 D2
 The gravel road continues southwards.
 ~
 ~
-0 -1 3601
+Z -1 3601
 D3
 The gravel path leads westwards between the dark evergreen trees.
 ~
 ~
-0 -1 3606
+Z -1 3606
 S
 #3601
 A Gravel Road in the Graveyard~
@@ -282,12 +282,12 @@ D0
 The gravel road continues northwards.
 ~
 ~
-0 -1 3600
+Z -1 3600
 D2
 The gravel road continues southwards.
 ~
 ~
-0 -1 3602
+Z -1 3602
 S
 #3602
 A Gravel Road in the Graveyard~
@@ -299,12 +299,12 @@ D0
 The gravel road continues northwards.
 ~
 ~
-0 -1 3601
+Z -1 3601
 D2
 The gravel road continues southwards.
 ~
 ~
-0 -1 3603
+Z -1 3603
 S
 #3603
 A Gravel Road in the Graveyard~
@@ -316,13 +316,13 @@ D0
 The gravel road continues northwards.
 ~
 ~
-0 -1 3602
+Z -1 3602
 D2
 The gravel road continues southwards to an open space before a small
 building.
 ~
 ~
-0 -1 3604
+Z -1 3604
 S
 #3604
 In front of the Chapel~
@@ -334,22 +334,22 @@ D0
 The gravel road continues northwards.
 ~
 ~
-0 -1 3603
+Z -1 3603
 D1
 The gravel path leads eastwards between the dark evergreen trees.
 ~
 ~
-0 -1 3638
+Z -1 3638
 D2
 The chapel door is made of dark wood.
 ~
 door~
-1 -1 3405
+ABZ -1 3405
 D3
 The gravel path leads westwards between the dark evergreen trees.
 ~
 ~
-0 -1 3618
+Z -1 3618
 S
 #3606
 A Gravel Path on the Graveyard~
@@ -366,16 +366,16 @@ D1
 The gravel path continues eastwards towards a gravel road.
 ~
 ~
-0 -1 3600
+Z -1 3600
 D2
 The gravel path continues southwards.
 ~
 ~
-0 -1 3608
+Z -1 3608
 D5
 ~
 tomb stone~
-1 -1 3607
+ABZ -1 3607
 S
 #3607
 In a dusty Tomb~
@@ -386,7 +386,7 @@ The only exit appears to be up.
 D4
 ~
 tomb stone~
-1 -1 3606
+ABZ -1 3606
 S
 #3608
 A Gravel Path on the Graveyard~
@@ -403,16 +403,16 @@ D0
 The gravel path continues northwards.
 ~
 ~
-0 -1 3606
+Z -1 3606
 D3
 The gravel path continues westwards.
 ~
 ~
-0 -1 3610
+Z -1 3610
 D5
 ~
 tomb stone~
-1 -1 3609
+ABZ -1 3609
 S
 #3609
 In a dusty Tomb~
@@ -423,7 +423,7 @@ The only exit appears to be up.
 D4
 ~
 tomb stone~
-1 -1 3608
+ABZ -1 3608
 S
 #3610
 A Gravel Path on the Graveyard~
@@ -440,16 +440,16 @@ D1
 The gravel path continues eastwards.
 ~
 ~
-0 -1 3608
+Z -1 3608
 D2
 The gravel path continues southwards.
 ~
 ~
-0 -1 3612
+Z -1 3612
 D5
 ~
 tomb stone~
-1 -1 3611
+ABZ -1 3611
 S
 #3611
 In a dusty Tomb~
@@ -460,7 +460,7 @@ The only exit appears to be up.
 D4
 ~
 tomb stone~
-1 -1 3610
+ABZ -1 3610
 S
 #3612
 A Gravel Path on the Graveyard~
@@ -472,17 +472,17 @@ D0
 The gravel path continues northwards.
 ~
 ~
-0 -1 3610
+Z -1 3610
 D1
 The gravel path continues eastwards.
 ~
 ~
-0 -1 3614
+Z -1 3614
 D3
 It is a small black-painted shed with a wooden door.
 ~
 door~
-1 -1 3613
+ABZ -1 3613
 S
 #3613
 In a shed on the Graveyard~
@@ -493,7 +493,7 @@ gardening equipment.  The only exit appears to be through a door to the east.
 D1
 ~
 door~
-1 -1 3612
+ABZ -1 3612
 S
 #3614
 A Gravel Path on the Graveyard~
@@ -510,16 +510,16 @@ D2
 The gravel path continues southwards.
 ~
 ~
-0 -1 3616
+Z -1 3616
 D3
 The gravel path continues westwards.
 ~
 ~
-0 -1 3612
+Z -1 3612
 D5
 ~
 tomb stone~
-1 -1 3615
+ABZ -1 3615
 S
 #3615
 In a dusty Tomb~
@@ -530,7 +530,7 @@ The only exit appears to be up.
 D4
 ~
 tomb stone~
-1 -1 3614
+ABZ -1 3614
 S
 #3616
 A Gravel Path on the Graveyard~
@@ -547,16 +547,16 @@ D0
 The gravel path continues northwards.
 ~
 ~
-0 -1 3614
+Z -1 3614
 D2
 The gravel path continues southwards.
 ~
 ~
-0 -1 3618
+Z -1 3618
 D5
 ~
 tomb stone~
-1 -1 3617
+ABZ -1 3617
 S
 #3617
 In a dusty Tomb~
@@ -567,7 +567,7 @@ The only exit appears to be up.
 D4
 ~
 tomb stone~
-1 -1 3616
+ABZ -1 3616
 S
 #3618
 A Gravel Path on the Graveyard~
@@ -584,16 +584,16 @@ D0
 The gravel path continues northwards.
 ~
 ~
-0 -1 3616
+Z -1 3616
 D1
 The gravel path continues eastwards towards a building of some sort.
 ~
 ~
-0 -1 3604
+Z -1 3604
 D5
 ~
 tomb stone~
-1 -1 3619
+ABZ -1 3619
 S
 #3619
 In a dusty Tomb~
@@ -604,7 +604,7 @@ The only exit appears to be up.
 D4
 ~
 tomb stone~
-1 -1 3618
+ABZ -1 3618
 S
 #3638
 A Gravel Path on the Graveyard~
@@ -621,16 +621,16 @@ D0
 The gravel path continues northwards.
 ~
 ~
-0 -1 3640
+Z -1 3640
 D3
 The gravel path continues westwards towards a building of some sort.
 ~
 ~
-0 -1 3604
+Z -1 3604
 D5
 ~
 tomb stone~
-1 -1 3639
+ABZ -1 3639
 S
 #3639
 In a dusty Tomb~
@@ -641,7 +641,7 @@ The only exit appears to be up.
 D4
 ~
 tomb stone~
-1 -1 3638
+ABZ -1 3638
 S
 #3640
 A Gravel Path on the Graveyard~
@@ -658,16 +658,16 @@ D0
 The gravel path continues northwards.
 ~
 ~
-0 -1 3642
+Z -1 3642
 D2
 The gravel path continues southwards.
 ~
 ~
-0 -1 3638
+Z -1 3638
 D5
 ~
 tomb stone~
-1 -1 3641
+ABZ -1 3641
 S
 #3641
 In a dusty Tomb~
@@ -678,7 +678,7 @@ The only exit appears to be up.
 D4
 ~
 tomb stone~
-1 -1 3640
+ABZ -1 3640
 S
 #3642
 A Gravel Path on the Graveyard~
@@ -695,16 +695,16 @@ D1
 The gravel path continues eastwards.
 ~
 ~
-0 -1 3644
+Z -1 3644
 D2
 The gravel path continues southwards.
 ~
 ~
-0 -1 3640
+Z -1 3640
 D5
 ~
 tomb stone~
-1 -1 3643
+ABZ -1 3643
 S
 #3643
 In a dusty Tomb~
@@ -715,7 +715,7 @@ The only exit appears to be up.
 D4
 ~
 tomb stone~
-1 -1 3642
+ABZ -1 3642
 S
 #3644
 A Gravel Path on the Graveyard~
@@ -732,16 +732,16 @@ D0
 The gravel path continues northwards.
 ~
 ~
-0 -1 3646
+Z -1 3646
 D3
 The gravel path continues westwards.
 ~
 ~
-0 -1 3642
+Z -1 3642
 D5
 ~
 tomb stone~
-1 -1 3645
+ABZ -1 3645
 S
 #3645
 In a dusty Tomb~
@@ -752,7 +752,7 @@ The only exit appears to be up.
 D4
 ~
 tomb stone~
-1 -1 3644
+ABZ -1 3644
 S
 #3646
 A Gravel Path on the Graveyard~
@@ -769,16 +769,16 @@ D2
 The gravel path continues southwards.
 ~
 ~
-0 -1 3644
+Z -1 3644
 D3
 The gravel path continues westwards.
 ~
 ~
-0 -1 3648
+Z -1 3648
 D5
 ~
 tomb stone~
-1 -1 3647
+ABZ -1 3647
 S
 #3647
 In a dusty Tomb~
@@ -789,7 +789,7 @@ The only exit appears to be up.
 D4
 ~
 tomb stone~
-1 -1 3646
+ABZ -1 3646
 S
 #3648
 A Gravel Path on the Graveyard~
@@ -806,16 +806,16 @@ D0
 The gravel path continues northwards.
 ~
 ~
-0 -1 3650
+Z -1 3650
 D1
 The gravel path continues eastwards.
 ~
 ~
-0 -1 3646
+Z -1 3646
 D5
 ~
 tomb stone~
-1 -1 3649
+ABZ -1 3649
 S
 #3649
 In a dusty Tomb~
@@ -826,7 +826,7 @@ The only exit appears to be up.
 D4
 ~
 tomb stone~
-1 -1 3648
+ABZ -1 3648
 S
 #3650
 A Gravel Path on the Graveyard~
@@ -843,16 +843,16 @@ D2
 The gravel path continues southwards.
 ~
 ~
-0 -1 3648
+Z -1 3648
 D3
 The gravel path continues westwards towards a gravel road.
 ~
 ~
-0 -1 3600
+Z -1 3600
 D5
 ~
 tomb stone~
-1 -1 3651
+ABZ -1 3651
 S
 #3651
 In a dusty Tomb~
@@ -863,7 +863,7 @@ The only exit appears to be up.
 D4
 ~
 tomb stone~
-1 -1 3650
+ABZ -1 3650
 S
 #0
 

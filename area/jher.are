@@ -444,15 +444,15 @@ neck stands on end.
 D1
 ~
 ~
-0 -1 32702
+Z -1 32702
 D2
 ~
 ~
-0 -1 32701
+Z -1 32701
 D4
 ~
 ~
-0 -1 14791
+Z -1 14791
 S
 #32701
 Mouth of a Cave~
@@ -463,7 +463,7 @@ creates an urge to explore further.
 D0
 ~
 ~
-0 -1 32700
+Z -1 32700
 S
 #32702
 Descent into the Lair of Jher~
@@ -475,11 +475,11 @@ are among the strong will you continue.
 D3
 ~
 ~
-0 -1 32700
+Z -1 32700
 D5
 ~
 ~
-0 -1 32703
+Z -1 32703
 S
 #32703
 A Room in the Cave~
@@ -492,15 +492,15 @@ passes from a young warg's glowing eyes to his drooling mouth.
 D2
 ~
 ~
-0 -1 32704
+Z -1 32704
 D3
 ~
 ~
-0 -1 32706
+Z -1 32706
 D4
 ~
 ~
-0 -1 32702
+Z -1 32702
 S
 #32704
 A Room in the Cave~
@@ -513,11 +513,11 @@ see the traces of a trapdoor underneath.
 D0
 ~
 ~
-0 -1 32703
+Z -1 32703
 D5
 A trapdoor is buried under a pile of bones.~
 trapdoor~
-1 -1 32705
+ABZ -1 32705
 S
 #32705
 Small Treasure Room~
@@ -530,7 +530,7 @@ the pile of gold, you notice the snakes slithering up and around your legs.
 D4
 ~
 ~
-1 -1 32704
+ABZ -1 32704
 S
 #32706
 An Unlit Hallway~
@@ -543,15 +543,15 @@ through to the south.  You hear the sound of bats flapping overhead.
 D1
 ~
 ~
-0 -1 32703
+Z -1 32703
 D2
 ~
 ~
-0 -1 32707
+Z -1 32707
 D3
 ~
 ~
-0 -1 32712
+Z -1 32712
 S
 #32707
 A Crack in the Wall~
@@ -564,11 +564,11 @@ things that may be swimming or growing in it.
 D0
 ~
 ~
-0 -1 32706
+Z -1 32706
 D3
 ~
 ~
-0 -1 32708
+Z -1 32708
 S
 #32708
 The Disgusting Underground Pool~
@@ -580,15 +580,15 @@ attract.
 D1
 ~
 ~
-0 -1 32707
+Z -1 32707
 D2
 ~
 ~
-0 -1 32709
+Z -1 32709
 D3
 ~
 ~
-0 -1 32711
+Z -1 32711
 S
 #32709
 The Disgusting Underground Pool~
@@ -598,11 +598,11 @@ You are waist deep in muck.  The stench is overwhelming.
 D0
 ~
 ~
-0 -1 32708
+Z -1 32708
 D3
 ~
 ~
-0 -1 32710
+Z -1 32710
 S
 #32710
 The Disgusting Underground Pool~
@@ -612,11 +612,11 @@ You are waist deep in muck.  The stench is overwhelming.
 D0
 ~
 ~
-0 -1 32711
+Z -1 32711
 D1
 ~
 ~
-0 -1 32709
+Z -1 32709
 S
 #32711
 The Disgusting Underground Pool~
@@ -626,11 +626,11 @@ You are waist deep in muck.  The stench is overwhelming.
 D1
 ~
 ~
-0 -1 32708
+Z -1 32708
 D2
 ~
 ~
-0 -1 32710
+Z -1 32710
 S
 #32712
 An Unlit Hallway~
@@ -642,11 +642,11 @@ most hideous thing you have ever seen.
 D1
 ~
 ~
-0 -1 32706
+Z -1 32706
 D3
 ~
 ~
-0 -1 32713
+Z -1 32713
 S
 #32713
 Breeding Room~
@@ -658,19 +658,19 @@ sound which brings you to the border of insanity.
 D0
 ~
 ~
-1 32701 32715
+ABCZ 32701 32715
 D1
 ~
 ~
-0 -1 32712
+Z -1 32712
 D2
 ~
 ~
-1 32701 32714
+ABCZ 32701 32714
 D3
 ~
 ~
-0 -1 32716
+Z -1 32716
 S
 #32714
 The Male Warg Holding Cage~
@@ -683,7 +683,7 @@ wargs.  You may have just provided them with both.
 D0
 ~
 ~
-1 32701 32713
+ABZ 32701 32713
 S
 #32715
 The Female Warg Holding Cage~
@@ -696,7 +696,7 @@ you, they try to remember when the last time they ate was.
 D2
 ~
 ~
-1 -1 32713
+ABZ -1 32713
 S
 #32716
 A Further Descent~
@@ -708,11 +708,11 @@ southward.
 D1
 ~
 ~
-0 -1 32713
+Z -1 32713
 D2
 ~
 ~
-0 -1 32717
+Z -1 32717
 S
 #32717
 A Further Descent~
@@ -724,11 +724,11 @@ you have at least made it this far alive.
 D0
 ~
 ~
-0 -1 32716
+Z -1 32716
 D5
 ~
 ~
-0 -1 32718
+Z -1 32718
 S
 #32718
 The Passage to the Throne Room~
@@ -741,11 +741,11 @@ To get by, you will either have to kill them or sneak by and pick the lock.
 D0
 ~
 ~
-1 32707 32719
+ABCZ 32707 32719
 D4
 ~
 ~
-0 -1 32717
+Z -1 32717
 S
 #32719
 Southern end of the Throne Room~
@@ -757,11 +757,11 @@ suffer.
 D0
 ~
 ~
-0 -1 32720
+Z -1 32720
 D2
 ~
 ~
-1 -1 32718
+ABZ -1 32718
 S
 #32720
 Northern End of the Throne Room~
@@ -773,11 +773,11 @@ for Jher sits on the throne.
 D0
 ~
 ~
-2 32709 32721
+ABCFZ 32709 32721
 D2
 ~
 ~
-0 -1 32719
+Z -1 32719
 S
 #32721
 Jher's Bedroom~
@@ -791,11 +791,11 @@ room.
 D2
 ~
 ~
-2 -1 32720
+ABFZ -1 32720
 D4
 ~
 ~
-0 -1 32722
+Z -1 32722
 S
 #32722
 Tunnel Above Jher's Bedroom~
@@ -806,11 +806,11 @@ After the climb up here, it levels off and turns south.
 D2
 ~
 ~
-0 -1 32723
+Z -1 32723
 D5
 ~
 ~
-0 -1 32721
+Z -1 32721
 S
 #32723
 A Small Tunnel~
@@ -821,11 +821,11 @@ its upkeep.  You have to crawl now, and as you crawl, you seem to be ascending.
 D0
 ~
 ~
-0 -1 32722
+Z -1 32722
 D2
 ~
 ~
-0 -1 32724
+Z -1 32724
 S
 #32724
 The Secret Room~

@@ -2996,12 +2996,12 @@ Nigel Poh
 D1
 ~
 ~
-0 0 3511
+Z 0 3511
 D4
 The Haunted Pine Forest lies above.
 ~
 ~
-0 0 202
+Z 0 202
 S
 #202
 The Haunted Pine Forest~
@@ -3018,12 +3018,12 @@ D4
 Move further up and you'll be near the summit.
 ~
 ~
-0 0 203
+Z 0 203
 D5
 You see a fog shrouded trail.
 ~
 ~
-0 0 201
+Z 0 201
 S
 #203
 Near the Summit~
@@ -3038,12 +3038,12 @@ D2
 Southward lies a Mountain Pass.
 ~
 ~
-0 0 204
+Z 0 204
 D5
 The Haunted Pine forest is below.
 ~
 ~
-0 0 202
+Z 0 202
 S
 #204
 A Mountain Pass~
@@ -3057,17 +3057,17 @@ D0
 You see the summit of the mountain.
 ~
 ~
-0 0 203
+Z 0 203
 D2
 A mountain pass lies there.
 ~
 ~
-0 0 205
+Z 0 205
 D5
 You don't see anything there.
 ~
 secret~
-1 0 297
+ABZ 0 297
 S
 #205
 A Mountain Pass~
@@ -3081,12 +3081,12 @@ D0
 You see a mountain pass.
 ~
 ~
-0 0 204
+Z 0 204
 D3
 Westwards is a thickly-wooded dell.
 ~
 ~
-0 0 206
+Z 0 206
 S
 #206
 A Thickly-Wooded Dell~
@@ -3102,17 +3102,17 @@ D1
 You see a mountain pass.
 ~
 ~
-0 0 205
+Z 0 205
 D2
 You can make out a Signpost of sort in that direction.
 ~
 ~
-0 0 207
+Z 0 207
 D3
 The road to Clover lies to the west.
 ~
 ~
-0 0 209
+Z 0 209
 S
 #207
 A Signpost in the Enchanted Forests~
@@ -3138,22 +3138,22 @@ D0
 Westwards is a thickly-wooded dell.
 ~
 ~
-0 0 206
+Z 0 206
 D1
 A well-used trail through the forest lies to the east.
 ~
 ~
-0 0 233
+Z 0 233
 D2
 The Emerald Forest!
 ~
 ~
-0 0 231
+Z 0 231
 D3
 You see a Fae Crossing.
 ~
 ~
-0 0 208
+Z 0 208
 S
 #208
 A Fae Crossing~
@@ -3170,12 +3170,12 @@ D1
 You can make out a Signpost of sort in that direction.
 ~
 ~
-0 0 207
+Z 0 207
 D2
 Dark Woods!
 ~
 ~
-0 0 230
+Z 0 230
 S
 #209
 Road to the Vale of Clover~
@@ -3190,12 +3190,12 @@ D0
 A village lies ahead.
 ~
 ~
-0 0 210
+Z 0 210
 D1
 You see a thickly wooded Dell.
 ~
 ~
-0 0 206
+Z 0 206
 S
 #210
 In Clover~
@@ -3210,17 +3210,17 @@ D0
 You see a village square.
 ~
 ~
-0 0 213
+Z 0 213
 D1
 The Green Hillock is to the East.
 ~
 ~
-0 0 211
+Z 0 211
 D2
 The road leading out of Clover is there.
 ~
 ~
-0 0 209
+Z 0 209
 S
 #211
 A Green Hillock~
@@ -3237,12 +3237,12 @@ D0
 You see nothing special there.
 ~
 ~
-0 0 212
+Z 0 212
 D3
 The road to Clover is to the West.
 ~
 ~
-0 0 210
+Z 0 210
 S
 #212
 A Secluded Corner of the Meadow~
@@ -3259,7 +3259,7 @@ D2
 The Green Hillock is to the South.
 ~
 ~
-0 0 211
+Z 0 211
 S
 #213
 The Village Square~
@@ -3275,17 +3275,17 @@ D0
 A farm lies ahead.
 ~
 ~
-0 0 216
+Z 0 216
 D2
 You see a path leading out of the villlage.
 ~
 ~
-0 0 210
+Z 0 210
 D3
 You see an old dirt track.
 ~
 ~
-0 0 214
+Z 0 214
 S
 #214
 An Old Dirt Track~
@@ -3299,12 +3299,12 @@ D0
 The old dirt track continues north.
 ~
 ~
-0 0 215
+Z 0 215
 D1
 The village square is to the east.
 ~
 ~
-0 0 213
+Z 0 213
 S
 #215
 An Old Dirt Track~
@@ -3316,12 +3316,12 @@ D0
 You see a huge monastary ahead.
 ~
 ~
-0 0 288
+Z 0 288
 D2
 The old dirt track continues south.
 ~
 ~
-0 0 214
+Z 0 214
 S
 #216
 Farmer Griff' Farm~
@@ -3346,7 +3346,7 @@ D2
 The village square is to the south.
 ~
 ~
-0 0 213
+Z 0 213
 S
 #217
 The Witch Wood~
@@ -3362,17 +3362,17 @@ D0
 More eerie woods!
 ~
 ~
-0 0 218
+Z 0 218
 D2
 You see the entrance of witch wood to the south.
 ~
 ~
-0 0 229
+Z 0 229
 D3
 More eerie woods!
 ~
 ~
-0 0 227
+Z 0 227
 S
 #218
 The Witch Wood~
@@ -3388,12 +3388,12 @@ D2
 More eerie woods!
 ~
 ~
-0 0 217
+Z 0 217
 D3
 You see an altar ahead.
 ~
 ~
-0 0 219
+Z 0 219
 S
 #219
 The Altar of Sacrifice~
@@ -3408,22 +3408,22 @@ D0
 More eerie woods!
 ~
 ~
-0 0 220
+Z 0 220
 D1
 More eerie woods!
 ~
 ~
-0 0 218
+Z 0 218
 D2
 More eerie woods!
 ~
 ~
-0 0 227
+Z 0 227
 D3
 More eerie woods!
 ~
 ~
-0 0 225
+Z 0 225
 S
 #220
 The Witch Wood~
@@ -3439,17 +3439,17 @@ D1
 More eerie woods!
 ~
 ~
-0 0 221
+Z 0 221
 D2
 You see an altar ahead.
 ~
 ~
-0 0 219
+Z 0 219
 D3
 More eerie woods!
 ~
 ~
-0 0 222
+Z 0 222
 S
 #221
 The Witch Wood~
@@ -3465,7 +3465,7 @@ D3
 More eerie woods!
 ~
 ~
-0 0 220
+Z 0 220
 S
 #222
 The Witch Wood~
@@ -3480,22 +3480,22 @@ D0
 More eerie woods!
 ~
 ~
-0 0 223
+Z 0 223
 D1
 More eerie woods!
 ~
 ~
-0 0 220
+Z 0 220
 D2
 More eerie woods!
 ~
 ~
-0 0 225
+Z 0 225
 D3
 You see a broken jetty ahead.
 ~
 ~
-0 0 295
+Z 0 295
 S
 #223
 The Wall of Shadows~
@@ -3511,12 +3511,12 @@ D1
 You make out 3 figures in the darkness ahead.
 ~
 ~
-0 0 224
+Z 0 224
 D2
 More eerie woods!
 ~
 ~
-0 0 222
+Z 0 222
 S
 #224
 The Cavern of the Witch Sisters~
@@ -3536,7 +3536,7 @@ D3
 More eerie woods!
 ~
 ~
-0 0 223
+Z 0 223
 S
 #225
 The Witch Wood~
@@ -3552,17 +3552,17 @@ D0
 More eerie woods!
 ~
 ~
-0 0 222
+Z 0 222
 D1
 You see an altar ahead.
 ~
 ~
-0 0 219
+Z 0 219
 D2
 More eerie woods!
 ~
 ~
-0 0 226
+Z 0 226
 S
 #226
 The Witch Wood~
@@ -3578,17 +3578,17 @@ D0
 More eerie woods!
 ~
 ~
-0 0 225
+Z 0 225
 D1
 More eerie woods!
 ~
 ~
-0 0 227
+Z 0 227
 D2
 More eerie woods!
 ~
 ~
-0 0 294
+Z 0 294
 S
 #227
 The Witch Wood~
@@ -3604,22 +3604,22 @@ D0
 You see an altar ahead.
 ~
 ~
-0 0 219
+Z 0 219
 D1
 More eerie woods!
 ~
 ~
-0 0 217
+Z 0 217
 D2
 The Dead Moors!
 ~
 ~
-0 0 228
+Z 0 228
 D3
 The Dead Moors!
 ~
 ~
-0 0 226
+Z 0 226
 S
 #228
 The Witch Wood~
@@ -3635,22 +3635,22 @@ D0
 More eerie woods!
 ~
 ~
-0 0 227
+Z 0 227
 D1
 You see the entrance of witch wood to the east.
 ~
 ~
-0 0 229
+Z 0 229
 D2
 More Dead Moors!
 ~
 ~
-0 0 293
+Z 0 293
 D3
 More eerie woods!
 ~
 ~
-0 0 294
+Z 0 294
 S
 #229
 The Entrance of the Witch Wood~
@@ -3666,17 +3666,17 @@ D0
 More eerie woods!
 ~
 ~
-0 0 217
+Z 0 217
 D1
 Dark woods!
 ~
 ~
-0 0 230
+Z 0 230
 D3
 More eerie woods!
 ~
 ~
-0 0 228
+Z 0 228
 S
 #230
 Under Dark Woods~
@@ -3715,17 +3715,17 @@ D0
 A crossing of sorts lies to the north.
 ~
 ~
-0 0 208
+Z 0 208
 D2
 A Forest Road
 ~
 ~
-0 0 248
+Z 0 248
 D3
 You see the entrance of witch wood to the west.
 ~
 ~
-0 0 229
+Z 0 229
 S
 #231
 The Emerald Forest~
@@ -3740,17 +3740,17 @@ D0
 A sign post lies ahead.
 ~
 ~
-0 0 207
+Z 0 207
 D1
 The Emerald Forest!
 ~
 ~
-0 0 232
+Z 0 232
 D2
 The Emerald Forest!
 ~
 ~
-0 0 247
+Z 0 247
 S
 #232
 The Emerald Forest~
@@ -3765,17 +3765,17 @@ D0
 A well-used trail through the forest lies to there.
 ~
 ~
-0 0 233
+Z 0 233
 D2
 The Emerald Forest!
 ~
 ~
-0 0 237
+Z 0 237
 D3
 The Emerald Forest!
 ~
 ~
-0 0 231
+Z 0 231
 S
 #233
 A Well-Used Trail Through The Forest~
@@ -3789,17 +3789,17 @@ D1
 The Woodkeepers' Outpost is to the east.
 ~
 ~
-0 0 234
+Z 0 234
 D2
 The Emerald Forest!
 ~
 ~
-0 0 232
+Z 0 232
 D3
 A sigh post lies there.
 ~
 ~
-0 0 207
+Z 0 207
 S
 #234
 The Woodkeepers' Outpost~
@@ -3814,22 +3814,22 @@ D0
 The Guildmaster's cabin lies to the north.
 ~
 ~
-0 0 235
+Z 0 235
 D1
 Smokey's Supplies is to the east.
 ~
 ~
-0 0 236
+Z 0 236
 D2
 A wood-keeper's cabin is to the south.
 ~
 ~
-0 0 296
+Z 0 296
 D3
 A well-used trail through the forest lies there.
 ~
 ~
-0 0 233
+Z 0 233
 S
 #235
 The Guildmaster's Cabin~
@@ -3844,7 +3844,7 @@ D2
 The Wood-Keepers' Outpost is to the south.
 ~
 ~
-0 0 234
+Z 0 234
 S
 #236
 Smokey's Supplies~
@@ -3868,7 +3868,7 @@ D3
 The Wood-Keepers' Outpost is to the west.
 ~
 ~
-0 0 234
+Z 0 234
 S
 #237
 The Emerald Forest~
@@ -3883,22 +3883,22 @@ D0
 The Emerald Forest!
 ~
 ~
-0 0 232
+Z 0 232
 D1
 The Emerald Forest!
 ~
 ~
-0 0 238
+Z 0 238
 D2
 The Emerald Forest!
 ~
 ~
-0 0 245
+Z 0 245
 D3
 The Emerald Forest!
 ~
 ~
-0 0 247
+Z 0 247
 S
 #238
 In the Emerald Forest~
@@ -3915,12 +3915,12 @@ D1
 A great tree lies to the east.
 ~
 ~
-0 0 239
+Z 0 239
 D3
 The Emerald Forest!
 ~
 ~
-0 0 237
+Z 0 237
 S
 #239
 Before the Great Tree~
@@ -3940,12 +3940,12 @@ D2
 A faerie hill lies to the south.
 ~
 ~
-0 0 243
+Z 0 243
 D3
 The Emerald Forest!
 ~
 ~
-0 0 238
+Z 0 238
 S
 #240
 The Lost Grotto~
@@ -3962,7 +3962,7 @@ D2
 A stream flows to the south.
 ~
 ~
-0 0 241
+Z 0 241
 S
 #241
 By a Stream~
@@ -3977,17 +3977,17 @@ D0
 A pool forms to the north.
 ~
 ~
-0 0 240
+Z 0 240
 D2
 A waterfall glade lies to the south.
 ~
 ~
-0 0 242
+Z 0 242
 D3
 A faerie hill lies to the west.
 ~
 ~
-0 0 243
+Z 0 243
 S
 #242
 The Waterfall Glade~
@@ -4005,7 +4005,7 @@ D0
 A stream flows to the north.
 ~
 ~
-0 0 241
+Z 0 241
 S
 #243
 In the Emerald Forest~
@@ -4021,22 +4021,22 @@ D0
 You see a great tree there.
 ~
 ~
-0 0 239
+Z 0 239
 D1
 A stream flows to the east.
 ~
 ~
-0 0 241
+Z 0 241
 D2
 A Woodland Trail.
 ~
 ~
-0 0 261
+Z 0 261
 D3
 You see a three-way junction to the west.
 ~
 ~
-0 0 244
+Z 0 244
 S
 #244
 In the Emerald Forest~
@@ -4050,17 +4050,17 @@ D1
 A faerie hill lies to the east.
 ~
 ~
-0 0 243
+Z 0 243
 D2
 The Emerald Forest!
 ~
 ~
-0 0 262
+Z 0 262
 D3
 The Emerald Forest!
 ~
 ~
-0 0 245
+Z 0 245
 S
 #245
 The Emerald Forest~
@@ -4075,17 +4075,17 @@ D0
 The Emerald Forest!
 ~
 ~
-0 0 237
+Z 0 237
 D1
 You see a three-way junction to the east.
 ~
 ~
-0 0 244
+Z 0 244
 D3
 You see a STUMP!
 ~
 ~
-0 0 246
+Z 0 246
 S
 #246
 The Only Stump in the Forest~
@@ -4100,12 +4100,12 @@ D0
 The Emerald Forest!
 ~
 ~
-0 0 247
+Z 0 247
 D1
 The Emerald Forest!
 ~
 ~
-0 0 245
+Z 0 245
 S
 #247
 The Emerald Forest~
@@ -4120,21 +4120,21 @@ D0
 The Emerald Forest!
 ~
 ~
-0 0 231
+Z 0 231
 D1
 The Emerald Forest!
 ~
 ~
-0 0 237
+Z 0 237
 D2
 You see a STUMP!
 ~
 ~
-0 0 246
+Z 0 246
 D3
 A Forest Road~
 ~
-0 0 248
+Z 0 248
 S
 #248
 The Forest Road~
@@ -4148,17 +4148,17 @@ D0
 Dark Woods!
 ~
 ~
-0 0 230
+Z 0 230
 D1
 More Emerald Forest!
 ~
 ~
-0 0 247
+Z 0 247
 D2
 A Forest Road.
 ~
 ~
-0 0 255
+Z 0 255
 S
 #249
 The Dead Moors~
@@ -4173,12 +4173,12 @@ D2
 More Dead Moors!
 ~
 ~
-0 0 250
+Z 0 250
 D3
 More Dead Moors!
 ~
 ~
-0 0 293
+Z 0 293
 S
 #250
 The Dead Moors~
@@ -4193,17 +4193,17 @@ D0
 More Dead Moors!
 ~
 ~
-0 0 249
+Z 0 249
 D2
 You see a hill in the marsh.
 ~
 ~
-0 0 253
+Z 0 253
 D3
 More Dead Moors!
 ~
 ~
-0 0 251
+Z 0 251
 S
 #251
 The Dead Moors~
@@ -4218,22 +4218,22 @@ D0
 More Dead Moors!
 ~
 ~
-0 0 293
+Z 0 293
 D1
 More Dead Moors!
 ~
 ~
-0 0 250
+Z 0 250
 D2
 More Dead Moors!
 ~
 ~
-0 0 252
+Z 0 252
 D3
 More Dead Moors!
 ~
 ~
-0 0 291
+Z 0 291
 S
 #252
 The Dead Moors~
@@ -4248,12 +4248,12 @@ D0
 More Dead Moors!
 ~
 ~
-0 0 251
+Z 0 251
 D1
 You see a hill in the marsh.
 ~
 ~
-0 0 253
+Z 0 253
 S
 #253
 A Hill in the Marsh~
@@ -4268,12 +4268,12 @@ D0
 More Dead Moors!
 ~
 ~
-0 0 250
+Z 0 250
 D3
 More Dead Moors!
 ~
 ~
-0 0 252
+Z 0 252
 S
 #254
 The Forest Road~
@@ -4287,12 +4287,12 @@ D0
 A Forest Road.
 ~
 ~
-0 0 255
+Z 0 255
 D2
 A trail lies to the south.
 ~
 ~
-0 0 256
+Z 0 256
 S
 #255
 The Forest Road~
@@ -4306,12 +4306,12 @@ D0
 A Forest Road.
 ~
 ~
-0 0 248
+Z 0 248
 D2
 A Forest Road.
 ~
 ~
-0 0 254
+Z 0 254
 S
 #256
 A Trail~
@@ -4327,17 +4327,17 @@ D0
 A Forest Road.
 ~
 ~
-0 0 254
+Z 0 254
 D1
 You see a shady bridge.
 ~
 ~
-0 0 257
+Z 0 257
 D2
 A woodland trail lies to the south.
 ~
 ~
-0 0 270
+Z 0 270
 S
 #257
 A Shady Bridge~
@@ -4355,12 +4355,12 @@ D1
 A shady bridge lies eastwards.
 ~
 ~
-0 0 258
+Z 0 258
 D3
 You see a trail.
 ~
 ~
-0 0 256
+Z 0 256
 S
 #258
 The Shady bridge~
@@ -4377,12 +4377,12 @@ D1
 A woodland trail continues eastwards.
 ~
 ~
-0 0 259
+Z 0 259
 D3
 You see a shady bridge.
 ~
 ~
-0 0 257
+Z 0 257
 S
 #259
 A Woodland Trail~
@@ -4400,22 +4400,22 @@ D0
 The Emerald Forest!
 ~
 ~
-0 0 262
+Z 0 262
 D1
 A dense path lies to the east.
 ~
 ~
-0 0 260
+Z 0 260
 D2
 You see a ragged trail.
 ~
 ~
-0 0 267
+Z 0 267
 D3
 A shady bridge lies to the west.
 ~
 ~
-0 0 258
+Z 0 258
 S
 #260
 A Dense Path~
@@ -4431,17 +4431,17 @@ D0
 A woodland trail.
 ~
 ~
-0 0 261
+Z 0 261
 D2
 A clearing opens to the south.
 ~
 ~
-0 0 266
+Z 0 266
 D3
 You see a woodland trail there.
 ~
 ~
-0 0 259
+Z 0 259
 S
 #261
 A Woodland Trail~
@@ -4454,12 +4454,12 @@ D0
 A faerie hill lies to the north.
 ~
 ~
-0 0 243
+Z 0 243
 D2
 A dense path is to the south.
 ~
 ~
-0 0 260
+Z 0 260
 S
 #262
 In the Emerald Forest~
@@ -4474,17 +4474,17 @@ D0
 A three-way junction lies to the north.
 ~
 ~
-0 0 244
+Z 0 244
 D2
 A woodland trail is to the south.
 ~
 ~
-0 0 259
+Z 0 259
 D3
 The Emerald Forest!
 ~
 ~
-0 0 263
+Z 0 263
 S
 #263
 The Emerald Forest Choir~
@@ -4500,12 +4500,12 @@ D1
 More Emerald Forest!
 ~
 ~
-0 0 262
+Z 0 262
 D3
 A woody copse is to the west.
 ~
 ~
-0 0 264
+Z 0 264
 S
 #264
 A Woody Copse~
@@ -4521,11 +4521,11 @@ D1
 More Emerald Forest!
 ~
 ~
-0 0 263
+Z 0 263
 D4
 ~
 secret~
-1 0 265
+ABZ 0 265
 S
 #265
 The Tree House~
@@ -4540,7 +4540,7 @@ another book lies half-read on the floor.
 D5
 ~
 secret~
-1 0 264
+ABZ 0 264
 S
 #266
 A Small Clearing~
@@ -4558,12 +4558,12 @@ D0
 A dense path is northwards.
 ~
 ~
-0 0 260
+Z 0 260
 D3
 A ragged trail lies westwards.
 ~
 ~
-0 0 267
+Z 0 267
 S
 #267
 The Ragged Trail~
@@ -4579,22 +4579,22 @@ D0
 A woodland trail lies northwards.
 ~
 ~
-0 0 259
+Z 0 259
 D1
 A small clearing opens eastwards.
 ~
 ~
-0 0 266
+Z 0 266
 D2
 You see the south-easterly end of the forest.
 ~
 ~
-0 0 284
+Z 0 284
 D3
 You see a bunch of pixies and brownies in a game.
 ~
 ~
-0 0 268
+Z 0 268
 S
 #268
 The Honey Bun~
@@ -4611,17 +4611,17 @@ D1
 A ragged trail lies to the east.
 ~
 ~
-0 0 267
+Z 0 267
 D2
 The south-east end of the Bonanza is there.
 ~
 ~
-0 0 283
+Z 0 283
 D3
 You see a fairly large clearing to the west.
 ~
 ~
-0 0 269
+Z 0 269
 S
 #269
 A fairly large clearing~
@@ -4638,17 +4638,17 @@ D1
 You see a bunch of pixies and brownies in a game.
 ~
 ~
-0 0 268
+Z 0 268
 D2
 The south-west end of the pixie bonanza is there.
 ~
 ~
-0 0 281
+Z 0 281
 D3
 You see a three way woodland ahead.
 ~
 ~
-0 0 270
+Z 0 270
 S
 #270
 The three way woodland~
@@ -4663,17 +4663,17 @@ D0
 You see a trail ahead.
 ~
 ~
-0 0 256
+Z 0 256
 D1
 You see a fairly large clearing to the east.
 ~
 ~
-0 0 269
+Z 0 269
 D3
 A forest trail lies to the west.
 ~
 ~
-0 0 271
+Z 0 271
 S
 #271
 A Forest Trail~
@@ -4689,17 +4689,17 @@ D0
 A tall tree with huge leafy branches blocks your way.
 ~
 tree~
-1 0 253
+ABZ 0 253
 D1
 You see a three way woodland to the east.
 ~
 ~
-0 0 270
+Z 0 270
 D2
 A lovely trail lies south.
 ~
 ~
-0 0 273
+Z 0 273
 S
 #272
 A Dwindling Forest Path~
@@ -4715,12 +4715,12 @@ D1
 A Lovely trail lies there.
 ~
 ~
-0 0 273
+Z 0 273
 D2
 You see a small tombstone to the south.
 ~
 ~
-0 0 274
+Z 0 274
 S
 #273
 A Lovely Trail~
@@ -4737,17 +4737,17 @@ D0
 A Forest trail lies to the north.
 ~
 ~
-0 0 271
+Z 0 271
 D2
 You see a wood-path.
 ~
 ~
-0 0 275
+Z 0 275
 D3
 A forest path lies to the west.
 ~
 ~
-0 0 272
+Z 0 272
 S
 #274
 The Tombstone~
@@ -4777,12 +4777,12 @@ D0
 A forest path lies northwards.
 ~
 ~
-0 0 272
+Z 0 272
 D1
 You see a wood-path.
 ~
 ~
-0 0 275
+Z 0 275
 S
 #275
 The Wood-Path~
@@ -4799,17 +4799,17 @@ D0
 A lovely hail lies north.
 ~
 ~
-0 0 273
+Z 0 273
 D2
 You see a clearing.
 ~
 ~
-0 0 276
+Z 0 276
 D3
 You see a tombstone.
 ~
 ~
-0 0 274
+Z 0 274
 S
 #276
 Woodkeeper's Clearing~
@@ -4862,12 +4862,12 @@ D0
 A wood-path lies ahead.
 ~
 ~
-0 0 275
+Z 0 275
 D1
 Some green vines lies to the east.
 ~
 ~
-0 0 277
+Z 0 277
 S
 #277
 The Green Vines~
@@ -4884,17 +4884,17 @@ D0
 You see a grove in the forest.
 ~
 ~
-0 0 278
+Z 0 278
 D1
 The border of the forest lies east.
 ~
 ~
-0 0 279
+Z 0 279
 D3
 You see a clearing.
 ~
 ~
-0 0 276
+Z 0 276
 S
 #278
 The Silent Grove~
@@ -4913,7 +4913,7 @@ D2
 You see thick green vines in the yonder.
 ~
 ~
-0 0 277
+Z 0 277
 S
 #279
 The Southern border~
@@ -4929,12 +4929,12 @@ D0
 You see nothing special there.
 ~
 ~
-0 0 280
+Z 0 280
 D3
 You see thick green vines in the yonder.
 ~
 ~
-0 0 277
+Z 0 277
 S
 #280
 The Wood Area~
@@ -4950,17 +4950,17 @@ D0
 You see nothing special there.
 ~
 ~
-0 0 281
+Z 0 281
 D1
 A clearing is to the east.
 ~
 ~
-0 0 282
+Z 0 282
 D2
 You see the southern border of the forest.
 ~
 ~
-0 0 279
+Z 0 279
 S
 #281
 The Bonanza~
@@ -4987,17 +4987,17 @@ D0
 You see a fairly large clearing.
 ~
 ~
-0 0 269
+Z 0 269
 D1
 The south-east end of the Bonanza is there.
 ~
 ~
-0 0 283
+Z 0 283
 D2
 You see nothing special there.
 ~
 ~
-0 0 280
+Z 0 280
 S
 #282
 In a Myrtle Shade~
@@ -5013,12 +5013,12 @@ D0
 The south-east end of the Bonanza is there.
 ~
 ~
-0 0 283
+Z 0 283
 D3
 A wood area.
 ~
 ~
-0 0 280
+Z 0 280
 S
 #283
 The Bonanza~
@@ -5036,22 +5036,22 @@ D0
 You see a bunch of pixies and brownies in a game of Honey Bun.
 ~
 ~
-0 0 268
+Z 0 268
 D1
 You see the South-easterly end of the forest.
 ~
 ~
-0 0 284
+Z 0 284
 D2
 A clearing is to the south.
 ~
 ~
-0 0 282
+Z 0 282
 D3
 The south-west end of the Bonanza is there.
 ~
 ~
-0 0 281
+Z 0 281
 S
 #284
 South-easterly end of the forest~
@@ -5068,17 +5068,17 @@ D0
 You see a ragged trail.
 ~
 ~
-0 0 267
+Z 0 267
 D1
 You see a garden.
 ~
 ~
-0 0 285
+Z 0 285
 D3
 A Bonanza!.
 ~
 ~
-0 0 283
+Z 0 283
 S
 #285
 Within a garden~
@@ -5096,17 +5096,17 @@ D1
 You see a rocky pool.
 ~
 ~
-0 0 286
+Z 0 286
 D2
 You see somebody's house.
 ~
 ~
-0 0 287
+Z 0 287
 D3
 You see the southern end of the forest.
 ~
 ~
-0 0 284
+Z 0 284
 S
 #286
 A peaceful rock pool~
@@ -5123,7 +5123,7 @@ D3
 You see a garden.
 ~
 ~
-0 0 285
+Z 0 285
 S
 #287
 Yun Fei Yang's humble abode~
@@ -5171,7 +5171,7 @@ D0
 You see a garden.
 ~
 ~
-0 0 285
+Z 0 285
 S
 #288
 The Ruined Monastery~
@@ -5188,12 +5188,12 @@ D2
 The old dirt track continues south.
 ~
 ~
-0 0 215
+Z 0 215
 D3
 You see a huge chapel.
 ~
 ~
-0 0 289
+Z 0 289
 S
 #289
 The Chapel of Saint Sebastian~
@@ -5210,12 +5210,12 @@ D1
 You see a huge monastary there.
 ~
 ~
-0 0 288
+Z 0 288
 D3
 You see a knight in the distance.
 ~
 ~
-0 0 290
+Z 0 290
 S
 #290
 Outside the Wall of the Monastery~
@@ -5232,7 +5232,7 @@ D1
 You see a chapel in the distance.
 ~
 ~
-0 0 289
+Z 0 289
 S
 #291
 The Dead Moors~
@@ -5247,12 +5247,12 @@ D0
 More Dead Moors!
 ~
 ~
-0 0 292
+Z 0 292
 D1
 More Dead Moors!
 ~
 ~
-0 0 251
+Z 0 251
 S
 #292
 The Dead Moors~
@@ -5268,17 +5268,17 @@ D0
 More eerie woods!
 ~
 ~
-0 0 294
+Z 0 294
 D1
 More Dead Moors!
 ~
 ~
-0 0 293
+Z 0 293
 D2
 More Dead Moors!
 ~
 ~
-0 0 291
+Z 0 291
 S
 #293
 The Dead Moors~
@@ -5292,22 +5292,22 @@ D0
 More eerie woods!
 ~
 ~
-0 0 228
+Z 0 228
 D1
 More Dead Moors!
 ~
 ~
-0 0 249
+Z 0 249
 D2
 More Dead Moors!
 ~
 ~
-0 0 251
+Z 0 251
 D3
 More Dead Moors!
 ~
 ~
-0 0 292
+Z 0 292
 S
 #294
 The Witch Wood~
@@ -5323,17 +5323,17 @@ D0
 More eerie woods!
 ~
 ~
-0 0 226
+Z 0 226
 D1
 More eerie woods!
 ~
 ~
-0 0 228
+Z 0 228
 D2
 More Dead Moors!
 ~
 ~
-0 0 292
+Z 0 292
 S
 #295
 A Broken Jetty~
@@ -5347,7 +5347,7 @@ D1
 More eerie woods!
 ~
 ~
-0 0 222
+Z 0 222
 S
 #296
 A Woodkeeper's Cabin~
@@ -5361,7 +5361,7 @@ D0
 The Wood-Keepers' Outpost is to the north.
 ~
 ~
-0 0 234
+Z 0 234
 S
 #297
 Inside the mountain~
@@ -5378,7 +5378,7 @@ D3
 You see a huge boulder there.
 ~
 boulder~
-1 0 206
+ABZ 0 206
 S
 #298
 Inside a Cottage~
@@ -5397,7 +5397,7 @@ D1
 A Bedroom.
 ~
 rose-wood door~
-1 0 299
+ABZ 0 299
 S
 #299
 Redbaron's Bedroom~
@@ -5416,7 +5416,7 @@ D3
 You see a lovely living room.
 ~
 rose-wood door~
-0 0 298
+Z 0 298
 S
 #0
 

@@ -1892,11 +1892,11 @@ D0
 The shadows cloud your vision.
 ~
 ~
-0 -1 1308
+Z -1 1308
 D2
 ~
 ~
-0 -1 6137
+Z -1 6137
 S
 #1301
 The Shadow Grove~
@@ -1910,22 +1910,22 @@ D0
 The shadows cloud your vision.
 ~
 ~
-0 -1 1307
+Z -1 1307
 D1
 The shadows cloud your vision.
 ~
 ~
-0 -1 1302
+Z -1 1302
 D2
 The shadows cloud your vision.
 ~
 ~
-0 -1 1304
+Z -1 1304
 D3
 The shadows cloud your vision.
 ~
 ~
-0 -1 1303
+Z -1 1303
 S
 #1302
 The Shadow Grove~
@@ -1939,22 +1939,22 @@ D0
 You see a small clearing in the shadows.
 ~
 ~
-0 -1 1311
+Z -1 1311
 D1
 The shadows cloud your vision.
 ~
 ~
-0 -1 1303
+Z -1 1303
 D2
 The shadows cloud your vision.
 ~
 ~
-0 -1 1305
+Z -1 1305
 D3
 The shadows cloud your vision.
 ~
 ~
-0 -1 1301
+Z -1 1301
 S
 #1303
 The Shadow Grove~
@@ -1968,22 +1968,22 @@ D0
 The shadows cloud your vision.
 ~
 ~
-0 -1 1309
+Z -1 1309
 D1
 The shadows cloud your vision.
 ~
 ~
-0 -1 1301
+Z -1 1301
 D2
 The shadows cloud your vision.
 ~
 ~
-0 -1 1306
+Z -1 1306
 D3
 The shadows cloud your vision.
 ~
 ~
-0 -1 1302
+Z -1 1302
 S
 #1304
 The Shadow Grove~
@@ -1997,22 +1997,22 @@ D0
 The shadows cloud your vision.
 ~
 ~
-0 -1 1301
+Z -1 1301
 D1
 The shadows cloud your vision.
 ~
 ~
-0 -1 1305
+Z -1 1305
 D2
 The shadows cloud your vision.
 ~
 ~
-0 -1 1307
+Z -1 1307
 D3
 Dark gates loom in the mist.
 ~
 ~
-0 -1 2201
+Z -1 2201
 S
 #1305
 The Shadow Grove~
@@ -2026,22 +2026,22 @@ D0
 The shadows cloud your vision.
 ~
 ~
-0 -1 1302
+Z -1 1302
 D1
 The shadows cloud your vision.
 ~
 ~
-0 -1 1306
+Z -1 1306
 D2
 The shadows cloud your vision.
 ~
 ~
-0 -1 1308
+Z -1 1308
 D3
 The shadows cloud your vision.
 ~
 ~
-0 -1 1304
+Z -1 1304
 S
 #1306
 The Shadow Grove~
@@ -2055,22 +2055,22 @@ D0
 The shadows cloud your vision.
 ~
 ~
-0 -1 1303
+Z -1 1303
 D1
 You see a shadowy tavern.
 ~
 ~
-0 -1 9301
+Z -1 9301
 D2
 The shadows cloud your vision.
 ~
 ~
-0 -1 1309
+Z -1 1309
 D3
 The shadows cloud your vision.
 ~
 ~
-0 -1 1305
+Z -1 1305
 S
 #1307
 The Shadow Grove~
@@ -2084,22 +2084,22 @@ D0
 The shadows cloud your vision.
 ~
 ~
-0 -1 1304
+Z -1 1304
 D1
 The shadows cloud your vision.
 ~
 ~
-0 -1 1308
+Z -1 1308
 D2
 The shadows cloud your vision.
 ~
 ~
-0 -1 1301
+Z -1 1301
 D3
 The shadows cloud your vision.
 ~
 ~
-0 -1 1309
+Z -1 1309
 S
 #1308
 The Shadow Grove~
@@ -2113,22 +2113,22 @@ D0
 The shadows cloud your vision.
 ~
 ~
-0 -1 1305
+Z -1 1305
 D1
 The shadows cloud your vision.
 ~
 ~
-0 -1 1309
+Z -1 1309
 D2
 The shadows cloud your vision.
 ~
 ~
-0 -1 1300
+Z -1 1300
 D3
 The shadows cloud your vision.
 ~
 ~
-0 -1 1307
+Z -1 1307
 S
 #1309
 The Shadow Grove~
@@ -2142,22 +2142,22 @@ D0
 The shadows cloud your vision.
 ~
 ~
-0 -1 1306
+Z -1 1306
 D1
 The shadows cloud your vision.
 ~
 ~
-0 -1 1307
+Z -1 1307
 D2
 The shadows cloud your vision.
 ~
 ~
-0 -1 1303
+Z -1 1303
 D3
 The shadows cloud your vision.
 ~
 ~
-0 -1 1308
+Z -1 1308
 S
 #1311
 A small clearing~
@@ -2173,12 +2173,12 @@ D0
 You can barely make out some sort of building to the north.
 ~
 ~
-0 -1 1312
+Z -1 1312
 D2
 The shadows cloud your vision.
 ~
 ~
-0 -1 1302
+Z -1 1302
 S
 #1312
 Entrance to the High Tower~
@@ -2193,7 +2193,7 @@ D0
 The diamond gate looks incredibly strong.
 ~
 gate diamond~
-0 -1 1313
+Z -1 1313
 S
 #1313
 Inside the High Tower of Sorcerery~
@@ -2209,19 +2209,19 @@ D0
 The common room looks quite busy and noisy.
 ~
 ~
-0 -1 1314
+Z -1 1314
 D1
 ~
 ~
-0 -1 1315
+Z -1 1315
 D2
 ~
 diamond gate~
-0 -1 1312
+Z -1 1312
 D3
 ~
 ~
-0 -1 1316
+Z -1 1316
 S
 #1314
 Common Room~
@@ -2236,20 +2236,20 @@ unremarkable.
 D0
 ~
 ~
-0 -1 1317
+Z -1 1317
 D1
 The mages bar can be seen to the east.
 ~
 ~
-0 -1 1318
+Z -1 1318
 D2
 ~
 ~
-0 -1 1313
+Z -1 1313
 D3
 ~
 ~
-0 -1 1319
+Z -1 1319
 S
 #1315
 The Hallway~
@@ -2260,11 +2260,11 @@ You are in a long hallway, it seems rather unremarkable.
 D1
 ~
 ~
-0 -1 1330
+Z -1 1330
 D3
 ~
 ~
-0 -1 1313
+Z -1 1313
 S
 #1316
 Dining Room~
@@ -2277,11 +2277,11 @@ several hundred people. It is oddly deserted here, obviously not meal time.
 D1
 ~
 ~
-0 -1 1313
+Z -1 1313
 D3
 ~
 door wooden~
-1 -1 1320
+ABZ -1 1320
 S
 #1317
 Dark Hallway~
@@ -2294,11 +2294,11 @@ here.
 D2
 ~
 ~
-0 -1 1314
+Z -1 1314
 D5
 ~
 trapdoor~
-1 -1 1321
+ABZ -1 1321
 S
 #1318
 Mages Tavern~
@@ -2312,7 +2312,7 @@ bartender is here waiting to take your order.
 D3
 ~
 ~
-0 -1 1314
+Z -1 1314
 S
 #1319
 The Magic Shop~
@@ -2325,7 +2325,7 @@ used in magical studies.
 D1
 ~
 ~
-0 -1 1314
+Z -1 1314
 S
 #1320
 the kitchen~
@@ -2340,7 +2340,7 @@ the room, hanging in mid-air is a spice rack.
 D1
 ~
 door wooden~
-1 -1 1316
+ABZ -1 1316
 S
 #1321
 Below the trapdoor~
@@ -2353,11 +2353,11 @@ heard in the distance below.
 D4
 ~
 trapdoor~
-1 -1 1317
+ABZ -1 1317
 D5
 ~
 ~
-0 -1 1322
+Z -1 1322
 S
 #1322
 A damp intersection~
@@ -2370,24 +2370,24 @@ other than that, an almost tangible stillness fills the air.
 D0
 ~
 ~
-0 -1 1323
+Z -1 1323
 D1
 A faint light can be seen in the distance up the east passage.
 ~
 ~
-0 -1 1324
+Z -1 1324
 D2
 ~
 ~
-0 -1 1325
+Z -1 1325
 D3
 ~
 ~
-0 -1 1326
+Z -1 1326
 D4
 ~
 ~
-0 -1 1321
+Z -1 1321
 S
 #1323
 A dark passage~
@@ -2399,11 +2399,11 @@ came.
 D0
 ~
 oak door~
-1 1323 1327
+ABCZ 1323 1327
 D2
 ~
 ~
-0 -1 1322
+Z -1 1322
 S
 #1324
 A dark passage~
@@ -2416,11 +2416,11 @@ behind the door.
 D1
 ~
 door~
-0 -1 1328
+Z -1 1328
 D3
 ~
 ~
-0 -1 1322
+Z -1 1322
 S
 #1325
 The stagnant pool~
@@ -2435,12 +2435,12 @@ pool.
 D0
 ~
 ~
-0 -1 1322
+Z -1 1322
 D5
 No light penetrates the gloom of the stagnant pool.
 ~
 ~
-0 -1 1329
+Z -1 1329
 S
 #1326
 A dark passage~
@@ -2453,7 +2453,7 @@ dangerous just being this close.
 D1
 ~
 ~
-0 -1 1322
+Z -1 1322
 S
 #1327
 A dark cell~
@@ -2465,7 +2465,7 @@ very dark. Someone, or something seems to be chained to the far wall.
 D2
 ~
 oak door~
-1 -1 1323
+ABCZ -1 1323
 S
 #1328
 The Jailor's office~
@@ -2478,7 +2478,7 @@ prisoners survive long enough to spend much time in these dank dungeons.
 D3
 ~
 door~
-0 -1 1324
+Z -1 1324
 S
 #1329
 Below the stagnant pool~
@@ -2498,19 +2498,19 @@ magical glow which provides enough light to see by.
 D0
 ~
 door wooden~
-1 -1 1332
+ABZ -1 1332
 D1
 ~
 ~
-0 -1 1331
+Z -1 1331
 D2
 ~
 door wooden~
-1 -1 1333
+ABZ -1 1333
 D3
 ~
 ~
-0 -1 1315
+Z -1 1315
 S
 #1331
 A bend in the hallway~
@@ -2521,19 +2521,19 @@ which provides enough light to see by.
 D0
 ~
 door wooden~
-1 -1 1334
+ABZ -1 1334
 D1
 ~
 door wooden~
-1 -1 1336
+ABZ -1 1336
 D2
 ~
 door wooden~
-1 -1 1335
+ABZ -1 1335
 D3
 ~
 ~
-0 -1 1330
+Z -1 1330
 S
 #1332
 A store room~
@@ -2545,7 +2545,7 @@ leaning against walls.
 D2
 ~
 door wooden~
-1 -1 1330
+ABZ -1 1330
 S
 #1333
 A broom closet~
@@ -2557,7 +2557,7 @@ instruments have been left here, apparently unused (perhaps the maid quit?).
 D0
 ~
 door wooden~
-1 -1 1330
+ABZ -1 1330
 S
 #1334
 A hallway~
@@ -2572,15 +2572,15 @@ The walls shed a warm light
 D0
 ~
 ~
-0 -1 1338
+Z -1 1338
 D1
 ~
 door wooden~
-1 -1 1337
+ABZ -1 1337
 D2
 ~
 door wooden~
-1 -1 1331
+ABZ -1 1331
 S
 #1335
 Guardians chamber~
@@ -2592,7 +2592,7 @@ Here and there a disembodied pair of hands or eyes flits about.
 D0
 ~
 door wooden~
-1 -1 1331
+ABZ -1 1331
 S
 #1336
 A guest bedroom~
@@ -2609,7 +2609,7 @@ Why, someone seems to be looking back at you from the other side!
 D3
 ~
 door wooden~
-1 -1 1331
+ABZ -1 1331
 S
 #1337
 A guest bedroom~
@@ -2622,7 +2622,7 @@ ever so comfortable, so comfortable in fact ...someone is sleeping in it.
 D3
 ~
 door wooden~
-1 -1 1334
+ABZ -1 1334
 S
 #1338
 A hallway~
@@ -2634,15 +2634,15 @@ magical glow which provides enough light to see by.
 D1
 ~
 door wooden~
-1 -1 1339
+ABZ -1 1339
 D2
 ~
 ~
-0 -1 1334
+Z -1 1334
 D4
 ~
 ~
-0 -1 1340
+Z -1 1340
 S
 #1339
 The burnt room~
@@ -2655,7 +2655,7 @@ There is no sign of the previous occupant, undoubtedly he left in a hurry.
 D3
 ~
 door charred~
-1 -1 1338
+ABZ -1 1338
 S
 #1340
 A hallway~
@@ -2668,20 +2668,20 @@ can be seen in the culdesac to the east.
 D0
 ~
 door oak~
-1 -1 1342
+ABZ -1 1342
 D1
 Faint moonlight can be seen to the east
 ~
 ~
-0 -1 1341
+Z -1 1341
 D3
 ~
 ~
-0 -1 1343
+Z -1 1343
 D5
 ~
 ~
-0 -1 1338
+Z -1 1338
 S
 #1341
 A culdesac~
@@ -2699,7 +2699,7 @@ to the northeast marks what is probably the city of midgaard.
 D3
 ~
 ~
-0 -1 1340
+Z -1 1340
 S
 #1342
 The Apprentice's Barracks~
@@ -2711,11 +2711,11 @@ cantrip. Cots line the walls, and the room continues west.
 D2
 ~
 door oak~
-1 -1 1340
+ABZ -1 1340
 D3
 ~
 ~
-0 -1 1344
+Z -1 1344
 S
 #1343
 A hallway~
@@ -2727,15 +2727,15 @@ magical glow which provides enough light to see by.
 D0
 ~
 door oak~
-1 -1 1344
+ABZ -1 1344
 D1
 ~
 ~
-0 -1 1340
+Z -1 1340
 D3
 ~
 ~
-0 -1 1345
+Z -1 1345
 S
 #1344
 The Apprentice's barracks~
@@ -2747,11 +2747,11 @@ cantrip. Cots line the walls, and the room continues east.
 D1
 ~
 ~
-0 -1 1342
+Z -1 1342
 D2
 ~
 door oak~
-1 -1 1343
+ABZ -1 1343
 S
 #1345
 A hallway~
@@ -2764,15 +2764,15 @@ D0
 A flash of blue light momentarily lights up the doors outline
 ~
 door oak~
-1 -1 1346
+ABZ -1 1346
 D1
 ~
 ~
-0 -1 1343
+Z -1 1343
 D3
 ~
 ~
-0 -1 1347
+Z -1 1347
 S
 #1346
 The apprentice's workshop~
@@ -2785,7 +2785,7 @@ small kitten cornered and seem to be testing spells upon it.
 D2
 ~
 door oak~
-1 -1 1345
+ABZ -1 1345
 S
 #1347
 A bend in the hallway~
@@ -2797,11 +2797,11 @@ which provides enough light to see by.
 D1
 ~
 ~
-0 -1 1345
+Z -1 1345
 D2
 ~
 ~
-0 -1 1348
+Z -1 1348
 S
 #1348
 The hallway~
@@ -2813,15 +2813,15 @@ magical glow which provides enough light to see by.
 D0
 ~
 ~
-0 -1 1347
+Z -1 1347
 D2
 ~
 ~
-0 -1 1350
+Z -1 1350
 D3
 ~
 door metal~
-1 -1 1349
+ABZ -1 1349
 S
 #1349
 A classroom~
@@ -2834,7 +2834,7 @@ at your entry and lunges to attack you.
 D1
 ~
 door metal~
-1 -1 1348
+ABZ -1 1348
 S
 #1350
 A hallway~
@@ -2845,15 +2845,15 @@ magical glow which provides enough light to see by.
 D0
 ~
 ~
-0 -1 1348
+Z -1 1348
 D2
 ~
 ~
-0 -1 1351
+Z -1 1351
 D3
 ~
 door metal~
-1 -1 1352
+ABZ -1 1352
 S
 #1351
 A hallway~
@@ -2864,15 +2864,15 @@ magical glow which provides enough light to see by.
 D0
 ~
 ~
-0 -1 1350
+Z -1 1350
 D2
 ~
 ~
-0 -1 1353
+Z -1 1353
 D3
 ~
 door metal~
-1 -1 1354
+ABZ -1 1354
 S
 #1352
 An empty classroom~
@@ -2885,7 +2885,7 @@ it is bare of furnishings.
 D1
 ~
 door metal~
-1 -1 1350
+ABZ -1 1350
 S
 #1353
 A bend in the hallway~
@@ -2897,11 +2897,11 @@ which provides enough light to see by.
 D0
 ~
 ~
-0 -1 1351
+Z -1 1351
 D1
 ~
 ~
-0 -1 1355
+Z -1 1355
 S
 #1354
 An empty classroom~
@@ -2913,7 +2913,7 @@ watched comes over you, and you hear the faint rustle of robes.
 D1
 ~
 door metal~
-1 -1 1351
+ABZ -1 1351
 S
 #1355
 A hallway~
@@ -2925,15 +2925,15 @@ magical glow which provides enough light to see by.
 D1
 ~
 ~
-0 -1 1356
+Z -1 1356
 D2
 ~
 door sturdy iron~
-1 -1 1357
+ABZ -1 1357
 D3
 ~
 ~
-0 -1 1353
+Z -1 1353
 S
 #1356
 A hallway~
@@ -2945,15 +2945,15 @@ magical glow which provides enough light to see by.
 D1
 ~
 ~
-0 -1 1358
+Z -1 1358
 D2
 ~
 door large oaken~
-1 -1 1359
+ABZ -1 1359
 D3
 ~
 ~
-0 -1 1355
+Z -1 1355
 S
 #1357
 The Amphitheater~
@@ -2965,7 +2965,7 @@ a large podium. The echos of your footsteps seem very loud here.
 D0
 ~
 door sturdy iron~
-1 -1 1355
+ABZ -1 1355
 S
 #1358
 A hallway~
@@ -2977,15 +2977,15 @@ magical glow providing enough light to see by.
 D1
 ~
 ~
-0 -1 1360
+Z -1 1360
 D2
 ~
 door small~
-1 -1 1361
+ABZ -1 1361
 D3
 ~
 ~
-0 -1 1356
+Z -1 1356
 S
 #1359
 The training room~
@@ -2996,7 +2996,7 @@ You are in a large training room. It is filled with battle scared manikins
 D0
 ~
 door~
-1 -1 1356
+ABZ -1 1356
 S
 #1360
 A bend in the hallway~
@@ -3008,11 +3008,11 @@ which provides enough light to see by.
 D0
 ~
 ~
-0 -1 1362
+Z -1 1362
 D3
 ~
 ~
-0 -1 1358
+Z -1 1358
 S
 #1361
 A dueling room~
@@ -3025,7 +3025,7 @@ and hold fast.
 D0
 ~
 door small~
-1 -1 1358
+ABZ -1 1358
 S
 #1362
 A hallway~
@@ -3037,15 +3037,15 @@ magical glow which provides enough light to see by.
 D0
 ~
 ~
-0 -1 1363
+Z -1 1363
 D1
 ~
 door~
-1 -1 1364
+ABZ -1 1364
 D2
 ~
 ~
-0 -1 1360
+Z -1 1360
 S
 #1363
 A hallway~
@@ -3057,15 +3057,15 @@ magical glow which provides enough light to see by.
 D0
 ~
 ~
-0 -1 1366
+Z -1 1366
 D1
 ~
 door wooden~
-1 -1 1365
+ABZ -1 1365
 D2
 ~
 ~
-0 -1 1362
+Z -1 1362
 S
 #1364
 The spellmaster's lounge~
@@ -3078,7 +3078,7 @@ the far wall.
 D3
 ~
 door wooden~
-1 -1 1362
+ABZ -1 1362
 S
 #1365
 A bedroom~
@@ -3092,7 +3092,7 @@ can be seen floating about a meter above the floor.
 D3
 ~
 door wooden~
-1 -1 1363
+ABZ -1 1363
 S
 #1366
 A hallway~
@@ -3104,15 +3104,15 @@ magical glow providing enough light to see by.
 D0
 ~
 ~
-0 -1 1368
+Z -1 1368
 D1
 ~
 door glass~
-1 -1 1367
+ABZ -1 1367
 D2
 ~
 ~
-0 -1 1363
+Z -1 1363
 S
 #1367
 The study~
@@ -3126,7 +3126,7 @@ magical oil lamp.
 D3
 ~
 door glass~
-1 -1 1366
+ABZ -1 1366
 S
 #1368
 Below the stairs~
@@ -3139,11 +3139,11 @@ silent watch on the entrance to the levels above.
 D2
 ~
 ~
-0 -1 1366
+Z -1 1366
 D4
 ~
 ~
-0 -1 1369
+Z -1 1369
 S
 #1369
 Atop the stairway~
@@ -3157,11 +3157,11 @@ magical aura which provides some light.
 D3
 ~
 ~
-0 -1 1370
+Z -1 1370
 D5
 ~
 ~
-0 -1 1368
+Z -1 1368
 S
 #1370
 A hallway~
@@ -3173,15 +3173,15 @@ a faint magical energy providing enough light to see by.
 D0
 ~
 door wooden~
-1 -1 1371
+ABZ -1 1371
 D1
 ~
 ~
-0 -1 1369
+Z -1 1369
 D3
 ~
 ~
-0 -1 1372
+Z -1 1372
 S
 #1371
 A small office~
@@ -3194,11 +3194,11 @@ candle can be seen through the curtain.
 D2
 ~
 door wooden~
-1 -1 1370
+ABZ -1 1370
 D3
 ~
 curtain~
-1 -1 1373
+ABZ -1 1373
 S
 #1372
 A hallway~
@@ -3209,11 +3209,11 @@ magical glow which provides enough light to see by.
 D1
 ~
 ~
-0 -1 1370
+Z -1 1370
 D3
 ~
 ~
-0 -1 1374
+Z -1 1374
 S
 #1373
 The master scribe's workshop~
@@ -3226,7 +3226,7 @@ flickering with soft blue flames provides the only light here.
 D1
 ~
 curtain~
-1 -1 1371
+ABZ -1 1371
 S
 #1374
 A hallway~
@@ -3239,15 +3239,15 @@ D0
 A dark room can be seen through the half opened door
 ~
 door wooden~
-1 -1 1375
+ABZ -1 1375
 D1
 ~
 ~
-0 -1 1372
+Z -1 1372
 D3
 ~
 ~
-0 -1 1376
+Z -1 1376
 S
 #1375
 A store room~
@@ -3258,7 +3258,7 @@ the shelves here, but very little looks interesting.
 D2
 ~
 door wooden~
-1 -1 1374
+ABZ -1 1374
 S
 #1376
 A bend in the hallway~
@@ -3270,11 +3270,11 @@ glow which provides enough light to see by.
 D1
 ~
 ~
-0 -1 1374
+Z -1 1374
 D2
 ~
 ~
-0 -1 1377
+Z -1 1377
 S
 #1377
 A hallway~
@@ -3286,15 +3286,15 @@ magical glow which provides enough light to see by.
 D0
 ~
 ~
-0 -1 1376
+Z -1 1376
 D2
 ~
 ~
-0 -1 1378
+Z -1 1378
 D3
 ~
 door iron~
-1 -1 1379
+ABZ -1 1379
 S
 #1378
 A hallway~
@@ -3306,15 +3306,15 @@ magical glow which provides enough light to see by.
 D0
 ~
 ~
-0 -1 1377
+Z -1 1377
 D2
 ~
 ~
-0 -1 1380
+Z -1 1380
 D3
 ~
 door iron~
-1 -1 1381
+ABZ -1 1381
 S
 #1379
 A store room~
@@ -3327,11 +3327,11 @@ A large cabinet with sigils of warding is bolted to one wall.
 D1
 ~
 door iron~
-1 -1 1377
+ABZ -1 1377
 D2
 ~
 ~
-0 -1 1381
+Z -1 1381
 S
 #1380
 A hallway~
@@ -3342,11 +3342,11 @@ magical glow which provides enough light to see by.
 D0
 ~
 ~
-0 -1 1378
+Z -1 1378
 D2
 ~
 ~
-0 -1 1383
+Z -1 1383
 S
 #1381
 A very hot room~
@@ -3360,19 +3360,19 @@ meters in the air of its own force.
 D0
 ~
 ~
-0 -1 1379
+Z -1 1379
 D1
 ~
 door iron~
-1 -1 1378
+ABZ -1 1378
 D2
 ~
 door ~
-1 -1 1382
+ABZ -1 1382
 D4
 ~
 vent~
-1 -1 1412
+ABZ -1 1412
 S
 #1382
 The master Enchanter's chamber~
@@ -3385,7 +3385,7 @@ table.
 D0
 ~
 door~
-1 -1 1381
+ABZ -1 1381
 S
 #1383
 A bend in the hallway~
@@ -3397,11 +3397,11 @@ which provides enough light to see by.
 D0
 ~
 ~
-0 -1 1380
+Z -1 1380
 D1
 ~
 ~
-0 -1 1384
+Z -1 1384
 S
 #1384
 A hallway~
@@ -3413,15 +3413,15 @@ magical glow which provides enough light to see by.
 D1
 ~
 ~
-0 -1 1385
+Z -1 1385
 D2
 ~
 door steel~
-1 -1 1386
+ABZ -1 1386
 D3
 ~
 ~
-0 -1 1383
+Z -1 1383
 S
 #1385
 A hallway~
@@ -3432,11 +3432,11 @@ magical glow which provides enough light to see by.
 D1
 ~
 ~
-0 -1 1387
+Z -1 1387
 D3
 ~
 ~
-0 -1 1384
+Z -1 1384
 S
 #1386
 A laboratory~
@@ -3449,11 +3449,11 @@ untidy, looking almost abandoned, or used by a madman.
 D0
 ~
 door steel~
-1 -1 1384
+ABZ -1 1384
 D1
 ~
 ~
-0 -1 1388
+Z -1 1388
 S
 #1387
 A hallway~
@@ -3465,15 +3465,15 @@ magical glow which provides enough light to see by.
 D1
 ~
 ~
-0 -1 1389
+Z -1 1389
 D2
 ~
 door steel~
-1 -1 1390
+ABZ -1 1390
 D3
 ~
 ~
-0 -1 1385
+Z -1 1385
 S
 #1388
 The Mad Alchemist's workroom~
@@ -3486,7 +3486,7 @@ It is incredibly messy here, crushed glass and other trash litter the floor.
 D3
 ~
 ~
-0 -1 1386
+Z -1 1386
 S
 #1389
 A bend in the hallway~
@@ -3498,11 +3498,11 @@ which provides enough light to see by.
 D0
 ~
 ~
-0 -1 1391
+Z -1 1391
 D3
 ~
 ~
-0 -1 1387
+Z -1 1387
 S
 #1390
 The pentagram chamber~
@@ -3513,12 +3513,12 @@ A crackling energy field can be seen to the south, it looks quite dangerous.
 D0
 ~
 door steel~
-1 -1 1387
+ABZ -1 1387
 D2
 The energy field crackles and glows, nothing seems to be beyond.
 ~
 ~
-0 -1 1392
+Z -1 1392
 S
 #1391
 A hallway~
@@ -3530,15 +3530,15 @@ magical glow which provides enough light to see by.
 D0
 ~
 ~
-0 -1 1393
+Z -1 1393
 D1
 ~
 door bronze~
-1 -1 1394
+ABZ -1 1394
 D2
 ~
 ~
-0 -1 1389
+Z -1 1389
 S
 #1392
 Inside the Energy Field~
@@ -3550,23 +3550,23 @@ trap comes back to imprison your soul as well as your body.
 D1
 ~
 ~
-0 0 5113
+Z 0 5113
 D2
 ~
 ~
-0 0 9141
+Z 0 9141
 D3
 ~
 ~
-0 0 7428
+Z 0 7428
 D4
 ~
 ~
-0 0 938
+Z 0 938
 D5
 ~
 ~
-0 0 3460
+Z 0 3460
 S
 #1393
 A hallway~
@@ -3578,15 +3578,15 @@ magical glow which provides enough light to see by.
 D0
 ~
 ~
-0 -1 1396
+Z -1 1396
 D1
 ~
 door bronze~
-0 -1 1395
+Z -1 1395
 D2
 ~
 ~
-0 -1 1391
+Z -1 1391
 S
 #1394
 An empty room~
@@ -3597,7 +3597,7 @@ like a safe place to rest.
 D3
 ~
 door bronze~
-1 -1 1391
+ABZ -1 1391
 S
 #1395
 The charm master's chamber~
@@ -3610,11 +3610,11 @@ animals.
 D0
 ~
 cage bars~
-1 -1 1397
+ABZ -1 1397
 D3
 ~
 door bronze~
-1 -1 1393
+ABZ -1 1393
 S
 #1396
 A hallway~
@@ -3625,11 +3625,11 @@ magical glow which provides enough light to see by.
 D0
 ~
 ~
-0 -1 1398
+Z -1 1398
 D2
 ~
 ~
-0 -1 1393
+Z -1 1393
 S
 #1397
 The animal pens~
@@ -3641,7 +3641,7 @@ experimentation.
 D2
 ~
 cage bars~
-1 -1 1395
+ABZ -1 1395
 S
 #1398
 The end of the hallway~
@@ -3653,11 +3653,11 @@ magical glow which provides enough light to see by.
 D2
 ~
 ~
-0 -1 1396
+Z -1 1396
 D4
 ~
 ~
-0 -1 1399
+Z -1 1399
 S
 #1399
 Atop the stairway~
@@ -3669,11 +3669,11 @@ emit a faint magical glow which provides enough light to see by.
 D3
 ~
 ~
-0 -1 1400
+Z -1 1400
 D5
 ~
 ~
-0 -1 1398
+Z -1 1398
 S
 #1400
 A hallway~
@@ -3685,15 +3685,15 @@ magical glow which provides enough light to see by.
 D0
 ~
 door silver~
-1 -1 1401
+ABZ -1 1401
 D1
 ~
 ~
-0 -1 1399
+Z -1 1399
 D3
 ~
 ~
-0 -1 1404
+Z -1 1404
 S
 #1401
 A store room~
@@ -3706,11 +3706,11 @@ are here.
 D2
 ~
 door silver~
-1 -1 1400
+ABZ -1 1400
 D3
 ~
 door silver~
-1 -1 1402
+ABZ -1 1402
 S
 #1402
 The master spellbinder's chamber~
@@ -3723,11 +3723,11 @@ spell binder obviously needs none for the working of his art.
 D1
 ~
 door silver~
-1 -1 1401
+ABZ -1 1401
 D3
 ~
 door silver~
-1 -1 1403
+ABZ -1 1403
 S
 #1403
 The spellbinder's cache~
@@ -3739,11 +3739,11 @@ very large silver chased cabinets here, other than that, the room is bare.
 D1
 ~
 door silver~
-1 -1 1402
+ABZ -1 1402
 D2
 ~
 door silver~
-1 -1 1405
+ABZ -1 1405
 S
 #1404
 A hallway~
@@ -3754,11 +3754,11 @@ magical glow which provides enough light to see by.
 D1
 ~
 ~
-0 -1 1400
+Z -1 1400
 D3
 ~
 ~
-0 -1 1405
+Z -1 1405
 S
 #1405
 A hallway~
@@ -3770,15 +3770,15 @@ magical glow which provides enough light to see by.
 D0
 ~
 door silver~
-1 -1 1403
+ABZ -1 1403
 D1
 ~
 ~
-0 -1 1404
+Z -1 1404
 D3
 ~
 ~
-0 -1 1406
+Z -1 1406
 S
 #1406
 A bend in the hallway~
@@ -3790,11 +3790,11 @@ glow which provides enough light to see by.
 D1
 ~
 ~
-0 -1 1405
+Z -1 1405
 D2
 ~
 ~
-0 -1 1407
+Z -1 1407
 S
 #1407
 A hallway~
@@ -3805,11 +3805,11 @@ magical glow which provides enough light to see by.
 D0
 ~
 ~
-0 -1 1406
+Z -1 1406
 D2
 ~
 ~
-0 -1 1408
+Z -1 1408
 S
 #1408
 A hallway~
@@ -3821,15 +3821,15 @@ magical glow which provides enough light to see by.
 D0
 ~
 ~
-0 -1 1407
+Z -1 1407
 D2
 ~
 ~
-0 -1 1413
+Z -1 1413
 D3
 ~
 door rusty~
-1 -1 1409
+ABZ -1 1409
 S
 #1409
 The golem master's workshop~
@@ -3841,19 +3841,19 @@ lunge to attack you.
 D0
 ~
 ~
-0 -1 1410
+Z -1 1410
 D1
 ~
 door rusty~
-1 -1 1408
+ABZ -1 1408
 D2
 ~
 ~
-0 -1 1411
+Z -1 1411
 D5
 ~
 trapdoor~
-1 -1 1412
+ABZ -1 1412
 S
 #1410
 A store room~
@@ -3864,7 +3864,7 @@ other raw materials are here.
 D2
 ~
 ~
-0 -1 1409
+Z -1 1409
 S
 #1411
 The golem chamber~
@@ -3876,7 +3876,7 @@ seem to be sleeping.
 D0
 ~
 ~
-0 -1 1409
+Z -1 1409
 S
 #1412
 It is very dark here...~
@@ -3886,11 +3886,11 @@ It is very dark here...
 D4
 ~
 trapdoor~
-1 -1 1409
+ABZ -1 1409
 D5
 ~
 vent~
-1 -1 1381
+ABZ -1 1381
 S
 #1413
 A hallway~
@@ -3901,11 +3901,11 @@ magical glow which provides enough light to see by.
 D0
 ~
 ~
-0 -1 1408
+Z -1 1408
 D2
 ~
 ~
-0 -1 1414
+Z -1 1414
 S
 #1414
 A bend in the hallway~
@@ -3917,11 +3917,11 @@ glow which provides enough light to see by.
 D0
 ~
 ~
-0 -1 1413
+Z -1 1413
 D1
 ~
 ~
-0 -1 1415
+Z -1 1415
 S
 #1415
 A hallway~
@@ -3932,11 +3932,11 @@ magical glow which provides enough light to see by.
 D1
 ~
 ~
-0 -1 1416
+Z -1 1416
 D3
 ~
 ~
-0 -1 1414
+Z -1 1414
 S
 #1416
 A hallway~
@@ -3948,16 +3948,16 @@ magical glow which provides enough light to see by.
 D1
 ~
 ~
-0 -1 1419
+Z -1 1419
 D2
 ~
 door emerald to enter the master of illusion's chamber
 ~
-1 -1 1417
+ABZ -1 1417
 D3
 ~
 ~
-0 -1 1415
+Z -1 1415
 S
 #1417
 The master of illusion's chamber~
@@ -3970,11 +3970,11 @@ at least they seem to be treasures...
 D0
 ~
 door emerald~
-1 -1 1416
+ABZ -1 1416
 D3
 ~
 ~
-0 -1 1418
+Z -1 1418
 S
 #1418
 A bedroom~
@@ -3987,7 +3987,7 @@ can be felt everywhere.
 D1
 ~
 ~
-0 -1 1417
+Z -1 1417
 S
 #1419
 A hallway~
@@ -3999,15 +3999,15 @@ magical glow which provides enough light to see by.
 D1
 ~
 ~
-0 -1 1421
+Z -1 1421
 D2
 ~
 door glass~
-1 -1 1420
+ABZ -1 1420
 D3
 ~
 ~
-0 -1 1416
+Z -1 1416
 S
 #1420
 The meditation chamber~
@@ -4019,7 +4019,7 @@ can not even hear your own footsteps.
 D0
 ~
 door glass~
-1 -1 1419
+ABZ -1 1419
 S
 #1421
 A bend in the hallway~
@@ -4031,11 +4031,11 @@ glow which provides enough light to see by.
 D0
 ~
 ~
-0 -1 1422
+Z -1 1422
 D3
 ~
 ~
-0 -1 1419
+Z -1 1419
 S
 #1422
 A hallway~
@@ -4047,15 +4047,15 @@ magical glow which provides enough light to see by.
 D0
 ~
 ~
-0 -1 1426
+Z -1 1426
 D1
 ~
 door black~
-1 -1 1423
+ABZ -1 1423
 D2
 ~
 ~
-0 -1 1421
+Z -1 1421
 S
 #1423
 A dark room~
@@ -4067,11 +4067,11 @@ wafting in from the open doorway to the north.
 D0
 ~
 ~
-0 -1 1424
+Z -1 1424
 D3
 ~
 door black~
-1 -1 1422
+ABZ -1 1422
 S
 #1424
 A dark room~
@@ -4086,11 +4086,11 @@ D0
 Upon gazing northwards, you are filled with deep dread
 ~
 ~
-0 -1 1425
+Z -1 1425
 D2
 ~
 ~
-0 -1 1423
+Z -1 1423
 S
 #1425
 The Necromancer's Lair~
@@ -4103,7 +4103,7 @@ protect the evil master from his own ungodly creations.
 D2
 ~
 ~
-0 -1 1424
+Z -1 1424
 S
 #1426
 A hallway~
@@ -4114,11 +4114,11 @@ magical glow which provides enough light to see by.
 D0
 ~
 ~
-0 -1 1427
+Z -1 1427
 D2
 ~
 ~
-0 -1 1422
+Z -1 1422
 S
 #1427
 A hallway~
@@ -4129,11 +4129,11 @@ magical glow which provides enough light to see by.
 D0
 ~
 ~
-0 -1 1428
+Z -1 1428
 D2
 ~
 ~
-0 -1 1426
+Z -1 1426
 S
 #1428
 The end of the hallway~
@@ -4145,11 +4145,11 @@ magical energy which provides plenty of light.
 D2
 ~
 ~
-0 -1 1427
+Z -1 1427
 D4
 ~
 ~
-0 -1 1429
+Z -1 1429
 S
 #1429
 A corridor~
@@ -4162,11 +4162,11 @@ as if the corridor it self were alive.
 D3
 ~
 ~
-0 -1 1430
+Z -1 1430
 D5
 ~
 ~
-0 -1 1428
+Z -1 1428
 S
 #1430
 A corridor~
@@ -4179,11 +4179,11 @@ corridor itself were alive.
 D1
 ~
 ~
-0 -1 1429
+Z -1 1429
 D3
 ~
 ~
-0 -1 1431
+Z -1 1431
 S
 #1431
 A bend in the corridor~
@@ -4196,11 +4196,11 @@ as if the corridor itself were alive.
 D1
 ~
 ~
-0 -1 1430
+Z -1 1430
 D2
 ~
 ~
-0 -1 1432
+Z -1 1432
 S
 #1432
 A corridor~
@@ -4213,11 +4213,11 @@ long forgotten, almost as if the corridor itself were alive.
 D0
 ~
 ~
-0 -1 1431
+Z -1 1431
 D2
 ~
 ~
-0 -1 1433
+Z -1 1433
 S
 #1433
 An intersection~
@@ -4229,19 +4229,19 @@ ancient runes.
 D0
 ~
 ~
-0 -1 1432
+Z -1 1432
 D1
 ~
 ~
-0 -1 1434
+Z -1 1434
 D2
 ~
 ~
-0 -1 1446
+Z -1 1446
 D3
 ~
 ~
-0 -1 1436
+Z -1 1436
 S
 #1434
 A corridor~
@@ -4254,11 +4254,11 @@ from under the door.
 D1
 ~
 door black~
-1 -1 1435
+ABZ -1 1435
 D3
 ~
 ~
-0 -1 1433
+Z -1 1433
 S
 #1435
 The scrying chamber~
@@ -4274,7 +4274,7 @@ mirrors.
 D3
 ~
 door black~
-1 -1 1434
+ABZ -1 1434
 S
 #1436
 A corridor~
@@ -4286,11 +4286,11 @@ can barely be heard through the door to the west.
 D1
 ~
 ~
-0 -1 1433
+Z -1 1433
 D3
 ~
 door wooden~
-0 -1 1437
+Z -1 1437
 S
 #1437
 The entrance to the library~
@@ -4303,21 +4303,21 @@ see.
 D0
 ~
 ~
-0 -1 1439
+Z -1 1439
 D1
 ~
 ~
-0 -1 1436
+Z -1 1436
 D2
 All you can see are books
 ~
 ~
-0 -1 1440
+Z -1 1440
 D3
 All you can see are books
 ~
 ~
-0 -1 1438
+Z -1 1438
 S
 #1438
 In the library~
@@ -4331,19 +4331,19 @@ books seem to wink in and out of existence before your untrained eyes.
 D0
 ~
 ~
-0 -1 1441
+Z -1 1441
 D1
 ~
 ~
-0 -1 1437
+Z -1 1437
 D2
 ~
 ~
-0 -1 1442
+Z -1 1442
 D3
 ~
 ~
-0 -1 1443
+Z -1 1443
 S
 #1439
 In the library~
@@ -4357,19 +4357,19 @@ books seem to wink in and out of existence before your untrained eyes.
 D0
 ~
 ~
-0 -1 1440
+Z -1 1440
 D1
 ~
 ~
-0 -1 1442
+Z -1 1442
 D2
 ~
 ~
-0 -1 1437
+Z -1 1437
 D3
 ~
 ~
-0 -1 1441
+Z -1 1441
 S
 #1440
 In the library~
@@ -4383,19 +4383,19 @@ books seem to wink in and out of existence before your untrained eyes.
 D0
 ~
 ~
-0 -1 1437
+Z -1 1437
 D1
 ~
 ~
-0 -1 1441
+Z -1 1441
 D2
 ~
 ~
-0 -1 1439
+Z -1 1439
 D3
 ~
 ~
-0 -1 1442
+Z -1 1442
 S
 #1441
 In the library~
@@ -4409,19 +4409,19 @@ books seem to wink in and out of existence before your untrained eyes.
 D0
 ~
 ~
-0 -1 1442
+Z -1 1442
 D1
 ~
 ~
-0 -1 1439
+Z -1 1439
 D2
 ~
 ~
-0 -1 1438
+Z -1 1438
 D3
 ~
 ~
-0 -1 1440
+Z -1 1440
 S
 #1442
 In the library~
@@ -4435,19 +4435,19 @@ books seem to wink in and out of existence before your untrained eyes.
 D0
 ~
 ~
-0 -1 1438
+Z -1 1438
 D1
 ~
 ~
-0 -1 1440
+Z -1 1440
 D2
 ~
 ~
-0 -1 1441
+Z -1 1441
 D3
 ~
 ~
-0 -1 1439
+Z -1 1439
 S
 #1443
 In the library~
@@ -4461,11 +4461,11 @@ books seem to wink in and out of existence before your untrained eyes.
 D1
 ~
 ~
-0 -1 1438
+Z -1 1438
 D3
 ~
 ~
-0 -1 1444
+Z -1 1444
 S
 #1444
 Between the shelves~
@@ -4478,11 +4478,11 @@ strong, and the elusive books still hover just out of reach.
 D0
 ~
 ~
-0 -1 1445
+Z -1 1445
 D1
 ~
 ~
-0 -1 1443
+Z -1 1443
 S
 #1445
 The reading room~
@@ -4497,7 +4497,7 @@ the pages.
 D2
 ~
 ~
-0 -1 1444
+Z -1 1444
 S
 #1446
 A corridor~
@@ -4510,11 +4510,11 @@ long forgotten, almost as if the corridor itself were alive.
 D0
 ~
 ~
-0 -1 1433
+Z -1 1433
 D2
 ~
 ~
-0 -1 1447
+Z -1 1447
 S
 #1447
 The end of the corridor~
@@ -4527,11 +4527,11 @@ strong it nearly numbs your body.
 D0
 ~
 ~
-0 -1 1446
+Z -1 1446
 D2
 ~
 ~
-0 -1 1448
+Z -1 1448
 S
 #1448
 The arched entrance~
@@ -4544,11 +4544,11 @@ you can barely make out a stairway leading up.
 D0
 ~
 ~
-0 -1 1447
+Z -1 1447
 D4
 ~
 ~
-0 -1 1449
+Z -1 1449
 S
 #1449
 The landing~
@@ -4560,11 +4560,11 @@ the only thing you can see in any direction is endless stairway.
 D4
 ~
 ~
-0 -1 1450
+Z -1 1450
 D5
 ~
 ~
-0 -1 1448
+Z -1 1448
 S
 #1450
 An intersection~
@@ -4580,23 +4580,23 @@ unrecognizable is to the north.
 D0
 ~
 ~
-0 -1 1473
+Z -1 1473
 D1
 ~
 ~
-0 -1 1458
+Z -1 1458
 D2
 ~
 ~
-0 -1 1451
+Z -1 1451
 D3
 ~
 ~
-0 -1 1465
+Z -1 1465
 D5
 ~
 ~
-0 -1 1449
+Z -1 1449
 S
 #1451
 A grey tiled hallway~
@@ -4608,11 +4608,11 @@ A feeling of peace and balance comes over you.
 D0
 ~
 ~
-0 -1 1450
+Z -1 1450
 D2
 ~
 ~
-0 -1 1452
+Z -1 1452
 S
 #1452
 A grey tiled hallway~
@@ -4625,11 +4625,11 @@ A feeling of peace and balance comes over you.
 D0
 ~
 ~
-0 -1 1451
+Z -1 1451
 D2
 ~
 door grey~
-1 -1 1453
+ABZ -1 1453
 S
 #1453
 The antechamber~
@@ -4643,11 +4643,11 @@ to the south.
 D0
 ~
 door grey~
-1 -1 1452
+ABZ -1 1452
 D2
 ~
 ~
-0 -1 1454
+Z -1 1454
 S
 #1454
 The main chamber~
@@ -4660,19 +4660,19 @@ master of neutrality holds audience.
 D0
 ~
 ~
-0 -1 1453
+Z -1 1453
 D1
 ~
 ~
-0 -1 1456
+Z -1 1456
 D2
 ~
 ~
-0 -1 1457
+Z -1 1457
 D3
 ~
 ~
-0 -1 1455
+Z -1 1455
 S
 #1455
 The study~
@@ -4686,7 +4686,7 @@ the scales are no doubt a sign of the master's neutrality.
 D1
 ~
 ~
-0 -1 1454
+Z -1 1454
 S
 #1456
 A closet~
@@ -4697,7 +4697,7 @@ apparel.
 D3
 ~
 ~
-0 -1 1454
+Z -1 1454
 S
 #1457
 A bedroom~
@@ -4709,7 +4709,7 @@ takes up most of the room.
 D0
 ~
 ~
-0 -1 1454
+Z -1 1454
 S
 #1458
 A dark hallway~
@@ -4721,11 +4721,11 @@ the further you go.
 D1
 ~
 ~
-0 -1 1459
+Z -1 1459
 D3
 ~
 ~
-0 -1 1450
+Z -1 1450
 S
 #1459
 A dark hallway~
@@ -4737,11 +4737,11 @@ the further you go.
 D1
 ~
 ~
-0 -1 1460
+Z -1 1460
 D3
 ~
 ~
-0 -1 1458
+Z -1 1458
 S
 #1460
 The end of the hallway~
@@ -4754,11 +4754,11 @@ you.
 D1
 ~
 door obsidian~
-1 -1 1461
+ABZ -1 1461
 D3
 ~
 ~
-0 -1 1459
+Z -1 1459
 S
 #1461
 The chamber of darkness~
@@ -4771,19 +4771,19 @@ light and leave it that much darker here.
 D0
 ~
 ~
-0 -1 1462
+Z -1 1462
 D1
 ~
 ~
-0 -1 1464
+Z -1 1464
 D2
 ~
 ~
-0 -1 1463
+Z -1 1463
 D3
 ~
 door obsidian~
-1 -1 1460
+ABZ -1 1460
 S
 #1462
 It is very dark here...~
@@ -4793,7 +4793,7 @@ It is very dark here...
 D2
 ~
 ~
-0 -1 1461
+Z -1 1461
 S
 #1463
 Torture chamber~
@@ -4806,7 +4806,7 @@ had a mind of their own. An operating table is here, though it is bare.
 D0
 ~
 ~
-0 -1 1461
+Z -1 1461
 S
 #1464
 The inner chamber~
@@ -4819,7 +4819,7 @@ glow, but does not shed any light, in fact it seems to be taking light in.
 D3
 ~
 ~
-0 -1 1461
+Z -1 1461
 S
 #1465
 A bright hallway~
@@ -4832,11 +4832,11 @@ tread upon these sacred floors.
 D1
 ~
 ~
-0 -1 1450
+Z -1 1450
 D3
 ~
 ~
-0 -1 1466
+Z -1 1466
 S
 #1466
 A bright hallway~
@@ -4850,11 +4850,11 @@ tread upon these sacred floors.
 D1
 ~
 ~
-0 -1 1465
+Z -1 1465
 D3
 ~
 door ivory~
-1 -1 1467
+ABZ -1 1467
 S
 #1467
 An antechamber~
@@ -4867,11 +4867,11 @@ feel worthy to pass into it.
 D1
 ~
 door ivory~
-1 -1 1466
+ABZ -1 1466
 D3
 ~
 ~
-0 -1 1469
+Z -1 1469
 S
 #1469
 The chamber of the white light~
@@ -4885,19 +4885,19 @@ flame flickers towards you.
 D0
 ~
 ~
-0 -1 1470
+Z -1 1470
 D1
 ~
 ~
-0 -1 1467
+Z -1 1467
 D2
 ~
 ~
-0 -1 1471
+Z -1 1471
 D3
 ~
 ~
-0 -1 1472
+Z -1 1472
 S
 #1470
 The meditation chamber~
@@ -4909,7 +4909,7 @@ here, almost making you want to lie down and fall asleep.
 D2
 ~
 ~
-0 -1 1469
+Z -1 1469
 S
 #1471
 A study~
@@ -4921,7 +4921,7 @@ mess all around them, the master of this chamber obviously can.
 D0
 ~
 ~
-0 -1 1469
+Z -1 1469
 S
 #1472
 A closet~
@@ -4932,7 +4932,7 @@ and a few old boots are all that can be seen here. Rather featureless.
 D1
 ~
 ~
-0 -1 1469
+Z -1 1469
 S
 #1473
 A wide hallway~
@@ -4945,11 +4945,11 @@ constant motion.
 D0
 ~
 door metal grey~
-2 1473 1474
+ABFZ 1473 1474
 D2
 ~
 ~
-0 -1 1450
+Z -1 1450
 S
 #1474
 A wide hallway~
@@ -4962,11 +4962,11 @@ constant motion.
 D0
 ~
 door obsidian black~
-2 1474 1475
+ABFZ 1474 1475
 D2
 ~
 door metal grey~
-2 1473 1473
+ABFZ 1473 1473
 S
 #1475
 A wide hallway~
@@ -4979,11 +4979,11 @@ constant motion.
 D0
 ~
 door ivory white~
-2 1475 1476
+ABFZ 1475 1476
 D2
 ~
 door obsidian black~
-2 1474 1474
+ABFZ 1474 1474
 S
 #1476
 The entranceway~
@@ -4996,11 +4996,11 @@ seems to rustle and move at the touch of your boots.
 D0
 ~
 ~
-0 -1 1477
+Z -1 1477
 D2
 ~
 door white ivory~
-2 1475 1475
+ABFZ 1475 1475
 S
 #1477
 The audience chamber~
@@ -5019,19 +5019,19 @@ The giant emerald is flawless, and must be incredibly valuable.
 D0
 ~
 ~
-0 -1 1480
+Z -1 1480
 D1
 ~
 ~
-0 -1 1478
+Z -1 1478
 D2
 ~
 ~
-0 -1 1476
+Z -1 1476
 D3
 ~
 ~
-0 -1 1479
+Z -1 1479
 S
 #1478
 A dressing room~
@@ -5044,7 +5044,7 @@ finely crafted gold stand.
 D3
 ~
 ~
-0 -1 1477
+Z -1 1477
 S
 #1479
 The library~
@@ -5057,7 +5057,7 @@ to your surprise is a quite un-magical oil lamp.
 D1
 ~
 ~
-0 -1 1477
+Z -1 1477
 S
 #1480
 The altar~
@@ -5070,15 +5070,15 @@ worship of Mystra, the goddess of magic.
 D1
 ~
 door secret~
-1 -1 1481
+ABZ -1 1481
 D2
 ~
 ~
-0 -1 1477
+Z -1 1477
 D3
 ~
 door secret~
-1 -1 1482
+ABZ -1 1482
 S
 #1481
 The treasury~
@@ -5089,7 +5089,7 @@ that it has gone undisturbed for many years.
 D3
 ~
 door secret~
-1 -1 1480
+ABZ -1 1480
 S
 #1482
 A passage~
@@ -5103,7 +5103,7 @@ in the event speedy of a evacuation.
 D3
 ~
 ~
-0 -1 1483
+Z -1 1483
 S
 #1483
 In the light~
@@ -5117,7 +5117,7 @@ exit.
 D4
 ~
 ~
-0 -1 3001
+Z -1 3001
 S
 #1499
 Skylar's Hideout~

@@ -1571,11 +1571,11 @@ sign~
 D0
 ~
 ~
-0 0 5280
+Z 0 5280
 D2
 ~
 ~
-0 -1 2301
+Z -1 2301
 S
 #2301
 The dark woods~
@@ -1589,11 +1589,11 @@ The path winds north and south into darkness.
 D0
 ~
 ~
-0 -1 2300
+Z -1 2300
 D2
 ~
 ~
-0 -1 2302
+Z -1 2302
 S
 #2302
 The small intersection in the forest~
@@ -1611,15 +1611,15 @@ BeWAre tHe SwAmP oGreS......
 D0
 ~
 ~
-0 0 2301
+Z 0 2301
 D1
 ~
 ~
-0 0 2304
+Z 0 2304
 D2
 ~
 ~
-0 0 2303
+Z 0 2303
 S
 #2303
 The edge of the forest and hills~
@@ -1632,11 +1632,11 @@ darkness, you feel very vulnerable and alone.
 D0
 ~
 ~
-0 -1 2302
+Z -1 2302
 D3
 ~
 ~
-0 -1 2309
+Z -1 2309
 S
 #2304
 In the dense forest~
@@ -1649,11 +1649,11 @@ to the west. The path you are on leads south into the darkening woods.
 D2
 ~
 ~
-0 0 2305
+Z 0 2305
 D3
 ~
 ~
-0 0 2302
+Z 0 2302
 S
 #2305
 The dark forest path~
@@ -1666,15 +1666,15 @@ south into darkness.
 D0
 ~
 ~
-0 0 2304
+Z 0 2304
 D1
 ~
 ~
-0 -1 2327
+Z -1 2327
 D2
 ~
 ~
-0 0 2306
+Z 0 2306
 S
 #2306
 A turn in the path~
@@ -1687,11 +1687,11 @@ east.
 D0
 ~
 ~
-0 0 2305
+Z 0 2305
 D3
 ~
 ~
-0 0 2307
+Z 0 2307
 S
 #2307
 The bloody intersection~
@@ -1706,15 +1706,15 @@ directions, south and east.
 D1
 ~
 ~
-0 0 2306
+Z 0 2306
 D2
 ~
 ~
-0 0 2310
+Z 0 2310
 D3
 ~
 ~
-0 0 2308
+Z 0 2308
 S
 #2308
 The rocky path~
@@ -1726,11 +1726,11 @@ hills are to the north of here.
 D0
 ~
 ~
-0 0 2309
+Z 0 2309
 D1
 ~
 ~
-0 0 2307
+Z 0 2307
 S
 #2309
 The rocky path~
@@ -1743,16 +1743,16 @@ forest in that direction.
 D1
 ~
 ~
-0 0 2303
+Z 0 2303
 D2
 ~
 ~
-0 0 2308
+Z 0 2308
 D3
 ~
 Before the tower
 ~
-0 0 29350
+Z 0 29350
 S
 #2310
 Up the rocky hillside~
@@ -1765,19 +1765,19 @@ and it drops away to the north.
 D0
 ~
 ~
-0 0 2307
+Z 0 2307
 D1
 ~
 ~
-0 0 2312
+Z 0 2312
 D2
 ~
 ~
-0 0 2314
+Z 0 2314
 D3
 ~
 ~
-0 0 2311
+Z 0 2311
 S
 #2311
 The sparse foothills~
@@ -1790,11 +1790,11 @@ the foothills. The foothills themselves extend to the south.
 D1
 ~
 ~
-0 0 2310
+Z 0 2310
 D2
 ~
 ~
-0 0 2313
+Z 0 2313
 S
 #2312
 Standing on level ground~
@@ -1808,11 +1808,11 @@ climb down.
 D2
 ~
 ~
-0 0 2315
+Z 0 2315
 D3
 ~
 ~
-0 0 2310
+Z 0 2310
 S
 #2313
 In the foothills~
@@ -1824,15 +1824,15 @@ lead east, north, and south into more barren hills.
 D0
 ~
 ~
-0 0 2311
+Z 0 2311
 D1
 ~
 ~
-0 0 2314
+Z 0 2314
 D2
 ~
 ~
-0 0 2317
+Z 0 2317
 S
 #2314
 Before the huge tree~
@@ -1846,19 +1846,19 @@ through its old feeble branches. The hills themselves lead in all directions.
 D0
 ~
 ~
-0 0 2310
+Z 0 2310
 D1
 ~
 ~
-0 0 2315
+Z 0 2315
 D2
 ~
 ~
-0 0 2318
+Z 0 2318
 D3
 ~
 ~
-0 0 2313
+Z 0 2313
 S
 #2315
 Before the dark cave~
@@ -1872,19 +1872,19 @@ north, south, and west.
 D0
 ~
 ~
-0 0 2312
+Z 0 2312
 D1
 ~
 ~
-0 0 2316
+Z 0 2316
 D2
 ~
 ~
-0 0 2319
+Z 0 2319
 D3
 ~
 ~
-0 0 2314
+Z 0 2314
 S
 #2316
 Inside the horrid cave~
@@ -1903,7 +1903,7 @@ It appears to be some sort of nest......
 D3
 ~
 ~
-0 0 2315
+Z 0 2315
 S
 #2317
 The hills overlooking the shore~
@@ -1918,15 +1918,15 @@ shoreline.
 D0
 ~
 ~
-0 0 2313
+Z 0 2313
 D1
 ~
 ~
-0 0 2318
+Z 0 2318
 D5
 ~
 ~
-0 0 2320
+Z 0 2320
 S
 #2318
 The hills overlooking the shoreline~
@@ -1941,19 +1941,19 @@ standing leads east and west along the shoreline.
 D0
 ~
 ~
-0 0 2314
+Z 0 2314
 D1
 ~
 ~
-0 0 2319
+Z 0 2319
 D3
 ~
 ~
-0 0 2317
+Z 0 2317
 D5
 ~
 ~
-0 0 2321
+Z 0 2321
 S
 #2319
 The hills above the shoreline~
@@ -1967,15 +1967,15 @@ upon leads west along the shoreline.
 D0
 ~
 ~
-0 0 2315
+Z 0 2315
 D3
 ~
 ~
-0 0 2318
+Z 0 2318
 D5
 ~
 ~
-0 0 2322
+Z 0 2322
 S
 #2320
 The rocky shore~
@@ -1987,15 +1987,15 @@ glows with an eerie blue light. It is possible to climb up into the hills here.
 D1
 ~
 ~
-0 0 2321
+Z 0 2321
 D2
 ~
 ~
-0 0 2323
+Z 0 2323
 D4
 ~
 ~
-0 0 2317
+Z 0 2317
 S
 #2321
 The rocky shoreline~
@@ -2008,19 +2008,19 @@ and rocky crags.
 D1
 ~
 ~
-0 0 2322
+Z 0 2322
 D2
 ~
 ~
-0 0 2324
+Z 0 2324
 D3
 ~
 ~
-0 0 2320
+Z 0 2320
 D4
 ~
 ~
-0 0 2318
+Z 0 2318
 S
 #2322
 The rocky shore~
@@ -2033,15 +2033,15 @@ west. It is possible to climb up into the hills here.
 D2
 ~
 ~
-0 0 2325
+Z 0 2325
 D3
 ~
 ~
-0 0 2321
+Z 0 2321
 D4
 ~
 ~
-0 0 2319
+Z 0 2319
 S
 #2323
 The edge of the sea~
@@ -2053,11 +2053,11 @@ to the east. The shore itself extends north away from the water's edge.
 D0
 ~
 ~
-0 0 2320
+Z 0 2320
 D1
 ~
 ~
-0 0 2324
+Z 0 2324
 S
 #2324
 The Blood Sea Portal~
@@ -2081,19 +2081,19 @@ small inscriptions inscription~
 D0
 ~
 ~
-0 0 2321
+Z 0 2321
 D1
 ~
 ~
-0 0 2325
+Z 0 2325
 D2
 ~
 ~
-0 0 2326
+Z 0 2326
 D3
 ~
 ~
-0 0 2323
+Z 0 2323
 S
 #2325
 The edge of the sea~
@@ -2106,11 +2106,11 @@ radiates blue light. The shore extends north away from the water's edge.
 D0
 ~
 ~
-0 0 2322
+Z 0 2322
 D3
 ~
 ~
-0 0 2324
+Z 0 2324
 S
 #2326
 Floating in blue light~
@@ -2123,11 +2123,11 @@ plain. Another window the the north shows an image of a rocky shore.
 D0
 ~
 ~
-0 0 2324
+Z 0 2324
 D2
 ~
 ~
-0 -1 2353
+Z -1 2353
 S
 #2327
 The swampy path~
@@ -2140,11 +2140,11 @@ a dark forest to the west.
 D1
 ~
 ~
-0 0 2328
+Z 0 2328
 D3
 ~
 ~
-0 0 2305
+Z 0 2305
 S
 #2328
 The swampy path~
@@ -2157,11 +2157,11 @@ and west into more swamp.
 D1
 ~
 ~
-0 0 2329
+Z 0 2329
 D3
 ~
 ~
-0 0 2327
+Z 0 2327
 S
 #2329
 The swampy path~
@@ -2175,11 +2175,11 @@ here leads east and west.
 D1
 ~
 ~
-0 -1 2330
+Z -1 2330
 D3
 ~
 ~
-0 0 2328
+Z 0 2328
 S
 #2330
 The turn in the swampy path~
@@ -2191,11 +2191,11 @@ a dark, mist filled swamp. Small paths lead south and west into the mist.
 D2
 ~
 ~
-0 0 2331
+Z 0 2331
 D3
 ~
 ~
-0 0 2329
+Z 0 2329
 S
 #2331
 The swampy path~
@@ -2207,11 +2207,11 @@ within it. Harder ground rises to the north.
 D0
 ~
 ~
-0 0 2330
+Z 0 2330
 D1
 ~
 ~
-0 0 2335
+Z 0 2335
 S
 #2332
 Lost in the Mist~
@@ -2223,19 +2223,19 @@ heard all around. You can wander in any direction.
 D0
 ~
 ~
-0 0 2337
+Z 0 2337
 D1
 ~
 ~
-0 0 2334
+Z 0 2334
 D2
 ~
 ~
-0 0 2335
+Z 0 2335
 D3
 ~
 ~
-0 0 2334
+Z 0 2334
 S
 #2333
 Lost in the Mist~
@@ -2248,19 +2248,19 @@ direction.......
 D0
 ~
 ~
-0 0 2333
+Z 0 2333
 D1
 ~
 ~
-0 0 2336
+Z 0 2336
 D2
 ~
 ~
-0 0 2333
+Z 0 2333
 D3
 ~
 ~
-0 0 2335
+Z 0 2335
 S
 #2334
 Lost in the Mist~
@@ -2272,19 +2272,19 @@ by the mist. You feel totally and hopelessly lost.
 D0
 ~
 ~
-0 0 2338
+Z 0 2338
 D1
 ~
 ~
-0 0 2332
+Z 0 2332
 D2
 ~
 ~
-0 0 2336
+Z 0 2336
 D3
 ~
 ~
-0 0 2332
+Z 0 2332
 S
 #2335
 Lost in the Mist~
@@ -2296,19 +2296,19 @@ You hear quiet laughter all about you.
 D0
 ~
 ~
-0 0 2332
+Z 0 2332
 D1
 ~
 ~
-0 0 2333
+Z 0 2333
 D2
 ~
 ~
-0 0 2337
+Z 0 2337
 D3
 ~
 ~
-0 0 2331
+Z 0 2331
 S
 #2336
 Lost in the Mist~
@@ -2320,19 +2320,19 @@ the west, while it grows thin to the east.
 D0
 ~
 ~
-0 0 2334
+Z 0 2334
 D1
 ~
 ~
-0 0 2339
+Z 0 2339
 D2
 ~
 ~
-0 0 2338
+Z 0 2338
 D3
 ~
 ~
-0 0 2333
+Z 0 2333
 S
 #2337
 Lost in the Mist~
@@ -2345,19 +2345,19 @@ in any direction.
 D0
 ~
 ~
-0 0 2335
+Z 0 2335
 D1
 ~
 ~
-0 0 2338
+Z 0 2338
 D2
 ~
 ~
-0 0 2332
+Z 0 2332
 D3
 ~
 ~
-0 0 2338
+Z 0 2338
 S
 #2338
 Lost in the Mist~
@@ -2369,19 +2369,19 @@ surroundings.
 D0
 ~
 ~
-0 0 2336
+Z 0 2336
 D1
 ~
 ~
-0 0 2337
+Z 0 2337
 D2
 ~
 ~
-0 0 2334
+Z 0 2334
 D3
 ~
 ~
-0 0 2337
+Z 0 2337
 S
 #2339
 The solid path~
@@ -2393,11 +2393,11 @@ you can see the sky above. A thick bank of mist is to your west.
 D0
 ~
 ~
-0 0 2340
+Z 0 2340
 D3
 ~
 ~
-0 0 2336
+Z 0 2336
 S
 #2340
 A forested path~
@@ -2410,11 +2410,11 @@ farther north on the trail. The trail itself leads south into murky territory.
 D0
 ~
 ~
-0 0 2341
+Z 0 2341
 D2
 ~
 ~
-0 0 2339
+Z 0 2339
 S
 #2341
 The gate before the Ogre Village~
@@ -2427,11 +2427,11 @@ south into the forest.
 D0
 ~
 ~
-0 0 2343
+Z 0 2343
 D2
 ~
 ~
-0 0 2340
+Z 0 2340
 S
 #2342
 Among the crude huts~
@@ -2443,11 +2443,11 @@ with a prime hunting ground. Small paths lead north and east.
 D0
 ~
 ~
-0 0 2345
+Z 0 2345
 D1
 ~
 ~
-0 0 2343
+Z 0 2343
 S
 #2343
 Inside the gates~
@@ -2460,19 +2460,19 @@ the crude huts. The gates to the south provide an exit from the village.
 D0
 ~
 ~
-0 0 2346
+Z 0 2346
 D1
 ~
 ~
-0 0 2344
+Z 0 2344
 D2
 ~
 ~
-0 0 2341
+Z 0 2341
 D3
 ~
 ~
-0 0 2342
+Z 0 2342
 S
 #2344
 Among the crude huts~
@@ -2485,11 +2485,11 @@ live in such squalor. Small paths lead west and north here.
 D0
 ~
 ~
-0 0 2347
+Z 0 2347
 D3
 ~
 ~
-0 0 2343
+Z 0 2343
 S
 #2345
 The gathering place~
@@ -2503,11 +2503,11 @@ east and south.
 D1
 ~
 ~
-0 0 2346
+Z 0 2346
 D2
 ~
 ~
-0 0 2342
+Z 0 2342
 S
 #2346
 The firepit before the lodge~
@@ -2521,19 +2521,19 @@ village itself.
 D0
 ~
 door~
-0 -1 2348
+Z -1 2348
 D1
 ~
 ~
-0 0 2347
+Z 0 2347
 D2
 ~
 ~
-0 0 2343
+Z 0 2343
 D3
 ~
 ~
-0 0 2345
+Z 0 2345
 S
 #2347
 The village dump~
@@ -2546,11 +2546,11 @@ fresher air.
 D2
 ~
 ~
-0 0 2344
+Z 0 2344
 D3
 ~
 ~
-0 0 2346
+Z 0 2346
 S
 #2348
 The entryway to the lodge~
@@ -2563,11 +2563,11 @@ exit into the village.
 D0
 ~
 ~
-0 -1 2349
+Z -1 2349
 D2
 ~
 door~
-0 -1 2346
+Z -1 2346
 S
 #2349
 The throne room~
@@ -2581,11 +2581,11 @@ smoke clings to the ceiling.
 D0
 ~
 ~
-0 0 2350
+Z 0 2350
 D2
 ~
 ~
-0 0 2348
+Z 0 2348
 S
 #2350
 The chieftain's room~
@@ -2599,7 +2599,7 @@ south.
 D2
 ~
 ~
-0 0 2349
+Z 0 2349
 S
 #2351
 The frigid wastelands~
@@ -2611,19 +2611,19 @@ discern any directions.
 D0
 ~
 ~
-0 0 2353
+Z 0 2353
 D1
 ~
 ~
-0 0 2352
+Z 0 2352
 D2
 ~
 ~
-0 0 2355
+Z 0 2355
 D3
 ~
 ~
-0 0 2354
+Z 0 2354
 S
 #2352
 The frigid wastelands~
@@ -2635,19 +2635,19 @@ discern any directions.
 D0
 ~
 ~
-0 -1 2357
+Z -1 2357
 D1
 ~
 ~
-0 -1 2354
+Z -1 2354
 D2
 ~
 ~
-0 -1 2358
+Z -1 2358
 D3
 ~
 ~
-0 0 2351
+Z 0 2351
 S
 #2353
 The Glacier Temple~
@@ -2660,11 +2660,11 @@ the open doorway. Swirling snow and bright light obscure your view.
 D0
 ~
 ~
-0 0 2326
+Z 0 2326
 D2
 ~
 ~
-0 0 2351
+Z 0 2351
 S
 #2354
 The frigid wastelands~
@@ -2676,19 +2676,19 @@ to discern any directions.
 D0
 ~
 ~
-0 0 2359
+Z 0 2359
 D1
 ~
 ~
-0 0 2351
+Z 0 2351
 D2
 ~
 ~
-0 0 2356
+Z 0 2356
 D3
 ~
 ~
-0 0 2352
+Z 0 2352
 S
 #2355
 The frigid wastelands~
@@ -2700,19 +2700,19 @@ to discern any directions.
 D0
 ~
 ~
-0 0 2351
+Z 0 2351
 D1
 ~
 ~
-0 0 2356
+Z 0 2356
 D2
 ~
 ~
-0 0 2357
+Z 0 2357
 D3
 ~
 ~
-0 0 2356
+Z 0 2356
 S
 #2356
 The frigid wastelands~
@@ -2724,19 +2724,19 @@ to discern any directions.
 D0
 ~
 ~
-0 0 2354
+Z 0 2354
 D1
 ~
 ~
-0 0 2355
+Z 0 2355
 D2
 ~
 ~
-0 0 2359
+Z 0 2359
 D3
 ~
 ~
-0 0 2355
+Z 0 2355
 S
 #2357
 The frigid wastelands~
@@ -2748,19 +2748,19 @@ to discern any directions.
 D0
 ~
 ~
-0 0 2355
+Z 0 2355
 D1
 ~
 ~
-0 0 2358
+Z 0 2358
 D2
 ~
 ~
-0 0 2352
+Z 0 2352
 D3
 ~
 ~
-0 0 2359
+Z 0 2359
 S
 #2358
 The frigid wastelands~
@@ -2772,19 +2772,19 @@ to discern any direction.
 D0
 ~
 ~
-0 0 2352
+Z 0 2352
 D1
 ~
 ~
-0 0 2359
+Z 0 2359
 D2
 ~
 ~
-0 0 2360
+Z 0 2360
 D3
 ~
 ~
-0 0 2357
+Z 0 2357
 S
 #2359
 The frigid wastelands~
@@ -2796,19 +2796,19 @@ to discern any directions.
 D0
 ~
 ~
-0 0 2356
+Z 0 2356
 D1
 ~
 ~
-0 0 2357
+Z 0 2357
 D2
 ~
 ~
-0 0 2354
+Z 0 2354
 D3
 ~
 ~
-0 0 2358
+Z 0 2358
 S
 #2360
 The edge of the frigid wastes~
@@ -2821,11 +2821,11 @@ wastes.
 D0
 ~
 ~
-0 0 2358
+Z 0 2358
 D4
 ~
 ~
-0 0 2361
+Z 0 2361
 S
 #2361
 On the cliffside~
@@ -2838,11 +2838,11 @@ above.
 D4
 ~
 ~
-0 0 2362
+Z 0 2362
 D5
 ~
 ~
-0 0 2360
+Z 0 2360
 S
 #2362
 Before the gates of Mahn-Tor~
@@ -2862,11 +2862,11 @@ are half man and half bull.
 D2
 ~
 gate huge gates ice~
-1 -1 2364
+ABZ -1 2364
 D5
 ~
 ~
-0 0 2361
+Z 0 2361
 S
 #2363
 The city streets of Mahn-Tor~
@@ -2879,11 +2879,11 @@ streets lead south and east.
 D1
 ~
 ~
-0 0 2364
+Z 0 2364
 D2
 ~
 ~
-0 0 2366
+Z 0 2366
 S
 #2364
 Inside the gates of Mahn-Tor~
@@ -2897,19 +2897,19 @@ streets lead east and west, while a main road appears to lead south.
 D0
 ~
 gates gate huge ice~
-0 -1 2362
+Z -1 2362
 D1
 ~
 ~
-0 -1 2365
+Z -1 2365
 D2
 ~
 ~
-0 0 2367
+Z 0 2367
 D3
 ~
 ~
-0 -1 2363
+Z -1 2363
 S
 #2365
 The city streets of Mahn-Tor~
@@ -2922,11 +2922,11 @@ across the dark street. Small streets lead west and south here.
 D2
 ~
 ~
-0 0 2368
+Z 0 2368
 D3
 ~
 ~
-0 0 2364
+Z 0 2364
 S
 #2366
 The city streets of Mahn-Tor~
@@ -2949,15 +2949,15 @@ sign small~
 D0
 ~
 ~
-0 0 2363
+Z 0 2363
 D1
 ~
 ~
-0 -1 2367
+Z -1 2367
 D2
 ~
 ~
-0 -1 2369
+Z -1 2369
 S
 #2367
 The Square of Mahn-Tor~
@@ -2979,19 +2979,19 @@ sign~
 D0
 ~
 ~
-0 0 2364
+Z 0 2364
 D1
 ~
 ~
-0 0 2368
+Z 0 2368
 D2
 ~
 ~
-0 0 2370
+Z 0 2370
 D3
 ~
 ~
-0 0 2366
+Z 0 2366
 S
 #2368
 The streets of Mahn-Tor~
@@ -3005,19 +3005,19 @@ view.
 D0
 ~
 ~
-0 0 2365
+Z 0 2365
 D1
 ~
 ~
-0 0 2375
+Z 0 2375
 D2
 ~
 ~
-0 0 2371
+Z 0 2371
 D3
 ~
 ~
-0 0 2367
+Z 0 2367
 S
 #2369
 The Inn of the Broken Horn~
@@ -3031,7 +3031,7 @@ north, out of the bar and back out into the cold.
 D0
 ~
 ~
-0 0 2366
+Z 0 2366
 S
 #2370
 The Mahn-Tor Equipment Shop~
@@ -3044,7 +3044,7 @@ north.
 D0
 ~
 ~
-0 0 2367
+Z 0 2367
 S
 #2371
 The Mahn-Tor General Store~
@@ -3057,7 +3057,7 @@ the chilling snow and wind.
 D0
 ~
 ~
-0 0 2368
+Z 0 2368
 S
 #2372
 Gorak's Training Room~
@@ -3074,7 +3074,7 @@ It looks like it leads back to the hall.
 D1
 ~
 red~
-2 2351 2388
+AFZ 2351 2388
 S
 #2373
 Darkoth's Dark Study~
@@ -3090,7 +3090,7 @@ It looks like it leads back to the hall.
 D1
 ~
 black~
-2 2352 2389
+AFZ 2352 2389
 S
 #2374
 Tyrgoth's Inner Sanctum~
@@ -3106,7 +3106,7 @@ It looks like it leads out to the hall.
 D1
 ~
 white~
-2 2353 2392
+AFZ 2353 2392
 S
 #2375
 The road to the Keep of Mahn-Tor~
@@ -3119,11 +3119,11 @@ west are all you can see from here.
 D1
 ~
 ~
-0 0 2377
+Z 0 2377
 D3
 ~
 ~
-0 0 2368
+Z 0 2368
 S
 #2376
 A small guard house~
@@ -3137,7 +3137,7 @@ across it. A small door leads south.
 D2
 ~
 ~
-0 0 2377
+Z 0 2377
 S
 #2377
 Before the Keep of Mahn-Tor~
@@ -3151,19 +3151,19 @@ guard houses to the north and south.
 D0
 ~
 ~
-0 0 2376
+Z 0 2376
 D1
 ~
 gate~
-2 2350 2379
+ABCFZ 2350 2379
 D2
 ~
 ~
-0 0 2378
+Z 0 2378
 D3
 ~
 ~
-0 0 2375
+Z 0 2375
 S
 #2378
 A small guard house~
@@ -3175,7 +3175,7 @@ hear the roar of the freezing wind. A small door leads north out into the cold.
 D0
 ~
 ~
-0 0 2377
+Z 0 2377
 S
 #2379
 The entryway to the Keep of Mahn-Tor~
@@ -3189,11 +3189,11 @@ large hall leads east, deeper into the keep.
 D1
 ~
 ~
-0 0 2380
+Z 0 2380
 D3
 ~
 gate~
-2 2350 2377
+ABCFZ 2350 2377
 S
 #2380
 The Hall~
@@ -3206,11 +3206,11 @@ hear sounds of inhabitation. Looking west, you see the entry gates to the keep.
 D1
 ~
 ~
-0 0 2381
+Z 0 2381
 D3
 ~
 ~
-0 0 2379
+Z 0 2379
 S
 #2381
 The Grand Hall~
@@ -3224,15 +3224,15 @@ leads to the west.
 D1
 ~
 ~
-0 0 2383
+Z 0 2383
 D2
 ~
 ~
-0 0 2382
+Z 0 2382
 D3
 ~
 ~
-0 0 2380
+Z 0 2380
 S
 #2382
 The Great Hall~
@@ -3245,15 +3245,15 @@ smaller hall leading south, deeper into the keep.
 D0
 ~
 ~
-0 -1 2381
+Z -1 2381
 D1
 ~
 ~
-0 0 2384
+Z 0 2384
 D2
 ~
 ~
-0 -1 2387
+Z -1 2387
 S
 #2383
 Standing before the throne~
@@ -3271,15 +3271,15 @@ The golden throne is huge. It takes up the whole wall.........
 D1
 ~
 throne huge golden gold~
-1 0 2385
+ABZ 0 2385
 D2
 ~
 ~
-0 0 2384
+Z 0 2384
 D3
 ~
 ~
-0 0 2381
+Z 0 2381
 S
 #2384
 The Great Hall~
@@ -3292,11 +3292,11 @@ The hall itself leads north and west.
 D0
 ~
 ~
-0 0 2383
+Z 0 2383
 D3
 ~
 ~
-0 0 2382
+Z 0 2382
 S
 #2385
 The secret hallway~
@@ -3315,11 +3315,11 @@ Looks like the back of a secret door of sorts.
 D1
 ~
 door huge stone~
-2 2359 2386
+ABCFZ 2359 2386
 D3
 ~
 gold throne huge secret~
-0 0 2383
+Z 0 2383
 S
 #2386
 Entry to the Royal Chambers~
@@ -3336,15 +3336,15 @@ A huge stone door.......
 D1
 ~
 ~
-0 0 2395
+Z 0 2395
 D2
 ~
 ~
-0 0 2393
+Z 0 2393
 D3
 ~
 door huge stone~
-2 2359 2385
+ABCFZ 2359 2385
 S
 #2387
 The Guard Post~
@@ -3357,11 +3357,11 @@ seen to the north.
 D0
 ~
 ~
-0 0 2382
+Z 0 2382
 D2
 ~
 ~
-0 0 2388
+Z 0 2388
 S
 #2388
 The guarded hall~
@@ -3382,19 +3382,19 @@ You see a red door. It has the name "Gorak" written on it.
 D0
 ~
 ~
-0 0 2387
+Z 0 2387
 D1
 ~
 yellow~
-2 2355 2390
+ABCFZ 2355 2390
 D2
 ~
 ~
-0 0 2389
+Z 0 2389
 D3
 ~
 red~
-2 2351 2372
+ABCFZ 2351 2372
 S
 #2389
 The guarded hall~
@@ -3414,19 +3414,19 @@ You see a black door. It has the name "Darkoth" inscribed on it.
 D0
 ~
 ~
-0 0 2388
+Z 0 2388
 D1
 ~
 maroon~
-2 2356 2391
+ABCFZ 2356 2391
 D2
 ~
 ~
-0 0 2392
+Z 0 2392
 D3
 ~
 black~
-2 2352 2373
+ABCFZ 2352 2373
 S
 #2390
 Sumaron's Sanctum~
@@ -3442,7 +3442,7 @@ It looks like it leads back to the hall.
 D3
 ~
 yellow~
-2 2355 2388
+AFZ 2355 2388
 S
 #2391
 Amyrok's Arcane Study~
@@ -3459,7 +3459,7 @@ It looks like it leads back to the hall.
 D3
 ~
 maroon~
-2 2356 2389
+AFZ 2356 2389
 S
 #2392
 The guarded hall~
@@ -3480,19 +3480,19 @@ You see a white door here. It has the name "Tyrgoth" inscribed on it.
 D0
 ~
 ~
-0 0 2389
+Z 0 2389
 D1
 ~
 green~
-2 2357 2394
+ABCFZ 2357 2394
 D2
 ~
 ~
-0 0 2397
+Z 0 2397
 D3
 ~
 white~
-2 2353 2374
+ABCFZ 2353 2374
 S
 #2393
 The Harem Room~
@@ -3504,11 +3504,11 @@ music playing quietly from somewhere. Beaded doorways lead north and east.
 D0
 ~
 ~
-0 0 2386
+Z 0 2386
 D1
 ~
 ~
-0 0 2396
+Z 0 2396
 S
 #2394
 Nasturn's Humble Abode~
@@ -3524,7 +3524,7 @@ It looks like it leads back to the hall.
 D3
 ~
 green~
-2 2357 2392
+AFZ 2357 2392
 S
 #2395
 The main living room~
@@ -3536,11 +3536,11 @@ tapestries decorate the walls. Beaded doorways lead south and west.
 D2
 ~
 ~
-0 0 2396
+Z 0 2396
 D3
 ~
 ~
-0 0 2386
+Z 0 2386
 S
 #2396
 The Master Bedroom~
@@ -3553,11 +3553,11 @@ overwhelms you. Beaded doorways lead north and west.
 D0
 ~
 ~
-0 0 2395
+Z 0 2395
 D3
 ~
 ~
-0 0 2393
+Z 0 2393
 S
 #2397
 The end of the guarded hall~
@@ -3577,15 +3577,15 @@ You see a brown door here. It has the name "Belrak" written on it.
 D0
 ~
 ~
-0 0 2392
+Z 0 2392
 D1
 ~
 grey~
-2 2358 2398
+ABCFZ 2358 2398
 D3
 ~
 brown~
-2 2354 2399
+AFZ 2354 2399
 S
 #2398
 Dorgar's Dismal Domicile~
@@ -3601,7 +3601,7 @@ It looks like it leads back to the hall.
 D3
 ~
 grey~
-2 2358 2397
+ABCFZ 2358 2397
 S
 #2399
 Belrak's Green Room~
@@ -3617,7 +3617,7 @@ It looks like it leads to the hall.
 D1
 ~
 brown~
-2 2354 2397
+AFZ 2354 2397
 S
 #0
 

@@ -718,15 +718,15 @@ small tablet~
 D1
 ~
 ~
-0 -1 29201
+Z -1 29201
 D2
 ~
 ~
-0 -1 14502
+Z -1 14502
 D3
 ~
 ~
-0 -1 9797
+Z -1 9797
 S
 #14502
 Approaching land~
@@ -738,11 +738,11 @@ huge mountaintops and a few trees next to two or three buildings.
 D0
 ~
 ~
-0 -1 14501
+Z -1 14501
 D2
 ~
 ~
-0 -1 14503
+Z -1 14503
 S
 #14503
 Rough waters at the beach~
@@ -753,11 +753,11 @@ a riptide which threatens to pull your vessel towards the west.
 D0
 ~
 ~
-0 -1 14502
+Z -1 14502
 D2
 ~
 ~
-0 -1 14504
+Z -1 14504
 S
 #14504
 The beach~
@@ -769,11 +769,11 @@ palm trees standing next to and before two huge mountains.
 D0
 ~
 ~
-0 -1 14503
+Z -1 14503
 D3
 ~
 ~
-0 -1 14505
+Z -1 14505
 S
 #14505
 Sandy beach~
@@ -786,11 +786,11 @@ scraping a lovely tune.
 D1
 ~
 ~
-0 -1 14504
+Z -1 14504
 D3
 ~
 ~
-0 -1 14506
+Z -1 14506
 S
 #14506
 Water's Edge~
@@ -803,11 +803,11 @@ palms and toward the mountains.
 D1
 ~
 ~
-0 -1 14505
+Z -1 14505
 D3
 ~
 ~
-0 -1 14507
+Z -1 14507
 S
 #14507
 Sandy path~
@@ -820,11 +820,11 @@ and you can almost smell grilled fish.
 D1
 ~
 ~
-0 -1 14506
+Z -1 14506
 D2
 ~
 ~
-0 -1 14508
+Z -1 14508
 S
 #14508
 Palm path~
@@ -836,11 +836,11 @@ at you from their perches.  They appear to be sizing you up.
 D0
 ~
 ~
-0 -1 14507
+Z -1 14507
 D2
 ~
 ~
-0 -1 14509
+Z -1 14509
 S
 #14509
 Palm trail~
@@ -853,11 +853,11 @@ sun beating down upon the snow.
 D0
 ~
 ~
-0 -1 14508
+Z -1 14508
 D2
 ~
 ~
-0 -1 14510
+Z -1 14510
 S
 #14510
 Cross Trail~
@@ -869,15 +869,15 @@ the crashing of the waves upon the beach to the north of you.
 D0
 ~
 ~
-0 -1 14509
+Z -1 14509
 D1
 ~
 ~
-0 -1 14514
+Z -1 14514
 D3
 ~
 ~
-0 -1 14511
+Z -1 14511
 S
 #14511
 Palm trail~
@@ -889,11 +889,11 @@ the sun's warm rays.
 D1
 ~
 ~
-0 -1 14510
+Z -1 14510
 D3
 ~
 ~
-0 -1 14512
+Z -1 14512
 S
 #14512
 Sandy palm trail~
@@ -905,11 +905,11 @@ indicates that the previous traveller had a small cart.
 D1
 ~
 ~
-0 -1 14511
+Z -1 14511
 D3
 ~
 ~
-0 -1 14513
+Z -1 14513
 S
 #14513
 Near the end~
@@ -921,11 +921,11 @@ At least one of the buildings is a warehouse.
 D1
 ~
 ~
-0 -1 14512
+Z -1 14512
 D3
 ~
 ~
-0 -1 14573
+Z -1 14573
 S
 #14514
 Sandy trail~
@@ -937,11 +937,11 @@ glistening white with brown smears from mountain dirt.
 D1
 ~
 ~
-0 -1 14515
+Z -1 14515
 D3
 ~
 ~
-0 -1 14510
+Z -1 14510
 S
 #14515
 Palm view~
@@ -953,11 +953,11 @@ hot rays.
 D1
 ~
 ~
-0 -1 14516
+Z -1 14516
 D3
 ~
 ~
-0 -1 14514
+Z -1 14514
 S
 #14516
 Mountain trail~
@@ -970,11 +970,11 @@ travel easier.
 D3
 ~
 ~
-0 -1 14515
+Z -1 14515
 D4
 ~
 ~
-0 -1 14517
+Z -1 14517
 S
 #14517
 Mountain trail~
@@ -986,11 +986,11 @@ further down the trail you can see a clearing of some kind.
 D4
 ~
 ~
-0 -1 14518
+Z -1 14518
 D5
 ~
 ~
-0 -1 14516
+Z -1 14516
 S
 #14518
 Steep trail~
@@ -1002,11 +1002,11 @@ or back down the mountain.
 D4
 ~
 ~
-0 -1 14519
+Z -1 14519
 D5
 ~
 ~
-0 -1 14517
+Z -1 14517
 S
 #14519
 Mountain clearing~
@@ -1018,15 +1018,15 @@ recent travel by a great number of people.
 D1
 ~
 ~
-0 -1 14524
+Z -1 14524
 D2
 ~
 ~
-0 -1 14520
+Z -1 14520
 D5
 ~
 ~
-0 -1 14518
+Z -1 14518
 S
 #14520
 Clearing~
@@ -1038,15 +1038,15 @@ flowers carpets this side of the clearing.
 D0
 ~
 ~
-0 -1 14519
+Z -1 14519
 D1
 ~
 ~
-0 -1 14523
+Z -1 14523
 D2
 ~
 ~
-0 -1 14521
+Z -1 14521
 S
 #14521
 Mountain meadow~
@@ -1057,11 +1057,11 @@ yellow flowers and is surrounded by the short shrubs of the area.
 D0
 ~
 ~
-0 -1 14520
+Z -1 14520
 D1
 ~
 ~
-0 -1 14522
+Z -1 14522
 S
 #14522
 Mountain view~
@@ -1073,11 +1073,11 @@ by white snow.
 D0
 ~
 ~
-0 -1 14523
+Z -1 14523
 D3
 ~
 ~
-0 -1 14521
+Z -1 14521
 S
 #14523
 Clearing's Center~
@@ -1089,19 +1089,19 @@ mountain peaks.  Flowers of every color brighten the area.
 D0
 ~
 ~
-0 -1 14524
+Z -1 14524
 D1
 ~
 ~
-0 -1 14526
+Z -1 14526
 D2
 ~
 ~
-0 -1 14522
+Z -1 14522
 D3
 ~
 ~
-0 -1 14520
+Z -1 14520
 S
 #14524
 Flowers everywhere~
@@ -1113,15 +1113,15 @@ are beautiful and would make a wonderful addition to any home.
 D1
 ~
 ~
-0 -1 14525
+Z -1 14525
 D2
 ~
 ~
-0 -1 14523
+Z -1 14523
 D3
 ~
 ~
-0 -1 14519
+Z -1 14519
 S
 #14525
 Mountain clearing~
@@ -1132,11 +1132,11 @@ by extremely high mountains...some of which are covered with snow.
 D2
 ~
 ~
-0 -1 14526
+Z -1 14526
 D3
 ~
 ~
-0 -1 14524
+Z -1 14524
 S
 #14526
 Opening to the sky~
@@ -1147,15 +1147,15 @@ and is framed by tall mountains.
 D0
 ~
 ~
-0 -1 14525
+Z -1 14525
 D2
 ~
 ~
-0 -1 14527
+Z -1 14527
 D3
 ~
 ~
-0 -1 14523
+Z -1 14523
 S
 #14527
 Mountain trail~
@@ -1167,11 +1167,11 @@ someone is maintaining the trail.
 D0
 ~
 ~
-0 -1 14526
+Z -1 14526
 D2
 ~
 ~
-0 -1 14528
+Z -1 14528
 S
 #14528
 Cross trails~
@@ -1184,15 +1184,15 @@ travelled route.
 D0
 ~
 ~
-0 -1 14527
+Z -1 14527
 D1
 ~
 ~
-0 -1 14533
+Z -1 14533
 D5
 ~
 ~
-0 -1 14529
+Z -1 14529
 S
 #14529
 Down trail~
@@ -1203,11 +1203,11 @@ A few shrubs line the trail as well as some beautiful flowers.
 D4
 ~
 ~
-0 -1 14528
+Z -1 14528
 D5
 ~
 ~
-0 -1 14530
+Z -1 14530
 S
 #14530
 Slippery trail~
@@ -1219,11 +1219,11 @@ trail burns.
 D4
 ~
 ~
-0 -1 14529
+Z -1 14529
 D5
 ~
 ~
-0 -1 14531
+Z -1 14531
 S
 #14531
 Village view~
@@ -1236,11 +1236,11 @@ view down the trail.
 D4
 ~
 ~
-0 -1 14530
+Z -1 14530
 D5
 ~
 ~
-0 -1 14532
+Z -1 14532
 S
 #14532
 The Valley~
@@ -1252,11 +1252,11 @@ the temperature to a chill.  To the west of you is a small village.
 D3
 ~
 ~
-0 -1 14537
+Z -1 14537
 D4
 ~
 ~
-0 -1 14531
+Z -1 14531
 S
 #14533
 Small trail~
@@ -1267,11 +1267,11 @@ which surrounds it.  The rocky trail shows no signs of recent travel.
 D1
 ~
 ~
-0 -1 14534
+Z -1 14534
 D3
 ~
 ~
-0 -1 14528
+Z -1 14528
 S
 #14534
 The Wilderness~
@@ -1283,11 +1283,11 @@ as soft and lovely as the ones along the main trail.
 D1
 ~
 ~
-0 -1 14535
+Z -1 14535
 D3
 ~
 ~
-0 -1 14533
+Z -1 14533
 S
 #14535
 Wilderness trail~
@@ -1300,11 +1300,11 @@ capped mountain.
 D3
 ~
 ~
-0 -1 14534
+Z -1 14534
 D4
 ~
 ~
-0 -1 14536
+Z -1 14536
 S
 #14536
 Mountain top~
@@ -1320,7 +1320,7 @@ entrance to the enclosure.
 D5
 ~
 ~
-0 -1 14535
+Z -1 14535
 S
 #14537
 Village entrance~
@@ -1334,15 +1334,15 @@ the river appear to be guarding a gate leading to the valley.
 D1
 ~
 ~
-0 -1 14532
+Z -1 14532
 D2
 ~
 ~
-0 -1 14551
+Z -1 14551
 D3
 ~
 ~
-0 -1 14538
+Z -1 14538
 S
 #14538
 Malo Village~
@@ -1356,11 +1356,11 @@ what comes natural.
 D1
 ~
 ~
-0 -1 14537
+Z -1 14537
 D3
 ~
 ~
-0 -1 14539
+Z -1 14539
 S
 #14539
 Malo Main~
@@ -1375,19 +1375,19 @@ D0
 This wooden door has a circle with a large
 letter M in the middle of it.~
 door~
-1 -1 14540
+ABZ -1 14540
 D1
 ~
 ~
-0 -1 14538
+Z -1 14538
 D2
 ~
 door~
-1 -1 14541
+ABZ -1 14541
 D3
 ~
 ~
-0 -1 14542
+Z -1 14542
 S
 #14540
 Stone house~
@@ -1401,7 +1401,7 @@ D2
 The door is solid as a rock.  It has triple
 locks and should give you safety to the world.~
 door~
-1 -1 14539
+ABZ -1 14539
 S
 #14541
 Gray Stone house~
@@ -1413,7 +1413,7 @@ D0
 This wooden door has a circle with a large
 letter M in the middle of it.~
 door~
-1 -1 14539
+ABZ -1 14539
 S
 #14542
 Malo main~
@@ -1425,11 +1425,11 @@ seamless.  The air is very cool here between the houses.
 D1
 ~
 ~
-0 -1 14539
+Z -1 14539
 D3
 ~
 ~
-0 -1 14543
+Z -1 14543
 S
 #14543
 Village street~
@@ -1440,19 +1440,19 @@ stone buildings create a wonderful setting for this family life.
 D0
 ~
 door~
-1 -1 14544
+ABZ -1 14544
 D1
 ~
 ~
-0 -1 14542
+Z -1 14542
 D2
 ~
 door~
-1 -1 14545
+ABZ -1 14545
 D3
 ~
 ~
-0 -1 14546
+Z -1 14546
 S
 #14544
 Brown House~
@@ -1465,7 +1465,7 @@ mountain to the north of you.
 D2
 ~
 door~
-1 -1 14543
+ABZ -1 14543
 S
 #14545
 Green house~
@@ -1477,7 +1477,7 @@ their home, turning it a brilliant green color.
 D0
 ~
 door~
-1 -1 14543
+ABZ -1 14543
 S
 #14546
 Village well~
@@ -1488,11 +1488,11 @@ long rope to reach to the bottom of the well.
 D1
 ~
 ~
-0 -1 14543
+Z -1 14543
 D3
 ~
 ~
-0 -1 14547
+Z -1 14547
 S
 #14547
 End of the street~
@@ -1505,19 +1505,19 @@ wall ringing the village proper.
 D0
 ~
 door~
-1 -1 14548
+ABZ -1 14548
 D1
 ~
 ~
-0 -1 14546
+Z -1 14546
 D2
 ~
 door~
-1 -1 14550
+ABZ -1 14550
 D3
 ~
 door~
-1 -1 14549
+ABZ -1 14549
 S
 #14548
 Simple home~
@@ -1529,7 +1529,7 @@ to see a display you see instead blank wall.
 D2
 ~
 door~
-1 -1 14547
+ABZ -1 14547
 S
 #14549
 Last house~
@@ -1540,7 +1540,7 @@ It appears to be large enough to hold several people at the same time.
 D1
 ~
 door~
-1 -1 14547
+ABZ -1 14547
 S
 #14550
 A general store~
@@ -1552,7 +1552,7 @@ you'll find a little of everything.
 D0
 ~
 door~
-1 -1 14547
+ABZ -1 14547
 S
 #14551
 A very old road~
@@ -1564,11 +1564,11 @@ grew through it's center, were cut down and made into firewood.
 D0
 ~
 ~
-0 -1 14537
+Z -1 14537
 D2
 ~
 ~
-0 -1 14552
+Z -1 14552
 S
 #14552
 Garden and Old Road~
@@ -1581,15 +1581,15 @@ the other side...near the gated wall surrounding the village.
 D0
 ~
 ~
-0 -1 14551
+Z -1 14551
 D2
 ~
 ~
-0 -1 14553
+Z -1 14553
 D3
 ~
 ~
-0 -1 14581
+Z -1 14581
 S
 #14553
 The Bridge~
@@ -1601,11 +1601,11 @@ the entire bridge.
 D0
 ~
 ~
-0 -1 14552
+Z -1 14552
 D2
 ~
 ~
-0 -1 14554
+Z -1 14554
 S
 #14554
 Middle of bridge~
@@ -1618,11 +1618,11 @@ the river.
 D0
 ~
 ~
-0 -1 14553
+Z -1 14553
 D2
 ~
 ~
-0 -1 14555
+Z -1 14555
 S
 #14555
 South side of bridge~
@@ -1634,11 +1634,11 @@ road you are travelling upon.
 D0
 ~
 ~
-0 -1 14554
+Z -1 14554
 D2
 ~
 ~
-0 -1 14556
+Z -1 14556
 S
 #14556
 Ancient road~
@@ -1651,11 +1651,11 @@ have ever seen.
 D0
 ~
 ~
-0 -1 14555
+Z -1 14555
 D2
 ~
 ~
-0 -1 14557
+Z -1 14557
 S
 #14557
 Red stained road~
@@ -1670,19 +1670,19 @@ tower construction is as ancient as the road.
 D0
 ~
 ~
-0 -1 14556
+Z -1 14556
 D1
 ~
 ~
-0 -1 14561
+Z -1 14561
 D2
 ~
 ~
-0 -1 14564
+Z -1 14564
 D3
 ~
 ~
-0 -1 14558
+Z -1 14558
 S
 #14558
 Before the West Tower~
@@ -1695,11 +1695,11 @@ the other side.
 D1
 ~
 ~
-0 -1 14557
+Z -1 14557
 D3
 ~
 ~
-0 -1 14559
+Z -1 14559
 S
 #14559
 West Tower~
@@ -1712,11 +1712,11 @@ The west wall has a large gaping hole in it's center.
 D1
 ~
 ~
-0 -1 14558
+Z -1 14558
 D3
 ~
 ~
-0 -1 14560
+Z -1 14560
 S
 #14560
 West Tower~
@@ -1729,11 +1729,11 @@ been caused by a very large explosion.
 D1
 ~
 ~
-0 -1 14559
+Z -1 14559
 D3
 ~
 ~
-0 -1 14589
+Z -1 14589
 S
 #14561
 Before East Tower~
@@ -1746,11 +1746,11 @@ tower does not have gargoyles about it's rim.
 D1
 ~
 ~
-0 -1 14562
+Z -1 14562
 D3
 ~
 ~
-0 -1 14557
+Z -1 14557
 S
 #14562
 Inside the East Tower~
@@ -1762,11 +1762,11 @@ way recently.  The room is mostly bare.
 D1
 ~
 ~
-0 -1 14563
+Z -1 14563
 D3
 ~
 ~
-0 -1 14561
+Z -1 14561
 S
 #14563
 East Tower~
@@ -1779,11 +1779,11 @@ for both air and light.
 D1
 A very large tapestry covers a hole in the wall.~
 tapestry~
-1 -1 14596
+ABZ -1 14596
 D3
 ~
 ~
-0 -1 14562
+Z -1 14562
 S
 #14564
 Ancient road~
@@ -1796,11 +1796,11 @@ from the top to stop "wild animals" from climbing the barrier.
 D0
 ~
 ~
-0 -1 14557
+Z -1 14557
 D2
 ~
 ~
-0 -1 14565
+Z -1 14565
 S
 #14565
 Before the gate~
@@ -1816,11 +1816,11 @@ controlled.  The evil must be contained.~
 D0
 ~
 ~
-0 -1 14564
+Z -1 14564
 D2
 This massive steel gate has spears along it's top.~
 gate~
-1 -1 14566
+ABZ -1 14566
 S
 #14566
 Other side of the gate~
@@ -1834,11 +1834,11 @@ The stakes are obviously meant to keep travellers on the road.
 D0
 This massive steel gate has sharpened spears along it's summit.~
 gate~
-1 -1 14565
+ABZ -1 14565
 D2
 ~
 ~
-0 -1 14567
+Z -1 14567
 S
 #14567
 Ancient way~
@@ -1849,11 +1849,11 @@ boulders placed strategically across the road to block travel.
 D0
 ~
 ~
-0 -1 14566
+Z -1 14566
 D2
 ~
 ~
-0 -1 14568
+Z -1 14568
 S
 #14568
 Base of Boulders~
@@ -1865,15 +1865,15 @@ keep travellers on the road.
 D0
 ~
 ~
-0 -1 14567
+Z -1 14567
 D1
 ~
 ~
-0 -1 14571
+Z -1 14571
 D3
 ~
 ~
-0 -1 14569
+Z -1 14569
 S
 #14569
 Path along boulders~
@@ -1885,11 +1885,11 @@ the huge boulders stacked precariously across the ancient road.
 D1
 ~
 ~
-0 -1 14568
+Z -1 14568
 D3
 ~
 ~
-0 -1 14570
+Z -1 14570
 S
 #14570
 A path~
@@ -1901,7 +1901,7 @@ about you travel in this direction has been effectively cut off.
 D1
 ~
 ~
-0 -1 14569
+Z -1 14569
 S
 #14571
 A small path~
@@ -1913,11 +1913,11 @@ the road.
 D1
 ~
 ~
-0 -1 14572
+Z -1 14572
 D3
 ~
 ~
-0 -1 14568
+Z -1 14568
 S
 #14572
 End of path~
@@ -1928,7 +1928,7 @@ inward and effectively traps you against the sharpened stakes.
 D3
 ~
 ~
-0 -1 14571
+Z -1 14571
 S
 #14573
 Path's end~
@@ -1941,11 +1941,11 @@ boat has been drydocked for repair.
 D0
 ~
 ~
-0 -1 14574
+Z -1 14574
 D1
 ~
 ~
-0 -1 14513
+Z -1 14513
 S
 #14574
 Entrance to Land's End~
@@ -1957,11 +1957,11 @@ buildings.
 D0
 ~
 ~
-0 -1 14575
+Z -1 14575
 D2
 ~
 ~
-0 -1 14573
+Z -1 14573
 S
 #14575
 Land's End Road~
@@ -1975,19 +1975,19 @@ fish smell which spreads through the air.
 D0
 ~
 ~
-0 -1 14576
+Z -1 14576
 D1
 ~
 ~
-0 -1 14578
+Z -1 14578
 D2
 ~
 ~
-0 -1 14574
+Z -1 14574
 D3
 ~
 ~
-0 -1 14579
+Z -1 14579
 S
 #14576
 Ocean View~
@@ -1999,15 +1999,15 @@ vessels drydocked for the season.  Perhaps the fishing is bad.
 D1
 ~
 ~
-0 -1 14577
+Z -1 14577
 D2
 ~
 ~
-0 -1 14575
+Z -1 14575
 D3
 ~
 ~
-0 -1 14580
+Z -1 14580
 S
 #14577
 Oceanview Home~
@@ -2019,7 +2019,7 @@ crabs have made their home outside the seaward window.
 D3
 ~
 ~
-0 -1 14576
+Z -1 14576
 S
 #14578
 Large Warehouse~
@@ -2032,7 +2032,7 @@ where Ocean View is.
 D3
 ~
 ~
-0 -1 14575
+Z -1 14575
 S
 #14579
 Largest Warehouse~
@@ -2045,7 +2045,7 @@ vessels into this warehouse for safety.
 D1
 ~
 ~
-0 -1 14575
+Z -1 14575
 S
 #14580
 Small home~
@@ -2057,7 +2057,7 @@ here...if the home were under water of course.
 D1
 ~
 ~
-0 -1 14576
+Z -1 14576
 S
 #14581
 Garden way~
@@ -2068,11 +2068,11 @@ planted by the villagers.  All about you are sprouting plants.
 D1
 ~
 ~
-0 -1 14552
+Z -1 14552
 D3
 ~
 ~
-0 -1 14582
+Z -1 14582
 S
 #14582
 Garden path~
@@ -2083,11 +2083,11 @@ feed the population of the village.
 D1
 ~
 ~
-0 -1 14581
+Z -1 14581
 D3
 ~
 ~
-0 -1 14583
+Z -1 14583
 S
 #14583
 Garden alley~
@@ -2097,11 +2097,11 @@ The path has now led you through several rows of beans, squash, and melons.
 D1
 ~
 ~
-0 -1 14582
+Z -1 14582
 D3
 ~
 ~
-0 -1 14584
+Z -1 14584
 S
 #14584
 Garden along the river~
@@ -2114,11 +2114,11 @@ and ill made and obviously was not meant to be permanent.
 D1
 ~
 ~
-0 -1 14583
+Z -1 14583
 D3
 ~
 ~
-0 -1 14585
+Z -1 14585
 S
 #14585
 Along the river~
@@ -2129,11 +2129,11 @@ large clay containers are gathered along the river for this very purpose.
 D1
 ~
 ~
-0 -1 14584
+Z -1 14584
 D3
 ~
 ~
-0 -1 14586
+Z -1 14586
 S
 #14586
 Behind the buildings~
@@ -2146,11 +2146,11 @@ to have been trampled.
 D1
 ~
 ~
-0 -1 14585
+Z -1 14585
 D3
 ~
 ~
-0 -1 14587
+Z -1 14587
 S
 #14587
 River View~
@@ -2163,11 +2163,11 @@ rain washed that section of the fence away?
 D1
 ~
 ~
-0 -1 14586
+Z -1 14586
 D3
 ~
 ~
-0 -1 14588
+Z -1 14588
 S
 #14588
 Garden's end~
@@ -2185,11 +2185,11 @@ curved talons.~
 D1
 ~
 ~
-0 -1 14587
+Z -1 14587
 D3
 ~
 ~
-0 -1 9901
+Z -1 9901
 S
 #14589
 Outside the West Tower~
@@ -2202,11 +2202,11 @@ by nonhuman feet.  The prints are elongated and end in talons.
 D1
 ~
 ~
-0 -1 14560
+Z -1 14560
 D3
 ~
 ~
-0 -1 14590
+Z -1 14590
 S
 #14590
 Path near fence~
@@ -2217,11 +2217,11 @@ the path would take you near the river.
 D0
 ~
 ~
-0 -1 14591
+Z -1 14591
 D1
 ~
 ~
-0 -1 14589
+Z -1 14589
 S
 #14591
 Slaughter site~
@@ -2235,11 +2235,11 @@ everywhere.
 D0
 ~
 ~
-0 -1 14592
+Z -1 14592
 D2
 ~
 ~
-0 -1 14590
+Z -1 14590
 S
 #14592
 Bushy path~
@@ -2251,11 +2251,11 @@ There are 1 inch thorns on some of them.  Be careful.
 D2
 ~
 ~
-0 -1 14591
+Z -1 14591
 D3
 ~
 ~
-0 -1 14593
+Z -1 14593
 S
 #14593
 Near the fence~
@@ -2268,11 +2268,11 @@ holes and gotten to the other side.
 D0
 ~
 ~
-0 -1 14594
+Z -1 14594
 D1
 ~
 ~
-0 -1 14592
+Z -1 14592
 S
 #14594
 Near the river~
@@ -2284,11 +2284,11 @@ the river you can make out the vague outlines of village homes.
 D2
 ~
 ~
-0 -1 14593
+Z -1 14593
 D3
 ~
 ~
-0 -1 14595
+Z -1 14595
 S
 #14595
 River's edge~
@@ -2302,7 +2302,7 @@ allowing passage into the countryside.
 D1
 ~
 ~
-0 -1 14594
+Z -1 14594
 S
 #14596
 Outside the East Tower~
@@ -2313,11 +2313,11 @@ in the soft earth lead to the wall nearby and towards the river.
 D0
 ~
 ~
-0 -1 14597
+Z -1 14597
 D3
 A very large tapestry covers a hole in the wall.~
 tapestry~
-1 -1 14563
+ABZ -1 14563
 S
 #14597
 Small path at river's edge~
@@ -2331,11 +2331,11 @@ the fence to your right.  Perhaps a large rain washed it away?
 D0
 ~
 ~
-0 -1 14598
+Z -1 14598
 D2
 ~
 ~
-0 -1 14596
+Z -1 14596
 S
 #14598
 On the river~
@@ -2348,11 +2348,11 @@ The river runs through that hole.
 D1
 ~
 ~
-0 -1 14599
+Z -1 14599
 D2
 ~
 ~
-0 -1 14597
+Z -1 14597
 S
 #14599
 Hole in wall~
@@ -2364,7 +2364,7 @@ hole but upon closer inspection it is obviously the work of man.
 D3
 ~
 ~
-0 -1 14598
+Z -1 14598
 S
 #0
 

@@ -706,12 +706,12 @@ D0
 You see a large steel gate.  Beyond is the Foyer of the Tower.
 ~
 gate steel~
-1 2231 2202
+ABCZ 2231 2202
 D1
 The shadows cloud your vision.
 ~
 ~
-0 0 1304
+Z 0 1304
 S
 #2202
 The Foyer~
@@ -729,12 +729,12 @@ D0
 You see a long hallway. 
 ~
 ~
-0 -1 2203
+Z -1 2203
 D2
 You see the gate. 
 ~
 ~
-0 -1 2201
+Z -1 2201
 S
 #2203
 Hallway~
@@ -746,12 +746,12 @@ D0
 The hall continues. 
 ~
 ~
-0 -1 2204
+Z -1 2204
 D2
 You see the foyer. 
 ~
 ~
-0 -1 2202
+Z -1 2202
 S
 #2204
 Hallway~
@@ -770,22 +770,22 @@ D0
 The hall continues. 
 ~
 ~
-0 -1 2207
+Z -1 2207
 D1
 You see a door.  You notice a sign. 
 ~
 door~
-0 -1 2205
+Z -1 2205
 D2
 The hall continues.
 ~
 ~
-0 -1 2203
+Z -1 2203
 D3
 You see an oak door.  There is an inscription on it. 
 ~
 oak~
-0 -1 2206
+Z -1 2206
 S
 #2205
 Nursery~
@@ -797,12 +797,12 @@ D1
 You see a large stone door.
 ~
 door stone~
-2 2297 2223
+AFZ 2297 2223
 D3
 You see the hallway. 
 ~
 ~
-0 -1 2204
+Z -1 2204
 S
 #2206
 Storage Room~
@@ -817,12 +817,12 @@ D1
 You see the hallway. 
 ~
 ~
-0 -1 2204
+Z -1 2204
 D5
 You see nothing special. 
 ~
 trapdoor~
-0 -1 2208
+Z -1 2208
 S
 #2207
 End of the Hallway~
@@ -841,12 +841,12 @@ D2
 The hall continues. 
 ~
 ~
-0 -1 2204
+Z -1 2204
 D4
 The second floor.
 ~
 ~
-0 -1 2210
+Z -1 2210
 S
 #2208
 Guardian's Room~
@@ -858,12 +858,12 @@ D2
 A large grey door.
 ~
 grey~
-0 2234 2209
+Z 2234 2209
 D4
 You see the storage room. 
 ~
 door trap trapdoor~
-0 -1 2206
+Z -1 2206
 S
 #2209
 The Treasure Room~
@@ -876,12 +876,12 @@ D0
 You see nothing special. 
 ~
 grey~
-2 2234 2208
+AFZ 2234 2208
 D3
 You see a ruby door!
 ~
 door ruby~
-2 2232 2218
+ABCFZ 2232 2218
 S
 #2210
 The Second Floor~
@@ -893,12 +893,12 @@ D2
 You see the court.
 ~
 ~
-0 1 2211
+Z 1 2211
 D5
 You see the first floor.
 ~
 ~
-0 -1 2207
+Z -1 2207
 S
 #2211
 The Court~
@@ -910,17 +910,17 @@ D0
 You see nothing special.
 ~
 ~
-0 -1 2210
+Z -1 2210
 D1
 You see a wooden door. 
 ~
 door wooden~
-0 -1 2212
+Z -1 2212
 D2
 You see the court.
 ~
 ~
-0 -1 2213
+Z -1 2213
 S
 #2212
 Hall O' Pleasure~
@@ -932,7 +932,7 @@ D3
 You see the Court.
 ~
 ~
-0 -1 2211
+Z -1 2211
 S
 #2213
 The Court~
@@ -943,22 +943,22 @@ D0
 You see the court.
 ~
 ~
-0 -1 2211
+Z -1 2211
 D1
 You see a black door.
 ~
 door black~
-0 2240 2214
+Z 2240 2214
 D2
 You see the court.
 ~
 ~
-0 -1 2216
+Z -1 2216
 D3
 You see a white door.
 ~
 door white~
-0 2233 2215
+Z 2233 2215
 S
 #2214
 The Library~
@@ -970,7 +970,7 @@ D3
 You see the court.
 ~
 door black~
-0 2240 2213
+Z 2240 2213
 S
 #2215
 The Sanctum~
@@ -982,7 +982,7 @@ D1
 You see the Court.
 ~
 door white~
-0 2233 2213
+Z 2233 2213
 S
 #2216
 The Court Ends~
@@ -995,12 +995,12 @@ D0
 You see the court.
 ~
 ~
-0 -1 2213
+Z -1 2213
 D1
 You see a private chamber.
 ~
 ~
-0 -1 2217
+Z -1 2217
 S
 #2217
 bedroom~
@@ -1011,7 +1011,7 @@ D3
 You see Court.
 ~
 ~
-0 -1 2216
+Z -1 2216
 S
 #2218
 Entrance to the Crypt~
@@ -1023,12 +1023,12 @@ D1
 You see the Treasure Vault.
 ~
 door ruby~
-2 2232 2209
+ABCFZ 2232 2209
 D3
 You see the Crypt.
 ~
 ~
-0 -1 2219
+Z -1 2219
 S
 #2219
 Crypt~
@@ -1041,12 +1041,12 @@ D1
 You see the entrance.
 ~
 ~
-0 -1 2218
+Z -1 2218
 D3
 You see nothing special.
 ~
 ~
-0 -1 2222
+Z -1 2222
 S
 #2220
 The Lair~
@@ -1058,7 +1058,7 @@ D2
 You the cave opening.
 ~
 ~
-0 0 2235
+Z 0 2235
 S
 #2221
 A Lair~
@@ -1070,7 +1070,7 @@ D0
 You the cave opening.
 ~
 ~
-0 0 2241
+Z 0 2241
 S
 #2222
 The Crypt Ends~
@@ -1086,11 +1086,11 @@ D1
 You see the Crypt.
 ~
 ~
-0 -1 2219
+Z -1 2219
 D3
 ~
 coffin~
-1 0 2232
+ABCZ 0 2232
 S
 #2223
 Entrance to the Great Hall~
@@ -1103,12 +1103,12 @@ D1
 The Hall continues.
 ~
 ~
-0 -1 2224
+Z -1 2224
 D3
 You see the Nursery.
 ~
 door stone~
-0 2297 2205
+Z 2297 2205
 S
 #2224
 The Great Hall~
@@ -1120,12 +1120,12 @@ D0
 You see a narrow passageway.
 ~
 ~
-0 -1 2225
+Z -1 2225
 D1
 You see the Hall.
 ~
 ~
-0 -1 2229
+Z -1 2229
 S
 #2225
 A Narrow Passageway~
@@ -1136,12 +1136,12 @@ D0
 You see a large Lair.  It looks dangerous.
 ~
 ~
-0 -1 2226
+Z -1 2226
 D2
 You see the great hall.
 ~
 ~
-0 -1 2224
+Z -1 2224
 S
 #2226
 Lair~
@@ -1154,12 +1154,12 @@ D2
 The narrow passageway.
 ~
 ~
-0 -1 2225
+Z -1 2225
 D5
 You see a trap door.
 ~
 door trap trapdoor~
-0 -1 2227
+Z -1 2227
 S
 #2227
 Underground Tunnel~
@@ -1171,12 +1171,12 @@ D0
 You see the tunnel.
 ~
 ~
-0 -1 2228
+Z -1 2228
 D4
 You see the red dragon's lair.
 ~
 door trap trapdoor~
-0 -1 2226
+Z -1 2226
 S
 #2228
 Underground Tunnel~
@@ -1187,7 +1187,7 @@ D2
 You see the tunnel.
 ~
 ~
-0 -1 2227
+Z -1 2227
 S
 #2229
 The Great Hall Ends.~
@@ -1205,12 +1205,12 @@ D1
 You see a great golden door.
 ~
 door great golden~
-2 2299 2230
+ABCFZ 2299 2230
 D3
 You see the hall.
 ~
 ~
-0 -1 2224
+Z -1 2224
 S
 #2230
 THE Lair~
@@ -1221,7 +1221,7 @@ D3
 You see a great golden door.
 ~
 door golden great~
-2 2299 2229
+ABCFZ 2299 2229
 S
 #2231
 The End...~
@@ -1233,7 +1233,7 @@ D2
 You see the top of the mountain.
 ~
 ~
-2 2241 2243
+AFZ 2241 2243
 S
 #2232
 Stairwell~
@@ -1244,11 +1244,11 @@ like it hasn't been used for decades.  Well, at least not by anything living.
 D1
 The crypt~
 ~
-0 0 2222
+Z 0 2222
 D5
 A wine cellar~
 ~
-0 0 2233
+Z 0 2233
 S
 #2233
 Wine cellar~
@@ -1261,12 +1261,12 @@ D1
 A tunnel
 ~
 ~
-0 0 2234
+Z 0 2234
 D4
 The stairwell
 ~
 ~
-0 0 2232
+Z 0 2232
 S
 #2234
 Tunnel~
@@ -1280,17 +1280,17 @@ D0
 A cave opening
 ~
 ~
-0 0 2235
+Z 0 2235
 D1
 A tunnel
 ~
 ~
-0 0 2236
+Z 0 2236
 D3
 A tunnel
 ~
 ~
-0 0 2233
+Z 0 2233
 S
 #2235
 A cave opening~
@@ -1304,12 +1304,12 @@ D0
 The lair
 ~
 ~
-0 0 2220
+Z 0 2220
 D2
 The tunnel
 ~
 ~
-0 0 2234
+Z 0 2234
 S
 #2236
 The End of the tunnel~
@@ -1322,17 +1322,17 @@ D2
 bridge
 ~
 ~
-0 0 2237
+Z 0 2237
 D3
 The tunnel
 ~
 ~
-0 0 2234
+Z 0 2234
 D4
 trapdoor
 ~
 ~
-0 0 2202
+Z 0 2202
 S
 #2237
 The Bridge~
@@ -1345,12 +1345,12 @@ D0
 The tunnel end
 ~
 ~
-0 0 2236
+Z 0 2236
 D2
 A small opening
 ~
 ~
-0 0 2238
+Z 0 2238
 S
 #2238
 A small opening~
@@ -1363,12 +1363,12 @@ D0
 bridge
 ~
 ~
-0 0 2237
+Z 0 2237
 D2
 clearing
 ~
 ~
-0 0 2239
+Z 0 2239
 S
 #2239
 Clearing~
@@ -1394,17 +1394,17 @@ D0
 the small opening
 ~
 ~
-0 0 2238
+Z 0 2238
 D4
 A path
 ~
 ~
-0 0 2240
+Z 0 2240
 D5
 The well
 ~
 ~
-0 0 2244
+Z 0 2244
 S
 #2240
 A path~
@@ -1416,17 +1416,17 @@ D3
 cave opening
 ~
 ~
-0 0 2241
+Z 0 2241
 D4
 the path continues
 ~
 ~
-0 0 2242
+Z 0 2242
 D5
 clearing
 ~
 ~
-0 0 2239
+Z 0 2239
 S
 #2241
 A cave opening~
@@ -1439,12 +1439,12 @@ D1
 the path
 ~
 ~
-0 0 2240
+Z 0 2240
 D2
 A lair
 ~
 ~
-0 0 2221
+Z 0 2221
 S
 #2242
 The path continues~
@@ -1456,12 +1456,12 @@ D4
 top of the mountain
 ~
 ~
-0 0 2243
+Z 0 2243
 D5
 path
 ~
 ~
-0 0 2240
+Z 0 2240
 S
 #2243
 The top of the mountain~
@@ -1481,12 +1481,12 @@ D0
 The platinum door
 ~
 door platinum~
-2 2241 2231
+ABCFZ 2241 2231
 D5
 The path continues
 ~
 ~
-0 0 2242
+Z 0 2242
 S
 #2244
 Well~

@@ -30,7 +30,7 @@ D4
 The ladder leads to the laboratory.
 ~
 ~
-0 -1 6902
+Z -1 6902
 S
 #6901
 Quifael's study~
@@ -64,7 +64,7 @@ D2
 The corridor leads south to the hall.
 ~
 ~
-0 -1 6904
+Z -1 6904
 S
 #6902
 Quifael's laboratory~
@@ -92,17 +92,17 @@ D1
 To the east is the magical portal.
 ~
 ~
-0 -1 6903
+Z -1 6903
 D3
 To the west is the hall.
 ~
 ~
-0 -1 6904
+Z -1 6904
 D5
 The virtual ladder leads down to the monster pen.
 ~
 ~
-0 -1 6900
+Z -1 6900
 S
 #6903
 Quifael's virtual balcony~
@@ -145,7 +145,7 @@ D3
 The magical portal is to the west.
 ~
 ~
-0 -1 6902
+Z -1 6902
 S
 #6904
 Quifael's hall~
@@ -161,19 +161,19 @@ You see yourself looking back at you.
 D0
 The study is to the north.~
 ~
-0 -1 6901
+Z -1 6901
 D1
 The laboratory is to the east.~
 ~
-0 -1 6902
+Z -1 6902
 D2
 The kitchen is to the south.~
 ~
-0 -1 6905
+Z -1 6905
 D4
 The front door leads to Park Road.~
 door~
-2 3301 3126
+AFZ 3301 3126
 S
 #6905
 Quifael's kitchen~
@@ -183,7 +183,7 @@ You are in an old-fashioned kitchen.
 D0
 The hall is to the north.~
 ~
-0 -1 6904
+Z -1 6904
 S
 #0
 

@@ -1444,11 +1444,11 @@ fortress itself. Steeling yourself, you push on.
 D0
 ~
 ~
-0 -1 14704
+Z -1 14704
 D2
 ~
 ~
-0 -1 6154
+Z -1 6154
 S
 #14701
 The Plains of Mount Doom~
@@ -1463,11 +1463,11 @@ lurking nearby and you press on.
 D0
 ~
 ~
-0 -1 14708
+Z -1 14708
 D1
 ~
 ~
-0 -1 14702
+Z -1 14702
 S
 #14702
 The Plains of Mount Doom~
@@ -1482,15 +1482,15 @@ lurking nearby and you press on.
 D0
 ~
 ~
-0 -1 14709
+Z -1 14709
 D1
 ~
 ~
-0 -1 14703
+Z -1 14703
 D3
 ~
 ~
-0 -1 14701
+Z -1 14701
 S
 #14703
 The Plains of Mount Doom~
@@ -1505,15 +1505,15 @@ lurking nearby and you press on.
 D0
 ~
 ~
-0 -1 14710
+Z -1 14710
 D1
 ~
 ~
-0 -1 14704
+Z -1 14704
 D3
 ~
 ~
-0 -1 14702
+Z -1 14702
 S
 #14704
 The Plains of Mount Doom~
@@ -1528,19 +1528,19 @@ lurking nearby and you press on.
 D0
 ~
 ~
-0 -1 14711
+Z -1 14711
 D1
 ~
 ~
-0 -1 14705
+Z -1 14705
 D2
 ~
 ~
-0 -1 14700
+Z -1 14700
 D3
 ~
 ~
-0 -1 14703
+Z -1 14703
 S
 #14705
 The Plains of Mount Doom~
@@ -1555,15 +1555,15 @@ lurking nearby and you press on.
 D0
 ~
 ~
-0 -1 14712
+Z -1 14712
 D1
 ~
 ~
-0 -1 14706
+Z -1 14706
 D3
 ~
 ~
-0 -1 14704
+Z -1 14704
 S
 #14706
 The Plains of Mount Doom~
@@ -1578,15 +1578,15 @@ lurking nearby and you press on.
 D0
 ~
 ~
-0 -1 14713
+Z -1 14713
 D1
 ~
 ~
-0 -1 14707
+Z -1 14707
 D3
 ~
 ~
-0 -1 14705
+Z -1 14705
 S
 #14707
 The Plains of Mount Doom~
@@ -1601,11 +1601,11 @@ lurking nearby and you press on.
 D0
 ~
 ~
-0 -1 14714
+Z -1 14714
 D3
 ~
 ~
-0 -1 14706
+Z -1 14706
 S
 #14708
 The Plains of Mount Doom~
@@ -1620,15 +1620,15 @@ lurking nearby and you press on.
 D0
 ~
 ~
-0 -1 14715
+Z -1 14715
 D1
 ~
 ~
-0 -1 14709
+Z -1 14709
 D2
 ~
 ~
-0 -1 14701
+Z -1 14701
 S
 #14709
 The Foothills of Mount Doom~
@@ -1643,19 +1643,19 @@ screams.
 D0
 ~
 ~
-0 -1 14716
+Z -1 14716
 D1
 ~
 ~
-0 -1 14710
+Z -1 14710
 D2
 ~
 ~
-0 -1 14702
+Z -1 14702
 D3
 ~
 ~
-0 -1 14708
+Z -1 14708
 S
 #14710
 The Foothills of Mount Doom~
@@ -1670,19 +1670,19 @@ screams.
 D0
 ~
 ~
-0 -1 14717
+Z -1 14717
 D1
 ~
 ~
-0 -1 14711
+Z -1 14711
 D2
 ~
 ~
-0 -1 14703
+Z -1 14703
 D3
 ~
 ~
-0 -1 14709
+Z -1 14709
 S
 #14711
 The Foothills of Mount Doom~
@@ -1697,19 +1697,19 @@ screams.
 D0
 ~
 ~
-0 -1 14718
+Z -1 14718
 D1
 ~
 ~
-0 -1 14712
+Z -1 14712
 D2
 ~
 ~
-0 -1 14704
+Z -1 14704
 D3
 ~
 ~
-0 -1 14710
+Z -1 14710
 S
 #14712
 The Foothills of Mount Doom~
@@ -1724,19 +1724,19 @@ screams.
 D0
 ~
 ~
-0 -1 14719
+Z -1 14719
 D1
 ~
 ~
-0 -1 14713
+Z -1 14713
 D2
 ~
 ~
-0 -1 14705
+Z -1 14705
 D3
 ~
 ~
-0 -1 14711
+Z -1 14711
 S
 #14713
 The Foothills of Mount Doom~
@@ -1751,19 +1751,19 @@ screams.
 D0
 ~
 ~
-0 -1 14720
+Z -1 14720
 D1
 ~
 ~
-0 -1 14714
+Z -1 14714
 D2
 ~
 ~
-0 -1 14706
+Z -1 14706
 D3
 ~
 ~
-0 -1 14712
+Z -1 14712
 S
 #14714
 The Plains of Mount Doom~
@@ -1778,15 +1778,15 @@ lurking nearby and you press on.
 D0
 ~
 ~
-0 -1 14721
+Z -1 14721
 D2
 ~
 ~
-0 -1 14707
+Z -1 14707
 D3
 ~
 ~
-0 -1 14713
+Z -1 14713
 S
 #14715
 The Plains of Mount Doom~
@@ -1801,15 +1801,15 @@ lurking nearby and you press on.
 D0
 ~
 ~
-0 -1 14722
+Z -1 14722
 D1
 ~
 ~
-0 -1 14716
+Z -1 14716
 D2
 ~
 ~
-0 -1 14708
+Z -1 14708
 S
 #14716
 The Foothills of Mount Doom~
@@ -1824,19 +1824,19 @@ screams.
 D0
 ~
 ~
-0 -1 14723
+Z -1 14723
 D1
 ~
 ~
-0 -1 14717
+Z -1 14717
 D2
 ~
 ~
-0 -1 14709
+Z -1 14709
 D3
 ~
 ~
-0 -1 14715
+Z -1 14715
 S
 #14717
 The Upper Slopes of Mount Doom~
@@ -1851,19 +1851,19 @@ been minor compared to those to come.
 D0
 ~
 ~
-0 -1 14724
+Z -1 14724
 D1
 ~
 ~
-0 -1 14718
+Z -1 14718
 D2
 ~
 ~
-0 -1 14710
+Z -1 14710
 D3
 ~
 ~
-0 -1 14716
+Z -1 14716
 S
 #14718
 The Upper Slopes of Mount Doom~
@@ -1880,19 +1880,19 @@ The fortress lies directly north of here.
 D0
 THE FORTRESS~
 ~
-0 -1 14725
+Z -1 14725
 D1
 ~
 ~
-0 -1 14719
+Z -1 14719
 D2
 ~
 ~
-0 -1 14711
+Z -1 14711
 D3
 ~
 ~
-0 -1 14717
+Z -1 14717
 S
 #14719
 The Upper Slopes of Mount Doom~
@@ -1907,19 +1907,19 @@ been minor compared to those to come.
 D0
 ~
 ~
-0 -1 14726
+Z -1 14726
 D1
 ~
 ~
-0 -1 14720
+Z -1 14720
 D2
 ~
 ~
-0 -1 14712
+Z -1 14712
 D3
 ~
 ~
-0 -1 14718
+Z -1 14718
 S
 #14720
 The Foothills of Mount Doom~
@@ -1934,19 +1934,19 @@ screams.
 D0
 ~
 ~
-0 -1 14727
+Z -1 14727
 D1
 ~
 ~
-0 -1 14721
+Z -1 14721
 D2
 ~
 ~
-0 -1 14713
+Z -1 14713
 D3
 ~
 ~
-0 -1 14719
+Z -1 14719
 S
 #14721
 The Plains of Mount Doom~
@@ -1961,15 +1961,15 @@ lurking nearby and you press on.
 D0
 ~
 ~
-0 -1 14728
+Z -1 14728
 D2
 ~
 ~
-0 -1 14714
+Z -1 14714
 D3
 ~
 ~
-0 -1 14720
+Z -1 14720
 S
 #14722
 The Plains of Mount Doom~
@@ -1984,15 +1984,15 @@ lurking nearby and you press on.
 D0
 ~
 ~
-0 -1 14729
+Z -1 14729
 D1
 ~
 ~
-0 -1 14723
+Z -1 14723
 D2
 ~
 ~
-0 -1 14715
+Z -1 14715
 S
 #14723
 The Foothills of Mount Doom~
@@ -2007,19 +2007,19 @@ screams.
 D0
 ~
 ~
-0 -1 14730
+Z -1 14730
 D1
 ~
 ~
-0 -1 14724
+Z -1 14724
 D2
 ~
 ~
-0 -1 14716
+Z -1 14716
 D3
 ~
 ~
-0 -1 14722
+Z -1 14722
 S
 #14724
 The Upper Slopes of Mount Doom~
@@ -2036,19 +2036,19 @@ The Fortress lies directly east of here.
 D0
 ~
 ~
-0 -1 14731
+Z -1 14731
 D1
 THE FORTRESSS~
 ~
-0 -1 14725
+Z -1 14725
 D2
 ~
 ~
-0 -1 14717
+Z -1 14717
 D3
 ~
 ~
-0 -1 14723
+Z -1 14723
 S
 #14725
 Outside the Fortress of Lord Korgthar~
@@ -2061,23 +2061,23 @@ permitted to go before Korgthar's forces combine and crush you.
 D0
 ~
 ~
-0 -1 14732
+Z -1 14732
 D1
 ~
 ~
-0 -1 14726
+Z -1 14726
 D2
 ~
 ~
-0 -1 14718
+Z -1 14718
 D3
 ~
 ~
-0 -1 14724
+Z -1 14724
 D4
 ~
 ~
-0 0 14750
+Z 0 14750
 S
 #14726
 The Upper Slopes of Mount Doom~
@@ -2094,19 +2094,19 @@ The Fortress lies due west of here.
 D0
 ~
 ~
-0 -1 14733
+Z -1 14733
 D1
 ~
 ~
-0 -1 14727
+Z -1 14727
 D2
 ~
 ~
-0 -1 14719
+Z -1 14719
 D3
 ~
 ~
-0 -1 14725
+Z -1 14725
 S
 #14727
 The Foothills of Mount Doom~
@@ -2121,19 +2121,19 @@ screams.
 D0
 ~
 ~
-0 -1 14734
+Z -1 14734
 D1
 ~
 ~
-0 -1 14728
+Z -1 14728
 D2
 ~
 ~
-0 -1 14720
+Z -1 14720
 D3
 ~
 ~
-0 -1 14726
+Z -1 14726
 S
 #14728
 The Plains of Mount Doom~
@@ -2148,15 +2148,15 @@ lurking nearby and you press on.
 D0
 ~
 ~
-0 -1 14735
+Z -1 14735
 D2
 ~
 ~
-0 -1 14721
+Z -1 14721
 D3
 ~
 ~
-0 -1 14727
+Z -1 14727
 S
 #14729
 The Plains of Mount Doom~
@@ -2171,15 +2171,15 @@ lurking nearby and you press on.
 D0
 ~
 ~
-0 -1 14736
+Z -1 14736
 D1
 ~
 ~
-0 -1 14730
+Z -1 14730
 D2
 ~
 ~
-0 -1 14722
+Z -1 14722
 S
 #14730
 The Foothills of Mount Doom~
@@ -2194,19 +2194,19 @@ screams.
 D0
 ~
 ~
-0 -1 14737
+Z -1 14737
 D1
 ~
 ~
-0 -1 14731
+Z -1 14731
 D2
 ~
 ~
-0 -1 14723
+Z -1 14723
 D3
 ~
 ~
-0 -1 14729
+Z -1 14729
 S
 #14731
 The Upper Slopes of Mount Doom~
@@ -2221,19 +2221,19 @@ been minor compared to those to come.
 D0
 ~
 ~
-0 -1 14738
+Z -1 14738
 D1
 ~
 ~
-0 -1 14732
+Z -1 14732
 D2
 ~
 ~
-0 -1 14724
+Z -1 14724
 D3
 ~
 ~
-0 -1 14730
+Z -1 14730
 S
 #14732
 The Upper Slopes of Mount Doom~
@@ -2250,19 +2250,19 @@ The Fortress lies due south of here.
 D0
 ~
 ~
-0 -1 14739
+Z -1 14739
 D1
 ~
 ~
-0 -1 14733
+Z -1 14733
 D2
 THE FORTRESS~
 ~
-0 -1 14725
+Z -1 14725
 D3
 ~
 ~
-0 -1 14731
+Z -1 14731
 S
 #14733
 The Upper Slopes of Mount Doom~
@@ -2277,19 +2277,19 @@ been minor compared to those to come.
 D0
 ~
 ~
-0 -1 14740
+Z -1 14740
 D1
 ~
 ~
-0 -1 14734
+Z -1 14734
 D2
 ~
 ~
-0 -1 14726
+Z -1 14726
 D3
 ~
 ~
-0 -1 14732
+Z -1 14732
 S
 #14734
 The Foothills of Mount Doom~
@@ -2304,19 +2304,19 @@ screams.
 D0
 ~
 ~
-0 -1 14741
+Z -1 14741
 D1
 ~
 ~
-0 -1 14735
+Z -1 14735
 D2
 ~
 ~
-0 -1 14727
+Z -1 14727
 D3
 ~
 ~
-0 -1 14733
+Z -1 14733
 S
 #14735
 The Plains of Mount Doom~
@@ -2331,15 +2331,15 @@ lurking nearby and you press on.
 D0
 ~
 ~
-0 -1 14742
+Z -1 14742
 D2
 ~
 ~
-0 -1 14728
+Z -1 14728
 D3
 ~
 ~
-0 -1 14734
+Z -1 14734
 S
 #14736
 The Plains of Mount Doom~
@@ -2354,15 +2354,15 @@ lurking nearby and you press on.
 D0
 ~
 ~
-0 -1 14743
+Z -1 14743
 D1
 ~
 ~
-0 -1 14737
+Z -1 14737
 D2
 ~
 ~
-0 -1 14729
+Z -1 14729
 S
 #14737
 The Foothills of Mount Doom~
@@ -2377,19 +2377,19 @@ screams.
 D0
 ~
 ~
-0 -1 14744
+Z -1 14744
 D1
 ~
 ~
-0 -1 14738
+Z -1 14738
 D2
 ~
 ~
-0 -1 14730
+Z -1 14730
 D3
 ~
 ~
-0 -1 14736
+Z -1 14736
 S
 #14738
 The Foothills of Mount Doom~
@@ -2404,19 +2404,19 @@ screams.
 D0
 ~
 ~
-0 -1 14745
+Z -1 14745
 D1
 ~
 ~
-0 -1 14739
+Z -1 14739
 D2
 ~
 ~
-0 -1 14731
+Z -1 14731
 D3
 ~
 ~
-0 -1 14737
+Z -1 14737
 S
 #14739
 The Foothills of Mount Doom~
@@ -2431,19 +2431,19 @@ screams.
 D0
 ~
 ~
-0 -1 14746
+Z -1 14746
 D1
 ~
 ~
-0 -1 14740
+Z -1 14740
 D2
 ~
 ~
-0 -1 14732
+Z -1 14732
 D3
 ~
 ~
-0 -1 14738
+Z -1 14738
 S
 #14740
 The Foothills of Mount Doom~
@@ -2458,19 +2458,19 @@ screams.
 D0
 ~
 ~
-0 -1 14747
+Z -1 14747
 D1
 ~
 ~
-0 -1 14741
+Z -1 14741
 D2
 ~
 ~
-0 -1 14733
+Z -1 14733
 D3
 ~
 ~
-0 -1 14739
+Z -1 14739
 S
 #14741
 The Foothills of Mount Doom~
@@ -2485,19 +2485,19 @@ screams.
 D0
 ~
 ~
-0 -1 14748
+Z -1 14748
 D1
 ~
 ~
-0 -1 14742
+Z -1 14742
 D2
 ~
 ~
-0 -1 14734
+Z -1 14734
 D3
 ~
 ~
-0 -1 14740
+Z -1 14740
 S
 #14742
 The Plains of Mount Doom~
@@ -2512,15 +2512,15 @@ lurking nearby and you press on.
 D0
 ~
 ~
-0 -1 14749
+Z -1 14749
 D2
 ~
 ~
-0 -1 14735
+Z -1 14735
 D3
 ~
 ~
-0 -1 14741
+Z -1 14741
 S
 #14743
 The Plains of Mount Doom~
@@ -2535,11 +2535,11 @@ lurking nearby and you press on.
 D1
 ~
 ~
-0 -1 14744
+Z -1 14744
 D2
 ~
 ~
-0 -1 14736
+Z -1 14736
 S
 #14744
 The Plains of Mount Doom~
@@ -2554,15 +2554,15 @@ lurking nearby and you press on.
 D1
 ~
 ~
-0 -1 14745
+Z -1 14745
 D2
 ~
 ~
-0 -1 14737
+Z -1 14737
 D3
 ~
 ~
-0 -1 14743
+Z -1 14743
 S
 #14745
 The Plains of Mount Doom~
@@ -2577,15 +2577,15 @@ lurking nearby and you press on.
 D1
 ~
 ~
-0 -1 14746
+Z -1 14746
 D2
 ~
 ~
-0 -1 14738
+Z -1 14738
 D3
 ~
 ~
-0 -1 14744
+Z -1 14744
 S
 #14746
 The Plains of Mount Doom~
@@ -2600,15 +2600,15 @@ lurking nearby and you press on.
 D1
 ~
 ~
-0 -1 14747
+Z -1 14747
 D2
 ~
 ~
-0 -1 14739
+Z -1 14739
 D3
 ~
 ~
-0 -1 14745
+Z -1 14745
 S
 #14747
 The Plains of Mount Doom~
@@ -2623,15 +2623,15 @@ lurking nearby and you press on.
 D1
 ~
 ~
-0 -1 14748
+Z -1 14748
 D2
 ~
 ~
-0 -1 14740
+Z -1 14740
 D3
 ~
 ~
-0 -1 14746
+Z -1 14746
 S
 #14748
 The Plains of Mount Doom~
@@ -2646,15 +2646,15 @@ lurking nearby and you press on.
 D1
 ~
 ~
-0 -1 14749
+Z -1 14749
 D2
 ~
 ~
-0 -1 14741
+Z -1 14741
 D3
 ~
 ~
-0 -1 14747
+Z -1 14747
 S
 #14749
 The Plains of Mount Doom~
@@ -2669,11 +2669,11 @@ lurking nearby and you press on.
 D2
 ~
 ~
-0 -1 14742
+Z -1 14742
 D3
 ~
 ~
-0 -1 14748
+Z -1 14748
 S
 #14750
 Inside the Fell Fortress~
@@ -2687,23 +2687,23 @@ inhabitants prior to its current ones.
 D0
 ~
 ~
-0 -1 14758
+Z -1 14758
 D1
 ~
 ~
-0 -1 14751
+Z -1 14751
 D2
 ~
 ~
-0 -1 14771
+Z -1 14771
 D3
 ~
 ~
-0 -1 14763
+Z -1 14763
 D5
 ~
 ~
-1 -1 14725
+ABZ -1 14725
 S
 #14751
 The Cell Block~
@@ -2716,19 +2716,19 @@ potentianl escapees...
 D0
 ~
 ~
-1 0 14752
+ABZ 0 14752
 D1
 ~
 ~
-0 0 14754
+Z 0 14754
 D2
 ~
 ~
-1 0 14753
+ABZ 0 14753
 D3
 ~
 ~
-0 -1 14750
+Z -1 14750
 S
 #14752
 A Cell~
@@ -2739,7 +2739,7 @@ The stench is actually quite horrendous and you find yourself eager to leave.
 D2
 ~
 ~
-1 0 14751
+ABZ 0 14751
 S
 #14753
 A Cell~
@@ -2750,7 +2750,7 @@ The stench is actually quite horrendous and you find yourself eager to leave.
 D0
 ~
 ~
-1 0 14751
+ABZ 0 14751
 S
 #14754
 The Cell Block~
@@ -2763,19 +2763,19 @@ potentianl escapees...
 D0
 ~
 ~
-1 0 14755
+ABZ 0 14755
 D1
 ~
 ~
-1 0 14757
+ABZ 0 14757
 D2
 ~
 ~
-1 0 14756
+ABZ 0 14756
 D3
 ~
 ~
-0 -1 14751
+Z -1 14751
 S
 #14755
 A Cell~
@@ -2786,7 +2786,7 @@ The stench is actually quite horrendous and you find yourself eager to leave.
 D2
 ~
 ~
-1 0 14754
+ABZ 0 14754
 S
 #14756
 A Cell~
@@ -2797,7 +2797,7 @@ The stench is actually quite horrendous and you find yourself eager to leave.
 D0
 ~
 ~
-1 0 14754
+ABZ 0 14754
 S
 #14757
 A Cell~
@@ -2808,7 +2808,7 @@ The stench is actually quite horrendous and you find yourself eager to leave.
 D3
 ~
 ~
-1 0 14754
+ABZ 0 14754
 S
 #14758
 Some Quarters~
@@ -2819,11 +2819,11 @@ some of the many types of troops that serve Krothgar.
 D0
 ~
 ~
-1 0 14759
+ABZ 0 14759
 D2
 ~
 ~
-0 -1 14750
+Z -1 14750
 S
 #14759
 An Ante-Room~
@@ -2835,19 +2835,19 @@ effectively soundproof.
 D0
 ~
 ~
-1 0 14761
+ABZ 0 14761
 D1
 ~
 ~
-1 0 14762
+ABZ 0 14762
 D2
 ~
 ~
-1 0 14758
+ABZ 0 14758
 D3
 ~
 ~
-1 0 14760
+ABZ 0 14760
 S
 #14760
 Assassins' Quarters~
@@ -2861,7 +2861,7 @@ values them highly.
 D1
 ~
 ~
-1 0 14759
+ABZ 0 14759
 S
 #14761
 The Chief Assassin's Quarters~
@@ -2874,7 +2874,7 @@ cover herself, slaying her slaves before moving to confront you.
 D2
 ~
 ~
-1 0 14759
+ABZ 0 14759
 S
 #14762
 Assassins' Quarters~
@@ -2888,7 +2888,7 @@ values them highly.
 D3
 ~
 ~
-1 0 14759
+ABZ 0 14759
 S
 #14763
 Some Quarters~
@@ -2899,11 +2899,11 @@ some of the many types of troops that serve Krothgar.
 D1
 ~
 ~
-0 0 14750
+Z 0 14750
 D3
 ~
 ~
-1 0 14764
+ABZ 0 14764
 S
 #14764
 A Corridor~
@@ -2914,15 +2914,15 @@ Krothgar's blackguard.
 D0
 ~
 ~
-0 -1 14767
+Z -1 14767
 D1
 ~
 ~
-1 0 14763
+ABZ 0 14763
 D2
 ~
 ~
-1 0 14765
+ABZ 0 14765
 S
 #14765
 The Keeper's Chamber~
@@ -2934,11 +2934,11 @@ He likes his job, and isn't about to let you hurt his mutants.
 D0
 ~
 ~
-1 0 14764
+ABZ 0 14764
 D5
 ~
 ~
-1 0 14766
+ABZ 0 14766
 S
 #14766
 The Mutant Pit~
@@ -2950,7 +2950,7 @@ only to find your way blocked by several mutants...
 D4
 ~
 ~
-1 0 14765
+ABZ 0 14765
 S
 #14767
 A Corridor~
@@ -2961,11 +2961,11 @@ Krothgar's blackguard.
 D2
 ~
 ~
-0 0 14764
+Z 0 14764
 D3
 ~
 ~
-1 0 14768
+ABZ 0 14768
 S
 #14768
 The Guard Common Room~
@@ -2977,23 +2977,23 @@ hang from hooks in the ceiling, evidently used as practice dummies.
 D0
 ~
 ~
-1 0 14770
+ABZ 0 14770
 D1
 ~
 ~
-1 0 14767
+ABZ 0 14767
 D2
 ~
 ~
-1 0 14769
+ABZ 0 14769
 D3
 This door reads- "Upper level access. Authorised personnel only!~
 door~
-1 14758 14779
+ABCZ 14758 14779
 D5
 ~
 ~
-0 -1 14806
+Z -1 14806
 S
 #14769
 Guard Quarters~
@@ -3005,7 +3005,7 @@ guards.
 D0
 ~
 ~
-1 0 14768
+ABZ 0 14768
 S
 #14770
 Guard Quarters~
@@ -3017,7 +3017,7 @@ guards.
 D2
 ~
 ~
-1 0 14768
+ABZ 0 14768
 S
 #14771
 Guest Quarters~
@@ -3029,11 +3029,11 @@ reside. They frown upon intruders...
 D0
 ~
 ~
-0 -1 14750
+Z -1 14750
 D2
 ~
 ~
-0 -1 14772
+Z -1 14772
 S
 #14772
 Guest Quarters~
@@ -3045,19 +3045,19 @@ reside. They frown upon intruders...
 D0
 ~
 ~
-0 -1 14771
+Z -1 14771
 D1
 ~
 ~
-1 0 14774
+ABZ 0 14774
 D2
 ~
 ~
-0 -1 14775
+Z -1 14775
 D3
 ~
 ~
-1 0 14773
+ABZ 0 14773
 S
 #14773
 Guest Quarters~
@@ -3069,7 +3069,7 @@ Krothgar's plans, and he is doing his best to impress his diabolical guests.
 D1
 ~
 ~
-1 0 14772
+ABZ 0 14772
 S
 #14774
 Guest Quarters~
@@ -3081,7 +3081,7 @@ Krothgar's plans, and he is doing his best to impress his diabolical guests.
 D3
 ~
 ~
-1 0 14772
+ABZ 0 14772
 S
 #14775
 Guest Quarters~
@@ -3093,19 +3093,19 @@ reside. They frown upon intruders...
 D0
 ~
 ~
-0 -1 14772
+Z -1 14772
 D1
 ~
 ~
-1 0 14777
+ABZ 0 14777
 D2
 ~
 ~
-1 0 14778
+ABZ 0 14778
 D3
 ~
 ~
-1 0 14776
+ABZ 0 14776
 S
 #14776
 Guest Quarters~
@@ -3117,7 +3117,7 @@ Krothgar's plans, and he is doing his best to impress his diabolical guests.
 D1
 ~
 ~
-1 0 14775
+ABZ 0 14775
 S
 #14777
 Guest Quarters~
@@ -3129,7 +3129,7 @@ Krothgar's plans, and he is doing his best to impress his diabolical guests.
 D3
 ~
 ~
-1 0 14775
+ABZ 0 14775
 S
 #14778
 Guest Quarters~
@@ -3141,7 +3141,7 @@ Krothgar's plans, and he is doing his best to impress his diabolical guests.
 D0
 ~
 ~
-1 0 14775
+ABZ 0 14775
 S
 #14779
 The Fortress~
@@ -3152,19 +3152,19 @@ and a narrow passage stretches away to the west.
 D1
 ~
 ~
-1 14758 14768
+ABCZ 14758 14768
 D3
 ~
 ~
-0 -1 14780
+Z -1 14780
 D4
 ~
 ~
-0 -1 14793
+Z -1 14793
 D5
 ~
 ~
-0 -1 14787
+Z -1 14787
 S
 #14780
 A Narrow Corridor~
@@ -3175,11 +3175,11 @@ on the western wall of the fortress. A junction lies to the west.
 D1
 ~
 ~
-0 -1 14779
+Z -1 14779
 D3
 ~
 ~
-0 -1 14781
+Z -1 14781
 S
 #14781
 A Junction~
@@ -3210,15 +3210,15 @@ The plaque reads-
 D0
 ~
 ~
-1 0 14783
+ABZ 0 14783
 D1
 ~
 ~
-0 -1 14780
+Z -1 14780
 D2
 ~
 ~
-1 0 14782
+ABZ 0 14782
 S
 #14782
 The Quarters of the Archmage~
@@ -3229,7 +3229,7 @@ ruined his experiment. He's BOUND to be upset.
 D0
 ~
 ~
-1 0 14781
+ABZ 0 14781
 S
 #14783
 The Elemental Laboratories~
@@ -3242,19 +3242,19 @@ has recently gone berserk in here...
 D0
 ~
 ~
-0 -1 14785
+Z -1 14785
 D1
 ~
 ~
-0 -1 14786
+Z -1 14786
 D2
 ~
 ~
-1 0 14781
+ABZ 0 14781
 D3
 ~
 ~
-0 -1 14784
+Z -1 14784
 S
 #14784
 Western End of the Lab~
@@ -3267,7 +3267,7 @@ has recently gone berserk in here...
 D1
 ~
 ~
-0 -1 14783
+Z -1 14783
 S
 #14785
 Northern End of the Lab~
@@ -3280,7 +3280,7 @@ has recently gone berserk in here...
 D2
 ~
 ~
-0 -1 14783
+Z -1 14783
 S
 #14786
 Eastern End of the Lab~
@@ -3293,7 +3293,7 @@ has recently gone berserk in here...
 D3
 ~
 ~
-0 -1 14783
+Z -1 14783
 S
 #14787
 The Lower Chambers~
@@ -3304,15 +3304,15 @@ lurk and evil priests engage in foul ceremonies to their demonic deities.
 D1
 You see an ancient crypt~
 crypt door~
-1 0 14788
+ABCZ 0 14788
 D2
 ~
 ~
-0 -1 14789
+Z -1 14789
 D4
 ~
 ~
-0 -1 14779
+Z -1 14779
 S
 #14788
 An Ancient Crypt~
@@ -3325,7 +3325,7 @@ better hope he stayed dead...
 D3
 ~
 crypt door~
-0 0 14787
+Z 0 14787
 S
 #14789
 The Unholy Temple~
@@ -3338,19 +3338,19 @@ from their gods.
 D0
 ~
 ~
-0 -1 14787
+Z -1 14787
 D1
 ~
 ~
-0 -1 14792
+Z -1 14792
 D2
 ~
 ~
-0 -1 14791
+Z -1 14791
 D3
 ~
 ~
-0 -1 14790
+Z -1 14790
 S
 #14790
 The Unholy Temple~
@@ -3366,7 +3366,7 @@ behind it, about to sacrifice another virgin.
 D1
 ~
 ~
-0 -1 14789
+Z -1 14789
 S
 #14791
 The Unholy Temple~
@@ -3379,11 +3379,11 @@ from their gods. Down from here lairs Jher, ally of Krogthar.
 D0
 ~
 ~
-0 -1 14789
+Z -1 14789
 D5
 ~
 ~
-0 -1 32700
+Z -1 32700
 S
 #14792
 The Hydra Lair~
@@ -3395,7 +3395,7 @@ its lair save Krothgar or the high priest.
 D3
 ~
 ~
-0 -1 14789
+Z -1 14789
 S
 #14793
 A Spiral Staircase~
@@ -3406,11 +3406,11 @@ multitude of towers that adorn the heights of the Fortress.
 D4
 ~
 ~
-0 -1 14794
+Z -1 14794
 D5
 ~
 ~
-0 -1 14779
+Z -1 14779
 S
 #14794
 A Landing~
@@ -3421,27 +3421,27 @@ directions. The staircase continues its climb in the center.
 D0
 ~
 ~
-1 0 14797
+ABZ 0 14797
 D1
 ~
 ~
-1 0 14798
+ABZ 0 14798
 D2
 ~
 ~
-1 0 14795
+ABZ 0 14795
 D3
 ~
 ~
-1 0 14796
+ABZ 0 14796
 D4
 ~
 ~
-0 0 14799
+Z 0 14799
 D5
 ~
 ~
-0 0 14793
+Z 0 14793
 S
 #14795
 A Bedchamber~
@@ -3454,7 +3454,7 @@ search of an outfit.
 D0
 ~
 ~
-1 0 14794
+ABZ 0 14794
 S
 #14796
 A Bedchamber~
@@ -3467,7 +3467,7 @@ search of an outfit.
 D1
 ~
 ~
-1 0 14794
+ABZ 0 14794
 S
 #14797
 A Hall~
@@ -3480,7 +3480,7 @@ vanquished. He keeps their mortal remains here as trophies.
 D2
 ~
 ~
-1 0 14794
+ABZ 0 14794
 S
 #14798
 A Bedchamber~
@@ -3493,7 +3493,7 @@ search of an outfit.
 D3
 ~
 ~
-1 0 14794
+ABZ 0 14794
 S
 #14799
 A Spiral Staircase~
@@ -3504,11 +3504,11 @@ multitude of towers that adorn the heights of the Fortress.
 D4
 ~
 ~
-0 -1 14800
+Z -1 14800
 D5
 ~
 ~
-0 -1 14794
+Z -1 14794
 S
 #14800
 The Throne Room~
@@ -3522,27 +3522,27 @@ in between them stand members of his elite guard, ready to defend their lord.
 D0
 ~
 ~
-0 -1 14801
+Z -1 14801
 D1
 ~
 ~
-0 -1 14804
+Z -1 14804
 D2
 ~
 ~
-0 -1 14803
+Z -1 14803
 D3
 ~
 ~
-0 -1 14802
+Z -1 14802
 D4
 ~
 ~
-0 -1 14805
+Z -1 14805
 D5
 ~
 ~
-0 -1 14799
+Z -1 14799
 S
 #14801
 Dragon Tower~
@@ -3553,7 +3553,7 @@ appreciate being disturbed by a mortal such as yourself...
 D2
 ~
 ~
-0 -1 14800
+Z -1 14800
 S
 #14802
 Dragon Tower~
@@ -3564,7 +3564,7 @@ appreciate being disturbed by a mortal such as yourself...
 D1
 ~
 ~
-0 -1 14800
+Z -1 14800
 S
 #14803
 Dragon Tower~
@@ -3575,7 +3575,7 @@ appreciate being disturbed by a mortal such as yourself...
 D0
 ~
 ~
-0 -1 14800
+Z -1 14800
 S
 #14804
 Dragon Tower~
@@ -3586,7 +3586,7 @@ appreciate being disturbed by a mortal such as yourself...
 D3
 ~
 ~
-0 -1 14800
+Z -1 14800
 S
 #14805
 Dragon Tower~
@@ -3597,7 +3597,7 @@ appreciate being disturbed by a mortal such as yourself...
 D5
 ~
 ~
-0 -1 14800
+Z -1 14800
 S
 #14806
 Stables~
@@ -3608,7 +3608,7 @@ of Hel itself.
 D4
 ~
 ~
-0 -1 14768
+Z -1 14768
 S
 #0
 

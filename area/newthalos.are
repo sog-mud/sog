@@ -2330,17 +2330,17 @@ D2
 You see people dancing and drinking.
 ~
 ~
-0 -1 9502
+Z -1 9502
 D3
 You see people walking by on Sultan's Walk.
 ~
 ~
-0 -1 9520
+Z -1 9520
 D4
 The spiral stairs lead up to the reception area.
 ~
 ~
-0 -1 9501
+Z -1 9501
 S
 #9501
 The Reception Area~
@@ -2376,7 +2376,7 @@ D5
 The stairs lead down to the Daemon.
 ~
 ~
-0 -1 9500
+Z -1 9500
 S
 #9502
 The Dancing Daemon Inn~
@@ -2398,7 +2398,7 @@ D0
 You see the entrance to the Daemon.
 ~
 ~
-0 -1 9500
+Z -1 9500
 S
 #9503
 The Medina~
@@ -2411,12 +2411,12 @@ D0
 You see medina.
 ~
 ~
-0 -1 9504
+Z -1 9504
 D2
 You see the Common square.
 ~
 ~
-0 -1 9510
+Z -1 9510
 S
 #9504
 The Medina~
@@ -2430,12 +2430,12 @@ D0
 You see the market.
 ~
 ~
-0 -1 9505
+Z -1 9505
 D2
 You see the medina.
 ~
 ~
-0 -1 9503
+Z -1 9503
 S
 #9505
 The Southern Market Square~
@@ -2448,19 +2448,19 @@ Market continues north, west, and east, with the Medina trailing off south.
 D0
 ~
 ~
-0 -1 9506
+Z -1 9506
 D1
 ~
 ~
-0 -1 9507
+Z -1 9507
 D2
 ~
 ~
-0 -1 9504
+Z -1 9504
 D3
 ~
 ~
-0 -1 9508
+Z -1 9508
 S
 #9506
 The Center of Market Square~
@@ -2478,19 +2478,19 @@ The Mighty Beholder is in Excellent condition.
 D0
 ~
 ~
-0 -1 9515
+Z -1 9515
 D1
 ~
 ~
-0 -1 9517
+Z -1 9517
 D2
 ~
 ~
-0 -1 9505
+Z -1 9505
 D3
 ~
 ~
-0 -1 9509
+Z -1 9509
 S
 #9507
 The Southeastern Market Square~
@@ -2503,19 +2503,19 @@ in and take a look at the wares these shops have to offer.
 D0
 ~
 ~
-0 -1 9517
+Z -1 9517
 D1
 ~
 ~
-0 -1 9629
+Z -1 9629
 D2
 ~
 ~
-0 -1 9636
+Z -1 9636
 D3
 ~
 ~
-0 -1 9505
+Z -1 9505
 S
 #9508
 The Southwestern Market Square~
@@ -2528,21 +2528,21 @@ The market's sprawl continues east and north of here.
 D0
 ~
 ~
-0 -1 9509
+Z -1 9509
 D1
 ~
 ~
-0 -1 9505
+Z -1 9505
 D2
 You see the grocer's.
 ~
 ~
-0 -1 9635
+Z -1 9635
 D3
 You see the general store.
 ~
 ~
-0 -1 9628
+Z -1 9628
 S
 #9509
 The Western Market Square~
@@ -2556,19 +2556,19 @@ gate. The market's expanse fills the other directions.
 D0
 ~
 ~
-0 -1 9514
+Z -1 9514
 D1
 ~
 ~
-0 -1 9506
+Z -1 9506
 D2
 ~
 ~
-0 -1 9508
+Z -1 9508
 D3
 ~
 ~
-0 -1 9526
+Z -1 9526
 S
 #9510
 The Common Square~
@@ -2583,20 +2583,20 @@ D0
 You see the medina.
 ~
 ~
-0 -1 9503
+Z -1 9503
 D1
 ~
 ~
-0 -1 9537
+Z -1 9537
 D2
 You see the bridge over the river.
 ~
 ~
-0 -1 9512
+Z -1 9512
 D3
 ~
 ~
-0 -1 9536
+Z -1 9536
 S
 #9511
 Outside the Southern Gate of New Thalos~
@@ -2607,7 +2607,7 @@ stretch on endlessly to the south, hiding treasure and adventure.
 D0
 ~
 gate~
-1 9501 9513
+ABZ 9501 9513
 S
 #9512
 The Southern Bridge~
@@ -2619,15 +2619,15 @@ Square stretches out to the north.
 D0
 ~
 ~
-0 -1 9510
+Z -1 9510
 D2
 ~
 ~
-0 -1 9513
+Z -1 9513
 D5
 ~
 ~
-0 -1 9585
+Z -1 9585
 S
 #9513
 Inside the South Gate of New Thalos~
@@ -2641,11 +2641,11 @@ wilderness to the south.
 D0
 ~
 ~
-0 -1 9512
+Z -1 9512
 D2
 ~
 gate~
-1 9501 9511
+ABZ 9501 9511
 S
 #9514
 The Northwestern Market Square~
@@ -2658,19 +2658,19 @@ to Bank.
 D0
 ~
 ~
-0 -1 9614
+Z -1 9614
 D1
 ~
 ~
-0 -1 9515
+Z -1 9515
 D2
 ~
 ~
-0 -1 9509
+Z -1 9509
 D3
 ~
 ~
-0 -1 9621
+Z -1 9621
 S
 #9515
 The Northern Market Square~
@@ -2682,19 +2682,19 @@ busy market thrives with life.
 D0
 ~
 ~
-0 -1 9518
+Z -1 9518
 D1
 ~
 ~
-0 -1 9516
+Z -1 9516
 D2
 ~
 ~
-0 -1 9506
+Z -1 9506
 D3
 ~
 ~
-0 -1 9514
+Z -1 9514
 S
 #9516
 The Northeastern Market Square~
@@ -2708,19 +2708,19 @@ The market continues to the south and west.
 D0
 ~
 ~
-0 -1 9615
+Z -1 9615
 D1
 ~
 ~
-0 -1 9622
+Z -1 9622
 D2
 ~
 ~
-0 -1 9517
+Z -1 9517
 D3
 ~
 ~
-0 -1 9515
+Z -1 9515
 S
 #9517
 The Eastern Market Square~
@@ -2733,19 +2733,19 @@ Main Street heads for the eastern gate.
 D0
 ~
 ~
-0 -1 9516
+Z -1 9516
 D1
 ~
 ~
-0 -1 9527
+Z -1 9527
 D2
 ~
 ~
-0 -1 9507
+Z -1 9507
 D3
 ~
 ~
-0 -1 9506
+Z -1 9506
 S
 #9518
 Sultan's Walk~
@@ -2757,11 +2757,11 @@ the market square.
 D0
 ~
 ~
-0 -1 9519
+Z -1 9519
 D2
 ~
 ~
-0 -1 9515
+Z -1 9515
 S
 #9519
 Sultan's Walk~
@@ -2775,11 +2775,11 @@ The walk continues north and south from here.
 D0
 ~
 ~
-0 -1 9520
+Z -1 9520
 D2
 ~
 ~
-0 -1 9518
+Z -1 9518
 S
 #9520
 Sultan's Walk~
@@ -2793,19 +2793,19 @@ of the Daemon, and Sultan's Walk continues north and south.
 D0
 ~
 ~
-0 -1 9521
+Z -1 9521
 D1
 ~
 ~
-0 -1 9500
+Z -1 9500
 D2
 ~
 ~
-0 -1 9519
+Z -1 9519
 D3
 ~
 ~
-0 -1 9658
+Z -1 9658
 S
 #9521
 Sultan's Walk~
@@ -2817,11 +2817,11 @@ and can make out faint sounds of trade to the south.
 D0
 ~
 ~
-0 -1 9522
+Z -1 9522
 D2
 ~
 ~
-0 -1 9520
+Z -1 9520
 S
 #9522
 Inside the Northern Gate of New Thalos~
@@ -2835,19 +2835,19 @@ stretches out east and west. To the north lay wilderness of the desert.
 D0
 ~
 gate~
-1 9501 9667
+ABZ 9501 9667
 D1
 ~
 ~
-0 -1 9549
+Z -1 9549
 D2
 ~
 ~
-0 -1 9521
+Z -1 9521
 D3
 ~
 ~
-0 -1 9548
+Z -1 9548
 S
 #9523
 Inside the West Gate of New Thalos~
@@ -2864,19 +2864,19 @@ D0
 The Entrance of the Weaponsmaster.
 ~
 ~
-0 -1 9800
+Z -1 9800
 D1
 ~
 ~
-0 -1 9524
+Z -1 9524
 D2
 ~
 ~
-0 -1 9626
+Z -1 9626
 D3
 ~
 gate~
-1 9501 9669
+ABZ 9501 9669
 S
 #9524
 West Main Street~
@@ -2888,19 +2888,19 @@ known as the temple square. Main street continues east and west.
 D0
 ~
 ~
-0 -1 9620
+Z -1 9620
 D1
 ~
 ~
-0 -1 9525
+Z -1 9525
 D2
 ~
 ~
-0 -1 9627
+Z -1 9627
 D3
 ~
 ~
-0 -1 9523
+Z -1 9523
 S
 #9525
 West Main Street~
@@ -2913,19 +2913,19 @@ east and west from here.
 D0
 ~
 ~
-0 -1 9571
+Z -1 9571
 D1
 ~
 ~
-0 -1 9526
+Z -1 9526
 D2
 ~
 ~
-0 -1 9572
+Z -1 9572
 D3
 ~
 ~
-0 -1 9524
+Z -1 9524
 S
 #9526
 West Main Street~
@@ -2943,11 +2943,11 @@ THE SULTAN REMINDS YOU TO PAY YOUR TAXES!
 D1
 ~
 ~
-0 -1 9509
+Z -1 9509
 D3
 ~
 ~
-0 -1 9525
+Z -1 9525
 S
 #9527
 East Main Street~
@@ -2959,11 +2959,11 @@ the west and a junction is to the East.
 D1
 ~
 ~
-0 -1 9528
+Z -1 9528
 D3
 ~
 ~
-0 -1 9517
+Z -1 9517
 S
 #9528
 East Main Street~
@@ -2981,19 +2981,19 @@ NO LOITERING!
 D0
 ~
 ~
-0 -1 9564
+Z -1 9564
 D1
 ~
 ~
-0 -1 9529
+Z -1 9529
 D2
 ~
 ~
-0 -1 9565
+Z -1 9565
 D3
 ~
 ~
-0 -1 9527
+Z -1 9527
 S
 #9529
 East Main Street~
@@ -3009,19 +3009,19 @@ Main Street continues east and west from here.
 D0
 ~
 ~
-0 -1 9623
+Z -1 9623
 D1
 ~
 ~
-0 -1 9530
+Z -1 9530
 D2
 ~
 ~
-0 -1 9630
+Z -1 9630
 D3
 ~
 ~
-0 -1 9528
+Z -1 9528
 S
 #9530
 East Main Street~
@@ -3033,15 +3033,15 @@ Braheem's Magic Shop awaits your business to the north.
 D0
 ~
 ~
-0 -1 9624
+Z -1 9624
 D1
 ~
 ~
-0 -1 9531
+Z -1 9531
 D3
 ~
 ~
-0 -1 9529
+Z -1 9529
 S
 #9531
 Inside the Eastern Gate of New Thalos~
@@ -3056,15 +3056,15 @@ entrance to the mages' guild.
 D0
 ~
 ~
-0 -1 9625
+Z -1 9625
 D1
 ~
 gate~
-1 9501 9668
+ABZ 9501 9668
 D3
 ~
 ~
-0 -1 9530
+Z -1 9530
 S
 #9532
 Cassandra's Catch of the Day~
@@ -3076,7 +3076,7 @@ quietly look over her selection.
 D2
 ~
 ~
-0 -1 9541
+Z -1 9541
 S
 #9533
 West Ishtar Drive~
@@ -3089,11 +3089,11 @@ one of the entrances of the warehouse and West Ishtar leads east.
 D0
 ~
 ~
-0 -1 9640
+Z -1 9640
 D1
 ~
 ~
-0 -1 9534
+Z -1 9534
 S
 #9534
 West Ishtar Drive~
@@ -3106,15 +3106,15 @@ quietly flows by to the south. Ishtar Drive continues east and west.
 D0
 ~
 ~
-0 -1 9641
+Z -1 9641
 D1
 ~
 ~
-0 -1 9535
+Z -1 9535
 D3
 ~
 ~
-0 -1 9533
+Z -1 9533
 S
 #9535
 West Ishtar Drive~
@@ -3127,19 +3127,19 @@ To the north is the Shipwright and Ishtar Drive continues east and west.
 D0
 ~
 ~
-0 -1 9642
+Z -1 9642
 D1
 ~
 ~
-0 -1 9536
+Z -1 9536
 D2
 ~
 ~
-0 -1 9543
+Z -1 9543
 D3
 ~
 ~
-0 -1 9534
+Z -1 9534
 S
 #9536
 West Ishtar Drive~
@@ -3152,11 +3152,11 @@ and Ishtar Drive continues west.
 D1
 ~
 ~
-0 -1 9510
+Z -1 9510
 D3
 ~
 ~
-0 -1 9535
+Z -1 9535
 S
 #9537
 East Ishtar Drive~
@@ -3170,15 +3170,15 @@ to the east.
 D0
 ~
 ~
-0 -1 9644
+Z -1 9644
 D1
 ~
 ~
-0 -1 9539
+Z -1 9539
 D3
 ~
 ~
-0 -1 9510
+Z -1 9510
 S
 #9538
 East Ishtar Drive~
@@ -3190,11 +3190,11 @@ River to the south.
 D1
 ~
 ~
-0 -1 9540
+Z -1 9540
 D3
 ~
 ~
-0 -1 9539
+Z -1 9539
 S
 #9539
 East Ishtar Drive~
@@ -3207,15 +3207,15 @@ east and west.
 D0
 ~
 ~
-0 -1 9645
+Z -1 9645
 D1
 ~
 ~
-0 -1 9538
+Z -1 9538
 D3
 ~
 ~
-0 -1 9537
+Z -1 9537
 S
 #9540
 East Ishtar Drive~
@@ -3229,15 +3229,15 @@ D0
 You see murky darkness.
 ~
 ~
-0 -1 9568
+Z -1 9568
 D1
 ~
 ~
-0 -1 9541
+Z -1 9541
 D3
 ~
 ~
-0 -1 9538
+Z -1 9538
 S
 #9541
 East Ishtar Drive~
@@ -3251,15 +3251,15 @@ with the drive running alongside it east to west.
 D0
 ~
 ~
-0 -1 9532
+Z -1 9532
 D1
 ~
 ~
-0 -1 9542
+Z -1 9542
 D3
 ~
 ~
-0 -1 9540
+Z -1 9540
 S
 #9542
 East Ishtar Drive~
@@ -3282,11 +3282,11 @@ sign~
 D0
 ~
 ~
-0 -1 9647
+Z -1 9647
 D3
 ~
 ~
-0 -1 9541
+Z -1 9541
 S
 #9543
 Boat Ramp~
@@ -3299,11 +3299,11 @@ to the south and Ishtar Drive is to the north.
 D0
 ~
 ~
-0 -1 9535
+Z -1 9535
 D2
 ~
 ~
-0 -1 9586
+Z -1 9586
 S
 #9544
 West Casbah~
@@ -3316,15 +3316,15 @@ leading up. The avenue ends here, only exiting to the east.
 D1
 ~
 ~
-0 -1 9545
+Z -1 9545
 D2
 ~
 ~
-0 -1 9653
+Z -1 9653
 D4
 ~
 ~
-0 -1 9659
+Z -1 9659
 S
 #9545
 West Casbah~
@@ -3338,15 +3338,15 @@ massive white pillars. The avenue continues west and south from here.
 D1
 ~
 ~
-0 -1 9546
+Z -1 9546
 D2
 ~
 ~
-0 -1 9654
+Z -1 9654
 D3
 ~
 ~
-0 -1 9544
+Z -1 9544
 S
 #9546
 The Casbah~
@@ -3359,15 +3359,15 @@ continues.
 D1
 ~
 ~
-0 -1 9547
+Z -1 9547
 D2
 ~
 ~
-0 -1 9558
+Z -1 9558
 D3
 ~
 ~
-0 -1 9545
+Z -1 9545
 S
 #9547
 The Casbah~
@@ -3379,11 +3379,11 @@ the great walls of the palace and the avenue goes east and west.
 D1
 ~
 ~
-0 -1 9548
+Z -1 9548
 D3
 ~
 ~
-0 -1 9546
+Z -1 9546
 S
 #9548
 The Casbah~
@@ -3394,11 +3394,11 @@ stand the great walls of the palace and the avenue goes east and west.
 D1
 ~
 ~
-0 -1 9522
+Z -1 9522
 D3
 ~
 ~
-0 -1 9547
+Z -1 9547
 S
 #9549
 The Casbah~
@@ -3411,11 +3411,11 @@ northern gate, and the avenue continues east.
 D1
 ~
 ~
-0 -1 9550
+Z -1 9550
 D3
 ~
 ~
-0 -1 9522
+Z -1 9522
 S
 #9550
 The Casbah~
@@ -3429,11 +3429,11 @@ a short walk to the west.
 D1
 ~
 ~
-0 -1 9551
+Z -1 9551
 D3
 ~
 ~
-0 -1 9549
+Z -1 9549
 S
 #9551
 The Casbah~
@@ -3446,15 +3446,15 @@ west form here and the row leads south.
 D1
 ~
 ~
-0 -1 9552
+Z -1 9552
 D2
 ~
 ~
-0 -1 9560
+Z -1 9560
 D3
 ~
 ~
-0 -1 9550
+Z -1 9550
 S
 #9552
 The Casbah~
@@ -3466,11 +3466,11 @@ of the city. The avenue runs east and west from here.
 D1
 ~
 ~
-0 -1 9553
+Z -1 9553
 D3
 ~
 ~
-0 -1 9551
+Z -1 9551
 S
 #9553
 The Casbah~
@@ -3485,11 +3485,11 @@ here
 D1
 ~
 ~
-0 -1 9554
+Z -1 9554
 D3
 ~
 ~
-0 -1 9552
+Z -1 9552
 S
 #9554
 The Casbah~
@@ -3501,15 +3501,15 @@ The Northeast Tower of the wall is accessible here up a spiral staircase.
 D2
 ~
 ~
-0 -1 9555
+Z -1 9555
 D3
 ~
 ~
-0 -1 9553
+Z -1 9553
 D4
 ~
 ~
-0 -1 9662
+Z -1 9662
 S
 #9555
 Kali Row~
@@ -3522,15 +3522,15 @@ entrance to the dance hall is to the south.
 D0
 ~
 ~
-0 -1 9554
+Z -1 9554
 D2
 ~
 ~
-0 -1 9556
+Z -1 9556
 D3
 ~
 ~
-0 -1 9651
+Z -1 9651
 S
 #9556
 Kali Row~
@@ -3542,11 +3542,11 @@ northward.
 D0
 ~
 ~
-0 -1 9555
+Z -1 9555
 D3
 ~
 ~
-0 -1 9652
+Z -1 9652
 S
 #9557
 Underground~
@@ -3556,11 +3556,11 @@ The small passage continues north and south.
 D0
 ~
 ~
-0 -1 9578
+Z -1 9578
 D2
 ~
 ~
-0 -1 9580
+Z -1 9580
 S
 #9558
 Alley~
@@ -3571,11 +3571,11 @@ here, unless you're partial to spiders and rats.
 D0
 ~
 ~
-0 -1 9546
+Z -1 9546
 D2
 ~
 ~
-0 -1 9559
+Z -1 9559
 S
 #9559
 Alley~
@@ -3585,12 +3585,12 @@ The alley ends here.
 D0
 ~
 ~
-0 -1 9558
+Z -1 9558
 D5
 You see a manhole covering an opening in the road.
 ~
 manhole hole man~
-1 -1 9575
+ABZ -1 9575
 S
 #9560
 Guildsman's Row~
@@ -3605,19 +3605,19 @@ off to the south and East Casbah is to the north.
 D0
 ~
 ~
-0 -1 9551
+Z -1 9551
 D1
 ~
 ~
-0 -1 9656
+Z -1 9656
 D2
 ~
 ~
-0 -1 9561
+Z -1 9561
 D3
 ~
 ~
-0 -1 9655
+Z -1 9655
 S
 #9561
 Guildsman's Row~
@@ -3629,19 +3629,19 @@ and south from here.
 D0
 ~
 ~
-0 -1 9560
+Z -1 9560
 D1
 ~
 ~
-0 -1 9607
+Z -1 9607
 D2
 ~
 ~
-0 -1 9562
+Z -1 9562
 D3
 ~
 ~
-0 -1 9606
+Z -1 9606
 S
 #9562
 Guildsman's Row~
@@ -3654,19 +3654,19 @@ Guilds leads north and south.
 D0
 ~
 ~
-0 -1 9561
+Z -1 9561
 D1
 ~
 ~
-0 -1 9611
+Z -1 9611
 D2
 ~
 ~
-0 -1 9563
+Z -1 9563
 D3
 ~
 ~
-0 -1 9664
+Z -1 9664
 S
 #9563
 Guildsman's Row~
@@ -3679,15 +3679,15 @@ the east.
 D0
 ~
 ~
-0 -1 9562
+Z -1 9562
 D1
 ~
 ~
-0 -1 9616
+Z -1 9616
 D2
 ~
 ~
-0 -1 9564
+Z -1 9564
 S
 #9564
 Guildsman's Row~
@@ -3699,11 +3699,11 @@ guildhouses lie to the north and Main street is to the south.
 D0
 ~
 ~
-0 -1 9563
+Z -1 9563
 D2
 ~
 ~
-0 -1 9528
+Z -1 9528
 S
 #9565
 Alley~
@@ -3714,11 +3714,11 @@ darkness covering this alley.
 D0
 ~
 ~
-0 -1 9528
+Z -1 9528
 D2
 ~
 ~
-0 -1 9566
+Z -1 9566
 S
 #9566
 Alley~
@@ -3729,15 +3729,15 @@ darkness covering this alley.
 D0
 ~
 ~
-0 -1 9565
+Z -1 9565
 D1
 ~
 ~
-0 -1 9567
+Z -1 9567
 D3
 ~
 ~
-0 -1 9637
+Z -1 9637
 S
 #9567
 Alley~
@@ -3748,15 +3748,15 @@ darkness covering this alley.
 D1
 ~
 ~
-0 -1 9638
+Z -1 9638
 D2
 ~
 ~
-0 -1 9568
+Z -1 9568
 D3
 ~
 ~
-0 -1 9566
+Z -1 9566
 S
 #9568
 Alley~
@@ -3767,11 +3767,11 @@ darkness covering this alley.
 D0
 ~
 ~
-0 -1 9567
+Z -1 9567
 D2
 ~
 ~
-0 -1 9540
+Z -1 9540
 S
 #9569
 Alley~
@@ -3786,11 +3786,11 @@ Kind of looks like a yeti has been here....  Hmmmm.
 D1
 ~
 ~
-0 -1 9570
+Z -1 9570
 D2
 ~
 ~
-0 -1 9571
+Z -1 9571
 S
 #9570
 Alley~
@@ -3801,12 +3801,12 @@ appearent on the ground.
 D3
 ~
 ~
-0 -1 9569
+Z -1 9569
 D5
 You see a small iron circle imbedded in the ground.
 ~
 manhole man hole~
-1 -1 9578
+ABZ -1 9578
 S
 #9571
 Alley~
@@ -3823,11 +3823,11 @@ You poor or something?
 D0
 ~
 ~
-0 -1 9569
+Z -1 9569
 D2
 ~
 ~
-0 -1 9525
+Z -1 9525
 S
 #9572
 Alley~
@@ -3838,11 +3838,11 @@ Nothing much here but small rodents and dust.
 D0
 ~
 ~
-0 -1 9525
+Z -1 9525
 D2
 ~
 ~
-0 -1 9573
+Z -1 9573
 S
 #9573
 Alley~
@@ -3853,11 +3853,11 @@ of warrior's. You notice  some small scrapings to the west.
 D0
 ~
 ~
-0 -1 9572
+Z -1 9572
 D1
 ~
 ~
-0 -1 9574
+Z -1 9574
 S
 #9574
 Alley~
@@ -3867,12 +3867,12 @@ The alley ends here as do the footprints you had noticed earlier.
 D3
 ~
 ~
-0 -1 9573
+Z -1 9573
 D5
 You see a small round iron plate set in the ground.
 ~
 manhole man hole~
-1 -1 9581
+ABZ -1 9581
 S
 #9575
 Underground~
@@ -3883,11 +3883,11 @@ glint of light from above and the passage continues south.
 D2
 ~
 ~
-0 -1 9576
+Z -1 9576
 D4
 ~
 man hole manhole~
-1 -1 9559
+ABZ -1 9559
 S
 #9576
 Underground~
@@ -3897,11 +3897,11 @@ The passage continues north and south.
 D0
 ~
 ~
-0 -1 9575
+Z -1 9575
 D2
 ~
 ~
-0 -1 9577
+Z -1 9577
 S
 #9577
 Underground~
@@ -3911,15 +3911,15 @@ The tunnel branches here going north, east, and west.
 D0
 ~
 ~
-0 -1 9576
+Z -1 9576
 D1
 ~
 ~
-0 -1 9578
+Z -1 9578
 D3
 ~
 ~
-0 -1 9579
+Z -1 9579
 S
 #9578
 Underground~
@@ -3930,15 +3930,15 @@ glint of light from above.
 D2
 ~
 ~
-0 -1 9557
+Z -1 9557
 D3
 ~
 ~
-0 -1 9577
+Z -1 9577
 D4
 ~
 manhole man hole~
-1 -1 9570
+ABZ -1 9570
 S
 #9579
 Underground~
@@ -3950,7 +3950,7 @@ find any door in that direction.
 D1
 ~
 ~
-0 -1 9577
+Z -1 9577
 S
 #9580
 Underground~
@@ -3960,11 +3960,11 @@ The small passage continues north and south from here.
 D0
 ~
 ~
-0 -1 9557
+Z -1 9557
 D2
 ~
 ~
-0 -1 9581
+Z -1 9581
 S
 #9581
 Underground~
@@ -3975,15 +3975,15 @@ of the city above you.
 D0
 ~
 ~
-0 -1 9580
+Z -1 9580
 D1
 ~
 ~
-0 -1 9582
+Z -1 9582
 D4
 ~
 manhole man hole~
-1 -1 9574
+ABZ -1 9574
 S
 #9582
 Underground~
@@ -3994,11 +3994,11 @@ of direction.
 D1
 ~
 ~
-0 -1 9592
+Z -1 9592
 D3
 ~
 ~
-0 -1 9581
+Z -1 9581
 S
 #9583
 Ishtar River~
@@ -4011,11 +4011,11 @@ the shore.
 D1
 ~
 ~
-0 -1 9724
+Z -1 9724
 D3
 ~
 ~
-0 -1 9584
+Z -1 9584
 S
 #9584
 Ishtar River~
@@ -4028,15 +4028,15 @@ unwanted guests.
 D0
 ~
 ~
-0 -1 8100
+Z -1 8100
 D1
 ~
 ~
-0 -1 9583
+Z -1 9583
 D3
 ~
 ~
-0 -1 9585
+Z -1 9585
 S
 #9585
 Ishtar River~
@@ -4049,15 +4049,15 @@ west.
 D1
 ~
 ~
-0 -1 9584
+Z -1 9584
 D3
 ~
 ~
-0 -1 9586
+Z -1 9586
 D4
 ~
 ~
-0 -1 9512
+Z -1 9512
 S
 #9586
 Ishtar River~
@@ -4070,15 +4070,15 @@ direction.
 D0
 ~
 ~
-0 -1 9543
+Z -1 9543
 D1
 ~
 ~
-0 -1 9585
+Z -1 9585
 D3
 ~
 ~
-0 -1 9587
+Z -1 9587
 S
 #9587
 Ishtar River~
@@ -4090,11 +4090,11 @@ should any citizen require exit or entry.
 D1
 ~
 ~
-0 -1 9586
+Z -1 9586
 D3
 ~
 ~
-0 -1 9723
+Z -1 9723
 S
 #9588
 Dark Passage~
@@ -4106,11 +4106,11 @@ doors. The only exit it seems is east.
 D1
 ~
 ~
-0 -1 9589
+Z -1 9589
 D3
 ~
 ~
-0 -1 31019
+Z -1 31019
 S
 #9589
 Dark Passage~
@@ -4122,11 +4122,11 @@ fail to find any secret doors. Voices can be faintly heard from the north.
 D1
 ~
 ~
-0 -1 9590
+Z -1 9590
 D3
 ~
 ~
-0 -1 9588
+Z -1 9588
 S
 #9590
 Dark Passage~
@@ -4141,11 +4141,11 @@ perfect round hole.
 D1
 ~
 ~
-0 -1 9591
+Z -1 9591
 D3
 ~
 ~
-0 -1 9589
+Z -1 9589
 S
 #9591
 Dark Passage~
@@ -4164,11 +4164,11 @@ at the base of the flames.
 D3
 ~
 ~
-0 -1 9590
+Z -1 9590
 D4
 ~
 secret~
-0 -1 9670
+Z -1 9670
 S
 #9592
 Underground~
@@ -4183,11 +4183,11 @@ in and out. Perhaps this is somehow the entrance to the next challenge
 D1
 ~
 ~
-0 -1 9593
+Z -1 9593
 D3
 ~
 ~
-0 -1 9582
+Z -1 9582
 S
 #9593
 Underground~
@@ -4197,11 +4197,11 @@ The small passage continues west and east.
 D1
 ~
 ~
-0 -1 9600
+Z -1 9600
 D3
 ~
 ~
-0 -1 9592
+Z -1 9592
 S
 #9594
 Common Room of the Clan MacCleod~
@@ -4214,27 +4214,27 @@ hang large tapestries paying homage to their leader Conner MacCleod.
 D0
 ~
 iron gate~
-0 -1 9599
+Z -1 9599
 D1
 ~
 door east~
-0 -1 9596
+Z -1 9596
 D2
 ~
 drawbridge draw bridge door~
-2 7901 6100
+ABCFZ 7901 6100
 D3
 ~
 door west~
-0 -1 9597
+Z -1 9597
 D4
 ~
 door up~
-0 -1 9595
+Z -1 9595
 D5
 ~
 door down~
-0 -1 9598
+Z -1 9598
 S
 #9595
 Zippoii's Room~
@@ -4248,7 +4248,7 @@ head of the Demi-Lich.
 D5
 ~
 door~
-0 -1 9594
+Z -1 9594
 S
 #9596
 Ice's Room~
@@ -4263,7 +4263,7 @@ of Kalas stares past you into emptiness.
 D3
 ~
 door~
-0 -1 9594
+Z -1 9594
 S
 #9597
 Naazgul's Room~
@@ -4281,11 +4281,11 @@ If I have to explain, you wouldn't understand.
 D0
 ~
 ~
-0 -1 9710
+Z -1 9710
 D1
 ~
 door~
-0 -1 9594
+Z -1 9594
 S
 #9598
 Tank's Room~
@@ -4300,7 +4300,7 @@ place in this happy-go-lucky room is mounted head of Crimson Death.
 D4
 ~
 door~
-0 -1 9594
+Z -1 9594
 S
 #9599
 Inside the Castle of Clan MacCleod~
@@ -4312,7 +4312,7 @@ drafting table.
 D2
 ~
 iron gate~
-0 -1 9594
+Z -1 9594
 S
 #9600
 Underground~
@@ -4322,11 +4322,11 @@ The small passage continues west and east.
 D1
 ~
 ~
-0 -1 9601
+Z -1 9601
 D3
 ~
 ~
-0 -1 9593
+Z -1 9593
 S
 #9601
 Underground~
@@ -4336,11 +4336,11 @@ The small passage continues west and east.
 D1
 ~
 ~
-0 -1 9602
+Z -1 9602
 D3
 ~
 ~
-0 -1 9600
+Z -1 9600
 S
 #9602
 Underground~
@@ -4350,7 +4350,7 @@ The small passage continues west and east.
 D3
 ~
 ~
-0 -1 9601
+Z -1 9601
 S
 #9603
 Cleric's Sanctum~
@@ -4365,11 +4365,11 @@ You notice the floor at the base of the eastern wall has some faint
 scratches in it.
 ~
 secret door~
-1 -1 9579
+ABZ -1 9579
 D4
 ~
 ~
-0 -1 9619
+Z -1 9619
 S
 #9604
 Chamber of the High Priest~
@@ -4383,7 +4383,7 @@ The only obvious exit is south.
 D2
 ~
 ~
-0 -1 9608
+Z -1 9608
 S
 #9605
 By the Altar~
@@ -4401,7 +4401,7 @@ lands.  He seems pleased.
 D2
 ~
 ~
-0 -1 9609
+Z -1 9609
 S
 #9606
 The Weaver's Guild~
@@ -4414,7 +4414,7 @@ in, grabs a pile of clothing and leaves.
 D1
 ~
 ~
-0 -1 9561
+Z -1 9561
 S
 #9607
 The Craftsman's Guild~
@@ -4426,7 +4426,7 @@ complete various projects and creations.
 D3
 ~
 ~
-0 -1 9561
+Z -1 9561
 S
 #9608
 Inside the Temple~
@@ -4439,15 +4439,15 @@ To the south is the entrance to the Cleric's Guild.
 D0
 ~
 ~
-0 -1 9604
+Z -1 9604
 D1
 ~
 ~
-0 -1 9609
+Z -1 9609
 D2
 ~
 ~
-0 -1 9612
+Z -1 9612
 S
 #9609
 Inside the Temple~
@@ -4462,19 +4462,19 @@ that New Thalonians take religion seriously.
 D0
 ~
 ~
-0 -1 9605
+Z -1 9605
 D1
 ~
 ~
-0 -1 9610
+Z -1 9610
 D2
 ~
 ~
-0 -1 9613
+Z -1 9613
 D3
 ~
 ~
-0 -1 9608
+Z -1 9608
 S
 #9610
 Donation Room~
@@ -4488,7 +4488,7 @@ adventureres, and a curse on any that walk in to get all.
 D3
 ~
 ~
-0 -1 9609
+Z -1 9609
 S
 #9611
 The Museum of the Greater Gods~
@@ -4500,11 +4500,11 @@ have saved all their lives.
 D2
 ~
 ~
-0 -1 9616
+Z -1 9616
 D3
 ~
 ~
-0 -1 9562
+Z -1 9562
 S
 #9612
 Entrance to the Guild of Clerics~
@@ -4517,11 +4517,11 @@ and south is the entrance to the cleric's bar.
 D0
 ~
 ~
-0 -1 9608
+Z -1 9608
 D2
 ~
 ~
-0 -1 9619
+Z -1 9619
 S
 #9613
 The Temple Gates~
@@ -4534,15 +4534,15 @@ their city ever come under siege again.
 D0
 ~
 ~
-0 -1 9609
+Z -1 9609
 D2
 ~
 ~
-0 -1 9620
+Z -1 9620
 D5
 ~
 ~
-0 -1 9620
+Z -1 9620
 S
 #9614
 Ahkeem's Stuff~
@@ -4561,7 +4561,7 @@ BUY : Akheem's FAVORITE command lets you have an item for his low low price.
 D2
 ~
 ~
-0 -1 9514
+Z -1 9514
 S
 #9615
 Vera's Veggies~
@@ -4583,7 +4583,7 @@ BUY : Vera's FAVORITE command lets you have an item for her low low price.
 D2
 ~
 ~
-0 -1 9516
+Z -1 9516
 S
 #9616
 The Museum of the Greater Gods~
@@ -4594,11 +4594,11 @@ statues.
 D0
 ~
 ~
-0 -1 9611
+Z -1 9611
 D3
 ~
 ~
-0 -1 9563
+Z -1 9563
 S
 #9617
 Base of the Tower~
@@ -4611,16 +4611,16 @@ studies.
 D1
 ~
 ~
-0 -1 9618
+Z -1 9618
 D2
 You see some small scratches on the floor near the base of the wall.
 ~
 secret door~
-1 -1 9624
+ABZ -1 9624
 D4
 ~
 ~
-0 -1 9648
+Z -1 9648
 S
 #9618
 The Mage's Courtyard~
@@ -4633,11 +4633,11 @@ tower where the leader of the mage's guild performs his experiments.
 D2
 ~
 ~
-0 -1 9625
+Z -1 9625
 D3
 ~
 ~
-0 -1 9617
+Z -1 9617
 S
 #9619
 Nectar of the Gods~
@@ -4652,11 +4652,11 @@ meditaion chambers.
 D0
 ~
 ~
-0 -1 9612
+Z -1 9612
 D5
 ~
 ~
-0 -1 9603
+Z -1 9603
 S
 #9620
 The Temple Square~
@@ -4669,15 +4669,15 @@ gates of the temple and Main Street lies to the south.
 D0
 ~
 ~
-0 -1 9613
+Z -1 9613
 D2
 ~
 ~
-0 -1 9524
+Z -1 9524
 D4
 ~
 ~
-0 -1 9613
+Z -1 9613
 S
 #9621
 The Bank~
@@ -4688,7 +4688,7 @@ ceilings.  A long counter lies through the room.
 D1
 ~
 ~
-0 -1 9514
+Z -1 9514
 S
 #9622
 The Butchary~
@@ -4714,7 +4714,7 @@ You think you hear noises from the vat....nah.
 D3
 ~
 ~
-0 -1 9516
+Z -1 9516
 S
 #9623
 The Witch's Brew~
@@ -4736,7 +4736,7 @@ BUY : Elvira's FAVORITE command lets you have an item for her low low price.
 D2
 ~
 ~
-0 -1 9529
+Z -1 9529
 S
 #9624
 Braheem's Magic Shop~
@@ -4756,7 +4756,7 @@ BUY  -Allows you to rid youself of excessive cash.
 D2
 ~
 ~
-0 -1 9530
+Z -1 9530
 S
 #9625
 Entrance to the Mage's Tower~
@@ -4768,11 +4768,11 @@ the entrance.
 D0
 ~
 ~
-0 -1 9618
+Z -1 9618
 D2
 ~
 ~
-0 -1 9531
+Z -1 9531
 S
 #9626
 Entrance to the Guild of Warriors'~
@@ -4782,11 +4782,11 @@ This small hall is merely a check point to keep the unwanted out.
 D0
 ~
 ~
-0 -1 9523
+Z -1 9523
 D2
 ~
 ~
-0 -1 9633
+Z -1 9633
 S
 #9627
 The Repair Shop~
@@ -4799,7 +4799,7 @@ it to the man behind the counter.
 D0
 ~
 ~
-0 -1 9524
+Z -1 9524
 S
 #9628
 The General Store~
@@ -4810,7 +4810,7 @@ for sale here.  You wonder what would happen if you typed....LIST...
 D1
 ~
 ~
-0 -1 9508
+Z -1 9508
 S
 #9629
 Abdul's Armor~
@@ -4834,7 +4834,7 @@ BUY : Abdul's FAVORITE command lets you have an item for his low low price.
 D3
 ~
 ~
-0 -1 9507
+Z -1 9507
 S
 #9630
 The Mercenary's Guild~
@@ -4847,12 +4847,12 @@ small fee you may hire henchman.
 D0
 ~
 ~
-0 -1 9529
+Z -1 9529
 D1
 You notice some small scratches in the floor next to the eastern wall.
 ~
 secret door~
-1 -1 9632
+ABZ -1 9632
 S
 #9631
 The Mercenary's Guild~
@@ -4870,11 +4870,11 @@ guarding the entrance from 'outsiders' stands as you walk in.
 D2
 ~
 ~
-0 -1 9639
+Z -1 9639
 D3
 ~
 secret door~
-0 -1 9630
+Z -1 9630
 S
 #9633
 The Whet Stone~
@@ -4888,11 +4888,11 @@ the east where the master swordsman awaits pupils to train with.
 D0
 ~
 ~
-0 -1 9626
+Z -1 9626
 D1
 ~
 ~
-0 -1 9634
+Z -1 9634
 S
 #9634
 Tournament and Practice Yard~
@@ -4905,11 +4905,11 @@ D1
 You see the grass near the base of the wall here is slightly torn.
 ~
 secret door~
-1 -1 9573
+ABZ -1 9573
 D3
 ~
 ~
-0 -1 9633
+Z -1 9633
 S
 #9635
 The Bread Stand~
@@ -4920,7 +4920,7 @@ selection. You notice he has added a few things to his list.
 D0
 ~
 ~
-0 -1 9508
+Z -1 9508
 S
 #9636
 Igor's Implements of Destruction~
@@ -4942,11 +4942,11 @@ BUY : Igor's FAVORITE command lets you have an item for his low low price.
 D0
 ~
 ~
-0 -1 9507
+Z -1 9507
 D5
 ~
 secret sesame~
-2 9591 9750
+ABCFZ 9591 9750
 S
 #9637
 Ye Old Leather Shoppe~
@@ -4966,7 +4966,7 @@ BUY :  buy an item for an outrageous price.
 D1
 ~
 ~
-0 -1 9566
+Z -1 9566
 S
 #9638
 Smuggler's Inn~
@@ -4986,7 +4986,7 @@ BUY :  buy something drinkable.
 D3
 ~
 ~
-0 -1 9567
+Z -1 9567
 S
 #9639
 The Filthy Unicorn~
@@ -5000,11 +5000,11 @@ a small staircase leading down.
 D0
 ~
 ~
-0 -1 9632
+Z -1 9632
 D5
 ~
 ~
-0 -1 9646
+Z -1 9646
 S
 #9640
 Warehouse~
@@ -5016,11 +5016,11 @@ and shipped to other parts of the land.
 D1
 ~
 ~
-0 -1 9641
+Z -1 9641
 D2
 ~
 ~
-0 -1 9533
+Z -1 9533
 S
 #9641
 Warehouse~
@@ -5033,11 +5033,11 @@ guilds. The export area of the warehouses is to the south.
 D2
 ~
 ~
-0 -1 9534
+Z -1 9534
 D3
 ~
 ~
-0 -1 9640
+Z -1 9640
 S
 #9642
 Shipwright~
@@ -5059,11 +5059,11 @@ ice.
 D1
 ~
 ~
-0 -1 9643
+Z -1 9643
 D2
 ~
 ~
-0 -1 9535
+Z -1 9535
 S
 #9643
 Drafting Room~
@@ -5075,7 +5075,7 @@ a single cut in wood.
 D3
 ~
 ~
-0 -1 9642
+Z -1 9642
 S
 #9644
 The Forge~
@@ -5097,7 +5097,7 @@ BUY : buy an item from the blacksmith for a fair price
 D2
 ~
 ~
-0 -1 9537
+Z -1 9537
 S
 #9645
 The Royal Stables~
@@ -5110,11 +5110,11 @@ by-product of such beasts.
 D1
 ~
 ~
-0 -1 9649
+Z -1 9649
 D2
 ~
 ~
-0 -1 9539
+Z -1 9539
 S
 #9646
 The Secret Yard~
@@ -5127,11 +5127,11 @@ D2
 You see some small scratches in the wall to the south.
 ~
 secret door~
-1 -1 9589
+ABZ -1 9589
 D4
 ~
 ~
-0 -1 9639
+Z -1 9639
 S
 #9647
 The Dump~
@@ -5143,7 +5143,7 @@ outside the walls and over the desert.
 D2
 ~
 ~
-0 -1 9542
+Z -1 9542
 S
 #9648
 The Mage's Laboratory~
@@ -5156,7 +5156,7 @@ liquid in front of him. He looks up as you enter and smiles broadly.
 D5
 ~
 ~
-0 -1 9617
+Z -1 9617
 S
 #9649
 The Hay Loft~
@@ -5169,7 +5169,7 @@ story.
 D3
 ~
 ~
-0 -1 9645
+Z -1 9645
 S
 #9650
 The Grand Entrance~
@@ -5184,19 +5184,19 @@ numerous halls of the palace begin and the gate lies to the east.
 D0
 ~
 ~
-0 -1 9660
+Z -1 9660
 D1
 ~
 gate~
-2 9500 9658
+AFZ 9500 9658
 D2
 ~
 ~
-0 -1 9657
+Z -1 9657
 D3
 ~
 ~
-0 -1 9705
+Z -1 9705
 S
 #9651
 The Library~
@@ -5210,7 +5210,7 @@ glue.
 D1
 ~
 ~
-0 -1 9555
+Z -1 9555
 S
 #9652
 The Dance Hall~
@@ -5229,7 +5229,7 @@ banner~
 D1
 ~
 ~
-0 -1 9556
+Z -1 9556
 S
 #9653
 Jail~
@@ -5240,7 +5240,7 @@ pretty bad and should be put away safely for a while.
 D0
 ~
 secret gate~
-2 9593 9544
+AFZ 9593 9544
 S
 #9654
 City Hall~
@@ -5252,7 +5252,7 @@ usually spends his time on affairs outside the city wall.
 D0
 ~
 ~
-0 -1 9545
+Z -1 9545
 S
 #9655
 The Boyer/Fletcher's~
@@ -5267,7 +5267,7 @@ finished.
 D1
 ~
 ~
-0 -1 9560
+Z -1 9560
 S
 #9656
 The Mason's~
@@ -5281,7 +5281,7 @@ and many other forms.
 D3
 ~
 ~
-0 -1 9560
+Z -1 9560
 S
 #9657
 Guard House~
@@ -5293,7 +5293,7 @@ weapons are mounted on the walls in case they might be needed.
 D0
 ~
 ~
-0 -1 9650
+Z -1 9650
 S
 #9658
 The Palace Gate~
@@ -5307,11 +5307,11 @@ to the east.
 D1
 ~
 ~
-0 -1 9520
+Z -1 9520
 D3
 ~
 gate~
-2 9500 9650
+AFZ 9500 9650
 S
 #9659
 North-West Tower~
@@ -5325,7 +5325,7 @@ to the south.
 D5
 ~
 ~
-0 -1 9544
+Z -1 9544
 S
 #9660
 Guard House~
@@ -5338,7 +5338,7 @@ The only exit is south.
 D2
 ~
 ~
-0 -1 9650
+Z -1 9650
 S
 #9661
 Kitchen~
@@ -5353,11 +5353,11 @@ to the dining hall is west.
 D0
 ~
 door~
-1 -1 9663
+ABZ -1 9663
 D3
 ~
 ~
-0 -1 9671
+Z -1 9671
 S
 #9662
 North-East Tower~
@@ -5369,7 +5369,7 @@ and the great eastern desert beyond.
 D5
 ~
 ~
-0 -1 9554
+Z -1 9554
 S
 #9663
 Hall~
@@ -5380,11 +5380,11 @@ entrance give access to the kitchen and the hall continues west.
 D2
 ~
 door small~
-1 -1 9661
+ABZ -1 9661
 D3
 ~
 ~
-0 -1 9672
+Z -1 9672
 S
 #9664
 The Tanner's Guild~
@@ -5402,7 +5402,7 @@ I hate being a Tanner
 D1
 ~
 ~
-0 -1 9562
+Z -1 9562
 S
 #9665
 Hall~
@@ -5419,11 +5419,11 @@ The Holy Shrine of God
 D0
 ~
 door~
-0 -1 9666
+Z -1 9666
 D3
 ~
 ~
-0 -1 9674
+Z -1 9674
 S
 #9666
 Shrine of God~
@@ -5436,7 +5436,7 @@ almighty being.
 D2
 ~
 door~
-0 -1 9665
+Z -1 9665
 S
 #9667
 Outside the Northern Gate of New Thalos~
@@ -5448,11 +5448,11 @@ and west.
 D0
 ~
 ~
-0 -1 9781
+Z -1 9781
 D2
 ~
 ~
-0 -1 9522
+Z -1 9522
 S
 #9668
 Outside the Eastern Gate of New Thalos~
@@ -5463,15 +5463,15 @@ sits to the west and the unknown awaits you eastward.
 D1
 ~
 ~
-0 -1 9790
+Z -1 9790
 D2
 ~
 ~
-0 -1 9670
+Z -1 9670
 D3
 ~
 ~
-0 -1 9531
+Z -1 9531
 S
 #9669
 Outside the West Gate of New Thalos~
@@ -5482,11 +5482,11 @@ in that direction and the road to Midgaard lies west.
 D1
 ~
 gate~
-0 9501 9523
+Z 9501 9523
 D3
 ~
 ~
-0 -1 3532
+Z -1 3532
 S
 #9670
 Outside the wall~
@@ -5498,7 +5498,7 @@ north.
 D0
 ~
 ~
-0 -1 9668
+Z -1 9668
 S
 #9671
 Grand Dining Hall~
@@ -5512,11 +5512,11 @@ the hallway north.
 D0
 ~
 ~
-0 -1 9672
+Z -1 9672
 D1
 ~
 ~
-0 -1 9661
+Z -1 9661
 S
 #9672
 Hall~
@@ -5527,19 +5527,19 @@ large double doors to the south.
 D0
 ~
 ~
-0 -1 9673
+Z -1 9673
 D1
 ~
 ~
-0 -1 9663
+Z -1 9663
 D2
 ~
 double doors~
-0 -1 9671
+Z -1 9671
 D3
 ~
 ~
-0 -1 9677
+Z -1 9677
 S
 #9673
 Hall~
@@ -5550,19 +5550,19 @@ all directions except west; the garden of the palace can be entered there.
 D0
 ~
 ~
-0 -1 9674
+Z -1 9674
 D1
 ~
 ~
-0 -1 9705
+Z -1 9705
 D2
 ~
 ~
-0 -1 9672
+Z -1 9672
 D3
 ~
 ~
-0 -1 9678
+Z -1 9678
 S
 #9674
 Hall~
@@ -5573,19 +5573,19 @@ continue east, west and south. There is a large iron door to the north.
 D0
 ~
 iron heavy~
-0 -1 9675
+Z -1 9675
 D1
 ~
 ~
-0 -1 9665
+Z -1 9665
 D2
 ~
 ~
-0 -1 9673
+Z -1 9673
 D3
 ~
 ~
-0 -1 9679
+Z -1 9679
 S
 #9675
 Entrance to the Dungeon~
@@ -5598,11 +5598,11 @@ returns you to the hallway.
 D2
 ~
 iron~
-0 -1 9674
+Z -1 9674
 D5
 ~
 steel~
-1 -1 9691
+ABZ -1 9691
 S
 #9676
 Guest Room~
@@ -5625,7 +5625,7 @@ seperate the walls of the palace from the building itself.
 D0
 ~
 ~
-0 -1 9677
+Z -1 9677
 S
 #9677
 Hall~
@@ -5637,15 +5637,15 @@ the land.
 D1
 ~
 ~
-0 -1 9672
+Z -1 9672
 D2
 ~
 door~
-0 -1 9676
+Z -1 9676
 D3
 ~
 ~
-0 -1 9682
+Z -1 9682
 S
 #9678
 Garden~
@@ -5681,11 +5681,11 @@ sign~
 D1
 ~
 ~
-0 -1 9673
+Z -1 9673
 D3
 ~
 ~
-0 -1 9683
+Z -1 9683
 S
 #9679
 Hall~
@@ -5706,15 +5706,15 @@ ART EXHIBIT
 D0
 ~
 door~
-0 -1 9680
+Z -1 9680
 D1
 ~
 ~
-0 -1 9674
+Z -1 9674
 D3
 ~
 ~
-0 -1 9684
+Z -1 9684
 S
 #9680
 Art Exhibit~
@@ -5729,7 +5729,7 @@ eyes, however, are pulled towards a painting that dominates the far wall.
 D2
 ~
 door~
-0 -1 9679
+Z -1 9679
 S
 #9681
 Guest Room~
@@ -5741,7 +5741,7 @@ made up in satin sheets, against the south wall.
 D0
 ~
 ~
-0 -1 9682
+Z -1 9682
 S
 #9682
 Hall~
@@ -5752,15 +5752,15 @@ is east except for the doors in the southern and western walls.
 D1
 ~
 ~
-0 -1 9677
+Z -1 9677
 D2
 ~
 door south~
-0 -1 9681
+Z -1 9681
 D3
 ~
 door west~
-2 9601 9687
+AFZ 9601 9687
 S
 #9683
 Garden Gazebo~
@@ -5772,7 +5772,7 @@ you have never been in a more peaceful setting.
 D1
 ~
 ~
-0 -1 9678
+Z -1 9678
 S
 #9684
 Hall~
@@ -5783,15 +5783,15 @@ walls here, one to the north, another to the west.
 D0
 ~
 door north~
-0 -1 9685
+Z -1 9685
 D1
 ~
 ~
-0 -1 9679
+Z -1 9679
 D3
 ~
 door west~
-0 -1 9689
+Z -1 9689
 S
 #9685
 Guard Room~
@@ -5803,7 +5803,7 @@ palace grounds with special permission. The only exit is to the south.
 D2
 ~
 door~
-0 -1 9684
+Z -1 9684
 S
 #9686
 Guard Room~
@@ -5816,7 +5816,7 @@ to the Sultan's Guard.
 D0
 ~
 ~
-0 -1 9687
+Z -1 9687
 S
 #9687
 Harem~
@@ -5830,15 +5830,15 @@ unfortunate for you that only the Sultan is allowed in here.
 D0
 ~
 secret door~
-0 -1 9688
+Z -1 9688
 D1
 ~
 ~
-0 -1 9682
+Z -1 9682
 D2
 ~
 ~
-0 -1 9686
+Z -1 9686
 S
 #9688
 Small room~
@@ -5849,11 +5849,11 @@ at any time he chooses.
 D0
 ~
 ~
-0 -1 9689
+Z -1 9689
 D2
 ~
 ~
-0 -1 9687
+Z -1 9687
 S
 #9689
 Throne Room~
@@ -5866,16 +5866,16 @@ upon a mable dias. The Sultan is not a man to be trifled with.
 D0
 ~
 secret throne~
-2 9600 9690
+AFZ 9600 9690
 D1
 ~
 door~
-0 -1 9684
+Z -1 9684
 D2
 ~
 secret door
 ~
-0 -1 9688
+Z -1 9688
 S
 #9690
 Treasure Room~
@@ -5888,11 +5888,11 @@ as much stuff as you possibly can and run for the door.
 D1
 ~
 ~
-0 -1 9685
+Z -1 9685
 D2
 ~
 ~
-0 -1 9689
+Z -1 9689
 S
 #9691
 Jailer's Room~
@@ -5905,11 +5905,11 @@ stone on the east wall, and the steel grating opens up above.
 D1
 ~
 door~
-1 -1 9692
+ABZ -1 9692
 D4
 ~
 steel~
-1 -1 9675
+ABZ -1 9675
 S
 #9692
 Tunnel in the Dungeon~
@@ -5920,19 +5920,19 @@ south. The tunnel continues east.
 D0
 ~
 cell north~
-2 9593 9697
+ABCFZ 9593 9697
 D1
 ~
 ~
-0 -1 9693
+Z -1 9693
 D2
 ~
 cell south~
-2 9593 9701
+ABCFZ 9593 9701
 D3
 ~
 door~
-1 -1 9691
+ABZ -1 9691
 S
 #9693
 Tunnel in the Dungeon~
@@ -5943,19 +5943,19 @@ south. The tunnel continues east and west.
 D0
 ~
 cell north~
-2 9593 9698
+ABCFZ 9593 9698
 D1
 ~
 ~
-0 -1 9694
+Z -1 9694
 D2
 ~
 cell south~
-2 9593 9702
+ABCFZ 9593 9702
 D3
 ~
 ~
-0 -1 9692
+Z -1 9692
 S
 #9694
 Tunnel in the Dungeon~
@@ -5966,19 +5966,19 @@ south. The tunnel continues east and west.
 D0
 ~
 cell north~
-2 9593 9699
+ABCFZ 9593 9699
 D1
 ~
 ~
-0 -1 9695
+Z -1 9695
 D2
 ~
 cell south~
-2 9593 9703
+ABCFZ 9593 9703
 D3
 ~
 ~
-0 -1 9693
+Z -1 9693
 S
 #9695
 Tunnel in the Dungeon~
@@ -5990,19 +5990,19 @@ stone to the east.
 D0
 ~
 cell north~
-2 9593 9700
+ABCFZ 9593 9700
 D1
 ~
 crack~
-1 9500 9696
+ABZ 9500 9696
 D2
 ~
 cell south~
-2 9593 9704
+ABCFZ 9593 9704
 D3
 ~
 ~
-0 -1 9694
+Z -1 9694
 S
 #9696
 Secret Cell~
@@ -6015,7 +6015,7 @@ you notice a pair of small red eyes peering at you from the darkness.
 D3
 ~
 crack~
-2 9500 9695
+ABFZ 9500 9695
 S
 #9697
 Cell~
@@ -6025,7 +6025,7 @@ You are in a cold, cramped chamber with only one exit.
 D2
 ~
 cell~
-2 9593 9692
+ABCFZ 9593 9692
 S
 #9698
 Cell~
@@ -6035,7 +6035,7 @@ You are in a cold, cramped chamber with only one exit.
 D2
 ~
 cell~
-2 9593 9693
+ABCFZ 9593 9693
 S
 #9699
 Cell~
@@ -6045,7 +6045,7 @@ You are in a cold, cramped chamber with only one exit.
 D2
 ~
 cell~
-2 9593 9694
+ABCFZ 9593 9694
 S
 #9700
 Cell~
@@ -6055,7 +6055,7 @@ You are in a cold, cramped chamber with only one exit.
 D2
 ~
 cell~
-2 9593 9695
+ABCFZ 9593 9695
 S
 #9701
 Cell~
@@ -6065,7 +6065,7 @@ You are in a cold, cramped chamber with only one exit.
 D0
 ~
 cell~
-2 9593 9692
+ABCFZ 9593 9692
 S
 #9702
 Cell~
@@ -6075,7 +6075,7 @@ You are in a cold, cramped chamber with only one exit.
 D0
 ~
 cell~
-2 9593 9693
+ABCFZ 9593 9693
 S
 #9703
 Cell~
@@ -6086,7 +6086,7 @@ D0
 ~
 cell
 cell~
-2 9593 9694
+ABCFZ 9593 9694
 S
 #9704
 Cell~
@@ -6097,7 +6097,7 @@ D0
 ~
 cell
 cell~
-2 9593 9695
+ABCFZ 9593 9695
 S
 #9705
 Hall~
@@ -6109,11 +6109,11 @@ and east to the Grand Entrance.
 D1
 ~
 ~
-0 -1 9650
+Z -1 9650
 D3
 ~
 ~
-0 -1 9673
+Z -1 9673
 S
 #9706
 Nabil's Back Room~
@@ -6142,7 +6142,7 @@ papasan chairs, and choose a title that strikes you.
 D2
 ~
 ~
-0 -1 9597
+Z -1 9597
 O Saska~
 S
 #9719
@@ -6153,7 +6153,7 @@ The waters of the swamp pool in this low area and begin to flow southward.
 D2
 ~
 ~
-0 -1 9734
+Z -1 9734
 S
 #9720
 Ishtar River~
@@ -6165,11 +6165,11 @@ faint traces of green to the east.
 D1
 ~
 ~
-0 -1 9721
+Z -1 9721
 D3
 ~
 ~
-0 -1 9739
+Z -1 9739
 S
 #9721
 Ishtar River~
@@ -6180,11 +6180,11 @@ see a large volcano.
 D1
 ~
 ~
-0 -1 9722
+Z -1 9722
 D3
 ~
 ~
-0 -1 9720
+Z -1 9720
 S
 #9722
 Ishtar River~
@@ -6195,11 +6195,11 @@ its flow to the east.
 D1
 ~
 ~
-0 -1 9744
+Z -1 9744
 D3
 ~
 ~
-0 -1 9721
+Z -1 9721
 S
 #9723
 Ishtar River~
@@ -6210,11 +6210,11 @@ off towards high snow capped mountains far far to the west.
 D1
 ~
 ~
-0 -1 9587
+Z -1 9587
 D3
 ~
 ~
-0 -1 9749
+Z -1 9749
 S
 #9724
 Ishtar River~
@@ -6228,11 +6228,11 @@ too steep for you to see very far.
 D1
 ~
 ~
-0 -1 9725
+Z -1 9725
 D3
 ~
 ~
-0 -1 9583
+Z -1 9583
 S
 #9725
 Ishtar River~
@@ -6244,11 +6244,11 @@ came cascading down the mountainside.
 D1
 ~
 ~
-0 -1 9726
+Z -1 9726
 D3
 ~
 ~
-0 -1 9724
+Z -1 9724
 S
 #9726
 Ishtar River~
@@ -6260,11 +6260,11 @@ pervent them from using the river.
 D1
 ~
 ~
-0 -1 9784
+Z -1 9784
 D3
 ~
 ~
-0 -1 9725
+Z -1 9725
 S
 #9734
 The River of Lost Souls~
@@ -6275,11 +6275,11 @@ small village to the west.
 D0
 ~
 ~
-0 -1 9719
+Z -1 9719
 D2
 ~
 ~
-0 -1 9735
+Z -1 9735
 S
 #9735
 The River of Lost Souls~
@@ -6290,11 +6290,11 @@ of the valley close in to the south.
 D0
 ~
 ~
-0 -1 9734
+Z -1 9734
 D2
 ~
 ~
-0 -1 9736
+Z -1 9736
 S
 #9736
 The River of Lost Souls~
@@ -6305,7 +6305,7 @@ crevase. High above you a small rope bridge sways in the wind.
 D2
 ~
 ~
-0 -1 9737
+Z -1 9737
 S
 #9737
 The River of Lost Souls~
@@ -6316,11 +6316,11 @@ to the south. Hopefully you will hear any aproaching rapids.
 D0
 ~
 ~
-0 -1 9736
+Z -1 9736
 D2
 ~
 ~
-0 -1 9738
+Z -1 9738
 S
 #9738
 The River of Lost Souls~
@@ -6332,11 +6332,11 @@ through a crack and flows to the south.
 D0
 ~
 ~
-0 -1 9737
+Z -1 9737
 D2
 ~
 ~
-0 -1 9739
+Z -1 9739
 S
 #9739
 A Split in the River~
@@ -6350,15 +6350,15 @@ craft. The River of lost souls also continues to the north.
 D0
 ~
 ~
-0 -1 9738
+Z -1 9738
 D1
 ~
 ~
-0 -1 9720
+Z -1 9720
 D2
 ~
 ~
-0 -1 9740
+Z -1 9740
 S
 #9740
 The River of Lost Souls~
@@ -6369,11 +6369,11 @@ eroded valley.
 D0
 ~
 ~
-0 -1 9739
+Z -1 9739
 D2
 ~
 ~
-0 -1 9741
+Z -1 9741
 S
 #9741
 The River of Lost Souls~
@@ -6384,11 +6384,11 @@ eroded valley.
 D0
 ~
 ~
-0 -1 9740
+Z -1 9740
 D2
 ~
 ~
-0 -1 9742
+Z -1 9742
 S
 #9742
 The River of Lost Souls~
@@ -6399,11 +6399,11 @@ eroded valley.
 D0
 ~
 ~
-0 -1 9741
+Z -1 9741
 D2
 ~
 ~
-0 -1 9743
+Z -1 9743
 S
 #9743
 The River of Lost Souls~
@@ -6414,7 +6414,7 @@ mountain and north through a valley.
 D0
 ~
 ~
-0 -1 9742
+Z -1 9742
 S
 #9744
 Ishtar River~
@@ -6425,11 +6425,11 @@ towards a plain.
 D1
 ~
 ~
-0 -1 9745
+Z -1 9745
 D3
 ~
 ~
-0 -1 9722
+Z -1 9722
 S
 #9745
 Ishtar River~
@@ -6440,11 +6440,11 @@ north where you can gain access to the shore.
 D1
 ~
 ~
-0 -1 9746
+Z -1 9746
 D3
 ~
 ~
-0 -1 9744
+Z -1 9744
 S
 #9746
 Ishtar River~
@@ -6456,11 +6456,11 @@ a bit warmer.
 D1
 ~
 ~
-0 -1 9747
+Z -1 9747
 D3
 ~
 ~
-0 -1 9745
+Z -1 9745
 S
 #9747
 Ishtar River~
@@ -6472,11 +6472,11 @@ mountains and to the east you see the outline of a large city.
 D1
 ~
 ~
-0 -1 9748
+Z -1 9748
 D3
 ~
 ~
-0 -1 9746
+Z -1 9746
 S
 #9748
 Ishtar River~
@@ -6486,11 +6486,11 @@ The river flows east and west from here.
 D1
 ~
 ~
-0 -1 9749
+Z -1 9749
 D3
 ~
 ~
-0 -1 9747
+Z -1 9747
 S
 #9749
 Ishtar River~
@@ -6501,11 +6501,11 @@ small dock give access to the north shore.
 D1
 ~
 ~
-0 -1 9723
+Z -1 9723
 D3
 ~
 ~
-0 -1 9748
+Z -1 9748
 S
 #9750
 Igor's Secret Chamber~
@@ -6514,7 +6514,7 @@ Igor's Secret Chamber~
 D4
 ~
 secret sesame~
-2 9591 9636
+ABCFZ 9591 9636
 S
 #9772
 On the Dark River~
@@ -6525,11 +6525,11 @@ snaking through a dark forest.
 D1
 ~
 ~
-0 -1 3200
+Z -1 3200
 D3
 ~
 ~
-0 -1 9773
+Z -1 9773
 S
 #9773
 On the Dark River~
@@ -6539,11 +6539,11 @@ The river continues east and west meandering through the woods.
 D1
 ~
 ~
-0 -1 9772
+Z -1 9772
 D3
 ~
 ~
-0 -1 9774
+Z -1 9774
 S
 #9774
 On the Dark River~
@@ -6554,15 +6554,15 @@ hear the sounds of chopping wood far off in the distance.
 D0
 ~
 ~
-0 -1 6123
+Z -1 6123
 D1
 ~
 ~
-0 -1 9773
+Z -1 9773
 D3
 ~
 ~
-0 -1 9775
+Z -1 9775
 S
 #9775
 On the Dark River~
@@ -6572,7 +6572,7 @@ The river continues east meandering through the woods.
 D1
 ~
 ~
-0 -1 9774
+Z -1 9774
 S
 #9778
 Freefall~
@@ -6592,11 +6592,11 @@ you see a line of trees.
 D0
 ~
 ~
-0 -1 9782
+Z -1 9782
 D2
 ~
 ~
-0 -1 9667
+Z -1 9667
 S
 #9782
 On the Plains~
@@ -6608,11 +6608,11 @@ path has been trodden into the ground heading towards New Thalos.
 D0
 ~
 ~
-0 -1 9783
+Z -1 9783
 D2
 ~
 ~
-0 -1 9781
+Z -1 9781
 S
 #9783
 Edge of the forest~
@@ -6624,7 +6624,7 @@ expanse of grass spreads out to the south.
 D2
 ~
 ~
-0 -1 9782
+Z -1 9782
 S
 #9784
 Ishtar River~
@@ -6637,11 +6637,11 @@ of a city and to the north you see a large expanse of grass.
 D1
 ~
 ~
-0 -1 9785
+Z -1 9785
 D3
 ~
 ~
-0 -1 9726
+Z -1 9726
 S
 #9785
 The river delta~
@@ -6656,11 +6656,11 @@ the west back towards New Thalos.
 D1
 ~
 ~
-0 -1 9786
+Z -1 9786
 D3
 ~
 ~
-0 -1 9784
+Z -1 9784
 S
 #9786
 The Dragon Sea~
@@ -6673,11 +6673,11 @@ You are on the clear blue seas of the Dragon Sea.
 D0
 ~
 ~
-0 -1 9787
+Z -1 9787
 D3
 ~
 ~
-0 -1 9785
+Z -1 9785
 S
 #9787
 The Dragon Sea~
@@ -6689,15 +6689,15 @@ small dock jutting out into the surf.
 D0
 ~
 ~
-0 -1 9795
+Z -1 9795
 D1
 ~
 ~
-0 -1 9796
+Z -1 9796
 D2
 ~
 ~
-0 -1 9786
+Z -1 9786
 S
 #9788
 The Dragon Sea~
@@ -6710,11 +6710,11 @@ You are on the clear blue seas of the Dragon Sea.
 D1
 ~
 ~
-0 -1 9797
+Z -1 9797
 D2
 ~
 ~
-0 -1 9795
+Z -1 9795
 S
 #9789
 The Dragon Sea~
@@ -6727,15 +6727,15 @@ You are on the clear blue seas of the Dragon Sea.
 D0
 ~
 ~
-0 -1 9797
+Z -1 9797
 D2
 ~
 ~
-0 -1 9796
+Z -1 9796
 D3
 ~
 ~
-0 -1 9795
+Z -1 9795
 S
 #9790
 On a road~
@@ -6749,11 +6749,11 @@ most of the money is used for the good of the people.
 D1
 ~
 ~
-0 -1 9791
+Z -1 9791
 D3
 ~
 ~
-0 -1 9668
+Z -1 9668
 S
 #9791
 On a road~
@@ -6767,11 +6767,11 @@ east and west.
 D1
 ~
 ~
-0 -1 9792
+Z -1 9792
 D3
 ~
 ~
-0 -1 9790
+Z -1 9790
 S
 #9792
 On a road~
@@ -6783,11 +6783,11 @@ sounds of boats traveling the Ishtar delivering goods.
 D1
 ~
 ~
-0 -1 9793
+Z -1 9793
 D3
 ~
 ~
-0 -1 9791
+Z -1 9791
 S
 #9793
 On a road~
@@ -6800,11 +6800,11 @@ Mountains and down into Midgaard.
 D1
 ~
 ~
-0 -1 9794
+Z -1 9794
 D3
 ~
 ~
-0 -1 9792
+Z -1 9792
 S
 #9794
 Near the shore~
@@ -6817,11 +6817,11 @@ huge snow capped mountains.
 D1
 ~
 ~
-0 -1 9795
+Z -1 9795
 D3
 ~
 ~
-0 -1 9793
+Z -1 9793
 S
 #9795
 On a dock~
@@ -6834,19 +6834,19 @@ to allow easy access to and from ships.
 D0
 ~
 ~
-0 -1 9788
+Z -1 9788
 D1
 ~
 ~
-0 -1 9789
+Z -1 9789
 D2
 ~
 ~
-0 -1 9787
+Z -1 9787
 D3
 ~
 ~
-0 -1 9794
+Z -1 9794
 S
 #9796
 The Dragon Sea~
@@ -6860,15 +6860,15 @@ You are on the clear blue seas of the Dragon Sea.
 D0
 ~
 ~
-0 -1 9789
+Z -1 9789
 D1
 ~
 ~
-0 -1 9915
+Z -1 9915
 D3
 ~
 ~
-0 -1 9787
+Z -1 9787
 S
 #9797
 The Dragon Sea~
@@ -6881,15 +6881,15 @@ the beach of the cursed island.
 D1
 ~
 ~
-0 -1 14501
+Z -1 14501
 D2
 ~
 ~
-0 -1 9789
+Z -1 9789
 D3
 ~
 ~
-0 -1 9788
+Z -1 9788
 S
 #9798
 Under the dock~
@@ -6902,7 +6902,7 @@ that direction.
 D3
 ~
 grate~
-0 1 9799
+Z 1 9799
 S
 #9799
 Lair of the Ixitxachitl~
@@ -6914,7 +6914,7 @@ its meal the large sting ray attacks!
 D1
 ~
 grate~
-0 -1 9798
+Z -1 9798
 S
 #9800
 The weaponsmaster's room~
@@ -6927,7 +6927,7 @@ opposite walls. Short swords and light shields are hangingon the wall.
 D2
 ~
 ~
-0 -1 9523
+Z -1 9523
 S
 #0
 

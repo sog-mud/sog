@@ -761,11 +761,11 @@ continue by land.
 D2
 ~
 ~
-0 -1 324
+Z -1 324
 D4
 ~
 ~
-0 -1 902
+Z -1 902
 S
 #902
 Mountain~
@@ -776,11 +776,11 @@ tired, and you are ready to take a break.
 D4
 ~
 ~
-0 -1 903
+Z -1 903
 D5
 ~
 ~
-0 -1 901
+Z -1 901
 S
 #903
 Mountain~
@@ -792,11 +792,11 @@ entrance to a city.
 D0
 ~
 ~
-0 -1 904
+Z -1 904
 D5
 ~
 ~
-0 -1 902
+Z -1 902
 S
 #904
 Entrance~
@@ -808,11 +808,11 @@ seen a city with such beautiful buildings.
 D0
 ~
 ~
-0 -1 905
+Z -1 905
 D2
 ~
 ~
-0 -1 903
+Z -1 903
 S
 #905
 Zeus Street~
@@ -825,15 +825,15 @@ D0
 The street continues.
 ~
 ~
-0 -1 906
+Z -1 906
 D2
 ~
 ~
-0 -1 904
+Z -1 904
 D3
 ~
 ~
-0 -1 924
+Z -1 924
 S
 #906
 Zeus Street~
@@ -845,20 +845,20 @@ to the north and south.
 D0
 ~
 ~
-0 -1 907
+Z -1 907
 D1
 ~
 ~
-0 -1 925
+Z -1 925
 D2
 The street continues.
 ~
 ~
-0 -1 905
+Z -1 905
 D3
 ~
 ~
-0 -1 926
+Z -1 926
 S
 #907
 Zeus Street~
@@ -869,15 +869,15 @@ sort of store to the west.
 D0
 ~
 ~
-0 -1 908
+Z -1 908
 D2
 ~
 ~
-0 -1 906
+Z -1 906
 D3
 ~
 ~
-0 -1 927
+Z -1 927
 S
 #908
 Zeus Street~
@@ -888,15 +888,15 @@ a large castle.  To the east there is a smaller road.
 D0
 ~
 ~
-0 -1 909
+Z -1 909
 D1
 ~
 ~
-0 -1 928
+Z -1 928
 D2
 ~
 ~
-0 -1 907
+Z -1 907
 S
 #909
 Castle Entryway~
@@ -908,19 +908,19 @@ while smaller corridors branch off to the east and west.
 D0
 ~
 ~
-0 -1 910
+Z -1 910
 D1
 ~
 ~
-0 -1 915
+Z -1 915
 D2
 ~
 ~
-0 -1 908
+Z -1 908
 D3
 ~
 ~
-0 -1 911
+Z -1 911
 S
 #910
 Throne Room~
@@ -938,15 +938,15 @@ you could slide it?
 D0
 ~
 ~
-0 -1 923
+Z -1 923
 D2
 ~
 ~
-0 -1 909
+Z -1 909
 D5
 ~
 throne trapdoor~
-1 -1 918
+ABZ -1 918
 S
 #911
 Western Wing~
@@ -957,11 +957,11 @@ east, while this hallway continues to the west.
 D1
 ~
 ~
-0 -1 909
+Z -1 909
 D3
 ~
 ~
-0 -1 912
+Z -1 912
 S
 #912
 Western Wing~
@@ -972,19 +972,19 @@ north, while there are private rooms to the west and south.
 D0
 ~
 ~
-0 -1 913
+Z -1 913
 D1
 ~
 ~
-0 -1 911
+Z -1 911
 D2
 ~
 ~
-0 -1 930
+Z -1 930
 D3
 ~
 ~
-0 -1 929
+Z -1 929
 S
 #913
 Western Wing~
@@ -995,11 +995,11 @@ south, and you hear pots and pans rattling to the north.
 D0
 ~
 ~
-0 -1 914
+Z -1 914
 D2
 ~
 ~
-0 -1 912
+Z -1 912
 S
 #914
 Kitchen~
@@ -1010,7 +1010,7 @@ activity.  Servants are bustling about, preparing food for the Gods themselves.
 D2
 ~
 ~
-0 -1 913
+Z -1 913
 S
 #915
 Eastern Wing~
@@ -1021,11 +1021,11 @@ east, while the entrance is back to the west.
 D1
 ~
 ~
-0 -1 916
+Z -1 916
 D3
 ~
 ~
-0 -1 909
+Z -1 909
 S
 #916
 Eastern Wing~
@@ -1036,19 +1036,19 @@ here, while there are private rooms to the east and the south.
 D0
 ~
 ~
-0 -1 917
+Z -1 917
 D1
 ~
 ~
-0 -1 931
+Z -1 931
 D2
 ~
 ~
-0 -1 932
+Z -1 932
 D3
 ~
 ~
-0 -1 915
+Z -1 915
 S
 #917
 Eastern Wing~
@@ -1059,11 +1059,11 @@ while the hallway continues to the south.
 D0
 ~
 ~
-0 -1 933
+Z -1 933
 D2
 ~
 ~
-0 -1 916
+Z -1 916
 S
 #918
 Dungeon~
@@ -1074,11 +1074,11 @@ even mighty Zeus fears them enough to imprison them.
 D0
 ~
 ~
-0 -1 919
+Z -1 919
 D4
 ~
 trapdoor throne~
-0 -1 910
+Z -1 910
 S
 #919
 Dungeon~
@@ -1089,19 +1089,19 @@ From the east and west, you hear guttural noises.  From the north, nothing ...
 D0
 ~
 ~
-2 927 920
+ABCFZ 927 920
 D1
 ~
 ~
-2 927 922
+ABCFZ 927 922
 D2
 ~
 ~
-0 -1 918
+Z -1 918
 D3
 ~
 ~
-2 927 921
+ABCFZ 927 921
 S
 #920
 Cell~
@@ -1111,7 +1111,7 @@ You are in a small, cramped, dirty cell.  It is a horrid place.
 D2
 ~
 ~
-2 927 919
+ABCFZ 927 919
 S
 #921
 Cell~
@@ -1121,7 +1121,7 @@ You are in a small, cramped, dirty cell.  It is a horrid place.
 D1
 ~
 ~
-2 927 919
+ABCFZ 927 919
 S
 #922
 Cell~
@@ -1131,7 +1131,7 @@ You are in a small, cramped, dirty cell.  It is a horrid place.
 D3
 ~
 ~
-2 927 919
+ABCFZ 927 919
 S
 #923
 Stairway~
@@ -1142,15 +1142,15 @@ throne room of Zeus. To the down you see a dark sea.
 D2
 ~
 ~
-0 -1 910
+Z -1 910
 D4
 ~
 ~
-0 -1 939
+Z -1 939
 D5
 ~
 ~
-0 -1 29500
+Z -1 29500
 S
 #924
 Bakery~
@@ -1161,7 +1161,7 @@ their food.  It smells wonderful in here!
 D1
 ~
 ~
-0 -1 905
+Z -1 905
 S
 #925
 Residence~
@@ -1172,7 +1172,7 @@ looks vaguely familiar, but you can't place her name ...
 D3
 ~
 ~
-0 -1 906
+Z -1 906
 S
 #926
 Residence~
@@ -1183,7 +1183,7 @@ vaguely familiar, but you can't place his name ...
 D1
 ~
 ~
-0 -1 906
+Z -1 906
 S
 #927
 Mystic Shop~
@@ -1194,7 +1194,7 @@ arcane objects they may need.
 D1
 ~
 ~
-0 -1 907
+Z -1 907
 S
 #928
 Ares Street~
@@ -1205,11 +1205,11 @@ sign, you notice that the name of this road is Ares Street.
 D1
 ~
 ~
-0 -1 934
+Z -1 934
 D3
 ~
 ~
-0 -1 908
+Z -1 908
 S
 #929
 Guest Quarters~
@@ -1221,7 +1221,7 @@ himself, patron God of Midgaard.  He must be visiting Zeus.
 D1
 ~
 ~
-0 -1 912
+Z -1 912
 S
 #930
 Storage Room~
@@ -1232,7 +1232,7 @@ few boxes filled with old junk.
 D0
 ~
 ~
-0 -1 912
+Z -1 912
 S
 #931
 Guest Quarters~
@@ -1244,7 +1244,7 @@ visiting Zeus.
 D3
 ~
 ~
-0 -1 916
+Z -1 916
 S
 #932
 Storage Room~
@@ -1255,7 +1255,7 @@ of dust.
 D0
 ~
 ~
-0 -1 916
+Z -1 916
 S
 #933
 Stable~
@@ -1267,7 +1267,7 @@ thought were mythical.  Obviously, you were wrong.
 D2
 ~
 ~
-0 -1 917
+Z -1 917
 S
 #934
 Ares Street~
@@ -1279,19 +1279,19 @@ of a blacksmith.
 D0
 ~
 ~
-0 -1 937
+Z -1 937
 D1
 ~
 ~
-0 -1 936
+Z -1 936
 D2
 ~
 ~
-0 -1 935
+Z -1 935
 D3
 ~
 ~
-0 -1 928
+Z -1 928
 S
 #935
 Armoury~
@@ -1302,7 +1302,7 @@ but the shopkeeper doesn't want to do business with you anyways.
 D0
 ~
 ~
-0 -1 934
+Z -1 934
 S
 #936
 Weapon Shop~
@@ -1314,7 +1314,7 @@ shopkeeper doesn't want to do business with you anyways.
 D3
 ~
 ~
-0 -1 934
+Z -1 934
 S
 #937
 Smithy~
@@ -1326,12 +1326,12 @@ is strange about the west wall, although you can't quite tell what it is.
 D2
 ~
 ~
-0 -1 934
+Z -1 934
 D3
 You see a concealed door!
 ~
 door concealed~
-1 -1 938
+ABZ -1 938
 S
 #938
 The Planning Room~
@@ -1343,11 +1343,11 @@ You hear the barking of dogs to the north.
 D0
 ~
 ~
-0 -1 954
+Z -1 954
 D1
 ~
 ~
-0 -1 937
+Z -1 937
 S
 #939
 Second Floor~
@@ -1360,28 +1360,28 @@ hatch above you.
 D0
 ~
 ~
-0 -1 940
+Z -1 940
 D1
 ~
 ~
-0 -1 943
+Z -1 943
 D2
 ~
 ~
-0 -1 941
+Z -1 941
 D3
 ~
 ~
-0 -1 942
+Z -1 942
 D4
 You see a sign on the hatch.  It reads 'Private Property. No trespassing!'
 ~
 hatch~
-1 -1 948
+ABZ -1 948
 D5
 ~
 ~
-0 -1 923
+Z -1 923
 S
 #940
 Northern Hall~
@@ -1392,11 +1392,11 @@ and the stairs leading down are to the south.
 D0
 ~
 ~
-0 -1 947
+Z -1 947
 D2
 ~
 ~
-0 -1 939
+Z -1 939
 S
 #941
 Southern Hall~
@@ -1407,11 +1407,11 @@ and the stairs leading down are to the north.
 D0
 ~
 ~
-0 -1 939
+Z -1 939
 D2
 ~
 ~
-0 -1 944
+Z -1 944
 S
 #942
 Western Hall~
@@ -1422,11 +1422,11 @@ the stairs leading down are to the east.
 D1
 ~
 ~
-0 -1 939
+Z -1 939
 D3
 ~
 ~
-0 -1 945
+Z -1 945
 S
 #943
 Eastern Hall~
@@ -1437,11 +1437,11 @@ the stairs leading down are to the west.
 D1
 ~
 ~
-0 -1 946
+Z -1 946
 D3
 ~
 ~
-0 -1 939
+Z -1 939
 S
 #944
 Bed Room~
@@ -1451,7 +1451,7 @@ You are in the bed room of a God!  This one seems to be empty.
 D0
 ~
 ~
-0 -1 941
+Z -1 941
 S
 #945
 Bed Room~
@@ -1461,7 +1461,7 @@ You are in the bed room of a God!
 D1
 ~
 ~
-0 -1 942
+Z -1 942
 S
 #946
 Bed Room~
@@ -1471,7 +1471,7 @@ You are in the bed room of a God!
 D3
 ~
 ~
-0 -1 943
+Z -1 943
 S
 #947
 Bed Room~
@@ -1481,7 +1481,7 @@ You are in the bed room of a God!
 D2
 ~
 ~
-0 -1 940
+Z -1 940
 S
 #948
 Hall of Gods~
@@ -1493,11 +1493,11 @@ all directions.
 D0
 ~
 ~
-0 -1 951
+Z -1 951
 D5
 ~
 hatch~
-0 -1 939
+Z -1 939
 S
 #951
 The Portal~
@@ -1507,7 +1507,7 @@ A sign reads: Beware of the unexpected and don't expect too much.
 D2
 ~
 ~
-0 -1 948
+Z -1 948
 S
 #954
 The Believer~
@@ -1517,7 +1517,7 @@ A voice whispers, 'before the time has passed, enjoy your life.'
 D2
 ~
 ~
-0 -1 938
+Z -1 938
 S
 #0
 

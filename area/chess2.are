@@ -870,12 +870,12 @@ D1
 A dirt path leads away through the great field north of Midgaard.
 ~
 ~
-0 -1 3043
+Z -1 3043
 D3
 The huge chessboard opens up to the west.
 ~
 ~
-0 -1 4232
+Z -1 4232
 S
 #4201
 A White Square~
@@ -887,12 +887,12 @@ D1
 A black square lies to the east.
 ~
 ~
-0 -1 4202
+Z -1 4202
 D2
 A black square lies to the south.
 ~
 ~
-0 -1 4209
+Z -1 4209
 S
 #4202
 A Black Square~
@@ -904,17 +904,17 @@ D1
 A white square lies to the east.
 ~
 ~
-0 -1 4203
+Z -1 4203
 D2
 A white square lies to the south.
 ~
 ~
-0 -1 4210
+Z -1 4210
 D3
 A white square lies to the west.
 ~
 ~
-0 -1 4201
+Z -1 4201
 S
 #4203
 A White Square~
@@ -926,17 +926,17 @@ D1
 A black square lies to the east.
 ~
 ~
-0 -1 4204
+Z -1 4204
 D2
 A black square lies to the south.
 ~
 ~
-0 -1 4211
+Z -1 4211
 D3
 A black square lies to the west.
 ~
 ~
-0 -1 4202
+Z -1 4202
 S
 #4204
 A Black Square~
@@ -948,21 +948,21 @@ D1
 A white square lies to the east.
 ~
 ~
-0 -1 4205
+Z -1 4205
 D2
 A white square lies to the south.
 ~
 ~
-0 -1 4212
+Z -1 4212
 D3
 A white square lies to the west.
 ~
 ~
-0 -1 4203
+Z -1 4203
 D5
 ~
 marble square~
-2 4214 4265
+ABCFZ 4214 4265
 S
 #4205
 A White Square~
@@ -974,17 +974,17 @@ D1
 A black square lies to the east.
 ~
 ~
-0 -1 4206
+Z -1 4206
 D2
 A black square lies to the south.
 ~
 ~
-0 -1 4213
+Z -1 4213
 D3
 A black square lies to the west.
 ~
 ~
-0 -1 4204
+Z -1 4204
 S
 #4206
 A Black Square~
@@ -996,17 +996,17 @@ D1
 A white square lies to the east.
 ~
 ~
-0 -1 4207
+Z -1 4207
 D2
 A white square lies to the south.
 ~
 ~
-0 -1 4214
+Z -1 4214
 D3
 A white square lies to the west.
 ~
 ~
-0 -1 4205
+Z -1 4205
 S
 #4207
 A White Square~
@@ -1018,17 +1018,17 @@ D1
 A black square lies to the east.
 ~
 ~
-0 -1 4208
+Z -1 4208
 D2
 A black square lies to the south.
 ~
 ~
-0 -1 4215
+Z -1 4215
 D3
 A black square lies to the west.
 ~
 ~
-0 -1 4206
+Z -1 4206
 S
 #4208
 A Black Square~
@@ -1040,12 +1040,12 @@ D2
 A white square lies to the south.
 ~
 ~
-0 -1 4216
+Z -1 4216
 D3
 A white square lies to the west.
 ~
 ~
-0 -1 4207
+Z -1 4207
 S
 #4209
 A Black Square~
@@ -1057,17 +1057,17 @@ D0
 A white square lies to the north.
 ~
 ~
-0 -1 4201
+Z -1 4201
 D1
 A white square lies to the east.
 ~
 ~
-0 -1 4210
+Z -1 4210
 D2
 A white square lies to the south.
 ~
 ~
-0 -1 4217
+Z -1 4217
 S
 #4210
 A White Square~
@@ -1079,22 +1079,22 @@ D0
 A black square lies to the north.
 ~
 ~
-0 -1 4202
+Z -1 4202
 D1
 A black square lies to the east.
 ~
 ~
-0 -1 4211
+Z -1 4211
 D2
 A black square lies to the south.
 ~
 ~
-0 -1 4218
+Z -1 4218
 D3
 A black square lies to the west.
 ~
 ~
-0 -1 4209
+Z -1 4209
 S
 #4211
 A Black Square~
@@ -1106,22 +1106,22 @@ D0
 A white square lies to the north.
 ~
 ~
-0 -1 4203
+Z -1 4203
 D1
 A white square lies to the east.
 ~
 ~
-0 -1 4212
+Z -1 4212
 D2
 A white square lies to the south.
 ~
 ~
-0 -1 4219
+Z -1 4219
 D3
 A white square lies to the west.
 ~
 ~
-0 -1 4210
+Z -1 4210
 S
 #4212
 A White Square~
@@ -1133,22 +1133,22 @@ D0
 A black square lies to the north.
 ~
 ~
-0 -1 4204
+Z -1 4204
 D1
 A black square lies to the east.
 ~
 ~
-0 -1 4213
+Z -1 4213
 D2
 A black square lies to the south.
 ~
 ~
-0 -1 4220
+Z -1 4220
 D3
 A black square lies to the west.
 ~
 ~
-0 -1 4211
+Z -1 4211
 S
 #4213
 A Black Square~
@@ -1160,22 +1160,22 @@ D0
 A white square lies to the north.
 ~
 ~
-0 -1 4205
+Z -1 4205
 D1
 A white square lies to the east.
 ~
 ~
-0 -1 4214
+Z -1 4214
 D2
 A white square lies to the south.
 ~
 ~
-0 -1 4221
+Z -1 4221
 D3
 A white square lies to the west.
 ~
 ~
-0 -1 4212
+Z -1 4212
 S
 #4214
 A White Square~
@@ -1187,22 +1187,22 @@ D0
 A black square lies to the north.
 ~
 ~
-0 -1 4206
+Z -1 4206
 D1
 A black square lies to the east.
 ~
 ~
-0 -1 4215
+Z -1 4215
 D2
 A black square lies to the south.
 ~
 ~
-0 -1 4222
+Z -1 4222
 D3
 A black square lies to the west.
 ~
 ~
-0 -1 4213
+Z -1 4213
 S
 #4215
 A Black Square~
@@ -1214,22 +1214,22 @@ D0
 A white square lies to the north.
 ~
 ~
-0 -1 4207
+Z -1 4207
 D1
 A white square lies to the east.
 ~
 ~
-0 -1 4216
+Z -1 4216
 D2
 A white square lies to the south.
 ~
 ~
-0 -1 4223
+Z -1 4223
 D3
 A white square lies to the west.
 ~
 ~
-0 -1 4214
+Z -1 4214
 S
 #4216
 A White Square~
@@ -1241,17 +1241,17 @@ D0
 A black square lies to the north.
 ~
 ~
-0 -1 4208
+Z -1 4208
 D2
 A black square lies to the south.
 ~
 ~
-0 -1 4224
+Z -1 4224
 D3
 A black square lies to the west.
 ~
 ~
-0 -1 4215
+Z -1 4215
 S
 #4217
 A White Square~
@@ -1262,17 +1262,17 @@ D0
 A black square lies to the north.
 ~
 ~
-0 -1 4209
+Z -1 4209
 D1
 A black square lies to the east.
 ~
 ~
-0 -1 4218
+Z -1 4218
 D2
 A black square lies to the south.
 ~
 ~
-0 -1 4225
+Z -1 4225
 S
 #4218
 A Black Square~
@@ -1283,22 +1283,22 @@ D0
 A white square lies to the north.
 ~
 ~
-0 -1 4210
+Z -1 4210
 D1
 A white square lies to the east.
 ~
 ~
-0 -1 4219
+Z -1 4219
 D2
 A white square lies to the south.
 ~
 ~
-0 -1 4226
+Z -1 4226
 D3
 A white square lies to the west.
 ~
 ~
-0 -1 4217
+Z -1 4217
 S
 #4219
 A White Square~
@@ -1309,22 +1309,22 @@ D0
 A black square lies to the north.
 ~
 ~
-0 -1 4211
+Z -1 4211
 D1
 A black square lies to the east.
 ~
 ~
-0 -1 4220
+Z -1 4220
 D2
 A black square lies to the south.
 ~
 ~
-0 -1 4227
+Z -1 4227
 D3
 A black square lies to the west.
 ~
 ~
-0 -1 4218
+Z -1 4218
 S
 #4220
 A Black Square~
@@ -1335,22 +1335,22 @@ D0
 A white square lies to the north.
 ~
 ~
-0 -1 4212
+Z -1 4212
 D1
 A white square lies to the east.
 ~
 ~
-0 -1 4221
+Z -1 4221
 D2
 A white square lies to the south.
 ~
 ~
-0 -1 4228
+Z -1 4228
 D3
 A white square lies to the west.
 ~
 ~
-0 -1 4219
+Z -1 4219
 S
 #4221
 A White Square~
@@ -1361,22 +1361,22 @@ D0
 A black square lies to the north.
 ~
 ~
-0 -1 4213
+Z -1 4213
 D1
 A black square lies to the east.
 ~
 ~
-0 -1 4222
+Z -1 4222
 D2
 A black square lies to the south.
 ~
 ~
-0 -1 4229
+Z -1 4229
 D3
 A black square lies to the west.
 ~
 ~
-0 -1 4220
+Z -1 4220
 S
 #4222
 A Black Square~
@@ -1387,22 +1387,22 @@ D0
 A white square lies to the north.
 ~
 ~
-0 -1 4214
+Z -1 4214
 D1
 A white square lies to the east.
 ~
 ~
-0 -1 4223
+Z -1 4223
 D2
 A white square lies to the south.
 ~
 ~
-0 -1 4230
+Z -1 4230
 D3
 A white square lies to the west.
 ~
 ~
-0 -1 4221
+Z -1 4221
 S
 #4223
 A White Square~
@@ -1413,22 +1413,22 @@ D0
 A black square lies to the north.
 ~
 ~
-0 -1 4215
+Z -1 4215
 D1
 A black square lies to the east.
 ~
 ~
-0 -1 4224
+Z -1 4224
 D2
 A black square lies to the south.
 ~
 ~
-0 -1 4231
+Z -1 4231
 D3
 A black square lies to the west.
 ~
 ~
-0 -1 4222
+Z -1 4222
 S
 #4224
 A Black Square~
@@ -1440,17 +1440,17 @@ D0
 A white square lies to the north.
 ~
 ~
-0 -1 4216
+Z -1 4216
 D2
 A white square lies to the south.
 ~
 ~
-0 -1 4232
+Z -1 4232
 D3
 A white square lies to the west.
 ~
 ~
-0 -1 4223
+Z -1 4223
 S
 #4225
 A Black Square~
@@ -1461,17 +1461,17 @@ D0
 A white square lies to the north.
 ~
 ~
-0 -1 4217
+Z -1 4217
 D1
 A white square lies to the east.
 ~
 ~
-0 -1 4226
+Z -1 4226
 D2
 A white square lies to the south.
 ~
 ~
-0 -1 4233
+Z -1 4233
 S
 #4226
 A White Square~
@@ -1482,22 +1482,22 @@ D0
 A black square lies to the north.
 ~
 ~
-0 -1 4218
+Z -1 4218
 D1
 A black square lies to the east.
 ~
 ~
-0 -1 4227
+Z -1 4227
 D2
 A black square lies to the south.
 ~
 ~
-0 -1 4234
+Z -1 4234
 D3
 A black square lies to the west.
 ~
 ~
-0 -1 4225
+Z -1 4225
 S
 #4227
 A Black Square~
@@ -1508,22 +1508,22 @@ D0
 A white square lies to the north.
 ~
 ~
-0 -1 4219
+Z -1 4219
 D1
 A white square lies to the east.
 ~
 ~
-0 -1 4228
+Z -1 4228
 D2
 A white square lies to the south.
 ~
 ~
-0 -1 4235
+Z -1 4235
 D3
 A white square lies to the west.
 ~
 ~
-0 -1 4226
+Z -1 4226
 S
 #4228
 A White Square~
@@ -1534,22 +1534,22 @@ D0
 A black square lies to the north.
 ~
 ~
-0 -1 4220
+Z -1 4220
 D1
 A black square lies to the east.
 ~
 ~
-0 -1 4229
+Z -1 4229
 D2
 A black square lies to the south.
 ~
 ~
-0 -1 4236
+Z -1 4236
 D3
 A black square lies to the west.
 ~
 ~
-0 -1 4227
+Z -1 4227
 S
 #4229
 A Black Square~
@@ -1560,22 +1560,22 @@ D0
 A white square lies to the north.
 ~
 ~
-0 -1 4221
+Z -1 4221
 D1
 A white square lies to the east.
 ~
 ~
-0 -1 4230
+Z -1 4230
 D2
 A white square lies to the south.
 ~
 ~
-0 -1 4237
+Z -1 4237
 D3
 A white square lies to the west.
 ~
 ~
-0 -1 4228
+Z -1 4228
 S
 #4230
 A White Square~
@@ -1586,22 +1586,22 @@ D0
 A black square lies to the north.
 ~
 ~
-0 -1 4222
+Z -1 4222
 D1
 A black square lies to the east.
 ~
 ~
-0 -1 4231
+Z -1 4231
 D2
 A black square lies to the south.
 ~
 ~
-0 -1 4238
+Z -1 4238
 D3
 A black square lies to the west.
 ~
 ~
-0 -1 4229
+Z -1 4229
 S
 #4231
 A Black Square~
@@ -1613,22 +1613,22 @@ D0
 A white square lies to the north.
 ~
 ~
-0 -1 4223
+Z -1 4223
 D1
 A white square lies to the east.
 ~
 ~
-0 -1 4232
+Z -1 4232
 D2
 A white square lies to the south.
 ~
 ~
-0 -1 4239
+Z -1 4239
 D3
 A white square lies to the west.
 ~
 ~
-0 -1 4230
+Z -1 4230
 S
 #4232
 A White Square~
@@ -1640,22 +1640,22 @@ D0
 A black square lies to the north.
 ~
 ~
-0 -1 4224
+Z -1 4224
 D1
 The gate to the chessboard is just to the east.
 ~
 ~
-0 -1 4200
+Z -1 4200
 D2
 A black square lies to the south.
 ~
 ~
-0 -1 4240
+Z -1 4240
 D3
 A black square lies to the west.
 ~
 ~
-0 -1 4231
+Z -1 4231
 S
 #4233
 A White Square~
@@ -1666,17 +1666,17 @@ D0
 A black square lies to the north.
 ~
 ~
-0 -1 4225
+Z -1 4225
 D1
 A black square lies to the east.
 ~
 ~
-0 -1 4234
+Z -1 4234
 D2
 A black square lies to the south.
 ~
 ~
-0 -1 4241
+Z -1 4241
 S
 #4234
 A Black Square~
@@ -1687,22 +1687,22 @@ D0
 A white square lies to the north.
 ~
 ~
-0 -1 4226
+Z -1 4226
 D1
 A white square lies to the east.
 ~
 ~
-0 -1 4235
+Z -1 4235
 D2
 A white square lies to the south.
 ~
 ~
-0 -1 4242
+Z -1 4242
 D3
 A white square lies to the west.
 ~
 ~
-0 -1 4233
+Z -1 4233
 S
 #4235
 A White Square~
@@ -1713,22 +1713,22 @@ D0
 A black square lies to the north.
 ~
 ~
-0 -1 4227
+Z -1 4227
 D1
 A black square lies to the east.
 ~
 ~
-0 -1 4236
+Z -1 4236
 D2
 A black square lies to the south.
 ~
 ~
-0 -1 4243
+Z -1 4243
 D3
 A black square lies to the west.
 ~
 ~
-0 -1 4234
+Z -1 4234
 S
 #4236
 A Black Square~
@@ -1739,22 +1739,22 @@ D0
 A white square lies to the north.
 ~
 ~
-0 -1 4228
+Z -1 4228
 D1
 A white square lies to the east.
 ~
 ~
-0 -1 4237
+Z -1 4237
 D2
 A white square lies to the south.
 ~
 ~
-0 -1 4244
+Z -1 4244
 D3
 A white square lies to the west.
 ~
 ~
-0 -1 4235
+Z -1 4235
 S
 #4237
 A White Square~
@@ -1765,22 +1765,22 @@ D0
 A black square lies to the north.
 ~
 ~
-0 -1 4229
+Z -1 4229
 D1
 A black square lies to the east.
 ~
 ~
-0 -1 4238
+Z -1 4238
 D2
 A black square lies to the south.
 ~
 ~
-0 -1 4245
+Z -1 4245
 D3
 A black square lies to the west.
 ~
 ~
-0 -1 4236
+Z -1 4236
 S
 #4238
 A Black Square~
@@ -1791,22 +1791,22 @@ D0
 A white square lies to the north.
 ~
 ~
-0 -1 4230
+Z -1 4230
 D1
 A white square lies to the east.
 ~
 ~
-0 -1 4239
+Z -1 4239
 D2
 A white square lies to the south.
 ~
 ~
-0 -1 4246
+Z -1 4246
 D3
 A white square lies to the west.
 ~
 ~
-0 -1 4237
+Z -1 4237
 S
 #4239
 A White Square~
@@ -1817,22 +1817,22 @@ D0
 A black square lies to the north.
 ~
 ~
-0 -1 4231
+Z -1 4231
 D1
 A black square lies to the east.
 ~
 ~
-0 -1 4240
+Z -1 4240
 D2
 A black square lies to the south.
 ~
 ~
-0 -1 4247
+Z -1 4247
 D3
 A black square lies to the west.
 ~
 ~
-0 -1 4238
+Z -1 4238
 S
 #4240
 A Black Square~
@@ -1844,17 +1844,17 @@ D0
 A white square lies to the north.
 ~
 ~
-0 -1 4232
+Z -1 4232
 D2
 A white square lies to the south.
 ~
 ~
-0 -1 4248
+Z -1 4248
 D3
 A white square lies to the west.
 ~
 ~
-0 -1 4239
+Z -1 4239
 S
 #4241
 A Black Square~
@@ -1865,17 +1865,17 @@ D0
 A white square lies to the north.
 ~
 ~
-0 -1 4233
+Z -1 4233
 D1
 A white square lies to the east.
 ~
 ~
-0 -1 4242
+Z -1 4242
 D2
 A white square lies to the south.
 ~
 ~
-0 -1 4249
+Z -1 4249
 S
 #4242
 A White Square~
@@ -1886,22 +1886,22 @@ D0
 A black square lies to the north.
 ~
 ~
-0 -1 4234
+Z -1 4234
 D1
 A black square lies to the east.
 ~
 ~
-0 -1 4243
+Z -1 4243
 D2
 A black square lies to the south.
 ~
 ~
-0 -1 4250
+Z -1 4250
 D3
 A black square lies to the west.
 ~
 ~
-0 -1 4241
+Z -1 4241
 S
 #4243
 A Black Square~
@@ -1912,22 +1912,22 @@ D0
 A white square lies to the north.
 ~
 ~
-0 -1 4235
+Z -1 4235
 D1
 A white square lies to the east.
 ~
 ~
-0 -1 4244
+Z -1 4244
 D2
 A white square lies to the south.
 ~
 ~
-0 -1 4251
+Z -1 4251
 D3
 A white square lies to the west.
 ~
 ~
-0 -1 4242
+Z -1 4242
 S
 #4244
 A White Square~
@@ -1938,22 +1938,22 @@ D0
 A black square lies to the north.
 ~
 ~
-0 -1 4236
+Z -1 4236
 D1
 A black square lies to the east.
 ~
 ~
-0 -1 4245
+Z -1 4245
 D2
 A black square lies to the south.
 ~
 ~
-0 -1 4252
+Z -1 4252
 D3
 A black square lies to the west.
 ~
 ~
-0 -1 4243
+Z -1 4243
 S
 #4245
 A Black Square~
@@ -1964,22 +1964,22 @@ D0
 A white square lies to the north.
 ~
 ~
-0 -1 4237
+Z -1 4237
 D1
 A white square lies to the east.
 ~
 ~
-0 -1 4246
+Z -1 4246
 D2
 A white square lies to the south.
 ~
 ~
-0 -1 4253
+Z -1 4253
 D3
 A white square lies to the west.
 ~
 ~
-0 -1 4244
+Z -1 4244
 S
 #4246
 A White Square~
@@ -1990,22 +1990,22 @@ D0
 A black square lies to the north.
 ~
 ~
-0 -1 4238
+Z -1 4238
 D1
 A black square lies to the east.
 ~
 ~
-0 -1 4247
+Z -1 4247
 D2
 A black square lies to the south.
 ~
 ~
-0 -1 4254
+Z -1 4254
 D3
 A black square lies to the west.
 ~
 ~
-0 -1 4245
+Z -1 4245
 S
 #4247
 A Black Square~
@@ -2016,22 +2016,22 @@ D0
 A white square lies to the north.
 ~
 ~
-0 -1 4239
+Z -1 4239
 D1
 A white square lies to the east.
 ~
 ~
-0 -1 4248
+Z -1 4248
 D2
 A white square lies to the south.
 ~
 ~
-0 -1 4255
+Z -1 4255
 D3
 A white square lies to the west.
 ~
 ~
-0 -1 4246
+Z -1 4246
 S
 #4248
 A White Square~
@@ -2042,17 +2042,17 @@ D0
 A black square lies to the north.
 ~
 ~
-0 -1 4240
+Z -1 4240
 D2
 A black square lies to the south.
 ~
 ~
-0 -1 4256
+Z -1 4256
 D3
 A black square lies to the west.
 ~
 ~
-0 -1 4247
+Z -1 4247
 S
 #4249
 A White Square~
@@ -2064,17 +2064,17 @@ D0
 A black square lies to the north.
 ~
 ~
-0 -1 4241
+Z -1 4241
 D1
 A black square lies to the east.
 ~
 ~
-0 -1 4250
+Z -1 4250
 D2
 A black square lies to the south.
 ~
 ~
-0 -1 4257
+Z -1 4257
 S
 #4250
 A Black Square~
@@ -2086,22 +2086,22 @@ D0
 A white square lies to the north.
 ~
 ~
-0 -1 4242
+Z -1 4242
 D1
 A white square lies to the east.
 ~
 ~
-0 -1 4251
+Z -1 4251
 D2
 A white square lies to the south.
 ~
 ~
-0 -1 4258
+Z -1 4258
 D3
 A white square lies to the west.
 ~
 ~
-0 -1 4249
+Z -1 4249
 S
 #4251
 A White Square~
@@ -2113,22 +2113,22 @@ D0
 A black square lies to the north.
 ~
 ~
-0 -1 4243
+Z -1 4243
 D1
 A black square lies to the east.
 ~
 ~
-0 -1 4252
+Z -1 4252
 D2
 A black square lies to the south.
 ~
 ~
-0 -1 4259
+Z -1 4259
 D3
 A black square lies to the west.
 ~
 ~
-0 -1 4250
+Z -1 4250
 S
 #4252
 A Black Square~
@@ -2140,22 +2140,22 @@ D0
 A white square lies to the north.
 ~
 ~
-0 -1 4244
+Z -1 4244
 D1
 A white square lies to the east.
 ~
 ~
-0 -1 4253
+Z -1 4253
 D2
 A white square lies to the south.
 ~
 ~
-0 -1 4260
+Z -1 4260
 D3
 A white square lies to the west.
 ~
 ~
-0 -1 4251
+Z -1 4251
 S
 #4253
 A White Square~
@@ -2167,22 +2167,22 @@ D0
 A black square lies to the north.
 ~
 ~
-0 -1 4245
+Z -1 4245
 D1
 A black square lies to the east.
 ~
 ~
-0 -1 4254
+Z -1 4254
 D2
 A black square lies to the south.
 ~
 ~
-0 -1 4261
+Z -1 4261
 D3
 A black square lies to the west.
 ~
 ~
-0 -1 4252
+Z -1 4252
 S
 #4254
 A Black Square~
@@ -2194,22 +2194,22 @@ D0
 A white square lies to the north.
 ~
 ~
-0 -1 4246
+Z -1 4246
 D1
 A white square lies to the east.
 ~
 ~
-0 -1 4255
+Z -1 4255
 D2
 A white square lies to the south.
 ~
 ~
-0 -1 4262
+Z -1 4262
 D3
 A white square lies to the west.
 ~
 ~
-0 -1 4253
+Z -1 4253
 S
 #4255
 A White Square~
@@ -2221,22 +2221,22 @@ D0
 A black square lies to the north.
 ~
 ~
-0 -1 4247
+Z -1 4247
 D1
 A black square lies to the east.
 ~
 ~
-0 -1 4256
+Z -1 4256
 D2
 A black square lies to the south.
 ~
 ~
-0 -1 4263
+Z -1 4263
 D3
 A black square lies to the west.
 ~
 ~
-0 -1 4254
+Z -1 4254
 S
 #4256
 A Black Square~
@@ -2248,17 +2248,17 @@ D0
 A white square lies to the north.
 ~
 ~
-0 -1 4248
+Z -1 4248
 D2
 A white square lies to the south.
 ~
 ~
-0 -1 4264
+Z -1 4264
 D3
 A white square lies to the west.
 ~
 ~
-0 -1 4255
+Z -1 4255
 S
 #4257
 A Black Square~
@@ -2270,12 +2270,12 @@ D0
 A white square lies to the north.
 ~
 ~
-0 -1 4249
+Z -1 4249
 D1
 A white square lies to the east.
 ~
 ~
-0 -1 4258
+Z -1 4258
 S
 #4258
 A White Square~
@@ -2287,17 +2287,17 @@ D0
 A black square lies to the north.
 ~
 ~
-0 -1 4250
+Z -1 4250
 D1
 A black square lies to the east.
 ~
 ~
-0 -1 4259
+Z -1 4259
 D3
 A black square lies to the west.
 ~
 ~
-0 -1 4257
+Z -1 4257
 S
 #4259
 A Black Square~
@@ -2309,17 +2309,17 @@ D0
 A white square lies to the north.
 ~
 ~
-0 -1 4251
+Z -1 4251
 D1
 A white square lies to the east.
 ~
 ~
-0 -1 4260
+Z -1 4260
 D3
 A white square lies to the west.
 ~
 ~
-0 -1 4258
+Z -1 4258
 S
 #4260
 A White Square~
@@ -2331,21 +2331,21 @@ D0
 A black square lies to the north.
 ~
 ~
-0 -1 4252
+Z -1 4252
 D1
 A black square lies to the east.
 ~
 ~
-0 -1 4261
+Z -1 4261
 D3
 A black square lies to the west.
 ~
 ~
-0 -1 4259
+Z -1 4259
 D5
 ~
 marble square~
-2 4215 4266
+ABCFZ 4215 4266
 S
 #4261
 A Black Square~
@@ -2357,17 +2357,17 @@ D0
 A white square lies to the north.
 ~
 ~
-0 -1 4253
+Z -1 4253
 D1
 A white square lies to the east.
 ~
 ~
-0 -1 4262
+Z -1 4262
 D3
 A white square lies to the west.
 ~
 ~
-0 -1 4260
+Z -1 4260
 S
 #4262
 A White Square~
@@ -2379,17 +2379,17 @@ D0
 A black square lies to the north.
 ~
 ~
-0 -1 4254
+Z -1 4254
 D1
 A black square lies to the east.
 ~
 ~
-0 -1 4263
+Z -1 4263
 D3
 A black square lies to the west.
 ~
 ~
-0 -1 4261
+Z -1 4261
 S
 #4263
 A Black Square~
@@ -2401,17 +2401,17 @@ D0
 A white square lies to the north.
 ~
 ~
-0 -1 4255
+Z -1 4255
 D1
 A white square lies to the east.
 ~
 ~
-0 -1 4264
+Z -1 4264
 D3
 A white square lies to the west.
 ~
 ~
-0 -1 4262
+Z -1 4262
 S
 #4264
 A White Square~
@@ -2423,12 +2423,12 @@ D0
 A black square lies to the north.
 ~
 ~
-0 -1 4256
+Z -1 4256
 D3
 A black square lies to the west.
 ~
 ~
-0 -1 4263
+Z -1 4263
 S
 #4265
 The Black Treasury~
@@ -2440,7 +2440,7 @@ D4
 A small staircase rises above you.
 ~
 marble square~
-2 4214 4204
+ABCFZ 4214 4204
 S
 #4266
 The White Treasury~
@@ -2452,7 +2452,7 @@ D4
 A small staircase rises above you.
 ~
 marble square~
-2 4215 4260
+ABCFZ 4215 4260
 S
 #0
 

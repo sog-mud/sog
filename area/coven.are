@@ -525,11 +525,11 @@ object. Play with brief off and look at just about everything.
 D0
 The Murkmire~
 ~
-0 -1 29121
+Z -1 29121
 D2
 ~
 ~
-0 -1 5263
+Z -1 5263
 S
 #29121
 On a Road in the Forest Murkmire~
@@ -547,11 +547,11 @@ The road has been heavily traveled, mainly by wagons.
 D2
 The Murkmire~
 ~
-0 -1 29120
+Z -1 29120
 D3
 The Murkmire~
 ~
-0 -1 29122
+Z -1 29122
 S
 #29122
 On a Road in the Forest Murkmire~
@@ -568,11 +568,11 @@ The road has been heavily traveled, mainly by wagons.
 D0
 The Murkmire~
 ~
-0 -1 29123
+Z -1 29123
 D1
 The Murkmire~
 ~
-0 -1 29121
+Z -1 29121
 S
 #29123
 At an Intersection in the Forest Murkmire~
@@ -597,15 +597,15 @@ sign~
 D0
 The Murkmire~
 ~
-0 -1 29124
+Z -1 29124
 D2
 The Murkmire~
 ~
-0 -1 29122
+Z -1 29122
 D3
 The western road~
 ~
-0 -1 29138
+Z -1 29138
 S
 #29124
 On a Road in the Forest Murkmire~
@@ -634,15 +634,15 @@ Squinting, you make out the face and forepaws of a raccoon.
 D1
 The Murkmire~
 ~
-0 -1 29125
+Z -1 29125
 D2
 The Murkmire~
 ~
-0 -1 29123
+Z -1 29123
 D3
 The Murkmire~
 ~
-0 -1 29137
+Z -1 29137
 S
 #29125
 On a Logging Trail in the Forest Murkmire~
@@ -661,11 +661,11 @@ northeast.
 D2
 The Murkmire~
 ~
-0 -1 29126
+Z -1 29126
 D3
 The Murkmire~
 ~
-0 -1 29124
+Z -1 29124
 S
 #29126
 On a Logging Trail in the Forest Murkmire~
@@ -691,11 +691,11 @@ Most of his right haunch has been consumed by some animal.
 D0
 The Murkmire~
 ~
-0 -1 29125
+Z -1 29125
 D1
 The Murkmire~
 ~
-0 -1 29127
+Z -1 29127
 S
 #29127
 At an Ancient Clearing in Forest Murkmire~
@@ -715,15 +715,15 @@ nothing there.
 D0
 The Murkmire~
 ~
-0 -1 29130
+Z -1 29130
 D1
 The Murkmire~
 ~
-0 -1 29128
+Z -1 29128
 D3
 The Murkmire~
 ~
-0 -1 29126
+Z -1 29126
 S
 #29128
 At an Ancient Clearing in Forest Murkmire~
@@ -743,11 +743,11 @@ nothing there.
 D0
 The Murkmire~
 ~
-0 -1 29129
+Z -1 29129
 D3
 The Murkmire~
 ~
-0 -1 29127
+Z -1 29127
 S
 #29129
 At an Ancient Clearing in Forest Murkmire~
@@ -767,11 +767,11 @@ animal run off into the forest!
 D2
 The Murkmire~
 ~
-0 -1 29128
+Z -1 29128
 D3
 The Murkmire~
 ~
-0 -1 29130
+Z -1 29130
 S
 #29130
 At an Ancient Clearing in Forest Murkmire~
@@ -791,15 +791,15 @@ nothing there.
 D0
 The Murkmire~
 ~
-0 -1 29131
+Z -1 29131
 D1
 The Murkmire~
 ~
-0 -1 29129
+Z -1 29129
 D2
 The Murkmire~
 ~
-0 -1 29127
+Z -1 29127
 S
 #29131
 On a Logging Trail in the Forest Murkmire~
@@ -819,15 +819,15 @@ You scowl at the raven, but it still sits there laughing at you.
 D1
 The Murkmire~
 underbrush brush~
-2 29120 29162
+ABCFZ 29120 29162
 D2
 The Murkmire~
 ~
-0 -1 29130
+Z -1 29130
 D3
 The Murkmire~
 ~
-0 -1 29132
+Z -1 29132
 S
 #29132
 At an Abandoned Logging Operation in Forest Murkmire~
@@ -847,15 +847,15 @@ open, and their hearts have been removed.
 D0
 The Murkmire~
 ~
-0 -1 29133
+Z -1 29133
 D1
 The Murkmire~
 ~
-0 -1 29131
+Z -1 29131
 D3
 The Murkmire~
 ~
-0 -1 29135
+Z -1 29135
 S
 #29133
 At an Abandoned Logging Operation in Forest Murkmire~
@@ -881,11 +881,11 @@ star inside a circle.
 D2
 The Murkmire~
 ~
-0 -1 29132
+Z -1 29132
 D3
 The Murkmire~
 ~
-0 -1 29134
+Z -1 29134
 S
 #29134
 At an Abandoned Logging Operation in Forest Murkmire~
@@ -905,11 +905,11 @@ open, and their hearts have been removed.
 D1
 The Murkmire~
 ~
-0 -1 29133
+Z -1 29133
 D2
 The Murkmire~
 ~
-0 -1 29135
+Z -1 29135
 S
 #29135
 At an Abandoned Logging Operation in Forest Murkmire~
@@ -929,15 +929,15 @@ open, and their hearts have been removed.
 D0
 The Murkmire~
 ~
-0 -1 29134
+Z -1 29134
 D1
 The Murkmire~
 ~
-0 -1 29132
+Z -1 29132
 D3
 The Murkmire~
 ~
-0 -1 29136
+Z -1 29136
 S
 #29136
 On a Logging Trail in the Forest Murkmire~
@@ -961,15 +961,15 @@ a cart variety.
 D1
 The Murkmire~
 ~
-0 -1 29135
+Z -1 29135
 D2
 The Murkmire~
 ~
-0 -1 29137
+Z -1 29137
 D3
 The Cave~
 rubble stones pile~
-2 29121 29156
+ABCFZ 29121 29156
 S
 #29137
 On a Logging Trail in the Forest Murkmire~
@@ -992,11 +992,11 @@ a cart variety.
 D0
 The Murkmire~
 ~
-0 -1 29136
+Z -1 29136
 D1
 The Murkmire~
 ~
-0 -1 29124
+Z -1 29124
 S
 #29138
 Main Street, Dunkeldorf~
@@ -1016,19 +1016,19 @@ technique and chinked with some kind of mud compound.
 D0
 A log house~
 door~
-1 -1 29139
+ABZ -1 29139
 D1
 The Murkmire~
 ~
-0 -1 29123
+Z -1 29123
 D2
 A log house~
 door~
-1 -1 29140
+ABZ -1 29140
 D3
 Main Street~
 ~
-0 -1 29141
+Z -1 29141
 S
 #29139
 Inside a Log House~
@@ -1047,7 +1047,7 @@ kept, and yes, you find a bedpan under one of the cots.
 D2
 Main Street~
 door~
-1 -1 29138
+ABZ -1 29138
 S
 #29140
 Inside a Log House~
@@ -1073,7 +1073,7 @@ sad tale of how her daddy is gone forever.
 D0
 Main Street~
 door~
-1 -1 29138
+ABZ -1 29138
 S
 #29141
 Main Street, Dunkeldorf~
@@ -1093,19 +1093,19 @@ technique and chinked with some kind of mud compound.
 D0
 A log house~
 door~
-1 -1 29142
+ABZ -1 29142
 D1
 Main Street~
 ~
-0 -1 29138
+Z -1 29138
 D2
 A log house~
 door~
-1 -1 29143
+ABZ -1 29143
 D3
 Main Street~
 ~
-0 -1 29144
+Z -1 29144
 S
 #29142
 Inside a Log House~
@@ -1131,7 +1131,7 @@ her husband.
 D2
 Main Street~
 door~
-1 -1 29141
+ABZ -1 29141
 S
 #29143
 Inside a Log House~
@@ -1157,7 +1157,7 @@ sad tale of how her daddy is gone forever.
 D0
 Main Street~
 door~
-1 -1 29141
+ABZ -1 29141
 S
 #29144
 Main Street, Dunkeldorf~
@@ -1187,19 +1187,19 @@ sign mug~
 D0
 The two story building~
 door~
-0 -1 29146
+Z -1 29146
 D1
 Main Street~
 ~
-0 -1 29141
+Z -1 29141
 D2
 Main Street~
 ~
-0 -1 29152
+Z -1 29152
 D3
 The saw mill~
 ~
-0 -1 29145
+Z -1 29145
 S
 #29145
 The Saw Mill~
@@ -1221,7 +1221,7 @@ sign~
 D1
 Main Street~
 ~
-0 -1 29144
+Z -1 29144
 S
 #29146
 In the Common Room of the Dunkeldorf Inn~
@@ -1242,11 +1242,11 @@ Room            25
 D2
 Main Street~
 ~
-0 -1 29144
+Z -1 29144
 D4
 Up the stairs~
 ~
-0 -1 29147
+Z -1 29147
 S
 #29147
 At the Top of the Stairs~
@@ -1262,23 +1262,23 @@ It is just an ordinary oil lamp.
 D0
 A room~
 door~
-1 29126 29150
+ABCZ 29126 29150
 D1
 A room~
 door~
-1 29126 29151
+ABCZ 29126 29151
 D2
 A room~
 door~
-1 29126 29148
+ABCZ 29126 29148
 D3
 A room~
 door~
-1 29126 29149
+ABCZ 29126 29149
 D5
 Down the stairs~
 ~
-0 -1 29146
+Z -1 29146
 S
 #29148
 A Small Room~
@@ -1303,7 +1303,7 @@ You open the armoire. It is empty except for an extra blanket.
 D0
 The landing~
 door~
-1 29126 29147
+ABCZ 29126 29147
 S
 #29149
 A Small Room~
@@ -1328,7 +1328,7 @@ You open the armoire. It is empty except for an extra blanket.
 D1
 The landing~
 door~
-1 29126 29147
+ABCZ 29126 29147
 S
 #29150
 A Small Room~
@@ -1353,7 +1353,7 @@ You open the armoire. It is empty except for an extra blanket.
 D2
 The landing~
 door~
-1 29126 29147
+ABCZ 29126 29147
 S
 #29151
 A Small Room~
@@ -1378,7 +1378,7 @@ You open the armoire. It is empty except for an extra blanket.
 D3
 The landing~
 door~
-1 29126 29147
+ABCZ 29126 29147
 S
 #29152
 Main Street, Dunkeldorf~
@@ -1392,19 +1392,19 @@ village smith.
 D0
 Main Street~
 ~
-0 -1 29144
+Z -1 29144
 D1
 The stables~
 ~
-0 -1 29154
+Z -1 29154
 D2
 The village smith~
 ~
-0 -1 29155
+Z -1 29155
 D3
 The store~
 ~
-0 -1 29153
+Z -1 29153
 S
 #29153
 The General Store of Dunkeldorf~
@@ -1416,7 +1416,7 @@ You probably own more than this store does.
 D1
 Main Street~
 ~
-0 -1 29152
+Z -1 29152
 S
 #29154
 The Stables of Dunkeldorf~
@@ -1433,7 +1433,7 @@ The mud looks exactly like the mud on your boots.
 D3
 Main Street~
 ~
-0 -1 29152
+Z -1 29152
 S
 #29155
 The Village Smithy~
@@ -1449,7 +1449,7 @@ The sign says type list to see what I have today.
 D0
 Main Street~
 ~
-0 -1 29152
+Z -1 29152
 S
 #29156
 Inside the Dark Cave~
@@ -1479,11 +1479,11 @@ It looks like if you had a good shovel, you could move it.
 D0
 The dark cave~
 ~
-0 -1 29157
+Z -1 29157
 D1
 The cave mouth~
 rubble~
-2 29121 29136
+ABCFZ 29121 29136
 S
 #29157
 Inside the Dark Cave~
@@ -1503,11 +1503,11 @@ have been dug by man.
 D0
 The dark cave~
 ~
-0 -1 29158
+Z -1 29158
 D2
 The dark cave~
 ~
-0 -1 29156
+Z -1 29156
 S
 #29158
 Inside the Dark Cave~
@@ -1527,11 +1527,11 @@ have been dug by man.
 D1
 The dark cave~
 ~
-0 -1 29159
+Z -1 29159
 D2
 The dark cave~
 ~
-0 -1 29157
+Z -1 29157
 S
 #29159
 Inside the Dark Cave~
@@ -1557,11 +1557,11 @@ SHALL BEST THE GUARDIAN AND REMOVE THE SCOURGE
 D1
 The dark cave~
 ~
-0 -1 29160
+Z -1 29160
 D3
 The dark cave~
 ~
-0 -1 29158
+Z -1 29158
 S
 #29160
 Inside the Dark Cave~
@@ -1573,11 +1573,11 @@ the thought of getting out of the cave.
 D0
 The green meadow~
 ~
-0 -1 29161
+Z -1 29161
 D3
 The dark cave~
 ~
-0 -1 29159
+Z -1 29159
 S
 #29161
 The Chapel in the Meadow~
@@ -1592,7 +1592,7 @@ keening sound.
 D2
 The dark cave~
 ~
-0 -1 29160
+Z -1 29160
 S
 #29162
 The Outer Circle of Coven~
@@ -1627,19 +1627,19 @@ treetops. Gratefully you wipe the guano from you eye.
 D0
 The outer circle~
 ~
-0 -1 29163
+Z -1 29163
 D1
 The inner circle~
 ~
-0 -1 29169
+Z -1 29169
 D2
 The outer circle~
 ~
-0 -1 29178
+Z -1 29178
 D3
 The underbrush~
 brush underbrush~
-2 29120 29131
+ABCFZ 29120 29131
 S
 #29163
 The Outer Circle of Coven~
@@ -1673,15 +1673,15 @@ treetops. Gratefully you wipe the guano from you eye.
 D0
 The outer circle~
 ~
-0 -1 29175
+Z -1 29175
 D1
 The inner circle~
 ~
-0 -1 29166
+Z -1 29166
 D2
 The outer circle~
 ~
-0 -1 29162
+Z -1 29162
 S
 #29164
 The Outer Circle of Coven~
@@ -1716,15 +1716,15 @@ treetops. Gratefully you wipe the guano from you eye.
 D1
 The outer circle~
 ~
-0 -1 29165
+Z -1 29165
 D2
 The inner circle~
 ~
-0 -1 29166
+Z -1 29166
 D3
 The outer circle~
 ~
-0 -1 29175
+Z -1 29175
 S
 #29165
 The Outer Circle of Coven~
@@ -1758,15 +1758,15 @@ treetops. Gratefully you wipe the guano from you eye.
 D1
 The outer circle~
 ~
-0 -1 29176
+Z -1 29176
 D2
 The inner circle~
 ~
-0 -1 29167
+Z -1 29167
 D3
 The outer circle~
 ~
-0 -1 29164
+Z -1 29164
 S
 #29166
 The Inner Circle of Coven~
@@ -1801,19 +1801,19 @@ treetops. Gratefully you wipe the guano from you eye.
 D0
 The outer circle~
 ~
-0 -1 29164
+Z -1 29164
 D1
 The inner circle~
 ~
-0 -1 29167
+Z -1 29167
 D2
 The inner circle~
 ~
-0 -1 29169
+Z -1 29169
 D3
 The outer circle~
 ~
-0 -1 29163
+Z -1 29163
 S
 #29167
 The Inner Circle of Coven~
@@ -1848,19 +1848,19 @@ treetops. Gratefully you wipe the guano from you eye.
 D0
 The outer circle~
 ~
-0 -1 29165
+Z -1 29165
 D1
 The outer circle~
 ~
-0 -1 29168
+Z -1 29168
 D2
 The inner circle~
 ~
-0 -1 29170
+Z -1 29170
 D3
 The inner circle~
 ~
-0 -1 29166
+Z -1 29166
 S
 #29168
 The Outer Circle of Coven~
@@ -1894,15 +1894,15 @@ treetops. Gratefully you wipe the guano from you eye.
 D0
 The outer circle~
 ~
-0 -1 29176
+Z -1 29176
 D2
 The outer circle~
 ~
-0 -1 29171
+Z -1 29171
 D3
 The inner circle~
 ~
-0 -1 29167
+Z -1 29167
 S
 #29169
 The Inner Circle of Coven~
@@ -1937,23 +1937,23 @@ treetops. Gratefully you wipe the guano from you eye.
 D0
 The inner circle~
 ~
-0 -1 29166
+Z -1 29166
 D1
 The inner circle~
 ~
-0 -1 29170
+Z -1 29170
 D2
 The outer circle~
 ~
-0 -1 29172
+Z -1 29172
 D3
 The outer circle~
 ~
-0 -1 29162
+Z -1 29162
 D5
 Into the fire~
 ~
-0 -1 29174
+Z -1 29174
 S
 #29170
 The Inner Circle of Coven~
@@ -1988,19 +1988,19 @@ treetops. Gratefully you wipe the guano from you eye.
 D0
 The inner circle~
 ~
-0 -1 29167
+Z -1 29167
 D1
 The outer circle~
 ~
-0 -1 29171
+Z -1 29171
 D2
 The outer circle~
 ~
-0 -1 29173
+Z -1 29173
 D3
 The inner circle~
 ~
-0 -1 29169
+Z -1 29169
 S
 #29171
 The Outer Circle of Coven~
@@ -2034,15 +2034,15 @@ treetops. Gratefully you wipe the guano from you eye.
 D0
 The outer circle~
 ~
-0 -1 29168
+Z -1 29168
 D2
 The outer circle~
 ~
-0 -1 29177
+Z -1 29177
 D3
 The inner circle~
 ~
-0 -1 29170
+Z -1 29170
 S
 #29172
 The Outer Circle of Coven~
@@ -2076,15 +2076,15 @@ treetops. Gratefully you wipe the guano from you eye.
 D0
 The inner circle~
 ~
-0 -1 29169
+Z -1 29169
 D1
 The outer circle~
 ~
-0 -1 29173
+Z -1 29173
 D3
 The outer circle~
 ~
-0 -1 29178
+Z -1 29178
 S
 #29173
 The Outer Circle of Coven~
@@ -2118,15 +2118,15 @@ treetops. Gratefully you wipe the guano from you eye.
 D0
 The inner circle~
 ~
-0 -1 29170
+Z -1 29170
 D1
 The outer circle~
 ~
-0 -1 29177
+Z -1 29177
 D3
 The outer circle~
 ~
-0 -1 29172
+Z -1 29172
 S
 #29174
 Into the Fire~
@@ -2143,7 +2143,7 @@ and warmth vanish.
 D4
 The inner circle~
 barrier flame~
-2 29127 29169
+ABCFZ 29127 29169
 S
 #29175
 The Outer Circle of Coven~
@@ -2173,11 +2173,11 @@ treetops. Gratefully you wipe the guano from you eye.
 D1
 The outer circle~
 ~
-0 -1 29164
+Z -1 29164
 D2
 The outer circle~
 ~
-0 -1 29163
+Z -1 29163
 S
 #29176
 The Outer Circle of Coven~
@@ -2207,11 +2207,11 @@ treetops. Gratefully you wipe the guano from you eye.
 D2
 The outer circle~
 ~
-0 -1 29168
+Z -1 29168
 D3
 The outer circle~
 ~
-0 -1 29165
+Z -1 29165
 S
 #29177
 The Outer Circle of Coven~
@@ -2241,11 +2241,11 @@ treetops. Gratefully you wipe the guano from you eye.
 D0
 The outer circle~
 ~
-0 -1 29171
+Z -1 29171
 D3
 The outer circle~
 ~
-0 -1 29173
+Z -1 29173
 S
 #29178
 The Outer Circle of Coven~
@@ -2275,11 +2275,11 @@ treetops. Gratefully you wipe the guano from you eye.
 D0
 The outer circle~
 ~
-0 -1 29162
+Z -1 29162
 D1
 The outer circle~
 ~
-0 -1 29172
+Z -1 29172
 S
 #0
 

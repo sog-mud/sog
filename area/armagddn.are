@@ -1182,16 +1182,16 @@ D0
 Lake of fire
 ~
 ~
-0 0 14015
+Z 0 14015
 D1
 Lake of fire
 ~
 ~
-0 0 14002
+Z 0 14002
 D3
 ~
 ~
-0 0 29236
+Z 0 29236
 S
 #14002
 On the lake of fire~
@@ -1203,17 +1203,17 @@ D0
 Lake of fire
 ~
 ~
-0 0 14016
+Z 0 14016
 D1
 Lake of fire
 ~
 ~
-0 0 14003
+Z 0 14003
 D3
 The corner of the world
 ~
 ~
-0 0 14001
+Z 0 14001
 S
 #14003
 On the lake of fire~
@@ -1225,7 +1225,7 @@ D3
 Lake of fire
 ~
 ~
-0 0 14002
+Z 0 14002
 S
 #14004
 The plagued lands~
@@ -1238,12 +1238,12 @@ D0
 The  plagued lands
 ~
 ~
-0 0 14018
+Z 0 14018
 D1
 The plagued lands
 ~
 ~
-0 0 14005
+Z 0 14005
 S
 #14005
 The plagued lands~
@@ -1256,12 +1256,12 @@ D0
 The  plagued lands
 ~
 ~
-0 0 14019
+Z 0 14019
 D3
 The plagued lands
 ~
 ~
-0 0 14004
+Z 0 14004
 S
 #14006
 MaGog~
@@ -1274,12 +1274,12 @@ D0
 MaGog
 ~
 ~
-0 0 14020
+Z 0 14020
 D1
 MaGog
 ~
 ~
-0 0 14007
+Z 0 14007
 S
 #14007
 MaGog~
@@ -1292,17 +1292,17 @@ D0
 MaGog
 ~
 ~
-0 0 14021
+Z 0 14021
 D1
 MaGog
 ~
 ~
-0 0 14008
+Z 0 14008
 D3
 MaGog
 ~
 ~
-0 0 14006
+Z 0 14006
 S
 #14008
 MaGog~
@@ -1317,23 +1317,23 @@ D0
 MaGog
 ~
 ~
-0 0 14022
+Z 0 14022
 D1
 MaGog
 ~
 ~
-0 0 14009
+Z 0 14009
 D2
 Into the bottomless pit
 ~
 gate adamantite south
 ~
-2 14001 14183
+ABCFZ 14001 14183
 D3
 MaGog
 ~
 ~
-0 0 14007
+Z 0 14007
 S
 #14009
 MaGog~
@@ -1346,17 +1346,17 @@ D0
 MaGog
 ~
 ~
-0 0 14023
+Z 0 14023
 D1
 MaGog
 ~
 ~
-0 0 14010
+Z 0 14010
 D3
 MaGog
 ~
 ~
-0 0 14008
+Z 0 14008
 S
 #14010
 MaGog~
@@ -1369,12 +1369,12 @@ D0
 MaGog
 ~
 ~
-0 0 14024
+Z 0 14024
 D3
 MaGog
 ~
 ~
-0 0 14009
+Z 0 14009
 S
 #14011
 The many waters~
@@ -1386,12 +1386,12 @@ D0
 More blood
 ~
 ~
-0 0 14025
+Z 0 14025
 D1
 More blood
 ~
 ~
-0 0 14012
+Z 0 14012
 S
 #14012
 The many waters~
@@ -1403,17 +1403,17 @@ D0
 More blood
 ~
 ~
-0 0 14026
+Z 0 14026
 D1
 More blood
 ~
 ~
-0 0 14013
+Z 0 14013
 D3
 More blood
 ~
 ~
-0 0 14011
+Z 0 14011
 S
 #14013
 The many waters~
@@ -1425,17 +1425,17 @@ D0
 More blood
 ~
 ~
-0 0 14027
+Z 0 14027
 D1
 The corner of the world
 ~
 ~
-0 0 14014
+Z 0 14014
 D3
 More blood
 ~
 ~
-0 0 14012
+Z 0 14012
 S
 #14014
 The corner of the world~
@@ -1456,12 +1456,12 @@ D0
 More blood
 ~
 ~
-0 0 14028
+Z 0 14028
 D3
 More blood
 ~
 ~
-0 0 14013
+Z 0 14013
 S
 #14015
 On the lake of fire~
@@ -1473,17 +1473,17 @@ D0
 Lake of fire
 ~
 ~
-0 0 14029
+Z 0 14029
 D1
 Lake of fire
 ~
 ~
-0 0 14016
+Z 0 14016
 D2
 The corner of the world
 ~
 ~
-0 0 14001
+Z 0 14001
 S
 #14016
 On the lake of fire~
@@ -1495,17 +1495,17 @@ D1
 The plagued lands
 ~
 ~
-0 0 14017
+Z 0 14017
 D2
 Lake of fire
 ~
 ~
-0 0 14002
+Z 0 14002
 D3
 Lake of fire
 ~
 ~
-0 0 14015
+Z 0 14015
 S
 #14017
 The plagued lands~
@@ -1518,17 +1518,17 @@ D0
 The  plagued lands
 ~
 ~
-0 0 14031
+Z 0 14031
 D1
 The plagued lands
 ~
 ~
-0 0 14018
+Z 0 14018
 D3
 Lake of fire
 ~
 ~
-0 0 14016
+Z 0 14016
 S
 #14018
 The plagued lands~
@@ -1541,22 +1541,22 @@ D0
 The  plagued lands
 ~
 ~
-0 0 14032
+Z 0 14032
 D1
 The plagued lands
 ~
 ~
-0 0 14019
+Z 0 14019
 D2
 The plagued lands
 ~
 ~
-0 0 14004
+Z 0 14004
 D3
 The plagued lands
 ~
 ~
-0 0 14017
+Z 0 14017
 S
 #14019
 The plagued lands~
@@ -1569,17 +1569,17 @@ D0
 The  plagued lands
 ~
 ~
-0 0 14033
+Z 0 14033
 D2
 The plagued lands
 ~
 ~
-0 0 14005
+Z 0 14005
 D3
 The plagued lands
 ~
 ~
-0 0 14018
+Z 0 14018
 S
 #14020
 MaGog~
@@ -1592,17 +1592,17 @@ D0
 MaGog
 ~
 ~
-0 0 14034
+Z 0 14034
 D1
 MaGog
 ~
 ~
-0 0 14021
+Z 0 14021
 D2
 MaGog
 ~
 ~
-0 0 14006
+Z 0 14006
 S
 #14021
 MaGog~
@@ -1615,22 +1615,22 @@ D0
 MaGog
 ~
 ~
-0 0 14035
+Z 0 14035
 D1
 MaGog
 ~
 ~
-0 0 14022
+Z 0 14022
 D2
 MaGog
 ~
 ~
-0 0 14007
+Z 0 14007
 D3
 MaGog
 ~
 ~
-0 0 14020
+Z 0 14020
 S
 #14022
 MaGog~
@@ -1645,22 +1645,22 @@ D0
 MaGog
 ~
 ~
-0 0 14036
+Z 0 14036
 D1
 MaGog
 ~
 ~
-0 0 14023
+Z 0 14023
 D2
 MaGog
 ~
 ~
-0 0 14008
+Z 0 14008
 D3
 MaGog
 ~
 ~
-0 0 14021
+Z 0 14021
 S
 #14023
 MaGog~
@@ -1673,22 +1673,22 @@ D0
 MaGog
 ~
 ~
-0 0 14037
+Z 0 14037
 D1
 MaGog
 ~
 ~
-0 0 14024
+Z 0 14024
 D2
 MaGog
 ~
 ~
-0 0 14009
+Z 0 14009
 D3
 MaGog
 ~
 ~
-0 0 14022
+Z 0 14022
 S
 #14024
 MaGog~
@@ -1702,17 +1702,17 @@ D0
 MaGog
 ~
 ~
-0 0 14038
+Z 0 14038
 D2
 MaGog
 ~
 ~
-0 0 14010
+Z 0 14010
 D3
 MaGog
 ~
 ~
-0 0 14023
+Z 0 14023
 S
 #14025
 The many waters~
@@ -1724,17 +1724,17 @@ D0
 More blood
 ~
 ~
-0 0 14039
+Z 0 14039
 D1
 More blood
 ~
 ~
-0 0 14026
+Z 0 14026
 D2
 More blood
 ~
 ~
-0 0 14011
+Z 0 14011
 S
 #14026
 The many waters~
@@ -1746,22 +1746,22 @@ D0
 More blood
 ~
 ~
-0 0 14040
+Z 0 14040
 D1
 More blood
 ~
 ~
-0 0 14027
+Z 0 14027
 D2
 More blood
 ~
 ~
-0 0 14012
+Z 0 14012
 D3
 More blood
 ~
 ~
-0 0 14025
+Z 0 14025
 S
 #14027
 The many waters~
@@ -1773,22 +1773,22 @@ D0
 More blood
 ~
 ~
-0 0 14041
+Z 0 14041
 D1
 More blood
 ~
 ~
-0 0 14028
+Z 0 14028
 D2
 More blood
 ~
 ~
-0 0 14013
+Z 0 14013
 D3
 More blood
 ~
 ~
-0 0 14026
+Z 0 14026
 S
 #14028
 The many waters~
@@ -1800,17 +1800,17 @@ D0
 More blood
 ~
 ~
-0 0 14042
+Z 0 14042
 D2
 The corner of the world
 ~
 ~
-0 0 14014
+Z 0 14014
 D3
 More blood
 ~
 ~
-0 0 14027
+Z 0 14027
 S
 #14029
 On the lake of fire~
@@ -1822,7 +1822,7 @@ D2
 Lake of fire
 ~
 ~
-0 0 14015
+Z 0 14015
 S
 #14030
 The plagued lands~
@@ -1835,12 +1835,12 @@ D0
 The  plagued lands
 ~
 ~
-0 0 14044
+Z 0 14044
 D1
 The plagued lands
 ~
 ~
-0 0 14031
+Z 0 14031
 S
 #14031
 The plagued lands~
@@ -1853,22 +1853,22 @@ D0
 The  plagued lands
 ~
 ~
-0 0 14045
+Z 0 14045
 D1
 The plagued lands
 ~
 ~
-0 0 14032
+Z 0 14032
 D2
 The plagued lands
 ~
 ~
-0 0 14017
+Z 0 14017
 D3
 The plagued lands
 ~
 ~
-0 0 14030
+Z 0 14030
 S
 #14032
 The plagued lands~
@@ -1881,12 +1881,12 @@ D2
 The  plagued lands
 ~
 ~
-0 0 14018
+Z 0 14018
 D3
 The plagued lands
 ~
 ~
-0 0 14031
+Z 0 14031
 S
 #14033
 The plagued lands~
@@ -1899,7 +1899,7 @@ D2
 The  plagued lands
 ~
 ~
-0 0 14019
+Z 0 14019
 S
 #14034
 MaGog~
@@ -1913,12 +1913,12 @@ D1
 MaGog
 ~
 ~
-0 0 14035
+Z 0 14035
 D2
 MaGog
 ~
 ~
-0 0 14020
+Z 0 14020
 S
 #14035
 MaGog~
@@ -1931,17 +1931,17 @@ D1
 MaGog
 ~
 ~
-0 0 14036
+Z 0 14036
 D2
 MaGog
 ~
 ~
-0 0 14021
+Z 0 14021
 D3
 MaGog
 ~
 ~
-0 0 14034
+Z 0 14034
 S
 #14036
 MaGog~
@@ -1955,22 +1955,22 @@ D0
 Armageddon
 ~
 ~
-0 0 14050
+Z 0 14050
 D1
 MaGog
 ~
 ~
-0 0 14037
+Z 0 14037
 D2
 MaGog
 ~
 ~
-0 0 14022
+Z 0 14022
 D3
 MaGog
 ~
 ~
-0 0 14035
+Z 0 14035
 S
 #14037
 MaGog~
@@ -1983,17 +1983,17 @@ D1
 MaGog
 ~
 ~
-0 0 14038
+Z 0 14038
 D2
 MaGog
 ~
 ~
-0 0 14023
+Z 0 14023
 D3
 MaGog
 ~
 ~
-0 0 14036
+Z 0 14036
 S
 #14038
 MaGog~
@@ -2006,12 +2006,12 @@ D2
 MaGog
 ~
 ~
-0 0 14024
+Z 0 14024
 D3
 MaGog
 ~
 ~
-0 0 14037
+Z 0 14037
 S
 #14039
 The many waters~
@@ -2023,17 +2023,17 @@ D0
 More blood
 ~
 ~
-0 0 14053
+Z 0 14053
 D1
 More blood
 ~
 ~
-0 0 14040
+Z 0 14040
 D2
 More blood
 ~
 ~
-0 0 14025
+Z 0 14025
 S
 #14040
 The many waters~
@@ -2045,22 +2045,22 @@ D0
 More blood
 ~
 ~
-0 0 14054
+Z 0 14054
 D1
 More blood
 ~
 ~
-0 0 14041
+Z 0 14041
 D2
 More blood
 ~
 ~
-0 0 14026
+Z 0 14026
 D3
 More blood
 ~
 ~
-0 0 14039
+Z 0 14039
 S
 #14041
 The many waters~
@@ -2072,22 +2072,22 @@ D0
 A cloud of steam
 ~
 ~
-0 0 14055
+Z 0 14055
 D1
 More blood
 ~
 ~
-0 0 14042
+Z 0 14042
 D2
 More blood
 ~
 ~
-0 0 14027
+Z 0 14027
 D3
 More blood
 ~
 ~
-0 0 14040
+Z 0 14040
 S
 #14042
 The many waters~
@@ -2099,17 +2099,17 @@ D0
 More blood
 ~
 ~
-0 0 14056
+Z 0 14056
 D2
 More blood
 ~
 ~
-0 0 14028
+Z 0 14028
 D3
 More blood
 ~
 ~
-0 0 14041
+Z 0 14041
 S
 #14043
 The plagued lands~
@@ -2122,12 +2122,12 @@ D0
 The  plagued lands
 ~
 ~
-0 0 14057
+Z 0 14057
 D1
 The plagued lands
 ~
 ~
-0 0 14044
+Z 0 14044
 S
 #14044
 The plagued lands~
@@ -2140,22 +2140,22 @@ D0
 The  plagued lands
 ~
 ~
-0 0 14058
+Z 0 14058
 D1
 The plagued lands
 ~
 ~
-0 0 14045
+Z 0 14045
 D2
 The plagued lands
 ~
 ~
-0 0 14030
+Z 0 14030
 D3
 The plagued lands
 ~
 ~
-0 0 14043
+Z 0 14043
 S
 #14045
 The plagued lands~
@@ -2168,17 +2168,17 @@ D0
 The plagued lands
 ~
 ~
-0 0 14059
+Z 0 14059
 D2
 The plagued lands
 ~
 ~
-0 0 14031
+Z 0 14031
 D3
 The plagued lands
 ~
 ~
-0 0 14044
+Z 0 14044
 S
 #14046
 Armageddon~
@@ -2192,12 +2192,12 @@ D0
 Armageddon
 ~
 ~
-0 0 14060
+Z 0 14060
 D1
 Armageddon
 ~
 ~
-0 0 14047
+Z 0 14047
 S
 #14047
 Armageddon~
@@ -2211,17 +2211,17 @@ D0
 Armageddon
 ~
 ~
-0 0 14061
+Z 0 14061
 D1
 Armageddon
 ~
 ~
-0 0 14048
+Z 0 14048
 D3
 Armageddon
 ~
 ~
-0 0 14046
+Z 0 14046
 S
 #14048
 Armageddon~
@@ -2235,17 +2235,17 @@ D0
 Armageddon
 ~
 ~
-0 0 14062
+Z 0 14062
 D1
 Armageddon
 ~
 ~
-0 0 14049
+Z 0 14049
 D3
 Armageddon
 ~
 ~
-0 0 14047
+Z 0 14047
 S
 #14049
 Armageddon~
@@ -2259,17 +2259,17 @@ D0
 Armageddon
 ~
 ~
-0 0 14063
+Z 0 14063
 D1
 Armageddon
 ~
 ~
-0 0 14050
+Z 0 14050
 D3
 Armageddon
 ~
 ~
-0 0 14048
+Z 0 14048
 S
 #14050
 Armageddon~
@@ -2283,22 +2283,22 @@ D0
 Armageddon
 ~
 ~
-0 0 14064
+Z 0 14064
 D1
 Armageddon
 ~
 ~
-0 0 14051
+Z 0 14051
 D2
 MaGog
 ~
 ~
-0 0 14036
+Z 0 14036
 D3
 Armageddon
 ~
 ~
-0 0 14049
+Z 0 14049
 S
 #14051
 Armageddon~
@@ -2312,17 +2312,17 @@ D0
 Armageddon
 ~
 ~
-0 0 14065
+Z 0 14065
 D1
 Armageddon
 ~
 ~
-0 0 14052
+Z 0 14052
 D3
 Armageddon
 ~
 ~
-0 0 14050
+Z 0 14050
 S
 #14052
 Armageddon~
@@ -2336,12 +2336,12 @@ D0
 Armageddon
 ~
 ~
-0 0 14066
+Z 0 14066
 D3
 Armageddon
 ~
 ~
-0 0 14051
+Z 0 14051
 S
 #14053
 The many waters~
@@ -2353,17 +2353,17 @@ D0
 More blood
 ~
 ~
-0 0 14067
+Z 0 14067
 D1
 More blood
 ~
 ~
-0 0 14054
+Z 0 14054
 D2
 More blood
 ~
 ~
-0 0 14039
+Z 0 14039
 S
 #14054
 The many waters~
@@ -2375,22 +2375,22 @@ D0
 More blood
 ~
 ~
-0 0 14068
+Z 0 14068
 D1
 A cloud of steam
 ~
 ~
-0 0 14055
+Z 0 14055
 D2
 More blood
 ~
 ~
-0 0 14040
+Z 0 14040
 D3
 More blood
 ~
 ~
-0 0 14053
+Z 0 14053
 S
 #14055
 The sunken volcano~
@@ -2404,22 +2404,22 @@ D0
 More blood
 ~
 ~
-0 0 14069
+Z 0 14069
 D1
 More blood
 ~
 ~
-0 0 14056
+Z 0 14056
 D2
 More blood
 ~
 ~
-0 0 14041
+Z 0 14041
 D3
 More blood
 ~
 ~
-0 0 14054
+Z 0 14054
 S
 #14056
 The many waters~
@@ -2431,17 +2431,17 @@ D0
 More blood
 ~
 ~
-0 0 14070
+Z 0 14070
 D2
 More blood
 ~
 ~
-0 0 14042
+Z 0 14042
 D3
 A cloud of steam
 ~
 ~
-0 0 14055
+Z 0 14055
 S
 #14057
 The plagued lands~
@@ -2454,12 +2454,12 @@ D1
 The plagued lands
 ~
 ~
-0 0 14058
+Z 0 14058
 D2
 The plagued lands
 ~
 ~
-0 0 14043
+Z 0 14043
 S
 #14058
 The plagued lands~
@@ -2472,17 +2472,17 @@ D1
 The  plagued lands
 ~
 ~
-0 0 14059
+Z 0 14059
 D2
 The plagued lands
 ~
 ~
-0 0 14044
+Z 0 14044
 D3
 The plagued lands
 ~
 ~
-0 0 14057
+Z 0 14057
 S
 #14059
 The plagued lands~
@@ -2495,17 +2495,17 @@ D0
 Wormwood
 ~
 ~
-0 0 14073
+Z 0 14073
 D2
 The  plagued lands
 ~
 ~
-0 0 14045
+Z 0 14045
 D3
 The plagued lands
 ~
 ~
-0 0 14058
+Z 0 14058
 S
 #14060
 Armageddon~
@@ -2519,17 +2519,17 @@ D0
 Armageddon
 ~
 ~
-0 0 14074
+Z 0 14074
 D1
 Armageddon
 ~
 ~
-0 0 14061
+Z 0 14061
 D2
 Armageddon
 ~
 ~
-0 0 14046
+Z 0 14046
 S
 #14061
 Armageddon~
@@ -2543,22 +2543,22 @@ D0
 Armageddon
 ~
 ~
-0 0 14075
+Z 0 14075
 D1
 Armageddon
 ~
 ~
-0 0 14062
+Z 0 14062
 D2
 Armageddon
 ~
 ~
-0 0 14047
+Z 0 14047
 D3
 Armageddon
 ~
 ~
-0 0 14060
+Z 0 14060
 S
 #14062
 Armageddon~
@@ -2572,22 +2572,22 @@ D0
 Armageddon
 ~
 ~
-0 0 14076
+Z 0 14076
 D1
 Armageddon
 ~
 ~
-0 0 14063
+Z 0 14063
 D2
 Armageddon
 ~
 ~
-0 0 14048
+Z 0 14048
 D3
 Armageddon
 ~
 ~
-0 0 14061
+Z 0 14061
 S
 #14063
 Armageddon~
@@ -2601,22 +2601,22 @@ D0
 Armageddon
 ~
 ~
-0 0 14077
+Z 0 14077
 D1
 Armageddon
 ~
 ~
-0 0 14064
+Z 0 14064
 D2
 Armageddon
 ~
 ~
-0 0 14049
+Z 0 14049
 D3
 Armageddon
 ~
 ~
-0 0 14062
+Z 0 14062
 S
 #14064
 Armageddon~
@@ -2630,22 +2630,22 @@ D0
 Armageddon
 ~
 ~
-0 0 14078
+Z 0 14078
 D1
 Armageddon
 ~
 ~
-0 0 14065
+Z 0 14065
 D2
 Armageddon
 ~
 ~
-0 0 14050
+Z 0 14050
 D3
 Armageddon
 ~
 ~
-0 0 14063
+Z 0 14063
 S
 #14065
 Armageddon~
@@ -2659,22 +2659,22 @@ D0
 Armageddon
 ~
 ~
-0 0 14079
+Z 0 14079
 D1
 Armageddon
 ~
 ~
-0 0 14066
+Z 0 14066
 D2
 Armageddon
 ~
 ~
-0 0 14051
+Z 0 14051
 D3
 Armageddon
 ~
 ~
-0 0 14064
+Z 0 14064
 S
 #14066
 Armageddon~
@@ -2688,17 +2688,17 @@ D0
 Armageddon
 ~
 ~
-0 0 14080
+Z 0 14080
 D2
 Armageddon
 ~
 ~
-0 0 14052
+Z 0 14052
 D3
 Armageddon
 ~
 ~
-0 0 14065
+Z 0 14065
 S
 #14067
 The many waters~
@@ -2710,17 +2710,17 @@ D0
 Armageddon
 ~
 ~
-0 0 14081
+Z 0 14081
 D1
 More blood
 ~
 ~
-0 0 14068
+Z 0 14068
 D2
 More blood
 ~
 ~
-0 0 14053
+Z 0 14053
 S
 #14068
 The many waters~
@@ -2732,22 +2732,22 @@ D0
 More blood
 ~
 ~
-0 0 14082
+Z 0 14082
 D1
 More blood
 ~
 ~
-0 0 14069
+Z 0 14069
 D2
 More blood
 ~
 ~
-0 0 14054
+Z 0 14054
 D3
 More blood
 ~
 ~
-0 0 14067
+Z 0 14067
 S
 #14069
 The many waters~
@@ -2759,22 +2759,22 @@ D0
 More blood
 ~
 ~
-0 0 14083
+Z 0 14083
 D1
 More blood
 ~
 ~
-0 0 14070
+Z 0 14070
 D2
 A cloud of steam
 ~
 ~
-0 0 14055
+Z 0 14055
 D3
 More blood
 ~
 ~
-0 0 14068
+Z 0 14068
 S
 #14070
 The many waters~
@@ -2786,17 +2786,17 @@ D0
 More blood
 ~
 ~
-0 0 14084
+Z 0 14084
 D2
 More blood
 ~
 ~
-0 0 14056
+Z 0 14056
 D3
 More blood
 ~
 ~
-0 0 14069
+Z 0 14069
 S
 #14071
 Wormwood~
@@ -2810,12 +2810,12 @@ D0
 Wormwood
 ~
 ~
-0 0 14085
+Z 0 14085
 D1
 Wormwood
 ~
 ~
-0 0 14072
+Z 0 14072
 S
 #14072
 Wormwood~
@@ -2829,17 +2829,17 @@ D0
 Wormwood
 ~
 ~
-0 0 14086
+Z 0 14086
 D1
 Wormwood
 ~
 ~
-0 0 14073
+Z 0 14073
 D3
 Wormwood
 ~
 ~
-0 0 14071
+Z 0 14071
 S
 #14073
 Wormwood~
@@ -2853,17 +2853,17 @@ D1
 Armageddon
 ~
 ~
-0 0 14074
+Z 0 14074
 D2
 The plagued lands
 ~
 ~
-0 0 14059
+Z 0 14059
 D3
 Wormwood
 ~
 ~
-0 0 14072
+Z 0 14072
 S
 #14074
 Armageddon~
@@ -2877,17 +2877,17 @@ D1
 Armageddon
 ~
 ~
-0 0 14075
+Z 0 14075
 D2
 Armageddon
 ~
 ~
-0 0 14060
+Z 0 14060
 D3
 Wormwood
 ~
 ~
-0 0 14073
+Z 0 14073
 S
 #14075
 Armageddon~
@@ -2901,17 +2901,17 @@ D1
 Armageddon
 ~
 ~
-0 0 14076
+Z 0 14076
 D2
 Armageddon
 ~
 ~
-0 0 14061
+Z 0 14061
 D3
 Armageddon
 ~
 ~
-0 0 14074
+Z 0 14074
 S
 #14076
 Armageddon~
@@ -2925,17 +2925,17 @@ D1
 Armageddon
 ~
 ~
-0 0 14077
+Z 0 14077
 D2
 Armageddon
 ~
 ~
-0 0 14062
+Z 0 14062
 D3
 Armageddon
 ~
 ~
-0 0 14075
+Z 0 14075
 S
 #14077
 Armageddon~
@@ -2949,22 +2949,22 @@ D0
 Armageddon
 ~
 ~
-0 0 14091
+Z 0 14091
 D1
 Armageddon
 ~
 ~
-0 0 14078
+Z 0 14078
 D2
 Armageddon
 ~
 ~
-0 0 14063
+Z 0 14063
 D3
 Armageddon
 ~
 ~
-0 0 14076
+Z 0 14076
 S
 #14078
 Armageddon~
@@ -2978,22 +2978,22 @@ D0
 Armageddon
 ~
 ~
-0 0 14092
+Z 0 14092
 D1
 Armageddon
 ~
 ~
-0 0 14079
+Z 0 14079
 D2
 Armageddon
 ~
 ~
-0 0 14064
+Z 0 14064
 D3
 Armageddon
 ~
 ~
-0 0 14077
+Z 0 14077
 S
 #14079
 Armageddon~
@@ -3007,22 +3007,22 @@ D0
 Armageddon
 ~
 ~
-0 0 14093
+Z 0 14093
 D1
 Armageddon
 ~
 ~
-0 0 14080
+Z 0 14080
 D2
 Armageddon
 ~
 ~
-0 0 14065
+Z 0 14065
 D3
 Armageddon
 ~
 ~
-0 0 14078
+Z 0 14078
 S
 #14080
 Armageddon~
@@ -3036,22 +3036,22 @@ D0
 Armageddon
 ~
 ~
-0 0 14094
+Z 0 14094
 D1
 Armageddon
 ~
 ~
-0 0 14081
+Z 0 14081
 D2
 Armageddon
 ~
 ~
-0 0 14066
+Z 0 14066
 D3
 Armageddon
 ~
 ~
-0 0 14079
+Z 0 14079
 S
 #14081
 Armageddon~
@@ -3065,17 +3065,17 @@ D0
 Armageddon
 ~
 ~
-0 0 14095
+Z 0 14095
 D2
 The many waters
 ~
 ~
-0 0 14067
+Z 0 14067
 D3
 Armageddon
 ~
 ~
-0 0 14080
+Z 0 14080
 S
 #14082
 The many waters~
@@ -3087,12 +3087,12 @@ D1
 More blood
 ~
 ~
-0 0 14083
+Z 0 14083
 D2
 More blood
 ~
 ~
-0 0 14068
+Z 0 14068
 S
 #14083
 The many waters~
@@ -3104,22 +3104,22 @@ D0
 More blood
 ~
 ~
-0 0 14097
+Z 0 14097
 D1
 More blood
 ~
 ~
-0 0 14084
+Z 0 14084
 D2
 More blood
 ~
 ~
-0 0 14069
+Z 0 14069
 D3
 More blood
 ~
 ~
-0 0 14082
+Z 0 14082
 S
 #14084
 The many waters~
@@ -3131,17 +3131,17 @@ D0
 More blood
 ~
 ~
-0 0 14098
+Z 0 14098
 D2
 More blood
 ~
 ~
-0 0 14070
+Z 0 14070
 D3
 More blood
 ~
 ~
-0 0 14083
+Z 0 14083
 S
 #14085
 Wormwood~
@@ -3155,17 +3155,17 @@ D0
 The Euphrates
 ~
 ~
-0 0 14099
+Z 0 14099
 D1
 Wormwood
 ~
 ~
-0 0 14086
+Z 0 14086
 D2
 Wormwood
 ~
 ~
-0 0 14071
+Z 0 14071
 S
 #14086
 Wormwood~
@@ -3179,12 +3179,12 @@ D2
 Wormwood
 ~
 ~
-0 0 14072
+Z 0 14072
 D3
 Wormwood
 ~
 ~
-0 0 14085
+Z 0 14085
 S
 #14087
 The Euphrates~
@@ -3198,12 +3198,12 @@ D0
 The Euphrates
 ~
 ~
-0 0 14101
+Z 0 14101
 D1
 The Euphrates
 ~
 ~
-0 0 14088
+Z 0 14088
 S
 #14088
 The Euphrates~
@@ -3217,12 +3217,12 @@ D1
 The Euphrates
 ~
 ~
-0 0 14089
+Z 0 14089
 D3
 The Euphrates
 ~
 ~
-0 0 14087
+Z 0 14087
 S
 #14089
 The Euphrates~
@@ -3236,12 +3236,12 @@ D1
 The Euphrates
 ~
 ~
-0 0 14090
+Z 0 14090
 D3
 The Euphrates
 ~
 ~
-0 0 14088
+Z 0 14088
 S
 #14090
 The Euphrates~
@@ -3255,12 +3255,12 @@ D0
 The Euphrates
 ~
 ~
-0 0 14104
+Z 0 14104
 D3
 The Euphrates
 ~
 ~
-0 0 14089
+Z 0 14089
 S
 #14091
 Armageddon~
@@ -3274,17 +3274,17 @@ D0
 A bridge over the Euprhates
 ~
 ~
-0 0 14105
+Z 0 14105
 D1
 Armageddon
 ~
 ~
-0 0 14092
+Z 0 14092
 D2
 Armageddon
 ~
 ~
-0 0 14077
+Z 0 14077
 S
 #14092
 Armageddon~
@@ -3298,17 +3298,17 @@ D1
 Armageddon
 ~
 ~
-0 0 14093
+Z 0 14093
 D2
 Armageddon
 ~
 ~
-0 0 14078
+Z 0 14078
 D3
 Armageddon
 ~
 ~
-0 0 14091
+Z 0 14091
 S
 #14093
 Armageddon~
@@ -3322,22 +3322,22 @@ D0
 Armageddon
 ~
 ~
-0 0 14107
+Z 0 14107
 D1
 Armageddon
 ~
 ~
-0 0 14094
+Z 0 14094
 D2
 Armageddon
 ~
 ~
-0 0 14079
+Z 0 14079
 D3
 Armageddon
 ~
 ~
-0 0 14092
+Z 0 14092
 S
 #14094
 Armageddon~
@@ -3351,22 +3351,22 @@ D0
 Armageddon
 ~
 ~
-0 0 14108
+Z 0 14108
 D1
 Armageddon
 ~
 ~
-0 0 14095
+Z 0 14095
 D2
 Armageddon
 ~
 ~
-0 0 14080
+Z 0 14080
 D3
 Armageddon
 ~
 ~
-0 0 14093
+Z 0 14093
 S
 #14095
 Armageddon~
@@ -3380,17 +3380,17 @@ D1
 Armageddon
 ~
 ~
-0 0 14096
+Z 0 14096
 D2
 Armageddon
 ~
 ~
-0 0 14081
+Z 0 14081
 D3
 Armageddon
 ~
 ~
-0 0 14094
+Z 0 14094
 S
 #14096
 Armageddon~
@@ -3404,7 +3404,7 @@ D3
 Armageddon
 ~
 ~
-0 0 14095
+Z 0 14095
 S
 #14097
 The many waters~
@@ -3416,17 +3416,17 @@ D0
 The Euprates river
 ~
 ~
-0 0 14111
+Z 0 14111
 D1
 More blood
 ~
 ~
-0 0 14098
+Z 0 14098
 D2
 More blood
 ~
 ~
-0 0 14083
+Z 0 14083
 S
 #14098
 The many waters~
@@ -3438,17 +3438,17 @@ D0
 More blood
 ~
 ~
-0 0 14112
+Z 0 14112
 D2
 More blood
 ~
 ~
-0 0 14084
+Z 0 14084
 D3
 More blood
 ~
 ~
-0 0 14097
+Z 0 14097
 S
 #14099
 The source of the Euphrates~
@@ -3473,17 +3473,17 @@ D0
 Wormwood
 ~
 ~
-0 0 14113
+Z 0 14113
 D1
 The Euphrates
 ~
 ~
-0 0 14100
+Z 0 14100
 D2
 Wormwood
 ~
 ~
-0 0 14085
+Z 0 14085
 S
 #14100
 The Euphrates~
@@ -3497,12 +3497,12 @@ D1
 The Euphrates
 ~
 ~
-0 0 14101
+Z 0 14101
 D3
 The Euphrates
 ~
 ~
-0 0 14099
+Z 0 14099
 S
 #14101
 The Euphrates~
@@ -3516,12 +3516,12 @@ D2
 The Euphrates
 ~
 ~
-0 0 14087
+Z 0 14087
 D3
 The Euphrates
 ~
 ~
-0 0 14100
+Z 0 14100
 S
 #14102
 Wormwood~
@@ -3535,7 +3535,7 @@ D0
 Wormwood
 ~
 ~
-0 0 14116
+Z 0 14116
 S
 #14103
 Armageddon~
@@ -3549,7 +3549,7 @@ D0
 Armageddon
 ~
 ~
-0 0 14117
+Z 0 14117
 S
 #14104
 The Euphrates~
@@ -3563,12 +3563,12 @@ D1
 The Euphrates
 ~
 ~
-0 0 14105
+Z 0 14105
 D2
 The Euphrates
 ~
 ~
-0 0 14090
+Z 0 14090
 S
 #14105
 The Euphrates at the Bridge~
@@ -3584,22 +3584,22 @@ D0
 Armageddon
 ~
 ~
-0 0 14119
+Z 0 14119
 D1
 The Euphrates
 ~
 ~
-0 0 14106
+Z 0 14106
 D2
 Armageddon
 ~
 ~
-0 0 14091
+Z 0 14091
 D3
 The Euphrates
 ~
 ~
-0 0 14104
+Z 0 14104
 S
 #14106
 The Euphrates~
@@ -3613,12 +3613,12 @@ D0
 The Euphrates
 ~
 ~
-0 0 14120
+Z 0 14120
 D3
 The Euphrates
 ~
 ~
-0 0 14105
+Z 0 14105
 S
 #14107
 Armageddon~
@@ -3632,12 +3632,12 @@ D1
 Armageddon
 ~
 ~
-0 0 14108
+Z 0 14108
 D2
 Armageddon
 ~
 ~
-0 0 14093
+Z 0 14093
 S
 #14108
 Armageddon~
@@ -3651,12 +3651,12 @@ D2
 Armageddon
 ~
 ~
-0 0 14094
+Z 0 14094
 D3
 Armageddon
 ~
 ~
-0 0 14107
+Z 0 14107
 S
 #14109
 The Euphrates~
@@ -3670,12 +3670,12 @@ D0
 The Euphrates
 ~
 ~
-0 0 14123
+Z 0 14123
 D1
 The Euphrates
 ~
 ~
-0 0 14110
+Z 0 14110
 S
 #14110
 The Euphrates~
@@ -3689,12 +3689,12 @@ D1
 The Euphrates
 ~
 ~
-0 0 14111
+Z 0 14111
 D3
 The Euphrates
 ~
 ~
-0 0 14109
+Z 0 14109
 S
 #14111
 The Euphrates~
@@ -3708,12 +3708,12 @@ D2
 The Euphrates
 ~
 ~
-0 0 14097
+Z 0 14097
 D3
 The Euphrates
 ~
 ~
-0 0 14110
+Z 0 14110
 S
 #14112
 The many waters~
@@ -3725,12 +3725,12 @@ D0
 Armageddon
 ~
 ~
-0 0 14126
+Z 0 14126
 D2
 More blood
 ~
 ~
-0 0 14098
+Z 0 14098
 S
 #14113
 Wormwood~
@@ -3744,17 +3744,17 @@ D0
 Wormwood
 ~
 ~
-0 0 14127
+Z 0 14127
 D1
 A strange glow
 ~
 ~
-0 0 14114
+Z 0 14114
 D2
 The Euphrates
 ~
 ~
-0 0 14099
+Z 0 14099
 S
 #14114
 Wormwood~
@@ -3771,17 +3771,17 @@ D0
 Wormwood
 ~
 ~
-0 0 14128
+Z 0 14128
 D1
 Wormwood
 ~
 ~
-0 0 14115
+Z 0 14115
 D3
 Wormwood
 ~
 ~
-0 0 14113
+Z 0 14113
 S
 #14115
 Wormwood~
@@ -3795,17 +3795,17 @@ D0
 Wormwood
 ~
 ~
-0 0 14129
+Z 0 14129
 D1
 Wormwood
 ~
 ~
-0 0 14116
+Z 0 14116
 D3
 A strange glow
 ~
 ~
-0 0 14114
+Z 0 14114
 S
 #14116
 Wormwood~
@@ -3819,12 +3819,12 @@ D2
 Wormwood
 ~
 ~
-0 0 14102
+Z 0 14102
 D3
 Wormwood
 ~
 ~
-0 0 14115
+Z 0 14115
 S
 #14117
 Armageddon~
@@ -3838,17 +3838,17 @@ D0
 Armageddon
 ~
 ~
-0 0 14131
+Z 0 14131
 D1
 Armageddon
 ~
 ~
-0 0 14118
+Z 0 14118
 D2
 Armageddon
 ~
 ~
-0 0 14103
+Z 0 14103
 S
 #14118
 Armageddon~
@@ -3862,17 +3862,17 @@ D0
 Armageddon
 ~
 ~
-0 0 14132
+Z 0 14132
 D1
 Armageddon
 ~
 ~
-0 0 14119
+Z 0 14119
 D3
 Armageddon
 ~
 ~
-0 0 14117
+Z 0 14117
 S
 #14119
 Armageddon~
@@ -3886,17 +3886,17 @@ D0
 Armageddon
 ~
 ~
-0 0 14133
+Z 0 14133
 D2
 A bridge over the Euphrates
 ~
 ~
-0 0 14105
+Z 0 14105
 D3
 Armageddon
 ~
 ~
-0 0 14118
+Z 0 14118
 S
 #14120
 The Euphrates~
@@ -3910,12 +3910,12 @@ D1
 The Euphrates
 ~
 ~
-0 0 14121
+Z 0 14121
 D2
 The Euphrates
 ~
 ~
-0 0 14106
+Z 0 14106
 S
 #14121
 The Euphrates~
@@ -3929,12 +3929,12 @@ D1
 The Euphrates
 ~
 ~
-0 0 14122
+Z 0 14122
 D3
 The Euphrates
 ~
 ~
-0 0 14120
+Z 0 14120
 S
 #14122
 The Euphrates~
@@ -3948,12 +3948,12 @@ D1
 The Euphrates
 ~
 ~
-0 0 14123
+Z 0 14123
 D3
 The Euphrates
 ~
 ~
-0 0 14121
+Z 0 14121
 S
 #14123
 The Euphrates~
@@ -3967,12 +3967,12 @@ D2
 The Euphrates
 ~
 ~
-0 0 14109
+Z 0 14109
 D3
 The Euphrates
 ~
 ~
-0 0 14122
+Z 0 14122
 S
 #14124
 Armageddon~
@@ -3986,12 +3986,12 @@ D0
 Armageddon
 ~
 ~
-0 0 14138
+Z 0 14138
 D1
 Armageddon
 ~
 ~
-0 0 14125
+Z 0 14125
 S
 #14125
 Armageddon~
@@ -4005,17 +4005,17 @@ D0
 Armageddon
 ~
 ~
-0 0 14139
+Z 0 14139
 D1
 Armageddon
 ~
 ~
-0 0 14126
+Z 0 14126
 D3
 Armageddon
 ~
 ~
-0 0 14124
+Z 0 14124
 S
 #14126
 Armageddon~
@@ -4029,12 +4029,12 @@ D0
 Armageddon
 ~
 ~
-0 0 14140
+Z 0 14140
 D3
 Armageddon
 ~
 ~
-0 0 14125
+Z 0 14125
 S
 #14127
 Wormwood~
@@ -4048,12 +4048,12 @@ D1
 Wormwood
 ~
 ~
-0 0 14128
+Z 0 14128
 D2
 Wormwood
 ~
 ~
-0 0 14113
+Z 0 14113
 S
 #14128
 Wormwood~
@@ -4067,17 +4067,17 @@ D1
 Wormwood
 ~
 ~
-0 0 14129
+Z 0 14129
 D2
 A strange glow
 ~
 ~
-0 0 14114
+Z 0 14114
 D3
 Wormwood
 ~
 ~
-0 0 14127
+Z 0 14127
 S
 #14129
 Wormwood~
@@ -4091,12 +4091,12 @@ D2
 Wormwood
 ~
 ~
-0 0 14115
+Z 0 14115
 D3
 Wormwood
 ~
 ~
-0 0 14128
+Z 0 14128
 S
 #14130
 Armageddon~
@@ -4110,12 +4110,12 @@ D0
 Armageddon
 ~
 ~
-0 0 14144
+Z 0 14144
 D1
 Armageddon
 ~
 ~
-0 0 14131
+Z 0 14131
 S
 #14131
 Armageddon~
@@ -4129,17 +4129,17 @@ D1
 Armageddon
 ~
 ~
-0 0 14132
+Z 0 14132
 D2
 Armageddon
 ~
 ~
-0 0 14117
+Z 0 14117
 D3
 Armageddon
 ~
 ~
-0 0 14130
+Z 0 14130
 S
 #14132
 Armageddon~
@@ -4153,17 +4153,17 @@ D1
 Armageddon
 ~
 ~
-0 0 14133
+Z 0 14133
 D2
 Armageddon
 ~
 ~
-0 0 14118
+Z 0 14118
 D3
 Armageddon
 ~
 ~
-0 0 14131
+Z 0 14131
 S
 #14133
 Armageddon~
@@ -4177,22 +4177,22 @@ D0
 Gog
 ~
 ~
-0 0 14147
+Z 0 14147
 D1
 Armageddon
 ~
 ~
-0 0 14134
+Z 0 14134
 D2
 Armageddon
 ~
 ~
-0 0 14119
+Z 0 14119
 D3
 Armageddon
 ~
 ~
-0 0 14132
+Z 0 14132
 S
 #14134
 Armageddon~
@@ -4206,12 +4206,12 @@ D1
 Armageddon
 ~
 ~
-0 0 14135
+Z 0 14135
 D3
 Armageddon
 ~
 ~
-0 0 14133
+Z 0 14133
 S
 #14135
 Armageddon~
@@ -4225,12 +4225,12 @@ D1
 Armageddon
 ~
 ~
-0 0 14136
+Z 0 14136
 D3
 Armageddon
 ~
 ~
-0 0 14134
+Z 0 14134
 S
 #14136
 Armageddon~
@@ -4244,17 +4244,17 @@ D0
 Armageddon
 ~
 ~
-0 0 14150
+Z 0 14150
 D1
 Armageddon
 ~
 ~
-0 0 14137
+Z 0 14137
 D3
 Armageddon
 ~
 ~
-0 0 14135
+Z 0 14135
 S
 #14137
 Armageddon~
@@ -4268,17 +4268,17 @@ D0
 Armageddon
 ~
 ~
-0 0 14151
+Z 0 14151
 D1
 Armageddon
 ~
 ~
-0 0 14138
+Z 0 14138
 D3
 Armageddon
 ~
 ~
-0 0 14136
+Z 0 14136
 S
 #14138
 Armageddon~
@@ -4292,22 +4292,22 @@ D0
 Into the heavens
 ~
 ~
-0 0 14152
+Z 0 14152
 D1
 Armageddon
 ~
 ~
-0 0 14139
+Z 0 14139
 D2
 Armageddon
 ~
 ~
-0 0 14124
+Z 0 14124
 D3
 Armageddon
 ~
 ~
-0 0 14137
+Z 0 14137
 S
 #14139
 Armageddon~
@@ -4321,17 +4321,17 @@ D1
 Armageddon
 ~
 ~
-0 0 14140
+Z 0 14140
 D2
 Armageddon
 ~
 ~
-0 0 14125
+Z 0 14125
 D3
 Armageddon
 ~
 ~
-0 0 14138
+Z 0 14138
 S
 #14140
 Armageddon~
@@ -4345,12 +4345,12 @@ D2
 Armageddon
 ~
 ~
-0 0 14126
+Z 0 14126
 D3
 Armageddon
 ~
 ~
-0 0 14139
+Z 0 14139
 S
 #14141
 The shaking lands~
@@ -4363,12 +4363,12 @@ D0
 The shaking lands
 ~
 ~
-0 0 14155
+Z 0 14155
 D1
 The shaking lands
 ~
 ~
-0 0 14142
+Z 0 14142
 S
 #14142
 The shaking lands~
@@ -4381,17 +4381,17 @@ D0
 The shaking lands
 ~
 ~
-0 0 14156
+Z 0 14156
 D1
 The shaking lands
 ~
 ~
-0 0 14143
+Z 0 14143
 D3
 The shaking lands
 ~
 ~
-0 0 14141
+Z 0 14141
 S
 #14143
 The shaking lands~
@@ -4404,12 +4404,12 @@ D0
 The shaking lands
 ~
 ~
-0 0 14157
+Z 0 14157
 D3
 The shaking lands
 ~
 ~
-0 0 14142
+Z 0 14142
 S
 #14144
 Armageddon~
@@ -4423,12 +4423,12 @@ D0
 Armageddon
 ~
 ~
-0 0 14158
+Z 0 14158
 D2
 Armageddon
 ~
 ~
-0 0 14130
+Z 0 14130
 S
 #14145
 Gog~
@@ -4443,12 +4443,12 @@ D0
 Gog
 ~
 ~
-0 0 14159
+Z 0 14159
 D1
 Gog
 ~
 ~
-0 0 14146
+Z 0 14146
 S
 #14146
 Gog~
@@ -4462,17 +4462,17 @@ D0
 Gog
 ~
 ~
-0 0 14160
+Z 0 14160
 D1
 Gog
 ~
 ~
-0 0 14147
+Z 0 14147
 D3
 Gog
 ~
 ~
-0 0 14145
+Z 0 14145
 S
 #14147
 Gog~
@@ -4486,22 +4486,22 @@ D0
 Gog
 ~
 ~
-0 0 14161
+Z 0 14161
 D1
 Gog
 ~
 ~
-0 0 14148
+Z 0 14148
 D2
 Armageddon
 ~
 ~
-0 0 14133
+Z 0 14133
 D3
 Gog
 ~
 ~
-0 0 14146
+Z 0 14146
 S
 #14148
 Gog~
@@ -4516,17 +4516,17 @@ D0
 Gog
 ~
 ~
-0 0 14162
+Z 0 14162
 D1
 Gog
 ~
 ~
-0 0 14149
+Z 0 14149
 D3
 Gog
 ~
 ~
-0 0 14147
+Z 0 14147
 S
 #14149
 Gog~
@@ -4544,12 +4544,12 @@ D0
 Gog
 ~
 ~
-0 0 14163
+Z 0 14163
 D3
 Gog
 ~
 ~
-0 0 14148
+Z 0 14148
 S
 #14150
 Armageddon~
@@ -4563,17 +4563,17 @@ D0
 Armageddon
 ~
 ~
-0 0 14164
+Z 0 14164
 D1
 Armageddon
 ~
 ~
-0 0 14151
+Z 0 14151
 D2
 Armageddon
 ~
 ~
-0 0 14136
+Z 0 14136
 S
 #14151
 Armageddon~
@@ -4587,17 +4587,17 @@ D0
 Armageddon
 ~
 ~
-0 0 14165
+Z 0 14165
 D2
 Armageddon
 ~
 ~
-0 0 14137
+Z 0 14137
 D3
 Armageddon
 ~
 ~
-0 0 14150
+Z 0 14150
 S
 #14152
 The heavens~
@@ -4611,17 +4611,17 @@ D0
 The heavens
 ~
 ~
-0 0 14166
+Z 0 14166
 D1
 The heavens
 ~
 ~
-0 0 14153
+Z 0 14153
 D2
 Armageddon
 ~
 ~
-0 0 14138
+Z 0 14138
 S
 #14153
 The heavens~
@@ -4635,17 +4635,17 @@ D0
 The heavens
 ~
 ~
-0 0 14167
+Z 0 14167
 D1
 The heavens
 ~
 ~
-0 0 14154
+Z 0 14154
 D3
 The heavens
 ~
 ~
-0 0 14152
+Z 0 14152
 S
 #14154
 The heavens~
@@ -4659,12 +4659,12 @@ D0
 The heavens
 ~
 ~
-0 0 14168
+Z 0 14168
 D3
 The heavens
 ~
 ~
-0 0 14153
+Z 0 14153
 S
 #14155
 The shaking lands~
@@ -4677,17 +4677,17 @@ D0
 The corner of the world
 ~
 ~
-0 0 14169
+Z 0 14169
 D1
 The shaking lands
 ~
 ~
-0 0 14156
+Z 0 14156
 D2
 The shaking lands
 ~
 ~
-0 0 14141
+Z 0 14141
 S
 #14156
 The shaking lands~
@@ -4700,22 +4700,22 @@ D0
 The shaking lands
 ~
 ~
-0 0 14170
+Z 0 14170
 D1
 The shaking lands
 ~
 ~
-0 0 14157
+Z 0 14157
 D2
 The shaking lands
 ~
 ~
-0 0 14142
+Z 0 14142
 D3
 The shaking lands
 ~
 ~
-0 0 14155
+Z 0 14155
 S
 #14157
 The shaking lands~
@@ -4728,22 +4728,22 @@ D0
 The shaking lands
 ~
 ~
-0 0 14171
+Z 0 14171
 D1
 Armageddon
 ~
 ~
-0 0 14158
+Z 0 14158
 D2
 The shaking lands
 ~
 ~
-0 0 14143
+Z 0 14143
 D3
 The shaking lands
 ~
 ~
-0 0 14156
+Z 0 14156
 S
 #14158
 Armageddon~
@@ -4757,17 +4757,17 @@ D0
 Armageddon
 ~
 ~
-0 0 14172
+Z 0 14172
 D2
 Armageddon
 ~
 ~
-0 0 14144
+Z 0 14144
 D3
 The shaking lands
 ~
 ~
-0 0 14157
+Z 0 14157
 S
 #14159
 Gog~
@@ -4781,17 +4781,17 @@ D0
 Gog
 ~
 ~
-0 0 14173
+Z 0 14173
 D1
 Gog
 ~
 ~
-0 0 14160
+Z 0 14160
 D2
 Gog
 ~
 ~
-0 0 14145
+Z 0 14145
 S
 #14160
 Gog~
@@ -4805,22 +4805,22 @@ D0
 Gog
 ~
 ~
-0 0 14174
+Z 0 14174
 D1
 Gog
 ~
 ~
-0 0 14161
+Z 0 14161
 D2
 Gog
 ~
 ~
-0 0 14146
+Z 0 14146
 D3
 Gog
 ~
 ~
-0 0 14159
+Z 0 14159
 S
 #14161
 Gog~
@@ -4838,22 +4838,22 @@ D0
 The unholy shrine
 ~
 ~
-0 0 14175
+Z 0 14175
 D1
 Gog
 ~
 ~
-0 0 14162
+Z 0 14162
 D2
 Gog
 ~
 ~
-0 0 14147
+Z 0 14147
 D3
 Gog
 ~
 ~
-0 0 14160
+Z 0 14160
 S
 #14162
 Gog~
@@ -4868,22 +4868,22 @@ D0
 Gog
 ~
 ~
-0 0 14176
+Z 0 14176
 D1
 Gog
 ~
 ~
-0 0 14163
+Z 0 14163
 D2
 Gog
 ~
 ~
-0 0 14148
+Z 0 14148
 D3
 Gog
 ~
 ~
-0 0 14161
+Z 0 14161
 S
 #14163
 Gog~
@@ -4897,17 +4897,17 @@ D0
 Gog
 ~
 ~
-0 0 14177
+Z 0 14177
 D2
 Gog
 ~
 ~
-0 0 14149
+Z 0 14149
 D3
 Gog
 ~
 ~
-0 0 14162
+Z 0 14162
 S
 #14164
 Armageddon~
@@ -4921,17 +4921,17 @@ D0
 Armageddon
 ~
 ~
-0 0 14178
+Z 0 14178
 D1
 Armageddon
 ~
 ~
-0 0 14165
+Z 0 14165
 D2
 Armageddon
 ~
 ~
-0 0 14150
+Z 0 14150
 S
 #14165
 Armageddon~
@@ -4945,17 +4945,17 @@ D0
 Armageddon
 ~
 ~
-0 0 14179
+Z 0 14179
 D2
 Armageddon
 ~
 ~
-0 0 14151
+Z 0 14151
 D3
 Armageddon
 ~
 ~
-0 0 14164
+Z 0 14164
 S
 #14166
 The heavens~
@@ -4969,17 +4969,17 @@ D0
 The heavens
 ~
 ~
-0 0 14180
+Z 0 14180
 D1
 The heavens
 ~
 ~
-0 0 14167
+Z 0 14167
 D2
 The heavens
 ~
 ~
-0 0 14152
+Z 0 14152
 S
 #14167
 The heavens~
@@ -4994,22 +4994,22 @@ D0
 The heavens
 ~
 ~
-0 0 14181
+Z 0 14181
 D1
 The heavens
 ~
 ~
-0 0 14168
+Z 0 14168
 D2
 The heavens
 ~
 ~
-0 0 14153
+Z 0 14153
 D3
 The heavens
 ~
 ~
-0 0 14166
+Z 0 14166
 S
 #14168
 The heavens~
@@ -5023,17 +5023,17 @@ D0
 The corner of the world
 ~
 ~
-0 0 14182
+Z 0 14182
 D2
 The heavens
 ~
 ~
-0 0 14154
+Z 0 14154
 D3
 The heavens
 ~
 ~
-0 0 14167
+Z 0 14167
 S
 #14169
 The corner of the world~
@@ -5047,12 +5047,12 @@ D1
 The shaking lands
 ~
 ~
-0 0 14170
+Z 0 14170
 D2
 The shaking lands
 ~
 ~
-0 0 14155
+Z 0 14155
 S
 #14170
 The shaking lands~
@@ -5065,17 +5065,17 @@ D1
 The shaking lands
 ~
 ~
-0 0 14171
+Z 0 14171
 D2
 The shaking lands
 ~
 ~
-0 0 14156
+Z 0 14156
 D3
 The corner of the world
 ~
 ~
-0 0 14169
+Z 0 14169
 S
 #14171
 The shaking lands~
@@ -5088,12 +5088,12 @@ D2
 The shaking lands
 ~
 ~
-0 0 14157
+Z 0 14157
 D3
 The shaking lands
 ~
 ~
-0 0 14170
+Z 0 14170
 S
 #14172
 Armageddon~
@@ -5107,7 +5107,7 @@ D2
 Armageddon
 ~
 ~
-0 0 14158
+Z 0 14158
 S
 #14173
 Gog~
@@ -5121,12 +5121,12 @@ D1
 Gog
 ~
 ~
-0 0 14174
+Z 0 14174
 D2
 Gog
 ~
 ~
-0 0 14159
+Z 0 14159
 S
 #14174
 Gog~
@@ -5140,17 +5140,17 @@ D1
 The unholy shrine
 ~
 ~
-0 0 14175
+Z 0 14175
 D2
 Gog
 ~
 ~
-0 0 14160
+Z 0 14160
 D3
 Gog
 ~
 ~
-0 0 14173
+Z 0 14173
 S
 #14175
 The unholy shrine~
@@ -5165,17 +5165,17 @@ D1
 Gog
 ~
 ~
-0 0 14176
+Z 0 14176
 D2
 Gog
 ~
 ~
-0 0 14161
+Z 0 14161
 D3
 Gog
 ~
 ~
-0 0 14174
+Z 0 14174
 S
 #14176
 Gog~
@@ -5189,17 +5189,17 @@ D1
 Gog
 ~
 ~
-0 0 14177
+Z 0 14177
 D2
 Gog
 ~
 ~
-0 0 14162
+Z 0 14162
 D3
 The unholy shrine
 ~
 ~
-0 0 14175
+Z 0 14175
 S
 #14177
 Gog~
@@ -5213,12 +5213,12 @@ D2
 Gog
 ~
 ~
-0 0 14163
+Z 0 14163
 D3
 Gog
 ~
 ~
-0 0 14176
+Z 0 14176
 S
 #14178
 Armageddon~
@@ -5232,12 +5232,12 @@ D1
 Armageddon
 ~
 ~
-0 0 14179
+Z 0 14179
 D2
 Armageddon
 ~
 ~
-0 0 14164
+Z 0 14164
 S
 #14179
 Armageddon~
@@ -5251,12 +5251,12 @@ D2
 Armageddon
 ~
 ~
-0 0 14165
+Z 0 14165
 D3
 Armageddon
 ~
 ~
-0 0 14178
+Z 0 14178
 S
 #14180
 The heavens~
@@ -5270,12 +5270,12 @@ D1
 The heavens
 ~
 ~
-0 0 14181
+Z 0 14181
 D2
 The heavens
 ~
 ~
-0 0 14166
+Z 0 14166
 S
 #14181
 The heavens~
@@ -5289,17 +5289,17 @@ D1
 The corner of the world
 ~
 ~
-0 0 14182
+Z 0 14182
 D2
 The heavens
 ~
 ~
-0 0 14167
+Z 0 14167
 D3
 The heavens
 ~
 ~
-0 0 14180
+Z 0 14180
 S
 #14182
 The corner of the world~
@@ -5323,17 +5323,17 @@ D2
 The heavens
 ~
 ~
-0 0 14168
+Z 0 14168
 D3
 The heavens
 ~
 ~
-0 0 14181
+Z 0 14181
 D5
 Into the throne room
 ~
 yourheart~
-2 0 14191
+AFZ 0 14191
 S
 #14183
 The bottomless pit~
@@ -5344,7 +5344,7 @@ D5
 Falling further into the black pit
 ~
 ~
-0 0 14184
+Z 0 14184
 S
 #14184
 The bottomless pit~
@@ -5355,7 +5355,7 @@ D5
 Falling further into the black pit
 ~
 ~
-0 0 14185
+Z 0 14185
 S
 #14185
 The bottomless pit~
@@ -5366,7 +5366,7 @@ D5
 Falling further into the black pit
 ~
 ~
-0 0 14186
+Z 0 14186
 S
 #14186
 The bottomless pit~
@@ -5377,7 +5377,7 @@ D5
 Falling further into the black pit
 ~
 ~
-0 0 14187
+Z 0 14187
 S
 #14187
 The bottomless pit~
@@ -5388,7 +5388,7 @@ D5
 Falling further into the black pit
 ~
 ~
-0 0 14188
+Z 0 14188
 S
 #14188
 The bottomless pit~
@@ -5399,7 +5399,7 @@ D5
 Falling further into the black pit
 ~
 ~
-0 0 14189
+Z 0 14189
 S
 #14189
 The bottomless pit~
@@ -5410,7 +5410,7 @@ D5
 Falling further into the black pit
 ~
 ~
-0 0 14190
+Z 0 14190
 S
 #14190
 The bottomless pit~
@@ -5421,7 +5421,7 @@ D5
 Falling further into the black pit
 ~
 ~
-0 0 14183
+Z 0 14183
 S
 #14191
 In the throne room~
@@ -5434,12 +5434,12 @@ D0
 The throne room
 ~
 ~
-0 0 14194
+Z 0 14194
 D1
 The throne room
 ~
 ~
-0 0 14192
+Z 0 14192
 S
 #14192
 In the throne room~
@@ -5452,17 +5452,17 @@ D0
 The throne room
 ~
 ~
-0 0 14195
+Z 0 14195
 D1
 The throne room
 ~
 ~
-0 0 14193
+Z 0 14193
 D3
 The throne room
 ~
 ~
-0 0 14191
+Z 0 14191
 S
 #14193
 In the throne room~
@@ -5475,12 +5475,12 @@ D0
 The throne room
 ~
 ~
-0 0 14196
+Z 0 14196
 D3
 The throne room
 ~
 ~
-0 0 14192
+Z 0 14192
 S
 #14194
 In the throne room~
@@ -5493,17 +5493,17 @@ D0
 The throne room
 ~
 ~
-0 0 14197
+Z 0 14197
 D1
 The throne room
 ~
 ~
-0 0 14195
+Z 0 14195
 D2
 The throne room
 ~
 ~
-0 0 14191
+Z 0 14191
 S
 #14195
 In the throne room~
@@ -5516,22 +5516,22 @@ D0
 At the throne
 ~
 ~
-0 0 14198
+Z 0 14198
 D1
 The throne room
 ~
 ~
-0 0 14196
+Z 0 14196
 D2
 The throne room
 ~
 ~
-0 0 14192
+Z 0 14192
 D3
 The throne room
 ~
 ~
-0 0 14194
+Z 0 14194
 S
 #14196
 In the throne room~
@@ -5544,17 +5544,17 @@ D0
 The throne room
 ~
 ~
-0 0 14199
+Z 0 14199
 D2
 The throne room
 ~
 ~
-0 0 14193
+Z 0 14193
 D3
 The throne room
 ~
 ~
-0 0 14195
+Z 0 14195
 S
 #14197
 In the throne room~
@@ -5567,12 +5567,12 @@ D1
 At the throne
 ~
 ~
-0 0 14198
+Z 0 14198
 D2
 The throne room
 ~
 ~
-0 0 14194
+Z 0 14194
 S
 #14198
 At the throne~
@@ -5585,22 +5585,22 @@ D1
 The throne room
 ~
 ~
-0 0 14199
+Z 0 14199
 D2
 The throne room
 ~
 ~
-0 0 14195
+Z 0 14195
 D3
 The throne room
 ~
 ~
-0 0 14197
+Z 0 14197
 D4
 Into the black hole
 ~
 ~
-0 0 1
+Z 0 1
 S
 #14199
 In the throne room~
@@ -5613,12 +5613,12 @@ D2
 The throne room
 ~
 ~
-0 0 14196
+Z 0 14196
 D3
 At the throne
 ~
 ~
-0 0 14198
+Z 0 14198
 S
 #0
 

@@ -878,11 +878,11 @@ D3
 The shadows cloud your vision.
 ~
 ~
-0 -1 1306
+Z -1 1306
 D5
 ~
 ~
-0 -1 9302
+Z -1 9302
 S
 #9302
 Inside the Crystal Ball~
@@ -894,7 +894,7 @@ choice but to go forward.
 D0
 ~
 ~
-0 -1 9303
+Z -1 9303
 S
 #9303
 Inside the Galaxy~
@@ -907,19 +907,19 @@ fantasy zone.  Exits lie virtually in all directions.
 D0
 ~
 ~
-0 -1 9304
+Z -1 9304
 D1
 ~
 ~
-0 -1 9308
+Z -1 9308
 D2
 ~
 ~
-0 -1 9302
+Z -1 9302
 D3
 ~
 ~
-0 -1 9321
+Z -1 9321
 S
 #9304
 On an InterGalactic Walkway~
@@ -930,15 +930,15 @@ visitors like you.  The walkway continues north and a small exit lies west.
 D0
 ~
 ~
-0 -1 9305
+Z -1 9305
 D2
 ~
 ~
-0 -1 9303
+Z -1 9303
 D3
 ~
 ~
-0 -1 9322
+Z -1 9322
 S
 #9305
 End of the InterGalactic Walkway~
@@ -950,19 +950,19 @@ To the east lies a bridge.
 D0
 ~
 ~
-0 -1 9306
+Z -1 9306
 D1
 ~
 ~
-0 -1 9309
+Z -1 9309
 D2
 ~
 ~
-0 -1 9304
+Z -1 9304
 D3
 ~
 ~
-0 -1 9323
+Z -1 9323
 S
 #9306
 At the Undeveloped Part of the Galaxy~
@@ -973,11 +973,11 @@ is around.
 D2
 ~
 ~
-0 -1 9305
+Z -1 9305
 D3
 ~
 ~
-0 -1 9324
+Z -1 9324
 S
 #9308
 On the Bridge of Stars~
@@ -990,15 +990,15 @@ the east lies the Milky Way.
 D0
 ~
 ~
-0 -1 9331
+Z -1 9331
 D1
 ~
 ~
-0 -1 9312
+Z -1 9312
 D3
 ~
 ~
-0 -1 9303
+Z -1 9303
 S
 #9309
 On the Bridge of Nebulae~
@@ -1010,15 +1010,15 @@ a throne room.
 D0
 ~
 ~
-0 -1 9310
+Z -1 9310
 D1
 ~
 ~
-0 -1 9314
+Z -1 9314
 D3
 ~
 ~
-0 -1 9305
+Z -1 9305
 S
 #9310
 The Throne Room of the Nebula King~
@@ -1030,7 +1030,7 @@ the King has gone, maybe he is hiding from you?
 D2
 ~
 ~
-0 -1 9309
+Z -1 9309
 S
 #9312
 At the Start of the Milky Way~
@@ -1042,11 +1042,11 @@ here ... luckily you haven't fallen yet!
 D0
 ~
 ~
-0 -1 9313
+Z -1 9313
 D3
 ~
 ~
-0 -1 9308
+Z -1 9308
 S
 #9313
 Along the Milky Way~
@@ -1057,15 +1057,15 @@ opening to the east.
 D0
 ~
 ~
-0 -1 9314
+Z -1 9314
 D1
 ~
 ~
-0 -1 9317
+Z -1 9317
 D2
 ~
 ~
-0 -1 9312
+Z -1 9312
 S
 #9314
 At the End of the Milky Way~
@@ -1076,15 +1076,15 @@ the end of it.  West leads to a bridge and east leads to somewhere else.
 D1
 ~
 ~
-0 -1 9318
+Z -1 9318
 D2
 ~
 ~
-0 -1 9313
+Z -1 9313
 D3
 ~
 ~
-0 -1 9309
+Z -1 9309
 S
 #9317
 A Small Clearing~
@@ -1095,11 +1095,11 @@ living creature nearby.
 D0
 ~
 ~
-0 -1 9318
+Z -1 9318
 D3
 ~
 ~
-0 -1 9313
+Z -1 9313
 S
 #9318
 An Edge of the Galaxy~
@@ -1110,15 +1110,15 @@ is a path which leads down.
 D2
 ~
 ~
-0 -1 9317
+Z -1 9317
 D3
 ~
 ~
-0 -1 9314
+Z -1 9314
 D5
 ~
 ~
-0 -1 9319
+Z -1 9319
 S
 #9319
 Very Near to a Gigantic Star~
@@ -1130,19 +1130,19 @@ better leave.
 D0
 ~
 ~
-0 -1 9320
+Z -1 9320
 D1
 ~
 ~
-0 -1 9320
+Z -1 9320
 D2
 ~
 ~
-0 -1 9320
+Z -1 9320
 D3
 ~
 ~
-0 -1 9320
+Z -1 9320
 S
 #9320
 Too Bright to Tell~
@@ -1163,11 +1163,11 @@ and nothing else.  You eyes become pretty hurt as you look at them.
 D0
 ~
 ~
-0 -1 9322
+Z -1 9322
 D1
 ~
 ~
-0 -1 9303
+Z -1 9303
 S
 #9322
 Another Edge of the Galaxy~
@@ -1177,15 +1177,15 @@ This is another uninhabited place.  Exits lie north, east and south.
 D0
 ~
 ~
-0 -1 9323
+Z -1 9323
 D1
 ~
 ~
-0 -1 9304
+Z -1 9304
 D2
 ~
 ~
-0 -1 9321
+Z -1 9321
 S
 #9323
 Corner of the Galaxy~
@@ -1196,15 +1196,15 @@ courses now prove worthless.  Well who told you to take one at the start?
 D0
 ~
 ~
-0 -1 9324
+Z -1 9324
 D1
 ~
 ~
-0 -1 9305
+Z -1 9305
 D2
 ~
 ~
-0 -1 9322
+Z -1 9322
 S
 #9324
 Lost in Space~
@@ -1215,15 +1215,15 @@ you can sense darkness engulfing you.  You'd better get out quick.
 D0
 ~
 ~
-0 -1 9325
+Z -1 9325
 D1
 ~
 ~
-0 -1 9306
+Z -1 9306
 D2
 ~
 ~
-0 -1 9323
+Z -1 9323
 S
 #9325
 Black Hole~
@@ -1241,11 +1241,11 @@ This is where the famous Seven Sisters live.  You'd better not disturb them.
 D1
 ~
 ~
-0 -1 9329
+Z -1 9329
 D2
 ~
 ~
-0 -1 9327
+Z -1 9327
 S
 #9327
 Western Side of the Temple~
@@ -1256,15 +1256,15 @@ directions except west.
 D0
 ~
 ~
-0 -1 9326
+Z -1 9326
 D1
 ~
 ~
-0 -1 9330
+Z -1 9330
 D2
 ~
 ~
-0 -1 9328
+Z -1 9328
 S
 #9328
 Orion's Hunting Lodge~
@@ -1275,11 +1275,11 @@ Scattered on the floor is the famous hunting equipment used by him.
 D0
 ~
 ~
-0 -1 9327
+Z -1 9327
 D1
 ~
 ~
-0 -1 9331
+Z -1 9331
 S
 #9329
 Northern Side of the Temple~
@@ -1290,15 +1290,15 @@ directions except north.
 D1
 ~
 ~
-0 -1 9332
+Z -1 9332
 D2
 ~
 ~
-0 -1 9330
+Z -1 9330
 D3
 ~
 ~
-0 -1 9326
+Z -1 9326
 S
 #9330
 The Offering Chamber~
@@ -1311,27 +1311,27 @@ Below you recognize the temple of Thalos.
 D0
 ~
 ~
-0 -1 9329
+Z -1 9329
 D1
 ~
 ~
-0 -1 9333
+Z -1 9333
 D2
 ~
 ~
-0 -1 9331
+Z -1 9331
 D3
 ~
 ~
-0 -1 9327
+Z -1 9327
 D4
 ~
 ~
-0 -1 9339
+Z -1 9339
 D5
 ~
 ~
-0 -1 5250
+Z -1 5250
 S
 #9331
 The Entrance of the Ancient Temple~
@@ -1343,19 +1343,19 @@ Universe.
 D0
 ~
 ~
-0 -1 9330
+Z -1 9330
 D1
 ~
 ~
-0 -1 9334
+Z -1 9334
 D2
 ~
 ~
-0 -1 9308
+Z -1 9308
 D3
 ~
 ~
-0 -1 9328
+Z -1 9328
 S
 #9332
 Hercules' Mighty Throne~
@@ -1366,11 +1366,11 @@ that he got from the Ten Labours.
 D2
 ~
 ~
-0 -1 9333
+Z -1 9333
 D3
 ~
 ~
-0 -1 9329
+Z -1 9329
 S
 #9333
 Eastern Side of the Temple~
@@ -1381,15 +1381,15 @@ directions except east.
 D0
 ~
 ~
-0 -1 9332
+Z -1 9332
 D2
 ~
 ~
-0 -1 9334
+Z -1 9334
 D3
 ~
 ~
-0 -1 9330
+Z -1 9330
 S
 #9334
 Perseus' Chamber~
@@ -1400,11 +1400,11 @@ Maybe he has gone to get Pegasus to save Andromeda?
 D0
 ~
 ~
-0 -1 9333
+Z -1 9333
 D3
 ~
 ~
-0 -1 9331
+Z -1 9331
 S
 #9339
 On the Mystic Chains~
@@ -1416,28 +1416,28 @@ you from going further upwards.
 D0
 ~
 ~
-0 -1 9348
+Z -1 9348
 D1
 ~
 ~
-0 -1 9351
+Z -1 9351
 D2
 ~
 ~
-0 -1 9342
+Z -1 9342
 D3
 ~
 ~
-0 -1 9345
+Z -1 9345
 D4
 You see the forcefield of Spring.
 ~
 forcefield~
-2 9324 9354
+ABCFZ 9324 9354
 D5
 ~
 ~
-0 -1 9330
+Z -1 9330
 S
 #9342
 On a Hill~
@@ -1448,15 +1448,15 @@ that Spring has descended upon you.
 D0
 ~
 ~
-0 -1 9339
+Z -1 9339
 D1
 ~
 ~
-0 -1 9353
+Z -1 9353
 D3
 ~
 ~
-0 -1 9343
+Z -1 9343
 S
 #9343
 Inside a Spanish Bull-Ring~
@@ -1467,11 +1467,11 @@ there are no Matadors around.  Maybe they are all dead?
 D1
 ~
 ~
-0 -1 9342
+Z -1 9342
 D3
 ~
 ~
-0 -1 9344
+Z -1 9344
 S
 #9344
 Inside a study~
@@ -1483,7 +1483,7 @@ two Gemini?
 D1
 ~
 ~
-0 -1 9343
+Z -1 9343
 S
 #9345
 Along the seashore~
@@ -1494,11 +1494,11 @@ hidden forms which could be camouflaged crabs.
 D1
 ~
 ~
-0 -1 9339
+Z -1 9339
 D3
 ~
 ~
-0 -1 9346
+Z -1 9346
 S
 #9346
 Within the Deep Jungle~
@@ -1509,7 +1509,7 @@ overgrowth you think you glimpse a pair of menacing eyes.
 D1
 ~
 ~
-0 -1 9345
+Z -1 9345
 S
 #9347
 Inside a Luxurious Bedroom~
@@ -1520,7 +1520,7 @@ It's a double bed and there is only room for one more!  Well, what now ... ?
 D3
 ~
 ~
-0 -1 9348
+Z -1 9348
 S
 #9348
 The Supreme Court~
@@ -1532,15 +1532,15 @@ and feel yourself exposed, just like the trees in Autumn.
 D1
 ~
 ~
-0 -1 9347
+Z -1 9347
 D2
 ~
 ~
-0 -1 9339
+Z -1 9339
 D3
 ~
 ~
-0 -1 9349
+Z -1 9349
 S
 #9349
 In the Dry Desert~
@@ -1551,11 +1551,11 @@ heat you see the hazy outline of a giant scorpion ... is this a mirage?
 D1
 ~
 ~
-0 -1 9348
+Z -1 9348
 D3
 ~
 ~
-0 -1 9350
+Z -1 9350
 S
 #9350
 In the Woods~
@@ -1566,7 +1566,7 @@ hide yourself before you become the 'center attraction'!
 D1
 ~
 ~
-0 -1 9349
+Z -1 9349
 S
 #9351
 On a Mountain Peak~
@@ -1577,11 +1577,11 @@ clouds below you.  One of the clouds resembles a goat-like form.
 D1
 ~
 ~
-0 -1 9352
+Z -1 9352
 D3
 ~
 ~
-0 -1 9339
+Z -1 9339
 S
 #9352
 Inside a Waterfall~
@@ -1592,7 +1592,7 @@ that the water is being poured out of a vessel of mind-boggling proportions!
 D3
 ~
 ~
-0 -1 9351
+Z -1 9351
 S
 #9353
 Inside a Gigantic Clam~
@@ -1603,7 +1603,7 @@ You suspect something fishy is going on in here.
 D3
 ~
 ~
-0 -1 9342
+Z -1 9342
 S
 #9354
 End of the Mystic Chains~
@@ -1616,12 +1616,12 @@ D4
 You see the forcefield of Summer.
 ~
 forcefield~
-2 9325 9355
+ABCFZ 9325 9355
 D5
 You see the forcefield of Spring.
 ~
 ~
-2 9324 9339
+AFZ 9324 9339
 S
 #9355
 On the Draco~
@@ -1632,11 +1632,11 @@ is made of, you feel the ground move.
 D0
 ~
 ~
-0 -1 9356
+Z -1 9356
 D5
 ~
 ~
-2 9325 9354
+AFZ 9325 9354
 S
 #9356
 Tail of the Draco~
@@ -1648,11 +1648,11 @@ actually flying now!
 D0
 ~
 ~
-0 -1 9357
+Z -1 9357
 D2
 ~
 ~
-0 -1 9355
+Z -1 9355
 S
 #9357
 Path of the Draco~
@@ -1663,11 +1663,11 @@ you can reach to the inner galaxy is by going all the way to the head.
 D0
 ~
 ~
-0 -1 9358
+Z -1 9358
 D2
 ~
 ~
-0 -1 9356
+Z -1 9356
 S
 #9358
 Near the Legs of Draco~
@@ -1679,11 +1679,11 @@ distant stars.
 D0
 ~
 ~
-0 -1 9359
+Z -1 9359
 D2
 ~
 ~
-0 -1 9357
+Z -1 9357
 S
 #9359
 On the Back of Draco~
@@ -1695,11 +1695,11 @@ D1
 You see the forcefield of Autumn.
 ~
 forcefield~
-2 9326 9360
+ABCFZ 9326 9360
 D2
 ~
 ~
-0 -1 9358
+Z -1 9358
 S
 #9360
 Between the Wings of Draco~
@@ -1710,11 +1710,11 @@ of something as the forceful gusts sweep you away.
 D1
 ~
 ~
-0 -1 9361
+Z -1 9361
 D3
 ~
 ~
-2 9326 9359
+AFZ 9326 9359
 S
 #9361
 Near the Arms of Draco~
@@ -1725,11 +1725,11 @@ beyond into the darkness.
 D2
 ~
 ~
-0 -1 9362
+Z -1 9362
 D3
 ~
 ~
-0 -1 9360
+Z -1 9360
 S
 #9362
 On the Neck of Draco~
@@ -1740,11 +1740,11 @@ endless.
 D0
 ~
 ~
-0 -1 9361
+Z -1 9361
 D3
 ~
 ~
-0 -1 9363
+Z -1 9363
 S
 #9363
 Approaching the Head of Draco~
@@ -1756,11 +1756,11 @@ If only the head were here ...
 D1
 ~
 ~
-0 -1 9362
+Z -1 9362
 D2
 You see the forcefield of Winter.~
 forcefield~
-2 9327 9364
+ABCFZ 9327 9364
 S
 #9364
 At the Entrance of the Great Dipper~
@@ -1772,15 +1772,15 @@ seven rooms in this zone, representing the seven stars of the Dipper.
 D0
 You see the forcefield of Winter.~
 forcefield~
-2 9327 9363
+AFZ 9327 9363
 D2
 ~
 ~
-0 -1 9365
+Z -1 9365
 D3
 ~
 ~
-0 -1 9366
+Z -1 9366
 S
 #9365
 Cassiopeia's Throne~
@@ -1791,11 +1791,11 @@ every star and constellation in the Universe.
 D0
 ~
 ~
-0 -1 9364
+Z -1 9364
 D3
 ~
 ~
-0 -1 9367
+Z -1 9367
 S
 #9366
 Along the Path of the Dipper~
@@ -1805,11 +1805,11 @@ You see stars around you but nothing of special interest.
 D1
 ~
 ~
-0 -1 9364
+Z -1 9364
 D2
 ~
 ~
-0 -1 9367
+Z -1 9367
 S
 #9367
 Cepheus' Throne~
@@ -1820,15 +1820,15 @@ every star and constellation in the Universe.
 D0
 ~
 ~
-0 -1 9366
+Z -1 9366
 D1
 ~
 ~
-0 -1 9365
+Z -1 9365
 D2
 ~
 ~
-0 -1 9368
+Z -1 9368
 S
 #9368
 Along the path of the Dipper~
@@ -1838,11 +1838,11 @@ You see stars around you but nothing of special interest.
 D0
 ~
 ~
-0 -1 9367
+Z -1 9367
 D3
 ~
 ~
-0 -1 9369
+Z -1 9369
 S
 #9369
 Along the path of the Dipper~
@@ -1852,11 +1852,11 @@ You see stars around you but nothing of special interest.
 D1
 ~
 ~
-0 -1 9368
+Z -1 9368
 D2
 ~
 ~
-0 -1 9370
+Z -1 9370
 S
 #9370
 End of the Dipper~
@@ -1868,11 +1868,11 @@ if Polaris could lie here.
 D0
 ~
 ~
-0 -1 9369
+Z -1 9369
 D2
 ~
 ~
-0 -1 9371
+Z -1 9371
 S
 #9371
 The Polar Star~
@@ -1885,7 +1885,7 @@ You feel you have come to end of your search in this galaxy ...
 D0
 ~
 ~
-0 0 9370
+Z 0 9370
 S
 #0
 

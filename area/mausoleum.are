@@ -742,11 +742,11 @@ warned.
 D0
 ~
 ~
-0 0 3419
+Z 0 3419
 D2
 ~
 door~
-0 4600 4602
+Z 4600 4602
 S
 #4601
 A grisly scene, NW corner of Mausoleum.~
@@ -759,7 +759,7 @@ A door leads back out to the south.
 D2
 ~
 door~
-1 0 4605
+ABZ 0 4605
 S
 #4602
 Foyer of the mausoleum.~
@@ -775,11 +775,11 @@ purpose. You have an urge to leave this place now.
 D0
 ~
 door~
-1 4600 4600
+ABCZ 4600 4600
 D2
 ~
 door~
-1 0 4606
+ABZ 0 4606
 S
 #4603
 A grisly scene, NE corner of Mausoleum.~
@@ -792,7 +792,7 @@ A door to the south leaves this carnage.
 D2
 ~
 door~
-1 0 4607
+ABZ 0 4607
 S
 #4604
 A small room.~
@@ -806,11 +806,11 @@ out to the main mausoleum area.
 D1
 ~
 door~
-1 0 4605
+ABZ 0 4605
 D2
 ~
 door~
-1 4600 4610
+ABCZ 4600 4610
 S
 #4605
 Northwest main area of the Mausoleum.~
@@ -824,19 +824,19 @@ east and south.
 D0
 ~
 door~
-1 0 4601
+ABZ 0 4601
 D1
 ~
 ~
-0 0 4606
+Z 0 4606
 D2
 ~
 ~
-0 0 4611
+Z 0 4611
 D3
 ~
 door~
-1 0 4604
+ABZ 0 4604
 S
 #4606
 Northern main area of the Mausoleum.~
@@ -850,19 +850,19 @@ and south.
 D0
 ~
 door~
-1 0 4602
+ABZ 0 4602
 D1
 ~
 ~
-0 0 4607
+Z 0 4607
 D2
 ~
 ~
-0 0 4612
+Z 0 4612
 D3
 ~
 ~
-0 0 4605
+Z 0 4605
 S
 #4607
 Northeastern main area of the Mausoleum.~
@@ -876,19 +876,19 @@ west and south.
 D0
 ~
 door~
-1 0 4603
+ABZ 0 4603
 D1
 ~
 door~
-1 0 4608
+ABZ 0 4608
 D2
 ~
 ~
-0 0 4613
+Z 0 4613
 D3
 ~
 ~
-0 0 4606
+Z 0 4606
 S
 #4608
 A small room.~
@@ -902,11 +902,11 @@ out to the main mausoleum area.
 D2
 ~
 door~
-1 4600 4614
+ABCZ 4600 4614
 D3
 ~
 door~
-1 0 4607
+ABZ 0 4607
 S
 #4609
 The Kharzandra's coffin room~
@@ -915,7 +915,7 @@ The Kharzandra's coffin room~
 D1
 ~
 ~
-1 0 4610
+ABZ 0 4610
 S
 #4610
 The workroom of Kharzandra.~
@@ -924,11 +924,11 @@ The workroom of Kharzandra.~
 D0
 ~
 door~
-1 4600 4604
+ABCZ 4600 4604
 D3
 ~
 ~
-0 0 4609
+Z 0 4609
 S
 #4611
 Western main area of the Mausoleum.~
@@ -942,15 +942,15 @@ and south.
 D0
 ~
 ~
-0 0 4605
+Z 0 4605
 D1
 ~
 ~
-0 0 4612
+Z 0 4612
 D2
 ~
 ~
-0 0 4617
+Z 0 4617
 S
 #4612
 Central main area of the Mausoleum.~
@@ -963,19 +963,19 @@ The mausoleum extends to the west, east, north and south.
 D0
 ~
 ~
-0 0 4606
+Z 0 4606
 D1
 ~
 ~
-0 0 4613
+Z 0 4613
 D2
 ~
 ~
-0 0 4618
+Z 0 4618
 D3
 ~
 ~
-0 0 4611
+Z 0 4611
 S
 #4613
 Eastern main area of the Mausoleum.~
@@ -989,15 +989,15 @@ and south.
 D0
 ~
 ~
-0 0 4607
+Z 0 4607
 D2
 ~
 ~
-0 0 4619
+Z 0 4619
 D3
 ~
 ~
-0 0 4612
+Z 0 4612
 S
 #4614
 The workroom of Shadar Lunn~
@@ -1010,11 +1010,11 @@ obviously a very organized, however twisted, individual.
 D0
 ~
 door~
-1 4600 4608
+ABCZ 4600 4608
 D1
 ~
 ~
-0 0 4634
+Z 0 4634
 S
 #4615
 The dark priest's coffin room.~
@@ -1026,7 +1026,7 @@ the rancid odor coming from the opened crypts nearby.
 D1
 ~
 hidden~
-0 0 4616
+Z 0 4616
 S
 #4616
 The dark priest's workroom.~
@@ -1037,11 +1037,11 @@ the evil and accursed relics strewn about.
 D1
 ~
 door~
-1 4600 4617
+ABCZ 4600 4617
 D3
 ~
 hidden~
-0 0 4615
+Z 0 4615
 S
 #4617
 Western check point.~
@@ -1053,19 +1053,19 @@ sort of important room in the building.
 D0
 ~
 ~
-0 0 4611
+Z 0 4611
 D1
 ~
 ~
-0 0 4618
+Z 0 4618
 D2
 ~
 ~
-0 0 4622
+Z 0 4622
 D3
 ~
 door~
-1 4600 4616
+ABCZ 4600 4616
 S
 #4618
 Central main area of the Mausoleum.~
@@ -1078,19 +1078,19 @@ The mausoleum extends to the west, east, north and south.
 D0
 ~
 ~
-0 0 4612
+Z 0 4612
 D1
 ~
 ~
-0 0 4619
+Z 0 4619
 D2
 ~
 ~
-0 0 4623
+Z 0 4623
 D3
 ~
 ~
-0 0 4617
+Z 0 4617
 S
 #4619
 Eastern check point.~
@@ -1102,19 +1102,19 @@ sort of important room in the building.
 D0
 ~
 ~
-0 0 4613
+Z 0 4613
 D1
 ~
 door~
-1 4600 4620
+ABCZ 4600 4620
 D2
 ~
 ~
-0 0 4624
+Z 0 4624
 D3
 ~
 ~
-0 0 4618
+Z 0 4618
 S
 #4620
 A vacant workroom.~
@@ -1125,7 +1125,7 @@ around outside. Maybe this would be a good place to rest.
 D3
 ~
 door~
-1 4600 4619
+ABCZ 4600 4619
 S
 #4621
 The Rakshaka's workspace.~
@@ -1137,11 +1137,11 @@ place to the dead bodies which lie piled up in the corner.
 D2
 ~
 door~
-1 4600 4626
+ABCZ 4600 4626
 D3
 ~
 hidden~
-0 0 4636
+Z 0 4636
 S
 #4622
 Western main area of the Mausoleum.~
@@ -1155,15 +1155,15 @@ and south.
 D0
 ~
 ~
-0 0 4617
+Z 0 4617
 D1
 ~
 ~
-0 0 4623
+Z 0 4623
 D2
 ~
 ~
-0 0 4627
+Z 0 4627
 S
 #4623
 Central main area of the Mausoleum.~
@@ -1176,19 +1176,19 @@ The mausoleum extends to the west, east, north and south.
 D0
 ~
 ~
-0 0 4618
+Z 0 4618
 D1
 ~
 ~
-0 0 4624
+Z 0 4624
 D2
 ~
 ~
-0 0 4628
+Z 0 4628
 D3
 ~
 ~
-0 0 4622
+Z 0 4622
 S
 #4624
 Eastern main area of the Mausoleum.~
@@ -1202,15 +1202,15 @@ and south.
 D0
 ~
 ~
-0 0 4619
+Z 0 4619
 D2
 ~
 ~
-0 0 4629
+Z 0 4629
 D3
 ~
 ~
-0 0 4623
+Z 0 4623
 S
 #4625
 Roaming ground for the Demon.~
@@ -1221,11 +1221,11 @@ raising a small force of undead troops to please it's master.
 D1
 ~
 hidden~
-1 0 4637
+ABZ 0 4637
 D2
 ~
 door~
-1 4600 4630
+ABCZ 4600 4630
 S
 #4626
 A small room.~
@@ -1239,11 +1239,11 @@ out to the main mausoleum area.
 D0
 ~
 door~
-1 4600 4621
+ABCZ 4600 4621
 D1
 ~
 door~
-1 0 4627
+ABZ 0 4627
 S
 #4627
 Southwest main area of the Mausoleum.~
@@ -1257,19 +1257,19 @@ east and north.
 D0
 ~
 ~
-0 0 4622
+Z 0 4622
 D1
 ~
 ~
-0 0 4628
+Z 0 4628
 D2
 ~
 door~
-1 0 4631
+ABZ 0 4631
 D3
 ~
 door~
-1 0 4626
+ABZ 0 4626
 S
 #4628
 Central main area of the Mausoleum.~
@@ -1282,19 +1282,19 @@ The mausoleum extends to the west, east, north and south.
 D0
 ~
 ~
-0 0 4623
+Z 0 4623
 D1
 ~
 ~
-0 0 4629
+Z 0 4629
 D2
 ~
 ~
-0 0 4632
+Z 0 4632
 D3
 ~
 ~
-0 0 4627
+Z 0 4627
 S
 #4629
 Southeast main area of the Mausoleum.~
@@ -1308,19 +1308,19 @@ west and north.
 D0
 ~
 ~
-0 0 4624
+Z 0 4624
 D1
 ~
 door~
-1 0 4630
+ABZ 0 4630
 D2
 ~
 door~
-1 0 4633
+ABZ 0 4633
 D3
 ~
 ~
-0 0 4628
+Z 0 4628
 S
 #4630
 A small room.~
@@ -1334,11 +1334,11 @@ out to the main mausoleum area.
 D0
 ~
 door~
-1 4600 4625
+ABCZ 4600 4625
 D3
 ~
 door~
-1 0 4629
+ABZ 0 4629
 S
 #4631
 A grisly scene, SW corner of Mausoleum.~
@@ -1351,7 +1351,7 @@ A door leads back out to the nouth.
 D0
 ~
 door~
-1 0 4627
+ABZ 0 4627
 S
 #4632
 A hole in the southern wall.~
@@ -1363,7 +1363,7 @@ a large crater is vaguely visible through the patches of fog and smoke.
 D0
 ~
 ~
-0 0 4628
+Z 0 4628
 S
 #4633
 A grisly scene, SE corner of Mausoleum.~
@@ -1376,7 +1376,7 @@ A door leads back out to the nouth.
 D0
 ~
 door~
-1 0 4629
+ABZ 0 4629
 S
 #4634
 Shadar Lunn's coffin room~
@@ -1385,7 +1385,7 @@ Shadar Lunn's coffin room~
 D3
 ~
 ~
-1 0 4614
+ABZ 0 4614
 S
 #4635
 Lost in the graveyard fog.~
@@ -1394,7 +1394,7 @@ Lost in the graveyard fog.~
 D0
 ~
 ~
-0 0 4632
+Z 0 4632
 S
 #4636
 A Rakshaka's lair.~
@@ -1407,7 +1407,7 @@ heard of.
 D1
 ~
 hidden~
-1 0 4621
+ABZ 0 4621
 S
 #4637
 A burnt room.~
@@ -1419,7 +1419,7 @@ far corner of the room, 3 huddled, burnt corpses lie resting.
 D3
 ~
 hidden~
-0 0 4625
+Z 0 4625
 S
 #0
 

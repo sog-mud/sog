@@ -469,16 +469,16 @@ D0
 The path continues north.
 ~
 ~
-0 0 7801
+Z 0 7801
 D2
 You see the Plains of Ofcol.
 ~
 ~
-0 0 323
+Z 0 323
 D3
 ~
 ~
-0 0 8829
+Z 0 8829
 S
 #7801
 Along the Path~
@@ -491,22 +491,22 @@ D0
 You see the overlook.
 ~
 ~
-0 0 7804
+Z 0 7804
 D1
 You see the small trail.
 ~
 ~
-0 0 7803
+Z 0 7803
 D2
 You see the path back toward Ofcol.
 ~
 ~
-0 0 7800
+Z 0 7800
 D3
 You see the small trail.
 ~
 ~
-0 0 7802
+Z 0 7802
 S
 #7802
 A Small Trail~
@@ -517,12 +517,12 @@ D0
 The trail continues north.
 ~
 ~
-0 0 7867
+Z 0 7867
 D1
 The main path is to the east.
 ~
 ~
-0 0 7801
+Z 0 7801
 S
 #7803
 A Small Trail~
@@ -533,12 +533,12 @@ D0
 The trail continues north.
 ~
 ~
-0 0 7849
+Z 0 7849
 D3
 The main path is to the west.
 ~
 ~
-0 0 7801
+Z 0 7801
 S
 #7804
 The Overlook~
@@ -551,12 +551,12 @@ D2
 You see the path back toward Ofcol.
 ~
 ~
-0 0 7801
+Z 0 7801
 D5
 You see the entrance to the valley.
 ~
 ~
-0 0 7805
+Z 0 7805
 S
 #7805
 The Entrance to the Valley of the Elves~
@@ -569,22 +569,22 @@ D0
 The valley continues north.
 ~
 ~
-0 0 7810
+Z 0 7810
 D1
 The valley continues east.
 ~
 ~
-0 0 7807
+Z 0 7807
 D3
 The valley continues west.
 ~
 ~
-0 0 7806
+Z 0 7806
 D4
 The overlook is above you.
 ~
 ~
-0 0 7804
+Z 0 7804
 S
 #7806
 The Edge of the Valley~
@@ -596,12 +596,12 @@ D0
 The valley continues north.
 ~
 ~
-0 0 7809
+Z 0 7809
 D1
 The entrance to the valley is to the east.
 ~
 ~
-0 0 7805
+Z 0 7805
 S
 #7807
 The Edge of the Valley~
@@ -613,12 +613,12 @@ D0
 The valley continues north.
 ~
 ~
-0 0 7811
+Z 0 7811
 D3
 The entrance to the valley is to the west.
 ~
 ~
-0 0 7805
+Z 0 7805
 S
 #7808
 The Edge of the Valley~
@@ -630,12 +630,12 @@ D0
 The valley continues north.
 ~
 ~
-0 0 7813
+Z 0 7813
 D1
 The valley continues east.
 ~
 ~
-0 0 7809
+Z 0 7809
 S
 #7809
 The Valley of the Elves~
@@ -646,22 +646,22 @@ D0
 The valley continues north.
 ~
 ~
-0 0 7814
+Z 0 7814
 D1
 The valley continues east.
 ~
 ~
-0 0 7810
+Z 0 7810
 D2
 The valley continues south.
 ~
 ~
-0 0 7806
+Z 0 7806
 D3
 The valley continues west.
 ~
 ~
-0 0 7808
+Z 0 7808
 S
 #7810
 The Valley of the Elves~
@@ -673,22 +673,22 @@ D0
 The valley continues north.
 ~
 ~
-0 0 7815
+Z 0 7815
 D1
 The valley continues east.
 ~
 ~
-0 0 7811
+Z 0 7811
 D2
 You see the entrance to the valley.
 ~
 ~
-0 0 7805
+Z 0 7805
 D3
 The valley continues west.
 ~
 ~
-0 0 7809
+Z 0 7809
 S
 #7811
 The Valley of the Elves~
@@ -699,22 +699,22 @@ D0
 The valley continues north.
 ~
 ~
-0 0 7816
+Z 0 7816
 D1
 The valley continues east.
 ~
 ~
-0 0 7812
+Z 0 7812
 D2
 The valley continues south.
 ~
 ~
-0 0 7807
+Z 0 7807
 D3
 The valley continues west.
 ~
 ~
-0 0 7810
+Z 0 7810
 S
 #7812
 The Edge of the Valley~
@@ -726,12 +726,12 @@ D0
 The valley continues north.
 ~
 ~
-0 0 7817
+Z 0 7817
 D3
 The valley continues west.
 ~
 ~
-0 0 7811
+Z 0 7811
 S
 #7813
 The Edge of the Valley~
@@ -744,22 +744,22 @@ D0
 The valley continues north.
 ~
 ~
-0 0 7818
+Z 0 7818
 D1
 The valley continues east.
 ~
 ~
-0 0 7814
+Z 0 7814
 D2
 The valley continues south.
 ~
 ~
-0 0 7808
+Z 0 7808
 D4
 The steep trail leads up.
 ~
 ~
-0 0 7863
+Z 0 7863
 S
 #7814
 The Valley of the Elves~
@@ -770,22 +770,22 @@ D0
 The valley continues north.
 ~
 ~
-0 0 7819
+Z 0 7819
 D1
 The valley continues east.
 ~
 ~
-0 0 7815
+Z 0 7815
 D2
 The valley continues south.
 ~
 ~
-0 0 7809
+Z 0 7809
 D3
 The valley continues west.
 ~
 ~
-0 0 7813
+Z 0 7813
 S
 #7815
 The Valley of the Elves~
@@ -796,22 +796,22 @@ D0
 The valley continues north.
 ~
 ~
-0 0 7820
+Z 0 7820
 D1
 The valley continues east.
 ~
 ~
-0 0 7816
+Z 0 7816
 D2
 The valley continues south.
 ~
 ~
-0 0 7810
+Z 0 7810
 D3
 The valley continues west.
 ~
 ~
-0 0 7814
+Z 0 7814
 S
 #7816
 The Valley of the Elves~
@@ -822,22 +822,22 @@ D0
 The valley continues north.
 ~
 ~
-0 0 7821
+Z 0 7821
 D1
 The valley continues east.
 ~
 ~
-0 0 7817
+Z 0 7817
 D2
 The valley continues south.
 ~
 ~
-0 0 7811
+Z 0 7811
 D3
 The valley continues west.
 ~
 ~
-0 0 7815
+Z 0 7815
 S
 #7817
 The Edge of the Valley~
@@ -850,22 +850,22 @@ D0
 The valley continues north.
 ~
 ~
-0 0 7822
+Z 0 7822
 D2
 The valley continues south.
 ~
 ~
-0 0 7812
+Z 0 7812
 D3
 The valley continues west.
 ~
 ~
-0 0 7816
+Z 0 7816
 D4
 The steep trail leads up.
 ~
 ~
-0 0 7853
+Z 0 7853
 S
 #7818
 The Edge of the Valley~
@@ -877,12 +877,12 @@ D1
 The valley continues east.
 ~
 ~
-0 0 7819
+Z 0 7819
 D2
 The valley continues south.
 ~
 ~
-0 0 7813
+Z 0 7813
 S
 #7819
 The Valley of the Elves~
@@ -893,22 +893,22 @@ D0
 The valley continues north.
 ~
 ~
-0 0 7823
+Z 0 7823
 D1
 The valley continues east.
 ~
 ~
-0 0 7820
+Z 0 7820
 D2
 The valley continues south.
 ~
 ~
-0 0 7814
+Z 0 7814
 D3
 The valley continues west.
 ~
 ~
-0 0 7818
+Z 0 7818
 S
 #7820
 The Valley of the Elves~
@@ -919,22 +919,22 @@ D0
 The valley continues north.
 ~
 ~
-0 0 7824
+Z 0 7824
 D1
 The valley continues east.
 ~
 ~
-0 0 7821
+Z 0 7821
 D2
 The valley continues south.
 ~
 ~
-0 0 7815
+Z 0 7815
 D3
 The valley continues west.
 ~
 ~
-0 0 7819
+Z 0 7819
 S
 #7821
 The Valley of the Elves~
@@ -945,22 +945,22 @@ D0
 The valley continues north.
 ~
 ~
-0 0 7825
+Z 0 7825
 D1
 The valley continues east.
 ~
 ~
-0 0 7822
+Z 0 7822
 D2
 The valley continues south.
 ~
 ~
-0 0 7816
+Z 0 7816
 D3
 The valley continues west.
 ~
 ~
-0 0 7820
+Z 0 7820
 S
 #7822
 The Edge of the Valley~
@@ -972,12 +972,12 @@ D2
 The valley continues south.
 ~
 ~
-0 0 7817
+Z 0 7817
 D3
 The valley continues west.
 ~
 ~
-0 0 7821
+Z 0 7821
 S
 #7823
 The Edge of the Valley~
@@ -989,12 +989,12 @@ D1
 The valley continues east.
 ~
 ~
-0 0 7824
+Z 0 7824
 D2
 The valley continues south
 ~
 ~
-0 0 7819
+Z 0 7819
 S
 #7824
 The Edge of the Valley~
@@ -1006,22 +1006,22 @@ D0
 A small trail leads away from the valley.
 ~
 ~
-0 0 7826
+Z 0 7826
 D1
 The valley continues east.
 ~
 ~
-0 0 7825
+Z 0 7825
 D2
 The valley continues south.
 ~
 ~
-0 0 7820
+Z 0 7820
 D3
 The valley continues west.
 ~
 ~
-0 0 7823
+Z 0 7823
 S
 #7825
 The Edge of the Valley~
@@ -1033,12 +1033,12 @@ D2
 The valley continues south.
 ~
 ~
-0 0 7821
+Z 0 7821
 D3
 The valley continues west.
 ~
 ~
-0 0 7824
+Z 0 7824
 S
 #7826
 A Trail Leading from the Valley~
@@ -1050,17 +1050,17 @@ D0
 The trail continues north.
 ~
 ~
-0 0 7827
+Z 0 7827
 D2
 The trail leads back to the valley.
 ~
 ~
-0 0 7824
+Z 0 7824
 D4
 You see the rope bridge above you.
 ~
 ~
-0 0 7858
+Z 0 7858
 S
 #7827
 Along the Trail~
@@ -1073,22 +1073,22 @@ D0
 The Path of Arcadia.
 ~
 ~
-0 0 12018
+Z 0 12018
 D1
 The trail continues east.
 ~
 ~
-0 0 7828
+Z 0 7828
 D2
 The trail continues south back toward the valley.
 ~
 ~
-0 0 7826
+Z 0 7826
 D3
 The trail continues west.
 ~
 ~
-0 0 7868
+Z 0 7868
 S
 #7828
 A Bend in the Trail~
@@ -1100,12 +1100,12 @@ D0
 You see a small valley north.
 ~
 ~
-0 0 7829
+Z 0 7829
 D3
 The trail goes back to the west.
 ~
 ~
-0 0 7827
+Z 0 7827
 S
 #7829
 A Smaller Valley~
@@ -1118,22 +1118,22 @@ D0
 You see the building.
 ~
 door~
-1 -1 7834
+ABZ -1 7834
 D1
 You see the trail around the building.
 ~
 ~
-0 0 7831
+Z 0 7831
 D2
 You see the trail leading away from this valley.
 ~
 ~
-0 0 7828
+Z 0 7828
 D3
 You see the trail around the building.
 ~
 ~
-0 0 7830
+Z 0 7830
 S
 #7830
 A Trail in the Valley~
@@ -1145,12 +1145,12 @@ D0
 You see the trail.
 ~
 ~
-0 0 7832
+Z 0 7832
 D1
 You see the trail.
 ~
 ~
-0 0 7829
+Z 0 7829
 S
 #7831
 A Trail in the Valley~
@@ -1162,12 +1162,12 @@ D1
 You see the trail.
 ~
 ~
-0 0 7833
+Z 0 7833
 D3
 You see the trail.
 ~
 ~
-0 0 7829
+Z 0 7829
 S
 #7832
 A Trail in the Valley~
@@ -1179,12 +1179,12 @@ D0
 You see the trail.
 ~
 ~
-0 0 7837
+Z 0 7837
 D2
 You see the trail.
 ~
 ~
-0 0 7830
+Z 0 7830
 S
 #7833
 A Trail in the Valley~
@@ -1196,12 +1196,12 @@ D0
 You see the trail.
 ~
 ~
-0 0 7836
+Z 0 7836
 D3
 You see the trail.
 ~
 ~
-0 0 7831
+Z 0 7831
 S
 #7834
 The Elf Home~
@@ -1213,17 +1213,17 @@ D0
 The building continues to the north.
 ~
 ~
-0 0 7838
+Z 0 7838
 D1
 The building continues to the east.
 ~
 ~
-0 0 7835
+Z 0 7835
 D2
 The exit is to the south.
 ~
 door~
-1 -1 7829
+ABZ -1 7829
 S
 #7835
 The Kitchen~
@@ -1237,12 +1237,12 @@ D0
 The building continues to the north.
 ~
 ~
-0 0 7839
+Z 0 7839
 D3
 The building continues to the west.
 ~
 ~
-0 0 7834
+Z 0 7834
 S
 #7836
 A Trail in the Valley~
@@ -1254,12 +1254,12 @@ D0
 You see the trail.
 ~
 ~
-0 0 7840
+Z 0 7840
 D2
 You see the trail.
 ~
 ~
-0 0 7833
+Z 0 7833
 S
 #7837
 A Trail in the Valley~
@@ -1271,12 +1271,12 @@ D0
 You see the trail.
 ~
 ~
-0 0 7841
+Z 0 7841
 D2
 You see the trail.
 ~
 ~
-0 0 7832
+Z 0 7832
 S
 #7838
 The Living Room~
@@ -1289,12 +1289,12 @@ D1
 The building continues to the east.
 ~
 ~
-0 0 7839
+Z 0 7839
 D2
 The entrance is to the south.
 ~
 ~
-0 0 7834
+Z 0 7834
 S
 #7839
 The Storage Room~
@@ -1307,17 +1307,17 @@ D2
 The building continues to the south.
 ~
 ~
-0 0 7835
+Z 0 7835
 D3
 The building continues to the west.
 ~
 ~
-0 0 7838
+Z 0 7838
 D4
 You see the second floor.
 ~
 ~
-0 0 7848
+Z 0 7848
 S
 #7840
 A Trail in the Valley~
@@ -1329,12 +1329,12 @@ D0
 You see the trail.
 ~
 ~
-0 0 7844
+Z 0 7844
 D2
 You see the trail.
 ~
 ~
-0 0 7836
+Z 0 7836
 S
 #7841
 A Trail in the Valley~
@@ -1346,12 +1346,12 @@ D1
 You see the trail.
 ~
 ~
-0 0 7842
+Z 0 7842
 D2
 You see the trail.
 ~
 ~
-0 0 7837
+Z 0 7837
 S
 #7842
 A Trail in the Valley~
@@ -1363,12 +1363,12 @@ D1
 You see the trail.
 ~
 ~
-0 0 7843
+Z 0 7843
 D3
 You see the trail.
 ~
 ~
-0 0 7841
+Z 0 7841
 S
 #7843
 A Trail in the Valley~
@@ -1380,12 +1380,12 @@ D1
 You see the trail.
 ~
 ~
-0 0 7844
+Z 0 7844
 D3
 You see the trail.
 ~
 ~
-0 0 7842
+Z 0 7842
 S
 #7844
 A Trail in the Valley~
@@ -1397,12 +1397,12 @@ D2
 You see the trail.
 ~
 ~
-0 0 7840
+Z 0 7840
 D3
 You see the trail.
 ~
 ~
-0 0 7843
+Z 0 7843
 S
 #7845
 The Elders' Room~
@@ -1415,12 +1415,12 @@ D0
 You see another room.
 ~
 door~
-1 -1 7847
+ABZ -1 7847
 D1
 You see another room.
 ~
 door~
-1 7804 7846
+ABCZ 7804 7846
 S
 #7846
 The Storage Room~
@@ -1431,12 +1431,12 @@ D0
 You see another room.
 ~
 door~
-1 7804 7848
+ABCZ 7804 7848
 D3
 You see another room.
 ~
 door~
-1 7804 7845
+ABCZ 7804 7845
 S
 #7847
 The Sleeping Quarters~
@@ -1449,12 +1449,12 @@ D1
 You see another room.
 ~
 door~
-1 -1 7848
+ABZ -1 7848
 D2
 You see another room.
 ~
 door~
-1 -1 7845
+ABZ -1 7845
 S
 #7848
 Study~
@@ -1468,17 +1468,17 @@ D2
 You see another room.
 ~
 door~
-1 7804 7846
+ABCZ 7804 7846
 D3
 You see another room.
 ~
 door~
-1 -1 7847
+ABZ -1 7847
 D5
 You see the first floor.
 ~
 ~
-0 0 7839
+Z 0 7839
 S
 #7849
 Along a Windy Trail on the Rim of the Valley~
@@ -1489,16 +1489,16 @@ you can see the valley, filled with wild flowers and tall, green grasses.
 D1
 ~
 ~
-0 0 7850
+Z 0 7850
 D2
 ~
 ~
-0 0 7803
+Z 0 7803
 D5
 The trail down doesn't look safe to travel on at all.
 ~
 ~
-0 0 7883
+Z 0 7883
 S
 #7850
 Along a Windy Trail on the Rim of the Valley~
@@ -1509,16 +1509,16 @@ you can see the valley, filled with wild flowers and tall, green grasses.
 D0
 ~
 ~
-0 0 7851
+Z 0 7851
 D3
 ~
 ~
-0 0 7849
+Z 0 7849
 D5
 The trail down doesn't look safe to travel on at all.
 ~
 ~
-0 0 7883
+Z 0 7883
 S
 #7851
 Along a Windy Trail on the Rim of the Valley~
@@ -1529,16 +1529,16 @@ you can see the valley, filled with wild flowers and tall, green grasses.
 D1
 ~
 ~
-0 0 7852
+Z 0 7852
 D2
 ~
 ~
-0 0 7850
+Z 0 7850
 D5
 The trail down doesn't look safe to travel on at all.
 ~
 ~
-0 0 7883
+Z 0 7883
 S
 #7852
 Along a Windy Trail on the Rim of the Valley~
@@ -1549,16 +1549,16 @@ you can see the valley, filled with wild flowers and tall, green grasses.
 D0
 ~
 ~
-0 0 7853
+Z 0 7853
 D3
 ~
 ~
-0 0 7851
+Z 0 7851
 D5
 The trail down doesn't look safe to travel on at all.
 ~
 ~
-0 0 7883
+Z 0 7883
 S
 #7853
 Along a Windy Trail on the Rim of the Valley~
@@ -1570,16 +1570,16 @@ A safe trail leads down into the valley.
 D0
 ~
 ~
-0 0 7854
+Z 0 7854
 D2
 ~
 ~
-0 0 7852
+Z 0 7852
 D5
 The trail down looks safe.
 ~
 ~
-0 0 7817
+Z 0 7817
 S
 #7854
 Along a Windy Trail on the Rim of the Valley~
@@ -1590,16 +1590,16 @@ you can see the valley, filled with wild flowers and tall, green grasses.
 D2
 ~
 ~
-0 0 7853
+Z 0 7853
 D3
 ~
 ~
-0 0 7855
+Z 0 7855
 D5
 The trail down doesn't look safe to travel on at all.
 ~
 ~
-0 0 7883
+Z 0 7883
 S
 #7855
 Along a Windy Trail on the Rim of the Valley~
@@ -1610,16 +1610,16 @@ you can see the valley, filled with wild flowers and tall, green grasses.
 D0
 ~
 ~
-0 0 7856
+Z 0 7856
 D1
 ~
 ~
-0 0 7854
+Z 0 7854
 D5
 The trail down doesn't look safe to travel on at all.
 ~
 ~
-0 0 7883
+Z 0 7883
 S
 #7856
 Along a Windy Trail on the Rim of the Valley~
@@ -1630,16 +1630,16 @@ you can see the valley, filled with wild flowers and tall, green grasses.
 D2
 ~
 ~
-0 0 7855
+Z 0 7855
 D3
 ~
 ~
-0 0 7857
+Z 0 7857
 D5
 The trail down doesn't look safe to travel on at all.
 ~
 ~
-0 0 7883
+Z 0 7883
 S
 #7857
 Along a Windy Trail on the Rim of the Valley~
@@ -1650,16 +1650,16 @@ you can see the valley, filled with wild flowers and tall, green grasses.
 D1
 ~
 ~
-0 0 7856
+Z 0 7856
 D3
 You see a rope bridge~
 ~
-0 0 7858
+Z 0 7858
 D5
 The trail down doesn't look safe to travel on at all.
 ~
 ~
-0 0 7883
+Z 0 7883
 S
 #7858
 On the Rope Bridge~
@@ -1673,16 +1673,16 @@ leads down into a trail.
 D1
 ~
 ~
-0 0 7857
+Z 0 7857
 D3
 ~
 ~
-0 0 7859
+Z 0 7859
 D5
 You see the trail.
 ~
 ~
-0 0 7826
+Z 0 7826
 S
 #7859
 Along a Windy Trail on the Rim of the Valley~
@@ -1694,16 +1694,16 @@ D1
 You see a rope bridge.
 ~
 ~
-0 0 7858
+Z 0 7858
 D3
 ~
 ~
-0 0 7860
+Z 0 7860
 D5
 The trail down doesn't look safe to travel on at all.
 ~
 ~
-0 0 7883
+Z 0 7883
 S
 #7860
 Along a Windy Trail on the Rim of the Valley~
@@ -1714,20 +1714,20 @@ you can see the valley, filled with wild flowers and tall, green grasses.
 D1
 ~
 ~
-0 0 7859
+Z 0 7859
 D2
 ~
 ~
-0 0 7861
+Z 0 7861
 D3
 ~
 ~
-0 0 8800
+Z 0 8800
 D5
 The trail down doesn't look safe to travel on at all.
 ~
 ~
-0 0 7883
+Z 0 7883
 S
 #7861
 Along a Windy Trail on the Rim of the Valley~
@@ -1738,16 +1738,16 @@ you can see the valley, filled with wild flowers and tall, green grasses.
 D0
 ~
 ~
-0 0 7860
+Z 0 7860
 D3
 ~
 ~
-0 0 7862
+Z 0 7862
 D5
 The trail down doesn't look safe to travel on at all.
 ~
 ~
-0 0 7883
+Z 0 7883
 S
 #7862
 Along a Windy Trail on the Rim of the Valley~
@@ -1758,16 +1758,16 @@ you can see the valley, filled with wild flowers and tall, green grasses.
 D1
 ~
 ~
-0 0 7861
+Z 0 7861
 D2
 ~
 ~
-0 0 7863
+Z 0 7863
 D5
 The trail down doesn't look safe to travel on at all.
 ~
 ~
-0 0 7883
+Z 0 7883
 S
 #7863
 Along a Windy Trail on the Rim of the Valley~
@@ -1779,16 +1779,16 @@ A safe trail leads down into the valley.
 D0
 ~
 ~
-0 0 7862
+Z 0 7862
 D2
 ~
 ~
-0 0 7864
+Z 0 7864
 D5
 The trail down looks safe.
 ~
 ~
-0 0 7813
+Z 0 7813
 S
 #7864
 Along a Windy Trail on the Rim of the Valley~
@@ -1799,16 +1799,16 @@ you can see the valley, filled with wild flowers and tall, green grasses.
 D0
 ~
 ~
-0 0 7863
+Z 0 7863
 D1
 ~
 ~
-0 0 7865
+Z 0 7865
 D5
 The trail down doesn't look safe to travel on at all.
 ~
 ~
-0 0 7883
+Z 0 7883
 S
 #7865
 Along a Windy Trail on the Rim of the Valley~
@@ -1819,16 +1819,16 @@ you can see the valley, filled with wild flowers and tall, green grasses.
 D2
 ~
 ~
-0 0 7866
+Z 0 7866
 D3
 ~
 ~
-0 0 7864
+Z 0 7864
 D5
 The trail down doesn't look safe to travel on at all.
 ~
 ~
-0 0 7883
+Z 0 7883
 S
 #7866
 Along a Windy Trail on the Rim of the Valley~
@@ -1839,16 +1839,16 @@ you can see the valley, filled with wild flowers and tall, green grasses.
 D0
 ~
 ~
-0 0 7865
+Z 0 7865
 D1
 ~
 ~
-0 0 7867
+Z 0 7867
 D5
 The trail down doesn't look safe to travel on at all.
 ~
 ~
-0 0 7883
+Z 0 7883
 S
 #7867
 Along a Windy Trail on the Rim of the Valley~
@@ -1859,16 +1859,16 @@ you can see the valley, filled with wild flowers and tall, green grasses.
 D2
 ~
 ~
-0 0 7802
+Z 0 7802
 D3
 ~
 ~
-0 0 7866
+Z 0 7866
 D5
 The trail down doesn't look safe to travel on at all.
 ~
 ~
-0 0 7883
+Z 0 7883
 S
 #7868
 A Bend in the Trail~
@@ -1880,12 +1880,12 @@ D0
 The trail continues north.
 ~
 ~
-0 0 7869
+Z 0 7869
 D1
 The trail continues east.
 ~
 ~
-0 0 7827
+Z 0 7827
 S
 #7869
 A Bend in the Trail~
@@ -1898,12 +1898,12 @@ D2
 The trail continues south.
 ~
 ~
-0 0 7868
+Z 0 7868
 D3
 The entrance to the small valley is to the west.
 ~
 ~
-0 0 7870
+Z 0 7870
 S
 #7870
 The Small Valley~
@@ -1916,22 +1916,22 @@ D0
 The valley continues to the north.
 ~
 ~
-0 0 7871
+Z 0 7871
 D1
 The exit from this small valley is to the east.
 ~
 ~
-0 0 7869
+Z 0 7869
 D2
 The valley continues to the south.
 ~
 ~
-0 0 7872
+Z 0 7872
 D3
 You see the small shack.
 ~
 door~
-1 -1 7878
+ABZ -1 7878
 S
 #7871
 The Small Valley~
@@ -1943,12 +1943,12 @@ D2
 The valley continues to the south.
 ~
 ~
-0 0 7870
+Z 0 7870
 D3
 The valley continues to the west.
 ~
 ~
-0 0 7873
+Z 0 7873
 S
 #7872
 The Small Valley~
@@ -1960,12 +1960,12 @@ D0
 The valley continues to the north.
 ~
 ~
-0 0 7870
+Z 0 7870
 D3
 The valley continues to the west.
 ~
 ~
-0 0 7877
+Z 0 7877
 S
 #7873
 The Small Valley~
@@ -1977,12 +1977,12 @@ D1
 The valley continues to the east.
 ~
 ~
-0 0 7871
+Z 0 7871
 D3
 The valley continues to the west.
 ~
 ~
-0 0 7874
+Z 0 7874
 S
 #7874
 The Small Valley~
@@ -1995,12 +1995,12 @@ D1
 The valley continues to the east.
 ~
 ~
-0 0 7873
+Z 0 7873
 D2
 The valley continues to the south.
 ~
 ~
-0 0 7875
+Z 0 7875
 S
 #7875
 The Small Valley~
@@ -2012,12 +2012,12 @@ D0
 The valley continues to the north.
 ~
 ~
-0 0 7874
+Z 0 7874
 D2
 The valley continues to the south.
 ~
 ~
-0 0 7876
+Z 0 7876
 S
 #7876
 The Small Valley~
@@ -2029,12 +2029,12 @@ D0
 The valley continues to the north.
 ~
 ~
-0 0 7875
+Z 0 7875
 D1
 The valley continues to the east.
 ~
 ~
-0 0 7877
+Z 0 7877
 S
 #7877
 The Small Valley~
@@ -2046,12 +2046,12 @@ D1
 The valley continues to the east.
 ~
 ~
-0 0 7872
+Z 0 7872
 D3
 The valley continues to the west.
 ~
 ~
-0 0 7876
+Z 0 7876
 S
 #7878
 Inside the Small Shack~
@@ -2063,12 +2063,12 @@ D1
 You see the valley outside.
 ~
 door~
-1 -1 7870
+ABZ -1 7870
 D5
 You see a trap door!
 ~
 trap door~
-1 -1 7879
+ABZ -1 7879
 S
 #7879
 Beneath the Small Shack~
@@ -2080,12 +2080,12 @@ D2
 The room looks reddish down there.
 ~
 ~
-0 0 7880
+Z 0 7880
 D4
 Back to known territory!
 ~
 trap door~
-1 -1 7878
+ABZ -1 7878
 S
 #7880
 The Den of the Pyrohydra~
@@ -2097,17 +2097,17 @@ D0
 You see the relative safety to the north.
 ~
 ~
-0 0 7879
+Z 0 7879
 D1
 You see breaks in the charred rock to the east.
 ~
 secret~
-1 7805 7882
+ABCZ 7805 7882
 D3
 You see a door to the west.
 ~
 door~
-1 7805 7881
+ABCZ 7805 7881
 S
 #7881
 The Workroom~
@@ -2120,7 +2120,7 @@ a magical aura.
 D1
 ~
 door~
-1 7805 7880
+ABCZ 7805 7880
 S
 #7882
 The Storage Room~
@@ -2131,7 +2131,7 @@ whole room radiates with a magical aura.
 D3
 ~
 secret door~
-1 7805 7880
+ABCZ 7805 7880
 S
 #7883
 WAY Far Down into the Valley~

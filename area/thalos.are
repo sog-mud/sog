@@ -550,13 +550,13 @@ D1
 You see a trail out of this blasted place.
 ~
 ~
-0 0 5256
+Z 0 5256
 D3
 You see devastation everywhere. Houses lie in ruin and skeletons litter
 the streets. You see strange beasts stalking the shadows.
 ~
 ~
-0 0 5201
+Z 0 5201
 S
 #5201
 Main Street~
@@ -569,22 +569,22 @@ D0
 It's a dark alley.
 ~
 ~
-0 0 5239
+Z 0 5239
 D1
 The entrance to the city lies this way.
 ~
 ~
-0 0 5200
+Z 0 5200
 D2
 It's a dark alley.
 ~
 ~
-0 0 5255
+Z 0 5255
 D3
 Main Street lies this way.
 ~
 ~
-0 0 5202
+Z 0 5202
 S
 #5202
 Main Street~
@@ -599,21 +599,21 @@ D0
 The remnants of a store lie this way.
 ~
 ~
-0 0 5236
+Z 0 5236
 D1
 ~
 ~
-0 0 5201
+Z 0 5201
 D2
 It looks like what used to be the main building in the city.
 ~
 ~
-0 0 5232
+Z 0 5232
 D3
 A withered garden path lies this way.
 ~
 ~
-0 0 5203
+Z 0 5203
 S
 #5203
 A Garden Path~
@@ -627,23 +627,23 @@ D0
 The garden path continues around the building.
 ~
 ~
-0 0 5204
+Z 0 5204
 D1
 This is the main street leading to the city's entrance
 ~
 ~
-0 0 5202
+Z 0 5202
 D2
 The garden path continues around the building.
 ~
 ~
-0 0 5206
+Z 0 5206
 D3
 Inside the temple, small patches of light shoot through each doorway as
 well as a few holes in the ceiling.
 ~
 ~
-0 0 5250
+Z 0 5250
 S
 #5204
 A Garden Path~
@@ -657,17 +657,17 @@ D0
 A side street leads off to the northern half of the city.
 ~
 ~
-0 0 5211
+Z 0 5211
 D2
 The garden path continues around the building.
 ~
 ~
-0 0 5203
+Z 0 5203
 D3
 The garden path continues around the building.
 ~
 ~
-0 0 5205
+Z 0 5205
 S
 #5205
 A Garden Path~
@@ -681,13 +681,13 @@ D1
 The garden path continues around the building.
 ~
 ~
-0 0 5204
+Z 0 5204
 D2
 Inside the temple, small patches of light shoot through each doorway as
 well as a few holes in the ceiling.
 ~
 ~
-0 0 5250
+Z 0 5250
 S
 #5206
 A Garden Path~
@@ -701,12 +701,12 @@ D0
 The garden path continues around the building.
 ~
 ~
-0 0 5203
+Z 0 5203
 D2
 A small side street leads to the southern half of the city.
 ~
 ~
-0 0 5212
+Z 0 5212
 S
 #5207
 The market place~
@@ -721,17 +721,17 @@ A small table has been toppled over, spilling fine jewelery and gems
 onto the ground.
 ~
 ~
-0 0 5225
+Z 0 5225
 D2
 Rotted remains of fruits and vegetables lie strewn about.
 ~
 ~
-0 0 5220
+Z 0 5220
 D3
 The market place continues.
 ~
 ~
-0 0 5208
+Z 0 5208
 S
 #5208
 The market place~
@@ -743,18 +743,18 @@ D0
 Tattered carpets and ruined bales of silk sit idly by a run down stand.
 ~
 ~
-0 0 5222
+Z 0 5222
 D1
 The center of the market lies this way.
 ~
 ~
-0 0 5207
+Z 0 5207
 D2
 From the massive stench, this must have been a meat and poultry stand.
 It lies totally bare.
 ~
 ~
-0 0 5217
+Z 0 5217
 S
 #5209
 A Side Street~
@@ -765,15 +765,15 @@ to the south you see the temple. The incessant howling tears at your mind.
 D1
 ~
 ~
-0 0 5243
+Z 0 5243
 D2
 ~
 ~
-0 0 5210
+Z 0 5210
 D3
 ~
 ~
-0 0 5228
+Z 0 5228
 S
 #5210
 A Side Street~
@@ -786,21 +786,21 @@ into. The street continues north and south and buildings line the street.
 D0
 ~
 ~
-0 0 5209
+Z 0 5209
 D1
 A small doorway leads into a partially collapsed house.
 ~
 ~
-0 -1 5244
+Z -1 5244
 D2
 ~
 ~
-0 0 5211
+Z 0 5211
 D3
 A small clay dwelling sits here.
 ~
 ~
-0 0 5226
+Z 0 5226
 S
 #5211
 A Side Street~
@@ -812,22 +812,22 @@ used to be. A lone howl makes you worry greatly about your safety here.
 D0
 ~
 ~
-0 0 5210
+Z 0 5210
 D1
 An unusually tall dwelling stands looming over you.
 ~
 ~
-0 0 5237
+Z 0 5237
 D2
 A garden path circles around the temple.
 ~
 ~
-0 0 5204
+Z 0 5204
 D3
 Here lies a small stone house with a thatched roof.
 ~
 ~
-0 0 5227
+Z 0 5227
 S
 #5212
 A side street~
@@ -842,22 +842,22 @@ D0
 A small garden path encircles the temple.
 ~
 ~
-0 0 5206
+Z 0 5206
 D1
 This possibly could be the city hall.
 ~
 ~
-0 0 5232
+Z 0 5232
 D2
 ~
 ~
-0 0 5213
+Z 0 5213
 D3
 Inside the building you see long pieces of metal, an oven, and some
 anvils.
 ~
 ~
-0 0 5221
+Z 0 5221
 S
 #5213
 A side street~
@@ -870,24 +870,24 @@ and south.
 D0
 ~
 ~
-0 0 5212
+Z 0 5212
 D1
 From the looks of it, this was once a two story abode. The entire second
 floor has collapsed leaving a very little part of the bar still free
 from debris.
 ~
 ~
-0 0 5230
+Z 0 5230
 D2
 ~
 ~
-0 0 5214
+Z 0 5214
 D3
 This seems to be the only guild house in the entire city. Its dark nature
 makes you wonder about its origins.
 ~
 ~
-0 0 5219
+Z 0 5219
 S
 #5214
 A side street~
@@ -898,19 +898,19 @@ A long dark alley runs east and west.
 D0
 ~
 ~
-0 0 5213
+Z 0 5213
 D1
 ~
 ~
-0 0 5251
+Z 0 5251
 D2
 ~
 ~
-0 0 5229
+Z 0 5229
 D3
 ~
 ~
-0 0 5218
+Z 0 5218
 S
 #5215
 Under a ruined watchtower~
@@ -921,15 +921,15 @@ from invaders. From the looks of things, it did not do a good job.
 D0
 ~
 ~
-0 0 5216
+Z 0 5216
 D1
 ~
 ~
-0 0 5218
+Z 0 5218
 D4
 ~
 ~
-0 0 5247
+Z 0 5247
 S
 #5216
 A back alley~
@@ -941,16 +941,16 @@ D0
 You see the back-side of the market place meat stand.
 ~
 ~
-0 0 5217
+Z 0 5217
 D2
 A tall watchtower stands a silent vigil over the city.
 ~
 ~
-0 0 5215
+Z 0 5215
 D3
 City of Anon~
 ~
-0 -1 31001
+Z -1 31001
 S
 #5217
 The meat stand~
@@ -964,16 +964,16 @@ D0
 The market place lies this way.
 ~
 ~
-0 0 5208
+Z 0 5208
 D1
 This is a cart full of rotted vegetables and fruits.
 ~
 ~
-0 0 5220
+Z 0 5220
 D2
 ~
 ~
-0 0 5216
+Z 0 5216
 S
 #5218
 A back alley~
@@ -985,12 +985,12 @@ D1
 A small side street greets you.
 ~
 ~
-0 0 5214
+Z 0 5214
 D3
 A tall watchtower stands a silent vigil over the city.
 ~
 ~
-0 0 5215
+Z 0 5215
 S
 #5219
 The guild house~
@@ -1005,7 +1005,7 @@ D1
 A small side street runs past the building.
 ~
 ~
-0 0 5213
+Z 0 5213
 S
 #5220
 The produce stand~
@@ -1018,12 +1018,12 @@ D0
 The market place is deserted.
 ~
 ~
-0 0 5207
+Z 0 5207
 D3
 A strong stench emanates from the meat stand next to you.
 ~
 ~
-0 0 5217
+Z 0 5217
 S
 #5221
 The smithy~
@@ -1036,7 +1036,7 @@ D1
 A small side street runs past the building.
 ~
 ~
-0 0 5212
+Z 0 5212
 S
 #5222
 The tapestry stand~
@@ -1049,17 +1049,17 @@ think these might be beds.
 D0
 ~
 ~
-0 0 5223
+Z 0 5223
 D1
 A fine jewelry stand lies in ruin next to you.
 ~
 ~
-0 0 5225
+Z 0 5225
 D2
 The market place is deserted.
 ~
 ~
-0 0 5208
+Z 0 5208
 S
 #5223
 A back alley~
@@ -1071,11 +1071,11 @@ D0
 A tall watchtower stands a silent vigil over the city.
 ~
 ~
-0 0 5224
+Z 0 5224
 D2
 ~
 ~
-0 0 5222
+Z 0 5222
 S
 #5224
 Under the watchtower~
@@ -1086,16 +1086,16 @@ the city from invaders. Obviously, it failed.
 D1
 ~
 ~
-0 0 5228
+Z 0 5228
 D2
 ~
 ~
-0 0 5223
+Z 0 5223
 D4
 Above you looms a tall watchtower.
 ~
 ~
-0 0 5246
+Z 0 5246
 S
 #5225
 The jewelery stand~
@@ -1108,12 +1108,12 @@ D2
 The market place is deserted.
 ~
 ~
-0 0 5207
+Z 0 5207
 D3
 Next to you is a stand full of ruined clothes and rugs.
 ~
 ~
-0 0 5222
+Z 0 5222
 S
 #5226
 A ruined clay dwelling~
@@ -1126,7 +1126,7 @@ D1
 Outside is a small side street.
 ~
 ~
-0 0 5210
+Z 0 5210
 S
 #5227
 A collapsed stone dwelling~
@@ -1139,7 +1139,7 @@ D1
 A small side street runs past the house.
 ~
 ~
-0 0 5211
+Z 0 5211
 S
 #5228
 A back alley~
@@ -1150,11 +1150,11 @@ a small side street.
 D1
 ~
 ~
-0 0 5209
+Z 0 5209
 D3
 ~
 ~
-0 0 5224
+Z 0 5224
 S
 #5229
 An abandoned shop~
@@ -1168,7 +1168,7 @@ D0
 A small side street runs past the shop.
 ~
 ~
-0 0 5214
+Z 0 5214
 S
 #5230
 The Tavern of the Sun~
@@ -1184,7 +1184,7 @@ D3
 A small side street runs past the tavern.
 ~
 ~
-0 0 5213
+Z 0 5213
 S
 #5231
 South wing of the city hall~
@@ -1199,11 +1199,11 @@ D0
 The long hallway leads back to the main reception area of the city hall.
 ~
 ~
-0 0 5232
+Z 0 5232
 D1
 ~
 ~
-0 0 5234
+Z 0 5234
 S
 #5232
 The city hall~
@@ -1218,21 +1218,21 @@ D0
 Main street runs past the city hall.
 ~
 ~
-0 0 5202
+Z 0 5202
 D1
 A hallway leads to the east wing of the city hall.
 ~
 ~
-0 0 5233
+Z 0 5233
 D2
 A hallway leads to the south wing of the city hall.
 ~
 ~
-0 0 5231
+Z 0 5231
 D3
 ~
 ~
-0 0 5212
+Z 0 5212
 S
 #5233
 East wing of the city hall~
@@ -1246,11 +1246,11 @@ an ivy-covered archway leads south into a private courtyard.
 D2
 ~
 ~
-0 0 5234
+Z 0 5234
 D3
 ~
 ~
-0 0 5232
+Z 0 5232
 S
 #5234
 The private gardens and courtyard of Thalos~
@@ -1266,11 +1266,11 @@ north and west lead back into the city hall.
 D0
 ~
 ~
-0 0 5233
+Z 0 5233
 D3
 ~
 ~
-0 0 5231
+Z 0 5231
 S
 #5235
 A small guard house~
@@ -1283,7 +1283,7 @@ D1
 The alley runs by this building.
 ~
 ~
-0 0 5255
+Z 0 5255
 S
 #5236
 A collapsed home~
@@ -1296,7 +1296,7 @@ D2
 Main street runs past this ruined home.
 ~
 ~
-0 0 5202
+Z 0 5202
 S
 #5237
 A tall dwelling~
@@ -1311,18 +1311,18 @@ set of wooden steps leads up to a creaking second floor.
 D1
 ~
 ~
-0 0 5238
+Z 0 5238
 D3
 A small side street winds past the dwelling.
 ~
 ~
-0 0 5211
+Z 0 5211
 D4
 The stairs and even the entire second floor itself looks very unsafe
 for travel. Gusts of wind make them creak and shudder.
 ~
 ~
-0 0 5245
+Z 0 5245
 S
 #5238
 A small shack~
@@ -1336,7 +1336,7 @@ city. The doorway to the east is blocked, making the only exit back west.
 D3
 ~
 ~
-0 0 5237
+Z 0 5237
 S
 #5239
 A back alley~
@@ -1347,12 +1347,12 @@ a watchtower. A mass of howls catches you off guard.
 D0
 ~
 ~
-0 0 5240
+Z 0 5240
 D2
 Main street runs past here.
 ~
 ~
-0 0 5201
+Z 0 5201
 S
 #5240
 A back alley~
@@ -1365,11 +1365,11 @@ D0
 A tall watchtower stands a silent vigil over the city.
 ~
 ~
-0 0 5241
+Z 0 5241
 D2
 ~
 ~
-0 0 5239
+Z 0 5239
 S
 #5241
 Under a watchtower~
@@ -1380,16 +1380,16 @@ south and a very weak looking ladder leads up into the tower.
 D2
 ~
 ~
-0 0 5240
+Z 0 5240
 D3
 ~
 ~
-0 0 5243
+Z 0 5243
 D4
 Winds howl high above your head in the tower above.
 ~
 ~
-0 0 5248
+Z 0 5248
 S
 #5242
 A bath house~
@@ -1405,13 +1405,13 @@ collapsed house.
 D0
 ~
 ~
-0 0 5243
+Z 0 5243
 D3
 The wall has collapsed on the adjoining house, creating a new opening
 in it.
 ~
 ~
-0 0 5244
+Z 0 5244
 S
 #5243
 A back alley~
@@ -1424,16 +1424,16 @@ D1
 A watchtower stands a silent vigil over the city.
 ~
 ~
-0 0 5241
+Z 0 5241
 D2
 ~
 ~
-0 0 5242
+Z 0 5242
 D3
 A side street runs by here.
 ~
 ~
-0 0 5209
+Z 0 5209
 S
 #5244
 An upright house~
@@ -1446,12 +1446,12 @@ the hole in the east wall.
 D1
 ~
 ~
-0 0 5242
+Z 0 5242
 D3
 A small side street runs past the house.
 ~
 ~
-0 0 5210
+Z 0 5210
 S
 #5245
 On the second floor~
@@ -1473,7 +1473,7 @@ D5
 The city lies below.
 ~
 ~
-0 0 5224
+Z 0 5224
 S
 #5247
 The south-west watchtower~
@@ -1487,7 +1487,7 @@ D5
 The city lies below.
 ~
 ~
-0 0 5215
+Z 0 5215
 S
 #5248
 The north-east watchtower~
@@ -1501,7 +1501,7 @@ D5
 The city lies below.
 ~
 ~
-0 0 5241
+Z 0 5241
 S
 #5250
 The Temple of Thalos~
@@ -1520,12 +1520,12 @@ D0
 A side street leads to the northern half of the city.
 ~
 ~
-0 0 5205
+Z 0 5205
 D1
 Main street leads out to the main gate of the city.
 ~
 ~
-0 0 5203
+Z 0 5203
 S
 #5251
 A back alley~
@@ -1537,12 +1537,12 @@ D1
 A tall watchtower stands a silent vigil over the city.
 ~
 ~
-0 0 5252
+Z 0 5252
 D3
 A small side street greets you.
 ~
 ~
-0 0 5214
+Z 0 5214
 S
 #5252
 Under a ruined watchtower~
@@ -1553,15 +1553,15 @@ from invaders. From the looks of things, it did not do a good job.
 D0
 ~
 ~
-0 0 5253
+Z 0 5253
 D3
 ~
 ~
-0 0 5251
+Z 0 5251
 D4
 ~
 ~
-0 0 5254
+Z 0 5254
 S
 #5253
 A back alley~
@@ -1572,12 +1572,12 @@ D0
 The alley continues to the north.
 ~
 ~
-0 0 5255
+Z 0 5255
 D2
 A tall watchtower stands a silent vigil over the city.
 ~
 ~
-0 0 5252
+Z 0 5252
 S
 #5254
 The south-east watchtower~
@@ -1597,7 +1597,7 @@ D5
 The city lies below.
 ~
 ~
-0 0 5252
+Z 0 5252
 S
 #5255
 A back alley~
@@ -1609,16 +1609,16 @@ D0
 You see main street.
 ~
 ~
-0 0 5201
+Z 0 5201
 D2
 ~
 ~
-0 0 5253
+Z 0 5253
 D3
 It looks in bad shape inside, but structurally intact.
 ~
 ~
-0 0 5235
+Z 0 5235
 S
 #5256
 A trail at the end of the dwarf forest~
@@ -1631,12 +1631,12 @@ D1
 You see the trail.
 ~
 ~
-0 0 5257
+Z 0 5257
 D3
 You see Thalos!
 ~
 ~
-0 0 5200
+Z 0 5200
 S
 #5257
 A trail at the end of the dwarf forest~
@@ -1649,12 +1649,12 @@ D1
 You see the intersection.
 ~
 ~
-0 0 5258
+Z 0 5258
 D3
 You see the trail continue on.
 ~
 ~
-0 0 5256
+Z 0 5256
 S
 #5258
 The dwarf forest~
@@ -1666,17 +1666,17 @@ D0
 You see the trail lead back north.
 ~
 ~
-0 0 5259
+Z 0 5259
 D1
 You can't see into the gloom of this forest.
 ~
 ~
-0 0 5262
+Z 0 5262
 D3
 You see the trail branch off.
 ~
 ~
-0 0 5257
+Z 0 5257
 S
 #5259
 The dwarf forest~
@@ -1688,12 +1688,12 @@ D0
 You see the trail continue north.
 ~
 ~
-0 0 5260
+Z 0 5260
 D2
 You see the trail continue south.
 ~
 ~
-0 0 5258
+Z 0 5258
 S
 #5260
 The dwarf forest~
@@ -1705,12 +1705,12 @@ D0
 You see the trail continue north.
 ~
 ~
-0 0 5261
+Z 0 5261
 D2
 You see the trail continue south.
 ~
 ~
-0 0 5259
+Z 0 5259
 S
 #5261
 The dwarf forest~
@@ -1722,12 +1722,12 @@ D0
 You see the trail continue north.
 ~
 ~
-0 0 3502
+Z 0 3502
 D2
 You see the trail continue south.
 ~
 ~
-0 0 5260
+Z 0 5260
 S
 #5262
 The dwarf forest~
@@ -1740,12 +1740,12 @@ D1
 You see a darker part of the forest.
 ~
 ~
-0 0 5263
+Z 0 5263
 D3
 You see the lighter forest and the T-intersection west.
 ~
 ~
-0 0 5258
+Z 0 5258
 S
 #5263
 The darker dwarf forest~
@@ -1757,17 +1757,17 @@ from the west.
 D0
 ~
 ~
-0 0 29120
+Z 0 29120
 D2
 You see nothing in the gloom south of you.
 ~
 ~
-0 0 5264
+Z 0 5264
 D3
 You see the dwarf forest.
 ~
 ~
-0 0 5262
+Z 0 5262
 S
 #5264
 The darker dwarf forest~
@@ -1780,12 +1780,12 @@ D0
 You see nothing in the gloom north of you.
 ~
 ~
-0 0 5263
+Z 0 5263
 D1
 You see nothing in the gloom east of you.
 ~
 ~
-0 0 5265
+Z 0 5265
 S
 #5265
 The darker dwarf forest~
@@ -1798,12 +1798,12 @@ D1
 You see nothing in the gloom east of you.
 ~
 ~
-0 0 5266
+Z 0 5266
 D3
 You see nothing in the gloom west of you.
 ~
 ~
-0 0 5264
+Z 0 5264
 S
 #5266
 The darker dwarf forest~
@@ -1816,12 +1816,12 @@ D3
 You see nothing in the gloom west of you.
 ~
 ~
-0 0 5265
+Z 0 5265
 D5
 You see the trail lead down into gloom.
 ~
 ~
-0 0 5267
+Z 0 5267
 S
 #5267
 A valley in the dark dwarf forest~
@@ -1832,25 +1832,25 @@ around you.  Trails lead in all directions.
 D0
 ~
 ~
-0 0 5271
+Z 0 5271
 D1
 ~
 ~
-0 0 1701
+Z 0 1701
 D2
 You see a large mountain on the far side of a canyon.
 ~
 ~
-0 0 9201
+Z 0 9201
 D3
 You see a dark fox hole.
 ~
 hole fox~
-1 -1 5268
+ABZ -1 5268
 D4
 ~
 ~
-0 0 5266
+Z 0 5266
 S
 #5268
 A small ugly cave~
@@ -1868,12 +1868,12 @@ D1
 You see the exit from here!
 ~
 fox hole~
-1 -1 5267
+ABZ -1 5267
 D2
 You see more of the cave.
 ~
 ~
-0 0 5269
+Z 0 5269
 S
 #5269
 A small ugly cave~
@@ -1897,12 +1897,12 @@ D0
 You see more of the cave.
 ~
 ~
-0 0 5268
+Z 0 5268
 D5
 You see a path leading down into the dark gloom.
 ~
 ~
-0 0 5270
+Z 0 5270
 S
 #5270
 Down the path into a dead end~
@@ -1920,12 +1920,12 @@ D4
 You see your only way back up.
 ~
 ~
-0 0 5269
+Z 0 5269
 D5
 You see nothing on the floor except skeletons.
 ~
 secret~
-1 -1 5100
+ABZ -1 5100
 S
 #5271
 The Valley in the dark dwarf forest~
@@ -1937,12 +1937,12 @@ D0
 You see a trail away from this gloomy valley.
 ~
 ~
-0 0 5272
+Z 0 5272
 D2
 You see more of this gloomy valley.
 ~
 ~
-0 0 5267
+Z 0 5267
 S
 #5272
 A dim trail in the dwarf forest~
@@ -1955,12 +1955,12 @@ D0
 You can actually see the trail north of you!
 ~
 ~
-0 0 5273
+Z 0 5273
 D2
 You can barely see the gloomy valley south of you.
 ~
 ~
-0 0 5271
+Z 0 5271
 S
 #5273
 A dim trail in the dwarf forest~
@@ -1973,17 +1973,17 @@ D0
 You see the dim trail lead north.
 ~
 ~
-0 0 5274
+Z 0 5274
 D1
 You see the small path.
 ~
 ~
-0 0 5280
+Z 0 5280
 D2
 You see the dim trail lead south.
 ~
 ~
-0 0 5272
+Z 0 5272
 S
 #5274
 A dim trail in the dwarf forest~
@@ -1996,12 +1996,12 @@ D0
 You see the dim trail lead north.
 ~
 ~
-0 0 5275
+Z 0 5275
 D2
 You see the dim trail lead south.
 ~
 ~
-0 0 5273
+Z 0 5273
 S
 #5275
 A bend in the dim trail in the dwarf forest~
@@ -2014,12 +2014,12 @@ D2
 You see the dim trail lead south.
 ~
 ~
-0 0 5274
+Z 0 5274
 D3
 You see the trail lead west.
 ~
 ~
-0 0 5276
+Z 0 5276
 S
 #5276
 A trail in the dwarf forest~
@@ -2032,12 +2032,12 @@ D1
 The trail continues east to the dimmer parts of the forest.
 ~
 ~
-0 0 5275
+Z 0 5275
 D3
 The trail continues west.
 ~
 ~
-0 0 5277
+Z 0 5277
 S
 #5277
 A trail in the dwarf forest~
@@ -2049,12 +2049,12 @@ D1
 The trail continues east.
 ~
 ~
-0 0 5276
+Z 0 5276
 D3
 The trail continues west.
 ~
 ~
-0 0 5278
+Z 0 5278
 S
 #5278
 A trail in the dwarf forest~
@@ -2066,12 +2066,12 @@ D1
 The trail continues east.
 ~
 ~
-0 0 5277
+Z 0 5277
 D3
 The trail continues west.
 ~
 ~
-0 0 5279
+Z 0 5279
 S
 #5279
 The bend in the trail in the dwarf forest~
@@ -2084,12 +2084,12 @@ D1
 The trail continues east.
 ~
 ~
-0 -1 5278
+Z -1 5278
 D2
 You see a beautiful waterfall.
 ~
 ~
-0 -1 5281
+Z -1 5281
 S
 #5280
 A dark bend in the forest~
@@ -2102,12 +2102,12 @@ D2
 You see the dark path.
 ~
 ~
-0 0 2300
+Z 0 2300
 D3
 You see the trail back to the Dwarven Forest.
 ~
 ~
-0 0 5273
+Z 0 5273
 S
 #5281
 By the beautiful waterfall~
@@ -2121,7 +2121,7 @@ D0
 You see the trail leading north.
 ~
 ~
-0 0 5279
+Z 0 5279
 S
 #0
 

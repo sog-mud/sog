@@ -785,12 +785,12 @@ D1
 The King's Road continues in a straight line to the east.
 ~
 ~
-0 -1 15202
+Z -1 15202
 D2
 You see the steep foothills.
 ~
 ~
-0 -1 325
+Z -1 325
 S
 #15202
 The King's Road~
@@ -803,12 +803,12 @@ D1
 You see a Castle in the far east.
 ~
 ~
-0 -1 15203
+Z -1 15203
 D3
 The King's Road continues in a straight line to the west.
 ~
 ~
-0 -1 15201
+Z -1 15201
 S
 #15203
 On the King's Road outside the Castle~
@@ -823,12 +823,12 @@ D0
 You see the drawbridge.
 ~
 ~
-0 -1 15204
+Z -1 15204
 D3
 The King's Road continues in a straight line to the west.
 ~
 ~
-0 -1 15202
+Z -1 15202
 S
 #15204
 On the Drawbridge~
@@ -847,12 +847,12 @@ The gate has huge, but intricately carved hinges. As the Castle itself,
 it seems designed not only for strength, but also for beauty.
 ~
 gate door~
-0 -1 15207
+Z -1 15207
 D2
 You see the King's Road.
 ~
 ~
-0 -1 15203
+Z -1 15203
 S
 #15205
 The Kitchen~
@@ -867,12 +867,12 @@ D0
 You see a small, dimly lit passage.
 ~
 ~
-0 -1 15210
+Z -1 15210
 D1
 You see a small, dimly lit passage.
 ~
 ~
-0 -1 15206
+Z -1 15206
 S
 #15206
 A small passage.~
@@ -885,12 +885,12 @@ D1
 The door is small and uninteresting.
 ~
 door small~
-1 -1 15207
+ABZ -1 15207
 D3
 You hear clanging of pots, and smell cooking meat.
 ~
 ~
-0 -1 15205
+Z -1 15205
 S
 #15207
 The Entrance Hall~
@@ -903,22 +903,22 @@ D0
 You see the King's Great Hall.
 ~
 ~
-0 -1 15212
+Z -1 15212
 D1
 There seems to be a small guard room to the east.
 ~
 ~
-0 -1 15208
+Z -1 15208
 D2
 To the south, there is a gate, that leads to the Drawbridge.
 ~
 gate~
-0 -1 15204
+Z -1 15204
 D3
 The door is small and uninteresting.
 ~
 door small~
-1 -1 15206
+ABZ -1 15206
 S
 #15208
 The Guard Room~
@@ -930,7 +930,7 @@ D3
 You see the Castle Entrance.
 ~
 ~
-0 -1 15207
+Z -1 15207
 S
 #15209
 Under the Tower~
@@ -948,12 +948,12 @@ D0
 You see a small, dimly lit passage.
 ~
 ~
-0 -1 15214
+Z -1 15214
 D4
 The stairs are old, but in good repair. They lead up into the tower.
 ~
 ~
-0 -1 15234
+Z -1 15234
 S
 #15210
 The Small Passage~
@@ -966,12 +966,12 @@ D0
 You see a small, dimly lit passage.
 ~
 ~
-0 -1 15215
+Z -1 15215
 D2
 You hear the clanging of pots, and smell cooking meat.
 ~
 ~
-0 -1 15205
+Z -1 15205
 S
 #15211
 The Great Hall~
@@ -993,12 +993,12 @@ D0
 You see the King's Great Hall.
 ~
 ~
-0 -1 15216
+Z -1 15216
 D1
 You see the King's Great Hall.
 ~
 ~
-0 -1 15212
+Z -1 15212
 S
 #15212
 The Great Hall~
@@ -1022,22 +1022,22 @@ D0
 You see the part of the Great Hall where the throne is.
 ~
 ~
-0 -1 15217
+Z -1 15217
 D1
 You see the King's Great Hall.
 ~
 ~
-0 -1 15213
+Z -1 15213
 D2
 You see the Castle Entrance.
 ~
 ~
-0 -1 15207
+Z -1 15207
 D3
 You see the King's Great Hall.
 ~
 ~
-0 -1 15211
+Z -1 15211
 S
 #15213
 The Great Hall~
@@ -1059,12 +1059,12 @@ D0
 You see the King's Great Hall.
 ~
 ~
-0 -1 15218
+Z -1 15218
 D3
 You see the King's Great Hall.
 ~
 ~
-0 -1 15212
+Z -1 15212
 S
 #15214
 A passage~
@@ -1076,11 +1076,11 @@ D0
 You see the small passage continue.
 ~
 ~
-0 -1 15219
+Z -1 15219
 D2
 ~
 ~
-0 -1 15209
+Z -1 15209
 S
 #15215
 The passage~
@@ -1092,17 +1092,17 @@ D0
 You see the passage continue.
 ~
 ~
-0 -1 15220
+Z -1 15220
 D1
 You see the King's Great Hall.
 ~
 ~
-0 -1 15216
+Z -1 15216
 D2
 You see the passage continue.
 ~
 ~
-0 -1 15210
+Z -1 15210
 S
 #15216
 The Great Hall~
@@ -1126,17 +1126,17 @@ D1
 You see the part of the Great Hall where the throne is.
 ~
 ~
-0 -1 15217
+Z -1 15217
 D2
 You see the King's Great Hall.
 ~
 ~
-0 -1 15211
+Z -1 15211
 D3
 You see a passage.
 ~
 ~
-0 -1 15215
+Z -1 15215
 S
 #15217
 By the Throne in the Great Hall~
@@ -1164,17 +1164,17 @@ D1
 You see the King's Great Hall.
 ~
 ~
-0 -1 15218
+Z -1 15218
 D2
 You see the King's Great Hall.
 ~
 ~
-0 -1 15212
+Z -1 15212
 D3
 You see the King's Great Hall.
 ~
 ~
-0 -1 15216
+Z -1 15216
 S
 #15218
 The Great Hall~
@@ -1198,17 +1198,17 @@ D1
 You see a passage.
 ~
 ~
-0 -1 15219
+Z -1 15219
 D2
 You see the King's Great Hall.
 ~
 ~
-0 -1 15213
+Z -1 15213
 D3
 You see the part of the Great Hall where the throne is.
 ~
 ~
-0 -1 15217
+Z -1 15217
 S
 #15219
 The small passage~
@@ -1220,17 +1220,17 @@ D0
 The passage continues to the north.
 ~
 ~
-0 -1 15224
+Z -1 15224
 D2
 The passage continues to the south.
 ~
 ~
-0 -1 15214
+Z -1 15214
 D3
 To the west you see the Great Hall.
 ~
 ~
-0 -1 15218
+Z -1 15218
 S
 #15220
 The passage~
@@ -1242,17 +1242,17 @@ D0
 The passage leads to a staircase.
 ~
 ~
-0 -1 15225
+Z -1 15225
 D1
 The door is quite small and unobtrusive.
 ~
 door~
-1 -1 15221
+ABZ -1 15221
 D2
 The passage continues to the south.
 ~
 ~
-0 -1 15215
+Z -1 15215
 S
 #15221
 The servants' corridor~
@@ -1266,17 +1266,17 @@ D0
 There is door there!!!
 ~
 door~
-1 -1 15226
+ABZ -1 15226
 D1
 The corridor seems to come to its end a bit further east.
 ~
 ~
-0 -1 15222
+Z -1 15222
 D3
 The door is made out of wood.
 ~
 door wood~
-1 -1 15220
+ABZ -1 15220
 S
 #15222
 The end of the servants' corridor~
@@ -1288,12 +1288,12 @@ D0
 The door leads to a room intended for the butler.
 ~
 door~
-1 15208 15227
+ABCZ 15208 15227
 D3
 You see the corridor continue.
 ~
 ~
-0 -1 15221
+Z -1 15221
 S
 #15223
 The Training Room~
@@ -1308,12 +1308,12 @@ D0
 The door is large and heavy.
 ~
 door large heavy~
-1 -1 15228
+ABZ -1 15228
 D1
 You see a small passage.
 ~
 ~
-0 -1 15224
+Z -1 15224
 S
 #15224
 The small passage~
@@ -1326,17 +1326,17 @@ D0
 The passage leads north to some stairs.
 ~
 ~
-0 -1 15229
+Z -1 15229
 D2
 You see the passage continuing.
 ~
 ~
-0 -1 15219
+Z -1 15219
 D3
 You see the Training Room.
 ~
 ~
-0 -1 15223
+Z -1 15223
 S
 #15225
 The Stair Room~
@@ -1359,12 +1359,12 @@ D2
 You see the passage.
 ~
 ~
-0 -1 15220
+Z -1 15220
 D4
 The stairs lead up to the second floor.
 ~
 ~
-0 -1 15249
+Z -1 15249
 S
 #15226
 The servants' quarters~
@@ -1382,7 +1382,7 @@ D2
 The door is made out of wood.
 ~
 door wood~
-1 -1 15221
+ABZ -1 15221
 S
 #15227
 The butler's quarters~
@@ -1400,7 +1400,7 @@ D2
 You see the corridor.
 ~
 door~
-1 15208 15222
+ABCZ 15208 15222
 S
 #15228
 The Guards' Barracks~
@@ -1417,7 +1417,7 @@ D2
 The door is large and heavy.
 ~
 door large heavy~
-1 -1 15223
+ABZ -1 15223
 S
 #15229
 The stairs~
@@ -1436,7 +1436,7 @@ D2
 You see the small passage.
 ~
 ~
-0 -1 15224
+Z -1 15224
 S
 #15230
 At a bend in the corridor~
@@ -1447,12 +1447,12 @@ D0
 You see the corridor continue.
 ~
 ~
-0 -1 15235
+Z -1 15235
 D1
 You see the corridor continue.
 ~
 ~
-0 -1 15231
+Z -1 15231
 S
 #15231
 The corridor~
@@ -1464,12 +1464,12 @@ D1
 You see the corridor continue.
 ~
 ~
-0 -1 15232
+Z -1 15232
 D3
 You see the corridor continue.
 ~
 ~
-0 -1 15230
+Z -1 15230
 S
 #15232
 The corridor~
@@ -1481,12 +1481,12 @@ D1
 You see the corridor continue.
 ~
 ~
-0 -1 15233
+Z -1 15233
 D3
 You see the corridor continue.
 ~
 ~
-0 -1 15231
+Z -1 15231
 S
 #15233
 The corridor~
@@ -1499,12 +1499,12 @@ D0
 You see the guest wing.
 ~
 ~
-0 -1 15238
+Z -1 15238
 D3
 You see the corridor continue.
 ~
 ~
-0 -1 15232
+Z -1 15232
 S
 #15234
 In the south-east tower.~
@@ -1516,12 +1516,12 @@ D4
 The room at the top of the tower seems darkish for some reason.
 ~
 ~
-0 -1 15252
+Z -1 15252
 D5
 You see the stairs at the bottom of the tower.
 ~
 ~
-0 -1 15209
+Z -1 15209
 S
 #15235
 The corridor~
@@ -1534,17 +1534,17 @@ D0
 You see the corridor continue.
 ~
 ~
-0 -1 15240
+Z -1 15240
 D1
 You see a small room.
 ~
 ~
-0 -1 15236
+Z -1 15236
 D2
 You see the corridor continue.
 ~
 ~
-0 -1 15230
+Z -1 15230
 S
 #15236
 By the treasure room~
@@ -1563,12 +1563,12 @@ D1
 You see a large steel door.
 ~
 door steel large~
-2 15207 15237
+ABCFZ 15207 15237
 D3
 You see the corridor.
 ~
 ~
-0 -1 15235
+Z -1 15235
 S
 #15237
 The Great Treasury~
@@ -1589,7 +1589,7 @@ D3
 You see a large steel door.
 ~
 door large steel~
-2 15207 15236
+ABCFZ 15207 15236
 S
 #15238
 The Guest Wing~
@@ -1602,17 +1602,17 @@ D0
 The door seems to lead to a guest room.
 ~
 door small~
-1 -1 15243
+ABZ -1 15243
 D1
 You see the guest suite behind the door.
 ~
 door ornament ornamented~
-1 -1 15239
+ABZ -1 15239
 D2
 You see the corridor.
 ~
 ~
-0 -1 15233
+Z -1 15233
 S
 #15239
 The Guest Suite~
@@ -1627,12 +1627,12 @@ D0
 You see the bedroom.
 ~
 ~
-0 -1 15244
+Z -1 15244
 D3
 Behind the door you see the entrance to the Guest Wing.
 ~
 door~
-1 -1 15238
+ABZ -1 15238
 S
 #15240
 The corridor~
@@ -1644,12 +1644,12 @@ D0
 You see the corridor continue.
 ~
 ~
-0 -1 15245
+Z -1 15245
 D2
 You see the corridor continue.
 ~
 ~
-0 -1 15235
+Z -1 15235
 S
 #15241
 The Ball Room~
@@ -1661,12 +1661,12 @@ D0
 You see the Ball Room.
 ~
 ~
-0 -1 15246
+Z -1 15246
 D1
 To the east you see the stage.
 ~
 ~
-0 -1 15242
+Z -1 15242
 S
 #15242
 By the stage~
@@ -1682,12 +1682,12 @@ D0
 You see the Ball Room.
 ~
 ~
-0 -1 15247
+Z -1 15247
 D3
 You see the Ball Room.
 ~
 ~
-0 -1 15241
+Z -1 15241
 S
 #15243
 A Guest Room~
@@ -1700,7 +1700,7 @@ D2
 Behind the door, you see the entrance to the Guest Wing.
 ~
 door~
-1 -1 15238
+ABZ -1 15238
 S
 #15244
 The Bedroom~
@@ -1717,7 +1717,7 @@ D2
 You see the living room of the suite.
 ~
 ~
-0 -1 15239
+Z -1 15239
 S
 #15245
 The corridor~
@@ -1730,17 +1730,17 @@ D0
 You see the corridor continue.
 ~
 ~
-0 -1 15249
+Z -1 15249
 D1
 You see the Ball Room.
 ~
 ~
-0 -1 15246
+Z -1 15246
 D2
 You see the corridor continue.
 ~
 ~
-0 -1 15240
+Z -1 15240
 S
 #15246
 The Ball Room~
@@ -1752,17 +1752,17 @@ D1
 You see the Ball Room.
 ~
 ~
-0 -1 15247
+Z -1 15247
 D2
 You see the Ball Room.
 ~
 ~
-0 -1 15241
+Z -1 15241
 D3
 You see the corridor.
 ~
 ~
-0 -1 15245
+Z -1 15245
 S
 #15247
 The Ball Room~
@@ -1774,17 +1774,17 @@ D1
 To the east, you can enter a tower.
 ~
 ~
-0 -1 15248
+Z -1 15248
 D2
 To the south you see the stage.
 ~
 ~
-0 -1 15242
+Z -1 15242
 D3
 You see the Ball Room.
 ~
 ~
-0 -1 15246
+Z -1 15246
 S
 #15248
 In the Tower~
@@ -1801,12 +1801,12 @@ D3
 You see the Ball Room.
 ~
 ~
-0 -1 15247
+Z -1 15247
 D4
 The stairs lead a long way up to the top of the Tower.
 ~
 ~
-0 -1 15254
+Z -1 15254
 S
 #15249
 The Grand Staircase~
@@ -1823,22 +1823,22 @@ D1
 The door is large and made out of oak.
 ~
 door oak large~
-1 15213 15250
+ABCZ 15213 15250
 D2
 You see the corridor.
 ~
 ~
-0 -1 15245
+Z -1 15245
 D4
 The stairs continue up to the top of the tower.
 ~
 ~
-0 -1 15253
+Z -1 15253
 D5
 The stairs lead down to the first floor of the Castle.
 ~
 ~
-0 -1 15225
+Z -1 15225
 S
 #15250
 The Cosy Room~
@@ -1864,12 +1864,12 @@ D1
 You see a large bedroom.
 ~
 ~
-0 -1 15251
+Z -1 15251
 D3
 The door is large, and made out of oak.
 ~
 door large oak~
-1 15213 15249
+ABCZ 15213 15249
 S
 #15251
 The King's Bedroom~
@@ -1904,7 +1904,7 @@ D3
 There is a large and cosy room to the west.
 ~
 ~
-0 -1 15250
+Z -1 15250
 S
 #15252
 Up in the Tower~
@@ -1926,7 +1926,7 @@ D5
 The stairs go down the tower.
 ~
 ~
-0 -1 15234
+Z -1 15234
 S
 #15253
 The Top of the Tower~
@@ -1946,7 +1946,7 @@ D5
 The stairs go down to the second floor.
 ~
 ~
-0 -1 15249
+Z -1 15249
 S
 #15254
 The Top of the Tower~
@@ -1962,7 +1962,7 @@ D5
 You see the stairs going back down to the second floor.
 ~
 ~
-0 -1 15248
+Z -1 15248
 S
 #0
 

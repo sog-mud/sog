@@ -1672,7 +1672,7 @@ D2
 You see the park.
 ~
 ~
-0 -1 7501
+Z -1 7501
 S
 #7501
 Inside the park.~
@@ -1684,17 +1684,17 @@ D0
 You see the entrance to the park.
 ~
 ~
-0 -1 7500
+Z -1 7500
 D1
 You see the park continue on.
 ~
 ~
-0 -1 7502
+Z -1 7502
 D2
 You see the park continue on.
 ~
 ~
-0 -1 7503
+Z -1 7503
 S
 #7502
 The Park.~
@@ -1706,7 +1706,7 @@ D3
 You see the park.
 ~
 ~
-0 -1 7501
+Z -1 7501
 S
 #7503
 The Park.~
@@ -1718,12 +1718,12 @@ D0
 You see the park.
 ~
 ~
-0 -1 7501
+Z -1 7501
 D2
 You see the park.
 ~
 ~
-0 -1 7504
+Z -1 7504
 S
 #7504
 The Park.~
@@ -1735,12 +1735,12 @@ D0
 You see the park.
 ~
 ~
-0 -1 7503
+Z -1 7503
 D3
 You see the park.
 ~
 ~
-0 -1 7505
+Z -1 7505
 S
 #7505
 The Park.~
@@ -1751,17 +1751,17 @@ D1
 You see the park.
 ~
 ~
-0 -1 7504
+Z -1 7504
 D2
 You see the park.
 ~
 ~
-0 -1 7510
+Z -1 7510
 D3
 You see the park.
 ~
 ~
-0 -1 7506
+Z -1 7506
 S
 #7506
 The Park.~
@@ -1773,17 +1773,17 @@ D1
 You see the park.
 ~
 ~
-0 -1 7505
+Z -1 7505
 D2
 You see the park.
 ~
 ~
-0 -1 7509
+Z -1 7509
 D3
 You see the park.
 ~
 ~
-0 -1 7507
+Z -1 7507
 S
 #7507
 The Park.~
@@ -1796,12 +1796,12 @@ D1
 You see the park.
 ~
 ~
-0 -1 7506
+Z -1 7506
 D2
 You see the park.
 ~
 ~
-0 -1 7508
+Z -1 7508
 S
 #7508
 The Park.~
@@ -1812,17 +1812,17 @@ D0
 You see the park.
 ~
 ~
-0 -1 7507
+Z -1 7507
 D1
 You see the park.
 ~
 ~
-0 -1 7509
+Z -1 7509
 D2
 You see the park.
 ~
 ~
-0 -1 7518
+Z -1 7518
 S
 #7509
 The Park.~
@@ -1833,22 +1833,22 @@ D0
 You see the park.
 ~
 ~
-0 -1 7506
+Z -1 7506
 D1
 You see the park.
 ~
 ~
-0 -1 7510
+Z -1 7510
 D2
 You see the park.
 ~
 ~
-0 -1 7511
+Z -1 7511
 D3
 You see the park.
 ~
 ~
-0 -1 7508
+Z -1 7508
 S
 #7510
 The Park.~
@@ -1860,17 +1860,17 @@ D0
 You see the park.
 ~
 ~
-0 -1 7505
+Z -1 7505
 D2
 You see the park.
 ~
 ~
-0 -1 7512
+Z -1 7512
 D3
 You see the park.
 ~
 ~
-0 -1 7509
+Z -1 7509
 S
 #7511
 The trail in the Park.~
@@ -1882,17 +1882,17 @@ D0
 You see the park.
 ~
 ~
-0 -1 7509
+Z -1 7509
 D1
 You see the trail.
 ~
 ~
-0 -1 7512
+Z -1 7512
 D3
 You see the park.
 ~
 ~
-0 -1 7518
+Z -1 7518
 S
 #7512
 The trail in the Park.~
@@ -1904,17 +1904,17 @@ D0
 You see the park.
 ~
 ~
-0 -1 7510
+Z -1 7510
 D1
 You see the trail.
 ~
 ~
-0 -1 7513
+Z -1 7513
 D3
 You see the trail.
 ~
 ~
-0 -1 7511
+Z -1 7511
 S
 #7513
 The split in the trail in the Park.~
@@ -1925,17 +1925,17 @@ D1
 You see the caretakers house.
 ~
 ~
-1 -1 7514
+ABZ -1 7514
 D2
 You see the trail.
 ~
 ~
-0 -1 7515
+Z -1 7515
 D3
 You see the trail.
 ~
 ~
-0 -1 7512
+Z -1 7512
 S
 #7514
 Care-Takers House.~
@@ -1947,7 +1947,7 @@ D3
 You see the trail.
 ~
 ~
-1 -1 7513
+ABZ -1 7513
 S
 #7515
 The trail.~
@@ -1959,12 +1959,12 @@ D0
 You see the trail.
 ~
 ~
-0 -1 7513
+Z -1 7513
 D2
 You see the trail.
 ~
 ~
-0 -1 7516
+Z -1 7516
 S
 #7516
 The trail.~
@@ -1976,12 +1976,12 @@ D0
 You see the trail.
 ~
 ~
-0 -1 7515
+Z -1 7515
 D3
 You see the trail
 ~
 ~
-0 -1 7517
+Z -1 7517
 S
 #7517
 The end of the trail.~
@@ -1993,7 +1993,7 @@ D1
 You see the trail.
 ~
 ~
-0 -1 7516
+Z -1 7516
 S
 #7518
 The Park.~
@@ -2005,17 +2005,17 @@ D0
 You see the park.
 ~
 ~
-0 -1 7508
+Z -1 7508
 D1
 You see the park.
 ~
 ~
-0 -1 7511
+Z -1 7511
 D2
 You see the park.
 ~
 ~
-0 -1 7519
+Z -1 7519
 S
 #7519
 The Entrance to the Garden in the Park.~
@@ -2027,12 +2027,12 @@ D0
 You see the park.
 ~
 ~
-0 -1 7518
+Z -1 7518
 D2
 You see the garden.
 ~
 ~
-0 -1 7520
+Z -1 7520
 S
 #7520
 The Garden.~
@@ -2043,12 +2043,12 @@ D0
 You see the Entrance to the garden.
 ~
 ~
-0 -1 7519
+Z -1 7519
 D3
 You see the garden.
 ~
 ~
-0 -1 7521
+Z -1 7521
 S
 #7521
 The Garden.~
@@ -2059,17 +2059,17 @@ D1
 You see the garden.
 ~
 ~
-0 -1 7520
+Z -1 7520
 D2
 You see the garden.
 ~
 ~
-0 -1 7522
+Z -1 7522
 D3
 You see the garden.
 ~
 ~
-0 -1 7523
+Z -1 7523
 S
 #7522
 The Garden.~
@@ -2080,7 +2080,7 @@ D0
 You see the garden.
 ~
 ~
-0 -1 7521
+Z -1 7521
 S
 #7523
 The Garden.~
@@ -2091,7 +2091,7 @@ D1
 You see the garden.
 ~
 ~
-0 -1 7521
+Z -1 7521
 S
 #7524
 In the Sewers.~
@@ -2103,12 +2103,12 @@ D1
 You see the sewers.
 ~
 ~
-0 -1 7526
+Z -1 7526
 D4
 You see the entrance to the sewers.
 ~
 ~
-0 -1 7584
+Z -1 7584
 S
 #7526
 The Sewers.~
@@ -2119,22 +2119,22 @@ D0
 You see the sewers.
 ~
 ~
-0 -1 7528
+Z -1 7528
 D1
 You see the sewers.
 ~
 ~
-0 -1 7533
+Z -1 7533
 D2
 You see the sewers.
 ~
 ~
-0 -1 7527
+Z -1 7527
 D3
 You see the sewers.
 ~
 ~
-0 -1 7524
+Z -1 7524
 S
 #7527
 The Sewers.~
@@ -2145,7 +2145,7 @@ D0
 You see the sewers.
 ~
 ~
-0 -1 7526
+Z -1 7526
 S
 #7528
 The Sewers.~
@@ -2156,12 +2156,12 @@ D0
 You see the sewers.
 ~
 ~
-0 -1 7529
+Z -1 7529
 D2
 You see the sewers.
 ~
 ~
-0 -1 7526
+Z -1 7526
 S
 #7529
 The Sewers.~
@@ -2172,12 +2172,12 @@ D0
 You see the sewers.
 ~
 ~
-0 -1 7530
+Z -1 7530
 D2
 You see the sewers.
 ~
 ~
-0 -1 7528
+Z -1 7528
 S
 #7530
 The Sewers.~
@@ -2190,7 +2190,7 @@ D2
 You see the sewers.
 ~
 ~
-0 -1 7529
+Z -1 7529
 S
 #7531
 The Sewers.~
@@ -2201,12 +2201,12 @@ D1
 You see some VERY clean sewers.
 ~
 ~
-0 -1 7554
+Z -1 7554
 D2
 You see the sewers.
 ~
 ~
-0 -1 7532
+Z -1 7532
 S
 #7532
 The Sewers.~
@@ -2217,12 +2217,12 @@ D0
 You see the sewers.
 ~
 ~
-0 -1 7531
+Z -1 7531
 D2
 You see the sewers.
 ~
 ~
-0 -1 7533
+Z -1 7533
 S
 #7533
 The Sewers.~
@@ -2235,17 +2235,17 @@ D0
 You see the sewers.
 ~
 ~
-0 -1 7532
+Z -1 7532
 D1
 You see the sewers.
 ~
 ~
-0 -1 7534
+Z -1 7534
 D3
 You see the sewers.
 ~
 ~
-0 -1 7526
+Z -1 7526
 S
 #7534
 The Sewers.~
@@ -2257,17 +2257,17 @@ D1
 You see the sewers.
 ~
 ~
-0 -1 7540
+Z -1 7540
 D2
 You see the tunnel.
 ~
 ~
-0 -1 7535
+Z -1 7535
 D3
 you see the sewers.
 ~
 ~
-0 -1 7533
+Z -1 7533
 S
 #7535
 The tunnel.~
@@ -2279,12 +2279,12 @@ D0
 You see the sewers.
 ~
 ~
-0 -1 7534
+Z -1 7534
 D2
 You see the tunnel.
 ~
 ~
-0 -1 7536
+Z -1 7536
 S
 #7536
 The tunnel.~
@@ -2296,12 +2296,12 @@ D0
 You see the tunnel.
 ~
 ~
-0 -1 7535
+Z -1 7535
 D2
 You see the tunnel.
 ~
 ~
-0 -1 7537
+Z -1 7537
 S
 #7537
 The watery tunnel.~
@@ -2313,12 +2313,12 @@ D0
 You see the tunnel.
 ~
 ~
-0 -1 7536
+Z -1 7536
 D2
 You see the tunnel.
 ~
 ~
-0 -1 7538
+Z -1 7538
 S
 #7538
 The watery tunnel.~
@@ -2329,12 +2329,12 @@ D0
 You see the tunnel.
 ~
 ~
-0 -1 7537
+Z -1 7537
 D2
 You see the end of the tunnel.
 ~
 ~
-0 -1 7539
+Z -1 7539
 S
 #7539
 The end of the watery tunnel.~
@@ -2346,7 +2346,7 @@ D0
 You see the tunnel.
 ~
 ~
-0 -1 7538
+Z -1 7538
 S
 #7540
 The Sewers.~
@@ -2357,17 +2357,17 @@ D0
 You see the sewers.
 ~
 ~
-0 -1 7552
+Z -1 7552
 D1
 You see the sewers.
 ~
 ~
-0 -1 7541
+Z -1 7541
 D3
 You see the sewers.
 ~
 ~
-0 -1 7534
+Z -1 7534
 S
 #7541
 The Sewers.~
@@ -2378,12 +2378,12 @@ D1
 You see the sewers.
 ~
 ~
-0 -1 7542
+Z -1 7542
 D3
 You see the sewers.
 ~
 ~
-0 -1 7540
+Z -1 7540
 S
 #7542
 The Sewers.~
@@ -2396,12 +2396,12 @@ D1
 You see the grate.
 ~
 grate~
-0 -1 7543
+Z -1 7543
 D3
 You see the sewers.
 ~
 ~
-0 -1 7541
+Z -1 7541
 S
 #7543
 Underwater in the river.~
@@ -2413,17 +2413,17 @@ D0
 You see the river.
 ~
 ~
-0 -1 7545
+Z -1 7545
 D2
 You see the river.
 ~
 ~
-0 -1 7544
+Z -1 7544
 D3
 You see the grate to the sewers.
 ~
 grate~
-0 -1 7542
+Z -1 7542
 S
 #7544
 Underwater.~
@@ -2435,7 +2435,7 @@ D0
 You see the river.
 ~
 ~
-0 -1 7543
+Z -1 7543
 S
 #7545
 Underwater.~
@@ -2446,12 +2446,12 @@ D0
 You see the river.
 ~
 ~
-0 -1 7546
+Z -1 7546
 D2
 You see the river.
 ~
 ~
-0 -1 7543
+Z -1 7543
 S
 #7546
 Underwater.~
@@ -2462,12 +2462,12 @@ D0
 You see the river.
 ~
 ~
-0 -1 7547
+Z -1 7547
 D2
 You see the river.
 ~
 ~
-0 -1 7545
+Z -1 7545
 S
 #7547
 Underwater.~
@@ -2481,12 +2481,12 @@ D2
 You see the river.
 ~
 ~
-0 -1 7546
+Z -1 7546
 D3
 You see the half flooded sewers.
 ~
 ~
-0 -1 7548
+Z -1 7548
 S
 #7548
 Half Flooded Sewers.~
@@ -2498,12 +2498,12 @@ D1
 You see the river.
 ~
 ~
-0 -1 7547
+Z -1 7547
 D3
 You see the clean sewers.
 ~
 ~
-0 -1 7549
+Z -1 7549
 S
 #7549
 Very clean Sewers.~
@@ -2525,12 +2525,12 @@ D1
 You see the flooded ledge.
 ~
 ~
-0 -1 7548
+Z -1 7548
 D2
 You see the clean sewers.
 ~
 ~
-0 -1 7550
+Z -1 7550
 S
 #7550
 Very clean Sewers.~
@@ -2542,12 +2542,12 @@ D0
 You see the clean sewers.
 ~
 ~
-0 -1 7549
+Z -1 7549
 D3
 You see the clean sewers.
 ~
 ~
-0 -1 7551
+Z -1 7551
 S
 #7551
 Very clean Sewers.~
@@ -2558,12 +2558,12 @@ D1
 You see the clean sewers.
 ~
 ~
-0 -1 7550
+Z -1 7550
 D2
 You see the clean sewers.
 ~
 ~
-0 -1 7552
+Z -1 7552
 S
 #7552
 Very clean Sewers.~
@@ -2574,17 +2574,17 @@ D0
 You see the clean sewers.
 ~
 ~
-0 -1 7551
+Z -1 7551
 D2
 You see the sewers.
 ~
 ~
-0 -1 7540
+Z -1 7540
 D3
 You see the clean sewers.
 ~
 ~
-0 -1 7553
+Z -1 7553
 S
 #7553
 Very clean Sewers.~
@@ -2595,12 +2595,12 @@ D0
 You see the clean sewers.
 ~
 ~
-0 -1 7554
+Z -1 7554
 D1
 You see the clean sewers.
 ~
 ~
-0 -1 7552
+Z -1 7552
 S
 #7554
 Very clean Sewers.~
@@ -2622,17 +2622,17 @@ D0
 You see the clean sewers.
 ~
 ~
-0 -1 7555
+Z -1 7555
 D2
 You see the clean sewers.
 ~
 ~
-0 -1 7553
+Z -1 7553
 D3
 You see the sewers.
 ~
 ~
-0 -1 7531
+Z -1 7531
 S
 #7555
 Old library in the very clean Sewers.~
@@ -2666,7 +2666,7 @@ D2
 You see the clean sewers.
 ~
 ~
-0 -1 7554
+Z -1 7554
 S
 #7556
 Junction in the dark Forest~
@@ -2677,17 +2677,17 @@ D2
 You see the dirt path.
 ~
 ~
-0 -1 7557
+Z -1 7557
 D4
 You see the trail.
 ~
 ~
-0 -1 6003
+Z -1 6003
 D5
 You see the trail.
 ~
 ~
-0 -1 6002
+Z -1 6002
 S
 #7557
 Dirt path~
@@ -2699,12 +2699,12 @@ D0
 You see the junction.
 ~
 ~
-0 -1 7556
+Z -1 7556
 D2
 You see the dirt path.
 ~
 ~
-0 -1 7558
+Z -1 7558
 S
 #7558
 Dirt Path~
@@ -2715,12 +2715,12 @@ D0
 You see the dirt path.
 ~
 ~
-0 -1 7557
+Z -1 7557
 D2
 You see the dirt path.
 ~
 ~
-0 -1 7559
+Z -1 7559
 S
 #7559
 Dirt Path~
@@ -2731,12 +2731,12 @@ D0
 You see the dirt path.
 ~
 ~
-0 -1 7558
+Z -1 7558
 D1
 You see the dirt path.
 ~
 ~
-0 -1 7560
+Z -1 7560
 S
 #7560
 Dirt Path~
@@ -2747,12 +2747,12 @@ D1
 You see the dirt path.
 ~
 ~
-0 -1 7561
+Z -1 7561
 D3
 You see the dirt path.
 ~
 ~
-0 -1 7559
+Z -1 7559
 S
 #7561
 Dirt Path~
@@ -2763,12 +2763,12 @@ D2
 You see the dirt path.
 ~
 ~
-0 -1 7562
+Z -1 7562
 D3
 You see the dirt path.
 ~
 ~
-0 -1 7560
+Z -1 7560
 S
 #7562
 Dirt Path~
@@ -2779,12 +2779,12 @@ D0
 You see the dirt path.
 ~
 ~
-0 -1 7561
+Z -1 7561
 D2
 You see the gate of Gerighelm.
 ~
 ~
-0 -1 7563
+Z -1 7563
 S
 #7563
 Gate of Gerighelm~
@@ -2812,12 +2812,12 @@ D0
 You see the dirt path.
 ~
 ~
-0 -1 7562
+Z -1 7562
 D2
 You see the West-Street of Gerighelm.
 ~
 ~
-0 -1 7564
+Z -1 7564
 S
 #7564
 West-Street of Gerighelm~
@@ -2829,17 +2829,17 @@ D0
 You see the Gate of Gerighelm.
 ~
 ~
-0 -1 7563
+Z -1 7563
 D1
 You see Peter Ave.
 ~
 ~
-0 -1 7565
+Z -1 7565
 D2
 You see West-Street.
 ~
 ~
-0 -1 7580
+Z -1 7580
 S
 #7565
 Peter Ave~
@@ -2851,12 +2851,12 @@ D1
 You see peter ave.
 ~
 ~
-0 -1 7566
+Z -1 7566
 D3
 You see west-street.
 ~
 ~
-0 -1 7564
+Z -1 7564
 S
 #7566
 Peter Ave~
@@ -2867,17 +2867,17 @@ D1
 You see peter ave.
 ~
 ~
-0 -1 7567
+Z -1 7567
 D2
 You see the park.
 ~
 ~
-0 -1 7500
+Z -1 7500
 D3
 You see peter ave.
 ~
 ~
-0 -1 7565
+Z -1 7565
 S
 #7567
 Peter Ave~
@@ -2888,12 +2888,12 @@ D2
 You see peter ave.
 ~
 ~
-0 -1 7568
+Z -1 7568
 D3
 You see peter ave.
 ~
 ~
-0 -1 7566
+Z -1 7566
 S
 #7568
 Peter Ave~
@@ -2905,12 +2905,12 @@ D0
 You see peter ave.
 ~
 ~
-0 -1 7567
+Z -1 7567
 D2
 You see merchant way.
 ~
 ~
-0 -1 7569
+Z -1 7569
 S
 #7569
 Merchant Way~
@@ -2922,22 +2922,22 @@ D0
 You see peter ave.
 ~
 ~
-0 -1 7568
+Z -1 7568
 D1
 You see merchant way.
 ~
 ~
-0 -1 7571
+Z -1 7571
 D2
 You see the shop with lots of food..
 ~
 ~
-0 -1 7570
+Z -1 7570
 D3
 You see merchant way.
 ~
 ~
-0 -1 7575
+Z -1 7575
 S
 #7570
 The shop with lots of food~
@@ -2958,7 +2958,7 @@ D0
 You see merchant way.
 ~
 ~
-0 -1 7569
+Z -1 7569
 S
 #7571
 Merchant Way~
@@ -2969,17 +2969,17 @@ D1
 You see the end of merchant way.
 ~
 ~
-0 -1 7573
+Z -1 7573
 D2
 You see the weapon shop.
 ~
 ~
-0 -1 7572
+Z -1 7572
 D3
 You see merchant way.
 ~
 ~
-0 -1 7569
+Z -1 7569
 S
 #7572
 Weapon shop~
@@ -3001,7 +3001,7 @@ D0
 You see the merchant way.
 ~
 ~
-0 -1 7571
+Z -1 7571
 S
 #7573
 End of Merchant Way~
@@ -3013,12 +3013,12 @@ D2
 You see the Herbalist shop.
 ~
 ~
-0 -1 7574
+Z -1 7574
 D3
 You see merchant way.
 ~
 ~
-0 -1 7571
+Z -1 7571
 S
 #7574
 Herbalist Shop~
@@ -3039,7 +3039,7 @@ D0
 You see the end of merchant way.
 ~
 ~
-0 -1 7573
+Z -1 7573
 S
 #7575
 Merchant Way~
@@ -3050,17 +3050,17 @@ D1
 You see the merchant way.
 ~
 ~
-0 -1 7569
+Z -1 7569
 D2
 You see the magic shop.
 ~
 ~
-0 -1 7576
+Z -1 7576
 D3
 You see the merchant way.
 ~
 ~
-0 -1 7577
+Z -1 7577
 S
 #7576
 Magic Shop~
@@ -3081,7 +3081,7 @@ D0
 You see the merchant way.
 ~
 ~
-0 -1 7575
+Z -1 7575
 S
 #7577
 Merchant Way~
@@ -3093,17 +3093,17 @@ D1
 You see the merchant way.
 ~
 ~
-0 -1 7575
+Z -1 7575
 D2
 You see the Pawn Shop.
 ~
 ~
-0 -1 7578
+Z -1 7578
 D3
 You see West-Street
 ~
 ~
-0 -1 7579
+Z -1 7579
 S
 #7578
 The Pawn Shop~
@@ -3115,7 +3115,7 @@ D0
 You see the merchant way.
 ~
 ~
-0 -1 7577
+Z -1 7577
 S
 #7579
 West-Street~
@@ -3126,17 +3126,17 @@ D0
 You see West-Street.
 ~
 ~
-0 -1 7580
+Z -1 7580
 D1
 You see the Merchant Way.
 ~
 ~
-0 -1 7577
+Z -1 7577
 D2
 You see West-Street.
 ~
 ~
-0 -1 7581
+Z -1 7581
 S
 #7580
 West-Street~
@@ -3147,12 +3147,12 @@ D0
 You see the West-Street.
 ~
 ~
-0 -1 7564
+Z -1 7564
 D2
 You see the West-Street.
 ~
 ~
-0 -1 7579
+Z -1 7579
 S
 #7581
 West-Street~
@@ -3164,12 +3164,12 @@ D0
 You see West-Street.
 ~
 ~
-0 -1 7579
+Z -1 7579
 D2
 You see West-Street.
 ~
 ~
-0 -1 7582
+Z -1 7582
 S
 #7582
 West-Street~
@@ -3181,22 +3181,22 @@ D0
 You see West-Street.
 ~
 ~
-0 -1 7581
+Z -1 7581
 D1
 You see the Merchant Way.
 ~
 ~
-0 -1 7601
+Z -1 7601
 D2
 You see West-Street.
 ~
 ~
-0 -1 7589
+Z -1 7589
 D3
 You see Mable road.
 ~
 ~
-0 -1 7583
+Z -1 7583
 S
 #7583
 Mable Road~
@@ -3208,17 +3208,17 @@ D0
 You see the Dukes Palace.
 ~
 ~
-0 -1 7663
+Z -1 7663
 D1
 You see West-Street.
 ~
 ~
-0 -1 7582
+Z -1 7582
 D3
 You see Mable road.
 ~
 ~
-0 -1 7584
+Z -1 7584
 S
 #7584
 Mable Road~
@@ -3231,17 +3231,17 @@ D1
 You see Mable road.
 ~
 ~
-0 -1 7583
+Z -1 7583
 D2
 You see Mable road.
 ~
 ~
-0 -1 7585
+Z -1 7585
 D5
 You see the sewers.
 ~
 ~
-0 -1 7524
+Z -1 7524
 S
 #7585
 Mable Road~
@@ -3252,12 +3252,12 @@ D0
 You see Mable road.
 ~
 ~
-0 -1 7584
+Z -1 7584
 D2
 You see Mable road.
 ~
 ~
-0 -1 7586
+Z -1 7586
 S
 #7586
 Mable Road~
@@ -3269,12 +3269,12 @@ D0
 You see Mable road.
 ~
 ~
-0 -1 7585
+Z -1 7585
 D1
 You see Mable road.
 ~
 ~
-0 -1 7587
+Z -1 7587
 S
 #7587
 Mable Road~
@@ -3286,12 +3286,12 @@ D1
 You see West-Street
 ~
 ~
-0 -1 7588
+Z -1 7588
 D3
 You see Mable road.
 ~
 ~
-0 -1 7586
+Z -1 7586
 S
 #7588
 West-Street~
@@ -3302,17 +3302,17 @@ D0
 You see West-Street
 ~
 ~
-0 -1 7589
+Z -1 7589
 D2
 You see the path.
 ~
 ~
-0 -1 7598
+Z -1 7598
 D3
 You see Mable road.
 ~
 ~
-0 -1 7587
+Z -1 7587
 S
 #7589
 West-Street~
@@ -3325,17 +3325,17 @@ D0
 You see West-street.
 ~
 ~
-0 -1 7582
+Z -1 7582
 D1
 You see Temple Street.
 ~
 ~
-0 -1 7590
+Z -1 7590
 D2
 You see West-Street.
 ~
 ~
-0 -1 7588
+Z -1 7588
 S
 #7590
 Temple Street~
@@ -3347,17 +3347,17 @@ D1
 You see Temple Street.
 ~
 ~
-0 -1 7592
+Z -1 7592
 D2
 You see the contruction crew building a new temple
 ~
 ~
-0 -1 7591
+Z -1 7591
 D3
 You see West-Street.
 ~
 ~
-0 -1 7589
+Z -1 7589
 S
 #7591
 Construction site~
@@ -3370,7 +3370,7 @@ D0
 You see Temple Street.
 ~
 ~
-0 -1 7590
+Z -1 7590
 S
 #7592
 Temple Street~
@@ -3381,17 +3381,17 @@ D1
 You see Temple Street.
 ~
 ~
-0 -1 7594
+Z -1 7594
 D2
 You see a temple.
 ~
 ~
-0 -1 7593
+Z -1 7593
 D3
 You see Temple Street.
 ~
 ~
-0 -1 7590
+Z -1 7590
 S
 #7593
 Temple to Time~
@@ -3403,7 +3403,7 @@ D0
 You see the Temple Street.
 ~
 ~
-0 -1 7592
+Z -1 7592
 S
 #7594
 Temple Street~
@@ -3415,12 +3415,12 @@ You see an old, run down cathedral.  There are Gargoyles, vampires, and
 others.  They seem to be moving....
 ~
 ~
-0 -1 7595
+Z -1 7595
 D3
 You see Temple Street.
 ~
 ~
-0 -1 7592
+Z -1 7592
 S
 #7595
 Temple of Death~
@@ -3436,12 +3436,12 @@ D0
 You see Temple Street.
 ~
 ~
-0 -1 7594
+Z -1 7594
 D2
 You see Sacrifice Room.
 ~
 ~
-0 -1 7699
+Z -1 7699
 S
 #7596
 Temple Street~
@@ -3453,12 +3453,12 @@ D2
 You see the Temple to War!
 ~
 ~
-0 -1 7597
+Z -1 7597
 D3
 You see Temple Street.
 ~
 ~
-0 -1 7594
+Z -1 7594
 S
 #7597
 Temple to War!~
@@ -3476,7 +3476,7 @@ D0
 You see the Temple Street.
 ~
 ~
-0 -1 7596
+Z -1 7596
 S
 #7598
 Path from Gerighelm~
@@ -3487,12 +3487,12 @@ D0
 You see West-Street.
 ~
 ~
-0 -1 7588
+Z -1 7588
 D2
 You see the Dump.
 ~
 ~
-0 -1 7599
+Z -1 7599
 S
 #7599
 The Dump~
@@ -3503,12 +3503,12 @@ D0
 You see the path from Gerighelm.
 ~
 ~
-0 -1 7598
+Z -1 7598
 D2
 You see The dump.
 ~
 ~
-0 -1 7600
+Z -1 7600
 S
 #7600
 The Dump~
@@ -3519,7 +3519,7 @@ D0
 You see the Dump.
 ~
 ~
-0 -1 7599
+Z -1 7599
 S
 #7601
 Merchant Way~
@@ -3532,17 +3532,17 @@ D0
 You see the olde pet shope.
 ~
 ~
-0 -1 7602
+Z -1 7602
 D1
 You see the merchant way.
 ~
 ~
-0 -1 7603
+Z -1 7603
 D3
 You see West-Street.
 ~
 ~
-0 -1 7582
+Z -1 7582
 S
 #7602
 Ye Olde Pet Shope~
@@ -3554,7 +3554,7 @@ D2
 You see the merchant way.
 ~
 ~
-0 -1 7601
+Z -1 7601
 S
 #7603
 Merchant Way~
@@ -3566,17 +3566,17 @@ D0
 You see Greghimles furniture store.
 ~
 ~
-0 -1 7604
+Z -1 7604
 D1
 You see merchant way.
 ~
 ~
-0 -1 7605
+Z -1 7605
 D3
 You see the Merchant way.
 ~
 ~
-0 -1 7601
+Z -1 7601
 S
 #7604
 Greghimles furniture store~
@@ -3588,7 +3588,7 @@ D2
 You see the Merchant way.
 ~
 ~
-0 -1 7603
+Z -1 7603
 S
 #7605
 Merchant Way~
@@ -3601,22 +3601,22 @@ D0
 You see Crazy Himshlick's portable fountains.
 ~
 ~
-0 -1 7606
+Z -1 7606
 D1
 You see the Merchant way.
 ~
 ~
-0 -1 7607
+Z -1 7607
 D2
 You see the barracks.
 ~
 ~
-0 -1 7681
+Z -1 7681
 D3
 You see the Merchant way.
 ~
 ~
-0 -1 7603
+Z -1 7603
 S
 #7606
 Crazy Himshlick's portable fountains~
@@ -3629,7 +3629,7 @@ D2
 You see the Merchant way.
 ~
 ~
-0 -1 7605
+Z -1 7605
 S
 #7607
 Merchant Way~
@@ -3641,17 +3641,17 @@ D0
 You see the Water bottles and beer.
 ~
 ~
-0 -1 7608
+Z -1 7608
 D1
 You see the Merchant way.
 ~
 ~
-0 -1 7609
+Z -1 7609
 D3
 You see the Merchant way.
 ~
 ~
-0 -1 7605
+Z -1 7605
 S
 #7608
 Water bottles and Beer~
@@ -3662,7 +3662,7 @@ D2
 You see the Merchant way.
 ~
 ~
-0 -1 7607
+Z -1 7607
 S
 #7609
 Merchant Way~
@@ -3675,17 +3675,17 @@ D0
 You see the Potions and Wands.
 ~
 ~
-0 -1 7610
+Z -1 7610
 D1
 You see the Bridge crossing the river.
 ~
 ~
-0 -1 7611
+Z -1 7611
 D3
 You see the Merchant way.
 ~
 ~
-0 -1 7607
+Z -1 7607
 S
 #7610
 The Potions and Wands shop~
@@ -3697,7 +3697,7 @@ D2
 You see the Merchant way.
 ~
 ~
-0 -1 7609
+Z -1 7609
 S
 #7611
 Bridge over the river~
@@ -3708,12 +3708,12 @@ D1
 You see the Merchant Way.
 ~
 ~
-0 -1 7612
+Z -1 7612
 D3
 You see the Merchant way.
 ~
 ~
-0 -1 7609
+Z -1 7609
 S
 #7612
 Merchant Way~
@@ -3726,17 +3726,17 @@ D1
 You see the crowded market.
 ~
 ~
-0 -1 7614
+Z -1 7614
 D2
 You see the crowded market.
 ~
 ~
-0 -1 7613
+Z -1 7613
 D3
 You see the bridge over the river.
 ~
 ~
-0 -1 7611
+Z -1 7611
 S
 #7613
 Crowded market~
@@ -3747,7 +3747,7 @@ D0
 You see Merchant way.
 ~
 ~
-0 -1 7612
+Z -1 7612
 S
 #7614
 Crowded market~
@@ -3759,22 +3759,22 @@ D0
 You see the long path.
 ~
 ~
-0 -1 7615
+Z -1 7615
 D1
 You see the crowded market.
 ~
 ~
-0 -1 7640
+Z -1 7640
 D2
 You see the crowded market.
 ~
 ~
-0 -1 7639
+Z -1 7639
 D3
 You see the Merchant way.               
 ~
 ~
-0 -1 7612
+Z -1 7612
 S
 #7615
 Long path~
@@ -3786,12 +3786,12 @@ D0
 You see the long path.
 ~
 ~
-0 -1 7616
+Z -1 7616
 D2
 You see the crowded market.
 ~
 ~
-0 -1 7614
+Z -1 7614
 S
 #7616
 Long path~
@@ -3802,12 +3802,12 @@ D0
 You see the junction.
 ~
 ~
-0 -1 7617
+Z -1 7617
 D2
 You see the long path.
 ~
 ~
-0 -1 7615
+Z -1 7615
 S
 #7617
 Junction~
@@ -3819,17 +3819,17 @@ D0
 You see the long path.
 ~
 ~
-0 -1 7629
+Z -1 7629
 D1
 You see the houses.
 ~
 ~
-0 -1 7620
+Z -1 7620
 D2
 You see the long path.
 ~
 ~
-0 -1 7616
+Z -1 7616
 S
 #7620
 Rurals~
@@ -3841,12 +3841,12 @@ D1
 You see the houses.
 ~
 ~
-0 -1 7621
+Z -1 7621
 D3
 You see the junction.
 ~
 ~
-0 -1 7617
+Z -1 7617
 S
 #7621
 Rurals~
@@ -3858,12 +3858,12 @@ D1
 You see the paths.
 ~
 ~
-0 -1 7622
+Z -1 7622
 D3
 You see the path you came in on.
 ~
 ~
-0 -1 7620
+Z -1 7620
 S
 #7622
 Pair of paths~
@@ -3875,17 +3875,17 @@ D0
 You see the house.
 ~
 door~
-0 -1 7624
+Z -1 7624
 D2
 You see the house.
 ~
 door~
-0 -1 7623
+Z -1 7623
 D3
 You see the path you came in on.
 ~
 ~
-0 -1 7621
+Z -1 7621
 S
 #7623
 House~
@@ -3896,17 +3896,17 @@ D0
 You see the door.
 ~
 door~
-0 -1 7622
+Z -1 7622
 D1
 You see the drawing room.
 ~
 ~
-0 -1 7627
+Z -1 7627
 D3
 You see the living room.
 ~
 ~
-0 -1 7628
+Z -1 7628
 S
 #7624
 House~
@@ -3917,17 +3917,17 @@ D1
 You see the dining room.
 ~
 ~
-0 -1 7625
+Z -1 7625
 D2
 You see the door.
 ~
 door~
-0 -1 7622
+Z -1 7622
 D3
 You see the sitting room.
 ~
 ~
-0 -1 7626
+Z -1 7626
 S
 #7625
 Dining room~
@@ -3938,7 +3938,7 @@ D3
 You see the entrance to the house.
 ~
 ~
-0 -1 7624
+Z -1 7624
 S
 #7626
 Sitting room~
@@ -3949,7 +3949,7 @@ D1
 You see the entrance to the house.
 ~
 ~
-0 -1 7624
+Z -1 7624
 S
 #7627
 Living room~
@@ -3960,7 +3960,7 @@ D3
 You see the entrance to the house.
 ~
 ~
-0 -1 7623
+Z -1 7623
 S
 #7628
 Drawing room~
@@ -3971,7 +3971,7 @@ D1
 You see the entrance to the house.
 ~
 ~
-0 -1 7623
+Z -1 7623
 S
 #7629
 Long path~
@@ -3982,12 +3982,12 @@ D0
 You see the end of the path.
 ~
 ~
-0 -1 7630
+Z -1 7630
 D2
 You see the junction
 ~
 ~
-0 -1 7617
+Z -1 7617
 S
 #7630
 End of the path~
@@ -4000,7 +4000,7 @@ D2
 You see the path.
 ~
 ~
-0 -1 7629
+Z -1 7629
 S
 #7639
 Crowded market~
@@ -4011,7 +4011,7 @@ D0
 You see the crowded market.
 ~
 ~
-0 -1 7614
+Z -1 7614
 S
 #7640
 Crowded market~
@@ -4023,17 +4023,17 @@ D1
 You see the bridge.
 ~
 ~
-0 -1 7647
+Z -1 7647
 D2
 You see the crowded market.
 ~
 ~
-0 -1 7641
+Z -1 7641
 D3
 You see the crowded market.
 ~
 ~
-0 -1 7614
+Z -1 7614
 S
 #7641
 Crowded market~
@@ -4046,12 +4046,12 @@ D0
 You see the crowded market.
 ~
 ~
-0 -1 7640
+Z -1 7640
 D2
 You see the crowded market.
 ~
 ~
-0 -1 7642
+Z -1 7642
 S
 #7642
 Crowded market~
@@ -4063,12 +4063,12 @@ D0
 You see the crowded market.
 ~
 ~
-0 -1 7641
+Z -1 7641
 D3
 You see the crowded market.
 ~
 ~
-0 -1 7643
+Z -1 7643
 S
 #7643
 Crowded market~
@@ -4079,17 +4079,17 @@ D0
 You see the crowded market.
 ~
 ~
-0 -1 7644
+Z -1 7644
 D1
 You see the crowded market.
 ~
 ~
-0 -1 7642
+Z -1 7642
 D3
 You see the crowded market.
 ~
 ~
-0 -1 7645
+Z -1 7645
 S
 #7644
 Crowded market~
@@ -4100,7 +4100,7 @@ D2
 You see the crowded market.
 ~
 ~
-0 -1 7643
+Z -1 7643
 S
 #7645
 Crowded market~
@@ -4111,12 +4111,12 @@ D0
 You see the crowded market.
 ~
 ~
-0 -1 7646
+Z -1 7646
 D1
 You see the crowded market.
 ~
 ~
-0 -1 7643
+Z -1 7643
 S
 #7646
 Crowded market~
@@ -4127,7 +4127,7 @@ D2
 You see the crowded market.
 ~
 ~
-0 -1 7645
+Z -1 7645
 S
 #7647
 On the bridge~
@@ -4141,12 +4141,12 @@ D1
 You see the market.
 ~
 ~
-0 -1 7648
+Z -1 7648
 D3
 You see the crowded market.
 ~
 ~
-0 -1 7640
+Z -1 7640
 S
 #7648
 Market~
@@ -4159,17 +4159,17 @@ D1
 You see the market.
 ~
 ~
-0 -1 7650
+Z -1 7650
 D2
 You see the market.
 ~
 ~
-0 -1 7649
+Z -1 7649
 D3
 You see the bridge.
 ~
 ~
-0 -1 7647
+Z -1 7647
 S
 #7649
 The market~
@@ -4181,17 +4181,17 @@ D0
 You see the market.
 ~
 ~
-0 -1 7648
+Z -1 7648
 D1
 You see the market.
 ~
 ~
-0 -1 7651
+Z -1 7651
 D2
 You see the market.
 ~
 ~
-0 -1 7662
+Z -1 7662
 S
 #7650
 Market~
@@ -4202,17 +4202,17 @@ D1
 You see the market.
 ~
 ~
-0 -1 7652
+Z -1 7652
 D2
 You see the market.
 ~
 ~
-0 -1 7651
+Z -1 7651
 D3
 You see the market.
 ~
 ~
-0 -1 7648
+Z -1 7648
 S
 #7651
 Market~
@@ -4223,22 +4223,22 @@ D0
 You see the market.
 ~
 ~
-0 -1 7650
+Z -1 7650
 D1
 You see the market.
 ~
 ~
-0 -1 7653
+Z -1 7653
 D2
 You see the market.
 ~
 ~
-0 -1 7660
+Z -1 7660
 D3
 You see the market.
 ~
 ~
-0 -1 7649
+Z -1 7649
 S
 #7652
 Market~
@@ -4250,17 +4250,17 @@ D1
 You see the path out of town.
 ~
 ~
-0 -1 7654
+Z -1 7654
 D2
 You see the market.
 ~
 ~
-0 -1 7653
+Z -1 7653
 D3
 You see the market.
 ~
 ~
-0 -1 7650
+Z -1 7650
 S
 #7653
 Market~
@@ -4272,17 +4272,17 @@ D0
 You see the market.
 ~
 ~
-0 -1 7652
+Z -1 7652
 D2
 You see the market.
 ~
 ~
-0 -1 7658
+Z -1 7658
 D3
 You see the market.
 ~
 ~
-0 -1 7651
+Z -1 7651
 S
 #7654
 On the path~
@@ -4305,12 +4305,12 @@ D2
 You see the path.
 ~
 ~
-0 -1 7655
+Z -1 7655
 D3
 You see the market.
 ~
 ~
-0 -1 7652
+Z -1 7652
 S
 #7655
 The path~
@@ -4323,12 +4323,12 @@ D0
 You see the path.
 ~
 ~
-0 -1 7654
+Z -1 7654
 D2
 You see the path.
 ~
 ~
-0 -1 7656
+Z -1 7656
 S
 #7656
 On the path~
@@ -4348,12 +4348,12 @@ D0
 You see the path.
 ~
 ~
-0 -1 7655
+Z -1 7655
 D3
 You see the market.
 ~
 ~
-0 -1 7657
+Z -1 7657
 S
 #7657
 Market~
@@ -4366,17 +4366,17 @@ D0
 You see the market.
 ~
 ~
-0 -1 7658
+Z -1 7658
 D1
 You see the path out of town.
 ~
 ~
-0 -1 7656
+Z -1 7656
 D3
 You see the market.
 ~
 ~
-0 -1 7659
+Z -1 7659
 S
 #7658
 Market~
@@ -4389,17 +4389,17 @@ D0
 You see the market.
 ~
 ~
-0 -1 7653
+Z -1 7653
 D2
 You see the market.
 ~
 ~
-0 -1 7657
+Z -1 7657
 D3
 You see the market.
 ~
 ~
-0 -1 7660
+Z -1 7660
 S
 #7659
 Market~
@@ -4410,17 +4410,17 @@ D0
 You see the market.
 ~
 ~
-0 -1 7660
+Z -1 7660
 D1
 You see the market.
 ~
 ~
-0 -1 7657
+Z -1 7657
 D3
 You see the market.
 ~
 ~
-0 -1 7661
+Z -1 7661
 S
 #7660
 Market~
@@ -4431,22 +4431,22 @@ D0
 You see the market.
 ~
 ~
-0 -1 7651
+Z -1 7651
 D1
 You see the market.
 ~
 ~
-0 -1 7658
+Z -1 7658
 D2
 You see the market.
 ~
 ~
-0 -1 7659
+Z -1 7659
 D3
 You see the market.
 ~
 ~
-0 -1 7662
+Z -1 7662
 S
 #7661
 Market~
@@ -4457,12 +4457,12 @@ D0
 You see the market.
 ~
 ~
-0 -1 7662
+Z -1 7662
 D1
 You see the market.
 ~
 ~
-0 -1 7659
+Z -1 7659
 S
 #7662
 Market~
@@ -4474,17 +4474,17 @@ D0
 You see the market.
 ~
 ~
-0 -1 7649
+Z -1 7649
 D1
 You see the market.
 ~
 ~
-0 -1 7660
+Z -1 7660
 D2
 You see the market.
 ~
 ~
-0 -1 7661
+Z -1 7661
 S
 #7663
 Entrance to the Knights Castle~
@@ -4509,12 +4509,12 @@ D2
 You see Mable road.
 ~
 ~
-0 -1 7583
+Z -1 7583
 D3
 You see the palace.
 ~
 ~
-0 -1 7664
+Z -1 7664
 S
 #7664
 The palace~
@@ -4525,12 +4525,12 @@ D1
 You see the entrance to the palace.
 ~
 ~
-0 -1 7663
+Z -1 7663
 D3
 You see the palace.
 ~
 ~
-0 -1 7665
+Z -1 7665
 S
 #7665
 Inside the Palace~
@@ -4543,17 +4543,17 @@ D0
 You see the room guarded by the old man.
 ~
 ~
-0 -1 7666
+Z -1 7666
 D1
 You see the palace.
 ~
 ~
-0 -1 7664
+Z -1 7664
 D3
 You see the palace.
 ~
 ~
-0 -1 7668
+Z -1 7668
 S
 #7666
 Treasury~
@@ -4565,12 +4565,12 @@ D1
 You see the huge iron door.
 ~
 door huge iron~
-0 -1 7667
+Z -1 7667
 D2
 You see the palace.
 ~
 ~
-0 -1 7665
+Z -1 7665
 S
 #7667
 Inside the Treasury~
@@ -4583,7 +4583,7 @@ D3
 You see the huge iron door
 ~
 door huge iron~
-0 -1 7666
+Z -1 7666
 S
 #7668
 Inside the palace~
@@ -4595,12 +4595,12 @@ D0
 You see the garden.
 ~
 ~
-0 -1 7669
+Z -1 7669
 D1
 You see the palace.
 ~
 ~
-0 -1 7665
+Z -1 7665
 S
 #7669
 Garden~
@@ -4612,17 +4612,17 @@ D0
 You see the garden ending.
 ~
 ~
-0 -1 7671
+Z -1 7671
 D2
 You see the garden.
 ~
 ~
-0 -1 7668
+Z -1 7668
 D3
 You see the garden.
 ~
 ~
-0 -1 7670
+Z -1 7670
 S
 #7670
 Garden~
@@ -4634,7 +4634,7 @@ D1
 You see the garden.
 ~
 ~
-0 -1 7669
+Z -1 7669
 S
 #7671
 End of the garden~
@@ -4646,12 +4646,12 @@ D0
 You see the great hall.
 ~
 ~
-0 -1 7672
+Z -1 7672
 D2
 You see the garden.
 ~
 ~
-0 -1 7669
+Z -1 7669
 S
 #7672
 Great hall~
@@ -4664,22 +4664,22 @@ D0
 You see the throne room.
 ~
 ~
-0 -1 7676
+Z -1 7676
 D1
 You see the priests altar.
 ~
 ~
-0 -1 7673
+Z -1 7673
 D2
 You see the garden.
 ~
 ~
-0 -1 7671
+Z -1 7671
 D3
 You see the servants quarters.
 ~
 ~
-0 -1 7674
+Z -1 7674
 S
 #7673
 The Altar~
@@ -4690,7 +4690,7 @@ D3
 You see the great hall.
 ~
 ~
-0 -1 7672
+Z -1 7672
 S
 #7674
 Servants Quarters~
@@ -4704,12 +4704,12 @@ D1
 You see the Great hall.
 ~
 ~
-0 -1 7672
+Z -1 7672
 D2
 You see the servants quarters.
 ~
 ~
-0 -1 7675
+Z -1 7675
 S
 #7675
 Servants Quarters~
@@ -4721,7 +4721,7 @@ D0
 You see the servants quarters.
 ~
 ~
-0 -1 7674
+Z -1 7674
 S
 #7676
 Throne Room~
@@ -4735,17 +4735,17 @@ D2
 You see the great hall.
 ~
 ~
-0 -1 7672
+Z -1 7672
 D4
 You see the Dukes bedrooms.
 ~
 ~
-0 -1 7677
+Z -1 7677
 D5
 You see the beer cellar.
 ~
 ~
-0 -1 7680
+Z -1 7680
 S
 #7677
 Hallway~
@@ -4758,12 +4758,12 @@ D0
 You see the door to the dukes room.
 ~
 door dukes duke~
-0 -1 7679
+Z -1 7679
 D2
 You see the door to the duchesses room.
 ~
 door duchesses duchess~
-0 -1 7678
+Z -1 7678
 S
 #7678
 Duchesses room~
@@ -4776,7 +4776,7 @@ D0
 You see the door of this room.
 ~
 door~
-0 -1 7677
+Z -1 7677
 S
 #7679
 Dukes room~
@@ -4789,7 +4789,7 @@ D2
 You see the door to this room.
 ~
 door~
-0 -1 7677
+Z -1 7677
 S
 #7680
 Beer cellar~
@@ -4803,7 +4803,7 @@ D4
 You see the Throne room.
 ~
 ~
-0 -1 7676
+Z -1 7676
 S
 #7681
 Barracks~
@@ -4814,7 +4814,7 @@ D0
 You see the Merchant way.
 ~
 ~
-0 -1 7605
+Z -1 7605
 S
 #7698
 Pet Shop Warehouse~

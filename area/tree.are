@@ -367,17 +367,17 @@ small tablet~
 D2
 ~
 ~
-0 -1 6346
+Z -1 6346
 D4
 You see the trunk rising up into the sky.
 ~
 ~
-0 -1 2901
+Z -1 2901
 D5
 You see the trunk descending down into the depths of the earth.
 ~
 ~
-0 -1 2907
+Z -1 2907
 S
 #2901
 The Trunk of Yggdrasil~
@@ -389,12 +389,12 @@ D4
 The trunk continues to go up here.
 ~
 ~
-0 -1 2902
+Z -1 2902
 D5
 The entrance to the tree is below.
 ~
 ~
-0 -1 2900
+Z -1 2900
 S
 #2902
 The Lower Trunk of Yggrasil~
@@ -406,32 +406,32 @@ D0
 A limb branches off in this direction.
 ~
 ~
-0 -1 2903
+Z -1 2903
 D1
 A limb branches off in this direction.
 ~
 ~
-0 -1 2906
+Z -1 2906
 D2
 A limb branches off in this direction.
 ~
 ~
-0 -1 2911
+Z -1 2911
 D3
 A limb branches off in this direction.
 ~
 ~
-0 -1 2905
+Z -1 2905
 D4
 The trunk continues up the tree.
 ~
 ~
-0 -1 2917
+Z -1 2917
 D5
 The way down the tree is this way.
 ~
 ~
-0 -1 2901
+Z -1 2901
 S
 #2903
 A Lower Branch of Yggdrasil~
@@ -442,7 +442,7 @@ D2
 The main trunk is in this direction.
 ~
 ~
-0 -1 2902
+Z -1 2902
 S
 #2904
 The Crest of Yggdrasil~
@@ -454,7 +454,7 @@ D5
 The way down the trunk of Yggdrasil lies this way.
 ~
 ~
-0 -1 2918
+Z -1 2918
 S
 #2905
 A Lower Branch of Yggdrasil~
@@ -465,7 +465,7 @@ D1
 The main trunk is in this direction.
 ~
 ~
-0 -1 2902
+Z -1 2902
 S
 #2906
 A Lower Branch of Yggdrasil~
@@ -476,7 +476,7 @@ D3
 The main trunk is in this direction.
 ~
 ~
-0 -1 2902
+Z -1 2902
 S
 #2907
 The Roots of Yggdrasil~
@@ -489,32 +489,32 @@ D0
 The roots lead off in this direction.
 ~
 ~
-0 -1 2923
+Z -1 2923
 D1
 The roots lead off in this direction.
 ~
 ~
-0 -1 2909
+Z -1 2909
 D2
 The roots lead off in this direction.
 ~
 ~
-0 -1 2908
+Z -1 2908
 D3
 The roots lead off in this direction.
 ~
 ~
-0 -1 2910
+Z -1 2910
 D4
 The entrance to the tree is in this direction.
 ~
 ~
-0 -1 2900
+Z -1 2900
 D5
 The deepest part of the tree is down here.
 ~
 ~
-0 -1 2912
+Z -1 2912
 S
 #2908
 The Roots of Yggdrasil~
@@ -526,7 +526,7 @@ D0
 The roots continue in this direction.
 ~
 ~
-0 -1 2907
+Z -1 2907
 S
 #2909
 The Roots of Yggdrasil~
@@ -538,7 +538,7 @@ D3
 The roots continue in this direction.
 ~
 ~
-0 -1 2907
+Z -1 2907
 S
 #2910
 The Roots of Yggdrasil~
@@ -550,7 +550,7 @@ D1
 The roots continue in this direction.
 ~
 ~
-0 -1 2907
+Z -1 2907
 S
 #2911
 A Lower Branch of Yggdrasil~
@@ -561,7 +561,7 @@ D0
 The main trunk is in this direction.
 ~
 ~
-0 -1 2902
+Z -1 2902
 S
 #2912
 The Deepest Roots of Yggdrasil~
@@ -575,7 +575,7 @@ D4
 You see the roots of the tree continue in this direction.
 ~
 ~
-0 -1 2907
+Z -1 2907
 S
 #2913
 A Middle Branch of Yggdrasil~
@@ -586,7 +586,7 @@ D1
 The main trunk is in this direction.
 ~
 ~
-0 -1 2917
+Z -1 2917
 S
 #2914
 A Middle Branch of Yggdrasil~
@@ -597,7 +597,7 @@ D2
 The main trunk is in this direction.
 ~
 ~
-0 -1 2917
+Z -1 2917
 S
 #2915
 A Middle Branch of Yggdrasil~
@@ -608,7 +608,7 @@ D3
 The main trunk is in this direction.
 ~
 ~
-0 -1 2917
+Z -1 2917
 S
 #2916
 A Middle Branch of Yggdrasil~
@@ -619,7 +619,7 @@ D0
 The main trunk is in this direction.
 ~
 ~
-0 -1 2917
+Z -1 2917
 S
 #2917
 The Middle Trunk of Yggrasil~
@@ -631,32 +631,32 @@ D0
 A limb branches off in this direction.
 ~
 ~
-0 -1 2914
+Z -1 2914
 D1
 A limb branches off in this direction.
 ~
 ~
-0 -1 2915
+Z -1 2915
 D2
 A limb branches off in this direction.
 ~
 ~
-0 -1 2916
+Z -1 2916
 D3
 A limb branches off in this direction.
 ~
 ~
-0 -1 2913
+Z -1 2913
 D4
 The trunk continues towards the heavens.
 ~
 ~
-0 -1 2918
+Z -1 2918
 D5
 The way down the tree is this way.
 ~
 ~
-0 -1 2902
+Z -1 2902
 S
 #2918
 The Upper Trunk of Yggrasil~
@@ -668,32 +668,32 @@ D0
 A limb branches off in this direction.
 ~
 ~
-0 -1 2921
+Z -1 2921
 D1
 A limb branches off in this direction.
 ~
 ~
-0 -1 2922
+Z -1 2922
 D2
 A limb branches off in this direction.
 ~
 ~
-0 -1 2919
+Z -1 2919
 D3
 A limb branches off in this direction.
 ~
 ~
-0 -1 2920
+Z -1 2920
 D4
 The top of the tree can be seen here.
 ~
 ~
-0 -1 2904
+Z -1 2904
 D5
 The way down the tree is this way.
 ~
 ~
-0 -1 2917
+Z -1 2917
 S
 #2919
 An Upper Branch of Yggdrasil~
@@ -704,7 +704,7 @@ D0
 The main trunk is in this direction.
 ~
 ~
-0 -1 2918
+Z -1 2918
 S
 #2920
 An Upper Branch of Yggdrasil~
@@ -715,7 +715,7 @@ D1
 The main trunk is in this direction.
 ~
 ~
-0 -1 2918
+Z -1 2918
 S
 #2921
 An Upper Branch of Yggdrasil~
@@ -726,7 +726,7 @@ D2
 The main trunk is in this direction.
 ~
 ~
-0 -1 2918
+Z -1 2918
 S
 #2922
 An Upper Branch of Yggdrasil~
@@ -737,7 +737,7 @@ D3
 The main trunk is in this direction.
 ~
 ~
-0 -1 2918
+Z -1 2918
 S
 #2923
 The Roots of Yggdrasil~
@@ -749,7 +749,7 @@ D2
 The roots continue in this direction.
 ~
 ~
-0 -1 2907
+Z -1 2907
 S
 #0
 

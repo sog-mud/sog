@@ -351,12 +351,12 @@ D0
 The path looks drier here.
 ~
 ~
-0 -1 6125
+Z -1 6125
 D2
 A broken road leading southward into the marsh.
 ~
 ~
-0 -1 8302
+Z -1 8302
 S
 #8302
 Swamp's Edge~
@@ -369,17 +369,17 @@ the sounds stop.
 D0
 ~
 ~
-0 -1 8301
+Z -1 8301
 D1
 To the east lies a series of bogs and shallows that look rather threatening.
 ~
 ~
-0 -1 8303
+Z -1 8303
 D2
 You notice a large hill rising out of the marsh to the south.
 ~
 ~
-0 -1 8304
+Z -1 8304
 S
 #8303
 Marshy Forest~
@@ -402,13 +402,13 @@ D1
 Eastward is the thick bog of ooze...
 ~
 ~
-0 -1 8305
+Z -1 8305
 D3
 Westward lies the remanents of a broken and shattered roadway being swallowed
 by the marsh.
 ~
 ~
-0 -1 8302
+Z -1 8302
 S
 #8304
 On a hill.~
@@ -420,17 +420,17 @@ D0
 To the north lies a damp broken roadway.
 ~
 ~
-0 -1 8302
+Z -1 8302
 D1
 A dark pool congeals to the east.
 ~
 ~
-0 -1 8309
+Z -1 8309
 D2
 A gloomy path leads down the hill into the swamp.
 ~
 ~
-0 -1 8310
+Z -1 8310
 S
 #8305
 An Oozing Bog~
@@ -449,12 +449,12 @@ D1
 Eastward lies a horde of disgusting looking monsters.
 ~
 ~
-0 -1 8306
+Z -1 8306
 D3
 Westward lies a marshy area.
 ~
 ~
-0 -1 8303
+Z -1 8303
 S
 #8306
 An Oozing Bog~
@@ -470,7 +470,7 @@ D3
 You see a large tree limb that looks easily moved.
 ~
 limb~
-0 -1 8305
+Z -1 8305
 S
 #8307
 Swamp Thing's Lair~
@@ -487,7 +487,7 @@ D3
 A pool of quick sand lies to the west.
 ~
 ~
-0 -1 8308
+Z -1 8308
 S
 #8308
 Pool of Quick Sand~
@@ -508,17 +508,17 @@ D1
 The swamp thing's lair.
 ~
 ~
-0 -1 8307
+Z -1 8307
 D2
 A murky bog.
 ~
 ~
-0 -1 8314
+Z -1 8314
 D3
 A dark pool lies to the west.
 ~
 ~
-0 -1 8309
+Z -1 8309
 S
 #8309
 A Dark Pool.~
@@ -535,17 +535,17 @@ D1
 A large pool of quicksand lies to the east.
 ~
 ~
-0 -1 8308
+Z -1 8308
 D2
 You see a cloud of darkness to the south.
 ~
 ~
-0 -1 8311
+Z -1 8311
 D3
 A hill rises out of the swamp to the east.
 ~
 ~
-0 -1 8304
+Z -1 8304
 S
 #8310
 Gloomy Path Through the Marsh.~
@@ -576,12 +576,12 @@ D0
 To the north a hill protrudes from the marshes.
 ~
 ~
-0 -1 8304
+Z -1 8304
 D2
 To the south a huge mass of vegetation seems to quiver with life.
 ~
 ~
-0 -1 8312
+Z -1 8312
 S
 #8311
 Cloud of Darkness.~
@@ -593,12 +593,12 @@ D0
 A dark pool lies to the north.
 ~
 ~
-0 -1 8309
+Z -1 8309
 D2
 An obelisk lies to the south.
 ~
 ~
-0 -1 8313
+Z -1 8313
 S
 #8312
 Near Vegetation from Hell.~
@@ -614,12 +614,12 @@ D0
 To the north is a gloomy path through the marsh.
 ~
 ~
-0 -1 8310
+Z -1 8310
 D1
 Eastward is a large, black stone monolith.
 ~
 ~
-0 -1 8313
+Z -1 8313
 S
 #8313
 By the Monolith.~
@@ -637,17 +637,17 @@ D0
 To the north is a cloud of darkest evil.
 ~
 ~
-0 -1 8311
+Z -1 8311
 D1
 Eastward lies a murky bog.
 ~
 ~
-0 -1 8314
+Z -1 8314
 D3
 Near Vegetation from Hell.
 ~
 ~
-0 -1 8312
+Z -1 8312
 S
 #8314
 Murky Bog.~
@@ -664,17 +664,17 @@ D0
 To the north lies a huge pool of quicksand.
 ~
 ~
-0 -1 8308
+Z -1 8308
 D1
 To the east the marsh turns into a small lake.
 ~
 ~
-0 -1 8315
+Z -1 8315
 D3
 Westward a large monolith awaits adventurers.
 ~
 ~
-0 -1 8313
+Z -1 8313
 S
 #8315
 Northern Lake Side.~
@@ -688,12 +688,12 @@ D2
 The southern portion of the lake lies to the south.
 ~
 ~
-0 -1 8316
+Z -1 8316
 D3
 To the west lies a murky bog.
 ~
 ~
-0 -1 8314
+Z -1 8314
 S
 #8316
 Southern Lake Side.~
@@ -711,12 +711,12 @@ D0
 Northern lake side.
 ~
 ~
-0 -1 8315
+Z -1 8315
 D3
 To the west is a beach where your boat can land.
 ~
 ~
-0 -1 8317
+Z -1 8317
 S
 #8317
 Beach~
@@ -732,12 +732,12 @@ D1
 To the east lies the southern portion of a small lake.
 ~
 ~
-0 -1 8316
+Z -1 8316
 D3
 The great gates.
 ~
 ~
-0 -1 8318
+Z -1 8318
 S
 #8318
 Before the Great Gates.~
@@ -750,7 +750,7 @@ D1
 To the east is a marshy beach.
 ~
 ~
-0 -1 8317
+Z -1 8317
 S
 #0
 

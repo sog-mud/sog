@@ -192,21 +192,21 @@ D0
 The way back to solid footing, it seems.
 ~
 ~
-0 -1 7900
+Z -1 7900
 D1
 Intersection on a Pebbled Path.
 ~
 ~
-0 -1 11600
+Z -1 11600
 D2
 ~
 ~
-0 0 21000
+Z 0 21000
 D4
 There is another cloud above you.  If you jump you might make it...
 ~
 ~
-0 -1 9102
+Z -1 9102
 S
 #9102
 A fluffy white cloud.~
@@ -219,12 +219,12 @@ D1
 There is another cloud east of you.
 ~
 ~
-0 -1 9103
+Z -1 9103
 D5
 There is another cloud below you.
 ~
 ~
-0 -1 9101
+Z -1 9101
 S
 #9103
 A fluffy white cloud.~
@@ -237,17 +237,17 @@ D0
 You can barely make out a cloud to the north.
 ~
 ~
-0 -1 9128
+Z -1 9128
 D2
 You see a cloud somewhere south of you.
 ~
 ~
-0 -1 9104
+Z -1 9104
 D3
 You see a cloud somewhere west of you.
 ~
 ~
-0 -1 9102
+Z -1 9102
 S
 #9104
 A fluffy white cloud.~
@@ -260,12 +260,12 @@ D0
 You can barely make out a cloud to the north.
 ~
 ~
-0 -1 9103
+Z -1 9103
 D1
 There is another cloud east of you.
 ~
 ~
-0 -1 9105
+Z -1 9105
 S
 #9105
 A fluffy white cloud.~
@@ -278,12 +278,12 @@ D1
 There is another cloud east of you.
 ~
 ~
-0 -1 9106
+Z -1 9106
 D3
 You spy a tiny cloud.
 ~
 ~
-0 -1 9104
+Z -1 9104
 S
 #9106
 A fluffy white cloud.~
@@ -296,12 +296,12 @@ D0
 You can barely make out a cloud to the north.
 ~
 ~
-0 -1 9107
+Z -1 9107
 D3
 You spy a tiny cloud.
 ~
 ~
-0 -1 9105
+Z -1 9105
 S
 #9107
 A fluffy white cloud.~
@@ -314,17 +314,17 @@ D1
 There is another cloud east of you.
 ~
 ~
-0 -1 9108
+Z -1 9108
 D2
 You see a cloud somewhere south of you.
 ~
 ~
-0 -1 9106
+Z -1 9106
 D5
 There is another cloud below you.
 ~
 ~
-0 -1 9126
+Z -1 9126
 S
 #9108
 A fluffy white cloud.~
@@ -337,12 +337,12 @@ D1
 An ominous storm cloud looms to the east.
 ~
 ~
-0 -1 9109
+Z -1 9109
 D3
 You spy a tiny cloud.
 ~
 ~
-0 -1 9107
+Z -1 9107
 S
 #9109
 A fluffy white cloud.~
@@ -355,12 +355,12 @@ D3
 You spy a tiny cloud.
 ~
 ~
-0 -1 9108
+Z -1 9108
 D5
 An ominous storm cloud looms below you.
 ~
 ~
-0 -1 9110
+Z -1 9110
 S
 #9110
 An ominous storm cloud.~
@@ -372,17 +372,17 @@ D1
 There is a crag, high and rocky.
 ~
 ~
-0 -1 9111
+Z -1 9111
 D3
 You spy a tiny cloud.
 ~
 ~
-0 -1 9125
+Z -1 9125
 D4
 There is another cloud above you.  If you jump you might make it...
 ~
 ~
-0 -1 9109
+Z -1 9109
 S
 #9111
 High and perilous cliff~
@@ -395,12 +395,12 @@ leading to the south.
 D2
 ~
 ~
-0 -1 9112
+Z -1 9112
 D3
 An ominous storm cloud looms to the east.
 ~
 ~
-0 -1 9110
+Z -1 9110
 S
 #9112
 Narrow rocky trail.~
@@ -412,11 +412,11 @@ Obviously, it has not been maintained in years.
 D0
 ~
 ~
-0 -1 9111
+Z -1 9111
 D5
 ~
 ~
-0 -1 9113
+Z -1 9113
 S
 #9113
 Small valley.~
@@ -427,11 +427,11 @@ odd carcass or two.  The trail leads south and it leads up.
 D2
 ~
 ~
-0 -1 9114
+Z -1 9114
 D4
 ~
 ~
-0 -1 9112
+Z -1 9112
 S
 #9114
 Small valley.~
@@ -443,12 +443,12 @@ a crevasse.
 D0
 ~
 ~
-0 -1 9113
+Z -1 9113
 D5
 The crevice looks a little slippery.
 ~
 ~
-0 -1 9115
+Z -1 9115
 S
 #9115
 Deep, slippery crevice.~
@@ -460,16 +460,16 @@ Better take your time climbing through here.
 D2
 ~
 ~
-0 -1 9117
+Z -1 9117
 D3
 The mist looks thicker in this direction.
 ~
 ~
-0 -1 9116
+Z -1 9116
 D4
 ~
 ~
-0 -1 9114
+Z -1 9114
 S
 #9116
 Incredibly slippery crevice.~
@@ -485,12 +485,12 @@ D1
 The way back to safety.
 ~
 ~
-0 -1 9115
+Z -1 9115
 D5
 Only fools would dare tread here!
 ~
 ~
-0 -1 9199
+Z -1 9199
 S
 #9117
 Steep mountainside.~
@@ -501,11 +501,11 @@ Midgaard is far, far to the west.  What a postcard perfect view!
 D0
 ~
 ~
-0 -1 9115
+Z -1 9115
 D4
 ~
 ~
-0 -1 9118
+Z -1 9118
 S
 #9118
 Steep mountainside.~
@@ -516,11 +516,11 @@ Midgaard is far, far to the west.  What a postcard perfect view!
 D1
 ~
 ~
-0 -1 9119
+Z -1 9119
 D5
 ~
 ~
-0 -1 9117
+Z -1 9117
 S
 #9119
 Treacherous Cliff.~
@@ -532,13 +532,13 @@ nasty.
 D3
 ~
 ~
-0 -1 9118
+Z -1 9118
 D4
 Above you is an almost vertical cliff.  It looks dangerous but
 climbable.
 ~
 ~
-0 -1 9120
+Z -1 9120
 S
 #9120
 Cliff Face.~
@@ -551,16 +551,16 @@ D1
 A dank, dark, smelly hole.
 ~
 ~
-0 -1 9121
+Z -1 9121
 D4
 A large ledge that looks pretty safe.
 ~
 ~
-0 -1 9122
+Z -1 9122
 D5
 ~
 ~
-0 -1 9119
+Z -1 9119
 S
 #9121
 Dank, dark, smelly hole.~
@@ -572,7 +572,7 @@ something disgusting.
 D3
 ~
 ~
-0 -1 9120
+Z -1 9120
 S
 #9122
 Large, sturdy ledge.~
@@ -584,15 +584,15 @@ two small caves here, one north and one west.
 D0
 ~
 ~
-0 -1 9124
+Z -1 9124
 D3
 ~
 ~
-0 -1 9123
+Z -1 9123
 D5
 ~
 ~
-0 -1 9120
+Z -1 9120
 S
 #9123
 Absolutely disgusting lair.~
@@ -605,7 +605,7 @@ D1
 Your only hope to keep your lunch down is to head this way...
 ~
 ~
-0 -1 9122
+Z -1 9122
 S
 #9124
 Absolutely disgusting lair.~
@@ -618,7 +618,7 @@ D2
 Your only hope to keep your lunch down is to head this way...
 ~
 ~
-0 -1 9122
+Z -1 9122
 S
 #9125
 A fluffy white cloud.~
@@ -631,12 +631,12 @@ D1
 An ominous storm cloud looms to the east.
 ~
 ~
-0 -1 9110
+Z -1 9110
 D4
 There is another cloud above you.  If you jump you might make it...
 ~
 ~
-0 -1 9126
+Z -1 9126
 S
 #9126
 A fluffy white cloud.~
@@ -649,22 +649,22 @@ D0
 A cirrus cloud hums peacefully to itself.
 ~
 ~
-0 -1 9131
+Z -1 9131
 D3
 You spy a tiny cloud.
 ~
 ~
-0 -1 9127
+Z -1 9127
 D4
 There is another cloud above you.  If you jump you might make it...
 ~
 ~
-0 -1 9107
+Z -1 9107
 D5
 There is another cloud below you.
 ~
 ~
-0 -1 9125
+Z -1 9125
 S
 #9127
 A fluffy white cloud.~
@@ -677,17 +677,17 @@ D0
 To the north you see an angry cloud lashing out.
 ~
 ~
-0 -1 9130
+Z -1 9130
 D1
 There is another cloud east of you.
 ~
 ~
-0 -1 9126
+Z -1 9126
 D4
 There is another cloud above you.  If you jump you might make it...
 ~
 ~
-0 -1 9128
+Z -1 9128
 S
 #9128
 A fluffy white cloud.~
@@ -700,12 +700,12 @@ D2
 You see a cloud somewhere south of you.
 ~
 ~
-0 -1 9103
+Z -1 9103
 D5
 There is another cloud below you.
 ~
 ~
-0 -1 9127
+Z -1 9127
 S
 #9129
 Sleepy little cloud.~
@@ -718,12 +718,12 @@ The cloud to the north blushes and tries to hide when you look at
 it.
 ~
 ~
-0 -1 9132
+Z -1 9132
 D1
 The cloud to the east mutters and grumbles at you.
 ~
 ~
-0 -1 9130
+Z -1 9130
 S
 #9130
 Grumpy little cloud.~
@@ -736,18 +736,18 @@ D1
 A happy little cloud is humming peacefully to itself.
 ~
 ~
-0 -1 9131
+Z -1 9131
 D2
 You see a cloud somewhere south of you.
 ~
 ~
-0 -1 9127
+Z -1 9127
 D3
 A sleepy little cloud to the west yawns and rolls over.  You hear
 snoring.
 ~
 ~
-0 -1 9129
+Z -1 9129
 S
 #9131
 Happy little cloud.~
@@ -759,17 +759,17 @@ D0
 There is a pure white cloud north of you.  It is snowing!
 ~
 ~
-0 -1 9136
+Z -1 9136
 D2
 You see a cloud somewhere south of you.
 ~
 ~
-0 -1 9126
+Z -1 9126
 D3
 You see an angry little cloud muttering and grumbling to itself.
 ~
 ~
-0 -1 9130
+Z -1 9130
 S
 #9132
 Bashful little cloud.~
@@ -782,18 +782,18 @@ D0
 The cloud to the north sneezes!
 ~
 ~
-0 -1 9133
+Z -1 9133
 D2
 A sleepy little cloud to the south yawns and rolls over.  You hear
 snoring.
 ~
 ~
-0 -1 9129
+Z -1 9129
 D3
 An isolated little raincloud.
 ~
 ~
-0 -1 9142
+Z -1 9142
 S
 #9133
 Sneezing little cloud.~
@@ -804,23 +804,23 @@ in an earthquake before you realize where you are!
 D0
 ~
 ~
-0 -1 9145
+Z -1 9145
 D1
 This cloud is, like, totally lost, you know?
 ~
 ~
-0 -1 9134
+Z -1 9134
 D2
 The cloud to the south blushes and tries to hide when you look at
 it.
 ~
 ~
-0 -1 9132
+Z -1 9132
 D3
 You see a cirrus maximus cloud.
 ~
 ~
-0 -1 9143
+Z -1 9143
 S
 #9134
 Dopey little cloud.~
@@ -833,12 +833,12 @@ D1
 You see a very scientific cloud.
 ~
 ~
-0 -1 9135
+Z -1 9135
 D3
 The cloud sneezes!  Yuck.
 ~
 ~
-0 -1 9133
+Z -1 9133
 S
 #9135
 Doc-like little cloud.~
@@ -850,12 +850,12 @@ D2
 There is a pure white cloud south of you.  It is snowing!
 ~
 ~
-0 -1 9136
+Z -1 9136
 D3
 This cloud is, like, totally lost, you know?
 ~
 ~
-0 -1 9134
+Z -1 9134
 S
 #9136
 Snowy, white cloud.~
@@ -868,16 +868,16 @@ D0
 You see a very scientific cloud.
 ~
 ~
-0 -1 9135
+Z -1 9135
 D2
 A happy, peaceful little cloud humming to itself.
 ~
 ~
-0 -1 9131
+Z -1 9131
 D3
 ~
 ~
-0 -1 9137
+Z -1 9137
 S
 #9137
 Cold, damp cloud.~
@@ -889,11 +889,11 @@ D1
 There is a pure white cloud east of you.  It is snowing!
 ~
 ~
-0 -1 9136
+Z -1 9136
 D4
 ~
 ~
-0 -1 9138
+Z -1 9138
 S
 #9138
 Mysterious rock outcropping.~
@@ -906,11 +906,11 @@ D0
 Eerie looking house.
 ~
 door~
-0 -1 9139
+Z -1 9139
 D5
 ~
 ~
-0 -1 9137
+Z -1 9137
 S
 #9139
 Foyer.~
@@ -923,11 +923,11 @@ trouble making out the room to the east.
 D1
 ~
 ~
-0 -1 9140
+Z -1 9140
 D2
 ~
 ~
-0 -1 9138
+Z -1 9138
 S
 #9140
 Tower.~
@@ -940,11 +940,11 @@ is the house and there is a stairway leading up into the tower.
 D3
 ~
 ~
-0 -1 9139
+Z -1 9139
 D4
 ~
 ~
-0 -1 9141
+Z -1 9141
 S
 #9141
 Witches Tower~
@@ -962,11 +962,11 @@ almost see people walking around the temple in the picture.
 D1
 ~
 picture~
-1 -1 3001
+ABZ -1 3001
 D5
 ~
 ~
-0 -1 9140
+Z -1 9140
 S
 #9142
 Suspicious little raincloud.~
@@ -978,12 +978,12 @@ something like, 'Tut, tut!  It looks like rain!'
 D0
 ~
 ~
-0 -1 9143
+Z -1 9143
 D1
 A bashful little cloud that tries to avoid your notice.
 ~
 ~
-0 -1 9132
+Z -1 9132
 S
 #9143
 Cirrus maximus cloud.~
@@ -994,12 +994,12 @@ D1
 The cloud to the east sneezes!
 ~
 ~
-0 -1 9133
+Z -1 9133
 D2
 A suspicious little raincloud with a balloon.
 ~
 ~
-0 -1 9142
+Z -1 9142
 S
 #9144
 Raging hurricane.~
@@ -1011,11 +1011,11 @@ Your only thought is to seek refuge from the storm.
 D0
 ~
 ~
-0 -1 9148
+Z -1 9148
 D5
 ~
 ~
-0 -1 9146
+Z -1 9146
 S
 #9145
 Raging hurricane.~
@@ -1028,15 +1028,15 @@ D2
 You see a sneezy little cloud.
 ~
 ~
-0 -1 9133
+Z -1 9133
 D3
 ~
 ~
-0 -1 9150
+Z -1 9150
 D5
 ~
 ~
-0 -1 9148
+Z -1 9148
 S
 #9146
 Raging hurricane.~
@@ -1048,11 +1048,11 @@ Your only thought is to seek refuge from the storm.
 D0
 ~
 ~
-0 -1 9147
+Z -1 9147
 D1
 ~
 ~
-0 -1 9144
+Z -1 9144
 S
 #9147
 Raging hurricane.~
@@ -1064,11 +1064,11 @@ Your only thought is to seek refuge from the storm.
 D1
 ~
 ~
-0 -1 9148
+Z -1 9148
 D2
 ~
 ~
-0 -1 9146
+Z -1 9146
 S
 #9148
 Raging hurricane.~
@@ -1080,15 +1080,15 @@ Your only thought is to seek refuge from the storm.
 D2
 ~
 ~
-0 -1 9144
+Z -1 9144
 D3
 ~
 ~
-0 -1 9147
+Z -1 9147
 D4
 ~
 ~
-0 -1 9145
+Z -1 9145
 S
 #9149
 Raging hurricane.~
@@ -1100,16 +1100,16 @@ Your only thought is to seek refuge from the storm.
 D0
 ~
 ~
-0 -1 9152
+Z -1 9152
 D1
 ~
 ~
-0 -1 9150
+Z -1 9150
 D5
 You see a cumulative nimbus cloud.
 ~
 ~
-0 -1 9157
+Z -1 9157
 S
 #9150
 Raging hurricane.~
@@ -1121,15 +1121,15 @@ Your only thought is to seek refuge from the storm.
 D0
 ~
 ~
-0 -1 9151
+Z -1 9151
 D1
 ~
 ~
-0 -1 9145
+Z -1 9145
 D3
 ~
 ~
-0 -1 9149
+Z -1 9149
 S
 #9151
 Raging hurricane.~
@@ -1141,11 +1141,11 @@ Your only thought is to seek refuge from the storm.
 D2
 ~
 ~
-0 -1 9150
+Z -1 9150
 D3
 ~
 ~
-0 -1 9152
+Z -1 9152
 S
 #9152
 Raging hurricane.~
@@ -1157,11 +1157,11 @@ Your only thought is to seek refuge from the storm.
 D1
 ~
 ~
-0 -1 9151
+Z -1 9151
 D2
 ~
 ~
-0 -1 9149
+Z -1 9149
 S
 #9153
 Calm cloud.~
@@ -1172,11 +1172,11 @@ get sucked in, but you feel safe for the moment.
 D3
 ~
 ~
-0 -1 9154
+Z -1 9154
 D4
 ~
 ~
-0 -1 9152
+Z -1 9152
 S
 #9154
 Mountainside.~
@@ -1189,11 +1189,11 @@ place.
 D1
 ~
 ~
-0 -1 9153
+Z -1 9153
 D3
 ~
 ~
-0 -1 9155
+Z -1 9155
 S
 #9155
 Mountainside.~
@@ -1206,11 +1206,11 @@ place.
 D1
 ~
 ~
-0 -1 9154
+Z -1 9154
 D4
 ~
 ~
-0 -1 9156
+Z -1 9156
 S
 #9156
 Roc's Nest.~
@@ -1222,7 +1222,7 @@ and look almost leathery.  Better hope mom isn't around!
 D5
 ~
 ~
-0 -1 9155
+Z -1 9155
 S
 #9157
 Cumulative nimbus cloud.~
@@ -1232,15 +1232,15 @@ This cloud looks like it belongs to the phylum of cumulative nimbus clouds.
 D2
 ~
 ~
-0 -1 9159
+Z -1 9159
 D3
 ~
 ~
-0 -1 9158
+Z -1 9158
 D4
 ~
 ~
-0 -1 9149
+Z -1 9149
 S
 #9158
 Dark hidden cloud.~
@@ -1250,7 +1250,7 @@ This cloud looks like the perfect place to hide.
 D1
 ~
 ~
-0 -1 9157
+Z -1 9157
 S
 #9159
 Yet another cloud~
@@ -1261,11 +1261,11 @@ end?  There is a rope ladder leading up.
 D0
 ~
 ~
-0 -1 9157
+Z -1 9157
 D4
 ~
 ~
-0 -1 9160
+Z -1 9160
 S
 #9160
 Front gate~
@@ -1278,12 +1278,12 @@ D2
 You see a huge lawn.
 ~
 ~
-0 -1 9161
+Z -1 9161
 D5
 There is a rope ladder leading down.
 ~
 ~
-0 -1 9159
+Z -1 9159
 S
 #9161
 Lawn~
@@ -1295,15 +1295,15 @@ obviously well cared for.
 D0
 ~
 ~
-0 -1 9160
+Z -1 9160
 D2
 ~
 ~
-0 -1 9163
+Z -1 9163
 D3
 ~
 ~
-0 -1 9162
+Z -1 9162
 S
 #9162
 Croquet game~
@@ -1315,11 +1315,11 @@ been set up for spectators and players to enjoy themselves.
 D1
 ~
 ~
-0 -1 9161
+Z -1 9161
 D2
 ~
 ~
-0 -1 9164
+Z -1 9164
 S
 #9163
 Huge, gorgeous fountain.~
@@ -1331,11 +1331,11 @@ fountain empties into a huge pool that looks quite inviting.
 D0
 ~
 ~
-0 -1 9161
+Z -1 9161
 D3
 ~
 ~
-0 -1 9164
+Z -1 9164
 S
 #9164
 Patio.~
@@ -1348,15 +1348,15 @@ house.
 D0
 ~
 ~
-0 -1 9162
+Z -1 9162
 D1
 ~
 ~
-0 -1 9163
+Z -1 9163
 D4
 ~
 ~
-0 -1 9165
+Z -1 9165
 S
 #9165
 Long stairway.~
@@ -1368,11 +1368,11 @@ inlays.
 D4
 ~
 ~
-0 -1 9166
+Z -1 9166
 D5
 ~
 ~
-0 -1 9164
+Z -1 9164
 S
 #9166
 Front door~
@@ -1384,20 +1384,20 @@ made of oak.
 D1
 ~
 ~
-0 -1 9173
+Z -1 9173
 D2
 You see an ornate oak door.
 ~
 oak door~
-2 -1 9177
+AFZ -1 9177
 D3
 ~
 ~
-0 -1 9167
+Z -1 9167
 D5
 ~
 ~
-0 -1 9165
+Z -1 9165
 S
 #9167
 Lawn northwest of house.~
@@ -1408,11 +1408,11 @@ to peek in a window, but it is a little too high to see anything.
 D1
 ~
 ~
-0 -1 9166
+Z -1 9166
 D2
 ~
 ~
-0 -1 9168
+Z -1 9168
 S
 #9168
 Lawn west of house.~
@@ -1423,11 +1423,11 @@ peek in a window, but it is a little too high to see anything.
 D0
 ~
 ~
-0 -1 9167
+Z -1 9167
 D2
 ~
 ~
-0 -1 9169
+Z -1 9169
 S
 #9169
 Lawn southwest of house.~
@@ -1438,15 +1438,15 @@ to peek in a window, but it is a little too high to see anything.
 D0
 ~
 ~
-0 -1 9168
+Z -1 9168
 D1
 ~
 ~
-0 -1 9170
+Z -1 9170
 D5
 ~
 ~
-0 -1 9174
+Z -1 9174
 S
 #9170
 Lawn south of house.~
@@ -1457,11 +1457,11 @@ peek in a window, but it is a little too high to see anything.
 D1
 ~
 ~
-0 -1 9171
+Z -1 9171
 D3
 ~
 ~
-0 -1 9169
+Z -1 9169
 S
 #9171
 Lawn southeast of house.~
@@ -1472,11 +1472,11 @@ to peek in a window, but it is a little too high to see anything.
 D0
 ~
 ~
-0 -1 9172
+Z -1 9172
 D3
 ~
 ~
-0 -1 9170
+Z -1 9170
 S
 #9172
 Lawn east of house.~
@@ -1487,11 +1487,11 @@ peek in a window, but it is a little too high to see anything.
 D0
 ~
 ~
-0 -1 9173
+Z -1 9173
 D2
 ~
 ~
-0 -1 9171
+Z -1 9171
 S
 #9173
 Lawn northeast of house.~
@@ -1502,11 +1502,11 @@ to peek in a window, but it is a little too high to see anything.
 D2
 ~
 ~
-0 -1 9172
+Z -1 9172
 D3
 ~
 ~
-0 -1 9166
+Z -1 9166
 S
 #9174
 Dirty, dusty tunnel.~
@@ -1516,11 +1516,11 @@ This dirty dusty tunnel must lead somewhere.
 D1
 ~
 ~
-0 -1 9175
+Z -1 9175
 D4
 ~
 ~
-0 -1 9169
+Z -1 9169
 S
 #9175
 Basement.~
@@ -1532,11 +1532,11 @@ rats in the corners.
 D0
 ~
 ~
-0 -1 9176
+Z -1 9176
 D3
 ~
 ~
-0 -1 9174
+Z -1 9174
 S
 #9176
 Bottom of the stairs.~
@@ -1548,11 +1548,11 @@ clutter gathered throughout the years.
 D2
 ~
 ~
-0 -1 9175
+Z -1 9175
 D4
 ~
 ~
-0 -1 9177
+Z -1 9177
 S
 #9177
 Foyer.~
@@ -1568,19 +1568,19 @@ D0
 You see an ornate oak door.
 ~
 oak door~
-2 -1 9166
+AFZ -1 9166
 D1
 ~
 ~
-0 -1 9183
+Z -1 9183
 D3
 ~
 ~
-0 -1 9178
+Z -1 9178
 D5
 ~
 ~
-0 -1 9176
+Z -1 9176
 S
 #9178
 Elegant hallway.~
@@ -1592,15 +1592,15 @@ the hallway and some gorgeous, handwoven drapes.
 D1
 ~
 ~
-0 -1 9177
+Z -1 9177
 D2
 ~
 ~
-0 -1 9179
+Z -1 9179
 D3
 ~
 ~
-0 -1 9180
+Z -1 9180
 S
 #9179
 Library~
@@ -1613,7 +1613,7 @@ and a desk for more intense studies.
 D0
 ~
 ~
-0 -1 9178
+Z -1 9178
 S
 #9180
 Arboretum.~
@@ -1625,11 +1625,11 @@ trees, a small pond and flowers of every kind.
 D1
 ~
 ~
-0 -1 9178
+Z -1 9178
 D2
 ~
 ~
-0 -1 9181
+Z -1 9181
 S
 #9181
 Western tower.~
@@ -1643,11 +1643,11 @@ up into darkness.
 D0
 ~
 ~
-0 -1 9180
+Z -1 9180
 D4
 ~
 ~
-0 -1 9182
+Z -1 9182
 S
 #9182
 Western tower.~
@@ -1661,7 +1661,7 @@ although there are a couple of cobwebs in the corner.
 D5
 ~
 ~
-0 -1 9181
+Z -1 9181
 S
 #9183
 Elegant hallway.~
@@ -1673,15 +1673,15 @@ the hallway and some gorgeous, handwoven drapes.
 D1
 ~
 ~
-0 -1 9185
+Z -1 9185
 D2
 ~
 ~
-0 -1 9184
+Z -1 9184
 D3
 ~
 ~
-0 -1 9177
+Z -1 9177
 S
 #9184
 Conservatory~
@@ -1693,7 +1693,7 @@ instruments are on display in a glass cabinet.
 D0
 ~
 ~
-0 -1 9183
+Z -1 9183
 S
 #9185
 Office~
@@ -1706,11 +1706,11 @@ mechanically ticking and tocking the hours away.
 D2
 ~
 ~
-0 -1 9186
+Z -1 9186
 D3
 ~
 ~
-0 -1 9183
+Z -1 9183
 S
 #9186
 Eastern tower.~
@@ -1724,11 +1724,11 @@ up into darkness.
 D0
 ~
 ~
-0 -1 9185
+Z -1 9185
 D4
 ~
 ~
-0 -1 9187
+Z -1 9187
 S
 #9187
 Eastern tower.~
@@ -1742,7 +1742,7 @@ although there are a couple of cobwebs in the corner.
 D5
 ~
 ~
-0 -1 9186
+Z -1 9186
 S
 #9199
 Mid-Air.~

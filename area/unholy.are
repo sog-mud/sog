@@ -854,11 +854,11 @@ a dead tree that hangs over the rock.
 D0
 ~
 ~
-0 -1 30801
+Z -1 30801
 D2
 ~
 ~
-0 -1 4036
+Z -1 4036
 S
 #30801
 The Path to the Craggy Tor~
@@ -870,11 +870,11 @@ a casual interest in you. The path bends sharply to the east at this point.
 D1
 ~
 ~
-0 -1 30802
+Z -1 30802
 D2
 ~
 ~
-0 -1 30800
+Z -1 30800
 S
 #30802
 The Path to the Craggy Tor~
@@ -886,11 +886,11 @@ base, and you wonder how you will pass it.
 D0
 ~
 ~
-0 -1 30805
+Z -1 30805
 D3
 ~
 ~
-0 -1 30801
+Z -1 30801
 S
 #30803
 The Edge of the Chasm~
@@ -903,11 +903,11 @@ shape is still hovering atop it.
 D0
 ~
 ~
-0 -1 30808
+Z -1 30808
 D1
 ~
 ~
-0 -1 30804
+Z -1 30804
 S
 #30804
 The Edge of the Chasm~
@@ -920,15 +920,15 @@ shape is still hovering atop it.
 D0
 ~
 ~
-0 -1 30809
+Z -1 30809
 D1
 ~
 ~
-0 -1 30805
+Z -1 30805
 D3
 ~
 ~
-0 -1 30803
+Z -1 30803
 S
 #30805
 The Edge of the Chasm~
@@ -942,19 +942,19 @@ abbey.
 D0
 ~
 ~
-0 -1 30810
+Z -1 30810
 D1
 ~
 ~
-0 -1 30806
+Z -1 30806
 D2
 ~
 ~
-0 -1 30802
+Z -1 30802
 D3
 ~
 ~
-0 -1 30804
+Z -1 30804
 S
 #30806
 The Edge of the Chasm~
@@ -967,15 +967,15 @@ shape is still hovering atop it.
 D0
 ~
 ~
-0 -1 30811
+Z -1 30811
 D1
 ~
 ~
-0 -1 30807
+Z -1 30807
 D3
 ~
 ~
-0 -1 30805
+Z -1 30805
 S
 #30807
 The Edge of the Chasm~
@@ -988,11 +988,11 @@ shape is still hovering atop it.
 D0
 ~
 ~
-0 -1 30812
+Z -1 30812
 D3
 ~
 ~
-0 -1 30806
+Z -1 30806
 S
 #30808
 The Edge of the Chasm~
@@ -1005,15 +1005,15 @@ shape is still hovering atop it.
 D0
 ~
 ~
-0 -1 30813
+Z -1 30813
 D1
 ~
 ~
-0 -1 30809
+Z -1 30809
 D2
 ~
 ~
-0 -1 30803
+Z -1 30803
 S
 #30809
 Flying Above the Chasm~
@@ -1025,23 +1025,23 @@ the abbey to the north.
 D0
 ~
 ~
-0 -1 30814
+Z -1 30814
 D1
 ~
 ~
-0 -1 30810
+Z -1 30810
 D2
 ~
 ~
-0 -1 30804
+Z -1 30804
 D3
 ~
 ~
-0 -1 30808
+Z -1 30808
 D5
 ~
 ~
-0 -1 30820
+Z -1 30820
 S
 #30810
 Flying Above the Chasm~
@@ -1053,23 +1053,23 @@ the abbey to the north. You hear what sounds like a dragon roaring far below.
 D0
 ~
 ~
-0 -1 30815
+Z -1 30815
 D1
 ~
 ~
-0 -1 30811
+Z -1 30811
 D2
 ~
 ~
-0 -1 30805
+Z -1 30805
 D3
 ~
 ~
-0 -1 30809
+Z -1 30809
 D5
 ~
 ~
-0 -1 30821
+Z -1 30821
 S
 #30811
 Flying Above the Chasm~
@@ -1081,23 +1081,23 @@ the abbey to the north.
 D0
 ~
 ~
-0 -1 30816
+Z -1 30816
 D1
 ~
 ~
-0 -1 30812
+Z -1 30812
 D2
 ~
 ~
-0 -1 30806
+Z -1 30806
 D3
 ~
 ~
-0 -1 30810
+Z -1 30810
 D5
 ~
 ~
-0 -1 30822
+Z -1 30822
 S
 #30812
 The Edge of the Chasm~
@@ -1110,15 +1110,15 @@ shape is still hovering atop it.
 D0
 ~
 ~
-0 -1 30817
+Z -1 30817
 D2
 ~
 ~
-0 -1 30807
+Z -1 30807
 D3
 ~
 ~
-0 -1 30811
+Z -1 30811
 S
 #30813
 The End of the Path~
@@ -1129,7 +1129,7 @@ but to turn back.
 D2
 ~
 ~
-0 -1 30808
+Z -1 30808
 S
 #30814
 Outside the Abbey~
@@ -1141,11 +1141,11 @@ exit. Baffled, you move on.
 D1
 ~
 ~
-0 -1 30815
+Z -1 30815
 D2
 ~
 ~
-0 -1 30809
+Z -1 30809
 S
 #30815
 Outside the Abbey~
@@ -1157,19 +1157,19 @@ exit. You can fly up to the roof from here if you wish, though.
 D1
 ~
 ~
-0 -1 30816
+Z -1 30816
 D2
 ~
 ~
-0 -1 30810
+Z -1 30810
 D3
 ~
 ~
-0 -1 30814
+Z -1 30814
 D4
 ~
 ~
-0 -1 30818
+Z -1 30818
 S
 #30816
 Outside the Abbey~
@@ -1181,11 +1181,11 @@ exit. Baffled, you move on.
 D2
 ~
 ~
-0 -1 30811
+Z -1 30811
 D3
 ~
 ~
-0 -1 30815
+Z -1 30815
 S
 #30817
 The End of the Path~
@@ -1196,7 +1196,7 @@ but to turn back.
 D2
 ~
 ~
-0 -1 30812
+Z -1 30812
 S
 #30818
 Flying up the Abbey Walls~
@@ -1209,11 +1209,11 @@ perched atop the roof.
 D4
 ~
 ~
-0 -1 30819
+Z -1 30819
 D5
 ~
 ~
-0 -1 30815
+Z -1 30815
 S
 #30819
 The Roof of the Abbey~
@@ -1225,7 +1225,7 @@ want of a better word. Have fun.
 D5
 ~
 ~
-0 -1 30818
+Z -1 30818
 S
 #30820
 The Bottom of the Chasm~
@@ -1237,7 +1237,7 @@ hear a dread howling that echoes about you.
 D1
 ~
 ~
-0 -1 30821
+Z -1 30821
 S
 #30821
 The Bottom of the Chasm~
@@ -1250,15 +1250,15 @@ you and bright red eyes glare sullenly at you from within!
 D0
 ~
 ~
-0 -1 30823
+Z -1 30823
 D1
 ~
 ~
-0 -1 30822
+Z -1 30822
 D3
 ~
 ~
-0 -1 30820
+Z -1 30820
 S
 #30822
 The Bottom of the Chasm~
@@ -1270,7 +1270,7 @@ hear a dread howling that echoes about you.
 D3
 ~
 ~
-0 -1 30821
+Z -1 30821
 S
 #30823
 The Eyes Have It~
@@ -1282,11 +1282,11 @@ be heard, louder than ever. It appears to be emanating from the north.
 D0
 ~
 ~
-0 -1 30824
+Z -1 30824
 D2
 ~
 ~
-0 -1 30821
+Z -1 30821
 S
 #30824
 The Bellows Golem~
@@ -1301,11 +1301,11 @@ A greenish glow is coming from the north.
 D0
 ~
 ~
-0 -1 30825
+Z -1 30825
 D2
 ~
 ~
-0 -1 30823
+Z -1 30823
 S
 #30825
 The Portal Chamber~
@@ -1317,11 +1317,11 @@ green padlock depending from the grate. Do you have a key?
 D2
 ~
 ~
-0 -1 30824
+Z -1 30824
 D4
 ~
 grate~
-2 30825 30826
+ABCFZ 30825 30826
 S
 #30826
 The Portal~
@@ -1331,7 +1331,7 @@ The portal is flowing right in front of you. You may enter it if you wish.
 D5
 ~
 grate~
-2 30825 30825
+ABCFZ 30825 30825
 S
 #30827
 Level One~
@@ -1343,11 +1343,11 @@ the east. A grate with a red lock blocks access upward to the red portal.
 D1
 ~
 ~
-0 -1 30828
+Z -1 30828
 D4
 ~
 ~
-1 30848 30838
+ABCZ 30848 30838
 S
 #30828
 The Passage~
@@ -1359,19 +1359,19 @@ glowing portal to the west.
 D0
 ~
 ~
-1 0 30829
+ABZ 0 30829
 D1
 ~
 ~
-0 -1 30831
+Z -1 30831
 D2
 ~
 ~
-1 0 30830
+ABZ 0 30830
 D3
 ~
 ~
-0 -1 30827
+Z -1 30827
 S
 #30829
 A Storage Room~
@@ -1384,7 +1384,7 @@ outside.
 D2
 ~
 ~
-1 0 30828
+ABZ 0 30828
 S
 #30830
 A Storage Room~
@@ -1397,7 +1397,7 @@ outside.
 D0
 ~
 ~
-1 0 30828
+ABZ 0 30828
 S
 #30831
 The Passage~
@@ -1409,19 +1409,19 @@ glowing portal to the west.
 D0
 ~
 ~
-1 0 30832
+ABZ 0 30832
 D1
 ~
 ~
-1 -1 30834
+ABZ -1 30834
 D2
 ~
 ~
-1 0 30833
+ABZ 0 30833
 D3
 ~
 ~
-0 -1 30828
+Z -1 30828
 S
 #30832
 An Armory~
@@ -1433,7 +1433,7 @@ condition, but appear to be perfectly ordinary.
 D2
 ~
 ~
-1 -1 30831
+ABZ -1 30831
 S
 #30833
 An Armory~
@@ -1445,7 +1445,7 @@ condition, but appear to be perfectly ordinary.
 D0
 ~
 ~
-1 -1 30831
+ABZ -1 30831
 S
 #30834
 A Strange Room~
@@ -1457,11 +1457,11 @@ in the chamber.
 D3
 ~
 ~
-1 0 30831
+ABZ 0 30831
 D5
 ~
 throne~
-1 0 30835
+ABZ 0 30835
 S
 #30835
 A Tunnel~
@@ -1472,11 +1472,11 @@ allowing you to descend. The air is damp and chill, and you shiver.
 D4
 ~
 ~
-1 0 30834
+ABZ 0 30834
 D5
 ~
 ~
-0 -1 30836
+Z -1 30836
 S
 #30836
 The Bottom of the Tunnel~
@@ -1492,11 +1492,11 @@ The runes read- "RELEASE NOT THE SPIRIT THAT SHALL SLAY US ALL"
 D1
 ~
 ~
-1 -1 30837
+ABZ -1 30837
 D4
 ~
 ~
-0 -1 30835
+Z -1 30835
 S
 #30837
 The Tomb~
@@ -1508,7 +1508,7 @@ wasn't such a good idea releasing him...
 D3
 ~
 ~
-1 0 30836
+ABZ 0 30836
 S
 #30838
 The Portal~
@@ -1518,7 +1518,7 @@ The red portal floats in front of you. Enter it to continue...
 D5
 ~
 ~
-1 30848 30827
+ABZ 30848 30827
 S
 #30839
 The Portal Chamber~
@@ -1530,23 +1530,23 @@ of this chamber in all directions.
 D0
 ~
 ~
-1 0 30840
+ABZ 0 30840
 D1
 ~
 ~
-1 0 30841
+ABZ 0 30841
 D2
 ~
 ~
-1 0 30843
+ABZ 0 30843
 D3
 ~
 ~
-1 0 30842
+ABZ 0 30842
 D4
 ~
 ~
-1 30857 30882
+ABCZ 30857 30882
 S
 #30840
 A Long Dark Passage~
@@ -1557,11 +1557,11 @@ thing! You think you can feel a door to the north.
 D0
 ~
 ~
-1 0 30844
+ABZ 0 30844
 D2
 ~
 ~
-1 0 30839
+ABZ 0 30839
 S
 #30841
 A Long Dark Passage~
@@ -1572,11 +1572,11 @@ thing! You think you can feel a door to the east.
 D1
 ~
 ~
-1 0 30847
+ABZ 0 30847
 D3
 ~
 ~
-1 0 30839
+ABZ 0 30839
 S
 #30842
 A Long Dark Passage~
@@ -1587,11 +1587,11 @@ thing! You think you can feel a door to the west.
 D1
 ~
 ~
-1 0 30839
+ABZ 0 30839
 D3
 ~
 ~
-1 0 30845
+ABZ 0 30845
 S
 #30843
 A Long Dark Passage~
@@ -1602,11 +1602,11 @@ thing! You think you can feel a door to the south.
 D0
 ~
 ~
-1 0 30839
+ABZ 0 30839
 D2
 ~
 ~
-1 0 30846
+ABZ 0 30846
 S
 #30844
 Barracks~
@@ -1618,15 +1618,15 @@ Perhaps you'll be lucky and find none...
 D1
 ~
 ~
-1 0 30848
+ABZ 0 30848
 D2
 ~
 ~
-1 0 30840
+ABZ 0 30840
 D3
 ~
 ~
-1 0 30852
+ABZ 0 30852
 S
 #30845
 Barracks~
@@ -1638,15 +1638,15 @@ Perhaps you'll be lucky and find none...
 D0
 ~
 ~
-1 0 30853
+ABZ 0 30853
 D1
 ~
 ~
-1 0 30842
+ABZ 0 30842
 D2
 ~
 ~
-1 0 30854
+ABZ 0 30854
 S
 #30846
 A Chamber~
@@ -1660,15 +1660,15 @@ comfort.
 D0
 ~
 ~
-1 -1 30843
+ABZ -1 30843
 D1
 ~
 ~
-1 0 30856
+ABZ 0 30856
 D3
 ~
 ~
-1 0 30855
+ABZ 0 30855
 S
 #30847
 A Study~
@@ -1680,15 +1680,15 @@ sits in front of them, though it doesn't look as if it gets much use.
 D0
 ~
 ~
-1 0 30857
+ABZ 0 30857
 D2
 ~
 ~
-1 0 30858
+ABZ 0 30858
 D3
 ~
 ~
-1 0 30841
+ABZ 0 30841
 S
 #30848
 A Long Black Corridor~
@@ -1699,11 +1699,11 @@ slowly and carefully.
 D1
 ~
 ~
-0 -1 30849
+Z -1 30849
 D3
 ~
 ~
-1 0 30844
+ABZ 0 30844
 S
 #30849
 A Long Black Corridor~
@@ -1715,15 +1715,15 @@ right here...
 D1
 ~
 ~
-0 -1 30850
+Z -1 30850
 D3
 ~
 ~
-0 0 30848
+Z 0 30848
 D5
 ~
 ~
-0 -1 30851
+Z -1 30851
 S
 #30850
 A Long Black Corridor~
@@ -1734,11 +1734,11 @@ slowly and carefully. You feel a door to the east.
 D1
 ~
 ~
-1 -1 30859
+ABZ -1 30859
 D3
 ~
 ~
-0 0 30849
+Z 0 30849
 S
 #30851
 A Pit Trap~
@@ -1750,7 +1750,7 @@ the stench and hear the growling...
 D4
 ~
 ~
-0 -1 30849
+Z -1 30849
 S
 #30852
 A Long Black Corridor~
@@ -1761,11 +1761,11 @@ slowly and carefully. A door lies to the east.
 D1
 ~
 ~
-1 -1 30844
+ABZ -1 30844
 D3
 ~
 ~
-0 0 30860
+Z 0 30860
 S
 #30853
 A Long Black Corridor~
@@ -1776,11 +1776,11 @@ slowly and carefully. A door can be felt to the south.
 D0
 ~
 ~
-0 -1 30864
+Z -1 30864
 D2
 ~
 ~
-1 0 30845
+ABZ 0 30845
 S
 #30854
 A Long Black Corridor~
@@ -1791,11 +1791,11 @@ slowly and carefully. A door can be felt to the north.
 D0
 ~
 ~
-1 -1 30845
+ABZ -1 30845
 D2
 ~
 ~
-0 0 30866
+Z 0 30866
 S
 #30855
 A Long Black Corridor~
@@ -1806,11 +1806,11 @@ slowly and carefully. A door can be felt to the east.
 D1
 ~
 ~
-1 -1 30846
+ABZ -1 30846
 D3
 ~
 ~
-0 0 30868
+Z 0 30868
 S
 #30856
 A Long Black Corridor~
@@ -1821,11 +1821,11 @@ slowly and carefully. A door can be felt to the west.
 D1
 ~
 ~
-0 -1 30871
+Z -1 30871
 D3
 ~
 ~
-1 0 30846
+ABZ 0 30846
 S
 #30857
 A Long Black Corridor~
@@ -1836,11 +1836,11 @@ slowly and carefully. A door can be felt to the south.
 D0
 ~
 ~
-0 -1 30873
+Z -1 30873
 D2
 ~
 ~
-1 0 30847
+ABZ 0 30847
 S
 #30858
 A Long Black Corridor~
@@ -1851,11 +1851,11 @@ slowly and carefully. A door can be felt to the north.
 D0
 ~
 ~
-1 -1 30847
+ABZ -1 30847
 D2
 ~
 ~
-0 0 30875
+Z 0 30875
 S
 #30859
 A Study~
@@ -1867,11 +1867,11 @@ sits in front of them, though it doesn't look as if it gets much use.
 D2
 ~
 ~
-1 0 30874
+ABZ 0 30874
 D3
 ~
 ~
-1 0 30850
+ABZ 0 30850
 S
 #30860
 A Long Black Corridor~
@@ -1882,11 +1882,11 @@ slowly and carefully.
 D1
 ~
 ~
-0 -1 30852
+Z -1 30852
 D3
 ~
 ~
-0 0 30861
+Z 0 30861
 S
 #30861
 A Long Black Corridor~
@@ -1897,11 +1897,11 @@ slowly and carefully. A door can be felt to the west.
 D1
 ~
 ~
-0 -1 30860
+Z -1 30860
 D3
 ~
 ~
-1 0 30862
+ABZ 0 30862
 S
 #30862
 A Study~
@@ -1913,11 +1913,11 @@ sits in front of them, though it doesn't look as if it gets much use.
 D1
 ~
 ~
-1 0 30861
+ABZ 0 30861
 D2
 ~
 ~
-1 0 30863
+ABZ 0 30863
 S
 #30863
 A Long Black Corridor~
@@ -1928,11 +1928,11 @@ slowly and carefully. There is a door to the north.
 D0
 ~
 ~
-1 -1 30862
+ABZ -1 30862
 D2
 ~
 ~
-0 0 30864
+Z 0 30864
 S
 #30864
 A Long Black Corridor~
@@ -1944,15 +1944,15 @@ beneath your feet...
 D0
 ~
 ~
-0 -1 30863
+Z -1 30863
 D2
 ~
 ~
-0 0 30853
+Z 0 30853
 D5
 ~
 ~
-0 -1 30865
+Z -1 30865
 S
 #30865
 An Acid Pit~
@@ -1965,7 +1965,7 @@ eaten away by acid!
 D4
 ~
 ~
-0 -1 30864
+Z -1 30864
 S
 #30866
 A Long Black Corridor~
@@ -1976,11 +1976,11 @@ slowly and carefully.
 D0
 ~
 ~
-0 -1 30854
+Z -1 30854
 D2
 ~
 ~
-0 0 30867
+Z 0 30867
 S
 #30867
 A Long Black Corridor~
@@ -1991,11 +1991,11 @@ slowly and carefully. A door lies to the south.
 D0
 ~
 ~
-0 -1 30866
+Z -1 30866
 D2
 ~
 ~
-1 0 30870
+ABZ 0 30870
 S
 #30868
 A Long Black Corridor~
@@ -2006,11 +2006,11 @@ slowly and carefully.
 D1
 ~
 ~
-0 -1 30855
+Z -1 30855
 D3
 ~
 ~
-0 0 30869
+Z 0 30869
 S
 #30869
 A Long Black Corridor~
@@ -2021,11 +2021,11 @@ slowly and carefully. A door lies to the west.
 D1
 ~
 ~
-0 -1 30868
+Z -1 30868
 D3
 ~
 ~
-1 0 30870
+ABZ 0 30870
 S
 #30870
 A Study~
@@ -2037,11 +2037,11 @@ sits in front of them, though it doesn't look as if it gets much use.
 D0
 ~
 ~
-1 0 30867
+ABZ 0 30867
 D1
 ~
 ~
-1 0 30869
+ABZ 0 30869
 S
 #30871
 A Long Black Corridor~
@@ -2052,11 +2052,11 @@ slowly and carefully.
 D1
 ~
 ~
-0 -1 30872
+Z -1 30872
 D3
 ~
 ~
-0 0 30856
+Z 0 30856
 S
 #30872
 A Long Black Corridor~
@@ -2067,11 +2067,11 @@ slowly and carefully. A door lies to the east.
 D1
 ~
 ~
-1 -1 30878
+ABZ -1 30878
 D3
 ~
 ~
-0 0 30871
+Z 0 30871
 S
 #30873
 A Long Black Corridor~
@@ -2082,11 +2082,11 @@ slowly and carefully.
 D0
 ~
 ~
-0 -1 30874
+Z -1 30874
 D2
 ~
 ~
-0 0 30857
+Z 0 30857
 S
 #30874
 A Long Black Corridor~
@@ -2097,11 +2097,11 @@ slowly and carefully. A door can be vaguely made out to the north.
 D0
 ~
 ~
-1 -1 30859
+ABZ -1 30859
 D2
 ~
 ~
-0 0 30873
+Z 0 30873
 S
 #30875
 A Long Black Corridor~
@@ -2112,15 +2112,15 @@ slowly and carefully. Suddenly your feet cease to find floor beneath them...
 D0
 ~
 ~
-0 -1 30858
+Z -1 30858
 D2
 ~
 ~
-0 0 30877
+Z 0 30877
 D5
 ~
 ~
-0 -1 30876
+Z -1 30876
 S
 #30876
 A Fire Pit~
@@ -2132,7 +2132,7 @@ HOT in here!
 D4
 ~
 ~
-0 -1 30875
+Z -1 30875
 S
 #30877
 A Long Black Corridor~
@@ -2143,11 +2143,11 @@ slowly and carefully. You see a door to the south.
 D0
 ~
 ~
-0 -1 30875
+Z -1 30875
 D2
 ~
 ~
-1 0 30878
+ABZ 0 30878
 S
 #30878
 The Necromancers' Labs~
@@ -2160,15 +2160,15 @@ west and north.
 D0
 ~
 ~
-1 0 30877
+ABZ 0 30877
 D1
 ~
 ~
-1 0 30879
+ABZ 0 30879
 D3
 ~
 ~
-1 0 30872
+ABZ 0 30872
 S
 #30879
 The Cells~
@@ -2180,15 +2180,15 @@ creators are scared of them.
 D0
 ~
 ~
-1 0 30880
+ABZ 0 30880
 D2
 ~
 ~
-1 0 30881
+ABZ 0 30881
 D3
 ~
 ~
-1 0 30878
+ABZ 0 30878
 S
 #30880
 A Cell~
@@ -2199,7 +2199,7 @@ bone. Whatever lives here certainly has bad domestic habits.
 D2
 ~
 ~
-1 0 30879
+ABZ 0 30879
 S
 #30881
 A Cell~
@@ -2210,7 +2210,7 @@ bone. Whatever lives here certainly has bad domestic habits.
 D0
 ~
 ~
-1 0 30879
+ABZ 0 30879
 S
 #30882
 The Blue Portal~
@@ -2221,7 +2221,7 @@ turning back now!
 D5
 ~
 ~
-1 30848 30839
+ABCZ 30848 30839
 S
 #30883
 The Final Portal Chamber~
@@ -2235,19 +2235,19 @@ Arched hallways run east, south and north, while a door bars passage westward.
 D0
 ~
 ~
-0 -1 30884
+Z -1 30884
 D1
 ~
 ~
-0 -1 30889
+Z -1 30889
 D2
 ~
 ~
-0 -1 30894
+Z -1 30894
 D3
 ~
 ~
-1 0 30899
+ABZ 0 30899
 S
 #30884
 The Arched Corridor~
@@ -2259,11 +2259,11 @@ of a large bell. You hear more chanting, then a terrible scream. Oh dear...
 D0
 ~
 ~
-0 -1 30886
+Z -1 30886
 D2
 ~
 ~
-0 -1 30883
+Z -1 30883
 S
 #30885
 The West Wing of the Unholy Chapel~
@@ -2275,7 +2275,7 @@ peer in that direction and- OH MY GOD!
 D1
 ~
 ~
-0 -1 30886
+Z -1 30886
 S
 #30886
 The Unholy Chapel~
@@ -2288,15 +2288,15 @@ demons and devils.
 D0
 ~
 ~
-0 -1 30888
+Z -1 30888
 D2
 ~
 ~
-0 -1 30884
+Z -1 30884
 D3
 ~
 ~
-0 -1 30885
+Z -1 30885
 S
 #30888
 The Altar~
@@ -2311,7 +2311,7 @@ travel, to rid the world of this evil!
 D2
 ~
 ~
-0 -1 30886
+Z -1 30886
 S
 #30889
 The Inner Sanctum~
@@ -2323,11 +2323,11 @@ the upcoming battle if you desire.
 D1
 ~
 ~
-1 0 30890
+ABZ 0 30890
 D3
 ~
 ~
-0 -1 30883
+Z -1 30883
 S
 #30890
 The Quarters of the Abbot~
@@ -2340,19 +2340,19 @@ to the south and a massive bedchamber to the north.
 D0
 ~
 ~
-0 -1 30891
+Z -1 30891
 D1
 ~
 ~
-0 -1 30893
+Z -1 30893
 D2
 ~
 ~
-0 -1 30892
+Z -1 30892
 D3
 ~
 ~
-1 0 30889
+ABZ 0 30889
 S
 #30891
 A Bedchamber~
@@ -2364,7 +2364,7 @@ his fancy. At present it appears to be deserted...
 D2
 ~
 ~
-0 -1 30890
+Z -1 30890
 S
 #30892
 A Study~
@@ -2377,7 +2377,7 @@ room, near a fireplace which burns magically without requiring fuel.
 D0
 ~
 ~
-0 -1 30890
+Z -1 30890
 S
 #30893
 A Bathroom~
@@ -2389,7 +2389,7 @@ foul place.
 D3
 ~
 ~
-0 -1 30890
+Z -1 30890
 S
 #30894
 Under Construction~
@@ -2401,11 +2401,11 @@ with a fair deal of caution, not knowing of what mein the laborers may be.
 D0
 ~
 ~
-0 -1 30883
+Z -1 30883
 D2
 ~
 ~
-0 -1 30896
+Z -1 30896
 S
 #30895
 Under Construction~
@@ -2417,7 +2417,7 @@ with a fair deal of caution, not knowing of what mein the laborers may be.
 D1
 ~
 ~
-0 -1 30896
+Z -1 30896
 S
 #30896
 Under Construction~
@@ -2429,19 +2429,19 @@ with a fair deal of caution, not knowing of what mein the laborers may be.
 D0
 ~
 ~
-0 -1 30894
+Z -1 30894
 D1
 ~
 ~
-0 -1 30897
+Z -1 30897
 D2
 ~
 ~
-0 -1 30898
+Z -1 30898
 D3
 ~
 ~
-0 -1 30895
+Z -1 30895
 S
 #30897
 Under Construction~
@@ -2453,7 +2453,7 @@ with a fair deal of caution, not knowing of what mein the laborers may be.
 D3
 ~
 ~
-0 -1 30896
+Z -1 30896
 S
 #30898
 Under Construction~
@@ -2465,7 +2465,7 @@ with a fair deal of caution, not knowing of what mein the laborers may be.
 D0
 ~
 ~
-0 -1 30896
+Z -1 30896
 S
 #30899
 An Empty Chamber~
@@ -2477,7 +2477,7 @@ the one you entered. Strange...
 D1
 ~
 ~
-0 0 30883
+Z 0 30883
 S
 #0
 

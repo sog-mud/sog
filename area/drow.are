@@ -373,7 +373,7 @@ over physical power greatly.
 D2
 ~
 ~
-0 -1 5121
+Z -1 5121
 S
 #5121
 City street~
@@ -384,19 +384,19 @@ a building.
 D0
 ~
 ~
-0 -1 5120
+Z -1 5120
 D1
 ~
 ~
-0 0 5123
+Z 0 5123
 D2
 ~
 ~
-0 0 5122
+Z 0 5122
 D3
 ~
 ~
-0 0 5117
+Z 0 5117
 S
 #5122
 Slave Chamber~
@@ -407,11 +407,11 @@ unfortunate creatures who have fallen prey to drow imperialism.
 D0
 ~
 ~
-0 0 5121
+Z 0 5121
 D1
 ~
 ~
-0 0 5101
+Z 0 5101
 S
 #5123
 City street~
@@ -422,15 +422,15 @@ north is a relatively small house.
 D0
 ~
 ~
-0 -1 5124
+Z -1 5124
 D2
 ~
 ~
-0 0 5101
+Z 0 5101
 D3
 ~
 ~
-0 0 5121
+Z 0 5121
 S
 #5124
 4th house~
@@ -441,11 +441,11 @@ dull by drow standards and rather small as well.
 D1
 ~
 ~
-0 0 5125
+Z 0 5125
 D2
 ~
 ~
-0 -1 5123
+Z -1 5123
 S
 #5125
 Throne Room~
@@ -456,7 +456,7 @@ to decor. there is a small throne behind the altar but that is about it.
 D3
 ~
 ~
-0 0 5124
+Z 0 5124
 S
 #5126
 Entrance Way~
@@ -468,11 +468,11 @@ entrance way's walls.
 D0
 ~
 ~
-0 0 5127
+Z 0 5127
 D4
 ~
 ~
-0 0 5119
+Z 0 5119
 S
 #5127
 Hallway~
@@ -485,19 +485,19 @@ To the north is a obsidian stairway.
 D0
 ~
 ~
-0 0 5135
+Z 0 5135
 D1
 ~
 ~
-0 0 5128
+Z 0 5128
 D2
 ~
 ~
-0 0 5126
+Z 0 5126
 D3
 ~
 ~
-0 0 5131
+Z 0 5131
 S
 #5128
 Long Hallway~
@@ -509,11 +509,11 @@ look down the hallway you can make out one or two figures moving away from you.
 D1
 ~
 ~
-0 0 5129
+Z 0 5129
 D3
 ~
 ~
-0 0 5127
+Z 0 5127
 S
 #5129
 Long Hallway~
@@ -526,15 +526,15 @@ To the north is a door.
 D0
 ~
 ~
-0 -1 5150
+Z -1 5150
 D1
 ~
 ~
-0 0 5130
+Z 0 5130
 D3
 ~
 ~
-0 0 5128
+Z 0 5128
 S
 #5130
 Long Hallway~
@@ -546,11 +546,11 @@ look down the hallway you can make out one or two figures moving away from you.
 D1
 ~
 ~
-0 0 5134
+Z 0 5134
 D3
 ~
 ~
-0 0 5129
+Z 0 5129
 S
 #5131
 Long Hallway~
@@ -562,11 +562,11 @@ look down the hallway you can make out one or two figures moving away from you.
 D1
 ~
 ~
-0 0 5127
+Z 0 5127
 D3
 ~
 ~
-0 0 5132
+Z 0 5132
 S
 #5132
 Long Hallway~
@@ -579,15 +579,15 @@ To the south is a door.
 D1
 ~
 ~
-0 0 5131
+Z 0 5131
 D2
 ~
 ~
-0 -1 5133
+Z -1 5133
 D3
 ~
 ~
-0 0 5134
+Z 0 5134
 S
 #5133
 Warrior's Barracks~
@@ -599,7 +599,7 @@ for neatness.
 D0
 ~
 ~
-0 -1 5132
+Z -1 5132
 S
 #5134
 Long Hallway~
@@ -611,11 +611,11 @@ look down the hallway you can make out one or two figures moving away from you.
 D1
 ~
 ~
-0 0 5132
+Z 0 5132
 D3
 ~
 ~
-0 0 5130
+Z 0 5130
 S
 #5135
 Grand Stairway~
@@ -626,11 +626,11 @@ stairway. The edges are trimmed with gold.
 D2
 ~
 ~
-0 0 5127
+Z 0 5127
 D4
 ~
 ~
-0 0 5136
+Z 0 5136
 S
 #5136
 Grand Hallway~
@@ -641,15 +641,15 @@ of the purest adamantite with gold trim. Mosaics line the walls.
 D0
 ~
 ~
-0 0 5138
+Z 0 5138
 D1
 ~
 ~
-0 -1 5137
+Z -1 5137
 D5
 ~
 ~
-0 0 5135
+Z 0 5135
 S
 #5137
 Mage's Barracks~
@@ -661,7 +661,7 @@ floor for the mages to sleep on. the only door is to the west.
 D3
 ~
 ~
-0 -1 5136
+Z -1 5136
 S
 #5138
 Grand Hallway~
@@ -673,15 +673,15 @@ too the west.
 D2
 ~
 ~
-0 0 5136
+Z 0 5136
 D3
 ~
 ~
-0 -1 5139
+Z -1 5139
 D5
 ~
 ~
-0 0 5140
+Z 0 5140
 S
 #5139
 Cleric's Barracks~
@@ -693,7 +693,7 @@ in.
 D1
 ~
 ~
-0 -1 5138
+Z -1 5138
 S
 #5140
 Grand Stairway~
@@ -704,11 +704,11 @@ To the north are a set of large golden doors.
 D0
 ~
 ~
-0 -1 5141
+Z -1 5141
 D4
 ~
 ~
-0 0 5138
+Z 0 5138
 S
 #5141
 Main Chamber~
@@ -720,15 +720,15 @@ an altar.
 D1
 ~
 ~
-0 0 5142
+Z 0 5142
 D2
 ~
 ~
-0 -1 5140
+Z -1 5140
 D3
 ~
 ~
-0 0 5144
+Z 0 5144
 S
 #5142
 Eastern side of Chamber~
@@ -739,15 +739,15 @@ is a door while to the north is an altar.
 D0
 ~
 ~
-0 0 5145
+Z 0 5145
 D1
 ~
 ~
-0 -1 5146
+Z -1 5146
 D2
 ~
 ~
-0 0 5141
+Z 0 5141
 S
 #5143
 Sacrificial Pit~
@@ -767,11 +767,11 @@ pit. To the north is an altar.
 D0
 ~
 ~
-0 0 5145
+Z 0 5145
 D2
 ~
 ~
-0 0 5141
+Z 0 5141
 S
 #5145
 The Altar~
@@ -783,19 +783,19 @@ down from the altar you see a large sacrificial pit.
 D0
 ~
 ~
-0 0 5148
+Z 0 5148
 D1
 ~
 ~
-0 0 5142
+Z 0 5142
 D3
 ~
 ~
-0 0 5144
+Z 0 5144
 D5
 ~
 ~
-0 0 5143
+Z 0 5143
 S
 #5146
 Slave Cells~
@@ -806,11 +806,11 @@ sacrificed. You notice there are no guards around.
 D0
 ~
 ~
-0 -1 5147
+Z -1 5147
 D3
 ~
 ~
-0 0 5142
+Z 0 5142
 S
 #5147
 Slave Pen~
@@ -822,7 +822,7 @@ the room since you were obviously too late to save the slave.
 D2
 ~
 ~
-0 -1 5146
+Z -1 5146
 S
 #5148
 Dais~
@@ -834,11 +834,11 @@ to the west.
 D2
 ~
 ~
-0 0 5145
+Z 0 5145
 D3
 ~
 ~
-0 -1 5149
+Z -1 5149
 S
 #5149
 The Treasury~
@@ -849,7 +849,7 @@ treasure being rather bare.
 D1
 ~
 ~
-0 -1 5148
+Z -1 5148
 S
 #5150
 Weaponsmaster's Chamber~
@@ -860,7 +860,7 @@ to get this kind of treatment.
 D2
 ~
 ~
-0 -1 5129
+Z -1 5129
 S
 #5100
 City Entrance~
@@ -879,11 +879,11 @@ A large adamantite gate with giant spider shaped emblems stands here.
 D3
 A huge gate opens to the west allowing entrance into the city.~
 gate~
-0 0 5101
+Z 0 5101
 D4
 A small hole in the ceiling leads up into darkness.~
 door~
-1 -1 5270
+ABZ -1 5270
 S
 #5101
 City street~
@@ -894,19 +894,19 @@ lies to the east while a building lies to the west.
 D0
 ~
 ~
-0 0 5123
+Z 0 5123
 D1
 ~
 ~
-0 0 5100
+Z 0 5100
 D2
 ~
 ~
-0 0 5102
+Z 0 5102
 D3
 ~
 ~
-0 0 5122
+Z 0 5122
 S
 #5102
 City street~
@@ -916,11 +916,11 @@ You walk along a highly ornate city street going north and west.
 D0
 ~
 ~
-0 0 5101
+Z 0 5101
 D3
 ~
 ~
-0 0 5103
+Z 0 5103
 S
 #5103
 City street~
@@ -931,15 +931,15 @@ stands to the south.
 D1
 ~
 ~
-0 0 5102
+Z 0 5102
 D2
 ~
 ~
-0 0 5104
+Z 0 5104
 D3
 ~
 ~
-0 0 5106
+Z 0 5106
 S
 #5104
 3rd House~
@@ -951,11 +951,11 @@ south.
 D0
 ~
 ~
-0 0 5103
+Z 0 5103
 D2
 ~
 ~
-0 -1 5105
+Z -1 5105
 S
 #5105
 Throne Room~
@@ -966,7 +966,7 @@ courtyard except with a blood covered altar in the center of the room.
 D0
 ~
 ~
-0 -1 5104
+Z -1 5104
 S
 #5106
 City street~
@@ -977,15 +977,15 @@ is a large building.
 D0
 ~
 ~
-0 0 5118
+Z 0 5118
 D1
 ~
 ~
-0 0 5103
+Z 0 5103
 D3
 ~
 ~
-0 0 5107
+Z 0 5107
 S
 #5107
 City street~
@@ -996,15 +996,15 @@ south is an extremely large house.
 D0
 ~
 ~
-0 0 5110
+Z 0 5110
 D1
 ~
 ~
-0 0 5106
+Z 0 5106
 D2
 ~
 ~
-0 0 5108
+Z 0 5108
 S
 #5108
 2nd House~
@@ -1015,11 +1015,11 @@ with statues of spiders and murals everywhere.
 D0
 ~
 ~
-0 0 5107
+Z 0 5107
 D3
 ~
 ~
-0 -1 5109
+Z -1 5109
 S
 #5109
 Throne Room~
@@ -1030,7 +1030,7 @@ the inner courtyard having an altar in the center of the room.
 D1
 ~
 ~
-0 -1 5108
+Z -1 5108
 S
 #5110
 Main Gate~
@@ -1041,15 +1041,15 @@ as big and elegant as the one at the entrance to the city, stands here.
 D0
 ~
 ~
-0 0 5114
+Z 0 5114
 D2
 ~
 ~
-0 0 5107
+Z 0 5107
 D3
 A large gate lies to the west.~
 gate~
-0 -1 5111
+Z -1 5111
 S
 #5111
 1st House~
@@ -1061,11 +1061,11 @@ walls depicting some battles and a spider queen.
 D1
 ~
 ~
-0 -1 5110
+Z -1 5110
 D3
 ~
 ~
-0 0 5112
+Z 0 5112
 S
 #5112
 Throne Room~
@@ -1076,11 +1076,11 @@ horrifying it is almost beautiful.
 D0
 ~
 ~
-0 -1 5113
+Z -1 5113
 D1
 ~
 ~
-0 -1 5111
+Z -1 5111
 S
 #5113
 Main Chamber~
@@ -1091,7 +1091,7 @@ and chairs surrounding it sits in the center of the room.
 D2
 ~
 ~
-0 -1 5112
+Z -1 5112
 S
 #5114
 City street~
@@ -1101,15 +1101,15 @@ You walk along a highly ornate city street leading north-south and east.
 D0
 ~
 ~
-0 0 5115
+Z 0 5115
 D1
 ~
 ~
-0 0 5117
+Z 0 5117
 D2
 ~
 ~
-0 0 5110
+Z 0 5110
 S
 #5115
 City street~
@@ -1120,11 +1120,11 @@ to the west.
 D2
 ~
 ~
-0 0 5114
+Z 0 5114
 D3
 ~
 ~
-0 -1 5116
+Z -1 5116
 S
 #5116
 Cleric Academy~
@@ -1134,7 +1134,7 @@ This is the most lavish of the academies being that it is for the clerics.
 D1
 ~
 ~
-0 -1 5115
+Z -1 5115
 S
 #5117
 City street~
@@ -1145,15 +1145,15 @@ is a giant temple.
 D0
 The entrance to the temple of Lloth.~
 ~
-0 -1 5119
+Z -1 5119
 D1
 ~
 ~
-0 0 5121
+Z 0 5121
 D3
 ~
 ~
-0 0 5114
+Z 0 5114
 S
 #5118
 Warrior's Academy~
@@ -1163,7 +1163,7 @@ This looks more like a barracks than a school.
 D2
 ~
 ~
-0 0 5106
+Z 0 5106
 S
 #5119
 Entrance to the Temple of Lloth~
@@ -1175,11 +1175,11 @@ adamantite.
 D2
 ~
 ~
-0 -1 5117
+Z -1 5117
 D5
 ~
 ~
-0 0 5126
+Z 0 5126
 S
 #0
 

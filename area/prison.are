@@ -1205,12 +1205,12 @@ send chills down your spine.
 D0
 ~
 ~
-0 -1 32001
+Z -1 32001
 D1
 Prison of midgaard
 ~
 ~
-0 -1 3100
+Z -1 3100
 S
 #32001
 The Prison of Midgaard~
@@ -1230,11 +1230,11 @@ And converted to this format by Asena.....
 D0
 a rusty gate~
 gate~
-2 32000 32002
+ABCFZ 32000 32002
 D2
 ~
 ~
-0 -1 32000
+Z -1 32000
 S
 #32002
 A Bright Intersection~
@@ -1245,19 +1245,19 @@ east  and west while to the north a dark hallway extends.
 D0
 ~
 ~
-0 -1 32003
+Z -1 32003
 D1
 ~
 ~
-0 -1 32026
+Z -1 32026
 D2
 ~
 ~
-0 -1 32001
+Z -1 32001
 D3
 ~
 ~
-0 -1 32011
+Z -1 32011
 S
 #32003
 A Dark Intersection~
@@ -1268,19 +1268,19 @@ the east and west of here. The hallway continues north and south.
 D0
 ~
 ~
-0 -1 32004
+Z -1 32004
 D1
 ~
 ~
-0 -1 32052
+Z -1 32052
 D2
 ~
 ~
-0 -1 32002
+Z -1 32002
 D3
 ~
 ~
-0 -1 32041
+Z -1 32041
 S
 #32004
 A long hallway~
@@ -1291,15 +1291,15 @@ The hallway continues north.
 D0
 ~
 ~
-0 -1 32005
+Z -1 32005
 D1
 ~
 ~
-0 -1 32084
+Z -1 32084
 D2
 ~
 ~
-0 -1 32003
+Z -1 32003
 S
 #32005
 A long hallway~
@@ -1310,11 +1310,11 @@ south.
 D0
 ~
 ~
-0 -1 32006
+Z -1 32006
 D2
 ~
 ~
-0 -1 32004
+Z -1 32004
 S
 #32006
 A long hallway~
@@ -1325,15 +1325,15 @@ here. The hallway continues to the north and south.
 D0
 ~
 ~
-0 -1 32007
+Z -1 32007
 D2
 ~
 ~
-0 -1 32005
+Z -1 32005
 D3
 ~
 ~
-0 -1 32086
+Z -1 32086
 S
 #32007
 A long hallway~
@@ -1344,11 +1344,11 @@ south.
 D0
 ~
 ~
-0 -1 32008
+Z -1 32008
 D2
 ~
 ~
-0 -1 32006
+Z -1 32006
 S
 #32008
 A long hallway~
@@ -1359,23 +1359,23 @@ south.  You can see a yard of sorts to the east and west.
 D0
 ~
 ~
-0 -1 32009
+Z -1 32009
 D1
 ~
 ~
-0 -1 32063
+Z -1 32063
 D2
 ~
 ~
-0 -1 32007
+Z -1 32007
 D3
 ~
 ~
-0 -1 32073
+Z -1 32073
 D4
 ~
 ~
-1 -1 32010
+ABZ -1 32010
 S
 #32009
 Executioners room~
@@ -1387,7 +1387,7 @@ head from the body. The stench is overwhelming here.
 D2
 ~
 ~
-0 -1 32008
+Z -1 32008
 S
 #32010
 The Cleric's Hold~
@@ -1398,7 +1398,7 @@ religious artifacts on the walls here. This is a very peaceful room.
 D5
 ~
 ~
-0 -1 32008
+Z -1 32008
 S
 #32011
 A quiet hallway~
@@ -1413,11 +1413,11 @@ the  bottom of the painting are the words: THE MAYOR IS A FINK!!~
 D1
 ~
 ~
-0 -1 32002
+Z -1 32002
 D3
 ~
 ~
-0 -1 32012
+Z -1 32012
 S
 #32012
 A quiet hallway~
@@ -1427,15 +1427,15 @@ You are standing in a quiet hallway. There is a door to the south here.
 D1
 ~
 ~
-0 -1 32011
+Z -1 32011
 D2
 ~
 ~
-0 -1 32013
+Z -1 32013
 D3
 ~
 ~
-0 -1 32014
+Z -1 32014
 S
 #32013
 The Weapons Room~
@@ -1447,7 +1447,7 @@ stacked on a shelf behind the counter.
 D0
 ~
 ~
-0 -1 32012
+Z -1 32012
 S
 #32014
 A quiet hallway~
@@ -1457,11 +1457,11 @@ You are standing in a quiet hallway. The hallway continues to the east and west.
 D1
 ~
 ~
-0 -1 32012
+Z -1 32012
 D3
 ~
 ~
-0 -1 32015
+Z -1 32015
 S
 #32015
 Reception area~
@@ -1472,19 +1472,19 @@ drinking fountain here. The administration Hallway leads to the south.
 D0
 ~
 ~
-0 -1 32016
+Z -1 32016
 D1
 ~
 ~
-0 -1 32014
+Z -1 32014
 D2
 ~
 ~
-0 -1 32020
+Z -1 32020
 D3
 ~
 ~
-0 -1 32017
+Z -1 32017
 S
 #32016
 A broom closet~
@@ -1495,7 +1495,7 @@ ends stacked on the shelves here.
 D2
 ~
 ~
-1 -1 32015
+ABZ -1 32015
 S
 #32017
 Spiral staircase~
@@ -1506,11 +1506,11 @@ the pungent odor of Cannibus burning here.
 D1
 ~
 ~
-0 -1 32015
+Z -1 32015
 D4
 ~
 ~
-0 -1 32018
+Z -1 32018
 S
 #32018
 Spiral staircase~
@@ -1521,11 +1521,11 @@ You are in a spiral staircase made of stone. You hear people laughing above you,
 D4
 ~
 ~
-0 -1 32019
+Z -1 32019
 D5
 ~
 ~
-0 -1 32017
+Z -1 32017
 S
 #32019
 Smokey Tower~
@@ -1536,7 +1536,7 @@ in here.  Man.....aren't there ANY windows?
 D5
 ~
 ~
-0 -1 32018
+Z -1 32018
 S
 #32020
 The administration hallway~
@@ -1547,11 +1547,11 @@ the north and south.
 D0
 ~
 ~
-0 -1 32015
+Z -1 32015
 D2
 ~
 ~
-0 -1 32021
+Z -1 32021
 S
 #32021
 The administration hallway~
@@ -1562,11 +1562,11 @@ the north and south
 D0
 ~
 ~
-0 -1 32020
+Z -1 32020
 D2
 ~
 ~
-0 -1 32022
+Z -1 32022
 S
 #32022
 The administration hallway~
@@ -1577,11 +1577,11 @@ the north and south.
 D0
 ~
 ~
-0 -1 32021
+Z -1 32021
 D2
 ~
 ~
-0 -1 32023
+Z -1 32023
 S
 #32023
 The administration hallway~
@@ -1592,11 +1592,11 @@ clicking of a typewriter to the south.
 D0
 ~
 ~
-0 -1 32022
+Z -1 32022
 D2
 ~
 ~
-0 -1 32024
+Z -1 32024
 S
 #32024
 Warden's Office~
@@ -1606,11 +1606,11 @@ You are in the receptionist's office.It smells like pot pourri in here.
 D0
 ~
 ~
-0 -1 32023
+Z -1 32023
 D3
 ~
 ~
-0 -1 32025
+Z -1 32025
 S
 #32025
 Warden's chamber~
@@ -1622,7 +1622,7 @@ the floor as well.
 D1
 ~
 ~
-0 -1 32024
+Z -1 32024
 S
 #32026
 A quiet hallway~
@@ -1637,11 +1637,11 @@ disemboweling for fun.~
 D1
 ~
 ~
-0 -1 32027
+Z -1 32027
 D3
 ~
 ~
-0 -1 32002
+Z -1 32002
 S
 #32027
 A quiet hallway~
@@ -1651,15 +1651,15 @@ You are standing in a quiet hallway. There is a door to the south here.
 D1
 ~
 ~
-0 -1 32029
+Z -1 32029
 D2
 ~
 ~
-0 -1 32028
+Z -1 32028
 D3
 ~
 ~
-0 -1 32026
+Z -1 32026
 S
 #32028
 The Armory~
@@ -1671,7 +1671,7 @@ behind  the counter here.
 D0
 ~
 ~
-0 -1 32027
+Z -1 32027
 S
 #32029
 Triple junction~
@@ -1682,15 +1682,15 @@ the  south and a dimly lit hallway to the east.
 D1
 ~
 ~
-0 -1 32030
+Z -1 32030
 D2
 ~
 ~
-0 -1 32035
+Z -1 32035
 D3
 ~
 ~
-0 -1 32027
+Z -1 32027
 S
 #32030
 Dimly lit hallway~
@@ -1701,15 +1701,15 @@ ought to check on these lights in here.
 D0
 ~
 ~
-0 -1 32031
+Z -1 32031
 D1
 ~
 ~
-0 -1 32032
+Z -1 32032
 D3
 ~
 ~
-0 -1 32029
+Z -1 32029
 S
 #32031
 A broom closet~
@@ -1720,7 +1720,7 @@ here.  Go figure?!?
 D2
 ~
 ~
-0 -1 32030
+Z -1 32030
 S
 #32032
 Spiral staircase~
@@ -1731,11 +1731,11 @@ smell tobacco wafting down from above.
 D3
 ~
 ~
-0 -1 32030
+Z -1 32030
 D4
 ~
 ~
-0 -1 32033
+Z -1 32033
 S
 #32033
 Spiral staircase~
@@ -1746,11 +1746,11 @@ from above.
 D4
 ~
 ~
-0 -1 32034
+Z -1 32034
 D5
 ~
 ~
-0 -1 32032
+Z -1 32032
 S
 #32034
 The sneaky tower~
@@ -1762,7 +1762,7 @@ being sit upon for the nightly poker game.
 D5
 ~
 ~
-0 -1 32033
+Z -1 32033
 S
 #32035
 A maintenance hallway~
@@ -1773,11 +1773,11 @@ other manly stuff in the air.
 D0
 ~
 ~
-0 -1 32029
+Z -1 32029
 D2
 ~
 ~
-0 -1 32036
+Z -1 32036
 S
 #32036
 A maintenance hallway~
@@ -1788,11 +1788,11 @@ manly stuff.
 D0
 ~
 ~
-0 -1 32035
+Z -1 32035
 D2
 ~
 ~
-0 -1 32037
+Z -1 32037
 S
 #32037
 A maintenance hallway~
@@ -1803,11 +1803,11 @@ manly stuff.
 D0
 ~
 ~
-0 -1 32036
+Z -1 32036
 D2
 ~
 ~
-0 -1 32038
+Z -1 32038
 S
 #32038
 A maintenance hallway~
@@ -1825,11 +1825,11 @@ mgmnt.~
 D0
 ~
 ~
-0 -1 32037
+Z -1 32037
 D2
 ~
 ~
-0 -1 32039
+Z -1 32039
 S
 #32039
 Prison maintenance~
@@ -1840,11 +1840,11 @@ and cases of Environmental Chemical Corporation aerosols here.
 D0
 ~
 ~
-0 -1 32038
+Z -1 32038
 D1
 ~
 ~
-0 -1 32040
+Z -1 32040
 S
 #32040
 The boiler room~
@@ -1855,7 +1855,7 @@ middle of the room. You have an overwhelming sense of forboding here.
 D3
 ~
 ~
-0 -1 32039
+Z -1 32039
 S
 #32041
 Guard Room~
@@ -1866,11 +1866,11 @@ the west.
 D1
 ~
 ~
-0 -1 32003
+Z -1 32003
 D3
 ~
 ~
-2 32025 32042
+ABCFZ 32025 32042
 S
 #32042
 A cellblock~
@@ -1882,19 +1882,19 @@ to the north and south.
 D0
 ~
 ~
-1 -1 32050
+ABZ -1 32050
 D1
 ~
 ~
-2 -1 32041
+AFZ -1 32041
 D2
 ~
 ~
-0 -1 32051
+Z -1 32051
 D3
 ~
 ~
-0 -1 32043
+Z -1 32043
 S
 #32043
 A cellblock~
@@ -1906,19 +1906,19 @@ cells to the north and south.
 D0
 ~
 ~
-0 -1 32048
+Z -1 32048
 D1
 ~
 ~
-0 -1 32042
+Z -1 32042
 D2
 ~
 ~
-0 -1 32049
+Z -1 32049
 D3
 ~
 ~
-0 -1 32044
+Z -1 32044
 S
 #32044
 A cellblock~
@@ -1930,19 +1930,19 @@ and south. A small alcove leads to the west.
 D0
 ~
 ~
-1 -1 32046
+ABZ -1 32046
 D1
 ~
 ~
-0 -1 32043
+Z -1 32043
 D2
 ~
 ~
-0 -1 32047
+Z -1 32047
 D3
 ~
 ~
-0 -1 32045
+Z -1 32045
 S
 #32045
 An alcove~
@@ -1952,7 +1952,7 @@ This room is absolutely barren.........
 D1
 ~
 ~
-0 -1 32044
+Z -1 32044
 S
 #32046
 A cell~
@@ -1963,7 +1963,7 @@ crude drawings on the wall.
 D2
 ~
 ~
-1 -1 32044
+ABZ -1 32044
 S
 #32047
 A cell~
@@ -1974,7 +1974,7 @@ some crude drawings on the wall.
 D0
 ~
 ~
-1 -1 32044
+ABZ -1 32044
 S
 #32048
 A cell~
@@ -1985,7 +1985,7 @@ drawings on the wall.
 D2
 ~
 ~
-1 -1 32043
+ABZ -1 32043
 S
 #32049
 A cell~
@@ -1996,7 +1996,7 @@ drawings on the wall.
 D0
 ~
 ~
-0 -1 32043
+Z -1 32043
 S
 #32050
 A cell~
@@ -2007,7 +2007,7 @@ drawings on the wall.
 D2
 ~
 ~
-1 -1 32042
+ABZ -1 32042
 S
 #32051
 A cell~
@@ -2018,7 +2018,7 @@ drawings on the wall.
 D0
 ~
 ~
-1 -1 32042
+ABZ -1 32042
 S
 #32052
 A Guard Room~
@@ -2029,11 +2029,11 @@ the east.
 D1
 ~
 ~
-2 32025 32053
+ABCFZ 32025 32053
 D3
 ~
 ~
-0 -1 32003
+Z -1 32003
 S
 #32053
 A cellblock~
@@ -2045,19 +2045,19 @@ the north and south.
 D0
 ~
 ~
-1 -1 32057
+ABZ -1 32057
 D1
 ~
 ~
-0 -1 32054
+Z -1 32054
 D2
 ~
 ~
-0 -1 32058
+Z -1 32058
 D3
 ~
 ~
-2 -1 32052
+ABCFZ -1 32052
 S
 #32054
 A cellblock~
@@ -2069,19 +2069,19 @@ the north and south.
 D0
 ~
 ~
-0 -1 32059
+Z -1 32059
 D1
 ~
 ~
-0 -1 32055
+Z -1 32055
 D2
 ~
 ~
-0 -1 32060
+Z -1 32060
 D3
 ~
 ~
-0 -1 32053
+Z -1 32053
 S
 #32055
 A cellblock~
@@ -2093,19 +2093,19 @@ the north and south. A small alcove leads to the east.
 D0
 ~
 ~
-1 -1 32061
+ABZ -1 32061
 D1
 ~
 ~
-1 -1 32056
+ABZ -1 32056
 D2
 ~
 ~
-1 -1 32062
+ABZ -1 32062
 D3
 ~
 ~
-0 -1 32054
+Z -1 32054
 S
 #32056
 An alcove~
@@ -2116,7 +2116,7 @@ of feces are in the corners and the smell of urine overpowers you.
 D3
 ~
 ~
-0 -1 32055
+Z -1 32055
 S
 #32057
 A cell~
@@ -2127,7 +2127,7 @@ crude drawings on the wall.
 D2
 ~
 ~
-1 -1 32053
+ABZ -1 32053
 S
 #32058
 A cell~
@@ -2138,7 +2138,7 @@ crude drawings on the wall.
 D0
 ~
 ~
-1 -1 32053
+ABZ -1 32053
 S
 #32059
 A cell~
@@ -2149,7 +2149,7 @@ crude drawings on the wall.
 D2
 ~
 ~
-1 -1 32054
+ABZ -1 32054
 S
 #32060
 A cell~
@@ -2160,7 +2160,7 @@ crude drawings on the wall.
 D0
 ~
 ~
-0 -1 32054
+Z -1 32054
 S
 #32061
 A cell~
@@ -2171,7 +2171,7 @@ crude drawings on the wall.
 D2
 ~
 ~
-0 -1 32055
+Z -1 32055
 S
 #32062
 A cell~
@@ -2182,7 +2182,7 @@ drawings on the wall.
 D0
 ~
 ~
-0 -1 32055
+Z -1 32055
 S
 #32063
 The Yard~
@@ -2194,15 +2194,15 @@ prisoners whispers.
 D1
 ~
 ~
-0 -1 32064
+Z -1 32064
 D2
 ~
 ~
-0 -1 32072
+Z -1 32072
 D3
 ~
 ~
-0 -1 32008
+Z -1 32008
 S
 #32064
 Northeast Corner of the yard~
@@ -2213,11 +2213,11 @@ Bloodstains on the wall here.
 D2
 ~
 ~
-0 -1 32065
+Z -1 32065
 D3
 ~
 ~
-0 -1 32063
+Z -1 32063
 S
 #32065
 Eastern end of the yard~
@@ -2228,15 +2228,15 @@ all around the yard.
 D0
 ~
 ~
-0 -1 32064
+Z -1 32064
 D2
 ~
 ~
-0 -1 32066
+Z -1 32066
 D3
 ~
 ~
-0 -1 32072
+Z -1 32072
 S
 #32066
 Eastern end of the yard~
@@ -2247,15 +2247,15 @@ east. Prisoners are in little groups all over the yard here.
 D0
 ~
 ~
-0 -1 32065
+Z -1 32065
 D2
 ~
 ~
-0 -1 32067
+Z -1 32067
 D3
 ~
 ~
-0 -1 32071
+Z -1 32071
 S
 #32067
 Eastern end of the yard~
@@ -2266,15 +2266,15 @@ to the east. there are groups of prisoners all over the yard.
 D0
 ~
 ~
-0 -1 32066
+Z -1 32066
 D2
 ~
 ~
-0 -1 32068
+Z -1 32068
 D3
 ~
 ~
-0 -1 32070
+Z -1 32070
 S
 #32068
 Southeastern corner of the yard~
@@ -2284,11 +2284,11 @@ You are standing in the southeastern corner of the yard.
 D0
 ~
 ~
-0 -1 32067
+Z -1 32067
 D3
 ~
 ~
-0 -1 32069
+Z -1 32069
 S
 #32069
 Southern end of the yard~
@@ -2299,15 +2299,15 @@ in little groups all around the yard.
 D0
 ~
 ~
-0 -1 32070
+Z -1 32070
 D1
 ~
 ~
-0 -1 32068
+Z -1 32068
 D3
 ~
 ~
-0 -1 32079
+Z -1 32079
 S
 #32070
 Middle of the yard~
@@ -2317,19 +2317,19 @@ You are standing in the middle of the exercise yard.
 D0
 ~
 ~
-0 -1 32071
+Z -1 32071
 D1
 ~
 ~
-0 -1 32067
+Z -1 32067
 D2
 ~
 ~
-0 -1 32069
+Z -1 32069
 D3
 ~
 ~
-0 -1 32080
+Z -1 32080
 S
 #32071
 Middle of the yard~
@@ -2339,19 +2339,19 @@ You are standing in the middle of the exercise yard.
 D0
 ~
 ~
-0 -1 32072
+Z -1 32072
 D1
 ~
 ~
-0 -1 32066
+Z -1 32066
 D2
 ~
 ~
-0 -1 32070
+Z -1 32070
 D3
 ~
 ~
-0 -1 32081
+Z -1 32081
 S
 #32072
 Middle of the yard~
@@ -2361,19 +2361,19 @@ You are standing in the middle of the exercise yard.
 D0
 ~
 ~
-0 -1 32063
+Z -1 32063
 D1
 ~
 ~
-0 -1 32065
+Z -1 32065
 D2
 ~
 ~
-0 -1 32071
+Z -1 32071
 D3
 ~
 ~
-0 -1 32082
+Z -1 32082
 S
 #32073
 The yard~
@@ -2385,15 +2385,15 @@ prisoners whispers.
 D1
 ~
 ~
-0 -1 32008
+Z -1 32008
 D2
 ~
 ~
-0 -1 32082
+Z -1 32082
 D3
 ~
 ~
-0 -1 32074
+Z -1 32074
 S
 #32074
 Northwestern corner of the yard~
@@ -2405,11 +2405,11 @@ outsider here.
 D1
 ~
 ~
-0 -1 32073
+Z -1 32073
 D2
 ~
 ~
-0 -1 32075
+Z -1 32075
 S
 #32075
 Western end of the yard~
@@ -2420,15 +2420,15 @@ prisoners huddled all over the yard.
 D0
 ~
 ~
-0 -1 32074
+Z -1 32074
 D1
 ~
 ~
-0 -1 32082
+Z -1 32082
 D2
 ~
 ~
-0 -1 32076
+Z -1 32076
 S
 #32076
 Western end of the yard~
@@ -2439,15 +2439,15 @@ huddled together all over the yard. To the south you can hear a commotion.
 D0
 ~
 ~
-0 -1 32075
+Z -1 32075
 D1
 ~
 ~
-0 -1 32081
+Z -1 32081
 D2
 ~
 ~
-0 -1 32077
+Z -1 32077
 S
 #32077
 Break in the western wall~
@@ -2458,19 +2458,19 @@ hole in the wall to the west.
 D0
 ~
 ~
-0 -1 32076
+Z -1 32076
 D1
 ~
 ~
-0 -1 32080
+Z -1 32080
 D2
 ~
 ~
-0 -1 32078
+Z -1 32078
 D3
 ~
 ~
-0 -1 32083
+Z -1 32083
 S
 #32078
 Southwestern corner of the wall.~
@@ -2481,11 +2481,11 @@ must take place as evident by the corpses hanging on the wall.
 D0
 ~
 ~
-0 -1 32077
+Z -1 32077
 D1
 ~
 ~
-0 -1 32079
+Z -1 32079
 S
 #32079
 Southern end of the yard~
@@ -2496,15 +2496,15 @@ in little groups all around the yard.
 D0
 ~
 ~
-0 -1 32080
+Z -1 32080
 D1
 ~
 ~
-0 -1 32069
+Z -1 32069
 D3
 ~
 ~
-0 -1 32078
+Z -1 32078
 S
 #32080
 Middle of the yard~
@@ -2515,19 +2515,19 @@ prisoners all around the yard.
 D0
 ~
 ~
-0 -1 32081
+Z -1 32081
 D1
 ~
 ~
-0 -1 32070
+Z -1 32070
 D2
 ~
 ~
-0 -1 32079
+Z -1 32079
 D3
 ~
 ~
-0 -1 32077
+Z -1 32077
 S
 #32081
 Middle of the yard~
@@ -2538,19 +2538,19 @@ prisoners all around the yard.
 D0
 ~
 ~
-0 -1 32082
+Z -1 32082
 D1
 ~
 ~
-0 -1 32071
+Z -1 32071
 D2
 ~
 ~
-0 -1 32080
+Z -1 32080
 D3
 ~
 ~
-0 -1 32076
+Z -1 32076
 S
 #32082
 Middle of the yard~
@@ -2561,19 +2561,19 @@ prisoners all around the yard.
 D0
 ~
 ~
-0 -1 32073
+Z -1 32073
 D1
 ~
 ~
-0 -1 32072
+Z -1 32072
 D2
 ~
 ~
-0 -1 32081
+Z -1 32081
 D3
 ~
 ~
-0 -1 32075
+Z -1 32075
 S
 #32083
 Inside the hole~
@@ -2585,7 +2585,7 @@ not around!
 D1
 ~
 ~
-0 -1 32077
+Z -1 32077
 S
 #32084
 Deep dank hall~
@@ -2596,11 +2596,11 @@ slimy here. You can smell fear and decay......better leave now.
 D1
 ~
 ~
-0 -1 32085
+Z -1 32085
 D3
 ~
 ~
-0 -1 32004
+Z -1 32004
 S
 #32085
 The showers~
@@ -2617,7 +2617,7 @@ If you are thirsty you could probably drink from it.~
 D3
 ~
 ~
-0 -1 32084
+Z -1 32084
 S
 #32086
 The Cafeteria~
@@ -2629,11 +2629,11 @@ EXTREMELY offensive.
 D0
 ~
 ~
-0 -1 32087
+Z -1 32087
 D1
 ~
 ~
-0 -1 32006
+Z -1 32006
 S
 #32087
 The Kitchen~
@@ -2645,7 +2645,7 @@ prisoners are long since gone.
 D2
 ~
 ~
-0 -1 32086
+Z -1 32086
 S
 #32088
 Flar's Gateway to Unknown~

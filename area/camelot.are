@@ -1733,11 +1733,11 @@ D0
 A dirty trail
 ~
 ~
-0 -1 17302
+Z -1 17302
 D3
 ~
 ~
-0 -1 312
+Z -1 312
 S
 #17302
 The Crossroads of Arden~
@@ -1759,22 +1759,22 @@ D0
 A dirty trail
 ~
 ~
-0 -1 17305
+Z -1 17305
 D1
 A dirty trail
 ~
 ~
-0 -1 17306
+Z -1 17306
 D2
 A dirty trail
 ~
 ~
-0 -1 17301
+Z -1 17301
 D3
 A dirty trail
 ~
 ~
-0 -1 17303
+Z -1 17303
 S
 #17303
 The Forest Arden~
@@ -1790,12 +1790,12 @@ D1
 A dirty trail
 ~
 ~
-0 -1 17302
+Z -1 17302
 D2
 A dirty trail
 ~
 ~
-0 -1 17304
+Z -1 17304
 S
 #17304
 Trail of Bones~
@@ -1812,11 +1812,11 @@ D0
 A dirty trail
 ~
 ~
-0 -1 17303
+Z -1 17303
 D3
 Even more bones~
 ~
-0 -1 17307
+Z -1 17307
 S
 #17305
 A Hut in Forest Arden~
@@ -1834,11 +1834,11 @@ them.
 D2
 A dirty trail~
 ~
-0 -1 17302
+Z -1 17302
 D3
 Hut~
 door~
-2 17336 17308
+ABCFZ 17336 17308
 S
 #17306
 A Fork in the Dirty Trail~
@@ -1854,15 +1854,15 @@ goes to the north and west.
 D0
 A dirty trail~
 ~
-0 -1 17309
+Z -1 17309
 D1
 A dirty trail~
 ~
-0 -1 17310
+Z -1 17310
 D3
 A dirty trail~
 ~
-0 -1 17302
+Z -1 17302
 S
 #17307
 Lair of the Questing Beast~
@@ -1873,7 +1873,7 @@ The only exit is to the east.
 D1
 Trail of Bones~
 ~
-0 -1 17304
+Z -1 17304
 S
 #17308
 Inside a Hut~
@@ -1910,7 +1910,7 @@ You examine the yellow stains. They smell of sulfur.
 D1
 A wooden door~
 ~
-2 17336 17305
+ABCFZ 17336 17305
 S
 #17309
 Mists of Arden~
@@ -1926,11 +1926,11 @@ You look at the horsesign and see that many horses have travelled this path.
 D0
 A dirty trail~
 ~
-0 -1 17313
+Z -1 17313
 D2
 A dirty trail~
 ~
-0 -1 17306
+Z -1 17306
 S
 #17310
 Deep Woods~
@@ -1941,15 +1941,15 @@ and play in the breeze. The trail continues north, east, and west.
 D0
 A dirty trail~
 ~
-0 -1 17311
+Z -1 17311
 D1
 A dirty trail~
 ~
-0 -1 17312
+Z -1 17312
 D3
 A dirty trail~
 ~
-0 -1 17306
+Z -1 17306
 S
 #17311
 Cursed Glade~
@@ -1966,7 +1966,7 @@ Maybe you should rest a while...
 D4
 the trees~
 ~
-0 -1 17312
+Z -1 17312
 S
 #17312
 Dark Hollow~
@@ -1981,7 +1981,7 @@ Or was that a snicker?
 D3
 A dirty trail~
 ~
-0 -1 17310
+Z -1 17310
 S
 #17313
 The Forest Arden~
@@ -2001,15 +2001,15 @@ You discover horsesign. Most of the traffic heads east and south.
 D0
 A dusty trail~
 ~
-0 -1 17314
+Z -1 17314
 D1
 A dusty trail~
 ~
-0 -1 17319
+Z -1 17319
 D2
 A dusty trail~
 ~
-0 -1 17309
+Z -1 17309
 S
 #17314
 A Creek in the Forest Arden~
@@ -2027,11 +2027,11 @@ speared through the back.
 D2
 A dirty trail~
 ~
-0 -1 17313
+Z -1 17313
 D3
 A dirty trail~
 ~
-0 -1 17315
+Z -1 17315
 S
 #17315
 Battleplain of Arden~
@@ -2049,15 +2049,15 @@ The sight sickens you.
 D0
 A winding road~
 ~
-0 -1 17316
+Z -1 17316
 D1
 A dirty trail~
 ~
-0 -1 17314
+Z -1 17314
 D3
 A dirty trail~
 ~
-0 -1 17317
+Z -1 17317
 S
 #17316
 Before Blackmoor~
@@ -2081,11 +2081,11 @@ Actually they look like damned souls to you.
 D0
 Black Iron Gate~
 gate black iron~
-1 -1 17327
+ABZ -1 17327
 D2
 A winding road~
 ~
-0 -1 17315
+Z -1 17315
 S
 #17317
 Forest Blackmoor~
@@ -2097,11 +2097,11 @@ path has has vanished and you have lost your bearings.
 D4
 ~
 ~
-0 -1 17315
+Z -1 17315
 D5
 ~
 ~
-0 -1 17318
+Z -1 17318
 S
 #17318
 Before an Inviting Hut~
@@ -2115,11 +2115,11 @@ to the south.
 D2
 A dirty trail~
 ~
-0 -1 17317
+Z -1 17317
 D3
 An inviting hut~
 door~
-1 -1 17323
+ABZ -1 17323
 S
 #17319
 The Chasm~
@@ -2131,12 +2131,12 @@ dirty trail, and the cut rope bridge leads down.
 D3
 A dirty trail~
 ~
-0 -1 17313
+Z -1 17313
 D5
 Down the dangling end of the rope bridge
 ~
 ~
-0 -1 17320
+Z -1 17320
 S
 #17320
 Hanging on the Rope Bridge~
@@ -2149,15 +2149,15 @@ you can let go into the yawning depths of the chasm.
 D1
 Hanging on the Rope Bridge~
 ~
-0 -1 17321
+Z -1 17321
 D4
 The chasm~
 ~
-0 -1 17319
+Z -1 17319
 D5
 The Yawning Depths~
 ~
-0 -1 17324
+Z -1 17324
 S
 #17321
 Hanging on the Rope Bridge~
@@ -2169,15 +2169,15 @@ into the yawning depths of the chasm.
 D3
 Hanging on the Rope Bridge~
 ~
-0 -1 17320
+Z -1 17320
 D4
 The Chasm~
 ~
-0 -1 17322
+Z -1 17322
 D5
 The Yawning Depths~
 ~
-0 -1 17324
+Z -1 17324
 S
 #17322
 The Chasm~
@@ -2190,11 +2190,11 @@ green field to the east.
 D1
 A green field~
 ~
-0 -1 17325
+Z -1 17325
 D5
 Hanging on the Rope Bridge~
 ~
-0 -1 17321
+Z -1 17321
 S
 #17323
 Inside the Inviting Hut~
@@ -2228,7 +2228,7 @@ Why don't you sit down for a while and have a nice meal?
 D1
 Before an Inviting Hut~
 ~
-1 -1 17318
+ABZ -1 17318
 S
 #17324
 The Yawning Depths~
@@ -2251,11 +2251,11 @@ head east to Camelot or west to the chasm.
 D1
 The Eastern Gate of Camelot~
 ~
-0 -1 17326
+Z -1 17326
 D3
 The Chasm~
 ~
-0 -1 17322
+Z -1 17322
 S
 #17326
 The Western Gate of Camelot~
@@ -2266,11 +2266,11 @@ plane below. White granite walls rise impressively into the air.
 D1
 The Western Gate~
 gate eastern~
-1 -1 17341
+ABZ -1 17341
 D3
 A green field~
 ~
-0 -1 17325
+Z -1 17325
 S
 #17327
 Bailey of Blackmoor~
@@ -2285,11 +2285,11 @@ Nobody seems to be looking at you through the murder holes
 D0
 Black Iron Gate~
 gate black iron~
-1 -1 17328
+ABZ -1 17328
 D2
 Black Iron Gate~
 ~
-1 -1 17316
+ABZ -1 17316
 S
 #17328
 Inside the Curtain Wall~
@@ -2301,15 +2301,15 @@ gate is to the south.
 D1
 Inside the Curtain Wall~
 ~
-0 -1 17329
+Z -1 17329
 D2
 Black Iron Gate~
 ~
-1 -1 17327
+ABZ -1 17327
 D3
 Inside the Curtain Wall~
 ~
-0 -1 17330
+Z -1 17330
 S
 #17329
 Inside the Curtain Wall~
@@ -2320,15 +2320,15 @@ to the eastern bailey tower and the road continues to the north and west.
 D0
 Inside the Curtain Wall~
 ~
-0 -1 17335
+Z -1 17335
 D3
 Inside the Curtain Wall~
 ~
-0 -1 17328
+Z -1 17328
 D4
 The East Bailey Tower~
 ~
-0 -1 17339
+Z -1 17339
 S
 #17330
 Inside the Curtain Wall~
@@ -2339,15 +2339,15 @@ bailey tower, and the road continues north and east.
 D0
 Inside the Curtain Wall~
 ~
-0 -1 17331
+Z -1 17331
 D1
 Inside the Curtain Wall~
 ~
-0 -1 17328
+Z -1 17328
 D4
 The West Bailey Tower~
 ~
-0 -1 17338
+Z -1 17338
 S
 #17331
 Inside the Curtain Wall~
@@ -2364,11 +2364,11 @@ of Camelot.
 D0
 Inside the Curtain Wall~
 ~
-0 -1 17332
+Z -1 17332
 D2
 Inside the Curtain Wall~
 ~
-0 -1 17330
+Z -1 17330
 S
 #17332
 Inside the Curtain Wall~
@@ -2380,15 +2380,15 @@ to the east where the entrance to the keep proper is.
 D1
 Entrance to the Keep Proper~
 ~
-0 -1 17333
+Z -1 17333
 D2
 Inside the Curtain Wall~
 ~
-0 -1 17331
+Z -1 17331
 D4
 The Northwestern Tower of Blackmoor~
 ~
-0 -1 17336
+Z -1 17336
 S
 #17333
 Entrance to the Keep Proper~
@@ -2403,15 +2403,15 @@ Its huge! Hope you don't get a hernia opening it.~
 D1
 Inside the Curtain Wall~
 ~
-0 -1 17334
+Z -1 17334
 D2
 A Massive Wooden Door~
 door wooden massive~
-1 -1 17340
+ABZ -1 17340
 D3
 Inside the Curtain Wall~
 ~
-0 -1 17332
+Z -1 17332
 S
 #17334
 Inside the Curtain Wall~
@@ -2423,15 +2423,15 @@ and west, where the entrance to the keep proper is located.
 D2
 Inside the Curtain Wall~
 ~
-0 -1 17335
+Z -1 17335
 D3
 Entrance to the Keep Proper~
 ~
-0 -1 17333
+Z -1 17333
 D4
 The Northeast Tower~
 ~
-0 -1 17337
+Z -1 17337
 S
 #17335
 Inside the Curtain Wall~
@@ -2442,11 +2442,11 @@ looms the keep proper. The road continues north and south.
 D0
 Inside the Curtain Wall~
 ~
-0 -1 17334
+Z -1 17334
 D2
 Inside the Curtain Wall~
 ~
-0 -1 17329
+Z -1 17329
 S
 #17336
 The Northwest Tower of Blackmoor~
@@ -2463,7 +2463,7 @@ moment you are glad you are in a solid tower.
 D5
 Inside the Curtain Wall~
 ~
-0 -1 17332
+Z -1 17332
 S
 #17337
 The Northeastern Tower of Blackmoor~
@@ -2474,7 +2474,7 @@ the keep and the surrounding moor. Stairs lead down.
 D5
 Inside the Curtain Wall~
 ~
-0 -1 17334
+Z -1 17334
 S
 #17338
 West Bailey Tower~
@@ -2490,7 +2490,7 @@ You peek through the murder hole at the bailey as many have done before you.
 D5
 Inside the Curtain Wall~
 ~
-0 -1 17330
+Z -1 17330
 S
 #17339
 East Bailey Tower~
@@ -2502,7 +2502,7 @@ down.
 D5
 Inside the Curtain Wall~
 ~
-0 -1 17329
+Z -1 17329
 S
 #17340
 The Dark Hall of Mordred~
@@ -2525,7 +2525,7 @@ spell has hold of you!
 D0
 Entrance to the Keep Proper~
 ~
-1 -1 17333
+ABZ -1 17333
 S
 #17341
 Victory Road and Knights Way~
@@ -2537,19 +2537,19 @@ contiues east into the keep, and Knights Way runs north and south.
 D0
 Knights Way~
 ~
-0 -1 17342
+Z -1 17342
 D1
 Victory Road~
 ~
-0 -1 17343
+Z -1 17343
 D2
 Knights Way~
 ~
-0 -1 17344
+Z -1 17344
 D3
 West Gate of Camelot~
 ~
-1 -1 17326
+ABZ -1 17326
 S
 #17342
 Knights Way before the stables~
@@ -2570,15 +2570,15 @@ snap in  the breeze from the many towers of Camelot.
 D0
 Knights Way~
 ~
-0 -1 17345
+Z -1 17345
 D1
 Stables~
 ~
-0 -1 17398
+Z -1 17398
 D2
 Knights Way~
 ~
-0 -1 17341
+Z -1 17341
 S
 #17343
 Victory Road~
@@ -2596,11 +2596,11 @@ of Gawaine, Tristram, and of course Lancelot.
 D1
 Victory Road~
 ~
-0 -1 17347
+Z -1 17347
 D3
 Victory Road and Knights Way~
 ~
-0 -1 17341
+Z -1 17341
 S
 #17344
 Knights Way at the Armory~
@@ -2618,15 +2618,15 @@ snap in  the breeze from the many towers of Camelot.
 D0
 Victory Lane and Knights Way~
 ~
-0 -1 17341
+Z -1 17341
 D1
 The Armory~
 ~
-0 -1 17348
+Z -1 17348
 D2
 Knights Way~
 ~
-0 -1 17349
+Z -1 17349
 S
 #17345
 Corner of Knight's Way and Squire's Run~
@@ -2643,15 +2643,15 @@ You look at the engraved words:
 D1
 Squire's Run~
 ~
-0 -1 17350
+Z -1 17350
 D2
 Knight's Way~
 ~
-0 -1 17342
+Z -1 17342
 D4
 Tower of Valor~
 ~
-0 -1 17351
+Z -1 17351
 S
 #17346
 Behind the Pict Lines~
@@ -2668,7 +2668,7 @@ The barbarian sees you looking at you, and flees in terror!
 D1
 Into the raging battle~
 ranks~
-1 -1 17397
+ABZ -1 17397
 S
 #17347
 Victory Road~
@@ -2682,11 +2682,11 @@ continues to the west, and the Tourney Yard of Camelot is to the east.
 D1
 Tourney Yard of Camelot~
 ~
-0 -1 17352
+Z -1 17352
 D3
 Victory Road~
 ~
-0 -1 17343
+Z -1 17343
 S
 #17348
 Armory~
@@ -2707,7 +2707,7 @@ The weapons rack contains several daggers, a few lances, and some maces.
 D3
 Knight's Way~
 ~
-0 -1 17344
+Z -1 17344
 S
 #17349
 Corner of Knight's Way and Noble Road~
@@ -2724,15 +2724,15 @@ You look at the inscription. It reads:
 D0
 Knight's Way~
 ~
-0 -1 17344
+Z -1 17344
 D1
 Noble Road~
 ~
-0 -1 17354
+Z -1 17354
 D4
 Tower of Honor~
 ~
-0 -1 17353
+Z -1 17353
 S
 #17350
 Squire's Run~
@@ -2753,11 +2753,11 @@ You look at the scroll. It is torn and badly smeared. You can make out:
 D1
 Squire's Run~
 ~
-0 -1 17355
+Z -1 17355
 D3
 Corner of Knight's Way and Squire's Run~
 ~
-0 -1 17345
+Z -1 17345
 S
 #17351
 Tower of Valor~
@@ -2780,7 +2780,7 @@ though the tall grass. The dragon-
 D5
 Corner of Knight's Way and Squire's Run~
 ~
-0 -1 17345
+Z -1 17345
 S
 #17352
 Tourney Yard of Camelot~
@@ -2792,19 +2792,19 @@ several contests underway- perhaps you would like to joust?
 D0
 Tourney Yard of Camelot~
 ~
-0 -1 17360
+Z -1 17360
 D1
 Tourney Yard of Camelot~
 ~
-0 -1 17359
+Z -1 17359
 D2
 Tourney Yard of Camelot~
 ~
-0 -1 17358
+Z -1 17358
 D3
 Victory Road~
 ~
-0 -1 17347
+Z -1 17347
 S
 #17353
 Tower of Honor~
@@ -2826,7 +2826,7 @@ under the oaks. Lancelot turns to face Gwenivere-
 D5
 Corner of Knight's Way and Noble Road~
 ~
-0 -1 17349
+Z -1 17349
 S
 #17354
 Noble Road~
@@ -2843,11 +2843,11 @@ with an uneasy intensity.~
 D1
 Noble Road~
 ~
-0 -1 17361
+Z -1 17361
 D3
 Corner of Knight's Way and Noble Road~
 ~
-0 -1 17349
+Z -1 17349
 S
 #17355
 Squire's Run at the North Gate~
@@ -2867,19 +2867,19 @@ With a groan and a grovel the beggar shuffles off to the discard pile.
 D0
 The Great Northern Gate of Camelot~
 gate~
-1 -1 17356
+ABZ -1 17356
 D1
 Tourney Yard of Camelot~
 ~
-0 -1 17362
+Z -1 17362
 D2
 Squire's Barracks~
 door~
-0 -1 17357
+Z -1 17357
 D3
 Squire's Run~
 ~
-0 -1 17350
+Z -1 17350
 S
 #17356
 The Great Northern Gate of Camelot~
@@ -2891,11 +2891,11 @@ the north. To the south is Squire's Run.
 D0
 A winding dirt road~
 ~
-0 -1 17382
+Z -1 17382
 D2
 Squire's Run~
 ~
-1 -1 17355
+ABZ -1 17355
 S
 #17357
 Squire's Barracks~
@@ -2910,7 +2910,7 @@ eating. There is a rudimentry camp kitchin, with a roster of the day
 D0
 Squire's Run at the North Gate~
 ~
-0 -1 17355
+Z -1 17355
 S
 #17358
 Tourney Yard of Camelot~
@@ -2922,15 +2922,15 @@ several contests underway- perhaps you would like to joust?
 D0
 Tourney Yard of Camelot~
 ~
-0 -1 17352
+Z -1 17352
 D1
 Tourney Yard of Camelot~
 ~
-0 -1 17363
+Z -1 17363
 D2
 Tourney Yard of Camelot~
 ~
-0 -1 17364
+Z -1 17364
 S
 #17359
 Tourney Yard of Camelot~
@@ -2942,19 +2942,19 @@ several contests underway- perhaps you would like to joust?
 D0
 Tourney Yard of Camelot~
 ~
-0 -1 17365
+Z -1 17365
 D1
 You see the Court of Camelot~
 ~
-0 -1 17370
+Z -1 17370
 D2
 Tourney Yard of Camelot~
 ~
-0 -1 17363
+Z -1 17363
 D3
 Victory Road~
 ~
-0 -1 17352
+Z -1 17352
 S
 #17360
 Tourney Yard of Camelot~
@@ -2966,15 +2966,15 @@ several contests underway- perhaps you would like to joust?
 D0
 Tourney Yard of Camelot~
 ~
-0 -1 17362
+Z -1 17362
 D1
 Tourney Yard of Camelot~
 ~
-0 -1 17365
+Z -1 17365
 D2
 Tourney Yard of Camelot~
 ~
-0 -1 17352
+Z -1 17352
 S
 #17361
 Noble Road at the South Gate~
@@ -3000,19 +3000,19 @@ of Arden.
 D0
 Noble's Quarters~
 door~
-1 -1 17366
+ABZ -1 17366
 D1
 Tourney Yard of Camelot~
 ~
-0 -1 17364
+Z -1 17364
 D2
 The Great Southern Gate~
 gate~
-1 -1 17367
+ABZ -1 17367
 D3
 Noble Road~
 ~
-0 -1 17354
+Z -1 17354
 S
 #17362
 Tourney Yard of Camelot~
@@ -3024,15 +3024,15 @@ several contests underway- perhaps you would like to joust?
 D1
 Tourney Yard of Camelot~
 ~
-0 -1 17368
+Z -1 17368
 D2
 Tourney Yard of Camelot~
 ~
-0 -1 17360
+Z -1 17360
 D3
 Squire's Run at the North Gate~
 ~
-0 -1 17355
+Z -1 17355
 S
 #17363
 Tourney Yard of Camelot~
@@ -3044,11 +3044,11 @@ several contests underway- perhaps you would like to joust?
 D0
 Tourney Yard of Camelot~
 ~
-0 -1 17359
+Z -1 17359
 D3
 Tourney Yard of Camelot~
 ~
-0 -1 17358
+Z -1 17358
 S
 #17364
 Tourney Yard of Camelot~
@@ -3060,11 +3060,11 @@ several contests underway- perhaps you would like to joust?
 D0
 Tourney Yard of Camelot~
 ~
-0 -1 17358
+Z -1 17358
 D3
 Noble Run at the South Gate~
 ~
-0 -1 17361
+Z -1 17361
 S
 #17365
 Tourney Yard of Camelot~
@@ -3076,15 +3076,15 @@ several contests underway- perhaps you would like to joust?
 D0
 Tourney Yard of Camelot~
 ~
-0 -1 17368
+Z -1 17368
 D2
 Tourney Yard of Camelot~
 ~
-0 -1 17359
+Z -1 17359
 D3
 Tourney Yard of Camelot~
 ~
-0 -1 17360
+Z -1 17360
 S
 #17366
 Noble's Quarters~
@@ -3116,19 +3116,19 @@ shoulder length hair.
 D0
 Noble Chamber~
 door~
-1 -1 17378
+ABZ -1 17378
 D1
 Noble Chamber~
 door~
-0 -1 17379
+Z -1 17379
 D2
 Noble Road at the South Gate~
 ~
-1 -1 17361
+ABZ -1 17361
 D3
 Noble Chamber~
 door~
-1 17338 17380
+ABCZ 17338 17380
 S
 #17367
 The Great Southern Gate~
@@ -3141,11 +3141,11 @@ is fantastic, and the breeze clears your nose of the city smells.
 D0
 The Great Southern Gate gate~
 ~
-0 -1 17361
+Z -1 17361
 D2
 A Cobblestone Road~
 ~
-0 -1 17391
+Z -1 17391
 S
 #17368
 Tourney Yard of Camelot~
@@ -3157,11 +3157,11 @@ several contests underway- perhaps you would like to joust?
 D2
 Tourney Yard of Camelot~
 ~
-0 -1 17365
+Z -1 17365
 D3
 Tourney Yard of Camelot~
 ~
-0 -1 17362
+Z -1 17362
 S
 #17369
 Tourney Yard of Camelot~
@@ -3173,11 +3173,11 @@ several contests underway- perhaps you would like to joust?
 D0
 Tourney Yard of Camelot~
 ~
-0 -1 17363
+Z -1 17363
 D3
 Tourney Yard of Camelot~
 ~
-0 -1 17364
+Z -1 17364
 S
 #17370
 The Court of Camelot~
@@ -3215,19 +3215,19 @@ quickly recovers and tosses her favor to the black knight.
 D0
 The Knights Barracks~
 door~
-1 -1 17374
+ABZ -1 17374
 D1
 The Round Table~
 door~
-1 -1 17376
+ABZ -1 17376
 D2
 The Feast Hall~
 ~
-0 -1 17371
+Z -1 17371
 D3
 The Tourney Yard of Camelot~
 ~
-0 -1 17359
+Z -1 17359
 S
 #17371
 The Feast Hall~
@@ -3242,11 +3242,11 @@ Exits are north to the court of Camelot, and south to the ladies' chambers.
 D0
 You see the Court of Camelot~
 ~
-0 -1 17370
+Z -1 17370
 D2
 The Ladies Chambers door~
 ~
-1 -1 17372
+ABZ -1 17372
 S
 #17372
 The Ladies' Chambers~
@@ -3273,11 +3273,11 @@ safe return. I think my Gawaine can surely claim it...."
 D0
 The Feast Hall door~
 ~
-1 -1 17371
+ABZ -1 17371
 D4
 A staircase winding upwards~
 ~
-0 -1 17373
+Z -1 17373
 S
 #17373
 The Maiden's Tower~
@@ -3295,7 +3295,7 @@ battle between knights and the other is of a hunt in the Forest Arden.
 D5
 A staircase winding downwards~
 ~
-0 -1 17372
+Z -1 17372
 S
 #17374
 Knight's Barracks~
@@ -3310,11 +3310,11 @@ to a tower.
 D2
 You see the Court of Camelot~
 ~
-1 -1 17370
+ABZ -1 17370
 D4
 A staircase winding upwards~
 ~
-0 -1 17375
+Z -1 17375
 S
 #17375
 Merlin's Tower~
@@ -3361,11 +3361,11 @@ to LEAVE IT ALONE!
 D4
 Into the pulsating pentagram~
 ~
-0 -1 17381
+Z -1 17381
 D5
 A staircase winding down~
 ~
-0 -1 17374
+Z -1 17374
 S
 #17376
 The Round Table~
@@ -3386,11 +3386,11 @@ would get very tired fast, and attract every knight in the kingdom.
 D3
 You see the Court of Camelot~
 ~
-1 -1 17370
+ABZ -1 17370
 D4
 A staircase winding upward~
 ~
-0 -1 17377
+Z -1 17377
 S
 #17377
 Arthur's Chambers~
@@ -3404,7 +3404,7 @@ the stone, and his campaigns of unification adorn the walls.
 D5
 A staircase winding downwards~
 ~
-0 -1 17376
+Z -1 17376
 S
 #17378
 Noble's Chambers~
@@ -3421,7 +3421,7 @@ Nothing here you really need.
 D2
 Noble's Quarters~
 ~
-1 17338 17366
+ABZ 17338 17366
 S
 #17379
 Noble's Chambers~
@@ -3437,7 +3437,7 @@ Some fresh vegetables and flowers are growing here.
 D3
 Noble's Quarters~
 door~
-0 -1 17366
+Z -1 17366
 S
 #17380
 Noble's Chambers~
@@ -3449,7 +3449,7 @@ room, several bed chambers, and a servant area.
 D1
 Noble's Quarters~
 door~
-2 -1 17366
+ABCFZ -1 17366
 S
 #17381
 The Pentagram~
@@ -3462,7 +3462,7 @@ horror.
 D5
 ~
 ~
-0 -1 17375
+Z -1 17375
 S
 #17382
 The Rolling Hills~
@@ -3476,15 +3476,15 @@ goes into a grassy plain. To the south the road goes to Camelot.
 D0
 The rolling hills~
 ~
-0 -1 17383
+Z -1 17383
 D1
 The grassy plain~
 ~
-0 -1 17384
+Z -1 17384
 D2
 A winding road~
 ~
-0 -1 17356
+Z -1 17356
 S
 #17383
 The Rolling Hills~
@@ -3497,11 +3497,11 @@ highlands. The road continues south into the rolling hills.
 D0
 The highlands~
 ~
-0 -1 17385
+Z -1 17385
 D2
 A winding road~
 ~
-0 -1 17382
+Z -1 17382
 S
 #17384
 The Grassy Plains~
@@ -3536,11 +3536,11 @@ The lettering says:
 D1
 The rocky coast~
 ~
-0 -1 17386
+Z -1 17386
 D3
 The rolling hills~
 ~
-0 -1 17382
+Z -1 17382
 S
 #17385
 The Highlands~
@@ -3562,15 +3562,15 @@ The lettering says: HADRIANUS
 D0
 The Scottish highlands~
 gate~
-1 -1 17387
+ABZ -1 17387
 D1
 An outpost~
 door~
-1 -1 17388
+ABZ -1 17388
 D3
 A winding road~
 ~
-0 -1 17383
+Z -1 17383
 S
 #17386
 The Rocky Coast~
@@ -3590,11 +3590,11 @@ barbaric people. The beach is definitly inhabited.
 D3
 More rocks and rain~
 ~
-0 -1 17384
+Z -1 17384
 D5
 The rocky beach~
 ~
-0 -1 17389
+Z -1 17389
 S
 #17387
 The Scottish Highlands~
@@ -3607,11 +3607,11 @@ You are not certain you should go in.
 D2
 More lassies and highlands~
 ~
-0 -1 17385
+Z -1 17385
 D4
 The keep on the bluff~
 ~
-0 -1 17390
+Z -1 17390
 S
 #17388
 An Outpost~
@@ -3624,7 +3624,7 @@ as these bordermen don't see many people.
 D3
 At the gate door~
 ~
-1 -1 17385
+ABZ -1 17385
 S
 #17389
 The rocky beach~
@@ -3644,7 +3644,7 @@ You look at the caves- smoke! This place is inhabited!
 D4
 A tough climb that you would rather not do~
 ~
-0 -1 17386
+Z -1 17386
 S
 #17390
 Scots Keep~
@@ -3663,7 +3663,7 @@ The iron pot contains a mix of potatoes, roots, and what appears to be boar.
 D5
 The Scottish Highlands~
 ~
-0 -1 17387
+Z -1 17387
 S
 #17391
 Farms~
@@ -3678,15 +3678,15 @@ way.
 D0
 A cobblestone road~
 ~
-0 -1 17367
+Z -1 17367
 D2
 A cobblestone road~
 ~
-0 -1 17392
+Z -1 17392
 D3
 A cobblestone road~
 ~
-0 -1 17393
+Z -1 17393
 S
 #17392
 Farms~
@@ -3704,15 +3704,15 @@ You can make out the cries of 'To Arms! To Arms! The Angle raiders are here!
 D0
 A cobblestone road~
 ~
-0 -1 17391
+Z -1 17391
 D2
 Towards the smoke~
 ~
-0 -1 17395
+Z -1 17395
 D3
 A cobblestone road~
 ~
-0 -1 17394
+Z -1 17394
 S
 #17393
 Farms~
@@ -3727,11 +3727,11 @@ along the way.
 D1
 A cobblestone road~
 ~
-0 -1 17391
+Z -1 17391
 D2
 A cobblestone road~
 ~
-0 -1 17394
+Z -1 17394
 S
 #17394
 Farms~
@@ -3746,15 +3746,15 @@ the east and north.
 D0
 A cobblestone road~
 ~
-0 -1 17393
+Z -1 17393
 D1
 A cobblestone road~
 ~
-0 -1 17392
+Z -1 17392
 D3
 A muddy road~
 ~
-0 -1 17396
+Z -1 17396
 S
 #17395
 Angle Raid!~
@@ -3769,7 +3769,7 @@ the raider ship on the shore to the west.
 D0
 To where everybody else is fleeing~
 ~
-0 -1 17392
+Z -1 17392
 S
 #17396
 An Outpost~
@@ -3784,11 +3784,11 @@ farms, and to the west you hear the terrible clash of war.
 D1
 A muddy road~
 ~
-0 -1 17394
+Z -1 17394
 D3
 The clamor of battle~
 ~
-0 -1 17397
+Z -1 17397
 S
 #17397
 Battle!~
@@ -3803,11 +3803,11 @@ as their leader has already left the field in cowardly retreat.
 D1
 An outpost~
 ~
-0 -1 17396
+Z -1 17396
 D3
 Behind the Pict lines~
 ranks~
-1 -1 17346
+ABZ -1 17346
 S
 #17398
 Stables~
@@ -3821,7 +3821,7 @@ To your west is Knight's Way.
 D3
 Knight's Way~
 ~
-0 -1 17342
+Z -1 17342
 S
 #17399
 Pet Storage for Stables~

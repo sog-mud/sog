@@ -1056,7 +1056,7 @@ You are floating in nothing.
 D4
 ~
 ~
-0 0 3001
+Z 0 3001
 S
 #2
 Limbo~
@@ -1069,7 +1069,7 @@ darkness around you without any trace of edges or shadow.
 D4
 ~
 ~
-0 -1 3001
+Z -1 3001
 S
 #0
 

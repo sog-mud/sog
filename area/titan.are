@@ -2231,12 +2231,12 @@ D0
 The path continues.
 ~
 ~
-0 0 18002
+Z 0 18002
 D2
 Back to the lighter forests.
 ~
 ~
-0 -1 6152
+Z -1 6152
 S
 #18002
 A Long Dusty Trail~
@@ -2252,17 +2252,17 @@ D0
 Path by a lake.
 ~
 ~
-0 0 10001
+Z 0 10001
 D2
 Back south to the trail.
 ~
 ~
-0 0 18001
+Z 0 18001
 D3
 The curving path west.
 ~
 ~
-0 0 18003
+Z 0 18003
 S
 #18003
 A Clearing in the Woods~
@@ -2280,12 +2280,12 @@ D1
 back to the dusty trail.
 ~
 ~
-0 0 18002
+Z 0 18002
 D3
 Following the path west.
 ~
 ~
-0 0 18004
+Z 0 18004
 S
 #18004
 A Steep Path Down-Hill~
@@ -2301,12 +2301,12 @@ D1
 The path continues...
 ~
 ~
-0 0 18003
+Z 0 18003
 D3
 The path continues...
 ~
 ~
-0 0 18005
+Z 0 18005
 S
 #18005
 Alongside A Wild Waterfall~
@@ -2326,12 +2326,12 @@ D1
 The path continues...
 ~
 ~
-0 0 18004
+Z 0 18004
 D3
 The path continues...
 ~
 ~
-0 0 18007
+Z 0 18007
 S
 #18006
 Void~
@@ -2354,12 +2354,12 @@ D0
 The matted deer trail.
 ~
 ~
-0 0 18008
+Z 0 18008
 D1
 The path continues...
 ~
 ~
-0 0 18005
+Z 0 18005
 S
 #18008
 The Windy Deer Trail~
@@ -2376,12 +2376,12 @@ D2
 The path south.
 ~
 ~
-0 0 18007
+Z 0 18007
 D3
 The path widens.
 ~
 ~
-0 0 18009
+Z 0 18009
 S
 #18009
 The Path Widens~
@@ -2396,12 +2396,12 @@ D1
 The way back.
 ~
 ~
-0 0 18008
+Z 0 18008
 D3
 The path continues.
 ~
 ~
-0 0 18010
+Z 0 18010
 S
 #18010
 At a Quaint Little Bridge~
@@ -2417,12 +2417,12 @@ D0
 On the bridge.
 ~
 ~
-0 0 18011
+Z 0 18011
 D1
 Back to the path.
 ~
 ~
-0 0 18009
+Z 0 18009
 S
 #18011
 On The Quaint Little Bridge~
@@ -2437,12 +2437,12 @@ D0
 The path continues.
 ~
 ~
-0 0 18012
+Z 0 18012
 D2
 The path back.
 ~
 ~
-0 0 18010
+Z 0 18010
 S
 #18012
 On The Other Side of The Brook~
@@ -2460,12 +2460,12 @@ D2
 Back to the bridge.
 ~
 ~
-0 0 18011
+Z 0 18011
 D3
 The path continues.
 ~
 ~
-0 0 18013
+Z 0 18013
 S
 #18013
 The Long Path Continues~
@@ -2484,12 +2484,12 @@ D1
 The path continues.
 ~
 ~
-0 0 18012
+Z 0 18012
 D3
 The path continues.
 ~
 ~
-0 0 18014
+Z 0 18014
 S
 #18014
 The Great Lookout~
@@ -2506,12 +2506,12 @@ D1
 Back to the path.
 ~
 ~
-0 0 18013
+Z 0 18013
 D2
 Out across the bridge.
 ~
 ~
-0 0 18015
+Z 0 18015
 S
 #18015
 Out On One Third of The Bridge~
@@ -2527,17 +2527,17 @@ D0
 Back to solid ground.
 ~
 ~
-0 0 18014
+Z 0 18014
 D1
 You see nothing special there.
 ~
 door~
-1 -1 18017
+ABZ -1 18017
 D2
 Out across the bridge.
 ~
 ~
-0 0 18016
+Z 0 18016
 S
 #18016
 In The Middle of The Bridge~
@@ -2551,12 +2551,12 @@ D0
 The beginning of the bridge.
 ~
 ~
-0 0 18015
+Z 0 18015
 D2
 The end of the bridge.
 ~
 ~
-0 0 18018
+Z 0 18018
 S
 #18017
 The Druid Lord's Secret Study~
@@ -2582,7 +2582,7 @@ D3
 Back to the bridge.
 ~
 ~
-0 0 18015
+Z 0 18015
 S
 #18018
 The End of The Bridge~
@@ -2597,12 +2597,12 @@ D0
 Back to the middle of the bridge.
 ~
 ~
-0 0 18016
+Z 0 18016
 D2
 Back on solid ground.
 ~
 ~
-0 0 18019
+Z 0 18019
 S
 #18019
 Back on the Main Road~
@@ -2622,12 +2622,12 @@ D0
 Back to the bridge.
 ~
 ~
-0 0 18018
+Z 0 18018
 D2
 To the main road.
 ~
 ~
-0 0 18020
+Z 0 18020
 S
 #18020
 The Entrance To The Valley~
@@ -2657,17 +2657,17 @@ D0
 Back to the bridge.
 ~
 ~
-0 0 18019
+Z 0 18019
 D1
 A Path to A House.
 ~
 ~
-0 0 18021
+Z 0 18021
 D3
 Along the Road.
 ~
 ~
-0 0 18023
+Z 0 18023
 S
 #18021
 A Path To A Very Fancy House~
@@ -2684,12 +2684,12 @@ D1
 Inside the front foyer
 ~
 door~
-1 0 18022
+ABZ 0 18022
 D3
 Back to the road.
 ~
 ~
-0 0 18020
+Z 0 18020
 S
 #18022
 Inside The Front Foyer~
@@ -2705,7 +2705,7 @@ D3
 Back to the road.
 ~
 ~
-0 0 18021
+Z 0 18021
 S
 #18023
 Along A Windy Road~
@@ -2721,12 +2721,12 @@ D1
 The path continues.
 ~
 ~
-0 0 18020
+Z 0 18020
 D3
 The path continues.
 ~
 ~
-0 0 18024
+Z 0 18024
 S
 #18024
 In The Open Plains~
@@ -2740,17 +2740,17 @@ a giant plate. The exits are in an east-west and north directions.
 D0
 ~
 ~
-0 0 30232
+Z 0 30232
 D1
 The path continues.
 ~
 ~
-0 0 18023
+Z 0 18023
 D3
 The path continues.
 ~
 ~
-0 0 18025
+Z 0 18025
 S
 #18025
 Back in The Lush Forests~
@@ -2766,12 +2766,12 @@ D1
 The path continues.
 ~
 ~
-0 0 18024
+Z 0 18024
 D3
 The path continues.
 ~
 ~
-0 0 18026
+Z 0 18026
 S
 #18026
 In Sight of The Village~
@@ -2787,12 +2787,12 @@ D1
 Back to the main road.
 ~
 ~
-0 0 18025
+Z 0 18025
 D2
 On the road to the Bridges.
 ~
 ~
-0 0 18027
+Z 0 18027
 S
 #18027
 At The Bridge Gates~
@@ -2808,12 +2808,12 @@ D0
 Back to the path.
 ~
 ~
-0 0 18026
+Z 0 18026
 D2
 On the Bridges.
 ~
 ~
-0 0 18028
+Z 0 18028
 S
 #18028
 The Begging of The Bridge~
@@ -2830,12 +2830,12 @@ D0
 Back to the road.
 ~
 ~
-0 0 18027
+Z 0 18027
 D2
 Along the Bridge.
 ~
 ~
-0 0 18029
+Z 0 18029
 S
 #18029
 Along The Bridge~
@@ -2850,12 +2850,12 @@ D0
 Back to the beggining of the bridge.
 ~
 ~
-0 0 18028
+Z 0 18028
 D2
 Along the bridge.
 ~
 ~
-0 0 18030
+Z 0 18030
 S
 #18030
 Along The Bridge~
@@ -2870,12 +2870,12 @@ D0
 Back from where you came.
 ~
 ~
-0 0 18029
+Z 0 18029
 D2
 Along the Bridge.
 ~
 ~
-0 0 18031
+Z 0 18031
 S
 #18031
 The Middle of The Bridge~
@@ -2891,12 +2891,12 @@ D0
 The Bridge continues.
 ~
 ~
-0 0 18030
+Z 0 18030
 D2
 The Bridge continues.
 ~
 ~
-0 0 18032
+Z 0 18032
 S
 #18032
 Along The Western Side of the Bridge~
@@ -2912,11 +2912,11 @@ D0
 Back to the Bridge.
 ~
 ~
-0 0 18031
+Z 0 18031
 D2
 ~
 ~
-0 0 18033
+Z 0 18033
 S
 #18033
 The City Entrance~
@@ -2931,22 +2931,22 @@ stables, north to the bridge, and south to the city.
 D0
 ~
 ~
-0 0 18032
+Z 0 18032
 D1
 To the stables.
 ~
 ~
-0 0 18034
+Z 0 18034
 D2
 Along The Main Street.
 ~
 ~
-0 0 18036
+Z 0 18036
 D3
 To the stables.
 ~
 ~
-0 0 18035
+Z 0 18035
 S
 #18034
 The Eastern Stables~
@@ -2961,7 +2961,7 @@ D3
 Back to the main road.
 ~
 ~
-0 0 18033
+Z 0 18033
 S
 #18035
 The Western Stables~
@@ -2976,7 +2976,7 @@ D1
 Back to the main road.
 ~
 ~
-0 0 18033
+Z 0 18033
 S
 #18036
 The Main Road~
@@ -2991,12 +2991,12 @@ D0
 The road continues.
 ~
 ~
-0 0 18033
+Z 0 18033
 D2
 The road continues.
 ~
 ~
-0 0 18037
+Z 0 18037
 S
 #18037
 The Main Road at The Prison~
@@ -3010,17 +3010,17 @@ D0
 The main road continues.
 ~
 ~
-0 0 18036
+Z 0 18036
 D1
 To the prison.
 ~
 door~
-1 0 18038
+ABZ 0 18038
 D2
 The main road continues.
 ~
 ~
-0 0 18045
+Z 0 18045
 S
 #18038
 The Main Office of The Prison~
@@ -3035,12 +3035,12 @@ D0
 The stairwell.
 ~
 ~
-0 0 18039
+Z 0 18039
 D3
 Back to the main road.
 ~
 ~
-0 0 18037
+Z 0 18037
 S
 #18039
 The Dark Stairwell~
@@ -3055,12 +3055,12 @@ D2
 Back to the main office.
 ~
 ~
-0 0 18038
+Z 0 18038
 D5
 To the prison cells.
 ~
 ~
-0 0 18040
+Z 0 18040
 S
 #18040
 The Prison Cells~
@@ -3075,12 +3075,12 @@ D0
 Through the corridor.
 ~
 ~
-0 0 18041
+Z 0 18041
 D4
 Back to the stairwell.
 ~
 ~
-0 0 18039
+Z 0 18039
 S
 #18041
 Through The Narrow Corridor~
@@ -3094,22 +3094,22 @@ D0
 The corridor continues.
 ~
 ~
-0 0 18042
+Z 0 18042
 D1
 The Eastern Cell.
 ~
 door~
-1 0 18043
+ABZ 0 18043
 D2
 Back to the stairwell.
 ~
 ~
-0 0 18040
+Z 0 18040
 D3
 The Western Cell.
 ~
 door~
-1 0 18044
+ABZ 0 18044
 S
 #18042
 The Guardsman~
@@ -3125,7 +3125,7 @@ D2
 Back to the cells.
 ~
 ~
-0 0 18041
+Z 0 18041
 S
 #18043
 The Eastern Cell~
@@ -3140,7 +3140,7 @@ D3
 To the main corridor.
 ~
 ~
-0 0 18041
+Z 0 18041
 S
 #18044
 The Western Cell~
@@ -3155,7 +3155,7 @@ D1
 To the main corridor.
 ~
 ~
-0 0 18041
+Z 0 18041
 S
 #18045
 The Main Road Continues~
@@ -3169,22 +3169,22 @@ Maybe not! The exits are in all directions: north, south, east, and west.
 D0
 ~
 ~
-0 0 18037
+Z 0 18037
 D1
 To the Blue Rabbit.
 ~
 ~
-0 0 18047
+Z 0 18047
 D2
 To The Town Center.
 ~
 ~
-0 0 18049
+Z 0 18049
 D3
 To the Chocolate Shoppe.
 ~
 ~
-0 0 18048
+Z 0 18048
 S
 #18046
 Void~
@@ -3205,7 +3205,7 @@ D3
 To the road.
 ~
 ~
-0 0 18045
+Z 0 18045
 S
 #18048
 The Chocolate Shoppe~
@@ -3220,7 +3220,7 @@ D1
 To the road.
 ~
 ~
-0 0 18045
+Z 0 18045
 S
 #18049
 The Town Center~
@@ -3235,20 +3235,20 @@ D0
 The road you came from.
 ~
 ~
-0 0 18045
+Z 0 18045
 D1
 ~
 ~
-0 0 18104
+Z 0 18104
 D2
 The Southern Main Roads.
 ~
 ~
-0 0 18050
+Z 0 18050
 D3
 ~
 ~
-0 0 18074
+Z 0 18074
 S
 #18050
 The Southern Main Street~
@@ -3263,22 +3263,22 @@ D0
 Back to the town square.
 ~
 ~
-0 0 18049
+Z 0 18049
 D1
 The Icecream Shoppe.
 ~
 ~
-0 0 18051
+Z 0 18051
 D2
 The Southern Main Street.
 ~
 ~
-0 0 18054
+Z 0 18054
 D3
 The Red Dragon.
 ~
 ~
-0 0 18052
+Z 0 18052
 S
 #18051
 The Icecream Shoppe~
@@ -3296,7 +3296,7 @@ D3
 Back to the main street.
 ~
 ~
-0 0 18050
+Z 0 18050
 S
 #18052
 The Red Dragon~
@@ -3315,12 +3315,12 @@ D0
 To the back room.
 ~
 door~
-1 0 18053
+ABZ 0 18053
 D1
 Back to the Southern Main Street.
 ~
 ~
-0 0 18050
+Z 0 18050
 S
 #18053
 The Back Room of The Red Dragon~
@@ -3335,7 +3335,7 @@ D2
 The Red Dragon.
 ~
 ~
-0 0 18052
+Z 0 18052
 S
 #18054
 Along The Southern Main Street~
@@ -3349,22 +3349,22 @@ D0
 Back to the Southern Main Street.
 ~
 ~
-0 0 18050
+Z 0 18050
 D1
 The Lovely Florist.
 ~
 ~
-0 0 18055
+Z 0 18055
 D2
 The Market Square.
 ~
 ~
-0 0 18059
+Z 0 18059
 D3
 The rare Apiarist.
 ~
 door~
-1 0 18058
+ABZ 0 18058
 S
 #18055
 The Flower Shop~
@@ -3380,12 +3380,12 @@ D0
 To the hidden greenhouse.
 ~
 door~
-1 0 18056
+ABZ 0 18056
 D3
 Back to The Southern Main Street.
 ~
 ~
-0 0 18054
+Z 0 18054
 S
 #18056
 The Hidden GreenHouse Behind The Florist Shop~
@@ -3401,12 +3401,12 @@ D1
 The Outside Garden.
 ~
 door~
-1 0 18057
+ABZ 0 18057
 D2
 Back to the Florists' Shop.
 ~
 ~
-0 0 18055
+Z 0 18055
 S
 #18057
 The Outside Garden~
@@ -3422,7 +3422,7 @@ D3
 The GreenHouse.
 ~
 ~
-0 0 18056
+Z 0 18056
 S
 #18058
 The Rare Apiarists' Shop~
@@ -3438,7 +3438,7 @@ D1
 Back to the Main Street.
 ~
 ~
-0 0 18054
+Z 0 18054
 S
 #18059
 The Market Square~
@@ -3455,22 +3455,22 @@ D0
 Back to the Southern Main Streets.
 ~
 ~
-0 0 18054
+Z 0 18054
 D1
 The Eastern Main Road.
 ~
 ~
-0 0 18105
+Z 0 18105
 D2
 The Southern-side Streets.
 ~
 ~
-0 0 18060
+Z 0 18060
 D3
 The Western Main Road.
 ~
 ~
-0 0 18084
+Z 0 18084
 S
 #18060
 Along The Southern-side Streets~
@@ -3488,22 +3488,22 @@ D0
 Back to the market square.
 ~
 ~
-0 0 18059
+Z 0 18059
 D1
 A Large Armour Shop.
 ~
 door~
-1 0 18061
+ABZ 0 18061
 D2
 A quaint Cul-De-Sac.
 ~
 ~
-0 0 18067
+Z 0 18067
 D3
 A Large Weapon Shop.
 ~
 ~
-0 0 18066
+Z 0 18066
 S
 #18061
 A Large Armour Shop~
@@ -3520,12 +3520,12 @@ D0
 A Large Spiral Staircase.
 ~
 ~
-0 0 18062
+Z 0 18062
 D3
 Back to the side-street.
 ~
 ~
-0 0 18060
+Z 0 18060
 S
 #18062
 A Large Spiral Staircase~
@@ -3541,12 +3541,12 @@ D2
 Back to the Large Armoury.
 ~
 ~
-0 0 18061
+Z 0 18061
 D5
 The Unknown.
 ~
 ~
-0 0 18063
+Z 0 18063
 S
 #18063
 A Large Workroom~
@@ -3563,12 +3563,12 @@ D3
 A Large Workroom.
 ~
 ~
-0 0 18064
+Z 0 18064
 D4
 The Stairwell.
 ~
 ~
-0 0 18062
+Z 0 18062
 S
 #18064
 A Large Workroom~
@@ -3585,12 +3585,12 @@ D1
 The Large Workroom.
 ~
 ~
-0 0 18063
+Z 0 18063
 D4
 A Large Stairwell.
 ~
 ~
-0 0 18065
+Z 0 18065
 S
 #18065
 A Large Stairwell~
@@ -3605,11 +3605,11 @@ Weapon Shop.
 D2
 ~
 ~
-0 0 18066
+Z 0 18066
 D5
 ~
 ~
-0 0 18064
+Z 0 18064
 S
 #18066
 The Weapon Shop~
@@ -3623,12 +3623,12 @@ to a stairwell, and east to the side streets.
 D0
 ~
 ~
-0 0 18065
+Z 0 18065
 D1
 The side-streets.
 ~
 ~
-0 0 18060
+Z 0 18060
 S
 #18067
 A Quaint Cul-De-Sac~
@@ -3645,22 +3645,22 @@ D0
 The side-street.
 ~
 ~
-0 0 18060
+Z 0 18060
 D1
 The very large grocer.
 ~
 door~
-1 0 18070
+ABZ 0 18070
 D2
 You see a Large White House.
 ~
 door~
-1 0 18069
+ABZ 0 18069
 D3
 The Apothecary.
 ~
 door~
-1 0 18068
+ABZ 0 18068
 S
 #18068
 The Apothecary~
@@ -3676,7 +3676,7 @@ D1
 Back to the Cul-De-Sac.
 ~
 ~
-0 0 18067
+Z 0 18067
 S
 #18069
 The Garden in Front of The House~
@@ -3692,7 +3692,7 @@ D0
 The Cul-De-Sac.
 ~
 ~
-0 0 18067
+Z 0 18067
 S
 #18070
 The Very Large Grocer~
@@ -3708,22 +3708,22 @@ D0
 The produce section.
 ~
 ~
-0 0 18071
+Z 0 18071
 D1
 The Canned Goods, etc.
 ~
 ~
-0 0 18072
+Z 0 18072
 D2
 The Meat and Fish department.
 ~
 ~
-0 0 18073
+Z 0 18073
 D3
 The Cul-De-Sac.
 ~
 ~
-0 0 18067
+Z 0 18067
 S
 #18071
 The Produce Section~
@@ -3737,7 +3737,7 @@ D2
 The main enterance.
 ~
 ~
-0 0 18070
+Z 0 18070
 S
 #18072
 The Dried Goods and your Other Baking Items~
@@ -3753,7 +3753,7 @@ D3
 The main enterance.
 ~
 ~
-0 0 18070
+Z 0 18070
 S
 #18073
 The Meat and Fish Department~
@@ -3767,7 +3767,7 @@ D0
 The main enterance.
 ~
 ~
-0 0 18070
+Z 0 18070
 S
 #18074
 The Western Side Roads~
@@ -3783,21 +3783,21 @@ west to the end of this road, north to a pub and south to a back alley.
 D0
 ~
 ~
-0 0 18075
+Z 0 18075
 D1
 The Southern Main Street.
 ~
 ~
-0 0 18049
+Z 0 18049
 D2
 ~
 ~
-0 0 18081
+Z 0 18081
 D3
 The End of the Western Road.
 ~
 ~
-0 0 18083
+Z 0 18083
 S
 #18075
 The Pub~
@@ -3814,12 +3814,12 @@ to the western road, and west to a second room.
 D2
 ~
 ~
-0 0 18074
+Z 0 18074
 D3
 The second room of the pub.
 ~
 ~
-0 0 18076
+Z 0 18076
 S
 #18076
 The Game Hall~
@@ -3835,12 +3835,12 @@ D0
 The unknown.
 ~
 door~
-1 0 18077
+ABZ 0 18077
 D1
 The pub.
 ~
 ~
-0 0 18075
+Z 0 18075
 S
 #18077
 A Beautiful Lounge~
@@ -3855,12 +3855,12 @@ D0
 The stairwell.
 ~
 ~
-0 0 18078
+Z 0 18078
 D2
 The Game Hall.
 ~
 ~
-0 0 18076
+Z 0 18076
 S
 #18078
 The Stairwell~
@@ -3875,12 +3875,12 @@ D2
 The Lounge.
 ~
 ~
-0 0 18077
+Z 0 18077
 D4
 The Wall.
 ~
 ~
-0 0 18079
+Z 0 18079
 S
 #18079
 On Top of The City Walls~
@@ -3899,12 +3899,12 @@ D1
 The Dance Floor.
 ~
 ~
-0 0 18080
+Z 0 18080
 D5
 The Stairwell.
 ~
 ~
-0 0 18078
+Z 0 18078
 S
 #18080
 The Dance Floor~
@@ -3919,7 +3919,7 @@ D3
 The Dining Lounge.
 ~
 ~
-0 0 18079
+Z 0 18079
 S
 #18081
 A Back Ally~
@@ -3932,12 +3932,12 @@ The exits are west to the garbage dump and north to the Western Roads.
 D0
 ~
 ~
-0 0 18074
+Z 0 18074
 D3
 The Garbage Dump.
 ~
 ~
-0 0 18082
+Z 0 18082
 S
 #18082
 The Garbage Dump~
@@ -3951,12 +3951,12 @@ D1
 The Ally.
 ~
 ~
-0 0 18081
+Z 0 18081
 D2
 A Pile of Garbage.
 ~
 door~
-1 0 18097
+ABZ 0 18097
 S
 #18083
 The End of The Western Road~
@@ -3971,7 +3971,7 @@ D1
 The Western Road.
 ~
 ~
-0 0 18074
+Z 0 18074
 S
 #18084
 The Elegant Western Side Road~
@@ -3986,22 +3986,22 @@ D0
 The Green Dragon Inn.
 ~
 door~
-1 0 18088
+ABZ 0 18088
 D1
 The Main Street.
 ~
 ~
-0 0 18059
+Z 0 18059
 D2
 The Blue Crossings Inn.
 ~
 door~
-1 0 18085
+ABZ 0 18085
 D3
 The Western Road continues.
 ~
 ~
-0 0 18089
+Z 0 18089
 S
 #18085
 The Blue Crossings Inn~
@@ -4018,12 +4018,12 @@ D0
 The Western Main Street.
 ~
 ~
-0 0 18084
+Z 0 18084
 D1
 The Stairwell.
 ~
 ~
-0 0 18086
+Z 0 18086
 S
 #18086
 The Large Stairwell~
@@ -4037,12 +4037,12 @@ D3
 The Lobby.
 ~
 ~
-0 0 18085
+Z 0 18085
 D4
 The Second Floor.
 ~
 ~
-0 0 18087
+Z 0 18087
 S
 #18087
 The Second Floor~
@@ -4059,7 +4059,7 @@ D5
 The Stairwell.
 ~
 ~
-0 0 18086
+Z 0 18086
 S
 #18088
 The Green Dragon Inn~
@@ -4073,7 +4073,7 @@ D2
 The Western Street.
 ~
 ~
-0 0 18084
+Z 0 18084
 S
 #18089
 The Western Road Continues~
@@ -4091,22 +4091,22 @@ D0
 A Quaint Little Shop.
 ~
 door~
-1 0 18090
+ABZ 0 18090
 D1
 The Western road continues.
 ~
 ~
-0 0 18084
+Z 0 18084
 D2
 The Library.
 ~
 ~
-1 0 18091
+ABZ 0 18091
 D3
 The Western road continues.
 ~
 ~
-0 0 18099
+Z 0 18099
 S
 #18090
 Zanrich's Grade (A) Containers!~
@@ -4121,7 +4121,7 @@ D2
 The Western Road.
 ~
 ~
-0 0 18089
+Z 0 18089
 S
 #18091
 The Library~
@@ -4137,12 +4137,12 @@ D0
 The Western Road.
 ~
 ~
-0 0 18089
+Z 0 18089
 D3
 The Large Stairwell.
 ~
 ~
-0 0 18092
+Z 0 18092
 S
 #18092
 The Large Stairwell~
@@ -4158,12 +4158,12 @@ D1
 The main room.
 ~
 ~
-0 0 18091
+Z 0 18091
 D4
 The Balcony.
 ~
 ~
-0 0 18093
+Z 0 18093
 S
 #18093
 The Large Balcony~
@@ -4179,12 +4179,12 @@ D2
 You see nothing special there.
 ~
 ~
-1 0 18094
+ABZ 0 18094
 D5
 The stairwell.
 ~
 ~
-0 0 18092
+Z 0 18092
 S
 #18094
 A Secret Passage Behind The Bookcase~
@@ -4201,12 +4201,12 @@ D0
 Back to the balcony.
 ~
 ~
-0 0 18093
+Z 0 18093
 D3
 The passage continues.
 ~
 ~
-0 0 18095
+Z 0 18095
 S
 #18095
 The Secret Corridor Inside The Library~
@@ -4222,12 +4222,12 @@ D1
 The passage continues.
 ~
 ~
-0 0 18094
+Z 0 18094
 D3
 The passage continues.
 ~
 ~
-0 0 18096
+Z 0 18096
 S
 #18096
 A Three-Way Passage in The Dark Corridor~
@@ -4241,17 +4241,17 @@ D0
 The passage continues.
 ~
 ~
-0 0 18097
+Z 0 18097
 D1
 The passage continues.
 ~
 ~
-0 0 18095
+Z 0 18095
 D3
 The passage continues.
 ~
 ~
-0 0 18098
+Z 0 18098
 S
 #18097
 An Abrupt Dead-End in The Passage~
@@ -4270,12 +4270,12 @@ D0
 The dirty grate.
 ~
 grate~
-1 0 18082
+ABZ 0 18082
 D2
 The three-way passage
 ~
 ~
-0 0 18096
+Z 0 18096
 S
 #18098
 A Dead-End~
@@ -4290,12 +4290,12 @@ D0
 You see eee...... nothing special there.
 ~
 secret~
-1 0 18124
+ABZ 0 18124
 D1
 The passage continues.
 ~
 ~
-0 0 18096
+Z 0 18096
 S
 #18099
 The End of The Western Roads~
@@ -4311,22 +4311,22 @@ D0
 The baker.
 ~
 ~
-0 0 18102
+Z 0 18102
 D1
 The west main street.
 ~
 ~
-0 0 18089
+Z 0 18089
 D2
 The wand shop.
 ~
 door~
-1 0 18103
+ABZ 0 18103
 D3
 The pet shop.
 ~
 door~
-1 0 18100
+ABZ 0 18100
 S
 #18100
 The Pet Shop~
@@ -4341,12 +4341,12 @@ D0
 The forbidden store room.
 ~
 door~
-1 0 18101
+ABZ 0 18101
 D1
 The main road.
 ~
 ~
-0 0 18099
+Z 0 18099
 S
 #18101
 The Secret Store Room~
@@ -4362,7 +4362,7 @@ D2
 The store room, where you belong!
 ~
 ~
-0 0 18100
+Z 0 18100
 S
 #18102
 The Valley of The Titans' Best Bakery~
@@ -4377,7 +4377,7 @@ D2
 The main street.
 ~
 ~
-0 0 18099
+Z 0 18099
 S
 #18103
 The Magical Wands Shop~
@@ -4391,7 +4391,7 @@ D0
 The main street.
 ~
 ~
-0 0 18099
+Z 0 18099
 S
 #18104
 The Eastern Boulevard~
@@ -4410,11 +4410,11 @@ D2
 The Northern Royal Ave.
 ~
 ~
-0 0 18106
+Z 0 18106
 D3
 ~
 ~
-0 0 18049
+Z 0 18049
 S
 #18105
 The Eastern Boulevard~
@@ -4433,12 +4433,12 @@ D0
 The Southern Royal Ave.
 ~
 ~
-0 0 18107
+Z 0 18107
 D3
 The Market Square.
 ~
 ~
-0 0 18059
+Z 0 18059
 S
 #18106
 The Royal Avenue North~
@@ -4454,12 +4454,12 @@ D0
 The Eastern Boulevard.
 ~
 ~
-0 0 18104
+Z 0 18104
 D2
 The Royal Square.
 ~
 ~
-0 0 18108
+Z 0 18108
 S
 #18107
 The Royal Avenue South~
@@ -4475,12 +4475,12 @@ D0
 The Royal Square.
 ~
 ~
-0 0 18108
+Z 0 18108
 D2
 The Eastern Boulevard.
 ~
 ~
-0 0 18105
+Z 0 18105
 S
 #18108
 The Royal Square~
@@ -4496,21 +4496,21 @@ D0
 The Northern Ave.
 ~
 ~
-0 0 18106
+Z 0 18106
 D1
 The Royal Gates.
 ~
 ~
-1 -1 18109
+ABZ -1 18109
 D2
 The Southern Ave.
 ~
 ~
-0 0 18107
+Z 0 18107
 D3
 ~
 ~
-0 0 18140
+Z 0 18140
 S
 #18109
 The Royal Gates~
@@ -4526,17 +4526,17 @@ D0
 Temple of titans.
 ~
 ~
-0 -1 18126
+Z -1 18126
 D1
 The Palace Gates. 
 ~
 gates~
-0 0 18110
+Z 0 18110
 D3
 The Gates to the Royal Square.
 ~
 ~
-0 0 18108
+Z 0 18108
 S
 #18110
 The Palace Grounds~
@@ -4552,22 +4552,22 @@ D0
 The Training Grounds.
 ~
 ~
-0 0 18114
+Z 0 18114
 D1
 On To The Palace.
 ~
 ~
-0 0 18112
+Z 0 18112
 D2
 The Doors to The Warriors and Clerics Guild.
 ~
 door~
-0 0 18111
+Z 0 18111
 D3
 The Palace Gates.
 ~
 ~
-0 0 18109
+Z 0 18109
 S
 #18111
 The Guild of The Warriors and The Clerics~
@@ -4583,7 +4583,7 @@ D0
 The Great Doors.
 ~
 ~
-0 0 18110
+Z 0 18110
 S
 #18112
 The Road To The Palace~
@@ -4600,22 +4600,22 @@ D0
 The Training Grounds.
 ~
 ~
-0 0 18117
+Z 0 18117
 D1
 The Palace.
 ~
 door~
-1 0 18120
+ABZ 0 18120
 D2
 The Great Doors.
 ~
 door~
-1 0 18113
+ABZ 0 18113
 D3
 The Road to The Gates.
 ~
 ~
-0 0 18110
+Z 0 18110
 S
 #18113
 The Guild of The Ranger and The Anti-Paladins~
@@ -4630,7 +4630,7 @@ D0
 The Great Doors.
 ~
 ~
-0 0 18112
+Z 0 18112
 S
 #18114
 The Training Grounds South~
@@ -4647,17 +4647,17 @@ D0
 The Training Grounds.
 ~
 ~
-0 0 18115
+Z 0 18115
 D1
 The training grounds.
 ~
 ~
-0 0 18117
+Z 0 18117
 D2
 The road.
 ~
 ~
-0 0 18110
+Z 0 18110
 S
 #18115
 The Training Grounds, South-Center~
@@ -4672,17 +4672,17 @@ D0
 The training grounds.
 ~
 ~
-0 0 18116
+Z 0 18116
 D1
 The training grounds.
 ~
 ~
-0 0 18118
+Z 0 18118
 D2
 The training grounds.
 ~
 ~
-0 0 18114
+Z 0 18114
 S
 #18116
 The Training Grounds South~
@@ -4697,12 +4697,12 @@ D1
 The training grounds.
 ~
 ~
-0 0 18119
+Z 0 18119
 D2
 The training grounds.
 ~
 ~
-0 0 18115
+Z 0 18115
 S
 #18117
 The Training Grounds, Center~
@@ -4719,17 +4719,17 @@ D0
 The training grounds.
 ~
 ~
-0 0 18118
+Z 0 18118
 D2
 The road.
 ~
 ~
-0 0 18112
+Z 0 18112
 D3
 The training grounds.
 ~
 ~
-0 0 18114
+Z 0 18114
 S
 #18118
 The Northern Training Grounds, Center~
@@ -4744,17 +4744,17 @@ D0
 The training grounds.
 ~
 ~
-0 0 18119
+Z 0 18119
 D2
 The training grounds.
 ~
 ~
-0 0 18117
+Z 0 18117
 D3
 The training grounds.
 ~
 ~
-0 0 18115
+Z 0 18115
 S
 #18119
 The Training Grounds, North~
@@ -4769,12 +4769,12 @@ D2
 The training grounds.
 ~
 ~
-0 0 18118
+Z 0 18118
 D3
 The training grounds.
 ~
 ~
-0 0 18116
+Z 0 18116
 S
 #18120
 Inside The Palace~
@@ -4791,12 +4791,12 @@ D1
 The Massive Hall.
 ~
 ~
-0 0 18121
+Z 0 18121
 D3
 The Grand Palace Doors.
 ~
 ~
-0 0 18112
+Z 0 18112
 S
 #18121
 An Elegant Massive Hall~
@@ -4813,12 +4813,12 @@ D1
 The Throne Room.
 ~
 ~
-0 0 18122
+Z 0 18122
 D3
 The Front Foyer.
 ~
 ~
-0 0 18120
+Z 0 18120
 S
 #18122
 The Throne Room~
@@ -4836,12 +4836,12 @@ D1
 The Throne.
 ~
 throne~
-1 0 18123
+ABZ 0 18123
 D3
 The massive hall.
 ~
 ~
-0 0 18121
+Z 0 18121
 S
 #18123
 A Secret Passage Behind The Throne~
@@ -4855,7 +4855,7 @@ D3
 The Throne.
 ~
 ~
-0 0 18122
+Z 0 18122
 S
 #18124
 The Room of The Deadly Beasts~
@@ -4875,7 +4875,7 @@ D2
 You see nothing special there.
 ~
 ~
-0 0 18098
+Z 0 18098
 S
 #18125
 Store of the deadly beast~
@@ -4894,12 +4894,12 @@ D0
 Healer's temple.
 ~
 ~
-0 -1 18127
+Z -1 18127
 D2
 You see the royal gates
 ~
 ~
-0 -1 18109
+Z -1 18109
 S
 #18127
 By the temple of Titans Valley~
@@ -4912,7 +4912,7 @@ D2
 Healer's temple.
 ~
 ~
-0 -1 18126
+Z -1 18126
 S
 #18140
 Royal Bank.~
@@ -4923,7 +4923,7 @@ ceilings. A long counter lies through the room.
 D1
 ~
 ~
-0 0 18108
+Z 0 18108
 S
 #0
 

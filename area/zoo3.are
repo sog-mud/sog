@@ -420,16 +420,16 @@ The turnstiles are study and can only be made to turn in one direction.
 D0
 ~
 ~
-0 -1 3114
+Z -1 3114
 D2
 The turnstiles are study and can only be made to turn in one direction.
 ~
 turnstile~
-0 -1 8205
+Z -1 8205
 D5
 ~
 ~
-0 -1 3115
+Z -1 3115
 S
 #8201
 The Zoo Wishing Well~
@@ -444,22 +444,22 @@ D1
 You can see a few huts and pens to the East.
 ~
 ~
-0 -1 8230
+Z -1 8230
 D2
 You can see a small path.
 ~
 ~
-0 -1 8204
+Z -1 8204
 D3
 The building appears to be a gift shop for the tourists.
 ~
 door~
-2 -1 8205
+AFZ -1 8205
 D5
 You can see coins glistening in the murky water at the bottom of the well.
 ~
 grate~
-1 8200 8203
+ABCZ 8200 8203
 S
 #8203
 Bottom of the Wishing Well~
@@ -471,7 +471,7 @@ D4
 You can see the sky.
 ~
 grate~
-0 8200 8201
+Z 8200 8201
 S
 #8204
 A path in the zoo~
@@ -483,17 +483,17 @@ D0
 You can see a Well.
 ~
 ~
-0 -1 8201
+Z -1 8201
 D2
 You can see a crossroads.
 ~
 ~
-0 -1 8207
+Z -1 8207
 D3
 The door to the building is labeled 'Zoo Keeper'.
 ~
 door~
-1 -1 8206
+ABZ -1 8206
 S
 #8205
 The Gift Shop~
@@ -517,12 +517,12 @@ D0
 A study turnstile leading out of the zoo.
 ~
 turnstile~
-0 -1 8200
+Z -1 8200
 D1
 You can see the zoo Well though the door.
 ~
 door~
-2 -1 8201
+AFZ -1 8201
 S
 #8206
 Zoo Keepers Office~
@@ -538,7 +538,7 @@ zoo for the last week. Wow! You realise this guy is making a packet.
 D1
 ~
 door~
-1 -1 8204
+ABZ -1 8204
 S
 #8207
 Crossroads in the Zoo~
@@ -550,22 +550,22 @@ D0
 You can see a small path.
 ~
 ~
-0 -1 8204
+Z -1 8204
 D1
 You can see a small path.
 ~
 ~
-0 -1 8208
+Z -1 8208
 D2
 You can see a small path.
 ~
 ~
-0 -1 8209
+Z -1 8209
 D3
 You can see a small path.
 ~
 ~
-0 -1 8210
+Z -1 8210
 S
 #8208
 A path between cages~
@@ -578,23 +578,23 @@ A gorilla stands in the cage pounding his chest at you, as if he was daring
 you. Surely they can't be that clever?
 ~
 door cage~
-2 8200 8211
+ABCFZ 8200 8211
 D1
 You can see a small hut in the distance.
 ~
 ~
-0 -1 8213
+Z -1 8213
 D2
 A big brown bear stands upright and growls as you walk towards the cage to 
 get a better look.
 ~
 door cage~
-2 8200 8212
+ABCFZ 8200 8212
 D3
 You can see the crossroads.
 ~
 ~
-0 -1 8207
+Z -1 8207
 S
 #8209
 A path between cages~
@@ -606,18 +606,18 @@ D0
 You can see the crossroads.
 ~
 ~
-0 -1 8207
+Z -1 8207
 D2
 A large Tiger can be seen through the bars of the cage door. The tiger is 
 wandering up and down in the cage and looks slightly bored.
 ~
 cage door~
-2 8200 8214
+ABCFZ 8200 8214
 D3
 A large Elephant stands idly in the cage to the west.
 ~
 cage door~
-2 8200 8215
+ABCFZ 8200 8215
 S
 #8210
 A path between cages~
@@ -631,18 +631,18 @@ Numerous crocodiles can be seen through the bars in the cage door.
 The crocodiles thrash about in the pools water.
 ~
 cage door~
-2 8200 8216
+ABCFZ 8200 8216
 D1
 You can see the crossroads.
 ~
 ~
-0 -1 8207
+Z -1 8207
 D2
 Numerous dolphins can be seen through the bars in the cage door. They are 
 playfully frolicing in the water.
 ~
 door cage~
-2 8200 8217
+ABCFZ 8200 8217
 S
 #8211
 The gorilla cage~
@@ -654,7 +654,7 @@ D2
 You can see a small path past the cage door.
 ~
 door cage~
-2 8200 8208
+ABCFZ 8200 8208
 S
 #8212
 The bear cage~
@@ -667,7 +667,7 @@ D0
 You can see a small path past the cage door.
 ~
 door cage~
-2 8200 8208
+ABCFZ 8200 8208
 S
 #8213
 A bend in the path~
@@ -679,17 +679,17 @@ D1
 The door is quite weak.
 ~
 door~
-0 -1 8219
+Z -1 8219
 D2
 You can see a small path.
 ~
 ~
-0 -1 8218
+Z -1 8218
 D3
 You can see a small path.
 ~
 ~
-0 -1 8208
+Z -1 8208
 S
 #8214
 The tiger cage~
@@ -700,7 +700,7 @@ D0
 You can see a small path through the door.
 ~
 cage door~
-2 8200 8209
+ABCFZ 8200 8209
 S
 #8215
 The elephant cage~
@@ -712,7 +712,7 @@ D1
 You can see a samll path through the door.
 ~
 cage door~
-2 8200 8209
+ABCFZ 8200 8209
 S
 #8216
 The crocodile cage~
@@ -724,7 +724,7 @@ D2
 You can see a small path through the door.
 ~
 cage door~
-2 8200 8210
+ABCFZ 8200 8210
 S
 #8217
 The dolphins cage~
@@ -736,7 +736,7 @@ D0
 You can see a small path through the door.
 ~
 cage door~
-2 8200 8210
+ABCFZ 8200 8210
 S
 #8218
 A path between cages~
@@ -748,17 +748,17 @@ D0
 You can see a small path through the door.
 ~
 ~
-0 -1 8213
+Z -1 8213
 D1
 You can see a gigantic lizard through the cage door.
 ~
 cage door~
-2 8200 8220
+ABCFZ 8200 8220
 D2
 You can see a white horned horse through the cage door.
 ~
 cage door~
-2 8200 8221
+ABCFZ 8200 8221
 S
 #8219
 The animal food store hut~
@@ -771,7 +771,7 @@ D3
 The door is quite weak.
 ~
 door~
-0 -1 8213
+Z -1 8213
 S
 #8220
 The baby dragon cage~
@@ -783,7 +783,7 @@ D3
 You can see a small path through the cage door.
 ~
 cage door~
-2 8200 8218
+ABCFZ 8200 8218
 S
 #8221
 the unicorn cage~
@@ -795,7 +795,7 @@ D0
 You can see a small path through the cage door.
 ~
 cage door~
-2 8200 8218
+ABCFZ 8200 8218
 S
 #8230
 Entrance to the Kiddies Zoo~
@@ -807,12 +807,12 @@ D1
 You can see a small path.
 ~
 ~
-0 -1 8231
+Z -1 8231
 D3
 You can see a Well.
 ~
 ~
-0 -1 8201
+Z -1 8201
 S
 #8231
 A small path in the Kiddies Zoo~
@@ -825,22 +825,22 @@ D0
 You can see a family of goats.
 ~
 ~
-0 -1 8232
+Z -1 8232
 D1
 You can see a small path
 ~
 ~
-0 -1 8234
+Z -1 8234
 D2
 You can see some pigs wollowing in mud.
 ~
 ~
-0 -1 8233
+Z -1 8233
 D3
 You can see the entrance way.
 ~
 ~
-0 -1 8230
+Z -1 8230
 S
 #8232
 The goat enclosure~
@@ -852,7 +852,7 @@ D2
 You can see a small path.
 ~
 ~
-0 -1 8231
+Z -1 8231
 S
 #8233
 The pig pen~
@@ -864,7 +864,7 @@ D0
 You can see a small path.
 ~
 ~
-0 -1 8231
+Z -1 8231
 S
 #8234
 A small path in the Kiddies Zoo~
@@ -877,17 +877,17 @@ D0
 You can see birds flying in a large wood and mesh structure.
 ~
 door~
-1 -1 8236
+ABZ -1 8236
 D2
 You can see a horses head poking out of a stable door.
 ~
 door~
-1 -1 8235
+ABZ -1 8235
 D3
 You can see a small path.
 ~
 ~
-0 -1 8231
+Z -1 8231
 S
 #8235
 A stable~
@@ -900,7 +900,7 @@ D0
 Through the stable door you can see a small path with a aviry in the distance.
 ~
 door~
-1 -1 8234
+ABZ -1 8234
 S
 #8236
 In the Aviary~
@@ -912,12 +912,12 @@ D0
 You can see the aviary continue.
 ~
 ~
-0 -1 8237
+Z -1 8237
 D2
 You can see a small path through the window in the door.
 ~
 door~
-1 -1 8234
+ABZ -1 8234
 S
 #8237
 In the Aviary~
@@ -929,12 +929,12 @@ D2
 You can see the aviary continue.
 ~
 ~
-0 -1 8236
+Z -1 8236
 D3
 You can see the aviary continue.
 ~
 ~
-0 -1 8238
+Z -1 8238
 S
 #8238
 In the Aviary~
@@ -945,7 +945,7 @@ D1
 You can see the aviary continue.
 ~
 ~
-0 -1 8237
+Z -1 8237
 S
 #0
 

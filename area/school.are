@@ -753,25 +753,25 @@ D0
 @rus Ты видишь проход ведущий в МУД школу.
 ~
 ~
-0 0 3757
+Z 0 3757
 D1
 @eng You see the entrance to the museum.
 @rus Ты видишь вход в музей.
 ~
 ~
-0 -1 400
+Z -1 400
 D2
 @eng You see the one way door into the Arena of Mud School.
 @rus Ты видишь дверь в одну сторону на арену.
 ~
 door~
-1 -1 3744
+ABZ -1 3744
 D5
 @eng You see the Temple of Midgaard.
 @rus Ты видишь храм Мидгарда.
 ~
 ~
-0 0 3001
+Z 0 3001
 S
 #3701
 @eng A Room in Mud School@rus Комната в МУД школе~
@@ -825,13 +825,13 @@ D2
 @rus Ты видишь проход в другую комнату.
 ~
 ~
-0 -1 3757
+Z -1 3757
 D3
 @eng You see a path into another room.
 @rus Ты видишь проход в другую комнату.
 ~
 ~
-0 -1 3702
+Z -1 3702
 S
 #3702
 @eng The Center Room@rus Центральная комната~
@@ -872,37 +872,37 @@ D0
 @rus Ты видишь комнату, которая поведет тебя вперед.
 ~
 ~
-0 0 3703
+Z 0 3703
 D1
 @eng You see a room.
 @rus Ты видишь комнату.
 ~
 ~
-0 0 3701
+Z 0 3701
 D2
 @eng You see a room.
 @rus Ты видишь комнату.
 ~
 ~
-0 0 3705
+Z 0 3705
 D3
 @eng You see a room.
 @rus Ты видишь комнату.
 ~
 ~
-0 0 3704
+Z 0 3704
 D4
 @eng You see a room.
 @rus Ты видишь комнату.
 ~
 ~
-0 0 3708
+Z 0 3708
 D5
 @eng You see a room.
 @rus Ты видишь комнату.
 ~
 ~
-0 0 3707
+Z 0 3707
 S
 #3703
 @eng A Room in Mud School@rus Комната в МУД школе~
@@ -930,13 +930,13 @@ D0
 @rus Ты видишь еще одну школу комнаты.
 ~
 ~
-0 -1 3709
+Z -1 3709
 D2
 @eng You see the central room.
 @rus Ты видишь центральную комнату.
 ~
 ~
-0 0 3702
+Z 0 3702
 S
 #3704
 @eng A Room in Mud School@rus Комната в МУД школе~
@@ -958,7 +958,7 @@ D1
 @rus Ты видишь центральную комнату.
 ~
 ~
-0 0 3702
+Z 0 3702
 S
 #3705
 @eng A Room in Mud School@rus Комната в МУД школе~
@@ -980,7 +980,7 @@ D0
 @rus Ты видишь центральную комнату.
 ~
 ~
-0 0 3702
+Z 0 3702
 S
 #3707
 @eng A Room in Mud School@rus Комната в МУД школе~
@@ -1002,7 +1002,7 @@ D4
 @rus Ты видишь центральную комнату.
 ~
 ~
-0 0 3702
+Z 0 3702
 S
 #3708
 @eng A Room in Mud School@rus Комната в МУД школе~
@@ -1024,7 +1024,7 @@ D5
 @rus Ты видишь центральную комнату.
 ~
 ~
-0 0 3702
+Z 0 3702
 S
 #3709
 @eng A Room in Mud School@rus Комната в МУД школе~
@@ -1076,13 +1076,13 @@ D3
 @rus Ты видишь следующую комнату школы.
 ~
 ~
-0 -1 3711
+Z -1 3711
 D5
 @eng You see a cage.
 @rus Ты видишь клетку.
 ~
 ~
-0 0 3710
+Z 0 3710
 S
 #3710
 @eng The Blob Cage@rus Клетка пузыря~
@@ -1104,7 +1104,7 @@ D4
 @rus На верху ты видишь безопасную комнату.
 ~
 ~
-0 0 3709
+Z 0 3709
 S
 #3711
 @eng A Room in Mud School@rus Комната в МУД школе~
@@ -1131,13 +1131,13 @@ D1
 @rus Ты видишь еще одну комнату школы.
 ~
 ~
-0 0 3709
+Z 0 3709
 D5
 @eng You see the combat hall.
 @rus Ты видишь зал сражений.
 ~
 ~
-0 0 3712
+Z 0 3712
 S
 #3712
 @eng The Cage Room@rus Комната с клетками~
@@ -1186,31 +1186,31 @@ D0
 @rus Ты видишь агрессивного монстра внутри.
 ~
 ~
-0 -1 3713
+Z -1 3713
 D1
 @eng You see the unmodified monster inside!
 @rus Ты видишь оригинального монстра внутри.
 ~
 ~
-0 -1 3716
+Z -1 3716
 D2
 @eng You see the wimpy monster inside!
 @rus Ты видишь трусливого монстра внутри.
 ~
 ~
-0 -1 3715
+Z -1 3715
 D3
 @eng You see the aggressive wimpy monster inside!
 @rus Ты видишь непонятно-какого монстра внутри.
 ~
 ~
-0 -1 3714
+Z -1 3714
 D5
 @eng You see the next station below.
 @rus Ты видишь еще одну комнату школы внизу.
 ~
 ~
-0 -1 3717
+Z -1 3717
 S
 #3713
 @eng A Cage@rus Клетка~
@@ -1232,7 +1232,7 @@ D2
 @rus Ты видишь комнату с клетками.
 ~
 ~
-0 -1 3712
+Z -1 3712
 S
 #3714
 @eng A Cage@rus Клетка~
@@ -1254,7 +1254,7 @@ D1
 @rus Ты видишь комнату с клетками.
 ~
 ~
-0 -1 3712
+Z -1 3712
 S
 #3715
 @eng A Cage@rus Клетка~
@@ -1276,7 +1276,7 @@ D0
 @rus Ты видишь комнату с клетками.
 ~
 ~
-0 -1 3712
+Z -1 3712
 S
 #3716
 @eng A Cage@rus Клетка~
@@ -1298,7 +1298,7 @@ D3
 @rus Ты видишь комнату с клетками.
 ~
 ~
-0 -1 3712
+Z -1 3712
 S
 #3717
 @eng A Room in Mud School@rus Комната в МУД школе~
@@ -1331,19 +1331,19 @@ D1
 @rus Ты видишь еще одну комнату школы.
 ~
 door~
-1 -1 3719
+ABZ -1 3719
 D2
 @eng You see the Shop.
 @rus Ты видишь магазин.
 ~
 ~
-0 0 3718
+Z 0 3718
 D4
 @eng You see the Cage room.
 @rus Ты видишь комнату с клетками.
 ~
 ~
-0 -1 3712
+Z -1 3712
 S
 #3718
 @eng The Store in Mud School@rus Магазин в МУД школе~
@@ -1376,7 +1376,7 @@ D0
 @rus Ты видишь только выход отсюда.
 ~
 ~
-0 0 3717
+Z 0 3717
 S
 #3719
 @eng A Room in Mud School@rus Комната в МУД школе~
@@ -1408,19 +1408,19 @@ D0
 @rus Ты видишь затемненную внутри комнату.
 ~
 ~
-0 0 3720
+Z 0 3720
 D1
 @eng You see the next station of Mud School.
 @rus Ты видишь следущую комнату школы.
 ~
 door~
-2 3714 3721
+ABCFZ 3714 3721
 D3
 @eng You see the room you just came from.
 @rus Ты видишь комнату откуда только что пришел.
 ~
 door~
-1 -1 3717
+ABZ -1 3717
 S
 #3720
 @eng The Darkened Room@rus Затемненная комната~
@@ -1437,7 +1437,7 @@ D2
 @rus Ты видишь комнату их которой пришел.
 ~
 ~
-0 0 3719
+Z 0 3719
 S
 #3721
 @eng The End of Mud School!@rus Окончание МУД школы!~
@@ -1487,7 +1487,7 @@ D0
 @rus Впереди ты видишь арену.
 ~
 gate~
-1 -1 3722
+ABZ -1 3722
 S
 #3722
 @eng South Wall of Arena@rus Южная стена арены~
@@ -1502,21 +1502,21 @@ being watched by some divine being.
 D0
 ~
 ~
-0 0 3729
+Z 0 3729
 D1
 ~
 ~
-0 0 3725
+Z 0 3725
 D3
 ~
 ~
-0 0 3723
+Z 0 3723
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
 ~
 ~
-0 0 3760
+Z 0 3760
 S
 #3723
 @eng South Wall of Arena@rus Южная стена арены~
@@ -1531,21 +1531,21 @@ being watched by some divine being.
 D0
 ~
 ~
-0 0 3728
+Z 0 3728
 D1
 ~
 ~
-0 0 3722
+Z 0 3722
 D3
 ~
 ~
-0 0 3724
+Z 0 3724
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
 ~
 ~
-0 0 3760
+Z 0 3760
 S
 #3724
 @eng South West Corner of Arena@rus Юго-западный угол арены~
@@ -1560,17 +1560,17 @@ being watched by some divine being.
 D0
 ~
 ~
-0 0 3727
+Z 0 3727
 D1
 ~
 ~
-0 0 3723
+Z 0 3723
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
 ~
 ~
-0 0 3760
+Z 0 3760
 S
 #3725
 @eng South Wall of Arena@rus Южная стена арены~
@@ -1585,21 +1585,21 @@ being watched by some divine being.
 D0
 ~
 ~
-0 0 3730
+Z 0 3730
 D1
 ~
 ~
-0 0 3726
+Z 0 3726
 D3
 ~
 ~
-0 0 3722
+Z 0 3722
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
 ~
 ~
-0 0 3760
+Z 0 3760
 S
 #3726
 @eng South East Corner of Arena@rus Юго-восточный угол арены~
@@ -1614,17 +1614,17 @@ being watched by some divine being.
 D0
 ~
 ~
-0 0 3731
+Z 0 3731
 D3
 ~
 ~
-0 0 3725
+Z 0 3725
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
 ~
 ~
-0 0 3760
+Z 0 3760
 S
 #3727
 @eng West Wall of Arena@rus Западная стена арены~
@@ -1639,21 +1639,21 @@ being watched by some divine being.
 D0
 ~
 ~
-0 0 3732
+Z 0 3732
 D1
 ~
 ~
-0 0 3728
+Z 0 3728
 D2
 ~
 ~
-0 0 3724
+Z 0 3724
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
 ~
 ~
-0 0 3760
+Z 0 3760
 S
 #3728
 @eng Arena@rus Арена~
@@ -1668,25 +1668,25 @@ being watched by some divine being.
 D0
 ~
 ~
-0 0 3733
+Z 0 3733
 D1
 ~
 ~
-0 0 3729
+Z 0 3729
 D2
 ~
 ~
-0 0 3723
+Z 0 3723
 D3
 ~
 ~
-0 0 3727
+Z 0 3727
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
 ~
 ~
-0 0 3760
+Z 0 3760
 S
 #3729
 @eng Arena@rus Арена~
@@ -1701,25 +1701,25 @@ being watched by some divine being.
 D0
 ~
 ~
-0 0 3734
+Z 0 3734
 D1
 ~
 ~
-0 0 3730
+Z 0 3730
 D2
 ~
 ~
-0 0 3722
+Z 0 3722
 D3
 ~
 ~
-0 0 3728
+Z 0 3728
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
 ~
 ~
-0 0 3760
+Z 0 3760
 S
 #3730
 @eng Arena@rus Арена~
@@ -1734,25 +1734,25 @@ being watched by some divine being.
 D0
 ~
 ~
-0 0 3735
+Z 0 3735
 D1
 ~
 ~
-0 0 3731
+Z 0 3731
 D2
 ~
 ~
-0 0 3725
+Z 0 3725
 D3
 ~
 ~
-0 0 3729
+Z 0 3729
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
 ~
 ~
-0 0 3760
+Z 0 3760
 S
 #3731
 @eng East Wall of Arena@rus Восточная стена арены~
@@ -1767,21 +1767,21 @@ being watched by some divine being.
 D0
 ~
 ~
-0 0 3736
+Z 0 3736
 D2
 ~
 ~
-0 0 3726
+Z 0 3726
 D3
 ~
 ~
-0 0 3730
+Z 0 3730
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
 ~
 ~
-0 0 3760
+Z 0 3760
 S
 #3732
 @eng West Wall of Arena@rus Западная стена арены~
@@ -1796,21 +1796,21 @@ being watched by some divine being.
 D0
 ~
 ~
-0 0 3737
+Z 0 3737
 D1
 ~
 ~
-0 0 3733
+Z 0 3733
 D2
 ~
 ~
-0 0 3727
+Z 0 3727
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
 ~
 ~
-0 0 3760
+Z 0 3760
 S
 #3733
 @eng Arena@rus Арена~
@@ -1825,25 +1825,25 @@ being watched by some divine being.
 D0
 ~
 ~
-0 0 3738
+Z 0 3738
 D1
 ~
 ~
-0 0 3734
+Z 0 3734
 D2
 ~
 ~
-0 0 3728
+Z 0 3728
 D3
 ~
 ~
-0 0 3732
+Z 0 3732
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
 ~
 ~
-0 0 3760
+Z 0 3760
 S
 #3734
 @eng Center of Arena@rus Центр арены~
@@ -1868,31 +1868,31 @@ and there is no quick escape back out of here when you are in the dungeon.
 D0
 ~
 ~
-0 0 3739
+Z 0 3739
 D1
 ~
 ~
-0 0 3735
+Z 0 3735
 D2
 ~
 ~
-0 0 3729
+Z 0 3729
 D3
 ~
 ~
-0 0 3733
+Z 0 3733
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
 ~
 ~
-0 0 3760
+Z 0 3760
 D5
 @eng You see a dark murky dungeon below.
 @rus Ты видишь темное и мрачное подземелье внизу.
 ~
 grate~
-1 -1 3748
+ABZ -1 3748
 S
 #3735
 @eng Arena@rus Арена~
@@ -1907,25 +1907,25 @@ being watched by some divine being.
 D0
 ~
 ~
-0 0 3740
+Z 0 3740
 D1
 ~
 ~
-0 0 3736
+Z 0 3736
 D2
 ~
 ~
-0 0 3730
+Z 0 3730
 D3
 ~
 ~
-0 0 3734
+Z 0 3734
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
 ~
 ~
-0 0 3760
+Z 0 3760
 S
 #3736
 @eng East Wall of Arena@rus Восточная стена арены~
@@ -1940,21 +1940,21 @@ being watched by some divine being.
 D0
 ~
 ~
-0 0 3741
+Z 0 3741
 D2
 ~
 ~
-0 0 3731
+Z 0 3731
 D3
 ~
 ~
-0 0 3735
+Z 0 3735
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД (не надоело смотреть?)
 ~
 ~
-0 0 3760
+Z 0 3760
 S
 #3737
 @eng West Wall of Arena@rus Западная стена арены~
@@ -1969,21 +1969,21 @@ being watched by some divine being.
 D0
 ~
 ~
-0 0 3742
+Z 0 3742
 D1
 ~
 ~
-0 0 3738
+Z 0 3738
 D2
 ~
 ~
-0 0 3732
+Z 0 3732
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
 ~
 ~
-0 0 3760
+Z 0 3760
 S
 #3738
 @eng Arena@rus Арена~
@@ -1998,25 +1998,25 @@ being watched by some divine being.
 D0
 ~
 ~
-0 0 3743
+Z 0 3743
 D1
 ~
 ~
-0 0 3739
+Z 0 3739
 D2
 ~
 ~
-0 0 3733
+Z 0 3733
 D3
 ~
 ~
-0 0 3737
+Z 0 3737
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
 ~
 ~
-0 0 3760
+Z 0 3760
 S
 #3739
 @eng Arena@rus Арена~
@@ -2031,25 +2031,25 @@ being watched by some divine being.
 D0
 ~
 ~
-0 0 3744
+Z 0 3744
 D1
 ~
 ~
-0 0 3740
+Z 0 3740
 D2
 ~
 ~
-0 0 3734
+Z 0 3734
 D3
 ~
 ~
-0 0 3738
+Z 0 3738
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
 ~
 ~
-0 0 3760
+Z 0 3760
 S
 #3740
 @eng Arena@rus Арена~
@@ -2064,25 +2064,25 @@ being watched by some divine being.
 D0
 ~
 ~
-0 0 3745
+Z 0 3745
 D1
 ~
 ~
-0 0 3741
+Z 0 3741
 D2
 ~
 ~
-0 0 3735
+Z 0 3735
 D3
 ~
 ~
-0 0 3739
+Z 0 3739
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
 ~
 ~
-0 0 3760
+Z 0 3760
 S
 #3741
 @eng East Wall of Arena@rus Восточная стена арены~
@@ -2097,21 +2097,21 @@ being watched by some divine being.
 D0
 ~
 ~
-0 0 3746
+Z 0 3746
 D2
 ~
 ~
-0 0 3736
+Z 0 3736
 D3
 ~
 ~
-0 0 3740
+Z 0 3740
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
 ~
 ~
-0 0 3760
+Z 0 3760
 S
 #3742
 @eng North West Corner of Arena@rus Северо-западный угол арены~
@@ -2126,17 +2126,17 @@ being watched by some divine being.
 D1
 ~
 ~
-0 0 3743
+Z 0 3743
 D2
 ~
 ~
-0 0 3737
+Z 0 3737
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
 ~
 ~
-0 0 3760
+Z 0 3760
 S
 #3743
 @eng North Wall of Arena@rus Северная стена арены~
@@ -2151,21 +2151,21 @@ by some divine being.
 D1
 ~
 ~
-0 0 3744
+Z 0 3744
 D2
 ~
 ~
-0 0 3738
+Z 0 3738
 D3
 ~
 ~
-0 0 3742
+Z 0 3742
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
 ~
 ~
-0 0 3760
+Z 0 3760
 S
 #3744
 @eng North Wall of Arena@rus Северная стена арены~
@@ -2180,21 +2180,21 @@ being watched by some divine being.
 D1
 ~
 ~
-0 0 3745
+Z 0 3745
 D2
 ~
 ~
-0 0 3739
+Z 0 3739
 D3
 ~
 ~
-0 0 3743
+Z 0 3743
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
 ~
 ~
-0 0 3760
+Z 0 3760
 S
 #3745
 @eng North Wall of Arena@rus Северная стена арены~
@@ -2209,21 +2209,21 @@ being watched by some divine being.
 D1
 ~
 ~
-0 0 3746
+Z 0 3746
 D2
 ~
 ~
-0 0 3740
+Z 0 3740
 D3
 ~
 ~
-0 0 3744
+Z 0 3744
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
 ~
 ~
-0 0 3760
+Z 0 3760
 S
 #3746
 @eng North East Corner of Arena@rus Северо-восточный угол арены~
@@ -2238,17 +2238,17 @@ being watched by some divine being.
 D2
 ~
 ~
-0 0 3741
+Z 0 3741
 D3
 ~
 ~
-0 0 3745
+Z 0 3745
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
 ~
 ~
-0 0 3760
+Z 0 3760
 S
 #3748
 @eng The Center of the Dungeon@rus Центр подземелья~
@@ -2267,31 +2267,31 @@ D0
 @rus Ты видишь северную стену.
 ~
 ~
-0 0 3750
+Z 0 3750
 D1
 @eng You see the east wall.
 @rus Ты видишь восточную стену.
 ~
 ~
-0 0 3753
+Z 0 3753
 D2
 @eng You see the south wall.
 @rus Ты видишь южную стену.
 ~
 ~
-0 0 3755
+Z 0 3755
 D3
 @eng You see the west wall.
 @rus Ты видишь западную стену.
 ~
 ~
-0 0 3752
+Z 0 3752
 D4
 @eng You see safety!
 @rus Ты видишь СПАСЕНИЕ!
 ~
 grate~
-1 -1 3734
+ABZ -1 3734
 S
 #3749
 @eng The North West Corner of the Dungeon@rus Северо-западный угол подземелья~
@@ -2306,13 +2306,13 @@ D1
 @rus Ты видишь северную стену.
 ~
 ~
-0 0 3750
+Z 0 3750
 D2
 @eng You see the south wall.
 @rus Ты видишь южную стену.
 ~
 ~
-0 0 3752
+Z 0 3752
 S
 #3750
 @eng The North Wall of the Dungeon@rus Северная стена подземелья~
@@ -2327,19 +2327,19 @@ D1
 @rus Ты видишь северо-восточный угол.
 ~
 ~
-0 0 3751
+Z 0 3751
 D2
 @eng You see the center of the dungeon.
 @rus Ты видишь центр подземелья.
 ~
 ~
-0 0 3748
+Z 0 3748
 D3
 @eng You see the north west corner.
 @rus Ты видишь северо-западный угол.
 ~
 ~
-0 0 3749
+Z 0 3749
 S
 #3751
 @eng The North East Corner of the Dungeon@rus Северо-восточный угол подземелья~
@@ -2354,13 +2354,13 @@ D2
 @rus Ты видишь восточную стену.
 ~
 ~
-0 0 3753
+Z 0 3753
 D3
 @eng You see the north wall.
 @rus Ты видишь северную стену.
 ~
 ~
-0 0 3750
+Z 0 3750
 S
 #3752
 @eng The West Wall of the Dungeon@rus Западная стена подземелья~
@@ -2375,19 +2375,19 @@ D0
 @rus Ты видишь северо-западный угол.
 ~
 ~
-0 0 3749
+Z 0 3749
 D1
 @eng You see the center of the dungeon.
 @rus Ты видишь центр подземелья.
 ~
 ~
-0 0 3748
+Z 0 3748
 D2
 @eng You see the south west corner.
 @rus Ты видишь юго-западный угол.
 ~
 ~
-0 0 3754
+Z 0 3754
 S
 #3753
 @eng The East Wall of the Dungeon@rus Восточная стена подземелья~
@@ -2402,19 +2402,19 @@ D0
 @rus Ты видишь северо-восточный угол.
 ~
 ~
-0 0 3751
+Z 0 3751
 D2
 @eng You see the south east corner.
 @rus Ты видишь юго-восточный угол.
 ~
 ~
-0 0 3756
+Z 0 3756
 D3
 @eng You see the center of the dungeon.
 @rus Ты видишь цент подземелья.
 ~
 ~
-0 0 3748
+Z 0 3748
 S
 #3754
 @eng The South West Corner of the Dungeon@rus Юго-западный угол подземелья~
@@ -2429,13 +2429,13 @@ D0
 @rus Ты видишь северную стену.
 ~
 ~
-0 0 3752
+Z 0 3752
 D1
 @eng You see the south wall.
 @rus Ты видишь южную стену.
 ~
 ~
-0 0 3755
+Z 0 3755
 S
 #3755
 @eng The South Wall of the Dungeon@rus Южная стена подземелья~
@@ -2450,19 +2450,19 @@ D0
 @rus Ты видишь центр подземелья.
 ~
 ~
-0 0 3748
+Z 0 3748
 D1
 @eng You see the south east corner.
 @rus Ты видишь юго-восточный угол.
 ~
 ~
-0 0 3756
+Z 0 3756
 D3
 @eng You see the south-west corner.
 @rus Ты видишь юго-западный угол.
 ~
 ~
-0 0 3754
+Z 0 3754
 S
 #3756
 @eng The South East Corner of the Dungeon@rus Юго-восточный угол подземелья~
@@ -2477,13 +2477,13 @@ D0
 @rus Ты видишь восточную стену.
 ~
 ~
-0 0 3753
+Z 0 3753
 D3
 @eng You see the south wall.
 @rus Ты видишь южную стену.
 ~
 ~
-0 0 3755
+Z 0 3755
 S
 #3757
 @eng A Room in Mud School@rus Комната в МУД школе~
@@ -2521,25 +2521,25 @@ D0
 @rus Следующая остановка в школе.
 ~
 ~
-0 0 3701
+Z 0 3701
 D1
 @eng You see Zump's Guild Room.  Go there to practice your skills.
 @rus Ты видишь гильдию Зуки. Иди туда, чтобы практиковать свои умения.
 ~
 ~
-0 0 3759
+Z 0 3759
 D2
 @eng You see the entrance to Mud School.
 @rus Ты видишь вход в школу.
 ~
 ~
-0 0 3700
+Z 0 3700
 D3
 @eng You see Furey's Training Room.  Go there to train your attributes.
 @rus Ты видишь комнату тренировок Фьюри. Иди туда, чтобы увеличить аттрибуты.
 ~
 ~
-0 0 3758
+Z 0 3758
 S
 #3758
 @eng Furey's Training Room@rus Тренировочная комната Фьюри~
@@ -2569,7 +2569,7 @@ D1
 @rus Ты видишь комнату из которой пришел и в которою будешь должен пойти.
 ~
 ~
-0 0 3757
+Z 0 3757
 S
 #3759
 @eng Zump's Guild Room@rus Гильдия Зуки~
@@ -2603,7 +2603,7 @@ D3
 @rus Ты видишь комнату из которой пришел и в которою будешь должен пойти.
 ~
 ~
-0 0 3757
+Z 0 3757
 S
 #3760
 @eng A Safe Room@rus Безопасная комната~
@@ -2618,7 +2618,7 @@ D4
 @rus Ты видишь храм Мидгарда.
 ~
 ~
-0 0 3001
+Z 0 3001
 S
 #0
 

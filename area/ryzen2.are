@@ -382,15 +382,15 @@ lead east and west , into the caverns, from here.
 D1
 ~
 ~
-0 0 22002
+Z 0 22002
 D3
 ~
 ~
-0 0 22001
+Z 0 22001
 D4
 ~
 ~
-0 0 29373
+Z 0 29373
 S
 #22001
 A Darkened Tunnel~
@@ -402,15 +402,15 @@ darkness.
 D1
 ~
 ~
-0 0 22000
+Z 0 22000
 D2
 ~
 ~
-0 0 22003
+Z 0 22003
 D5
 ~
 ~
-0 0 22008
+Z 0 22008
 S
 #22002
 A Darkened Tunnel~
@@ -421,15 +421,15 @@ lead from this room, each one shrouded in darkness.
 D2
 ~
 ~
-0 0 22004
+Z 0 22004
 D3
 ~
 ~
-0 0 22000
+Z 0 22000
 D5
 ~
 ~
-0 0 22011
+Z 0 22011
 S
 #22003
 A Bend in the Tunnel~
@@ -439,11 +439,11 @@ The tunnel turns here slightly, both directions lead into shadows.
 D0
 ~
 ~
-0 0 22001
+Z 0 22001
 D2
 ~
 ~
-0 0 22005
+Z 0 22005
 S
 #22004
 A Bend in the Tunnel~
@@ -453,11 +453,11 @@ The tunnel turns sharply here.  Directions lead south and north.
 D0
 ~
 ~
-0 0 22002
+Z 0 22002
 D2
 ~
 ~
-0 0 22006
+Z 0 22006
 S
 #22005
 A Darkened Tunnel~
@@ -468,15 +468,15 @@ north.
 D0
 ~
 ~
-0 0 22003
+Z 0 22003
 D1
 ~
 ~
-0 0 22007
+Z 0 22007
 D5
 ~
 ~
-0 0 22024
+Z 0 22024
 S
 #22006
 A Darkened Tunnel~
@@ -489,15 +489,15 @@ north, and south.
 D0
 ~
 ~
-0 0 22004
+Z 0 22004
 D2
 ~
 ~
-0 0 22007
+Z 0 22007
 D5
 ~
 ~
-0 0 22014
+Z 0 22014
 S
 #22007
 A Bend in the Tunnel~
@@ -507,11 +507,11 @@ The shadowy tunnel continues to the east and west.
 D1
 ~
 ~
-0 0 22006
+Z 0 22006
 D3
 ~
 ~
-0 0 22005
+Z 0 22005
 S
 #22008
 A Darkened Tunnel~
@@ -523,11 +523,11 @@ south is noticeable.
 D2
 ~
 ~
-0 0 22009
+Z 0 22009
 D4
 ~
 ~
-0 0 22001
+Z 0 22001
 S
 #22009
 A Darkened Tunnel~
@@ -538,11 +538,11 @@ blackness.
 D0
 ~
 ~
-0 0 22008
+Z 0 22008
 D3
 ~
 ~
-0 0 22010
+Z 0 22010
 S
 #22010
 The End of the Tunnel~
@@ -553,7 +553,7 @@ back to the east.
 D1
 ~
 ~
-0 0 22009
+Z 0 22009
 S
 #22011
 A Darkened Tunnel~
@@ -564,11 +564,11 @@ heads east into further gloom.
 D1
 ~
 ~
-0 0 22012
+Z 0 22012
 D4
 ~
 ~
-0 0 22002
+Z 0 22002
 S
 #22012
 A Darkened Tunnel~
@@ -579,11 +579,11 @@ everything in mystery.  Exits lead west and south.
 D2
 ~
 ~
-0 0 22013
+Z 0 22013
 D3
 ~
 ~
-0 0 22011
+Z 0 22011
 S
 #22013
 The End of the Tunnel~
@@ -594,7 +594,7 @@ wall standing in your way.  The only exit is back to the north.
 D0
 ~
 ~
-0 0 22012
+Z 0 22012
 S
 #22014
 A Dimly Lit Cave~
@@ -604,15 +604,15 @@ You stand in an enormous cave that spreads out to the south and east.
 D1
 ~
 ~
-0 0 22015
+Z 0 22015
 D2
 ~
 ~
-0 0 22016
+Z 0 22016
 D4
 ~
 ~
-0 0 22006
+Z 0 22006
 S
 #22015
 In the Cave~
@@ -624,11 +624,11 @@ south while the cave continues to the west.
 D2
 ~
 ~
-0 0 22017
+Z 0 22017
 D3
 ~
 ~
-0 0 22014
+Z 0 22014
 S
 #22016
 In the Cave~
@@ -641,7 +641,7 @@ exit is north.
 D0
 ~
 ~
-0 0 22014
+Z 0 22014
 S
 #22017
 A Darkened Tunnel~
@@ -653,11 +653,11 @@ from here.
 D0
 ~
 ~
-0 0 22015
+Z 0 22015
 D2
 ~
 ~
-0 0 22018
+Z 0 22018
 S
 #22018
 A Branch in the Tunnel~
@@ -668,15 +668,15 @@ east, or west.
 D0
 ~
 ~
-0 0 22017
+Z 0 22017
 D1
 ~
 ~
-0 0 22020
+Z 0 22020
 D3
 ~
 ~
-0 0 22019
+Z 0 22019
 S
 #22019
 A Branch in the Tunnel~
@@ -687,15 +687,15 @@ south, down, and east.
 D1
 ~
 ~
-0 0 22018
+Z 0 22018
 D2
 ~
 ~
-0 0 22021
+Z 0 22021
 D5
 ~
 ~
-0 0 22032
+Z 0 22032
 S
 #22020
 A Darkened Tunnel~
@@ -707,11 +707,11 @@ soul.
 D2
 ~
 ~
-0 0 22022
+Z 0 22022
 D3
 ~
 ~
-0 0 22018
+Z 0 22018
 S
 #22021
 A Darkened Tunnel~
@@ -720,15 +720,15 @@ A Darkened Tunnel~
 D0
 ~
 ~
-0 0 22019
+Z 0 22019
 D1
 ~
 ~
-0 0 22023
+Z 0 22023
 D3
 ~
 ~
-0 0 22039
+Z 0 22039
 S
 #22022
 A Darkened Tunnel~
@@ -740,15 +740,15 @@ same as all of the others.  Exits lead north, down, and west from here.
 D0
 ~
 ~
-0 0 22020
+Z 0 22020
 D3
 ~
 ~
-0 0 22023
+Z 0 22023
 D5
 ~
 ~
-0 0 22036
+Z 0 22036
 S
 #22023
 A Bend in the Tunnel~
@@ -759,11 +759,11 @@ east and west.
 D1
 ~
 ~
-0 0 22022
+Z 0 22022
 D3
 ~
 ~
-0 0 22021
+Z 0 22021
 S
 #22024
 A Darkened Tunnel~
@@ -776,11 +776,11 @@ tunnel to the west or return to the main tunnel up the stairs.
 D3
 ~
 ~
-0 0 22025
+Z 0 22025
 D4
 ~
 ~
-0 0 22005
+Z 0 22005
 S
 #22025
 A Darkened Tunnel~
@@ -792,11 +792,11 @@ light of day again and get out of thse cramped tunnels.
 D1
 ~
 ~
-0 0 22024
+Z 0 22024
 D3
 ~
 ~
-0 0 22026
+Z 0 22026
 S
 #22026
 A Bend in the Tunnel~
@@ -807,11 +807,11 @@ north into darkness.
 D0
 ~
 ~
-0 0 22027
+Z 0 22027
 D1
 ~
 ~
-0 0 22025
+Z 0 22025
 S
 #22027
 A Bend in the Tunnel~
@@ -822,11 +822,11 @@ south.
 D0
 ~
 ~
-0 0 22028
+Z 0 22028
 D2
 ~
 ~
-0 0 22026
+Z 0 22026
 S
 #22028
 A Set of Stairs~
@@ -838,11 +838,11 @@ impossible to tell.
 D2
 ~
 ~
-0 0 22027
+Z 0 22027
 D5
 ~
 ~
-0 0 22029
+Z 0 22029
 S
 #22029
 The Bottom of the Stairs~
@@ -853,11 +853,11 @@ appear to be up or north.
 D0
 ~
 ~
-0 0 22030
+Z 0 22030
 D4
 ~
 ~
-0 0 22028
+Z 0 22028
 S
 #22030
 A Darkened Tunnel~
@@ -869,11 +869,11 @@ must not be happy.
 D1
 ~
 ~
-0 0 22031
+Z 0 22031
 D2
 ~
 ~
-0 0 22029
+Z 0 22029
 S
 #22031
 A Dead End~
@@ -885,7 +885,7 @@ stumble several times.
 D3
 ~
 ~
-0 0 22030
+Z 0 22030
 S
 #22032
 A Pitch Black Tunnel~
@@ -897,11 +897,11 @@ whatever is living here is going to be too friendly.
 D2
 ~
 ~
-0 0 22033
+Z 0 22033
 D4
 ~
 ~
-0 0 22019
+Z 0 22019
 S
 #22033
 A Pitch Black Tunnel~
@@ -913,11 +913,11 @@ your bravery.
 D0
 ~
 ~
-0 0 22032
+Z 0 22032
 D3
 ~
 ~
-0 0 22034
+Z 0 22034
 S
 #22034
 A Pitch Black Tunnel~
@@ -930,11 +930,11 @@ from a still living person.
 D1
 ~
 ~
-0 0 22033
+Z 0 22033
 D3
 ~
 ~
-0 0 22035
+Z 0 22035
 S
 #22035
 The Ghoul Lord's Den~
@@ -946,7 +946,7 @@ desire to run as fast as posible away from this monster and its dinner.
 D1
 ~
 ~
-0 0 22034
+Z 0 22034
 S
 #22036
 A Pitch Black Tunnel~
@@ -957,11 +957,11 @@ corner comes a slight shimmering light.
 D2
 ~
 ~
-0 0 22037
+Z 0 22037
 D4
 ~
 ~
-0 0 22022
+Z 0 22022
 S
 #22037
 A Crystal Cavern~
@@ -974,11 +974,11 @@ west or return to the tunnel to the north.
 D0
 ~
 ~
-0 0 22036
+Z 0 22036
 D3
 ~
 ~
-0 0 22038
+Z 0 22038
 S
 #22038
 The Dragon's Lair~
@@ -991,7 +991,7 @@ you.
 D1
 ~
 ~
-0 0 22037
+Z 0 22037
 S
 #22039
 A Darkened Tunnel~
@@ -1002,11 +1002,11 @@ head in a south direction.
 D1
 ~
 ~
-0 0 22021
+Z 0 22021
 D2
 ~
 ~
-0 0 22040
+Z 0 22040
 S
 #22040
 A Darkened Tunnel~
@@ -1017,11 +1017,11 @@ north.
 D0
 ~
 ~
-0 0 22039
+Z 0 22039
 D3
 ~
 ~
-0 0 22041
+Z 0 22041
 S
 #22041
 The End of the Tunnel~
@@ -1033,11 +1033,11 @@ descend through the caverns.
 D1
 ~
 ~
-0 0 22040
+Z 0 22040
 D5
 ~
 ~
-0 0 22042
+Z 0 22042
 S
 #22042
 A Long Cavern~
@@ -1049,11 +1049,11 @@ to walk.
 D1
 ~
 ~
-0 0 22043
+Z 0 22043
 D4
 ~
 ~
-0 0 22041
+Z 0 22041
 S
 #22043
 A Long Cavern~
@@ -1066,11 +1066,11 @@ to ambush you here as your attention is focussed on nature's magnificence.
 D1
 ~
 ~
-0 0 22044
+Z 0 22044
 D3
 ~
 ~
-0 0 22042
+Z 0 22042
 S
 #22044
 The End of the Cavern~
@@ -1083,11 +1083,11 @@ evil continues to grow stronger, you must be getting close.
 D3
 ~
 ~
-0 0 22043
+Z 0 22043
 D5
 ~
 ~
-0 0 22045
+Z 0 22045
 S
 #22045
 A Dimly Lit Tunnel~
@@ -1099,11 +1099,11 @@ south, but ponder your mortality first, should you continue?
 D2
 ~
 ~
-0 0 22046
+Z 0 22046
 D4
 ~
 ~
-0 0 22044
+Z 0 22044
 S
 #22046
 A Dimly Lit Tunnel~
@@ -1116,11 +1116,11 @@ hell himself around the corner.
 D0
 ~
 ~
-0 0 22045
+Z 0 22045
 D1
 ~
 ~
-0 0 22047
+Z 0 22047
 S
 #22047
 A Bend in the Tunnel~
@@ -1133,11 +1133,11 @@ prefered the darkness over this.
 D2
 ~
 ~
-0 0 22048
+Z 0 22048
 D3
 ~
 ~
-0 0 22046
+Z 0 22046
 S
 #22048
 A Dimly Lit Tunnel~
@@ -1150,11 +1150,11 @@ to the south or return towards the exit, north.
 D0
 ~
 ~
-0 0 22047
+Z 0 22047
 D2
 ~
 ~
-0 0 22049
+Z 0 22049
 S
 #22049
 The End of The Caverns~
@@ -1165,11 +1165,11 @@ Hell. I am sure the demons look forward to having you over for dinner.
 D0
 ~
 ~
-0 0 22048
+Z 0 22048
 D2
 ~
 ~
-0 0 10401
+Z 0 10401
 S
 #0
 

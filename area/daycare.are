@@ -268,12 +268,12 @@ This is an area for newbies, so have fun.  -- Sandman
 D0
 ~
 ~
-0 -1 6500
+Z -1 6500
 D2
 You see a large room full of noisy brats.
 ~
 ~
-0 -1 6602
+Z -1 6602
 S
 #6602
 Day Care Center~
@@ -285,22 +285,22 @@ D0
 You see the drop off.
 ~
 ~
-0 -1 6601
+Z -1 6601
 D1
 You see an extremely messy kitchen.
 ~
 ~
-0 -1 6626
+Z -1 6626
 D2
 You see a large room full of noisy brats.
 ~
 ~
-0 -1 6604
+Z -1 6604
 D3
 You see a large room full of noisy brats.
 ~
 ~
-0 -1 6603
+Z -1 6603
 S
 #6603
 Day Care Center~
@@ -312,17 +312,17 @@ D1
 You see a large room full of noisy brats.
 ~
 ~
-0 -1 6602
+Z -1 6602
 D2
 You see a large room full of noisy brats.
 ~
 ~
-0 -1 6605
+Z -1 6605
 D3
 You see a messy bathroom.
 ~
 ~
-0 -1 6606
+Z -1 6606
 S
 #6604
 Day Care Center~
@@ -334,17 +334,17 @@ D0
 You see a large room full of noisy brats.
 ~
 ~
-0 -1 6602
+Z -1 6602
 D1
 You see the playground.
 ~
 ~
-0 -1 6610
+Z -1 6610
 D3
 You see a large room full of noisy brats.
 ~
 ~
-0 -1 6605
+Z -1 6605
 S
 #6605
 Day Care Center~
@@ -356,17 +356,17 @@ D0
 You see a large room full of noisy brats.
 ~
 ~
-0 -1 6603
+Z -1 6603
 D1
 You see a large room full of noisy brats.
 ~
 ~
-0 -1 6604
+Z -1 6604
 D3
 You see a staircase leading down.
 ~
 ~
-0 -1 6607
+Z -1 6607
 S
 #6606
 The Messy Bathroom~
@@ -378,7 +378,7 @@ D1
 You see a large room full of noisy brats.
 ~
 ~
-0 -1 6603
+Z -1 6603
 S
 #6607
 The Staircase~
@@ -390,12 +390,12 @@ D1
 You see a large room full of noisy brats.
 ~
 ~
-0 -1 6605
+Z -1 6605
 D5
 You see the entrance to something.
 ~
 ~
-0 -1 6612
+Z -1 6612
 S
 #6608
 The Playground~
@@ -406,12 +406,12 @@ D1
 You see the playground.
 ~
 ~
-0 -1 6609
+Z -1 6609
 D2
 You see the playground.
 ~
 ~
-0 -1 6610
+Z -1 6610
 S
 #6609
 The Playground~
@@ -422,12 +422,12 @@ D2
 You see the playground.
 ~
 ~
-0 -1 6611
+Z -1 6611
 D3
 You see the playground.
 ~
 ~
-0 -1 6608
+Z -1 6608
 S
 #6610
 The Playground~
@@ -438,17 +438,17 @@ D0
 You see the playground.
 ~
 ~
-0 -1 6608
+Z -1 6608
 D1
 You see the playground.
 ~
 ~
-0 -1 6611
+Z -1 6611
 D3
 You see a large room full of noisy brats.
 ~
 ~
-0 -1 6604
+Z -1 6604
 S
 #6611
 The Playground~
@@ -459,12 +459,12 @@ D0
 You see the playground.
 ~
 ~
-0 -1 6609
+Z -1 6609
 D3
 You see the playground.
 ~
 ~
-0 -1 6610
+Z -1 6610
 S
 #6612
 Entrance to the Mini-Maze~
@@ -475,12 +475,12 @@ that you don't get lost.
 D1
 ~
 ~
-0 -1 6613
+Z -1 6613
 D4
 You see some stairs.
 ~
 ~
-0 -1 6607
+Z -1 6607
 S
 #6613
 Mini-Maze~
@@ -490,15 +490,15 @@ You are in a small passage that looks just like every other one.
 D1
 ~
 ~
-0 -1 6614
+Z -1 6614
 D2
 ~
 ~
-0 -1 6615
+Z -1 6615
 D3
 ~
 ~
-0 -1 6612
+Z -1 6612
 S
 #6614
 Mini-Maze~
@@ -508,11 +508,11 @@ You are in a small passage that looks just like every other one.
 D2
 ~
 ~
-0 -1 6616
+Z -1 6616
 D3
 ~
 ~
-0 -1 6613
+Z -1 6613
 S
 #6615
 Mini-Maze~
@@ -522,11 +522,11 @@ You are in a small passage that looks just like every other one.
 D0
 ~
 ~
-0 -1 6613
+Z -1 6613
 D1
 ~
 ~
-0 -1 6616
+Z -1 6616
 S
 #6616
 Mini-Maze~
@@ -536,15 +536,15 @@ You are in a small passage that looks just like every other one.
 D0
 ~
 ~
-0 -1 6614
+Z -1 6614
 D2
 ~
 ~
-0 -1 6624
+Z -1 6624
 D3
 ~
 ~
-0 -1 6615
+Z -1 6615
 S
 #6624
 End of the Mini-Maze~
@@ -560,11 +560,11 @@ area, but congrats for getting this far - Sandman
 D0
 ~
 ~
-0 -1 6616
+Z -1 6616
 D2
 ~
 ~
-0 -1 6631
+Z -1 6631
 S
 #6626
 Messy Kitchen~
@@ -576,7 +576,7 @@ D3
 You see a large room full of noisy brats.
 ~
 ~
-0 -1 6602
+Z -1 6602
 S
 #6631
 The End?~
@@ -587,7 +587,7 @@ dragon (actually an overgrown brat with a Halloween mask).
 D0
 ~
 ~
-0 -1 6624
+Z -1 6624
 S
 #0
 

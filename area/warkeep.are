@@ -801,11 +801,11 @@ are used to strange visitors...
 D1
 ~
 ~
-0 -1 5365
+Z -1 5365
 D3
 ~
 ~
-0 -1 15701
+Z -1 15701
 S
 #15701
 Before the Keep~
@@ -817,11 +817,11 @@ were expecting visitors...
 D1
 ~
 ~
-0 -1 15700
+Z -1 15700
 D3
 ~
 ~
-1 0 15704
+ABZ 0 15704
 S
 #15702
 A Guard Tower~
@@ -833,11 +833,11 @@ you. The stairs continue up and down.
 D4
 ~
 ~
-0 -1 15703
+Z -1 15703
 D5
 ~
 ~
-0 -1 15704
+Z -1 15704
 S
 #15703
 The Roof of the Tower~
@@ -852,7 +852,7 @@ the castle of the dread Lord Krogthar is located.
 D5
 ~
 ~
-0 -1 15702
+Z -1 15702
 S
 #15704
 Inside the Keep~
@@ -864,23 +864,23 @@ stairs leads up into the tower of the gatehouse.
 D0
 ~
 ~
-1 0 15705
+ABZ 0 15705
 D1
 ~
 ~
-1 0 15701
+ABZ 0 15701
 D2
 ~
 ~
-1 0 15706
+ABZ 0 15706
 D3
 ~
 ~
-1 0 15707
+ABZ 0 15707
 D4
 ~
 ~
-0 -1 15702
+Z -1 15702
 S
 #15705
 The Stables~
@@ -892,7 +892,7 @@ the eating of the horses. They have not been replaced yet.
 D2
 ~
 ~
-1 0 15704
+ABZ 0 15704
 S
 #15706
 Barracks~
@@ -904,7 +904,7 @@ not a stickler for discipline.
 D0
 ~
 ~
-1 0 15704
+ABZ 0 15704
 S
 #15707
 The Inner Courtyard~
@@ -917,19 +917,19 @@ servants appear to be rather lifeless and cold...
 D0
 ~
 ~
-0 -1 15708
+Z -1 15708
 D1
 ~
 ~
-1 0 15704
+ABZ 0 15704
 D2
 ~
 ~
-0 -1 15709
+Z -1 15709
 D3
 ~
 ~
-0 -1 15710
+Z -1 15710
 S
 #15708
 The Inner Courtyard~
@@ -942,15 +942,15 @@ servants appear to be rather lifeless and cold...
 D0
 ~
 ~
-1 0 15741
+ABZ 0 15741
 D2
 ~
 ~
-0 -1 15707
+Z -1 15707
 D3
 ~
 ~
-0 0 15711
+Z 0 15711
 S
 #15709
 The Inner Courtyard~
@@ -963,15 +963,15 @@ servants appear to be rather lifeless and cold...
 D0
 ~
 ~
-0 -1 15707
+Z -1 15707
 D2
 ~
 ~
-1 0 15742
+ABZ 0 15742
 D3
 ~
 ~
-0 -1 15712
+Z -1 15712
 S
 #15710
 The Inner Courtyard~
@@ -986,19 +986,19 @@ The doors to the inner keep lie to the west of here.
 D0
 ~
 ~
-0 -1 15711
+Z -1 15711
 D1
 ~
 ~
-0 0 15707
+Z 0 15707
 D2
 ~
 ~
-0 -1 15712
+Z -1 15712
 D3
 ~
 ~
-1 0 15715
+ABZ 0 15715
 S
 #15711
 The Inner Courtyard~
@@ -1011,15 +1011,15 @@ servants appear to be rather lifeless and cold...
 D1
 ~
 ~
-0 0 15708
+Z 0 15708
 D2
 ~
 ~
-0 -1 15710
+Z -1 15710
 D5
 ~
 ~
-1 -1 15713
+ABZ -1 15713
 S
 #15712
 The Inner Courtyard~
@@ -1032,15 +1032,15 @@ servants appear to be rather lifeless and cold...
 D0
 ~
 ~
-0 -1 15710
+Z -1 15710
 D1
 ~
 ~
-0 0 15709
+Z 0 15709
 D5
 ~
 ~
-1 -1 15714
+ABZ -1 15714
 S
 #15713
 The Garbage Pit~
@@ -1051,7 +1051,7 @@ eating creature they keep in here. It smells very bad.... very VERY bad...
 D4
 ~
 ~
-1 0 15711
+ABZ 0 15711
 S
 #15714
 The Crocodile Pit~
@@ -1063,7 +1063,7 @@ in devouring you.
 D4
 ~
 ~
-1 0 15712
+ABZ 0 15712
 S
 #15715
 The Inner Keep~
@@ -1074,19 +1074,19 @@ with only four wooden doors to break the monotony of the black walls.
 D0
 ~
 ~
-1 0 15716
+ABZ 0 15716
 D1
 ~
 ~
-1 0 15710
+ABZ 0 15710
 D2
 ~
 ~
-1 0 15717
+ABZ 0 15717
 D3
 ~
 ~
-1 0 15718
+ABZ 0 15718
 S
 #15716
 Guard Room~
@@ -1098,7 +1098,7 @@ he is intensely curious as to the nature of any visitors, welcome or not.
 D2
 ~
 ~
-1 0 15715
+ABZ 0 15715
 S
 #15717
 Guard Room~
@@ -1110,7 +1110,7 @@ he is intensely curious as to the nature of any visitors, welcome or not.
 D0
 ~
 ~
-1 0 15715
+ABZ 0 15715
 S
 #15718
 A Stairwell~
@@ -1121,15 +1121,15 @@ dungeons. You can hear sounds of construction coming from below.
 D1
 ~
 ~
-1 0 15715
+ABZ 0 15715
 D4
 ~
 ~
-0 -1 15719
+Z -1 15719
 D5
 ~
 ~
-0 -1 15727
+Z -1 15727
 S
 #15719
 A Stairwell~
@@ -1140,15 +1140,15 @@ dungeons. You can hear sounds of construction coming from below.
 D1
 ~
 ~
-1 0 15720
+ABZ 0 15720
 D4
 ~
 ~
-0 -1 15726
+Z -1 15726
 D5
 ~
 ~
-0 -1 15718
+Z -1 15718
 S
 #15720
 Antechamber~
@@ -1160,15 +1160,15 @@ screams, and you shiver uncomfortably.
 D0
 ~
 ~
-1 0 15721
+ABZ 0 15721
 D2
 ~
 ~
-1 0 15722
+ABZ 0 15722
 D3
 ~
 ~
-1 0 15719
+ABZ 0 15719
 S
 #15721
 Assassins' Quarters~
@@ -1180,7 +1180,7 @@ They will not be impressed by your intrusion...
 D2
 ~
 ~
-1 0 15720
+ABZ 0 15720
 S
 #15722
 Apprentice Quarters~
@@ -1192,7 +1192,7 @@ dares not slay her for Alara would be displeased...
 D0
 ~
 ~
-1 0 15720
+ABZ 0 15720
 S
 #15723
 Antechamber~
@@ -1204,15 +1204,15 @@ screams, and you shiver uncomfortably.
 D0
 ~
 ~
-1 0 15724
+ABZ 0 15724
 D2
 ~
 ~
-1 0 15725
+ABZ 0 15725
 D3
 ~
 ~
-1 0 15726
+ABZ 0 15726
 S
 #15724
 Baragar's Chambers~
@@ -1224,7 +1224,7 @@ You are surprised that such a wicked man would be so neat and disciplined.
 D2
 ~
 ~
-1 0 15723
+ABZ 0 15723
 S
 #15725
 Alara's Chamber~
@@ -1238,7 +1238,7 @@ care to find out more about.
 D0
 ~
 ~
-1 0 15723
+ABZ 0 15723
 S
 #15726
 A Stairwell~
@@ -1249,15 +1249,15 @@ dungeons. You can hear sounds of construction coming from below.
 D1
 ~
 ~
-1 0 15723
+ABZ 0 15723
 D4
 ~
 ~
-0 -1 15736
+Z -1 15736
 D5
 ~
 ~
-0 -1 15719
+Z -1 15719
 S
 #15727
 The Dungeons~
@@ -1269,11 +1269,11 @@ more clearly now.
 D3
 ~
 ~
-0 -1 15728
+Z -1 15728
 D4
 ~
 ~
-0 -1 15718
+Z -1 15718
 S
 #15728
 The Dungeons~
@@ -1288,19 +1288,19 @@ runes inscribed upon it.
 D0
 ~
 ~
-1 -1 15729
+ABZ -1 15729
 D1
 ~
 ~
-0 -1 15727
+Z -1 15727
 D2
 This door is inscribed with strange runes~
 door~
-1 0 15730
+ABZ 0 15730
 D3
 ~
 ~
-0 -1 15731
+Z -1 15731
 S
 #15729
 A Treasure Room~
@@ -1311,7 +1311,7 @@ as you enter, you feel rather uneasy about the whole situation.
 D2
 ~
 ~
-1 0 15728
+ABZ 0 15728
 S
 #15730
 A Summoning Room~
@@ -1324,7 +1324,7 @@ Way to go.
 D0
 ~
 ~
-1 0 15728
+ABZ 0 15728
 S
 #15731
 A Junction~
@@ -1338,19 +1338,19 @@ rumored to lie in the ancient caverns beneath his keep...?
 D0
 ~
 ~
-0 -1 15733
+Z -1 15733
 D1
 ~
 ~
-0 -1 15728
+Z -1 15728
 D2
 ~
 ~
-1 0 15735
+ABZ 0 15735
 D3
 ~
 ~
-0 -1 15732
+Z -1 15732
 S
 #15732
 The Entryway to the Mines~
@@ -1362,11 +1362,11 @@ lies the entryway to the ancient caverns, where no one dares travel.
 D1
 ~
 ~
-0 -1 15731
+Z -1 15731
 D5
 ~
 ~
-0 -1 15737
+Z -1 15737
 S
 #15733
 A Dark Passage~
@@ -1377,11 +1377,11 @@ from here, permeating the perpetual darkness here.
 D0
 ~
 ~
-0 -1 15734
+Z -1 15734
 D2
 ~
 ~
-0 -1 15731
+Z -1 15731
 S
 #15734
 A Fiery Cavern~
@@ -1393,7 +1393,7 @@ cast you out!
 D2
 ~
 ~
-0 -1 15733
+Z -1 15733
 S
 #15735
 A Lab~
@@ -1407,7 +1407,7 @@ occasionally feeds it the odd slave or guard.
 D0
 ~
 ~
-1 0 15731
+ABZ 0 15731
 S
 #15736
 The Roof of the Inner Keep~
@@ -1422,7 +1422,7 @@ place filled with wondrous treasures.
 D5
 ~
 ~
-0 -1 15726
+Z -1 15726
 S
 #15737
 The Mines~
@@ -1436,11 +1436,11 @@ ignore such wealth.
 D0
 ~
 ~
-0 -1 15738
+Z -1 15738
 D4
 ~
 ~
-0 -1 15732
+Z -1 15732
 S
 #15738
 The Mines~
@@ -1454,15 +1454,15 @@ ignore such wealth.
 D0
 ~
 ~
-0 -1 15740
+Z -1 15740
 D2
 ~
 ~
-0 -1 15737
+Z -1 15737
 D3
 ~
 ~
-0 -1 15739
+Z -1 15739
 S
 #15739
 The Mines~
@@ -1476,7 +1476,7 @@ ignore such wealth.
 D1
 ~
 ~
-0 -1 15738
+Z -1 15738
 S
 #15740
 The Mines~
@@ -1490,7 +1490,7 @@ ignore such wealth.
 D2
 ~
 ~
-0 -1 15738
+Z -1 15738
 S
 #15741
 The Dog Pits~
@@ -1503,7 +1503,7 @@ she enters unaccompanied.
 D2
 ~
 ~
-1 0 15708
+ABZ 0 15708
 S
 #15742
 The Dog Pits~
@@ -1516,7 +1516,7 @@ she enters unaccompanied.
 D0
 ~
 ~
-1 0 15709
+ABZ 0 15709
 S
 #0
 

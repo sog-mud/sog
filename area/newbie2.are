@@ -432,12 +432,12 @@ D0
 You see the start of the newbie zone.
 ~
 ~
-0 -1 18601
+Z -1 18601
 D5
 Back to the school that way... chickening out already?
 ~
 ~
-0 -1 5379
+Z -1 5379
 S
 #18601
 The Beginning Of The Passage~
@@ -451,12 +451,12 @@ D1
 More of the hallway there... how exciting!
 ~
 ~
-0 -1 18602
+Z -1 18602
 D2
 The entrance to the newbie zone... how dull
 ~
 ~
-0 -1 18600
+Z -1 18600
 S
 #18602
 The Dirty Hallway~
@@ -471,17 +471,17 @@ D1
 More of the hallway there... how exciting!
 ~
 ~
-0 -1 18603
+Z -1 18603
 D2
 A small room lies to the south... you hear something moving about inside.
 ~
 door~
-1 -1 18606
+ABZ -1 18606
 D3
 More of the hallway there... how exciting!
 ~
 ~
-0 -1 18601
+Z -1 18601
 S
 #18603
 A Nexus~
@@ -494,22 +494,22 @@ D0
 A brighter hallway leads off that way.
 ~
 door~
-1 -1 18644
+ABZ -1 18644
 D1
 A brighter hallway leads off that way.
 ~
 door~
-1 -1 18646
+ABZ -1 18646
 D2
 More of the hallway there... how exciting!
 ~
 ~
-0 -1 18607
+Z -1 18607
 D3
 More of the hallway there... how exciting!
 ~
 ~
-0 -1 18602
+Z -1 18602
 S
 #18604
 A Narrow Passage~
@@ -522,12 +522,12 @@ D0
 A large domed room.
 ~
 ~
-0 -1 18647
+Z -1 18647
 D2
 A small cluttered room.
 ~
 door~
-1 -1 18612
+ABZ -1 18612
 S
 #18605
 The Dark Pit~
@@ -541,7 +541,7 @@ D4
 You see a ladder leading up
 ~
 grate~
-1 18608 18606
+ABCZ 18608 18606
 S
 #18606
 A Small Room~
@@ -557,17 +557,17 @@ D0
 More of the hallway there... how exciting!
 ~
 door~
-1 -1 18602
+ABZ -1 18602
 D1
 More of the hallway there... how exciting!
 ~
 door~
-1 -1 18607
+ABZ -1 18607
 D5
 A ladder leads down into darkness.
 ~
 grate~
-1 18608 18605
+ABCZ 18608 18605
 S
 #18607
 More Of The Hallway~
@@ -580,16 +580,16 @@ D0
 More of the hallway there... how exciting!
 ~
 ~
-0 -1 18603
+Z -1 18603
 D2
 More of the hallway there... how exciting!
 ~
 ~
-0 -1 18611
+Z -1 18611
 D3
 ~
 door~
-1 -1 18606
+ABZ -1 18606
 S
 #18608
 An Open Field By The Great Field~
@@ -602,7 +602,7 @@ D1
 The end of that darn hallway lies back to the east.
 ~
 ~
-0 -1 18609
+Z -1 18609
 S
 #18609
 The End Of The Passage~
@@ -615,12 +615,12 @@ D1
 More of the hallway there... how exciting!
 ~
 ~
-0 -1 18610
+Z -1 18610
 D3
 An open field near The Great Field of Midgaard can be seen.
 ~
 ~
-0 -1 18608
+Z -1 18608
 S
 #18610
 A Brighter Hallway~
@@ -632,12 +632,12 @@ D1
 A corner in the passage lies to the east.
 ~
 ~
-0 -1 18611
+Z -1 18611
 D3
 More of the hallway there... how exciting!
 ~
 ~
-0 -1 18609
+Z -1 18609
 S
 #18611
 Another Corner~
@@ -651,17 +651,17 @@ D0
 More of the hallway there... how exciting!
 ~
 ~
-0 -1 18607
+Z -1 18607
 D1
 You peer into a cluttered little room to the east.
 ~
 door~
-1 -1 18612
+ABZ -1 18612
 D3
 More of the hallway there... how exciting!
 ~
 ~
-0 -1 18610
+Z -1 18610
 S
 #18612
 The Alchemist's Room~
@@ -685,17 +685,17 @@ D0
 A nice shiny hallway!
 ~
 door~
-1 -1 18604
+ABZ -1 18604
 D3
 A corner in the passage lies to the west.
 ~
 door~
-1 -1 18611
+ABZ -1 18611
 D5
 A shadowed stairway leading down.
 ~
 ~
-0 -1 18632
+Z -1 18632
 S
 #18620
 A Turn In The Passage~
@@ -707,12 +707,12 @@ D1
 The passage continues east quite a ways.
 ~
 ~
-0 -1 18621
+Z -1 18621
 D2
 You see an odd red glow from that direction.
 ~
 ~
-0 -1 18629
+Z -1 18629
 S
 #18621
 A T-Intersection In The Passage~
@@ -724,15 +724,15 @@ approaching an exit.
 D1
 ~
 ~
-0 -1 18622
+Z -1 18622
 D2
 ~
 ~
-0 -1 18633
+Z -1 18633
 D3
 ~
 ~
-0 -1 18620
+Z -1 18620
 S
 #18622
 Another Corner~
@@ -744,11 +744,11 @@ along, and you hear sounds of creatures moving all around you...
 D2
 ~
 ~
-0 -1 18628
+Z -1 18628
 D3
 ~
 ~
-0 -1 18621
+Z -1 18621
 S
 #18623
 A Corner In The Hallway~
@@ -761,11 +761,11 @@ growing on them.
 D1
 ~
 ~
-0 -1 18624
+Z -1 18624
 D2
 ~
 ~
-0 -1 18627
+Z -1 18627
 S
 #18624
 Another Turn~
@@ -777,11 +777,11 @@ you would like spending too much time here...
 D2
 ~
 ~
-0 -1 18630
+Z -1 18630
 D3
 ~
 ~
-0 -1 18623
+Z -1 18623
 S
 #18625
 A Large Room~
@@ -792,11 +792,11 @@ interest here though.
 D1
 ~
 ~
-0 -1 18626
+Z -1 18626
 D2
 ~
 ~
-0 -1 18631
+Z -1 18631
 S
 #18626
 A Long East-West Passage~
@@ -808,11 +808,11 @@ about this place and you're beginning to want out of here... soon.
 D1
 ~
 ~
-0 -1 18627
+Z -1 18627
 D3
 ~
 ~
-0 -1 18625
+Z -1 18625
 S
 #18627
 A Crossing Of Corridors~
@@ -824,19 +824,19 @@ Not a nice place at all really...
 D0
 ~
 ~
-0 -1 18623
+Z -1 18623
 D1
 ~
 ~
-0 -1 18628
+Z -1 18628
 D2
 ~
 ~
-0 -1 18632
+Z -1 18632
 D3
 ~
 ~
-0 -1 18626
+Z -1 18626
 S
 #18628
 A Corner Room~
@@ -848,11 +848,11 @@ altogether bad...
 D0
 ~
 ~
-0 -1 18622
+Z -1 18622
 D3
 ~
 ~
-0 -1 18627
+Z -1 18627
 S
 #18629
 The Red Room~
@@ -871,11 +871,11 @@ you will end up, or if you can get back.
 D0
 ~
 ~
-0 -1 18620
+Z -1 18620
 D1
 ~
 ~
-0 -1 18630
+Z -1 18630
 S
 #18630
 A Branching Passage~
@@ -886,16 +886,16 @@ glow coming from that way as well, along with a faint breeze.
 D0
 ~
 ~
-0 -1 18624
+Z -1 18624
 D2
 ~
 ~
-0 -1 18634
+Z -1 18634
 D3
 A very odd red glow emanates from that direction.
 ~
 ~
-0 -1 18629
+Z -1 18629
 S
 #18631
 A Passage~
@@ -908,15 +908,15 @@ you too.
 D0
 ~
 ~
-0 -1 18625
+Z -1 18625
 D1
 ~
 ~
-0 -1 18632
+Z -1 18632
 D2
 ~
 ~
-0 -1 18638
+Z -1 18638
 S
 #18632
 The Entrance~
@@ -929,19 +929,19 @@ here... no telling what you may run into here.
 D0
 ~
 ~
-0 -1 18627
+Z -1 18627
 D2
 ~
 ~
-0 -1 18635
+Z -1 18635
 D3
 ~
 ~
-0 -1 18631
+Z -1 18631
 D4
 ~
 ~
-0 -1 18612
+Z -1 18612
 S
 #18633
 Another Corner~
@@ -952,11 +952,11 @@ slight breeze from the north.  Bet you want to sign a lease, don't ya...
 D0
 ~
 ~
-0 -1 18621
+Z -1 18621
 D1
 ~
 ~
-0 -1 18634
+Z -1 18634
 S
 #18634
 An Intersection Of Passages~
@@ -968,15 +968,15 @@ want out right now.
 D0
 ~
 ~
-0 -1 18630
+Z -1 18630
 D2
 ~
 ~
-0 -1 18637
+Z -1 18637
 D3
 ~
 ~
-0 -1 18633
+Z -1 18633
 S
 #18635
 A Turn In The Passage~
@@ -989,11 +989,11 @@ other ideas about that.
 D0
 ~
 ~
-0 -1 18632
+Z -1 18632
 D1
 ~
 ~
-0 -1 18636
+Z -1 18636
 S
 #18636
 A Branch To The South~
@@ -1006,15 +1006,15 @@ else lives here.
 D1
 ~
 ~
-0 -1 18637
+Z -1 18637
 D2
 ~
 ~
-0 -1 18639
+Z -1 18639
 D3
 ~
 ~
-0 -1 18635
+Z -1 18635
 S
 #18637
 Yet Another Corner~
@@ -1026,11 +1026,11 @@ what either at this point.
 D0
 ~
 ~
-0 -1 18634
+Z -1 18634
 D3
 ~
 ~
-0 -1 18636
+Z -1 18636
 S
 #18638
 A Large Room~
@@ -1043,12 +1043,12 @@ because it extends to the east farther than you light will reach...
 D0
 ~
 ~
-0 -1 18631
+Z -1 18631
 D1
 The room extends into shadows...
 ~
 ~
-0 -1 18639
+Z -1 18639
 S
 #18639
 A Large Room~
@@ -1071,12 +1071,12 @@ next to it.
 D0
 ~
 ~
-0 -1 18636
+Z -1 18636
 D3
 The room extends as far as (and farther than) you can see...
 ~
 ~
-0 -1 18638
+Z -1 18638
 S
 #18640
 The Statue's Room~
@@ -1100,12 +1100,12 @@ D1
 A long hallway, ending in a set of steps.
 ~
 ~
-0 -1 18641
+Z -1 18641
 D2
 The hall extends to the south where it seems to darken somewhat.
 ~
 ~
-0 -1 18644
+Z -1 18644
 S
 #18641
 The Hallway~
@@ -1119,12 +1119,12 @@ D1
 The hallway ends at a grand marble staircase.
 ~
 ~
-0 -1 18642
+Z -1 18642
 D3
 The passage leads into a small room.
 ~
 ~
-0 -1 18640
+Z -1 18640
 S
 #18642
 The North Stairs~
@@ -1143,17 +1143,17 @@ D2
 You see another staircase and two passages leading west and south.
 ~
 ~
-0 -1 18647
+Z -1 18647
 D3
 An entrance to a bright passage.
 ~
 ~
-0 -1 18641
+Z -1 18641
 D4
 An open air balcony.
 ~
 ~
-0 -1 18643
+Z -1 18643
 S
 #18643
 The Balcony~
@@ -1172,12 +1172,12 @@ D2
 The south end of the balcony.
 ~
 ~
-0 -1 18645
+Z -1 18645
 D5
 Down the stairs to a large, domed room.
 ~
 ~
-0 -1 18642
+Z -1 18642
 S
 #18644
 A Bright Hallway~
@@ -1195,12 +1195,12 @@ D0
 A small room with a statue in it.
 ~
 ~
-0 -1 18640
+Z -1 18640
 D2
 A intersection of passages.
 ~
 door~
-1 -1 18603
+ABZ -1 18603
 S
 #18645
 The Balcony~
@@ -1218,12 +1218,12 @@ D0
 The north end of the balcony.
 ~
 ~
-0 -1 18643
+Z -1 18643
 D5
 Back down the south staircase.
 ~
 ~
-0 -1 18647
+Z -1 18647
 S
 #18646
 A Bright Hallway~
@@ -1240,12 +1240,12 @@ D1
 The passage opens into a domed room with a grand marble staircase.
 ~
 ~
-0 -1 18647
+Z -1 18647
 D3
 A dark intersection of passages.
 ~
 door~
-1 -1 18603
+ABZ -1 18603
 S
 #18647
 The South Stairs~
@@ -1264,22 +1264,22 @@ D0
 Another stairway is to the north, as well as a passage to the west.
 ~
 ~
-0 -1 18642
+Z -1 18642
 D2
 A narrow passage to the south, ending in a wood door.
 ~
 ~
-0 -1 18604
+Z -1 18604
 D3
 Back down the bright hallway.
 ~
 ~
-0 -1 18646
+Z -1 18646
 D4
 An open air balcony.
 ~
 ~
-0 -1 18645
+Z -1 18645
 S
 #0
 

@@ -331,22 +331,22 @@ D0
 You see the grassy plains.
 ~
 ~
-0 -1 315
+Z -1 315
 D1
 You notice nothing special, except that the path in the plains continues.
 ~
 ~
-0 -1 301
+Z -1 301
 D2
 Towards the south you notice the north gate of Midgaard.
 ~
 ~
-0 -1 3904
+Z -1 3904
 D3
 You see the grassy plains.
 ~
 ~
-0 -1 316
+Z -1 316
 S
 #301
 Path in the plains~
@@ -359,12 +359,12 @@ D1
 You notice nothing special, except that the path in the plains continues.
 ~
 ~
-0 -1 302
+Z -1 302
 D3
 You notice nothing special, except that the path in the plains continues.
 ~
 ~
-0 -1 300
+Z -1 300
 S
 #302
 Path in the plains~
@@ -377,12 +377,12 @@ D0
 You notice nothing special, except that the path in the plains continues.
 ~
 ~
-0 -1 303
+Z -1 303
 D3
 You notice nothing special, except that the path in the plains continues.
 ~
 ~
-0 -1 301
+Z -1 301
 S
 #303
 Path in the plains~
@@ -396,22 +396,22 @@ D0
 You notice nothing special, except that the path in the plains continues.
 ~
 ~
-0 -1 304
+Z -1 304
 D1
 To the east you notice the grassy plains.
 ~
 ~
-0 -1 317
+Z -1 317
 D2
 You notice nothing special, except that the path in the plains continues.
 ~
 ~
-0 -1 302
+Z -1 302
 D3
 To the west you can see more of the beautiful grassy plains.
 ~
 ~
-0 -1 315
+Z -1 315
 S
 #304
 Path in the plains~
@@ -424,12 +424,12 @@ D0
 The path continues north as small foothills begins to appear.
 ~
 ~
-0 -1 305
+Z -1 305
 D2
 The path leads south towards the town.
 ~
 ~
-0 -1 303
+Z -1 303
 S
 #305
 Path in the plains~
@@ -443,22 +443,22 @@ D0
 The path continues into the small foothills.
 ~
 ~
-0 -1 306
+Z -1 306
 D1
 You see the grassy plains here.
 ~
 ~
-0 -1 321
+Z -1 321
 D2
 The path continues towards Midgaard.
 ~
 ~
-0 -1 304
+Z -1 304
 D3
 You see the grassy plains here.
 ~
 ~
-0 -1 320
+Z -1 320
 S
 #306
 Path in the foothills~
@@ -472,17 +472,17 @@ D0
 You see grassy plains and perhaps some crystal clear water.
 ~
 ~
-0 -1 326
+Z -1 326
 D1
 The path continues towards east here.
 ~
 ~
-0 -1 307
+Z -1 307
 D2
 The path in the plains wind through the small foothills.
 ~
 ~
-0 -1 305
+Z -1 305
 S
 #307
 Path in the foothills~
@@ -495,12 +495,12 @@ D1
 The path continues in the foothills
 ~
 ~
-0 -1 308
+Z -1 308
 D3
 To the west the path takes a bend southwards.
 ~
 ~
-0 -1 306
+Z -1 306
 S
 #308
 Path in the foothills~
@@ -513,12 +513,12 @@ D0
 The narrow path through the foothills turns left here.
 ~
 ~
-0 -1 309
+Z -1 309
 D3
 To the west you can see the path continues.
 ~
 ~
-0 -1 307
+Z -1 307
 S
 #309
 Path in the foothills~
@@ -531,17 +531,17 @@ D1
 You see the path continues in the foothills.
 ~
 ~
-0 -1 310
+Z -1 310
 D2
 You see the path continues in the foothills.
 ~
 ~
-0 -1 308
+Z -1 308
 D3
 You see grassy plains and perhaps some crystal clear water.
 ~
 ~
-0 -1 326
+Z -1 326
 S
 #310
 Path in the foothills~
@@ -554,17 +554,17 @@ D0
 You can't really see much through the vegetation on the foothills.
 ~
 ~
-0 -1 327
+Z -1 327
 D1
 To the east you notice that the path continues towards a T-intersection.
 ~
 ~
-0 -1 311
+Z -1 311
 D3
 You just see the path through the foothills.
 ~
 ~
-0 -1 309
+Z -1 309
 S
 #311
 Path in the foothills~
@@ -577,12 +577,12 @@ D1
 You can go to the T-intersection this way.
 ~
 ~
-0 -1 312
+Z -1 312
 D3
 You can see the long path through the plains.
 ~
 ~
-0 -1 310
+Z -1 310
 S
 #312
 The path intersection~
@@ -596,22 +596,22 @@ D0
 The wide road to Ofcol runs here.
 ~
 ~
-0 -1 313
+Z -1 313
 D1
 The holy castle of King Arthur.
 ~
 ~
-0 -1 17301
+Z -1 17301
 D2
 Here is a partially hidden, ancient looking path.
 ~
 ~
-0 -1 332
+Z -1 332
 D3
 You can see the long narrow path running through the foothills.
 ~
 ~
-0 -1 311
+Z -1 311
 S
 #313
 Road to Ofcol~
@@ -625,17 +625,17 @@ D0
 The road continues towards Ofcol.
 ~
 ~
-0 -1 314
+Z -1 314
 D2
 You can see the T-intersection in the souther direction.
 ~
 ~
-0 -1 312
+Z -1 312
 D3
 You think you can climb these foothills.
 ~
 ~
-0 -1 327
+Z -1 327
 S
 #314
 Outside Ofcol~
@@ -650,12 +650,12 @@ You notice a sign saying : Stranger we welcome you to the
                            peaceful city of Ofcol.
 ~
 ~
-0 -1 5550
+Z -1 5550
 D2
 Here you see the road go towards the intersection.
 ~
 ~
-0 -1 313
+Z -1 313
 S
 #315
 Gallow hill~
@@ -677,22 +677,22 @@ D0
 The plains extend far to the north.
 ~
 ~
-0 -1 320
+Z -1 320
 D1
 To the east you can see a small path in the plains.
 ~
 ~
-0 -1 303
+Z -1 303
 D2
 To the south you can see a small path in the plains.
 ~
 ~
-0 -1 300
+Z -1 300
 D3
 The plains extend far to the west.
 ~
 ~
-0 -1 318
+Z -1 318
 S
 #316
 Grassy plains~
@@ -705,12 +705,12 @@ D0
 The plains extend far to the north.
 ~
 ~
-0 -1 318
+Z -1 318
 D1
 When you look to the east you notice at small path.
 ~
 ~
-0 -1 300
+Z -1 300
 S
 #317
 Grassy plains~
@@ -724,17 +724,17 @@ D1
 The plains extend far to the east.
 ~
 ~
-0 -1 338
+Z -1 338
 D2
 Some VERY steep slopes prevent you from going this way, it might kill you.
 ~
 ~
-0 -1 345
+Z -1 345
 D3
 A small path is running through the plains.
 ~
 ~
-0 -1 303
+Z -1 303
 S
 #318
 Grassy plains~
@@ -747,17 +747,17 @@ D0
 The plains extend far to the north.
 ~
 ~
-0 -1 319
+Z -1 319
 D1
 The plains extend far to the east.
 ~
 ~
-0 -1 315
+Z -1 315
 D2
 The plains extend far to the south.
 ~
 ~
-0 -1 316
+Z -1 316
 S
 #319
 Grassy plains~
@@ -771,17 +771,17 @@ To the north, the plains extend into small foothills, behind a small hill
 you notice something ...
 ~
 ~
-0 -1 330
+Z -1 330
 D1
 The plains extend far to the east.
 ~
 ~
-0 -1 320
+Z -1 320
 D2
 The plains extend far to the south.
 ~
 ~
-0 -1 318
+Z -1 318
 S
 #320
 Grassy plains~
@@ -793,22 +793,22 @@ D0
 The plains extend into small foothills to the north.
 ~
 ~
-0 -1 322
+Z -1 322
 D1
 East of here you see a winding path in the plains.
 ~
 ~
-0 -1 305
+Z -1 305
 D2
 The plains extend far to the south.
 ~
 ~
-0 -1 315
+Z -1 315
 D3
 The plains extend far to the west.
 ~
 ~
-0 -1 319
+Z -1 319
 S
 #321
 Grassy plains~
@@ -819,12 +819,12 @@ D2
 The plains extend far to the south.
 ~
 ~
-0 -1 338
+Z -1 338
 D3
 A small path is running through the plains.
 ~
 ~
-0 -1 305
+Z -1 305
 S
 #322
 Grassy foothills~
@@ -837,17 +837,17 @@ D0
 The small foothills extend into foothills far to the north.
 ~
 ~
-0 -1 324
+Z -1 324
 D2
 The small foothills extend into plains far to the south.
 ~
 ~
-0 -1 320
+Z -1 320
 D3
 The small foothills extend far to the west.
 ~
 ~
-0 -1 330
+Z -1 330
 S
 #323
 The steep foothills~
@@ -859,17 +859,17 @@ D0
 You see a path toward the valley.
 ~
 ~
-0 0 7800
+Z 0 7800
 D1
 The foothills extend far to the east.
 ~
 ~
-0 -1 324
+Z -1 324
 D2
 On the horizon you can see the City of Midgaard.
 ~
 ~
-0 -1 330
+Z -1 330
 S
 #324
 The steep foothills~
@@ -891,23 +891,23 @@ D0
 The path continues up the mountain.
 ~
 ~
-0 -1 901
+Z -1 901
 D1
 The foothills extend far to the east.
 ~
 ~
-0 -1 325
+Z -1 325
 D2
 The foothills extend downwards to the south. In the horizon you can
 see the City Of Midgaard.
 ~
 ~
-0 -1 322
+Z -1 322
 D3
 The foothills extend far to the west.
 ~
 ~
-0 -1 323
+Z -1 323
 S
 #325
 The steep foothills~
@@ -920,17 +920,17 @@ D0
 The King's Road.
 ~
 ~
-0 -1 15201
+Z -1 15201
 D1
 The foothills extend into smaller hills far to the east.
 ~
 ~
-0 -1 326
+Z -1 326
 D3
 The foothills extend far to the west.
 ~
 ~
-0 -1 324
+Z -1 324
 S
 #326
 The pool in the foothills~
@@ -948,17 +948,17 @@ D1
 To the east you notice a small path in the foothills.
 ~
 ~
-0 -1 309
+Z -1 309
 D2
 To the south a path winds its way south into the plains.
 ~
 ~
-0 -1 306
+Z -1 306
 D3
 The foothills extend far to the west.
 ~
 ~
-0 -1 325
+Z -1 325
 S
 #327
 The foothills~
@@ -971,12 +971,12 @@ D1
 To the east you notice a small path in the foothills.
 ~
 ~
-0 -1 313
+Z -1 313
 D2
 To the south a steep slope runs down to a small path in the foothills.
 ~
 ~
-0 -1 310
+Z -1 310
 S
 #330
 In front of hut in foothills~
@@ -989,22 +989,22 @@ D0
 The steep foothills seems hard to climb
 ~
 ~
-0 -1 323
+Z -1 323
 D1
 The foothills extend far to the east.
 ~
 ~
-0 -1 322
+Z -1 322
 D2
 To the south the foothills extend into plains far to the south.
 ~
 ~
-0 -1 319
+Z -1 319
 D3
 You see a small crumbled hut here, must be a hermit living here.
 ~
 door~
-0 -1 331
+Z -1 331
 S
 #331
 Hermit's hut~
@@ -1021,7 +1021,7 @@ D1
 Through the door you can see the foothills.
 ~
 door~
-0 -1 330
+Z -1 330
 S
 #332
 The ancient path~
@@ -1034,17 +1034,17 @@ D0
 As you look to the north you see a T-intersection.
 ~
 ~
-0 -1 312
+Z -1 312
 D2
 The ancient path continues through the plains.
 ~
 ~
-0 -1 333
+Z -1 333
 D4
 An Ancient Path through the Dark Forest.
 ~
 ~
-0 -1 2400
+Z -1 2400
 S
 #333
 The ancient path~
@@ -1056,12 +1056,12 @@ D0
 You see the ancient path.
 ~
 ~
-0 -1 332
+Z -1 332
 D2
 You trace the path carefully and see no immediate dangers.
 ~
 ~
-0 -1 334
+Z -1 334
 S
 #334
 The ancient path~
@@ -1073,12 +1073,12 @@ D0
 You see the ancient path.
 ~
 ~
-0 -1 333
+Z -1 333
 D2
 You trace the path carefully and see no immediate dangers.
 ~
 ~
-0 -1 335
+Z -1 335
 S
 #335
 The ancient path~
@@ -1095,16 +1095,16 @@ D0
 You see the ancient path winding its way north from here. Looks safe.
 ~
 ~
-0 -1 334
+Z -1 334
 D1
 Further ahead you see a bridge over a small creak.
 ~
 ~
-0 -1 336
+Z -1 336
 D3
 The jungle~
 ~
-0 -1 17171
+Z -1 17171
 S
 #336
 The wooden bridge~
@@ -1122,12 +1122,12 @@ D1
 The path continues, further ahead you notice some rock formations.
 ~
 ~
-0 -1 337
+Z -1 337
 D3
 The ancient path leads west and turns north further ahead.
 ~
 ~
-0 -1 335
+Z -1 335
 S
 #337
 The ancient path~
@@ -1146,12 +1146,12 @@ D1
 To the east you enter the ring of stones. You wonder if it's safe.
 ~
 ~
-0 -1 339
+Z -1 339
 D3
 To the west the ancient path leads across the wooden bridge.
 ~
 ~
-0 -1 336
+Z -1 336
 S
 #338
 Grassy plains~
@@ -1164,16 +1164,16 @@ D0
 The plains extend far to the north.
 ~
 ~
-0 -1 321
+Z -1 321
 D3
 The plains extend far to the east.
 ~
 ~
-0 -1 317
+Z -1 317
 D5
 ~
 ~
-0 -1 8855
+Z -1 8855
 S
 #339
 The Stones of G'harne~
@@ -1205,12 +1205,12 @@ D3
 You see the ancient path and the wooden bridge here.
 ~
 ~
-0 -1 337
+Z -1 337
 D5
 You see a tunnel down there.
 ~
 ~
-0 -1 340
+Z -1 340
 S
 #340
 Dark smelly tunnels~
@@ -1229,16 +1229,16 @@ You puke.
 D2
 ~
 ~
-0 -1 341
+Z -1 341
 D3
 ~
 ~
-0 -1 342
+Z -1 342
 D4
 You welcome the sight of fresh air.
 ~
 ~
-0 -1 339
+Z -1 339
 S
 #341
 Dead end of tunnel~
@@ -1249,7 +1249,7 @@ hasn't been excavated further.  North of here the tunnel makes a turn east.
 D0
 ~
 ~
-0 -1 340
+Z -1 340
 S
 #342
 Dark smelly tunnels~
@@ -1268,12 +1268,12 @@ D1
 The tunnel continues in this direction.
 ~
 ~
-0 -1 340
+Z -1 340
 D3
 The tunnel continues in this direction.
 ~
 ~
-0 -1 343
+Z -1 343
 S
 #343
 Dark smelly tunnels~
@@ -1290,12 +1290,12 @@ D1
 The unbearable stench is less intensive in this direction.
 ~
 ~
-0 -1 342
+Z -1 342
 D3
 The tunnel seems to extend into some kind of cave.
 ~
 ~
-0 -1 344
+Z -1 344
 S
 #344
 The Hall of G'harne~
@@ -1312,7 +1312,7 @@ D1
 It looks like a good idea just to run in this direction.
 ~
 ~
-0 -1 343
+Z -1 343
 S
 #345
 Steep slope~

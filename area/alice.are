@@ -1395,11 +1395,11 @@ watch. You are inspired to investigate!
 D0
 ~
 ~
-0 0 9101
+Z 0 9101
 D1
 ~
 ~
-0 -1 21001
+Z -1 21001
 S
 #21001
 A Hedge~
@@ -1411,7 +1411,7 @@ sense something magical about it...
 D3
 ~
 ~
-0 -1 21000
+Z -1 21000
 S
 #21002
 The Rabbit Hole~
@@ -1424,7 +1424,7 @@ that it will cause you any injury upon impact.
 D5
 ~
 ~
-0 -1 21003
+Z -1 21003
 S
 #21003
 The Bottom of the Hole~
@@ -1438,11 +1438,11 @@ why.
 D1
 ~
 ~
-0 -1 21004
+Z -1 21004
 D4
 ~
 ~
-0 -1 21002
+Z -1 21002
 S
 #21004
 A Long Hallway~
@@ -1454,11 +1454,11 @@ disappearing around a corner just up ahead.
 D1
 ~
 ~
-0 -1 21005
+Z -1 21005
 D3
 ~
 ~
-0 -1 21003
+Z -1 21003
 S
 #21005
 A Corner~
@@ -1471,11 +1471,11 @@ the edge of a pool to the far north.
 D0
 ~
 ~
-0 -1 21006
+Z -1 21006
 D3
 ~
 ~
-0 -1 21004
+Z -1 21004
 S
 #21006
 Outside the Garden~
@@ -1487,16 +1487,16 @@ looks like a pool of salty water.
 D0
 ~
 ~
-0 -1 21007
+Z -1 21007
 D1
 You see a small golden door partially obscured by a curtain.
 ~
 curtain golden~
-1 21013 21012
+ABCZ 21013 21012
 D2
 ~
 ~
-0 -1 21005
+Z -1 21005
 S
 #21007
 The Pool of Tears~
@@ -1509,15 +1509,15 @@ phenomenon.
 D0
 ~
 ~
-0 -1 21010
+Z -1 21010
 D2
 ~
 ~
-0 -1 21006
+Z -1 21006
 D3
 ~
 ~
-0 -1 21008
+Z -1 21008
 S
 #21008
 The Pool of Tears~
@@ -1530,11 +1530,11 @@ phenomenon.
 D0
 ~
 ~
-0 -1 21009
+Z -1 21009
 D1
 ~
 ~
-0 -1 21007
+Z -1 21007
 S
 #21009
 The Pool of Tears~
@@ -1547,11 +1547,11 @@ phenomenon.
 D1
 ~
 ~
-0 -1 21010
+Z -1 21010
 D2
 ~
 ~
-0 -1 21008
+Z -1 21008
 S
 #21010
 Drier Ground~
@@ -1563,15 +1563,15 @@ running about madly, and your curiosity is aroused.
 D0
 ~
 ~
-0 -1 21011
+Z -1 21011
 D2
 ~
 ~
-0 -1 21007
+Z -1 21007
 D3
 ~
 ~
-0 -1 21009
+Z -1 21009
 S
 #21011
 Caucus-Race~
@@ -1583,7 +1583,7 @@ though determining a winner is rather difficult.
 D2
 ~
 ~
-0 -1 21010
+Z -1 21010
 S
 #21012
 In the Garden~
@@ -1595,11 +1595,11 @@ at you quizzically.
 D1
 ~
 ~
-0 -1 21013
+Z -1 21013
 D3
 ~
 ~
-1 21013 21006
+ABCZ 21013 21006
 S
 #21013
 Outside the Rabbit's House~
@@ -1613,15 +1613,15 @@ D0
 The door has a plate that reads- W. RABBIT.
 ~
 door~
-1 0 21014
+ABZ 0 21014
 D1
 ~
 ~
-0 -1 21019
+Z -1 21019
 D3
 ~
 ~
-0 -1 21012
+Z -1 21012
 S
 #21014
 Inside the Rabbit's House~
@@ -1635,19 +1635,19 @@ A set of stairs leads up to the second floor.
 D1
 ~
 ~
-1 0 21018
+ABZ 0 21018
 D2
 ~
 ~
-1 0 21013
+ABZ 0 21013
 D3
 ~
 ~
-1 0 21015
+ABZ 0 21015
 D4
 ~
 ~
-0 -1 21016
+Z -1 21016
 S
 #21015
 A Sitting Room~
@@ -1660,7 +1660,7 @@ hat.
 D1
 ~
 ~
-1 0 21014
+ABZ 0 21014
 S
 #21016
 The Rabbit's Bedroom~
@@ -1679,11 +1679,11 @@ you weren't Mary Ann, and has called in for some help.
 D4
 ~
 chimney fireplace~
-0 -1 21017
+Z -1 21017
 D5
 ~
 ~
-0 -1 21014
+Z -1 21014
 S
 #21017
 On The Roof~
@@ -1695,7 +1695,7 @@ screaming for the house to be burnt down. They are trying to kill you!
 D5
 ~
 chimney fireplace~
-0 -1 21016
+Z -1 21016
 S
 #21018
 Garden~
@@ -1707,11 +1707,11 @@ rabbit shouting something from outside.
 D2
 ~
 ~
-0 -1 21019
+Z -1 21019
 D3
 ~
 ~
-1 0 21014
+ABZ 0 21014
 S
 #21019
 On the Edge of the Wood~
@@ -1725,15 +1725,15 @@ appointment.
 D0
 ~
 ~
-0 -1 21018
+Z -1 21018
 D1
 ~
 ~
-0 -1 21020
+Z -1 21020
 D3
 ~
 ~
-0 -1 21013
+Z -1 21013
 S
 #21020
 A Mushroom~
@@ -1745,11 +1745,11 @@ continues around it to the east.
 D1
 ~
 ~
-0 -1 21021
+Z -1 21021
 D3
 ~
 ~
-0 -1 21019
+Z -1 21019
 S
 #21021
 At the Base of a Tree~
@@ -1761,15 +1761,15 @@ continues into the wood to the east and west.
 D1
 ~
 ~
-0 -1 21024
+Z -1 21024
 D3
 ~
 ~
-0 -1 21020
+Z -1 21020
 D4
 ~
 ~
-0 -1 21022
+Z -1 21022
 S
 #21022
 Ascending the Tree~
@@ -1781,11 +1781,11 @@ of several broad branches.
 D4
 ~
 ~
-0 -1 21023
+Z -1 21023
 D5
 ~
 ~
-0 -1 21021
+Z -1 21021
 S
 #21023
 The Top~
@@ -1798,7 +1798,7 @@ and cleansing you. A bird's nest rests in the canopy near your head.
 D5
 ~
 ~
-0 -1 21022
+Z -1 21022
 S
 #21024
 A Bend in the Path~
@@ -1810,11 +1810,11 @@ that direction.
 D0
 ~
 ~
-0 -1 21025
+Z -1 21025
 D3
 ~
 ~
-0 -1 21021
+Z -1 21021
 S
 #21025
 Another Bend~
@@ -1826,11 +1826,11 @@ you to see a small field surrounding the house.
 D1
 ~
 ~
-0 -1 21026
+Z -1 21026
 D2
 ~
 ~
-0 -1 21024
+Z -1 21024
 S
 #21026
 Outside the Duchess' House (Pig and Pepper)~
@@ -1843,15 +1843,15 @@ strong odor of pepper, emanating from within.
 D1
 ~
 ~
-0 -1 21030
+Z -1 21030
 D2
 ~
 ~
-1 0 21027
+ABZ 0 21027
 D3
 ~
 ~
-0 -1 21025
+Z -1 21025
 S
 #21027
 A Large Kitchen~
@@ -1864,15 +1864,15 @@ at the feet of the duchess, and its smirk unsettles you
 D0
 ~
 ~
-1 0 21026
+ABZ 0 21026
 D1
 ~
 ~
-1 -1 21029
+ABZ -1 21029
 D2
 ~
 ~
-1 -1 21028
+ABZ -1 21028
 S
 #21028
 A Bedroom~
@@ -1882,7 +1882,7 @@ This is the sleeping quarters of the cook. It is currently empty.
 D0
 ~
 ~
-1 0 21027
+ABZ 0 21027
 S
 #21029
 A Bedroom~
@@ -1893,7 +1893,7 @@ child.
 D3
 ~
 ~
-1 0 21027
+ABZ 0 21027
 S
 #21030
 A Bend in the Path~
@@ -1903,11 +1903,11 @@ The path bends away from the field, heading back north into the wood.
 D0
 ~
 ~
-0 -1 21031
+Z -1 21031
 D3
 ~
 ~
-0 -1 21026
+Z -1 21026
 S
 #21031
 Back in the Wood~
@@ -1918,11 +1918,11 @@ point a large tree grows near the center of the T. You approach cautiously.
 D1
 ~
 ~
-0 -1 21032
+Z -1 21032
 D2
 ~
 ~
-0 -1 21030
+Z -1 21030
 S
 #21032
 At the Base of the Tree~
@@ -1936,16 +1936,16 @@ D0
 In this direction lives the March Hare!
 ~
 ~
-0 -1 21033
+Z -1 21033
 D2
 In this direction lives the Mad Hatter!
 ~
 ~
-0 -1 21037
+Z -1 21037
 D3
 ~
 ~
-0 -1 21031
+Z -1 21031
 S
 #21033
 Outside the March Hare's House~
@@ -1955,11 +1955,11 @@ You are standing outside the March Hare's House. It appears to be deserted...
 D0
 ~
 ~
-1 0 21034
+ABCZ 0 21034
 D2
 ~
 ~
-0 -1 21032
+Z -1 21032
 S
 #21034
 Inside the House~
@@ -1972,15 +1972,15 @@ progress.
 D1
 ~
 ~
-0 -1 21036
+Z -1 21036
 D2
 ~
 ~
-1 0 21033
+ABZ 0 21033
 D3
 ~
 ~
-0 -1 21035
+Z -1 21035
 S
 #21035
 Inside the House~
@@ -1993,7 +1993,7 @@ progress.
 D1
 ~
 ~
-0 -1 21034
+Z -1 21034
 S
 #21036
 Inside the House~
@@ -2006,7 +2006,7 @@ progress.
 D3
 ~
 ~
-0 -1 21034
+Z -1 21034
 S
 #21037
 A Mad Tea Party~
@@ -2018,15 +2018,15 @@ about. Every now and again they stand up, change places and sit down again.
 D0
 ~
 ~
-0 -1 21032
+Z -1 21032
 D1
 ~
 ~
-0 -1 21041
+Z -1 21041
 D2
 ~
 ~
-1 0 21038
+ABZ 0 21038
 S
 #21038
 Inside the Hatter's House~
@@ -2038,15 +2038,15 @@ adjoining this one, both of them equally packed.
 D0
 ~
 ~
-1 0 21037
+ABZ 0 21037
 D1
 ~
 ~
-0 -1 21040
+Z -1 21040
 D2
 ~
 ~
-0 -1 21039
+Z -1 21039
 S
 #21039
 The Hatter's House~
@@ -2058,7 +2058,7 @@ one...
 D0
 ~
 ~
-0 -1 21038
+Z -1 21038
 S
 #21040
 The Hatter's House~
@@ -2070,7 +2070,7 @@ one...
 D3
 ~
 ~
-0 -1 21038
+Z -1 21038
 S
 #21041
 Outside a Tree~
@@ -2082,7 +2082,7 @@ which you can proceed...
 D3
 ~
 ~
-0 -1 21037
+Z -1 21037
 S
 #21042
 The Long Hallway~
@@ -2096,7 +2096,7 @@ way onwards.
 D1
 ~
 curtain golden~
-1 0 21043
+ABZ 0 21043
 S
 #21043
 In a Garden~
@@ -2109,11 +2109,11 @@ white rose bush red...
 D1
 ~
 ~
-0 -1 21044
+Z -1 21044
 D3
 ~
 curtain golden~
-1 0 21042
+ABZ 0 21042
 S
 #21044
 A Croquet Lawn~
@@ -2126,19 +2126,19 @@ playing cards bent double. How peculiar!
 D0
 ~
 ~
-0 -1 21045
+Z -1 21045
 D1
 ~
 ~
-0 -1 21049
+Z -1 21049
 D2
 ~
 ~
-0 -1 21047
+Z -1 21047
 D3
 ~
 ~
-0 -1 21043
+Z -1 21043
 S
 #21045
 A Croquet Lawn~
@@ -2151,15 +2151,15 @@ playing cards bent double. How peculiar!
 D0
 ~
 ~
-0 -1 21046
+Z -1 21046
 D1
 ~
 ~
-0 -1 21050
+Z -1 21050
 D2
 ~
 ~
-0 -1 21044
+Z -1 21044
 S
 #21046
 A Croquet Lawn~
@@ -2172,11 +2172,11 @@ playing cards bent double. How peculiar!
 D1
 ~
 ~
-0 -1 21051
+Z -1 21051
 D2
 ~
 ~
-0 -1 21045
+Z -1 21045
 S
 #21047
 A Croquet Lawn~
@@ -2189,11 +2189,11 @@ playing cards bent double. How peculiar!
 D0
 ~
 ~
-0 -1 21044
+Z -1 21044
 D1
 ~
 ~
-0 -1 21048
+Z -1 21048
 S
 #21048
 A Croquet Lawn~
@@ -2206,15 +2206,15 @@ playing cards bent double. How peculiar!
 D0
 ~
 ~
-0 -1 21049
+Z -1 21049
 D1
 ~
 ~
-0 -1 21055
+Z -1 21055
 D3
 ~
 ~
-0 -1 21047
+Z -1 21047
 S
 #21049
 A Croquet Lawn~
@@ -2227,19 +2227,19 @@ playing cards bent double. How peculiar!
 D0
 ~
 ~
-0 -1 21050
+Z -1 21050
 D1
 ~
 ~
-0 -1 21054
+Z -1 21054
 D2
 ~
 ~
-0 -1 21048
+Z -1 21048
 D3
 ~
 ~
-0 -1 21044
+Z -1 21044
 S
 #21050
 A Croquet Lawn~
@@ -2252,19 +2252,19 @@ playing cards bent double. How peculiar!
 D0
 ~
 ~
-0 -1 21051
+Z -1 21051
 D1
 ~
 ~
-0 -1 21053
+Z -1 21053
 D2
 ~
 ~
-0 -1 21049
+Z -1 21049
 D3
 ~
 ~
-0 -1 21045
+Z -1 21045
 S
 #21051
 A Croquet Lawn~
@@ -2279,19 +2279,19 @@ To the north there is a courthouse.
 D0
 ~
 courthouse~
-1 -1 21059
+ABZ -1 21059
 D1
 ~
 ~
-0 -1 21052
+Z -1 21052
 D2
 ~
 ~
-0 -1 21050
+Z -1 21050
 D3
 ~
 ~
-0 -1 21046
+Z -1 21046
 S
 #21052
 A Croquet Lawn~
@@ -2304,11 +2304,11 @@ playing cards bent double. How peculiar!
 D2
 ~
 ~
-0 -1 21053
+Z -1 21053
 D3
 ~
 ~
-0 -1 21051
+Z -1 21051
 S
 #21053
 A Croquet Lawn~
@@ -2321,19 +2321,19 @@ playing cards bent double. How peculiar!
 D0
 ~
 ~
-0 -1 21052
+Z -1 21052
 D1
 ~
 ~
-0 -1 21056
+Z -1 21056
 D2
 ~
 ~
-0 -1 21054
+Z -1 21054
 D3
 ~
 ~
-0 -1 21050
+Z -1 21050
 S
 #21054
 A Croquet Lawn~
@@ -2346,15 +2346,15 @@ playing cards bent double. How peculiar!
 D0
 ~
 ~
-0 -1 21053
+Z -1 21053
 D2
 ~
 ~
-0 -1 21055
+Z -1 21055
 D3
 ~
 ~
-0 -1 21049
+Z -1 21049
 S
 #21055
 A Croquet Lawn~
@@ -2367,11 +2367,11 @@ playing cards bent double. How peculiar!
 D0
 ~
 ~
-0 -1 21054
+Z -1 21054
 D3
 ~
 ~
-0 -1 21048
+Z -1 21048
 S
 #21056
 On the Road to the Sea~
@@ -2382,11 +2382,11 @@ the sea is in the air, and a brisk northerly breeze invigorates you.
 D1
 ~
 ~
-0 -1 21057
+Z -1 21057
 D3
 ~
 ~
-0 -1 21053
+Z -1 21053
 S
 #21057
 A Rocky Ledge~
@@ -2398,11 +2398,11 @@ to and from their rocky aeries.
 D2
 ~
 ~
-0 -1 21058
+Z -1 21058
 D3
 ~
 ~
-0 -1 21056
+Z -1 21056
 S
 #21058
 A Rocky Ledge~
@@ -2414,7 +2414,7 @@ to and from their rocky aeries.
 D0
 ~
 ~
-0 -1 21057
+Z -1 21057
 S
 #21059
 Courthouse (Who Stole the Tarts?)~
@@ -2425,19 +2425,19 @@ for the trial of the Knave of Hearts, who stole the Queen's tarts.
 D0
 ~
 ~
-0 -1 21062
+Z -1 21062
 D1
 ~
 ~
-0 -1 21061
+Z -1 21061
 D2
 ~
 ~
-1 0 21051
+ABZ 0 21051
 D3
 ~
 ~
-0 -1 21060
+Z -1 21060
 S
 #21060
 The Jury Box~
@@ -2449,7 +2449,7 @@ futile process.
 D1
 ~
 ~
-0 -1 21059
+Z -1 21059
 S
 #21061
 The Witness Box~
@@ -2461,7 +2461,7 @@ ignored or shouted down.
 D3
 ~
 ~
-0 -1 21059
+Z -1 21059
 S
 #21062
 The Main Floor~
@@ -2472,11 +2472,11 @@ throne where the judge (the King) sits.
 D2
 ~
 ~
-0 -1 21059
+Z -1 21059
 D4
 ~
 ~
-0 -1 21063
+Z -1 21063
 S
 #21063
 The Throne~
@@ -2487,7 +2487,7 @@ finished pardoning the players the Queen condemned to death (all of them).
 D5
 ~
 ~
-0 -1 21062
+Z -1 21062
 S
 #0
 

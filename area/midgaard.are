@@ -4058,7 +4058,7 @@ to cast a fitful light over the dark enterprise.
 D3
 ~
 ~
-0 -1 3071
+Z -1 3071
 S
 #3073
 Warlock's Bar~
@@ -4069,12 +4069,12 @@ D0
 You see the laboratories of males..
 ~
 ~
-0 -1 3074
+Z -1 3074
 D3
 Tavern in midgaard..
 ~
 ~
-0 -1 3352
+Z -1 3352
 S
 #3074
 Warlock laboratory~
@@ -4091,13 +4091,13 @@ D2
 You see the bar.
 ~
 ~
-0 -1 3073
+Z -1 3073
 D5
 You can't see what is down there, it is too dark.  Looks like it would be
 impossible to climb back up.
 ~
 ~
-0 -1 7017
+Z -1 7017
 S
 #3075
 Bar of Samurai's~
@@ -4109,12 +4109,12 @@ D0
 You see the guarting board..
 ~
 ~
-0 -1 3007
+Z -1 3007
 D3
 You see the practice yard of samruais..
 ~
 ~
-0 -1 3076
+Z -1 3076
 S
 #3076
 Samurai's Shrine~
@@ -4128,7 +4128,7 @@ D1
 To the east you see the bar..
 ~
 ~
-0 -1 3075
+Z -1 3075
 S
 #3077
 Room of Templeman~
@@ -4143,7 +4143,7 @@ D2
 By the temple altar.
 ~
 door~
-0 -1 3054
+Z -1 3054
 M 150 H 100
 S
 #3100
@@ -4157,21 +4157,21 @@ D0
 You see the Bridge.
 ~
 ~
-0 -1 3051
+Z -1 3051
 D1
 You see the promenade.
 ~
 ~
-0 -1 3101
+Z -1 3101
 D2
 The concourse continues south.
 ~
 ~
-0 -1 3270
+Z -1 3270
 D3
 ~
 ~
-0 -1 32000
+Z -1 32000
 S
 #3101
 Promenade~
@@ -4184,17 +4184,17 @@ D1
 The promenade.
 ~
 ~
-0 -1 3102
+Z -1 3102
 D2
 Park Road leads south.
 ~
 ~
-0 -1 3131
+Z -1 3131
 D3
 You see the Concourse.
 ~
 ~
-0 -1 3100
+Z -1 3100
 S
 #3102
 Promenade~
@@ -4210,22 +4210,22 @@ D0
 A rickety old bridge crosses the river, heading towards the city dump.
 ~
 ~
-0 -1 3254
+Z -1 3254
 D1
 You see people moving in and out of Kate's Diner.
 ~
 ~
-0 -1 3103
+Z -1 3103
 D2
 You see the park entrance.
 ~
 ~
-0 -1 3105
+Z -1 3105
 D3
 You see the promenade.
 ~
 ~
-0 -1 3101
+Z -1 3101
 S
 #3103
 Austral Square~
@@ -4241,22 +4241,22 @@ D0
 You smell the heavenly scents of Kate's Diner.
 ~
 ~
-0 -1 3150
+Z -1 3150
 D1
 You see the Concourse.
 ~
 ~
-0 -1 3104
+Z -1 3104
 D2
 The small path leads south.
 ~
 ~
-0 -1 3132
+Z -1 3132
 D3
 You see the promenade.
 ~
 ~
-0 -1 3102
+Z -1 3102
 S
 #3104
 Northeast end of Concourse~
@@ -4275,17 +4275,17 @@ D0
 A strong stone bridge crosses the river.
 ~
 ~
-0 -1 3253
+Z -1 3253
 D2
 The Concourse continues south, towards an intersection with Penny Lane.
 ~
 ~
-0 -1 3272
+Z -1 3272
 D3
 You Austral Square.
 ~
 ~
-0 -1 3103
+Z -1 3103
 S
 #3105
 Park Entrance~
@@ -4298,17 +4298,17 @@ D0
 You see the promenade.
 ~
 ~
-0 -1 3102
+Z -1 3102
 D1
 You see Park Cafe.
 ~
 ~
-0 -1 3106
+Z -1 3106
 D2
 You see the park.
 ~
 ~
-0 -1 3108
+Z -1 3108
 S
 #3106
 Park Cafe~
@@ -4322,7 +4322,7 @@ D3
 You see the park entrance.
 ~
 ~
-0 -1 3105
+Z -1 3105
 S
 #3107
 Small path through the park~
@@ -4333,11 +4333,11 @@ south and east.
 D1
 ~
 ~
-0 -1 3108
+Z -1 3108
 D2
 ~
 ~
-0 -1 3113
+Z -1 3113
 S
 #3108
 Small path in the park~
@@ -4350,15 +4350,15 @@ D0
 You see the northern park entrance.
 ~
 ~
-0 -1 3105
+Z -1 3105
 D1
 ~
 ~
-0 -1 3109
+Z -1 3109
 D3
 ~
 ~
-0 -1 3107
+Z -1 3107
 S
 #3109
 Small path in the park~
@@ -4369,11 +4369,11 @@ south and just north of here you see the southern wall of Park Cafe.
 D2
 ~
 ~
-0 -1 3115
+Z -1 3115
 D3
 ~
 ~
-0 -1 3108
+Z -1 3108
 S
 #3110
 Cityguard Head Quarters~
@@ -4385,12 +4385,12 @@ D1
 You see Park Road.
 ~
 door~
-0 -1 3111
+Z -1 3111
 D3
 You see a sign saying 'KEEP OUT'.
 ~
 door~
-1 3120 3142
+ABCZ 3120 3142
 S
 #3111
 Park Road~
@@ -4407,21 +4407,21 @@ The sign on the door says:-
 D0
 ~
 ~
-0 -1 3131
+Z -1 3131
 D1
 You see the park entrance.
 ~
 ~
-0 -1 3112
+Z -1 3112
 D2
 ~
 ~
-0 -1 3118
+Z -1 3118
 D3
 You see the cityguard head quarters.
 ~
 door~
-0 -1 3110
+Z -1 3110
 S
 #3112
 Western Park Entrance~
@@ -4432,11 +4432,11 @@ into the park and going west through the entrance you will reach Park Road.
 D1
 ~
 ~
-0 -1 3113
+Z -1 3113
 D3
 ~
 ~
-0 -1 3111
+Z -1 3111
 S
 #3113
 A path in the park~
@@ -4447,17 +4447,17 @@ park entrance and to the east you see a small pond.
 D0
 ~
 ~
-0 -1 3107
+Z -1 3107
 D1
 You see the pond.
 ~
 ~
-0 -1 3114
+Z -1 3114
 D3
 You see the western park entrance.
 ~
 ~
-0 -1 3112
+Z -1 3112
 S
 #3114
 The Pond~
@@ -4468,16 +4468,16 @@ back on the path from the eastern and western end of the pond.
 D1
 ~
 ~
-0 -1 3115
+Z -1 3115
 D2
 Outside the Midgaard Zoo.
 ~
 ~
-0 -1 8200
+Z -1 8200
 D3
 ~
 ~
-0 -1 3113
+Z -1 3113
 S
 #3115
 A path in the park~
@@ -4488,20 +4488,20 @@ park entrance and to the west you see a small pond.
 D0
 ~
 ~
-0 -1 3109
+Z -1 3109
 D1
 ~
 ~
-0 -1 3116
+Z -1 3116
 D3
 ~
 ~
-0 -1 3114
+Z -1 3114
 D4
 Outside the Midgaard Zoo.
 ~
 ~
-0 -1 8200
+Z -1 8200
 S
 #3116
 Eastern Park Entrance~
@@ -4513,11 +4513,11 @@ Avenue.
 D1
 ~
 ~
-0 -1 3117
+Z -1 3117
 D3
 ~
 ~
-0 -1 3115
+Z -1 3115
 S
 #3117
 Emerald Avenue~
@@ -4528,19 +4528,19 @@ the park entrance and to the east is the not very big Town Hall of Midgaard.
 D0
 ~
 ~
-0 -1 3132
+Z -1 3132
 D1
 ~
 ~
-0 -1 3137
+Z -1 3137
 D2
 ~
 ~
-0 -1 3119
+Z -1 3119
 D3
 ~
 ~
-0 -1 3116
+Z -1 3116
 S
 #3118
 Park Road~
@@ -4550,11 +4550,11 @@ You are on Park Road which leads north and south.
 D0
 ~
 ~
-0 -1 3111
+Z -1 3111
 D2
 ~
 ~
-0 -1 3135
+Z -1 3135
 S
 #3119
 Emerald Avenue~
@@ -4566,16 +4566,16 @@ town.
 D0
 ~
 ~
-0 -1 3117
+Z -1 3117
 D1
 You see some dangerous looking slums...just the right place for a gang.
 ~
 ~
-0 -1 2101
+Z -1 2101
 D3
 ~
 ~
-0 -1 3133
+Z -1 3133
 S
 #3120
 Road Crossing~
@@ -4607,23 +4607,23 @@ powerful magic to hold such a chain in place.
 D0
 ~
 ~
-0 -1 3133
+Z -1 3133
 D1
 ~
 ~
-0 -1 3136
+Z -1 3136
 D2
 ~
 ~
-0 -1 3134
+Z -1 3134
 D3
 ~
 ~
-0 -1 3135
+Z -1 3135
 D4
 The chain disappears in the clouds.~
 ~
-0 -1 7914
+Z -1 7914
 S
 #3121
 Emerald Avenue~
@@ -4634,11 +4634,11 @@ east.
 D1
 ~
 ~
-0 -1 3134
+Z -1 3134
 D2
 ~
 ~
-0 -1 3125
+Z -1 3125
 S
 #3122
 Park Road~
@@ -4649,15 +4649,15 @@ here.
 D0
 ~
 ~
-0 -1 3136
+Z -1 3136
 D1
 ~
 ~
-0 -1 3123
+Z -1 3123
 D2
 ~
 ~
-0 -1 3126
+Z -1 3126
 S
 #3123
 Elm Street~
@@ -4668,11 +4668,11 @@ in eastward direction.
 D1
 ~
 ~
-0 -1 3124
+Z -1 3124
 D3
 ~
 ~
-0 -1 3122
+Z -1 3122
 S
 #3124
 Elm Street~
@@ -4703,21 +4703,21 @@ D0
 You see the beginnings of Midgaard's bad neighborhoods.
 ~
 ~
-0 -1 3144
+Z -1 3144
 D1
 You see the concourse.
 ~
 ~
-0 -1 3273
+Z -1 3273
 D2
 Through the solid iron bars you see the graveyard.
 ~
 grate~
-1 3121 3600
+ABCZ 3121 3600
 D3
 ~
 ~
-0 -1 3123
+Z -1 3123
 S
 #3125
 Emerald Avenue~
@@ -4728,11 +4728,11 @@ The Concourse is south of here.
 D0
 ~
 ~
-0 -1 3121
+Z -1 3121
 D2
 ~
 ~
-0 -1 3128
+Z -1 3128
 S
 #3126
 Park Road~
@@ -4742,16 +4742,16 @@ You are on Park Road which continues north.  The Concourse is south of here.
 D0
 ~
 ~
-0 -1 3122
+Z -1 3122
 D1
 A Temple rises up to the east.
 ~
 ~
-0 -1 3071
+Z -1 3071
 D2
 ~
 ~
-0 -1 3129
+Z -1 3129
 S
 #3127
 On the Concourse~
@@ -4762,11 +4762,11 @@ both north and east.
 D0
 ~
 ~
-0 -1 3271
+Z -1 3271
 D1
 ~
 ~
-0 -1 3128
+Z -1 3128
 S
 #3128
 On the Concourse~
@@ -4780,16 +4780,16 @@ D0
 Emerald avenue lies to the north.
 ~
 ~
-0 -1 3125
+Z -1 3125
 D1
 You can see the heavily guarded southern gate of Midgaard.
 ~
 ~
-0 -1 3255
+Z -1 3255
 D3
 ~
 ~
-0 -1 3127
+Z -1 3127
 S
 #3129
 On the Concourse~
@@ -4801,16 +4801,16 @@ the city wall is east.
 D0
 ~
 ~
-0 -1 3126
+Z -1 3126
 D1
 ~
 ~
-0 -1 3130
+Z -1 3130
 D3
 You see the south gate of Midgaard.
 ~
 ~
-0 -1 3255
+Z -1 3255
 S
 #3130
 On the Concourse~
@@ -4821,11 +4821,11 @@ both north and west.
 D0
 ~
 ~
-0 -1 3273
+Z -1 3273
 D3
 ~
 ~
-0 -1 3129
+Z -1 3129
 S
 #3131
 Park Road~
@@ -4835,11 +4835,11 @@ You are at Park Road which continues north and south.
 D0
 ~
 ~
-0 -1 3101
+Z -1 3101
 D2
 ~
 ~
-0 -1 3111
+Z -1 3111
 S
 #3132
 Emerald Avenue~
@@ -4850,15 +4850,15 @@ Austral Square and Kate's Diner, to the east is the small street Penny Lane.
 D0
 ~
 ~
-0 -1 3103
+Z -1 3103
 D1
 ~
 ~
-0 -1 3139
+Z -1 3139
 D2
 ~
 ~
-0 -1 3117
+Z -1 3117
 S
 #3133
 Emerald Avenue~
@@ -4869,11 +4869,11 @@ and to the south is the Road Crossing.
 D1
 ~
 ~
-0 -1 3119
+Z -1 3119
 D2
 ~
 ~
-0 -1 3120
+Z -1 3120
 S
 #3134
 Emerald Avenue~
@@ -4884,11 +4884,11 @@ and to the north is the Road Crossing.
 D0
 ~
 ~
-0 -1 3120
+Z -1 3120
 D3
 ~
 ~
-0 -1 3121
+Z -1 3121
 S
 #3135
 Park Road~
@@ -4900,16 +4900,16 @@ under the ground, forming a wall.
 D0
 ~
 ~
-0 -1 3118
+Z -1 3118
 D1
 ~
 ~
-0 -1 3120
+Z -1 3120
 D2
 The white temple of sun, is located at the south.
 ~
 ~
-0 -1 3069
+Z -1 3069
 S
 #3136
 Park Road~
@@ -4920,11 +4920,11 @@ west is the Road Crossing.
 D2
 ~
 ~
-0 -1 3122
+Z -1 3122
 D3
 ~
 ~
-0 -1 3120
+Z -1 3120
 S
 #3137
 The Waiting Room~
@@ -4936,12 +4936,12 @@ D1
 It looks like some kind of office.
 ~
 ~
-0 -1 3138
+Z -1 3138
 D3
 The exit west leads to Emerald Avenue.
 ~
 ~
-0 -1 3117
+Z -1 3117
 S
 #3138
 The Mayor's Office~
@@ -4960,7 +4960,7 @@ D3
 The waiting room is to the west.
 ~
 ~
-0 -1 3137
+Z -1 3137
 S
 #3139
 Penny Lane~
@@ -4971,11 +4971,11 @@ continues in eastward direction.
 D1
 ~
 ~
-0 -1 3140
+Z -1 3140
 D3
 ~
 ~
-0 -1 3132
+Z -1 3132
 S
 #3140
 Penny Lane~
@@ -4986,16 +4986,16 @@ the concourse intersects this street to the east.
 D0
 ~
 ~
-0 -1 3141
+Z -1 3141
 D1
 You see the concourse.
 ~
 ~
-0 -1 3272
+Z -1 3272
 D3
 ~
 ~
-0 -1 3139
+Z -1 3139
 S
 #3141
 The end of Penny Lane~
@@ -5005,7 +5005,7 @@ You are at the end of Penny Lane.  The only exit appears to be south.
 D2
 ~
 ~
-0 -1 3140
+Z -1 3140
 S
 #3142
 Captain's Office~
@@ -5021,12 +5021,12 @@ D1
 You see the Cityguard Head Quarters.
 ~
 door~
-1 3120 3110
+ABCZ 3120 3110
 D2
 You see the heavy steel door.
 ~
 door~
-1 3137 3143
+ABCZ 3137 3143
 S
 #3143
 The Jail~
@@ -5043,7 +5043,7 @@ D0
 You see the heavy steel door.
 ~
 door~
-1 3137 3142
+ABCZ 3137 3142
 S
 #3144
 The end of Elm Street~
@@ -5056,12 +5056,12 @@ D1
 You see a run-down slum neighborood.
 ~
 ~
-0 -1 2160
+Z -1 2160
 D2
 Elm street continues towards a graveyard.
 ~
 ~
-0 -1 3124
+Z -1 3124
 S
 #3150
 Kate's Diner~
@@ -5092,17 +5092,17 @@ D0
 A small boat landing lets boats land at the diner.
 ~
 ~
-0 -1 3203
+Z -1 3203
 D2
 You see Austral Square.
 ~
 ~
-0 -1 3103
+Z -1 3103
 D4
 You see the far-off halls of Valhalla.
 ~
 ~
-0 -1 1219
+Z -1 1219
 S
 #3160
 Melancholy's Maps~
@@ -5129,12 +5129,12 @@ D0
 A sign on the door says, "Unauthorized Personel Prohibited".
 ~
 door~
-2 3161 3161
+ABCFZ 3161 3161
 D2
 To the south is the Poor Alley.  Across the alley, you see the Grubby Inn.
 ~
 ~
-0 -1 3024
+Z -1 3024
 S
 #3161
 Melancholy's Room~
@@ -5155,11 +5155,11 @@ D2
 A small door to the south leads out into the map shop.
 ~
 door~
-2 3161 3160
+ABCFZ 3161 3160
 D4
 ~
 ~
-0 -1 1219
+Z -1 1219
 S
 #3170
 Temple Of Stupid~
@@ -5179,11 +5179,11 @@ D3
 The Wall Road is to the west.
 ~
 ~
-0 -1 3042
+Z -1 3042
 D4
 ~
 ~
-0 -1 1219
+Z -1 1219
 M 50 H 200
 S
 #3200
@@ -5201,11 +5201,11 @@ some kind of mortar.  Looks pretty solid.
 D1
 ~
 ~
-0 -1 3201
+Z -1 3201
 D3
 You see the river flowing west into the Forest of Haon-Dor.~
 ~
-0 -1 9772
+Z -1 9772
 S
 #3201
 On the River~
@@ -5216,11 +5216,11 @@ river flows west towards the bridge.  The riverbanks are too steep to climb.
 D1
 ~
 ~
-0 -1 3202
+Z -1 3202
 D3
 ~
 ~
-0 -1 3200
+Z -1 3200
 S
 #3202
 On the River~
@@ -5232,11 +5232,11 @@ dump to the promenade.
 D1
 ~
 ~
-0 -1 3203
+Z -1 3203
 D3
 ~
 ~
-0 -1 3201
+Z -1 3201
 S
 #3203
 On the River~
@@ -5247,20 +5247,20 @@ Diner is to the south.  The river flows in an east west direction.
 D0
 ~
 ~
-0 -1 3049
+Z -1 3049
 D1
 ~
 ~
-0 -1 3204
+Z -1 3204
 D2
 You see the landing in the back of Kate's Diner. 
 ~
 ~
-0 -1 3150
+Z -1 3150
 D3
 ~
 ~
-0 -1 3202
+Z -1 3202
 S
 #3204
 On the River~
@@ -5272,11 +5272,11 @@ levee are west, in the direction of the current.
 D1
 ~
 ~
-0 -1 3205
+Z -1 3205
 D3
 ~
 ~
-0 -1 3203
+Z -1 3203
 S
 #3205
 On the River~
@@ -5290,11 +5290,11 @@ The iron bars are broken, allowing passage through the hole in the wall.
 Beyond the bars you see a dark tunnel.
 bars~
 ~
-0 -1 5001
+Z -1 5001
 D3
 ~
 ~
-0 -1 3204
+Z -1 3204
 S
 #3250
 Wall Road~
@@ -5307,12 +5307,12 @@ D0
 The eastern gate of the city is north.
 ~
 ~
-0 -1 3041
+Z -1 3041
 D2
 You see an intersection with a dark alley.
 ~
 ~
-0 -1 3251
+Z -1 3251
 S
 #3251
 Wall Road~
@@ -5326,18 +5326,18 @@ D0
 Wall road continues to the north, heading towards the gate.
 ~
 ~
-0 -1 3250
+Z -1 3250
 D2
 Wall road continues to the south, towards a bridge over the Midgaard river.
 ~
 ~
-0 -1 3252
+Z -1 3252
 D3
 A dirty, unlight alley lies to the west...it looks like a perfect spot for a
 mugging.
 ~
 ~
-0 -1 3046
+Z -1 3046
 S
 #3252
 Wall Road~
@@ -5351,12 +5351,12 @@ D0
 You see an intersection with a dark alley.
 ~
 ~
-0 -1 3251
+Z -1 3251
 D2
 The eastern bridge crosses the river to the south.
 ~
 ~
-0 -1 3253
+Z -1 3253
 S
 #3253
 On the Bridge~
@@ -5376,12 +5376,12 @@ D0
 Wall road continues to the north.
 ~
 ~
-0 -1 3252
+Z -1 3252
 D2
 The concourse stretches around the southern parts of Midgaard.
 ~
 ~
-0 -1 3104
+Z -1 3104
 S
 #3254
 The South Bridge~
@@ -5396,12 +5396,12 @@ D0
 You can see the clutter of the City Dump.
 ~
 ~
-0 0 3030
+Z 0 3030
 D2
 The beautiful promenade lies along the river.  What a romantic place to visit!
 ~
 ~
-0 -1 3102
+Z -1 3102
 S
 #3255
 Inside the South Gate of Midgaard~
@@ -5415,17 +5415,17 @@ D1
 The concourse heads east along the inside of the city wall.
 ~
 ~
-0 -1 3129
+Z -1 3129
 D2
 You see the southern gate.
 ~
 ~
-0 3133 3256
+Z 3133 3256
 D3
 The concourse heads west along the inside of the city wall.
 ~
 ~
-0 -1 3128
+Z -1 3128
 S
 #3256
 Outside the South Gate of Midgaard~
@@ -5440,12 +5440,12 @@ D0
 You see the southern gate.
 ~
 ~
-0 3133 3255
+Z 3133 3255
 D2
 The green forests of the Miden'nir are south, hiding countless goblin warriors.
 ~
 ~
-0 -1 3505
+Z -1 3505
 S
 #3257
 Wall Road~
@@ -5458,12 +5458,12 @@ D0
 You see an intersection between wall road and a busy Clan street.
 ~
 ~
-0 -1 3258
+Z -1 3258
 D2
 The west gate of the city lies south.
 ~
 ~
-0 -1 3040
+Z -1 3040
 S
 #3258
 Wall Road~
@@ -5476,17 +5476,17 @@ D0
 Wall road continues to the north, towards the northwestern corner of the wall.
 ~
 ~
-0 -1 3259
+Z -1 3259
 D1
 You see the shops and clan halls of Clan Road.
 ~
 ~
-0 -1 3301
+Z -1 3301
 D2
 Wall road continues alongside the western wall, heading towards the west gate.
 ~
 ~
-0 -1 3257
+Z -1 3257
 S
 #3259
 Wall Road~
@@ -5500,12 +5500,12 @@ D0
 You see the northwestern corner of the city wall.
 ~
 ~
-0 -1 3260
+Z -1 3260
 D2
 To the south, wall road intersects with a crowded Clan street.
 ~
 ~
-0 -1 3258
+Z -1 3258
 S
 #3260
 The Northwest Corner~
@@ -5518,12 +5518,12 @@ D1
 Wall road continues along the northern wall of the city.
 ~
 ~
-0 -1 3261
+Z -1 3261
 D2
 Wall road continues along the western wall of the city.
 ~
 ~
-0 -1 3259
+Z -1 3259
 S
 #3261
 Wall Road~
@@ -5535,12 +5535,12 @@ D1
 Wall road continues to the east, towards the northern gate of Midgaard.
 ~
 ~
-0 -1 3262
+Z -1 3262
 D3
 You can see the northwest corner of the city wall to the west.
 ~
 ~
-0 -1 3260
+Z -1 3260
 S
 #3262
 Inside the North Gate of Midgaard~
@@ -5556,17 +5556,17 @@ D0
 The northern plains are visible through the gate.
 ~
 ~
-0 3133 3268
+Z 3133 3268
 D1
 Wall road continues to the east, alongside the northern wall.
 ~
 ~
-0 -1 3263
+Z -1 3263
 D3
 Wall road continues to the west, alongside the northern wall.
 ~
 ~
-0 -1 3261
+Z -1 3261
 S
 #3263
 Wall Road~
@@ -5579,12 +5579,12 @@ D1
 You see the northeastern corner of the city walls.
 ~
 ~
-0 -1 3264
+Z -1 3264
 D3
 The northern gate of the city lies east.
 ~
 ~
-0 -1 3262
+Z -1 3262
 S
 #3264
 The Northeast Corner~
@@ -5597,12 +5597,12 @@ D2
 Wall road continues to the south, along the eastern wall of the city.
 ~
 ~
-0 -1 3265
+Z -1 3265
 D3
 Wall road continues to the west, along the northern wall of the city.
 ~
 ~
-0 -1 3263
+Z -1 3263
 S
 #3265
 Wall Road~
@@ -5615,12 +5615,12 @@ D0
 You can see the northeast corner of the city wall.
 ~
 ~
-0 -1 3264
+Z -1 3264
 D2
 You see an intersection with a crowded street.
 ~
 ~
-0 -1 3266
+Z -1 3266
 S
 #3266
 Wall Road~
@@ -5634,17 +5634,17 @@ D0
 Wall road continues to the north, along the eastern wall of the city.
 ~
 ~
-0 -1 3265
+Z -1 3265
 D2
 Wall road continues to the south, towards the east gate of Midgaard.
 ~
 ~
-0 -1 3267
+Z -1 3267
 D3
 You see a mass of people heading down Clan Road.
 ~
 ~
-0 -1 3316
+Z -1 3316
 S
 #3267
 Wall Road~
@@ -5657,12 +5657,12 @@ D0
 You see an intersection with a busy clan street.
 ~
 ~
-0 -1 3266
+Z -1 3266
 D2
 You see the well-guarded east gate of Midgaard.
 ~
 ~
-0 -1 3041
+Z -1 3041
 S
 #3268
 Outside the North Gate of Midgaard~
@@ -5676,12 +5676,12 @@ D0
 You see a dusty trail leading around the city.
 ~
 ~
-0 -1 3904
+Z -1 3904
 D2
 You see the north gate of Midgaard.
 ~
 ~
-0 3133 3262
+Z 3133 3262
 S
 #3270
 On the Concourse~
@@ -5694,12 +5694,12 @@ D0
 The concourse continues to the north, along the city wall.
 ~
 ~
-0 -1 3100
+Z -1 3100
 D2
 The concourse heads south, passing by a beautiful park.
 ~
 ~
-0 -1 3271
+Z -1 3271
 S
 #3271
 On the Concourse near the park~
@@ -5712,12 +5712,12 @@ D0
 The concourse heads north, passing by a beautiful park.
 ~
 ~
-0 -1 3270
+Z -1 3270
 D2
 You can see the southwest corner of the city wall.
 ~
 ~
-0 -1 3127
+Z -1 3127
 S
 #3272
 On the Concourse at Penny Lane~
@@ -5731,17 +5731,17 @@ D0
 The concourse continues to the north, towards the east bridge.
 ~
 ~
-0 -1 3104
+Z -1 3104
 D2
 The concourse continues south, towards an intersection with Elm Street.
 ~
 ~
-0 -1 3273
+Z -1 3273
 D3
 You see Penny Lane.
 ~
 ~
-0 -1 3140
+Z -1 3140
 S
 #3273
 On the Concourse at Elm Street~
@@ -5754,17 +5754,17 @@ D0
 The concourse continues to the north, towards an intersection with Penny Lane.
 ~
 ~
-0 -1 3272
+Z -1 3272
 D2
 The concourse continues to the south, towards the southeast corner of the wall.
 ~
 ~
-0 -1 3130
+Z -1 3130
 D3
 You see Elm Street and the graveyard entrance.
 ~
 ~
-0 -1 3124
+Z -1 3124
 S
 #3301
 Clan Road~
@@ -5777,12 +5777,12 @@ D1
 Clan Road continues east.
 ~
 ~
-0 -1 3302
+Z -1 3302
 D3
 Wall Road is to the west.
 ~
 ~
-0 -1 3258
+Z -1 3258
 S
 #3302
 Clan Road~
@@ -5794,17 +5794,17 @@ D1
 Clan Road continues east.
 ~
 ~
-0 -1 3303
+Z -1 3303
 D2
 The money changer is to the south.
 ~
 ~
-0 -1 3334
+Z -1 3334
 D3
 Clan Road continues west.
 ~
 ~
-0 -1 3301
+Z -1 3301
 S
 #3303
 Clan Road~
@@ -5816,12 +5816,12 @@ D1
 Clan Road continues to the east.
 ~
 ~
-0 -1 3314
+Z -1 3314
 D3
 Clan Road continues to the west.
 ~
 ~
-0 -1 3302
+Z -1 3302
 S
 #3314
 Clan Road~
@@ -5833,12 +5833,12 @@ D1
 Clan Road continues to the east.
 ~
 ~
-0 -1 3315
+Z -1 3315
 D3
 Clan Road continues to the west.
 ~
 ~
-0 -1 3303
+Z -1 3303
 S
 #3315
 Clan Road~
@@ -5852,17 +5852,17 @@ D1
 Clan Road continues to the east.
 ~
 ~
-0 -1 3316
+Z -1 3316
 D2
 A busy pub is to the south.
 ~
 ~
-0 -1 3356
+Z -1 3356
 D3
 Clan Road continues to the west.
 ~
 ~
-0 -1 3314
+Z -1 3314
 S
 #3316
 Clan Road~
@@ -5875,12 +5875,12 @@ D1
 Wall Road is east of here.
 ~
 ~
-0 -1 3266
+Z -1 3266
 D3
 Clan Road continues to the west.
 ~
 ~
-0 -1 3315
+Z -1 3315
 S
 #3334
 A Money Changer's Room~
@@ -5905,7 +5905,7 @@ D0
 Clan Road is to the north.
 ~
 ~
-0 -1 3302
+Z -1 3302
 S
 #3352
 Grebe's Tavern~
@@ -5929,12 +5929,12 @@ D1
 You see the enterance to the guild of warlocks..
 ~
 ~
-0 -1 3073
+Z -1 3073
 D2
 A dark alley is to the south.
 ~
 ~
-0 0 3026
+Z 0 3026
 S
 #3355
 Andy's Pub~
@@ -5950,12 +5950,12 @@ D1
 You see another room in the pub.
 ~
 ~
-0 -1 3356
+Z -1 3356
 D2
 The bar is to the south of you.
 ~
 ~
-0 -1 3357
+Z -1 3357
 S
 #3356
 A Room in the Pub~
@@ -5973,22 +5973,22 @@ D0
 Clan Road is to the north.
 ~
 ~
-0 -1 3315
+Z -1 3315
 D2
 The bar is to your south.
 ~
 ~
-0 -1 3358
+Z -1 3358
 D3
 Another room in the pub is to your west.
 ~
 ~
-0 -1 3355
+Z -1 3355
 D4
 A set of stairs leads up to the reception area.
 ~
 ~
-0 -1 3359
+Z -1 3359
 S
 #3357
 The Bar~
@@ -6009,7 +6009,7 @@ D0
 The pub proper is to the north.
 ~
 ~
-0 -1 3355
+Z -1 3355
 S
 #3358
 The Bar~
@@ -6029,7 +6029,7 @@ D0
 The pub proper is to the north.
 ~
 ~
-0 -1 3356
+Z -1 3356
 S
 #3359
 The Inn~
@@ -6046,7 +6046,7 @@ D5
 The stairs lead back down to the pub.
 ~
 ~
-0 -1 3356
+Z -1 3356
 S
 #3001
 The Temple Of Midgaard~
@@ -6071,17 +6071,17 @@ D0
 At the northern end of the temple hall is a statue and a huge altar.
 ~
 ~
-0 -1 3054
+Z -1 3054
 D2
 You see the temple square.
 ~
 ~
-0 -1 3005
+Z -1 3005
 D4
 You see the entrance to Mud School.
 ~
 ~
-0 0 3700
+Z 0 3700
 S
 #3002
 Cleric's Inner Sanctum~
@@ -6095,13 +6095,13 @@ D1
 You see your favorite place, the bar of divination.
 ~
 ~
-0 -1 3003
+Z -1 3003
 D5
 You can't see what is down there, it is too dark.  Looks like it would be
 impossible to climb back up.
 ~
 ~
-0 -1 7026
+Z -1 7026
 S
 #3003
 Cleric's Bar~
@@ -6122,12 +6122,12 @@ D2
 You see the entrance.
 ~
 ~
-0 -1 3004
+Z -1 3004
 D3
 You see the inner sanctum.
 ~
 ~
-0 -1 3002
+Z -1 3002
 S
 #3004
 Entrance to Cleric's Guild~
@@ -6140,12 +6140,12 @@ D0
 You see the bar, richly decorated with really stylish furniture.
 ~
 ~
-0 -1 3003
+Z -1 3003
 D1
 You see the Temple Square.
 ~
 ~
-0 -1 3005
+Z -1 3005
 S
 #3005
 The Temple Square~
@@ -6163,27 +6163,27 @@ D0
 You see the temple.
 ~
 all~
-0 -1 3001
+Z -1 3001
 D1
 You see the good old Grunting Boar Inn.
 ~
 ~
-0 -1 3006
+Z -1 3006
 D2
 You see the Market Square.
 ~
 ~
-0 -1 3014
+Z -1 3014
 D3
 You see the entrance to the Clerics Guild.
 ~
 ~
-0 -1 3004
+Z -1 3004
 D4
 You see the air.
 ~
 ~
-0 -1 3057
+Z -1 3057
 S
 #3006
 Entrance to the Grunting Boar Inn~
@@ -6196,17 +6196,17 @@ D1
 Surprise! You see the bar.
 ~
 ~
-0 -1 3007
+Z -1 3007
 D3
 You see the temple square.
 ~
 ~
-0 -1 3005
+Z -1 3005
 D4
 You see the defunct reception room.
 ~
 ~
-0 -1 3008
+Z -1 3008
 S
 #3007
 The Grunting Boar~
@@ -6235,12 +6235,12 @@ D2
 You see the bar of Samurai's.
 ~
 ~
-0 -1 3075
+Z -1 3075
 D3
 You see the exit to the entrance hall.
 ~
 ~
-0 -1 3006
+Z -1 3006
 S
 #3008
 The Defunct Reception~
@@ -6251,12 +6251,12 @@ down to the entrance hall.
 D0
 ~
 ~
-0 0 33000
+Z 0 33000
 D5
 You see the entrance hall.
 ~
 ~
-0 -1 3006
+Z -1 3006
 S
 #3009
 The Bakery~
@@ -6288,7 +6288,7 @@ D2
 You see the main street.
 ~
 ~
-0 -1 3013
+Z -1 3013
 S
 #3010
 The General Store~
@@ -6311,7 +6311,7 @@ D1
 You see the High Road .
 ~
 ~
-0 -1 3067
+Z -1 3067
 S
 #3011
 The Weapon Shop~
@@ -6332,7 +6332,7 @@ D2
 You see the main street.
 ~
 ~
-0 -1 3016
+Z -1 3016
 S
 #3012
 Main Street~
@@ -6346,22 +6346,22 @@ D0
 You see the magic shop.
 ~
 ~
-0 -1 3033
+Z -1 3033
 D1
 You see the main street.
 ~
 ~
-0 -1 3013
+Z -1 3013
 D2
 You see the entrance to the Guild of Magic Users.
 ~
 ~
-0 -1 3017
+Z -1 3017
 D3
 You see the city gate.
 ~
 ~
-0 -1 3040
+Z -1 3040
 S
 #3013
 Main Street~
@@ -6374,22 +6374,22 @@ D0
 You see the bakery.
 ~
 ~
-0 -1 3009
+Z -1 3009
 D1
 You see the market square.
 ~
 ~
-0 -1 3014
+Z -1 3014
 D2
 You see the armoury.
 ~
 ~
-0 -1 3020
+Z -1 3020
 D3
 You see the main street.
 ~
 ~
-0 -1 3012
+Z -1 3012
 S
 #3014
 Market Square~
@@ -6407,22 +6407,22 @@ D0
 You see the temple square.
 ~
 ~
-0 -1 3005
+Z -1 3005
 D1
 You see the main street.
 ~
 ~
-0 -1 3015
+Z -1 3015
 D2
 High Road leads to the Common Square.
 ~
 ~
-0 -1 3065
+Z -1 3065
 D3
 You see the main street.
 ~
 ~
-0 -1 3013
+Z -1 3013
 S
 #3015
 The Main Street~
@@ -6435,22 +6435,22 @@ D0
 You see the enterance of Holy Temple.
 ~
 ~
-0 -1 3063
+Z -1 3063
 D1
 You see Main Street.
 ~
 ~
-0 -1 3016
+Z -1 3016
 D2
 You see the Jeweller's Shop.
 ~
 ~
-0 -1 3034
+Z -1 3034
 D3
 You see the market square.
 ~
 ~
-0 -1 3014
+Z -1 3014
 S
 #3016
 The Main Street~
@@ -6463,22 +6463,22 @@ D0
 You see the weapon shop.
 ~
 ~
-0 -1 3011
+Z -1 3011
 D1
 You see the city gate.
 ~
 ~
-0 -1 3041
+Z -1 3041
 D2
 You see the swordsmen's guild.
 ~
 ~
-0 -1 3021
+Z -1 3021
 D3
 You see the main street leading to the market square.
 ~
 ~
-0 -1 3015
+Z -1 3015
 S
 #3017
 Entrance to Mage's Guild~
@@ -6489,12 +6489,12 @@ D0
 You see the main street.
 ~
 ~
-0 -1 3012
+Z -1 3012
 D2
 You see your favorite place, the Mage's Bar.
 ~
 ~
-0 -1 3018
+Z -1 3018
 S
 #3018
 Mage's Bar~
@@ -6506,12 +6506,12 @@ D0
 You see the lobby.
 ~
 ~
-0 -1 3017
+Z -1 3017
 D1
 You see the laboratory.
 ~
 ~
-0 -1 3019
+Z -1 3019
 S
 #3019
 Mage's Laboratory~
@@ -6528,13 +6528,13 @@ D3
 You see the bar.
 ~
 ~
-0 -1 3018
+Z -1 3018
 D5
 You can't see what is down there, it is too dark.  Looks like it would be
 impossible to climb back up.
 ~
 ~
-0 -1 7017
+Z -1 7017
 S
 #3020
 The Armoury~
@@ -6559,7 +6559,7 @@ D0
 You see the main street.
 ~
 ~
-0 -1 3013
+Z -1 3013
 S
 #3021
 Entrance Hall to the Guild of Swordsmen~
@@ -6572,12 +6572,12 @@ D0
 You see the main street.
 ~
 ~
-0 -1 3016
+Z -1 3016
 D1
 You see the swordsmen's bar, many noises comes from there.
 ~
 ~
-0 -1 3022
+Z -1 3022
 S
 #3022
 The Bar of Swordsmen~
@@ -6590,12 +6590,12 @@ D2
 You see the practice yard.
 ~
 ~
-0 -1 3023
+Z -1 3023
 D3
 You see the entrance hall to the thieves guild.
 ~
 ~
-0 -1 3021
+Z -1 3021
 S
 #3023
 The Tournament and Practice Yard~
@@ -6607,13 +6607,13 @@ D0
 You see the bar.
 ~
 ~
-0 -1 3022
+Z -1 3022
 D5
 You can't see what is down there, it is too dark.  Looks like it would be
 impossible to climb back up.
 ~
 ~
-0 -1 7048
+Z -1 7048
 S
 #3024
 Eastern End of Poor Alley~
@@ -6626,22 +6626,22 @@ D0
 You see Melancholy's Map Shop
 ~
 ~
-0 -1 3160
+Z -1 3160
 D1
 You see the common square.
 ~
 ~
-0 -1 3025
+Z -1 3025
 D2
 You see the Inn.
 ~
 ~
-0 -1 3048
+Z -1 3048
 D3
 You see the poor alley.
 ~
 ~
-0 -1 3044
+Z -1 3044
 S
 #3025
 The Common Square~
@@ -6655,22 +6655,22 @@ D0
 You see the High road leading to the market place.
 ~
 ~
-0 -1 3067
+Z -1 3067
 D1
 You see the dark alley.
 ~
 ~
-0 -1 3026
+Z -1 3026
 D2
 You see the city dump.
 ~
 ~
-0 -1 3030
+Z -1 3030
 D3
 You see the poor alley.
 ~
 ~
-0 -1 3024
+Z -1 3024
 S
 #3026
 The Dark Alley~
@@ -6687,22 +6687,22 @@ D0
 You see a foul-smelling sailor's dive.
 ~
 ~
-0 -1 3352
+Z -1 3352
 D1
 The alley continues east.
 ~
 ~
-0 -1 3045
+Z -1 3045
 D2
 You see the entrance to the thieves guild.
 ~
 ~
-0 -1 3027
+Z -1 3027
 D3
 You see the common square.
 ~
 ~
-0 -1 3025
+Z -1 3025
 S
 #3027
 Entrance Hall to the Guild of Thieves~
@@ -6715,12 +6715,12 @@ D0
 You see the alley.
 ~
 ~
-0 -1 3026
+Z -1 3026
 D1
 You see the thieves bar, where everything disappears.
 ~
 ~
-0 -1 3028
+Z -1 3028
 S
 #3028
 The Thieves Bar~
@@ -6738,12 +6738,12 @@ D2
 You see the secret yard.
 ~
 ~
-0 -1 3029
+Z -1 3029
 D3
 You see the entrance hall to the thieves guild.
 ~
 ~
-0 -1 3027
+Z -1 3027
 S
 #3029
 The Secret Yard~
@@ -6755,13 +6755,13 @@ D0
 You see the bar.
 ~
 ~
-0 -1 3028
+Z -1 3028
 D5
 You can't see what is down there, it is too dark.  Looks like it would be
 impossible to climb back up.
 ~
 ~
-0 -1 7043
+Z -1 7043
 S
 #3030
 The Dump~
@@ -6775,18 +6775,18 @@ D0
 You see the common square.
 ~
 ~
-0 -1 3025
+Z -1 3025
 D2
 You see a river between northern and southern Midgaard.  A small bridge
 spans the flow.
 ~
 ~
-0 -1 3254
+Z -1 3254
 D5
 You see the sewers.
 ~
 ~
-0 -1 7030
+Z -1 7030
 S
 #3031
 The Pet Shop~
@@ -6813,7 +6813,7 @@ D2
 You see the Alley.
 ~
 ~
-0 -1 3045
+Z -1 3045
 S
 #3032
 Pet Shop Store~
@@ -6847,7 +6847,7 @@ D2
 You see the main street.
 ~
 ~
-0 -1 3012
+Z -1 3012
 S
 #3034
 The Jeweller's Shop~
@@ -6879,7 +6879,7 @@ D0
 You see Main Street.
 ~
 ~
-0 -1 3015
+Z -1 3015
 S
 #3035
 The Leather Shop~
@@ -6917,7 +6917,7 @@ D2
 You see the alley.
 ~
 ~
-0 -1 3044
+Z -1 3044
 S
 #3040
 Inside the West Gate of Midgaard~
@@ -6951,23 +6951,23 @@ D0
 Wall road runs along the inner city wall to the north.
 ~
 ~
-0 -1 3257
+Z -1 3257
 D1
 You see Main Street.
 ~
 ~
-0 -1 3012
+Z -1 3012
 D2
 You see the road running along the inner side of the city wall.  You notice
 that it is called Wall Road.
 ~
 ~
-0 -1 3042
+Z -1 3042
 D3
 The city gate is to the west.
 ~
 gate~
-0 3379 3052
+Z 3379 3052
 S
 #3041
 Inside the East Gate of Midgaard~
@@ -7002,21 +7002,21 @@ D0
 Wall road heads north along the city wall.
 ~
 ~
-0 -1 3267
+Z -1 3267
 D1
 You see the city gate.
 ~
 gate~
-0 3379 3053
+Z 3379 3053
 D2
 Wall road heads south towards the poor section of town.
 ~
 ~
-0 0 3250
+Z 0 3250
 D3
 You see Main Street.~
 ~
-0 -1 3016
+Z -1 3016
 S
 #3042
 Wall Road~
@@ -7034,17 +7034,17 @@ D0
 You see the city gate.
 ~
 ~
-0 -1 3040
+Z -1 3040
 D1
 There is an ornate doorway to the east.
 ~
 ~
-0 -1 3170
+Z -1 3170
 D2
 The road continues further south.
 ~
 ~
-0 -1 3043
+Z -1 3043
 S
 #3043
 Wall Road~
@@ -7066,22 +7066,22 @@ D0
 The road continues further north.
 ~
 ~
-0 -1 3042
+Z -1 3042
 D1
 The alley leads east.
 ~
 ~
-0 -1 3044
+Z -1 3044
 D2
 The road continues further south.
 ~
 ~
-0 -1 3047
+Z -1 3047
 D3
 The Great Chessboard of Midgaard.
 ~
 ~
-0 -1 4200
+Z -1 4200
 S
 #3044
 Poor Alley~
@@ -7093,22 +7093,22 @@ D0
 The leather shop is to the north.
 ~
 ~
-0 -1 3035
+Z -1 3035
 D1
 The alley leads east.
 ~
 ~
-0 -1 3024
+Z -1 3024
 D2
 An unholy temple rises up to the south.
 ~
 ~
-0 -1 3060
+Z -1 3060
 D3
 The alley leads west.
 ~
 ~
-0 -1 3043
+Z -1 3043
 S
 #3045
 Alley at Levee~
@@ -7120,22 +7120,22 @@ D0
 You see, hear, and smell the pet shop.
 ~
 ~
-0 0 3031
+Z 0 3031
 D1
 The alley leads east.
 ~
 ~
-0 -1 3046
+Z -1 3046
 D2
 You see the levee.
 ~
 ~
-0 -1 3049
+Z -1 3049
 D3
 The alley leads west.
 ~
 ~
-0 -1 3026
+Z -1 3026
 S
 #3046
 Eastern end of Alley~
@@ -7149,22 +7149,22 @@ D0
 You see a pricey-looking potion shop.
 ~
 ~
-0 0 3056
+Z 0 3056
 D1
 You see wall road, running a north-south loop around the city.
 ~
 ~
-0 -1 3251
+Z -1 3251
 D2
 You see the warehouse.
 ~
 ~
-0 -1 3050
+Z -1 3050
 D3
 You see the alley.
 ~
 ~
-0 -1 3045
+Z -1 3045
 S
 #3047
 Wall Road~
@@ -7183,17 +7183,17 @@ D0
 You see the road.
 ~
 ~
-0 -1 3043
+Z -1 3043
 D1
 You see the purple-and-orange Mob Factory.  Someone has no taste.
 ~
 ~
-0 -1 9400
+Z -1 9400
 D2
 You see the bridge.
 ~
 ~
-0 -1 3051
+Z -1 3051
 S
 #3048
 Grubby Inn~
@@ -7205,12 +7205,12 @@ D0
 You see the alley.
 ~
 ~
-0 -1 3024
+Z -1 3024
 D5
 You see a trapdoor.
 ~
 trapdoor~
-1 -1 3062
+ABZ -1 3062
 S
 #3049
 Levee~
@@ -7223,12 +7223,12 @@ D0
 You see the Alley.
 ~
 ~
-0 -1 3045
+Z -1 3045
 D2
 You see the river flowing west.
 ~
 ~
-0 -1 3203
+Z -1 3203
 S
 #3050
 Abandoned Warehouse~
@@ -7241,12 +7241,12 @@ D0
 You see the alley.
 ~
 ~
-0 -1 3046
+Z -1 3046
 D4
 You see machine dreams and taste violet phosphor.
 ~
 ~
-0 0 8604
+Z 0 8604
 S
 #3051
 On the Bridge~
@@ -7273,12 +7273,12 @@ D0
 You see the road.
 ~
 ~
-0 -1 3047
+Z -1 3047
 D2
 You see the Concourse.
 ~
 ~
-0 -1 3100
+Z -1 3100
 S
 #3052
 Outside the West Gate of Midgaard~
@@ -7313,17 +7313,17 @@ D0
 The trail continues around the City of Midgaard.
 ~
 ~
-0 -1 3900
+Z -1 3900
 D1
 The city gate is to the east.
 ~
 gate~
-0 3379 3040
+Z 3379 3040
 D3
 The forest edge is to the west.
 ~
 ~
-0 -1 6000
+Z -1 6000
 S
 #3053
 Outside the East Gate of Midgaard~
@@ -7358,16 +7358,16 @@ D0
 The trail continues around the City of Midgaard.
 ~
 ~
-0 -1 3908
+Z -1 3908
 D1
 You see the plains.~
 ~
-0 -1 3503
+Z -1 3503
 D3
 You see the city gate.
 ~
 gate~
-0 3133 3041
+Z 3133 3041
 S
 #3054
 By the Temple Altar~
@@ -7387,17 +7387,17 @@ D0
 You see the room of templeman.
 ~
 door~
-0 -1 3077
+Z -1 3077
 D2
 You see the southern end of the temple.
 ~
 ~
-0 -1 3001
+Z -1 3001
 D4
 Bifrost, the Rainbow Bridge, hangs in the sky above you.
 ~
 ~
-0 -1 1215
+Z -1 1215
 M 150 H 150
 S
 #3056
@@ -7411,7 +7411,7 @@ D2
 You see the eastern end of alley.
 ~
 ~
-0 -1 3046
+Z -1 3046
 S
 #3057
 In the air...~
@@ -7422,12 +7422,12 @@ D4
 More of the same.
 ~
 ~
-0 0 1017
+Z 0 1017
 D5
 Back down on the earth where you should be!
 ~
 ~
-0 0 3005
+Z 0 3005
 S
 #3060
 Enterance to Anti-Paladin's guild~
@@ -7441,12 +7441,12 @@ D0
 North is the poor alley, even more safe than this dark temple.
 ~
 ~
-0 -1 3044
+Z -1 3044
 D1
 The room looks to be a practice yard.
 ~
 ~
-0 -1 3061
+Z -1 3061
 S
 #3061
 The Torture Chamber~
@@ -7462,7 +7462,7 @@ D3
 Exit to the tample hall is to the west.
 ~
 ~
-0 -1 3060
+Z -1 3060
 S
 #3062
 Underground Chamber~
@@ -7477,7 +7477,7 @@ D4
 The trapdoor leads back to the Grubby Inn.
 ~
 trapdoor~
-1 -1 3048
+ABZ -1 3048
 S
 #3063
 Holy Temple~
@@ -7493,12 +7493,12 @@ D1
 The room seems lead to a large shrine.
 ~
 ~
-0 -1 3064
+Z -1 3064
 D2
 You see Main Street.
 ~
 ~
-0 -1 3015
+Z -1 3015
 S
 #3064
 Knight's Shrine~
@@ -7512,7 +7512,7 @@ D3
 To the west you see the big hall of temple.
 ~
 ~
-0 -1 3063
+Z -1 3063
 S
 #3065
 High road~
@@ -7526,17 +7526,17 @@ D0
 You see the large square.
 ~
 ~
-0 -1 3014
+Z -1 3014
 D1
 A wooden door leads to the Butcher's shop.
 ~
 ~
-0 -1 3066
+Z -1 3066
 D2
 The road continues to the south.
 ~
 ~
-0 -1 3067
+Z -1 3067
 S
 #3066
 Butcher Shop~
@@ -7551,7 +7551,7 @@ D3
 You see the High Road.
 ~
 ~
-0 -1 3065
+Z -1 3065
 S
 #3067
 High Road~
@@ -7569,17 +7569,17 @@ D0
 The road continues.
 ~
 ~
-0 -1 3065
+Z -1 3065
 D2
 You see the Common Square.
 ~
 ~
-0 -1 3025
+Z -1 3025
 D3
 The sign reads: General Store
 ~
 ~
-0 -1 3010
+Z -1 3010
 S
 #3068
 Temple of Sun~
@@ -7594,7 +7594,7 @@ D1
 The stairs lead to temple square.
 ~
 ~
-0 -1 3069
+Z -1 3069
 M 110 H 150
 S
 #3069
@@ -7609,17 +7609,17 @@ D0
 You can see the park road.
 ~
 ~
-0 -1 3135
+Z -1 3135
 D2
 The stairs lead up to the Nacya's chamber of altar.
 ~
 ~
-0 -1 3070
+Z -1 3070
 D3
 The resting chambers of Temple of Sun is at the end of stairs.
 ~
 ~
-0 -1 3068
+Z -1 3068
 S
 #3070
 Altar~
@@ -7650,7 +7650,7 @@ D0
 You can see the stairs leading down to the temple square.
 ~
 ~
-0 -1 3069
+Z -1 3069
 S
 #3071
 Dark Temple~
@@ -7666,12 +7666,12 @@ D1
 The altar is to the east.
 ~
 ~
-0 -1 3072
+Z -1 3072
 D3
 This way leads out to the park road.
 ~
 ~
-0 -1 3126
+Z -1 3126
 M 150 H 150
 S
 #0

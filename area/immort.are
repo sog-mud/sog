@@ -74,7 +74,7 @@ D2
 Asgard lies to the south.
 ~
 ~
-0 -1 1213
+Z -1 1213
 S
 #1201
 Moses' Hangout~
@@ -89,7 +89,7 @@ D0
 Asgard lies to the north.
 ~
 ~
-0 -1 1213
+Z -1 1213
 S
 #1202
 The Center of the Universe~
@@ -102,7 +102,7 @@ D1
 Asgard lies to the east.
 ~
 ~
-0 -1 1213
+Z -1 1213
 S
 #1203
 Valhalla~
@@ -117,27 +117,27 @@ D0
 Alander's workroom is to the north.
 ~
 door~
-1 -1 1209
+ABZ -1 1209
 D1
 Valhalla continues east.
 ~
 ~
-0 -1 1217
+Z -1 1217
 D2
 A sea cave is south of here.
 ~
 door~
-1 -1 1208
+ABZ -1 1208
 D3
 The entrance to Valhalla is to the west.
 ~
 ~
-0 -1 1216
+Z -1 1216
 D4
 If you want to know what is up there, you shall have to go look...
 ~
 ~
-0 -1 1
+Z -1 1
 S
 #1204
 Priscilla's Pleasure Palace ~
@@ -151,7 +151,7 @@ D0
 Valhalla is to the north.
 ~
 door~
-1 -1 1218
+ABZ -1 1218
 S
 #1205
 The Eye of the Hurricane~
@@ -320,7 +320,7 @@ D2
 Valhalla is to the south.
 ~
 door~
-1 -1 1217
+ABZ -1 1217
 S
 #1208
 A Sea Cave~
@@ -337,7 +337,7 @@ D0
 Valhalla lies to the north.
 ~
 door~
-1 -1 1203
+ABZ -1 1203
 S
 #1209
 The Archmage's Workroom~
@@ -363,7 +363,7 @@ D2
 Valhalla is to the south.
 ~
 door~
-1 -1 1203
+ABZ -1 1203
 S
 #1210
 Office~
@@ -398,7 +398,7 @@ D0
 Valhalla is to the north
 ~
 door~
-1 -1 1217
+ABZ -1 1217
 S
 #1211
 Arena of Judgement~
@@ -420,7 +420,7 @@ D2
 Valhalla is to the south.
 ~
 door~
-1 -1 1218
+ABZ -1 1218
 S
 #1212
 The Realm of the Dead~
@@ -443,22 +443,22 @@ D0
 The hard floor seems to go on forever.
 ~
 ~
-0 -1 1212
+Z -1 1212
 D1
 The hard floor seems to go on forever.
 ~
 ~
-0 -1 1212
+Z -1 1212
 D2
 The hard floor seems to go on forever.
 ~
 ~
-0 -1 1212
+Z -1 1212
 D3
 The hard floor seems to go on forever.
 ~
 ~
-0 -1 1212
+Z -1 1212
 S
 #1213
 Asgard~
@@ -472,27 +472,27 @@ D0
 The chat room is to the north.
 ~
 ~
-0 -1 1200
+Z -1 1200
 D1
 The golden doors of Valhalla are to the east
 ~
 ~
-0 -1 1216
+Z -1 1216
 D2
 Moses' hangout is to the south.
 ~
 ~
-0 -1 1201
+Z -1 1201
 D3
 The center of the universe is to the west.
 ~
 ~
-0 -1 1202
+Z -1 1202
 D5
 The Rainbow Bridge is below you.  You can barely see it through the clouds.
 ~
 ~
-0 -1 1215
+Z -1 1215
 S
 #1214
 The Room of Lost Souls~
@@ -504,7 +504,7 @@ and cowards.  Their cries of misery send a shiver down your spine.
 D5
 ~
 ~
-0 -1 1219
+Z -1 1219
 S
 #1215
 Head of the Rainbow Bridge~
@@ -518,12 +518,12 @@ D4
 The Rainbow Bridge stretches ahead before you.
 ~
 ~
-0 -1 1220
+Z -1 1220
 D5
 The altar of Midgaard is below you.
 ~
 ~
-0 -1 3054
+Z -1 3054
 S
 #1216
 The Entrance of Valhalla~
@@ -538,12 +538,12 @@ D1
 Valhalla lies to the east.
 ~
 ~
-0 -1 1203
+Z -1 1203
 D3
 Asgard lies to the west.
 ~
 ~
-0 -1 1213
+Z -1 1213
 S
 #1217
 Valhalla~
@@ -558,27 +558,27 @@ D0
 The Satin Memorial Reading Room is north of here.
 ~
 door~
-1 -1 1207
+ABZ -1 1207
 D1
 Valhalla continues east.
 ~
 ~
-0 -1 1218
+Z -1 1218
 D2
 Bigfoots' room is south of here.
 ~
 door~
-1 -1 1210
+ABZ -1 1210
 D3
 Valhalla continues west.
 ~
 ~
-0 -1 1203
+Z -1 1203
 D4
 If you want to know what is up there you shall have to go and look...
 ~
 ~
-0 -1 1212
+Z -1 1212
 S
 #1218
 Valhalla~
@@ -597,27 +597,27 @@ D0
 Pontius' room is north of here.
 ~
 door~
-1 -1 1211
+ABZ -1 1211
 D1
 Valhalla continues east.
 ~
 ~
-0 -1 1219
+Z -1 1219
 D2
 Priscilla's Pleasure Palace is south of here.
 ~
 door~
-1 -1 1204
+ABZ -1 1204
 D3
 Valhalla continues west.
 ~
 ~
-0 -1 1217
+Z -1 1217
 D4
 If you want to know what is up there you shall have to go up and see...
 ~
 ~
-0 -1 2
+Z -1 2
 S
 #1219
 Valhalla~
@@ -631,27 +631,27 @@ D0
 Melancholys' room is north of here.
 ~
 ~
-0 -1 3161
+Z -1 3161
 D1
 Kates' room is east of here.
 ~
 ~
-0 -1 3150
+Z -1 3150
 D2
 The Temple of Stupid is south of here.
 ~
 ~
-0 -1 3170
+Z -1 3170
 D3
 Valhalla goes back to the west.
 ~
 ~
-0 -1 1218
+Z -1 1218
 D4
 If you want to know what is up from here, you shall have to go up and see...
 ~
 ~
-0 -1 1214
+Z -1 1214
 S
 #1220
 On the Rainbow Bridge~
@@ -669,12 +669,12 @@ D4
 The Rainbow Bridge continues upwards into the heavens.
 ~
 ~
-0 -1 1221
+Z -1 1221
 D5
 The Rainbow Bridge disappears down into the clouds.
 ~
 ~
-0 -1 1215
+Z -1 1215
 S
 #1221
 The End of the Rainbow Bridge~
@@ -687,12 +687,12 @@ D4
 Asgard is above you, spread out in all its glory.
 ~
 ~
-0 -1 1213
+Z -1 1213
 D5
 Bifrost, the Rainbow Bridge leads down to the Temple of Midgaard.
 ~
 ~
-0 -1 1220
+Z -1 1220
 S
 #1250
 ~

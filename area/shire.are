@@ -713,12 +713,12 @@ D0
 The dimly lit path leads north through the dense forest.
 ~
 ~
-0 -1 1101
+Z -1 1101
 D2
 The dimly lit path leads south through the light forest.
 ~
 ~
-0 -1 6000
+Z -1 6000
 S
 #1101
 A dimly lit path~
@@ -730,12 +730,12 @@ D0
 The dimly lit path leads north through the dense forest.
 ~
 ~
-0 -1 1102
+Z -1 1102
 D2
 The dimly lit path leads south through the dense forest.
 ~
 ~
-0 -1 1100
+Z -1 1100
 S
 #1102
 A dimly lit path~
@@ -748,12 +748,12 @@ D0
 The dimly lit path leads to a village.
 ~
 ~
-0 -1 1103
+Z -1 1103
 D2
 The dimly lit path leads south through the dense forest.
 ~
 ~
-0 -1 1101
+Z -1 1101
 S
 #1103
 Entrance to the Shire~
@@ -765,17 +765,17 @@ D1
 To the east runs Bywater Road.
 ~
 ~
-0 -1 1104
+Z -1 1104
 D2
 To the south you see a dimly lit path which leads to a dense forest.
 ~
 ~
-0 -1 1102
+Z -1 1102
 D3
 To the west runs Bywater Road.
 ~
 ~
-0 -1 1118
+Z -1 1118
 S
 #1104
 Bywater Road~
@@ -787,17 +787,17 @@ D0
 The general store lies to the north.
 ~
 ~
-0 -1 1105
+Z -1 1105
 D1
 To the east runs Bywater Road.
 ~
 ~
-0 -1 1106
+Z -1 1106
 D3
 To the west you see the entrance to the Shire.
 ~
 ~
-0 -1 1103
+Z -1 1103
 S
 #1105
 The General Store~
@@ -810,7 +810,7 @@ D2
 The only exit lies to the south.
 ~
 ~
-0 -1 1104
+Z -1 1104
 S
 #1106
 Bywater Road~
@@ -823,22 +823,22 @@ D0
 Steps lead to a friendly looking weaponry and armory.
 ~
 ~
-0 -1 1107
+Z -1 1107
 D1
 To the east runs Bywater Road.
 ~
 ~
-0 -1 1109
+Z -1 1109
 D2
 To the south lies Kid'n Keep, the local nursery.
 ~
 ~
-0 -1 1108
+Z -1 1108
 D3
 To the west runs Bywater Road.
 ~
 ~
-0 -1 1104
+Z -1 1104
 S
 #1107
 The House of Arms~
@@ -851,7 +851,7 @@ D2
 The only exit lies to the south.
 ~
 ~
-0 -1 1106
+Z -1 1106
 S
 #1108
 Kid'n Keep~
@@ -864,7 +864,7 @@ D0
 The only exit lies to the north.
 ~
 ~
-0 -1 1106
+Z -1 1106
 S
 #1109
 A bend in the road~
@@ -876,17 +876,17 @@ D1
 A large, imposing building lies to the east.  A sign reads 'Shiriff Post'.
 ~
 ~
-0 -1 1110
+Z -1 1110
 D2
 To the south runs Bywater Road.
 ~
 ~
-0 -1 1112
+Z -1 1112
 D3
 To the west runs Bywater Road.
 ~
 ~
-0 -1 1106
+Z -1 1106
 S
 #1110
 Shiriff Post of the Eastern Shire~
@@ -900,12 +900,12 @@ D1
 A door offers passage to the office of the Thain.
 ~
 door~
-0 0 1111
+Z 0 1111
 D3
 To the west you can see Bywater Road.
 ~
 ~
-0 -1 1109
+Z -1 1109
 S
 #1111
 Thain's Office~
@@ -919,7 +919,7 @@ D3
 A door offers passage to the Shiriff Post.
 ~
 door~
-0 0 1110
+Z 0 1110
 S
 #1112
 Bywater Road~
@@ -932,17 +932,17 @@ D0
 To the north runs Bywater Road.
 ~
 ~
-0 -1 1109
+Z -1 1109
 D1
 The Shiriff Training Grounds lies to the east.
 ~
 ~
-0 -1 1117
+Z -1 1117
 D2
 To the south runs Bywater Road.
 ~
 ~
-0 -1 1113
+Z -1 1113
 S
 #1113
 Bywater Road~
@@ -956,23 +956,23 @@ D0
 To the north runs Bywater Road.
 ~
 ~
-0 -1 1112
+Z -1 1112
 D1
 You spy the private dwelling of a Shire folk to the east.
 ~
 ~
-0 -1 1115
+Z -1 1115
 D2
 To the south you see the Ivy Bush, a favorite haunt of Shire urbanites and
 seasoned travelers.
 ~
 ~
-0 -1 1116
+Z -1 1116
 D3
 You spy the private dwelling of a Shire folk to the west.
 ~
 ~
-0 -1 1114
+Z -1 1114
 S
 #1114
 A smial~
@@ -986,7 +986,7 @@ D1
 The only exit lies to the east.
 ~
 ~
-0 -1 1113
+Z -1 1113
 S
 #1115
 A smial~
@@ -1000,7 +1000,7 @@ D3
 The only exit lies to the west.
 ~
 ~
-0 -1 1113
+Z -1 1113
 S
 #1116
 The Ivy Bush~
@@ -1014,7 +1014,7 @@ D0
 The only exit lies to the north.
 ~
 ~
-0 -1 1113
+Z -1 1113
 S
 #1117
 Shiriff Training Grounds~
@@ -1028,7 +1028,7 @@ D3
 The only exit lies to the west.
 ~
 ~
-0 -1 1112
+Z -1 1112
 S
 #1118
 Bywater Road~
@@ -1041,17 +1041,17 @@ D1
 To the east you see the entrance to the Shire.
 ~
 ~
-0 -1 1103
+Z -1 1103
 D2
 A large, imposing building lies to the south.  A sign reads 'Shiriff Post'.
 ~
 ~
-0 -1 1119
+Z -1 1119
 D3
 To the west runs Bywater Road.
 ~
 ~
-0 -1 1120
+Z -1 1120
 S
 #1119
 Shiriff Post of the Bridge~
@@ -1065,7 +1065,7 @@ D0
 The only exit is to the north.
 ~
 ~
-0 -1 1118
+Z -1 1118
 S
 #1120
 Bywater Road~
@@ -1079,22 +1079,22 @@ D0
 Brandywine Bridge offers safe passage across the tumultuous river.
 ~
 ~
-0 -1 1131
+Z -1 1131
 D1
 To the east runs Bywater Road.
 ~
 ~
-0 -1 1118
+Z -1 1118
 D2
 You see the Grocer's Delight to the south.
 ~
 ~
-0 -1 1121
+Z -1 1121
 D3
 To the west runs Bywater Road.
 ~
 ~
-0 -1 1122
+Z -1 1122
 S
 #1121
 The Grocer's Delight~
@@ -1109,7 +1109,7 @@ D0
 The only exit is to the north.
 ~
 ~
-0 -1 1120
+Z -1 1120
 S
 #1122
 Bywater Road~
@@ -1123,17 +1123,17 @@ D1
 To the east runs Bywater Road.
 ~
 ~
-0 -1 1120
+Z -1 1120
 D2
 An entrance to the watermill lies to the south.
 ~
 ~
-0 -1 1123
+Z -1 1123
 D3
 A small hill to the west blocks your view.
 ~
 ~
-0 -1 1126
+Z -1 1126
 S
 #1123
 Entrance to Watermill~
@@ -1146,12 +1146,12 @@ D0
 You see Bywater Road to the north.
 ~
 ~
-0 -1 1122
+Z -1 1122
 D2
 A watermill meets your gaze.
 ~
 ~
-0 -1 1124
+Z -1 1124
 S
 #1124
 The Watermill~
@@ -1165,12 +1165,12 @@ D0
 You see the entrance.
 ~
 ~
-0 -1 1123
+Z -1 1123
 D2
 A wooden door leads to the rear of the watermill.
 ~
 door~
-0 0 1125
+Z 0 1125
 S
 #1125
 Rear of watermill~
@@ -1183,12 +1183,12 @@ D0
 A watermill meets your gaze.
 ~
 ~
-0 -1 1124
+Z -1 1124
 D5
 A hidden portal reveals a passageway down.
 ~
 ~
-0 -1 1146
+Z -1 1146
 S
 #1126
 Took Hill~
@@ -1204,12 +1204,12 @@ D1
 To the east runs Bywater Road.
 ~
 ~
-0 -1 1122
+Z -1 1122
 D3
 You see a grassy field to the west.
 ~
 ~
-0 -1 1128
+Z -1 1128
 S
 #1127
 Northern end of grassy field~
@@ -1221,7 +1221,7 @@ D2
 You see a grassy field.
 ~
 ~
-0 -1 1128
+Z -1 1128
 S
 #1128
 A grassy field~
@@ -1235,22 +1235,22 @@ D0
 You see a grassy field.
 ~
 ~
-0 -1 1127
+Z -1 1127
 D1
 A small hill to the east blocks your view.
 ~
 ~
-0 -1 1126
+Z -1 1126
 D2
 You see a grassy field.
 ~
 ~
-0 -1 1129
+Z -1 1129
 D3
 You see a grassy field.
 ~
 ~
-0 -1 1130
+Z -1 1130
 S
 #1129
 Southern end of grassy field~
@@ -1262,7 +1262,7 @@ D0
 You see a grassy field.
 ~
 ~
-0 -1 1128
+Z -1 1128
 S
 #1130
 Western end of grassy field~
@@ -1274,7 +1274,7 @@ D1
 You see a grassy field.
 ~
 ~
-0 -1 1128
+Z -1 1128
 S
 #1131
 Brandywine Bridge~
@@ -1289,12 +1289,12 @@ D0
 You see Delving Lane.
 ~
 ~
-0 -1 1132
+Z -1 1132
 D2
 To the south runs Bywater Road.
 ~
 ~
-0 -1 1120
+Z -1 1120
 S
 #1132
 Delving Lane~
@@ -1308,17 +1308,17 @@ D0
 You see Delving Lane.
 ~
 ~
-0 -1 1133
+Z -1 1133
 D1
 The Green Dragon offers food, drink, and above all hospitality for mere gold.
 ~
 ~
-0 -1 1144
+Z -1 1144
 D2
 Brandywine Bridge offers safe passage across the tumultuous river.
 ~
 ~
-0 -1 1131
+Z -1 1131
 S
 #1133
 Delving Lane~
@@ -1331,22 +1331,22 @@ D0
 You see Delving Lane.
 ~
 ~
-0 -1 1134
+Z -1 1134
 D1
 A large, imposing building lies to the east.  A sign reads 'Shiriff Post'.
 ~
 ~
-0 -1 1145
+Z -1 1145
 D2
 You see Delving Lane.
 ~
 ~
-0 -1 1132
+Z -1 1132
 D3
 You see a grassy field.
 ~
 ~
-0 -1 1138
+Z -1 1138
 S
 #1134
 Delving Lane~
@@ -1360,12 +1360,12 @@ A large, magnificent house meets your steady gaze.  Above the round door a
 sign reads 'Bag End'.
 ~
 ~
-0 -1 1135
+Z -1 1135
 D2
 You see Delving Lane.
 ~
 ~
-0 -1 1133
+Z -1 1133
 S
 #1135
 Bag End~
@@ -1379,17 +1379,17 @@ D1
 Through the keyhole you see what looks like a well stocked pantry.
 ~
 door~
-0 -1 1137
+Z -1 1137
 D2
 You see Delving Lane.
 ~
 ~
-0 -1 1134
+Z -1 1134
 D3
 You see a bedroom.  It looks like the beds have recently been slept in.
 ~
 ~
-0 -1 1136
+Z -1 1136
 S
 #1136
 Bedroom~
@@ -1404,7 +1404,7 @@ D1
 Through the doorway you see the main room of Bag End.
 ~
 ~
-0 -1 1135
+Z -1 1135
 S
 #1137
 Pantry~
@@ -1418,12 +1418,12 @@ D3
 Beyond the door you see the main room of Bag End.
 ~
 door~
-0 -1 1135
+Z -1 1135
 D5
 It's anyone's guess as to where the trapdoor leads.
 ~
 ~
-0 -1 1156
+Z -1 1156
 S
 #1138
 A grassy field~
@@ -1436,17 +1436,17 @@ D0
 You see a large barn.
 ~
 ~
-0 -1 1142
+Z -1 1142
 D1
 You see Delving Lane.
 ~
 ~
-0 -1 1133
+Z -1 1133
 D2
 A rather large pig pen is to the south.
 ~
 ~
-0 -1 1139
+Z -1 1139
 S
 #1139
 Pig pen~
@@ -1459,12 +1459,12 @@ D0
 You see a grassy field.
 ~
 ~
-0 -1 1138
+Z -1 1138
 D3
 A small path winds its way eastward.
 ~
 ~
-0 -1 1140
+Z -1 1140
 S
 #1140
 A stony path~
@@ -1476,12 +1476,12 @@ D0
 To the north you see a modest house.
 ~
 ~
-0 -1 1141
+Z -1 1141
 D1
 A rather large pig pen is to the east.
 ~
 ~
-0 -1 1139
+Z -1 1139
 S
 #1141
 Gamgee Residence~
@@ -1496,7 +1496,7 @@ D2
 You see a small path winding its way southward.
 ~
 ~
-0 -1 1140
+Z -1 1140
 S
 #1142
 A barn~
@@ -1512,12 +1512,12 @@ D0
 You see a chicken coop to the north.
 ~
 ~
-0 -1 1143
+Z -1 1143
 D2
 You see a grassy field.
 ~
 ~
-0 -1 1138
+Z -1 1138
 S
 #1143
 A chicken coop~
@@ -1529,7 +1529,7 @@ D2
 You see a large barn.
 ~
 ~
-0 -1 1142
+Z -1 1142
 S
 #1144
 The Green Dragon~
@@ -1547,12 +1547,12 @@ D3
 You see Delving Lane.
 ~
 ~
-0 -1 1132
+Z -1 1132
 D4
 You see the reception.
 ~
 ~
-0 -1 1157
+Z -1 1157
 S
 #1145
 Shiriff Post of Delving Lane~
@@ -1566,7 +1566,7 @@ D3
 You see Delving Lane.
 ~
 ~
-0 -1 1133
+Z -1 1133
 S
 #1146
 A dark tunnel~
@@ -1579,12 +1579,12 @@ D1
 You see a dark tunnel.
 ~
 ~
-0 -1 1147
+Z -1 1147
 D4
 You see a portal which leads to a small room.
 ~
 ~
-0 -1 1125
+Z -1 1125
 S
 #1147
 A dark tunnel~
@@ -1597,12 +1597,12 @@ D1
 You see a dark tunnel.
 ~
 ~
-0 -1 1148
+Z -1 1148
 D3
 You see a dark tunnel.
 ~
 ~
-0 -1 1146
+Z -1 1146
 S
 #1148
 A dark tunnel~
@@ -1615,12 +1615,12 @@ D1
 You see a dark tunnel.
 ~
 ~
-0 -1 1149
+Z -1 1149
 D3
 You see a dark tunnel.
 ~
 ~
-0 -1 1147
+Z -1 1147
 S
 #1149
 A three way intersection~
@@ -1632,17 +1632,17 @@ D0
 You see a dark tunnel.
 ~
 ~
-0 -1 1151
+Z -1 1151
 D1
 You see a dark tunnel.
 ~
 ~
-0 -1 1150
+Z -1 1150
 D3
 You see a dark tunnel.
 ~
 ~
-0 -1 1148
+Z -1 1148
 S
 #1150
 End of a dark tunnel~
@@ -1655,12 +1655,12 @@ D3
 You see a dark tunnel.
 ~
 ~
-0 -1 1149
+Z -1 1149
 D4
 You hear the din of adventurers.
 ~
 ~
-0 -1 3001
+Z -1 3001
 S
 #1151
 A dark tunnel~
@@ -1674,22 +1674,22 @@ D0
 You see a dark tunnel.
 ~
 ~
-0 -1 1152
+Z -1 1152
 D1
 You see a halfling hole.
 ~
 ~
-0 -1 1154
+Z -1 1154
 D2
 You see a dark tunnel.
 ~
 ~
-0 -1 1149
+Z -1 1149
 D3
 Above a great oak door you see a sign which reads 'Shirriff Post'.
 ~
 ~
-0 -1 1153
+Z -1 1153
 S
 #1152
 A dark tunnel~
@@ -1702,17 +1702,17 @@ D0
 You see a dark tunnel.
 ~
 ~
-0 -1 1156
+Z -1 1156
 D2
 You see a dark tunnel.
 ~
 ~
-0 -1 1151
+Z -1 1151
 D3
 You see a halfling hole.
 ~
 ~
-0 -1 1155
+Z -1 1155
 S
 #1153
 Shiriff Post of the Lower Shire~
@@ -1726,7 +1726,7 @@ D1
 You see a dark tunnel.
 ~
 ~
-0 -1 1151
+Z -1 1151
 S
 #1154
 A halfling hole~
@@ -1739,7 +1739,7 @@ D3
 You see a dark tunnel.
 ~
 ~
-0 -1 1151
+Z -1 1151
 S
 #1155
 A halfling hole~
@@ -1752,7 +1752,7 @@ D1
 You see a dark tunnel.
 ~
 ~
-0 -1 1152
+Z -1 1152
 S
 #1156
 End of a dark tunnel~
@@ -1764,12 +1764,12 @@ D2
 You see a dark tunnel.
 ~
 ~
-0 -1 1152
+Z -1 1152
 D4
 A trapdoor on the ceiling reveals a passageway.
 ~
 ~
-0 -1 1137
+Z -1 1137
 S
 #1157
 The Inn of the Green Dragon~
@@ -1781,7 +1781,7 @@ benches and seats line the walls.  A stairway leads down.
 D5
 ~
 ~
-0 -1 1144
+Z -1 1144
 S
 #0
 

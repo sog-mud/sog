@@ -383,12 +383,12 @@ There is a boulevard to the east and Emerald Avenue is visible to the west.
 D1
 ~
 ~
-0 -1 2102
+Z -1 2102
 D3
 You can see Emerald Avenue, a much nicer place to be.
 ~
 ~
-0 -1 3119
+Z -1 3119
 S
 #2102
 Beginning of White Dragon Boulevard~
@@ -403,15 +403,15 @@ grown lot is to the south.
 D1
 ~
 ~
-0 -1 2103
+Z -1 2103
 D2
 ~
 ~
-0 -1 2109
+Z -1 2109
 D3
 ~
 ~
-0 -1 2101
+Z -1 2101
 S
 #2103
 Along White Dragon Boulevard~
@@ -424,15 +424,15 @@ east and west.
 D1
 ~
 ~
-0 -1 2104
+Z -1 2104
 D2
 ~
 ~
-0 -1 2110
+Z -1 2110
 D3
 ~
 ~
-0 -1 2102
+Z -1 2102
 S
 #2104
 White Dragon Boulevard at Armory~
@@ -444,15 +444,15 @@ leads east and west.
 D1
 ~
 ~
-0 -1 2105
+Z -1 2105
 D2
 ~
 ~
-0 -1 2111
+Z -1 2111
 D3
 ~
 ~
-0 -1 2103
+Z -1 2103
 S
 #2105
 White Dragon Blvd.~
@@ -464,11 +464,11 @@ boulevard continues east and west.
 D1
 ~
 ~
-0 -1 2106
+Z -1 2106
 D3
 ~
 ~
-0 -1 2104
+Z -1 2104
 S
 #2106
 Corner of Ice and White Dragon~
@@ -480,15 +480,15 @@ White Dragon boulevard leads east and west from here.
 D1
 ~
 ~
-0 -1 2107
+Z -1 2107
 D2
 ~
 ~
-0 -1 2113
+Z -1 2113
 D3
 ~
 ~
-0 -1 2105
+Z -1 2105
 S
 #2107
 White Dragon Boulevard~
@@ -500,11 +500,11 @@ east or west.
 D1
 ~
 ~
-0 -1 2108
+Z -1 2108
 D3
 ~
 ~
-0 -1 2106
+Z -1 2106
 S
 #2108
 Corner of Bronze and White Dragon~
@@ -515,11 +515,11 @@ boulevard heads west and Bronze Dragon street heads south.
 D2
 ~
 ~
-0 -1 2115
+Z -1 2115
 D3
 ~
 ~
-0 -1 2107
+Z -1 2107
 S
 #2109
 An over-grown lot~
@@ -531,11 +531,11 @@ weed-strewn plot of land.  The lot continues east and there is a road north.
 D0
 ~
 ~
-0 -1 2102
+Z -1 2102
 D1
 ~
 ~
-0 -1 2110
+Z -1 2110
 S
 #2110
 East end of an over-grown plot of land~
@@ -548,15 +548,15 @@ is a street to the north.
 D0
 ~
 ~
-0 -1 2103
+Z -1 2103
 D2
 ~
 ~
-0 -1 2116
+Z -1 2116
 D3
 ~
 ~
-0 -1 2109
+Z -1 2109
 S
 #2111
 Armory~
@@ -569,11 +569,11 @@ Dragon Boulevard is north.
 D0
 ~
 ~
-0 -1 2104
+Z -1 2104
 D2
 ~
 ~
-0 -1 2117
+Z -1 2117
 S
 #2112
 A Bend in the Way~
@@ -584,11 +584,11 @@ blood dried into the dirt here.
 D1
 ~
 ~
-0 -1 2113
+Z -1 2113
 D2
 ~
 ~
-0 -1 2118
+Z -1 2118
 S
 #2113
 Ice Dragon Bend~
@@ -600,15 +600,15 @@ recently.  What used to be the town Magic shop is to the east.
 D0
 ~
 ~
-0 -1 2106
+Z -1 2106
 D1
 ~
 ~
-0 -1 2114
+Z -1 2114
 D3
 ~
 ~
-0 -1 2112
+Z -1 2112
 S
 #2114
 The remains of the magic shop~
@@ -621,11 +621,11 @@ door leading to another street to the east.
 D1
 ~
 ~
-0 -1 2115
+Z -1 2115
 D3
 ~
 ~
-0 -1 2113
+Z -1 2113
 S
 #2115
 Bronze Dragon Street at wizard's back door~
@@ -636,15 +636,15 @@ remains of the magic shop is west.
 D0
 ~
 ~
-0 -1 2108
+Z -1 2108
 D2
 ~
 ~
-0 -1 2120
+Z -1 2120
 D3
 ~
 ~
-0 -1 2114
+Z -1 2114
 S
 #2116
 Dracolich Plaza~
@@ -658,11 +658,11 @@ lot of land to the north.
 D0
 ~
 ~
-0 -1 2110
+Z -1 2110
 D1
 ~
 ~
-0 -1 2117
+Z -1 2117
 S
 #2117
 Shortcut~
@@ -673,15 +673,15 @@ Dracolich Plaza is to the west and the shortcut continues south.
 D0
 ~
 ~
-0 -1 2111
+Z -1 2111
 D2
 ~
 ~
-0 -1 2121
+Z -1 2121
 D3
 ~
 ~
-0 -1 2116
+Z -1 2116
 S
 #2118
 Ice Dragon Way~
@@ -693,15 +693,15 @@ and continues south.  To the east is a courtyard.
 D0
 ~
 ~
-0 -1 2112
+Z -1 2112
 D1
 ~
 ~
-0 -1 2119
+Z -1 2119
 D2
 ~
 ~
-0 -1 2122
+Z -1 2122
 S
 #2119
 Courtyard North~
@@ -714,11 +714,11 @@ to the south and there is a road to the west.
 D2
 ~
 ~
-0 -1 2123
+Z -1 2123
 D3
 ~
 ~
-0 -1 2118
+Z -1 2118
 S
 #2120
 Bronze Dragon Street~
@@ -729,11 +729,11 @@ The gate has rusted permanently shut.  The street goes north and south.
 D0
 ~
 ~
-0 -1 2115
+Z -1 2115
 D2
 ~
 ~
-0 -1 2125
+Z -1 2125
 S
 #2121
 Shortcut~
@@ -743,11 +743,11 @@ The shortcut extends north.  There is a street to the east.
 D0
 ~
 ~
-0 -1 2117
+Z -1 2117
 D1
 ~
 ~
-0 -1 2122
+Z -1 2122
 S
 #2122
 Ice Dragon Way~
@@ -759,15 +759,15 @@ shortcut to the west that leads to Dracolich Plaza.
 D0
 ~
 ~
-0 -1 2118
+Z -1 2118
 D2
 ~
 ~
-0 -1 2127
+Z -1 2127
 D3
 ~
 ~
-0 -1 2121
+Z -1 2121
 S
 #2123
 Courtyard South~
@@ -780,11 +780,11 @@ the south.
 D0
 ~
 ~
-0 -1 2119
+Z -1 2119
 D2
 ~
 ~
-0 -1 2128
+Z -1 2128
 S
 #2124
 Old Abandoned Warehouse~
@@ -797,7 +797,7 @@ There is a wooden door barely on the hinges to the east.
 D1
 ~
 wooden door east~
-1 -1 2125
+ABZ -1 2125
 S
 #2125
 Bronze Dragon Street at Warehouse~
@@ -808,15 +808,15 @@ to a warehouse to the west.  The warehouse LOOKS abandoned. . .
 D0
 ~
 ~
-0 -1 2120
+Z -1 2120
 D2
 ~
 ~
-0 -1 2130
+Z -1 2130
 D3
 ~
 wooden door west~
-1 -1 2124
+ABZ -1 2124
 S
 #2126
 Yellow Dragon Road~
@@ -827,11 +827,11 @@ road extends east.  You enter "no-man's land" to the south.
 D1
 ~
 ~
-0 -1 2127
+Z -1 2127
 D2
 ~
 ~
-0 -1 2131
+Z -1 2131
 S
 #2127
 Yellow Dragon Road~
@@ -841,15 +841,15 @@ The road runs east and west.  Ice Dragon Way leads north from here.
 D0
 ~
 ~
-0 -1 2122
+Z -1 2122
 D1
 ~
 ~
-0 -1 2128
+Z -1 2128
 D3
 ~
 ~
-0 -1 2126
+Z -1 2126
 S
 #2128
 Yellow Dragon Road~
@@ -860,19 +860,19 @@ You enter "no man's land" to the south.
 D0
 ~
 ~
-0 -1 2123
+Z -1 2123
 D1
 ~
 ~
-0 -1 2129
+Z -1 2129
 D2
 ~
 ~
-0 -1 2133
+Z -1 2133
 D3
 ~
 ~
-0 -1 2127
+Z -1 2127
 S
 #2129
 Yellow Dragon Road~
@@ -889,15 +889,15 @@ the ogres.
 D1
 ~
 ~
-0 -1 2130
+Z -1 2130
 D2
 ~
 ~
-0 -1 2134
+Z -1 2134
 D3
 ~
 ~
-0 -1 2128
+Z -1 2128
 S
 #2130
 Yellow Dragon Road~
@@ -908,11 +908,11 @@ here but continues to the west.
 D0
 ~
 ~
-0 -1 2125
+Z -1 2125
 D3
 ~
 ~
-0 -1 2129
+Z -1 2129
 S
 #2131
 NO MAN'S LAND~
@@ -924,15 +924,15 @@ and east; or there is a street to the north.
 D0
 ~
 ~
-0 -1 2126
+Z -1 2126
 D1
 ~
 ~
-0 -1 2132
+Z -1 2132
 D2
 ~
 ~
-0 -1 2136
+Z -1 2136
 S
 #2132
 NO MAN'S LAND~
@@ -944,15 +944,15 @@ east and west.
 D1
 ~
 ~
-0 -1 2133
+Z -1 2133
 D2
 ~
 ~
-0 -1 2137
+Z -1 2137
 D3
 ~
 ~
-0 -1 2131
+Z -1 2131
 S
 #2133
 NO MAN'S LAND~
@@ -964,19 +964,19 @@ east and west; or there is a street to the north.
 D0
 ~
 ~
-0 -1 2128
+Z -1 2128
 D1
 ~
 ~
-0 -1 2134
+Z -1 2134
 D2
 ~
 ~
-0 -1 2138
+Z -1 2138
 D3
 ~
 ~
-0 -1 2132
+Z -1 2132
 S
 #2134
 NO MAN'S LAND~
@@ -988,19 +988,19 @@ east, and west; or there is a street to the north.
 D0
 ~
 ~
-0 -1 2129
+Z -1 2129
 D1
 ~
 ~
-0 -1 2135
+Z -1 2135
 D2
 ~
 ~
-0 -1 2139
+Z -1 2139
 D3
 ~
 ~
-0 -1 2133
+Z -1 2133
 S
 #2135
 NO MAN'S LAND~
@@ -1012,11 +1012,11 @@ and west.
 D2
 ~
 ~
-0 -1 2140
+Z -1 2140
 D3
 ~
 ~
-0 -1 2134
+Z -1 2134
 S
 #2136
 NO MAN'S LAND~
@@ -1028,15 +1028,15 @@ and east; or there is a street to the south.
 D0
 ~
 ~
-0 -1 2131
+Z -1 2131
 D1
 ~
 ~
-0 -1 2137
+Z -1 2137
 D2
 ~
 ~
-0 -1 2141
+Z -1 2141
 S
 #2137
 NO MAN'S LAND~
@@ -1048,15 +1048,15 @@ east and west.
 D0
 ~
 ~
-0 -1 2132
+Z -1 2132
 D1
 ~
 ~
-0 -1 2138
+Z -1 2138
 D3
 ~
 ~
-0 -1 2136
+Z -1 2136
 S
 #2138
 NO MAN'S LAND~
@@ -1068,19 +1068,19 @@ east, and west; or there is a street to the south.
 D0
 ~
 ~
-0 -1 2133
+Z -1 2133
 D1
 ~
 ~
-0 -1 2139
+Z -1 2139
 D2
 ~
 ~
-0 -1 2143
+Z -1 2143
 D3
 ~
 ~
-0 -1 2137
+Z -1 2137
 S
 #2139
 NO MAN'S LAND~
@@ -1092,15 +1092,15 @@ east, and west.
 D0
 ~
 ~
-0 -1 2134
+Z -1 2134
 D1
 ~
 ~
-0 -1 2140
+Z -1 2140
 D3
 ~
 ~
-0 -1 2138
+Z -1 2138
 S
 #2140
 NO MAN'S LAND~
@@ -1112,15 +1112,15 @@ and west; or there is a street to the south.
 D0
 ~
 ~
-0 -1 2135
+Z -1 2135
 D2
 ~
 ~
-0 -1 2145
+Z -1 2145
 D3
 ~
 ~
-0 -1 2139
+Z -1 2139
 S
 #2141
 Bend in Hector Street~
@@ -1131,15 +1131,15 @@ entrance is to the north.
 D0
 ~
 ~
-0 -1 2136
+Z -1 2136
 D1
 ~
 ~
-0 -1 2142
+Z -1 2142
 D2
 ~
 ~
-0 -1 2146
+Z -1 2146
 S
 #2142
 Hector Street at Bakery~
@@ -1151,11 +1151,11 @@ there anyways.
 D1
 ~
 ~
-0 -1 2143
+Z -1 2143
 D3
 ~
 ~
-0 -1 2141
+Z -1 2141
 S
 #2143
 Another corner of Hector and Achilles streets~
@@ -1168,19 +1168,19 @@ was recently burned down.
 D0
 ~
 ~
-0 -1 2138
+Z -1 2138
 D1
 ~
 ~
-0 -1 2144
+Z -1 2144
 D2
 ~
 ~
-0 -1 2147
+Z -1 2147
 D3
 ~
 ~
-0 -1 2142
+Z -1 2142
 S
 #2144
 Hector Street at Jeweler~
@@ -1192,11 +1192,11 @@ moment.  The street continues east and west.
 D1
 ~
 ~
-0 -1 2145
+Z -1 2145
 D3
 ~
 ~
-0 -1 2143
+Z -1 2143
 S
 #2145
 Corner of Ajax and Hector~
@@ -1208,15 +1208,15 @@ goes back west.  "No Man's Land" is to the north.
 D0
 ~
 ~
-0 -1 2140
+Z -1 2140
 D2
 ~
 ~
-0 -1 2149
+Z -1 2149
 D3
 ~
 ~
-0 -1 2144
+Z -1 2144
 S
 #2146
 Hector Street~
@@ -1228,11 +1228,11 @@ runs north and south here.
 D0
 ~
 ~
-0 -1 2141
+Z -1 2141
 D2
 ~
 ~
-0 -1 2150
+Z -1 2150
 S
 #2147
 Achilles Avenue~
@@ -1244,11 +1244,11 @@ goes south to a bend and north to an intersection.
 D0
 ~
 ~
-0 -1 2143
+Z -1 2143
 D2
 ~
 ~
-0 -1 2152
+Z -1 2152
 S
 #2148
 A small ruined chapel~
@@ -1261,7 +1261,7 @@ the east through a rusty metal door.
 D1
 ~
 rusted door metal~
-1 -1 2149
+ABZ -1 2149
 S
 #2149
 Ajax Avenue at chapel~
@@ -1273,15 +1273,15 @@ muffled sounds of screams coming from the chapel.
 D0
 ~
 ~
-0 -1 2145
+Z -1 2145
 D2
 ~
 ~
-0 -1 2154
+Z -1 2154
 D3
 ~
 rusted door metal~
-1 -1 2148
+ABZ -1 2148
 S
 #2150
 First intersection of Hector and Achilles~
@@ -1294,15 +1294,15 @@ and south, while Hector heads out to the north.
 D0
 ~
 ~
-0 -1 2146
+Z -1 2146
 D1
 ~
 ~
-0 -1 2151
+Z -1 2151
 D2
 ~
 ~
-0 -1 2156
+Z -1 2156
 S
 #2151
 Achilles Avenue~
@@ -1315,11 +1315,11 @@ continues east and west.
 D1
 ~
 ~
-0 -1 2152
+Z -1 2152
 D3
 ~
 ~
-0 -1 2150
+Z -1 2150
 S
 #2152
 A bend in the road~
@@ -1330,15 +1330,15 @@ is also a narrow alley to the south.
 D0
 ~
 ~
-0 -1 2147
+Z -1 2147
 D2
 ~
 ~
-0 -1 2157
+Z -1 2157
 D3
 ~
 ~
-0 -1 2151
+Z -1 2151
 S
 #2153
 What is left of the weaponshop~
@@ -1352,7 +1352,7 @@ out to the east leads out onto a street.
 D1
 ~
 ~
-0 -1 2154
+Z -1 2154
 S
 #2154
 Ajax street at Weaponshop (or whats left of it)~
@@ -1363,15 +1363,15 @@ east, but I bet all the horses are dead or gone.
 D0
 ~
 ~
-0 -1 2149
+Z -1 2149
 D2
 ~
 ~
-0 -1 2159
+Z -1 2159
 D3
 ~
 ~
-0 -1 2153
+Z -1 2153
 S
 #2155
 Khan Park~
@@ -1385,11 +1385,11 @@ There is a street to the east and another to the south.
 D1
 ~
 ~
-0 -1 2156
+Z -1 2156
 D2
 ~
 ~
-0 -1 2162
+Z -1 2162
 S
 #2156
 Achilles avenue at entrance to park~
@@ -1400,15 +1400,15 @@ intersection and curves to the north.
 D0
 ~
 ~
-0 -1 2150
+Z -1 2150
 D2
 ~
 ~
-0 -1 2163
+Z -1 2163
 D3
 ~
 ~
-0 -1 2155
+Z -1 2155
 S
 #2157
 A bend in Ajax~
@@ -1420,15 +1420,15 @@ is to the west but it has been crushed under its own weight.
 D0
 ~
 ~
-0 -1 2152
+Z -1 2152
 D1
 ~
 ~
-0 -1 2158
+Z -1 2158
 D2
 ~
 ~
-0 -1 2164
+Z -1 2164
 S
 #2158
 Ajax street~
@@ -1441,15 +1441,15 @@ to the east or west.
 D1
 ~
 ~
-0 -1 2159
+Z -1 2159
 D2
 ~
 ~
-0 -1 2165
+Z -1 2165
 D3
 ~
 ~
-0 -1 2157
+Z -1 2157
 S
 #2159
 Curve in the road~
@@ -1460,11 +1460,11 @@ headed southeast from here.
 D0
 ~
 ~
-0 -1 2154
+Z -1 2154
 D3
 ~
 ~
-0 -1 2158
+Z -1 2158
 S
 #2160
 A wide alleyway~
@@ -1480,12 +1480,12 @@ A street lies to the west and a major road to the east.
 D1
 ~
 ~
-0 -1 2161
+Z -1 2161
 D3
 You see the end of Elm street. Looks much safer.
 ~
 ~
-0 -1 3144
+Z -1 3144
 S
 #2161
 Alexander Road~
@@ -1499,11 +1499,11 @@ east and west.
 D1
 ~
 ~
-0 -1 2162
+Z -1 2162
 D3
 ~
 ~
-0 -1 2160
+Z -1 2160
 S
 #2162
 Alexander Street at park entrance~
@@ -1514,15 +1514,15 @@ two buildings leads to another street to the south.
 D0
 ~
 ~
-0 -1 2155
+Z -1 2155
 D2
 ~
 ~
-0 -1 2166
+Z -1 2166
 D3
 ~
 ~
-0 -1 2161
+Z -1 2161
 S
 #2163
 Achilles Avenue~
@@ -1533,11 +1533,11 @@ Ogre gang territory, and a chill goes up your spine.
 D0
 ~
 ~
-0 -1 2156
+Z -1 2156
 D2
 ~
 ~
-0 -1 2167
+Z -1 2167
 S
 #2164
 Ajax Street~
@@ -1548,11 +1548,11 @@ You wonder if it's keeping you out, or the ghouls in?
 D0
 ~
 ~
-0 -1 2157
+Z -1 2157
 D2
 ~
 ~
-0 -1 2169
+Z -1 2169
 S
 #2165
 The inn/pub~
@@ -1566,11 +1566,11 @@ to the north.
 D0
 ~
 ~
-0 -1 2158
+Z -1 2158
 D2
 ~
 ~
-0 -1 2170
+Z -1 2170
 S
 #2166
 Solomon Street~
@@ -1582,11 +1582,11 @@ buildings which leads to another street to the north.
 D0
 ~
 ~
-0 -1 2162
+Z -1 2162
 D1
 ~
 ~
-0 -1 2167
+Z -1 2167
 S
 #2167
 Intersection of Achilles and Solomon~
@@ -1597,15 +1597,15 @@ T is Achilles Avenue, starting here and winding to the north.
 D0
 ~
 ~
-0 -1 2163
+Z -1 2163
 D1
 ~
 ~
-0 -1 2168
+Z -1 2168
 D3
 ~
 ~
-0 -1 2166
+Z -1 2166
 S
 #2168
 Solomon Street~
@@ -1618,11 +1618,11 @@ evils along the road to the east and west.
 D1
 ~
 ~
-0 -1 2169
+Z -1 2169
 D3
 ~
 ~
-0 -1 2167
+Z -1 2167
 S
 #2169
 Intersection of Ajax and Solomon~
@@ -1634,15 +1634,15 @@ to the east.
 D0
 ~
 ~
-0 -1 2164
+Z -1 2164
 D1
 ~
 ~
-0 -1 2170
+Z -1 2170
 D3
 ~
 ~
-0 -1 2168
+Z -1 2168
 S
 #2170
 Hallway~
@@ -1655,11 +1655,11 @@ street to the west.
 D0
 ~
 ~
-0 -1 2165
+Z -1 2165
 D3
 ~
 ~
-0 -1 2169
+Z -1 2169
 S
 #0
 

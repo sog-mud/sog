@@ -275,11 +275,11 @@ D2
 The entrance lies just ahead of you! What are you waiting for?
 ~
 ~
-0 0 401
+Z 0 401
 D3
 ~
 ~
-0 0 3700
+Z 0 3700
 S
 #401
 Atrium of the Museum~
@@ -294,23 +294,23 @@ to the east you see the special marine section of the museum.
 D0
 The entrance to the museum.~
 ~
-0 0 400
+Z 0 400
 D1
 ~
 ~
-0 0 403
+Z 0 403
 D2
 ~
 ~
-0 0 404
+Z 0 404
 D3
 ~
 ~
-0 0 402
+Z 0 402
 D4
 ~
 ~
-0 0 413
+Z 0 413
 S
 #402
 The Hall of Chordates~
@@ -322,11 +322,11 @@ mayor of Midgaard.  This is boring, you think.
 D1
 ~
 ~
-0 0 401
+Z 0 401
 D2
 ~
 ~
-0 0 406
+Z 0 406
 S
 #403
 Under the Sea~
@@ -338,11 +338,11 @@ come out and visit you.
 D2
 ~
 ~
-0 0 408
+Z 0 408
 D3
 ~
 ~
-0 0 401
+Z 0 401
 S
 #404
 Tinsy Animal Exhibit~
@@ -353,11 +353,11 @@ them.  You sure hope they forgot to magnify the pubic lice!
 D0
 ~
 ~
-0 0 401
+Z 0 401
 D2
 ~
 ~
-0 0 405
+Z 0 405
 S
 #405
 Hall of Tinsy Things~
@@ -370,11 +370,11 @@ the exit to the south.
 D0
 ~
 ~
-0 0 404
+Z 0 404
 D2
 ~
 ~
-0 0 411
+Z 0 411
 S
 #406
 Hall of Chordates~
@@ -387,11 +387,11 @@ little more interesting.  The hall of chordates continues to the south.
 D0
 ~
 ~
-0 0 402
+Z 0 402
 D2
 ~
 ~
-0 0 407
+Z 0 407
 S
 #407
 Hall of Chordates~
@@ -403,15 +403,15 @@ more punishment on yourself.  Wait!  Over there, to the south, is the exit!
 D0
 ~
 ~
-0 0 406
+Z 0 406
 D2
 ~
 ~
-0 0 411
+Z 0 411
 D3
 ~
 cage~
-1 0 412
+ABZ 0 412
 S
 #408
 Marine Exhibit~
@@ -424,16 +424,16 @@ and the hall continues to the south.
 D0
 ~
 ~
-0 0 403
+Z 0 403
 D1
 To the east you see the shark tank.
 ~
 tank~
-1 401 409
+ABCZ 401 409
 D2
 ~
 ~
-0 0 410
+Z 0 410
 S
 #409
 The Shark Tank~
@@ -445,7 +445,7 @@ and many more sharks to play with!
 D3
 ~
 tank~
-1 401 408
+ABCZ 401 408
 S
 #410
 Marine Exhibit~
@@ -457,11 +457,11 @@ science.  Thank the Gods this stupid field trip is almost over.
 D0
 ~
 ~
-0 0 408
+Z 0 408
 D2
 ~
 ~
-0 0 411
+Z 0 411
 S
 #411
 Exit from the Museum~
@@ -474,7 +474,7 @@ M.U.D.U. arena.
 D2
 ~
 ~
-0 0 3746
+Z 0 3746
 S
 #412
 The Gorilla Cage~
@@ -485,7 +485,7 @@ You feel sorry for the guy who has to clean up after all of these gorillas.
 D1
 ~
 cage~
-1 0 407
+ABZ 0 407
 S
 #413
 Souvenire Shop~
@@ -497,7 +497,7 @@ teacher coming up the stairs to bring you back together with the class.
 D5
 ~
 ~
-0 0 401
+Z 0 401
 S
 #0
 

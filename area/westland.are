@@ -989,12 +989,12 @@ D0
 To the thick forest.
 ~
 ~
-0 0 10002
+Z 0 10002
 D2
 The long dusty trail.
 ~
 ~
-0 0 18002
+Z 0 18002
 S
 #10002
 A Clearing in the Woods.~
@@ -1011,12 +1011,12 @@ D0
 The entrance to the woods.
 ~
 ~
-0 0 10003
+Z 0 10003
 D2
 Back to the woods.
 ~
 ~
-0 0 10001
+Z 0 10001
 S
 #10003
 Welcome to Westands!~
@@ -1031,12 +1031,12 @@ D0
 Path down the road.
 ~
 ~
-0 0 10004
+Z 0 10004
 D2
 Back to the clearing.
 ~
 ~
-0 0 10002
+Z 0 10002
 S
 #10004
 A Path Down The Road.~
@@ -1050,12 +1050,12 @@ D0
 Turn in the road.
 ~
 ~
-0 0 10005
+Z 0 10005
 D2
 The road south.
 ~
 ~
-0 0 10003
+Z 0 10003
 S
 #10005
 A Turn in the Road.~
@@ -1071,12 +1071,12 @@ D2
 The road south.
 ~
 ~
-0 0 10004
+Z 0 10004
 D3
 The path to the mountains.
 ~
 ~
-0 0 10006
+Z 0 10006
 S
 #10006
 A Path to the Mountains.~
@@ -1092,12 +1092,12 @@ D1
 The path to the forest.
 ~
 ~
-0 0 10005
+Z 0 10005
 D4
 The trail up the mountain.
 ~
 ~
-0 0 10007
+Z 0 10007
 S
 #10007
 The Trail up the Mountain.~
@@ -1113,12 +1113,12 @@ D0
 The path along the cliff.
 ~
 ~
-0 0 10008
+Z 0 10008
 D5
 Back down the mountain.
 ~
 ~
-0 0 10006
+Z 0 10006
 S
 #10008
 The Edge of Upper Ven.~
@@ -1136,12 +1136,12 @@ D2
 The southern trail.
 ~
 ~
-0 0 10007
+Z 0 10007
 D5
 The trail into the forest.
 ~
 ~
-0 0 10009
+Z 0 10009
 S
 #10009
 The Trail in the Forest.~
@@ -1159,12 +1159,12 @@ D0
 The out-skirts of Hartland.
 ~
 ~
-0 0 10010
+Z 0 10010
 D4
 The trail up the mountain.
 ~
 ~
-0 0 10008
+Z 0 10008
 S
 #10010
 The Out-Skirts of Hartland.~
@@ -1183,12 +1183,12 @@ D0
 The town of Hartland.
 ~
 ~
-0 0 10011
+Z 0 10011
 D2
 Back to the woods.
 ~
 ~
-0 0 10009
+Z 0 10009
 S
 #10011
 The Town of Hartland.~
@@ -1206,12 +1206,12 @@ D0
 The fields out-side of town.
 ~
 ~
-0 0 10012
+Z 0 10012
 D2
 Back to the out-skirts of Hartland.
 ~
 ~
-0 0 10010
+Z 0 10010
 S
 #10012
 The Fields of Hartland.~
@@ -1228,12 +1228,12 @@ D0
 The path to the swamp.
 ~
 ~
-0 0 10013
+Z 0 10013
 D2
 Back to the town.
 ~
 ~
-0 0 10011
+Z 0 10011
 S
 #10013
 The Path to the Swamps.~
@@ -1252,12 +1252,12 @@ D0
 Closer to the Swamp.
 ~
 ~
-0 0 10014
+Z 0 10014
 D2
 Back to the fields.
 ~
 ~
-0 0 10012
+Z 0 10012
 S
 #10014
 Closer to the Swamps.~
@@ -1273,12 +1273,12 @@ D1
 Path at the swamp.
 ~
 ~
-0 0 10015
+Z 0 10015
 D2
 Back to the trail.
 ~
 ~
-0 0 10013
+Z 0 10013
 S
 #10015
 The Path at the swamp.~
@@ -1296,12 +1296,12 @@ D1
 Over the waters.
 ~
 ~
-0 0 10016
+Z 0 10016
 D3
 Back through the woods.
 ~
 ~
-0 0 10014
+Z 0 10014
 S
 #10016
 Over the Swamp Waters.~
@@ -1317,12 +1317,12 @@ D1
 On the island.
 ~
 ~
-0 0 10017
+Z 0 10017
 D3
 Back to the path.
 ~
 ~
-0 0 10015
+Z 0 10015
 S
 #10017
 On the Island.~
@@ -1338,12 +1338,12 @@ D1
 Over the waters heading south.
 ~
 ~
-0 0 10018
+Z 0 10018
 D3
 Back on the waters.
 ~
 ~
-0 0 10016
+Z 0 10016
 S
 #10018
 Over The Waters.~
@@ -1358,12 +1358,12 @@ D1
 On The Shore.
 ~
 ~
-0 0 10019
+Z 0 10019
 D3
 Back to the Island.
 ~
 ~
-0 0 10017
+Z 0 10017
 S
 #10019
 On The Shore Again.~
@@ -1378,12 +1378,12 @@ D1
 Trail through the woods.
 ~
 ~
-0 0 10020
+Z 0 10020
 D3
 Back on the waters.
 ~
 ~
-0 0 10018
+Z 0 10018
 S
 #10020
 The Trail Through the Woods.~
@@ -1399,12 +1399,12 @@ D1
 The entrance to the village.
 ~
 ~
-0 0 10021
+Z 0 10021
 D3
 Back to the waters.
 ~
 ~
-0 0 10019
+Z 0 10019
 S
 #10021
 The Village Gates.~
@@ -1419,12 +1419,12 @@ D1
 The Road in the Village.
 ~
 ~
-0 0 10022
+Z 0 10022
 D3
 Back to the Forest.
 ~
 ~
-0 0 10020
+Z 0 10020
 S
 #10022
 The Road Along the Village.~
@@ -1441,17 +1441,17 @@ D0
 Entrance to the bar.
 ~
 ~
-0 0 10023
+Z 0 10023
 D1
 Path to the narrows.
 ~
 ~
-0 0 10024
+Z 0 10024
 D3
 Back to the gates.
 ~
 ~
-0 0 10021
+Z 0 10021
 S
 #10023
 The Bar.~
@@ -1467,7 +1467,7 @@ D2
 Back to the road.
 ~
 ~
-0 0 10022
+Z 0 10022
 S
 #10024
 The Trail to The Narrows.~
@@ -1487,12 +1487,12 @@ D1
 The path to the Bone Womens.
 ~
 ~
-0 0 10025
+Z 0 10025
 D3
 The path to the village.
 ~
 ~
-0 0 10022
+Z 0 10022
 S
 #10025
 The Path to the Bone Woman's Shack.~
@@ -1509,17 +1509,17 @@ D0
 The Bone Womans house.
 ~
 ~
-0 0 10026
+Z 0 10026
 D1
 The path to the Narrows.
 ~
 ~
-0 0 10027
+Z 0 10027
 D3
 Back to the forest.
 ~
 ~
-0 0 10024
+Z 0 10024
 S
 #10026
 The Bone Woman's Shack.~
@@ -1537,7 +1537,7 @@ D2
 Back to the road.
 ~
 ~
-0 0 10025
+Z 0 10025
 S
 #10027
 The Narrows.~
@@ -1552,12 +1552,12 @@ D1
 The path through the narrows.
 ~
 ~
-0 0 10028
+Z 0 10028
 D3
 Back to the bone woman's for a cup of tea.
 ~
 ~
-0 0 10025
+Z 0 10025
 S
 #10028
 The Path Through The Narrows.~
@@ -1573,12 +1573,12 @@ D1
 The center of the Narrows.
 ~
 ~
-0 0 10029
+Z 0 10029
 D3
 Back to the enterance of the Narrows.
 ~
 ~
-0 0 10027
+Z 0 10027
 S
 #10029
 The Center of the Narrows.~
@@ -1594,12 +1594,12 @@ D1
 The path to the end of the Narrows.
 ~
 ~
-0 0 10030
+Z 0 10030
 D3
 The way you came.
 ~
 ~
-0 0 10028
+Z 0 10028
 S
 #10030
 Near The End of the Narrows.~
@@ -1615,12 +1615,12 @@ D1
 The end of the narrows.
 ~
 ~
-0 0 10031
+Z 0 10031
 D3
 The way you came..of course.
 ~
 ~
-0 0 10029
+Z 0 10029
 S
 #10031
 The End of The Narrows.~
@@ -1635,12 +1635,12 @@ D1
 The Azrith Plains.
 ~
 ~
-0 0 10032
+Z 0 10032
 D3
 The Narrows.
 ~
 ~
-0 0 10030
+Z 0 10030
 S
 #10032
 The Azrith Plains.~
@@ -1657,12 +1657,12 @@ D0
 The Azrith Plains.
 ~
 ~
-0 0 10033
+Z 0 10033
 D3
 The Narrows end.
 ~
 ~
-0 0 10031
+Z 0 10031
 S
 #10033
 The Path Through the Plains.~
@@ -1680,12 +1680,12 @@ D0
 The Azrith Plains.
 ~
 ~
-0 0 10034
+Z 0 10034
 D2
 The path back where you came from.
 ~
 ~
-0 0 10032
+Z 0 10032
 S
 #10034
 The Azrith Plains.~
@@ -1701,12 +1701,12 @@ D0
 To the BIG scary DRaGoN.
 ~
 ~
-0 0 10035
+Z 0 10035
 D2
 Back through the boring old plains.
 ~
 ~
-0 0 10033
+Z 0 10033
 S
 #10035
 At the BIG scary DRaGoN!~
@@ -1723,12 +1723,12 @@ D0
 The entrance to the Peoples Palace.
 ~
 ~
-0 0 10036
+Z 0 10036
 D2
 Back the way you came.
 ~
 ~
-0 0 10034
+Z 0 10034
 S
 #10036
 The Peoples Palace.~
@@ -1744,12 +1744,12 @@ D0
 The Palace.
 ~
 ~
-0 0 10038
+Z 0 10038
 D2
 The big scary DRaGoN.
 ~
 ~
-0 0 10035
+Z 0 10035
 S
 #10038
 The Long Hallway.~
@@ -1765,17 +1765,17 @@ D0
 The longer hallway.
 ~
 ~
-0 0 10041
+Z 0 10041
 D1
 The devotion room.
 ~
 ~
-0 0 10039
+Z 0 10039
 D2
 Back to the gates.
 ~
 ~
-0 0 10036
+Z 0 10036
 S
 #10039
 The Devotion Room.~
@@ -1791,12 +1791,12 @@ D0
 To the Mord-Sith room.
 ~
 ~
-0 0 10040
+Z 0 10040
 D3
 Back to the hallway.
 ~
 ~
-0 0 10038
+Z 0 10038
 S
 #10040
 The Room of the Mord-Siths.~
@@ -1811,7 +1811,7 @@ D2
 Back to the Devotion room.
 ~
 ~
-0 0 10039
+Z 0 10039
 S
 #10041
 The End of The Hallway.~
@@ -1828,12 +1828,12 @@ D0
 The Garden of Life.
 ~
 ~
-0 0 10042
+Z 0 10042
 D2
 The long hallway.
 ~
 ~
-0 0 10038
+Z 0 10038
 S
 #10042
 The Garden of Life.~
@@ -1859,7 +1859,7 @@ The only exit is south.
 D2
 ~
 ~
-0 0 10041
+Z 0 10041
 S
 #0
 

@@ -343,11 +343,11 @@ north shore of the river to your east.
 D1
 ~
 ~
-0 -1 14588
+Z -1 14588
 D3
 ~
 ~
-0 -1 9902
+Z -1 9902
 S
 #9902
 On the river~
@@ -361,11 +361,11 @@ the river.
 D1
 ~
 ~
-0 -1 9901
+Z -1 9901
 D3
 ~
 ~
-0 -1 9903
+Z -1 9903
 S
 #9903
 Westward River~
@@ -376,11 +376,11 @@ aroma of growing things is strong here in the middle of nowhere.
 D1
 ~
 ~
-0 -1 9902
+Z -1 9902
 D3
 ~
 ~
-0 -1 9904
+Z -1 9904
 S
 #9904
 Grass Ocean~
@@ -393,11 +393,11 @@ light green to golden brown.
 D1
 ~
 ~
-0 -1 9903
+Z -1 9903
 D3
 ~
 ~
-0 -1 9905
+Z -1 9905
 S
 #9905
 Small rapids~
@@ -408,11 +408,11 @@ have replaced the grasses growing along the river bank.
 D1
 ~
 ~
-0 -1 9904
+Z -1 9904
 D3
 ~
 ~
-0 -1 9906
+Z -1 9906
 S
 #9906
 Larger rapids~
@@ -424,11 +424,11 @@ to push their way towards you.
 D1
 ~
 ~
-0 -1 9905
+Z -1 9905
 D3
 ~
 ~
-0 -1 9907
+Z -1 9907
 S
 #9907
 Flowing river~
@@ -440,11 +440,11 @@ high grass waving with the day's breeze.
 D1
 ~
 ~
-0 -1 9906
+Z -1 9906
 D3
 ~
 ~
-0 -1 9908
+Z -1 9908
 S
 #9908
 River through grass~
@@ -455,11 +455,11 @@ birds flit about you because you are disturbing their habitats.
 D1
 ~
 ~
-0 -1 9907
+Z -1 9907
 D3
 ~
 ~
-0 -1 9909
+Z -1 9909
 S
 #9909
 Rushing river~
@@ -473,11 +473,11 @@ the light.
 D1
 ~
 ~
-0 -1 9908
+Z -1 9908
 D3
 ~
 ~
-0 -1 9910
+Z -1 9910
 S
 #9910
 Cutting through the grass~
@@ -489,11 +489,11 @@ in spots along the bank.
 D1
 ~
 ~
-0 -1 9909
+Z -1 9909
 D3
 ~
 ~
-0 -1 9911
+Z -1 9911
 S
 #9911
 Curving south gently~
@@ -505,11 +505,11 @@ dominates the area as it pokes it's head out of the tall grass.
 D1
 ~
 ~
-0 -1 9910
+Z -1 9910
 D3
 ~
 ~
-0 -1 9912
+Z -1 9912
 S
 #9912
 Southern turn~
@@ -522,15 +522,15 @@ north, matted grasses have been woven together into a natural wall.
 D0
 A grass wall circles this area.~
 grass~
-1 -1 9916
+ABZ -1 9916
 D1
 ~
 ~
-0 -1 9911
+Z -1 9911
 D2
 ~
 ~
-0 -1 9913
+Z -1 9913
 S
 #9913
 River going south~
@@ -542,11 +542,11 @@ feet over the river creating a set of natural caves.
 D0
 ~
 ~
-0 -1 9912
+Z -1 9912
 D3
 ~
 ~
-0 -1 9914
+Z -1 9914
 S
 #9914
 Rushing river~
@@ -558,11 +558,11 @@ terrain about you.
 D1
 ~
 ~
-0 -1 9913
+Z -1 9913
 D2
 ~
 ~
-0 -1 9915
+Z -1 9915
 S
 #9915
 South flowing river~
@@ -573,11 +573,11 @@ flows quickly in a western direction.
 D0
 ~
 ~
-0 -1 9914
+Z -1 9914
 D3
 ~
 ~
-0 -1 9796
+Z -1 9796
 S
 #9916
 Grassy landing~
@@ -589,11 +589,11 @@ grasses leads to danger.
 D0
 ~
 ~
-0 -1 9917
+Z -1 9917
 D2
 A grass wall surrounds the area.~
 grass~
-1 -1 9912
+ABZ -1 9912
 S
 #9917
 Grass pathway~
@@ -606,11 +606,11 @@ through the sea of grass surrounding you.
 D2
 A grass wall surrounds the area.~
 grass~
-0 -1 9916
+Z -1 9916
 D3
 ~
 ~
-0 -1 9918
+Z -1 9918
 S
 #9918
 Lonely Path~
@@ -622,11 +622,11 @@ voices, metal on metal, screams of agony float through grass.
 D0
 ~
 ~
-0 -1 9919
+Z -1 9919
 D1
 ~
 ~
-0 -1 9917
+Z -1 9917
 S
 #9919
 Grassy knoll~
@@ -638,11 +638,11 @@ Bald Mountain to the northeast of your present position.
 D0
 ~
 ~
-0 -1 9920
+Z -1 9920
 D2
 ~
 ~
-0 -1 9918
+Z -1 9918
 S
 #9920
 Grassy curve~
@@ -653,11 +653,11 @@ and hear other activities associated with a small village.
 D2
 ~
 ~
-0 -1 9919
+Z -1 9919
 D3
 ~
 ~
-0 -1 9921
+Z -1 9921
 S
 #9921
 Grassy tunnel~
@@ -669,11 +669,11 @@ only admit two or three persons at a time.
 D1
 ~
 ~
-0 -1 9920
+Z -1 9920
 D3
 ~
 ~
-0 -1 9922
+Z -1 9922
 S
 #9922
 Goblin Nation~
@@ -688,15 +688,15 @@ shallow waters.
 D0
 ~
 ~
-0 -1 9923
+Z -1 9923
 D1
 ~
 ~
-0 -1 9921
+Z -1 9921
 D3
 ~
 ~
-0 -1 9933
+Z -1 9933
 S
 #9923
 Grass field~
@@ -708,11 +708,11 @@ bodies and poor sanitation.
 D0
 ~
 ~
-0 -1 9924
+Z -1 9924
 D2
 ~
 ~
-0 -1 9922
+Z -1 9922
 S
 #9924
 Inbetween huts~
@@ -725,11 +725,11 @@ this hut like a dark shadow.
 D2
 ~
 ~
-0 -1 9923
+Z -1 9923
 D3
 ~
 ~
-0 -1 9925
+Z -1 9925
 S
 #9925
 Goblin village path~
@@ -741,19 +741,19 @@ has matted into a disgusting heap.
 D0
 ~
 ~
-0 -1 9927
+Z -1 9927
 D1
 ~
 ~
-0 -1 9924
+Z -1 9924
 D2
 ~
 ~
-0 -1 9926
+Z -1 9926
 D3
 ~
 ~
-0 -1 9930
+Z -1 9930
 S
 #9926
 Grass hut~
@@ -764,7 +764,7 @@ clothing and broken pottery litter the floor.
 D0
 ~
 ~
-0 -1 9925
+Z -1 9925
 S
 #9927
 Near the edge~
@@ -776,11 +776,11 @@ west and east.  That path seems to be little travelled.
 D1
 ~
 ~
-0 -1 9928
+Z -1 9928
 D2
 ~
 ~
-0 -1 9925
+Z -1 9925
 S
 #9928
 Dead grass hut~
@@ -793,7 +793,7 @@ set on fire.
 D3
 ~
 ~
-0 -1 9927
+Z -1 9927
 S
 #9929
 A blue hut~
@@ -805,7 +805,7 @@ several different fruits but blueberry is the dominant color.
 D2
 ~
 ~
-0 -1 9930
+Z -1 9930
 S
 #9930
 Grass rut~
@@ -819,19 +819,19 @@ in the sky
 D0
 ~
 ~
-0 -1 9929
+Z -1 9929
 D1
 ~
 ~
-0 -1 9925
+Z -1 9925
 D2
 ~
 ~
-0 -1 9931
+Z -1 9931
 D3
 ~
 ~
-0 -1 9940
+Z -1 9940
 S
 #9931
 Blood trail~
@@ -843,15 +843,15 @@ trail leads to the west.
 D0
 ~
 ~
-0 -1 9930
+Z -1 9930
 D2
 ~
 ~
-0 -1 9932
+Z -1 9932
 D3
 ~
 ~
-0 -1 9939
+Z -1 9939
 S
 #9932
 Village path~
@@ -863,19 +863,19 @@ by seven foot high walls of living grass.
 D0
 ~
 ~
-0 -1 9931
+Z -1 9931
 D1
 ~
 ~
-0 -1 9933
+Z -1 9933
 D2
 ~
 ~
-0 -1 9934
+Z -1 9934
 D3
 ~
 ~
-0 -1 9937
+Z -1 9937
 S
 #9933
 Crushed grass~
@@ -887,11 +887,11 @@ leading to the west.
 D1
 ~
 ~
-0 -1 9922
+Z -1 9922
 D3
 ~
 ~
-0 -1 9932
+Z -1 9932
 S
 #9934
 Barren spot~
@@ -908,15 +908,15 @@ appears to be an Elven skull.~
 D0
 ~
 ~
-0 -1 9932
+Z -1 9932
 D1
 ~
 ~
-0 -1 9936
+Z -1 9936
 D2
 ~
 ~
-0 -1 9935
+Z -1 9935
 S
 #9935
 Stick hut~
@@ -932,7 +932,7 @@ dead children of Malo Village.~
 D0
 ~
 ~
-0 -1 9934
+Z -1 9934
 S
 #9936
 Stick and grass hut~
@@ -948,7 +948,7 @@ they have been gnawed.~
 D3
 ~
 ~
-0 -1 9934
+Z -1 9934
 S
 #9937
 Rocky spot~
@@ -965,19 +965,19 @@ your feet is a huge cavern.~
 D0
 ~
 ~
-0 -1 9939
+Z -1 9939
 D1
 ~
 ~
-0 -1 9932
+Z -1 9932
 D2
 ~
 ~
-0 -1 9938
+Z -1 9938
 D3
 ~
 ~
-0 -1 9947
+Z -1 9947
 S
 #9938
 Grass hut with window~
@@ -994,7 +994,7 @@ are still embedded into the frame of the hut.~
 D0
 ~
 ~
-0 -1 9937
+Z -1 9937
 S
 #9939
 Rocky ground~
@@ -1005,15 +1005,15 @@ makes a hollow sound when you tread on it.
 D0
 ~
 ~
-0 -1 9940
+Z -1 9940
 D1
 ~
 ~
-0 -1 9931
+Z -1 9931
 D2
 ~
 ~
-0 -1 9937
+Z -1 9937
 S
 #9940
 Grassy trail~
@@ -1025,15 +1025,15 @@ view of anything beyond it.
 D1
 ~
 ~
-0 -1 9930
+Z -1 9930
 D2
 ~
 ~
-0 -1 9939
+Z -1 9939
 D3
 ~
 ~
-0 -1 9941
+Z -1 9941
 S
 #9941
 Blood splattered path~
@@ -1044,19 +1044,19 @@ of a body or the source of the blood.
 D0
 ~
 ~
-0 -1 9951
+Z -1 9951
 D1
 ~
 ~
-0 -1 9940
+Z -1 9940
 D2
 ~
 ~
-0 -1 9942
+Z -1 9942
 D3
 ~
 ~
-0 -1 9943
+Z -1 9943
 S
 #9942
 Bloody hut~
@@ -1067,7 +1067,7 @@ everywhere; on the floor, walls and ceiling.
 D0
 ~
 ~
-0 -1 9941
+Z -1 9941
 S
 #9943
 Grassy path~
@@ -1079,15 +1079,15 @@ a high grass wall which blocks that direction.
 D1
 ~
 ~
-0 -1 9941
+Z -1 9941
 D2
 ~
 ~
-0 -1 9944
+Z -1 9944
 D3
 ~
 ~
-0 -1 9948
+Z -1 9948
 S
 #9944
 Between two huts~
@@ -1099,15 +1099,15 @@ of Bald Mountain.
 D0
 ~
 ~
-0 -1 9943
+Z -1 9943
 D2
 ~
 ~
-0 -1 9946
+Z -1 9946
 D3
 ~
 ~
-0 -1 9945
+Z -1 9945
 S
 #9945
 Grass hut~
@@ -1120,7 +1120,7 @@ like beds, are lying about the floor.
 D1
 ~
 ~
-0 -1 9944
+Z -1 9944
 S
 #9946
 Southern path~
@@ -1133,11 +1133,11 @@ too far away.
 D0
 ~
 ~
-0 -1 9944
+Z -1 9944
 D1
 ~
 ~
-0 -1 9947
+Z -1 9947
 S
 #9947
 Straight path~
@@ -1148,11 +1148,11 @@ in their circuit of the village.  It is heavily patrolled.
 D1
 ~
 ~
-0 -1 9937
+Z -1 9937
 D3
 ~
 ~
-0 -1 9946
+Z -1 9946
 S
 #9948
 Grassy curve~
@@ -1164,11 +1164,11 @@ however, so continue with care.
 D0
 ~
 ~
-0 -1 9949
+Z -1 9949
 D1
 ~
 ~
-0 -1 9943
+Z -1 9943
 S
 #9949
 Northward path~
@@ -1179,15 +1179,15 @@ west is a Goblin hut while to your east is a huge grass wall.
 D0
 ~
 ~
-0 -1 9955
+Z -1 9955
 D2
 ~
 ~
-0 -1 9948
+Z -1 9948
 D3
 ~
 ~
-0 -1 9950
+Z -1 9950
 S
 #9950
 Grass hut~
@@ -1199,7 +1199,7 @@ the heat of the day.
 D1
 ~
 ~
-0 -1 9949
+Z -1 9949
 S
 #9951
 Blood spots~
@@ -1211,11 +1211,11 @@ huts to the north.
 D0
 ~
 ~
-0 -1 9952
+Z -1 9952
 D2
 ~
 ~
-0 -1 9941
+Z -1 9941
 S
 #9952
 Village path~
@@ -1227,15 +1227,15 @@ in a southern direction.
 D0
 ~
 ~
-0 -1 9953
+Z -1 9953
 D2
 ~
 ~
-0 -1 9951
+Z -1 9951
 D3
 ~
 ~
-0 -1 9954
+Z -1 9954
 S
 #9953
 Goblin hut~
@@ -1247,7 +1247,7 @@ fashioned into walls and ceiling.
 D2
 ~
 ~
-0 -1 9952
+Z -1 9952
 S
 #9954
 Dirt path~
@@ -1260,11 +1260,11 @@ no one steps on these symbols.
 D1
 ~
 ~
-0 -1 9952
+Z -1 9952
 D3
 ~
 ~
-0 -1 9955
+Z -1 9955
 S
 #9955
 Brown dirt path~
@@ -1276,19 +1276,19 @@ see a hut at the end of the dirt path.
 D0
 ~
 ~
-0 -1 9956
+Z -1 9956
 D1
 ~
 ~
-0 -1 9954
+Z -1 9954
 D2
 ~
 ~
-0 -1 9949
+Z -1 9949
 D3
 ~
 ~
-0 -1 9957
+Z -1 9957
 S
 #9956
 Wooden hut~
@@ -1304,7 +1304,7 @@ of the forbidden fruit.  She's a real siren.~
 D2
 ~
 ~
-0 -1 9955
+Z -1 9955
 S
 #9957
 Pebbles in the dirt~
@@ -1319,15 +1319,15 @@ you discover that they are teeth!~
 D0
 ~
 ~
-0 -1 9973
+Z -1 9973
 D1
 ~
 ~
-0 -1 9955
+Z -1 9955
 D3
 ~
 ~
-0 -1 9958
+Z -1 9958
 S
 #9958
 Dirty path~
@@ -1339,15 +1339,15 @@ appear to be goblin made.
 D0
 ~
 ~
-0 -1 9972
+Z -1 9972
 D1
 ~
 ~
-0 -1 9957
+Z -1 9957
 D3
 ~
 ~
-0 -1 9959
+Z -1 9959
 S
 #9959
 Village path~
@@ -1359,19 +1359,19 @@ To the south of you is a large pit.  To the west a small hut.
 D0
 ~
 ~
-0 -1 9970
+Z -1 9970
 D1
 ~
 ~
-0 -1 9958
+Z -1 9958
 D2
 ~
 ~
-0 -1 9960
+Z -1 9960
 D3
 ~
 ~
-0 -1 9967
+Z -1 9967
 S
 #9960
 Edge of the pit~
@@ -1390,11 +1390,11 @@ You cannot see the refuge from here.~
 D0
 ~
 ~
-0 -1 9959
+Z -1 9959
 D3
 ~
 ~
-0 -1 9961
+Z -1 9961
 S
 #9961
 Dirt path~
@@ -1405,15 +1405,15 @@ towards the large hut to the south of you.
 D0
 ~
 ~
-0 -1 9967
+Z -1 9967
 D1
 ~
 ~
-0 -1 9960
+Z -1 9960
 D2
 ~
 ~
-0 -1 9962
+Z -1 9962
 S
 #9962
 Westside of pit~
@@ -1433,15 +1433,15 @@ slit and his toes and fingers cut off.~
 D0
 ~
 ~
-0 -1 9961
+Z -1 9961
 D2
 ~
 ~
-0 -1 9963
+Z -1 9963
 D3
 ~
 ~
-0 -1 9966
+Z -1 9966
 S
 #9963
 Alongside the pit~
@@ -1480,11 +1480,11 @@ if the nature of the quest and the identity of this body.~
 D0
 ~
 ~
-0 -1 9962
+Z -1 9962
 D3
 ~
 ~
-0 -1 9964
+Z -1 9964
 S
 #9964
 Dirty grass path~
@@ -1495,15 +1495,15 @@ of you is a large hut, built from the wood of a sailing ship.
 D0
 ~
 ~
-0 -1 9966
+Z -1 9966
 D1
 ~
 ~
-0 -1 9963
+Z -1 9963
 D2
 ~
 ~
-0 -1 9965
+Z -1 9965
 S
 #9965
 Large wood hut~
@@ -1528,7 +1528,7 @@ shaped mountain.~
 D0
 ~
 ~
-0 -1 9964
+Z -1 9964
 S
 #9966
 Grassy patch~
@@ -1540,11 +1540,11 @@ how crudely the wall was constructed.
 D1
 ~
 ~
-0 -1 9962
+Z -1 9962
 D2
 ~
 ~
-0 -1 9964
+Z -1 9964
 S
 #9967
 Before a shack~
@@ -1556,19 +1556,19 @@ built in that direction.
 D0
 ~
 ~
-0 -1 9969
+Z -1 9969
 D1
 ~
 ~
-0 -1 9959
+Z -1 9959
 D2
 ~
 ~
-0 -1 9961
+Z -1 9961
 D3
 ~
 ~
-0 -1 9968
+Z -1 9968
 S
 #9968
 Grass hut~
@@ -1581,7 +1581,7 @@ in blood, while others look brand new.
 D1
 ~
 ~
-0 -1 9967
+Z -1 9967
 S
 #9969
 Grass path~
@@ -1595,11 +1595,11 @@ from the summit.
 D1
 ~
 ~
-0 -1 9970
+Z -1 9970
 D2
 ~
 ~
-0 -1 9967
+Z -1 9967
 S
 #9970
 Silky grass~
@@ -1610,19 +1610,19 @@ like the touch of silk thread.
 D0
 ~
 ~
-0 -1 9971
+Z -1 9971
 D1
 ~
 ~
-0 -1 9972
+Z -1 9972
 D2
 ~
 ~
-0 -1 9959
+Z -1 9959
 D3
 ~
 ~
-0 -1 9969
+Z -1 9969
 S
 #9971
 Silky grass hut~
@@ -1635,7 +1635,7 @@ breeze.
 D2
 ~
 ~
-0 -1 9970
+Z -1 9970
 S
 #9972
 Silver grass~
@@ -1647,19 +1647,19 @@ as the edge of a sword.
 D0
 ~
 ~
-0 -1 9974
+Z -1 9974
 D1
 ~
 ~
-0 -1 9973
+Z -1 9973
 D2
 ~
 ~
-0 -1 9958
+Z -1 9958
 D3
 ~
 ~
-0 -1 9970
+Z -1 9970
 S
 #9973
 Long grass~
@@ -1671,11 +1671,11 @@ small village.
 D2
 ~
 ~
-0 -1 9957
+Z -1 9957
 D3
 ~
 ~
-0 -1 9972
+Z -1 9972
 S
 #9974
 Kneehigh grass~
@@ -1686,11 +1686,11 @@ you could have easily overlooked it.
 D0
 ~
 ~
-0 -1 9975
+Z -1 9975
 D2
 ~
 ~
-0 -1 9972
+Z -1 9972
 S
 #9975
 Before a hut~
@@ -1701,15 +1701,15 @@ huts in this area appear to be very old.  Some are falling down.
 D0
 ~
 ~
-0 -1 9976
+Z -1 9976
 D1
 ~
 ~
-0 -1 9977
+Z -1 9977
 D2
 ~
 ~
-0 -1 9974
+Z -1 9974
 S
 #9976
 Stick hut~
@@ -1721,7 +1721,7 @@ other three walls have fallen.
 D2
 ~
 ~
-0 -1 9975
+Z -1 9975
 S
 #9977
 Northern path~
@@ -1732,11 +1732,11 @@ village.  Several of the huts in this area have fallen down.
 D1
 ~
 ~
-0 -1 9978
+Z -1 9978
 D3
 ~
 ~
-0 -1 9975
+Z -1 9975
 S
 #9978
 Tall grass~
@@ -1748,15 +1748,15 @@ never have guessed that this was a path.
 D0
 ~
 ~
-0 -1 9980
+Z -1 9980
 D2
 ~
 ~
-0 -1 9979
+Z -1 9979
 D3
 ~
 ~
-0 -1 9977
+Z -1 9977
 S
 #9979
 Grass hut~
@@ -1771,7 +1771,7 @@ Made by the children of Malo Village.~
 D0
 ~
 ~
-0 -1 9978
+Z -1 9978
 S
 #9980
 North path~
@@ -1783,15 +1783,15 @@ view of the grass prairie surrounding the village.
 D0
 ~
 ~
-0 -1 9981
+Z -1 9981
 D1
 ~
 ~
-0 -1 9982
+Z -1 9982
 D2
 ~
 ~
-0 -1 9978
+Z -1 9978
 S
 #9981
 Grass hut~
@@ -1802,7 +1802,7 @@ past disaster.  The floor is littered with bones.
 D2
 ~
 ~
-0 -1 9980
+Z -1 9980
 S
 #9982
 Brown grass path~
@@ -1814,15 +1814,15 @@ heated water is seaping through the ground.
 D1
 ~
 ~
-0 -1 9984
+Z -1 9984
 D2
 ~
 ~
-0 -1 9983
+Z -1 9983
 D3
 ~
 ~
-0 -1 9980
+Z -1 9980
 S
 #9983
 Small hut~
@@ -1836,7 +1836,7 @@ The hands are from several small children of different races.~
 D0
 ~
 ~
-0 -1 9982
+Z -1 9982
 S
 #9984
 Grassy path~
@@ -1847,11 +1847,11 @@ following the wall.  There are several private huts back here.
 D2
 ~
 ~
-0 -1 9985
+Z -1 9985
 D3
 ~
 ~
-0 -1 9982
+Z -1 9982
 S
 #9985
 Wall path~
@@ -1862,11 +1862,11 @@ your footing very slippery.
 D0
 ~
 ~
-0 -1 9984
+Z -1 9984
 D2
 ~
 ~
-0 -1 9986
+Z -1 9986
 S
 #9986
 Singlefile path~
@@ -1877,15 +1877,15 @@ have to travel in singlefile to get by.
 D0
 ~
 ~
-0 -1 9985
+Z -1 9985
 D1
 ~
 ~
-0 -1 9988
+Z -1 9988
 D3
 ~
 ~
-0 -1 9987
+Z -1 9987
 S
 #9987
 Grass shack~
@@ -1897,7 +1897,7 @@ were stolen from Malo Village.
 D1
 ~
 ~
-0 -1 9986
+Z -1 9986
 S
 #9988
 Tiny path~
@@ -1909,15 +1909,15 @@ your face as you walk under them.
 D1
 ~
 ~
-0 -1 9990
+Z -1 9990
 D2
 ~
 ~
-0 -1 9989
+Z -1 9989
 D3
 ~
 ~
-0 -1 9986
+Z -1 9986
 S
 #9989
 Grass shack~
@@ -1931,7 +1931,7 @@ come from?  Where are they going?  What are they doing here?
 D0
 ~
 ~
-0 -1 9988
+Z -1 9988
 S
 #9990
 Tiny grass path~
@@ -1942,15 +1942,15 @@ of the grass indicates that few Goblins come in this direction.
 D1
 ~
 ~
-0 -1 9991
+Z -1 9991
 D2
 ~
 ~
-0 -1 9992
+Z -1 9992
 D3
 ~
 ~
-0 -1 9988
+Z -1 9988
 S
 #9991
 Wooden hut~
@@ -1966,7 +1966,7 @@ which it came:   "The Squid".~
 D3
 ~
 ~
-0 -1 9990
+Z -1 9990
 S
 #9992
 Lonely path~
@@ -1977,11 +1977,11 @@ that the path enters a dark cave in the side of the mountain.
 D0
 ~
 ~
-0 -1 9990
+Z -1 9990
 D1
 ~
 ~
-0 -1 9993
+Z -1 9993
 S
 #9993
 Brown grass path~
@@ -1993,11 +1993,11 @@ Checking the ground you find that it's almost too hot to touch.
 D1
 ~
 ~
-0 -1 9994
+Z -1 9994
 D3
 ~
 ~
-0 -1 9992
+Z -1 9992
 S
 #9994
 Rocky path~
@@ -2008,11 +2008,11 @@ pushes it's way through the earth and connects to Bald Mountain.
 D1
 ~
 ~
-0 -1 9995
+Z -1 9995
 D3
 ~
 ~
-0 -1 9993
+Z -1 9993
 S
 #9995
 Mountain's shadow~
@@ -2025,15 +2025,15 @@ the Goblins built their village here.
 D0
 ~
 ~
-0 -1 9997
+Z -1 9997
 D1
 ~
 ~
-0 -1 9996
+Z -1 9996
 D3
 ~
 ~
-0 -1 9994
+Z -1 9994
 S
 #9996
 Before the cave~
@@ -2046,15 +2046,15 @@ grass dolls.
 D1
 ~
 ~
-0 -1 9999
+Z -1 9999
 D2
 ~
 ~
-0 -1 9998
+Z -1 9998
 D3
 ~
 ~
-0 -1 9995
+Z -1 9995
 S
 #9997
 Grass hut~
@@ -2065,7 +2065,7 @@ question of "where are their possessions?" comes to mind.
 D2
 ~
 ~
-0 -1 9995
+Z -1 9995
 S
 #9998
 Grass hut~
@@ -2077,7 +2077,7 @@ at the hut is hard to do...the light is so bright.
 D0
 ~
 ~
-0 -1 9996
+Z -1 9996
 S
 #9999
 Cave entrance~
@@ -2089,7 +2089,7 @@ rear of the room is a door.  A door which doesn't open.
 D3
 ~
 ~
-0 -1 9996
+Z -1 9996
 S
 #0
 

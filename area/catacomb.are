@@ -439,15 +439,15 @@ east and the main passage goes north and south.
 D0
 ~
 ~
-0 -1 2040
+Z -1 2040
 D1
 ~
 ~
-0 -1 2049
+Z -1 2049
 D2
 ~
 ~
-0 -1 2056
+Z -1 2056
 S
 #2049
 Striped tunnel~
@@ -459,11 +459,11 @@ the east.
 D1
 ~
 ~
-0 -1 2050
+Z -1 2050
 D3
 ~
 ~
-0 -1 2048
+Z -1 2048
 S
 #2050
 Prism cave~
@@ -478,19 +478,19 @@ fabled and feared Prism Dragon.
 D0
 ~
 ~
-0 -1 2044
+Z -1 2044
 D1
 ~
 ~
-0 -1 2058
+Z -1 2058
 D2
 ~
 ~
-0 -1 2057
+Z -1 2057
 D3
 ~
 ~
-0 -1 2049
+Z -1 2049
 S
 #2051
 Ruined monument~
@@ -503,15 +503,15 @@ the south.
 D0
 ~
 ~
-0 -1 2045
+Z -1 2045
 D1
 ~
 ~
-0 -1 2052
+Z -1 2052
 D2
 ~
 ~
-0 -1 2054
+Z -1 2054
 S
 #2052
 Basement~
@@ -523,11 +523,11 @@ of stairs go up into the building and a broken window leads west.
 D3
 ~
 ~
-0 -1 2051
+Z -1 2051
 D4
 ~
 ~
-0 -1 2046
+Z -1 2046
 S
 #2053
 Fresh graves~
@@ -540,11 +540,11 @@ of your neck to stand on end!
 D0
 ~
 ~
-0 -1 2047
+Z -1 2047
 D2
 ~
 ~
-0 -1 2055
+Z -1 2055
 S
 #2054
 Southern gate~
@@ -556,15 +556,15 @@ crack in the wall.
 D0
 ~
 ~
-0 -1 2051
+Z -1 2051
 D1
 ~
 ~
-0 -1 2066
+Z -1 2066
 D2
 ~
 ~
-0 -1 2059
+Z -1 2059
 S
 #2055
 Scene of ghastly horror~
@@ -576,11 +576,11 @@ undead to take over the world seem about ready to get underway.
 D0
 ~
 ~
-0 -1 2053
+Z -1 2053
 D2
 ~
 ~
-0 -1 2062
+Z -1 2062
 S
 #2056
 Twisty passage~
@@ -592,11 +592,11 @@ north is seems cold.
 D0
 ~
 ~
-0 -1 2048
+Z -1 2048
 D1
 ~
 ~
-0 -1 2057
+Z -1 2057
 S
 #2057
 Cross of caverns~
@@ -607,15 +607,15 @@ the west.  An odd twinkling comes from the cave to the north.
 D0
 ~
 ~
-0 -1 2050
+Z -1 2050
 D2
 ~
 ~
-0 -1 2066
+Z -1 2066
 D3
 ~
 ~
-0 -1 2056
+Z -1 2056
 S
 #2058
 Lonely tunnel~
@@ -626,11 +626,11 @@ a feeling you get from this tunnel.  The tunnel east and west.
 D1
 ~
 ~
-0 -1 2059
+Z -1 2059
 D3
 ~
 ~
-0 -1 2050
+Z -1 2050
 S
 #2059
 Lonely tunnel~
@@ -642,15 +642,15 @@ west and east.
 D0
 ~
 ~
-0 -1 2054
+Z -1 2054
 D1
 ~
 ~
-0 -1 2060
+Z -1 2060
 D3
 ~
 ~
-0 -1 2058
+Z -1 2058
 S
 #2060
 Bend in the lonely tunnel~
@@ -661,11 +661,11 @@ tunnel bends west and south.
 D2
 ~
 ~
-0 -1 2061
+Z -1 2061
 D3
 ~
 ~
-0 -1 2059
+Z -1 2059
 S
 #2061
 Lonely tunnel~
@@ -677,11 +677,11 @@ east is an intersection.
 D0
 ~
 ~
-0 -1 2060
+Z -1 2060
 D1
 ~
 ~
-0 -1 2062
+Z -1 2062
 S
 #2062
 Intersection~
@@ -694,15 +694,15 @@ smell a hint of fresh air.
 D0
 ~
 ~
-0 -1 2055
+Z -1 2055
 D2
 ~
 ~
-0 -1 2063
+Z -1 2063
 D3
 ~
 ~
-0 -1 2061
+Z -1 2061
 S
 #2063
 Tunnel~
@@ -713,11 +713,11 @@ far to the south you sense light and smell a fresh breeze.
 D0
 ~
 ~
-0 -1 2062
+Z -1 2062
 D2
 ~
 ~
-0 -1 2064
+Z -1 2064
 S
 #2064
 Tunnel~
@@ -728,11 +728,11 @@ could be reached to the south.
 D0
 ~
 ~
-0 -1 2063
+Z -1 2063
 D2
 ~
 ~
-0 -1 2065
+Z -1 2065
 S
 #2065
 Southern entrance to the catacombs~
@@ -750,11 +750,11 @@ from the catacombs.
 D0
 ~
 ~
-0 -1 2064
+Z -1 2064
 D4
 ~
 floorboard board~
-1 -1 6527
+ABZ -1 6527
 S
 #2066
 Unknown passage~
@@ -766,11 +766,11 @@ directions but you have a feeling that you are hopelessly lost.
 D1
 ~
 ~
-0 -1 2067
+Z -1 2067
 D2
 ~
 ~
-0 -1 2068
+Z -1 2068
 S
 #2067
 Unknown passage~
@@ -782,11 +782,11 @@ directions but you have a feeling that you are hopelessly lost.
 D2
 ~
 ~
-0 -1 2069
+Z -1 2069
 D3
 ~
 ~
-0 -1 2066
+Z -1 2066
 S
 #2068
 Unknown passage~
@@ -798,11 +798,11 @@ directions but you have a feeling that you are hopelessly lost.
 D0
 ~
 ~
-0 -1 2066
+Z -1 2066
 D1
 ~
 ~
-0 -1 2069
+Z -1 2069
 S
 #2069
 Unknown passage~
@@ -814,11 +814,11 @@ directions but you have a feeling that you are hopelessly lost.
 D0
 ~
 ~
-0 -1 2067
+Z -1 2067
 D3
 ~
 ~
-0 -1 2068
+Z -1 2068
 S
 #2001
 North entrance to the catacombs~
@@ -838,11 +838,11 @@ from the catacombs.
 D2
 ~
 ~
-0 -1 2002
+Z -1 2002
 D4
 ~
 floorboard board~
-1 -1 6524
+ABZ -1 6524
 S
 #2002
 North/south tunnel~
@@ -859,11 +859,11 @@ paint recently.~
 D0
 ~
 ~
-0 -1 2001
+Z -1 2001
 D2
 ~
 ~
-0 -1 2007
+Z -1 2007
 S
 #2003
 Weapon training area~
@@ -875,11 +875,11 @@ sturdy in fact.
 D1
 ~
 ~
-0 -1 2004
+Z -1 2004
 D2
 ~
 ~
-0 -1 2008
+Z -1 2008
 S
 #2004
 Prayer training area~
@@ -891,11 +891,11 @@ teach the ancient art of prayer to the young pages.
 D1
 ~
 ~
-0 -1 2005
+Z -1 2005
 D3
 ~
 ~
-0 -1 2003
+Z -1 2003
 S
 #2005
 Junction of hallways~
@@ -907,15 +907,15 @@ sort.  To the east the tunnel leads back into the natural catacombs.
 D1
 ~
 ~
-0 -1 2006
+Z -1 2006
 D2
 ~
 ~
-0 -1 2010
+Z -1 2010
 D3
 ~
 ~
-0 -1 2004
+Z -1 2004
 S
 #2006
 Hallway~
@@ -926,11 +926,11 @@ looks awfully dark.
 D1
 ~
 ~
-0 -1 2007
+Z -1 2007
 D3
 ~
 ~
-0 -1 2005
+Z -1 2005
 S
 #2007
 Intersection~
@@ -941,15 +941,15 @@ more natural to the south.  A passageway lined with paneling leads west.
 D0
 ~
 ~
-0 -1 2002
+Z -1 2002
 D2
 ~
 ~
-0 -1 2012
+Z -1 2012
 D3
 ~
 ~
-0 -1 2006
+Z -1 2006
 S
 #2008
 Pages' sleeping quarters~
@@ -961,11 +961,11 @@ filled with books and papers of little interest.
 D0
 ~
 ~
-0 -1 2003
+Z -1 2003
 D1
 ~
 ~
-0 -1 2009
+Z -1 2009
 S
 #2009
 Templar Knights sleeping quarters~
@@ -977,11 +977,11 @@ south wall is labelled "Elders only!".
 D2
 ~
 ~
-0 -1 2013
+Z -1 2013
 D3
 ~
 ~
-0 -1 2008
+Z -1 2008
 S
 #2010
 N/S hallway~
@@ -992,15 +992,15 @@ the east.  The decoration looks rather sparse here.
 D0
 ~
 ~
-0 -1 2005
+Z -1 2005
 D1
 ~
 ~
-0 -1 2011
+Z -1 2011
 D2
 ~
 ~
-0 0 2014
+Z 0 2014
 S
 #2011
 A Middle-aged templar's room~
@@ -1012,7 +1012,7 @@ as you can tell he would be a rank equivalent to a Sargeant.
 D3
 ~
 ~
-0 -1 2010
+Z -1 2010
 S
 #2012
 Humid, damp tunnel~
@@ -1024,11 +1024,11 @@ seems much more sterile.
 D0
 ~
 ~
-0 -1 2007
+Z -1 2007
 D2
 ~
 ~
-0 -1 2019
+Z -1 2019
 S
 #2013
 Administration room~
@@ -1046,15 +1046,15 @@ trainees are kidnapped from the villages too!
 D0
 ~
 ~
-0 -1 2009
+Z -1 2009
 D2
 ~
 ~
-0 -1 2016
+Z -1 2016
 D3
 ~
 ~
-0 -1 2069
+Z -1 2069
 S
 #2014
 N/S hallway~
@@ -1066,15 +1066,15 @@ others.
 D0
 ~
 ~
-0 -1 2010
+Z -1 2010
 D1
 ~
 ~
-0 -1 2015
+Z -1 2015
 D2
 ~
 ~
-0 -1 2017
+Z -1 2017
 S
 #2015
 Mid-level leader's room~
@@ -1086,7 +1086,7 @@ leaks.
 D3
 ~
 ~
-0 -1 2014
+Z -1 2014
 S
 #2016
 Mess hall~
@@ -1098,11 +1098,11 @@ themselves.  They truly belive that cleanliness is next to godliness.
 D0
 ~
 ~
-0 -1 2013
+Z -1 2013
 D2
 ~
 ~
-0 -1 2023
+Z -1 2023
 S
 #2017
 N/S hallway~
@@ -1114,15 +1114,15 @@ to the east looks like the lap of luxury.
 D0
 ~
 ~
-0 -1 2014
+Z -1 2014
 D1
 ~
 ~
-0 -1 2018
+Z -1 2018
 D2
 ~
 ~
-0 -1 2024
+Z -1 2024
 S
 #2018
 High officer's room~
@@ -1139,7 +1139,7 @@ with a silvery blade.
 D3
 ~
 ~
-0 -1 2017
+Z -1 2017
 S
 #2019
 Mossy intersection~
@@ -1152,15 +1152,15 @@ east.  The air is very humid and damp here.
 D0
 ~
 ~
-0 -1 2012
+Z -1 2012
 D1
 ~
 ~
-0 -1 2020
+Z -1 2020
 D2
 ~
 ~
-0 -1 2026
+Z -1 2026
 S
 #2020
 The holy grove~
@@ -1172,11 +1172,11 @@ emanates from a place somewhere to the southeast in the grove.
 D1
 ~
 ~
-0 -1 2021
+Z -1 2021
 D3
 ~
 ~
-0 -1 2019
+Z -1 2019
 S
 #2021
 The holy grove~
@@ -1189,19 +1189,19 @@ place passage way for some reason heads north.
 D0
 ~
 ~
-0 -1 2068
+Z -1 2068
 D1
 ~
 ~
-0 -1 2022
+Z -1 2022
 D2
 ~
 ~
-0 -1 2027
+Z -1 2027
 D3
 ~
 ~
-0 -1 2020
+Z -1 2020
 S
 #2022
 The holy grove~
@@ -1212,11 +1212,11 @@ somewhere.
 D2
 ~
 ~
-0 -1 2028
+Z -1 2028
 D3
 ~
 ~
-0 -1 2021
+Z -1 2021
 S
 #2023
 Mess hall~
@@ -1228,11 +1228,11 @@ to the north. A hallway is to the east.
 D0
 ~
 ~
-0 -1 2016
+Z -1 2016
 D1
 ~
 ~
-0 -1 2024
+Z -1 2024
 S
 #2024
 End of a hallway~
@@ -1243,15 +1243,15 @@ To the east lies a room which seems to glow with power and piety.
 D0
 ~
 ~
-0 -1 2017
+Z -1 2017
 D1
 ~
 ~
-0 -1 2025
+Z -1 2025
 D3
 ~
 ~
-0 -1 2023
+Z -1 2023
 S
 #2025
 Grand Templar's room~
@@ -1262,7 +1262,7 @@ rich.  There is an aura of great holiness about the room.
 D3
 ~
 ~
-0 -1 2024
+Z -1 2024
 S
 #2026
 Very dark passage~
@@ -1274,11 +1274,11 @@ darker to the south.  The passage also leads back north.
 D0
 ~
 ~
-0 -1 2019
+Z -1 2019
 D2
 ~
 ~
-0 -1 2030
+Z -1 2030
 S
 #2027
 The holy grove~
@@ -1289,11 +1289,11 @@ barely be heard.
 D0
 ~
 ~
-0 -1 2021
+Z -1 2021
 D1
 ~
 ~
-0 -1 2028
+Z -1 2028
 S
 #2028
 The holy grove~
@@ -1306,16 +1306,16 @@ to the south.
 D0
 ~
 ~
-0 -1 2022
+Z -1 2022
 D2
 a glowing forcefield with a small circular hole in it.
 ~
 glow glowing field forcefield door~
-2 2001 2032
+ABCFZ 2001 2032
 D3
 ~
 ~
-0 -1 2027
+Z -1 2027
 S
 #2029
 Very dark caveway~
@@ -1328,11 +1328,11 @@ west.
 D1
 ~
 ~
-0 -1 2030
+Z -1 2030
 D3
 ~
 ~
-0 -1 2033
+Z -1 2033
 S
 #2030
 Deep within the catacombs~
@@ -1345,15 +1345,15 @@ everywhere in the room. . ..
 D0
 ~
 ~
-0 -1 2026
+Z -1 2026
 D1
 ~
 ~
-0 -1 2031
+Z -1 2031
 D3
 ~
 ~
-0 -1 2029
+Z -1 2029
 S
 #2031
 Very dark cavern~
@@ -1364,11 +1364,11 @@ Probing with a light source seems to reveal nothing but more darkness.
 D2
 ~
 ~
-0 -1 2034
+Z -1 2034
 D3
 ~
 ~
-0 -1 2030
+Z -1 2030
 S
 #2032
 The holy place~
@@ -1382,7 +1382,7 @@ D0
 a glowing forcefield with a small circular hole in it.
 ~
 glow glowing field forcefield door~
-2 2001 2028
+ABCFZ 2001 2028
 S
 #2033
 Misty passageway~
@@ -1395,11 +1395,11 @@ The mist gets denser to the south.
 D0
 ~
 ~
-0 -1 2029
+Z -1 2029
 D2
 ~
 ~
-0 -1 2042
+Z -1 2042
 S
 #2034
 Intersection of caverns~
@@ -1412,15 +1412,15 @@ of many shiny crystals.
 D0
 ~
 ~
-0 -1 2031
+Z -1 2031
 D1
 ~
 ~
-0 -1 2035
+Z -1 2035
 D2
 ~
 ~
-0 -1 2044
+Z -1 2044
 S
 #2035
 Entrance to the burial grounds~
@@ -1433,11 +1433,11 @@ of a wraith, and the dry clanking of bones.
 D1
 ~
 ~
-0 -1 2036
+Z -1 2036
 D3
 ~
 ~
-0 -1 2034
+Z -1 2034
 S
 #2036
 The burial grounds~
@@ -1450,15 +1450,15 @@ east and west.
 D1
 ~
 ~
-0 -1 2037
+Z -1 2037
 D2
 ~
 ~
-0 -1 2045
+Z -1 2045
 D3
 ~
 ~
-0 -1 2035
+Z -1 2035
 S
 #2037
 The burial grounds~
@@ -1470,11 +1470,11 @@ that would wander near.
 D1
 ~
 ~
-0 -1 2038
+Z -1 2038
 D3
 ~
 ~
-0 -1 2036
+Z -1 2036
 S
 #2038
 The burial grounds~
@@ -1486,11 +1486,11 @@ gruesome scene.
 D1
 ~
 ~
-0 -1 2039
+Z -1 2039
 D3
 ~
 ~
-0 -1 2037
+Z -1 2037
 S
 #2039
 New graves~
@@ -1502,11 +1502,11 @@ off a bit to the south.
 D2
 ~
 ~
-0 -1 2047
+Z -1 2047
 D3
 ~
 ~
-0 -1 2038
+Z -1 2038
 S
 #2040
 Misty cavern~
@@ -1518,11 +1518,11 @@ here.  An icy wind blows from the south.
 D1
 ~
 ~
-0 -1 2041
+Z -1 2041
 D2
 ~
 ~
-0 -1 2048
+Z -1 2048
 S
 #2041
 Misty cavern~
@@ -1535,11 +1535,11 @@ walls.
 D1
 ~
 ~
-0 -1 2042
+Z -1 2042
 D3
 ~
 ~
-0 -1 2040
+Z -1 2040
 S
 #2042
 Mist cavern~
@@ -1550,15 +1550,15 @@ here despite the breeze.  The mist seems thick enough to be alive. . .
 D0
 ~
 ~
-0 -1 2033
+Z -1 2033
 D1
 ~
 ~
-0 -1 2043
+Z -1 2043
 D3
 ~
 ~
-0 -1 2041
+Z -1 2041
 S
 #2043
 Waterfall of mist~
@@ -1574,7 +1574,7 @@ The hole is much too high up for you to reach.
 D3
 ~
 ~
-0 -1 2042
+Z -1 2042
 S
 #2044
 Huge multicolored tunnel~
@@ -1585,11 +1585,11 @@ twinkling phenomenon.
 D0
 ~
 ~
-0 -1 2034
+Z -1 2034
 D2
 ~
 ~
-0 -1 2050
+Z -1 2050
 S
 #2045
 Desolate ruins~
@@ -1602,7 +1602,7 @@ tombs of soldiers, now a battleground for the undead.
 D2
 ~
 ~
-0 -1 2051
+Z -1 2051
 S
 #2046
 Curators place~
@@ -1619,11 +1619,11 @@ Surprisingly the stairs look sturdy enough.
 D1
 ~
 ~
-0 -1 2047
+Z -1 2047
 D5
 ~
 ~
-0 -1 2052
+Z -1 2052
 S
 #2047
 Fresh graves~
@@ -1635,15 +1635,15 @@ further to the south.
 D0
 ~
 ~
-0 -1 2039
+Z -1 2039
 D2
 ~
 ~
-0 -1 2053
+Z -1 2053
 D3
 ~
 ~
-0 -1 2046
+Z -1 2046
 S
 #0
 

@@ -2875,23 +2875,23 @@ runs past the Temple.
 D0
 The Interior of the Temple~
 ~
-0 0 31001
+Z 0 31001
 D1
 Victory Parade East~
 ~
-0 -1 31005
+Z -1 31005
 D2
 Glory Avenue~
 ~
-0 -1 31004
+Z -1 31004
 D3
 Victory Parade West~
 ~
-0 -1 31003
+Z -1 31003
 D5
 The Chamber of Donations~
 ~
-0 -1 31002
+Z -1 31002
 S
 #31001
 The Interior of the Temple~
@@ -2908,11 +2908,11 @@ if you look at him.
 D1
 ~
 ~
-0 -1 5216
+Z -1 5216
 D2
 The Temple of Anon~
 ~
-0 0 31000
+Z 0 31000
 S
 #31002
 The Chamber of Donations~
@@ -2927,19 +2927,19 @@ punishment. There is a small sign here.
 D1
 Weapon Donations~
 ~
-0 -1 31164
+Z -1 31164
 D2
 Armor Donations~
 ~
-0 -1 31163
+Z -1 31163
 D3
 Magical Donations~
 ~
-0 -1 31165
+Z -1 31165
 D4
 The Temple of Anon~
 ~
-0 -1 31000
+Z -1 31000
 S
 #31003
 Victory Parade West~
@@ -2952,11 +2952,11 @@ directly to the east of here.
 D1
 The Temple of Anon~
 ~
-0 -1 31000
+Z -1 31000
 D3
 Victory Parade West~
 ~
-0 -1 31006
+Z -1 31006
 S
 #31004
 Glory Avenue~
@@ -2970,20 +2970,20 @@ To the west lies a locksmith while to the east you can see a bookshop.
 D0
 The Temple of Anon~
 ~
-0 -1 31000
+Z -1 31000
 D1
 The Book Shoppe.
 ~
 ~
-1 0 31321
+ABZ 0 31321
 D2
 Glory Avenue~
 ~
-0 -1 31007
+Z -1 31007
 D3
 The Locksmith.~
 ~
-1 0 31322
+ABZ 0 31322
 S
 #31005
 Victory Parade East~
@@ -2996,11 +2996,11 @@ guards. Stalwart Lane cuts across Victory Parade directly east of here.
 D1
 Victory Parade East~
 ~
-0 -1 31008
+Z -1 31008
 D3
 The Temple of Anon~
 ~
-0 -1 31000
+Z -1 31000
 S
 #31006
 An Intersection in Victory Parade West~
@@ -3013,19 +3013,19 @@ both directions are the distinctive walls of Guildhalls.
 D0
 Liberty Lane~
 ~
-0 -1 31038
+Z -1 31038
 D1
 Victory Parade West~
 ~
-0 -1 31003
+Z -1 31003
 D2
 Liberty Lane~
 ~
-0 -1 31040
+Z -1 31040
 D3
 Victory Parade West~
 ~
-0 -1 31009
+Z -1 31009
 S
 #31007
 Corner of Valiant Street and Glory Avenue~
@@ -3037,19 +3037,19 @@ and west, while Glory Avenue runs south toward the Dryads' Guild.
 D0
 Glory Avenue~
 ~
-0 -1 31004
+Z -1 31004
 D1
 Valiant Street~
 ~
-0 -1 31067
+Z -1 31067
 D2
 Glory Avenue~
 ~
-0 -1 31010
+Z -1 31010
 D3
 Valiant Street~
 ~
-0 -1 31065
+Z -1 31065
 S
 #31008
 Corner of Stalwart Lane and Victory Parade East~
@@ -3062,19 +3062,19 @@ of here.
 D0
 Liberty Lane~
 ~
-0 -1 31042
+Z -1 31042
 D1
 Victory Parade East~
 ~
-0 -1 31011
+Z -1 31011
 D2
 Liberty Lane~
 ~
-0 -1 31044
+Z -1 31044
 D3
 Victory Parade East~
 ~
-0 -1 31005
+Z -1 31005
 S
 #31009
 Victory Parade West~
@@ -3090,19 +3090,19 @@ can see the Artificer's workshop.
 D0
 Alix the Thaumaturgist can be seen disposing of cursed items.~
 ~
-0 -1 31199
+Z -1 31199
 D1
 Victory Parade West~
 ~
-0 -1 31006
+Z -1 31006
 D2
 Clea the Artificer is reclining on a couch, while she enchants a stave.~
 ~
-0 -1 31320
+Z -1 31320
 D3
 Victory Parade West~
 ~
-0 -1 31012
+Z -1 31012
 S
 #31010
 Glory Avenue~
@@ -3115,11 +3115,11 @@ ever awed by its size and beauty.
 D0
 Glory Avenue~
 ~
-0 -1 31007
+Z -1 31007
 D2
 Outside the Dryad Guild~
 ~
-0 -1 31034
+Z -1 31034
 S
 #31011
 Victory Parade East~
@@ -3138,15 +3138,15 @@ To the south you can see Thom the Enhancer's place of business.
 D1
 Victory Parade East~
 ~
-0 -1 31013
+Z -1 31013
 D2
 ~
 ~
-0 -1 31323
+Z -1 31323
 D3
 Victory Parade East~
 ~
-0 -1 31008
+Z -1 31008
 S
 #31012
 Victory Parade West~
@@ -3161,15 +3161,15 @@ A small cafe lies to the north.
 D0
 ~
 ~
-0 -1 31191
+Z -1 31191
 D1
 Victory Parade West~
 ~
-0 -1 31009
+Z -1 31009
 D3
 Victory Parade West~
 ~
-0 -1 31014
+Z -1 31014
 S
 #31013
 Victory Parade East~
@@ -3185,15 +3185,15 @@ from the Locksmith to get in, though.
 D1
 Victory Parade East~
 ~
-0 -1 31015
+Z -1 31015
 D2
 ~
 ~
-0 31085 31195
+Z 31085 31195
 D3
 Victory Parade East~
 ~
-0 -1 31011
+Z -1 31011
 S
 #31014
 Approaching Gate at Victory Parade West~
@@ -3205,11 +3205,11 @@ of residences and shops is nearer to the Temple.
 D1
 Victory Parade West~
 ~
-0 -1 31012
+Z -1 31012
 D3
 The Victory Parade West Gate~
 ~
-0 -1 31016
+Z -1 31016
 S
 #31015
 Approaching Gate at Victory Parade East~
@@ -3223,11 +3223,11 @@ the Temple.
 D1
 The Victory Parade East Gate~
 ~
-0 -1 31017
+Z -1 31017
 D3
 Victory Parade East~
 ~
-0 -1 31013
+Z -1 31013
 S
 #31016
 Inside the Victory Parade West Gate~
@@ -3245,19 +3245,19 @@ gatehouse.
 D0
 ~
 ~
-1 0 31200
+ABZ 0 31200
 D1
 Victory Parade West~
 ~
-0 -1 31014
+Z -1 31014
 D2
 ~
 ~
-1 0 31201
+ABZ 0 31201
 D3
 Outside the Gates~
 ~
-0 31000 31018
+Z 31000 31018
 S
 #31017
 Inside the Victory Parade East Gate~
@@ -3275,19 +3275,19 @@ gatehouse.
 D0
 ~
 ~
-1 0 31212
+ABZ 0 31212
 D1
 Outside the Gates~
 ~
-0 31000 31019
+Z 31000 31019
 D2
 ~
 ~
-1 0 31213
+ABZ 0 31213
 D3
 Victory Parade East~
 ~
-0 -1 31015
+Z -1 31015
 S
 #31018
 Outside the Victory Parade West Gate~
@@ -3303,19 +3303,19 @@ Paths lead to the north, south and west.
 D0
 The Circuit Road~
 ~
-0 -1 31020
+Z -1 31020
 D1
 Victory Parade West~
 ~
-0 31000 31016
+Z 31000 31016
 D2
 The Circuit Road~
 ~
-0 -1 31033
+Z -1 31033
 D3
 ~
 ~
-0 -1 24118
+Z -1 24118
 S
 #31019
 Outside the Victory Parade East Gate~
@@ -3331,19 +3331,19 @@ Paths lead to the north, south and east.
 D0
 The Circuit Road~
 ~
-0 -1 31026
+Z -1 31026
 D1
 Dark Passage~
 ~
-0 -1 9588
+Z -1 9588
 D2
 The Circuit Road~
 ~
-0 -1 31027
+Z -1 31027
 D3
 Victory Parade East~
 ~
-0 31000 31017
+Z 31000 31017
 S
 #31020
 The Circuit Road~
@@ -3355,11 +3355,11 @@ bypass the city on their travels.
 D0
 Northwest Corner of the City~
 ~
-0 -1 31021
+Z -1 31021
 D2
 Outside the Victory Parade West Gates~
 ~
-0 -1 31018
+Z -1 31018
 S
 #31021
 Northwest Corner of the Circuit Road~
@@ -3371,11 +3371,11 @@ travellers who wish to bypass the city on their journeys.
 D1
 The Circuit Road~
 ~
-0 -1 31022
+Z -1 31022
 D2
 The Circuit Road~
 ~
-0 -1 31020
+Z -1 31020
 S
 #31022
 The Circuit Road~
@@ -3387,11 +3387,11 @@ bypass the city on their travels.
 D1
 A Path to the Plains~
 ~
-0 -1 31023
+Z -1 31023
 D3
 Northwest corner of the Circuit Road~
 ~
-0 -1 31021
+Z -1 31021
 S
 #31023
 A Path to the Plains~
@@ -3402,11 +3402,11 @@ magnificent Temple of Anon, towering above all else.
 D1
 The Circuit Road~
 ~
-0 -1 31024
+Z -1 31024
 D3
 The Circuit Road~
 ~
-0 -1 31022
+Z -1 31022
 S
 #31024
 The Circuit Road~
@@ -3418,11 +3418,11 @@ bypass the city on their travels.
 D1
 Northeast Corner of the Circuit Road~
 ~
-0 -1 31025
+Z -1 31025
 D3
 A Path to the Plains~
 ~
-0 -1 31023
+Z -1 31023
 S
 #31025
 Northeast Corner of the Circuit Road~
@@ -3434,11 +3434,11 @@ travellers who wish to bypass the city on their journeys.
 D2
 The Circuit Road~
 ~
-0 -1 31026
+Z -1 31026
 D3
 The Circuit Road~
 ~
-0 -1 31024
+Z -1 31024
 S
 #31026
 The Circuit Road~
@@ -3450,11 +3450,11 @@ bypass the city on their travels.
 D0
 Northeast Corner of the City~
 ~
-0 -1 31025
+Z -1 31025
 D2
 Outside the Victory Parade East Gates~
 ~
-0 -1 31019
+Z -1 31019
 S
 #31027
 The Circuit Road~
@@ -3466,11 +3466,11 @@ bypass the city on their travels.
 D0
 Outside the Victory Parade East Gates~
 ~
-0 -1 31019
+Z -1 31019
 D2
 Southeast Corner of the City~
 ~
-0 -1 31028
+Z -1 31028
 S
 #31028
 Southeast Corner of the Circuit Road~
@@ -3484,15 +3484,15 @@ The Anon Dock lies south of here.
 D0
 The Circuit Road~
 ~
-0 -1 31027
+Z -1 31027
 D2
 The dock of Anon~
 ~
-0 -1 31275
+Z -1 31275
 D3
 The Circuit Road~
 ~
-0 -1 31029
+Z -1 31029
 S
 #31029
 The Circuit Road~
@@ -3504,11 +3504,11 @@ bypass the city on their travels.
 D1
 southeast Corner of the Circuit Road~
 ~
-0 -1 31028
+Z -1 31028
 D3
 A Path to the South~
 ~
-0 -1 31030
+Z -1 31030
 S
 #31030
 A Path to the South~
@@ -3520,11 +3520,11 @@ appears to reflect off something that could be water.
 D1
 The Circuit Road~
 ~
-0 -1 31029
+Z -1 31029
 D3
 The Circuit Road~
 ~
-0 -1 31031
+Z -1 31031
 S
 #31031
 The Circuit Road~
@@ -3536,11 +3536,11 @@ bypass the city on their travels.
 D1
 A Path to the South~
 ~
-0 -1 31030
+Z -1 31030
 D3
 Southwest Corner of the Circuit Road~
 ~
-0 -1 31032
+Z -1 31032
 S
 #31032
 Southwest Corner of the Circuit Road~
@@ -3552,11 +3552,11 @@ travellers who wish to bypass the city on their journeys.
 D0
 The Circuit Road~
 ~
-0 -1 31033
+Z -1 31033
 D1
 The Circuit Road~
 ~
-0 -1 31031
+Z -1 31031
 S
 #31033
 The Circuit Road~
@@ -3568,11 +3568,11 @@ bypass the city on their travels.
 D0
 Outside the Victory Parade West Gates~
 ~
-0 -1 31018
+Z -1 31018
 D2
 The Circuit Road~
 ~
-0 -1 31032
+Z -1 31032
 S
 #31034
 Outside the Dryad Guild~
@@ -3585,11 +3585,11 @@ enter at any time.
 D0
 Glory Avenue~
 ~
-0 -1 31010
+Z -1 31010
 D2
 Inside the Dryad Guild~
 ~
-0 0 31035
+Z 0 31035
 S
 #31035
 Inside the Dryad Guild~
@@ -3606,15 +3606,15 @@ A pleasant-looking garden lies to the south.
 D0
 Outside the Dryad Guild~
 ~
-0 0 31034
+Z 0 31034
 D1
 The Dryad Bar~
 ~
-0 -1 31037
+Z -1 31037
 D3
 The Guildmaster~
 ~
-0 -1 31036
+Z -1 31036
 S
 #31036
 The Guildmaster~
@@ -3628,7 +3628,7 @@ Guildmaster.
 D1
 Inside the Dryad Guild~
 ~
-0 -1 31035
+Z -1 31035
 S
 #31037
 The Dryad Bar~
@@ -3641,7 +3641,7 @@ a few of which are currently filled.
 D3
 Inside the Dryad Guild~
 ~
-0 -1 31035
+Z -1 31035
 S
 #31038
 Liberty Lane~
@@ -3653,15 +3653,15 @@ office is to the west.
 D0
 Justice Street~
 ~
-0 -1 31046
+Z -1 31046
 D2
 Victory Parade~
 ~
-0 -1 31006
+Z -1 31006
 D3
 Castellan's Office~
 ~
-0 0 31039
+Z 0 31039
 S
 #31039
 The Castellan's Office~
@@ -3673,7 +3673,7 @@ job, too.
 D1
 Liberty Lane~
 ~
-0 0 31038
+Z 0 31038
 S
 #31040
 Liberty Lane~
@@ -3686,15 +3686,15 @@ and above it a fish and chips shop.
 D0
 Victory Parade~
 ~
-0 -1 31006
+Z -1 31006
 D2
 Corner of Liberty Lane and Valiant Street~
 ~
-0 -1 31062
+Z -1 31062
 D3
 The Smithy~
 ~
-0 -1 31041
+Z -1 31041
 S
 #31041
 The Smithy~
@@ -3711,11 +3711,11 @@ There is a chippy upstairs from here.
 D1
 Liberty Lane~
 ~
-0 -1 31040
+Z -1 31040
 D4
 Chippy~
 ~
-0 -1 31190
+Z -1 31190
 S
 #31042
 Stalwart Lane~
@@ -3727,15 +3727,15 @@ Street. There is an armory to the east here.
 D0
 Corner of Justice Street and Stalwart Lane~
 ~
-0 -1 31054
+Z -1 31054
 D1
 The Armory~
 ~
-0 -1 31043
+Z -1 31043
 D2
 Victory Parade~
 ~
-0 -1 31008
+Z -1 31008
 S
 #31043
 The Armory~
@@ -3748,7 +3748,7 @@ or on racks. If you don't know what to do, try looking at the armorer.
 D3
 Stalwart Lane~
 ~
-0 -1 31042
+Z -1 31042
 S
 #31044
 Stalwart Lane~
@@ -3761,15 +3761,15 @@ Weaponsmith directly east of here.
 D0
 Victory Parade~
 ~
-0 -1 31008
+Z -1 31008
 D1
 The Weaponsmith~
 ~
-0 -1 31045
+Z -1 31045
 D2
 Corner of Stalwart Lane and Valiant Street~
 ~
-0 -1 31069
+Z -1 31069
 S
 #31045
 The Weaponsmith~
@@ -3782,7 +3782,7 @@ If you are rather lost, try looking at him for help.
 D3
 Liberty Lane~
 ~
-0 -1 31044
+Z -1 31044
 S
 #31046
 Corner of Liberty Lane and Justice Street~
@@ -3794,19 +3794,19 @@ dark lane runs to the west.
 D0
 mercenaries~
 ~
-0 -1 31047
+Z -1 31047
 D1
 Justice Street~
 ~
-0 -1 31049
+Z -1 31049
 D2
 Liberty Lane~
 ~
-0 -1 31038
+Z -1 31038
 D3
 Illithid Guild~
 ~
-0 -1 31086
+Z -1 31086
 S
 #31047
 Mercenaries Unlimited~
@@ -3817,7 +3817,7 @@ grunts as you enter. If you don't know what to do, try looking at him.
 D2
 Justice Street~
 ~
-0 -1 31046
+Z -1 31046
 S
 #31048
 Merc Store~
@@ -3843,15 +3843,15 @@ Lane. There is a Magic Shop directly north of here.
 D0
 The Magic Shop~
 ~
-0 -1 31050
+Z -1 31050
 D1
 Corner of Honor Avenue and Justice Street~
 ~
-0 -1 31051
+Z -1 31051
 D3
 Corner of Justice Street and Liberty Lane~
 ~
-0 -1 31046
+Z -1 31046
 S
 #31050
 The Magic Shop~
@@ -3865,7 +3865,7 @@ looking at her.
 D2
 Justice Street~
 ~
-0 -1 31049
+Z -1 31049
 S
 #31051
 Corner of Honor Avenue and Justice Street~
@@ -3879,15 +3879,15 @@ of the city.
 D0
 Honor Avenue~
 ~
-0 -1 31057
+Z -1 31057
 D1
 Justice Street~
 ~
-0 -1 31052
+Z -1 31052
 D3
 Justice Street~
 ~
-0 -1 31049
+Z -1 31049
 S
 #31052
 Justice Street~
@@ -3900,15 +3900,15 @@ important-looking building with a large sign that reads - "Mitzak the Sage".
 D0
 The Sage~
 ~
-0 -1 31053
+Z -1 31053
 D1
 Corner of Honor Avenue and Justice Street~
 ~
-0 -1 31054
+Z -1 31054
 D3
 Justice Street~
 ~
-0 -1 31051
+Z -1 31051
 S
 #31053
 The Sage's Residence~
@@ -3922,7 +3922,7 @@ works, try looking at him.
 D2
 Justice Street~
 ~
-0 -1 31052
+Z -1 31052
 S
 #31054
 Justice Street~
@@ -3935,19 +3935,19 @@ north. Stalwart Lane leads south out of the square, running past more shops.
 D0
 The Pet Shop~
 ~
-0 -1 31055
+Z -1 31055
 D1
 Justice Street~
 ~
-0 -1 31093
+Z -1 31093
 D2
 Stalwart Lane~
 ~
-0 -1 31042
+Z -1 31042
 D3
 Justice Street~
 ~
-0 -1 31052
+Z -1 31052
 S
 #31055
 The Pet Shop~
@@ -3960,7 +3960,7 @@ are his pride and joy. To see what to do next, try looking at the owner.
 D2
 Justice Street~
 ~
-0 -1 31054
+Z -1 31054
 S
 #31056
 Pet Store Storage~
@@ -3987,11 +3987,11 @@ Elven Guild, and beyond that loom the cyclopean city walls.
 D0
 The Elven Guild~
 ~
-0 -1 31058
+Z -1 31058
 D2
 Corner of Honor Avenue and Justice Street~
 ~
-0 -1 31051
+Z -1 31051
 S
 #31058
 The Elven Guild~
@@ -4004,15 +4004,15 @@ while downstairs is the Elven Bar.
 D2
 Honor Avenue~
 ~
-0 -1 31057
+Z -1 31057
 D4
 The Offices of the Guild~
 ~
-0 -1 31059
+Z -1 31059
 D5
 The Elven Bar~
 ~
-0 -1 31061
+Z -1 31061
 S
 #31059
 The Offices of the Guild~
@@ -4026,11 +4026,11 @@ office of the Guildmaster himself, while downstairs is the entrance.
 D4
 The Office of the Guildmaster~
 ~
-0 -1 31060
+Z -1 31060
 D5
 The Elven Guild~
 ~
-0 -1 31058
+Z -1 31058
 S
 #31060
 The Office of the Elven Guildmaster~
@@ -4045,7 +4045,7 @@ try looking at him.
 D5
 The offices of the guild~
 ~
-0 -1 31059
+Z -1 31059
 S
 #31061
 The Elven Bar~
@@ -4058,7 +4058,7 @@ sober.
 D4
 The Elven Guild~
 ~
-0 -1 31058
+Z -1 31058
 S
 #31062
 The Corner of Liberty Lane and Valiant Street~
@@ -4070,19 +4070,19 @@ There is a Bank to the south.
 D0
 Liberty Lane~
 ~
-0 -1 31040
+Z -1 31040
 D1
 Valiant Street~
 ~
-0 -1 31065
+Z -1 31065
 D2
 The Bank~
 ~
-0 -1 31063
+Z -1 31063
 D3
 Valiant Street~
 ~
-0 -1 31072
+Z -1 31072
 S
 #31063
 The Bank~
@@ -4096,11 +4096,11 @@ are located.
 D0
 Corner of Valiant Street and Liberty Lane~
 ~
-0 -1 31062
+Z -1 31062
 D4
 The ATM~
 ~
-0 -1 31064
+Z -1 31064
 S
 #31064
 The ATM~
@@ -4131,7 +4131,7 @@ A sign says-
 D5
 The Bank~
 ~
-0 -1 31063
+Z -1 31063
 S
 #31065
 Valiant Street~
@@ -4143,15 +4143,15 @@ Store.
 D1
 Corner of Valiant Street and Glory Avenue~
 ~
-0 -1 31007
+Z -1 31007
 D2
 The Grocery Store~
 ~
-0 -1 31066
+Z -1 31066
 D3
 Corner of Valiant Street and Liberty Lane~
 ~
-0 -1 31062
+Z -1 31062
 S
 #31066
 The Grocery Store~
@@ -4165,7 +4165,7 @@ negotiate a transaction, simply look at the grocer.
 D0
 Valiant Street~
 ~
-0 -1 31065
+Z -1 31065
 S
 #31067
 Valiant Street~
@@ -4177,15 +4177,15 @@ from which a delicious aroma wafts.
 D1
 Corner of Stalwart Street and Glory Avenue~
 ~
-0 -1 31069
+Z -1 31069
 D2
 The Bakery~
 ~
-0 -1 31068
+Z -1 31068
 D3
 Corner of Valiant Street and Glory Avenue~
 ~
-0 -1 31007
+Z -1 31007
 S
 #31068
 The Bakery~
@@ -4200,7 +4200,7 @@ entire nation. If you don't know what to do next, try looking at the Dwarf
 D0
 Valiant Street~
 ~
-0 -1 31067
+Z -1 31067
 S
 #31069
 The Corner of Stalwart Lane and Valiant Street~
@@ -4212,19 +4212,19 @@ There is a seedy-looking Bar to the south.
 D0
 Stalwart Lane~
 ~
-0 -1 31044
+Z -1 31044
 D1
 Valiant Street~
 ~
-0 -1 31079
+Z -1 31079
 D2
 The Bar~
 ~
-0 -1 31070
+Z -1 31070
 D3
 Valiant Street~
 ~
-0 -1 31067
+Z -1 31067
 S
 #31070
 The Bar~
@@ -4237,11 +4237,11 @@ at him. Private booths are available to the south.
 D0
 Corner of Valiant Street and Stalwart Lane~
 ~
-0 -1 31069
+Z -1 31069
 D2
 Private Booths~
 ~
-0 -1 31071
+Z -1 31071
 S
 #31071
 Private Booths~
@@ -4254,7 +4254,7 @@ as powerful magics prevent it.
 D0
 The Bar~
 ~
-0 -1 31070
+Z -1 31070
 S
 #31072
 Valiant Street~
@@ -4266,11 +4266,11 @@ continues east and west.
 D1
 Corner of Valiant Street and Liberty Lane~
 ~
-0 -1 31062
+Z -1 31062
 D3
 Valiant Street~
 ~
-0 -1 31073
+Z -1 31073
 S
 #31073
 Valiant Street~
@@ -4282,11 +4282,11 @@ continues east and west.
 D1
 Valiant Street~
 ~
-0 -1 31072
+Z -1 31072
 D3
 A Bend in Valiant Street~
 ~
-0 -1 31074
+Z -1 31074
 S
 #31074
 A Bend in Valiant Street~
@@ -4299,11 +4299,11 @@ A new stable has been built to the west of here. Go have a look!
 D1
 Valiant Street~
 ~
-0 -1 31073
+Z -1 31073
 D2
 Outside the Dungeon~
 ~
-0 -1 31075
+Z -1 31075
 S
 #31075
 Outside the Dungeon~
@@ -4315,11 +4315,11 @@ looms the impressive mini-fortress that is the Dwarven Guild.
 D0
 Valiant Street~
 ~
-0 -1 31074
+Z -1 31074
 D2
 The Dwarven Guild~
 ~
-0 0 31076
+Z 0 31076
 S
 #31076
 The Dwarven Guild~
@@ -4332,15 +4332,15 @@ to the south.
 D0
 Valiant Street~
 ~
-0 0 31075
+Z 0 31075
 D1
 The Dwarven Bar~
 ~
-0 -1 31078
+Z -1 31078
 D2
 The Guildmaster~
 ~
-0 -1 31077
+Z -1 31077
 S
 #31077
 The Guildmaster's Room~
@@ -4352,7 +4352,7 @@ the Guildmaster.
 D0
 The Guild training yard~
 ~
-0 -1 31076
+Z -1 31076
 S
 #31078
 The Dwarven Bar~
@@ -4366,7 +4366,7 @@ piece or kick in the rump for his efforts.
 D3
 The Guild training yard~
 ~
-0 -1 31076
+Z -1 31076
 S
 #31079
 Valiant Street~
@@ -4380,11 +4380,11 @@ between life and death.
 D1
 Valiant Street~
 ~
-0 -1 31080
+Z -1 31080
 D3
 Corner of Stalwart Lane and Valiant Street~
 ~
-0 -1 31069
+Z -1 31069
 S
 #31080
 Valiant Street~
@@ -4400,11 +4400,11 @@ on.
 D1
 A Bend in Valiant Street~
 ~
-0 -1 31081
+Z -1 31081
 D3
 Valiant Street~
 ~
-0 -1 31079
+Z -1 31079
 S
 #31081
 A Bend in Valiant Street~
@@ -4416,15 +4416,15 @@ enough for you to wander through, should you so wish.
 D2
 Outside the Kender Guild~
 ~
-0 -1 31082
+Z -1 31082
 D3
 Valiant Street~
 ~
-0 -1 31080
+Z -1 31080
 D5
 A Grate leading to the Sewer~
 grate~
-1 0 7001
+ABZ 0 7001
 S
 #31082
 Outside the Kender Guild~
@@ -4437,11 +4437,11 @@ to the south.
 D0
 Valiant Street above the Sewer~
 ~
-0 -1 31081
+Z -1 31081
 D2
 A Curtained Archway~
 curtain~
-1 0 31083
+ABZ 0 31083
 S
 #31083
 Inside the Guild~
@@ -4453,15 +4453,15 @@ to the south, while there is a Bar to the west...
 D0
 Valiant Street~
 ~
-0 0 31082
+Z 0 31082
 D2
 The Guildmaster~
 ~
-0 -1 31084
+Z -1 31084
 D3
 Bar~
 ~
-0 0 31085
+Z 0 31085
 S
 #31084
 The Guildmaster~
@@ -4474,7 +4474,7 @@ don't know what to do, try looking at him.
 D0
 Inside the Guild~
 ~
-0 -1 31083
+Z -1 31083
 S
 #31085
 The Bar~
@@ -4487,7 +4487,7 @@ up upon losing the last hand in poker.
 D1
 Inside the Guild~
 ~
-0 -1 31083
+Z -1 31083
 S
 #31086
 End of Justice Street~
@@ -4501,15 +4501,15 @@ A small building to the west contains a staircase that looks interesting...
 D0
 The Illithid Guild~
 ~
-0 -1 31090
+Z -1 31090
 D1
 Justice Street~
 ~
-0 -1 31046
+Z -1 31046
 D3
 It's the Darkling Guild.~
 ~
-0 -1 31192
+Z -1 31192
 S
 #31087
 The Human Guild~
@@ -4524,15 +4524,15 @@ chambers are to the south.
 D0
 The Guildmaster~
 ~
-0 -1 31088
+Z -1 31088
 D2
 The Relaxation Room~
 ~
-0 -1 31089
+Z -1 31089
 D3
 Justice Street~
 ~
-0 -1 31095
+Z -1 31095
 S
 #31088
 The Guildmaster's Room~
@@ -4544,7 +4544,7 @@ to do next, try looking at him.
 D2
 The Human Guild~
 ~
-0 -1 31087
+Z -1 31087
 S
 #31089
 The Relaxation Room~
@@ -4558,7 +4558,7 @@ constructed.
 D0
 The Human Guild~
 ~
-0 -1 31087
+Z -1 31087
 S
 #31090
 Inside the Illithid Guild~
@@ -4570,15 +4570,15 @@ Bar is to the west.
 D0
 The Guildmaster~
 ~
-0 -1 31092
+Z -1 31092
 D2
 Justice Street~
 ~
-0 -1 31086
+Z -1 31086
 D3
 The Bar~
 ~
-0 -1 31091
+Z -1 31091
 S
 #31091
 The Illithids' Bar~
@@ -4593,7 +4593,7 @@ what better place to do this than in their Guild Bar?
 D1
 The Guild~
 ~
-0 -1 31090
+Z -1 31090
 S
 #31092
 The Guildmaster~
@@ -4606,7 +4606,7 @@ purple-skinned, tentacle-mawed instructor and see what he has to think...
 D2
 The Guild~
 ~
-0 -1 31090
+Z -1 31090
 S
 #31093
 Justice Street~
@@ -4619,11 +4619,11 @@ Avian Guildmaster.
 D1
 Justice Street~
 ~
-0 -1 31094
+Z -1 31094
 D3
 Corner of Justice Street and Stalwart Lane~
 ~
-0 -1 31054
+Z -1 31054
 S
 #31094
 Justice Street~
@@ -4635,11 +4635,11 @@ to the northeast looms the aerie of the Avian Guildmistress.
 D1
 Justice Street~
 ~
-0 -1 31095
+Z -1 31095
 D3
 Justice Street~
 ~
-0 -1 31093
+Z -1 31093
 S
 #31095
 Outside the Human Dojo~
@@ -4651,15 +4651,15 @@ toward Stalwart Lane.
 D0
 Outside the Tower~
 ~
-0 -1 31096
+Z -1 31096
 D1
 The Guild~
 ~
-0 -1 31087
+Z -1 31087
 D3
 Justice Street~
 ~
-0 -1 31094
+Z -1 31094
 S
 #31096
 Outside the Tower~
@@ -4672,11 +4672,11 @@ be forced to endure a wait indoors for training.
 D0
 Inside the Tower~
 ~
-0 -1 31097
+Z -1 31097
 D2
 Outside the Dojo~
 ~
-0 -1 31095
+Z -1 31095
 S
 #31097
 Inside the Tower~
@@ -4687,15 +4687,15 @@ aerie, or downstairs to the Bar.
 D2
 Outside the Tower~
 ~
-0 -1 31096
+Z -1 31096
 D4
 The Aerie~
 ~
-0 -1 31099
+Z -1 31099
 D5
 The Bar~
 ~
-0 -1 31098
+Z -1 31098
 S
 #31098
 The Bar~
@@ -4708,7 +4708,7 @@ up and leave if you enter.
 D4
 Inside the Tower~
 ~
-0 -1 31097
+Z -1 31097
 S
 #31099
 The Aerie~
@@ -4719,7 +4719,7 @@ new students. If you don't know what to do here, try looking at her.
 D5
 Inside the Tower~
 ~
-0 -1 31097
+Z -1 31097
 S
 #31163
 Armor Donations~
@@ -4729,7 +4729,7 @@ Here all the Armor donated by the people of Anon appear.
 D0
 The Chamber of Donations~
 ~
-0 -1 31002
+Z -1 31002
 S
 #31164
 Weapons Donations~
@@ -4739,7 +4739,7 @@ Here all the Weapons donated by the people of Anon appear.
 D3
 The Chamber of Donations~
 ~
-0 -1 31002
+Z -1 31002
 S
 #31165
 Magical Donations~
@@ -4749,7 +4749,7 @@ Here all the Magical Items donated by the people of Anon appear.
 D1
 The Chamber of Donations~
 ~
-0 -1 31002
+Z -1 31002
 S
 #31190
 Inside the Chippy~
@@ -4766,7 +4766,7 @@ By the way, EVERYTHING is fried.
 D5
 ~
 ~
-0 -1 31041
+Z -1 31041
 S
 #31191
 Inside Tracey's Cafe~
@@ -4780,7 +4780,7 @@ table.
 D2
 ~
 ~
-0 -1 31012
+Z -1 31012
 S
 #31192
 Entrance to the Darkling Guild~
@@ -4793,11 +4793,11 @@ been traversed for decades.
 D1
 ~
 ~
-0 -1 31086
+Z -1 31086
 D5
 ~
 ~
-0 -1 31193
+Z -1 31193
 S
 #31193
 The Ante-Chamber~
@@ -4809,11 +4809,11 @@ serves as a perfect example of this.
 D2
 ~
 ~
-0 -1 31194
+Z -1 31194
 D4
 ~
 ~
-0 -1 31192
+Z -1 31192
 S
 #31194
 The Guildhall~
@@ -4825,7 +4825,7 @@ his presence.
 D0
 ~
 ~
-0 -1 31193
+Z -1 31193
 S
 #31195
 The Portal Chambers~
@@ -4836,19 +4836,19 @@ world of Anon. Proceed carefully, for you travel at your own risk!
 D0
 ~
 ~
-1 31085 31013
+ABCZ 31085 31013
 D1
 ~
 ~
-0 -1 31196
+Z -1 31196
 D2
 ~
 ~
-0 -1 31197
+Z -1 31197
 D3
 ~
 ~
-0 -1 31198
+Z -1 31198
 S
 #31196
 A Bare Room~
@@ -4860,7 +4860,7 @@ scattered about on the floor.
 D3
 ~
 ~
-0 -1 31195
+Z -1 31195
 S
 #31197
 A Steel Chamber~
@@ -4872,7 +4872,7 @@ substance imbedded in it, as well as numerous flashing lights.
 D0
 ~
 ~
-0 -1 31195
+Z -1 31195
 S
 #31198
 A Bizarre Room~
@@ -4885,7 +4885,7 @@ very difficult.
 D1
 ~
 ~
-0 -1 31195
+Z -1 31195
 S
 #31199
 The Thaumaturgist's Shop~
@@ -4898,7 +4898,7 @@ place!
 D2
 ~
 ~
-0 -1 31009
+Z -1 31009
 S
 #0
 

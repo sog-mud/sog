@@ -32,12 +32,12 @@ D0
 You look up the village street noticing nothing special at all.
 ~
 ~
-0 -1 5551
+Z -1 5551
 D2
 The wide road leads south here towards the T-crossing.
 ~
 ~
-0 -1 314
+Z -1 314
 S
 #5551
 Village street~
@@ -50,17 +50,17 @@ D0
 The village square is as usual not overcrowded.
 ~
 ~
-0 -1 5552
+Z -1 5552
 D1
 The small alley looks relative peaceful.
 ~
 ~
-0 -1 5553
+Z -1 5553
 D2
 You see the village street eventually becoming the wide road.
 ~
 ~
-0 -1 5550
+Z -1 5550
 S
 #5552
 Village square~
@@ -74,17 +74,17 @@ D0
 You see a local inn called 'The Ofcol Local Inn'. Looks nice.
 ~
 ~
-0 -1 5556
+Z -1 5556
 D2
 You see the village street of Ofcol.
 ~
 ~
-0 -1 5551
+Z -1 5551
 D3
 A small shop with the sign 'Luxan's Mixed goods' hanging in front of it.
 ~
 ~
-0 -1 5555
+Z -1 5555
 S
 #5553
 The small alley~
@@ -96,17 +96,17 @@ D1
 You see a big intersection.
 ~
 ~
-0 0 601
+Z 0 601
 D2
 It looks like the future site of a training room.
 ~
 ~
-0 -1 5554
+Z -1 5554
 D3
 You notice nothing but the village street.
 ~
 ~
-0 -1 5551
+Z -1 5551
 S
 #5554
 The future training room~
@@ -118,7 +118,7 @@ D0
 You are able to see the small alley, really not very interesting.
 ~
 ~
-0 -1 5553
+Z -1 5553
 S
 #5555
 Luxan's mixed shop~
@@ -131,7 +131,7 @@ D1
 The village square is as usual not overcrowded.
 ~
 ~
-0 -1 5552
+Z -1 5552
 S
 #5556
 The Local Inn~
@@ -146,7 +146,7 @@ D2
 The village square is as usual not overcrowded.
 ~
 ~
-0 -1 5552
+Z -1 5552
 S
 #5577
 Ravan's hideout~

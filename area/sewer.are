@@ -832,7 +832,7 @@ to make anything clear. The rock can be climbed upwards from here.
 D4
 ~
 ~
-0 -1 7099
+Z -1 7099
 S
 #7200
 The Treasury~
@@ -853,7 +853,7 @@ D1
 You look back through the opening into the inner lair.
 ~
 door stone~
-0 7205 7201
+Z 7205 7201
 S
 #7201
 The inner Lair~
@@ -865,12 +865,12 @@ D2
 You look back through the door into the lair.
 ~
 door wooden~
-1 -1 7202
+ABZ -1 7202
 D3
 You see the treasury.
 ~
 door stone~
-1 7205 7200
+ABCZ 7205 7200
 S
 #7202
 The Lair~
@@ -896,17 +896,17 @@ D0
 You can see the inner lair.
 ~
 door wooden~
-1 -1 7201
+ABZ -1 7201
 D1
 You see another part of the lair.
 ~
 ~
-0 -1 7205
+Z -1 7205
 D2
 You see another part of the lair.
 ~
 ~
-0 -1 7203
+Z -1 7203
 S
 #7203
 The Lair~
@@ -931,17 +931,17 @@ D0
 You see another part of the lair.
 ~
 ~
-0 -1 7202
+Z -1 7202
 D1
 You see another part of the lair.
 ~
 ~
-0 -1 7206
+Z -1 7206
 D2
 You see another part of the lair.
 ~
 ~
-0 -1 7204
+Z -1 7204
 S
 #7204
 The Lair~
@@ -966,17 +966,17 @@ D0
 You see another part of the lair.
 ~
 ~
-0 -1 7203
+Z -1 7203
 D1
 You see another part of the lair.
 ~
 ~
-0 -1 7207
+Z -1 7207
 D2
 You see the lair entrance.
 ~
 door wooden~
-0 -1 7208
+Z -1 7208
 S
 #7205
 The Lair~
@@ -1001,12 +1001,12 @@ D2
 You see another part of the lair.
 ~
 ~
-0 -1 7206
+Z -1 7206
 D3
 You see another part of the lair.
 ~
 ~
-0 -1 7202
+Z -1 7202
 S
 #7206
 The lair.~
@@ -1030,17 +1030,17 @@ D0
 You see another part of the lair.
 ~
 ~
-0 -1 7205
+Z -1 7205
 D2
 You see another part of the lair.
 ~
 ~
-0 -1 7207
+Z -1 7207
 D3
 You see another part of the lair.
 ~
 ~
-0 -1 7203
+Z -1 7203
 S
 #7207
 The lair.~
@@ -1065,12 +1065,12 @@ D0
 You see another part of the lair.
 ~
 ~
-0 -1 7206
+Z -1 7206
 D3
 You see another part of the lair.
 ~
 ~
-0 -1 7204
+Z -1 7204
 S
 #7208
 The lair entrance.~
@@ -1087,12 +1087,12 @@ D0
 You can see the lair.
 ~
 door wooden~
-1 -1 7204
+ABZ -1 7204
 D1
 You see a crawlway.
 ~
 ~
-0 -1 7209
+Z -1 7209
 S
 #7209
 The crawlway.~
@@ -1103,12 +1103,12 @@ D1
 You see a four-way junction.
 ~
 ~
-0 -1 7210
+Z -1 7210
 D3
 You see the entrance to a lair.
 ~
 ~
-0 -1 7208
+Z -1 7208
 S
 #7210
 The four-way junction.~
@@ -1120,22 +1120,22 @@ D0
 You can see a small cave-like room.
 ~
 ~
-0 -1 7211
+Z -1 7211
 D1
 You can see a sewer drain.
 ~
 ~
-0 -1 7212
+Z -1 7212
 D2
 You can see a sewer drain.
 ~
 ~
-0 -1 7215
+Z -1 7215
 D3
 You can see a narrow crawlway.
 ~
 ~
-0 -1 7209
+Z -1 7209
 S
 #7211
 The small cave.~
@@ -1146,7 +1146,7 @@ D2
 You look back into the four-way junction.
 ~
 ~
-0 -1 7210
+Z -1 7210
 S
 #7212
 The sewer drain.~
@@ -1157,12 +1157,12 @@ D0
 You can see the drain continuing north.
 ~
 ~
-0 -1 7213
+Z -1 7213
 D3
 You can see the four-way junction.
 ~
 ~
-0 -1 7210
+Z -1 7210
 S
 #7213
 The sewer drain.~
@@ -1173,12 +1173,12 @@ D1
 You can see the drain continuing east.
 ~
 ~
-0 -1 7214
+Z -1 7214
 D2
 You can see the drain continuing south.
 ~
 ~
-0 -1 7212
+Z -1 7212
 S
 #7214
 The drain end.~
@@ -1190,7 +1190,7 @@ D3
 You see the sewer drain.
 ~
 ~
-0 -1 7213
+Z -1 7213
 S
 #7215
 The half-wet drain.~
@@ -1206,12 +1206,12 @@ D0
 To the north lies a dry four-way junction.
 ~
 ~
-0 -1 7210
+Z -1 7210
 D2
 To the south you see a sewer drain filled with water.
 ~
 ~
-0 -1 7216
+Z -1 7216
 S
 #7216
 Under water in the sewer.~
@@ -1224,12 +1224,12 @@ D0
 It is hard to see, but it looks like the drain runs slightly upwards.
 ~
 ~
-0 -1 7215
+Z -1 7215
 D2
 It is hard to see, but it looks like the drain runs a little bit upwards.
 ~
 ~
-0 -1 7217
+Z -1 7217
 S
 #7217
 The half-dry drain.~
@@ -1250,17 +1250,17 @@ D0
 You see the drain running down into some water.
 ~
 ~
-0 -1 7216
+Z -1 7216
 D1
 Through the hole you can just make out a very small room.
 ~
 ~
-0 -1 7218
+Z -1 7218
 D3
 You see a drain running to the west.
 ~
 ~
-0 -1 7219
+Z -1 7219
 S
 #7218
 The very small room.~
@@ -1271,7 +1271,7 @@ D3
 Through the little hole you can see a half-dry drain.
 ~
 ~
-0 -1 7217
+Z -1 7217
 S
 #7219
 A dry sewer drain.~
@@ -1282,12 +1282,12 @@ D1
 You see a half-dry drain.
 ~
 ~
-0 -1 7217
+Z -1 7217
 D2
 You see another boring sewer drain.
 ~
 ~
-0 -1 7220
+Z -1 7220
 S
 #7220
 A boring drain.~
@@ -1298,12 +1298,12 @@ D0
 You see a sewer drain continuing to the north.
 ~
 ~
-0 -1 7219
+Z -1 7219
 D1
 You can see another drain to the east.
 ~
 ~
-0 -1 7221
+Z -1 7221
 S
 #7221
 The sewer drain.~
@@ -1315,17 +1315,17 @@ D1
 You can see another sewer drain.
 ~
 ~
-0 -1 7222
+Z -1 7222
 D3
 You can make out a sewer drain to the west.
 ~
 ~
-0 -1 7220
+Z -1 7220
 D4
 You can see a sewer line.
 ~
 ~
-0 -1 7129
+Z -1 7129
 S
 #7222
 The sewer drain.~
@@ -1340,12 +1340,12 @@ D1
 You see a sewer bend.
 ~
 ~
-0 -1 7223
+Z -1 7223
 D3
 You see a sewer drain.
 ~
 ~
-0 -1 7221
+Z -1 7221
 S
 #7223
 The sewer bend.~
@@ -1356,12 +1356,12 @@ D0
 You see a sewer drain.
 ~
 ~
-0 -1 7224
+Z -1 7224
 D3
 You see a sewer drain.
 ~
 ~
-0 -1 7222
+Z -1 7222
 S
 #7224
 The sewer junction~
@@ -1374,17 +1374,17 @@ D0
 You see nothing but a sewer drain.
 ~
 ~
-0 -1 7225
+Z -1 7225
 D2
 You see nothing but a sewer drain.
 ~
 ~
-0 -1 7223
+Z -1 7223
 D3
 You see a strange sewer pipe.
 ~
 ~
-0 -1 7229
+Z -1 7229
 S
 #7225
 The sewer~
@@ -1397,7 +1397,7 @@ D2
 You see a sewer drain.
 ~
 ~
-0 -1 7224
+Z -1 7224
 S
 #7229
 The strange sewer~
@@ -1410,12 +1410,12 @@ D1
 You see a sewer junction.
 ~
 ~
-0 -1 7224
+Z -1 7224
 D3
 You see a slimy sewer drain.
 ~
 ~
-0 -1 7230
+Z -1 7230
 S
 #7230
 The damp sewer~
@@ -1428,12 +1428,12 @@ D1
 You see a sewer.
 ~
 ~
-0 -1 7229
+Z -1 7229
 D3
 You see a sewer.
 ~
 ~
-0 -1 7231
+Z -1 7231
 S
 #7231
 The strange sewer~
@@ -1449,12 +1449,12 @@ D1
 You see a sewer.
 ~
 ~
-0 -1 7230
+Z -1 7230
 D3
 You see another sewer.
 ~
 ~
-0 -1 7232
+Z -1 7232
 S
 #7232
 The sewer~
@@ -1466,12 +1466,12 @@ D0
 You see yet another sewer line.
 ~
 ~
-0 -1 7233
+Z -1 7233
 D1
 You see a sewer pipe.
 ~
 ~
-0 -1 7231
+Z -1 7231
 S
 #7233
 The sewer drain~
@@ -1484,12 +1484,12 @@ D1
 You see a cave-like room.
 ~
 ~
-0 -1 7234
+Z -1 7234
 D2
 You see a sewer.
 ~
 ~
-0 -1 7232
+Z -1 7232
 S
 #7234
 The rat's lair~
@@ -1501,7 +1501,7 @@ D3
 You see the sewer system that way.
 ~
 ~
-0 -1 7233
+Z -1 7233
 S
 #7279
 The Wall of the Abyss~
@@ -1512,11 +1512,11 @@ leading up as well, though you'll have to open the tiny rock again to do so.
 D4
 ~
 ~
-0 -1 7111
+Z -1 7111
 D5
 ~
 ~
-0 -1 7399
+Z -1 7399
 S
 #7280
 The entrance.~
@@ -1540,11 +1540,11 @@ D0
 A beam of red light seeps through a hole in the door.
 ~
 small round door~
-0 -1 7281
+Z -1 7281
 D4
 ~
 secret door~
-1 -1 7116
+ABZ -1 7116
 S
 #7281
 The corridor.~
@@ -1569,11 +1569,11 @@ The hole seems more black than the night. It is appears to be "eating" the
 red light around it.
 ~
 ~
-0 -1 7282
+Z -1 7282
 D2
 ~
 small round door~
-0 -1 7280
+Z -1 7280
 S
 #7282
 The Realm of lost souls~
@@ -1591,12 +1591,12 @@ D0
 You look into a very bright hole.
 ~
 ~
-0 -1 7283
+Z -1 7283
 D3
 You look into a red hole.
 ~
 ~
-0 -1 7281
+Z -1 7281
 S
 #7283
 The T-crossing~
@@ -1614,18 +1614,18 @@ D1
 Too dark to tell.
 ~
 ~
-0 -1 7286
+Z -1 7286
 D2
 A black hole in the wall.
 ~
 ~
-0 -1 7282
+Z -1 7282
 D3
 You can see a big fire to the west. It looks like a unhealthy
 place to enter!
 ~
 ~
-0 -1 7284
+Z -1 7284
 S
 #7284
 The firedeath~
@@ -1666,7 +1666,7 @@ D2
 To dark to tell.
 ~
 door iron~
-0 -1 7286
+Z -1 7286
 S
 #7286
 The hells yard~
@@ -1680,12 +1680,12 @@ D0
 To dark to tell.
 ~
 door iron~
-0 -1 7285
+Z -1 7285
 D3
 To dark to tell.
 ~
 ~
-0 -1 7283
+Z -1 7283
 S
 #7301
 The Entrance to the Realm of silence~
@@ -1727,7 +1727,7 @@ This stops your journey down, the only exit is up.
 D4
 ~
 ~
-0 -1 7279
+Z -1 7279
 S
 #7400
 Cave entrance~
@@ -1744,12 +1744,12 @@ D0
 To the north you can see a small tunnel.
 ~
 ~
-0 -1 7401
+Z -1 7401
 D4
 You can see the stairs going up into darkness.
 ~
 ~
-0 -1 7102
+Z -1 7102
 S
 #7401
 Cave tunnel~
@@ -1761,12 +1761,12 @@ D0
 To the north you can see the tunnel continuing.
 ~
 ~
-0 -1 7402
+Z -1 7402
 D2
 To the south tunnel continuing.
 ~
 ~
-0 -1 7400
+Z -1 7400
 S
 #7402
 Cave room~
@@ -1778,16 +1778,16 @@ D1
 To the east you see the tunnel going downwards.
 ~
 ~
-0 -1 7403
+Z -1 7403
 D2
 To the south you see a dark cave tunnel.
 ~
 ~
-0 -1 7401
+Z -1 7401
 D3
 ~
 ~
-0 -1 7421
+Z -1 7421
 S
 #7403
 Cave T-cross~
@@ -1808,16 +1808,16 @@ D1
 To the east the tunnel still goes downwards.
 ~
 ~
-0 -1 7404
+Z -1 7404
 D2
 ~
 ~
-0 -1 7408
+Z -1 7408
 D3
 You can see some light to the west.
 ~
 ~
-0 -1 7402
+Z -1 7402
 S
 #7404
 Cave turning-point~
@@ -1837,11 +1837,11 @@ D2
 You can see an opening behind the stone.
 ~
 flat round stone~
-1 -1 7405
+ABZ -1 7405
 D3
 ~
 ~
-0 -1 7403
+Z -1 7403
 S
 #7405
 The secret room~
@@ -1865,12 +1865,12 @@ D0
 You see a round stone door.
 ~
 round stone door~
-1 -1 7404
+ABZ -1 7404
 D2
 You see a grey block.
 ~
 grey block~
-1 -1 7406
+ABZ -1 7406
 S
 #7406
 The mudhole~
@@ -1883,11 +1883,11 @@ D0
 You can see nothing at all.
 ~
 grey block~
-1 -1 7405
+ABZ -1 7405
 D3
 ~
 ~
-0 -1 7407
+Z -1 7407
 S
 #7407
 Tunnel~
@@ -1898,16 +1898,16 @@ very normal.
 D0
 ~
 ~
-0 -1 7408
+Z -1 7408
 D1
 You can see a mudhole.
 ~
 ~
-0 -1 7406
+Z -1 7406
 D2
 ~
 ~
-0 -1 7409
+Z -1 7409
 S
 #7408
 The long tunnel~
@@ -1920,12 +1920,12 @@ D0
 You can see a lot of mud..Yarck!
 ~
 ~
-0 -1 7403
+Z -1 7403
 D2
 The tunnel goes a little downwards.
 ~
 ~
-0 -1 7407
+Z -1 7407
 S
 #7409
 The hot room~
@@ -1938,12 +1938,12 @@ D0
 You see a lot of mud.
 ~
 ~
-0 -1 7407
+Z -1 7407
 D3
 You see a entrance to a small room.
 ~
 ~
-0 -1 7410
+Z -1 7410
 S
 #7410
 The small room~
@@ -1960,12 +1960,12 @@ D1
 It is pitch dark out there.
 ~
 ~
-0 -1 7409
+Z -1 7409
 D3
 You see a VERY long hallway.
 ~
 ~
-0 -1 7411
+Z -1 7411
 S
 #7411
 The stalagmite cave~
@@ -1980,16 +1980,16 @@ The stalagmites are very tall, and looks very beautiful.
 D0
 ~
 ~
-0 -1 7414
+Z -1 7414
 D1
 You see a long hallway, and some mud.
 ~
 ~
-0 -1 7410
+Z -1 7410
 D2
 ~
 ~
-0 -1 7412
+Z -1 7412
 S
 #7412
 The stalagmite tunnel~
@@ -2001,11 +2001,11 @@ D0
 You can see a small cave to the north.
 ~
 ~
-0 -1 7411
+Z -1 7411
 D3
 ~
 ~
-0 -1 7413
+Z -1 7413
 S
 #7413
 The spongy room~
@@ -2016,11 +2016,11 @@ of the places it is wet.
 D1
 ~
 ~
-0 -1 7412
+Z -1 7412
 D3
 ~
 ~
-0 -1 7445
+Z -1 7445
 S
 #7414
 The stalagmite T-cross~
@@ -2032,15 +2032,15 @@ D0
 You see some light ahead.
 ~
 ~
-0 -1 7417
+Z -1 7417
 D1
 ~
 ~
-0 -1 7415
+Z -1 7415
 D2
 ~
 ~
-0 -1 7411
+Z -1 7411
 S
 #7415
 The blind end room~
@@ -2058,11 +2058,11 @@ D0
 You see a primitive picture
 ~
 sun~
-1 -1 7416
+ABZ -1 7416
 D3
 ~
 ~
-0 -1 7414
+Z -1 7414
 S
 #7416
 The treasure room~
@@ -2077,7 +2077,7 @@ you can see a picture with some persons crawling around a
 huge moon.
 ~
 door picture sun moon~
-1 -1 7415
+ABZ -1 7415
 S
 #7417
 The square lair~
@@ -2094,16 +2094,16 @@ D0
 Another part of the lair
 ~
 ~
-0 -1 7418
+Z -1 7418
 D2
 ~
 ~
-0 -1 7414
+Z -1 7414
 D3
 Another part of the lair
 ~
 ~
-0 -1 7420
+Z -1 7420
 S
 #7418
 The square lair~
@@ -2121,17 +2121,17 @@ D1
 You see a wooden door
 ~
 wooden door~
-1 -1 7421
+ABZ -1 7421
 D2
 another part of the lair.
 ~
 ~
-0 -1 7417
+Z -1 7417
 D3
 another part of the lair.
 ~
 ~
-0 -1 7419
+Z -1 7419
 S
 #7419
 The square lair~
@@ -2149,17 +2149,17 @@ D0
 You see a small tunnel leading north.
 ~
 ~
-0 -1 7422
+Z -1 7422
 D1
 another part of the lair.
 ~
 ~
-0 -1 7418
+Z -1 7418
 D2
 another part of the lair.
 ~
 ~
-0 -1 7420
+Z -1 7420
 S
 #7420
 The lair end~
@@ -2189,12 +2189,12 @@ D0
 the northern part of the lair.
 ~
 ~
-0 -1 7419
+Z -1 7419
 D1
 the eastern part of the lair.
 ~
 ~
-0 -1 7417
+Z -1 7417
 S
 #7421
 East tunnel~
@@ -2206,12 +2206,12 @@ D1
 You can see a muddy tunnel.
 ~
 ~
-0 -1 7402
+Z -1 7402
 D3
 You can see a wooden door.
 ~
 wooden door~
-1 -1 7418
+ABZ -1 7418
 S
 #7422
 North tunnel~
@@ -2222,17 +2222,17 @@ D0
 The dark tunnel continues.
 ~
 ~
-0 -1 7423
+Z -1 7423
 D2
 You can see the lair.
 ~
 ~
-0 -1 7419
+Z -1 7419
 D3
 You can see a cave entrance.
 ~
 ~
-0 -1 7436
+Z -1 7436
 S
 #7423
 The L-shaped room.~
@@ -2243,11 +2243,11 @@ To the east you can see a gaping hole.
 D1
 ~
 ~
-0 -1 7424
+Z -1 7424
 D2
 ~
 ~
-0 -1 7422
+Z -1 7422
 S
 #7424
 The Circular hall.~
@@ -2278,12 +2278,12 @@ D1
 you see nothing special.
 ~
 green head dragon sculpture face~
-1 -1 7425
+ABZ -1 7425
 D3
 you see a room far away.
 ~
 ~
-0 -1 7423
+Z -1 7423
 S
 #7425
 Dusty tunnel~
@@ -2298,13 +2298,13 @@ You see a tunnel which leads downwards. It is quite
 dark.
 ~
 ~
-0 -1 7426
+Z -1 7426
 D3
 You can see the outline of a door. Just like in the
 description!
 ~
 door~
-1 -1 7424
+ABZ -1 7424
 S
 #7426
 The crossing~
@@ -2320,19 +2320,19 @@ You have never seen this kind of footprints before!
 D0
 ~
 ~
-0 -1 7431
+Z -1 7431
 D1
 ~
 ~
-0 -1 7430
+Z -1 7430
 D2
 ~
 ~
-0 -1 7427
+Z -1 7427
 D3
 ~
 ~
-0 -1 7425
+Z -1 7425
 S
 #7427
 The L-shaped room~
@@ -2347,12 +2347,12 @@ The sign says 'DANGER!!'.
 D0
 ~
 ~
-0 -1 7426
+Z -1 7426
 D1
 a long dark tunnel.
 ~
 ~
-0 -1 7428
+Z -1 7428
 S
 #7428
 Dragons lair~
@@ -2366,12 +2366,12 @@ D0
 You can see a long tunnel.
 ~
 ~
-0 -1 7429
+Z -1 7429
 D3
 You can see nothing but darkness.
 ~
 ~
-0 -1 7427
+Z -1 7427
 S
 #7429
 The burned room~
@@ -2387,11 +2387,11 @@ D2
 You can see a red glow
 ~
 ~
-0 -1 7428
+Z -1 7428
 D3
 ~
 ~
-0 -1 7430
+Z -1 7430
 S
 #7430
 The wind tunnel~
@@ -2408,11 +2408,11 @@ D1
 To dark to tell
 ~
 ~
-0 -1 7429
+Z -1 7429
 D3
 ~
 ~
-0 -1 7426
+Z -1 7426
 S
 #7431
 The glittering room~
@@ -2427,15 +2427,15 @@ The glittering silver looks like it is INSIDE the walls.
 D1
 ~
 ~
-0 -1 7432
+Z -1 7432
 D2
 ~
 ~
-0 -1 7426
+Z -1 7426
 D3
 ~
 ~
-0 -1 7433
+Z -1 7433
 S
 #7432
 The secret passageroom~
@@ -2451,7 +2451,7 @@ D3
 You can see a light to the west
 ~
 ~
-0 -1 7431
+Z -1 7431
 S
 #7433
 End of long tunnel~
@@ -2468,12 +2468,12 @@ D1
 Long tunnel. JUST like in the description!
 ~
 ~
-0 -1 7431
+Z -1 7431
 D3
 A grey mass is blocking the way.
 ~
 ~
-0 -1 7434
+Z -1 7434
 S
 #7434
 Stair-room~
@@ -2487,7 +2487,7 @@ D2
 nothing but darkness
 ~
 ~
-0 -1 7435
+Z -1 7435
 S
 #7435
 Dark tunnel~
@@ -2502,11 +2502,11 @@ it looks like bones of a human.
 D0
 ~
 ~
-0 -1 7434
+Z -1 7434
 D2
 ~
 ~
-0 -1 7436
+Z -1 7436
 S
 #7436
 Entrance to lair~
@@ -2517,17 +2517,17 @@ A tunnel leads north, and east.
 D0
 ~
 ~
-0 -1 7435
+Z -1 7435
 D1
 A small cave is to the east.
 ~
 ~
-0 -1 7422
+Z -1 7422
 D2
 the only thing you can see are smoke.
 ~
 ~
-0 -1 7437
+Z -1 7437
 S
 #7437
 North-eastern part of Basilisks cave~
@@ -2539,15 +2539,15 @@ and to the west.
 D0
 ~
 ~
-0 -1 7436
+Z -1 7436
 D2
 ~
 ~
-0 -1 7438
+Z -1 7438
 D3
 ~
 ~
-0 -1 7439
+Z -1 7439
 S
 #7438
 South-eastern part of basilisks cave~
@@ -2564,12 +2564,12 @@ D0
 You can see nothing but smoke
 ~
 ~
-0 -1 7437
+Z -1 7437
 D3
 You can see nothing but smoke
 ~
 ~
-0 -1 7440
+Z -1 7440
 S
 #7439
 North-western part of basilisks cave~
@@ -2585,11 +2585,11 @@ The hay is very dirty. The smell of it makes you feel sick.
 D1
 ~
 ~
-0 -1 7437
+Z -1 7437
 D2
 ~
 ~
-0 -1 7440
+Z -1 7440
 S
 #7440
 South-western part of basilisks cave~
@@ -2599,15 +2599,15 @@ You can see nothing but smoke.
 D0
 ~
 ~
-0 -1 7439
+Z -1 7439
 D1
 ~
 ~
-0 -1 7438
+Z -1 7438
 D2
 ~
 ~
-0 -1 7441
+Z -1 7441
 S
 #7441
 The small cave~
@@ -2619,12 +2619,12 @@ D0
 You can see only smoke.
 ~
 ~
-0 -1 7440
+Z -1 7440
 D2
 You can see a blue glow. And you feel a fresh breeze.
 ~
 ~
-0 -1 7442
+Z -1 7442
 S
 #7442
 The northern end of the pool~
@@ -2636,17 +2636,17 @@ D0
 You can see a small cave.
 ~
 ~
-0 -1 7441
+Z -1 7441
 D1
 You can see more water.
 ~
 ~
-0 -1 7443
+Z -1 7443
 D2
 You can see water.
 ~
 ~
-0 -1 7444
+Z -1 7444
 S
 #7443
 The pool~
@@ -2657,12 +2657,12 @@ D2
 You can see some bubbles in the water.
 ~
 ~
-0 -1 7445
+Z -1 7445
 D3
 You see calm water.
 ~
 ~
-0 -1 7442
+Z -1 7442
 S
 #7444
 The south end of the pool~
@@ -2673,12 +2673,12 @@ D0
 You can see calm water.
 ~
 ~
-0 -1 7442
+Z -1 7442
 D1
 To dark to tell, but you can feel something nearby.
 ~
 ~
-0 -1 7445
+Z -1 7445
 S
 #7445
 The pool~
@@ -2690,16 +2690,16 @@ D0
 To dark to tell.
 ~
 ~
-0 -1 7443
+Z -1 7443
 D1
 You can feel a warm breeze.
 ~
 ~
-0 -1 7413
+Z -1 7413
 D3
 ~
 ~
-0 -1 7444
+Z -1 7444
 S
 #7001
 The muddy sewer~
@@ -2716,7 +2716,7 @@ D2
 You see the muddy sewer continuing into the darkness to the south.
 ~
 ~
-0 -1 7002
+Z -1 7002
 S
 #7002
 The muddy sewer junction~
@@ -2734,17 +2734,17 @@ D0
 The muddy sewer stretches into the dark to the north.
 ~
 ~
-0 -1 7001
+Z -1 7001
 D1
 East. The muddy sewer leads into a bend that goes south.
 ~
 ~
-0 -1 7007
+Z -1 7007
 D2
 South. The muddy sewer ends in a mudhole that way.
 ~
 ~
-0 -1 7003
+Z -1 7003
 S
 #7003
 The mudhole~
@@ -2763,12 +2763,12 @@ D0
 North. The muddy junction lies in that direction.
 ~
 ~
-0 -1 7002
+Z -1 7002
 D5
 The muddy drainpipe leads down through the mud, otherwise it is utterly dark.
 ~
 ~
-0 -1 7101
+Z -1 7101
 S
 #7004
 The Dark Pit~
@@ -2781,13 +2781,13 @@ D1
 East. The sewer leads into the sewer junction.
 ~
 ~
-0 -1 7009
+Z -1 7009
 D5
 The Dark Pit leads down and down and down ... well you can't see the 
 bottom anyway. There are bars that function as a ladder on the side.
 ~
 ~
-0 -1 7102
+Z -1 7102
 S
 #7005
 The muddy sewer~
@@ -2805,13 +2805,13 @@ D1
 East. The mud stretches on into the darkness.
 ~
 ~
-0 -1 7011
+Z -1 7011
 D2
 South. There is even more mud in that direction than where you are now. 
 Incredible.
 ~
 ~
-0 -1 7006
+Z -1 7006
 S
 #7006
 The muddy sewer~
@@ -2829,13 +2829,13 @@ D0
 The muddy sewer pipe leads into a bend that goes east.
 ~
 ~
-0 -1 7005
+Z -1 7005
 D1
 The pipe leads into a bend that goes south. Interesting, there's mud on the
 floor there.
 ~
 ~
-0 -1 7012
+Z -1 7012
 S
 #7007
 The muddy sewer bend~
@@ -2854,13 +2854,13 @@ The pipe leads into a intersection that goes south and east. The floor here
 is still covered in mud.
 ~
 ~
-0 -1 7008
+Z -1 7008
 D3
 The pipe (still filled with mud) leads into a intersection that goes north 
 and south. Interesting.
 ~
 ~
-0 -1 7002
+Z -1 7002
 S
 #7008
 A muddy intersection~
@@ -2880,21 +2880,21 @@ North. The pipe goes into a bend with a load of mud all the way up the walls.
 The bend leads west.
 ~
 ~
-0 -1 7007
+Z -1 7007
 D1
 East. This way like a place for the annual mud festival, although the stench
 wouldn't allow any happiness at all. The pipe leads into a bend that leads 
 north.
 ~
 ~
-0 -1 7014
+Z -1 7014
 D2
 South. There's less mud in that direction. *smile*. Your light doesn't 
 cover enough space for you to see much more than that it leads into some
 sort of junction.
 ~
 ~
-0 -1 7009
+Z -1 7009
 S
 #7009
 The Sewer Junction~
@@ -2912,24 +2912,24 @@ D0
 North. Mud is the floor basis in that direction. Yummy.
 ~
 ~
-0 -1 7008
+Z -1 7008
 D1
 YYEEUUCH! BOOH! THAT looks like a nice place for creepy crawlies.
 ~
 ~
-0 -1 7017
+Z -1 7017
 D2
 North. This direction looks quite nice actually. The pipe leads into 
 a bend that goes east.
 ~
 ~
-0 -1 7010
+Z -1 7010
 D3
 A few yards ahead - away from this junction - there is a pit leading down,
 but the smell from there...>PHEWW<.
 ~
 ~
-0 -1 7004
+Z -1 7004
 S
 #7010
 A bend in sewer pipe~
@@ -2941,17 +2941,17 @@ D0
 North. You are staring into a huge junction with exits in all directions.
 ~
 ~
-0 -1 7009
+Z -1 7009
 D1
 East. The Pipe leads into utter darkness that way.
 ~
 ~
-0 -1 7018
+Z -1 7018
 D2
 South. The Pipe leads into utter darkness that way.
 ~
 ~
-0 -1 7045
+Z -1 7045
 S
 #7011
 The muddy sewer pipe~
@@ -2968,18 +2968,18 @@ D1
 East. There's less mud in that direction, or that's your impression.
 ~
 ~
-0 -1 7024
+Z -1 7024
 D2
 That way is lost in darkness, though you sense less mud in that direction,
 perhaps even a complete end to this sludge that surrounds you.
 ~
 ~
-0 -1 7021
+Z -1 7021
 D3
 West. The mud reaches that way too, all the way up the walls.
 ~
 ~
-0 -1 7005
+Z -1 7005
 S
 #7012
 The bend in the Muddy sewer~
@@ -2998,13 +2998,13 @@ South. There's even more mud that way, incredible! Although it looks
 like an intersection in the sewer system that leads east and south.
 ~
 ~
-0 -1 7013
+Z -1 7013
 D3
 West. All you can see, is that the pipe leads into a bend that goes
 north. But there's less mud in that direction, however odd that sounds.
 ~
 ~
-0 -1 7006
+Z -1 7006
 S
 #7013
 A MUDDY intersection~
@@ -3030,20 +3030,20 @@ North. Sludge and sediment fills this corridor of the sewer that leads
 into a bend going west.
 ~
 ~
-0 -1 7012
+Z -1 7012
 D1
 East. You can see absolutely nothing of interest in that direction (Maybe
 that's why it's so damn interesting.??) There's no mud in that direction
 either, GREAT!
 ~
 ~
-0 -1 7026
+Z -1 7026
 D2
 South. All you can see is more mud! Although the pipe goes into a bend
 leading west.
 ~
 ~
-0 -1 7014
+Z -1 7014
 S
 #7014
 Muddy sewer~
@@ -3064,13 +3064,13 @@ North. Filled with mud, that place looks like an impassable intersection
 with pipes leading north and east.
 ~
 ~
-0 -1 7013
+Z -1 7013
 D3
 West. There's less mud that way, maybe you're on your way out of this foul
 place.
 ~
 ~
-0 -1 7008
+Z -1 7008
 S
 #7015
 The old well~
@@ -3089,13 +3089,13 @@ East. You see, because of the utter darkness that surround you, absolutely
 nothing. Your light isn't of much use for that kind of distance.
 ~
 ~
-0 -1 7028
+Z -1 7028
 D5
 Down the well there's even less light than up here, so ... sorry, you can't
 see a thing. There are metal bars in the side leading down into the darkness.
 ~
 ~
-0 -1 7105
+Z -1 7105
 S
 #7016
 The ordinary bend~
@@ -3108,12 +3108,12 @@ East. What a quiet place you've found there. It's an intersection that have
 pipeways going north and east.
 ~
 ~
-0 -1 7021
+Z -1 7021
 D2
 South. You see nothing at all in that direction it's too dark anyway.
 ~
 ~
-0 -1 7017
+Z -1 7017
 S
 #7017
 The sewer junction~
@@ -3124,18 +3124,18 @@ D0
 North. You see a bend.
 ~
 ~
-0 -1 7016
+Z -1 7016
 D2
 South. It looks like a pipe junction just like this one. Only that one
 leads east and west.
 ~
 ~
-0 -1 7018
+Z -1 7018
 D3
 West. There's a junction with four pipelines in that direction.
 ~
 ~
-0 -1 7009
+Z -1 7009
 S
 #7018
 The ordinary junction~
@@ -3147,18 +3147,18 @@ D0
 To the north you can see a junction like this one, leading north and west.
 ~
 ~
-0 -1 7017
+Z -1 7017
 D1
 To the east there's nothing of particular interest, though there's a 
 junction with pipelines leading north and east.
 ~
 ~
-0 -1 7031
+Z -1 7031
 D3
 There's a bend to the west leading north.
 ~
 ~
-0 -1 7010
+Z -1 7010
 S
 #7021
 A quiet pipe junction~
@@ -3170,18 +3170,18 @@ D0
 In that direction, you can't see anything. It's just too dark.
 ~
 ~
-0 -1 7011
+Z -1 7011
 D1
 There's an ordinary junction in the pipe system to the east
 ~
 ~
-0 -1 7029
+Z -1 7029
 D3
 West. There's an ordinary bend leading south into the sewer system in
 that direction.
 ~
 ~
-0 -1 7016
+Z -1 7016
 S
 #7022
 The odd room with smooth walls~
@@ -3200,7 +3200,7 @@ Down. It's utterly dark that way, though you can make out an intersection
 of sewer pipes leading west, north and east.
 ~
 entryway~
-0 -1 7112
+Z -1 7112
 S
 #7024
 The sewer~
@@ -3212,18 +3212,18 @@ D1
 To the east there's a peculiar looking round room.
 ~
 ~
-0 -1 7037
+Z -1 7037
 D2
 To the south there's another intersection with pipes going south and east.
 ~
 ~
-0 -1 7025
+Z -1 7025
 D3
 To the west there's another intersection like this one, with sewer pipes
 leading south and west.
 ~
 ~
-0 -1 7011
+Z -1 7011
 S
 #7025
 Another intersection~
@@ -3236,18 +3236,18 @@ To the north there's an intersection, where the pipes are leading west and
 east. You notice that the floor to the west is covered in mud.
 ~
 ~
-0 -1 7024
+Z -1 7024
 D1
 East. You see nothing of interest in that direction, just another 
 intersection. This one leads east and south.
 ~
 ~
-0 -1 7038
+Z -1 7038
 D2
 Another intersection lies to the south. It leads west and south.
 ~
 ~
-0 -1 7026
+Z -1 7026
 S
 #7026
 A junction~
@@ -3266,18 +3266,18 @@ D0
 North. You see an intersection there, leading north and east.
 ~
 ~
-0 -1 7025
+Z -1 7025
 D2
 To the south there's ANOTHER junction leading west and east.
 ~
 ~
-0 -1 7028
+Z -1 7028
 D3
 To the west you see a load of mud and sediment in the sewer. That should
 be an intersection there but you're not quite sure.
 ~
 ~
-0 -1 7013
+Z -1 7013
 S
 #7028
 The sewer junction~
@@ -3287,17 +3287,17 @@ You stand in a junction of sewer pipes leading north, east and west.
 D0
 ~
 ~
-0 -1 7026
+Z -1 7026
 D1
 To the east you can see a bend in the pipe going south.
 ~
 ~
-0 -1 7034
+Z -1 7034
 D3
 To the west you can just make out an old well.
 ~
 ~
-0 -1 7015
+Z -1 7015
 S
 #7029
 The Triple Junction~
@@ -3309,19 +3309,19 @@ D1
 East. You can see a bend in the sewer pipe leading north.
 ~
 ~
-0 -1 7035
+Z -1 7035
 D2
 To the south there's a ENORMOUS quadruple sewer junction, all lit up by
 an odd light.
 ~
 ~
-0 -1 7030
+Z -1 7030
 D3
 To the west you can just make out another junction similar to the one 
 you are standing in.
 ~
 ~
-0 -1 7021
+Z -1 7021
 S
 #7030
 The Quadruple Junction Under the Dump~
@@ -3342,28 +3342,28 @@ To the north you can see a huge triple junction with sewer pipes leading
 west and east.
 ~
 ~
-0 -1 7029
+Z -1 7029
 D1
 East. You can see a pit in the floor.
 ~
 ~
-0 -1 7036
+Z -1 7036
 D2
 To the south there's a huge junction with pipes leading east and west.
 ~
 ~
-0 -1 7031
+Z -1 7031
 D3
 To the west there's an odd looking room with totally smooth walls.
 ~
 ~
-0 -1 7022
+Z -1 7022
 D4
 Up through the garbage you can just make out what looks like the Dump in
 Midgaard.
 ~
 ~
-0 -1 3030
+Z -1 3030
 S
 #7031
 A triple junction~
@@ -3375,17 +3375,17 @@ To the north there's a ENORMOUS quadruple sewer junction, all lit up by
 an odd light.
 ~
 ~
-0 -1 7030
+Z -1 7030
 D1
 East. You can just make out a triple junction leading north and east.
 ~
 ~
-0 -1 7044
+Z -1 7044
 D3
 West. You can just make out a triple junction leading north and west.
 ~
 ~
-0 -1 7018
+Z -1 7018
 S
 #7034
 A bend in the sewer pipe~
@@ -3396,12 +3396,12 @@ D2
 To the south you can see another bend leading west.
 ~
 ~
-0 -1 7035
+Z -1 7035
 D3
 West. You can just make out a triple junction leading north and west.
 ~
 ~
-0 -1 7028
+Z -1 7028
 S
 #7035
 The sewer pipe bend~
@@ -3413,13 +3413,13 @@ D0
 North. You see another bend leading west.
 ~
 ~
-0 -1 7034
+Z -1 7034
 D3
 You can see another junction although this one is a triple one with pipes
 going south and west.
 ~
 ~
-0 -1 7029
+Z -1 7029
 S
 #7036
 The pit~
@@ -3432,12 +3432,12 @@ D3
 West. You can see a dimly lit quadruple junction with an exit up.
 ~
 ~
-0 -1 7030
+Z -1 7030
 D5
 Down the pit it's utterly dark you can't see a thing.
 ~
 ~
-0 -1 7122
+Z -1 7122
 S
 #7037
 The round room~
@@ -3451,7 +3451,7 @@ D1
 You can just make out a smaller room with a chair.
 ~
 ~
-0 -1 7050
+Z -1 7050
 S
 #7038
 The three way junction~
@@ -3462,17 +3462,17 @@ D1
 East. You can make out a dimly lit Guard Room.
 ~
 ~
-0 -1 7045
+Z -1 7045
 D2
 To the south you can see what looks like a store room.
 ~
 ~
-0 -1 7039
+Z -1 7039
 D3
 West. You see another junction similar to this one leading north and south.
 ~
 ~
-0 -1 7025
+Z -1 7025
 S
 #7039
 The Sewer Store Room~
@@ -3484,7 +3484,7 @@ D0
 To the north you see a pipe junction.
 ~
 ~
-0 -1 7038
+Z -1 7038
 S
 #7041
 The Shaft~
@@ -3502,13 +3502,13 @@ D2
 To the south you can see the pipe leading further south into darkness.
 ~
 ~
-0 -1 7043
+Z -1 7043
 D5
 Down and utter darkness. There's absolutely nothing to be seen in that 
 direction.
 ~
 ~
-0 -1 7123
+Z -1 7123
 S
 #7043
 The Sewer Entrance~
@@ -3521,12 +3521,12 @@ D0
 To the north you can just make out a huge shaft leading down.
 ~
 ~
-0 -1 7041
+Z -1 7041
 D2
 To the south you can see a triple junction leading west and east.
 ~
 ~
-0 -1 7044
+Z -1 7044
 S
 #7044
 The junction going three ways~
@@ -3538,17 +3538,17 @@ D0
 You see a sewer pipe leading north.
 ~
 ~
-0 -1 7043
+Z -1 7043
 D1
 ~
 ~
-0 -1 7049
+Z -1 7049
 D3
 West. You see another junction very similar to this one that leads north
 and west.
 ~
 ~
-0 -1 7031
+Z -1 7031
 S
 #7045
 The Sewer Room~
@@ -3561,17 +3561,17 @@ is a doorway leading out to the sewers.
 D0
 ~
 ~
-0 -1 7010
+Z -1 7010
 D2
 You can see an even larger room than this one, filled with light.
 ~
 ~
-0 -1 7046
+Z -1 7046
 D3
 To the west you can see the sewers.
 ~
 ~
-0 -1 7038
+Z -1 7038
 S
 #7046
 The Sewer room~
@@ -3585,12 +3585,12 @@ D0
 To the north you can see the guard room.
 ~
 ~
-0 -1 7045
+Z -1 7045
 D2
 To the south there is nothing but water and an exit leads east from there.
 ~
 ~
-0 -1 7047
+Z -1 7047
 S
 #7047
 The Pool in the Sewer~
@@ -3602,12 +3602,12 @@ D0
 To the north you see the entrance to this room.
 ~
 ~
-0 -1 7046
+Z -1 7046
 D1
 You can see an enormous hall through the doorway.
 ~
 ~
-0 -1 7053
+Z -1 7053
 S
 #7048
 The Sewers~
@@ -3619,7 +3619,7 @@ that way.
 D2
 ~
 ~
-0 -1 7049
+Z -1 7049
 S
 #7049
 The junction~
@@ -3629,19 +3629,19 @@ You stand in a junction leading north, west and east.
 D0
 ~
 ~
-0 -1 7048
+Z -1 7048
 D1
 Darkness has closed in on that part of the sewer system, you can't see
 a thing in that direction.
 ~
 ~
-0 -1 7060
+Z -1 7060
 D3
 West. You see another junction very similar to this one that leads north
 and west.
 ~
 ~
-0 -1 7044
+Z -1 7044
 S
 #7050
 The small room~
@@ -3658,12 +3658,12 @@ D1
 Utter darkness...!
 ~
 ~
-0 -1 7055
+Z -1 7055
 D2
 You can see a room with a lot of light in it. You can't make out any details.
 ~
 ~
-0 -1 7051
+Z -1 7051
 S
 #7051
 The Sewer pipe~
@@ -3674,12 +3674,12 @@ You can see two exits leading either north or south.
 D0
 ~
 ~
-0 -1 7050
+Z -1 7050
 D2
 To the south you can see a strange light flowing from there.
 ~
 ~
-0 -1 7052
+Z -1 7052
 S
 #7052
 The Grand Sewer~
@@ -3691,17 +3691,17 @@ D0
 To the north you can see a doorway.
 ~
 ~
-0 -1 7051
+Z -1 7051
 D1
 You can't see anything in that darkness.
 ~
 ~
-0 -1 7056
+Z -1 7056
 D2
 In the south end of the pipe the "floor" is completely covered with water.
 ~
 ~
-0 -1 7053
+Z -1 7053
 S
 #7053
 The South end of the Grand Pipe~
@@ -3713,11 +3713,11 @@ D0
 You see a lot of pictures decorating the walls.
 ~
 ~
-0 -1 7052
+Z -1 7052
 D3
 ~
 ~
-0 -1 7047
+Z -1 7047
 S
 #7055
 The Edge of The Water Sewer~
@@ -3734,11 +3734,11 @@ You can hardly make out much more than that the next place is in a pipe
 with more water.
 ~
 ~
-0 -1 7061
+Z -1 7061
 D3
 ~
 ~
-0 -1 7050
+Z -1 7050
 S
 #7056
 The Dark hallway~
@@ -3750,12 +3750,12 @@ D2
 You can see nothing at all, because it's completely dark in that direction.
 ~
 ~
-0 -1 7057
+Z -1 7057
 D3
 You see a lot of light, bright as daylight, but nothing of interest.
 ~
 ~
-0 -1 7052
+Z -1 7052
 S
 #7057
 The dark passageway~
@@ -3768,13 +3768,13 @@ You can't see anything in that direction and your light isn't enough to light
 that far.
 ~
 ~
-0 -1 7056
+Z -1 7056
 D2
 You can't see anything in that direction and your light isn't enough to light
 that far.
 ~
 ~
-0 -1 7058
+Z -1 7058
 S
 #7058
 The dark passageway~
@@ -3787,13 +3787,13 @@ You can't see anything in that direction and your light isn't enough to light
 that far.
 ~
 ~
-0 -1 7057
+Z -1 7057
 D2
 You can't see anything in that direction and your light isn't enough to light
 that far.
 ~
 ~
-0 -1 7059
+Z -1 7059
 S
 #7059
 The dark passageway~
@@ -3806,13 +3806,13 @@ You can't see anything in that direction and your light isn't enough to light
 that far.
 ~
 ~
-0 -1 7058
+Z -1 7058
 D2
 You can't see anything in that direction and your light isn't enough to light
 that far.
 ~
 ~
-0 -1 7060
+Z -1 7060
 S
 #7060
 The dark passageway~
@@ -3831,18 +3831,18 @@ You can't see anything in that direction and your light isn't enough to light
 that far.
 ~
 ~
-0 -1 7059
+Z -1 7059
 D1
 You can't see anything in that direction and your light isn't enough to light
 that far.
 ~
 ~
-0 -1 7068
+Z -1 7068
 D3
 You can just make out a triple junction leading north and west.
 ~
 ~
-0 -1 7049
+Z -1 7049
 S
 #7061
 The Watery Sewer Bend~
@@ -3859,13 +3859,13 @@ You can't see anything in that direction and your light isn't enough to light
 that far.
 ~
 ~
-0 -1 7062
+Z -1 7062
 D3
 You can't see anything in that direction and your light isn't enough to light
 that far.
 ~
 ~
-0 -1 7055
+Z -1 7055
 S
 #7062
 The Watery sewer~
@@ -3882,13 +3882,13 @@ You can't see anything in that direction and your light isn't enough to light
 that far.
 ~
 ~
-0 -1 7061
+Z -1 7061
 D2
 You can't see anything in that direction and your light isn't enough to light
 that far.
 ~
 ~
-0 -1 7063
+Z -1 7063
 S
 #7063
 The Watery sewer~
@@ -3905,13 +3905,13 @@ You can't see anything in that direction and your light isn't enough to light
 that far.
 ~
 ~
-0 -1 7062
+Z -1 7062
 D2
 You can't see anything in that direction and your light isn't enough to light
 that far.
 ~
 ~
-0 -1 7064
+Z -1 7064
 S
 #7064
 The Watery Sewer Junction~
@@ -3928,19 +3928,19 @@ You can't see anything in that direction and your light isn't enough to light
 that far.
 ~
 ~
-0 -1 7063
+Z -1 7063
 D1
 You can't see anything in that direction and your light isn't enough to light
 that far.
 ~
 ~
-0 -1 7069
+Z -1 7069
 D2
 You can't see anything in that direction and your light isn't enough to light
 that far.
 ~
 ~
-0 -1 7065
+Z -1 7065
 S
 #7065
 The Watery sewer~
@@ -3957,13 +3957,13 @@ You can't see anything in that direction and your light isn't enough to light
 that far.
 ~
 ~
-0 -1 7064
+Z -1 7064
 D2
 You can't see anything in that direction and your light isn't enough to light
 that far.
 ~
 ~
-0 -1 7066
+Z -1 7066
 S
 #7066
 The Watery sewer junction~
@@ -3980,19 +3980,19 @@ You can't see anything in that direction and your light isn't enough to light
 that far.
 ~
 ~
-0 -1 7065
+Z -1 7065
 D1
 You can't see anything in that direction and your light isn't enough to light
 that far.
 ~
 ~
-0 -1 7070
+Z -1 7070
 D2
 You can't see anything in that direction and your light isn't enough to light
 that far.
 ~
 ~
-0 -1 7067
+Z -1 7067
 S
 #7067
 The Watery sewer~
@@ -4009,13 +4009,13 @@ You can't see anything in that direction and your light isn't enough to light
 that far.
 ~
 ~
-0 -1 7066
+Z -1 7066
 D2
 You can't see anything in that direction and your light isn't enough to light
 that far.
 ~
 ~
-0 -1 7068
+Z -1 7068
 S
 #7068
 The Watery sewer bend~
@@ -4032,13 +4032,13 @@ You can't see anything in that direction and your light isn't enough to light
 that far.
 ~
 ~
-0 -1 7067
+Z -1 7067
 D3
 You can't see anything in that direction and your light isn't enough to light
 that far.
 ~
 ~
-0 -1 7060
+Z -1 7060
 S
 #7069
 A ledge by the dark pool~
@@ -4057,12 +4057,12 @@ D2
 You can't see a thing. It's too dark.
 ~
 ~
-0 -1 7070
+Z -1 7070
 D3
 You can't see a thing. It's too dark.
 ~
 ~
-0 -1 7064
+Z -1 7064
 S
 #7070
 A ledge by the dark pool~
@@ -4082,16 +4082,16 @@ D0
 You can't see a thing. It's too dark.
 ~
 ~
-0 -1 7069
+Z -1 7069
 D3
 You can't see a thing. It's too dark.
 ~
 ~
-0 -1 7066
+Z -1 7066
 D5
 ~
 ~
-0 -1 7099
+Z -1 7099
 S
 #7099
 The fissure under the ledge~
@@ -4103,12 +4103,12 @@ like the water in a sewer.
 D4
 ~
 ~
-0 -1 7070
+Z -1 7070
 D5
 The water edge.
 ~
 ~
-0 -1 7199
+Z -1 7199
 S
 #7101
 Under the mudhole~
@@ -4127,7 +4127,7 @@ D1
 East. You see nothing of interest.
 ~
 ~
-0 -1 7103
+Z -1 7103
 S
 #7102
 Under the Dark Pit~
@@ -4145,16 +4145,16 @@ greatest effort, rock it at ALL!
 D1
 ~
 ~
-0 -1 7104
+Z -1 7104
 D4
 Up. You can't see a thing up there, it's way too dark.
 ~
 ~
-0 -1 7004
+Z -1 7004
 D5
 ~
 trapdoor~
-0 -1 7400
+Z -1 7400
 S
 #7103
 A muddy bend in the sewer system~
@@ -4172,14 +4172,14 @@ To the south there's less mud than here! It actually seems to end there!
 You have a feeling it would be nice to have your feet free from mud again.
 ~
 ~
-0 -1 7104
+Z -1 7104
 D3
 You can see a room in which mud drips from the roof onto the floor in 
 great cakes of sludge. There doesn't seem to be any exits from that room
 apart from in you direction.
 ~
 ~
-0 -1 7101
+Z -1 7101
 S
 #7104
 A junction in the sewer pipes~
@@ -4191,17 +4191,17 @@ D0
 You can see a mud area starting in that direction.
 ~
 ~
-0 -1 7103
+Z -1 7103
 D1
 East. You can't even make out what it might look like, it's just too dark.
 ~
 ~
-0 -1 7112
+Z -1 7112
 D3
 West. There's a room with a ladder leading up.
 ~
 ~
-0 -1 7102
+Z -1 7102
 S
 #7105
 Down the old well~
@@ -4221,7 +4221,7 @@ There's a slight, dim light from above, or maybe it's your imagination.
 Anyway it SEEMS darker down here than up there, if that is possible.
 ~
 ~
-0 -1 7015
+Z -1 7015
 S
 #7106
 The northwestern corner of the ledge~
@@ -4235,12 +4235,12 @@ D1
 The ledge continues east.
 ~
 ~
-0 -1 7113
+Z -1 7113
 D2
 The ledge continues south.
 ~
 ~
-0 -1 7107
+Z -1 7107
 S
 #7107
 The narrow ledge~
@@ -4254,18 +4254,18 @@ D0
 North. The ledge leads into a corner and turns eastward.
 ~
 ~
-0 -1 7106
+Z -1 7106
 D1
 You stare into mid-air, and right under there's absolutely nothing but 
 darkness. You shiver by the thought of falling an utterly unknown distance.
 ~
 ~
-0 -1 7190
+Z -1 7190
 D2
 South. The ledge leads further south into utter darkness.
 ~
 ~
-0 -1 7108
+Z -1 7108
 S
 #7108
 The narrow ledge~
@@ -4279,18 +4279,18 @@ D0
 North. The ledge leads further north.
 ~
 ~
-0 -1 7107
+Z -1 7107
 D1
 You stare into mid-air, and right under there's absolutely nothing but
 darkness. You shiver by the thought of falling that distance.
 ~
 ~
-0 -1 7190
+Z -1 7190
 D2
 The ledge continues further south into darkness.
 ~
 ~
-0 -1 7109
+Z -1 7109
 S
 #7109
 The narrow ledge~
@@ -4304,18 +4304,18 @@ D0
 North. The ledge leads further north.
 ~
 ~
-0 -1 7108
+Z -1 7108
 D1
 You stare into mid-air, and right under there's absolutely nothing but
 darkness. You shiver by the thought of falling that distance.
 ~
 ~
-0 -1 7190
+Z -1 7190
 D2
 The ledge continues south into darkness.
 ~
 ~
-0 -1 7110
+Z -1 7110
 S
 #7110
 The narrow ledge~
@@ -4329,18 +4329,18 @@ D0
 North. The ledge leads further north.
 ~
 ~
-0 -1 7109
+Z -1 7109
 D1
 You stare into mid-air, and right under there's absolutely nothing but
 darkness. You shiver by the thought of falling that distance.
 ~
 ~
-0 -1 7190
+Z -1 7190
 D2
 South. You can just make out the south-western corner of this ledge.
 ~
 ~
-0 -1 7111
+Z -1 7111
 S
 #7111
 The southwestern corner of the ledge~
@@ -4369,22 +4369,22 @@ D0
 North. The ledge leads further north.
 ~
 ~
-0 -1 7110
+Z -1 7110
 D1
 You see a broad ledge leading eastward.
 ~
 ~
-0 -1 7115
+Z -1 7115
 D2
 South of here is the exit from the ledge.
 ~
 ~
-0 -1 7112
+Z -1 7112
 D5
 The Abyss lies down there. Who knows what might lurk down there?
 ~
 ~
-0 -1 7279
+Z -1 7279
 S
 #7112
 An odd intersection~
@@ -4398,15 +4398,15 @@ D0
 North. You see a ledge to something that looks like an abyss.
 ~
 ~
-0 -1 7111
+Z -1 7111
 D1
 ~
 ~
-0 -1 7122
+Z -1 7122
 D3
 ~
 ~
-0 -1 7104
+Z -1 7104
 S
 #7113
 The narrow ledge going east to west~
@@ -4420,18 +4420,18 @@ D1
 The ledge leads further east.
 ~
 ~
-0 -1 7116
+Z -1 7116
 D2
 You stare into mid-air, and right under there's absolutely nothing but
 darkness. You shiver by the thought of falling that distance.
 ~
 ~
-0 -1 7190
+Z -1 7190
 D3
 The ledge leads further west.
 ~
 ~
-0 -1 7106
+Z -1 7106
 S
 #7114
 Mid-air~
@@ -4455,19 +4455,19 @@ wouldn't be such a good idea. The way south is in utter darkness.
 D0
 ~
 ~
-0 -1 7114
+Z -1 7114
 D1
 ~
 ~
-0 -1 7121
+Z -1 7121
 D2
 ~
 ~
-0 -1 7129
+Z -1 7129
 D3
 ~
 ~
-0 -1 7111
+Z -1 7111
 S
 #7116
 The northeastern corner of the ledge~
@@ -4491,16 +4491,16 @@ carefully at this. It seems to be of some interest.
 D2
 ~
 ~
-0 -1 7117
+Z -1 7117
 D3
 The ledge continues west.
 ~
 ~
-0 -1 7113
+Z -1 7113
 D5
 ~
 secret trapdoor entrance~
-1 -1 7280
+ABZ -1 7280
 S
 #7117
 The narrow eastern ledge~
@@ -4514,13 +4514,13 @@ D2
 The ledge leads further south.
 ~
 ~
-0 -1 7118
+Z -1 7118
 D3
 You stare into mid-air, and right under there's absolutely nothing but
 darkness. You shiver by the thought of falling that distance.
 ~
 ~
-0 -1 7114
+Z -1 7114
 S
 #7118
 The narrow eastern ledge~
@@ -4534,13 +4534,13 @@ D2
 The ledge leads further south.
 ~
 ~
-0 -1 7119
+Z -1 7119
 D3
 You stare into mid-air, and right under there's absolutely nothing but
 darkness. You shiver by the thought of falling that distance.
 ~
 ~
-0 -1 7114
+Z -1 7114
 S
 #7119
 The narrow eastern ledge~
@@ -4554,13 +4554,13 @@ D2
 The ledge leads further south.
 ~
 ~
-0 -1 7120
+Z -1 7120
 D3
 You stare into mid-air, and right under there's absolutely nothing but
 darkness. You shiver by the thought of falling that distance.
 ~
 ~
-0 -1 7114
+Z -1 7114
 S
 #7120
 The narrow eastern ledge~
@@ -4575,18 +4575,18 @@ D1
 East. You stare into darkness.
 ~
 ~
-0 -1 7123
+Z -1 7123
 D2
 The ledge leads further south.
 ~
 ~
-0 -1 7121
+Z -1 7121
 D3
 You stare into mid-air, and right under there's absolutely nothing but
 darkness. You shiver by the thought of falling that distance.
 ~
 ~
-0 -1 7114
+Z -1 7114
 S
 #7121
 The southeastern corner of the ledge~
@@ -4599,12 +4599,12 @@ D0
 North of here you can see a ledge.
 ~
 ~
-0 -1 7120
+Z -1 7120
 D3
 The ledge leads further west.
 ~
 ~
-0 -1 7115
+Z -1 7115
 S
 #7122
 Under the pit~
@@ -4618,7 +4618,7 @@ There is a crack here that looks like it has been made recently.
 D3
 ~
 ~
-0 -1 7112
+Z -1 7112
 S
 #7123
 Under The Shaft~
@@ -4630,12 +4630,12 @@ D3
 You can see a narrow ledge going north and south.
 ~
 ~
-0 -1 7120
+Z -1 7120
 D4
 It's too dark up there.
 ~
 ~
-0 -1 7041
+Z -1 7041
 S
 #7129
 The sewer line.~
@@ -4647,12 +4647,12 @@ D0
 You can see the southern part of the ledge.
 ~
 ~
-0 -1 7115
+Z -1 7115
 D5
 You look deeper down into the drain.
 ~
 ~
-0 -1 7221
+Z -1 7221
 S
 #7130
 The sewer pipe.~

@@ -443,11 +443,11 @@ continue west under an archway.  (LOOK CROSS!!!)
 D1
 ~
 ~
-0 0 2309
+Z 0 2309
 D3
 ~
 ~
-0 0 29351
+Z 0 29351
 S
 #29351
 Beneath the Archway~
@@ -461,15 +461,15 @@ from the north you hear what can only be described as an unholy growl.
 D0
 ~
 ~
-0 0 29352
+Z 0 29352
 D1
 ~
 ~
-0 0 29350
+Z 0 29350
 D3
 ~
 ~
-0 0 29353
+Z 0 29353
 S
 #29352
 The Dracolich's Lair~
@@ -484,7 +484,7 @@ archway.
 D2
 ~
 ~
-0 0 29351
+Z 0 29351
 S
 #29353
 The Entrance Hall~
@@ -499,15 +499,15 @@ beyond.
 D1
 ~
 ~
-0 0 29351
+Z 0 29351
 D2
 ~
 ~
-0 0 29354
+Z 0 29354
 D3
 ~
 ~
-0 0 29356
+Z 0 29356
 S
 #29354
 The Dining Hall~
@@ -520,11 +520,11 @@ hall.
 D0
 ~
 ~
-0 0 29353
+Z 0 29353
 D3
 ~
 ~
-0 0 29355
+Z 0 29355
 S
 #29355
 The Kitchen~
@@ -537,15 +537,15 @@ large storage room lies open to the south.
 D0
 ~
 ~
-0 0 29356
+Z 0 29356
 D1
 ~
 ~
-0 0 29354
+Z 0 29354
 D2
 ~
 ~
-0 0 29369
+Z 0 29369
 S
 #29356
 The Bottom of the Stairs~
@@ -557,15 +557,15 @@ east to the entrance hall, or up into the unknown.
 D1
 ~
 ~
-0 0 29353
+Z 0 29353
 D2
 ~
 ~
-0 0 29355
+Z 0 29355
 D4
 ~
 ~
-0 0 29357
+Z 0 29357
 S
 #29357
 On the Stairs~
@@ -578,15 +578,15 @@ heard.
 D1
 ~
 ~
-0 0 29362
+Z 0 29362
 D4
 ~
 ~
-0 0 29358
+Z 0 29358
 D5
 ~
 ~
-0 0 29356
+Z 0 29356
 S
 #29358
 On the Stairs~
@@ -598,19 +598,19 @@ and east.
 D1
 ~
 ~
-0 0 29365
+Z 0 29365
 D2
 ~
 ~
-0 0 29363
+Z 0 29363
 D4
 ~
 ~
-0 0 29359
+Z 0 29359
 D5
 ~
 ~
-0 0 29357
+Z 0 29357
 S
 #29359
 The Top of the Stairs~
@@ -621,15 +621,15 @@ hallways and the stairs lead back down into darkness.
 D1
 ~
 ~
-0 0 29368
+Z 0 29368
 D2
 ~
 ~
-0 0 29366
+Z 0 29366
 D5
 ~
 ~
-0 0 29358
+Z 0 29358
 S
 #29360
 Lich's Study~
@@ -643,7 +643,7 @@ appears to be back into the library to the east.
 D1
 ~
 ~
-0 0 29361
+Z 0 29361
 S
 #29361
 The Library~
@@ -657,11 +657,11 @@ west into a study.
 D0
 ~
 ~
-0 0 29362
+Z 0 29362
 D3
 ~
 ~
-0 0 29360
+Z 0 29360
 S
 #29362
 The Library~
@@ -674,11 +674,11 @@ stairs are back to the west.
 D2
 ~
 ~
-0 0 29361
+Z 0 29361
 D3
 ~
 ~
-0 0 29357
+Z 0 29357
 S
 #29363
 A Summoning Room~
@@ -690,11 +690,11 @@ only exits are north, to the stairs, and east, to the torture chamber.
 D0
 ~
 ~
-0 0 29358
+Z 0 29358
 D1
 ~
 ~
-0 0 29364
+Z 0 29364
 S
 #29364
 The Torture Chamber~
@@ -708,11 +708,11 @@ summoning rooms provide exit to the north and west.
 D0
 ~
 ~
-0 0 29365
+Z 0 29365
 D3
 ~
 ~
-0 0 29363
+Z 0 29363
 S
 #29365
 A Summoning Room~
@@ -725,11 +725,11 @@ chamber.
 D2
 ~
 ~
-0 0 29364
+Z 0 29364
 D3
 ~
 ~
-0 0 29358
+Z 0 29358
 S
 #29366
 A Large Hall~
@@ -740,11 +740,11 @@ to the north and a large set of double doors are to the east.
 D0
 ~
 ~
-0 0 29359
+Z 0 29359
 D1
 ~
 ~
-1 0 29367
+ABZ 0 29367
 S
 #29367
 The Lich's Throne Room~
@@ -758,11 +758,11 @@ doors to your north or west.
 D0
 ~
 ~
-1 0 29368
+ABZ 0 29368
 D3
 ~
 ~
-1 0 29366
+ABZ 0 29366
 S
 #29368
 A Large Hall~
@@ -773,11 +773,11 @@ to the west and a large set of doors block your way south.
 D2
 ~
 ~
-1 0 29367
+ABZ 0 29367
 D3
 ~
 ~
-0 0 29359
+Z 0 29359
 S
 #29369
 A Storage Room~
@@ -790,11 +790,11 @@ kitchen or south into the dark tunnel.
 D0
 ~
 ~
-0 0 29355
+Z 0 29355
 D2
 ~
 ~
-0 0 29370
+Z 0 29370
 S
 #29370
 Above a Pit~
@@ -807,11 +807,11 @@ pit.
 D0
 ~
 ~
-0 0 29369
+Z 0 29369
 D5
 ~
 ~
-0 0 29371
+Z 0 29371
 S
 #29371
 Under a Pit~
@@ -822,11 +822,11 @@ that you can make out is a tunnel running in a south direction.
 D2
 ~
 ~
-0 0 29372
+Z 0 29372
 D4
 ~
 ~
-0 0 29370
+Z 0 29370
 S
 #29372
 A Darkened Tunnel~
@@ -838,11 +838,11 @@ the light.
 D0
 ~
 ~
-0 0 29371
+Z 0 29371
 D2
 ~
 ~
-0 0 29373
+Z 0 29373
 S
 #29373
 Before the Caverns~
@@ -856,11 +856,11 @@ realms of hell is for them to make it through the maze of caverns below you.
 D0
 ~
 ~
-0 0 29372
+Z 0 29372
 D5
 ~
 ~
-0 0 22000
+Z 0 22000
 S
 #0
 

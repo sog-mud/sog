@@ -492,12 +492,12 @@ D2
 The narrow path winds its way through the trees to the south.
 ~
 ~
-0 -1 6110
+Z -1 6110
 D3
 The narrow path winds its way through the trees to the west.
 ~
 ~
-0 -1 6130
+Z -1 6130
 S
 #6150
 The narrow trail.~
@@ -510,12 +510,12 @@ D0
 the narrow trail continues north.
 ~
 ~
-0 -1 6151
+Z -1 6151
 D2
 the trail intersects the main forest path.
 ~
 ~
-0 -1 6103
+Z -1 6103
 S
 #6151
 The narrow trail.~
@@ -528,12 +528,12 @@ D1
 the trail bends east.
 ~
 ~
-0 -1 6152
+Z -1 6152
 D2
 the start of the trail.
 ~
 ~
-0 -1 6150
+Z -1 6150
 S
 #6152
 The circle of trees.~
@@ -546,17 +546,17 @@ D0
 A long dusty trail.
 ~
 ~
-0 -1 18001
+Z -1 18001
 D1
 The tree door is carved beautifully.
 ~
 door~
-1 -1 6153
+ABZ -1 6153
 D3
 the bend on the trail.
 ~
 ~
-0 -1 6151
+Z -1 6151
 S
 #6153
 Inside the great tree.~
@@ -568,17 +568,17 @@ D0
 A large Knothole in a tree.
 ~
 ~
-0 -1 13400
+Z -1 13400
 D3
 the door is carved beautifully.
 ~
 door~
-1 -1 6152
+ABZ -1 6152
 D5
 The steps look appear like they will hold your weight.
 ~
 ~
-0 -1 6154
+Z -1 6154
 S
 #6154
 The underground hallway.~
@@ -589,17 +589,17 @@ the steps. ~
 D0
 ~
 ~
-0 -1 14700
+Z -1 14700
 D2
 the hallway looks quite grand.
 ~
 ~
-0 -1 6155
+Z -1 6155
 D4
 the steps appear like they will hold your weight.
 ~
 ~
-0 -1 6153
+Z -1 6153
 S
 #6155
 The cultist temple.~
@@ -613,12 +613,12 @@ D0
 the hallway looks quite grand.
 ~
 ~
-0 -1 6154
+Z -1 6154
 D2
 Gateway to abyss.
 ~
 ~
-0 -1 25004
+Z -1 25004
 S
 #6156
 The Hidden Glade~
@@ -632,7 +632,7 @@ D0
 You see an open clearing to north.
 ~
 ~
-0 -1 6008
+Z -1 6008
 S
 #6000
 The edge of the forest~
@@ -655,17 +655,17 @@ D0
 You see a dimly lit path.
 ~
 ~
-0 0 1100
+Z 0 1100
 D1
 You see the West Gate of the City of Midgaard.
 ~
 ~
-0 -1 3052
+Z -1 3052
 D3
 You see the narrow forest trail winding westwards in between the trees.
 ~
 ~
-0 -1 6001
+Z -1 6001
 S
 #6001
 A trail through the light forest~
@@ -690,12 +690,12 @@ D1
 Bus Stop.
 ~
 ~
-0 -1 6000
+Z -1 6000
 D3
 You see the narrow forest trail winding westwards in between the trees.
 ~
 ~
-0 -1 6002
+Z -1 6002
 S
 #6002
 A trail through the light forest~
@@ -721,22 +721,22 @@ D1
 The trail continues eastwards through the young trees.
 ~
 ~
-0 -1 6001
+Z -1 6001
 D2
 The small path leads south through the young trees.
 ~
 ~
-0 -1 6011
+Z -1 6011
 D3
 You see the narrow forest trail winding westwards into the dense forest.
 ~
 ~
-0 -1 6003
+Z -1 6003
 D4
 Junction in the dark Forest.
 ~
 ~
-0 -1 7556
+Z -1 7556
 S
 #6003
 A trail through the dense forest~
@@ -757,17 +757,17 @@ D1
 The trail continues eastwards to the younger part of the forest.
 ~
 ~
-0 -1 6002
+Z -1 6002
 D3
 You see the narrow trail winding westwards through the dense forest.
 ~
 ~
-0 -1 6004
+Z -1 6004
 D5
 Junction in the dark Forest.
 ~
 ~
-0 -1 7556
+Z -1 7556
 S
 #6004
 A trail through the dense forest~
@@ -792,17 +792,17 @@ D1
 The trail continues eastwards through the dense forest.
 ~
 ~
-0 -1 6003
+Z -1 6003
 D2
 The small path leads south through the trees.
 ~
 ~
-0 -1 6005
+Z -1 6005
 D3
 The narrow trail almost seems to disappear between the enormous trunks.
 ~
 ~
-0 -1 6100
+Z -1 6100
 S
 #6005
 A small path in the dense forest~
@@ -823,12 +823,12 @@ D0
 The small path leads north through the trees.
 ~
 ~
-0 -1 6004
+Z -1 6004
 D2
 The small path leads south through the trees.
 ~
 ~
-0 -1 6006
+Z -1 6006
 S
 #6006
 A small path in the dense forest~
@@ -849,12 +849,12 @@ D0
 The small path leads north through the trees.
 ~
 ~
-0 -1 6005
+Z -1 6005
 D1
 The small path leads east through the trees.
 ~
 ~
-0 -1 6007
+Z -1 6007
 S
 #6007
 An intersection in the dense forest~
@@ -875,17 +875,17 @@ D1
 You can barely make out a clearing to the east.
 ~
 ~
-0 -1 6008
+Z -1 6008
 D2
 The small path leads south through the trees.
 ~
 ~
-0 -1 6012
+Z -1 6012
 D3
 The small path leads west through the trees.
 ~
 ~
-0 -1 6006
+Z -1 6006
 S
 #6008
 The forest clearing~
@@ -920,21 +920,21 @@ D0
 The small path leads north through the trees.
 ~
 ~
-0 -1 6011
+Z -1 6011
 D1
 The small path leads east through the trees.
 ~
 ~
-0 -1 6009
+Z -1 6009
 D2
 ~
 ~
-0 -1 6156
+Z -1 6156
 D3
 The small path leads west through the trees.
 ~
 ~
-0 -1 6007
+Z -1 6007
 S
 #6009
 Outside a small cabin in the forest~
@@ -959,17 +959,17 @@ D0
 The wooden door is quite sturdy but does not appear to be equipped with a lock.
 ~
 door wooden~
-1 -1 6010
+ABZ -1 6010
 D2
 The small path leads south through the dense forest.
 ~
 ~
-0 -1 6014
+Z -1 6014
 D3
 The small path leads west through the light forest.
 ~
 ~
-0 -1 6008
+Z -1 6008
 S
 #6010
 Inside the cabin~
@@ -994,7 +994,7 @@ D2
 The wooden door leads south.
 ~
 door wooden~
-0 -1 6009
+Z -1 6009
 S
 #6011
 A small path through the light forest~
@@ -1014,12 +1014,12 @@ D0
 The path leads north through the young trees.
 ~
 ~
-0 -1 6002
+Z -1 6002
 D2
 The path leads south through the young trees.
 ~
 ~
-0 -1 6008
+Z -1 6008
 S
 #6012
 An intersection in the dense forest~
@@ -1040,17 +1040,17 @@ D0
 The small path leads north through the trees.
 ~
 ~
-0 -1 6007
+Z -1 6007
 D1
 The small path leads east through the trees.
 ~
 ~
-0 -1 6013
+Z -1 6013
 D2
 The small path leads south through the trees.
 ~
 ~
-0 -1 6021
+Z -1 6021
 S
 #6013
 A small path in the dense forest~
@@ -1071,12 +1071,12 @@ D1
 The small path leads east through the trees.
 ~
 ~
-0 -1 6014
+Z -1 6014
 D3
 The small path leads west through the trees.
 ~
 ~
-0 -1 6012
+Z -1 6012
 S
 #6014
 An intersection in the dense forest~
@@ -1097,17 +1097,17 @@ D0
 The path leads north to a lighter part of the forest.
 ~
 ~
-0 -1 6009
+Z -1 6009
 D1
 The small path leads east through the trees.
 ~
 ~
-0 -1 6015
+Z -1 6015
 D3
 The small path leads west through the trees.
 ~
 ~
-0 -1 6013
+Z -1 6013
 S
 #6015
 A small path in the dense forest~
@@ -1128,12 +1128,12 @@ D2
 The small path leads south through the trees.
 ~
 ~
-0 -1 6016
+Z -1 6016
 D3
 The small path leads west through the trees.
 ~
 ~
-0 -1 6014
+Z -1 6014
 S
 #6016
 A small path in the dense forest~
@@ -1154,12 +1154,12 @@ D0
 The small path leads north through the trees.
 ~
 ~
-0 -1 6015
+Z -1 6015
 D2
 The small path leads south through the trees.
 ~
 ~
-0 -1 6017
+Z -1 6017
 S
 #6017
 A small path in the dense forest~
@@ -1180,17 +1180,17 @@ D0
 The small path leads north through the trees.
 ~
 ~
-0 -1 6016
+Z -1 6016
 D2
 Wooden path.
 ~
 ~
-0 -1 11800
+Z -1 11800
 D3
 The small path leads west through the trees to a lighter part of the forest.
 ~
 ~
-0 -1 6018
+Z -1 6018
 S
 #6018
 An intersection in the light forest~
@@ -1210,17 +1210,17 @@ D0
 The path leads north to a small, grassy field.
 ~
 ~
-0 -1 6023
+Z -1 6023
 D1
 The path leads east to a dense part of the forest.
 ~
 ~
-0 -1 6017
+Z -1 6017
 D3
 The path leads west to a dense part of the forest.
 ~
 ~
-0 -1 6019
+Z -1 6019
 S
 #6019
 A small path in the dense forest~
@@ -1241,12 +1241,12 @@ D0
 The small path leads north through the trees.
 ~
 ~
-0 -1 6020
+Z -1 6020
 D1
 The small path leads east through the trees to a lighter part of the forest.
 ~
 ~
-0 -1 6018
+Z -1 6018
 S
 #6020
 A small path in the dense forest~
@@ -1267,12 +1267,12 @@ D2
 The small path leads south through the trees.
 ~
 ~
-0 -1 6019
+Z -1 6019
 D3
 The small path leads west through the trees.
 ~
 ~
-0 -1 6021
+Z -1 6021
 S
 #6021
 A small path in the dense forest~
@@ -1298,17 +1298,17 @@ D0
 The small path leads north through the trees.
 ~
 ~
-0 -1 6012
+Z -1 6012
 D1
 The small path leads east through the trees.
 ~
 ~
-0 -1 6020
+Z -1 6020
 D3
 The cave is very dark.
 ~
 ~
-0 -1 6022
+Z -1 6022
 S
 #6022
 Inside the cave~
@@ -1333,7 +1333,7 @@ D1
 The cave opening is to the east.
 ~
 ~
-0 -1 6021
+Z -1 6021
 S
 #6023
 On a small, grassy field~
@@ -1359,7 +1359,7 @@ D2
 The small path leads south in between the trees.
 ~
 ~
-0 -1 6018
+Z -1 6018
 S
 #6100
 A narrow trail through the deep, dark forest~
@@ -1382,12 +1382,12 @@ D1
 The narrow trail leads east to a somewhat lighter part of the forest.
 ~
 ~
-0 -1 6004
+Z -1 6004
 D3
 The narrow, dusty trail leads west through the forest.
 ~
 ~
-0 -1 6101
+Z -1 6101
 S
 #6101
 A narrow trail through the deep, dark forest~
@@ -1415,17 +1415,17 @@ D1
 The narrow, dusty trail leads east through the forest.
 ~
 ~
-0 -1 6100
+Z -1 6100
 D2
 The path leads south - away from the trail.
 ~
 ~
-0 -1 6104
+Z -1 6104
 D3
 The narrow, dusty trail leads west through the forest.
 ~
 ~
-0 -1 6102
+Z -1 6102
 S
 #6102
 A narrow trail through the deep, dark forest~
@@ -1453,12 +1453,12 @@ D1
 The narrow, dusty trail leads east through the forest.
 ~
 ~
-0 -1 6101
+Z -1 6101
 D3
 The narrow, dusty trail leads west through the forest.
 ~
 ~
-0 -1 6103
+Z -1 6103
 S
 #6103
 A narrow trail through the deep, dark forest~
@@ -1481,17 +1481,17 @@ D0
 You see a dark trail north.
 ~
 ~
-0 0 6150
+Z 0 6150
 D1
 The narrow, dusty trail leads east through the forest.
 ~
 ~
-0 -1 6102
+Z -1 6102
 D2
 The narrow, dusty trail leads south through the forest.
 ~
 ~
-0 -1 6108
+Z -1 6108
 S
 #6104
 A small path in the deep, dark forest~
@@ -1513,12 +1513,12 @@ D0
 The narrow path winds its way through the trees to the north.
 ~
 ~
-0 -1 6101
+Z -1 6101
 D2
 The narrow path winds its way through the trees to the south.
 ~
 ~
-0 -1 6105
+Z -1 6105
 S
 #6105
 A small path in the deep, dark forest~
@@ -1539,12 +1539,12 @@ D0
 The narrow path winds its way through the trees to the north.
 ~
 ~
-0 -1 6104
+Z -1 6104
 D3
 The narrow path winds its way through the trees to the west.
 ~
 ~
-0 -1 6106
+Z -1 6106
 S
 #6106
 A junction in the deep, dark forest~
@@ -1565,17 +1565,17 @@ D1
 The narrow path winds its way through the trees to the east.
 ~
 ~
-0 -1 6105
+Z -1 6105
 D2
 The narrow path winds its way through the trees to the south.
 ~
 ~
-0 -1 6117
+Z -1 6117
 D3
 The narrow path winds its way through the trees to the west.
 ~
 ~
-0 -1 6107
+Z -1 6107
 S
 #6107
 A small path in the deep, dark forest~
@@ -1596,12 +1596,12 @@ D0
 The narrow path winds its way through the trees to the north.
 ~
 ~
-0 -1 6108
+Z -1 6108
 D1
 The narrow path winds its way through the trees to the east.
 ~
 ~
-0 -1 6106
+Z -1 6106
 S
 #6108
 A narrow trail through the deep, dark forest~
@@ -1629,17 +1629,17 @@ D0
 The narrow, dusty trail leads north through the forest.
 ~
 ~
-0 -1 6103
+Z -1 6103
 D2
 The path leads south - away from the trail.
 ~
 ~
-0 -1 6107
+Z -1 6107
 D3
 The narrow, dusty trail leads west through the forest.
 ~
 ~
-0 -1 6109
+Z -1 6109
 S
 #6109
 A narrow trail through the deep, dark forest~
@@ -1662,12 +1662,12 @@ D1
 The narrow, dusty trail leads east through the forest.
 ~
 ~
-0 -1 6108
+Z -1 6108
 D3
 The narrow, dusty trail leads west through the forest.
 ~
 ~
-0 -1 6110
+Z -1 6110
 S
 #6110
 A narrow trail through the deep, dark forest~
@@ -1695,17 +1695,17 @@ D0
 The narrow path leads west between the giant trees.
 ~
 ~
-0 -1 6144
+Z -1 6144
 D1
 The narrow, dusty trail leads east through the forest.
 ~
 ~
-0 -1 6109
+Z -1 6109
 D2
 The narrow, dusty trail leads south through the forest.
 ~
 ~
-0 -1 6111
+Z -1 6111
 S
 #6111
 A narrow trail through the deep, dark forest~
@@ -1727,12 +1727,12 @@ D0
 The narrow, dusty trail leads north through the forest.
 ~
 ~
-0 -1 6110
+Z -1 6110
 D2
 The narrow, dusty trail leads south through the forest.
 ~
 ~
-0 -1 6112
+Z -1 6112
 S
 #6112
 A narrow trail through the deep, dark forest~
@@ -1760,17 +1760,17 @@ D0
 The narrow, dusty trail leads north through the forest.
 ~
 ~
-0 -1 6111
+Z -1 6111
 D1
 The path leads east - away from the trail.
 ~
 ~
-0 -1 6113
+Z -1 6113
 D3
 The narrow, dusty trail leads west through the forest.
 ~
 ~
-0 -1 6127
+Z -1 6127
 S
 #6113
 A small path in the deep, dark forest~
@@ -1791,12 +1791,12 @@ D2
 The narrow path winds its way through the trees to the south.
 ~
 ~
-0 -1 6114
+Z -1 6114
 D3
 The narrow path winds its way through the trees to the west.
 ~
 ~
-0 -1 6112
+Z -1 6112
 S
 #6114
 A junction in the deep, dark forest~
@@ -1817,17 +1817,17 @@ D0
 The narrow path winds its way through the trees to the north.
 ~
 ~
-0 -1 6113
+Z -1 6113
 D1
 The narrow path winds its way through the trees to the east.
 ~
 ~
-0 -1 6115
+Z -1 6115
 D3
 The narrow path winds its way through the trees to the west.
 ~
 ~
-0 -1 6122
+Z -1 6122
 S
 #6115
 A small path in the deep, dark forest~
@@ -1849,12 +1849,12 @@ D0
 The narrow path winds its way through the trees to the north.
 ~
 ~
-0 -1 6116
+Z -1 6116
 D3
 The narrow path winds its way through the trees to the west.
 ~
 ~
-0 -1 6114
+Z -1 6114
 S
 #6116
 A small path in the deep, dark forest~
@@ -1875,12 +1875,12 @@ D1
 The narrow path winds its way through the trees to the east.
 ~
 ~
-0 -1 6117
+Z -1 6117
 D2
 The narrow path winds its way through the trees to the south.
 ~
 ~
-0 -1 6115
+Z -1 6115
 S
 #6117
 A junction in the deep, dark forest~
@@ -1901,17 +1901,17 @@ D0
 The narrow path winds its way through the trees to the north.
 ~
 ~
-0 -1 6106
+Z -1 6106
 D1
 The narrow path winds its way through the trees to the east.
 ~
 ~
-0 -1 6118
+Z -1 6118
 D3
 The narrow path winds its way through the trees to the west.
 ~
 ~
-0 -1 6116
+Z -1 6116
 S
 #6118
 A small path in the deep, dark forest~
@@ -1932,12 +1932,12 @@ D2
 The narrow path winds its way through the trees to the south.
 ~
 ~
-0 -1 6119
+Z -1 6119
 D3
 The narrow path winds its way through the trees to the west.
 ~
 ~
-0 -1 6117
+Z -1 6117
 S
 #6119
 A small path in the deep, dark forest~
@@ -1958,12 +1958,12 @@ D0
 The narrow path winds its way through the trees to the north.
 ~
 ~
-0 -1 6118
+Z -1 6118
 D2
 The narrow path winds its way through the trees to the south.
 ~
 ~
-0 -1 6120
+Z -1 6120
 S
 #6120
 On the river bank in the deep, dark forest~
@@ -1990,12 +1990,12 @@ D0
 The narrow path winds its way through the trees to the north.
 ~
 ~
-0 -1 6119
+Z -1 6119
 D3
 The narrow path winds its way through the trees to the west.
 ~
 ~
-0 -1 6121
+Z -1 6121
 S
 #6121
 A dead end path on the river bank in the deep, dark forest~
@@ -2022,7 +2022,7 @@ D1
 The narrow path winds its way through the trees to the east.
 ~
 ~
-0 -1 6120
+Z -1 6120
 S
 #6122
 A small path in the deep, dark forest~
@@ -2043,12 +2043,12 @@ D1
 The narrow path winds its way through the trees to the east.
 ~
 ~
-0 -1 6114
+Z -1 6114
 D2
 The narrow path winds its way through the trees to the south.
 ~
 ~
-0 -1 6123
+Z -1 6123
 S
 #6123
 A junction on the river bank in the deep, dark forest~
@@ -2075,22 +2075,22 @@ D0
 The narrow path winds its way through the trees to the north.
 ~
 ~
-0 -1 6122
+Z -1 6122
 D1
 The narrow path winds its way through the trees to the east.
 ~
 ~
-0 -1 6124
+Z -1 6124
 D2
 You see a dark river.
 ~
 ~
-0 -1 9774
+Z -1 9774
 D3
 The narrow path winds its way through the trees to the west.
 ~
 ~
-0 -1 6125
+Z -1 6125
 S
 #6124
 A dead end path in the deep, dark forest~
@@ -2117,12 +2117,12 @@ D2
 It stinks in there.
 ~
 ~
-0 -1 2801
+Z -1 2801
 D3
 The narrow path winds its way through the trees to the west.
 ~
 ~
-0 -1 6123
+Z -1 6123
 S
 #6125
 A small path on the river bank in the deep, dark forest~
@@ -2149,17 +2149,17 @@ D0
 The narrow path winds its way through the trees to the north.
 ~
 ~
-0 -1 6126
+Z -1 6126
 D1
 The narrow path winds its way through the trees to the east.
 ~
 ~
-0 -1 6123
+Z -1 6123
 D2
 You smell marsh gas.
 ~
 ~
-0 -1 8301
+Z -1 8301
 S
 #6126
 A narrow trail through the deep, dark forest~
@@ -2187,17 +2187,17 @@ D0
 The narrow, dusty trail leads north through the forest.
 ~
 ~
-0 -1 6127
+Z -1 6127
 D2
 The path leads south - away from the trail.
 ~
 ~
-0 -1 6125
+Z -1 6125
 D3
 The narrow, dusty trail leads west through the forest.
 ~
 ~
-0 -1 6128
+Z -1 6128
 S
 #6127
 A narrow trail through the deep, dark forest~
@@ -2219,12 +2219,12 @@ D1
 The narrow, dusty trail leads east through the forest.
 ~
 ~
-0 -1 6112
+Z -1 6112
 D2
 The narrow, dusty trail leads south through the forest.
 ~
 ~
-0 -1 6126
+Z -1 6126
 S
 #6128
 A narrow trail through the deep, dark forest~
@@ -2247,12 +2247,12 @@ D1
 The narrow, dusty trail leads east through the forest.
 ~
 ~
-0 -1 6126
+Z -1 6126
 D3
 The narrow, dusty trail leads west through the forest.
 ~
 ~
-0 -1 6129
+Z -1 6129
 S
 #6129
 A narrow trail through the deep, dark forest~
@@ -2275,12 +2275,12 @@ D1
 The narrow, dusty trail leads east through the forest.
 ~
 ~
-0 -1 6128
+Z -1 6128
 D3
 The narrow, dusty trail leads west through the forest.
 ~
 ~
-0 -1 6135
+Z -1 6135
 S
 #6130
 A narrow trail through the deep, dark forest~
@@ -2305,17 +2305,17 @@ D1
 The narrow, dusty trail leads east through the forest, away from the web.
 ~
 ~
-0 -1 6144
+Z -1 6144
 D3
 The structure to the west looks most of all like an immense spider web.
 It does not look as if you can go further without getting caught in it.
 ~
 ~
-0 -1 6131
+Z -1 6131
 D4
 ~
 ~
-0 -1 6132
+Z -1 6132
 S
 #6131
 The spider web~
@@ -2350,12 +2350,12 @@ D3
 To the west is the immense spider web.  It seems to move softly.
 ~
 ~
-0 -1 6133
+Z -1 6133
 D5
 Downwards is the narrow forest path.
 ~
 ~
-0 -1 6130
+Z -1 6130
 S
 #6133
 On the spider web~
@@ -2377,17 +2377,17 @@ D0
 The web continues to the north.
 ~
 ~
-0 -1 6200
+Z -1 6200
 D1
 To the east is the giant tree trunk.
 ~
 ~
-0 -1 6132
+Z -1 6132
 D3
 To the west is the entrance to the cave-like structure.
 ~
 ~
-0 -1 6134
+Z -1 6134
 S
 #6134
 The Den of the Queen Spider~
@@ -2410,7 +2410,7 @@ D1
 Compared to this place the east exit looks inviting.
 ~
 ~
-0 -1 6133
+Z -1 6133
 S
 #6135
 A dusty trail in the deep, dark forest~
@@ -2426,12 +2426,12 @@ D0
 The dusty trail leads north through the trees.
 ~
 ~
-0 -1 6136
+Z -1 6136
 D1
 The dusty trail leads east through the trees.
 ~
 ~
-0 -1 6129
+Z -1 6129
 S
 #6136
 A dusty trail in the deep, dark forest~
@@ -2458,17 +2458,17 @@ D1
 The trees standing on the sides of the path have scratch marks on them.
 ~
 ~
-0 -1 6142
+Z -1 6142
 D2
 The dusty trail leads south through the trees.
 ~
 ~
-0 -1 6135
+Z -1 6135
 D3
 The dusty trail leads west through the trees.
 ~
 ~
-0 -1 6137
+Z -1 6137
 S
 #6137
 At the end of the trail through the deep, dark forest~
@@ -2485,16 +2485,16 @@ D0
 You see a dark grove north.
 ~
 ~
-0 0 1300
+Z 0 1300
 D1
 The dusty trail leads east through the trees.
 ~
 ~
-0 -1 6136
+Z -1 6136
 D2
 ~
 ~
-0 -1 8838
+Z -1 8838
 S
 #6142
 Outside a cave in the deep, dark forest~
@@ -2516,12 +2516,12 @@ D0
 The disgusting smell of a large reptile emanates from the cave opening.
 ~
 ~
-0 -1 6143
+Z -1 6143
 D3
 The path winds its way westwards.
 ~
 ~
-0 -1 6136
+Z -1 6136
 S
 #6143
 The cave of the Green Dragon~
@@ -2538,7 +2538,7 @@ D2
 The exit leads out into the forest.
 ~
 ~
-0 -1 6142
+Z -1 6142
 S
 #0
 

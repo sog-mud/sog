@@ -1056,11 +1056,11 @@ small tablet~
 D0
 ~
 ~
-0 -1 25001
+Z -1 25001
 D2
 ~
 ~
-0 -1 9202
+Z -1 9202
 S
 #25001
 Lost in the Mountains~
@@ -1072,15 +1072,15 @@ feeling of deja-vu.
 D0
 ~
 ~
-0 -1 25002
+Z -1 25002
 D2
 ~
 ~
-0 -1 25000
+Z -1 25000
 D3
 ~
 ~
-0 -1 25074
+Z -1 25074
 S
 #25002
 A Steep Trail~
@@ -1091,11 +1091,11 @@ downward, into pitch black silence.
 D0
 ~
 ~
-0 -1 25003
+Z -1 25003
 D2
 ~
 ~
-0 -1 25001
+Z -1 25001
 S
 #25003
 The End of the Trail~
@@ -1108,11 +1108,11 @@ mountain lies behind your foe.
 D2
 ~
 ~
-0 -1 25002
+Z -1 25002
 D5
 ~
 ~
-0 -1 25004
+Z -1 25004
 S
 #25004
 Gateway to the Abyss~
@@ -1139,15 +1139,15 @@ small tablet~
 D0
 ~
 ~
-0 -1 6155
+Z -1 6155
 D4
 ~
 ~
-0 -1 25003
+Z -1 25003
 D5
 ~
 ~
-0 -1 25005
+Z -1 25005
 S
 #25005
 Into the Dark~
@@ -1161,11 +1161,11 @@ pits of hell!
 D0
 ~
 ~
-0 -1 25006
+Z -1 25006
 D4
 ~
 ~
-0 -1 25004
+Z -1 25004
 S
 #25006
 Cavern of Lost Souls~
@@ -1180,11 +1180,11 @@ being ravaged by the souls of adventurers long past.
 D0
 ~
 ~
-0 -1 25007
+Z -1 25007
 D2
 ~
 ~
-0 -1 25005
+Z -1 25005
 S
 #25007
 Into the Caverns~
@@ -1196,15 +1196,15 @@ the cavern has beed enveloped in a glowing mist.
 D1
 ~
 ~
-0 -1 25008
+Z -1 25008
 D2
 ~
 ~
-0 -1 25006
+Z -1 25006
 D3
 ~
 ~
-0 -1 25009
+Z -1 25009
 S
 #25008
 Damp Cavern~
@@ -1217,7 +1217,7 @@ beyond the east passageway.
 D1
 ~
 ~
-0 -1 25011
+Z -1 25011
 S
 #25009
 Misty Cavern~
@@ -1230,11 +1230,11 @@ out what looks like a door to the west.
 D1
 ~
 ~
-0 -1 25007
+Z -1 25007
 D3
 ~
 ~
-0 -1 25010
+Z -1 25010
 S
 #25010
 Western End of the Misty Cavern~
@@ -1248,11 +1248,11 @@ shudder at the thought of what lies behind them.
 D1
 ~
 ~
-0 -1 25009
+Z -1 25009
 D3
 ~
 Door Huge~
-0 -1 25012
+Z -1 25012
 S
 #25011
 The Gate~
@@ -1267,7 +1267,7 @@ suddenly you realize you have stumbled upon there source.
 D0
 ~
 ~
-0 -1 25013
+Z -1 25013
 S
 #25012
 Realm of the Dead~
@@ -1281,11 +1281,11 @@ easiness.
 D0
 ~
 ~
-0 -1 25011
+Z -1 25011
 D1
 ~
 ~
-0 -1 25010
+Z -1 25010
 S
 #25013
 The Other Side~
@@ -1297,7 +1297,7 @@ the shore of a lareg ocean.
 D0
 ~
 ~
-0 -1 25014
+Z -1 25014
 S
 #25014
 Ocean Shore~
@@ -1310,7 +1310,7 @@ flows before you.
 D0
 ~
 ~
-0 -1 25015
+Z -1 25015
 S
 #25015
 On the Ocean of Despair~
@@ -1323,19 +1323,19 @@ out exactly what the creature is.
 D0
 ~
 ~
-0 -1 25017
+Z -1 25017
 D1
 ~
 ~
-0 -1 25016
+Z -1 25016
 D2
 ~
 ~
-0 -1 25014
+Z -1 25014
 D3
 ~
 ~
-0 -1 25017
+Z -1 25017
 S
 #25016
 On the Ocean of Despair~
@@ -1347,11 +1347,11 @@ following you. You begin to wonder what lies ahead.
 D1
 ~
 ~
-0 -1 25017
+Z -1 25017
 D3
 ~
 ~
-0 -1 25015
+Z -1 25015
 S
 #25017
 On the Ocean of Despair~
@@ -1362,19 +1362,19 @@ You notice what may be land to the north, at last land!
 D0
 ~
 ~
-0 -1 25018
+Z -1 25018
 D1
 ~
 ~
-0 -1 25015
+Z -1 25015
 D2
 ~
 ~
-0 -1 25015
+Z -1 25015
 D3
 ~
 ~
-0 -1 25016
+Z -1 25016
 S
 #25018
 On the Shore~
@@ -1386,11 +1386,11 @@ seems to bring more of the eerie, decayed debris.
 D2
 ~
 ~
-0 -1 25017
+Z -1 25017
 D3
 ~
 ~
-0 -1 25019
+Z -1 25019
 S
 #25019
 A Wooded Path~
@@ -1403,11 +1403,11 @@ east.
 D1
 ~
 ~
-0 -1 25018
+Z -1 25018
 D3
 ~
 ~
-0 -1 25020
+Z -1 25020
 S
 #25020
 A Small Path in the Twisted Forest~
@@ -1421,11 +1421,11 @@ able to make out what appears to be a flat clear land to the south.
 D1
 ~
 ~
-0 -1 25019
+Z -1 25019
 D2
 ~
 ~
-0 -1 25021
+Z -1 25021
 S
 #25021
 The Abyssial Plains~
@@ -1438,11 +1438,11 @@ there is nothing but flat land as far as the eye can see.
 D0
 ~
 ~
-0 -1 25020
+Z -1 25020
 D1
 ~
 ~
-0 -1 25022
+Z -1 25022
 S
 #25022
 On the Plains~
@@ -1454,15 +1454,15 @@ out a small hill to the east.
 D0
 ~
 ~
-0 -1 25023
+Z -1 25023
 D1
 ~
 ~
-0 -1 25035
+Z -1 25035
 D3
 ~
 ~
-0 -1 25021
+Z -1 25021
 S
 #25023
 Along a Well Worn Path~
@@ -1475,11 +1475,11 @@ not be far ahead, for the trail is still smoldering.
 D2
 ~
 ~
-0 -1 25022
+Z -1 25022
 D3
 ~
 ~
-0 -1 25024
+Z -1 25024
 S
 #25024
 The Smouldering Trail~
@@ -1491,11 +1491,11 @@ whatever made this trail.
 D1
 ~
 ~
-0 -1 25023
+Z -1 25023
 D3
 ~
 ~
-0 -1 25025
+Z -1 25025
 S
 #25025
 The Smouldering Trail~
@@ -1507,11 +1507,11 @@ to smolder at your feet.
 D1
 ~
 ~
-0 -1 25024
+Z -1 25024
 D3
 ~
 ~
-0 -1 25026
+Z -1 25026
 S
 #25026
 The Smouldering Trail~
@@ -1523,11 +1523,11 @@ lies at the end of this flaming trail.
 D1
 ~
 ~
-0 -1 25025
+Z -1 25025
 D3
 ~
 ~
-0 -1 25027
+Z -1 25027
 S
 #25027
 The Smouldering Trail~
@@ -1539,11 +1539,11 @@ walk.
 D1
 ~
 ~
-0 -1 25026
+Z -1 25026
 D3
 ~
 ~
-0 -1 25028
+Z -1 25028
 S
 #25028
 The Smouldering Trail~
@@ -1555,11 +1555,11 @@ must be nearing your quarry also.
 D1
 ~
 ~
-0 -1 25027
+Z -1 25027
 D3
 ~
 ~
-0 -1 25029
+Z -1 25029
 S
 #25029
 The Smouldering Trail~
@@ -1571,11 +1571,11 @@ ahead for the flames are too bright.
 D1
 ~
 ~
-0 -1 25028
+Z -1 25028
 D3
 ~
 ~
-0 -1 25030
+Z -1 25030
 S
 #25030
 The Flaming Gates~
@@ -1589,11 +1589,11 @@ that seem to glowing with a faint aura of red.
 D0
 ~
 gate flaming~
-2 25050 25031
+ABCFZ 25050 25031
 D1
 ~
 ~
-0 -1 25029
+Z -1 25029
 S
 #25031
 Inside the Flaming Gates~
@@ -1606,11 +1606,11 @@ to be a large castle of some sort.
 D0
 ~
 ~
-0 -1 25032
+Z -1 25032
 D2
 ~
 gate flaming~
-1 25050 25030
+ABCZ 25050 25030
 S
 #25032
 The Castle Courtyard~
@@ -1623,15 +1623,15 @@ side of the entrance.
 D0
 ~
 ~
-0 -1 25040
+Z -1 25040
 D2
 ~
 ~
-0 -1 25031
+Z -1 25031
 D3
 ~
 ~
-0 -1 25033
+Z -1 25033
 S
 #25033
 Western End of the Courtyard~
@@ -1644,12 +1644,12 @@ of creature, bones are strewn all about the ground.
 D1
 ~
 ~
-0 -1 25032
+Z -1 25032
 D3
 ~
 door ruined
 ~
-0 25050 25034
+Z 25050 25034
 S
 #25034
 Inside a Small Stone Building~
@@ -1669,7 +1669,7 @@ untarnished.
 D1
 ~
 door ruined~
-1 25050 25033
+ABZ 25050 25033
 S
 #25035
 A Small Hill~
@@ -1680,11 +1680,11 @@ however it is too dark to make out exactly what the shape is.
 D3
 ~
 ~
-0 -1 25022
+Z -1 25022
 D4
 ~
 ~
-0 -1 25036
+Z -1 25036
 S
 #25036
 Entrance to a Small Building~
@@ -1697,11 +1697,11 @@ revealing a stair well within.
 D3
 ~
 ~
-0 -1 25037
+Z -1 25037
 D5
 ~
 ~
-0 -1 25035
+Z -1 25035
 S
 #25037
 Top of the Stair Well~
@@ -1713,11 +1713,11 @@ a stair well descending downward into the darkness below.
 D1
 ~
 ~
-0 -1 25036
+Z -1 25036
 D5
 ~
 ~
-0 -1 25038
+Z -1 25038
 S
 #25038
 The Stair Well~
@@ -1730,11 +1730,11 @@ continue to descend the stairs.
 D4
 ~
 ~
-0 -1 25037
+Z -1 25037
 D5
 ~
 ~
-0 -1 25039
+Z -1 25039
 S
 #25039
 A Large Room~
@@ -1748,7 +1748,7 @@ feeling comes over you, you sench you are not alone.
 D4
 ~
 ~
-0 -1 25038
+Z -1 25038
 S
 #25040
 The Central Courtyard~
@@ -1762,11 +1762,11 @@ drawbridge lies just to the north of you.
 D0
 ~
 ~
-0 -1 25041
+Z -1 25041
 D2
 ~
 ~
-0 -1 25032
+Z -1 25032
 S
 #25041
 The Castle Drawbridge~
@@ -1781,15 +1781,15 @@ totally without light.
 D0
 ~
 ~
-0 -1 25043
+Z -1 25043
 D2
 ~
 ~
-0 -1 25040
+Z -1 25040
 D5
 ~
 ~
-0 -1 25042
+Z -1 25042
 S
 #25042
 In The Bottomless Pit~
@@ -1807,7 +1807,7 @@ your flesh!
 D4
 ~
 ~
-0 -1 25041
+Z -1 25041
 S
 #25043
 Inside the Entrance to the Castle~
@@ -1822,15 +1822,15 @@ upwords into the darkness.
 D0
 ~
 ~
-0 -1 25044
+Z -1 25044
 D1
 ~
 ~
-0 -1 25052
+Z -1 25052
 D2
 ~
 ~
-0 -1 25041
+Z -1 25041
 S
 #25044
 At the Base of the Spiral Staircase~
@@ -1843,11 +1843,11 @@ railings of the staircase.
 D2
 ~
 ~
-0 -1 25043
+Z -1 25043
 D4
 ~
 ~
-0 -1 25045
+Z -1 25045
 S
 #25045
 On the Spiral Staircase~
@@ -1861,11 +1861,11 @@ direction.
 D4
 ~
 ~
-0 -1 25046
+Z -1 25046
 D5
 ~
 ~
-0 -1 25044
+Z -1 25044
 S
 #25046
 On the Spiral Staircase~
@@ -1879,11 +1879,11 @@ an amulet of some kind.
 D4
 ~
 ~
-0 -1 25047
+Z -1 25047
 D5
 ~
 ~
-0 -1 25045
+Z -1 25045
 S
 #25047
 The Top of the Spiral Staircase~
@@ -1896,11 +1896,11 @@ in a richly tailored robe.
 D1
 ~
 ~
-0 -1 25048
+Z -1 25048
 D5
 ~
 ~
-0 -1 25046
+Z -1 25046
 S
 #25048
 A Coridoor~
@@ -1912,11 +1912,11 @@ strange glow at the southern end of the hall.
 D2
 ~
 ~
-0 -1 25049
+Z -1 25049
 D3
 ~
 ~
-0 -1 25047
+Z -1 25047
 S
 #25049
 Southern End of Coridoor~
@@ -1932,11 +1932,11 @@ evil laugh from beyond the door.
 D0
 ~
 ~
-0 -1 25048
+Z -1 25048
 D2
 ~
 door~
-2 25051 25050
+ABFZ 25051 25050
 S
 #25050
 Castle Throne Room~
@@ -1955,7 +1955,7 @@ through the air.
 D2
 ~
 door~
-2 25056 25051
+ABCFZ 25056 25051
 S
 #25051
 The Vault~
@@ -1969,7 +1969,7 @@ D0
 ~
 door
 ~
-2 25056 25050
+ABCFZ 25056 25050
 S
 #25052
 The Grand Hallway~
@@ -1982,11 +1982,11 @@ doors, you hear a strange sound to the east.
 D1
 ~
 ~
-0 -1 25053
+Z -1 25053
 D3
 ~
 ~
-0 -1 25043
+Z -1 25043
 S
 #25053
 The Grand Hallway~
@@ -2001,11 +2001,11 @@ statue, it almost appears as if it were staring directly at you!
 D1
 ~
 ~
-0 -1 25054
+Z -1 25054
 D3
 ~
 ~
-0 -1 25052
+Z -1 25052
 S
 #25054
 End of the Grand Hallway~
@@ -2018,11 +2018,11 @@ doors the statues suddenly spring to life and attack!
 D1
 ~
 double doors~
-1 25053 25055
+ABZ 25053 25055
 D3
 ~
 ~
-0 -1 25053
+Z -1 25053
 S
 #25055
 A Large Room~
@@ -2036,13 +2036,13 @@ speaker, but fail to find one.
 D1
 ~
 ~
-0 -1 25056
+Z -1 25056
 D3
 ~
 double door
 doors
 ~
-1 25053 25054
+ABZ 25053 25054
 S
 #25056
 The Castle Pantry~
@@ -2055,11 +2055,11 @@ There are exits to the west and south.
 D2
 ~
 ~
-0 -1 25057
+Z -1 25057
 D3
 ~
 ~
-0 -1 25055
+Z -1 25055
 S
 #25057
 The Castle Store Room~
@@ -2072,11 +2072,11 @@ inside.
 D0
 ~
 ~
-0 -1 25056
+Z -1 25056
 D2
 ~
 door~
-1 25051 25058
+ABCZ 25051 25058
 S
 #25058
 Castle Barracks~
@@ -2089,11 +2089,11 @@ you have awakened them, they charge you!
 D0
 ~
 door~
-1 25051 25057
+ABCZ 25051 25057
 D2
 ~
 door~
-1 -1 25059
+ABZ -1 25059
 S
 #25059
 Guest Room~
@@ -2106,11 +2106,11 @@ find nothing of value. There is a large metal door to the east.
 D0
 ~
 ~
-0 -1 25058
+Z -1 25058
 D1
 ~
 metal large door~
-1 25054 25060
+ABZ 25054 25060
 S
 #25060
 Base of the Tower~
@@ -2126,11 +2126,11 @@ darkness.
 D4
 ~
 ~
-0 -1 25061
+Z -1 25061
 D5
 ~
 ~
-0 -1 25075
+Z -1 25075
 S
 #25061
 The Tower Staircase~
@@ -2142,11 +2142,11 @@ somewhere up the tower. You hear the movement of something above you.
 D4
 ~
 ~
-0 -1 25062
+Z -1 25062
 D5
 ~
 ~
-0 -1 25060
+Z -1 25060
 S
 #25062
 The Tower Staircase~
@@ -2159,11 +2159,11 @@ you heard from below.
 D4
 ~
 ~
-0 -1 25063
+Z -1 25063
 D5
 ~
 ~
-0 -1 25061
+Z -1 25061
 S
 #25063
 Top of the Tower~
@@ -2175,7 +2175,7 @@ that this tower obviously didnt help much.
 D5
 ~
 ~
-0 -1 25062
+Z -1 25062
 S
 #25074
 Lost in the Mountains~
@@ -2187,7 +2187,7 @@ feeling of deja-vu.
 D1
 ~
 ~
-0 -1 25001
+Z -1 25001
 S
 #25075
 The Central Chamber~
@@ -2200,11 +2200,11 @@ upwords from its firey depths.
 D4
 ~
 ~
-0 -1 25060
+Z -1 25060
 D5
 ~
 ~
-0 -1 25076
+Z -1 25076
 S
 #25076
 The Pit of Sacrifice~
@@ -2217,11 +2217,11 @@ unharmed.
 D4
 ~
 ~
-0 -1 25075
+Z -1 25075
 D5
 ~
 ~
-0 -1 25077
+Z -1 25077
 S
 #25077
 Beneath the Sacraficial Pit~
@@ -2233,11 +2233,11 @@ the west, while the exit from the pit lies directly overhead.
 D3
 ~
 door large~
-1 -1 25078
+ABZ -1 25078
 D4
 ~
 ~
-0 -1 25076
+Z -1 25076
 S
 #25078
 Entrance to the Sanctuary~
@@ -2250,11 +2250,11 @@ only exits from the room are east and west.
 D1
 ~
 door large~
-1 -1 25077
+ABZ -1 25077
 D3
 ~
 ~
-0 -1 25079
+Z -1 25079
 S
 #25079
 The Sanctuary~
@@ -2268,24 +2268,24 @@ D0
 ~
 door ajar
 ~
-0 -1 25082
+Z -1 25082
 D1
 ~
 ~
-0 -1 25078
+Z -1 25078
 D2
 ~
 ~
-0 -1 25086
+Z -1 25086
 D3
 ~
 door
 ~
-0 -1 25080
+Z -1 25080
 D5
 ~
 ~
-0 -1 25094
+Z -1 25094
 S
 #25080
 The Sanctuary~
@@ -2298,11 +2298,11 @@ strange red mist begins to seep from a crak beneath the door....
 D1
 ~
 door~
-0 -1 25079
+Z -1 25079
 D3
 ~
 ornate door large~
-0 -1 25081
+Z -1 25081
 S
 #25081
 Crimson's Death Room~
@@ -2316,7 +2316,7 @@ crimson.
 D1
 ~
 large ornate door~
-0 -1 25080
+Z -1 25080
 S
 #25082
 The Sanctuary~
@@ -2330,11 +2330,11 @@ before you!
 D2
 ~
 door ajar~
-0 -1 25079
+Z -1 25079
 D3
 ~
 door~
-0 -1 25083
+Z -1 25083
 S
 #25083
 The Sanctuary~
@@ -2346,11 +2346,11 @@ and quickly runs through it. You hear an evil laugh.
 D1
 ~
 door~
-0 -1 25082
+Z -1 25082
 D2
 ~
 ~
-0 -1 25084
+Z -1 25084
 S
 #25084
 Sanctuary Guard Post~
@@ -2362,11 +2362,11 @@ dispose of the and takes off through the south door.
 D0
 ~
 ~
-0 -1 25083
+Z -1 25083
 D2
 ~
 door~
-1 -1 25085
+ABZ -1 25085
 S
 #25085
 Chamber of Kalas~
@@ -2379,11 +2379,11 @@ of evil in his eyes as he prepares for battle.
 D0
 ~
 door~
-1 -1 25084
+ABZ -1 25084
 D4
 ~
 ~
-0 -1 25040
+Z -1 25040
 S
 #25086
 A Narrow Passage~
@@ -2395,11 +2395,11 @@ come from except for the passage to the west.
 D0
 ~
 ~
-0 -1 25079
+Z -1 25079
 D3
 ~
 ~
-0 -1 25087
+Z -1 25087
 S
 #25087
 A Narrow Passage~
@@ -2412,11 +2412,11 @@ west.
 D1
 ~
 ~
-0 -1 25086
+Z -1 25086
 D3
 ~
 ~
-0 -1 25088
+Z -1 25088
 S
 #25088
 End of a Narrow Passage~
@@ -2429,11 +2429,11 @@ cant make out the words that are spoken.
 D1
 ~
 ~
-0 -1 25087
+Z -1 25087
 D3
 ~
 door~
-1 -1 25089
+ABZ -1 25089
 S
 #25089
 The Mist~
@@ -2446,11 +2446,11 @@ a language unknown to you.
 D1
 ~
 door~
-1 -1 25088
+ABZ -1 25088
 D3
 ~
 ~
-0 -1 25090
+Z -1 25090
 S
 #25090
 The Castle Dungeon~
@@ -2463,11 +2463,11 @@ next to the doorway.
 D1
 ~
 ~
-0 -1 25089
+Z -1 25089
 D2
 ~
 ~
-0 -1 25091
+Z -1 25091
 S
 #25091
 The Castle Dungeon~
@@ -2480,11 +2480,11 @@ split down the middle... it appears as if it could be opened.
 D0
 ~
 ~
-0 -1 25090
+Z -1 25090
 D3
 ~
 wall split~
-0 -1 25092
+Z -1 25092
 S
 #25092
 Secret Passage~
@@ -2496,11 +2496,11 @@ is quiet, almost too quiet... You see a solid iron door to the south.
 D1
 ~
 wall split~
-0 -1 25091
+Z -1 25091
 D2
 ~
 iron solid door~
-0 -1 25093
+Z -1 25093
 S
 #25093
 Hall of Ancients~
@@ -2515,7 +2515,7 @@ slowly begins to make its way toword you.......
 D0
 ~
 solid iron door~
-0 -1 25092
+Z -1 25092
 S
 #25094
 A Small Alcove~
@@ -2529,11 +2529,11 @@ scraped it.
 D1
 ~
 wall~
-0 -1 25095
+Z -1 25095
 D4
 ~
 ~
-0 -1 25079
+Z -1 25079
 S
 #25095
 A Narrow Tunnel~
@@ -2546,11 +2546,11 @@ save for the wall you just shifted.
 D1
 ~
 wall~
-0 -1 25096
+Z -1 25096
 D3
 ~
 ~
-0 -1 25094
+Z -1 25094
 S
 #25096
 A Narrow Tunnel~
@@ -2563,11 +2563,11 @@ tunnel.
 D2
 ~
 ~
-0 -1 25097
+Z -1 25097
 D3
 ~
 ~
-0 -1 25095
+Z -1 25095
 S
 #25097
 A Narrow Tunnel~
@@ -2580,11 +2580,11 @@ from the room are north and south.
 D0
 ~
 ~
-0 -1 25096
+Z -1 25096
 D2
 ~
 ~
-0 -1 25098
+Z -1 25098
 S
 #25098
 A Small Portal~
@@ -2596,7 +2596,7 @@ from the portal is so intense that it nearly blinds you.
 D0
 ~
 ~
-0 -1 25097
+Z -1 25097
 S
 #0
 

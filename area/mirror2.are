@@ -3073,11 +3073,11 @@ That's about it.  Have fun! :-)~
 D1
 ~
 ~
-0 -1 19002
+Z -1 19002
 D3
 ~
 ~
-0 -1 3500
+Z -1 3500
 S
 #19002
 The Path~
@@ -3091,11 +3091,11 @@ left.
 D1
 ~
 ~
-0 -1 19003
+Z -1 19003
 D3
 ~
 ~
-0 -1 19001
+Z -1 19001
 S
 #19003
 Bend in the Path~
@@ -3109,11 +3109,11 @@ appears to lead to a pair of doors set right into the mountain's face.
 D0
 ~
 ~
-0 -1 19004
+Z -1 19004
 D3
 ~
 ~
-0 -1 19002
+Z -1 19002
 S
 #19004
 Approaching the Face of the Mountain~
@@ -3133,11 +3133,11 @@ To the East  -- The Volcano~
 D0
 ~
 ~
-0 -1 19005
+Z -1 19005
 D2
 ~
 ~
-0 -1 19003
+Z -1 19003
 S
 #19005
 Before the Face of the Mountain~
@@ -3161,11 +3161,11 @@ foundering in a storm.~
 D0
 ~
 door doors~
-1 -1 19006
+ABZ -1 19006
 D2
 ~
 ~
-0 -1 19004
+Z -1 19004
 S
 #19006
 The Path Above the Realm~
@@ -3182,11 +3182,11 @@ with a glittering black tower rising in front of the mountain's eastern rim.
 D0
 ~
 ~
-0 -1 19007
+Z -1 19007
 D2
 ~
 door doors~
-1 -1 19005
+ABZ -1 19005
 S
 #19007
 Along the Path Above the Realm~
@@ -3200,11 +3200,11 @@ a castle partially hidden behind a low rock wall.
 D0
 ~
 ~
-0 -1 19008
+Z -1 19008
 D2
 ~
 ~
-0 -1 19006
+Z -1 19006
 S
 #19008
 Beside the Watchtowers~
@@ -3216,19 +3216,19 @@ you from being sure whether or not anyone is inside.
 D0
 ~
 ~
-0 -1 19011
+Z -1 19011
 D1
 ~
 ~
-0 -1 19010
+Z -1 19010
 D2
 ~
 ~
-0 -1 19007
+Z -1 19007
 D3
 ~
 ~
-0 -1 19009
+Z -1 19009
 S
 #19009
 Inside a Watchtower~
@@ -3243,11 +3243,11 @@ iron knob.
 D1
 ~
 ~
-0 -1 19008
+Z -1 19008
 D5
 ~
 hatch door knob~
-0 -1 19044
+Z -1 19044
 S
 #19010
 Inside a Watchtower~
@@ -3261,11 +3261,11 @@ floor.
 D3
 ~
 ~
-0 -1 19008
+Z -1 19008
 D5
 ~
 ~
-0 -1 19107
+Z -1 19107
 S
 #19011
 Along the Pathway Above the Realm~
@@ -3278,11 +3278,11 @@ the entranceway and the castle's high towers.
 D0
 ~
 ~
-0 -1 19030
+Z -1 19030
 D2
 ~
 ~
-0 -1 19008
+Z -1 19008
 S
 #19012
 Entrance to the Great Hall~
@@ -3297,20 +3297,20 @@ cresting a deep blue wave; the others are too far away to see clearly.
 D0
 ~
 ~
-0 -1 19015
+Z -1 19015
 D1
 You see the dark corner of the Great Hall.
 ~
 ~
-0 -1 19013
+Z -1 19013
 D2
 ~
 ~
-0 -1 19041
+Z -1 19041
 D4
 ~
 ~
-0 -1 19022
+Z -1 19022
 S
 #19013
 A Corner of the Great Hall~
@@ -3323,17 +3323,17 @@ to your left, flecked with greens and reds.
 D0
 ~
 ~
-0 -1 19014
+Z -1 19014
 D3
 You see the entrance to the Great Hall.
 
 ~
 ~
-0 -1 19012
+Z -1 19012
 D4
 ~
 ~
-0 -1 19023
+Z -1 19023
 S
 #19014
 Right Side of the Great Hall~
@@ -3346,20 +3346,20 @@ pit so that the young beggar can hold on as the king pulls him to safety.
 D0
 ~
 ~
-0 -1 19019
+Z -1 19019
 D2
 The tapestry blocks your vision to the south.
 ~
 ~
-0 -1 19013
+Z -1 19013
 D3
 ~
 ~
-0 -1 19015
+Z -1 19015
 D4
 ~
 ~
-0 -1 19024
+Z -1 19024
 S
 #19015
 The Center of the Great Hall~
@@ -3381,23 +3381,23 @@ the pit that holds the trapped child.
 D0
 ~
 ~
-0 -1 19018
+Z -1 19018
 D1
 ~
 ~
-0 -1 19014
+Z -1 19014
 D2
 ~
 ~
-0 -1 19012
+Z -1 19012
 D3
 ~
 ~
-0 -1 19016
+Z -1 19016
 D4
 ~
 ~
-0 -1 19025
+Z -1 19025
 S
 #19016
 Left Wall of the Great Hall~
@@ -3411,15 +3411,15 @@ frenzied unicorn in the center.
 D0
 ~
 ~
-0 -1 19017
+Z -1 19017
 D1
 ~
 ~
-0 -1 19015
+Z -1 19015
 D4
 ~
 ~
-0 -1 19026
+Z -1 19026
 S
 #19017
 A Front Corner of the Great Hall~
@@ -3433,16 +3433,16 @@ battle between good and evil--perhaps a battle over the sword itself.
 D1
 ~
 ~
-0 -1 19018
+Z -1 19018
 D2
 The tapestry blocks your vision to the south.
 ~
 ~
-0 -1 19016
+Z -1 19016
 D4
 ~
 ~
-0 -1 19027
+Z -1 19027
 S
 #19018
 Before the Alcove~
@@ -3455,23 +3455,23 @@ Darkness lies in every other direction.
 D0
 ~
 ~
-0 -1 19020
+Z -1 19020
 D1
 ~
 ~
-0 -1 19019
+Z -1 19019
 D2
 ~
 ~
-0 -1 19015
+Z -1 19015
 D3
 ~
 ~
-0 -1 19017
+Z -1 19017
 D4
 ~
 ~
-0 -1 19028
+Z -1 19028
 S
 #19019
 Front Corner of the Great Hall~
@@ -3484,15 +3484,15 @@ while an intricate design of converging lines forms a picture of a rising sun.
 D2
 ~
 ~
-0 -1 19014
+Z -1 19014
 D3
 ~
 ~
-0 -1 19018
+Z -1 19018
 D4
 ~
 ~
-0 -1 19029
+Z -1 19029
 S
 #19020
 The King's Alcove~
@@ -3506,7 +3506,7 @@ that split his land in two.
 D2
 ~
 ~
-0 -1 19018
+Z -1 19018
 S
 #19021
 Floating Above the Corner of the Great Hall~
@@ -3520,11 +3520,11 @@ lies both ahead of you and to your right.
 D0
 ~
 ~
-0 -1 19026
+Z -1 19026
 D1
 ~
 ~
-0 -1 19022
+Z -1 19022
 S
 #19022
 Above the Entrance~
@@ -3545,19 +3545,19 @@ they also seem smaller and more heavily buffeted by the high seas.~
 D0
 ~
 ~
-0 -1 19025
+Z -1 19025
 D1
 ~
 ~
-0 -1 19023
+Z -1 19023
 D3
 ~
 ~
-0 -1 19021
+Z -1 19021
 D5
 ~
 ~
-0 -1 19012
+Z -1 19012
 S
 #19023
 Above the Corner~
@@ -3568,15 +3568,15 @@ blue and brown tapestries continue upwards.
 D0
 ~
 ~
-0 -1 19024
+Z -1 19024
 D3
 ~
 ~
-0 -1 19022
+Z -1 19022
 D5
 ~
 ~
-0 -1 19013
+Z -1 19013
 S
 #19024
 Floating Beside the Right Wall~
@@ -3589,23 +3589,23 @@ seems barely aware of the robe that the king is lowering down to him.
 D0
 ~
 ~
-0 -1 19029
+Z -1 19029
 D1
 The tapestry is somewhat translucent to the east.~
 tapestry~
-1 -1 19043
+ABZ -1 19043
 D2
 ~
 ~
-0 -1 19023
+Z -1 19023
 D3
 ~
 ~
-0 -1 19025
+Z -1 19025
 D5
 ~
 ~
-0 -1 19014
+Z -1 19014
 S
 #19025
 Floating Above the Center of the Great Hall~
@@ -3618,23 +3618,23 @@ see what it is from here, though.
 D0
 ~
 ~
-0 -1 19028
+Z -1 19028
 D1
 ~
 ~
-0 -1 19024
+Z -1 19024
 D2
 ~
 ~
-0 -1 19022
+Z -1 19022
 D3
 ~
 ~
-0 -1 19026
+Z -1 19026
 D5
 ~
 ~
-0 -1 19015
+Z -1 19015
 S
 #19026
 Floating Beside the Left Wall~
@@ -3648,23 +3648,23 @@ brush, his face is set and determined.
 D0
 ~
 ~
-0 -1 19027
+Z -1 19027
 D1
 ~
 ~
-0 -1 19025
+Z -1 19025
 D2
 ~
 ~
-0 -1 19021
+Z -1 19021
 D3
 ~
 tapestry~
-1 -1 19042
+ABZ -1 19042
 D5
 ~
 ~
-0 -1 19016
+Z -1 19016
 S
 #19027
 Floating Before the Tapestry of the Sword~
@@ -3678,15 +3678,15 @@ a circle of bone.
 D1
 ~
 ~
-0 -1 19028
+Z -1 19028
 D2
 ~
 ~
-0 -1 19026
+Z -1 19026
 D5
 ~
 ~
-0 -1 19017
+Z -1 19017
 S
 #19028
 Floating Above the Front of the Great Hall~
@@ -3700,19 +3700,19 @@ of some sort, with his arms raised up in the air.
 D1
 ~
 ~
-0 -1 19029
+Z -1 19029
 D2
 ~
 ~
-0 -1 19025
+Z -1 19025
 D3
 ~
 ~
-0 -1 19027
+Z -1 19027
 D5
 ~
 ~
-0 -1 19018
+Z -1 19018
 S
 #19029
 Floating Before the Tapestry of the Shield~
@@ -3726,15 +3726,15 @@ light in every direction.
 D2
 ~
 ~
-0 -1 19024
+Z -1 19024
 D3
 ~
 ~
-0 -1 19028
+Z -1 19028
 D5
 ~
 ~
-0 -1 19019
+Z -1 19019
 S
 #19030
 In Front of the Castle Entrance~
@@ -3751,11 +3751,11 @@ word words door doors~
 D0
 ~
 ~
-1 -1 19031
+ABZ -1 19031
 D2
 ~
 ~
-0 -1 19011
+Z -1 19011
 S
 #19031
 Entrance to the Castle~
@@ -3769,11 +3769,11 @@ disoriented, however.
 D0
 ~
 ~
-0 -1 19032
+Z -1 19032
 D2
 ~
 ~
-0 -1 19030
+Z -1 19030
 S
 #19032
 Mirrors~
@@ -3784,19 +3784,19 @@ in every direction.
 D0
 ~
 ~
-0 -1 19036
+Z -1 19036
 D1
 ~
 ~
-0 -1 19033
+Z -1 19033
 D2
 ~
 ~
-0 -1 19031
+Z -1 19031
 D3
 ~
 ~
-0 -1 19034
+Z -1 19034
 S
 #19033
 Mirrors~
@@ -3807,15 +3807,15 @@ in every direction.
 D0
 ~
 ~
-0 -1 19035
+Z -1 19035
 D1
 ~
 ~
-0 -1 19034
+Z -1 19034
 D3
 ~
 ~
-0 -1 19032
+Z -1 19032
 S
 #19034
 Mirrors~
@@ -3826,15 +3826,15 @@ in every direction.
 D0
 ~
 ~
-0 -1 19037
+Z -1 19037
 D1
 ~
 ~
-0 -1 19032
+Z -1 19032
 D3
 ~
 ~
-0 -1 19033
+Z -1 19033
 S
 #19035
 Mirrors~
@@ -3845,19 +3845,19 @@ in every direction.
 D0
 ~
 ~
-0 -1 19038
+Z -1 19038
 D1
 ~
 ~
-0 -1 19037
+Z -1 19037
 D2
 ~
 ~
-0 -1 19033
+Z -1 19033
 D3
 ~
 ~
-0 -1 19036
+Z -1 19036
 S
 #19036
 Mirrors~
@@ -3868,19 +3868,19 @@ in every direction.
 D0
 ~
 ~
-0 -1 19040
+Z -1 19040
 D1
 ~
 ~
-0 -1 19035
+Z -1 19035
 D2
 ~
 ~
-0 -1 19032
+Z -1 19032
 D3
 ~
 ~
-0 -1 19037
+Z -1 19037
 S
 #19037
 Mirrors~
@@ -3891,19 +3891,19 @@ in every direction.
 D0
 ~
 ~
-0 -1 19039
+Z -1 19039
 D1
 ~
 ~
-0 -1 19036
+Z -1 19036
 D2
 ~
 ~
-0 -1 19034
+Z -1 19034
 D3
 ~
 ~
-0 -1 19035
+Z -1 19035
 S
 #19038
 Mirrors~
@@ -3914,15 +3914,15 @@ in every direction.
 D1
 ~
 ~
-0 -1 19039
+Z -1 19039
 D2
 ~
 ~
-0 -1 19035
+Z -1 19035
 D3
 ~
 ~
-0 -1 19040
+Z -1 19040
 S
 #19039
 Mirrors~
@@ -3933,15 +3933,15 @@ in every direction.
 D1
 ~
 ~
-0 -1 19040
+Z -1 19040
 D2
 ~
 ~
-0 -1 19037
+Z -1 19037
 D3
 ~
 ~
-0 -1 19038
+Z -1 19038
 S
 #19040
 Mirrors~
@@ -3952,19 +3952,19 @@ in every direction.
 D0
 ~
 ~
-0 -1 19041
+Z -1 19041
 D1
 ~
 ~
-0 -1 19038
+Z -1 19038
 D2
 ~
 ~
-0 -1 19036
+Z -1 19036
 D3
 ~
 ~
-0 -1 19039
+Z -1 19039
 S
 #19041
 Intersection~
@@ -3978,15 +3978,15 @@ joints lack the smooth ruts that you'd expect to see in a well-used stairway.
 D0
 ~
 ~
-0 -1 19012
+Z -1 19012
 D2
 ~
 ~
-0 -1 19040
+Z -1 19040
 D4
 ~
 ~
-0 -1 19149
+Z -1 19149
 S
 #19042
 An Alcove~
@@ -3998,7 +3998,7 @@ the ground below a hard wooden plank set into a recess in the wall.
 D1
 ~
 tapestry~
-1 -1 19026
+ABZ -1 19026
 S
 #19043
 An Alcove~
@@ -4010,7 +4010,7 @@ side of the wall; a thin blanket covers half its rough surface.
 D3
 ~
 tapestry~
-0 -1 19024
+Z -1 19024
 S
 #19044
 Below the Watchtower~
@@ -4024,11 +4024,11 @@ a small handle attached to the hatchway above.
 D4
 ~
 hatch hatchway door handle~
-0 -1 19009
+Z -1 19009
 D5
 ~
 ~
-0 -1 19045
+Z -1 19045
 S
 #19045
 The Foot of the Rock Ladder~
@@ -4044,11 +4044,11 @@ You see a rainbow in a circle of ivy, the sign of the Light.~
 D3
 ~
 door~
-1 -1 19048
+ABZ -1 19048
 D4
 ~
 ~
-0 -1 19044
+Z -1 19044
 S
 #19046
 End of the Path~
@@ -4061,15 +4061,15 @@ glimpse of some sort of animal.
 D0
 ~
 ~
-0 -1 19047
+Z -1 19047
 D2
 ~
 ~
-0 -1 19134
+Z -1 19134
 D3
 ~
 ~
-0 -1 19056
+Z -1 19056
 S
 #19047
 The Path in the Garden~
@@ -4082,15 +4082,15 @@ blocked by the towering mountain wall.
 D0
 ~
 ~
-0 -1 19048
+Z -1 19048
 D2
 ~
 ~
-0 -1 19046
+Z -1 19046
 D3
 ~
 ~
-0 -1 19055
+Z -1 19055
 S
 #19048
 Intersection in the Garden~
@@ -4106,19 +4106,19 @@ vision--and your path--to the east.
 D0
 ~
 ~
-0 -1 19049
+Z -1 19049
 D1
 ~
 door~
-1 -1 19045
+ABZ -1 19045
 D2
 ~
 ~
-0 -1 19047
+Z -1 19047
 D3
 ~
 ~
-0 -1 19066
+Z -1 19066
 S
 #19049
 Path in the Garden~
@@ -4135,19 +4135,19 @@ by the mountain wall.
 D0
 ~
 ~
-0 -1 19050
+Z -1 19050
 D1
 ~
 ~
-0 -1 19156
+Z -1 19156
 D2
 ~
 ~
-0 -1 19048
+Z -1 19048
 D3
 ~
 ~
-0 -1 19052
+Z -1 19052
 S
 #19050
 Corner of the Path~
@@ -4160,11 +4160,11 @@ as well, rising up against the high northern mountain wall.
 D2
 ~
 ~
-0 -1 19049
+Z -1 19049
 D3
 ~
 ~
-0 -1 19051
+Z -1 19051
 S
 #19051
 A Grove of Trees~
@@ -4177,11 +4177,11 @@ be an option.
 D1
 ~
 ~
-0 -1 19050
+Z -1 19050
 D3
 ~
 ~
-0 -1 19060
+Z -1 19060
 S
 #19052
 The pond~
@@ -4194,15 +4194,15 @@ of the pond lies to the south, just below a white gazebo covered with vines.
 D1
 ~
 ~
-0 -1 19049
+Z -1 19049
 D2
 ~
 ~
-0 -1 19054
+Z -1 19054
 D3
 ~
 ~
-0 -1 19059
+Z -1 19059
 S
 #19053
 Under the Gazebo~
@@ -4215,19 +4215,19 @@ gazebo's bottom.
 D0
 ~
 ~
-0 -1 19059
+Z -1 19059
 D1
 ~
 ~
-0 -1 19054
+Z -1 19054
 D2
 ~
 ~
-0 -1 19058
+Z -1 19058
 D5
 ~
 ~
-0 -1 19161
+Z -1 19161
 S
 #19054
 Under the Bridge~
@@ -4240,15 +4240,15 @@ high enough to prevent you from leaving the pond by the eastern bank.
 D0
 ~
 ~
-0 -1 19052
+Z -1 19052
 D2
 ~
 ~
-0 -1 19055
+Z -1 19055
 D3
 ~
 ~
-0 -1 19053
+Z -1 19053
 S
 #19055
 The pond~
@@ -4260,15 +4260,15 @@ crosses the pond to the north, leading to a round gazebo covered with vines.
 D0
 ~
 ~
-0 -1 19054
+Z -1 19054
 D1
 ~
 ~
-0 -1 19047
+Z -1 19047
 D3
 ~
 ~
-0 -1 19058
+Z -1 19058
 S
 #19056
 Along the Edge of the Forest~
@@ -4281,15 +4281,15 @@ so you'll have to find a different path if you want to go swimming....
 D1
 ~
 ~
-0 -1 19046
+Z -1 19046
 D2
 ~
 ~
-0 -1 19133
+Z -1 19133
 D3
 ~
 ~
-0 -1 19057
+Z -1 19057
 S
 #19057
 Below the Fisherman's Hut~
@@ -4304,23 +4304,23 @@ the pond lies to the north.
 D0
 ~
 ~
-0 -1 19058
+Z -1 19058
 D1
 ~
 ~
-0 -1 19056
+Z -1 19056
 D2
 ~
 ~
-0 -1 19132
+Z -1 19132
 D3
 ~
 ~
-0 -1 19065
+Z -1 19065
 D4
 ~
 ~
-0 -1 19130
+Z -1 19130
 S
 #19058
 The pond~
@@ -4334,19 +4334,19 @@ can't see what any of them might hold.
 D0
 ~
 ~
-0 -1 19053
+Z -1 19053
 D1
 ~
 ~
-0 -1 19055
+Z -1 19055
 D2
 ~
 ~
-0 -1 19057
+Z -1 19057
 D3
 ~
 ~
-0 -1 19064
+Z -1 19064
 S
 #19059
 The pond~
@@ -4359,15 +4359,15 @@ smaller goldfish nip at it almost endlessly.
 D1
 ~
 ~
-0 -1 19052
+Z -1 19052
 D2
 ~
 ~
-0 -1 19053
+Z -1 19053
 D3
 ~
 ~
-0 -1 19062
+Z -1 19062
 S
 #19060
 A Grove of Trees~
@@ -4380,11 +4380,11 @@ east, while the path bends just west of here.
 D1
 ~
 ~
-0 -1 19051
+Z -1 19051
 D3
 ~
 ~
-0 -1 19061
+Z -1 19061
 S
 #19061
 Bend in the Path~
@@ -4398,11 +4398,11 @@ walls must be made of transparent glass.
 D1
 ~
 ~
-0 -1 19060
+Z -1 19060
 D2
 ~
 ~
-0 -1 19062
+Z -1 19062
 S
 #19062
 Along the Path Behind the Buildings~
@@ -4415,15 +4415,15 @@ they wave gently as the breeze blows through them.
 D0
 ~
 ~
-0 -1 19061
+Z -1 19061
 D1
 ~
 ~
-0 -1 19059
+Z -1 19059
 D2
 ~
 ~
-0 -1 19063
+Z -1 19063
 S
 #19063
 Intersection in the Garden~
@@ -4437,19 +4437,19 @@ here and there.
 D0
 ~
 ~
-0 -1 19062
+Z -1 19062
 D1
 ~
 ~
-0 -1 19067
+Z -1 19067
 D2
 ~
 ~
-0 -1 19064
+Z -1 19064
 D3
 ~
 ~
-0 -1 19068
+Z -1 19068
 S
 #19064
 Along the Path Behind the Wooden Buildings~
@@ -4465,15 +4465,15 @@ mountain wall itself.
 D0
 ~
 ~
-0 -1 19063
+Z -1 19063
 D1
 ~
 ~
-0 -1 19058
+Z -1 19058
 D2
 ~
 ~
-0 -1 19065
+Z -1 19065
 S
 #19065
 Path to the Forest~
@@ -4486,15 +4486,15 @@ side.
 D0
 ~
 ~
-0 -1 19064
+Z -1 19064
 D1
 ~
 ~
-0 -1 19057
+Z -1 19057
 D2
 ~
 ~
-0 -1 19131
+Z -1 19131
 S
 #19066
 The Bridge~
@@ -4506,11 +4506,11 @@ below, splashing at the surface as they hunt for food.
 D1
 ~
 ~
-0 -1 19048
+Z -1 19048
 D3
 ~
 ~
-0 -1 19067
+Z -1 19067
 S
 #19067
 The Gazebo~
@@ -4524,15 +4524,15 @@ well made, and are close enough together to prevent you from getting wet.
 D1
 ~
 ~
-0 -1 19066
+Z -1 19066
 D3
 ~
 ~
-0 -1 19063
+Z -1 19063
 D4
 Ivy nearly covers a small panel set into the gazebo's roof.~
 panel~
-2 -1 19152
+ABFZ -1 19152
 S
 #19068
 Center of the Street~
@@ -4547,19 +4547,19 @@ by a narrow moat; the garden lies to the east.
 D0
 ~
 ~
-0 -1 19074
+Z -1 19074
 D1
 ~
 ~
-0 -1 19063
+Z -1 19063
 D2
 ~
 ~
-0 -1 19069
+Z -1 19069
 D3
 ~
 ~
-0 -1 19078
+Z -1 19078
 S
 #19069
 The Street~
@@ -4580,19 +4580,19 @@ The sign on the west says,                 The sign on the east says,
 D0
 ~
 ~
-0 -1 19068
+Z -1 19068
 D1
 ~
 ~
-0 -1 19070
+Z -1 19070
 D2
 ~
 ~
-0 -1 19073
+Z -1 19073
 D3
 ~
 ~
-0 -1 19071
+Z -1 19071
 S
 #19070
 The Sorcery~
@@ -4624,7 +4624,7 @@ says,
 D3
 ~
 ~
-0 -1 19069
+Z -1 19069
 S
 #19071
 The bar of the Holly Bush~
@@ -4639,15 +4639,15 @@ A small wooden staircase leads upwards to the bedrooms.
 D0
 ~
 ~
-0 -1 19072
+Z -1 19072
 D1
 ~
 ~
-0 -1 19069
+Z -1 19069
 D4
 ~
 ~
-0 -1 19164
+Z -1 19164
 S
 #19072
 The restaurant of the Holly Bush~
@@ -4667,7 +4667,7 @@ Felix, tucked away in two separate corners.~
 D2
 ~
 ~
-0 -1 19071
+Z -1 19071
 S
 #19073
 Master Dunn's House~
@@ -4681,7 +4681,7 @@ each corner must help to cool the air.
 D0
 ~
 ~
-0 -1 19069
+Z -1 19069
 S
 #19074
 The Street~
@@ -4701,19 +4701,19 @@ The sign to the west says,                  The sign to the east says,
 D0
 ~
 ~
-0 -1 19077
+Z -1 19077
 D1
 ~
 ~
-0 -1 19075
+Z -1 19075
 D2
 ~
 ~
-0 -1 19068
+Z -1 19068
 D3
 ~
 ~
-0 -1 19076
+Z -1 19076
 S
 #19075
 The Travellers' Shop~
@@ -4727,7 +4727,7 @@ have titles like "Luggage" and "Rations".
 D3
 ~
 ~
-0 -1 19074
+Z -1 19074
 S
 #19076
 The Library and Bookstore~
@@ -4741,7 +4741,7 @@ including histories of Midgaard and the Mirror Realm.
 D1
 ~
 ~
-0 -1 19074
+Z -1 19074
 S
 #19077
 The Chapel~
@@ -4755,7 +4755,7 @@ things mostly clean and neat.
 D2
 ~
 ~
-0 -1 19074
+Z -1 19074
 S
 #19078
 Crossing the Bridge to the Rainbow Tower~
@@ -4770,11 +4770,11 @@ form of defense.
 D1
 ~
 ~
-0 -1 19068
+Z -1 19068
 D3
 ~
 ~
-0 -1 19079
+Z -1 19079
 S
 #19079
 Entrance to the Rainbow Tower~
@@ -4787,11 +4787,11 @@ a closed hatch in the ceiling.
 D1
 ~
 ~
-0 -1 19078
+Z -1 19078
 D4
 ~
 ~
-1 -1 19080
+ABZ -1 19080
 S
 #19080
 The Red Room~
@@ -4810,11 +4810,11 @@ You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
 D4
 ~
 ~
-2 19159 19081
+ABCFZ 19159 19081
 D5
 ~
 ~
-0 -1 19079
+Z -1 19079
 S
 #19081
 The Orange Room~
@@ -4832,11 +4832,11 @@ You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
 D4
 ~
 ~
-2 19160 19082
+ABCFZ 19160 19082
 D5
 ~
 ~
-2 19159 19080
+AFZ 19159 19080
 S
 #19082
 The Yellow Room~
@@ -4852,11 +4852,11 @@ You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
 D4
 ~
 ~
-2 19161 19083
+ABCFZ 19161 19083
 D5
 ~
 ~
-2 19160 19081
+AFZ 19160 19081
 S
 #19083
 The Green Room~
@@ -4873,11 +4873,11 @@ You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
 D4
 ~
 ~
-2 19162 19084
+ABCFZ 19162 19084
 D5
 ~
 ~
-2 19161 19082
+AFZ 19161 19082
 S
 #19084
 The Blue Room~
@@ -4895,11 +4895,11 @@ You see the Sign of the Light, a rainbow inside a circle of ivy.~
 D4
 ~
 ~
-2 19163 19085
+ABCFZ 19163 19085
 D5
 ~
 ~
-2 19162 19083
+AFZ 19162 19083
 S
 #19085
 The Violet Room~
@@ -4918,11 +4918,11 @@ You see the Sign of the Light, a rainbow surrounded by a circle of ivy.~
 D4
 ~
 ~
-2 19164 19086
+ABCFZ 19164 19086
 D5
 ~
 ~
-2 19163 19084
+AFZ 19163 19084
 S
 #19086
 At the Top of the Tower: The Prism Room~
@@ -4941,7 +4941,7 @@ You see the Sign of the Light, a rainbow surrounded by a circle of ivy.~
 D5
 ~
 ~
-2 19164 19085
+AFZ 19164 19085
 S
 #19087
 End of the Path~
@@ -4954,15 +4954,15 @@ up to your hips if you try and stand on it.
 D0
 ~
 ~
-0 -1 19088
+Z -1 19088
 D1
 ~
 ~
-0 -1 19096
+Z -1 19096
 D2
 ~
 ~
-0 -1 19139
+Z -1 19139
 S
 #19088
 The Wooden Path~
@@ -4976,15 +4976,15 @@ path to the west.
 D0
 ~
 ~
-0 -1 19089
+Z -1 19089
 D1
 ~
 ~
-0 -1 19095
+Z -1 19095
 D2
 ~
 ~
-0 -1 19087
+Z -1 19087
 S
 #19089
 The Intersection~
@@ -4999,19 +4999,19 @@ dull and gray.
 D0
 ~
 ~
-0 -1 19090
+Z -1 19090
 D1
 ~
 ~
-0 -1 19120
+Z -1 19120
 D2
 ~
 ~
-0 -1 19088
+Z -1 19088
 D3
 ~
 ~
-0 -1 19108
+Z -1 19108
 S
 #19090
 The Wooden Path~
@@ -5027,19 +5027,19 @@ it in two.
 D0
 ~
 ~
-0 -1 19091
+Z -1 19091
 D1
 ~
 ~
-0 -1 19093
+Z -1 19093
 D2
 ~
 ~
-0 -1 19089
+Z -1 19089
 D3
 ~
 ~
-0 -1 19160
+Z -1 19160
 S
 #19091
 The Corner of the Wooden Path~
@@ -5052,11 +5052,11 @@ brown stems.
 D1
 ~
 ~
-0 -1 19092
+Z -1 19092
 D2
 ~
 ~
-0 -1 19090
+Z -1 19090
 S
 #19092
 A Grove of Trees~
@@ -5069,11 +5069,11 @@ need a light to find your way.
 D1
 ~
 ~
-0 -1 19097
+Z -1 19097
 D3
 ~
 ~
-0 -1 19091
+Z -1 19091
 S
 #19093
 The Swamp~
@@ -5088,15 +5088,15 @@ northern end of the pond.
 D1
 ~
 ~
-0 -1 19098
+Z -1 19098
 D2
 ~
 ~
-0 -1 19094
+Z -1 19094
 D3
 ~
 ~
-0 -1 19090
+Z -1 19090
 S
 #19094
 Under the Bridge~
@@ -5111,15 +5111,15 @@ the mire below.
 D0
 ~
 ~
-0 -1 19093
+Z -1 19093
 D1
 ~
 ~
-0 -1 19099
+Z -1 19099
 D2
 ~
 ~
-0 -1 19095
+Z -1 19095
 S
 #19095
 The Swamp~
@@ -5132,15 +5132,15 @@ of the pond.
 D0
 ~
 ~
-0 -1 19094
+Z -1 19094
 D1
 ~
 ~
-0 -1 19100
+Z -1 19100
 D3
 ~
 ~
-0 -1 19088
+Z -1 19088
 S
 #19096
 Edge of the Forest~
@@ -5153,15 +5153,15 @@ almost completely black beyond the treeline.
 D1
 ~
 ~
-0 -1 19101
+Z -1 19101
 D2
 ~
 ~
-0 -1 19140
+Z -1 19140
 D3
 ~
 ~
-0 -1 19087
+Z -1 19087
 S
 #19097
 A Grove of Trees ~
@@ -5174,11 +5174,11 @@ make it down through the gloom.
 D1
 ~
 ~
-0 -1 19102
+Z -1 19102
 D3
 ~
 ~
-0 -1 19092
+Z -1 19092
 S
 #19098
 The Swamp~
@@ -5191,15 +5191,15 @@ several of its gray boards have fallen into the waters below.
 D1
 ~
 ~
-0 -1 19103
+Z -1 19103
 D2
 ~
 ~
-0 -1 19099
+Z -1 19099
 D3
 ~
 ~
-0 -1 19093
+Z -1 19093
 S
 #19099
 Under the Gazebo~
@@ -5215,15 +5215,15 @@ and appear to be happily munching away.
 D0
 ~
 ~
-0 -1 19098
+Z -1 19098
 D2
 ~
 ~
-0 -1 19100
+Z -1 19100
 D3
 ~
 ~
-0 -1 19094
+Z -1 19094
 S
 #19100
 The Swamp ~
@@ -5237,19 +5237,19 @@ likely preventing anyone from calling it their home.
 D0
 ~
 ~
-0 -1 19099
+Z -1 19099
 D1
 ~
 ~
-0 -1 19105
+Z -1 19105
 D2
 ~
 ~
-0 -1 19101
+Z -1 19101
 D3
 ~
 ~
-0 -1 19095
+Z -1 19095
 S
 #19101
 Below the Fisherman's Hut~
@@ -5263,23 +5263,23 @@ dark grove of trees to grow high into the air.
 D0
 ~
 ~
-0 -1 19100
+Z -1 19100
 D1
 ~
 ~
-0 -1 19106
+Z -1 19106
 D2
 ~
 ~
-0 -1 19141
+Z -1 19141
 D3
 ~
 ~
-0 -1 19096
+Z -1 19096
 D4
 ~
 ~
-0 -1 19148
+Z -1 19148
 S
 #19102
 Corner of the Path ~
@@ -5293,11 +5293,11 @@ quite as much now.....
 D2
 ~
 ~
-0 -1 19103
+Z -1 19103
 D3
 ~
 ~
-0 -1 19097
+Z -1 19097
 S
 #19103
 The Path~
@@ -5309,15 +5309,15 @@ it heads towards a darker area just before the northern mountain wall.
 D0
 ~
 ~
-0 -1 19102
+Z -1 19102
 D2
 ~
 ~
-0 -1 19104
+Z -1 19104
 D3
 ~
 ~
-0 -1 19098
+Z -1 19098
 S
 #19104
 The Intersection ~
@@ -5330,19 +5330,19 @@ of the buildings, heading towards a glittering black tower.
 D0
 ~
 ~
-0 -1 19103
+Z -1 19103
 D1
 ~
 ~
-0 -1 19109
+Z -1 19109
 D2
 ~
 ~
-0 -1 19105
+Z -1 19105
 D3
 ~
 ~
-0 -1 19121
+Z -1 19121
 S
 #19105
 The Path~
@@ -5356,15 +5356,15 @@ a dark forest rises in the distance to the south.
 D0
 ~
 ~
-0 -1 19104
+Z -1 19104
 D2
 ~
 ~
-0 -1 19106
+Z -1 19106
 D3
 ~
 ~
-0 -1 19100
+Z -1 19100
 S
 #19106
 The End of the Path ~
@@ -5377,15 +5377,15 @@ whatever may lie inside.
 D0
 ~
 ~
-0 -1 19105
+Z -1 19105
 D2
 ~
 ~
-0 -1 19143
+Z -1 19143
 D3
 ~
 ~
-0 -1 19101
+Z -1 19101
 S
 #19107
 Below the Watchtower~
@@ -5398,11 +5398,11 @@ enough light for you to see a small handle attached to the hatchway above.
 D4
 ~
 ~
-0 -1 19010
+Z -1 19010
 D5
 ~
 ~
-0 -1 19108
+Z -1 19108
 S
 #19108
 The Foot of the Rock Ladder ~
@@ -5419,11 +5419,11 @@ the rock above the door.~
 D1
 ~
 ~
-1 -1 19089
+ABZ -1 19089
 D4
 ~
 ~
-0 -1 19107
+Z -1 19107
 S
 #19109
 Center of the Street~
@@ -5438,19 +5438,19 @@ mire of the swamp to its west.
 D0
 ~
 ~
-0 -1 19115
+Z -1 19115
 D1
 ~
 ~
-0 -1 19119
+Z -1 19119
 D2
 ~
 ~
-0 -1 19110
+Z -1 19110
 D3
 ~
 ~
-0 -1 19104
+Z -1 19104
 S
 #19110
 Street ~
@@ -5472,19 +5472,19 @@ The sign to the west reads:                     The sign to the east reads:
 D0
 ~
 ~
-0 -1 19109
+Z -1 19109
 D1
 ~
 ~
-0 -1 19111
+Z -1 19111
 D2
 ~
 ~
-0 -1 19114
+Z -1 19114
 D3
 ~
 ~
-0 -1 19112
+Z -1 19112
 S
 #19111
 The Bar of the Hemlock Bush~
@@ -5500,11 +5500,11 @@ below you.
 D0
 ~
 ~
-0 -1 19113
+Z -1 19113
 D3
 ~
 ~
-0 -1 19110
+Z -1 19110
 S
 #19112
 The Sorcery~
@@ -5522,7 +5522,7 @@ tingling faintly and beginning to stand on end.~
 D1
 ~
 ~
-0 -1 19110
+Z -1 19110
 S
 #19113
 The Restaurant of the Hemlock Bush ~
@@ -5537,7 +5537,7 @@ have fallen victim to the same fight that took out most of the bar.
 D2
 ~
 ~
-0 -1 19111
+Z -1 19111
 S
 #19114
 A Dark House ~
@@ -5549,7 +5549,7 @@ light.
 D0
 ~
 ~
-0 -1 19110
+Z -1 19110
 S
 #19115
 The Street~
@@ -5561,19 +5561,19 @@ west is empty.
 D0
 ~
 ~
-0 -1 19118
+Z -1 19118
 D1
 ~
 ~
-0 -1 19116
+Z -1 19116
 D2
 ~
 ~
-0 -1 19109
+Z -1 19109
 D3
 ~
 ~
-0 -1 19117
+Z -1 19117
 S
 #19116
 The Library and Bookstore ~
@@ -5586,7 +5586,7 @@ scourges and battles swept through the town.
 D3
 ~
 ~
-0 -1 19115
+Z -1 19115
 S
 #19117
 The Travellers' Shop ~
@@ -5601,7 +5601,7 @@ even the staircase to the second floor have been torn apart.
 D1
 ~
 ~
-0 -1 19115
+Z -1 19115
 S
 #19118
 The Temple~
@@ -5615,7 +5615,7 @@ of...something....
 D2
 ~
 ~
-0 -1 19115
+Z -1 19115
 S
 #19119
 Path to the Dark Tower ~
@@ -5630,11 +5630,11 @@ slimy waters.
 D1
 ~
 ~
-0 -1 19122
+Z -1 19122
 D3
 ~
 ~
-0 -1 19109
+Z -1 19109
 S
 #19120
 The Bridge over the Swamp ~
@@ -5647,11 +5647,11 @@ barely stick out above the water's surface.
 D1
 ~
 ~
-0 -1 19121
+Z -1 19121
 D3
 ~
 ~
-0 -1 19089
+Z -1 19089
 S
 #19121
 The Gazebo ~
@@ -5666,11 +5666,11 @@ place.
 D1
 ~
 ~
-0 -1 19104
+Z -1 19104
 D3
 ~
 ~
-0 -1 19120
+Z -1 19120
 S
 #19122
 Entrance to the Dark Tower~
@@ -5681,11 +5681,11 @@ dirty air.  Save for a staircase leading upwards, the room is entirely empty.
 D3
 ~
 ~
-0 -1 19119
+Z -1 19119
 D4
 ~
 ~
-0 -1 19123
+Z -1 19123
 S
 #19123
 Inside the Dark Tower~
@@ -5700,11 +5700,11 @@ painted in dull black on the shiny black wall.
 D4
 ~
 ~
-2 -1 19124
+ABFZ -1 19124
 D5
 ~
 ~
-2 -1 19122
+AFZ -1 19122
 S
 #19124
 Inside the Dark Tower~
@@ -5718,11 +5718,11 @@ white against the bright white background.
 D4
 ~
 ~
-2 -1 19125
+ABFZ -1 19125
 D5
 ~
 ~
-2 -1 19123
+AFZ -1 19123
 S
 #19125
 Inside the Dark Tower~
@@ -5737,11 +5737,11 @@ painted in dull black on the shiny black wall.
 D4
 ~
 ~
-2 -1 19126
+ABFZ -1 19126
 D5
 ~
 ~
-2 -1 19124
+AFZ -1 19124
 S
 #19126
 Inside the Dark Tower~
@@ -5755,11 +5755,11 @@ white against the bright white background.
 D4
 ~
 ~
-2 -1 19127
+ABFZ -1 19127
 D5
 ~
 ~
-2 -1 19125
+AFZ -1 19125
 S
 #19127
 The Top of the Dark Tower: Gray Mists~
@@ -5771,7 +5771,7 @@ sign of the Dark, suspended somewhere in the distance.
 D5
 ~
 ~
-2 -1 19126
+AFZ -1 19126
 S
 #19128
 The Dank Room~
@@ -5823,7 +5823,7 @@ hooks and a fishing pole locked to the bottom shelf with a thick chain.
 D5
 ~
 ~
-0 -1 19057
+Z -1 19057
 S
 #19131
 The Forest ~
@@ -5836,11 +5836,11 @@ in and out of one hollow tree, probably hiding his nuts for winter.
 D0
 ~
 ~
-0 -1 19065
+Z -1 19065
 D1
 ~
 ~
-0 -1 19132
+Z -1 19132
 S
 #19132
 The Forest ~
@@ -5853,19 +5853,19 @@ anyone or anything that might be nearby.
 D0
 ~
 ~
-0 -1 19057
+Z -1 19057
 D1
 ~
 ~
-0 -1 19133
+Z -1 19133
 D2
 ~
 ~
-0 -1 19137
+Z -1 19137
 D3
 ~
 ~
-0 -1 19131
+Z -1 19131
 S
 #19133
 The Forest ~
@@ -5879,19 +5879,19 @@ soil.
 D0
 ~
 ~
-0 -1 19056
+Z -1 19056
 D1
 ~
 ~
-0 -1 19134
+Z -1 19134
 D2
 ~
 ~
-0 -1 19136
+Z -1 19136
 D3
 ~
 ~
-0 -1 19132
+Z -1 19132
 S
 #19134
 The Forest ~
@@ -5904,15 +5904,15 @@ as well, meeting up with a neat gravel pathway as it enters a clearing.
 D0
 ~
 ~
-0 -1 19046
+Z -1 19046
 D2
 ~
 ~
-0 -1 19135
+Z -1 19135
 D3
 ~
 ~
-0 -1 19133
+Z -1 19133
 S
 #19135
 The Forest ~
@@ -5926,15 +5926,15 @@ upper branches.
 D0
 ~
 ~
-0 -1 19134
+Z -1 19134
 D3
 ~
 ~
-0 -1 19136
+Z -1 19136
 D4
 ~
 ~
-0 -1 19138
+Z -1 19138
 S
 #19136
 The Forest ~
@@ -5951,19 +5951,19 @@ to the ground.
 D0
 ~
 ~
-0 -1 19133
+Z -1 19133
 D1
 ~
 ~
-0 -1 19135
+Z -1 19135
 D2
 ~
 ~
-0 -1 19163
+Z -1 19163
 D3
 ~
 ~
-0 -1 19137
+Z -1 19137
 S
 #19137
 The Forest ~
@@ -5982,15 +5982,15 @@ the mountain wall.~
 D0
 ~
 ~
-0 -1 19132
+Z -1 19132
 D1
 ~
 ~
-0 -1 19136
+Z -1 19136
 D5
 ~
 rock~
-1 -1 19155
+ABZ -1 19155
 S
 #19138
 The Tree House~
@@ -6011,11 +6011,11 @@ D4
 The space in the ceiling looks large enough to pass through, but you'd have to
 move the netting.~
 netting door~
-1 -1 19153
+ABZ -1 19153
 D5
 ~
 ~
-0 -1 19135
+Z -1 19135
 S
 #19139
 Dark Forest~
@@ -6029,15 +6029,15 @@ bubbling mud to the faint raspy breathing of some sort of animal.
 D0
 ~
 ~
-0 -1 19087
+Z -1 19087
 D1
 ~
 ~
-0 -1 19140
+Z -1 19140
 D2
 ~
 ~
-0 -1 19144
+Z -1 19144
 S
 #19140
 Dark Forest ~
@@ -6052,19 +6052,19 @@ little more light to shine through.
 D0
 ~
 ~
-0 -1 19096
+Z -1 19096
 D1
 ~
 ~
-0 -1 19141
+Z -1 19141
 D2
 ~
 ~
-0 -1 19145
+Z -1 19145
 D3
 ~
 ~
-0 -1 19139
+Z -1 19139
 S
 #19141
 Dark Forest~
@@ -6077,19 +6077,19 @@ by the ivy and wisteria dangling from the low-hanging branches.
 D0
 ~
 ~
-0 -1 19101
+Z -1 19101
 D1
 ~
 ~
-0 -1 19143
+Z -1 19143
 D2
 ~
 ~
-0 -1 19146
+Z -1 19146
 D3
 ~
 ~
-0 -1 19140
+Z -1 19140
 S
 #19142
 Up the Tree ~
@@ -6103,7 +6103,7 @@ northeast.
 D5
 ~
 ~
-0 -1 19144
+Z -1 19144
 S
 #19143
 Dark Forest~
@@ -6116,11 +6116,11 @@ gloom that surrounds this land.
 D0
 ~
 ~
-0 -1 19106
+Z -1 19106
 D3
 ~
 ~
-0 -1 19141
+Z -1 19141
 S
 #19144
 Dark Forest ~
@@ -6133,15 +6133,15 @@ light to reach the forest floor.
 D0
 ~
 ~
-0 -1 19139
+Z -1 19139
 D1
 ~
 ~
-0 -1 19145
+Z -1 19145
 D4
 ~
 ~
-0 -1 19142
+Z -1 19142
 S
 #19145
 Dark Forest ~
@@ -6155,15 +6155,15 @@ west, beyond the mountain wall that separates this valley from the next.
 D0
 ~
 ~
-0 -1 19140
+Z -1 19140
 D1
 ~
 ~
-0 -1 19146
+Z -1 19146
 D3
 ~
 ~
-0 -1 19144
+Z -1 19144
 S
 #19146
 Dark Forest ~
@@ -6177,11 +6177,11 @@ its top.
 D0
 ~
 ~
-0 -1 19141
+Z -1 19141
 D3
 ~
 ~
-0 -1 19145
+Z -1 19145
 S
 #19147
 Vell, hi!~
@@ -6206,7 +6206,7 @@ so do you.
 D0
 ~
 ~
-0 -1 19095
+Z -1 19095
 S
 #19149
 A Mirror Staircase~
@@ -6219,11 +6219,11 @@ to see the intersection below and the continuing staircase above you.
 D4
 ~
 ~
-0 -1 19150
+Z -1 19150
 D5
 ~
 ~
-0 -1 19041
+Z -1 19041
 S
 #19150
 The Mirror Staircase~
@@ -6235,11 +6235,11 @@ appears to lie above you, while the staircase continues downwards below you.
 D4
 ~
 ~
-0 -1 19151
+Z -1 19151
 D5
 ~
 ~
-0 -1 19149
+Z -1 19149
 S
 #19151
 A Small Room~
@@ -6253,7 +6253,7 @@ by some sort of bird....
 D5
 ~
 ~
-0 -1 19150
+Z -1 19150
 S
 #19152
 The Crystal Altar~
@@ -6267,7 +6267,7 @@ shiny brass hinges.
 D5
 ~
 ~
-2 -1 19067
+AFZ -1 19067
 S
 #19153
 In Front of the Hive~
@@ -6280,11 +6280,11 @@ the hive before you....
 D0
 ~
 ~
-0 -1 19154
+Z -1 19154
 D5
 ~
 ~
-0 -1 19138
+Z -1 19138
 S
 #19154
 Inside the Hive~
@@ -6299,7 +6299,7 @@ honey whose sweet, sticky scent fills the air.
 D2
 ~
 ~
-0 -1 19153
+Z -1 19153
 S
 #19155
 The Violet Altar~
@@ -6315,7 +6315,7 @@ to lie.
 D4
 ~
 ~
-0 -1 19137
+Z -1 19137
 S
 #19156
 Inside the House: The Living Room~
@@ -6328,11 +6328,11 @@ to the north, a doorway still provides access to another room.
 D0
 ~
 ~
-0 -1 19157
+Z -1 19157
 D3
 ~
 ~
-0 -1 19049
+Z -1 19049
 S
 #19157
 Inside the House: The Kitchen~
@@ -6347,15 +6347,15 @@ by a thick iron grate.
 D0
 ~
 grate fire fireplace~
-1 -1 19158
+ABZ -1 19158
 D1
 ~
 oven door~
-1 -1 19159
+ABZ -1 19159
 D2
 ~
 ~
-0 -1 19156
+Z -1 19156
 S
 #19158
 Inside the Fire: The Red Altar~
@@ -6371,7 +6371,7 @@ to be far hotter and larger than it seemed from the outside.
 D2
 ~
 ~
-0 -1 19157
+Z -1 19157
 S
 #19159
 Crawling Through the Oven~
@@ -6385,11 +6385,11 @@ at the other.
 D1
 ~
 panel~
-0 -1 19160
+Z -1 19160
 D3
 ~
 oven door~
-0 -1 19157
+Z -1 19157
 S
 #19160
 The Bedroom~
@@ -6403,11 +6403,11 @@ shut, it probably once provided the heat for this small room.
 D1
 ~
 ~
-0 -1 19090
+Z -1 19090
 D3
 ~
 panel~
-1 -1 19159
+ABZ -1 19159
 S
 #19161
 Diving~
@@ -6421,11 +6421,11 @@ see what appears to be some sort of cave lying just ahead.
 D0
 ~
 ~
-0 -1 19162
+Z -1 19162
 D4
 ~
 ~
-0 -1 19053
+Z -1 19053
 S
 #19162
 Underwater Cave: The Blue Altar~
@@ -6441,7 +6441,7 @@ the room.
 D2
 ~
 ~
-0 -1 19161
+Z -1 19161
 S
 #19163
 The Green Altar~
@@ -6455,7 +6455,7 @@ nest of green branches.
 D0
 ~
 branch tree~
-1 -1 19136
+ABZ -1 19136
 S
 #19164
 Hallway~
@@ -6467,19 +6467,19 @@ the section up ahead.
 D0
 ~
 ~
-0 -1 19167
+Z -1 19167
 D1
 ~
 door~
-0 -1 19166
+Z -1 19166
 D3
 ~
 door~
-0 -1 19165
+Z -1 19165
 D5
 ~
 ~
-0 -1 19071
+Z -1 19071
 S
 #19165
 A Bedroom~
@@ -6492,7 +6492,7 @@ near the bed.
 D1
 ~
 door~
-0 -1 19164
+Z -1 19164
 S
 #19166
 Mr. Teece's Room~
@@ -6506,7 +6506,7 @@ lyrics for various sorts of blues and jazz.
 D3
 ~
 door~
-0 -1 19164
+Z -1 19164
 S
 #19167
 Hallway~
@@ -6518,15 +6518,15 @@ the door to the east holds a plaque that reads "Honeymoon Suite."
 D1
 ~
 door~
-0 -1 19169
+Z -1 19169
 D2
 ~
 ~
-0 -1 19164
+Z -1 19164
 D3
 ~
 ~
-0 -1 19168
+Z -1 19168
 S
 #19168
 A Bedroom~
@@ -6539,7 +6539,7 @@ the bed.
 D1
 ~
 ~
-0 -1 19167
+Z -1 19167
 S
 #19169
 The Honeymoon Suite~
@@ -6554,7 +6554,7 @@ some privacy...
 D3
 ~
 ~
-2 19166 19167
+AFZ 19166 19167
 S
 #19170
 The Suite~

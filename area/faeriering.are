@@ -341,11 +341,11 @@ of a trap door in the center of the ring.
 D3
 ~
 ~
-0 -1 3513
+Z -1 3513
 D5
 A small trap door~
 door trap~
-1 -1 29102
+ABZ -1 29102
 S
 #29102
 Entrance Hall~
@@ -358,23 +358,23 @@ hear sounds of a raucous celebration to the east.
 D0
 A tiny door~
 door tiny~
-1 -1 29103
+ABZ -1 29103
 D1
 A smoky hallway~
 ~
-0 -1 29104
+Z -1 29104
 D2
 A tiny door~
 door tiny~
-1 -1 29105
+ABZ -1 29105
 D3
 A tiny door~
 door tiny~
-1 -1 29106
+ABZ -1 29106
 D4
 A small trap door~
 door trap~
-1 -1 29101
+ABZ -1 29101
 S
 #29103
 Puck's Room~
@@ -391,7 +391,7 @@ The sign says: "Puck's stuff- keep your grubby hands off"
 D2
 A tiny door~
 door tiny~
-1 -1 29102
+ABZ -1 29102
 S
 #29104
 Little People's Bar and Grill~
@@ -405,11 +405,11 @@ heads west, and you hear a thunderous racket coming from the east.
 D1
 Towards the racket~
 ~
-0 -1 29107
+Z -1 29107
 D3
 A smoky hallway~
 ~
-0 -1 29102
+Z -1 29102
 S
 #29105
 Snooze Den~
@@ -424,7 +424,7 @@ The sign says 'Close the door, stupid'~
 D0
 A tiny door~
 door tiny~
-1 -1 29102
+ABZ -1 29102
 S
 #29106
 Guarded Burrow~
@@ -436,11 +436,11 @@ lies a door, and to the south is a normal sized door.
 D1
 A tiny door~
 door tiny~
-1 -1 29102
+ABZ -1 29102
 D2
 A normal sized door~
 door normal~
-1 29110 29108
+ABCZ 29110 29108
 S
 #29107
 Bowling Alley~
@@ -461,7 +461,7 @@ You look carefully at the white targets and discover they are human bones!
 D3
 Little People's Bar and Grill~
 ~
-0 -1 29104
+Z -1 29104
 S
 #29108
 Hall of the Faerie Queen~
@@ -476,7 +476,7 @@ They are being fanned furiously by fluttering faerie folk.~
 D0
 A normal sized door~
 door normal~
-1 29110 29106
+ABCZ 29110 29106
 S
 #0
 

@@ -953,11 +953,11 @@ Suddenly you feel that the tunnel leads slightly down.
 D0
 ~
 ~
-0 0 4052
+Z 0 4052
 D3
 ~
 ~
-0 0 4101
+Z 0 4101
 S
 #4101
 The long tunnel~
@@ -968,11 +968,11 @@ wide at this point.
 D1
 ~
 ~
-0 0 4100
+Z 0 4100
 D3
 ~
 ~
-0 0 4102
+Z 0 4102
 S
 #4102
 The long tunnel~
@@ -983,11 +983,11 @@ narrow to the west.
 D1
 ~
 ~
-0 0 4101
+Z 0 4101
 D3
 ~
 ~
-0 0 4103
+Z 0 4103
 S
 #4103
 The long tunnel~
@@ -998,15 +998,15 @@ narrow at this point. You notice a small hole leading south.
 D1
 ~
 ~
-0 0 4102
+Z 0 4102
 D2
 ~
 ~
-0 0 4106
+Z 0 4106
 D3
 ~
 ~
-0 0 4104
+Z 0 4104
 S
 #4104
 The long tunnel~
@@ -1017,11 +1017,11 @@ down towards the west.
 D1
 ~
 ~
-0 0 4103
+Z 0 4103
 D3
 ~
 ~
-0 0 4152
+Z 0 4152
 S
 #4105
 The golden cave~
@@ -1032,11 +1032,11 @@ light. The cave continues to the south and west.
 D2
 ~
 ~
-0 0 4108
+Z 0 4108
 D3
 ~
 ~
-0 0 4106
+Z 0 4106
 S
 #4106
 The golden cave~
@@ -1048,15 +1048,15 @@ tunnel.
 D0
 ~
 ~
-0 0 4103
+Z 0 4103
 D1
 ~
 ~
-0 0 4105
+Z 0 4105
 D2
 ~
 ~
-0 0 4109
+Z 0 4109
 S
 #4107
 The passage~
@@ -1067,11 +1067,11 @@ cave.
 D2
 ~
 ~
-0 0 4113
+Z 0 4113
 D3
 ~
 ~
-0 0 4108
+Z 0 4108
 S
 #4108
 The golden cave~
@@ -1083,15 +1083,15 @@ a small passage.
 D0
 ~
 ~
-0 0 4105
+Z 0 4105
 D1
 ~
 ~
-0 0 4107
+Z 0 4107
 D3
 ~
 ~
-0 0 4109
+Z 0 4109
 S
 #4109
 The golden cave~
@@ -1102,15 +1102,15 @@ light. The cave continues to the south, east and north.
 D0
 ~
 ~
-0 0 4106
+Z 0 4106
 D1
 ~
 ~
-0 0 4108
+Z 0 4108
 D2
 ~
 ~
-0 0 4114
+Z 0 4114
 S
 #4110
 The tunnel~
@@ -1120,7 +1120,7 @@ You are at the end of the tunnel.
 D3
 ~
 ~
-0 0 4111
+Z 0 4111
 S
 #4111
 The tunnel~
@@ -1130,11 +1130,11 @@ You are in a small tunnel, it leads from east to the west.
 D1
 ~
 ~
-0 0 4110
+Z 0 4110
 D3
 ~
 ~
-0 0 4112
+Z 0 4112
 S
 #4112
 The tunnel~
@@ -1144,11 +1144,11 @@ You are in a larger tunnel, it leads from west to east.
 D1
 ~
 ~
-0 0 4111
+Z 0 4111
 D3
 ~
 ~
-0 0 4113
+Z 0 4113
 S
 #4113
 The passage~
@@ -1159,15 +1159,15 @@ you see a tunnel.
 D0
 ~
 ~
-0 0 4107
+Z 0 4107
 D1
 ~
 ~
-0 0 4112
+Z 0 4112
 D2
 ~
 ~
-0 0 4116
+Z 0 4116
 S
 #4114
 The golden cave~
@@ -1179,11 +1179,11 @@ passage.
 D0
 ~
 ~
-0 0 4109
+Z 0 4109
 D3
 ~
 ~
-0 0 4115
+Z 0 4115
 S
 #4115
 The dark passage.~
@@ -1194,11 +1194,11 @@ a small hole, just big enough to pass through.
 D1
 ~
 ~
-0 0 4114
+Z 0 4114
 D4
 ~
 ~
-0 0 4021
+Z 0 4021
 S
 #4116
 The passage~
@@ -1209,11 +1209,11 @@ light to the south.
 D0
 ~
 ~
-0 0 4113
+Z 0 4113
 D2
 ~
 ~
-0 0 4120
+Z 0 4120
 S
 #4117
 The secret chamber~
@@ -1223,7 +1223,7 @@ You are in a secret chamber.
 D2
 ~
 ~
-0 0 4122
+Z 0 4122
 S
 #4118
 The cave~
@@ -1235,11 +1235,11 @@ To the north a small hole leads to a tunnel.
 D2
 ~
 ~
-0 0 4123
+Z 0 4123
 D3
 ~
 ~
-0 0 4119
+Z 0 4119
 S
 #4119
 The cave~
@@ -1250,15 +1250,15 @@ head fire lights the room. The cave continues to the east and south.
 D1
 ~
 ~
-0 0 4118
+Z 0 4118
 D2
 ~
 ~
-0 0 4124
+Z 0 4124
 D3
 ~
 ~
-0 0 4121
+Z 0 4121
 S
 #4120
 The passage~
@@ -1268,11 +1268,11 @@ You are in a north-south leading passage. To the south you see light.
 D0
 ~
 ~
-0 0 4116
+Z 0 4116
 D2
 ~
 ~
-0 0 4125
+Z 0 4125
 S
 #4121
 The secret tunnel~
@@ -1283,11 +1283,11 @@ approaching you as you continue west.
 D1
 ~
 ~
-0 0 4119
+Z 0 4119
 D3
 ~
 ~
-0 0 4122
+Z 0 4122
 S
 #4122
 The secret chamber~
@@ -1298,11 +1298,11 @@ feeling.
 D0
 ~
 ~
-0 0 4117
+Z 0 4117
 D1
 ~
 ~
-0 0 4121
+Z 0 4121
 S
 #4123
 The cave~
@@ -1313,11 +1313,11 @@ head fire lights the room. The cave continues to the north and west.
 D0
 ~
 ~
-0 0 4118
+Z 0 4118
 D3
 ~
 ~
-0 0 4124
+Z 0 4124
 S
 #4124
 The cave~
@@ -1329,15 +1329,15 @@ To the west a passage leads north.
 D0
 ~
 ~
-0 0 4119
+Z 0 4119
 D1
 ~
 ~
-0 0 4123
+Z 0 4123
 D3
 ~
 ~
-0 0 4125
+Z 0 4125
 S
 #4125
 The passage~
@@ -1349,11 +1349,11 @@ the darkness.
 D0
 ~
 ~
-0 0 4120
+Z 0 4120
 D1
 ~
 ~
-0 0 4124
+Z 0 4124
 S
 #4150
 The dark hole~
@@ -1367,7 +1367,7 @@ The Balrog is ALIVE ...
 D2
 ~
 ~
-0 0 4151
+Z 0 4151
 S
 #4151
 The small passage~
@@ -1378,15 +1378,15 @@ the south you see a large tunnel. The air is damp in this area.
 D0
 ~
 ~
-0 0 4150
+Z 0 4150
 D2
 ~
 ~
-0 0 4156
+Z 0 4156
 D3
 ~
 ~
-0 0 4155
+Z 0 4155
 S
 #4152
 The tunnel~
@@ -1396,11 +1396,11 @@ You suddenly feel that the tunnel leads down.
 D1
 ~
 ~
-0 0 4104
+Z 0 4104
 D2
 ~
 ~
-0 0 4153
+Z 0 4153
 S
 #4153
 The large tunnel~
@@ -1411,15 +1411,15 @@ air is damp in the area.
 D0
 ~
 ~
-0 0 4152
+Z 0 4152
 D1
 ~
 ~
-0 0 4154
+Z 0 4154
 D2
 ~
 ~
-0 0 4157
+Z 0 4157
 S
 #4154
 The large tunnel~
@@ -1430,11 +1430,11 @@ the floor is wet.
 D1
 ~
 ~
-0 0 4155
+Z 0 4155
 D3
 ~
 ~
-0 0 4153
+Z 0 4153
 S
 #4155
 The large tunnel~
@@ -1445,11 +1445,11 @@ you notice a long tunnel. The air is damp in this area.
 D1
 ~
 ~
-0 0 4151
+Z 0 4151
 D3
 ~
 ~
-0 0 4154
+Z 0 4154
 S
 #4156
 The long tunnel~
@@ -1459,11 +1459,11 @@ You are standing in a long north-south tunnel.
 D0
 ~
 ~
-0 0 4151
+Z 0 4151
 D2
 ~
 ~
-0 0 4160
+Z 0 4160
 S
 #4157
 The wet tunnel~
@@ -1474,15 +1474,15 @@ partly covered by water.
 D0
 ~
 ~
-0 0 4153
+Z 0 4153
 D1
 ~
 ~
-0 0 4158
+Z 0 4158
 D2
 ~
 ~
-0 0 4161
+Z 0 4161
 S
 #4158
 The small maze~
@@ -1493,15 +1493,15 @@ and west. The floor is partly covered by water.
 D1
 ~
 ~
-0 0 4159
+Z 0 4159
 D2
 ~
 ~
-0 0 4162
+Z 0 4162
 D3
 ~
 ~
-0 0 4157
+Z 0 4157
 S
 #4159
 The small maze~
@@ -1512,11 +1512,11 @@ and west. The air is damp in this maze.
 D2
 ~
 ~
-0 0 4163
+Z 0 4163
 D3
 ~
 ~
-0 0 4158
+Z 0 4158
 S
 #4160
 In the tunnel at the inscription~
@@ -1539,11 +1539,11 @@ dragon breathed poison gas; we are also going to die soon.
 D0
 ~
 ~
-0 0 4156
+Z 0 4156
 D2
 ~
 ~
-0 0 4164
+Z 0 4164
 S
 #4161
 The wet tunnel~
@@ -1554,11 +1554,11 @@ covered by water.
 D0
 ~
 ~
-0 0 4157
+Z 0 4157
 D2
 ~
 ~
-0 0 4165
+Z 0 4165
 S
 #4162
 The small maze~
@@ -1569,15 +1569,15 @@ water, exits leads north, east and south.
 D0
 ~
 ~
-0 0 4158
+Z 0 4158
 D1
 ~
 ~
-0 0 4163
+Z 0 4163
 D2
 ~
 ~
-0 0 4166
+Z 0 4166
 S
 #4163
 The small maze~
@@ -1588,15 +1588,15 @@ leads to the north and east.
 D0
 ~
 ~
-0 0 4159
+Z 0 4159
 D1
 ~
 ~
-0 0 4164
+Z 0 4164
 D3
 ~
 ~
-0 0 4162
+Z 0 4162
 S
 #4164
 The entrance to the small maze~
@@ -1607,15 +1607,15 @@ To the west you see a small maze.
 D0
 ~
 ~
-0 0 4160
+Z 0 4160
 D2
 ~
 ~
-0 0 4168
+Z 0 4168
 D3
 ~
 ~
-0 0 4163
+Z 0 4163
 S
 #4165
 In the water~
@@ -1626,11 +1626,11 @@ north and south.
 D0
 ~
 ~
-0 0 4161
+Z 0 4161
 D2
 ~
 ~
-0 0 4169
+Z 0 4169
 S
 #4166
 The wet maze~
@@ -1641,15 +1641,15 @@ by water. The maze continues to the north, east and south.
 D0
 ~
 ~
-0 0 4162
+Z 0 4162
 D1
 ~
 ~
-0 0 4167
+Z 0 4167
 D2
 ~
 ~
-0 0 4170
+Z 0 4170
 S
 #4167
 The wet maze~
@@ -1660,15 +1660,15 @@ maze continues east, west and south.
 D1
 ~
 ~
-0 0 4168
+Z 0 4168
 D2
 ~
 ~
-0 0 4171
+Z 0 4171
 D3
 ~
 ~
-0 0 4166
+Z 0 4166
 S
 #4168
 The end of the tunnel~
@@ -1679,11 +1679,11 @@ The air is damp here.
 D0
 ~
 ~
-0 0 4164
+Z 0 4164
 D3
 ~
 ~
-0 0 4167
+Z 0 4167
 S
 #4169
 In the water~
@@ -1693,11 +1693,11 @@ You are standing in the water, exits leads both north and east.
 D0
 ~
 ~
-0 0 4165
+Z 0 4165
 D1
 ~
 ~
-0 0 4170
+Z 0 4170
 S
 #4170
 In the water~
@@ -1707,15 +1707,15 @@ You are standing in the water, it continues east and west.
 D0
 ~
 ~
-0 0 4166
+Z 0 4166
 D1
 ~
 ~
-0 0 4172
+Z 0 4172
 D3
 ~
 ~
-0 0 4169
+Z 0 4169
 S
 #4171
 End of maze~
@@ -1726,11 +1726,11 @@ Above you a hole leads up.
 D0
 ~
 ~
-0 0 4167
+Z 0 4167
 D4
 ~
 ~
-0 0 4074
+Z 0 4074
 S
 #4172
 At the sand bar~
@@ -1740,7 +1740,7 @@ You are on a little sand bar in the water.
 D3
 ~
 ~
-0 0 4170
+Z 0 4170
 S
 #3900
 West trail around Midgaard~
@@ -1753,12 +1753,12 @@ D0
 The dusty trail winds north closely to the wall.
 ~
 ~
-0 -1 3901
+Z -1 3901
 D2
 The dusty trail leads to outside the west gate of Midgaard.
 ~
 ~
-0 -1 3052
+Z -1 3052
 S
 #3901
 West trail around Midgaard~
@@ -1771,12 +1771,12 @@ D0
 To the north you notice the path makes a turn, following the City wall. 
 ~
 ~
-0 -1 3902
+Z -1 3902
 D2
 The dusty trail continues towards the south.
 ~
 ~
-0 -1 3900
+Z -1 3900
 S
 #3902
 Northwest corner of dusty trail.~
@@ -1788,12 +1788,12 @@ D1
 The dusty trail winds close up to the north wall of Midgaard.
 ~
 ~
-0 -1 3903
+Z -1 3903
 D2
 The dusty trail leads south towards the gate.
 ~
 ~
-0 -1 3901
+Z -1 3901
 S
 #3903
 Dusty trail along north wall.~
@@ -1805,12 +1805,12 @@ D1
 The dusty trail is winding along the north wall of Midgaard.
 ~
 ~
-0 -1 3904
+Z -1 3904
 D3
 The dusty trail turns left around the corner of the wall, behind it Haon-Dor. 
 ~
 ~
-0 -1 3902
+Z -1 3902
 S
 #3904
 The long dusty trail following the north wall.~
@@ -1825,22 +1825,22 @@ D0
 A small path extends into the plains.
 ~
 ~
-0 -1 300
+Z -1 300
 D1
 The dusty trail is winding along the north wall of Midgaard. 
 ~
 ~
-0 -1 3905
+Z -1 3905
 D2
 You see the south gate of Midgaard.
 ~
 ~
-0 -1 3268
+Z -1 3268
 D3
 The dusty trail is winding along the north wall of Midgaard.
 ~
 ~
-0 -1 3903
+Z -1 3903
 S
 #3905
 Dusty trail along north wall.~
@@ -1853,12 +1853,12 @@ The dusty trail turns right around the corner of the wall.
 You notice some mountains in the distance.
 ~
 ~
-0 -1 3906
+Z -1 3906
 D3
 The dusty trail is winding along the north wall of Midgaard.
 ~
 ~
-0 -1 3904
+Z -1 3904
 S
 #3906
 Northeast corner of dusty trail.~
@@ -1870,12 +1870,12 @@ D2
 The dusty trail leads south towards the gate.
 ~
 ~
-0 -1 3907
+Z -1 3907
 D3
 The dusty trail winds close up to the north wall of Midgaard.
 ~
 ~
-0 -1 3905
+Z -1 3905
 S
 #3907
 East trail around Midgaard~
@@ -1888,12 +1888,12 @@ D0
 To the north you notice the path makes a turn, following the City wall. 
 ~
 ~
-0 -1 3906
+Z -1 3906
 D2
 The dusty trail continues towards the south.
 ~
 ~
-0 -1 3908
+Z -1 3908
 S
 #3908
 East trail around Midgaard~
@@ -1906,12 +1906,12 @@ D0
 The dusty trail winds north closely to the wall.
 ~
 ~
-0 -1 3907
+Z -1 3907
 D2
 The dusty trail leads to outside the east gate of Midgaard.
 ~
 ~
-0 -1 3053
+Z -1 3053
 S
 #4000
 The hills~
@@ -1927,16 +1927,16 @@ make out the queen's mines from here.
 D0
 ~
 ~
-0 0 4001
+Z 0 4001
 D1
 You see the mountains of the dwarven kingdom. 
 ~
 ~
-0 0 6562
+Z 0 6562
 D2
 ~
 ~
-0 0 3500
+Z 0 3500
 S
 #4001
 The hills~
@@ -1952,11 +1952,11 @@ distant mountains.
 D0
 ~
 ~
-0 0 4002
+Z 0 4002
 D2
 ~
 ~
-0 0 4000
+Z 0 4000
 S
 #4002
 End of the path~
@@ -1993,11 +1993,11 @@ Small crippled bushes desperately trying to grow south.
 D0
 ~
 ~
-0 0 4010
+Z 0 4010
 D2
 ~
 ~
-0 0 4001
+Z 0 4001
 S
 #4010
 The cave~
@@ -2020,11 +2020,11 @@ The stone is inscribed with the unfortunate player's famous last words:
 D0
 ~
 ~
-0 0 4011
+Z 0 4011
 D2
 ~
 ~
-0 0 4002
+Z 0 4002
 S
 #4011
 The tunnel~
@@ -2037,11 +2037,11 @@ damp, stuffy tunnels. To the north the tunnel continues.
 D0
 ~
 ~
-0 0 4014
+Z 0 4014
 D2
 ~
 ~
-0 0 4010
+Z 0 4010
 S
 #4012
 The tunnel~
@@ -2053,11 +2053,11 @@ a cave.
 D0
 ~
 ~
-0 0 4016
+Z 0 4016
 D1
 ~
 ~
-0 0 4013
+Z 0 4013
 S
 #4013
 The tunnel~
@@ -2068,11 +2068,11 @@ covers the floor, making the air stuffy and dry.
 D1
 ~
 ~
-0 0 4014
+Z 0 4014
 D3
 ~
 ~
-0 0 4012
+Z 0 4012
 S
 #4014
 The tunnel~
@@ -2086,19 +2086,19 @@ is a branch of the tunnel going west.
 D0
 ~
 ~
-0 0 4018
+Z 0 4018
 D1
 ~
 ~
-0 0 4015
+Z 0 4015
 D2
 ~
 ~
-0 0 4011
+Z 0 4011
 D3
 ~
 ~
-0 0 4013
+Z 0 4013
 S
 #4015
 The tunnel~
@@ -2108,11 +2108,11 @@ You are in a corner tunnel leading west and north.
 D0
 ~
 ~
-0 0 4019
+Z 0 4019
 D3
 ~
 ~
-0 0 4014
+Z 0 4014
 S
 #4016
 The large cave~
@@ -2123,15 +2123,15 @@ you notice a small tunnel.
 D1
 ~
 ~
-0 0 4017
+Z 0 4017
 D2
 ~
 ~
-0 0 4012
+Z 0 4012
 D3
 ~
 ~
-0 0 4023
+Z 0 4023
 S
 #4017
 The large cave~
@@ -2141,7 +2141,7 @@ You are in the east end of the large cave.
 D3
 ~
 ~
-0 0 4016
+Z 0 4016
 S
 #4018
 The cave~
@@ -2156,11 +2156,11 @@ Some of the bones are human!
 D0
 ~
 ~
-0 0 4025
+Z 0 4025
 D2
 ~
 ~
-0 0 4014
+Z 0 4014
 S
 #4019
 The tunnel~
@@ -2170,11 +2170,11 @@ You are in a north-south leading tunnel.
 D0
 ~
 ~
-0 0 4026
+Z 0 4026
 D2
 ~
 ~
-0 0 4015
+Z 0 4015
 S
 #4020
 The hole~
@@ -2184,11 +2184,11 @@ You are by a hole in the floor, you can leave down, or north.
 D0
 ~
 ~
-0 0 4027
+Z 0 4027
 D5
 ~
 ~
-0 0 4064
+Z 0 4064
 S
 #4021
 The hole~
@@ -2198,11 +2198,11 @@ A hole in the floor leads down here.
 D1
 ~
 ~
-0 0 4022
+Z 0 4022
 D5
 ~
 ~
-0 0 4115
+Z 0 4115
 S
 #4022
 The damp tunnel~
@@ -2214,15 +2214,15 @@ there is a large cave.
 D0
 ~
 ~
-0 0 4023
+Z 0 4023
 D1
 ~
 ~
-0 0 4024
+Z 0 4024
 D3
 ~
 ~
-0 0 4021
+Z 0 4021
 S
 #4023
 The large cave~
@@ -2233,11 +2233,11 @@ a damp tunnel.
 D1
 ~
 ~
-0 0 4016
+Z 0 4016
 D2
 ~
 ~
-0 0 4022
+Z 0 4022
 S
 #4024
 The damp tunnel~
@@ -2247,11 +2247,11 @@ You are in a corner of a damp tunnel.  You can go west or south.
 D2
 ~
 ~
-0 0 4059
+Z 0 4059
 D3
 ~
 ~
-0 0 4022
+Z 0 4022
 S
 #4025
 The cave~
@@ -2261,15 +2261,15 @@ You are in the north end of a cave.  To the east you see many tunnels.
 D1
 ~
 ~
-0 0 4026
+Z 0 4026
 D2
 ~
 ~
-0 0 4018
+Z 0 4018
 D5
 ~
 floor~
-1 -1 16000
+ABZ -1 16000
 S
 #4026
 The many tunnels~
@@ -2279,19 +2279,19 @@ You are at the intersection of many tunnels.
 D0
 ~
 ~
-0 0 4028
+Z 0 4028
 D1
 ~
 ~
-0 0 4027
+Z 0 4027
 D2
 ~
 ~
-0 0 4019
+Z 0 4019
 D3
 ~
 ~
-0 0 4025
+Z 0 4025
 S
 #4027
 The tunnel~
@@ -2302,15 +2302,15 @@ the west. From the north you sense the fresh air!
 D0
 ~
 ~
-0 0 4029
+Z 0 4029
 D2
 ~
 ~
-0 0 4020
+Z 0 4020
 D3
 ~
 ~
-0 0 4026
+Z 0 4026
 S
 #4028
 The smelly tunnel~
@@ -2321,11 +2321,11 @@ to the north. You notice a strange smell from the north..
 D0
 ~
 ~
-0 0 4030
+Z 0 4030
 D2
 ~
 ~
-0 0 4026
+Z 0 4026
 S
 #4029
 The cave~
@@ -2337,11 +2337,11 @@ continue into the mountain.
 D0
 ~
 ~
-0 0 4031
+Z 0 4031
 D2
 ~
 ~
-0 0 4027
+Z 0 4027
 S
 #4030
 The light cave~
@@ -2352,7 +2352,7 @@ the south may be the only way out to return.
 D2
 ~
 ~
-0 0 4028
+Z 0 4028
 S
 #4031
 The valley~
@@ -2367,11 +2367,11 @@ Well it doesn't look nice, but it's the only way out.
 D0
 ~
 ~
-0 0 4032
+Z 0 4032
 D2
 ~
 ~
-0 0 4029
+Z 0 4029
 S
 #4032
 The foothills~
@@ -2382,11 +2382,11 @@ other side of the mountain.  The path continues north.
 D0
 ~
 ~
-0 0 4033
+Z 0 4033
 D2
 ~
 ~
-0 0 4031
+Z 0 4031
 S
 #4033
 The intersection in the foothills~
@@ -2397,15 +2397,15 @@ north and south or you can follow a trail east into the mountains.
 D0
 ~
 ~
-0 0 4034
+Z 0 4034
 D1
 ~
 ~
-0 0 4037
+Z 0 4037
 D2
 ~
 ~
-0 0 4032
+Z 0 4032
 S
 #4034
 The grassy area of the foothills~
@@ -2417,15 +2417,15 @@ large rocks litter this area.  You can go north, west or south.
 D0
 ~
 ~
-0 0 4035
+Z 0 4035
 D2
 ~
 ~
-0 0 4033
+Z 0 4033
 D3
 ~
 ~
-0 0 4042
+Z 0 4042
 S
 #4035
 The foothills end~
@@ -2437,11 +2437,11 @@ here.
 D0
 ~
 ~
-0 0 4036
+Z 0 4036
 D2
 ~
 ~
-0 0 4034
+Z 0 4034
 S
 #4036
 The plains~
@@ -2453,16 +2453,16 @@ D0
 ~
 The path to the Craggy Tor
 ~
-0 0 30800
+Z 0 30800
 D2
 ~
 ~
-0 0 4035
+Z 0 4035
 D3
 ~
 In the Borderlands
 ~
-0 0 23114
+Z 0 23114
 S
 #4037
 The foothills path~
@@ -2472,11 +2472,11 @@ Exits are east and west.
 D1
 ~
 ~
-0 0 4038
+Z 0 4038
 D3
 ~
 ~
-0 0 4033
+Z 0 4033
 S
 #4038
 Base of the mountain~
@@ -2486,11 +2486,11 @@ Exits are east and west.
 D1
 ~
 ~
-0 0 4039
+Z 0 4039
 D3
 ~
 ~
-0 0 4037
+Z 0 4037
 S
 #4039
 A trail up the mountain~
@@ -2500,11 +2500,11 @@ Exits are east and west.
 D1
 ~
 ~
-0 0 4040
+Z 0 4040
 D3
 ~
 ~
-0 0 4038
+Z 0 4038
 S
 #4040
 The mountain top.~
@@ -2514,16 +2514,16 @@ Exits are north, east, and west.
 D0
 ~
 ~
-0 0 4041
+Z 0 4041
 D1
 It doesn't look safe this way.
 ~
 ~
-0 0 7114
+Z 0 7114
 D3
 ~
 ~
-0 0 4039
+Z 0 4039
 S
 #4041
 The lion's den~
@@ -2533,7 +2533,7 @@ Exits are south.
 D2
 ~
 ~
-0 0 4040
+Z 0 4040
 S
 #4042
 The level foothills~
@@ -2543,11 +2543,11 @@ Exits are east and west.
 D1
 ~
 ~
-0 0 4034
+Z 0 4034
 D3
 ~
 ~
-0 0 4043
+Z 0 4043
 S
 #4043
 The cave entrance~
@@ -2557,11 +2557,11 @@ Exits are east and west.
 D1
 ~
 ~
-0 0 4042
+Z 0 4042
 D3
 ~
 ~
-0 0 4044
+Z 0 4044
 S
 #4044
 The hill giant cave~
@@ -2571,7 +2571,7 @@ Exits are east.
 D1
 ~
 ~
-0 0 4043
+Z 0 4043
 S
 #4050
 The tunnel~
@@ -2581,11 +2581,11 @@ The tunnel turns here, continuing to the east and south.
 D1
 ~
 ~
-0 0 4051
+Z 0 4051
 D2
 ~
 ~
-0 0 4053
+Z 0 4053
 S
 #4051
 The tunnel~
@@ -2595,11 +2595,11 @@ You are in a narrow east-west tunnel.
 D1
 ~
 ~
-0 0 4052
+Z 0 4052
 D3
 ~
 ~
-0 0 4050
+Z 0 4050
 S
 #4052
 The tunnel~
@@ -2609,11 +2609,11 @@ You are at a turn, the tunnel continues south and west.
 D2
 ~
 ~
-0 0 4100
+Z 0 4100
 D3
 ~
 ~
-0 0 4051
+Z 0 4051
 S
 #4053
 The tunnel~
@@ -2623,11 +2623,11 @@ You are at a turn, the tunnel continues north and east.
 D0
 ~
 ~
-0 0 4050
+Z 0 4050
 D1
 ~
 ~
-0 0 4054
+Z 0 4054
 S
 #4054
 The light cave~
@@ -2638,15 +2638,15 @@ the entire cave, to the east and west tunnels leads off.
 D1
 ~
 ~
-0 0 4055
+Z 0 4055
 D2
 ~
 ~
-0 0 4056
+Z 0 4056
 D3
 ~
 ~
-0 0 4053
+Z 0 4053
 S
 #4055
 The maze~
@@ -2656,7 +2656,7 @@ You are in a maze of small damp tunnels.  The only exit is west.
 D3
 ~
 ~
-0 0 4054
+Z 0 4054
 S
 #4056
 The light cave~
@@ -2667,11 +2667,11 @@ The cave continues to the north and south.
 D0
 ~
 ~
-0 0 4054
+Z 0 4054
 D2
 ~
 ~
-0 0 4061
+Z 0 4061
 S
 #4057
 The maze~
@@ -2681,11 +2681,11 @@ You are in a maze of small damp tunnels.
 D1
 ~
 ~
-0 0 4058
+Z 0 4058
 D2
 ~
 ~
-0 0 4062
+Z 0 4062
 S
 #4058
 The maze~
@@ -2695,11 +2695,11 @@ You are in a maze of small damp tunnels.
 D2
 ~
 ~
-0 0 4063
+Z 0 4063
 D3
 ~
 ~
-0 0 4057
+Z 0 4057
 S
 #4059
 The tunnel~
@@ -2710,11 +2710,11 @@ tunnel leads slightly down.
 D0
 ~
 ~
-0 0 4024
+Z 0 4024
 D1
 ~
 ~
-0 0 4060
+Z 0 4060
 S
 #4060
 The tunnel~
@@ -2725,11 +2725,11 @@ to the east you see some light.
 D1
 ~
 ~
-0 0 4061
+Z 0 4061
 D3
 ~
 ~
-0 0 4059
+Z 0 4059
 S
 #4061
 The light cave~
@@ -2739,11 +2739,11 @@ You are in the south end of a light cave.
 D0
 ~
 ~
-0 0 4056
+Z 0 4056
 D3
 ~
 ~
-0 0 4060
+Z 0 4060
 S
 #4062
 The maze~
@@ -2753,11 +2753,11 @@ You are in a maze of small damp tunnels.
 D0
 ~
 ~
-0 0 4057
+Z 0 4057
 D1
 ~
 ~
-0 0 4065
+Z 0 4065
 S
 #4063
 The maze~
@@ -2767,11 +2767,11 @@ You are in a maze of small damp tunnels.
 D0
 ~
 ~
-0 0 4058
+Z 0 4058
 D1
 ~
 ~
-0 0 4064
+Z 0 4064
 S
 #4064
 The tunnel~
@@ -2781,11 +2781,11 @@ You are at the eastern end of a tunnel.
 D3
 ~
 ~
-0 0 4063
+Z 0 4063
 D4
 ~
 ~
-0 0 4020
+Z 0 4020
 S
 #4065
 The maze~
@@ -2795,11 +2795,11 @@ You are in a maze of small damp tunnels.
 D1
 ~
 ~
-0 0 4066
+Z 0 4066
 D3
 ~
 ~
-0 0 4062
+Z 0 4062
 S
 #4066
 The maze~
@@ -2809,15 +2809,15 @@ You are in a maze of small damp tunnels.
 D1
 ~
 ~
-0 0 4067
+Z 0 4067
 D2
 ~
 ~
-0 0 4069
+Z 0 4069
 D3
 ~
 ~
-0 0 4065
+Z 0 4065
 S
 #4067
 The maze~
@@ -2827,7 +2827,7 @@ You are in a maze of small damp tunnels.
 D3
 ~
 ~
-0 0 4066
+Z 0 4066
 S
 #4068
 The large cave~
@@ -2837,11 +2837,11 @@ You are in the northwest end of a large cave.
 D1
 ~
 ~
-0 0 4069
+Z 0 4069
 D2
 ~
 ~
-0 0 4070
+Z 0 4070
 S
 #4069
 The large cave~
@@ -2852,15 +2852,15 @@ is a small damp tunnel.
 D0
 ~
 ~
-0 0 4066
+Z 0 4066
 D2
 ~
 ~
-0 0 4071
+Z 0 4071
 D3
 ~
 ~
-0 0 4068
+Z 0 4068
 S
 #4070
 The large cave~
@@ -2870,11 +2870,11 @@ You are in the southwest end of a large cave.
 D0
 ~
 ~
-0 0 4068
+Z 0 4068
 D1
 ~
 ~
-0 0 4071
+Z 0 4071
 S
 #4071
 The large cave~
@@ -2885,15 +2885,15 @@ notice a small tunnel.
 D0
 ~
 ~
-0 0 4069
+Z 0 4069
 D1
 ~
 ~
-0 0 4072
+Z 0 4072
 D3
 ~
 ~
-0 0 4070
+Z 0 4070
 S
 #4072
 The tunnel~
@@ -2905,15 +2905,15 @@ cave.
 D1
 ~
 ~
-0 0 4073
+Z 0 4073
 D2
 ~
 ~
-0 0 4074
+Z 0 4074
 D3
 ~
 ~
-0 0 4071
+Z 0 4071
 S
 #4073
 End of tunnel~
@@ -2923,7 +2923,7 @@ The tunnel stops here.
 D3
 ~
 ~
-0 0 4072
+Z 0 4072
 S
 #4074
 The hole~
@@ -2934,11 +2934,11 @@ or try your luck and leave down into the unknown!
 D0
 ~
 ~
-0 0 4072
+Z 0 4072
 D5
 ~
 ~
-0 0 4171
+Z 0 4171
 S
 #0
 

@@ -971,19 +971,19 @@ resides. Paths stretch out to the east, south and west from here.
 D0
 ~
 ~
-0 0 24101
+Z 0 24101
 D1
 ~
 ~
-0 -1 24104
+Z -1 24104
 D2
 ~
 ~
-0 -1 24103
+Z -1 24103
 D3
 ~
 ~
-0 -1 24102
+Z -1 24102
 S
 #24101
 The Interior of the Shaman's Hut~
@@ -997,7 +997,7 @@ serving as focii for the shaman's mystic powers.
 D2
 ~
 ~
-0 0 24100
+Z 0 24100
 S
 #24102
 A Path in the Village~
@@ -1010,11 +1010,11 @@ a hot meal and a comfortable bed this evening.
 D1
 ~
 ~
-0 -1 24100
+Z -1 24100
 D3
 ~
 ~
-0 -1 24105
+Z -1 24105
 S
 #24103
 A Path in the Village~
@@ -1025,11 +1025,11 @@ Shaman's hut.
 D0
 ~
 ~
-0 -1 24100
+Z -1 24100
 D2
 ~
 ~
-0 -1 24106
+Z -1 24106
 S
 #24104
 A Path in the Village~
@@ -1042,11 +1042,11 @@ a hot meal and a comfortable bed this evening.
 D1
 ~
 ~
-0 -1 24107
+Z -1 24107
 D3
 ~
 ~
-0 -1 24100
+Z -1 24100
 S
 #24105
 A Path in the Village~
@@ -1059,19 +1059,19 @@ a hot meal and a comfortable bed this evening.
 D0
 ~
 ~
-0 -1 24137
+Z -1 24137
 D1
 ~
 ~
-0 -1 24102
+Z -1 24102
 D2
 ~
 ~
-0 -1 24139
+Z -1 24139
 D3
 ~
 ~
-0 -1 24108
+Z -1 24108
 S
 #24106
 A Path in the Village~
@@ -1084,19 +1084,19 @@ a hot meal and a comfortable bed this evening.
 D0
 ~
 ~
-0 -1 24103
+Z -1 24103
 D1
 ~
 ~
-0 -1 24163
+Z -1 24163
 D2
 ~
 ~
-0 -1 24109
+Z -1 24109
 D3
 ~
 ~
-0 -1 24161
+Z -1 24161
 S
 #24107
 A Path in the Village~
@@ -1109,19 +1109,19 @@ a hot meal and a comfortable bed this evening.
 D0
 ~
 ~
-0 -1 24141
+Z -1 24141
 D1
 ~
 ~
-0 -1 24110
+Z -1 24110
 D2
 ~
 ~
-0 -1 24143
+Z -1 24143
 D3
 ~
 ~
-0 -1 24104
+Z -1 24104
 S
 #24108
 A Path in the Village~
@@ -1134,11 +1134,11 @@ a hot meal and a comfortable bed this evening.
 D1
 ~
 ~
-0 -1 24105
+Z -1 24105
 D3
 ~
 ~
-0 -1 24111
+Z -1 24111
 S
 #24109
 A Path in the Village~
@@ -1152,11 +1152,11 @@ the Shaman's hut lies a short way to the north of here.
 D0
 ~
 ~
-0 -1 24106
+Z -1 24106
 D2
 ~
 ~
-0 -1 24133
+Z -1 24133
 S
 #24110
 A Path in the Village~
@@ -1169,11 +1169,11 @@ a hot meal and a comfortable bed this evening.
 D1
 ~
 ~
-0 -1 24112
+Z -1 24112
 D3
 ~
 ~
-0 -1 24107
+Z -1 24107
 S
 #24111
 A Path in the Village~
@@ -1186,11 +1186,11 @@ a hot meal and a comfortable bed this evening.
 D1
 ~
 ~
-0 -1 24108
+Z -1 24108
 D3
 ~
 ~
-0 -1 24113
+Z -1 24113
 S
 #24112
 A Path in the Village~
@@ -1205,11 +1205,11 @@ unfathomable to you.
 D1
 ~
 ~
-0 -1 24114
+Z -1 24114
 D3
 ~
 ~
-0 -1 24110
+Z -1 24110
 S
 #24113
 Approaching the Western Gate~
@@ -1221,11 +1221,11 @@ concentration of residences and shops is nearer to the center of the village.
 D1
 ~
 ~
-0 -1 24111
+Z -1 24111
 D3
 ~
 ~
-0 -1 24115
+Z -1 24115
 S
 #24114
 Approaching the Eastern Gate~
@@ -1237,11 +1237,11 @@ concentration of residences and shops is nearer to the center of the village.
 D1
 ~
 ~
-0 -1 24116
+Z -1 24116
 D3
 ~
 ~
-0 -1 24112
+Z -1 24112
 S
 #24115
 Inside the Western Gates~
@@ -1254,11 +1254,11 @@ a cursory nod as they go about their duties.
 D1
 ~
 ~
-0 -1 24113
+Z -1 24113
 D3
 ~
 ~
-0 24100 24117
+Z 24100 24117
 S
 #24116
 Inside the Eastern Gates~
@@ -1271,11 +1271,11 @@ a cursory nod as they go about their duties.
 D1
 ~
 ~
-0 24100 24118
+Z 24100 24118
 D3
 ~
 ~
-0 -1 24114
+Z -1 24114
 S
 #24117
 Outside the Western Gates~
@@ -1288,15 +1288,15 @@ the south.
 D0
 ~
 ~
-0 -1 24119
+Z -1 24119
 D1
 ~
 ~
-0 24100 24115
+Z 24100 24115
 D2
 ~
 ~
-0 -1 24132
+Z -1 24132
 S
 #24118
 Outside the Eastern Gates~
@@ -1309,19 +1309,19 @@ the south.
 D0
 ~
 ~
-0 -1 24125
+Z -1 24125
 D1
 ~
 ~
-0 -1 31018
+Z -1 31018
 D2
 ~
 ~
-0 -1 24126
+Z -1 24126
 D3
 ~
 ~
-0 24100 24116
+Z 24100 24116
 S
 #24119
 A Dirt Path~
@@ -1334,11 +1334,11 @@ the larger structures within.
 D0
 ~
 ~
-0 -1 24120
+Z -1 24120
 D2
 ~
 ~
-0 -1 24117
+Z -1 24117
 S
 #24120
 A Dirt Path~
@@ -1351,11 +1351,11 @@ the larger structures within.
 D1
 ~
 ~
-0 -1 24121
+Z -1 24121
 D2
 ~
 ~
-0 -1 24119
+Z -1 24119
 S
 #24121
 A Dirt Path~
@@ -1368,11 +1368,11 @@ the larger structures within.
 D1
 ~
 ~
-0 -1 24122
+Z -1 24122
 D3
 ~
 ~
-0 -1 24120
+Z -1 24120
 S
 #24122
 A Dirt Path~
@@ -1387,11 +1387,11 @@ There is a path running up a hill here which you may ascend.
 D1
 ~
 ~
-0 -1 24123
+Z -1 24123
 D3
 ~
 ~
-0 -1 24121
+Z -1 24121
 S
 #24123
 A Dirt Path~
@@ -1404,11 +1404,11 @@ the larger structures within.
 D1
 ~
 ~
-0 -1 24124
+Z -1 24124
 D3
 ~
 ~
-0 -1 24122
+Z -1 24122
 S
 #24124
 A Dirt Path~
@@ -1421,11 +1421,11 @@ the larger structures within.
 D2
 ~
 ~
-0 -1 24125
+Z -1 24125
 D3
 ~
 ~
-0 -1 24123
+Z -1 24123
 S
 #24125
 A Dirt Path~
@@ -1438,11 +1438,11 @@ the larger structures within.
 D0
 ~
 ~
-0 -1 24124
+Z -1 24124
 D2
 ~
 ~
-0 -1 24118
+Z -1 24118
 S
 #24126
 A Dirt Path~
@@ -1455,11 +1455,11 @@ the larger structures within.
 D0
 ~
 ~
-0 -1 24118
+Z -1 24118
 D2
 ~
 ~
-0 -1 24127
+Z -1 24127
 S
 #24127
 A Dirt Path~
@@ -1472,11 +1472,11 @@ the larger structures within.
 D0
 ~
 ~
-0 -1 24126
+Z -1 24126
 D3
 ~
 ~
-0 -1 24128
+Z -1 24128
 S
 #24128
 A Dirt Path~
@@ -1489,11 +1489,11 @@ the larger structures within.
 D1
 ~
 ~
-0 -1 24127
+Z -1 24127
 D3
 ~
 ~
-0 -1 24129
+Z -1 24129
 S
 #24129
 A Dirt Path~
@@ -1506,11 +1506,11 @@ the larger structures within.
 D1
 ~
 ~
-0 -1 24128
+Z -1 24128
 D3
 ~
 ~
-0 -1 24130
+Z -1 24130
 S
 #24130
 A Dirt Path~
@@ -1523,11 +1523,11 @@ the larger structures within.
 D1
 ~
 ~
-0 -1 24129
+Z -1 24129
 D3
 ~
 ~
-0 -1 24131
+Z -1 24131
 S
 #24131
 A Dirt Path~
@@ -1540,11 +1540,11 @@ the larger structures within.
 D0
 ~
 ~
-0 -1 24132
+Z -1 24132
 D1
 ~
 ~
-0 -1 24130
+Z -1 24130
 S
 #24132
 A Dirt Path~
@@ -1557,11 +1557,11 @@ the larger structures within.
 D0
 ~
 ~
-0 -1 24117
+Z -1 24117
 D2
 ~
 ~
-0 -1 24131
+Z -1 24131
 S
 #24133
 Outside a Village Clan Hut~
@@ -1574,11 +1574,11 @@ upon the doors of this hut marks it as the Horse Clan hut.
 D0
 ~
 ~
-0 -1 24109
+Z -1 24109
 D2
 ~
 ~
-0 0 24134
+Z 0 24134
 S
 #24134
 Inside the Hut~
@@ -1591,15 +1591,15 @@ what your profession is all about, really. Intruding.
 D0
 ~
 ~
-0 0 24133
+Z 0 24133
 D1
 ~
 ~
-0 -1 24136
+Z -1 24136
 D3
 ~
 ~
-0 -1 24135
+Z -1 24135
 S
 #24135
 The Meeting Room~
@@ -1612,7 +1612,7 @@ conversation for a while.
 D1
 ~
 ~
-0 -1 24134
+Z -1 24134
 S
 #24136
 The Kitchen~
@@ -1624,7 +1624,7 @@ occasional shout or cuff on the ear.
 D3
 ~
 ~
-0 -1 24134
+Z -1 24134
 S
 #24137
 A Path in the Village~
@@ -1639,15 +1639,15 @@ The chieftain's lodge lies to the west of here.
 D0
 ~
 ~
-0 -1 24145
+Z -1 24145
 D2
 ~
 ~
-0 -1 24105
+Z -1 24105
 D3
 ~
 ~
-0 0 24138
+Z 0 24138
 S
 #24138
 The Chieftain's Lodge~
@@ -1660,7 +1660,7 @@ up to thirty, residing in three room lodges.
 D1
 ~
 ~
-0 0 24137
+Z 0 24137
 S
 #24139
 A Path in the Village~
@@ -1675,15 +1675,15 @@ The flint-knepper practices his trade to the west of here.
 D0
 ~
 ~
-0 -1 24105
+Z -1 24105
 D2
 ~
 ~
-0 -1 24160
+Z -1 24160
 D3
 ~
 ~
-0 -1 24140
+Z -1 24140
 S
 #24140
 The Flint-Knepper~
@@ -1699,7 +1699,7 @@ visitors this village attracts, and his forge shows evidence of this.
 D1
 ~
 ~
-0 -1 24139
+Z -1 24139
 S
 #24141
 A Path in the Village~
@@ -1712,15 +1712,15 @@ a hot meal and a comfortable bed this evening.
 D0
 ~
 ~
-0 -1 24153
+Z -1 24153
 D1
 ~
 ~
-0 -1 24142
+Z -1 24142
 D2
 ~
 ~
-0 -1 24107
+Z -1 24107
 S
 #24142
 A Storage Hut~
@@ -1732,7 +1732,7 @@ bales of hay and coils of hemp rope.
 D3
 ~
 ~
-0 -1 24141
+Z -1 24141
 S
 #24143
 A Path in the Village~
@@ -1745,15 +1745,15 @@ a hot meal and a comfortable bed this evening.
 D0
 ~
 ~
-0 -1 24107
+Z -1 24107
 D1
 ~
 ~
-0 -1 24144
+Z -1 24144
 D2
 ~
 ~
-0 -1 24165
+Z -1 24165
 S
 #24144
 A Trader's Den~
@@ -1765,7 +1765,7 @@ acquire the rare metal weapons he has bought with him from the south.
 D3
 ~
 ~
-0 -1 24143
+Z -1 24143
 S
 #24145
 A Path in the Village~
@@ -1778,19 +1778,19 @@ a hot meal and a comfortable bed this evening.
 D0
 ~
 ~
-0 -1 24146
+Z -1 24146
 D1
 ~
 ~
-0 -1 24148
+Z -1 24148
 D2
 ~
 ~
-0 -1 24137
+Z -1 24137
 D3
 ~
 ~
-0 -1 24181
+Z -1 24181
 S
 #24146
 Militia Hut~
@@ -1802,7 +1802,7 @@ sum of gold should you wish to.
 D2
 ~
 ~
-0 -1 24145
+Z -1 24145
 S
 #24147
 Merc Store~
@@ -1826,15 +1826,15 @@ The witchdoctor's hut is to the north of here.
 D0
 ~
 ~
-0 -1 24149
+Z -1 24149
 D1
 ~
 ~
-0 -1 24150
+Z -1 24150
 D3
 ~
 ~
-0 -1 24145
+Z -1 24145
 S
 #24149
 The Witch Doctor's Hut~
@@ -1847,7 +1847,7 @@ smiles sweetly and welcomes you to her hut.
 D2
 ~
 ~
-0 -1 24148
+Z -1 24148
 S
 #24150
 A Path in the Village~
@@ -1860,15 +1860,15 @@ a hot meal and a comfortable bed this evening.
 D0
 ~
 ~
-0 -1 24156
+Z -1 24156
 D1
 ~
 ~
-0 -1 24151
+Z -1 24151
 D3
 ~
 ~
-0 -1 24148
+Z -1 24148
 S
 #24151
 A Path in the Village~
@@ -1883,15 +1883,15 @@ The wise woman's hut is to the north.
 D0
 ~
 ~
-0 -1 24152
+Z -1 24152
 D1
 ~
 ~
-0 -1 24153
+Z -1 24153
 D3
 ~
 ~
-0 -1 24150
+Z -1 24150
 S
 #24152
 The Wise Woman's Residence~
@@ -1903,7 +1903,7 @@ of items of all types (there's no other reason to come here, really).
 D2
 ~
 ~
-0 -1 24151
+Z -1 24151
 S
 #24153
 A Path in the Village~
@@ -1918,19 +1918,19 @@ The beastmaster's hut is to the north.
 D0
 ~
 ~
-0 -1 24154
+Z -1 24154
 D1
 ~
 ~
-0 -1 24188
+Z -1 24188
 D2
 ~
 ~
-0 -1 24141
+Z -1 24141
 D3
 ~
 ~
-0 -1 24151
+Z -1 24151
 S
 #24154
 The Beastmaster's Hut~
@@ -1943,7 +1943,7 @@ suggest.
 D2
 ~
 ~
-0 -1 24153
+Z -1 24153
 S
 #24155
 Pet Store Storage~
@@ -1970,11 +1970,11 @@ upon the doors of this hut marks it as the Bear Clan hut.
 D0
 ~
 ~
-0 -1 24157
+Z -1 24157
 D2
 ~
 ~
-0 -1 24150
+Z -1 24150
 S
 #24157
 Inside the Hut~
@@ -1987,15 +1987,15 @@ what your profession is all about, really. Intruding.
 D1
 ~
 ~
-0 -1 24158
+Z -1 24158
 D2
 ~
 ~
-0 -1 24156
+Z -1 24156
 D3
 ~
 ~
-0 -1 24159
+Z -1 24159
 S
 #24158
 The Meeting Room~
@@ -2008,7 +2008,7 @@ conversation for a while.
 D3
 ~
 ~
-0 -1 24157
+Z -1 24157
 S
 #24159
 The Kitchen~
@@ -2020,7 +2020,7 @@ occasional shout or cuff on the ear.
 D1
 ~
 ~
-0 -1 24157
+Z -1 24157
 S
 #24160
 A Path in the Village~
@@ -2033,15 +2033,15 @@ a hot meal and a comfortable bed this evening.
 D0
 ~
 ~
-0 -1 24139
+Z -1 24139
 D1
 ~
 ~
-0 -1 24161
+Z -1 24161
 D3
 ~
 ~
-0 -1 24167
+Z -1 24167
 S
 #24161
 A Path in the Village~
@@ -2056,15 +2056,15 @@ A trapper is selling his goods to the south.
 D1
 ~
 ~
-0 -1 24106
+Z -1 24106
 D2
 ~
 ~
-0 -1 24162
+Z -1 24162
 D3
 ~
 ~
-0 -1 24160
+Z -1 24160
 S
 #24162
 A Hut~
@@ -2076,7 +2076,7 @@ usually rather low, as the villagers quickly buy up for the winter.
 D0
 ~
 ~
-0 -1 24161
+Z -1 24161
 S
 #24163
 A Path in the Village~
@@ -2091,15 +2091,15 @@ Food is in fact available to the south of here, though it isn't hot.
 D1
 ~
 ~
-0 -1 24165
+Z -1 24165
 D2
 ~
 ~
-0 -1 24164
+Z -1 24164
 D3
 ~
 ~
-0 -1 24106
+Z -1 24106
 S
 #24164
 A Supply Hut~
@@ -2111,7 +2111,7 @@ You may purchase supplies for your travels here.
 D0
 ~
 ~
-0 -1 24163
+Z -1 24163
 S
 #24165
 A Path in the Village~
@@ -2126,19 +2126,19 @@ The brewer's hut is south of here.
 D0
 ~
 ~
-0 -1 24143
+Z -1 24143
 D1
 ~
 ~
-0 -1 24174
+Z -1 24174
 D2
 ~
 ~
-0 -1 24166
+Z -1 24166
 D3
 ~
 ~
-0 -1 24163
+Z -1 24163
 S
 #24166
 The Brewer's Hut~
@@ -2150,7 +2150,7 @@ donation is in order.
 D0
 ~
 ~
-0 -1 24165
+Z -1 24165
 S
 #24167
 A Path in the Village~
@@ -2163,11 +2163,11 @@ a hot meal and a comfortable bed this evening.
 D1
 ~
 ~
-0 -1 24160
+Z -1 24160
 D3
 ~
 ~
-0 -1 24168
+Z -1 24168
 S
 #24168
 A Path in the Village~
@@ -2180,11 +2180,11 @@ a hot meal and a comfortable bed this evening.
 D1
 ~
 ~
-0 -1 24167
+Z -1 24167
 D3
 ~
 ~
-0 -1 24169
+Z -1 24169
 S
 #24169
 A Path in the Village~
@@ -2197,11 +2197,11 @@ a hot meal and a comfortable bed this evening.
 D1
 ~
 ~
-0 -1 24168
+Z -1 24168
 D2
 ~
 ~
-0 -1 24170
+Z -1 24170
 S
 #24170
 Outside a Village Clan Hut~
@@ -2214,11 +2214,11 @@ upon the doors of this hut marks it as the Eagle Clan hut.
 D0
 ~
 ~
-0 -1 24169
+Z -1 24169
 D2
 ~
 ~
-0 0 24171
+Z 0 24171
 S
 #24171
 Inside the Hut~
@@ -2231,15 +2231,15 @@ what your profession is all about, really. Intruding.
 D0
 ~
 ~
-0 0 24170
+Z 0 24170
 D1
 ~
 ~
-0 -1 24173
+Z -1 24173
 D3
 ~
 ~
-0 -1 24172
+Z -1 24172
 S
 #24172
 The Meeting Room~
@@ -2252,7 +2252,7 @@ conversation for a while.
 D1
 ~
 ~
-0 -1 24171
+Z -1 24171
 S
 #24173
 The Kitchen~
@@ -2264,7 +2264,7 @@ occasional shout or cuff on the ear.
 D3
 ~
 ~
-0 -1 24171
+Z -1 24171
 S
 #24174
 A Path in the Village~
@@ -2277,11 +2277,11 @@ a hot meal and a comfortable bed this evening.
 D1
 ~
 ~
-0 -1 24175
+Z -1 24175
 D3
 ~
 ~
-0 -1 24165
+Z -1 24165
 S
 #24175
 A Path in the Village~
@@ -2294,11 +2294,11 @@ a hot meal and a comfortable bed this evening.
 D1
 ~
 ~
-0 -1 24176
+Z -1 24176
 D3
 ~
 ~
-0 -1 24174
+Z -1 24174
 S
 #24176
 A Path in the Village~
@@ -2311,11 +2311,11 @@ a hot meal and a comfortable bed this evening.
 D2
 ~
 ~
-0 -1 24177
+Z -1 24177
 D3
 ~
 ~
-0 -1 24175
+Z -1 24175
 S
 #24177
 Outside a Village Clan Hut~
@@ -2328,11 +2328,11 @@ upon the doors of this hut marks it as the Wolf Clan hut.
 D0
 ~
 ~
-0 -1 24176
+Z -1 24176
 D2
 ~
 ~
-0 0 24178
+Z 0 24178
 S
 #24178
 Inside the Hut~
@@ -2345,15 +2345,15 @@ what your profession is all about, really. Intruding.
 D0
 ~
 ~
-0 0 24177
+Z 0 24177
 D1
 ~
 ~
-0 -1 24179
+Z -1 24179
 D3
 ~
 ~
-0 -1 24180
+Z -1 24180
 S
 #24179
 The Kitchen~
@@ -2365,7 +2365,7 @@ occasional shout or cuff on the ear.
 D3
 ~
 ~
-0 -1 24178
+Z -1 24178
 S
 #24180
 The Meeting Room~
@@ -2378,7 +2378,7 @@ conversation for a while.
 D1
 ~
 ~
-0 -1 24178
+Z -1 24178
 S
 #24181
 Outside a Village Clan Hut~
@@ -2391,11 +2391,11 @@ upon the doors of this hut marks it as the Boar Clan hut.
 D0
 ~
 ~
-0 -1 24185
+Z -1 24185
 D1
 ~
 ~
-0 -1 24145
+Z -1 24145
 S
 #24182
 The Common Hall~
@@ -2406,15 +2406,15 @@ enjoy each other's company. Feel free to stay as long as you wish.
 D0
 ~
 ~
-0 -1 24183
+Z -1 24183
 D2
 ~
 ~
-0 -1 24184
+Z -1 24184
 D3
 ~
 ~
-0 -1 24190
+Z -1 24190
 S
 #24183
 The Common Hall~
@@ -2425,7 +2425,7 @@ enjoy each other's company. Feel free to stay as long as you wish.
 D2
 ~
 ~
-0 -1 24182
+Z -1 24182
 S
 #24184
 The Common Hall~
@@ -2436,7 +2436,7 @@ enjoy each other's company. Feel free to stay as long as you wish.
 D0
 ~
 ~
-0 -1 24182
+Z -1 24182
 S
 #24185
 Inside the Hut~
@@ -2449,15 +2449,15 @@ what your profession is all about, really. Intruding.
 D1
 ~
 ~
-0 -1 24187
+Z -1 24187
 D2
 ~
 ~
-0 -1 24181
+Z -1 24181
 D3
 ~
 ~
-0 -1 24186
+Z -1 24186
 S
 #24186
 The Meeting Room~
@@ -2470,7 +2470,7 @@ conversation for a while.
 D1
 ~
 ~
-0 -1 24185
+Z -1 24185
 S
 #24187
 The Kitchen~
@@ -2482,7 +2482,7 @@ occasional shout or cuff on the ear.
 D3
 ~
 ~
-0 -1 24185
+Z -1 24185
 S
 #24188
 A Path in the Village~
@@ -2495,11 +2495,11 @@ a hot meal and a comfortable bed this evening.
 D1
 ~
 ~
-0 -1 24189
+Z -1 24189
 D3
 ~
 ~
-0 -1 24153
+Z -1 24153
 S
 #24189
 A Path in the Village~
@@ -2512,11 +2512,11 @@ a hot meal and a comfortable bed this evening.
 D1
 ~
 ~
-0 -1 24190
+Z -1 24190
 D3
 ~
 ~
-0 -1 24188
+Z -1 24188
 S
 #24190
 A Path in the Village~
@@ -2531,15 +2531,15 @@ The Common Halls lie to the east.
 D0
 ~
 ~
-0 -1 24191
+Z -1 24191
 D1
 ~
 ~
-0 -1 24182
+Z -1 24182
 D3
 ~
 ~
-0 -1 24189
+Z -1 24189
 S
 #24191
 Outside a Village Clan Hut~
@@ -2552,11 +2552,11 @@ upon the doors of this hut marks it as the Deer Clan hut.
 D0
 ~
 ~
-0 -1 24192
+Z -1 24192
 D2
 ~
 ~
-0 -1 24190
+Z -1 24190
 S
 #24192
 Inside the Hut~
@@ -2569,15 +2569,15 @@ what your profession is all about, really. Intruding.
 D1
 ~
 ~
-0 -1 24194
+Z -1 24194
 D2
 ~
 ~
-0 -1 24191
+Z -1 24191
 D3
 ~
 ~
-0 -1 24193
+Z -1 24193
 S
 #24193
 The Meeting Room~
@@ -2590,7 +2590,7 @@ conversation for a while.
 D1
 ~
 ~
-0 -1 24192
+Z -1 24192
 S
 #24194
 The Kitchen~
@@ -2602,7 +2602,7 @@ occasional shout or cuff on the ear.
 D3
 ~
 ~
-0 -1 24192
+Z -1 24192
 S
 #0
 
