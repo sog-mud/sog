@@ -1,0 +1,7 @@
+/*
+ * $Id: mob_greet_gargamel.mpc,v 1.1 2001-09-14 18:26:37 fjoe Exp $
+ */
+
+dofun("emote", $n, "mutters the words: 'I hate, i hate smurfes!..'");
+dofun("emote", $n, "mutters the words: 'If they all die it will be fine...");
+return 0;
