@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.145 1999-02-18 12:48:52 fjoe Exp $
+ * $Id: act_move.c,v 1.146 1999-02-19 13:43:23 kostik Exp $
  */
 
 /***************************************************************************
@@ -122,6 +122,16 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 			    ch, NULL, NULL, TO_ROOM);
 			return FALSE; 
 		}
+	}
+
+	for (fch = ch->in_room->people; fch; fch = fch->next_in_room) {
+		if (fch->target == ch
+		  && IS_NPC(fch)
+		  && fch->pIndexData->vnum == MOB_VNUM_SHADOW) {
+			char_puts("You attempt to leave your shadow alone,"
+				" but fail.\n", ch);
+			return FALSE;
+		  }
 	}
 
 	if (door < 0 || door >= MAX_DIR) {
@@ -3208,7 +3218,7 @@ DO_FUN(do_charge)
 		return;
 
 	if (victim->hit < victim->max_hit*9/10) {
-		act("$t is already bleeding, your honour do not allow you attack $M", ch, NULL, victim, TO_CHAR);
+		act("$N is already bleeding, your honour do not allow you attack $M.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
 

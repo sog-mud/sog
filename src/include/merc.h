@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.154 1999-02-19 09:48:01 fjoe Exp $
+ * $Id: merc.h,v 1.155 1999-02-19 13:43:25 kostik Exp $
  */
 
 /***************************************************************************
@@ -1342,6 +1342,7 @@ struct char_data
 	int			lang; /* interface language */
 	CHAR_DATA *		hunter;	/* who quested to slay */
 	CHAR_DATA *		doppel;
+	CHAR_DATA *		target;
 };
 
 /*

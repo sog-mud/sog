@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.82 1999-02-19 09:47:58 fjoe Exp $
+ * $Id: spellfun2.c,v 1.83 1999-02-19 13:43:25 kostik Exp $
  */
 
 /***************************************************************************
@@ -1284,7 +1284,8 @@ void spell_stalker(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 				 AFF_DETECT_GOOD | AFF_DARK_VISION);
 	
 	char_to_room(stalker,victim->in_room);
-	stalker->last_fought = victim;
+	stalker->target = victim;
+	stalker->clan   = ch->clan;
 	char_puts("An invisible stalker arrives to stalk you!\n",victim);
 	act("An invisible stalker arrives to stalk $n!",victim,NULL,NULL,TO_ROOM);
 	char_puts("An invisible stalker has been sent.\n", ch);
@@ -1533,9 +1534,10 @@ void spell_shadowlife(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	shadow->gold = 0;
 
 	char_to_room(shadow,ch->in_room);
-
+	
+	shadow->target  = victim;
 	do_murder(shadow, victim->name);
-
+	
 	af.where	= TO_AFFECTS;
 	af.type         = sn;
 	af.level        = level; 

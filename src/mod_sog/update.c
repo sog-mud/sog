@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.103 1999-02-16 16:41:37 fjoe Exp $
+ * $Id: update.c,v 1.104 1999-02-19 13:43:26 kostik Exp $
  */
 
 /***************************************************************************
@@ -1673,7 +1673,8 @@ void aggr_update(void)
 			if (!IS_NPC(ch)
 			||  (!IS_SET(act = ch->pIndexData->act,
 				     ACT_AGGRESSIVE) &&
-			     ch->last_fought == NULL)
+			     ch->last_fought == NULL &&
+			     ch->target == NULL)
 			||  IS_SET(ch->in_room->room_flags,
 				   ROOM_PEACE | ROOM_SAFE)
 			||  IS_AFFECTED(ch, AFF_CALM)
@@ -1693,6 +1694,11 @@ void aggr_update(void)
 				doprintf(do_yell, ch, "%s! Now you die!",
 					 PERS(wch,ch));
 				wch = check_guard(wch, ch); 
+				multi_hit(ch, wch, TYPE_UNDEFINED);
+				continue;
+			}
+
+			if (ch->target == wch) {
 				multi_hit(ch, wch, TYPE_UNDEFINED);
 				continue;
 			}

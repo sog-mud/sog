@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.122 1999-02-19 09:47:49 fjoe Exp $
+ * $Id: act_wiz.c,v 1.123 1999-02-19 13:43:24 kostik Exp $
  */
 
 /***************************************************************************
@@ -1476,8 +1476,9 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		   strtime(victim->last_fight_time));
 	if (IS_PUMPED(victim))
 		buf_add(output, "Adrenalin is gushing.\n");
-	buf_printf(output, "In_mind: [%s]\n", 
-			victim->in_mind ? victim->in_mind : "none");
+	buf_printf(output, "In_mind: [%s]\n, Target: [%s]", 
+			victim->in_mind ? victim->in_mind : "none",
+			victim->target ? victim->target->name : "none");
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 }

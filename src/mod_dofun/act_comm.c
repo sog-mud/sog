@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.144 1999-02-19 11:29:37 fjoe Exp $
+ * $Id: act_comm.c,v 1.145 1999-02-19 13:43:23 kostik Exp $
  */
 
 /***************************************************************************
@@ -1039,7 +1039,7 @@ void do_quit_count(CHAR_DATA *ch, const char *argument)
 void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 {
 	DESCRIPTOR_DATA *d, *d_next;
-	CHAR_DATA *vch;
+	CHAR_DATA *vch, *vch_next;
 	OBJ_DATA *obj,*obj_next,*obj_in;
 	int cn;
 	int id;
@@ -1107,7 +1107,7 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 			return;
 		}
 	}
-	
+
 	char_puts("Alas, all good things must come to an end.\n", ch);
 	char_puts("You hit reality hard. Reality truth does unspeakable things to you.\n", ch);
 	act_puts("$n has left the game.", ch, NULL, NULL, TO_ROOM, POS_RESTING);
@@ -1152,7 +1152,8 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 		}
 	}
 
-	for (vch = char_list; vch; vch = vch->next) {
+	for (vch = char_list; vch; vch = vch_next) {
+		vch_next = vch->next;
 		if (is_affected(vch, gsn_doppelganger)
 		&&  vch->doppel == ch) {
 			char_puts("You shift to your true form as your victim leaves.\n",
@@ -1172,12 +1173,31 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 			vch->last_fought = NULL;
 			back_home(vch);
 		}
-
+		
 		if (vch->hunting == ch)
 			vch->hunting = NULL;
 
 		if (vch->hunter == ch)
 			vch->hunter = NULL;
+
+		if (vch->target == ch) {
+			if (IS_NPC(vch) 
+			  && vch->pIndexData->vnum == MOB_VNUM_SHADOW) {
+				act ("$n slowly fades away.",
+				vch, NULL, NULL, TO_ROOM);
+				extract_char(vch, TRUE);
+				continue;
+			}
+			if (IS_NPC(vch)
+			  && vch->pIndexData->vnum == MOB_VNUM_STALKER) {
+				doprintf(do_clan, vch, 
+					"%s has left the realm, I have to leave too.",
+					PERS(ch, vch));
+				act ("$n slowly fades away.", vch, NULL, NULL,
+					TO_ROOM);
+				extract_char(vch, TRUE);
+			  }
+		}
 	}
 
 	if (ch->guarded_by != NULL) {

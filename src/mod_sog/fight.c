@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.140 1999-02-19 09:47:54 fjoe Exp $
+ * $Id: fight.c,v 1.141 1999-02-19 13:43:24 kostik Exp $
  */
 
 /***************************************************************************
@@ -77,6 +77,7 @@ DECLARE_DO_FUN(do_sacrifice	);
 DECLARE_DO_FUN(do_visible	);
 DECLARE_DO_FUN(do_recall	);
 DECLARE_DO_FUN(do_flee		);
+DECLARE_DO_FUN(do_clan		);
 
 /*
  * Local functions.
@@ -1991,7 +1992,7 @@ void death_cry_org(CHAR_DATA *ch, int part)
 
 void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 {
-	CHAR_DATA *tmp_ch;
+	CHAR_DATA *tmp_ch, *tmp_ch_next;
 	OBJ_DATA *obj,*obj_next;
 	int i;
 	OBJ_DATA *tattoo, *clanmark;
@@ -2073,10 +2074,19 @@ void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 	/*
 	 * Calm down the tracking mobiles
 	 */
-	for (tmp_ch = char_list; tmp_ch != NULL; tmp_ch = tmp_ch->next) {
+	for (tmp_ch = char_list; tmp_ch != NULL; tmp_ch = tmp_ch_next) {
+		tmp_ch_next = tmp_ch->next;
 		if (tmp_ch->last_fought == victim)
 			tmp_ch->last_fought = NULL;
 		remove_mind(tmp_ch, victim->name);
+		if (tmp_ch->target == victim 
+		   && IS_NPC(tmp_ch)
+		   && tmp_ch->pIndexData->vnum == MOB_VNUM_STALKER) {
+			doprintf(do_clan, tmp_ch,
+				"%s is dead and I can leave the realm.",
+				PERS(victim, tmp_ch));
+			extract_char(tmp_ch, TRUE);
+		   }
 	}
 }
 
