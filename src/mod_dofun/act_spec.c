@@ -1,40 +1,30 @@
-/***************************************************************************
- *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
- *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
- *	 Serdar BULUT {Chronos} 	bulut@rorqual.cc.metu.edu.tr	   *
- *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *
- *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *
- *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *
- *     By using this code, you have agreed to follow the terms of the	   *
- *     ANATOLIA license, in the file Anatolia/anatolia.licence		   *
- ***************************************************************************/
-
-/***************************************************************************
- *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,	   *
- *  Michael Seifert, Hans Henrik St{rfeldt, Tom Madsen, and Katja Nyboe.   *
- *									   *
- *  Merc Diku Mud improvments copyright (C) 1992, 1993 by Michael	   *
- *  Chastain, Michael Quan, and Mitchell Tse.				   *
- *									   *
- *  In order to use any part of this Merc Diku Mud, you must comply with   *
- *  both the original Diku license in 'license.doc' as well the Merc	   *
- *  license in 'license.txt'.  In particular, you may not remove either of *
- *  these copyright notices.						   *
- *									   *
- *  Much time and thought has gone into this software and you are	   *
- *  benefitting.  We hope that you share your changes too.  What goes	   *
- *  around, comes around.						   *
- ***************************************************************************/
-
-/***************************************************************************
-*	ROM 2.4 is copyright 1993-1995 Russ Taylor			   *
-*	ROM has been brought to you by the ROM consortium		   *
-*	    Russ Taylor (rtaylor@pacinfo.com)				   *
-*	    Gabrielle Taylor (gtaylor@pacinfo.com)			   *
-*	    Brian Moore (rom@rom.efn.org)				   *
-*	By using this code, you have agreed to follow the terms of the	   *
-*	ROM license, in the file Rom24/doc/rom.license			   *
-***************************************************************************/
+/*-
+ * Copyright (c) 1999 kostik <kostik@iclub.nsu.ru>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ *
+ * $Id: act_spec.c,v 1.2 1999-11-27 09:50:17 fjoe Exp $
+ */
 
 #include <sys/types.h>
 #include <sys/time.h>
@@ -64,10 +54,10 @@ void do_specialize(CHAR_DATA* ch, const char* argument)
 	char *weapon;
 	char *output;
 
-	for (mob=ch->in_room->people; mob; mob = mob->next_in_room) {
+	for (mob = ch->in_room->people; mob; mob = mob->next_in_room) {
 		if (IS_NPC(mob)  
-		&& IS_SET(mob->pMobIndex->act, ACT_PRACTICE)
-		&& IS_SET(mob->pMobIndex->practicer, GROUP_WEAPONSMASTER))
+		&&  IS_SET(mob->pMobIndex->act, ACT_PRACTICE)
+		&&  IS_SET(mob->pMobIndex->practicer, GROUP_WEAPONSMASTER))
 			found = TRUE;
 	}
 
@@ -81,20 +71,20 @@ void do_specialize(CHAR_DATA* ch, const char* argument)
 		return;
 	}
 
-	if (!str_prefix(argument, "mace")) {
+	if (!str_prefix(argument, "maces")) {
 		weapon = "weapon_mace";
 		output = "mace";
-	} else if (!str_prefix(argument, "sword")) {
+	} else if (!str_prefix(argument, "swords")) {
 		weapon = "weapon_sword";
 		output = "sword";
-	} else if (!str_prefix(argument, "axe")) {
+	} else if (!str_prefix(argument, "axes")) {
 		weapon = "weapon_axe";
 		output = "axe";
-	} else if (!str_prefix(argument, "hand")) {
+	} else if (!str_prefix(argument, "hands")) {
 		weapon = "weapon_hands";
 		output = "hand to hand";
-	} else if (!str_prefix(argument, "whip")
-		|| !str_prefix(argument, "flail")) {
+	} else if (!str_prefix(argument, "whips")
+		|| !str_prefix(argument, "flails")) {
 		weapon = "weapon_whip";
 		output = "whip/flail";
 	} else {
@@ -106,6 +96,7 @@ void do_specialize(CHAR_DATA* ch, const char* argument)
 		act_puts("You are now specialized in $T.", 
 			ch, NULL, output, TO_CHAR, POS_DEAD);
 	} else {
-		dofun("help", ch, "'SPECIALIZE'");
+		act_puts("You can't specialize in $T.",
+			 ch, NULL, output, TO_CHAR, POS_DEAD);
 	}
 }
