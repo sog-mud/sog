@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.8 2000-04-04 05:42:13 fjoe Exp $
+ * $Id: act_comm.c,v 1.187.2.9 2000-04-16 02:29:47 avn Exp $
  */
 
 /***************************************************************************
@@ -1603,7 +1603,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 			char_nuke(victim);
 		}
 		else
-			dofun("save", ch, str_empty);
+			dofun("save", victim, str_empty);
 				
 		return;
 	}
