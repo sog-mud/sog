@@ -1,5 +1,5 @@
 /*
- * $Id: interp.h,v 1.36 1999-02-09 10:19:11 fjoe Exp $
+ * $Id: interp.h,v 1.37 1999-02-18 12:01:09 kostik Exp $
  */
 
 /***************************************************************************
@@ -98,6 +98,7 @@ DECLARE_DO_FUN(do_camouflage	);
 DECLARE_DO_FUN(do_camp		);
 DECLARE_DO_FUN(do_changes	);
 DECLARE_DO_FUN(do_channels	);
+DECLARE_DO_FUN(do_charge	);
 DECLARE_DO_FUN(do_control	);
 DECLARE_DO_FUN(do_circle	);
 DECLARE_DO_FUN(do_cleave	);

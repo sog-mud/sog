@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.143 1999-02-18 09:57:28 fjoe Exp $
+ * $Id: act_move.c,v 1.144 1999-02-18 12:01:07 kostik Exp $
  */
 
 /***************************************************************************
@@ -75,9 +75,15 @@ DECLARE_DO_FUN(do_yell		);
 int	find_door	(CHAR_DATA *ch, char *arg);
 int 	find_exit	(CHAR_DATA *ch, char *arg);
 bool	has_key		(CHAR_DATA *ch, int key);
+bool 	move_char_org	(CHAR_DATA *ch, int door, bool follow, bool is_charge);
 int	mount_success	(CHAR_DATA *ch, CHAR_DATA *mount, int canattack);
 
 void move_char(CHAR_DATA *ch, int door, bool follow)
+{
+	move_char_org(ch, door, follow, FALSE);
+}
+
+bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 {
 	CHAR_DATA *fch;
 	CHAR_DATA *fch_next;
@@ -90,10 +96,8 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	OBJ_DATA *obj_next;
 	int act_flags;
 
-	if (RIDDEN(ch) && !IS_NPC(ch->mount)) {
-		move_char(ch->mount,door,follow);
-		return;
-	}
+	if (RIDDEN(ch) && !IS_NPC(ch->mount)) 
+		return move_char_org(ch->mount,door,follow,is_charge);
 
 	if (IS_AFFECTED(ch, AFF_DETECT_WEB) 
 	|| (MOUNTED(ch) && IS_AFFECTED(ch->mount, AFF_DETECT_WEB))) {
@@ -116,13 +120,13 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 			act("$n struggles vainly against the webs which "
 			    "hold $m in place.",
 			    ch, NULL, NULL, TO_ROOM);
-			return; 
+			return FALSE; 
 		}
 	}
 
 	if (door < 0 || door >= MAX_DIR) {
 		bug("Do_move: bad door %d.", door);
-		return;
+		return FALSE;
 	}
 
 	if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE)
@@ -160,17 +164,17 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	 * Exit trigger, if activated, bail out. Only PCs are triggered.
 	 */
 	if (!IS_NPC(ch) && mp_exit_trigger(ch, door))
-		return;
+		return FALSE;
 
 	in_room = ch->in_room;
 	if ((pexit = in_room->exit[door]) == NULL
 	||  (to_room = pexit->u1.to_room) == NULL 
 	||  !can_see_room(ch, pexit->u1.to_room)) {
 		char_puts("Alas, you cannot go that way.\n", ch);
-		return;
+		return FALSE;
 	}
 
-	if (IS_ROOM_AFFECTED(in_room, RAFF_RANDOMIZER)) {
+	if (IS_ROOM_AFFECTED(in_room, RAFF_RANDOMIZER) && !is_charge) {
 		int d0;
 		while (1) {
 			d0 = number_range(0, MAX_DIR-1);
@@ -198,30 +202,30 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 			act_puts("The $d is closed.",
 				 ch, NULL, pexit->keyword, TO_CHAR, POS_DEAD);
 		}
-		return;
+		return FALSE;
 	}
 
 	if (IS_AFFECTED(ch, AFF_CHARM)
 	&&  ch->master != NULL
 	&&  in_room == ch->master->in_room) {
 		char_puts("What? And leave your beloved master?\n", ch);
-		return;
+		return FALSE;
 	}
 
 /*    if (!is_room_owner(ch,to_room) && room_is_private(to_room))	*/
 	if (room_is_private(to_room)) {
 		char_puts("That room is private right now.\n", ch);
-		return;
+		return FALSE;
 	}
 
 	if (MOUNTED(ch)) {
 		if (MOUNTED(ch)->position < POS_FIGHTING) {
 			char_puts("Your mount must be standing.\n", ch);
-			return; 
+			return FALSE; 
 		}
 		if (!mount_success(ch, MOUNTED(ch), FALSE)) {
 			char_puts("Your mount subbornly refuses to go that way.\n", ch);
-			return;
+			return FALSE;
 		}
 	}
 
@@ -230,14 +234,14 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 
 		if (!guild_ok(ch, to_room)) {
 			char_puts("You aren't allowed there.\n", ch);
-			return;
+			return FALSE;
 		}
 
 		if (!IS_IMMORTAL(ch) && IS_PUMPED(ch)
 		&&  IS_SET(to_room->room_flags, ROOM_PEACE)) {
 			act_puts("You feel too bloody to go in there now.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-			return;
+			return FALSE;
 		}
 
 		if (in_room->sector_type == SECT_AIR
@@ -245,14 +249,14 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 			if (MOUNTED(ch)) {
 		        	if(!IS_AFFECTED(MOUNTED(ch), AFF_FLYING)) {
 		        		char_puts("You mount can't fly.\n", ch);
-						   return;
+						   return FALSE;
 				}
 			} 
 			else if (!IS_AFFECTED(ch, AFF_FLYING)
 			&& !IS_IMMORTAL(ch)) {
 				act_puts("You can't fly.",
 					 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-				return;
+				return FALSE;
 			} 
 		}
 
@@ -261,7 +265,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 		&&  (MOUNTED(ch) && !IS_AFFECTED(MOUNTED(ch),AFF_FLYING))) {
 			act_puts("You can't take your mount there.\n",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-			return;
+			return FALSE;
 		}  
 
 		if ((in_room->sector_type == SECT_WATER_NOSWIM ||
@@ -289,7 +293,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 		    if (!found)
 		    {
 			char_puts("You need a boat to go there.\n", ch);
-			return;
+			return FALSE;
 		    }
 		}
 
@@ -311,7 +315,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 			if (ch->move < move) {
 				act_puts("You are too exhausted.",
 					 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-				return;
+				return FALSE;
 			}
 
 			ch->move -= move;
@@ -334,12 +338,18 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	if (!IS_NPC(ch)
 	&&  ch->in_room->sector_type != SECT_INSIDE
 	&&  ch->in_room->sector_type != SECT_CITY
-	&&  number_percent() < get_skill(ch, gsn_quiet_movement)) {
+	&&  number_percent() < get_skill(ch, gsn_quiet_movement) 
+	&&  !is_charge) {
 		act(MOUNTED(ch) ? "$n leaves, riding on $N." : "$n leaves.",
 		    ch, NULL, MOUNTED(ch), act_flags);
 		check_improve(ch,gsn_quiet_movement,TRUE,1);
 	}
-	else {
+	else if (is_charge) {
+		act("$n spurs $s $N, leaving $t.",
+		    ch, dir_name[door], ch->mount,  TO_ROOM);
+	}
+	else 
+	{
 		act(MOUNTED(ch) ? "$n leaves $t, riding on $N." :
 				  "$n leaves $t.",
 		    ch, dir_name[door], MOUNTED(ch), act_flags | ACT_TRANS);
@@ -369,8 +379,9 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	else
 		act_flags = TO_ROOM | ACT_NOMORTAL;
 
-	act(mount ? "$n has arrived, riding $N." : "$n has arrived.",
-	    ch, NULL, mount, act_flags);
+	if (!is_charge) 
+		act(mount ? "$n has arrived, riding $N." : "$n has arrived.",
+	    	    ch, NULL, mount, act_flags);
 
 	do_look(ch, "auto");
 
@@ -382,7 +393,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	}
 
 	if (in_room == to_room) /* no circular follows */
-		return;
+		return TRUE;
 
 	room_has_pc = FALSE;
 	for (fch = to_room->people; fch != NULL; fch = fch_next) {
@@ -446,6 +457,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 			obj_next = obj->next_content;
 			oprog_call(OPROG_GREET, obj, ch, NULL);
 		}
+	return TRUE;
 }
 
 
@@ -3136,6 +3148,108 @@ static OBJ_DATA *find_arrow(CHAR_DATA *ch)
 	}
 
 	return NULL;
+}
+
+DO_FUN(do_charge) 
+{
+ 	CHAR_DATA* victim;
+	OBJ_DATA* wield;
+	int chance, direction;
+	EXIT_DATA *pexit;
+	ROOM_INDEX_DATA *to_room;
+
+	char arg1[512], arg2[512];
+
+
+	if (IS_NPC(ch) || !(chance = get_skill(ch, gsn_charge))) {
+		char_puts("Huh?\n", ch);
+		return;
+	}
+
+	argument = one_argument(argument, arg1, sizeof(arg1));
+	one_argument(argument, arg2, sizeof(arg2));
+
+	if (arg1 == '\0' || arg2 == '\0') {
+		char_puts("Charge whom?\n", ch);
+		return;
+	}
+
+	if ((wield = get_eq_char(ch, WEAR_WIELD)) == NULL) {
+		char_puts("You need a weapon to charge.\n", ch);
+		return;
+	}
+
+	if (wield->value[0] != WEAPON_LANCE && wield->value[0] != WEAPON_SPEAR) {
+		char_puts("You need lance or spear to charge.\n", ch);
+		return;
+	}
+
+	if ((direction = find_exit(ch, arg1)) <0 || direction >= MAX_DIR) {
+		char_puts("Charge whom?\n", ch);
+		return;
+	}
+
+	if ((victim = find_char(ch, arg2, direction, 1)) == NULL) 
+		return;
+
+	if (ch->in_room == victim->in_room) {
+		act("$N is here. Just MURDER $M.", ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	if (ch->mount == NULL) {
+		char_puts("You have to be riding.\n", ch);
+		return;
+	}
+
+	if (is_safe(ch, victim))
+		return;
+
+	if (victim->hit < victim->max_hit*9/10) {
+		act("$t is already bleeding, your honour do not allow you attack $M", ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	chance = chance * get_skill(ch, gsn_riding)/100;
+
+	if (!move_char_org(ch, direction, FALSE, TRUE))
+		return;
+	act("$n gallops from $t, charging you!",
+	    ch, dir_name[rev_dir[direction]], victim, TO_VICT);
+	act("$n gallops from $t, charging $N!",
+	    ch, dir_name[rev_dir[direction]], victim, TO_NOTVICT);
+
+
+	if (number_percent() < chance) {
+		one_hit(ch, victim, gsn_charge, WEAR_WIELD);
+		WAIT_STATE(victim, SKILL(gsn_charge)->beats * 2);
+		WAIT_STATE(ch, SKILL(gsn_charge)->beats);
+		check_improve(ch, gsn_charge, TRUE, 1);
+	}
+	else {
+		damage(ch, victim, 0, gsn_charge, DAM_NONE, TRUE);
+		check_improve(ch, gsn_charge, FALSE, 1);
+		if (number_percent() > get_skill(ch, gsn_riding)) {
+			if ((pexit=ch->in_room->exit[direction]) == NULL
+			|| (to_room = pexit->u1.to_room) == NULL
+			|| !can_see_room(ch, to_room)
+			|| IS_ROOM_AFFECTED(ch->in_room, RAFF_RANDOMIZER)
+			|| IS_SET(pexit->exit_info, EX_CLOSED)) {
+				WAIT_STATE(ch, SKILL(gsn_charge)->beats*2);
+				return;
+			}
+			else {
+				act("$n cannot hold $s $N.\n",
+				    ch, dir_name[direction], ch->mount, TO_NOTVICT);
+				act("You cannot hold your $N.",
+				    ch, NULL, ch->mount, TO_CHAR);
+				move_char(ch, direction, FALSE);
+				WAIT_STATE(ch, SKILL(gsn_charge)->beats*5);
+				return;
+			}
+		}
+		WAIT_STATE(ch, SKILL(gsn_charge)->beats*2);
+	}
 }
 
 DO_FUN(do_shoot)

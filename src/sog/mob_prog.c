@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.41 1999-02-17 07:53:24 fjoe Exp $
+ * $Id: mob_prog.c,v 1.42 1999-02-18 12:01:11 kostik Exp $
  */
 
 /***************************************************************************
@@ -74,6 +74,7 @@ enum {
 	CHK_ISNEUTRAL,
 	CHK_ISIMMORT,
 	CHK_ISCHARM,
+	CHK_ISPUMPED,
 	CHK_ISFOLLOW,
 	CHK_ISACTIVE,
 	CHK_ISDELAY,
@@ -157,6 +158,7 @@ const char * fn_keyword[] =
     "isneutral",	/* if isneutral $n 	- is $n neutral */
     "isimmort",		/* if isimmort $n	- is $n immortal */
     "ischarm",		/* if ischarm $n	- is $n charmed */
+    "ispumped",		/* if ispumped $n	- is $n pumped */
     "isfollow",		/* if isfollow $n	- is $n following someone */
     "isactive",		/* if isactive $n	- is $n's position > " is sleeping here." */
     "isdelay",		/* if isdelay $i	- does $i have mobprog pending */
@@ -520,6 +522,8 @@ int cmd_eval(int vnum, const char *line, int check,
             return(lval_char != NULL && IS_IMMORTAL(lval_char));
         case CHK_ISCHARM: /* A relic from MERC 2.2 MOBprograms */
             return(lval_char != NULL && IS_AFFECTED(lval_char, AFF_CHARM));
+	case CHK_ISPUMPED:
+	    return(lval_char != NULL && IS_PUMPED(lval_char));
         case CHK_ISFOLLOW:
             return(lval_char != NULL && lval_char->master != NULL 
 		 && lval_char->master->in_room == lval_char->in_room);
@@ -608,6 +612,8 @@ int cmd_eval(int vnum, const char *line, int check,
 		   !str_cmp(clan_name(lval_char->clan), buf));
 	case CHK_RACE:
 	    return(lval_char != NULL && lval_char->race == rn_lookup(buf));
+	case CHK_CLASS:
+	    return(lval_char != NULL && !IS_NPC(lval_char) && lval_char->class == cln_lookup(buf));
 	case CHK_OBJTYPE:
 	    return(lval_obj != NULL && lval_obj->pIndexData->item_type == flag_value(item_types, buf));
 	default:;

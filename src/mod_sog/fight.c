@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.138 1999-02-18 11:22:03 fjoe Exp $
+ * $Id: fight.c,v 1.139 1999-02-18 12:01:08 kostik Exp $
  */
 
 /***************************************************************************
@@ -659,6 +659,8 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 		thac0 -= 10 * (100 - get_skill(ch, gsn_ambush));
 	else if (dt == gsn_vampiric_bite)
 		thac0 -= 10 * (100 - get_skill(ch, gsn_vampiric_bite));
+	else if (dt == gsn_charge)
+		thac0 -= 10 * (100 - get_skill(ch, gsn_charge));
 
 	switch(dam_type) {
 	case DAM_PIERCE:victim_ac = GET_AC(victim,AC_PIERCE)/10; break;
@@ -903,6 +905,8 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 			dam *= 2;
 		}
 	}
+	if (dt == gsn_charge)
+		dam *= ch->level/15;
 
 	dam += GET_DAMROLL(ch) * UMIN(100, sk) / 100;
 
@@ -1117,6 +1121,9 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (vnpc || victim->position == POS_STANDING)
 		return;
 
+	if (is_duel)
+		return;
+
 	/* Dying penalty: 2/3 way back. */
 	if (IS_SET(victim->plr_flags, PLR_WANTED)
 	&&  victim->level > 1
@@ -1130,9 +1137,6 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 	else 
 		if (victim->exp_tl > 0)
 			gain_exp(victim, -victim->exp_tl*2/3);
-	
-	if (is_duel)
-		return;
 
 	if ((++victim->pcdata->death % 3) != 2)
 		return;

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.80 1999-02-18 09:57:30 fjoe Exp $
+ * $Id: spellfun2.c,v 1.81 1999-02-18 12:01:09 kostik Exp $
  */
 
 /***************************************************************************
@@ -1516,8 +1516,6 @@ void spell_shadowlife(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	act("$n gives life to your shadow!", ch, NULL, victim, TO_VICT);
 	
 	shadow = create_named_mob(get_mob_index(MOB_VNUM_SHADOW),
-				     IS_NPC(victim) ?
-				     mlstr_mval(victim->short_descr) :
 				     victim->name);
 	for (i=0;i < MAX_STATS; i++)
 		shadow->perm_stat[i] = ch->perm_stat[i];
