@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.136 1999-03-19 18:55:21 fjoe Exp $
+ * $Id: act_wiz.c,v 1.137 1999-03-19 18:59:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4378,7 +4378,7 @@ void reboot_mud(void)
 	extern bool merc_down;
 	DESCRIPTOR_DATA *d,*d_next;
 
-	log("Rebooting ANATOLIA.");
+	log("Rebooting SoG");
 	for (d = descriptor_list; d != NULL; d = d_next) {
 		d_next = d->next;
 		write_to_buffer(d,"SoG is going down for rebooting NOW!\n\r",0);
