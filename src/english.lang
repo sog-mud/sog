@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.13 1998-05-19 00:39:40 efdi Exp $
+# $Id: english.lang,v 1.14 1998-05-19 00:46:09 efdi Exp $
 #
 
 INFO_NOTHING		"Nothing.\n\r"
@@ -81,7 +81,7 @@ UPDATE_WEATHER_THE_CLOUDS_DISAPPEAR "The clouds disappear.\n\r"
 UPDATE_WEATHER_LIGHTNING_FLASHES 	"Lightning flashes in the sky.\n\r"
 UPDATE_WEATHER_THE_RAIN_STOPPED 	"The rain stopped.\n\r"
 UPDATE_WEATHER_LIGHTNING_STOPPED 	"The lightning has stopped.\n\r"
-QUEST_QUESTOR_TELLS_YOU 	"%s tells you '{G%s{x'\n\r"
+QUEST_QUESTOR_TELLS_YOU 	"{W%s{x tells you '{G%s{x'\n\r"
 QUEST_YOU_HAVE_D_MINUTES     "You have {W%d{G minutes to complete this quest."
 QUEST_MAY_THE_GODS_GO 	"May the gods go with you!"
 COMM_ORDERS_YOU_TO 	"$n orders you to '%s', you do."
