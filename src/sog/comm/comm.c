@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.75 1998-07-16 10:13:28 efdi Exp $
+ * $Id: comm.c,v 1.76 1998-07-16 12:05:46 efdi Exp $
  */
 
 /***************************************************************************
@@ -2149,17 +2149,15 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 	    write_to_buffer(d, "What ethos do you want, (L/N/C) <type help for more info> ?",0);
 	    return;
 	   }
-	     }
-	else
-	 {
+	} else {
 	  ch->endur = 0;
-	  if (!ethos_check(ch))
-	   {
-	    write_to_buffer(d, 
-	      "What ethos do you want, (L/N/C) <type help for more info> ?",0);
-	    d->connected = CON_GET_ETHOS;
-	    return;
-	   }
+	  if (!ethos_check(ch)) {
+		write_to_buffer(d, "What ethos do you want, (L/N/C) "
+				   "<type help for more info> ?", 0);
+		d->connected = CON_GET_ETHOS;
+		return;
+	   } else
+		ch->ethos = 1;
 	 }
 	     write_to_buffer(d, "\n\r[Hit Return to Continue]\n\r",0);
 	     d->connected = CON_CREATE_DONE;
@@ -3252,7 +3250,7 @@ int ethos_check(CHAR_DATA *ch)
 {
 	DESCRIPTOR_DATA *d = ch->desc;
 
-	if (ch->class == 4) {
+	if (ch->class == CLASS_PALADIN) {
 		write_to_buffer(d, "You are Lawful.\n\r", 0);
 		return 1;
 	}
