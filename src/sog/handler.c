@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.31 2000-08-02 14:34:15 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.32 2000-08-11 10:05:21 cs Exp $
  */
 
 /***************************************************************************
@@ -4728,6 +4728,12 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 {
 	int wear_level = get_wear_level(ch, obj);
 
+	if (IS_NPC(ch) && (!IS_SET(ch->form, FORM_BIPED) 
+	|| !IS_SET(ch->form, FORM_SENTIENT))) {
+		act("WEAR ?", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+	
 	if (wear_level < obj->level) {
 		char_printf(ch, "You must be level %d to use this object.\n",
 			    obj->level - wear_level + ch->level);

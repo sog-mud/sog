@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.11 2000-08-04 09:30:18 kostik Exp $
+ * $Id: act_obj.c,v 1.165.2.12 2000-08-11 10:05:20 cs Exp $
  */
 
 /***************************************************************************
@@ -1266,6 +1266,7 @@ void do_wear(CHAR_DATA * ch, const char *argument)
 		char_puts("Wear, wield, or hold what?\n", ch);
 		return;
 	}
+
 	if (!str_cmp(arg, "all"))
 		for (obj = ch->carrying; obj != NULL; obj = obj_next) {
 			obj_next = obj->next_content;
