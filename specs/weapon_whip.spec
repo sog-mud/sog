@@ -26,5 +26,14 @@ Adept 75
 Max 110
 End
 
+#SKILL
+Skill 'flail'
+Level 1
+Rating 1
+Min 1
+Adept 75
+Max 110
+End
+
 #$
 

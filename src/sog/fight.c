@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.218 1999-11-27 09:17:38 kostik Exp $
+ * $Id: fight.c,v 1.219 1999-11-29 15:02:23 kostik Exp $
  */
 
 /***************************************************************************
@@ -64,6 +64,7 @@ void	check_assist		(CHAR_DATA *ch, CHAR_DATA *victim);
 bool	check_dodge		(CHAR_DATA *ch, CHAR_DATA *victim);
 bool	check_parry		(CHAR_DATA *ch, CHAR_DATA *victim, int loc);
 bool	check_block		(CHAR_DATA *ch, CHAR_DATA *victim, int loc);
+bool	check_distance		(CHAR_DATA *ch, CHAR_DATA *victim, int loc);
 bool	check_blink		(CHAR_DATA *ch, CHAR_DATA *victim);
 bool	check_hand_block	(CHAR_DATA *ch, CHAR_DATA *victim);
 void	dam_message		(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
@@ -1319,7 +1320,9 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 			extract_char(victim, 0);
 			return FALSE;
 		}
-
+		
+		if (check_distance(ch, victim, loc))
+			return FALSE;
 		if (check_parry(ch, victim, loc))
 			return FALSE;
 		if (check_block(ch, victim, loc))
@@ -1634,6 +1637,49 @@ bool is_safe_rspell(AFFECT_DATA *af, CHAR_DATA *victim)
   else return FALSE;
 }
 
+bool check_distance(CHAR_DATA *ch, CHAR_DATA *victim, int loc) {
+	int chance;
+	OBJ_DATA *weapon;
+	OBJ_DATA *ch_weapon;
+
+	weapon = get_eq_char(victim, WEAR_WIELD);
+	if (!weapon || !(WEAPON_IS(weapon, WEAPON_STAFF) 
+	|| WEAPON_IS(weapon, WEAPON_SPEAR) 
+	|| WEAPON_IS(weapon, WEAPON_POLEARM))) 
+		return FALSE;
+
+	chance = get_skill(victim, "distance");
+
+	ch_weapon = get_eq_char(ch, loc);
+
+	if (!ch_weapon) {
+		chance /= 3; 
+	} else {
+		switch(INT_VAL(ch_weapon->value[1])) {
+		case WEAPON_DAGGER:
+			chance /= 2;
+			break;
+		case WEAPON_STAFF:
+		case WEAPON_SPEAR:
+		case WEAPON_POLEARM:
+			chance /= 7;
+			break;
+		default:
+			chance /= 4;
+		}
+	}
+	chance += LEVEL(victim) - LEVEL(ch);
+	if (number_percent() < chance) {
+		act("Using the length of your weapon, you manage to keep $n on"
+			" a distance.", ch, NULL, victim, TO_VICT);
+		act("You try to hit $N, but $E didn't allow you to approach.", 
+			ch, NULL, victim, TO_CHAR);
+		check_improve(ch, "distance", 7, TRUE);
+		return TRUE;
+	}
+	return FALSE;
+}
+
 /*
  * Check for parry.
  */
@@ -1689,6 +1735,17 @@ bool check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 
 	if (number_percent() >= chance + LEVEL(victim) - LEVEL(ch))
 		return FALSE;
+
+	if (v_weapon && WEAPON_IS(v_weapon, WEAPON_SWORD)
+	&& number_percent() < get_skill(victim, "counter strike")/8) {
+		act("You parry $n's attack and manage to hit $m in a response.",
+			ch, NULL, victim, TO_VICT);
+		act("$N parries your attack and manages to hit you in a response.",
+			ch, NULL, victim, TO_CHAR);
+		one_hit(victim, ch, "counter strike", WEAR_WIELD);
+		check_improve(victim, "counter strike", 5, TRUE);
+		return TRUE;
+	}
 
 	act("You parry $n's attack.", ch, NULL, victim, TO_VICT | ACT_VERBOSE);
 	act("$N parries your attack.", ch, NULL, victim, TO_CHAR | ACT_VERBOSE);

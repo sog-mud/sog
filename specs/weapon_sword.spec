@@ -27,6 +27,15 @@ Max 100
 End
 
 #SKILL
+Skill 'counter strike'
+Level 19
+Rating 2
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
 Skill 'sword'
 Level 1
 Rating 1
