@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.35.2.1 2000-04-04 14:00:55 fjoe Exp $
+ * $Id: string_edit.c,v 1.35.2.2 2003-06-10 14:01:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -33,6 +33,9 @@ char *numlines(const char *);
  ****************************************************************************/
 void string_append(CHAR_DATA *ch, const char **pString)
 {
+	if (ch->desc == NULL)
+		return;
+
 	char_puts("-=======- Entering APPEND Mode -========-\n", ch);
 	char_puts("    Type :h on a new line for help\n", ch);
 	char_puts(" Terminate with a ~ or @ on a blank line.\n", ch);
