@@ -1,5 +1,6 @@
 /*
- * $Id: mob_look_cast_invis.mpc,v 1.1 2001-09-01 18:56:21 fjoe Exp $
+ * $Id: mob_look_cast_invis.mpc,v 1.2 2001-09-02 16:04:48 fjoe Exp $
  */
 
-cast_char("invisibility", $n, $n);
+if (!is_affected($n, "invisibility"))
+        cast_char("invisibility", $n, $n);
