@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.13 2001-01-21 11:19:04 cs Exp $
+ * $Id: martial_art.c,v 1.114.2.14 2001-02-25 17:41:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1780,7 +1780,7 @@ void do_throw(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (IS_AFFECTED(ch, AFF_FLYING)) {
-		char_puts("Your feet should touch the ground to balance\n",
+		char_puts("Your feet should touch the ground to balance.\n",
 			     ch);
 		return;
 	}
