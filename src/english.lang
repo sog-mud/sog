@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.78 1998-09-04 05:28:17 fjoe Exp $
+# $Id: english.lang,v 1.79 1998-09-07 02:57:10 fjoe Exp $
 #
 
 MSG_NOTHING		"Nothing.\n\r"
@@ -446,7 +446,7 @@ MSG_WONT_GIVE_AGAIN	"And I won't give you that again, with trouble option.\n\r"
 MSG_COMMANDS	"QUEST COMMANDS: points info time request complete list buy trouble.\n\r"
 MSG_TYPE_HELP_QUEST	"For more information, type: help quests.\n\r"
 MSG_YOU_MAY_NOW_QUEST_AGAIN	"{*You may now quest again.\n\r"
-MSG_RUN_OUT_TIME	"You have run out of time for your quest!\n\rYou may now quest again.\n\r"
+MSG_RUN_OUT_TIME	"You have run out of time for your quest!\n\r"
 MSG_BETTER_HURRY	"Better hurry, you're almost out of time for your quest!\n\r"
 MSG_ITEMS_AVAIL_PURCHASE   "Current Quest Items available for Purchase:\n\r"
 MSG_YOU_COMPLETED_SOMEONES_QUEST   "You have completed someone's quest.\n\r"
