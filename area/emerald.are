@@ -2332,9 +2332,9 @@ one weighty collection.  It looks extremely valuable.
 ~
 G none
 #238
-dagger stick sword-stick~
-a sword-stick~
-A sword-stick lies on the grass here.~
+dagger stick sword-stick палка меч~
+@eng a sword-stick@rus ~~палка~~-меч~
+@eng A sword-stick lies on the grass here.@rus Палка-меч (sword-stick) лежит в траве.~
 steel~
 weapon 0 AN
 dagger 8 2 stab 0

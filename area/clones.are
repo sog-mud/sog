@@ -144,6 +144,25 @@ NR 0 0 0
 stand stand either 0
 0 0 medium unknown
 V 3716
+#37008
+horn-seeker охотница~
+@eng horn-seeker@rus ~~охотница~~ за Рогом~
+@eng Horn-seeker stand here.
+@rus Охотница за Рогом (horn-seeker) стоит здесь.
+~
+@rus Чудно одетая женщина стоит напротив вас. На ее одежде осела пыль
+множества дорог. В глазах ее фанатичный блеск. Уже много лет она там, где
+войны, схватки, перевороты, бунты. Единственная цель ее жизни - найти Рог Валир.
+{x    Не вставай на дороге ее поисков.
+~
+human~
+AHT EFHNV 500 0
+40 100 3d12+2000 1d1+700 2d7+80 none
+-18 -18 -18 -4
+CDEFHIJKLNQ 0 AEI 0
+stand stand either 20000
+0 0 medium unknown
+F for H
 #0
 
 #SPECIALS

@@ -102,7 +102,7 @@ irlaniel~
 ~
 ~
 unique~
-0 DFHJMNOPTUVZclm 0 0
+A DFHJMNOPTUVZclm 0 0
 45 70 0d0+0 0d0+0 0d0+0 shock
 -1 -1 -1 0
 ACDEFHKNO ABJLMNPQR CDEFGHIK 0
@@ -305,6 +305,26 @@ staff ARTY AOP
 10 15 0 P
 G none
 #36114
+ring jade~
+@eng ring with a great jade stone@rus кольцо с большим жадеитом~
+@eng White metal ring with a big jade glows with its magic.@rus Кольцо белого металла с большим нефритом светится от вложенной в него магии~
+iridium~
+jewelry AGR ABP
+0 0 0 0 0
+35 2 250000 P
+F
+A 0 0 c
+A
+24 -3
+A
+13 25
+E
+ring~
+This ring, made of iriium and jade, glows with magic. You feel that
+life force surrounds this ring.
+~
+G none
+#36115
 ring jade~
 @eng ring with a great jade stone@rus кольцо с большим жадеитом~
 @eng White metal ring with a big jade glows with its magic.@rus Кольцо белого металла с большим жадеитом светится от вложенной в него магии.~

@@ -1,6 +1,6 @@
 #AREADATA
 Name New Thalos~
-Builders maedhros~
+Builders maedhros brand~
 VNUMs 9500 9800
 Credits Conner~
 Security 9
@@ -2956,11 +2956,13 @@ spared no expense to protect their home.  Main street heads towards
 the market eastward and the eastern road passes through the Sands of
 Sorrow to your west. To the south lies the entrance of the warrior's guild.
 To the north lies the entrance of the weaponsmaster.
-@rus Две высокие каменные башни, стоящие по разные стороны массивных железных ворот,возвышаются над тобой.
-Ворота в город с изображенными на них гербом нового Талоса, висят на аккуратных,но очень крепких
-петлях. Строители ворот явно преследовали цель укрепления города, а не его украшения.
-На восток тянеться главная улица города. На западе расположились Sands of Sorrow. На юге вход
-в гильдию Воинов, а на севере лежит вход к мастеру-воину, специалисту по оружию.
+@rus Две высокие каменные башни, стоящие по разные стороны массивных железных
+ворот,возвышаются над тобой.  Ворота в город с изображенными на них гербом
+нового Талоса, висят на аккуратных,но очень крепких петлях.  Строители ворот
+явно преследовали цель укрепления города, а не его украшения.  На восток
+тянеться главная улица города.  На западе расположились Sands of Sorrow.  На
+юге вход в гильдию Воинов, а на севере лежит вход к мастеру-воину,
+специалисту по оружию.  
 ~
 0 S city
 D0
@@ -2982,7 +2984,7 @@ gate~
 ABZ 9501 9669
 S
 #9524
-@eng West Main Street@rus ЗападнаЯ ГлавнаЯ Улица~
+@eng West Main Street@rus Западная Главная Улица~
 @eng This is the main road traveling though the city. To the south you hear
 the hammering of the repair shop and to the north is the grassy field
 known as the temple square. Main street continues east and west.

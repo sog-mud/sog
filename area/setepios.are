@@ -78,6 +78,22 @@ ABGRT u -1000 0
 0 BU 0 0
 stand stand none 0
 0 0 medium unknown
+#38006
+tripidios~
+Tripidios~
+Tripidius the fisherman
+~
+Smells like a beggar.
+~
+human~
+ABGQRST 0 0 0
+50 0 1d1+999 1d1+999 1d1+20 flame
+0 0 0 0
+0 BCDU 0 0
+stand stand none 10000
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
 #38102
 ded moroz~
 @eng {CFather Frost{x@rus {CДед Мороз{x~
@@ -453,6 +469,19 @@ A
 19 5
 A
 12 50
+A
+13 50
+G none
+#38023
+fishing rod~
+fishing rod~
+fishing rod lies here.~
+wood~
+weapon IM AN
+dagger 9 10 kiss DH
+52 1 1 P
+A
+19 5
 A
 13 50
 G none

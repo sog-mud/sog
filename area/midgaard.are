@@ -16,9 +16,11 @@ wizard волшебник~
 @eng A wizard walks around behind the counter, talking to himself.
 @rus Волшебник (wizard) ходит вокруг прилавка и разговаривает сам с собой.
 ~
-The wizard looks old and senile, and yet he looks like a very powerful
+@eng The wizard looks old and senile, and yet he looks like a very powerful
 wizard. He is equipped with fine clothing, and is wearing many fine
 rings and bracelets.
+@rus Этот волшебник выглядит старым и дряхлым. Он облачен в прекрасные одежды,
+на его руки одеты великолепные кольца и браслеты.
 ~
 human~
 ABKVe DHN 900 0
@@ -111,11 +113,13 @@ EFJN 0 0 0
 stand stand either 100
 0 0 medium unknown
 #3006
-captain~
-the captain~
-A retired captain stands here, selling boats.
+captain капитан~
+@eng the captain@rus капитан~
+@eng A retired captain stands here, selling boats.
+@rus Уйдя на пенсию, капитан (captain) продает здесь лодки.
 ~
-This captain has killed more sharks than you have eaten peas.
+@eng This captain has killed more sharks than you have eaten peas.
+@rus Этот капитан убил больше акул, чем вы съели гороха.
 ~
 human~
 ABTVe H 900 0
@@ -139,11 +143,13 @@ FHJN AB CD 0
 stand stand male 58
 0 0 medium unknown
 #3008
-boy~
-the pet shop boy~
-A pet shop boy is here, humming gently.
+boy мальчик~
+@eng the pet shop boy@rus ~~продавец~~ животных~
+@eng A pet shop boy is here, humming gently.
+@rus Тихий продавец животных (boy) стоит здесь.
 ~
-He is young and close-cropped and looks quite happy.
+@eng He is young and close-cropped and looks quite happy.
+@rus Он молод и очень счастлив.
 ~
 human~
 ABVe H 900 0
@@ -531,11 +537,13 @@ stand stand male 18
 0 0 medium unknown
 M death 3020 100~
 #3064
-drunk~
-the drunk~
-A singing, happy drunk wanders around, singing about Moria.
+drunk пьяница~
+@eng the drunk@rus пьяница~
+@eng A singing, happy drunk wanders around, singing about Moria.
+@rus Счастливый пьяница (drunk) бродит здесь, напевая песни.
 ~
-A drunk who seems to be too happy, and to carry too much money.
+@eng A drunk who seems to be too happy, and to carry too much money.
+@rus Он очень счастлив и у него много денег.
 ~
 human~
 AG 0 0 0
@@ -671,74 +679,84 @@ CDEKLTU 0 C 0
 stand stand either 150
 0 0 medium unknown
 #3090
-kitten cat pet~
-the kitten~
-A small loyal kitten is here.
+kitten cat pet котенок~
+@eng the kitten@rus котенок~
+@eng A small loyal kitten is here.
+@rus Маленький послушный котенок (kitten) здесь.
 ~
-The kitten looks like a cute, little, fierce fighter.
+@eng The kitten looks like a cute, little, fierce fighter.
+@rus Котенок выглядит хитрым, маленьким и свирепым.
 ~
 cat~
 ABIU 0 400 0
 1 2 2d6+11 1d1+99 1d4+0 scratch
 8 8 8 10
 0 0 C 0
-stand stand either 0
+stand stand male 0
 0 0 tiny unknown
 #3091
-puppy dog pet~
-the puppy~
-A small loyal puppy is here.
+puppy dog pet щенок~
+@eng the puppy@rus щенок~
+@eng A small loyal puppy is here.
+@rus Маленький послушный щенок(puppy) здесь.
 ~
-The puppy looks like a cute, little, fierce fighter.
+@eng The puppy looks like a cute, little, fierce fighter.
+@rus Щенок выглядит хитрым, маленьким и свирепым.
 ~
 dog~
 ABIU F 400 0
 3 2 4d6+25 1d1+99 1d6+0 bite
 7 7 7 10
 N 0 C 0
-stand stand either 0
+stand stand male 0
 0 Q small unknown
 #3092
-beagle dog pet~
-the beagle~
-A small, quick, loyal beagle is here.
+beagle dog pet гончая~
+@eng the beagle@rus гончая~
+@eng A small, quick, loyal beagle is here.
+@rus Маленькая быстрая гончая (beagle) здесь.
 ~
-The beagle looks like a fierce fighter.
+@eng The beagle looks like a fierce fighter.
+@rus Гончая выглядит бесстрашно.
 ~
 dog~
 ABIU F 400 0
 5 3 3d12+50 1d1+99 1d6+0 bite
 5 5 5 9
 N 0 C 0
-stand stand either 0
+stand stand female 0
 0 Q small unknown
 #3093
-rottweiler dog pet~
-the rottweiler~
-A large, loyal rottweiler is here.
+rottweiler dog pet ротвейлер~
+@eng the rottweiler@rus ротвейлер~
+@eng A large, loyal rottweiler is here.
+@rus Большой верный ротвейлер (rottweiler) здесь.
 ~
-The rottweiler looks like a strong, fierce fighter.
+@eng The rottweiler looks like a strong, fierce fighter.
+@rus Ротвейлер похож на сильного, храброго бойца.
 ~
 dog~
 ABIU F 400 0
 7 3 6d10+60 1d1+149 2d4+1 bite
 4 4 4 8
 CDL 0 C 0
-stand stand either 0
+stand stand male 0
 0 0 medium unknown
 #3094
-wolf pet~
-the wolf~
-A large, trained wolf is here.
+wolf pet волк~
+@eng the wolf@rus волк~
+@eng A large, trained wolf is here.
+@rus Большой, хорошо обученый волк (wolf) здесь.
 ~
-The wolf looks like a strong, fearless fighter.
+@eng The wolf looks like a strong, fearless fighter.
+@rus Волк похож на сильного, храброго бойца.
 ~
 wolf~
 ABIU F 0 0
 9 3 6d10+80 1d1+99 2d5+1 bite
 4 4 4 8
 C 0 C 0
-stand stand either 0
+stand stand male 0
 0 0 medium unknown
 #3095
 eagle bird pet~
@@ -1468,22 +1486,23 @@ container 0 A
 0 10 30 G
 G female
 #3039
-scroll cancellation~
-a scroll of cancellation~
-A rolled vellum scroll is here.~
+scroll cancellation свиток анулирования~
+@eng a scroll of cancellation@rus ~~свиток~~ анулирования~
+@eng A rolled vellum scroll is here.@rus Скрученный тонкий пергамент (scroll) лежит здесь.~
 vellum~
 scroll G AO
 15 'cancellation' '' '' ''
 9 10 1190 P
 E
 scroll~
-Use this scroll to remove magical curses.
+@eng Use this scroll to remove magical curses.
+@rus Каждый свиток помещен в кожаную трубку, защищающию его от сырости.
 ~
-G none
+G male
 #3040
-scroll identify~
-a scroll of identify~
-A scroll has carelessly been left here.~
+scroll identify свиток идентификации~
+@eng a scroll of identify@rus ~~свиток~~ идентификации~
+@eng A scroll has carelessly been left here.@rus Свиток идентификации (scroll) был небрежно оставлен здесь.~
 vellum~
 scroll G AO
 12 'identify' '' '' ''
@@ -1498,11 +1517,11 @@ The scroll has a magic formula drawn upon it:
       ?
       *
 ~
-G none
+G male
 #3041
-potion return~
-a swirling potion of return~
-A small swirling potion has been left here.~
+potion return зелье возвращения~
+@eng a swirling potion of return@rus ~~зелье~~ возвращения~
+@eng A small swirling potion has been left here.@rus Маленькая бутылочка с зельем возвращения (potion) была оставлена здесь.~
 glass~
 potion G AO
 20 'word of recall' '' '' ''
@@ -1513,9 +1532,9 @@ The potion has a small label 'Returning'.
 ~
 G none
 #3042
-scroll recall~
-a scroll of recall~
-A scroll has carelessly been left here.~
+scroll recall свиток возвращения~
+@eng a scroll of recall@rus ~~свиток~~ возвращения~
+@eng A scroll has carelessly been left here.@rus Свиток возвращения (recall) был небрежно оставлен здесь.~
 vellum~
 scroll G AO
 20 'word of recall' '' '' ''
@@ -1524,7 +1543,7 @@ E
 scroll~
 The scroll has written a formula of 'Word of Recall' upon it.
 ~
-G none
+G male
 #3043
 ring protection кольцо защиты~
 @eng a ring of protection@rus кольцо защиты~
@@ -1543,9 +1562,9 @@ It's a silver ring set with a gleaming moonstone.
 ~
 G none
 #3044
-wand magic missile missiles~
-a wand of magic missiles~
-a wooden stick lies on the ground.~
+wand magic missile missiles жезл магических ракет~
+@eng a wand of magic missiles@rus ~~жезл~~ магических ракет~
+@eng a wooden stick lies on the ground.@rus Деревянная палка (wand) лежит на земле.~
 wood~
 wand G AO
 4 10 10 'magic missile' 0
@@ -1554,7 +1573,7 @@ E
 wand~
 It has a little note that says 'point this end at target'.
 ~
-G none
+G male
 #3045
 jacket scale mail~
 a scale mail jacket~
@@ -1583,9 +1602,9 @@ armor 0 AD
 15 200 2100 G
 G none
 #3050
-raft~
-a raft~
-A raft has been left here.~
+raft плот~
+@eng a raft@rus плот~
+@eng A raft has been left here.@rus Плот (raft) был оставлен кем-то здесь.~
 wood~
 boat 0 A
 0 0 0 0 0
@@ -1594,11 +1613,11 @@ E
 raft~
 The raft looks very primitive.
 ~
-G none
+G male
 #3051
-canoe~
-a canoe~
-A canoe has been left here.~
+canoe челнок~
+@eng a canoe@rus челнок~
+@eng A canoe has been left here.@rus Челнок (canoe) был оставлен кем-то здесь.~
 wood~
 boat 0 A
 0 0 0 0 0
@@ -1607,7 +1626,7 @@ E
 canoe~
 The canoe is fairly light.
 ~
-G none
+G male
 #3052
 bracer strong leather браслет кожаный~
 @eng a leather bracer@rus кожаный браслет~
@@ -1967,14 +1986,14 @@ A
 19 4
 G none
 #3097
-shield small metal~
-a small metal shield~
-A small metal shield is lying on the ground.~
+shield small metal щит маленький металлический~
+@eng a small metal shield@rus маленький металлический щит~
+@eng A small metal shield is lying on the ground.@rus Маленький металлический щит (shield) лежит на земле.~
 steel~
 armor 0 AJ
 4 4 4 1 2
 5 60 750 P
-G none
+G male
 #3100
 tea cup~
 a cup of tea~
@@ -2087,23 +2106,23 @@ armor 0 AI
 10 80 660 P
 G none
 #3116
-shield large metal~
-a large metal shield~
-A large metal shield is lying on the ground.~
+shield large metal щит большой металлический~
+@eng a large metal shield@rus большой металлический щит~
+@eng A large metal shield is lying on the ground.@rus Большой металлический щит (shield) лежит на земле.~
 steel~
 armor 0 AJ
 5 5 5 2 4
 10 140 1190 P
 G none
 #3117
-shield small wooden~
-a small wooden shield~
-A small wooden shield is lying on the ground.~
+shield small wooden щит маленький деревянный~
+@eng a small wooden shield@rus маленький деревянный щит~
+@eng A small wooden shield is lying on the ground.@rus Маленький деревянный щит (shield) лежит на земле.~
 wood~
 armor 0 AJ
 4 3 2 1 1
 3 40 510 P
-G none
+G male
 #3120
 key iron~
 a key~
@@ -4865,10 +4884,13 @@ Z -1 3006
 S
 #3009
 @eng The Bakery@rus Пекарня~
-You are standing inside the small bakery.  A sweet scent of Danish and
+@eng You are standing inside the small bakery.  A sweet scent of Danish and
 fine bread fills the room.  The bread and Danish are arranged in fine order
 on the shelves, and seem to be of the finest quality.
 A small sign is on the counter.
+@rus Вы стоите внутри маленькой пекарни. Сладкий аромат пироженных(pastry) и хлеба
+наполняет комнату. Хлеба и пирожные ровными рядами выложенны на полки.
+  Маленькая записка находится на приловке.
 ~
 0 S inside
 E
@@ -4890,16 +4912,20 @@ Free instructions provided by the store:
           his bakery.
 ~
 D2
-You see the main street.
+@eng You see the main street.
+@rus Вы видите Главную улицу.
 ~
 ~
 Z -1 3013
 S
 #3010
-@eng The General Store@rus Главный склад~
-You are inside the general store.  All sorts of items are stacked on shelves
+@eng The General Store@rus Центральный склад.~
+@eng You are inside the general store.  All sorts of items are stacked on shelves
 behind the counter, safely out of your reach.
 A small note hangs on the wall.
+@rus Вы находитесь внутри центрального склада. Всякого рода вещи разбросанны на 
+полках позади прилвка, до которых вам не дотянуться. 
+  Маленькая записка(note) прибита к стене.
 ~
 0 DS inside
 E
@@ -4913,7 +4939,8 @@ The note reads:
   Sell  - Sell an item.
 ~
 D1
-You see the High Road .
+@eng You see the High Road .
+@rus Вы видите главную дорогу.
 ~
 ~
 Z -1 3067
@@ -5300,61 +5327,77 @@ Z -1 3044
 S
 #3025
 @eng The Common Square@rus Общая площадь~
-The common square, people pass you, talking to each other.  To the west is
+@eng The common square, people pass you, talking to each other.  To the west is
 the poor alley and to the east is the dark alley.  To the north, this square
 is connected to the market square by a road.  From the south you notice a 
 nasty smell.
+@rus Общая площадь, люди проходят мимо вас, разговаривая каждый о своем. На 
+западе(west) находится переулок бедняков, а на востоке(east) - темный переулок.
+На севере(north) эта площадь стыкуется с рыночной площадью посредством дороги.
+С юга(south) вы чувствуете неприятный запах. 
 ~
 0 S city
 D0
-You see the High road leading to the market place.
+@eng You see the High road leading to the market place.
+@rus Вы видите главную дорогу, ведущую на рыночную площадь.
 ~
 ~
 Z -1 3067
 D1
-You see the dark alley.
+@eng You see the dark alley.
+@rus Вы видите темную аллею.
 ~
 ~
 Z -1 3026
 D2
-You see the city dump.
+@eng You see the city dump.
+@rus Вы видите городскую свалку.
 ~
 ~
 Z -1 3030
 D3
-You see the poor alley.
+@eng You see the poor alley.
+@rus Вы видите переулок бедняков.
 ~
 ~
 Z -1 3024
 S
 #3026
 @eng The Dark Alley@rus Темный переулок~
-The dark alley, to the west is the common square and to the south is the
+@eng The dark alley, to the west is the common square and to the south is the
 Guild of Thieves.  Grebe's Tavern, the famous sailor's dive, is north.
 The alley continues east.
+@rus Темный переулок, на западе(west) - Общая площадь, а на юге(south) - Гильдия 
+(guild) воров. Таверна Греба, знаменитый притон моряков, находится на
+севере(north). Переулок заканчивается на востоке(east).
 ~
 0 S city
 E
 guild~
-It is the thieves guild, don't enter if you care about your health or money.
+@eng It is the thieves guild, don't enter if you care about your health or money.
+@rus Это гильдия воров, не входи сюда, если хочешь сохранить в целости свое здоровье и деньги.
 ~
 D0
-You see a foul-smelling sailor's dive.
+@eng You see a foul-smelling sailor's dive.
+@rus Вы видите противно пахнущий притон моряков.
 ~
 ~
 Z -1 3352
 D1
-The alley continues east.
+@eng The alley continues east.
+@rus Переулок заканчивается на востоке(east).
 ~
 ~
 Z -1 3045
 D2
-You see the entrance to the thieves guild.
+@eng You see the entrance to the thieves guild.
+@rus Вы видите вход в гильдию воров.
 ~
 ~
 Z -1 3027
 D3
-You see the common square.
+@eng You see the common square.
+@rus Вы видите общую площадь.
 ~
 ~
 Z -1 3025
@@ -5445,8 +5488,10 @@ Z -1 7030
 S
 #3031
 @eng The Pet Shop@rus Зоомагазин~
-The Pet Shop is a small crowded store, full of cages and animals of
+@eng The Pet Shop is a small crowded store, full of cages and animals of
 various sorts and sizes.  There is a sign on the wall.
+@rus Зоомагазин - это маленькая, тесная лавка, полная клетками и животными разных
+размеров и форм. Здесь прибита к стене записка(sign).
 ~
 0 DMS inside
 E
@@ -5465,15 +5510,18 @@ The sign reads:
    The Shopkeeper
 ~
 D2
-You see the Alley.
+@eng You see the Alley.
+@rus Вы видите переулок.
 ~
 ~
 Z -1 3045
 S
 #3032
 Pet Shop Store~
-This is the small dark room in which the Pet Shop Boy keeps his pets.
+@eng This is the small dark room in which the Pet Shop Boy keeps his pets.
 It is vital that this room be immediately after the pet shop.
+@rus Это маленькая темная комнатка, в которой продавец животных держит своих
+зверей. Эта комната находится непосредственно за зоомагазином.
 ~
 0 CDNSX inside
 S
@@ -5793,56 +5841,71 @@ Z -1 3043
 S
 #3045
 @eng Alley at Levee@rus Возле набережной~
-You are standing in the alley which continues east and west.  South of
+@eng You are standing in the alley which continues east and west.  South of
 here you see the levee.  North is the Pet Shop.
+@rus Вы стоите на переулке, который заканчивается на западе(west) и востоке(easat)
+отсюда. На юге(south) вы видите набережную. На севере(north) расположен
+зоомагазин.
 ~
 0 S city
 D0
-You see, hear, and smell the pet shop.
+@eng You see, hear, and smell the pet shop.
+@rus Вы видите, слышите и обоняете зоомагазин.
 ~
 ~
 Z 0 3031
 D1
-The alley leads east.
+@eng The alley leads east.
+@rus Переулок уходит на восток.
 ~
 ~
 Z -1 3046
 D2
-You see the levee.
+@eng You see the levee.
+@rus Вы видите набережную.
 ~
 ~
 Z -1 3049
 D3
-The alley leads west.
+@eng The alley leads west.
+@rus Переулок уходит на запад.
 ~
 ~
 Z -1 3026
 S
 #3046
 @eng Eastern end of Alley@rus Восточная окраина переулка~
-You are standing at the eastern end of the alley,  near the city walls.  
+@eng You are standing at the eastern end of the alley,  near the city walls.  
 Wall road loops around the city to your east, and you can see an old 
 three-story warehouse to the south.  The Fountain of Youth Apothecary is 
 north.
+@rus Вы стоите в восточной части переулка, ближней к городской стене. Дорога вдоль
+городской стены делает круг вокруг города на западе(east) отсюда, и вы можете
+видеть старый трехэтажный склад на юге(south). Аптека "Источник молодости" 
+расположен на севере(north).
 ~
 0 S city
 D0
-You see a pricey-looking potion shop.
+@eng You see a pricey-looking potion shop.
+@rus Вы видите магазин микстур.
 ~
 ~
 Z 0 3056
 D1
-You see wall road, running a north-south loop around the city.
+@eng You see wall road, running a north-south loop around the city.
+@rus Вы видите дорогу вокруг городской стены, идущая с севера на юг вокруг города.
 ~
 ~
 Z -1 3251
 D2
-You see the warehouse.
+@eng You see the warehouse.
+@rus Вы видите склад.
 ~
 ~
 Z -1 3050
 D3
-You see the alley.
+@eng You see the alley.
+@rus Вы видите переулок.
 ~
 ~
 Z -1 3045
@@ -5895,39 +5958,50 @@ ABZ -1 3062
 S
 #3049
 @eng Levee@rus Набережная~
-You are at the levee.  South of here you see the river gently flowing west.
+@eng You are at the levee.  South of here you see the river gently flowing west.
 The river bank is very low making it possible to enter the river.  Directly
 across the river you can see a small boat landing built off of Kate's Diner.
+@rus Вы находитесь на набережной. На юге(south) отсюда вы видите реку, медленно 
+протекающую на запад(west). Берег реки очень пологий, что делает возможным
+спуск к реке. На противоположном берегу вы можете увидеть маленькую лодку, на
+которой расположен ресторанчик Катти.
 ~
 0 S city
 D0
-You see the Alley.
+@eng You see the Alley.
+@rus Вы видите переулок.
 ~
 ~
 Z -1 3045
 D2
-You see the river flowing west.
+@eng You see the river flowing west.
+@rus Вы видите реку, протекающую на запад.
 ~
 ~
 Z -1 3203
 S
 #3050
 @eng Abandoned Warehouse@rus Заброшенный склад~
-You are inside the only room in the old warehouse.  The place is very dusty
+@eng You are inside the only room in the old warehouse.  The place is very dusty
 and appears to have been unused for many years.  The skylight spills
 violet-tinged light.
+@rus Вы находитесь внутри единственной комнаты старого склада. Это место очень 
+пыльное и давно не используемое. Сверху падает светло-фиолетовых свет.
 ~
 0 DS inside
 D0
-You see the alley.
+@eng You see the alley.
+@rus Вы видите переулок.
 ~
 ~
 Z -1 3046
 D4
-You see machine dreams and taste violet phosphor.
+@eng You see machine dreams and taste violet phosphor.
+@rus Вы видите машину снов и фиолетовый фосфорный свет.
 ~
 ~
 Z 0 8604
+M 150 H 100
 S
 #3051
 @eng On the Bridge@rus Мост~
@@ -6105,13 +6179,16 @@ M 150 H 150
 S
 #3056
 @eng The Fountain of Youth Apothecary@rus Аптека "Источник молодости"~
-An old man putters around behind the counter, making strange love potions
+@eng An old man putters around behind the counter, making strange love potions
 and curative philtres.  He turns as you enter, and looks on with avarice.
 Judging from the furnishings, he's been made very wealthy by his trade.
+@rus Старый человек стоит позади прилавка, изготовляя странные любовные напитки и 
+приворотные зелья. Он поворачивается к вам и смотрит на вас с жадностью. Он
 ~
 0 S inside
 D2
-You see the eastern end of alley.
+@eng You see the eastern end of alley.
+@rus Вы видите западную часть переулка.
 ~
 ~
 Z -1 3046
@@ -6219,67 +6296,86 @@ Z -1 3063
 S
 #3065
 @eng High Road@rus Главная дорога~
-You are at the norhtern part of the High Road, closer to the Market Square.
+@eng You are at the norhtern part of the High Road, closer to the Market Square.
 The large square is cleary seen no the north, while much quite part of 
 the town lies to the south.  To the east is the Butchers', where the
 smell of meat can even be felt from the place you are standing.
+@rus Вы находитесь в северной части главной дороги, завершающей рыночную площадь.
+Большая площадь прекрасно видна на севере(north), хотя очень большая часть 
+города находится на юге(south). На востоке(east) расположен мясной магазин,
+запах мяса из которого заставляет вас свернуть в это место.
 ~
 0 S city
 D0
-You see the large square.
+@eng You see the large square.
+@rus Вы видите большую площадь.
 ~
 ~
 Z -1 3014
 D1
-A wooden door leads to the Butcher's shop.
+@eng A wooden door leads to the Butcher's shop.
+@rus Деревянная дверь ведет в мясной магазин.
 ~
 ~
 Z -1 3066
 D2
-The road continues to the south.
+@eng The road continues to the south.
+@rus Дорога заканчивается на юге.
 ~
 ~
 Z -1 3067
 S
 #3066
 @eng Butcher Shop@rus Мясной магазин~
-This store is filled with the aroma of roasting meats, thankfully over-
+@eng This store is filled with the aroma of roasting meats, thankfully over-
 powering the smell of the raw meat hanging behind the counter.  Here you can
 pick up an assortment of raw meats to cook at home or some of the butcher's
 famous beef jerky, dried out back in the sun, or one of his cooked 
 selections. The High Road lies to the west.
+@rus Эта лавка наполнена ароматом жаренного мяса и неперебиваемого ничем запах  
+сырого мяса, подвешенного позади прилавка. Здесь вы можете выбрать из
+ассортимента сырое мясо, приготовленное здесь же, либо кусок говядины, высохший
+на солнце. Главная дорога пролегает на западе(west) отсюда.
 ~
 0 DS inside
 D3
-You see the High Road.
+@eng You see the High Road.
+@rus Вы видите главную дорогу.
 ~
 ~
 Z -1 3065
 S
 #3067
 @eng High Road@rus Главная дорога~
-You are at the southern part of the road, closer to the Common Square.
+@eng You are at the southern part of the road, closer to the Common Square.
 This part is rather less active than the north part of the city.  To the 
 west is a building with a sigh hanging over it's door. The road continues 
 to north, and Common Square is to the south.
+@rus Вы находитесь в южной части дороги, заканчивающейся на Общей площади. Эта
+часть города является менее оживленной, чем северная. На западе(west) отсюда
+находится здание с вывеской(sign), подвешенной над дверью. Дорога проходит 
+далее на север(north), а на юге(south) расположена Общая площадь.
 ~
 0 S city
 E
 sign~
-The sign reads: General Store
+@eng The sign reads: General Store
+@rus Вывеска гласит: Центральный склад.
 ~
 D0
-The road continues.
+@eng The road continues.
+@rus Дорога заканчивается.
 ~
 ~
 Z -1 3065
 D2
-You see the Common Square.
+@eng You see the Common Square.
+@rus Вы видите Общую площадь.
 ~
 ~
 Z -1 3025
 D3
-The sign reads: General Store
+@eng The sign reads: General Store
 ~
 ~
 Z -1 3010
@@ -8251,29 +8347,38 @@ Z -1 3302
 S
 #3352
 @eng Grebe's Tavern@rus Таверна Греба~
-Dive.  That's all you can say about this place; its a
+@eng Dive.  That's all you can say about this place; its a
 dive.  You step carefully over the dead and/or drunk sailors
 on the floor toward the center of the room.  There's no
 decorations on the wall; they've all been ripped down in anger
 or for use as weapons at one time or another.  Looking around,
 you search vainly for a clean table to sit at, and then give up.
+@rus Притон. Все вокруг вас в этом месте как бы говорит: это притон. Вы ступаете
+осторожно по мертвым и/или пьяным матросам на полу, направляясь в центр 
+комнаты. Тут нет украшений на стенах(wall); все они были сорванны когда-то в
+гневе. Оглядываясь вокруг, вы тщетно ищете чистый стол(table), чтобы присесть,
+и, не найдя такового, отказываетесь от своего намерения.
 ~
 0 DS inside
 E
 table tables~
-You find a table that's relatively vomit-free.
+@eng You find a table that's relatively vomit-free.
+@rus Вы находите стол, относительно свободный от блевотины.
 ~
 E
 wall walls~
-Bare, except for the holes.
+@eng Bare, except for the holes.
+@rus Голые, все в дырах.
 ~
 D1
-You see the enterance to the guild of warlocks..
+@eng You see the enterance to the guild of warlocks..
+@rus Вы видите вход в гильдию варлоков.
 ~
 ~
 Z -1 3073
 D2
-A dark alley is to the south.
+@eng A dark alley is to the south.
+@rus Темный переулок на юге отсюда.
 ~
 ~
 Z 0 3026

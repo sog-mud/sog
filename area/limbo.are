@@ -699,8 +699,8 @@ potion G AO
 0 10 0 P
 G none
 #44
-potion golden~
-a golden potion~
+potion golden зелье золотое~
+@eng a golden potion@rus золотое зелье~
 @eng A golden vial shines on the ground.@rus Золотистая (golden) бутылочка сверкает в грязи.~
 glass~
 potion G AO
@@ -825,14 +825,14 @@ tattoo ATUY AR
 0 0 0 P
 G none
 #62
-tattoo goktengri~
-tattoo of goktengri, God of Honor~
-A tattoo flying in the air.~
+tattoo goktengri татуировка гоктенгри~
+@eng tattoo of goktengri, God of Honor@rus татуировка Гоктенгри, бога чести~
+@eng A tattoo flying in the air.@rus Татуировка (tattoo) летает по воздуху.~
 energy~
 tattoo ATUY AR
 0 0 -1 0 0
 0 0 0 P
-G none
+G female
 #63
 tattoo hera~
 tattoo of hera, god of hate~
@@ -870,9 +870,9 @@ tattoo ATUY AR
 0 0 0 P
 G none
 #67
-tattoo eros~
-tattoo of eros, god of love~
-A tattoo flying in the air.~
+tattoo eros татуировка эрос~
+@eng tattoo of eros, god of love@rus татуировка Эроса, бога любви~
+@eng A tattoo flying in the air.@rus Татуировка Эроса (tattoo) летает по воздуху.~
 energy~
 tattoo ATUY AR
 0 0 -1 0 0

@@ -596,9 +596,9 @@ container S 0
 20 1 200 P
 G none
 #15724
-collar~
-a spiked collar~
-A spiked dog collar lies here.~
+collar обруч~
+@eng a spiked collar@rus ~~обруч~~ с шипами~
+@eng A spiked dog collar lies here.@rus Обруч с шипами (collar) лежит здесь.~
 copper~
 armor 0 AC
 6 6 6 0 0
@@ -607,7 +607,7 @@ A
 18 2
 A
 19 2
-G none
+G male
 #15725
 assassin robes~
 the robes of an assassin~

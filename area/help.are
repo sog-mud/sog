@@ -3698,6 +3698,7 @@ Syntax: alist msgdb substr
 Syntax: alist object <all | name | item_type>
 Syntax: alist mobile <all | name>
 Syntax: alist room
+Syntax: alist {{ implicit | explicit } {{ cases | genders | qtys }
  
 From OLC editor you can use shortened version of this command ({Clist{x) with
 the same args.
@@ -3749,7 +3750,8 @@ Syntax: create clan name
 Syntax: create msg message
 Syntax: create social name
 Syntax: create lang name
-Syntax: create form {{ case | gender } name
+Syntax: create explicit {{ case | gender | qty } name
+Syntax: create implicit {{ case | gender | qty } number name
  
 ~
 0 'OLC EDIT'~
@@ -3763,7 +3765,8 @@ Syntax: edit clan name
 Syntax: edit msg substr
 Syntax: edit social name
 Syntax: edit lang name
-Syntax: edit form {{ case | gender } name
+Syntax: edit implicit {{ case | gender | qty } num
+Syntax: edit explicit {{ case | gender | qty } name
  
 ~
 0 'OLC ASHOW'~
@@ -3774,6 +3777,8 @@ Syntax: ashow object [vnum]
 Syntax: ashow help [[num.]keyword]
 Syntax: ashow clan [name]
 Syntax: ashow msg [msg]
+Syntax: ashow implicit {{ case | gender | qty } num
+Syntax: ashow explicit {{ case | gender | qty } name
  
 The defaults are:
 - currently edited area, the area the char is in (in that order)

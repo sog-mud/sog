@@ -156,7 +156,7 @@ Use 'desc edit' to edit your description.
 @eng $N {xis resting at $p.@rus $N {xотдыхает за $c3{$p}.~
 @eng $n's $U $u you.@rus $U $c1{$n} $u тебя.~
 @eng $n sacrifices $p to gods.@rus $n приносит $c3{$p} в жертву богам.~
-@eng $n has created $N!@rus $n $gn{создал} $c3{$N}!~
+@eng $n has created $N!@rus $n $gn{создал} $c6{$N}!~
 @eng There are $J gold and $j $qj{silver coins} in the pile.@rus Ты $gn{насчитал} $J $c3{$qJ{золотых}} и $j $c3{$qj{серебряных монет}}.~
 @eng $n wears $p around $s neck.@rus $n надевает $c3{$p} на шею.~
 @eng $n drops some coins.@rus $n выбрасывает несколько монет.~
@@ -183,7 +183,7 @@ Use 'desc edit' to edit your description.
 @eng You can't sit while being ridden.
 @rus Ты не можешь сесть оседланным.
 ~
-@eng $p strikes $n!@rus $p попадает в $c3{$n}!~
+@eng $p strikes $n!@rus $p попадает в $c6{$n}!~
 @eng $n buys $P.@rus $n покупает $c3{$P}.~
 @eng $N dodges your attack.@rus $N $gN{уклонился} от твоей атаки.~
 @eng You are already riding.
@@ -200,7 +200,7 @@ Use 'desc edit' to edit your description.
 @eng $n wears $p around $s right wrist.@rus $n надевает $p на правое запястье.~
 @eng $n pushes $N to %s.@rus $n выталкивает $N на %s.~
 @eng for {c%d{x hours.@rus на {c%d{x часов.~
-@eng Your $p strikes $N!@rus $gp{Твой} $p попадает в $c3{$N}!~
+@eng Your $p strikes $N!@rus $gp{Твой} $p попадает в $c6{$N}!~
 @eng You recall from combat! You lose %d exps.
 @rus Боги вернули тебя домой из битвы! Ты теряешь %d очков опыта.
 ~
@@ -257,7 +257,7 @@ Use 'desc edit' to edit your description.
 @eng $p feels like a part of you!@rus $p выглядит частью тебя!~
 @eng scatter on the dirt.~
 @eng gold@rus золотые~
-@eng Your $U $u $N.@rus Твой $U $u $c3{$N}.~
+@eng Your $U $u $N.@rus Твой $U $u $c6{$N}.~
 @eng You wear $p on your arms.@rus Ты надеваешь $p на плечи.~
 @eng You can't sneak while mounted.
 @rus Ты не можешь красться верхом.
@@ -781,7 +781,7 @@ Get back to questor before your time runs out!
 @eng $N{x$t {xis here.@rus $N{x$t {xздесь.~
 @eng You tell $N '{G$t{x'@rus Ты говоришь $c2{$N}: "{G$t{x"~
 @eng You buy $P for $j silver.@rus Ты покупаешь $c3{$P} за $j $c3{$qj{серебряных}}.~
-@eng $n looks at $N.@rus $n смотрит на $c3{$N}.~
+@eng $n looks at $N.@rus $n смотрит на $c6{$N}.~
 @eng You are too dazed to push anyone.
 @rus Ты слишком удивлен, чтобы толкаться.
 ~
@@ -891,7 +891,7 @@ Get back to questor before your time runs out!
 @eng cordial@rus ликер~
 @eng You wake and stand in $p.@rus Ты просыпаешься и встаешь в $c3{$p}.~
 @eng You don't even know which end is up on $p.@rus Ты даже не знаешь с какой стороны нужно браться за $p.~
-@eng $n's $p strikes $N!@rus $p $c1{$n} попадает в $c3{$N}!~
+@eng $n's $p strikes $N!@rus $p $c1{$n} попадает в $c6{$N}!~
 @eng $N smiles happily.@rus $N улыбается.~
 @eng You feel too bloody to go in there now.@rus Ты чувствуешь, что $gn{способен} осквернить это место еще свежей кровью на твоих руках.~
 @eng You are already sleeping.
@@ -1338,7 +1338,7 @@ Get back to questor before your time runs out!
 @eng This beast is already ridden.
 @rus Этот зверь уже оседлан.
 ~
-@eng $n's $U $u $N.@rus $U $c1{$n} $u $c3{$N}.~
+@eng $n's $U $u $N.@rus $U $c1{$n} $u $c6{$N}.~
 @eng $n bashes the $d and breaks the lock.@rus $n ударяется с разбегу в $d и выбивает замок.~
 @eng $n spills $s guts all over the floor.@rus Внутренности $c1{$n} вывалились из распоротого живота наружу!~
 @eng $N {xis sitting at $p.@rus $N {xсидит за $c4{$p}.~

@@ -1455,9 +1455,9 @@ A
 3 -1
 G none
 #17334
-helm wolf helmet~
-a wolf helm~
-A helm with the semblance of a wolf is here.~
+helm wolf helmet шлем волчий~
+@eng a wolf helm@rus волчий шлем~
+@eng A helm with the semblance of a wolf is here.@rus Шлем в виде волка (helm) сдесь.~
 iron~
 armor G AE
 9 9 9 9 0
@@ -1466,7 +1466,7 @@ A
 18 3
 A
 19 3
-G none
+G male
 #17335
 armor shimmering red~
 a suit of shimmering red armor~

@@ -2803,23 +2803,23 @@ ADE ADE 0 0 0
 1 5 0 P
 G none
 #16057
-red moss~
-Red moss~
-Some red moss lies on the ground~
+moss red мох красный~
+@eng Red moss@rus красный мох~
+@eng Some red moss lies on the ground@rus Немного красного мха (moss) лежит на земле.~
 food~
 pill I A
 12 'cure critical' 'cure critical' 'giant strength' ''
 5 2 100 P
-G none
+G male
 #16058
-dirty root~
-a dirty root~
-A dirty root lies on the ground.~
+root dirty грязный корень~
+@eng a dirty root@rus грязный корень~
+@eng A dirty root lies on the ground.@rus Грязный корень (root) лежит на земле.~
 food~
 pill I A
 15 'armor' 'shield' 'stone skin' ''
 5 1 100 P
-G none
+G male
 #16059
 scroll reveal~
 Scroll of reveal~
@@ -2839,9 +2839,9 @@ wand A AO
 20 2 100 P
 G none
 #16061
-potion detection~
-Potion of detection~
-A potion of detection waits to be used~
+potion detection зелье обнаружения~
+@eng Potion of detection@rus зелье обнаружения~
+@eng A potion of detection waits to be used@rus Зелье обнаружения (potion) здесь.~
 glass~
 potion 0 A
 15 'detect invis' 'detect magic' 'detect poison' 'detect evil'
@@ -3279,9 +3279,9 @@ money A A
 1 1 1000 P
 G none
 #16093
-gold pile merchants~
-merchant's gold~
-Merchant's gold sits here in a pile~
+gold pile merchants золото купца~
+@eng merchant's gold@rus купеческое золото~
+@eng Merchant's gold sits here in a pile@rus Куча золота (gold) лежит на земле.~
 gold~
 money 0 A
 0 0 0 0 0

@@ -152,10 +152,11 @@ E
 axe toy~
 A small label says 'made in Taiwan'.
 ~
+G none
 #6601
-ring pink ice~
-a pink ice ring~
-A pink ice ring draws your eye.~
+ring pink ice кольцо розовое ледяное~
+@eng a pink ice ring@rus розовое ледяное кольцо~
+@eng A pink ice ring draws your eye.@rus Розовое ледяное кольцо (ring) привлекает ваш взгляд.~
 ice~
 treasure G AB
 0 0 0 0 0
@@ -169,6 +170,7 @@ ring pink ice~
 How strange...it's made of ice, but it doesn't melt. It feels pleasantly 
 cool to the touch.
 ~
+G none
 #6621
 robe linen~
 a linen robe~
@@ -185,6 +187,7 @@ E
 robe linen~
 It radiates an aura of peace and wisdom.  The perfect garb for a teacher.
 ~
+G none
 #6622
 broom~
 a broom~
@@ -201,6 +204,7 @@ E
 broom~
 It's worn and tired, probably from swatting too many children.
 ~
+G none
 #6644
 meat steak~
 a juicy steak~
@@ -209,6 +213,7 @@ meat~
 food 0 A
 ADE ADE 0 0 0
 0 20 0 P
+G none
 #6645
 steak rotten~
 a rotten steak~
@@ -217,6 +222,7 @@ meat~
 food 0 A
 C C 0 A 0
 0 20 0 W
+G none
 #6646
 potion amber~
 an amber potion~
@@ -230,6 +236,7 @@ potion~
 It's a tight-stoppered glass bottle with a thick amber liquid inside. It
 tastes kind of like whiskey.
 ~
+G none
 #6647
 gun toy~
 a toy gun~
@@ -245,6 +252,7 @@ gun toy~
 It's just a toy...but the point looks kind of sharp.
 You'll put your eye out, kid!
 ~
+G none
 #0
 
 #ROOMS
