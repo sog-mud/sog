@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.h,v 1.18.2.1 1999-12-16 12:39:50 fjoe Exp $
+ * $Id: class.h,v 1.18.2.2 2000-04-03 06:45:04 fjoe Exp $
  */
 
 #ifndef _CLASS_H_
@@ -58,7 +58,6 @@ struct class_t {
 	flag32_t	restrict_sex;		/* sex restrictions */
 	flag32_t	restrict_ethos;		/* ethos restrictions */
 	varr		skills;			/* varr of class skills */
-	const char *	titles[MAX_LEVEL+1][2];	/* titles */
 	varr		poses;			/* varr of class poses */
 	int		death_limit;		/* death limit */
 };
@@ -86,7 +85,6 @@ const char *	class_name(CHAR_DATA *ch);
 const char *	class_who_name(CHAR_DATA *ch);
 
 int		cn_lookup(const char *name);
-const char *	title_lookup(CHAR_DATA *ch);
 
 #endif
 

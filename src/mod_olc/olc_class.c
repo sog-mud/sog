@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.4.2.2 2000-03-31 13:56:53 fjoe Exp $
+ * $Id: olc_class.c,v 1.4.2.3 2000-04-03 06:45:06 fjoe Exp $
  */
 
 #include "olc.h"
@@ -41,7 +41,6 @@ DECLARE_OLC_FUN(classed_list		);
 DECLARE_OLC_FUN(classed_name		);
 DECLARE_OLC_FUN(classed_filename	);
 DECLARE_OLC_FUN(classed_whoname		);
-DECLARE_OLC_FUN(classed_titles		);
 DECLARE_OLC_FUN(classed_primary		);
 DECLARE_OLC_FUN(classed_weapon		);
 DECLARE_OLC_FUN(classed_adept		);
@@ -92,7 +91,6 @@ olc_cmd_t olc_cmds_class[] =
 	{ "ethos",	classed_ethos,		ethos_table		},
 	{ "sex",	classed_sex,		sex_table		},
 	{ "stats",	classed_stats					},
-	{ "titles",	classed_titles					},
 	{ "poses",	classed_poses					},
 	{ "skills",	classed_skills					},
 	{ "guilds",	classed_guilds					},
@@ -316,51 +314,6 @@ OLC_FUN(classed_whoname)
 		}
 	free_string(str);
 	return FALSE;
-}
-
-OLC_FUN(classed_titles)
-{
-	class_t *class;
-	char arg[MAX_STRING_LENGTH];
-	int lev;
-	char *endptr;
-	const flag_t *sex;
-
-	EDIT_CLASS(ch, class);
-
-	if (argument[0] == '\0') {
-		int i;
-		BUFFER	*buffer;
-
-		buffer = buf_new(-1);
-		for (i = 0; i < MAX_LEVEL + 1; i++)
-			buf_printf(buffer, "[%3d] %-30.29s %-30.29s\n",
-				   i, class->titles[i][0], class->titles[i][1]);
-		page_to_char(buf_string(buffer), ch);
-		buf_free(buffer);
-		return FALSE;
-	}
-	argument = one_argument(argument, arg, sizeof(arg));
-	if (*arg == '\0') {
-		char_puts("Syntax: titles level <male|female> title\n", ch);
-		return FALSE;
-	}
-	lev = strtol(arg, &endptr, 0);
-	if (*arg == '\0' || *endptr != '\0' || lev < 0 || lev > MAX_LEVEL) {
-		char_puts("Syntax: titles level <male|female> title\n", ch);
-		return FALSE;
-	}
-	argument = one_argument(argument, arg, sizeof(arg));
-	if ((sex = flag_lookup(sex_table, arg)) == NULL
-	|| (sex->bit != SEX_MALE && sex->bit != SEX_FEMALE)) {
-		char_puts("Syntax: titles level <male|female> title\n", ch);
-		return FALSE;
-	}
-	if (class->titles[lev][sex->bit - SEX_MALE])
-		free_string(class->titles[lev][sex->bit - SEX_MALE]);
-	class->titles[lev][sex->bit - SEX_MALE] = str_dup(argument);
-	char_puts("Ok.\n", ch);
-	return TRUE;
 }
 
 OLC_FUN(classed_primary		)
@@ -837,17 +790,6 @@ static void save_class(CHAR_DATA *ch, class_t *class)
 		if ((sk = skill_lookup(csk->sn)) == NULL) continue;
 		fprintf(fp, "Skill '%s' %d %d %d\n", skill_name(csk->sn),
 			csk->level, csk->rating, csk->mod);
-	}
-	for (i = 0; i < MAX_LEVEL + 1; i++) {
-		const char *p;
-
-		p = PROC_STR(class->titles[i][0]);
-		if (!IS_NULLSTR(p))
-			fprintf(fp, "Title %d male %s~\n", i, p);
-
-		p = PROC_STR(class->titles[i][1]);
-		if (!IS_NULLSTR(p))
-			fprintf(fp, "Title %d female %s~\n", i, p);
 	}
 	fprintf(fp, "End\n\n");
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.20.2.2 2000-03-31 13:57:04 fjoe Exp $
+ * $Id: db_class.c,v 1.20.2.3 2000-04-03 06:45:08 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -57,9 +57,6 @@ DBLOAD_FUN(load_class)
 	class_t *class = class_new();
 	class->file_name = get_filename(filename);
 	db_set_arg(dbdata, "POSE", class);
-
-	for (i = 0; i < MAX_LEVEL+1; i++)
-		class->titles[i][0] = class->titles[i][1] = str_empty;
 
 	for (;;) {
 		char *word = feof(fp) ? "End" : fread_word(fp);
@@ -148,11 +145,6 @@ DBLOAD_FUN(load_class)
 		case 'T':
 			KEY("Thac0_00", class->thac0_00, fread_number(fp));
 			KEY("Thac0_32", class->thac0_32, fread_number(fp));
-			if (!str_cmp(word, "Title")) {
-				fread_to_eol(fp);
-				SET_BIT(class->class_flags, CLASS_CHANGED);
-				fMatch = TRUE;
-			}
 			break;
 		}
 

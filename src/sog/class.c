@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.16.2.1 1999-12-16 12:40:01 fjoe Exp $
+ * $Id: class.c,v 1.16.2.2 2000-04-03 06:45:07 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -160,13 +160,3 @@ bool clan_ok(CHAR_DATA *ch, int sn)
 	return TRUE;
 }
 
-const char *title_lookup(CHAR_DATA *ch)
-{
-	class_t *class;
-
-	if ((class = class_lookup(ch->class)) == NULL
-	||  (ch->level < 0 || ch->level > MAX_LEVEL))
-		return str_empty;
-
-	return class->titles[ch->level][URANGE(1, ch->sex, 2)-1];
-}
