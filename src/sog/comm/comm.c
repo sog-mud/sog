@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.143 1999-02-21 19:19:27 fjoe Exp $
+ * $Id: comm.c,v 1.144 1999-02-22 09:47:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -204,7 +204,9 @@ void	init_descriptor		(int control);
 void	close_descriptor	(DESCRIPTOR_DATA *d);
 bool	read_from_descriptor	(DESCRIPTOR_DATA *d);
 bool	write_to_descriptor	(int desc, char *txt, uint length);
+#if !defined(WIN32)
 void	resolv_done		(void);
+#endif
 
 /*
  * Other local functions (OS-independent).
@@ -554,12 +556,12 @@ void game_loop_unix(int control, int infofd)
 				d->fcommand = TRUE;
 				stop_idling(d->character);
 
-				if (d->showstr_point != NULL)
+				if (d->showstr_point)
 					show_string(d, d->incomm);
-				else if (d->pString != NULL)
+				else if (d->pString)
 					string_add(d->character, d->incomm);
 				else if (d->connected == CON_PLAYING) {
-					if (!run_olc_editor(d))
+					if (!d->editor || !run_olc_editor(d))
 			    			substitute_alias(d, d->incomm);
 				}
 				else
@@ -809,9 +811,6 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 	int iOld;
 	int iStart;
 	unsigned char *p, *q;
-#if 0
-	static int cm_stage = 1;
-#endif
 
 	/* 
 	 * Hold horses if pending command already
@@ -910,13 +909,7 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 				break;
 		}
 	} 
-/* I don't know, why this code exist :) */
-/*
-#ifdef 0
-	else 
-	    cm_stage=0;
-#endif
-*/
+
 	return TRUE;
 }
 
@@ -2736,45 +2729,44 @@ int ethos_check(CHAR_DATA *ch)
 	return 0;
 }
 
+#if !defined (WIN32)
 void resolv_done()
 {
-#if !defined (WIN32)
 	char *host;
 	char buf[MAX_STRING_LENGTH];
 	char *p;
 	DESCRIPTOR_DATA *d;
 
-	if (fgets(buf, sizeof(buf), rfin) == NULL)
-		return;
-
-	if ((p = strchr(buf, '\n')) == NULL) {
-		log_printf("rfin: line too long, skipping to '\\n'");
-		while(fgetc(rfin) != '\n')
-			;
-		return;
-	}
-	*p = '\0';
-
-	if ((host = strchr(buf, '@')) == NULL)
-		return;
-	*host++ = '\0';
-
-	log_printf("resolv_done: %s@%s", buf, host);
-
-	for (d = descriptor_list; d; d = d->next) {
-		if (d->host
-		||  d->character == NULL
-		||  str_cmp(buf, d->character->name))
+	log_printf("resolv_done: in");
+	while (fgets(buf, sizeof(buf), rfin)) {
+		if ((p = strchr(buf, '\n')) == NULL) {
+			log_printf("rfin: line too long, skipping to '\\n'");
+			while(fgetc(rfin) != '\n')
+				;
 			continue;
-		d->host = str_dup(host);
-		return;
+		}
+		*p = '\0';
+
+		if ((host = strchr(buf, '@')) == NULL)
+			continue;
+		*host++ = '\0';
+
+		log_printf("resolv_done: %s@%s", buf, host);
+
+		for (d = descriptor_list; d; d = d->next) {
+			if (d->host
+			||  d->character == NULL
+			||  str_cmp(buf, d->character->name))
+				continue;
+			d->host = str_dup(host);
+		}
 	}
-#endif
+	log_printf("resolv_done: out");
 }
+#endif
 
 /* Windows 95 and Windows NT support functions (copied from Envy) */
 #if defined (WIN32)
-
 void gettimeofday (struct timeval *tp, void *tzp)
 {
     tp->tv_sec  = time( NULL );

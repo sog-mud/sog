@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: resolver.c,v 1.9 1998-11-23 07:37:48 fjoe Exp $
+ * $Id: resolver.c,v 1.10 1999-02-22 09:47:30 fjoe Exp $
  */
 
 #if !defined (WIN32)
@@ -39,6 +39,7 @@
 #include <string.h>
 #include <signal.h>
 #include <errno.h>
+#include <fcntl.h>
 #include "typedef.h"
 #include "log.h"
 #include "resolver.h"
@@ -95,6 +96,8 @@ void resolver_init(void)
 
 	setvbuf(rfin, NULL, _IOLBF, 0);
 	setvbuf(rfout, NULL, _IOLBF, 0);
+
+	fcntl(fileno(rfin), F_SETFL, O_NONBLOCK);
 }
 
 void resolver_done(void)
