@@ -2,12 +2,12 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.95 1998-09-29 01:06:33 fjoe Exp $
+ * $Id: resource.h,v 1.96 1998-10-06 13:05:16 fjoe Exp $
  */
 
 #define msg(msgid, ch) vmsg(msgid, ch, ch)
-char* vmsg(int msgid, CHAR_DATA *ch, CHAR_DATA *victim);
-void msgdb_load();
+const char *	vmsg		(int msgid, CHAR_DATA *ch, CHAR_DATA *victim);
+void		msgdb_load	(void);
 
 enum {
 	MSG_YOU_TOO_EXHAUSTED,
