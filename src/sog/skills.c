@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.122 2001-07-30 13:02:07 fjoe Exp $
+ * $Id: skills.c,v 1.123 2001-07-30 13:28:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,25 +54,6 @@
 hash_t skills;
 
 static int get_mob_skill(const CHAR_DATA *ch, skill_t *sk);
-
-int
-exp_for_level(const CHAR_DATA *ch, int level)
-{
-	level -= 1;
-	/*
-	 * Sum 0..n i*(i+1) = (n^3 + 3*n^2 + 2*n) / 3
-	 */
-	return ((level + 3) * level + 2) * level / 3 * 256;
-}
-
-/*
- * assumes !IS_NPC(ch)
- */
-int
-exp_to_level(const CHAR_DATA *ch)
-{
-	return exp_for_level(ch, ch->level+1) - PC(ch)->exp;
-}
 
 /* checks for skill improvement */
 void
@@ -145,7 +126,8 @@ check_improve(CHAR_DATA *ch, const char *sn, bool success, int multiplier)
 /*
  * simply adds sn to ch's known skills (if skill is not already known).
  */
-void _set_skill(CHAR_DATA *ch, const char *sn, int percent, bool replace)
+void
+_set_skill(CHAR_DATA *ch, const char *sn, int percent, bool replace)
 {
 	pc_skill_t *pc_sk;
 
@@ -165,12 +147,14 @@ void _set_skill(CHAR_DATA *ch, const char *sn, int percent, bool replace)
 	varr_qsort(&PC(ch)->learned, cmpstr);
 }
 
-void set_skill(CHAR_DATA *ch, const char *sn, int percent)
+void
+set_skill(CHAR_DATA *ch, const char *sn, int percent)
 {
 	_set_skill(ch, sn, percent, TRUE);
 }
 
-static FOREACH_CB_FUN(apply_sa_cb, p, ap)
+static
+FOREACH_CB_FUN(apply_sa_cb, p, ap)
 {
 	saff_t *sa = (saff_t *) p;
 
@@ -193,7 +177,8 @@ static FOREACH_CB_FUN(apply_sa_cb, p, ap)
 /*
  * apply skill affect modifiers
  */
-int get_skill_mod(const CHAR_DATA *ch, skill_t *sk, int percent)
+int
+get_skill_mod(CHAR_DATA *ch, skill_t *sk, int percent)
 {
 	int mod = 0;
 	varr_foreach(&ch->sk_affected, apply_sa_cb, sk, percent, &mod);
@@ -201,7 +186,8 @@ int get_skill_mod(const CHAR_DATA *ch, skill_t *sk, int percent)
 }
 
 /* for returning skill information */
-int get_skill(const CHAR_DATA *ch, const char *sn)
+int
+get_skill(CHAR_DATA *ch, const char *sn)
 {
 	int percent;
 	skill_t *sk;
@@ -223,8 +209,8 @@ int get_skill(const CHAR_DATA *ch, const char *sn)
 			if ((sp_sk = spec_skill_lookup(fsp, sn)) != NULL)
 				return sp_sk->adept;
 			}
-		if (sk->skill_type == ST_SKILL 
-		&& !IS_SET(sk->skill_flags, SKILL_FORM))
+		if (sk->skill_type == ST_SKILL
+		&&  !IS_SET(sk->skill_flags, SKILL_FORM))
 			return 0;
 
 	}
@@ -259,13 +245,14 @@ int get_skill(const CHAR_DATA *ch, const char *sn)
 }
 
 pc_skill_t *
-pc_skill_lookup(const CHAR_DATA *ch, const char *sn)
+pc_skill_lookup(CHAR_DATA *ch, const char *sn)
 {
 	return (pc_skill_t*) varr_bsearch(&PC(ch)->learned, &sn, cmpstr);
 }
 
 /* for returning weapon information */
-const char* get_weapon_sn(OBJ_DATA *wield)
+const char *
+get_weapon_sn(OBJ_DATA *wield)
 {
 	if (wield == NULL)
 		return "hand to hand";
@@ -277,7 +264,8 @@ const char* get_weapon_sn(OBJ_DATA *wield)
 	return flag_string(weapon_class, INT(wield->value[0]));
 }
 
-int get_weapon_skill(CHAR_DATA *ch, const char *sn)
+int
+get_weapon_skill(CHAR_DATA *ch, const char *sn)
 {
 /* sn == NULL for exotic */
 	if (sn == NULL)
@@ -289,7 +277,8 @@ int get_weapon_skill(CHAR_DATA *ch, const char *sn)
 /*
  * Utter mystical words for an sn.
  */
-void say_spell(CHAR_DATA *ch, const skill_t* spell)
+void
+say_spell(CHAR_DATA *ch, const skill_t* spell)
 {
 	char buf  [MAX_STRING_LENGTH];
 	CHAR_DATA *rch;
@@ -388,7 +377,8 @@ void say_spell(CHAR_DATA *ch, const skill_t* spell)
 /*
  * skill_beats -- return skill beats
  */
-int skill_beats(const char *sn)
+int
+skill_beats(const char *sn)
 {
 	skill_t *sk;
 
@@ -404,7 +394,8 @@ int skill_beats(const char *sn)
 /*
  * skill_mana -- return mana cost based on min_mana and ch->level
  */
-int skill_mana(const CHAR_DATA *ch, const char *sn)
+int
+skill_mana(CHAR_DATA *ch, const char *sn)
 {
 	skill_t *sk;
 
@@ -466,7 +457,8 @@ skills_dump(BUFFER *output, int skill_type)
 /*
  * skill_level -- find min level of the skill for char
  */
-int skill_level(const CHAR_DATA *ch, const char *sn)
+int
+skill_level(CHAR_DATA *ch, const char *sn)
 {
 	spec_skill_t spec_sk;
 
@@ -478,7 +470,8 @@ int skill_level(const CHAR_DATA *ch, const char *sn)
 	return spec_sk.level;
 }
 
-static const FOREACH_CB_FUN(skill_slot_cb, p, ap)
+static const
+FOREACH_CB_FUN(skill_slot_cb, p, ap)
 {
 	skill_t *sk = (skill_t *) p;
 
@@ -493,7 +486,8 @@ static const FOREACH_CB_FUN(skill_slot_cb, p, ap)
  * Lookup a skill by slot number.
  * Used for object loading.
  */
-const char *skill_slot_lookup(int slot)
+const char *
+skill_slot_lookup(int slot)
 {
 	const char *sn;
 
@@ -518,7 +512,8 @@ static varrdata_t v_evf =
 	(e_cpy_t) evf_cpy
 };
 
-void skill_init(skill_t *sk)
+void
+skill_init(skill_t *sk)
 {
 	gmlstr_init(&sk->sk_name);
 	sk->fun_name = str_empty;
@@ -539,7 +534,8 @@ void skill_init(skill_t *sk)
 	varr_init(&sk->events, &v_evf);
 }
 
-skill_t *skill_cpy(skill_t *dst, const skill_t *src)
+skill_t *
+skill_cpy(skill_t *dst, const skill_t *src)
 {
 	gmlstr_cpy(&dst->sk_name, &src->sk_name);
 	dst->fun_name = str_qdup(src->fun_name);
@@ -561,7 +557,8 @@ skill_t *skill_cpy(skill_t *dst, const skill_t *src)
 	return dst;
 }
 
-void skill_destroy(skill_t *sk)
+void
+skill_destroy(skill_t *sk)
 {
 	gmlstr_destroy(&sk->sk_name);
 	free_string(sk->fun_name);
@@ -598,7 +595,8 @@ evf_cpy(evf_t *dst, evf_t *src)
 /*
  *  routine that checks for matching events and calls event function
  */
-void check_one_event(CHAR_DATA *ch, AFFECT_DATA *paf, flag_t event)
+void
+check_one_event(CHAR_DATA *ch, AFFECT_DATA *paf, flag_t event)
 {
 	skill_t *sk;
 	evf_t *evf;
@@ -613,7 +611,8 @@ void check_one_event(CHAR_DATA *ch, AFFECT_DATA *paf, flag_t event)
 		evf->fun(ch, paf);
 }
 
-void check_events(CHAR_DATA *ch, AFFECT_DATA *paf, flag_t event)
+void
+check_events(CHAR_DATA *ch, AFFECT_DATA *paf, flag_t event)
 {
 	AFFECT_DATA *paf_next;
 
@@ -696,7 +695,7 @@ static mob_skill_t mob_skill_tab[] =
 	{ "kick",		mob_kick		},	// notrans
 	{ "critical strike",	mob_critical_strike	},	// notrans
 	{ "deathblow",		mob_deathblow		},	// notrans
-	{ "spellbane", 		mob_spellbane		},	// notrans
+	{ "spellbane",		mob_spellbane		},	// notrans
 	{ "disarm",		mob_disarm		},	// notrans
 	{ "grip",		mob_grip		},	// notrans
 	{ "berserk",		mob_berserk		},	// notrans

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.1 2001-07-29 20:14:29 fjoe Exp $
+ * $Id: sog.h,v 1.2 2001-07-30 13:28:05 fjoe Exp $
  */
 
 #ifndef _HANDLER_H_
@@ -139,6 +139,10 @@ DECLARE_FUN2(CHAR_DATA, get_char_area,
 DECLARE_FUN2(CHAR_DATA, get_char_world,
 	     ARG(CHAR_DATA), ch, ARG(cchar_t), argument)
 
+DECLARE_FUN1(int, exp_to_level,
+	     ARG(CHAR_DATA), ch)
+DECLARE_FUN2(int, exp_for_level,
+	     ARG(CHAR_DATA), ch, ARG(int), level)
 DECLARE_PROC2(gain_exp,
 	      ARG(CHAR_DATA), ch, ARG(int), gain)
 DECLARE_PROC1(advance_level,

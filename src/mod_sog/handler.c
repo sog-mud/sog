@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.298 2001-07-30 13:01:58 fjoe Exp $
+ * $Id: handler.c,v 1.299 2001-07-30 13:28:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1907,6 +1907,32 @@ get_char_world(CHAR_DATA *ch, const char *argument)
 	}
 
 	return NULL;
+}
+
+int
+exp_to_level(CHAR_DATA *ch)
+{
+	if (IS_NPC(ch)) {
+		log(LOG_BUG, "exp_to_level: IS_NPC");
+		return 0;
+	}
+
+	return exp_for_level(ch, ch->level+1) - PC(ch)->exp;
+}
+
+int
+exp_for_level(CHAR_DATA *ch, int level)
+{
+	if (IS_NPC(ch)) {
+		log(LOG_BUG, "exp_for_level: IS_NPC");
+		return 0;
+	}
+
+	level -= 1;
+	/*
+	 * Sum 0..n i*(i+1) = (n^3 + 3*n^2 + 2*n) / 3
+	 */
+	return ((level + 3) * level + 2) * level / 3 * 256;
 }
 
 void

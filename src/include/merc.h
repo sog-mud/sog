@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.336 2001-07-30 13:01:45 fjoe Exp $
+ * $Id: merc.h,v 1.337 2001-07-30 13:28:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1576,7 +1576,7 @@ struct pc_skill_t {
 	int percent;	/* skill percentage			*/
 };
 
-pc_skill_t *pc_skill_lookup(const CHAR_DATA *ch, const char *sn);
+pc_skill_t *pc_skill_lookup(CHAR_DATA *ch, const char *sn);
 
 void pc_skill_init(pc_skill_t *);
 
