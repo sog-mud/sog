@@ -1,5 +1,5 @@
 /*
- * $Id: auction.c,v 1.45.2.2 2000-06-08 18:13:30 fjoe Exp $
+ * $Id: auction.c,v 1.45.2.3 2002-09-01 14:44:46 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -183,21 +183,21 @@ void auction_give_obj(CHAR_DATA* victim)
 	OBJ_DATA *obj = auction.item;
 
 	act("The auctioneer appears before you in a puff of smoke\n"
-	    "and hands you $p.", victim, obj, NULL, TO_CHAR);
+	    "and hands you $p.", victim, obj, NULL, TO_CHAR | ACT_NOCANSEE);
 	act("The auctioneer appears before $n and hands $m $p.",
-	    victim, obj, NULL, TO_ROOM);
+	    victim, obj, NULL, TO_ROOM | ACT_NOCANSEE);
 
 	if ((carry_w = can_carry_w(victim)) >= 0
 	&&  get_carry_weight(victim) + get_obj_weight(obj) > carry_w) {
 		act("$p is too heavy for you to carry.",
-		    victim, obj, NULL, TO_CHAR);
+		    victim, obj, NULL, TO_CHAR | ACT_NOCANSEE);
 		act("$n is carrying too much to carry $p and $e drops it.",
 		    victim, obj, NULL, TO_ROOM);
 		obj_to_room (obj, victim->in_room);
 	} else if ((carry_n = can_carry_n(victim)) >= 0
 	       &&  victim->carry_number + get_obj_number(obj) > carry_n) {
 		act("You can't carry that many items and you drop $p.",
-		    victim, obj, NULL, TO_CHAR);
+		    victim, obj, NULL, TO_CHAR | ACT_NOCANSEE);
 		act("$n is carrying too many items and $e drops $p.",
 		    victim, obj, NULL, TO_ROOM);
 		obj_to_room (obj, victim->in_room);
@@ -224,13 +224,13 @@ void auction_update(void)
 				    auction.item, 
 				    (auction.going == 1) ? "once" : "twice",
 				    (const void*) auction.bet,
-				    ACT_FORMSH, POS_RESTING);
+				    ACT_FORMSH | ACT_NOCANSEE, POS_RESTING);
 	        } else {
 	        	act_auction("$p: going $T, starting price $J gold.",
 				    auction.item, 
 				    (auction.going == 1) ? "once" : "twice",
 				    (const void*) auction.starting,
-				    ACT_FORMSH, POS_RESTING);
+				    ACT_FORMSH | ACT_NOCANSEE, POS_RESTING);
 		}
 	        break;
 
@@ -242,7 +242,7 @@ void auction_update(void)
 	        	act_auction("$p: sold to $N for $J gold.",
 				    auction.item, auction.buyer,
 				    (const void*) auction.bet,
-				    ACT_FORMSH, POS_RESTING);
+				    ACT_FORMSH | ACT_NOCANSEE, POS_RESTING);
 
 			auction_give_obj(auction.buyer);
 
@@ -259,10 +259,10 @@ void auction_update(void)
 			/* not sold */
 	        	act_auction("No bets received for $p.",
 				    auction.item, NULL, NULL,
-				    ACT_FORMSH, POS_RESTING);
+				    ACT_FORMSH | ACT_NOCANSEE, POS_RESTING);
 			act_auction("Object has been removed from auction.",
 				    NULL, NULL, NULL,
-				    ACT_FORMSH, POS_RESTING);
+				    ACT_FORMSH | ACT_NOCANSEE, POS_RESTING);
 			auction_give_obj(auction.seller);
 	        }
         }
