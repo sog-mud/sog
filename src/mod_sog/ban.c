@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.20 1998-10-17 16:20:24 fjoe Exp $
+ * $Id: ban.c,v 1.21 1998-10-23 09:22:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,6 +51,9 @@
 #include "merc.h"
 #include "ban.h"
 #include "db/db.h"
+
+BAN_DATA *	new_ban	(void);
+void		free_ban(BAN_DATA *ban);
 
 struct ban_data
 {

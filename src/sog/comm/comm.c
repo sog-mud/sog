@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.114 1998-10-20 19:57:45 fjoe Exp $
+ * $Id: comm.c,v 1.115 1998-10-23 09:22:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -146,6 +146,8 @@ static char* curr_color = CLEAR;
 char* color(char type, CHAR_DATA *ch);
 void parse_colors(const char *i, CHAR_DATA *ch, char *o, size_t);
 
+DESCRIPTOR_DATA	*	new_descriptor	(void);
+void			free_descriptor	(DESCRIPTOR_DATA *d);
 
 /*
  * Malloc debugging stuff.
@@ -1047,7 +1049,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 
 		switch(*++str) {
 		default:
-	        	i = " ";
+	        	i = "";
 			break;
 
 		case 't':
@@ -1061,7 +1063,6 @@ void bust_a_prompt(CHAR_DATA *ch)
 		case 'e':
 			found = FALSE;
 			buf2[0] = '\0';
-
 			for (door = 0; door < 6; door++)
 				if ((pexit = ch->in_room->exit[door]) != NULL
 				&&  pexit ->u1.to_room != NULL
@@ -1070,10 +1071,14 @@ void bust_a_prompt(CHAR_DATA *ch)
 				&&  (!IS_SET(pexit->exit_info, EX_CLOSED) ||
 				     IS_IMMORTAL(ch))) {
 					found = TRUE;
-					strcat(buf2, dir_name[door]);
+					strnzcat(buf2, dir_name[door],
+						 sizeof(buf2));
 					if (IS_SET(pexit->exit_info, EX_CLOSED))
-						strcat(buf2, "*");
+						strnzcat(buf2, "*",
+							 sizeof(buf2));
 				}
+			if (buf2[0])
+				strnzcat(buf2, " ", sizeof(buf2));
 			i = buf2;
 			break;
 
@@ -1147,7 +1152,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 				i = buf2;
 			}
 			else
-				i = " ";
+				i = "";
 			break;
 
 		case 'g':
@@ -1175,7 +1180,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 				     mlstr_cval(ch->in_room->name, ch) :
 				     "darkness";
 			else
-				i = " ";
+				i = "";
 			break;
 
 		case 'R':
@@ -1184,22 +1189,46 @@ void bust_a_prompt(CHAR_DATA *ch)
 				i = buf2;
 			}
 			else
-				i = " ";
+				i = "";
 			break;
 
 		case 'z':
 			if (IS_IMMORTAL(ch) && ch->in_room != NULL)
 				i = ch->in_room->area->name;
 			else
-				i = " ";
+				i = "";
 			break;
 
 		case '%':
 			i = "%%";
 			break;
 
-		case 'E' :
+		case 'E':
 			i = olc_ed_name(ch);
+			if (!IS_NULLSTR(i)) {
+				snprintf(buf2, sizeof(buf2), "%s ", i);
+				i = buf2;
+			}
+			break;
+
+		case 'W':
+			if (ch->invis_level) {
+				snprintf(buf2, sizeof(buf2), "Wizi %d ",
+					 ch->invis_level);
+				i = buf2;
+			}
+			else
+				i = "";
+			break;
+
+		case 'I':
+			if (ch->incog_level) {
+				snprintf(buf2, sizeof(buf2), "Incog %d ",
+					 ch->incog_level);
+				i = buf2;
+			}
+			else
+				i = "";
 			break;
 		}
 		++str;
