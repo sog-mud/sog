@@ -593,6 +593,7 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n is burned by $p.@rus $p $gp{обжигает} $c6{$n}.~
 @eng $n is carrying too many items and $e drops $p.@rus $n $gn{несет} слишком много вещей, поэтому $gn{он} $gn{бросил} $c3{$p}.~
 @eng $n is carrying too much to carry $p and $e drops it.@rus $n $gn{несет} слишком много, чтобы еще нести и $c3{$p}, поэтому $gn{он} $gn{бросил} его на землю.~
+@eng $n is dead!@rus $n $gn{мертв}!~
 @eng $n is dead, and will not rise again.@rus $n $gn{умер} и больше не $gn{возродится}.~
 @eng $n is dying of thirst!@rus $n медленно умирает от жажды.~
 @eng $n is gone!@rus $n $gn{исчез}!~
@@ -1328,6 +1329,7 @@ $t~
 ~
 @eng Bash wich door or direction?@rus Какую дверь выбить?~
 @eng Bashing? What's that?@rus Bash? А что это?~
+@eng Beg $N! Spare some gold?@rus Умоляю, $N! Подай на пропитание?~
 @eng Bet how much?@rus Сколько поставить?~
 @eng Better finish your own battle before you worry about guarding someone else.@rus Сначала закончи свою собственную битву, а потом уже беспокойся об охране других.~
 @eng Better hurry, you're almost out of time for your quest!@rus Лучше поторопись, время, отведенное на задание, почти вышло!~
@@ -1509,6 +1511,7 @@ $t~
 @eng Guard whom?@rus Охранять кого?~
 @eng Guards! Guards!@rus Охрана! Охрана!~
 @eng Half burrowed cocoon appears from the earth.@rus Кокон, на половину погруженный в землю, появился перед тобой.~
+@eng Halfway to death...@rus До полусмерти...~
 @eng Has %d charges of level %d@rus Зарядов: %d; %d уровня~
 @eng Has %d(%d) charges of level %d '%s'.
 @rus Зарядов %d (осталось %d), %d уровня '%s'.
@@ -1772,6 +1775,7 @@ $t~
 @eng Nothing special there.@rus Ничего особенного.~
 @eng Nothing.@rus Ничего.~
 @eng Now $n got the path to death.@rus $n $gn{вступил} на дорогу, ведущую к смерти.~
+@eng Now I go to a better place.@rus Отправлюсь-ка я в лучшие края.~
 @eng Now listing group '$t':@rus В группу '$t' входит:~
 @eng Now you are $t-$T.@rus Отныне ты $t-$T.~
 @eng Now you catch your spirit.@rus Тебе удалось вернуть назад свою душу.~
@@ -1837,6 +1841,7 @@ Material is %s.
 @eng Oh $gn{boy}! One silver coin!@rus Ух ты! Целая серебряная монета!~
 @eng Oh no! My eyes!@rus О, нет! Мои глаза!~
 @eng Oh no, you can't do that.@rus О нет, ты не можешь этого сделать.~
+@eng Oh, my God! Thank you! Thank you!@rus О, Боже! Спасибо! Спасибо!~
 @eng Oh, no. You can't do that.@rus О, нет. Ты не можешь этого сделать.~
 @eng Oh, no. Your god seems to like $N.@rus Увы. Твои боги покровительствуют $c2{$N}.~
 @eng Ok, my dear! I have just remembered.@rus Ааа, это ты! Помню, помню.~
@@ -2042,6 +2047,7 @@ $t@rus Редактируемый текст:
 $t~
 @eng Text too long, last line skipped.@rus Текст слишком длинный, последняя строка опущена.~
 @eng Text will be sent to you unmodified.@rus Текст будет посылаться без каких-либо изменений.~
+@eng Thank you for your kindness, $N.@rus Спасибо за вашу доброту, $N.~
 @eng Thank you, come again.@rus Спасибо, приходи еще.~
 @eng That alias is not defined.@rus Такое сокращение не определено.~
 @eng That beast is too powerful for you to ride.@rus Сила этого монстра столь велика, что ты не можешь его оседлать.~
@@ -2410,6 +2416,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 ~
 @eng Wow! $p skipped $K $qK{times}@rus Ух ты! $p отскочил $K $qK{раз}~
 @eng Wow! Everything looks so different.@rus Ух, ты! Все так необычно!~
+@eng Wow! Thank you! Thank you!@rus Ух ты! Спасибо! Спасибо!~
 @eng Wow. One gold coin.@rus Ух ты. Целый золотой.~
 @eng Wow. One silver coin.@rus Ух ты. Целый серебрянный.~
 @eng Wow....what a rush!@rus Ух-ты... какая сила!~
@@ -3251,7 +3258,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 ~
 @eng You have run out of time for your quest!@rus У тебя вышло время, отведенное на задание!~
 @eng You have to be in the Registry to change your hometown.@rus Чтобы сменить родной город нужно находиться в регистрационной комнате.~
-@eng You have to be riding.@rus Ты сидишь верхом.~
+@eng You have to be riding.@rus Тебе следует оседлать кого-нибудь.~
 @eng You have your hands full.@rus У тебя нет возможности взять еще одну вещь в руки.~
 @eng You have {W$j{x $qj{quest points}.@rus У тебя {W$j{x $qj{квестовых очков}.~
 @eng You have {c%d{x practices and {c%d{x training sessions.
