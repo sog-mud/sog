@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.91 1998-09-10 22:26:58 fjoe Exp $
+ * $Id: comm.c,v 1.92 1998-09-11 06:36:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1411,15 +1411,21 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		load_char_obj(d, argument);
 		ch   = d->character;
 
-		size = sizeof(sock);
-		if (getpeername(d->descriptor,
-				(struct sockaddr *) &sock, &size) < 0)
+		if (d->host == NULL) {
+			size = sizeof(sock);
+			if (getpeername(d->descriptor,
+					(struct sockaddr *) &sock, &size) < 0)
 				d->host = str_dup("(unknown)");
-		else
-			fprintf(rfout, "%s@%s\n",
-				ch->name, inet_ntoa(sock.sin_addr));
-		d->connected = CON_RESOLV;
-		break;
+			else {
+				fprintf(rfout, "%s@%s\n",
+					ch->name, inet_ntoa(sock.sin_addr));
+				d->connected = CON_RESOLV;
+/* wait until sock.sin_addr gets resolved */
+				break;
+			}
+		}
+
+		/* FALLTHRU */
 
 	case CON_RESOLV:
 		if (d->host == NULL)
@@ -1543,10 +1549,6 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			if (d->character != NULL) {
 				free_char(d->character);
 				d->character = NULL;
-				if (d->host) {
-					free_string(d->host);
-					d->host = NULL;
-				}
 			}
 			d->connected = CON_GET_NAME;
 			break;
@@ -1572,11 +1574,6 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			write_to_buffer(d, "Ok, what IS it, then? ", 0);
 			free_char(d->character);
 			d->character = NULL;
-			free_string(d->host);
-			if (d->host) {
-				free_string(d->host);
-				d->host = NULL;
-			}
 			d->connected = CON_GET_NAME;
 			break;
 
@@ -2560,6 +2557,13 @@ void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 	char *		point = buf;
 	char *		s = str;
 	char *		i;
+
+/* twitlist handling */
+	if (IS_SET(flags, CHECK_TWIT)
+	&&  !IS_NPC(to) && !IS_IMMORTAL(to)
+	&&  !IS_NPC(ch) && !IS_IMMORTAL(ch)
+	&&  is_name(ch->name, to->pcdata->twitlist))
+		return;
 
 	while(*s) {
 		if (*s != '$') {

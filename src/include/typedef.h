@@ -2,7 +2,7 @@
 #define _TYPEDEF_H_
 
 /*
- * $Id: typedef.h,v 1.2 1998-09-10 22:07:54 fjoe Exp $
+ * $Id: typedef.h,v 1.3 1998-09-11 06:36:49 fjoe Exp $
  */
 
 #if	!defined(FALSE)
@@ -57,16 +57,22 @@ typedef struct class_data		CLASS_DATA;
 typedef struct skill_data		SKILL_DATA;
 typedef struct namedp			NAMEDP;
 
-typedef int	OPROG_FUN	(OBJ_DATA *obj, CHAR_DATA *ch, void *arg);
 typedef void	DO_FUN		(CHAR_DATA *ch, const char *argument);
 typedef bool	SPEC_FUN	(CHAR_DATA *ch);
 typedef void	SPELL_FUN	(int sn, int level, CHAR_DATA *ch, void *vo,
 				 int target);
+typedef int	OPROG_FUN	(OBJ_DATA *obj, CHAR_DATA *ch, void *arg);
 
 #define args(a) a
 #define DECLARE_DO_FUN(fun)	DO_FUN	  fun
 #define DECLARE_SPEC_FUN(fun) 	SPEC_FUN  fun
 #define DECLARE_SPELL_FUN(fun)	SPELL_FUN fun
+#define DECLARE_OPROG_FUN(fun)	OPROG_FUN fun
+
+#define DO_FUN(fun)	void	fun(CHAR_DATA *ch, const char *argument)
+#define SPEC_FUN(fun)	bool	fun(CHAR_DATA *ch)
+#define SPELL_FUN(fun)	void	fun(int sn, int level, CHAR_DATA *ch, void *vo, int target)
+#define OPROG_FUN(fun)	int	fun(OBJ_DATA *obj, CHAR_DATA *ch, void *arg);
 
 typedef u_int64_t flag_t;	/* flags */
 typedef u_int32_t sflag_t;	/* short flags (less memory usage) */

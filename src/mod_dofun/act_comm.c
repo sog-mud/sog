@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.77 1998-09-10 22:07:51 fjoe Exp $
+ * $Id: act_comm.c,v 1.78 1998-09-11 06:36:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -517,7 +517,8 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 
 	if (!is_affected(ch, gsn_deafen))
 		act_nputs(MSG_YOU_TELL, ch, buf, victim, TO_CHAR, POS_SLEEPING);
-	act_nputs(MSG_TELLS_YOU, ch, buf, victim, TO_VICT | TO_BUF, POS_SLEEPING);
+	act_nputs(MSG_TELLS_YOU, ch, buf, victim,
+		  TO_VICT | TO_BUF | CHECK_TWIT, POS_SLEEPING);
 
 	if (!IS_NPC(victim)) {
 		if (victim->desc == NULL)
@@ -687,7 +688,8 @@ void do_pmote(CHAR_DATA *ch, const char *argument)
 			name = vch->name;
 		}
 
-		act("$N $t", vch, temp, ch, TO_CHAR | TO_BUF | NO_TRIGGER);
+		act("$N $t", vch, temp, ch, TO_CHAR | TO_BUF | NO_TRIGGER |
+					    CHECK_TWIT);
 	}
 }
 
@@ -1860,7 +1862,7 @@ void do_noiac(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_notelnet(CHAR_DATA *ch, const char *arg)
+void do_notelnet(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_SET(ch->comm, COMM_NOTELNET)) {
 		REMOVE_BIT(ch->comm, COMM_NOTELNET);
@@ -1871,3 +1873,24 @@ void do_notelnet(CHAR_DATA *ch, const char *arg)
 		char_puts("Telnet filter is OFF.\n\r", ch);
 	}
 }
+
+DO_FUN(do_twit)
+{
+	char arg[MAX_STRING_LENGTH];
+
+	if (IS_NPC(ch)) {
+		char_nputs(MSG_HUH, ch);
+		return;
+	}
+
+	one_argument(argument, arg);
+
+	if (arg[0] == '\0') {
+		char_printf(ch, "Current twitlist is [%s]\n\r",
+			    ch->pcdata->twitlist);
+		return;
+	}
+
+	name_toggle(ch, arg, "Twitlist", &ch->pcdata->twitlist);
+}
+

@@ -2,7 +2,7 @@
 #define _INTERP_H_
 
 /*
- * $Id: interp.h,v 1.18 1998-09-01 18:38:00 fjoe Exp $
+ * $Id: interp.h,v 1.19 1998-09-11 06:36:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -369,6 +369,7 @@ DECLARE_DO_FUN(do_target	);
 DECLARE_DO_FUN(do_trophy	);
 DECLARE_DO_FUN(do_trust		);
 DECLARE_DO_FUN(do_truesight	);
+DECLARE_DO_FUN(do_twit		);
 DECLARE_DO_FUN(do_typo		);
 DECLARE_DO_FUN(do_unalias	);
 DECLARE_DO_FUN(do_unlock	);

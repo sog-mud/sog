@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.53 1998-09-10 22:07:53 fjoe Exp $
+ * $Id: handler.c,v 1.54 1998-09-11 06:36:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -608,24 +608,24 @@ int can_carry_w(CHAR_DATA *ch)
 	return str_app[get_curr_stat(ch,STAT_STR)].carry * 10 + ch->level * 25;
 }
 
-
-
 /*
  * See if a string is one of the names of an object.
  */
-
 bool is_name(const char *str, const char *namelist)
 {
 	char name[MAX_INPUT_LENGTH], part[MAX_INPUT_LENGTH];
 	const char *list, *string;
 	
-	if (!namelist)
+	if (IS_NULLSTR(namelist) || IS_NULLSTR(str))
 		return FALSE;
+
+	if (!str_cmp(namelist, "all"))
+		return TRUE;
 
 	string = str;
 	/* we need ALL parts of string to match part of namelist */
 	for (; ;) { /* start parsing string */
-		str = one_argument(str,part);
+		str = one_argument(str, part);
 
 		if (part[0] == '\0')
 			return TRUE;
@@ -637,13 +637,86 @@ bool is_name(const char *str, const char *namelist)
 			if (name[0] == '\0')  /* this name was not found */
 				return FALSE;
 
-			if (!str_prefix(string,name))
+			if (!str_prefix(string, name))
 				return TRUE; /* full pattern match */
 
 			if (!str_prefix(part,name))
 				break;
 		}
 	}
+}
+
+void cat_name(char *buf, const char *name, size_t len)
+{
+	bool have_spaces = strpbrk(name, " \t") != NULL;
+
+	if (buf[0])
+		strnzcat(buf, " ", len);
+	if (have_spaces)
+		strnzcat(buf, "'", len);
+	strnzcat(buf, name, len);
+	if (have_spaces)
+		strnzcat(buf, "'", len);
+}
+
+void name_toggle(CHAR_DATA *ch, const char *name,
+		 const char *editor_name, char **nl)
+{
+	bool found;
+	const char *p;
+	char buf[MAX_STRING_LENGTH];
+
+	if (!str_cmp(name, "all")) {
+		free_string(*nl);
+		*nl = str_dup(name);
+		char_printf(ch, "%s: name list set to ALL.\n\r", editor_name);
+		return;
+	}
+
+	if (!str_cmp(name, "none")) {
+		free_string(*nl);
+		*nl = str_empty;
+		char_printf(ch, "%s: name list reset.\n\r", editor_name);
+		return;
+	}
+
+	if (!str_cmp(*nl, "all")) {
+		free_string(*nl);
+		*nl = str_empty;
+	}
+
+	found = FALSE;
+	p = *nl;
+	buf[0] = '\0';
+	for (;;) {
+		char arg[MAX_STRING_LENGTH];
+
+		p = one_argument(p, arg);
+
+		if (arg[0] == '\0')
+			break;
+
+		if (!str_cmp(name, arg)) {
+			found = TRUE;
+			continue;
+		}
+
+		cat_name(buf, arg, sizeof(buf));
+	}
+
+	if (!found) {
+		if (strlen(buf) + strlen(name) + 4 > MAX_STRING_LENGTH) {
+			char_printf(ch, "%s: name list too long\n", editor_name);
+			return;
+		}
+		cat_name(buf, name, sizeof(buf));
+		char_printf(ch, "%s: name added.\n\r", editor_name);
+	}
+	else 
+		char_printf(ch, "%s: name removed.\n\r", editor_name);
+
+	free_string(*nl);
+	*nl = str_dup(buf);
 }
 
 /* enchanted stuff for eq */

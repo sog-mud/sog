@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.60 1998-09-10 22:07:53 fjoe Exp $
+ * $Id: interp.c,v 1.61 1998-09-11 06:36:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -249,6 +249,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "quiet",		do_quiet,	POS_SLEEPING, 	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "scroll",		do_scroll,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "title",		do_title,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
+    { "twit",		do_twit,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "unalias",	do_unalias,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "wimpy",		do_wimpy,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
 
@@ -806,7 +807,7 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 	act(social_table[cmd].val[SOC_CHAR_FOUND],
 		ch, NULL, victim, TO_CHAR);
 	act(social_table[cmd].val[SOC_VICT_FOUND],
-		ch, NULL, victim, TO_VICT | TO_BUF);
+		ch, NULL, victim, TO_VICT | TO_BUF | CHECK_TWIT);
 
 	char_from_room(victim);
 	char_to_room(victim, victim_room);

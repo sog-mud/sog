@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.77 1998-09-10 22:07:53 fjoe Exp $
+ * $Id: merc.h,v 1.78 1998-09-11 06:36:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1393,6 +1393,7 @@ struct pc_data
 	char *			bamfin;
 	char *			bamfout;
 	char *			title;
+	char *			twitlist;
 	time_t			last_note;
 	time_t			last_idea;
 	time_t			last_penalty;
@@ -1939,6 +1940,8 @@ int	get_max_train2	(CHAR_DATA *ch, int stat);
 int	can_carry_n	(CHAR_DATA *ch);
 int	can_carry_w	(CHAR_DATA *ch);
 bool	is_name 	(const char *str, const char *namelist);
+void	name_toggle	(CHAR_DATA *ch, const char *name,
+			 const char *editor_name, char **namelist);
 bool	is_name_imm	(char *str, char *namelist);
 void	affect_to_char	(CHAR_DATA *ch, AFFECT_DATA *paf);
 void	affect_to_obj	(OBJ_DATA *obj, AFFECT_DATA *paf);

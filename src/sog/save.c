@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.53 1998-09-10 22:07:54 fjoe Exp $
+ * $Id: save.c,v 1.54 1998-09-11 06:36:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -326,6 +326,8 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 		}
 		fprintf(fp, "Haskilled %d\n", ch->pcdata->has_killed);
 		fprintf(fp, "Antkilled %d\n", ch->pcdata->anti_killed);
+		if (!IS_NULLSTR(ch->pcdata->twitlist))
+			fprintf(fp, "Twitlist %s~\n", ch->pcdata->twitlist);
 	}
 
 	for (paf = ch->affected; paf != NULL; paf = paf->next) {
@@ -554,27 +556,11 @@ void load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 
 	ch->pcdata->race = ch->race;
 	ch->pcdata->clan_status = CLAN_COMMON;
-	ch->pcdata->points = 0;
-	ch->pcdata->pwd = str_empty;
-	ch->pcdata->bamfin = str_empty;
-	ch->pcdata->bamfout = str_empty;
-	ch->pcdata->title = str_empty;
 	ch->pcdata->condition[COND_THIRST] = 48;
 	ch->pcdata->condition[COND_FULL] = 48;
 	ch->pcdata->condition[COND_HUNGER] = 48;
 	ch->pcdata->condition[COND_BLOODLUST] = 48;
 	ch->pcdata->condition[COND_DESIRE] = 48;
-	ch->pcdata->security		= 0;	/* OLC */
-
-	ch->pcdata->pc_killed = 0;
-	ch->pcdata->petition = 0;
-	ch->pcdata->questpoints = 0;
-	ch->pcdata->questgiver = 0;
-	ch->pcdata->questtime = 0;
-	ch->pcdata->questobj = 0;
-	ch->pcdata->questmob = 0;
-	ch->pcdata->has_killed = 0;
-	ch->pcdata->anti_killed = 0;
 
 	found = FALSE;
 	fclose(fpReserve);
@@ -665,7 +651,6 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 	int             count = 0;
 	int             lastlogoff = current_time;
 	int             percent;
-
 
 	log_printf("Loading %s.", ch->name);
 	ch->pcdata->bank_s = 0;
@@ -1023,7 +1008,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			KEY("Trai", ch->train, fread_number(fp));
 			KEY("Trust", ch->trust, fread_number(fp));
 			KEY("Tru", ch->trust, fread_number(fp));
-
+			SKEY("Twitlist", ch->pcdata->twitlist);
 			if (!str_cmp(word, "Title") || !str_cmp(word, "Titl")) {
 				char           *p = fread_string(fp);
 				set_title(ch, p);

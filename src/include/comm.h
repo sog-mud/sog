@@ -2,7 +2,7 @@
 #define _COMM_H_
 
 /*
- * $Id: comm.h,v 1.12 1998-09-01 18:37:57 fjoe Exp $
+ * $Id: comm.h,v 1.13 1998-09-11 06:36:48 fjoe Exp $
  */
 
 void	show_string	(struct descriptor_data *d, char *input);
@@ -27,6 +27,7 @@ void	page_to_char( const char *txt, CHAR_DATA *ch);
 
 #define TO_BUF		(F)
 #define NO_TRIGGER	(G)
+#define CHECK_TWIT	(H)
 
 #define act(format, ch, arg1, arg2, type) \
 		act_printf(ch, arg1, arg2, type, POS_RESTING, format)
