@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.6 1998-10-06 13:18:25 fjoe Exp $
+ * $Id: const.h,v 1.7 1998-10-08 02:46:05 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -41,15 +41,16 @@
  * Then we close it whenever we need to open a file (e.g. a save file).
  */
 
-#define TMP_PATH	"tmp/"
-#define PLAYER_PATH	"player/"
-#define GODS_PATH	"gods/"
-#define NOTES_PATH	"notes/"
-#define MSGDB_PATH	"msgdb/"
-#define ETC_PATH	"etc/"
-#define CLASSES_PATH	"classes/"
-#define CLANS_PATH	"clans/"
-#define AREA_PATH	"area/"
+#define TMP_PATH	"tmp"
+#define PLAYER_PATH	"player"
+#define GODS_PATH	"gods"
+#define NOTES_PATH	"notes"
+#define MSGDB_PATH	"msgdb"
+#define ETC_PATH	"etc"
+#define CLASSES_PATH	"classes"
+#define CLANS_PATH	"clans"
+#define AREA_PATH	"area"
+#define LANG_PATH	"lang"
 
 #define TMP_FILE	"romtmp"
 #define NULL_FILE	"/dev/null"	/* To reserve one stream */

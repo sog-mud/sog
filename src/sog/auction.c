@@ -1,5 +1,5 @@
 /*
- * $Id: auction.c,v 1.17 1998-10-06 13:18:25 fjoe Exp $
+ * $Id: auction.c,v 1.18 1998-10-08 02:46:05 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -447,6 +447,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 	case ITEM_TREASURE:
 	case ITEM_JEWELRY:
 	case ITEM_FURNITURE:
+	case ITEM_FOOD:
 		tax = (auction.starting * 20) / 100;
 		if (ch->gold < tax) {
 			char_printf(ch, "You do not have enough gold to pay "

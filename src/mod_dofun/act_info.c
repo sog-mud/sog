@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.138 1998-10-06 19:08:56 fjoe Exp $
+ * $Id: act_info.c,v 1.139 1998-10-08 02:46:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -136,7 +136,7 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 	buf[0] = '\0';
 	if ((fShort && mlstr_null(obj->short_descr))
 	||  mlstr_null(obj->description))
-		return buf;
+		return str_empty;
 
 	if (IS_SET(ch->comm, COMM_LONG)) {
 		if (IS_OBJ_STAT(obj, ITEM_INVIS))
@@ -277,10 +277,8 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch,
 	 * Output the formatted list.
 	 */
 	for (iShow = 0; iShow < nShow; iShow++) {
-		if (prgpstrShow[iShow][0] == '\0') {
-			free_string(prgpstrShow[iShow]);
+		if (prgpstrShow[iShow][0] == '\0')
 			continue;
-		}
 
 		if (IS_NPC(ch) || IS_SET(ch->comm, COMM_COMBINE)) {
 			if (prgnShow[iShow] != 1) 
@@ -1005,10 +1003,8 @@ void do_prompt(CHAR_DATA *ch, const char *argument)
 
 	if (!strcmp(argument, "all"))
 		prompt = str_dup(DEFAULT_PROMPT);
-	else {
+	else
 		prompt = str_printf("%s ", argument);
-		smash_tilde(prompt);
-	}
 
 	free_string(ch->prompt);
 	ch->prompt = prompt;

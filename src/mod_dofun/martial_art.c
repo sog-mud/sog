@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.41 1998-10-06 19:09:01 fjoe Exp $
+ * $Id: martial_art.c,v 1.42 1998-10-08 02:46:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -456,7 +456,7 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		act("$n is blinded by the dirt in $s eyes!",
 		    victim, NULL, NULL, TO_ROOM);
 		damage(ch, victim, number_range(2, 5),
-		       gsn_dirt, DAM_NONE, TRUE);
+		       gsn_dirt, DAM_NONE, FALSE);
 		char_puts("You can't see a thing!\n\r", victim);
 		check_improve(ch, gsn_dirt, TRUE, 2);
 		WAIT_STATE(ch, SKILL(gsn_dirt)->beats);
