@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.77 1998-11-02 03:29:12 fjoe Exp $
+ * $Id: spellfun.c,v 1.78 1998-11-02 05:45:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -188,8 +188,13 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		else {
 			if ((range = allowed_other(ch, sn)) > 0) {
 				if (!(victim = get_char_spell(ch, target_name,
-							      &door, range))) {
-					char_puts("They aren't here.\n\r", ch);
+							      &door, range)))
+					return;
+
+				if (room_is_private(ch->in_room)) {
+					char_puts("You can't cast this spell "
+						  "from private room "
+						  "right now.\n\r", ch);
 					return;
 				}
 
