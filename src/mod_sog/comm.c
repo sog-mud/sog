@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.c,v 1.18 2003-04-19 00:26:46 fjoe Exp $
+ * $Id: comm.c,v 1.19 2003-04-19 10:01:14 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -971,6 +971,9 @@ read_from_descriptor(DESCRIPTOR_DATA *d)
 
 	d->inbuf[iStart] = '\0';
 	if (iOld == iStart)
+		return TRUE;
+
+	if (D_IS_SERVICE(d))
 		return TRUE;
 
 	for (p = d->inbuf+iOld; *p;) {
