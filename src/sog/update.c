@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.57 2004-02-19 17:20:59 fjoe Exp $
+ * $Id: update.c,v 1.157.2.58 2004-02-20 14:34:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1629,14 +1629,14 @@ save_corpse_contents(OBJ_DATA *corpse)
 	OBJ_DATA *pit;
 	altar_t *altar;
 
-/* in another object */
 	if (corpse->in_obj) {
+		/* if in another object */
 		contents_to_obj(corpse->contains, corpse->in_obj);
 		return;
 	}
 
-/* carried by */
 	if (corpse->carried_by) {
+		/* if carried by */
 		for (obj = corpse->contains; obj; obj = obj_next) {
 			obj_next = obj->next_content;
 			obj_from_obj(obj);
@@ -1650,38 +1650,34 @@ save_corpse_contents(OBJ_DATA *corpse)
 		return;
 	}
 
-/* pit lookup */
-	pit = NULL;
-	/*
-	 * workaround against NULL altars
-	 */
-	if ((altar = corpse->altar)) {
-		for (pit = altar->room->contents; pit; pit = pit->next_content)
-			if (pit->pObjIndex == altar->pit)
-				break;
-	} else {
+	if ((altar = corpse->altar) == NULL) {
+		/* no altar */
 		wizlog("save_corpse_contents: null altar (owner: %s)",
 			mlstr_mval(&corpse->owner));
-	}
-
-/* put contents into altar */
-	if (!pit) {
 		for (obj = corpse->contains; obj; obj = obj_next) {
 			obj_next = obj->next_content;
 			obj_from_obj(obj);
-
-			/*
-			 * another workaround against NULL altars
-			 */
-			if (altar)
-				obj_to_room(obj, altar->room);
-			else
-				extract_obj(obj, 0);
+			extract_obj(obj, 0);
 		}
 		return;
 	}
 
-/* put contents into pit */
+	for (pit = altar->room->contents; pit != NULL; pit = pit->next_content) {
+		if (pit->pObjIndex == altar->pit)
+			break;
+	}
+
+	if (pit == NULL) {
+		/* no pit -- put to altar room */
+		for (obj = corpse->contains; obj; obj = obj_next) {
+			obj_next = obj->next_content;
+			obj_from_obj(obj);
+			obj_to_room(obj, altar->room);
+		}
+		return;
+	}
+
+	/* put contents into pit */
 	contents_to_obj(corpse->contains, pit);
 }
 
