@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.334 2001-09-23 16:24:22 fjoe Exp $
+ * $Id: handler.c,v 1.335 2001-09-23 18:23:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1560,6 +1560,9 @@ FOREACH_CB_FUN(pull_obj_trigger_cb, p, ap)
 	int trig_type = va_arg(ap, int);
 	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
 	char *arg = va_arg(ap, char *);
+
+	if (trig_type == TRIG_OBJ_GREET && ch == obj->carried_by)
+		return NULL;
 
 	pull_obj_trigger(trig_type, obj, ch, arg);
 	if (IS_EXTRACTED(ch))
