@@ -269,9 +269,12 @@ By which name do you wish to be known? ~
 * Important commands: help, commands, news, notes.
 * Read all helps. So many things are changed relatively before.
 * Read helps of WHATSNEW(ROM2ANATOLIA), FROM20TO21 and ALIGNORCABAL.
+* iclub.nsu.ru 4000 - koi8-r
+  iclub.nsu.ru 4001 - alt (cp866)
+  iclub.nsu.ru 4002 - win (cp1251)
+  iclub.nsu.ru 4003 - iso (iso-8859-5)
+  iclub.nsu.ru 4004 - mac
 
-
-					Last modified: February 12nd, 1998
 [Hit Return to continue]
 ~ 
  
