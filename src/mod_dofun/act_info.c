@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.241 1999-05-24 21:16:05 fjoe Exp $
+ * $Id: act_info.c,v 1.242 1999-06-06 18:21:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2007,7 +2007,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 					(in_PK(ch, doppel) &&
 					!IS_IMMORTAL(ch)) ?
 					"{r[{RPK{r]{x " : "     ",
-					PERS(victim, ch),
+					PERS2(victim, ch, ACT_FORMSH),
 					mlstr_mval(victim->in_room->name));
 			}
 		}
@@ -2023,7 +2023,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 			&&  is_name(arg, victim->name)) {
 				found = TRUE;
 				char_printf(ch, "%-28s %s\n",
-					fix_short(PERS(victim, ch)),
+					PERS2(victim, ch, ACT_FORMSH),
 					mlstr_mval(victim->in_room->name));
 				break;
 			}
