@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.57 2002-08-24 06:20:38 tatyana Exp $
+ * $Id: act_info.c,v 1.271.2.58 2002-08-26 08:23:17 tatyana Exp $
  */
 
 /***************************************************************************
@@ -5165,5 +5165,8 @@ void do_finger(CHAR_DATA *ch, const char *argument)
 
 	send_to_char(buf_string(output), ch);
 	buf_free(output);
+
+	if (loaded)
+		char_nuke(victim);
 }
 
