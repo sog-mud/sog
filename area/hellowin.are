@@ -86,6 +86,7 @@ energy~
 wand A CL AO
 150 1 1 'control undead' 0
 1 1 100 P
+g @eng none@rus male~
 #34401
 vial life чаша~
 @eng Vial of Life@rus ~~Чаша~~ Жизни~
@@ -817,6 +818,15 @@ f object hitroll 15 0
 f object damroll 15 0
 f object saves -10 0
 g @rus male~
+#34484
+sharpstone~
+sharpstone~
+~
+unknown~
+trash 0 0 AO
+0 0 0 0 0
+0 0 0 P
+g @eng none@rus male~
 #0
 
 #ROOMS

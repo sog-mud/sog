@@ -62,15 +62,15 @@ stand stand male 5
 m mob_fight mob_fight_cast_undead 100~
 #3603
 skeleton скелет~
-@eng a dusty skeleton@rus ~~пыльный~~ ~~скелет~~~
+@eng a dusty skeleton@rus ~~пыльный скелет~~~
 @eng A dusty skeleton lies here.@rus Здесь лежит пыльный скелет (skeleton).~
 @eng The dusty bones are almost brown.  It must have been buried for a very long
 time.
 @rus Пыльные кости стали уже почти коричневыми.  Должно быть, он очень давно
 уже здесь похоронен.
 ~
-human~
-BF 0 0 0 H -750 0
+undead~
+BF 0 0 0 0 -750 0
 3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
 EFNU

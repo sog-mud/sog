@@ -31,7 +31,7 @@ r silver 100
 r weapon 100
 r magic 100
 m mob_look @ 100~
-static int $N[avatara_look_count];
+persistent int $N[avatara_look_count];
  
 $N[avatara_look_count]++;
 act("You looked at me $j $qj{times}.",

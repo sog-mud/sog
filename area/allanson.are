@@ -4144,13 +4144,30 @@ S
 @eng The Temple of the Light@rus Храм Света~
 ~
 0 0 inside
-m room_cmd room_cmd_leave_temple_light leave~
+m room_cmd @ leave~
+act("Leave, leave, leave...", $n, NULL, NULL, TO_CHAR);
+ 
+room r = get_room_index(40298);
+if (r == NULL)
+       return 0;
+ 
+transfer_group($n, r);
+return 0;
+~
 S
 #40317
 @eng The Temple of the Darkness@rus Храм Тьмы~
 ~
 0 0 inside
-m room_cmd room_cmd_leave_temple_darkness leave~
+m room_cmd @ leave~
+act("Leave, leave, leave...", $n, NULL, NULL, TO_CHAR);
+room r = get_room_index(40297);
+if (r == NULL)
+        return 0;
+ 
+transfer_group($n, r);
+return 0;
+~
 S
 #40318
 @eng The Temple of the Neutrality@rus Храм Нейтральности~
@@ -4162,7 +4179,16 @@ D1
 ~
 ~
 Z 0 40346
-m room_cmd room_cmd_leave_temple_balance leave~
+m room_cmd @ leave~
+act("Leave, leave, leave...", $n, NULL, NULL, TO_CHAR);
+ 
+room r = get_room_index(40300);
+if (r == NULL)
+       return 0;
+transfer_group($n, r);
+
+return 0;
+~
 S
 #40319
 @eng The Path of the Gods@rus Аллея Богов~
