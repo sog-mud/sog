@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.1 1999-07-20 06:26:54 avn Exp $
+ * $Id: olc_race.c,v 1.2 1999-07-20 07:12:00 avn Exp $
  */
 
 #include "olc.h"
@@ -363,10 +363,17 @@ OLC_FUN(raceed_show)
 
 OLC_FUN(raceed_list)
 {
-	int i;
+	int i, col = 0;
+	BUFFER	*buffer;
 
-	for (i = 0; i < races.nused; i++)
-		char_printf(ch, "[%d] %s\n", i, RACE(i)->name);
+	buffer = buf_new(-1);
+	for (i = 0; i < races.nused; i++) {
+		buf_printf(buffer, "[%3d] %-18.17s", i, RACE(i)->name);
+		if (++col % 3 == 0) buf_add(buffer, "\n");
+	}
+	if (col % 3) buf_add(buffer, "\n");
+	page_to_char(buf_string(buffer), ch);
+	buf_free(buffer);
 	return FALSE;
 }
 
@@ -517,7 +524,7 @@ OLC_FUN(raceed_points)
 OLC_FUN(raceed_bonusskill)
 {
 	race_t *race;
-	char *buff;
+	const char *buff;
 	int sn;
 
 	EDIT_RACE(ch, race);
