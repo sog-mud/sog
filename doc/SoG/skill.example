@@ -1,5 +1,5 @@
 #
-# $Id: skill.example,v 1.1 2004-02-27 15:00:25 tatyana Exp $
+# $Id: skill.example,v 1.2 2004-02-27 19:28:19 tatyana Exp $
 #
 
 #SKILL
@@ -13,7 +13,6 @@ Beats
 Rank
 MinMana
 Flags
-Fun
 NounDamage ~
 NounGender ~
 DamClass
