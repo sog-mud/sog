@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.113 2000-10-07 10:58:06 fjoe Exp $
+ * $Id: skills.c,v 1.114 2001-01-18 22:20:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -315,36 +315,42 @@ void say_spell(CHAR_DATA *ch, const skill_t* spell)
 
 	static const struct syl_type syl_table[] =
 	{
-		{ " ",		" "		},
-		{ "ar",		"abra"		},
-		{ "au",		"kada"		},
-		{ "bless",	"fido"		},
-		{ "blind",	"nose"		},
-		{ "bur",	"mosa"		},
-		{ "cu",		"judi"		},
-		{ "de",		"oculo"		},
-		{ "en",		"unso"		},
-		{ "light",	"dies"		},
-		{ "lo",		"hi"		},
-		{ "mor",	"zak"		},
-		{ "move",	"sido"		},
-		{ "ness",	"lacri"		},
-		{ "ning",	"illa"		},
-		{ "per",	"duda"		},
-		{ "ra",		"gru"		},
-		{ "fresh",	"ima"		},
-		{ "re",		"candus"	},
-		{ "son",	"sabru"		},
-		{ "tect",	"infra"		},
-		{ "tri",	"cula"		},
-		{ "ven",	"nofo"		},
-		{ "a", "a" }, { "b", "b" }, { "c", "q" }, { "d", "e" },
-		{ "e", "z" }, { "f", "y" }, { "g", "o" }, { "h", "p" },
-		{ "i", "u" }, { "j", "y" }, { "k", "t" }, { "l", "r" },
-		{ "m", "w" }, { "n", "i" }, { "o", "a" }, { "p", "s" },
-		{ "q", "d" }, { "r", "f" }, { "s", "g" }, { "t", "h" },
-		{ "u", "j" }, { "v", "z" }, { "w", "x" }, { "x", "n" },
-		{ "y", "l" }, { "z", "k" },
+		{ " ",		" "		},	// notrans
+		{ "ar",		"abra"		},	// notrans
+		{ "au",		"kada"		},	// notrans
+		{ "bless",	"fido"		},	// notrans
+		{ "blind",	"nose"		},	// notrans
+		{ "bur",	"mosa"		},	// notrans
+		{ "cu",		"judi"		},	// notrans
+		{ "de",		"oculo"		},	// notrans
+		{ "en",		"unso"		},	// notrans
+		{ "light",	"dies"		},	// notrans
+		{ "lo",		"hi"		},	// notrans
+		{ "mor",	"zak"		},	// notrans
+		{ "move",	"sido"		},	// notrans
+		{ "ness",	"lacri"		},	// notrans
+		{ "ning",	"illa"		},	// notrans
+		{ "per",	"duda"		},	// notrans
+		{ "ra",		"gru"		},	// notrans
+		{ "fresh",	"ima"		},	// notrans
+		{ "re",		"candus"	},	// notrans
+		{ "son",	"sabru"		},	// notrans
+		{ "tect",	"infra"		},	// notrans
+		{ "tri",	"cula"		},	// notrans
+		{ "ven",	"nofo"		},	// notrans
+		{ "a", "a" }, { "b", "b" },		// notrans
+		{ "c", "q" }, { "d", "e" },		// notrans
+		{ "e", "z" }, { "f", "y" },		// notrans
+		{ "g", "o" }, { "h", "p" },		// notrans
+		{ "i", "u" }, { "j", "y" },		// notrans
+		{ "k", "t" }, { "l", "r" },		// notrans
+		{ "m", "w" }, { "n", "i" },		// notrans
+		{ "o", "a" }, { "p", "s" },		// notrans
+		{ "q", "d" }, { "r", "f" },		// notrans
+		{ "s", "g" }, { "t", "h" },		// notrans
+		{ "u", "j" }, { "v", "z" },		// notrans
+		{ "w", "x" }, { "x", "n" },		// notrans
+		{ "y", "l" }, { "z", "k" },		// notrans
 		{ str_empty, str_empty }
 	};
 

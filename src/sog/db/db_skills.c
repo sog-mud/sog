@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_skills.c,v 1.25 2000-02-10 14:08:59 fjoe Exp $
+ * $Id: db_skills.c,v 1.26 2001-01-18 22:20:16 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -38,7 +38,7 @@ DECLARE_DBINIT_FUN(init_skills);
 
 DBFUN dbfun_skills[] =
 {
-	{ "SKILL",	load_skill	},
+	{ "SKILL",	load_skill	},		// notrans
 	{ NULL }
 };
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.26 2001-01-08 20:21:29 fjoe Exp $
+ * $Id: db_lang.c,v 1.27 2001-01-18 22:20:16 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -40,8 +40,8 @@ DECLARE_DBINIT_FUN(init_lang);
 
 DBFUN dbfun_langs[] =
 {
-	{ "LANG",	load_lang	},
-	{ "RULECLASS",	load_rulecl	},
+	{ "LANG",	load_lang	},		// notrans
+	{ "RULECLASS",	load_rulecl	},		// notrans
 	{ NULL }
 };
 

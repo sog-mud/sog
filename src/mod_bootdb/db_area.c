@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.101 2000-10-22 17:53:48 fjoe Exp $
+ * $Id: db_area.c,v 1.102 2001-01-18 22:20:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -68,21 +68,21 @@ DECLARE_DBLOAD_FUN(load_aflag);
 DECLARE_DBINIT_FUN(init_area);
 
 DBFUN dbfun_areas[] = {
-	{ "AREA",		load_area	},
-	{ "AREADATA",		load_areadata	},
-	{ "HELPS",		load_helps	},
-	{ "MOBILES",		load_mobiles	},
-	{ "MOBPROGS",		load_mobprogs	},
-	{ "OBJECTS",		load_objects	},
-	{ "RESETS",		load_resets	},
-	{ "ROOMS",		load_rooms	},
-	{ "SHOPS",		load_shops	},
-	{ "OMPROGS",		load_omprogs	},
-	{ "OLIMITS",		load_olimits	},
-	{ "SPECIALS",		load_specials	},
-	{ "PRACTICERS",		load_practicers	},
-	{ "RESETMESSAGE",	load_resetmsg	},
-	{ "FLAG",		load_aflag	},
+	{ "AREA",		load_area	},	// notrans
+	{ "AREADATA",		load_areadata	},	// notrans
+	{ "HELPS",		load_helps	},	// notrans
+	{ "MOBILES",		load_mobiles	},	// notrans
+	{ "MOBPROGS",		load_mobprogs	},	// notrans
+	{ "OBJECTS",		load_objects	},	// notrans
+	{ "RESETS",		load_resets	},	// notrans
+	{ "ROOMS",		load_rooms	},	// notrans
+	{ "SHOPS",		load_shops	},	// notrans
+	{ "OMPROGS",		load_omprogs	},	// notrans
+	{ "OLIMITS",		load_olimits	},	// notrans
+	{ "SPECIALS",		load_specials	},	// notrans
+	{ "PRACTICERS",		load_practicers	},	// notrans
+	{ "RESETMESSAGE",	load_resetmsg	},	// notrans
+	{ "FLAG",		load_aflag	},	// notrans
 	{ NULL }
 };
 

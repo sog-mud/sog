@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.237 2000-12-05 09:57:45 avn Exp $
+ * $Id: comm.c,v 1.238 2001-01-18 22:20:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2067,7 +2067,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			argument = one_argument(argument, arg, sizeof(arg));
 			send_to_char("\n", ch);
 			if (argument[0] == '\0')
-	  			dofun("help", ch,"RACETABLE");
+	  			dofun("help", ch, "RACETABLE");
 			else 
 				dofun("help", ch, argument);
 			act_puts("What is your race ('help <race>' for more information)? ",

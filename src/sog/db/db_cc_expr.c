@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_cc_expr.c,v 1.4 2000-02-10 14:08:59 fjoe Exp $
+ * $Id: db_cc_expr.c,v 1.5 2001-01-18 22:20:15 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -39,7 +39,7 @@ DECLARE_DBINIT_FUN(init_cc_eclass);
 
 DBFUN dbfun_cc_eclass[] =
 {
-	{ "ECLASS",	load_cc_eclass	},
+	{ "ECLASS",	load_cc_eclass	},		// notrans
 	{ NULL }
 };
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.34 2000-10-15 17:19:34 fjoe Exp $
+ * $Id: db_class.c,v 1.35 2001-01-18 22:20:15 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -39,8 +39,8 @@ DECLARE_DBINIT_FUN(init_class);
 
 DBFUN dbfun_classes[] =
 {
-	{ "CLASS",	load_class	},
-	{ "POSE",	load_pose	},
+	{ "CLASS",	load_class	},		// notrans
+	{ "POSE",	load_pose	},		// notrans
 	{ NULL }
 };
 

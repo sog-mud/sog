@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_damtype.c,v 1.12 2000-02-10 14:08:59 fjoe Exp $
+ * $Id: db_damtype.c,v 1.13 2001-01-18 22:20:15 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -38,7 +38,7 @@ DECLARE_DBINIT_FUN(init_damtype);
 
 DBFUN dbfun_damtype[] =
 {
-	{ "DAMTYPE",	load_damtype	},
+	{ "DAMTYPE",	load_damtype	},		// notrans
 	{ NULL }
 };
 

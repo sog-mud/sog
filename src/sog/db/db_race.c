@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.28 2000-08-04 14:12:50 cs Exp $
+ * $Id: db_race.c,v 1.29 2001-01-18 22:20:16 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -38,8 +38,8 @@ DECLARE_DBINIT_FUN(init_race);
 
 DBFUN dbfun_races[] =
 {
-	{ "RACE",	load_race	},
-	{ "PCRACE",	load_pcrace	},
+	{ "RACE",	load_race	},		// notrans
+	{ "PCRACE",	load_pcrace	},		// notrans
 	{ NULL }
 };
 

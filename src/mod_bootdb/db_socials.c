@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_socials.c,v 1.12 2000-04-16 09:22:03 fjoe Exp $
+ * $Id: db_socials.c,v 1.13 2001-01-18 22:20:16 fjoe Exp $
  */
 
 #include <limits.h>
@@ -47,7 +47,7 @@ DECLARE_DBINIT_FUN(init_socials);
 
 DBFUN dbfun_socials[] =
 {
-	{ "SOCIAL",	load_social	},
+	{ "SOCIAL",	load_social	},		// notrans
 	{ NULL }
 };
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_system.c,v 1.15 2000-06-14 17:54:33 fjoe Exp $
+ * $Id: db_system.c,v 1.16 2001-01-18 22:20:16 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -51,8 +51,8 @@ DECLARE_DBINIT_FUN(init_system);
 
 DBFUN dbfun_system[] =
 {
-	{ "SYSTEM",	load_system	},
-	{ "INFO",	load_info	},
+	{ "SYSTEM",	load_system	},		// notrans
+	{ "INFO",	load_info	},		// notrans
 	{ NULL }
 };
 

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.234 2001-01-12 15:33:53 cs Exp $
+ * $Id: db.c,v 1.235 2001-01-18 22:20:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -257,7 +257,7 @@ DECLARE_DBINIT_FUN(init_glob_gmlstr);
 
 DBFUN dbfun_glob_gmlstr[] =
 {
-	{ "GLOB",	load_glob_gmlstr	},
+	{ "GLOB",	load_glob_gmlstr	},	// notrans
 	{ NULL }
 };
 

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.275 2001-01-12 15:33:52 cs Exp $
+ * $Id: handler.c,v 1.276 2001-01-18 22:20:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2148,7 +2148,7 @@ bool pc_name_ok(const char *name)
 	/*
 	 * Reserved words.
 	 */
-	if (is_name(name, "chronos all auto immortals self someone something"
+	if (is_name(name, "chronos all auto immortals self someone something "
 			  "the you demise balance circle loner honor "
 			  "none clan"))
 		return FALSE;

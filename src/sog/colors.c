@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: colors.c,v 1.9 2000-03-30 04:28:53 avn Exp $
+ * $Id: colors.c,v 1.10 2001-01-18 22:20:15 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -76,7 +76,7 @@ static int curr_color = COLOR_CLEAR;
 
 FORMAT_DATA format_table[] =
 {
-	{ "dumb",
+	{ "dumb",					// notrans
 		{
 			str_empty,	/* normal colors */
 			str_empty,
@@ -99,70 +99,70 @@ FORMAT_DATA format_table[] =
 			str_empty,	/* special colors */
 			str_empty,
 			str_empty,
-			"\n\r",
-			"<",
-			">",
-			"&"
+			"\n\r",				// notrans
+			"<",				// notrans
+			">",				// notrans
+			"&"				// notrans
 		}
 	},
 
-	{ "ansi",
+	{ "ansi",					// notrans
 		{
-			"\033[0;30m",
-			"\033[0;31m",
-			"\033[0;32m",
-			"\033[0;33m",
-			"\033[0;34m",
-			"\033[0;35m",
-			"\033[0;36m",
-			"\033[0;37m",
+			"\033[0;30m",			// notrans
+			"\033[0;31m",			// notrans
+			"\033[0;32m",			// notrans
+			"\033[0;33m",			// notrans
+			"\033[0;34m",			// notrans
+			"\033[0;35m",			// notrans
+			"\033[0;36m",			// notrans
+			"\033[0;37m",			// notrans
 
-			"\033[1;30m",
-			"\033[1;31m",
-			"\033[1;32m",
-			"\033[1;33m",
-			"\033[1;34m",
-			"\033[1;35m",
-			"\033[1;36m",
-			"\033[1;37m",
+			"\033[1;30m",			// notrans
+			"\033[1;31m",			// notrans
+			"\033[1;32m",			// notrans
+			"\033[1;33m",			// notrans
+			"\033[1;34m",			// notrans
+			"\033[1;35m",			// notrans
+			"\033[1;36m",			// notrans
+			"\033[1;37m",			// notrans
 
-			"\033[0m",
-			"\007",
+			"\033[0m",			// notrans
+			"\007",				// notrans
 			str_empty,
-			"\n\r",
-			"<",
-			">",
-			"&"
+			"\n\r",				// notrans
+			"<",				// notrans
+			">",				// notrans
+			"&"				// notrans
 		}
 	},
 
-	{ "html",
+	{ "html",					// notrans
 		{
-			"<FONT COLOR=#000000>",
-			"<FONT COLOR=#800000>",
-			"<FONT COLOR=#008000>",
-			"<FONT COLOR=#808000>",
-			"<FONT COLOR=#000080>",
-			"<FONT COLOR=#800080>",
-			"<FONT COLOR=#008080>",
-			"<FONT COLOR=#C0C0C0>",
+			"<FONT COLOR=#000000>",		// notrans
+			"<FONT COLOR=#800000>",		// notrans
+			"<FONT COLOR=#008000>",		// notrans
+			"<FONT COLOR=#808000>",		// notrans
+			"<FONT COLOR=#000080>",		// notrans
+			"<FONT COLOR=#800080>",		// notrans
+			"<FONT COLOR=#008080>",		// notrans
+			"<FONT COLOR=#C0C0C0>",		// notrans
 
-			"<FONT COLOR=#606060>",
-			"<FONT COLOR=#FF0000>",
-			"<FONT COLOR=#00FF00>",
-			"<FONT COLOR=#FFFF00>",
-			"<FONT COLOR=#0000FF>",
-			"<FONT COLOR=#FF00FF>",
-			"<FONT COLOR=#00FFFF>",
-			"<FONT COLOR=#FFFFFF>",
+			"<FONT COLOR=#606060>",		// notrans
+			"<FONT COLOR=#FF0000>",		// notrans
+			"<FONT COLOR=#00FF00>",		// notrans
+			"<FONT COLOR=#FFFF00>",		// notrans
+			"<FONT COLOR=#0000FF>",		// notrans
+			"<FONT COLOR=#FF00FF>",		// notrans
+			"<FONT COLOR=#00FFFF>",		// notrans
+			"<FONT COLOR=#FFFFFF>",		// notrans
 
-			"<FONT COLOR=#C0C0C0>",
+			"<FONT COLOR=#C0C0C0>",		// notrans
 			str_empty,
 			str_empty,
-			"\n",
-			"&lt;",
-			"&gt;",
-			"&amp;"
+			"\n",				// notrans
+			"&lt;",				// notrans
+			"&gt;",				// notrans
+			"&amp;"				// notrans
 		}
 	},
 
@@ -290,4 +290,3 @@ int format_lookup(const char *name)
 
 	return FORMAT_DUMB;
 }
-

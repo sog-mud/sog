@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_form.c,v 1.8 2000-04-16 09:22:03 fjoe Exp $
+ * $Id: db_form.c,v 1.9 2001-01-18 22:20:15 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -38,7 +38,7 @@ DECLARE_DBINIT_FUN(init_form);
 
 DBFUN dbfun_forms[] =
 {
-	{ "FORM",	load_form },
+	{ "FORM",	load_form },			// notrans
 	{ NULL }
 };
 

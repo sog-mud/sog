@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_liquid.c,v 1.12 2000-02-10 14:08:59 fjoe Exp $
+ * $Id: db_liquid.c,v 1.13 2001-01-18 22:20:16 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -38,7 +38,7 @@ DECLARE_DBINIT_FUN(init_liquids);
 
 DBFUN dbfun_liquids[] =
 {
-	{ "LIQUID",	load_liquid	},
+	{ "LIQUID",	load_liquid	},		// notrans
 	{ NULL }
 };
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: healer.c,v 1.44 2000-12-01 05:52:39 avn Exp $
+ * $Id: healer.c,v 1.45 2001-01-18 22:20:13 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -106,7 +106,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 		 */
 		BUFFER *buf;
 
-		buf = buf_new(-1);
+		buf = buf_new(GET_LANG(ch));
 		buf_act(buf, BUF_END, "$N offers the following spells.",
 			ch, NULL, mob, NULL, TO_CHAR);
 		for (h = heal_table; h->keyword; h++) {
