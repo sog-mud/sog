@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: word.c,v 1.15 1999-02-19 16:13:43 fjoe Exp $
+ * $Id: word.c,v 1.16 1999-02-19 18:49:31 fjoe Exp $
  */
 
 #include <limits.h>
@@ -203,10 +203,13 @@ const char* word_form_lookup(varr *hash, const char *word, int num)
 			r = strchr(q+1, '\0');
 		strnzcpy(buf3, q+1, UMIN(*r ? r-q : r-q+1, sizeof(buf3)));
 		strnzcat(buf2, word_form_lookup(hash, buf3, num), sizeof(buf2));
-
-		/* copy suffix */
 		strnzcpy(buf, buf2, sizeof(buf));
-		strnzcat(buf, *r ? r+1 : r, sizeof(buf));
+
+		/* translate the rest */
+		if (*r) {
+			strnzcat(buf, word_form_lookup(hash, r+1, num),
+				 sizeof(buf));
+		}
 
 		return buf;
 	}

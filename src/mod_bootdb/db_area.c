@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.29 1999-02-18 15:13:13 fjoe Exp $
+ * $Id: db_area.c,v 1.30 1999-02-19 18:49:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1447,6 +1447,8 @@ DBLOAD_FUN(load_objects)
 		}
 		pObjIndex->clan = fread_clan(fp);
 	    }
+	    else if (letter == 'G')
+		pObjIndex->gender = fread_fword(gender_table, fp);
 	    else if (letter == 'F')
             {
                 AFFECT_DATA *paf;
