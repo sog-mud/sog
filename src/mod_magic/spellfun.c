@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.17 2001-02-20 14:33:42 cs Exp $
+ * $Id: spellfun.c,v 1.181.2.18 2001-03-11 07:23:46 cs Exp $
  */
 
 /***************************************************************************
@@ -661,9 +661,9 @@ void spell_charm_person(int sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	if (!IS_NPC(victim) && !IS_NPC(ch)) 
+	if (!IS_NPC(victim) && !IS_NPC(ch))
 		level += get_curr_stat(ch, STAT_CHA) -
-			 get_curr_stat(victim, STAT_CHA); 
+			 get_curr_stat(victim, STAT_CHA);
 
 	ladj = ch->sex == SEX_FEMALE ? 2 : 0;
 	if (IS_AFFECTED(victim, AFF_CHARM)
@@ -672,7 +672,7 @@ void spell_charm_person(int sn, int level, CHAR_DATA *ch, void *vo)
 	||  victim->position == POS_FIGHTING
 	||  level+ladj < LEVEL(victim)
 	||  IS_SET(victim->imm_flags, IMM_CHARM)
-	||  saves_spell(level, victim, DAM_CHARM) 
+	||  saves_spell(level, victim, DAM_CHARM)
 	||  (IS_NPC(victim) && victim->pMobIndex->pShop != NULL)
 	||  (victim->in_room &&
 	     IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA)))

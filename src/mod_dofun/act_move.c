@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.202.2.15 2001-02-25 12:30:53 fjoe Exp $
+ * $Id: act_move.c,v 1.202.2.16 2001-03-11 07:23:44 cs Exp $
  */
 
 /***************************************************************************
@@ -2152,19 +2152,19 @@ void do_fly(CHAR_DATA *ch, const char *argument)
 			REMOVE_BIT(ch->affected_by, AFF_FLYING);
 			char_puts("You slowly touch the ground.\n", ch);
 		}
-		else {		       
+		else {
 			char_puts("You are already on the ground.\n", ch); 
 			return;
 		}
 	}
- 	else {
+	else {
 		char_puts("Type fly with 'up' or 'down'.\n", ch);
 		return;
 	}
 
-	WAIT_STATE(ch, SKILL(gsn_fly)->beats);   
+	WAIT_STATE(ch, SKILL(gsn_fly)->beats);
 }
-		 
+
 void do_push(CHAR_DATA *ch, const char *argument)
 {
 	char arg1 [MAX_INPUT_LENGTH];
@@ -2193,7 +2193,7 @@ void do_push(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_NPC(ch) && IS_SET(ch->affected_by, AFF_CHARM) 
+	if (IS_NPC(ch) && IS_SET(ch->affected_by, AFF_CHARM)
 		&& (ch->master != NULL)) {
 		char_puts("You are too dazed to push anyone.\n", ch);
 		return;
@@ -2240,6 +2240,11 @@ void do_push(CHAR_DATA *ch, const char *argument)
 		}
 	}
 
+	if (IS_SET(ch->in_room->room_flags, ROOM_BATTLE_ARENA)) {
+		char_puts("Some mystical force prevents you from doing that",
+		    ch);
+		return;
+	}
 
 	if (IS_AFFECTED(ch, AFF_DETECT_WEB)) {
 		char_puts("You're webbed, and want to do WHAT?!?\n", ch);

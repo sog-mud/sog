@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.22 2001-02-25 12:30:54 fjoe Exp $
+ * $Id: act_obj.c,v 1.165.2.23 2001-03-11 07:23:45 cs Exp $
  */
 
 /***************************************************************************
@@ -2593,6 +2593,11 @@ void do_butcher(CHAR_DATA * ch, const char *argument)
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		char_puts("Butcher what?\n", ch);
+		return;
+	}
+
+	if (ch->in_room && IS_SET(ch->in_room->room_flags, ROOM_BATTLE_ARENA)) {
+		char_puts("This place doesn't seem to be good for your cooking experiments.", ch);
 		return;
 	}
 	if ((obj = get_obj_here(ch, arg)) == NULL) {
