@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.25 2000-10-13 11:04:35 fjoe Exp $
+ * $Id: spellfun2.c,v 1.139.2.26 2000-10-29 13:32:58 cs Exp $
  */
 
 /***************************************************************************
@@ -5395,8 +5395,8 @@ void spell_mana_restore(int sn, int level, CHAR_DATA *ch, void *vo)
 }
 
 /*
-	An alteration spell which enlarges a given person
-*/
+ *	An alteration spell which enlarges a given person
+ */
 
 void spell_enlarge(int sn, int level, CHAR_DATA *ch, void *vo)
 {
@@ -5451,11 +5451,12 @@ void spell_enlarge(int sn, int level, CHAR_DATA *ch, void *vo)
 		act("$n suddenly seems to become much larger.",
 			victim, NULL, NULL, TO_ROOM);
 	}
-	else char_puts("You failed.", ch);
+	else act("You failed.", ch, NULL, NULL, TO_CHAR);
 }
+
 /* 
-   A reversed enlarge spell.
-*/
+ *   A reversed enlarge spell.
+ */
 
 void spell_shrink(int sn, int level, CHAR_DATA *ch, void *vo)
 {
@@ -5510,7 +5511,7 @@ void spell_shrink(int sn, int level, CHAR_DATA *ch, void *vo)
 		act("$n suddenly seems to become much smaller.",
 			victim, NULL, NULL, TO_ROOM);
 	}
-	else char_puts("You failed.", ch);
+	else act("You failed.", ch, NULL, NULL, TO_CHAR);
 }
 
 void spell_water_breathing(int sn, int level, CHAR_DATA *ch, void *vo)
