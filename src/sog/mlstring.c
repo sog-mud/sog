@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.50 1999-12-22 05:51:26 fjoe Exp $
+ * $Id: mlstring.c,v 1.51 1999-12-22 06:42:24 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -257,10 +257,17 @@ const char * mlstr_val(const mlstring *mlp, int lang)
 	return (p ? p : str_empty);
 }
 
+static const char *
+mlstr_null_cb(int lang, const char **p, va_list ap)
+{
+	if (!IS_NULLSTR(*p))
+		return *p;
+	return NULL;
+}
+
 bool mlstr_null(const mlstring *mlp)
 {
-	const char *mval = mlstr_mval(mlp);
-	return IS_NULLSTR(mval);
+	return mlstr_foreach((mlstring *) mlp, mlstr_null_cb) == NULL;
 }
 
 static const char *
@@ -268,7 +275,6 @@ mlstr_valid_cb(int lang, const char **p, va_list ap)
 {
 	if (!IS_NULLSTR(*p) && !mem_is(*p, MT_STR))
 		return *p;
-
 	return NULL;
 }
 
