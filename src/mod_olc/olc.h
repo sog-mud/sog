@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.28 1999-02-11 05:38:29 fjoe Exp $
+ * $Id: olc.h,v 1.29 1999-02-15 12:51:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -74,6 +74,7 @@ extern const char ED_CLASS	[];
 extern const char ED_LANG	[];
 extern const char ED_GENDER	[];
 extern const char ED_CASE	[];
+extern const char ED_SOC	[];
 
 /*
  * Interpreter Table Prototypes
@@ -89,6 +90,7 @@ extern OLC_CMD_DATA	olc_cmds_msg[];
 extern OLC_CMD_DATA	olc_cmds_class[];
 extern OLC_CMD_DATA	olc_cmds_lang[];
 extern OLC_CMD_DATA	olc_cmds_word[];
+extern OLC_CMD_DATA	olc_cmds_soc[];
 
 /*
  * Editor Commands.
@@ -142,6 +144,7 @@ void		roomed_edit_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoom,
 
 #define	SECURITY_CLAN		5
 #define	SECURITY_CLAN_PLIST	9
+#define SECURITY_SOCIALS	5
 #define SECURITY_HELP		5
 #define SECURITY_AREA_CREATE	9
 #define SECURITY_MSGDB		3

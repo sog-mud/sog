@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.52 1999-02-12 16:22:42 fjoe Exp $
+ * $Id: olc_save.c,v 1.53 1999-02-15 12:51:21 fjoe Exp $
  */
 
 /**************************************************************************
@@ -34,6 +34,7 @@
 #include "db/db.h"
 #include "db/word.h"
 #include "db/lang.h"
+#include "db/socials.h"
 
 #define DIF(a,b) (~((~a)|(b)))
 
@@ -59,20 +60,14 @@ void save_area_list()
 	if ((fp = dfopen(AREA_PATH, AREA_LIST, "w")) == NULL) {
 		bug("Save_area_list: fopen", 0);
 		perror(AREA_LIST);
+		return;
 	}
-	else {
-		/*
-		 * Add any help files that need to be loaded at
-		 * startup to this section.
-		 */
-		fprintf(fp, "social.are\n");    /* ROM OLC */
 
-		for (pArea = area_first; pArea; pArea = pArea->next)
-			fprintf(fp, "%s\n", pArea->file_name);
+	for (pArea = area_first; pArea; pArea = pArea->next)
+		fprintf(fp, "%s\n", pArea->file_name);
 
-		fprintf(fp, "$\n");
-		fclose(fp);
-	}
+	fprintf(fp, "$\n");
+	fclose(fp);
 }
 
 void save_mobprogs(FILE *fp, AREA_DATA *pArea)
@@ -1197,6 +1192,52 @@ void save_langs(CHAR_DATA *ch)
 	}
 }
 
+void save_social(FILE *fp, social_t *soc)
+{
+	fprintf(fp, "#SOCIAL\n");
+	fprintf(fp, "name %s\n", soc->name);
+	fprintf(fp, "min_pos %s\n",
+		flag_string(position_table, soc->min_pos));
+	fwrite_string(fp, "found_char", soc->found_char);
+	fwrite_string(fp, "found_vict", soc->found_vict);
+	fwrite_string(fp, "found_notvict", soc->found_notvict);
+	fwrite_string(fp, "noarg_char", soc->noarg_char);
+	fwrite_string(fp, "noarg_room", soc->noarg_room);
+	fwrite_string(fp, "self_char", soc->self_char);
+	fwrite_string(fp, "self_room", soc->self_room);
+	fwrite_string(fp, "notfound_char", soc->notfound_char);
+	fprintf(fp, "end\n\n");
+}
+
+void save_socials(CHAR_DATA *ch)
+{
+	int i;
+	FILE *fp;
+	int sec = ch ? (IS_NPC(ch) ? 0 : ch->pcdata->security) : 9;
+
+	if (sec < SECURITY_SOCIALS) {
+		save_print(ch, "Insufficient security to save socials.");
+		return;
+	}
+
+	fp = dfopen(ETC_PATH, SOCIALS_CONF, "w");
+	if (fp == NULL) {
+		save_print(ch, "%s%c%s: %s",
+			   ETC_PATH, PATH_SEPARATOR, SOCIALS_CONF,
+			   strerror(errno));
+		return;
+	}
+
+	for (i = 0; i < socials.nused; i++) {
+		social_t *soc = VARR_GET(&socials, i);
+		save_social(fp, soc);
+	}
+
+	fprintf(fp, "#$\n");
+	fclose(fp);
+	save_print(ch, "Socials saved.");
+}
+
 void do_asave_raw(CHAR_DATA *ch, int flags)
 {
 	AREA_DATA *pArea;
@@ -1301,6 +1342,11 @@ void do_asave(CHAR_DATA *ch, const char *argument)
 
 	if (!str_cmp("langs", argument)) {
 		save_langs(ch);
+		return;
+	}
+
+	if (!str_cmp("socials", argument)) {
+		save_socials(ch);
 		return;
 	}
 

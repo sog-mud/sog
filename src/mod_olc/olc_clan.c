@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.20 1999-02-12 10:33:36 kostik Exp $
+ * $Id: olc_clan.c,v 1.21 1999-02-15 12:51:21 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -55,7 +55,7 @@ DECLARE_OLC_FUN(claned_plist		);
 DECLARE_OLC_FUN(claned_skill_add	);
 DECLARE_OLC_FUN(claned_skill_del	);
 
-DECLARE_VALIDATE_FUN(validate_name	);
+static DECLARE_VALIDATE_FUN(validate_name);
 
 OLC_CMD_DATA olc_cmds_clan[] =
 {
@@ -88,7 +88,8 @@ OLC_FUN(claned_create)
 	char arg[MAX_STRING_LENGTH];
 
 	if (ch->pcdata->security < SECURITY_CLAN) {
-		char_puts("ClanEd: Insufficient security for editing clans\n", ch);
+		char_puts("ClanEd: Insufficient security for creating clans\n",
+			  ch);
 		return FALSE;
 	}
 
@@ -132,7 +133,7 @@ OLC_FUN(claned_edit)
 	}
 
 	if ((cn = cn_lookup(arg)) < 0) {
-		char_printf(ch, "ClanEd: %s: No such clan.\n", argument);
+		char_printf(ch, "ClanEd: %s: No such clan.\n", arg);
 		return FALSE;
 	}
 
@@ -166,8 +167,7 @@ OLC_FUN(claned_show)
 	}
 	else {
 		if ((i = cn_lookup(arg)) < 0) {
-			char_printf(ch, "ClanEd: %s: No such clan.\n",
-				    argument);
+			char_printf(ch, "ClanEd: %s: No such clan.\n", arg);
 			return FALSE;
 		}
 		clan = CLAN(i);
@@ -436,7 +436,7 @@ bool touch_clan(CLAN_DATA *clan)
 	return FALSE;
 }
 
-VALIDATE_FUN(validate_name)
+static VALIDATE_FUN(validate_name)
 {
 	int i;
 	CLAN_DATA *clan;
