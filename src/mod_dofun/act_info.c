@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.50 2002-01-10 21:10:26 tatyana Exp $
+ * $Id: act_info.c,v 1.271.2.51 2002-01-11 20:35:09 tatyana Exp $
  */
 
 /***************************************************************************
@@ -568,19 +568,16 @@ static void do_look_room(CHAR_DATA *ch, int flags)
 
 		char_puts("\n", ch);
 
- 		if (!IS_SET(flags, LOOK_F_NORDESC)) {
+		if (!IS_SET(flags, LOOK_F_NORDESC)) {
 			char_puts("  ", ch);
 			act_puts(mlstr_cval(&ch->in_room->description, ch),
 				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
+			char_puts("\n", ch);
 		}
 
-		char_puts("\n", ch);
-
-		if (!IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_AUTOEXIT)) {
+		if (IS_SET(PC(ch)->plr_flags, PLR_AUTOEXIT))
 			do_exits(ch, "auto");
-		}
-	}
-	else 
+	} else
 		char_puts("It is pitch black...\n", ch);
 
 	show_list_to_char(ch->in_room->contents, ch, FALSE, FALSE);
