@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.7 2000-04-14 12:40:35 fjoe Exp $
+ * $Id: act_obj.c,v 1.165.2.8 2000-04-17 07:04:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1170,7 +1170,7 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 
 	if (obj->pObjIndex->item_type == ITEM_PILL
 	&&  ch->level < obj->level) {
-		act_puts("$p is too powerful for you to eat.\n",
+		act_puts("$p is too powerful for you to eat.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
@@ -1232,12 +1232,6 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 		break;
 
 	case ITEM_PILL:
-		if (ch->level < obj->level) {
-			act_puts("$p is too powerful for you to eat.\n",
-				 ch, obj, NULL, TO_CHAR, POS_DEAD);
-			return;
-		}
-
 		if (ch->fighting != NULL)
 			WAIT_STATE(ch, 3 * PULSE_VIOLENCE);
 
