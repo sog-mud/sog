@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.58 1998-09-15 15:17:14 fjoe Exp $
+ * $Id: act_wiz.c,v 1.59 1998-09-17 11:11:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -489,7 +489,7 @@ void do_bamfin(CHAR_DATA *ch, const char *argument)
 {
 	if (!IS_NPC(ch)) {
 		if (argument[0] == '\0') {
-			char_printf(ch, "Your poofin is %s\n\r",
+			char_printf(ch, "Your poofin is '%s'\n\r",
 				    ch->pcdata->bamfin);
 			return;
 		}
@@ -503,18 +503,16 @@ void do_bamfin(CHAR_DATA *ch, const char *argument)
 		ch->pcdata->bamfin = str_dup(argument);
 		smash_tilde(ch->pcdata->bamfin);
 
-		char_printf(ch, "Your poofin is now %s\n\r",
+		char_printf(ch, "Your poofin is now '%s'\n\r",
 			    ch->pcdata->bamfin);
 	}
 }
-
-
 
 void do_bamfout(CHAR_DATA *ch, const char *argument)
 {
 	if (!IS_NPC(ch)) {
 		if (argument[0] == '\0') {
-			char_printf(ch, "Your poofout is %s\n\r",
+			char_printf(ch, "Your poofout is '%s'\n\r",
 				    ch->pcdata->bamfout);
 			return;
 		}
@@ -528,7 +526,7 @@ void do_bamfout(CHAR_DATA *ch, const char *argument)
 		ch->pcdata->bamfout = str_dup(argument);
 		smash_tilde(ch->pcdata->bamfout);
 	
-		char_printf(ch, "Your poofout is now %s\n\r",
+		char_printf(ch, "Your poofout is now '%s'\n\r",
 			    ch->pcdata->bamfout);
 	}
 }
