@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.88 1998-12-24 12:24:13 kostik Exp $
+ * $Id: act_quest.c,v 1.89 1998-12-29 16:43:32 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -880,7 +880,7 @@ static bool buy_tattoo(CHAR_DATA *ch, CHAR_DATA *questor)
 {
 	OBJ_DATA *tattoo;
 
-	if (ch->religion == NULL) {
+	if (!ch->religion) {
 		char_puts("You don't have a religion to have a tattoo.\n", ch);
 		return FALSE;
 	}

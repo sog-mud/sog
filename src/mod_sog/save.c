@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.91 1998-12-23 16:59:22 fjoe Exp $
+ * $Id: save.c,v 1.92 1998-12-29 16:43:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,10 +45,9 @@
 #include <string.h>
 #include <time.h>
 #include <limits.h>
-
-#ifdef BSD44
 #include <stdlib.h>
-#else
+
+#ifndef BSD44
 #include <malloc.h>
 #endif
 

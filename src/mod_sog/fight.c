@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.115 1998-12-23 16:11:13 fjoe Exp $
+ * $Id: fight.c,v 1.116 1998-12-29 16:43:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1212,7 +1212,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 			stop_follower(victim);
 
 		if (MOUNTED(victim) == ch || RIDDEN(victim) == ch)
-			victim->riding = ch->riding = NULL;
+			victim->riding = ch->riding = 0;
 	}
 
 	/*
