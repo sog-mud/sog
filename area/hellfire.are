@@ -23,8 +23,6 @@ AJKTbef DFOPUVlmrtu -1000 0
 ACEFIJKLN CD D 0
 stand stand male 1000000
 0 0 huge unknown
-M act 18799 arrives~
-M act 18799 slowly fades into existence.~
 C BattleRager~
 #18701
 griswold грисвольд~
@@ -32,6 +30,10 @@ griswold грисвольд~
 @eng Griswold is here to sell his fine works.
 @rus Кузнец Гризвольд (Griswold) продает здесь оружие и доспехи.
 ~
+Перед тобой стоит высокий человек лет сорока, он уже не молод, но
+и непохож на старика. Это кузнец Гризвольд, он продает оружие и доспехи
+сделаные своими руками.
+ 
 ~
 human~
 ABTce CDEFHNTVlmt 584 0
@@ -729,11 +731,12 @@ S
 #18705
 @eng Drugstone@rus Аптека~
 ~
-0 NS inside
+0 KNS city
 D1
 ~
 ~
 Z 0 18703
+M 200 H 200
 S
 #18706
 @eng Trail@rus Тропинка~
@@ -801,6 +804,8 @@ Z 0 18708
 S
 #18710
 @eng Forge@rus Кузница~
+Ты зашел в кузницу.
+ 
 ~
 0 C inside
 D2
@@ -1684,10 +1689,14 @@ tell $n Не пиздеть!
 say Хозяин будет недоволен
 ~
 #18798
-tell $n Урукхай
+mob remember $n
+say Ты куда, мы еще с тобой неразобрались.
+mob transfer $q
 ~
 #18799
-say Что тебе здесь надо!
+mob remember $N
+tell $q Что тебе здесь надо?
+mob forget
 ~
 #0
 

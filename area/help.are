@@ -405,17 +405,19 @@ note catchup    : markes all notes as read
 
 'note read' can accept number of note to read.
 'note list' has extended syntax: note list [from name] [to name]
-'note reply' is synonim for 'note quote'
 
 {cwriting notes{x:
 note to         : set the 'To:' line (player name, clan name, immortal or all)
 note subject    : set the subject for a new note
 note edit       : edit note
-note clear      : erase a note in progress
+note clear      : erase (drop) a note in progress
 note show       : show the note you are working on
 note post       : post a new note. This MUST be done to post a note.
 note forward num: forward note number 'num'
 note quote num  : quote note number 'num'
+
+'note cancel' is a synonim for 'note clear'
+'note reply' is a synonim for 'note quote'
 
 When you log in, you will be informed if there are unread notes waiting. Type
 note read to scroll through them one at a time.

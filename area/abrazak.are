@@ -5,6 +5,7 @@ VNUMs 15000 15199
 Credits abrazak~
 Security 7
 LevelRange 0 0
+ResetMessage @eng Something happened.@rus Что-то случилось.~
 Flags closed~
 End
 
