@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.53 2004-05-18 00:09:06 kets Exp $
+ * $Id: act_comm.c,v 1.187.2.54 2004-06-09 07:56:35 tatyana Exp $
  */
 
 /***************************************************************************
@@ -743,7 +743,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 
 		act_puts("{W$n{x is PRAYING for '{G$t{x'",
 			 ch, argument, vch,
-			 TO_VICT | ACT_TOBUF, POS_DEAD);
+			 TO_VICT | ACT_TOBUF | ACTQ_PRAYS, POS_DEAD);
 	 }
 }
 
@@ -2213,6 +2213,9 @@ void do_last(CHAR_DATA *ch, const char *argument)
 	} else if (!str_prefix(arg, "immtalk") && IS_IMMORTAL(ch)) {
 		qname = "imm talks";
 		msgq = &msgq_immtalk;
+	} else if (!str_prefix(arg, "pray") && IS_IMMORTAL(ch)) {
+		qname = "prayers";
+		msgq = &msgq_prays;
 	}
 
 	if (msgq == NULL) {

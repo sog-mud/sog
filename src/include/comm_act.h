@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.h,v 1.16.2.6 2002-11-20 22:42:12 fjoe Exp $
+ * $Id: comm_act.h,v 1.16.2.7 2004-06-09 07:56:35 tatyana Exp $
  */
 
 #ifndef _COMM_ACT_H_
@@ -32,8 +32,8 @@
 /*
  * layout of act_flags is:
  * bits 0..2	-- act target
- * bits 3..5	-- queue
- * bits 6..31	-- flags
+ * bits 3..6	-- queue
+ * bits 7..31	-- flags
  */
 
 /*
@@ -55,11 +55,11 @@
 #define ACTQ_SOG	(5 << 3)
 #define ACTQ_CHAN	(6 << 3)
 #define ACTQ_IMMTALK	(7 << 3)
+#define ACTQ_PRAYS	(8 << 3)
 
 /*
  * act flags
  */
-#define ACT_NOTRIG	(G)	/* do not pull act triggers */
 #define ACT_NOTWIT	(H)	/* do not perform twit list checking */
 #define ACT_NOTRANS	(I)	/* do not perform $t, $T, $u and $U transl. */
 #define ACT_NODEAF	(J)	/* skip is_affected(to, gsn_deafen) chars   */
@@ -73,12 +73,13 @@
 #define ACT_NOFIXTEXT	(R)	/* do not call fix_short for text args */
 #define ACT_NOCANSEE	(S)	/* do not perform can_see checks */
 #define ACT_TOBUF	(T)	/* append to replay buffer if link-dead */
+#define ACT_NOTRIG	(U)	/* do not pull act triggers */
 #define ACT_SPEECH(ch)	(ACT_NODEAF | ACT_STRANS | ACT_NOFIXTEXT |	\
 		  	 (!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM) ?	\
 				ACT_NOTRANS : 0))
 
 #define ACT_TO(act_flags)	((act_flags) & (7 << 0))
-#define ACTQ(act_flags)		((act_flags) & (7 << 3))
+#define ACTQ(act_flags)		((act_flags) & (15 << 3))
 
 /*
  * formatting stuff

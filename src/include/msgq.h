@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: msgq.h,v 1.1.2.1 2002-10-26 16:51:26 fjoe Exp $
+ * $Id: msgq.h,v 1.1.2.2 2004-06-09 07:56:35 tatyana Exp $
  */
 
 #ifndef _MSGQ_H_
@@ -49,6 +49,7 @@ const char *msgq_next(msgq_t *msgq);
 
 extern msgq_t	msgq_sog;	/* SoG channel messages */
 extern msgq_t	msgq_immtalk;	/* immtalk messages */
+extern msgq_t	msgq_prays;	/* prayer messages */
 
 #define MSGQ_LEN_PERS	16
 #define MSGQ_LEN_CHAN	16
