@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.25 2000-10-21 19:41:07 fjoe Exp $
+ * $Id: db_lang.c,v 1.26 2001-01-08 20:21:29 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -172,13 +172,13 @@ DBLOAD_FUN(load_rulecl)
 				else
 					path[0] = '\0';
 
-				if (rcl->file_expl) {
+				if (!IS_NULLSTR(rcl->file_expl)) {
 					db_set_arg(&db_expl, "RULE", rcl);
 					db_load_file(&db_expl, path,
 						     rcl->file_expl);
 				}
 
-				if (rcl->file_impl) {
+				if (!IS_NULLSTR(rcl->file_impl)) {
 					db_set_arg(&db_impl, "RULE", rcl);
 					db_load_file(&db_impl, path,
 						     rcl->file_impl);

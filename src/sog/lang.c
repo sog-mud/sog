@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.25 2000-10-21 19:41:07 fjoe Exp $
+ * $Id: lang.c,v 1.26 2001-01-08 20:21:26 fjoe Exp $
  */
 
 #include <string.h>
@@ -310,9 +310,12 @@ static void rulecl_init(lang_t *l, int rulecl)
 	rulecl_t *rcl = l->rules + rulecl;
 
 	rcl->rulecl = rulecl;
+	rcl->file_expl = str_empty;
+	rcl->file_impl = str_empty;
 	for (i = 0; i < MAX_RULE_HASH; i++)
 		varr_init(rcl->expl+i, &v_rule);
 	varr_init(&rcl->impl, &v_rule);
+	rcl->rcl_flags = 0;
 }
 
 /*----------------------------------------------------------------------------
@@ -354,4 +357,3 @@ int lang_nlookup(const char *name, size_t len)
 	log(LOG_ERROR, "lang_lookup: %s: unknown language", name);
 	return -1;
 }
-
