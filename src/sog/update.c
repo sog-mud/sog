@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.38 2001-12-10 12:08:44 cs Exp $
+ * $Id: update.c,v 1.157.2.39 2001-12-18 11:44:49 tatyana Exp $
  */
 
 /***************************************************************************
@@ -126,6 +126,12 @@ void advance_level(CHAR_DATA *ch)
 	add_hp = UMAX(3, add_hp);
 	add_mana = UMAX(3, add_mana);
 	add_move = UMAX(6, add_move);
+
+	if (ch->race == rn_lookup("centaur"))
+		add_move *= 2;
+
+	if (ch->race == rn_lookup("dwarf"))
+		add_move = add_move * 15 / 10;
 
 	if (ch->sex == SEX_FEMALE) {
 		add_hp   -= 1;
@@ -665,7 +671,7 @@ void mobile_update(void)
 
 		if (IS_AFFECTED(ch, AFF_REGENERATION) && ch->in_room != NULL) {
 			ch->hit = UMIN(ch->hit + ch->level / 10, ch->max_hit);
-			if (ch->race == 18 /* troll */)
+			if (ch->race == rn_lookup("troll"))
 				ch->hit = UMIN(ch->hit + ch->level / 10,
 					       ch->max_hit);
 			if (ch->hit != ch->max_hit)

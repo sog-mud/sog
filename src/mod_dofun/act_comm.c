@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.30 2001-12-12 21:36:42 fjoe Exp $
+ * $Id: act_comm.c,v 1.187.2.31 2001-12-18 11:44:42 tatyana Exp $
  */
 
 /***************************************************************************
@@ -960,14 +960,14 @@ void do_group(CHAR_DATA *ch, const char *argument)
 			if (is_same_group(gch, ch)) {
 				char_printf(ch,
 					    "[%2d %s] %-16s %d/%d hp "
-					    "%d/%d mana %d/%d mv   %5d xp\n",
+					    "%d/%d mana %d/%d mv %5d tnl\n",
 					    gch->level,
 					    class_who_name(gch),
 					    PERS(gch, ch),
 					    gch->hit,   gch->max_hit,
 					    gch->mana,  gch->max_mana,
 					    gch->move,  gch->max_move,
-					    GET_EXP(gch));
+					    exp_to_level(gch));
 			}
 		}
 		return;

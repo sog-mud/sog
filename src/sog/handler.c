@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.48 2001-12-12 18:51:10 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.49 2001-12-18 11:44:47 tatyana Exp $
  */
 
 /***************************************************************************
@@ -4311,7 +4311,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 			}
 			if (!IS_AFFECTED(ch, AFF_SWIM)
 			&&  !IS_IMMORTAL(ch))	{
-				act_puts("You can't swim.",
+				act_puts("You can't swim under water.",
 					ch, NULL, NULL, TO_CHAR, POS_DEAD);
 				return FALSE;
 			}
@@ -4334,6 +4334,12 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 
 			if (IS_AFFECTED(ch,AFF_SLOW))
 				move *= 2;
+
+			if ((ch->race == rn_lookup("centaur") ||
+			     ch->race == rn_lookup("dwarf"))
+			&&  !IS_AFFECTED(ch, AFF_FLYING))
+				move = move * 3 / 4;
+
 		}
 
 		if (!MOUNTED(ch)) {
