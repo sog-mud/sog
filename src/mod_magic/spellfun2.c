@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.3 2000-03-15 12:36:14 osya Exp $
+ * $Id: spellfun2.c,v 1.139.2.4 2000-03-16 05:28:33 osya Exp $
  */
 
 /***************************************************************************
@@ -194,15 +194,14 @@ void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	act_puts("$N's thin light ray ###DISINTEGRATES### you!", 
-	      victim, NULL, ch, TO_CHAR, POS_RESTING);
-	act_puts("$n's thin light ray ###DISINTEGRATES### $N!", 
+	      ch, NULL, victim, TO_VICT, POS_RESTING);
+	act_puts("$n's thin light ray ###DISINTEGRATES### $n!", 
 	      ch, NULL, victim, TO_NOTVICT, POS_RESTING);
-	act_puts("Your thin light ray ###DISINTEGRATES### $N!", 
+	act_puts("Your thin light ray ###DISINTEGRATES### $n!", 
 	      ch, NULL, victim, TO_CHAR, POS_RESTING);
 	char_puts("You have been KILLED!\n", victim);
 
-	act("$N does not exist anymore!\n", ch, NULL, victim, TO_CHAR);
-	act("$N does not exist anymore!\n", ch, NULL, victim, TO_ROOM);
+	act("$N does not exist anymore!\n", ch, NULL, victim, TO_ALL);
 
 	char_puts("You turn into an invincible ghost for a few minutes.\n",
 	             victim);
@@ -5744,8 +5743,8 @@ void spell_abolish_undead(int sn, int level, CHAR_DATA *ch, void *vo)
 	
         r = RACE(victim->race);
 
-        if  ((!IS_NPC(victim) || !IS_SET(victim->pMobIndex->act, ACT_UNDEAD))
-             && (!IS_SET(r->form, FORM_UNDEAD))) {
+        if ((!IS_SET(r->form, FORM_UNDEAD)) 
+	&&  !is_affected(victim, gsn_vampire)) {
                 act("$N doesn't seem to be an undead.",ch,NULL,victim,TO_CHAR);
                 return;
         }
@@ -5759,16 +5758,15 @@ void spell_abolish_undead(int sn, int level, CHAR_DATA *ch, void *vo)
                 return;
         }
 
-        act_puts("$N's holy light holds you! Your flash decays into dust.",
-              victim, NULL, ch, TO_CHAR, POS_RESTING);
-        act_puts("$n's holy light holds $N! $N's flash decays into dust.",
+        act_puts("$N's holy light burns you! Your flesh decays into dust.",
+              ch, NULL, victim, TO_VICT, POS_RESTING);
+        act_puts("$N's holy light burns $n! $n's flesh decays into dust.",
               ch, NULL, victim, TO_NOTVICT, POS_RESTING);
-        act_puts("Your holy light holds $N! $N's flash decays into dust.",
+        act_puts("Your holy light burns $n! $n's flesh decays into dust.",
               ch, NULL, victim, TO_CHAR, POS_RESTING);
         char_puts("You have been KILLED!\n", victim);
 
-        act("$N does not exist anymore!\n", ch, NULL, victim, TO_CHAR);
-        act("$N does not exist anymore!\n", ch, NULL, victim, TO_ROOM);
+        act("$N does not exist anymore!\n", ch, NULL, victim, TO_ALL);
 
         char_puts("You turn into an invincible ghost for a few minutes.\n",
                      victim);
