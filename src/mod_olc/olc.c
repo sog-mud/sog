@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.99 1999-12-16 12:24:46 fjoe Exp $
+ * $Id: olc.c,v 1.100 1999-12-16 13:24:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -966,9 +966,9 @@ olced_cc_vexpr(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 {
 	char arg[MAX_INPUT_LENGTH];
 	bool del;
-	const char **ps;
 	const char *p;
 	cc_eclass_t *ecl;
+	cc_expr_t *e;
 
 	if ((ecl = cc_eclass_lookup(ecn)) == NULL) {
 		char_printf(ch, "%s: %s: unknown eclass.\n",
@@ -991,7 +991,6 @@ olced_cc_vexpr(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 	if ((del = !str_prefix(arg, "delete"))
 	||  !str_prefix(arg, "mfun")) {
 		int num;
-		cc_expr_t *e;
 
 		argument = one_argument(p, arg, sizeof(arg));
 		if (!is_number(arg))
@@ -1012,27 +1011,30 @@ olced_cc_vexpr(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 			varr_edelete(v, e);
 			char_printf(ch, "%s: %s: expr deleted.\n",
 				    OLCED(ch)->name, cmd->name);
-			return TRUE;
+		} else {
+			one_argument(argument, arg, sizeof(arg));
+			if (cc_efun_lookup(ecl, arg) == NULL) {
+				char_printf(ch, "%s: %s: no such efun in eclass '%s'.\n");
+				return FALSE;
+			}
+
+			free_string(e->mfun);
+			e->mfun = str_dup(arg);
+		}
+	} else {
+		if (!str_prefix(arg, "add")) {
+			if (p[0] == '\0')
+				OLC_ERROR("'OLC RULESET'");
+			argument = p;
 		}
 
-		one_argument(argument, arg, sizeof(arg));
-		if (cc_efun_lookup(ecl, arg) == NULL) {
-			char_printf(ch, "%s: %s: no such efun in eclass '%s'.\n");
-			return FALSE;
-		}
+		e = varr_enew(v);
+		e->expr = str_dup(argument);
+		char_printf(ch, "%s: %s: expr added.\n",
+			    OLCED(ch)->name, cmd->name);
+	}
 
-		free_string(e->mfun);
-		e->mfun = str_dup(arg);
-		return TRUE;
-	} 
-
-	if (!str_prefix(arg, "add"))
-		argument = p;
-
-	ps = varr_enew(v);
-	*ps = str_dup(argument);
-	char_printf(ch, "%s: %s: expr added.\n", OLCED(ch)->name, cmd->name);
-
+	olced_cc_vexpr(ch, "show", cmd, v, ecn);
 	return TRUE;
 }
 
