@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.39 1998-06-08 10:08:15 efdi Exp $
+# $Id: english.lang,v 1.40 1998-06-10 06:46:21 efdi Exp $
 #
 
 INFO_NOTHING		"Nothing.\n\r"
@@ -595,3 +595,21 @@ INFO_HUMMING		"({YHumming{x) "
 INFO_GLOWING_RED_EYES	"You see {Rglowing red eyes{x watching {CYOU{x!"
 INFO_FEEL_MORE_LIVES	"You feel %d more life %s in the room.\n\r"
 INFO_CANT_SEE_THING	"You can't see a thing!\n\r"
+INFO_HERE_RIDING	" is here, riding %s."
+INFO_THATS_NOT_CONTAINER	"That is not a container.\n\r"
+INFO_IT_IS_EMPTY	"It is empty.\n\r"
+INFO_ITS_FILLED_S	"It's %sfilled with a %s liquid.\n\r"
+INFO_LESS_THAN_HALF	"less than half-"
+INFO_ABOUT_HALF		"about half-"
+INFO_MORE_THAN_HALF	"more than half-"
+INFO_IT_IS_CLOSED	"It is closed.\n\r"
+INFO_P_HOLDS		"$p holds:"
+INFO_CANT_SEE_BUT_STARS	"You can't see anything but stars!\n\r"
+INFO_CANT_SEE_SLEEPING	"You can't see anything, you're sleeping!\n\r"
+INFO_PITCH_BLACK	"It is pitch black ...\n\r"
+INFO_LOOK_IN_WHAT	"Look in what?\n\r"
+INFO_NOTHING_SPECIAL_IT	"You see nothing special about it.\n\r"
+INFO_ONLY_SEE_ONE_S	"You only see one %s here.\n\r"
+INFO_ONLY_SEE_D_THOSE	"You only see %d of those here.\n\r"
+INFO_NOTHING_SPECIAL_THERE	"Nothing special there.\n\r"
+INFO_THE_D_IS_CLOSED	"The $d is open."
