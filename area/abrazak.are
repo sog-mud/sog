@@ -22,7 +22,7 @@ ABGOVXac H 0 0
 1000 0 5d5000+5000 1d1+666 5d300+1 none
 6 6 66 66
 0 ABDFGIJLMOPQRTXYZ 0 0
-stand stand female 2147483647
+stand stand male 2147483647
 CIK 0 huge unknown
 M random 15000 2~
 M random 15000 1~
@@ -348,6 +348,15 @@ A
 19 250
 A
 18 250
+G none
+#15019
+mark~
+@rus Свернувший с пути~
+abra kadabra madabra~
+unknown~
+treasure A S
+0 0 0 0 0
+0 0 100 P
 G none
 #15020
 box~

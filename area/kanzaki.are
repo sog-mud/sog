@@ -3062,21 +3062,6 @@ O 0 47217 0 47216	* River (Shore of the river)
 O 0 47108 0 47218	* Cave mouth (In the river)
 S
 
-#OLIMITS
-O 47006 1	* {Wthe holy Avenger{x
-O 47007 1	* {Wblazing white breastplate{x
-O 47008 1	* {Wthe Shield of Faith{x
-O 47009 1	* {Wwhite cape of the paladin{x
-O 47010 1	* {Wa blessing{x
-O 47011 1	* {Wamulet of purity{x
-O 47012 0	* {xBarrel of ale
-O 47013 1	* {rUrukhay's battle axe{x
-O 47014 1	* {YFlamberge Blaze{x
-O 47015 1	* {Yflaming sword{x
-O 47016 1	* a -=+)> shroud
-O 47017 1	* a thingie
-S
-
 #MOBPROGS
 #47000
 if isgood $n                                     

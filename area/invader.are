@@ -14,7 +14,7 @@ End
 keeper guardian invader~
 @eng the invader guardian@rus ~~страж~~ инвайдеров~
 @eng The invader guardian is here, serving his cabal.
-@rus Страж инвайдеров стоит здесь (guardian) , защищая свою кабалу.
+@rus Страж инвайдеров стоит здесь (guardian), защищая свою кабалу.
 ~
 @eng This strong serves as the guardian of the Invader Cabal. His mission is
 to destroy anyone who dares to penatrate into the chamber.
@@ -148,12 +148,12 @@ treasure CEORTe AO
 G none
 #95602
 jaw~
-@eng darkish jaw of a skull@rus ~~челюсть~~ ~
+@eng darkish jaw of a skull@rus ~~челюсть~~~
 @eng A dark jaw of a skull.@rus Челюсть (jaw) лежит в углу.~
 bone~
-key CEORYf A
+key CEORYf AOP
 0 0 0 0 0
-40 2 0 P
+0 2 0 P
 G female
 #95603
 white object portal~
@@ -205,7 +205,7 @@ mark знак~
 @eng {DMark of the {RBeast{x@rus {DЗнак {RЗверя{x~
 A small leather scarp with unholy runes lies here.~
 darkness~
-jewelry AHMYZ S
+jewelry AMTYZ AS
 0 0 0 0 0
 0 0 0 P
 G none
@@ -431,7 +431,7 @@ INVADERS!
 отдышаться и убраться отсюда. Ho помни, это НЕ очень удачное место для
 отдыха. Потому что это место сражений ИНВАЙДЕРОВ!
 ~
-0 ADK inside
+0 ADX inside
 D0
 @eng You see the dark corridor.
 @rus Перед тобой темный проход.

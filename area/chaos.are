@@ -1720,17 +1720,6 @@ M 0 33103 1 33160 1	* professor Preobrazhenskii ()
 M 0 33105 1 33183 1	* Elder Warlock of Chaos (Science Magic)
 S
 
-#OLIMITS
-O 33100 13	* {DOblivion{x
-O 33103 1	* Lifebane
-O 33104 2	* {CLove{x
-O 33105 1	* a dark ->*<- tattoo
-O 33106 1	* wand of assistance
-O 33107 2	* polearm
-O 33110 1	* The meaning of life
-O 33111 1	* Looooooong wiiiiiide warm bed.
-S
-
 #MOBPROGS
 #33100
 if mobexists Xanathos

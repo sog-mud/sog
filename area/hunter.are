@@ -20,13 +20,15 @@ learned as guarding this palace for very very much amounts of gold.
 @rus Поучаствовав во многих охотах, страж охраняет это место от вторжения
 за очень большие деньги.
 ~
-human~
-ABWe DFHJVZ 0 0
+beholder~
+ABJKef DFHV 0 0
 92 40 2d500+25000 1d200+600 10d35+50 slash
 -77 -77 -77 -37
-CEFKNU AB 0 S
+ACEFKNR AB 0 0
 stand stand male 5000
 0 0 medium unknown
+F aff c
+F res C
 #95701
 cleric neutral cabal hunter~
 @eng the cleric@rus лекарь~
@@ -58,13 +60,15 @@ learned as guarding this palace for very very much amounts of gold.
 @rus Поучаствовав во многих охотах, страж охраняет это место от вторжения
 за очень большие деньги.
 ~
-human~
-ABKWef DFJVZlmtu -1000 0
+beholder~
+ABJKef DFJVZlmtu -1000 0
 92 40 2d500+22000 1d200+600 5d35+50 slash
 -77 -77 -77 -32
-CEFKNU AB 0 S
+ACEFKN AB 0 0
 stand stand male 5000
-0 0 medium unknown
+0 G medium unknown
+F aff c
+F res C
 M grall 95700 100~
 M exall 95701 0~
 C Hunter~
@@ -91,21 +95,21 @@ treasure CEORTe AO
 0 1 10000 P
 G none
 #95702
-bone gray~
-@eng a gray bone@rus серая кость~
+bone gray кость~
+@eng a gray bone@rus ~~серая~~ ~~кость~~~
 @eng An ancient animal's bone is left on the floor here.
 @rus Древняя кость (bone) лежит на полу.~
 bone~
-key CEORYf A
+key CEORYf AOP
 0 0 0 0 0
-40 4 0 P
+0 4 0 P
 G none
 #95703
 tattoo~
-@eng {YGolden Skull{x@rus {Yтатуировка в виде черепа{x~
+{Rbrand of the outlaw{x~
 strange tattoo~
 unknown~
-jewelry AHMZ S
+jewelry AMTZ AS
 0 0 0 0 0
 0 0 0 P
 G none
@@ -126,13 +130,13 @@ Z 0 9783
 D5
 ~
 ~
-ABGZ 0 95701
+ABZ 0 95701
 S
 #95701
 @eng Bottom of the Well@rus На дне колодца~
 @eng This place is dimly lit by a flickering torch from a doorway leading north.
 The guardians are  keeping the hunters from enemies.
-@rus Через открытую северную дверь в комнату проникает немного света от мерцающего факела. Стражы охраняют охотников от вторжения врагов.
+@rus Через открытую северную дверь в комнату проникает немного света от мерцающего факела. Стражи охраняют охотников от вторжения врагов.
 ~
 0 ACDK inside
 D0
@@ -142,7 +146,7 @@ DZ -1 95702
 D4
 ~
 ~
-ABGZ 0 95700
+ABZ 0 95700
 S
 #95702
 @eng Golden chambers@rus Золотые палаты~

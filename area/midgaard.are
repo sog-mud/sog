@@ -1838,7 +1838,7 @@ a potion of divine protection~
 A potion of divine protection is here.~
 crystal~
 potion ABGI AO
-35 'sanctuary' 'stone skin' 'enhanced armor' ''
+35 'protection evil' 'stone skin' 'enhanced armor' ''
 16 10 1800 P
 G none
 #3083
@@ -3115,7 +3115,7 @@ a potion of divine protection~
 A potion of divine protection is here.~
 crystal~
 potion ABGI AO
-35 'sanctuary' 'stone skin' 'enhanced armor' 'shield'
+35 'protection evil' 'stone skin' 'enhanced armor' 'shield'
 16 10 1800 P
 G none
 #3283
@@ -8621,7 +8621,6 @@ M 3013 spec_janitor	* the janitor
 M 3020 spec_cast_mage	* the guildmaster
 M 3021 spec_cast_cleric	* the guildmaster
 M 3024 spec_cast_mage	* the sorcerer
-M 3026 spec_assassinater	* the assassin
 M 3042 spec_cast_mage	* the waiter
 M 3043 spec_cast_cleric	* the waiter
 M 3060 spec_guard	* the cityguard
@@ -8861,7 +8860,6 @@ M 0 3012 5 3054 1	* the healer (By the Temple Altar)
 M 0 3070 1 3056 1	* An old man (The Fountain of Youth Apothecary)
 G 0 3041 0		*	a swirling potion of return
 G 0 3080 0		*	a potion of healing
-G 0 3081 0		*	a potion of sanctuary
 G 0 3082 0		*	a potion of divine protection
 G 0 3083 0		*	a potion of cure light wounds
 G 0 3084 0		*	a potion of cure serious wounds

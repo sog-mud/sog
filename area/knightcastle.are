@@ -104,13 +104,13 @@ stand stand male 5000
 
 #OBJECTS
 #95200
-key golden~
+key golden ключ~
 a golden key~
 A golden key is left on the floor.~
 gold~
-key ORYf AO
+key ORYf AOP
 0 0 0 0 0
-40 4 0 P
+0 4 0 P
 G none
 #95201
 altar~
@@ -185,7 +185,7 @@ aura majesty аура~
 Aura of {BMajesty{x~
 Something strange is here.~
 unknown~
-jewelry AHIMYZ S
+jewelry AIMTYZ AS
 0 0 0 0 0
 0 0 0 P
 G none

@@ -54,13 +54,13 @@ C Chaos~
 
 #OBJECTS
 #95500
-marble black key~
-@eng a black marble key@rus черный мраморный ключ~
+key marble black ключ~
+@eng a black marble key@rus ~~черный~~ ~~мраморный~~ ~~ключ~~~
 @eng A black marble key is on the ground.@rus Черный мраморный ключ (marble) лежит на земле.~
 marble~
-key ORYf AO
+key ORYf AOP
 0 0 0 0 0
-40 4 0 P
+0 4 0 P
 G none
 #95501
 altar~
@@ -94,7 +94,7 @@ earing gleaming~
 Gleaming {Rm{Gu{Yl{bt{Mi{Cc{Wo{Rl{Go{Yr{x earring~
 A small gleaming multicolor earing lies here.~
 unknown~
-jewelry AHMYZ AS
+jewelry AMTYZ AS
 0 0 0 0 0
 0 0 0 P
 G none
@@ -118,7 +118,7 @@ D3
 Z 0 9786
 S
 #95501
-@eng Inside the Great Hall@rus Огромного коридора~
+@eng Inside the Great Hall@rus Огромный коридор~
 @eng There is a long hall covered with the embles of the Lords of the Chaos
 Realms. The smooth wooden floors are well polished. 
 @rus Стены коридора покрыты эмблемами лордов Хаоса. Деревянный пол хорошо

@@ -417,8 +417,10 @@ the fine mace~
 There is a large mace of fine quality here.~
 iron~
 weapon G AN
-mace 2 6 pound 0
+mace 6 3 pound 0
 10 110 570 P
+A
+19 1
 A
 18 1
 G none

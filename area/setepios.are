@@ -54,18 +54,17 @@ AH BJLPUX 0 0
 stand stand male 10000
 0 0 huge unknown
 #38003
-demon of eros varfiv~
-Varfiv~
-Varfiv is hunting here.
+demon of eros gubund sola~
+Sola~
+Sola the Demons Queen is here.
 ~
-What a smell ... I can't open my eyes ... Ouuh ... Damn this Troll !
 ~
 troll~
 ABQRST HV 100 0
-78 220 1d1+19999 1d1+9999 10d20+300 smash
--50 -50 -50 -50
+40 120 1d1+5000 1d1+1000 10d7+120 smash
+-10 -10 -10 -10
 ACEFHIJKO BJKOPQU 0 0
-stand stand male 100000
+stand stand female 10000
 0 0 medium unknown
 #38004
 mavtar~
@@ -240,6 +239,20 @@ AEFH APQ 0 0
 stand stand male 70000
 0 0 large unknown
 M greet 38500 100~
+#38501
+elephant слон~
+@eng elephant@rus слон~
+@eng Warriors Elephant is here.
+@rus Боевой слон покачивается у своей госпожи Alona.
+~
+~
+wolf~
+A S 0 0
+9 10 1d1+99 1d1+49 0d0+0 none
+4 4 4 4
+0 0 0 0
+stand stand male 0
+0 0 medium unknown
 #38510
 ga-nocry~
 @eng Ga-nocry@rus Га-ноцри~
@@ -381,6 +394,8 @@ unknown~
 food AR A
 0 0 0 0 0
 5 1 10000 P
+A
+8 1000
 A
 12 1000
 A
@@ -857,7 +872,7 @@ A 0 D 0 0
 0 1 1 P
 G none
 #38500
-club spiked skullsmasher ebony kris~
+spiked skullsmasher ebony kris~
 the ebony kris~
 weapon~
 stone~
@@ -897,6 +912,17 @@ trash 0 0
 0 0 0 0 0
 0 0 0 P
 G none
+#38503
+winged boots of setepios~
+{WWinged Boots Of Setepios -*(//{x~
+Dirty Boots lies on the ground.~
+divine~
+armor CI AG
+0 0 0 0 0
+94 1 1 P
+A
+8 8
+G male
 #0
 
 #ROOMS
@@ -983,7 +1009,7 @@ S
 небеса. Пол покрыт дубовым паркетом. Спокойствие и дух вечности царят
 тут. {YЗолотой шар{w освещает комнату мягким светом.
 ~
-0 0 inside
+0 N inside
 D3
 ~
 ~
@@ -1342,10 +1368,6 @@ S
 0
 
 #OLIMITS
-O 38017 1	* Blessed Shield of Gods
-O 38018 1	* {YBlessed {WHelm {xof Honor
-O 38019 1	* {RBlessed Ring of Life{x
-O 38020 1	* {YBlessed Belt of Truth{x
 O 38024 2	* bone necklace
 O 38028 5	* Dragons Skull
 O 38500 0	* the ebony kris

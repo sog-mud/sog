@@ -351,42 +351,36 @@ fountain 0 0
 0 0 0 P
 G none
 #110001
-~
-@eng the King of Heart's crown@rus the King of Heart's crown@rusoff 0~
-@eng the King of Heart's crown@rus the King of Heart's crown@rusoff 0~
-steel~
-armor AJLPTUa AEN
-100 100 100 100 0
-60 50 100000 P
+0 starf~
+@eng ciquala's staff@rus ciquala's staff@rusoff 0~
+@eng ciquala's staff@rus ciquala's staff@rusoff 0~
+wood~
+wand GJPTUa AO
+100 200 200 'enchant weapon' 0
+55 50 100000 P
 F
-A 20 -5 m
+A 18 50 Z
+A
+26 10
+A
+13 100
+A
+19 20
 F
-A 20 -5 t
+A 20 -10 t
 F
-A 20 -5 l
+A 20 -10 F
 F
-A 20 -5 Z
-F
-A 20 -5 F
-F
-R 20 -5 B
-F
-I 20 -5 A
-F
-R 8 50 E
-F
-R 18 50 C
-F
-R 19 6 D
+R 8 20 D
 G none
 #110002
-harp~
-@eng harp@rus harp~
-@eng harp@rus harp~
+0~
+@eng 0@rus 0~
+@eng 0@rus 0~
 glass~
-wand PTU AO
-100 100 100 'enchant weapon' 0
-58 10 100 P
+armor 0 0
+0 0 0 0 0
+0 10 100 P
 G none
 #110003
 all Rod Of Rage~
@@ -888,6 +882,8 @@ Z 0 110051
 S
 #110001
 @eng Bridge@rus Мост~
+@eng River named Erinin slowly flow under the wide stone bridge.  Stones of
+bridge remember many thausands travellers, who steps by it.  
 @rus Под широким каменным мостом проносит свои воды Эринин. Камни его помнят
 многие тысячи путников, шедших по ним. Они стали гладкими от множества ног.
 Вдали видны флаги над башнями Тира, наполовину красные, наполовину золотые, с

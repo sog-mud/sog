@@ -17,12 +17,15 @@ urukhay урукхай troll~
 ~
 ~
 troll~
-AJKTbef DFOPUVlmrtu -1000 0
-200 100 1d1+29999 1d1+999 1d1+200 none
+AJKTbef DFOPVlmt -1000 0
+0 100 1d1+29999 1d1+999 1d1+200 none
 -200 -200 -200 -200
 ACEFIJKLN CD D 0
 stand stand male 1000000
 0 0 huge unknown
+M speech 18799 да пошел ты~
+M speech 18799 да иди ты~
+M act 18799 say~
 C BattleRager~
 #18701
 griswold грисвольд~
@@ -52,7 +55,7 @@ ogden огден~
 ~
 ~
 human~
-ABR 0 0 0
+ABR 0 -1000 0
 1000000 0 0d0+0 0d0+0 0d0+0 none
 0 0 0 0
 0 0 0 0
@@ -155,6 +158,25 @@ stand stand none 0
 0 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
+#18710
+mage fire ball~
+@eng {RFire Ball{x@rus {RОгненный шар{x~
+@eng Fire ball is here.
+@rus Огроный огненный шар (ball) катится прямо на тебя.
+~
+Ты видишь в метрах десяти перед собой огромный огненный шар.
+Вдруг он плавно начал катится прямо на тебя, по мере хода разбрасывая
+ослепительно белые искры. Он катися все быстрее и быстрее, оставляя за
+собой лишь огонь и пепел.
+~
+fire elemental~
+ARf DFJVlmtu -1000 0
+60 200 1d1+19999 1d1+999 10d10+50 flame
+-70 -70 -70 -70
+0 0 0 0
+stand stand male 0
+0 0 medium unknown
+C Shalafi~
 #0
 
 #OBJECTS
@@ -186,7 +208,7 @@ treasure BSTYa AB
 0 0 0 0 0
 103 0 0 P
 A
-8 -40
+8 1000
 F
 A 12 1000000 G
 F
@@ -249,7 +271,7 @@ pill~
 pill~
 unknown~
 pill 0 A
-2147483647 'refresh' 'cure disease' 'cure blindness' 'remove curse'
+2147483647 'refresh' 'cure disease' 'reserved' 'remove curse'
 0 0 100 P
 G none
 #18706
@@ -313,8 +335,8 @@ fountain фонтан~
 @eng town fountain@rus ~~городской~~ ~~фонтан~~~
 @eng A small white fountain gushes forth here.@rus В центре площади стоит фонтан (fountain) наполненый кристально чистой водой.~
 marble~
-fountain A 0
-1000000 1000000 'water' 0 0
+fountain A A
+1000000 1000000 'amontillado' 0 0
 0 1000000 0 P
 G none
 #18711
@@ -455,7 +477,7 @@ thron трон~
 @eng Orrin's throne is here, waiting his master.@rus Золотой трон Орина стоит здесь ожидая своего хозяина.~
 unknown~
 furniture A 0
-A JLOPRTUXYZbcd HK ABCDEFGHIJKLMNOPQRSTUVWXYZabcde ABCDEFGHIJKLMNOPQRSTUVWXYZabcde
+A JLOPRTUXYZbcd HK JLOPRTUXYZbcd JLOPRTUXYZbcd
 0 0 0 P
 G none
 #18751
@@ -467,13 +489,65 @@ portal B 0
 0 I A 3001 0
 0 2147483647 0 P
 G none
+#18781
+clanmark~
+I'm not a {Dfilthy{x magician!~
+A some piece of flesh magician lies here and bleeding.~
+flesh~
+fountain CEY AS
+2147483647 2147483647 'red wine' 0 0
+92 0 0 P
+G none
+#18782
+spellbane~
+{cspellbane{x~
+You fills the air with someone hatred of magic.~
+hate~
+container 0 AQ
+2147483647 AEF 0 2147483647 0
+92 0 0 P
+F
+I 20 -23 C
+G none
+#18783
+heart сердце~
+Pulsing mage's {rheart{x~
+Heart of mage is bleeding here.~
+flesh~
+trash 0 AO
+0 0 0 0 0
+92 0 0 P
+G none
+#18784
+vervindl dagger flaming~
+{RVervindl{x~
+A flaming dagger lies here.~
+unknown~
+weapon AFIJLNac ANP
+dagger 11 12 thrust ADEH
+94 0 0 P
+F
+A 18 15 C
+F
+A 19 15 G
+C BattleRager~
+G none
+#18785
+bracer power~
+Bracer of Power{x~
+There is a bracer in the mud here.~
+power~
+armor 0 AM
+200 200 200 200 0
+92 0 0 P
+G none
 #18786
-girdle strength~
-~
-~
+bracer strength~
+Bracer of strength~
+A very powerful looking bracer hums on the ground~
 unknown~
 armor 0 AL
-0 0 0 0 0
+200 200 200 200 0
 92 0 0 P
 G none
 #18787
@@ -499,7 +573,7 @@ A
 G none
 #18788
 shield justice~
-{MJustice{x~
+Justice~
 A finely crafted shield is here.~
 mithril~
 armor AI AJ
@@ -508,7 +582,7 @@ armor AI AJ
 G none
 #18789
 bracer bracers energy~
-{Gbracers of energy{x~
+bracers of energy~
 Bracers formed of multicolored energy lie here.~
 energy~
 armor 0 AI
@@ -535,7 +609,7 @@ armor CF AG
 G none
 #18792
 leggings~
-{DDark leggings{x~
+dark leggings~
 The shadows are deep here.~
 shadow~
 armor C AF
@@ -544,7 +618,7 @@ armor C AF
 G none
 #18793
 helm~
-{YFlaming helm{x~
+flaming helm~
 Great helm lies here.~
 fire~
 armor AB AE
@@ -562,7 +636,7 @@ armor AIS AD
 G none
 #18795
 necklace silver orrin~
-{Csilver necklace{x~
+silver necklace~
 The {Csilver necklace{x shine lie in sun.~
 silver~
 treasure 0 AC
@@ -571,28 +645,28 @@ treasure 0 AC
 G none
 #18796
 cloak crimson orrin~
-{RCrimson cloak{x~
+crimson cloak~
 Crimson cloak lies here.~
 silk~
-clothing 0 AC
+clothing I AC
 0 0 0 0 0
 92 0 0 P
 G none
 #18797
 ring platinum~
-{cplatinum ring{x~
+platinum ring~
 A small ring lies here.~
 platinum~
-jewelry WY AB
+jewelry AWY AB
 0 0 0 0 0
 92 0 0 P
 G none
 #18798
 ring golden brilliant orrin~
-{YGolden ring{x with huge {Wbrilliant{x~
+golden ring~
 The beautiful brilliant shine in the beam of sun.~
 gold~
-jewelry WY AB
+jewelry AWY AB
 0 0 0 0 0
 92 0 0 P
 G none
@@ -1534,20 +1608,21 @@ S
 хозяина этого зала - великого {WОрина{x - бога-покровителя войнов.
  
 ~
-0 UZb forest
-M 2147483555 H 2147483463
+0 NUZb forest
+M 1000000 H 1000000
 S
 #0
 
 #SPECIALS
 M 18703 spec_cast_seneschal	* ~староста~ ~Кейн~
 M 18704 spec_cast_adept	* healer Pepin
+M 18710 spec_cast_undead	* {RFire Ball{x
 S
 
 #RESETS
-O 0 95408 0 18701	* {DI hate magic{x (Town square)
 O 0 18710 0 18704	* town fountain (Town square)
 M 0 18703 1 18704 1	* ~староста~ ~Кейн~ (Town square)
+O 0 18710 0 18704	* town fountain (Town square)
 M 0 18704 1 18705 1	* healer Pepin (Drugstone)
 G 0 18703 0		*	potion of healing
 G 0 15000 0		*	strange pill
@@ -1556,6 +1631,7 @@ G 0 18705 0		*	pill
 M 0 18702 1 18707 1	* innkeeper Ogden (Tavern)
 M 0 18701 1 18710 1	* Griswold (Forge)
 G 0 18717 0		*	rusty nail
+G 0 67 0		*	tattoo of eros, god of love
 G 0 18716 0		*	sword
 G 0 18714 0		*	axe
 G 0 18718 0		*	strong skin of fox
@@ -1571,11 +1647,6 @@ M 0 18706 1 18747 1	* Farnham (Trail)
 M 0 18705 1 18750 1	* Adria witch (Adria's witch hut)
 O 0 18750 0 18799	* Orrin's throne (Armory chamber)
 O 0 18751 0 18799	* portal (Armory chamber)
-M 0 18700 1 18799 1	* Urukhay (Armory chamber)
-E 0 18700 0 16		*	{YHuge Flaming Axe{x: wielded
-E 0 18701 0 2		*	ring of power: on the right finger
-E 0 18702 0 12		*	tanned troll skin: about the shoulders
-E 0 18701 0 1		*	ring of power: on the left finger
 S
 
 #SHOPS
@@ -1584,14 +1655,6 @@ S
 18705 0 3 10 4 2 200 50 0 23
 18707 0 5 9 0 0 400 50 0 23
 0
-
-#OLIMITS
-O 18700 1	* {YHuge Flaming Axe{x
-O 18701 2	* ring of power
-O 18702 2	* tanned troll skin
-O 18709 1	* spellbane
-O 18722 1	* Blackjade's head
-S
 
 #MOBPROGS
 #18700
@@ -1680,7 +1743,6 @@ mob force $n drink glass
 #18705
 ~
 #18796
-tell $n Не пиздеть!
 ~
 #18797
 say Хозяин будет недоволен
@@ -1691,9 +1753,10 @@ say Ты куда, мы еще с тобой неразобрались.
 mob transfer $q
 ~
 #18799
-mob remember $N
-tell $q Что тебе здесь надо?
-mob forget
+mob echoat $n $i бьет тебя головой об стенку.
+mob echoaround $n $i бьет $n головой об стенку.
+mob damage $n 1000 1000 nokill
+mob damage all 1 1 nokill
 ~
 #0
 

@@ -169,6 +169,18 @@ F for AHMV
 F par ABCDEFGHIJK
 M speech 36130 quest~
 M speech 36131 oahzxalq~
+#36139
+skorn~
+Skorn~
+~
+~
+drow~
+LTU DFVl 0 0
+0 15 1d1+1299 20d20+800 2d40+10 none
+0 0 0 0
+ACFIJK 0 0 0
+stand stand none 0
+0 0 medium unknown
 #0
 
 #OBJECTS
@@ -209,7 +221,7 @@ armor 0 AE
 100 100 100 100 0
 100 0 0 P
 A
-8 1000
+8 2000
 F
 A 0 0 t
 F
@@ -475,7 +487,7 @@ everburning bow "{rEmber{x"~
 Bow with fires on it lies near you.~
 energy~
 weapon AORa AN
-bow 7 17 flame AEF
+bow 7 17 flame AE
 65 50 700000 P
 F
 I 8 1 H
@@ -750,6 +762,41 @@ Affects: level by 1
 Adds pierce resistance.
 ~
 G none
+#36139
+cloak rainbow~
+rainbow cloak~
+Some clothing lies on the ground, changing its color.~
+energy~
+armor FGHOTVZ AK
+15 15 15 15 0
+15 0 180000 P
+A
+18 5
+F
+A 12 30 P
+F
+R 13 30 BCD
+G none
+#36198
+pill yellow detection~
+{Yyellow pill{x~
+Bright yellow pill has been forgotten here.~
+unknown~
+pill 0 AO
+300 'detect fade' 'improved detect' 'detect hidden' 'acute vision'
+10 3 0 P
+G none
+#36199
+test obj~
+test~
+test~
+unknown~
+weapon 0 AO
+dagger 10 10 pierce 0
+0 0 0 P
+F
+A 0 0 V
+G none
 #0
 
 #ROOMS
@@ -975,7 +1022,6 @@ M 0 36101 4 36111 4	* TARGET (At the targets)
 S
 
 #OLIMITS
-O 36110 1	* Holy Grail
 O 36117 1	* {Wlong sword named "{GRancor{W"{x
 S
 

@@ -120,8 +120,8 @@ EFNQ 0 0 0
 stand stand none 5000
 I 0 medium unknown
 #8107
-spi  rit revenant~
-a revenant~
+revenant spirit~
+@eng a revenant@rus ~~ревенант~~~
 The spirit of a mortal horribly wronged has returned as a Revenant.
 ~
 This poor soul was once a powerful, good priest of Soleil who was betrayed
@@ -322,11 +322,14 @@ EFNQ 0 0 0
 stand stand none 5300
 0 0 medium unknown
 #8120
-shambling mound~
-a shambling mound~
-A Shambling Mound... well... shambles toward you.
+mound холм shambling~
+@eng a shambling mound@rus ~~могильный~~ ~~холм~~~
+@eng A Shambling Mound... well... shambles toward you.
+@rus Странно. Могильный холм (mound) приближается к тебе, издавая шаркающие звуки.
 ~
-RUN! A twelve-foot high pile of garbage is attacking you!
+@eng RUN! A twelve-foot high pile of garbage is attacking you!
+@rus ААА! Бежать, скорее бежать. Огромная куча мусора и каких-то частей тела
+двадцати футов в высоту напала на тебя.
 ~
 unique~
 AFGO JN 0 0
@@ -336,28 +339,35 @@ EFNQ 0 0 0
 stand stand none 5200
 0 0 medium unknown
 #8121
-kampflut~
-a kampflut~
-A Kampflut attacks!
+kampflut кампфлут~
+@eng a kampflut@rus ~~кампфлут~~~
+@eng A Kampflut attacks!
+@rus Кампфлут (kampflut) напал на тебя!
 ~
-This hideous, animated tree resembles an ancient oak with tentacle-like
+@eng This hideous, animated tree resembles an ancient oak with tentacle-like
 branches and a huge toothed maw. Despite its nasty demeanour, it is not
 evil- it is simply hungry.
+@rus Это дерево с расплывающимися очертаниями напоминает старый дуб с ветвями,
+похощими на щупальца и острыми похожими на зубы сучками. Оно не злое, оно
+просто ОЧЕНЬ голодное.
 ~
 undead~
 AFGO N 0 0
 50 0 50d10+4250 10d10+1000 5d8+19 pierce
 -20 -20 -20 2
 EFNQ 0 0 0
-stand stand none 5000
+stand stand male 5000
 0 0 medium unknown
 #8122
-black pudding~
-a black pudding~
-A Black Pudding slowly rolls toward you.
+black pudding пуддинг~
+@eng a black pudding@rus ~~черный~~ ~~пуддинг~~~
+@eng A Black Pudding slowly rolls toward you.
+@rus Черный пуддинг (pudding) медленно ползет вслед за тобой.
 ~
-This huge black blob will dissolve weapons and armor it gets the chance,
+@eng This huge black blob will dissolve weapons and armor it gets the chance,
 then it will devour you!
+@rus Этот большой черный пузырь растворит и одежду и оружие, а потом доберется
+и до твоего нежного тела и пожрет тебя.
 ~
 undead~
 AFGO N 0 0
@@ -367,12 +377,14 @@ EFNQ 0 0 0
 stand stand none 5100
 0 0 medium unknown
 #8123
-green slime~
-green slime~
-A patch of Green Slime drips on you, burning your skin!
+green slime слизь~
+@eng green slime@rus ~~зеленая~~ ~~слизь~~~
+@eng A patch of Green Slime drips on you, burning your skin!
+@rus Кусок зеленой слизи (slime) капнул на тебя и обжег.
 ~
-Green Slime can dissolve even metal, so imagine what it would do to your
+@eng Green Slime can dissolve even metal, so imagine what it would do to your
 skin...
+@rus Эта слизь может прожечь даже металл, что уж тут говорить о твоей коже.
 ~
 undead~
 ABFGO 0 0 0
@@ -382,11 +394,13 @@ EFNQ 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #8124
-gray ooze~
-a gray ooze~
-A pile of gray liquid oozes toward you.
+ooze gray лужа~
+@eng a gray ooze@rus ~~лужа~~ грязи~
+@eng A pile of gray liquid oozes toward you.
+@rus Лужа серой жидкой грязи (ooze) медленно движется в твоем направлении.
 ~
-"Oh," I hear you say. "How threatening". Well, just you wait!
+@eng "Oh," I hear you say. "How threatening". Well, just you wait!
+@rus О! Мне послышалось ты сказал "Ой как страшно"... Ты только подожди...
 ~
 undead~
 AFGO N -1000 0
@@ -396,11 +410,13 @@ EFNQ 0 0 0
 stand stand none 5000
 I 0 medium unknown
 #8125
-animated tree~
-an animated tree~
-An Animated Tree bashes you with its branches.
+animated tree дерево~
+@eng an animated tree@rus ~~мертвое~~ ~~дерево~~~
+@eng An Animated Tree bashes you with its branches.
+@rus Полусгнившее дерево (tree) сильно ударило тебя своими ветвями.
 ~
-This tree is bad and evil- it is an anti-treant :)
+@eng This tree is bad and evil- it is an anti-treant :)
+@rus Это дерево насквозь пропитано злом и порчей.
 ~
 undead~
 AFGO 0 0 0
@@ -410,12 +426,16 @@ EFNQ 0 0 0
 stand stand none 5000
 I 0 medium unknown
 #8126
-tree spirit~
-a tree spirit~
-A Tree Spirit offers you shelter in this place of evil.
+tree spirit дух~
+@eng a tree spirit@rus ~~Дух~~ дерева~
+@eng A Tree Spirit offers you shelter in this place of evil.
+@rus Дух дерева (spirit) предоставляет тебе возможность укрыться от витающего вокруг зла.
 ~
-This spirit is the only good creature in this place. She can guard you
+@eng This spirit is the only good creature in this place. She can guard you
 while you rest, and perhaps heal your wounds if you pay her enough...
+@rus Этот дух единственное доброе существо здесь. Он будет охранять тебя пока
+ты находишься на его территории и, возможно, даже полечит, если ты
+достаточно заплатишь.
 ~
 undead~
 ABGO BN 400 0
@@ -522,11 +542,13 @@ EFNQ 0 0 0
 stand stand none 0
 0 0 medium unknown
 #8133
-giant spider~
-a giant spider~
-A GIANT Spider drops down on you!
+spider giant паук~
+@eng a giant spider@rus ~~гигантский~~ ~~паук~~~
+@eng A GIANT Spider drops down on you!
+@rus Гигантский паук (spider) свалился на тебя сверху.
 ~
-When I say GIANT, I am talking ten feet high...
+@eng When I say GIANT, I am talking ten feet high...
+@rus Когда я говорил гигантский, я имел ввиду 10 футов высотой...
 ~
 undead~
 ABCFGHO Q -1000 0
@@ -536,7 +558,7 @@ EFNQ 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #8134
-baron vampire~
+baron vampire вампир~
 a baron vampire~
 The Baron vampire rises from the sarcophagus, bares its fangs and attacks!
 ~
@@ -2176,12 +2198,18 @@ D4
 Z -1 8172
 S
 #8175
-The Garden~
-You find yourself lost in a tangled maze of thorny bushes and rotted trees
+@eng The Garden@rus Сад~
+@eng You find yourself lost in a tangled maze of thorny bushes and rotted trees
 that all seem to move as if with a life of their own. Howls and screams of
 pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
+@rus Ты чувствуешь себя окончательно потерявшимся в запутанном лабиринте
+колючих кустов и полусгнивших деревьев, которые совсем не стоят на месте,
+а движутся, как если бы они были живыми существами. Стоны и крики боли
+время от времени раздаются в воздухе, и без того подавляющем тебя  
+своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
+оттенок.
 ~
 0 AN forest
 D0
@@ -2194,12 +2222,18 @@ D1
 Z -1 8176
 S
 #8176
-The Garden~
-You find yourself lost in a tangled maze of thorny bushes and rotted trees
+@eng The Garden@rus Сад~
+@eng You find yourself lost in a tangled maze of thorny bushes and rotted trees
 that all seem to move as if with a life of their own. Howls and screams of
 pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
+@rus Ты чувствуешь себя окончательно потерявшимся в запутанном лабиринте
+колючих кустов и полусгнивших деревьев, которые совсем не стоят на месте,
+а движутся, как если бы они были живыми существами. Стоны и крики боли
+время от времени раздаются в воздухе, и без того подавляющем тебя  
+своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
+оттенок.
 ~
 0 AN forest
 D0
@@ -2216,12 +2250,18 @@ D3
 Z -1 8175
 S
 #8177
-The Garden~
-You find yourself lost in a tangled maze of thorny bushes and rotted trees
+@eng The Garden@rus Сад~
+@eng You find yourself lost in a tangled maze of thorny bushes and rotted trees
 that all seem to move as if with a life of their own. Howls and screams of
 pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
+@rus Ты чувствуешь себя окончательно потерявшимся в запутанном лабиринте
+колючих кустов и полусгнивших деревьев, которые совсем не стоят на месте,
+а движутся, как если бы они были живыми существами. Стоны и крики боли
+время от времени раздаются в воздухе, и без того подавляющем тебя  
+своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
+оттенок.
 ~
 0 AN forest
 D0
@@ -2238,12 +2278,18 @@ D3
 Z -1 8176
 S
 #8178
-The Garden~
-You find yourself lost in a tangled maze of thorny bushes and rotted trees
+@eng The Garden@rus Сад~
+@eng You find yourself lost in a tangled maze of thorny bushes and rotted trees
 that all seem to move as if with a life of their own. Howls and screams of
 pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
+@rus Ты чувствуешь себя окончательно потерявшимся в запутанном лабиринте
+колючих кустов и полусгнивших деревьев, которые совсем не стоят на месте,
+а движутся, как если бы они были живыми существами. Стоны и крики боли
+время от времени раздаются в воздухе, и без того подавляющем тебя  
+своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
+оттенок.
 ~
 0 AN forest
 D0
@@ -2260,12 +2306,18 @@ D3
 Z -1 8177
 S
 #8179
-The Garden~
-You find yourself lost in a tangled maze of thorny bushes and rotted trees
+@eng The Garden@rus Сад~
+@eng You find yourself lost in a tangled maze of thorny bushes and rotted trees
 that all seem to move as if with a life of their own. Howls and screams of
 pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
+@rus Ты чувствуешь себя окончательно потерявшимся в запутанном лабиринте
+колючих кустов и полусгнивших деревьев, которые совсем не стоят на месте,
+а движутся, как если бы они были живыми существами. Стоны и крики боли
+время от времени раздаются в воздухе, и без того подавляющем тебя  
+своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
+оттенок.
 ~
 0 AN forest
 D0
@@ -2278,12 +2330,18 @@ D3
 Z -1 8178
 S
 #8180
-The Garden~
-You find yourself lost in a tangled maze of thorny bushes and rotted trees
+@eng The Garden@rus Сад~
+@eng You find yourself lost in a tangled maze of thorny bushes and rotted trees
 that all seem to move as if with a life of their own. Howls and screams of
 pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
+@rus Ты чувствуешь себя окончательно потерявшимся в запутанном лабиринте
+колючих кустов и полусгнивших деревьев, которые совсем не стоят на месте,
+а движутся, как если бы они были живыми существами. Стоны и крики боли
+время от времени раздаются в воздухе, и без того подавляющем тебя  
+своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
+оттенок.
 ~
 0 AN forest
 D0
@@ -2300,12 +2358,18 @@ D2
 Z -1 8175
 S
 #8181
-The Garden~
-You find yourself lost in a tangled maze of thorny bushes and rotted trees
+@eng The Garden@rus Сад~
+@eng You find yourself lost in a tangled maze of thorny bushes and rotted trees
 that all seem to move as if with a life of their own. Howls and screams of
 pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
+@rus Ты чувствуешь себя окончательно потерявшимся в запутанном лабиринте
+колючих кустов и полусгнивших деревьев, которые совсем не стоят на месте,
+а движутся, как если бы они были живыми существами. Стоны и крики боли
+время от времени раздаются в воздухе, и без того подавляющем тебя  
+своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
+оттенок.
 ~
 0 AN forest
 D0
@@ -2326,12 +2390,18 @@ D3
 Z -1 8180
 S
 #8182
-The Garden~
-You find yourself lost in a tangled maze of thorny bushes and rotted trees
+@eng The Garden@rus Сад~
+@eng You find yourself lost in a tangled maze of thorny bushes and rotted trees
 that all seem to move as if with a life of their own. Howls and screams of
 pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
+@rus Ты чувствуешь себя окончательно потерявшимся в запутанном лабиринте
+колючих кустов и полусгнивших деревьев, которые совсем не стоят на месте,
+а движутся, как если бы они были живыми существами. Стоны и крики боли
+время от времени раздаются в воздухе, и без того подавляющем тебя  
+своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
+оттенок.
 ~
 0 AN forest
 D0
@@ -2352,12 +2422,18 @@ D3
 Z -1 8181
 S
 #8183
-The Garden~
-You find yourself lost in a tangled maze of thorny bushes and rotted trees
+@eng The Garden@rus Сад~
+@eng You find yourself lost in a tangled maze of thorny bushes and rotted trees
 that all seem to move as if with a life of their own. Howls and screams of
 pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
+@rus Ты чувствуешь себя окончательно потерявшимся в запутанном лабиринте
+колючих кустов и полусгнивших деревьев, которые совсем не стоят на месте,
+а движутся, как если бы они были живыми существами. Стоны и крики боли
+время от времени раздаются в воздухе, и без того подавляющем тебя  
+своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
+оттенок.
 ~
 0 AN forest
 D0
@@ -2378,12 +2454,18 @@ D3
 Z -1 8182
 S
 #8184
-The Garden~
-You find yourself lost in a tangled maze of thorny bushes and rotted trees
+@eng The Garden@rus Сад~
+@eng You find yourself lost in a tangled maze of thorny bushes and rotted trees
 that all seem to move as if with a life of their own. Howls and screams of
 pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
+@rus Ты чувствуешь себя окончательно потерявшимся в запутанном лабиринте
+колючих кустов и полусгнивших деревьев, которые совсем не стоят на месте,
+а движутся, как если бы они были живыми существами. Стоны и крики боли
+время от времени раздаются в воздухе, и без того подавляющем тебя  
+своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
+оттенок.
 ~
 0 AN forest
 D0
@@ -2400,12 +2482,18 @@ D3
 Z -1 8183
 S
 #8185
-The Garden~
-You find yourself lost in a tangled maze of thorny bushes and rotted trees
+@eng The Garden@rus Сад~
+@eng You find yourself lost in a tangled maze of thorny bushes and rotted trees
 that all seem to move as if with a life of their own. Howls and screams of
 pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
+@rus Ты чувствуешь себя окончательно потерявшимся в запутанном лабиринте
+колючих кустов и полусгнивших деревьев, которые совсем не стоят на месте,
+а движутся, как если бы они были живыми существами. Стоны и крики боли
+время от времени раздаются в воздухе, и без того подавляющем тебя  
+своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
+оттенок.
 ~
 0 AN forest
 D0
@@ -2422,12 +2510,18 @@ D2
 Z -1 8180
 S
 #8186
-The Garden~
-You find yourself lost in a tangled maze of thorny bushes and rotted trees
+@eng The Garden@rus Сад~
+@eng You find yourself lost in a tangled maze of thorny bushes and rotted trees
 that all seem to move as if with a life of their own. Howls and screams of
 pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
+@rus Ты чувствуешь себя окончательно потерявшимся в запутанном лабиринте
+колючих кустов и полусгнивших деревьев, которые совсем не стоят на месте,
+а движутся, как если бы они были живыми существами. Стоны и крики боли
+время от времени раздаются в воздухе, и без того подавляющем тебя  
+своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
+оттенок.
 ~
 0 AN forest
 D0
@@ -2448,12 +2542,18 @@ D3
 Z -1 8185
 S
 #8187
-The Garden~
-You find yourself lost in a tangled maze of thorny bushes and rotted trees
+@eng The Garden@rus Сад~
+@eng You find yourself lost in a tangled maze of thorny bushes and rotted trees
 that all seem to move as if with a life of their own. Howls and screams of
 pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
+@rus Ты чувствуешь себя окончательно потерявшимся в запутанном лабиринте
+колючих кустов и полусгнивших деревьев, которые совсем не стоят на месте,
+а движутся, как если бы они были живыми существами. Стоны и крики боли
+время от времени раздаются в воздухе, и без того подавляющем тебя  
+своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
+оттенок.
 ~
 0 AN forest
 D0
@@ -2474,12 +2574,18 @@ D3
 Z -1 8186
 S
 #8188
-The Garden~
-You find yourself lost in a tangled maze of thorny bushes and rotted trees
+@eng The Garden@rus Сад~
+@eng You find yourself lost in a tangled maze of thorny bushes and rotted trees
 that all seem to move as if with a life of their own. Howls and screams of
 pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
+@rus Ты чувствуешь себя окончательно потерявшимся в запутанном лабиринте
+колючих кустов и полусгнивших деревьев, которые совсем не стоят на месте,
+а движутся, как если бы они были живыми существами. Стоны и крики боли
+время от времени раздаются в воздухе, и без того подавляющем тебя  
+своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
+оттенок.
 ~
 0 AN forest
 D0
@@ -2500,12 +2606,18 @@ D3
 Z -1 8187
 S
 #8189
-The Garden~
-You find yourself lost in a tangled maze of thorny bushes and rotted trees
+@eng The Garden@rus Сад~
+@eng You find yourself lost in a tangled maze of thorny bushes and rotted trees
 that all seem to move as if with a life of their own. Howls and screams of
 pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
+@rus Ты чувствуешь себя окончательно потерявшимся в запутанном лабиринте
+колючих кустов и полусгнивших деревьев, которые совсем не стоят на месте,
+а движутся, как если бы они были живыми существами. Стоны и крики боли
+время от времени раздаются в воздухе, и без того подавляющем тебя  
+своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
+оттенок.
 ~
 0 AN forest
 D0
@@ -2522,12 +2634,18 @@ D3
 Z -1 8188
 S
 #8190
-The Garden~
-You find yourself lost in a tangled maze of thorny bushes and rotted trees
+@eng The Garden@rus Сад~
+@eng You find yourself lost in a tangled maze of thorny bushes and rotted trees
 that all seem to move as if with a life of their own. Howls and screams of
 pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
+@rus Ты чувствуешь себя окончательно потерявшимся в запутанном лабиринте
+колючих кустов и полусгнивших деревьев, которые совсем не стоят на месте,
+а движутся, как если бы они были живыми существами. Стоны и крики боли
+время от времени раздаются в воздухе, и без того подавляющем тебя  
+своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
+оттенок.
 ~
 0 AN forest
 D1
@@ -2540,12 +2658,18 @@ D2
 Z -1 8185
 S
 #8191
-The Garden~
-You find yourself lost in a tangled maze of thorny bushes and rotted trees
+@eng The Garden@rus Сад~
+@eng You find yourself lost in a tangled maze of thorny bushes and rotted trees
 that all seem to move as if with a life of their own. Howls and screams of
 pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
+@rus Ты чувствуешь себя окончательно потерявшимся в запутанном лабиринте
+колючих кустов и полусгнивших деревьев, которые совсем не стоят на месте,
+а движутся, как если бы они были живыми существами. Стоны и крики боли
+время от времени раздаются в воздухе, и без того подавляющем тебя  
+своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
+оттенок.
 ~
 0 AN forest
 D1
@@ -2562,12 +2686,17 @@ D3
 Z -1 8190
 S
 #8192
-The Garden~
-You suddenly enter a brightly-lit glade full of towering oaks and fresh,
+@eng The Garden@rus Сад~
+@eng You suddenly enter a brightly-lit glade full of towering oaks and fresh,
 green grass. Here the powers of good have managed to create a foothold in 
 this realm of darkness, to aid those stranded or trapped here. You may rest
 in peace (if you'll pardon the inappropriate euphemism) for as long as you
 wish here.
+@rus Неожиданно ты вышел на залитую солнцем полянку с свежей зеленой травой
+и огромным старым дубом посередине. Здесь ощущается незримое присутствие
+богов, которое спасло это место и не дало ему растаять в этом царстве
+тьмы и смерти. можешь спокойно присесть и отдохнуть, никто не сможет
+потревожить тебя здесь, не опасаясь разгневать богов.
 ~
 0 CK forest
 D1
@@ -2584,12 +2713,18 @@ D3
 Z -1 8191
 S
 #8193
-The Garden~
-You find yourself lost in a tangled maze of thorny bushes and rotted trees
+@eng The Garden@rus Сад~
+@eng You find yourself lost in a tangled maze of thorny bushes and rotted trees
 that all seem to move as if with a life of their own. Howls and screams of
 pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
+@rus Ты чувствуешь себя окончательно потерявшимся в запутанном лабиринте
+колючих кустов и полусгнивших деревьев, которые совсем не стоят на месте,
+а движутся, как если бы они были живыми существами. Стоны и крики боли
+время от времени раздаются в воздухе, и без того подавляющем тебя  
+своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
+оттенок.
 ~
 0 AN forest
 D1
@@ -2606,12 +2741,18 @@ D3
 Z -1 8192
 S
 #8194
-The Garden~
-You find yourself lost in a tangled maze of thorny bushes and rotted trees
+@eng The Garden@rus Сад~
+@eng You find yourself lost in a tangled maze of thorny bushes and rotted trees
 that all seem to move as if with a life of their own. Howls and screams of
 pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
+@rus Ты чувствуешь себя окончательно потерявшимся в запутанном лабиринте
+колючих кустов и полусгнивших деревьев, которые совсем не стоят на месте,
+а движутся, как если бы они были живыми существами. Стоны и крики боли
+время от времени раздаются в воздухе, и без того подавляющем тебя  
+своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
+оттенок.
 ~
 0 AN forest
 D2

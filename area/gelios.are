@@ -255,11 +255,6 @@ S
 94101 0 0 0 0 0 100 100 0 23
 0
 
-#OLIMITS
-O 94101 1	* {WGlowing {xkey
-O 94102 2	* Statue the God of Sun
-S
-
 #MOBPROGS
 #94100
 say {GДобро пожаловать усталый странник

@@ -10,7 +10,7 @@ End
 #MOBILES
 #24301
 guardian охранник кентавр~
-@eng a centaur guardian@rus ~~кентавр-охранник~~~
+@eng a centaur guardian@rus ~~кентавр~~ ~~охранник~~~
 @eng A large guardian centuar is here tending the dying foliage.
 @rus Большой кентавр-охранник (guardian) скачет по лесу.
 ~
@@ -25,9 +25,10 @@ ABGT DEFJ 1000 0
 DEKOU 0 0 0
 stand stand male 500
 0 0 large unknown
+V 24301
 #24302
 ranger ренджер кентавр~
-@eng ranger@rus ~~кентавр-ренджер~~~
+@eng centaur ranger@rus ~~кентавр~~ ~~ренджер~~~
 @eng A centaur ranger prepares itself for the fight against the anti-rangers.
 @rus Кентавр-ренджер (ranger) готовитсЯ к сражению с Темными Ренджерами.
 ~
@@ -37,14 +38,14 @@ battle to drive back the anti-rangers and their darkfriends.
 ~
 centaur~
 AGT DEFJ 1000 0
-44 1 25d10+3000 1d1+2000 8d4+18 slash
+44 3 25d10+3000 1d1+2000 32d4+8 slash
 -15 -15 -15 -6
 DEKOU 0 0 0
 stand stand male 1000
 0 0 large unknown
 #24303
 captain капитан кентавр~
-@eng a centaur captain@rus ~~капитан-кентавр~~~
+@eng a centaur captain@rus ~~капитан~~ ~~кентавр~~~
 @eng A centaur captain is here overseeing the preperations of the centaurs.
 @rus Капитан кентавров (capitan) наблюдает за приготовлениями к битве.
 ~
@@ -57,14 +58,14 @@ battle to drive back the anti-rangers and their darkfriends.
 ~
 centaur~
 AGT DEFJ 1000 0
-50 1 50d10+4500 1d1+2000 5d8+20 slash
+50 1 50d10+4500 1d1+2000 10d5+20 slash
 -20 -20 -20 -14
 DEKOU 0 0 0
 stand stand male 1000
 0 0 large unknown
 #24304
 leader centaur лидер кентавр~
-@eng the Centaur Leader@rus Лидер кентавров~~~
+@eng the Centaur Leader@rus ~~Лидер~~ кентавров~
 @eng A huge centaur gazes down at you in suspicion.
 @rus Перед тобой Лидер кентавров (leader).
 ~
@@ -75,14 +76,14 @@ battle to drive back the anti-rangers and their darkfriends.
 ~
 centaur~
 AGRT DEFJ 1000 0
-59 2 50d10+9000 1d1+2000 8d6+28 slash
+59 2 50d10+9000 1d1+2000 10d6+30 slash
 -25 -25 -25 -16
 DEKORU 0 0 0
 stand stand male 7000
 0 0 large unknown
 #24305
 anti-ranger anti ренджер~
-@eng an anti-ranger@rus Темный Ренджер~~~
+@eng an anti-ranger@rus ~~Темный~~ ~~Ренджер~~~
 @eng An anti-ranger is here preparing to destroy the forest.
 @rus Темный Ренджер (anti-ranger) готовитьсЯ уничтожить лес.
 ~
@@ -93,7 +94,7 @@ to destroy.
 ~
 human~
 AGT DFJ -1000 0
-50 1 50d10+4500 1d1+100 5d8+20 pierce
+50 2 50d10+4500 1d1+100 10d8+20 pierce
 -20 -20 -20 -8
 DEFJKU 0 0 0
 stand stand male 400
@@ -285,7 +286,7 @@ stand stand none 0
 0 0 large unknown
 #24316
 troll marauder тролль~
-@eng a marauder troll@rus ~~тролль-разбойник~~~
+@eng a marauder troll@rus ~~тролль~~ ~~разбойник~~~
 @eng A massive marauder troll turns angered eyes upon you.
 @rus Массивный тролль (troll) смотрит на тебя красными глазами.
 ~
@@ -306,9 +307,9 @@ stand stand either 0
 
 #OBJECTS
 #24300
-centaur arm armguards armguard~
-@eng a pair of centaur armguards@rus перчатки кентавра~
-@eng A set of centaur armguards have been left here.@rus Пара перчаток из поселения кентавров лежит здесь.~
+centaur arm armguards armguard перчатки~
+@eng a pair of centaur armguards@rus ~~перчатки~~ кентавра~
+@eng A set of centaur armguards have been left here.@rus Пара перчаток (armguards) из поселениЯ кентавров лежит здесь.~
 steel~
 armor K AI
 7 5 6 0 0
@@ -319,9 +320,9 @@ A
 2 -1
 G none
 #24301
-centaur steel bracer~
-@eng a steel centaur bracer@rus стальной браслет~
-@eng A steel bracer have been left here.@rus Стальной браслет из поселения кентавров забыли здесь.~
+centaur steel bracer браслет стальной~
+@eng a steel centaur bracer@rus ~~стальной~~ ~~браслет~~~
+@eng A steel bracer have been left here.@rus Стальной браслет (bracer) из поселениЯ кентавров забыли здесь.~
 steel~
 armor 0 AM
 5 4 5 0 0
@@ -332,20 +333,18 @@ A
 2 -1
 G none
 #24302
-centaur helm~
-@eng a centaur helm@rus шлем кентавра~
-@eng A fine centaur helm has been left here.@rus Красивый шлем с изображением кентавра почему-то оставили тут.~
+centaur helm шлем~
+@eng a centaur helm@rus ~~шлем~~ кентавра~
+@eng A fine centaur helm has been left here.@rus Красивый шлем (helm) с изображением кентавра почему-то оставили тут.~
 steel~
 armor 0 AE
 7 7 7 10 0
-30 100 8000 P
-A
-19 2
+30 10 8000 P
 G none
 #24303
-plate armor centaur~
+plate armor centaur доспехи~
 @eng a suit of centaur plate@rus ~~доспехи~~ кентавра~
-@eng A set of centaur plate has been dropped here.@rus Доспехи изготовленные в поселении кентавров лежат тут.~
+@eng A set of centaur plate has been dropped here.@rus Доспехи (plate) изготовленные в поселении кентавров лежат тут.~
 steel~
 armor K AD
 9 10 9 3 0
@@ -356,15 +355,15 @@ A
 2 -1
 G none
 #24305
-steel spear~
-@eng a steel-tipped spear@rus Острое копье~
-@eng A superbly crafted steel spear lies on the floor.@rus Копье с острым стальным наконечником брошено тут.~
+steel spear копье~
+@eng a steel-tipped spear@rus ~~Острое~~ ~~копье~~~
+@eng A superbly crafted steel spear lies on the floor.@rus Копье (spear) с острым стальным наконечником брошено тут.~
 steel~
-weapon BIK AN
-exotic 13 3 pierce D
+weapon KMY AN
+exotic 13 4 pierce D
 40 140 12000 P
 A
-18 2
+18 5
 A
 19 5
 E
@@ -374,43 +373,47 @@ br~
 ~
 G none
 #24306
-circlet centaur hair~
-@eng a circlet of braided centaur hair@rus клочок волос кентавра~
+circlet centaur hair клочок~
+@eng a circlet of braided centaur hair@rus ~~клочок~~ волос кентавра~
 @eng Some hair woven into a circlet has been left here.@rus Небольшой клочок волос (circlet) оставлен здесь.~
 hair~
 armor AI AE
 9 9 10 12 12
 50 10 20000 P
 A
-18 2
+24 -2
+A
+18 5
 A
 19 3
+A
+13 50
 G none
 #24308
-black bastard sword~
-@eng a blackened bastard sword@rus черный меч преступника~
-@eng A charred and etched bastard sword lies here.@rus выгравированный меч преступника (black) лежит здесь.~
+black bastard sword меч~
+@eng a blackened bastard sword@rus ~~черный~~ ~~меч~~ преступника~
+@eng A charred and etched bastard sword lies here.@rus Выгравированный меч преступника (black) лежит здесь.~
 steel~
-weapon CEJ AN
-sword 8 7 slash H
-42 160 9000 P
+weapon CEJY AN
+sword 7 7 pierce DH
+40 160 9000 P
 A
-18 2
+18 8
 A
-19 4
+19 8
 G none
 #24309
 earth перчатка fist~
-@eng Fist of the Earth@rus Перчатка Земли~~~
+@eng Fist of the Earth@rus ~~Перчатка~~ Земли~
 @eng A massive mallet of dark metal lies upon the ground.@rus Перчатка из темного металла лежит здесь.~
 steel~
-weapon ABEF AN
-exotic 7 7 crush D
+weapon BEFMY AN
+exotic 10 7 crush D
 51 300 100000 P
 A
-18 3
+18 5
 A
-19 3
+19 5
 G none
 #24312
 bark ebon ebonwood~
@@ -418,10 +421,8 @@ bark ebon ebonwood~
 @eng A pile of darkened bark lies on the ground.@rus Кучка тёмной обшивочной коры (casing) лежит здесь.~
 wood~
 armor CEHJ AD
-8 6 7 0 0
+100 6 7 0 0
 51 200 100000 P
-A
-17 -8
 A
 18 3
 A
@@ -451,7 +452,6 @@ D3
 ~
 ~
 Z 0 24302
-C BattleRager~
 S
 #24302
 @eng Within the Dying Forest@rus В Умирающем лесу~
@@ -1238,7 +1238,7 @@ section.
 @rus Эта часть леса сохранилась намного лучше чем северная.
 Здесь даже видны в некоторых местах полянки с ромашками, слышны шорохи
 мелких зверюшек из-под травы. Большие следы в грязи говорят о том что сюда 
-забредают и по-настоЯщему крупные звери. Похоже что темные создания еще не
+забредают и по настоЯщему крупные звери. Похоже что темные создания еще не
 добрались до этой части леса.
  
 ~
@@ -1909,6 +1909,10 @@ D2
 ~
 ~
 Z 0 24347
+D5
+~
+door~
+ABCFGZ 0 24373
 S
 #24368
 @eng Within the Dying Forest@rus В Умирающем лесу~
@@ -2011,9 +2015,28 @@ D0
 ~
 Z 0 24370
 S
+#24373
+@eng Work room@rus Рабочая комната~
+@eng This room seems a good place for work.
+There is no noise here, always calm....
+@rus В этой комнате очень удобно работать
+Снаружи не доносятся звуки, все тихо и спокойно.
+~
+0 CHKQTWX inside
+D4
+~
+~
+ABCFGZ 0 24367
+O Hegan~
+S
 #0
 
 #RESETS
+D 0 24367 5 2	* Within a Centaur Hut: door to the down: closed and locked
+D 0 24373 4 2	* Work room: door to the up: closed and locked
+O 0 24305 0 24300	* a steel-tipped spear (Entrance to the Dying Forest)
+O 0 24305 0 24300	* a steel-tipped spear (Entrance to the Dying Forest)
+O 0 24305 0 24300	* a steel-tipped spear (Entrance to the Dying Forest)
 M 0 24313 7 24302 2	* a dryad (Within the Dying Forest)
 M 0 24313 7 24304 2	* a dryad (Within the Dying Forest)
 M 0 24306 10 24305 1	* a greater Forest naga (Within the Dying Forest)
@@ -2110,33 +2133,56 @@ E 0 24302 0 6		*	a centaur helm: over the head
 M 0 24314 12 24346 3	* a centaur (Within the Dying Forest)
 M 0 24301 18 24347 4	* a centaur guardian (Within the Dying Forest)
 E 0 24301 0 14		*	a steel centaur bracer: on the left wrist
-M 0 24302 9 24347 2	* ranger (Within the Dying Forest)
-M 0 24302 9 24348 2	* ranger (Within the Dying Forest)
+M 0 24302 9 24347 2	* centaur ranger (Within the Dying Forest)
+M 0 24302 1 24347 1	* centaur ranger (Within the Dying Forest)
+M 0 24302 1 24347 1	* centaur ranger (Within the Dying Forest)
+M 0 24302 1 24347 1	* centaur ranger (Within the Dying Forest)
+M 0 24302 1 24347 1	* centaur ranger (Within the Dying Forest)
+M 0 24302 1 24347 1	* centaur ranger (Within the Dying Forest)
+M 0 24302 1 24347 1	* centaur ranger (Within the Dying Forest)
+M 0 24302 1 24347 1	* centaur ranger (Within the Dying Forest)
+M 0 24302 1 24347 1	* centaur ranger (Within the Dying Forest)
+M 0 24302 1 24347 1	* centaur ranger (Within the Dying Forest)
+M 0 24302 1 24347 1	* centaur ranger (Within the Dying Forest)
+M 0 24302 1 24347 1	* centaur ranger (Within the Dying Forest)
+M 0 24302 1 24347 1	* centaur ranger (Within the Dying Forest)
+M 0 24302 1 24347 1	* centaur ranger (Within the Dying Forest)
+M 0 24302 1 24347 1	* centaur ranger (Within the Dying Forest)
+M 0 24301 1 24347 1	* a centaur guardian (Within the Dying Forest)
+M 0 24302 1 24347 1	* centaur ranger (Within the Dying Forest)
+M 0 24302 9 24348 2	* centaur ranger (Within the Dying Forest)
 M 0 24314 12 24348 3	* a centaur (Within the Dying Forest)
 M 0 24314 12 24349 3	* a centaur (Within the Dying Forest)
-M 0 24302 9 24351 2	* ranger (Within a Centaur Hut)
+M 0 24302 9 24351 2	* centaur ranger (Within a Centaur Hut)
 M 0 24303 5 24351 1	* a centaur captain (Within a Centaur Hut)
-M 0 24302 9 24352 2	* ranger (Within a Centaur Settlement)
+M 0 24302 9 24352 2	* centaur ranger (Within a Centaur Settlement)
 M 0 24301 18 24353 4	* a centaur guardian (Within a Centaur Hut)
 E 0 24300 0 10		*	a pair of centaur armguards: on the arms
-M 0 24302 9 24353 2	* ranger (Within a Centaur Hut)
-M 0 24302 9 24355 2	* ranger (Within a Centaur Settlement)
+M 0 24302 9 24353 2	* centaur ranger (Within a Centaur Hut)
+M 0 24302 9 24355 2	* centaur ranger (Within a Centaur Settlement)
 M 0 24301 18 24356 4	* a centaur guardian (Within a Centaur Settlement)
 E 0 24300 0 10		*	a pair of centaur armguards: on the arms
 M 0 24303 5 24359 1	* a centaur captain (Within a Centaur Hut)
 M 0 24303 5 24360 1	* a centaur captain (Within a Centaur Hut)
-M 0 24302 9 24362 2	* ranger (Within a Centaur Settlement)
+M 0 24302 9 24362 2	* centaur ranger (Within a Centaur Settlement)
 M 0 24301 18 24363 4	* a centaur guardian (Within a Centaur Settlement)
 E 0 24300 0 10		*	a pair of centaur armguards: on the arms
-M 0 24302 9 24364 2	* ranger (Within a Centaur Settlement)
+M 0 24302 9 24364 2	* centaur ranger (Within a Centaur Settlement)
 M 0 24303 5 24365 1	* a centaur captain (Within a Centaur Hut)
 M 0 24304 1 24366 1	* the Centaur Leader (Within a Centaur Hut)
 E 0 24305 0 16		*	a steel-tipped spear: wielded
 E 0 24306 0 6		*	a circlet of braided centaur hair: over the head
 M 0 24301 18 24367 4	* a centaur guardian (Within a Centaur Hut)
 E 0 24302 0 6		*	a centaur helm: over the head
-M 0 24302 9 24367 2	* ranger (Within a Centaur Hut)
+M 0 24302 9 24367 2	* centaur ranger (Within a Centaur Hut)
 M 0 24303 5 24367 1	* a centaur captain (Within a Centaur Hut)
+O 0 24301 0 24367	* a steel centaur bracer (Within a Centaur Hut)
+O 0 24308 0 24367	* a blackened bastard sword (Within a Centaur Hut)
+G 0 24301 0		*	a steel centaur bracer
+E 0 24308 0 16		*	a blackened bastard sword: wielded
+M 0 24313 1 24367 1	* a dryad (Within a Centaur Hut)
+M 0 24313 1 24367 1	* a dryad (Within a Centaur Hut)
+O 0 24305 0 24367	* a steel-tipped spear (Within a Centaur Hut)
 M 0 24306 10 24369 1	* a greater Forest naga (Within the Dying Forest)
 M 0 24315 8 24370 3	* a dark stalker (Within the Dying Forest)
 M 0 24306 10 24371 1	* a greater Forest naga (Within the Dying Forest)
@@ -2146,11 +2192,9 @@ M 0 24306 10 24372 1	* a greater Forest naga (Within the Dying Forest)
 S
 
 #OLIMITS
-O 24300 1	* a pair of centaur armguards
-O 24303 35	* a suit of centaur plate
-O 24305 15	* a steel-tipped spear
+O 24305 1	* a steel-tipped spear
 O 24306 8	* a circlet of braided centaur hair
-O 24308 30	* a blackened bastard sword
+O 24308 10	* a blackened bastard sword
 O 24309 3	* Fist of the Earth
 O 24312 4	* a casing of ebonwood bark
 S

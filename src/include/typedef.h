@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.21 1999-04-16 15:52:22 fjoe Exp $
+ * $Id: typedef.h,v 1.22 1999-05-08 17:25:38 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -124,6 +124,7 @@ typedef int	OPROG_FUN	(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg);
 #	define vsnprintf	_vsnprintf
 #	define snprintf		_snprintf
 #	define vsnprintf	_vsnprintf
+#	define inline
 #endif
  
 /* 64-bit int value is compiler-specific (not a ANSI standard) */

@@ -1519,7 +1519,7 @@ You see the blacksmith.
 Z 0 603
 S
 #603
-The Blacksmith~
+@eng The Blacksmith@rus Кузница~
 You are in a black and smelly room.  Pieces of metal are strewn all over
 the floor, and a wave of heat from a big furnace hits you.  An anvil sits on 
 one side of the room, and on the other side is a workbench.  The exit is east.
@@ -1532,7 +1532,7 @@ You see Impy Way.
 Z 0 602
 S
 #604
-The Leather Shop~
+@eng The Leather Shop@rus Магазин кожаных изделий~
 You are in a brown and smelly room.  Pieces of leather are strewn all over
 the floor.  The smell of burnt hide assaults your nose.  You can tell by the
 looks that the tanning is done VERY CLOSE to here!   A table is near the
@@ -1591,7 +1591,7 @@ You see Impy Way.
 Z 0 605
 S
 #607
-The Meat Store~
+@eng The Meat Store@rus Мясной павильон~
 You are in a meat store.  Hanging on hooks are meats of many kinds of
 animals.  In the background, you can hear the sound of blade against flesh.
 It smells like meat here (which is not a good smell).  The exit is west.
@@ -1636,7 +1636,7 @@ You see Nyles' House of Ale.
 Z 0 609
 S
 #609
-Nyles' House of Ale~
+@eng Nyles' House of Ale@rus Пивная Нила~
 This is a very busy bar, with everyone holding homemade bottles of
 ale.  You see even the more gentile persons here, laughing along with
 Nyles, who offers you a quart of ale too.
@@ -1829,7 +1829,7 @@ You see the dirt road.
 Z 0 668
 S
 #618
-Dirt Road~
+@eng Dirt Road@rus Грязная дорога~
 You are on a dirt road.  To the east is a barn, and you see a big chicken
 coop south of you.  The dirt road continues north and west.
 ~
@@ -1880,7 +1880,7 @@ You see the dirt road.
 Z 0 618
 S
 #621
-Dirt Road~
+@eng Dirt Road@rus Грязная дорога~
 You are on a dirt road.  To the north and south, you see some grass 
 fields.  There is a pigsty west, and the dirt road continues east.
 ~
@@ -1931,7 +1931,7 @@ You see the dirt road.
 Z 0 621
 S
 #624
-Pig Sty~
+@eng Pig Sty@rus Свинарник~
 For some reason, you are in a pig sty.  You wonder why you are standing in
 muck.  To realize your senses and notice the dirt road is to the east.
 ~
@@ -1975,11 +1975,14 @@ door~
 ABCZ 665 629
 S
 #626
-Big House~
-You are in a big house.  Evidently, the owners of this house are richer
+@eng Big House@rus Прихожая~
+@eng You are in a big house.  Evidently, the owners of this house are richer
 than the average citizen, since there is more than one room to this house.  A
 door leads to the kitchen east, and a bedroom is upstairs.  The exit is to the
 west.
+@rus Ты вошел в дом и огляделся. Да уж, тут живут те, кто по богаче. 
+Ты можешь пройти через дверь на кухню (east) или подняться в спальню
+по лестнице (up).
 ~
 0 DS inside
 D1
@@ -1999,7 +2002,7 @@ You see the bedroom.
 Z 0 627
 S
 #627
-Bedroom~
+@eng Bedroom@rus Спальня~
 You are in the bedroom.  There isn't much of interest except for a bed and
 a closet.  The stairs lead back down.
 ~
@@ -2011,9 +2014,11 @@ You see the main room of the house.
 Z 0 626
 S
 #628
-Kitchen~
-You are in a kitchen.  There isn't much of interest here.  The main room
+@eng Kitchen@rus Кухня~
+@eng You are in a kitchen.  There isn't much of interest here.  The main room
 is west of here.
+@rus Ты вошел на кухню - ничего интересненького. Единственный выход 
+отсюда - в прихожую (west).
 ~
 0 DS inside
 D3
@@ -2023,11 +2028,14 @@ You see the main room of the house.
 Z 0 626
 S
 #629
-Big House~
-You are in a big house.  Evidently, the owners of this house are richer
+@eng Big House@rus Прихожая~
+@eng You are in a big house.  Evidently, the owners of this house are richer
 than the average citizen, since there is more than one room to this house.  A
-door leads to the kitchen west, and a bedroom is upstairs.  The exit is to the
-east.
+door leads to the kitchen east, and a bedroom is upstairs.  The exit is to the
+west.
+@rus Ты вошел в дом и огляделся. Да уж, тут живут те, кто по богаче. 
+Ты можешь пройти через дверь на кухню (west) или подняться в спальню
+по лестнице (up).
 ~
 0 DS inside
 D1
@@ -2047,7 +2055,7 @@ You see the bedroom.
 Z 0 630
 S
 #630
-Bedroom~
+@eng Bedroom@rus Спальня~
 You are in the bedroom.  There isn't much of interest except for a bed and
 a closet.  The stairs lead back down.
 ~
@@ -2059,9 +2067,11 @@ You see the main room of the house.
 Z 0 629
 S
 #631
-Kitchen~
-You are in a kitchen.  There isn't much of interest here.  The main room
-is east of here.
+@eng Kitchen@rus Кухня~
+@eng You are in a kitchen.  There isn't much of interest here.  The main room
+is west of here.
+@rus Ты вошел на кухню - ничего интересненького. Единственный выход 
+отсюда - в прихожую (east).
 ~
 0 DS inside
 D1
@@ -2071,9 +2081,14 @@ You see the main room of the house.
 Z 0 629
 S
 #632
-Impy Way~
-You are on Impy Way.  Houses are to the east and west of here.  Impy Way
-continues north and south.  There are many people walking along the streets.
+@eng Impy Way@rus Чертова дорога~
+@eng You are on Impy Way.  East and west of you are big houses.  Impy Way
+continues north and reaches a big intersection south.  Children are running to
+from home to home.
+@rus  Ты на чертовой дороге (Impy Way).  К востоку (east) и западу (west) от
+вас стоят огромные дома, меж которыми снуют прохожие, спешащие по своим
+делам насущным.  Улица продолжается на север (north) и проходит через
+большой перекресток (Big Imterseption) на юге (south).  
 ~
 0 S city
 D0
@@ -2115,7 +2130,7 @@ door~
 ABZ -1 632
 S
 #634
-Bedroom~
+@eng Bedroom@rus Спальня~
 You are in a bedroom.  There isn't much of interest here except for a bed
 and a dresser.  The main room of the house is north of here.
 ~
@@ -2144,7 +2159,7 @@ You see the bedroom.
 Z 0 636
 S
 #636
-Bedroom~
+@eng Bedroom@rus Спальня~
 You are in a bedroom.  There isn't much of interest here except for a bed
 and a dresser.  The main room of the house is north of here.
 ~
@@ -2201,7 +2216,7 @@ door~
 ABZ -1 637
 S
 #639
-Bedroom~
+@eng Bedroom@rus Спальня~
 You are in a bedroom.  There isn't much of interest here except for a bed
 and a dresser.  The main room of the house is north of here.
 ~
@@ -2230,7 +2245,7 @@ You see the bedroom.
 Z 0 641
 S
 #641
-Bedroom~
+@eng Bedroom@rus Спальня~
 You are in a bedroom.  There isn't much of interest here except for a bed
 and a dresser.  The main room of the house is north of here.
 ~
@@ -2242,7 +2257,7 @@ You see the main room of the house.
 Z 0 640
 S
 #642
-The Big Intersection~
+@eng The Big Intersection@rus Большой перекресток~
 You are on the intersection of Impy Way and Swiftest Way.  To the north of
 you is a big house.  Swiftest Way runs east and west, and Impy way continues
 south.  There are quite a few people on this intersection.
@@ -2270,7 +2285,7 @@ Swiftest Way continues west.
 Z 0 649
 S
 #643
-Big House~
+@eng Big House@rus Прихожая~
 You are in a big house.  Evidently, the owners of this house are richer
 than the average citizen, since there is more than one room to this house.  A
 door leads to the kitchen north, and a bedroom is upstairs.  The exit is to 
@@ -2294,7 +2309,7 @@ You see the bedroom.
 Z 0 644
 S
 #644
-Bedroom~
+@eng Bedroom@rus Спальня~
 You are in the bedroom.  There isn't much of interest except for a bed 
 and a closet.  The stairs lead back down.
 ~
@@ -2306,7 +2321,7 @@ You see the main room of the house.
 Z 0 643
 S
 #645
-Kitchen~
+@eng Kitchen@rus Кухня~
 You are in a kitchen.  There isn't much of interest here.  The main room
 is east of here.
 ~
@@ -2664,7 +2679,7 @@ You see the end of Swiftest Way.
 Z 0 651
 S
 #666
-Raff Way~
+@eng Raff Way@rus Улица красных фонарей~
 You are on Raff Way.  To the west, you can see a big intersection.  To 
 the east, you see Raff Way continue toward the Golden Citadel.  There are 
 beautiful flowers growing along the road here, making this more of a garden
@@ -2683,7 +2698,7 @@ You see the big intersection.
 Z 0 601
 S
 #667
-Raff Way~
+@eng Raff Way@rus Улица красных фонарей~
 You are on Raff Way.  Raff Way continues west to the city of Ofcol.  To 
 the east, you see Raff Way continue toward the Golden Citadel.  There are 
 beautiful flowers growing along the road here, making this more of a garden
@@ -2729,7 +2744,7 @@ You see the end of Impy Way.
 Z 0 611
 S
 #669
-The Temple of Ofcol~
+@eng The Temple of Ofcol@rus Храм~
 You are in the Temple of Ofcol.  Golden tiles cover the floor, and solid
 gold columns reach the twelve foot ceiling of this vast chamber.  Servants in
 golden livery wander this place, making even the raggiest messenger boy look

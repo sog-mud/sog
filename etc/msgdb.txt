@@ -160,6 +160,7 @@ Use 'desc edit' to edit your description.
 @eng There are $J gold and $j $qj{silver coins} in the pile.@rus Ты $gn{насчитал} $J $c3{$qJ{золотых}} и $j $c3{$qj{серебряных монет}}.~
 @eng $n wears $p around $s neck.@rus $n надевает $c3{$p} на шею.~
 @eng It's $T.@rus Сейчас $T.~
+@eng <clan mark>         $t@rus <клановый знак>        $t~
 @eng $n drops some coins.@rus $n выбрасывает несколько монет.~
 @eng $N deflects your attack with $S shield.@rus $N блокирует щитом твою атаку.~
 @eng You sell $P for $j silver $qj{pieces}.@rus Ты продаешь $c3{$P} за $j $c3{$qj{серебряных монет}}.~
@@ -440,7 +441,7 @@ Use 'desc edit' to edit your description.
 ~
 @eng The perfect match!@rus Прекрасный поединок!~
 @eng You wear $p on your legs.@rus Ты надеваешь $p на ноги.~
-@eng You remove $p, in pain.@rus Мучаясь от боли ты вытаскиваешь $p.~
+@eng You remove $p, in pain.@rus Мучаясь от боли, ты вытаскиваешь $c3{$p}.~
 @eng You are using:
 @rus Ты используешь:
 ~
@@ -914,7 +915,7 @@ Get back to questor before your time runs out!
 @eng $p looks better than $P.@rus $p выглядит лучше $P.~
 @eng $n wears $p about $s waist.@rus $n надевает $p на талию.~
 @eng {csleeping{x@rus {cспишь{x~
-@eng You can't remove $p.@rus Ты не можешь снять $p.~
+@eng You can't remove $p.@rus Ты не можешь снять $c3{$p}.~
 @eng $p is not an acceptable sacrifice.@rus $p не может быть $gp{принесен} в жертву.~
 @eng $n now uses $p as tattoo of $s religion.@rus $n теперь использует $p, как татуировку своей религии.~
 @eng Players near you:
@@ -940,7 +941,7 @@ Get back to questor before your time runs out!
 @rus Тут пусто.
 ~
 @eng $n sits down at $p and rests.@rus $n садится отдыхать около $c1{$p}.~
-@eng $n remove $p, in pain.@rus Мучаясь от боли $n вытаскивает $p.~
+@eng $n remove $p, in pain.@rus Мучаясь от боли, $n вытаскивает $c3{$p}.~
 @eng $N gives {W$p{x to $n.@rus $N дает {W$p{x $n.~
 @eng Too dark to tell@rus Слишком темно, для того чтобы что-то сказать.~
 @eng The sun rises in the east.@rus Восток озарился светом восходящего солнца.~

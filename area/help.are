@@ -565,12 +565,13 @@ will only show the players near you that are in your PK range.
 ~
 0 HELP~
 Syntax: help
-Syntax: help <keyword>
+Syntax: help [num.]keyword
 
 HELP without any arguments shows a one-page command summary.
 
-HELP <keyword> shows a page of help on that keyword.  The keywords include
-all the commands, spells, and skills listed in the game.
+HELP [num.]keyword shows a page number 'num' on that keyword. The keywords
+include all the commands, spells and skills listed in the game.
+ 
 ~
 0 MEND~
 Syntax: cast mend <object>
@@ -2633,6 +2634,8 @@ are the entirety of Midgaard, New Thalos, Valley of Titans and  New Ofcol.
 6. Garbling Ruler members is against the law.  This prevents them from
    doing their job and is considered an offensive attack upon the law itself.
 
+7. Criminals are outlaw. You can attack criminal in protected area.
+
  Enforcement of these laws will be carried out by Ruler members. Midgaard,
 New Thalos, Valley of Titans and New Ofcol are defined by the 'where protector'
 command. Old midgaard is not a holy town.
@@ -2665,6 +2668,9 @@ command. Old midgaard is not a holy town.
 нормальному выполнению их обязанностей и потому рассматривается как нарушение
 закона.
  
+7. Криминальный элемент (WANTED) - вне закона и может быть атакован 
+в пределах защищенной области.
+
 ПРИМЕЧАНИЕ. Старый Мидгард не является защищенной областью.
 ~
 1 WANTED ~
@@ -3196,9 +3202,9 @@ win1251:
 попробуйте {Ctoggle noiac{x.
  
 koi8-r:
-       То же самое, но с большой буквой 'Ъ'.
+       То же самое, но с большой буквой 'ъ'.
 
-На данный момент список правильно работающих установок notelnet/noiac такова:
+На данный момент список правильно работающих установок notelnet/noiac таков:
 ZMud 3.62a  -- notelnet on, noiac on
 tt++ 1.5pl6 -- notelnet on, noiac on
 tf 4.0g3    -- notelnet off, noiac off
@@ -3983,9 +3989,12 @@ bers of the Order will track him down, until that renegade dies.
 возможность стать одним из Shalafi) И то, что для члена ордена любой маг,
 обративший свою силу на служение кому или чему-либо кроме ордена, является
 отступником и врагом, которого он будет преследовать до своего смертного часа.
+Исключение могут составлять отношения с союзниками ордена, но маг всегда
+должен помнить что тот с кем он общается -- отступник и не злоупотреблять
+этим.
 
 Лидером ордена стала одна из самых прекрасных ведьм сего мира --
-===================== Lilit {DКоролева Ночи{x. =====================
+==================== Лилит {DTentatrice{x =====================
 ~
 0 Invader~
 @rus {RВласть{x. Природа власти...

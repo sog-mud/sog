@@ -1,5 +1,6 @@
 #AREADATA
 Name Circus~
+Builders setepios~
 VNUMs 4400 4500
 Credits Binky~
 Security 9
@@ -9,11 +10,14 @@ End
 #MOBILES
 #4400
 ticket clerk~
-the Ticket Clerk~
-The Ticket Clerk extends his hand for your money.
+@eng the Ticket Clerk@rus Билетёр~
+@eng The Ticket Clerk extends his hand for your money.
+@rus Билетер (ticket clerk) просит вас купить билет.
 ~
-The ticket clerk is bored, but is not so bored that he really wants to talk 
+@eng The ticket clerk is bored, but is not so bored that he really wants to talk 
 to you.  So are you going to buy a ticket or what????
+@rus Билетер выглядит уставшим, но не на столько, чтоб не поговорить с тобой ...
+Так, что будем покупать билет или как ?
 ~
 human~
 AB 0 250 0
@@ -24,11 +28,14 @@ stand stand male 9216
 0 0 medium unknown
 #4401
 child small~
-a small child~
-A small child waits in line for the Big Top.
+@eng a small child@rus малыш~
+@eng A small child waits in line for the Big Top.
+@rus Этот малыш (child) стоит в очереди, ожидая веселья и игр.
 ~
-He is standing in line, whining and complaining that his feet hurt.  Why 
+@eng He is standing in line, whining and complaining that his feet hurt.  Why 
 don't you put him out of your misery?
+@rus Он стоит в очереди, крича и сетуя на то, что ему наступили на ногу ...
+Почему ты не уберешь его со своего пути ?
 ~
 human~
 A 0 1000 0
@@ -39,11 +46,13 @@ stand stand male 102
 0 0 small unknown
 #4402
 dad father man~
-the child's father~
-The child's father is here.
+@eng the child's father@rus Папа~
+@eng The child's father is here.
+@rus Злобный отец (dad) печется о своем сыне.
 ~
-The child's father seems irked that you have been pushing past the others 
+@eng The child's father seems irked that you have been pushing past the others 
 in line.
+@rus Кажется, что он очень зол на то, что ты расталкиваешь всех вокруг.
 ~
 human~
 AB 0 0 0
@@ -54,11 +63,14 @@ stand stand male 324
 0 0 medium unknown
 #4403
 woman mother mom~
-the child's mother~
-The child's mother stands here, patiently waiting in line.
+@eng the child's mother@rus заботливая мама~
+@eng The child's mother stands here, patiently waiting in line.
+@rus Заботливая мамаша (mother) держит за руку своего малыша.
 ~
-The mother is tired of taking care of her son, and wishes she was in a bubble
+@eng The mother is tired of taking care of her son, and wishes she was in a bubble
 bath at home right now.
+@rus Уставшая от забот и солнцепека, она мечтает принять ванну с солью или выпить
+чашечку кофе и съесть мороженное.
 ~
 human~
 AB 0 0 0
@@ -69,11 +81,13 @@ stand stand female 108
 0 0 medium unknown
 #4404
 bobby boy~
-little Bobby~
-Little Bobby is lost, and is looking for his mommy.
+@eng little Bobby@rus маленький Бобби~
+@eng Little Bobby is lost, and is looking for his mommy.
+@rus Маленький Бобби (bobby), кажется потерялся и ищет маму.
 ~
-Bobby is scared, he should never have ran off to look at the Bearded Lady.
+@eng Bobby is scared, he should never have ran off to look at the Bearded Lady.
 Besides being lost, he is now psychologically scarred.
+@rus Бобби напуган, ему не следовало убегать, чтобы посмотреть на Медвежью Леди.
 ~
 human~
 ACGH 0 1000 0
@@ -84,11 +98,13 @@ stand stand male 44
 0 0 small unknown
 #4405
 mother woman~
-Bobby's mother~
-Bobby's mother is here, frantically calling out her son's name.
+@eng Bobby's mother@rus мама Бобби~
+@eng Bobby's mother is here, frantically calling out her son's name.
+@rus Мама Бобби (mother) зовет своего сына, но не может его найти.
 ~
-Bobby's mother is looking quite worried.  If you see Bobby, you will tell her,
+@eng Bobby's mother is looking quite worried.  If you see Bobby, you will tell her,
 won't you?
+@rus Мама Бобби взволнована. Если вы видели ее сына, вы ведь скажете ей ?
 ~
 human~
 ACGH 0 1000 0
@@ -114,11 +130,14 @@ stand stand female 378
 0 0 medium unknown
 #4407
 Illusionist mage~
-the Illusionist~
-The Illusionist is here, doing tricks to amaze the crowd.
+@eng the Illusionist@rus фокусник~
+@eng The Illusionist is here, doing tricks to amaze the crowd.
+@rus Фокусник (Illusionist) показывает свои трюки и весилит публику.
 ~
-He puts on quite a show.  If you couldn't see the wires on half of his 
+@eng He puts on quite a show.  If you couldn't see the wires on half of his 
 creations, you might actually be amazed.
+@rus Он явно новечок в своем деле ... Хотя, если бы не было видно, что у него под 
+столом, возможно было бы интересно.
 ~
 elf~
 AB DF 0 0
@@ -510,9 +529,9 @@ stand stand male 1000
 
 #OBJECTS
 #4400
-ticket~
-a ticket~
-An unwanted scrap of paper lies here.~
+ticket билет~
+@eng a ticket@rus билет~
+@eng An unwanted scrap of paper lies here.@rus Какая-то бумажка валяется здесь.~
 paper~
 key 0 A
 A 0 0 0 0
@@ -822,8 +841,8 @@ probably never guess the combination.
 G none
 #4429
 note~
-a note~
-A sign hangs by the ticket booth.~
+@eng a note@rus табличка~
+@eng A sign hangs by the ticket booth.@rus К кассе прикреплена табличка (note).~
 ~
 furniture 0 0
 0 0 0 0 0
@@ -1038,9 +1057,11 @@ G none
 
 #ROOMS
 #4401
-The Path to the Circus~
-You hear music and laughter coming from ahead of you.  Posters hang 
+@eng The Path to the Circus@rus Тропа к Цирку~
+@eng You hear music and laughter coming from ahead of you.  Posters hang 
 from the trees, advertisements for the Circus that has just arrived in town.
+@rus Где-то совсем близко играет музыка и смеются дети. На деревьях
+расклеены афиши, прибывшего на гастроли цирка.
 ~
 0 0 city
 E
@@ -1059,11 +1080,15 @@ D2
 Z 0 4402
 S
 #4402
-The Entrance to the Circus~
-Ahead you see the Circus laid out in all its glory.  Freak shows, 
+@eng The Entrance to the Circus@rus Вход в Цирк~
+@eng Ahead you see the Circus laid out in all its glory.  Freak shows, 
 games booths, and dwarfing them all, the Big Top.  A ticket booth is set here.
 You will need a ticket to enter the Big Top.
 
+@rus Перед собой вы видите цирк, расположившийся во всем своем величии и
+красоте. Развлекательные программы, шоу и игры, расположились под
+большим навесом. Вам потребуется билет, чтобы пройти внутрь.
+Прямо у входа стоит касса с улыбающимся билетером.
 ~
 0 0 city
 D0
@@ -1076,11 +1101,15 @@ D2
 Z 0 4403
 S
 #4403
-The Path to the Big Top~
-This way to the Big Top is lined with people.  They seem to be having 
+@eng The Path to the Big Top@rus Тропинка ведущая под Большой Навес~
+@eng This way to the Big Top is lined with people.  They seem to be having 
 a good time.  Everyone that is, except the people waiting in line for the 
 Big Top.  They seem annoyed at you as you push your way past them.  To the
 east and west you see games booths.  
+@rus Эта тропа, ведущая под навес заполнена людьми. Кажется они хорошо проводят
+время ... Все кроме тех, кто стоит в очереди. Ожидающие раздраженны тем, что
+вы расталкиваете их в стороны пробиваясь вперед без всякой очереди. На
+западе и востоке вас ждут палатки с атракционами и игрищами.
 ~
 0 0 city
 D0

@@ -1636,7 +1636,7 @@ a Magical Potion of The Holy Touch.~
 A potion lies here in the dirt.~
 glass~
 potion AB A
-50 'bless' 'sanctuary' 'haste' 'shield'
+50 'bless' 'protection evil' 'haste' 'shield'
 20 100 25000 P
 G none
 #18031
@@ -1645,7 +1645,7 @@ a Magical Potion of Deadly Combat.~
 A potion lies here in the dirt.~
 glass~
 potion AB A
-50 'sanctuary' 'stone skin' 'giant strength' 'armor'
+50 'frenzy' 'stone skin' 'giant strength' 'armor'
 20 100 19000 P
 G none
 #18032

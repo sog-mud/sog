@@ -3061,6 +3061,10 @@ D0
 ~
 ~
 Z -1 40171
+D1
+~
+~
+Z 0 40195
 D2
 ~
 ~
@@ -3172,7 +3176,7 @@ decorated with tapestries of woodland, brook, and mountain
 scenes. At least one teller is available for your financial
 transaction.
 ~
-0 CD inside
+0 CDU inside
 D3
 ~
 ~
@@ -3252,7 +3256,7 @@ shelves and shelves line the walls, and each of them crammed with
 scrolls, some of them dusty and cobweb-ridden, others new. The whole
 room is cluttered with stuff.
 ~
-0 D inside
+0 Db inside
 D2
 ~
 ~

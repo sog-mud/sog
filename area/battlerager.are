@@ -22,7 +22,7 @@ hates magic.
 @rus Этот гигантский воин потратил всю свою жизнь на военные искусства. Он не верит в силу магии. Он никогда не использует жезлы, посохи и другие магические предметы. Он очень сильно ненавидит магию.
 ~
 giant~
-ABJKTVef DFlmt 0 0
+ABJKTVbef DFlmt 0 0
 92 70 2d500+25000 1d1+3999 10d40+90 slash
 -90 -90 -90 -70
 ACEFIK AB D 0
@@ -67,17 +67,68 @@ FHIK ABC D 0
 stand stand male 5000
 0 0 medium unknown
 C BattleRager~
+#95403
+urukhay troll~
+@eng Urukhay@rus Урукхай~
+Огромная фигура (troll) с окровавленным топором приветствует тебя.
+~
+Перед тобой стоит здоровенный зеленый тролль. Его красные глаза не мигая
+смотрят на тебя.
+~
+troll~
+ABJKTbdef CDEFGTVlmt -1000 0
+92 100 2d500+25000 1d1+2999 10d40+100 crush
+-70 -70 -70 -70
+ACEFJK AB D 0
+stand stand male 0
+0 0 large unknown
+M grall 95402 100~
+C BattleRager~
+#95404
+rock~
+rock~
+A small rock lies here.
+~
+~
+human~
+ABf DEFTcglt 0 0
+200 -1000 1d1+29999 10d10+4000 100d100+1000 none
+-1000 -1000 -1000 -1000
+0 CD 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+M exall 95403 2~
+I 1000
+#95405
+rock~
+rock~
+A small rock lies here.
+~
+~
+human~
+ABf DFTcglmt 0 0
+200 -1000 1d1+29999 10d10+4000 0d0+0 none
+-1000 -1000 -1000 -1000
+0 CD 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+M exall 95404 0~
+I 1000
 #0
 
 #OBJECTS
 #95400
-key~
-@eng a bone key@rus костяной ключ~
+key bone~
+@eng a bone key@rus ~~костяной~~ ~~ключ~~~
 @eng A key, made of bone, is lying on the ground.@rus Ключ (key), сделанный из кости, лежит на земле.~
 bone~
-key ORYf AO
+key ORYf AOP
 0 0 0 0 0
-40 4 0 P
+0 4 0 P
 G none
 #95401
 skull череп~
@@ -111,14 +162,14 @@ This pit is for battleragers, in order to donate themselves.
 ~
 G none
 #95404
-water fall waterfall~
-Waterfall~
-You see a beautiful waterfall here.
-~
-water~
-portal AO 0
-0 0 B 5281 0
-0 0 0 P
+bed soldier's plank~
+@eng soldier's plank bed@rus ~~солдатские~~ ~~нары~~~
+@eng A soldier's plank bed is here.@rus Солдатские нары (bed) стоят здесь.~
+wood~
+furniture IY P
+EIJKN ABCDEFGHIJKLMNOPQRSTUVWXYZabcde EHKN DGH DGH
+0 1000000000 0 P
+C BattleRager~
 G none
 #95405
 dagger fine gordall~
@@ -152,7 +203,7 @@ tattoo clanmark~
 @eng {DI hate magic{x@rus {DНенавижу магию{x~
 @eng Strange tattoo.@rus Странная татуировка (tattoo).~
 unknown~
-jewelry AHMZ AS
+jewelry AMTYZ AS
 0 0 0 0 0
 0 0 0 P
 G none
@@ -168,7 +219,7 @@ water fall still can light the enterance of the caven.
 какой-нибудь светильник, но не можешь. Однако, света, проходящего сквозь 
 водопад, достаточно для освещения входа.
 ~
-0 KWX city
+0 KWX hills
 D1
 ~
 ~
@@ -186,7 +237,7 @@ wall. There are several bones on the ground. You notice that the huge man
 looking over you before you moving on.
 @rus С запада в пещеру проникает немного света, который позволяет лучше рассмотреть все вокруг. Вы видите много оружия и следы крови на стенах. На полу лежит множество костей. Проход на запад загораживает возвышающийся над вами огромный богатырь.
 ~
-0 KWX city
+0 KWX hills
 D1
 ~
 ~
@@ -203,13 +254,12 @@ the west. You see lots of bones again on the ground. You observe that
 there seems no way from the west of the caven.
 @rus Пол пещеры покрывают кости. Вам кажется что дальше на запад дороги нет. Однако, злясь на недостаточное количество света, вы помниче что вам следут двигаться именно в этом направлении.
 ~
-0 KWX city
+0 KWX hills
 D1
 ~
 ~
 DZ -1 95401
 D3
-w
 ~
 ~
 Z -1 95403
@@ -222,7 +272,7 @@ south you see some clothes and weapons left on the ground. It seems that
 the south is something like a donation room.
 @rus Эта пещера имеет два выхода, на север (north) и юг (south). Далеко на севере вы видите большой белый трон. На юге лежит множество оружия. Вам кажется, что на юге находится что-то похожее на комнату для пожертвований.
 ~
-0 KWX city
+0 KWX hills
 D0
 ~
 ~
@@ -248,7 +298,7 @@ magicians.
        "Каждый battlerager твой брат."
 У вас появляется желание оставить несколько хороших вещей и оружия для других членов клана, чтобы они могли увеличить свою мощь и уничтожать магов.
 ~
-0 KWX city
+0 KWX hills
 D0
 ~
 ~
@@ -263,11 +313,11 @@ to the north you see the shrine of battleragers, to the west you see the a
 Gordall's weapon house, to the very south you see the donation room.
 @rus На полу лежит множество костей. Вы понимаете, что именно здесь мастера боевых искусств повышают свое мастерство. На востоке (east) вы также видите множество костей, на севере (north) расположена святыня клана Battlerager, на западе (west) - оружейный магазин мастера Гордалла, далеко на юге (south) находится комната для пожертвований.
 ~
-0 KWX city
+0 KWX hills
 D0
 ~
 ~
-Z -1 95408
+Z 0 95408
 D1
 ~
 ~
@@ -290,7 +340,11 @@ the floor. You read the following on the wall:
 @rus Вы находитесь в военном здании. На полу вы видите множество костей и сломанного оружия. На одной из стен написано:
        "Ты становишся членом клана BattleRager после того, как ты убил своего первого мага."
 ~
-0 KWX city
+0 KWX hills
+D1
+~
+~
+Z 0 95411
 D3
 ~
 ~
@@ -304,7 +358,7 @@ And to the higher portion of the wall you see the newly finished weapons,
 daggers, swords and axes.
 @rus На стенах висят куски различных металлов. Эти материалы Гордалл наиболее часто использует для изготовления оружия. Большую часть стены занимают недавно приготовленные кинжалы, мечи и топоры.
 ~
-0 KWX city
+0 KWX hills
 D1
 ~
 ~
@@ -319,7 +373,7 @@ blood and heads of magicians.
 @rus Перед вами находится большой белый трон, сделанный из костей. Вдоль стен тянутся полки на которых стоят кувшины, наполненные кровью и головами магов.
 На стене висит каменная табличка.
 ~
-0 KWX city
+0 KWX hills
 E
 tablet~
 *******************************************************************
@@ -339,7 +393,40 @@ tablet~
 D2
 ~
 ~
-Z -1 95405
+Z 0 95405
+S
+#95409
+@eng Dark tunnel@rus Темный туннель~
+Здесь темно и сыро, но где-то рядом раздается треск костра и запах жареного мяса.
+~
+0 ADKWX hills
+D5
+~
+~
+Z 0 95410
+S
+#95410
+@eng Troll's lair@rus Логово тролля~
+Ты попал в самую темную часть пещеры. Здесь так темно, что практически
+ничего не видно. Ты спотыкаешься о какие-то трупы, кости и отрубленные
+гигантским топором части тела. Посередине комнаты стоит огромный котел,
+в который тебе почему-то не хочется заглядывать.
+~
+0 KWX inside
+D4
+~
+~
+Z 0 95409
+S
+#95411
+@eng Resting room@rus Комната отдыха~
+~
+0 KSWX hills
+D3
+~
+~
+Z 0 95406
+M 200 H 200
 S
 #0
 
@@ -354,6 +441,10 @@ G 0 95407 0		*	a fine two-handed axe
 M 0 95402 1 95408 1	* A Wiseman (The Shrine of Battleragers)
 O 0 95402 0 95408	* A white throne (The Shrine of Battleragers)
 P 0 95401 1 95402 1	* A white throne: Skull of mage
+M 0 95405 1 95409 1	* rock (Dark tunnel)
+M 0 95403 1 95410 1	* Urukhay (Troll's lair)
+O 0 95404 0 95411	* soldier's plank bed (Resting room)
+O 0 95404 0 95411	* soldier's plank bed (Resting room)
 S
 
 #SHOPS
@@ -396,10 +487,47 @@ end
 endif
 mob attack $n
 ~
+#95402
+clan О! Ко мне в гости пожаловал $n
+if isimmort $n
+say Hail, $n
+bow $n
+end
+endif
+if level $n < 10
+clan Нее..он мелкий, с него никакого навара!
+say Иди отсюда мелочь пузатая! Нечего здесь тебе делать!
+mob transfer $n 5281
+end
+endif
+if clan $n Battlerager
+say Здарова!
+end
+endif
+say Эй! Чего тебе тут надо?
+clan Думаю сегодня будет вкусный обед!
+~
+#95403
+mob echoat $n {x
+mob echoat $n {x
+mob echoat $n Передвигаясь по южной стенке пещеры ты случаяно наткнулся на какой-то камень,
+mob echoat $n который под твоим весом провалился и ты упал на холодную землю.
+mob echoat $n {x
+mob echoat $n {x
+mob echoaround $n $n шел по южной стенке пещеры и вдруг с криком куда-то провалился.
+mob echoaround $n You hear someone's death cry.
+mob transfer $n 95409
+~
+#95404
+mob transfer $n 95402
+~
+#95405
+~
 #0
 
 #PRACTICERS
 M 95400 clan~	* the Powerman
+M 95403 clan~	* Urukhay
 S
 
 #HELPS
