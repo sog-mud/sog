@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.112 1999-02-12 19:05:22 fjoe Exp $
+ * $Id: interp.c,v 1.113 1999-02-15 08:16:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -794,7 +794,8 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 
 	if ((victim = get_char_world(ch, arg)) == NULL
 	||  (IS_NPC(victim) && victim->in_room != ch->in_room)) {
-		char_puts("They aren't here.\n", ch);
+		act(social_table[cmd].val[SOC_CHAR_NOT_FOUND],
+			ch, NULL, victim, TO_CHAR);
 		return TRUE;
 	}
 
