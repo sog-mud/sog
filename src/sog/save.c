@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.126.2.3 1999-11-18 15:35:34 fjoe Exp $
+ * $Id: save.c,v 1.126.2.4 1999-11-28 12:56:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -323,7 +323,7 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 			pc->condition[5]);
 
 		/* write lang */
-		fprintf(fp, "Lang %d\n", GET_LANG(ch));
+		fprintf(fp, "Lang %d\n", pc->dvdata->lang);
 
 		/* write pc_killed */
 		fprintf(fp, "PC_Killed %d\n", pc->pc_killed);
