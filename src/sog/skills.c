@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.74.2.7 2000-07-04 11:01:43 avn Exp $
+ * $Id: skills.c,v 1.74.2.8 2001-02-12 19:12:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -292,8 +292,6 @@ int get_skill(CHAR_DATA *ch, int sn)
 		if (sk->skill_type == ST_SPELL)
 			skill = 40 + 2 * ch->level;
 		else if (sn == gsn_track)
-			skill = 100;
-		else if (sn == gsn_herbs && IS_SET(ch->pMobIndex->act, ACT_HEALER))
 			skill = 100;
 		else if ((sn == gsn_sneak || sn == gsn_hide || sn == gsn_pick)
 		     &&  IS_SET(act, ACT_THIEF))

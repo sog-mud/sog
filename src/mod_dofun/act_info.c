@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.30 2001-01-07 17:48:14 fjoe Exp $
+ * $Id: act_info.c,v 1.271.2.31 2001-02-12 19:12:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -854,6 +854,7 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 	EXIT_DATA *pexit;
 	bool found;
 	bool fAuto;
+	bool check_perception = FALSE;
 	int door;
 
 	fAuto  = !str_cmp(argument, "auto");
@@ -881,7 +882,7 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 					show_closed = TRUE;
 				else if ((chance = get_skill(ch, gsn_perception))){
 					if (number_percent() < chance) {
-						check_improve(ch, gsn_perception, TRUE, 5);
+						check_perception = TRUE;
 						show_closed = TRUE;
 					}
 				}
@@ -914,6 +915,9 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 
 	if (fAuto)
 		char_puts("]{x\n", ch);
+
+	if (check_perception)
+		check_improve(ch, gsn_perception, TRUE, 5);
 }
 
 void do_worth(CHAR_DATA *ch, const char *argument)
