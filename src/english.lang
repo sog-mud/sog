@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.9 1998-05-18 12:55:16 efdi Exp $
+# $Id: english.lang,v 1.10 1998-05-18 16:12:45 efdi Exp $
 #
 
 INFO_NOTHING		"Nothing.\n\r"
@@ -393,3 +393,19 @@ UPDATE_YOU_RAISE_A_LEVEL	"{*{CYou raise a level!!{x "
 COMM_TELLS_YOU		"{W$n{x tells you '{G$t{x'"
 COMM_YOU_TELL		"You tell {W$N{x '{G$t{x'"
 COMM_YOUR_MESSAGE_DIDNT_GET_THROUGH	"Your message didn't get through.\n\r"
+QUEST_N_ASKS_FOR_QUEST	"$n asks $N for a quest."
+QUEST_YOU_ASK_FOR_QUEST	"You ask $N for a quest."
+QUEST_YOU_ALREADY_ON_QUEST	"But you already on a quest!"
+QUEST_BRAVE_BUT_LET_SOMEONE_ELSE	"You're very brave, {W%s{G, but let someone else have a chance."
+QUEST_COME_BACK_LATER	"Come back later."
+QUEST_DONT_HAVE_QUEST	"I'm sorry, but i don't have any quests for you at this time."
+QUEST_TRY_AGAIN_LATER	"Try again later."
+QUEST_RUNES_MOST_HEINOUS	"Rune's most heinous criminal, {W%s{G, has escaped from the dungeon."
+QUEST_HAS_MURDERED     "Since the escape ,{W%s{G has murdered {W%d{x civilians!"
+QUEST_THE_PENALTY_IS	"The penalty for this crime is death, and you are to deliver the sentence!"
+QUEST_ENEMY_OF_MINE	"An enemy of mine, {W%s{G, is making vile threats against the crown."
+QUEST_ELEMINATE_THREAT	"This threat must be eleminated!"
+QUEST_SEEK_S_OUT	"Seek {W%s{G out in vicinity of {W%s{G!"
+QUEST_LOCATION_IS_IN_AREA	"That location is in general area of {W%s{G."
+QUEST_VILE_PILFERERS	"Vile pilferers have stolen {W%s{G from the royal treasury!"
+QUEST_MY_COURT_WIZARDESS	"My court wizardess, with her magic mirror, has pinpointed its location."

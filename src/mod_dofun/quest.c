@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.13 1998-05-18 12:56:33 efdi Exp $
+ * $Id: quest.c,v 1.14 1998-05-18 16:12:20 efdi Exp $
  */
 
 /***************************************************************************
@@ -192,7 +192,7 @@ void do_quest(CHAR_DATA *ch, char *argument)
 
     if (questman == NULL || questman->spec_fun != spec_lookup("spec_questmaster"))
     {
-	send_to_char("You can't do that here.\n\r",ch);
+	send_to_char(msg(MOVE_YOU_CANT_DO_THAT_HERE, ch), ch);
 	return;
     }
 
@@ -485,19 +485,21 @@ To buy an item, type 'QUEST BUY <item>'.\n\r",
     }
     else if (!strcmp(arg1, "request"))
     {
-	act("$n asks $N for a quest.", ch, NULL, questman, TO_ROOM);
-	act ("You ask $N for a quest.",ch, NULL, questman, TO_CHAR);
+	act_printf(ch, NULL, questman, TO_ROOM, POS_RESTING, 
+			QUEST_N_ASKS_FOR_QUEST);
+	act_printf(ch, NULL, questman, TO_CHAR, POS_DEAD, 
+			QUEST_YOU_ASK_FOR_QUEST);
 	if (IS_SET(ch->act, PLR_QUESTOR))
 	{
-	    sprintf(buf, "But you're already on a quest!");
+	    sprintf(buf, msg(QUEST_YOU_ALREADY_ON_QUEST, ch));
 	    do_tell_quest(ch,questman,buf);
 	    return;
 	}
 	if (ch->pcdata->nextquest > 0)
 	{
-	    sprintf(buf, "You're very brave, %s, but let someone else have a chance.",ch->name);
+	    sprintf(buf, msg(QUEST_BRAVE_BUT_LET_SOMEONE_ELSE, ch), ch->name);
 	    do_tell_quest(ch,questman,buf);
-	    sprintf(buf, "Come back later.");
+	    sprintf(buf, msg(QUEST_COME_BACK_LATER, ch));
 	    do_tell_quest(ch,questman,buf);
 	    return;
 	}
@@ -799,9 +801,9 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 
        if (vsearch == NULL || (victim = get_char_world(ch, vsearch->player_name)) == NULL)
        {
-	sprintf(buf, "I'm sorry, but I don't have any quests for you at this time.");
+	sprintf(buf, msg(QUEST_DONT_HAVE_QUESTS, ch));
 	do_tell_quest(ch,questman,buf);
-	sprintf(buf, "Try again later.");
+	sprintf(buf, msg(QUEST_TRY_AGAIN_LATER, ch));
 	do_tell_quest(ch,questman,buf);
 	ch->pcdata->nextquest = 5;
 	return;
@@ -809,9 +811,9 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 
        if ((room = find_location(ch, victim->name)) == NULL)
        {
-	sprintf(buf, "I'm sorry, but I don't have any quests for you at this time.");
+	sprintf(buf, msg(QUEST_DONT_HAVE_QUESTS, ch));
 	do_tell_quest(ch,questman,buf);
-	sprintf(buf, "Try again later.");
+	sprintf(buf, msg(QUEST_TRY_AGAIN_LATER, ch));
 	do_tell_quest(ch,questman,buf);
 	ch->pcdata->nextquest = 5;
 	return;
@@ -851,7 +853,7 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 	eyed->pit = hometown_table[ch->hometown].pit[i];
 	eyed->level = ch->level;
 
-	sprintf(buf, eyed->description, ch->name	);
+	sprintf(buf, eyed->description, ch->name);
 	free_string(eyed->description);
 	eyed->description = str_dup(buf);
 
@@ -868,15 +870,15 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 	obj_to_room(eyed, room);
 	ch->pcdata->questobj = eyed->pIndexData->vnum;
 
-	sprintf(buf, "Vile pilferers have stolen %s from the royal treasury!",eyed->short_descr);
+	sprintf(buf, msg(QUEST_VILE_PILFERERS, ch), eyed->short_descr);
 	do_tell_quest(ch,questman,buf);
-	do_tell_quest(ch,questman, "My court wizardess, with her magic mirror, has pinpointed its location.");
+	do_tell_quest(ch,questman, msg(QUEST_MY_COURT_WIZARDESS, ch));
 
 	/* I changed my area names so that they have just the name of the area
 	   and none of the level stuff. You may want to comment these next two
 	   lines. - Vassago */
 
-	sprintf(buf, "Look in the general area of %s for %s!",room->area->name, room->name);
+	sprintf(buf, msg(QUEST_LOCATION_IS_IN_AREA, ch), room->area->name, room->name);
 	do_tell_quest(ch,questman,buf);
 	return;
     }
@@ -908,9 +910,9 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 	 || (room = find_location(ch, victim->name)) == NULL
 	 || IS_SET(room->area->area_flag,AREA_HOMETOWN))
      {
-	sprintf(buf, "I'm sorry, but I don't have any quests for you at this time.");
+	sprintf(buf, msg(QUEST_DONT_HAVE_QUESTS, ch));
 	do_tell_quest(ch,questman,buf);
-	sprintf(buf, "Try again later.");
+	sprintf(buf, msg(QUEST_TRY_AGAIN_LATER, ch));
 	do_tell_quest(ch,questman,buf);
 	ch->pcdata->nextquest = 5;
 	return;
@@ -918,30 +920,31 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 
     if (IS_GOOD(ch))
        {
-	sprintf(buf, "Rune's most heinous criminal, %s, has escaped from the dungeon!",victim->short_descr);
+	sprintf(buf, msg(QUEST_RUNES_MOST_HEINOUS, ch), victim->short_descr);
 	do_tell_quest(ch,questman,buf);
-	sprintf(buf, "Since the escape, %s has murdered %d civillians!",victim->short_descr, number_range(2,20));
-	do_tell_quest(ch,questman,buf);
-	do_tell_quest(ch,questman,"The penalty for this crime is death, and you are to deliver the sentence!");
+	sprintf(buf, vmsg(QUEST_HAS_MURDERED, ch, victim), victim->short_descr, 
+			number_range(2,20));
+	do_tell_quest(ch, questman, buf);
+	do_tell_quest(ch, questman, msg(QUEST_THE_PENALTY_IS, ch));
 	}
     else
        {
-	sprintf(buf, "An enemy of mine, %s, is making vile threats against the crown.",victim->short_descr);
-	do_tell_quest(ch,questman,buf);
-	sprintf(buf, "This threat must be eliminated!");
+	sprintf(buf, msg(QUEST_ENEMY_OF_MINE, ch), victim->short_descr);
+	do_tell_quest(ch, questman, buf);
+	sprintf(buf, msg(QUEST_ELEMINATE_THREAT, ch));
 	do_tell_quest(ch,questman,buf);
        }
 
      if (room->name != NULL)
      {
-	sprintf(buf, "Seek %s out in vicinity of %s!",victim->short_descr,room->name);
+	sprintf(buf, msg(QUEST_SEEK_S_OUT, ch), victim->short_descr,room->name);
 	do_tell_quest(ch,questman,buf);
 
 	/* I changed my area names so that they have just the name of the area
 	   and none of the level stuff. You may want to comment these next two
 	   lines. - Vassago */
 
-	sprintf(buf, "That location is in the general area of %s.",room->area->name);
+	sprintf(buf, msg(QUEST_LOCATION_IS_IN_AREA, ch), room->area->name);
 	do_tell_quest(ch,questman,buf);
      }
      ch->pcdata->questmob = victim->pIndexData->vnum;
