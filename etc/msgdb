@@ -267,7 +267,7 @@ channel    | status@rus .
 @eng $N loads $p.@rus $N $gN{создал} $c3{$p}.~
 @eng $N locks out new characters.@rus $N $gN{запретил} появление новых персонажей.~
 @eng $N looks at $n with adoring eyes.@rus $N преданно смотрит на $c6{$n}.~
-@eng $N looks at you and plans to make you pay for distrurbing its rest!@rus $n $gn{взглянул} на тебя, планируя как отомстить за прерванный вечный сон!~
+@eng $N looks at you and plans to make you pay for distrurbing its rest!@rus $N $gN{взглянул} на тебя, планируя как отомстить за прерванный вечный сон!~
 @eng $N looks at you with adoring eyes.@rus $N преданно смотрит на тебя.~
 @eng $N looks just as disinterested as you.@rus $N так же не $gN{заинтересован} тобой, как и ты $gN{им}.~
 @eng $N looks like an easy kill.@rus Похоже, ты легко убьешь $c6{$N}.~
@@ -2400,7 +2400,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng With a crunch of bone and splash of blood you nail $p to a sacrificial cross.@rus Разрушая кости и разбрызгивая кровь, ты $gn{распял} $c3{$p} на кресте.~
 @eng With a sudden flash of light, $n and $s friends disappear!@rus Во вспышке молнии, $n и $gn{его} друзья исчезли!~
 @eng With mystic power, $n animates $p!@rus Призвав на помощь таинственные силы, $n $gn{оживил} $c3{$p}!~
-@eng With mystic power, you animate it!@rus Призвав на помощь таинственные силы, $n $gn{оживил} его!~
+@eng With mystic power, you animate it!@rus Призвав на помощь таинственные силы, ты $gn{оживил} $gN{его}!~
 @eng Withdraw how much?@rus Сколько снять со счета?~
 @eng Wiznet status: %s
 @rus Статус: %s
