@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.c,v 1.28 2002-11-20 14:28:48 fjoe Exp $
+ * $Id: mpc_dynafun.c,v 1.29 2003-04-17 17:17:09 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -569,6 +569,12 @@ CHAR_DATA *
 get_pet(CHAR_DATA *ch)
 {
 	return GET_PET(ch);
+}
+
+bool
+char_form_is(CHAR_DATA *ch, int form)
+{
+	return IS_SET(ch->form, form);
 }
 
 #else /* !defined(MPC) */

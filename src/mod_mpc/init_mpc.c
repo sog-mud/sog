@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.50 2002-11-23 15:27:56 fjoe Exp $
+ * $Id: init_mpc.c,v 1.51 2003-04-17 17:17:08 fjoe Exp $
  */
 
 #include <dlfcn.h>
@@ -304,6 +304,7 @@ const char *mpc_dynafuns[] = {
 	"char_dex",
 	"char_ethos",
 	"char_fighting",
+	"char_form_is",
 	"char_gold",
 	"char_hit",
 	"char_hometown",
@@ -408,6 +409,7 @@ const char *mpc_dynafuns[] = {
 	"room_is",
 	"room_sector",
 	"room_vnum",
+	"saves_spell",
 	"say_spell",
 	"set_char_gold",
 	"set_char_hit",
