@@ -87,13 +87,12 @@ centuries ago, who had not the power to slay them utterly, and now thanks
 to your disturbance they have risen again!
 ~
 vampire~
-BFGO 0 N 0 0 -1000 0
+BFG 0 N 0 0 -1000 0
 54 0 25d10+5250 10d10+1110 7d6+22 'pierce'
 -24 -24 -24 -1
 EFNQ
 stand stand none 5300
 0 0 medium unknown
-r charm 100
 #8105
 lich~
 a lich~
@@ -104,15 +103,14 @@ and slew. But he underestimated his master's power, and now he as returned
 as a Lich, seeking revenge!
 ~
 lich~
-BFGJO 0 0 0 ABH -1000 0
+BFGJ 0 0 0 ABH -1000 0
 58 0 50d10+6250 10d10+1110 5d10+25 'pierce'
 -28 -28 -28 2
-EFNQ
+ENQ
 stand stand male 5800
 0 0 medium unknown
 r acid -50
 r sound 33
-r charm 100
 #8106
 demon~
 a lesser demon~
@@ -471,10 +469,10 @@ wielding a shiny silver sword, he would look as he did in life save for his
 rotting face...
 ~
 death knight~
-BFGO 0 0 0 0 -1000 0
+BFG 0 0 0 0 -1000 0
 60 0 50d10+6250 10d10+1000 8d6+28 'pierce'
 -30 -30 -30 0
-EFNQ
+FNQ
 stand stand none 5000
 0 0 medium unknown
 #8128
@@ -573,6 +571,7 @@ BCFGHO 0 0 B 0 -1000 0
 EFNQ
 stand stand none 5000
 0 0 medium unknown
+g @eng none@rus male~
 #8134
 baron vampire вампир~
 a baron vampire~
@@ -583,13 +582,12 @@ centuries ago, who had not the power to slay them utterly, and now thanks
 to your disturbance they have risen again!
 ~
 vampire~
-BFGO 0 0 0 0 -1000 0
+BFG 0 0 0 0 -1000 0
 60 0 50d10+6750 10d10+1000 8d6+28 'pierce'
 -30 -30 -30 0
 EFNQ
 stand stand none 5000
 0 0 medium unknown
-r charm 100
 #0
 
 #OBJECTS

@@ -30,4 +30,40 @@ end
 gender none~
 end
 
+#GLOB @eng bee bite@rus укус пчелы~
+gender @eng none@rus male~
+end
+
+#GLOB @eng bee swarm@rus рой пчел~
+gender @eng none@rus male~
+end
+
+#GLOB @eng goblin's punch@rus удар гоблина~
+gender @eng none@rus male~
+end
+
+#GLOB @eng troop of goblins@rus отряд гоблинов~
+gender @eng none@rus male~
+end
+
+#GLOB @eng troll's smash@rus удар тролля~
+gender @eng none@rus male~
+end
+
+#GLOB @eng fire breath@rus огненное дыхание~
+gender none~
+end
+
+#GLOB @eng fireball@rus огненный шар~
+gender @eng none@rus male~
+end
+
+#GLOB @eng earthquake@rus землетрясение~
+gender none~
+end
+
+#GLOB @eng demon prince@rus принц демонов~
+gender male~
+end
+
 #$

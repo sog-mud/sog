@@ -125,10 +125,10 @@ CE 0 0 10751 0
 0 0 0 P
 g @rus none~
 #10605
-key ключ~
-~
-~
-unknown~
+key ключ white белый~
+@eng white key@rus ~~белый~~ ~~ключ~~~
+@rus Маленький ключ из светлого металла лежит в углу.~
+steel~
 key U L A
 0 0 0 0 0
 0 10 10 P
@@ -5817,30 +5817,30 @@ S
 @eng k~
 ~
 0 NX inside
-D0
+D0 small
+~
+north door~
 ~
 ~
+ABCFGJZ 10606 10858
+D1 small
+~
+east door~
 ~
 ~
-ABCFGZ 0 10858
-D1 medium
+ABCGIZ 10607 10859
+D2 small
+~
+south door~
 ~
 ~
+ABCFGIZ 0 10860
+D3 medium
+~
+west door~
 ~
 ~
-ABFIZ 0 10859
-D2
-~
-~
-~
-~
-ABZ 0 10860
-D3
-~
-~
-~
-~
-ABZ 0 10861
+ABCFIJZ 10605 10861
 D4
 ~
 ~
@@ -5849,7 +5849,7 @@ D4
 Z 0 10856
 D5
 ~
-люк~
+люк down door~
 ~
 ~
 ABCFGIZ 0 10862
@@ -5863,7 +5863,7 @@ D2
 ~
 ~
 ~
-ABCFGZ 0 10857
+ABCFGJZ 0 10857
 S
 #10859
 @eng k~
@@ -5874,7 +5874,7 @@ D3
 ~
 ~
 ~
-ABFIZ 0 10857
+ABCGIZ 0 10857
 S
 #10860
 @eng k~
@@ -5885,7 +5885,7 @@ D0
 ~
 ~
 ~
-ABZ 0 10857
+ABCFGIZ 0 10857
 S
 #10861
 @eng k~
@@ -5896,7 +5896,7 @@ D1
 ~
 ~
 ~
-ABZ 0 10857
+ABCFIJZ 0 10857
 S
 #10862
 @eng k~
@@ -5929,14 +5929,14 @@ D 0 10714 4 1	* : door to the up: closed
 D 0 10720 4 1	* : door to the up: closed
 D 0 10785 5 1	* : door to the down: closed
 D 0 10857 0 2	* k: door to the north: closed and locked
-D 0 10857 1 1	* k: door to the east: closed
-D 0 10857 2 1	* k: door to the south: closed
-D 0 10857 3 1	* k: door to the west: closed
+D 0 10857 1 2	* k: door to the east: closed and locked
+D 0 10857 2 2	* k: door to the south: closed and locked
+D 0 10857 3 2	* k: door to the west: closed and locked
 D 0 10857 5 2	* k: door to the down: closed and locked
 D 0 10858 2 2	* k: door to the south: closed and locked
-D 0 10859 3 1	* k: door to the west: closed
-D 0 10860 0 1	* k: door to the north: closed
-D 0 10861 1 1	* k: door to the east: closed
+D 0 10859 3 2	* k: door to the west: closed and locked
+D 0 10860 0 2	* k: door to the north: closed and locked
+D 0 10861 1 2	* k: door to the east: closed and locked
 D 0 10862 4 2	* k: door to the up: closed and locked
 O 0 10604 0 10634	* nightmare ()
 M 0 10602 1 10634 1	*  ()
@@ -6144,6 +6144,7 @@ R 0 10845 5	* 4th: randomize
 R 0 10846 2	* 4th: randomize
 R 0 10846 3	* 4th: randomize
 R 0 10846 5	* 4th: randomize
+O 0 10605 0 10861	* white key (k)
 S
 
 #OLIMITS

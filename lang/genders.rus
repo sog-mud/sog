@@ -518,6 +518,14 @@ Form 3 -ли~
 End
 
 #RULE
+Name сжимает~
+BaseLen 5
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
 Name пьет~
 BaseLen 2
 Form 1 -ет~
@@ -1385,6 +1393,12 @@ BaseLen 10
 Form 1 -а~
 Form 2 -о~
 Form 3 -и~
+End
+
+#RULE
+Name повредил~
+BaseLen 8
+Form 1 -и~
 End
 
 #RULE

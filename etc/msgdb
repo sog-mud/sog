@@ -256,7 +256,7 @@ Use 'desc edit' to edit your description.
 @eng $n sells $p.@rus $n $gn{продает} $c3{$p}.~
 @eng $n quaffs $p.@rus $n пьет $c3{$p}.~
 @eng all over the ground@rus на землю~
-@eng You follow $N.@rus Ты следуешь за $c4{$N}.~
+@eng You follow $N.@rus Ты идешь за $c4{$N}.~
 @eng Auction WHAT?
 @rus Тааак, и ЧТО будем продавать?
 ~
@@ -474,7 +474,6 @@ Use 'desc edit' to edit your description.
 @eng You compare $p to itself.  It looks about the same.@rus Ты сравниваешь $c3{$p} с $gp{ним} $gp{самим}. Естественно, они выглядят похожими.~
 @eng But you aren't fighting anyone!@rus Но ты ни с кем не сражаешься!~
 @eng $N {xis sleeping in $p.@rus $N {x$gN{спит} в $c5{$p}.~
-@eng Your $v is already at maximum.@rus Ты больше не можешь развивать $c3{$v}.~
 @eng {MMANGLE{x@rus {MОПУСТОШАЕШЬ{x~
 @eng the down@rus снизу (down)~
 @eng You can't do that here.
@@ -735,6 +734,7 @@ The actioneer appears before $n and hands $m $p.~
 @eng $p crumbles into dust.@rus $p $gp{рассыпался} в пыль.~
 @eng $n is DEAD!!@rus $n $gn{МЕРТВ}!!~
 @eng $d is closed.@rus $d $gd{закрыт}.~
+@eng $N is unaffected by $n's $V!@rus $V $c1{$n} не действует на $c3{$N}!~
 @eng a lot of objects @rus очень много вещей.~
 @eng You must transform vampire before biting.
 @rus Сначала стань вампиром, а потом кусайся.
@@ -958,6 +958,7 @@ Get back to questor before your time runs out!
 @eng You hear something's death cry.@rus Ты слышишь чей-то предсмертный вопль.~
 @eng You feel yourself transported to another place.@rus Ты чувствуешь, что оказался в совершенно другом месте.~
 @eng $n opens $d.@rus $n $gn{открывает} $c3{$d}.~
+@eng You are zapped by $p and drop it.@rus Твои жизненные принципы не позволяют пользоваться $c4{$p} и ты выбрасываешь $gp{его}.~
 @eng A chill sinks deep into your bones.@rus Твоя кожа покрывается синими пятнами и мелкая дрожь охватывает тело.~
 @eng $n gives you $J $t.@rus $n $gn{дает} тебе $J $c3{$qJ{$c1{$t}}}.~
 @eng  none@rus  нет~
@@ -991,7 +992,6 @@ Get back to questor before your time runs out!
 @eng $n is blinded by the dirt in $s eyes!@rus $n $gn{ослеплен} грязью, попавшей в глаза!~
 @eng $N looks like an easy kill.@rus Ты, похоже, легко убьешь $N.~
 @eng     This item is beyond the trouble option.@rus     Я не могу помочь тебе с твоими неприятностями.~
-@eng Your $v increases!@rus $gv{Твой} $v $gv{улучшается}!~
 @eng {MMUTILATES{x@rus {MУРОДУЕТ{x~
 @eng You ask $N about current challenge quests.@rus Ты спрашиваешь у $c1{$N} какие особенные вещи ты можешь найти в мире.~
 @eng It is too heavy for you to wield.
@@ -1020,6 +1020,7 @@ Get back to questor before your time runs out!
 @eng $p decays into dust.@rus $p $gp{рассыпался} в прах.~
 @eng $n dismounts from you.@rus $n $gn{спешивается} с тебя.~
 @eng $S weapon won't budge!@rus $gN{его} оружие просто так не выбить!~
+@eng Your $w increases!@rus $gw{Твой} $w $gw{улучшается}!~
 @eng You're too full to drink more.
 @rus Твой желудок полон. Ты не можешь выпить ни капли.
 ~
@@ -1251,6 +1252,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @rus Тут закрыто.
 ~
 @eng $p sears your flesh.@rus $p $gp{обжигает} твою плоть.~
+@eng $n's $w increases!@rus $w $c1{$n} $gw{улучшается}!~
 @eng {y=== ATOMIZES ==={x@rus {y=== РАЗДРОБЛЯЕТ ==={x~
 @eng You're webbed, and want to do WHAT?!?
 @rus Ты застрял в паутине, и ты еще ЧТО-ТО хочешь сделать?!?
@@ -1298,6 +1300,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 ~
 @eng $n wears $p on $s hands.@rus $n $gn{надевает} $c3{$p} на руки.~
 @eng $N smiles at you, hoping you will turn from your evil path.@rus $N $gN{улыбается} тебе и $gN{надеется}, что ты свернешь с пути зла.~
+@eng $n's $V is powerless against you.@rus $V $c1{$n} на тебя не действует.~
 @eng You couldn't knock $d!@rus У тебя не получилось отпереть $c3{$d}.~
 @eng It is pitch black...
 @rus Не видно не зги...
@@ -1484,6 +1487,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 и отдал тебе $c3{$p}.~
 @eng No bets received for $p.@rus Ставок на лот "$p" не получено.~
+@eng {gThe $p inflicts damage on {r$P{g.{x@rus {g $p $gp{повредил} {r$c3{$P}{g.{x~
 @eng You sit down in $p.@rus Ты садишься в $c3{$p}.~
 @eng You can't wear, wield or hold $p.@rus Ты не можешь надеть, вооружиться или взять в руку $c3{$p}.~
 @eng $p is too heavy for you to carry.@rus У тебя не хватает сил, чтобы взять еще и $c3{$p}.~
@@ -1519,6 +1523,7 @@ Quest staff waits patiently to return.
 @rus Bash? А что это?
 ~
 @eng $e's already been blinded.@rus $gN{Он} уже $gN{ослеплен}.~
+@eng Your $w is already at maximum.@rus Ты больше не можешь развивать $c3{$w}.~
 @eng You recite $p.@rus Ты зачитываешь $c3{$p}.~
 @eng Object has been removed from auction.@rus Лот снимается с торгов.~
 @eng No bets on this item have been received.@rus Ставок пока получено не было.~
@@ -1570,6 +1575,7 @@ Quest staff waits patiently to return.
 @eng You deliver a blow of deadly force!@rus Ты наносишь удар сокрушительной силы!~
 @eng $n unlocks $p.@rus $n $gn{размыкает} $c3{$p}.~
 @eng You invert $p, spilling $V $T.@rus Ты выливаешь $c3{$V} из $c1{$p} $T.~
+@eng $N is unaffected by your $V!@rus $gV{Твой} $V не действует на $c3{$N}.~
 @eng You don't like the way $n has been treating you.@rus Тебе не понравилось поведение $n.~
 @eng You bite $N!@rus Ты кусаешь $c6{$N}!~
 @eng The sky is getting cloudy.@rus Небо затянулось тучами.~
@@ -1603,7 +1609,6 @@ Quest staff waits patiently to return.
 @eng How can you sneak upon yourself?
 @rus Ты не можешь подкрасться к себе сзади.
 ~
-@eng $n's $v increases!@rus $v $c1{$n} $gv{улучшается}!~
 @eng You butcher $P and create $j $qj{steaks}.@rus Ты $gn{разделал} $c3{$P} и $gn{приготовил} $j $c3{$qj{бифштексов}}.~
 @eng $n stands at $p.@rus $n встает около $c1{$p}.~
 @eng That's not a container.
