@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.286 2000-01-04 23:50:02 avn Exp $
+ * $Id: merc.h,v 1.287 2000-01-13 14:46:35 kostik Exp $
  */
 
 /***************************************************************************
@@ -1412,6 +1412,7 @@ struct pc_data
 	int 			exp;		/* total exp */
 	int			practice;
 	int			train;
+	int 			random_value;	/* for hallucination spell */
 
 	time_t			logon;
 	time_t			logoff;
@@ -1850,7 +1851,9 @@ void	handle_death(CHAR_DATA *ch, CHAR_DATA *victim);
 
 ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch, AREA_DATA *area);
 CHAR_DATA *random_char(ROOM_INDEX_DATA *room);
+CHAR_DATA *nth_char(CHAR_DATA *ch, int n);
 OBJ_DATA *random_obj();
+OBJ_DATA *nth_obj(OBJ_DATA* obj, int n);
 
 /* effect.c */
 void	acid_effect	(void *vo, int level, int dam);

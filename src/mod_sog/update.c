@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.183 2000-01-06 02:45:38 fjoe Exp $
+ * $Id: update.c,v 1.184 2000-01-13 14:46:37 kostik Exp $
  */
 
 /***************************************************************************
@@ -842,6 +842,8 @@ mobile_update_cb(void *vo, va_list ap)
 			char_puts("You return to your normal form.\n", ch);
 			REMOVE_BIT(PC(ch)->plr_flags, PLR_GHOST);
 		}
+
+		PC(ch)->random_value = number_range(0, 1000);
 	}
 
 /* update pumped state */

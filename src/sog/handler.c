@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.232 2000-01-06 10:18:38 kostik Exp $
+ * $Id: handler.c,v 1.233 2000-01-13 14:46:36 kostik Exp $
  */
 
 /***************************************************************************
@@ -1940,6 +1940,28 @@ ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch, AREA_DATA *area)
 	return room;
 }
 
+CHAR_DATA *nth_char(CHAR_DATA *ch, int n)
+{
+	CHAR_DATA *vch;
+
+	int i = 0;
+
+	for (vch = ch; i < n; vch = (vch->next) ? vch->next : char_list)
+		i++;
+	return vch;
+}
+
+OBJ_DATA *nth_obj(OBJ_DATA *obj, int n)
+{
+	OBJ_DATA *nobj;
+
+	int i = 0;
+
+	for (nobj = obj; i < n; nobj = (nobj->next) ? nobj->next : object_list)
+		i++;
+	return nobj;
+}
+
 /* Random character generation procedure */
 
 CHAR_DATA *random_char(ROOM_INDEX_DATA *room)
@@ -3302,13 +3324,17 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		check_improve(ch, "quiet movement", TRUE, 1);
 	}
 	else if (is_charge) {
-		act("$n spurs $s $N, leaving $t.",
-		    ch, dir_name[door], ch->mount,  TO_ROOM);
+		act("$n spurs $s $N, leaving $t.", ch, 
+		dir_name[is_affected(ch, "misleading") 
+			? number_range(0, 5) : door], 
+		ch->mount,  TO_ROOM);
 	}
 	else {
 		act(MOUNTED(ch) ? "$n leaves $t, riding on $N." :
-				  "$n leaves $t.",
-		    ch, dir_name[door], MOUNTED(ch), act_flags);
+				  "$n leaves $t.", ch, 
+		dir_name[is_affected(ch, "misleading") ? 
+			number_range(0, 5) : door], 
+		MOUNTED(ch), act_flags);
 	}
 
 	if (HAS_INVIS(ch, ID_CAMOUFLAGE)

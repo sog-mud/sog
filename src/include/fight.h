@@ -1,5 +1,5 @@
 /*
- * $Id: fight.h,v 1.18 1999-12-10 11:30:05 kostik Exp $
+ * $Id: fight.h,v 1.19 2000-01-13 14:46:35 kostik Exp $
  */
 
 /***************************************************************************
@@ -74,5 +74,6 @@ void	yell		(CHAR_DATA *victim, CHAR_DATA *ch, const char * argument);
 #define DAMF_SECOND	(B)	/* damage inflicted by second weapon */
 #define DAMF_HIT	(C)	/* damage by hit */
 #define DAMF_HUNGER	(D)	/* damage by hunger */
+#define DAMF_NOREDUCE	(E)	/* damage should not be reduced */
 
 #endif

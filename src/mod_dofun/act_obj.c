@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.198 2000-01-06 10:18:31 kostik Exp $
+ * $Id: act_obj.c,v 1.199 2000-01-13 14:46:33 kostik Exp $
  */
 
 /***************************************************************************
@@ -1160,6 +1160,7 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 {
 	char            arg[MAX_INPUT_LENGTH];
 	OBJ_DATA       *obj;
+	int chance = 0;
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
@@ -1263,6 +1264,15 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 
 		obj_cast_spell(obj->value[4].s, INT(obj->value[0]), ch, ch);
 		break;
+
+		chance = (obj->level - LEVEL(ch)) * 5;
+		chance = (chance > 0) ? 
+			chance + 18 - get_curr_stat(ch, STAT_INT) : 0;
+		if (number_percent() < chance && !IS_NPC(ch)) {
+			act("$T was too powerful for you.",
+				ch, NULL, obj, TO_CHAR);
+			spellfun_call("hallucination", NULL, obj->level, ch,ch);
+		}
 	}
 
 	extract_obj(obj, 0);
@@ -1394,8 +1404,10 @@ void do_quaff(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (ch->level < obj->level) {
-		char_puts("This liquid is too powerful for you to drink.\n", ch);
+	if ((obj->level - LEVEL(ch)) * 7 > number_percent()) {
+		char_puts("This liquid was too powerful for you to drink.\n", 
+			ch);
+		spellfun_call("hallucination", NULL, obj->level, ch, ch);
 		return;
 	}
 	quaff_obj(ch, obj);
@@ -1692,7 +1704,7 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 	if (is_safe(ch, victim))
 		return;
 
-	chance -= LEVEL(ch) - LEVEL(victim);
+	chance -= (LEVEL(ch) - LEVEL(victim)) * 3;
 	
 	percent = number_percent() +
 		  (IS_AWAKE(victim) ? 10 : -50) +

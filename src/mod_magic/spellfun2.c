@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.168 2000-01-05 12:01:52 kostik Exp $
+ * $Id: spellfun2.c,v 1.169 2000-01-13 14:46:38 kostik Exp $
  */
 
 /***************************************************************************
@@ -3561,7 +3561,7 @@ void spell_hallucination(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	if (saves_spell(level, victim, DAM_MENTAL)) {
+	if (saves_spell(level, victim, DAM_MENTAL) && (ch != victim)) {
 		act("$N seems to be unaffected.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -3575,7 +3575,7 @@ void spell_hallucination(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.bitvector	= 0;
 	
 	affect_to_char(victim, &af);
-	char_puts("You start to see things.\n", victim);
+	char_puts("Wow! Everything looks so different.\n", victim);
 
 	if (victim != ch) {
 		act("$N starts hallucinating.", ch, NULL, victim, TO_CHAR);
@@ -5539,45 +5539,299 @@ void spell_death_ripple(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 }
 
-void spell_illusion(const char *sn, int level, CHAR_DATA *ch, void *vo)
+void spell_simulacrum(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	CHAR_DATA *illusion;
 	CHAR_DATA *gch;
+	int hitp, i;
 	AFFECT_DATA af;
 	int count_illusions = 0;
 
-	if (!IS_NPC(victim)) {
+	if (!IS_NPC(victim) || (LEVEL(victim) - level) > 10) {
 		char_puts("You failed.\n", ch);
 		return;
 	}
 
 	for (gch = npc_list; gch; gch = gch->next) {
 		if (gch->master == ch
-		&& (is_affected(gch, sn) || is_affected(gch, "advanced illusion"))) 
+		&& (is_affected(gch, sn)))
 			count_illusions++;
 	}
 
-	if (count_illusions > LEVEL(ch) / 7) {
-		char_puts("You already control as many illusions as you can.\n",
-			ch);
+	if (count_illusions > 0 ) {
+		act("You already control a simulacrum.", 
+			ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
 	illusion = create_mob(victim->pMobIndex);
-	illusion->max_hit = illusion->hit = 1;
-	illusion->level = level * 3 / 4;
+	hitp = victim->hit;
+	hitp /= 2;
+
+	hitp += hitp * number_range(1, 10) / 10;
+	illusion->max_hit = illusion->hit = hitp;
+	illusion->level = victim->level;
+
+	for (i = 0; i < MAX_RESIST; i++) 
+		illusion->resists[i] = UMIN(victim->resists[i], 50);
 
 	af.where	= TO_AFFECTS;
 	af.type		= sn;
 	af.level	= level;
 	af.duration	= -1;
-	af.bitvector	= 0;
+	af.bitvector	= AFF_CHARM;
 	af.modifier	= 0;
 	INT(af.location)= APPLY_NONE;
 	affect_to_char(illusion, &af);
+
+	act("You create a simulacrum of $N.", ch, NULL, victim, TO_CHAR);
+	act("$n creates a simulacrum of $N.", ch, NULL, victim, TO_NOTVICT);
+	act("$n creates an exact copy of you!", ch, NULL, victim, TO_VICT);
 
 	illusion->master = illusion->leader = ch;
 	char_to_room(illusion, ch->in_room);
 }
 
+
+void spell_misleading(const char *sn, int level, CHAR_DATA *ch, void *vo)
+{
+	AFFECT_DATA af;
+
+	if (is_affected(ch, sn)) {
+		act("You are already affected.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+	
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= level;
+	af.bitvector	= 0;
+	af.modifier	= 0;
+	INT(af.location)= APPLY_NONE;
+	affect_to_char(ch, &af);
+
+	act("You will now mislead the people who follow you.", 
+		ch, NULL, NULL, TO_CHAR);
+}
+
+const char* get_dam_alias (int dam) 
+{
+	if (dam == 0)
+		return "misses";
+	else if (dam <= 4)
+		return "{cscratches{x";
+	else if (dam <= 8)
+		return "{cgrazes{x";
+	else if (dam <= 12)
+		return "{chits{x";
+	else if (dam <= 16)
+		return "{cinjures{x";
+	else if (dam <= 20)
+		return "{cwounds{x";
+	else if (dam <= 24)
+		return "{cmauls{x";
+	else if (dam <= 28)
+		return "{cdecimates{x";
+	else if (dam <= 32)
+		return "{cdevastates{x";
+	else if (dam <= 36)
+		return "{cmaims{x";
+	else if (dam <= 42)
+		return "{MMUTILATES{x";
+	else if (dam <= 52)
+		return "{MDISEMBOWELS{x";
+	else if (dam <= 65)
+		return "{MDISMEMBERS{x";
+	else if (dam <= 80)
+		return "{MMASSACRES{x";
+	else if (dam <= 100)
+		return "{MMANGLES{x";
+	else if (dam <= 130)
+		return "{y*** DEMOLISHES ***{x";
+	else if (dam <= 175)
+		return "{y*** DEVASTATES ***{x";
+	else if (dam <= 250)
+		return "{y=== OBLITERATES ==={x";
+	else if (dam <= 325)
+		return "{y=== ATOMIZES ==={x";
+	else if (dam <= 400)
+		return "{R>>> ANNIHILATES <<<{x";
+	else if (dam <= 500)
+		return "{R>>> ERADICATES <<<{x";
+	else if (dam <= 650)
+		return "{R-==> ELECTRONIZES <==-{x";
+	 else if (dam <= 800)
+		return "{R-==> SKELETONIZES <==-{x";
+	 else if (dam <= 1000)
+		return "{R### NUKES ###{x";
+	 else if (dam <= 1250)
+		return "{R### TERMINATES ###{x";
+	 else if (dam <= 1500)
+		return "{R[*] TEARS UP [*]{x";
+	 else
+		return "{*{R[*] POWER HITS [*]{x";
+	
+}
+
+void spell_phantasmal_force(const char *sn, int level, CHAR_DATA *ch, void *vo)
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	int saves_count = 0;
+	int dam = 0; 
+	int dam_total = 0;
+	int i;
+	int count;
+
+	if (ch == victim) {
+		act("You wouldn't believe your own illusions.", 
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	for (i = 0; i < 3; i++)
+		if (saves_spell(level, victim, DAM_MENTAL))
+			saves_count++;
+
+	if (saves_count > 3) {
+		act("$E didn't believe.", ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	if (level < MAX_LEVEL / 3 * 2) {
+		switch(saves_count) {
+		case 3:
+			act("A bee swarm arrives from nowhere and attacks you!",
+				ch, NULL, victim, TO_VICT);
+			count = number_range(8, 15);
+			for (i = 0; i < count; i++) {
+				dam = dice(2, 2);
+				dam_total += dam;
+				act_puts3("Bee bite $u you!", 
+					ch, get_dam_alias(dam), victim, 
+					NULL, TO_VICT, POS_DEAD);
+			}
+			act_puts3("Your illusionary swarm $u $N!", 
+				ch, get_dam_alias(dam_total), victim, 
+				NULL, TO_CHAR, POS_DEAD);
+			damage(ch, victim, dam_total, NULL, DAM_MENTAL, 
+				DAMF_NOREDUCE);
+			return;
+		case 2:
+			act("Group of goblins jumps out their ambush toward "
+				"you!", ch, NULL, victim, TO_VICT);
+			count = number_range(2, 5);
+			for (i = 0; i < count; i++) {
+				dam = dice(level, 4);
+				dam_total += dam;
+				act_puts3("Goblin's punch $u you!", 
+					ch, get_dam_alias(dam), victim, 
+					NULL, TO_VICT, POS_DEAD);
+			}
+			act_puts3("Your illusionary troop of goblins $u $N!", 
+				ch, get_dam_alias(dam_total), victim, 
+				NULL, TO_CHAR, POS_DEAD);
+			damage(ch, victim, dam_total, NULL, DAM_MENTAL, 
+				DAMF_NOREDUCE);
+			return;
+		case 1:
+			act("Large troll has arrived.",
+				ch, NULL, victim, TO_VICT);
+			count = number_range(2, 4);
+			for (i = 0; i < count; i++) {
+				dam = dice(level, 6);
+				dam_total += dam;
+				act_puts3("Troll's smash $u you!", 
+					ch, get_dam_alias(dam), victim, 
+					NULL, TO_VICT, POS_DEAD);
+			}
+			act_puts3("Your illusionary troll $u $N!", 
+				ch, get_dam_alias(dam_total), victim, 
+				NULL, TO_CHAR, POS_DEAD);
+			damage(ch, victim, dam_total, NULL, DAM_MENTAL, 
+				DAMF_NOREDUCE);
+			return;
+		case 0:
+		default:
+			act("$n turns into dragon and breathes fire at you!",
+				ch, NULL, victim, TO_VICT);
+			dam = dice(level, 15);
+			act_puts3("$n's fire breath $u you!", 
+				ch, get_dam_alias(dam), victim, 
+				NULL, TO_VICT, POS_DEAD);
+			act("$N believes you turn yourself into dragon and 
+				breathe fire at $M", ch, NULL, victim, TO_CHAR);
+			act_puts3("Your illusionary fire breath $u $N!", 
+				ch, get_dam_alias(dam), victim, 
+				NULL, TO_CHAR, POS_DEAD);
+			damage(ch, victim, dam_total, NULL, DAM_MENTAL, 
+				DAMF_NOREDUCE);
+			fire_effect((void *)victim, level, 0);
+			return;
+		}
+	} else {
+		switch(saves_count) {
+		case 3:
+			act("$n conjures a large ball of fire!",
+				ch, NULL, victim, TO_VICT);
+			dam = dice(level, 12);
+			act_puts3("$n's fireball $u you!", 
+				ch, get_dam_alias(dam), victim, 
+			NULL, TO_VICT, POS_DEAD);
+			act_puts3("Your illusionary fireball $u $N!", 
+				ch, get_dam_alias(dam), victim, 
+				NULL, TO_CHAR, POS_DEAD);
+			damage(ch, victim, dam_total, NULL, DAM_MENTAL, 
+				DAMF_NOREDUCE);
+			return;
+		case 2:
+			act("The earth trembles  beneath your feet.",
+				ch, NULL, victim, TO_VICT);
+			dam = dice(level, 15);
+			act_puts3("The earthquake $u you!", 
+				ch, get_dam_alias(dam), victim, 
+			NULL, TO_VICT, POS_DEAD);
+			act_puts3("Your illusionary earthquake $u $N!", 
+				ch, get_dam_alias(dam), victim, 
+				NULL, TO_CHAR, POS_DEAD);
+			damage(ch, victim, dam_total, NULL, DAM_MENTAL, 
+				DAMF_NOREDUCE);
+			return;
+
+		case 1:
+			act("A demon prince arrives from the puff of smoke.",
+				ch, NULL, victim, TO_VICT);
+			count = number_range(2, 4);
+			for (i = 0; i < count; i++) {
+				dam = dice(level, 9);
+				dam_total += dam;
+				act_puts3("Demon prince $u you!", 
+					ch, get_dam_alias(dam), victim, 
+					NULL, TO_VICT, POS_DEAD);
+			}
+			act_puts3("Illusionary demon prince $u $N!", 
+				ch, get_dam_alias(dam_total), victim, 
+				NULL, TO_CHAR, POS_DEAD);
+			damage(ch, victim, dam_total, NULL, DAM_MENTAL, 
+				DAMF_NOREDUCE);
+			return;
+
+		case 0:
+			act("A large rock falls on you from the sky.",
+				ch, NULL, victim, TO_VICT);
+			act("You are squeezed by the rock.",
+				ch, NULL, victim, TO_VICT);
+			char_puts("You have been KILLED!\n", victim);
+			act("$N believes $E is squeezed by the large rock "
+				"fallen from the sky and dies.",
+				ch, NULL, victim, TO_CHAR);
+			act("$n makes $N believe that large rock from the sky "
+				"squeezes $M.", ch, NULL, victim, TO_NOTVICT);
+			raw_kill(ch, victim);
+		default:
+			return;
+		}
+
+	}
+}

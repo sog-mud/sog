@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.323 2000-01-06 10:18:30 kostik Exp $
+ * $Id: act_info.c,v 1.324 2000-01-13 14:46:32 kostik Exp $
  */
 
 /***************************************************************************
@@ -4085,8 +4085,8 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	&&  (IS_NPC(ch) || !IS_SET(PC(ch)->plr_flags, PLR_HOLYLIGHT)))
 		victim = victim->doppel;
 
-	if (is_affected(ch, "hallucination"))
-		victim = random_char(NULL);
+	if (is_affected(ch, "hallucination") && !IS_NPC(ch))
+		victim = nth_char(victim, PC(ch)->random_value);
 
 	if (IS_NPC(victim)) {
 		if (!IS_NPC(ch) && PC(ch)->questmob > 0
@@ -4371,8 +4371,8 @@ static void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		}
 	}
 
-	if (is_affected(ch, "hallucination")) 
-		doppel = random_char(NULL);
+	if (is_affected(ch, "hallucination") && !IS_NPC(ch)) 
+		doppel = nth_char(doppel, PC(ch)->random_value);
 
 	if (doppel->shapeform) 
 		desc = mlstr_cval(&doppel->shapeform->index->description, ch);

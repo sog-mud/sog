@@ -78,4 +78,36 @@ Adept 75
 Max 100
 End
 
+#SKILL
+Skill 'misleading'
+Level 20
+Rating 1
+Adept 75
+Max 100
+End
+
+#SKILL
+Skill 'simulacrum'
+Level 43
+Rating 1
+Adept 75
+Max 100
+End
+
+#SKILL 
+Skill 'invisibility'
+Level 3
+Rating 1
+Adept 75
+Max 100
+End
+
+#SKILL
+Skill 'mass invis'
+Level 10
+Rating 1
+Adept 75
+Max 100
+End
+
 #$

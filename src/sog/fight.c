@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.250 2000-01-04 19:27:58 fjoe Exp $
+ * $Id: fight.c,v 1.251 2000-01-13 14:46:36 kostik Exp $
  */
 
 /***************************************************************************
@@ -1233,6 +1233,8 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	int dam2;
 	int loc;
 
+	int initial_damage = dam;
+
 	if (IS_EXTRACTED(victim))
 		return FALSE;
 	if (!victim->in_room || !ch->in_room)
@@ -1369,6 +1371,9 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	}
 
 	dam -= dam*get_resist(victim, dam_class) / 100;
+
+	if (IS_SET(dam_flags, DAMF_NOREDUCE))
+		dam = initial_damage;
 
 	if (IS_SET(dam_flags, DAMF_SHOW))
 		dam_message(ch, victim, dam, dt, immune, dam_class, dam_flags);
@@ -2516,13 +2521,12 @@ int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 	int neg_cha = 0, pos_cha = 0;
 	double diff;
 
-	base_exp = 125 * (victim->level + 1 +
-			  (double) (gch->level - victim->level) / gch->level);
-	diff = (victim->level + gch->level) / 2.0 * gch->level;
+	base_exp = 125 * (victim->level + 1); 
+	diff = (double) (victim->level + gch->level) / (2.0 * gch->level);
 	diff *= diff;
 	diff *= diff;
-	if (diff > 2)
-		diff = 2;
+	if (diff > gch->level / 10 + 1)
+		diff = gch->level / 10 + 1;
 	base_exp *= diff;
 	
 	if ((IS_EVIL(gch) && IS_GOOD(victim))

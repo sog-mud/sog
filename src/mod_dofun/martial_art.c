@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.150 2000-01-12 15:39:34 fjoe Exp $
+ * $Id: martial_art.c,v 1.151 2000-01-13 14:46:34 kostik Exp $
  */
 
 /***************************************************************************
@@ -861,6 +861,12 @@ void do_cut(CHAR_DATA *ch, const char *argument)
 			check_improve(ch, "cut",TRUE, 3);
 		}
 	}
+
+	if (IS_EXTRACTED(victim) 
+	|| !victim->in_room 
+	|| !ch->in_room 
+	|| victim->in_room != ch->in_room)
+		return;
 
 	if (second_weap && WEAPON_IS(second_weap, WEAPON_SWORD)) {
 		if ((number_percent() > chance) || distance_check(ch, victim)) {
