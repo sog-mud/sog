@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.c,v 1.2 2001-07-08 17:16:27 fjoe Exp $
+ * $Id: mpc_dynafun.c,v 1.3 2001-07-08 20:16:33 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,12 +31,6 @@
 #if !defined(MPC)
 
 #include <merc.h>
-
-int
-level(CHAR_DATA *ch)
-{
-	return ch->level;
-}
 
 #undef act_char
 void
@@ -71,6 +65,12 @@ has_sp(CHAR_DATA *ch, const char *spn, const char *spn_rm, const char *spn_add)
 		return TRUE;
 
 	return !!varr_foreach(&PC(ch)->specs, has_sp_cb, spn, spn_rm);
+}
+
+int
+level(CHAR_DATA *ch)
+{
+	return ch->level;
 }
 
 static void *

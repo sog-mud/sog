@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.c,v 1.25 2001-07-08 16:36:15 fjoe Exp $
+ * $Id: str.c,v 1.26 2001-07-08 20:16:34 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -64,21 +64,23 @@ struct str {
 
 str *hash_str[MAX_STRING_HASH];
 
-static str *str_lookup(const char *p, int *hash);
-static str *str_alloc(const char *, int hash);
+static str *str_lookup(const char *p, int *hash, size_t len);
+static str *str_alloc(const char *, int hash, size_t len);
 
 const char *
 str_dup(const char *p)
 {
 	int hash;
 	str *s;
+	size_t len;
 
 	if (IS_NULLSTR(p))
 		return str_empty;
 
 	str_count++;
-	if ((s = str_lookup(p, &hash)) == NULL)
-		s = str_alloc(p, hash);
+	len = strlen(p);
+	if ((s = str_lookup(p, &hash, len)) == NULL)
+		s = str_alloc(p, hash, len);
 	s->ref++;
 	return GET_DATA(s);
 }
@@ -95,6 +97,22 @@ str_qdup(const char *p)
 	s = GET_STR(p);
 	s->ref++;
 	return p;
+}
+
+const char *
+str_ndup(const char *p, size_t len)
+{
+	int hash;
+	str *s;
+
+	if (IS_NULLSTR(p))
+		return str_empty;
+
+	str_count++;
+	if ((s = str_lookup(p, &hash, len)) == NULL)
+		s = str_alloc(p, hash, len);
+	s->ref++;
+	return GET_DATA(s);
 }
 
 void
@@ -398,18 +416,21 @@ backslash(int ch)
 
 #if !defined(HASHTEST)
 static str *
-str_alloc(const char *p, int hash)
+str_alloc(const char *p, int hash, size_t len)
 {
 	char *q;
 	str *s;
-	size_t size = strlen(p) + 1;
+	size_t size = len + 1;
 
 	str_real_count++;
 #if STR_ALLOC_MEM
 	str_alloc_mem += size + sizeof(memchunk_t) + sizeof(str);
 #endif
+
 	q = mem_alloc2(MT_STR, size, sizeof(str));
-	strcpy(q, p);
+	memcpy(q, p, len);
+	q[len] = '\0';
+
 	s = GET_STR(q);
 	s->ref = 0;
 	s->next = hash_str[hash];
@@ -417,12 +438,14 @@ str_alloc(const char *p, int hash)
 }
 
 static str *
-str_lookup(const char *p, int *hash)
+str_lookup(const char *p, int *hash, size_t len)
 {
 	str *s;
-	for (s = hash_str[*hash = strhash(p)]; s; s = s->next)
-		if (!strcmp(GET_DATA(s), p))
+	for (s = hash_str[*hash = strhash(p)]; s; s = s->next) {
+		const char *q = GET_DATA(s);
+		if (!strncmp(q, p, len) && q[len] == '\0')
 			return s;
+	}
 	return NULL;
 }
 #endif

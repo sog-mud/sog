@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.247 2001-07-04 19:21:25 fjoe Exp $
+ * $Id: db.c,v 1.248 2001-07-08 20:16:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -115,6 +115,7 @@ const char ETC_PATH		[] = "etc";		// notrans
 const char AREA_PATH		[] = "area";		// notrans
 const char LANG_PATH		[] = "lang";		// notrans
 const char MODULES_PATH		[] = "modules";		// notrans
+const char MPC_PATH		[] = "mpc";		// notrans
 
 const char CLASSES_PATH		[] = "classes";		// notrans
 const char CLANS_PATH		[] = "clans";		// notrans
@@ -125,6 +126,7 @@ const char RACE_EXT		[] = ".race";		// notrans
 const char CLASS_EXT		[] = ".class";		// notrans
 const char CLAN_EXT		[] = ".clan";		// notrans
 const char SPEC_EXT		[] = ".spec";		// notrans
+const char MPC_EXT		[] = ".mpc";		// notrans
 
 #if defined (WIN32)
 const char PLISTS_PATH		[] = "clans\\plists";	// notrans

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_lex.c,v 1.7 2001-06-25 16:51:20 fjoe Exp $
+ * $Id: mpc_lex.c,v 1.8 2001-07-08 20:16:33 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -176,6 +176,9 @@ typedef struct type_t type_t;
 static type_t ttab[] = {
 	{ "int",	MT_INT },
 	{ "string",	MT_STR },
+	{ "mob",	MT_CHAR },
+	{ "obj",	MT_OBJ },
+	{ "room",	MT_ROOM }
 };
 
 #define TTAB_SIZE (sizeof(ttab) / sizeof(type_t))

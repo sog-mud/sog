@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.16 2001-07-04 19:21:18 fjoe Exp $
+ * $Id: mpc.y,v 1.17 2001-07-08 20:16:33 fjoe Exp $
  */
 
 /*
@@ -1181,6 +1181,8 @@ void
 prog_init(prog_t *prog)
 {
 	prog->name = NULL;
+	prog->type = MP_T_MOB;
+	prog->status = MP_S_DIRTY;
 
 	prog->text = NULL;
 	prog->textlen = 0;
@@ -1232,12 +1234,31 @@ prog_destroy(prog_t *prog)
 	varr_destroy(&prog->data);
 }
 
-int
-prog_compile(prog_t *prog)
+static void
+var_add(prog_t *prog, const char *name, int type_tag)
 {
 	sym_t sym;
 	sym_t *s;
 
+	sym.name = str_dup(name);
+	sym.type = SYM_VAR;
+	sym.s.var.type_tag = type_tag;
+	sym.s.var.is_const = FALSE;
+	sym.s.var.block = -1;
+	sym.s.var.data.i = 0;
+
+	if ((s = (sym_t *) hash_insert(&prog->syms, sym.name, &sym)) == NULL) {
+		sym_destroy(&sym);
+		compile_error(prog, "%s: duplicate symbol", sym.name);
+		return;
+	}
+	sym_destroy(&sym);
+}
+
+int
+prog_compile(prog_t *prog)
+{
+	prog->status = MP_S_DIRTY;
 	prog->cp = prog->text;
 
 	buf_clear(prog->errbuf);
@@ -1259,25 +1280,26 @@ prog_compile(prog_t *prog)
 	prog->curr_break_addr = INVALID_ADDR;
 	prog->curr_continue_addr = INVALID_ADDR;
 
-	sym.name = str_dup("$_");
-	sym.type = SYM_VAR;
-	sym.s.var.type_tag = MT_INT;
-	sym.s.var.is_const = FALSE;
-	sym.s.var.block = -1;
-	sym.s.var.data.i = 0;
+	var_add(prog, "$_", MT_INT);
+	switch (prog->type) {
+	case MP_T_MOB:
+	case MP_T_OBJ:
+	case MP_T_ROOM:
+		break;
 
-	if ((s = (sym_t *) hash_insert(&prog->syms, sym.name, &sym)) == NULL) {
-		sym_destroy(&sym);
-		compile_error(prog, "%s: duplicate symbol", sym.name);
-		return -1;
+	case MP_T_SPEC:
+		var_add(prog, "$n", MT_CHAR);
+		var_add(prog, "$rm", MT_STR);
+		var_add(prog, "$add", MT_STR);
+		break;
 	}
-	sym_destroy(&sym);
 
 	if (mpc_parse(prog) < 0
 	||  !IS_NULLSTR(buf_string(prog->errbuf)))
 		return -1;
 
 	cleanup_syms(prog, 0);
+	prog->status = MP_S_READY;
 	return 0;
 }
 
@@ -1285,6 +1307,11 @@ int
 prog_execute(prog_t *prog, int *errcode)
 {
 	sym_t *sym;
+
+	if (prog->status != MP_S_READY) {
+		*errcode = -2;
+		return 0;
+	}
 
 	if ((*errcode = setjmp(prog->jmpbuf)) == 0)
 		execute(prog, 0);

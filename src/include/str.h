@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.h,v 1.17 2001-06-24 10:50:40 avn Exp $
+ * $Id: str.h,v 1.18 2001-07-08 20:16:31 fjoe Exp $
  */
 
 #ifndef _STR_H_
@@ -39,6 +39,7 @@
 
 const char *	str_dup		(const char *str);
 const char *	str_qdup	(const char *str);
+const char *	str_ndup	(const char *str, size_t len);
 void		free_string	(const char *str);
 const char *	str_printf	(const char *format,...)
 					__attribute__ ((format(printf, 1, 2)));

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.h,v 1.11 2001-07-08 17:18:47 fjoe Exp $
+ * $Id: rwfile.h,v 1.12 2001-07-08 20:16:31 fjoe Exp $
  */
 
 #ifndef _RFILE_H_
@@ -45,22 +45,28 @@ rfile_t *	rfile_open(const char *dir, const char *file);
 void		rfile_close(rfile_t *fp);
 
 #define		rfile_feof(fp)		((fp)->pos >= (fp)->len)
+#define		rfile_ftello(fp)	((fp)->pos)
 
 bool		IS_TOKEN(rfile_t *fp, const char *k);
 const char *	rfile_tok(rfile_t *fp);
 #define		rfile_tokfl(fp)		(UPPER((fp)->tok[0]))
+#define		rfile_fread(buf, size, count, fp)		\
+	memcpy((buf), (fp)->p + (fp)->pos, (size) * (count))
 
 #else /* !defined(NO_MMAP) */
 
 #define rfile_open(dir, file)	dfopen((dir), (file), "r")
 #define rfile_close(fp)		fclose(fp)
 #define rfile_feof(fp)		feof(fp)
+#define rfile_ftello(fp)	ftello(fp)
 
 extern char _token[MAX_STRING_LENGTH];
 
 #define		IS_TOKEN(fp, k)		(!str_cmp(_token, (k)))
 #define		rfile_tok(fp)		(_token)
 #define		rfile_tokfl(fp)		(UPPER(_token[0]))
+#define		rfile_fread(buf, size, count, fp)		\
+	fread((buf), (size), (count), (fp))
 
 #endif /* !defined(NO_MMAP) */
 

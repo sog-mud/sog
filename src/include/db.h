@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.81 2001-07-08 17:18:42 fjoe Exp $
+ * $Id: db.h,v 1.82 2001-07-08 20:16:30 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -224,6 +224,7 @@ extern const char ETC_PATH	[];
 extern const char AREA_PATH	[];
 extern const char LANG_PATH	[];
 extern const char MODULES_PATH	[];
+extern const char MPC_PATH	[];
 
 extern const char CLASSES_PATH	[];
 extern const char CLANS_PATH	[];
@@ -235,6 +236,7 @@ extern const char CLASS_EXT	[];
 extern const char CLAN_EXT	[];
 extern const char RACE_EXT	[];
 extern const char SPEC_EXT	[];
+extern const char MPC_EXT	[];
 
 extern const char TMP_FILE	[];
 extern const char NULL_FILE	[];

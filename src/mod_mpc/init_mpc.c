@@ -23,13 +23,19 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.4 2001-07-08 17:16:27 fjoe Exp $
+ * $Id: init_mpc.c,v 1.5 2001-07-08 20:16:33 fjoe Exp $
  */
 
+#include <sys/stat.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <dirent.h>
+#include <fnmatch.h>
 #include <setjmp.h>
 #include <stdarg.h>
 #include <stdio.h>
-#include <dlfcn.h>
+#include <string.h>
+#include <limits.h>
 
 #include <typedef.h>
 #include <memalloc.h>
@@ -38,11 +44,19 @@
 #include <hash.h>
 #include <dynafun.h>
 #include <module.h>
+#include <mlstring.h>
+#include <db.h>
+#include <util.h>
+#include <strkey_hash.h>
+#include <flag.h>
+#include <buffer.h>
 
 #include "_mpc.h"
 #include "mpc_const.h"
 
 #if !defined(MPC)
+static void load_mudprogs();
+
 static dynafun_data_t local_dynafun_tab[] = {
 	{ "act_char",		MT_VOID, 2,	{ MT_STR, MT_CHAR }	},
 	{ "has_sp",		MT_INT, 4,
@@ -66,17 +80,36 @@ static dynafun_data_t core_dynafun_tab[] = {
 };
 
 #if !defined(MPC)
+hashdata_t h_progs = {
+	sizeof(prog_t), 4,
+
+	(e_init_t) prog_init,
+	(e_destroy_t) prog_destroy,
+	NULL,
+
+	STRKEY_HASH_SIZE,
+	k_hash_str,
+	ke_cmp_str
+};
+
+hash_t progs;
+
 int
 _module_load(module_t *m)
 {
 	mpc_init();
 	dynafun_tab_register(local_dynafun_tab, m);
+
+	hash_init(&progs, &h_progs);
+	load_mudprogs();
 	return 0;
 }
 
 int
 _module_unload(module_t *m)
 {
+	hash_destroy(&progs);
+
 	dynafun_tab_unregister(local_dynafun_tab);
 	mpc_fini();
 	return 0;
@@ -89,7 +122,7 @@ _module_unload(module_t *m)
 const char *mpc_dynafuns[] = {
 #if !defined(MPC)
 	"act_char",
-	"has_spec",
+	"has_sp",
 	"level",
 	"number_range",
 	"spclass_count",
@@ -173,3 +206,118 @@ mpc_fini()
 {
 	dynafun_tab_unregister(core_dynafun_tab);
 }
+
+#if !defined(MPC)
+static void load_mp(const char *name);
+
+static void
+load_mudprogs()
+{
+	struct dirent *dp;
+	DIR *dirp;
+	char mask[PATH_MAX];
+
+	if ((dirp = opendir(MPC_PATH)) == NULL) {
+		log(LOG_ERROR, "load_mudprogs: %s: %s",
+		    MPC_PATH, strerror(errno));
+		return;
+	}
+
+	snprintf(mask, sizeof(mask), "*%s", MPC_EXT);		// notrans
+
+	for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp)) {
+		if (dp->d_type != DT_REG)
+			continue;
+
+		if (fnmatch(mask, dp->d_name, 0) == FNM_NOMATCH)
+			continue;
+
+		load_mp(dp->d_name);
+	}
+
+	closedir(dirp);
+}
+
+flaginfo_t mp_types[] =
+{
+	{ "",			TABLE_INTVAL,		FALSE	},
+
+	{ "mob",		MP_T_MOB,		TRUE	},
+	{ "obj",		MP_T_OBJ,		TRUE	},
+	{ "room",		MP_T_ROOM,		TRUE	},
+	{ "spec",		MP_T_SPEC,		TRUE	},
+
+	{ NULL, 0, FALSE }
+};
+
+static void
+load_mp(const char *name)
+{
+	char *q;
+	rfile_t *fp;
+	prog_t prog;
+	prog_t *p;
+	struct stat s;
+
+	if (dstat(MPC_PATH, name, &s) < 0) {
+		log(LOG_ERROR, "load_mp: stat: %s: %s", name, strerror(errno));
+		return;
+	}
+
+	fp = rfile_open(MPC_PATH, name);
+	if (fp == NULL) {
+		log(LOG_ERROR, "load_mp: fopen: %s: %s", name, strerror(errno));
+		return;
+	}
+
+	/*
+	 * find rightmost '.'
+	 */
+	q = strrchr(name, '.');
+	if (q == NULL)
+		q = strchr(name, '\0');
+
+	prog_init(&prog);
+	prog.name = str_ndup(name, q - name);
+
+	/*
+	 * try to find '#type'
+	 */
+	fread_word(fp);
+	if (!!strcmp(rfile_tok(fp), "#type")) {
+		log(LOG_ERROR, "load_mp: %s: missing #type directive", name);
+		prog_destroy(&prog);
+		goto bailout;
+	}
+
+	prog.type = fread_fword(mp_types, fp);
+	fread_to_eol(fp);
+
+	prog.textlen = s.st_size - rfile_ftello(fp);
+	prog.text = malloc(s.st_size + 1);
+	if (prog.text == NULL) {
+		fprintf(stderr, "load_mp: malloc: %s\n", strerror(errno));
+		prog_destroy(&prog);
+		goto bailout;
+	}
+
+	rfile_fread((void *) prog.text, prog.textlen, 1, fp);
+	((char *) prog.text)[prog.textlen] = '\0';
+
+	if ((p = (prog_t *) hash_insert(&progs, prog.name, &prog)) == NULL) {
+		fprintf(stderr, "load_mp: %s: duplicate mp", name);
+		prog_destroy(&prog);
+		goto bailout;
+	}
+
+	if (prog_compile(p) < 0) {
+		log(LOG_INFO, "load_mp: %s (%s)",
+		    p->name, flag_string(mp_types, p->type));
+		fprintf(stderr, "%s", buf_string(prog.errbuf));
+	}
+
+bailout:
+	rfile_close(fp);
+}
+
+#endif

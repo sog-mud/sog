@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_impl.h,v 1.11 2001-07-04 19:21:17 fjoe Exp $
+ * $Id: mpc_impl.h,v 1.12 2001-07-08 20:16:32 fjoe Exp $
  */
 
 #ifndef _MPC_CODE_H_
@@ -85,8 +85,28 @@ struct swjump_t {
 };
 typedef struct swjump_t swjump_t;
 
+/**
+ * Program types
+ */
+enum {
+	MP_T_MOB,
+	MP_T_OBJ,
+	MP_T_ROOM,
+	MP_T_SPEC,
+};
+
+/**
+ * Program status
+ */
+enum {
+	MP_S_DIRTY,		/**< program was not compiled */
+	MP_S_READY,		/**< program compiled ok */
+};
+
 struct prog_t {
 	const char *name;	/**< program name			*/
+	int type;		/**< program type			*/
+	int status;		/**< program status			*/
 
 	const char *text;	/**< program text			*/
 	size_t textlen;		/**< program text len			*/
@@ -118,6 +138,8 @@ struct prog_t {
 	varr data;		/**< data stack				*/
 };
 typedef struct prog_t prog_t;
+
+extern hash_t progs;
 
 /**
  * Initialize program
