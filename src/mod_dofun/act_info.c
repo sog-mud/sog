@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.157 1998-11-02 03:29:11 fjoe Exp $
+ * $Id: act_info.c,v 1.158 1998-11-02 05:28:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,9 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdarg.h>
-#include <unistd.h>
+#if !defined (WIN32)
+#	include <unistd.h>
+#endif
 #include <ctype.h>
 #include "merc.h"
 #include "hometown.h"
@@ -137,22 +139,22 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 
 	if (IS_SET(ch->comm, COMM_LONG)) {
 		if (IS_OBJ_STAT(obj, ITEM_INVIS))
-			strcat(buf, MSG("({yInvis{x) ", ch->lang));
+			strcat(buf, GETMSG("({yInvis{x) ", ch->lang));
 		if (IS_OBJ_STAT(obj, ITEM_DARK))
-			strcat(buf, MSG("({DDark{x) ", ch->lang));
+			strcat(buf, GETMSG("({DDark{x) ", ch->lang));
 		if (IS_AFFECTED(ch, AFF_DETECT_EVIL)
 		&&  IS_OBJ_STAT(obj, ITEM_EVIL))
-			strcat(buf, MSG("({RRed Aura{x) ", ch->lang));
+			strcat(buf, GETMSG("({RRed Aura{x) ", ch->lang));
 		if (IS_AFFECTED(ch, AFF_DETECT_GOOD)
 		&&  IS_OBJ_STAT(obj, ITEM_BLESS))
-			strcat(buf, MSG("({BBlue Aura{x) ", ch->lang));
+			strcat(buf, GETMSG("({BBlue Aura{x) ", ch->lang));
 		if (IS_AFFECTED(ch, AFF_DETECT_MAGIC)
 		&&  IS_OBJ_STAT(obj, ITEM_MAGIC))
-			strcat(buf, MSG("({MMagical{x) ", ch->lang));
+			strcat(buf, GETMSG("({MMagical{x) ", ch->lang));
 		if (IS_OBJ_STAT(obj, ITEM_GLOW))
-			strcat(buf, MSG("({WGlowing{x) ", ch->lang));
+			strcat(buf, GETMSG("({WGlowing{x) ", ch->lang));
 		if (IS_OBJ_STAT(obj, ITEM_HUM))
-			strcat(buf, MSG("({YHumming{x) ", ch->lang));
+			strcat(buf, GETMSG("({YHumming{x) ", ch->lang));
 	}
 	else {
 		static char FLAGS[] = "{x[{y.{D.{R.{B.{M.{W.{Y.{x] ";
@@ -175,7 +177,7 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 		strcat(buf, obj_name(obj, ch));
 		if (obj->pIndexData->vnum > 5)	/* not money, gold, etc */
 			sprintf(strend(buf), " [{g%s{x]",
-				MSG(get_cond_alias(obj), ch->lang));
+				GETMSG(get_cond_alias(obj), ch->lang));
 		return buf;
 	}
 
@@ -624,7 +626,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		    IS_IMMORTAL(victim) ? "{W" : str_empty,
 		    PERS(victim, ch),
 		    IS_IMMORTAL(victim) ? "{x" : str_empty,
-		    MSG(msg, ch->lang));
+		    GETMSG(msg, ch->lang));
 
 	found = FALSE;
 	for (i = 0; show_order[i] != -1; i++)
@@ -1084,10 +1086,10 @@ void do_look_in(CHAR_DATA* ch, const char *argument)
 
 		char_printf(ch, "It's %sfilled with a %s liquid.\n\r",
 			    obj->value[1] < obj->value[0] / 4 ?
-			    MSG("less than half-", ch->lang) :
+			    GETMSG("less than half-", ch->lang) :
 			    obj->value[1] < 3 * obj->value[0] / 4 ?
-			    MSG("about half-", ch->lang) :
-			    MSG("more than half-", ch->lang),
+			    GETMSG("about half-", ch->lang) :
+			    GETMSG("more than half-", ch->lang),
 			    liq_table[obj->value[2]].liq_color);
 		break;
 
@@ -1449,7 +1451,7 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 					    capitalize(dir_name[door]),
 					    show_closed ? "*" : str_empty,
 					    room_dark(pexit->u1.to_room) ?
-					    MSG("Too dark to tell", ch->lang) :
+					    GETMSG("Too dark to tell", ch->lang) :
 					    mlstr_cval(pexit->u1.to_room->name,
 							ch));
 				if (IS_IMMORTAL(ch)
@@ -1479,13 +1481,13 @@ void do_worth(CHAR_DATA *ch, const char *argument)
 	if (!IS_NPC(ch))
 		char_printf(ch, msg(MSG_HAVE_KILLED, ch),
 			    ch->pcdata->has_killed,
-			    IS_GOOD(ch) ? MSG("non-goods", ch->lang) :
-			    IS_EVIL(ch) ? MSG("non-evils", ch->lang) : 
-					  MSG("non-neutrals", ch->lang),
+			    IS_GOOD(ch) ? GETMSG("non-goods", ch->lang) :
+			    IS_EVIL(ch) ? GETMSG("non-evils", ch->lang) : 
+					  GETMSG("non-neutrals", ch->lang),
 			    ch->pcdata->anti_killed,
-			    IS_GOOD(ch) ? MSG("goods", ch->lang) :
-			    IS_EVIL(ch) ? MSG("evils", ch->lang) : 
-					  MSG("neutrals", ch->lang));
+			    IS_GOOD(ch) ? GETMSG("goods", ch->lang) :
+			    IS_EVIL(ch) ? GETMSG("evils", ch->lang) : 
+					  GETMSG("neutrals", ch->lang));
 }
 
 char *	const	day_name	[] =
@@ -1527,14 +1529,14 @@ void do_time(CHAR_DATA *ch, const char *argument)
 		act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING,
 			   "It's %s.",
 			   (time_info.hour>=5 && time_info.hour<9) ?
-						MSG("dawn", ch->lang) :
+						GETMSG("dawn", ch->lang) :
 			   (time_info.hour>=9 && time_info.hour<12) ?
-						MSG("morning", ch->lang) :
+						GETMSG("morning", ch->lang) :
 			   (time_info.hour>=12 && time_info.hour<18) ?
-						MSG("mid-day", ch->lang) :
+						GETMSG("mid-day", ch->lang) :
 			   (time_info.hour>=18 && time_info.hour<21) ?
-						MSG("evening", ch->lang) :
-			   MSG("night", ch->lang));
+						GETMSG("evening", ch->lang) :
+			   GETMSG("night", ch->lang));
 
 	if (!IS_IMMORTAL(ch))
 		return;
@@ -2867,8 +2869,8 @@ void do_score(CHAR_DATA *ch, const char *argument)
 
 	buf_printf(output, "     {G| {RAlign:  {x%-11s  {C|                |{x %-7s %-19s {G|{x\n\r",
 		IS_GOOD(ch) ? "good" : IS_EVIL(ch) ? "evil" : "neutral",
-		MSG("You are", ch->lang),
-		MSG(flag_string(position_names, ch->position), ch->lang));
+		GETMSG("You are", ch->lang),
+		GETMSG(flag_string(position_names, ch->position), ch->lang));
 
 	buf_add(output, "     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x{x\n\r");
 
@@ -2990,7 +2992,7 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 	buf_printf(output,
 		"%s {W%s{x%s, level {c%d{x, {c%d{x years old "
 		"(%d hours).\n\r",
-		MSG("You are", ch->lang),
+		GETMSG("You are", ch->lang),
 		ch->name,
 		IS_NPC(ch) ? str_empty : ch->pcdata->title, ch->level, get_age(ch),
 		(ch->played + (int) (current_time - ch->logon)) / 3600);
@@ -3101,7 +3103,7 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 	}
 
 	buf_printf(output, "You are %s.\n\r",
-		   MSG(flag_string(position_names, ch->position), ch->lang));
+		   GETMSG(flag_string(position_names, ch->position), ch->lang));
 
 	if ((ch->position == POS_SLEEPING || ch->position == POS_RESTING ||
 	     ch->position == POS_FIGHTING || ch->position == POS_STANDING)

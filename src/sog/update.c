@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.79 1998-10-30 06:56:35 fjoe Exp $
+ * $Id: update.c,v 1.80 1998-11-02 05:28:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -740,11 +740,8 @@ void mobile_update(void)
 				}
 			}
 
-			if (obj_best) {
-				obj_from_room(obj_best);
-				obj_to_char(obj_best, ch);
-				act("$n gets $p.", ch, obj_best, NULL, TO_ROOM);
-			}
+			if (obj_best)
+				get_obj(ch, obj_best, NULL);
 		}
 
 /* Wander */

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.86 1998-10-30 06:56:54 fjoe Exp $
+ * $Id: db.c,v 1.87 1998-11-02 05:28:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,11 +46,15 @@
 #include <time.h>
 #include <stdarg.h>
 #include <ctype.h>
+#include <limits.h>
 #include <sys/types.h>
 #include <sys/time.h>
-#include <sys/resource.h>
-#include <limits.h>
-#include <dirent.h>
+
+#if	defined (WIN32)
+#	include <compat/compat.h>
+#else
+#	include <dirent.h>
+#endif
 
 #include "merc.h"
 #include "rating.h"
@@ -58,12 +62,12 @@
 #include "db.h"
 
 #ifdef SUNOS
-#include "compat.h"
-#define d_namlen d_reclen
+#	include "compat.h"
+#	define d_namlen d_reclen
 #endif
 
 #ifdef SVR4
-#define d_namlen d_reclen
+#	define d_namlen d_reclen
 #endif
 
 void load_limited_objects();
@@ -71,21 +75,32 @@ void load_limited_objects();
 extern	int	_filbuf		(FILE *);
 
 #if !defined(OLD_RAND)
-#ifdef BSD44
-#	include <stdlib.h>
+
+#if defined(BSD44)
 #	include <unistd.h>
-#	include <time.h>
-#else
+#elif defined(WIN32)
+#	define random()		rand()
+#	define srandom( x ) srand( x )
+	int getpid();
+	time_t time(time_t *tloc);
+#elif defined(LINUX)
 	long random();
 	void srandom(unsigned int);
 	int getpid();
 	time_t time(time_t *tloc);
 #endif
+
 #endif
 
 
 /* externals for counting purposes */
 extern  DESCRIPTOR_DATA *descriptor_free;
+
+#if defined (WIN32)
+	const char PATH_SEPARATOR = (char) '\\';
+#else
+	const char PATH_SEPARATOR = (char) '/';
+#endif
 
 /*
  * Globals.
@@ -179,8 +194,7 @@ void db_parse_file(const char *path, const char *file,
 {
 	FILE *fp;
 
-	snprintf(filename, sizeof(filename), "%s/%s", path, file);
-
+	snprintf(filename, sizeof(filename), "%s%c%s", path, PATH_SEPARATOR, file);
 	if ((fp = fopen(filename, "r")) == NULL) {
 		perror(filename);
 		exit(1);
@@ -1876,11 +1890,11 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 	int count,count2,num_pcs,aff_count;
 	CHAR_DATA *fch;
 	MOB_INDEX_DATA *pMobIndex;
-	PC_DATA *pc;
 	OBJ_DATA *obj;
 	OBJ_INDEX_DATA *pObjIndex;
 	ROOM_INDEX_DATA *room;
 	EXIT_DATA *exit;
+	PC_DATA *pc;
 	DESCRIPTOR_DATA *d;
 	AFFECT_DATA *af;
 	FILE *fp;
@@ -2263,9 +2277,13 @@ void load_limited_objects()
 	for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp)) {
 		const char* pname;
 
+#if defined (LINUX) || defined (WIN32)
+		if (strlen (dp->d_name) < 3)
+			continue;
+#else
 		if (dp->d_namlen < 3 || dp->d_type != DT_REG)
 			continue;
-
+#endif
 		fReadLevel = FALSE;
 		if ((pfile = dfopen(PLAYER_PATH, dp->d_name, "r")) == NULL) {
 			bug("Load_limited_objects: Can't open player file.", 0);

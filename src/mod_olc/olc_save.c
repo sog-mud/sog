@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.41 1998-10-30 06:56:59 fjoe Exp $
+ * $Id: olc_save.c,v 1.42 1998-11-02 05:28:56 fjoe Exp $
  */
 
 /**************************************************************************
@@ -928,7 +928,7 @@ void save_clan(CHAR_DATA *ch, CLAN_DATA *clan)
 
 	fp = dfopen(CLANS_PATH, clan->file_name, "w");
 	if (fp == NULL) {
-		save_print(ch, "%s/%s: %s", CLANS_PATH, clan->file_name,
+		save_print(ch, "%s%c%s: %s", CLANS_PATH, PATH_SEPARATOR, clan->file_name,
 			   strerror(errno));
 		return;
 	}
@@ -975,7 +975,7 @@ void save_clans(CHAR_DATA *ch)
 
 	fp = dfopen(CLANS_PATH, CLAN_LIST, "w");
 	if (fp == NULL) {
-		save_print(ch, "%s/%s: %s", CLANS_PATH, CLAN_LIST,
+		save_print(ch, "%s%c%s: %s", CLANS_PATH, PATH_SEPARATOR, CLAN_LIST,
 			   strerror(errno));
 		return;
 	}
@@ -1010,7 +1010,7 @@ void save_msgdb(CHAR_DATA *ch)
 
 	fp = dfopen(ETC_PATH, MSG_FILE, "w");
 	if (fp == NULL) {
-		save_print(ch, "%s/%s: %s", ETC_PATH, MSG_FILE,
+		save_print(ch, "%s%c%s: %s", ETC_PATH, PATH_SEPARATOR, MSG_FILE,
 			   strerror(errno));
 		return;
 	}
@@ -1065,7 +1065,7 @@ bool save_words(CHAR_DATA *ch, const char *filename, varr **hashp)
 
 	fp = dfopen(LANG_PATH, filename, "w");
 	if (fp == NULL) {
-		save_print(ch, "%s/%s: %s", LANG_PATH, filename,
+		save_print(ch, "%s%c%s: %s", LANG_PATH, PATH_SEPARATOR, filename,
 			   strerror(errno));
 		return FALSE;
 	}
@@ -1101,7 +1101,7 @@ bool save_lang(CHAR_DATA *ch, LANG_DATA *l)
 
 	fp = dfopen(LANG_PATH, l->file_name, "w");
 	if (fp == NULL) {
-		save_print(ch, "%s/%s: %s", LANG_PATH, l->file_name,
+		save_print(ch, "%s%c%s: %s", LANG_PATH, PATH_SEPARATOR, l->file_name,
 			   strerror(errno));
 		return FALSE;
 	}
@@ -1134,22 +1134,22 @@ void save_langs(CHAR_DATA *ch)
 
 		if (IS_SET(l->flags, LANG_GENDERS_CHANGED)
 		&&  save_words(ch, l->file_genders, l->hash_genders)) {
-			save_print(ch, "Genders saved (language '%s', %s/%s).",
-				   l->name, LANG_PATH, l->file_genders);
+			save_print(ch, "Genders saved (language '%s', %s%c%s).",
+				   l->name, LANG_PATH, PATH_SEPARATOR, l->file_genders);
 			l->flags &= ~LANG_GENDERS_CHANGED;
 		}
 
 		if (IS_SET(l->flags, LANG_CASES_CHANGED)
 		&&  save_words(ch, l->file_cases, l->hash_cases)) {
-			save_print(ch, "Cases saved (language '%s', %s/%s).",
-				   l->name, LANG_PATH, l->file_cases);
+			save_print(ch, "Cases saved (language '%s', %s%c%s).",
+				   l->name, LANG_PATH, PATH_SEPARATOR, l->file_cases);
 			l->flags &= ~LANG_CASES_CHANGED;
 		}
 
 		if (IS_SET(l->flags, LANG_CHANGED)
 		&&  save_lang(ch, l)) {
-			save_print(ch, "Language '%s' saved (%s/%s).",
-				   l->name, LANG_PATH, l->file_name);
+			save_print(ch, "Language '%s' saved (%s%c%s).",
+				   l->name, LANG_PATH, PATH_SEPARATOR, l->file_name);
 			l->flags &= ~LANG_CHANGED;
 			list = TRUE;
 		}
@@ -1159,7 +1159,7 @@ void save_langs(CHAR_DATA *ch)
 		FILE *fp;
 
 		if ((fp = dfopen(LANG_PATH, LANG_LIST, "w")) == NULL) {
-			save_print(ch, "%s/%s: %s", LANG_PATH, LANG_LIST,
+			save_print(ch, "%s%c%s: %s", LANG_PATH, PATH_SEPARATOR, LANG_LIST,
 				   strerror(errno));
 			return;
 		}

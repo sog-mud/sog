@@ -23,14 +23,20 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.19 1998-10-02 04:48:25 fjoe Exp $
+ * $Id: clan.c,v 1.20 1998-11-02 05:28:29 fjoe Exp $
  */
 
 #include <sys/time.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <dirent.h>
 #include <string.h>
+
+#if	defined (WIN32)
+#	include <compat/compat.h>
+#else
+#	include <dirent.h>
+#endif
+
 #include "merc.h"
 #include "interp.h"
 

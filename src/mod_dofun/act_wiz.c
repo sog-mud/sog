@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.80 1998-10-30 06:56:31 fjoe Exp $
+ * $Id: act_wiz.c,v 1.81 1998-11-02 05:28:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,7 +46,9 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdarg.h>
+#if !defined (WIN32)
 #include <unistd.h>
+#endif
 #include <limits.h>
 #include "merc.h"
 #include "hometown.h"
@@ -3765,7 +3767,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		}
 
 		victim->race = race;
-		ORG_RACE(victim) = race;
+		SET_ORG_RACE(victim, race);
 		return;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.95 1998-10-30 06:56:32 fjoe Exp $
+ * $Id: fight.c,v 1.96 1998-11-02 05:28:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,7 +46,11 @@
 #include <string.h>
 #include <time.h>
 #include <math.h>
-#include <unistd.h>
+
+#if !defined (WIN32)
+#	include <unistd.h>
+#endif
+
 #include "merc.h"
 #include "hometown.h"
 #include "quest.h"
@@ -1061,7 +1065,7 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	/* RT new auto commands */
 	if (!IS_NPC(ch) && vnpc
-	&&  (corpse = get_obj_list(ch, "corpse", ch->in_room->contents)) != NULL) {
+	&&  (corpse = get_obj_list(ch, "corpse", ch->in_room->contents))) {
 		if (get_skill(ch, gsn_vampire)) {
 			act_puts("$n suck {Rblood{x from $N's corpse!!",
 				 ch, NULL,victim,TO_ROOM,POS_SLEEPING);

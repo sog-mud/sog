@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.110 1998-11-02 03:29:13 fjoe Exp $
+ * $Id: merc.h,v 1.111 1998-11-02 05:28:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -43,7 +43,15 @@
 #ifndef _MERC_H_
 #define _MERC_H_
 
-#include <sys/syslimits.h>
+#if	defined (LINUX) || defined (WIN32)
+#	undef  NOCRYPT
+#	define NOCRYPT
+#	include <limits.h>
+#	pragma warning (disable : 4244 4018 4761)
+#else
+#	include <sys/syslimits.h>
+#endif
+
 #include <ctype.h>
 #include "typedef.h"
 #include "const.h"
@@ -1675,6 +1683,18 @@ struct mpcode
 #define IS_PK(ch, vt)		(!IS_NPC((ch)) & !IS_NPC((vt)))
 
 #define ORG_RACE(ch)		(IS_NPC(ch) ? ch->pIndexData->race : ch->pcdata->race)
+
+#if defined(WIN32)
+#	define SET_ORG_RACE(victim, race)			\
+	{							\
+ 		if (IS_NPC(victim))				\
+ 			victim->pIndexData->race = race;	\
+ 		else						\
+			victim->pcdata->race = race;		\
+	}
+#else
+#	define SET_ORG_RACE(victim, race)	ORG_RACE(victim) = race
+#endif
 
 #define GET_AGE(ch)		((int) (17 + ((ch)->played \
 				    + current_time - (ch)->logon)/72000))

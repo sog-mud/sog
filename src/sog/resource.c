@@ -23,19 +23,19 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: resource.c,v 1.40 1998-10-06 13:19:57 fjoe Exp $
+ * $Id: resource.c,v 1.41 1998-11-02 05:28:53 fjoe Exp $
  */
+
+#if defined (SUNOS) || defined (WIN32)
+#	include "compat/compat.h"
+#	include <stdarg.h>
+#endif
 
 #include <limits.h>
 #include <stdio.h>
 #include <time.h>
 #include "merc.h"
 #include "interp.h"
-
-#ifdef SUNOS
-#	include <stdarg.h>
-#	include "compat/compat.h"
-#endif
 
 #ifdef SVR4
 #	include "compat/compat.h"
@@ -355,7 +355,7 @@ load_langfile(int lang, char* fname)
 		}
 
 		if (*p == '"') {
-			const char* q;
+			char* q;
 
 			if (curr == NULL
 			||  (curr->sexdep == 0 && curr->p)

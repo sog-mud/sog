@@ -23,11 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.24 1998-10-16 13:24:58 fjoe Exp $
+ * $Id: mlstring.c,v 1.25 1998-11-02 05:28:30 fjoe Exp $
  */
 
-#include <stdarg.h>
 #include <stdio.h>
+#include <stdarg.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>

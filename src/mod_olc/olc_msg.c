@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.12 1998-10-26 08:40:08 fjoe Exp $
+ * $Id: olc_msg.c,v 1.13 1998-11-02 05:28:56 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -34,7 +34,7 @@
 #include "interp.h"
 #include "db/lang.h"
 
-#define EDIT_MSG(ch, mlp)	(mlp = (mlstring**) ch->desc->pEdit)
+#define EDIT_GETMSG(ch, mlp)	(mlp = (mlstring**) ch->desc->pEdit)
 
 DECLARE_OLC_FUN(msged_create		);
 DECLARE_OLC_FUN(msged_edit		);
@@ -124,7 +124,7 @@ OLC_FUN(msged_show)
 
 	if (argument[0] == '\0') {
 		if (ch->desc->editor == ED_MSG)
-			EDIT_MSG(ch, mlp);
+			EDIT_GETMSG(ch, mlp);
 		else {
 			do_help(ch, "'OLC ASHOW'");
 			return FALSE;
@@ -193,7 +193,7 @@ OLC_FUN(msged_msg)
 	mlstring *ml;
 
 	mlstring **mlp;
-	EDIT_MSG(ch, mlp);
+	EDIT_GETMSG(ch, mlp);
 
 	argument = one_argument(argument, arg);
 	lang = lang_lookup(arg);
@@ -235,7 +235,7 @@ OLC_FUN(msged_del)
 {
 	mlstring *ml;
 	mlstring **mlp;
-	EDIT_MSG(ch, mlp);
+	EDIT_GETMSG(ch, mlp);
 
 	ml = msg_del(mlstr_mval(*mlp));
 	mlstr_free(ml);

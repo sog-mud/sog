@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.35 1998-10-30 06:56:29 fjoe Exp $
+# $Id: Makefile,v 1.36 1998-11-02 05:28:27 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
@@ -25,6 +25,11 @@ INSTALL_PATH	= ..
 # for FreeBSD
 CFLAGS	+= -DBSD44
 LIBS	+= -lcrypt
+
+#
+# for Linux
+#CFLAGS	+= -DLINUX -DNOCRYPT
+#LIBS	+=
 
 #
 # for Unixware 2.x

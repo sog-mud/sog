@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.44 1998-10-28 06:31:58 fjoe Exp $
+ * $Id: obj_prog.c,v 1.45 1998-11-02 05:28:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1141,8 +1141,8 @@ int greet_prog_coconut(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 int get_prog_coconut(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
-	char_puts("You hold the coconut up to your ear and suddenly you hear 
-the faint\n\rroar of galloping horses.\n\r", ch);
+	char_puts("You hold the coconut up to your ear and suddenly you hear "
+"the faint\n\rroar of galloping horses.\n\r", ch);
 	act("$n holds a coconut up to $s ear.", ch, NULL, NULL, TO_ROOM);
 	return 0;
 }

@@ -23,8 +23,10 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: resolver.c,v 1.6 1998-10-02 04:48:35 fjoe Exp $
+ * $Id: resolver.c,v 1.7 1998-11-02 05:28:40 fjoe Exp $
  */
+
+#if !defined (WIN32)
 
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -32,10 +34,10 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <netdb.h>
+#include <unistd.h>
 #include <stdio.h>
 #include <string.h>
 #include <signal.h>
-#include <unistd.h>
 #include "typedef.h"
 #include "log.h"
 #include "resolver.h"
@@ -71,14 +73,16 @@ void resolver_init(void)
 	signal(SIGILL, cleanup);
 	signal(SIGTRAP, cleanup);
 	signal(SIGABRT, cleanup);
-	signal(SIGEMT, cleanup);
 	signal(SIGFPE, cleanup);
 	signal(SIGBUS, cleanup);
 	signal(SIGSEGV, cleanup);
-	signal(SIGSYS, cleanup);
 	signal(SIGPIPE, cleanup);
 	signal(SIGALRM, cleanup);
 	signal(SIGTERM, cleanup);
+#if !defined (LINUX)
+	signal(SIGEMT, cleanup);
+	signal(SIGSYS, cleanup);
+#endif
 
 	close(fildes[1]);
 	close(fildes[2]);
@@ -155,3 +159,5 @@ static void resolver_loop(void)
 	fclose(fout);
 	exit(0);
 }
+
+#endif

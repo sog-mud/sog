@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.80 1998-10-30 06:56:34 fjoe Exp $
+ * $Id: save.c,v 1.81 1998-11-02 05:28:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -536,7 +536,7 @@ void load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 	fclose(fpReserve);
 
 	name = capitalize(name);
-	snprintf(filename, sizeof(filename), "%s/%s.gz", PLAYER_PATH, name);
+	snprintf(filename, sizeof(filename), "%s%c%s.gz", PLAYER_PATH, PATH_SEPARATOR, name);
 	if ((fp = fopen(filename, "r")) != NULL) {
 		char buf[PATH_MAX * 2];
 		fclose(fp);
@@ -589,7 +589,7 @@ void load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 		RACE_DATA *r;
 
 		if (ORG_RACE(ch) == 0)
-			ORG_RACE(ch) = rn_lookup("human");
+			SET_ORG_RACE(ch, rn_lookup("human"));
 		if (ch->race == 0)
 			ch->race = rn_lookup("human");
 

@@ -1,13 +1,19 @@
 /*
- * $Id: hunt.c,v 1.14 1998-10-16 09:37:15 fjoe Exp $
+ * $Id: hunt.c,v 1.15 1998-11-02 05:28:30 fjoe Exp $
  */
 
+/* Kak zovut sobaku Gejtsa?
+			Sobaku Gejtsa zovut BILL! */
+#if defined (WIN32)
+#include "compat.h"
+#endif
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "merc.h"
 #include "interp.h"
 #include "fight.h"
+
 
 /***************************************************************************
  *  Original idea from SillyMUD v1.1b (C)1993.                             *

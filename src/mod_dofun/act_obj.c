@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.88 1998-11-02 03:29:12 fjoe Exp $
+ * $Id: act_obj.c,v 1.89 1998-11-02 05:28:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1795,43 +1795,43 @@ void do_sacr(CHAR_DATA * ch, const char *argument)
 			act("$p and $P are revealed by $n's sacrifice.",
 			    ch, two_objs[0], two_objs[1], TO_ROOM);
 		}
-		snprintf(buf, sizeof(buf), MSG("As you sacrifice the corpse, ", ch->lang));
-		snprintf(buf2, sizeof(buf2), MSG("As $n sacrifices the corpse, ", ch->lang));
+		snprintf(buf, sizeof(buf), GETMSG("As you sacrifice the corpse, ", ch->lang));
+		snprintf(buf2, sizeof(buf2), GETMSG("As $n sacrifices the corpse, ", ch->lang));
 		if (iScatter < 3)
 			fScatter = FALSE;
 		else if (iScatter < 5) {
-			strcat(buf, MSG("few things ", ch->lang));
-			strcat(buf2, MSG("few things ", ch->lang));
+			strcat(buf, GETMSG("few things ", ch->lang));
+			strcat(buf2, GETMSG("few things ", ch->lang));
 		} else if (iScatter < 9) {
-			strcat(buf, MSG("a bunch of objects ", ch->lang));
-			strcat(buf2, MSG("a bunch of objects ", ch->lang));
+			strcat(buf, GETMSG("a bunch of objects ", ch->lang));
+			strcat(buf2, GETMSG("a bunch of objects ", ch->lang));
 		} else if (iScatter < 15) {
-			strcat(buf, MSG("many things ", ch->lang));
-			strcat(buf2, MSG("many things ", ch->lang));
+			strcat(buf, GETMSG("many things ", ch->lang));
+			strcat(buf2, GETMSG("many things ", ch->lang));
 		} else {
-			strcat(buf, MSG("a lot of objects ", ch->lang));
-			strcat(buf2, MSG("a lot of objects ", ch->lang));
+			strcat(buf, GETMSG("a lot of objects ", ch->lang));
+			strcat(buf2, GETMSG("a lot of objects ", ch->lang));
 		}
-		strcat(buf, MSG("on it, ", ch->lang));
-		strcat(buf2, MSG("on it, ", ch->lang));
+		strcat(buf, GETMSG("on it, ", ch->lang));
+		strcat(buf2, GETMSG("on it, ", ch->lang));
 
 		switch (ch->in_room->sector_type) {
 		case SECT_FIELD:
 		case SECT_FOREST:
-			strcat(buf, MSG("scatter on the dirt.", ch->lang));
-			strcat(buf2, MSG("scatter on the dirt.", ch->lang));
+			strcat(buf, GETMSG("scatter on the dirt.", ch->lang));
+			strcat(buf2, GETMSG("scatter on the dirt.", ch->lang));
 			break;
 		case SECT_WATER_SWIM:
-			strcat(buf, MSG("scatter over the water.", ch->lang));
-			strcat(buf2, MSG("scatter over the water.", ch->lang));
+			strcat(buf, GETMSG("scatter over the water.", ch->lang));
+			strcat(buf2, GETMSG("scatter over the water.", ch->lang));
 			break;
 		case SECT_WATER_NOSWIM:
-			strcat(buf, MSG("scatter over the water.", ch->lang));
-			strcat(buf2, MSG("scatter over the water.", ch->lang));
+			strcat(buf, GETMSG("scatter over the water.", ch->lang));
+			strcat(buf2, GETMSG("scatter over the water.", ch->lang));
 			break;
 		default:
-			strcat(buf, MSG("scatter around.", ch->lang));
-			strcat(buf2, MSG("scatter around.", ch->lang));
+			strcat(buf, GETMSG("scatter around.", ch->lang));
+			strcat(buf2, GETMSG("scatter around.", ch->lang));
 			break;
 		}
 		if (fScatter) {

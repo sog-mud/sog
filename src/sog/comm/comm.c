@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.119 1998-11-02 03:29:21 fjoe Exp $
+ * $Id: comm.c,v 1.120 1998-11-02 05:28:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -59,11 +59,20 @@
  */
 
 #include <sys/types.h>
-#include <sys/socket.h>
+#if	!defined (WIN32)
+#	include <sys/socket.h>
+#	include <netinet/in.h>
+#	include <arpa/telnet.h>
+#	include <arpa/inet.h>
+#	include <unistd.h>
+#	include <netdb.h>
+#	include <sys/wait.h>
+#else
+#	include <winsock.h>
+#	include <sys/timeb.h>
+#endif
+
 #include <sys/time.h>
-#include <netinet/in.h>
-#include <arpa/telnet.h>
-#include <arpa/inet.h>
 #include <errno.h>
 #include <stdio.h>
 #include <string.h>
@@ -71,12 +80,8 @@
 #include <time.h>
 #include <stdarg.h>   
 #include <ctype.h>
-#include <unistd.h>
 #include <fcntl.h>
-#include <netdb.h>
 #include <locale.h>
-
-#include <sys/wait.h>
 #include <stdlib.h>
 
 #include "merc.h"
@@ -195,6 +200,35 @@ struct codepage codepages[] = {
  * Socket and TCP/IP stuff.
  */
 
+#if defined (WIN32)
+#include <winsock.h>
+
+void    gettimeofday    args( ( struct timeval *tp, void *tzp ) );
+
+/*  Definitions for the TELNET protocol. Copied from telnet.h */
+
+#define IAC		255	/* interpret as command: */
+#define DONT	254	/* you are not to use option */
+#define DO		253	/* please, you use option */
+#define WONT	252	/* I won't use option */
+#define WILL	251	/* I will use option */
+#define SB		250	/* interpret as subnegotiation */
+#define GA		249	/* you may reverse the line */
+#define EL		248	/* erase the current line */
+#define EC		247	/* erase the current character */
+#define AYT		246	/* are you there */
+#define AO		245	/* abort output--but let prog finish */
+#define IP		244	/* interrupt process--permanently */
+#define BREAK	243	/* break */
+#define DM		242	/* data mark--for connect. cleaning */
+#define NOP		241	/* nop */
+#define SE		240	/* end sub negotiation */
+#define EOR		239 /* end of record (transparent mode) */
+#define SYNCH	242	/* for telfunc calls */
+
+#define TELOPT_ECHO	1	/* echo */
+#endif
+
 char	echo_off_str	[] = { IAC, WILL, TELOPT_ECHO, '\0' };
 char	echo_on_str	[] = { IAC, WONT, TELOPT_ECHO, '\0' };
 char 	go_ahead_str	[] = { IAC, GA, '\0' };
@@ -219,11 +253,11 @@ int                 iNumPlayers = 0; /* The number of players on */
  * OS-dependent local functions.
  */
 void	game_loop_unix		(int control);
-int	init_socket		(int port);
+int		init_socket			(int port);
 void	init_descriptor		(int control);
-bool	read_from_descriptor	(DESCRIPTOR_DATA *d);
+bool	read_from_descriptor(DESCRIPTOR_DATA *d);
 bool	write_to_descriptor	(int desc, char *txt, uint length);
-void	resolv_done		(void);
+void	resolv_done			(void);
 
 /*
  * Other local functions (OS-independent).
@@ -232,7 +266,7 @@ bool	check_parse_name	(const char *name);
 bool	check_reconnect		(DESCRIPTOR_DATA *d, const char *name,
 				 bool fConn);
 bool	check_playing		(DESCRIPTOR_DATA *d, const char *name);
-int	main			(int argc, char **argv);
+int		main			(int argc, char **argv);
 void	nanny			(DESCRIPTOR_DATA *d, const char *argument);
 bool	process_output		(DESCRIPTOR_DATA *d, bool fPrompt);
 void	read_from_buffer	(DESCRIPTOR_DATA *d);
@@ -289,13 +323,27 @@ int main(int argc, char **argv)
 	 * Run the game.
 	 */
 	
+#if defined (WIN32)
+	srand( (unsigned)time( NULL ) );
+#else
 	resolver_init();
+#endif
+
 	control = init_socket(port);
 	boot_db();
 	log_printf("ready to rock on port %d.", port);
 	game_loop_unix(control);
-	close(control);
+
+#if defined (WIN32)
+    closesocket (control);
+    WSACleanup ();
+#else
+	close (control);
+#endif
+
+#if ! defined (WIN32)
 	resolver_done();
+#endif
 	log_area_popularity();
 
 	/*
@@ -346,15 +394,40 @@ int init_socket(int port)
 	int x = 1;
 	int fd;
 
+#if !defined (WIN32)
+
 	if ((fd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
 		perror("Init_socket: socket");
 		exit(1);
 	}
 
+#else
+
+    WORD	wVersionRequested = MAKEWORD( 1, 1 );
+    WSADATA wsaData;
+    int err = WSAStartup( wVersionRequested, &wsaData ); 
+    if ( err != 0 )
+    {
+	perror( "No useable WINSOCK.DLL" );
+	exit( 1 );
+    }
+    
+	if ( ( fd = socket( PF_INET, SOCK_STREAM, 0 ) ) < 0 )
+    {
+        perror( "Init_socket: socket" );
+		exit( 1 );
+    }
+#endif
+
 	if (setsockopt(fd, SOL_SOCKET, SO_REUSEADDR,
 		       (char *) &x, sizeof(x)) < 0) {
 		perror("Init_socket: SO_REUSEADDR");
-		close(fd);
+
+#if defined (WIN32)
+		closesocket( fd );
+#else
+		close( fd );
+#endif
 		exit(1);
 	}
 
@@ -364,23 +437,39 @@ int init_socket(int port)
 	if (setsockopt(fd, SOL_SOCKET, SO_LINGER,
 	    (char *) &ld, sizeof(ld)) < 0) {
 		perror("Init_socket: SO_DONTLINGER");
-		close(fd);
+#if defined (WIN32)
+		closesocket( fd );
+#else
+		close( fd );
+#endif
 		exit(1);
 	}
 
 	sa		= sa_zero;
-	sa.sin_family   = AF_INET;
+#if !defined (WIN32)
+    sa.sin_family   = AF_INET;
+#else
+    sa.sin_family   = PF_INET;
+#endif
 	sa.sin_port	= htons(port);
 
 	if (bind(fd, (struct sockaddr *) &sa, sizeof(sa)) < 0) {
 		perror("Init socket: bind");
-		close(fd);
+#if defined (WIN32)
+		closesocket( fd );
+#else
+		close( fd );
+#endif
 		exit(1);
 	}
 
 	if (listen(fd, 3) < 0) {
 		perror("Init socket: listen");
-		close(fd);
+#if defined (WIN32)
+		closesocket( fd );
+#else
+		close( fd );
+#endif
 		exit(1);
 	}
 
@@ -393,7 +482,9 @@ void game_loop_unix(int control)
 	static struct timeval null_time;
 	struct timeval last_time;
  
+#if !defined (WIN32)
 	signal(SIGPIPE, SIG_IGN);
+#endif
 	gettimeofday(&last_time, NULL);
 	current_time = (time_t) last_time.tv_sec;
 
@@ -420,8 +511,10 @@ void game_loop_unix(int control)
 		FD_SET(control, &in_set);
 		maxdesc	= control;
 
+#if !defined (WIN32)
 		FD_SET(fileno(rfin), &in_set);
 		maxdesc = UMAX(maxdesc, fileno(rfin));
+#endif
 
 		for (d = descriptor_list; d; d = d->next) {
 			maxdesc = UMAX(maxdesc, d->descriptor);
@@ -436,8 +529,10 @@ void game_loop_unix(int control)
 			exit(1);
 		}
 
+#if !defined (WIN32)
 		if (FD_ISSET(fileno(rfin), &in_set))
 			resolv_done();
+#endif
 
 		/*
 		 * New connection?
@@ -540,7 +635,8 @@ void game_loop_unix(int control)
 	 * Sleep(last_time + 1/PULSE_PER_SCD - now).
 	 * Careful here of signed versus unsigned arithmetic.
 	 */
-	{
+#if !defined (WIN32)
+	 {
 	    struct timeval now_time;
 	    long secDelta;
 	    long usecDelta;
@@ -571,7 +667,31 @@ void game_loop_unix(int control)
 		}
 	    }
 	}
+#else
+	{
+	    int times_up;
+	    int nappy_time;
+	    struct _timeb start_time;
+	    struct _timeb end_time;
+	    _ftime( &start_time );
+	    times_up = 0;
 
+	    while( times_up == 0 )
+	    {
+			_ftime( &end_time );
+			if ( ( nappy_time = (int) ( 1000 * (double) ( ( end_time.time - start_time.time ) +
+				       ( (double) ( end_time.millitm - start_time.millitm ) /
+					1000.0 ) ) ) ) >= (double)( 1000 / PULSE_PER_SCD ) )
+			  times_up = 1;
+		else
+		{
+		    Sleep( (int) ( (double) ( 1000 / PULSE_PER_SECOND ) -
+				  (double) nappy_time ) );
+		    times_up = 1;
+		}
+	  }
+	}
+#endif
 		gettimeofday(&last_time, NULL);
 		current_time = (time_t) last_time.tv_sec;
 	}
@@ -611,10 +731,12 @@ void init_descriptor(int control)
 #define FNDELAY O_NDELAY
 #endif
 
+#if !defined (WIN32)
 	if (fcntl(desc, F_SETFL, FNDELAY) == -1) {
 		perror("New_descriptor: fcntl: FNDELAY");
 		return;
 	}
+#endif
 	/*
 	 * Cons a new descriptor.
 	 */
@@ -638,6 +760,20 @@ void init_descriptor(int control)
 		perror("new_descriptor: getpeername");
 		return;
 	}
+#if defined (WIN32)
+    else
+    {
+	/* Copying from ROM 2.4b6 */
+	int addr;
+	struct hostent *from;
+
+	addr = ntohl( sock.sin_addr.s_addr );
+	from = gethostbyaddr( (char *) &sock.sin_addr,
+	    sizeof(sock.sin_addr), AF_INET );
+	dnew->host = str_dup( from ? from->h_name : "unknown" );
+    }
+#endif
+
 	log_printf("sock.sinaddr: %s", inet_ntoa(sock.sin_addr));
 
 	dnew->next		= descriptor_list;
@@ -694,7 +830,11 @@ void close_socket(DESCRIPTOR_DATA *dclose)
 			bug("Close_socket: dclose not found.", 0);
 	}
 
-	close(dclose->descriptor);
+#if !defined( WIN32 )
+    close( dclose->descriptor );
+#else
+    closesocket( dclose->descriptor );
+#endif
 	free_descriptor(dclose);
 }
 
@@ -725,8 +865,13 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 	for (; ;) {
 		int nRead;
 
-		nRead = read(d->descriptor, d->inbuf + iStart,
-			     sizeof(d->inbuf) - 10 - iStart);
+#if !defined (WIN32)
+	nRead = read( d->descriptor, d->inbuf + iStart,
+		     sizeof( d->inbuf ) - 10 - iStart );
+#else
+	nRead = recv( d->descriptor, d->inbuf + iStart,
+		     sizeof( d->inbuf ) - 10 - iStart, 0 );
+#endif
 		if (nRead > 0) {
 			iStart += nRead;
 			if (d->inbuf[iStart-1] == '\n'
@@ -738,8 +883,13 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 			return FALSE;
 			break;
 		}
+#if !defined (WIN32)
 		else if (errno == EWOULDBLOCK)
 			break;
+#else
+        else if ( WSAGetLastError() == WSAEWOULDBLOCK)
+	    break;
+#endif
 		else {
 			perror("Read_from_descriptor");
 			return FALSE;
@@ -794,11 +944,13 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 				break;
 		}
 	} 
+/* I don't know, why this code exist :) */
+/*
 #ifdef 0
 	else 
 	    cm_stage=0;
 #endif
-
+*/
 	return TRUE;
 }
 
@@ -930,7 +1082,7 @@ void battle_prompt(CHAR_DATA *ch, CHAR_DATA *victim)
 		msg = "{Ris nearly dead{x.";
 
 	snprintf(buf, sizeof(buf), "%s %s\n\r", 
-		 PERS(victim, ch), MSG(msg, ch->lang));
+		 PERS(victim, ch), GETMSG(msg, ch->lang));
 	buf[0] = UPPER(buf[0]);
 	send_to_char(buf, ch);
 }
@@ -1332,7 +1484,12 @@ bool write_to_descriptor(int desc, char *txt, uint length)
 
 	for (iStart = 0; iStart < length; iStart += nWrite) {
 		nBlock = UMIN(length - iStart, 4096);
-		if ((nWrite = write(desc, txt + iStart, nBlock)) < 0) {
+#if !defined( WIN32 )
+	if ( ( nWrite = write( desc, txt + iStart, nBlock ) ) < 0 )
+#else
+	if ( ( nWrite = send( desc, txt + iStart, nBlock , 0) ) < 0 )
+#endif
+		{
 			perror("Write_to_descriptor");
 			return FALSE;
 		}
@@ -1442,8 +1599,12 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 					(struct sockaddr *) &sock, &size) < 0)
 				d->host = str_dup("(unknown)");
 			else {
+#if defined (WIN32)
+				printf("%s@%s\n", ch->name, inet_ntoa(sock.sin_addr));
+#else
 				fprintf(rfout, "%s@%s\n",
 					ch->name, inet_ntoa(sock.sin_addr));
+#endif
 				d->connected = CON_RESOLV;
 /* wait until sock.sin_addr gets resolved */
 				break;
@@ -1606,7 +1767,9 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		break;
 
 	case CON_GET_NEW_PASSWORD:
-		write_to_buffer(d, "\n\r", 2);
+#if defined(unix)
+		write_to_buffer( d, "\n\r", 2 );
+#endif
 
 		if (strlen(argument) < 5) {
 			write_to_buffer(d, "Password must be at least five characters long.\n\rPassword: ", 0);
@@ -1621,7 +1784,9 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		break;
 
 	case CON_CONFIRM_NEW_PASSWORD:
-		write_to_buffer(d, "\n\r", 2);
+#if defined(unix)
+	write_to_buffer( d, "\n\r", 2 );
+#endif
 
 		if (strcmp(crypt(argument, ch->pcdata->pwd), ch->pcdata->pwd)) {
 			write_to_buffer(d, "Passwords don't match.\n\r"
@@ -1674,6 +1839,10 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		}
 
 		ORG_RACE(ch) = race;
+		if (IS_NPC(ch))
+			ch->pIndexData->race = race;
+		else
+			ch->pcdata->race = race;
 		ch->race = race;
 		for (i=0; i < MAX_STATS;i++)
 			ch->mod_stat[i] = 0;
@@ -2409,7 +2578,7 @@ void stop_idling(CHAR_DATA *ch)
 
 void char_puts(const char *txt, CHAR_DATA *ch)
 {
-	send_to_char(MSG(txt, ch->lang), ch);
+	send_to_char(GETMSG(txt, ch->lang), ch);
 }
 
 void char_printf(CHAR_DATA *ch, const char *format, ...)
@@ -2418,7 +2587,7 @@ void char_printf(CHAR_DATA *ch, const char *format, ...)
 	va_list ap;
 
 	va_start(ap, format);
-	vsnprintf(buf, sizeof(buf), MSG(format, ch->lang), ap);
+	vsnprintf(buf, sizeof(buf), GETMSG(format, ch->lang), ap);
 	va_end(ap);
 	send_to_char(buf, ch);
 }
@@ -2653,7 +2822,7 @@ void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 			case 'T':
 				i = code == 't' ? arg1 : arg2;
 				if (IS_SET(flags, TRANS_TEXT))
-					i = MSG(i, to->lang);
+					i = GETMSG(i, to->lang);
 				if (IS_SET(flags, STRANS_TEXT))
 					i = translate(ch, to, i);
 				break;
@@ -2893,7 +3062,7 @@ void act_printf(CHAR_DATA *ch, const void *arg1,
 	for(; to ; to = to->next_in_room) {
 		if (act_skip(ch, vch, to, flags, min_pos))
 			continue;
-		vsnprintf(buf, sizeof(buf), MSG(format, to->lang), ap);
+		vsnprintf(buf, sizeof(buf), GETMSG(format, to->lang), ap);
 		act_raw(ch, to, arg1, arg2, buf, flags);
 	}
 	va_end(ap);
@@ -2992,7 +3161,12 @@ char* color(char type, CHAR_DATA *ch)
  */
 void dump_to_scr(char *text)
 {
+#if !defined( WIN32 )
 	write(1, text, strlen(text));
+#else
+	printf (text);
+#endif
+	
 }
 
 int log_area_popularity(void)
@@ -3186,6 +3360,7 @@ int ethos_check(CHAR_DATA *ch)
 
 void resolv_done()
 {
+#if !defined (WIN32)
 	char *host;
 	char buf[MAX_STRING_LENGTH];
 	char *p;
@@ -3216,4 +3391,15 @@ void resolv_done()
 		d->host = str_dup(host);
 		return;
 	}
+#endif
 }
+
+/* Windows 95 and Windows NT support functions (copied from Envy) */
+#if defined (WIN32)
+
+void gettimeofday (struct timeval *tp, void *tzp)
+{
+    tp->tv_sec  = time( NULL );
+    tp->tv_usec = 0;
+}
+#endif

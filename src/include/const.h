@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.12 1998-10-30 06:56:32 fjoe Exp $
+ * $Id: const.h,v 1.13 1998-11-02 05:28:29 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -54,7 +54,32 @@
 #define LANG_PATH	"lang"
 
 #define TMP_FILE	"romtmp"
-#define NULL_FILE	"/dev/null"	/* To reserve one stream */
+
+#if defined (WIN32)
+#	define NULL_FILE	"NUL"	/* To reserve one stream */
+#	define TMP_PATH		"tmp"
+#	define PLAYER_PATH	"player"
+#	define GODS_PATH	"gods"
+#	define NOTES_PATH	"notes"
+#	define MSGDB_PATH	"msgdb"
+#	define ETC_PATH		"etc"
+#	define CLASSES_PATH	"classes"
+#	define CLANS_PATH	"clans"
+#	define AREA_PATH	"area"
+#	define LANG_PATH	"lang"
+#else
+#	define NULL_FILE	"/dev/null"	/* To reserve one stream */
+#	define TMP_PATH		"tmp"
+#	define PLAYER_PATH	"player"
+#	define GODS_PATH	"gods"
+#	define NOTES_PATH	"notes"
+#	define MSGDB_PATH	"msgdb"
+#	define ETC_PATH		"etc"
+#	define CLASSES_PATH	"classes"
+#	define CLANS_PATH	"clans"
+#	define AREA_PATH	"area"
+#	define LANG_PATH	"lang"
+#endif
 
 #define SKILLS_CONF	"skills.conf"	/* skills */
 #define LANG_CONF	"lang.conf"	/* lang definitions */

@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.36 1998-10-30 06:56:34 fjoe Exp $
+ * $Id: mob_prog.c,v 1.37 1998-11-02 05:28:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,6 +46,7 @@
 #include <sys/types.h>
 #include <ctype.h>
 #include <regex.h>
+
 #include "merc.h"
 #include "mob_cmds.h"
 #include "mob_prog.h"

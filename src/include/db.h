@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.31 1998-10-30 06:56:55 fjoe Exp $
+ * $Id: db.h,v 1.32 1998-11-02 05:28:53 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -67,9 +67,17 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
+/* WIN32 specific stuff */
+#if defined (WIN32)
+#	include <stdlib.h>
+#	define PATH_MAX	_MAX_PATH
+#endif
+
 typedef void DBLOAD_FUN(FILE *fp);
 #define DECLARE_DBLOAD_FUN(fun) DBLOAD_FUN fun
 #define DBLOAD_FUN(fun) void fun(FILE *fp)
+
+extern const char PATH_SEPARATOR;
 
 struct dbfun {
 	char *		name;

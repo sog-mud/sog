@@ -1,5 +1,5 @@
 /*
- * $Id: log.c,v 1.7 1998-09-19 10:38:59 fjoe Exp $
+ * $Id: log.c,v 1.8 1998-11-02 05:28:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,12 +51,19 @@
 #ifdef SUNOS
 #	include "compat/compat.h"
 #endif
+#ifdef WIN32
+#	include <string.h>
+#	define vsnprintf	_vsnprintf
+#endif
 
 /*
  * Writes a string to the log.
  */
 void log_printf(const char *format, ...)
 {
+#if defined(WIN32)
+	FILE *logfile;
+#endif
 	time_t current_time;
 	char buf[MAX_STRING_LENGTH];
 	va_list ap;
@@ -67,6 +74,16 @@ void log_printf(const char *format, ...)
 
 	time(&current_time);
 	fprintf(stderr, "%s :: %s\n", ctime(&current_time), buf);
+
+#if defined (WIN32)
+	/* Also add to logfile */
+	logfile = fopen ("muddy.log", "a+b");
+	if (logfile!=NULL)
+	{
+		fprintf(logfile, "%s :: %s\n", ctime(&current_time), buf);
+		fclose (logfile);
+	}
+#endif
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * $Id: buffer.c,v 1.7 1998-10-26 08:38:18 fjoe Exp $
+ * $Id: buffer.c,v 1.8 1998-11-02 05:28:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -118,7 +118,7 @@ void buf_free(BUFFER *buffer)
 bool buf_add(BUFFER *buffer, const char *string)
 {
 	return buf_cat(buffer,
-		       buffer->lang < 0 ? string : MSG(string, buffer->lang));
+		       buffer->lang < 0 ? string : GETMSG(string, buffer->lang));
 }
 
 bool buf_printf(BUFFER *buffer, const char *format, ...)
@@ -128,7 +128,7 @@ bool buf_printf(BUFFER *buffer, const char *format, ...)
 
 	va_start(ap, format);
 	vsnprintf(buf, sizeof(buf),
-		  buffer->lang < 0 ? format : MSG(format, buffer->lang),
+		  buffer->lang < 0 ? format : GETMSG(format, buffer->lang),
 		  ap);
 	va_end(ap);
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.14 1998-10-30 06:56:35 fjoe Exp $
+ * $Id: typedef.h,v 1.15 1998-11-02 05:28:31 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -40,6 +40,10 @@
 #endif
 
 typedef int bool;
+
+#if defined (WIN32)
+typedef unsigned int			uint;
+#endif
 
 typedef struct affect_data		AFFECT_DATA;
 typedef struct area_data		AREA_DATA;
@@ -103,9 +107,24 @@ typedef int	OPROG_FUN	(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg);
 #define SPELL_FUN(fun)	void	fun(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 #define OPROG_FUN(fun)	int	fun(OBJ_DATA *obj, CHAR_DATA *ch, void *arg);
 
-typedef int64_t	flag_t;		/* flags */
-typedef int32_t	sflag_t;	/* short flags (less memory usage) */
-
+/* WIN32 Microsoft specific definitions */
+#if defined (WIN32)
+#	define vsnprintf	_vsnprintf
+#	define snprintf		_snprintf
+#	define vsnprintf	_vsnprintf
+#endif
+ 
+/* 64-bit int value is compiler-specific (not a ANSI standard) */
+#if defined (WIN32)
+typedef __int64		flag_t;		/* For MSVC4.2/5.0 - flags */
+typedef __int32		sflag_t;	/* short flags (less memory usage) */
+typedef unsigned int	u_int;
+typedef unsigned char	u_char;
+#else
+typedef int64_t		flag_t;		/* For GNU C compilers - flags */
+typedef int32_t		sflag_t;	/* short flags (less memory usage) */
+#endif
+  
 #define IS_NULLSTR(str)		(!(str) || *(char*)(str) == '\0')
 
 #define IS_SET(flag, bit)	((flag) & (bit))

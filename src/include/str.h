@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.h,v 1.2 1998-10-30 06:56:35 fjoe Exp $
+ * $Id: str.h,v 1.3 1998-11-02 05:28:31 fjoe Exp $
  */
 
 #ifndef _STR_H_
@@ -39,7 +39,9 @@ extern char	str_empty[1];
 char *	strnzcpy(char *dest, const char *src, size_t);
 char *	strnzcat(char *dest, const char *src, size_t);
 char *	strnzncat(char *dest, const char *src, size_t len, size_t count);
+#if !defined (WIN32)
 char *	strlwr(const char *s);
+#endif
 
 int	str_cmp		(const char *astr, const char *bstr);
 int	str_ncmp	(const char *astr, const char *bstr, size_t len);

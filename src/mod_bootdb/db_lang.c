@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.5 1998-10-30 06:56:55 fjoe Exp $
+ * $Id: db_lang.c,v 1.6 1998-11-02 05:28:53 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -125,7 +125,7 @@ void load_hash(const char *file, varr **p)
 	strnzcpy(buf, filename, sizeof(buf));
 	linenum = line_number;
 
-	s = strrchr(filename, '/');
+	s = strrchr(filename, PATH_SEPARATOR);
 	if (s)
 		*(s+1) = '\0';
 	else

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.104 1998-10-30 06:56:29 fjoe Exp $
+ * $Id: act_comm.c,v 1.105 1998-11-02 05:28:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -40,14 +40,18 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
+#include <stdio.h>
 #include <sys/types.h>
 #include <sys/time.h>
-#include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <stdarg.h>
 #include <time.h>
+
+#if	!defined (WIN32)
 #include <unistd.h>
+#endif
+
 #include "merc.h"
 #include "interp.h"
 #include "interp.h"

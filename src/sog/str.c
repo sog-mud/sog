@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.c,v 1.3 1998-10-30 06:56:35 fjoe Exp $
+ * $Id: str.c,v 1.4 1998-11-02 05:28:31 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -35,6 +35,12 @@
 #include "typedef.h"
 #include "const.h"
 #include "str.h"
+
+#if defined (WIN32)
+#	define vsnprintf	_vsnprintf
+int strncasecmp (const char *s1, const char *s2, size_t n);
+int strcasecmp (const char *s1, const char *s2);
+#endif
 
 char str_empty[1];
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.77 1998-10-28 21:17:20 fjoe Exp $
+ * $Id: quest.c,v 1.78 1998-11-02 05:28:30 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -287,7 +287,7 @@ static void quest_tell(CHAR_DATA *ch, CHAR_DATA *questor, const char *fmt, ...)
 	char buf[MAX_STRING_LENGTH];
 
 	va_start(ap, fmt);
-	vsnprintf(buf, sizeof(buf), MSG(fmt, ch->lang), ap);
+	vsnprintf(buf, sizeof(buf), GETMSG(fmt, ch->lang), ap);
 	va_end(ap);
 
 	do_tell_raw(questor, ch, buf);

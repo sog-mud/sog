@@ -23,10 +23,15 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.3 1998-10-08 13:31:07 fjoe Exp $
+ * $Id: lang.c,v 1.4 1998-11-02 05:28:53 fjoe Exp $
  */
 
+#if	defined (LINUX) || defined (WIN32)
+#include <limits.h>
+#include <string.h>
+#else
 #include <sys/syslimits.h>
+#endif
 #include <stdio.h>
 
 #include "const.h"
@@ -53,7 +58,7 @@ int lang_lookup(const char *name)
 
 int lang_nlookup(const char *name, size_t len)
 {
-	int lang;
+	unsigned int lang;
 
 	if (IS_NULLSTR(name))
 		return -1;

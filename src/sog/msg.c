@@ -23,12 +23,17 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: msg.c,v 1.11 1998-10-10 04:37:28 fjoe Exp $
+ * $Id: msg.c,v 1.12 1998-11-02 05:28:53 fjoe Exp $
  */
 
+#if	defined (LINUX) || defined (WIN32)
+#include <limits.h>
+#include <string.h>
+#else
 #include <sys/syslimits.h>
-#include <stdio.h>
+#endif
 
+#include <stdio.h>
 #include "const.h"
 #include "typedef.h"
 
@@ -50,7 +55,7 @@ void load_msgdb(void)
 	FILE *fp;
 	mlstring *ml;
 
-	snprintf(filename, sizeof(filename), "%s/%s", ETC_PATH, MSG_FILE);
+	snprintf(filename, sizeof(filename), "%s%c%s", ETC_PATH, PATH_SEPARATOR, MSG_FILE);
 	line_number = 0;
 
 	fp = fopen(filename, "r");
@@ -131,7 +136,7 @@ mlstring *msg_del(const char *name)
 	return ml;
 }
 
-const char *MSG(const char *msg, int lang)
+const char *GETMSG(const char *msg, int lang)
 {
 	mlstring **mlp = msg_lookup(msg);
 	if (mlp == NULL)

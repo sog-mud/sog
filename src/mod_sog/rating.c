@@ -23,12 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rating.c,v 1.12 1998-10-06 13:18:30 fjoe Exp $
+ * $Id: rating.c,v 1.13 1998-11-02 05:28:31 fjoe Exp $
  */
 
 #include <sys/time.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include "merc.h"
 #include "rating.h"
 

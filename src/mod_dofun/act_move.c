@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.112 1998-10-30 06:56:31 fjoe Exp $
+ * $Id: act_move.c,v 1.113 1998-11-02 05:28:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1836,7 +1836,7 @@ void do_train(CHAR_DATA *ch, const char *argument)
 		pOutput     = "charisma";
 	}
 	else {
-		strcpy(buf, MSG("You can train:", ch->lang));
+		strcpy(buf, GETMSG("You can train:", ch->lang));
 		if (ch->perm_stat[STAT_STR] < get_max_train(ch,STAT_STR)) 
 		    strcat(buf, " str");
 		if (ch->perm_stat[STAT_INT] < get_max_train(ch,STAT_INT))  
