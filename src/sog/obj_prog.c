@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.66.2.19 2002-02-07 15:40:43 tatyana Exp $
+ * $Id: obj_prog.c,v 1.66.2.20 2002-12-09 23:14:28 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1070,7 +1070,7 @@ bool death_prog_golden_weapon(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	act("$n's golden weapon disappears.",ch,NULL,NULL,TO_ROOM);
 	extract_obj(obj, 0);
 	ch->hit = 1;
-	update_pos(ch);
+	stop_fighting(ch, TRUE);
 	while (ch->affected)
 		affect_remove(ch, ch->affected);
 	RESET_FIGHT_TIME(ch);
