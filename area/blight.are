@@ -1,14 +1,14 @@
 #AREADATA
 Ver 7
 Name Blight~
-VNUMs 23000 24099
+VNUMs 22900 23199
 Credits Stile~
 Security 9
 LevelRange 35 50
 End
 
 #MOBILES
-#23001
+#22901
 trolloc dha'vol троллок~
 @eng The trolloc@rus троллок~
 @eng A trolloc of the Dha'vol tribe is here enjoying his meal.@rus Троллок (trolloc) из племени Давол обедает здесь.~
@@ -31,7 +31,7 @@ CDEFIJNQR
 stand stand male 1000
 AB ABCDEFGHIJK medium unknown
 m mob_random mob_random_fido 100~
-#23002
+#22902
 myrddraal fade halfman eyeless lurk fetch shadowman мурдраал~
 @eng The Myrddraal@rus Мурдраал~
 @eng A myrddraal emerges from the shadows to release your soul.@rus Мурдраал (myrdraal) неожиданно появляется из теней, чтобы взять твою душу.~
@@ -59,7 +59,7 @@ r lightning 33
 r acid 33
 r poison 100
 r charm 100
-#23003
+#22903
 trolloc ko'bal троллок~
 @eng The trolloc@rus троллок~
 @eng A trolloc of the Ko'bal tribe is here enjoying his meal.@rus Троллок (trolloc) из племени Кобал обедает здесь.~
@@ -82,7 +82,7 @@ CDEFIJNQR
 stand stand male 1000
 AB ABCDEFGHIJK medium unknown
 m mob_random mob_random_fido 100~
-#23004
+#22904
 trolloc dhai'mon троллок~
 @eng The trolloc@rus троллок~
 @eng A trolloc of the Dhai'mon tribe is here enjoying his meal.@rus Троллок (trolloc) из племени Даймон обедает здесь.~
@@ -104,7 +104,7 @@ CDEFQ
 stand stand male 1000
 AB ABCDEFGHIJK medium unknown
 m mob_random mob_random_fido 100~
-#23005
+#22905
 flock raven ravens huge стая воронов~
 @eng The flock of ravens@rus ~~стая~~ воронов~
 @eng A huge flock of ravens descend to destroy you.@rus На тебя пикирует стая воронов (flock).~
@@ -128,7 +128,7 @@ r poison 100
 r disease 100
 r charm 100
 m mob_random mob_random_fido 100~
-#23006
+#22906
 trolloc kno'mon троллок~
 @eng The trolloc@rus троллок~
 @eng A trolloc of the Kno'mon charges from it's ambush!@rus Троллок (trolloc) из племени Кномон устроил здесь засаду!
@@ -151,7 +151,7 @@ CDEFIJKNQR
 stand stand male 1000
 AB ABCDEFGHIJK medium unknown
 m mob_random mob_random_fido 100~
-#23007
+#22907
 creature oily маслянистое создание~
 @eng The creature@rus создание~
 @eng A black oily creatures swims in the Lake.@rus Черные маслянистые создания (creature) плавают в озере.~
@@ -172,7 +172,7 @@ r cold 33
 r lightning -50
 r charm 100
 r weapon 100
-#23008
+#22908
 tree twisted искривленное дерево~
 @eng The twisted tree@rus ~~искривленное~~ ~~дерево~~~
 @eng One of the twisted trees shakes violently.@rus Одно из искривленных деревьев (tree) сильно трясется.~
@@ -192,7 +192,7 @@ AB 0 medium unknown
 r pierce 100
 r fire -50
 r charm 100
-#23009
+#22909
 draghkar драгкар~
 @eng The draghkar@rus драгкар~
 @eng A draghkar emerges from a cave, and welcomes you to the Blight.@rus Драгкар (draghkar) появляется из пещеры и приветствует тебя в Запустении.~
@@ -216,7 +216,7 @@ r fire -50
 r acid 33
 r charm 100
 m mob_fight mob_fight_cast_mage 100~
-#23010
+#22910
 disfigured diseased обезображенное создание flesh lump creature кусок плоти~
 @eng The diseased creature@rus ~~больное~~ ~~создание~~~
 @eng A diseased lump of disfigured flesh wanders the Blight in agony.@rus Больной обезображенный кусок плоти (creature) бродит по Запустению.~
@@ -237,7 +237,7 @@ stand stand none 1000
 AB ABCDEFGHIJKLMNOPQUVWXY medium unknown
 r charm 100
 m mob_random mob_random_fido 100~
-#23011
+#22911
 warder gaidan сторож~
 @eng The warder@rus сторож~
 @eng A warder stalks through the blight.@rus Сторож (warder) шагает по Запустению.~
@@ -263,7 +263,7 @@ r acid 33
 r negative 33
 r disease 33
 r charm 100
-#23012
+#22912
 lord лорд~
 @eng The Lord of the tower@rus ~~хозяин~~ башни~
 @eng The Lord of the tower forms beside the bed full of wrath!@rus Хозяин башни (lord), полный гнева, появляется рядом с кроватью.~
@@ -289,7 +289,7 @@ r charm 100
 r weapon 33
 r magic 33
 m mob_fight mob_fight_cast_undead 100~
-#23013
+#22913
 lord лорд~
 @eng The Lord of the tower@rus ~~хозяин~~ башни~
 @eng The Lord of the tower forms beside the bed full of wrath!@rus Хозяин башни (lord), полный гнева, появляется рядом с кроватью.~
@@ -315,7 +315,7 @@ r charm 100
 r weapon 33
 r magic 33
 m mob_fight mob_fight_cast_undead 100~
-#23014
+#22914
 spirit soldier дух солдат~
 @eng The spirit@rus дух~
 @eng A spirit wanders in it's lost kingdom.@rus Дух (spirit) бродит по потерянному королевству.~
@@ -342,7 +342,7 @@ r holy -50
 r disease 100
 r silver -50
 m mob_fight mob_fight_cast_undead 100~
-#23015
+#22915
 spirit дух~
 @eng The spirit@rus дух~
 @eng A spirit wanders in it's lost kingdom.@rus Дух (spirit) бродит по потерянному королевству.~
@@ -370,7 +370,7 @@ r disease 100
 r charm 100
 r silver -50
 m mob_fight mob_fight_cast_undead 100~
-#23016
+#22916
 tree twisted искривленное дерево~
 @eng The twisted tree@rus ~~искривленное~~ ~~дерево~~~
 @eng One of the twisted trees shakes violently.@rus Одно из искривленных деревьев (tree) сильно трясется.~
@@ -390,7 +390,7 @@ AB 0 medium unknown
 r pierce 100
 r fire -50
 r charm 100
-#23017
+#22917
 tree twisted искривленное дерево~
 @eng The twisted tree@rus ~~искривленное~~ ~~дерево~~~
 @eng One of the twisted trees shakes violently.@rus Одно из искривленных деревьев (tree) сильно трясется.~
@@ -410,7 +410,7 @@ AB 0 medium unknown
 r pierce 100
 r fire -50
 r charm 100
-#23018
+#22918
 tree twisted искривленное дерево~
 @eng The twisted tree@rus ~~искривленное~~ ~~дерево~~~
 @eng One of the twisted trees shakes violently.@rus Одно из искривленных деревьев (tree) сильно трясется.~
@@ -430,7 +430,7 @@ AB 0 medium unknown
 r pierce 100
 r fire -50
 r charm 100
-#23019
+#22919
 seanchan sul'dam сулдам woman женщина~
 @eng The Sul'Dam@rus Сул'дам~
 @eng A woman in a plain dress, panelled with lightning bolts stands before you.@rus Женщина (Sul'Dam) в простом платье, расшитом зигзагами молний, стоит перед
@@ -453,7 +453,7 @@ stand stand female 1000
 0 0 medium unknown
 r charm 100
 r magic 33
-#23020
+#22920
 metal металл metallic orb strange странная металлическая сфера~
 @eng The metallic orb@rus ~~металлическая~~ ~~сфера~~~
 @eng A small metallic orb hovers above the ground here humming loudly.@rus Маленькая металлическая сфера (orb) парит над землей, громко жужжа.~
@@ -478,7 +478,7 @@ g @eng none@rus female~
 r negative 100
 r disease 100
 m mob_fight mob_fight_breath_lightning 100~
-#23021
+#22921
 fox лиса tall высокий thin~
 @eng The fox-like humanoid@rus ~~лисоподобный~~ ~~гуманоид~~~
 @eng A fox-like humanoid grins at the scene around him and fingers his knives.@rus Лисоподобный гуманоид (fox-like humanoid) усмехается открывающемуся
@@ -507,7 +507,7 @@ r disease 100
 r charm 100
 r iron -50
 m mob_random mob_random_thief 100~
-#23022
+#22922
 grolm гролм frog жаба huge~
 @eng The grolm@rus гролм~
 @eng A huge frog-like creature snarls.@rus Большое жабоподобное создание (grolm) рычит при твоем появлении.~
@@ -529,7 +529,7 @@ r charm 100
 #0
 
 #OBJECTS
-#23001
+#22901
 sword меч huge curved blade большое изогнутое лезвие~
 @eng a huge curved blade@rus ~~большое~~ ~~изогнутое~~ ~~лезвие~~~
 @eng A very large curved blade lies here in a pool of blood.@rus Очень большое изогнутое лезвие (sword) лежит здесь в луже крови.~
@@ -541,7 +541,7 @@ f object damroll 6 0
 f object hitroll 1 0
 f object wis -3 0
 g @rus none~
-#23002
+#22902
 key blackened ключ~
 @eng a blood-stained key@rus ~~перепачканный~~ кровью ~~ключ~~~
 @eng A key, darkened by dried blood, lies here.@rus Ключ (key), потемневший от засохшей крови, лежит здесь.~
@@ -550,7 +550,7 @@ key 0 0 A
 0 0 0 0 0
 43 1 430 P
 g @rus male~
-#23003
+#22903
 key ключ heavy iron железный~
 @eng a heavy iron key@rus ~~тяжелый~~ ~~железный~~ ~~ключ~~~
 @eng A large iron key lies here.@rus Большой железный ключ (key) лежит здесь.~
@@ -559,7 +559,7 @@ key 0 0 A
 0 0 0 0 0
 43 1 430 P
 g @rus male~
-#23004
+#22904
 key ключ smooth гладкий~
 @eng an often used key@rus часто ~~используемый~~ ~~ключ~~~
 @eng A key, smoothed from being often used, lies here.@rus Ключ (key), гладкий от частого использования, лежит здесь.~
@@ -568,7 +568,7 @@ key 0 0 A
 0 0 0 0 0
 43 1 430 P
 g @rus male~
-#23005
+#22905
 key blackened ключ~
 @eng a blood-stained key@rus ~~перепачканный~~ кровью ~~ключ~~~
 @eng A key, darkened by dried blood, lies here.@rus Ключ (key), потемневший от засохшей крови, лежит здесь.~
@@ -577,7 +577,7 @@ key 0 0 A
 0 0 0 0 0
 43 1 430 P
 g @rus male~
-#23006
+#22906
 key ключ heavy iron железный~
 @eng a heavy iron key@rus ~~тяжелый~~ ~~железный~~ ~~ключ~~~
 @eng A large iron key lies here.@rus Большой железный ключ (key) лежит здесь.~
@@ -586,7 +586,7 @@ key 0 0 A
 0 0 0 0 0
 43 1 430 P
 g @rus none~
-#23007
+#22907
 key ключ smooth гладкий~
 @eng an often used key@rus часто ~~используемый~~ ~~ключ~~~
 @eng A key, smoothed from being often used, lies here.@rus Ключ (key), гладкий от частого использования, лежит здесь.~
@@ -595,7 +595,7 @@ key 0 0 A
 0 0 0 0 0
 43 1 430 P
 g @rus male~
-#23008
+#22908
 black sword черный меч blade лезвие~
 @eng a black sword@rus ~~черный~~ ~~меч~~~
 @eng A black sword calls for you to put it to use.@rus Черный меч (sword) зовет тебя. Возьми и владей им.~
@@ -607,7 +607,7 @@ f object str 2 0
 f object damroll 4 0
 f object hitroll 2 0
 g @rus male~
-#23009
+#22909
 cloak плащ unmoving black черный~
 @eng an unmoving black cloak@rus ~~неизменный~~ ~~черный~~ ~~плащ~~~
 @eng A pile of black cloth lies on the ground, untouched by the wind.@rus Куча черной ткани (cloak), лежащая на земле, даже не шелохнется на ветру.~
@@ -618,7 +618,7 @@ armor CEGJL 0 AK
 f object damroll 3 0
 f object ac -5 0
 g @rus female~
-#23010
+#22910
 overlapping black plates черные пластины snake змея~
 @eng snake-like overlapping black plates@rus ~~перекрывающиеся~~ ~~черные~~ ~~пластины~~~
 @eng Several black plates lie on the ground.@rus Несколько черных пластин (plates) лежит на земле.~
@@ -630,7 +630,7 @@ f object ac -5 0
 f object damroll 3 0
 f object dex 2 0
 g @rus female~
-#23011
+#22911
 sword fine~
 @eng a finely crafted sword@rus прекрасно ~~выкованный~~ ~~меч~~~
 @eng A finely crafted sword lies about unused.@rus Прекрасно выкованный меч (sword) лежит здесь всеми забытый.~
@@ -640,7 +640,7 @@ sword 5 9 'slice' 0
 40 120 400 P
 f object hitroll 6 0
 g @rus male~
-#23012
+#22912
 cloak плащ shift переливаться shifting colors переливающиеся цвета~
 @eng a cloak of shifting colors@rus ~~плащ~~ переливающихся цветов~
 @eng A pile of cloth blends into it surroundings here.@rus Куча ткани (cloak), сливающаяся с окружающим пейзажем, лежит здесь.~
@@ -652,7 +652,7 @@ f object move 50 0
 f object damroll 3 0
 f object ac -5 0
 g @rus male~
-#23013
+#22913
 key ключ platinum платиновый~
 @eng a shiny platinum key@rus ~~сверкающий~~ ~~платиновый~~ ~~ключ~~~
 @eng A shiny platinum key lies on the ground here.@rus Сверкающий платиновый ключ (key) лежит на земле.~
@@ -661,7 +661,7 @@ key 0 0 AO
 0 0 0 0 0
 45 1 450 P
 g @rus male~
-#23014
+#22914
 key ключ golden золотой~
 @eng a shiny golden key@rus ~~сверкающий~~ ~~золотой~~ ~~ключ~~~
 @eng A shiny golen key lies on the ground.@rus Сверкающий золотой ключ (key) лежит на земле.~
@@ -670,7 +670,7 @@ key 0 0 AO
 0 0 0 0 0
 50 1 500 P
 g @rus male~
-#23015
+#22915
 great большой golden золотой chest сундук~
 @eng a great golden chest@rus ~~большой~~ ~~золотой~~ ~~сундук~~~
 @eng A great golden chest sits at the foot of the bed.@rus Большой золотой сундук (chest) стоит у подножия кровати.~
@@ -679,7 +679,7 @@ container AG 0 0
 2000 0 2416 100 100
 0 0 0 P
 g @rus male~
-#23016
+#22916
 key lord ключ~
 @eng the lord's key@rus ~~ключ~~ лорда~
 @eng A very important key lies here.@rus Очень важный ключ (key) лежит здесь.~
@@ -688,7 +688,7 @@ key 0 0 AO
 0 0 0 0 0
 0 1 0 P
 g @rus male~
-#23017
+#22917
 great большой golden золотой chest сундук~
 @eng a great golden chest@rus ~~большой~~ ~~золотой~~ ~~сундук~~~
 @eng A great golden chest sits at the foot of the bed.@rus Большой золотой сундук (chest) стоит у подножия кровати.~
@@ -697,7 +697,7 @@ container AG 0 0
 2000 0 2418 100 100
 0 5000 0 P
 g @rus male~
-#23018
+#22918
 key lord ключ~
 @eng the lord's key@rus ~~ключ~~ лорда~
 @eng A very important key lies here.@rus Очень важный ключ (key) лежит здесь.~
@@ -706,7 +706,7 @@ key 0 0 AO
 0 0 0 0 0
 0 1 0 P
 g @rus male~
-#23019
+#22919
 angreal small figurine маленькая статуэтка~
 @eng a small figurine@rus ~~маленькая~~ ~~статуэтка~~~
 @eng A small figurine sits on the ground humming with power.@rus Маленькая статуэтка (figurine), жужжащая от переполняющей ее силы,
@@ -719,7 +719,7 @@ f object mana 25 0
 f object saving_spell -6 0
 f object ac -15 0
 g @rus female~
-#23020
+#22920
 heron marked blade sword меч~
 @eng a Heron marked blade@rus ~~клинок~~ с клеймом цапли на рукояти~
 @eng The blade of a swordmaster lies at your feet.@rus Лезвие мастера меча (blade) лежит у твоих ног.~
@@ -731,7 +731,7 @@ f object hitroll 5 0
 f object damroll 8 0
 f object hp 25 0
 g @rus male~
-#23021
+#22921
 malkerian battle helm боевой шлем crane журавль~
 @eng a helm stylized into a golden crane@rus ~~шлем~~, ~~выполненный~~ в виде золотого журавля~
 @eng A malkerian battle helm lies here.@rus Боевой шлем Малкирианцев (helm) лежит здесь.~
@@ -743,7 +743,7 @@ f object ac -10 0
 f object damroll 4 0
 f object hitroll 4 0
 g @rus male~
-#23022
+#22922
 suit battle armor комплект боевой брони~
 @eng a suit of Malkerian battle armor@rus ~~комплект~~ боевой брони Малкирианцев~
 @eng A suit of highly polished armor lies here.@rus Комплект сильно отполированной брони (armor) лежит здесь.~
@@ -755,7 +755,7 @@ f object ac -10 0
 f object damroll 4 0
 f object hitroll 2 0
 g @rus male~
-#23023
+#22923
 cuendillar heartstone dagger кинжал~
 @eng a heartstone dagger@rus ~~кинжал~~ с каменным сердцем~
 @eng A dagger made of a strange material is here.@rus Кинжал (heartstone), сделанный из странного материала, лежит здесь.~
@@ -767,7 +767,7 @@ f object wis 2 0
 f object hitroll 5 0
 f object damroll 5 0
 g @rus male~
-#23024
+#22924
 lord sceptre скипетр~
 @eng a Lord's sceptre@rus ~~скипетр~~ Лорда~
 @eng A finely crafted sceptre lies on the ground.@rus Прекрасно сделанный скипетр (sceptre) лежит на земле.~
@@ -779,7 +779,7 @@ f object damroll 3 0
 f object hitroll 3 0
 f object int 3 0
 g @rus male~
-#23025
+#22925
 ward страж strange странный~
 @eng a strange ward@rus ~~странный страж~~~
 @eng A strange looking ward lies here.@rus Странно выглядящий страж (ward) лежит на земле.~
@@ -788,7 +788,7 @@ key 0 0 A
 0 0 0 0 0
 33 1 330 P
 g @rus male~
-#23026
+#22926
 spring источник~
 @eng the spring@rus источник~
 ~
@@ -797,7 +797,7 @@ fountain G 0 0
 50 50 'water' 0 0
 0 0 0 P
 g @rus male~
-#23027
+#22927
 banner знамя banners знамена~
 @eng the small alcove@rus ~~маленький~~ ~~альков~~~
 ~
@@ -810,7 +810,7 @@ banner знамя banners знамена~
 @eng One of the banners cover a small alcove.@rus Одно из знамен закрывает маленький альков.
 ~
 g @rus male~
-#23028
+#22928
 staff cheetah посох~
 @eng an engraved staff@rus ~~гравированный~~ ~~посох~~~
 @eng A staff carved with spotted feline's rest here.@rus Посох (staff) с вырезанными на нем пятнистыми кошками лежит здесь.~
@@ -819,7 +819,7 @@ staff 0 0 AO
 40 8 8 'sanctuary' 0
 43 5 430 P
 g @rus male~
-#23029
+#22929
 muck грязь~
 @eng encased in the lakes muck@rus ~~лежащие~~ ~~лужи~~ грязи~
 ~
@@ -833,7 +833,7 @@ muck грязь~
 @rus Все озеро внизу полно толстой черной грязи.
 ~
 g @rus male~
-#23030
+#22930
 skeleton скелет~
 @eng a skeleton@rus скелет~
 @eng A skeleton lies below the bloody writing.@rus Скелет (skeleton) лежит перед кровавой надписью.~
@@ -846,7 +846,7 @@ skeleton скелет~
 @eng A skeleton lies here.@rus Скелет лежит здесь.
 ~
 g @rus male~
-#23031
+#22931
 skeleton скелет~
 @eng a skeleton@rus скелет~
 @eng A skeleton lies below the bloody writing.@rus Скелет (skeleton) лежит перед кровавой надписью.~
@@ -859,7 +859,7 @@ skeleton скелет~
 @eng A skeleton lies here.@rus Скелет лежит здесь.
 ~
 g @rus male~
-#23032
+#22932
 a'dam адам~
 @eng an A'dam@rus А'дам~
 @eng A small silver bracelet and collar lay here connected by a small silver chain.@rus Здесь лежат маленький серебряный браслет и ошейник (a'dam), соединенные
@@ -870,7 +870,7 @@ wand 0 0 AO
 40 4 400 P
 f object damroll 3 0
 g @rus male~
-#23033
+#22933
 panelled plain dress простое платье~
 @eng a plain dress panelled with lightning bolts@rus ~~простое~~ платье, ~~расшитое~~ зигзагами молний~
 @eng A plain dress lies on the ground, strange symbols sewn into it's panels.@rus Простое платье (dress) лежит на земле, странные символы вышиты на нем.~
@@ -882,7 +882,7 @@ f object hp 30 0
 f object damroll 2 0
 f object wis 2 0
 g @rus none~
-#23034
+#22934
 smile улыбка seductive соблазнительная~
 @eng a seductive smile@rus ~~соблазнительная~~ ~~улыбка~~~
 @eng A very strange object lies at your feet.@rus Очень странный предмет (smile) лежит у твоих ног.~
@@ -894,7 +894,7 @@ f object hitroll 3 0
 f object damroll 3 0
 f object mana 30 0
 g @rus female~
-#23035
+#22935
 wicked knife плохой нож~
 @eng a wicked-looking knife@rus плохо ~~выглядящий~~ ~~нож~~~
 @eng A very sharp knife lies on the ground.@rus Очень острый нож (knife) лежит на земле.~
@@ -905,7 +905,7 @@ dagger 5 9 'pierce' D
 f object damroll 3 0
 f object hitroll 3 0
 g @rus male~
-#23036
+#22936
 fox лиса medallion медальон~
 @eng a foxheaded medallion@rus ~~медальон~~ в виде лисьей головы~
 @eng A medallion lies at your feet.@rus Медальон (medallion) лежит у твоих ног.~
@@ -920,7 +920,7 @@ g @rus male~
 #0
 
 #ROOMS
-#23001
+#22901
 @eng Edge of the Blight@rus Край Запустения~
 @eng The air here is much more humid than in the borderland kingdom of Shienar
 to the south.  Each breath is a labor, taxing your strength as you move
@@ -945,7 +945,7 @@ D0
 ~
 ~
 ~
-Z -1 23002
+Z -1 22902
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -953,13 +953,13 @@ D1
 ~
 ~
 ~
-Z -1 24077
+Z -1 23177
 D2
 ~
 ~
 ~
 ~
-Z -1 23113
+Z -1 23013
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -967,9 +967,9 @@ D3
 ~
 ~
 ~
-Z -1 23006
+Z -1 22906
 S
-#23002
+#22902
 @eng Entering the Blight@rus Вход в Запустение~
 @eng The corrupted trees of the Blight sway in the wind, leaves and branches
 seeming to grab at you as you pass by them.  Your nightmares seem like
@@ -995,7 +995,7 @@ D0
 ~
 ~
 ~
-Z -1 23003
+Z -1 22903
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -1003,7 +1003,7 @@ D1
 ~
 ~
 ~
-Z -1 24078
+Z -1 23178
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -1011,7 +1011,7 @@ D2
 ~
 ~
 ~
-Z -1 23001
+Z -1 22901
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -1019,9 +1019,9 @@ D3
 ~
 ~
 ~
-Z -1 23007
+Z -1 22907
 S
-#23003
+#22903
 @eng Near the Seven Towers@rus Возле Семи Башен~
 @eng You stand only a few miles from the Seven Towers of the once great
 Malkeri.  Lakes surround the entire area, their waters dark and cloudy, so
@@ -1044,7 +1044,7 @@ D0
 ~
 ~
 ~
-Z -1 23004
+Z -1 22904
 D1
 @eng The Blight continues on ot the east.
 @rus Запустение продолжается на восток.
@@ -1052,7 +1052,7 @@ D1
 ~
 ~
 ~
-Z -1 24079
+Z -1 23179
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -1060,7 +1060,7 @@ D2
 ~
 ~
 ~
-Z -1 23002
+Z -1 22902
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -1068,9 +1068,9 @@ D3
 ~
 ~
 ~
-Z -1 23008
+Z -1 22908
 S
-#23004
+#22904
 @eng Among the Seven Towers@rus Среди Семи Башен~
 @eng You now ride along the bases of the Seven Towers, once the kingdom of
 Malkeri held back the tides of Shadowspawn relentlessly seeking to crush the
@@ -1098,7 +1098,7 @@ D0
 ~
 ~
 ~
-Z -1 23005
+Z -1 22905
 D1
 @eng To the east is a breach in one of the Seven Towers walls.
 @rus На востоке пролом в одной из стен Семи Башен.
@@ -1106,7 +1106,7 @@ D1
 ~
 ~
 ~
-Z -1 23061
+Z -1 22961
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -1114,7 +1114,7 @@ D2
 ~
 ~
 ~
-Z -1 23003
+Z -1 22903
 D3
 @eng To the west is a breach in one of the Seven Towers' wall.
 @rus На западе пролом в одной из стен Семи Башен.
@@ -1122,9 +1122,9 @@ D3
 ~
 ~
 ~
-Z -1 24012
+Z -1 23112
 S
-#23005
+#22905
 @eng The Blight@rus Запустение~
 @eng This far north into the Blight shadows scurry everywhere, creatures of the
 Dark One seeking blood.  The trees are now blackened as if dead, but still sway
@@ -1144,7 +1144,7 @@ D0
 ~
 ~
 ~
-Z -1 24083
+Z -1 23183
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -1152,7 +1152,7 @@ D1
 ~
 ~
 ~
-Z -1 24081
+Z -1 23181
 D2
 @eng The Seven broken towers now lay behind you to the south.
 @rus Семь разрушенных башен теперь лежат позади тебя, на юге.
@@ -1160,7 +1160,7 @@ D2
 ~
 ~
 ~
-Z -1 23004
+Z -1 22904
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -1168,9 +1168,9 @@ D3
 ~
 ~
 ~
-Z -1 23010
+Z -1 22910
 S
-#23006
+#22906
 @eng Edge of the Blight@rus Край Запустения~
 @eng The air here is much more humid than in the borderland kingdom of Shienar
 to the south, each breath is a labor, taxin your strength as you move through
@@ -1191,7 +1191,7 @@ D0
 ~
 ~
 ~
-Z -1 23007
+Z -1 22907
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -1199,7 +1199,7 @@ D1
 ~
 ~
 ~
-Z -1 23001
+Z -1 22901
 D2
 @eng The borderland kingdom of Shienar lies to the south.
 @rus Пограничное королевство Шинар лежит на юге.
@@ -1207,7 +1207,7 @@ D2
 ~
 ~
 ~
-Z -1 23112
+Z -1 23012
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -1215,9 +1215,9 @@ D3
 ~
 ~
 ~
-Z -1 23011
+Z -1 22911
 S
-#23007
+#22907
 @eng Entering the Blight@rus Вход в Запустение~
 @eng The corrupted trees of the Blight sway in the wind, leaves and branches
 seeming to grab at you as you pass by them.  Your nightmares seem like fanciful
@@ -1239,7 +1239,7 @@ D0
 ~
 ~
 ~
-Z -1 23008
+Z -1 22908
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -1247,7 +1247,7 @@ D1
 ~
 ~
 ~
-Z -1 23002
+Z -1 22902
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -1255,7 +1255,7 @@ D2
 ~
 ~
 ~
-Z -1 23006
+Z -1 22906
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -1263,9 +1263,9 @@ D3
 ~
 ~
 ~
-Z -1 23012
+Z -1 22912
 S
-#23008
+#22908
 @eng The Blight@rus Запустение~
 @eng You are now miles into the Blight.  As you search the surrounding area you
 see the vegetation in this area is almost solid black now.  Suddenly you notice
@@ -1283,7 +1283,7 @@ D0
 ~
 ~
 ~
-Z -1 23009
+Z -1 22909
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -1291,7 +1291,7 @@ D1
 ~
 ~
 ~
-Z -1 23003
+Z -1 22903
 D2
 @eng The Blight continues to the south.
 @rus Запустение продолжается на юг.
@@ -1299,7 +1299,7 @@ D2
 ~
 ~
 ~
-Z -1 23007
+Z -1 22907
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -1307,9 +1307,9 @@ D3
 ~
 ~
 ~
-Z -1 23013
+Z -1 22913
 S
-#23009
+#22909
 @eng One of the Hundred Lakes@rus Одно из Сотни Озер~
 @eng As you move through the thick oily waters of the lake you wonder what evil
 creatures live in this slime.  Movement stirs on all sides of you, and you come
@@ -1335,7 +1335,7 @@ D0
 ~
 ~
 ~
-Z -1 23010
+Z -1 22910
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -1343,7 +1343,7 @@ D2
 ~
 ~
 ~
-Z -1 23008
+Z -1 22908
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -1351,9 +1351,9 @@ D3
 ~
 ~
 ~
-Z -1 23014
+Z -1 22914
 S
-#23010
+#22910
 @eng The Blight@rus Запустение~
 @eng This far north into the Blight shadows scurry everywhere, creatures of the
 Dark One seeking blood.  The trees are now blackened as if dead, but still sway
@@ -1373,7 +1373,7 @@ D0
 ~
 ~
 ~
-Z -1 24084
+Z -1 23184
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -1381,7 +1381,7 @@ D1
 ~
 ~
 ~
-Z -1 23005
+Z -1 22905
 D2
 @eng To the south black waters stir with movement.
 @rus Черные воды на юге приходят в движение.
@@ -1389,7 +1389,7 @@ D2
 ~
 ~
 ~
-Z -1 23009
+Z -1 22909
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -1397,9 +1397,9 @@ D3
 ~
 ~
 ~
-Z -1 23015
+Z -1 22915
 S
-#23011
+#22911
 @eng Edge of the Blight@rus Край Запустения~
 @eng The air here is much more humid than in the borderland kingdom of Shienar
 to the south, each breath is a labor, taxing your strength as you move through
@@ -1420,7 +1420,7 @@ D0
 ~
 ~
 ~
-Z -1 23012
+Z -1 22912
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -1428,7 +1428,7 @@ D1
 ~
 ~
 ~
-Z -1 23006
+Z -1 22906
 D2
 @eng The borderland kingdom of Shienar lies to the south.
 @rus Пограничное королевство Шинар лежит на юге.
@@ -1436,7 +1436,7 @@ D2
 ~
 ~
 ~
-Z -1 23111
+Z -1 23011
 D3
 @eng As you look more closely to the west you see a small trail of smoke.
 @rus Когда ты более пристально смотришь на запад, ты видишь маленький
@@ -1445,9 +1445,9 @@ D3
 ~
 ~
 ~
-Z -1 23016
+Z -1 22916
 S
-#23012
+#22912
 @eng Entering the Blight@rus Вход в Запустение~
 @eng The corrupted trees of the Blight sway in the wind, leaves and branches
 seeming to grab at you as you pass by them.  Your nightmares seem like fanciful
@@ -1469,7 +1469,7 @@ D0
 ~
 ~
 ~
-Z -1 23013
+Z -1 22913
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -1477,7 +1477,7 @@ D1
 ~
 ~
 ~
-Z -1 23007
+Z -1 22907
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -1485,7 +1485,7 @@ D2
 ~
 ~
 ~
-Z -1 23011
+Z -1 22911
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -1493,9 +1493,9 @@ D3
 ~
 ~
 ~
-Z -1 23017
+Z -1 22917
 S
-#23013
+#22913
 @eng The Blight@rus Запустение~
 @eng This far north into the Blight shadows scurry everywhere, creatures of the
 Dark One seeking blood.  The trees are now blackened as if dead, but still sway
@@ -1515,7 +1515,7 @@ D0
 ~
 ~
 ~
-Z -1 23014
+Z -1 22914
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -1523,7 +1523,7 @@ D1
 ~
 ~
 ~
-Z -1 23008
+Z -1 22908
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -1531,7 +1531,7 @@ D2
 ~
 ~
 ~
-Z -1 23012
+Z -1 22912
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -1539,9 +1539,9 @@ D3
 ~
 ~
 ~
-Z -1 23018
+Z -1 22918
 S
-#23014
+#22914
 @eng The Blight@rus Запустение~
 @eng This far north into the Blight shadows scurry everywhere, creatures of the
 Dark One seeking blood.  The trees are now blackened as if dead, but still sway
@@ -1561,7 +1561,7 @@ D0
 ~
 ~
 ~
-Z -1 23015
+Z -1 22915
 D1
 @eng To the east black waters stir with movement.
 @rus Черные воды на востоке приходят в движение.
@@ -1569,7 +1569,7 @@ D1
 ~
 ~
 ~
-Z -1 23009
+Z -1 22909
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -1577,7 +1577,7 @@ D2
 ~
 ~
 ~
-Z -1 23013
+Z -1 22913
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -1585,9 +1585,9 @@ D3
 ~
 ~
 ~
-Z -1 23019
+Z -1 22919
 S
-#23015
+#22915
 @eng The Blight@rus Запустение~
 @eng This far north into the Blight shadows scurry everywhere, creatures of the
 Dark One seeking blood.  The trees are now blackened as if dead, but still sway
@@ -1607,7 +1607,7 @@ D0
 ~
 ~
 ~
-Z -1 24085
+Z -1 23185
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -1615,7 +1615,7 @@ D1
 ~
 ~
 ~
-Z -1 23010
+Z -1 22910
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -1623,7 +1623,7 @@ D2
 ~
 ~
 ~
-Z -1 23014
+Z -1 22914
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -1631,9 +1631,9 @@ D3
 ~
 ~
 ~
-Z -1 23020
+Z -1 22920
 S
-#23016
+#22916
 @eng Edge of the Blight@rus Край Запустения~
 @eng You have stumbled across a scouting party of Trollocs.  A small fire burns
 in the center of the camp.  They appear to be preparing to enjoy a Trolloc
@@ -1652,7 +1652,7 @@ D0
 ~
 ~
 ~
-Z -1 23017
+Z -1 22917
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -1660,7 +1660,7 @@ D1
 ~
 ~
 ~
-Z -1 23011
+Z -1 22911
 D2
 @eng The borderland kingdom of Arafel lies to the south.
 @rus Пограничное королевство Арафел лежит на юге.
@@ -1668,7 +1668,7 @@ D2
 ~
 ~
 ~
-Z -1 23110
+Z -1 23010
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -1676,9 +1676,9 @@ D3
 ~
 ~
 ~
-Z -1 23021
+Z -1 22921
 S
-#23017
+#22917
 @eng Entering the Blight@rus Вход в Запустение~
 @eng The corrupted tress of the Blight sway in the wind, leaves and branches
 seeming to grab at you as you pass by them.  Your nightmares seem like fanciful
@@ -1700,7 +1700,7 @@ D0
 ~
 ~
 ~
-Z -1 23018
+Z -1 22918
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -1708,7 +1708,7 @@ D1
 ~
 ~
 ~
-Z -1 23012
+Z -1 22912
 D2
 @eng As you look more closely to the south you see a small trail of smoke.
 @rus Когда ты более пристально смотришь на юг, ты видишь маленький
@@ -1717,7 +1717,7 @@ D2
 ~
 ~
 ~
-Z -1 23016
+Z -1 22916
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -1725,9 +1725,9 @@ D3
 ~
 ~
 ~
-Z -1 23022
+Z -1 22922
 S
-#23018
+#22918
 @eng The Blight@rus Запустение~
 @eng This far north into the Blight shadows scurry everywhere, creatures of the
 Dark One seeking blood.  The trees are now blackened as if dead, but still sway
@@ -1747,7 +1747,7 @@ D0
 ~
 ~
 ~
-Z -1 23019
+Z -1 22919
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -1755,7 +1755,7 @@ D1
 ~
 ~
 ~
-Z -1 23013
+Z -1 22913
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -1763,7 +1763,7 @@ D2
 ~
 ~
 ~
-Z -1 23017
+Z -1 22917
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -1771,9 +1771,9 @@ D3
 ~
 ~
 ~
-Z -1 23023
+Z -1 22923
 S
-#23019
+#22919
 @eng The Blight@rus Запустение~
 @eng This far north into the Blight shadows scurry everywhere, creatures of the
 Dark Oneseeking blood.  The trees are now blackened as if dead, but still sway
@@ -1793,7 +1793,7 @@ D0
 ~
 ~
 ~
-Z -1 23020
+Z -1 22920
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -1801,7 +1801,7 @@ D1
 ~
 ~
 ~
-Z -1 23014
+Z -1 22914
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -1809,7 +1809,7 @@ D2
 ~
 ~
 ~
-Z -1 23018
+Z -1 22918
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -1817,9 +1817,9 @@ D3
 ~
 ~
 ~
-Z -1 23024
+Z -1 22924
 S
-#23020
+#22920
 @eng The Blight@rus Запустение~
 @eng This far north into the Blight shadows scurry everywhere, creatures of the
 Dark One seeking blood.  The trees are now blackened as if dead, but still sway
@@ -1839,7 +1839,7 @@ D0
 ~
 ~
 ~
-Z -1 24086
+Z -1 23186
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -1847,7 +1847,7 @@ D1
 ~
 ~
 ~
-Z -1 23015
+Z -1 22915
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -1855,7 +1855,7 @@ D2
 ~
 ~
 ~
-Z -1 23019
+Z -1 22919
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -1863,9 +1863,9 @@ D3
 ~
 ~
 ~
-Z -1 23025
+Z -1 22925
 S
-#23021
+#22921
 @eng Edge of the Blight@rus Край Запустения~
 @eng The air here is much more humid than in the borderland kingdom of Arafel to
 the south, each breath is a labor, taxing your strength as you move through the
@@ -1886,7 +1886,7 @@ D0
 ~
 ~
 ~
-Z -1 23022
+Z -1 22922
 D1
 @eng As you look more closely to the east you see a small trail of smoke.
 @rus Когда ты более пристально смотришь на восток, ты видишь маленький
@@ -1895,7 +1895,7 @@ D1
 ~
 ~
 ~
-Z -1 23016
+Z -1 22916
 D2
 @eng The borderland kingdom of Arafel lies to the south.
 @rus Пограничное королевство Арафел лежит на юге.
@@ -1903,7 +1903,7 @@ D2
 ~
 ~
 ~
-Z -1 23109
+Z -1 23009
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -1911,9 +1911,9 @@ D3
 ~
 ~
 ~
-Z -1 23026
+Z -1 22926
 S
-#23022
+#22922
 @eng Entering the Blight@rus Вход в Запустение~
 @eng The corrupted tress of the Blight sway in the wind, leaves and branches
 seeming to grab at you as you pass by them.  Your nightmares seem like fanciful
@@ -1935,7 +1935,7 @@ D0
 ~
 ~
 ~
-Z -1 23023
+Z -1 22923
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -1943,7 +1943,7 @@ D1
 ~
 ~
 ~
-Z -1 23017
+Z -1 22917
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -1951,7 +1951,7 @@ D2
 ~
 ~
 ~
-Z -1 23021
+Z -1 22921
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -1959,9 +1959,9 @@ D3
 ~
 ~
 ~
-Z -1 23027
+Z -1 22927
 S
-#23023
+#22923
 @eng The Blight@rus Запустение~
 @eng This far north into the Blight shadows scurry everywhere, creatures of the
 Dark One seeking blood.  The trees are blackened now as if dead, but still sway
@@ -1981,7 +1981,7 @@ D0
 ~
 ~
 ~
-Z -1 23024
+Z -1 22924
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -1989,7 +1989,7 @@ D1
 ~
 ~
 ~
-Z -1 23018
+Z -1 22918
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -1997,7 +1997,7 @@ D2
 ~
 ~
 ~
-Z -1 23022
+Z -1 22922
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -2005,9 +2005,9 @@ D3
 ~
 ~
 ~
-Z -1 23028
+Z -1 22928
 S
-#23024
+#22924
 @eng The Blight@rus Запустение~
 @eng You are now miles into the Blight.  As you search the surrounding area you
 see the vegetation in this area is almost solid black now.  Suddenly you notice
@@ -2025,7 +2025,7 @@ D0
 ~
 ~
 ~
-Z -1 23025
+Z -1 22925
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -2033,7 +2033,7 @@ D1
 ~
 ~
 ~
-Z -1 23019
+Z -1 22919
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -2041,7 +2041,7 @@ D2
 ~
 ~
 ~
-Z -1 23023
+Z -1 22923
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -2049,9 +2049,9 @@ D3
 ~
 ~
 ~
-Z -1 23029
+Z -1 22929
 S
-#23025
+#22925
 @eng The Blight@rus Запустение~
 @eng This far north into the Blight shadows scurry everywhere, creatures of the
 Dark One seeking blood.  The trees are now blackened as if dead, but still sway
@@ -2071,7 +2071,7 @@ D0
 ~
 ~
 ~
-Z -1 24087
+Z -1 23187
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -2079,7 +2079,7 @@ D1
 ~
 ~
 ~
-Z -1 23020
+Z -1 22920
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -2087,7 +2087,7 @@ D2
 ~
 ~
 ~
-Z -1 23024
+Z -1 22924
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -2095,9 +2095,9 @@ D3
 ~
 ~
 ~
-Z -1 23030
+Z -1 22930
 S
-#23026
+#22926
 @eng Edge of the Blight@rus Край Запустения~
 @eng The air here is much more humid than in the borderland kingdom of Arafel to
 the south, each breath is a labor, taxing your strength as you move through the
@@ -2118,7 +2118,7 @@ D0
 ~
 ~
 ~
-Z -1 23027
+Z -1 22927
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -2126,7 +2126,7 @@ D1
 ~
 ~
 ~
-Z -1 23021
+Z -1 22921
 D2
 @eng The borderland kingdom of Arafel lies to the south.
 @rus Пограничное королевство Арафел лежит на юге.
@@ -2134,7 +2134,7 @@ D2
 ~
 ~
 ~
-Z -1 23108
+Z -1 23008
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -2142,9 +2142,9 @@ D3
 ~
 ~
 ~
-Z -1 23031
+Z -1 22931
 S
-#23027
+#22927
 @eng Entering the Blight@rus Вход в Запустение~
 @eng The corrupted trees of the Blight sway in the wind, leaves and branches
 seeming to grab at you as you pass by them.  Your nightmares seem like fanciful
@@ -2166,7 +2166,7 @@ D0
 ~
 ~
 ~
-Z -1 23028
+Z -1 22928
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -2174,7 +2174,7 @@ D1
 ~
 ~
 ~
-Z -1 23022
+Z -1 22922
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -2182,7 +2182,7 @@ D2
 ~
 ~
 ~
-Z -1 23026
+Z -1 22926
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -2190,9 +2190,9 @@ D3
 ~
 ~
 ~
-Z -1 23032
+Z -1 22932
 S
-#23028
+#22928
 @eng The Blight@rus Запустение~
 @eng The Blight surounds you on all sides, trees shivering as if laughing at you
 as you enter this stretch of the Blight.  You don't have time to wonder what
@@ -2211,7 +2211,7 @@ D0
 ~
 ~
 ~
-Z -1 23029
+Z -1 22929
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -2219,7 +2219,7 @@ D1
 ~
 ~
 ~
-Z -1 23023
+Z -1 22923
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -2227,7 +2227,7 @@ D2
 ~
 ~
 ~
-Z -1 23027
+Z -1 22927
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -2235,9 +2235,9 @@ D3
 ~
 ~
 ~
-Z -1 23033
+Z -1 22933
 S
-#23029
+#22929
 @eng The Blight@rus Запустение~
 @eng This far north into the Blight shadows scurry everywhere, creatures of the
 Dark One seeking blood.  The trees are now blackened as if dead, but still sway
@@ -2257,7 +2257,7 @@ D0
 ~
 ~
 ~
-Z -1 23030
+Z -1 22930
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -2265,7 +2265,7 @@ D1
 ~
 ~
 ~
-Z -1 23024
+Z -1 22924
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -2273,7 +2273,7 @@ D2
 ~
 ~
 ~
-Z -1 23028
+Z -1 22928
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -2281,9 +2281,9 @@ D3
 ~
 ~
 ~
-Z -1 23034
+Z -1 22934
 S
-#23030
+#22930
 @eng The Blight@rus Запустение~
 @eng This far north into the Blight shadows scurry everywhere, creatures of the
 Dark One seeking blood.  The trees are now blackened as if dead, but still sway
@@ -2303,7 +2303,7 @@ D0
 ~
 ~
 ~
-Z -1 24088
+Z -1 23188
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -2311,7 +2311,7 @@ D1
 ~
 ~
 ~
-Z -1 23025
+Z -1 22925
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -2319,7 +2319,7 @@ D2
 ~
 ~
 ~
-Z -1 23029
+Z -1 22929
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -2327,9 +2327,9 @@ D3
 ~
 ~
 ~
-Z -1 23035
+Z -1 22935
 S
-#23031
+#22931
 @eng Edge of the Blight@rus Край Запустения~
 @eng The air here is much more humid than in the borderland kingdom of Kandor to
 the south, each breath is a labor, taxing your strength as you move through the
@@ -2350,7 +2350,7 @@ D0
 ~
 ~
 ~
-Z -1 23032
+Z -1 22932
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -2358,7 +2358,7 @@ D1
 ~
 ~
 ~
-Z -1 23026
+Z -1 22926
 D2
 @eng The borderland kingdom of Kandor lies to the south.
 @rus Пограничное королевство Кандор лежит на юге.
@@ -2366,7 +2366,7 @@ D2
 ~
 ~
 ~
-Z -1 23107
+Z -1 23007
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -2374,9 +2374,9 @@ D3
 ~
 ~
 ~
-Z -1 23036
+Z -1 22936
 S
-#23032
+#22932
 @eng Entering the Blight@rus Вход в Запустение~
 @eng The corrupted trees of the Blight sway in the wind, leaves and branches
 seeming to grab at you as you pass by them.  Your nightmares seem like fanciful
@@ -2398,7 +2398,7 @@ D0
 ~
 ~
 ~
-Z -1 23033
+Z -1 22933
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -2406,7 +2406,7 @@ D1
 ~
 ~
 ~
-Z -1 23027
+Z -1 22927
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -2414,7 +2414,7 @@ D2
 ~
 ~
 ~
-Z -1 23031
+Z -1 22931
 D3
 @eng As you look more closely to the west you see a small trail of smoke.
 @rus Когда ты более пристально смотришь на запад, ты видишь маленький
@@ -2423,9 +2423,9 @@ D3
 ~
 ~
 ~
-Z -1 23037
+Z -1 22937
 S
-#23033
+#22933
 @eng The Blight@rus Запустение~
 @eng This far north into the Blight shadows scurry everywhere, creatures of the
 Dark One seeking blood.  The trees are now blackened as if dead, but still sway
@@ -2445,7 +2445,7 @@ D0
 ~
 ~
 ~
-Z -1 23034
+Z -1 22934
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -2453,7 +2453,7 @@ D1
 ~
 ~
 ~
-Z -1 23028
+Z -1 22928
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -2461,7 +2461,7 @@ D2
 ~
 ~
 ~
-Z -1 23032
+Z -1 22932
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -2469,9 +2469,9 @@ D3
 ~
 ~
 ~
-Z -1 23038
+Z -1 22938
 S
-#23034
+#22934
 @eng The Blight@rus Запустение~
 @eng This far north into the Blight shadows scurry everywhere, creatures of the
 Dark One seeking blood.  The trees are now blackened as if dead, but still sway
@@ -2491,7 +2491,7 @@ D0
 ~
 ~
 ~
-Z -1 23035
+Z -1 22935
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -2499,7 +2499,7 @@ D1
 ~
 ~
 ~
-Z -1 23029
+Z -1 22929
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -2507,7 +2507,7 @@ D2
 ~
 ~
 ~
-Z -1 23033
+Z -1 22933
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -2515,9 +2515,9 @@ D3
 ~
 ~
 ~
-Z -1 23039
+Z -1 22939
 S
-#23035
+#22935
 @eng The Blight@rus Запустение~
 @eng A dark cloud blots out what little light reaches this stretch of land in
 the far north of the Blight.  You survey the surrounding countryside as you
@@ -2540,7 +2540,7 @@ D0
 ~
 ~
 ~
-Z -1 24089
+Z -1 23189
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -2548,7 +2548,7 @@ D1
 ~
 ~
 ~
-Z -1 23030
+Z -1 22930
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -2556,7 +2556,7 @@ D2
 ~
 ~
 ~
-Z -1 23034
+Z -1 22934
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -2564,9 +2564,9 @@ D3
 ~
 ~
 ~
-Z -1 23040
+Z -1 22940
 S
-#23036
+#22936
 @eng Edge of the Blight@rus Край Запустения~
 @eng The air here is much more humid than in the borderland kingdom of Kandor to
 the south, each breath is a labor, taxing your strength as you move through the
@@ -2588,7 +2588,7 @@ D0
 ~
 ~
 ~
-Z -1 23037
+Z -1 22937
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -2596,7 +2596,7 @@ D1
 ~
 ~
 ~
-Z -1 23031
+Z -1 22931
 D2
 @eng The borderland kingdom of Kandor lies to the south.
 @rus Пограничное королевство Кандор лежит на юге.
@@ -2604,7 +2604,7 @@ D2
 ~
 ~
 ~
-Z -1 23106
+Z -1 23006
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -2612,9 +2612,9 @@ D3
 ~
 ~
 ~
-Z -1 23041
+Z -1 22941
 S
-#23037
+#22937
 @eng Entering the Blight@rus Вход в Запустение~
 @eng You have stumbled across a scouting party of Trollocs.  A small fire burns
 in the center of the camp.  They appear to be preparing to enjoy a Trolloc
@@ -2633,7 +2633,7 @@ D0
 ~
 ~
 ~
-Z -1 23038
+Z -1 22938
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -2641,7 +2641,7 @@ D1
 ~
 ~
 ~
-Z -1 23032
+Z -1 22932
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -2649,7 +2649,7 @@ D2
 ~
 ~
 ~
-Z -1 23036
+Z -1 22936
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -2657,9 +2657,9 @@ D3
 ~
 ~
 ~
-Z -1 23042
+Z -1 22942
 S
-#23038
+#22938
 @eng The Blight@rus Запустение~
 @eng This far north into the Blight shadows scurry everywhere, creatures of the
 Dark One seeking blood.  The trees are now blackened as if dead, but still sway
@@ -2679,7 +2679,7 @@ D0
 ~
 ~
 ~
-Z -1 23039
+Z -1 22939
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -2687,7 +2687,7 @@ D1
 ~
 ~
 ~
-Z -1 23033
+Z -1 22933
 D2
 @eng As you look more closely to the south you see a small trail of smoke.
 @rus Когда ты более пристально смотришь на юг, ты видишь маленький
@@ -2696,7 +2696,7 @@ D2
 ~
 ~
 ~
-Z -1 23037
+Z -1 22937
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -2704,9 +2704,9 @@ D3
 ~
 ~
 ~
-Z -1 23043
+Z -1 22943
 S
-#23039
+#22939
 @eng The Blight@rus Запустение~
 @eng This far north into the Blight shadows scurry everywhere, creatures of the
 Dark One seeking blood.  The trees are now blackened as if dead, but still sway
@@ -2726,7 +2726,7 @@ D0
 ~
 ~
 ~
-Z -1 23040
+Z -1 22940
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -2734,7 +2734,7 @@ D1
 ~
 ~
 ~
-Z -1 23034
+Z -1 22934
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -2742,7 +2742,7 @@ D2
 ~
 ~
 ~
-Z -1 23038
+Z -1 22938
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -2750,9 +2750,9 @@ D3
 ~
 ~
 ~
-Z -1 23044
+Z -1 22944
 S
-#23040
+#22940
 @eng The Blight@rus Запустение~
 @eng This far north into the Blight shadows scurry everywhere, creatures of the
 Dark One seeking blood.  The trees are now blackened as if dead, but still sway
@@ -2772,7 +2772,7 @@ D0
 ~
 ~
 ~
-Z -1 24090
+Z -1 23190
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -2780,7 +2780,7 @@ D1
 ~
 ~
 ~
-Z -1 23035
+Z -1 22935
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -2788,7 +2788,7 @@ D2
 ~
 ~
 ~
-Z -1 23039
+Z -1 22939
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -2796,9 +2796,9 @@ D3
 ~
 ~
 ~
-Z -1 23045
+Z -1 22945
 S
-#23041
+#22941
 @eng Edge of the Blight@rus Край Запустения~
 @eng The air here is much more humid than in the borderland kingdom of Kandor to
 the south, each breath is a labor, taxing your strength as you move through the
@@ -2819,7 +2819,7 @@ D0
 ~
 ~
 ~
-Z -1 23042
+Z -1 22942
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -2827,7 +2827,7 @@ D1
 ~
 ~
 ~
-Z -1 23036
+Z -1 22936
 D2
 @eng The borderland kingdom of Kandor lies to the south.
 @rus Пограничное королевство Кандор лежит на юге.
@@ -2835,7 +2835,7 @@ D2
 ~
 ~
 ~
-Z -1 23105
+Z -1 23005
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -2843,9 +2843,9 @@ D3
 ~
 ~
 ~
-Z -1 23046
+Z -1 22946
 S
-#23042
+#22942
 @eng Entering the Blight@rus Вход в Запустение~
 @eng The corrupted trees of the Blight sway in the wind, leaves and branches
 seeming to grab at you as you pass by them.  Your nightmares seem like fanciful
@@ -2867,7 +2867,7 @@ D0
 ~
 ~
 ~
-Z -1 23043
+Z -1 22943
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -2875,7 +2875,7 @@ D1
 ~
 ~
 ~
-Z -1 23037
+Z -1 22937
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -2883,7 +2883,7 @@ D2
 ~
 ~
 ~
-Z -1 23041
+Z -1 22941
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -2891,9 +2891,9 @@ D3
 ~
 ~
 ~
-Z -1 23047
+Z -1 22947
 S
-#23043
+#22943
 @eng The Blight@rus Запустение~
 @eng You are now miles into the Blight.  As you search the surrounding area you
 see the vegetation in this area is almost solid black now.  Suddenly you notice
@@ -2911,7 +2911,7 @@ D0
 ~
 ~
 ~
-Z -1 23044
+Z -1 22944
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -2919,7 +2919,7 @@ D1
 ~
 ~
 ~
-Z -1 23038
+Z -1 22938
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -2927,7 +2927,7 @@ D2
 ~
 ~
 ~
-Z -1 23042
+Z -1 22942
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -2935,9 +2935,9 @@ D3
 ~
 ~
 ~
-Z -1 23048
+Z -1 22948
 S
-#23044
+#22944
 @eng The Blight@rus Запустение~
 @eng This far north into the Blight shadows scurry everywhere, creatures of the
 Dark One seeking blood.  The trees are now blackened as if dead, but still sway
@@ -2957,7 +2957,7 @@ D0
 ~
 ~
 ~
-Z -1 23045
+Z -1 22945
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -2965,7 +2965,7 @@ D1
 ~
 ~
 ~
-Z -1 23039
+Z -1 22939
 D2
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -2973,7 +2973,7 @@ D2
 ~
 ~
 ~
-Z -1 23043
+Z -1 22943
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -2981,9 +2981,9 @@ D3
 ~
 ~
 ~
-Z -1 23049
+Z -1 22949
 S
-#23045
+#22945
 @eng The Blight@rus Запустение~
 @eng This far north into the Blight shadows scurry everywhere, creatures of the
 Dark One seeking blood.  The trees are now blackened as if dead, but still sway
@@ -3003,7 +3003,7 @@ D0
 ~
 ~
 ~
-Z -1 24091
+Z -1 23191
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -3011,7 +3011,7 @@ D1
 ~
 ~
 ~
-Z -1 23040
+Z -1 22940
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -3019,7 +3019,7 @@ D2
 ~
 ~
 ~
-Z -1 23044
+Z -1 22944
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -3027,9 +3027,9 @@ D3
 ~
 ~
 ~
-Z -1 23050
+Z -1 22950
 S
-#23046
+#22946
 @eng Edge of the Blight@rus Край Запустения~
 @eng The air here is much more humid than in the borderland kingdom of Kandor to
 the south, each breath is a labor, taxing your strength as you move through the
@@ -3050,7 +3050,7 @@ D0
 ~
 ~
 ~
-Z -1 23047
+Z -1 22947
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -3058,7 +3058,7 @@ D1
 ~
 ~
 ~
-Z -1 23041
+Z -1 22941
 D2
 @eng The borderland kingdom of Saldaea lies to the south.
 @rus Пограничное королевство Салдэя лежит на юге.
@@ -3066,7 +3066,7 @@ D2
 ~
 ~
 ~
-Z -1 23104
+Z -1 23004
 D3
 @eng As you look more closely to the west you see a small trail of smoke.
 @rus Когда ты более пристально смотришь на запад, ты видишь маленький
@@ -3075,9 +3075,9 @@ D3
 ~
 ~
 ~
-Z -1 23051
+Z -1 22951
 S
-#23047
+#22947
 @eng Entering the Blight@rus Вход в Запустение~
 @eng The corrupted trees of the Blight sway in the wind, leaves and branches
 seeming to grab at you as you pass by them.  Your nightmares seem like fanciful
@@ -3099,7 +3099,7 @@ D0
 ~
 ~
 ~
-Z -1 23048
+Z -1 22948
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -3107,7 +3107,7 @@ D1
 ~
 ~
 ~
-Z -1 23042
+Z -1 22942
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -3115,7 +3115,7 @@ D2
 ~
 ~
 ~
-Z -1 23046
+Z -1 22946
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -3123,9 +3123,9 @@ D3
 ~
 ~
 ~
-Z -1 23052
+Z -1 22952
 S
-#23048
+#22948
 @eng The Blight@rus Запустение~
 @eng This far north into the Blight shadows scurry everywhere, creatures of the
 Dark One seeking blood.  The trees are now blackened as if dead, but still sway
@@ -3145,7 +3145,7 @@ D0
 ~
 ~
 ~
-Z -1 23049
+Z -1 22949
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -3153,7 +3153,7 @@ D1
 ~
 ~
 ~
-Z -1 23043
+Z -1 22943
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -3161,7 +3161,7 @@ D2
 ~
 ~
 ~
-Z -1 23047
+Z -1 22947
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -3169,9 +3169,9 @@ D3
 ~
 ~
 ~
-Z -1 23053
+Z -1 22953
 S
-#23049
+#22949
 @eng The Blight@rus Запустение~
 @eng This far north into the Blight shadows scurry everywhere, creatures of the
 Dark One seeking blood.  The trees are now blackened as if dead, but still sway
@@ -3191,7 +3191,7 @@ D0
 ~
 ~
 ~
-Z -1 23050
+Z -1 22950
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -3199,7 +3199,7 @@ D1
 ~
 ~
 ~
-Z -1 23044
+Z -1 22944
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -3207,7 +3207,7 @@ D2
 ~
 ~
 ~
-Z -1 23048
+Z -1 22948
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -3215,9 +3215,9 @@ D3
 ~
 ~
 ~
-Z -1 23054
+Z -1 22954
 S
-#23050
+#22950
 @eng The Blight@rus Запустение~
 @eng This far north into the Blight shadows scurry everywhere, creatures of the
 Dark One seeking blood.  The trees are now blackened as if dead, but still sway
@@ -3237,7 +3237,7 @@ D0
 ~
 ~
 ~
-Z -1 24092
+Z -1 23192
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -3245,7 +3245,7 @@ D1
 ~
 ~
 ~
-Z -1 23045
+Z -1 22945
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -3253,7 +3253,7 @@ D2
 ~
 ~
 ~
-Z -1 23049
+Z -1 22949
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -3261,9 +3261,9 @@ D3
 ~
 ~
 ~
-Z -1 23055
+Z -1 22955
 S
-#23051
+#22951
 @eng Edge of the Blight@rus Край Запустения~
 @eng You have stumbled across a scouting party of Trollocs.  A small fire burns
 in the center of the camp.  They appear to be preparing to enjoy a Trolloc
@@ -3282,7 +3282,7 @@ D0
 ~
 ~
 ~
-Z -1 23052
+Z -1 22952
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -3290,7 +3290,7 @@ D1
 ~
 ~
 ~
-Z -1 23046
+Z -1 22946
 D2
 @eng The borderland kingdom of Saldaea lies to the south.
 @rus Пограничное королевство Салдэя лежит на юге.
@@ -3298,7 +3298,7 @@ D2
 ~
 ~
 ~
-Z -1 23103
+Z -1 23003
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -3306,9 +3306,9 @@ D3
 ~
 ~
 ~
-Z -1 23056
+Z -1 22956
 S
-#23052
+#22952
 @eng Entering the Blight@rus Вход в Запустение~
 @eng The corrupted trees of the Blight sway in the wind, leaves and branches
 seeming to grab at you as you pass by them.  Your nightmares seem like fanciful
@@ -3330,7 +3330,7 @@ D0
 ~
 ~
 ~
-Z -1 23053
+Z -1 22953
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -3338,7 +3338,7 @@ D1
 ~
 ~
 ~
-Z -1 23047
+Z -1 22947
 D2
 @eng As you look moe closely to the south you see a small trail of smoke.
 @rus Когда ты более пристально смотришь на юг, ты видишь маленький
@@ -3347,7 +3347,7 @@ D2
 ~
 ~
 ~
-Z -1 23051
+Z -1 22951
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -3355,9 +3355,9 @@ D3
 ~
 ~
 ~
-Z -1 23057
+Z -1 22957
 S
-#23053
+#22953
 @eng The Blight@rus Запустение~
 @eng This far north into the Blight shadows scurry everywhere, creatures of the
 Dark One seeking blood.  The trees are now blackened as if dead, but still sway
@@ -3382,7 +3382,7 @@ D0
 ~
 ~
 ~
-Z -1 23054
+Z -1 22954
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -3390,7 +3390,7 @@ D1
 ~
 ~
 ~
-Z -1 23048
+Z -1 22948
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -3398,7 +3398,7 @@ D2
 ~
 ~
 ~
-Z -1 23052
+Z -1 22952
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -3406,9 +3406,9 @@ D3
 ~
 ~
 ~
-Z -1 23058
+Z -1 22958
 S
-#23054
+#22954
 @eng The Blight@rus Запустение~
 @eng You are now miles into the Blight.  As you search the surrounding area you
 see the vegetation in this area is almost solid black now.  Suddenly you notice
@@ -3426,7 +3426,7 @@ D0
 ~
 ~
 ~
-Z -1 23055
+Z -1 22955
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -3434,7 +3434,7 @@ D1
 ~
 ~
 ~
-Z -1 23049
+Z -1 22949
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -3442,7 +3442,7 @@ D2
 ~
 ~
 ~
-Z -1 23053
+Z -1 22953
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -3450,9 +3450,9 @@ D3
 ~
 ~
 ~
-Z -1 23059
+Z -1 22959
 S
-#23055
+#22955
 @eng The Blight@rus Запустение~
 @eng This far north into the Blight shadows scurry everywhere, creatures of the
 Dark One seeking blood.  The trees are now blackened as if dead, but still sway
@@ -3472,7 +3472,7 @@ D0
 ~
 ~
 ~
-Z -1 24093
+Z -1 23193
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -3480,7 +3480,7 @@ D1
 ~
 ~
 ~
-Z -1 23050
+Z -1 22950
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -3488,7 +3488,7 @@ D2
 ~
 ~
 ~
-Z -1 23054
+Z -1 22954
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -3496,9 +3496,9 @@ D3
 ~
 ~
 ~
-Z -1 23060
+Z -1 22960
 S
-#23056
+#22956
 @eng Edge of the Blight@rus Край Запустения~
 @eng The air here is much more humid than in the borderland kingdom of Kandor to
 the south, each breath is a labor, taxing your strength as you move through the
@@ -3519,7 +3519,7 @@ D0
 ~
 ~
 ~
-Z -1 23057
+Z -1 22957
 D1
 @eng As you look more closely to the east you see a small trail of smoke.
 @rus Когда ты более пристально смотришь на восток, ты видишь маленький
@@ -3528,7 +3528,7 @@ D1
 ~
 ~
 ~
-Z -1 23051
+Z -1 22951
 D2
 @eng The borderland kingdom of Saldaea lies to the south.
 @rus Пограничное королевство Салдэя лежит на юге.
@@ -3536,7 +3536,7 @@ D2
 ~
 ~
 ~
-Z -1 23102
+Z -1 23002
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -3544,9 +3544,9 @@ D3
 ~
 ~
 ~
-Z -1 23100
+Z -1 23000
 S
-#23057
+#22957
 @eng Entering the Blight@rus Вход в Запустение~
 @eng The corrupted trees of the Blight sway in the wind, leaves and branches
 seeming to grab at you as you pass by them.  Your nightmares seem like fanciful
@@ -3568,7 +3568,7 @@ D0
 ~
 ~
 ~
-Z -1 23058
+Z -1 22958
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -3576,7 +3576,7 @@ D1
 ~
 ~
 ~
-Z -1 23052
+Z -1 22952
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -3584,7 +3584,7 @@ D2
 ~
 ~
 ~
-Z -1 23056
+Z -1 22956
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -3592,9 +3592,9 @@ D3
 ~
 ~
 ~
-Z -1 24099
+Z -1 23199
 S
-#23058
+#22958
 @eng The Blight@rus Запустение~
 @eng This far north into the Blight shadows scurry everywhere, creatures of the
 Dark One seeking blood.  The trees are now blackened as if dead, but still sway
@@ -3614,7 +3614,7 @@ D0
 ~
 ~
 ~
-Z -1 23059
+Z -1 22959
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -3622,7 +3622,7 @@ D1
 ~
 ~
 ~
-Z -1 23053
+Z -1 22953
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -3630,7 +3630,7 @@ D2
 ~
 ~
 ~
-Z -1 23057
+Z -1 22957
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -3638,9 +3638,9 @@ D3
 ~
 ~
 ~
-Z -1 24098
+Z -1 23198
 S
-#23059
+#22959
 @eng The Blight@rus Запустение~
 @eng This far north into the Blight shadows scurry everywhere, creatures of the
 Dark One seeking blood.  The trees are now blackened as if dead, but still sway
@@ -3660,7 +3660,7 @@ D0
 ~
 ~
 ~
-Z -1 23060
+Z -1 22960
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -3668,7 +3668,7 @@ D1
 ~
 ~
 ~
-Z -1 23054
+Z -1 22954
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -3676,7 +3676,7 @@ D2
 ~
 ~
 ~
-Z -1 23058
+Z -1 22958
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -3684,9 +3684,9 @@ D3
 ~
 ~
 ~
-Z -1 24097
+Z -1 23197
 S
-#23060
+#22960
 @eng The Blight@rus Запустение~
 @eng This area of the Blight seems like all the others at first, death and
 disease reigning everywhere.  Then you notice a small outcrop of rock that
@@ -3708,7 +3708,7 @@ D0
 ~
 ~
 ~
-Z -1 24094
+Z -1 23194
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -3716,7 +3716,7 @@ D1
 ~
 ~
 ~
-Z -1 23055
+Z -1 22955
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -3724,7 +3724,7 @@ D2
 ~
 ~
 ~
-Z -1 23059
+Z -1 22959
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -3732,7 +3732,7 @@ D3
 ~
 ~
 ~
-Z -1 24096
+Z -1 23196
 D5
 @eng The air here seems shimmer as you gaze downward.
 @rus Кажется, что воздух здесь светится, когда ты пристально смотришь вниз.
@@ -3740,9 +3740,9 @@ D5
 ~
 ~
 ~
-Z -1 24063
+Z -1 23163
 S
-#23061
+#22961
 @eng Into the Breach@rus В проломе~
 @eng You have entered into a breach in the wall of one of the Seven Towers,
 Trolloc armies over ran this tower many years ago.  To the east lies a hallway
@@ -3763,7 +3763,7 @@ D1
 ~
 ~
 ~
-Z -1 23062
+Z -1 22962
 D3
 @eng The Blight lies to the west.
 @rus Запустение находится на востоке.
@@ -3771,9 +3771,9 @@ D3
 ~
 ~
 ~
-Z -1 23004
+Z -1 22904
 S
-#23062
+#22962
 @eng The Hallway@rus Коридор~
 @eng You are now in a hallway on the main floor of the tower.  Faded banners and
 black streaks of dried blood line the walls.  A set of stairs can be seen off
@@ -3791,7 +3791,7 @@ D1
 ~
 ~
 ~
-Z -1 23063
+Z -1 22963
 D2
 @eng A set of stairs lies to the south.
 @rus Лестничные ступеньки находятся на юге.
@@ -3799,7 +3799,7 @@ D2
 ~
 ~
 ~
-Z -1 23065
+Z -1 22965
 D3
 @eng A breach in the tower wall is west from here.
 @rus Пролом в башенной стене к западу отсюда.
@@ -3807,9 +3807,9 @@ D3
 ~
 ~
 ~
-Z -1 23061
+Z -1 22961
 S
-#23063
+#22963
 @eng The Hallway@rus Коридор~
 @eng You are now in the center of the hallway on the main floor of the tower.
 You see the remains of Trollocs and men lying about this ruined tower.  Many
@@ -3830,7 +3830,7 @@ D0
 ~
 ~
 ~
-Z -1 23067
+Z -1 22967
 D1
 @eng The hallway continues to the east.
 @rus Коридор продолжается на восток.
@@ -3838,7 +3838,7 @@ D1
 ~
 ~
 ~
-Z -1 23064
+Z -1 22964
 D2
 @eng A large yard lies to the south.
 @rus На юге находится большой двор.
@@ -3846,7 +3846,7 @@ D2
 ~
 ~
 ~
-Z -1 23068
+Z -1 22968
 D3
 @eng The hallway continues to the west.
 @rus Коридор продолжается на запад.
@@ -3854,9 +3854,9 @@ D3
 ~
 ~
 ~
-Z -1 23062
+Z -1 22962
 S
-#23064
+#22964
 @eng The Hallway@rus Коридор~
 @eng You are now in a hallway on the main floor of the tower.  Faded banners and
 black streaks of dried blood line the walls.  A set of stairs can be seen off
@@ -3874,7 +3874,7 @@ D2
 ~
 ~
 ~
-Z -1 23066
+Z -1 22966
 D3
 @eng The hallway continues to the west.
 @rus Коридор продолжается на запад.
@@ -3882,9 +3882,9 @@ D3
 ~
 ~
 ~
-Z -1 23063
+Z -1 22963
 S
-#23065
+#22965
 @eng A Stairwell@rus Лестничный пролет~
 @eng Now well into the tower the light has faltered, as you weave your way
 through the oppressive darkness of the tower.  Here a stairway leads up into
@@ -3903,7 +3903,7 @@ D0
 ~
 ~
 ~
-Z -1 23062
+Z -1 22962
 D4
 @eng The stairs lead up to the second floor.
 @rus Ступеньки ведут наверх на второй этаж.
@@ -3911,9 +3911,9 @@ D4
 ~
 ~
 ~
-Z -1 23072
+Z -1 22972
 S
-#23066
+#22966
 @eng A Stairwell@rus Лестничный пролет~
 @eng Now well into the tower the light has faltered, as you weave your way
 through the oppressive darkness of the tower.  Here a stairway leads down into
@@ -3932,7 +3932,7 @@ D0
 ~
 ~
 ~
-Z -1 23064
+Z -1 22964
 D5
 @eng A set of stairs leads down into the tower.
 @rus Ступеньки ведут вниз в башню.
@@ -3940,9 +3940,9 @@ D5
 ~
 ~
 ~
-Z -1 23098
+Z -1 22998
 S
-#23067
+#22967
 @eng The Stables@rus Конюшни~
 @eng Although you can tell this was a stables at one time from the stalls and
 the rotted leather of old tack and harnesses, the smell here is not of horses,
@@ -3965,9 +3965,9 @@ D2
 ~
 ~
 ~
-Z -1 23063
+Z -1 22963
 S
-#23068
+#22968
 @eng The Main Yard@rus Главный двор~
 @eng Here is where the soldiers of this tower would gather before going on a
 patrol, before the tower was swallowed by the blight.  It appears it is also
@@ -3991,7 +3991,7 @@ D0
 ~
 ~
 ~
-Z -1 23063
+Z -1 22963
 D2
 @eng The smashed remains of a once stout door lies to the south.
 @rus На юге находятся разбитые остатки крепкой двери.
@@ -3999,9 +3999,9 @@ D2
 ~
 ~
 ~
-Z -1 23069
+Z -1 22969
 S
-#23069
+#22969
 @eng The Gatehouse@rus Сторожка~
 @eng You have entered the gatehouse of the tower, the soldiers must have fallen
 back to this room when they had been weakened by the Trolloc hordes that
@@ -4028,7 +4028,7 @@ D0
 ~
 ~
 ~
-Z -1 23068
+Z -1 22968
 D1
 @eng A small door lies to the east.
 @rus На востоке находится маленькая дверь.
@@ -4036,7 +4036,7 @@ D1
 ~
 ~
 ~
-ABCZ 23002 23071
+ABCZ 22902 22971
 D3
 @eng A small door leads to the west.
 @rus На запад ведет маленькая дверь.
@@ -4044,9 +4044,9 @@ D3
 ~
 ~
 ~
-ABCZ 23002 23070
+ABCZ 22902 22970
 S
-#23070
+#22970
 @eng A Guard Room@rus Комната стражи~
 @eng You have entered a guard room, this was once used to house the gate guards
 during the night, keeping part of the guards at the gate, while others slept
@@ -4068,9 +4068,9 @@ D1
 ~
 ~
 ~
-ABCZ 23002 23069
+ABCZ 22902 22969
 S
-#23071
+#22971
 @eng A Guard Room@rus Комната стражи~
 @eng You have entered a guard room, this was once used to house the gate guards
 during the night, keeping part of the guards at the gate, while others slept
@@ -4092,9 +4092,9 @@ D3
 ~
 ~
 ~
-ABCZ 23002 23069
+ABCZ 22902 22969
 S
-#23072
+#22972
 @eng A Stairwell@rus Лестничный пролет~
 @eng Now well into the tower the light has faltered, as you weave your way
 through the oppressive darkness of the tower.  Here a stairway leads down into
@@ -4113,7 +4113,7 @@ D0
 ~
 ~
 ~
-Z -1 23073
+Z -1 22973
 D5
 @eng A set of stairs leads down into the tower.
 @rus Лестничные ступеньки ведут вниз в башню.
@@ -4121,9 +4121,9 @@ D5
 ~
 ~
 ~
-Z -1 23065
+Z -1 22965
 S
-#23073
+#22973
 @eng The Hallway@rus Коридор~
 @eng You are now in a hallway on the second floor of the tower.  Faded banners
 and black streaks of dried blood line the walls.  A set of stairs can be seen
@@ -4141,7 +4141,7 @@ D1
 ~
 ~
 ~
-Z -1 23074
+Z -1 22974
 D2
 @eng A set of stairs lies to the south.
 @rus На юге находятся лестничные ступеньки.
@@ -4149,9 +4149,9 @@ D2
 ~
 ~
 ~
-Z -1 23072
+Z -1 22972
 S
-#23074
+#22974
 @eng The Hallway@rus Коридор~
 @eng You are now in the center of the hallway on the main floor of the tower.
 You see the remains of Trollocs and men lying about this ruined tower.  Many
@@ -4173,7 +4173,7 @@ D0
 ~
 ~
 ~
-Z -1 23077
+Z -1 22977
 D1
 @eng The hallway continues to the east.
 @rus Коридор продолжается на восток.
@@ -4181,7 +4181,7 @@ D1
 ~
 ~
 ~
-Z -1 23075
+Z -1 22975
 D2
 @eng A darkened room lies to the south.
 @rus На юге находится темная комната.
@@ -4189,7 +4189,7 @@ D2
 ~
 ~
 ~
-Z -1 23079
+Z -1 22979
 D3
 @eng The hallway continues to the west.
 @rus Коридор продолжается на запад.
@@ -4197,9 +4197,9 @@ D3
 ~
 ~
 ~
-Z -1 23073
+Z -1 22973
 S
-#23075
+#22975
 @eng The Hallway@rus Коридор~
 @eng You are now in a hallway on the second floor of the tower.  Faded banners
 and black streaks of dried blood line the walls.  A set of stairs can be seen
@@ -4217,7 +4217,7 @@ D2
 ~
 ~
 ~
-Z -1 23076
+Z -1 22976
 D3
 @eng The hallway continues to the west.
 @rus Коридор продолжается на запад.
@@ -4225,9 +4225,9 @@ D3
 ~
 ~
 ~
-Z -1 23074
+Z -1 22974
 S
-#23076
+#22976
 @eng A Stairwell@rus Лестничный пролет~
 @eng Now well into the tower the light has faltered, as you weave your way
 through the oppressive darkness of the tower.  Here a stairway leads up into
@@ -4246,7 +4246,7 @@ D0
 ~
 ~
 ~
-Z -1 23075
+Z -1 22975
 D4
 @eng A set of stairs leads up into the tower.
 @rus Лестничные ступеньки ведут наверх в башню.
@@ -4254,9 +4254,9 @@ D4
 ~
 ~
 ~
-Z -1 23080
+Z -1 22980
 S
-#23077
+#22977
 @eng The Kitchen@rus Кухня~
 @eng This was kitchen for the people of this tower.  Splintered tables and
 broken and dented pots and pans lay about the room.  Off to the south is a
@@ -4273,7 +4273,7 @@ D1
 ~
 ~
 ~
-ABZ -1 23078
+ABZ -1 22978
 D2
 @eng A hallway lies to the south.
 @rus Коридор продолжается на юг.
@@ -4281,9 +4281,9 @@ D2
 ~
 ~
 ~
-Z -1 23074
+Z -1 22974
 S
-#23078
+#22978
 @eng The Larder@rus Кладовая~
 @eng This was the larder for the kitchen, you notice a human skeleton hanging
 from one of the meat hooks that once held fleshly slaughtered beef when the
@@ -4304,9 +4304,9 @@ D3
 ~
 ~
 ~
-ABZ -1 23077
+ABZ -1 22977
 S
-#23079
+#22979
 @eng Dining Hall@rus Обеденный зал~
 @eng This is where the soldiers and servants of the tower took thier meals. All
 the tables and chairs in the room are broken and scattered about the room, you
@@ -4325,9 +4325,9 @@ D0
 ~
 ~
 ~
-Z -1 23074
+Z -1 22974
 S
-#23080
+#22980
 @eng A Stairwell@rus Лестничный пролет~
 @eng Now well into the tower the light has faltered, as you weave your way
 through the oppressive darkness of the tower.  Here a stairway leads down into
@@ -4346,7 +4346,7 @@ D0
 ~
 ~
 ~
-Z -1 23081
+Z -1 22981
 D5
 @eng A set of stairs leads down into the tower.
 @rus Лестничные ступеньки ведут вниз в башню.
@@ -4354,9 +4354,9 @@ D5
 ~
 ~
 ~
-Z -1 23076
+Z -1 22976
 S
-#23081
+#22981
 @eng The Hallway@rus Коридор~
 @eng You are now in a hallway on the third floor of the tower.  Faded banners
 and black streaks of dried blood line the walls.  On the northern wall a door
@@ -4375,7 +4375,7 @@ D0
 ~
 ~
 ~
-ABZ -1 23087
+ABZ -1 22987
 D2
 @eng A set of stairs lies to the south.
 @rus Несколько ступенек, ведущие вниз.
@@ -4383,7 +4383,7 @@ D2
 ~
 ~
 ~
-Z -1 23080
+Z -1 22980
 D3
 @eng The hallway continues to the west.
 @rus Коридор продолжается на запад.
@@ -4391,9 +4391,9 @@ D3
 ~
 ~
 ~
-Z -1 23082
+Z -1 22982
 S
-#23082
+#22982
 @eng The Hallway@rus Коридор~
 @eng You are now in the center of the hallway on the main floor of the tower.
 You see the remains of Trollocs and men lying about this ruined tower.  Many
@@ -4414,7 +4414,7 @@ D1
 ~
 ~
 ~
-Z -1 23081
+Z -1 22981
 D2
 @eng A door stands in the southern wall.
 @rus Ты видишь дверь в южной стене.
@@ -4422,7 +4422,7 @@ D2
 ~
 ~
 ~
-Z -1 23089
+Z -1 22989
 D3
 @eng The hallway continues to the west.
 @rus Коридор продолжается на запад.
@@ -4430,9 +4430,9 @@ D3
 ~
 ~
 ~
-Z -1 23083
+Z -1 22983
 S
-#23083
+#22983
 @eng The Hallway@rus Коридор~
 @eng You are now in the center of the hallway on the main floor of the tower.
 You see the remains of Trollocs and men lying about this ruined tower.  Many
@@ -4453,7 +4453,7 @@ D0
 ~
 ~
 ~
-Z -1 23086
+Z -1 22986
 D1
 @eng The hallway continues to the east.
 @rus Коридор продолжается на восток.
@@ -4461,7 +4461,7 @@ D1
 ~
 ~
 ~
-Z -1 23082
+Z -1 22982
 D2
 @eng A door leads off into the tower to the south.
 @rus Открывается дверь в башню на юге.
@@ -4469,7 +4469,7 @@ D2
 ~
 ~
 ~
-Z -1 23088
+Z -1 22988
 D3
 @eng The hallway continues to the west.
 @rus Коридор продолжается на запад.
@@ -4477,9 +4477,9 @@ D3
 ~
 ~
 ~
-Z -1 23084
+Z -1 22984
 S
-#23084
+#22984
 @eng The Hallway@rus Коридор~
 @eng You are now in a hallway on the third floor of the tower.  Faded banners
 and black streaks of dried blood line the walls.  A set of stairs can be seen
@@ -4497,7 +4497,7 @@ D1
 ~
 ~
 ~
-Z -1 23083
+Z -1 22983
 D2
 @eng A set of stairs can be seen to the south.
 @rus На юге можно видеть лестничные ступеньки.
@@ -4505,9 +4505,9 @@ D2
 ~
 ~
 ~
-Z -1 23085
+Z -1 22985
 S
-#23085
+#22985
 @eng A Stairwell@rus Лестничный пролет~
 @eng Now well into the tower the light has faltered, as you weave your way
 through the oppressive darkness of the tower.  Here a stairway leads up into
@@ -4526,7 +4526,7 @@ D0
 ~
 ~
 ~
-Z -1 23084
+Z -1 22984
 D4
 @eng A set of stairs leads up into the tower.
 @rus Лестничные ступеньки ведут наверх в башню.
@@ -4534,9 +4534,9 @@ D4
 ~
 ~
 ~
-Z -1 23090
+Z -1 22990
 S
-#23086
+#22986
 @eng The Barracks@rus Казармы~
 @eng This is were the soldiers of the tower made thier home while in the service
 of the Tower's Lord.  The floor is covered with the rubble of old furnishings
@@ -4557,9 +4557,9 @@ D2
 ~
 ~
 ~
-Z -1 23083
+Z -1 22983
 S
-#23087
+#22987
 @eng Servant's Quarters@rus Жилище слуг~
 @eng This room used to house the servants of the tower, now only a rat or two
 lives in their places.  The room is bare except for rotting pallets bare of any
@@ -4576,9 +4576,9 @@ D2
 ~
 ~
 ~
-ABZ -1 23081
+ABZ -1 22981
 S
-#23088
+#22988
 @eng Officer's Quarters@rus Офицерская штаб-квартира~
 @eng This room is in amazingly good shape, appearantly these men were not in
 their quarters when the final assault took place.  You can see that the room
@@ -4597,9 +4597,9 @@ D0
 ~
 ~
 ~
-Z -1 23083
+Z -1 22983
 S
-#23089
+#22989
 @eng Captain's Quarters@rus Штаб-квартира капитана~
 @eng This room has been almost destroyed.  Nothing remains that has not been
 broken apart or totally destroyed.  The Trollocs seem to have been searching
@@ -4617,9 +4617,9 @@ D0
 ~
 ~
 ~
-Z -1 23082
+Z -1 22982
 S
-#23090
+#22990
 @eng A Stairwell@rus Лестничный пролет~
 @eng Now well into the tower the light has faltered, as you weave your way
 through the oppressive darkness of the tower.  Here a stairway leads down into
@@ -4638,7 +4638,7 @@ D0
 ~
 ~
 ~
-Z -1 23091
+Z -1 22991
 D5
 @eng A set of stairs leads down into the tower.
 @rus Лестничные ступеньки ведут вниз в башню.
@@ -4646,9 +4646,9 @@ D5
 ~
 ~
 ~
-Z -1 23085
+Z -1 22985
 S
-#23091
+#22991
 @eng The Hallway@rus Коридор~
 @eng You are now in a hallway on the top floor of the tower.  Faded banners and
 black streaks of dried blood line the walls.  A set of stairs can be seen off
@@ -4666,7 +4666,7 @@ D1
 ~
 ~
 ~
-Z -1 23092
+Z -1 22992
 D2
 @eng A set of stairs can be seen to the south.
 @rus На юге можно видеть лестничные ступеньки.
@@ -4674,9 +4674,9 @@ D2
 ~
 ~
 ~
-Z -1 23090
+Z -1 22990
 S
-#23092
+#22992
 @eng The Hallway@rus Коридор~
 @eng You are now in the center of the hallway on the main floor of the tower.
 You see the remains of Trollocs and men lying about this ruined tower.  Many
@@ -4699,7 +4699,7 @@ D0
 ~
 ~
 ~
-Z -1 23095
+Z -1 22995
 D1
 @eng The hallway continues to the east.
 @rus Коридор продолжается на восток.
@@ -4707,7 +4707,7 @@ D1
 ~
 ~
 ~
-Z -1 23093
+Z -1 22993
 D2
 @eng A large gilded door stands to the south.
 @rus На юге находится большая позолоченная дверь.
@@ -4715,7 +4715,7 @@ D2
 ~
 ~
 ~
-ABCFZ 23014 23096
+ABCFZ 22914 22996
 D3
 @eng The hallway continues to the west.
 @rus Коридор продолжается на запад.
@@ -4723,9 +4723,9 @@ D3
 ~
 ~
 ~
-Z -1 23091
+Z -1 22991
 S
-#23093
+#22993
 @eng The Hallway@rus Коридор~
 @eng You are now in a hallway on the top floor of the tower.  Faded banners and
 black streaks of dried blood line the walls.  A set of stairs can be seen off
@@ -4743,7 +4743,7 @@ D2
 ~
 ~
 ~
-Z -1 23094
+Z -1 22994
 D3
 @eng The hallway continues to the west.
 @rus Коридор продолжается на запад.
@@ -4751,9 +4751,9 @@ D3
 ~
 ~
 ~
-Z -1 23092
+Z -1 22992
 S
-#23094
+#22994
 @eng A Stairwell@rus Лестничный пролет~
 @eng Now well into the tower the light has faltered, as you weave your way
 through the oppressive darkness of the tower.  Here a stairway leads up onto
@@ -4772,7 +4772,7 @@ D0
 ~
 ~
 ~
-Z -1 23093
+Z -1 22993
 D4
 @eng The battlements of the tower lie above you.
 @rus Над тобой находятся крепостные стены башни.
@@ -4780,9 +4780,9 @@ D4
 ~
 ~
 ~
-Z -1 23097
+Z -1 22997
 S
-#23095
+#22995
 @eng The Feast Hall@rus Банкетный зал~
 @eng This room was meant to hold victory celebrations and welcome important
 guests, used by the Lord of the tower and soldiers alike.  It now lies in ruins
@@ -4806,9 +4806,9 @@ D2
 ~
 ~
 ~
-Z -1 23092
+Z -1 22992
 S
-#23096
+#22996
 @eng The Lord's Quarters@rus Штаб-квартира Лорда~
 @eng The Lord of the tower lived here, and in a fashion still does, the room is
 immaculate, it's furnishings still intact, and banners as colorful as if newly
@@ -4831,9 +4831,9 @@ D0
 ~
 ~
 ~
-ABCFZ 23014 23092
+ABCFZ 22914 22992
 S
-#23097
+#22997
 @eng The Battlements@rus Крепостные стены~
 @eng You stand atop one of the Seven Towers of the lost kingdom of Malkeri.
 Once this tower overlooked farms and houses of the Malkerians, now it overlooks
@@ -4855,9 +4855,9 @@ D5
 ~
 ~
 ~
-Z -1 23094
+Z -1 22994
 S
-#23098
+#22998
 @eng A Stairwell@rus Лестничный пролет~
 @eng Now well into the tower the light has faltered, as you weave your way
 through the oppressive darkness of the tower.  Here a stairway leads up into
@@ -4876,7 +4876,7 @@ D0
 ~
 ~
 ~
-Z -1 23099
+Z -1 22999
 D4
 @eng A set of stairs leads up into the tower.
 @rus Лестничные ступеньки ведут наверх в башню.
@@ -4884,9 +4884,9 @@ D4
 ~
 ~
 ~
-Z -1 23066
+Z -1 22966
 S
-#23099
+#22999
 @eng The Hallway@rus Коридор~
 @eng You are now in a hallway in the basement of the tower.  Faded banners and
 black streaks of dried blood line the walls.  A set of stairs can be seen off
@@ -4906,7 +4906,7 @@ D0
 ~
 ~
 ~
-ABZ -1 24004
+ABZ -1 23104
 D2
 @eng A set of stairs lies to the south.
 @rus На юге находятся лестничные ступеньки.
@@ -4914,7 +4914,7 @@ D2
 ~
 ~
 ~
-Z -1 23098
+Z -1 22998
 D3
 @eng The hallway continues to the west.
 @rus Коридор продолжается на запад.
@@ -4922,9 +4922,9 @@ D3
 ~
 ~
 ~
-Z -1 24000
+Z -1 23100
 S
-#23100
+#23000
 @eng By the Shore@rus На берегу~
 @eng A grotesque and disturbing site meets you eyes here.  The Blight still
 surrounds you all of it's death and decay strong in your mind.  But, what lies
@@ -4948,7 +4948,7 @@ D0
 ~
 ~
 ~
-Z -1 24099
+Z -1 23199
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -4956,7 +4956,7 @@ D1
 ~
 ~
 ~
-Z -1 23056
+Z -1 22956
 D2
 @eng The Borderland kingdom of Saldaea lies to the south.
 @rus Пограничное королевство Салдэя лежит на юге.
@@ -4964,9 +4964,9 @@ D2
 ~
 ~
 ~
-Z -1 23101
+Z -1 23001
 S
-#23101
+#23001
 @eng In the Borderlands@rus В пограничных землях~
 @eng You are just north of the borderland kingdom of Saldaea.  It is one of the
 four kingdom that hold back the Dark One's Shadowspawn from the rest of the
@@ -4987,7 +4987,7 @@ D0
 ~
 ~
 ~
-Z -1 23100
+Z -1 23000
 D1
 @eng The border continues to the east.
 @rus Граница продолжается на восток.
@@ -4995,9 +4995,9 @@ D1
 ~
 ~
 ~
-Z -1 23102
+Z -1 23002
 S
-#23102
+#23002
 @eng In the Borderlands@rus В пограничных землях~
 @eng You are just north of the borderland kingdom of Saldaea.  It is one of the
 four kingdom that hold back the Dark One's Shadowspawn from the rest of the
@@ -5018,7 +5018,7 @@ D0
 ~
 ~
 ~
-Z -1 23056
+Z -1 22956
 D1
 @eng The border continues to the east.
 @rus Граница продолжается на восток.
@@ -5026,7 +5026,7 @@ D1
 ~
 ~
 ~
-Z -1 23103
+Z -1 23003
 D3
 @eng The border continues to the west.
 @rus Граница продолжается на запад.
@@ -5034,9 +5034,9 @@ D3
 ~
 ~
 ~
-Z -1 23101
+Z -1 23001
 S
-#23103
+#23003
 @eng In the Borderlands@rus В пограничных землях~
 @eng You are just north of the borderland kingdom of Saldaea.  It is one of the
 four kingdom that hold back the Dark One's Shadowspawn from the rest of the
@@ -5057,7 +5057,7 @@ D0
 ~
 ~
 ~
-Z -1 23051
+Z -1 22951
 D1
 @eng The border continues to the east.
 @rus Граница продолжается на восток.
@@ -5065,7 +5065,7 @@ D1
 ~
 ~
 ~
-Z -1 23104
+Z -1 23004
 D3
 @eng The border continues ot the west.
 @rus Граница продолжается на восток.
@@ -5073,9 +5073,9 @@ D3
 ~
 ~
 ~
-Z -1 23102
+Z -1 23002
 S
-#23104
+#23004
 @eng In the Borderlands@rus В пограничных землях~
 @eng You are just north of the borderland kingdom of Saldaea.  It is one of the
 four kingdom that hold back the Dark One's Shadowspawn from the rest of the
@@ -5096,7 +5096,7 @@ D0
 ~
 ~
 ~
-Z -1 23046
+Z -1 22946
 D1
 @eng The border continues to the east.
 @rus Граница продолжается на восток.
@@ -5104,7 +5104,7 @@ D1
 ~
 ~
 ~
-Z -1 23105
+Z -1 23005
 D3
 @eng The border continues to the west.
 @rus Граница продолжается на запад.
@@ -5112,9 +5112,9 @@ D3
 ~
 ~
 ~
-Z -1 23103
+Z -1 23003
 S
-#23105
+#23005
 @eng In the Borderlands@rus В пограничных землях~
 @eng You are just north of the borderland kingdom of Kandor.  It is one of the
 four kingdom that hold back the Dark One's Shadowspawn from the rest of the
@@ -5135,7 +5135,7 @@ D0
 ~
 ~
 ~
-Z -1 23041
+Z -1 22941
 D1
 @eng The border continues to the east.
 @rus Граница продолжается на восток.
@@ -5143,7 +5143,7 @@ D1
 ~
 ~
 ~
-Z -1 23106
+Z -1 23006
 D3
 @eng The border continues to the west.
 @rus Граница продолжается на запад.
@@ -5151,9 +5151,9 @@ D3
 ~
 ~
 ~
-Z -1 23104
+Z -1 23004
 S
-#23106
+#23006
 @eng In the Borderlands@rus В пограничных землях~
 @eng You are just north of the borderland kingdom of Kandor.  It is one of the
 four kingdom that hold back the Dark One's Shadowspawn from the rest of the
@@ -5174,7 +5174,7 @@ D0
 ~
 ~
 ~
-Z -1 23036
+Z -1 22936
 D1
 @eng The border continues ot the east.
 @rus Граница продолжается на восток.
@@ -5182,7 +5182,7 @@ D1
 ~
 ~
 ~
-Z -1 23107
+Z -1 23007
 D3
 @eng The border continues ot the west.
 @rus Граница продолжается на запад.
@@ -5190,9 +5190,9 @@ D3
 ~
 ~
 ~
-Z -1 23105
+Z -1 23005
 S
-#23107
+#23007
 @eng In the Borderlands@rus В пограничных землях~
 @eng You are just north of the borderland kingdom of Kandor.  It is one of the
 four kingdom that hold back the Dark One's Shadowspawn from the rest of the
@@ -5213,7 +5213,7 @@ D0
 ~
 ~
 ~
-Z -1 23031
+Z -1 22931
 D1
 @eng The border continues to the east.
 @rus Граница продолжается на восток.
@@ -5221,7 +5221,7 @@ D1
 ~
 ~
 ~
-Z -1 23108
+Z -1 23008
 D3
 @eng The border continues to the west.
 @rus Граница продолжается на запад.
@@ -5229,9 +5229,9 @@ D3
 ~
 ~
 ~
-Z -1 23106
+Z -1 23006
 S
-#23108
+#23008
 @eng In the Borderlands@rus В пограничных землях~
 @eng You are just north of the borderland kingdom of Arafel.  It is one of the
 four kingdom that hold back the Dark One's Shadowspawn from the rest of the
@@ -5252,7 +5252,7 @@ D0
 ~
 ~
 ~
-Z -1 23026
+Z -1 22926
 D1
 @eng The border continues to the east.
 @rus Граница продолжается на восток.
@@ -5260,7 +5260,7 @@ D1
 ~
 ~
 ~
-Z -1 23109
+Z -1 23009
 D3
 @eng The border continues to the west.
 @rus Граница продолжается на запад.
@@ -5268,9 +5268,9 @@ D3
 ~
 ~
 ~
-Z -1 23107
+Z -1 23007
 S
-#23109
+#23009
 @eng In the Borderlands@rus В пограничных землях~
 @eng You are just north of the borderland kingdom of Arafel.  It is one of the
 four kingdom that hold back the Dark One's Shadowspawn from the rest of the
@@ -5291,7 +5291,7 @@ D0
 ~
 ~
 ~
-Z -1 23021
+Z -1 22921
 D1
 @eng The border continues to the east.
 @rus Граница продолжается на восток.
@@ -5299,7 +5299,7 @@ D1
 ~
 ~
 ~
-Z -1 23110
+Z -1 23010
 D3
 @eng The border continues to the west.
 @rus Граница продолжается на запад.
@@ -5307,9 +5307,9 @@ D3
 ~
 ~
 ~
-Z -1 23108
+Z -1 23008
 S
-#23110
+#23010
 @eng In the Borderlands@rus В пограничных землях~
 @eng You are just north of the borderland kingdom of Arafel.  It is one of the
 four kingdom that hold back the Dark One's Shadowspawn from the rest of the
@@ -5330,64 +5330,25 @@ D0
 ~
 ~
 ~
-Z -1 23016
+Z -1 22916
 D1
 @eng The border continues to the east.
 @rus Граница продолжается на восток.
-~
-~
-~
-~
-Z -1 23111
-D3
-@eng The border continues to the west.
-@rus Граница продолжается на восток.
-~
-~
-~
-~
-Z -1 23109
-S
-#23111
-@eng In the Borderlands@rus В пограничных землях~
-@eng You are just north of the borderland kingdom of Shienar.  It is one of the
-four kingdom that hold back the Dark One's Shadowspawn from the rest of the
-world.  They are a good people, but allow no one and nothing from the Blight to
-pass into thier lands, patrols meet you every effort to move farther south,
-turning you back with suspicious eyes.
-@rus Ты находишься сейчас просто к северу от пограничного королевства Шинар.
-Это одно из четырех королевств, которые сдерживают исчадий Тени Темного от
-остального мира. Они хорошие люди, но не позволят никому и ничему из
-Запустения пройти в их земли. Патрули, встречающие тебя при попытке пройти
-дальше на юг, поворачивают тебя обратно, подозрительно глядя вслед.
-~
-0 0 field
-D0
-@eng The Blight stretches northward.
-@rus Запустение простирается к северу отсюда.
 ~
 ~
 ~
 ~
 Z -1 23011
-D1
-@eng The border continues to the east.
+D3
+@eng The border continues to the west.
 @rus Граница продолжается на восток.
 ~
 ~
 ~
 ~
-Z -1 23112
-D3
-@eng The border continues to the west.
-@rus Граница продолжается на запад.
-~
-~
-~
-~
-Z -1 23110
+Z -1 23009
 S
-#23112
+#23011
 @eng In the Borderlands@rus В пограничных землях~
 @eng You are just north of the borderland kingdom of Shienar.  It is one of the
 four kingdom that hold back the Dark One's Shadowspawn from the rest of the
@@ -5408,7 +5369,7 @@ D0
 ~
 ~
 ~
-Z -1 23006
+Z -1 22911
 D1
 @eng The border continues to the east.
 @rus Граница продолжается на восток.
@@ -5416,7 +5377,7 @@ D1
 ~
 ~
 ~
-Z -1 23113
+Z -1 23012
 D3
 @eng The border continues to the west.
 @rus Граница продолжается на запад.
@@ -5424,9 +5385,9 @@ D3
 ~
 ~
 ~
-Z -1 23111
+Z -1 23010
 S
-#23113
+#23012
 @eng In the Borderlands@rus В пограничных землях~
 @eng You are just north of the borderland kingdom of Shienar.  It is one of the
 four kingdom that hold back the Dark One's Shadowspawn from the rest of the
@@ -5447,7 +5408,7 @@ D0
 ~
 ~
 ~
-Z -1 23001
+Z -1 22906
 D1
 @eng The border continues to the east.
 @rus Граница продолжается на восток.
@@ -5455,7 +5416,7 @@ D1
 ~
 ~
 ~
-Z -1 23114
+Z -1 23013
 D3
 @eng The border continues to the west.
 @rus Граница продолжается на запад.
@@ -5463,9 +5424,48 @@ D3
 ~
 ~
 ~
-Z -1 23112
+Z -1 23011
 S
-#23114
+#23013
+@eng In the Borderlands@rus В пограничных землях~
+@eng You are just north of the borderland kingdom of Shienar.  It is one of the
+four kingdom that hold back the Dark One's Shadowspawn from the rest of the
+world.  They are a good people, but allow no one and nothing from the Blight to
+pass into thier lands, patrols meet you every effort to move farther south,
+turning you back with suspicious eyes.
+@rus Ты находишься сейчас просто к северу от пограничного королевства Шинар.
+Это одно из четырех королевств, которые сдерживают исчадий Тени Темного от
+остального мира. Они хорошие люди, но не позволят никому и ничему из
+Запустения пройти в их земли. Патрули, встречающие тебя при попытке пройти
+дальше на юг, поворачивают тебя обратно, подозрительно глядя вслед.
+~
+0 0 field
+D0
+@eng The Blight stretches northward.
+@rus Запустение простирается к северу отсюда.
+~
+~
+~
+~
+Z -1 22901
+D1
+@eng The border continues to the east.
+@rus Граница продолжается на восток.
+~
+~
+~
+~
+Z -1 23014
+D3
+@eng The border continues to the west.
+@rus Граница продолжается на запад.
+~
+~
+~
+~
+Z -1 23012
+S
+#23014
 @eng In the Borderlands@rus В пограничных землях~
 @eng You are just north of the borderland kingdom of Shienar.  It is one of the
 four kingdom that hold back the Dark One's Shadowspawn from the rest of the
@@ -5486,7 +5486,7 @@ D0
 ~
 ~
 ~
-Z -1 24077
+Z -1 23177
 D1
 ~
 ~
@@ -5500,9 +5500,9 @@ D3
 ~
 ~
 ~
-Z -1 23113
+Z -1 23013
 S
-#23115
+#23015
 @eng A Warded Glade@rus Охраняемая поляна~
 @eng You didn't even see this area from the south!  It is not a luscious garden,
 but then again, there are actually some green plants here, as well as a spring
@@ -5525,9 +5525,9 @@ D2
 circle круг~
 @eng the circle@rus круг~
 ~
-ABCFZ 23025 24090
+ABCFZ 22925 23190
 S
-#24000
+#23100
 @eng The Hallway@rus Коридор~
 @eng You are now in the center of the hallway in the basement of the tower.  You
 see the remains of Trollocs and men lying about this ruined tower.  Many died
@@ -5549,7 +5549,7 @@ D1
 ~
 ~
 ~
-Z -1 23099
+Z -1 22999
 D2
 @eng A large sturdy door stands in the southern wall.
 @rus В южной стене находится большая крепкая дверь.
@@ -5557,7 +5557,7 @@ D2
 ~
 ~
 ~
-ABZ -1 24005
+ABZ -1 23105
 D3
 @eng The hallway continues to the west.
 @rus Коридор продолжается на запад.
@@ -5565,9 +5565,9 @@ D3
 ~
 ~
 ~
-Z -1 24001
+Z -1 23101
 S
-#24001
+#23101
 @eng The Hallway@rus Коридор~
 @eng You are now in a hallway in the basement of the tower.  Faded banners and
 black streaks of dried blood line the walls.  A set of stairs can be seen off
@@ -5586,7 +5586,7 @@ D0
 ~
 ~
 ~
-ABZ -1 24003
+ABZ -1 23103
 D1
 @eng The hallway continues to the east.
 @rus Коридор продолжается на восток.
@@ -5594,7 +5594,7 @@ D1
 ~
 ~
 ~
-Z -1 24000
+Z -1 23100
 D2
 @eng A set of stairs lies to the south.
 @rus . На юге находятся лестничные ступеньки.
@@ -5602,9 +5602,9 @@ D2
 ~
 ~
 ~
-Z -1 24002
+Z -1 23102
 S
-#24002
+#23102
 @eng A Stairwell@rus Лестничный пролет~
 @eng Now well into the tower the light has faltered, as you weave your way
 through the oppressive darkness of the tower.  Here a stairway leads down into
@@ -5623,7 +5623,7 @@ D0
 ~
 ~
 ~
-Z -1 24001
+Z -1 23101
 D5
 @eng A set of stairs leads down into the tower.
 @rus Лестничные ступеньки ведут вниз в башню.
@@ -5631,9 +5631,9 @@ D5
 ~
 ~
 ~
-Z -1 24006
+Z -1 23106
 S
-#24003
+#23103
 @eng Water Storage@rus Водохранилище~
 @eng Here is where the water for the tower was stored, appearantly gathered from
 one of the Hundred Lakes.  The water in the tank is no fouled like the water in
@@ -5653,7 +5653,7 @@ D2
 ~
 ~
 ~
-ABZ -1 24001
+ABZ -1 23101
 D3
 @eng A small duct leads into one of the Hundred Lakes.
 @rus Маленький канал ведет к одному из Сотни Озер.
@@ -5661,9 +5661,9 @@ D3
 ~
 ~
 ~
-Z -1 23009
+Z -1 22909
 S
-#24004
+#23104
 @eng The Training Room@rus Тренировочный зал~
 @eng Long ago, the finest warriors in the borderlands practiced thier skills in
 this room, shattered remnants of weapons, and a few skeletons are all that
@@ -5684,9 +5684,9 @@ D2
 ~
 ~
 ~
-ABZ -1 23099
+ABZ -1 22999
 S
-#24005
+#23105
 @eng The Armoury@rus Арсенал~
 @eng You have come across the towers armoury.  If you could repair what is left
 in this shattered room, you could equip a small army.  Unfourtunately, the
@@ -5707,9 +5707,9 @@ D0
 ~
 ~
 ~
-ABZ -1 24000
+ABZ -1 23100
 S
-#24006
+#23106
 @eng A Stairwell@rus Лестничный пролет~
 @eng Now well into the tower the light has faltered, as you weave your way
 through the oppressive darkness of the tower.  Here a stairway leads up into
@@ -5728,7 +5728,7 @@ D0
 ~
 ~
 ~
-Z -1 24007
+Z -1 23107
 D4
 @eng A set of stairs leads up into the tower.
 @rus Лестничные ступеньки ведут наверх в башню.
@@ -5736,9 +5736,9 @@ D4
 ~
 ~
 ~
-Z -1 24002
+Z -1 23102
 S
-#24007
+#23107
 @eng The Hallway@rus Коридор~
 @eng You are now in the dungeons of the tower.  There are no banners here to
 adorn the walls.  This was no a place of honor or celebration in the tower, and
@@ -5758,7 +5758,7 @@ D0
 ~
 ~
 ~
-ABCZ 23003 24009
+ABCZ 22903 23109
 D1
 @eng The hallway continues to the east.
 @rus Коридор продолжается на восток.
@@ -5766,7 +5766,7 @@ D1
 ~
 ~
 ~
-Z -1 24008
+Z -1 23108
 D2
 @eng A set of stairs lies to the south.
 @rus . На юге находятся лестничные ступеньки.
@@ -5774,9 +5774,9 @@ D2
 ~
 ~
 ~
-Z -1 24006
+Z -1 23106
 S
-#24008
+#23108
 @eng The Hallway@rus Коридор~
 @eng You are now in the dungeons of the tower.  There are no banners here to
 adorn the walls.  This was no a place of honor or celebration in the tower, and
@@ -5795,7 +5795,7 @@ D2
 ~
 ~
 ~
-ABCZ 23004 24011
+ABCZ 22904 23111
 D3
 @eng The hallway continues to the west.
 @rus Коридор продолжается на запад.
@@ -5803,9 +5803,9 @@ D3
 ~
 ~
 ~
-Z -1 24007
+Z -1 23107
 S
-#24009
+#23109
 @eng Guard Room@rus Комната стражи~
 @eng The dungeon's guards once kept their watch from this room.  There are no
 longer prisonners to watch, or guards to watch them however, and this room
@@ -5824,7 +5824,7 @@ D1
 ~
 ~
 ~
-ABZ -1 24010
+ABZ -1 23110
 D2
 @eng A stout door is set in the southern wall.
 @rus В южной стене находится крепкая дверь.
@@ -5832,9 +5832,9 @@ D2
 ~
 ~
 ~
-ABCZ 23003 24007
+ABCZ 22903 23107
 S
-#24010
+#23110
 @eng Interrogation Room@rus Комната допросов~
 @eng This is were the prisonners of the tower were questioned.  Although you do
 not see any implements of torture in this room, you feel certain the towers
@@ -5852,9 +5852,9 @@ D3
 ~
 ~
 ~
-ABZ -1 24009
+ABZ -1 23109
 S
-#24011
+#23111
 @eng The Cells@rus Камеры~
 @eng Although no one resides here any longer, you feel a sense of despair.  As
 you look around the area you notice that although the tower was taken, and that
@@ -5877,9 +5877,9 @@ D0
 ~
 ~
 ~
-ABCZ 23004 24008
+ABCZ 22904 23108
 S
-#24012
+#23112
 @eng Into the Breach@rus В проломе~
 @eng You have entered into a breach in the wall of one of the Seven Towers,
 Trolloc armies over ran this tower many years ago.  To the west lies a hallway
@@ -5900,7 +5900,7 @@ D1
 ~
 ~
 ~
-Z -1 23004
+Z -1 22904
 D3
 @eng A hallway lies to the west.
 @rus Коридор продолжается на запад.
@@ -5908,9 +5908,9 @@ D3
 ~
 ~
 ~
-Z -1 24013
+Z -1 23113
 S
-#24013
+#23113
 @eng The Hallway@rus Коридор~
 @eng You are now in a hallway on the main floor of the tower.  Faded banners and
 black streaks of dried blood line the walls.  A set of stairs can be seen off
@@ -5929,7 +5929,7 @@ D1
 ~
 ~
 ~
-Z -1 24012
+Z -1 23112
 D2
 @eng A set of stairs lies to the south.
 @rus На юге находятся лестничные ступеньки.
@@ -5937,7 +5937,7 @@ D2
 ~
 ~
 ~
-Z -1 24014
+Z -1 23114
 D3
 @eng The hallway continues to the west.
 @rus Коридор продолжается на запад.
@@ -5945,9 +5945,9 @@ D3
 ~
 ~
 ~
-Z -1 24015
+Z -1 23115
 S
-#24014
+#23114
 @eng A Stairwell@rus Лестничный пролет~
 @eng Now well into the tower the light has faltered, as you weave your way
 through the oppressive darkness of the tower.  Here a stairway leads down into
@@ -5966,7 +5966,7 @@ D0
 ~
 ~
 ~
-Z -1 24013
+Z -1 23113
 D5
 @eng A set of stairs leads down into the tower.
 @rus Лестничные ступеньки ведут вниз в башню.
@@ -5974,9 +5974,9 @@ D5
 ~
 ~
 ~
-Z -1 24049
+Z -1 23149
 S
-#24015
+#23115
 @eng The Hallway@rus Коридор~
 @eng You are now in the center of the hallway on the main floor of the tower.
 You see the remains of Trollocs and men lying about this ruined tower.  Many
@@ -5997,7 +5997,7 @@ D0
 ~
 ~
 ~
-Z -1 24018
+Z -1 23118
 D1
 @eng The hallway continues to the east.
 @rus Коридор продолжается на восток.
@@ -6005,7 +6005,7 @@ D1
 ~
 ~
 ~
-Z -1 24013
+Z -1 23113
 D2
 @eng A large yard lies to the south.
 @rus На юге находится большой двор.
@@ -6013,7 +6013,7 @@ D2
 ~
 ~
 ~
-Z -1 24019
+Z -1 23119
 D3
 @eng The hallway continues to the west.
 @rus Коридор продолжается на запад.
@@ -6021,9 +6021,9 @@ D3
 ~
 ~
 ~
-Z -1 24016
+Z -1 23116
 S
-#24016
+#23116
 @eng The Hallway@rus Коридор~
 @eng You are now in a hallway on the main floor of the tower.  Faded banners and
 black streaks of dried blood line the walls.  A set of stairs can be seen off
@@ -6041,7 +6041,7 @@ D1
 ~
 ~
 ~
-Z -1 24015
+Z -1 23115
 D2
 @eng A set of stairs lies to the south.
 @rus На юге находятся лестничные ступеньки.
@@ -6049,9 +6049,9 @@ D2
 ~
 ~
 ~
-Z -1 24017
+Z -1 23117
 S
-#24017
+#23117
 @eng A Stairwell@rus Лестничный пролет~
 @eng Now well into the tower the light has faltered, as you weave your way
 through the oppressive darkness of the tower.  Here a stairway leads up into
@@ -6070,7 +6070,7 @@ D0
 ~
 ~
 ~
-Z -1 24016
+Z -1 23116
 D4
 @eng A set of stairs leads up into the tower.
 @rus Лестничные ступеньки ведут наверх в башню.
@@ -6078,9 +6078,9 @@ D4
 ~
 ~
 ~
-Z -1 24023
+Z -1 23123
 S
-#24018
+#23118
 @eng The Stables@rus Конюшни~
 @eng Although you can tell this was a stables at one time from the stalls and
 the rotted leather of old tack and harnesses, the smell here is not of horses,
@@ -6103,9 +6103,9 @@ D2
 ~
 ~
 ~
-Z -1 24015
+Z -1 23115
 S
-#24019
+#23119
 @eng The Main Yard@rus Главный двор~
 @eng Here is where the soldiers of this tower would gather before going on a
 patrol, before the tower was swallowed by the blight.  It appears it is also
@@ -6128,7 +6128,7 @@ D0
 ~
 ~
 ~
-Z -1 24015
+Z -1 23115
 D2
 @eng A gatehouse can be seen to the south.
 @rus На юге можно видеть сторожку.
@@ -6136,9 +6136,9 @@ D2
 ~
 ~
 ~
-Z -1 24020
+Z -1 23120
 S
-#24020
+#23120
 @eng The Gatehouse@rus Сторожка~
 @eng You have entered the gatehouse of the tower, the soldiers must have fallen
 back to this room when they had been weakened by the Trolloc hordes that hard
@@ -6165,7 +6165,7 @@ D0
 ~
 ~
 ~
-Z -1 24019
+Z -1 23119
 D1
 @eng A small door lies to the east.
 @rus На востоке находится маленькая дверь.
@@ -6173,7 +6173,7 @@ D1
 ~
 ~
 ~
-ABCZ 23005 24022
+ABCZ 22905 23122
 D3
 @eng A small door lies to the west.
 @rus На западе находится маленькая дверь.
@@ -6181,9 +6181,9 @@ D3
 ~
 ~
 ~
-ABCZ 23005 24021
+ABCZ 22905 23121
 S
-#24021
+#23121
 @eng A Guard Room@rus Комната стражи~
 @eng You have entered a guard room, this was once used to house the gate guards
 during the night, keeping part of the guards at the gate, while others slept
@@ -6205,9 +6205,9 @@ D1
 ~
 ~
 ~
-ABCZ 23005 24020
+ABCZ 22905 23120
 S
-#24022
+#23122
 @eng A Guard Room@rus Комната стражи~
 @eng You have entered a guard room, this was once used to house the gate guards
 during the night, keeping part of the guards at the gate, while others slept
@@ -6229,9 +6229,9 @@ D3
 ~
 ~
 ~
-ABCZ 23005 24020
+ABCZ 22905 23120
 S
-#24023
+#23123
 @eng A Stairwell@rus Лестничный пролет~
 @eng Now well into the tower the light has faltered, as you weave your way
 through the oppressive darkness of the tower.  Here a stairway leads down into
@@ -6250,7 +6250,7 @@ D0
 ~
 ~
 ~
-Z -1 24024
+Z -1 23124
 D5
 @eng A set of stairs leads down into the tower.
 @rus Лестничные ступеньки ведут вниз в башню.
@@ -6258,9 +6258,9 @@ D5
 ~
 ~
 ~
-Z -1 24017
+Z -1 23117
 S
-#24024
+#23124
 @eng The Hallway@rus Коридор~
 @eng You are now in a hallway on the second floor of the tower.  Faded banners
 and black streaks of dried blood line the walls.  A set of stairs can be seen
@@ -6278,7 +6278,7 @@ D1
 ~
 ~
 ~
-Z -1 24025
+Z -1 23125
 D2
 @eng A set of stairs lies to the south.
 @rus На юге находятся лестничные ступеньки.
@@ -6286,9 +6286,9 @@ D2
 ~
 ~
 ~
-Z -1 24023
+Z -1 23123
 S
-#24025
+#23125
 @eng The Hallway@rus Коридор~
 @eng You are now in the center of the hallway on the main floor of the tower.
 You see the remains of Trollocs and men lying about this ruined tower.  Many
@@ -6310,7 +6310,7 @@ D0
 ~
 ~
 ~
-Z -1 24028
+Z -1 23128
 D1
 @eng The hallway continues to the east.
 @rus Коридор продолжается на восток.
@@ -6318,7 +6318,7 @@ D1
 ~
 ~
 ~
-Z -1 24026
+Z -1 23126
 D2
 @eng A darkened room lies to the south.
 @rus Н юге находится темная комната.
@@ -6326,7 +6326,7 @@ D2
 ~
 ~
 ~
-Z -1 24030
+Z -1 23130
 D3
 @eng The hallway continues to the west.
 @rus Коридор продолжается на запад.
@@ -6334,9 +6334,9 @@ D3
 ~
 ~
 ~
-Z -1 24024
+Z -1 23124
 S
-#24026
+#23126
 @eng The Hallway@rus Коридор~
 @eng You are now in a hallway on the second floor of the tower.  Faded banners
 and black streaks of dried blood line the walls.  A set of stairs can be seen
@@ -6354,7 +6354,7 @@ D2
 ~
 ~
 ~
-Z -1 24027
+Z -1 23127
 D3
 @eng The hallway continues to the west.
 @rus Коридор продолжается на запад.
@@ -6362,9 +6362,9 @@ D3
 ~
 ~
 ~
-Z -1 24025
+Z -1 23125
 S
-#24027
+#23127
 @eng A Stairwell@rus Лестничный пролет~
 @eng Now well into the tower the light has faltered, as you weave your way
 through the oppressive darkness of the tower.  Here a stairway leads up into
@@ -6383,7 +6383,7 @@ D0
 ~
 ~
 ~
-Z -1 24026
+Z -1 23126
 D4
 @eng A set of stairs leads up into the tower.
 @rus Лестничные ступеньки ведут наверх в башню.
@@ -6391,9 +6391,9 @@ D4
 ~
 ~
 ~
-Z -1 24031
+Z -1 23131
 S
-#24028
+#23128
 @eng The Kitchen@rus Кухня~
 @eng This was kitchen for the people of this tower.  Splintered tables and
 broken and dented pots and pans lay about the room.  Off to the south is a
@@ -6410,7 +6410,7 @@ D1
 ~
 ~
 ~
-ABZ -1 24029
+ABZ -1 23129
 D2
 @eng A hallway lies to the south.
 @rus Коридор продолжается на юг.
@@ -6418,9 +6418,9 @@ D2
 ~
 ~
 ~
-Z -1 24025
+Z -1 23125
 S
-#24029
+#23129
 @eng The Larder@rus Кладовая~
 @eng This was the larder for the kitchen, you notice a human skeleton hanging
 from one of the meat hooks that once held fleshly staughtered beef when the
@@ -6441,9 +6441,9 @@ D3
 ~
 ~
 ~
-ABZ -1 24028
+ABZ -1 23128
 S
-#24030
+#23130
 @eng Dining Hall@rus Обеденный зал~
 @eng This is where the soldiers and servants of the tower took thier meals. All
 the tables and chairs in the room are broken and scattered about the room, you
@@ -6462,9 +6462,9 @@ D0
 ~
 ~
 ~
-Z -1 24025
+Z -1 23125
 S
-#24031
+#23131
 @eng A Stairwell@rus Лестничный пролет~
 @eng Now well into the tower the light has faltered, as you weave your way
 through the oppressive darkness of the tower.  Here a stairway leads down into
@@ -6483,7 +6483,7 @@ D0
 ~
 ~
 ~
-Z -1 24032
+Z -1 23132
 D5
 @eng A set of stairs leads down into the tower.
 @rus Лестничные ступеньки ведут вниз в башню.
@@ -6491,9 +6491,9 @@ D5
 ~
 ~
 ~
-Z -1 24027
+Z -1 23127
 S
-#24032
+#23132
 @eng The Hallway@rus Коридор~
 @eng You are now in a hallway on the third floor of the tower.  Faded banners
 and black streaks of dried blood line the walls.  On the northern wall a door
@@ -6512,7 +6512,7 @@ D0
 ~
 ~
 ~
-ABZ -1 24038
+ABZ -1 23138
 D2
 @eng A set of stairs lies to the south.
 @rus На юге находятся лестничные ступеньки.
@@ -6520,7 +6520,7 @@ D2
 ~
 ~
 ~
-Z -1 24031
+Z -1 23131
 D3
 @eng The hallway continues on to the west.
 @rus Коридор продолжается на запад.
@@ -6528,9 +6528,9 @@ D3
 ~
 ~
 ~
-Z -1 24033
+Z -1 23133
 S
-#24033
+#23133
 @eng The Hallway@rus Коридор~
 @eng You are now in the center of the hallway on the main floor of the tower.
 You see the remains of Trollocs and men lying about this ruined tower.  Many
@@ -6551,7 +6551,7 @@ D1
 ~
 ~
 ~
-Z -1 24032
+Z -1 23132
 D2
 @eng A small door lies to the south.
 @rus На юге находится маленькая дверь.
@@ -6559,7 +6559,7 @@ D2
 ~
 ~
 ~
-Z -1 24040
+Z -1 23140
 D3
 @eng The hallway continues to the west.
 @rus Коридор продолжается на запад.
@@ -6567,9 +6567,9 @@ D3
 ~
 ~
 ~
-Z -1 24034
+Z -1 23134
 S
-#24034
+#23134
 @eng The Hallway@rus Коридор~
 @eng You are now in the center of the hallway on the main floor of the tower.
 You see the remains of Trollocs and men lying about this ruined tower.  Many
@@ -6590,7 +6590,7 @@ D0
 ~
 ~
 ~
-Z -1 24037
+Z -1 23137
 D1
 @eng The hallway continues to the east.
 @rus Коридор продолжается на восток.
@@ -6598,7 +6598,7 @@ D1
 ~
 ~
 ~
-Z -1 24033
+Z -1 23133
 D2
 @eng A door lies to the south.
 @rus На юге находится дверь.
@@ -6606,7 +6606,7 @@ D2
 ~
 ~
 ~
-Z -1 24039
+Z -1 23139
 D3
 @eng The hallway continues to the west.
 @rus Коридор продолжается на запад.
@@ -6614,9 +6614,9 @@ D3
 ~
 ~
 ~
-Z -1 24035
+Z -1 23135
 S
-#24035
+#23135
 @eng The Hallway@rus Коридор~
 @eng You are now in a hallway on the third floor of the tower.  Faded banners
 and black streaks of dried blood line the walls.  A set of stairs can be seen
@@ -6634,7 +6634,7 @@ D1
 ~
 ~
 ~
-Z -1 24034
+Z -1 23134
 D2
 @eng A set of stairs lies to the south.
 @rus На юге находятся лестничные ступеньки.
@@ -6642,9 +6642,9 @@ D2
 ~
 ~
 ~
-Z -1 24036
+Z -1 23136
 S
-#24036
+#23136
 @eng A Stairwell@rus Лестничный пролет~
 @eng Now well into the tower the light has faltered, as you weave your way
 through the oppressive darkness of the tower.  Here a stairway leads up into
@@ -6663,7 +6663,7 @@ D0
 ~
 ~
 ~
-Z -1 24035
+Z -1 23135
 D4
 @eng A set of stairs leads up into the tower.
 @rus Лестничные ступеньки ведут наверх в башню.
@@ -6671,9 +6671,9 @@ D4
 ~
 ~
 ~
-Z -1 24041
+Z -1 23141
 S
-#24037
+#23137
 @eng The Barracks@rus Казармы~
 @eng This is were the soldiers of the tower made thier home while in the service
 of the Tower's Lord.  The floor is covered with the rubble of old furnishings
@@ -6694,9 +6694,9 @@ D2
 ~
 ~
 ~
-Z -1 24034
+Z -1 23134
 S
-#24038
+#23138
 @eng Servant's Quarters@rus Жилище слуг~
 @eng This room used to house the servants of the tower, now only a rat or two
 lives in thier places.  The room is bare except for rotting pallets bare of any
@@ -6713,9 +6713,9 @@ D2
 ~
 ~
 ~
-ABZ -1 24032
+ABZ -1 23132
 S
-#24039
+#23139
 @eng Officer's Quarters@rus Офицерская штаб-квартира~
 @eng This room is in amazingly good shape, appearantly these men were not in
 thier quarters when the final assault took place.  You can see that the room
@@ -6734,9 +6734,9 @@ D0
 ~
 ~
 ~
-Z -1 24034
+Z -1 23134
 S
-#24040
+#23140
 @eng Captain's Quarters@rus Штаб-квартира капитана~
 @eng This room has been almost destroyed.  Nothing remains that has not been
 broken apart or totally destroyed.  The Trollocs seem to have been searching
@@ -6754,9 +6754,9 @@ D0
 ~
 ~
 ~
-Z -1 24033
+Z -1 23133
 S
-#24041
+#23141
 @eng A Stairwell@rus Лестничный пролет~
 @eng Now well into the tower the light has faltered, as you weave your way
 through the oppressive darkness of the tower.  Here a stairway leads down into
@@ -6775,7 +6775,7 @@ D0
 ~
 ~
 ~
-Z -1 24042
+Z -1 23142
 D5
 @eng A set of stairs leads down into the tower.
 @rus Лестничные ступеньки ведут вниз в башню.
@@ -6783,9 +6783,9 @@ D5
 ~
 ~
 ~
-Z -1 24036
+Z -1 23136
 S
-#24042
+#23142
 @eng The Hallway@rus Коридор~
 @eng You are now in a hallway on the top floor of the tower.  Faded banners and
 black streaks of dried blood line the walls.  A set of stairs can be seen off
@@ -6803,7 +6803,7 @@ D1
 ~
 ~
 ~
-Z -1 24043
+Z -1 23143
 D2
 @eng A set of stairs lies to the south.
 @rus На юге находятся лестничные ступеньки.
@@ -6811,9 +6811,9 @@ D2
 ~
 ~
 ~
-Z -1 24041
+Z -1 23141
 S
-#24043
+#23143
 @eng The Hallway@rus Коридор~
 @eng You are now in the center of the hallway on the main floor of the tower.
 You see the remains of Trollocs and men lying about this ruined tower.  Many
@@ -6836,7 +6836,7 @@ D0
 ~
 ~
 ~
-Z -1 24046
+Z -1 23146
 D1
 @eng The hallway continues to the east.
 @rus Коридор продолжается на восток.
@@ -6844,7 +6844,7 @@ D1
 ~
 ~
 ~
-Z -1 24044
+Z -1 23144
 D2
 @eng A large gilded door lies to the south.
 @rus На севере находится большая позолоченная дверь.
@@ -6852,7 +6852,7 @@ D2
 ~
 ~
 ~
-ABCFZ 23013 24047
+ABCFZ 22913 23147
 D3
 @eng The hallway continues to the west.
 @rus Коридор продолжается на запад.
@@ -6860,9 +6860,9 @@ D3
 ~
 ~
 ~
-Z -1 24042
+Z -1 23142
 S
-#24044
+#23144
 @eng The Hallway@rus Коридор~
 @eng You are now in a hallway on the top floor of the tower.  Faded banners and
 black streaks of dried blood line the walls.  A set of stairs can be seen off
@@ -6880,7 +6880,7 @@ D2
 ~
 ~
 ~
-Z -1 24045
+Z -1 23145
 D3
 @eng The hallway continues to the west.
 @rus Коридор продолжается на запад.
@@ -6888,9 +6888,9 @@ D3
 ~
 ~
 ~
-Z -1 24043
+Z -1 23143
 S
-#24045
+#23145
 @eng A Stairwell@rus Лестничный пролет~
 @eng Now well into the tower the light has faltered, as you weave your way
 through the oppressive darkness of the tower.  Here a stairway leads up onto
@@ -6909,7 +6909,7 @@ D0
 ~
 ~
 ~
-Z -1 24044
+Z -1 23144
 D4
 @eng A set of stairs leads up to the tower's battlements.
 @rus Лестничные ступеньки ведут наверх к крепостным стенам башни.
@@ -6917,9 +6917,9 @@ D4
 ~
 ~
 ~
-Z -1 24048
+Z -1 23148
 S
-#24046
+#23146
 @eng The Feast Hall@rus Банкетный зал~
 @eng This room was meant to hold victory celebrations and welcome important
 guests, used by the Lord of the tower and soldiers alike.  It now lies in ruins
@@ -6943,9 +6943,9 @@ D2
 ~
 ~
 ~
-Z -1 24043
+Z -1 23143
 S
-#24047
+#23147
 @eng The Lord's Quarters@rus Штаб-квартира Лорда~
 @eng The Lord of the tower lived here, and in a fashion still does, the room is
 immaculate, it's furnishings still intact, and banners as colorful as if newly
@@ -6968,9 +6968,9 @@ D0
 ~
 ~
 ~
-ABCFZ 23013 24043
+ABCFZ 22913 23143
 S
-#24048
+#23148
 @eng The Battlements@rus Крепостные стены~
 @eng You stand atop one of the Seven Towers of the lost kingdom of Malkeri.
 Once this tower overlooked farms and houses of the Malkerians, now it overlooks
@@ -6992,9 +6992,9 @@ D5
 ~
 ~
 ~
-Z -1 24045
+Z -1 23145
 S
-#24049
+#23149
 @eng A Stairwell@rus Лестничный пролет~
 @eng Now well into the tower the light has faltered, as you weave your way
 through the oppressive darkness of the tower.  Here a stairway leads up into
@@ -7013,7 +7013,7 @@ D0
 ~
 ~
 ~
-Z -1 24050
+Z -1 23150
 D4
 @eng A set of stairs leads up into the tower.
 @rus Лестничные ступеньки ведут наверх в башню.
@@ -7021,9 +7021,9 @@ D4
 ~
 ~
 ~
-Z -1 24014
+Z -1 23114
 S
-#24050
+#23150
 @eng The Hallway@rus Коридор~
 @eng You are now in a hallway in the basement of the tower.  Faded banners and
 black streaks of dried blood line the walls.  A set of stairs can be seen off
@@ -7043,7 +7043,7 @@ D0
 ~
 ~
 ~
-ABZ -1 24055
+ABZ -1 23155
 D2
 @eng A Stairwell is south from here.
 @rus Лестничный пролет находится к югу отсюда.
@@ -7051,7 +7051,7 @@ D2
 ~
 ~
 ~
-Z -1 24049
+Z -1 23149
 D3
 @eng The hallway continues to west.
 @rus Коридор продолжается на запад.
@@ -7059,9 +7059,9 @@ D3
 ~
 ~
 ~
-Z -1 24051
+Z -1 23151
 S
-#24051
+#23151
 @eng The Hallway@rus Коридор~
 @eng You are now in the center of the hallway in the basment of the tower.  You
 see the remains of Trollocs and men lying about this ruined tower.  Many died
@@ -7082,7 +7082,7 @@ D1
 ~
 ~
 ~
-Z -1 24050
+Z -1 23150
 D2
 @eng A stout door is set in the southern wall.
 @rus В южной стене находится крепкая дверь.
@@ -7090,7 +7090,7 @@ D2
 ~
 ~
 ~
-ABZ -1 24056
+ABZ -1 23156
 D3
 @eng The hallway continues to the west.
 @rus Коридор продолжается на запад.
@@ -7098,9 +7098,9 @@ D3
 ~
 ~
 ~
-Z -1 24052
+Z -1 23152
 S
-#24052
+#23152
 @eng The Hallway@rus Коридор~
 @eng You are now in a hallway in the basement of the tower.  Faded banners and
 black streaks of dried blood line the walls.  A set of stairs can be seen off
@@ -7119,7 +7119,7 @@ D0
 ~
 ~
 ~
-ABZ -1 24054
+ABZ -1 23154
 D1
 @eng The hallway continues to the east.
 @rus Коридор продолжается на восток.
@@ -7127,7 +7127,7 @@ D1
 ~
 ~
 ~
-Z -1 24051
+Z -1 23151
 D2
 @eng A set of stairs lies to the south.
 @rus На юге находятся лестничные ступеньки.
@@ -7135,9 +7135,9 @@ D2
 ~
 ~
 ~
-Z -1 24053
+Z -1 23153
 S
-#24053
+#23153
 @eng A Stairwell@rus Лестничный пролет~
 @eng Now well into the tower the light has faltered, as you weave your way
 through the oppressive darkness of the tower.  Here a stairway leads down into
@@ -7156,7 +7156,7 @@ D0
 ~
 ~
 ~
-Z -1 24052
+Z -1 23152
 D5
 @eng A set of stairs leads down into the tower.
 @rus Лестничные ступеньки ведут вниз в башню.
@@ -7164,9 +7164,9 @@ D5
 ~
 ~
 ~
-Z -1 24057
+Z -1 23157
 S
-#24054
+#23154
 @eng Water Storage@rus Водохранилище~
 @eng Here is where the water for the tower was stored, appearantly gathered fro
 one of the Hundred Lakes.  The water in the tank is no fouled like the water in
@@ -7186,7 +7186,7 @@ D2
 ~
 ~
 ~
-ABZ -1 24052
+ABZ -1 23152
 D3
 @eng A duct leads to on of the Hundred Lakes.
 @rus Канал ведет к одному из Сотни Озер.
@@ -7194,9 +7194,9 @@ D3
 ~
 ~
 ~
-Z -1 23009
+Z -1 22909
 S
-#24055
+#23155
 @eng The Training Room@rus Тренировочный зал~
 @eng Long ago, the finest warriors in the borderlands practiced thier skills in
 this room, shattered remnants of weapons, and a few skeletons are all that
@@ -7217,9 +7217,9 @@ D2
 ~
 ~
 ~
-ABZ -1 24050
+ABZ -1 23150
 S
-#24056
+#23156
 @eng The Armoury@rus Арсенал~
 @eng You have come across the towers armoury.  If you could repair what is left
 in this shattered room, you could equip a small army.  Unfourtunately, the
@@ -7240,9 +7240,9 @@ D0
 ~
 ~
 ~
-ABZ -1 24051
+ABZ -1 23151
 S
-#24057
+#23157
 @eng A Stairwell@rus Лестничный пролет~
 @eng Now well into the tower the light has faltered, as you weave your way
 through the oppressive darkness of the tower.  Here a stairway leads up into
@@ -7261,7 +7261,7 @@ D0
 ~
 ~
 ~
-Z -1 24058
+Z -1 23158
 D4
 @eng A set of stairs leads up into the tower.
 @rus Лестничные ступеньки ведут наверх в башню.
@@ -7269,9 +7269,9 @@ D4
 ~
 ~
 ~
-Z -1 24053
+Z -1 23153
 S
-#24058
+#23158
 @eng The Hallway@rus Коридор~
 @eng You are now in the dungeons of the tower.  There are now banners here to
 adorn the walls.  This was no a place of honor or celebration in the tower, and
@@ -7291,7 +7291,7 @@ D0
 ~
 ~
 ~
-ABCZ 23006 24060
+ABCZ 22906 23160
 D1
 @eng The hallway continues to the west.
 @rus Коридор продолжается на запад.
@@ -7299,7 +7299,7 @@ D1
 ~
 ~
 ~
-Z -1 24059
+Z -1 23159
 D2
 @eng A set of stairs lies to the south.
 @rus На юге находятся лестничные ступеньки.
@@ -7307,9 +7307,9 @@ D2
 ~
 ~
 ~
-Z -1 24057
+Z -1 23157
 S
-#24059
+#23159
 @eng The Hallway@rus Коридор~
 @eng You are now in the dungeons of the tower.  There are no banners here to
 adorn the walls.  This was no a place of honor or celebration in the tower, and
@@ -7328,7 +7328,7 @@ D2
 ~
 ~
 ~
-ABCZ 23007 24062
+ABCZ 22907 23162
 D3
 @eng The hallway continues to the west.
 @rus Коридор продолжается на запад.
@@ -7336,9 +7336,9 @@ D3
 ~
 ~
 ~
-Z -1 24058
+Z -1 23158
 S
-#24060
+#23160
 @eng Guard Room@rus Комната стражи~
 @eng The dungeon's guards once kept thier watch from this room.  There are no
 longer prisonners to watch, or guards to watch them however, and this room
@@ -7357,7 +7357,7 @@ D1
 ~
 ~
 ~
-ABZ -1 24061
+ABZ -1 23161
 D2
 @eng A hallway lies to the south.
 @rus Коридор продолжается на юге.
@@ -7365,9 +7365,9 @@ D2
 ~
 ~
 ~
-ABCZ 23006 24058
+ABCZ 22906 23158
 S
-#24061
+#23161
 @eng Interrogation Room@rus Комната допросов~
 @eng This is were the prisonners of the tower were questioned.  Although you do
 not see any implements of torture in this room, you feel certain the towers
@@ -7385,9 +7385,9 @@ D3
 ~
 ~
 ~
-ABZ -1 24060
+ABZ -1 23160
 S
-#24062
+#23162
 @eng The Cells@rus Камеры~
 @eng Although no one resides here any longer, you feel a sense of despair.  As
 you look around the area you notice that although the tower was taken, and that
@@ -7410,9 +7410,9 @@ D0
 ~
 ~
 ~
-ABCZ 23007 24059
+ABCZ 22907 23159
 S
-#24063
+#23163
 @eng Into the Past@rus В прошлом~
 @eng You forge your way down into the tower, but this is not what you expected,
 the air is shimmering, and you feel disoriented.  You are not in a room, it's
@@ -7432,7 +7432,7 @@ D0
 ~
 ~
 ~
-Z -1 24064
+Z -1 23164
 D1
 @eng You cannot pierce the shimmering air.
 @rus Ты не можешь проникнуть сквозь светящийся воздух.
@@ -7440,7 +7440,7 @@ D1
 ~
 ~
 ~
-Z -1 24067
+Z -1 23167
 D2
 @eng You cannot pierce the shimmering air.
 @rus Ты не можешь проникнуть сквозь светящийся воздух.
@@ -7448,7 +7448,7 @@ D2
 ~
 ~
 ~
-Z -1 24065
+Z -1 23165
 D3
 @eng You cannot pierce the shimmering air.
 @rus Ты не можешь проникнуть сквозь светящийся воздух.
@@ -7456,7 +7456,7 @@ D3
 ~
 ~
 ~
-Z -1 24066
+Z -1 23166
 D4
 @eng You sense a great evil above you.
 @rus Ты чувствуешь великое зло над собой.
@@ -7464,7 +7464,7 @@ D4
 ~
 ~
 ~
-Z -1 23060
+Z -1 22960
 D5
 @eng Things seem clearer downward.
 @rus Кажется, ты видишь какие-то вещи внизу.  
@@ -7472,9 +7472,9 @@ D5
 ~
 ~
 ~
-Z -1 24068
+Z -1 23168
 S
-#24064
+#23164
 @eng Foxes and Snakes@rus Лисы и Змеи~
 @eng Your mind is still foggy, but a memory of a childhood game struggles to the
 surface.  Foxes and Snakes.  A childhood game more complex than, but not unlike
@@ -7499,9 +7499,9 @@ D2
 ~
 ~
 ~
-Z -1 24063
+Z -1 23163
 S
-#24065
+#23165
 @eng Foxes and Snakes@rus Лисы и Змеи~
 @eng Your mind is still foggy, but a memory of a childhood game struggles to the
 surface.  Foxes and Snakes.  A childhood game more complex than, but not unlike
@@ -7526,9 +7526,9 @@ D0
 ~
 ~
 ~
-Z -1 24063
+Z -1 23163
 S
-#24066
+#23166
 @eng The Writing Room@rus Письменная комната~
 @eng You have entered into a large comfortable room.  Still a bit disoriented,
 it takes you a moment to realize there is a man sitting at a desk by a warm
@@ -7554,9 +7554,9 @@ D1
 ~
 ~
 ~
-Z -1 24063
+Z -1 23163
 S
-#24067
+#23167
 @eng A Strange Room@rus Странная комната~
 @eng You are awed by what you see before you, and a little confused.  Lighted
 boxes line a large room.  Lights of all colors blink on the boxes,  two men sit
@@ -7584,9 +7584,9 @@ D3
 ~
 ~
 ~
-Z -1 24063
+Z -1 23163
 S
-#24068
+#23168
 @eng The Center@rus Центр двора~
 @eng You are in the center of a large yard.  Around the yard people dressed in
 strange clothes move about.  Some of them look at you for a moment and move on,
@@ -7605,7 +7605,7 @@ D0
 ~
 ~
 ~
-Z -1 24073
+Z -1 23173
 D1
 @eng The Eastern Yard
 @rus Восточная часть двора.
@@ -7613,7 +7613,7 @@ D1
 ~
 ~
 ~
-Z -1 24071
+Z -1 23171
 D2
 @eng The Southern Yard
 @rus Южная часть двора.
@@ -7621,7 +7621,7 @@ D2
 ~
 ~
 ~
-Z -1 24069
+Z -1 23169
 D3
 @eng The Western Yard
 @rus Западная часть двора.
@@ -7629,7 +7629,7 @@ D3
 ~
 ~
 ~
-Z -1 24075
+Z -1 23175
 D4
 @eng The air is shimmering directly above you.
 @rus Воздух прямо над тобой светится.
@@ -7637,9 +7637,9 @@ D4
 ~
 ~
 ~
-Z -1 24063
+Z -1 23163
 S
-#24069
+#23169
 @eng The Southern Yard@rus Южная часть двора~
 @eng You are in the middle of the southern wall of this strange yard.  The wall
 appears to be made of glass, but when you test it's strength you find it harder
@@ -7660,7 +7660,7 @@ D0
 ~
 ~
 ~
-Z -1 24068
+Z -1 23168
 D1
 @eng The southeast corner of the yard is to the east.
 @rus Юго-восточный угол двора находится на востоке.
@@ -7668,7 +7668,7 @@ D1
 ~
 ~
 ~
-Z -1 24070
+Z -1 23170
 D3
 @eng The southwest corner of the yard is to the west.
 @rus Юго-западный угол двора находится на западе.
@@ -7676,9 +7676,9 @@ D3
 ~
 ~
 ~
-Z -1 24076
+Z -1 23176
 S
-#24070
+#23170
 @eng The Southeast Corner@rus Юго-восточный угол двора~
 @eng You stand in the southeast corner of this strange yard.  The wall
 surrounding the yard looks like glass, but when you test it's strength you find
@@ -7698,7 +7698,7 @@ D0
 ~
 ~
 ~
-Z -1 24071
+Z -1 23171
 D3
 @eng The southern wall of the yard is to the west.
 @rus Южная стена двора находится на западе.
@@ -7706,9 +7706,9 @@ D3
 ~
 ~
 ~
-Z -1 24069
+Z -1 23169
 S
-#24071
+#23171
 @eng The Eastern Yard@rus Восточная часть двора~
 @eng You are in the middle of the eastern wall of this strange yard.  The wall
 appears to be made of glass, but when you test it's strength you find it harder
@@ -7729,7 +7729,7 @@ D0
 ~
 ~
 ~
-Z -1 24072
+Z -1 23172
 D2
 @eng The southeast corner of the yard is to the south.
 @rus Юго-восточный угол двора находится на юге.
@@ -7737,7 +7737,7 @@ D2
 ~
 ~
 ~
-Z -1 24070
+Z -1 23170
 D3
 @eng The center of the yard is to the west.
 @rus Центр двора находится на западе.
@@ -7745,9 +7745,9 @@ D3
 ~
 ~
 ~
-Z -1 24068
+Z -1 23168
 S
-#24072
+#23172
 @eng The Northeast Corner@rus северо-восточный угол двора~
 @eng You stand in the northeast corner of this strange yard.  The wall
 surrounding the yard looks like glass, but when you test it's strength you find
@@ -7767,7 +7767,7 @@ D2
 ~
 ~
 ~
-Z -1 24071
+Z -1 23171
 D3
 @eng The north wall of the yard is to the west.
 @rus Северная стена двора находится на западе.
@@ -7775,9 +7775,9 @@ D3
 ~
 ~
 ~
-Z -1 24073
+Z -1 23173
 S
-#24073
+#23173
 @eng The Northern Yard@rus Северная часть двора~
 @eng You are in the middle of the northern wall of this strange yard.  The wall
 appears to be made of glass, but when you test it's strength you find it harder
@@ -7798,7 +7798,7 @@ D1
 ~
 ~
 ~
-Z -1 24072
+Z -1 23172
 D2
 @eng The center of the yard is to the south.
 @rus Центр двора находится на юге.
@@ -7806,7 +7806,7 @@ D2
 ~
 ~
 ~
-Z -1 24068
+Z -1 23168
 D3
 @eng The northwest corner of the yard is to the west.
 @rus Северо-западный угол двора находится на западе.
@@ -7814,9 +7814,9 @@ D3
 ~
 ~
 ~
-Z -1 24074
+Z -1 23174
 S
-#24074
+#23174
 @eng The Northwest Corner@rus Северо-западный угол двора~
 @eng You stand in the northwest corner of this strange yard.  The wall
 surrounding the yard looks like glass, but when you test it's strength you find
@@ -7836,7 +7836,7 @@ D1
 ~
 ~
 ~
-Z -1 24073
+Z -1 23173
 D2
 @eng The west wall of the yard is the south.
 @rus Западная стена двора находится на юге.
@@ -7844,9 +7844,9 @@ D2
 ~
 ~
 ~
-Z -1 24075
+Z -1 23175
 S
-#24075
+#23175
 @eng The Western Yard@rus Западная часть двора~
 @eng You are in the middle of the western wall of this strange yard.  The wall
 appears to be made of glass, but when you test it's strength you find it harder
@@ -7867,7 +7867,7 @@ D0
 ~
 ~
 ~
-Z -1 24074
+Z -1 23174
 D1
 @eng The center of the yard is to the east.
 @rus Центр двора находится на востоке.
@@ -7875,7 +7875,7 @@ D1
 ~
 ~
 ~
-Z -1 24068
+Z -1 23168
 D2
 @eng The southwest corner of the yard is to the south.
 @rus Юго-западный угол двора находится на юге.
@@ -7883,9 +7883,9 @@ D2
 ~
 ~
 ~
-Z -1 24076
+Z -1 23176
 S
-#24076
+#23176
 @eng The Southwest Corner@rus Юго-западный угол двора~
 @eng You stand in the southwest corner of this strange yard.  The wall
 surrounding the yard looks like glass, but when you test it's strength you find
@@ -7905,7 +7905,7 @@ D0
 ~
 ~
 ~
-Z -1 24075
+Z -1 23175
 D1
 @eng The south wall of the yard is to the east.
 @rus Южная стена двора находится на востоке.
@@ -7913,9 +7913,9 @@ D1
 ~
 ~
 ~
-Z -1 24069
+Z -1 23169
 S
-#24077
+#23177
 @eng Near The Spine of the World@rus Возле центрального меридиана~
 @eng You have travelled east all the way to the Spine of the World.  It's
 mountains loom above you to the east leaving you no further path to the east.
@@ -7936,7 +7936,7 @@ D0
 ~
 ~
 ~
-Z -1 24078
+Z -1 23178
 D2
 @eng The borderland kingdom of Shienar lies ot he south.
 @rus Пограничное королевство Шинар лежит на юге.
@@ -7944,7 +7944,7 @@ D2
 ~
 ~
 ~
-Z -1 23114
+Z -1 23014
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -7952,9 +7952,9 @@ D3
 ~
 ~
 ~
-Z -1 23001
+Z -1 22901
 S
-#24078
+#23178
 @eng Near The Spine of the World@rus Возле центрального меридиана~
 @eng You have travelled east all the way to the Spine of the World.  It's
 mountains loom above you to the east leaving you no further path to the east.
@@ -7975,7 +7975,7 @@ D0
 ~
 ~
 ~
-Z -1 24079
+Z -1 23179
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -7983,7 +7983,7 @@ D2
 ~
 ~
 ~
-Z -1 24077
+Z -1 23177
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -7991,9 +7991,9 @@ D3
 ~
 ~
 ~
-Z -1 23002
+Z -1 22902
 S
-#24079
+#23179
 @eng Near The Spine of the World@rus Возле центрального меридиана~
 @eng You have travelled east all the way to the Spine of the World.  It's
 mountains loom above you to the east leaving you no further path to the east.
@@ -8014,7 +8014,7 @@ D0
 ~
 ~
 ~
-Z -1 24080
+Z -1 23180
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -8022,7 +8022,7 @@ D2
 ~
 ~
 ~
-Z -1 24078
+Z -1 23178
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -8030,9 +8030,9 @@ D3
 ~
 ~
 ~
-Z -1 23003
+Z -1 22903
 S
-#24080
+#23180
 @eng Near The Spine of the World@rus Возле центрального меридиана~
 @eng You have travelled east all the way to the Spine of the World.  It's
 mountains loom above you to the east leaving you no further path to the east.
@@ -8053,7 +8053,7 @@ D0
 ~
 ~
 ~
-Z -1 24081
+Z -1 23181
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -8061,9 +8061,9 @@ D2
 ~
 ~
 ~
-Z -1 24079
+Z -1 23179
 S
-#24081
+#23181
 @eng Near The Spine of the World@rus Возле центрального меридиана~
 @eng You have travelled east all the way to the Spine of the World.  It's
 mountains loom above you to the east leaving you no further path to the east.
@@ -8084,7 +8084,7 @@ D0
 ~
 ~
 ~
-Z -1 24082
+Z -1 23182
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -8092,7 +8092,7 @@ D2
 ~
 ~
 ~
-Z -1 24080
+Z -1 23180
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -8100,9 +8100,9 @@ D3
 ~
 ~
 ~
-Z -1 23005
+Z -1 22905
 S
-#24082
+#23182
 @eng Tarwin's Gap@rus Ущелье Тарвина~
 @eng You have reached the beginning of Tarwin's Gap.  The largest pass in the
 Mountains of Dhoom.  Many great battles have taken place in this gap.
@@ -8127,7 +8127,7 @@ D2
 ~
 ~
 ~
-Z -1 24081
+Z -1 23181
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -8135,9 +8135,9 @@ D3
 ~
 ~
 ~
-Z -1 24083
+Z -1 23183
 S
-#24083
+#23183
 @eng Near the Mountains of Dhoom~
 @eng You stand at the base of the Mountains of Dhoom.  If things are this bad
 hundreds of miles from Shayol Ghul, you shiver at what the Blasted Lands to the
@@ -8152,7 +8152,7 @@ D1
 ~
 ~
 ~
-Z -1 24082
+Z -1 23182
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -8160,7 +8160,7 @@ D2
 ~
 ~
 ~
-Z -1 23005
+Z -1 22905
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -8168,9 +8168,9 @@ D3
 ~
 ~
 ~
-Z -1 24084
+Z -1 23184
 S
-#24084
+#23184
 @eng Near the Mountains of Dhoom@rus Около Пика Судеб~
 @eng You stand at the base of the Mountains of Dhoom.  If things are this bad
 hundreds of miles from Shayol Ghul, you shiver at what the Blasted Lands to the
@@ -8189,7 +8189,7 @@ D1
 ~
 ~
 ~
-Z -1 24083
+Z -1 23183
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -8197,7 +8197,7 @@ D2
 ~
 ~
 ~
-Z -1 23010
+Z -1 22910
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -8205,9 +8205,9 @@ D3
 ~
 ~
 ~
-Z -1 24085
+Z -1 23185
 S
-#24085
+#23185
 @eng Near the Mountains of Dhoom@rus Около Пика Судеб~
 @eng You stand at the base of the Mountains of Dhoom.  If things are this bad
 hundreds of miles from Shayol Ghul, you shiver at what the Blasted Lands to the
@@ -8226,7 +8226,7 @@ D1
 ~
 ~
 ~
-Z -1 24084
+Z -1 23184
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -8234,7 +8234,7 @@ D2
 ~
 ~
 ~
-Z -1 23015
+Z -1 22915
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -8242,9 +8242,9 @@ D3
 ~
 ~
 ~
-Z -1 24086
+Z -1 23186
 S
-#24086
+#23186
 @eng Near the Mountains of Dhoom@rus Около Пика Судеб~
 @eng You stand at the base of the Mountains of Dhoom.  If things are this bad
 hundreds of miles from Shayol Ghul, you shiver at what the Blasted Lands to the
@@ -8263,7 +8263,7 @@ D1
 ~
 ~
 ~
-Z -1 24085
+Z -1 23185
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -8271,7 +8271,7 @@ D2
 ~
 ~
 ~
-Z -1 23020
+Z -1 22920
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -8279,9 +8279,9 @@ D3
 ~
 ~
 ~
-Z -1 24087
+Z -1 23187
 S
-#24087
+#23187
 @eng Near the Mountains of Dhoom@rus Около Пика Судеб~
 @eng You stand at the base of the Mountains of Dhoom.  If things are this bad
 hundreds of miles from Shayol Ghul, you shiver at what the Blasted Lands to the
@@ -8300,7 +8300,7 @@ D1
 ~
 ~
 ~
-Z -1 24086
+Z -1 23186
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -8308,7 +8308,7 @@ D2
 ~
 ~
 ~
-Z -1 23025
+Z -1 22925
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -8316,9 +8316,9 @@ D3
 ~
 ~
 ~
-Z -1 24088
+Z -1 23188
 S
-#24088
+#23188
 @eng Near the Mountains of Dhoom@rus Около Пика Судеб~
 @eng You stand at the base of the Mountains of Dhoom.  If things are this bad
 hundreds of miles from Shayol Ghul, you shiver at what the Blasted Lands to the
@@ -8337,7 +8337,7 @@ D1
 ~
 ~
 ~
-Z -1 24087
+Z -1 23187
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -8345,7 +8345,7 @@ D2
 ~
 ~
 ~
-Z -1 23030
+Z -1 22930
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -8353,9 +8353,9 @@ D3
 ~
 ~
 ~
-Z -1 24089
+Z -1 23189
 S
-#24089
+#23189
 @eng Near the Mountains of Dhoom@rus Около Пика Судеб~
 @eng You stand at the base of the Mountains of Dhoom.  If things are this bad
 hundreds of miles from Shayol Ghul, you shiver at what the Blasted Lands to the
@@ -8374,7 +8374,7 @@ D1
 ~
 ~
 ~
-Z -1 24088
+Z -1 23188
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -8382,7 +8382,7 @@ D2
 ~
 ~
 ~
-Z -1 23035
+Z -1 22935
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -8390,9 +8390,9 @@ D3
 ~
 ~
 ~
-Z -1 24090
+Z -1 23190
 S
-#24090
+#23190
 @eng Near the Mountains of Dhoom@rus Около Пика Судеб~
 @eng You stand at the base of the Mountains of Dhoom.  If things are this bad
 hundreds of miles from Shayol Ghul, you shiver at what the Blasted Lands to the
@@ -8411,7 +8411,7 @@ D0
 circle круг~
 @eng the circle@rus круг~
 ~
-ABCFZ 23025 23115
+ABCFZ 22925 23015
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -8419,7 +8419,7 @@ D1
 ~
 ~
 ~
-Z -1 24089
+Z -1 23189
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -8427,7 +8427,7 @@ D2
 ~
 ~
 ~
-Z -1 23040
+Z -1 22940
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -8435,9 +8435,9 @@ D3
 ~
 ~
 ~
-Z -1 24091
+Z -1 23191
 S
-#24091
+#23191
 @eng Near the Mountains of Dhoom@rus Около Пика Судеб~
 @eng You stand at the base of the Mountains of Dhoom.  If things are this bad
 hundreds of miles from Shayol Ghul, you shiver at what the Blasted Lands to the
@@ -8456,7 +8456,7 @@ D1
 ~
 ~
 ~
-Z -1 24090
+Z -1 23190
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -8464,7 +8464,7 @@ D2
 ~
 ~
 ~
-Z -1 23045
+Z -1 22945
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -8472,9 +8472,9 @@ D3
 ~
 ~
 ~
-Z -1 24092
+Z -1 23192
 S
-#24092
+#23192
 @eng Near the Mountains of Dhoom@rus Возле Пика Судеб~
 @eng You stand at the base of the Mountains of Dhoom.  If things are this bad
 hundreds of miles from Shayol Ghul, you shiver at what the Blasted Lands to the
@@ -8493,7 +8493,7 @@ D1
 ~
 ~
 ~
-Z -1 24091
+Z -1 23191
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -8501,7 +8501,7 @@ D2
 ~
 ~
 ~
-Z -1 23050
+Z -1 22950
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -8509,9 +8509,9 @@ D3
 ~
 ~
 ~
-Z -1 24093
+Z -1 23193
 S
-#24093
+#23193
 @eng Near the Mountains of Dhoom@rus Возле Пика Судеб~
 @eng You stand at the base of the Mountains of Dhoom.  If things are this bad
 hundreds of miles from Shayol Ghul, you shiver at what the Blasted Lands to the
@@ -8530,7 +8530,7 @@ D1
 ~
 ~
 ~
-Z -1 24092
+Z -1 23192
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -8538,7 +8538,7 @@ D2
 ~
 ~
 ~
-Z -1 23055
+Z -1 22955
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -8546,9 +8546,9 @@ D3
 ~
 ~
 ~
-Z -1 24094
+Z -1 23194
 S
-#24094
+#23194
 @eng Near the Mountains of Dhoom@rus Возле Пика Судеб~
 @eng You stand at the base of the Mountains of Dhoom.  If things are this bad
 hundreds of miles from Shayol Ghul, you shiver at what the Blasted Lands to the
@@ -8567,7 +8567,7 @@ D1
 ~
 ~
 ~
-Z -1 24093
+Z -1 23193
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -8575,7 +8575,7 @@ D2
 ~
 ~
 ~
-Z -1 23060
+Z -1 22960
 D3
 @eng The Blight continues on to the west.
 @rus Запустение продолжается на запад.
@@ -8583,9 +8583,9 @@ D3
 ~
 ~
 ~
-Z -1 24095
+Z -1 23195
 S
-#24095
+#23195
 @eng The Moutains and the Sea@rus Горы и Море~
 @eng A grotesque and disturbing site meets you eyes here.  The Blight continues
 on to the south and east with all of it's death and decay strong in your mind.
@@ -8613,7 +8613,7 @@ D1
 ~
 ~
 ~
-Z -1 24094
+Z -1 23194
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -8621,9 +8621,9 @@ D2
 ~
 ~
 ~
-Z -1 24096
+Z -1 23196
 S
-#24096
+#23196
 @eng By the Shore@rus На берегу~
 @eng A grotesque and disturbing site meets you eyes here.  The Blight still
 surrounds you all of it's death and decay strong in your mind.  But, what lies
@@ -8647,7 +8647,7 @@ D0
 ~
 ~
 ~
-Z -1 24095
+Z -1 23195
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -8655,7 +8655,7 @@ D1
 ~
 ~
 ~
-Z -1 23060
+Z -1 22960
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -8663,9 +8663,9 @@ D2
 ~
 ~
 ~
-Z -1 24097
+Z -1 23197
 S
-#24097
+#23197
 @eng By the Shore@rus На берегу~
 @eng A grotesque and disturbing site meets you eyes here.  The Blight still
 surrounds you all of it's death and decay strong in your mind.  But, what lies
@@ -8689,7 +8689,7 @@ D0
 ~
 ~
 ~
-Z -1 24096
+Z -1 23196
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -8697,7 +8697,7 @@ D1
 ~
 ~
 ~
-Z -1 23059
+Z -1 22959
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -8705,9 +8705,9 @@ D2
 ~
 ~
 ~
-Z -1 24098
+Z -1 23198
 S
-#24098
+#23198
 @eng By the Shore@rus На берегу~
 @eng A grotesque and disturbing site meets you eyes here.  The Blight still
 surrounds you all of it's death and decay strong in your mind.  But, what lies
@@ -8731,7 +8731,7 @@ D0
 ~
 ~
 ~
-Z -1 24097
+Z -1 23197
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -8739,7 +8739,7 @@ D1
 ~
 ~
 ~
-Z -1 23058
+Z -1 22958
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -8747,9 +8747,9 @@ D2
 ~
 ~
 ~
-Z -1 24099
+Z -1 23199
 S
-#24099
+#23199
 @eng By the Shore@rus На берегу~
 @eng A grotesque and disturbing site meets you eyes here.  The Blight still
 surrounds you all of it's death and decay strong in your mind.  But, what lies
@@ -8773,7 +8773,7 @@ D0
 ~
 ~
 ~
-Z -1 24098
+Z -1 23198
 D1
 @eng The Blight continues on to the east.
 @rus Запустение продолжается на восток.
@@ -8781,7 +8781,7 @@ D1
 ~
 ~
 ~
-Z -1 23057
+Z -1 22957
 D2
 @eng The Blight continues on to the south.
 @rus Запустение продолжается на юг.
@@ -8789,129 +8789,129 @@ D2
 ~
 ~
 ~
-Z -1 23100
+Z -1 23000
 S
 #0
 
 #RESETS
-M 0 23002 3 23001 1	* The Myrddraal (Edge of the Blight)
-E 0 23008 0 16		*	The Myrddraal<wielded>: a black sword
-E 0 23009 0 12		*	The Myrddraal<about the shoulders>: an unmoving black cloak
-E 0 23010 0 5		*	The Myrddraal<on the body>: snake-like overlapping black plates
-M 0 23001 6 23001 1	* The trolloc (Edge of the Blight)
-M 0 23001 6 23005 1	* The trolloc (The Blight)
-E 0 23001 0 16		*	The trolloc<wielded>: a huge curved blade
-M 0 23010 20 23007 2	* The diseased creature (Entering the Blight)
-M 0 23008 1 23008 1	* The twisted tree (The Blight)
-M 0 23007 1 23009 1	* The creature (One of the Hundred Lakes)
-O 0 23029 0 23009	* encased in the lakes muck (One of the Hundred Lakes)
-P 0 23025 0 0 1	* encased in the lakes muck: a strange ward
-M 0 23010 20 23010 2	* The diseased creature (The Blight)
-M 0 23014 7 23012 1	* The spirit (Entering the Blight)
-M 0 23001 6 23016 1	* The trolloc (Edge of the Blight)
-E 0 23001 0 16		*	The trolloc<wielded>: a huge curved blade
-M 0 23010 20 23020 2	* The diseased creature (The Blight)
-M 0 23010 20 23022 2	* The diseased creature (Entering the Blight)
-M 0 23016 1 23024 1	* The twisted tree (The Blight)
-M 0 23006 3 23028 1	* The trolloc (The Blight)
-E 0 23001 0 16		*	The trolloc<wielded>: a huge curved blade
-M 0 23006 3 23028 1	* The trolloc (The Blight)
-E 0 23001 0 16		*	The trolloc<wielded>: a huge curved blade
-M 0 23006 3 23028 1	* The trolloc (The Blight)
-E 0 23001 0 16		*	The trolloc<wielded>: a huge curved blade
-M 0 23002 3 23033 1	* The Myrddraal (The Blight)
-E 0 23008 0 16		*	The Myrddraal<wielded>: a black sword
-E 0 23009 0 12		*	The Myrddraal<about the shoulders>: an unmoving black cloak
-E 0 23010 0 5		*	The Myrddraal<on the body>: snake-like overlapping black plates
-M 0 23010 20 23033 2	* The diseased creature (The Blight)
-M 0 23005 1 23035 1	* The flock of ravens (The Blight)
-E 0 23013 0 17		*	The flock of ravens<held in the hands>: a shiny platinum key
-M 0 23004 3 23037 1	* The trolloc (Entering the Blight)
-E 0 23001 0 16		*	The trolloc<wielded>: a huge curved blade
-M 0 23004 3 23037 1	* The trolloc (Entering the Blight)
-E 0 23001 0 16		*	The trolloc<wielded>: a huge curved blade
-M 0 23004 3 23037 1	* The trolloc (Entering the Blight)
-E 0 23001 0 16		*	The trolloc<wielded>: a huge curved blade
-M 0 23009 1 23039 1	* The draghkar (The Blight)
-E 0 23034 0 16		*	The draghkar<wielded>: a seductive smile
-E 0 23014 0 17		*	The draghkar<held in the hands>: a shiny golden key
-M 0 23010 20 23042 2	* The diseased creature (Entering the Blight)
-M 0 23017 1 23043 1	* The twisted tree (The Blight)
-M 0 23010 20 23045 2	* The diseased creature (The Blight)
-M 0 23010 20 23047 2	* The diseased creature (Entering the Blight)
-M 0 23003 3 23051 1	* The trolloc (Edge of the Blight)
-E 0 23001 0 16		*	The trolloc<wielded>: a huge curved blade
-M 0 23003 3 23051 1	* The trolloc (Edge of the Blight)
-E 0 23001 0 16		*	The trolloc<wielded>: a huge curved blade
-M 0 23003 3 23051 1	* The trolloc (Edge of the Blight)
-E 0 23001 0 16		*	The trolloc<wielded>: a huge curved blade
-M 0 23018 1 23054 1	* The twisted tree (The Blight)
-M 0 23010 20 23057 2	* The diseased creature (Entering the Blight)
-M 0 23010 20 23059 2	* The diseased creature (The Blight)
-M 0 23002 3 23060 1	* The Myrddraal (The Blight)
-E 0 23008 0 16		*	The Myrddraal<wielded>: a black sword
-E 0 23009 0 12		*	The Myrddraal<about the shoulders>: an unmoving black cloak
-E 0 23010 0 5		*	The Myrddraal<on the body>: snake-like overlapping black plates
-M 0 23014 7 23062 1	* The spirit (The Hallway)
-M 0 23014 7 23064 1	* The spirit (The Hallway)
-M 0 23014 7 23073 1	* The spirit (The Hallway)
-M 0 23014 7 23082 1	* The spirit (The Hallway)
-O 0 23030 0 23086	* a skeleton (The Barracks)
-P 0 23002 0 0 1	* a skeleton: a blood-stained key
-P 0 23003 0 0 1	* a skeleton: a heavy iron key
-P 0 23004 0 0 1	* a skeleton: an often used key
-M 0 23014 7 23092 1	* The spirit (The Hallway)
-M 0 23012 1 23096 1	* The Lord of the tower (The Lord's Quarters)
-E 0 23019 0 17		*	The Lord of the tower<held in the hands>: a small figurine
-E 0 23020 0 16		*	The Lord of the tower<wielded>: a Heron marked blade
-E 0 23021 0 6		*	The Lord of the tower<over the head>: a helm stylized into a golden crane
-M 0 23001 6 23100 1	* The trolloc (By the Shore)
-M 0 23011 2 23101 1	* The warder (In the Borderlands)
-E 0 23011 0 16		*	The warder<wielded>: a finely crafted sword
-E 0 23012 0 12		*	The warder<about the shoulders>: a cloak of shifting colors
-M 0 23001 6 23101 1	* The trolloc (In the Borderlands)
-M 0 23001 6 23110 1	* The trolloc (In the Borderlands)
-O 0 23026 0 23115	* the spring (A Warded Glade)
-M 0 23014 7 24001 1	* The spirit (The Hallway)
-M 0 23015 4 24005 1	* The spirit (The Armoury)
-M 0 23015 4 24033 1	* The spirit (The Hallway)
-O 0 23027 0 24035	* the small alcove (The Hallway)
-P 0 23028 0 0 1	* the small alcove: an engraved staff
-O 0 23031 0 24037	* a skeleton (The Barracks)
-P 0 23005 0 0 1	* a skeleton: a blood-stained key
-P 0 23006 0 0 1	* a skeleton: a heavy iron key
-P 0 23007 0 0 1	* a skeleton: an often used key
-M 0 23015 4 24043 1	* The spirit (The Hallway)
-M 0 23013 1 24047 1	* The Lord of the tower (The Lord's Quarters)
-E 0 23022 0 5		*	The Lord of the tower<on the body>: a suit of Malkerian battle armor
-E 0 23023 0 16		*	The Lord of the tower<wielded>: a heartstone dagger
-E 0 23024 0 17		*	The Lord of the tower<held in the hands>: a Lord's sceptre
-M 0 23015 4 24051 1	* The spirit (The Hallway)
-M 0 23022 3 24068 1	* The grolm (The Center)
-M 0 23022 3 24069 1	* The grolm (The Southern Yard)
-M 0 23021 1 24071 1	* The fox-like humanoid (The Eastern Yard)
-E 0 23035 0 16		*	The fox-like humanoid<wielded>: a wicked-looking knife
-E 0 23036 0 3		*	The fox-like humanoid<around the neck>: a foxheaded medallion
-M 0 23020 1 24073 1	* The metallic orb (The Northern Yard)
-M 0 23019 1 24075 1	* The Sul'Dam (The Western Yard)
-E 0 23032 0 17		*	The Sul'Dam<held in the hands>: an A'dam
-E 0 23033 0 5		*	The Sul'Dam<on the body>: a plain dress panelled with lightning bolts
-M 0 23022 3 24076 1	* The grolm (The Southwest Corner)
-M 0 23011 2 24082 1	* The warder (Tarwin's Gap)
-E 0 23011 0 16		*	The warder<wielded>: a finely crafted sword
-E 0 23012 0 12		*	The warder<about the shoulders>: a cloak of shifting colors
+M 0 22902 3 22901 1	* The Myrddraal (Edge of the Blight)
+E 0 22908 0 16		*	The Myrddraal<wielded>: a black sword
+E 0 22909 0 12		*	The Myrddraal<about the shoulders>: an unmoving black cloak
+E 0 22910 0 5		*	The Myrddraal<on the body>: snake-like overlapping black plates
+M 0 22901 6 22901 1	* The trolloc (Edge of the Blight)
+M 0 22901 6 22905 1	* The trolloc (The Blight)
+E 0 22901 0 16		*	The trolloc<wielded>: a huge curved blade
+M 0 22910 20 22907 2	* The diseased creature (Entering the Blight)
+M 0 22908 1 22908 1	* The twisted tree (The Blight)
+M 0 22907 1 22909 1	* The creature (One of the Hundred Lakes)
+O 0 22929 0 22909	* encased in the lakes muck (One of the Hundred Lakes)
+P 0 22925 0 0 1	* encased in the lakes muck: a strange ward
+M 0 22910 20 22910 2	* The diseased creature (The Blight)
+M 0 22914 7 22912 1	* The spirit (Entering the Blight)
+M 0 22901 6 22916 1	* The trolloc (Edge of the Blight)
+E 0 22901 0 16		*	The trolloc<wielded>: a huge curved blade
+M 0 22910 20 22920 2	* The diseased creature (The Blight)
+M 0 22910 20 22922 2	* The diseased creature (Entering the Blight)
+M 0 22916 1 22924 1	* The twisted tree (The Blight)
+M 0 22906 3 22928 1	* The trolloc (The Blight)
+E 0 22901 0 16		*	The trolloc<wielded>: a huge curved blade
+M 0 22906 3 22928 1	* The trolloc (The Blight)
+E 0 22901 0 16		*	The trolloc<wielded>: a huge curved blade
+M 0 22906 3 22928 1	* The trolloc (The Blight)
+E 0 22901 0 16		*	The trolloc<wielded>: a huge curved blade
+M 0 22902 3 22933 1	* The Myrddraal (The Blight)
+E 0 22908 0 16		*	The Myrddraal<wielded>: a black sword
+E 0 22909 0 12		*	The Myrddraal<about the shoulders>: an unmoving black cloak
+E 0 22910 0 5		*	The Myrddraal<on the body>: snake-like overlapping black plates
+M 0 22910 20 22933 2	* The diseased creature (The Blight)
+M 0 22905 1 22935 1	* The flock of ravens (The Blight)
+E 0 22913 0 17		*	The flock of ravens<held in the hands>: a shiny platinum key
+M 0 22904 3 22937 1	* The trolloc (Entering the Blight)
+E 0 22901 0 16		*	The trolloc<wielded>: a huge curved blade
+M 0 22904 3 22937 1	* The trolloc (Entering the Blight)
+E 0 22901 0 16		*	The trolloc<wielded>: a huge curved blade
+M 0 22904 3 22937 1	* The trolloc (Entering the Blight)
+E 0 22901 0 16		*	The trolloc<wielded>: a huge curved blade
+M 0 22909 1 22939 1	* The draghkar (The Blight)
+E 0 22934 0 16		*	The draghkar<wielded>: a seductive smile
+E 0 22914 0 17		*	The draghkar<held in the hands>: a shiny golden key
+M 0 22910 20 22942 2	* The diseased creature (Entering the Blight)
+M 0 22917 1 22943 1	* The twisted tree (The Blight)
+M 0 22910 20 22945 2	* The diseased creature (The Blight)
+M 0 22910 20 22947 2	* The diseased creature (Entering the Blight)
+M 0 22903 3 22951 1	* The trolloc (Edge of the Blight)
+E 0 22901 0 16		*	The trolloc<wielded>: a huge curved blade
+M 0 22903 3 22951 1	* The trolloc (Edge of the Blight)
+E 0 22901 0 16		*	The trolloc<wielded>: a huge curved blade
+M 0 22903 3 22951 1	* The trolloc (Edge of the Blight)
+E 0 22901 0 16		*	The trolloc<wielded>: a huge curved blade
+M 0 22918 1 22954 1	* The twisted tree (The Blight)
+M 0 22910 20 22957 2	* The diseased creature (Entering the Blight)
+M 0 22910 20 22959 2	* The diseased creature (The Blight)
+M 0 22902 3 22960 1	* The Myrddraal (The Blight)
+E 0 22908 0 16		*	The Myrddraal<wielded>: a black sword
+E 0 22909 0 12		*	The Myrddraal<about the shoulders>: an unmoving black cloak
+E 0 22910 0 5		*	The Myrddraal<on the body>: snake-like overlapping black plates
+M 0 22914 7 22962 1	* The spirit (The Hallway)
+M 0 22914 7 22964 1	* The spirit (The Hallway)
+M 0 22914 7 22973 1	* The spirit (The Hallway)
+M 0 22914 7 22982 1	* The spirit (The Hallway)
+O 0 22930 0 22986	* a skeleton (The Barracks)
+P 0 22902 0 0 1	* a skeleton: a blood-stained key
+P 0 22903 0 0 1	* a skeleton: a heavy iron key
+P 0 22904 0 0 1	* a skeleton: an often used key
+M 0 22914 7 22992 1	* The spirit (The Hallway)
+M 0 22912 1 22996 1	* The Lord of the tower (The Lord's Quarters)
+E 0 22919 0 17		*	The Lord of the tower<held in the hands>: a small figurine
+E 0 22920 0 16		*	The Lord of the tower<wielded>: a Heron marked blade
+E 0 22921 0 6		*	The Lord of the tower<over the head>: a helm stylized into a golden crane
+M 0 22901 6 23000 1	* The trolloc (By the Shore)
+M 0 22911 2 23001 1	* The warder (In the Borderlands)
+E 0 22911 0 16		*	The warder<wielded>: a finely crafted sword
+E 0 22912 0 12		*	The warder<about the shoulders>: a cloak of shifting colors
+M 0 22901 6 23001 1	* The trolloc (In the Borderlands)
+M 0 22901 6 23010 1	* The trolloc (In the Borderlands)
+O 0 22926 0 23015	* the spring (A Warded Glade)
+M 0 22914 7 23101 1	* The spirit (The Hallway)
+M 0 22915 4 23105 1	* The spirit (The Armoury)
+M 0 22915 4 23133 1	* The spirit (The Hallway)
+O 0 22927 0 23135	* the small alcove (The Hallway)
+P 0 22928 0 0 1	* the small alcove: an engraved staff
+O 0 22931 0 23137	* a skeleton (The Barracks)
+P 0 22905 0 0 1	* a skeleton: a blood-stained key
+P 0 22906 0 0 1	* a skeleton: a heavy iron key
+P 0 22907 0 0 1	* a skeleton: an often used key
+M 0 22915 4 23143 1	* The spirit (The Hallway)
+M 0 22913 1 23147 1	* The Lord of the tower (The Lord's Quarters)
+E 0 22922 0 5		*	The Lord of the tower<on the body>: a suit of Malkerian battle armor
+E 0 22923 0 16		*	The Lord of the tower<wielded>: a heartstone dagger
+E 0 22924 0 17		*	The Lord of the tower<held in the hands>: a Lord's sceptre
+M 0 22915 4 23151 1	* The spirit (The Hallway)
+M 0 22922 3 23168 1	* The grolm (The Center)
+M 0 22922 3 23169 1	* The grolm (The Southern Yard)
+M 0 22921 1 23171 1	* The fox-like humanoid (The Eastern Yard)
+E 0 22935 0 16		*	The fox-like humanoid<wielded>: a wicked-looking knife
+E 0 22936 0 3		*	The fox-like humanoid<around the neck>: a foxheaded medallion
+M 0 22920 1 23173 1	* The metallic orb (The Northern Yard)
+M 0 22919 1 23175 1	* The Sul'Dam (The Western Yard)
+E 0 22932 0 17		*	The Sul'Dam<held in the hands>: an A'dam
+E 0 22933 0 5		*	The Sul'Dam<on the body>: a plain dress panelled with lightning bolts
+M 0 22922 3 23176 1	* The grolm (The Southwest Corner)
+M 0 22911 2 23182 1	* The warder (Tarwin's Gap)
+E 0 22911 0 16		*	The warder<wielded>: a finely crafted sword
+E 0 22912 0 12		*	The warder<about the shoulders>: a cloak of shifting colors
 S
 
 #OLIMITS
-O 23019 10	* a small figurine
-O 23020 1	* a Heron marked blade
-O 23021 6	* a helm stylized into a golden crane
-O 23022 10	* a suit of Malkerian battle armor
-O 23023 1	* a heartstone dagger
-O 23028 3	* an engraved staff
-O 23033 5	* a plain dress panelled with lightning bolts
-O 23035 5	* a wicked-looking knife
-O 23036 5	* a foxheaded medallion
+O 22919 10	* a small figurine
+O 22920 1	* a Heron marked blade
+O 22921 6	* a helm stylized into a golden crane
+O 22922 10	* a suit of Malkerian battle armor
+O 22923 1	* a heartstone dagger
+O 22928 3	* an engraved staff
+O 22933 5	* a plain dress panelled with lightning bolts
+O 22935 5	* a wicked-looking knife
+O 22936 5	* a foxheaded medallion
 S
 
 #$
