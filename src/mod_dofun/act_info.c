@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.34 2001-06-19 09:22:30 kostik Exp $
+ * $Id: act_info.c,v 1.271.2.35 2001-06-26 18:02:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1296,7 +1296,8 @@ void do_equipment(CHAR_DATA *ch, const char *argument)
 	char_puts("You are using:\n", ch);
 	found = FALSE;
 	for (i = 0; show_order[i] >= 0; i++) {
-		if ((obj = get_eq_char(ch, show_order[i])) == NULL)
+		if ((obj = get_eq_char(ch, show_order[i])) == NULL
+		&&  IS_SET(ch->comm, COMM_SHORT_EQ))
 			continue;
 
 		show_obj_to_char(ch, obj, show_order[i]);
@@ -4375,9 +4376,16 @@ static char* wear_loc_names[] =
 
 static void show_obj_to_char(CHAR_DATA *ch, OBJ_DATA *obj, flag32_t wear_loc)
 {
-	bool can_see = can_see_obj(ch, obj);
+	bool can_see;
+
+	if (obj == NULL
+	&&  (wear_loc == WEAR_TATTOO || wear_loc == WEAR_CLANMARK))
+		return;
+
+	can_see = obj == NULL ? FALSE : can_see_obj(ch, obj);
 	act(wear_loc_names[wear_loc], ch,
-	    can_see ? format_obj_to_char(obj, ch, TRUE) : "something",
+	    can_see ? format_obj_to_char(obj, ch, TRUE) :
+	    obj == NULL ? "nothing" : "something",
 	    NULL, TO_CHAR | (can_see ? ACT_NOTRANS : 0));
 }
 

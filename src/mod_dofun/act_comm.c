@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.22 2001-06-16 19:07:29 fjoe Exp $
+ * $Id: act_comm.c,v 1.187.2.23 2001-06-26 18:02:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2113,6 +2113,12 @@ toggle_t toggle_table[] =
 	  comm_flags,	COMM_SHOW_RACE,
 	  "You will now see race in long desc.",
 	  "You will no longer see race in long desc."
+	},
+
+	{ "short equipment",	"short equipment mode",
+	  comm_flags,	COMM_SHORT_EQ,
+	  "You will no longer see empty equipment slots.",
+	  "You will now see empty equipment slots."
 	},
 
 	{ NULL }

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.27 2001-06-16 18:53:10 fjoe Exp $
+ * $Id: fight.c,v 1.202.2.28 2001-06-26 18:02:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1280,7 +1280,8 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 		 * Certain attacks are forbidden.
 		 * Most other attacks are returned.
 		 */
-		if (victim->position > POS_STUNNED) {
+		if (victim->position > POS_STUNNED
+		&&  ch->in_room == victim->in_room) {
 			if (victim->fighting == NULL) {
 				set_fighting(victim, ch);
 				if (IS_NPC(victim)
@@ -1293,7 +1294,8 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 		}
 
 		if (victim->position > POS_STUNNED) {
-			if (ch->fighting == NULL)
+			if (ch->fighting == NULL
+			&&  ch->in_room == victim->in_room)
 				set_fighting(ch, victim);
 
 			/*
