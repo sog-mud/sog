@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.61 1998-12-23 16:11:16 fjoe Exp $
+ * $Id: martial_art.c,v 1.62 1998-12-25 06:56:37 kostik Exp $
  */
 
 /***************************************************************************
@@ -1576,6 +1576,8 @@ void do_strangle(CHAR_DATA *ch, const char *argument)
 	else {
 		damage(ch,victim, 0, gsn_strangle, DAM_NONE, TRUE);
 		check_improve(ch, gsn_strangle, FALSE, 1);
+		if (!IS_NPC(victim)) doprintf(do_yell, victim,
+			"Help! I'm being strangled by %s", PERS(ch,victim));
 	}
 }
 
@@ -1656,6 +1658,9 @@ void do_blackjack(CHAR_DATA *ch, const char *argument)
 	else {
 		damage(ch, victim, ch->level/2, gsn_blackjack, DAM_NONE, TRUE);
 		check_improve(ch, gsn_blackjack, FALSE, 1);
+		if (!IS_NPC(victim)) 
+			doprintf(do_yell, victim, 
+		 	 "Help! I'm being blackjacked by %s", PERS(ch, victim));
 	}
 }
 

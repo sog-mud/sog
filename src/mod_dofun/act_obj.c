@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.105 1998-12-24 12:24:12 kostik Exp $
+ * $Id: act_obj.c,v 1.106 1998-12-25 06:56:37 kostik Exp $
  */
 
 /***************************************************************************
@@ -3598,7 +3598,15 @@ void do_label(CHAR_DATA* ch, const char *argument)
 
 	argument = first_arg(argument, obj_name, FALSE);
 	first_arg(argument, label, FALSE);
-
+	
+	if (!obj_name[0]) {
+		char_puts("Label what?\n",ch);
+		return;
+	}
+	if (!label[0]) {
+		char_puts("How do you want to label it?\n",ch);
+		return;
+	}
 	if ((obj=get_obj_carry(ch,obj_name)) == NULL) {
 		char_puts("You don't have that object.\n", ch);
 		return;
@@ -3621,5 +3629,6 @@ void do_label(CHAR_DATA* ch, const char *argument)
 	obj->name = strdup(buff);
 	
 	ch->pcdata->questpoints -= 10;
+	char_puts("Ok.\n",ch);
 	return;
 }
