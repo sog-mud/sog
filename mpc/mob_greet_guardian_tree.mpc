@@ -1,5 +1,5 @@
 /*
- * $Id: mob_greet_guardian_tree.mpc,v 1.1 2001-09-14 18:08:06 fjoe Exp $
+ * $Id: mob_greet_guardian_tree.mpc,v 1.2 2001-09-15 16:57:39 fjoe Exp $
  */
 
 if (char_room($n) != get_room_index(35477))
@@ -9,14 +9,16 @@ obj object = get_obj_carry($n, $N, "35467");
 if (object == NULL)
         return 0;
  
-if (get_obj_room($n, "35462") != NULL) {
+obj window = get_obj_room($n, char_room($n), "35462");
+if (window != NULL) {
 	act_say($n,
-		"You have $P, so if you whish you may visit a secret glade.",
+		"You have $P, so if you wish you may visit a secret glade.",
 		object);
-	act("$n points at $p.", $n, get_obj_room($n, "35462"), NULL, TO_ROOM);
-	act_say($n, "Go through this $P for it.", get_obj_room($n, "35462")); 
+	act("$n points at $p.", $n, window, NULL, TO_ROOM);
+	act_say($n, "Go through this $P for it.", window); 
 	return 0;
 }
+
 obj portal = create_obj(35462, 0);
 if (portal == NULL)
 	return 0;
@@ -24,7 +26,7 @@ if (portal == NULL)
 set_obj_timer(portal, 2);
 obj_to_room(portal, char_room($n));
 
-act_say($n, "You have $P, so if you whish you may visit a secret glade.", object);
+act_say($n, "You have $P, so if you wish you may visit a secret glade.", object);
 act("$n points at $p.", $n, portal, NULL, TO_ROOM);
 act_say($n, "Go through this $P for it.", portal); 
  

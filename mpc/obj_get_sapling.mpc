@@ -1,9 +1,8 @@
 /*
- * $Id: obj_get_sapling.mpc,v 1.1 2001-09-14 18:07:56 fjoe Exp $
+ * $Id: obj_get_sapling.mpc,v 1.2 2001-09-15 16:57:39 fjoe Exp $
  */
 
-obj chest = get_obj_room($n, "35461");
- 
+obj chest = get_obj_room($n, char_room($n), "35461");
 if (chest == NULL)
         return 0;
  
