@@ -807,6 +807,15 @@ pill 0 AO
 150 'detect fade' 'improved detect' 'detect hidden' 'acute vision'
 10 3 0 P
 G none
+#36199
+test dagger~
+test dagger~
+test dagger~
+unknown~
+weapon 0 AN
+exotic 5 5 pierce K
+20 0 0 P
+G none
 #0
 
 #ROOMS

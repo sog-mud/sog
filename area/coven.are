@@ -279,8 +279,7 @@ ABG ABCDEFJKLMPUV large unknown
 #29120
 sickle golden~
 the golden sickle~
-A golden sickle with wedge shaped runes lies here.
-~
+A golden sickle with wedge shaped runes lies here.~
 gold~
 key I AO
 0 0 0 0 0
@@ -295,8 +294,7 @@ G none
 #29121
 shovel stout sturdy~
 a stout sturdy shovel~
-A stout sturdy shovel lies here.
-~
+A stout sturdy shovel lies here.~
 wood~
 key 0 AO
 0 0 0 0 0
@@ -305,8 +303,7 @@ G none
 #29122
 creek swift swiftly flowing~
 a swiftly flowing creek~
-A swiftly flowing creek is here, running with cool clean water.
-~
+A swiftly flowing creek is here, running with cool clean water.~
 marble~
 fountain 0 0
 1000000 1000000 'water' 0 0
@@ -315,8 +312,7 @@ G none
 #29123
 pilsner beer~
 a nice cold, wimpy pilsner~
-A nice cold glass of yellow beer is here.
-~
+A nice cold glass of yellow beer is here.~
 glass~
 drink 0 AO
 1 1 'beer' 0 0
@@ -325,8 +321,7 @@ G none
 #29124
 dunkel beer~
 a nice cold manly dunkel~
-A nice cold glass of brown beer is here.
-~
+A nice cold glass of brown beer is here.~
 glass~
 drink 0 AO
 1 1 'beer' 0 0
@@ -335,8 +330,7 @@ G none
 #29125
 grub plate local~
 a plate of the local grub~
-A hot steaming plate of the local grub is here! Yummy!
-~
+A hot steaming plate of the local grub is here! Yummy!~
 food~
 food 0 AO
 CD CD 0 0 0
@@ -345,8 +339,7 @@ G none
 #29126
 key room~
 a room key~
-A room key is here, and it has a picture of a full mug on it.
-~
+A room key is here, and it has a picture of a full mug on it.~
 tin~
 key 0 AO
 0 0 0 0 0
@@ -355,8 +348,7 @@ G none
 #29127
 amulet flaming~
 the flaming amulet~
-A flaming amulet is here, searing the ground.
-~
+A flaming amulet is here, searing the ground.~
 fire~
 key 0 AC
 0 0 0 0 0
@@ -365,8 +357,7 @@ G none
 #29128
 root warlock~
 a warlock root~
-A warlock root is here.
-~
+A warlock root is here.~
 bamboo~
 furniture 0 AO
 B CDFI AEIL DEFG DEFG
@@ -375,8 +366,7 @@ G none
 #29129
 axe woodsmans~
 a woodsman's axe~
-A large axe stained with tree sap is here.
-~
+A large axe stained with tree sap is here.~
 steel~
 weapon 0 AN
 axe 5 6 slice 0
@@ -385,8 +375,7 @@ G none
 #29130
 cloak woodsmans~
 a woodsman's cloak~
-A forest colored cloak is here
-~
+A forest colored cloak is here~
 wood~
 armor 0 AD
 7 7 7 3 1
@@ -397,8 +386,7 @@ G none
 #29131
 cross white marble~
 a white marble cross~
-A white marble cross is here.
-~
+A white marble cross is here.~
 marble~
 staff AIKL AO
 35 3 3 'sanctuary' 0
@@ -407,9 +395,7 @@ G none
 #29132
 robe ink black~
 an ink black robe~
-An ink black robe is here, beckoning to you. Put it on! Ha Ha Ha ....
-
-~
+An ink black robe is here, beckoning to you. Put it on! Ha Ha Ha ....~
 silk~
 armor CEHJM AD
 6 6 6 3 0
@@ -422,8 +408,7 @@ G none
 #29133
 band black~
 a black rune band~
-A band of black metal engraved with runes is here.
-~
+A band of black metal engraved with runes is here.~
 metal~
 armor CEHJM AM
 0 0 0 0 0
@@ -443,8 +428,7 @@ G none
 #29134
 rod black~
 a black rune covered rod~
-A black rune covered rod
-~
+A black rune covered rod~
 sandstone~
 staff CEHJM AO
 40 8 8 'fire breath' 0
@@ -460,8 +444,7 @@ G none
 #29135
 ring fire~
 a ring of fire~
-A ring of fire is here, smoldering on the ground.
-~
+A ring of fire is here, smoldering on the ground.~
 fire~
 armor AQ AB
 1 1 1 1 0
@@ -476,8 +459,7 @@ G none
 #29136
 pick~
 a pick~
-A pick is here.
-~
+A pick is here.~
 metal~
 weapon 0 AN
 dagger 3 6 stab 0
@@ -487,8 +469,7 @@ G none
 horseshoe shoe~
 a horseshoe~
 A horseshoe is here, lying on the ground. Maybe today is your lucky 
-day?
-~
+day?~
 iron~
 trash 0 AO
 0 0 0 0 0
@@ -497,8 +478,7 @@ G none
 #29138
 rope~
 fifty feet of rope~
-A huge coil of rope is here.
-~
+A huge coil of rope is here.~
 wool~
 trash 0 AO
 0 0 0 0 0
@@ -507,8 +487,7 @@ G none
 #29139
 potion invisibility~
 a potion of invisibility~
-A glass jar of a clear fluid is here.
-~
+A glass jar of a clear fluid is here.~
 glass~
 potion 0 AN
 30 'invisibility' 'detect invis' '' ''

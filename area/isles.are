@@ -811,8 +811,7 @@ stand stand none 1000
 #17011
 tree banana~
 the banana tree~
-A banana tree is here, burdened with nice ripe fruit.
-~
+A banana tree is here, burdened with nice ripe fruit.~
 wood~
 container 0 0
 300 0 0 100 100
@@ -825,8 +824,7 @@ G none
 #17012
 bananas bunch~
 a bunch of bananas~
-A ripe bunch of bananas is here- where is the monkey?
-~
+A ripe bunch of bananas is here- where is the monkey?~
 food~
 food 0 A
 AC AC 0 0 0
@@ -835,8 +833,7 @@ G none
 #17013
 sign warning~
 a wooden sign~
-A wooden sign is nailed in the ground here.
-~
+A wooden sign is nailed in the ground here.~
 wood~
 trash 0 0
 0 0 0 0 0
@@ -853,8 +850,7 @@ G none
 #17014
 mallet wooden~
 a wooden mallet~
-A wooden mallet is here.
-~
+A wooden mallet is here.~
 wood~
 weapon 0 AN
 exotic 8 10 crush 0
@@ -872,8 +868,7 @@ G none
 #17015
 robe feather~
 a feather robe~
-A robe maid of brilliant tropical bird plumage is here.
-~
+A robe maid of brilliant tropical bird plumage is here.~
 unknown~
 armor 0 AK
 15 15 15 7 0
@@ -886,8 +881,7 @@ G none
 #17016
 bottle rum~
 a bottle of rum~
-You see a have full bottle of rum here, going to waste.
-~
+You see a have full bottle of rum here, going to waste.~
 glass~
 drink 0 A
 6 6 'rum' 0 0
@@ -896,8 +890,7 @@ G none
 #17017
 laid~
 LAID!~
-Are you going to get lucky?
-~
+Are you going to get lucky?~
 gold~
 money 0 A
 1000 0 0 0 0
@@ -906,8 +899,7 @@ G none
 #17018
 sextant~
 a sextant~
-A beautiful gilded sextant lies here.
-~
+A beautiful gilded sextant lies here.~
 vellum~
 scroll 0 AO
 25 'locate object' '' '' ''
@@ -922,8 +914,7 @@ G none
 #17019
 girdle might~
 the girdle of might~
-A well crafted weapons belt is lying here.
-~
+A well crafted weapons belt is lying here.~
 mithril~
 armor G AL
 17 16 16 8 0
@@ -946,8 +937,7 @@ G none
 #17020
 gauntlets accuracy~
 gauntlets of accuracy~
-A pair of gauntlets with arrows on them lies here.
-~
+A pair of gauntlets with arrows on them lies here.~
 leather~
 armor G AH
 17 16 16 10 0
@@ -963,8 +953,7 @@ G none
 #17021
 key iron~
 an iron key~
-An iron key is here.
-~
+An iron key is here.~
 iron~
 key 0 AO
 0 0 0 0 0
@@ -973,8 +962,7 @@ G none
 #17022
 pool lava~
 a lava pool~
-A pool of lava is bubbling here.
-~
+A pool of lava is bubbling here.~
 unknown~
 trash AQ A
 0 0 0 0 0
@@ -987,8 +975,7 @@ G none
 #17023
 cutlass sword~
 a cutlass~
-An arm-length curved sword is here.
-~
+An arm-length curved sword is here.~
 steel~
 weapon 0 AN
 sword 7 8 slash 0
@@ -1001,8 +988,7 @@ G none
 #17024
 eye kracken krackens kracken's~
 the kracken's eye~
-A large eyeball of some sea creature is rotting on the ground.
-~
+A large eyeball of some sea creature is rotting on the ground.~
 flesh~
 staff CEJ AO
 25 10 10 'detect invis' 0
@@ -1017,8 +1003,7 @@ G none
 #17025
 armbands volcanoes~
 armbands of the Volcanoes~
-Armbands made of fire are smoldering on the ground.
-~
+Armbands made of fire are smoldering on the ground.~
 fire~
 armor AGQ AI
 25 25 25 25 0
@@ -1033,8 +1018,7 @@ G none
 #17026
 chest bronze~
 a huge bronze chest~
-A huge bronze chest is here.
-~
+A huge bronze chest is here.~
 bronze~
 container G 0
 200 0 0 100 100
@@ -1043,8 +1027,7 @@ G none
 #17027
 javelin~
 a javelin~
-A well balanced javelin is here.
-~
+A well balanced javelin is here.~
 unknown~
 armor 0 AO
 20 20 20 10 0
@@ -1055,8 +1038,7 @@ G none
 #17028
 cloak looting~
 the cloak of looting~
-You see a suspicious looking cloak here. Hmmm.
-~
+You see a suspicious looking cloak here. Hmmm.~
 cloth~
 armor FG AK
 20 20 20 10 0
@@ -1075,8 +1057,7 @@ G none
 #17029
 blood ettins ettin ettin's~
 Ettin's blood~
-A jar of blood is here
-~
+A jar of blood is here~
 glass~
 potion FG A
 30 'sanctuary' 'stone skin' 'shield' 'armor'
@@ -1085,8 +1066,7 @@ G none
 #17030
 hoard pirate pirate's~
 the pirate's hoard~
-You see a big old fucking pile o' loot!
-~
+You see a big old fucking pile o' loot!~
 gold~
 money 0 A
 100000 0 0 0 0
@@ -1095,8 +1075,7 @@ G none
 #17031
 pants sharkskin~
 sharkskin pants~
-A pair of pants cut from the skin of a fish lie here.
-~
+A pair of pants cut from the skin of a fish lie here.~
 snakeskin~
 armor G AF
 23 24 23 20 0
@@ -1116,8 +1095,7 @@ G none
 #17032
 crossbow poison~
 a crossbow of poison~
-You see a nasty looking hand crossbow with black gummed quarrels here.
-~
+You see a nasty looking hand crossbow with black gummed quarrels here.~
 wood~
 wand 0 AO
 35 30 30 'poison' 0
@@ -1132,8 +1110,7 @@ G none
 #17033
 orb nullifier~
 the nullifier orb~
-A round sphere on the ground is swallowing all the light around it.
-~
+A round sphere on the ground is swallowing all the light around it.~
 glass~
 wand C AO
 40 20 20 'dispel magic' 0
@@ -1147,8 +1124,7 @@ G none
 #17034
 chest padlocked~
 a padlocked chest~
-A heavy padlocked chest is here.
-~
+A heavy padlocked chest is here.~
 iron~
 container 0 0
 200 0 0 50 100
@@ -1162,8 +1138,7 @@ G none
 #17035
 key metal~
 a metal key~
-A metal key lies here.
-~
+A metal key lies here.~
 metal~
 key 0 A
 0 0 0 0 0
@@ -1176,8 +1151,7 @@ G none
 #17036
 waverunner boat~
 an outrigger called 'Waverunner'~
-An outrigger canoe with a sky blue sail is here, provisioned for adventure.
-~
+An outrigger canoe with a sky blue sail is here, provisioned for adventure.~
 wood~
 boat T 0
 CDEGHIK 0 0 0 0
@@ -1186,8 +1160,7 @@ G none
 #17037
 lantern watchman's watchman watchamans~
 a watchman's lantern~
-A watchman's lantern is here, giving off a bright white light.
-~
+A watchman's lantern is here, giving off a bright white light.~
 oil~
 light A AO
 0 0 -1 0 0
@@ -1203,8 +1176,7 @@ G none
 #17038
 pearl giant~
 a giant pearl~
-A giant pearl lies forgotten in the sand.
-~
+A giant pearl lies forgotten in the sand.~
 diamond~
 treasure 0 A
 FJKLO 0 0 0 0
@@ -1218,8 +1190,7 @@ G none
 #17039
 hammock hemp~
 a hemp hammock~
-A hemp hammock is here, stretched between 2 sunken poles.
-~
+A hemp hammock is here, stretched between 2 sunken poles.~
 unknown~
 furniture 0 A
 0 0 0 0 0
@@ -1232,8 +1203,7 @@ G none
 #17040
 doubloons booty~
 doubloons and booty~
-You see a trove of doubloons and booty!
-~
+You see a trove of doubloons and booty!~
 gold~
 money 0 A
 100000 0 0 0 0
@@ -1242,8 +1212,7 @@ G none
 #17041
 key golden hawk~
 a golden hawk key~
-A golden hawk key lies here.
-~
+A golden hawk key lies here.~
 gold~
 key 0 A
 0 0 0 0 0
@@ -1257,8 +1226,7 @@ G none
 #17042
 stone floating~
 a floating stone~
-A stone is here, floating in mid-air!
-~
+A stone is here, floating in mid-air!~
 stone~
 map GP AO
 0 0 0 0 0
@@ -1271,8 +1239,7 @@ G none
 #17043
 robe hawklord hawk lord~
 the vest of the Hawklord~
-A vest made of a bright blue fine chain mesh hovers here.
-~
+A vest made of a bright blue fine chain mesh hovers here.~
 unknown~
 container GP AK
 100 0 0 10 75
@@ -1292,8 +1259,7 @@ G none
 #17044
 winch ladder~
 a winch ladder~
-A winch with a long rope ladder is here.
-~
+A winch with a long rope ladder is here.~
 wood~
 furniture 0 0
 0 0 0 0 0
@@ -1307,8 +1273,7 @@ G none
 #17045
 gizzard~
 a gizzard~
-A raw gizzard is on the ground, being consumed by ants.
-~
+A raw gizzard is on the ground, being consumed by ants.~
 food~
 pill 0 A
 35 'heal' '' '' ''
@@ -1317,8 +1282,7 @@ G none
 #17046
 chest iron bound~
 an iron bound chest~
-A massive iron bound chest is here.
-~
+A massive iron bound chest is here.~
 iron~
 container 0 0
 501 0 0 100 100
@@ -1332,8 +1296,7 @@ G none
 #17047
 silver mountain~
 a mountain of silver~
-A mountain of silver is here. Take it and be rich!
-~
+A mountain of silver is here. Take it and be rich!~
 silver~
 money 0 A
 100000 0 0 0 0
@@ -1346,8 +1309,7 @@ G none
 #17048
 mug everfull~
 the everfull mug~
-A bottomless glass of ale is here, waiting to slake your thirst.
-~
+A bottomless glass of ale is here, waiting to slake your thirst.~
 glass~
 drink G AO
 100 100 'ale' 0 0
@@ -1361,8 +1323,7 @@ G none
 #17049
 wings lord vulture's vulture vultures~
 Lord Vulture's wings~
-Wings from an ENORMOUS black bird lie well preserved on the ground.
-~
+Wings from an ENORMOUS black bird lie well preserved on the ground.~
 unknown~
 armor FG AI
 26 26 26 20 0
@@ -1382,8 +1343,7 @@ G none
 #17050
 eye eagle~
 the eye of the eagle~
-You see a smooth amber stone with a single black spot lying on the ground.
-~
+You see a smooth amber stone with a single black spot lying on the ground.~
 food~
 staff G AO
 40 40 40 'infravision' 0
@@ -1397,8 +1357,7 @@ G none
 #17051
 dagger throwing~
 a throwing dagger~
-A well balanced blue metal throwing dagger is here.
-~
+A well balanced blue metal throwing dagger is here.~
 metal~
 weapon GQ AN
 dagger 5 10 pierce 0
@@ -1415,8 +1374,7 @@ G none
 #17052
 grog mug~
 a mug of grog~
-A foaming mug of grog is here, ready to take the chill off..
-~
+A foaming mug of grog is here, ready to take the chill off..~
 unknown~
 potion G AO
 40 'refresh' 'harm' 'remove curse' ''
@@ -1425,8 +1383,7 @@ G none
 #17053
 cloak fur skin~
 a fur skin cloak~
-A white fur skin cloak is here.
-~
+A white fur skin cloak is here.~
 fur~
 armor 0 AK
 26 26 26 20 0
@@ -1435,8 +1392,7 @@ G none
 #17054
 vest fur skin~
 a fur skin vest~
-A white fur skin vest is here.
-~
+A white fur skin vest is here.~
 fur~
 armor 0 AD
 26 26 26 20 0
@@ -1445,8 +1401,7 @@ G none
 #17055
 leggings fur skin~
 fur skin leggings~
-Some white fur skin leggings are here.
-~
+Some white fur skin leggings are here.~
 fur~
 armor 0 AF
 25 27 27 20 0
@@ -1455,8 +1410,7 @@ G none
 #17056
 buckler spiked~
 a spiked buckler~
-A spiked buckler is here.
-~
+A spiked buckler is here.~
 unknown~
 armor 0 AJ
 27 25 26 18 0
@@ -1469,8 +1423,7 @@ G none
 #17057
 icicle~
 an icicle~
-An icicle lies on the floor, melting.
-~
+An icicle lies on the floor, melting.~
 ice~
 wand G AO
 40 5 5 'frost breath' 0
@@ -1479,8 +1432,7 @@ G none
 #17058
 pool melting~
 the melting pool~
-A pool of melting ice and frigid water is here.
-~
+A pool of melting ice and frigid water is here.~
 ice~
 fountain 0 0
 1000 1000 'water' 0 0
@@ -1489,8 +1441,7 @@ G none
 #17059
 garrote wire~
 a garrote wire~
-A long piece of wire lies on the ground.
-~
+A long piece of wire lies on the ground.~
 metal~
 weapon 0 AN
 exotic 10 9 grep 0
@@ -1499,8 +1450,7 @@ G none
 #17060
 stone ghost~
 the ghost stone~
-(TRANSLUCENT) A stone lies on the ground here.
-~
+(TRANSLUCENT) A stone lies on the ground here.~
 stone~
 wand G AN
 40 5 5 'pass door' 0
@@ -1509,8 +1459,7 @@ G none
 #17061
 battle axe two handed~
 a mighty two handed battle axe~
-A mighty two handed battle axe lies neglected in the dirt.
-~
+A mighty two handed battle axe lies neglected in the dirt.~
 steel~
 weapon 0 AN
 axe 11 11 chop DEF
@@ -1521,8 +1470,7 @@ G none
 #17062
 armor frost~
 frost armor~
-A suit of armor fashioned from ice lies melting on the ground.
-~
+A suit of armor fashioned from ice lies melting on the ground.~
 ice~
 armor FG AD
 32 31 31 24 0
@@ -1548,8 +1496,7 @@ G none
 #17063
 Frostbite sword winter~
 "Frostbite" sword of winter~
-A long bastard sword made of ice lies here melting.
-~
+A long bastard sword made of ice lies here melting.~
 ice~
 weapon DFL AN
 sword 10 13 bite 0
@@ -1574,8 +1521,7 @@ G none
 #17064
 bag gold~
 a bag of gold~
-A heavy bulging bag of gold lies here.
-~
+A heavy bulging bag of gold lies here.~
 leather~
 money 0 A
 50000 0 0 0 0
@@ -1584,8 +1530,7 @@ G none
 #17065
 bag silver~
 a bag of silver~
-A heavy bulging bag of silver lies here.
-~
+A heavy bulging bag of silver lies here.~
 leather~
 money 0 A
 25000 0 0 0 0
@@ -1594,8 +1539,7 @@ G none
 #17066
 bag gems~
 a bag of gems~
-A heavy bulging bag of gems lies here.
-~
+A heavy bulging bag of gems lies here.~
 leather~
 money 0 A
 75000 0 0 0 0
@@ -1604,8 +1548,7 @@ G none
 #17067
 bag jewelry~
 a bag of jewelry~
-A heavy bulging bag of jewelry lies here.
-~
+A heavy bulging bag of jewelry lies here.~
 leather~
 money 0 A
 100000 0 0 0 0
@@ -1614,8 +1557,7 @@ G none
 #17068
 eye evil~
 the evil eye~
-A bloody eye lies here.
-~
+A bloody eye lies here.~
 unknown~
 wand EG AO
 45 15 15 'sleep' 0
@@ -1624,8 +1566,7 @@ G none
 #17069
 map hell's reef~
 a map to Hell's Reef~
-A map lies rolled up on the ground.
-~
+A map lies rolled up on the ground.~
 leather~
 trash 0 A
 0 0 0 0 0
@@ -1638,8 +1579,7 @@ G none
 #17070
 bonfire roaring~
 a roaring bonfire~
-A roaring bonfire blazes brightly here.
-~
+A roaring bonfire blazes brightly here.~
 unknown~
 trash ABQ 0
 0 0 0 0 0

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.152 1999-06-17 05:46:40 fjoe Exp $
+ * $Id: interp.c,v 1.153 1999-06-17 19:44:44 avn Exp $
  */
 
 /***************************************************************************
@@ -411,7 +411,6 @@ cmd_t cmd_table[] =
     { "nochannels",	do_nochannels,	POS_DEAD,	L5,  LOG_ALWAYS	},
     { "notitle",	do_notitle,	POS_DEAD,	L5,  LOG_ALWAYS	},
     { "noemote",	do_noemote,	POS_DEAD,	L5,  LOG_ALWAYS	},
-    { "noshout",	do_noshout,	POS_DEAD,	L5,  LOG_ALWAYS	},
     { "notell",		do_notell,	POS_DEAD,	L5,  LOG_ALWAYS	},
     { "pecho",		do_pecho,	POS_DEAD,	L4,  LOG_NORMAL	}, 
     { "purge",		do_purge,	POS_DEAD,	L4,  LOG_ALWAYS	},

@@ -733,8 +733,7 @@ G none
 #1804
 first aid kit~
 a first aid kit~
-A white wooden box with a red cross is here.
-~
+A white wooden box with a red cross is here.~
 wood~
 staff G AO
 40 10 10 'heal' 0
@@ -748,8 +747,7 @@ G none
 #1805
 wafer~
 a wafer~
-A wafer, food-staple of the rangers, lies here waiting to be eaten.
-~
+A wafer, food-staple of the rangers, lies here waiting to be eaten.~
 food~
 food 0 A
 BCDE ADE 0 0 0

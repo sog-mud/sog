@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.157 1999-06-17 19:28:01 fjoe Exp $
+ * $Id: act_wiz.c,v 1.158 1999-06-17 19:44:43 avn Exp $
  */
 
 /***************************************************************************
@@ -2517,48 +2517,6 @@ void do_noemote(CHAR_DATA *ch, const char *argument)
 		char_puts("You can't emote!\n", victim);
 		char_puts("NOEMOTE set.\n", ch);
 		wiznet("$N revokes $i's emotes.",
-			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
-	}
-}
-
-void do_noshout(CHAR_DATA *ch, const char *argument)
-{
-	char arg[MAX_INPUT_LENGTH];
-	CHAR_DATA *victim;
-
-	one_argument(argument, arg, sizeof(arg));
-
-	if (arg[0] == '\0') {
-		char_puts("Noshout whom?\n",ch);
-		return;
-	}
-
-	if ((victim = get_char_world(ch, arg)) == NULL) {
-		char_puts("They aren't here.\n", ch);
-		return;
-	}
-
-	if (IS_NPC(victim)) {
-		char_puts("Not on NPC's.\n", ch);
-		return;
-	}
-
-	if (victim->level >= ch->level) {
-		char_puts("You failed.\n", ch);
-		return;
-	}
-
-	if (IS_SET(victim->comm, COMM_NOSHOUT)) {
-		REMOVE_BIT(victim->comm, COMM_NOSHOUT);
-		char_puts("You can shout again.\n", victim);
-		char_puts("NOSHOUT removed.\n", ch);
-		wiznet("$N restores shouts to $i.",
-			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
-	} else {
-		SET_BIT(victim->comm, COMM_NOSHOUT);
-		char_puts("You can't shout!\n", victim);
-		char_puts("NOSHOUT set.\n", ch);
-		wiznet("$N revokes $i's shouts.",
 			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
 	}
 }

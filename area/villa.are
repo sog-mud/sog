@@ -577,8 +577,7 @@ stand stand male 1000
 #24100
 key~
 a bone key~
-The key to the village gates.
-~
+The key to the village gates.~
 copper~
 key 0 AO
 0 0 0 0 0
@@ -836,8 +835,7 @@ G none
 #24126
 wolf head~
 a wolf's head~
-The champion's wolf's head is here.
-~
+The champion's wolf's head is here.~
 copper~
 armor 0 AE
 21 21 21 0 0
@@ -848,8 +846,7 @@ G none
 #24127
 club~
 the chief's club~
-The chief's oak club is lying here in the dirt.
-~
+The chief's oak club is lying here in the dirt.~
 copper~
 weapon G AN
 exotic 5 13 crush 0
@@ -934,8 +931,7 @@ G none
 #24134
 shield~
 an ox-hide shield~
-An ox-hide shield lies here.
-~
+An ox-hide shield lies here.~
 copper~
 armor 0 AJ
 13 13 13 0 0
@@ -950,8 +946,7 @@ G none
 #24135
 spear~
 a throwing spear~
-A sturdy throwing spear has been thrust into the ground here.
-~
+A sturdy throwing spear has been thrust into the ground here.~
 copper~
 warp_stone G ANO
 0 0 0 0 0
@@ -964,8 +959,7 @@ G none
 #24136
 papyrus~
 a blank papyrus~
-A blank papyrus is here.
-~
+A blank papyrus is here.~
 copper~
 scroll 0 AO
 0 '' '' '' ''
@@ -974,8 +968,7 @@ G none
 #24137
 potion~
 a shimmering potion~
-A shimmering potion is here.
-~
+A shimmering potion is here.~
 copper~
 potion G AO
 5 'mind light' 'cure poison' 'curse' ''

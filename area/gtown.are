@@ -588,8 +588,7 @@ I 0 medium unknown
 #8100
 rod orcus~
 the Rod of Orcus~
-The Rod of Orcus glows evilly here.
-~
+The Rod of Orcus glows evilly here.~
 wood~
 staff BEGH AO
 60 100 100 'pass door' 0
@@ -620,8 +619,7 @@ G none
 #8101
 hand vecna~
 the Hand of Vecna~
-The Hand of Vecna lies here.
-~
+The Hand of Vecna lies here.~
 leather steel~
 armor EHJMQ AH
 18 19 18 10 0
@@ -642,8 +640,7 @@ G none
 #8102
 eye vecna~
 the Eye of Vecna~
-The Eye of Vecna glows evilly here.
-~
+The Eye of Vecna glows evilly here.~
 leather steel~
 armor AEJM AE
 18 18 18 10 0
@@ -658,8 +655,7 @@ G none
 #8103
 sword kas~
 the Sword of Kas~
-The Sword of Kas beckons to you!
-~
+The Sword of Kas beckons to you!~
 steel~
 weapon BEGJM AN
 sword 5 10 pierce D
@@ -674,8 +670,7 @@ G none
 #8104
 circlet~
 a circlet~
-A Circlet lies here, gathering dust.
-~
+A Circlet lies here, gathering dust.~
 steel~
 armor GM AE
 17 17 17 10 0
@@ -688,8 +683,7 @@ G none
 #8105
 hoard~
 a treasure hoard~
-A treasure hoard is scattered here.
-~
+A treasure hoard is scattered here.~
 leather~
 container 0 AO
 400 0 0 50 50
@@ -698,8 +692,7 @@ G none
 #8106
 chest~
 a chest~
-A chest sits here.
-~
+A chest sits here.~
 steel~
 container 0 A
 150 0 0 20 100
@@ -708,8 +701,7 @@ G none
 #8107
 robes flesh~
 robes of Flesh~
-Robes made of human flesh are piled here.
-~
+Robes made of human flesh are piled here.~
 human flesh~
 armor EJ AK
 15 15 15 6 0
@@ -722,8 +714,7 @@ G none
 #8108
 rod bone~
 a Rod of Bone~
-A Rod fashioned from a human femur lies here.
-~
+A Rod fashioned from a human femur lies here.~
 human femur~
 weapon EJ AN
 exotic 6 9 crush 0
@@ -740,8 +731,7 @@ G none
 #8109
 bones~
 a pile of bones~
-A pile of bones lies here.
-~
+A pile of bones lies here.~
 silver~
 trash 0 A
 0 0 0 0 0
@@ -750,8 +740,7 @@ G none
 #8110
 gem~
 a Power Gem~
-A Mana Power Gem pulses strongly here.
-~
+A Mana Power Gem pulses strongly here.~
 wood~
 staff AG AO
 50 20 20 'sanctuary' 0
@@ -762,8 +751,7 @@ G none
 #8111
 cloak~
 a black cloak~
-A black cloak is piled here.
-~
+A black cloak is piled here.~
 unknown~
 armor 0 AK
 17 17 17 11 0
@@ -772,8 +760,7 @@ G none
 #8112
 sword~
 (Diabolical) a Dark Sword~
-A Dark Sword hums evilly here.
-~
+A Dark Sword hums evilly here.~
 steel~
 weapon BCEJ AN
 sword 6 10 slash 0
@@ -792,8 +779,7 @@ G none
 #8113
 armor~
 a Suit of Dark Armor~
-A Suit of Dark Armor lies here.
-~
+A Suit of Dark Armor lies here.~
 steel~
 armor CEJ AE
 16 16 17 10 0
@@ -808,8 +794,7 @@ G none
 #8114
 helm~
 a Dark Helm~
-A Dark Helm seeks to possess you!
-~
+A Dark Helm seeks to possess you!~
 steel~
 armor CHM AE
 18 18 18 12 0
@@ -822,8 +807,7 @@ G none
 #8115
 jar~
 a jar~
-A glass jar sits here.
-~
+A glass jar sits here.~
 glass~
 container 0 AO
 25 0 0 10 100
@@ -832,8 +816,7 @@ G none
 #8116
 poison~
 some poison~
-Some poison lies here.
-~
+Some poison lies here.~
 food~
 food 0 A
 A 0 0 A 0
@@ -842,8 +825,7 @@ G none
 #8117
 unholy symbol~
 an Unholy Symbol~
-The Unholy Symbol of some priest devoted to evil lies here.
-~
+The Unholy Symbol of some priest devoted to evil lies here.~
 unknown~
 light EJ A
 0 0 -1 0 0
@@ -854,8 +836,7 @@ G none
 #8118
 holy symbol~
 a holy Symbol~
-The Holy Symbol of some priest devoted to good lies here.
-~
+The Holy Symbol of some priest devoted to good lies here.~
 unknown~
 light AK A
 0 0 -1 0 0
@@ -866,8 +847,7 @@ G none
 #8119
 corpse~
 a corpse~
-The corpse of some unfortunate adventurer is lying here.
-~
+The corpse of some unfortunate adventurer is lying here.~
 meat~
 furniture 0 0
 0 0 0 0 0
@@ -876,8 +856,7 @@ G none
 #8120
 key~
 a key~
-A black key is here.
-~
+A black key is here.~
 iron~
 key B AO
 B 0 0 0 0
@@ -886,8 +865,7 @@ G none
 #8121
 jar blood~
 a jar of human blood~
-A jar of human blood sits here.
-~
+A jar of human blood sits here.~
 glass~
 potion BEJ AO
 60 'poison' 'weaken' 'curse' ''

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.178 1999-06-17 12:41:09 avn Exp $
+ * $Id: act_move.c,v 1.179 1999-06-17 19:44:42 avn Exp $
  */
 
 /***************************************************************************
@@ -3090,6 +3090,7 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim,OBJ_DATA *arrow,
 	if (get_skill(ch, gsn_bow) > 90 
 	&& !IS_NPC(victim)
 	&& !IS_IMMORTAL(victim)
+	&& arrow->value[0] == WEAPON_ARROW
 	&& number_range(1, 10000) < get_skill(ch, gsn_mastering_bow) *
 	   			    (get_curr_stat(ch, STAT_STR) +
 				     get_curr_stat(ch, STAT_DEX)) / 50) {
@@ -3109,10 +3110,8 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim,OBJ_DATA *arrow,
 		check_improve(ch, gsn_mastering_bow, TRUE, 9);
 	}
 
-	if (arrow->value[0] == WEAPON_SPEAR)  
-		sn = gsn_spear;
-	else 
-		sn = gsn_arrow;
+	sn = get_weapon_sn(arrow);
+	if (sn == -1) sn = gsn_throw_weapon;
 
 	for (paf = arrow->affected; paf != NULL; paf = paf->next) {
 		if (paf->location == APPLY_DAMROLL)
@@ -3465,14 +3464,11 @@ DO_FUN(do_shoot)
 		return;
 	}
 		
-	if (is_safe(ch, victim))
-		return;
-
 	WAIT_STATE(ch, SKILL(gsn_bow)->beats);
 
 	chance = (chance - 50) * 2;
 	if (ch->position == POS_SLEEPING)
-		chance += 40;
+		chance += 20;
 	if (ch->position == POS_RESTING)
 		chance += 10;
 	if (victim->position == POS_FIGHTING)
@@ -3544,17 +3540,17 @@ void do_human(CHAR_DATA *ch, const char *argument)
 	char_puts("You return to your original size.\n", ch);
 }
 
-void do_throw_spear(CHAR_DATA *ch, const char *argument)
+void do_throw_weapon(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
-	OBJ_DATA *spear;
+	OBJ_DATA *obj;
 	char arg1[512],arg2[512];
 	bool success;
-	int chance,direction;
+	int chance, chance2, direction, sn;
 	int range = (ch->level / 10) + 1;
 
-	if (IS_NPC(ch) || (chance = get_skill(ch, gsn_spear)) == 0) {
-		char_puts("You don't know how to throw a spear.\n",ch);
+	if (IS_NPC(ch) || (chance = get_skill(ch, gsn_throw_weapon)) == 0) {
+		char_puts("You don't know how to use throwing weapons.\n",ch);
 		return;
 	}
 
@@ -3562,7 +3558,7 @@ void do_throw_spear(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg2, sizeof(arg2));
 
   	if (arg1[0] == '\0' || arg2[0] == '\0') {
-		char_puts("Throw spear what direction and whom?\n", ch);
+		char_puts("Throw which direction and whom?\n", ch);
 		return;
 	}
 
@@ -3574,7 +3570,7 @@ void do_throw_spear(CHAR_DATA *ch, const char *argument)
 				break;
 		if (vch) {
 			char_puts("You cannot concentrate on throwing "
-				  "spears.\n", ch);
+				  "weapons.\n", ch);
 			return;
 		}
 	}
@@ -3591,36 +3587,47 @@ void do_throw_spear(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!IS_NPC(victim) && victim->desc == NULL) {
-		char_puts("You can't do that.\n", ch);
-		return;
-	}
-
 	if (victim == ch) {
 		char_puts("That's pointless.\n", ch);
 		return;
 	}
 
-	spear = get_eq_char(ch, WEAR_WIELD);
-	if (!spear || spear->pIndexData->item_type != ITEM_WEAPON
-	||  spear->value[0] != WEAPON_SPEAR) {
-		char_puts("You need a spear to throw!\n",ch);
+	obj = get_eq_char(ch, WEAR_WIELD);
+	if (!obj) {
+	    char_puts("Throwing your hands would not be a good idea.\n", ch);
+	    return;
+	}
+
+	if (obj->pIndexData->item_type != ITEM_WEAPON) {
+		char_puts("Throwing cakes will not wound your foes. "
+			"Try weapons.\n", ch);
 		return;    	
 	}
 
-	if (get_eq_char(ch,WEAR_SECOND_WIELD) || get_eq_char(ch,WEAR_SHIELD)) {
-		char_puts("Your second hand should be free!\n",ch);
-		return;    	
-	}
-
-	if (is_safe(ch,victim))
+	sn = get_weapon_sn(obj);
+	if ((chance2 = get_weapon_skill(ch, sn)) == 0) {
+		char_puts("Damn. It has just fallen from your hand!\n", ch);
+		obj_from_char(obj);
+		if (IS_OBJ_STAT(obj, ITEM_NODROP)
+		|| IS_OBJ_STAT(obj, ITEM_INVENTORY))
+			obj_to_char(obj, ch);
+		else
+			obj_to_room(obj, ch->in_room);
 		return;
+	}
 
-	WAIT_STATE(ch, SKILL(gsn_spear)->beats);
+	if (!IS_WEAPON_STAT(obj, WEAPON_THROW)) {
+		char_puts("It was never designed for that.\n", ch);
+		return;
+	}
+
+	chance = (chance + chance2 - 20)/2;
+
+	WAIT_STATE(ch, SKILL(sn)->beats);
 
 	chance = (chance - 50) * 2;
 	if (ch->position == POS_SLEEPING)
-		chance += 40;
+		chance += 20;
 	if (ch->position == POS_RESTING)
 		chance += 10;
 	if (victim->position == POS_FIGHTING)
@@ -3628,14 +3635,14 @@ void do_throw_spear(CHAR_DATA *ch, const char *argument)
 	chance += GET_HITROLL(ch);
 
 	act_puts("You throw $p to $T.", 
-		 ch, spear, dir_name[direction], TO_CHAR, POS_DEAD);
+		 ch, obj, dir_name[direction], TO_CHAR, POS_DEAD);
 	act("$n throws $p to $T.",
-	    ch, spear, dir_name[direction], TO_ROOM | ACT_TRANS);
+	    ch, obj, dir_name[direction], TO_ROOM | ACT_TRANS);
 
-	obj_from_char(spear);
-	success = send_arrow(ch,victim,spear,direction,chance,
-			dice(spear->value[1],spear->value[2]));
-	check_improve(ch, gsn_spear, TRUE, 1);
+	obj_from_char(obj);
+	success = send_arrow(ch,victim,obj,direction,chance,
+			dice(obj->value[1],obj->value[2]));
+	check_improve(ch, gsn_throw_weapon, TRUE, 1);
 }
 
 /* RT Enter portals */

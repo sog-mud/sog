@@ -87,8 +87,7 @@ G none
 #95701
 tattoo golden золотая татуировка~
 @eng the golden tattoo@rus золотая татуировка~
-@eng A small, golden tattoo floats in the air.
-@rus Маленькая золотая татуировка (tattoo) летает в воздухе.~
+@eng A small, golden tattoo floats in the air.@rus Маленькая золотая татуировка (tattoo) летает в воздухе.~
 golden~
 treasure CEORTe AO
 0 0 0 0 0
@@ -97,8 +96,7 @@ G none
 #95702
 bone gray кость~
 @eng a gray bone@rus ~~серая~~ ~~кость~~~
-@eng An ancient animal's bone is left on the floor here.
-@rus Древняя кость (bone) лежит на полу.~
+@eng An ancient animal's bone is left on the floor here.@rus Древняя кость (bone) лежит на полу.~
 bone~
 key CEORYf AOP
 0 0 0 0 0

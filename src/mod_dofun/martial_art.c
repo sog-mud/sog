@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.97 1999-06-17 19:28:03 fjoe Exp $
+ * $Id: martial_art.c,v 1.98 1999-06-17 19:44:44 avn Exp $
  */
 
 /***************************************************************************
@@ -1483,7 +1483,7 @@ void do_caltrops(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-DECLARE_DO_FUN(do_throw_spear);
+DECLARE_DO_FUN(do_throw_weapon);
 
 void do_throw(CHAR_DATA *ch, const char *argument)
 {
@@ -1491,15 +1491,15 @@ void do_throw(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	int chance;
 
-	if (MOUNTED(ch)) {
-		char_puts("You can't throw while riding!\n", ch);
+	argument = one_argument(argument, arg, sizeof(arg));
+
+	if (!str_cmp(arg, "weapon")) {
+		do_throw_weapon(ch, argument);
 		return;
 	}
 
-	argument = one_argument(argument, arg, sizeof(arg));
-
-	if (!str_cmp(arg, "spear")) {
-		do_throw_spear(ch, argument);
+	if (MOUNTED(ch)) {
+		char_puts("You can't throw while riding!\n", ch);
 		return;
 	}
 

@@ -419,8 +419,7 @@ G none
 #32002
 pack of cigarettes~
 a pack of cigarettes~
-A pack of smokes have been dropped here carelessly.
-~
+A pack of smokes have been dropped here carelessly.~
 unknown~
 armor BE AO
 3 3 3 0 0
@@ -436,8 +435,7 @@ G none
 #32003
 Trojan wrapper~
 a used condom wrapper~
-A piece of crinkled foil rests here.
-~
+A piece of crinkled foil rests here.~
 unknown~
 trash H A
 0 A BC ABD P
@@ -446,8 +444,7 @@ G none
 #32004
 soap rope~
 a soap on a rope~
-Some soap on a rope is here.
-~
+Some soap on a rope is here.~
 unknown~
 weapon AGJL AN
 exotic 4 4 pound 0
@@ -460,8 +457,7 @@ G none
 #32005
 tricks~
 flar's bag of tricks~
-An enchanted bag lies here
-~
+An enchanted bag lies here~
 leather~
 container FG AO
 300 0 0 11 100
@@ -470,8 +466,7 @@ G none
 #32006
 unknown ember ring~
 a unknown ember ring~
-A mystical ring of burning embers is here.
-~
+A mystical ring of burning embers is here.~
 unknown~
 treasure 0 AB
 0 0 0 0 0
@@ -484,8 +479,7 @@ G none
 #32007
 hatchling ember ring~
 a hatchling ember ring~
-A ring of burning embers is here.
-~
+A ring of burning embers is here.~
 unknown~
 treasure 0 AB
 0 0 0 0 0
@@ -498,8 +492,7 @@ G none
 #32008
 Hatchling robe~
 a hatchling robe~
-An ivory robe lies here.
-~
+An ivory robe lies here.~
 leather~
 armor 0 AK
 2 0 0 0 0
@@ -512,8 +505,7 @@ G none
 #32009
 filet rat~
 a rat filet~
-A juicy filet of rat lies here.
-~
+A juicy filet of rat lies here.~
 food~
 food 0 A
 D BC 0 A 0
@@ -522,8 +514,7 @@ G none
 #32010
 hatchling cloak~
 a hatchling cloak~
-A  hatchling cloak lies here.
-~
+A  hatchling cloak lies here.~
 leather~
 armor 0 AC
 2 0 0 0 0
@@ -532,8 +523,7 @@ G none
 #32011
 hatchling shirt~
 a hatchling shirt~
-A hatchling shirt lies here
-~
+A hatchling shirt lies here~
 leather~
 armor 0 AD
 2 0 0 0 0
@@ -542,8 +532,7 @@ G none
 #32012
 helmet~
 a hatchling helmet~
-A hatchling helmet rests here.
-~
+A hatchling helmet rests here.~
 steel~
 armor 0 AE
 2 0 0 0 0
@@ -552,8 +541,7 @@ G none
 #32013
 hatchling leggings~
 a set of hatchling leggings~
-Some hatchling leggings lie here.
-~
+Some hatchling leggings lie here.~
 steel~
 armor 0 AF
 2 0 0 0 0
@@ -562,8 +550,7 @@ G none
 #32014
 hatchling boots~
 a pair of hatchling boots~
-A pair of hatchling boots lie here.
-~
+A pair of hatchling boots lie here.~
 leather~
 armor 0 AG
 2 0 0 0 0
@@ -572,8 +559,7 @@ G none
 #32015
 hatchling gloves~
 a pair of hatchling gloves~
-A pair of hatchling gloves lie here.
-~
+A pair of hatchling gloves lie here.~
 leather~
 armor 0 AH
 2 0 0 0 0
@@ -582,8 +568,7 @@ G none
 #32016
 hatchling sleeves~
 a set of hatchling sleeves~
-Some hatchling sleeves lie here.
-~
+Some hatchling sleeves lie here.~
 steel~
 armor 0 AI
 2 0 0 0 0
@@ -592,8 +577,7 @@ G none
 #32017
 shield hatchling~
 a hatchling shield~
-A hatchling shield has been carelessly left here.
-~
+A hatchling shield has been carelessly left here.~
 steel~
 armor 0 AJ
 2 0 0 0 0
@@ -602,8 +586,7 @@ G none
 #32018
 hatchling belt~
 a hatchling belt~
-A hatchling belt has been dropped here.
-~
+A hatchling belt has been dropped here.~
 leather~
 container 0 AK
 100 0 0 5 100
@@ -618,8 +601,7 @@ G none
 #32019
 hatchling bracer~
 a hatchling bracer ~
-A hatchling bracer has been left here.
-~
+A hatchling bracer has been left here.~
 leather~
 armor 0 AM
 2 0 0 0 0
@@ -628,8 +610,7 @@ G none
 #32020
 lucky charm hatchling~
 a lucky charm~
-A lucky charm has been left here.
-~
+A lucky charm has been left here.~
 unknown~
 treasure 0 AO
 B 0 0 0 0
@@ -642,8 +623,7 @@ G none
 #32021
 Starter Kit~
 a starter kit~
-A starter kit has been dropped here.
-~
+A starter kit has been dropped here.~
 unknown~
 container 0 AO
 75 0 0 5 100
@@ -657,8 +637,7 @@ G none
 #32022
 fountain water~
 a fountain~
-An intricately carved ivory fountain is here, filled with holy water.
-~
+An intricately carved ivory fountain is here, filled with holy water.~
 marble~
 fountain A 0
 1100 1100 'water' 0 0
@@ -667,8 +646,7 @@ G none
 #32023
 crumpled piece paper~
 a crumpled piece of paper~
-A crumpled piece of paper has been left here.
-~
+A crumpled piece of paper has been left here.~
 paper~
 treasure 0 A
 0 0 0 0 0
@@ -689,8 +667,7 @@ G none
 #32024
 Desk~
 a large cluttered desk~
-A large cluttered desk with all sorts of paperwork is here.
-~
+A large cluttered desk with all sorts of paperwork is here.~
 wood~
 container 0 0
 1000 0 0 50 100
@@ -702,8 +679,7 @@ G none
 #32025
 Cell key~
 a cell block key  ~
-A cell block key rusts here
-~
+A cell block key rusts here~
 iron~
 key 0 A
 0 0 0 0 0
@@ -712,8 +688,7 @@ G none
 #32026
 joint~
 a big fat joint~
-A big fat joint lays here burning.
-~
+A big fat joint lays here burning.~
 unknown~
 wand 0 AO
 23 6 6 'faerie fire' 0
@@ -722,8 +697,7 @@ G none
 #32027
 py check paycheck~
 a paycheck~
-A paycheck is here, longing for you to take it.
-~
+A paycheck is here, longing for you to take it.~
 unknown~
 treasure 0 AO
 0 A 6 0 0
@@ -732,8 +706,7 @@ G none
 #32028
 dirty mop~
 a dirty mop~
-A dirty mop has been set against the wall.
-~
+A dirty mop has been set against the wall.~
 unknown~
 weapon 0 AN
 exotic 2 4 pierce 0
@@ -742,8 +715,7 @@ G none
 #32029
 large battle axe~
 a large battle axe~
-A dangerous large battle axe rests here.
-~
+A dangerous large battle axe rests here.~
 steel~
 weapon 0 AN
 axe 5 7 chop 0
@@ -756,8 +728,7 @@ G none
 #32030
 spiked wristguard~
 a spiked wristguard~
-A wicked looking spiked wrist guard lies here.
-~
+A wicked looking spiked wrist guard lies here.~
 unknown~
 armor 0 AM
 20 21 20 20 0
@@ -776,8 +747,7 @@ G none
 #32031
 titanium leggings~
 a pair of titanium leggings~
-A pair of strong leggings has been left here.
-~
+A pair of strong leggings has been left here.~
 titanium~
 armor 0 AF
 28 26 26 16 0
@@ -790,8 +760,7 @@ G none
 #32032
 titanium sleeves~
 a set of titanium sleeves~
-A set of strong sleeves has been dropped here.
-~
+A set of strong sleeves has been dropped here.~
 titanium~
 armor 0 AI
 25 25 26 20 0
@@ -802,8 +771,7 @@ G none
 #32033
 prison uniform~
 a prison uniform~
-A prison uniform lies here all starched up.
-~
+A prison uniform lies here all starched up.~
 leather~
 armor 0 AK
 6 6 7 5 0
@@ -814,8 +782,7 @@ G none
 #32034
 titanium shield~
 a titanium shield~
-A shield of titanium rests here.
-~
+A shield of titanium rests here.~
 titanium~
 armor 0 AJ
 29 29 28 20 0
@@ -826,8 +793,7 @@ G none
 #32035
 dagger curved~
 a curved  assasin's dagger~
-A curved dagger lies here.
-~
+A curved dagger lies here.~
 steel~
 weapon EFJ AN
 dagger 8 8 pierce 0
@@ -840,8 +806,7 @@ G none
 #32036
 ring guardian~
 a pitch black ring~
-A pitch black ring with sparkles of color lies on the ground here.
-~
+A pitch black ring with sparkles of color lies on the ground here.~
 unknown~
 armor ABFG AB
 18 18 19 10 0
@@ -854,8 +819,7 @@ G none
 #32037
 iron manacle~
 a set of wrought iron manacles~
-A set of wrought iron manacles lay in the corner here.
-~
+A set of wrought iron manacles lay in the corner here.~
 iron~
 armor M AM
 1 1 1 0 0
@@ -868,8 +832,7 @@ G none
 #32038
 zip gun~
 a zip gun~
-A home made zip gun lies here.
-~
+A home made zip gun lies here.~
 unknown~
 wand 0 AO
 15 8 8 'high explosive' 0
@@ -878,8 +841,7 @@ G none
 #32039
 coins gold pile~
 a pile of gold coins~
-A pile of gold coins are scattered about.
-~
+A pile of gold coins are scattered about.~
 gold~
 money 0 A
 1500 0 0 0 0
@@ -888,8 +850,7 @@ G none
 #32040
 heels pink sequin~
 a set of pink sequined high heels~
-A set aof fabulous looking heels lie here.
-~
+A set aof fabulous looking heels lie here.~
 unknown~
 armor 0 AG
 26 26 26 16 0
@@ -911,8 +872,7 @@ G none
 #32042
 bra push up~
 a push up bra~
-A busty bra lies here.
-~
+A busty bra lies here.~
 unknown~
 armor M AD
 12 12 12 10 0
@@ -925,8 +885,7 @@ G none
 #32043
 coveralls~
 a pair of coveralls~
-A workers coveralls lay here.
-~
+A workers coveralls lay here.~
 unknown~
 armor BF AK
 15 15 15 5 0
@@ -939,8 +898,7 @@ G none
 #32044
 indians baseball hat~
 an Indians baseball hat~
-A baseball hat with the tribe logo on it is here.
-~
+A baseball hat with the tribe logo on it is here.~
 unknown~
 armor 0 AE
 15 16 16 10 0
@@ -953,8 +911,7 @@ G none
 #32045
 tool belt~
 a tool belt~
-A tool belt lies here.
-~
+A tool belt lies here.~
 unknown~
 armor 0 AL
 16 17 15 10 0
@@ -965,8 +922,7 @@ G none
 #32046
 golden hairnet~
 a golden hairnet~
-A pile of golden netting is here.
-~
+A pile of golden netting is here.~
 gold~
 armor 0 AE
 26 27 26 18 0
@@ -987,8 +943,7 @@ G none
 #32047
 baby jacob~
 baby jacob~
-baby jacob lies here.
-~
+baby jacob lies here.~
 stone~
 light 0 0
 0 0 0 0 0
@@ -997,8 +952,7 @@ G none
 #32048
 scroll persuasion~
 a scroll of persuasion~
-A very delicate scroll set in silver leafs lies here.
-~
+A very delicate scroll set in silver leafs lies here.~
 vellum~
 scroll 0 A
 60 'word of recall' '' '' ''
@@ -1007,8 +961,7 @@ G none
 #32049
 Gown virginity~
 a gown of virginity~
-A gown of virginity has been forgotten here.
-~
+A gown of virginity has been forgotten here.~
 unknown~
 armor 0 AK
 27 26 25 20 0
@@ -1021,8 +974,7 @@ G none
 #32050
 packet boiler water treatment~
 a packet of boiler water treatment~
-A packet of boiler water treatment has been dropped here.
-~
+A packet of boiler water treatment has been dropped here.~
 food~
 food H A
 BC BC 0 0 0
@@ -1031,8 +983,7 @@ G none
 #32051
 dreadlocks~
 a mane of dreadlocks~
-A massive pile of dreadlocks rest here.
-~
+A massive pile of dreadlocks rest here.~
 iron~
 armor ABFKL AE
 30 30 30 20 0
@@ -1043,8 +994,7 @@ G none
 #32052
 Axe destruction~
 an axe of destruction~
-A massive blood-stained axe of immeasurable age lies here.
-~
+A massive blood-stained axe of immeasurable age lies here.~
 steel~
 weapon BFG AN
 axe 11 11 chop DE
@@ -1057,8 +1007,7 @@ G none
 #32053
 trash can~
 a trash can~
-A trash can is here so give a hoot and don't pollute!
-~
+A trash can is here so give a hoot and don't pollute!~
 bronze~
 container 0 0
 200 0 0 6 100
@@ -1067,8 +1016,7 @@ G none
 #32054
 chopping block~
 a chopping block~
-A chopping block covered in blood and gore is here.
-~
+A chopping block covered in blood and gore is here.~
 iron~
 furniture 0 0
 0 0 0 0 0
@@ -1077,8 +1025,7 @@ G none
 #32055
 head severed~
 a severed head~
-A severed head of a previous victim lies in the corner.
-~
+A severed head of a previous victim lies in the corner.~
 unknown~
 pill 0 0
 1 '' '' '' ''
@@ -1091,8 +1038,7 @@ G none
 #32056
 rusty shower~
 a rusty leaky shower head~
-A rusty showerhead drips water on the floor here.
-~
+A rusty showerhead drips water on the floor here.~
 stone~
 fountain 0 0
 0 0 'water' 0 0
@@ -1101,8 +1047,7 @@ G none
 #32057
 pill lude~
 a lude~
-A pill called a "lude" lies here collecting dust.
-~
+A pill called a "lude" lies here collecting dust.~
 unknown~
 pill 0 A
 10 'bless' 'cure serious' 'cure light' ''
@@ -1111,8 +1056,7 @@ G none
 #32058
 flask vile mist~
 a flask of vile liquid~
-A flas full of vile liquid has been laid to rest here.
-~
+A flas full of vile liquid has been laid to rest here.~
 glass~
 potion 0 A
 8 'fly' 'refresh' '' ''
@@ -1121,8 +1065,7 @@ G none
 #32059
 invisibility staff~
 a staff of invisibility~
-A twig of an oak tree lies here.
-~
+A twig of an oak tree lies here.~
 wood~
 staff 0 AO
 12 8 8 'armor' 0
@@ -1131,8 +1074,7 @@ G none
 #32060
 drum~
 a drum~
-A big yellow 55 gallon drum sits here.
-~
+A big yellow 55 gallon drum sits here.~
 unknown~
 furniture A A
 0 0 0 0 0
@@ -1145,8 +1087,7 @@ G none
 #32061
 briefcase~
 a brown leather briefcase~
-A briefcase has been left here
-~
+A briefcase has been left here~
 leather~
 container 0 AJ
 50 0 0 5 100
@@ -1157,8 +1098,7 @@ G none
 #32062
 Ball point pen~
 a ball point pen~
-A fine ball point pen lies here.
-~
+A fine ball point pen lies here.~
 unknown~
 armor F AO
 16 17 16 9 0
@@ -1175,8 +1115,7 @@ G none
 #32063
 quart~
 a quart of astro-sol#3~
-A quart of astrosol#3 has been left here.
-~
+A quart of astrosol#3 has been left here.~
 unknown~
 trash 0 A
 0 0 0 0 0
@@ -1185,8 +1124,7 @@ G none
 #32064
 quart Natural ~
 a quart of Natural 50~
-A quart of Natural 50 has been dropped here, now you can smell oranges!
-~
+A quart of Natural 50 has been dropped here, now you can smell oranges!~
 unknown~
 trash 0 A
 0 0 0 0 0
@@ -1195,8 +1133,7 @@ G none
 #32065
 Can ec50~
 a can of EC50~
-A can of EC50 is here looking dangerous.
-~
+A can of EC50 is here looking dangerous.~
 unknown~
 wand 0 AO
 20 5 5 'fireball' 0
@@ -1205,8 +1142,7 @@ G none
 #32067
 hatchling ember ring~
 a hatchling ember ring~
-A ring of burning embers lies here.
-~
+A ring of burning embers lies here.~
 unknown~
 treasure 0 AB
 0 0 0 0 0
@@ -1219,8 +1155,7 @@ G none
 #32068
 hatchling cloak~
 a hatchling cloak~
-A hatchling cloak lies here.
-~
+A hatchling cloak lies here.~
 unknown~
 armor 0 AC
 2 0 0 0 0
@@ -1229,8 +1164,7 @@ G none
 #32069
 hatchling bracer~
 a hatchling bracer~
-A hatchling bracer lies here.
-~
+A hatchling bracer lies here.~
 unknown~
 armor 0 AM
 2 1 0 0 0
@@ -1239,8 +1173,7 @@ G none
 #32070
 large desk~
 a large desk~
-A large oaken desk is in the corner here.
-~
+A large oaken desk is in the corner here.~
 unknown~
 container 0 0
 200 0 0 0 0
@@ -1249,8 +1182,7 @@ G none
 #32071
 fountain water holy~
 an ivory fountain~
-A carved ivory fountain is here filled with Holy Water. 
-~
+A carved ivory fountain is here filled with Holy Water. ~
 ivory~
 fountain A 0
 100 100 'water' 0 0

@@ -204,8 +204,7 @@ stand stand male 40
 #8800
 pool~
 a pool~
-A pool of crystal-clear water fills this clearing.
-~
+A pool of crystal-clear water fills this clearing.~
 air~
 fountain 0 0
 10000 10000 'water' 0 0

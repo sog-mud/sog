@@ -1,4 +1,12 @@
 #RULE
+Name פ×ÏÊ~
+BaseLen 2
+Form 1 -ÁÑ~
+Form 2 -ÏÅ~
+Form 3 -ÉÅ~
+End
+
+#RULE
 Name Ô×ÏÊ~
 BaseLen 3
 Form 1 -Ñ~
@@ -9,12 +17,6 @@ End
 #RULE
 Name ×ÉÄÉÍÙÊ~
 Form 1 ×ÉÄÉÍÁÑ~
-End
-
-#RULE
-Name םועפק~
-Form 1 םועפקב~
-Form 2 םועפקן~
 End
 
 #RULE
@@ -142,6 +144,12 @@ BaseLen 7
 Form 1 -ÁÓØ~
 Form 2 -ÏÓØ~
 Form 3 -ÉÓØ~
+End
+
+#RULE
+Name םועפק~
+Form 1 םועפקב~
+Form 2 םועפקן~
 End
 
 #RULE

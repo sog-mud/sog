@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.249 1999-06-17 19:27:59 fjoe Exp $
+ * $Id: act_info.c,v 1.250 1999-06-17 19:44:41 avn Exp $
  */
 
 /***************************************************************************
@@ -58,6 +58,7 @@
 #include "quest.h"
 #include "obj_prog.h"
 #include "fight.h"
+#include "db/socials.h"
 
 #if defined(SUNOS) || defined(SVR4) || defined(LINUX)
 #	include <crypt.h>
@@ -778,7 +779,66 @@ DO_FUN(do_scroll)
 /* RT does socials */
 void do_socials(CHAR_DATA *ch, const char *argument)
 {
-	do_alist(ch, "social");
+	social_t *soc;
+	bool found;
+
+	if (argument[0] == '\0') {
+		char_puts("\nUse social <name> to view"
+			"what that social does.\n\n", ch);
+		do_alist(ch, "social");
+		return;
+	}
+
+	if ((soc = social_lookup(argument, str_prefix)) == NULL) {
+		char_puts("There is no such social.\n", ch);
+		return;
+	}
+
+	char_puts("{MUsing this social without an argument", ch);
+	found = FALSE;
+	if (soc->noarg_char) {
+		char_puts(", you'll see:{x\n   ", ch); found = TRUE; }
+	act(soc->noarg_char, ch, NULL, NULL, TO_CHAR);
+	if (soc->noarg_room) {
+		if (found) char_puts("{MO", ch);
+			else char_puts(", o", ch);
+		char_puts("thers will see:{x\n   ", ch); found = TRUE; }
+	act(soc->noarg_room, ch, NULL, NULL, TO_CHAR);
+	if (!found) char_puts(" is pointless.{x\n", ch);
+
+	char_puts("\n{MUsing it with your name as an argument", ch);
+	found = FALSE;
+	if (soc->self_char) {
+		char_puts(", you'll see:{x\n   ", ch); found = TRUE; }
+	act(soc->self_char, ch, NULL, ch, TO_CHAR);
+	if (soc->self_room) {
+		if (found) char_puts("{MO", ch);
+			else char_puts(", o", ch);
+		char_puts("thers will see:{x\n   ", ch); found = TRUE; }
+	act(soc->self_room, ch, NULL, ch, TO_CHAR);
+	if (!found) char_puts(" is pointless.{x\n", ch);
+
+	if (soc->notfound_char)
+		char_puts("\n{MIf your victim is absent, you'll see:{x\n   ",
+		ch);
+	act(soc->notfound_char, ch, NULL, NULL, TO_CHAR);
+
+	char_puts("\n{MUsing it on other character", ch);
+	found = FALSE;
+	if (soc->found_char) {
+		char_puts(", you'll see:{x\n   ", ch); found = TRUE; }
+	act(soc->found_char, ch, NULL, ch, TO_CHAR);
+	if (soc->found_vict) {
+		if (found) char_puts("{MY", ch);
+			else char_puts(", y", ch);
+		char_puts("our victim will see:{x\n   ", ch); found = TRUE; }
+	act(soc->found_vict, ch, NULL, ch, TO_CHAR);
+	if (soc->found_notvict) {
+		if (found) char_puts("{MO", ch);
+			else char_puts(", y", ch);
+		char_puts("thers will see:{x\n   ", ch); found = TRUE; }
+	act(soc->found_notvict, ch, NULL, ch, TO_CHAR);
+	if (!found) char_puts(" is pointless.{x\n", ch);
 }
 
 /* RT Commands to replace news, motd, imotd, etc from ROM */
@@ -795,11 +855,6 @@ void do_imotd(CHAR_DATA *ch, const char *argument)
 void do_rules(CHAR_DATA *ch, const char *argument)
 {
 	do_help(ch, "rules");
-}
-
-void do_story(CHAR_DATA *ch, const char *argument)
-{
-	do_help(ch, "story");
 }
 
 void do_wizlist(CHAR_DATA *ch, const char *argument)

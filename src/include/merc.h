@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.205 1999-06-17 19:28:04 fjoe Exp $
+ * $Id: merc.h,v 1.206 1999-06-17 19:44:45 avn Exp $
  */
 
 /***************************************************************************
@@ -890,6 +890,7 @@ where_t *where_lookup(flag32_t where);
 #define WEAPON_POISON		(H)
 #define WEAPON_HOLY		(I)
 #define WEAPON_KATANA		(J)
+#define WEAPON_THROW		(K)
 
 /* gate flags */
 #define GATE_NORMAL_EXIT	(A)

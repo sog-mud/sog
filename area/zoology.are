@@ -187,8 +187,7 @@ G none
 #401
 key~
 The key to the tank~
-The key to the shark tank lies here
-~
+The key to the shark tank lies here~
 iron~
 key 0 A
 0 0 0 0 0
@@ -197,8 +196,7 @@ G none
 #402
 shark tooth necklace~
 A shark tooth necklace~
-A wire with a shark tooth has been left here.
-~
+A wire with a shark tooth has been left here.~
 coral~
 armor G AC
 1 1 1 3 0

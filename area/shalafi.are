@@ -138,8 +138,7 @@ G male
 #95303
 portal white портал object~
 @eng Magical White Portal@rus ~~белый~~ ~~магический~~ ~~портал~~~
-@eng A magically created white object casts strange shadows across the clearing.
-@rus Белый объект (white portal), созданный при помощи магии, отбрасывает странные тени.~
+@eng A magically created white object casts strange shadows across the clearing.@rus Белый объект (white portal), созданный при помощи магии, отбрасывает странные тени.~
 energy~
 portal AO 0
 0 0 D 9209 0
@@ -148,8 +147,7 @@ G none
 #95304
 portal black портал object~
 @eng Magical Black Portal@rus ~~черный~~ ~~магический~~ ~~портал~~~
-@eng A magically created black object casts strange shadows across the clearing.
-@rus Черный объект (black portal), созданный при помощи магии, отбрасывает странные тени.~
+@eng A magically created black object casts strange shadows across the clearing.@rus Черный объект (black portal), созданный при помощи магии, отбрасывает странные тени.~
 energy~
 portal AO 0
 0 0 E 0 0

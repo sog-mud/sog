@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.21 1999-05-18 12:09:19 avn Exp $
+ * $Id: gsn.c,v 1.22 1999-06-17 19:44:46 avn Exp $
  */
 
 #include <stdio.h>
@@ -242,6 +242,7 @@ int gsn_mastering_bow;
 int gsn_doppelganger;
 int gsn_mirror;
 int gsn_knife;
+int gsn_throw_weapon;
 
 /* special gsns */
 int gsn_qtarget;
@@ -451,6 +452,7 @@ namedp_t gsn_table[] =
 	{ "gsn_hand_block",		&gsn_hand_block			},
 	{ "gsn_knife",			&gsn_knife			},
 	{ "gsn_qtarget",		&gsn_qtarget			},
+	{ "gsn_throw_weapon",		&gsn_throw_weapon		},
 	{ NULL }
 };
 

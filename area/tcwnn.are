@@ -1012,8 +1012,7 @@ G none
 #31002
 barrel beer~
 a Barrel of Argh's beer~
-A beer barrel has been left here.
-~
+A beer barrel has been left here.~
 metal~
 drink 0 A
 30 30 'beer' 0 0
@@ -1126,8 +1125,7 @@ G none
 #31013
 club~
 a heavy lead-sheathed club~
-A heavy club sheathed in lead lies here.
-~
+A heavy club sheathed in lead lies here.~
 wood~
 weapon 0 AN
 mace 3 3 crush 0
@@ -1140,8 +1138,7 @@ G none
 #31014
 mace~
 a Sturdy Mace~
-A Sturdy Mace lies here.
-~
+A Sturdy Mace lies here.~
 wood~
 weapon 0 AN
 mace 2 4 pound 0
@@ -1154,8 +1151,7 @@ G none
 #31015
 dagger~
 a Dagger~
-A good backstabbing weapon, this.
-~
+A good backstabbing weapon, this.~
 steel~
 weapon 0 AN
 dagger 3 4 pierce 0
@@ -1168,8 +1164,7 @@ G none
 #31016
 scimitar~
 a Wickedly-Curved Scimitar~
-A Wickedly-Curved Scimitar hums ominously here.
-~
+A Wickedly-Curved Scimitar hums ominously here.~
 steel~
 weapon BEGJ AN
 sword 2 4 slash 0
@@ -1241,8 +1236,7 @@ G none
 #31022
 ring~
 a gold ring~
-A GOLD RING!
-~
+A GOLD RING!~
 gold~
 armor A AB
 0 0 0 0 0
@@ -1253,8 +1247,7 @@ G none
 #31023
 cake ~
 a sweet cake~
-A sweet cake.
-~
+A sweet cake.~
 food~
 food 0 A
 C C 0 0 0
@@ -1263,8 +1256,7 @@ G none
 #31024
 roll~
 a roll~
-A bread roll.
-~
+A bread roll.~
 food~
 food 0 A
 AC AC 0 0 0
@@ -1273,8 +1265,7 @@ G none
 #31025
 sandwich~
 a sandwich~
-A sandwich would make the perfect snack.
-~
+A sandwich would make the perfect snack.~
 food~
 food 0 A
 AC AC 0 0 0
@@ -1283,8 +1274,7 @@ G none
 #31026
 loaf bread~
 a HUGE loaf of bread~
-This loaf of bread would fill you up for a day!
-~
+This loaf of bread would fill you up for a day!~
 food~
 food 0 A
 DE DE 0 0 0
@@ -1311,8 +1301,7 @@ G none
 #31029
 guillotine~
 a nasty guillotine~
-A Guillotine with a razor-sharp blade stands ready here.
-~
+A Guillotine with a razor-sharp blade stands ready here.~
 unknown~
 container 0 0
 100 A 0 0 100
@@ -1321,8 +1310,7 @@ G none
 #31030
 mask~
 a Headsman's Black Face Mask~
-The Headsman's mask is here.
-~
+The Headsman's mask is here.~
 cloth~
 armor 0 AE
 19 18 18 12 0
@@ -1333,8 +1321,7 @@ G none
 #31031
 sword longsword~
 the Castellan's Longsword~
-The Castellan's Longsword is lying here in the dirt.
-~
+The Castellan's Longsword is lying here in the dirt.~
 steel~
 weapon G AN
 sword 6 7 slash 0
@@ -1427,8 +1414,7 @@ G none
 #31038
 shield~
 an Ornate Shield~
-A Shield bearing the crest of the House of Lenny lies here.
-~
+A Shield bearing the crest of the House of Lenny lies here.~
 steel~
 armor 0 AJ
 17 17 17 8 0
@@ -1443,8 +1429,7 @@ G none
 #31039
 spear~
 a Throwing Spear~
-A sturdy Throwing Spear has been thrust into the ground here.
-~
+A sturdy Throwing Spear has been thrust into the ground here.~
 steel~
 weapon G AN
 spear 6 8 pierce 0
@@ -1457,8 +1442,7 @@ G none
 #31040
 scroll~
 a blank scroll~
-A blank scroll is here.
-~
+A blank scroll is here.~
 vellum~
 scroll 0 AO
 20 'armor' 'shield' '' ''
@@ -1467,8 +1451,7 @@ G none
 #31041
 potion~
 a shimmering potion~
-A shimmering potion is here.
-~
+A shimmering potion is here.~
 glass~
 potion G AO
 5 'fly' 'invisibility' 'infravision' ''
@@ -1477,8 +1460,7 @@ G none
 #31042
 sticker~
 a bright red sticker that reads "DORK"~
-A bright red sticker has been left here. Pick it up!
-~
+A bright red sticker has been left here. Pick it up!~
 ~
 armor AHM AE
 0 0 0 0 0

@@ -1139,8 +1139,7 @@ stand stand male 0
 #19001
 mirror shield mirrored~
 a mirrored shield~
-A shield with a mirrored surface lies on the ground.
-~
+A shield with a mirrored surface lies on the ground.~
 glass~
 armor 0 AJ
 7 7 7 0 0
@@ -1155,8 +1154,7 @@ G none
 #19002
 mirror plate mirrored~
 a mirrored plate of armor~
-A metal plate is on the ground; your face is reflected in its surface.
-~
+A metal plate is on the ground; your face is reflected in its surface.~
 glass~
 armor 0 AD
 6 6 6 0 0
@@ -1169,8 +1167,7 @@ G none
 #19003
 sword shiny silver~
 a shiny silver sword~
-A shiny silver sword lies on the ground here.
-~
+A shiny silver sword lies on the ground here.~
 silver~
 weapon G AN
 sword 4 7 slash 0
@@ -1179,8 +1176,7 @@ G none
 #19004
 chainmail cowl chainmail~
 a chainmail cowl~
-A chainmail cowl is here.
-~
+A chainmail cowl is here.~
 steel~
 armor 0 AD
 6 6 6 0 0
@@ -1198,8 +1194,7 @@ G none
 #19006
 robe grey~
 a grey robe~
-A thin grey robe is here.
-~
+A thin grey robe is here.~
 leather~
 armor 0 AD
 15 15 15 10 0
@@ -1214,8 +1209,7 @@ G none
 #19007
 circlet golden~
 the Golden Circlet~
-A golden circlet lies here.
-~
+A golden circlet lies here.~
 gold~
 armor AFGM AE
 15 15 15 7 0
@@ -1237,8 +1231,7 @@ G none
 #19008
 bent sword~
 a bent sword~
-A sword with a rusted, bent blade is here.
-~
+A sword with a rusted, bent blade is here.~
 steel~
 weapon GHM AN
 sword 4 11 slash 0
@@ -1251,8 +1244,7 @@ G none
 #19009
 worn jerkin chain mail~
 a worn chainmail jerkin~
-This chainmail jerkin is worn and full of holes.
-~
+This chainmail jerkin is worn and full of holes.~
 leather~
 armor 0 AD
 13 13 13 4 0
@@ -1290,8 +1282,7 @@ G none
 #19012
 pool cue~
 a pool cue~
-A wooden pool cue is here.
-~
+A wooden pool cue is here.~
 wood~
 weapon G AN
 mace 5 6 blast 0
@@ -1316,8 +1307,7 @@ G none
 #19014
 amulet bard's bard~
 a bard's amulet~
-An amulet with a silver rope chain lies here.
-~
+An amulet with a silver rope chain lies here.~
 silver~
 armor K AC
 11 12 12 4 0
@@ -1330,8 +1320,7 @@ G none
 #19015
 small steel knife~
 a small steel knife~
-A small steel knife is here.
-~
+A small steel knife is here.~
 steel~
 weapon G AN
 dagger 6 3 pierce 0
@@ -1519,8 +1508,7 @@ G none
 #19033
 horn golden~
 a unicorn's golden horn~
-A unicorn's horn is here.
-~
+A unicorn's horn is here.~
 gold~
 weapon AGK AN
 exotic 5 12 stab 0
@@ -1540,8 +1528,7 @@ G none
 #19034
 ermine blanket~
 an ermine blanket~
-An ermine blanket is here.
-~
+An ermine blanket is here.~
 unknown~
 armor 0 AD
 13 12 12 5 0
@@ -1890,8 +1877,7 @@ G none
 #19064
 prism sword~
 a prism sword~
-A clear glass sword lies here, reflecting all sorts of rainbow colors.
-~
+A clear glass sword lies here, reflecting all sorts of rainbow colors.~
 glass~
 weapon G AN
 sword 4 10 slice 0
@@ -1904,8 +1890,7 @@ G none
 #19065
 hoe~
 a hoe~
-A hoe lies here.
-~
+A hoe lies here.~
 iron~
 weapon G AN
 exotic 4 7 charge 0
@@ -1959,8 +1944,7 @@ G none
 #19071
 kendo stick staff~
 a kendo~
-A long wooden staff lies here.
-~
+A long wooden staff lies here.~
 wood~
 weapon GH AN
 spear 5 9 crush D
@@ -2033,8 +2017,7 @@ G none
 #19078
 knife pocket pocketknife~
 a pocketknife~
-A pocketknife lies here.
-~
+A pocketknife lies here.~
 steel~
 weapon G AN
 dagger 1 6 pierce 0
@@ -2094,8 +2077,7 @@ G none
 #19084
 clippers~
 a pair of clippers~
-A pair of clippers lie here.
-~
+A pair of clippers lie here.~
 steel~
 weapon G AN
 exotic 4 4 slice 0
@@ -2104,8 +2086,7 @@ G none
 #19085
 club staff wood wooden~
 a thick wooden staff~
-A rough wooden staff lies here.
-~
+A rough wooden staff lies here.~
 wood~
 weapon 0 AN
 spear 4 4 crush 0
@@ -2143,8 +2124,7 @@ G none
 #19089
 gaff~
 a gaff~
-A fisherman's gaff lies here.
-~
+A fisherman's gaff lies here.~
 steel~
 weapon G AN
 spear 5 6 pierce D
@@ -2240,8 +2220,7 @@ G none
 #19097
 fangs~
 some fangs~
-Someone's teeth (?) are lying here.
-~
+Someone's teeth (?) are lying here.~
 bone~
 weapon N AN
 exotic 6 6 bite 0
@@ -2279,8 +2258,7 @@ G none
 #19101
 broken bottle~
 a broken bottle~
-A broken bottle lies here.
-~
+A broken bottle lies here.~
 glass~
 weapon G AN
 exotic 6 6 slime 0
@@ -2337,8 +2315,7 @@ G none
 #19106
 bone horn~
 a horn of bone~
-A unicorn's bony horn lies here.
-~
+A unicorn's bony horn lies here.~
 bone~
 weapon EGHJ AN
 exotic 6 7 pierce 0
@@ -2386,8 +2363,7 @@ G none
 #19110
 sword obsidian eclipse~
 an eclipse sword~
-A sword of pure obsidian lies here, seeming to swallow up the rays of light.
-~
+A sword of pure obsidian lies here, seeming to swallow up the rays of light.~
 obsidian~
 weapon FGHJM AN
 sword 5 10 slash DG
@@ -2526,8 +2502,7 @@ G none
 #19120
 cabinet door~
 a cabinet door~
-a cabinet door
-~
+a cabinet door~
 wood~
 container 0 0
 100 0 0 0 100
@@ -2630,8 +2605,7 @@ G none
 #19127
 blood red dagger~
 a blood-red dagger~
-A blood-red dagger lies here.
-~
+A blood-red dagger lies here.~
 steel~
 weapon EGJ AN
 dagger 6 10 pierce AD
@@ -3021,8 +2995,7 @@ G none
 #19157
 sword taliesin~
 taliesin~
-A beautiful sword lies here.
-~
+A beautiful sword lies here.~
 gold~
 weapon GM AN
 sword 5 9 slash 0
