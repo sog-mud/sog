@@ -1,14 +1,14 @@
 #AREADATA
 Ver 7
 Name Armageddon~
-VNUMs 14000 14199
+VNUMs 36500 36699
 Credits Lok~
 Security 9
 LevelRange 70 95
 End
 
 #MOBILES
-#14001
+#36501
 locust саранча~
 @eng the giant locust@rus ~~гигантская~~ ~~саранча~~~
 @eng A giant locust is here, devouring sinners.@rus Гигантская саранча (locust) мучает грешников.~
@@ -32,7 +32,7 @@ r negative 33
 r holy -50
 r light -50
 r charm 100
-#14002
+#36502
 abaddon king аваддон~
 @eng Abaddon@rus Аваддон~
 @eng The angel of the bottomless pit is here, bound in a chain.@rus Аваддон, ангел бездны, опутанный цепями, предстал перед тобой.~
@@ -55,7 +55,7 @@ r fire 33
 r cold 33
 r holy 33
 r charm 100
-#14003
+#36503
 babylon whore woman harlot вавилон блудница женщина~
 @eng Babylon@rus Вавилон~
 @eng A woman arrayed in purple and scarlet beckons to you!@rus Женщина (woman), облаченная в порфиру и багряницу.~
@@ -75,7 +75,7 @@ HQ 0 c 0 0 -1000 0
 FN
 stand stand female 900
 0 0 medium unknown
-#14004
+#36504
 angel water waters ангел~
 @eng The angel of the waters@rus ~~Ангел~~ вод~
 @eng An angel is here, holding down the watery corner of the world.@rus Ангел (angel), повелевающий водами, стоит на углу земли.~
@@ -97,7 +97,7 @@ r negative -50
 r holy 100
 r disease 100
 r charm 100
-#14005
+#36505
 angel earth ангел~
 @eng The angel of the earth@rus ~~Ангел~~ земли~
 @eng An angel is here, shaking the earthen corner of the world!@rus Ангел (angel) встряхивает восточную часть земли.~
@@ -118,7 +118,7 @@ r negative -50
 r holy 100
 r disease 100
 r charm 100
-#14006
+#36506
 angel air ангел~
 @eng The angel of the air@rus ~~Ангел~~ воздуха~
 @eng An angel is here, holding down the airy corner of the world.@rus Ангел (angel), повелевающий воздухом, стоит на углу земли.~
@@ -140,7 +140,7 @@ r negative -50
 r holy 100
 r disease 100
 r charm 100
-#14007
+#36507
 angel fire ангел~
 @eng The angel with the fiery censer@rus ~~Ангел~~ с золотой кадильницей~
 @eng An angel is here, containing the fiery corner of the world.@rus Ангел (angel) стоит на углу земли.~
@@ -162,7 +162,7 @@ r negative -50
 r holy 100
 r disease 100
 r charm 100
-#14008
+#36508
 angel harvesting ангел~
 @eng The harvesting angel@rus Ангел~
 @eng An angel is here, harvesting sinners with his sickle.@rus Ангел (angel), жнущий грешников своим серпом.~
@@ -183,7 +183,7 @@ r negative -50
 r holy 100
 r disease 100
 r charm 100
-#14009
+#36509
 army heaven небесное войско~
 @eng An army of heaven@rus ~~небесное~~ ~~войско~~~
 @eng An army of heaven is here, laying waste to sinners.@rus Небесное войско (army) несет кару согрешившим.~
@@ -203,7 +203,7 @@ g @eng none@rus plural~
 r bash 100
 r negative -50
 r holy 33
-#14010
+#36510
 horseman white белый всадник~
 @eng the white horseman@rus ~~всадник~~ на белом коне~
 @eng A rider mounted on a white horse conquers all in sight!@rus Конь белый, и на нем всадник (horseman), пришел, чтобы победить.~
@@ -225,7 +225,7 @@ r holy -50
 r charm 100
 r iron 33
 m mob_fight mob_fight_breath_fire 100~
-#14011
+#36511
 horseman red всадник рыжий~
 @eng the red horseman@rus ~~всадник~~ на рыжем коне~
 @eng A rider mounted on a red horse wages war here.@rus Конь рыжий, и на нем всадник (horseman), пришел, чтобы забрать мир.~
@@ -246,7 +246,7 @@ r holy -50
 r charm 100
 r iron 33
 m mob_fight mob_fight_breath_acid 100~
-#14012
+#36512
 horseman black всадник~
 @eng The black horseman@rus ~~всадник~~ на вороном коне~
 @eng A rider mounted on a black horse rampages here!@rus Всадник (horseman) восседает на вороном коне.~
@@ -267,7 +267,7 @@ r holy -50
 r charm 100
 r iron 33
 m mob_fight mob_fight_breath_gas 100~
-#14013
+#36513
 horseman pale всадник~
 @eng The pale horseman@rus ~~всадник~~ на бледном коне~
 @eng A rider mounted on a pale horse leaves death in his wake.@rus Всадник (horseman), имя которому Смерть, восседает на бледном коне.~
@@ -287,7 +287,7 @@ r negative 33
 r holy -50
 r charm 100
 r iron 33
-#14014
+#36514
 michael archangel архангел михаил~
 @eng The archangel Michael@rus ~~архангел~~ ~~Михаил~~~
 @eng Michael, Archangel of war is here, fighting the dragon.@rus Архангел Михаил (Michael) сражается с драконом.~
@@ -311,7 +311,7 @@ r holy 100
 r disease 100
 r light 100
 r charm 100
-#14015
+#36515
 dragon дракон~
 @eng The dragon@rus дракон~
 @eng A great, 7 headed dragon is here, fighting Michael.@rus Огромный, семиглавый дракон (dragon) сражается с архангелом Михаилом.~
@@ -334,7 +334,7 @@ r acid 33
 r negative 33
 r holy -50
 m mob_fight mob_fight_cast_mage 100~
-#14016
+#36516
 jezebel woman пророчица иезавель женщина~
 @eng Jezebel the prophetess@rus ~~пророчица~~ ~~Иезавель~~~
 @eng A woman is here encouraging everyone to fornicate!@rus Женщина (woman), проповедующая любодейство, обратила свое внимание на тебя.~
@@ -352,7 +352,7 @@ FN
 sit sit female 900
 0 0 medium unknown
 m mob_fight mob_fight_cast_cleric 100~
-#14017
+#36517
 Balaam teacher man валаам учитель~
 @eng Balaam the teacher of Balac@rus Валаам~
 @eng A man is here teaching all to eat idol sacrifices!@rus Валаам (Balaam), учащий есть идоложертвенное и любодействовать.~
@@ -370,7 +370,7 @@ FN
 sit sit male 900
 0 0 medium unknown
 m mob_fight mob_fight_cast_mage 100~
-#14018
+#36518
 balac disciple man валак последователь мужчина~
 @eng Balac, disciple of Balaam@rus Валак~
 @eng A man casts a stumbling block to the children of Isreal!@rus Мужчина (man) вводящий в заблуждение сынов Израилевых посмотрел на тебя.~
@@ -387,7 +387,7 @@ Q 0 0 0 0 -1000 0
 FN
 sit sit male 900
 0 0 medium unknown
-#14019
+#36519
 spirit unclean frog дух~
 @eng The unclean spirit@rus ~~дух~~ ~~нечистый~~~
 @eng A spirit like a frog howls here.@rus Дух (spirit) нечистый, подобный жабе, смотрит на тебя.~
@@ -416,7 +416,7 @@ r holy -50
 r energy -50
 r charm 100
 m mob_fight mob_fight_cast_mage 100~
-#14020
+#36520
 prophet false лжепророк man человек~
 @eng The false prophet@rus лжепророк~
 @eng A smoke-breathing man with rams horns shouts here!@rus Ты видишь человека (man) с овечьими рогами и выдахающего дым.~
@@ -438,7 +438,7 @@ stand stand male 900
 0 W medium unknown
 r holy -50
 m mob_fight mob_fight_cast_mage 100~
-#14021
+#36521
 woman sun жена женщина~
 @eng The woman clothed with the sun@rus ~~жена~~, ~~облаченная~~ в солнце~
 @eng A woman clothed with the sun flys here.@rus Жена (woman), облаченная в солнце, пролетает мимо тебя.~
@@ -463,7 +463,7 @@ r holy 33
 r mental 33
 r disease 100
 r charm 100
-#14022
+#36522
 word god слово божие верный истинный~
 @eng The word of God@rus ~~Верный~~ и ~~Истинный~~~
 @eng The word of God is here uniting all nations.@rus Верный и Истинный (word of God) восседает на белоснежном коне.~
@@ -499,7 +499,7 @@ r disease 100
 r light 100
 r charm 100
 r iron 33
-#14023
+#36523
 one sealed запечатленный~
 @eng The sealed one@rus запечатленный~
 @eng A sealed one is here, singing a hymn of praise.@rus Запечатленный (sealed one) поет хвалебный гимн Господу.~
@@ -519,7 +519,7 @@ FI
 stand stand male 900
 0 0 medium unknown
 g @eng male@rus male~
-#14024
+#36524
 one marked меченый~
 @eng The marked one@rus меченый~
 @eng A marked one is here, preparing for the final battle.@rus Меченый (marked one), готовится к последней битве.~
@@ -535,7 +535,7 @@ T 0 X 0 H -1000 0
 FJ
 stand stand male 900
 0 0 medium unknown
-#14025
+#36525
 beast зверь~
 @eng The beast@rus зверь~
 @eng The seven headed, ten horned beast is here.@rus Семиголовый, десятирогий зверь (beast) предстал перед тобой.~
@@ -561,7 +561,7 @@ r fire 33
 r cold 33
 r negative 100
 r holy -50
-#14026
+#36526
 idolator man идолопоклонник человек мужчина~
 @eng The idolator@rus идолопоклонник~
 @eng A man is here worshipping an idol.@rus Мужчина (idolator) молится на идола.~
@@ -577,7 +577,7 @@ HT 0 0 0 H -1000 0
 FJ
 stand stand male 900
 0 0 medium unknown
-#14027
+#36527
 whoremonger man мужчина~
 @eng the whoremonger@rus ~~мужчина~~, ~~охочий~~ до развлечений~
 @eng A man is here, buying the services of a prostitute.@rus Мужчина (man) выбирает себе девочку по вкусу.~
@@ -592,7 +592,7 @@ HT 0 0 0 0 -1000 0
 FJ
 stand stand male 900
 0 0 medium unknown
-#14028
+#36528
 murderer убийца~
 @eng The murderer@rus убийца~
 @eng A murderer is here to slit your throat.@rus Убийца (murderer) хочет перерезать тебе глотку.~
@@ -609,7 +609,7 @@ HT 0 0 0 0 -1000 0
 FJ
 stand stand male 900
 0 0 medium unknown
-#14029
+#36529
 harlot woman проститутка~
 @eng the harlot@rus проститутка~
 @eng A woman is here, peddling her body.@rus Женщина (harlot), торгующая своим телом.~
@@ -628,7 +628,7 @@ HT 0 0 0 0 -1000 0
 FJ
 stand stand female 900
 0 0 medium unknown
-#14030
+#36530
 thief вор~
 @eng the thief@rus вор~
 A thief is here, robbing you blind.~
@@ -646,7 +646,7 @@ FJ
 stand stand male 900
 0 0 medium unknown
 m mob_random mob_random_thief 100~
-#14031
+#36531
 man rich богач~
 @eng The rich man@rus богач~
 @eng A rich man is here, fleeing divine wrath.@rus Богач (rich man) испытывает на себе силу божественного гнева.~
@@ -661,7 +661,7 @@ HT 0 0 0 0 -1000 0
 FJ
 stand stand male 900
 0 0 medium unknown
-#14032
+#36532
 man mighty человек могущественный~
 @eng The mighty man@rus ~~могущественный~~ ~~человек~~~
 @eng A mighty man is here, fleeing divine wrath.@rus Могущественный человек (man), сейчас он испытывает на себе всю силу Божественного гнева.~
@@ -681,7 +681,7 @@ HT 0 0 0 H -1000 0
 FJ
 stand stand male 900
 0 0 medium unknown
-#14033
+#36533
 king король~
 @eng the former king@rus ~~бывший~~ ~~король~~~
 @eng A former king is here, fleeing divine wrath.@rus Бывший король (king), сейчас он испытывает силу Божественного гнева.~
@@ -702,7 +702,7 @@ HT 0 0 0 0 -1000 0
 FJ
 stand stand male 900
 0 0 medium unknown
-#14034
+#36534
 bondsman раб~
 @eng The bondsman@rus раб~
 @eng A bondsman is here, fleeing divine wrath.@rus Раб (bondsman) испытывает божественный гнев.~
@@ -718,7 +718,7 @@ HT 0 0 0 0 -1000 0
 FJ
 stand stand male 900
 0 0 medium unknown
-#14035
+#36535
 freeman свободный человек~
 @eng The freeman@rus ~~свободный~~ ~~житель~~~
 @eng A freeman is here, fleeing divine wrath.@rus Свободный житель (freeman) испытывает на себе всю силу гнева Господня.~
@@ -734,7 +734,7 @@ HT 0 0 0 0 -1000 0
 FJ
 stand stand male 900
 0 0 medium unknown
-#14036
+#36536
 captain chief капитан~
 @eng The chief captain@rus капитан~
 @eng A former captain is here, fleeing divine wrath.@rus Бывший капитан (captain) сейчас испытывает на себе силу Божественного гнева.~
@@ -750,7 +750,7 @@ HT 0 0 0 0 -1000 0
 FJ
 stand stand male 900
 0 0 medium unknown
-#14037
+#36537
 he sits сидящий сей~
 @eng He who sits at the throne@rus ~~Сидящий~~ на престоле~
 @eng He who sits says "I am the alpha and the omega".@rus Сидящий на престоле (He who sits at the throne), Который есть Альфа и Омега, начало и конец, Который был, есть и грядет.~
@@ -769,7 +769,7 @@ r negative 33
 r iron 100
 r weapon 100
 r magic 100
-#14038
+#36538
 lamb агнец~
 @eng The Lamb@rus Агнец~
 @eng A Lamb as it had been slain stands here.@rus Агнец (The Lamb), как бы закланный, стоит пред троном.~
@@ -788,7 +788,7 @@ r negative 33
 r iron 100
 r weapon 100
 r magic 100
-#14039
+#36539
 elders four twenty 24 старцы старца~
 @eng four and twenty elders@rus ~~24 старца~~~
 @eng Four and twenty elders sit at four and twenty thrones.@rus Двадцать четыре старца (elders) сидят на престолах.~
@@ -811,7 +811,7 @@ r cold 33
 r negative -50
 r holy 100
 r disease 100
-#14040
+#36540
 lion creature~
 @eng the lion creature@rus ~~животное~~, льву ~~подобное~~~
 @eng A lion creature sings, "Holy, Holy, Holy, The Lord..." @rus Животное, льву подобное (lion creature), взывает: свят, свят, свят Господь Бог Вседержитель...~
@@ -832,7 +832,7 @@ BCDGHLMV ABCDEFGHIJKPQUV large unknown
 r holy 100
 r disease 100
 r silver -50
-#14041
+#36541
 ox creature животное телец создание~
 @eng the ox creature@rus ~~животное~~, тельцу ~~подобное~~~
 @eng An ox creature sings, "Holy, Holy, Holy, The Lord..." @rus Животное, тельцу подобное (ox creature), взывает: свят, свят, свят Господь Бог Вседержитель...~
@@ -852,7 +852,7 @@ stand stand none 900
 CDGHLV ACDEFJKPQW large unknown
 r holy 100
 r disease 100
-#14042
+#36542
 human face faced creature создание лицо~
 @eng the creature with a human face@rus ~~создание~~, лице ~~имеющее~~~
 @eng A human faced creature sings, "Holy, Holy, Holy, The Lord..." @rus Создание (creature), лице имеющее, взывает: свят, свят, свят Господь Бог Вседержитель...~
@@ -872,7 +872,7 @@ stand stand none 900
 CDGL LP large unknown
 r holy 100
 r disease 100
-#14043
+#36543
 eagle creature создание орел~
 @eng the eagle creature@rus ~~создание~~, орлу летящему ~~подобное~~~
 @eng An eagle creature sings, "Holy, Holy, Holy, The Lord..." @rus Орлу подобное создание (eagle creature) взывает: свят, свят, свят Господь Бог Вседержитель...~
@@ -895,7 +895,7 @@ r disease 100
 #0
 
 #OBJECTS
-#14001
+#36501
 key david ключ~
 @eng the key of David@rus ~~ключ~~ от кладязя бездны~
 @eng A key with a heavenly aura hums here. @rus Ключ (key), окруженный аурой, лежит здесь.~
@@ -904,7 +904,7 @@ key BG 0 AO
 0 0 0 0 0
 0 10 0 P
 g @rus male~
-#14002
+#36502
 breastplate iron броня железная~
 @eng An iron breastplate@rus ~~железная~~ ~~броня~~~
 @eng A huge, iron breastplate is here.@rus Броня (breastplate), как бы броня железная, предстала твоему взору.~
@@ -923,7 +923,7 @@ act("$p is too heavy for you to wear.", $n, $p, NULL, TO_CHAR);
 return 1;
 ~
 g @eng none@rus female~
-#14003
+#36503
 sting locust жало~
 @eng A locust stinger@rus жало~
 @eng A large barbed sting is here.@rus Ядовитое жало (stinger) гигантской саранчи лежит здесь. ~
@@ -933,7 +933,7 @@ dagger 6 10 'pierce' GH
 45 60 4500 G
 f object hitroll 10 0
 g @rus none~
-#14004
+#36504
 chain binding оковы~
 @eng The chain of binding@rus оковы~
 @eng A pretty silver chain lies here.@rus Серебряная цепь (chain) лежит здесь.~
@@ -947,7 +947,7 @@ f object con -10 0
 f object dex -10 0
 f object str -10 0
 g @rus plural~
-#14005
+#36505
 cup babylon чаша золотая~
 @eng The golden cup of Babylon@rus ~~золотая~~ ~~чаша~~~
 @eng A golden cup filled with blood lies here.@rus Золотая чаша (cup), наполненная мерзостями и нечистотою блудодейства.~
@@ -962,7 +962,7 @@ the blood of saints.
 @rus Золотая чаша, наполненная мерзостями и нечистотами блудодейства.
 ~
 g @rus female~
-#14006
+#36506
 girdle golden золотой пояс~
 @eng A golden girdle@rus ~~золотой~~ ~~пояс~~~
 @eng A golden girdle is here.@rus Золотой пояс (girdle) блестит в лучах солнца.~
@@ -973,7 +973,7 @@ armor GIKL 0 AL
 f affects hitroll 3 0
 f affects damroll 4 0
 g @rus male~
-#14007
+#36507
 sickle golden золотой серп~
 @eng A golden sickle@rus ~~золотой~~ ~~серп~~~
 @eng A golden sickle is here.@rus Золотой серп (sickle) блестит на солнце.~
@@ -984,7 +984,7 @@ exotic 10 5 'slice' DE
 f object damroll 5 0
 f object hitroll 5 0
 g @rus male~
-#14008
+#36508
 saints prayers молитвы сосуд vial~
 @eng The prayers of saints@rus ~~молитвы~~ всех святых~
 @eng A vial humming with holiness lies here.@rus Сосуд (vial), наполненный священной водой.~
@@ -993,7 +993,7 @@ potion BI 0 AO
 40 'bless' 'faerie fog' '' ''
 40 2 9000 P
 g @rus plural~
-#14009
+#36509
 censer кадильница~
 @eng A censer@rus кадильница~
 @eng A censer, smoking with incense burns here.@rus Кадильница (censer), наполненная огнем.~
@@ -1002,7 +1002,7 @@ wand AG 0 AO
 50 3 3 'fireball' 0
 40 25 6700 P
 g @rus female~
-#14010
+#36510
 crown white conquerer венец~
 @eng the white crown of the conquerer@rus ~~венец~~, пришедшего победить~
 @eng A white crown lies here.@rus Белый венец (crown) лежит на земле.~
@@ -1015,7 +1015,7 @@ f affects mana 25 0
 f affects hitroll 3 0
 f affects damroll 4 0
 g @rus male~
-#14011
+#36511
 bow white conquerer лук~
 @eng the white bow of the conquerer@rus ~~лук~~, пришедшего победить~
 @eng A great white bow lies here.@rus Белый лук (bow) лежит здесь.~
@@ -1026,7 +1026,7 @@ bow 6 6 'blast' AFH
 f object damroll 5 0
 f object hitroll 10 0
 g @rus male~
-#14012
+#36512
 breastplate fire броня~
 @eng A breastplate of fire@rus ~~огненная~~ ~~броня~~~
 @eng A breastplate of fire smoulders here.@rus Огненная броня (breastplate) дымиться у тебя на виду.~
@@ -1038,7 +1038,7 @@ f object hitroll 5 0
 f affects damroll 5 0
 f object ac -10 0
 g @rus female~
-#14013
+#36513
 sword war rus меч~
 @eng The sword of war@rus ~~меч~~, войну ~~несущий~~~
 @eng A great two-handed sword lies here.@rus Огромный двуручный меч (sword) предстал твоему взору.~
@@ -1049,7 +1049,7 @@ sword 7 10 'slash' DEFH
 f affects hitroll 5 0
 f affects damroll 5 0
 g @rus male~
-#14014
+#36514
 breastplate jacinth броня~
 @eng A breastplate of jacinth@rus ~~броня~~ ~~гиацинтовая~~~
 @eng A breastplate of jacinth glitters here.@rus Броня (breastplate) гиацинтовая блестит в лучах солнца.~
@@ -1060,7 +1060,7 @@ armor EJ D AD
 f affects ac -15 0
 f affects mana 40 0
 g @rus female~
-#14015
+#36515
 breastplate brimstone броня серная~
 @eng A breastplate of brimstone@rus ~~броня~~ ~~серная~~~
 @eng A breastplate of brimstone smokes here.@rus Броня (breastplate) серная оставлена кем-то.~
@@ -1071,7 +1071,7 @@ armor EJ D AD
 f affects ac -10 0
 f affects saving_spell -10 0
 g @rus female~
-#14016
+#36516
 balances pair мера~
 @eng A pair of engraved balances@rus мера~
 @eng A fine set of engraved balances lies here.@rus Мера (balances) лежит на земле.~
@@ -1088,7 +1088,7 @@ measures of barley for a penny; and see
 thou hurt not the oil and the wine.
 ~
 g @rus female~
-#14017
+#36517
 cloak death deaths death's покров~
 @eng Death's cloak@rus ~~покров~~ Смерти~
 @eng A cloak, black as oblivion devours the light.@rus Ты видишь столь черный покров (cloak), словно сам свет предан забвению.~
@@ -1097,7 +1097,7 @@ armor CEFGQ 0 AK
 30 30 30 10 0
 43 10 14000 P
 g @rus male~
-#14018
+#36518
 scythe reaper grim коса жнеца~
 @eng The scythe of the Grim reaper@rus ~~коса~~ неумолимого жнеца~
 @eng An unholy scythe, devours the light here.@rus Темная коса (scythe) поглощает весь свет.~
@@ -1108,7 +1108,7 @@ polearm 8 8 'cleave' CDFH
 f affects damroll 5 0
 f affects hitroll 5 0
 g @rus female~
-#14019
+#36519
 lance holy archangel Michael~
 @eng The holy lance of archangel Michael@rus ~~священная~~ ~~пика~~ Архангела Михаила~
 @eng A lance hums with a heavenly aura.@rus Ты видишь пику (lance), окруженную ярким сиянием.~
@@ -1119,7 +1119,7 @@ lance 8 7 'pierce' A
 f affects hitroll 7 0
 f affects damroll 7 0
 g @rus female~
-#14020
+#36520
 mark beast skin знак кусок кожа~
 @eng The mark of the beast@rus ~~знак~~ зверя~
 @eng A branded patch of skin lies on the ground.@rus Клейменый кусок кожи (skin) валяется на земле.~
@@ -1136,7 +1136,7 @@ mark~
 @rus Это число имени Зверя: 666.
 ~
 g @rus none~
-#14021
+#36521
 wings eagles пара крылья~
 @eng The wings of eagles@rus ~~орлиные~~ ~~крылья~~~
 @eng A giant pair of eagle wings lie here.@rus Пара гигантских орлиных крыльев (wings) лежит здесь.~
@@ -1148,7 +1148,7 @@ f affects ac -5 0
 f affects move 100 0
 f affects dex 2 0
 g @rus plural~
-#14022
+#36522
 crown stars twelve корона венец~
 @eng A crown with twelve stars@rus ~~венец~~ из двенадцати звезд~
 @eng A crown with twelve stars lies here.@rus Ты видишь венец (crown) из двенадцати звезд.~
@@ -1159,7 +1159,7 @@ armor AIK 0 AE
 f object wis 4 0
 f object int 3 0
 g @rus female~
-#14023
+#36523
 clothing sun платье солнце~
 @eng Clothing of the sun@rus ~~платье~~, солнцу ~~подобное~~~
 @eng A shirt glowing like the sun lies here.@rus Ты видишь платье (clothing), сверкающее словно солнце.~
@@ -1172,7 +1172,7 @@ f affects dex 3 0
 f affects str 3 0
 f affects hp 20 0
 g @rus none~
-#14024
+#36524
 clothing sun платье солнце~
 @eng Clothing of the sun@rus ~~платье~~, солнцу ~~подобное~~~
 @eng A skirt glowing like the sun lies here.@rus Ты видишь платье (clothing), сверкающее словно солнце.~
@@ -1184,7 +1184,7 @@ f affects dex 3 0
 f affects saving_breath -5 0
 f affects saving_spell -5 0
 g @rus none~
-#14025
+#36525
 moon частица луны~
 @eng The moon under your feet@rus ~~частица~~ луны~
 @eng A glowing piece of the moon is here.@rus Сияющая частица луны (moon) предстала твоему ошеломленному взору.~
@@ -1193,7 +1193,7 @@ armor AIK 0 AG
 15 15 15 5 0
 44 10 19000 P
 g @rus female~
-#14026
+#36526
 manna hidden~
 @eng Hidden manna@rus ~~манна~~ ~~небесная~~~
 @eng A glowing circlet of hidden manna is here.@rus Источник манны небесной (manna) лежит здесь.~
@@ -1203,7 +1203,7 @@ armor AFKLQ 0 AB
 45 15 25000 P
 f affects mana 100 0
 g @rus female~
-#14027
+#36527
 rod iron жезл железный~
 @eng A rod of iron@rus ~~жезл~~ ~~железный~~~
 @eng A heavy rod of iron lies here.@rus Жезл (rod) железный лежит на земле.~
@@ -1212,7 +1212,7 @@ wand GIKL 0 AO
 60 10 10 'cure blindness' 0
 40 100 25000 P
 g @rus male~
-#14028
+#36528
 raiment white одеяние~
 @eng White raiment@rus ~~белое~~ ~~одеяние~~~
 @eng White raiment gleams brightly.@rus Ты видишь светящееся белое одеяние (raiment).~
@@ -1221,7 +1221,7 @@ armor AGIKL 0 AC
 15 15 15 5 0
 45 10 25000 P
 g @rus none~
-#14029
+#36529
 stone white камень белый~
 @eng A white stone@rus ~~камень~~ ~~белый~~~
 @eng A white stone the size of a shield lies here.@rus Камень (stone) белый, размером со щит, лежит здесь.~
@@ -1238,7 +1238,7 @@ KING OF KINGS, AND LORD OF LORDS
       Царь царей и Господь господствующих.
 ~
 g @rus male~
-#14030
+#36530
 sword mouth sharp two edged меч острый~
 @eng The sharp, two-edged sword of the mouth@rus ~~острый~~ ~~меч~~ с раздвоенным лезвием~
 @eng A huge two handed sword lies here.@rus Массивный меч (sword) лежит на земле.~
@@ -1247,7 +1247,7 @@ weapon IKLM 0 AN
 sword 2 32 'slash' DF
 45 300 25000 P
 g @rus male~
-#14031
+#36531
 robe white одежды~
 @eng A white robe@rus ~~белые~~ ~~одежды~~~
 @eng A white robe lies here@rus Белые одежды (robe) оставлены здесь.~
@@ -1257,7 +1257,7 @@ armor IKL 0 AK
 35 10 5000 P
 f object ac -10 0
 g @rus plural~
-#14032
+#36532
 seal печать~
 @eng A seal@rus печать~
 @eng A seal lies here.@rus Печать (seal) Божия почему-то оказалась здесь.~
@@ -1267,7 +1267,7 @@ armor IKL 0 AE
 35 0 5000 P
 f object hitroll -1 0
 g @rus female~
-#14033
+#36533
 star morning звезда~
 @eng The morning star@rus ~~звезда~~, ~~падшая~~ с неба~
 @eng A fallen star glows as the morning.@rus Звезда (star), падшая с неба, ярко светится, слепя тебе глаза.~
@@ -1276,7 +1276,7 @@ container A 0 0
 150 0 0 150 100
 10 10 10000 P
 g @rus female~
-#14034
+#36534
 puddle blood лужа лужица~
 @eng A puddle of blood@rus ~~лужица~~ крови~
 @eng A puddle of blood has collected here.@rus Лужица (puddle) крови предстала твоему взору.~
@@ -1285,7 +1285,7 @@ drink 0 0 0
 150 150 'blood' 0 0
 10 10 0 P
 g @rus female~
-#14035
+#36535
 fountain blood фонтан~
 @eng A fountain of blood@rus ~~фонтан~~ крови~
 @eng A fountain of blood gurgles here.@rus Негромкое журчание крови в фонтане (fountain) гипнотизирует тебя.~
@@ -1294,7 +1294,7 @@ fountain 0 0 0
 -1 -1 'blood' 135160612 0
 10 10 0 P
 g @rus male~
-#14036
+#36536
 throne emerald rainbow rus престол~
 @eng An emerald throne@rus ~~изумрудный~~ ~~престол~~~
 @eng An emerald throne surrounded by a rainbow is here.@rus Изумрудный престол (throne), окруженный радугой.~
@@ -1310,7 +1310,7 @@ from it.
 И от него исходят молнии и громы, и гласы.
 ~
 g @rus male~
-#14037
+#36537
 thrones four twenty 24 престола двадцать четыре~
 @eng Four and twenty thrones@rus ~~двадцать четыре престола~~~
 @eng Four and twenty thrones are here.@rus Двадцать четыре престола (thrones) стоят вокруг престола.~
@@ -1324,7 +1324,7 @@ thrones four twenty престолы 24 двадцать четыре~
 @rus Сии престолы сделаны из золота и окружены аурой святости.
 ~
 g @rus plural~
-#14040
+#36540
 book~
 @eng The book of life@rus ~~книга~~ жизней~
 @eng A strange book with billions of names is here.@rus Книга (book), запечатанная семью печатями.~
@@ -1340,7 +1340,7 @@ life книга~
 посмотреть на нее.
 ~
 g @rus none~
-#14041
+#36541
 bowl golden incense золотая чаша~
 @eng A golden bowl of incense@rus ~~золотая~~ ~~чаша~~~
 @eng A golden bowl filled with incense smokes here.@rus Золотая чаша (bowl), полная фимиама.~
@@ -1352,7 +1352,7 @@ g @rus female~
 #0
 
 #ROOMS
-#14001
+#36501
 @eng At the corner of the world@rus Угол мира~
 @eng You smoulder in the flames of the corner of the world
 devoted to fire. The vapors of your burning flesh reach
@@ -1377,7 +1377,7 @@ D0
 ~
 ~
 ~
-Z 0 14015
+Z 0 36515
 D1
 @eng Lake of fire.
 @rus Огненное озеро.
@@ -1385,7 +1385,7 @@ D1
 ~
 ~
 ~
-Z 0 14002
+Z 0 36502
 D3
 ~
 ~
@@ -1393,7 +1393,7 @@ D3
 ~
 Z 0 29236
 S
-#14002
+#36502
 @eng On the lake of fire@rus Огненное озеро~
 @eng You are upon a vast lake of fire burning with brimstone. About
 you the wrath of God is visited upon the sinful.
@@ -1408,7 +1408,7 @@ D0
 ~
 ~
 ~
-Z 0 14016
+Z 0 36516
 D1
 @eng Lake of fire.
 @rus Огненное озеро.
@@ -1416,7 +1416,7 @@ D1
 ~
 ~
 ~
-Z 0 14003
+Z 0 36503
 D3
 @eng The corner of the world.
 @rus Угол мира.
@@ -1424,9 +1424,9 @@ D3
 ~
 ~
 ~
-Z 0 14001
+Z 0 36501
 S
-#14003
+#36503
 @eng On the lake of fire@rus Огненное озеро~
 @eng You are upon a vast lake of fire burning with brimstone. About
 you the wrath of God is visited upon the sinful.
@@ -1441,9 +1441,9 @@ D3
 ~
 ~
 ~
-Z 0 14002
+Z 0 36502
 S
-#14004
+#36504
 @eng The plagued lands@rus Наказанные земли~
 @eng You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
@@ -1463,7 +1463,7 @@ D0
 ~
 ~
 ~
-Z 0 14018
+Z 0 36518
 D1
 @eng The plagued lands.
 @rus Наказанные земли.
@@ -1471,9 +1471,9 @@ D1
 ~
 ~
 ~
-Z 0 14005
+Z 0 36505
 S
-#14005
+#36505
 @eng The plagued lands@rus Наказанные земли~
 @eng You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
@@ -1493,7 +1493,7 @@ D0
 ~
 ~
 ~
-Z 0 14019
+Z 0 36519
 D3
 @eng The plagued lands.
 @rus Наказанные земли.
@@ -1501,9 +1501,9 @@ D3
 ~
 ~
 ~
-Z 0 14004
+Z 0 36504
 S
-#14006
+#36506
 @eng MaGog@rus Магог~
 @eng You are in Satan's city of MaGog. About you writhe and covort
 sinners in a final frolic before destruction. Refuse and ofcol
@@ -1524,7 +1524,7 @@ D0
 ~
 ~
 ~
-Z 0 14020
+Z 0 36520
 D1
 @eng MaGog.
 @rus Магог.
@@ -1532,9 +1532,9 @@ D1
 ~
 ~
 ~
-Z 0 14007
+Z 0 36507
 S
-#14007
+#36507
 @eng MaGog@rus Магог~
 @eng You are in Satan's city of MaGog. About you writhe and covort
 sinners in a final frolic before destruction. Refuse and ofcol
@@ -1555,7 +1555,7 @@ D0
 ~
 ~
 ~
-Z 0 14021
+Z 0 36521
 D1
 @eng MaGog.
 @rus Магог.
@@ -1563,7 +1563,7 @@ D1
 ~
 ~
 ~
-Z 0 14008
+Z 0 36508
 D3
 @eng MaGog.
 @rus Магог.
@@ -1571,9 +1571,9 @@ D3
 ~
 ~
 ~
-Z 0 14006
+Z 0 36506
 S
-#14008
+#36508
 @eng MaGog@rus Магог~
 @eng You are in Satan's city of MaGog. About you writhe and covort sinners
 in a final frolic before destruction.Refuse and ofcol are the perfume of
@@ -1598,7 +1598,7 @@ D0
 ~
 ~
 ~
-Z 0 14022
+Z 0 36522
 D1
 @eng MaGog.
 @rus Магог.
@@ -1606,7 +1606,7 @@ D1
 ~
 ~
 ~
-Z 0 14009
+Z 0 36509
 D2
 @eng Into the bottomless pit.
 @rus К бездонной бездне.
@@ -1614,7 +1614,7 @@ D2
 gate adamantite south врата~
 @eng the gate@rus врата~
 @rus plural~
-ABCFZ 14001 14183
+ABCFZ 14001 36683
 D3
 @eng MaGog
 @rus Магог.
@@ -1622,9 +1622,9 @@ D3
 ~
 ~
 ~
-Z 0 14007
+Z 0 36507
 S
-#14009
+#36509
 @eng MaGog@rus Магог~
 @eng You are in Satan's city of MaGog. About you writhe and covort
 sinners in a final frolic before destruction. Refuse and ofcol
@@ -1645,7 +1645,7 @@ D0
 ~
 ~
 ~
-Z 0 14023
+Z 0 36523
 D1
 @eng MaGog.
 @rus Магог.
@@ -1653,7 +1653,7 @@ D1
 ~
 ~
 ~
-Z 0 14010
+Z 0 36510
 D3
 @eng MaGog.
 @rus Магог.
@@ -1661,9 +1661,9 @@ D3
 ~
 ~
 ~
-Z 0 14008
+Z 0 36508
 S
-#14010
+#36510
 @eng MaGog@rus Магог~
 @eng You are in Satan's city of MaGog. About you writhe and covort
 sinners in a final frolic before destruction. Refuse and ofcol
@@ -1684,7 +1684,7 @@ D0
 ~
 ~
 ~
-Z 0 14024
+Z 0 36524
 D3
 @eng MaGog.
 @rus Магог.
@@ -1692,9 +1692,9 @@ D3
 ~
 ~
 ~
-Z 0 14009
+Z 0 36509
 S
-#14011
+#36511
 @eng The many waters@rus Морской простор~
 @eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
@@ -1711,7 +1711,7 @@ D0
 ~
 ~
 ~
-Z 0 14025
+Z 0 36525
 D1
 @eng More blood.
 @rus Кровь. Море крови...
@@ -1719,9 +1719,9 @@ D1
 ~
 ~
 ~
-Z 0 14012
+Z 0 36512
 S
-#14012
+#36512
 @eng The many waters@rus Морской простор~
 @eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
@@ -1738,7 +1738,7 @@ D0
 ~
 ~
 ~
-Z 0 14026
+Z 0 36526
 D1
 @eng More blood.
 @rus Кровь. Море крови...
@@ -1746,7 +1746,7 @@ D1
 ~
 ~
 ~
-Z 0 14013
+Z 0 36513
 D3
 @eng More blood.
 @rus Кровь. Море крови...
@@ -1754,9 +1754,9 @@ D3
 ~
 ~
 ~
-Z 0 14011
+Z 0 36511
 S
-#14013
+#36513
 @eng The many waters@rus Морской простор~
 @eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
@@ -1773,7 +1773,7 @@ D0
 ~
 ~
 ~
-Z 0 14027
+Z 0 36527
 D1
 @eng The corner of the world.
 @rus Угол мира.
@@ -1781,7 +1781,7 @@ D1
 ~
 ~
 ~
-Z 0 14014
+Z 0 36514
 D3
 @eng More blood.
 @rus Кровь. Море крови...
@@ -1789,9 +1789,9 @@ D3
 ~
 ~
 ~
-Z 0 14012
+Z 0 36512
 S
-#14014
+#36514
 @eng The corner of the world@rus Угол мира~
 @eng You are at the corner of the world, floating on a vast sea of blood.
 An unstoppered vial floats in the water here. Beyond the corner is 
@@ -1819,7 +1819,7 @@ D0
 ~
 ~
 ~
-Z 0 14028
+Z 0 36528
 D3
 @eng More blood.
 @rus Кровь. Море крови...
@@ -1827,9 +1827,9 @@ D3
 ~
 ~
 ~
-Z 0 14013
+Z 0 36513
 S
-#14015
+#36515
 @eng On the lake of fire@rus Огненное озеро~
 @eng You are upon a vast lake of fire burning with brimstone. About
 you the wrath of God is visited upon the sinful.
@@ -1844,7 +1844,7 @@ D0
 ~
 ~
 ~
-Z 0 14029
+Z 0 36529
 D1
 @eng Lake of fire.
 @rus Огненное озеро.
@@ -1852,7 +1852,7 @@ D1
 ~
 ~
 ~
-Z 0 14016
+Z 0 36516
 D2
 @eng The corner of the world.
 @rus Угол мира.
@@ -1860,9 +1860,9 @@ D2
 ~
 ~
 ~
-Z 0 14001
+Z 0 36501
 S
-#14016
+#36516
 @eng On the lake of fire@rus Огненное озеро~
 @eng You are upon a vast lake of fire burning with brimstone. About
 you the wrath of God is visited upon the sinful.
@@ -1877,7 +1877,7 @@ D1
 ~
 ~
 ~
-Z 0 14017
+Z 0 36517
 D2
 @eng Lake of fire.
 @rus Огненное озеро.
@@ -1885,7 +1885,7 @@ D2
 ~
 ~
 ~
-Z 0 14002
+Z 0 36502
 D3
 @eng Lake of fire.
 @rus Огненное озеро.
@@ -1893,9 +1893,9 @@ D3
 ~
 ~
 ~
-Z 0 14015
+Z 0 36515
 S
-#14017
+#36517
 @eng The plagued lands@rus Наказанные земли~
 @eng You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
@@ -1915,7 +1915,7 @@ D0
 ~
 ~
 ~
-Z 0 14031
+Z 0 36531
 D1
 @eng The plagued lands.
 @rus Наказанные земли.
@@ -1923,7 +1923,7 @@ D1
 ~
 ~
 ~
-Z 0 14018
+Z 0 36518
 D3
 @eng Lake of fire.
 @rus Огненное озеро.
@@ -1931,9 +1931,9 @@ D3
 ~
 ~
 ~
-Z 0 14016
+Z 0 36516
 S
-#14018
+#36518
 @eng The plagued lands@rus Наказанные земли~
 @eng You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
@@ -1953,7 +1953,7 @@ D0
 ~
 ~
 ~
-Z 0 14032
+Z 0 36532
 D1
 @eng The plagued lands.
 @rus Наказанные земли.
@@ -1961,7 +1961,7 @@ D1
 ~
 ~
 ~
-Z 0 14019
+Z 0 36519
 D2
 @eng The plagued lands.
 @rus Наказанные земли.
@@ -1969,7 +1969,7 @@ D2
 ~
 ~
 ~
-Z 0 14004
+Z 0 36504
 D3
 @eng The plagued lands.
 @rus Наказанные земли.
@@ -1977,9 +1977,9 @@ D3
 ~
 ~
 ~
-Z 0 14017
+Z 0 36517
 S
-#14019
+#36519
 @eng The plagued lands@rus Наказанные земли~
 @eng You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
@@ -1999,7 +1999,7 @@ D0
 ~
 ~
 ~
-Z 0 14033
+Z 0 36533
 D2
 @eng The plagued lands.
 @rus Наказанные земли.
@@ -2007,7 +2007,7 @@ D2
 ~
 ~
 ~
-Z 0 14005
+Z 0 36505
 D3
 @eng The plagued lands.
 @rus Наказанные земли.
@@ -2015,9 +2015,9 @@ D3
 ~
 ~
 ~
-Z 0 14018
+Z 0 36518
 S
-#14020
+#36520
 @eng MaGog@rus Магог~
 @eng You are in Satan's city of MaGog. About you writhe and covort
 sinners in a final frolic before destruction. Refuse and ofcol
@@ -2038,7 +2038,7 @@ D0
 ~
 ~
 ~
-Z 0 14034
+Z 0 36534
 D1
 @eng MaGog.
 @rus Магог.
@@ -2046,7 +2046,7 @@ D1
 ~
 ~
 ~
-Z 0 14021
+Z 0 36521
 D2
 @eng MaGog.
 @rus Магог.
@@ -2054,9 +2054,9 @@ D2
 ~
 ~
 ~
-Z 0 14006
+Z 0 36506
 S
-#14021
+#36521
 @eng MaGog@rus Магог~
 @eng You are in Satan's city of MaGog. About you writhe and covort
 sinners in a final frolic before destruction. Refuse and ofcol
@@ -2077,7 +2077,7 @@ D0
 ~
 ~
 ~
-Z 0 14035
+Z 0 36535
 D1
 @eng MaGog.
 @rus Магог.
@@ -2085,7 +2085,7 @@ D1
 ~
 ~
 ~
-Z 0 14022
+Z 0 36522
 D2
 @eng MaGog.
 @rus Магог.
@@ -2093,7 +2093,7 @@ D2
 ~
 ~
 ~
-Z 0 14007
+Z 0 36507
 D3
 @eng MaGog.
 @rus Магог.
@@ -2101,9 +2101,9 @@ D3
 ~
 ~
 ~
-Z 0 14020
+Z 0 36520
 S
-#14022
+#36522
 @eng MaGog@rus Магог~
 @eng You are in Satan's city of MaGog. About you writhe and covort
 sinners in a final frolic before destruction. Refuse and ofcol
@@ -2124,7 +2124,7 @@ D0
 ~
 ~
 ~
-Z 0 14036
+Z 0 36536
 D1
 @eng MaGog.
 @rus Магог.
@@ -2132,7 +2132,7 @@ D1
 ~
 ~
 ~
-Z 0 14023
+Z 0 36523
 D2
 @eng MaGog.
 @rus Магог.
@@ -2140,7 +2140,7 @@ D2
 ~
 ~
 ~
-Z 0 14008
+Z 0 36508
 D3
 @eng MaGog.
 @rus Магог.
@@ -2148,9 +2148,9 @@ D3
 ~
 ~
 ~
-Z 0 14021
+Z 0 36521
 S
-#14023
+#36523
 @eng MaGog@rus Магог~
 @eng You are in Satan's city of MaGog. About you writhe and covort
 sinners in a final frolic before destruction. Refuse and ofcol
@@ -2171,7 +2171,7 @@ D0
 ~
 ~
 ~
-Z 0 14037
+Z 0 36537
 D1
 @eng MaGog.
 @rus Магог.
@@ -2179,7 +2179,7 @@ D1
 ~
 ~
 ~
-Z 0 14024
+Z 0 36524
 D2
 @eng MaGog.
 @rus Магог.
@@ -2187,7 +2187,7 @@ D2
 ~
 ~
 ~
-Z 0 14009
+Z 0 36509
 D3
 @eng MaGog.
 @rus Магог.
@@ -2195,9 +2195,9 @@ D3
 ~
 ~
 ~
-Z 0 14022
+Z 0 36522
 S
-#14024
+#36524
 @eng MaGog@rus Магог~
 @eng You are in Satan's city of MaGog. About you writhe and covort
 sinners in a final frolic before destruction. Refuse and ofcol
@@ -2218,7 +2218,7 @@ D0
 ~
 ~
 ~
-Z 0 14038
+Z 0 36538
 D2
 @eng MaGog.
 @rus Магог.
@@ -2226,7 +2226,7 @@ D2
 ~
 ~
 ~
-Z 0 14010
+Z 0 36510
 D3
 @eng MaGog.
 @rus Магог.
@@ -2234,9 +2234,9 @@ D3
 ~
 ~
 ~
-Z 0 14023
+Z 0 36523
 S
-#14025
+#36525
 @eng The many waters@rus Морской простор~
 @eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
@@ -2253,7 +2253,7 @@ D0
 ~
 ~
 ~
-Z 0 14039
+Z 0 36539
 D1
 @eng More blood.
 @rus Кровь. Море крови...
@@ -2261,7 +2261,7 @@ D1
 ~
 ~
 ~
-Z 0 14026
+Z 0 36526
 D2
 @eng More blood.
 @rus Кровь. Море крови...
@@ -2269,9 +2269,9 @@ D2
 ~
 ~
 ~
-Z 0 14011
+Z 0 36511
 S
-#14026
+#36526
 @eng The many waters@rus Морской простор~
 @eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
@@ -2288,7 +2288,7 @@ D0
 ~
 ~
 ~
-Z 0 14040
+Z 0 36540
 D1
 @eng More blood.
 @rus Кровь. Море крови...
@@ -2296,7 +2296,7 @@ D1
 ~
 ~
 ~
-Z 0 14027
+Z 0 36527
 D2
 @eng More blood.
 @rus Кровь. Море крови...
@@ -2304,7 +2304,7 @@ D2
 ~
 ~
 ~
-Z 0 14012
+Z 0 36512
 D3
 @eng More blood.
 @rus Кровь. Море крови...
@@ -2312,9 +2312,9 @@ D3
 ~
 ~
 ~
-Z 0 14025
+Z 0 36525
 S
-#14027
+#36527
 @eng The many waters@rus Морской простор~
 @eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
@@ -2331,7 +2331,7 @@ D0
 ~
 ~
 ~
-Z 0 14041
+Z 0 36541
 D1
 @eng More blood.
 @rus Кровь. Море крови...
@@ -2339,7 +2339,7 @@ D1
 ~
 ~
 ~
-Z 0 14028
+Z 0 36528
 D2
 @eng More blood.
 @rus Кровь. Море крови...
@@ -2347,7 +2347,7 @@ D2
 ~
 ~
 ~
-Z 0 14013
+Z 0 36513
 D3
 @eng More blood.
 @rus Кровь. Море крови...
@@ -2355,9 +2355,9 @@ D3
 ~
 ~
 ~
-Z 0 14026
+Z 0 36526
 S
-#14028
+#36528
 @eng The many waters@rus Морской простор~
 @eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
@@ -2374,7 +2374,7 @@ D0
 ~
 ~
 ~
-Z 0 14042
+Z 0 36542
 D2
 @eng The corner of the world.
 @rus Угол мира.
@@ -2382,7 +2382,7 @@ D2
 ~
 ~
 ~
-Z 0 14014
+Z 0 36514
 D3
 @eng More blood.
 @rus Кровь. Море крови...
@@ -2390,9 +2390,9 @@ D3
 ~
 ~
 ~
-Z 0 14027
+Z 0 36527
 S
-#14029
+#36529
 @eng On the lake of fire@rus Огненное озеро~
 @eng You are upon a vast lake of fire burning with brimstone. About
 you the wrath of God is visited upon the sinful.
@@ -2407,9 +2407,9 @@ D2
 ~
 ~
 ~
-Z 0 14015
+Z 0 36515
 S
-#14030
+#36530
 @eng The plagued lands@rus Наказанные земли~
 @eng You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
@@ -2429,7 +2429,7 @@ D0
 ~
 ~
 ~
-Z 0 14044
+Z 0 36544
 D1
 @eng The plagued lands.
 @rus Наказанные земли.
@@ -2437,9 +2437,9 @@ D1
 ~
 ~
 ~
-Z 0 14031
+Z 0 36531
 S
-#14031
+#36531
 @eng The plagued lands@rus Наказанные земли~
 @eng You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
@@ -2459,7 +2459,7 @@ D0
 ~
 ~
 ~
-Z 0 14045
+Z 0 36545
 D1
 @eng The plagued lands.
 @rus Наказанные земли.
@@ -2467,7 +2467,7 @@ D1
 ~
 ~
 ~
-Z 0 14032
+Z 0 36532
 D2
 @eng The plagued lands.
 @rus Наказанные земли.
@@ -2475,7 +2475,7 @@ D2
 ~
 ~
 ~
-Z 0 14017
+Z 0 36517
 D3
 @eng The plagued lands.
 @rus Наказанные земли.
@@ -2483,9 +2483,9 @@ D3
 ~
 ~
 ~
-Z 0 14030
+Z 0 36530
 S
-#14032
+#36532
 @eng The plagued lands@rus Наказанные земли~
 @eng You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
@@ -2505,7 +2505,7 @@ D2
 ~
 ~
 ~
-Z 0 14018
+Z 0 36518
 D3
 @eng The plagued lands.
 @rus Наказанные земли.
@@ -2513,9 +2513,9 @@ D3
 ~
 ~
 ~
-Z 0 14031
+Z 0 36531
 S
-#14033
+#36533
 @eng The plagued lands@rus Наказанные земли~
 @eng You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
@@ -2535,9 +2535,9 @@ D2
 ~
 ~
 ~
-Z 0 14019
+Z 0 36519
 S
-#14034
+#36534
 @eng MaGog@rus Магог~
 @eng You are in Satan's city of MaGog. About you writhe and covort
 sinners in a final frolic before destruction. Refuse and ofcol
@@ -2558,7 +2558,7 @@ D1
 ~
 ~
 ~
-Z 0 14035
+Z 0 36535
 D2
 @eng MaGog.
 @rus Магог.
@@ -2566,9 +2566,9 @@ D2
 ~
 ~
 ~
-Z 0 14020
+Z 0 36520
 S
-#14035
+#36535
 @eng MaGog@rus Магог~
 @eng You are in Satan's city of MaGog. About you writhe and covort
 sinners in a final frolic before destruction. Refuse and ofcol
@@ -2589,7 +2589,7 @@ D1
 ~
 ~
 ~
-Z 0 14036
+Z 0 36536
 D2
 @eng MaGog.
 @rus Магог.
@@ -2597,7 +2597,7 @@ D2
 ~
 ~
 ~
-Z 0 14021
+Z 0 36521
 D3
 @eng MaGog.
 @rus Магог.
@@ -2605,9 +2605,9 @@ D3
 ~
 ~
 ~
-Z 0 14034
+Z 0 36534
 S
-#14036
+#36536
 @eng MaGog@rus Магог~
 @eng You are in Satan's city of MaGog. About you writhe and covort
 sinners in a final frolic before destruction. Refuse and ofcol
@@ -2628,7 +2628,7 @@ D0
 ~
 ~
 ~
-Z 0 14050
+Z 0 36550
 D1
 @eng MaGog.
 @rus Магог.
@@ -2636,7 +2636,7 @@ D1
 ~
 ~
 ~
-Z 0 14037
+Z 0 36537
 D2
 @eng MaGog.
 @rus Магог.
@@ -2644,7 +2644,7 @@ D2
 ~
 ~
 ~
-Z 0 14022
+Z 0 36522
 D3
 @eng MaGog.
 @rus Магог.
@@ -2652,9 +2652,9 @@ D3
 ~
 ~
 ~
-Z 0 14035
+Z 0 36535
 S
-#14037
+#36537
 @eng MaGog@rus Магог~
 @eng You are in Satan's city of MaGog. About you writhe and covort
 sinners in a final frolic before destruction. Refuse and ofcol
@@ -2675,7 +2675,7 @@ D1
 ~
 ~
 ~
-Z 0 14038
+Z 0 36538
 D2
 @eng MaGog.
 @rus Магог.
@@ -2683,7 +2683,7 @@ D2
 ~
 ~
 ~
-Z 0 14023
+Z 0 36523
 D3
 @eng MaGog.
 @rus Магог.
@@ -2691,9 +2691,9 @@ D3
 ~
 ~
 ~
-Z 0 14036
+Z 0 36536
 S
-#14038
+#36538
 @eng MaGog@rus Магог~
 @eng You are in Satan's city of MaGog. About you writhe and covort
 sinners in a final frolic before destruction. Refuse and ofcol
@@ -2714,7 +2714,7 @@ D2
 ~
 ~
 ~
-Z 0 14024
+Z 0 36524
 D3
 @eng MaGog.
 @rus Магог.
@@ -2722,9 +2722,9 @@ D3
 ~
 ~
 ~
-Z 0 14037
+Z 0 36537
 S
-#14039
+#36539
 @eng The many waters@rus Морской простор~
 @eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
@@ -2741,7 +2741,7 @@ D0
 ~
 ~
 ~
-Z 0 14053
+Z 0 36553
 D1
 @eng More blood.
 @rus Кровь. Море крови...
@@ -2749,7 +2749,7 @@ D1
 ~
 ~
 ~
-Z 0 14040
+Z 0 36540
 D2
 @eng More blood.
 @rus Кровь. Море крови...
@@ -2757,9 +2757,9 @@ D2
 ~
 ~
 ~
-Z 0 14025
+Z 0 36525
 S
-#14040
+#36540
 @eng The many waters@rus Морской простор~
 @eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
@@ -2776,7 +2776,7 @@ D0
 ~
 ~
 ~
-Z 0 14054
+Z 0 36554
 D1
 @eng More blood.
 @rus Кровь. Море крови...
@@ -2784,7 +2784,7 @@ D1
 ~
 ~
 ~
-Z 0 14041
+Z 0 36541
 D2
 @eng More blood.
 @rus Кровь. Море крови...
@@ -2792,7 +2792,7 @@ D2
 ~
 ~
 ~
-Z 0 14026
+Z 0 36526
 D3
 @eng More blood.
 @rus Кровь. Море крови...
@@ -2800,9 +2800,9 @@ D3
 ~
 ~
 ~
-Z 0 14039
+Z 0 36539
 S
-#14041
+#36541
 @eng The many waters@rus Морской простор~
 @eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
@@ -2818,7 +2818,7 @@ A cloud of steam.
 ~
 ~
 ~
-Z 0 14055
+Z 0 36555
 D1
 @eng More blood.
 @rus Кровь. Море крови...
@@ -2826,7 +2826,7 @@ D1
 ~
 ~
 ~
-Z 0 14042
+Z 0 36542
 D2
 @eng More blood.
 @rus Кровь. Море крови...
@@ -2834,7 +2834,7 @@ D2
 ~
 ~
 ~
-Z 0 14027
+Z 0 36527
 D3
 @eng More blood.
 @rus Кровь. Море крови...
@@ -2842,9 +2842,9 @@ D3
 ~
 ~
 ~
-Z 0 14040
+Z 0 36540
 S
-#14042
+#36542
 @eng The many waters@rus Морской простор~
 @eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
@@ -2861,7 +2861,7 @@ D0
 ~
 ~
 ~
-Z 0 14056
+Z 0 36556
 D2
 @eng More blood.
 @rus Кровь. Море крови...
@@ -2869,7 +2869,7 @@ D2
 ~
 ~
 ~
-Z 0 14028
+Z 0 36528
 D3
 @eng More blood.
 @rus Кровь. Море крови...
@@ -2877,9 +2877,9 @@ D3
 ~
 ~
 ~
-Z 0 14041
+Z 0 36541
 S
-#14043
+#36543
 @eng The plagued lands@rus Наказанные земли~
 @eng You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
@@ -2899,7 +2899,7 @@ D0
 ~
 ~
 ~
-Z 0 14057
+Z 0 36557
 D1
 @eng The plagued lands.
 @rus Наказанные земли.
@@ -2907,9 +2907,9 @@ D1
 ~
 ~
 ~
-Z 0 14044
+Z 0 36544
 S
-#14044
+#36544
 @eng The plagued lands@rus Наказанные земли~
 @eng You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
@@ -2929,7 +2929,7 @@ D0
 ~
 ~
 ~
-Z 0 14058
+Z 0 36558
 D1
 @eng The plagued lands.
 @rus Наказанные земли.
@@ -2937,7 +2937,7 @@ D1
 ~
 ~
 ~
-Z 0 14045
+Z 0 36545
 D2
 @eng The plagued lands.
 @rus Наказанные земли.
@@ -2945,7 +2945,7 @@ D2
 ~
 ~
 ~
-Z 0 14030
+Z 0 36530
 D3
 @eng The plagued lands.
 @rus Наказанные земли.
@@ -2953,9 +2953,9 @@ D3
 ~
 ~
 ~
-Z 0 14043
+Z 0 36543
 S
-#14045
+#36545
 @eng The plagued lands@rus Наказанные земли~
 @eng You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
@@ -2975,7 +2975,7 @@ D0
 ~
 ~
 ~
-Z 0 14059
+Z 0 36559
 D2
 @eng The plagued lands.
 @rus Наказанные земли.
@@ -2983,7 +2983,7 @@ D2
 ~
 ~
 ~
-Z 0 14031
+Z 0 36531
 D3
 @eng The plagued lands.
 @rus Наказанные земли.
@@ -2991,9 +2991,9 @@ D3
 ~
 ~
 ~
-Z 0 14044
+Z 0 36544
 S
-#14046
+#36546
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -3012,7 +3012,7 @@ D0
 ~
 ~
 ~
-Z 0 14060
+Z 0 36560
 D1
 @eng Armageddon.
 @rus Армагеддон.
@@ -3020,9 +3020,9 @@ D1
 ~
 ~
 ~
-Z 0 14047
+Z 0 36547
 S
-#14047
+#36547
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -3041,7 +3041,7 @@ D0
 ~
 ~
 ~
-Z 0 14061
+Z 0 36561
 D1
 @eng Armageddon.
 @rus Армагеддон.
@@ -3049,7 +3049,7 @@ D1
 ~
 ~
 ~
-Z 0 14048
+Z 0 36548
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -3057,9 +3057,9 @@ D3
 ~
 ~
 ~
-Z 0 14046
+Z 0 36546
 S
-#14048
+#36548
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -3078,7 +3078,7 @@ D0
 ~
 ~
 ~
-Z 0 14062
+Z 0 36562
 D1
 @eng Armageddon.
 @rus Армагеддон.
@@ -3086,7 +3086,7 @@ D1
 ~
 ~
 ~
-Z 0 14049
+Z 0 36549
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -3094,9 +3094,9 @@ D3
 ~
 ~
 ~
-Z 0 14047
+Z 0 36547
 S
-#14049
+#36549
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -3115,7 +3115,7 @@ D0
 ~
 ~
 ~
-Z 0 14063
+Z 0 36563
 D1
 @eng Armageddon.
 @rus Армагеддон.
@@ -3123,7 +3123,7 @@ D1
 ~
 ~
 ~
-Z 0 14050
+Z 0 36550
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -3131,9 +3131,9 @@ D3
 ~
 ~
 ~
-Z 0 14048
+Z 0 36548
 S
-#14050
+#36550
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -3152,7 +3152,7 @@ D0
 ~
 ~
 ~
-Z 0 14064
+Z 0 36564
 D1
 @eng Armageddon.
 @rus Армагеддон.
@@ -3160,7 +3160,7 @@ D1
 ~
 ~
 ~
-Z 0 14051
+Z 0 36551
 D2
 @eng MaGog.
 @rus Магог.
@@ -3168,7 +3168,7 @@ D2
 ~
 ~
 ~
-Z 0 14036
+Z 0 36536
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -3176,9 +3176,9 @@ D3
 ~
 ~
 ~
-Z 0 14049
+Z 0 36549
 S
-#14051
+#36551
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -3197,7 +3197,7 @@ D0
 ~
 ~
 ~
-Z 0 14065
+Z 0 36565
 D1
 @eng Armageddon.
 @rus Армагеддон.
@@ -3205,7 +3205,7 @@ D1
 ~
 ~
 ~
-Z 0 14052
+Z 0 36552
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -3213,9 +3213,9 @@ D3
 ~
 ~
 ~
-Z 0 14050
+Z 0 36550
 S
-#14052
+#36552
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -3234,7 +3234,7 @@ D0
 ~
 ~
 ~
-Z 0 14066
+Z 0 36566
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -3242,9 +3242,9 @@ D3
 ~
 ~
 ~
-Z 0 14051
+Z 0 36551
 S
-#14053
+#36553
 @eng The many waters@rus Морской простор~
 @eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
@@ -3261,7 +3261,7 @@ D0
 ~
 ~
 ~
-Z 0 14067
+Z 0 36567
 D1
 @eng More blood.
 @rus Кровь. Море крови...
@@ -3269,7 +3269,7 @@ D1
 ~
 ~
 ~
-Z 0 14054
+Z 0 36554
 D2
 @eng More blood.
 @rus Кровь. Море крови...
@@ -3277,9 +3277,9 @@ D2
 ~
 ~
 ~
-Z 0 14039
+Z 0 36539
 S
-#14054
+#36554
 @eng The many waters@rus Морской простор~
 @eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
@@ -3296,14 +3296,14 @@ D0
 ~
 ~
 ~
-Z 0 14068
+Z 0 36568
 D1
 A cloud of steam.
 ~
 ~
 ~
 ~
-Z 0 14055
+Z 0 36555
 D2
 @eng More blood.
 @rus Кровь. Море крови...
@@ -3311,7 +3311,7 @@ D2
 ~
 ~
 ~
-Z 0 14040
+Z 0 36540
 D3
 @eng More blood.
 @rus Кровь. Море крови...
@@ -3319,9 +3319,9 @@ D3
 ~
 ~
 ~
-Z 0 14053
+Z 0 36553
 S
-#14055
+#36555
 @eng The sunken volcano@rus Затонувший остров~
 @eng You arrive to heal the peal of the second horn, blown
 by an angel flying above. You watch as the volcanic island
@@ -3339,7 +3339,7 @@ D0
 ~
 ~
 ~
-Z 0 14069
+Z 0 36569
 D1
 @eng More blood.
 @rus Кровь. Море крови...
@@ -3347,7 +3347,7 @@ D1
 ~
 ~
 ~
-Z 0 14056
+Z 0 36556
 D2
 @eng More blood.
 @rus Кровь. Море крови...
@@ -3355,7 +3355,7 @@ D2
 ~
 ~
 ~
-Z 0 14041
+Z 0 36541
 D3
 @eng More blood.
 @rus Кровь. Море крови...
@@ -3363,9 +3363,9 @@ D3
 ~
 ~
 ~
-Z 0 14054
+Z 0 36554
 S
-#14056
+#36556
 @eng The many waters@rus Морской простор~
 @eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
@@ -3382,7 +3382,7 @@ D0
 ~
 ~
 ~
-Z 0 14070
+Z 0 36570
 D2
 @eng More blood.
 @rus Кровь. Море крови...
@@ -3390,7 +3390,7 @@ D2
 ~
 ~
 ~
-Z 0 14042
+Z 0 36542
 D3
 @eng A cloud of steam.
 @rus Клубы тумана.
@@ -3398,9 +3398,9 @@ D3
 ~
 ~
 ~
-Z 0 14055
+Z 0 36555
 S
-#14057
+#36557
 @eng The plagued lands@rus Наказанные земли~
 @eng You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
@@ -3420,7 +3420,7 @@ D1
 ~
 ~
 ~
-Z 0 14058
+Z 0 36558
 D2
 @eng The plagued lands.
 @rus Наказанные земли.
@@ -3428,9 +3428,9 @@ D2
 ~
 ~
 ~
-Z 0 14043
+Z 0 36543
 S
-#14058
+#36558
 @eng The plagued lands@rus Наказанные земли~
 @eng You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
@@ -3450,7 +3450,7 @@ D1
 ~
 ~
 ~
-Z 0 14059
+Z 0 36559
 D2
 @eng The plagued lands.
 @rus Наказанные земли.
@@ -3458,7 +3458,7 @@ D2
 ~
 ~
 ~
-Z 0 14044
+Z 0 36544
 D3
 @eng The plagued lands.
 @rus Наказанные земли.
@@ -3466,9 +3466,9 @@ D3
 ~
 ~
 ~
-Z 0 14057
+Z 0 36557
 S
-#14059
+#36559
 @eng The plagued lands@rus Наказанные земли~
 @eng You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
@@ -3488,7 +3488,7 @@ D0
 ~
 ~
 ~
-Z 0 14073
+Z 0 36573
 D2
 @eng The plagued lands.
 @rus Наказанные земли.
@@ -3496,7 +3496,7 @@ D2
 ~
 ~
 ~
-Z 0 14045
+Z 0 36545
 D3
 @eng The plagued lands.
 @rus Наказанные земли.
@@ -3504,9 +3504,9 @@ D3
 ~
 ~
 ~
-Z 0 14058
+Z 0 36558
 S
-#14060
+#36560
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -3525,7 +3525,7 @@ D0
 ~
 ~
 ~
-Z 0 14074
+Z 0 36574
 D1
 @eng Armageddon.
 @rus Армагеддон.
@@ -3533,7 +3533,7 @@ D1
 ~
 ~
 ~
-Z 0 14061
+Z 0 36561
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -3541,9 +3541,9 @@ D2
 ~
 ~
 ~
-Z 0 14046
+Z 0 36546
 S
-#14061
+#36561
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -3562,7 +3562,7 @@ D0
 ~
 ~
 ~
-Z 0 14075
+Z 0 36575
 D1
 @eng Armageddon.
 @rus Армагеддон.
@@ -3570,7 +3570,7 @@ D1
 ~
 ~
 ~
-Z 0 14062
+Z 0 36562
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -3578,7 +3578,7 @@ D2
 ~
 ~
 ~
-Z 0 14047
+Z 0 36547
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -3586,9 +3586,9 @@ D3
 ~
 ~
 ~
-Z 0 14060
+Z 0 36560
 S
-#14062
+#36562
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -3607,7 +3607,7 @@ D0
 ~
 ~
 ~
-Z 0 14076
+Z 0 36576
 D1
 @eng Armageddon.
 @rus Армагеддон.
@@ -3615,7 +3615,7 @@ D1
 ~
 ~
 ~
-Z 0 14063
+Z 0 36563
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -3623,7 +3623,7 @@ D2
 ~
 ~
 ~
-Z 0 14048
+Z 0 36548
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -3631,9 +3631,9 @@ D3
 ~
 ~
 ~
-Z 0 14061
+Z 0 36561
 S
-#14063
+#36563
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -3652,7 +3652,7 @@ D0
 ~
 ~
 ~
-Z 0 14077
+Z 0 36577
 D1
 @eng Armageddon.
 @rus Армагеддон.
@@ -3660,7 +3660,7 @@ D1
 ~
 ~
 ~
-Z 0 14064
+Z 0 36564
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -3668,7 +3668,7 @@ D2
 ~
 ~
 ~
-Z 0 14049
+Z 0 36549
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -3676,9 +3676,9 @@ D3
 ~
 ~
 ~
-Z 0 14062
+Z 0 36562
 S
-#14064
+#36564
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -3697,7 +3697,7 @@ D0
 ~
 ~
 ~
-Z 0 14078
+Z 0 36578
 D1
 @eng Armageddon.
 @rus Армагеддон.
@@ -3705,7 +3705,7 @@ D1
 ~
 ~
 ~
-Z 0 14065
+Z 0 36565
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -3713,7 +3713,7 @@ D2
 ~
 ~
 ~
-Z 0 14050
+Z 0 36550
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -3721,9 +3721,9 @@ D3
 ~
 ~
 ~
-Z 0 14063
+Z 0 36563
 S
-#14065
+#36565
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -3742,7 +3742,7 @@ D0
 ~
 ~
 ~
-Z 0 14079
+Z 0 36579
 D1
 @eng Armageddon.
 @rus Армагеддон.
@@ -3750,7 +3750,7 @@ D1
 ~
 ~
 ~
-Z 0 14066
+Z 0 36566
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -3758,7 +3758,7 @@ D2
 ~
 ~
 ~
-Z 0 14051
+Z 0 36551
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -3766,9 +3766,9 @@ D3
 ~
 ~
 ~
-Z 0 14064
+Z 0 36564
 S
-#14066
+#36566
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -3787,7 +3787,7 @@ D0
 ~
 ~
 ~
-Z 0 14080
+Z 0 36580
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -3795,7 +3795,7 @@ D2
 ~
 ~
 ~
-Z 0 14052
+Z 0 36552
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -3803,9 +3803,9 @@ D3
 ~
 ~
 ~
-Z 0 14065
+Z 0 36565
 S
-#14067
+#36567
 @eng The many waters@rus Морской простор~
 @eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
@@ -3822,7 +3822,7 @@ D0
 ~
 ~
 ~
-Z 0 14081
+Z 0 36581
 D1
 @eng More blood.
 @rus Кровь. Море крови...
@@ -3830,7 +3830,7 @@ D1
 ~
 ~
 ~
-Z 0 14068
+Z 0 36568
 D2
 @eng More blood.
 @rus Кровь. Море крови...
@@ -3838,9 +3838,9 @@ D2
 ~
 ~
 ~
-Z 0 14053
+Z 0 36553
 S
-#14068
+#36568
 @eng The many waters@rus Морской простор~
 @eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
@@ -3857,7 +3857,7 @@ D0
 ~
 ~
 ~
-Z 0 14082
+Z 0 36582
 D1
 @eng More blood.
 @rus Кровь. Море крови...
@@ -3865,7 +3865,7 @@ D1
 ~
 ~
 ~
-Z 0 14069
+Z 0 36569
 D2
 @eng More blood.
 @rus Кровь. Море крови...
@@ -3873,7 +3873,7 @@ D2
 ~
 ~
 ~
-Z 0 14054
+Z 0 36554
 D3
 @eng More blood.
 @rus Кровь. Море крови...
@@ -3881,9 +3881,9 @@ D3
 ~
 ~
 ~
-Z 0 14067
+Z 0 36567
 S
-#14069
+#36569
 @eng The many waters@rus Морской простор~
 @eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
@@ -3900,7 +3900,7 @@ D0
 ~
 ~
 ~
-Z 0 14083
+Z 0 36583
 D1
 @eng More blood.
 @rus Кровь. Море крови...
@@ -3908,14 +3908,14 @@ D1
 ~
 ~
 ~
-Z 0 14070
+Z 0 36570
 D2
 A cloud of steam.
 ~
 ~
 ~
 ~
-Z 0 14055
+Z 0 36555
 D3
 @eng More blood.
 @rus Кровь. Море крови...
@@ -3923,9 +3923,9 @@ D3
 ~
 ~
 ~
-Z 0 14068
+Z 0 36568
 S
-#14070
+#36570
 @eng The many waters@rus Морской простор~
 @eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
@@ -3942,7 +3942,7 @@ D0
 ~
 ~
 ~
-Z 0 14084
+Z 0 36584
 D2
 @eng More blood.
 @rus Кровь. Море крови...
@@ -3950,7 +3950,7 @@ D2
 ~
 ~
 ~
-Z 0 14056
+Z 0 36556
 D3
 @eng More blood.
 @rus Кровь. Море крови...
@@ -3958,9 +3958,9 @@ D3
 ~
 ~
 ~
-Z 0 14069
+Z 0 36569
 S
-#14071
+#36571
 @eng Wormwood@rus Полынь~
 @eng You are in the burning forest of Wormwood. In the sky above you, 
 stars fall earthward to land with  resounding explosions. The 
@@ -3984,7 +3984,7 @@ D0
 ~
 ~
 ~
-Z 0 14085
+Z 0 36585
 D1
 @eng Wormwood.
 @rus Полынь.
@@ -3992,9 +3992,9 @@ D1
 ~
 ~
 ~
-Z 0 14072
+Z 0 36572
 S
-#14072
+#36572
 @eng Wormwood@rus Полынь~
 @eng You are in the burning forest of Wormwood. In the sky above you, 
 stars fall earthward to land with  resounding explosions. The 
@@ -4018,7 +4018,7 @@ D0
 ~
 ~
 ~
-Z 0 14086
+Z 0 36586
 D1
 @eng Wormwood.
 @rus Полынь.
@@ -4026,7 +4026,7 @@ D1
 ~
 ~
 ~
-Z 0 14073
+Z 0 36573
 D3
 @eng Wormwood.
 @rus Полынь.
@@ -4034,9 +4034,9 @@ D3
 ~
 ~
 ~
-Z 0 14071
+Z 0 36571
 S
-#14073
+#36573
 @eng Wormwood@rus Полынь~
 @eng You are in the burning forest of Wormwood. In the sky above you, 
 stars fall earthward to land with  resounding explosions. The 
@@ -4060,7 +4060,7 @@ D1
 ~
 ~
 ~
-Z 0 14074
+Z 0 36574
 D2
 @eng The plagued lands.
 @rus Наказанные земли.
@@ -4068,7 +4068,7 @@ D2
 ~
 ~
 ~
-Z 0 14059
+Z 0 36559
 D3
 @eng Wormwood.
 @rus Полынь.
@@ -4076,9 +4076,9 @@ D3
 ~
 ~
 ~
-Z 0 14072
+Z 0 36572
 S
-#14074
+#36574
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -4097,7 +4097,7 @@ D1
 ~
 ~
 ~
-Z 0 14075
+Z 0 36575
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -4105,7 +4105,7 @@ D2
 ~
 ~
 ~
-Z 0 14060
+Z 0 36560
 D3
 @eng Wormwood.
 @rus Полынь.
@@ -4113,9 +4113,9 @@ D3
 ~
 ~
 ~
-Z 0 14073
+Z 0 36573
 S
-#14075
+#36575
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -4134,7 +4134,7 @@ D1
 ~
 ~
 ~
-Z 0 14076
+Z 0 36576
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -4142,7 +4142,7 @@ D2
 ~
 ~
 ~
-Z 0 14061
+Z 0 36561
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -4150,9 +4150,9 @@ D3
 ~
 ~
 ~
-Z 0 14074
+Z 0 36574
 S
-#14076
+#36576
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -4171,7 +4171,7 @@ D1
 ~
 ~
 ~
-Z 0 14077
+Z 0 36577
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -4179,7 +4179,7 @@ D2
 ~
 ~
 ~
-Z 0 14062
+Z 0 36562
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -4187,9 +4187,9 @@ D3
 ~
 ~
 ~
-Z 0 14075
+Z 0 36575
 S
-#14077
+#36577
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -4208,7 +4208,7 @@ D0
 ~
 ~
 ~
-Z 0 14091
+Z 0 36591
 D1
 @eng Armageddon.
 @rus Армагеддон.
@@ -4216,7 +4216,7 @@ D1
 ~
 ~
 ~
-Z 0 14078
+Z 0 36578
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -4224,7 +4224,7 @@ D2
 ~
 ~
 ~
-Z 0 14063
+Z 0 36563
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -4232,9 +4232,9 @@ D3
 ~
 ~
 ~
-Z 0 14076
+Z 0 36576
 S
-#14078
+#36578
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -4253,7 +4253,7 @@ D0
 ~
 ~
 ~
-Z 0 14092
+Z 0 36592
 D1
 @eng Armageddon.
 @rus Армагеддон.
@@ -4261,7 +4261,7 @@ D1
 ~
 ~
 ~
-Z 0 14079
+Z 0 36579
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -4269,7 +4269,7 @@ D2
 ~
 ~
 ~
-Z 0 14064
+Z 0 36564
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -4277,9 +4277,9 @@ D3
 ~
 ~
 ~
-Z 0 14077
+Z 0 36577
 S
-#14079
+#36579
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -4298,7 +4298,7 @@ D0
 ~
 ~
 ~
-Z 0 14093
+Z 0 36593
 D1
 @eng Armageddon.
 @rus Армагеддон.
@@ -4306,7 +4306,7 @@ D1
 ~
 ~
 ~
-Z 0 14080
+Z 0 36580
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -4314,7 +4314,7 @@ D2
 ~
 ~
 ~
-Z 0 14065
+Z 0 36565
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -4322,9 +4322,9 @@ D3
 ~
 ~
 ~
-Z 0 14078
+Z 0 36578
 S
-#14080
+#36580
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -4343,7 +4343,7 @@ D0
 ~
 ~
 ~
-Z 0 14094
+Z 0 36594
 D1
 @eng Armageddon.
 @rus Армагеддон.
@@ -4351,7 +4351,7 @@ D1
 ~
 ~
 ~
-Z 0 14081
+Z 0 36581
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -4359,7 +4359,7 @@ D2
 ~
 ~
 ~
-Z 0 14066
+Z 0 36566
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -4367,9 +4367,9 @@ D3
 ~
 ~
 ~
-Z 0 14079
+Z 0 36579
 S
-#14081
+#36581
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -4388,14 +4388,14 @@ D0
 ~
 ~
 ~
-Z 0 14095
+Z 0 36595
 D2
 The many waters.
 ~
 ~
 ~
 ~
-Z 0 14067
+Z 0 36567
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -4403,9 +4403,9 @@ D3
 ~
 ~
 ~
-Z 0 14080
+Z 0 36580
 S
-#14082
+#36582
 @eng The many waters@rus Морской простор~
 @eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
@@ -4422,7 +4422,7 @@ D1
 ~
 ~
 ~
-Z 0 14083
+Z 0 36583
 D2
 @eng More blood.
 @rus Кровь. Море крови...
@@ -4430,9 +4430,9 @@ D2
 ~
 ~
 ~
-Z 0 14068
+Z 0 36568
 S
-#14083
+#36583
 @eng The many waters@rus Морской простор~
 @eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
@@ -4449,7 +4449,7 @@ D0
 ~
 ~
 ~
-Z 0 14097
+Z 0 36597
 D1
 @eng More blood.
 @rus Кровь. Море крови...
@@ -4457,7 +4457,7 @@ D1
 ~
 ~
 ~
-Z 0 14084
+Z 0 36584
 D2
 @eng More blood.
 @rus Кровь. Море крови...
@@ -4465,7 +4465,7 @@ D2
 ~
 ~
 ~
-Z 0 14069
+Z 0 36569
 D3
 @eng More blood.
 @rus Кровь. Море крови...
@@ -4473,9 +4473,9 @@ D3
 ~
 ~
 ~
-Z 0 14082
+Z 0 36582
 S
-#14084
+#36584
 @eng The many waters@rus Морской простор~
 @eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
@@ -4492,7 +4492,7 @@ D0
 ~
 ~
 ~
-Z 0 14098
+Z 0 36598
 D2
 @eng More blood.
 @rus Кровь. Море крови...
@@ -4500,7 +4500,7 @@ D2
 ~
 ~
 ~
-Z 0 14070
+Z 0 36570
 D3
 @eng More blood.
 @rus Кровь. Море крови...
@@ -4508,9 +4508,9 @@ D3
 ~
 ~
 ~
-Z 0 14083
+Z 0 36583
 S
-#14085
+#36585
 @eng Wormwood@rus Полынь~
 @eng You are in the burning forest of Wormwood. In the sky above you, 
 stars fall earthward to land with  resounding explosions. The 
@@ -4534,7 +4534,7 @@ D0
 ~
 ~
 ~
-Z 0 14099
+Z 0 36599
 D1
 @eng Wormwood.
 @rus Полынь.
@@ -4542,7 +4542,7 @@ D1
 ~
 ~
 ~
-Z 0 14086
+Z 0 36586
 D2
 @eng Wormwood.
 @rus Полынь.
@@ -4550,9 +4550,9 @@ D2
 ~
 ~
 ~
-Z 0 14071
+Z 0 36571
 S
-#14086
+#36586
 @eng Wormwood@rus Полынь~
 @eng You are in the burning forest of Wormwood. In the sky above you, 
 stars fall earthward to land with  resounding explosions. The 
@@ -4576,7 +4576,7 @@ D2
 ~
 ~
 ~
-Z 0 14072
+Z 0 36572
 D3
 @eng Wormwood.
 @rus Полынь.
@@ -4584,9 +4584,9 @@ D3
 ~
 ~
 ~
-Z 0 14085
+Z 0 36585
 S
-#14087
+#36587
 @eng The Euphrates@rus Ефрат~
 @eng You walk the bottom of the canyon where the Euphrates used to
 flow. All that is left of the once mighty river are scattered red pools of 
@@ -4605,7 +4605,7 @@ D0
 ~
 ~
 ~
-Z 0 14101
+Z 0 36601
 D1
 @eng The Euphrates.
 @rus Ефрат.
@@ -4613,9 +4613,9 @@ D1
 ~
 ~
 ~
-Z 0 14088
+Z 0 36588
 S
-#14088
+#36588
 @eng The Euphrates@rus Ефрат~
 @eng You walk the bottom of the canyon where the Euphrates used to
 flow. All that is left of the once mighty river are scattered red pools of 
@@ -4634,7 +4634,7 @@ D1
 ~
 ~
 ~
-Z 0 14089
+Z 0 36589
 D3
 @eng The Euphrates.
 @rus Ефрат.
@@ -4642,9 +4642,9 @@ D3
 ~
 ~
 ~
-Z 0 14087
+Z 0 36587
 S
-#14089
+#36589
 @eng The Euphrates@rus Ефрат~
 @eng You walk the bottom of the canyon where the Euphrates used to
 flow. All that is left of the once mighty river are scattered red pools of 
@@ -4663,7 +4663,7 @@ D1
 ~
 ~
 ~
-Z 0 14090
+Z 0 36590
 D3
 @eng The Euphrates.
 @rus Ефрат.
@@ -4671,9 +4671,9 @@ D3
 ~
 ~
 ~
-Z 0 14088
+Z 0 36588
 S
-#14090
+#36590
 @eng The Euphrates@rus Ефрат~
 @eng You walk the bottom of the canyon where the Euphrates used to
 flow. All that is left of the once mighty river are scattered red pools of 
@@ -4692,7 +4692,7 @@ D0
 ~
 ~
 ~
-Z 0 14104
+Z 0 36604
 D3
 @eng The Euphrates.
 @rus Ефрат.
@@ -4700,9 +4700,9 @@ D3
 ~
 ~
 ~
-Z 0 14089
+Z 0 36589
 S
-#14091
+#36591
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -4721,7 +4721,7 @@ D0
 ~
 ~
 ~
-Z 0 14105
+Z 0 36605
 D1
 @eng Armageddon.
 @rus Армагеддон.
@@ -4729,7 +4729,7 @@ D1
 ~
 ~
 ~
-Z 0 14092
+Z 0 36592
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -4737,9 +4737,9 @@ D2
 ~
 ~
 ~
-Z 0 14077
+Z 0 36577
 S
-#14092
+#36592
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -4758,7 +4758,7 @@ D1
 ~
 ~
 ~
-Z 0 14093
+Z 0 36593
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -4766,7 +4766,7 @@ D2
 ~
 ~
 ~
-Z 0 14078
+Z 0 36578
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -4774,54 +4774,9 @@ D3
 ~
 ~
 ~
-Z 0 14091
+Z 0 36591
 S
-#14093
-@eng Armageddon@rus Армагеддон~
-@eng You stand in the vast plain of Armageddon. About you angels
-sound trumpets and cut through sinners with sickles. The sun
-has been swallowed by blackness, and the blood red light of
-the moon flickers across the battlefield.
-@rus Ты стоишь на бескрайней равнине, имя которой Армагеддон. В небе
-над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
-нающих урожай грешников. Солнца нет, оно скрыто во тьме. Только 
-лишь кроваво-красный лунный свет освещает равнину.
-~
-0 0 field
-D0
-@eng Armageddon.
-@rus Армагеддон.
-~
-~
-~
-~
-Z 0 14107
-D1
-@eng Armageddon.
-@rus Армагеддон.
-~
-~
-~
-~
-Z 0 14094
-D2
-@eng Armageddon.
-@rus Армагеддон.
-~
-~
-~
-~
-Z 0 14079
-D3
-@eng Armageddon.
-@rus Армагеддон.
-~
-~
-~
-~
-Z 0 14092
-S
-#14094
+#36593
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -4840,7 +4795,7 @@ D0
 ~
 ~
 ~
-Z 0 14108
+Z 0 36607
 D1
 @eng Armageddon.
 @rus Армагеддон.
@@ -4848,7 +4803,7 @@ D1
 ~
 ~
 ~
-Z 0 14095
+Z 0 36594
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -4856,7 +4811,7 @@ D2
 ~
 ~
 ~
-Z 0 14080
+Z 0 36579
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -4864,9 +4819,54 @@ D3
 ~
 ~
 ~
-Z 0 14093
+Z 0 36592
 S
-#14095
+#36594
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
+sound trumpets and cut through sinners with sickles. The sun
+has been swallowed by blackness, and the blood red light of
+the moon flickers across the battlefield.
+@rus Ты стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающих урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
+~
+0 0 field
+D0
+@eng Armageddon.
+@rus Армагеддон.
+~
+~
+~
+~
+Z 0 36608
+D1
+@eng Armageddon.
+@rus Армагеддон.
+~
+~
+~
+~
+Z 0 36595
+D2
+@eng Armageddon.
+@rus Армагеддон.
+~
+~
+~
+~
+Z 0 36580
+D3
+@eng Armageddon.
+@rus Армагеддон.
+~
+~
+~
+~
+Z 0 36593
+S
+#36595
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -4885,7 +4885,7 @@ D1
 ~
 ~
 ~
-Z 0 14096
+Z 0 36596
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -4893,7 +4893,7 @@ D2
 ~
 ~
 ~
-Z 0 14081
+Z 0 36581
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -4901,9 +4901,9 @@ D3
 ~
 ~
 ~
-Z 0 14094
+Z 0 36594
 S
-#14096
+#36596
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -4922,9 +4922,9 @@ D3
 ~
 ~
 ~
-Z 0 14095
+Z 0 36595
 S
-#14097
+#36597
 @eng The many waters@rus Морской простор~
 @eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
@@ -4940,7 +4940,7 @@ The Euprates river.
 ~
 ~
 ~
-Z 0 14111
+Z 0 36611
 D1
 @eng More blood.
 @rus Кровь. Море крови...
@@ -4948,7 +4948,7 @@ D1
 ~
 ~
 ~
-Z 0 14098
+Z 0 36598
 D2
 @eng More blood.
 @rus Кровь. Море крови...
@@ -4956,9 +4956,9 @@ D2
 ~
 ~
 ~
-Z 0 14083
+Z 0 36583
 S
-#14098
+#36598
 @eng The many waters@rus Морской простор~
 @eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
@@ -4975,7 +4975,7 @@ D0
 ~
 ~
 ~
-Z 0 14112
+Z 0 36612
 D2
 @eng More blood.
 @rus Кровь. Море крови...
@@ -4983,7 +4983,7 @@ D2
 ~
 ~
 ~
-Z 0 14084
+Z 0 36584
 D3
 @eng More blood.
 @rus Кровь. Море крови...
@@ -4991,9 +4991,9 @@ D3
 ~
 ~
 ~
-Z 0 14097
+Z 0 36597
 S
-#14099
+#36599
 @eng The source of the Euphrates@rus Исток Ефрата~
 @eng You stand at the headwaters for the Euphrates. A dirty dry
 wind blows across what is left of the once mighty river. Now all 
@@ -5030,7 +5030,7 @@ D0
 ~
 ~
 ~
-Z 0 14113
+Z 0 36613
 D1
 @eng The Euphrates.
 @rus Ефрат.
@@ -5038,7 +5038,7 @@ D1
 ~
 ~
 ~
-Z 0 14100
+Z 0 36600
 D2
 @eng Wormwood.
 @rus Полынь.
@@ -5046,9 +5046,9 @@ D2
 ~
 ~
 ~
-Z 0 14085
+Z 0 36585
 S
-#14100
+#36600
 @eng The Euphrates@rus Ефрат~
 @eng You walk the bottom of the canyon where the Euphrates used to
 flow. All that is left of the once mighty river are scattered red pools of 
@@ -5067,7 +5067,7 @@ D1
 ~
 ~
 ~
-Z 0 14101
+Z 0 36601
 D3
 @eng The Euphrates.
 @rus Ефрат.
@@ -5075,9 +5075,9 @@ D3
 ~
 ~
 ~
-Z 0 14099
+Z 0 36599
 S
-#14101
+#36601
 @eng The Euphrates@rus Ефрат~
 @eng You walk the bottom of the canyon where the Euphrates used to
 flow. All that is left of the once mighty river are scattered red pools of 
@@ -5096,7 +5096,7 @@ D2
 ~
 ~
 ~
-Z 0 14087
+Z 0 36587
 D3
 @eng The Euphrates.
 @rus Ефрат.
@@ -5104,9 +5104,9 @@ D3
 ~
 ~
 ~
-Z 0 14100
+Z 0 36600
 S
-#14102
+#36602
 @eng Wormwood@rus Полынь~
 @eng You are in the burning forest of Wormwood. In the sky above you, 
 stars fall earthward to land with  resounding explosions. The 
@@ -5130,9 +5130,9 @@ D0
 ~
 ~
 ~
-Z 0 14116
+Z 0 36616
 S
-#14103
+#36603
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -5151,9 +5151,9 @@ D0
 ~
 ~
 ~
-Z 0 14117
+Z 0 36617
 S
-#14104
+#36604
 @eng The Euphrates@rus Ефрат~
 @eng You walk the bottom of the canyon where the Euphrates used to
 flow. All that is left of the once mighty river are scattered red pools of 
@@ -5172,7 +5172,7 @@ D1
 ~
 ~
 ~
-Z 0 14105
+Z 0 36605
 D2
 @eng The Euphrates.
 @rus Ефрат.
@@ -5180,9 +5180,9 @@ D2
 ~
 ~
 ~
-Z 0 14090
+Z 0 36590
 S
-#14105
+#36605
 @eng The Euphrates at the Bridge@rus Мост через Ефрат~
 @eng You stand at a bridge crossing the canyon
 that used to be the river Euphrates. Steps are carved
@@ -5202,7 +5202,7 @@ D0
 ~
 ~
 ~
-Z 0 14119
+Z 0 36619
 D1
 @eng The Euphrates.
 @rus Ефрат.
@@ -5210,7 +5210,7 @@ D1
 ~
 ~
 ~
-Z 0 14106
+Z 0 36606
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -5218,7 +5218,7 @@ D2
 ~
 ~
 ~
-Z 0 14091
+Z 0 36591
 D3
 @eng The Euphrates.
 @rus Ефрат.
@@ -5226,9 +5226,9 @@ D3
 ~
 ~
 ~
-Z 0 14104
+Z 0 36604
 S
-#14106
+#36606
 @eng The Euphrates@rus Ефрат~
 @eng You walk the bottom of the canyon where the Euphrates used to
 flow. All that is left of the once mighty river are scattered red pools of 
@@ -5247,7 +5247,7 @@ D0
 ~
 ~
 ~
-Z 0 14120
+Z 0 36620
 D3
 @eng The Euphrates.
 @rus Ефрат.
@@ -5255,9 +5255,9 @@ D3
 ~
 ~
 ~
-Z 0 14105
+Z 0 36605
 S
-#14107
+#36607
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -5276,7 +5276,7 @@ D1
 ~
 ~
 ~
-Z 0 14108
+Z 0 36608
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -5284,9 +5284,9 @@ D2
 ~
 ~
 ~
-Z 0 14093
+Z 0 36593
 S
-#14108
+#36608
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -5305,7 +5305,7 @@ D2
 ~
 ~
 ~
-Z 0 14094
+Z 0 36594
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -5313,9 +5313,9 @@ D3
 ~
 ~
 ~
-Z 0 14107
+Z 0 36607
 S
-#14109
+#36609
 @eng The Euphrates@rus Ефрат~
 @eng You walk the bottom of the canyon where the Euphrates used to
 flow. All that is left of the once mighty river are scattered red pools of 
@@ -5334,7 +5334,7 @@ D0
 ~
 ~
 ~
-Z 0 14123
+Z 0 36623
 D1
 @eng The Euphrates.
 @rus Ефрат.
@@ -5342,9 +5342,9 @@ D1
 ~
 ~
 ~
-Z 0 14110
+Z 0 36610
 S
-#14110
+#36610
 @eng The Euphrates@rus Ефрат~
 @eng You walk the bottom of the canyon where the Euphrates used to
 flow. All that is left of the once mighty river are scattered red pools of 
@@ -5363,7 +5363,7 @@ D1
 ~
 ~
 ~
-Z 0 14111
+Z 0 36611
 D3
 @eng The Euphrates.
 @rus Ефрат.
@@ -5371,9 +5371,9 @@ D3
 ~
 ~
 ~
-Z 0 14109
+Z 0 36609
 S
-#14111
+#36611
 @eng The Euphrates@rus Ефрат~
 @eng You walk the bottom of the canyon where the Euphrates used to
 flow. All that is left of the once mighty river are scattered red pools of 
@@ -5392,7 +5392,7 @@ D2
 ~
 ~
 ~
-Z 0 14097
+Z 0 36597
 D3
 @eng The Euphrates.
 @rus Ефрат.
@@ -5400,9 +5400,9 @@ D3
 ~
 ~
 ~
-Z 0 14110
+Z 0 36610
 S
-#14112
+#36612
 @eng The many waters@rus Морской простор~
 @eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
@@ -5417,7 +5417,7 @@ D0
 ~
 ~
 ~
-Z 0 14126
+Z 0 36626
 D2
 @eng More blood.
 @rus Кровь. Море крови...
@@ -5425,9 +5425,9 @@ D2
 ~
 ~
 ~
-Z 0 14098
+Z 0 36598
 S
-#14113
+#36613
 @eng Wormwood@rus Полынь~
 @eng You are in the burning forest of Wormwood. In the sky above you, 
 stars fall earthward to land with  resounding explosions. The 
@@ -5451,7 +5451,7 @@ D0
 ~
 ~
 ~
-Z 0 14127
+Z 0 36627
 D1
 @eng A strange glow.
 @rus странное сияние.
@@ -5459,7 +5459,7 @@ D1
 ~
 ~
 ~
-Z 0 14114
+Z 0 36614
 D2
 @eng The Euphrates.
 @rus Ефрат.
@@ -5467,9 +5467,9 @@ D2
 ~
 ~
 ~
-Z 0 14099
+Z 0 36599
 S
-#14114
+#36614
 @eng Wormwood@rus Полынь~
 @eng You are in the heart of Wormwood, where the flames are most
 intense. A giant star lies on the ground here, glowing a hateful
@@ -5497,7 +5497,7 @@ D0
 ~
 ~
 ~
-Z 0 14128
+Z 0 36628
 D1
 @eng Wormwood.
 @rus Полынь.
@@ -5505,7 +5505,7 @@ D1
 ~
 ~
 ~
-Z 0 14115
+Z 0 36615
 D3
 @eng Wormwood.
 @rus Полынь.
@@ -5513,9 +5513,9 @@ D3
 ~
 ~
 ~
-Z 0 14113
+Z 0 36613
 S
-#14115
+#36615
 @eng Wormwood@rus Полынь~
 @eng You are in the burning forest of Wormwood. In the sky above you, 
 stars fall earthward to land with  resounding explosions. The 
@@ -5539,7 +5539,7 @@ D0
 ~
 ~
 ~
-Z 0 14129
+Z 0 36629
 D1
 @eng Wormwood.
 @rus Полынь.
@@ -5547,7 +5547,7 @@ D1
 ~
 ~
 ~
-Z 0 14116
+Z 0 36616
 D3
 @eng A strange glow.
 @rus Странное сияние.
@@ -5555,9 +5555,9 @@ D3
 ~
 ~
 ~
-Z 0 14114
+Z 0 36614
 S
-#14116
+#36616
 @eng Wormwood@rus Полынь~
 @eng You are in the burning forest of Wormwood. In the sky above you, 
 stars fall earthward to land with  resounding explosions. The 
@@ -5581,7 +5581,7 @@ D2
 ~
 ~
 ~
-Z 0 14102
+Z 0 36602
 D3
 @eng Wormwood.
 @rus Полынь.
@@ -5589,9 +5589,9 @@ D3
 ~
 ~
 ~
-Z 0 14115
+Z 0 36615
 S
-#14117
+#36617
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -5610,7 +5610,7 @@ D0
 ~
 ~
 ~
-Z 0 14131
+Z 0 36631
 D1
 @eng Armageddon.
 @rus Армагеддон.
@@ -5618,7 +5618,7 @@ D1
 ~
 ~
 ~
-Z 0 14118
+Z 0 36618
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -5626,9 +5626,9 @@ D2
 ~
 ~
 ~
-Z 0 14103
+Z 0 36603
 S
-#14118
+#36618
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -5647,7 +5647,7 @@ D0
 ~
 ~
 ~
-Z 0 14132
+Z 0 36632
 D1
 @eng Armageddon.
 @rus Армагеддон.
@@ -5655,7 +5655,7 @@ D1
 ~
 ~
 ~
-Z 0 14119
+Z 0 36619
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -5663,9 +5663,9 @@ D3
 ~
 ~
 ~
-Z 0 14117
+Z 0 36617
 S
-#14119
+#36619
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -5684,7 +5684,7 @@ D0
 ~
 ~
 ~
-Z 0 14133
+Z 0 36633
 D2
 @eng A bridge over the Euphrates.
 @rus Мост через Ефрат.
@@ -5692,7 +5692,7 @@ D2
 ~
 ~
 ~
-Z 0 14105
+Z 0 36605
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -5700,9 +5700,9 @@ D3
 ~
 ~
 ~
-Z 0 14118
+Z 0 36618
 S
-#14120
+#36620
 @eng The Euphrates@rus Ефрат~
 @eng You walk the bottom of the canyon where the Euphrates used to
 flow. All that is left of the once mighty river are scattered red pools of 
@@ -5721,7 +5721,7 @@ D1
 ~
 ~
 ~
-Z 0 14121
+Z 0 36621
 D2
 @eng The Euphrates.
 @rus Ефрат.
@@ -5729,9 +5729,9 @@ D2
 ~
 ~
 ~
-Z 0 14106
+Z 0 36606
 S
-#14121
+#36621
 @eng The Euphrates@rus Ефрат~
 @eng You walk the bottom of the canyon where the Euphrates used to
 flow. All that is left of the once mighty river are scattered red pools of 
@@ -5750,7 +5750,7 @@ D1
 ~
 ~
 ~
-Z 0 14122
+Z 0 36622
 D3
 @eng The Euphrates.
 @rus Ефрат.
@@ -5758,9 +5758,9 @@ D3
 ~
 ~
 ~
-Z 0 14120
+Z 0 36620
 S
-#14122
+#36622
 @eng The Euphrates@rus Ефрат~
 @eng You walk the bottom of the canyon where the Euphrates used to
 flow. All that is left of the once mighty river are scattered red pools of 
@@ -5779,7 +5779,7 @@ D1
 ~
 ~
 ~
-Z 0 14123
+Z 0 36623
 D3
 @eng The Euphrates.
 @rus Ефрат.
@@ -5787,9 +5787,9 @@ D3
 ~
 ~
 ~
-Z 0 14121
+Z 0 36621
 S
-#14123
+#36623
 @eng The Euphrates@rus Ефрат~
 @eng You walk the bottom of the canyon where the Euphrates used to
 flow. All that is left of the once mighty river are scattered red pools of 
@@ -5808,7 +5808,7 @@ D2
 ~
 ~
 ~
-Z 0 14109
+Z 0 36609
 D3
 @eng The Euphrates.
 @rus Ефрат.
@@ -5816,9 +5816,9 @@ D3
 ~
 ~
 ~
-Z 0 14122
+Z 0 36622
 S
-#14124
+#36624
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -5837,7 +5837,7 @@ D0
 ~
 ~
 ~
-Z 0 14138
+Z 0 36638
 D1
 @eng Armageddon.
 @rus Армагеддон.
@@ -5845,9 +5845,9 @@ D1
 ~
 ~
 ~
-Z 0 14125
+Z 0 36625
 S
-#14125
+#36625
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -5866,7 +5866,7 @@ D0
 ~
 ~
 ~
-Z 0 14139
+Z 0 36639
 D1
 @eng Armageddon.
 @rus Армагеддон.
@@ -5874,7 +5874,7 @@ D1
 ~
 ~
 ~
-Z 0 14126
+Z 0 36626
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -5882,9 +5882,9 @@ D3
 ~
 ~
 ~
-Z 0 14124
+Z 0 36624
 S
-#14126
+#36626
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -5903,13 +5903,13 @@ D0
 ~
 ~
 ~
-Z 0 14140
+Z 0 36640
 D2
 ~
 ~
 ~
 ~
-Z 0 14112
+Z 0 36612
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -5917,9 +5917,9 @@ D3
 ~
 ~
 ~
-Z 0 14125
+Z 0 36625
 S
-#14127
+#36627
 @eng Wormwood@rus Полынь~
 @eng You are in the burning forest of Wormwood. In the sky above you, 
 stars fall earthward to land with  resounding explosions. The 
@@ -5943,7 +5943,7 @@ D1
 ~
 ~
 ~
-Z 0 14128
+Z 0 36628
 D2
 @eng Wormwood.
 @rus Полынь.
@@ -5951,9 +5951,9 @@ D2
 ~
 ~
 ~
-Z 0 14113
+Z 0 36613
 S
-#14128
+#36628
 @eng Wormwood@rus Полынь~
 @eng You are in the burning forest of Wormwood. In the sky above you, 
 stars fall earthward to land with  resounding explosions. The 
@@ -5977,7 +5977,7 @@ D1
 ~
 ~
 ~
-Z 0 14129
+Z 0 36629
 D2
 @eng A strange glow.
 @rus Странное сияние.
@@ -5985,7 +5985,7 @@ D2
 ~
 ~
 ~
-Z 0 14114
+Z 0 36614
 D3
 @eng Wormwood.
 @rus Полынь.
@@ -5993,9 +5993,9 @@ D3
 ~
 ~
 ~
-Z 0 14127
+Z 0 36627
 S
-#14129
+#36629
 @eng Wormwood@rus Полынь~
 @eng You are in the burning forest of Wormwood. In the sky above you, 
 stars fall earthward to land with  resounding explosions. The 
@@ -6019,7 +6019,7 @@ D2
 ~
 ~
 ~
-Z 0 14115
+Z 0 36615
 D3
 @eng Wormwood.
 @rus Полынь.
@@ -6027,9 +6027,9 @@ D3
 ~
 ~
 ~
-Z 0 14128
+Z 0 36628
 S
-#14130
+#36630
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -6048,7 +6048,7 @@ D0
 ~
 ~
 ~
-Z 0 14144
+Z 0 36644
 D1
 @eng Armageddon.
 @rus Армагеддон.
@@ -6056,9 +6056,9 @@ D1
 ~
 ~
 ~
-Z 0 14131
+Z 0 36631
 S
-#14131
+#36631
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -6077,7 +6077,7 @@ D1
 ~
 ~
 ~
-Z 0 14132
+Z 0 36632
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -6085,7 +6085,7 @@ D2
 ~
 ~
 ~
-Z 0 14117
+Z 0 36617
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -6093,9 +6093,9 @@ D3
 ~
 ~
 ~
-Z 0 14130
+Z 0 36630
 S
-#14132
+#36632
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -6114,7 +6114,7 @@ D1
 ~
 ~
 ~
-Z 0 14133
+Z 0 36633
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -6122,7 +6122,7 @@ D2
 ~
 ~
 ~
-Z 0 14118
+Z 0 36618
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -6130,9 +6130,9 @@ D3
 ~
 ~
 ~
-Z 0 14131
+Z 0 36631
 S
-#14133
+#36633
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -6151,7 +6151,7 @@ D0
 ~
 ~
 ~
-Z 0 14147
+Z 0 36647
 D1
 @eng Armageddon.
 @rus Армагеддон.
@@ -6159,7 +6159,7 @@ D1
 ~
 ~
 ~
-Z 0 14134
+Z 0 36634
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -6167,7 +6167,7 @@ D2
 ~
 ~
 ~
-Z 0 14119
+Z 0 36619
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -6175,9 +6175,9 @@ D3
 ~
 ~
 ~
-Z 0 14132
+Z 0 36632
 S
-#14134
+#36634
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -6196,7 +6196,7 @@ D1
 ~
 ~
 ~
-Z 0 14135
+Z 0 36635
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -6204,9 +6204,9 @@ D3
 ~
 ~
 ~
-Z 0 14133
+Z 0 36633
 S
-#14135
+#36635
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -6225,7 +6225,7 @@ D1
 ~
 ~
 ~
-Z 0 14136
+Z 0 36636
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -6233,46 +6233,9 @@ D3
 ~
 ~
 ~
-Z 0 14134
+Z 0 36634
 S
-#14136
-@eng Armageddon@rus Армагеддон~
-@eng You stand in the vast plain of Armageddon. About you angels
-sound trumpets and cut through sinners with sickles. The sun
-has been swallowed by blackness, and the blood red light of
-the moon flickers across the battlefield.
-@rus Ты стоишь на бескрайней равнине, имя которой Армагеддон. В небе
-над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
-нающих урожай грешников. Солнца нет, оно скрыто во тьме. Только 
-лишь кроваво-красный лунный свет освещает равнину.
-~
-0 0 field
-D0
-@eng Armageddon.
-@rus Армагеддон.
-~
-~
-~
-~
-Z 0 14150
-D1
-@eng Armageddon.
-@rus Армагеддон.
-~
-~
-~
-~
-Z 0 14137
-D3
-@eng Armageddon.
-@rus Армагеддон.
-~
-~
-~
-~
-Z 0 14135
-S
-#14137
+#36636
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -6291,7 +6254,7 @@ D0
 ~
 ~
 ~
-Z 0 14151
+Z 0 36650
 D1
 @eng Armageddon.
 @rus Армагеддон.
@@ -6299,7 +6262,7 @@ D1
 ~
 ~
 ~
-Z 0 14138
+Z 0 36637
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -6307,9 +6270,46 @@ D3
 ~
 ~
 ~
-Z 0 14136
+Z 0 36635
 S
-#14138
+#36637
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
+sound trumpets and cut through sinners with sickles. The sun
+has been swallowed by blackness, and the blood red light of
+the moon flickers across the battlefield.
+@rus Ты стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающих урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
+~
+0 0 field
+D0
+@eng Armageddon.
+@rus Армагеддон.
+~
+~
+~
+~
+Z 0 36651
+D1
+@eng Armageddon.
+@rus Армагеддон.
+~
+~
+~
+~
+Z 0 36638
+D3
+@eng Armageddon.
+@rus Армагеддон.
+~
+~
+~
+~
+Z 0 36636
+S
+#36638
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -6327,7 +6327,7 @@ Into the heavens.
 ~
 ~
 ~
-Z 0 14152
+Z 0 36652
 D1
 @eng Armageddon.
 @rus Армагеддон.
@@ -6335,7 +6335,7 @@ D1
 ~
 ~
 ~
-Z 0 14139
+Z 0 36639
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -6343,7 +6343,7 @@ D2
 ~
 ~
 ~
-Z 0 14124
+Z 0 36624
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -6351,9 +6351,9 @@ D3
 ~
 ~
 ~
-Z 0 14137
+Z 0 36637
 S
-#14139
+#36639
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -6372,7 +6372,7 @@ D1
 ~
 ~
 ~
-Z 0 14140
+Z 0 36640
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -6380,7 +6380,7 @@ D2
 ~
 ~
 ~
-Z 0 14125
+Z 0 36625
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -6388,9 +6388,9 @@ D3
 ~
 ~
 ~
-Z 0 14138
+Z 0 36638
 S
-#14140
+#36640
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -6409,7 +6409,7 @@ D2
 ~
 ~
 ~
-Z 0 14126
+Z 0 36626
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -6417,9 +6417,9 @@ D3
 ~
 ~
 ~
-Z 0 14139
+Z 0 36639
 S
-#14141
+#36641
 @eng The shaking lands@rus Трескающиеся земли~
 @eng Around you the earth moves violently. Mile deep fissures open and
 close like giant mouthes trying to bite you. It is all you can
@@ -6437,7 +6437,7 @@ D0
 ~
 ~
 ~
-Z 0 14155
+Z 0 36655
 D1
 @eng The shaking lands.
 @rus Трескающиеся земли.
@@ -6445,9 +6445,9 @@ D1
 ~
 ~
 ~
-Z 0 14142
+Z 0 36642
 S
-#14142
+#36642
 @eng The shaking lands@rus Трескающиеся земли~
 @eng Around you the earth moves violently. Mile deep fissures open and
 close like giant mouthes trying to bite you. It is all you can
@@ -6465,7 +6465,7 @@ D0
 ~
 ~
 ~
-Z 0 14156
+Z 0 36656
 D1
 @eng The shaking lands.
 @rus Трескающиеся земли.
@@ -6473,7 +6473,7 @@ D1
 ~
 ~
 ~
-Z 0 14143
+Z 0 36643
 D3
 @eng The shaking lands.
 @rus Трескающиеся земли.
@@ -6481,9 +6481,9 @@ D3
 ~
 ~
 ~
-Z 0 14141
+Z 0 36641
 S
-#14143
+#36643
 @eng The shaking lands@rus Трескающиеся земли~
 @eng Around you the earth moves violently. Mile deep fissures open and
 close like giant mouthes trying to bite you. It is all you can
@@ -6501,7 +6501,7 @@ D0
 ~
 ~
 ~
-Z 0 14157
+Z 0 36657
 D3
 @eng The shaking lands.
 @rus Трескающиеся земли.
@@ -6509,9 +6509,9 @@ D3
 ~
 ~
 ~
-Z 0 14142
+Z 0 36642
 S
-#14144
+#36644
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -6530,7 +6530,7 @@ D0
 ~
 ~
 ~
-Z 0 14158
+Z 0 36658
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -6538,9 +6538,9 @@ D2
 ~
 ~
 ~
-Z 0 14130
+Z 0 36630
 S
-#14145
+#36645
 @eng Gog@rus Гог~
 @eng You are in Satan's city, Gog. Around you the marked ones 
 teem and chant the idealogy of the beast. They seem oblivious
@@ -6562,7 +6562,7 @@ D0
 ~
 ~
 ~
-Z 0 14159
+Z 0 36659
 D1
 @eng Gog.
 @rus Гог.
@@ -6570,9 +6570,9 @@ D1
 ~
 ~
 ~
-Z 0 14146
+Z 0 36646
 S
-#14146
+#36646
 @eng Gog@rus Гог~
 @eng You are in Satan's city, Gog. Around you the marked ones 
 teem and chant the idealogy of the beast. They seem oblivious
@@ -6591,7 +6591,7 @@ D0
 ~
 ~
 ~
-Z 0 14160
+Z 0 36660
 D1
 @eng Gog.
 @rus Гог.
@@ -6599,7 +6599,7 @@ D1
 ~
 ~
 ~
-Z 0 14147
+Z 0 36647
 D3
 @eng Gog.
 @rus Гог.
@@ -6607,9 +6607,9 @@ D3
 ~
 ~
 ~
-Z 0 14145
+Z 0 36645
 S
-#14147
+#36647
 @eng Gog@rus Гог~
 @eng You are in Satan's city, Gog. Around you the marked ones 
 teem and chant the idealogy of the beast. They seem oblivious
@@ -6628,7 +6628,7 @@ D0
 ~
 ~
 ~
-Z 0 14161
+Z 0 36661
 D1
 @eng Gog.
 @rus Гог.
@@ -6636,7 +6636,7 @@ D1
 ~
 ~
 ~
-Z 0 14148
+Z 0 36648
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -6644,7 +6644,7 @@ D2
 ~
 ~
 ~
-Z 0 14133
+Z 0 36633
 D3
 @eng Gog.
 @rus Гог.
@@ -6652,9 +6652,9 @@ D3
 ~
 ~
 ~
-Z 0 14146
+Z 0 36646
 S
-#14148
+#36648
 @eng Gog@rus Гог~
 @eng You are in Satan's city, Gog. Around you the marked ones 
 teem and chant the idealogy of the beast. They seem oblivious
@@ -6677,7 +6677,7 @@ D0
 ~
 ~
 ~
-Z 0 14162
+Z 0 36662
 D1
 @eng Gog.
 @rus Гог.
@@ -6685,7 +6685,7 @@ D1
 ~
 ~
 ~
-Z 0 14149
+Z 0 36649
 D3
 @eng Gog.
 @rus Гог.
@@ -6693,9 +6693,9 @@ D3
 ~
 ~
 ~
-Z 0 14147
+Z 0 36647
 S
-#14149
+#36649
 @eng Gog@rus Гог~
 @eng You are in Satan's city, Gog. Around you the marked ones 
 teem and chant the idealogy of the beast. They seem oblivious
@@ -6720,7 +6720,7 @@ D0
 ~
 ~
 ~
-Z 0 14163
+Z 0 36663
 D3
 @eng Gog.
 @rus Гог.
@@ -6728,9 +6728,9 @@ D3
 ~
 ~
 ~
-Z 0 14148
+Z 0 36648
 S
-#14150
+#36650
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -6749,7 +6749,7 @@ D0
 ~
 ~
 ~
-Z 0 14164
+Z 0 36664
 D1
 @eng Armageddon.
 @rus Армагеддон.
@@ -6757,7 +6757,7 @@ D1
 ~
 ~
 ~
-Z 0 14151
+Z 0 36651
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -6765,9 +6765,9 @@ D2
 ~
 ~
 ~
-Z 0 14136
+Z 0 36636
 S
-#14151
+#36651
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -6786,7 +6786,7 @@ D0
 ~
 ~
 ~
-Z 0 14165
+Z 0 36665
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -6794,7 +6794,7 @@ D2
 ~
 ~
 ~
-Z 0 14137
+Z 0 36637
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -6802,9 +6802,9 @@ D3
 ~
 ~
 ~
-Z 0 14150
+Z 0 36650
 S
-#14152
+#36652
 @eng The heavens@rus Небеса~
 @eng You fight the strong buffeting wind of a raging thunderstorm
 as you fly upwards into the sky. About you lightning arcs in
@@ -6824,7 +6824,7 @@ D0
 ~
 ~
 ~
-Z 0 14166
+Z 0 36666
 D1
 @eng The heavens.
 @rus Небеса.
@@ -6832,7 +6832,7 @@ D1
 ~
 ~
 ~
-Z 0 14153
+Z 0 36653
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -6840,9 +6840,9 @@ D2
 ~
 ~
 ~
-Z 0 14138
+Z 0 36638
 S
-#14153
+#36653
 @eng The heavens@rus Небеса~
 @eng You fight the strong buffeting wind of a raging thunderstorm
 as you fly upwards into the sky. About you lightning arcs in
@@ -6862,7 +6862,7 @@ D0
 ~
 ~
 ~
-Z 0 14167
+Z 0 36667
 D1
 @eng The heavens.
 @rus Небеса.
@@ -6870,7 +6870,7 @@ D1
 ~
 ~
 ~
-Z 0 14154
+Z 0 36654
 D3
 @eng The heavens.
 @rus Небеса.
@@ -6878,9 +6878,9 @@ D3
 ~
 ~
 ~
-Z 0 14152
+Z 0 36652
 S
-#14154
+#36654
 @eng The heavens@rus Небеса~
 @eng You fight the strong buffeting wind of a raging thunderstorm
 as you fly upwards into the sky. About you lightning arcs in
@@ -6900,7 +6900,7 @@ D0
 ~
 ~
 ~
-Z 0 14168
+Z 0 36668
 D3
 @eng The heavens.
 @rus Небеса.
@@ -6908,9 +6908,9 @@ D3
 ~
 ~
 ~
-Z 0 14153
+Z 0 36653
 S
-#14155
+#36655
 @eng The shaking lands@rus Трескающиеся земли~
 @eng Around you the earth moves violently. Mile deep fissures open and
 close like giant mouthes trying to bite you. It is all you can
@@ -6928,7 +6928,7 @@ D0
 ~
 ~
 ~
-Z 0 14169
+Z 0 36669
 D1
 @eng The shaking lands.
 @rus Трескающиеся земли.
@@ -6936,7 +6936,7 @@ D1
 ~
 ~
 ~
-Z 0 14156
+Z 0 36656
 D2
 @eng The shaking lands.
 @rus Трескающиеся земли.
@@ -6944,9 +6944,9 @@ D2
 ~
 ~
 ~
-Z 0 14141
+Z 0 36641
 S
-#14156
+#36656
 @eng The shaking lands@rus Трескающиеся земли~
 @eng Around you the earth moves violently. Mile deep fissures open and
 close like giant mouthes trying to bite you. It is all you can
@@ -6964,7 +6964,7 @@ D0
 ~
 ~
 ~
-Z 0 14170
+Z 0 36670
 D1
 @eng The shaking lands.
 @rus Трескающиеся земли.
@@ -6972,7 +6972,7 @@ D1
 ~
 ~
 ~
-Z 0 14157
+Z 0 36657
 D2
 @eng The shaking lands.
 @rus Трескающиеся земли.
@@ -6980,7 +6980,7 @@ D2
 ~
 ~
 ~
-Z 0 14142
+Z 0 36642
 D3
 @eng The shaking lands.
 @rus Трескающиеся земли.
@@ -6988,9 +6988,9 @@ D3
 ~
 ~
 ~
-Z 0 14155
+Z 0 36655
 S
-#14157
+#36657
 @eng The shaking lands@rus Трескающиеся земли~
 @eng Around you the earth moves violently. Mile deep fissures open and
 close like giant mouthes trying to bite you. It is all you can
@@ -7008,7 +7008,7 @@ D0
 ~
 ~
 ~
-Z 0 14171
+Z 0 36671
 D1
 @eng Armageddon.
 @rus Армагеддон.
@@ -7016,7 +7016,7 @@ D1
 ~
 ~
 ~
-Z 0 14158
+Z 0 36658
 D2
 @eng The shaking lands.
 @rus Трескающиеся земли.
@@ -7024,7 +7024,7 @@ D2
 ~
 ~
 ~
-Z 0 14143
+Z 0 36643
 D3
 @eng The shaking lands.
 @rus Трескающиеся земли.
@@ -7032,9 +7032,9 @@ D3
 ~
 ~
 ~
-Z 0 14156
+Z 0 36656
 S
-#14158
+#36658
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -7053,7 +7053,7 @@ D0
 ~
 ~
 ~
-Z 0 14172
+Z 0 36672
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -7061,7 +7061,7 @@ D2
 ~
 ~
 ~
-Z 0 14144
+Z 0 36644
 D3
 @eng The shaking lands.
 @rus Трескающиеся земли.
@@ -7069,9 +7069,9 @@ D3
 ~
 ~
 ~
-Z 0 14157
+Z 0 36657
 S
-#14159
+#36659
 @eng Gog@rus Гог~
 @eng You are in Satan's city, Gog. Around you the marked ones 
 teem and chant the idealogy of the beast. They seem oblivious
@@ -7090,7 +7090,7 @@ D0
 ~
 ~
 ~
-Z 0 14173
+Z 0 36673
 D1
 @eng Gog.
 @rus Гог.
@@ -7098,7 +7098,7 @@ D1
 ~
 ~
 ~
-Z 0 14160
+Z 0 36660
 D2
 @eng Gog.
 @rus Гог.
@@ -7106,9 +7106,9 @@ D2
 ~
 ~
 ~
-Z 0 14145
+Z 0 36645
 S
-#14160
+#36660
 @eng Gog@rus Гог~
 @eng You are in Satan's city, Gog. Around you the marked ones 
 teem and chant the idealogy of the beast. They seem oblivious
@@ -7127,7 +7127,7 @@ D0
 ~
 ~
 ~
-Z 0 14174
+Z 0 36674
 D1
 @eng Gog.
 @rus Гог.
@@ -7135,7 +7135,7 @@ D1
 ~
 ~
 ~
-Z 0 14161
+Z 0 36661
 D2
 @eng Gog.
 @rus Гог.
@@ -7143,7 +7143,7 @@ D2
 ~
 ~
 ~
-Z 0 14146
+Z 0 36646
 D3
 @eng Gog.
 @rus Гог.
@@ -7151,9 +7151,9 @@ D3
 ~
 ~
 ~
-Z 0 14159
+Z 0 36659
 S
-#14161
+#36661
 @eng Gog@rus Гог~
 @eng You are in Satan's city, Gog. Around you the marked ones 
 teem and chant the idealogy of the beast. They seem oblivious
@@ -7179,7 +7179,7 @@ The unholy shrine.
 ~
 ~
 ~
-Z 0 14175
+Z 0 36675
 D1
 @eng Gog.
 @rus Гог.
@@ -7187,7 +7187,7 @@ D1
 ~
 ~
 ~
-Z 0 14162
+Z 0 36662
 D2
 @eng Gog.
 @rus Гог.
@@ -7195,7 +7195,7 @@ D2
 ~
 ~
 ~
-Z 0 14147
+Z 0 36647
 D3
 @eng Gog.
 @rus Гог.
@@ -7203,9 +7203,9 @@ D3
 ~
 ~
 ~
-Z 0 14160
+Z 0 36660
 S
-#14162
+#36662
 @eng Gog@rus Гог~
 @eng You are in Satan's city, Gog. Around you the marked ones 
 teem and chant the idealogy of the beast. They seem oblivious
@@ -7227,7 +7227,7 @@ D0
 ~
 ~
 ~
-Z 0 14176
+Z 0 36676
 D1
 @eng Gog.
 @rus Гог.
@@ -7235,7 +7235,7 @@ D1
 ~
 ~
 ~
-Z 0 14163
+Z 0 36663
 D2
 @eng Gog.
 @rus Гог.
@@ -7243,7 +7243,7 @@ D2
 ~
 ~
 ~
-Z 0 14148
+Z 0 36648
 D3
 @eng Gog.
 @rus Гог.
@@ -7251,9 +7251,9 @@ D3
 ~
 ~
 ~
-Z 0 14161
+Z 0 36661
 S
-#14163
+#36663
 @eng Gog@rus Гог~
 @eng You are in Satan's city, Gog. Around you the marked ones 
 teem and chant the idealogy of the beast. They seem oblivious
@@ -7272,7 +7272,7 @@ D0
 ~
 ~
 ~
-Z 0 14177
+Z 0 36677
 D2
 @eng Gog.
 @rus Гог.
@@ -7280,7 +7280,7 @@ D2
 ~
 ~
 ~
-Z 0 14149
+Z 0 36649
 D3
 @eng Gog.
 @rus Гог.
@@ -7288,9 +7288,9 @@ D3
 ~
 ~
 ~
-Z 0 14162
+Z 0 36662
 S
-#14164
+#36664
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -7309,7 +7309,7 @@ D0
 ~
 ~
 ~
-Z 0 14178
+Z 0 36678
 D1
 @eng Armageddon.
 @rus Армагеддон.
@@ -7317,7 +7317,7 @@ D1
 ~
 ~
 ~
-Z 0 14165
+Z 0 36665
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -7325,9 +7325,9 @@ D2
 ~
 ~
 ~
-Z 0 14150
+Z 0 36650
 S
-#14165
+#36665
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -7346,7 +7346,7 @@ D0
 ~
 ~
 ~
-Z 0 14179
+Z 0 36679
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -7354,7 +7354,7 @@ D2
 ~
 ~
 ~
-Z 0 14151
+Z 0 36651
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -7362,9 +7362,9 @@ D3
 ~
 ~
 ~
-Z 0 14164
+Z 0 36664
 S
-#14166
+#36666
 @eng The heavens@rus Небеса~
 @eng You fight the strong buffeting wind of a raging thunderstorm
 as you fly upwards into the sky. About you lightning arcs in
@@ -7384,7 +7384,7 @@ D0
 ~
 ~
 ~
-Z 0 14180
+Z 0 36680
 D1
 @eng The heavens.
 @rus Небеса.
@@ -7392,7 +7392,7 @@ D1
 ~
 ~
 ~
-Z 0 14167
+Z 0 36667
 D2
 @eng The heavens.
 @rus Небеса.
@@ -7400,9 +7400,9 @@ D2
 ~
 ~
 ~
-Z 0 14152
+Z 0 36652
 S
-#14167
+#36667
 @eng The heavens@rus Небеса~
 @eng You fight the strong buffeting wind of a raging thunderstorm
 as you fly upwards into the sky. About you lightning arcs in
@@ -7422,7 +7422,7 @@ D0
 ~
 ~
 ~
-Z 0 14181
+Z 0 36681
 D1
 @eng The heavens.
 @rus Небеса.
@@ -7430,7 +7430,7 @@ D1
 ~
 ~
 ~
-Z 0 14168
+Z 0 36668
 D2
 @eng The heavens.
 @rus Небеса.
@@ -7438,7 +7438,7 @@ D2
 ~
 ~
 ~
-Z 0 14153
+Z 0 36653
 D3
 @eng The heavens.
 @rus Небеса.
@@ -7446,9 +7446,9 @@ D3
 ~
 ~
 ~
-Z 0 14166
+Z 0 36666
 S
-#14168
+#36668
 @eng The heavens@rus Небеса~
 @eng You fight the strong buffeting wind of a raging thunderstorm
 as you fly upwards into the sky. About you lightning arcs in
@@ -7468,7 +7468,7 @@ D0
 ~
 ~
 ~
-Z 0 14182
+Z 0 36682
 D2
 @eng The heavens.
 @rus Небеса.
@@ -7476,7 +7476,7 @@ D2
 ~
 ~
 ~
-Z 0 14154
+Z 0 36654
 D3
 @eng The heavens.
 @rus Небеса.
@@ -7484,9 +7484,9 @@ D3
 ~
 ~
 ~
-Z 0 14167
+Z 0 36667
 S
-#14169
+#36669
 @eng The corner of the world@rus Угол мира~
 @eng You stand at the corner of the world. As any alchemist will
 tell you, the world has 4 corners, one devoted to each element, and
@@ -7505,7 +7505,7 @@ D1
 ~
 ~
 ~
-Z 0 14170
+Z 0 36670
 D2
 @eng The shaking lands.
 @rus Трескающиеся земли.
@@ -7513,9 +7513,9 @@ D2
 ~
 ~
 ~
-Z 0 14155
+Z 0 36655
 S
-#14170
+#36670
 @eng The shaking lands@rus Трескающиеся земли~
 @eng Around you the earth moves violently. Mile deep fissures open and
 close like giant mouthes trying to bite you. It is all you can
@@ -7533,7 +7533,7 @@ D1
 ~
 ~
 ~
-Z 0 14171
+Z 0 36671
 D2
 @eng The shaking lands.
 @rus Трескающиеся земли.
@@ -7541,7 +7541,7 @@ D2
 ~
 ~
 ~
-Z 0 14156
+Z 0 36656
 D3
 @eng The corner of the world.
 @rus Угол мира.
@@ -7549,9 +7549,9 @@ D3
 ~
 ~
 ~
-Z 0 14169
+Z 0 36669
 S
-#14171
+#36671
 @eng The shaking lands@rus Трескающиеся земли~
 @eng Around you the earth moves violently. Mile deep fissures open and
 close like giant mouthes trying to bite you. It is all you can
@@ -7569,7 +7569,7 @@ D2
 ~
 ~
 ~
-Z 0 14157
+Z 0 36657
 D3
 @eng The shaking lands.
 @rus Трескающиеся земли.
@@ -7577,9 +7577,9 @@ D3
 ~
 ~
 ~
-Z 0 14170
+Z 0 36670
 S
-#14172
+#36672
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -7598,9 +7598,9 @@ D2
 ~
 ~
 ~
-Z 0 14158
+Z 0 36658
 S
-#14173
+#36673
 @eng Gog@rus Гог~
 @eng You are in Satan's city, Gog. Around you the marked ones 
 teem and chant the idealogy of the beast. They seem oblivious
@@ -7619,7 +7619,7 @@ D1
 ~
 ~
 ~
-Z 0 14174
+Z 0 36674
 D2
 @eng Gog.
 @rus Гог.
@@ -7627,9 +7627,9 @@ D2
 ~
 ~
 ~
-Z 0 14159
+Z 0 36659
 S
-#14174
+#36674
 @eng Gog@rus Гог~
 @eng You are in Satan's city, Gog. Around you the marked ones 
 teem and chant the idealogy of the beast. They seem oblivious
@@ -7648,7 +7648,7 @@ D1
 ~
 ~
 ~
-Z 0 14175
+Z 0 36675
 D2
 @eng Gog.
 @rus Гог.
@@ -7656,7 +7656,7 @@ D2
 ~
 ~
 ~
-Z 0 14160
+Z 0 36660
 D3
 @eng Gog.
 @rus Гог.
@@ -7664,9 +7664,9 @@ D3
 ~
 ~
 ~
-Z 0 14173
+Z 0 36673
 S
-#14175
+#36675
 @eng The unholy shrine@rus Нечестивая святыня~
 @eng You have entered the unholy shrine erected at the
 dragons decree to the beast. Murals on the walls depict
@@ -7691,7 +7691,7 @@ D1
 ~
 ~
 ~
-Z 0 14176
+Z 0 36676
 D2
 @eng Gog.
 @rus Гог.
@@ -7699,7 +7699,7 @@ D2
 ~
 ~
 ~
-Z 0 14161
+Z 0 36661
 D3
 @eng Gog.
 @rus Гог.
@@ -7707,9 +7707,9 @@ D3
 ~
 ~
 ~
-Z 0 14174
+Z 0 36674
 S
-#14176
+#36676
 @eng Gog@rus Гог~
 @eng You are in Satan's city, Gog. Around you the marked ones 
 teem and chant the idealogy of the beast. They seem oblivious
@@ -7728,7 +7728,7 @@ D1
 ~
 ~
 ~
-Z 0 14177
+Z 0 36677
 D2
 @eng Gog.
 @rus Гог.
@@ -7736,7 +7736,7 @@ D2
 ~
 ~
 ~
-Z 0 14162
+Z 0 36662
 D3
 @eng The unholy shrine.
 @rus Нечестивая святыня.
@@ -7744,9 +7744,9 @@ D3
 ~
 ~
 ~
-Z 0 14175
+Z 0 36675
 S
-#14177
+#36677
 @eng Gog@rus Гог~
 @eng You are in Satan's city, Gog. Around you the marked ones 
 teem and chant the idealogy of the beast. They seem oblivious
@@ -7765,7 +7765,7 @@ D2
 ~
 ~
 ~
-Z 0 14163
+Z 0 36663
 D3
 @eng Gog.
 @rus Гог.
@@ -7773,9 +7773,9 @@ D3
 ~
 ~
 ~
-Z 0 14176
+Z 0 36676
 S
-#14178
+#36678
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -7794,7 +7794,7 @@ D1
 ~
 ~
 ~
-Z 0 14179
+Z 0 36679
 D2
 @eng Armageddon.
 @rus Армагеддон.
@@ -7802,9 +7802,9 @@ D2
 ~
 ~
 ~
-Z 0 14164
+Z 0 36664
 S
-#14179
+#36679
 @eng Armageddon@rus Армагеддон~
 @eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
@@ -7823,7 +7823,7 @@ D2
 ~
 ~
 ~
-Z 0 14165
+Z 0 36665
 D3
 @eng Armageddon.
 @rus Армагеддон.
@@ -7831,9 +7831,9 @@ D3
 ~
 ~
 ~
-Z 0 14178
+Z 0 36678
 S
-#14180
+#36680
 @eng The heavens@rus Небеса~
 @eng You fight the strong buffeting wind of a raging thunderstorm
 as you fly upwards into the sky. About you lightning arcs in
@@ -7853,7 +7853,7 @@ D1
 ~
 ~
 ~
-Z 0 14181
+Z 0 36681
 D2
 @eng The heavens.
 @rus Небеса.
@@ -7861,9 +7861,9 @@ D2
 ~
 ~
 ~
-Z 0 14166
+Z 0 36666
 S
-#14181
+#36681
 @eng The heavens@rus Небеса~
 @eng You fight the strong buffeting wind of a raging thunderstorm
 as you fly upwards into the sky. About you lightning arcs in
@@ -7883,7 +7883,7 @@ D1
 ~
 ~
 ~
-Z 0 14182
+Z 0 36682
 D2
 @eng The heavens.
 @rus Небеса.
@@ -7891,7 +7891,7 @@ D2
 ~
 ~
 ~
-Z 0 14167
+Z 0 36667
 D3
 @eng The heavens.
 @rus Небеса.
@@ -7899,9 +7899,9 @@ D3
 ~
 ~
 ~
-Z 0 14180
+Z 0 36680
 S
-#14182
+#36682
 @eng The corner of the world@rus Угол мира~
 @eng You have flown to the corner of the sky. Here the wind is
 is somewhat calmer than the rest of the heavens. Beyond the 
@@ -7937,7 +7937,7 @@ D2
 ~
 ~
 ~
-Z 0 14168
+Z 0 36668
 D3
 @eng The heavens.
 @rus Небеса.
@@ -7945,16 +7945,16 @@ D3
 ~
 ~
 ~
-Z 0 14181
+Z 0 36681
 D5
 Into the throne room.
 ~
 yourheart~
 the yourheart~
 ~
-AFZ 0 14191
+AFZ 0 36691
 S
-#14183
+#36683
 @eng The bottomless pit@rus Бездна~
 @eng You fall, forever downwards into the bottomless pit. 
 @rus Ты падаешь, падаешь и падаешь. И нет никакой надежды достигнуть
@@ -7968,9 +7968,9 @@ D5
 ~
 ~
 ~
-Z 0 14184
+Z 0 36684
 S
-#14184
+#36684
 @eng The bottomless pit@rus Бездна~
 @eng You fall, forever downwards into the bottomless pit. 
 @rus Ты падаешь, падаешь и падаешь. И нет никакой надежды достигнуть
@@ -7984,9 +7984,9 @@ D5
 ~
 ~
 ~
-Z 0 14185
+Z 0 36685
 S
-#14185
+#36685
 @eng The bottomless pit@rus Бездна~
 @eng You fall, forever downwards into the bottomless pit. 
 @rus Ты падаешь, падаешь и падаешь. И нет никакой надежды достигнуть
@@ -8000,9 +8000,9 @@ D5
 ~
 ~
 ~
-Z 0 14186
+Z 0 36686
 S
-#14186
+#36686
 @eng The bottomless pit@rus Бездна~
 @eng You fall, forever downwards into the bottomless pit. 
 @rus Ты падаешь, падаешь и падаешь. И нет никакой надежды достигнуть
@@ -8016,9 +8016,9 @@ D5
 ~
 ~
 ~
-Z 0 14187
+Z 0 36687
 S
-#14187
+#36687
 @eng The bottomless pit@rus Бездна~
 @eng You fall, forever downwards into the bottomless pit. 
 @rus Ты падаешь, падаешь и падаешь. И нет никакой надежды достигнуть
@@ -8032,9 +8032,9 @@ D5
 ~
 ~
 ~
-Z 0 14188
+Z 0 36688
 S
-#14188
+#36688
 @eng The bottomless pit@rus Бездна~
 @eng You fall, forever downwards into the bottomless pit. 
 @rus Ты падаешь, падаешь и падаешь. И нет никакой надежды достигнуть
@@ -8048,9 +8048,9 @@ D5
 ~
 ~
 ~
-Z 0 14189
+Z 0 36689
 S
-#14189
+#36689
 @eng The bottomless pit@rus Бездна~
 @eng You fall, forever downwards into the bottomless pit. 
 @rus Ты падаешь, падаешь и падаешь. И нет никакой надежды достигнуть
@@ -8064,9 +8064,9 @@ D5
 ~
 ~
 ~
-Z 0 14190
+Z 0 36690
 S
-#14190
+#36690
 @eng The bottomless pit@rus Бездна~
 @eng You fall, forever downwards into the bottomless pit. 
 @rus Ты падаешь, падаешь и падаешь. И нет никакой надежды достигнуть
@@ -8080,9 +8080,9 @@ D5
 ~
 ~
 ~
-Z 0 14183
+Z 0 36683
 S
-#14191
+#36691
 @eng In the throne room@rus Перед престолом~
 @eng You stand in a magnificant throne room. Multitudes and multitudes
 of angles are here singing praise to the one who sits on the throne.
@@ -8102,7 +8102,7 @@ D0
 ~
 ~
 ~
-Z 0 14194
+Z 0 36694
 D1
 @eng The throne room.
 @rus Перед престолом.
@@ -8110,9 +8110,9 @@ D1
 ~
 ~
 ~
-Z 0 14192
+Z 0 36692
 S
-#14192
+#36692
 @eng In the throne room@rus Перед престолом~
 @eng You stand in a magnificant throne room. Multitudes and multitudes
 of angles are here singing praise to the one who sits on the throne.
@@ -8132,7 +8132,7 @@ D0
 ~
 ~
 ~
-Z 0 14195
+Z 0 36695
 D1
 @eng The throne room.
 @rus Перед престолом.
@@ -8140,7 +8140,7 @@ D1
 ~
 ~
 ~
-Z 0 14193
+Z 0 36693
 D3
 @eng The throne room.
 @rus Перед престолом.
@@ -8148,9 +8148,9 @@ D3
 ~
 ~
 ~
-Z 0 14191
+Z 0 36691
 S
-#14193
+#36693
 @eng In the throne room@rus Перед престолом~
 @eng You stand in a magnificant throne room. Multitudes and multitudes
 of angles are here singing praise to the one who sits on the throne.
@@ -8170,7 +8170,7 @@ D0
 ~
 ~
 ~
-Z 0 14196
+Z 0 36696
 D3
 @eng The throne room.
 @rus Перед престолом.
@@ -8178,9 +8178,9 @@ D3
 ~
 ~
 ~
-Z 0 14192
+Z 0 36692
 S
-#14194
+#36694
 @eng In the throne room@rus Перед престолом~
 @eng You stand in a magnificant throne room. Multitudes and multitudes
 of angles are here singing praise to the one who sits on the throne.
@@ -8200,7 +8200,7 @@ D0
 ~
 ~
 ~
-Z 0 14197
+Z 0 36697
 D1
 @eng The throne room.
 @rus Перед престолом.
@@ -8208,7 +8208,7 @@ D1
 ~
 ~
 ~
-Z 0 14195
+Z 0 36695
 D2
 @eng The throne room.
 @rus Перед престолом.
@@ -8216,9 +8216,9 @@ D2
 ~
 ~
 ~
-Z 0 14191
+Z 0 36691
 S
-#14195
+#36695
 @eng In the throne room@rus Перед престолом~
 @eng You stand in a magnificant throne room. Multitudes and multitudes
 of angles are here singing praise to the one who sits on the throne.
@@ -8238,7 +8238,7 @@ D0
 ~
 ~
 ~
-Z 0 14198
+Z 0 36698
 D1
 @eng The throne room.
 @rus Перед престолом.
@@ -8246,7 +8246,7 @@ D1
 ~
 ~
 ~
-Z 0 14196
+Z 0 36696
 D2
 @eng The throne room.
 @rus Перед престолом.
@@ -8254,7 +8254,7 @@ D2
 ~
 ~
 ~
-Z 0 14192
+Z 0 36692
 D3
 @eng The throne room.
 @rus Перед престолом.
@@ -8262,9 +8262,9 @@ D3
 ~
 ~
 ~
-Z 0 14194
+Z 0 36694
 S
-#14196
+#36696
 @eng In the throne room@rus Перед престолом~
 @eng You stand in a magnificant throne room. Multitudes and multitudes
 of angles are here singing praise to the one who sits on the throne.
@@ -8284,7 +8284,7 @@ D0
 ~
 ~
 ~
-Z 0 14199
+Z 0 36699
 D2
 @eng The throne room.
 @rus Перед престолом.
@@ -8292,7 +8292,7 @@ D2
 ~
 ~
 ~
-Z 0 14193
+Z 0 36693
 D3
 @eng The throne room.
 @rus Перед престолом.
@@ -8300,9 +8300,9 @@ D3
 ~
 ~
 ~
-Z 0 14195
+Z 0 36695
 S
-#14197
+#36697
 @eng In the throne room@rus Перед престолом~
 @eng You stand in a magnificant throne room. Multitudes and multitudes
 of angles are here singing praise to the one who sits on the throne.
@@ -8322,7 +8322,7 @@ D1
 ~
 ~
 ~
-Z 0 14198
+Z 0 36698
 D2
 @eng The throne room.
 @rus Перед престолом.
@@ -8330,9 +8330,9 @@ D2
 ~
 ~
 ~
-Z 0 14194
+Z 0 36694
 S
-#14198
+#36698
 @eng At the throne@rus Престол~
 @eng You grovel before the throne. He who sits at the throne
 tells you 'Now is your time'. With a gesture a black
@@ -8351,7 +8351,7 @@ D1
 ~
 ~
 ~
-Z 0 14199
+Z 0 36699
 D2
 @eng The throne room.
 @rus Перед престолом.
@@ -8359,7 +8359,7 @@ D2
 ~
 ~
 ~
-Z 0 14195
+Z 0 36695
 D3
 @eng The throne room.
 @rus Перед престолом.
@@ -8367,7 +8367,7 @@ D3
 ~
 ~
 ~
-Z 0 14197
+Z 0 36697
 D4
 @eng Into the black hole.
 @rus Черная дыра.
@@ -8377,7 +8377,7 @@ D4
 ~
 Z 0 1
 S
-#14199
+#36699
 @eng In the throne room@rus Перед престолом~
 @eng You stand in a magnificant throne room. Multitudes and multitudes
 of angles are here singing praise to the one who sits on the throne.
@@ -8397,7 +8397,7 @@ D2
 ~
 ~
 ~
-Z 0 14196
+Z 0 36696
 D3
 @eng At the throne.
 @rus Престол.
@@ -8405,175 +8405,175 @@ D3
 ~
 ~
 ~
-Z 0 14198
+Z 0 36698
 S
 #0
 
 #RESETS
-M 0 14007 1 14001 1	* The angel with the fiery censer (At the corner of the world)
-E 0 14006 0 13		*	The angel with the fiery censer<around the waist>: A golden girdle
-E 0 14007 0 16		*	The angel with the fiery censer<wielded>: A golden sickle
-G 0 14009 0		*	The angel with the fiery censer: A censer
-G 0 14008 0		*	The angel with the fiery censer: The prayers of saints
-M 0 14017 1 14006 1	* Balaam the teacher of Balac (MaGog)
-M 0 14016 1 14010 1	* Jezebel the prophetess (MaGog)
-M 0 14004 1 14014 1	* The angel of the waters (The corner of the world)
-E 0 14006 0 13		*	The angel of the waters<around the waist>: A golden girdle
-E 0 14007 0 16		*	The angel of the waters<wielded>: A golden sickle
-G 0 14008 0		*	The angel of the waters: The prayers of saints
-M 0 14032 2 14018 1	* The mighty man (The plagued lands)
-M 0 14027 1 14021 1	* the whoremonger (MaGog)
-M 0 14029 1 14022 1	* the harlot (MaGog)
-O 0 14035 0 14022	* A fountain of blood (MaGog)
-M 0 14028 1 14023 1	* The murderer (MaGog)
-M 0 14018 1 14034 1	* Balac, disciple of Balaam (MaGog)
-M 0 14003 1 14039 1	* Babylon (The many waters)
-E 0 14005 0 17		*	Babylon<held in the hands>: The golden cup of Babylon
-M 0 14035 2 14043 1	* The freeman (The plagued lands)
-M 0 14009 4 14052 1	* An army of heaven (Armageddon)
-M 0 14031 2 14057 1	* The rich man (The plagued lands)
-M 0 14008 4 14061 1	* The harvesting angel (Armageddon)
-E 0 14006 0 13		*	The harvesting angel<around the waist>: A golden girdle
-E 0 14007 0 16		*	The harvesting angel<wielded>: A golden sickle
-G 0 14008 0		*	The harvesting angel: The prayers of saints
-M 0 14036 1 14061 1	* The chief captain (Armageddon)
-M 0 14035 2 14071 1	* The freeman (Wormwood)
-M 0 14023 4 14075 1	* The sealed one (Armageddon)
-E 0 14031 0 12		*	The sealed one<about the shoulders>: A white robe
-E 0 14032 0 6		*	The sealed one<over the head>: A seal
-M 0 14009 4 14076 1	* An army of heaven (Armageddon)
-M 0 14022 1 14078 1	* The word of God (Armageddon)
-E 0 14026 0 2		*	The word of God<on the right finger>: Hidden manna
-E 0 14027 0 17		*	The word of God<held in the hands>: A rod of iron
-E 0 14028 0 3		*	The word of God<around the neck>: White raiment
-E 0 14029 0 11		*	The word of God<as a shield>: A white stone
-E 0 14030 0 16		*	The word of God<wielded>: The sharp, two-edged sword of the mouth
-M 0 14023 4 14079 1	* The sealed one (Armageddon)
-E 0 14031 0 12		*	The sealed one<about the shoulders>: A white robe
-E 0 14032 0 6		*	The sealed one<over the head>: A seal
-M 0 14019 3 14087 1	* The unclean spirit (The Euphrates)
-O 0 14034 0 14087	* A puddle of blood (The Euphrates)
-M 0 14012 1 14090 1	* The black horseman (The Euphrates)
-E 0 14015 0 5		*	The black horseman<on the body>: A breastplate of brimstone
-E 0 14016 0 17		*	The black horseman<held in the hands>: A pair of engraved balances
-O 0 14034 0 14090	* A puddle of blood (The Euphrates)
-M 0 14034 2 14093 1	* The bondsman (Armageddon)
-M 0 14008 4 14095 1	* The harvesting angel (Armageddon)
-E 0 14006 0 13		*	The harvesting angel<around the waist>: A golden girdle
-E 0 14007 0 16		*	The harvesting angel<wielded>: A golden sickle
-G 0 14008 0		*	The harvesting angel: The prayers of saints
-M 0 14033 2 14098 1	* the former king (The many waters)
-O 0 14034 0 14099	* A puddle of blood (The source of the Euphrates)
-M 0 14013 1 14100 1	* The pale horseman (The Euphrates)
-E 0 14017 0 12		*	The pale horseman<about the shoulders>: Death's cloak
-E 0 14018 0 16		*	The pale horseman<wielded>: The scythe of the Grim reaper
-M 0 14021 1 14102 1	* The woman clothed with the sun (Wormwood)
-E 0 14021 0 10		*	The woman clothed with the sun<on the arms>: The wings of eagles
-E 0 14022 0 6		*	The woman clothed with the sun<over the head>: A crown with twelve stars
-E 0 14023 0 5		*	The woman clothed with the sun<on the body>: Clothing of the sun
-E 0 14024 0 7		*	The woman clothed with the sun<on the legs>: Clothing of the sun
-E 0 14025 0 8		*	The woman clothed with the sun<on the feet>: The moon under your feet
-M 0 14019 3 14109 1	* The unclean spirit (The Euphrates)
-M 0 14010 1 14110 1	* the white horseman (The Euphrates)
-E 0 14010 0 6		*	the white horseman<over the head>: the white crown of the conquerer
-E 0 14011 0 16		*	the white horseman<wielded>: the white bow of the conquerer
-E 0 14012 0 5		*	the white horseman<on the body>: A breastplate of fire
-O 0 14034 0 14111	* A puddle of blood (The Euphrates)
-O 0 14033 0 14114	* The morning star (Wormwood)
-P 0 14001 1 0 1	* The morning star: the key of David
-M 0 14011 1 14121 1	* the red horseman (The Euphrates)
-E 0 14013 0 16		*	the red horseman<wielded>: The sword of war
-E 0 14014 0 5		*	the red horseman<on the body>: A breastplate of jacinth
-M 0 14019 3 14122 1	* The unclean spirit (The Euphrates)
-O 0 14034 0 14122	* A puddle of blood (The Euphrates)
-M 0 14033 2 14127 1	* the former king (Wormwood)
-M 0 14023 4 14130 1	* The sealed one (Armageddon)
-E 0 14031 0 12		*	The sealed one<about the shoulders>: A white robe
-E 0 14032 0 6		*	The sealed one<over the head>: A seal
-M 0 14034 2 14130 1	* The bondsman (Armageddon)
-M 0 14009 4 14131 1	* An army of heaven (Armageddon)
-M 0 14031 2 14134 1	* The rich man (Armageddon)
-M 0 14008 4 14144 1	* The harvesting angel (Armageddon)
-E 0 14006 0 13		*	The harvesting angel<around the waist>: A golden girdle
-E 0 14007 0 16		*	The harvesting angel<wielded>: A golden sickle
-G 0 14008 0		*	The harvesting angel: The prayers of saints
-M 0 14024 4 14145 1	* The marked one (Gog)
-E 0 14020 0 3		*	The marked one<around the neck>: The mark of the beast
-M 0 14024 4 14149 1	* The marked one (Gog)
-E 0 14020 0 3		*	The marked one<around the neck>: The mark of the beast
-M 0 14008 4 14151 1	* The harvesting angel (Armageddon)
-E 0 14006 0 13		*	The harvesting angel<around the waist>: A golden girdle
-E 0 14007 0 16		*	The harvesting angel<wielded>: A golden sickle
-G 0 14008 0		*	The harvesting angel: The prayers of saints
-M 0 14032 2 14152 1	* The mighty man (The heavens)
-M 0 14030 1 14160 1	* the thief (Gog)
-E 0 14020 0 3		*	the thief<around the neck>: The mark of the beast
-M 0 14020 1 14161 1	* The false prophet (Gog)
-E 0 14020 0 3		*	The false prophet<around the neck>: The mark of the beast
-O 0 14035 0 14161	* A fountain of blood (Gog)
-M 0 14026 1 14162 1	* The idolator (Gog)
-E 0 14020 0 3		*	The idolator<around the neck>: The mark of the beast
-M 0 14009 4 14164 1	* An army of heaven (Armageddon)
-M 0 14023 4 14165 1	* The sealed one (Armageddon)
-E 0 14031 0 12		*	The sealed one<about the shoulders>: A white robe
-E 0 14032 0 6		*	The sealed one<over the head>: A seal
-M 0 14005 1 14169 1	* The angel of the earth (The corner of the world)
-E 0 14006 0 13		*	The angel of the earth<around the waist>: A golden girdle
-E 0 14007 0 16		*	The angel of the earth<wielded>: A golden sickle
-G 0 14008 0		*	The angel of the earth: The prayers of saints
-M 0 14024 4 14173 1	* The marked one (Gog)
-E 0 14020 0 3		*	The marked one<around the neck>: The mark of the beast
-M 0 14025 1 14175 1	* The beast (The unholy shrine)
-M 0 14024 4 14177 1	* The marked one (Gog)
-E 0 14020 0 3		*	The marked one<around the neck>: The mark of the beast
-M 0 14014 1 14180 1	* The archangel Michael (The heavens)
-E 0 14019 0 16		*	The archangel Michael<wielded>: The holy lance of archangel Michael
-M 0 14015 1 14180 1	* The dragon (The heavens)
-M 0 14006 1 14182 1	* The angel of the air (The corner of the world)
-E 0 14006 0 13		*	The angel of the air<around the waist>: A golden girdle
-E 0 14007 0 16		*	The angel of the air<wielded>: A golden sickle
-G 0 14008 0		*	The angel of the air: The prayers of saints
-M 0 14001 3 14184 1	* the giant locust (The bottomless pit)
-E 0 14002 0 5		*	the giant locust<on the body>: An iron breastplate
-E 0 14003 0 16		*	the giant locust<wielded>: A locust stinger
-M 0 14001 3 14186 1	* the giant locust (The bottomless pit)
-E 0 14002 0 5		*	the giant locust<on the body>: An iron breastplate
-E 0 14003 0 16		*	the giant locust<wielded>: A locust stinger
-M 0 14001 3 14188 1	* the giant locust (The bottomless pit)
-E 0 14002 0 5		*	the giant locust<on the body>: An iron breastplate
-E 0 14003 0 16		*	the giant locust<wielded>: A locust stinger
-M 0 14002 1 14190 1	* Abaddon (The bottomless pit)
-E 0 14004 0 5		*	Abaddon<on the body>: The chain of binding
-M 0 14043 1 14192 1	* the eagle creature (In the throne room)
-M 0 14040 1 14194 1	* the lion creature (In the throne room)
-M 0 14041 1 14195 1	* the ox creature (In the throne room)
-M 0 14042 1 14196 1	* the creature with a human face (In the throne room)
-M 0 14038 1 14197 1	* The Lamb (In the throne room)
-O 0 14036 0 14198	* An emerald throne (At the throne)
-M 0 14037 1 14198 1	* He who sits at the throne (At the throne)
-E 0 14040 0 17		*	He who sits at the throne<held in the hands>: The book of life
-O 0 14037 0 14199	* Four and twenty thrones (In the throne room)
-M 0 14039 1 14199 1	* four and twenty elders (In the throne room)
-E 0 14041 0 17		*	four and twenty elders<held in the hands>: A golden bowl of incense
+M 0 36507 1 36501 1	* The angel with the fiery censer (At the corner of the world)
+E 0 36506 0 13		*	The angel with the fiery censer<around the waist>: A golden girdle
+E 0 36507 0 16		*	The angel with the fiery censer<wielded>: A golden sickle
+G 0 36509 0		*	The angel with the fiery censer: A censer
+G 0 36508 0		*	The angel with the fiery censer: The prayers of saints
+M 0 36517 1 36506 1	* Balaam the teacher of Balac (MaGog)
+M 0 36516 1 36510 1	* Jezebel the prophetess (MaGog)
+M 0 36504 1 36514 1	* The angel of the waters (The corner of the world)
+E 0 36506 0 13		*	The angel of the waters<around the waist>: A golden girdle
+E 0 36507 0 16		*	The angel of the waters<wielded>: A golden sickle
+G 0 36508 0		*	The angel of the waters: The prayers of saints
+M 0 36532 2 36518 1	* The mighty man (The plagued lands)
+M 0 36527 1 36521 1	* the whoremonger (MaGog)
+M 0 36529 1 36522 1	* the harlot (MaGog)
+O 0 36535 0 36522	* A fountain of blood (MaGog)
+M 0 36528 1 36523 1	* The murderer (MaGog)
+M 0 36518 1 36534 1	* Balac, disciple of Balaam (MaGog)
+M 0 36503 1 36539 1	* Babylon (The many waters)
+E 0 36505 0 17		*	Babylon<held in the hands>: The golden cup of Babylon
+M 0 36535 2 36543 1	* The freeman (The plagued lands)
+M 0 36509 4 36552 1	* An army of heaven (Armageddon)
+M 0 36531 2 36557 1	* The rich man (The plagued lands)
+M 0 36508 4 36561 1	* The harvesting angel (Armageddon)
+E 0 36506 0 13		*	The harvesting angel<around the waist>: A golden girdle
+E 0 36507 0 16		*	The harvesting angel<wielded>: A golden sickle
+G 0 36508 0		*	The harvesting angel: The prayers of saints
+M 0 36536 1 36561 1	* The chief captain (Armageddon)
+M 0 36535 2 36571 1	* The freeman (Wormwood)
+M 0 36523 4 36575 1	* The sealed one (Armageddon)
+E 0 36531 0 12		*	The sealed one<about the shoulders>: A white robe
+E 0 36532 0 6		*	The sealed one<over the head>: A seal
+M 0 36509 4 36576 1	* An army of heaven (Armageddon)
+M 0 36522 1 36578 1	* The word of God (Armageddon)
+E 0 36526 0 2		*	The word of God<on the right finger>: Hidden manna
+E 0 36527 0 17		*	The word of God<held in the hands>: A rod of iron
+E 0 36528 0 3		*	The word of God<around the neck>: White raiment
+E 0 36529 0 11		*	The word of God<as a shield>: A white stone
+E 0 36530 0 16		*	The word of God<wielded>: The sharp, two-edged sword of the mouth
+M 0 36523 4 36579 1	* The sealed one (Armageddon)
+E 0 36531 0 12		*	The sealed one<about the shoulders>: A white robe
+E 0 36532 0 6		*	The sealed one<over the head>: A seal
+M 0 36519 3 36587 1	* The unclean spirit (The Euphrates)
+O 0 36534 0 36587	* A puddle of blood (The Euphrates)
+M 0 36512 1 36590 1	* The black horseman (The Euphrates)
+E 0 36515 0 5		*	The black horseman<on the body>: A breastplate of brimstone
+E 0 36516 0 17		*	The black horseman<held in the hands>: A pair of engraved balances
+O 0 36534 0 36590	* A puddle of blood (The Euphrates)
+M 0 36534 2 36593 1	* The bondsman (Armageddon)
+M 0 36508 4 36595 1	* The harvesting angel (Armageddon)
+E 0 36506 0 13		*	The harvesting angel<around the waist>: A golden girdle
+E 0 36507 0 16		*	The harvesting angel<wielded>: A golden sickle
+G 0 36508 0		*	The harvesting angel: The prayers of saints
+M 0 36533 2 36598 1	* the former king (The many waters)
+O 0 36534 0 36599	* A puddle of blood (The source of the Euphrates)
+M 0 36513 1 36600 1	* The pale horseman (The Euphrates)
+E 0 36517 0 12		*	The pale horseman<about the shoulders>: Death's cloak
+E 0 36518 0 16		*	The pale horseman<wielded>: The scythe of the Grim reaper
+M 0 36521 1 36602 1	* The woman clothed with the sun (Wormwood)
+E 0 36521 0 10		*	The woman clothed with the sun<on the arms>: The wings of eagles
+E 0 36522 0 6		*	The woman clothed with the sun<over the head>: A crown with twelve stars
+E 0 36523 0 5		*	The woman clothed with the sun<on the body>: Clothing of the sun
+E 0 36524 0 7		*	The woman clothed with the sun<on the legs>: Clothing of the sun
+E 0 36525 0 8		*	The woman clothed with the sun<on the feet>: The moon under your feet
+M 0 36519 3 36609 1	* The unclean spirit (The Euphrates)
+M 0 36510 1 36610 1	* the white horseman (The Euphrates)
+E 0 36510 0 6		*	the white horseman<over the head>: the white crown of the conquerer
+E 0 36511 0 16		*	the white horseman<wielded>: the white bow of the conquerer
+E 0 36512 0 5		*	the white horseman<on the body>: A breastplate of fire
+O 0 36534 0 36611	* A puddle of blood (The Euphrates)
+O 0 36533 0 36614	* The morning star (Wormwood)
+P 0 36501 1 0 1	* The morning star: the key of David
+M 0 36511 1 36621 1	* the red horseman (The Euphrates)
+E 0 36513 0 16		*	the red horseman<wielded>: The sword of war
+E 0 36514 0 5		*	the red horseman<on the body>: A breastplate of jacinth
+M 0 36519 3 36622 1	* The unclean spirit (The Euphrates)
+O 0 36534 0 36622	* A puddle of blood (The Euphrates)
+M 0 36533 2 36627 1	* the former king (Wormwood)
+M 0 36523 4 36630 1	* The sealed one (Armageddon)
+E 0 36531 0 12		*	The sealed one<about the shoulders>: A white robe
+E 0 36532 0 6		*	The sealed one<over the head>: A seal
+M 0 36534 2 36630 1	* The bondsman (Armageddon)
+M 0 36509 4 36631 1	* An army of heaven (Armageddon)
+M 0 36531 2 36634 1	* The rich man (Armageddon)
+M 0 36508 4 36644 1	* The harvesting angel (Armageddon)
+E 0 36506 0 13		*	The harvesting angel<around the waist>: A golden girdle
+E 0 36507 0 16		*	The harvesting angel<wielded>: A golden sickle
+G 0 36508 0		*	The harvesting angel: The prayers of saints
+M 0 36524 4 36645 1	* The marked one (Gog)
+E 0 36520 0 3		*	The marked one<around the neck>: The mark of the beast
+M 0 36524 4 36649 1	* The marked one (Gog)
+E 0 36520 0 3		*	The marked one<around the neck>: The mark of the beast
+M 0 36508 4 36651 1	* The harvesting angel (Armageddon)
+E 0 36506 0 13		*	The harvesting angel<around the waist>: A golden girdle
+E 0 36507 0 16		*	The harvesting angel<wielded>: A golden sickle
+G 0 36508 0		*	The harvesting angel: The prayers of saints
+M 0 36532 2 36652 1	* The mighty man (The heavens)
+M 0 36530 1 36660 1	* the thief (Gog)
+E 0 36520 0 3		*	the thief<around the neck>: The mark of the beast
+M 0 36520 1 36661 1	* The false prophet (Gog)
+E 0 36520 0 3		*	The false prophet<around the neck>: The mark of the beast
+O 0 36535 0 36661	* A fountain of blood (Gog)
+M 0 36526 1 36662 1	* The idolator (Gog)
+E 0 36520 0 3		*	The idolator<around the neck>: The mark of the beast
+M 0 36509 4 36664 1	* An army of heaven (Armageddon)
+M 0 36523 4 36665 1	* The sealed one (Armageddon)
+E 0 36531 0 12		*	The sealed one<about the shoulders>: A white robe
+E 0 36532 0 6		*	The sealed one<over the head>: A seal
+M 0 36505 1 36669 1	* The angel of the earth (The corner of the world)
+E 0 36506 0 13		*	The angel of the earth<around the waist>: A golden girdle
+E 0 36507 0 16		*	The angel of the earth<wielded>: A golden sickle
+G 0 36508 0		*	The angel of the earth: The prayers of saints
+M 0 36524 4 36673 1	* The marked one (Gog)
+E 0 36520 0 3		*	The marked one<around the neck>: The mark of the beast
+M 0 36525 1 36675 1	* The beast (The unholy shrine)
+M 0 36524 4 36677 1	* The marked one (Gog)
+E 0 36520 0 3		*	The marked one<around the neck>: The mark of the beast
+M 0 36514 1 36680 1	* The archangel Michael (The heavens)
+E 0 36519 0 16		*	The archangel Michael<wielded>: The holy lance of archangel Michael
+M 0 36515 1 36680 1	* The dragon (The heavens)
+M 0 36506 1 36682 1	* The angel of the air (The corner of the world)
+E 0 36506 0 13		*	The angel of the air<around the waist>: A golden girdle
+E 0 36507 0 16		*	The angel of the air<wielded>: A golden sickle
+G 0 36508 0		*	The angel of the air: The prayers of saints
+M 0 36501 3 36684 1	* the giant locust (The bottomless pit)
+E 0 36502 0 5		*	the giant locust<on the body>: An iron breastplate
+E 0 36503 0 16		*	the giant locust<wielded>: A locust stinger
+M 0 36501 3 36686 1	* the giant locust (The bottomless pit)
+E 0 36502 0 5		*	the giant locust<on the body>: An iron breastplate
+E 0 36503 0 16		*	the giant locust<wielded>: A locust stinger
+M 0 36501 3 36688 1	* the giant locust (The bottomless pit)
+E 0 36502 0 5		*	the giant locust<on the body>: An iron breastplate
+E 0 36503 0 16		*	the giant locust<wielded>: A locust stinger
+M 0 36502 1 36690 1	* Abaddon (The bottomless pit)
+E 0 36504 0 5		*	Abaddon<on the body>: The chain of binding
+M 0 36543 1 36692 1	* the eagle creature (In the throne room)
+M 0 36540 1 36694 1	* the lion creature (In the throne room)
+M 0 36541 1 36695 1	* the ox creature (In the throne room)
+M 0 36542 1 36696 1	* the creature with a human face (In the throne room)
+M 0 36538 1 36697 1	* The Lamb (In the throne room)
+O 0 36536 0 36698	* An emerald throne (At the throne)
+M 0 36537 1 36698 1	* He who sits at the throne (At the throne)
+E 0 36540 0 17		*	He who sits at the throne<held in the hands>: The book of life
+O 0 36537 0 36699	* Four and twenty thrones (In the throne room)
+M 0 36539 1 36699 1	* four and twenty elders (In the throne room)
+E 0 36541 0 17		*	four and twenty elders<held in the hands>: A golden bowl of incense
 S
 
 #OLIMITS
-O 14002 2	* An iron breastplate
-O 14003 2	* A locust stinger
-O 14007 2	* A golden sickle
-O 14009 5	* A censer
-O 14010 2	* the white crown of the conquerer
-O 14012 1	* A breastplate of fire
-O 14013 1	* The sword of war
-O 14014 1	* A breastplate of jacinth
-O 14015 1	* A breastplate of brimstone
-O 14017 1	* Death's cloak
-O 14018 1	* The scythe of the Grim reaper
-O 14019 1	* The holy lance of archangel Michael
-O 14026 2	* Hidden manna
-O 14029 1	* A white stone
-O 14030 3	* The sharp, two-edged sword of the mouth
-O 14041 1	* A golden bowl of incense
+O 36502 2	* An iron breastplate
+O 36503 2	* A locust stinger
+O 36507 2	* A golden sickle
+O 36509 5	* A censer
+O 36510 2	* the white crown of the conquerer
+O 36512 1	* A breastplate of fire
+O 36513 1	* The sword of war
+O 36514 1	* A breastplate of jacinth
+O 36515 1	* A breastplate of brimstone
+O 36517 1	* Death's cloak
+O 36518 1	* The scythe of the Grim reaper
+O 36519 1	* The holy lance of archangel Michael
+O 36526 2	* Hidden manna
+O 36529 1	* A white stone
+O 36530 3	* The sharp, two-edged sword of the mouth
+O 36541 1	* A golden bowl of incense
 S
 
 #HELPS
