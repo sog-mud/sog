@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.9 2000-03-29 21:48:09 avn Exp $
+ * $Id: act_wiz.c,v 1.186.2.10 2000-03-30 06:26:26 osya Exp $
  */
 
 /***************************************************************************
@@ -120,6 +120,66 @@ void do_objlist(CHAR_DATA *ch, const char *argument)
 	buf_free(buf);
 	fclose(fp);
 }
+
+void do_chwealth(CHAR_DATA *ch, const char *argument)
+{
+        FILE *fp;
+	AREA_DATA *pArea;
+	MOB_INDEX_DATA *pMobIndex;
+	int highWealth, lowWealth, mobCounter;
+	int VnumHigh, VnumLow, i;
+	float middleWealth, aveLev;
+
+        if ((fp = dfopen(TMP_PATH, "wealth_stat.txt", "w+")) == NULL) {
+                char_puts("File error.\n", ch);
+                return;
+        }
+	
+        for (pArea = area_first; pArea != NULL; pArea = pArea->next) {
+		highWealth = 0;
+		lowWealth = 0;
+		middleWealth = 0; 		
+		mobCounter = 0;
+		VnumHigh = 0;
+		VnumLow = 0;
+		aveLev = 0;
+
+		for (i = pArea->min_vnum; i < pArea->max_vnum; i++) {
+			pMobIndex = get_mob_index(i);
+			
+			if (pMobIndex == NULL || pMobIndex->wealth == 0)
+				continue;
+			if (lowWealth == 0) { 
+				lowWealth = pMobIndex->wealth;
+				VnumLow = pMobIndex->level;
+			}
+			mobCounter++;
+			aveLev += pMobIndex->level + 1;
+
+			if (highWealth < pMobIndex->wealth) {
+				highWealth = pMobIndex->wealth;
+				VnumHigh = pMobIndex->vnum;
+			}
+			
+			
+			if (lowWealth > pMobIndex->wealth) {
+				lowWealth = pMobIndex->wealth;
+				VnumLow = pMobIndex->vnum;
+			}
+
+			middleWealth += pMobIndex->wealth;
+				
+                        }
+
+		
+		middleWealth = mobCounter ? middleWealth/aveLev : 0;
+		aveLev = mobCounter ? aveLev/mobCounter : 0;
+                fprintf(fp, " %3d %10d (%5d) %10d (%5d) %7d %3d %s\n", pArea->vnum, lowWealth, VnumLow, highWealth, VnumHigh, (int) middleWealth, (int) aveLev, pArea->name);
+	}
+        fclose(fp);
+	char_puts("chwealth done.\n", ch);
+}
+
 
 void do_limited(CHAR_DATA *ch, const char *argument)
 {
