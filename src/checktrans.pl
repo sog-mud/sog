@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: checktrans.pl,v 1.9 2001-02-12 19:07:16 fjoe Exp $
+# $Id: checktrans.pl,v 1.10 2001-03-11 21:58:29 fjoe Exp $
 #
 # Usage: checktrans.pl [-u] [-d] [-F] files...
 # Options:
@@ -255,6 +255,7 @@ sub add_message
 	$msg =~ s/~~/~/g;
 	$msg =~ s/^\.//;
 	$msg =~ s/\r/\\r/g;
+	$msg =~ s/"/\\"/g;
 	$msgdb{$msg} = {};
 
 	return 0;
