@@ -351,6 +351,15 @@ weapon 0 AN
 bow 1 1 blast 0
 1 5 10 P
 G none
+#8
+cross~
+A cross of %s~
+Torn remains of %s are here on the cross.~
+flesh~
+trash CET 0
+0 0 0 0 0
+0 100 0 P
+G none
 #9
 elka christmas tree~
 @eng Christmas tree@rus ณฬหม~
