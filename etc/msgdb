@@ -193,6 +193,7 @@ channel    | status@rus .
 @eng $N has deactivated shutdown.@rus $N $gN{отменил} останов.~
 @eng $N has entered the game.@rus $N $gN{появился} в мире.~
 @eng $N has entered the room.@rus $N $gN{появился} неподалеку.~
+@eng $N has left the realm, I have to leave too.@rus $N $gN{покинул} реальность, поэтому я тоже покидаю ее.~
 @eng $N has returned from the void.@rus $N $gN{вернулся} из небытия.~
 @eng $N has wizlocked the game.@rus $N $gN{запретил} доступ смертным персонажам.~
 @eng $N helps you apply your practice to training.@rus $N $gN{поменял} твои практические занятия на тренировки.~
@@ -233,6 +234,7 @@ channel    | status@rus .
 @eng $N is beyond taming.@rus $N не может быть $gN{приручен}.~
 @eng $N is blinded by $n's attack!@rus $N $gN{ослеплен} ударом $c1{$n}!~
 @eng $N is contemplating deletion.@rus $N $gN{весь} в размышлениях о бренности существования.~
+@eng $N is dead and I can leave the realm.@rus $N $gN{мертв} и я могу покинуть эту реальность.~
 @eng $N is deleted due to $t.@rus $N $gN{прекратил} свое бренное существование из-за $c1{$t}.~
 @eng $N is fighting.@rus $N $gN{сражается}.~
 @eng $N is gone!@rus $N $gN{исчез}!~
@@ -366,6 +368,8 @@ $N преданно $gN{глядит} на тебя.~
 @eng $N's thin light ray ###DISINTEGRATES### you!@rus Луч света от $c1{$N} ###РАЗДЕЛЯЕТ### тебя на составные части!~
 @eng $N{x$t {xis here, riding $I.@rus $N{x$t {xздесь, верхом на $c5{$I}.~
 @eng $N{x$t {xis here.@rus $N{x$t {xздесь.~
+@eng $P is beyond my power.@rus Починить $P мне не по силам.~
+@eng $P is beyond repair.@rus $P не $gP{подлежит} восстановлению.~
 @eng $P is closed.@rus $P $gP{закрыт}.~
 @eng $P was too powerful for you.@rus Сила $c1{$P} пока что слишком велика, ты не можешь совладать с $gP{ним}.~
 @eng $P: you can't carry that many items.@rus $P: ты не можешь унести так много вещей.~
@@ -383,24 +387,22 @@ $N преданно $gN{глядит} на тебя.~
 @eng $d is too narrow for you to pass.@rus $d слишком $gd{узок}, чтобы ты $gn{мог} в $gd{него} пролезть.~
 @eng $d opens.@rus $d открывается.~
 @eng $e's already been blinded.@rus $gN{Он} уже $gN{ослеплен}.~
-@eng $i couldn't rob $gi{his} way out of a paper bag!@rus Воришка $i, оставь в покое мои деньги!~
 @eng $i has arrived through $P, riding $I.@rus $i прибыл из $c1{$P}, верхом на $c5{$I}.~
 @eng $i has arrived through $P.@rus $i $gi{появился} из $c1{$P}.~
 @eng $i has arrived, riding $I.@rus $i $gi{появился} верхом на $c5{$I}.~
 @eng $i has arrived, riding $N.@rus $i $gi{прибыл} верхом на $c5{$N}.~
 @eng $i has arrived.@rus $i $gi{прибывает}.~
-@eng $i has left the realm, I have to leave too.@rus $i $gi{покинул} реальность, поэтому я тоже покидаю ее.~
-@eng $i is a lousy thief!@rus $i -- гнусный вор!~
-@eng $i is dead and I can leave the realm.@rus $i $gi{мертв} и я могу покинуть эту реальность.~
-@eng $i the CRIMINAL is over here!@rus $i $gi{нарушил} закон, таким не место здесь!~
-@eng $i tried to rob me!@rus $i $gi{пытался} меня ограбить!~
-@eng $i tries to poison me!@rus $i $gi{пытается} отравить меня!~
-@eng $i! Now you die!@rus $i! Сейчас ты умрешь!~
 @eng $j $qj{gold coins} deposited. Come again soon!@rus $j $qj{золотых монет} зачислено на твой счет. Приходи еще.~
 @eng $j $qj{penalties} $qj{have} been added.@rus Наложено $j $qj{взысканий}.~
 @eng $j $qj{silver coins} deposited. Come again soon!@rus $j $qj{серебряных монет} зачислено на твой счет. Приходи еще.~
 @eng $j: No mob has that vnum.@rus $j: моб с таким номером отсутствует.~
 @eng $j: No objects with this vnum.@rus $j: Нет обьекта с таким номером.~
+@eng $lu{$N} couldn't rob $gN{his} way out of a paper bag!@rus Воришка $N, оставь в покое мои деньги!~
+@eng $lu{$N} is a lousy thief!@rus $lu{$N} -- гнусный вор!~
+@eng $lu{$N} the CRIMINAL is over here!@rus $lu{$N} $gN{нарушил} закон, таким не место здесь!~
+@eng $lu{$N} tried to rob me!@rus $lu{$N} $gN{пытался} меня ограбить!~
+@eng $lu{$N} tries to poison me!@rus $lu{$N} $gN{пытается} отравить меня!~
+@eng $lu{$N}! Now you die!@rus $lu{$N}! Сейчас ты умрешь!~
 $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n $u $N.@rus $n $u $c6{$N}.~
 @eng $n $u $mself!@rus $n $gn{$u} себя!~
@@ -1060,7 +1062,6 @@ $n takes advantage of your fall, stabbing you down."~
 @eng $p is already hungry for enemy life.@rus $p и так $gp{жаждет} жизни врага.~
 @eng $p is already invisible.@rus $p уже $gp{невидимый}.~
 @eng $p is already protected from burning.@rus $p уже и так не может сгореть.~
-@eng $p is beyond repair.@rus $p не $gp{подлежит} восстановлению.~
 @eng $p is broken into pieces by crashing sands.@rus Летящий песок разбивает $c3{$p}.~
 @eng $p is burned into waste.@rus $p $gp{растворился}.~
 @eng $p is closed.@rus $p $gn{закрыт}.~
@@ -1439,10 +1440,10 @@ $t~
 @eng Descriptor not found!@rus Дескриптор не найден!~
 @eng Desire range is -1 to 100.@rus Диапазон значений -1...100.~
 @eng Despite your efforts, the universe resisted chaos.@rus Не смотря на твои усилия, вселенная устойчива к наростанию в ней хаоса.~
-@eng Die, $i! You are backstabbing scum!@rus Умри, $i, бесчестная тварь!~
-@eng Die, $i! You're backstabbing scum!@rus Умри, $i! Ты ничтожная тварь!~
-@eng Die, $i, you butchering fool!@rus Умри, $i, мерзкий мясник!~
-@eng Die, $i, you sorcerous dog!@rus Умри, $i, мерзкая тварь!~
+@eng Die, $N! You are backstabbing scum!@rus Умри, $N, бесчестная тварь!~
+@eng Die, $N! You're backstabbing scum!@rus Умри, $N! Ты ничтожная тварь!~
+@eng Die, $N, you butchering fool!@rus Умри, $N, мерзкий мясник!~
+@eng Die, $N, you sorcerous dog!@rus Умри, $N, мерзкая тварь!~
 @eng Disabled commands:@rus Недоступные команды:~
 @eng Do I know you?@rus А ты кто такой?~
 @eng Do it yourself!@rus Делай это $gn{сам}!~
@@ -1523,26 +1524,25 @@ $t~
 @eng Having targeted it to another character, you see:@rus Указав к качестве цели другого игрока, ты увидишь:~
 @eng Having targeted yourself, you see:@rus Указав целью себя, ты увидишь:~
 @eng Having used with no argument specified, you see:@rus При использовании без аргумента, ты увидишь:~
-@eng Help! $i is attacking me!@rus Помогите! $i $gi{напал} на меня!~
-@eng Help! $i just tried to shatter my skull!@rus Помогите! $i $gi{пытался} проломить мне голову!~
-@eng Help! $i just tryed to impale me!@rus Помогите! $lu{$i} $gi{попытался} нанизать меня на свое копье!~
-@eng Help! $lu{$i} is attacking me!@rus Помогите! $lu{$i} $gi{напал} на меня!~
-@eng Help! $lu{$i} is bashing me!@rus Помогите! $lu{$i} $gi{пытался} сбить меня с ног!~
-@eng Help! $lu{$i} is trying to shoot me!@rus Помогите! $lu{$i} пытается меня застрелить!~
-@eng Help! $lu{$i} just kicked dirt into my eyes!@rus Помогите! $lu{$i} $gi{кинул} пыль мне в глаза!~
-@eng Help! $lu{$i} just kidnapped me!@rus Помогите! $lu{$i} $gi{похитил} меня!~
-@eng Help! $lu{$i} just threw dust into my eyes!@rus Помогите! $lu{$i} $gi{кинул} мне в глаза пылью!~
-@eng Help! $lu{$i} just tripped me!@rus Помогите! $lu{$i} пытался подставить мне подножку!~
-@eng Help! $lu{$i} tried to bite me!@rus На помощь! $lu{$i} $gi{попыталcя} укусить меня!~
-@eng Help! $lu{$i} tried to hit me with his tail!@rus Помогите! $lu{$i} пытался ударить меня своим хвостом!~
-@eng Help! $lu{$i} tried to kidnap me!@rus Помогите! $lu{$i} только что $gi{пытался} похитить меня!~
-@eng Help! $lu{$i} tried to touch me!@rus Помогите! $lu{$i} пытался отправить меня в мир кошмаров!~
-@eng Help! $lu{$i} tries to assassinate me!@rus Помогите! $lu{$i} $gi{пытался} покончить со мной!~
-@eng Help! $lu{$i} tries to burn me!@rus Помогите! $lu{$i} $gi{пытался} сжечь меня!~
-@eng Help! I'm being blackjacked by $i!@rus Помогите! $lu{$i} $gi{ударил} меня мешком по голове!~
-@eng Help! I'm being strangled by $i!@rus Помогите! $i $gi{пытался} меня задушить!~
-@eng Help! I've been ambushed by $i!@rus Помогите! $i $gi{напал} на меня из засады!~
-@eng Help! I've been attacked by $i!@rus Помогите! На меня $gi{напал} $c6{$i}!~
+@eng Help! $lu{$N} is attacking me!@rus Помогите! $lu{$N} $gN{напал} на меня!~
+@eng Help! $lu{$N} is bashing me!@rus Помогите! $lu{$N} $gN{пытался} сбить меня с ног!~
+@eng Help! $lu{$N} is trying to shoot me!@rus Помогите! $lu{$N} пытается меня застрелить!~
+@eng Help! $lu{$N} just kicked dirt into my eyes!@rus Помогите! $lu{$N} $gN{кинул} пыль мне в глаза!~
+@eng Help! $lu{$N} just kidnapped me!@rus Помогите! $lu{$N} $gN{похитил} меня!~
+@eng Help! $lu{$N} just threw dust into my eyes!@rus Помогите! $lu{$N} $gN{кинул} мне в глаза пылью!~
+@eng Help! $lu{$N} just tried to impale me!@rus Помогите! $lu{$N} $gN{попытался} нанизать меня на свое копье!~
+@eng Help! $lu{$N} just tried to shatter my skull!@rus Помогите! $lu{$N} $gN{пытался} проломить мне голову!~
+@eng Help! $lu{$N} just tripped me!@rus Помогите! $lu{$N} пытался подставить мне подножку!~
+@eng Help! $lu{$N} tried to bite me!@rus На помощь! $lu{$N} $gN{попыталcя} укусить меня!~
+@eng Help! $lu{$N} tried to hit me with his tail!@rus Помогите! $lu{$N} пытался ударить меня своим хвостом!~
+@eng Help! $lu{$N} tried to kidnap me!@rus Помогите! $lu{$N} только что $gN{пытался} похитить меня!~
+@eng Help! $lu{$N} tried to touch me!@rus Помогите! $lu{$N} пытался отправить меня в мир кошмаров!~
+@eng Help! $lu{$N} tries to assassinate me!@rus Помогите! $lu{$N} $gN{пытался} покончить со мной!~
+@eng Help! $lu{$N} tries to burn me!@rus Помогите! $lu{$N} $gN{пытался} сжечь меня!~
+@eng Help! I'm being blackjacked by $N!@rus Помогите! $lu{$N} $gN{ударил} меня мешком по голове!~
+@eng Help! I'm being strangled by $N!@rus Помогите! $N $gN{пытался} меня задушить!~
+@eng Help! I've been ambushed by $N!@rus Помогите! $N $gN{напал} на меня из засады!~
+@eng Help! I've been attacked by $N!@rus Помогите! На меня $gN{напал} $N!~
 @eng Here are your $j $qj{gold coins}@rus $qj{Твои} $j $qj{золотых}~
 @eng Here are your $j $qj{silver coins}@rus $qj{Твои} $j $qj{серебряных}~
 @eng Hints disabled.@rus Подсказки больше не будут показываться.~
@@ -1567,7 +1567,7 @@ $t~
 @eng I don't remember you. Go away!@rus Я тебя не знаю. Убирайся отсюда!~
 @eng I don't sell that -- try 'list'@rus Я не продаю этого. Набери <list>, чтобы посмотреть, чем я торгую.~
 @eng I don't trade with folks I can't see.@rus Я не торгую с теми, кого не вижу.~
-@eng I have lost $i!@rus След $c1{$i} потерян!~
+@eng I have lost $N!@rus След $c1{$N} потерян!~
 @eng I see no $T here.@rus Здесь нет $c1{$T}.~
 @eng I see no door $T here.@rus Я не вижу здесь дверей $T.~
 @eng I see no exit $T here.@rus Я не вижу здесь выходов на $T.~
@@ -1620,7 +1620,7 @@ $t~
 @eng It is unable to hold water.@rus Эта вещь не может быть наполнена водой.~
 @eng It starts to rain.@rus Начал накрапывать дождик.~
 @eng It was never designed for that.@rus Твое оружие не предназначено для этой цели.~
-@eng It will cost you $j gold to fix that item.@rus Починка этого изделия обойдется тебе в $j $qj{золотых}.~
+@eng It will cost you $K gold to fix that item.@rus Починка этого изделия обойдется тебе в $K $qK{золотых}.~
 @eng It won't fit.@rus Не входит.~
 @eng It's $T.@rus Сейчас $T.~
 @eng It's $ufilled with a $V liquid.@rus $P $u$gP{наполнен} $c4{$g2{$V}} жидкостью.~
@@ -1640,8 +1640,8 @@ $t~
 @eng Just keep it all.@rus Оставь все себе.~
 @eng Just try to open it.@rus Попробуй просто открыть.~
 @eng Just type delete. No argument.@rus Просто "delete". Без аргументов.~
-@eng Keep your hands off of me, $i!@rus Убери от меня свои руки, $i!~
-@eng Keep your hands out of there, $i!@rus $i, убери от меня свои загребущие руки!~
+@eng Keep your hands off of me, $N!@rus Убери от меня свои руки, $N!~
+@eng Keep your hands out of there, $N!@rus $lu{$N}, убери от меня свои загребущие руки!~
 @eng Kidnap whom?@rus Кого похитить?~
 @eng Kill whom?@rus Убить кого?~
 @eng Knife whom?@rus Вонзить ножик в кого?~
@@ -1981,7 +1981,7 @@ Quest staff waits patiently to return.~
 @eng Simply type 'gain convert' or 'gain revert'.@rus Используй 'gain convert' или 'gain revert'.~
 @eng Skill '$t' in group '$T'.@rus Умение '$t' принадлежит к группе '$c1{$T}'.~
 @eng Skill:@rus Умение:~
-@eng So we meet again, $i!@rus Вот мы и встретились снова, $i!~
+@eng So we meet again, $N!@rus Вот мы и встретились снова, $N!~
 @eng So your charisma has increased by one.@rus Твое обаяние стало еще больше.~
 @eng So your charisma has reduced by one.@rus К сожалению, твое обаяние стало меньше.~
 @eng SoG is going down for rebooting NOW!
@@ -2060,7 +2060,6 @@ $t~
 @rus Этот персонаж уже в игре.
 ~
 @eng That class is not available for your race or sex.@rus Этот класс не доступен для твоей расы или пола.~
-@eng That hammer is beyond my power.@rus Этот молот не для меня.~
 @eng That is not a container.@rus Это не контейнер.~
 @eng That is not a mobile.@rus Это не моб.~
 @eng That is not a spell or skill.@rus Это не заклинание и не умение.~
@@ -3415,7 +3414,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng You raise your hand and a blinding ray of light shoots forth!@rus Воздев руки, ты $gn{послал} вперед ослепляющий луч света!~
 @eng You reach down and smite $n!@rus Ты $gN{устремился} вниз и $gN{поразил} $c3{$n}!~
 @eng You reach for the True Source and feel something stopping you.@rus Пытаясь дотянуться до Источника Силы, ты $gn{почувствовал} что что-то не пускает тебя.~
-@eng You receive $j experience points.@rus Ты получаешь $j $qj{единиц} опыта.~
+@eng You receive $j experience points.@rus Ты получаешь $j $c3{$qj{единиц}} опыта.~
 @eng You recite $p.@rus Ты зачитываешь $c3{$p}.~
 @eng You release $p and it floats next to you.@rus Ты выпускаешь $c3{$p} и $gp{он} $gp{начинает} летать вокруг тебя.~
 @eng You remove $N from your group.@rus Ты $gn{исключил} $c6{$N} из своей группы.~
