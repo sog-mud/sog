@@ -132,6 +132,22 @@ stand stand male 1000
 F for AHMV
 F par ABCDEFGHIJK
 M bribe 36130 100000~
+#36107
+jeweller~
+@eng Jeweller@rus Ювелир~
+@eng A jeweller is here.
+@rus Добродушный старичек с удовольствием оберет тебя до нитки.
+~
+~
+human~
+ABGe DFHVclmnt 0 0
+95 300 100d100+10000 100d100+10000 100d10+1000 none
+-50 -50 -50 -50
+0 AB 0 0
+stand stand male 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
 #36108
 grocer~
 @eng Grocer@rus Бакалейщик~
@@ -149,6 +165,54 @@ stand stand male 0
 0 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
+#36109
+old swordsman~
+@eng Soul of swordsman@rus Душа мечника~
+@eng A soul of a swordsman, guarding the sword, is here.
+@rus Душа мечника летает здесь, охраняя Меч.
+~
+~
+human~
+ABFGQTe DFHVlmnt 0 0
+95 150 100d100+10000 100d100+10000 100d10+500 slash
+-50 -50 -50 -50
+0 AB 0 0
+stand stand none 0
+0 0 giant unknown
+F for AHMV
+F par ABCDEFGHIJK
+#36110
+fire~
+@eng {x@rus {x~
+~
+~
+human~
+ABGe BQg 0 0
+95 300 10d10+1000 10d10+1000 10d10+1000 none
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+M greet 36132 100~
+#36111
+secretary~
+@eng pretty secretary@rus СмазливаЯ секретарша~
+@eng A pretty girl is sitting here, playing lines.
+@rus Хорошенькая девушка играет здесь в lines.
+~
+~
+human~
+ABGe DFHVclmt 0 0
+95 300 100d100+10000 100d100+10000 100d10+1000 slap
+-50 -50 -50 -50
+0 AB 0 0
+stand stand female 0
+0 0 small unknown
+F for AHMV
+F par ABCDEFGHIJK
+M greet 36133 100~
 #0
 
 #OBJECTS
@@ -266,6 +330,34 @@ A
 3 1
 A
 17 -2
+#36113
+Chaos sword~
+@eng {rChaos Sword of Hero{x@rus {rГорящий Меч Героя{x~
+@eng Chaos Sword of Hero is here.@rus Горящий Меч Героя здесь.~
+energy~
+weapon A AN
+sword 12 10 cleave ABDGH
+91 0 55000 P
+A
+19 20
+A
+18 20
+#36114
+Tiny staff~
+@eng Small staff@rus Маленький жезл украшенный драгоценностями.~
+@eng A small staff is here.@rus Маленький жезл украшенный драгоценностями лежит здесь.~
+unknown~
+treasure A AO
+0 0 0 0 0
+5 0 10000 P
+A
+2 1
+A
+1 1
+A
+18 1
+A
+19 1
 #36189
 no name~
 ~
@@ -696,6 +788,10 @@ D0
 ~
 ~
 Z 0 36123
+D1
+~
+~
+Z 0 36128
 D2
 ~
 ~
@@ -799,6 +895,504 @@ D1
 ~
 Z 0 36125
 S
+#36128
+@eng The Waiting Room@rus Приемная Хаоса~
+~
+0 0 inside
+D1
+~
+~
+Z 0 36129
+D3
+~
+~
+Z 0 36121
+S
+#36129
+@eng Office of Chaos@rus Кабинет Хаоса~
+~
+0 0 inside
+D3
+~
+~
+Z 0 36128
+S
+#36130
+@eng {rLake of flame{x@rus {rОгненое озеро{x~
+@eng @rus {x
+~
+0 AN inside
+D0
+~
+~
+Z 0 36133
+D1
+~
+~
+Z 0 36131
+D3
+~
+~
+Z 0 36131
+S
+#36131
+@eng {rLake of flame{x@rus {rОгненое озеро{x~
+@eng @rus {x
+~
+0 AN inside
+D0
+~
+~
+Z 0 36132
+D1
+~
+~
+Z 0 36130
+D3
+~
+~
+Z 0 36130
+S
+#36132
+@eng {rLake of flame{x@rus {rОгненое озеро{x~
+@eng @rus {x
+~
+0 AN inside
+D0
+~
+~
+Z 0 36135
+D1
+~
+~
+Z 0 36133
+D2
+~
+~
+Z 0 36131
+D3
+~
+~
+Z 0 36133
+S
+#36133
+@eng {rLake of flame{x@rus {rОгненое озеро{x~
+@eng @rus {x
+~
+0 AN inside
+D0
+~
+~
+Z 0 36134
+D1
+~
+~
+Z 0 36132
+D2
+~
+~
+Z 0 36130
+D3
+~
+~
+Z 0 36132
+S
+#36134
+@eng {rLake of flame{x@rus {rОгненое озеро{x~
+@eng @rus {x
+~
+0 AN inside
+D0
+~
+~
+Z 0 36137
+D1
+~
+~
+Z 0 36135
+D2
+~
+~
+Z 0 36133
+D3
+~
+~
+Z 0 36135
+S
+#36135
+@eng {rLake of flame{x@rus {rОгненое озеро{x~
+@eng @rus {x
+~
+0 AN inside
+D0
+~
+~
+Z 0 36136
+D1
+~
+~
+Z 0 36134
+D2
+~
+~
+Z 0 36132
+D3
+~
+~
+Z 0 36134
+S
+#36136
+@eng {rLake of flame{x@rus {rОгненое озеро{x~
+@eng @rus {x
+~
+0 AN inside
+D0
+~
+~
+Z 0 36139
+D1
+~
+~
+Z 0 36137
+D2
+~
+~
+Z 0 36135
+D3
+~
+~
+Z 0 36137
+S
+#36137
+@eng {rLake of flame{x@rus {rОгненое озеро{x~
+@eng @rus {x
+~
+0 AN inside
+D0
+~
+~
+Z 0 36138
+D1
+~
+~
+Z 0 36136
+D2
+~
+~
+Z 0 36134
+D3
+~
+~
+Z 0 36136
+S
+#36138
+@eng {rLake of flame{x@rus {rОгненое озеро{x~
+@eng @rus {x
+~
+0 AN inside
+D0
+~
+~
+Z 0 36141
+D1
+~
+~
+Z 0 36139
+D2
+~
+~
+Z 0 36137
+D3
+~
+~
+Z 0 36139
+S
+#36139
+@eng {rLake of flame{x@rus {rОгненое озеро{x~
+@eng @rus {x
+~
+0 AN inside
+D0
+~
+~
+Z 0 36140
+D1
+~
+~
+Z 0 36138
+D2
+~
+~
+Z 0 36136
+D3
+~
+~
+Z 0 36138
+S
+#36140
+@eng {rLake of flame{x@rus {rОгненое озеро{x~
+@eng @rus {x
+~
+0 AN inside
+D0
+~
+~
+Z 0 36143
+D1
+~
+~
+Z 0 36141
+D2
+~
+~
+Z 0 36139
+D3
+~
+~
+Z 0 36141
+S
+#36141
+@eng {rLake of flame{x@rus {rОгненое озеро{x~
+@eng @rus {x
+~
+0 AN inside
+D0
+~
+~
+Z 0 36142
+D1
+~
+~
+Z 0 36140
+D2
+~
+~
+Z 0 36138
+D3
+~
+~
+Z 0 36140
+S
+#36142
+@eng {rLake of flame{x@rus {rОгненое озеро{x~
+@eng @rus {x
+~
+0 AN inside
+D0
+~
+~
+Z 0 36145
+D1
+~
+~
+Z 0 36143
+D2
+~
+~
+Z 0 36141
+D3
+~
+~
+Z 0 36143
+S
+#36143
+@eng {rLake of flame{x@rus {rОгненое озеро{x~
+@eng @rus {x
+~
+0 AN inside
+D0
+~
+~
+Z 0 36144
+D1
+~
+~
+Z 0 36142
+D2
+~
+~
+Z 0 36140
+D3
+~
+~
+Z 0 36142
+S
+#36144
+@eng {rLake of flame{x@rus {rОгненое озеро{x~
+@eng @rus {x
+~
+0 AN inside
+D0
+~
+~
+Z 0 36147
+D1
+~
+~
+Z 0 36145
+D2
+~
+~
+Z 0 36143
+D3
+~
+~
+Z 0 36145
+S
+#36145
+@eng {rLake of flame{x@rus {rОгненое озеро{x~
+@eng @rus {x
+~
+0 AN inside
+D0
+~
+~
+Z 0 36146
+D1
+~
+~
+Z 0 36144
+D2
+~
+~
+Z 0 36142
+D3
+~
+~
+Z 0 36144
+S
+#36146
+@eng {rLake of flame{x@rus {rОгненое озеро{x~
+@eng @rus {x
+~
+0 AN inside
+D0
+~
+~
+Z 0 36149
+D1
+~
+~
+Z 0 36147
+D2
+~
+~
+Z 0 36145
+D3
+~
+~
+Z 0 36147
+S
+#36147
+@eng {rLake of flame{x@rus {rОгненое озеро{x~
+@eng @rus {x
+~
+0 AN inside
+D0
+~
+~
+Z 0 36148
+D1
+~
+~
+Z 0 36146
+D2
+~
+~
+Z 0 36144
+D3
+~
+~
+Z 0 36146
+S
+#36148
+@eng {rLake of flame{x@rus {rОгненое озеро{x~
+@eng @rus {x
+~
+0 AN inside
+D0
+~
+~
+Z 0 36151
+D1
+~
+~
+Z 0 36149
+D2
+~
+~
+Z 0 36147
+D3
+~
+~
+Z 0 36149
+S
+#36149
+@eng {rLake of flame{x@rus {rОгненое озеро{x~
+@eng @rus {x
+~
+0 AN inside
+D0
+~
+~
+Z 0 36150
+D1
+~
+~
+Z 0 36148
+D2
+~
+~
+Z 0 36146
+D3
+~
+~
+Z 0 36148
+S
+#36150
+@eng {rLake of flame{x@rus {rОгненое озеро{x~
+@eng @rus {x
+~
+0 AN inside
+D0
+~
+~
+Z 0 36135
+D1
+~
+~
+Z 0 36151
+D2
+~
+~
+Z 0 36149
+D3
+~
+~
+Z 0 36146
+S
+#36151
+@eng Island@rus Остров~
+@eng @rus {x
+~
+0 0 inside
+D0
+~
+~
+Z 0 36141
+D1
+~
+~
+Z 0 36144
+D2
+~
+~
+Z 0 36148
+D3
+~
+~
+Z 0 36150
+S
 #0
 
 #RESETS
@@ -822,6 +1416,38 @@ M 0 36101 1 36119 1	* Small pretty demongirl (Chaos Square)
 O 0 36103 0 36121	* All came to drink. (White House.)
 M 0 36108 1 36126 1	* Grocer (Grocer shop)
 G 0 36112 0		*	flame
+M 0 36107 1 36127 1	* Jeweller (Jeweller shop)
+G 0 36114 0		*	Small staff
+M 0 36111 1 36128 1	* pretty secretary (The Waiting Room)
+R 0 36130 4	* {rLake of flame{x: randomize
+R 0 36131 4	* {rLake of flame{x: randomize
+R 0 36132 4	* {rLake of flame{x: randomize
+M 0 36110 1 36133 1	* {x ({rLake of flame{x)
+R 0 36133 4	* {rLake of flame{x: randomize
+R 0 36134 4	* {rLake of flame{x: randomize
+R 0 36135 4	* {rLake of flame{x: randomize
+M 0 36110 1 36136 1	* {x ({rLake of flame{x)
+R 0 36136 4	* {rLake of flame{x: randomize
+R 0 36137 4	* {rLake of flame{x: randomize
+R 0 36138 4	* {rLake of flame{x: randomize
+M 0 36110 1 36139 1	* {x ({rLake of flame{x)
+R 0 36139 4	* {rLake of flame{x: randomize
+R 0 36140 4	* {rLake of flame{x: randomize
+R 0 36141 4	* {rLake of flame{x: randomize
+M 0 36110 1 36142 1	* {x ({rLake of flame{x)
+R 0 36142 4	* {rLake of flame{x: randomize
+R 0 36143 4	* {rLake of flame{x: randomize
+R 0 36144 4	* {rLake of flame{x: randomize
+M 0 36110 1 36145 1	* {x ({rLake of flame{x)
+R 0 36145 4	* {rLake of flame{x: randomize
+R 0 36146 4	* {rLake of flame{x: randomize
+R 0 36147 4	* {rLake of flame{x: randomize
+M 0 36110 1 36148 1	* {x ({rLake of flame{x)
+R 0 36148 4	* {rLake of flame{x: randomize
+R 0 36149 4	* {rLake of flame{x: randomize
+R 0 36150 4	* {rLake of flame{x: randomize
+M 0 36109 1 36151 1	* Soul of swordsman (Island)
+E 0 36113 0 16		*	{rChaos Sword of Hero{x: wielded
 S
 
 #SHOPS
@@ -830,6 +1456,7 @@ S
 36104 0 13 0 0 0 100 100 0 23
 36105 0 5 0 0 0 100 100 0 23
 36106 0 3 0 0 0 100 100 0 23
+36107 0 8 0 0 0 100 100 0 23
 36108 0 1 0 0 0 100 100 0 23
 0
 
@@ -947,6 +1574,14 @@ give potion $n
 emote достает из под прилавка бутылку водки.
 mob oload 36110
 give vodka $n
+~
+#36132
+mob c 'flamestrike' $n
+mob transfer $n 36131
+~
+#36133
+say Бога нет!
+mob transfer $n 36121
 ~
 #0
 

@@ -4449,13 +4449,6 @@ O 17019 1	* the girdle of might
 O 17025 1	* armbands of the Volcanoes
 S
 
-#MOBPROGS
-#17000
-say NONE SHALL PASS
-MOB KILL $n
-~
-#0
-
 #OMPROGS
 O 17025 wear_prog wear_prog_armbands	* `armbands of the Volcanoes'
 O 17025 remove_prog remove_prog_armbands	* `armbands of the Volcanoes'

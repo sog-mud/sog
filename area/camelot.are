@@ -1,7 +1,7 @@
 #AREADATA
 Name Camelot~
 Builders None~
-VNUMs 17300 17500
+VNUMs 17301 17500
 Credits Lok~
 Security 9
 LevelRange 20 52
@@ -115,8 +115,7 @@ AB DF 0 0
 EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
-M greet 17000 100~
-M greet 17000 all~
+M greet 17301 100~
 #17308
 gareth knight~
 Sir Gareth~
@@ -4077,6 +4076,17 @@ S
 17338 5 9 18 0 0 100 100 0 23
 17339 0 0 0 0 0 100 100 0 23
 0
+
+#MOBPROGS
+#17301
+if isghost $n
+or isimmort $n
+else
+say NONE SHALL PASS!
+mob kill $n
+endif
+~
+#0
 
 #PRACTICERS
 M 17337 attack	* A towering, black scaled demon

@@ -986,15 +986,19 @@ ring hero~
 the %s Ring of %s~
 An enormous, RING lies here, filling the room with its power.~
 energy~
-armor AGIOY ABP
-12 12 12 9 1
+weapon AGIOY ABP
+exotic 0 0 none 0
 21 30 100000 G
 A
-6 1
+17 -30
 A
-17 -20
+14 500
+A
+19 5
 A
 18 10
+A
+6 1
 A
 12 150
 A

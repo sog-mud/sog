@@ -2832,12 +2832,13 @@ because of crashes note to gods.
 
 ~
 -1 RINGREWARD 'QUEST REWARD RING'~
-Object 'ring hero' is type armor, extra flags glow magic bless nopurge burn_proof.
+Object 'ring hero' is type {cweapon{x, extra flags glow magic bless nopurge burn_proof.
 Weight is 30, value is 100000, level is 21.
 Armor class is 12 pierce, 12 bash, 12 slash, and 9 vs. magic.
 Affects moves by 500.
 Affects hp by 150.
 Affects mana by 150.
+Affects dam roll by 5.
 Affects hit roll by 10.
 Affects armor class by -20.
 Affects charisma by 1.
@@ -3157,29 +3158,6 @@ This help is only for russian win1251 (MS Windows) codepage players.
 {Cnotelnet{x. Для того, чтобы маленькая буква 'Я' транслировалась в большую,
 попробуйте {Cnoiac{x.
 ~
--1 'OLC INTRO'~
-Syntax: EDIT AREA [create/reset] [vnum]		- Area Creation and Repoping.
-Syntax: EDIT ROOM ( [create] [vnum] )		- Room Creation and Editing.
-Syntax: EDIT OBJ  [create] <vnum>		- Object Creation and Editing.
-Syntax: EDIT MOB  [create] <vnum>		- Mobile Creation and Editing.
-Syntax: EDIT MP   [create] <vnum>               - MobProg Creation/Editing.
-
-Syntax: ASAVE  <world/area/changed/list>	- Save Editing to Disk.
-Syntax: ALIST                                   - Listing of Areas.
-Syntax: RESET  See Help Resets.			- Set Game Resets.
-
-Definition: [optional]  <required>  (combined arguments)
-
-     The above commands are used to expand the game world.  The original
-code is based on was written by Surreality and installed in The Isles by Locke.
-It was then converted to work with Envy by Jason Dinkel, and ported to ROM
-2.3 by Hans Birkeland (Hugin). Port to Rom 2.4 by Ivan Toledo (ver 1.7).
-
-     Inside an editor, typing COMMANDS lists working commands and ? gives
-help. AEDIT and REDIT default to the current area or room. EDIT ROOM RESET
-resets the current room.  Most commands with no arguments display syntax.
-See also help: AEDIT REDIT MEDIT OEDIT
-~
 0 ALIST~
 Syntax: ALIST
 
@@ -3206,27 +3184,6 @@ vnum <lower> <upper>- set the lower and upper vnum's
 lvnum <lower>       - set the lower vnum
 uvnum <upper>       - set the upper vnum
 <flags>             - area flags, type ? AREA for a list
-~
-0 'OLC REDIT'~
-Syntax: edit room		-Enters the editor for the current room.
-
-The following commands are available from within the REDITOR:
-
-commands            - prints a list of possible commands
-create <vnum>       - creates a room with a certain vnum
-desc                - edit description of room
-done                - exists the room editor and returns to normal play
-ed                  - type this command for additonal extra-description help
-format              - format(wordwrap) the room description
-name <room title>   - changes the room title
-show                - hitting return, or 'show' shows the room stats
-oshow <vnum>        - shows an object with given vnum
-olist               - lists objects in this area.
-mshow <vnum>        - shows a mobile with given vnum
-mlist               - lists mobiles in this area.
-room <flags>        - room attributes, type ? ROOM for a list
-sector <type>       - terrain of room, type ? SECTOR for a list
-<direction>         - see help EXIT, or type <dir> ?
 ~
 0 'OLC EXITS'~
 For exits, type the direction (north/s/e/w) followed by:
@@ -3720,15 +3677,11 @@ riding -- skill - самый что ни на есть riding.
 Кроме того, возможно создание новых скиллов, при этом вы должны хорошо продумать как этот скилл будет работать, и суметь это четко объяснить. Естественно, что создание новых скиллов требует некоторого времени.
  
 ~
-0 'OLC EXTRA DESCRIPTION'~
+0 'OLC EXD'~
 Syntax: ed add keyword lang
         ed edit keyword lang
         ed delete keyword
         ed format keyword
-~
-0 'OLC HEDIT'~
-Syntax: hedit create keyword
-        hedit edit [num.]keyword
 ~
 0 'CLAN Scum' Scum~
 @eng @rus Страх и гордыня, ненависть и лицемерие, подлость и жадность - вот та сила,
@@ -3782,13 +3735,10 @@ Dark Elf  Warlock     Woland
  
 .                       Да воцариться в Мире Порядок!
 ~
-0 'OLC MEDIT'~
-Syntax: medit [create] vnum
-~
 0 'protection negative'~
 Characters affected by 'protection negative' are immune to negative attack, for example 'energy drain', 'hand of undead', 'corruption'
 ~
-0 CHAOS~
+0 'CLAN CHAOS' CHAOS~
 @eng @rus Основные положения и цели :
  
 1. Закон, запрет, правило, обычай, либо любой другой устоявшийся свод правил,
@@ -3838,6 +3788,35 @@ Affects damroll by 15.
 Affects move by 500.
 Affects mana by 150.
 Affects hp by 200.
+~
+0 CLAN Black Lords~
+@eng @rus Насилие, грабежи, убийства, черное могущество поглотило этот мир, дыхание смерти
+отравило лучшее в нем, адская нечисть хлынула повсюду, сметая на своем пути
+добро, честь, справедливость, воцарился мрак на земле. Ни осталось ничего, что
+могло бы остановить зло. Космическое равновесие нарушилось, под угрозой 
+оказалось само существование этого мира. Но извечная справедливость нашла выход
+- могущество тьмы раскололось и новая сила порожденная самим злом заявила о 
+себе. Но это еще не было добром.
+Некоторые из могущественных лордов тьмы обатили свою силу против своих 
+дьявольских собратьев, и Тьма лишила их своего покровительства! Но воплотившись 
+в обычных существ они используя умения  людей возобновили борьбу и Справедливость
+была на их стороне! 
+Black Lords of Justice стали оружием добра, предвестниками его возрождения,
+Они должны сокрушить Тьму ценой собственного существования, открывая дорогу
+истинному Свету.
+У нас нет выбора кроме того, чтобы использовать неожиданность, коварство и,
+конечно, силу справедливости против могущества тьмы!
+Ослабление зла всеми возможными способами  и уничтожение его в конечном итоге
+является главной целью клана. Подлость и коварство по отношению к врагу есть
+наша справедливость и закон - ибо только так можно сокрушить Тьму! Мы проявляем
+благородство к слабым и уважение к сильным, защищаем добрых и уничтожаем злых, 
+но отношение к последним может измениться если они встанут на путь 
+справедливости! Любая агрессия по отношению к тем кто находится под нашей
+защитой жестоко карается! 
+В клан принимаются следующие классы игроков: Thief Ninja Samurai Warrior,
+персонажи с  evil  align,служащие справедливости neutral, и, естественно,
+ethos  должен быть lawful
+Leader : Krut The Great Lord
 ~
 -1 $~
 
