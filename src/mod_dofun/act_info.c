@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.6 2000-03-30 16:21:49 fjoe Exp $
+ * $Id: act_info.c,v 1.271.2.7 2000-03-30 16:29:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4590,7 +4590,7 @@ show_clanlist(CHAR_DATA *ch, clan_t *clan,
 
 	output = buf_new(-1);
 	buf_printf(output, "List of %s of %s:\n", name_list, clan->name);
-	buf_add(output, "Status   Level Race  Class Ethos-align     Name\n");
+	buf_add(output, "Status   Level Race  Class   Ethos-align   Name\n");
 	buf_add(output, "-------- ----- ----- ----- --------------- -------------\n");
 
 	list = first_arg(list, name, sizeof(name), FALSE);
@@ -4608,7 +4608,7 @@ show_clanlist(CHAR_DATA *ch, clan_t *clan,
 
 		cnt++;
 
-		buf_printf(output, "%-8s  %3d  %-5s  %-3s %7s-%-7s %s\n",
+		buf_printf(output, "%-8s  %3d  %-5s  %-3s  %7s-%-7s %s\n",
 			flag_string(clan_status_table, PC(vch)->clan_status),
 			vch->level,
 			RACE(vch->race)->race_pcdata->who_name,
