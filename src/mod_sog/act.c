@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.49 1999-12-16 07:06:56 fjoe Exp $
+ * $Id: act.c,v 1.50 1999-12-16 07:18:49 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -283,6 +283,8 @@ act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, int to_lang, int act_flags)
 static gmlstr_t *
 act_format_door(gmlstr_t *gml)
 {
+	if (gml == NULL)
+		return NULL;
 	if (mlstr_null(&gml->ml))
 		gml = glob_lookup("the door");
 	return gml;
