@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.45 1998-06-12 13:19:42 efdi Exp $
+# $Id: english.lang,v 1.46 1998-06-12 14:40:44 efdi Exp $
 #
 
 INFO_NOTHING		"Nothing.\n\r"
@@ -653,3 +653,18 @@ INFO_CANT_COMPARE_P_P	"You can't compare $p and $P."
 INFO_P_P_LOOKS_SAME	"$p and $P look about the same."
 INFO_P_LOOKS_BETTER_P	"$p looks better than $P."
 INFO_P_LOOKS_WORSE_P	"$p looks worse than $P."
+INFO_TOO_DARK_SEE	"It's too dark to see.\n\r"
+INFO_PLAYERS_NEAR_YOU	"Players near you:\n\r"
+INFO_DIDNT_FIND_ANY	"You didn't find any $T."
+INFO_CANT_CHANGE_TITLE	"You can't change your title.\n\r"
+INFO_CHANGE_TITLE_TO_WHAT	"Change your title to what?\n\r"
+INFO_ILLEGAL_CHARACTER_TITLE	"Illegal characters in title.\n\r"
+INFO_NO_LINES_TO_REMOVE		"No lines left to remove.\n\r"
+INFO_YOUR_DESC_IS		"Your description is:\n\r"
+INFO_DESC_CLEARED		"Description cleared.\n\r"
+INFO_DESC_TOO_LONG		"Description too long.\n\r"
+INFO_BR_NONE_BR			"(None).\n\r"
+INFO_REPORT_I_HAVE	"$n says '{GI have {c%d/%d{G hp {c%d/%d{G mana {c%d/%d{G mv.{x'"
+INFO_REPORT_I_HAVE_TO_CH  "You say '{GI have {c%d/%d{G hp {c%d/%d{G mana {c%d/%d{G mv.{x'"
+INFO_YOU_SCAN_S		"You scan %s.\n\r"
+INFO_N_SCANS_S		"$n scans %s."

@@ -1,7 +1,12 @@
 #HELPS
 
+-1 MUDDY~
+		Muddy is based on Anatolia MUD -- see help anatolia.
+		Original idea, concept and coding:
+	Max Khon			[CAMBAH] (fjoe@iclub.nsu.ru)
+	Alexander Motokhovets		[Eros]	 (efdi@iclub.nsu.ru)
 
-
+~
 -1 DIKU~
 .                    Original game idea, concept, and design:
 
@@ -570,7 +575,7 @@ area as you are.
 
 WHERE with an argument tells you the location of one character with that name
 within your area, including monsters. If pk switch is used, WHERE command 
-will only show the players near you that are in your PK ranger
+will only show the players near you that are in your PK range.
 ~
 
 0 HELP~
@@ -2614,7 +2619,7 @@ Syntax: vanish
 
 Pulling forth a small globe, the ninja casts it on the ground where it
 explodes in a puff of smoke.  When it clears, the ninja is gone!  This
-skill will tele
+skill will teleport him in random room.
 
 ~
 1 CALTROPS~
@@ -2622,7 +2627,7 @@ Syntax: caltrops
 
 Taking a handful of small spikes, the ninja throws them at his opponent's
 feet.  Damage taken from them is minor, but the victim's dexterity and hit/dam
-roll
+roll are reduced.
 
 ~
 1 NERVE~

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.70 1998-06-12 14:25:57 fjoe Exp $
+ * $Id: act_info.c,v 1.71 1998-06-12 14:40:26 efdi Exp $
  */
 
 /***************************************************************************
@@ -2223,7 +2223,7 @@ void do_compare(CHAR_DATA *ch, char *argument)
 
 void do_credits(CHAR_DATA *ch, char *argument)
 {
-	do_help(ch, "diku");
+	do_help(ch, "muddy");
 	return;
 }
 
@@ -2242,7 +2242,7 @@ void do_where(CHAR_DATA *ch, char *argument)
 		return;
 
 	if (room_is_dark(ch) && !IS_SET(ch->act, PLR_HOLYLIGHT)) {
-		send_to_char("It's too dark to see.\n\r",ch);
+		send_to_char(msg(INFO_TOO_DARK_SEE, ch), ch);
 		return;
 	}
 
@@ -2250,7 +2250,7 @@ void do_where(CHAR_DATA *ch, char *argument)
 		fPKonly = TRUE;
 
 	if (arg[0] == '\0' || fPKonly) {
-		send_to_char("Players near you:\n\r", ch);
+		send_to_char(msg(INFO_PLAYERS_NEAR_YOU, ch), ch);
 		found = FALSE;
 		for (d = descriptor_list; d; d = d->next) {
 			if (d->connected == CON_PLAYING
@@ -2262,14 +2262,14 @@ void do_where(CHAR_DATA *ch, char *argument)
 			&&   can_see(ch, victim)) {
 				found = TRUE;
 				char_printf(ch, "%s%-28s %s\n\r",
-		(is_safe_nomessage(ch, (is_affected(victim,gsn_doppelganger) && victim->doppel) ? victim->doppel : victim) || IS_NPC(victim)) ?  " " :
+		(is_safe_nomessage(ch, (is_affected(victim,gsn_doppelganger) && victim->doppel) ? victim->doppel : victim) || IS_NPC(victim)) ?  "     " :
 		"{r(PK){x ",
 		(is_affected(victim,gsn_doppelganger) && !IS_SET(ch->act,PLR_HOLYLIGHT)) ?  victim->doppel->name : victim->name,
 		victim->in_room->name);
 			}
 		}
 		if (!found)
-			send_to_char("None\n\r", ch);
+			send_to_char(msg(INFO_CAPNONE, ch), ch);
 	}
 	else {
 		found = FALSE;
@@ -2290,7 +2290,8 @@ void do_where(CHAR_DATA *ch, char *argument)
 			}
 		}
 		if (!found)
-			act("You didn't find any $T.", ch, NULL, arg, TO_CHAR);
+			act_nprintf(ch, NULL, arg, TO_CHAR, POS_DEAD,
+					INFO_DIDNT_FIND_ANY);
 	}
 }
 
@@ -2387,17 +2388,17 @@ void do_title(CHAR_DATA *ch, char *argument)
 		return;
 
 	if (CANT_CHANGE_TITLE(ch)) {
-		send_to_char("You can't change your title.\n\r", ch);
+		send_to_char(msg(INFO_CANT_CHANGE_TITLE, ch), ch);
 		return;
 	}
 
 	if (argument[0] == '\0') {
-		send_to_char("Change your title to what?\n\r", ch);
+		send_to_char(msg(INFO_CHANGE_TITLE_TO_WHAT, ch), ch);
 		return;
 	}
 
 	if (strchr(argument, '%') != NULL) {
-		send_to_char("Illegal characters in title\n\r", ch);
+		send_to_char(msg(INFO_ILLEGAL_CHARACTER_TITLE, ch), ch);
 		return;
 	}
 
@@ -2406,7 +2407,7 @@ void do_title(CHAR_DATA *ch, char *argument)
 
 	smash_tilde(argument);
 	set_title(ch, argument);
-	send_to_char("Ok.\n\r", ch);
+	send_to_char(msg(MOVE_OK, ch), ch);
 }
 
 
@@ -2424,7 +2425,7 @@ void do_description(CHAR_DATA *ch, char *argument)
 
 			if (ch->description == NULL
 			||  ch->description[0] == '\0') {
-				send_to_char("No lines left to remove.\n\r",
+				send_to_char(msg(INFO_NO_LINES_TO_REMOVE, ch),
 					     ch);
 				return;
 			}
@@ -2442,11 +2443,12 @@ void do_description(CHAR_DATA *ch, char *argument)
 						buf[len + 1] = '\0';
 						free_string(ch->description);
 						ch->description = str_dup(buf);
-						send_to_char("Your description "
-							     "is:\n\r", ch);
+						send_to_char(	
+						    msg(INFO_YOUR_DESC_IS, ch), 						    ch);
 						send_to_char(ch->description ?
 							ch->description :
-							"(None).\n\r", ch);
+						      msg(INFO_BR_NONE_BR, ch), 
+						      ch);
 						return;
 					}
 				}
@@ -2454,7 +2456,7 @@ void do_description(CHAR_DATA *ch, char *argument)
 			buf[0] = '\0';
 			free_string(ch->description);
 			ch->description = str_dup(buf);
-			send_to_char("Description cleared.\n\r",ch);
+			send_to_char(msg(INFO_DESC_CLEARED, ch), ch);
 			return;
 		}
 
@@ -2465,7 +2467,7 @@ void do_description(CHAR_DATA *ch, char *argument)
 
 			if (strlen(buf) + strlen(argument) 
 				>= MAX_STRING_LENGTH - 2) {
-				send_to_char("Description too long.\n\r", ch);
+				send_to_char(msg(INFO_DESC_TOO_LONG, ch), ch);
 				return;
 			}
 
@@ -2476,18 +2478,23 @@ void do_description(CHAR_DATA *ch, char *argument)
 		}
 	}
 
-	send_to_char("Your description is:\n\r", ch);
-	send_to_char(ch->description ? ch->description : "(None).\n\r", ch);
+	send_to_char(msg(INFO_YOUR_DESC_IS, ch), ch);
+	send_to_char(ch->description ? ch->description : 
+					msg(INFO_BR_NONE_BR, ch), ch);
 	return;
 }
 
 
 void do_report(CHAR_DATA *ch, char *argument)
 {
-	doprintf(do_say, ch, "I have {c%d/%d{x hp {c%d/%d{x mana {c%d/%d{x mv",
-		 ch->hit, ch->max_hit,
-		 ch->mana, ch->max_mana,
-		 ch->move, ch->max_move);
+	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, INFO_REPORT_I_HAVE,
+	       ch->hit, ch->max_hit,
+	       ch->mana, ch->max_mana,
+	       ch->move, ch->max_move);
+	act_nprintf(ch, NULL, NULL, TO_CHAR, POS_DEAD, INFO_REPORT_I_HAVE_TO_CH,
+	       ch->hit, ch->max_hit,
+	       ch->mana, ch->max_mana,
+	       ch->move, ch->max_move);
 }
 
 
@@ -2625,7 +2632,6 @@ void do_scan(CHAR_DATA *ch, char *argument)
 	EXIT_DATA *exit;	/* pExit */
 	int door;
 	int range;
-	char buf[MAX_STRING_LENGTH];
 	int i;
 	CHAR_DATA *person;
 	int numpeople;
@@ -2669,13 +2675,12 @@ void do_scan(CHAR_DATA *ch, char *argument)
 		dir2 = "down";
 		break;
 	default:
-		send_to_char("That's not a direction.\n\r",ch);
+		send_to_char(msg(MOVE_WRONG_DIRECTION, ch), ch);
 		return;
 	}
 
-	char_printf(ch, "You scan %s.\n\r", dir2);
-	sprintf(buf, "$n scans %s.",dir2);
-	act(buf,ch,NULL,NULL,TO_ROOM);
+	char_printf(ch, msg(INFO_YOU_SCAN_S, ch), dir2);
+	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, INFO_N_SCANS_S, dir2);
 
 	if (!check_blind(ch))
 		return;
@@ -2923,7 +2928,7 @@ void do_detect_hidden(CHAR_DATA *ch, char *argument)
 
 	if (IS_NPC(ch)
 	||  ch->level < skill_table[gsn_detect_hidden].skill_level[ch->class]) {
-		send_to_char("Huh?\n\r", ch);
+		send_to_char(msg(MOVE_HUH, ch), ch);
 		return;
 	}
 
@@ -2960,7 +2965,7 @@ void do_bear_call(CHAR_DATA *ch, char *argument)
 
 	if (IS_NPC(ch)
 	||  ch->level < skill_table[gsn_bear_call].skill_level[ch->class]) {
-		send_to_char("Huh?\n\r", ch);
+		send_to_char(msg(MOVE_HUH, ch), ch);
 		return;
 	}
 
