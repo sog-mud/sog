@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.283 2000-10-27 11:18:52 cs Exp $
+ * $Id: fight.c,v 1.284 2001-01-11 12:41:10 cs Exp $
  */
 
 /***************************************************************************
@@ -1089,7 +1089,7 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 			extract_char(victim, 0);
 			return FALSE;
 		}
-		
+
 		if (check_distance(ch, victim, loc))
 			return FALSE;
 		if (check_parry(ch, victim, loc))
@@ -1115,7 +1115,7 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 
 	dam -= dam*get_resist(victim, dam_class) / 100;
 
-	if (is_affected(victim, "shadow magic")) 
+	if (is_affected(victim, "shadow magic"))
 		dam /= 5;
 
 	if (IS_SET(dam_flags, DAMF_NOREDUCE))
@@ -1333,7 +1333,6 @@ raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 			 victim, NULL, NULL, TO_CHAR, POS_DEAD);
 		act("Ouch! Beast stands and fight again, with new power!",
 		    victim, NULL, NULL, TO_ROOM);
-		act("$n giggles.", victim, NULL, NULL, TO_ROOM);
 		gain_condition(ch, COND_BLOODLUST, 20);
 		affect_strip(victim, "resurrection");
 		if (victim->perm_stat[STAT_CHA] > 3)
@@ -1492,19 +1491,6 @@ check_obj_dodge(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj, int bonus)
 	if (!IS_AWAKE(victim) || MOUNTED(victim))
 		return FALSE;
 
-	if (!IS_NPC(victim) && has_spec(victim, "clan_battleragers")) {
-		if (PC(victim)->clan_status) {
-			act("You catch $p that had been shot to you.",
-			    ch, obj, victim, TO_VICT);
-			act("$N catches $p that had been shot to $M.",
-			    ch, obj, victim, TO_CHAR);
-			act("$n catches $p that had been shot to $m.",
-			    victim, obj, ch, TO_NOTVICT);
-			obj_to_char(obj, victim);
-		}
-		return TRUE;
-	}
-
 	if (IS_NPC(victim))
 		 chance  = UMIN(30, victim->level);
 	else {
@@ -1570,7 +1556,7 @@ is_safe_raw(CHAR_DATA *ch, CHAR_DATA *victim)
 	||  IS_IMMORTAL(ch))
 		return FALSE;
 
-	
+
 	if (!IS_NPC(ch)
 	&&  !IS_NPC(victim)
 	&&  is_name_strict(victim->name, PC(ch)->enemy_list)) {
@@ -1606,7 +1592,7 @@ bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 	&&  ch->master
 	&&  ch->in_room == ch->master->in_room)
 		return is_safe_nomessage(ch->master, victim);
-	
+
 	if (IS_NPC(victim)
 	&&  IS_AFFECTED(victim, AFF_CHARM)
 	&&  victim->master)
@@ -1647,9 +1633,7 @@ bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 		REMOVE_BIT(PC(ch)->plr_flags, PLR_GHOST);
 	}
 
-	if (victim !=ch 
-	&& !IS_NPC(victim)
-	&& !IS_NPC(ch)) {
+	if ((victim != ch) && !IS_NPC(victim) && !IS_NPC(ch)) {
 		PC(ch)->last_offence = current_time;
 	}
 
@@ -2072,6 +2056,7 @@ check_distance(CHAR_DATA *ch, CHAR_DATA *victim, int loc) {
 		case WEAPON_STAFF:
 		case WEAPON_SPEAR:
 		case WEAPON_POLEARM:
+		case WEAPON_LANCE:
 			chance /= 7;
 			break;
 		default:

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.271 2000-12-05 09:57:44 avn Exp $
+ * $Id: handler.c,v 1.272 2001-01-11 12:41:14 cs Exp $
  */
 
 /***************************************************************************
@@ -2699,9 +2699,9 @@ void stop_follower(CHAR_DATA *ch)
 	}
 
 	if (can_see(ch->master, ch) && ch->in_room != NULL) {
-		act_puts("$n stops following you.",ch, NULL, ch->master, 
+		act_puts("$n stops following you.",ch, NULL, ch->master,
 			 TO_VICT, POS_RESTING);
-		act_puts("You stop following $N.", ch, NULL, ch->master, 
+		act_puts("You stop following $N.", ch, NULL, ch->master,
 			 TO_CHAR, POS_RESTING);
 	}
 
@@ -2712,7 +2712,7 @@ void stop_follower(CHAR_DATA *ch)
 	}
 
 	if (ch->leader && ch->fighting == ch->leader->fighting)
-		stop_fighting(ch, TRUE);	
+		stop_fighting(ch, TRUE);
 	ch->master = NULL;
 	ch->leader = NULL;
 }
@@ -2723,7 +2723,7 @@ void stop_follower(CHAR_DATA *ch)
  * (extract_char() already  assumes it)
  */
 void nuke_pets(CHAR_DATA *ch)
-{    
+{
 	CHAR_DATA *pet;
 
 	if ((pet = PC(ch)->pet) != NULL) {
@@ -2800,7 +2800,7 @@ void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 		case LEVEL_HERO:	buf_append(output, "HERO"); break;
 		}
 		buf_append(output, "{x] ");
-	} 
+	}
 
 	if ((clan = clan_lookup(wch->clan)) != NULL
 	&&  (!IS_SET(clan->clan_flags, CLAN_HIDDEN) ||
@@ -2841,8 +2841,8 @@ int mount_success(CHAR_DATA *ch, CHAR_DATA *mount, int canattack)
 	if ((chance = get_skill(ch, "riding")) == 0)
 		return FALSE;
 
-	percent = number_percent() + (ch->level < mount->level ? 
-		  (mount->level - ch->level) * 3 : 
+	percent = number_percent() + (ch->level < mount->level ?
+		  (mount->level - ch->level) * 3 :
 		  (mount->level - ch->level) * 2);
 
 	if (!ch->fighting)
@@ -2871,9 +2871,9 @@ int mount_success(CHAR_DATA *ch, CHAR_DATA *mount, int canattack)
 
 		ch->riding = FALSE;
 		mount->riding = FALSE;
-		if (ch->position > POS_STUNNED) 
+		if (ch->position > POS_STUNNED)
 			ch->position=POS_SITTING;
-	
+
 		ch->hit -= 5;
 		update_pos(ch);
 	}
@@ -2922,7 +2922,7 @@ bool inline has_boat(CHAR_DATA *ch)
 	return found;
 }
 
-#define CAN_SWIM(ch) 	(IS_IMMORTAL(ch) || number_percent() < get_skill(ch, "swimming"))
+#define CAN_SWIM(ch)	(IS_IMMORTAL(ch) || number_percent() < get_skill(ch, "swimming"))
 #define CAN_FLY(ch)	(IS_IMMORTAL(ch) || IS_AFFECTED(ch, AFF_FLYING))
 
 bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
@@ -2939,26 +2939,26 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	int act_flags;
 	AFFECT_DATA *paf;
 
-	if (RIDDEN(ch) && !IS_NPC(ch->mount)) 
+	if (RIDDEN(ch) && !IS_NPC(ch->mount))
 		return move_char_org(ch->mount,door,follow,is_charge);
-	
+
 	if ((paf = is_affected(ch, "entanglement"))
 	&& (INT(paf->location) == APPLY_DEX)) {
-		act("You are unable to move.", 
+		act("You aren't able to move.",
 			ch, NULL, NULL, TO_CHAR);
 		return FALSE;
 	}
-	
-	if (IS_AFFECTED(ch, AFF_WEB) 
+
+	if (IS_AFFECTED(ch, AFF_WEB)
 	|| (MOUNTED(ch) && IS_AFFECTED(ch->mount, AFF_WEB))) {
 		WAIT_STATE(ch, get_pulse("violence"));
 		if (number_percent() < str_app[IS_NPC(ch) ?
 			20 : get_curr_stat(ch,STAT_STR)].tohit * 5) {
-		 	affect_strip(ch, "web");
-		 	act_puts("When you attempt to leave the room, you "
+			affect_strip(ch, "web");
+			act_puts("When you attempt to leave the room, you "
 				 "break the webs holding you tight.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-		 	act_puts("$n struggles against the webs which hold $m "
+			act_puts("$n struggles against the webs which hold $m "
 				 "in place, and break it.",
 				 ch, NULL, NULL, TO_ROOM, POS_RESTING);
 		} else {
@@ -2968,7 +2968,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 			act("$n struggles vainly against the webs which "
 			    "hold $m in place.",
 			    ch, NULL, NULL, TO_ROOM);
-			return FALSE; 
+			return FALSE;
 		}
 	}
 
@@ -3007,7 +3007,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 			act("$n steps out from $s cover.",
 			    ch, NULL, NULL, TO_ROOM);
 			check_improve(ch, "camouflage move", FALSE, 5);
-		}	    
+		}
 	}
 
 	if (HAS_INVIS(ch, ID_BLEND)) {
@@ -3027,7 +3027,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 
 	in_room = ch->in_room;
 	if ((pexit = in_room->exit[door]) == NULL
-	||  (to_room = pexit->to_room.r) == NULL 
+	||  (to_room = pexit->to_room.r) == NULL
 	||  !can_see_room(ch, pexit->to_room.r)) {
 		act_char("Alas, you cannot go that way.", ch);
 		return FALSE;
@@ -3046,21 +3046,21 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		while (1) {
 			d0 = number_range(0, MAX_DIR-1);
 			if ((pexit = in_room->exit[d0]) == NULL
-			||  (to_room = pexit->to_room.r) == NULL 
+			||  (to_room = pexit->to_room.r) == NULL
 			||  !can_see_room(ch, pexit->to_room.r))
-				continue;	  
+				continue;
 			door = d0;
 			break;
 		}
 	}
 
-	if (IS_SET(pexit->exit_info, EX_CLOSED) 
+	if (IS_SET(pexit->exit_info, EX_CLOSED)
 	&&  (!IS_AFFECTED(ch, AFF_PASS_DOOR) ||
 	     IS_SET(pexit->exit_info, EX_NOPASS))
 	&&  !IS_TRUSTED(ch, LEVEL_IMMORTAL)) {
 		if (IS_AFFECTED(ch, AFF_PASS_DOOR)
 		&&  IS_SET(pexit->exit_info, EX_NOPASS)) {
-  			act_puts("You failed to pass through $d.",
+			act_puts("You failed to pass through $d.",
 				 ch, &pexit->short_descr, NULL,
 				 TO_CHAR, POS_DEAD);
 			act("$n tries to pass through $d, but $e fails.",
@@ -3088,7 +3088,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	if (MOUNTED(ch)) {
 		if (MOUNTED(ch)->position < POS_FIGHTING) {
 			act_char("Your mount must be standing.", ch);
-			return FALSE; 
+			return FALSE;
 		}
 		if (!mount_success(ch, MOUNTED(ch), FALSE)) {
 			act_char("Your mount subbornly refuses to go that way.", ch);
@@ -3163,7 +3163,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 
 		if (in_room->sector_type == SECT_UNDERWATER
 		||  to_room->sector_type == SECT_UNDERWATER) {
-			if (MOUNTED(ch)	
+			if (MOUNTED(ch)
 			&& (!CAN_SWIM(MOUNTED(ch))
 			    || !is_affected(MOUNTED(ch), "water breathing"))) {
 				act_char("Your mount refuses to dive.", ch);
@@ -3212,7 +3212,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	}
 
 	if (!HAS_INVIS(ch, ID_SNEAK | ID_CAMOUFLAGE)
-	&&  ch->invis_level < LEVEL_HERO) 
+	&&  ch->invis_level < LEVEL_HERO)
 		act_flags = TO_ROOM;
 	else
 		act_flags = TO_ROOM | ACT_NOMORTAL;
@@ -3220,23 +3220,23 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	if (!IS_NPC(ch)
 	&&  ch->in_room->sector_type != SECT_INSIDE
 	&&  ch->in_room->sector_type != SECT_CITY
-	&&  number_percent() < get_skill(ch, "quiet movement") 
+	&&  number_percent() < get_skill(ch, "quiet movement")
 	&&  !is_charge) {
 		act(MOUNTED(ch) ? "$n leaves, riding on $N." : "$n leaves.",
 		    ch, NULL, MOUNTED(ch), act_flags);
 		check_improve(ch, "quiet movement", TRUE, 1);
 	}
 	else if (is_charge) {
-		act("$n spurs $s $N, leaving $t.", ch, 
-		dir_name[is_affected(ch, "misleading") 
-			? number_range(0, 5) : door], 
+		act("$n spurs $s $N, leaving $t.", ch,
+		dir_name[is_affected(ch, "misleading")
+			? number_range(0, 5) : door],
 		ch->mount,  TO_ROOM);
 	}
 	else {
 		act(MOUNTED(ch) ? "$n leaves $t, riding on $N." :
-				  "$n leaves $t.", ch, 
-		dir_name[is_affected(ch, "misleading") ? 
-			number_range(0, 5) : door], 
+				  "$n leaves $t.", ch,
+		dir_name[is_affected(ch, "misleading") ?
+			number_range(0, 5) : door],
 		MOUNTED(ch), act_flags);
 	}
 
@@ -3266,22 +3266,22 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	mount = MOUNTED(ch);
 	char_from_room(ch);
 
-	if (!HAS_INVIS(ch, ID_SNEAK) && ch->invis_level < LEVEL_HERO) 
+	if (!HAS_INVIS(ch, ID_SNEAK) && ch->invis_level < LEVEL_HERO)
 		act_flags = TO_ALL;
 	else
 		act_flags = TO_ALL | ACT_NOMORTAL;
 
-	if (!is_charge) 
+	if (!is_charge)
 		act(mount ? "$i has arrived, riding $N." : "$i has arrived.",
-	    	    to_room->people, ch, mount, act_flags);
+		    to_room->people, ch, mount, act_flags);
 
 	char_to_room(ch, to_room);
 
 	if (mount) {
 		char_from_room(mount);
 		char_to_room(mount, to_room);
-  		ch->riding = TRUE;
-  		mount->riding = TRUE;
+		ch->riding = TRUE;
+		mount->riding = TRUE;
 	}
 
 	if (!IS_EXTRACTED(ch))
@@ -3351,7 +3351,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	}
 
 	if (!IS_NPC(ch))
-    		mp_greet_trigger(ch);
+		mp_greet_trigger(ch);
 
 	for (obj = ch->carrying; obj; obj = obj_next) {
 		obj_next = obj->next_content;
@@ -4079,7 +4079,7 @@ void reboot_mud(void)
 		close_descriptor(d, SAVE_F_REBOOT);
 	}
 
-	merc_down = TRUE;    
+	merc_down = TRUE;
 }
 
 /* object condition aliases */
@@ -4098,12 +4098,12 @@ const char *get_cond_alias(OBJ_DATA *obj)
 	return stat;
 }
 
-void damage_to_obj(CHAR_DATA *ch, OBJ_DATA *wield, OBJ_DATA *worn, int damage) 
+void damage_to_obj(CHAR_DATA *ch, OBJ_DATA *wield, OBJ_DATA *worn, int damage)
 {
- 	if (damage == 0)
+	if (damage == 0)
 		return;
 
- 	worn->condition -= damage;
+	worn->condition -= damage;
 
 	if (wield != NULL) {
 		act_puts("{g$p inflicts damage on {r$P{g.{x",
@@ -4121,14 +4121,14 @@ void damage_to_obj(CHAR_DATA *ch, OBJ_DATA *wield, OBJ_DATA *worn, int damage)
 		extract_obj(worn, 0);
 		return;
 	}
- 
+
 	if (wield == NULL
 	||  !IS_OBJ_STAT(wield, ITEM_MAGIC))
 		return;
 
-	if (IS_OBJ_STAT(wield, ITEM_ANTI_EVIL) 
+	if (IS_OBJ_STAT(wield, ITEM_ANTI_EVIL)
 	&&  IS_OBJ_STAT(wield, ITEM_ANTI_NEUTRAL)
-	&&  IS_OBJ_STAT(worn, ITEM_ANTI_EVIL) 
+	&&  IS_OBJ_STAT(worn, ITEM_ANTI_EVIL)
 	&&  IS_OBJ_STAT(worn, ITEM_ANTI_NEUTRAL)) {
 		act_puts("$p doesn't want to fight against $P.",
 			 ch, wield, worn, TO_ROOM, POS_RESTING);
@@ -4138,9 +4138,9 @@ void damage_to_obj(CHAR_DATA *ch, OBJ_DATA *wield, OBJ_DATA *worn, int damage)
 			 ch, wield, worn, TO_ROOM, POS_RESTING);
 		unequip_char(ch, wield);
 		return;
- 	}
+	}
 
-	if (IS_OBJ_STAT(wield, ITEM_ANTI_EVIL) 
+	if (IS_OBJ_STAT(wield, ITEM_ANTI_EVIL)
 	&&  IS_OBJ_STAT(worn, ITEM_ANTI_EVIL)) {
 		act_puts("$p worries for the damage to $P.",
 			 ch, wield, worn, TO_ROOM, POS_RESTING);
@@ -4192,7 +4192,7 @@ bool make_eq_damage(CHAR_DATA *ch, CHAR_DATA *victim,
 
 	if (IS_OBJ_STAT(destroy, ITEM_MAGIC))
 		chance -= 10;
-	 
+
 	chance += skill - 85;
 
 	dam = number_range(chance / 10, 3 * chance / 10) +
@@ -4202,7 +4202,7 @@ bool make_eq_damage(CHAR_DATA *ch, CHAR_DATA *victim,
 		dam += number_range(0, 30);
 
 	chance += get_curr_stat(ch, STAT_DEX) - get_curr_stat(victim, STAT_DEX);
-	
+
 	if (number_percent() < chance) {
 		damage_to_obj(ch, wield, destroy, dam);
 		return TRUE;
@@ -4270,17 +4270,17 @@ flag_t wiznet_lookup(const char *name)
 }
 
 /*
- * Following functions assume !IS_NPC(ch). 
+ * Following functions assume !IS_NPC(ch).
  */
 int max_hit_gain(CHAR_DATA *ch, class_t *cl)
-{	
-	return (con_app[get_max_train(ch, STAT_CON)].hitp + 2) * 
+{
+	return (con_app[get_max_train(ch, STAT_CON)].hitp + 2) *
 		cl->hp_rate / 100;
 }
 
 int min_hit_gain(CHAR_DATA *ch, class_t *cl)
-{	
-	return (con_app[get_curr_stat(ch, STAT_CON)].hitp - 3) * 
+{
+	return (con_app[get_curr_stat(ch, STAT_CON)].hitp - 3) *
 		cl->hp_rate / 100;
 }
 
@@ -4301,7 +4301,7 @@ int min_move_gain(CHAR_DATA *ch)
 	return UMAX(6, get_curr_stat(ch, STAT_DEX)/5 + get_curr_stat(ch, STAT_CON)/7);
 }
 
-int max_move_gain(CHAR_DATA *ch) 
+int max_move_gain(CHAR_DATA *ch)
 {
 	return UMAX(6, get_max_train(ch, STAT_DEX)/4+get_max_train(ch, STAT_CON)/6);
 }
@@ -4352,7 +4352,7 @@ void advance_level(CHAR_DATA *ch)
 		 ch, (const void *) add_prac,
 		 format_hmv(add_hp, add_mana, add_move),
 		 TO_CHAR, POS_DEAD);
-}   
+}
 
 void delevel(CHAR_DATA *ch)
 {
@@ -4395,7 +4395,8 @@ void delevel(CHAR_DATA *ch)
 		 TO_CHAR, POS_DEAD);
 
 	if(ch->perm_hit <= 0) {
-		act("You've lost your life power.", ch, NULL, NULL, TO_CHAR);
+		act("You've lost all your life power.", ch, NULL, NULL,
+		    TO_CHAR);
 		delete_player(ch, "lack of hp");
 	} else if (ch->perm_mana <= 0) {
 		act("You've lost all your power.", ch, NULL, NULL, TO_CHAR);
@@ -4495,7 +4496,7 @@ void gain_exp(CHAR_DATA *ch, int gain)
 			ch->wimpy = 0;
 
 		if (ch->level == LEVEL_HERO)
-	        	log(LOG_INFO, "%s made a hero level.", ch->name);
+			log(LOG_INFO, "%s made a hero level.", ch->name);
 
 		wiznet("$N has attained level $j!",
 			ch, (const void*) ch->level, WIZ_LEVELS, 0, 0);
@@ -4522,7 +4523,7 @@ void bad_effect(CHAR_DATA* ch, int effect)
 	}
 }
 
-int get_resist(CHAR_DATA *ch, int dam_class) 
+int get_resist(CHAR_DATA *ch, int dam_class)
 {
 	int16_t *resists;
 	int16_t bonus=0;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_magic.c,v 1.28 2000-10-04 20:28:48 fjoe Exp $
+ * $Id: act_magic.c,v 1.29 2001-01-11 12:41:13 cs Exp $
  */
 
 #include <stdio.h>
@@ -190,6 +190,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		} else if ((range = allowed_other(ch, spell)) > 0) {
 			if ((victim = get_char_spell(ch, target_name,
 						     &door, range)) == NULL) {
+				act_char("They aren't here.", ch);
 				WAIT_STATE(ch, MISSING_TARGET_DELAY);
 				return;
 			}
@@ -213,8 +214,8 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			}
 		}
 		else if ((victim = get_char_room(ch, target_name)) == NULL) {
-			WAIT_STATE(ch, MISSING_TARGET_DELAY);
 			act_char("They aren't here.", ch);
+			WAIT_STATE(ch, MISSING_TARGET_DELAY);
 			return;
 		}
 
@@ -446,8 +447,19 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 
 			affect_to_char(ch, &af);
 
-			if (saves_spell(slevel, victim, DAM_MENTAL)) 
-				affect_to_char(victim, &af);
+			if (saves_spell(slevel, victim, DAM_MENTAL)) {
+
+				/*
+				 * check saves twice
+				 */
+
+				if (saves_spell(slevel, victim, DAM_MENTAL)) {
+					act_char("Your imitation doesn't seem to have any effect.", ch);
+					return;
+				} else {
+					affect_to_char(victim, &af);
+				}
+			}
 		}
 
 		spell->fun(sn, IS_NPC(ch) ? ch->level : slevel, ch, vo);
@@ -460,7 +472,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		if (shadow && is_affected(victim, "shadow magic"))
 			affect_strip(victim, "shadow magic");
 	}
-		
+
 	if (cast_far && door != -1) {
 		path_to_track(ch, victim, door);
 		return;
