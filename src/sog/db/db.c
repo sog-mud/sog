@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.169.2.29 2003-09-30 01:25:41 fjoe Exp $
+ * $Id: db.c,v 1.169.2.30 2003-09-30 02:13:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -360,10 +360,6 @@ void boot_db(void)
 	long lhour, lday, lmonth;
 	int i;
 
-#ifdef __FreeBSD__
-	extern char* malloc_options;
-	malloc_options = "X";
-#endif
 	/*
 	 * Init random number generator.
 	 */
