@@ -1,9 +1,9 @@
 #
-# $Id: Makefile,v 1.35 2000-06-05 12:06:26 fjoe Exp $
+# $Id: Makefile,v 1.36 2001-06-20 06:43:13 avn Exp $
 #
 
 PROG=		sog
-SRCS=		auction.c affect.c buffer.c cc_expr.c clan.c class.c\
+SRCS=		affect.c auction.c buffer.c cc_expr.c clan.c class.c\
 		cmd.c damtype.c dynafun.c flag.c forms.c handler.c hash.c\
 		help.c hometown.c interp.c lang.c liquid.c log.c material.c\
 		memalloc.c mlstring.c mob_cmds.c mob_prog.c module.c\
