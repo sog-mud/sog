@@ -18,10 +18,11 @@ End
 
 #RULE
 Name часов~
-Form 1 час~
-Form 2 часа~
-Form 3 часа~
-Form 4 часа~
+BaseLen 3
+Form 1 -~
+Form 2 -а~
+Form 3 -а~
+Form 4 -а~
 End
 
 #RULE

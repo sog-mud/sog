@@ -1952,3 +1952,15 @@ hi, there!
  
 {WIluvatar{x, Eru, the One
 ~
+Sender  Iluvatar~
+Date    Sat May 22 02:02:58 1999~
+Stamp   927313378
+To      imm~
+Subject scan all~
+Text
+hi, there!
+ 
+scan без параметров (для иммов) работает
+ 
+{WIluvatar{x, Eru, the One
+~

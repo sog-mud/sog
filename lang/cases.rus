@@ -170,6 +170,15 @@ Form 6 -у~
 End
 
 #RULE
+Name жидкость~
+BaseLen 7
+Form 1 -и~
+Form 2 -и~
+Form 4 -ью~
+Form 5 -и~
+End
+
+#RULE
 Name улитка~
 BaseLen 5
 Form 1 -и~
@@ -2092,6 +2101,15 @@ Form 6 -у~
 End
 
 #RULE
+Name врата~
+BaseLen 4
+Form 1 -~
+Form 2 -ам~
+Form 4 -ами~
+Form 5 -ах~
+End
+
+#RULE
 Name вампир~
 BaseLen 6
 Form 1 -а~
@@ -3392,6 +3410,16 @@ BaseLen 4
 Form 1 -а~
 Form 2 -у~
 Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
+End
+
+#RULE
+Name коврик~
+BaseLen 6
+Form 1 -а~
+Form 2 -у~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -а~

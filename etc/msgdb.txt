@@ -994,7 +994,7 @@ Get back to questor before your time runs out!
 @rus КОШМАР! Тебе некуда бежать!
 ~
 @eng $n stupidly tries to push $N while webbed.@rus $n, как дурак, пытается толкнуть $N, болтаясь в паутине.~
-@eng You put $p on $P.@rus Ты кладешь $p он $P.~
+@eng You put $p on $P.@rus Ты кладешь $c3{$p} на $c3{$P}.~
 @eng Nothing.
 @rus Ничего.
 ~
