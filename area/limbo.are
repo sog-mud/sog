@@ -1,5 +1,5 @@
 #AREADATA
-Ver 3
+Ver 4
 Name Limbo~
 VNUMs 1 99
 Credits Diku~
@@ -1502,20 +1502,34 @@ a '' to_object 120 -1 200 12 0
 a '' to_object 120 -1 200 13 0
 a '' to_object 120 -1 500 14 0
 a '' to_object 120 -1 10 18 0
-a '' to_object 120 -1 33 30 0
-a '' to_object 120 -1 33 31 0
-a '' to_object 120 -1 33 32 0
-a '' to_object 120 -1 33 33 0
-a '' to_object 120 -1 33 34 0
-a '' to_object 120 -1 33 35 0
-a '' to_object 120 -1 33 36 0
-a '' to_object 120 -1 33 37 0
-a '' to_object 120 -1 33 38 0
-a '' to_object 120 -1 33 39 0
-a '' to_object 120 -1 33 40 0
-a '' to_object 120 -1 33 41 0
-a '' to_object 120 -1 33 42 0
-a '' to_object 120 -1 33 43 0
+a '' to_resist 120 -1 33 3 0
+a '' to_object 120 -1 0 0 0
+a '' to_resist 120 -1 33 4 0
+a '' to_object 120 -1 0 0 0
+a '' to_resist 120 -1 33 5 0
+a '' to_object 120 -1 0 0 0
+a '' to_resist 120 -1 33 6 0
+a '' to_object 120 -1 0 0 0
+a '' to_resist 120 -1 33 9 0
+a '' to_object 120 -1 0 0 0
+a '' to_resist 120 -1 33 8 0
+a '' to_object 120 -1 0 0 0
+a '' to_resist 120 -1 33 10 0
+a '' to_object 120 -1 0 0 0
+a '' to_resist 120 -1 33 11 0
+a '' to_object 120 -1 0 0 0
+a '' to_resist 120 -1 33 18 0
+a '' to_object 120 -1 0 0 0
+a '' to_resist 120 -1 33 12 0
+a '' to_object 120 -1 0 0 0
+a '' to_resist 120 -1 33 7 0
+a '' to_object 120 -1 0 0 0
+a '' to_resist 120 -1 33 17 0
+a '' to_object 120 -1 0 0 0
+a '' to_resist 120 -1 33 16 0
+a '' to_object 120 -1 0 0 0
+a '' to_resist 120 -1 33 14 0
+a '' to_object 120 -1 0 0 0
 a '' to_object 120 -1 10 19 0
 a '' to_detects 120 -1 -30 17 H
 a '' to_detects 120 -1 0 0 AKLM

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 3
+Ver 4
 Name Prison~
 Builders orail~
 VNUMs 32000 32099
@@ -824,7 +824,7 @@ unknown~
 armor ABFG 0 AB
 9 9 9 4 0
 45 5 1000 P
-a '' unknown 45 -1 75 13 0
+a '' to_affects 45 -1 75 13 0
 a '' to_object 45 -1 -15 17 0
 g @rus none~
 #32037

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 3
+Ver 4
 Name Flying Holand~
 Builders kamimusubi~
 VNUMs 10605 10903
@@ -298,7 +298,7 @@ sleep sleep none 20000
 0 0 huge unknown
 g @eng none@rus male~
 F aff T
-a 'water breathing' unknown 50 -1 0 0 0
+a 'water breathing' to_affects 50 -1 0 0 0
 #0
 
 #$

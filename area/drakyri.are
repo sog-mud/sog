@@ -1,5 +1,5 @@
 #AREADATA
-Ver 3
+Ver 4
 Name Drakyri Isle~
 VNUMs 11800 11899
 Credits Ydri~
@@ -2437,8 +2437,8 @@ silver~
 weapon CE 0 AN
 dagger 9 5 'pierce' DHK
 40 200 15000 P
-a '' unknown 40 -1 10 18 0
-a '' unknown 40 -1 5 19 0
+a '' to_affects 40 -1 10 18 0
+a '' to_affects 40 -1 5 19 0
 g @rus none~
 #11849
 ->*<- sleeves obsidian reykaris~
@@ -2972,9 +2972,12 @@ mithril~
 armor BI 0 AD
 20 20 20 15 0
 45 450 50000 P
-a '' to_object 45 -1 5 28 0
-a '' to_object 45 -1 5 29 0
-a '' to_object 45 -1 5 27 0
+a '' to_resist 45 -1 5 1 0
+a '' to_object 45 -1 0 0 0
+a '' to_resist 45 -1 5 2 0
+a '' to_object 45 -1 0 0 0
+a '' to_resist 45 -1 5 0 0
+a '' to_object 45 -1 0 0 0
 a '' to_object 45 -1 7 19 0
 a '' to_object 45 -1 100 12 0
 a '' to_object 45 -1 3 1 0

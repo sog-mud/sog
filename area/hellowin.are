@@ -1,5 +1,5 @@
 #AREADATA
-Ver 3
+Ver 4
 Name Небольшой изврат~
 VNUMs 34400 34499
 Credits Askold~
@@ -251,7 +251,8 @@ bone~
 staff CGJM EK AO
 70 100 100 'mana drain' 0
 40 20 0 P
-a '' to_object 40 -1 100 35 0
+a '' to_resist 40 -1 100 8 0
+a '' to_object 40 -1 0 0 0
 a '' to_object 40 -1 -15 20 0
 a '' to_detects 40 -1 20 19 I
 a '' to_skills 40 -1 70 'lich' A

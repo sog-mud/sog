@@ -1,5 +1,5 @@
 #AREADATA
-Ver 3
+Ver 4
 Name Castle of Giants~
 VNUMs 13000 13099
 Credits Outlaw~
@@ -505,7 +505,8 @@ copper~
 armor ABJK 0 AE
 10 10 10 10 10
 50 70 8000 P
-a '' to_object 50 -1 33 27 0
+a '' to_resist 50 -1 33 0 0
+a '' to_object 50 -1 0 0 0
 a '' to_object 50 -1 1 18 0
 a '' to_object 50 -1 2 19 0
 a '' to_object 50 -1 20 13 0
@@ -543,7 +544,8 @@ copper~
 armor A 0 AC
 6 7 5 0 0
 50 20 8000 P
-a '' to_object 50 -1 33 41 0
+a '' to_resist 50 -1 33 17 0
+a '' to_object 50 -1 0 0 0
 a '' to_object 50 -1 2 1 0
 a '' to_object 50 -1 40 13 0
 a '' to_object 50 -1 15 12 0

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 3
+Ver 4
 Name Eidu~
 VNUMs 44000 44299
 Credits Eidu~
@@ -106,9 +106,12 @@ unknown~
 armor 0 0 AB
 0 0 0 0 0
 96 0 0 P
-a '' to_object 96 -1 100 29 0
-a '' to_object 96 -1 100 28 0
-a '' to_object 96 -1 100 27 0
+a '' to_resist 96 -1 100 2 0
+a '' to_object 96 -1 0 0 0
+a '' to_resist 96 -1 100 1 0
+a '' to_object 96 -1 0 0 0
+a '' to_resist 96 -1 100 0 0
+a '' to_object 96 -1 0 0 0
 a '' to_affects 96 -1 0 0 H
 a '' to_object 96 -1 20000 12 0
 a '' to_object 96 -1 20000 13 0
@@ -148,7 +151,7 @@ plastic~
 container 0 0 AL
 1000000 A 0 1000 1
 0 0 0 P
-a '' unknown 0 -1 -30 8 0
+a '' to_affects 0 -1 -30 8 0
 g @rus none~
 #44009
 bottle vodka absolut~

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 3
+Ver 4
 Name Forest of Nowhere~
 Builders tranto~
 VNUMs 22450 22699
@@ -799,8 +799,10 @@ crystal~
 weapon KY C AN
 staff 17 2 'wrath' BDF
 45 100 0 P
-a '' to_object 45 -1 5 31 0
-a '' to_object 45 -1 5 30 0
+a '' to_resist 45 -1 5 4 0
+a '' to_object 45 -1 0 0 0
+a '' to_resist 45 -1 5 3 0
+a '' to_object 45 -1 0 0 0
 a '' to_object 45 -1 -20 17 0
 a '' to_object 45 -1 -10 20 0
 a '' to_object 45 -1 4 19 0
@@ -819,8 +821,10 @@ energy~
 armor AI C AB
 10 10 10 10 0
 45 2 50000 P
-a '' to_object 45 -1 10 36 0
-a '' to_object 45 -1 10 35 0
+a '' to_resist 45 -1 10 10 0
+a '' to_object 45 -1 0 0 0
+a '' to_resist 45 -1 10 8 0
+a '' to_object 45 -1 0 0 0
 a '' to_object 45 -1 -10 20 0
 a '' to_object 45 -1 15 12 0
 a '' to_object 45 -1 15 13 0
@@ -842,7 +846,8 @@ bow 17 2 'flbite' D
 a '' to_object 45 -1 5 19 0
 a '' to_object 45 -1 5 18 0
 a '' to_object 45 -1 -10 20 0
-a '' to_object 45 -1 20 30 0
+a '' to_resist 45 -1 20 3 0
+a '' to_object 45 -1 0 0 0
 E
 bow~
 You see a beatiful bow maded from composite of wood and horn ,probably
@@ -859,7 +864,8 @@ skin~
 container AC 0 AK
 150 F 0 100 30
 45 5 0 P
-a '' to_object 45 -1 10 31 0
+a '' to_resist 45 -1 10 4 0
+a '' to_object 45 -1 0 0 0
 a '' to_object 45 -1 20 13 0
 a '' to_object 45 -1 5 19 0
 a '' to_object 45 -1 2 18 0
@@ -904,7 +910,8 @@ steel~
 weapon AC 0 AN
 axe 8 4 'cleave' ADH
 27 350 15000 P
-a '' to_object 27 -1 2 30 0
+a '' to_resist 27 -1 2 3 0
+a '' to_object 27 -1 0 0 0
 a '' to_object 27 -1 -5 18 0
 a '' to_object 27 -1 8 19 0
 g @rus none~
@@ -939,11 +946,16 @@ armor U 0 AM
 5 5 5 8 0
 25 10 10000 P
 a '' to_object 25 -1 2 19 0
-a '' to_object 25 -1 2 35 0
-a '' to_object 25 -1 1 28 0
-a '' to_object 25 -1 1 29 0
-a '' to_object 25 -1 1 27 0
-a '' to_object 25 -1 1 29 0
+a '' to_resist 25 -1 2 8 0
+a '' to_object 25 -1 0 0 0
+a '' to_resist 25 -1 1 1 0
+a '' to_object 25 -1 0 0 0
+a '' to_resist 25 -1 1 2 0
+a '' to_object 25 -1 0 0 0
+a '' to_resist 25 -1 1 0 0
+a '' to_object 25 -1 0 0 0
+a '' to_resist 25 -1 1 2 0
+a '' to_object 25 -1 0 0 0
 a '' to_object 25 -1 -5 20 0
 g @rus none~
 #22495

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 3
+Ver 4
 Name The Abyss~
 VNUMs 25000 25099
 Credits Anon~
@@ -1031,9 +1031,12 @@ ivory~
 armor GL 0 AM
 9 9 9 2 0
 31 16 13420 G
-a '' to_object 31 -1 15 28 0
-a '' to_object 31 -1 15 29 0
-a '' to_object 31 -1 15 27 0
+a '' to_resist 31 -1 15 1 0
+a '' to_object 31 -1 0 0 0
+a '' to_resist 31 -1 15 2 0
+a '' to_object 31 -1 0 0 0
+a '' to_resist 31 -1 15 0 0
+a '' to_object 31 -1 0 0 0
 a '' to_affects 31 -1 0 0 KT
 g @eng none@rus male~
 #25023

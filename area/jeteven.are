@@ -1,5 +1,5 @@
 #AREADATA
-Ver 3
+Ver 4
 Name Jeteven~
 VNUMs 26100 26299
 Credits Arborn~
@@ -219,8 +219,10 @@ jewelry GI 0 AC
 a '' to_object 92 -1 1 8 0
 a '' to_object 92 -1 10 18 0
 a '' to_object 92 -1 50 13 0
-a '' to_object 92 -1 100 35 0
-a '' to_object 92 -1 100 37 0
+a '' to_resist 92 -1 100 8 0
+a '' to_object 92 -1 0 0 0
+a '' to_resist 92 -1 100 11 0
+a '' to_object 92 -1 0 0 0
 a '' to_object 92 -1 200 12 0
 g @rus none~
 #0

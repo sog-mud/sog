@@ -1,5 +1,5 @@
 #AREADATA
-Ver 3
+Ver 4
 Name Isles Of Dead~
 Builders jiehar~
 VNUMs 22300 22449
@@ -1232,8 +1232,10 @@ iron~
 weapon Y BC AN
 axe 15 4 'frbite' EF
 45 450 100000 P
-a '' to_object 45 -1 -33 30 0
-a '' to_object 45 -1 33 31 0
+a '' to_resist 45 -1 -33 3 0
+a '' to_object 45 -1 0 0 0
+a '' to_resist 45 -1 33 4 0
+a '' to_object 45 -1 0 0 0
 a '' to_object 45 -1 1 26 0
 a '' to_object 45 -1 5 19 0
 a '' to_object 45 -1 5 18 0
@@ -1246,8 +1248,10 @@ flame~
 weapon ACU C AN
 whip 10 7 'flbite' A
 46 50 100000 P
-a '' to_object 46 -1 -80 31 0
-a '' to_object 46 -1 100 30 0
+a '' to_resist 46 -1 -80 4 0
+a '' to_object 46 -1 0 0 0
+a '' to_resist 46 -1 100 3 0
+a '' to_object 46 -1 0 0 0
 g @rus none~
 #22328
 stone~
@@ -1392,8 +1396,10 @@ silver~
 weapon BIY C AN
 mace 10 6 'shbite' 0
 46 100 100000 P
-a '' to_object 46 -1 -33 36 0
-a '' to_object 46 -1 33 32 0
+a '' to_resist 46 -1 -33 10 0
+a '' to_object 46 -1 0 0 0
+a '' to_resist 46 -1 33 5 0
+a '' to_object 46 -1 0 0 0
 a '' to_object 46 -1 3 18 0
 a '' to_object 46 -1 7 19 0
 a '' to_object 46 -1 1 4 0
@@ -1407,9 +1413,12 @@ ebony~
 armor BCGU C AD
 30 30 30 25 0
 46 15 100000 P
-a '' to_object 46 -1 9 27 0
-a '' to_object 46 -1 7 29 0
-a '' to_object 46 -1 11 28 0
+a '' to_resist 46 -1 9 0 0
+a '' to_object 46 -1 0 0 0
+a '' to_resist 46 -1 7 2 0
+a '' to_object 46 -1 0 0 0
+a '' to_resist 46 -1 11 1 0
+a '' to_object 46 -1 0 0 0
 a '' to_object 46 -1 -7 20 0
 a '' to_object 46 -1 1 1 0
 a '' to_object 46 -1 3 19 0
@@ -1431,7 +1440,8 @@ mithril~
 weapon BIKLY CF AN
 spear 18 3 'divine' FI
 45 200 100000 P
-a '' to_object 45 -1 25 35 0
+a '' to_resist 45 -1 25 8 0
+a '' to_object 45 -1 0 0 0
 a '' to_object 45 -1 4 18 0
 a '' to_object 45 -1 5 19 0
 a '' to_object 45 -1 1 5 0
@@ -1452,10 +1462,13 @@ ebony~
 armor BGY C AE
 25 25 23 20 0
 46 12 100000 P
-a '' to_object 46 -1 5 28 0
-a '' to_object 46 -1 3 29 0
+a '' to_resist 46 -1 5 1 0
+a '' to_object 46 -1 0 0 0
+a '' to_resist 46 -1 3 2 0
+a '' to_object 46 -1 0 0 0
 a '' to_object 46 -1 -5 20 0
-a '' to_object 46 -1 7 27 0
+a '' to_resist 46 -1 7 0 0
+a '' to_object 46 -1 0 0 0
 a '' to_object 46 -1 1 1 0
 a '' to_object 46 -1 1 2 0
 a '' to_object 46 -1 3 18 0
@@ -1469,10 +1482,13 @@ ebony~
 armor CY C AF
 27 27 23 20 0
 46 5 100000 P
-a '' to_object 46 -1 6 28 0
+a '' to_resist 46 -1 6 1 0
+a '' to_object 46 -1 0 0 0
 a '' to_object 46 -1 -5 20 0
-a '' to_object 46 -1 2 27 0
-a '' to_object 46 -1 5 29 0
+a '' to_resist 46 -1 2 0 0
+a '' to_object 46 -1 0 0 0
+a '' to_resist 46 -1 5 2 0
+a '' to_object 46 -1 0 0 0
 a '' to_object 46 -1 1 2 0
 a '' to_object 46 -1 1 5 0
 a '' to_object 46 -1 3 18 0
@@ -1486,8 +1502,10 @@ wood~
 weapon AY C AN
 staff 12 5 'flame' F
 46 250 100000 P
-a '' to_object 46 -1 -33 31 0
-a '' to_object 46 -1 33 30 0
+a '' to_resist 46 -1 -33 4 0
+a '' to_object 46 -1 0 0 0
+a '' to_resist 46 -1 33 3 0
+a '' to_object 46 -1 0 0 0
 a '' to_object 46 -1 5 18 0
 a '' to_object 46 -1 4 19 0
 g @rus none~
@@ -1502,8 +1520,10 @@ armor CY C AI
 a '' to_object 46 -1 -5 20 0
 a '' to_object 46 -1 3 18 0
 a '' to_object 46 -1 3 19 0
-a '' to_object 46 -1 4 29 0
-a '' to_object 46 -1 5 27 0
+a '' to_resist 46 -1 4 2 0
+a '' to_object 46 -1 0 0 0
+a '' to_resist 46 -1 5 0 0
+a '' to_object 46 -1 0 0 0
 g @rus none~
 #22347
 flail thunderfist~
@@ -1513,8 +1533,10 @@ energy~
 weapon BY C AN
 flail 15 4 'shock' 0
 46 200 100000 P
-a '' to_object 46 -1 -30 36 0
-a '' to_object 46 -1 30 32 0
+a '' to_resist 46 -1 -30 10 0
+a '' to_object 46 -1 0 0 0
+a '' to_resist 46 -1 30 5 0
+a '' to_object 46 -1 0 0 0
 a '' to_object 46 -1 -5 20 0
 a '' to_object 46 -1 20 13 0
 a '' to_object 46 -1 2 18 0
@@ -1736,9 +1758,12 @@ armor BY C AE
 a '' to_object 45 -1 3 18 0
 a '' to_object 45 -1 3 19 0
 a '' to_object 45 -1 -10 17 0
-a '' to_object 45 -1 1 29 0
-a '' to_object 45 -1 1 28 0
-a '' to_object 45 -1 1 27 0
+a '' to_resist 45 -1 1 2 0
+a '' to_object 45 -1 0 0 0
+a '' to_resist 45 -1 1 1 0
+a '' to_object 45 -1 0 0 0
+a '' to_resist 45 -1 1 0 0
+a '' to_object 45 -1 0 0 0
 g @rus none~
 #22370
 silver vest~
@@ -1752,9 +1777,12 @@ a '' to_object 45 -1 -1 2 0
 a '' to_object 45 -1 1 26 0
 a '' to_object 45 -1 4 19 0
 a '' to_object 45 -1 2 1 0
-a '' to_object 45 -1 3 28 0
-a '' to_object 45 -1 2 29 0
-a '' to_object 45 -1 2 27 0
+a '' to_resist 45 -1 3 1 0
+a '' to_object 45 -1 0 0 0
+a '' to_resist 45 -1 2 2 0
+a '' to_object 45 -1 0 0 0
+a '' to_resist 45 -1 2 0 0
+a '' to_object 45 -1 0 0 0
 g @rus none~
 #22371
 silver boot~
@@ -1779,9 +1807,12 @@ armor BY C AI
 45 20 30000 P
 a '' to_object 45 -1 3 18 0
 a '' to_object 45 -1 3 19 0
-a '' to_object 45 -1 2 28 0
-a '' to_object 45 -1 1 27 0
-a '' to_object 45 -1 1 29 0
+a '' to_resist 45 -1 2 1 0
+a '' to_object 45 -1 0 0 0
+a '' to_resist 45 -1 1 0 0
+a '' to_object 45 -1 0 0 0
+a '' to_resist 45 -1 1 2 0
+a '' to_object 45 -1 0 0 0
 g @rus none~
 #22373
 silver gloves~
@@ -1804,9 +1835,12 @@ armor BY C AF
 a '' to_object 45 -1 1 18 0
 a '' to_object 45 -1 1 19 0
 a '' to_object 45 -1 10 13 0
-a '' to_object 45 -1 1 27 0
-a '' to_object 45 -1 1 28 0
-a '' to_object 45 -1 1 29 0
+a '' to_resist 45 -1 1 0 0
+a '' to_object 45 -1 0 0 0
+a '' to_resist 45 -1 1 1 0
+a '' to_object 45 -1 0 0 0
+a '' to_resist 45 -1 1 2 0
+a '' to_object 45 -1 0 0 0
 a '' to_object 45 -1 -10 17 0
 g @rus none~
 #22375
@@ -1817,9 +1851,12 @@ silver~
 armor BY C AJ
 25 25 20 15 0
 45 450 50000 P
-a '' to_object 45 -1 6 27 0
-a '' to_object 45 -1 5 28 0
-a '' to_object 45 -1 3 29 0
+a '' to_resist 45 -1 6 0 0
+a '' to_object 45 -1 0 0 0
+a '' to_resist 45 -1 5 1 0
+a '' to_object 45 -1 0 0 0
+a '' to_resist 45 -1 3 2 0
+a '' to_object 45 -1 0 0 0
 g @rus none~
 #22376
 silver dagger~
@@ -1886,11 +1923,11 @@ steel~
 armor Y C AE
 8 8 6 5 0
 45 50 10000 P
-a '' unknown 45 -1 5 33 0
-a '' unknown 45 -1 3 28 0
-a '' unknown 45 -1 -5 20 0
-a '' unknown 45 -1 3 18 0
-a '' unknown 45 -1 3 19 0
+a '' to_resist 45 -1 5 6 0
+a '' to_resist 45 -1 3 1 0
+a '' to_affects 45 -1 -5 20 0
+a '' to_affects 45 -1 3 18 0
+a '' to_affects 45 -1 3 19 0
 #22382
 ancinet chainmail~
 an ancient chainmail~
@@ -1899,11 +1936,11 @@ steel~
 armor Y C AD
 15 15 13 10 0
 45 200 10000 P
-a '' unknown 45 -1 5 33 0
-a '' unknown 45 -1 3 29 0
-a '' unknown 45 -1 1 18 0
-a '' unknown 45 -1 2 1 0
-a '' unknown 45 -1 4 19 0
+a '' to_resist 45 -1 5 6 0
+a '' to_resist 45 -1 3 2 0
+a '' to_affects 45 -1 1 18 0
+a '' to_affects 45 -1 2 1 0
+a '' to_affects 45 -1 4 19 0
 #22383
 ancient boots~
 a pair of ancient boots~
@@ -1913,8 +1950,8 @@ armor Y C AG
 8 8 6 6 0
 45 40 10000 P
 a '' to_affects 45 -1 0 0 T
-a '' unknown 45 -1 5 33 0
-a '' unknown 45 -1 50 14 0
+a '' to_resist 45 -1 5 6 0
+a '' to_affects 45 -1 50 14 0
 #22384
 ancient sleeves~
 a set of ancient sleeves~
@@ -1923,10 +1960,10 @@ steel~
 armor Y C AI
 13 13 10 9 0
 45 40 10000 P
-a '' unknown 45 -1 5 33 0
-a '' unknown 45 -1 2 28 0
-a '' unknown 45 -1 2 18 0
-a '' unknown 45 -1 2 19 0
+a '' to_resist 45 -1 5 6 0
+a '' to_resist 45 -1 2 1 0
+a '' to_affects 45 -1 2 18 0
+a '' to_affects 45 -1 2 19 0
 #22385
 gloves ancient~
 a pair of ancient gloves~
@@ -1935,9 +1972,9 @@ steel~
 armor Y C AH
 7 7 6 5 0
 45 30 10000 P
-a '' unknown 45 -1 1 2 0
-a '' unknown 45 -1 2 18 0
-a '' unknown 45 -1 5 33 0
+a '' to_affects 45 -1 1 2 0
+a '' to_affects 45 -1 2 18 0
+a '' to_resist 45 -1 5 6 0
 #22386
 ancient leggings~
 a set of ancient leggings~
@@ -1946,10 +1983,10 @@ steel~
 armor Y C AF
 15 15 13 10 0
 45 70 10000 P
-a '' unknown 45 -1 1 18 0
-a '' unknown 45 -1 1 19 0
-a '' unknown 45 -1 5 33 0
-a '' unknown 45 -1 2 27 0
+a '' to_affects 45 -1 1 18 0
+a '' to_affects 45 -1 1 19 0
+a '' to_resist 45 -1 5 6 0
+a '' to_resist 45 -1 2 0 0
 #22387
 sword ancient~
 an ancient sword~
@@ -1958,9 +1995,9 @@ steel~
 weapon BY CFL AN
 sword 4 11 'acbite' D
 45 200 10000 P
-a '' unknown 45 -1 10 13 0
-a '' unknown 45 -1 2 18 0
-a '' unknown 45 -1 4 19 0
+a '' to_affects 45 -1 10 13 0
+a '' to_affects 45 -1 2 18 0
+a '' to_affects 45 -1 4 19 0
 #22388
 ancient shield~
 an ancient shield~
@@ -1970,10 +2007,10 @@ armor GY C AJ
 20 20 15 23 0
 45 150 15000 P
 a '' to_skills 45 -1 50 'shield block' 0
-a '' unknown 45 -1 5 30 0
-a '' unknown 45 -1 2 28 0
-a '' unknown 45 -1 5 33 0
-a '' unknown 45 -1 2 27 0
+a '' to_resist 45 -1 5 3 0
+a '' to_resist 45 -1 2 1 0
+a '' to_resist 45 -1 5 6 0
+a '' to_resist 45 -1 2 0 0
 #22399
 battleaxe dagger sword~
 battlaxe ~

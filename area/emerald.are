@@ -1,5 +1,5 @@
 #AREADATA
-Ver 3
+Ver 4
 Name Emerald Forest~
 Builders dias~
 VNUMs 200 299
@@ -3505,7 +3505,8 @@ clothing GUb B AG
 0 0 0 0 0
 10 0 12000 P
 a '' to_object 10 -1 -10 20 0
-a '' to_object 10 -1 15 31 0
+a '' to_resist 10 -1 15 4 0
+a '' to_object 10 -1 0 0 0
 a '' to_invis 10 -1 5 18 G
 g @rus plural~
 #0

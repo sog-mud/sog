@@ -1,5 +1,5 @@
 #AREADATA
-Ver 3
+Ver 4
 Name Olympus~
 Builders orail~
 VNUMs 900 999
@@ -441,11 +441,11 @@ platinum~
 armor FG 0 AK
 15 15 15 15 0
 45 350 8400 P
-a '' unknown 45 -1 2 1 0
-a '' unknown 45 -1 5 28 0
-a '' unknown 45 -1 5 29 0
-a '' unknown 45 -1 5 27 0
-a '' unknown 45 -1 17 32 0
+a '' to_affects 45 -1 2 1 0
+a '' to_resist 45 -1 5 1 0
+a '' to_resist 45 -1 5 2 0
+a '' to_resist 45 -1 5 0 0
+a '' to_resist 45 -1 17 5 0
 g @rus none~
 #901
 hammer thunder bolt thunderbolt~
@@ -467,8 +467,8 @@ platinum~
 armor FGK 0 AE
 11 12 11 5 0
 45 50 7300 P
-a '' unknown 45 -1 25 13 0
-a '' unknown 45 -1 -5 20 0
+a '' to_affects 45 -1 25 13 0
+a '' to_affects 45 -1 -5 20 0
 a '' to_object 45 -1 2 2 0
 g @rus none~
 #903
@@ -570,11 +570,11 @@ silver~
 armor FGK 0 AJ
 25 25 23 18 0
 45 1000 5300 P
-a '' unknown 45 -1 5 35 0
-a '' unknown 45 -1 5 34 0
-a '' unknown 45 -1 4 18 0
-a '' unknown 45 -1 4 19 0
-a '' unknown 45 -1 30 13 0
+a '' to_resist 45 -1 5 8 0
+a '' to_resist 45 -1 5 9 0
+a '' to_affects 45 -1 4 18 0
+a '' to_affects 45 -1 4 19 0
+a '' to_affects 45 -1 30 13 0
 a '' to_object 45 -1 1 4 0
 g @rus none~
 #913
@@ -666,9 +666,9 @@ crystal~
 jewelry FGK 0 AC
 0 0 0 0 0
 45 10 4900 P
-a '' unknown 45 -1 -10 20 0
-a '' unknown 45 -1 15 36 0
-a '' unknown 45 -1 15 30 0
+a '' to_affects 45 -1 -10 20 0
+a '' to_resist 45 -1 15 10 0
+a '' to_resist 45 -1 15 3 0
 g @rus none~
 #923
 sun sword~
@@ -690,10 +690,10 @@ unknown~
 armor FGK 0 AK
 12 12 11 6 0
 45 100 1960 P
-a '' unknown 45 -1 3 20 0
-a '' unknown 45 -1 4 24 0
-a '' unknown 45 -1 7 23 0
-a '' unknown 45 -1 30 12 0
+a '' to_affects 45 -1 3 20 0
+a '' to_affects 45 -1 4 24 0
+a '' to_affects 45 -1 7 23 0
+a '' to_affects 45 -1 30 12 0
 g @rus none~
 #925
 hat~
@@ -703,11 +703,11 @@ cloth~
 armor FGK 0 AE
 16 16 14 9 0
 45 50 580 P
-a '' unknown 45 -1 5 42 0
-a '' unknown 45 -1 5 31 0
-a '' unknown 45 -1 5 36 0
-a '' unknown 45 -1 5 37 0
-a '' unknown 45 -1 15 13 0
+a '' to_resist 45 -1 5 16 0
+a '' to_resist 45 -1 5 4 0
+a '' to_resist 45 -1 5 10 0
+a '' to_resist 45 -1 5 11 0
+a '' to_affects 45 -1 15 13 0
 g @rus none~
 #926
 nectar~

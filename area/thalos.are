@@ -1,5 +1,5 @@
 #AREADATA
-Ver 3
+Ver 4
 Name Thalos~
 VNUMs 5200 5299
 Credits Drkside~
@@ -266,7 +266,8 @@ armor GJ 0 AJ
 24 100 4400 P
 a '' to_object 24 -1 -2 20 0
 a '' to_object 24 -1 -2 20 0
-a '' to_object 24 -1 100 41 0
+a '' to_resist 24 -1 100 17 0
+a '' to_object 24 -1 0 0 0
 g @rus none~
 #5210
 potion black~
