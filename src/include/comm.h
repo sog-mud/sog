@@ -1,5 +1,5 @@
 /*
- * $Id: comm.h,v 1.22 1998-11-02 05:28:40 fjoe Exp $
+ * $Id: comm.h,v 1.23 1998-11-21 06:00:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -62,13 +62,14 @@ void	page_to_char( const char *txt, CHAR_DATA *ch);
 #define TO_CHAR		(D)
 #define TO_ALL		(E)
 
-#define TO_BUF		(F)
-#define NO_TRIGGER	(G)
-#define CHECK_TWIT	(H)
-#define TRANS_TEXT	(I)	/* do $t and $T translation		    */
-#define CHECK_DEAF	(J)	/* skip is_affected(to, gsn_deafen) chars   */
-#define STRANS_TEXT	(K)	/* do $t and $T slang translation (from ch) */
-#define SKIP_MORTAL	(L)	/* skip mortals */
+#define ACT_TOBUF	(F)
+#define ACT_NOTRIG	(G)
+#define ACT_NOTWIT	(H)
+#define ACT_TRANS	(I)	/* do $t and $T translation		    */
+#define ACT_NODEAF	(J)	/* skip is_affected(to, gsn_deafen) chars   */
+#define ACT_STRANS	(K)	/* do $t and $T slang translation (from ch) */
+#define ACT_NOMORTAL	(L)	/* skip mortals */
+#define ACT_VERBOSE	(M)	/* skip if (!IS_SET(ch->comm, COMM_VERBOSE)) */
 
 #define act(format, ch, arg1, arg2, type) \
 		act_printf(ch, arg1, arg2, type, POS_RESTING, format)

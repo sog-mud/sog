@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.125 1998-11-18 05:20:56 fjoe Exp $
+ * $Id: comm.c,v 1.126 1998-11-21 06:00:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2832,9 +2832,9 @@ void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 			case 't': 
 			case 'T':
 				i = code == 't' ? arg1 : arg2;
-				if (IS_SET(flags, TRANS_TEXT))
+				if (IS_SET(flags, ACT_TRANS))
 					i = GETMSG(i, to->lang);
-				if (IS_SET(flags, STRANS_TEXT))
+				if (IS_SET(flags, ACT_STRANS))
 					i = translate(ch, to, i);
 				break;
 	
@@ -2958,13 +2958,13 @@ void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 
 	if (!IS_NPC(to)) {
 		if ((IS_SET(to->comm, COMM_AFK) || to->desc == NULL)
-		&&  IS_SET(flags, TO_BUF))
+		&&  IS_SET(flags, ACT_TOBUF))
 			buf_add(to->pcdata->buffer, tmp);
 		else if (to->desc)
 			write_to_buffer(to->desc, tmp, 0);
 	}
 	else {
-		if (!IS_SET(flags, NO_TRIGGER))
+		if (!IS_SET(flags, ACT_NOTRIG))
 			mp_act_trigger(tmp, to, ch, arg1, arg2, TRIG_ACT);
 		if (to->desc)
 			write_to_buffer(to->desc, tmp, 0);
@@ -2977,25 +2977,6 @@ bool act_skip(CHAR_DATA *ch, CHAR_DATA *vch, CHAR_DATA *to,
 	if (to->position < min_pos)
 		return TRUE;
 
-	if (IS_SET(flags, SKIP_MORTAL) && !IS_NPC(to) && !IS_IMMORTAL(to))
-		return TRUE;
-
-/* twitlist handling */
-	if (IS_SET(flags, CHECK_TWIT)
-	&&  !IS_NPC(to) && !IS_IMMORTAL(to)
-	&&  !IS_NPC(ch) && !IS_IMMORTAL(ch)
-	&&  is_name(ch->name, to->pcdata->twitlist))
-		return TRUE;
-
-/* check "deaf dumb blind" chars */
-	if (IS_SET(flags, CHECK_DEAF) && is_affected(to, gsn_deafen))
-		return TRUE;
-
-	if (IS_NPC(to)
-	&&  to->desc == NULL
-	&&  !HAS_TRIGGER(to, TRIG_ACT))
-		return TRUE;
- 
 	if (IS_SET(flags, TO_CHAR) && to != ch)
 		return TRUE;
 	if (IS_SET(flags, TO_VICT) && (to != vch || to == ch))
@@ -3003,6 +2984,30 @@ bool act_skip(CHAR_DATA *ch, CHAR_DATA *vch, CHAR_DATA *to,
 	if (IS_SET(flags, TO_ROOM) && to == ch)
 		return TRUE;
 	if (IS_SET(flags, TO_NOTVICT) && (to == ch || to == vch))
+		return TRUE;
+
+	if (IS_NPC(to)
+	&&  to->desc == NULL
+	&&  !HAS_TRIGGER(to, TRIG_ACT))
+		return TRUE;
+ 
+	if (IS_SET(flags, ACT_NOMORTAL) && !IS_NPC(to) && !IS_IMMORTAL(to))
+		return TRUE;
+
+/* twitlist handling */
+	if (IS_SET(flags, ACT_NOTWIT)
+	&&  !IS_NPC(to) && !IS_IMMORTAL(to)
+	&&  !IS_NPC(ch) && !IS_IMMORTAL(ch)
+	&&  is_name(ch->name, to->pcdata->twitlist))
+		return TRUE;
+
+/* check "deaf dumb blind" chars */
+	if (IS_SET(flags, ACT_NODEAF) && is_affected(to, gsn_deafen))
+		return TRUE;
+
+/* skip verbose messages */
+	if (IS_SET(flags, ACT_VERBOSE)
+	&&  IS_SET(to->comm, COMM_NOVERBOSE))
 		return TRUE;
 
 	return FALSE;
