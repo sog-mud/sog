@@ -4656,7 +4656,7 @@ SCHOOL.  (type 'up' to go to MUD SCHOOL.)  A small plaque is on this wall.
 {x  Похожие ступени ведут ВВЕРХ через маленькую дверцу ко ВХОДУ в МУД
 ШКОЛУ (нажмите "up" для входа в МУД ШКОЛУ). Маленькая дощечка (plaque) висит на стене.
 ~
-0 CDS inside
+0 DS inside
 E
 plaque~
 This entire world has been integrated, modified, debugged, and enhanced by

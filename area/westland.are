@@ -954,7 +954,7 @@ mace warden палица стража границы boundary~
 @eng a boundary warden's mace@rus ~~палица~~ стража границы~
 @eng A mace has been left here.@rus Чья-то палица (mace) оставлено здесь.~
 unknown~
-weapon ABCEIJ AN
+weapon ABCI AN
 mace 7 7 pound 0
 50 30 2999 P
 A

@@ -812,7 +812,7 @@ achilles breastplate~
 achilles' breastplate~
 Achilles' breastplate lies here.~
 ~
-armor AGJ AD
+armor AG AD
 12 12 12 0 0
 45 5 450 P
 A
@@ -825,7 +825,7 @@ achilles greaves~
 achilles' greaves~
 Achilles' greaves lie here.~
 ~
-armor AGJ AF
+armor AG AF
 12 12 12 0 0
 45 5 450 P
 A
@@ -838,7 +838,7 @@ achilles helm~
 achilles' helm~
 Achilles' helm lies here.~
 ~
-armor AGJ AE
+armor AG AE
 12 12 12 0 0
 45 5 450 P
 A
@@ -851,7 +851,7 @@ achilles' sword~
 achilles' sword~
 Achilles' sword lies here.~
 ~
-weapon AJ AN
+weapon A AN
 exotic 5 10 pierce 0
 45 10 450 P
 A
@@ -897,7 +897,7 @@ achilles' shield~
 achilles' shield~
 Achilles' shield lies here.~
 ~
-armor AGJ AJ
+armor AG AJ
 12 12 12 0 0
 45 5 450 P
 A

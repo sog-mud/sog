@@ -365,7 +365,7 @@ diameter in the center of the clearing.
 ~
 0 C forest
 E
-mushrooms circle~
+mushrooms circle грибы~
 You look at the mushroom circle. You see tiny footprints and the faint outline 
 of a trap door in the center of the ring.
 ~
@@ -393,32 +393,43 @@ hear sounds of a raucous celebration to the east.
 ~
 0 D inside
 D0
-A tiny door~
+@eng A tiny door@rus Маленькая дверца.
+~
 door tiny~
 ABZ -1 29103
 D1
-A smoky hallway~
+@eng A smoky hallway@rus Прокуренный коридор.
+~
 ~
 Z -1 29104
 D2
-A tiny door~
+@eng A tiny door@rus Маленькая дверца.
+~
 door tiny~
 ABZ -1 29105
 D3
-A tiny door~
+@eng A tiny door@rus Маленькая дверца.
+~
 door tiny~
 ABZ -1 29106
 D4
-A small trap door~
+@eng A small trap door@rus Небольшая дверь.
+~
 door trap~
 ABZ -1 29101
 S
 #29103
 @eng Puck's Room@rus Комната мистера Пака~
-You are hunched over in Puck's room. You know this by the sign that says 
+@eng You are hunched over in Puck's room. You know this by the sign that says 
 "Pucks stuff- keep your grubby hands off". There is a bed of forest leaves, 
 some rude hollowed out shelves, a tiny table with a half full jack of ale, 
 and a great pile of junk beneath the sign.
+@rus Согнувшись в три погибели ты все-таки пролез в эту комнату. Судя по 
+надписи на стене, которая гласит: "Уберите свои грязные загребущие 
+руки от моих вещей. Пак.", это комната мистера Пака. У стены стоит
+кровать из лесных листьев, а напротив нее несколько крубо сколоченных
+книжных полок. В середине комнаты стоит стол, а на нем полный кувшин
+вина и кучка непонятного порошка.
 ~
 0 D inside
 E
@@ -426,65 +437,95 @@ sign~
 The sign says: "Puck's stuff- keep your grubby hands off" 
 ~
 D2
-A tiny door~
+@eng A tiny door@rus Маленькая дверца.
+~
 door tiny~
 ABZ -1 29102
 S
 #29104
-Little People's Bar and Grill~
-You squeeze into the famous Little People's Bar and Grill! Conversation 
+@eng Little People's Bar and Grill@rus Забегаловка~
+@eng You squeeze into the famous Little People's Bar and Grill! Conversation 
 abruptly stops as you enter. Around you little people are drinking from 
 beautifully crafted crystal glasses. The smoke is thick and buoys your 
 spirits. Maybe you should stay a while and try the faerie wine? A low tunnel 
 heads west, and you hear a thunderous racket coming from the east.
+@rus Ты находишься в питейном заведении фейри. Здесь весьма тесно, но довольно
+уютно. При твоем появлении разговоры за столами и у стойки бара сразу 
+смолкли, и на тебя с интересом взглянула не одна пара глаз местных
+завсегдаев. Каждый из присутствующих здесь держит в руках бокал из
+натуральноко кристалла, наполненный искрящимся напитком. Может и тебе
+стоит задержаться и попробывать хваленого вина фейри.
+  Отсюда на запад ведет узкий проход а с востока доносятся раскаты 
+грома.
 ~
 0 D inside
 D1
-Towards the racket~
+@eng Towards the racket@rus В направлении шума.
+~
 ~
 Z -1 29107
 D3
-A smoky hallway~
+@eng A smoky hallway@rus Прокуренный коридор.
+~
 ~
 Z -1 29102
 S
 #29105
-Snooze Den~
-You hunker in the snooze den. A large sign is on the wall. Many little people 
-lie collapsed in drunken heaps about this large room. To the north is a tiny 
-door.
+@eng Snooze Den@rus Спальня~
+@eng You hunker in the snooze den.  A large sign is on the wall.  Many little
+people lie collapsed in drunken heaps about this large room.  To the north
+is a tiny door.  
+@rus Помещение, которое по-видимому является общественной спальней. На стене
+пришпилена записка. Большое число маленьких человечков посапывают в
+самых различных позах. Единственная маленькая дверь ведет на север.
 ~
 0 D inside
 E
-sign~
-The sign says 'Close the door, stupid'~
+sign записка~
+@eng The sign says 'Close the door, stupid'@rus Закрой дверь, тупица.
+~
 D0
-A tiny door~
+@eng A tiny door@rus Маленькая дверца.
+~
 door tiny~
 ABZ -1 29102
 S
 #29106
-Guarded Burrow~
-You are once again hunched over in a earthy burrow. There is sign of much 
+@eng Guarded Burrow@rus Охраняемый проход~
+@eng You are once again hunched over in a earthy burrow. There is sign of much 
 passage through here, many little feet have packed the dirt hard. To the east 
 lies a door, and to the south is a normal sized door.
+@rus Приложив немного усилий ты протиснулся в дверь и оказался в узкой норе,
+прокопанной в земле. На пыльном полу отпечатки множества маленьких
+ножек, видимо этот проход пользуется большой популярностью. 
+ На востоке видна маленькая дверца, а на юге -- дверь уже нормального
+размера, в нее можно пройпи совершенно спокойно, а не сгибаясь в три
+погибели, как надо было делать раньше.
 ~
 0 D inside
 D1
-A tiny door~
+@eng A tiny door@rus Маленькая дверца.
+~
 door tiny~
 ABZ -1 29102
 D2
-A normal sized door~
+@eng A normal sized door@rus Самая обыкновенная дверь.
+~
 door normal~
 ABCZ 29110 29108
 S
 #29107
-Bowling Alley~
-You are hunched over in a bowling alley! Little people are rolling round 
+@eng Bowling Alley@rus Кегельбан~
+@eng You are hunched over in a bowling alley! Little people are rolling round 
 objects down grooved tracks at long white targets. The whole cave echoes in a 
 dreadful crash each time they hit the targets! Oh you wish you had that glass 
 of faerie wine. To the west is the Little People's Bar and grill.
+@rus Ты протиснулся в помещение, где располагается кегельбан. Здесь совсем
+мало места. Маленькие человечки увлеченно гоняют шары, совершенно не
+обращая на тебя внимания. Время от времени шары попадают то мишеням и 
+раздоется нешуточный грохот и радостные или огорченные крики. 
+ На западе проход ведет в зал таверны, где можно спокойно выпить 
+бокальчик знаменитого выдержанного вина фейри.
 ~
 0 D inside
 E
@@ -496,7 +537,8 @@ targets white~
 You look carefully at the white targets and discover they are human bones! 
 ~
 D3
-Little People's Bar and Grill~
+@eng Little People's Bar and Grill@rus Забегаловка.
+~
 ~
 Z -1 29104
 S
@@ -515,7 +557,8 @@ E
 forge fires~
 They are being fanned furiously by fluttering faerie folk.~
 D0
-A normal sized door~
+@eng A normal sized door@rus Самая обыкновенная дверь.
+~
 door normal~
 ABCZ 29110 29106
 S
@@ -558,11 +601,17 @@ G 0 29113 0		*	whoooooopie! Gold!
 M 0 29108 2 29105 1	* a drunken faerie (Snooze Den)
 M 0 29108 2 29105 1	* a drunken faerie (Snooze Den)
 G 0 29108 0		*	a goblet of faerie wine
-M 0 29104 3 29106 1	* a stern brownie (Guarded Burrow)
+M 0 29104 1 29106 1	* a stern brownie (Guarded Burrow)
 E 0 29104 0 14		*	a brownie bracer: on the left wrist
-M 0 29104 3 29106 1	* a stern brownie (Guarded Burrow)
+E 0 29104 0 15		*	a brownie bracer: on the right wrist
+G 0 29110 0		*	a sparkling key
+M 0 29104 4 29106 1	* a stern brownie (Guarded Burrow)
+E 0 29104 0 15		*	a brownie bracer: on the right wrist
 E 0 29104 0 14		*	a brownie bracer: on the left wrist
 G 0 29110 0		*	a sparkling key
+M 0 29104 4 29106 1	* a stern brownie (Guarded Burrow)
+E 0 29104 0 14		*	a brownie bracer: on the left wrist
+E 0 29104 0 15		*	a brownie bracer: on the right wrist
 M 0 29101 4 29107 1	* a giggling pixie (Bowling Alley)
 G 0 29101 0		*	a catchy little rhyme
 M 0 29102 3 29107 1	* a fluttering nixie (Bowling Alley)
