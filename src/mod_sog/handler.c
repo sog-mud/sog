@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.54 1998-09-11 06:36:48 fjoe Exp $
+ * $Id: handler.c,v 1.55 1998-09-11 06:50:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1357,7 +1357,8 @@ void obj_from_char(OBJ_DATA *obj)
 	if (!IS_NPC(ch)) {
 		int vnum = obj->pIndexData->vnum;
 
-		if (get_wear_level(ch, obj) < obj->level
+		if (strstr(mlstr_mval(obj->short_descr), ch->name)
+		&&  get_wear_level(ch, obj) < obj->level
 		&&  ((94 <= vnum && vnum <= 96) ||
 		     (31 <= vnum && vnum <= 33))) {
 			ch->pcdata->questpoints += 1000;
