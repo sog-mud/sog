@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.h,v 1.4 2001-08-26 16:17:18 fjoe Exp $
+ * $Id: trig.h,v 1.5 2001-08-27 16:55:59 fjoe Exp $
  */
 
 #ifndef _TRIG_H_
@@ -37,15 +37,15 @@
 #define TRIG_MOB_DEATH		2		/* arg: probability	*/
 #define TRIG_MOB_ENTRY		3		/* arg: probability	*/
 #define TRIG_MOB_FIGHT		4		/* arg: probability	*/
-#define TRIG_MOB_GIVE		5		/* arg: probability	*/
+#define TRIG_MOB_GIVE		5		/* arg: obj vnum/name	*/
 #define TRIG_MOB_GREET		6		/* arg: probability	*/
 #define TRIG_MOB_GRALL		7		/* arg: probability	*/
 #define TRIG_MOB_KILL		8		/* arg: probability	*/
 #define TRIG_MOB_HPCNT		9		/* arg: probability	*/
 #define TRIG_MOB_RANDOM		10		/* arg: probability	*/
 #define TRIG_MOB_SPEECH		11		/* arg: text		*/
-#define TRIG_MOB_EXIT		12		/* arg: probability	*/
-#define TRIG_MOB_EXALL		13		/* arg: probability	*/
+#define TRIG_MOB_EXIT		12		/* arg: dir (or "all")	*/
+#define TRIG_MOB_EXALL		13		/* arg: dir (or "all")	*/
 #define TRIG_MOB_DELAY		14		/* arg: probability	*/
 #define TRIG_MOB_SURR		15		/* arg: probability	*/
 
@@ -69,6 +69,8 @@
 #define HAS_TEXT_ARG(trig)	(trig->trig_type == TRIG_MOB_ACT ||	\
 				 trig->trig_type == TRIG_MOB_SPEECH ||	\
 				 trig->trig_type == TRIG_OBJ_SPEECH)
+#define HAS_EXIT_ARG(trig)	(trig->trig_type == TRIG_MOB_EXIT ||	\
+				 trig->trig_type == TRIG_MOB_EXALL)
 
 #define TRIG_F_CASEDEP	(A)	/* text arg case-dependent	*/
 #define TRIG_F_REGEXP	(B)	/* text arg is regexp		*/

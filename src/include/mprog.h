@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mprog.h,v 1.3 2001-08-26 16:17:18 fjoe Exp $
+ * $Id: mprog.h,v 1.4 2001-08-27 16:55:59 fjoe Exp $
  */
 
 #ifndef _MPROG_H_
@@ -74,7 +74,7 @@ mprog_t *mprog_cpy(mprog_t *dst, const mprog_t *src);
 #define mprog_search(name)	((mprog_t *) strkey_search(&mprogs, (name)))
 
 extern int (*mprog_compile)(mprog_t *mp);
-extern int (*mprog_execute)(mprog_t *mp, va_list ap);
+extern int (*mprog_execute)(mprog_t *mp, void *arg1, void *arg2, void *arg3);
 
 /**
  * mprog_execute error codes

@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.25 2001-08-26 16:17:27 fjoe Exp $
+ * $Id: mpc.y,v 1.26 2001-08-27 16:56:00 fjoe Exp $
  */
 
 /*
@@ -88,7 +88,7 @@
 #define yystacksize mpc_stacksize
 
 int _mprog_compile(mprog_t *mp);
-int _mprog_execute(mprog_t *mp, va_list ap);
+int _mprog_execute(mprog_t *mp, void *arg1, void *arg2, void *arg3);
 
 /*--------------------------------------------------------------------
  * argtype stack manipulation functions
@@ -1587,7 +1587,7 @@ _mprog_compile(mprog_t *mp)
 	} while (0)
 
 int
-_mprog_execute(mprog_t *mp, va_list ap)
+_mprog_execute(mprog_t *mp, void *arg1, void *arg2, void *arg3)
 {
 	sym_t *sym;
 	mpcode_t *mpc;
@@ -1605,18 +1605,18 @@ _mprog_execute(mprog_t *mp, va_list ap)
 
 	switch (mpc->mp->type) {
 	case MP_T_MOB:
-		if (mob_var_assign(mpc, "$n", va_arg(ap, CHAR_DATA *)) < 0)
+		if (mob_var_assign(mpc, "$n", arg1) < 0)
 			execerr(MPC_ERR_RUNTIME);
-		if (mob_var_assign(mpc, "$N", va_arg(ap, CHAR_DATA *)) < 0)
+		if (mob_var_assign(mpc, "$N", arg2) < 0)
 			execerr(MPC_ERR_RUNTIME);
-		if (obj_var_assign(mpc, "$o", va_arg(ap, OBJ_DATA *)) < 0)
+		if (obj_var_assign(mpc, "$o", arg3) < 0)
 			execerr(MPC_ERR_RUNTIME);
 		break;
 
 	case MP_T_OBJ:
-		if (obj_var_assign(mpc, "$o", va_arg(ap, OBJ_DATA *)) < 0)
+		if (obj_var_assign(mpc, "$o", arg1) < 0)
 			execerr(MPC_ERR_RUNTIME);
-		if (mob_var_assign(mpc, "$N", va_arg(ap, CHAR_DATA *)) < 0)
+		if (mob_var_assign(mpc, "$N", arg2) < 0)
 			execerr(MPC_ERR_RUNTIME);
 		break;
 
@@ -1624,13 +1624,13 @@ _mprog_execute(mprog_t *mp, va_list ap)
 		break;
 
 	case MP_T_SPEC:
-		if (mob_var_assign(mpc, "$n", va_arg(ap, CHAR_DATA *)) < 0)
+		if (mob_var_assign(mpc, "$n", arg1) < 0)
 			execerr(MPC_ERR_RUNTIME);
 
-		if (str_var_assign(mpc, "$rm", va_arg(ap, const char *)) < 0)
+		if (str_var_assign(mpc, "$rm", arg2) < 0)
 			execerr(MPC_ERR_RUNTIME);
 
-		if (str_var_assign(mpc, "$add", va_arg(ap, const char *)) < 0)
+		if (str_var_assign(mpc, "$add", arg3) < 0)
 			execerr(MPC_ERR_RUNTIME);
 		break;
 	}

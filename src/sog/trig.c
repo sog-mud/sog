@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.4 2001-08-26 16:17:35 fjoe Exp $
+ * $Id: trig.c,v 1.5 2001-08-27 16:56:03 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -36,12 +36,10 @@
 #include <mprog.h>
 #include <rwfile.h>
 
-static int vpull_one_trigger(trig_t *trig, const char *arg,
-			     int mp_type, va_list ap);
-static int pull_one_trigger(trig_t *trig, const char *arg,
-			    int mp_type, ...);
-static int pull_trigger_list(int trig_type, const char *arg,
-			     varr *v, int mp_type, ...);
+static int pull_one_trigger(trig_t *trig, const char *arg, int mp_type,
+			    void *arg1, void *arg2, void *arg3);
+static int pull_trigger_list(int trig_type, const char *arg, varr *v,
+			     int mp_type, void *arg1, void *arg2, void *arg3);
 
 void
 trig_init(trig_t *trig)
@@ -245,7 +243,7 @@ pull_obj_trigger(int trig_type, const char *arg,
 {
 	return pull_trigger_list(
 	    trig_type, arg, &obj->pObjIndex->mp_trigs, MP_T_OBJ,
-	    obj, victim);
+	    obj, victim, NULL);
 }
 
 int
@@ -255,8 +253,9 @@ pull_spec_trigger(spec_t *spec, CHAR_DATA *ch,
 	if (spec->mp_trig.trig_type == TRIG_NONE)
 		return MPC_ERR_NOTFOUND;
 
-	return pull_one_trigger(&spec->mp_trig, NULL, MP_T_SPEC,
-				ch, spn_rm, spn_add);
+	return pull_one_trigger(
+	    &spec->mp_trig, NULL, MP_T_SPEC,
+	    ch, (void *) (uintptr_t) spn_rm, (void *) (uintptr_t) spn_add);
 }
 
 /*--------------------------------------------------------------------
@@ -264,7 +263,8 @@ pull_spec_trigger(spec_t *spec, CHAR_DATA *ch,
  */
 
 static int
-vpull_one_trigger(trig_t *trig, const char *arg, int mp_type, va_list ap)
+pull_one_trigger(trig_t *trig, const char *arg, int mp_type,
+		 void *arg1, void *arg2, void *arg3)
 {
 	mprog_t *mp;
 
@@ -283,6 +283,37 @@ vpull_one_trigger(trig_t *trig, const char *arg, int mp_type, va_list ap)
 
 		if (silver < silver_needed)
 			return MPC_ERR_COND_FAILED;
+	} else if (trig->trig_type == TRIG_MOB_GIVE) {
+		OBJ_DATA *obj = (OBJ_DATA *) arg1;
+		bool match = FALSE;
+
+		if (is_number(trig->trig_arg))
+			match = obj->pObjIndex->vnum == atoi(trig->trig_arg);
+		else {
+			const char *p = obj->pObjIndex->name;
+			char buf[MAX_STRING_LENGTH];
+
+			/*
+			 * one of obj names should match trig->arg
+			 */
+			while (*p) {
+				p = one_argument(p, buf, sizeof(buf));
+				if ((match = is_name(buf, trig->trig_arg)))
+					break;
+			}
+		}
+
+		if (!match)
+			return MPC_ERR_COND_FAILED;
+	} else if (HAS_EXIT_ARG(trig)) {
+		CHAR_DATA *ch = (CHAR_DATA *) arg1;
+
+		if (trig->trig_type == TRIG_MOB_EXIT
+		&&  ch->position != ch->pMobIndex->default_pos)
+			return MPC_ERR_COND_FAILED;
+
+		if (!is_name(arg, trig->trig_arg))
+			return MPC_ERR_COND_FAILED;
 	} else if (HAS_TEXT_ARG(trig)) {
 		const char *arg_lwr = strlwr(arg);
 		bool match = FALSE;
@@ -298,51 +329,46 @@ vpull_one_trigger(trig_t *trig, const char *arg, int mp_type, va_list ap)
 		if (!match)
 			return MPC_ERR_COND_FAILED;
 	} else {
-		int chance = atoi(trig->trig_arg);
+		int chance;
 
+		if (trig->trig_type == TRIG_MOB_GREET) {
+			CHAR_DATA *ch = (CHAR_DATA *) arg1;
+
+			if (trig->trig_type == TRIG_MOB_EXIT
+			&&  ch->position != ch->pMobIndex->default_pos)
+				return MPC_ERR_COND_FAILED;
+		}
+
+		chance = atoi(trig->trig_arg);
 		if (chance < number_percent())
 			return MPC_ERR_COND_FAILED;
 	}
 
-	return mprog_execute(mp, ap);
+	return mprog_execute(mp, arg1, arg2, arg3);
 }
 
 static int
-pull_one_trigger(trig_t *trig, const char *arg, int mp_type, ...)
-{
-	int rv;
-	va_list ap;
-
-	va_start(ap, mp_type);
-	rv = vpull_one_trigger(trig, arg, mp_type, ap);
-	va_end(ap);
-
-	return rv;
-}
-
-static int
-pull_trigger_list(int trig_type, const char *arg, varr *v, int mp_type, ...)
+pull_trigger_list(int trig_type, const char *arg, varr *v, int mp_type,
+		  void *arg1, void *arg2, void *arg3)
 {
 	trig_t *trig;
 	int rv = MPC_ERR_NOTFOUND;
-	va_list ap;
 	size_t i;
 
 	trig = varr_bsearch_lower(v, &trig_type, cmpint);
 	if (trig == NULL)
 		return MPC_ERR_NOTFOUND;
 
-	va_start(ap, mp_type);
 	for (i = varr_index(v, trig); i < varr_size(v); i++) {
 		trig = VARR_GET(v, i);
 
 		if (trig->trig_type != trig_type)
 			break;
 
-		if ((rv = vpull_one_trigger(trig, arg, mp_type, ap)) >= 0)
+		rv = pull_one_trigger(trig, arg, mp_type, arg1, arg2, arg3);
+		if (rv >= 0)
 			break;
 	}
-	va_end(ap);
 
 	return rv;
 }

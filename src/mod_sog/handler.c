@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.313 2001-08-26 16:17:30 fjoe Exp $
+ * $Id: handler.c,v 1.314 2001-08-27 16:56:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1712,6 +1712,8 @@ FOREACH_CB_FUN(pull_mob_greet_cb, p, ap)
 	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
 
 	pull_mob_trigger(TRIG_MOB_GREET, NULL, vch, ch, NULL);
+	pull_mob_trigger(TRIG_MOB_GRALL, NULL, vch, ch, NULL);
+
 	vo_foreach(vch, &iter_obj_char, pull_obj_trigger_cb,
 		   ch, TRIG_OBJ_GREET);
 
@@ -1724,10 +1726,11 @@ FOREACH_CB_FUN(pull_mob_exit_cb, p, ap)
 	CHAR_DATA *vch = (CHAR_DATA *) p;
 
 	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	const char *arg = va_arg(ap, const char *);
 
-	if (pull_mob_trigger(TRIG_MOB_EXIT, NULL, vch, ch, NULL) > 0)
+	if (pull_mob_trigger(TRIG_MOB_EXIT, arg, vch, ch, NULL) > 0
+	||  pull_mob_trigger(TRIG_MOB_EXALL, arg, vch, ch, NULL) > 0)
 		return p;
-
 	return NULL;
 }
 
@@ -1832,7 +1835,8 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 	 * Exit trigger, if activated, bail out. Only PCs are triggered.
 	 */
 	if (!IS_NPC(ch)
-	&&  vo_foreach(ch->in_room, &iter_char_room, pull_mob_exit_cb, ch) != NULL)
+	&&  vo_foreach(ch->in_room, &iter_char_room, pull_mob_exit_cb, ch,
+		       dir_name[door]) != NULL)
 		return FALSE;
 
 	in_room = ch->in_room;
