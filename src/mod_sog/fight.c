@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.27 1998-06-03 20:44:11 fjoe Exp $
+ * $Id: fight.c,v 1.28 1998-06-05 22:58:37 efdi Exp $
  */
 
 /***************************************************************************
@@ -872,12 +872,15 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt ,bool secondary)
 				{
 				 int old_mod=paf->modifier;
 				 paf->modifier = UMIN(paf->modifier+1,ch->level / 3);
-				 ch->hitroll += paf->modifier - old_mod;
-				 if (paf->next != NULL)
-					{
-					 paf->next->modifier = paf->modifier;
+				 if (paf->next != NULL) {
+				     paf->next->modifier = paf->modifier;
+				     ch->hitroll += paf->modifier - old_mod;
+				     if (paf->next->next) {
+					 paf->next->next->modifier 
+						= paf->modifier;
 					 ch->damroll += paf->modifier - old_mod;
-					}
+				     }
+				 }
 				 act("$n's katana glows blue.\n\r",ch,NULL,NULL,TO_ROOM);
 				 send_to_char("Your katana glows blue.\n\r",ch);
 				}
@@ -899,8 +902,12 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt ,bool secondary)
 			   if (paf != NULL)
 				{
 				 paf->modifier = UMIN(paf->modifier+1,ch->level / 3);
-				 if (paf->next != NULL)
+				 if (paf->next != NULL) {
 					paf->next->modifier = paf->modifier;
+					if (paf->next->next)
+						paf->next->next->modifier 
+							= paf->modifier;
+				 }
 				 act("$n's katana glows blue.\n\r",ch,NULL,NULL,TO_ROOM);
 				 send_to_char("Your katana glows blue.\n\r",ch);
 				}
