@@ -1,26 +1,28 @@
 #!/bin/sh
 umask 002
-cd /usr/local/muddy
+
 lastlog=tmp/lastlog
 muddy=bin/muddy
+index=0
+
 if [ "$1" = "" ]; then
 	port=4000
 else
 	port=$1
 fi
 
+cd /usr/local/muddy
+
 if [ -r tmp/shutdown.txt ]; then
 	rm tmp/shutdown.txt
 fi
 
-if [ -r $lastlog ]; then
-	index=`cat $lastlog`
-else
-	index=0
-fi
-
 while [ 1 ]
 do
+	if [ -r $lastlog ]; then
+		index=`cat $lastlog`
+	endif
+
 	while [ 1 ]
 	do
 		logfile=`printf "log/%05d.log" $index`
