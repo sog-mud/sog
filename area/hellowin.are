@@ -568,8 +568,8 @@ AC A 0 0 0
 0 10 100 P
 G female
 #34437
-swordfish рыба-мечь fish~
-@eng a swordfish@rus ~~рыба~~-~~мечь~~~
+swordfish fish рыба-меч~
+@eng a swordfish@rus ~~рыба~~-~~меч~~~
 @eng The large silvery fish is here.@rus Большая серебристая рыбина (fish) лежит здесь.~
 fish~
 food 0 AO
@@ -578,7 +578,7 @@ AC A 0 0 0
 G female
 #34438
 skate скат fish рыба~
-~
+@eng a skate@rus скат~
 @eng The large silvery fish is here.@rus Большая серебристая рыбина (fish) лежит здесь.~
 fish~
 food 0 AO
@@ -717,6 +717,7 @@ paper~
 treasure Ah AO
 0 0 0 0 0
 10 1 10000 P
+S 'improved identify' 75 A
 S 'locate object' 75 A
 S 'identify' 100 A
 S 'lore' 100 A
@@ -1125,6 +1126,15 @@ portal 0 0
 0 0 0 34417 0
 0 1 100 P
 G female
+#34483
+pole~
+pole~
+pole~
+unknown~
+fishing_pole 0 AO
+0 0 0 0 0
+0 0 0 P
+G none
 #0
 
 #ROOMS
@@ -1139,7 +1149,7 @@ G female
 ягоды, по середине  -  журчит родник с кристальной чистой водой и
 маленький ручеек скрывается в глубине леса.
 ~
-0 CPT forest
+0 CEPT mountain
 S
 #34401
 @eng Near the cave@rus Около входа в пещеру~

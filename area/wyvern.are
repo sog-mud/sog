@@ -307,9 +307,9 @@ A male centaur wanders about this area.
 ~
 The centaur has the upper torso of a man and lower body of a horse.
 ~
-human~
+centaur~
 AC 0 200 0
-7 0 2d6+85 3d9+100 1d8+1 none
+7 0 2d6+85 3d9+100 1d8+1 punch
 4 4 4 9
 EFNU 0 0 0
 stand stand male 6
@@ -321,9 +321,9 @@ A female centaur wanders about this area.
 ~
 The centaur has the upper torso of a woman and lower body of a horse.
 ~
-human~
+centaur~
 AC 0 200 0
-7 0 2d6+85 3d9+100 1d8+1 none
+7 0 2d6+85 3d9+100 1d8+1 punch
 4 4 4 9
 EFNU 0 0 0
 stand stand female 5
@@ -335,9 +335,9 @@ An old centaur is resting in a corner.
 ~
 This centaur has lived a full life.
 ~
-human~
+centaur~
 AC 0 200 0
-6 0 2d7+71 3d9+100 1d7+1 none
+6 0 2d7+71 3d9+100 1d7+1 punch
 4 4 4 9
 EFNU 0 0 0
 rest rest male 5
@@ -349,9 +349,9 @@ One of the centaur elders is here, watching you.
 ~
 The elders act as counselors and advisors to the chief.
 ~
-human~
+centaur~
 ABC B 200 0
-9 0 2d6+110 4d9+100 1d8+2 none
+9 0 2d6+110 4d9+100 1d8+2 punch
 2 2 2 8
 EFNU 0 0 0
 stand stand male 0
@@ -363,9 +363,9 @@ A strong centaur is standing guard here.
 ~
 He appears to be blocking entrance to the next room.
 ~
-human~
+centaur~
 AB B 200 0
-10 0 2d7+121 5d9+100 2d4+2 none
+10 0 2d7+121 5d9+100 2d4+2 punch
 1 1 1 8
 EFNU 0 0 0
 stand stand male 0
@@ -378,9 +378,9 @@ The chief of the centaur villagers reclines here.
 He has been the leader of this tribe for many years, and has acquired much
 wisdom.
 ~
-human~
+centaur~
 ABC B 200 0
-12 0 2d10+150 6d9+100 1d10+3 none
+12 0 2d10+150 6d9+100 1d10+3 punch
 0 0 0 8
 EFNU 0 0 0
 rest stand male 0

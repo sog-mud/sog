@@ -4387,8 +4387,8 @@ Warrior can self-bless himself by yelling out a warcry, thus gaining some
 resistance to magic and hitroll bonus.
 @rus Синтаксис: {cwarcry{x
 
-Воин может благословить себя, выкрикивая свой боевоц клич и получая тем самым
-некоторое сопротивление к магии и улучгение точности ударов.
+Воин может благословить себя, выкрикивая свой боевой клич и получая тем самым
+некоторое сопротивление к магии и улучшение точности ударов.
 ~
 0 NERVE ~
 Syntax: nerve
@@ -5111,7 +5111,7 @@ This function is available in shortened form from OLC editors
  
 ~
 0 'OLC ADDAFFECT'~
-@eng Syntax:
+Syntax:
    {Caddaffect <location | none> <modifier> [<bitloc> <bits...>]{x
    Possible <bitloc> values: affect, immune, resist, vuln, skill
 Examples:
@@ -6843,7 +6843,7 @@ TITLE устанавливает титул указанного персонажа.
 Только лидеры кланов и бессмертные могут награ-
 дить титулом.
 ~
-0 WIZLIST~
+-2 WIZLIST~
 {WDEITIES OF THIS WORLD{x
  
 {G                                    .\|/.
@@ -8197,6 +8197,13 @@ not dropped or sacrificed. They are marked by *.
 ~
 0 CHAMELEON PONCHO~
 Syntax: {cponcho{x corpse
+~
+0 FINGER~
+Syntax:{c finger{x <name>
+ 
+This command shows info about char: last login time, race, class,
+level, clan, religion, alignment. But all info exept last login time
+is available only for immortals or members of the same clan.
 ~
 -1 $~
 

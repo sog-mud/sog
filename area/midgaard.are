@@ -6574,6 +6574,10 @@ S
 @rus Вау! Ты умеешь летать! И ты $gn{поднялся} прямо над храмовой площадью. 
 ~
 0 CS air
+D4
+~
+~
+Z 0 1016
 D5
 @eng Back down on the earth where you should be!
 @rus Родная земля.

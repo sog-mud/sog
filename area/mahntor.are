@@ -1531,7 +1531,7 @@ a huge morningstar~
 A huge morningstar rests here.~
 wood steel~
 weapon G AN
-mace 7 5 pound 0
+flail 7 5 crush 0
 29 200 2300 P
 A
 19 3
@@ -1958,7 +1958,7 @@ and it drops away to the north.
 продолжается на юг, а на севере -- обрыв.
  
 ~
-0 CHKX mountain
+0 CX mountain
 D0
 ~
 ~

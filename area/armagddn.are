@@ -850,7 +850,7 @@ A
 G none
 #14013
 sword war~
-The sword of war~
+the sword of war~
 A great two-handed sword lies here.~
 admantite~
 weapon EJLM AN
@@ -5748,7 +5748,7 @@ O 0 14034 0 14111	* A puddle of blood (The Euphrates)
 O 0 14033 0 14114	* The morning star (Wormwood)
 P 0 14001 0 14033 1	* The morning star: The key of David
 M 0 14011 1 14121 1	* The red horseman (The Euphrates)
-E 0 14013 0 16		*	The sword of war: wielded
+E 0 14013 0 16		*	the sword of war: wielded
 E 0 14014 0 5		*	A breastplate of jacinth: on the body
 M 0 14019 3 14122 1	* The unclean spirit (The Euphrates)
 O 0 14034 0 14122	* A puddle of blood (The Euphrates)
@@ -5828,7 +5828,7 @@ S
 
 #OLIMITS
 O 14002 2	* An iron breastplate
-O 14013 1	* The sword of war
+O 14013 1	* the sword of war
 O 14018 1	* The scythe of the Grim reaper
 O 14019 1	* The holy lance of archangel Michael
 S

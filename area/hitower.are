@@ -188,7 +188,7 @@ A pair of disembodied hands floats in the air here.
 The hands twitch with anticipation of strangling someone.
 ~
 human~
-AFG 0 -400 0
+AFG T -400 0
 9 0 2d6+110 4d9+100 1d8+2 none
 2 2 2 8
 EFNU 0 0 0
@@ -202,7 +202,7 @@ A pair of disembodied eyes floats here glaring at you.
 The eyes smolder with hatred.
 ~
 human~
-AFG DJ -600 0
+AFG DJT -600 0
 15 0 3d9+208 7d9+100 2d6+3 none
 -2 -2 -2 7
 EFNU 0 0 0

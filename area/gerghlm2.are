@@ -1079,10 +1079,10 @@ G none
 #7522
 cudgel junior guard~
 a junior guard cudgel~
-A junior guard cudgel is here, collection dust.~
+A junior guard cudgel is here, collecting dust.~
 iron~
 weapon 0 AN
-exotic 5 4 crush 0
+mace 5 4 crush 0
 14 50 2560 P
 G none
 #7523
@@ -1452,7 +1452,7 @@ the hoe of destruction~
 A hoe of destruction is here.~
 wood~
 weapon ABG AN
-exotic 5 6 blast 0
+polearm 5 6 blast 0
 21 80 5175 P
 A
 18 10
@@ -1737,7 +1737,7 @@ the Death's Scythe~
 Very dangerous evil scythe is here.~
 mithril~
 weapon G AN
-exotic 10 8 smash DE
+polearm 10 8 smash DE
 60 200 50000 P
 G none
 #0

@@ -481,9 +481,9 @@ nose, then sets it back and falls down laughing.
 ~
 human~
 AGH 0 0 0
-25 0 80d30+2500 25d10+1000 7d5+21 punch
+25 0 15d30+500 25d10+1000 5d5+12 punch
 -25 -25 -25 -15
-HNd 0 0 0
+HNd 0 0 E
 stand stand male 636
 0 0 medium unknown
 #36325

@@ -3065,7 +3065,7 @@ Z 0 9707
 D1
 ~
 ~
-Z -1 9524
+Z 0 9524
 D2
 ~
 ~
@@ -3101,7 +3101,7 @@ Z -1 9627
 D3
 ~
 ~
-Z -1 9523
+Z 0 9523
 S
 #9525
 @eng West Main Street@rus Главная западная улица~
@@ -5694,8 +5694,8 @@ D0
 Z -1 9781
 D2
 ~
-~
-Z -1 9522
+gate~
+ABZ 9501 9522
 S
 #9668
 Outside the Eastern Gate of New Thalos~
@@ -5706,30 +5706,30 @@ sits to the west and the unknown awaits you eastward.
 D1
 ~
 ~
-Z -1 9790
+Z 0 9790
 D2
 ~
 ~
 Z -1 9670
 D3
 ~
-~
-Z -1 9531
+gate~
+ABZ 9501 9531
 S
 #9669
 @eng Outside the West Gate of New Thalos@rus Перед западными воротами Нового Талоса.~
-You stand outside the city walls, the iron gate to the east. The city lies
+@eng You stand outside the city walls, the iron gate to the east. The city lies
 in that direction and the road to Midgaard lies west.
 ~
 0 S city
 D1
 ~
 gate~
-Z 9501 9523
+ABZ 9501 9523
 D3
 ~
 ~
-Z -1 3532
+Z 0 3532
 S
 #9670
 Outside the wall~
@@ -7016,7 +7016,7 @@ Z -1 9791
 D3
 ~
 ~
-Z -1 9668
+Z 0 9668
 S
 #9791
 On a road~
@@ -7247,6 +7247,9 @@ D 0 9636 5 2	* Igor's Implements of Destruction: door to the down: closed and lo
 D 0 9646 2 1	* The Secret Yard: door to the south: closed
 D 0 9661 0 1	* Kitchen: door to the north: closed
 D 0 9663 2 1	* Hall: door to the south: closed
+D 0 9667 2 1	* Outside the Northern Gate of New Thalos: door to the south: closed
+D 0 9668 3 1	* Outside the Eastern Gate of New Thalos: door to the west: closed
+D 0 9669 1 1	* Outside the West Gate of New Thalos: door to the east: closed
 D 0 9675 5 1	* Entrance to the Dungeon: door to the down: closed
 D 0 9691 1 1	* Jailer's Room: door to the east: closed
 D 0 9691 4 1	* Jailer's Room: door to the up: closed
