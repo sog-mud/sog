@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.8 1998-04-26 01:33:03 efdi Exp $
+ * $Id: act_move.c,v 1.9 1998-04-26 16:37:41 efdi Exp $
  */
 
 /***************************************************************************
@@ -653,7 +653,7 @@ void do_open( CHAR_DATA *ch, char *argument )
 
     if ( arg[0] == '\0' )
     {
-	send_to_char( "Open what?\n\r", ch );
+	send_to_char(msg(MOVE_OPEN_WHAT, ch), ch);
 	return;
     }
 
@@ -666,25 +666,25 @@ void do_open( CHAR_DATA *ch, char *argument )
 	{
 	    if (!IS_SET(obj->value[1], EX_ISDOOR))
 	    {
-		send_to_char("You can't do that.\n\r",ch);
+		send_to_char(msg(MOVE_YOU_CANT_DO_THAT, ch),ch);
 		return;
 	    }
 
 	    if (!IS_SET(obj->value[1], EX_CLOSED))
 	    {
-		send_to_char("It's already open.\n\r",ch);
+		send_to_char(msg(MOVE_ITS_ALREADY_OPEN, ch), ch);
 		return;
 	    }
 
 	    if (IS_SET(obj->value[1], EX_LOCKED))
 	    {
-		send_to_char("It's locked.\n\r",ch);
+		send_to_char(msg(MOVE_ITS_LOCKED, ch), ch);
 		return;
 	    }
 
 	    REMOVE_BIT(obj->value[1], EX_CLOSED);
-	    act("You open $p.",ch,obj,NULL,TO_CHAR);
-	    act("$n opens $p.",ch,obj,NULL,TO_ROOM);
+	    act_printf(ch,obj,NULL,TO_CHAR, POS_RESTING, MOVE_YOU_OPEN_P);
+	    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_OPENS_P);
 	    return;
  	}
 

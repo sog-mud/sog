@@ -127,6 +127,11 @@ char *strings_engl[] =  {
 /* MOVE_DISTANCE_OFF_IN */	"off in the distance %s.",
 /* MOVE_N_LOOKS_ALL_AROUND */	"$n looks all around.",
 /* MOVE_LOOKING_AROUND_YOU_SEE */"Looking around you see:\n\r",
+/* MOVE_OPEN_WHAT */		"Open what?\n\r",
+/* MOVE_ITS_ALREADY_OPEN */	"It's already open.\n\r",
+/* MOVE_ITS_LOCKED */		"It's locked.\n\r",
+/* MOVE_YOU_OPEN_P */		"You open $p.",
+/* MOVE_N_OPENS_P */		"$n opens $p.",
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yis gushing blood{x.",

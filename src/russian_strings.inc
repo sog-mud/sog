@@ -127,6 +127,11 @@ char *strings_rus[] = {
 /* MOVE_DISTANCE_OFF_IN */	"далеко на %s.",
 /* MOVE_N_LOOKS_ALL_AROUND */	"$n осматривается вокруг.",
 /* MOVE_LOOKING_AROUND_YOU_SEE */"Вокруг себя ты видишь:\n\r",
+/* MOVE_OPEN_WHAT */		"Открыть что?\n\r",
+/* MOVE_ITS_ALREADY_OPEN */	"Тут уже открыто.\n\r",
+/* MOVE_ITS_LOCKED */		"Тут закрыто.\n\r",
+/* MOVE_YOU_OPEN_P */		"Ты открываешь $p.",
+/* MOVE_N_OPENS_P */		"$n открывает $p.",
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yсерьезно ранено{x.",
