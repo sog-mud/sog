@@ -6236,6 +6236,17 @@ Form 5 -е~
 End
 
 #RULE
+Name жлопшадь~
+BaseLen 7
+Form 1 -и~
+Form 2 -и~
+Form 3 -ь~
+Form 4 -ью~
+Form 5 -и~
+Form 6 -ь~
+End
+
+#RULE
 Name желтая~
 BaseLen 4
 Form 1 -ой~
