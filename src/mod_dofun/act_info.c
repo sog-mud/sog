@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.54 2002-07-14 18:33:27 tatyana Exp $
+ * $Id: act_info.c,v 1.271.2.55 2002-08-23 18:46:06 tatyana Exp $
  */
 
 /***************************************************************************
@@ -5065,3 +5065,97 @@ void do_compress(CHAR_DATA *ch, const char *argument)
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 }
+
+void do_finger(CHAR_DATA *ch, const char *argument)
+{
+	class_t *cl;
+	clan_t *cn;
+	char arg[MAX_INPUT_LENGTH];
+	CHAR_DATA *victim;
+	BUFFER *output;
+	bool loaded = FALSE;
+	bool inclan = TRUE;
+	bool same_clan = FALSE;
+
+	one_argument(argument, arg, sizeof(arg));
+
+	if (arg[0] == '\0') {
+		char_puts("Finger whom?\n", ch);
+		return;
+	}
+
+	if ((victim = get_char_world(ch, argument)) == NULL) {
+		if ((victim = char_load(argument, LOAD_F_NOCREATE)) == NULL) {
+			char_puts("No such player.\n", ch);
+			return;
+		}
+		loaded = TRUE;
+	}
+
+	if (IS_IMMORTAL(victim) && !IS_IMMORTAL(ch)) {
+		act("You can't get any info about $N.",
+		    ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	if ((cl = class_lookup(victim->class)) == NULL)
+		return;
+
+	if ((cn = clan_lookup(victim->clan)) != NULL) {
+		same_clan = (clan_lookup(ch->clan) == cn);
+	}
+
+	if (victim->clan == 0)
+		inclan = FALSE;
+
+	output = buf_new(-1);
+
+	buf_printf(output, "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+	buf_printf(output, "%30s%s\n", victim->name, PC(victim)->title);
+	buf_printf(output, "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+
+	if (same_clan || IS_IMMORTAL(ch) || (ch == victim)) {
+		buf_printf(output, " {CLevel     :{x %-3d                       {CAlignment:{x %s %s\n",
+			   victim->level,
+			   flag_string(ethos_table, victim->ethos),
+			   flag_string(align_names, NALIGN(victim)));
+
+		buf_printf(output, " {CClass     :{x %-12s              {CRace     :{x %s %s\n",
+			   cl->name,
+			   ch->sex == 0 ? "sexless" : ch->sex == 1 ? "male" : "female",
+			   race_name(victim->race));
+
+		if (inclan) {
+			buf_printf(output, " {CReligion  :{x %-9s                 {CClan     :{x %s of %s\n",
+				   religion_name(GET_RELIGION(victim)),
+				   flag_string(clan_status_table,
+					       PC(victim)->clan_status),
+				   cn->name);
+		} else {
+			buf_printf(output, " {CReligion  :{x %-9s                 {CClan     :{x not in clan\n",
+				   religion_name(GET_RELIGION(victim)));
+		}
+
+	} else {
+		buf_printf(output,
+" {CLevel     :{x unknown                   {CAlignment:{x unknown\n");
+		buf_printf(output,
+" {CClass     :{x unknown                   {CRace     :{x unknown\n");
+		buf_printf(output,
+" {CReligion  :{x unknown                   {CClan     :{x unknown\n");
+	}
+
+	if (IS_NULLSTR(PC(ch)->ll_ip))
+		buf_printf(output, " {CLast login:{x unknown\n");
+	else if (loaded) {
+		buf_printf(output, " {CLast login:{x %s\n",
+			   strtime(PC(victim)->ll_time));
+	} else
+		buf_printf(output, " {COn since  :{x %s\n",
+			   strtime(PC(victim)->ll_time));
+	buf_printf(output, "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+
+	send_to_char(buf_string(output), ch);
+	buf_free(output);
+}
+
