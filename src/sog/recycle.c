@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.75 1999-11-19 09:07:07 fjoe Exp $
+ * $Id: recycle.c,v 1.76 1999-11-19 12:28:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -278,7 +278,6 @@ CHAR_DATA *char_new(MOB_INDEX_DATA *pMobIndex)
 		PC_DATA *pc = PC(ch);
 
 		pc->add_age = 0;
-		pc->race = str_empty;
 		pc->logon = current_time;
 		pc->version = PFILE_VERSION;
 		pc->buffer = buf_new(-1);

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.194 1999-11-19 09:07:06 fjoe Exp $
+ * $Id: handler.c,v 1.195 1999-11-19 12:28:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -60,39 +60,32 @@
  * For less than 5 people in room create a new record.
  * Else use the oldest one.
  */
-
-void room_record(const char *name,ROOM_INDEX_DATA *room,int door)
+void room_record(const char *name, ROOM_INDEX_DATA *room, int door)
 {
-  ROOM_HISTORY_DATA *rec;
-  int i;
+	ROOM_HISTORY_DATA *rec;
+	ROOM_HISTORY_DATA *prev = NULL;
+	int i = 0;
 
-  for (i=0,rec = room->history;i < 5 && rec != NULL;
-	   i++,rec = rec->next);
+	if (room->history) {
+		for (rec = room->history; rec->next != NULL; rec = rec->next) {
+			i++;
+			prev = rec;
+		}
+	}
 
-  if (i < 5) {
-	rec = calloc(1, sizeof(*rec)); 
+	if (prev == NULL || i < 4) 
+		rec = malloc(sizeof(*rec)); 
+	else { 
+		rec = prev->next;
+		prev->next = NULL;
+		free_string(rec->name);
+	}
+
 	rec->next = room->history;
-	if (rec->next != NULL)
-	  rec->next->prev = rec; 
 	room->history = rec; 
-	rec->name = NULL;
-  }
-  else { 
-	rec = room->history->next->next->next->next; 
-	rec->prev->next = NULL; 
-	rec->next = room->history; 
-	rec->next->prev = rec; 
-	room->history = rec; 
-  }
-  rec->prev = NULL;
 
-  if(rec->name) {
-	 free_string(rec->name);
-  }
-
-
-  rec->name = str_dup(name);
-  rec->went = door;
+	rec->name = str_dup(name);
+	rec->went = door;
 }
 
 /* returns number of people on an object */
@@ -1934,7 +1927,7 @@ void path_to_track(CHAR_DATA *ch, CHAR_DATA *victim, int door)
 
 	temp = victim->in_room;
 	while (--range > 0) {
-		room_record(ch->name,temp, opdoor);
+		room_record(ch->name, temp, opdoor);
 		if ((pExit = temp->exit[opdoor]) == NULL
 		||  (temp = pExit->to_room.r) == NULL) {
 			bug("path_to_track: Range: %d Room: %d opdoor:%d",
@@ -2440,16 +2433,6 @@ const char *get_stat_alias(CHAR_DATA *ch, int stat)
 	else			i = 5;
 	return stat_aliases[stat][i];
 }
-
-#ifdef WIN32
-void SET_ORG_RACE(CHAR_DATA *ch, int race)
-{
-	if (IS_NPC(ch))
-		ch->pMobIndex->race = race;
-	else
-		PC(ch)->race = race;
-}
-#endif
 
 /*
  * returns TRUE if lch is one of the leaders of ch

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.183 1999-11-19 09:07:07 fjoe Exp $
+ * $Id: db.c,v 1.184 1999-11-19 12:28:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1187,7 +1187,7 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 	mob->vuln_flags		= pMobIndex->vuln_flags;
 	mob->position		= pMobIndex->start_pos;
 	free_string(mob->race);
-	mob->race			= str_qdup(pMobIndex->race);
+	mob->race		= str_qdup(pMobIndex->race);
 	mob->form		= pMobIndex->form;
 	mob->parts		= pMobIndex->parts;
 	mob->size		= pMobIndex->size;

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.249 1999-11-19 09:07:06 fjoe Exp $
+ * $Id: merc.h,v 1.250 1999-11-19 12:28:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1634,7 +1634,6 @@ struct room_history_data
 	const char *name;
 	int went;
 	ROOM_HISTORY_DATA *next;
-	ROOM_HISTORY_DATA *prev;
 };
 
 /*
@@ -1740,12 +1739,6 @@ int trust_level(CHAR_DATA *ch);
 #define ORG_RACE(ch)		(IS_NPC(ch) ? (ch)->pMobIndex->race : PC(ch)->race)
 
 #define LEVEL(ch)		((ch)->level + (ch)->add_level)
-
-#if defined(WIN32)
-void SET_ORG_RACE(CHAR_DATA *ch, int race);
-#else
-#	define SET_ORG_RACE(victim, race)	ORG_RACE(victim) = race
-#endif
 
 #define GET_EXP(ch)		(IS_NPC(ch) ? 0 : PC(ch)->exp)
 #define GET_PET(ch)		(IS_NPC(ch) ? NULL : PC(ch)->pet)

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.206 1999-11-18 15:31:32 fjoe Exp $
+ * $Id: comm.c,v 1.207 1999-11-19 12:28:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2056,7 +2056,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			break;
 		}
 
-		SET_ORG_RACE(ch, r->name);
+		free_string(PC(ch)->race);
+		PC(ch)->race = str_qdup(r->name);
 		free_string(ch->race);
 		ch->race = str_qdup(r->name);
 		for (i = 0; i < MAX_STATS;i++)

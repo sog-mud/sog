@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.195 1999-11-19 11:24:53 fjoe Exp $
+ * $Id: act_wiz.c,v 1.196 1999-11-19 12:28:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3626,7 +3626,11 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 
 		free_string(victim->race);
 		victim->race = str_qdup(r->name);
-		SET_ORG_RACE(victim, r->name);
+		if (!IS_NPC(victim)) {
+			free_string(PC(victim)->race);
+			PC(victim)->race = str_qdup(r->name);
+		}
+			
 		spec_update(victim);
 		PC(victim)->exp = exp_for_level(victim, victim->level);
 		return;
