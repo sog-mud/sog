@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.68 2002-11-29 10:12:53 tatyana Exp $
+ * $Id: handler.c,v 1.182.2.69 2002-12-03 15:53:14 tatyana Exp $
  */
 
 /***************************************************************************
@@ -743,7 +743,10 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 		    act("You drop $p.", ch, wield, NULL, TO_CHAR);
 		    act("$n drops $p.", ch, wield, NULL, TO_ROOM);
 		    obj_from_char(wield);
-		    obj_to_room(wield, ch->in_room);
+		    if (IS_SET(ch->in_room->room_flags, ROOM_BATTLE_ARENA))
+			    obj_to_char(wield, ch);
+		    else
+			    obj_to_room(wield, ch->in_room);
 		    depth--;
 		}
 	}

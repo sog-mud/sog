@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.43 2002-11-20 22:04:30 tatyana Exp $
+ * $Id: spellfun.c,v 1.181.2.44 2002-12-03 15:53:06 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2694,8 +2694,10 @@ void spell_heat_metal(int sn, int level, CHAR_DATA *ch, void *vo)
 				act("You remove and drop $p before it burns you.",
 				    victim,obj_lose,NULL,TO_CHAR);
 				dam += (number_range(1,obj_lose->level) / 3);
-				obj_from_char(obj_lose);
-				obj_to_room(obj_lose, victim->in_room);
+				if (!IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA)) {
+					obj_from_char(obj_lose);
+					obj_to_room(obj_lose, victim->in_room);
+				}
 				fail = FALSE;
 			    }
 			    else /* stuck on the body! ouch! */
@@ -2716,8 +2718,10 @@ void spell_heat_metal(int sn, int level, CHAR_DATA *ch, void *vo)
 				act("You and drop $p before it burns you.",
 				    victim,obj_lose,NULL,TO_CHAR);
 				dam += (number_range(1,obj_lose->level) / 6);
-				obj_from_char(obj_lose);
-				obj_to_room(obj_lose, victim->in_room);
+				if (!IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA)) {
+					obj_from_char(obj_lose);
+					obj_to_room(obj_lose, victim->in_room);
+				}
 				fail = FALSE;
 			    }
 			    else /* cannot drop */
@@ -2744,8 +2748,10 @@ void spell_heat_metal(int sn, int level, CHAR_DATA *ch, void *vo)
 				    "You throw your red-hot weapon to the ground!\n",
 				    victim);
 				dam += 1;
-				obj_from_char(obj_lose);
-				obj_to_room(obj_lose,victim->in_room);
+				if (!IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA)) {
+					obj_from_char(obj_lose);
+					obj_to_room(obj_lose,victim->in_room);
+				}
 				fail = FALSE;
 			    }
 			    else /* YOWCH! */
@@ -2765,8 +2771,10 @@ void spell_heat_metal(int sn, int level, CHAR_DATA *ch, void *vo)
 				act("You and drop $p before it burns you.",
 				    victim,obj_lose,NULL,TO_CHAR);
 				dam += (number_range(1,obj_lose->level) / 6);
-				obj_from_char(obj_lose);
-				obj_to_room(obj_lose, victim->in_room);
+				if (!IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA)) {
+					obj_from_char(obj_lose);
+					obj_to_room(obj_lose, victim->in_room);
+				}
 				fail = FALSE;
 			    }
 			    else /* cannot drop */
