@@ -19,7 +19,7 @@ any invaders. They thus glare at you VERY suspiciously.
 ~
 kender~
 0 0 0 0 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 'none'
+0 0 0d0+0 0d0+0 0d0+0 ''
 0 0 0 0
 0
 stand stand either 0
@@ -34,7 +34,7 @@ TWO of those silver bracelets???
 ~
 kender~
 0 0 0 0 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 'none'
+0 0 0d0+0 0d0+0 0d0+0 ''
 0 0 0 0
 0
 stand stand male 0
@@ -49,7 +49,7 @@ a trinket to give to her, only to notice that your trinkets are all gone...
 ~
 kender~
 0 0 0 0 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 'none'
+0 0 0d0+0 0d0+0 0d0+0 ''
 0 0 0 0
 0
 stand stand female 0
@@ -63,7 +63,7 @@ items they bear of GREAT interest...
 ~
 human~
 0 0 0 0 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 'none'
+0 0 0d0+0 0d0+0 0d0+0 ''
 0 0 0 0
 0
 stand stand either 0
@@ -80,7 +80,7 @@ off an elderly woman? No, that's ok... he just BORROWED it.
 ~
 kender~
 0 0 0 0 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 'none'
+0 0 0d0+0 0d0+0 0d0+0 ''
 0 0 0 0
 0
 stand stand male 0
@@ -98,7 +98,7 @@ a raging fury.
 ~
 kender~
 0 0 0 0 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 'none'
+0 0 0d0+0 0d0+0 0d0+0 ''
 0 0 0 0
 0
 stand stand male 0
@@ -113,7 +113,7 @@ sit here and write one :P).
 ~
 kender~
 0 0 0 0 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 'none'
+0 0 0d0+0 0d0+0 0d0+0 ''
 0 0 0 0
 0
 stand stand male 0
@@ -131,7 +131,7 @@ pocket...
 ~
 kender~
 0 0 0 0 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 'none'
+0 0 0d0+0 0d0+0 0d0+0 ''
 0 0 0 0
 0
 stand stand male 0
@@ -145,7 +145,7 @@ carefully.
 ~
 kender~
 0 0 0 0 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 'none'
+0 0 0d0+0 0d0+0 0d0+0 ''
 0 0 0 0
 0
 stand stand male 0
@@ -158,7 +158,7 @@ Watch your wallet!
 ~
 kender~
 0 0 0 0 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 'none'
+0 0 0d0+0 0d0+0 0d0+0 ''
 0 0 0 0
 0
 stand stand either 0
@@ -171,7 +171,7 @@ This fellow stocks a wide variety of goods.
 ~
 kender~
 0 0 0 0 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 'none'
+0 0 0d0+0 0d0+0 0d0+0 ''
 0 0 0 0
 0
 stand stand male 0
@@ -184,7 +184,7 @@ This woman stocks a wide variety of goods.
 ~
 kender~
 0 0 0 0 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 'none'
+0 0 0d0+0 0d0+0 0d0+0 ''
 0 0 0 0
 0
 stand stand female 0
@@ -197,7 +197,7 @@ This fellow stocks a wide variety of goods.
 ~
 kender~
 0 0 0 0 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 'none'
+0 0 0d0+0 0d0+0 0d0+0 ''
 0 0 0 0
 0
 stand stand male 0
@@ -210,7 +210,7 @@ This woman stocks a wide variety of goods.
 ~
 kender~
 0 0 0 0 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 'none'
+0 0 0d0+0 0d0+0 0d0+0 ''
 0 0 0 0
 0
 stand stand female 0
@@ -224,7 +224,7 @@ beers he recounts a tale of a time when he slew two dragons.
 ~
 kender~
 0 0 0 0 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 'none'
+0 0 0d0+0 0d0+0 0d0+0 ''
 0 0 0 0
 0
 stand stand male 0
@@ -237,7 +237,7 @@ These boar are hunted by the Kender. They deserve it.
 ~
 boar~
 0 0 0 0 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 'none'
+0 0 0d0+0 0d0+0 0d0+0 ''
 0 0 0 0
 0
 stand stand none 0
@@ -251,7 +251,7 @@ Don't kill it -- it's a natural reaction.
 ~
 dog~
 0 0 0 0 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 'none'
+0 0 0d0+0 0d0+0 0d0+0 ''
 0 0 0 0
 0
 stand stand none 0

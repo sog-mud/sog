@@ -522,7 +522,7 @@ lake~
 ~
 human~
 0 0 0 0 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 'none'
+0 0 0d0+0 0d0+0 0d0+0 ''
 0 0 0 0
 0
 stand stand none 0
