@@ -230,7 +230,7 @@ BGWZ 0 c 0 FJ 0 0
 -9 -9 -9 -7
 FHIJO
 stand stand neutral 0
-AGV ACDFW large unknown
+AV ACDFW large unknown
 g @eng neutral@rus male~
 r cold 33
 r mental 33
@@ -256,7 +256,7 @@ BCH 0 V 0 0 0 0
 -5 -5 -5 -5
 FHIJNU
 stand stand neutral 0
-AGHV ABCDEF medium unknown
+AHV ABCDEF medium unknown
 g @eng neutral@rus female~
 r mental 33
 r disease 33
@@ -1693,9 +1693,9 @@ A HJKMPTUX FIP CDJKLMNOPQRSTUVWXYZabcde CDJKLMNOPQRSTUVWXYZabcde
 25 100000 0 P
 g @eng neutral@rus male~
 #47141
-tongs blacksmith кузнечные клещи~
-@eng blacksmith tongs@rus ~~кузнечные~~ ~~клещи~~~
-@eng Large blacksmith pincers are leaned against the wall.@rus Большие кузнечные клещи (tongs) приставлены к стенею~
+pincers клещи~
+@eng the blacksmith pincers@rus ~~кузнечные~~ ~~клещи~~~
+@eng Large blacksmith pincers are leaned against the wall.@rus Большие кузнечные клещи (pincers) прислонены к стене.~
 iron~
 weapon 0 0 AN
 exotic 6 7 'bite' EF
@@ -5999,7 +5999,7 @@ O 0 47140 0 47129	* the forge (The forge)
 M 0 47114 1 47129 1	* blacksmith (The forge)
 E 0 47143 0 16		*	blacksmith<wielded>: a blacksmith's hammer
 G 0 47142 0		*	blacksmith: a chunk of iron
-O 0 47141 0 47129	* blacksmith tongs (The forge)
+O 0 47141 0 47129	* the blacksmith pincers (The forge)
 M 0 47125 1 47130 1	* a peasant (Path to the rice fields.)
 E 0 47130 0 13		*	a peasant<around the waist>: a worn belt
 E 0 47131 0 7		*	a peasant<on the legs>: short pants

@@ -161,24 +161,6 @@ J 0 N 0 A 500 0
 CDEF
 sit sit male 590
 0 0 small unknown
-#34109
-woman pretty nice~
-@eng pretty woman@rus ~~Красотка~~~
-@eng A nice woman stands here, smiling to you.
-@rus Красотка стоит здесь и улыбается тебе!
-~
-@eng A pretty, nice, lovely young woman.
-No, no, no! She isn't a whore as you might think!
-@rus Красивая, прелестная, девушка  игриво смотрит на тебя.
-Нет, нет, нет! Она не беспокоиться о том о чем ты подумал!
-~
-human~
-B 0 HN 0 AB 750 2411
-36 0 10d10+1000 1d1+319 6d4+9 'magic'
--10 -10 -10 5
-AFJK
-stand stand female 854
-0 0 medium unknown
 #0
 
 #OBJECTS
@@ -728,7 +710,6 @@ M 34103 spec_breath_any	* Baby dragon
 M 34104 spec_guard	* Guardian of Verges
 M 34105 spec_cast_mage	* Novice Mage
 M 34107 spec_cast_cleric	* Novice paladin
-M 34109 spec_guard	* pretty woman
 S
 
 #RESETS

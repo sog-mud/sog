@@ -39,9 +39,9 @@ r lightning 33
 r acid 80
 r negative 33
 r mental 33
-r disease 999
-r poison 999
-r charm 999
+r disease 100
+r poison 100
+r charm 100
 #22301
 green glutton ghost~
 Green Glutton Ghost~
@@ -59,7 +59,7 @@ FT 0 0 0 ABCD -1000 0
 FKP
 stand stand none 0
 0 0 medium unknown
-r charm 999
+r charm 100
 r harm -30
 r light -30
 #22302
@@ -81,17 +81,17 @@ r bash 33
 r pierce 33
 r slash 33
 r fire -15
-r cold 999
+r cold 100
 r lightning 33
 r acid 33
 r holy -33
-r negative 999
+r negative 100
 r energy 33
 r mental 33
 r sound 33
-r disease 999
-r poison 999
-r charm 999
+r disease 100
+r poison 100
+r charm 100
 r harm 33
 r light 33
 #22303
@@ -115,10 +115,10 @@ r slash 33
 r fire -50
 r cold 33
 r holy -50
-r negative 999
-r disease 999
-r poison 999
-r charm 999
+r negative 100
+r disease 100
+r poison 100
+r charm 100
 r harm -30
 r light -30
 #22304
@@ -139,10 +139,10 @@ BIZc ABCDEFGHU large unknown
 r fire -50
 r cold 33
 r holy -50
-r negative 999
-r disease 999
-r poison 999
-r charm 999
+r negative 100
+r disease 100
+r poison 100
+r charm 100
 r harm -20
 r light -50
 #22305
@@ -163,9 +163,20 @@ stand stand none 10000
 r bash 50
 r pierce 50
 r slash 50
-r disease 999
-r poison 999
+r fire 0
+r cold 0
+r lightning 0
+r acid 0
+r holy 0
+r negative 0
+r energy 0
+r mental 0
+r sound 0
+r disease 100
+r poison 100
 r charm 100
+r harm 0
+r light 0
 #22306
 ringwraith adunaphel~
 Adunaphel the Quiet~
@@ -364,8 +375,8 @@ r slash 40
 r fire 50
 r acid 80
 r energy 90
-r mental 999
-r sound 999
+r mental 100
+r sound 100
 r harm 20
 r light 10
 #22315
@@ -391,13 +402,13 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r negative 999
+r negative 100
 r energy 33
 r mental 33
 r sound 33
-r disease 999
-r poison 999
-r charm 999
+r disease 100
+r poison 100
+r charm 100
 r harm 33
 r light 33
 #22316
@@ -421,6 +432,7 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
+r holy 0
 r energy 33
 r mental 33
 r sound 33
@@ -446,14 +458,14 @@ ABV ABCDEFGHQW huge unknown
 r bash -50
 r pierce 33
 r slash 33
-r fire 999
+r fire 100
 r cold -50
 r acid 33
-r negative 999
+r negative 100
 r energy 33
-r disease 999
-r poison 999
-r charm 999
+r disease 100
+r poison 100
+r charm 100
 #22318
 gothmog balrog demon~
 Gothmog, the High Captain of Balrogs~
@@ -470,18 +482,18 @@ CEJT 0 TUVc G ABC -1000 0
 ACEFGIKMOP
 stand stand male 30000
 ABV ABCDEFPU gargantuan unknown
-r bash 999
-r pierce 999
-r fire 999
+r bash 100
+r pierce 100
+r fire 100
 r cold -50
 r lightning 33
 r acid 33
-r negative 999
-r mental 999
+r negative 100
+r mental 100
 r sound 33
-r disease 999
-r poison 999
-r charm 999
+r disease 100
+r poison 100
+r charm 100
 r light 33
 #22319
 lich vecna skelet~
@@ -516,16 +528,16 @@ AFGK
 stand stand male 10000
 BV ABCDEF small unknown
 r bash 33
-r slash 999
-r fire 999
+r slash 100
+r fire 100
 r cold -50
 r holy -50
-r negative 999
+r negative 100
 r mental 33
 r sound 33
-r disease 999
-r poison 999
-r charm 999
+r disease 100
+r poison 100
+r charm 100
 #22321
 baphoment minotaur lord~
 Baphomet the Minotaur Lord~
@@ -564,7 +576,9 @@ CFRT 0 0 0 ABC -1000 0
 FKP
 stand stand none 0
 0 0 medium unknown
-r pierce 999
+r bash 0
+r pierce 100
+r slash 0
 r cold 33
 #22323
 nightwing demon~
@@ -584,8 +598,8 @@ AFGP
 stand stand none 0
 0 0 large unknown
 r pierce 33
-r slash 999
-r cold 999
+r slash 100
+r cold 100
 r light -50
 #22324
 black reaver demon~
@@ -602,7 +616,7 @@ CFT 0 T 0 ABC -1000 0
 GK
 stand stand none 0
 0 0 large unknown
-r slash 999
+r slash 100
 r light -50
 #22325
 colbran demon~
@@ -622,14 +636,14 @@ ABV ABCE medium unknown
 r bash 33
 r pierce 33
 r slash 33
-r cold 999
-r lightning 999
+r cold 100
+r lightning 100
 r holy -50
-r negative 999
+r negative 100
 r energy -50
-r disease 999
-r poison 999
-r charm 999
+r disease 100
+r poison 100
+r charm 100
 #22326
 the gelatinous cube demon~
 the Gelatinous cube~
@@ -646,17 +660,17 @@ CFR 0 T 0 ABC -1000 0
 AFGK
 stand stand none 0
 ABV ABCDE large unknown
-r bash 999
+r bash 100
 r pierce 33
 r slash 33
 r fire -50
 r cold 33
-r acid 999
+r acid 100
 r holy -50
-r negative 999
-r disease 999
-r poison 999
-r charm 999
+r negative 100
+r disease 100
+r poison 100
+r charm 100
 #22327
 guard fire drake dragon itangast~
 Itangast, the Fire Drake~
@@ -676,13 +690,15 @@ stand stand male 0
 M give 22300 22352~
 M grall 22301 100~
 M bribe 22302 10000~
-r bash 999
+r bash 100
+r pierce 0
 r slash 33
-r fire 999
-r negative 999
-r disease 999
-r poison 999
-r charm 999
+r fire 100
+r cold 0
+r negative 100
+r disease 100
+r poison 100
+r charm 100
 #22328
 lord evil tiamat dragon~
 Tiamat, Celestial Dragon of Evil~
@@ -700,9 +716,9 @@ FT 0 0 0 ABC -1000 0
 0
 stand stand female 100000
 0 0 gargantuan unknown
-r negative 999
-r disease 999
-r poison 999
+r negative 100
+r disease 100
+r poison 100
 #22329
 guard high zombie~
 the high guard~
@@ -725,12 +741,12 @@ M act 22303 open chest~
 r pierce 20
 r slash -10
 r fire -30
-r cold 999
+r cold 100
 r lightning 60
 r acid 90
-r negative 999
+r negative 100
 r energy 50
-r mental 999
+r mental 100
 r sound 50
 r harm -50
 #22330
@@ -752,13 +768,13 @@ M act 22303 opens chest~
 r pierce 20
 r slash -10
 r fire -30
-r cold 999
+r cold 100
 r lightning 60
 r acid 80
-r negative 999
-r mental 999
+r negative 100
+r mental 100
 r sound 50
-r charm 999
+r charm 1000
 r harm -50
 #22399
 as~
@@ -787,7 +803,7 @@ key U I O
 0 10 10000 P
 g @rus none~
 #22301
-bushido blade~
+bushido blade sword~
 the Bushido blade~
 A thin and straight steel sword sticks from ground.~
 steel~

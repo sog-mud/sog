@@ -794,7 +794,7 @@ N
 stand stand male 2000
 0 0 medium unknown
 r bash -50
-r charm 999
+r charm 100
 #7540
 palace priest~
 the palace priest~
@@ -937,7 +937,7 @@ CDEFJKLNU
 stand stand male 4000
 0 0 medium unknown
 r bash -50
-r charm 999
+r charm 100
 #7555
 duchess gerighelm~
 the Duchess of Gerighelm~
@@ -953,7 +953,7 @@ FKN
 stand stand female 2500
 0 0 medium unknown
 r bash -50
-r charm 999
+r charm 100
 #7590
 servant~
 a servant~
@@ -1010,23 +1010,23 @@ BJVe 0 0 0 0 900 0
 CDF
 stand stand male 100000
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r holy 999
-r negative 999
-r energy 999
-r mental 999
-r sound 999
-r disease 999
-r poison 999
-r charm 999
-r harm 999
-r light 999
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #7593
 blacksmith vendy~
 the blacksmith Vendy~
@@ -1042,23 +1042,23 @@ BJTVe 0 0 0 0 900 0
 CEIK
 stand stand female 250000
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r holy 999
-r negative 999
-r energy 999
-r mental 999
-r sound 999
-r disease 999
-r poison 999
-r charm 999
-r harm 999
-r light 999
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #7594
 mage~
 the mage~
@@ -1073,23 +1073,23 @@ BJVe 0 0 0 A 900 0
 AF
 stand stand male 150000
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r holy 999
-r negative 999
-r energy 999
-r mental 999
-r sound 999
-r disease 999
-r poison 999
-r charm 999
-r harm 999
-r light 999
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #7595
 pawn shop runner~
 the pawn shop owner~
@@ -1104,23 +1104,23 @@ BJVe 0 0 0 0 900 0
 EFJ
 stand stand male 130000
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r holy 999
-r negative 999
-r energy 999
-r mental 999
-r sound 999
-r disease 999
-r poison 999
-r charm 999
-r harm 999
-r light 999
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #7597
 merchant~
 the merchant~
@@ -1135,23 +1135,23 @@ JVe 0 0 0 0 900 0
 EFJ
 stand stand male 80000
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r holy 999
-r negative 999
-r energy 999
-r mental 999
-r sound 999
-r disease 999
-r poison 999
-r charm 999
-r harm 999
-r light 999
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #7604
 herbalist~
 the herbalist~
@@ -1166,23 +1166,23 @@ BJVe 0 0 0 0 900 0
 EFJ
 stand stand female 150000
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r holy 999
-r negative 999
-r energy 999
-r mental 999
-r sound 999
-r disease 999
-r poison 999
-r charm 999
-r harm 999
-r light 999
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #7609
 animal man~
 the animal man~
@@ -1197,20 +1197,20 @@ BJV 0 0 0 0 900 0
 0
 stand stand male 9000
 0 0 medium unknown
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r holy 999
-r negative 999
-r energy 999
-r mental 999
-r sound 999
-r disease 999
-r poison 999
-r charm 999
-r harm 999
-r light 999
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #7610
 witch hag~
 the old witch~
@@ -1225,23 +1225,23 @@ BJVe 0 0 0 A 900 7006
 AF
 stand stand male 20000
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r holy 999
-r negative 999
-r energy 999
-r mental 999
-r sound 999
-r disease 999
-r poison 999
-r charm 999
-r harm 999
-r light 999
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #7698
 hawk~
 a hawk~
@@ -2132,12 +2132,10 @@ g @rus none~
 
 #ROOMS
 #7500
-@eng Entrance to the park.@rus Вход в парк~
-@eng This is the entrance to a small park. You see that it is full of animals,
+Entrance to the park.~
+This is the entrance to a small park. You see that it is full of animals,
 birds, and reptiles.  There are also people here, strolling around in the
 romantic setting.
-@rus Это вход в маленький парк. Ты видишь, что здесь много животных, птиц, и
-рептилий. Ты также видишь людей, которые прогуливаютсЯ здесь и мечтают.
 ~
 0 0 forest
 D2
