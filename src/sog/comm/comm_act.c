@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.40.2.9 2002-01-11 19:57:07 tatyana Exp $
+ * $Id: comm_act.c,v 1.40.2.10 2002-08-26 16:24:40 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -130,7 +130,7 @@ _format_long(mlstring *ml, CHAR_DATA *to, int to_lang)
  */
 const char *PERS2(CHAR_DATA *ch, CHAR_DATA *to, int to_lang, int act_flags)
 {
-	bool visible = can_see(to, ch);
+	bool visible = (act_flags & ACT_NOCANSEE) != 0 || can_see(to, ch);
 
 	if (is_affected(ch, gsn_doppelganger)
 	&&  (IS_NPC(to) ||
@@ -213,7 +213,7 @@ static char *translate(CHAR_DATA *ch, CHAR_DATA *victim, const char *i)
 static char * const he_she  [] = { "it",  "he",  "she" };
 static char * const him_her [] = { "it",  "him", "her" };
 static char * const his_her [] = { "its", "his", "her" };
- 
+
 struct tdata {
 	char	type;
 	int	arg;
@@ -242,13 +242,13 @@ act_format_text(const char *text, CHAR_DATA *ch, CHAR_DATA *to,
 		return text;
 	return fix_short(text);
 }
-	
+
 static const char *
 act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, int to_lang, int act_flags)
 {
 	const char *descr;
 
-	if (!can_see_obj(to, obj))
+	if ((act_flags & ACT_NOCANSEE) == 0 && !can_see_obj(to, obj))
 		return GETMSG("something", to_lang);
 
 	if (IS_SET(act_flags, ACT_FORMSH)) {
@@ -431,7 +431,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 	ROOM_INDEX_DATA *room3 = (ROOM_INDEX_DATA*) arg3;
 	OBJ_DATA *	obj1 = (OBJ_DATA*) arg1;
 	OBJ_DATA *	obj2 = (OBJ_DATA*) arg2;
-	char 		tmp	[MAX_STRING_LENGTH];
+	char		tmp	[MAX_STRING_LENGTH];
 	char		tmp2	[MAX_STRING_LENGTH];
 
 	char *		point = buf;
@@ -478,7 +478,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 					rulecl = RULES_QTY;
 
 				*point = '\0';
-				strnzcpy(tstack[sp].p, 
+				strnzcpy(tstack[sp].p,
 					 buf_len - 3 - (tstack[sp].p - buf),
 					 word_form(tstack[sp].p, tstack[sp].arg,
 						   opt->to_lang, rulecl));
@@ -492,7 +492,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 				*point = '\0';
 				snprintf(tmp2, sizeof(tmp2),
 					 tstack[sp].type == 'f' ?
-					 	"%%%ds" : "%%%d.%ds",
+						"%%%ds" : "%%%d.%ds",
 					 tstack[sp].arg, abs(tstack[sp].arg));
 				snprintf(tmp, sizeof(tmp), tmp2, tstack[sp].p);
 				strnzcpy(tstack[sp].p,
@@ -514,7 +514,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 			s++;
 
 			switch (code = *s++) {
-			default:  
+			default:
 				i = " <@@@> ";
 				log("act_buf: '%s': bad code $%c",
 					   format, code);
@@ -523,13 +523,13 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 			case '$':
 				i = "$";
 				break;
-				
+
 			case '{':
 				i = "{{";
 				break;
 
 /* text arguments */
-			case 't': 
+			case 't':
 				TEXT_ARG(arg1, opt->act_flags);
 				break;
 
@@ -589,27 +589,27 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 				CHECK_TYPE(ch, MT_CHAR);
 				i = he_she[SEX(ch, to)];
 				break;
-	
+
 			case 'E':
 				CHECK_TYPE(vch, MT_CHAR);
 				i = he_she[SEX(vch, to)];
 				break;
-	
+
 			case 'm':
 				CHECK_TYPE(ch, MT_CHAR);
 				i = him_her[SEX(ch, to)];
 				break;
-	
+
 			case 'M':
 				CHECK_TYPE(vch, MT_CHAR);
 				i = him_her[SEX(vch, to)];
 				break;
-	
+
 			case 's':
 				CHECK_TYPE(ch, MT_CHAR);
 				i = his_her[SEX(ch, to)];
 				break;
-	
+
 			case 'S':
 				CHECK_TYPE(vch, MT_CHAR);
 				i = his_her[SEX(vch, to)];
@@ -787,7 +787,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 				s++;
 				continue;
 			}
-	
+
 			if (i != NULL) {
 				while (point - buf < buf_len - 3 && *i)
 					*point++ = *i++;
@@ -795,7 +795,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 			break;
 		}
 	}
- 
+
 	if (!IS_SET(opt->act_flags, ACT_NOLF))
 		*point++ = '\n';
 	*point = '\0';
@@ -824,7 +824,7 @@ act_args(CHAR_DATA *ch, CHAR_DATA *vch, int act_flags, const char *format)
 
 	return ch->in_room->people;
 }
- 
+
 static bool
 act_skip(CHAR_DATA *ch, CHAR_DATA *vch, CHAR_DATA *to,
 	 int act_flags, int min_pos)
@@ -845,7 +845,7 @@ act_skip(CHAR_DATA *ch, CHAR_DATA *vch, CHAR_DATA *to,
 	&&  to->desc == NULL
 	&&  !HAS_TRIGGER(to, TRIG_ACT))
 		return TRUE;
- 
+
 	if (IS_SET(act_flags, ACT_NOMORTAL) && !IS_NPC(to) && !IS_IMMORTAL(to))
 		return TRUE;
 
@@ -929,9 +929,9 @@ void act_puts3(const char *format, CHAR_DATA *ch,
 		}
 		return;
 	}
-		
+
 	for(; to; to = to->next_in_room) {
-		if (act_skip(ch, vch, to, act_flags, min_pos)) 
+		if (act_skip(ch, vch, to, act_flags, min_pos))
 			continue;
 
 		act_raw(ch, to, arg1, arg2, arg3,
@@ -969,11 +969,11 @@ void act_yell(CHAR_DATA *ch, const char *text, const void *arg,
 		||  vch->in_room == NULL
 		||  vch->in_room->area != ch->in_room->area
 		||  (IS_SET(vch->in_room->room_flags, ROOM_SILENT) &&
-                     !IS_IMMORTAL(vch))) 
+                     !IS_IMMORTAL(vch)))
 			continue;
 
 		act_puts(format, ch, act_speech(ch, vch, text, arg), vch,
-	    		 TO_VICT | ACT_SPEECH(ch), POS_DEAD);
+			 TO_VICT | ACT_SPEECH(ch), POS_DEAD);
 	}
 }
 
@@ -1009,8 +1009,7 @@ void act_say(CHAR_DATA *ch, const char *text, const void *arg)
 			continue;
 		act_puts("$n says '{G$t{x'", ch,
 			 act_speech(ch, vch, text, arg), vch,
-		 	 TO_VICT | ACT_TOBUF | ACT_NOTWIT | ACT_SPEECH(ch),
+			 TO_VICT | ACT_TOBUF | ACT_NOTWIT | ACT_SPEECH(ch),
 			 POS_RESTING);
 	}
 }
-

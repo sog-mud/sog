@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.123.2.11 2001-02-14 13:17:24 fjoe Exp $
+ * $Id: quest.c,v 1.123.2.12 2002-08-26 16:24:37 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -414,7 +414,8 @@ static void quest_info(CHAR_DATA *ch, char* arg)
 			OBJ_DATA *obj = create_obj(qinfoobj, 0);
 			act_puts(
 			    "You are on a quest to recover the fabled {W$p{x!",
-			    ch, obj, NULL, TO_CHAR | ACT_FORMSH, POS_DEAD);
+			    ch, obj, NULL,
+			    TO_CHAR | ACT_FORMSH | ACT_NOCANSEE, POS_DEAD);
 			extract_obj(obj, 0);
 
 			if (PC(ch)->questroom) {
@@ -438,7 +439,8 @@ static void quest_info(CHAR_DATA *ch, char* arg)
 			CHAR_DATA *mob = create_mob(questinfo, 0);
 			act_puts(
 			    "You are on a quest to slay the dreaded {W$N{x!",
-			    ch, NULL, mob, TO_CHAR | ACT_FORMSH, POS_DEAD);
+			    ch, NULL, mob,
+			    TO_CHAR | ACT_FORMSH | ACT_NOCANSEE, POS_DEAD);
 			extract_char(mob, 0);
 
 			if (PC(ch)->questroom) {
@@ -571,8 +573,8 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 	if (IS_ON_QUEST(ch)) {
 		act_puts("    But you are already on a quest!",
 			 questor, NULL, ch, TO_VICT, POS_DEAD);
-    		return;
-	} 
+		return;
+	}
 
 	if (PC(ch)->questtime < 0) {
 		act_puts("    You're very brave, $N, but let someone else "
@@ -657,41 +659,40 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 
 		act_puts("    Vile pilferers have stolen {W$p{x "
 			 "from the royal treasury!",
-			 questor, eyed, ch, TO_VICT | ACT_FORMSH, POS_DEAD);
+			 questor, eyed, ch,
+			 TO_VICT | ACT_FORMSH | ACT_NOCANSEE, POS_DEAD);
 		act_puts("    My court wizardess, with her magic mirror, "
 			 "has pinpointed its location.",
 			 questor, NULL, ch, TO_VICT, POS_DEAD);
 		act_puts3("    Look in the general area of {W$t{x for {W$R{x!",
 			  questor, victim->in_room->area->name, ch,
 			  victim->in_room, TO_VICT, POS_DEAD);
-	}
-	else {	/* Quest to kill a mob */
+	} else {	/* Quest to kill a mob */
 		if (IS_GOOD(ch)) {
 			act_puts("    Rune's most heinous criminal, {W$i{x,\n"
 				 "    has escaped from the dungeon.",
 				 questor, victim, ch,
-				 TO_VICT | ACT_FORMSH, POS_DEAD);
+				 TO_VICT | ACT_FORMSH | ACT_NOCANSEE, POS_DEAD);
 			act_puts3("    Since the escape, $i has murdered "
 				  "$J $qJ{civilians}!",
 				  questor, victim, ch,
-				  (const void*) number_range(2, 20),
-				  TO_VICT, POS_DEAD);
+				  (const void *) number_range(2, 20),
+				  TO_VICT | ACT_NOCANSEE, POS_DEAD);
 			act_puts("    The penalty for this crime is death, "
 				 "and you are to deliver the sentence!",
 				 questor, victim, ch, TO_VICT, POS_DEAD);
-		}
-		else {
+		} else {
 			act_puts("    An enemy of mine, {W$i{x,\n"
 				 "    is making vile threats against the crown.",
 				 questor, victim, ch,
-				 TO_VICT | ACT_FORMSH, POS_DEAD);
+				 TO_VICT | ACT_FORMSH | ACT_NOCANSEE, POS_DEAD);
 			act_puts("    This threat must be eliminated!",
 				 questor, victim, ch, TO_VICT, POS_DEAD);
 		}
 
 		act_puts3("    Seek $i out in the vicinity of {W$R{x!",
 			  questor, victim, ch, victim->in_room,
-			  TO_VICT, POS_DEAD);
+			  TO_VICT | ACT_NOCANSEE, POS_DEAD);
 		act_puts("    That location is in general area of {W$t{x.",
 			 questor, victim->in_room->area->name, ch,
 			 TO_VICT, POS_DEAD);
@@ -702,7 +703,7 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 
 	PC(ch)->questgiver = questor->pMobIndex->vnum;
 	PC(ch)->questtime = number_range(10, 20) + ch->level/10;
-	act_puts("    You have {W$j{x $qj{minutes} to complete this quest.", 
+	act_puts("    You have {W$j{x $qj{minutes} to complete this quest.",
 		 questor, (const void*) PC(ch)->questtime, ch,
 		 TO_VICT, POS_DEAD);
 	act_puts("    May the gods go with you!",
