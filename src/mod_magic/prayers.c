@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.4 2001-04-03 14:44:34 cs Exp $
+ * $Id: prayers.c,v 1.5 2001-04-25 09:49:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -902,11 +902,11 @@ prayer_calm(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		for (vch = ch->in_room->people; vch; vch = vch->next_in_room) {
 			if (IS_SET(vch->form, FORM_UNDEAD)
 			||  IS_SET(vch->form, FORM_CONSTRUCT))
-				return;
+				continue;
 
 			if (IS_AFFECTED(vch, AFF_CALM | AFF_BERSERK)
 			||  is_affected(vch, "frenzy"))
-				return;
+				continue;
 
 			act_char("A wave of calm passes over you.", vch);
 			if (vch->fighting || vch->position == POS_FIGHTING)
