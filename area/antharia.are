@@ -2171,205 +2171,204 @@ M 12364 spec_cast_mage	* an elven representative
 S
 
 #RESETS
-D 0 12322 4 2	* Main Road of Antharia: door to the up: closed and locked
 M 0 12303 4 12300 1	* a sucker fish (Entrance Street)
 M 0 12302 1 12302 1	* Suretin (Temple of Anthar)
 M 0 12300 20 12302 1	* an Antharian Peace Guard (Temple of Anthar)
-E 0 12304 0 1		*	an Antharian signet ring: on the left finger
-E 0 12337 0 14		*	an Antharian style bracer: on the left wrist
-E 0 12310 0 7		*	a pair of synthetic fins: on the legs
-E 0 12313 0 6		*	an Antharian helmet: over the head
-E 0 12316 0 16		*	a sparkling trident: wielded
-E 0 12340 0 17		*	a net: held in the hands
+E 0 12304 0 1		*	an Antharian Peace Guard<on the left finger>: an Antharian signet ring
+E 0 12337 0 14		*	an Antharian Peace Guard<on the left wrist>: an Antharian style bracer
+E 0 12310 0 7		*	an Antharian Peace Guard<on the legs>: a pair of synthetic fins
+E 0 12313 0 6		*	an Antharian Peace Guard<over the head>: an Antharian helmet
+E 0 12316 0 16		*	an Antharian Peace Guard<wielded>: a sparkling trident
+E 0 12340 0 17		*	an Antharian Peace Guard<held in the hands>: a net
 M 0 12318 4 12302 1	* an Antharian Knight (Temple of Anthar)
-E 0 12306 0 1		*	an Antharian signet ring: on the left finger
-E 0 12339 0 14		*	an Antharian style bracer: on the left wrist
-E 0 12312 0 7		*	a apir of synthetic fins: on the legs
-E 0 12315 0 6		*	an Antharian helmet: over the head
-E 0 12318 0 16		*	a sparkling trident: wielded
-E 0 12340 0 17		*	a net: held in the hands
+E 0 12306 0 1		*	an Antharian Knight<on the left finger>: an Antharian signet ring
+E 0 12339 0 14		*	an Antharian Knight<on the left wrist>: an Antharian style bracer
+E 0 12312 0 7		*	an Antharian Knight<on the legs>: a apir of synthetic fins
+E 0 12315 0 6		*	an Antharian Knight<over the head>: an Antharian helmet
+E 0 12318 0 16		*	an Antharian Knight<wielded>: a sparkling trident
+E 0 12340 0 17		*	an Antharian Knight<held in the hands>: a net
 M 0 12300 4 12304 1	* an Antharian Peace Guard (Temple Circle)
-E 0 12304 0 1		*	an Antharian signet ring: on the left finger
-E 0 12307 0 14		*	Antharian plate mail: on the left wrist
-E 0 12310 0 7		*	a pair of synthetic fins: on the legs
-E 0 12313 0 6		*	an Antharian helmet: over the head
-E 0 12316 0 16		*	a sparkling trident: wielded
-E 0 12340 0 17		*	a net: held in the hands
+E 0 12304 0 1		*	an Antharian Peace Guard<on the left finger>: an Antharian signet ring
+E 0 12307 0 14		*	an Antharian Peace Guard<on the left wrist>: Antharian plate mail
+E 0 12310 0 7		*	an Antharian Peace Guard<on the legs>: a pair of synthetic fins
+E 0 12313 0 6		*	an Antharian Peace Guard<over the head>: an Antharian helmet
+E 0 12316 0 16		*	an Antharian Peace Guard<wielded>: a sparkling trident
+E 0 12340 0 17		*	an Antharian Peace Guard<held in the hands>: a net
 M 0 12303 4 12306 1	* a sucker fish (Temple Circle at Kaer's Bridge)
 M 0 12300 4 12307 1	* an Antharian Peace Guard (Temple Circle)
-E 0 12304 0 1		*	an Antharian signet ring: on the left finger
-E 0 12337 0 14		*	an Antharian style bracer: on the left wrist
-E 0 12310 0 7		*	a pair of synthetic fins: on the legs
-E 0 12313 0 6		*	an Antharian helmet: over the head
-E 0 12316 0 16		*	a sparkling trident: wielded
-E 0 12340 0 17		*	a net: held in the hands
+E 0 12304 0 1		*	an Antharian Peace Guard<on the left finger>: an Antharian signet ring
+E 0 12337 0 14		*	an Antharian Peace Guard<on the left wrist>: an Antharian style bracer
+E 0 12310 0 7		*	an Antharian Peace Guard<on the legs>: a pair of synthetic fins
+E 0 12313 0 6		*	an Antharian Peace Guard<over the head>: an Antharian helmet
+E 0 12316 0 16		*	an Antharian Peace Guard<wielded>: a sparkling trident
+E 0 12340 0 17		*	an Antharian Peace Guard<held in the hands>: a net
 M 0 12303 4 12310 1	* a sucker fish (Main Street Before Zaertses')
-G 0 12301 0		*	a green gem
+G 0 12301 0		*	a sucker fish: a green gem
 M 0 12309 4 12311 1	* an Antharian citizen (Main Street of Antharia)
 M 0 12300 4 12312 1	* an Antharian Peace Guard (Main Street of Antharia)
-E 0 12304 0 1		*	an Antharian signet ring: on the left finger
-E 0 12337 0 14		*	an Antharian style bracer: on the left wrist
-E 0 12310 0 7		*	a pair of synthetic fins: on the legs
-E 0 12313 0 6		*	an Antharian helmet: over the head
-E 0 12316 0 16		*	a sparkling trident: wielded
-E 0 12340 0 17		*	a net: held in the hands
+E 0 12304 0 1		*	an Antharian Peace Guard<on the left finger>: an Antharian signet ring
+E 0 12337 0 14		*	an Antharian Peace Guard<on the left wrist>: an Antharian style bracer
+E 0 12310 0 7		*	an Antharian Peace Guard<on the legs>: a pair of synthetic fins
+E 0 12313 0 6		*	an Antharian Peace Guard<over the head>: an Antharian helmet
+E 0 12316 0 16		*	an Antharian Peace Guard<wielded>: a sparkling trident
+E 0 12340 0 17		*	an Antharian Peace Guard<held in the hands>: a net
 M 0 12310 4 12312 1	* an Antharian citizen (Main Street of Antharia)
-E 0 12331 0 13		*	an Antharian belt: around the waist
+E 0 12331 0 13		*	an Antharian citizen<around the waist>: an Antharian belt
 M 0 12314 5 12314 1	* an Antharian child (Main Street of Antharia)
-E 0 12332 0 7		*	Antharian trousers: on the legs
+E 0 12332 0 7		*	an Antharian child<on the legs>: Antharian trousers
 M 0 12314 5 12314 1	* an Antharian child (Main Street of Antharia)
 M 0 12314 5 12314 1	* an Antharian child (Main Street of Antharia)
-E 0 12332 0 7		*	Antharian trousers: on the legs
+E 0 12332 0 7		*	an Antharian child<on the legs>: Antharian trousers
 M 0 12315 5 12314 1	* an Antharian child (Main Street of Antharia)
-E 0 12332 0 7		*	Antharian trousers: on the legs
+E 0 12332 0 7		*	an Antharian child<on the legs>: Antharian trousers
 M 0 12315 5 12314 1	* an Antharian child (Main Street of Antharia)
 M 0 12315 5 12314 1	* an Antharian child (Main Street of Antharia)
-E 0 12332 0 7		*	Antharian trousers: on the legs
+E 0 12332 0 7		*	an Antharian child<on the legs>: Antharian trousers
 M 0 12323 4 12315 1	* High Guard of Antharia (East Intersection -- Main and Center)
-E 0 12305 0 2		*	an Antharian signet ring: on the right finger
-E 0 12338 0 14		*	an Antharian style bracer: on the left wrist
-E 0 12311 0 7		*	a pair of synthetic fins: on the legs
-E 0 12314 0 6		*	an Antharian helmet: over the head
-E 0 12317 0 16		*	a sparkling trident: wielded
-E 0 12340 0 17		*	a net: held in the hands
+E 0 12305 0 2		*	High Guard of Antharia<on the right finger>: an Antharian signet ring
+E 0 12338 0 14		*	High Guard of Antharia<on the left wrist>: an Antharian style bracer
+E 0 12311 0 7		*	High Guard of Antharia<on the legs>: a pair of synthetic fins
+E 0 12314 0 6		*	High Guard of Antharia<over the head>: an Antharian helmet
+E 0 12317 0 16		*	High Guard of Antharia<wielded>: a sparkling trident
+E 0 12340 0 17		*	High Guard of Antharia<held in the hands>: a net
 M 0 12323 4 12315 1	* High Guard of Antharia (East Intersection -- Main and Center)
-E 0 12305 0 2		*	an Antharian signet ring: on the right finger
-E 0 12338 0 14		*	an Antharian style bracer: on the left wrist
-E 0 12311 0 7		*	a pair of synthetic fins: on the legs
-E 0 12314 0 6		*	an Antharian helmet: over the head
-E 0 12317 0 16		*	a sparkling trident: wielded
-E 0 12340 0 17		*	a net: held in the hands
+E 0 12305 0 2		*	High Guard of Antharia<on the right finger>: an Antharian signet ring
+E 0 12338 0 14		*	High Guard of Antharia<on the left wrist>: an Antharian style bracer
+E 0 12311 0 7		*	High Guard of Antharia<on the legs>: a pair of synthetic fins
+E 0 12314 0 6		*	High Guard of Antharia<over the head>: an Antharian helmet
+E 0 12317 0 16		*	High Guard of Antharia<wielded>: a sparkling trident
+E 0 12340 0 17		*	High Guard of Antharia<held in the hands>: a net
 M 0 12303 4 12317 1	* a sucker fish (Center Street)
-G 0 12301 0		*	a green gem
+G 0 12301 0		*	a sucker fish: a green gem
 M 0 12318 4 12318 1	* an Antharian Knight (Kaer's Bridge)
-E 0 12306 0 1		*	an Antharian signet ring: on the left finger
-E 0 12309 0 14		*	Antharian plate mail: on the left wrist
-E 0 12312 0 7		*	a apir of synthetic fins: on the legs
-E 0 12315 0 6		*	an Antharian helmet: over the head
-E 0 12318 0 16		*	a sparkling trident: wielded
-E 0 12340 0 17		*	a net: held in the hands
+E 0 12306 0 1		*	an Antharian Knight<on the left finger>: an Antharian signet ring
+E 0 12309 0 14		*	an Antharian Knight<on the left wrist>: Antharian plate mail
+E 0 12312 0 7		*	an Antharian Knight<on the legs>: a apir of synthetic fins
+E 0 12315 0 6		*	an Antharian Knight<over the head>: an Antharian helmet
+E 0 12318 0 16		*	an Antharian Knight<wielded>: a sparkling trident
+E 0 12340 0 17		*	an Antharian Knight<held in the hands>: a net
 M 0 12300 4 12319 1	* an Antharian Peace Guard (Center Street)
-E 0 12304 0 1		*	an Antharian signet ring: on the left finger
-E 0 12337 0 14		*	an Antharian style bracer: on the left wrist
-E 0 12310 0 7		*	a pair of synthetic fins: on the legs
-E 0 12313 0 6		*	an Antharian helmet: over the head
-E 0 12316 0 16		*	a sparkling trident: wielded
+E 0 12304 0 1		*	an Antharian Peace Guard<on the left finger>: an Antharian signet ring
+E 0 12337 0 14		*	an Antharian Peace Guard<on the left wrist>: an Antharian style bracer
+E 0 12310 0 7		*	an Antharian Peace Guard<on the legs>: a pair of synthetic fins
+E 0 12313 0 6		*	an Antharian Peace Guard<over the head>: an Antharian helmet
+E 0 12316 0 16		*	an Antharian Peace Guard<wielded>: a sparkling trident
 M 0 12309 4 12319 1	* an Antharian citizen (Center Street)
 M 0 12310 4 12320 1	* an Antharian citizen (Main Road of Antharia)
-E 0 12331 0 13		*	an Antharian belt: around the waist
+E 0 12331 0 13		*	an Antharian citizen<around the waist>: an Antharian belt
 M 0 12300 4 12321 1	* an Antharian Peace Guard (Main Road of Antharia)
-E 0 12304 0 1		*	an Antharian signet ring: on the left finger
-E 0 12337 0 14		*	an Antharian style bracer: on the left wrist
-E 0 12310 0 7		*	a pair of synthetic fins: on the legs
-E 0 12313 0 6		*	an Antharian helmet: over the head
-E 0 12316 0 16		*	a sparkling trident: wielded
-E 0 12340 0 17		*	a net: held in the hands
+E 0 12304 0 1		*	an Antharian Peace Guard<on the left finger>: an Antharian signet ring
+E 0 12337 0 14		*	an Antharian Peace Guard<on the left wrist>: an Antharian style bracer
+E 0 12310 0 7		*	an Antharian Peace Guard<on the legs>: a pair of synthetic fins
+E 0 12313 0 6		*	an Antharian Peace Guard<over the head>: an Antharian helmet
+E 0 12316 0 16		*	an Antharian Peace Guard<wielded>: a sparkling trident
+E 0 12340 0 17		*	an Antharian Peace Guard<held in the hands>: a net
 M 0 12303 4 12322 1	* a sucker fish (Main Road of Antharia)
 M 0 12323 4 12323 1	* High Guard of Antharia (Main Road of Antharia)
-E 0 12305 0 2		*	an Antharian signet ring: on the right finger
-E 0 12338 0 14		*	an Antharian style bracer: on the left wrist
-E 0 12311 0 7		*	a pair of synthetic fins: on the legs
-E 0 12314 0 6		*	an Antharian helmet: over the head
-E 0 12317 0 16		*	a sparkling trident: wielded
-E 0 12340 0 17		*	a net: held in the hands
+E 0 12305 0 2		*	High Guard of Antharia<on the right finger>: an Antharian signet ring
+E 0 12338 0 14		*	High Guard of Antharia<on the left wrist>: an Antharian style bracer
+E 0 12311 0 7		*	High Guard of Antharia<on the legs>: a pair of synthetic fins
+E 0 12314 0 6		*	High Guard of Antharia<over the head>: an Antharian helmet
+E 0 12317 0 16		*	High Guard of Antharia<wielded>: a sparkling trident
+E 0 12340 0 17		*	High Guard of Antharia<held in the hands>: a net
 M 0 12323 4 12323 1	* High Guard of Antharia (Main Road of Antharia)
-E 0 12305 0 2		*	an Antharian signet ring: on the right finger
-E 0 12338 0 14		*	an Antharian style bracer: on the left wrist
-E 0 12311 0 7		*	a pair of synthetic fins: on the legs
-E 0 12314 0 6		*	an Antharian helmet: over the head
-E 0 12317 0 16		*	a sparkling trident: wielded
-E 0 12340 0 17		*	a net: held in the hands
+E 0 12305 0 2		*	High Guard of Antharia<on the right finger>: an Antharian signet ring
+E 0 12338 0 14		*	High Guard of Antharia<on the left wrist>: an Antharian style bracer
+E 0 12311 0 7		*	High Guard of Antharia<on the legs>: a pair of synthetic fins
+E 0 12314 0 6		*	High Guard of Antharia<over the head>: an Antharian helmet
+E 0 12317 0 16		*	High Guard of Antharia<wielded>: a sparkling trident
+E 0 12340 0 17		*	High Guard of Antharia<held in the hands>: a net
 M 0 12300 4 12326 1	* an Antharian Peace Guard (Small Intersection)
-E 0 12304 0 1		*	an Antharian signet ring: on the left finger
-E 0 12337 0 14		*	an Antharian style bracer: on the left wrist
-E 0 12310 0 7		*	a pair of synthetic fins: on the legs
-E 0 12313 0 6		*	an Antharian helmet: over the head
-E 0 12316 0 16		*	a sparkling trident: wielded
-E 0 12340 0 17		*	a net: held in the hands
+E 0 12304 0 1		*	an Antharian Peace Guard<on the left finger>: an Antharian signet ring
+E 0 12337 0 14		*	an Antharian Peace Guard<on the left wrist>: an Antharian style bracer
+E 0 12310 0 7		*	an Antharian Peace Guard<on the legs>: a pair of synthetic fins
+E 0 12313 0 6		*	an Antharian Peace Guard<over the head>: an Antharian helmet
+E 0 12316 0 16		*	an Antharian Peace Guard<wielded>: a sparkling trident
+E 0 12340 0 17		*	an Antharian Peace Guard<held in the hands>: a net
 M 0 12318 4 12326 1	* an Antharian Knight (Small Intersection)
-E 0 12306 0 1		*	an Antharian signet ring: on the left finger
-E 0 12339 0 14		*	an Antharian style bracer: on the left wrist
-E 0 12312 0 7		*	a apir of synthetic fins: on the legs
-E 0 12315 0 6		*	an Antharian helmet: over the head
-E 0 12318 0 16		*	a sparkling trident: wielded
-E 0 12340 0 17		*	a net: held in the hands
+E 0 12306 0 1		*	an Antharian Knight<on the left finger>: an Antharian signet ring
+E 0 12339 0 14		*	an Antharian Knight<on the left wrist>: an Antharian style bracer
+E 0 12312 0 7		*	an Antharian Knight<on the legs>: a apir of synthetic fins
+E 0 12315 0 6		*	an Antharian Knight<over the head>: an Antharian helmet
+E 0 12318 0 16		*	an Antharian Knight<wielded>: a sparkling trident
+E 0 12340 0 17		*	an Antharian Knight<held in the hands>: a net
 M 0 12323 4 12328 1	* High Guard of Antharia (Zoo Gate)
-E 0 12305 0 2		*	an Antharian signet ring: on the right finger
-E 0 12338 0 14		*	an Antharian style bracer: on the left wrist
-E 0 12311 0 7		*	a pair of synthetic fins: on the legs
-E 0 12314 0 6		*	an Antharian helmet: over the head
-E 0 12317 0 16		*	a sparkling trident: wielded
-E 0 12340 0 17		*	a net: held in the hands
+E 0 12305 0 2		*	High Guard of Antharia<on the right finger>: an Antharian signet ring
+E 0 12338 0 14		*	High Guard of Antharia<on the left wrist>: an Antharian style bracer
+E 0 12311 0 7		*	High Guard of Antharia<on the legs>: a pair of synthetic fins
+E 0 12314 0 6		*	High Guard of Antharia<over the head>: an Antharian helmet
+E 0 12317 0 16		*	High Guard of Antharia<wielded>: a sparkling trident
+E 0 12340 0 17		*	High Guard of Antharia<held in the hands>: a net
 M 0 12303 4 12332 1	* a sucker fish (Main Road of Antharia)
 M 0 12310 4 12332 1	* an Antharian citizen (Main Road of Antharia)
 M 0 12323 4 12333 1	* High Guard of Antharia (East Intersection -- Main and Center)
-E 0 12305 0 2		*	an Antharian signet ring: on the right finger
-E 0 12338 0 14		*	an Antharian style bracer: on the left wrist
-E 0 12311 0 7		*	a pair of synthetic fins: on the legs
-E 0 12314 0 6		*	an Antharian helmet: over the head
-E 0 12317 0 16		*	a sparkling trident: wielded
-E 0 12340 0 17		*	a net: held in the hands
+E 0 12305 0 2		*	High Guard of Antharia<on the right finger>: an Antharian signet ring
+E 0 12338 0 14		*	High Guard of Antharia<on the left wrist>: an Antharian style bracer
+E 0 12311 0 7		*	High Guard of Antharia<on the legs>: a pair of synthetic fins
+E 0 12314 0 6		*	High Guard of Antharia<over the head>: an Antharian helmet
+E 0 12317 0 16		*	High Guard of Antharia<wielded>: a sparkling trident
+E 0 12340 0 17		*	High Guard of Antharia<held in the hands>: a net
 M 0 12323 4 12333 1	* High Guard of Antharia (East Intersection -- Main and Center)
-E 0 12305 0 2		*	an Antharian signet ring: on the right finger
-E 0 12338 0 14		*	an Antharian style bracer: on the left wrist
-E 0 12311 0 7		*	a pair of synthetic fins: on the legs
-E 0 12314 0 6		*	an Antharian helmet: over the head
-E 0 12317 0 16		*	a sparkling trident: wielded
-E 0 12340 0 17		*	a net: held in the hands
+E 0 12305 0 2		*	High Guard of Antharia<on the right finger>: an Antharian signet ring
+E 0 12338 0 14		*	High Guard of Antharia<on the left wrist>: an Antharian style bracer
+E 0 12311 0 7		*	High Guard of Antharia<on the legs>: a pair of synthetic fins
+E 0 12314 0 6		*	High Guard of Antharia<over the head>: an Antharian helmet
+E 0 12317 0 16		*	High Guard of Antharia<wielded>: a sparkling trident
+E 0 12340 0 17		*	High Guard of Antharia<held in the hands>: a net
 M 0 12300 4 12334 1	* an Antharian Peace Guard (Main Street of Antharia)
-E 0 12304 0 1		*	an Antharian signet ring: on the left finger
-E 0 12337 0 14		*	an Antharian style bracer: on the left wrist
-E 0 12310 0 7		*	a pair of synthetic fins: on the legs
-E 0 12313 0 6		*	an Antharian helmet: over the head
-E 0 12316 0 16		*	a sparkling trident: wielded
-E 0 12340 0 17		*	a net: held in the hands
+E 0 12304 0 1		*	an Antharian Peace Guard<on the left finger>: an Antharian signet ring
+E 0 12337 0 14		*	an Antharian Peace Guard<on the left wrist>: an Antharian style bracer
+E 0 12310 0 7		*	an Antharian Peace Guard<on the legs>: a pair of synthetic fins
+E 0 12313 0 6		*	an Antharian Peace Guard<over the head>: an Antharian helmet
+E 0 12316 0 16		*	an Antharian Peace Guard<wielded>: a sparkling trident
+E 0 12340 0 17		*	an Antharian Peace Guard<held in the hands>: a net
 M 0 12300 4 12336 1	* an Antharian Peace Guard (Turn in the Main Road)
-E 0 12304 0 1		*	an Antharian signet ring: on the left finger
-E 0 12337 0 14		*	an Antharian style bracer: on the left wrist
-E 0 12310 0 7		*	a pair of synthetic fins: on the legs
-E 0 12313 0 6		*	an Antharian helmet: over the head
-E 0 12316 0 16		*	a sparkling trident: wielded
-E 0 12340 0 17		*	a net: held in the hands
+E 0 12304 0 1		*	an Antharian Peace Guard<on the left finger>: an Antharian signet ring
+E 0 12337 0 14		*	an Antharian Peace Guard<on the left wrist>: an Antharian style bracer
+E 0 12310 0 7		*	an Antharian Peace Guard<on the legs>: a pair of synthetic fins
+E 0 12313 0 6		*	an Antharian Peace Guard<over the head>: an Antharian helmet
+E 0 12316 0 16		*	an Antharian Peace Guard<wielded>: a sparkling trident
+E 0 12340 0 17		*	an Antharian Peace Guard<held in the hands>: a net
 M 0 12303 4 12337 1	* a sucker fish (Main Road of Antharia)
 M 0 12309 4 12337 1	* an Antharian citizen (Main Road of Antharia)
-E 0 12330 0 12		*	an Antharian robe: about the shoulders
+E 0 12330 0 12		*	an Antharian citizen<about the shoulders>: an Antharian robe
 M 0 12340 1 12340 1	* Zaertses (Zaertses' House of Relics)
-G 0 12303 0		*	a giant clamshell
-G 0 12335 0		*	a crystal scroll
+G 0 12303 0		*	Zaertses: a giant clamshell
+G 0 12335 0		*	Zaertses: a crystal scroll
 M 0 12341 1 12341 1	* Irghum (Irghum's Antharian Eatery)
-G 0 12319 0		*	a seafood platter
-G 0 12320 0		*	a dish of caviar
-G 0 12321 0		*	today's special
-G 0 12322 0		*	some sushi
+G 0 12319 0		*	Irghum: a seafood platter
+G 0 12320 0		*	Irghum: a dish of caviar
+G 0 12321 0		*	Irghum: today's special
+G 0 12322 0		*	Irghum: some sushi
 M 0 12344 1 12344 1	* Ertuvia (Ertuvia's Weapon Shop)
 M 0 12345 1 12345 1	* Heaustf (Heaustf's Armory)
-G 0 12302 0		*	a sea turtle shell
+G 0 12302 0		*	Heaustf: a sea turtle shell
 M 0 12348 1 12348 1	* Cyrtpea (Workplace of Cyrtpea the Sorceress)
-G 0 12334 0		*	a crystal potion
-G 0 12300 0		*	mother of pearl
+G 0 12334 0		*	Cyrtpea: a crystal potion
+G 0 12300 0		*	Cyrtpea: mother of pearl
 M 0 12300 4 12352 1	* an Antharian Peace Guard (Guild Street)
-E 0 12304 0 1		*	an Antharian signet ring: on the left finger
-E 0 12337 0 14		*	an Antharian style bracer: on the left wrist
-E 0 12310 0 7		*	a pair of synthetic fins: on the legs
-E 0 12313 0 6		*	an Antharian helmet: over the head
-E 0 12316 0 16		*	a sparkling trident: wielded
-E 0 12340 0 17		*	a net: held in the hands
+E 0 12304 0 1		*	an Antharian Peace Guard<on the left finger>: an Antharian signet ring
+E 0 12337 0 14		*	an Antharian Peace Guard<on the left wrist>: an Antharian style bracer
+E 0 12310 0 7		*	an Antharian Peace Guard<on the legs>: a pair of synthetic fins
+E 0 12313 0 6		*	an Antharian Peace Guard<over the head>: an Antharian helmet
+E 0 12316 0 16		*	an Antharian Peace Guard<wielded>: a sparkling trident
+E 0 12340 0 17		*	an Antharian Peace Guard<held in the hands>: a net
 M 0 12309 4 12352 1	* an Antharian citizen (Guild Street)
-E 0 12330 0 12		*	an Antharian robe: about the shoulders
+E 0 12330 0 12		*	an Antharian citizen<about the shoulders>: an Antharian robe
 M 0 12318 4 12352 1	* an Antharian Knight (Guild Street)
-E 0 12306 0 1		*	an Antharian signet ring: on the left finger
-E 0 12339 0 14		*	an Antharian style bracer: on the left wrist
-E 0 12312 0 7		*	a apir of synthetic fins: on the legs
-E 0 12315 0 6		*	an Antharian helmet: over the head
-E 0 12318 0 16		*	a sparkling trident: wielded
-E 0 12340 0 17		*	a net: held in the hands
+E 0 12306 0 1		*	an Antharian Knight<on the left finger>: an Antharian signet ring
+E 0 12339 0 14		*	an Antharian Knight<on the left wrist>: an Antharian style bracer
+E 0 12312 0 7		*	an Antharian Knight<on the legs>: a apir of synthetic fins
+E 0 12315 0 6		*	an Antharian Knight<over the head>: an Antharian helmet
+E 0 12318 0 16		*	an Antharian Knight<wielded>: a sparkling trident
+E 0 12340 0 17		*	an Antharian Knight<held in the hands>: a net
 M 0 12318 4 12354 1	* an Antharian Knight (Guild Street)
-E 0 12306 0 1		*	an Antharian signet ring: on the left finger
-E 0 12339 0 14		*	an Antharian style bracer: on the left wrist
-E 0 12312 0 7		*	a apir of synthetic fins: on the legs
-E 0 12315 0 6		*	an Antharian helmet: over the head
-E 0 12318 0 16		*	a sparkling trident: wielded
-E 0 12340 0 17		*	a net: held in the hands
+E 0 12306 0 1		*	an Antharian Knight<on the left finger>: an Antharian signet ring
+E 0 12339 0 14		*	an Antharian Knight<on the left wrist>: an Antharian style bracer
+E 0 12312 0 7		*	an Antharian Knight<on the legs>: a apir of synthetic fins
+E 0 12315 0 6		*	an Antharian Knight<over the head>: an Antharian helmet
+E 0 12318 0 16		*	an Antharian Knight<wielded>: a sparkling trident
+E 0 12340 0 17		*	an Antharian Knight<held in the hands>: a net
 M 0 12360 1 12360 1	* a human representative (Human Guild)
 M 0 12361 1 12361 1	* a druidic representative (Druid's Guild)
 M 0 12362 1 12362 1	* a kender representative (Kender Guild)

@@ -3990,138 +3990,137 @@ M 4158 spec_poison	* the snake
 S
 
 #RESETS
-D 0 4025 5 1	* The cave: door to the down: closed
 M 0 4003 6 4013 1	* the kobold (The tunnel)
-E 0 3021 0 16		*	a small sword: wielded
-E 0 3117 0 11		*	a small wooden shield: as a shield
+E 0 3021 0 16		*	the kobold<wielded>: a small sword
+E 0 3117 0 11		*	the kobold<as a shield>: a small wooden shield
 M 0 4003 6 4013 1	* the kobold (The tunnel)
-E 0 3023 0 16		*	a club: wielded
+E 0 3023 0 16		*	the kobold<wielded>: a club
 M 0 4001 2 4015 1	* the garter snake (The tunnel)
 M 0 4004 3 4015 1	* the orc (The tunnel)
-E 0 3029 0 16		*	a flail: wielded
+E 0 3029 0 16		*	the orc<wielded>: a flail
 M 0 4002 3 4017 1	* the centipede (The large cave)
 M 0 4002 3 4020 1	* the centipede (The hole)
 M 0 4003 6 4021 1	* the kobold (The hole)
-E 0 4003 0 16		*	a rusty dagger: wielded
+E 0 4003 0 16		*	the kobold<wielded>: a rusty dagger
 M 0 4003 6 4021 1	* the kobold (The hole)
-E 0 3023 0 16		*	a club: wielded
+E 0 3023 0 16		*	the kobold<wielded>: a club
 M 0 4005 1 4022 1	* the large orc (The damp tunnel)
-E 0 4000 0 1		*	a yellow and green ring: on the left finger
-E 0 3022 0 16		*	a long sword: wielded
-E 0 3114 0 9		*	a pair of chain mail gauntlets: on the hands
+E 0 4000 0 1		*	the large orc<on the left finger>: a yellow and green ring
+E 0 3022 0 16		*	the large orc<wielded>: a long sword
+E 0 3114 0 9		*	the large orc<on the hands>: a pair of chain mail gauntlets
 M 0 4002 3 4023 1	* the centipede (The large cave)
 M 0 4001 2 4025 1	* the garter snake (The cave)
 M 0 4003 6 4027 1	* the kobold (The tunnel)
-E 0 3021 0 16		*	a small sword: wielded
+E 0 3021 0 16		*	the kobold<wielded>: a small sword
 M 0 4003 6 4027 1	* the kobold (The tunnel)
-E 0 3025 0 16		*	a hand axe: wielded
-E 0 3117 0 11		*	a small wooden shield: as a shield
+E 0 3025 0 16		*	the kobold<wielded>: a hand axe
+E 0 3117 0 11		*	the kobold<as a shield>: a small wooden shield
 M 0 4004 3 4028 1	* the orc (The smelly tunnel)
-E 0 4004 0 16		*	a bullwhip: wielded
+E 0 4004 0 16		*	the orc<wielded>: a bullwhip
 M 0 4004 3 4028 1	* the orc (The smelly tunnel)
 M 0 4000 1 4030 1	* the huge python (The light cave)
-G 0 4001 0		*	a corpse
-P 0 4002 -1 4001 1	* a corpse: some coins
-G 0 4154 0		*	a map of the second level of Moria
+G 0 4001 0		*	the huge python: a corpse
+P 0 4002 -1 0 1	* a corpse: some coins
+G 0 4154 0		*	the huge python: a map of the second level of Moria
 M 0 4057 2 4042 2	* the mountain lion (The level foothills)
 M 0 4058 1 4044 1	* the hill giant (The hill giant cave)
-E 0 4005 0 16		*	a huge club: wielded
-E 0 4006 0 12		*	some smelly furs: about the shoulders
+E 0 4005 0 16		*	the hill giant<wielded>: a huge club
+E 0 4006 0 12		*	the hill giant<about the shoulders>: some smelly furs
 M 0 4051 4 4050 1	* the warrior (The tunnel)
-E 0 4056 0 16		*	a two-headed flail: wielded
-E 0 3077 0 10		*	a pair of scale mail sleeves: on the arms
+E 0 4056 0 16		*	the warrior<wielded>: a two-headed flail
+E 0 3077 0 10		*	the warrior<on the arms>: a pair of scale mail sleeves
 M 0 4054 3 4052 1	* the centipede (The tunnel)
 M 0 4054 3 4053 1	* the centipede (The tunnel)
 M 0 4051 4 4055 1	* the warrior (The maze)
-E 0 4057 0 16		*	a heavy iron mace: wielded
-E 0 3074 0 7		*	a long scale mail skirt: on the legs
+E 0 4057 0 16		*	the warrior<wielded>: a heavy iron mace
+E 0 3074 0 7		*	the warrior<on the legs>: a long scale mail skirt
 M 0 4052 3 4056 1	* the hobgoblin (The light cave)
-E 0 3023 0 16		*	a club: wielded
+E 0 3023 0 16		*	the hobgoblin<wielded>: a club
 M 0 4056 2 4057 1	* the orc (The maze)
-E 0 3026 0 16		*	a battle axe: wielded
+E 0 3026 0 16		*	the orc<wielded>: a battle axe
 M 0 4053 2 4058 1	* the snake (The maze)
 M 0 4052 3 4059 1	* the hobgoblin (The tunnel)
-E 0 3028 0 16		*	a wooden staff: wielded
+E 0 3028 0 16		*	the hobgoblin<wielded>: a wooden staff
 M 0 4054 3 4060 1	* the centipede (The tunnel)
 M 0 4050 1 4062 1	* the warrior (The maze)
-E 0 4051 0 6		*	a metal helmet: over the head
-E 0 4054 0 16		*	a war axe: wielded
-E 0 3116 0 11		*	a large metal shield: as a shield
+E 0 4051 0 6		*	the warrior<over the head>: a metal helmet
+E 0 4054 0 16		*	the warrior<wielded>: a war axe
+E 0 3116 0 11		*	the warrior<as a shield>: a large metal shield
 M 0 4055 2 4064 1	* the large hobgoblin (The tunnel)
-E 0 4058 0 16		*	a falchion: wielded
-G 0 4050 0		*	a purple potion
+E 0 4058 0 16		*	the large hobgoblin<wielded>: a falchion
+G 0 4050 0		*	the large hobgoblin: a purple potion
 M 0 4052 3 4065 1	* the hobgoblin (The maze)
-E 0 3025 0 16		*	a hand axe: wielded
+E 0 3025 0 16		*	the hobgoblin<wielded>: a hand axe
 M 0 4056 2 4067 1	* the orc (The maze)
-E 0 4004 0 16		*	a bullwhip: wielded
-E 0 3097 0 11		*	a small metal shield: as a shield
+E 0 4004 0 16		*	the orc<wielded>: a bullwhip
+E 0 3097 0 11		*	the orc<as a shield>: a small metal shield
 M 0 4053 2 4068 1	* the snake (The large cave)
 O 0 4052 0 4068	* a mushroom (The large cave)
 O 0 4052 0 4069	* a mushroom (The large cave)
 M 0 4051 4 4070 1	* the warrior (The large cave)
-E 0 3027 0 16		*	a spear: wielded
-E 0 3072 0 6		*	a scale mail jerkin: over the head
+E 0 3027 0 16		*	the warrior<wielded>: a spear
+E 0 3072 0 6		*	the warrior<over the head>: a scale mail jerkin
 O 0 4052 0 4070	* a mushroom (The large cave)
 M 0 4055 2 4071 1	* the large hobgoblin (The large cave)
-E 0 4059 0 16		*	a voulge: wielded
-G 0 4050 0		*	a purple potion
+E 0 4059 0 16		*	the large hobgoblin<wielded>: a voulge
+G 0 4050 0		*	the large hobgoblin: a purple potion
 O 0 4052 0 4071	* a mushroom (The large cave)
 M 0 4051 4 4073 1	* the warrior (End of tunnel)
-E 0 4055 0 16		*	a broad sword: wielded
-E 0 3072 0 5		*	a scale mail jerkin: on the body
+E 0 4055 0 16		*	the warrior<wielded>: a broad sword
+E 0 3072 0 5		*	the warrior<on the body>: a scale mail jerkin
 M 0 4102 3 4103 1	* the guardian snake (The long tunnel)
-G 0 4103 0		*	a green slime mold
+G 0 4103 0		*	the guardian snake: a green slime mold
 M 0 4103 1 4103 1	* the thief (The long tunnel)
-E 0 4053 0 16		*	a thieves dirk: wielded
-E 0 3068 0 7		*	a pair of hard leather pants: on the legs
-E 0 3066 0 5		*	a hard leather jerkin: on the body
-E 0 3069 0 8		*	a pair of hard leather boots: on the feet
+E 0 4053 0 16		*	the thief<wielded>: a thieves dirk
+E 0 3068 0 7		*	the thief<on the legs>: a pair of hard leather pants
+E 0 3066 0 5		*	the thief<on the body>: a hard leather jerkin
+E 0 3069 0 8		*	the thief<on the feet>: a pair of hard leather boots
 M 0 4105 3 4108 3	* a centipede (The golden cave)
 M 0 4102 2 4111 2	* the guardian snake (The tunnel)
-G 0 4103 0		*	a green slime mold
+G 0 4103 0		*	the guardian snake: a green slime mold
 M 0 4102 2 4111 2	* the guardian snake (The tunnel)
-G 0 4104 0		*	a green slime mold
+G 0 4104 0		*	the guardian snake: a green slime mold
 M 0 4106 2 4113 2	* the Warrior (The passage)
-E 0 4105 0 16		*	an iron-shod staff: wielded
-E 0 4101 0 9		*	swordsman's gloves: on the hands
+E 0 4105 0 16		*	the Warrior<wielded>: an iron-shod staff
+E 0 4101 0 9		*	the Warrior<on the hands>: swordsman's gloves
 M 0 4100 1 4114 1	* the Mage (The golden cave)
-G 0 4102 0		*	a scroll which reads "ysafg"
-G 0 4155 0		*	a map of the third level of Moria
-E 0 3351 0 16		*	a standard issue dagger: wielded
+G 0 4102 0		*	the Mage: a scroll which reads "ysafg"
+G 0 4155 0		*	the Mage: a map of the third level of Moria
+E 0 3351 0 16		*	the Mage<wielded>: a standard issue dagger
 M 0 4107 1 4119 1	* the green kobold (The cave)
-E 0 3023 0 16		*	a club: wielded
-G 0 4104 0		*	a green slime mold
+E 0 3023 0 16		*	the green kobold<wielded>: a club
+G 0 4104 0		*	the green kobold: a green slime mold
 M 0 4101 1 4122 1	* the troll (The secret chamber)
-E 0 4100 0 16		*	the black demon blade: wielded
+E 0 4100 0 16		*	the troll<wielded>: the black demon blade
 M 0 4104 3 4124 3	* the orc (The cave)
-E 0 4057 0 16		*	a heavy iron mace: wielded
-G 0 4104 0		*	a green slime mold
+E 0 4057 0 16		*	the orc<wielded>: a heavy iron mace
+G 0 4104 0		*	the orc: a green slime mold
 M 0 4156 1 4151 1	* the troll (The small passage)
-E 0 4105 0 16		*	an iron-shod staff: wielded
+E 0 4105 0 16		*	the troll<wielded>: an iron-shod staff
 M 0 4159 2 4153 1	* the small troll (The large tunnel)
 M 0 4150 2 4155 1	* the blue bat (The large tunnel)
 M 0 4152 2 4155 1	* the green bat (The large tunnel)
 M 0 4151 2 4157 1	* the red bat (The wet tunnel)
 M 0 4154 2 4157 1	* the black bat (The wet tunnel)
 M 0 4155 1 4158 1	* the thief (The small maze)
-E 0 4152 0 16		*	a light silver dagger: wielded
+E 0 4152 0 16		*	the thief<wielded>: a light silver dagger
 M 0 4151 2 4159 1	* the red bat (The small maze)
 M 0 4152 2 4159 1	* the green bat (The small maze)
 M 0 4160 2 4160 1	* the orc (In the tunnel at the inscription)
-E 0 3045 0 5		*	a scale mail jacket: on the body
-E 0 4055 0 16		*	a broad sword: wielded
-G 0 4150 0		*	a black potion
+E 0 3045 0 5		*	the orc<on the body>: a scale mail jacket
+E 0 4055 0 16		*	the orc<wielded>: a broad sword
+G 0 4150 0		*	the orc: a black potion
 M 0 4160 2 4161 1	* the orc (The wet tunnel)
-E 0 3110 0 5		*	a chain mail shirt: on the body
-E 0 3026 0 16		*	a battle axe: wielded
+E 0 3110 0 5		*	the orc<on the body>: a chain mail shirt
+E 0 3026 0 16		*	the orc<wielded>: a battle axe
 M 0 4158 2 4162 1	* the snake (The small maze)
 M 0 4153 2 4164 1	* the white bat (The entrance to the small maze)
 M 0 4154 2 4164 1	* the black bat (The entrance to the small maze)
 M 0 4157 2 4167 2	* the Mage (The wet maze)
-E 0 3351 0 16		*	a standard issue dagger: wielded
+E 0 3351 0 16		*	the Mage<wielded>: a standard issue dagger
 M 0 4157 2 4167 2	* the Mage (The wet maze)
-E 0 4151 0 17		*	a heavy oak staff: held in the hands
-E 0 3351 0 16		*	a standard issue dagger: wielded
+E 0 4151 0 17		*	the Mage<held in the hands>: a heavy oak staff
+E 0 3351 0 16		*	the Mage<wielded>: a standard issue dagger
 M 0 4159 2 4168 1	* the small troll (The end of the tunnel)
 M 0 4158 2 4169 1	* the snake (In the water)
 M 0 4150 2 4170 1	* the blue bat (In the water)

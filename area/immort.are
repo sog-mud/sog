@@ -797,18 +797,6 @@ S
 #0
 
 #RESETS
-D 0 1203 0 1	* Valhalla: door to the north: closed
-D 0 1203 2 1	* Valhalla: door to the south: closed
-D 0 1204 0 1	* Priscilla's Pleasure Palace : door to the north: closed
-D 0 1207 2 1	* The Satin Memorial Reading Room: door to the south: closed
-D 0 1208 0 1	* A Sea Cave: door to the north: closed
-D 0 1209 2 1	* The Archmage's Workroom: door to the south: closed
-D 0 1210 0 1	* Office: door to the north: closed
-D 0 1211 2 1	* Arena of Judgement: door to the south: closed
-D 0 1217 0 1	* Valhalla: door to the north: closed
-D 0 1217 2 1	* Valhalla: door to the south: closed
-D 0 1218 0 1	* Valhalla: door to the north: closed
-D 0 1218 2 1	* Valhalla: door to the south: closed
 M 0 1200 1 1221 1	* Heimdall (The End of the Rainbow Bridge)
 S
 

@@ -3425,109 +3425,91 @@ M 25033 spec_thief	* Nalfeshnee
 S
 
 #RESETS
-D 0 25030 0 2	* The Flaming Gates: door to the north: closed and locked
-D 0 25031 2 2	* Inside the Flaming Gates: door to the south: closed and locked
-D 0 25034 1 1	* Inside a Small Stone Building: door to the east: closed
-D 0 25049 2 1	* Southern End of Coridoor: door to the south: closed
-D 0 25050 2 2	* Castle Throne Room: door to the south: closed and locked
-D 0 25051 0 2	* The Vault: door to the north: closed and locked
-D 0 25054 1 1	* End of the Grand Hallway: door to the east: closed
-D 0 25055 3 1	* A Large Room: door to the west: closed
-D 0 25057 2 2	* The Castle Store Room: door to the south: closed and locked
-D 0 25058 0 2	* Castle Barracks: door to the north: closed and locked
-D 0 25058 2 1	* Castle Barracks: door to the south: closed
-D 0 25059 1 1	* Guest Room: door to the east: closed
-D 0 25077 3 1	* Beneath the Sacraficial Pit: door to the west: closed
-D 0 25078 1 1	* Entrance to the Sanctuary: door to the east: closed
-D 0 25084 2 1	* Sanctuary Guard Post: door to the south: closed
-D 0 25085 0 1	* Chamber of Kalas: door to the north: closed
-D 0 25088 3 1	* End of a Narrow Passage: door to the west: closed
-D 0 25089 1 1	* The Mist: door to the east: closed
 M 0 25017 2 25003 1	* the Gatekeeper (The End of the Trail)
-E 0 25017 0 16		*	sword of Sharpness: wielded
+E 0 25017 0 16		*	the Gatekeeper<wielded>: sword of Sharpness
 M 0 25036 2 25003 1	* the Gatekeeper (The End of the Trail)
-E 0 25017 0 16		*	sword of Sharpness: wielded
+E 0 25017 0 16		*	the Gatekeeper<wielded>: sword of Sharpness
 M 0 25004 5 25004 2	* a Black Slayer (Gateway to the Abyss)
 M 0 25005 9 25006 3	* a Lost Soul (Cavern of Lost Souls)
 M 0 25017 2 25011 1	* the Gatekeeper (The Gate)
-E 0 25017 0 16		*	sword of Sharpness: wielded
+E 0 25017 0 16		*	the Gatekeeper<wielded>: sword of Sharpness
 M 0 25036 2 25011 1	* the Gatekeeper (The Gate)
-E 0 25017 0 16		*	sword of Sharpness: wielded
+E 0 25017 0 16		*	the Gatekeeper<wielded>: sword of Sharpness
 M 0 25014 3 25012 1	* the Death knight (Realm of the Dead)
-E 0 25001 0 3		*	a pile of blue silk: around the neck
-E 0 25016 0 16		*	a Silver Trident: wielded
+E 0 25001 0 3		*	the Death knight<around the neck>: a pile of blue silk
+E 0 25016 0 16		*	the Death knight<wielded>: a Silver Trident
 M 0 25010 1 25015 1	* the kraken (On the Ocean of Despair)
 M 0 25011 1 25020 1	* the Treant (A Small Path in the Twisted Forest)
-E 0 25021 0 3		*	a Small Medallion: around the neck
+E 0 25021 0 3		*	the Treant<around the neck>: a Small Medallion
 M 0 25030 5 25028 3	* A vrock (The Smouldering Trail)
 M 0 25008 5 25030 1	* an Efreet (The Flaming Gates)
-E 0 25023 0 3		*	a Bright Green Cape: around the neck
-E 0 25050 0 17		*	a Huge Runed Key: held in the hands
+E 0 25023 0 3		*	an Efreet<around the neck>: a Bright Green Cape
+E 0 25050 0 17		*	an Efreet<held in the hands>: a Huge Runed Key
 M 0 25008 5 25031 1	* an Efreet (Inside the Flaming Gates)
-E 0 25023 0 3		*	a Bright Green Cape: around the neck
-E 0 25050 0 17		*	a Huge Runed Key: held in the hands
+E 0 25023 0 3		*	an Efreet<around the neck>: a Bright Green Cape
+E 0 25050 0 17		*	an Efreet<held in the hands>: a Huge Runed Key
 M 0 25031 5 25032 3	* A hezrou (The Castle Courtyard)
 M 0 25032 5 25034 3	* A glabrezu (Inside a Small Stone Building)
 M 0 25012 9 25036 3	* a Githyanki (Entrance to a Small Building)
 M 0 25015 2 25039 2	* the Neo-Otyugh (A Large Room)
-E 0 25025 0 16		*	glaive: wielded
+E 0 25025 0 16		*	the Neo-Otyugh<wielded>: glaive
 M 0 25007 2 25041 1	* a White Gold Manticore (The Castle Drawbridge)
-G 0 25018 0		*	a Crystal Ring
+G 0 25018 0		*	a White Gold Manticore: a Crystal Ring
 M 0 25007 2 25041 1	* a White Gold Manticore (The Castle Drawbridge)
-G 0 25018 0		*	a Crystal Ring
+G 0 25018 0		*	a White Gold Manticore: a Crystal Ring
 M 0 25009 1 25046 1	* the Hydra (On the Spiral Staircase)
-E 0 25026 0 3		*	the Soul Amulet: around the neck
+E 0 25026 0 3		*	the Hydra<around the neck>: the Soul Amulet
 M 0 25016 1 25048 1	* a Shadow Demon (A Coridoor)
 M 0 25014 2 25050 1	* the Death knight (Castle Throne Room)
-E 0 25005 0 5		*	a Rune Covered Breast Plate: on the body
-E 0 25004 0 6		*	a Helm of the Dragons: over the head
-E 0 25000 0 16		*	the Sword of the Ancients: wielded
-E 0 25056 0 17		*	a Crystal Key: held in the hands
+E 0 25005 0 5		*	the Death knight<on the body>: a Rune Covered Breast Plate
+E 0 25004 0 6		*	the Death knight<over the head>: a Helm of the Dragons
+E 0 25000 0 16		*	the Death knight<wielded>: the Sword of the Ancients
+E 0 25056 0 17		*	the Death knight<held in the hands>: a Crystal Key
 M 0 25000 1 25051 1	* The Demi-Lich (The Vault)
-E 0 25013 0 2		*	a Black Onyx Ring: on the right finger
-E 0 25011 0 12		*	a Pitch-Black Cloak: about the shoulders
-E 0 25012 0 15		*	a Flaming Bracelet: on the right wrist
-E 0 25056 0 17		*	a Crystal Key: held in the hands
+E 0 25013 0 2		*	The Demi-Lich<on the right finger>: a Black Onyx Ring
+E 0 25011 0 12		*	The Demi-Lich<about the shoulders>: a Pitch-Black Cloak
+E 0 25012 0 15		*	The Demi-Lich<on the right wrist>: a Flaming Bracelet
+E 0 25056 0 17		*	The Demi-Lich<held in the hands>: a Crystal Key
 O 0 25063 0 25051	* a shimmering portal (The Vault)
 M 0 25006 6 25054 1	* a Storm Giant (End of the Grand Hallway)
-E 0 25019 0 16		*	a Jeweled Dagger: wielded
+E 0 25019 0 16		*	a Storm Giant<wielded>: a Jeweled Dagger
 M 0 25006 6 25054 1	* a Storm Giant (End of the Grand Hallway)
-E 0 25020 0 6		*	a Jewel Encrusted Helmet: over the head
+E 0 25020 0 6		*	a Storm Giant<over the head>: a Jewel Encrusted Helmet
 M 0 25033 5 25055 2	* Nalfeshnee (A Large Room)
 M 0 25033 5 25056 2	* Nalfeshnee (The Castle Pantry)
 M 0 25033 5 25057 1	* Nalfeshnee (The Castle Store Room)
-E 0 25051 0 17		*	a Runed Key: held in the hands
+E 0 25051 0 17		*	Nalfeshnee<held in the hands>: a Runed Key
 M 0 25006 6 25058 1	* a Storm Giant (Castle Barracks)
-G 0 25001 0		*	a pile of blue silk
+G 0 25001 0		*	a Storm Giant: a pile of blue silk
 M 0 25006 6 25058 1	* a Storm Giant (Castle Barracks)
-E 0 25006 0 8		*	a Pair of Silver Boots: on the feet
+E 0 25006 0 8		*	a Storm Giant<on the feet>: a Pair of Silver Boots
 M 0 25034 3 25063 3	* Marilith (Top of the Tower)
 M 0 25035 1 25063 1	* Balor (Top of the Tower)
 M 0 25008 5 25063 1	* an Efreet (Top of the Tower)
-E 0 25008 0 12		*	a Black and Silver Cloak: about the shoulders
+E 0 25008 0 12		*	an Efreet<about the shoulders>: a Black and Silver Cloak
 M 0 25008 5 25076 1	* an Efreet (The Pit of Sacrifice)
-E 0 25022 0 15		*	an Ivory Bracelet: on the right wrist
+E 0 25022 0 15		*	an Efreet<on the right wrist>: an Ivory Bracelet
 M 0 25002 1 25081 1	* A Crimson Death (The Crimson Death's room)
-E 0 25002 0 10		*	a pair of silver sleeves: on the arms
-E 0 25008 0 12		*	a Black and Silver Cloak: about the shoulders
+E 0 25002 0 10		*	A Crimson Death<on the arms>: a pair of silver sleeves
+E 0 25008 0 12		*	A Crimson Death<about the shoulders>: a Black and Silver Cloak
 M 0 25004 5 25082 3	* a Black Slayer (The Sanctuary)
-E 0 25014 0 16		*	the Shadowshiv: wielded
-E 0 25008 0 12		*	a Black and Silver Cloak: about the shoulders
+E 0 25014 0 16		*	a Black Slayer<wielded>: the Shadowshiv
+E 0 25008 0 12		*	a Black Slayer<about the shoulders>: a Black and Silver Cloak
 M 0 25006 6 25084 1	* a Storm Giant (Sanctuary Guard Post)
-E 0 25009 0 7		*	a Pair of Metallic Leg Plates: on the legs
+E 0 25009 0 7		*	a Storm Giant<on the legs>: a Pair of Metallic Leg Plates
 M 0 25006 6 25084 1	* a Storm Giant (Sanctuary Guard Post)
 M 0 25013 1 25085 1	* Kalas (Chamber of Kalas)
-E 0 25013 0 2		*	a Black Onyx Ring: on the right finger
-E 0 25060 0 5		*	The Silver Breast Plate: on the body
-E 0 25007 0 11		*	silver Shield: as a shield
-E 0 25061 0 6		*	the Silver Helm: over the head
-E 0 25062 0 8		*	A pair of rune covered boots: on the feet
-E 0 25010 0 9		*	a Pair of Jeweled Gauntlets: on the hands
-E 0 25015 0 16		*	a Flaming Two-Handed Sword: wielded
+E 0 25013 0 2		*	Kalas<on the right finger>: a Black Onyx Ring
+E 0 25060 0 5		*	Kalas<on the body>: The Silver Breast Plate
+E 0 25007 0 11		*	Kalas<as a shield>: silver Shield
+E 0 25061 0 6		*	Kalas<over the head>: the Silver Helm
+E 0 25062 0 8		*	Kalas<on the feet>: A pair of rune covered boots
+E 0 25010 0 9		*	Kalas<on the hands>: a Pair of Jeweled Gauntlets
+E 0 25015 0 16		*	Kalas<wielded>: a Flaming Two-Handed Sword
 M 0 25003 1 25089 1	* A Mist Daemon (The Mist)
-E 0 25003 0 13		*	a Rune Covered Belt: around the waist
+E 0 25003 0 13		*	A Mist Daemon<around the waist>: a Rune Covered Belt
 M 0 25001 1 25093 1	* Keftab, the Ancient One (Hall of Ancients)
-E 0 25027 0 6		*	the Silver Circlet of Concentration: over the head
+E 0 25027 0 6		*	Keftab, the Ancient One<over the head>: the Silver Circlet of Concentration
 M 0 25018 1 25094 1	* The Water Prince (A Small Alcove)
 M 0 25019 1 25095 1	* The Earth King (A Narrow Tunnel)
 M 0 25020 1 25096 1	* The Lord of Air (A Narrow Tunnel)

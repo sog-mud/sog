@@ -251,9 +251,9 @@ S
 
 #RESETS
 M 0 95100 1 95100 1	* the enforcer (The Enterance)
-E 0 95102 0 17		*	a rolled paper: held in the hands
+E 0 95102 0 17		*	the enforcer<held in the hands>: a rolled paper
 O 0 95100 0 95102	* the bookstand (Room of Laws)
-P 0 95101 1 95100 1	* the bookstand: the book of laws
+P 0 95101 1 0 1	* the bookstand: the book of laws
 M 0 95101 1 95103 1	* ~лекарь~ (The Rulers' chapel)
 O 0 95103 0 95104	* a silk sofa (Resting Room)
 S

@@ -1124,48 +1124,44 @@ M 29354 spec_cast_adept	* Myzelak the Lich Lord
 S
 
 #RESETS
-D 0 29366 1 1	* A Large Hall: door to the east: closed
-D 0 29367 0 1	* The Lich's Throne Room: door to the north: closed
-D 0 29367 3 1	* The Lich's Throne Room: door to the west: closed
-D 0 29368 2 1	* A Large Hall: door to the south: closed
 O 0 29373 0 29350	* a large obsidian cross (Before the Tower)
 M 0 29355 1 29352 1	* The Dracolich (The Dracolich's Lair)
 M 0 29350 4 29353 1	* A Death Knight (The Entrance Hall)
-E 0 29350 0 16		*	an old black mace: wielded
+E 0 29350 0 16		*	A Death Knight<wielded>: an old black mace
 O 0 29367 0 29354	* a large wooden chair (The Dining Hall)
 O 0 29368 0 29354	* a huge dining table (The Dining Hall)
 M 0 29350 4 29360 1	* A Death Knight (Lich's Study)
-E 0 29350 0 16		*	an old black mace: wielded
+E 0 29350 0 16		*	A Death Knight<wielded>: an old black mace
 O 0 29370 0 29360	* a large mahogany desk (Lich's Study)
+P 0 29362 1 0 1	* a large mahogany desk: a silvery potion
+P 0 29361 1 0 1	* a large mahogany desk: the Infinity Scroll
 O 0 29371 0 29360	* a closet carved into the wall (Lich's Study)
-P 0 29361 1 29370 1	* a large mahogany desk: the Infinity Scroll
-P 0 29362 1 29370 1	* a large mahogany desk: a silvery potion
-P 0 29364 1 29371 1	* a closet carved into the wall: boots of waterwalking
-P 0 29365 1 29371 1	* a closet carved into the wall: a Thieve's Tunic
+P 0 29364 1 0 1	* a closet carved into the wall: boots of waterwalking
+P 0 29365 1 0 1	* a closet carved into the wall: a Thieve's Tunic
 O 0 29372 0 29361	* a powerful grimoire (The Library)
-P 0 29363 1 29372 1	* a powerful grimoire: a golden key
+P 0 29363 1 0 1	* a powerful grimoire: a golden key
 M 0 29350 4 29362 1	* A Death Knight (The Library)
-E 0 29350 0 16		*	an old black mace: wielded
+E 0 29350 0 16		*	A Death Knight<wielded>: an old black mace
 O 0 29369 0 29362	* an old wooden bookshelf (The Library)
-P 0 29366 1 29369 1	* an old wooden bookshelf: a blank piece of paper
+P 0 29366 1 0 1	* an old wooden bookshelf: a blank piece of paper
 M 0 29353 1 29363 1	* A Major Demon (A Summoning Room)
-E 0 29356 0 3		*	the Amulet of the Night: around the neck
+E 0 29356 0 3		*	A Major Demon<around the neck>: the Amulet of the Night
 M 0 29351 1 29364 1	* The Inquisitor (The Torture Chamber)
-E 0 29351 0 0		*	a Flaming Skull: as a light
+E 0 29351 0 0		*	The Inquisitor<as a light>: a Flaming Skull
 M 0 29352 1 29365 1	* A Minor Demon (A Summoning Room)
-E 0 29355 0 14		*	the Bracer of the Night: on the left wrist
+E 0 29355 0 14		*	A Minor Demon<on the left wrist>: the Bracer of the Night
 M 0 29356 2 29366 1	* An Elite Death Knight (A Large Hall)
-E 0 29357 0 16		*	an Ancient Longsword: wielded
-E 0 29358 0 11		*	a black dragon scale: as a shield
+E 0 29357 0 16		*	An Elite Death Knight<wielded>: an Ancient Longsword
+E 0 29358 0 11		*	An Elite Death Knight<as a shield>: a black dragon scale
 M 0 29354 1 29367 1	* Myzelak the Lich Lord (The Lich's Throne Room)
-E 0 29359 0 16		*	the Hell's Wraith: wielded
-E 0 29360 0 12		*	sorceror's robes: about the shoulders
-E 0 29354 0 1		*	a Garnet Ring: on the left finger
+E 0 29359 0 16		*	Myzelak the Lich Lord<wielded>: the Hell's Wraith
+E 0 29360 0 12		*	Myzelak the Lich Lord<about the shoulders>: sorceror's robes
+E 0 29354 0 1		*	Myzelak the Lich Lord<on the left finger>: a Garnet Ring
 M 0 29356 2 29368 1	* An Elite Death Knight (A Large Hall)
-E 0 29357 0 16		*	an Ancient Longsword: wielded
-E 0 29358 0 11		*	a black dragon scale: as a shield
+E 0 29357 0 16		*	An Elite Death Knight<wielded>: an Ancient Longsword
+E 0 29358 0 11		*	An Elite Death Knight<as a shield>: a black dragon scale
 M 0 29350 4 29369 1	* A Death Knight (A Storage Room)
-E 0 29350 0 16		*	an old black mace: wielded
+E 0 29350 0 16		*	A Death Knight<wielded>: an old black mace
 S
 
 #OLIMITS

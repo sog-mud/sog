@@ -5934,182 +5934,147 @@ M 47133 spec_guard	* brother Toshiro
 S
 
 #RESETS
-D 0 47000 1 1	* Lothar's residence: door to the east: closed
-D 0 47001 3 1	* The terrace: door to the west: closed
-D 0 47107 2 1	* The village shop: door to the south: closed
-D 0 47110 0 1	* By the well: door to the north: closed
-D 0 47110 2 1	* By the well: door to the south: closed
-D 0 47111 2 1	* A villager's house: door to the south: closed
-D 0 47113 0 1	* Road in the village: door to the north: closed
-D 0 47113 2 1	* Road in the village: door to the south: closed
-D 0 47115 0 1	* A villager's house: door to the north: closed
-D 0 47118 2 1	* A villager's house: door to the south: closed
-D 0 47120 0 1	* A villager's house: door to the north: closed
-D 0 47126 0 1	* Temple guard sleeping quarters: door to the north: closed
-D 0 47126 2 1	* Temple guard sleeping quarters: door to the south: closed
-D 0 47127 0 1	* Armoury: door to the north: closed
-D 0 47129 0 1	* The forge: door to the north: closed
-D 0 47166 2 1	* Inside the temple: door to the south: closed
-D 0 47171 0 1	* Statue of Buddha: door to the north: closed
-D 0 47171 1 2	* Statue of Buddha: door to the east: closed and locked
-D 0 47172 2 1	* Secret passage: door to the south: closed
-D 0 47176 3 2	* The temple treasury: door to the west: closed and locked
-D 0 47199 0 1	* Hallway: door to the north: closed
-D 0 47200 1 1	* Hallway: door to the east: closed
-D 0 47200 3 1	* Hallway: door to the west: closed
-D 0 47201 3 1	* Meditation room: door to the west: closed
-D 0 47202 1 1	* Small study: door to the east: closed
-D 0 47204 3 1	* Dining room: door to the west: closed
-D 0 47205 1 1	* Hallway: door to the east: closed
-D 0 47206 1 1	* Kitchen: door to the east: closed
-D 0 47207 3 1	* Guest chamber: door to the west: closed
-D 0 47208 1 1	* End of the hallway: door to the east: closed
-D 0 47208 2 1	* End of the hallway: door to the south: closed
-D 0 47208 3 1	* End of the hallway: door to the west: closed
-D 0 47209 3 1	* Miyu's room: door to the west: closed
-D 0 47210 0 1	* Saburo Kanzaki's room: door to the north: closed
-D 0 47211 1 1	* Mori's room: door to the east: closed
 O 0 47000 0 47000	* Weapons cabinet (Lothar's residence)
 O 0 47012 0 47000	* a barrel of ale (Lothar's residence)
 O 0 47002 0 47000	* A velvet covered armchair (Lothar's residence)
 O 0 47003 0 47001	* A small tree (The terrace)
 M 0 47000 1 47001 1	* The statue (The terrace)
-E 0 47004 0 16		*	Sword of Enforcement: wielded
+E 0 47004 0 16		*	The statue<wielded>: Sword of Enforcement
 O 0 47005 0 47002	* {YThe sun{x (ábove the clouds)
 O 0 47100 0 47100	* a wooden tablet (Dusty road)
 M 0 47100 2 47104 1	* a duck (Road to the village)
-G 0 47132 0		*	a small pile of feathers
+G 0 47132 0		*	a duck: a small pile of feathers
 M 0 47101 4 47104 2	* a small duck (Road to the village)
 O 0 47120 0 47106	* sign (Village pub)
 O 0 47121 0 47106	* bench (Village pub)
 O 0 47122 0 47106	* Table (Village pub)
 M 0 47111 1 47106 1	* Saki (Village pub)
 M 0 47112 2 47106 2	* a visitor (Village pub)
-G 0 47144 0		*	a cup ot hot sake
-G 0 47145 0		*	a piece of rice bread
+G 0 47144 0		*	a visitor: a cup ot hot sake
+G 0 47145 0		*	a visitor: a piece of rice bread
 M 0 47113 1 47107 1	* the salesman (The village shop)
-G 0 47137 0		*	a fine sturdy hoe
-G 0 47138 0		*	a long-shafted shovel
-G 0 47139 0		*	a wooden bucket
+G 0 47137 0		*	the salesman: a fine sturdy hoe
+G 0 47138 0		*	the salesman: a long-shafted shovel
+G 0 47139 0		*	the salesman: a wooden bucket
 M 0 47100 2 47108 1	* a duck (The village road)
-G 0 47132 0		*	a small pile of feathers
+G 0 47132 0		*	a duck: a small pile of feathers
 M 0 47101 4 47108 2	* a small duck (The village road)
 M 0 47121 1 47108 1	* a village boy (The village road)
 O 0 47101 0 47110	* Well (By the well)
 M 0 47122 1 47111 1	* a village girl (A villager's house)
-E 0 47155 0 17		*	a wooden doll: held in the hands
+E 0 47155 0 17		*	a village girl<held in the hands>: a wooden doll
 O 0 47123 0 47112	* plant (A small field behind the house)
-P 0 47124 1 47123 1	* plant: some fruits
+P 0 47124 1 0 1	* plant: some fruits
 M 0 47121 1 47114 1	* a village boy (Eastern road)
 M 0 47124 1 47115 1	* an old villager (A villager's house)
-E 0 47135 0 5		*	a worn shirt: on the body
-E 0 47130 0 13		*	a worn belt: around the waist
-E 0 47131 0 7		*	short pants: on the legs
+E 0 47135 0 5		*	an old villager<on the body>: a worn shirt
+E 0 47130 0 13		*	an old villager<around the waist>: a worn belt
+E 0 47131 0 7		*	an old villager<on the legs>: short pants
 O 0 47123 0 47116	* plant (A small field behind the house)
-P 0 47124 1 47123 1	* plant: some fruits
+P 0 47124 1 0 1	* plant: some fruits
 O 0 47106 0 47117	* Wooden door (Before the old Kanzaki's house)
 M 0 47123 1 47119 1	* a peasant (A small field behind the house)
-E 0 47137 0 16		*	a fine sturdy hoe: wielded
+E 0 47137 0 16		*	a peasant<wielded>: a fine sturdy hoe
 M 0 47123 1 47121 1	* a peasant (A small field behind the house)
-E 0 47137 0 16		*	a fine sturdy hoe: wielded
+E 0 47137 0 16		*	a peasant<wielded>: a fine sturdy hoe
 O 0 47125 0 47126	* wooden bench (Temple guard sleeping quarters)
 O 0 47126 0 47126	* table (Temple guard sleeping quarters)
 M 0 47129 6 47126 2	* temple guard (Temple guard sleeping quarters)
-E 0 47160 0 5		*	haramaki: on the body
-E 0 47161 0 16		*	naginata: wielded
+E 0 47160 0 5		*	temple guard<on the body>: haramaki
+E 0 47161 0 16		*	temple guard<wielded>: naginata
 M 0 47129 6 47126 2	* temple guard (Temple guard sleeping quarters)
-E 0 47160 0 5		*	haramaki: on the body
-G 0 47168 0		*	a long battle bow
+E 0 47160 0 5		*	temple guard<on the body>: haramaki
+G 0 47168 0		*	temple guard: a long battle bow
 M 0 47130 1 47126 1	* captain of the guard (Temple guard sleeping quarters)
-E 0 47162 0 6		*	an ornate splinted helm: over the head
-E 0 47164 0 9		*	a pair of ornate splinted gauntlets: on the hands
-E 0 47163 0 5		*	a suit of ornate splintmail armor: on the body
-E 0 47165 0 8		*	a pair of ornate splinted boots: on the feet
-E 0 47166 0 16		*	a magically enchanted naginata: wielded
-G 0 47171 0		*	a key
+E 0 47162 0 6		*	captain of the guard<over the head>: an ornate splinted helm
+E 0 47164 0 9		*	captain of the guard<on the hands>: a pair of ornate splinted gauntlets
+E 0 47163 0 5		*	captain of the guard<on the body>: a suit of ornate splintmail armor
+E 0 47165 0 8		*	captain of the guard<on the feet>: a pair of ornate splinted boots
+E 0 47166 0 16		*	captain of the guard<wielded>: a magically enchanted naginata
+G 0 47171 0		*	captain of the guard: a key
 O 0 47102 0 47128	* temple gate (The temple courtyard)
 O 0 47109 0 47129	* a huge anvil (The forge)
 O 0 47110 0 47129	* Barrel of water (The forge)
 O 0 47140 0 47129	* the forge (The forge)
 M 0 47114 1 47129 1	* blacksmith (The forge)
-E 0 47143 0 16		*	a blacksmith's hammer: wielded
-G 0 47142 0		*	a chunk of iron
+E 0 47143 0 16		*	blacksmith<wielded>: a blacksmith's hammer
+G 0 47142 0		*	blacksmith: a chunk of iron
 O 0 47141 0 47129	* the blacksmith pincers (The forge)
 M 0 47125 1 47130 1	* a peasant (Path to the rice fields.)
-E 0 47130 0 13		*	a worn belt: around the waist
-E 0 47131 0 7		*	short pants: on the legs
+E 0 47130 0 13		*	a peasant<around the waist>: a worn belt
+E 0 47131 0 7		*	a peasant<on the legs>: short pants
 M 0 47126 6 47132 1	* a peasant (Rice fields)
 M 0 47126 6 47133 1	* a peasant (Rice fields)
 M 0 47126 6 47134 1	* a peasant (Rice fields)
 M 0 47126 6 47135 1	* a peasant (Rice fields)
 M 0 47127 1 47136 1	* a peasant (Rice fields)
-E 0 47156 0 17		*	a large basket: held in the hands
+E 0 47156 0 17		*	a peasant<held in the hands>: a large basket
 M 0 47126 6 47136 1	* a peasant (Rice fields)
 M 0 47126 6 47137 1	* a peasant (Rice fields)
 M 0 47103 5 47139 1	* a grasshopper (The meadows)
 M 0 47103 5 47141 1	* a grasshopper (The meadows)
 M 0 47104 3 47141 1	* a bird (The meadows)
-G 0 47132 0		*	a small pile of feathers
+G 0 47132 0		*	a bird: a small pile of feathers
 M 0 47104 3 47143 1	* a bird (The meadows)
-G 0 47132 0		*	a small pile of feathers
+G 0 47132 0		*	a bird: a small pile of feathers
 M 0 47102 2 47145 1	* a small snake (Bamboo grove)
-G 0 47129 0		*	a dead snake
+G 0 47129 0		*	a small snake: a dead snake
 M 0 47103 5 47151 1	* a grasshopper (The meadows)
 M 0 47107 1 47153 1	* a young deer (Medium density forest)
 M 0 47102 2 47154 1	* a small snake (The meadows)
-G 0 47129 0		*	a dead snake
+G 0 47129 0		*	a small snake: a dead snake
 M 0 47129 6 47163 2	* temple guard (Inside the temple)
-E 0 47160 0 5		*	haramaki: on the body
-E 0 47161 0 16		*	naginata: wielded
+E 0 47160 0 5		*	temple guard<on the body>: haramaki
+E 0 47161 0 16		*	temple guard<wielded>: naginata
 M 0 47129 6 47163 2	* temple guard (Inside the temple)
-E 0 47160 0 5		*	haramaki: on the body
-E 0 47161 0 16		*	naginata: wielded
+E 0 47160 0 5		*	temple guard<on the body>: haramaki
+E 0 47161 0 16		*	temple guard<wielded>: naginata
 M 0 47151 10 47164 2	* a worshipper (Inside the temple)
 M 0 47151 10 47164 2	* a worshipper (Inside the temple)
 M 0 47151 10 47165 1	* a worshipper (Inside the temple)
-E 0 47167 0 17		*	an ivory bead: held in the hands
+E 0 47167 0 17		*	a worshipper<held in the hands>: an ivory bead
 M 0 47151 10 47166 1	* a worshipper (Inside the temple)
 M 0 47151 10 47167 2	* a worshipper (Inside the temple)
 M 0 47151 10 47167 2	* a worshipper (Inside the temple)
 M 0 47129 6 47167 1	* temple guard (Inside the temple)
-E 0 47160 0 5		*	haramaki: on the body
-E 0 47161 0 16		*	naginata: wielded
+E 0 47160 0 5		*	temple guard<on the body>: haramaki
+E 0 47161 0 16		*	temple guard<wielded>: naginata
 M 0 47151 10 47168 2	* a worshipper (Inside the temple)
 M 0 47151 10 47168 2	* a worshipper (Inside the temple)
-E 0 47167 0 17		*	an ivory bead: held in the hands
+E 0 47167 0 17		*	a worshipper<held in the hands>: an ivory bead
 M 0 47151 10 47169 2	* a worshipper (Inside the temple)
 M 0 47151 10 47169 2	* a worshipper (Inside the temple)
 M 0 47131 1 47170 1	* the priest Takeda (The Priest's stand)
-E 0 47169 0 5		*	priestly white robes: on the body
-G 0 47172 0		*	a steel key
+E 0 47169 0 5		*	the priest Takeda<on the body>: priestly white robes
+G 0 47172 0		*	the priest Takeda: a steel key
 M 0 47129 6 47171 1	* temple guard (Statue of Buddha)
-E 0 47160 0 5		*	haramaki: on the body
-E 0 47161 0 16		*	naginata: wielded
+E 0 47160 0 5		*	temple guard<on the body>: haramaki
+E 0 47161 0 16		*	temple guard<wielded>: naginata
 M 0 47132 1 47173 1	* a darkly clad assassin (Secret passage)
-E 0 47176 0 20		*	a sharp sai: second wielded
-E 0 47176 0 16		*	a sharp sai: wielded
-E 0 47174 0 5		*	a black ninjitsu gi: on the body
-P 0 47175 2 47174 2	* a black ninjitsu gi: a razor-sharp shuriken
-P 0 47175 2 47174 2	* a black ninjitsu gi: a razor-sharp shuriken
+E 0 47176 0 20		*	a darkly clad assassin<second wielded>: a sharp sai
+E 0 47176 0 16		*	a darkly clad assassin<wielded>: a sharp sai
+E 0 47174 0 5		*	a darkly clad assassin<on the body>: a black ninjitsu gi
+P 0 47175 2 0 2	* a black ninjitsu gi: a razor-sharp shuriken
+P 0 47175 2 0 2	* a black ninjitsu gi: a razor-sharp shuriken
 M 0 47133 1 47174 1	* brother Toshiro (Entrance to the sacred garden)
-E 0 47178 0 20		*	a sharp ivory-hilted wakizashi: second wielded
-E 0 47177 0 16		*	an ancient ivory-hilted sword: wielded
-E 0 47182 0 9		*	a pair of mithril gauntlets, kote: on the hands
+E 0 47178 0 20		*	brother Toshiro<second wielded>: a sharp ivory-hilted wakizashi
+E 0 47177 0 16		*	brother Toshiro<wielded>: an ancient ivory-hilted sword
+E 0 47182 0 9		*	brother Toshiro<on the hands>: a pair of mithril gauntlets, kote
 O 0 47127 0 47175	* {gbodhi tree{x (The sacred garden)
 O 0 47170 0 47176	* an iron bound chest (The temple treasury)
-P 0 47173 1 47170 1	* an iron bound chest: a large pile of gold and jewels
+P 0 47173 1 0 1	* an iron bound chest: a large pile of gold and jewels
 O 0 47103 0 47188	* Mouth of a cave (The mountain)
 M 0 47110 1 47195 1	* the great Blue Dragon (At the summit)
-G 0 47179 0		*	a shield of blue dragonscales
-G 0 47180 0		*	Heart of the Storms
-G 0 47181 0		*	the Hammer of Thunder
+G 0 47179 0		*	the great Blue Dragon: a shield of blue dragonscales
+G 0 47180 0		*	the great Blue Dragon: Heart of the Storms
+G 0 47181 0		*	the great Blue Dragon: the Hammer of Thunder
 O 0 47104 0 47197	* Crevasse (Deeper into the cave)
 O 0 47105 0 47198	* Hole (Stone trap inside the mountain)
 M 0 47109 1 47198 1	* one-eyed and four-armed demon (Stone trap inside the mountain)
-G 0 47183 0		*	a ring of black obsidian
-G 0 47185 0		*	a huge charred horn
-E 0 47184 0 9		*	sharp talons of a demon: on the hands
-G 0 47186 0		*	severed tail of a demon
+G 0 47183 0		*	one-eyed and four-armed demon: a ring of black obsidian
+G 0 47185 0		*	one-eyed and four-armed demon: a huge charred horn
+E 0 47184 0 9		*	one-eyed and four-armed demon<on the hands>: sharp talons of a demon
+G 0 47186 0		*	one-eyed and four-armed demon: severed tail of a demon
 M 0 47115 2 47200 1	* a servant boy (Hallway)
 M 0 47116 3 47200 1	* a servant girl (Hallway)
 O 0 47113 0 47201	* Altar (Meditation room)
@@ -6120,52 +6085,52 @@ M 0 47116 3 47204 1	* a servant girl (Dining room)
 M 0 47115 2 47205 1	* a servant boy (Hallway)
 O 0 47146 0 47206	* an oven (Kitchen)
 M 0 47117 1 47206 1	* the cook (Kitchen)
-E 0 47147 0 10		*	a towel: on the arms
+E 0 47147 0 10		*	the cook<on the arms>: a towel
 O 0 47115 0 47207	* Bed (Guest chamber)
 M 0 47116 3 47208 1	* a servant girl (End of the hallway)
 O 0 47116 0 47209	* Mirror (Miyu's room)
 O 0 47117 0 47209	* Vase with flowers (Miyu's room)
+P 0 47118 1 0 1	* Vase with flowers: A bouquet of flowers
 M 0 47118 1 47209 1	* Miyu (Miyu's room)
-E 0 47148 0 5		*	a fine kimono: on the body
+E 0 47148 0 5		*	Miyu<on the body>: a fine kimono
 O 0 47115 0 47209	* Bed (Miyu's room)
-P 0 47118 1 47117 1	* Vase with flowers: A bouquet of flowers
 O 0 47119 0 47210	* chest (Saburo Kanzaki's room)
-P 0 47150 1 47119 1	* chest: a suit of ornate splintmail armor
+P 0 47150 1 0 1	* chest: a suit of ornate splintmail armor
 M 0 47119 1 47210 1	* Saburo (Saburo Kanzaki's room)
-G 0 47149 0		*	a small key
+G 0 47149 0		*	Saburo: a small key
 O 0 47115 0 47210	* Bed (Saburo Kanzaki's room)
 O 0 47115 0 47211	* Bed (Mori's room)
 O 0 47152 0 47211	* a chest (Mori's room)
-P 0 47151 2 47152 1	* a chest: a beutiful kimono of colour silk
-P 0 47154 3 47152 2	* a chest: a sharp hairpin
-P 0 47154 3 47152 2	* a chest: a sharp hairpin
+P 0 47151 2 0 1	* a chest: a beutiful kimono of colour silk
+P 0 47154 3 0 2	* a chest: a sharp hairpin
+P 0 47154 3 0 2	* a chest: a sharp hairpin
 M 0 47120 1 47211 1	* Mori (Mori's room)
-E 0 47151 0 5		*	a beutiful kimono of colour silk: on the body
-P 0 47153 1 47151 1	* a beutiful kimono of colour silk: a small key
-P 0 47154 3 47151 1	* a beutiful kimono of colour silk: a sharp hairpin
+E 0 47151 0 5		*	Mori<on the body>: a beutiful kimono of colour silk
+P 0 47153 1 0 1	* a beutiful kimono of colour silk: a small key
+P 0 47154 3 0 1	* a beutiful kimono of colour silk: a sharp hairpin
 M 0 47105 1 47212 1	* apprentice (A small opening)
-E 0 47130 0 13		*	a worn belt: around the waist
-E 0 47131 0 7		*	short pants: on the legs
+E 0 47130 0 13		*	apprentice<around the waist>: a worn belt
+E 0 47131 0 7		*	apprentice<on the legs>: short pants
 M 0 47106 1 47212 1	* the old teacher (A small opening)
-E 0 47133 0 6		*	a straw hat: over the head
-E 0 47134 0 16		*	a long bamboo pole: wielded
-E 0 47135 0 5		*	a worn shirt: on the body
-E 0 47131 0 7		*	short pants: on the legs
-E 0 47130 0 13		*	a worn belt: around the waist
+E 0 47133 0 6		*	the old teacher<over the head>: a straw hat
+E 0 47134 0 16		*	the old teacher<wielded>: a long bamboo pole
+E 0 47135 0 5		*	the old teacher<on the body>: a worn shirt
+E 0 47131 0 7		*	the old teacher<on the legs>: short pants
+E 0 47130 0 13		*	the old teacher<around the waist>: a worn belt
 O 0 47128 0 47213	* a pool of hot water (By the hot spring)
 M 0 47108 3 47213 3	* a shaggy ape (By the hot spring)
-E 0 47136 0 12		*	a woolly hide of the ape: about the shoulders
+E 0 47136 0 12		*	a shaggy ape<about the shoulders>: a woolly hide of the ape
 M 0 47108 3 47213 3	* a shaggy ape (By the hot spring)
-E 0 47136 0 12		*	a woolly hide of the ape: about the shoulders
+E 0 47136 0 12		*	a shaggy ape<about the shoulders>: a woolly hide of the ape
 M 0 47108 3 47213 3	* a shaggy ape (By the hot spring)
-E 0 47136 0 12		*	a woolly hide of the ape: about the shoulders
+E 0 47136 0 12		*	a shaggy ape<about the shoulders>: a woolly hide of the ape
 O 0 47159 0 47214	* {ca cyan silk ribbon{x (Bamboo grove near the river)
 O 0 47107 0 47215	* River (Shore of the river)
 O 0 47217 0 47216	* River (Shore of the river)
 O 0 47108 0 47218	* Cave mouth (In the river)
 M 0 47128 1 47219 1	* a serpent-like creature (Underwater cave)
-G 0 47157 0		*	a necklace of sharp teeth
-G 0 47158 0		*	a large ruby gem
+G 0 47157 0		*	a serpent-like creature: a necklace of sharp teeth
+G 0 47158 0		*	a serpent-like creature: a large ruby gem
 S
 
 #SHOPS

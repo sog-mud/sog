@@ -743,13 +743,12 @@ M 95207 spec_breath_lightning	* the golden dragon
 S
 
 #RESETS
-D 0 95215 3 1	* Inner yard: door to the west: closed
 M 0 95201 1 95200 1	* the protector (The Enterance of Castle)
-E 0 95200 0 17		*	a golden key: held in the hands
+E 0 95200 0 17		*	the protector<held in the hands>: a golden key
 O 0 95203 0 95201	* Round Table (Inside the Great Hall)
 M 0 95200 1 95204 1	* A healer (The Altar)
 O 0 95201 0 95204	* the altar (The Altar)
-P 0 95202 1 95201 1	* the altar: Large medal of honor
+P 0 95202 1 0 1	* the altar: Large medal of honor
 M 0 95202 1 95205 1	* the stable keeper (Stables)
 M 0 95203 1 95206 1	* the grey donkey (Horse room)
 M 0 95204 1 95206 1	* the white horse (Horse room)

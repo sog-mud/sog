@@ -2956,36 +2956,14 @@ M 21042 spec_guard	* a court officer
 S
 
 #RESETS
-D 0 21006 1 2	* Outside the Garden: door to the east: closed and locked
-D 0 21012 3 2	* In the Garden: door to the west: closed and locked
-D 0 21013 0 1	* Outside the Rabbit's House: door to the north: closed
-D 0 21014 1 1	* Inside the Rabbit's House: door to the east: closed
-D 0 21014 2 1	* Inside the Rabbit's House: door to the south: closed
-D 0 21014 3 1	* Inside the Rabbit's House: door to the west: closed
-D 0 21015 1 1	* A Sitting Room: door to the east: closed
-D 0 21018 3 1	* Garden: door to the west: closed
-D 0 21026 2 1	* Outside the Duchess' House (Pig and Pepper): door to the south: closed
-D 0 21027 0 1	* A Large Kitchen: door to the north: closed
-D 0 21027 1 1	* A Large Kitchen: door to the east: closed
-D 0 21027 2 1	* A Large Kitchen: door to the south: closed
-D 0 21028 0 1	* A Bedroom: door to the north: closed
-D 0 21029 3 1	* A Bedroom: door to the west: closed
-D 0 21033 0 2	* Outside the March Hare's House: door to the north: closed and locked
-D 0 21034 2 1	* Inside the House: door to the south: closed
-D 0 21037 2 1	* A Mad Tea Party: door to the south: closed
-D 0 21038 0 1	* Inside the Hatter's House: door to the north: closed
-D 0 21042 1 1	* The Long Hallway: door to the east: closed
-D 0 21043 3 1	* In a Garden: door to the west: closed
-D 0 21051 0 1	* A Croquet Lawn: door to the north: closed
-D 0 21059 2 1	* Courthouse (Who Stole the Tarts?): door to the south: closed
 O 0 21065 0 21001	* a rabbit hole (A Hedge)
 O 0 21010 0 21002	* a shelf (The Rabbit Hole)
-P 0 21011 1 21010 1	* a shelf: a jar of orange marmalade
+P 0 21011 1 0 1	* a shelf: a jar of orange marmalade
 O 0 21012 0 21006	* a tiny three-legged table (Outside the Garden)
 O 0 21013 0 21006	* a tiny golden key (Outside the Garden)
 O 0 21014 0 21006	* a little bottle (Outside the Garden)
 O 0 21015 0 21006	* a tiny glass box (Outside the Garden)
-P 0 21016 1 21015 1	* a tiny glass box: a small cake
+P 0 21016 1 0 1	* a tiny glass box: a small cake
 M 0 21003 1 21008 1	* a duck (The Pool of Tears)
 M 0 21002 1 21009 1	* a mouse (The Pool of Tears)
 M 0 21005 1 21010 1	* a lory (Drier Ground)
@@ -3003,35 +2981,35 @@ O 0 21007 0 21016	* a pair of tiny white kid-gloves (The Rabbit's Bedroom)
 O 0 21008 0 21016	* a fan (The Rabbit's Bedroom)
 M 0 21011 1 21017 1	* Bill the lizard (On The Roof)
 M 0 21012 2 21017 1	* a guinea pig (On The Roof)
-G 0 21019 0		*	a bottle of brandy
+G 0 21019 0		*	a guinea pig: a bottle of brandy
 M 0 21013 1 21019 1	* a puppy dog (On the Edge of the Wood)
 M 0 21014 1 21020 1	* the caterpillar (A Mushroom)
-E 0 21020 0 17		*	a hookah: held in the hands
-G 0 21021 0		*	some flesh from a mushroom
-G 0 21022 0		*	some flesh from a mushroom
+E 0 21020 0 17		*	the caterpillar<held in the hands>: a hookah
+G 0 21021 0		*	the caterpillar: some flesh from a mushroom
+G 0 21022 0		*	the caterpillar: some flesh from a mushroom
 M 0 21015 1 21023 1	* a pigeon (The Top)
 O 0 21026 0 21023	* a small nest (The Top)
-P 0 21023 1 21026 1	* a small nest: a pigeon egg
-P 0 21024 1 21026 1	* a small nest: a pigeon egg
-P 0 21025 1 21026 1	* a small nest: a pigeon egg
+P 0 21023 1 0 1	* a small nest: a pigeon egg
+P 0 21024 1 0 1	* a small nest: a pigeon egg
+P 0 21025 1 0 1	* a small nest: a pigeon egg
 M 0 21016 1 21026 1	* a fish-footman (Outside the Duchess' House (Pig and Pepper))
-E 0 21027 0 5		*	a footman's livery: on the body
-E 0 21028 0 6		*	a powdered wig: over the head
-E 0 21029 0 17		*	an invitation: held in the hands
+E 0 21027 0 5		*	a fish-footman<on the body>: a footman's livery
+E 0 21028 0 6		*	a fish-footman<over the head>: a powdered wig
+E 0 21029 0 17		*	a fish-footman<held in the hands>: an invitation
 M 0 21017 1 21026 1	* a frog-footman (Outside the Duchess' House (Pig and Pepper))
-E 0 21027 0 5		*	a footman's livery: on the body
-E 0 21028 0 6		*	a powdered wig: over the head
+E 0 21027 0 5		*	a frog-footman<on the body>: a footman's livery
+E 0 21028 0 6		*	a frog-footman<over the head>: a powdered wig
 M 0 21018 1 21027 1	* the Duchess (A Large Kitchen)
-E 0 21030 0 6		*	a baby's cradle: over the head
+E 0 21030 0 6		*	the Duchess<over the head>: a baby's cradle
 O 0 21031 0 21027	* a pot of soup (A Large Kitchen)
 O 0 21032 0 21027	* a plate (A Large Kitchen)
 M 0 21019 1 21027 1	* the Duchess' baby (A Large Kitchen)
 M 0 21020 1 21027 1	* the cook (A Large Kitchen)
-E 0 21032 0 17		*	a plate: held in the hands
-E 0 21033 0 16		*	a ladle: wielded
-G 0 21032 0		*	a plate
-G 0 21032 0		*	a plate
-G 0 21032 0		*	a plate
+E 0 21032 0 17		*	the cook<held in the hands>: a plate
+E 0 21033 0 16		*	the cook<wielded>: a ladle
+G 0 21032 0		*	the cook: a plate
+G 0 21032 0		*	the cook: a plate
+G 0 21032 0		*	the cook: a plate
 M 0 21021 1 21032 1	* a Cheshire Cat (At the Base of the Tree)
 O 0 21035 0 21037	* a long dining table (A Mad Tea Party)
 O 0 21036 0 21037	* a comfortable chair (A Mad Tea Party)
@@ -3042,76 +3020,76 @@ O 0 21043 0 21037	* a biscuit plate (A Mad Tea Party)
 O 0 21044 0 21037	* a tea pot (A Mad Tea Party)
 O 0 21045 0 21037	* a tea cup (A Mad Tea Party)
 M 0 21022 1 21037 1	* the Mad Hatter (A Mad Tea Party)
-E 0 21034 0 6		*	a green top hat: over the head
-E 0 21040 0 3		*	a large polka dot bow tie: around the neck
-E 0 21041 0 12		*	a green frock coat: about the shoulders
-E 0 21046 0 5		*	a checked shirt: on the body
-E 0 21047 0 7		*	some brown breeches: on the legs
-E 0 21048 0 8		*	a pair of black shoes: on the feet
+E 0 21034 0 6		*	the Mad Hatter<over the head>: a green top hat
+E 0 21040 0 3		*	the Mad Hatter<around the neck>: a large polka dot bow tie
+E 0 21041 0 12		*	the Mad Hatter<about the shoulders>: a green frock coat
+E 0 21046 0 5		*	the Mad Hatter<on the body>: a checked shirt
+E 0 21047 0 7		*	the Mad Hatter<on the legs>: some brown breeches
+E 0 21048 0 8		*	the Mad Hatter<on the feet>: a pair of black shoes
 M 0 21023 1 21037 1	* the March Hare (A Mad Tea Party)
-E 0 21042 0 6		*	some bits of straw: over the head
-E 0 21046 0 5		*	a checked shirt: on the body
-E 0 21047 0 7		*	some brown breeches: on the legs
-E 0 21048 0 8		*	a pair of black shoes: on the feet
+E 0 21042 0 6		*	the March Hare<over the head>: some bits of straw
+E 0 21046 0 5		*	the March Hare<on the body>: a checked shirt
+E 0 21047 0 7		*	the March Hare<on the legs>: some brown breeches
+E 0 21048 0 8		*	the March Hare<on the feet>: a pair of black shoes
 M 0 21024 1 21037 1	* the Dormouse (A Mad Tea Party)
-E 0 21046 0 5		*	a checked shirt: on the body
-E 0 21047 0 7		*	some brown breeches: on the legs
-E 0 21048 0 8		*	a pair of black shoes: on the feet
+E 0 21046 0 5		*	the Dormouse<on the body>: a checked shirt
+E 0 21047 0 7		*	the Dormouse<on the legs>: some brown breeches
+E 0 21048 0 8		*	the Dormouse<on the feet>: a pair of black shoes
 O 0 21066 0 21041	* a tree with a tiny door (Outside a Tree)
 M 0 21037 4 21042 1	* a hedgehog (The Long Hallway)
 O 0 21051 0 21043	* a white rose bush (In a Garden)
 M 0 21027 1 21043 1	* a gardener (In a Garden)
-E 0 21049 0 17		*	a can of red paint: held in the hands
-E 0 21050 0 16		*	a paint brush: wielded
+E 0 21049 0 17		*	a gardener<held in the hands>: a can of red paint
+E 0 21050 0 16		*	a gardener<wielded>: a paint brush
 M 0 21028 1 21043 1	* a gardener (In a Garden)
-E 0 21049 0 17		*	a can of red paint: held in the hands
-E 0 21050 0 16		*	a paint brush: wielded
+E 0 21049 0 17		*	a gardener<held in the hands>: a can of red paint
+E 0 21050 0 16		*	a gardener<wielded>: a paint brush
 M 0 21029 1 21043 1	* a gardener (In a Garden)
-E 0 21049 0 17		*	a can of red paint: held in the hands
-E 0 21050 0 16		*	a paint brush: wielded
+E 0 21049 0 17		*	a gardener<held in the hands>: a can of red paint
+E 0 21050 0 16		*	a gardener<wielded>: a paint brush
 M 0 21037 4 21045 1	* a hedgehog (A Croquet Lawn)
 M 0 21001 1 21046 1	* a white rabbit (A Croquet Lawn)
-E 0 21004 0 12		*	a tweed jacket: about the shoulders
-E 0 21005 0 5		*	a red waistcoat: on the body
-E 0 21006 0 17		*	a pocket watch: held in the hands
-E 0 21007 0 9		*	a pair of tiny white kid-gloves: on the hands
-E 0 21008 0 11		*	a fan: as a shield
-E 0 21009 0 3		*	a neck scarf: around the neck
+E 0 21004 0 12		*	a white rabbit<about the shoulders>: a tweed jacket
+E 0 21005 0 5		*	a white rabbit<on the body>: a red waistcoat
+E 0 21006 0 17		*	a white rabbit<held in the hands>: a pocket watch
+E 0 21007 0 9		*	a white rabbit<on the hands>: a pair of tiny white kid-gloves
+E 0 21008 0 11		*	a white rabbit<as a shield>: a fan
+E 0 21009 0 3		*	a white rabbit<around the neck>: a neck scarf
 M 0 21030 4 21047 1	* a soldier (A Croquet Lawn)
-E 0 21052 0 16		*	a soldier's club: wielded
+E 0 21052 0 16		*	a soldier<wielded>: a soldier's club
 M 0 21037 4 21048 1	* a hedgehog (A Croquet Lawn)
 M 0 21038 1 21049 1	* the executioner (A Croquet Lawn)
-E 0 21060 0 16		*	the executioner's axe: wielded
-E 0 21061 0 6		*	the executioner's hood: over the head
+E 0 21060 0 16		*	the executioner<wielded>: the executioner's axe
+E 0 21061 0 6		*	the executioner<over the head>: the executioner's hood
 M 0 21000 1 21050 1	* Alice (A Croquet Lawn)
-E 0 21057 0 16		*	a flamingo: wielded
-E 0 21000 0 5		*	a pretty blue frock: on the body
-E 0 21001 0 13		*	a white apron: around the waist
-E 0 21002 0 21008		*	a pair of black shoes: unknown
-G 0 21003 0		*	a thimble
+E 0 21057 0 16		*	Alice<wielded>: a flamingo
+E 0 21000 0 5		*	Alice<on the body>: a pretty blue frock
+E 0 21001 0 13		*	Alice<around the waist>: a white apron
+E 0 21002 0 21008		*	Alice<unknown>: a pair of black shoes
+G 0 21003 0		*	Alice: a thimble
 M 0 21036 4 21050 1	* a flamingo (A Croquet Lawn)
 M 0 21033 1 21051 1	* the King of Hearts (A Croquet Lawn)
-E 0 21054 0 17		*	the King of Heart's sceptre: held in the hands
-E 0 21055 0 6		*	the King of Heart's crown: over the head
-E 0 21057 0 16		*	a flamingo: wielded
+E 0 21054 0 17		*	the King of Hearts<held in the hands>: the King of Heart's sceptre
+E 0 21055 0 6		*	the King of Hearts<over the head>: the King of Heart's crown
+E 0 21057 0 16		*	the King of Hearts<wielded>: a flamingo
 M 0 21031 4 21052 1	* a courtier (A Croquet Lawn)
-E 0 21053 0 0		*	a diamond: as a light
-E 0 21057 0 16		*	a flamingo: wielded
+E 0 21053 0 0		*	a courtier<as a light>: a diamond
+E 0 21057 0 16		*	a courtier<wielded>: a flamingo
 M 0 21032 4 21054 1	* a child of the Queen (A Croquet Lawn)
-G 0 21059 0		*	the Queen's tarts
+G 0 21059 0		*	a child of the Queen: the Queen's tarts
 M 0 21034 1 21055 1	* the Queen of Hearts (A Croquet Lawn)
-E 0 21056 0 11		*	the Queen of Heart's fan: as a shield
-E 0 21057 0 16		*	a flamingo: wielded
-E 0 21058 0 17		*	the Queen of Heart's sceptre: held in the hands
+E 0 21056 0 11		*	the Queen of Hearts<as a shield>: the Queen of Heart's fan
+E 0 21057 0 16		*	the Queen of Hearts<wielded>: a flamingo
+E 0 21058 0 17		*	the Queen of Hearts<held in the hands>: the Queen of Heart's sceptre
 M 0 21040 1 21056 1	* a Gryphon (On the Road to the Sea)
 M 0 21039 1 21058 1	* the Mock Turtle (A Rocky Ledge)
 M 0 21042 2 21059 1	* a court officer (Courthouse (Who Stole the Tarts?))
-G 0 21064 0		*	a hessian sack
+G 0 21064 0		*	a court officer: a hessian sack
 M 0 21041 12 21060 1	* a juror (The Jury Box)
-E 0 21062 0 17		*	a slate: held in the hands
-E 0 21063 0 16		*	a pencil: wielded
+E 0 21062 0 17		*	a juror<held in the hands>: a slate
+E 0 21063 0 16		*	a juror<wielded>: a pencil
 M 0 21035 1 21061 1	* the Knave of Hearts (The Witness Box)
-G 0 21059 0		*	the Queen's tarts
+G 0 21059 0		*	the Knave of Hearts: the Queen's tarts
 S
 
 #OLIMITS

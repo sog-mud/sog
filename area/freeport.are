@@ -2909,11 +2909,8 @@ M 29232 spec_poison	* Lord Mourning
 S
 
 #RESETS
-D 0 29256 5 2	* Town Hall: door to the down: closed and locked
-D 0 29264 4 2	* On a Secret Staircase: door to the up: closed and locked
-D 0 29269 0 1	* In the Hidden Cavern: door to the north: closed
 M 0 29202 2 29203 1	* the red-tongued lizard (On the Rock Jetty)
-G 0 29203 0		*	a red lizard tongue
+G 0 29203 0		*	the red-tongued lizard: a red lizard tongue
 M 0 29206 5 29206 1	* the longshoreman (On the Wharf)
 O 0 29223 0 29206	* a huge box crate (On the Wharf)
 O 0 29224 0 29206	* a moored ship (On the Wharf)
@@ -2923,20 +2920,20 @@ O 0 29223 0 29208	* a huge box crate (On the Wharf)
 O 0 29223 0 29208	* a huge box crate (On the Wharf)
 O 0 29224 0 29208	* a moored ship (On the Wharf)
 M 0 29203 2 29210 1	* the green-tongued lizard (On the Rock Jetty)
-G 0 29204 0		*	a green lizard tongue
+G 0 29204 0		*	the green-tongued lizard: a green lizard tongue
 M 0 29206 5 29211 1	* the longshoreman (On the Wharf)
 M 0 29214 3 29213 1	* the harbor patrolman (Wharf Road)
-E 0 29208 0 0		*	a patrol globe: as a light
-E 0 29209 0 5		*	scale mail: on the body
-E 0 29210 0 16		*	a trident: wielded
+E 0 29208 0 0		*	the harbor patrolman<as a light>: a patrol globe
+E 0 29209 0 5		*	the harbor patrolman<on the body>: scale mail
+E 0 29210 0 16		*	the harbor patrolman<wielded>: a trident
 M 0 29204 1 29215 1	* the watchman of Widow's Cape (Widow's Cape)
 O 0 29205 0 29215	* a watchfire (Widow's Cape)
 M 0 29207 1 29216 1	* the harbormaster (On the Wharf)
-G 0 29207 0		*	a notebook
+G 0 29207 0		*	the harbormaster: a notebook
 M 0 29214 3 29217 1	* the harbor patrolman (On the Wharf)
-E 0 29208 0 0		*	a patrol globe: as a light
-E 0 29209 0 5		*	scale mail: on the body
-E 0 29210 0 16		*	a trident: wielded
+E 0 29208 0 0		*	the harbor patrolman<as a light>: a patrol globe
+E 0 29209 0 5		*	the harbor patrolman<on the body>: scale mail
+E 0 29210 0 16		*	the harbor patrolman<wielded>: a trident
 M 0 29206 5 29220 1	* the longshoreman (On the Wharf)
 O 0 29223 0 29220	* a huge box crate (On the Wharf)
 O 0 29224 0 29220	* a moored ship (On the Wharf)
@@ -2945,77 +2942,77 @@ M 0 29211 1 29227 1	* the master shipbuilder (The Shipyards)
 M 0 29212 1 29227 1	* the apprentice shipbuilder (The Shipyards)
 M 0 29206 5 29229 1	* the longshoreman (The Mercantile Warehouse)
 M 0 29213 1 29229 1	* the warehouse overseer (The Mercantile Warehouse)
-G 0 29207 0		*	a notebook
+G 0 29207 0		*	the warehouse overseer: a notebook
 O 0 29223 0 29229	* a huge box crate (The Mercantile Warehouse)
 O 0 29223 0 29229	* a huge box crate (The Mercantile Warehouse)
 M 0 29202 2 29230 1	* the red-tongued lizard (On the Rock Jetty)
-G 0 29203 0		*	a red lizard tongue
+G 0 29203 0		*	the red-tongued lizard: a red lizard tongue
 M 0 29203 2 29235 1	* the green-tongued lizard (On the Rock Jetty)
-G 0 29204 0		*	a green lizard tongue
+G 0 29204 0		*	the green-tongued lizard: a green lizard tongue
 M 0 29201 2 29240 1	* the blue-tongued lizard (On the Rock Jetty)
-G 0 29202 0		*	a blue lizard tongue
+G 0 29202 0		*	the blue-tongued lizard: a blue lizard tongue
 M 0 29205 1 29242 1	* the fisherman (Northpoint)
-E 0 29206 0 16		*	a fishing pole: wielded
+E 0 29206 0 16		*	the fisherman<wielded>: a fishing pole
 M 0 29208 5 29243 1	* the citizen of Freeport (Freeport Village)
 M 0 29210 2 29244 1	* the sailor's wife (Freeport Village)
 M 0 29209 2 29245 1	* the laughing child (Freeport Village)
 M 0 29233 2 29248 1	* the drunken sailor (The Sunken Pirate)
 M 0 29216 1 29248 1	* Lefty, owner of the Sunken Pirate (The Sunken Pirate)
-G 0 29211 0		*	a steaming meat pie
-G 0 29212 0		*	a mug of sailor's grog
+G 0 29211 0		*	Lefty, owner of the Sunken Pirate: a steaming meat pie
+G 0 29212 0		*	Lefty, owner of the Sunken Pirate: a mug of sailor's grog
 M 0 29217 1 29249 1	* Anwar, proprietor of the Emporium (The Emporium)
-G 0 29213 0		*	a holy wafer
-G 0 29214 0		*	a silver plate
-G 0 29215 0		*	a tapestry
+G 0 29213 0		*	Anwar, proprietor of the Emporium: a holy wafer
+G 0 29214 0		*	Anwar, proprietor of the Emporium: a silver plate
+G 0 29215 0		*	Anwar, proprietor of the Emporium: a tapestry
 M 0 29214 3 29250 1	* the harbor patrolman (Commerce Street)
-E 0 29208 0 0		*	a patrol globe: as a light
-E 0 29209 0 5		*	scale mail: on the body
-E 0 29210 0 16		*	a trident: wielded
+E 0 29208 0 0		*	the harbor patrolman<as a light>: a patrol globe
+E 0 29209 0 5		*	the harbor patrolman<on the body>: scale mail
+E 0 29210 0 16		*	the harbor patrolman<wielded>: a trident
 M 0 29218 1 29251 1	* Raedner the dwarven smith (The Bronze Scabbard)
-G 0 29216 0		*	emerald armor
-G 0 29217 0		*	a dwarven thrower
+G 0 29216 0		*	Raedner the dwarven smith: emerald armor
+G 0 29217 0		*	Raedner the dwarven smith: a dwarven thrower
 M 0 29208 5 29252 1	* the citizen of Freeport (The Mystic Eye)
 M 0 29219 1 29252 1	* Samantha, witch of the Mystic Eye (The Mystic Eye)
-G 0 29218 0		*	elven chainmail sleeves
-G 0 29219 0		*	elven chainmail leggings
+G 0 29218 0		*	Samantha, witch of the Mystic Eye: elven chainmail sleeves
+G 0 29219 0		*	Samantha, witch of the Mystic Eye: elven chainmail leggings
 M 0 29208 5 29253 1	* the citizen of Freeport (The Town Square of Freeport)
 M 0 29209 2 29253 1	* the laughing child (The Town Square of Freeport)
 M 0 29210 2 29255 1	* the sailor's wife (Shipper's Lane)
 M 0 29226 1 29256 1	* Mayor Friendly (Town Hall)
-G 0 29201 0		*	an old key
+G 0 29201 0		*	Mayor Friendly: an old key
 M 0 29227 1 29257 1	* Midge, the innkeeper of the Crew's Quarters (The Crew's Quarters)
-G 0 29220 0		*	a glass of Freeport burgundy
-G 0 29221 0		*	a glass of Freeport chablis
-G 0 29222 0		*	a plate of gravy and dumplings
+G 0 29220 0		*	Midge, the innkeeper of the Crew's Quarters: a glass of Freeport burgundy
+G 0 29221 0		*	Midge, the innkeeper of the Crew's Quarters: a glass of Freeport chablis
+G 0 29222 0		*	Midge, the innkeeper of the Crew's Quarters: a plate of gravy and dumplings
 M 0 29233 2 29257 1	* the drunken sailor (The Crew's Quarters)
 M 0 29222 1 29258 1	* Elken, banker of Freeport (The Bank of Freeport)
 M 0 29220 1 29260 1	* the apprentice merchant (The Mercantile School)
 M 0 29221 1 29261 1	* Ceres, merchant of the 3rd chair (The Merchant's Guild)
-G 0 29221 0		*	a glass of Freeport chablis
+G 0 29221 0		*	Ceres, merchant of the 3rd chair: a glass of Freeport chablis
 M 0 29224 1 29262 1	* the young cadet (The Naval Academy)
 M 0 29225 1 29263 1	* Whitecap, 8th Admiral of Freeport (The Captains Guild)
-E 0 29229 0 12		*	an admiral's cape: about the shoulders
-E 0 29230 0 2		*	an admiral's signet: on the right finger
+E 0 29229 0 12		*	Whitecap, 8th Admiral of Freeport<about the shoulders>: an admiral's cape
+E 0 29230 0 2		*	Whitecap, 8th Admiral of Freeport<on the right finger>: an admiral's signet
 M 0 29229 2 29265 1	* the pirate guard (On a Secret Staircase)
-E 0 29225 0 14		*	an emerald wristguard: on the left wrist
-E 0 29226 0 16		*	an emerald longsword: wielded
-E 0 29227 0 6		*	an emerald helm: over the head
+E 0 29225 0 14		*	the pirate guard<on the left wrist>: an emerald wristguard
+E 0 29226 0 16		*	the pirate guard<wielded>: an emerald longsword
+E 0 29227 0 6		*	the pirate guard<over the head>: an emerald helm
 O 0 29223 0 29268	* a huge box crate (In the Hidden Cavern)
 M 0 29229 2 29269 1	* the pirate guard (In the Hidden Cavern)
-E 0 29225 0 14		*	an emerald wristguard: on the left wrist
-E 0 29226 0 16		*	an emerald longsword: wielded
-E 0 29227 0 6		*	an emerald helm: over the head
+E 0 29225 0 14		*	the pirate guard<on the left wrist>: an emerald wristguard
+E 0 29226 0 16		*	the pirate guard<wielded>: an emerald longsword
+E 0 29227 0 6		*	the pirate guard<over the head>: an emerald helm
 O 0 29223 0 29269	* a huge box crate (In the Hidden Cavern)
 M 0 29231 1 29270 1	* Oglethorpe, 1st Master Merchant of Freeport (In The Secret Cave of the 6th Pirate Lord)
-G 0 29231 0		*	a very heavy purse
+G 0 29231 0		*	Oglethorpe, 1st Master Merchant of Freeport: a very heavy purse
 M 0 29232 1 29270 1	* Lord Mourning (In The Secret Cave of the 6th Pirate Lord)
-E 0 29232 0 8		*	bladed boots: on the feet
-E 0 29233 0 3		*	a dimensional cape: around the neck
-E 0 29234 0 17		*	the troll stone: held in the hands
+E 0 29232 0 8		*	Lord Mourning<on the feet>: bladed boots
+E 0 29233 0 3		*	Lord Mourning<around the neck>: a dimensional cape
+E 0 29234 0 17		*	Lord Mourning<held in the hands>: the troll stone
 M 0 29228 1 29272 1	* the scruffy pirate (In the Hidden Cavern)
-E 0 29229 0 12		*	an admiral's cape: about the shoulders
-E 0 29230 0 2		*	an admiral's signet: on the right finger
-G 0 29228 0		*	a pinch of devil's weed
+E 0 29229 0 12		*	the scruffy pirate<about the shoulders>: an admiral's cape
+E 0 29230 0 2		*	the scruffy pirate<on the right finger>: an admiral's signet
+G 0 29228 0		*	the scruffy pirate: a pinch of devil's weed
 O 0 29223 0 29272	* a huge box crate (In the Hidden Cavern)
 M 0 29228 2 29273 1	* the scruffy pirate (In the Hidden Cavern)
 M 0 29228 2 29274 1	* the scruffy pirate (In the Hidden Cavern)

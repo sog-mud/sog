@@ -825,27 +825,27 @@ S
 
 #RESETS
 M 0 30234 1 30233 1	* A Small Joint (Base of the Plant)
-G 0 30233 0		*	a Hit from the Joint
+G 0 30233 0		*	A Small Joint: a Hit from the Joint
 M 0 30239 1 30233 1	* The Munchies (Base of the Plant)
-G 0 30238 0		*	a plate of Buffalo Wings
+G 0 30238 0		*	The Munchies: a plate of Buffalo Wings
 M 0 30234 1 30234 1	* A Small Joint (The Stem of the Plant)
-G 0 30233 0		*	a Hit from the Joint
+G 0 30233 0		*	A Small Joint: a Hit from the Joint
 M 0 30235 1 30235 1	* A Blunt (A Leaf of the Plant)
 M 0 30235 1 30236 1	* A Blunt (A Leaf of the Plant)
 M 0 30240 1 30241 1	* Tom Petty (The Stem of the Plant)
-E 0 30237 0 0		*	an Everburning Joint: as a light
+E 0 30237 0 0		*	Tom Petty<as a light>: an Everburning Joint
 M 0 30237 1 30245 1	* The DEA Agent (A Leaf of the Plant)
-E 0 30235 0 17		*	a Badge: held in the hands
+E 0 30235 0 17		*	The DEA Agent<held in the hands>: a Badge
 M 0 30236 1 30245 1	* A Bowlful of Resinated Bud (A Leaf of the Plant)
-G 0 30234 0		*	a Brownie
+G 0 30234 0		*	A Bowlful of Resinated Bud: a Brownie
 M 0 30232 1 30246 1	* Cannabis Sativa (The Stem of the Plant)
-E 0 30236 0 16		*	a Bowl: wielded
+E 0 30236 0 16		*	Cannabis Sativa<wielded>: a Bowl
 M 0 30233 1 30249 1	* Cannabis Indica (The Top of the Plant)
-E 0 30232 0 16		*	a 4 Foot Blue Glass Graffix(R): wielded
+E 0 30232 0 16		*	Cannabis Indica<wielded>: a 4 Foot Blue Glass Graffix(R)
 M 0 30237 1 30252 1	* The DEA Agent (A Leaf of The Plant)
-E 0 30235 0 17		*	a Badge: held in the hands
+E 0 30235 0 17		*	The DEA Agent<held in the hands>: a Badge
 M 0 30238 1 30255 1	* The Smuggler (A Leaf of The Plant)
-G 0 30234 0		*	a Brownie
+G 0 30234 0		*	The Smuggler: a Brownie
 M 0 30236 1 30256 1	* A Bowlful of Resinated Bud (A Leaf of The Plant)
 M 0 30236 1 30258 1	* A Bowlful of Resinated Bud (A Leaf of The Plant)
 S

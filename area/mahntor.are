@@ -4450,24 +4450,10 @@ M 2333 spec_cast_mage	* Mahn-Tor
 S
 
 #RESETS
-D 0 2362 2 1	* Before the gates of Mahn-Tor: door to the south: closed
-D 0 2377 1 2	* Before the Keep of Mahn-Tor: door to the east: closed and locked
-D 0 2379 3 2	* The entryway to the Keep of Mahn-Tor: door to the west: closed and locked
-D 0 2383 1 1	* Standing before the throne: door to the east: closed
-D 0 2385 1 2	* The secret hallway: door to the east: closed and locked
-D 0 2386 3 2	* Entry to the Royal Chambers: door to the west: closed and locked
-D 0 2388 1 2	* The guarded hall: door to the east: closed and locked
-D 0 2388 3 2	* The guarded hall: door to the west: closed and locked
-D 0 2389 1 2	* The guarded hall: door to the east: closed and locked
-D 0 2389 3 2	* The guarded hall: door to the west: closed and locked
-D 0 2392 1 2	* The guarded hall: door to the east: closed and locked
-D 0 2392 3 2	* The guarded hall: door to the west: closed and locked
-D 0 2397 1 2	* The end of the guarded hall: door to the east: closed and locked
-D 0 2398 3 2	* Dorgar's Dismal Domicile: door to the west: closed and locked
 M 0 2300 1 2307 1	* the Dark Ethereal Knight (The bloody intersection)
-E 0 2346 0 5		*	a suit of ethereal plate: on the body
-E 0 2347 0 6		*	an ethereal helm: over the head
-E 0 2348 0 16		*	an ethereal blade: wielded
+E 0 2346 0 5		*	the Dark Ethereal Knight<on the body>: a suit of ethereal plate
+E 0 2347 0 6		*	the Dark Ethereal Knight<over the head>: an ethereal helm
+E 0 2348 0 16		*	the Dark Ethereal Knight<wielded>: an ethereal blade
 M 0 2303 4 2311 1	* the Rock Toad (The sparse foothills)
 M 0 2303 4 2312 1	* the Rock Toad (Standing on level ground)
 M 0 2303 4 2313 1	* the Rock Toad (In the foothills)
@@ -4475,208 +4461,208 @@ M 0 2301 1 2314 1	* the Old Treant (Before the huge tree)
 M 0 2302 1 2316 1	* the Cave Dweller (Inside the horrid cave)
 M 0 2303 4 2319 1	* the Rock Toad (The hills above the shoreline)
 M 0 2304 1 2330 1	* the Weeping Willow (The turn in the swampy path)
-G 0 2349 0		*	a willow branch
+G 0 2349 0		*	the Weeping Willow: a willow branch
 M 0 2305 3 2332 1	* the Mistling (Lost in the Mist)
 M 0 2305 3 2333 1	* the Mistling (Lost in the Mist)
 M 0 2306 1 2336 1	* the Swamp Wraith (Lost in the Mist)
-G 0 2384 0		*	a misty potion
+G 0 2384 0		*	the Swamp Wraith: a misty potion
 M 0 2305 3 2337 1	* the Mistling (Lost in the Mist)
 M 0 2309 4 2341 2	* the Ogre Guard (The gate before the Ogre Village)
-E 0 2387 0 16		*	an ogre war club: wielded
+E 0 2387 0 16		*	the Ogre Guard<wielded>: an ogre war club
 M 0 2309 4 2341 2	* the Ogre Guard (The gate before the Ogre Village)
-E 0 2387 0 16		*	an ogre war club: wielded
+E 0 2387 0 16		*	the Ogre Guard<wielded>: an ogre war club
 M 0 2308 4 2342 1	* the Ogre Warrior (Among the crude huts)
-E 0 2386 0 16		*	an ogre spear: wielded
+E 0 2386 0 16		*	the Ogre Warrior<wielded>: an ogre spear
 M 0 2309 4 2342 1	* the Ogre Guard (Among the crude huts)
-E 0 2387 0 16		*	an ogre war club: wielded
+E 0 2387 0 16		*	the Ogre Guard<wielded>: an ogre war club
 M 0 2307 5 2343 1	* the Ogre Villager (Inside the gates)
-E 0 2385 0 13		*	a belt pouch: around the waist
+E 0 2385 0 13		*	the Ogre Villager<around the waist>: a belt pouch
 M 0 2307 5 2344 1	* the Ogre Villager (Among the crude huts)
 M 0 2307 5 2345 1	* the Ogre Villager (The gathering place)
 M 0 2307 5 2346 1	* the Ogre Villager (The firepit before the lodge)
-E 0 2385 0 13		*	a belt pouch: around the waist
+E 0 2385 0 13		*	the Ogre Villager<around the waist>: a belt pouch
 M 0 2308 4 2346 1	* the Ogre Warrior (The firepit before the lodge)
-E 0 2386 0 16		*	an ogre spear: wielded
+E 0 2386 0 16		*	the Ogre Warrior<wielded>: an ogre spear
 M 0 2308 4 2347 1	* the Ogre Warrior (The village dump)
-E 0 2386 0 16		*	an ogre spear: wielded
+E 0 2386 0 16		*	the Ogre Warrior<wielded>: an ogre spear
 M 0 2307 5 2348 1	* the Ogre Villager (The entryway to the lodge)
 M 0 2308 4 2348 1	* the Ogre Warrior (The entryway to the lodge)
-E 0 2386 0 16		*	an ogre spear: wielded
+E 0 2386 0 16		*	the Ogre Warrior<wielded>: an ogre spear
 M 0 2309 4 2348 1	* the Ogre Guard (The entryway to the lodge)
-E 0 2387 0 16		*	an ogre war club: wielded
+E 0 2387 0 16		*	the Ogre Guard<wielded>: an ogre war club
 M 0 2310 1 2349 1	* The Ogre Shaman (The throne room)
-E 0 2388 0 12		*	a bearskin cloak: about the shoulders
-E 0 2389 0 6		*	a pair of feathered earrings: over the head
+E 0 2388 0 12		*	The Ogre Shaman<about the shoulders>: a bearskin cloak
+E 0 2389 0 6		*	The Ogre Shaman<over the head>: a pair of feathered earrings
 M 0 2311 1 2350 1	* the Ogre Chieftain (The chieftain's room)
-E 0 2390 0 9		*	gauntlets of ogre power: on the hands
-E 0 2391 0 16		*	a massive club: wielded
+E 0 2390 0 9		*	the Ogre Chieftain<on the hands>: gauntlets of ogre power
+E 0 2391 0 16		*	the Ogre Chieftain<wielded>: a massive club
 M 0 2312 3 2351 1	* the Plains Barbarian (The frigid wastelands)
-E 0 2392 0 4		*	a thick fur cape: on the face
-E 0 2393 0 5		*	a fur lined tunic: on the body
-E 0 2360 0 8		*	a pair of fur lined boots: on the feet
+E 0 2392 0 4		*	the Plains Barbarian<on the face>: a thick fur cape
+E 0 2393 0 5		*	the Plains Barbarian<on the body>: a fur lined tunic
+E 0 2360 0 8		*	the Plains Barbarian<on the feet>: a pair of fur lined boots
 M 0 2314 3 2352 1	* the Ice Worm (The frigid wastelands)
 M 0 2312 3 2354 1	* the Plains Barbarian (The frigid wastelands)
-E 0 2392 0 4		*	a thick fur cape: on the face
-E 0 2393 0 5		*	a fur lined tunic: on the body
-E 0 2360 0 8		*	a pair of fur lined boots: on the feet
+E 0 2392 0 4		*	the Plains Barbarian<on the face>: a thick fur cape
+E 0 2393 0 5		*	the Plains Barbarian<on the body>: a fur lined tunic
+E 0 2360 0 8		*	the Plains Barbarian<on the feet>: a pair of fur lined boots
 M 0 2314 3 2354 1	* the Ice Worm (The frigid wastelands)
 M 0 2313 3 2355 1	* the White Yeti (The frigid wastelands)
-E 0 2361 0 12		*	the white pelt of a yeti: about the shoulders
+E 0 2361 0 12		*	the White Yeti<about the shoulders>: the white pelt of a yeti
 M 0 2314 3 2356 1	* the Ice Worm (The frigid wastelands)
 M 0 2313 3 2357 1	* the White Yeti (The frigid wastelands)
-E 0 2361 0 12		*	the white pelt of a yeti: about the shoulders
+E 0 2361 0 12		*	the White Yeti<about the shoulders>: the white pelt of a yeti
 M 0 2312 3 2359 1	* the Plains Barbarian (The frigid wastelands)
-E 0 2392 0 4		*	a thick fur cape: on the face
-E 0 2393 0 5		*	a fur lined tunic: on the body
-E 0 2360 0 8		*	a pair of fur lined boots: on the feet
+E 0 2392 0 4		*	the Plains Barbarian<on the face>: a thick fur cape
+E 0 2393 0 5		*	the Plains Barbarian<on the body>: a fur lined tunic
+E 0 2360 0 8		*	the Plains Barbarian<on the feet>: a pair of fur lined boots
 M 0 2313 3 2359 1	* the White Yeti (The frigid wastelands)
-E 0 2361 0 12		*	the white pelt of a yeti: about the shoulders
+E 0 2361 0 12		*	the White Yeti<about the shoulders>: the white pelt of a yeti
 M 0 2316 3 2362 1	* the Minotaur Guard (Before the gates of Mahn-Tor)
-E 0 2363 0 10		*	a pair of steel vambraces: on the arms
-E 0 2364 0 7		*	a pair of steel greaves: on the legs
-E 0 2365 0 16		*	a battle axe: wielded
+E 0 2363 0 10		*	the Minotaur Guard<on the arms>: a pair of steel vambraces
+E 0 2364 0 7		*	the Minotaur Guard<on the legs>: a pair of steel greaves
+E 0 2365 0 16		*	the Minotaur Guard<wielded>: a battle axe
 M 0 2315 5 2363 1	* the Minotaur Citizen (The city streets of Mahn-Tor)
-E 0 2362 0 16		*	a kopesh sword: wielded
+E 0 2362 0 16		*	the Minotaur Citizen<wielded>: a kopesh sword
 M 0 2315 5 2364 1	* the Minotaur Citizen (Inside the gates of Mahn-Tor)
-E 0 2362 0 16		*	a kopesh sword: wielded
+E 0 2362 0 16		*	the Minotaur Citizen<wielded>: a kopesh sword
 M 0 2315 5 2365 1	* the Minotaur Citizen (The city streets of Mahn-Tor)
-E 0 2362 0 16		*	a kopesh sword: wielded
+E 0 2362 0 16		*	the Minotaur Citizen<wielded>: a kopesh sword
 M 0 2316 3 2366 1	* the Minotaur Guard (The city streets of Mahn-Tor)
-E 0 2363 0 10		*	a pair of steel vambraces: on the arms
-E 0 2364 0 7		*	a pair of steel greaves: on the legs
-E 0 2365 0 16		*	a battle axe: wielded
+E 0 2363 0 10		*	the Minotaur Guard<on the arms>: a pair of steel vambraces
+E 0 2364 0 7		*	the Minotaur Guard<on the legs>: a pair of steel greaves
+E 0 2365 0 16		*	the Minotaur Guard<wielded>: a battle axe
 M 0 2315 5 2367 1	* the Minotaur Citizen (The Square of Mahn-Tor)
-E 0 2362 0 16		*	a kopesh sword: wielded
+E 0 2362 0 16		*	the Minotaur Citizen<wielded>: a kopesh sword
 M 0 2317 3 2367 1	* the Minotaur Warrior (The Square of Mahn-Tor)
-E 0 2366 0 5		*	a steel breast plate: on the body
-E 0 2367 0 6		*	a steel helm: over the head
-E 0 2368 0 16		*	a huge halberd: wielded
+E 0 2366 0 5		*	the Minotaur Warrior<on the body>: a steel breast plate
+E 0 2367 0 6		*	the Minotaur Warrior<over the head>: a steel helm
+E 0 2368 0 16		*	the Minotaur Warrior<wielded>: a huge halberd
 M 0 2316 3 2368 1	* the Minotaur Guard (The streets of Mahn-Tor)
-E 0 2363 0 10		*	a pair of steel vambraces: on the arms
-E 0 2364 0 7		*	a pair of steel greaves: on the legs
-E 0 2365 0 16		*	a battle axe: wielded
+E 0 2363 0 10		*	the Minotaur Guard<on the arms>: a pair of steel vambraces
+E 0 2364 0 7		*	the Minotaur Guard<on the legs>: a pair of steel greaves
+E 0 2365 0 16		*	the Minotaur Guard<wielded>: a battle axe
 M 0 2315 5 2370 1	* the Minotaur Citizen (The Mahn-Tor Equipment Shop)
-E 0 2362 0 16		*	a kopesh sword: wielded
+E 0 2362 0 16		*	the Minotaur Citizen<wielded>: a kopesh sword
 M 0 2325 1 2372 1	* Gorak (Gorak's Training Room)
-E 0 2300 0 9		*	a pair of minotaur combat gloves: on the hands
-E 0 2301 0 5		*	a suit of spiked garde armor: on the body
-E 0 2302 0 7		*	a pair of black minotaur greaves: on the legs
-E 0 2303 0 10		*	a pair of black minotaur vambraces: on the arms
-E 0 2304 0 16		*	the rod of weaponry: wielded
+E 0 2300 0 9		*	Gorak<on the hands>: a pair of minotaur combat gloves
+E 0 2301 0 5		*	Gorak<on the body>: a suit of spiked garde armor
+E 0 2302 0 7		*	Gorak<on the legs>: a pair of black minotaur greaves
+E 0 2303 0 10		*	Gorak<on the arms>: a pair of black minotaur vambraces
+E 0 2304 0 16		*	Gorak<wielded>: the rod of weaponry
 M 0 2326 1 2373 1	* Darkoth (Darkoth's Dark Study)
-E 0 2305 0 12		*	a pitch black cloak: about the shoulders
-E 0 2306 0 4		*	a black plate neckguard: on the face
-E 0 2307 0 9		*	a pair of spiked gauntlets: on the hands
-E 0 2308 0 11		*	the shadow shield: as a shield
-E 0 2309 0 16		*	a shortsword named "Nightbringer": wielded
+E 0 2305 0 12		*	Darkoth<about the shoulders>: a pitch black cloak
+E 0 2306 0 4		*	Darkoth<on the face>: a black plate neckguard
+E 0 2307 0 9		*	Darkoth<on the hands>: a pair of spiked gauntlets
+E 0 2308 0 11		*	Darkoth<as a shield>: the shadow shield
+E 0 2309 0 16		*	Darkoth<wielded>: a shortsword named "Nightbringer"
 M 0 2327 1 2374 1	* Tyrgoth (Tyrgoth's Inner Sanctum)
-E 0 2310 0 6		*	a golden helm and visor: over the head
-E 0 2311 0 5		*	a gilded gold breast plate: on the body
-E 0 2312 0 4		*	a billowing white cape : on the face
-E 0 2313 0 11		*	a huge tower shield: as a shield
-E 0 2314 0 16		*	a huge mace named "Dawnbringer": wielded
+E 0 2310 0 6		*	Tyrgoth<over the head>: a golden helm and visor
+E 0 2311 0 5		*	Tyrgoth<on the body>: a gilded gold breast plate
+E 0 2312 0 4		*	Tyrgoth<on the face>: a billowing white cape 
+E 0 2313 0 11		*	Tyrgoth<as a shield>: a huge tower shield
+E 0 2314 0 16		*	Tyrgoth<wielded>: a huge mace named "Dawnbringer"
 M 0 2317 3 2376 1	* the Minotaur Warrior (A small guard house)
-E 0 2366 0 5		*	a steel breast plate: on the body
-E 0 2367 0 6		*	a steel helm: over the head
-E 0 2368 0 16		*	a huge halberd: wielded
+E 0 2366 0 5		*	the Minotaur Warrior<on the body>: a steel breast plate
+E 0 2367 0 6		*	the Minotaur Warrior<over the head>: a steel helm
+E 0 2368 0 16		*	the Minotaur Warrior<wielded>: a huge halberd
 M 0 2318 1 2377 1	* the Minotaur Gatekeeper (Before the Keep of Mahn-Tor)
-G 0 2350 0		*	the keep key
+G 0 2350 0		*	the Minotaur Gatekeeper: the keep key
 M 0 2317 3 2378 1	* the Minotaur Warrior (A small guard house)
-E 0 2366 0 5		*	a steel breast plate: on the body
-E 0 2367 0 6		*	a steel helm: over the head
-E 0 2368 0 16		*	a huge halberd: wielded
+E 0 2366 0 5		*	the Minotaur Warrior<on the body>: a steel breast plate
+E 0 2367 0 6		*	the Minotaur Warrior<over the head>: a steel helm
+E 0 2368 0 16		*	the Minotaur Warrior<wielded>: a huge halberd
 M 0 2319 2 2379 1	* the High Minotaur Guard (The entryway to the Keep of Mahn-Tor)
-E 0 2369 0 6		*	a blue steel helm and visor: over the head
-E 0 2370 0 7		*	a pair of blue steel greaves: on the legs
-E 0 2371 0 10		*	a pair of blue steel vambraces: on the arms
-E 0 2366 0 5		*	a steel breast plate: on the body
-E 0 2372 0 16		*	a two-handed sword: wielded
+E 0 2369 0 6		*	the High Minotaur Guard<over the head>: a blue steel helm and visor
+E 0 2370 0 7		*	the High Minotaur Guard<on the legs>: a pair of blue steel greaves
+E 0 2371 0 10		*	the High Minotaur Guard<on the arms>: a pair of blue steel vambraces
+E 0 2366 0 5		*	the High Minotaur Guard<on the body>: a steel breast plate
+E 0 2372 0 16		*	the High Minotaur Guard<wielded>: a two-handed sword
 M 0 2319 2 2380 1	* the High Minotaur Guard (The Hall)
-E 0 2369 0 6		*	a blue steel helm and visor: over the head
-E 0 2370 0 7		*	a pair of blue steel greaves: on the legs
-E 0 2371 0 10		*	a pair of blue steel vambraces: on the arms
-E 0 2366 0 5		*	a steel breast plate: on the body
-E 0 2372 0 16		*	a two-handed sword: wielded
+E 0 2369 0 6		*	the High Minotaur Guard<over the head>: a blue steel helm and visor
+E 0 2370 0 7		*	the High Minotaur Guard<on the legs>: a pair of blue steel greaves
+E 0 2371 0 10		*	the High Minotaur Guard<on the arms>: a pair of blue steel vambraces
+E 0 2366 0 5		*	the High Minotaur Guard<on the body>: a steel breast plate
+E 0 2372 0 16		*	the High Minotaur Guard<wielded>: a two-handed sword
 M 0 2320 2 2382 1	* the Royal Minotaur Guard (The Great Hall)
-E 0 2373 0 6		*	a red steel helm and visor: over the head
-E 0 2374 0 7		*	a pair of red steel greaves: on the legs
-E 0 2375 0 10		*	a pair of red steel vambraces: on the arms
-E 0 2366 0 5		*	a steel breast plate: on the body
-E 0 2376 0 16		*	a minotaur glaive: wielded
+E 0 2373 0 6		*	the Royal Minotaur Guard<over the head>: a red steel helm and visor
+E 0 2374 0 7		*	the Royal Minotaur Guard<on the legs>: a pair of red steel greaves
+E 0 2375 0 10		*	the Royal Minotaur Guard<on the arms>: a pair of red steel vambraces
+E 0 2366 0 5		*	the Royal Minotaur Guard<on the body>: a steel breast plate
+E 0 2376 0 16		*	the Royal Minotaur Guard<wielded>: a minotaur glaive
 M 0 2320 2 2383 1	* the Royal Minotaur Guard (Standing before the throne)
-E 0 2373 0 6		*	a red steel helm and visor: over the head
-E 0 2374 0 7		*	a pair of red steel greaves: on the legs
-E 0 2375 0 10		*	a pair of red steel vambraces: on the arms
-E 0 2366 0 5		*	a steel breast plate: on the body
-E 0 2376 0 16		*	a minotaur glaive: wielded
+E 0 2373 0 6		*	the Royal Minotaur Guard<over the head>: a red steel helm and visor
+E 0 2374 0 7		*	the Royal Minotaur Guard<on the legs>: a pair of red steel greaves
+E 0 2375 0 10		*	the Royal Minotaur Guard<on the arms>: a pair of red steel vambraces
+E 0 2366 0 5		*	the Royal Minotaur Guard<on the body>: a steel breast plate
+E 0 2376 0 16		*	the Royal Minotaur Guard<wielded>: a minotaur glaive
 M 0 2321 2 2385 2	* the Elite Minotaur Guard (The secret hallway)
-E 0 2377 0 6		*	a crimson steel helm and visor: over the head
-E 0 2378 0 7		*	a pair of crimson steel greaves: on the legs
-E 0 2379 0 10		*	a pair of crimson steel vambraces: on the arms
-E 0 2366 0 5		*	a steel breast plate: on the body
-E 0 2380 0 16		*	a huge morningstar: wielded
+E 0 2377 0 6		*	the Elite Minotaur Guard<over the head>: a crimson steel helm and visor
+E 0 2378 0 7		*	the Elite Minotaur Guard<on the legs>: a pair of crimson steel greaves
+E 0 2379 0 10		*	the Elite Minotaur Guard<on the arms>: a pair of crimson steel vambraces
+E 0 2366 0 5		*	the Elite Minotaur Guard<on the body>: a steel breast plate
+E 0 2380 0 16		*	the Elite Minotaur Guard<wielded>: a huge morningstar
 M 0 2321 2 2385 2	* the Elite Minotaur Guard (The secret hallway)
-E 0 2377 0 6		*	a crimson steel helm and visor: over the head
-E 0 2378 0 7		*	a pair of crimson steel greaves: on the legs
-E 0 2379 0 10		*	a pair of crimson steel vambraces: on the arms
-E 0 2366 0 5		*	a steel breast plate: on the body
-E 0 2380 0 16		*	a huge morningstar: wielded
-G 0 2359 0		*	a runed key
+E 0 2377 0 6		*	the Elite Minotaur Guard<over the head>: a crimson steel helm and visor
+E 0 2378 0 7		*	the Elite Minotaur Guard<on the legs>: a pair of crimson steel greaves
+E 0 2379 0 10		*	the Elite Minotaur Guard<on the arms>: a pair of crimson steel vambraces
+E 0 2366 0 5		*	the Elite Minotaur Guard<on the body>: a steel breast plate
+E 0 2380 0 16		*	the Elite Minotaur Guard<wielded>: a huge morningstar
+G 0 2359 0		*	the Elite Minotaur Guard: a runed key
 M 0 2324 1 2387 1	* the Minotaur Ring-Keeper (The Guard Post)
-G 0 2381 0		*	some huge spiked brass knuckles
-E 0 2383 0 16		*	a huge wooden maul: wielded
-E 0 2382 0 13		*	a multi-colored key ring: around the waist
-P 0 2351 1 2382 1	* a multi-colored key ring: a red key
-P 0 2352 1 2382 1	* a multi-colored key ring: a black key
-P 0 2353 1 2382 1	* a multi-colored key ring: a white key
-P 0 2354 1 2382 1	* a multi-colored key ring: a brown key
-P 0 2355 1 2382 1	* a multi-colored key ring: a yellow key
-P 0 2356 1 2382 1	* a multi-colored key ring: a maroon key
-P 0 2357 1 2382 1	* a multi-colored key ring: a green key
-P 0 2358 1 2382 1	* a multi-colored key ring: a grey key
+G 0 2381 0		*	the Minotaur Ring-Keeper: some huge spiked brass knuckles
+E 0 2383 0 16		*	the Minotaur Ring-Keeper<wielded>: a huge wooden maul
+E 0 2382 0 13		*	the Minotaur Ring-Keeper<around the waist>: a multi-colored key ring
+P 0 2351 1 0 1	* a multi-colored key ring: a red key
+P 0 2352 1 0 1	* a multi-colored key ring: a black key
+P 0 2353 1 0 1	* a multi-colored key ring: a white key
+P 0 2354 1 0 1	* a multi-colored key ring: a brown key
+P 0 2355 1 0 1	* a multi-colored key ring: a yellow key
+P 0 2356 1 0 1	* a multi-colored key ring: a maroon key
+P 0 2357 1 0 1	* a multi-colored key ring: a green key
+P 0 2358 1 0 1	* a multi-colored key ring: a grey key
 M 0 2329 1 2390 1	* Sumaron (Sumaron's Sanctum)
-E 0 2320 0 12		*	a heavy woolen robe: about the shoulders
-E 0 2321 0 3		*	a brooch of life: around the neck
-E 0 2322 0 17		*	a manual of healing arts: held in the hands
-E 0 2323 0 16		*	a huge mithril mace: wielded
-E 0 2324 0 4		*	a golden holy symbol: on the face
+E 0 2320 0 12		*	Sumaron<about the shoulders>: a heavy woolen robe
+E 0 2321 0 3		*	Sumaron<around the neck>: a brooch of life
+E 0 2322 0 17		*	Sumaron<held in the hands>: a manual of healing arts
+E 0 2323 0 16		*	Sumaron<wielded>: a huge mithril mace
+E 0 2324 0 4		*	Sumaron<on the face>: a golden holy symbol
 M 0 2328 1 2391 1	* Amyrok (Amyrok's Arcane Study)
-E 0 2315 0 1		*	a pair of wire rimmed spectacles: on the left finger
-E 0 2316 0 2		*	a banded ring: on the right finger
-E 0 2317 0 12		*	a minor globe of invulnerability: about the shoulders
-E 0 2318 0 16		*	a gnarled magius staff: wielded
-E 0 2319 0 13		*	a girdle of many pouches: around the waist
+E 0 2315 0 1		*	Amyrok<on the left finger>: a pair of wire rimmed spectacles
+E 0 2316 0 2		*	Amyrok<on the right finger>: a banded ring
+E 0 2317 0 12		*	Amyrok<about the shoulders>: a minor globe of invulnerability
+E 0 2318 0 16		*	Amyrok<wielded>: a gnarled magius staff
+E 0 2319 0 13		*	Amyrok<around the waist>: a girdle of many pouches
 M 0 2322 5 2393 5	* the Harem Girl (The Harem Room)
 M 0 2322 5 2393 5	* the Harem Girl (The Harem Room)
 M 0 2322 5 2393 5	* the Harem Girl (The Harem Room)
 M 0 2322 5 2393 5	* the Harem Girl (The Harem Room)
 M 0 2322 5 2393 5	* the Harem Girl (The Harem Room)
 M 0 2330 1 2394 1	* Nasturn (Nasturn's Humble Abode)
-E 0 2325 0 1		*	a thick marble ring: on the left finger
-E 0 2326 0 15		*	a thick marble bracelet: on the right wrist
-E 0 2327 0 8		*	boots of striding: on the feet
-E 0 2328 0 12		*	an icy white cloak: about the shoulders
-E 0 2329 0 16		*	an ice staff: wielded
+E 0 2325 0 1		*	Nasturn<on the left finger>: a thick marble ring
+E 0 2326 0 15		*	Nasturn<on the right wrist>: a thick marble bracelet
+E 0 2327 0 8		*	Nasturn<on the feet>: boots of striding
+E 0 2328 0 12		*	Nasturn<about the shoulders>: an icy white cloak
+E 0 2329 0 16		*	Nasturn<wielded>: an ice staff
 M 0 2323 1 2395 1	* the Minotaur Butler (The main living room)
 M 0 2333 1 2396 1	* Mahn-Tor (The Master Bedroom)
-E 0 2340 0 12		*	a major globe of invulnerability: about the shoulders
-E 0 2341 0 5		*	a suit of black minotaur chainmail: on the body
-E 0 2342 0 14		*	a spiked buckler: on the left wrist
-E 0 2343 0 2		*	a studded ring: on the right finger
-E 0 2344 0 6		*	a horned minotaur helm: over the head
-E 0 2345 0 16		*	mahn-Tor's Great Axe: wielded
+E 0 2340 0 12		*	Mahn-Tor<about the shoulders>: a major globe of invulnerability
+E 0 2341 0 5		*	Mahn-Tor<on the body>: a suit of black minotaur chainmail
+E 0 2342 0 14		*	Mahn-Tor<on the left wrist>: a spiked buckler
+E 0 2343 0 2		*	Mahn-Tor<on the right finger>: a studded ring
+E 0 2344 0 6		*	Mahn-Tor<over the head>: a horned minotaur helm
+E 0 2345 0 16		*	Mahn-Tor<wielded>: mahn-Tor's Great Axe
 M 0 2332 1 2398 1	* Dorgar (Dorgar's Dismal Domicile)
-E 0 2335 0 12		*	a small leather pack: about the shoulders
-E 0 2336 0 6		*	a black leather hood: over the head
-E 0 2337 0 10		*	a pair of black leather sleeves: on the arms
-E 0 2338 0 7		*	a pair of black leather pants: on the legs
-E 0 2339 0 16		*	a wicked shortsword: wielded
+E 0 2335 0 12		*	Dorgar<about the shoulders>: a small leather pack
+E 0 2336 0 6		*	Dorgar<over the head>: a black leather hood
+E 0 2337 0 10		*	Dorgar<on the arms>: a pair of black leather sleeves
+E 0 2338 0 7		*	Dorgar<on the legs>: a pair of black leather pants
+E 0 2339 0 16		*	Dorgar<wielded>: a wicked shortsword
 M 0 2331 1 2399 1	* Belrak (Belrak's Green Room)
-E 0 2330 0 2		*	a carved wooden ring: on the right finger
-E 0 2331 0 17		*	the horn of life: held in the hands
-E 0 2332 0 13		*	the belt of life: around the waist
-G 0 2333 0		*	a blood red stone
-E 0 2334 0 16		*	a huge crossbow: wielded
+E 0 2330 0 2		*	Belrak<on the right finger>: a carved wooden ring
+E 0 2331 0 17		*	Belrak<held in the hands>: the horn of life
+E 0 2332 0 13		*	Belrak<around the waist>: the belt of life
+G 0 2333 0		*	Belrak: a blood red stone
+E 0 2334 0 16		*	Belrak<wielded>: a huge crossbow
 S
 
 #OLIMITS

@@ -3309,38 +3309,31 @@ M 3714 spec_fido	* the beast
 S
 
 #RESETS
-D 0 3700 2 1	* Entrance to Mud School: door to the south: closed
-D 0 3717 1 1	* A Room in Mud School: door to the east: closed
-D 0 3719 1 2	* A Room in Mud School: door to the east: closed and locked
-D 0 3719 3 1	* A Room in Mud School: door to the west: closed
-D 0 3721 0 1	* The End of Mud School!: door to the north: closed
-D 0 3734 5 1	* Center of Arena: door to the down: closed
-D 0 3748 4 1	* The Center of the Dungeon: door to the up: closed
 M 0 3700 1 3701 1	* the acolyte of Zump (A Room in Mud School)
 M 0 3701 1 3710 1	* the blob (The Blob Cage)
 M 0 3707 1 3712 1	* the adept of Satin (The Cage Room)
 M 0 3704 1 3713 1	* the aggressive monster (A Cage)
-E 0 3707 0 7		*	a pair of sub issue leggings: on the legs
-E 0 3712 0 13		*	a sub issue belt: around the waist
+E 0 3707 0 7		*	the aggressive monster<on the legs>: a pair of sub issue leggings
+E 0 3712 0 13		*	the aggressive monster<around the waist>: a sub issue belt
 M 0 3705 1 3714 1	* the wimpy aggressive monster (A Cage)
-E 0 3708 0 8		*	a pair of sub issue boots: on the feet
-E 0 3713 0 14		*	a sub issue bracer: on the left wrist
+E 0 3708 0 8		*	the wimpy aggressive monster<on the feet>: a pair of sub issue boots
+E 0 3713 0 14		*	the wimpy aggressive monster<on the left wrist>: a sub issue bracer
 M 0 3703 1 3715 1	* the wimpy monster (A Cage)
-E 0 3706 0 6		*	a sub issue helmet: over the head
-E 0 3711 0 12		*	a sub issue cape: about the shoulders
+E 0 3706 0 6		*	the wimpy monster<over the head>: a sub issue helmet
+E 0 3711 0 12		*	the wimpy monster<about the shoulders>: a sub issue cape
 M 0 3702 1 3716 1	* the monster (A Cage)
-E 0 3705 0 3		*	a sub issue cloak: around the neck
-E 0 3705 0 4		*	a sub issue cloak: on the face
+E 0 3705 0 3		*	the monster<around the neck>: a sub issue cloak
+E 0 3705 0 4		*	the monster<on the face>: a sub issue cloak
 M 0 3717 1 3718 1	* the adept of Selene (The Store in Mud School)
-G 0 3138 0		*	a buffalo water skin
-G 0 3031 0		*	a hooded brass lantern
+G 0 3138 0		*	the adept of Selene: a buffalo water skin
+G 0 3031 0		*	the adept of Selene: a hooded brass lantern
 M 0 3706 1 3720 1	* the big creature (The Darkened Room)
-E 0 3709 0 9		*	a pair of sub issue gloves: on the hands
-E 0 3710 0 10		*	a pair of sub issue sleeves: on the arms
-E 0 3714 0 17		*	a key: held in the hands
-E 0 3713 0 14		*	a sub issue bracer: on the left wrist
+E 0 3709 0 9		*	the big creature<on the hands>: a pair of sub issue gloves
+E 0 3710 0 10		*	the big creature<on the arms>: a pair of sub issue sleeves
+E 0 3714 0 17		*	the big creature<held in the hands>: a key
+E 0 3713 0 14		*	the big creature<on the left wrist>: a sub issue bracer
 M 0 3720 1 3721 1	* the diploma beast (The End of Mud School!)
-E 0 3715 0 17		*	a mud school diploma: held in the hands
+E 0 3715 0 17		*	the diploma beast<held in the hands>: a mud school diploma
 M 0 3708 1 3721 1	* the adept of Alander (The End of Mud School!)
 M 0 3713 5 3724 5	* the snail (South West Corner of Arena)
 M 0 3712 3 3726 3	* the fox (South East Corner of Arena)

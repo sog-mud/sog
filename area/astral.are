@@ -3721,43 +3721,8 @@ M 7719 spec_breath_fire	* A massive blast of fire
 S
 
 #RESETS
-D 0 7706 0 1	* The Astral Gate: door to the north: closed
-D 0 7707 2 1	* Into the Astral Plane: door to the south: closed
-D 0 7750 0 1	* Inside the Githyanki Keep: door to the north: closed
-D 0 7751 1 1	* A guard station: door to the east: closed
-D 0 7751 2 1	* A guard station: door to the south: closed
-D 0 7751 3 1	* A guard station: door to the west: closed
-D 0 7752 1 1	* A grey road: door to the east: closed
-D 0 7753 1 1	* A grey road: door to the east: closed
-D 0 7753 3 1	* A grey road: door to the west: closed
-D 0 7755 0 1	* A grey road: door to the north: closed
-D 0 7756 2 1	* A grey road: door to the south: closed
-D 0 7757 0 1	* A grey road: door to the north: closed
-D 0 7758 1 1	* A grey road: door to the east: closed
-D 0 7760 1 1	* A grey road: door to the east: closed
-D 0 7761 0 1	* A grey road: door to the north: closed
-D 0 7761 3 1	* A grey road: door to the west: closed
-D 0 7762 3 1	* A small building: door to the west: closed
-D 0 7763 2 1	* A small building: door to the south: closed
-D 0 7764 0 1	* A large dwelling: door to the north: closed
-D 0 7765 3 1	* The Githyanki Weaponry: door to the west: closed
-D 0 7766 1 1	* The Forge: door to the east: closed
-D 0 7767 3 1	* The Githyanki Armoury: door to the west: closed
-D 0 7768 3 1	* Inside the furnace: door to the west: closed
-D 0 7769 1 1	* A guard station: door to the east: closed
-D 0 7770 0 1	* The cellblock: door to the north: closed
-D 0 7770 2 1	* The cellblock: door to the south: closed
-D 0 7771 2 1	* A cramped cell: door to the south: closed
-D 0 7772 0 1	* A tiny cell: door to the north: closed
-D 0 7773 2 1	* A large dwelling: door to the south: closed
-D 0 7774 2 1	* South End of the Hall: door to the south: closed
-D 0 7775 0 1	* North End of the Hall: door to the north: closed
-D 0 7776 2 1	* The Altar Chamber: door to the south: closed
-D 0 7777 5 1	* Before the Altar: door to the down: closed
-D 0 7778 4 1	* A Gateway to the Underworld: door to the up: closed
-D 0 7778 5 2	* A Gateway to the Underworld: door to the down: closed and locked
 M 0 7700 1 7706 1	* The Astral Guardian (The Astral Gate)
-E 0 7700 0 16		*	a massive slate-grey sledgehammer: wielded
+E 0 7700 0 16		*	The Astral Guardian<wielded>: a massive slate-grey sledgehammer
 R 0 7708 6	* Exploring the Astral Plane: randomize
 R 0 7709 6	* Exploring the Astral Plane: randomize
 R 0 7710 6	* Exploring the Astral Plane: randomize
@@ -3765,81 +3730,81 @@ R 0 7711 6	* Exploring the Astral Plane: randomize
 R 0 7712 6	* Exploring the Astral Plane: randomize
 R 0 7713 6	* Roaming the Astral Plane: randomize
 M 0 7704 10 7713 1	* A poor soulless being (Roaming the Astral Plane)
-E 0 3022 0 16		*	a long sword: wielded
+E 0 3022 0 16		*	A poor soulless being<wielded>: a long sword
 R 0 7714 6	* Roaming the Astral Plane: randomize
 M 0 7704 10 7714 1	* A poor soulless being (Roaming the Astral Plane)
-E 0 3022 0 16		*	a long sword: wielded
+E 0 3022 0 16		*	A poor soulless being<wielded>: a long sword
 R 0 7715 6	* Roaming the Astral Plane: randomize
 M 0 7704 10 7715 1	* A poor soulless being (Roaming the Astral Plane)
-E 0 3022 0 16		*	a long sword: wielded
+E 0 3022 0 16		*	A poor soulless being<wielded>: a long sword
 R 0 7716 6	* Roaming the Astral Plane: randomize
 M 0 7704 10 7716 1	* A poor soulless being (Roaming the Astral Plane)
-E 0 3022 0 16		*	a long sword: wielded
+E 0 3022 0 16		*	A poor soulless being<wielded>: a long sword
 R 0 7717 6	* Roaming the Astral Plane: randomize
 M 0 7704 10 7717 1	* A poor soulless being (Roaming the Astral Plane)
-E 0 3022 0 16		*	a long sword: wielded
+E 0 3022 0 16		*	A poor soulless being<wielded>: a long sword
 R 0 7718 6	* Wandering the Astral Plane: randomize
 M 0 7704 10 7718 1	* A poor soulless being (Wandering the Astral Plane)
-E 0 3022 0 16		*	a long sword: wielded
+E 0 3022 0 16		*	A poor soulless being<wielded>: a long sword
 M 0 7705 8 7718 2	* A githyanki hunter (Wandering the Astral Plane)
-E 0 7707 0 16		*	a silvery dagger: wielded
+E 0 7707 0 16		*	A githyanki hunter<wielded>: a silvery dagger
 R 0 7719 6	* Wandering the Astral Plane: randomize
 M 0 7704 10 7719 1	* A poor soulless being (Wandering the Astral Plane)
-E 0 3022 0 16		*	a long sword: wielded
+E 0 3022 0 16		*	A poor soulless being<wielded>: a long sword
 R 0 7720 6	* Wandering the Astral Plane: randomize
 M 0 7703 4 7720 1	* An invisible stalker (Wandering the Astral Plane)
-G 0 7714 0		*	some astral powder
+G 0 7714 0		*	An invisible stalker: some astral powder
 M 0 7704 10 7720 1	* A poor soulless being (Wandering the Astral Plane)
-E 0 3022 0 16		*	a long sword: wielded
+E 0 3022 0 16		*	A poor soulless being<wielded>: a long sword
 M 0 7705 8 7720 2	* A githyanki hunter (Wandering the Astral Plane)
-E 0 7707 0 16		*	a silvery dagger: wielded
+E 0 7707 0 16		*	A githyanki hunter<wielded>: a silvery dagger
 R 0 7721 6	* Wandering the Astral Plane: randomize
 M 0 7704 10 7721 1	* A poor soulless being (Wandering the Astral Plane)
-E 0 3022 0 16		*	a long sword: wielded
+E 0 3022 0 16		*	A poor soulless being<wielded>: a long sword
 R 0 7722 6	* Wandering the Astral Plane: randomize
 M 0 7704 10 7722 1	* A poor soulless being (Wandering the Astral Plane)
-E 0 3022 0 16		*	a long sword: wielded
+E 0 3022 0 16		*	A poor soulless being<wielded>: a long sword
 M 0 7705 8 7722 2	* A githyanki hunter (Wandering the Astral Plane)
-E 0 7707 0 16		*	a silvery dagger: wielded
+E 0 7707 0 16		*	A githyanki hunter<wielded>: a silvery dagger
 R 0 7723 6	* Travelling the Astral Plane: randomize
 M 0 7706 6 7723 3	* A githyanki warrior (Travelling the Astral Plane)
-E 0 7708 0 16		*	an extremely sharp and thin sword: wielded
-E 0 7715 0 5		*	a splint mail vest: on the body
+E 0 7708 0 16		*	A githyanki warrior<wielded>: an extremely sharp and thin sword
+E 0 7715 0 5		*	A githyanki warrior<on the body>: a splint mail vest
 R 0 7724 6	* Travelling the Astral Plane: randomize
 M 0 7703 4 7724 1	* An invisible stalker (Travelling the Astral Plane)
-G 0 7714 0		*	some astral powder
+G 0 7714 0		*	An invisible stalker: some astral powder
 M 0 7705 8 7724 2	* A githyanki hunter (Travelling the Astral Plane)
-E 0 7707 0 16		*	a silvery dagger: wielded
+E 0 7707 0 16		*	A githyanki hunter<wielded>: a silvery dagger
 R 0 7725 6	* Travelling the Astral Plane: randomize
 R 0 7726 6	* Travelling the Astral Plane: randomize
 M 0 7703 4 7726 1	* An invisible stalker (Travelling the Astral Plane)
-G 0 7714 0		*	some astral powder
+G 0 7714 0		*	An invisible stalker: some astral powder
 R 0 7727 6	* Travelling the Astral Plane: randomize
 M 0 7706 6 7727 3	* A githyanki warrior (Travelling the Astral Plane)
-E 0 7708 0 16		*	an extremely sharp and thin sword: wielded
-E 0 7715 0 5		*	a splint mail vest: on the body
+E 0 7708 0 16		*	A githyanki warrior<wielded>: an extremely sharp and thin sword
+E 0 7715 0 5		*	A githyanki warrior<on the body>: a splint mail vest
 R 0 7728 6	* Traversing the Astral Plane: randomize
 R 0 7729 6	* Traversing the Astral Plane: randomize
 M 0 7710 6 7729 3	* An evil gish (Traversing the Astral Plane)
-E 0 7706 0 16		*	a silvery knife: wielded
+E 0 7706 0 16		*	An evil gish<wielded>: a silvery knife
 R 0 7730 6	* Traversing the Astral Plane: randomize
 M 0 7703 4 7730 1	* An invisible stalker (Traversing the Astral Plane)
-G 0 7714 0		*	some astral powder
+G 0 7714 0		*	An invisible stalker: some astral powder
 M 0 7708 3 7730 2	* A githyanki knight (Traversing the Astral Plane)
-E 0 7709 0 16		*	a thin two-handed sword: wielded
-E 0 7715 0 5		*	a splint mail vest: on the body
-E 0 7716 0 7		*	a splint mail skirt: on the legs
-E 0 7717 0 10		*	a pair of splint mail sleeves: on the arms
+E 0 7709 0 16		*	A githyanki knight<wielded>: a thin two-handed sword
+E 0 7715 0 5		*	A githyanki knight<on the body>: a splint mail vest
+E 0 7716 0 7		*	A githyanki knight<on the legs>: a splint mail skirt
+E 0 7717 0 10		*	A githyanki knight<on the arms>: a pair of splint mail sleeves
 R 0 7731 6	* Traversing the Astral Plane: randomize
 M 0 7710 6 7731 3	* An evil gish (Traversing the Astral Plane)
-E 0 7706 0 16		*	a silvery knife: wielded
+E 0 7706 0 16		*	An evil gish<wielded>: a silvery knife
 R 0 7732 6	* Traversing the Astral Plane: randomize
 R 0 7733 6	* Lost in the Astral Plane: randomize
 M 0 7701 2 7733 1	* A pitch-black nightmare (Lost in the Astral Plane)
-G 0 7704 0		*	a small demon's amulet
+G 0 7704 0		*	A pitch-black nightmare: a small demon's amulet
 R 0 7734 6	* Lost in the Astral Plane: randomize
 M 0 7701 2 7734 1	* A pitch-black nightmare (Lost in the Astral Plane)
-G 0 7704 0		*	a small demon's amulet
+G 0 7704 0		*	A pitch-black nightmare: a small demon's amulet
 R 0 7735 6	* Lost in the Astral Plane: randomize
 R 0 7736 6	* Walking the Silvery Strand: randomize
 R 0 7737 6	* Walking the Silvery Strand: randomize
@@ -3851,55 +3816,55 @@ R 0 7742 6	* Walking the Silvery Strand: randomize
 R 0 7743 6	* Walking the Silvery Strand: randomize
 R 0 7744 6	* Walking the Silvery Strand: randomize
 M 0 7715 3 7745 1	* An insubstantial ghost (Deep Within the Astral Plane)
-G 0 7721 0		*	a vial of murky fluid
+G 0 7721 0		*	An insubstantial ghost: a vial of murky fluid
 M 0 7702 1 7746 1	* An evil night hag (Deep Within the Astral Plane)
-G 0 7705 0		*	a devilish talisman
+G 0 7705 0		*	An evil night hag: a devilish talisman
 M 0 7715 3 7747 1	* An insubstantial ghost (Deep Within the Astral Plane)
-G 0 7721 0		*	a vial of murky fluid
+G 0 7721 0		*	An insubstantial ghost: a vial of murky fluid
 M 0 7715 3 7749 1	* An insubstantial ghost (Deep Within the Astral Plane)
-G 0 7721 0		*	a vial of murky fluid
+G 0 7721 0		*	An insubstantial ghost: a vial of murky fluid
 M 0 7707 8 7751 1	* A githyanki guardian (A guard station)
-E 0 7708 0 16		*	an extremely sharp and thin sword: wielded
-E 0 7715 0 5		*	a splint mail vest: on the body
+E 0 7708 0 16		*	A githyanki guardian<wielded>: an extremely sharp and thin sword
+E 0 7715 0 5		*	A githyanki guardian<on the body>: a splint mail vest
 M 0 7707 8 7751 1	* A githyanki guardian (A guard station)
-E 0 7708 0 16		*	an extremely sharp and thin sword: wielded
-E 0 7715 0 5		*	a splint mail vest: on the body
+E 0 7708 0 16		*	A githyanki guardian<wielded>: an extremely sharp and thin sword
+E 0 7715 0 5		*	A githyanki guardian<on the body>: a splint mail vest
 M 0 7711 6 7753 1	* An evil gish (A grey road)
-E 0 7706 0 16		*	a silvery knife: wielded
+E 0 7706 0 16		*	An evil gish<wielded>: a silvery knife
 M 0 7708 3 7755 1	* A githyanki knight (A grey road)
-E 0 7709 0 16		*	a thin two-handed sword: wielded
-E 0 7715 0 5		*	a splint mail vest: on the body
-E 0 7716 0 7		*	a splint mail skirt: on the legs
-E 0 7717 0 10		*	a pair of splint mail sleeves: on the arms
+E 0 7709 0 16		*	A githyanki knight<wielded>: a thin two-handed sword
+E 0 7715 0 5		*	A githyanki knight<on the body>: a splint mail vest
+E 0 7716 0 7		*	A githyanki knight<on the legs>: a splint mail skirt
+E 0 7717 0 10		*	A githyanki knight<on the arms>: a pair of splint mail sleeves
 M 0 7711 6 7759 1	* An evil gish (A grey road)
-E 0 7706 0 16		*	a silvery knife: wielded
+E 0 7706 0 16		*	An evil gish<wielded>: a silvery knife
 M 0 7711 6 7762 2	* An evil gish (A small building)
-E 0 7706 0 16		*	a silvery knife: wielded
+E 0 7706 0 16		*	An evil gish<wielded>: a silvery knife
 M 0 7711 6 7762 2	* An evil gish (A small building)
-E 0 7706 0 16		*	a silvery knife: wielded
-G 0 7722 0		*	a silvery-colored potion
+E 0 7706 0 16		*	An evil gish<wielded>: a silvery knife
+G 0 7722 0		*	An evil gish: a silvery-colored potion
 M 0 7711 6 7763 2	* An evil gish (A small building)
-E 0 7706 0 16		*	a silvery knife: wielded
+E 0 7706 0 16		*	An evil gish<wielded>: a silvery knife
 M 0 7711 6 7763 2	* An evil gish (A small building)
-E 0 7706 0 16		*	a silvery knife: wielded
-G 0 7722 0		*	a silvery-colored potion
+E 0 7706 0 16		*	An evil gish<wielded>: a silvery knife
+G 0 7722 0		*	An evil gish: a silvery-colored potion
 M 0 7712 4 7764 1	* A warlock of the Gith (A large dwelling)
-E 0 7710 0 16		*	a silvery sword: wielded
-G 0 7703 0		*	a scroll with githyanki writings on it
+E 0 7710 0 16		*	A warlock of the Gith<wielded>: a silvery sword
+G 0 7703 0		*	A warlock of the Gith: a scroll with githyanki writings on it
 M 0 7707 8 7765 1	* A githyanki guardian (The Githyanki Weaponry)
-E 0 7708 0 16		*	an extremely sharp and thin sword: wielded
-E 0 7715 0 5		*	a splint mail vest: on the body
+E 0 7708 0 16		*	A githyanki guardian<wielded>: an extremely sharp and thin sword
+E 0 7715 0 5		*	A githyanki guardian<on the body>: a splint mail vest
 M 0 7707 8 7765 1	* A githyanki guardian (The Githyanki Weaponry)
-E 0 7708 0 16		*	an extremely sharp and thin sword: wielded
-E 0 7715 0 5		*	a splint mail vest: on the body
+E 0 7708 0 16		*	A githyanki guardian<wielded>: an extremely sharp and thin sword
+E 0 7715 0 5		*	A githyanki guardian<on the body>: a splint mail vest
 M 0 7707 8 7767 1	* A githyanki guardian (The Githyanki Armoury)
-E 0 7708 0 16		*	an extremely sharp and thin sword: wielded
-E 0 7715 0 5		*	a splint mail vest: on the body
+E 0 7708 0 16		*	A githyanki guardian<wielded>: an extremely sharp and thin sword
+E 0 7715 0 5		*	A githyanki guardian<on the body>: a splint mail vest
 M 0 7707 8 7767 1	* A githyanki guardian (The Githyanki Armoury)
-E 0 7708 0 16		*	an extremely sharp and thin sword: wielded
-E 0 7715 0 5		*	a splint mail vest: on the body
+E 0 7708 0 16		*	A githyanki guardian<wielded>: an extremely sharp and thin sword
+E 0 7715 0 5		*	A githyanki guardian<on the body>: a splint mail vest
 M 0 7718 1 7768 1	* The enslaved red dragon (Inside the furnace)
-E 0 7713 0 0		*	a brightly flaming stone: as a light
+E 0 7713 0 0		*	The enslaved red dragon<as a light>: a brightly flaming stone
 M 0 7719 6 7768 6	* A massive blast of fire (Inside the furnace)
 M 0 7719 6 7768 6	* A massive blast of fire (Inside the furnace)
 M 0 7719 6 7768 6	* A massive blast of fire (Inside the furnace)
@@ -3907,42 +3872,42 @@ M 0 7719 6 7768 6	* A massive blast of fire (Inside the furnace)
 M 0 7719 6 7768 6	* A massive blast of fire (Inside the furnace)
 M 0 7719 6 7768 6	* A massive blast of fire (Inside the furnace)
 M 0 7707 8 7769 1	* A githyanki guardian (A guard station)
-E 0 7708 0 16		*	an extremely sharp and thin sword: wielded
-E 0 7715 0 5		*	a splint mail vest: on the body
+E 0 7708 0 16		*	A githyanki guardian<wielded>: an extremely sharp and thin sword
+E 0 7715 0 5		*	A githyanki guardian<on the body>: a splint mail vest
 M 0 7707 8 7769 1	* A githyanki guardian (A guard station)
-E 0 7708 0 16		*	an extremely sharp and thin sword: wielded
-E 0 7715 0 5		*	a splint mail vest: on the body
+E 0 7708 0 16		*	A githyanki guardian<wielded>: an extremely sharp and thin sword
+E 0 7715 0 5		*	A githyanki guardian<on the body>: a splint mail vest
 M 0 7717 1 7771 1	* A tortured mindflayer prisoner (A cramped cell)
 M 0 7716 1 7772 1	* An imprisoned githzerai (A tiny cell)
 M 0 7712 4 7773 1	* A warlock of the Gith (A large dwelling)
-E 0 7710 0 16		*	a silvery sword: wielded
-G 0 7703 0		*	a scroll with githyanki writings on it
+E 0 7710 0 16		*	A warlock of the Gith<wielded>: a silvery sword
+G 0 7703 0		*	A warlock of the Gith: a scroll with githyanki writings on it
 M 0 7712 4 7774 2	* A warlock of the Gith (South End of the Hall)
-E 0 7710 0 16		*	a silvery sword: wielded
-G 0 7703 0		*	a scroll with githyanki writings on it
+E 0 7710 0 16		*	A warlock of the Gith<wielded>: a silvery sword
+G 0 7703 0		*	A warlock of the Gith: a scroll with githyanki writings on it
 M 0 7712 4 7774 2	* A warlock of the Gith (South End of the Hall)
-E 0 7710 0 16		*	a silvery sword: wielded
-G 0 7703 0		*	a scroll with githyanki writings on it
+E 0 7710 0 16		*	A warlock of the Gith<wielded>: a silvery sword
+G 0 7703 0		*	A warlock of the Gith: a scroll with githyanki writings on it
 M 0 7709 2 7776 2	* A githyanki protector (The Altar Chamber)
-E 0 7709 0 16		*	a thin two-handed sword: wielded
-E 0 7715 0 5		*	a splint mail vest: on the body
-E 0 7716 0 7		*	a splint mail skirt: on the legs
-E 0 7717 0 10		*	a pair of splint mail sleeves: on the arms
-E 0 7718 0 9		*	a pair of ornately designed gauntlets: on the hands
+E 0 7709 0 16		*	A githyanki protector<wielded>: a thin two-handed sword
+E 0 7715 0 5		*	A githyanki protector<on the body>: a splint mail vest
+E 0 7716 0 7		*	A githyanki protector<on the legs>: a splint mail skirt
+E 0 7717 0 10		*	A githyanki protector<on the arms>: a pair of splint mail sleeves
+E 0 7718 0 9		*	A githyanki protector<on the hands>: a pair of ornately designed gauntlets
 M 0 7709 2 7776 2	* A githyanki protector (The Altar Chamber)
-E 0 7709 0 16		*	a thin two-handed sword: wielded
-E 0 7715 0 5		*	a splint mail vest: on the body
-E 0 7716 0 7		*	a splint mail skirt: on the legs
-E 0 7717 0 10		*	a pair of splint mail sleeves: on the arms
-E 0 7718 0 9		*	a pair of ornately designed gauntlets: on the hands
+E 0 7709 0 16		*	A githyanki protector<wielded>: a thin two-handed sword
+E 0 7715 0 5		*	A githyanki protector<on the body>: a splint mail vest
+E 0 7716 0 7		*	A githyanki protector<on the legs>: a splint mail skirt
+E 0 7717 0 10		*	A githyanki protector<on the arms>: a pair of splint mail sleeves
+E 0 7718 0 9		*	A githyanki protector<on the hands>: a pair of ornately designed gauntlets
 M 0 7713 1 7777 1	* The lich-queen (Before the Altar)
-E 0 7711 0 16		*	an iron barbed flail: wielded
-E 0 7724 0 17		*	a black pentagram: held in the hands
-G 0 7702 0		*	a black etched tablet
+E 0 7711 0 16		*	The lich-queen<wielded>: an iron barbed flail
+E 0 7724 0 17		*	The lich-queen<held in the hands>: a black pentagram
+G 0 7702 0		*	The lich-queen: a black etched tablet
 M 0 7714 1 7779 1	* Lord Gith (Utter darkness and despair)
-E 0 7712 0 16		*	the unholy sword of the githyanki: wielded
-E 0 7719 0 5		*	a decaying vest made from cracked leather: on the body
-G 0 7725 0		*	a rotting pouch
+E 0 7712 0 16		*	Lord Gith<wielded>: the unholy sword of the githyanki
+E 0 7719 0 5		*	Lord Gith<on the body>: a decaying vest made from cracked leather
+G 0 7725 0		*	Lord Gith: a rotting pouch
 S
 
 #$

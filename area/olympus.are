@@ -1774,73 +1774,64 @@ M 926 spec_cast_mage	* The Jailer
 S
 
 #RESETS
-D 0 910 5 1	* Throne Room: door to the down: closed
-D 0 919 0 2	* Dungeon: door to the north: closed and locked
-D 0 919 1 2	* Dungeon: door to the east: closed and locked
-D 0 919 3 2	* Dungeon: door to the west: closed and locked
-D 0 920 2 2	* Cell: door to the south: closed and locked
-D 0 921 1 2	* Cell: door to the east: closed and locked
-D 0 922 3 2	* Cell: door to the west: closed and locked
-D 0 937 3 1	* Smithy: door to the west: closed
-D 0 939 4 1	* Second Floor: door to the up: closed
 M 0 923 10 904 2	* A citizen (Entrance)
 M 0 923 10 905 2	* A citizen (Zeus Street)
 M 0 923 10 906 2	* A citizen (Zeus Street)
 M 0 923 10 907 2	* A citizen (Zeus Street)
 M 0 923 10 908 2	* A citizen (Zeus Street)
 M 0 901 1 910 1	* Zeus (Throne Room)
-E 0 900 0 5		*	the Aegis: on the body
-E 0 901 0 16		*	the Thunder Bolt: wielded
-G 0 926 0		*	nectar
-G 0 909 0		*	ambrosia
+E 0 900 0 5		*	Zeus<on the body>: the Aegis
+E 0 901 0 16		*	Zeus<wielded>: the Thunder Bolt
+G 0 926 0		*	Zeus: nectar
+G 0 909 0		*	Zeus: ambrosia
 M 0 925 4 914 4	* A Cook (Kitchen)
 M 0 925 4 914 4	* A Cook (Kitchen)
 M 0 926 1 918 1	* The Jailer (Dungeon)
-G 0 927 0		*	a Cell key
+G 0 927 0		*	The Jailer: a Cell key
 M 0 902 1 920 1	* Prometheus (Cell)
-G 0 928 0		*	a secret map of Olympus
-E 0 908 0 9		*	flaming gauntlets: on the hands
+G 0 928 0		*	Prometheus: a secret map of Olympus
+E 0 908 0 9		*	Prometheus<on the hands>: flaming gauntlets
 M 0 920 2 921 1	* a chimera (Cell)
 M 0 920 2 922 1	* a chimera (Cell)
 M 0 915 1 924 1	* Julius the Green Grocer (Bakery)
-G 0 914 0		*	a bunch of grapes
-G 0 918 0		*	an apple
-G 0 919 0		*	a pear
-G 0 920 0		*	a orange
-G 0 921 0		*	a kiwi
+G 0 914 0		*	Julius the Green Grocer: a bunch of grapes
+G 0 918 0		*	Julius the Green Grocer: an apple
+G 0 919 0		*	Julius the Green Grocer: a pear
+G 0 920 0		*	Julius the Green Grocer: a orange
+G 0 921 0		*	Julius the Green Grocer: a kiwi
 M 0 907 1 925 1	* Athena (Residence)
-E 0 910 0 3		*	a glowing necklace: around the neck
-E 0 905 0 17		*	an ivory staff: held in the hands
-G 0 926 0		*	nectar
-G 0 909 0		*	ambrosia
+E 0 910 0 3		*	Athena<around the neck>: a glowing necklace
+E 0 905 0 17		*	Athena<held in the hands>: an ivory staff
+G 0 926 0		*	Athena: nectar
+G 0 909 0		*	Athena: ambrosia
 M 0 912 4 925 4	* A serving boy (Residence)
-E 0 915 0 17		*	a fan made of peacock feathers: held in the hands
-G 0 914 0		*	a bunch of grapes
+E 0 915 0 17		*	A serving boy<held in the hands>: a fan made of peacock feathers
+G 0 914 0		*	A serving boy: a bunch of grapes
 M 0 912 4 925 4	* A serving boy (Residence)
-E 0 915 0 17		*	a fan made of peacock feathers: held in the hands
-G 0 914 0		*	a bunch of grapes
+E 0 915 0 17		*	A serving boy<held in the hands>: a fan made of peacock feathers
+G 0 914 0		*	A serving boy: a bunch of grapes
 M 0 905 1 926 1	* Apollo (Residence)
-E 0 907 0 16		*	a silver bow: wielded
-G 0 926 0		*	nectar
-G 0 909 0		*	ambrosia
+E 0 907 0 16		*	Apollo<wielded>: a silver bow
+G 0 926 0		*	Apollo: nectar
+G 0 909 0		*	Apollo: ambrosia
 M 0 911 4 926 4	* an apprentice musician (Residence)
-E 0 916 0 17		*	a lute: held in the hands
-G 0 921 0		*	a kiwi
+E 0 916 0 17		*	an apprentice musician<held in the hands>: a lute
+G 0 921 0		*	an apprentice musician: a kiwi
 M 0 911 4 926 4	* an apprentice musician (Residence)
-E 0 916 0 17		*	a lute: held in the hands
-G 0 921 0		*	a kiwi
+E 0 916 0 17		*	an apprentice musician<held in the hands>: a lute
+G 0 921 0		*	an apprentice musician: a kiwi
 M 0 916 1 927 1	* the Alchemist (Mystic Shop)
-G 0 909 0		*	ambrosia
-G 0 926 0		*	nectar
-E 0 910 0 3		*	a glowing necklace: around the neck
-E 0 905 0 17		*	an ivory staff: held in the hands
+G 0 909 0		*	the Alchemist: ambrosia
+G 0 926 0		*	the Alchemist: nectar
+E 0 910 0 3		*	the Alchemist<around the neck>: a glowing necklace
+E 0 905 0 17		*	the Alchemist<held in the hands>: an ivory staff
 M 0 923 10 928 2	* A citizen (Ares Street)
 M 0 914 1 929 1	* Odin (Guest Quarters)
-E 0 924 0 12		*	a blue robe: about the shoulders
-E 0 925 0 6		*	a wide brimmed hat: over the head
+E 0 924 0 12		*	Odin<about the shoulders>: a blue robe
+E 0 925 0 6		*	Odin<over the head>: a wide brimmed hat
 M 0 919 1 931 1	* Ra the Sun God (Guest Quarters)
-E 0 922 0 3		*	the Amulet of Ra: around the neck
-E 0 923 0 16		*	the Sword of the Sun: wielded
+E 0 922 0 3		*	Ra the Sun God<around the neck>: the Amulet of Ra
+E 0 923 0 16		*	Ra the Sun God<wielded>: the Sword of the Sun
 M 0 922 3 933 3	* a roc (Stable)
 M 0 922 3 933 3	* a roc (Stable)
 M 0 924 3 933 3	* a pegasus (Stable)
@@ -1848,39 +1839,39 @@ M 0 924 3 933 3	* a pegasus (Stable)
 M 0 923 10 934 2	* A citizen (Ares Street)
 M 0 918 1 935 1	* Samuel the Armourer (Armoury)
 M 0 917 1 936 1	* Clive the Weapons Master (Weapon Shop)
-G 0 907 0		*	a silver bow
-G 0 913 0		*	a notched axe
+G 0 907 0		*	Clive the Weapons Master: a silver bow
+G 0 913 0		*	Clive the Weapons Master: a notched axe
 M 0 908 1 937 1	* Hephaestus (Smithy)
-E 0 912 0 11		*	a brightly glowing shield: as a shield
-G 0 926 0		*	nectar
-G 0 909 0		*	ambrosia
+E 0 912 0 11		*	Hephaestus<as a shield>: a brightly glowing shield
+G 0 926 0		*	Hephaestus: nectar
+G 0 909 0		*	Hephaestus: ambrosia
 M 0 909 4 937 4	* A Golden Maiden (Smithy)
-G 0 917 0		*	a gold nugget
+G 0 917 0		*	A Golden Maiden: a gold nugget
 M 0 909 4 937 4	* A Golden Maiden (Smithy)
-G 0 917 0		*	a gold nugget
+G 0 917 0		*	A Golden Maiden: a gold nugget
 M 0 906 1 938 1	* Ares (The Planning Room)
-E 0 903 0 16		*	the spear of Ares: wielded
-G 0 926 0		*	nectar
-G 0 909 0		*	ambrosia
+E 0 903 0 16		*	Ares<wielded>: the spear of Ares
+G 0 926 0		*	Ares: nectar
+G 0 909 0		*	Ares: ambrosia
 M 0 910 4 938 4	* A Soldier (The Planning Room)
-E 0 913 0 16		*	a notched axe: wielded
-G 0 919 0		*	a pear
+E 0 913 0 16		*	A Soldier<wielded>: a notched axe
+G 0 919 0		*	A Soldier: a pear
 M 0 910 4 938 4	* A Soldier (The Planning Room)
-E 0 913 0 16		*	a notched axe: wielded
-G 0 919 0		*	a pear
+E 0 913 0 16		*	A Soldier<wielded>: a notched axe
+G 0 919 0		*	A Soldier: a pear
 M 0 921 1 945 1	* Hera (Bed Room)
-E 0 911 0 1		*	a sapphire ring: on the left finger
-G 0 926 0		*	nectar
-G 0 909 0		*	ambrosia
+E 0 911 0 1		*	Hera<on the left finger>: a sapphire ring
+G 0 926 0		*	Hera: nectar
+G 0 909 0		*	Hera: ambrosia
 M 0 904 1 946 1	* Poseidon (Bed Room)
-E 0 906 0 16		*	poseidon's Trident: wielded
-G 0 926 0		*	nectar
-G 0 909 0		*	ambrosia
+E 0 906 0 16		*	Poseidon<wielded>: poseidon's Trident
+G 0 926 0		*	Poseidon: nectar
+G 0 909 0		*	Poseidon: ambrosia
 M 0 903 1 947 1	* Hermes (Bed Room)
-E 0 904 0 8		*	a pair of winged sandals: on the feet
-E 0 902 0 6		*	a Winged Helmet: over the head
-G 0 926 0		*	nectar
-G 0 909 0		*	ambrosia
+E 0 904 0 8		*	Hermes<on the feet>: a pair of winged sandals
+E 0 902 0 6		*	Hermes<over the head>: a Winged Helmet
+G 0 926 0		*	Hermes: nectar
+G 0 909 0		*	Hermes: ambrosia
 M 0 913 5 954 5	* A hound of war (The Believer)
 M 0 913 5 954 5	* A hound of war (The Believer)
 M 0 913 5 954 5	* A hound of war (The Believer)

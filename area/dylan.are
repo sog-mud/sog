@@ -2490,7 +2490,6 @@ M 9107 spec_cast_undead	* the ugly, wicked witch
 S
 
 #RESETS
-D 0 9141 1 1	* Witches Tower: door to the east: closed
 M 0 9101 35 9102 2	* the screaming, filthy harpy (A fluffy white cloud.)
 M 0 9101 35 9102 2	* the screaming, filthy harpy (A fluffy white cloud.)
 M 0 9101 35 9105 2	* the screaming, filthy harpy (A fluffy white cloud.)
@@ -2509,9 +2508,9 @@ M 0 9101 35 9121 1	* the screaming, filthy harpy (Dank, dark, smelly hole.)
 M 0 9101 35 9122 2	* the screaming, filthy harpy (Large, sturdy ledge.)
 M 0 9101 35 9122 2	* the screaming, filthy harpy (Large, sturdy ledge.)
 M 0 9102 2 9123 1	* the screaming harpy leader (Absolutely disgusting lair.)
-G 0 9104 0		*	magenta potion
+G 0 9104 0		*	the screaming harpy leader: magenta potion
 M 0 9102 2 9124 1	* the screaming harpy leader (Absolutely disgusting lair.)
-G 0 9105 0		*	an ancient illustrated parchment
+G 0 9105 0		*	the screaming harpy leader: an ancient illustrated parchment
 M 0 9101 35 9127 3	* the screaming, filthy harpy (A fluffy white cloud.)
 M 0 9101 35 9127 3	* the screaming, filthy harpy (A fluffy white cloud.)
 M 0 9101 35 9127 3	* the screaming, filthy harpy (A fluffy white cloud.)
@@ -2521,7 +2520,7 @@ M 0 9101 35 9133 1	* the screaming, filthy harpy (Sneezing little cloud.)
 M 0 9101 35 9135 1	* the screaming, filthy harpy (Doc-like little cloud.)
 M 0 9103 5 9137 1	* the ghostly air elemental (Cold, damp cloud.)
 M 0 9107 1 9141 1	* the ugly, wicked witch (Witches Tower)
-E 0 9101 0 8		*	a pair of winged boots: on the feet
+E 0 9101 0 8		*	the ugly, wicked witch<on the feet>: a pair of winged boots
 M 0 9101 35 9144 1	* the screaming, filthy harpy (Raging hurricane.)
 M 0 9101 35 9145 1	* the screaming, filthy harpy (Raging hurricane.)
 M 0 9101 35 9146 1	* the screaming, filthy harpy (Raging hurricane.)
@@ -2540,9 +2539,9 @@ M 0 9101 35 9162 2	* the screaming, filthy harpy (Croquet game)
 M 0 9103 5 9163 1	* the ghostly air elemental (Huge, gorgeous fountain.)
 M 0 9103 5 9177 1	* the ghostly air elemental (Foyer.)
 M 0 9104 2 9182 1	* the mysterious efreeti (Western tower.)
-G 0 9102 0		*	A carved bronze bracer
+G 0 9102 0		*	the mysterious efreeti: A carved bronze bracer
 M 0 9104 2 9187 1	* the mysterious efreeti (Eastern tower.)
-G 0 9103 0		*	an ornate brooch
+G 0 9103 0		*	the mysterious efreeti: an ornate brooch
 S
 
 #OLIMITS

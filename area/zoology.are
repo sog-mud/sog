@@ -561,10 +561,6 @@ M 409 spec_janitor	* A janitor
 S
 
 #RESETS
-D 0 407 3 1	* Hall of Chordates: door to the west: closed
-D 0 408 1 2	* Marine Exhibit: door to the east: closed and locked
-D 0 409 3 2	* The Shark Tank: door to the west: closed and locked
-D 0 412 1 1	* The Gorilla Cage: door to the east: closed
 M 0 401 1 400 1	* A gorilla (Entrance to the Museum)
 M 0 407 1 401 1	* Your teacher (Atrium of the Museum)
 M 0 406 1 403 1	* a child (Under the Sea)
@@ -573,13 +569,13 @@ M 0 402 1 405 1	* A pubic lice (Hall of Tinsy Things)
 M 0 410 2 406 2	* an emu (Hall of Chordates)
 M 0 406 1 407 1	* a child (Hall of Chordates)
 M 0 404 1 409 1	* a shark (The Shark Tank)
-G 0 402 0		*	A shark tooth necklace
+G 0 402 0		*	a shark: A shark tooth necklace
 M 0 405 2 410 2	* A Man-of-war (Marine Exhibit)
 M 0 409 1 412 1	* A janitor (The Gorilla Cage)
-E 0 401 0 17		*	The key to the tank: held in the hands
+E 0 401 0 17		*	A janitor<held in the hands>: The key to the tank
 M 0 408 2 412 2	* A gorilla (The Gorilla Cage)
 M 0 403 1 413 1	* John the shopkeeper (Souvenire Shop)
-G 0 400 0		*	Some popcorn
+G 0 400 0		*	John the shopkeeper: Some popcorn
 S
 
 #SHOPS

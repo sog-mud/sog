@@ -2636,13 +2636,13 @@ M 0 10008 1 10003 1	* a fisherman (Welcome to Westlands)
 M 0 10009 1 10003 1	* a little boy (Welcome to Westlands)
 M 0 10005 4 10005 4	* a quad assassin (A turn in the road)
 M 0 10014 2 10006 1	* a boundary warden (A path to the mountains)
-E 0 10012 0 1		*	a boundary warden's ring: on the left finger
-E 0 10012 0 2		*	a boundary warden's ring: on the right finger
-E 0 10013 0 7		*	boundary warden leggins: on the legs
+E 0 10012 0 1		*	a boundary warden<on the left finger>: a boundary warden's ring
+E 0 10012 0 2		*	a boundary warden<on the right finger>: a boundary warden's ring
+E 0 10013 0 7		*	a boundary warden<on the legs>: boundary warden leggins
 M 0 10010 1 10008 1	* a heart hound (The edge of upper ven)
-E 0 10015 0 3		*	a heart hound collar: around the neck
+E 0 10015 0 3		*	a heart hound<around the neck>: a heart hound collar
 M 0 10010 1 10008 1	* a heart hound (The edge of upper ven)
-E 0 10015 0 3		*	a heart hound collar: around the neck
+E 0 10015 0 3		*	a heart hound<around the neck>: a heart hound collar
 M 0 10001 2 10009 1	* a long-tailed gar (The trail in the forest)
 M 0 10002 2 10009 1	* a long-tailed gar (The trail in the forest)
 M 0 10004 4 10009 1	* a blood fly (The trail in the forest)
@@ -2668,41 +2668,41 @@ M 0 10002 2 10015 1	* a long-tailed gar (The path at the swamp)
 M 0 10004 4 10015 1	* a blood fly (The path at the swamp)
 M 0 10010 4 10015 1	* a heart hound (The path at the swamp)
 M 0 10010 4 10015 1	* a heart hound (The path at the swamp)
-E 0 10015 0 3		*	a heart hound collar: around the neck
+E 0 10015 0 3		*	a heart hound<around the neck>: a heart hound collar
 M 0 10026 4 10016 1	* a yellow snake (Over the swamp waters)
 M 0 10026 4 10016 1	* a yellow snake (Over the swamp waters)
 M 0 10026 4 10016 1	* a yellow snake (Over the swamp waters)
 M 0 10026 4 10016 1	* a yellow snake (Over the swamp waters)
 M 0 10014 2 10020 1	* a boundary warden (The trail through the woods)
-E 0 10001 0 16		*	a boundary warden's mace: wielded
-E 0 10006 0 9		*	boundary warden gloves: on the hands
-E 0 10007 0 8		*	boundary warden boots: on the feet
-E 0 10008 0 10		*	boundary warden sleeves: on the arms
-E 0 10009 0 11		*	boundary warden's shield: as a shield
-E 0 10010 0 5		*	boundary warden's tunic: on the body
-E 0 10011 0 6		*	a boundary warden's helmet: over the head
-G 0 10020 0		*	a boundary warden's flail
-G 0 10021 0		*	a boundary warden's mace
-G 0 10022 0		*	a boundary warden's dagger
-G 0 10019 0		*	a boundary warden's sword
+E 0 10001 0 16		*	a boundary warden<wielded>: a boundary warden's mace
+E 0 10006 0 9		*	a boundary warden<on the hands>: boundary warden gloves
+E 0 10007 0 8		*	a boundary warden<on the feet>: boundary warden boots
+E 0 10008 0 10		*	a boundary warden<on the arms>: boundary warden sleeves
+E 0 10009 0 11		*	a boundary warden<as a shield>: boundary warden's shield
+E 0 10010 0 5		*	a boundary warden<on the body>: boundary warden's tunic
+E 0 10011 0 6		*	a boundary warden<over the head>: a boundary warden's helmet
+G 0 10020 0		*	a boundary warden: a boundary warden's flail
+G 0 10021 0		*	a boundary warden: a boundary warden's mace
+G 0 10022 0		*	a boundary warden: a boundary warden's dagger
+G 0 10019 0		*	a boundary warden: a boundary warden's sword
 M 0 10025 1 10022 1	* a little thief (The road along the village)
-G 0 10014 0		*	a dark robe
-E 0 10005 0 8		*	a pair of black boots: on the feet
+G 0 10014 0		*	a little thief: a dark robe
+E 0 10005 0 8		*	a little thief<on the feet>: a pair of black boots
 M 0 10028 1 10022 1	* a dopey little cat (The road along the village)
-G 0 10017 0		*	a BIG cookie!
+G 0 10017 0		*	a dopey little cat: a BIG cookie!
 M 0 10023 1 10023 1	* the bar tender (The bar)
-G 0 10004 0		*	a jug of beer
-G 0 10016 0		*	a magical leather pouch
+G 0 10004 0		*	the bar tender: a jug of beer
+G 0 10016 0		*	the bar tender: a magical leather pouch
 M 0 10024 4 10023 1	* a drunken villager (The bar)
-G 0 10004 0		*	a jug of beer
+G 0 10004 0		*	a drunken villager: a jug of beer
 M 0 10024 4 10023 1	* a drunken villager (The bar)
 M 0 10024 4 10023 1	* a drunken villager (The bar)
 M 0 10024 4 10023 1	* a drunken villager (The bar)
 M 0 10006 4 10025 4	* a quad assassin (The path to the Bone Woman's shack)
 M 0 10017 1 10026 1	* The Bone Woman (The Bone Woman's shack)
-E 0 10002 0 4		*	the Bone Woman's necklace: on the face
+E 0 10002 0 4		*	The Bone Woman<on the face>: the Bone Woman's necklace
 M 0 10018 3 10028 1	* a nasty gripper (The path through the narrows)
-G 0 10003 0		*	some grippers teeth
+G 0 10003 0		*	a nasty gripper: some grippers teeth
 M 0 10018 3 10028 1	* a nasty gripper (The path through the narrows)
 M 0 10018 3 10029 1	* a nasty gripper (The center of the narrows)
 M 0 10019 2 10029 1	* the scary shadow thing (The center of the narrows)
@@ -2711,20 +2711,20 @@ M 0 10019 2 10030 1	* the scary shadow thing (Near the end of the narrows)
 M 0 10020 1 10031 1	* the spirit king (The end of the narrows)
 M 0 10022 4 10032 1	* an evil shadow person (The Azrith plains)
 M 0 10027 2 10032 1	* an underworld beast (The Azrith plains)
-G 0 10018 0		*	a BIG piece of cake!
+G 0 10018 0		*	an underworld beast: a BIG piece of cake!
 M 0 10027 2 10032 1	* an underworld beast (The Azrith plains)
 M 0 10022 4 10034 1	* an evil shadow person (The Azrith plains)
 M 0 10022 4 10034 1	* an evil shadow person (The Azrith plains)
 M 0 10021 1 10035 1	* Scarlet (At the BIG scary DRaGoN!)
 M 0 10029 2 10038 1	* Mord-Sith (The long hallway)
-E 0 10023 0 16		*	a mord-sith agiel: wielded
+E 0 10023 0 16		*	Mord-Sith<wielded>: a mord-sith agiel
 M 0 10033 1 10040 1	* Denna (The room of the Mord-Siths)
-E 0 10023 0 16		*	a mord-sith agiel: wielded
+E 0 10023 0 16		*	Denna<wielded>: a mord-sith agiel
 M 0 10029 1 10040 1	* Mord-Sith (The room of the Mord-Siths)
-E 0 10023 0 16		*	a mord-sith agiel: wielded
+E 0 10023 0 16		*	Mord-Sith<wielded>: a mord-sith agiel
 M 0 10030 2 10041 1	* a devoter of Darken Rahl (The end of the hallway)
 M 0 10031 1 10042 1	* The Evil Darken Rahl (The Garden of Life)
-E 0 10024 0 14		*	the bracer of power: on the left wrist
+E 0 10024 0 14		*	The Evil Darken Rahl<on the left wrist>: the bracer of power
 S
 
 #SHOPS

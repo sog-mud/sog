@@ -1719,19 +1719,19 @@ M 0 309 10 318 4	* the cute rabbit (Grassy plains)
 O 0 301 0 319	* a small dusk of black gyvel (Grassy plains)
 O 0 304 0 323	* wild flowers (The steep foothills)
 M 0 300 1 323 1	* Aruncus the Druid (The steep foothills)
-E 0 308 0 16		*	a druish staff: wielded
-E 0 307 0 3		*	a strange amulet: around the neck
-G 0 312 0		*	a scroll titled 'jhyfrdow'
-G 0 302 0		*	a small dusk of poison ivy
+E 0 308 0 16		*	Aruncus the Druid<wielded>: a druish staff
+E 0 307 0 3		*	Aruncus the Druid<around the neck>: a strange amulet
+G 0 312 0		*	Aruncus the Druid: a scroll titled 'jhyfrdow'
+G 0 302 0		*	Aruncus the Druid: a small dusk of poison ivy
 M 0 309 10 324 4	* the cute rabbit (The steep foothills)
 O 0 300 0 327	* a small dusk of timian herbs (The foothills)
 M 0 301 1 331 1	* Sorbus the Hermit (Hermit's hut)
-G 0 303 0		*	a dark red jar
-G 0 309 0		*	a rabbit roast
+G 0 303 0		*	Sorbus the Hermit: a dark red jar
+G 0 309 0		*	Sorbus the Hermit: a rabbit roast
 M 0 309 10 334 4	* the cute rabbit (The ancient path)
 O 0 304 0 338	* wild flowers (Grassy plains)
 M 0 305 1 344 1	* Shudde-M'ell (The Hall)
-G 0 311 0		*	a clear potion
+G 0 311 0		*	Shudde-M'ell: a clear potion
 S
 
 #SHOPS

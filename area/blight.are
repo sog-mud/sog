@@ -7133,127 +7133,81 @@ M 23021 spec_thief	* The fox-like humanoid
 S
 
 #RESETS
-D 0 23069 1 2	* The Gatehouse: door to the east: closed and locked
-D 0 23069 3 2	* The Gatehouse: door to the west: closed and locked
-D 0 23070 1 2	* A Guard Room: door to the east: closed and locked
-D 0 23071 3 2	* A Guard Room: door to the west: closed and locked
-D 0 23077 1 1	* The Kitchen: door to the east: closed
-D 0 23078 3 1	* The Larder: door to the west: closed
-D 0 23081 0 1	* The Hallway: door to the north: closed
-D 0 23087 2 1	* Servant's Quarters: door to the south: closed
-D 0 23092 2 2	* The Hallway: door to the south: closed and locked
-D 0 23096 0 2	* The Lord's Quarters: door to the north: closed and locked
-D 0 23099 0 1	* The Hallway: door to the north: closed
-D 0 23115 2 2	* A Warded Glade: door to the south: closed and locked
-D 0 24000 2 1	* The Hallway: door to the south: closed
-D 0 24001 0 1	* The Hallway: door to the north: closed
-D 0 24003 2 1	* Water Storage: door to the south: closed
-D 0 24004 2 1	* The Training Room: door to the south: closed
-D 0 24005 0 1	* The Armoury: door to the north: closed
-D 0 24007 0 2	* The Hallway: door to the north: closed and locked
-D 0 24008 2 2	* The Hallway: door to the south: closed and locked
-D 0 24009 1 1	* Guard Room: door to the east: closed
-D 0 24009 2 2	* Guard Room: door to the south: closed and locked
-D 0 24010 3 1	* Interogation Room: door to the west: closed
-D 0 24011 0 2	* The Cells: door to the north: closed and locked
-D 0 24020 1 2	* The Gatehouse: door to the east: closed and locked
-D 0 24020 3 2	* The Gatehouse: door to the west: closed and locked
-D 0 24021 1 2	* A Guard Room: door to the east: closed and locked
-D 0 24022 3 2	* A Guard Room: door to the west: closed and locked
-D 0 24028 1 1	* The Kitchen: door to the east: closed
-D 0 24029 3 1	* The Larder: door to the west: closed
-D 0 24032 0 1	* The Hallway: door to the north: closed
-D 0 24038 2 1	* Servant's Quarters: door to the south: closed
-D 0 24043 2 2	* The Hallway: door to the south: closed and locked
-D 0 24047 0 2	* The Lord's Quarters: door to the north: closed and locked
-D 0 24050 0 1	* The Hallway: door to the north: closed
-D 0 24051 2 1	* The Hallway: door to the south: closed
-D 0 24052 0 1	* The Hallway: door to the north: closed
-D 0 24054 2 1	* Water Storage: door to the south: closed
-D 0 24055 2 1	* The Training Room: door to the south: closed
-D 0 24056 0 1	* The Armoury: door to the north: closed
-D 0 24058 0 2	* The Hallway: door to the north: closed and locked
-D 0 24059 2 2	* The Hallway: door to the south: closed and locked
-D 0 24060 1 1	* Guard Room: door to the east: closed
-D 0 24060 2 2	* Guard Room: door to the south: closed and locked
-D 0 24061 3 1	* Interogation Room: door to the west: closed
-D 0 24062 0 2	* The Cells: door to the north: closed and locked
-D 0 24090 0 2	* Near the Mountains of Dhoom: door to the north: closed and locked
 M 0 23002 3 23001 1	* The Myrddraal (Edge of the Blight)
-E 0 23008 0 16		*	a black sword: wielded
-E 0 23009 0 12		*	an unmoving black cloak: about the shoulders
-E 0 23010 0 5		*	snake-like overlapping black plates: on the body
+E 0 23008 0 16		*	The Myrddraal<wielded>: a black sword
+E 0 23009 0 12		*	The Myrddraal<about the shoulders>: an unmoving black cloak
+E 0 23010 0 5		*	The Myrddraal<on the body>: snake-like overlapping black plates
 M 0 23001 6 23001 1	* The trolloc (Edge of the Blight)
 M 0 23001 6 23005 1	* The trolloc (The Blight)
-E 0 23001 0 16		*	a huge curved blade: wielded
+E 0 23001 0 16		*	The trolloc<wielded>: a huge curved blade
 M 0 23010 20 23007 2	* The diseased creature (Entering the Blight)
 M 0 23008 1 23008 1	* The twisted tree (The Blight)
 M 0 23007 1 23009 1	* The creature (One of the Hundred Lakes)
 O 0 23029 0 23009	* encased in the lakes muck (One of the Hundred Lakes)
-P 0 23025 0 23029 1	* encased in the lakes muck: a strange ward
+P 0 23025 0 0 1	* encased in the lakes muck: a strange ward
 M 0 23010 20 23010 2	* The diseased creature (The Blight)
 M 0 23014 7 23012 1	* The spirit (Entering the Blight)
 M 0 23001 6 23016 1	* The trolloc (Edge of the Blight)
-E 0 23001 0 16		*	a huge curved blade: wielded
+E 0 23001 0 16		*	The trolloc<wielded>: a huge curved blade
 M 0 23010 20 23020 2	* The diseased creature (The Blight)
 M 0 23010 20 23022 2	* The diseased creature (Entering the Blight)
 M 0 23016 1 23024 1	* The twisted tree (The Blight)
 M 0 23006 3 23028 1	* The trolloc (The Blight)
-E 0 23001 0 16		*	a huge curved blade: wielded
+E 0 23001 0 16		*	The trolloc<wielded>: a huge curved blade
 M 0 23006 3 23028 1	* The trolloc (The Blight)
-E 0 23001 0 16		*	a huge curved blade: wielded
+E 0 23001 0 16		*	The trolloc<wielded>: a huge curved blade
 M 0 23006 3 23028 1	* The trolloc (The Blight)
-E 0 23001 0 16		*	a huge curved blade: wielded
+E 0 23001 0 16		*	The trolloc<wielded>: a huge curved blade
 M 0 23002 3 23033 1	* The Myrddraal (The Blight)
-E 0 23008 0 16		*	a black sword: wielded
-E 0 23009 0 12		*	an unmoving black cloak: about the shoulders
-E 0 23010 0 5		*	snake-like overlapping black plates: on the body
+E 0 23008 0 16		*	The Myrddraal<wielded>: a black sword
+E 0 23009 0 12		*	The Myrddraal<about the shoulders>: an unmoving black cloak
+E 0 23010 0 5		*	The Myrddraal<on the body>: snake-like overlapping black plates
 M 0 23010 20 23033 2	* The diseased creature (The Blight)
 M 0 23005 1 23035 1	* The flock of ravens (The Blight)
-E 0 23013 0 17		*	a shiny platinum key: held in the hands
+E 0 23013 0 17		*	The flock of ravens<held in the hands>: a shiny platinum key
 M 0 23004 3 23037 1	* The trolloc (Entering the Blight)
-E 0 23001 0 16		*	a huge curved blade: wielded
+E 0 23001 0 16		*	The trolloc<wielded>: a huge curved blade
 M 0 23004 3 23037 1	* The trolloc (Entering the Blight)
-E 0 23001 0 16		*	a huge curved blade: wielded
+E 0 23001 0 16		*	The trolloc<wielded>: a huge curved blade
 M 0 23004 3 23037 1	* The trolloc (Entering the Blight)
-E 0 23001 0 16		*	a huge curved blade: wielded
+E 0 23001 0 16		*	The trolloc<wielded>: a huge curved blade
 M 0 23009 1 23039 1	* The draghkar (The Blight)
-E 0 23034 0 16		*	a seductive smile: wielded
-E 0 23014 0 17		*	a shiny golden key: held in the hands
+E 0 23034 0 16		*	The draghkar<wielded>: a seductive smile
+E 0 23014 0 17		*	The draghkar<held in the hands>: a shiny golden key
 M 0 23010 20 23042 2	* The diseased creature (Entering the Blight)
 M 0 23017 1 23043 1	* The twisted tree (The Blight)
 M 0 23010 20 23045 2	* The diseased creature (The Blight)
 M 0 23010 20 23047 2	* The diseased creature (Entering the Blight)
 M 0 23003 3 23051 1	* The trolloc (Edge of the Blight)
-E 0 23001 0 16		*	a huge curved blade: wielded
+E 0 23001 0 16		*	The trolloc<wielded>: a huge curved blade
 M 0 23003 3 23051 1	* The trolloc (Edge of the Blight)
-E 0 23001 0 16		*	a huge curved blade: wielded
+E 0 23001 0 16		*	The trolloc<wielded>: a huge curved blade
 M 0 23003 3 23051 1	* The trolloc (Edge of the Blight)
-E 0 23001 0 16		*	a huge curved blade: wielded
+E 0 23001 0 16		*	The trolloc<wielded>: a huge curved blade
 M 0 23018 1 23054 1	* The twisted tree (The Blight)
 M 0 23010 20 23057 2	* The diseased creature (Entering the Blight)
 M 0 23010 20 23059 2	* The diseased creature (The Blight)
 M 0 23002 3 23060 1	* The Myrddraal (The Blight)
-E 0 23008 0 16		*	a black sword: wielded
-E 0 23009 0 12		*	an unmoving black cloak: about the shoulders
-E 0 23010 0 5		*	snake-like overlapping black plates: on the body
+E 0 23008 0 16		*	The Myrddraal<wielded>: a black sword
+E 0 23009 0 12		*	The Myrddraal<about the shoulders>: an unmoving black cloak
+E 0 23010 0 5		*	The Myrddraal<on the body>: snake-like overlapping black plates
 M 0 23014 7 23062 1	* The spirit (The Hallway)
 M 0 23014 7 23064 1	* The spirit (The Hallway)
 M 0 23014 7 23073 1	* The spirit (The Hallway)
 M 0 23014 7 23082 1	* The spirit (The Hallway)
 O 0 23030 0 23086	* a skeleton (The Barracks)
-P 0 23002 0 23030 1	* a skeleton: a blood-stained key
-P 0 23003 0 23030 1	* a skeleton: a heavy iron key
-P 0 23004 0 23030 1	* a skeleton: an often used key
+P 0 23002 0 0 1	* a skeleton: a blood-stained key
+P 0 23003 0 0 1	* a skeleton: a heavy iron key
+P 0 23004 0 0 1	* a skeleton: an often used key
 M 0 23014 7 23092 1	* The spirit (The Hallway)
 M 0 23012 1 23096 1	* The Lord of the tower (The Lord's Quarters)
-E 0 23019 0 17		*	a small figurine: held in the hands
-E 0 23020 0 16		*	a Heron marked blade: wielded
-E 0 23021 0 6		*	a helm stylized into a golden crane: over the head
+E 0 23019 0 17		*	The Lord of the tower<held in the hands>: a small figurine
+E 0 23020 0 16		*	The Lord of the tower<wielded>: a Heron marked blade
+E 0 23021 0 6		*	The Lord of the tower<over the head>: a helm stylized into a golden crane
 M 0 23001 6 23100 1	* The trolloc (By the Shore)
 M 0 23011 2 23101 1	* The warder (In the Borderlands)
-E 0 23011 0 16		*	a finely crafted sword: wielded
-E 0 23012 0 12		*	a cloak of shifting colors: about the shoulders
+E 0 23011 0 16		*	The warder<wielded>: a finely crafted sword
+E 0 23012 0 12		*	The warder<about the shoulders>: a cloak of shifting colors
 M 0 23001 6 23101 1	* The trolloc (In the Borderlands)
 M 0 23001 6 23110 1	* The trolloc (In the Borderlands)
 O 0 23026 0 23115	* the spring (A Warded Glade)
@@ -7261,30 +7215,30 @@ M 0 23014 7 24001 1	* The spirit (The Hallway)
 M 0 23015 4 24005 1	* The spirit (The Armoury)
 M 0 23015 4 24033 1	* The spirit (The Hallway)
 O 0 23027 0 24035	* the small alcove (The Hallway)
-P 0 23028 0 23027 1	* the small alcove: an engraved staff
+P 0 23028 0 0 1	* the small alcove: an engraved staff
 O 0 23031 0 24037	* a skeleton (The Barracks)
-P 0 23005 0 23031 1	* a skeleton: a blood-stained key
-P 0 23006 0 23031 1	* a skeleton: a heavy iron key
-P 0 23007 0 23031 1	* a skeleton: an often used key
+P 0 23005 0 0 1	* a skeleton: a blood-stained key
+P 0 23006 0 0 1	* a skeleton: a heavy iron key
+P 0 23007 0 0 1	* a skeleton: an often used key
 M 0 23015 4 24043 1	* The spirit (The Hallway)
 M 0 23013 1 24047 1	* The Lord of the tower (The Lord's Quarters)
-E 0 23022 0 5		*	a suit of Malkerian battle armor: on the body
-E 0 23023 0 16		*	a heartstone dagger: wielded
-E 0 23024 0 17		*	a Lord's sceptre: held in the hands
+E 0 23022 0 5		*	The Lord of the tower<on the body>: a suit of Malkerian battle armor
+E 0 23023 0 16		*	The Lord of the tower<wielded>: a heartstone dagger
+E 0 23024 0 17		*	The Lord of the tower<held in the hands>: a Lord's sceptre
 M 0 23015 4 24051 1	* The spirit (The Hallway)
 M 0 23022 3 24068 1	* The grolm (The Center)
 M 0 23022 3 24069 1	* The grolm (The Southern Yard)
 M 0 23021 1 24071 1	* The fox-like humanoid (The Eastern Yard)
-E 0 23035 0 16		*	a wicked-looking knife: wielded
-E 0 23036 0 3		*	a foxheaded medallion: around the neck
+E 0 23035 0 16		*	The fox-like humanoid<wielded>: a wicked-looking knife
+E 0 23036 0 3		*	The fox-like humanoid<around the neck>: a foxheaded medallion
 M 0 23020 1 24073 1	* The metallic orb (The Northern Yard)
 M 0 23019 1 24075 1	* The Sul'Dam (The Western Yard)
-E 0 23032 0 17		*	an A'dam: held in the hands
-E 0 23033 0 5		*	a plain dress pannelled with lightning bolts: on the body
+E 0 23032 0 17		*	The Sul'Dam<held in the hands>: an A'dam
+E 0 23033 0 5		*	The Sul'Dam<on the body>: a plain dress pannelled with lightning bolts
 M 0 23022 3 24076 1	* The grolm (The Southwest Corner)
 M 0 23011 2 24082 1	* The warder (Tarwin's Gap)
-E 0 23011 0 16		*	a finely crafted sword: wielded
-E 0 23012 0 12		*	a cloak of shifting colors: about the shoulders
+E 0 23011 0 16		*	The warder<wielded>: a finely crafted sword
+E 0 23012 0 12		*	The warder<about the shoulders>: a cloak of shifting colors
 S
 
 #OLIMITS

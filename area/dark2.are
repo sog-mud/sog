@@ -2978,41 +2978,23 @@ M 14510 spec_cast_mage	* the Watcher
 S
 
 #RESETS
-D 0 14539 0 1	* Malo Main: door to the north: closed
-D 0 14539 2 1	* Malo Main: door to the south: closed
-D 0 14540 2 1	* Stone house: door to the south: closed
-D 0 14541 0 1	* Gray Stone house: door to the north: closed
-D 0 14543 0 1	* Village street: door to the north: closed
-D 0 14543 2 1	* Village street: door to the south: closed
-D 0 14544 2 1	* Brown House: door to the south: closed
-D 0 14545 0 1	* Green house: door to the north: closed
-D 0 14547 0 1	* End of the street: door to the north: closed
-D 0 14547 2 1	* End of the street: door to the south: closed
-D 0 14547 3 1	* End of the street: door to the west: closed
-D 0 14548 2 1	* Simple home: door to the south: closed
-D 0 14549 1 1	* Last house: door to the east: closed
-D 0 14550 0 1	* A general store: door to the north: closed
-D 0 14563 1 1	* East Tower: door to the east: closed
-D 0 14565 2 1	* Before the gate: door to the south: closed
-D 0 14566 0 1	* Other side of the gate: door to the north: closed
-D 0 14596 3 1	* Outside the East Tower: door to the west: closed
 M 0 14501 3 14508 1	* the BIG monkey (Palm path)
-G 0 14501 0		*	a monkey paw
+G 0 14501 0		*	the BIG monkey: a monkey paw
 M 0 14507 3 14520 1	* the Bearded Soldier (Clearing)
-E 0 14517 0 6		*	an Island Helmet: over the head
-E 0 14518 0 11		*	an Island Shield: as a shield
-E 0 14516 0 16		*	an Island Sword: wielded
+E 0 14517 0 6		*	the Bearded Soldier<over the head>: an Island Helmet
+E 0 14518 0 11		*	the Bearded Soldier<as a shield>: an Island Shield
+E 0 14516 0 16		*	the Bearded Soldier<wielded>: an Island Sword
 M 0 14508 4 14523 1	* the Alert Soldier (Clearing's Center)
-E 0 14517 0 16		*	an Island Helmet: wielded
-E 0 14518 0 11		*	an Island Shield: as a shield
-E 0 14516 0 6		*	an Island Sword: over the head
+E 0 14517 0 16		*	the Alert Soldier<wielded>: an Island Helmet
+E 0 14518 0 11		*	the Alert Soldier<as a shield>: an Island Shield
+E 0 14516 0 6		*	the Alert Soldier<over the head>: an Island Sword
 M 0 14509 2 14527 1	* the Sleepy Soldier (Mountain trail)
-E 0 14520 0 17		*	a Glowing Scroll: held in the hands
-E 0 14519 0 16		*	an Island Mace: wielded
+E 0 14520 0 17		*	the Sleepy Soldier<held in the hands>: a Glowing Scroll
+E 0 14519 0 16		*	the Sleepy Soldier<wielded>: an Island Mace
 M 0 14510 1 14536 1	* the Watcher (Mountain top)
-E 0 14523 0 1		*	a Watcher Signet Ring: on the left finger
-E 0 14521 0 12		*	a Watcher's Black Cape: about the shoulders
-E 0 14522 0 16		*	a Watcher's Thrusting Dagger: wielded
+E 0 14523 0 1		*	the Watcher<on the left finger>: a Watcher Signet Ring
+E 0 14521 0 12		*	the Watcher<about the shoulders>: a Watcher's Black Cape
+E 0 14522 0 16		*	the Watcher<wielded>: a Watcher's Thrusting Dagger
 O 0 14528 0 14537	* a stone well (Village entrance)
 M 0 14511 3 14538 1	* the fat pig (Malo Village)
 O 0 14524 0 14539	* a reed basket (Malo Main)
@@ -3041,33 +3023,33 @@ O 0 14529 0 14549	* a featherbed (Last house)
 O 0 14524 0 14550	* a reed basket (A general store)
 O 0 14534 0 14550	* a chest (A general store)
 M 0 14520 10 14570 1	* the Goblin Warrior (A path)
-E 0 14536 0 5		*	a Goblin Loincloth: on the body
-E 0 14535 0 16		*	a Goblin Spear: wielded
+E 0 14536 0 5		*	the Goblin Warrior<on the body>: a Goblin Loincloth
+E 0 14535 0 16		*	the Goblin Warrior<wielded>: a Goblin Spear
 M 0 14506 1 14574 1	* Madboy the Adventurer (Entrance to Land's End)
-E 0 14515 0 16		*	madboy's sword: wielded
-G 0 14514 0		*	madboy's Head
+E 0 14515 0 16		*	Madboy the Adventurer<wielded>: madboy's sword
+G 0 14514 0		*	Madboy the Adventurer: madboy's Head
 M 0 14503 1 14577 1	* the Dwarven Merchant (Oceanview Home)
-G 0 14505 0		*	a keg of Dwarven Go Juice
-G 0 14506 0		*	a Dwarven Everlasting Lantern
-G 0 14507 0		*	Dwarven Adventurer Bread
+G 0 14505 0		*	the Dwarven Merchant: a keg of Dwarven Go Juice
+G 0 14506 0		*	the Dwarven Merchant: a Dwarven Everlasting Lantern
+G 0 14507 0		*	the Dwarven Merchant: Dwarven Adventurer Bread
 M 0 14502 1 14578 1	* the Elven Merchant (Large Warehouse)
-G 0 14502 0		*	an Elven Necklace
-G 0 14503 0		*	an Elven potion
-G 0 14504 0		*	elven Water Walking Boots
+G 0 14502 0		*	the Elven Merchant: an Elven Necklace
+G 0 14503 0		*	the Elven Merchant: an Elven potion
+G 0 14504 0		*	the Elven Merchant: elven Water Walking Boots
 M 0 14505 1 14579 1	* the Human Merchant (Largest Warehouse)
-G 0 14510 0		*	a Treasure Map
-G 0 14511 0		*	a candlestick
-G 0 14512 0		*	a Quest Note 
-G 0 14513 0		*	a Water Urn
+G 0 14510 0		*	the Human Merchant: a Treasure Map
+G 0 14511 0		*	the Human Merchant: a candlestick
+G 0 14512 0		*	the Human Merchant: a Quest Note 
+G 0 14513 0		*	the Human Merchant: a Water Urn
 M 0 14504 1 14580 1	* the Halfdwarf Merchant (Small home)
-G 0 14508 0		*	an Alligator skin hip pack
-G 0 14509 0		*	a magical emergency wafer
+G 0 14508 0		*	the Halfdwarf Merchant: an Alligator skin hip pack
+G 0 14509 0		*	the Halfdwarf Merchant: a magical emergency wafer
 M 0 14518 5 14582 1	* the Dwarven Woman (Garden path)
-E 0 14527 0 6		*	a straw hat: over the head
-G 0 14526 0		*	a basket of fruit
+E 0 14527 0 6		*	the Dwarven Woman<over the head>: a straw hat
+G 0 14526 0		*	the Dwarven Woman: a basket of fruit
 M 0 14519 4 14582 1	* the Dwarven Man (Garden path)
-E 0 14537 0 16		*	A Dwarven Flail: wielded
-E 0 14538 0 11		*	a Dwarven Shield: as a shield
+E 0 14537 0 16		*	the Dwarven Man<wielded>: A Dwarven Flail
+E 0 14538 0 11		*	the Dwarven Man<as a shield>: a Dwarven Shield
 S
 
 #SHOPS

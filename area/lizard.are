@@ -11,7 +11,8 @@ End
 #22101
 lizard king~
 lizard king~
-The Lizard King stands here.
+@eng The Lizard King stands here.
+@rus Король ящериц, притворившись статуей, купается в лучах солнца.
 ~
 ~
 lizard~
@@ -6710,9 +6711,9 @@ S
 
 #RESETS
 M 0 22101 1 22135 1	* lizard king (Throne of the lizard king)
-E 0 22101 0 16		*	Lizard King Sceptre: wielded
+E 0 22101 0 16		*	lizard king<wielded>: Lizard King Sceptre
 M 0 22112 1 22138 1	* knocker (Temple Square)
-E 0 22127 0 16		*	huge bone: wielded
+E 0 22127 0 16		*	knocker<wielded>: huge bone
 S
 
 #SHOPS

@@ -2277,109 +2277,91 @@ M 15219 spec_cast_mage	* the Astrologer
 S
 
 #RESETS
-D 0 15206 1 1	* A small passage.: door to the east: closed
-D 0 15207 3 1	* The Entrance Hall: door to the west: closed
-D 0 15220 1 1	* The passage: door to the east: closed
-D 0 15221 0 1	* The servants' corridor: door to the north: closed
-D 0 15221 3 1	* The servants' corridor: door to the west: closed
-D 0 15222 0 2	* The end of the servants' corridor: door to the north: closed and locked
-D 0 15223 0 1	* The Training Room: door to the north: closed
-D 0 15226 2 1	* The servants' quarters: door to the south: closed
-D 0 15227 2 2	* The butler's quarters: door to the south: closed and locked
-D 0 15228 2 1	* The Guards' Barracks: door to the south: closed
-D 0 15236 1 2	* By the treasure room: door to the east: closed and locked
-D 0 15237 3 2	* The Great Treasury: door to the west: closed and locked
-D 0 15238 0 1	* The Guest Wing: door to the north: closed
-D 0 15238 1 1	* The Guest Wing: door to the east: closed
-D 0 15239 3 1	* The Guest Suite: door to the west: closed
-D 0 15243 2 1	* A Guest Room: door to the south: closed
-D 0 15249 1 2	* The Grand Staircase: door to the east: closed and locked
-D 0 15250 3 2	* The Cosy Room: door to the west: closed and locked
 M 0 15222 1 15205 1	* the Chef (The Kitchen)
-G 0 15216 0		*	a delicious-looking lobster
-G 0 15217 0		*	some Russian caviar
+G 0 15216 0		*	the Chef: a delicious-looking lobster
+G 0 15217 0		*	the Chef: some Russian caviar
 M 0 15223 2 15205 1	* the Cook (The Kitchen)
-G 0 15209 0		*	a small key
+G 0 15209 0		*	the Cook: a small key
 M 0 15223 2 15205 1	* the Cook (The Kitchen)
 M 0 15209 1 15208 1	* Andrew the Royal guard (The Guard Room)
-E 0 15222 0 16		*	a short broadsword: wielded
-E 0 15221 0 5		*	a chain mail hauberk: on the body
+E 0 15222 0 16		*	Andrew the Royal guard<wielded>: a short broadsword
+E 0 15221 0 5		*	Andrew the Royal guard<on the body>: a chain mail hauberk
 M 0 15226 1 15208 1	* Jerry the Royal guard (The Guard Room)
-E 0 15222 0 16		*	a short broadsword: wielded
-E 0 15221 0 5		*	a chain mail hauberk: on the body
+E 0 15222 0 16		*	Jerry the Royal guard<wielded>: a short broadsword
+E 0 15221 0 5		*	Jerry the Royal guard<on the body>: a chain mail hauberk
 M 0 15227 1 15208 1	* Michael the Royal guard (The Guard Room)
-E 0 15222 0 16		*	a short broadsword: wielded
-E 0 15221 0 5		*	a chain mail hauberk: on the body
+E 0 15222 0 16		*	Michael the Royal guard<wielded>: a short broadsword
+E 0 15221 0 5		*	Michael the Royal guard<on the body>: a chain mail hauberk
 M 0 15229 1 15209 1	* Boris the Royal guard (Under the Tower)
-E 0 15222 0 16		*	a short broadsword: wielded
-E 0 15221 0 5		*	a chain mail hauberk: on the body
+E 0 15222 0 16		*	Boris the Royal guard<wielded>: a short broadsword
+E 0 15221 0 5		*	Boris the Royal guard<on the body>: a chain mail hauberk
 M 0 15217 5 15210 1	* the Cleaning Woman (The Small Passage)
 M 0 15217 5 15210 1	* the Cleaning Woman (The Small Passage)
 M 0 15201 1 15217 1	* King Welmar (By the Throne in the Great Hall)
-E 0 15201 0 16		*	sapowox's Universal Nothingness: wielded
-E 0 15202 0 17		*	a golden sceptre: held in the hands
-E 0 15203 0 6		*	a golden crown: over the head
-E 0 15204 0 0		*	a golden apple: as a light
-G 0 15213 0		*	a key
+E 0 15201 0 16		*	King Welmar<wielded>: sapowox's Universal Nothingness
+E 0 15202 0 17		*	King Welmar<held in the hands>: a golden sceptre
+E 0 15203 0 6		*	King Welmar<over the head>: a golden crown
+E 0 15204 0 0		*	King Welmar<as a light>: a golden apple
+G 0 15213 0		*	King Welmar: a key
 M 0 15220 1 15217 1	* Tim, the King's Lifeguard (By the Throne in the Great Hall)
-E 0 15219 0 16		*	a large halberd named "Protector": wielded
-E 0 15220 0 5		*	a lifeguard's chain mail hauberk: on the body
+E 0 15219 0 16		*	Tim, the King's Lifeguard<wielded>: a large halberd named "Protector"
+E 0 15220 0 5		*	Tim, the King's Lifeguard<on the body>: a lifeguard's chain mail hauberk
 M 0 15221 1 15217 1	* Tom, the King's Lifeguard (By the Throne in the Great Hall)
-E 0 15219 0 16		*	a large halberd named "Protector": wielded
-E 0 15220 0 5		*	a lifeguard's chain mail hauberk: on the body
+E 0 15219 0 16		*	Tom, the King's Lifeguard<wielded>: a large halberd named "Protector"
+E 0 15220 0 5		*	Tom, the King's Lifeguard<on the body>: a lifeguard's chain mail hauberk
 M 0 15214 1 15217 1	* the Royal Herald (By the Throne in the Great Hall)
 M 0 15211 1 15219 1	* Jeanette the Royal guard (The small passage)
-E 0 15222 0 16		*	a short broadsword: wielded
-E 0 15214 0 5		*	a guard's chain mail hauberk: on the body
+E 0 15222 0 16		*	Jeanette the Royal guard<wielded>: a short broadsword
+E 0 15214 0 5		*	Jeanette the Royal guard<on the body>: a guard's chain mail hauberk
 M 0 15204 1 15223 1	* Brian (The Training Room)
-E 0 15206 0 16		*	a training sword: wielded
-E 0 15214 0 5		*	a guard's chain mail hauberk: on the body
+E 0 15206 0 16		*	Brian<wielded>: a training sword
+E 0 15214 0 5		*	Brian<on the body>: a guard's chain mail hauberk
 M 0 15205 1 15223 1	* Mick (The Training Room)
-E 0 15206 0 16		*	a training sword: wielded
-E 0 15214 0 5		*	a guard's chain mail hauberk: on the body
+E 0 15206 0 16		*	Mick<wielded>: a training sword
+E 0 15214 0 5		*	Mick<on the body>: a guard's chain mail hauberk
 M 0 15208 1 15223 1	* Anne the Royal guard (The Training Room)
-E 0 15222 0 16		*	a short broadsword: wielded
-E 0 15221 0 5		*	a chain mail hauberk: on the body
+E 0 15222 0 16		*	Anne the Royal guard<wielded>: a short broadsword
+E 0 15221 0 5		*	Anne the Royal guard<on the body>: a chain mail hauberk
 M 0 15212 1 15223 1	* Peter, the Captain of the Royal guard (The Training Room)
-E 0 15220 0 5		*	a lifeguard's chain mail hauberk: on the body
-E 0 15215 0 16		*	a large broadsword: wielded
+E 0 15220 0 5		*	Peter, the Captain of the Royal guard<on the body>: a lifeguard's chain mail hauberk
+E 0 15215 0 16		*	Peter, the Captain of the Royal guard<wielded>: a large broadsword
 M 0 15213 1 15223 1	* the Training Master (The Training Room)
-E 0 15219 0 16		*	a large halberd named "Protector": wielded
+E 0 15219 0 16		*	the Training Master<wielded>: a large halberd named "Protector"
 O 0 15210 0 15226	* a large wooden chest (The servants' quarters)
 M 0 15216 1 15227 1	* James the Butler (The butler's quarters)
-G 0 15208 0		*	the Butler's key
+G 0 15208 0		*	James the Butler: the Butler's key
 M 0 15207 1 15228 1	* Jochem the Royal guard (The Guards' Barracks)
-E 0 15218 0 16		*	a large flail: wielded
-E 0 15214 0 5		*	a guard's chain mail hauberk: on the body
+E 0 15218 0 16		*	Jochem the Royal guard<wielded>: a large flail
+E 0 15214 0 5		*	Jochem the Royal guard<on the body>: a guard's chain mail hauberk
 M 0 15210 1 15232 1	* Bertram the Royal guard (The corridor)
-E 0 15218 0 16		*	a large flail: wielded
-E 0 15214 0 5		*	a guard's chain mail hauberk: on the body
+E 0 15218 0 16		*	Bertram the Royal guard<wielded>: a large flail
+E 0 15214 0 5		*	Bertram the Royal guard<on the body>: a guard's chain mail hauberk
 M 0 15206 1 15235 1	* Matt the Royal guard (The corridor)
-E 0 15218 0 16		*	a large flail: wielded
-E 0 15214 0 5		*	a guard's chain mail hauberk: on the body
+E 0 15218 0 16		*	Matt the Royal guard<wielded>: a large flail
+E 0 15214 0 5		*	Matt the Royal guard<on the body>: a guard's chain mail hauberk
 M 0 15224 1 15236 1	* David (By the treasure room)
-E 0 15218 0 16		*	a large flail: wielded
-E 0 15214 0 5		*	a guard's chain mail hauberk: on the body
-G 0 15207 0		*	a huge key
+E 0 15218 0 16		*	David<wielded>: a large flail
+E 0 15214 0 5		*	David<on the body>: a guard's chain mail hauberk
+G 0 15207 0		*	David: a huge key
 M 0 15225 1 15236 1	* Dick (By the treasure room)
-E 0 15218 0 16		*	a large flail: wielded
-E 0 15214 0 5		*	a guard's chain mail hauberk: on the body
+E 0 15218 0 16		*	Dick<wielded>: a large flail
+E 0 15214 0 5		*	Dick<on the body>: a guard's chain mail hauberk
 O 0 15225 0 15237	* a large iron chest (The Great Treasury)
-P 0 15223 1 15225 1	* a large iron chest: the silver and gold coins
+P 0 15223 1 0 1	* a large iron chest: the silver and gold coins
 M 0 15230 1 15237 1	* the Executioner (The Great Treasury)
-E 0 15224 0 16		*	the Executioner's evil weapon: wielded
-E 0 15226 0 17		*	a great key: held in the hands
+E 0 15224 0 16		*	the Executioner<wielded>: the Executioner's evil weapon
+E 0 15226 0 17		*	the Executioner<held in the hands>: a great key
 M 0 15217 5 15238 1	* the Cleaning Woman (The Guest Wing)
 M 0 15217 5 15241 1	* the Cleaning Woman (The Ball Room)
 M 0 15217 5 15241 1	* the Cleaning Woman (The Ball Room)
 M 0 15203 1 15242 1	* Jim the Royal guard (By the stage)
-E 0 15218 0 16		*	a large flail: wielded
-E 0 15214 0 5		*	a guard's chain mail hauberk: on the body
+E 0 15218 0 16		*	Jim the Royal guard<wielded>: a large flail
+E 0 15214 0 5		*	Jim the Royal guard<on the body>: a guard's chain mail hauberk
 M 0 15228 1 15247 1	* Hans the Royal guard (The Ball Room)
-E 0 15222 0 16		*	a short broadsword: wielded
-E 0 15221 0 5		*	a chain mail hauberk: on the body
+E 0 15222 0 16		*	Hans the Royal guard<wielded>: a short broadsword
+E 0 15221 0 5		*	Hans the Royal guard<on the body>: a chain mail hauberk
 M 0 15219 1 15252 1	* the Astrologer (Up in the Tower)
-G 0 15211 0		*	a large vial
+G 0 15211 0		*	the Astrologer: a large vial
 O 0 15205 0 15252	* a large telescope (Up in the Tower)
 M 0 15202 1 15254 1	* the horrible ghost (The Top of the Tower)
 S

@@ -8338,62 +8338,19 @@ M 9593 spec_cast_adept	* the healer
 S
 
 #RESETS
-D 0 9511 0 1	* Outside the Southern Gate of New Thalos: door to the north: closed
-D 0 9513 2 1	* Inside the South Gate of New Thalos: door to the south: closed
-D 0 9522 0 1	* Inside the Northern Gate of New Thalos: door to the north: closed
-D 0 9523 3 1	* Inside the West Gate of New Thalos: door to the west: closed
-D 0 9531 1 1	* Inside the Eastern Gate of New Thalos: door to the east: closed
-D 0 9559 5 1	* Alley: door to the down: closed
-D 0 9570 5 1	* Alley: door to the down: closed
-D 0 9574 5 1	* Alley: door to the down: closed
-D 0 9575 4 1	* Underground: door to the up: closed
-D 0 9578 4 1	* Underground: door to the up: closed
-D 0 9581 4 1	* Underground: door to the up: closed
-D 0 9594 2 2	* Common Room of the Clan MacCleod: door to the south: closed and locked
-D 0 9603 1 1	* Cleric's Sanctum: door to the east: closed
-D 0 9617 2 1	* Base of the Tower: door to the south: closed
-D 0 9630 1 1	* The Mercenary's Guild: door to the east: closed
-D 0 9634 1 1	* Tournament and Practice Yard: door to the east: closed
-D 0 9636 5 2	* Igor's Implements of Destruction: door to the down: closed and locked
-D 0 9646 2 1	* The Secret Yard: door to the south: closed
-D 0 9661 0 1	* Kitchen: door to the north: closed
-D 0 9663 2 1	* Hall: door to the south: closed
-D 0 9675 5 1	* Entrance to the Dungeon: door to the down: closed
-D 0 9691 1 1	* Jailer's Room: door to the east: closed
-D 0 9691 4 1	* Jailer's Room: door to the up: closed
-D 0 9692 0 2	* Tunnel in the Dungeon: door to the north: closed and locked
-D 0 9692 2 2	* Tunnel in the Dungeon: door to the south: closed and locked
-D 0 9692 3 1	* Tunnel in the Dungeon: door to the west: closed
-D 0 9693 0 2	* Tunnel in the Dungeon: door to the north: closed and locked
-D 0 9693 2 2	* Tunnel in the Dungeon: door to the south: closed and locked
-D 0 9694 0 2	* Tunnel in the Dungeon: door to the north: closed and locked
-D 0 9694 2 2	* Tunnel in the Dungeon: door to the south: closed and locked
-D 0 9695 0 2	* Tunnel in the Dungeon: door to the north: closed and locked
-D 0 9695 1 1	* Tunnel in the Dungeon: door to the east: closed
-D 0 9695 2 2	* Tunnel in the Dungeon: door to the south: closed and locked
-D 0 9696 3 1	* Secret Cell: door to the west: closed
-D 0 9697 2 2	* Cell: door to the south: closed and locked
-D 0 9698 2 2	* Cell: door to the south: closed and locked
-D 0 9699 2 2	* Cell: door to the south: closed and locked
-D 0 9700 2 2	* Cell: door to the south: closed and locked
-D 0 9701 0 2	* Cell: door to the north: closed and locked
-D 0 9702 0 2	* Cell: door to the north: closed and locked
-D 0 9703 0 2	* Cell: door to the north: closed and locked
-D 0 9704 0 2	* Cell: door to the north: closed and locked
-D 0 9750 4 2	* Igor's Secret Chamber: door to the up: closed and locked
 M 0 9504 1 9501 1	* the receptionist (The Reception Area)
 M 0 9505 1 9502 1	* the withered mage/bartender (The Dancing Daemon Inn)
-G 0 9569 0		*	a bottle of grog
-G 0 9568 0		*	a glass of wine
-G 0 9567 0		*	a glass of blue oasis
+G 0 9569 0		*	the withered mage/bartender: a bottle of grog
+G 0 9568 0		*	the withered mage/bartender: a glass of wine
+G 0 9567 0		*	the withered mage/bartender: a glass of blue oasis
 M 0 9506 1 9502 1	* Brother John (The Dancing Daemon Inn)
 M 0 9507 1 9503 1	* a panhandler (The Medina)
 M 0 9508 1 9504 1	* a panhandler (The Medina)
 M 0 9539 1 9505 1	* Caramon (The Southern Market Square)
-E 0 9515 0 5		*	a suit of banded mail: on the body
-E 0 9600 0 16		*	the halberd: wielded
+E 0 9515 0 5		*	Caramon<on the body>: a suit of banded mail
+E 0 9600 0 16		*	Caramon<wielded>: the halberd
 M 0 9537 2 9506 2	* the tax collector (The Center of Market Square)
-G 0 9500 0		*	the palace key of New Thalos
+G 0 9500 0		*	the tax collector: the palace key of New Thalos
 M 0 9540 1 9506 1	* Raistlin (The Center of Market Square)
 O 0 9601 0 9506	* a fountain (The Center of Market Square)
 M 0 9582 16 9507 2	* The Royal Guard (The Southeastern Market Square)
@@ -8407,17 +8364,17 @@ M 0 9547 1 9511 1	* the dirt devil (Outside the Southern Gate of New Thalos)
 M 0 9549 1 9511 1	* the raggety dervish (Outside the Southern Gate of New Thalos)
 M 0 9548 1 9511 1	* the lamia (Outside the Southern Gate of New Thalos)
 M 0 9561 32 9512 2	* the sultan's guard (The Southern Bridge)
-E 0 9513 0 16		*	a scimitar: wielded
-E 0 9519 0 5		*	a suit of splintmail: on the body
-E 0 9521 0 11		*	a splinted shield: as a shield
+E 0 9513 0 16		*	the sultan's guard<wielded>: a scimitar
+E 0 9519 0 5		*	the sultan's guard<on the body>: a suit of splintmail
+E 0 9521 0 11		*	the sultan's guard<as a shield>: a splinted shield
 M 0 9562 20 9513 5	* the sultans guard (Inside the South Gate of New Thalos)
-E 0 9513 0 16		*	a scimitar: wielded
-E 0 9519 0 5		*	a suit of splintmail: on the body
-E 0 9521 0 11		*	a splinted shield: as a shield
+E 0 9513 0 16		*	the sultans guard<wielded>: a scimitar
+E 0 9519 0 5		*	the sultans guard<on the body>: a suit of splintmail
+E 0 9521 0 11		*	the sultans guard<as a shield>: a splinted shield
 M 0 9562 20 9513 5	* the sultans guard (Inside the South Gate of New Thalos)
-E 0 9513 0 16		*	a scimitar: wielded
-E 0 9519 0 5		*	a suit of splintmail: on the body
-E 0 9521 0 11		*	a splinted shield: as a shield
+E 0 9513 0 16		*	the sultans guard<wielded>: a scimitar
+E 0 9519 0 5		*	the sultans guard<on the body>: a suit of splintmail
+E 0 9521 0 11		*	the sultans guard<as a shield>: a splinted shield
 M 0 9582 16 9514 2	* The Royal Guard (The Northwestern Market Square)
 M 0 9541 1 9515 1	* Curley GreenLeaf (The Northern Market Square)
 M 0 9538 1 9515 1	* Gord (The Northern Market Square)
@@ -8426,52 +8383,52 @@ M 0 9592 14 9517 4	* the bodyguard (The Eastern Market Square)
 M 0 9592 14 9517 4	* the bodyguard (The Eastern Market Square)
 M 0 9533 20 9517 1	* a nomad merchant (The Eastern Market Square)
 M 0 9561 32 9518 2	* the sultan's guard (Sultan's Walk)
-E 0 9519 0 5		*	a suit of splintmail: on the body
-E 0 9521 0 11		*	a splinted shield: as a shield
+E 0 9519 0 5		*	the sultan's guard<on the body>: a suit of splintmail
+E 0 9521 0 11		*	the sultan's guard<as a shield>: a splinted shield
 M 0 9561 32 9519 2	* the sultan's guard (Sultan's Walk)
-E 0 9513 0 16		*	a scimitar: wielded
-E 0 9519 0 5		*	a suit of splintmail: on the body
-E 0 9521 0 11		*	a splinted shield: as a shield
+E 0 9513 0 16		*	the sultan's guard<wielded>: a scimitar
+E 0 9519 0 5		*	the sultan's guard<on the body>: a suit of splintmail
+E 0 9521 0 11		*	the sultan's guard<as a shield>: a splinted shield
 M 0 9561 32 9520 2	* the sultan's guard (Sultan's Walk)
-E 0 9513 0 16		*	a scimitar: wielded
-E 0 9519 0 5		*	a suit of splintmail: on the body
-E 0 9521 0 11		*	a splinted shield: as a shield
+E 0 9513 0 16		*	the sultan's guard<wielded>: a scimitar
+E 0 9519 0 5		*	the sultan's guard<on the body>: a suit of splintmail
+E 0 9521 0 11		*	the sultan's guard<as a shield>: a splinted shield
 M 0 9562 20 9522 5	* the sultans guard (Inside the Northern Gate of New Thalos)
-E 0 9513 0 16		*	a scimitar: wielded
-E 0 9519 0 5		*	a suit of splintmail: on the body
-E 0 9521 0 11		*	a splinted shield: as a shield
+E 0 9513 0 16		*	the sultans guard<wielded>: a scimitar
+E 0 9519 0 5		*	the sultans guard<on the body>: a suit of splintmail
+E 0 9521 0 11		*	the sultans guard<as a shield>: a splinted shield
 M 0 9562 20 9522 5	* the sultans guard (Inside the Northern Gate of New Thalos)
-E 0 9513 0 16		*	a scimitar: wielded
-E 0 9519 0 5		*	a suit of splintmail: on the body
-E 0 9521 0 11		*	a splinted shield: as a shield
+E 0 9513 0 16		*	the sultans guard<wielded>: a scimitar
+E 0 9519 0 5		*	the sultans guard<on the body>: a suit of splintmail
+E 0 9521 0 11		*	the sultans guard<as a shield>: a splinted shield
 M 0 9562 20 9523 5	* the sultans guard (Inside the West Gate of New Thalos)
-E 0 9513 0 16		*	a scimitar: wielded
-E 0 9519 0 5		*	a suit of splintmail: on the body
-E 0 9521 0 11		*	a splinted shield: as a shield
+E 0 9513 0 16		*	the sultans guard<wielded>: a scimitar
+E 0 9519 0 5		*	the sultans guard<on the body>: a suit of splintmail
+E 0 9521 0 11		*	the sultans guard<as a shield>: a splinted shield
 M 0 9562 20 9523 5	* the sultans guard (Inside the West Gate of New Thalos)
-E 0 9513 0 16		*	a scimitar: wielded
-E 0 9519 0 5		*	a suit of splintmail: on the body
-E 0 9521 0 11		*	a splinted shield: as a shield
+E 0 9513 0 16		*	the sultans guard<wielded>: a scimitar
+E 0 9519 0 5		*	the sultans guard<on the body>: a suit of splintmail
+E 0 9521 0 11		*	the sultans guard<as a shield>: a splinted shield
 M 0 9542 22 9524 4	* the wandering prophet (West Main Street)
 M 0 9520 2 9525 2	* a construction worker (West Main Street)
-E 0 9586 0 16		*	a sledge hammer: wielded
+E 0 9586 0 16		*	a construction worker<wielded>: a sledge hammer
 M 0 9520 2 9525 2	* a construction worker (West Main Street)
-E 0 9586 0 16		*	a sledge hammer: wielded
+E 0 9586 0 16		*	a construction worker<wielded>: a sledge hammer
 M 0 9519 1 9525 1	* the foreman (West Main Street)
-E 0 9585 0 16		*	a fountain pen: wielded
+E 0 9585 0 16		*	the foreman<wielded>: a fountain pen
 M 0 9568 15 9527 8	* a tourist (East Main Street)
 M 0 9568 15 9528 8	* a tourist (East Main Street)
 M 0 9544 20 9529 2	* the vulture (East Main Street)
 M 0 9544 20 9530 2	* the vulture (East Main Street)
 M 0 9562 20 9531 5	* the sultans guard (Inside the Eastern Gate of New Thalos)
-E 0 9519 0 5		*	a suit of splintmail: on the body
-E 0 9521 0 11		*	a splinted shield: as a shield
+E 0 9519 0 5		*	the sultans guard<on the body>: a suit of splintmail
+E 0 9521 0 11		*	the sultans guard<as a shield>: a splinted shield
 M 0 9562 20 9531 5	* the sultans guard (Inside the Eastern Gate of New Thalos)
-E 0 9519 0 5		*	a suit of splintmail: on the body
-E 0 9521 0 11		*	a splinted shield: as a shield
+E 0 9519 0 5		*	the sultans guard<on the body>: a suit of splintmail
+E 0 9521 0 11		*	the sultans guard<as a shield>: a splinted shield
 M 0 9518 1 9532 1	* Cassandra (Cassandra's Catch of the Day)
-G 0 9564 0		*	a salted herring
-G 0 9565 0		*	a mussel
+G 0 9564 0		*	Cassandra: a salted herring
+G 0 9565 0		*	Cassandra: a mussel
 M 0 9536 18 9533 6	* the dockworker (West Ishtar Drive)
 M 0 9536 18 9533 6	* the dockworker (West Ishtar Drive)
 M 0 9536 18 9533 6	* the dockworker (West Ishtar Drive)
@@ -8489,9 +8446,9 @@ M 0 9582 16 9550 2	* The Royal Guard (The Casbah)
 M 0 9582 16 9552 2	* The Royal Guard (The Casbah)
 M 0 9544 20 9553 2	* the vulture (The Casbah)
 M 0 9545 2 9555 2	* the old man (Kali Row)
-E 0 9590 0 16		*	a chessboard: wielded
+E 0 9590 0 16		*	the old man<wielded>: a chessboard
 M 0 9545 2 9555 2	* the old man (Kali Row)
-E 0 9590 0 16		*	a chessboard: wielded
+E 0 9590 0 16		*	the old man<wielded>: a chessboard
 M 0 9544 20 9563 1	* the vulture (Guildsman's Row)
 M 0 9543 13 9565 1	* the alley cat (Alley)
 M 0 9530 1 9566 1	* Mustafah (Alley)
@@ -8526,114 +8483,114 @@ M 0 9542 22 9613 6	* the wandering prophet (The Temple Gates)
 M 0 9543 13 9614 3	* the alley cat (Ahkeem's Stuff)
 M 0 9542 22 9614 3	* the wandering prophet (Ahkeem's Stuff)
 M 0 9513 1 9614 1	* Ahkeem the tailor (Ahkeem's Stuff)
-E 0 9583 0 16		*	a pair of sewing shears: wielded
-G 0 9555 0		*	a silk jacket
-G 0 9554 0		*	a sash
-G 0 9553 0		*	a pair of sandles
-G 0 9552 0		*	an embroidered robe
-G 0 9551 0		*	a common robe
-G 0 9550 0		*	a pair of hose
-G 0 9549 0		*	a girdle
-G 0 9548 0		*	a fur cloak
-G 0 9547 0		*	a pair of hiking boots
-G 0 9546 0		*	a belt
+E 0 9583 0 16		*	Ahkeem the tailor<wielded>: a pair of sewing shears
+G 0 9555 0		*	Ahkeem the tailor: a silk jacket
+G 0 9554 0		*	Ahkeem the tailor: a sash
+G 0 9553 0		*	Ahkeem the tailor: a pair of sandles
+G 0 9552 0		*	Ahkeem the tailor: an embroidered robe
+G 0 9551 0		*	Ahkeem the tailor: a common robe
+G 0 9550 0		*	Ahkeem the tailor: a pair of hose
+G 0 9549 0		*	Ahkeem the tailor: a girdle
+G 0 9548 0		*	Ahkeem the tailor: a fur cloak
+G 0 9547 0		*	Ahkeem the tailor: a pair of hiking boots
+G 0 9546 0		*	Ahkeem the tailor: a belt
 M 0 9592 14 9615 2	* the bodyguard (Vera's Veggies)
 M 0 9514 1 9615 1	* Vera the veggie lady (Vera's Veggies)
-G 0 9560 0		*	some dates
-G 0 9559 0		*	a fig
-G 0 9558 0		*	a tomato
-G 0 9557 0		*	a carrot
-G 0 9556 0		*	an egg
+G 0 9560 0		*	Vera the veggie lady: some dates
+G 0 9559 0		*	Vera the veggie lady: a fig
+G 0 9558 0		*	Vera the veggie lady: a tomato
+G 0 9557 0		*	Vera the veggie lady: a carrot
+G 0 9556 0		*	Vera the veggie lady: an egg
 M 0 9523 1 9616 1	* the statue of Zump (The Museum of the Greater Gods)
 M 0 9522 1 9616 1	* the statue of Alander (The Museum of the Greater Gods)
 M 0 9527 1 9616 1	* the statue of Furey (The Museum of the Greater Gods)
 M 0 9525 1 9616 1	* the statue of Satin (The Museum of the Greater Gods)
 M 0 9544 20 9622 2	* the vulture (The Butchary)
 M 0 9515 1 9622 1	* Butch the meatcutter (The Butchary)
-E 0 9584 0 16		*	a meat cleaver: wielded
-G 0 9563 0		*	a whole chicken
-G 0 9562 0		*	a side of beef
-G 0 9561 0		*	a leg of lamb
+E 0 9584 0 16		*	Butch the meatcutter<wielded>: a meat cleaver
+G 0 9563 0		*	Butch the meatcutter: a whole chicken
+G 0 9562 0		*	Butch the meatcutter: a side of beef
+G 0 9561 0		*	Butch the meatcutter: a leg of lamb
 M 0 9544 20 9623 2	* the vulture (The Witch's Brew)
 M 0 9579 1 9623 1	* Elvira (The Witch's Brew)
-G 0 9574 0		*	a dark blue potion
-G 0 9572 0		*	a crystal clear potion
-G 0 9571 0		*	a deep-green potion
-G 0 9570 0		*	a glowing blue vial
+G 0 9574 0		*	Elvira: a dark blue potion
+G 0 9572 0		*	Elvira: a crystal clear potion
+G 0 9571 0		*	Elvira: a deep-green potion
+G 0 9570 0		*	Elvira: a glowing blue vial
 M 0 9544 20 9624 2	* the vulture (Braheem's Magic Shop)
 M 0 9592 14 9624 2	* the bodyguard (Braheem's Magic Shop)
 M 0 9580 1 9624 1	* Braheem (Braheem's Magic Shop)
-G 0 9582 0		*	a pink wand
-G 0 9581 0		*	a wand of oak
-G 0 9579 0		*	a grey-silver wand
-G 0 9578 0		*	a scroll of recall
+G 0 9582 0		*	Braheem: a pink wand
+G 0 9581 0		*	Braheem: a wand of oak
+G 0 9579 0		*	Braheem: a grey-silver wand
+G 0 9578 0		*	Braheem: a scroll of recall
 M 0 9556 1 9625 1	* the guildguard (Entrance to the Mage's Tower)
 M 0 9533 20 9626 2	* a nomad merchant (Entrance to the Guild of Warriors')
 M 0 9558 1 9626 1	* the guildguard (Entrance to the Guild of Warriors')
 M 0 9511 1 9628 1	* the shopkeeper (The General Store)
-G 0 9538 0		*	a belt pouch
-G 0 9539 0		*	a candle
-G 0 9537 0		*	a basket
-G 0 9536 0		*	a backpack
-G 0 9535 0		*	an oil lamp
-G 0 9534 0		*	a sack
+G 0 9538 0		*	the shopkeeper: a belt pouch
+G 0 9539 0		*	the shopkeeper: a candle
+G 0 9537 0		*	the shopkeeper: a basket
+G 0 9536 0		*	the shopkeeper: a backpack
+G 0 9535 0		*	the shopkeeper: an oil lamp
+G 0 9534 0		*	the shopkeeper: a sack
 M 0 9516 1 9629 1	* Abdul the armorer (Abdul's Armor)
-G 0 9521 0		*	a splinted shield
-G 0 9520 0		*	a wooden shield
-G 0 9519 0		*	a suit of splintmail
-G 0 9518 0		*	a suit of ringmail
-G 0 9517 0		*	a suit of field plate
-G 0 9516 0		*	a suit of brigandine
-G 0 9515 0		*	a suit of banded mail
+G 0 9521 0		*	Abdul the armorer: a splinted shield
+G 0 9520 0		*	Abdul the armorer: a wooden shield
+G 0 9519 0		*	Abdul the armorer: a suit of splintmail
+G 0 9518 0		*	Abdul the armorer: a suit of ringmail
+G 0 9517 0		*	Abdul the armorer: a suit of field plate
+G 0 9516 0		*	Abdul the armorer: a suit of brigandine
+G 0 9515 0		*	Abdul the armorer: a suit of banded mail
 M 0 9564 1 9631 1	* the mercenary (The Mercenary's Guild)
 M 0 9544 20 9632 2	* the vulture (Entrance to the Thieves' Guild)
 M 0 9559 1 9632 1	* the guildguard (Entrance to the Thieves' Guild)
 M 0 9502 1 9634 1	* the guildmaster (Tournament and Practice Yard)
 M 0 9510 1 9635 1	* the baker (The Bread Stand)
-G 0 9545 0		*	some nuts
-G 0 9543 0		*	some iron rations
-G 0 9542 0		*	some dry rations
-G 0 9541 0		*	a bread
-G 0 9540 0		*	a hunk of cheese
+G 0 9545 0		*	the baker: some nuts
+G 0 9543 0		*	the baker: some iron rations
+G 0 9542 0		*	the baker: some dry rations
+G 0 9541 0		*	the baker: a bread
+G 0 9540 0		*	the baker: a hunk of cheese
 M 0 9533 20 9636 2	* a nomad merchant (Igor's Implements of Destruction)
 M 0 9517 1 9636 1	* Igor the weaponsmith (Igor's Implements of Destruction)
-E 0 9591 0 17		*	a sesame seed: held in the hands
-G 0 9514 0		*	a rapier
-G 0 9513 0		*	a scimitar
-G 0 9512 0		*	a two-handed bastard sword
-G 0 9511 0		*	a sickle
-G 0 9510 0		*	a guisarme
-G 0 9509 0		*	a glaive
-G 0 9508 0		*	a fauchard
-G 0 9507 0		*	a bill-guisarme
-G 0 9506 0		*	a bec de corbine
-G 0 9505 0		*	a bardiche
-G 0 9504 0		*	an awl-pike
-G 0 9503 0		*	a morningstar
+E 0 9591 0 17		*	Igor the weaponsmith<held in the hands>: a sesame seed
+G 0 9514 0		*	Igor the weaponsmith: a rapier
+G 0 9513 0		*	Igor the weaponsmith: a scimitar
+G 0 9512 0		*	Igor the weaponsmith: a two-handed bastard sword
+G 0 9511 0		*	Igor the weaponsmith: a sickle
+G 0 9510 0		*	Igor the weaponsmith: a guisarme
+G 0 9509 0		*	Igor the weaponsmith: a glaive
+G 0 9508 0		*	Igor the weaponsmith: a fauchard
+G 0 9507 0		*	Igor the weaponsmith: a bill-guisarme
+G 0 9506 0		*	Igor the weaponsmith: a bec de corbine
+G 0 9505 0		*	Igor the weaponsmith: a bardiche
+G 0 9504 0		*	Igor the weaponsmith: an awl-pike
+G 0 9503 0		*	Igor the weaponsmith: a morningstar
 M 0 9584 1 9637 1	* Stitch, the leather dude. (Ye Old Leather Shoppe)
-G 0 9533 0		*	a leather shield
-G 0 9532 0		*	a pair of studded leather gloves
-G 0 9531 0		*	a pair of studded leather pants
-G 0 9530 0		*	a pair of studded leather sleeves
-G 0 9529 0		*	a studded leather jacket
-G 0 9528 0		*	a pair of padded leather boots
-G 0 9527 0		*	a pair of leather gloves
-G 0 9526 0		*	a pair of leather pants
-G 0 9525 0		*	a leather cap
-G 0 9524 0		*	a pair of leather sleeves
-G 0 9523 0		*	a leather jacket
-G 0 9522 0		*	a buckler
+G 0 9533 0		*	Stitch, the leather dude.: a leather shield
+G 0 9532 0		*	Stitch, the leather dude.: a pair of studded leather gloves
+G 0 9531 0		*	Stitch, the leather dude.: a pair of studded leather pants
+G 0 9530 0		*	Stitch, the leather dude.: a pair of studded leather sleeves
+G 0 9529 0		*	Stitch, the leather dude.: a studded leather jacket
+G 0 9528 0		*	Stitch, the leather dude.: a pair of padded leather boots
+G 0 9527 0		*	Stitch, the leather dude.: a pair of leather gloves
+G 0 9526 0		*	Stitch, the leather dude.: a pair of leather pants
+G 0 9525 0		*	Stitch, the leather dude.: a leather cap
+G 0 9524 0		*	Stitch, the leather dude.: a pair of leather sleeves
+G 0 9523 0		*	Stitch, the leather dude.: a leather jacket
+G 0 9522 0		*	Stitch, the leather dude.: a buckler
 M 0 9583 1 9638 1	* Patch the bartender (Smuggler's Inn)
-G 0 9577 0		*	a shot
-G 0 9576 0		*	a barrel of beer
-G 0 9575 0		*	a flaming scorpion
+G 0 9577 0		*	Patch the bartender: a shot
+G 0 9576 0		*	Patch the bartender: a barrel of beer
+G 0 9575 0		*	Patch the bartender: a flaming scorpion
 M 0 9565 1 9642 1	* the shipwright (Shipwright)
-G 0 3061 0		*	a leather cap
-G 0 3060 0		*	a leather jerkin
+G 0 3061 0		*	the shipwright: a leather cap
+G 0 3060 0		*	the shipwright: a leather jerkin
 M 0 9566 1 9644 1	* the blacksmith (The Forge)
-G 0 9589 0		*	a riding crop
-G 0 9588 0		*	a saddle
-G 0 9587 0		*	a horse shoe
+G 0 9589 0		*	the blacksmith: a riding crop
+G 0 9588 0		*	the blacksmith: a saddle
+G 0 9587 0		*	the blacksmith: a horse shoe
 M 0 9567 6 9645 6	* a horse (The Royal Stables)
 M 0 9567 6 9645 6	* a horse (The Royal Stables)
 M 0 9567 6 9645 6	* a horse (The Royal Stables)
@@ -8644,7 +8601,7 @@ M 0 9503 1 9646 1	* the guildmaster (The Secret Yard)
 M 0 9500 1 9648 1	* the guildmaster (The Mage's Laboratory)
 M 0 9544 20 9649 2	* the vulture (The Hay Loft)
 M 0 9589 1 9654 1	* the mayor (City Hall)
-G 0 9501 0		*	the Key to the City of New Thalos
+G 0 9501 0		*	the mayor: the Key to the City of New Thalos
 M 0 9544 20 9655 1	* the vulture (The Boyer/Fletcher's)
 M 0 9560 2 9661 2	* a servant boy (Kitchen)
 M 0 9560 2 9661 2	* a servant boy (Kitchen)
@@ -8677,9 +8634,9 @@ M 0 9551 8 9687 8	* a harem girl (Harem)
 M 0 9561 32 9688 5	* the sultan's guard (Small room)
 M 0 9550 1 9689 1	* The Sultan (Throne Room)
 M 0 9552 1 9691 1	* the jailer (Jailer's Room)
-G 0 9593 0		*	the jail key
+G 0 9593 0		*	the jailer: the jail key
 M 0 9587 1 9696 1	* the wolverine (Secret Cell)
-E 0 9599 0 16		*	the wolverine claw: wielded
+E 0 9599 0 16		*	the wolverine<wielded>: the wolverine claw
 M 0 9575 1 9697 1	* the chimera (Cell)
 M 0 9574 1 9698 1	* the behir (Cell)
 M 0 9572 5 9699 5	* the death dog (Cell)
@@ -8695,7 +8652,7 @@ M 0 9571 1 9704 1	* the minotaur lizard (Cell)
 M 0 9594 1 9707 1	* The Samurai Weaponsmaster (The weaponsmaster's room)
 O 0 9598 0 9750	* the Daemon Claw (Igor's Secret Chamber)
 M 0 9591 1 9799 1	* the Ixitxachitl (Lair of the Ixitxachitl)
-G 0 9602 0		*	a beautiful white pearl
+G 0 9602 0		*	the Ixitxachitl: a beautiful white pearl
 S
 
 #SHOPS

@@ -621,29 +621,25 @@ M 30004 spec_cast_undead	* shaman
 S
 
 #RESETS
-D 0 30001 0 1	* Before the Gate of Mordor: door to the north: closed
-D 0 30002 2 1	* Guard Room behind the Gate: door to the south: closed
-D 0 30005 3 2	* Guard Room: door to the west: closed and locked
-D 0 30006 1 2	* Prison behind the Guard Room: door to the east: closed and locked
 O 0 30099 0 30000	* fountain (Road to Mountain)
 M 0 30099 1 30000 1	*  (Road to Mountain)
 M 0 30001 3 30002 3	* orc guard (Guard Room behind the Gate)
-E 0 30001 0 16		*	Orc'ish sword: wielded
-E 0 30002 0 11		*	orc'ish shield: as a shield
+E 0 30001 0 16		*	orc guard<wielded>: Orc'ish sword
+E 0 30002 0 11		*	orc guard<as a shield>: orc'ish shield
 O 0 30003 0 30003	* Case (Storing room)
-P 0 30008 0 30003 1	* Case: mithril chainmail
+P 0 30008 0 0 1	* Case: mithril chainmail
 M 0 30002 1 30005 1	* orc capitan (Guard Room)
-E 0 30004 0 6		*	Dark Capitan Helm: over the head
-E 0 30005 0 5		*	Orc'ish chainmail: on the body
-E 0 30006 0 12		*	Silk orc'ish robe: about the shoulders
+E 0 30004 0 6		*	orc capitan<over the head>: Dark Capitan Helm
+E 0 30005 0 5		*	orc capitan<on the body>: Orc'ish chainmail
+E 0 30006 0 12		*	orc capitan<about the shoulders>: Silk orc'ish robe
 M 0 30003 2 30006 2	* rat (Prison behind the Guard Room)
 M 0 30004 1 30014 1	* shaman (Hut of Orc Shaman)
-E 0 30009 0 17		*	shaman spellbook: held in the hands
-E 0 30010 0 0		*	black candle: as a light
-E 0 30011 0 13		*	shaman girdle: around the waist
-E 0 30012 0 3		*	bone necklace: around the neck
+E 0 30009 0 17		*	shaman<held in the hands>: shaman spellbook
+E 0 30010 0 0		*	shaman<as a light>: black candle
+E 0 30011 0 13		*	shaman<around the waist>: shaman girdle
+E 0 30012 0 3		*	shaman<around the neck>: bone necklace
 M 0 30005 1 30015 1	* leader (Orc Leader's Hut)
-E 0 30013 0 16		*	heavy stone club: wielded
+E 0 30013 0 16		*	leader<wielded>: heavy stone club
 S
 
 #OLIMITS

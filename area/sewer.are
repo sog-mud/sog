@@ -5455,22 +5455,6 @@ M 7204 spec_poison	* the gigantic rat
 S
 
 #RESETS
-D 0 7116 5 1	* The northeastern corner of the ledge: door to the down: closed
-D 0 7201 2 1	* The inner Lair: door to the south: closed
-D 0 7201 3 2	* The inner Lair: door to the west: closed and locked
-D 0 7202 0 1	* The Lair: door to the north: closed
-D 0 7208 0 1	* The lair entrance.: door to the north: closed
-D 0 7280 4 1	* The entrance.: door to the up: closed
-D 0 7404 2 1	* Cave turning-point: door to the south: closed
-D 0 7405 0 1	* The secret room: door to the north: closed
-D 0 7405 2 1	* The secret room: door to the south: closed
-D 0 7406 0 1	* The mudhole: door to the north: closed
-D 0 7415 0 1	* The blind end room: door to the north: closed
-D 0 7416 2 1	* The treasure room: door to the south: closed
-D 0 7418 1 1	* The square lair: door to the east: closed
-D 0 7421 3 1	* East tunnel: door to the west: closed
-D 0 7424 1 1	* The Circular hall.: door to the east: closed
-D 0 7425 3 1	* Dusty tunnel: door to the west: closed
 M 0 7001 12 7004 6	* the small bat (The Dark Pit)
 M 0 7001 12 7004 6	* the small bat (The Dark Pit)
 M 0 7001 12 7025 3	* the small bat (Another intersection)
@@ -5495,48 +5479,48 @@ M 0 7005 7 7112 4	* the maggot (An odd intersection)
 M 0 7005 7 7122 3	* the maggot (Under the pit)
 O 0 7204 0 7200	* an neon blue potion (The Treasury)
 M 0 7200 1 7201 1	* the master mindflayer (The inner Lair)
-E 0 7200 0 16		*	the devil rod: wielded
-E 0 7203 0 3		*	a purple cloak: around the neck
-G 0 7205 0		*	a black key
+E 0 7200 0 16		*	the master mindflayer<wielded>: the devil rod
+E 0 7203 0 3		*	the master mindflayer<around the neck>: a purple cloak
+G 0 7205 0		*	the master mindflayer: a black key
 M 0 7201 1 7203 1	* the senior mindflayer (The Lair)
-E 0 7201 0 16		*	the large mace: wielded
+E 0 7201 0 16		*	the senior mindflayer<wielded>: the large mace
 M 0 7202 2 7205 1	* the junior mindflayer (The Lair)
-E 0 7202 0 16		*	the small mace: wielded
+E 0 7202 0 16		*	the junior mindflayer<wielded>: the small mace
 O 0 7206 0 7206	* a strange white skull (The lair.)
 M 0 7202 2 7207 1	* the junior mindflayer (The lair.)
-E 0 7202 0 16		*	the small mace: wielded
+E 0 7202 0 16		*	the junior mindflayer<wielded>: the small mace
 M 0 7203 10 7213 1	* the ugly wererat (The sewer drain.)
-E 0 7211 0 16		*	a short sword: wielded
+E 0 7211 0 16		*	the ugly wererat<wielded>: a short sword
 M 0 7203 10 7214 1	* the ugly wererat (The drain end.)
-E 0 7211 0 16		*	a short sword: wielded
+E 0 7211 0 16		*	the ugly wererat<wielded>: a short sword
 M 0 7203 10 7215 1	* the ugly wererat (The half-wet drain.)
-E 0 7211 0 16		*	a short sword: wielded
+E 0 7211 0 16		*	the ugly wererat<wielded>: a short sword
 M 0 7203 10 7217 1	* the ugly wererat (The half-dry drain.)
-G 0 7208 0		*	a small stick
-E 0 7211 0 16		*	a short sword: wielded
+G 0 7208 0		*	the ugly wererat: a small stick
+E 0 7211 0 16		*	the ugly wererat<wielded>: a short sword
 M 0 7203 10 7219 1	* the ugly wererat (A dry sewer drain.)
-E 0 7209 0 8		*	a pair of muddy boots: on the feet
-E 0 7211 0 16		*	a short sword: wielded
+E 0 7209 0 8		*	the ugly wererat<on the feet>: a pair of muddy boots
+E 0 7211 0 16		*	the ugly wererat<wielded>: a short sword
 M 0 7203 10 7221 1	* the ugly wererat (The sewer drain.)
-G 0 7208 0		*	a small stick
-E 0 7211 0 16		*	a short sword: wielded
+G 0 7208 0		*	the ugly wererat: a small stick
+E 0 7211 0 16		*	the ugly wererat<wielded>: a short sword
 M 0 7203 10 7223 1	* the ugly wererat (The sewer bend.)
-E 0 7209 0 8		*	a pair of muddy boots: on the feet
-E 0 7211 0 16		*	a short sword: wielded
+E 0 7209 0 8		*	the ugly wererat<on the feet>: a pair of muddy boots
+E 0 7211 0 16		*	the ugly wererat<wielded>: a short sword
 M 0 7203 10 7225 1	* the ugly wererat (The sewer)
-E 0 7211 0 16		*	a short sword: wielded
+E 0 7211 0 16		*	the ugly wererat<wielded>: a short sword
 M 0 7203 10 7233 1	* the ugly wererat (The sewer drain)
-G 0 7208 0		*	a small stick
-E 0 7211 0 16		*	a short sword: wielded
+G 0 7208 0		*	the ugly wererat: a small stick
+E 0 7211 0 16		*	the ugly wererat<wielded>: a short sword
 M 0 7203 10 7233 1	* the ugly wererat (The sewer drain)
-E 0 7209 0 8		*	a pair of muddy boots: on the feet
-E 0 7211 0 16		*	a short sword: wielded
+E 0 7209 0 8		*	the ugly wererat<on the feet>: a pair of muddy boots
+E 0 7211 0 16		*	the ugly wererat<wielded>: a short sword
 M 0 7204 1 7234 1	* the gigantic rat (The rat's lair)
 M 0 7000 8 7280 1	* the horrifying mudmonster (The entrance.)
 M 0 7000 8 7281 2	* the horrifying mudmonster (The corridor.)
 M 0 7000 8 7281 2	* the horrifying mudmonster (The corridor.)
 M 0 7002 7 7285 1	* the great sewer rat (The tortureroom.)
-E 0 7190 0 2		*	a glinting ring of silver: on the right finger
+E 0 7190 0 2		*	the great sewer rat<on the right finger>: a glinting ring of silver
 M 0 7002 7 7285 1	* the great sewer rat (The tortureroom.)
 M 0 7000 8 7286 2	* the horrifying mudmonster (The hells yard)
 M 0 7013 8 7286 2	* the horrifying mudmonster (The hells yard)
@@ -5549,15 +5533,15 @@ M 0 7007 3 7422 3	* the evil wanderer (North tunnel)
 M 0 7011 3 7423 3	* the shadowy morkoth (The L-shaped room.)
 M 0 7046 1 7424 1	* Herald (The Circular hall.)
 M 0 7040 1 7428 1	* the red dragon (Dragons lair)
-E 0 7304 0 5		*	a red dragon torso: on the body
-E 0 7305 0 7		*	red dragonscale leggings: on the legs
-E 0 7306 0 9		*	a pair of red dragon claws: on the hands
-E 0 7307 0 6		*	a red dragonhelm: over the head
-E 0 7308 0 11		*	the red dragon shield: as a shield
-E 0 7309 0 10		*	a pair of a red dragon's rear claws: on the arms
-E 0 7310 0 8		*	red dragon arm guards: on the feet
-E 0 7216 0 16		*	a red dragon claw: wielded
-E 0 7303 0 17		*	the Red DragonOrb: held in the hands
+E 0 7304 0 5		*	the red dragon<on the body>: a red dragon torso
+E 0 7305 0 7		*	the red dragon<on the legs>: red dragonscale leggings
+E 0 7306 0 9		*	the red dragon<on the hands>: a pair of red dragon claws
+E 0 7307 0 6		*	the red dragon<over the head>: a red dragonhelm
+E 0 7308 0 11		*	the red dragon<as a shield>: the red dragon shield
+E 0 7309 0 10		*	the red dragon<on the arms>: a pair of a red dragon's rear claws
+E 0 7310 0 8		*	the red dragon<on the feet>: red dragon arm guards
+E 0 7216 0 16		*	the red dragon<wielded>: a red dragon claw
+E 0 7303 0 17		*	the red dragon<held in the hands>: the Red DragonOrb
 M 0 7010 2 7429 2	* the evil chreffn (The burned room)
 M 0 7042 2 7435 2	* the guardian naga (Dark tunnel)
 M 0 7043 3 7439 3	* the scaled basilisk (North-western part of basilisks cave)

@@ -3524,18 +3524,15 @@ M 6116 spec_cast_cleric	* the elder druid
 S
 
 #RESETS
-D 0 6009 0 1	* Outside a small cabin in the forest: door to the north: closed
-D 0 6152 1 1	* The circle of trees.: door to the east: closed
-D 0 6153 3 1	* Inside the great tree.: door to the west: closed
 O 0 6011 0 6006	* a mushroom (A small path in the dense forest)
 M 0 6000 1 6009 1	* John the Lumberjack (Outside a small cabin in the forest)
-E 0 6000 0 16		*	a lumber axe: wielded
-E 0 6001 0 5		*	a chequered shirt: on the body
-E 0 6002 0 8		*	a pair of leather boots: on the feet
+E 0 6000 0 16		*	John the Lumberjack<wielded>: a lumber axe
+E 0 6001 0 5		*	John the Lumberjack<on the body>: a chequered shirt
+E 0 6002 0 8		*	John the Lumberjack<on the feet>: a pair of leather boots
 O 0 6003 0 6010	* a fireplace (Inside the cabin)
+P 0 6006 1 0 1	* a fireplace: a small brass key
 O 0 6005 0 6010	* a wooden chest (Inside the cabin)
-P 0 6007 1 6005 1	* a wooden chest: a heap of silver coins
-P 0 6006 1 6003 1	* a fireplace: a small brass key
+P 0 6007 1 0 1	* a wooden chest: a heap of silver coins
 O 0 6013 0 6010	* the barrel (Inside the cabin)
 M 0 6003 2 6012 1	* the ferocious rabbit (An intersection in the dense forest)
 O 0 6011 0 6013	* a mushroom (A small path in the dense forest)
@@ -3548,7 +3545,7 @@ M 0 6002 1 6022 1	* the brown bear (Inside the cave)
 M 0 6004 1 6023 1	* the fallow deer (On a small, grassy field)
 O 0 6010 0 6023	* some blackberries (On a small, grassy field)
 M 0 6115 1 6100 1	* Shargugh (A narrow trail through the deep, dark forest)
-E 0 6114 0 1		*	an iron ring: on the left finger
+E 0 6114 0 1		*	Shargugh<on the left finger>: an iron ring
 O 0 6102 0 6103	* a colossal tree (A narrow trail through the deep, dark forest)
 M 0 6102 4 6104 2	* the large, grey wolf (A small path in the deep, dark forest)
 O 0 6106 0 6104	* a toadstool (A small path in the deep, dark forest)
@@ -3565,17 +3562,17 @@ O 0 6106 0 6122	* a toadstool (A small path in the deep, dark forest)
 O 0 6104 0 6125	* a long, grey branch (A small path on the river bank in the deep, dark forest)
 M 0 6101 2 6127 2	* the ferocious warg (A narrow trail through the deep, dark forest)
 M 0 6319 1 6134 1	* the Queen Spider (The Den of the Queen Spider)
-G 0 6308 0		*	a big pile of coins
-G 0 6309 0		*	a blue potion
+G 0 6308 0		*	the Queen Spider: a big pile of coins
+G 0 6309 0		*	the Queen Spider: a blue potion
 M 0 6318 3 6134 3	* the huge, poisonous spider (The Den of the Queen Spider)
 M 0 6318 3 6134 3	* the huge, poisonous spider (The Den of the Queen Spider)
 M 0 6318 3 6134 3	* the huge, poisonous spider (The Den of the Queen Spider)
 M 0 6112 1 6143 1	* the huge, green dragon (The cave of the Green Dragon)
-G 0 6110 0		*	a yellow potion
-G 0 6112 0		*	an iron crown
-G 0 6111 0		*	a large round shield
+G 0 6110 0		*	the huge, green dragon: a yellow potion
+G 0 6112 0		*	the huge, green dragon: an iron crown
+G 0 6111 0		*	the huge, green dragon: a large round shield
 M 0 6116 1 6155 1	* the elder druid (The cultist temple.)
-E 0 6155 0 16		*	the morning star: wielded
+E 0 6155 0 16		*	the elder druid<wielded>: the morning star
 M 0 6117 1 6157 1	* the guildmaster (Ranger Training Room)
 S
 

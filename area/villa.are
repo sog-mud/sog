@@ -3006,17 +3006,17 @@ S
 
 #RESETS
 M 0 24115 1 24100 1	* the village champion (Outside the Shaman's Hut)
-E 0 24126 0 6		*	a wolf's head: over the head
+E 0 24126 0 6		*	the village champion<over the head>: a wolf's head
 O 0 24125 0 24100	* the village totem (Outside the Shaman's Hut)
 M 0 24128 8 24100 1	* a member of the village militia (Outside the Shaman's Hut)
-E 0 24129 0 16		*	a wooden club: wielded
-E 0 24130 0 5		*	a boiled leather jerkin: on the body
-E 0 24131 0 14		*	a rune-covered bone bracelet: on the left wrist
-E 0 24131 0 15		*	a rune-covered bone bracelet: on the right wrist
-E 0 24132 0 3		*	a fur cloak: around the neck
-E 0 24133 0 6		*	a boar tusk helm: over the head
-E 0 24134 0 11		*	an ox-hide shield: as a shield
-E 0 24135 0 17		*	a throwing spear: held in the hands
+E 0 24129 0 16		*	a member of the village militia<wielded>: a wooden club
+E 0 24130 0 5		*	a member of the village militia<on the body>: a boiled leather jerkin
+E 0 24131 0 14		*	a member of the village militia<on the left wrist>: a rune-covered bone bracelet
+E 0 24131 0 15		*	a member of the village militia<on the right wrist>: a rune-covered bone bracelet
+E 0 24132 0 3		*	a member of the village militia<around the neck>: a fur cloak
+E 0 24133 0 6		*	a member of the village militia<over the head>: a boar tusk helm
+E 0 24134 0 11		*	a member of the village militia<as a shield>: an ox-hide shield
+E 0 24135 0 17		*	a member of the village militia<held in the hands>: a throwing spear
 O 0 24138 0 24101	* a stone gate (The Interior of the Shaman's Hut)
 M 0 24100 1 24101 1	* the village shaman (The Interior of the Shaman's Hut)
 M 0 24127 6 24106 1	* a dog (A Path in the Village)
@@ -3024,45 +3024,45 @@ M 0 24123 3 24111 1	* a beggar (A Path in the Village)
 M 0 24120 3 24112 1	* a child (A Path in the Village)
 M 0 24119 3 24113 1	* a villager (Approaching the Western Gate)
 M 0 24130 8 24115 1	* a member of the village militia (Inside the Western Gates)
-E 0 24129 0 16		*	a wooden club: wielded
-E 0 24130 0 5		*	a boiled leather jerkin: on the body
-E 0 24131 0 14		*	a rune-covered bone bracelet: on the left wrist
-E 0 24131 0 15		*	a rune-covered bone bracelet: on the right wrist
-E 0 24132 0 3		*	a fur cloak: around the neck
-E 0 24133 0 6		*	a boar tusk helm: over the head
-E 0 24134 0 11		*	an ox-hide shield: as a shield
-E 0 24135 0 17		*	a throwing spear: held in the hands
+E 0 24129 0 16		*	a member of the village militia<wielded>: a wooden club
+E 0 24130 0 5		*	a member of the village militia<on the body>: a boiled leather jerkin
+E 0 24131 0 14		*	a member of the village militia<on the left wrist>: a rune-covered bone bracelet
+E 0 24131 0 15		*	a member of the village militia<on the right wrist>: a rune-covered bone bracelet
+E 0 24132 0 3		*	a member of the village militia<around the neck>: a fur cloak
+E 0 24133 0 6		*	a member of the village militia<over the head>: a boar tusk helm
+E 0 24134 0 11		*	a member of the village militia<as a shield>: an ox-hide shield
+E 0 24135 0 17		*	a member of the village militia<held in the hands>: a throwing spear
 M 0 24130 8 24116 1	* a member of the village militia (Inside the Eastern Gates)
-E 0 24129 0 16		*	a wooden club: wielded
-E 0 24130 0 5		*	a boiled leather jerkin: on the body
-E 0 24131 0 14		*	a rune-covered bone bracelet: on the left wrist
-E 0 24131 0 15		*	a rune-covered bone bracelet: on the right wrist
-E 0 24132 0 3		*	a fur cloak: around the neck
-E 0 24133 0 6		*	a boar tusk helm: over the head
-E 0 24134 0 11		*	an ox-hide shield: as a shield
-E 0 24135 0 17		*	a throwing spear: held in the hands
+E 0 24129 0 16		*	a member of the village militia<wielded>: a wooden club
+E 0 24130 0 5		*	a member of the village militia<on the body>: a boiled leather jerkin
+E 0 24131 0 14		*	a member of the village militia<on the left wrist>: a rune-covered bone bracelet
+E 0 24131 0 15		*	a member of the village militia<on the right wrist>: a rune-covered bone bracelet
+E 0 24132 0 3		*	a member of the village militia<around the neck>: a fur cloak
+E 0 24133 0 6		*	a member of the village militia<over the head>: a boar tusk helm
+E 0 24134 0 11		*	a member of the village militia<as a shield>: an ox-hide shield
+E 0 24135 0 17		*	a member of the village militia<held in the hands>: a throwing spear
 M 0 24117 1 24138 1	* the village chieftain (The Chieftain's Lodge)
-E 0 24127 0 16		*	the chief's club: wielded
+E 0 24127 0 16		*	the village chieftain<wielded>: the chief's club
 M 0 24101 1 24140 1	* the village flint-knapper (The Flint-Knepper)
 M 0 24102 1 24144 1	* a swarthy southern trader (A Trader's Den)
-G 0 24115 0		*	a pair of sandals
-G 0 24116 0		*	a hide belt
-G 0 24117 0		*	a bronze helm
-G 0 24118 0		*	a rough fur cloak
-G 0 24119 0		*	a bronze ring
-G 0 24111 0		*	a heavy lead-sheathed club
-G 0 24112 0		*	a bone mace
-G 0 24113 0		*	a bronze dagger
-G 0 24114 0		*	a bronze sword
+G 0 24115 0		*	a swarthy southern trader: a pair of sandals
+G 0 24116 0		*	a swarthy southern trader: a hide belt
+G 0 24117 0		*	a swarthy southern trader: a bronze helm
+G 0 24118 0		*	a swarthy southern trader: a rough fur cloak
+G 0 24119 0		*	a swarthy southern trader: a bronze ring
+G 0 24111 0		*	a swarthy southern trader: a heavy lead-sheathed club
+G 0 24112 0		*	a swarthy southern trader: a bone mace
+G 0 24113 0		*	a swarthy southern trader: a bronze dagger
+G 0 24114 0		*	a swarthy southern trader: a bronze sword
 M 0 24128 8 24145 1	* a member of the village militia (A Path in the Village)
-E 0 24129 0 16		*	a wooden club: wielded
-E 0 24130 0 5		*	a boiled leather jerkin: on the body
-E 0 24131 0 14		*	a rune-covered bone bracelet: on the left wrist
-E 0 24131 0 15		*	a rune-covered bone bracelet: on the right wrist
-E 0 24132 0 3		*	a fur cloak: around the neck
-E 0 24133 0 6		*	a boar tusk helm: over the head
-E 0 24134 0 11		*	an ox-hide shield: as a shield
-E 0 24135 0 17		*	a throwing spear: held in the hands
+E 0 24129 0 16		*	a member of the village militia<wielded>: a wooden club
+E 0 24130 0 5		*	a member of the village militia<on the body>: a boiled leather jerkin
+E 0 24131 0 14		*	a member of the village militia<on the left wrist>: a rune-covered bone bracelet
+E 0 24131 0 15		*	a member of the village militia<on the right wrist>: a rune-covered bone bracelet
+E 0 24132 0 3		*	a member of the village militia<around the neck>: a fur cloak
+E 0 24133 0 6		*	a member of the village militia<over the head>: a boar tusk helm
+E 0 24134 0 11		*	a member of the village militia<as a shield>: an ox-hide shield
+E 0 24135 0 17		*	a member of the village militia<held in the hands>: a throwing spear
 M 0 24103 1 24146 1	* a mercenary (Militia Hut)
 M 0 24131 1 24147 1	* minoan mercenary (Merc Store)
 M 0 24132 1 24147 1	* Assyrian mercenary (Merc Store)
@@ -3071,21 +3071,21 @@ M 0 24134 1 24147 1	* Trojan mercenary (Merc Store)
 M 0 24135 1 24147 1	* nubian Mercenary (Merc Store)
 M 0 24136 1 24147 1	* Mycenaean mercenary (Merc Store)
 M 0 24104 1 24149 1	* the village witchdoctor (The Witch Doctor's Hut)
-G 0 24108 0		*	a yellow brew
-G 0 24124 0		*	a foul potion
-G 0 24136 0		*	a blank papyrus
-G 0 24137 0		*	a shimmering potion
+G 0 24108 0		*	the village witchdoctor: a yellow brew
+G 0 24124 0		*	the village witchdoctor: a foul potion
+G 0 24136 0		*	the village witchdoctor: a blank papyrus
+G 0 24137 0		*	the village witchdoctor: a shimmering potion
 M 0 24125 5 24150 1	* a scrawny wolf (A Path in the Village)
 M 0 24105 1 24152 1	* the village wise woman (The Wise Woman's Residence)
 M 0 24129 8 24153 1	* a member of the village militia (A Path in the Village)
-E 0 24129 0 16		*	a wooden club: wielded
-E 0 24130 0 5		*	a boiled leather jerkin: on the body
-E 0 24131 0 14		*	a rune-covered bone bracelet: on the left wrist
-E 0 24131 0 15		*	a rune-covered bone bracelet: on the right wrist
-E 0 24132 0 3		*	a fur cloak: around the neck
-E 0 24133 0 6		*	a boar tusk helm: over the head
-E 0 24134 0 11		*	an ox-hide shield: as a shield
-E 0 24135 0 17		*	a throwing spear: held in the hands
+E 0 24129 0 16		*	a member of the village militia<wielded>: a wooden club
+E 0 24130 0 5		*	a member of the village militia<on the body>: a boiled leather jerkin
+E 0 24131 0 14		*	a member of the village militia<on the left wrist>: a rune-covered bone bracelet
+E 0 24131 0 15		*	a member of the village militia<on the right wrist>: a rune-covered bone bracelet
+E 0 24132 0 3		*	a member of the village militia<around the neck>: a fur cloak
+E 0 24133 0 6		*	a member of the village militia<over the head>: a boar tusk helm
+E 0 24134 0 11		*	a member of the village militia<as a shield>: an ox-hide shield
+E 0 24135 0 17		*	a member of the village militia<held in the hands>: a throwing spear
 M 0 24106 1 24154 1	* the village beastmaster (The Beastmaster's Hut)
 M 0 24110 1 24155 1	* the hedgehog (Pet Store Storage)
 M 0 24111 1 24155 1	* the otter (Pet Store Storage)
@@ -3094,45 +3094,45 @@ M 0 24113 1 24155 1	* the grizzly bear (Pet Store Storage)
 M 0 24114 1 24155 1	* the aurochs (Pet Store Storage)
 M 0 24119 3 24161 1	* a villager (A Path in the Village)
 M 0 24107 1 24162 1	* a northern trader (A Hut)
-G 0 24106 0		*	a torch
-G 0 24107 0		*	a stone lamp
-G 0 24109 0		*	a buffalo water skin
-G 0 24110 0		*	a jug of water
+G 0 24106 0		*	a northern trader: a torch
+G 0 24107 0		*	a northern trader: a stone lamp
+G 0 24109 0		*	a northern trader: a buffalo water skin
+G 0 24110 0		*	a northern trader: a jug of water
 M 0 24108 1 24164 1	* a daughter of the tribe (A Supply Hut)
-G 0 24120 0		*	black bread
-G 0 24121 0		*	cheese
-G 0 24122 0		*	a strip of dried meat
-G 0 24123 0		*	an egg
+G 0 24120 0		*	a daughter of the tribe: black bread
+G 0 24121 0		*	a daughter of the tribe: cheese
+G 0 24122 0		*	a daughter of the tribe: a strip of dried meat
+G 0 24123 0		*	a daughter of the tribe: an egg
 M 0 24128 8 24165 1	* a member of the village militia (A Path in the Village)
-E 0 24129 0 16		*	a wooden club: wielded
-E 0 24130 0 5		*	a boiled leather jerkin: on the body
-E 0 24131 0 14		*	a rune-covered bone bracelet: on the left wrist
-E 0 24131 0 15		*	a rune-covered bone bracelet: on the right wrist
-E 0 24132 0 3		*	a fur cloak: around the neck
-E 0 24133 0 6		*	a boar tusk helm: over the head
-E 0 24134 0 11		*	an ox-hide shield: as a shield
-E 0 24135 0 17		*	a throwing spear: held in the hands
+E 0 24129 0 16		*	a member of the village militia<wielded>: a wooden club
+E 0 24130 0 5		*	a member of the village militia<on the body>: a boiled leather jerkin
+E 0 24131 0 14		*	a member of the village militia<on the left wrist>: a rune-covered bone bracelet
+E 0 24131 0 15		*	a member of the village militia<on the right wrist>: a rune-covered bone bracelet
+E 0 24132 0 3		*	a member of the village militia<around the neck>: a fur cloak
+E 0 24133 0 6		*	a member of the village militia<over the head>: a boar tusk helm
+E 0 24134 0 11		*	a member of the village militia<as a shield>: an ox-hide shield
+E 0 24135 0 17		*	a member of the village militia<held in the hands>: a throwing spear
 M 0 24109 1 24166 1	* the village brewer (The Brewer's Hut)
-G 0 24101 0		*	a barrel of beer
-G 0 24102 0		*	a bottle of rough beer
-G 0 24103 0		*	a bottle of home brew ale
-G 0 24104 0		*	a bottle of rough spirits
-G 0 24105 0		*	a bottle of brewer's specialty ("Holy Water")
+G 0 24101 0		*	the village brewer: a barrel of beer
+G 0 24102 0		*	the village brewer: a bottle of rough beer
+G 0 24103 0		*	the village brewer: a bottle of home brew ale
+G 0 24104 0		*	the village brewer: a bottle of rough spirits
+G 0 24105 0		*	the village brewer: a bottle of brewer's specialty ("Holy Water")
 M 0 24118 3 24169 1	* a villager (A Path in the Village)
 M 0 24129 8 24169 1	* a member of the village militia (A Path in the Village)
-E 0 24129 0 16		*	a wooden club: wielded
-E 0 24130 0 5		*	a boiled leather jerkin: on the body
-E 0 24131 0 14		*	a rune-covered bone bracelet: on the left wrist
-E 0 24131 0 15		*	a rune-covered bone bracelet: on the right wrist
-E 0 24132 0 3		*	a fur cloak: around the neck
-E 0 24133 0 6		*	a boar tusk helm: over the head
-E 0 24134 0 11		*	an ox-hide shield: as a shield
-E 0 24135 0 17		*	a throwing spear: held in the hands
+E 0 24129 0 16		*	a member of the village militia<wielded>: a wooden club
+E 0 24130 0 5		*	a member of the village militia<on the body>: a boiled leather jerkin
+E 0 24131 0 14		*	a member of the village militia<on the left wrist>: a rune-covered bone bracelet
+E 0 24131 0 15		*	a member of the village militia<on the right wrist>: a rune-covered bone bracelet
+E 0 24132 0 3		*	a member of the village militia<around the neck>: a fur cloak
+E 0 24133 0 6		*	a member of the village militia<over the head>: a boar tusk helm
+E 0 24134 0 11		*	a member of the village militia<as a shield>: an ox-hide shield
+E 0 24135 0 17		*	a member of the village militia<held in the hands>: a throwing spear
 M 0 24122 6 24171 1	* a village drunk (Inside the Hut)
 M 0 24116 1 24174 1	* a hook-nosed merchant (A Path in the Village)
-G 0 24124 0		*	a foul potion
+G 0 24124 0		*	a hook-nosed merchant: a foul potion
 M 0 24121 2 24175 1	* the village idiot (A Path in the Village)
-E 0 24128 0 16		*	a stick: wielded
+E 0 24128 0 16		*	the village idiot<wielded>: a stick
 M 0 24126 6 24176 1	* a rat (A Path in the Village)
 M 0 24124 1 24177 1	* a thief (Outside a Village Clan Hut)
 M 0 24118 3 24189 1	* a villager (A Path in the Village)

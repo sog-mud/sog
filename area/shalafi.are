@@ -513,10 +513,10 @@ S
 #RESETS
 M 0 95301 1 95300 1	* an adept (Fifth Level)
 O 0 95300 0 95300	* a huge violet altar carved as a spider (Fifth Level)
-P 0 95301 1 95300 1	* a huge violet altar carved as a spider: Orb of Magic
+P 0 95301 1 0 1	* a huge violet altar carved as a spider: Orb of Magic
 O 0 95305 0 95300	* sofa of meditation (Fifth Level)
 M 0 95300 1 95306 1	* The Seneschal (The Mystical Path)
-E 0 95302 0 17		*	a spider shaped key: held in the hands
+E 0 95302 0 17		*	The Seneschal<held in the hands>: a spider shaped key
 O 0 95303 0 95307	* Magical White Portal (The Mystical Room)
 O 0 95304 0 95308	* Magical Black Portal (The Mystical Room)
 M 0 95303 1 95310 1	* old vampire (Dark Dungeon)

@@ -3367,28 +3367,6 @@ S
 #0
 
 #RESETS
-D 0 33444 1 2	* The Fire Salamander Street: door to the east: closed and locked
-D 0 33444 3 1	* The Fire Salamander Street: door to the west: closed
-D 0 33455 3 2	* The Bank: door to the west: closed and locked
-D 0 33459 2 1	* The Spirit Square: door to the south: closed
-D 0 33460 3 1	* The Spirit Square: door to the west: closed
-D 0 33462 0 1	* The Spirit Square: door to the north: closed
-D 0 33463 0 1	* The Spirit Square: door to the north: closed
-D 0 33475 0 1	* The Vulgar Unicorn Inn: door to the north: closed
-D 0 33475 1 1	* The Vulgar Unicorn Inn: door to the east: closed
-D 0 33479 0 2	* : door to the north: closed and locked
-D 0 33479 2 1	* : door to the south: closed
-D 0 33480 2 2	* Store Room: door to the south: closed and locked
-D 0 33481 2 1	* Forest Kindom Inn: door to the south: closed
-D 0 33482 0 1	* Forest Kindom Inn: door to the north: closed
-D 0 33482 2 1	* Forest Kindom Inn: door to the south: closed
-D 0 33483 2 1	* Bedroom: door to the south: closed
-D 0 33484 0 1	* Bedroom: door to the north: closed
-D 0 33496 1 1	* Cityguard Head Quarters: door to the east: closed
-D 0 33499 0 1	* The Emerald Street: door to the north: closed
-D 0 33502 3 1	* "Breads and Buns": door to the west: closed
-D 0 33503 1 1	* The Bakery: door to the east: closed
-D 0 33503 2 1	* The Bakery: door to the south: closed
 O 0 33404 0 33444	* The Figurine of Salamander (The Fire Salamander Street)
 O 0 33401 0 33446	* Diamond Statuette (The Spririt Square)
 O 0 33405 0 33448	* figurine of the undine (The Solitary Undine Street)
@@ -3401,15 +3379,15 @@ O 0 33406 0 33473	* Figurine of The Silver Sylph (The Silver Sylph Street)
 M 0 33402 1 33473 1	* wanderer (The Silver Sylph Street)
 O 0 33407 0 33478	* figurine of the teranim (The Small Teranim Street)
 M 0 33401 1 33479 1	* Ludvig ()
-G 0 33409 0		*	small silver key
-E 0 33410 0 17		*	magic scrool: held in the hands
+G 0 33409 0		*	Ludvig: small silver key
+E 0 33410 0 17		*	Ludvig<held in the hands>: magic scrool
 O 0 33412 0 33495	* a shelf (The Magic Shop)
 M 0 33403 1 33521 1	* Fiora (The Flower Shop)
-G 0 33414 0		*	a bouquet of dame's violet
-G 0 33415 0		*	a white lily
-G 0 33416 0		*	a white rose
-G 0 33417 0		*	a bouquet of the roses
-G 0 33413 0		*	a scarlet rose
+G 0 33414 0		*	Fiora: a bouquet of dame's violet
+G 0 33415 0		*	Fiora: a white lily
+G 0 33416 0		*	Fiora: a white rose
+G 0 33417 0		*	Fiora: a bouquet of the roses
+G 0 33413 0		*	Fiora: a scarlet rose
 S
 
 #SHOPS

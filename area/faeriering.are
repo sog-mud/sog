@@ -731,66 +731,56 @@ M 29106 spec_cast_mage	* the Faerie Queen
 S
 
 #RESETS
-D 0 29101 5 1	* Forest Clearing: door to the down: closed
-D 0 29102 0 1	* Entrance Hall: door to the north: closed
-D 0 29102 2 1	* Entrance Hall: door to the south: closed
-D 0 29102 3 1	* Entrance Hall: door to the west: closed
-D 0 29102 4 1	* Entrance Hall: door to the up: closed
-D 0 29103 2 1	* Puck's Room: door to the south: closed
-D 0 29105 0 1	* Snooze Den: door to the north: closed
-D 0 29106 1 1	* Guarded Burrow: door to the east: closed
-D 0 29106 2 2	* Guarded Burrow: door to the south: closed and locked
-D 0 29108 0 2	* Hall of the Faerie Queen: door to the north: closed and locked
 M 0 29101 4 29102 1	* a giggling pixie (Entrance Hall)
-G 0 29101 0		*	a catchy little rhyme
+G 0 29101 0		*	a giggling pixie: a catchy little rhyme
 M 0 29105 1 29103 1	* Puck (Puck's Room)
-E 0 29109 0 7		*	a pair of dirty britches: on the legs
-E 0 29111 0 4		*	a dirty cloak: on the face
+E 0 29109 0 7		*	Puck<on the legs>: a pair of dirty britches
+E 0 29111 0 4		*	Puck<on the face>: a dirty cloak
 O 0 29108 0 29103	* a goblet of faerie wine (Puck's Room)
 M 0 29102 3 29104 1	* a fluttering nixie (Little People's Bar and Grill)
-G 0 29105 0		*	a vial of bottled moonlight
+G 0 29105 0		*	a fluttering nixie: a vial of bottled moonlight
 M 0 29101 4 29104 1	* a giggling pixie (Little People's Bar and Grill)
-G 0 29101 0		*	a catchy little rhyme
+G 0 29101 0		*	a giggling pixie: a catchy little rhyme
 M 0 29103 3 29104 1	* a dancing sprite (Little People's Bar and Grill)
-E 0 29103 0 13		*	a sprite belt: around the waist
+E 0 29103 0 13		*	a dancing sprite<around the waist>: a sprite belt
 M 0 29109 1 29104 1	* Twinkletoes (Little People's Bar and Grill)
-G 0 29108 0		*	a goblet of faerie wine
-G 0 29114 0		*	delicious finger food
+G 0 29108 0		*	Twinkletoes: a goblet of faerie wine
+G 0 29114 0		*	Twinkletoes: delicious finger food
 M 0 29107 1 29104 1	* Lucky (Little People's Bar and Grill)
-G 0 29112 0		*	a blue diamond wand
-G 0 29113 0		*	whoooooopie! Gold!
+G 0 29112 0		*	Lucky: a blue diamond wand
+G 0 29113 0		*	Lucky: whoooooopie! Gold!
 M 0 29108 2 29105 1	* a drunken faerie (Snooze Den)
 M 0 29108 2 29105 1	* a drunken faerie (Snooze Den)
-G 0 29108 0		*	a goblet of faerie wine
+G 0 29108 0		*	a drunken faerie: a goblet of faerie wine
 M 0 29104 1 29106 1	* a stern brownie (Guarded Burrow)
-E 0 29104 0 14		*	a brownie bracer: on the left wrist
-E 0 29104 0 15		*	a brownie bracer: on the right wrist
-G 0 29110 0		*	a sparkling key
+E 0 29104 0 14		*	a stern brownie<on the left wrist>: a brownie bracer
+E 0 29104 0 15		*	a stern brownie<on the right wrist>: a brownie bracer
+G 0 29110 0		*	a stern brownie: a sparkling key
 M 0 29104 4 29106 1	* a stern brownie (Guarded Burrow)
-E 0 29104 0 15		*	a brownie bracer: on the right wrist
-E 0 29104 0 14		*	a brownie bracer: on the left wrist
-G 0 29110 0		*	a sparkling key
+E 0 29104 0 15		*	a stern brownie<on the right wrist>: a brownie bracer
+E 0 29104 0 14		*	a stern brownie<on the left wrist>: a brownie bracer
+G 0 29110 0		*	a stern brownie: a sparkling key
 M 0 29104 4 29106 1	* a stern brownie (Guarded Burrow)
-E 0 29104 0 14		*	a brownie bracer: on the left wrist
-E 0 29104 0 15		*	a brownie bracer: on the right wrist
+E 0 29104 0 14		*	a stern brownie<on the left wrist>: a brownie bracer
+E 0 29104 0 15		*	a stern brownie<on the right wrist>: a brownie bracer
 M 0 29101 4 29107 1	* a giggling pixie (Bowling Alley)
-G 0 29101 0		*	a catchy little rhyme
+G 0 29101 0		*	a giggling pixie: a catchy little rhyme
 M 0 29102 3 29107 1	* a fluttering nixie (Bowling Alley)
-G 0 29105 0		*	a vial of bottled moonlight
+G 0 29105 0		*	a fluttering nixie: a vial of bottled moonlight
 M 0 29103 3 29107 1	* a dancing sprite (Bowling Alley)
-E 0 29103 0 13		*	a sprite belt: around the waist
+E 0 29103 0 13		*	a dancing sprite<around the waist>: a sprite belt
 M 0 29106 1 29108 1	* the Faerie Queen (Hall of the Faerie Queen)
-E 0 29102 0 0		*	a *twinkling* ball of light: as a light
-E 0 29106 0 5		*	a gossamer robe: on the body
-E 0 29107 0 16		*	a moonbeam: wielded
+E 0 29102 0 0		*	the Faerie Queen<as a light>: a *twinkling* ball of light
+E 0 29106 0 5		*	the Faerie Queen<on the body>: a gossamer robe
+E 0 29107 0 16		*	the Faerie Queen<wielded>: a moonbeam
 M 0 29101 4 29108 1	* a giggling pixie (Hall of the Faerie Queen)
-G 0 29101 0		*	a catchy little rhyme
+G 0 29101 0		*	a giggling pixie: a catchy little rhyme
 M 0 29102 3 29108 1	* a fluttering nixie (Hall of the Faerie Queen)
-G 0 29105 0		*	a vial of bottled moonlight
+G 0 29105 0		*	a fluttering nixie: a vial of bottled moonlight
 M 0 29103 3 29108 1	* a dancing sprite (Hall of the Faerie Queen)
-E 0 29103 0 13		*	a sprite belt: around the waist
+E 0 29103 0 13		*	a dancing sprite<around the waist>: a sprite belt
 M 0 29104 3 29108 1	* a stern brownie (Hall of the Faerie Queen)
-E 0 29104 0 14		*	a brownie bracer: on the left wrist
+E 0 29104 0 14		*	a stern brownie<on the left wrist>: a brownie bracer
 S
 
 #SHOPS

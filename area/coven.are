@@ -2763,78 +2763,57 @@ M 29134 spec_breath_fire	* The flaming beast from hell
 S
 
 #RESETS
-D 0 29131 1 2	* On a Logging Trail in the Forest Murkmire: door to the east: closed and locked
-D 0 29136 3 2	* On a Logging Trail in the Forest Murkmire: door to the west: closed and locked
-D 0 29138 0 1	* Main Street, Dunkeldorf: door to the north: closed
-D 0 29138 2 1	* Main Street, Dunkeldorf: door to the south: closed
-D 0 29139 2 1	* Inside a Log House: door to the south: closed
-D 0 29140 0 1	* Inside a Log House: door to the north: closed
-D 0 29141 0 1	* Main Street, Dunkeldorf: door to the north: closed
-D 0 29141 2 1	* Main Street, Dunkeldorf: door to the south: closed
-D 0 29142 2 1	* Inside a Log House: door to the south: closed
-D 0 29143 0 1	* Inside a Log House: door to the north: closed
-D 0 29147 0 2	* At the Top of the Stairs: door to the north: closed and locked
-D 0 29147 1 2	* At the Top of the Stairs: door to the east: closed and locked
-D 0 29147 2 2	* At the Top of the Stairs: door to the south: closed and locked
-D 0 29147 3 2	* At the Top of the Stairs: door to the west: closed and locked
-D 0 29148 0 2	* A Small Room: door to the north: closed and locked
-D 0 29149 1 2	* A Small Room: door to the east: closed and locked
-D 0 29150 2 2	* A Small Room: door to the south: closed and locked
-D 0 29151 3 2	* A Small Room: door to the west: closed and locked
-D 0 29156 1 2	* Inside the Dark Cave: door to the east: closed and locked
-D 0 29162 3 2	* The Outer Circle of Coven: door to the west: closed and locked
-D 0 29174 4 2	* Into the Fire: door to the up: closed and locked
 M 0 29122 2 29123 1	* The woodsman guard (At an Intersection in the Forest Murkmire)
-E 0 29129 0 16		*	a woodsman's axe: wielded
-E 0 29130 0 12		*	a woodsman's cloak: about the shoulders
+E 0 29129 0 16		*	The woodsman guard<wielded>: a woodsman's axe
+E 0 29130 0 12		*	The woodsman guard<about the shoulders>: a woodsman's cloak
 M 0 29120 2 29128 1	* The ravening beast (At an Ancient Clearing in Forest Murkmire)
 M 0 29121 1 29133 1	* The hag Gelda (At an Abandoned Logging Operation in Forest Murkmire)
-G 0 29128 0		*	a warlock root
+G 0 29128 0		*	The hag Gelda: a warlock root
 M 0 29123 5 29138 1	* The lumberjack (Main Street, Dunkeldorf)
-E 0 29129 0 16		*	a woodsman's axe: wielded
+E 0 29129 0 16		*	The lumberjack<wielded>: a woodsman's axe
 M 0 29128 1 29141 1	* Libby the halfling trader (Main Street, Dunkeldorf)
-G 0 29139 0		*	a potion of invisibility
+G 0 29139 0		*	Libby the halfling trader: a potion of invisibility
 M 0 29123 5 29143 1	* The lumberjack (Inside a Log House)
 M 0 29125 1 29145 1	* Mark the miller of Dunkeldorf (The Saw Mill)
 O 0 29122 0 29145	* a swiftly flowing creek (The Saw Mill)
 M 0 29123 5 29146 1	* The lumberjack (In the Common Room of the Dunkeldorf Inn)
-E 0 29129 0 16		*	a woodsman's axe: wielded
+E 0 29129 0 16		*	The lumberjack<wielded>: a woodsman's axe
 M 0 29127 1 29146 1	* Fritz the innkeeper of the Dunkeldorf inn (In the Common Room of the Dunkeldorf Inn)
-G 0 29123 0		*	a nice cold, wimpy pilsner
-G 0 29124 0		*	a nice cold manly dunkel
-G 0 29125 0		*	a plate of the local grub
-G 0 29126 0		*	a room key
+G 0 29123 0		*	Fritz the innkeeper of the Dunkeldorf inn: a nice cold, wimpy pilsner
+G 0 29124 0		*	Fritz the innkeeper of the Dunkeldorf inn: a nice cold manly dunkel
+G 0 29125 0		*	Fritz the innkeeper of the Dunkeldorf inn: a plate of the local grub
+G 0 29126 0		*	Fritz the innkeeper of the Dunkeldorf inn: a room key
 M 0 29131 5 29151 1	* The witch (A Small Room)
-E 0 29132 0 12		*	an ink black robe: about the shoulders
+E 0 29132 0 12		*	The witch<about the shoulders>: an ink black robe
 M 0 29123 5 29152 1	* The lumberjack (Main Street, Dunkeldorf)
-E 0 29129 0 16		*	a woodsman's axe: wielded
+E 0 29129 0 16		*	The lumberjack<wielded>: a woodsman's axe
 M 0 29124 1 29153 1	* Al the grocer (The General Store of Dunkeldorf)
-G 0 29138 0		*	fifty feet of rope
+G 0 29138 0		*	Al the grocer: fifty feet of rope
 M 0 29126 1 29155 1	* Hans the smith of Dunkeldorf (The Village Smithy)
-G 0 29136 0		*	a pick
-G 0 29121 0		*	a stout sturdy shovel
-G 0 29137 0		*	a horseshoe
+G 0 29136 0		*	Hans the smith of Dunkeldorf: a pick
+G 0 29121 0		*	Hans the smith of Dunkeldorf: a stout sturdy shovel
+G 0 29137 0		*	Hans the smith of Dunkeldorf: a horseshoe
 M 0 29129 1 29158 1	* The giant rock snake (Inside the Dark Cave)
 M 0 29130 1 29161 1	* The guardian of the white temple (The Chapel in the Meadow)
-G 0 29120 0		*	the golden sickle
-G 0 29131 0		*	a white marble cross
+G 0 29120 0		*	The guardian of the white temple: the golden sickle
+G 0 29131 0		*	The guardian of the white temple: a white marble cross
 M 0 29131 5 29162 1	* The witch (The Outer Circle of Coven)
-E 0 29132 0 12		*	an ink black robe: about the shoulders
+E 0 29132 0 12		*	The witch<about the shoulders>: an ink black robe
 M 0 29131 5 29164 1	* The witch (The Outer Circle of Coven)
-E 0 29132 0 12		*	an ink black robe: about the shoulders
+E 0 29132 0 12		*	The witch<about the shoulders>: an ink black robe
 M 0 29132 2 29167 1	* The warlock (The Inner Circle of Coven)
-E 0 29132 0 12		*	an ink black robe: about the shoulders
+E 0 29132 0 12		*	The warlock<about the shoulders>: an ink black robe
 M 0 29131 5 29168 1	* The witch (The Outer Circle of Coven)
-E 0 29132 0 12		*	an ink black robe: about the shoulders
+E 0 29132 0 12		*	The witch<about the shoulders>: an ink black robe
 M 0 29133 1 29170 1	* The coven leader (The Inner Circle of Coven)
-E 0 29132 0 12		*	an ink black robe: about the shoulders
-E 0 29133 0 14		*	a black rune band: on the left wrist
+E 0 29132 0 12		*	The coven leader<about the shoulders>: an ink black robe
+E 0 29133 0 14		*	The coven leader<on the left wrist>: a black rune band
 M 0 29131 5 29173 1	* The witch (The Outer Circle of Coven)
-E 0 29132 0 12		*	an ink black robe: about the shoulders
+E 0 29132 0 12		*	The witch<about the shoulders>: an ink black robe
 M 0 29134 1 29174 1	* The flaming beast from hell (Into the Fire)
-E 0 29135 0 1		*	a ring of fire: on the left finger
-E 0 29134 0 17		*	a black rune covered rod: held in the hands
-E 0 29127 0 3		*	the flaming amulet: around the neck
+E 0 29135 0 1		*	The flaming beast from hell<on the left finger>: a ring of fire
+E 0 29134 0 17		*	The flaming beast from hell<held in the hands>: a black rune covered rod
+E 0 29127 0 3		*	The flaming beast from hell<around the neck>: the flaming amulet
 S
 
 #SHOPS

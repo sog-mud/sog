@@ -1326,38 +1326,15 @@ M 8208 spec_breath_lightning	* the baby dragon
 S
 
 #RESETS
-D 0 8201 5 2	* The Zoo Wishing Well: door to the down: closed and locked
-D 0 8204 3 1	* A path in the zoo: door to the west: closed
-D 0 8206 1 1	* Zoo Keepers Office: door to the east: closed
-D 0 8208 0 2	* A path between cages: door to the north: closed and locked
-D 0 8208 2 2	* A path between cages: door to the south: closed and locked
-D 0 8209 2 2	* A path between cages: door to the south: closed and locked
-D 0 8209 3 2	* A path between cages: door to the west: closed and locked
-D 0 8210 0 2	* A path between cages: door to the north: closed and locked
-D 0 8210 2 2	* A path between cages: door to the south: closed and locked
-D 0 8211 2 2	* The gorilla cage: door to the south: closed and locked
-D 0 8212 0 2	* The bear cage: door to the north: closed and locked
-D 0 8214 0 2	* The tiger cage: door to the north: closed and locked
-D 0 8215 1 2	* The elephant cage: door to the east: closed and locked
-D 0 8216 2 2	* The crocodile cage: door to the south: closed and locked
-D 0 8217 0 2	* The dolphins cage: door to the north: closed and locked
-D 0 8218 1 2	* A path between cages: door to the east: closed and locked
-D 0 8218 2 2	* A path between cages: door to the south: closed and locked
-D 0 8220 3 2	* The baby dragon cage: door to the west: closed and locked
-D 0 8221 0 2	* the unicorn cage: door to the north: closed and locked
-D 0 8234 0 1	* A small path in the Kiddies Zoo: door to the north: closed
-D 0 8234 2 1	* A small path in the Kiddies Zoo: door to the south: closed
-D 0 8235 0 1	* A stable: door to the north: closed
-D 0 8236 2 1	* In the Aviary: door to the south: closed
 O 0 8203 0 8201	* a fountain (The Zoo Wishing Well)
 M 0 8202 6 8203 4	* a giant leech (Bottom of the Wishing Well)
 M 0 8200 1 8205 1	* Giles (The Gift Shop)
-G 0 8201 0		*	a tee-shirt
-G 0 8202 0		*	a mug
-G 0 8204 0		*	a map of Midgaard Zoo
-G 0 8205 0		*	a zoo dagger
+G 0 8201 0		*	Giles: a tee-shirt
+G 0 8202 0		*	Giles: a mug
+G 0 8204 0		*	Giles: a map of Midgaard Zoo
+G 0 8205 0		*	Giles: a zoo dagger
 M 0 8201 1 8206 1	* the zookeeper (Zoo Keepers Office)
-G 0 8200 0		*	a small brass key
+G 0 8200 0		*	the zookeeper: a small brass key
 M 0 8210 1 8211 1	* the gorilla (The gorilla cage)
 M 0 8207 1 8212 1	* the bear (The bear cage)
 M 0 8203 1 8214 1	* the tiger (The tiger cage)
@@ -1365,7 +1342,7 @@ M 0 8209 1 8215 1	* the elephant (The elephant cage)
 M 0 8206 3 8216 3	* a crocodile (The crocodile cage)
 M 0 8204 3 8217 3	* a dolphin (The dolphins cage)
 M 0 8211 1 8219 1	* the zoo assistant (The animal food store hut)
-E 0 8205 0 16		*	a zoo dagger: wielded
+E 0 8205 0 16		*	the zoo assistant<wielded>: a zoo dagger
 M 0 8208 1 8220 1	* the baby dragon (The baby dragon cage)
 M 0 8205 1 8221 1	* the unicorn (the unicorn cage)
 M 0 8234 1 8232 1	* a father goat (The goat enclosure)

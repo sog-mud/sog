@@ -2059,222 +2059,218 @@ M 2111 spec_ogre_member	* a thug
 S
 
 #RESETS
-D 0 2124 1 1	* Old Abandoned Warehouse: door to the east: closed
-D 0 2125 3 1	* Bronze Dragon Street at Warehouse: door to the west: closed
-D 0 2148 1 1	* A small ruined chapel: door to the east: closed
-D 0 2149 3 1	* Ajax Avenue at chapel: door to the west: closed
 M 0 2109 3 2102 1	* a punk (Beginning of White Dragon Boulevard)
-E 0 2105 0 17		*	a spray paint can: held in the hands
-E 0 2114 0 5		*	a studded Troll gang jacket: on the body
+E 0 2105 0 17		*	a punk<held in the hands>: a spray paint can
+E 0 2114 0 5		*	a punk<on the body>: a studded Troll gang jacket
 M 0 2101 25 2102 1	* a troll gang member (Beginning of White Dragon Boulevard)
-E 0 2101 0 5		*	a Troll gang jacket: on the body
+E 0 2101 0 5		*	a troll gang member<on the body>: a Troll gang jacket
 M 0 2101 25 2103 1	* a troll gang member (Along White Dragon Boulevard)
-E 0 2101 0 5		*	a Troll gang jacket: on the body
+E 0 2101 0 5		*	a troll gang member<on the body>: a Troll gang jacket
 M 0 2101 25 2104 1	* a troll gang member (White Dragon Boulevard at Armory)
-E 0 2101 0 5		*	a Troll gang jacket: on the body
+E 0 2101 0 5		*	a troll gang member<on the body>: a Troll gang jacket
 M 0 2101 25 2105 1	* a troll gang member (White Dragon Blvd.)
-E 0 2101 0 5		*	a Troll gang jacket: on the body
+E 0 2101 0 5		*	a troll gang member<on the body>: a Troll gang jacket
 M 0 2101 25 2106 1	* a troll gang member (Corner of Ice and White Dragon)
-E 0 2101 0 5		*	a Troll gang jacket: on the body
+E 0 2101 0 5		*	a troll gang member<on the body>: a Troll gang jacket
 M 0 2101 25 2107 1	* a troll gang member (White Dragon Boulevard)
-E 0 2101 0 5		*	a Troll gang jacket: on the body
+E 0 2101 0 5		*	a troll gang member<on the body>: a Troll gang jacket
 M 0 2104 5 2108 1	* a bruiser (Corner of Bronze and White Dragon)
-E 0 2114 0 5		*	a studded Troll gang jacket: on the body
-E 0 2109 0 9		*	comfortable leather gloves: on the hands
-E 0 2113 0 16		*	a lead pipe: wielded
+E 0 2114 0 5		*	a bruiser<on the body>: a studded Troll gang jacket
+E 0 2109 0 9		*	a bruiser<on the hands>: comfortable leather gloves
+E 0 2113 0 16		*	a bruiser<wielded>: a lead pipe
 M 0 2101 25 2108 1	* a troll gang member (Corner of Bronze and White Dragon)
-E 0 2101 0 5		*	a Troll gang jacket: on the body
+E 0 2101 0 5		*	a troll gang member<on the body>: a Troll gang jacket
 M 0 2101 25 2109 1	* a troll gang member (An over-grown lot)
-E 0 2101 0 5		*	a Troll gang jacket: on the body
+E 0 2101 0 5		*	a troll gang member<on the body>: a Troll gang jacket
 M 0 2101 25 2110 1	* a troll gang member (East end of an over-grown plot of land)
-E 0 2101 0 5		*	a Troll gang jacket: on the body
+E 0 2101 0 5		*	a troll gang member<on the body>: a Troll gang jacket
 M 0 2101 25 2111 1	* a troll gang member (Armory)
-E 0 2101 0 5		*	a Troll gang jacket: on the body
+E 0 2101 0 5		*	a troll gang member<on the body>: a Troll gang jacket
 M 0 2101 25 2112 1	* a troll gang member (A Bend in the Way)
-E 0 2101 0 5		*	a Troll gang jacket: on the body
+E 0 2101 0 5		*	a troll gang member<on the body>: a Troll gang jacket
 M 0 2101 25 2113 1	* a troll gang member (Ice Dragon Bend)
-E 0 2101 0 5		*	a Troll gang jacket: on the body
+E 0 2101 0 5		*	a troll gang member<on the body>: a Troll gang jacket
 M 0 2104 5 2114 1	* a bruiser (The remains of the magic shop)
-E 0 2114 0 5		*	a studded Troll gang jacket: on the body
-E 0 2111 0 1		*	a troll signet ring: on the left finger
-E 0 2103 0 16		*	a hefty length of chain: wielded
+E 0 2114 0 5		*	a bruiser<on the body>: a studded Troll gang jacket
+E 0 2111 0 1		*	a bruiser<on the left finger>: a troll signet ring
+E 0 2103 0 16		*	a bruiser<wielded>: a hefty length of chain
 M 0 2109 3 2114 1	* a punk (The remains of the magic shop)
-E 0 2114 0 5		*	a studded Troll gang jacket: on the body
-E 0 2118 0 16		*	a switchblade: wielded
+E 0 2114 0 5		*	a punk<on the body>: a studded Troll gang jacket
+E 0 2118 0 16		*	a punk<wielded>: a switchblade
 M 0 2101 25 2114 1	* a troll gang member (The remains of the magic shop)
-E 0 2101 0 5		*	a Troll gang jacket: on the body
+E 0 2101 0 5		*	a troll gang member<on the body>: a Troll gang jacket
 M 0 2101 25 2115 1	* a troll gang member (Bronze Dragon Street at wizard's back door)
-E 0 2101 0 5		*	a Troll gang jacket: on the body
+E 0 2101 0 5		*	a troll gang member<on the body>: a Troll gang jacket
 M 0 2104 5 2116 1	* a bruiser (Dracolich Plaza)
-E 0 2114 0 5		*	a studded Troll gang jacket: on the body
-E 0 2104 0 11		*	a metal shield: as a shield
-E 0 2103 0 16		*	a hefty length of chain: wielded
+E 0 2114 0 5		*	a bruiser<on the body>: a studded Troll gang jacket
+E 0 2104 0 11		*	a bruiser<as a shield>: a metal shield
+E 0 2103 0 16		*	a bruiser<wielded>: a hefty length of chain
 M 0 2101 25 2116 1	* a troll gang member (Dracolich Plaza)
-E 0 2101 0 5		*	a Troll gang jacket: on the body
+E 0 2101 0 5		*	a troll gang member<on the body>: a Troll gang jacket
 M 0 2101 25 2117 1	* a troll gang member (Shortcut)
-E 0 2101 0 5		*	a Troll gang jacket: on the body
+E 0 2101 0 5		*	a troll gang member<on the body>: a Troll gang jacket
 M 0 2101 25 2118 1	* a troll gang member (Ice Dragon Way)
-E 0 2101 0 5		*	a Troll gang jacket: on the body
+E 0 2101 0 5		*	a troll gang member<on the body>: a Troll gang jacket
 M 0 2101 25 2119 1	* a troll gang member (Courtyard North)
-E 0 2101 0 5		*	a Troll gang jacket: on the body
+E 0 2101 0 5		*	a troll gang member<on the body>: a Troll gang jacket
 M 0 2101 25 2120 1	* a troll gang member (Bronze Dragon Street)
-E 0 2101 0 5		*	a Troll gang jacket: on the body
+E 0 2101 0 5		*	a troll gang member<on the body>: a Troll gang jacket
 M 0 2101 25 2121 1	* a troll gang member (Shortcut)
-E 0 2101 0 5		*	a Troll gang jacket: on the body
+E 0 2101 0 5		*	a troll gang member<on the body>: a Troll gang jacket
 M 0 2101 25 2122 1	* a troll gang member (Ice Dragon Way)
-E 0 2101 0 5		*	a Troll gang jacket: on the body
+E 0 2101 0 5		*	a troll gang member<on the body>: a Troll gang jacket
 M 0 2104 5 2123 1	* a bruiser (Courtyard South)
-E 0 2114 0 5		*	a studded Troll gang jacket: on the body
-E 0 2113 0 16		*	a lead pipe: wielded
-E 0 2117 0 7		*	a pair of black leather pants: on the legs
+E 0 2114 0 5		*	a bruiser<on the body>: a studded Troll gang jacket
+E 0 2113 0 16		*	a bruiser<wielded>: a lead pipe
+E 0 2117 0 7		*	a bruiser<on the legs>: a pair of black leather pants
 M 0 2105 10 2123 2	* a doll (Courtyard South)
-E 0 2108 0 17		*	a mirror: held in the hands
+E 0 2108 0 17		*	a doll<held in the hands>: a mirror
 M 0 2103 1 2124 1	* the Troll gang leader (Old Abandoned Warehouse)
-E 0 2119 0 16		*	a broken bottle: wielded
-E 0 2111 0 1		*	a troll signet ring: on the left finger
-E 0 2114 0 5		*	a studded Troll gang jacket: on the body
+E 0 2119 0 16		*	the Troll gang leader<wielded>: a broken bottle
+E 0 2111 0 1		*	the Troll gang leader<on the left finger>: a troll signet ring
+E 0 2114 0 5		*	the Troll gang leader<on the body>: a studded Troll gang jacket
 M 0 2108 12 2124 6	* a pitbull (Old Abandoned Warehouse)
 M 0 2108 12 2124 6	* a pitbull (Old Abandoned Warehouse)
 M 0 2108 12 2124 6	* a pitbull (Old Abandoned Warehouse)
 M 0 2108 12 2124 6	* a pitbull (Old Abandoned Warehouse)
 M 0 2105 10 2125 2	* a doll (Bronze Dragon Street at Warehouse)
-E 0 2108 0 17		*	a mirror: held in the hands
-E 0 2107 0 8		*	spiked heeled boots: on the feet
+E 0 2108 0 17		*	a doll<held in the hands>: a mirror
+E 0 2107 0 8		*	a doll<on the feet>: spiked heeled boots
 M 0 2109 3 2128 1	* a punk (Yellow Dragon Road)
-E 0 2114 0 5		*	a studded Troll gang jacket: on the body
-E 0 2105 0 17		*	a spray paint can: held in the hands
-E 0 2118 0 16		*	a switchblade: wielded
+E 0 2114 0 5		*	a punk<on the body>: a studded Troll gang jacket
+E 0 2105 0 17		*	a punk<held in the hands>: a spray paint can
+E 0 2118 0 16		*	a punk<wielded>: a switchblade
 M 0 2101 25 2128 1	* a troll gang member (Yellow Dragon Road)
-E 0 2101 0 5		*	a Troll gang jacket: on the body
+E 0 2101 0 5		*	a troll gang member<on the body>: a Troll gang jacket
 M 0 2101 25 2130 1	* a troll gang member (Yellow Dragon Road)
-E 0 2101 0 5		*	a Troll gang jacket: on the body
+E 0 2101 0 5		*	a troll gang member<on the body>: a Troll gang jacket
 M 0 2101 25 2131 1	* a troll gang member (NO MAN'S LAND)
-E 0 2101 0 5		*	a Troll gang jacket: on the body
+E 0 2101 0 5		*	a troll gang member<on the body>: a Troll gang jacket
 M 0 2106 10 2131 1	* a patrolman (NO MAN'S LAND)
-E 0 2110 0 16		*	a patrol club: wielded
-E 0 2116 0 3		*	a police whistle: around the neck
+E 0 2110 0 16		*	a patrolman<wielded>: a patrol club
+E 0 2116 0 3		*	a patrolman<around the neck>: a police whistle
 M 0 2105 10 2132 2	* a doll (NO MAN'S LAND)
-E 0 2107 0 8		*	spiked heeled boots: on the feet
+E 0 2107 0 8		*	a doll<on the feet>: spiked heeled boots
 M 0 2106 10 2132 1	* a patrolman (NO MAN'S LAND)
-E 0 2110 0 16		*	a patrol club: wielded
+E 0 2110 0 16		*	a patrolman<wielded>: a patrol club
 M 0 2106 10 2133 1	* a patrolman (NO MAN'S LAND)
-E 0 2110 0 16		*	a patrol club: wielded
-E 0 2116 0 3		*	a police whistle: around the neck
+E 0 2110 0 16		*	a patrolman<wielded>: a patrol club
+E 0 2116 0 3		*	a patrolman<around the neck>: a police whistle
 M 0 2101 25 2134 1	* a troll gang member (NO MAN'S LAND)
-E 0 2101 0 5		*	a Troll gang jacket: on the body
+E 0 2101 0 5		*	a troll gang member<on the body>: a Troll gang jacket
 M 0 2106 10 2134 1	* a patrolman (NO MAN'S LAND)
-E 0 2110 0 16		*	a patrol club: wielded
+E 0 2110 0 16		*	a patrolman<wielded>: a patrol club
 M 0 2104 5 2135 1	* a bruiser (NO MAN'S LAND)
-E 0 2114 0 5		*	a studded Troll gang jacket: on the body
-E 0 2104 0 11		*	a metal shield: as a shield
-E 0 2111 0 1		*	a troll signet ring: on the left finger
+E 0 2114 0 5		*	a bruiser<on the body>: a studded Troll gang jacket
+E 0 2104 0 11		*	a bruiser<as a shield>: a metal shield
+E 0 2111 0 1		*	a bruiser<on the left finger>: a troll signet ring
 M 0 2106 10 2135 1	* a patrolman (NO MAN'S LAND)
-E 0 2110 0 16		*	a patrol club: wielded
+E 0 2110 0 16		*	a patrolman<wielded>: a patrol club
 M 0 2106 10 2136 1	* a patrolman (NO MAN'S LAND)
-E 0 2110 0 16		*	a patrol club: wielded
-E 0 2116 0 3		*	a police whistle: around the neck
+E 0 2110 0 16		*	a patrolman<wielded>: a patrol club
+E 0 2116 0 3		*	a patrolman<around the neck>: a police whistle
 M 0 2102 25 2137 1	* an ogre gang member (NO MAN'S LAND)
-E 0 2102 0 5		*	an Ogre gang jacket: on the body
+E 0 2102 0 5		*	an ogre gang member<on the body>: an Ogre gang jacket
 M 0 2106 10 2137 1	* a patrolman (NO MAN'S LAND)
-E 0 2110 0 16		*	a patrol club: wielded
+E 0 2110 0 16		*	a patrolman<wielded>: a patrol club
 M 0 2111 5 2138 1	* a thug (NO MAN'S LAND)
-E 0 2115 0 5		*	a studded Ogre gang jacket: on the body
-E 0 2103 0 16		*	a hefty length of chain: wielded
-E 0 2109 0 9		*	comfortable leather gloves: on the hands
+E 0 2115 0 5		*	a thug<on the body>: a studded Ogre gang jacket
+E 0 2103 0 16		*	a thug<wielded>: a hefty length of chain
+E 0 2109 0 9		*	a thug<on the hands>: comfortable leather gloves
 M 0 2106 10 2138 1	* a patrolman (NO MAN'S LAND)
-E 0 2110 0 16		*	a patrol club: wielded
-E 0 2116 0 3		*	a police whistle: around the neck
+E 0 2110 0 16		*	a patrolman<wielded>: a patrol club
+E 0 2116 0 3		*	a patrolman<around the neck>: a police whistle
 M 0 2106 10 2139 1	* a patrolman (NO MAN'S LAND)
-E 0 2110 0 16		*	a patrol club: wielded
-E 0 2116 0 3		*	a police whistle: around the neck
+E 0 2110 0 16		*	a patrolman<wielded>: a patrol club
+E 0 2116 0 3		*	a patrolman<around the neck>: a police whistle
 M 0 2102 25 2140 1	* an ogre gang member (NO MAN'S LAND)
 M 0 2106 10 2140 1	* a patrolman (NO MAN'S LAND)
-E 0 2110 0 16		*	a patrol club: wielded
+E 0 2110 0 16		*	a patrolman<wielded>: a patrol club
 M 0 2102 25 2142 1	* an ogre gang member (Hector Street at Bakery)
-E 0 2102 0 5		*	an Ogre gang jacket: on the body
+E 0 2102 0 5		*	an ogre gang member<on the body>: an Ogre gang jacket
 M 0 2107 3 2143 1	* a vandal (Another corner of Hector and Achilles streets)
-E 0 2118 0 16		*	a switchblade: wielded
-E 0 2115 0 5		*	a studded Ogre gang jacket: on the body
+E 0 2118 0 16		*	a vandal<wielded>: a switchblade
+E 0 2115 0 5		*	a vandal<on the body>: a studded Ogre gang jacket
 M 0 2102 25 2145 1	* an ogre gang member (Corner of Ajax and Hector)
-E 0 2102 0 5		*	an Ogre gang jacket: on the body
+E 0 2102 0 5		*	an ogre gang member<on the body>: an Ogre gang jacket
 M 0 2102 25 2146 1	* an ogre gang member (Hector Street)
-E 0 2102 0 5		*	an Ogre gang jacket: on the body
+E 0 2102 0 5		*	an ogre gang member<on the body>: an Ogre gang jacket
 M 0 2111 5 2147 1	* a thug (Achilles Avenue)
-E 0 2115 0 5		*	a studded Ogre gang jacket: on the body
-E 0 2103 0 16		*	a hefty length of chain: wielded
-E 0 2112 0 9		*	brass knuckles: on the hands
+E 0 2115 0 5		*	a thug<on the body>: a studded Ogre gang jacket
+E 0 2103 0 16		*	a thug<wielded>: a hefty length of chain
+E 0 2112 0 9		*	a thug<on the hands>: brass knuckles
 M 0 2110 1 2148 1	* the Ogre gang leader (A small ruined chapel)
-E 0 2115 0 5		*	a studded Ogre gang jacket: on the body
-E 0 2106 0 16		*	a stiletto: wielded
-E 0 2112 0 9		*	brass knuckles: on the hands
+E 0 2115 0 5		*	the Ogre gang leader<on the body>: a studded Ogre gang jacket
+E 0 2106 0 16		*	the Ogre gang leader<wielded>: a stiletto
+E 0 2112 0 9		*	the Ogre gang leader<on the hands>: brass knuckles
 M 0 2108 12 2148 6	* a pitbull (A small ruined chapel)
 M 0 2108 12 2148 6	* a pitbull (A small ruined chapel)
 M 0 2108 12 2148 6	* a pitbull (A small ruined chapel)
 M 0 2108 12 2148 6	* a pitbull (A small ruined chapel)
 M 0 2105 10 2149 2	* a doll (Ajax Avenue at chapel)
-E 0 2107 0 8		*	spiked heeled boots: on the feet
-E 0 2108 0 17		*	a mirror: held in the hands
+E 0 2107 0 8		*	a doll<on the feet>: spiked heeled boots
+E 0 2108 0 17		*	a doll<held in the hands>: a mirror
 M 0 2102 25 2150 1	* an ogre gang member (First intersection of Hector and Achilles)
-E 0 2102 0 5		*	an Ogre gang jacket: on the body
+E 0 2102 0 5		*	an ogre gang member<on the body>: an Ogre gang jacket
 M 0 2102 25 2151 1	* an ogre gang member (Achilles Avenue)
-E 0 2102 0 5		*	an Ogre gang jacket: on the body
+E 0 2102 0 5		*	an ogre gang member<on the body>: an Ogre gang jacket
 M 0 2102 25 2152 1	* an ogre gang member (A bend in the road)
-E 0 2102 0 5		*	an Ogre gang jacket: on the body
+E 0 2102 0 5		*	an ogre gang member<on the body>: an Ogre gang jacket
 M 0 2105 10 2152 2	* a doll (A bend in the road)
-E 0 2108 0 17		*	a mirror: held in the hands
+E 0 2108 0 17		*	a doll<held in the hands>: a mirror
 M 0 2111 5 2153 1	* a thug (What is left of the weaponshop)
-E 0 2115 0 5		*	a studded Ogre gang jacket: on the body
-E 0 2113 0 16		*	a lead pipe: wielded
-E 0 2117 0 7		*	a pair of black leather pants: on the legs
+E 0 2115 0 5		*	a thug<on the body>: a studded Ogre gang jacket
+E 0 2113 0 16		*	a thug<wielded>: a lead pipe
+E 0 2117 0 7		*	a thug<on the legs>: a pair of black leather pants
 M 0 2102 25 2153 1	* an ogre gang member (What is left of the weaponshop)
-E 0 2102 0 5		*	an Ogre gang jacket: on the body
+E 0 2102 0 5		*	an ogre gang member<on the body>: an Ogre gang jacket
 M 0 2102 25 2154 1	* an ogre gang member (Ajax street at Weaponshop (or whats left of it))
-E 0 2102 0 5		*	an Ogre gang jacket: on the body
+E 0 2102 0 5		*	an ogre gang member<on the body>: an Ogre gang jacket
 M 0 2111 5 2155 1	* a thug (Khan Park)
-E 0 2115 0 5		*	a studded Ogre gang jacket: on the body
-E 0 2104 0 11		*	a metal shield: as a shield
-E 0 2109 0 9		*	comfortable leather gloves: on the hands
+E 0 2115 0 5		*	a thug<on the body>: a studded Ogre gang jacket
+E 0 2104 0 11		*	a thug<as a shield>: a metal shield
+E 0 2109 0 9		*	a thug<on the hands>: comfortable leather gloves
 M 0 2102 25 2155 1	* an ogre gang member (Khan Park)
-E 0 2102 0 5		*	an Ogre gang jacket: on the body
+E 0 2102 0 5		*	an ogre gang member<on the body>: an Ogre gang jacket
 M 0 2102 25 2156 1	* an ogre gang member (Achilles avenue at entrance to park)
-E 0 2102 0 5		*	an Ogre gang jacket: on the body
+E 0 2102 0 5		*	an ogre gang member<on the body>: an Ogre gang jacket
 M 0 2102 25 2157 1	* an ogre gang member (A bend in Ajax)
-E 0 2102 0 5		*	an Ogre gang jacket: on the body
+E 0 2102 0 5		*	an ogre gang member<on the body>: an Ogre gang jacket
 M 0 2102 25 2158 1	* an ogre gang member (Ajax street)
-E 0 2102 0 5		*	an Ogre gang jacket: on the body
+E 0 2102 0 5		*	an ogre gang member<on the body>: an Ogre gang jacket
 M 0 2102 25 2159 1	* an ogre gang member (Curve in the road)
-E 0 2102 0 5		*	an Ogre gang jacket: on the body
+E 0 2102 0 5		*	an ogre gang member<on the body>: an Ogre gang jacket
 M 0 2102 25 2160 1	* an ogre gang member (A wide alleyway)
-E 0 2102 0 5		*	an Ogre gang jacket: on the body
+E 0 2102 0 5		*	an ogre gang member<on the body>: an Ogre gang jacket
 M 0 2107 3 2161 1	* a vandal (Alexander Road)
-E 0 2105 0 17		*	a spray paint can: held in the hands
-E 0 2115 0 5		*	a studded Ogre gang jacket: on the body
+E 0 2105 0 17		*	a vandal<held in the hands>: a spray paint can
+E 0 2115 0 5		*	a vandal<on the body>: a studded Ogre gang jacket
 M 0 2102 25 2161 1	* an ogre gang member (Alexander Road)
-E 0 2102 0 5		*	an Ogre gang jacket: on the body
+E 0 2102 0 5		*	an ogre gang member<on the body>: an Ogre gang jacket
 M 0 2102 25 2162 1	* an ogre gang member (Alexander Street at park entrance)
-E 0 2102 0 5		*	an Ogre gang jacket: on the body
+E 0 2102 0 5		*	an ogre gang member<on the body>: an Ogre gang jacket
 M 0 2102 25 2163 1	* an ogre gang member (Achilles Avenue)
-E 0 2102 0 5		*	an Ogre gang jacket: on the body
+E 0 2102 0 5		*	an ogre gang member<on the body>: an Ogre gang jacket
 M 0 2102 25 2164 1	* an ogre gang member (Ajax Street)
-E 0 2102 0 5		*	an Ogre gang jacket: on the body
+E 0 2102 0 5		*	an ogre gang member<on the body>: an Ogre gang jacket
 M 0 2107 3 2165 1	* a vandal (The inn/pub)
-E 0 2105 0 17		*	a spray paint can: held in the hands
-E 0 2118 0 16		*	a switchblade: wielded
-E 0 2115 0 5		*	a studded Ogre gang jacket: on the body
+E 0 2105 0 17		*	a vandal<held in the hands>: a spray paint can
+E 0 2118 0 16		*	a vandal<wielded>: a switchblade
+E 0 2115 0 5		*	a vandal<on the body>: a studded Ogre gang jacket
 M 0 2102 25 2165 1	* an ogre gang member (The inn/pub)
-E 0 2102 0 5		*	an Ogre gang jacket: on the body
+E 0 2102 0 5		*	an ogre gang member<on the body>: an Ogre gang jacket
 M 0 2102 25 2166 1	* an ogre gang member (Solomon Street)
-E 0 2102 0 5		*	an Ogre gang jacket: on the body
+E 0 2102 0 5		*	an ogre gang member<on the body>: an Ogre gang jacket
 M 0 2102 25 2167 1	* an ogre gang member (Intersection of Achilles and Solomon)
-E 0 2102 0 5		*	an Ogre gang jacket: on the body
+E 0 2102 0 5		*	an ogre gang member<on the body>: an Ogre gang jacket
 M 0 2102 25 2169 1	* an ogre gang member (Intersection of Ajax and Solomon)
-E 0 2102 0 5		*	an Ogre gang jacket: on the body
+E 0 2102 0 5		*	an ogre gang member<on the body>: an Ogre gang jacket
 M 0 2111 5 2170 1	* a thug (Hallway)
-E 0 2115 0 5		*	a studded Ogre gang jacket: on the body
-E 0 2104 0 11		*	a metal shield: as a shield
-E 0 2117 0 7		*	a pair of black leather pants: on the legs
+E 0 2115 0 5		*	a thug<on the body>: a studded Ogre gang jacket
+E 0 2104 0 11		*	a thug<as a shield>: a metal shield
+E 0 2117 0 7		*	a thug<on the legs>: a pair of black leather pants
 M 0 2102 25 2170 1	* an ogre gang member (Hallway)
-E 0 2102 0 5		*	an Ogre gang jacket: on the body
+E 0 2102 0 5		*	an ogre gang member<on the body>: an Ogre gang jacket
 S
 
 #$

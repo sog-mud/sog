@@ -6183,108 +6183,6 @@ M 1365 spec_cast_mage	* a wizard
 S
 
 #RESETS
-D 0 1316 3 1	* Dining Room: door to the west: closed
-D 0 1317 5 1	* Dark Hallway: door to the down: closed
-D 0 1320 1 1	* The kitchen: door to the east: closed
-D 0 1321 4 1	* Below the trapdoor: door to the up: closed
-D 0 1323 0 2	* A dark passage: door to the north: closed and locked
-D 0 1327 2 2	* A dark cell: door to the south: closed and locked
-D 0 1330 0 1	* The hallway: door to the north: closed
-D 0 1330 2 1	* The hallway: door to the south: closed
-D 0 1331 0 1	* A bend in the hallway: door to the north: closed
-D 0 1331 1 1	* A bend in the hallway: door to the east: closed
-D 0 1331 2 1	* A bend in the hallway: door to the south: closed
-D 0 1332 2 1	* A store room: door to the south: closed
-D 0 1333 0 1	* A broom closet: door to the north: closed
-D 0 1334 1 1	* A hallway: door to the east: closed
-D 0 1334 2 1	* A hallway: door to the south: closed
-D 0 1335 0 1	* Guardians chamber: door to the north: closed
-D 0 1336 3 1	* A guest bedroom: door to the west: closed
-D 0 1337 3 1	* A guest bedroom: door to the west: closed
-D 0 1338 1 1	* A hallway: door to the east: closed
-D 0 1339 3 1	* The burnt room: door to the west: closed
-D 0 1340 0 1	* A hallway: door to the north: closed
-D 0 1342 2 1	* The Apprentice's Barracks: door to the south: closed
-D 0 1343 0 1	* A hallway: door to the north: closed
-D 0 1344 2 1	* The Apprentice's barracks: door to the south: closed
-D 0 1345 0 1	* A hallway: door to the north: closed
-D 0 1346 2 1	* The apprentice's workshop: door to the south: closed
-D 0 1348 3 1	* The hallway: door to the west: closed
-D 0 1349 1 1	* A classroom: door to the east: closed
-D 0 1350 3 1	* A hallway: door to the west: closed
-D 0 1351 3 1	* A hallway: door to the west: closed
-D 0 1352 1 1	* An empty classroom: door to the east: closed
-D 0 1354 1 1	* An empty classroom: door to the east: closed
-D 0 1355 2 1	* A hallway: door to the south: closed
-D 0 1356 2 1	* A hallway: door to the south: closed
-D 0 1357 0 1	* The Amphitheater: door to the north: closed
-D 0 1358 2 1	* A hallway: door to the south: closed
-D 0 1359 0 1	* The training room: door to the north: closed
-D 0 1361 0 1	* A dueling room: door to the north: closed
-D 0 1362 1 1	* A hallway: door to the east: closed
-D 0 1363 1 1	* A hallway: door to the east: closed
-D 0 1364 3 1	* The spellmaster's lounge: door to the west: closed
-D 0 1365 3 1	* A bedroom: door to the west: closed
-D 0 1366 1 1	* A hallway: door to the east: closed
-D 0 1367 3 1	* The study: door to the west: closed
-D 0 1370 0 1	* A hallway: door to the north: closed
-D 0 1371 2 1	* A small office: door to the south: closed
-D 0 1371 3 1	* A small office: door to the west: closed
-D 0 1373 1 1	* The master scribe's workshop: door to the east: closed
-D 0 1374 0 1	* A hallway: door to the north: closed
-D 0 1375 2 1	* A store room: door to the south: closed
-D 0 1377 3 1	* A hallway: door to the west: closed
-D 0 1378 3 1	* A hallway: door to the west: closed
-D 0 1379 1 1	* A store room: door to the east: closed
-D 0 1381 1 1	* A very hot room: door to the east: closed
-D 0 1381 2 1	* A very hot room: door to the south: closed
-D 0 1381 4 1	* A very hot room: door to the up: closed
-D 0 1382 0 1	* The master Enchanter's chamber: door to the north: closed
-D 0 1384 2 1	* A hallway: door to the south: closed
-D 0 1386 0 1	* A laboratory: door to the north: closed
-D 0 1387 2 1	* A hallway: door to the south: closed
-D 0 1390 0 1	* The pentagram chamber: door to the north: closed
-D 0 1391 1 1	* A hallway: door to the east: closed
-D 0 1394 3 1	* An empty room: door to the west: closed
-D 0 1395 0 1	* The charm master's chamber: door to the north: closed
-D 0 1395 3 1	* The charm master's chamber: door to the west: closed
-D 0 1397 2 1	* The animal pens: door to the south: closed
-D 0 1400 0 1	* A hallway: door to the north: closed
-D 0 1401 2 1	* A store room: door to the south: closed
-D 0 1401 3 1	* A store room: door to the west: closed
-D 0 1402 1 1	* The master spellbinder's chamber: door to the east: closed
-D 0 1402 3 1	* The master spellbinder's chamber: door to the west: closed
-D 0 1403 1 1	* The spellbinder's cache: door to the east: closed
-D 0 1403 2 1	* The spellbinder's cache: door to the south: closed
-D 0 1405 0 1	* A hallway: door to the north: closed
-D 0 1408 3 1	* A hallway: door to the west: closed
-D 0 1409 1 1	* The golem master's workshop: door to the east: closed
-D 0 1409 5 1	* The golem master's workshop: door to the down: closed
-D 0 1412 4 1	* It is very dark here...: door to the up: closed
-D 0 1412 5 1	* It is very dark here...: door to the down: closed
-D 0 1416 2 1	* A hallway: door to the south: closed
-D 0 1417 0 1	* The master of illusion's chamber: door to the north: closed
-D 0 1419 2 1	* A hallway: door to the south: closed
-D 0 1420 0 1	* The meditation chamber: door to the north: closed
-D 0 1422 1 1	* A hallway: door to the east: closed
-D 0 1423 3 1	* A dark room: door to the west: closed
-D 0 1434 1 1	* A corridor: door to the east: closed
-D 0 1435 3 1	* The scrying chamber: door to the west: closed
-D 0 1452 2 1	* A grey tiled hallway: door to the south: closed
-D 0 1453 0 1	* The antechamber: door to the north: closed
-D 0 1460 1 1	* The end of the hallway: door to the east: closed
-D 0 1461 3 1	* The chamber of darkness: door to the west: closed
-D 0 1466 3 1	* A bright hallway: door to the west: closed
-D 0 1467 1 1	* An antechamber: door to the east: closed
-D 0 1473 0 1	* A wide hallway: door to the north: closed
-D 0 1474 0 1	* A wide hallway: door to the north: closed
-D 0 1474 2 1	* A wide hallway: door to the south: closed
-D 0 1475 0 1	* A wide hallway: door to the north: closed
-D 0 1475 2 1	* A wide hallway: door to the south: closed
-D 0 1476 2 1	* The entranceway: door to the south: closed
-D 0 1480 1 1	* The altar: door to the east: closed
-D 0 1480 3 1	* The altar: door to the west: closed
-D 0 1481 3 1	* The treasury: door to the west: closed
 R 0 1301 4	* The Shadow Grove: randomize
 R 0 1302 4	* The Shadow Grove: randomize
 M 0 1300 6 1302 2	* a shadow guardian (The Shadow Grove)
@@ -6309,22 +6207,22 @@ M 0 1304 7 1315 1	* a mage (The Hallway)
 M 0 1304 7 1316 1	* a mage (Dining Room)
 M 0 1304 7 1318 1	* a mage (Mages Tavern)
 M 0 1305 1 1318 1	* Strick the bartender (Mages Tavern)
-G 0 1351 0		*	a herbal brew
-G 0 1352 0		*	a waybread
+G 0 1351 0		*	Strick the bartender: a herbal brew
+G 0 1352 0		*	Strick the bartender: a waybread
 M 0 1304 7 1319 1	* a mage (The Magic Shop)
 M 0 1306 1 1319 1	* Tatorious (The Magic Shop)
 O 0 1301 0 1320	* an oven (The kitchen)
-P 0 1304 20 1301 1	* an oven: a slice of pizza
+P 0 1304 20 0 1	* an oven: a slice of pizza
 O 0 1302 0 1320	* a meat locker (The kitchen)
-P 0 1305 1 1302 1	* a meat locker: a large chunk of meat
-P 0 1306 1 1302 1	* a meat locker: a finger sandwich
+P 0 1305 1 0 1	* a meat locker: a large chunk of meat
+P 0 1306 1 0 1	* a meat locker: a finger sandwich
 M 0 1307 1 1320 1	* Ezmerelda (The kitchen)
-E 0 1355 0 16		*	a meat cleaver: wielded
+E 0 1355 0 16		*	Ezmerelda<wielded>: a meat cleaver
 M 0 1308 1 1320 1	* The cook's assistant (The kitchen)
 M 0 1309 1 1327 1	* The prisoner (A dark cell)
-E 0 1356 0 14		*	some chain shackles: on the left wrist
+E 0 1356 0 14		*	The prisoner<on the left wrist>: some chain shackles
 M 0 1310 1 1328 1	* the Jailor (The Jailor's office)
-E 0 1323 0 17		*	an old key: held in the hands
+E 0 1323 0 17		*	the Jailor<held in the hands>: an old key
 M 0 1311 2 1333 2	* a broom (A broom closet)
 M 0 1311 2 1333 2	* a broom (A broom closet)
 O 0 1307 0 1333	* a straw broom (A broom closet)
@@ -6361,13 +6259,13 @@ M 0 1324 3 1357 3	* a student of spells (The Amphitheater)
 M 0 1324 3 1357 3	* a student of spells (The Amphitheater)
 M 0 1325 1 1357 1	* a wizard (The Amphitheater)
 M 0 1326 3 1359 3	* a young mage (The training room)
-E 0 3351 0 16		*	a standard issue dagger: wielded
+E 0 3351 0 16		*	a young mage<wielded>: a standard issue dagger
 M 0 1326 3 1359 3	* a young mage (The training room)
-E 0 3351 0 16		*	a standard issue dagger: wielded
+E 0 3351 0 16		*	a young mage<wielded>: a standard issue dagger
 M 0 1326 3 1359 3	* a young mage (The training room)
-E 0 3351 0 16		*	a standard issue dagger: wielded
+E 0 3351 0 16		*	a young mage<wielded>: a standard issue dagger
 M 0 1327 1 1359 1	* the battle mistress (The training room)
-E 0 1357 0 17		*	a silvery dagger: held in the hands
+E 0 1357 0 17		*	the battle mistress<held in the hands>: a silvery dagger
 M 0 1328 2 1364 2	* a spell teacher (The spellmaster's lounge)
 M 0 1329 1 1365 1	* an aged wizard (A bedroom)
 M 0 1330 1 1367 1	* a scribe (The study)
@@ -6376,16 +6274,16 @@ M 0 1339 5 1368 1	* a wooden golem (Below the stairs)
 M 0 1331 2 1371 2	* a scribe (A small office)
 M 0 1331 2 1371 2	* a scribe (A small office)
 M 0 1332 1 1373 1	* the master scribe (The master scribe's workshop)
-G 0 1359 0		*	a scroll
-G 0 1360 0		*	a bound scroll
-G 0 1361 0		*	a long cylindrical tube
+G 0 1359 0		*	the master scribe: a scroll
+G 0 1360 0		*	the master scribe: a bound scroll
+G 0 1361 0		*	the master scribe: a long cylindrical tube
 M 0 1333 1 1373 1	* the scribe's assistant (The master scribe's workshop)
-G 0 1362 0		*	an old scroll
+G 0 1362 0		*	the scribe's assistant: an old scroll
 M 0 1313 7 1375 1	* a pair of disembodied eyes (A store room)
 O 0 1315 0 1378	* a chest (A hallway)
-P 0 1317 1 1315 1	* a chest: a long sword
-P 0 1318 1 1315 1	* a chest: a silver dagger
-P 0 1319 1 1315 1	* a chest: a curved scimitar
+P 0 1317 1 0 1	* a chest: a long sword
+P 0 1318 1 0 1	* a chest: a silver dagger
+P 0 1319 1 0 1	* a chest: a curved scimitar
 O 0 1310 0 1379	* a bar of silver (A store room)
 O 0 1311 0 1379	* a bar of gold (A store room)
 O 0 1312 0 1379	* a bar of mithril (A store room)
@@ -6396,35 +6294,35 @@ O 0 1363 0 1381	* a scroll written on blue paper (A very hot room)
 M 0 1334 1 1382 1	* the Enchanter (The master Enchanter's chamber)
 M 0 1335 1 1382 1	* a dancing sword (The master Enchanter's chamber)
 M 0 1336 1 1388 1	* the Mad Alchemist (The Mad Alchemist's workroom)
-E 0 1364 0 17		*	a leather pouch: held in the hands
-P 0 1365 2 1364 1	* a leather pouch: a silver stirring spoon
-P 0 1367 2 1364 1	* a leather pouch: a bright red potion
-P 0 1368 2 1364 1	* a leather pouch: a green potion
-P 0 1369 2 1364 1	* a leather pouch: an effervescent potion
-P 0 1370 2 1364 1	* a leather pouch: a milky white potion
+E 0 1364 0 17		*	the Mad Alchemist<held in the hands>: a leather pouch
+P 0 1365 2 0 1	* a leather pouch: a silver stirring spoon
+P 0 1367 2 0 1	* a leather pouch: a bright red potion
+P 0 1368 2 0 1	* a leather pouch: a green potion
+P 0 1369 2 0 1	* a leather pouch: an effervescent potion
+P 0 1370 2 0 1	* a leather pouch: a milky white potion
 M 0 1337 1 1390 1	* the master summoner (The pentagram chamber)
-E 0 1371 0 17		*	a black staff: held in the hands
+E 0 1371 0 17		*	the master summoner<held in the hands>: a black staff
 R 0 1392 6	* Inside the Energy Field: randomize
 M 0 1338 1 1395 1	* the master charmer (The charm master's chamber)
-E 0 1372 0 17		*	a golden flute: held in the hands
-G 0 1373 0		*	a small figurine
+E 0 1372 0 17		*	the master charmer<held in the hands>: a golden flute
+G 0 1373 0		*	the master charmer: a small figurine
 M 0 1339 5 1398 2	* a wooden golem (The end of the hallway)
 M 0 1339 5 1398 2	* a wooden golem (The end of the hallway)
 M 0 1313 7 1400 1	* a pair of disembodied eyes (A hallway)
 O 0 1320 0 1401	* a wooden staff (A store room)
 M 0 1340 1 1402 1	* the master spell binder (The master spellbinder's chamber)
-E 0 1325 0 17		*	a silvery key: held in the hands
-E 0 1374 0 13		*	a holstered belt: around the waist
-P 0 1375 2 1374 1	* a holstered belt: a blackened wand
+E 0 1325 0 17		*	the master spell binder<held in the hands>: a silvery key
+E 0 1374 0 13		*	the master spell binder<around the waist>: a holstered belt
+P 0 1375 2 0 1	* a holstered belt: a blackened wand
 O 0 1321 0 1403	* a silver chased cabinet (The spellbinder's cache)
-P 0 1326 1 1321 1	* a silver chased cabinet: a red and white staff
-P 0 1327 1 1321 1	* a silver chased cabinet: a burnt staff
+P 0 1326 1 0 1	* a silver chased cabinet: a red and white staff
+P 0 1327 1 0 1	* a silver chased cabinet: a burnt staff
 O 0 1322 0 1403	* a silver chased cabinet (The spellbinder's cache)
-P 0 1328 1 1322 1	* a silver chased cabinet: a black rod
-P 0 1329 1 1322 1	* a silver chased cabinet: a wooden stick
-P 0 1330 1 1322 1	* a silver chased cabinet: a metal wand
+P 0 1328 1 0 1	* a silver chased cabinet: a black rod
+P 0 1329 1 0 1	* a silver chased cabinet: a wooden stick
+P 0 1330 1 0 1	* a silver chased cabinet: a metal wand
 M 0 1341 1 1409 1	* the golem maker (The golem master's workshop)
-E 0 1376 0 17		*	a runed chisel: held in the hands
+E 0 1376 0 17		*	the golem maker<held in the hands>: a runed chisel
 M 0 1342 1 1409 1	* a granite golem (The golem master's workshop)
 M 0 1345 2 1409 2	* a cloth golem (The golem master's workshop)
 M 0 1343 1 1411 1	* a bronze golem (The golem chamber)
@@ -6432,15 +6330,15 @@ M 0 1344 1 1411 1	* a flesh golem (The golem chamber)
 M 0 1346 1 1411 1	* an adamantite golem (The golem chamber)
 M 0 1347 1 1411 1	* a clay golem (The golem chamber)
 M 0 1348 1 1417 1	* the master of illusions (The master of illusion's chamber)
-E 0 1377 0 13		*	a beltpouch: around the waist
-P 0 1378 3 1377 1	* a beltpouch: some sparkling dust
+E 0 1377 0 13		*	the master of illusions<around the waist>: a beltpouch
+P 0 1378 3 0 1	* a beltpouch: some sparkling dust
 M 0 1349 1 1425 1	* the Necromancer (The Necromancer's Lair)
-E 0 1379 0 3		*	a dark cowl: around the neck
-E 0 1380 0 17		*	an ashen wand: held in the hands
+E 0 1379 0 3		*	the Necromancer<around the neck>: a dark cowl
+E 0 1380 0 17		*	the Necromancer<held in the hands>: an ashen wand
 M 0 1350 4 1425 4	* an animated skeleton (The Necromancer's Lair)
 M 0 1350 4 1425 4	* an animated skeleton (The Necromancer's Lair)
 M 0 1351 1 1425 1	* an undead giant (The Necromancer's Lair)
-E 0 1381 0 16		*	a huge spiked club: wielded
+E 0 1381 0 16		*	an undead giant<wielded>: a huge spiked club
 M 0 1339 5 1428 2	* a wooden golem (The end of the hallway)
 M 0 1339 5 1428 2	* a wooden golem (The end of the hallway)
 M 0 1312 10 1430 2	* a pair of disembodied hands (A corridor)
@@ -6449,57 +6347,57 @@ M 0 1352 3 1435 3	* an ugly witch (The scrying chamber)
 M 0 1352 3 1435 3	* an ugly witch (The scrying chamber)
 M 0 1352 3 1435 3	* an ugly witch (The scrying chamber)
 O 0 1331 0 1435	* a black cauldron (The scrying chamber)
-P 0 1332 1 1331 1	* a black cauldron: a small pair of bat wings
-P 0 1333 1 1331 1	* a black cauldron: an eyeball
+P 0 1332 1 0 1	* a black cauldron: a small pair of bat wings
+P 0 1333 1 0 1	* a black cauldron: an eyeball
 M 0 1353 1 1437 1	* the Librarian (The entrance to the library)
 O 0 1334 0 1445	* the book of magic (The reading room)
-P 0 1335 1 1334 1	* the book of magic: a pair of spectacles
+P 0 1335 1 0 1	* the book of magic: a pair of spectacles
 M 0 1313 7 1449 1	* a pair of disembodied eyes (The landing)
 M 0 1354 1 1453 1	* the master's apprentice (The antechamber)
-E 0 1382 0 12		*	a grey robe: about the shoulders
-E 0 1384 0 14		*	a glinting silver bracelet: on the left wrist
+E 0 1382 0 12		*	the master's apprentice<about the shoulders>: a grey robe
+E 0 1384 0 14		*	the master's apprentice<on the left wrist>: a glinting silver bracelet
 M 0 1355 1 1454 1	* a grey cat (The main chamber)
 M 0 1356 1 1454 1	* the master of Neutrality (The main chamber)
-E 0 1383 0 3		*	a long grey cloak: around the neck
-E 0 1385 0 16		*	an iron shod staff: wielded
-E 0 1386 0 17		*	a ward minor: held in the hands
+E 0 1383 0 3		*	the master of Neutrality<around the neck>: a long grey cloak
+E 0 1385 0 16		*	the master of Neutrality<wielded>: an iron shod staff
+E 0 1386 0 17		*	the master of Neutrality<held in the hands>: a ward minor
 M 0 1357 1 1461 1	* a black robed apprentice (The chamber of darkness)
-E 0 1387 0 12		*	a black robe: about the shoulders
-E 0 1388 0 14		*	an onyx bracelet: on the left wrist
+E 0 1387 0 12		*	a black robed apprentice<about the shoulders>: a black robe
+E 0 1388 0 14		*	a black robed apprentice<on the left wrist>: an onyx bracelet
 M 0 1358 1 1464 1	* a black cat (The inner chamber)
 M 0 1359 1 1464 1	* the master of the black robes (The inner chamber)
-E 0 1389 0 3		*	a dark black cloak: around the neck
-E 0 1390 0 16		*	a sharp shard of obsidian: wielded
-E 0 1386 0 17		*	a ward minor: held in the hands
+E 0 1389 0 3		*	the master of the black robes<around the neck>: a dark black cloak
+E 0 1390 0 16		*	the master of the black robes<wielded>: a sharp shard of obsidian
+E 0 1386 0 17		*	the master of the black robes<held in the hands>: a ward minor
 M 0 1360 1 1467 1	* a white robed apprentice (An antechamber)
-E 0 1391 0 12		*	a white robe: about the shoulders
-E 0 1392 0 14		*	a white gold bracelet: on the left wrist
+E 0 1391 0 12		*	a white robed apprentice<about the shoulders>: a white robe
+E 0 1392 0 14		*	a white robed apprentice<on the left wrist>: a white gold bracelet
 M 0 1361 1 1469 1	* a white cat (The chamber of the white light)
 M 0 1362 1 1469 1	* The master of goodness (The chamber of the white light)
-E 0 1393 0 3		*	a white cloak: around the neck
-E 0 1394 0 16		*	an ivory hilted dagger: wielded
-E 0 1386 0 17		*	a ward minor: held in the hands
+E 0 1393 0 3		*	The master of goodness<around the neck>: a white cloak
+E 0 1394 0 16		*	The master of goodness<wielded>: an ivory hilted dagger
+E 0 1386 0 17		*	The master of goodness<held in the hands>: a ward minor
 M 0 1363 1 1477 1	* A calico cat (The audience chamber)
-E 0 1395 0 3		*	a spiked collar: around the neck
+E 0 1395 0 3		*	A calico cat<around the neck>: a spiked collar
 M 0 1364 1 1477 1	* The Grand Mistress (The audience chamber)
-E 0 1401 0 5		*	a tight fitting green dragon scale shirt: on the body
-E 0 1397 0 1		*	a small emerald ring: on the left finger
-E 0 1398 0 14		*	an emerald bracelet: on the left wrist
-E 0 1399 0 17		*	a ward major: held in the hands
-E 0 1400 0 16		*	the ebony kris: wielded
-G 0 1339 0		*	an intricately carved key
+E 0 1401 0 5		*	The Grand Mistress<on the body>: a tight fitting green dragon scale shirt
+E 0 1397 0 1		*	The Grand Mistress<on the left finger>: a small emerald ring
+E 0 1398 0 14		*	The Grand Mistress<on the left wrist>: an emerald bracelet
+E 0 1399 0 17		*	The Grand Mistress<held in the hands>: a ward major
+E 0 1400 0 16		*	The Grand Mistress<wielded>: the ebony kris
+G 0 1339 0		*	The Grand Mistress: an intricately carved key
 O 0 1336 0 1480	* a golden altar (The altar)
-P 0 1337 1 1336 1	* a golden altar: a heart shaped medallion
+P 0 1337 1 0 1	* a golden altar: a heart shaped medallion
 O 0 1338 0 1481	* a large chest (The treasury)
-P 0 1340 1 1338 1	* a large chest: a pile of coins
+P 0 1340 1 0 1	* a large chest: a pile of coins
 O 0 1341 0 1482	* a brown cloak (A passage)
 O 0 1342 0 1482	* a chameleon poncho (A passage)
 O 0 1343 0 1482	* a pair of old boots (A passage)
 O 0 1345 0 1482	* a leather backpack (A passage)
-P 0 1344 1 1345 1	* a leather backpack: a seashell ring
+P 0 1344 1 0 1	* a leather backpack: a seashell ring
 O 0 1402 0 1499	* a fridge (Skylar's Hideout)
-P 0 1403 1 1402 1	* a fridge: a bottle of Absolut vodka
-P 0 1404 1 1402 1	* a fridge: a bottle of cranberry juice
+P 0 1403 1 0 1	* a fridge: a bottle of Absolut vodka
+P 0 1404 1 0 1	* a fridge: a bottle of cranberry juice
 S
 
 #SHOPS

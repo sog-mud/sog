@@ -4082,91 +4082,85 @@ M 5628 spec_guard	* the small bat
 S
 
 #RESETS
-D 0 5605 2 1	* Small ledge on the South cliff face: door to the south: closed
-D 0 5633 2 1	* Thieves guild: door to the south: closed
-D 0 5640 0 1	* The Shanty town: door to the north: closed
-D 0 5695 0 1	* Secretary's Office: door to the north: closed
-D 0 5696 2 2	* Three way intersection: door to the south: closed and locked
-D 0 5698 0 2	* Corridor: door to the north: closed and locked
 O 0 5622 0 5603	* an ashtray (The Taxidermist's Gallery)
 O 0 5624 0 5603	* a stuffed jaguar (The Taxidermist's Gallery)
 O 0 5625 0 5603	* a stuffed orc (The Taxidermist's Gallery)
 O 0 5627 0 5603	* a stuffed dragon's head (The Taxidermist's Gallery)
 O 0 5626 0 5603	* a stuffed grizzly bear (The Taxidermist's Gallery)
-P 0 5628 1 5626 1	* a stuffed grizzly bear: a glass eye
-P 0 5629 1 5626 1	* a stuffed grizzly bear: a glass eye
+P 0 5628 1 0 1	* a stuffed grizzly bear: a glass eye
+P 0 5629 1 0 1	* a stuffed grizzly bear: a glass eye
 M 0 5614 1 5608 1	* the junk dealer (The Dump)
-G 0 5632 0		*	a light weight canoe
-G 0 5632 0		*	a light weight canoe
-G 0 5674 0		*	a bottle of rotgut
-G 0 5675 0		*	a crystal ball
+G 0 5632 0		*	the junk dealer: a light weight canoe
+G 0 5632 0		*	the junk dealer: a light weight canoe
+G 0 5674 0		*	the junk dealer: a bottle of rotgut
+G 0 5675 0		*	the junk dealer: a crystal ball
 M 0 5601 1 5609 1	* delicacy vendor bird (Runed stall)
-E 0 5668 0 16		*	a large rat sticker: wielded
-E 0 5605 0 9		*	some talon extenders: on the hands
-G 0 5606 0		*	spice of the black, aquatic centipede
-G 0 5607 0		*	aromatic seaweed
-G 0 5608 0		*	a desiccated chameleon
-G 0 5609 0		*	the eye of a giant squid
+E 0 5668 0 16		*	delicacy vendor bird<wielded>: a large rat sticker
+E 0 5605 0 9		*	delicacy vendor bird<on the hands>: some talon extenders
+G 0 5606 0		*	delicacy vendor bird: spice of the black, aquatic centipede
+G 0 5607 0		*	delicacy vendor bird: aromatic seaweed
+G 0 5608 0		*	delicacy vendor bird: a desiccated chameleon
+G 0 5609 0		*	delicacy vendor bird: the eye of a giant squid
 M 0 5600 2 5610 1	* the food vendor (A Food vendor's stall)
-E 0 5667 0 16		*	a small rat sticker: wielded
-E 0 5605 0 9		*	some talon extenders: on the hands
-G 0 5600 0		*	a packet of worm crisps
-G 0 5603 0		*	a seasoned rat kabob
-G 0 5604 0		*	raw worms with rice
+E 0 5667 0 16		*	the food vendor<wielded>: a small rat sticker
+E 0 5605 0 9		*	the food vendor<on the hands>: some talon extenders
+G 0 5600 0		*	the food vendor: a packet of worm crisps
+G 0 5603 0		*	the food vendor: a seasoned rat kabob
+G 0 5604 0		*	the food vendor: raw worms with rice
 O 0 5679 0 5611	* a fountain (Top of Market Square)
 M 0 5600 2 5612 1	* the food vendor (A Food vendor's stall)
-E 0 5668 0 16		*	a large rat sticker: wielded
-E 0 5605 0 9		*	some talon extenders: on the hands
-G 0 5600 0		*	a packet of worm crisps
-G 0 5601 0		*	a bowl of curried grubs
-G 0 5602 0		*	a cup of spicy rodent stew
-G 0 5681 0		*	a water skin
+E 0 5668 0 16		*	the food vendor<wielded>: a large rat sticker
+E 0 5605 0 9		*	the food vendor<on the hands>: some talon extenders
+G 0 5600 0		*	the food vendor: a packet of worm crisps
+G 0 5601 0		*	the food vendor: a bowl of curried grubs
+G 0 5602 0		*	the food vendor: a cup of spicy rodent stew
+G 0 5681 0		*	the food vendor: a water skin
 M 0 5624 1 5613 1	* the strong aarakocran guildmaster (Warrior's guild)
-E 0 5637 0 16		*	a mace: wielded
-E 0 5605 0 9		*	some talon extenders: on the hands
+E 0 5637 0 16		*	the strong aarakocran guildmaster<wielded>: a mace
+E 0 5605 0 9		*	the strong aarakocran guildmaster<on the hands>: some talon extenders
 M 0 5606 1 5616 1	* Taxidermist (The Taxidermy Stand)
-E 0 5667 0 16		*	a small rat sticker: wielded
-E 0 5605 0 9		*	some talon extenders: on the hands
-G 0 5623 0		*	a stuffed snow leopard
-G 0 5624 0		*	a stuffed jaguar
-G 0 5625 0		*	a stuffed orc
+E 0 5667 0 16		*	Taxidermist<wielded>: a small rat sticker
+E 0 5605 0 9		*	Taxidermist<on the hands>: some talon extenders
+G 0 5623 0		*	Taxidermist: a stuffed snow leopard
+G 0 5624 0		*	Taxidermist: a stuffed jaguar
+G 0 5625 0		*	Taxidermist: a stuffed orc
 M 0 5621 1 5617 1	* the armorer (Armory stall)
-E 0 5637 0 16		*	a mace: wielded
-E 0 5605 0 9		*	some talon extenders: on the hands
-G 0 5669 0		*	a full-view helmet of plate
-G 0 5670 0		*	an open-winged vest
-G 0 5671 0		*	a pair of open-toe boots
-G 0 5677 0		*	a leather flying helmet
+E 0 5637 0 16		*	the armorer<wielded>: a mace
+E 0 5605 0 9		*	the armorer<on the hands>: some talon extenders
+G 0 5669 0		*	the armorer: a full-view helmet of plate
+G 0 5670 0		*	the armorer: an open-winged vest
+G 0 5671 0		*	the armorer: a pair of open-toe boots
+G 0 5677 0		*	the armorer: a leather flying helmet
 M 0 5602 1 5619 1	* the trinket vendor (A jeweler's stall)
-E 0 5667 0 16		*	a small rat sticker: wielded
-G 0 5610 0		*	a shiny bit of green glass
-G 0 5611 0		*	a shiny bit of blue glass
-G 0 5612 0		*	a bright gold circlet
-G 0 5613 0		*	a pretty piece of string
-G 0 5614 0		*	one silver coin
-G 0 5615 0		*	glittering red glass
-G 0 5616 0		*	a ball of string
-G 0 5617 0		*	a fine red thread
-G 0 5618 0		*	a flawed garnet stone
-G 0 5682 0		*	a dead glowbug
+E 0 5667 0 16		*	the trinket vendor<wielded>: a small rat sticker
+G 0 5610 0		*	the trinket vendor: a shiny bit of green glass
+G 0 5611 0		*	the trinket vendor: a shiny bit of blue glass
+G 0 5612 0		*	the trinket vendor: a bright gold circlet
+G 0 5613 0		*	the trinket vendor: a pretty piece of string
+G 0 5614 0		*	the trinket vendor: one silver coin
+G 0 5615 0		*	the trinket vendor: glittering red glass
+G 0 5616 0		*	the trinket vendor: a ball of string
+G 0 5617 0		*	the trinket vendor: a fine red thread
+G 0 5618 0		*	the trinket vendor: a flawed garnet stone
+G 0 5682 0		*	the trinket vendor: a dead glowbug
 M 0 5620 1 5620 1	* the weapons vendor (The Weaponsmith's stall)
-E 0 5637 0 16		*	a mace: wielded
-E 0 5605 0 9		*	some talon extenders: on the hands
-G 0 5665 0		*	some small talon extenders
-G 0 5666 0		*	a small mace
-G 0 5667 0		*	a small rat sticker
-G 0 5668 0		*	a large rat sticker
+E 0 5637 0 16		*	the weapons vendor<wielded>: a mace
+E 0 5605 0 9		*	the weapons vendor<on the hands>: some talon extenders
+G 0 5665 0		*	the weapons vendor: some small talon extenders
+G 0 5666 0		*	the weapons vendor: a small mace
+G 0 5667 0		*	the weapons vendor: a small rat sticker
+G 0 5668 0		*	the weapons vendor: a large rat sticker
 M 0 5603 8 5621 1	* the child (A stone dwelling)
 M 0 5615 8 5621 1	* the merchant (A stone dwelling)
-E 0 5668 0 16		*	a large rat sticker: wielded
+E 0 5668 0 16		*	the merchant<wielded>: a large rat sticker
 O 0 5619 0 5621	* a fancy nest (A stone dwelling)
 M 0 5615 8 5622 1	* the merchant (A Guard Shack)
 M 0 5627 1 5622 1	* the cityguard (A Guard Shack)
-E 0 5668 0 16		*	a large rat sticker: wielded
-E 0 5670 0 5		*	an open-winged vest: on the body
-E 0 5678 0 10		*	a pair of tough leather wing guards: on the arms
-E 0 5671 0 8		*	a pair of open-toe boots: on the feet
-E 0 5669 0 6		*	a full-view helmet of plate: over the head
+E 0 5668 0 16		*	the cityguard<wielded>: a large rat sticker
+E 0 5670 0 5		*	the cityguard<on the body>: an open-winged vest
+E 0 5678 0 10		*	the cityguard<on the arms>: a pair of tough leather wing guards
+E 0 5671 0 8		*	the cityguard<on the feet>: a pair of open-toe boots
+E 0 5669 0 6		*	the cityguard<over the head>: a full-view helmet of plate
 M 0 5603 8 5623 1	* the child (A stone dwelling)
 M 0 5615 8 5623 1	* the merchant (A stone dwelling)
 O 0 5620 0 5623	* a straw nest (A stone dwelling)
@@ -4175,134 +4169,134 @@ M 0 5615 8 5624 1	* the merchant (A stone dwelling)
 O 0 5620 0 5624	* a straw nest (A stone dwelling)
 M 0 5604 8 5625 1	* the child (Town Square)
 M 0 5615 8 5626 1	* the merchant (A stone dwelling)
-E 0 5668 0 16		*	a large rat sticker: wielded
+E 0 5668 0 16		*	the merchant<wielded>: a large rat sticker
 M 0 5616 8 5626 1	* the matron (A stone dwelling)
 O 0 5620 0 5626	* a straw nest (A stone dwelling)
 M 0 5615 8 5627 1	* the merchant (A stone dwelling)
 M 0 5616 8 5627 1	* the matron (A stone dwelling)
 O 0 5619 0 5627	* a fancy nest (A stone dwelling)
 M 0 5612 3 5629 1	* the stalwart guard (Inside the stronghold)
-E 0 5637 0 16		*	a mace: wielded
+E 0 5637 0 16		*	the stalwart guard<wielded>: a mace
 M 0 5612 3 5629 1	* the stalwart guard (Inside the stronghold)
-E 0 5637 0 16		*	a mace: wielded
+E 0 5637 0 16		*	the stalwart guard<wielded>: a mace
 M 0 5625 4 5631 1	* the cityguard (The Shanty town)
-E 0 5668 0 16		*	a large rat sticker: wielded
-E 0 5670 0 5		*	an open-winged vest: on the body
-E 0 5678 0 10		*	a pair of tough leather wing guards: on the arms
+E 0 5668 0 16		*	the cityguard<wielded>: a large rat sticker
+E 0 5670 0 5		*	the cityguard<on the body>: an open-winged vest
+E 0 5678 0 10		*	the cityguard<on the arms>: a pair of tough leather wing guards
 M 0 5623 1 5633 1	* the sneaky aarakocran guildmaster (Thieves guild)
-E 0 5667 0 16		*	a small rat sticker: wielded
-E 0 5605 0 9		*	some talon extenders: on the hands
-G 0 5673 0		*	a lockpick
+E 0 5667 0 16		*	the sneaky aarakocran guildmaster<wielded>: a small rat sticker
+E 0 5605 0 9		*	the sneaky aarakocran guildmaster<on the hands>: some talon extenders
+G 0 5673 0		*	the sneaky aarakocran guildmaster: a lockpick
 M 0 5629 1 5633 1	* the kobold (Thieves guild)
-E 0 5633 0 4		*	a thick collar and chain: on the face
-G 0 5676 0		*	a worthless rock
+E 0 5633 0 4		*	the kobold<on the face>: a thick collar and chain
+G 0 5676 0		*	the kobold: a worthless rock
 M 0 5613 1 5636 1	* the aarakocran revolutionary (Small level area on the cliff face)
-G 0 5680 0		*	a cannon
+G 0 5680 0		*	the aarakocran revolutionary: a cannon
 O 0 5661 0 5636	* a campfire (Small level area on the cliff face)
-P 0 5662 10 5661 1	* a campfire: a shiny gold key
+P 0 5662 10 0 1	* a campfire: a shiny gold key
 M 0 5626 4 5638 1	* the cityguard (The Shanty town)
-E 0 5668 0 16		*	a large rat sticker: wielded
-E 0 5670 0 5		*	an open-winged vest: on the body
-E 0 5671 0 8		*	a pair of open-toe boots: on the feet
-E 0 5677 0 6		*	a leather flying helmet: over the head
+E 0 5668 0 16		*	the cityguard<wielded>: a large rat sticker
+E 0 5670 0 5		*	the cityguard<on the body>: an open-winged vest
+E 0 5671 0 8		*	the cityguard<on the feet>: a pair of open-toe boots
+E 0 5677 0 6		*	the cityguard<over the head>: a leather flying helmet
 M 0 5625 4 5640 1	* the cityguard (The Shanty town)
-E 0 5667 0 16		*	a small rat sticker: wielded
-E 0 5670 0 5		*	an open-winged vest: on the body
-E 0 5677 0 6		*	a leather flying helmet: over the head
+E 0 5667 0 16		*	the cityguard<wielded>: a small rat sticker
+E 0 5670 0 5		*	the cityguard<on the body>: an open-winged vest
+E 0 5677 0 6		*	the cityguard<over the head>: a leather flying helmet
 M 0 5626 4 5641 1	* the cityguard (The Shanty town)
-E 0 5666 0 16		*	a small mace: wielded
-E 0 5670 0 5		*	an open-winged vest: on the body
+E 0 5666 0 16		*	the cityguard<wielded>: a small mace
+E 0 5670 0 5		*	the cityguard<on the body>: an open-winged vest
 M 0 5603 8 5643 1	* the child (A primitive area)
 M 0 5617 8 5643 1	* the clansman (A primitive area)
-E 0 5668 0 16		*	a large rat sticker: wielded
+E 0 5668 0 16		*	the clansman<wielded>: a large rat sticker
 O 0 5621 0 5643	* a huge nest (A primitive area)
 M 0 5604 8 5644 1	* the child (A primitive area)
 M 0 5617 8 5644 1	* the clansman (A primitive area)
-E 0 5667 0 16		*	a small rat sticker: wielded
+E 0 5667 0 16		*	the clansman<wielded>: a small rat sticker
 O 0 5621 0 5644	* a huge nest (A primitive area)
 M 0 5604 8 5645 1	* the child (A narrow area on the shelf)
 M 0 5603 8 5646 1	* the child (A primitive area)
 M 0 5617 8 5646 1	* the clansman (A primitive area)
-E 0 5668 0 16		*	a large rat sticker: wielded
+E 0 5668 0 16		*	the clansman<wielded>: a large rat sticker
 O 0 5621 0 5646	* a huge nest (A primitive area)
 M 0 5617 8 5647 1	* the clansman (A primitive area)
-E 0 5667 0 16		*	a small rat sticker: wielded
+E 0 5667 0 16		*	the clansman<wielded>: a small rat sticker
 O 0 5621 0 5647	* a huge nest (A primitive area)
 M 0 5604 8 5648 1	* the child (A narrow area on the shelf)
 M 0 5608 2 5648 1	* a lame aarakocra (A narrow area on the shelf)
-G 0 5634 0		*	a clear potion with feathers inside
-G 0 5634 0		*	a clear potion with feathers inside
-G 0 5634 0		*	a clear potion with feathers inside
+G 0 5634 0		*	a lame aarakocra: a clear potion with feathers inside
+G 0 5634 0		*	a lame aarakocra: a clear potion with feathers inside
+G 0 5634 0		*	a lame aarakocra: a clear potion with feathers inside
 R 0 5654 2	* Confusing Corridor: randomize
 R 0 5655 2	* Confusing Corridor: randomize
 R 0 5656 2	* Confusing Corridor: randomize
 O 0 5635 0 5657	* a faded tapestry (Confusing Corridor)
-P 0 5663 1 5635 1	* a faded tapestry: a frayed bit of green thread
+P 0 5663 1 0 1	* a faded tapestry: a frayed bit of green thread
 R 0 5657 2	* Confusing Corridor: randomize
 M 0 5609 1 5658 1	* the humming military commander (Confusing Corridor)
-E 0 5636 0 16		*	a sword: wielded
-E 0 5655 0 9		*	a pair of talon extenders: on the hands
-E 0 5649 0 5		*	an open-winged vest: on the body
-E 0 5657 0 12		*	a cape: about the shoulders
-E 0 5658 0 13		*	a belt: around the waist
-E 0 5650 0 11		*	a wicked, spiked shield: as a shield
-E 0 5656 0 10		*	a pair of sleeves: on the arms
-E 0 5654 0 8		*	a pair of open-toe boots: on the feet
-E 0 5653 0 7		*	a pair of leggings: on the legs
-E 0 5652 0 6		*	a full-view helmet: over the head
-E 0 5651 0 4		*	a cloak: on the face
-E 0 5659 0 14		*	a bracer: on the left wrist
-E 0 5659 0 15		*	a bracer: on the right wrist
+E 0 5636 0 16		*	the humming military commander<wielded>: a sword
+E 0 5655 0 9		*	the humming military commander<on the hands>: a pair of talon extenders
+E 0 5649 0 5		*	the humming military commander<on the body>: an open-winged vest
+E 0 5657 0 12		*	the humming military commander<about the shoulders>: a cape
+E 0 5658 0 13		*	the humming military commander<around the waist>: a belt
+E 0 5650 0 11		*	the humming military commander<as a shield>: a wicked, spiked shield
+E 0 5656 0 10		*	the humming military commander<on the arms>: a pair of sleeves
+E 0 5654 0 8		*	the humming military commander<on the feet>: a pair of open-toe boots
+E 0 5653 0 7		*	the humming military commander<on the legs>: a pair of leggings
+E 0 5652 0 6		*	the humming military commander<over the head>: a full-view helmet
+E 0 5651 0 4		*	the humming military commander<on the face>: a cloak
+E 0 5659 0 14		*	the humming military commander<on the left wrist>: a bracer
+E 0 5659 0 15		*	the humming military commander<on the right wrist>: a bracer
 R 0 5658 2	* Confusing Corridor: randomize
 M 0 5611 8 5659 1	* the fierce warrior (Confusing Corridor)
-E 0 5637 0 16		*	a mace: wielded
-E 0 5605 0 9		*	some talon extenders: on the hands
+E 0 5637 0 16		*	the fierce warrior<wielded>: a mace
+E 0 5605 0 9		*	the fierce warrior<on the hands>: some talon extenders
 R 0 5659 2	* Confusing Corridor: randomize
 M 0 5628 10 5662 10	* the small bat (Small ledge on the South cliff face)
 R 0 5663 2	* Confusing Corridor: randomize
 M 0 5611 8 5668 1	* the fierce warrior (Confusing Corridor)
-E 0 5636 0 16		*	a sword: wielded
+E 0 5636 0 16		*	the fierce warrior<wielded>: a sword
 R 0 5668 2	* Confusing Corridor: randomize
 M 0 5611 8 5669 1	* the fierce warrior (Confusing Corridor)
-E 0 5637 0 16		*	a mace: wielded
-E 0 5605 0 9		*	some talon extenders: on the hands
+E 0 5637 0 16		*	the fierce warrior<wielded>: a mace
+E 0 5605 0 9		*	the fierce warrior<on the hands>: some talon extenders
 R 0 5669 2	* Confusing Corridor: randomize
 M 0 5611 8 5670 1	* the fierce warrior (Confusing Corridor)
-E 0 5636 0 16		*	a sword: wielded
+E 0 5636 0 16		*	the fierce warrior<wielded>: a sword
 R 0 5670 2	* Confusing Corridor: randomize
 R 0 5676 2	* Confusing Corridor: randomize
 R 0 5677 2	* Confusing Corridor: randomize
 M 0 5610 1 5683 1	* the glowing commander (Confusing Corridor)
-E 0 5637 0 16		*	a mace: wielded
-E 0 5644 0 9		*	a pair of talon extenders: on the hands
-E 0 5638 0 5		*	an open-winged vest: on the body
-E 0 5646 0 12		*	a cape: about the shoulders
-E 0 5647 0 13		*	a belt: around the waist
-E 0 5639 0 11		*	a wicked, spiked shield: as a shield
-E 0 5645 0 10		*	a pair of wing guards: on the arms
-E 0 5643 0 8		*	a pair of open-toe boots: on the feet
-E 0 5642 0 7		*	a pair of leggings: on the legs
-E 0 5641 0 6		*	a full-view helmet: over the head
-E 0 5640 0 4		*	a cloak: on the face
-E 0 5648 0 14		*	a bracer: on the left wrist
-E 0 5648 0 15		*	a bracer: on the right wrist
+E 0 5637 0 16		*	the glowing commander<wielded>: a mace
+E 0 5644 0 9		*	the glowing commander<on the hands>: a pair of talon extenders
+E 0 5638 0 5		*	the glowing commander<on the body>: an open-winged vest
+E 0 5646 0 12		*	the glowing commander<about the shoulders>: a cape
+E 0 5647 0 13		*	the glowing commander<around the waist>: a belt
+E 0 5639 0 11		*	the glowing commander<as a shield>: a wicked, spiked shield
+E 0 5645 0 10		*	the glowing commander<on the arms>: a pair of wing guards
+E 0 5643 0 8		*	the glowing commander<on the feet>: a pair of open-toe boots
+E 0 5642 0 7		*	the glowing commander<on the legs>: a pair of leggings
+E 0 5641 0 6		*	the glowing commander<over the head>: a full-view helmet
+E 0 5640 0 4		*	the glowing commander<on the face>: a cloak
+E 0 5648 0 14		*	the glowing commander<on the left wrist>: a bracer
+E 0 5648 0 15		*	the glowing commander<on the right wrist>: a bracer
 R 0 5683 2	* Confusing Corridor: randomize
 M 0 5612 3 5684 1	* the stalwart guard (Corridor)
-E 0 5637 0 16		*	a mace: wielded
-E 0 5605 0 9		*	some talon extenders: on the hands
+E 0 5637 0 16		*	the stalwart guard<wielded>: a mace
+E 0 5605 0 9		*	the stalwart guard<on the hands>: some talon extenders
 M 0 5611 8 5690 6	* the fierce warrior (Planning Room)
-E 0 5636 0 16		*	a sword: wielded
+E 0 5636 0 16		*	the fierce warrior<wielded>: a sword
 M 0 5611 8 5691 2	* the fierce warrior (War Room)
-E 0 5636 0 16		*	a sword: wielded
+E 0 5636 0 16		*	the fierce warrior<wielded>: a sword
 M 0 5611 8 5692 2	* the fierce warrior (Empty Room)
-E 0 5636 0 16		*	a sword: wielded
+E 0 5636 0 16		*	the fierce warrior<wielded>: a sword
 M 0 5611 8 5693 2	* the fierce warrior (Walkway)
-E 0 5636 0 16		*	a sword: wielded
+E 0 5636 0 16		*	the fierce warrior<wielded>: a sword
 M 0 5618 1 5694 1	* the captain (Captain of the Guard's office)
-E 0 5605 0 9		*	some talon extenders: on the hands
-E 0 5662 0 17		*	a shiny gold key: held in the hands
+E 0 5605 0 9		*	the captain<on the hands>: some talon extenders
+E 0 5662 0 17		*	the captain<held in the hands>: a shiny gold key
 M 0 5619 1 5695 1	* the secretary (Secretary's Office)
-E 0 5605 0 9		*	some talon extenders: on the hands
+E 0 5605 0 9		*	the secretary<on the hands>: some talon extenders
 M 0 5622 1 5699 1	* the holy aarakocran guildmaster (Shaman's private chambers)
 S
 

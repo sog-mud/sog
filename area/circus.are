@@ -2246,36 +2246,8 @@ M 4451 spec_thief	* the Midget
 S
 
 #RESETS
-D 0 4415 2 2	* The Entrance to the Big Top.: door to the south: closed and locked
-D 0 4416 0 2	* Entryway between the Grand Stands: door to the north: closed and locked
-D 0 4422 3 2	* The 2nd Ring - You'd better read the description of this room. : door to the west: closed and locked
-D 0 4424 1 2	* The 1st Ring: door to the east: closed and locked
-D 0 4424 5 2	* The 1st Ring: door to the down: closed and locked
-D 0 4428 5 1	* The End of the Highwire: door to the down: closed
-D 0 4429 4 1	* Behind the Big Top: door to the up: closed
-D 0 4430 1 1	* The Animal Pens: door to the east: closed
-D 0 4430 2 1	* The Animal Pens: door to the south: closed
-D 0 4430 3 1	* The Animal Pens: door to the west: closed
-D 0 4431 1 1	* The Elephant Pen: door to the east: closed
-D 0 4432 0 1	* The Bear Pen: door to the north: closed
-D 0 4433 3 1	* The Horse Corral: door to the west: closed
-D 0 4434 0 1	* The Row of Trailers: door to the north: closed
-D 0 4434 2 1	* The Row of Trailers: door to the south: closed
-D 0 4435 2 1	* The Strongman's Trailer: door to the south: closed
-D 0 4436 0 1	* The Bearded Lady's Trailer: door to the north: closed
-D 0 4437 2 1	* The Sword Swallower's Trailer: door to the south: closed
-D 0 4438 0 1	* The Row of Trailers: door to the north: closed
-D 0 4438 2 1	* The Row of Trailers: door to the south: closed
-D 0 4439 0 1	* The Midget's Tiny Trailer: door to the north: closed
-D 0 4440 0 1	* The Row of Trailers: door to the north: closed
-D 0 4440 1 1	* The Row of Trailers: door to the east: closed
-D 0 4440 2 1	* The Row of Trailers: door to the south: closed
-D 0 4441 2 1	* The Illusionist's Trailer: door to the south: closed
-D 0 4442 0 1	* The Circus Owner's Trailer: door to the north: closed
-D 0 4442 2 1	* The Circus Owner's Trailer: door to the south: closed
-D 0 4448 3 1	* The Tightrope Walkers Trailer: door to the west: closed
 M 0 4400 1 4402 4	* the Ticket Clerk (The Entrance to the Circus)
-G 0 4400 0		*	a ticket
+G 0 4400 0		*	the Ticket Clerk: a ticket
 O 0 4429 0 4402	* a note (The Entrance to the Circus)
 M 0 4401 1 4403 1	* a small child (The Path to the Big Top)
 M 0 4403 1 4403 1	* the child's mother (The Path to the Big Top)
@@ -2287,20 +2259,20 @@ O 0 4415 0 4405	* a letter (The Game Booths)
 M 0 4401 1 4406 1	* a small child (The Path to the Big Top)
 M 0 4403 1 4406 1	* the child's mother (The Path to the Big Top)
 M 0 4427 1 4407 1	* the cotton candy vendor (The Cotton Candy Vendor)
-G 0 4401 0		*	cotton candy
+G 0 4401 0		*	the cotton candy vendor: cotton candy
 M 0 4404 1 4408 1	* little Bobby (The Entrance to the Freak Shows)
 M 0 4406 1 4409 1	* the Bearded Lady (The Tent of the Bearded Lady)
-E 0 4402 0 17		*	a hairy key: held in the hands
+E 0 4402 0 17		*	the Bearded Lady<held in the hands>: a hairy key
 M 0 4407 1 4410 1	* the Illusionist (The Tent of the Illusionist)
-E 0 4405 0 17		*	a shimmering key: held in the hands
+E 0 4405 0 17		*	the Illusionist<held in the hands>: a shimmering key
 M 0 4408 1 4411 1	* the Midget (The Midget's Tent)
-E 0 4404 0 17		*	a small key: held in the hands
-G 0 4411 0		*	the midget's purse
-P 0 4437 1 4411 1	* the midget's purse: a bunch of coins
+E 0 4404 0 17		*	the Midget<held in the hands>: a small key
+G 0 4411 0		*	the Midget: the midget's purse
+P 0 4437 1 0 1	* the midget's purse: a bunch of coins
 M 0 4410 1 4412 1	* the Sword Swallower (The Sword Swallower's Tent)
-E 0 4406 0 17		*	a slender key: held in the hands
+E 0 4406 0 17		*	the Sword Swallower<held in the hands>: a slender key
 M 0 4409 1 4413 1	* Ivan (The Strongman's Tent)
-E 0 4403 0 17		*	a huge key: held in the hands
+E 0 4403 0 17		*	Ivan<held in the hands>: a huge key
 O 0 4414 0 4413	* a barbell (The Strongman's Tent)
 M 0 4401 1 4414 1	* a small child (The Path to the Big Top)
 M 0 4402 1 4414 1	* the child's father (The Path to the Big Top)
@@ -2314,31 +2286,31 @@ M 0 4411 1 4418 1	* a member of the audience (In the Grand Stands)
 M 0 4411 1 4418 1	* a member of the audience (In the Grand Stands)
 M 0 4411 1 4419 1	* a member of the audience (First Look at the Big Top)
 M 0 4415 1 4419 1	* the Ringmaster (First Look at the Big Top)
-E 0 4421 0 6		*	a tophat: over the head
+E 0 4421 0 6		*	the Ringmaster<over the head>: a tophat
 M 0 4411 1 4420 1	* a member of the audience (In the Grand Stands)
 M 0 4411 1 4420 1	* a member of the audience (In the Grand Stands)
 M 0 4411 1 4420 1	* a member of the audience (In the Grand Stands)
 M 0 4412 1 4422 1	* a red-nosed clown (The 2nd Ring - You'd better read the description of this room. )
-E 0 4439 0 5		*	a red clown nose: on the body
+E 0 4439 0 5		*	a red-nosed clown<on the body>: a red clown nose
 M 0 4413 1 4422 1	* a clown with big shoes (The 2nd Ring - You'd better read the description of this room. )
-E 0 4420 0 8		*	big clown shoes: on the feet
+E 0 4420 0 8		*	a clown with big shoes<on the feet>: big clown shoes
 M 0 4416 1 4423 1	* the knife thrower (The 3rd Ring)
-E 0 4416 0 16		*	a sharp knife: wielded
-G 0 4431 0		*	drugged food
+E 0 4416 0 16		*	the knife thrower<wielded>: a sharp knife
+G 0 4431 0		*	the knife thrower: drugged food
 M 0 4417 1 4423 1	* the knife thrower's assistant (The 3rd Ring)
-E 0 4417 0 17		*	a blindfold: held in the hands
+E 0 4417 0 17		*	the knife thrower's assistant<held in the hands>: a blindfold
 M 0 4418 1 4424 1	* the lion tamer (The 1st Ring)
-E 0 4418 0 16		*	a whip: wielded
+E 0 4418 0 16		*	the lion tamer<wielded>: a whip
 M 0 4419 3 4424 3	* a ferocious Lion (The 1st Ring)
 M 0 4419 3 4424 1	* a ferocious Lion (The 1st Ring)
 M 0 4419 3 4424 1	* a ferocious Lion (The 1st Ring)
 M 0 4420 1 4425 1	* a tightrope walker (On the High Wire)
-E 0 4419 0 17		*	tightrope walker's pole: held in the hands
+E 0 4419 0 17		*	a tightrope walker<held in the hands>: tightrope walker's pole
 M 0 4420 1 4426 1	* a tightrope walker (On the High Wire)
-E 0 4419 0 17		*	tightrope walker's pole: held in the hands
-G 0 4436 0		*	the key to the lion's cage
+E 0 4419 0 17		*	a tightrope walker<held in the hands>: tightrope walker's pole
+G 0 4436 0		*	a tightrope walker: the key to the lion's cage
 M 0 4412 1 4429 1	* a red-nosed clown (Behind the Big Top)
-E 0 4439 0 5		*	a red clown nose: on the body
+E 0 4439 0 5		*	a red-nosed clown<on the body>: a red clown nose
 M 0 4421 6 4430 1	* an animal keeper (The Animal Pens)
 M 0 4422 2 4431 1	* an elephant (The Elephant Pen)
 M 0 4423 2 4432 1	* a trained bear (The Bear Pen)
@@ -2346,55 +2318,55 @@ M 0 4423 2 4432 1	* a trained bear (The Bear Pen)
 M 0 4424 1 4433 1	* a horse (The Horse Corral)
 M 0 4421 6 4434 1	* an animal keeper (The Row of Trailers)
 O 0 4424 0 4435	* a chest (The Strongman's Trailer)
-P 0 4407 0 4424 1	* a chest: the strongman's bracers
+P 0 4407 0 0 1	* a chest: the strongman's bracers
 O 0 4422 0 4436	* a chest (The Bearded Lady's Trailer)
-P 0 4413 0 4422 1	* a chest: a razor
+P 0 4413 0 0 1	* a chest: a razor
 O 0 4426 0 4437	* another chest (The Sword Swallower's Trailer)
-P 0 4410 0 4426 1	* another chest: the sword swallower's sword
+P 0 4410 0 0 1	* another chest: the sword swallower's sword
 O 0 4425 0 4439	* a chest (The Midget's Tiny Trailer)
-P 0 4438 0 4425 1	* a chest: a bunch of coins
-P 0 4408 0 4425 1	* a chest: a small, thin sword
+P 0 4438 0 0 1	* a chest: a bunch of coins
+P 0 4408 0 0 1	* a chest: a small, thin sword
 M 0 4429 1 4439 1	* a guard dog (The Midget's Tiny Trailer)
 M 0 4421 6 4440 1	* an animal keeper (The Row of Trailers)
 O 0 4423 0 4441	* a chest (The Illusionist's Trailer)
-P 0 4409 0 4423 1	* a chest: a pointy translucent staff
+P 0 4409 0 0 1	* a chest: a pointy translucent staff
 M 0 4425 1 4442 1	* a poor horse (The Circus Owner's Trailer)
 M 0 4426 1 4442 1	* the Circus Owner (The Circus Owner's Trailer)
-E 0 4448 0 16		*	a scalpel: wielded
-E 0 4427 0 17		*	a paper: held in the hands
+E 0 4448 0 16		*	the Circus Owner<wielded>: a scalpel
+E 0 4427 0 17		*	the Circus Owner<held in the hands>: a paper
 O 0 4428 0 4443	* a combination safe (The Secret Room)
-P 0 4412 0 4428 1	* a combination safe: a bunch of coins
+P 0 4412 0 0 1	* a combination safe: a bunch of coins
 M 0 4412 1 4444 1	* a red-nosed clown (The Clown's Room below the 2nd Ring)
-E 0 4439 0 5		*	a red clown nose: on the body
+E 0 4439 0 5		*	a red-nosed clown<on the body>: a red clown nose
 M 0 4412 1 4444 1	* a red-nosed clown (The Clown's Room below the 2nd Ring)
-E 0 4439 0 5		*	a red clown nose: on the body
+E 0 4439 0 5		*	a red-nosed clown<on the body>: a red clown nose
 M 0 4413 1 4444 1	* a clown with big shoes (The Clown's Room below the 2nd Ring)
-E 0 4420 0 8		*	big clown shoes: on the feet
+E 0 4420 0 8		*	a clown with big shoes<on the feet>: big clown shoes
 M 0 4414 1 4444 1	* a big clown (The Clown's Room below the 2nd Ring)
-E 0 4430 0 17		*	a bucket: held in the hands
+E 0 4430 0 17		*	a big clown<held in the hands>: a bucket
 M 0 4414 1 4444 1	* a big clown (The Clown's Room below the 2nd Ring)
-E 0 4430 0 17		*	a bucket: held in the hands
+E 0 4430 0 17		*	a big clown<held in the hands>: a bucket
 M 0 4421 6 4445 1	* an animal keeper (Behind the Big Top)
 M 0 4412 1 4446 1	* a red-nosed clown (Behind the Big Top)
-E 0 4439 0 5		*	a red clown nose: on the body
+E 0 4439 0 5		*	a red-nosed clown<on the body>: a red clown nose
 M 0 4421 6 4447 1	* an animal keeper (Behind the Big Top)
 M 0 4420 1 4448 1	* a tightrope walker (The Tightrope Walkers Trailer)
-E 0 4419 0 17		*	tightrope walker's pole: held in the hands
-G 0 4441 0		*	a key
+E 0 4419 0 17		*	a tightrope walker<held in the hands>: tightrope walker's pole
+G 0 4441 0		*	a tightrope walker: a key
 O 0 4440 0 4448	* a chest (The Tightrope Walkers Trailer)
-P 0 4442 0 4440 1	* a chest: a clear potion
+P 0 4442 0 0 1	* a chest: a clear potion
 O 0 4449 0 4469	* Binky's refrigerator (Binky's Kitchen)
-P 0 4434 0 4449 1	* Binky's refrigerator: a delicious BigMac
-P 0 4435 0 4449 1	* Binky's refrigerator: a can of Coke
-P 0 4432 0 4449 1	* Binky's refrigerator: a slice of Tombstone Sausage and Pepperoni pizza
-P 0 4433 0 4449 1	* Binky's refrigerator: a juicy steak
+P 0 4434 0 0 1	* Binky's refrigerator: a delicious BigMac
+P 0 4435 0 0 1	* Binky's refrigerator: a can of Coke
+P 0 4432 0 0 1	* Binky's refrigerator: a slice of Tombstone Sausage and Pepperoni pizza
+P 0 4433 0 0 1	* Binky's refrigerator: a juicy steak
 O 0 4443 0 4469	* a roast (Binky's Kitchen)
 O 0 4444 0 4469	* a slice of turkey (Binky's Kitchen)
 O 0 4445 0 4469	* homemade stuffing (Binky's Kitchen)
 O 0 4446 0 4469	* a slice of cherry pie (Binky's Kitchen)
 O 0 4447 0 4469	* a wineskin (Binky's Kitchen)
 M 0 4450 1 4469 1	* Binky's chef (Binky's Kitchen)
-E 0 4450 0 16		*	a carving knife: wielded
+E 0 4450 0 16		*	Binky's chef<wielded>: a carving knife
 S
 
 #SHOPS

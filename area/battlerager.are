@@ -535,15 +535,15 @@ S
 
 #RESETS
 M 0 95400 1 95401 1	* the Powerman (The entrance to the Caven of Battlerager)
-E 0 95400 0 17		*	a bone key: held in the hands
+E 0 95400 0 17		*	the Powerman<held in the hands>: a bone key
 O 0 95403 0 95404	* the pit for donations (The donation room)
 M 0 95401 1 95407 1	* Gordall (Gordall's Weapon House)
-G 0 95405 0		*	a fine dagger
-G 0 95406 0		*	a fine sword
-G 0 95407 0		*	a fine two-handed axe
+G 0 95405 0		*	Gordall: a fine dagger
+G 0 95406 0		*	Gordall: a fine sword
+G 0 95407 0		*	Gordall: a fine two-handed axe
 M 0 95402 1 95408 1	* A Wiseman (The Shrine of Battleragers)
 O 0 95402 0 95408	* a white throne (The Shrine of Battleragers)
-P 0 95401 1 95402 1	* a white throne: Skull of mage
+P 0 95401 1 0 1	* a white throne: Skull of mage
 M 0 95405 1 95409 1	* rock (Dark tunnel)
 M 0 95403 1 95410 1	* Urukhay (Troll's lair)
 O 0 95404 0 95411	* soldier's plank bed (Resting room)

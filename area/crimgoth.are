@@ -1938,17 +1938,9 @@ S
 #0
 
 #RESETS
-D 0 12400 5 2	* The Entrance to the Dungeon: door to the down: closed and locked
-D 0 12401 4 2	* At the first layer: door to the up: closed and locked
-D 0 12401 5 2	* At the first layer: door to the down: closed and locked
-D 0 12426 4 2	* At the second layer: door to the up: closed and locked
-D 0 12426 5 2	* At the second layer: door to the down: closed and locked
-D 0 12452 4 2	* A Center of the floor: door to the up: closed and locked
-D 0 12452 5 2	* A Center of the floor: door to the down: closed and locked
-D 0 12477 4 2	* : door to the up: closed and locked
 M 0 12400 1 12400 1	* skeletal guardian (The Entrance to the Dungeon)
-E 0 12400 0 17		*	an iron key: held in the hands
-E 0 12401 0 16		*	a bone club: wielded
+E 0 12400 0 17		*	skeletal guardian<held in the hands>: an iron key
+E 0 12401 0 16		*	skeletal guardian<wielded>: a bone club
 S
 
 #OLIMITS

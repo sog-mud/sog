@@ -7327,28 +7327,22 @@ M 299 spec_cast_adept	* priest
 S
 
 #RESETS
-D 0 204 5 1	* A Mountain Pass: door to the down: closed
-D 0 264 4 1	* A Woody Copse: door to the up: closed
-D 0 265 5 1	* The Tree House: door to the down: closed
-D 0 271 0 1	* A Forest Trail: door to the north: closed
-D 0 297 3 1	* Inside the mountain: door to the west: closed
-D 0 298 1 1	* Inside a Cottage: door to the east: closed
 M 0 235 1 205 1	* the mountain boogum (A Mountain Pass)
 M 0 258 2 206 2	* a nymph (A Thickly-Wooded Dell)
 M 0 259 2 207 2	* a nymph (A Signpost in the Enchanted Forests)
 M 0 290 1 207 1	* a ranger (A Signpost in the Enchanted Forests)
-E 0 240 0 16		*	an ashen longbow: wielded
+E 0 240 0 16		*	a ranger<wielded>: an ashen longbow
 M 0 259 2 208 2	* a nymph (A Fae Crossing)
 M 0 207 1 208 1	* the Spriggan (A Fae Crossing)
-E 0 259 0 0		*	a blood candle: as a light
+E 0 259 0 0		*	the Spriggan<as a light>: a blood candle
 M 0 219 1 209 1	* Young Jim (Road to the Vale of Clover)
-E 0 214 0 17		*	a Four-Leaf Clover: held in the hands
+E 0 214 0 17		*	Young Jim<held in the hands>: a Four-Leaf Clover
 M 0 220 3 210 3	* Happy Farmer (In Clover)
 M 0 221 3 211 3	* Young HotBlood (A Green Hillock)
 M 0 221 3 211 3	* Young HotBlood (A Green Hillock)
 M 0 221 3 211 3	* Young HotBlood (A Green Hillock)
 M 0 222 1 211 1	* Maddie the local beauty (A Green Hillock)
-E 0 212 0 5		*	a lavender floral dress: on the body
+E 0 212 0 5		*	Maddie the local beauty<on the body>: a lavender floral dress
 O 0 213 0 212	* a badly-written love sonnet (A Secluded Corner of the Meadow)
 M 0 220 3 213 3	* Happy Farmer (The Village Square)
 M 0 220 3 213 3	* Happy Farmer (The Village Square)
@@ -7357,41 +7351,41 @@ M 0 224 2 213 2	* a good wife (The Village Square)
 O 0 280 0 213	* an old well (The Village Square)
 M 0 225 1 214 1	* the village idiot (An Old Dirt Track)
 M 0 233 1 216 1	* farmer (Farmer Griff' Farm)
-G 0 248 0		*	a vanilla milkshake
-G 0 247 0		*	an Omelette Surprise
-G 0 249 0		*	a plate of pancakes
-G 0 250 0		*	goose-liver pate
-G 0 251 0		*	Griff's Roast Duck
-G 0 252 0		*	a herbal pig's brain stew
-G 0 253 0		*	a Char Siew Bun
-G 0 245 0		*	a Big Ol'Pack Sack
-G 0 246 0		*	a purplish brinjal gourd
-G 0 255 0		*	an apron
-G 0 254 0		*	Farmer Griff's Culinary Secrets
+G 0 248 0		*	farmer: a vanilla milkshake
+G 0 247 0		*	farmer: an Omelette Surprise
+G 0 249 0		*	farmer: a plate of pancakes
+G 0 250 0		*	farmer: goose-liver pate
+G 0 251 0		*	farmer: Griff's Roast Duck
+G 0 252 0		*	farmer: a herbal pig's brain stew
+G 0 253 0		*	farmer: a Char Siew Bun
+G 0 245 0		*	farmer: a Big Ol'Pack Sack
+G 0 246 0		*	farmer: a purplish brinjal gourd
+G 0 255 0		*	farmer: an apron
+G 0 254 0		*	farmer: Farmer Griff's Culinary Secrets
 M 0 269 1 217 1	* a gremlin (The Witch Wood)
 M 0 210 1 219 1	* the Devil's Huntsman (The Altar of Sacrifice)
-E 0 241 0 16		*	a Hell-Spear: wielded
+E 0 241 0 16		*	the Devil's Huntsman<wielded>: a Hell-Spear
 M 0 227 1 219 1	* a Sylph (The Altar of Sacrifice)
 O 0 221 0 219	* Altar of Sacrifice (The Altar of Sacrifice)
-P 0 222 -1 221 1	* Altar of Sacrifice: the heart of a nymph
+P 0 222 -1 0 1	* Altar of Sacrifice: the heart of a nymph
 M 0 283 1 221 1	* the Devil's Huntsman (The Witch Wood)
-E 0 241 0 16		*	a Hell-Spear: wielded
+E 0 241 0 16		*	the Devil's Huntsman<wielded>: a Hell-Spear
 M 0 282 1 221 1	* a hellHound (The Witch Wood)
 M 0 285 1 222 1	* the Devil's Huntsman (The Witch Wood)
-E 0 268 0 16		*	a Hell-Blade: wielded
+E 0 268 0 16		*	the Devil's Huntsman<wielded>: a Hell-Blade
 M 0 234 1 222 1	* a hellHound (The Witch Wood)
 M 0 291 1 223 1	* the Devil Lieutenant (The Wall of Shadows)
-E 0 281 0 14		*	a bone bracelet: on the left wrist
+E 0 281 0 14		*	the Devil Lieutenant<on the left wrist>: a bone bracelet
 M 0 216 1 224 1	* Aude (The Cavern of the Witch Sisters)
-E 0 202 0 16		*	a Morning-Star named "VainGlory": wielded
+E 0 202 0 16		*	Aude<wielded>: a Morning-Star named "VainGlory"
 M 0 217 1 224 1	* Gertrude (The Cavern of the Witch Sisters)
-E 0 258 0 3		*	the skin of an elven princess: around the neck
+E 0 258 0 3		*	Gertrude<around the neck>: the skin of an elven princess
 M 0 218 1 224 1	* Hela (The Cavern of the Witch Sisters)
-E 0 203 0 3		*	a Graven Ikon of Saint Sebastian: around the neck
+E 0 203 0 3		*	Hela<around the neck>: a Graven Ikon of Saint Sebastian
 O 0 276 0 224	* Scrying Pool (The Cavern of the Witch Sisters)
-P 0 275 0 276 1	* Scrying Pool: Lancelot's Signet Ring
+P 0 275 0 0 1	* Scrying Pool: Lancelot's Signet Ring
 M 0 286 1 225 1	* the Devil's Huntsman (The Witch Wood)
-E 0 241 0 16		*	a Hell-Spear: wielded
+E 0 241 0 16		*	the Devil's Huntsman<wielded>: a Hell-Spear
 M 0 280 1 225 1	* a hellHound (The Witch Wood)
 M 0 271 1 226 1	* a gremlin (The Witch Wood)
 M 0 270 1 227 1	* a gremlin (The Witch Wood)
@@ -7404,31 +7398,31 @@ M 0 260 2 231 2	* a nymph (The Emerald Forest)
 M 0 261 2 232 2	* a nymph (The Emerald Forest)
 M 0 201 2 233 2	* a dryad (A Well-Used Trail Through The Forest)
 M 0 240 2 233 2	* a lady ranger (A Well-Used Trail Through The Forest)
-E 0 240 0 16		*	an ashen longbow: wielded
+E 0 240 0 16		*	a lady ranger<wielded>: an ashen longbow
 M 0 263 1 234 1	* a lady ranger (The Woodkeepers' Outpost)
-E 0 240 0 16		*	an ashen longbow: wielded
+E 0 240 0 16		*	a lady ranger<wielded>: an ashen longbow
 M 0 213 1 234 1	* the Ancient Ranger Lord (The Woodkeepers' Outpost)
-E 0 201 0 6		*	an ancient Ranger Lord's Stetson: over the head
+E 0 201 0 6		*	the Ancient Ranger Lord<over the head>: an ancient Ranger Lord's Stetson
 M 0 212 1 235 1	* the Ancient Ranger Guildmaster (The Guildmaster's Cabin)
 M 0 214 1 236 1	* the ancient ranger bear (Smokey's Supplies)
-G 0 236 0		*	Smokey's Map
-G 0 243 0		*	a brown leather gourd
-G 0 244 0		*	an elven wafer
-G 0 224 0		*	a herbal potion
-G 0 279 0		*	a ranger's knapsack
+G 0 236 0		*	the ancient ranger bear: Smokey's Map
+G 0 243 0		*	the ancient ranger bear: a brown leather gourd
+G 0 244 0		*	the ancient ranger bear: an elven wafer
+G 0 224 0		*	the ancient ranger bear: a herbal potion
+G 0 279 0		*	the ancient ranger bear: a ranger's knapsack
 M 0 256 2 237 2	* a dryad (The Emerald Forest)
 M 0 256 2 237 2	* a dryad (The Emerald Forest)
 M 0 261 2 238 2	* a nymph (In the Emerald Forest)
 O 0 225 0 238	* a blue-capped mushroom (In the Emerald Forest)
 M 0 260 2 240 2	* a nymph (The Lost Grotto)
 M 0 228 1 240 1	* Irin (The Lost Grotto)
-E 0 226 0 16		*	a yew bow: wielded
+E 0 226 0 16		*	Irin<wielded>: a yew bow
 M 0 287 3 241 3	* a nymph (By a Stream)
 M 0 287 3 241 3	* a nymph (By a Stream)
 M 0 287 3 241 3	* a nymph (By a Stream)
 M 0 202 2 242 2	* a nymph (The Waterfall Glade)
 M 0 288 1 242 1	* a ranger (The Waterfall Glade)
-E 0 240 0 16		*	an ashen longbow: wielded
+E 0 240 0 16		*	a ranger<wielded>: an ashen longbow
 O 0 227 0 242	* an ancient sandstone altar (The Waterfall Glade)
 O 0 278 0 242	* a rock pool (The Waterfall Glade)
 M 0 258 2 243 2	* a nymph (In the Emerald Forest)
@@ -7436,10 +7430,10 @@ M 0 202 2 244 2	* a nymph (In the Emerald Forest)
 M 0 257 2 245 2	* a dryad (The Emerald Forest)
 M 0 255 2 246 2	* a dryad (The Only Stump in the Forest)
 M 0 266 1 246 1	* a ranger (The Only Stump in the Forest)
-E 0 240 0 16		*	an ashen longbow: wielded
+E 0 240 0 16		*	a ranger<wielded>: an ashen longbow
 M 0 255 2 247 2	* a dryad (The Emerald Forest)
 M 0 206 1 247 1	* a ranger (The Emerald Forest)
-E 0 240 0 16		*	an ashen longbow: wielded
+E 0 240 0 16		*	a ranger<wielded>: an ashen longbow
 M 0 254 2 248 2	* a dryad (The Forest Road)
 M 0 209 2 249 2	* a fiendish donkey (The Dead Moors)
 M 0 209 2 249 2	* a fiendish donkey (The Dead Moors)
@@ -7450,35 +7444,35 @@ M 0 274 1 251 1	* the pumpkin man (The Dead Moors)
 M 0 272 1 252 1	* the pumpkin man (The Dead Moors)
 O 0 238 0 253	* a sword-stick (A Hill in the Marsh)
 M 0 237 1 253 1	* Demon-Elf (A Hill in the Marsh)
-E 0 260 0 1		*	a gold scarab ring: on the left finger
-E 0 261 0 6		*	a green serpent-tressed wig: over the head
+E 0 260 0 1		*	Demon-Elf<on the left finger>: a gold scarab ring
+E 0 261 0 6		*	Demon-Elf<over the head>: a green serpent-tressed wig
 M 0 264 1 254 1	* a ranger (The Forest Road)
-E 0 240 0 16		*	an ashen longbow: wielded
+E 0 240 0 16		*	a ranger<wielded>: an ashen longbow
 M 0 257 2 255 2	* a dryad (The Forest Road)
 M 0 265 1 256 1	* a ranger (A Trail)
-E 0 240 0 16		*	an ashen longbow: wielded
+E 0 240 0 16		*	a ranger<wielded>: an ashen longbow
 M 0 238 1 257 1	* Imbessar (A Shady Bridge)
-E 0 262 0 6		*	the dead star circlet: over the head
-E 0 264 0 16		*	the whipping tail of a manticore: wielded
+E 0 262 0 6		*	Imbessar<over the head>: the dead star circlet
+E 0 264 0 16		*	Imbessar<wielded>: the whipping tail of a manticore
 M 0 248 2 258 2	* a brownie (The Shady bridge)
 M 0 248 2 259 2	* a brownie (A Woodland Trail)
 M 0 289 1 260 1	* a ranger (A Dense Path)
-E 0 240 0 16		*	an ashen longbow: wielded
+E 0 240 0 16		*	a ranger<wielded>: an ashen longbow
 M 0 249 2 261 2	* a brownie (A Woodland Trail)
 M 0 249 2 262 2	* a brownie (In the Emerald Forest)
 O 0 228 0 262	* a bole (In the Emerald Forest)
-P 0 229 -1 228 1	* a bole: a cache of nuts
+P 0 229 -1 0 1	* a bole: a cache of nuts
 M 0 240 2 263 2	* a lady ranger (The Emerald Forest Choir)
-E 0 240 0 16		*	an ashen longbow: wielded
+E 0 240 0 16		*	a lady ranger<wielded>: an ashen longbow
 M 0 230 1 263 1	* Kortho (The Emerald Forest Choir)
-G 0 269 0		*	a word
+G 0 269 0		*	Kortho: a word
 M 0 229 1 265 1	* the marmalade cat (The Tree House)
-E 0 233 0 16		*	a marmalade orb: wielded
+E 0 233 0 16		*	the marmalade cat<wielded>: a marmalade orb
 O 0 256 0 265	* a snowy-white cushion (The Tree House)
-P 0 257 -1 256 1	* a snowy-white cushion: a rusty iron key
+P 0 257 -1 0 1	* a snowy-white cushion: a rusty iron key
 O 0 239 0 265	* book cabinet (The Tree House)
-P 0 230 -1 239 1	* book cabinet: Herman Melville's "Moby Dick"
-P 0 237 -1 239 1	* book cabinet: Marcel Proust's "A la Recherche du Temps Perdu"
+P 0 230 -1 0 1	* book cabinet: Herman Melville's "Moby Dick"
+P 0 237 -1 0 1	* book cabinet: Marcel Proust's "A la Recherche du Temps Perdu"
 M 0 247 2 266 2	* a brownie (A Small Clearing)
 M 0 244 2 267 2	* a pixie (The Ragged Trail)
 M 0 247 2 267 2	* a brownie (The Ragged Trail)
@@ -7494,61 +7488,61 @@ M 0 250 2 272 2	* a sprite (A Dwindling Forest Path)
 M 0 250 2 272 2	* a sprite (A Dwindling Forest Path)
 M 0 204 2 273 2	* a sprite (A Lovely Trail)
 M 0 262 2 274 2	* a lady ranger (The Tombstone)
-E 0 240 0 16		*	an ashen longbow: wielded
+E 0 240 0 16		*	a lady ranger<wielded>: an ashen longbow
 M 0 251 2 275 2	* a sprite (The Wood-Path)
 M 0 251 2 276 2	* a sprite (Woodkeeper's Clearing)
 M 0 262 2 276 2	* a lady ranger (Woodkeeper's Clearing)
-E 0 240 0 16		*	an ashen longbow: wielded
+E 0 240 0 16		*	a lady ranger<wielded>: an ashen longbow
 M 0 252 2 277 2	* a sprite (The Green Vines)
 M 0 252 2 277 2	* a sprite (The Green Vines)
 M 0 253 2 278 2	* a sprite (The Silent Grove)
 M 0 239 1 278 1	* Marisa (The Silent Grove)
-E 0 263 0 5		*	a beautiful gown of white samite: on the body
-E 0 265 0 16		*	the dagger of Yog-Sothoth: wielded
+E 0 263 0 5		*	Marisa<on the body>: a beautiful gown of white samite
+E 0 265 0 16		*	Marisa<wielded>: the dagger of Yog-Sothoth
 M 0 253 2 279 2	* a sprite (The Southern border)
 M 0 243 2 280 2	* a pixie (The Wood Area)
 M 0 242 2 281 2	* a pixie (The Bonanza)
 M 0 246 2 281 2	* a brownie (The Bonanza)
 M 0 223 1 281 1	* Sheeka Trilquill (The Bonanza)
-G 0 204 0		*	a single black Rose
-G 0 205 0		*	a Lily of the Valley
-G 0 206 0		*	a basket of daisys
-G 0 207 0		*	English Irises
-G 0 208 0		*	a nosegay of rosebuds
-G 0 209 0		*	a box of downy violets
-G 0 210 0		*	a vase of snow poppies
-G 0 211 0		*	a sunflower bouquet
-G 0 242 0		*	a bunch of tulips
-G 0 270 0		*	a dozen pink carnations
-G 0 271 0		*	a casket of Fairy Dandelions
-G 0 272 0		*	a Carrion Flower
-G 0 273 0		*	a tub of bright yellow crocuses
+G 0 204 0		*	Sheeka Trilquill: a single black Rose
+G 0 205 0		*	Sheeka Trilquill: a Lily of the Valley
+G 0 206 0		*	Sheeka Trilquill: a basket of daisys
+G 0 207 0		*	Sheeka Trilquill: English Irises
+G 0 208 0		*	Sheeka Trilquill: a nosegay of rosebuds
+G 0 209 0		*	Sheeka Trilquill: a box of downy violets
+G 0 210 0		*	Sheeka Trilquill: a vase of snow poppies
+G 0 211 0		*	Sheeka Trilquill: a sunflower bouquet
+G 0 242 0		*	Sheeka Trilquill: a bunch of tulips
+G 0 270 0		*	Sheeka Trilquill: a dozen pink carnations
+G 0 271 0		*	Sheeka Trilquill: a casket of Fairy Dandelions
+G 0 272 0		*	Sheeka Trilquill: a Carrion Flower
+G 0 273 0		*	Sheeka Trilquill: a tub of bright yellow crocuses
 M 0 267 1 282 1	* a ranger (In a Myrtle Shade)
-E 0 240 0 16		*	an ashen longbow: wielded
+E 0 240 0 16		*	a ranger<wielded>: an ashen longbow
 M 0 231 1 282 1	* Sir Sorrow (In a Myrtle Shade)
-E 0 232 0 16		*	a sword called "Swiftbird": wielded
-E 0 231 0 11		*	the Knight Melancholic's shield: as a shield
+E 0 232 0 16		*	Sir Sorrow<wielded>: a sword called "Swiftbird"
+E 0 231 0 11		*	Sir Sorrow<as a shield>: the Knight Melancholic's shield
 M 0 242 2 283 2	* a pixie (The Bonanza)
 M 0 245 2 283 2	* a brownie (The Bonanza)
 M 0 245 2 283 2	* a brownie (The Bonanza)
 M 0 215 1 283 1	* the Grand Pooh-Ba (The Bonanza)
-E 0 277 0 17		*	the Grand Pooh-Ba's Staff: held in the hands
+E 0 277 0 17		*	the Grand Pooh-Ba<held in the hands>: the Grand Pooh-Ba's Staff
 M 0 244 2 284 2	* a pixie (South-easterly end of the forest)
 M 0 246 2 284 2	* a brownie (South-easterly end of the forest)
 O 0 278 0 286	* a rock pool (A peaceful rock pool)
 M 0 232 1 287 1	* Yun Fei Yang (Yun Fei Yang's humble abode)
-E 0 234 0 17		*	the TianCanShenGong manual: held in the hands
+E 0 234 0 17		*	Yun Fei Yang<held in the hands>: the TianCanShenGong manual
 O 0 274 0 287	* a cactus (Yun Fei Yang's humble abode)
 O 0 235 0 289	* the Bible (The Chapel of Saint Sebastian)
 M 0 299 1 289 1	* priest (The Chapel of Saint Sebastian)
 O 0 3010 0 289	* the donation pit (The Chapel of Saint Sebastian)
 M 0 226 1 290 1	* a Knight (Outside the Wall of the Monastery)
-E 0 215 0 16		*	a Crusader's Sword: wielded
-E 0 216 0 3		*	a wooden cross: around the neck
-E 0 217 0 12		*	a white surcoat: about the shoulders
-E 0 218 0 5		*	a battle-worn mailed shirt: on the body
-E 0 219 0 7		*	a pair of light steel leggings: on the legs
-E 0 220 0 8		*	a pair of steel sollerets: on the feet
+E 0 215 0 16		*	a Knight<wielded>: a Crusader's Sword
+E 0 216 0 3		*	a Knight<around the neck>: a wooden cross
+E 0 217 0 12		*	a Knight<about the shoulders>: a white surcoat
+E 0 218 0 5		*	a Knight<on the body>: a battle-worn mailed shirt
+E 0 219 0 7		*	a Knight<on the legs>: a pair of light steel leggings
+E 0 220 0 8		*	a Knight<on the feet>: a pair of steel sollerets
 M 0 278 1 291 1	* a fiendish donkey (The Dead Moors)
 M 0 211 2 291 2	* the pumpkin man (The Dead Moors)
 O 0 266 0 291	* a three-eyed root (The Dead Moors)
@@ -7557,11 +7551,11 @@ M 0 211 2 292 2	* the pumpkin man (The Dead Moors)
 O 0 267 0 292	* a three-eyed root (The Dead Moors)
 M 0 276 1 293 1	* a fiendish donkey (The Dead Moors)
 M 0 284 1 294 1	* the Devil's Huntsman (The Witch Wood)
-E 0 268 0 16		*	a Hell-Blade: wielded
+E 0 268 0 16		*	the Devil's Huntsman<wielded>: a Hell-Blade
 M 0 281 1 294 1	* a hellHound (The Witch Wood)
 M 0 236 1 295 1	* an Apparition (A Broken Jetty)
 O 0 223 0 296	* a wooden chest (A Woodkeeper's Cabin)
-P 0 224 -1 223 1	* a wooden chest: a herbal potion
+P 0 224 -1 0 1	* a wooden chest: a herbal potion
 O 0 284 0 299	* portal (Redbaron's Bedroom)
 O 0 283 0 299	* portal (Redbaron's Bedroom)
 O 0 282 0 299	* portal (Redbaron's Bedroom)

@@ -688,20 +688,16 @@ M 95606 spec_cast_undead	* Shadow
 S
 
 #RESETS
-D 0 95600 5 1	* The Well: door to the down: closed
-D 0 95601 4 1	* Bottom of the Well: door to the up: closed
-D 0 95607 5 2	* Shadowy chambers: door to the down: closed and locked
-D 0 95610 4 2	* Vampires Lair: door to the up: closed and locked
 M 0 95606 1 95600 1	* Shadow (The Well)
 M 0 95600 1 95607 1	* the invader guardian (Shadowy chambers)
-E 0 95602 0 17		*	darkish jaw of a skull: held in the hands
+E 0 95602 0 17		*	the invader guardian<held in the hands>: darkish jaw of a skull
 M 0 95601 1 95608 1	* the evil cleric (The Pentagram)
 O 0 95605 0 95608	* green portal (The Pentagram)
 O 0 95604 0 95608	* dark portal (The Pentagram)
 O 0 95603 0 95608	* white portal (The Pentagram)
 O 0 95606 0 95608	* shadow (The Pentagram)
 O 0 95600 0 95608	* the skull (The Pentagram)
-P 0 95601 1 95600 1	* the skull: the nothing globe
+P 0 95601 1 0 1	* the skull: the nothing globe
 M 0 95602 1 95610 1	* bruks (Vampires Lair)
 O 0 95607 0 95612	* bloody fountain (Bloody Grotto)
 M 0 95605 1 95615 1	* beast (Underground damp)

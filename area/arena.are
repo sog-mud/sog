@@ -314,9 +314,9 @@ S
 
 #RESETS
 M 0 35302 1 35301 1	* the arena guard (The Entrance.)
-E 0 35302 0 16		*	A huge battleaxe: wielded
+E 0 35302 0 16		*	the arena guard<wielded>: A huge battleaxe
 M 0 35301 1 35302 1	* The shopkeeper (Small cabin)
-G 0 35301 0		*	the ticket to arena
+G 0 35301 0		*	The shopkeeper: the ticket to arena
 S
 
 #SHOPS

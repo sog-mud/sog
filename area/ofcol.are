@@ -306,15 +306,15 @@ S
 #RESETS
 M 0 5501 5 5550 3	* the citizen (Village street)
 M 0 5501 5 5552 3	* the citizen (Village square)
-E 0 5501 0 16		*	a dagger: wielded
+E 0 5501 0 16		*	the citizen<wielded>: a dagger
 M 0 5502 5 5553 3	* the citizen (The small alley)
 M 0 5503 1 5555 1	* Luxan (Luxan's mixed shop)
-G 0 5502 0		*	wild flowers
-G 0 5503 0		*	a torch
+G 0 5502 0		*	Luxan: wild flowers
+G 0 5503 0		*	Luxan: a torch
 M 0 5501 5 5556 3	* the citizen (The Local Inn)
 M 0 5504 1 5556 1	* the Innkeeper (The Local Inn)
-G 0 5504 0		*	a barrel of beer
-G 0 5505 0		*	a bottle of beer
+G 0 5504 0		*	the Innkeeper: a barrel of beer
+G 0 5505 0		*	the Innkeeper: a bottle of beer
 S
 
 #$

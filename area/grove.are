@@ -1020,65 +1020,45 @@ M 8910 spec_cast_cleric	* a druidess
 S
 
 #RESETS
-D 0 8909 2 1	* The croquet lawn: door to the south: closed
-D 0 8910 0 1	* The foyer: door to the north: closed
-D 0 8910 2 1	* The foyer: door to the south: closed
-D 0 8911 0 1	* The hallway: door to the north: closed
-D 0 8911 1 1	* The hallway: door to the east: closed
-D 0 8912 3 1	* The blue room: door to the west: closed
-D 0 8913 1 1	* The hallway: door to the east: closed
-D 0 8913 2 1	* The hallway: door to the south: closed
-D 0 8913 3 1	* The hallway: door to the west: closed
-D 0 8914 3 1	* The red room: door to the west: closed
-D 0 8915 0 1	* The kitchen: door to the north: closed
-D 0 8915 3 1	* The kitchen: door to the west: closed
-D 0 8916 1 1	* The ballroom: door to the east: closed
-D 0 8916 2 1	* The ballroom: door to the south: closed
-D 0 8917 2 1	* The greenhouse: door to the south: closed
-D 0 8918 0 1	* The dining hall: door to the north: closed
-D 0 8918 1 1	* The dining hall: door to the east: closed
-D 0 8918 3 1	* The dining hall: door to the west: closed
-D 0 8919 0 1	* The terrace: door to the north: closed
-D 0 8919 1 1	* The terrace: door to the east: closed
 M 0 8901 1 8901 1	* The Hierophant (The holy grove)
-E 0 8910 0 16		*	a wooden staff: wielded
-E 0 8911 0 5		*	a brown robe: on the body
-G 0 8913 0		*	some bluish herbs
-G 0 8915 0		*	some blackish herbs
+E 0 8910 0 16		*	The Hierophant<wielded>: a wooden staff
+E 0 8911 0 5		*	The Hierophant<on the body>: a brown robe
+G 0 8913 0		*	The Hierophant: some bluish herbs
+G 0 8915 0		*	The Hierophant: some blackish herbs
 M 0 8902 1 8902 1	* an elder druid (The holy grove)
-E 0 8910 0 16		*	a wooden staff: wielded
-G 0 8914 0		*	some purplish herbs
-G 0 8916 0		*	some grayish herbs
+E 0 8910 0 16		*	an elder druid<wielded>: a wooden staff
+G 0 8914 0		*	an elder druid: some purplish herbs
+G 0 8916 0		*	an elder druid: some grayish herbs
 M 0 8907 4 8903 4	* a small bunny (A clearing in the woods)
 M 0 8907 4 8903 4	* a small bunny (A clearing in the woods)
 M 0 8903 1 8904 1	* an elder druidess (The holy grove)
-E 0 8910 0 16		*	a wooden staff: wielded
-G 0 8919 0		*	some pinkish herbs
-G 0 8917 0		*	some reddish herbs
+E 0 8910 0 16		*	an elder druidess<wielded>: a wooden staff
+G 0 8919 0		*	an elder druidess: some pinkish herbs
+G 0 8917 0		*	an elder druidess: some reddish herbs
 M 0 8900 1 8905 1	* The Hierophant (The sacred glade)
-E 0 8910 0 16		*	a wooden staff: wielded
-E 0 8911 0 5		*	a brown robe: on the body
-G 0 8919 0		*	some pinkish herbs
-G 0 8918 0		*	some orangish herbs
+E 0 8910 0 16		*	The Hierophant<wielded>: a wooden staff
+E 0 8911 0 5		*	The Hierophant<on the body>: a brown robe
+G 0 8919 0		*	The Hierophant: some pinkish herbs
+G 0 8918 0		*	The Hierophant: some orangish herbs
 M 0 8904 2 8905 2	* a doe (The sacred glade)
 M 0 8906 1 8905 1	* a stag (The sacred glade)
 M 0 8905 2 8906 2	* a deer (The holy grove)
 M 0 8908 9 8906 9	* a harmless snake (The holy grove)
 M 0 8909 2 8911 1	* a druid (The hallway)
-G 0 8913 0		*	some bluish herbs
+G 0 8913 0		*	a druid: some bluish herbs
 O 0 8901 0 8912	* a closet (The blue room)
 M 0 8910 2 8914 1	* a druidess (The red room)
-G 0 8914 0		*	some purplish herbs
+G 0 8914 0		*	a druidess: some purplish herbs
 O 0 8901 0 8914	* a closet (The red room)
 O 0 8902 0 8915	* a spice jar (The kitchen)
-P 0 8903 1 8902 1	* a spice jar: some black powder
 O 0 8902 0 8915	* a spice jar (The kitchen)
-P 0 8904 1 8902 1	* a spice jar: some small yellow kernels
+P 0 8903 1 0 1	* a spice jar: some black powder
+P 0 8904 1 0 1	* a spice jar: some small yellow kernels
 O 0 8905 0 8915	* a crumpled wad of paper (The kitchen)
 M 0 8910 2 8917 1	* a druidess (The greenhouse)
-G 0 8918 0		*	some orangish herbs
+G 0 8918 0		*	a druidess: some orangish herbs
 M 0 8909 2 8918 1	* a druid (The dining hall)
-G 0 8916 0		*	some grayish herbs
+G 0 8916 0		*	a druid: some grayish herbs
 S
 
 #PRACTICERS

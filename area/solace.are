@@ -4846,195 +4846,132 @@ M 10243 spec_cast_mage	* Magnus wizard
 S
 
 #RESETS
-D 0 10202 1 1	* Main Road: door to the east: closed
-D 0 10202 3 1	* Main Road: door to the west: closed
-D 0 10206 2 1	* East Gullen Way: door to the south: closed
-D 0 10211 3 1	* Ketra Road.: door to the west: closed
-D 0 10212 3 1	* Ketra Road.: door to the west: closed
-D 0 10215 0 1	* Small Alleyway.: door to the north: closed
-D 0 10218 0 1	* Small Alleyway.: door to the north: closed
-D 0 10222 1 1	* Harvest Road: door to the east: closed
-D 0 10226 2 1	* West Gullen Way: door to the south: closed
-D 0 10227 2 1	* West Gullen Way: door to the south: closed
-D 0 10243 0 1	* a House.: door to the north: closed
-D 0 10244 0 1	* a House.: door to the north: closed
-D 0 10245 3 1	* Cookie's Cookie Cookery.: door to the west: closed
-D 0 10246 1 1	* a House.: door to the east: closed
-D 0 10247 2 1	* Old Gambling Parlor.: door to the south: closed
-D 0 10249 3 1	* a House.: door to the west: closed
-D 0 10250 1 1	* Cookie's Relaxing Room.: door to the east: closed
-D 0 10251 0 1	* a House.: door to the north: closed
-D 0 10254 1 1	* Storage Building: door to the east: closed
-D 0 10255 1 1	* Jander's: door to the east: closed
-D 0 10256 0 1	* Jander's Poolhall: door to the north: closed
-D 0 10256 2 1	* Jander's Poolhall: door to the south: closed
-D 0 10257 3 1	* Jander's Restaurant: door to the west: closed
-D 0 10259 2 1	* Jander's Office: door to the south: closed
-D 0 10263 1 1	* Townguard Administration Building.: door to the east: closed
-D 0 10264 1 1	* Entrance Hall.: door to the east: closed
-D 0 10264 3 1	* Entrance Hall.: door to the west: closed
-D 0 10265 3 1	* Marble Corridor.: door to the west: closed
-D 0 10266 1 1	* Town Clerk.: door to the east: closed
-D 0 10266 3 2	* Town Clerk.: door to the west: closed and locked
-D 0 10267 1 2	* Deposits Room.: door to the east: closed and locked
-D 0 10268 0 1	* Marble Corridor.: door to the north: closed
-D 0 10270 0 1	* Hallway Intersection.: door to the north: closed
-D 0 10270 1 1	* Hallway Intersection.: door to the east: closed
-D 0 10270 2 1	* Hallway Intersection.: door to the south: closed
-D 0 10270 3 1	* Hallway Intersection.: door to the west: closed
-D 0 10271 3 1	* End of Long Hall: door to the west: closed
-D 0 10273 0 1	* Sergeant's Reception Room: door to the north: closed
-D 0 10275 0 1	* Administration Hallway: door to the north: closed
-D 0 10276 2 1	* Administration Hallway: door to the south: closed
-D 0 10279 0 1	* East end of Common Room: door to the north: closed
-D 0 10281 1 1	* Inn of the Last Home.: door to the east: closed
-D 0 10282 0 1	* Outside the Inn of the Last Home.: door to the north: closed
-D 0 10282 3 1	* Outside the Inn of the Last Home.: door to the west: closed
-D 0 10283 2 1	* Sergeant's Office: door to the south: closed
-D 0 10285 2 1	* Guards Room.: door to the south: closed
-D 0 10289 2 1	* Outside Common Room: door to the south: closed
-D 0 10292 0 1	* Captain's Office.: door to the north: closed
-D 0 10295 0 1	* Lieutenant's Reception Area.: door to the north: closed
-D 0 10299 0 1	* Private Room: door to the north: closed
-D 0 10300 0 1	* Private Room: door to the north: closed
-D 0 10301 0 1	* Private Room: door to the north: closed
-D 0 10302 0 1	* Captain's Meeting room.: door to the north: closed
-D 0 10302 2 1	* Captain's Meeting room.: door to the south: closed
-D 0 10304 0 1	* Guards Room.: door to the north: closed
-D 0 10305 2 1	* Lieutenant's Office.: door to the south: closed
-D 0 10309 2 1	* Hallway: door to the south: closed
-D 0 10310 2 1	* Hallway: door to the south: closed
-D 0 10311 2 1	* Hallway: door to the south: closed
-D 0 10312 1 1	* Captain's Waiting Room.: door to the east: closed
-D 0 10312 2 1	* Captain's Waiting Room.: door to the south: closed
-D 0 10313 3 1	* Administration Hallway: door to the west: closed
-D 0 10314 2 1	* Administration Hallway: door to the south: closed
 M 0 10215 1 10201 1	* Townguard (Gateway to Solace)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10237 0 16		*	enchanted longsword: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10237 0 16		*	Townguard<wielded>: enchanted longsword
 M 0 10215 1 10201 1	* Townguard (Gateway to Solace)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10238 0 16		*	enchanted hammer: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10238 0 16		*	Townguard<wielded>: enchanted hammer
 M 0 10215 1 10201 1	* Townguard (Gateway to Solace)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10239 0 16		*	enchanted pike: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10239 0 16		*	Townguard<wielded>: enchanted pike
 M 0 10215 1 10201 1	* Townguard (Gateway to Solace)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10301 0 16		*	enchanted bow: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10301 0 16		*	Townguard<wielded>: enchanted bow
 M 0 10216 3 10201 1	* field rat (Gateway to Solace)
 M 0 10241 1 10203 1	* old lady (Main Road)
 M 0 10215 1 10205 1	* Townguard (Intersection at Main Road.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10237 0 16		*	enchanted longsword: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10237 0 16		*	Townguard<wielded>: enchanted longsword
 M 0 10215 1 10205 1	* Townguard (Intersection at Main Road.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10238 0 16		*	enchanted hammer: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10238 0 16		*	Townguard<wielded>: enchanted hammer
 M 0 10215 1 10205 1	* Townguard (Intersection at Main Road.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10239 0 16		*	enchanted pike: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10239 0 16		*	Townguard<wielded>: enchanted pike
 M 0 10215 1 10205 1	* Townguard (Intersection at Main Road.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10301 0 16		*	enchanted bow: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10301 0 16		*	Townguard<wielded>: enchanted bow
 M 0 10216 3 10205 1	* field rat (Intersection at Main Road.)
 M 0 10215 1 10209 1	* Townguard (Corner of East Gullen and Ketra Road.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10237 0 16		*	enchanted longsword: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10237 0 16		*	Townguard<wielded>: enchanted longsword
 M 0 10215 1 10209 1	* Townguard (Corner of East Gullen and Ketra Road.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10238 0 16		*	enchanted hammer: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10238 0 16		*	Townguard<wielded>: enchanted hammer
 M 0 10215 1 10209 1	* Townguard (Corner of East Gullen and Ketra Road.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10239 0 16		*	enchanted pike: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10239 0 16		*	Townguard<wielded>: enchanted pike
 M 0 10215 1 10209 1	* Townguard (Corner of East Gullen and Ketra Road.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10301 0 16		*	enchanted bow: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10301 0 16		*	Townguard<wielded>: enchanted bow
 M 0 10216 1 10210 1	* field rat (Ketra Road.)
 M 0 10206 3 10211 1	* Citizen of Solace (Ketra Road.)
 M 0 10204 1 10213 1	* Townguard (Southeast Guardpost and Watchtower.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10237 0 16		*	enchanted longsword: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10237 0 16		*	Townguard<wielded>: enchanted longsword
 M 0 10204 1 10213 1	* Townguard (Southeast Guardpost and Watchtower.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10238 0 16		*	enchanted hammer: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10238 0 16		*	Townguard<wielded>: enchanted hammer
 M 0 10216 2 10218 1	* field rat (Small Alleyway.)
 M 0 10204 1 10220 1	* Townguard (Southwest Guardpost and Watchtower.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10237 0 16		*	enchanted longsword: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10237 0 16		*	Townguard<wielded>: enchanted longsword
 M 0 10204 1 10220 1	* Townguard (Southwest Guardpost and Watchtower.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10238 0 16		*	enchanted hammer: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10238 0 16		*	Townguard<wielded>: enchanted hammer
 M 0 10216 3 10222 1	* field rat (Harvest Road)
 M 0 10241 1 10222 1	* old lady (Harvest Road)
 M 0 10215 1 10224 1	* Townguard (Corner of West Gullen Way and Harvest Road.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10237 0 16		*	enchanted longsword: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10237 0 16		*	Townguard<wielded>: enchanted longsword
 M 0 10215 1 10224 1	* Townguard (Corner of West Gullen Way and Harvest Road.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10238 0 16		*	enchanted hammer: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10238 0 16		*	Townguard<wielded>: enchanted hammer
 M 0 10215 1 10224 1	* Townguard (Corner of West Gullen Way and Harvest Road.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10239 0 16		*	enchanted pike: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10239 0 16		*	Townguard<wielded>: enchanted pike
 M 0 10215 1 10224 1	* Townguard (Corner of West Gullen Way and Harvest Road.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10301 0 16		*	enchanted bow: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10301 0 16		*	Townguard<wielded>: enchanted bow
 M 0 10242 1 10226 1	* tired adventurer (West Gullen Way)
 M 0 10206 3 10231 1	* Citizen of Solace (Marketplace.)
 M 0 10241 1 10231 1	* old lady (Marketplace.)
 M 0 10215 1 10233 1	* Townguard (Marketplace.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10237 0 16		*	enchanted longsword: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10237 0 16		*	Townguard<wielded>: enchanted longsword
 M 0 10215 1 10233 1	* Townguard (Marketplace.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10238 0 16		*	enchanted hammer: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10238 0 16		*	Townguard<wielded>: enchanted hammer
 M 0 10215 1 10233 1	* Townguard (Marketplace.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10239 0 16		*	enchanted pike: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10239 0 16		*	Townguard<wielded>: enchanted pike
 M 0 10215 1 10233 1	* Townguard (Marketplace.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10301 0 16		*	enchanted bow: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10301 0 16		*	Townguard<wielded>: enchanted bow
 M 0 10219 1 10234 1	* Jhen the farmer (Jhen's Vegetable Cart.)
-G 0 10251 0		*	carrot
-G 0 10252 0		*	cauliflower
-G 0 10253 0		*	bell pepper
-G 0 10254 0		*	celery stick
+G 0 10251 0		*	Jhen the farmer: carrot
+G 0 10252 0		*	Jhen the farmer: cauliflower
+G 0 10253 0		*	Jhen the farmer: bell pepper
+G 0 10254 0		*	Jhen the farmer: celery stick
 M 0 10220 1 10235 1	* Krista the fruit peddler (Krista's Fruit Stand.)
-G 0 10259 0		*	apple
-G 0 10260 0		*	a grape
-G 0 10261 0		*	a orange
-G 0 10262 0		*	a pear
+G 0 10259 0		*	Krista the fruit peddler: apple
+G 0 10260 0		*	Krista the fruit peddler: a grape
+G 0 10261 0		*	Krista the fruit peddler: a orange
+G 0 10262 0		*	Krista the fruit peddler: a pear
 M 0 10221 1 10236 1	* Janni (Janni's Souvenirs.)
-G 0 10263 0		*	the charm of Solace
-G 0 10264 0		*	the ring of Solace
-G 0 10265 0		*	the earrings of Solace
+G 0 10263 0		*	Janni: the charm of Solace
+G 0 10264 0		*	Janni: the ring of Solace
+G 0 10265 0		*	Janni: the earrings of Solace
 M 0 10222 1 10237 1	* Nisi the grocer (Nisi's Frozen Food)
-G 0 10266 0		*	a frozen pizza crust
-G 0 10267 0		*	a frozen pumpkin
-G 0 10268 0		*	a frozen side of beef
-G 0 10269 0		*	a frozen asparagus spear
+G 0 10266 0		*	Nisi the grocer: a frozen pizza crust
+G 0 10267 0		*	Nisi the grocer: a frozen pumpkin
+G 0 10268 0		*	Nisi the grocer: a frozen side of beef
+G 0 10269 0		*	Nisi the grocer: a frozen asparagus spear
 M 0 10223 1 10238 1	* Molin the brewer (Molin's Mulburry Extracts.)
-G 0 10270 0		*	mulburry extract
-G 0 10270 0		*	mulburry extract
-G 0 10270 0		*	mulburry extract
-G 0 10270 0		*	mulburry extract
+G 0 10270 0		*	Molin the brewer: mulburry extract
+G 0 10270 0		*	Molin the brewer: mulburry extract
+G 0 10270 0		*	Molin the brewer: mulburry extract
+G 0 10270 0		*	Molin the brewer: mulburry extract
 M 0 10224 1 10239 1	* Rashan the farmer (Rashan's Rutabagas)
-G 0 10271 0		*	rutabaga
-G 0 10272 0		*	rutabaga
-G 0 10274 0		*	rutabaga
+G 0 10271 0		*	Rashan the farmer: rutabaga
+G 0 10272 0		*	Rashan the farmer: rutabaga
+G 0 10274 0		*	Rashan the farmer: rutabaga
 M 0 10225 1 10240 1	* Lexie (Lexie's Scuba Shop)
-G 0 10275 0		*	scuba tank
-G 0 10276 0		*	scuba flippers
-G 0 10277 0		*	scuba snorkle
-G 0 10278 0		*	dive belt
+G 0 10275 0		*	Lexie: scuba tank
+G 0 10276 0		*	Lexie: scuba flippers
+G 0 10277 0		*	Lexie: scuba snorkle
+G 0 10278 0		*	Lexie: dive belt
 M 0 10226 1 10241 1	* Croben (Croben's Containers.)
-G 0 10279 0		*	belt pouch
-G 0 10280 0		*	cloak of storage
-G 0 10281 0		*	ring of holding
+G 0 10279 0		*	Croben: belt pouch
+G 0 10280 0		*	Croben: cloak of storage
+G 0 10281 0		*	Croben: ring of holding
 M 0 10208 1 10242 1	* Matt the brewmaster (Matt's Brewery.)
-E 0 10240 0 5		*	chamorro ringmail: on the body
-G 0 10255 0		*	a glass of ice tea
-G 0 10256 0		*	a glass of water
-G 0 10257 0		*	a glass of koca colah
-G 0 10258 0		*	a bottle of Snapple ice tea
+E 0 10240 0 5		*	Matt the brewmaster<on the body>: chamorro ringmail
+G 0 10255 0		*	Matt the brewmaster: a glass of ice tea
+G 0 10256 0		*	Matt the brewmaster: a glass of water
+G 0 10257 0		*	Matt the brewmaster: a glass of koca colah
+G 0 10258 0		*	Matt the brewmaster: a bottle of Snapple ice tea
 M 0 10206 3 10243 1	* Citizen of Solace (a House.)
 M 0 10207 3 10243 1	* woman (a House.)
 M 0 10238 2 10243 1	* child (a House.)
@@ -5042,10 +4979,10 @@ M 0 10206 4 10244 1	* Citizen of Solace (a House.)
 M 0 10207 3 10244 1	* woman (a House.)
 M 0 10238 3 10244 1	* child (a House.)
 M 0 10210 1 10245 1	* Cookie's Helper (Cookie's Cookie Cookery.)
-G 0 10245 0		*	chocolate chip cookie
-G 0 10246 0		*	peanut butter cookie
-G 0 10247 0		*	oatmeal  cookie
-G 0 10248 0		*	sugar cookie
+G 0 10245 0		*	Cookie's Helper: chocolate chip cookie
+G 0 10246 0		*	Cookie's Helper: peanut butter cookie
+G 0 10247 0		*	Cookie's Helper: oatmeal  cookie
+G 0 10248 0		*	Cookie's Helper: sugar cookie
 M 0 10206 5 10246 1	* Citizen of Solace (a House.)
 M 0 10207 4 10246 1	* woman (a House.)
 M 0 10238 6 10246 1	* child (a House.)
@@ -5053,10 +4990,10 @@ M 0 10241 1 10246 1	* old lady (a House.)
 M 0 10216 2 10247 1	* field rat (Old Gambling Parlor.)
 M 0 10237 10 10247 1	* Ghost of gambler (Old Gambling Parlor.)
 M 0 10209 1 10248 1	* the Mcbaker (The McBakery)
-G 0 10241 0		*	Mcbread
-G 0 10242 0		*	Mcdonut
-G 0 10243 0		*	Mcbagel
-G 0 10244 0		*	Mcpastry
+G 0 10241 0		*	the Mcbaker: Mcbread
+G 0 10242 0		*	the Mcbaker: Mcdonut
+G 0 10243 0		*	the Mcbaker: Mcbagel
+G 0 10244 0		*	the Mcbaker: Mcpastry
 M 0 10206 4 10249 1	* Citizen of Solace (a House.)
 M 0 10207 2 10249 1	* woman (a House.)
 M 0 10238 3 10249 1	* child (a House.)
@@ -5074,9 +5011,9 @@ M 0 10239 5 10254 1	* rat (Storage Building)
 M 0 10240 4 10254 5	* bat (Storage Building)
 M 0 10213 2 10255 1	* ghost of waiter (Jander's)
 M 0 10214 1 10255 1	* ghost of a barkeeper (Jander's)
-G 0 10307 0		*	a drink called, "a Flaming homer"
-G 0 10308 0		*	a jello shot
-G 0 10309 0		*	a drink called, "bloody heads"
+G 0 10307 0		*	ghost of a barkeeper: a drink called, "a Flaming homer"
+G 0 10308 0		*	ghost of a barkeeper: a jello shot
+G 0 10309 0		*	ghost of a barkeeper: a drink called, "bloody heads"
 M 0 10216 2 10255 1	* field rat (Jander's)
 M 0 10213 2 10256 1	* ghost of waiter (Jander's Poolhall)
 M 0 10216 2 10256 1	* field rat (Jander's Poolhall)
@@ -5084,277 +5021,277 @@ M 0 10213 6 10257 1	* ghost of waiter (Jander's Restaurant)
 M 0 10216 2 10257 1	* field rat (Jander's Restaurant)
 M 0 10212 1 10259 1	* Ghost of Jander (Jander's Office)
 M 0 10205 1 10260 1	* Townguard (Inside Southeast Watchtower.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10239 0 16		*	enchanted pike: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10239 0 16		*	Townguard<wielded>: enchanted pike
 M 0 10205 1 10260 1	* Townguard (Inside Southeast Watchtower.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10301 0 16		*	enchanted bow: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10301 0 16		*	Townguard<wielded>: enchanted bow
 M 0 10205 1 10261 1	* Townguard (Inside Southwest Watchtower.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10239 0 16		*	enchanted pike: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10239 0 16		*	Townguard<wielded>: enchanted pike
 M 0 10205 1 10261 1	* Townguard (Inside Southwest Watchtower.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10301 0 16		*	enchanted bow: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10301 0 16		*	Townguard<wielded>: enchanted bow
 M 0 10206 2 10262 1	* Citizen of Solace (Dusty road.)
 M 0 10215 1 10264 1	* Townguard (Entrance Hall.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10237 0 16		*	enchanted longsword: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10237 0 16		*	Townguard<wielded>: enchanted longsword
 M 0 10215 1 10264 1	* Townguard (Entrance Hall.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10238 0 16		*	enchanted hammer: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10238 0 16		*	Townguard<wielded>: enchanted hammer
 M 0 10215 1 10264 1	* Townguard (Entrance Hall.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10239 0 16		*	enchanted pike: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10239 0 16		*	Townguard<wielded>: enchanted pike
 M 0 10215 1 10264 1	* Townguard (Entrance Hall.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10301 0 16		*	enchanted bow: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10301 0 16		*	Townguard<wielded>: enchanted bow
 M 0 10217 1 10266 1	* Town Clerk (Town Clerk.)
-E 0 10249 0 16		*	taxes and fines: wielded
-E 0 10305 0 17		*	a depository key: held in the hands
+E 0 10249 0 16		*	Town Clerk<wielded>: taxes and fines
+E 0 10305 0 17		*	Town Clerk<held in the hands>: a depository key
 M 0 10218 4 10267 2	* Treasury Guards (Deposits Room.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10250 0 16		*	enchanted two-handed sword: wielded
+E 0 10236 0 5		*	Treasury Guards<on the body>: black platemail
+E 0 10250 0 16		*	Treasury Guards<wielded>: enchanted two-handed sword
 O 0 10302 0 10267	* safe deposit box (Deposits Room.)
-P 0 10303 1 10302 1	* safe deposit box: a lot of gold coins
 O 0 10302 0 10267	* safe deposit box (Deposits Room.)
-P 0 10303 1 10302 1	* safe deposit box: a lot of gold coins
 O 0 10302 0 10267	* safe deposit box (Deposits Room.)
-P 0 10303 1 10302 1	* safe deposit box: a lot of gold coins
 O 0 10302 0 10267	* safe deposit box (Deposits Room.)
-P 0 10303 1 10302 1	* safe deposit box: a lot of gold coins
+P 0 10303 1 0 1	* safe deposit box: a lot of gold coins
+P 0 10303 1 0 1	* safe deposit box: a lot of gold coins
+P 0 10303 1 0 1	* safe deposit box: a lot of gold coins
+P 0 10303 1 0 1	* safe deposit box: a lot of gold coins
 M 0 10241 1 10268 1	* old lady (Marble Corridor.)
 M 0 10232 1 10269 1	* bratty boy (Water Fountain.)
 O 0 10304 0 10269	* a fountain (Water Fountain.)
 M 0 10241 1 10273 1	* old lady (Sergeant's Reception Room)
 M 0 10249 1 10273 1	* Secretary (Sergeant's Reception Room)
 M 0 10233 3 10278 1	* mage (West end of Common Room)
-E 0 10282 0 12		*	travellers robe: about the shoulders
-E 0 10283 0 16		*	travellers dagger: wielded
-E 0 10284 0 17		*	travellers spellbook: held in the hands
+E 0 10282 0 12		*	mage<about the shoulders>: travellers robe
+E 0 10283 0 16		*	mage<wielded>: travellers dagger
+E 0 10284 0 17		*	mage<held in the hands>: travellers spellbook
 M 0 10234 2 10278 1	* Thief (West end of Common Room)
-E 0 10283 0 16		*	travellers dagger: wielded
-E 0 10286 0 5		*	a travellers vest: on the body
-E 0 10287 0 3		*	a travellers cloak: around the neck
+E 0 10283 0 16		*	Thief<wielded>: travellers dagger
+E 0 10286 0 5		*	Thief<on the body>: a travellers vest
+E 0 10287 0 3		*	Thief<around the neck>: a travellers cloak
 M 0 10235 3 10278 1	* Warrior (West end of Common Room)
-E 0 10288 0 16		*	a travellers sword: wielded
-E 0 10289 0 5		*	a travellers scalemail: on the body
-E 0 10290 0 11		*	a travellers shield: as a shield
+E 0 10288 0 16		*	Warrior<wielded>: a travellers sword
+E 0 10289 0 5		*	Warrior<on the body>: a travellers scalemail
+E 0 10290 0 11		*	Warrior<as a shield>: a travellers shield
 M 0 10236 3 10278 1	* Cleric (West end of Common Room)
-E 0 10285 0 17		*	travellers holy symbol: held in the hands
-E 0 10291 0 16		*	a travellers hammer: wielded
-E 0 10282 0 12		*	travellers robe: about the shoulders
+E 0 10285 0 17		*	Cleric<held in the hands>: travellers holy symbol
+E 0 10291 0 16		*	Cleric<wielded>: a travellers hammer
+E 0 10282 0 12		*	Cleric<about the shoulders>: travellers robe
 M 0 10233 3 10279 1	* mage (East end of Common Room)
-E 0 10282 0 12		*	travellers robe: about the shoulders
-E 0 10283 0 16		*	travellers dagger: wielded
-E 0 10284 0 17		*	travellers spellbook: held in the hands
+E 0 10282 0 12		*	mage<about the shoulders>: travellers robe
+E 0 10283 0 16		*	mage<wielded>: travellers dagger
+E 0 10284 0 17		*	mage<held in the hands>: travellers spellbook
 M 0 10234 3 10279 1	* Thief (East end of Common Room)
-E 0 10283 0 16		*	travellers dagger: wielded
-E 0 10286 0 5		*	a travellers vest: on the body
-E 0 10287 0 3		*	a travellers cloak: around the neck
+E 0 10283 0 16		*	Thief<wielded>: travellers dagger
+E 0 10286 0 5		*	Thief<on the body>: a travellers vest
+E 0 10287 0 3		*	Thief<around the neck>: a travellers cloak
 M 0 10235 3 10279 1	* Warrior (East end of Common Room)
-E 0 10288 0 16		*	a travellers sword: wielded
-E 0 10289 0 5		*	a travellers scalemail: on the body
-E 0 10290 0 11		*	a travellers shield: as a shield
+E 0 10288 0 16		*	Warrior<wielded>: a travellers sword
+E 0 10289 0 5		*	Warrior<on the body>: a travellers scalemail
+E 0 10290 0 11		*	Warrior<as a shield>: a travellers shield
 M 0 10236 3 10279 1	* Cleric (East end of Common Room)
-E 0 10285 0 17		*	travellers holy symbol: held in the hands
-E 0 10291 0 16		*	a travellers hammer: wielded
-E 0 10282 0 12		*	travellers robe: about the shoulders
+E 0 10285 0 17		*	Cleric<held in the hands>: travellers holy symbol
+E 0 10291 0 16		*	Cleric<wielded>: a travellers hammer
+E 0 10282 0 12		*	Cleric<about the shoulders>: travellers robe
 M 0 10242 2 10279 1	* tired adventurer (East end of Common Room)
 M 0 10233 2 10280 1	* mage (West end of Bar.)
-E 0 10282 0 12		*	travellers robe: about the shoulders
-E 0 10283 0 16		*	travellers dagger: wielded
-E 0 10284 0 17		*	travellers spellbook: held in the hands
+E 0 10282 0 12		*	mage<about the shoulders>: travellers robe
+E 0 10283 0 16		*	mage<wielded>: travellers dagger
+E 0 10284 0 17		*	mage<held in the hands>: travellers spellbook
 M 0 10234 2 10280 1	* Thief (West end of Bar.)
-E 0 10283 0 16		*	travellers dagger: wielded
-E 0 10286 0 5		*	a travellers vest: on the body
-E 0 10287 0 3		*	a travellers cloak: around the neck
+E 0 10283 0 16		*	Thief<wielded>: travellers dagger
+E 0 10286 0 5		*	Thief<on the body>: a travellers vest
+E 0 10287 0 3		*	Thief<around the neck>: a travellers cloak
 M 0 10235 2 10280 1	* Warrior (West end of Bar.)
-E 0 10288 0 16		*	a travellers sword: wielded
-E 0 10289 0 5		*	a travellers scalemail: on the body
-E 0 10290 0 11		*	a travellers shield: as a shield
+E 0 10288 0 16		*	Warrior<wielded>: a travellers sword
+E 0 10289 0 5		*	Warrior<on the body>: a travellers scalemail
+E 0 10290 0 11		*	Warrior<as a shield>: a travellers shield
 M 0 10236 2 10280 1	* Cleric (West end of Bar.)
-E 0 10285 0 17		*	travellers holy symbol: held in the hands
-E 0 10291 0 16		*	a travellers hammer: wielded
-E 0 10282 0 12		*	travellers robe: about the shoulders
+E 0 10285 0 17		*	Cleric<held in the hands>: travellers holy symbol
+E 0 10291 0 16		*	Cleric<wielded>: a travellers hammer
+E 0 10282 0 12		*	Cleric<about the shoulders>: travellers robe
 M 0 10242 1 10280 1	* tired adventurer (West end of Bar.)
 M 0 10233 2 10281 1	* mage (Inn of the Last Home.)
-E 0 10282 0 12		*	travellers robe: about the shoulders
-E 0 10283 0 16		*	travellers dagger: wielded
-E 0 10284 0 17		*	travellers spellbook: held in the hands
+E 0 10282 0 12		*	mage<about the shoulders>: travellers robe
+E 0 10283 0 16		*	mage<wielded>: travellers dagger
+E 0 10284 0 17		*	mage<held in the hands>: travellers spellbook
 M 0 10234 2 10281 1	* Thief (Inn of the Last Home.)
-E 0 10283 0 16		*	travellers dagger: wielded
-E 0 10286 0 5		*	a travellers vest: on the body
-E 0 10287 0 3		*	a travellers cloak: around the neck
+E 0 10283 0 16		*	Thief<wielded>: travellers dagger
+E 0 10286 0 5		*	Thief<on the body>: a travellers vest
+E 0 10287 0 3		*	Thief<around the neck>: a travellers cloak
 M 0 10235 2 10281 1	* Warrior (Inn of the Last Home.)
-E 0 10288 0 16		*	a travellers sword: wielded
-E 0 10289 0 5		*	a travellers scalemail: on the body
-E 0 10290 0 11		*	a travellers shield: as a shield
+E 0 10288 0 16		*	Warrior<wielded>: a travellers sword
+E 0 10289 0 5		*	Warrior<on the body>: a travellers scalemail
+E 0 10290 0 11		*	Warrior<as a shield>: a travellers shield
 M 0 10236 2 10281 1	* Cleric (Inn of the Last Home.)
-E 0 10285 0 17		*	travellers holy symbol: held in the hands
-E 0 10291 0 16		*	a travellers hammer: wielded
-E 0 10282 0 12		*	travellers robe: about the shoulders
+E 0 10285 0 17		*	Cleric<held in the hands>: travellers holy symbol
+E 0 10291 0 16		*	Cleric<wielded>: a travellers hammer
+E 0 10282 0 12		*	Cleric<about the shoulders>: travellers robe
 M 0 10206 1 10281 1	* Citizen of Solace (Inn of the Last Home.)
 M 0 10227 1 10281 1	* Otik Sandath (Inn of the Last Home.)
-G 0 10307 0		*	a drink called, "a Flaming homer"
-G 0 10308 0		*	a jello shot
-G 0 10309 0		*	a drink called, "bloody heads"
+G 0 10307 0		*	Otik Sandath: a drink called, "a Flaming homer"
+G 0 10308 0		*	Otik Sandath: a jello shot
+G 0 10309 0		*	Otik Sandath: a drink called, "bloody heads"
 M 0 10228 1 10281 1	* Tika the barmaid (Inn of the Last Home.)
-G 0 10307 0		*	a drink called, "a Flaming homer"
-G 0 10308 0		*	a jello shot
-G 0 10309 0		*	a drink called, "bloody heads"
+G 0 10307 0		*	Tika the barmaid: a drink called, "a Flaming homer"
+G 0 10308 0		*	Tika the barmaid: a jello shot
+G 0 10309 0		*	Tika the barmaid: a drink called, "bloody heads"
 M 0 10215 1 10282 1	* Townguard (Outside the Inn of the Last Home.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10237 0 16		*	enchanted longsword: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10237 0 16		*	Townguard<wielded>: enchanted longsword
 M 0 10215 1 10282 1	* Townguard (Outside the Inn of the Last Home.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10238 0 16		*	enchanted hammer: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10238 0 16		*	Townguard<wielded>: enchanted hammer
 M 0 10215 1 10282 1	* Townguard (Outside the Inn of the Last Home.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10239 0 16		*	enchanted pike: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10239 0 16		*	Townguard<wielded>: enchanted pike
 M 0 10215 1 10282 1	* Townguard (Outside the Inn of the Last Home.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10301 0 16		*	enchanted bow: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10301 0 16		*	Townguard<wielded>: enchanted bow
 M 0 10203 1 10283 1	* Sergeant at Arms (Sergeant's Office)
-E 0 10226 0 6		*	the red helmet: over the head
-E 0 10300 0 5		*	a suit of red plate armor: on the body
-E 0 10227 0 10		*	red scalemail sleeves: on the arms
-E 0 10228 0 7		*	red scalemail leggings: on the legs
-E 0 10229 0 9		*	red scalemail gauntlets: on the hands
-E 0 10230 0 8		*	red scalemail boots: on the feet
-E 0 10231 0 3		*	the red sergeant's cloak: around the neck
-E 0 10232 0 13		*	the red scalemail girth: around the waist
-E 0 10209 0 4		*	the amulet of Solace: on the face
-E 0 10233 0 11		*	the large red shield: as a shield
-E 0 10235 0 16		*	a red steel warhammer called, "Mage Masher": wielded
-E 0 10212 0 1		*	an Solace signet ring: on the left finger
-E 0 10234 0 14		*	a red bracer: on the left wrist
-E 0 10234 0 15		*	a red bracer: on the right wrist
+E 0 10226 0 6		*	Sergeant at Arms<over the head>: the red helmet
+E 0 10300 0 5		*	Sergeant at Arms<on the body>: a suit of red plate armor
+E 0 10227 0 10		*	Sergeant at Arms<on the arms>: red scalemail sleeves
+E 0 10228 0 7		*	Sergeant at Arms<on the legs>: red scalemail leggings
+E 0 10229 0 9		*	Sergeant at Arms<on the hands>: red scalemail gauntlets
+E 0 10230 0 8		*	Sergeant at Arms<on the feet>: red scalemail boots
+E 0 10231 0 3		*	Sergeant at Arms<around the neck>: the red sergeant's cloak
+E 0 10232 0 13		*	Sergeant at Arms<around the waist>: the red scalemail girth
+E 0 10209 0 4		*	Sergeant at Arms<on the face>: the amulet of Solace
+E 0 10233 0 11		*	Sergeant at Arms<as a shield>: the large red shield
+E 0 10235 0 16		*	Sergeant at Arms<wielded>: a red steel warhammer called, "Mage Masher"
+E 0 10212 0 1		*	Sergeant at Arms<on the left finger>: an Solace signet ring
+E 0 10234 0 14		*	Sergeant at Arms<on the left wrist>: a red bracer
+E 0 10234 0 15		*	Sergeant at Arms<on the right wrist>: a red bracer
 M 0 10215 1 10285 1	* Townguard (Guards Room.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10237 0 16		*	enchanted longsword: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10237 0 16		*	Townguard<wielded>: enchanted longsword
 M 0 10215 1 10285 1	* Townguard (Guards Room.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10238 0 16		*	enchanted hammer: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10238 0 16		*	Townguard<wielded>: enchanted hammer
 M 0 10215 1 10285 1	* Townguard (Guards Room.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10239 0 16		*	enchanted pike: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10239 0 16		*	Townguard<wielded>: enchanted pike
 M 0 10215 1 10285 1	* Townguard (Guards Room.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10301 0 16		*	enchanted bow: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10301 0 16		*	Townguard<wielded>: enchanted bow
 M 0 10204 1 10285 1	* Townguard (Guards Room.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10237 0 16		*	enchanted longsword: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10237 0 16		*	Townguard<wielded>: enchanted longsword
 M 0 10204 1 10285 1	* Townguard (Guards Room.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10238 0 16		*	enchanted hammer: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10238 0 16		*	Townguard<wielded>: enchanted hammer
 M 0 10204 1 10285 1	* Townguard (Guards Room.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10239 0 16		*	enchanted pike: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10239 0 16		*	Townguard<wielded>: enchanted pike
 M 0 10204 1 10285 1	* Townguard (Guards Room.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10301 0 16		*	enchanted bow: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10301 0 16		*	Townguard<wielded>: enchanted bow
 M 0 10215 1 10287 1	* Townguard (Long Hallway)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10237 0 16		*	enchanted longsword: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10237 0 16		*	Townguard<wielded>: enchanted longsword
 M 0 10215 1 10287 1	* Townguard (Long Hallway)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10238 0 16		*	enchanted hammer: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10238 0 16		*	Townguard<wielded>: enchanted hammer
 M 0 10215 1 10287 1	* Townguard (Long Hallway)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10239 0 16		*	enchanted pike: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10239 0 16		*	Townguard<wielded>: enchanted pike
 M 0 10215 1 10287 1	* Townguard (Long Hallway)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10301 0 16		*	enchanted bow: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10301 0 16		*	Townguard<wielded>: enchanted bow
 M 0 10233 2 10291 1	* mage (North End of Bar.)
-E 0 10282 0 12		*	travellers robe: about the shoulders
-E 0 10283 0 16		*	travellers dagger: wielded
-E 0 10284 0 17		*	travellers spellbook: held in the hands
+E 0 10282 0 12		*	mage<about the shoulders>: travellers robe
+E 0 10283 0 16		*	mage<wielded>: travellers dagger
+E 0 10284 0 17		*	mage<held in the hands>: travellers spellbook
 M 0 10234 2 10291 1	* Thief (North End of Bar.)
-E 0 10283 0 16		*	travellers dagger: wielded
-E 0 10286 0 5		*	a travellers vest: on the body
-E 0 10287 0 3		*	a travellers cloak: around the neck
+E 0 10283 0 16		*	Thief<wielded>: travellers dagger
+E 0 10286 0 5		*	Thief<on the body>: a travellers vest
+E 0 10287 0 3		*	Thief<around the neck>: a travellers cloak
 M 0 10235 2 10291 1	* Warrior (North End of Bar.)
-E 0 10288 0 16		*	a travellers sword: wielded
-E 0 10289 0 5		*	a travellers scalemail: on the body
-E 0 10290 0 11		*	a travellers shield: as a shield
+E 0 10288 0 16		*	Warrior<wielded>: a travellers sword
+E 0 10289 0 5		*	Warrior<on the body>: a travellers scalemail
+E 0 10290 0 11		*	Warrior<as a shield>: a travellers shield
 M 0 10236 2 10291 1	* Cleric (North End of Bar.)
-E 0 10285 0 17		*	travellers holy symbol: held in the hands
-E 0 10291 0 16		*	a travellers hammer: wielded
-E 0 10282 0 12		*	travellers robe: about the shoulders
+E 0 10285 0 17		*	Cleric<held in the hands>: travellers holy symbol
+E 0 10291 0 16		*	Cleric<wielded>: a travellers hammer
+E 0 10282 0 12		*	Cleric<about the shoulders>: travellers robe
 M 0 10229 1 10291 1	* Thief (North End of Bar.)
 M 0 10230 3 10291 1	* old man (North End of Bar.)
 M 0 10231 1 10291 1	* boy (North End of Bar.)
 M 0 10201 1 10292 1	* Captain of the Guard (Captain's Office.)
-E 0 10201 0 6		*	the obsidian helmet: over the head
-E 0 10298 0 5		*	a suit of obsidian plate armor: on the body
-E 0 10202 0 10		*	obsidian sleeves: on the arms
-E 0 10203 0 7		*	obsidian leggings: on the legs
-E 0 10204 0 9		*	obsidian gauntlets: on the hands
-E 0 10205 0 8		*	obsidian boots: on the feet
-E 0 10206 0 3		*	obsidian cloak: around the neck
-E 0 10207 0 13		*	the obsidian girth: around the waist
-E 0 10209 0 4		*	the amulet of Solace: on the face
-E 0 10208 0 11		*	the large obsidian shield: as a shield
-G 0 10210 0		*	a obsidian key
-E 0 10306 0 17		*	Key to the City of Solace: held in the hands
-E 0 10211 0 16		*	a black hilted sword called, "Doomgiver": wielded
-E 0 10212 0 1		*	an Solace signet ring: on the left finger
-E 0 10213 0 14		*	a obsidian bracer: on the left wrist
-E 0 10213 0 15		*	a obsidian bracer: on the right wrist
+E 0 10201 0 6		*	Captain of the Guard<over the head>: the obsidian helmet
+E 0 10298 0 5		*	Captain of the Guard<on the body>: a suit of obsidian plate armor
+E 0 10202 0 10		*	Captain of the Guard<on the arms>: obsidian sleeves
+E 0 10203 0 7		*	Captain of the Guard<on the legs>: obsidian leggings
+E 0 10204 0 9		*	Captain of the Guard<on the hands>: obsidian gauntlets
+E 0 10205 0 8		*	Captain of the Guard<on the feet>: obsidian boots
+E 0 10206 0 3		*	Captain of the Guard<around the neck>: obsidian cloak
+E 0 10207 0 13		*	Captain of the Guard<around the waist>: the obsidian girth
+E 0 10209 0 4		*	Captain of the Guard<on the face>: the amulet of Solace
+E 0 10208 0 11		*	Captain of the Guard<as a shield>: the large obsidian shield
+G 0 10210 0		*	Captain of the Guard: a obsidian key
+E 0 10306 0 17		*	Captain of the Guard<held in the hands>: Key to the City of Solace
+E 0 10211 0 16		*	Captain of the Guard<wielded>: a black hilted sword called, "Doomgiver"
+E 0 10212 0 1		*	Captain of the Guard<on the left finger>: an Solace signet ring
+E 0 10213 0 14		*	Captain of the Guard<on the left wrist>: a obsidian bracer
+E 0 10213 0 15		*	Captain of the Guard<on the right wrist>: a obsidian bracer
 O 0 10214 0 10292	* a weapons cabinet (Captain's Office.)
-P 0 10215 1 10214 1	* a weapons cabinet: a black hilted sword called, "Dragonslicer"
+P 0 10215 1 0 1	* a weapons cabinet: a black hilted sword called, "Dragonslicer"
 M 0 10248 1 10295 1	* Secretary (Lieutenant's Reception Area.)
 M 0 10241 1 10296 1	* old lady (Administration Hallway)
 M 0 10242 1 10299 1	* tired adventurer (Private Room)
 M 0 10243 1 10300 1	* Magnus wizard (Private Room)
-E 0 10292 0 17		*	Magnus's spellbook: held in the hands
-E 0 10293 0 12		*	robe of the magi: about the shoulders
+E 0 10292 0 17		*	Magnus wizard<held in the hands>: Magnus's spellbook
+E 0 10293 0 12		*	Magnus wizard<about the shoulders>: robe of the magi
 M 0 10244 1 10301 1	* Lord Doom (Private Room)
-E 0 10294 0 5		*	crystal plate armor: on the body
-E 0 10297 0 16		*	crystal longsword: wielded
-E 0 10296 0 11		*	crystal shield: as a shield
+E 0 10294 0 5		*	Lord Doom<on the body>: crystal plate armor
+E 0 10297 0 16		*	Lord Doom<wielded>: crystal longsword
+E 0 10296 0 11		*	Lord Doom<as a shield>: crystal shield
 M 0 10245 1 10302 1	* Foreign Trade Representative (Captain's Meeting room.)
-G 0 10303 0		*	a lot of gold coins
+G 0 10303 0		*	Foreign Trade Representative: a lot of gold coins
 M 0 10246 3 10302 1	* bodyguard (Captain's Meeting room.)
 M 0 10215 1 10304 1	* Townguard (Guards Room.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10237 0 16		*	enchanted longsword: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10237 0 16		*	Townguard<wielded>: enchanted longsword
 M 0 10215 1 10304 1	* Townguard (Guards Room.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10238 0 16		*	enchanted hammer: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10238 0 16		*	Townguard<wielded>: enchanted hammer
 M 0 10215 1 10304 1	* Townguard (Guards Room.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10239 0 16		*	enchanted pike: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10239 0 16		*	Townguard<wielded>: enchanted pike
 M 0 10215 1 10304 1	* Townguard (Guards Room.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10301 0 16		*	enchanted bow: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10301 0 16		*	Townguard<wielded>: enchanted bow
 M 0 10204 1 10304 1	* Townguard (Guards Room.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10237 0 16		*	enchanted longsword: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10237 0 16		*	Townguard<wielded>: enchanted longsword
 M 0 10204 1 10304 1	* Townguard (Guards Room.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10238 0 16		*	enchanted hammer: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10238 0 16		*	Townguard<wielded>: enchanted hammer
 M 0 10204 1 10304 1	* Townguard (Guards Room.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10239 0 16		*	enchanted pike: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10239 0 16		*	Townguard<wielded>: enchanted pike
 M 0 10204 1 10304 1	* Townguard (Guards Room.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10301 0 16		*	enchanted bow: wielded
+E 0 10236 0 5		*	Townguard<on the body>: black platemail
+E 0 10301 0 16		*	Townguard<wielded>: enchanted bow
 M 0 10202 1 10305 1	* Lieutenant Commander (Lieutenant's Office.)
-E 0 10216 0 6		*	the steel helmet: over the head
-E 0 10299 0 5		*	a suit of steel plate armor: on the body
-E 0 10217 0 10		*	steel sleeves: on the arms
-E 0 10218 0 7		*	steel leggings: on the legs
-E 0 10219 0 9		*	steel gauntlets: on the hands
-E 0 10220 0 8		*	steel boots: on the feet
-E 0 10221 0 3		*	the lieutenant's cloak: around the neck
-E 0 10222 0 13		*	the steel girth: around the waist
-E 0 10209 0 4		*	the amulet of Solace: on the face
-E 0 10223 0 11		*	the large steel shield: as a shield
-E 0 10225 0 16		*	black hilted sword called, "Shieldbreaker": wielded
-E 0 10212 0 1		*	an Solace signet ring: on the left finger
-E 0 10224 0 14		*	a steel bracer: on the left wrist
-E 0 10224 0 15		*	a steel bracer: on the right wrist
+E 0 10216 0 6		*	Lieutenant Commander<over the head>: the steel helmet
+E 0 10299 0 5		*	Lieutenant Commander<on the body>: a suit of steel plate armor
+E 0 10217 0 10		*	Lieutenant Commander<on the arms>: steel sleeves
+E 0 10218 0 7		*	Lieutenant Commander<on the legs>: steel leggings
+E 0 10219 0 9		*	Lieutenant Commander<on the hands>: steel gauntlets
+E 0 10220 0 8		*	Lieutenant Commander<on the feet>: steel boots
+E 0 10221 0 3		*	Lieutenant Commander<around the neck>: the lieutenant's cloak
+E 0 10222 0 13		*	Lieutenant Commander<around the waist>: the steel girth
+E 0 10209 0 4		*	Lieutenant Commander<on the face>: the amulet of Solace
+E 0 10223 0 11		*	Lieutenant Commander<as a shield>: the large steel shield
+E 0 10225 0 16		*	Lieutenant Commander<wielded>: black hilted sword called, "Shieldbreaker"
+E 0 10212 0 1		*	Lieutenant Commander<on the left finger>: an Solace signet ring
+E 0 10224 0 14		*	Lieutenant Commander<on the left wrist>: a steel bracer
+E 0 10224 0 15		*	Lieutenant Commander<on the right wrist>: a steel bracer
 M 0 10206 1 10308 1	* Citizen of Solace (Reading Room.)
 M 0 10247 1 10312 1	* Secretary (Captain's Waiting Room.)
 S

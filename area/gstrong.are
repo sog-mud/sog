@@ -1209,110 +1209,83 @@ S
 #0
 
 #RESETS
-D 0 29001 2 1	* The Entry Hall to the Goblin Stronghold: door to the south: closed
-D 0 29002 0 1	* North End of the Great Hall: door to the north: closed
-D 0 29002 3 1	* North End of the Great Hall: door to the west: closed
-D 0 29004 1 1	* King Grumm's Throne Room: door to the east: closed
-D 0 29004 2 1	* King Grumm's Throne Room: door to the south: closed
-D 0 29004 3 1	* King Grumm's Throne Room: door to the west: closed
-D 0 29005 1 1	* Goblin Shaman's Quarters: door to the east: closed
-D 0 29006 3 1	* Goblin Mage's Quarters: door to the west: closed
-D 0 29007 0 1	* Hidden Passage: door to the north: closed
-D 0 29007 2 2	* Hidden Passage: door to the south: closed and locked
-D 0 29008 0 2	* Hidden Passage: door to the north: closed and locked
-D 0 29008 2 2	* Hidden Passage: door to the south: closed and locked
-D 0 29009 0 2	* Hidden Passage: door to the north: closed and locked
-D 0 29009 2 2	* Hidden Passage: door to the south: closed and locked
-D 0 29010 0 2	* The Treasure Chamber of the Goblin Stronghold: door to the north: closed and locked
-D 0 29012 2 2	* A Small Cell in the Dungeon: door to the south: closed and locked
-D 0 29013 0 2	* A Small Cell in the Dungeon: door to the north: closed and locked
-D 0 29014 2 2	* A Small Cell in the Dungeon: door to the south: closed and locked
-D 0 29015 0 2	* A Small Cell in the Dungeon: door to the north: closed and locked
-D 0 29016 4 1	* The Dungeon: door to the up: closed
-D 0 29017 5 1	* A Hallway in the Stronghold: door to the down: closed
-D 0 29021 1 1	* Goblin Training Room: door to the east: closed
-D 0 29023 3 1	* The Kitchen: door to the west: closed
-D 0 29024 4 2	* A Tiny Crawlspace: door to the up: closed and locked
-D 0 29025 0 2	* A Hall in the Dungeon: door to the north: closed and locked
-D 0 29025 2 2	* A Hall in the Dungeon: door to the south: closed and locked
-D 0 29025 3 2	* A Hall in the Dungeon: door to the west: closed and locked
 M 0 29005 10 29001 1	* goblin guard (The Entry Hall to the Goblin Stronghold)
-E 0 29001 0 5		*	a goblin scale mail jacket: on the body
-E 0 29003 0 7		*	a goblin long scale mail skirt: on the legs
-E 0 29004 0 10		*	a pair of goblin scale mail sleeves: on the arms
-E 0 29011 0 6		*	a dark goblin horned helmet: over the head
-E 0 29015 0 16		*	a goblin's shortsword: wielded
+E 0 29001 0 5		*	goblin guard<on the body>: a goblin scale mail jacket
+E 0 29003 0 7		*	goblin guard<on the legs>: a goblin long scale mail skirt
+E 0 29004 0 10		*	goblin guard<on the arms>: a pair of goblin scale mail sleeves
+E 0 29011 0 6		*	goblin guard<over the head>: a dark goblin horned helmet
+E 0 29015 0 16		*	goblin guard<wielded>: a goblin's shortsword
 M 0 29005 10 29001 1	* goblin guard (The Entry Hall to the Goblin Stronghold)
-E 0 29001 0 5		*	a goblin scale mail jacket: on the body
-E 0 29003 0 7		*	a goblin long scale mail skirt: on the legs
-E 0 29004 0 10		*	a pair of goblin scale mail sleeves: on the arms
-E 0 29011 0 6		*	a dark goblin horned helmet: over the head
-E 0 29015 0 16		*	a goblin's shortsword: wielded
+E 0 29001 0 5		*	goblin guard<on the body>: a goblin scale mail jacket
+E 0 29003 0 7		*	goblin guard<on the legs>: a goblin long scale mail skirt
+E 0 29004 0 10		*	goblin guard<on the arms>: a pair of goblin scale mail sleeves
+E 0 29011 0 6		*	goblin guard<over the head>: a dark goblin horned helmet
+E 0 29015 0 16		*	goblin guard<wielded>: a goblin's shortsword
 M 0 29007 20 29001 1	* The goblin (The Entry Hall to the Goblin Stronghold)
-E 0 29011 0 6		*	a dark goblin horned helmet: over the head
-E 0 29015 0 16		*	a goblin's shortsword: wielded
+E 0 29011 0 6		*	The goblin<over the head>: a dark goblin horned helmet
+E 0 29015 0 16		*	The goblin<wielded>: a goblin's shortsword
 M 0 29005 10 29002 1	* goblin guard (North End of the Great Hall)
-E 0 29001 0 5		*	a goblin scale mail jacket: on the body
-E 0 29003 0 7		*	a goblin long scale mail skirt: on the legs
-E 0 29004 0 10		*	a pair of goblin scale mail sleeves: on the arms
-E 0 29011 0 6		*	a dark goblin horned helmet: over the head
-E 0 29015 0 16		*	a goblin's shortsword: wielded
+E 0 29001 0 5		*	goblin guard<on the body>: a goblin scale mail jacket
+E 0 29003 0 7		*	goblin guard<on the legs>: a goblin long scale mail skirt
+E 0 29004 0 10		*	goblin guard<on the arms>: a pair of goblin scale mail sleeves
+E 0 29011 0 6		*	goblin guard<over the head>: a dark goblin horned helmet
+E 0 29015 0 16		*	goblin guard<wielded>: a goblin's shortsword
 M 0 29007 20 29002 1	* The goblin (North End of the Great Hall)
-E 0 29011 0 6		*	a dark goblin horned helmet: over the head
-E 0 29015 0 16		*	a goblin's shortsword: wielded
+E 0 29011 0 6		*	The goblin<over the head>: a dark goblin horned helmet
+E 0 29015 0 16		*	The goblin<wielded>: a goblin's shortsword
 O 0 29027 0 29002	* a large mahogany feast table (North End of the Great Hall)
 M 0 29005 10 29003 1	* goblin guard (South End of the Great Hall)
-E 0 29001 0 5		*	a goblin scale mail jacket: on the body
-E 0 29003 0 7		*	a goblin long scale mail skirt: on the legs
-E 0 29004 0 10		*	a pair of goblin scale mail sleeves: on the arms
-E 0 29011 0 6		*	a dark goblin horned helmet: over the head
-E 0 29015 0 16		*	a goblin's shortsword: wielded
+E 0 29001 0 5		*	goblin guard<on the body>: a goblin scale mail jacket
+E 0 29003 0 7		*	goblin guard<on the legs>: a goblin long scale mail skirt
+E 0 29004 0 10		*	goblin guard<on the arms>: a pair of goblin scale mail sleeves
+E 0 29011 0 6		*	goblin guard<over the head>: a dark goblin horned helmet
+E 0 29015 0 16		*	goblin guard<wielded>: a goblin's shortsword
 M 0 29007 20 29003 1	* The goblin (South End of the Great Hall)
-E 0 29011 0 6		*	a dark goblin horned helmet: over the head
-E 0 29015 0 16		*	a goblin's shortsword: wielded
+E 0 29011 0 6		*	The goblin<over the head>: a dark goblin horned helmet
+E 0 29015 0 16		*	The goblin<wielded>: a goblin's shortsword
 O 0 29028 0 29003	* A large mahogany feast table (South End of the Great Hall)
 M 0 29001 1 29004 1	* Grumm (King Grumm's Throne Room)
-E 0 29010 0 16		*	the Great War Axe of Grumm: wielded
-E 0 29009 0 6		*	the Great Crown of the Goblin King: over the head
-E 0 29005 0 5		*	a goblin chain mail shirt: on the body
-E 0 29006 0 7		*	a goblin long chain mail skirt: on the legs
-E 0 29007 0 9		*	a pair of goblin chain mail gauntlets: on the hands
-E 0 29008 0 10		*	a pair of goblin chain mail sleeves: on the arms
-G 0 29019 0		*	the goblin king's key
+E 0 29010 0 16		*	Grumm<wielded>: the Great War Axe of Grumm
+E 0 29009 0 6		*	Grumm<over the head>: the Great Crown of the Goblin King
+E 0 29005 0 5		*	Grumm<on the body>: a goblin chain mail shirt
+E 0 29006 0 7		*	Grumm<on the legs>: a goblin long chain mail skirt
+E 0 29007 0 9		*	Grumm<on the hands>: a pair of goblin chain mail gauntlets
+E 0 29008 0 10		*	Grumm<on the arms>: a pair of goblin chain mail sleeves
+G 0 29019 0		*	Grumm: the goblin king's key
 M 0 29005 10 29004 1	* goblin guard (King Grumm's Throne Room)
-E 0 29001 0 5		*	a goblin scale mail jacket: on the body
-E 0 29003 0 7		*	a goblin long scale mail skirt: on the legs
-E 0 29004 0 10		*	a pair of goblin scale mail sleeves: on the arms
-E 0 29011 0 6		*	a dark goblin horned helmet: over the head
-E 0 29015 0 16		*	a goblin's shortsword: wielded
+E 0 29001 0 5		*	goblin guard<on the body>: a goblin scale mail jacket
+E 0 29003 0 7		*	goblin guard<on the legs>: a goblin long scale mail skirt
+E 0 29004 0 10		*	goblin guard<on the arms>: a pair of goblin scale mail sleeves
+E 0 29011 0 6		*	goblin guard<over the head>: a dark goblin horned helmet
+E 0 29015 0 16		*	goblin guard<wielded>: a goblin's shortsword
 M 0 29005 10 29004 1	* goblin guard (King Grumm's Throne Room)
-E 0 29001 0 5		*	a goblin scale mail jacket: on the body
-E 0 29003 0 7		*	a goblin long scale mail skirt: on the legs
-E 0 29004 0 10		*	a pair of goblin scale mail sleeves: on the arms
-E 0 29011 0 6		*	a dark goblin horned helmet: over the head
-E 0 29015 0 16		*	a goblin's shortsword: wielded
+E 0 29001 0 5		*	goblin guard<on the body>: a goblin scale mail jacket
+E 0 29003 0 7		*	goblin guard<on the legs>: a goblin long scale mail skirt
+E 0 29004 0 10		*	goblin guard<on the arms>: a pair of goblin scale mail sleeves
+E 0 29011 0 6		*	goblin guard<over the head>: a dark goblin horned helmet
+E 0 29015 0 16		*	goblin guard<wielded>: a goblin's shortsword
 M 0 29007 20 29004 1	* The goblin (King Grumm's Throne Room)
-E 0 29011 0 6		*	a dark goblin horned helmet: over the head
-E 0 29015 0 16		*	a goblin's shortsword: wielded
+E 0 29011 0 6		*	The goblin<over the head>: a dark goblin horned helmet
+E 0 29015 0 16		*	The goblin<wielded>: a goblin's shortsword
 M 0 29012 1 29004 1	* the dancing girl (King Grumm's Throne Room)
-E 0 29023 0 1		*	Britta's Ring: on the left finger
+E 0 29023 0 1		*	the dancing girl<on the left finger>: Britta's Ring
 M 0 29013 1 29004 1	* the goblin jester (King Grumm's Throne Room)
 O 0 29026 0 29004	* King Grumm's Throne (King Grumm's Throne Room)
 M 0 29002 1 29005 1	* The goblin shaman (Goblin Shaman's Quarters)
-E 0 29005 0 5		*	a goblin chain mail shirt: on the body
-E 0 29006 0 7		*	a goblin long chain mail skirt: on the legs
-E 0 29007 0 9		*	a pair of goblin chain mail gauntlets: on the hands
-E 0 29008 0 10		*	a pair of goblin chain mail sleeves: on the arms
-E 0 29016 0 17		*	a frothing black potion: held in the hands
-E 0 29030 0 16		*	a heavy iron mace: wielded
-G 0 29018 0		*	the goblin shaman's key
+E 0 29005 0 5		*	The goblin shaman<on the body>: a goblin chain mail shirt
+E 0 29006 0 7		*	The goblin shaman<on the legs>: a goblin long chain mail skirt
+E 0 29007 0 9		*	The goblin shaman<on the hands>: a pair of goblin chain mail gauntlets
+E 0 29008 0 10		*	The goblin shaman<on the arms>: a pair of goblin chain mail sleeves
+E 0 29016 0 17		*	The goblin shaman<held in the hands>: a frothing black potion
+E 0 29030 0 16		*	The goblin shaman<wielded>: a heavy iron mace
+G 0 29018 0		*	The goblin shaman: the goblin shaman's key
 O 0 29024 0 29005	* Bookcase (Goblin Shaman's Quarters)
-P 0 29022 1 29024 10	* Bookcase: a big rock
+P 0 29022 1 0 10	* Bookcase: a big rock
 O 0 29025 0 29005	* A large mahogany desk (Goblin Shaman's Quarters)
 M 0 29003 1 29006 1	* Goblin Mage (Goblin Mage's Quarters)
-G 0 29020 0		*	the goblin mage's key
-E 0 29013 0 12		*	a filthy green cape: about the shoulders
-E 0 29014 0 16		*	a stone shard: wielded
+G 0 29020 0		*	Goblin Mage: the goblin mage's key
+E 0 29013 0 12		*	Goblin Mage<about the shoulders>: a filthy green cape
+E 0 29014 0 16		*	Goblin Mage<wielded>: a stone shard
 M 0 29011 1 29006 1	* The Lesser Demon (Goblin Mage's Quarters)
 O 0 29029 0 29010	* a small pile of gold (The Treasure Chamber of the Goblin Stronghold)
 M 0 29009 1 29011 1	* the goblin (A Small Cell in the Dungeon)
@@ -1321,84 +1294,84 @@ M 0 29008 4 29013 1	* the goblin prisoner (A Small Cell in the Dungeon)
 M 0 29008 4 29014 1	* the goblin prisoner (A Small Cell in the Dungeon)
 M 0 29008 4 29015 1	* the goblin prisoner (A Small Cell in the Dungeon)
 M 0 29005 10 29016 2	* goblin guard (The Dungeon)
-E 0 29001 0 5		*	a goblin scale mail jacket: on the body
-E 0 29003 0 7		*	a goblin long scale mail skirt: on the legs
-E 0 29004 0 10		*	a pair of goblin scale mail sleeves: on the arms
-E 0 29011 0 6		*	a dark goblin horned helmet: over the head
-E 0 29015 0 16		*	a goblin's shortsword: wielded
-G 0 29021 0		*	the goblin dungeon key
+E 0 29001 0 5		*	goblin guard<on the body>: a goblin scale mail jacket
+E 0 29003 0 7		*	goblin guard<on the legs>: a goblin long scale mail skirt
+E 0 29004 0 10		*	goblin guard<on the arms>: a pair of goblin scale mail sleeves
+E 0 29011 0 6		*	goblin guard<over the head>: a dark goblin horned helmet
+E 0 29015 0 16		*	goblin guard<wielded>: a goblin's shortsword
+G 0 29021 0		*	goblin guard: the goblin dungeon key
 M 0 29005 10 29016 2	* goblin guard (The Dungeon)
-E 0 29001 0 5		*	a goblin scale mail jacket: on the body
-E 0 29003 0 7		*	a goblin long scale mail skirt: on the legs
-E 0 29004 0 10		*	a pair of goblin scale mail sleeves: on the arms
-E 0 29011 0 6		*	a dark goblin horned helmet: over the head
-E 0 29015 0 16		*	a goblin's shortsword: wielded
+E 0 29001 0 5		*	goblin guard<on the body>: a goblin scale mail jacket
+E 0 29003 0 7		*	goblin guard<on the legs>: a goblin long scale mail skirt
+E 0 29004 0 10		*	goblin guard<on the arms>: a pair of goblin scale mail sleeves
+E 0 29011 0 6		*	goblin guard<over the head>: a dark goblin horned helmet
+E 0 29015 0 16		*	goblin guard<wielded>: a goblin's shortsword
 M 0 29007 20 29017 1	* The goblin (A Hallway in the Stronghold)
-E 0 29011 0 6		*	a dark goblin horned helmet: over the head
-E 0 29015 0 16		*	a goblin's shortsword: wielded
+E 0 29011 0 6		*	The goblin<over the head>: a dark goblin horned helmet
+E 0 29015 0 16		*	The goblin<wielded>: a goblin's shortsword
 M 0 29007 20 29018 1	* The goblin (A Hallway in the Stronghold)
-E 0 29011 0 6		*	a dark goblin horned helmet: over the head
-E 0 29015 0 16		*	a goblin's shortsword: wielded
+E 0 29011 0 6		*	The goblin<over the head>: a dark goblin horned helmet
+E 0 29015 0 16		*	The goblin<wielded>: a goblin's shortsword
 M 0 29007 20 29019 1	* The goblin (A Hallway in the Stronghold)
-E 0 29011 0 6		*	a dark goblin horned helmet: over the head
-E 0 29015 0 16		*	a goblin's shortsword: wielded
+E 0 29011 0 6		*	The goblin<over the head>: a dark goblin horned helmet
+E 0 29015 0 16		*	The goblin<wielded>: a goblin's shortsword
 M 0 29007 20 29020 1	* The goblin (A Hallway in the Stronghold)
-E 0 29011 0 6		*	a dark goblin horned helmet: over the head
-E 0 29015 0 16		*	a goblin's shortsword: wielded
+E 0 29011 0 6		*	The goblin<over the head>: a dark goblin horned helmet
+E 0 29015 0 16		*	The goblin<wielded>: a goblin's shortsword
 M 0 29004 1 29021 1	* Knarl (Goblin Training Room)
-E 0 29017 0 16		*	a long two-handed sword: wielded
-E 0 29012 0 10		*	a pair of carved granite armguards.: on the arms
-E 0 29005 0 5		*	a goblin chain mail shirt: on the body
-E 0 29006 0 7		*	a goblin long chain mail skirt: on the legs
-E 0 29007 0 9		*	a pair of goblin chain mail gauntlets: on the hands
+E 0 29017 0 16		*	Knarl<wielded>: a long two-handed sword
+E 0 29012 0 10		*	Knarl<on the arms>: a pair of carved granite armguards.
+E 0 29005 0 5		*	Knarl<on the body>: a goblin chain mail shirt
+E 0 29006 0 7		*	Knarl<on the legs>: a goblin long chain mail skirt
+E 0 29007 0 9		*	Knarl<on the hands>: a pair of goblin chain mail gauntlets
 M 0 29005 10 29021 1	* goblin guard (Goblin Training Room)
-E 0 29001 0 5		*	a goblin scale mail jacket: on the body
-E 0 29003 0 7		*	a goblin long scale mail skirt: on the legs
-E 0 29004 0 10		*	a pair of goblin scale mail sleeves: on the arms
-E 0 29011 0 6		*	a dark goblin horned helmet: over the head
-E 0 29015 0 16		*	a goblin's shortsword: wielded
+E 0 29001 0 5		*	goblin guard<on the body>: a goblin scale mail jacket
+E 0 29003 0 7		*	goblin guard<on the legs>: a goblin long scale mail skirt
+E 0 29004 0 10		*	goblin guard<on the arms>: a pair of goblin scale mail sleeves
+E 0 29011 0 6		*	goblin guard<over the head>: a dark goblin horned helmet
+E 0 29015 0 16		*	goblin guard<wielded>: a goblin's shortsword
 M 0 29005 10 29021 1	* goblin guard (Goblin Training Room)
-E 0 29001 0 5		*	a goblin scale mail jacket: on the body
-E 0 29003 0 7		*	a goblin long scale mail skirt: on the legs
-E 0 29004 0 10		*	a pair of goblin scale mail sleeves: on the arms
-E 0 29011 0 6		*	a dark goblin horned helmet: over the head
-E 0 29015 0 16		*	a goblin's shortsword: wielded
+E 0 29001 0 5		*	goblin guard<on the body>: a goblin scale mail jacket
+E 0 29003 0 7		*	goblin guard<on the legs>: a goblin long scale mail skirt
+E 0 29004 0 10		*	goblin guard<on the arms>: a pair of goblin scale mail sleeves
+E 0 29011 0 6		*	goblin guard<over the head>: a dark goblin horned helmet
+E 0 29015 0 16		*	goblin guard<wielded>: a goblin's shortsword
 M 0 29007 20 29021 1	* The goblin (Goblin Training Room)
-E 0 29011 0 6		*	a dark goblin horned helmet: over the head
-E 0 29015 0 16		*	a goblin's shortsword: wielded
+E 0 29011 0 6		*	The goblin<over the head>: a dark goblin horned helmet
+E 0 29015 0 16		*	The goblin<wielded>: a goblin's shortsword
 M 0 29007 20 29021 1	* The goblin (Goblin Training Room)
-E 0 29011 0 6		*	a dark goblin horned helmet: over the head
-E 0 29015 0 16		*	a goblin's shortsword: wielded
+E 0 29011 0 6		*	The goblin<over the head>: a dark goblin horned helmet
+E 0 29015 0 16		*	The goblin<wielded>: a goblin's shortsword
 M 0 29005 10 29022 1	* goblin guard (Goblin Barraks)
-E 0 29001 0 5		*	a goblin scale mail jacket: on the body
-E 0 29003 0 7		*	a goblin long scale mail skirt: on the legs
-E 0 29004 0 10		*	a pair of goblin scale mail sleeves: on the arms
-E 0 29011 0 6		*	a dark goblin horned helmet: over the head
-E 0 29015 0 16		*	a goblin's shortsword: wielded
+E 0 29001 0 5		*	goblin guard<on the body>: a goblin scale mail jacket
+E 0 29003 0 7		*	goblin guard<on the legs>: a goblin long scale mail skirt
+E 0 29004 0 10		*	goblin guard<on the arms>: a pair of goblin scale mail sleeves
+E 0 29011 0 6		*	goblin guard<over the head>: a dark goblin horned helmet
+E 0 29015 0 16		*	goblin guard<wielded>: a goblin's shortsword
 M 0 29005 10 29022 1	* goblin guard (Goblin Barraks)
-E 0 29001 0 5		*	a goblin scale mail jacket: on the body
-E 0 29003 0 7		*	a goblin long scale mail skirt: on the legs
-E 0 29004 0 10		*	a pair of goblin scale mail sleeves: on the arms
-E 0 29011 0 6		*	a dark goblin horned helmet: over the head
-E 0 29015 0 16		*	a goblin's shortsword: wielded
+E 0 29001 0 5		*	goblin guard<on the body>: a goblin scale mail jacket
+E 0 29003 0 7		*	goblin guard<on the legs>: a goblin long scale mail skirt
+E 0 29004 0 10		*	goblin guard<on the arms>: a pair of goblin scale mail sleeves
+E 0 29011 0 6		*	goblin guard<over the head>: a dark goblin horned helmet
+E 0 29015 0 16		*	goblin guard<wielded>: a goblin's shortsword
 M 0 29007 20 29023 1	* The goblin (The Kitchen)
-E 0 29011 0 6		*	a dark goblin horned helmet: over the head
-E 0 29015 0 16		*	a goblin's shortsword: wielded
+E 0 29011 0 6		*	The goblin<over the head>: a dark goblin horned helmet
+E 0 29015 0 16		*	The goblin<wielded>: a goblin's shortsword
 M 0 29007 20 29023 1	* The goblin (The Kitchen)
-E 0 29011 0 6		*	a dark goblin horned helmet: over the head
-E 0 29015 0 16		*	a goblin's shortsword: wielded
+E 0 29011 0 6		*	The goblin<over the head>: a dark goblin horned helmet
+E 0 29015 0 16		*	The goblin<wielded>: a goblin's shortsword
 M 0 29010 2 29023 1	* the goblin (The Kitchen)
-E 0 29011 0 6		*	a dark goblin horned helmet: over the head
-E 0 29015 0 16		*	a goblin's shortsword: wielded
+E 0 29011 0 6		*	the goblin<over the head>: a dark goblin horned helmet
+E 0 29015 0 16		*	the goblin<wielded>: a goblin's shortsword
 M 0 29010 2 29023 1	* the goblin (The Kitchen)
-E 0 29011 0 6		*	a dark goblin horned helmet: over the head
-E 0 29015 0 16		*	a goblin's shortsword: wielded
+E 0 29011 0 6		*	the goblin<over the head>: a dark goblin horned helmet
+E 0 29015 0 16		*	the goblin<wielded>: a goblin's shortsword
 M 0 29007 20 29027 1	* The goblin (Goblin Barraks)
-E 0 29011 0 6		*	a dark goblin horned helmet: over the head
-E 0 29015 0 16		*	a goblin's shortsword: wielded
+E 0 29011 0 6		*	The goblin<over the head>: a dark goblin horned helmet
+E 0 29015 0 16		*	The goblin<wielded>: a goblin's shortsword
 M 0 29007 20 29027 1	* The goblin (Goblin Barraks)
-E 0 29011 0 6		*	a dark goblin horned helmet: over the head
-E 0 29015 0 16		*	a goblin's shortsword: wielded
+E 0 29011 0 6		*	The goblin<over the head>: a dark goblin horned helmet
+E 0 29015 0 16		*	The goblin<wielded>: a goblin's shortsword
 S
 
 #$

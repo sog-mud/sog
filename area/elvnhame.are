@@ -4806,74 +4806,70 @@ M 40151 spec_cast_mage	* The Necromancer-Alchemist
 S
 
 #RESETS
-D 0 40103 2 1	* East Main Road: door to the south: closed
-D 0 40109 1 1	* Guild Road: door to the east: closed
-D 0 40167 3 1	* Stradi's Various Instruments: door to the west: closed
-D 0 40196 0 1	* Necromancers' Supply Shoppe: door to the north: closed
 M 0 40117 11 40100 1	* the Gate Guard (Outside the East Gate of Elvenhame)
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40109 0 6		*	City Guard helmet: over the head
-E 0 40111 0 10		*	City Guard armguards: on the arms
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40114 0 16		*	City Guard sword: wielded
+E 0 40107 0 5		*	the Gate Guard<on the body>: City Guard vest
+E 0 40108 0 7		*	the Gate Guard<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Gate Guard<on the feet>: City Guard boots
+E 0 40109 0 6		*	the Gate Guard<over the head>: City Guard helmet
+E 0 40111 0 10		*	the Gate Guard<on the arms>: City Guard armguards
+E 0 40112 0 1		*	the Gate Guard<on the left finger>: City Guard Ring
+E 0 40114 0 16		*	the Gate Guard<wielded>: City Guard sword
 M 0 40116 11 40101 1	* the Cityguard Patroller (Inside the East Gate of Elvenhame)
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40109 0 6		*	City Guard helmet: over the head
-E 0 40111 0 10		*	City Guard armguards: on the arms
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40115 0 16		*	City Guard shillelagh: wielded
+E 0 40107 0 5		*	the Cityguard Patroller<on the body>: City Guard vest
+E 0 40108 0 7		*	the Cityguard Patroller<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Cityguard Patroller<on the feet>: City Guard boots
+E 0 40109 0 6		*	the Cityguard Patroller<over the head>: City Guard helmet
+E 0 40111 0 10		*	the Cityguard Patroller<on the arms>: City Guard armguards
+E 0 40112 0 1		*	the Cityguard Patroller<on the left finger>: City Guard Ring
+E 0 40115 0 16		*	the Cityguard Patroller<wielded>: City Guard shillelagh
 M 0 40117 11 40101 2	* the Gate Guard (Inside the East Gate of Elvenhame)
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40109 0 6		*	City Guard helmet: over the head
-E 0 40111 0 10		*	City Guard armguards: on the arms
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40114 0 16		*	City Guard sword: wielded
+E 0 40107 0 5		*	the Gate Guard<on the body>: City Guard vest
+E 0 40108 0 7		*	the Gate Guard<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Gate Guard<on the feet>: City Guard boots
+E 0 40109 0 6		*	the Gate Guard<over the head>: City Guard helmet
+E 0 40111 0 10		*	the Gate Guard<on the arms>: City Guard armguards
+E 0 40112 0 1		*	the Gate Guard<on the left finger>: City Guard Ring
+E 0 40114 0 16		*	the Gate Guard<wielded>: City Guard sword
 M 0 40117 11 40101 2	* the Gate Guard (Inside the East Gate of Elvenhame)
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40109 0 6		*	City Guard helmet: over the head
-E 0 40111 0 10		*	City Guard armguards: on the arms
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40114 0 16		*	City Guard sword: wielded
+E 0 40107 0 5		*	the Gate Guard<on the body>: City Guard vest
+E 0 40108 0 7		*	the Gate Guard<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Gate Guard<on the feet>: City Guard boots
+E 0 40109 0 6		*	the Gate Guard<over the head>: City Guard helmet
+E 0 40111 0 10		*	the Gate Guard<on the arms>: City Guard armguards
+E 0 40112 0 1		*	the Gate Guard<on the left finger>: City Guard Ring
+E 0 40114 0 16		*	the Gate Guard<wielded>: City Guard sword
 M 0 40115 10 40105 1	* the Cityguard (Guild Square)
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40115 0 16		*	City Guard shillelagh: wielded
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40113 0 11		*	City Guard shield: as a shield
+E 0 40107 0 5		*	the Cityguard<on the body>: City Guard vest
+E 0 40108 0 7		*	the Cityguard<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Cityguard<on the feet>: City Guard boots
+E 0 40115 0 16		*	the Cityguard<wielded>: City Guard shillelagh
+E 0 40112 0 1		*	the Cityguard<on the left finger>: City Guard Ring
+E 0 40113 0 11		*	the Cityguard<as a shield>: City Guard shield
 M 0 40133 4 40107 1	* the little kitten (East Main Street)
 M 0 40116 11 40108 1	* the Cityguard Patroller (Guild Road)
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40109 0 6		*	City Guard helmet: over the head
-E 0 40111 0 10		*	City Guard armguards: on the arms
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40115 0 16		*	City Guard shillelagh: wielded
+E 0 40107 0 5		*	the Cityguard Patroller<on the body>: City Guard vest
+E 0 40108 0 7		*	the Cityguard Patroller<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Cityguard Patroller<on the feet>: City Guard boots
+E 0 40109 0 6		*	the Cityguard Patroller<over the head>: City Guard helmet
+E 0 40111 0 10		*	the Cityguard Patroller<on the arms>: City Guard armguards
+E 0 40112 0 1		*	the Cityguard Patroller<on the left finger>: City Guard Ring
+E 0 40115 0 16		*	the Cityguard Patroller<wielded>: City Guard shillelagh
 M 0 40116 11 40111 1	* the Cityguard Patroller (Guild Road)
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40109 0 6		*	City Guard helmet: over the head
-E 0 40111 0 10		*	City Guard armguards: on the arms
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40115 0 16		*	City Guard shillelagh: wielded
+E 0 40107 0 5		*	the Cityguard Patroller<on the body>: City Guard vest
+E 0 40108 0 7		*	the Cityguard Patroller<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Cityguard Patroller<on the feet>: City Guard boots
+E 0 40109 0 6		*	the Cityguard Patroller<over the head>: City Guard helmet
+E 0 40111 0 10		*	the Cityguard Patroller<on the arms>: City Guard armguards
+E 0 40112 0 1		*	the Cityguard Patroller<on the left finger>: City Guard Ring
+E 0 40115 0 16		*	the Cityguard Patroller<wielded>: City Guard shillelagh
 M 0 40116 11 40113 1	* the Cityguard Patroller (Guild Road)
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40109 0 6		*	City Guard helmet: over the head
-E 0 40111 0 10		*	City Guard armguards: on the arms
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40115 0 16		*	City Guard shillelagh: wielded
+E 0 40107 0 5		*	the Cityguard Patroller<on the body>: City Guard vest
+E 0 40108 0 7		*	the Cityguard Patroller<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Cityguard Patroller<on the feet>: City Guard boots
+E 0 40109 0 6		*	the Cityguard Patroller<over the head>: City Guard helmet
+E 0 40111 0 10		*	the Cityguard Patroller<on the arms>: City Guard armguards
+E 0 40112 0 1		*	the Cityguard Patroller<on the left finger>: City Guard Ring
+E 0 40115 0 16		*	the Cityguard Patroller<wielded>: City Guard shillelagh
 M 0 40101 1 40115 1	* the Guildmaster (The Necromancer's Guild)
 M 0 40102 1 40116 1	* the Guildmaster (Music Guild)
 M 0 40103 1 40117 1	* the Guildmaster (The Channellers' Guild)
@@ -4881,243 +4877,243 @@ M 0 40104 1 40118 1	* the WeaponsMaster (The WeaponMaster's School)
 M 0 40105 1 40119 1	* the Guildmaster (Changeling Guild)
 M 0 40106 1 40120 1	* the Guildmaster (Anti-Paladins' Guild)
 M 0 40115 10 40124 1	* the Cityguard (Center Square)
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40109 0 6		*	City Guard helmet: over the head
-E 0 40111 0 10		*	City Guard armguards: on the arms
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40114 0 16		*	City Guard sword: wielded
+E 0 40107 0 5		*	the Cityguard<on the body>: City Guard vest
+E 0 40108 0 7		*	the Cityguard<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Cityguard<on the feet>: City Guard boots
+E 0 40109 0 6		*	the Cityguard<over the head>: City Guard helmet
+E 0 40111 0 10		*	the Cityguard<on the arms>: City Guard armguards
+E 0 40112 0 1		*	the Cityguard<on the left finger>: City Guard Ring
+E 0 40114 0 16		*	the Cityguard<wielded>: City Guard sword
 M 0 40115 10 40126 1	* the Cityguard (West Main Road)
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40109 0 6		*	City Guard helmet: over the head
-E 0 40111 0 10		*	City Guard armguards: on the arms
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40115 0 16		*	City Guard shillelagh: wielded
+E 0 40107 0 5		*	the Cityguard<on the body>: City Guard vest
+E 0 40108 0 7		*	the Cityguard<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Cityguard<on the feet>: City Guard boots
+E 0 40109 0 6		*	the Cityguard<over the head>: City Guard helmet
+E 0 40111 0 10		*	the Cityguard<on the arms>: City Guard armguards
+E 0 40112 0 1		*	the Cityguard<on the left finger>: City Guard Ring
+E 0 40115 0 16		*	the Cityguard<wielded>: City Guard shillelagh
 M 0 40134 5 40129 1	* the scrawny alleycat (Middle Road (south))
 M 0 40116 11 40130 1	* the Cityguard Patroller (Middle Road (south))
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40109 0 6		*	City Guard helmet: over the head
-E 0 40111 0 10		*	City Guard armguards: on the arms
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40115 0 16		*	City Guard shillelagh: wielded
+E 0 40107 0 5		*	the Cityguard Patroller<on the body>: City Guard vest
+E 0 40108 0 7		*	the Cityguard Patroller<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Cityguard Patroller<on the feet>: City Guard boots
+E 0 40109 0 6		*	the Cityguard Patroller<over the head>: City Guard helmet
+E 0 40111 0 10		*	the Cityguard Patroller<on the arms>: City Guard armguards
+E 0 40112 0 1		*	the Cityguard Patroller<on the left finger>: City Guard Ring
+E 0 40115 0 16		*	the Cityguard Patroller<wielded>: City Guard shillelagh
 M 0 40115 10 40131 1	* the Cityguard (Middle Road (south))
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40109 0 6		*	City Guard helmet: over the head
-E 0 40114 0 16		*	City Guard sword: wielded
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40113 0 11		*	City Guard shield: as a shield
+E 0 40107 0 5		*	the Cityguard<on the body>: City Guard vest
+E 0 40108 0 7		*	the Cityguard<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Cityguard<on the feet>: City Guard boots
+E 0 40109 0 6		*	the Cityguard<over the head>: City Guard helmet
+E 0 40114 0 16		*	the Cityguard<wielded>: City Guard sword
+E 0 40112 0 1		*	the Cityguard<on the left finger>: City Guard Ring
+E 0 40113 0 11		*	the Cityguard<as a shield>: City Guard shield
 M 0 40116 11 40131 1	* the Cityguard Patroller (Middle Road (south))
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40109 0 6		*	City Guard helmet: over the head
-E 0 40111 0 10		*	City Guard armguards: on the arms
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40115 0 16		*	City Guard shillelagh: wielded
+E 0 40107 0 5		*	the Cityguard Patroller<on the body>: City Guard vest
+E 0 40108 0 7		*	the Cityguard Patroller<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Cityguard Patroller<on the feet>: City Guard boots
+E 0 40109 0 6		*	the Cityguard Patroller<over the head>: City Guard helmet
+E 0 40111 0 10		*	the Cityguard Patroller<on the arms>: City Guard armguards
+E 0 40112 0 1		*	the Cityguard Patroller<on the left finger>: City Guard Ring
+E 0 40115 0 16		*	the Cityguard Patroller<wielded>: City Guard shillelagh
 M 0 40116 11 40132 1	* the Cityguard Patroller (Middle Road (north))
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40109 0 6		*	City Guard helmet: over the head
-E 0 40111 0 10		*	City Guard armguards: on the arms
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40115 0 16		*	City Guard shillelagh: wielded
+E 0 40107 0 5		*	the Cityguard Patroller<on the body>: City Guard vest
+E 0 40108 0 7		*	the Cityguard Patroller<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Cityguard Patroller<on the feet>: City Guard boots
+E 0 40109 0 6		*	the Cityguard Patroller<over the head>: City Guard helmet
+E 0 40111 0 10		*	the Cityguard Patroller<on the arms>: City Guard armguards
+E 0 40112 0 1		*	the Cityguard Patroller<on the left finger>: City Guard Ring
+E 0 40115 0 16		*	the Cityguard Patroller<wielded>: City Guard shillelagh
 M 0 40133 4 40134 1	* the little kitten (Middle Road (north))
 M 0 40107 1 40135 1	* the Guildmaster (Paladin Guild Hall)
 M 0 40108 1 40136 1	* the Guildmaster (The Sanctuary (Clerics' Guild))
 M 0 40109 1 40137 1	* the Guildmaster (The Cave (NightWalkers' Guild))
 M 0 40115 10 40138 1	* the Cityguard (The Temple of Light)
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40109 0 6		*	City Guard helmet: over the head
-E 0 40111 0 10		*	City Guard armguards: on the arms
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40114 0 16		*	City Guard sword: wielded
+E 0 40107 0 5		*	the Cityguard<on the body>: City Guard vest
+E 0 40108 0 7		*	the Cityguard<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Cityguard<on the feet>: City Guard boots
+E 0 40109 0 6		*	the Cityguard<over the head>: City Guard helmet
+E 0 40111 0 10		*	the Cityguard<on the arms>: City Guard armguards
+E 0 40112 0 1		*	the Cityguard<on the left finger>: City Guard Ring
+E 0 40114 0 16		*	the Cityguard<wielded>: City Guard sword
 O 0 40104 0 40139	* the donation pit (The Altar of Light)
 M 0 40133 4 40141 1	* the little kitten (By the Fountain of Light)
 O 0 40101 0 40141	* the Fountain of Light (By the Fountain of Light)
 O 0 40102 0 40142	* The Fountain of Magic (The Fountain of Magic)
 M 0 40115 10 40143 1	* the Cityguard (The Temple of Magic)
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40109 0 6		*	City Guard helmet: over the head
-E 0 40111 0 10		*	City Guard armguards: on the arms
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40115 0 16		*	City Guard shillelagh: wielded
+E 0 40107 0 5		*	the Cityguard<on the body>: City Guard vest
+E 0 40108 0 7		*	the Cityguard<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Cityguard<on the feet>: City Guard boots
+E 0 40109 0 6		*	the Cityguard<over the head>: City Guard helmet
+E 0 40111 0 10		*	the Cityguard<on the arms>: City Guard armguards
+E 0 40112 0 1		*	the Cityguard<on the left finger>: City Guard Ring
+E 0 40115 0 16		*	the Cityguard<wielded>: City Guard shillelagh
 M 0 40150 1 40144 1	* The Healer Adept (By the Altar of Magic)
 O 0 40105 0 40144	* the donation pit (By the Altar of Magic)
 M 0 40134 5 40146 1	* the scrawny alleycat (The Fountain of Gore)
 O 0 40103 0 40146	* the Fountain of Gore (The Fountain of Gore)
 O 0 40106 0 40148	* the donation pit (By the Altar of Shadows)
 M 0 40115 10 40149 1	* the Cityguard (The Temple of Darkness)
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40109 0 6		*	City Guard helmet: over the head
-E 0 40111 0 10		*	City Guard armguards: on the arms
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40115 0 16		*	City Guard shillelagh: wielded
+E 0 40107 0 5		*	the Cityguard<on the body>: City Guard vest
+E 0 40108 0 7		*	the Cityguard<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Cityguard<on the feet>: City Guard boots
+E 0 40109 0 6		*	the Cityguard<over the head>: City Guard helmet
+E 0 40111 0 10		*	the Cityguard<on the arms>: City Guard armguards
+E 0 40112 0 1		*	the Cityguard<on the left finger>: City Guard Ring
+E 0 40115 0 16		*	the Cityguard<wielded>: City Guard shillelagh
 M 0 40110 1 40150 1	* the Guildmaster (Guild of Thieves)
 M 0 40134 5 40151 1	* the scrawny alleycat (West Main Road)
 M 0 40115 10 40153 1	* the Cityguard (West Main Road)
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40109 0 6		*	City Guard helmet: over the head
-E 0 40111 0 10		*	City Guard armguards: on the arms
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40114 0 16		*	City Guard sword: wielded
+E 0 40107 0 5		*	the Cityguard<on the body>: City Guard vest
+E 0 40108 0 7		*	the Cityguard<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Cityguard<on the feet>: City Guard boots
+E 0 40109 0 6		*	the Cityguard<over the head>: City Guard helmet
+E 0 40111 0 10		*	the Cityguard<on the arms>: City Guard armguards
+E 0 40112 0 1		*	the Cityguard<on the left finger>: City Guard Ring
+E 0 40114 0 16		*	the Cityguard<wielded>: City Guard sword
 M 0 40116 11 40155 1	* the Cityguard Patroller (West Main Road)
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40109 0 6		*	City Guard helmet: over the head
-E 0 40111 0 10		*	City Guard armguards: on the arms
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40115 0 16		*	City Guard shillelagh: wielded
+E 0 40107 0 5		*	the Cityguard Patroller<on the body>: City Guard vest
+E 0 40108 0 7		*	the Cityguard Patroller<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Cityguard Patroller<on the feet>: City Guard boots
+E 0 40109 0 6		*	the Cityguard Patroller<over the head>: City Guard helmet
+E 0 40111 0 10		*	the Cityguard Patroller<on the arms>: City Guard armguards
+E 0 40112 0 1		*	the Cityguard Patroller<on the left finger>: City Guard Ring
+E 0 40115 0 16		*	the Cityguard Patroller<wielded>: City Guard shillelagh
 M 0 40116 11 40157 1	* the Cityguard Patroller (Inside the West Gate of Elvenhame)
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40109 0 6		*	City Guard helmet: over the head
-E 0 40111 0 10		*	City Guard armguards: on the arms
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40115 0 16		*	City Guard shillelagh: wielded
+E 0 40107 0 5		*	the Cityguard Patroller<on the body>: City Guard vest
+E 0 40108 0 7		*	the Cityguard Patroller<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Cityguard Patroller<on the feet>: City Guard boots
+E 0 40109 0 6		*	the Cityguard Patroller<over the head>: City Guard helmet
+E 0 40111 0 10		*	the Cityguard Patroller<on the arms>: City Guard armguards
+E 0 40112 0 1		*	the Cityguard Patroller<on the left finger>: City Guard Ring
+E 0 40115 0 16		*	the Cityguard Patroller<wielded>: City Guard shillelagh
 M 0 40117 11 40157 2	* the Gate Guard (Inside the West Gate of Elvenhame)
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40109 0 6		*	City Guard helmet: over the head
-E 0 40111 0 10		*	City Guard armguards: on the arms
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40114 0 16		*	City Guard sword: wielded
+E 0 40107 0 5		*	the Gate Guard<on the body>: City Guard vest
+E 0 40108 0 7		*	the Gate Guard<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Gate Guard<on the feet>: City Guard boots
+E 0 40109 0 6		*	the Gate Guard<over the head>: City Guard helmet
+E 0 40111 0 10		*	the Gate Guard<on the arms>: City Guard armguards
+E 0 40112 0 1		*	the Gate Guard<on the left finger>: City Guard Ring
+E 0 40114 0 16		*	the Gate Guard<wielded>: City Guard sword
 M 0 40117 11 40157 2	* the Gate Guard (Inside the West Gate of Elvenhame)
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40109 0 6		*	City Guard helmet: over the head
-E 0 40111 0 10		*	City Guard armguards: on the arms
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40114 0 16		*	City Guard sword: wielded
+E 0 40107 0 5		*	the Gate Guard<on the body>: City Guard vest
+E 0 40108 0 7		*	the Gate Guard<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Gate Guard<on the feet>: City Guard boots
+E 0 40109 0 6		*	the Gate Guard<over the head>: City Guard helmet
+E 0 40111 0 10		*	the Gate Guard<on the arms>: City Guard armguards
+E 0 40112 0 1		*	the Gate Guard<on the left finger>: City Guard Ring
+E 0 40114 0 16		*	the Gate Guard<wielded>: City Guard sword
 M 0 40117 11 40158 1	* the Gate Guard (Outside the West Gate of Elvenhame)
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40109 0 6		*	City Guard helmet: over the head
-E 0 40111 0 10		*	City Guard armguards: on the arms
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40114 0 16		*	City Guard sword: wielded
+E 0 40107 0 5		*	the Gate Guard<on the body>: City Guard vest
+E 0 40108 0 7		*	the Gate Guard<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Gate Guard<on the feet>: City Guard boots
+E 0 40109 0 6		*	the Gate Guard<over the head>: City Guard helmet
+E 0 40111 0 10		*	the Gate Guard<on the arms>: City Guard armguards
+E 0 40112 0 1		*	the Gate Guard<on the left finger>: City Guard Ring
+E 0 40114 0 16		*	the Gate Guard<wielded>: City Guard sword
 M 0 40116 11 40161 1	* the Cityguard Patroller (Inside the South Gate of Elvenhame)
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40109 0 6		*	City Guard helmet: over the head
-E 0 40111 0 10		*	City Guard armguards: on the arms
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40115 0 16		*	City Guard shillelagh: wielded
+E 0 40107 0 5		*	the Cityguard Patroller<on the body>: City Guard vest
+E 0 40108 0 7		*	the Cityguard Patroller<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Cityguard Patroller<on the feet>: City Guard boots
+E 0 40109 0 6		*	the Cityguard Patroller<over the head>: City Guard helmet
+E 0 40111 0 10		*	the Cityguard Patroller<on the arms>: City Guard armguards
+E 0 40112 0 1		*	the Cityguard Patroller<on the left finger>: City Guard Ring
+E 0 40115 0 16		*	the Cityguard Patroller<wielded>: City Guard shillelagh
 M 0 40117 11 40161 2	* the Gate Guard (Inside the South Gate of Elvenhame)
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40109 0 6		*	City Guard helmet: over the head
-E 0 40111 0 10		*	City Guard armguards: on the arms
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40114 0 16		*	City Guard sword: wielded
+E 0 40107 0 5		*	the Gate Guard<on the body>: City Guard vest
+E 0 40108 0 7		*	the Gate Guard<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Gate Guard<on the feet>: City Guard boots
+E 0 40109 0 6		*	the Gate Guard<over the head>: City Guard helmet
+E 0 40111 0 10		*	the Gate Guard<on the arms>: City Guard armguards
+E 0 40112 0 1		*	the Gate Guard<on the left finger>: City Guard Ring
+E 0 40114 0 16		*	the Gate Guard<wielded>: City Guard sword
 M 0 40117 11 40161 2	* the Gate Guard (Inside the South Gate of Elvenhame)
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40109 0 6		*	City Guard helmet: over the head
-E 0 40111 0 10		*	City Guard armguards: on the arms
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40114 0 16		*	City Guard sword: wielded
+E 0 40107 0 5		*	the Gate Guard<on the body>: City Guard vest
+E 0 40108 0 7		*	the Gate Guard<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Gate Guard<on the feet>: City Guard boots
+E 0 40109 0 6		*	the Gate Guard<over the head>: City Guard helmet
+E 0 40111 0 10		*	the Gate Guard<on the arms>: City Guard armguards
+E 0 40112 0 1		*	the Gate Guard<on the left finger>: City Guard Ring
+E 0 40114 0 16		*	the Gate Guard<wielded>: City Guard sword
 M 0 40133 4 40164 1	* the little kitten (Middle Road (north))
 M 0 40116 11 40165 1	* the Cityguard Patroller (Inside the North Gate of Elvenhame)
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40109 0 6		*	City Guard helmet: over the head
-E 0 40111 0 10		*	City Guard armguards: on the arms
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40115 0 16		*	City Guard shillelagh: wielded
+E 0 40107 0 5		*	the Cityguard Patroller<on the body>: City Guard vest
+E 0 40108 0 7		*	the Cityguard Patroller<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Cityguard Patroller<on the feet>: City Guard boots
+E 0 40109 0 6		*	the Cityguard Patroller<over the head>: City Guard helmet
+E 0 40111 0 10		*	the Cityguard Patroller<on the arms>: City Guard armguards
+E 0 40112 0 1		*	the Cityguard Patroller<on the left finger>: City Guard Ring
+E 0 40115 0 16		*	the Cityguard Patroller<wielded>: City Guard shillelagh
 M 0 40117 11 40165 2	* the Gate Guard (Inside the North Gate of Elvenhame)
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40109 0 6		*	City Guard helmet: over the head
-E 0 40111 0 10		*	City Guard armguards: on the arms
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40114 0 16		*	City Guard sword: wielded
+E 0 40107 0 5		*	the Gate Guard<on the body>: City Guard vest
+E 0 40108 0 7		*	the Gate Guard<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Gate Guard<on the feet>: City Guard boots
+E 0 40109 0 6		*	the Gate Guard<over the head>: City Guard helmet
+E 0 40111 0 10		*	the Gate Guard<on the arms>: City Guard armguards
+E 0 40112 0 1		*	the Gate Guard<on the left finger>: City Guard Ring
+E 0 40114 0 16		*	the Gate Guard<wielded>: City Guard sword
 M 0 40117 11 40165 2	* the Gate Guard (Inside the North Gate of Elvenhame)
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40109 0 6		*	City Guard helmet: over the head
-E 0 40111 0 10		*	City Guard armguards: on the arms
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40114 0 16		*	City Guard sword: wielded
+E 0 40107 0 5		*	the Gate Guard<on the body>: City Guard vest
+E 0 40108 0 7		*	the Gate Guard<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Gate Guard<on the feet>: City Guard boots
+E 0 40109 0 6		*	the Gate Guard<over the head>: City Guard helmet
+E 0 40111 0 10		*	the Gate Guard<on the arms>: City Guard armguards
+E 0 40112 0 1		*	the Gate Guard<on the left finger>: City Guard Ring
+E 0 40114 0 16		*	the Gate Guard<wielded>: City Guard sword
 M 0 40117 11 40166 1	* the Gate Guard (Outside the North Gate of Elvenhame)
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40109 0 6		*	City Guard helmet: over the head
-E 0 40111 0 10		*	City Guard armguards: on the arms
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40114 0 16		*	City Guard sword: wielded
+E 0 40107 0 5		*	the Gate Guard<on the body>: City Guard vest
+E 0 40108 0 7		*	the Gate Guard<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Gate Guard<on the feet>: City Guard boots
+E 0 40109 0 6		*	the Gate Guard<over the head>: City Guard helmet
+E 0 40111 0 10		*	the Gate Guard<on the arms>: City Guard armguards
+E 0 40112 0 1		*	the Gate Guard<on the left finger>: City Guard Ring
+E 0 40114 0 16		*	the Gate Guard<wielded>: City Guard sword
 M 0 40134 5 40172 1	* the scrawny alleycat (Guild Road)
 M 0 40111 1 40176 1	* the Guildmaster (The Observatory)
 M 0 40113 1 40177 1	* the President of the Bank (First Bank of Elvenhame)
 M 0 40115 10 40177 1	* the Cityguard (First Bank of Elvenhame)
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40109 0 6		*	City Guard helmet: over the head
-E 0 40111 0 10		*	City Guard armguards: on the arms
-E 0 40115 0 16		*	City Guard shillelagh: wielded
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40113 0 11		*	City Guard shield: as a shield
+E 0 40107 0 5		*	the Cityguard<on the body>: City Guard vest
+E 0 40108 0 7		*	the Cityguard<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Cityguard<on the feet>: City Guard boots
+E 0 40109 0 6		*	the Cityguard<over the head>: City Guard helmet
+E 0 40111 0 10		*	the Cityguard<on the arms>: City Guard armguards
+E 0 40115 0 16		*	the Cityguard<wielded>: City Guard shillelagh
+E 0 40112 0 1		*	the Cityguard<on the left finger>: City Guard Ring
+E 0 40113 0 11		*	the Cityguard<as a shield>: City Guard shield
 M 0 40114 1 40179 1	* the Captain of the City Guard (City Guard Headquarters)
-E 0 40120 0 6		*	City Guard Captain's Helmet: over the head
-E 0 40121 0 5		*	City Guard Captain's Jacket: on the body
-E 0 40122 0 12		*	blue City Guard Captain's Cape: about the shoulders
-E 0 40123 0 9		*	City Guard Captain's blue gloves: on the hands
-E 0 40124 0 16		*	City Guard Captain's Golden Scimitar: wielded
-E 0 40125 0 8		*	City Guard Captain's Boots: on the feet
-E 0 40126 0 7		*	City Guard Captain's Striped Trousers: on the legs
+E 0 40120 0 6		*	the Captain of the City Guard<over the head>: City Guard Captain's Helmet
+E 0 40121 0 5		*	the Captain of the City Guard<on the body>: City Guard Captain's Jacket
+E 0 40122 0 12		*	the Captain of the City Guard<about the shoulders>: blue City Guard Captain's Cape
+E 0 40123 0 9		*	the Captain of the City Guard<on the hands>: City Guard Captain's blue gloves
+E 0 40124 0 16		*	the Captain of the City Guard<wielded>: City Guard Captain's Golden Scimitar
+E 0 40125 0 8		*	the Captain of the City Guard<on the feet>: City Guard Captain's Boots
+E 0 40126 0 7		*	the Captain of the City Guard<on the legs>: City Guard Captain's Striped Trousers
 M 0 40115 10 40179 1	* the Cityguard (City Guard Headquarters)
-E 0 40107 0 5		*	City Guard vest: on the body
-E 0 40108 0 7		*	City Guard trousers: on the legs
-E 0 40110 0 8		*	City Guard boots: on the feet
-E 0 40112 0 1		*	City Guard Ring: on the left finger
-E 0 40113 0 11		*	City Guard shield: as a shield
-E 0 40114 0 16		*	City Guard sword: wielded
+E 0 40107 0 5		*	the Cityguard<on the body>: City Guard vest
+E 0 40108 0 7		*	the Cityguard<on the legs>: City Guard trousers
+E 0 40110 0 8		*	the Cityguard<on the feet>: City Guard boots
+E 0 40112 0 1		*	the Cityguard<on the left finger>: City Guard Ring
+E 0 40113 0 11		*	the Cityguard<as a shield>: City Guard shield
+E 0 40114 0 16		*	the Cityguard<wielded>: City Guard sword
 M 0 40118 2 40179 2	* the Lieutenant of the Cityguard (City Guard Headquarters)
-E 0 40116 0 5		*	City Guard chainmail: on the body
-E 0 40117 0 12		*	a dashing City Guard cape: about the shoulders
-E 0 40118 0 16		*	City Guard Lieutenant Sword: wielded
-E 0 40119 0 6		*	City Guard Lieutenant Helmet: over the head
+E 0 40116 0 5		*	the Lieutenant of the Cityguard<on the body>: City Guard chainmail
+E 0 40117 0 12		*	the Lieutenant of the Cityguard<about the shoulders>: a dashing City Guard cape
+E 0 40118 0 16		*	the Lieutenant of the Cityguard<wielded>: City Guard Lieutenant Sword
+E 0 40119 0 6		*	the Lieutenant of the Cityguard<over the head>: City Guard Lieutenant Helmet
 M 0 40118 2 40179 2	* the Lieutenant of the Cityguard (City Guard Headquarters)
-E 0 40116 0 5		*	City Guard chainmail: on the body
-E 0 40117 0 12		*	a dashing City Guard cape: about the shoulders
-E 0 40118 0 16		*	City Guard Lieutenant Sword: wielded
-E 0 40119 0 6		*	City Guard Lieutenant Helmet: over the head
+E 0 40116 0 5		*	the Lieutenant of the Cityguard<on the body>: City Guard chainmail
+E 0 40117 0 12		*	the Lieutenant of the Cityguard<about the shoulders>: a dashing City Guard cape
+E 0 40118 0 16		*	the Lieutenant of the Cityguard<wielded>: City Guard Lieutenant Sword
+E 0 40119 0 6		*	the Lieutenant of the Cityguard<over the head>: City Guard Lieutenant Helmet
 M 0 40134 5 40179 1	* the scrawny alleycat (City Guard Headquarters)
 M 0 40132 1 40180 1	* Thedril Saphorson, Mayor of Elvenhame (City Hall)
-E 0 40131 0 1		*	the Mayor's Signet-Ring: on the left finger
+E 0 40131 0 1		*	Thedril Saphorson, Mayor of Elvenhame<on the left finger>: the Mayor's Signet-Ring
 M 0 40119 1 40182 1	* Blane the Tavernkeeper (The Gaping Maw)
-G 0 40127 0		*	a foaming mug of beer
-G 0 40128 0		*	a flagon of ale
-G 0 40129 0		*	a carafe of fine elvish wine
-G 0 40130 0		*	a chilled goblet of icewine
+G 0 40127 0		*	Blane the Tavernkeeper: a foaming mug of beer
+G 0 40128 0		*	Blane the Tavernkeeper: a flagon of ale
+G 0 40129 0		*	Blane the Tavernkeeper: a carafe of fine elvish wine
+G 0 40130 0		*	Blane the Tavernkeeper: a chilled goblet of icewine
 M 0 40120 1 40182 1	* Ilse the Barmaid (The Gaping Maw)
 M 0 40121 1 40182 1	* Sam the harpsichord player (The Gaping Maw)
 M 0 40135 3 40182 3	* the drunk (The Gaping Maw)
@@ -5126,7 +5122,7 @@ M 0 40135 3 40182 3	* the drunk (The Gaping Maw)
 M 0 40122 1 40183 1	* Laslow the gambler (The Back Room)
 M 0 40123 1 40183 1	* Frenschi the gambler (The Back Room)
 M 0 40124 1 40184 1	* Jeaves the seller of servants (Thou Good and Faithful Servant, Inc.)
-E 0 40132 0 12		*	a tuxedo: about the shoulders
+E 0 40132 0 12		*	Jeaves the seller of servants<about the shoulders>: a tuxedo
 M 0 40125 1 40185 1	* the kitten (Obedience School)
 M 0 40126 1 40185 1	* the puppy (Obedience School)
 M 0 40127 1 40185 1	* the doberman (Obedience School)
@@ -5135,58 +5131,58 @@ M 0 40129 1 40185 1	* the human mercenary (Obedience School)
 M 0 40130 1 40185 1	* the dwarven mercenary (Obedience School)
 M 0 40131 1 40185 1	* the giant mercenary (Obedience School)
 M 0 40136 1 40186 1	* Kal'ille M'Gorn (Necessities 'R' Us)
-G 0 40133 0		*	a canteen of water
-G 0 40134 0		*	a large canvas sack
-G 0 40135 0		*	a leather backpack
-G 0 40136 0		*	a sleeping bag
+G 0 40133 0		*	Kal'ille M'Gorn: a canteen of water
+G 0 40134 0		*	Kal'ille M'Gorn: a large canvas sack
+G 0 40135 0		*	Kal'ille M'Gorn: a leather backpack
+G 0 40136 0		*	Kal'ille M'Gorn: a sleeping bag
 M 0 40137 1 40187 1	* a citizen (small house)
 M 0 40138 1 40187 1	* a citizen (small house)
 M 0 40139 1 40187 1	* the elf child (small house)
 M 0 40146 1 40188 1	* De'Lyron P'Gille the butcher (The Butcher Block)
-G 0 40137 0		*	a slice of bacon
-G 0 40138 0		*	a link of sausage
-G 0 40139 0		*	some spicy chicken nuggets
-G 0 40140 0		*	some port ribs
-G 0 40141 0		*	some strips of barbecue brisket
-G 0 40142 0		*	a plateful of veal tenders
+G 0 40137 0		*	De'Lyron P'Gille the butcher: a slice of bacon
+G 0 40138 0		*	De'Lyron P'Gille the butcher: a link of sausage
+G 0 40139 0		*	De'Lyron P'Gille the butcher: some spicy chicken nuggets
+G 0 40140 0		*	De'Lyron P'Gille the butcher: some port ribs
+G 0 40141 0		*	De'Lyron P'Gille the butcher: some strips of barbecue brisket
+G 0 40142 0		*	De'Lyron P'Gille the butcher: a plateful of veal tenders
 M 0 40140 2 40189 1	* a citizen (small house)
 M 0 40141 2 40189 1	* a citizen (small house)
 M 0 40142 4 40189 1	* the drow child (small house)
 M 0 40147 1 40190 1	* Nech'lir the blacksmith (The Armory)
-G 0 40150 0		*	a pair of plain steel bracers
-G 0 40148 0		*	a pair of steel-reinforced gloves
-G 0 40143 0		*	a chainmail vest
-G 0 40144 0		*	a scale mail jacket
-G 0 40145 0		*	a chainmail skirt
-G 0 40147 0		*	a pair of steel-toed boots
-G 0 40146 0		*	a pair of chainmail leggings
-G 0 40149 0		*	a jacket of platemail
+G 0 40150 0		*	Nech'lir the blacksmith: a pair of plain steel bracers
+G 0 40148 0		*	Nech'lir the blacksmith: a pair of steel-reinforced gloves
+G 0 40143 0		*	Nech'lir the blacksmith: a chainmail vest
+G 0 40144 0		*	Nech'lir the blacksmith: a scale mail jacket
+G 0 40145 0		*	Nech'lir the blacksmith: a chainmail skirt
+G 0 40147 0		*	Nech'lir the blacksmith: a pair of steel-toed boots
+G 0 40146 0		*	Nech'lir the blacksmith: a pair of chainmail leggings
+G 0 40149 0		*	Nech'lir the blacksmith: a jacket of platemail
 M 0 40143 2 40191 1	* a citizen (small house)
 M 0 40144 2 40191 1	* a citizen (small house)
 M 0 40145 3 40191 1	* the grey-elven child (small house)
 M 0 40148 1 40192 1	* Sarn'otha Vent'Mir the jeweller (All That Glitters)
-G 0 40156 0		*	a golden bracelet
-G 0 40151 0		*	a sparkling ruby
-G 0 40152 0		*	an emerald
-G 0 40157 0		*	a silver bracer
-G 0 40153 0		*	a sapphire
-G 0 40154 0		*	a diamond
-G 0 40155 0		*	a diamond engagement ring
-G 0 40158 0		*	a topaz-encrusted collar
+G 0 40156 0		*	Sarn'otha Vent'Mir the jeweller: a golden bracelet
+G 0 40151 0		*	Sarn'otha Vent'Mir the jeweller: a sparkling ruby
+G 0 40152 0		*	Sarn'otha Vent'Mir the jeweller: an emerald
+G 0 40157 0		*	Sarn'otha Vent'Mir the jeweller: a silver bracer
+G 0 40153 0		*	Sarn'otha Vent'Mir the jeweller: a sapphire
+G 0 40154 0		*	Sarn'otha Vent'Mir the jeweller: a diamond
+G 0 40155 0		*	Sarn'otha Vent'Mir the jeweller: a diamond engagement ring
+G 0 40158 0		*	Sarn'otha Vent'Mir the jeweller: a topaz-encrusted collar
 M 0 40143 2 40193 1	* a citizen (small house)
 M 0 40144 2 40193 1	* a citizen (small house)
 M 0 40145 3 40193 2	* the grey-elven child (small house)
 M 0 40145 3 40193 2	* the grey-elven child (small house)
 M 0 40149 1 40194 1	* Gethnir'Rah F'nith the weaponsmith (He Who Lives By The Sword (R) Weapons Boutique)
-G 0 40159 0		*	a dagger
-G 0 40160 0		*	a sharp knife
-G 0 40161 0		*	a short sword
-G 0 40162 0		*	a longsword
-G 0 40163 0		*	a small axe
-G 0 40164 0		*	a small mace
-G 0 40165 0		*	a flail
-G 0 40166 0		*	a leather whip
-G 0 40167 0		*	a sturdy staff
+G 0 40159 0		*	Gethnir'Rah F'nith the weaponsmith: a dagger
+G 0 40160 0		*	Gethnir'Rah F'nith the weaponsmith: a sharp knife
+G 0 40161 0		*	Gethnir'Rah F'nith the weaponsmith: a short sword
+G 0 40162 0		*	Gethnir'Rah F'nith the weaponsmith: a longsword
+G 0 40163 0		*	Gethnir'Rah F'nith the weaponsmith: a small axe
+G 0 40164 0		*	Gethnir'Rah F'nith the weaponsmith: a small mace
+G 0 40165 0		*	Gethnir'Rah F'nith the weaponsmith: a flail
+G 0 40166 0		*	Gethnir'Rah F'nith the weaponsmith: a leather whip
+G 0 40167 0		*	Gethnir'Rah F'nith the weaponsmith: a sturdy staff
 M 0 40140 2 40195 1	* a citizen (small house)
 M 0 40141 2 40195 1	* a citizen (small house)
 M 0 40142 4 40195 3	* the drow child (small house)

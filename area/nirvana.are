@@ -1558,7 +1558,7 @@ M 0 9008 4 9017 1	* the quinton (Dead End)
 M 0 9009 4 9018 1	* the tertian (A Tertain's lair)
 M 0 9009 4 9019 1	* the tertian (A Tertian's lair)
 M 0 9011 1 9020 1	* Primus (The Lair of Primus)
-E 0 9000 0 16		*	THE long sword: wielded
+E 0 9000 0 16		*	Primus<wielded>: THE long sword
 M 0 9009 4 9021 1	* the tertian (A Tertian's lair)
 M 0 9008 4 9022 1	* the quinton (The office of a Quinton)
 M 0 9009 4 9024 1	* the tertian (A Tertian's lair)
@@ -1581,7 +1581,7 @@ M 0 9002 6 9045 1	* the pentadrone (The chamber of the second Secundus)
 M 0 9010 4 9045 1	* secundus (The chamber of the second Secundus)
 M 0 9005 4 9047 1	* the octon (Chamber of the Octon)
 M 0 9004 1 9048 1	* the nonaton (Chamber of the Nonaton)
-G 0 9001 0		*	a luminescent moonstone
+G 0 9001 0		*	the nonaton: a luminescent moonstone
 M 0 9007 8 9050 1	* the hexton (Chamber of a Hexton)
 M 0 9007 8 9051 1	* the hexton (Chamber of a Hexton)
 M 0 9002 6 9052 1	* the pentadrone (Chamber of the Secudus)

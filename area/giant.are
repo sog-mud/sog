@@ -2454,155 +2454,107 @@ S
 #0
 
 #RESETS
-D 0 13009 3 1	* A hallway in the castle: door to the west: closed
-D 0 13015 1 1	* A hallway in the castle: door to the east: closed
-D 0 13018 3 1	* A hallway in the castle: door to the west: closed
-D 0 13022 1 1	* A hallway in the castle: door to the east: closed
-D 0 13031 1 1	* A hallway in the castle: door to the east: closed
-D 0 13031 3 1	* A hallway in the castle: door to the west: closed
-D 0 13033 1 1	* A hallway in the castle: door to the east: closed
-D 0 13033 3 1	* A hallway in the castle: door to the west: closed
-D 0 13035 1 1	* A hallway in the castle: door to the east: closed
-D 0 13035 3 1	* A hallway in the castle: door to the west: closed
-D 0 13040 1 1	* The Hallway of Giants: door to the east: closed
-D 0 13040 3 1	* The Hallway of Giants: door to the west: closed
-D 0 13041 0 1	* The Hallway of Giants: door to the north: closed
-D 0 13041 1 1	* The Hallway of Giants: door to the east: closed
-D 0 13041 3 1	* The Hallway of Giants: door to the west: closed
-D 0 13042 2 1	* The Lord's Chamber: door to the south: closed
-D 0 13042 5 1	* The Lord's Chamber: door to the down: closed
-D 0 13043 4 1	* The Treasure Room: door to the up: closed
-D 0 13044 1 1	* Battle Grounds: door to the east: closed
-D 0 13045 1 1	* The Dark Room: door to the east: closed
-D 0 13046 3 1	* The Holy Room: door to the west: closed
-D 0 13047 3 1	* The Captain's Quarters: door to the west: closed
-D 0 13048 1 1	* The kitchen: door to the east: closed
-D 0 13057 0 1	* The castle dungeon: door to the north: closed
-D 0 13057 1 1	* The castle dungeon: door to the east: closed
-D 0 13058 2 1	* A dungeon cell: door to the south: closed
-D 0 13059 3 1	* A dungeon cell: door to the west: closed
-D 0 13060 3 1	* A dungeon cell: door to the west: closed
-D 0 13061 1 1	* The castle dungeon: door to the east: closed
-D 0 13061 2 1	* The castle dungeon: door to the south: closed
-D 0 13065 0 1	* A dungeon cell: door to the north: closed
-D 0 13067 2 1	* The castle dungeon: door to the south: closed
-D 0 13067 3 1	* The castle dungeon: door to the west: closed
-D 0 13068 1 1	* A dungeon cell: door to the east: closed
-D 0 13069 1 1	* A dungeon cell: door to the east: closed
-D 0 13070 0 1	* The castle dungeon: door to the north: closed
-D 0 13070 3 1	* The castle dungeon: door to the west: closed
-D 0 13072 2 1	* A dungeon cell: door to the south: closed
-D 0 13073 3 1	* The Castle War Conference Room: door to the west: closed
-D 0 13074 1 1	* The lounge: door to the east: closed
-D 0 13075 3 1	* The Library: door to the west: closed
-D 0 13076 1 1	* The Altar Room: door to the east: closed
-D 0 13077 1 1	* A dark room: door to the east: closed
-D 0 13078 3 1	* Art Gallery: door to the west: closed
-D 0 13080 2 1	* A dark hallway: door to the south: closed
-D 0 13081 0 1	* The Torture Room: door to the north: closed
-D 0 13082 1 1	* The storage room: door to the east: closed
-D 0 13083 3 1	* The Guest Room: door to the west: closed
 M 0 13000 26 13004 2	* a giant guard (Foyer of the Castle)
-E 0 13000 0 16		*	an adamantite claymore: wielded
+E 0 13000 0 16		*	a giant guard<wielded>: an adamantite claymore
 M 0 13007 16 13006 1	* the male giant (A hallway in the castle)
 M 0 13000 26 13008 2	* a giant guard (A hallway in the castle)
-E 0 13000 0 16		*	an adamantite claymore: wielded
+E 0 13000 0 16		*	a giant guard<wielded>: an adamantite claymore
 M 0 13007 16 13009 1	* the male giant (A hallway in the castle)
 M 0 13000 26 13010 2	* a giant guard (A stairwell)
-E 0 13000 0 16		*	an adamantite claymore: wielded
+E 0 13000 0 16		*	a giant guard<wielded>: an adamantite claymore
 M 0 13007 16 13010 1	* the male giant (A stairwell)
 M 0 13000 26 13012 2	* a giant guard (A hallway in the castle)
-E 0 13000 0 16		*	an adamantite claymore: wielded
+E 0 13000 0 16		*	a giant guard<wielded>: an adamantite claymore
 M 0 13007 16 13012 1	* the male giant (A hallway in the castle)
 M 0 13007 16 13013 1	* the male giant (A turn in the hallway)
 M 0 13000 26 13014 2	* a giant guard (A hallway in the castle)
-E 0 13000 0 16		*	an adamantite claymore: wielded
+E 0 13000 0 16		*	a giant guard<wielded>: an adamantite claymore
 M 0 13007 16 13015 1	* the male giant (A hallway in the castle)
 M 0 13000 26 13016 2	* a giant guard (A stairwell)
-E 0 13000 0 16		*	an adamantite claymore: wielded
+E 0 13000 0 16		*	a giant guard<wielded>: an adamantite claymore
 M 0 13000 26 13018 2	* a giant guard (A hallway in the castle)
-E 0 13000 0 16		*	an adamantite claymore: wielded
+E 0 13000 0 16		*	a giant guard<wielded>: an adamantite claymore
 M 0 13007 16 13018 2	* the male giant (A hallway in the castle)
 M 0 13000 26 13020 2	* a giant guard (A turn in the hallway)
-E 0 13000 0 16		*	an adamantite claymore: wielded
+E 0 13000 0 16		*	a giant guard<wielded>: an adamantite claymore
 M 0 13007 16 13020 1	* the male giant (A turn in the hallway)
 M 0 13000 26 13022 2	* a giant guard (A hallway in the castle)
-E 0 13000 0 16		*	an adamantite claymore: wielded
+E 0 13000 0 16		*	a giant guard<wielded>: an adamantite claymore
 M 0 13007 16 13022 2	* the male giant (A hallway in the castle)
 M 0 13000 26 13024 2	* a giant guard (A turn in the hallway)
-E 0 13000 0 16		*	an adamantite claymore: wielded
+E 0 13000 0 16		*	a giant guard<wielded>: an adamantite claymore
 M 0 13007 16 13025 1	* the male giant (A hallway in the castle)
 M 0 13007 16 13028 1	* the male giant (A hallway in the castle)
 M 0 13000 26 13031 2	* a giant guard (A hallway in the castle)
-E 0 13000 0 16		*	an adamantite claymore: wielded
+E 0 13000 0 16		*	a giant guard<wielded>: an adamantite claymore
 M 0 13007 16 13032 1	* the male giant (A hallway in the castle)
 M 0 13000 26 13033 2	* a giant guard (A hallway in the castle)
-E 0 13000 0 16		*	an adamantite claymore: wielded
+E 0 13000 0 16		*	a giant guard<wielded>: an adamantite claymore
 M 0 13007 16 13033 1	* the male giant (A hallway in the castle)
 M 0 13000 26 13035 2	* a giant guard (A hallway in the castle)
-E 0 13000 0 16		*	an adamantite claymore: wielded
+E 0 13000 0 16		*	a giant guard<wielded>: an adamantite claymore
 M 0 13007 16 13035 1	* the male giant (A hallway in the castle)
 M 0 13002 1 13042 1	* the Lord of the Giants (The Lord's Chamber)
-E 0 13004 0 17		*	the Banner of the Castle of Giants: held in the hands
-E 0 13005 0 1		*	the Ring of Glory: on the left finger
-E 0 13006 0 16		*	the huge broadsword of Destruction: wielded
-E 0 13022 0 9		*	some bloody gloves of elven skin: on the hands
-G 0 13023 0		*	Skin of the Giant Lord
-E 0 13024 0 3		*	fine fur cloak: around the neck
+E 0 13004 0 17		*	the Lord of the Giants<held in the hands>: the Banner of the Castle of Giants
+E 0 13005 0 1		*	the Lord of the Giants<on the left finger>: the Ring of Glory
+E 0 13006 0 16		*	the Lord of the Giants<wielded>: the huge broadsword of Destruction
+E 0 13022 0 9		*	the Lord of the Giants<on the hands>: some bloody gloves of elven skin
+G 0 13023 0		*	the Lord of the Giants: Skin of the Giant Lord
+E 0 13024 0 3		*	the Lord of the Giants<around the neck>: fine fur cloak
 O 0 13020 0 13043	* vast treasure of gold (The Treasure Room)
 M 0 13003 1 13044 1	* Shannon, the Battle Mistress (Battle Grounds)
-E 0 13007 0 1		*	a small spiked ring: on the left finger
-E 0 13008 0 5		*	a suit of spiked adamantite platemail: on the body
-E 0 13009 0 6		*	a spiked adamantite battle helm: over the head
-E 0 13010 0 7		*	some spiked adamantite battle leggings: on the legs
-E 0 13011 0 8		*	spiked adamantite battle boots: on the feet
-E 0 13025 0 10		*	some spiked adamantite sleeves: on the arms
+E 0 13007 0 1		*	Shannon, the Battle Mistress<on the left finger>: a small spiked ring
+E 0 13008 0 5		*	Shannon, the Battle Mistress<on the body>: a suit of spiked adamantite platemail
+E 0 13009 0 6		*	Shannon, the Battle Mistress<over the head>: a spiked adamantite battle helm
+E 0 13010 0 7		*	Shannon, the Battle Mistress<on the legs>: some spiked adamantite battle leggings
+E 0 13011 0 8		*	Shannon, the Battle Mistress<on the feet>: spiked adamantite battle boots
+E 0 13025 0 10		*	Shannon, the Battle Mistress<on the arms>: some spiked adamantite sleeves
 M 0 13001 1 13045 1	* Thiulor the Spy (The Dark Room)
-E 0 13001 0 16		*	the Barbed Dagger of Thiulor: wielded
-E 0 13002 0 12		*	the cloak of stealth: about the shoulders
-E 0 13003 0 6		*	a Spy Mask: over the head
+E 0 13001 0 16		*	Thiulor the Spy<wielded>: the Barbed Dagger of Thiulor
+E 0 13002 0 12		*	Thiulor the Spy<about the shoulders>: the cloak of stealth
+E 0 13003 0 6		*	Thiulor the Spy<over the head>: a Spy Mask
 M 0 13004 1 13046 1	* Iupsil, the Master Cleric (The Holy Room)
-E 0 13012 0 5		*	Robe of the Healer: on the body
-E 0 13013 0 16		*	the Hammer of Power: wielded
+E 0 13012 0 5		*	Iupsil, the Master Cleric<on the body>: Robe of the Healer
+E 0 13013 0 16		*	Iupsil, the Master Cleric<wielded>: the Hammer of Power
 M 0 13005 1 13047 1	* the Captain of the Castle Guard (The Captain's Quarters)
-E 0 13014 0 1		*	the Captain's Signet Ring: on the left finger
-E 0 13015 0 5		*	a suit of fine copper chainmail: on the body
-E 0 13016 0 6		*	a fine copper helmet: over the head
-E 0 13017 0 7		*	a set of fine copper leggings: on the legs
-E 0 13018 0 8		*	a pair of fine copper boots: on the feet
-E 0 13019 0 4		*	the Badge of Order: on the face
-E 0 13021 0 14		*	a fine copper bracelet: on the left wrist
+E 0 13014 0 1		*	the Captain of the Castle Guard<on the left finger>: the Captain's Signet Ring
+E 0 13015 0 5		*	the Captain of the Castle Guard<on the body>: a suit of fine copper chainmail
+E 0 13016 0 6		*	the Captain of the Castle Guard<over the head>: a fine copper helmet
+E 0 13017 0 7		*	the Captain of the Castle Guard<on the legs>: a set of fine copper leggings
+E 0 13018 0 8		*	the Captain of the Castle Guard<on the feet>: a pair of fine copper boots
+E 0 13019 0 4		*	the Captain of the Castle Guard<on the face>: the Badge of Order
+E 0 13021 0 14		*	the Captain of the Castle Guard<on the left wrist>: a fine copper bracelet
 M 0 13006 1 13053 1	* the elven servant (The castle garden)
 M 0 13000 26 13055 1	* a giant guard (The castle dungeon)
-E 0 13000 0 16		*	an adamantite claymore: wielded
+E 0 13000 0 16		*	a giant guard<wielded>: an adamantite claymore
 M 0 13009 10 13056 2	* the weeping elf (The castle dungeon)
 M 0 13000 26 13057 1	* a giant guard (The castle dungeon)
-E 0 13000 0 16		*	an adamantite claymore: wielded
+E 0 13000 0 16		*	a giant guard<wielded>: an adamantite claymore
 M 0 13008 4 13058 1	* the dying gnome (A dungeon cell)
 M 0 13010 4 13059 1	* the weeping elf (A dungeon cell)
 M 0 13010 4 13060 1	* the weeping elf (A dungeon cell)
 M 0 13000 26 13061 1	* a giant guard (The castle dungeon)
-E 0 13000 0 16		*	an adamantite claymore: wielded
+E 0 13000 0 16		*	a giant guard<wielded>: an adamantite claymore
 M 0 13009 10 13062 2	* the weeping elf (The castle dungeon)
 M 0 13000 26 13063 1	* a giant guard (The castle dungeon)
-E 0 13000 0 16		*	an adamantite claymore: wielded
+E 0 13000 0 16		*	a giant guard<wielded>: an adamantite claymore
 M 0 13009 10 13063 2	* the weeping elf (The castle dungeon)
 M 0 13008 4 13064 1	* the dying gnome (A dungeon cell)
 M 0 13000 26 13065 1	* a giant guard (A dungeon cell)
-E 0 13000 0 16		*	an adamantite claymore: wielded
+E 0 13000 0 16		*	a giant guard<wielded>: an adamantite claymore
 M 0 13008 4 13065 1	* the dying gnome (A dungeon cell)
 M 0 13009 10 13066 2	* the weeping elf (The castle dungeon)
 M 0 13000 26 13067 1	* a giant guard (The castle dungeon)
-E 0 13000 0 16		*	an adamantite claymore: wielded
+E 0 13000 0 16		*	a giant guard<wielded>: an adamantite claymore
 M 0 13010 4 13068 1	* the weeping elf (A dungeon cell)
 M 0 13010 4 13069 1	* the weeping elf (A dungeon cell)
 M 0 13000 26 13070 1	* a giant guard (The castle dungeon)
-E 0 13000 0 16		*	an adamantite claymore: wielded
+E 0 13000 0 16		*	a giant guard<wielded>: an adamantite claymore
 M 0 13009 10 13071 2	* the weeping elf (The castle dungeon)
 M 0 13008 4 13072 1	* the dying gnome (A dungeon cell)
 M 0 13011 1 13075 1	* the librarian (The Library)
 M 0 13012 1 13081 1	* the torturer (The Torture Room)
-E 0 13026 0 1		*	a ring of the torturer: on the left finger
+E 0 13026 0 1		*	the torturer<on the left finger>: a ring of the torturer
 M 0 13013 1 13081 1	* the screaming elf (The Torture Room)
 S
 

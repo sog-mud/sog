@@ -4181,16 +4181,12 @@ M 1899 spec_cast_adept	* ranger healer
 S
 
 #RESETS
-D 0 1801 0 1	* Northwest Corner: door to the north: closed
-D 0 1878 4 1	* On a Hillock: door to the up: closed
-D 0 1879 5 1	* Inside the House on Four Feet: door to the down: closed
-D 0 1892 2 1	* North of the Wall: door to the south: closed
 M 0 1830 27 1801 1	* a grey squirrel (Northwest Corner)
 M 0 1839 13 1801 1	* a small white bunny (Northwest Corner)
 M 0 1830 27 1802 1	* a grey squirrel (In the Thick Wood)
 O 0 1839 0 1802	* a small bush (In the Thick Wood)
-P 0 1838 4 1839 1	* a small bush: a small moss and lichen nest
-P 0 1837 8 1838 2	* a small moss and lichen nest: a bean-sized white egg
+P 0 1838 4 0 1	* a small bush: a small moss and lichen nest
+P 0 1837 8 0 2	* a small bush: a bean-sized white egg
 M 0 1837 4 1802 1	* a tiny hummingbird (In the Thick Wood)
 O 0 1840 0 1802	* a tiny yellow buttercup (In the Thick Wood)
 M 0 1830 27 1803 1	* a grey squirrel (By the Wall)
@@ -4202,12 +4198,12 @@ M 0 1831 10 1805 1	* a tiny butterfly (By the Wall)
 M 0 1832 11 1805 1	* a small cardinal (By the Wall)
 M 0 1840 14 1806 1	* a fallow deer (By the Dark Wall)
 O 0 1842 0 1806	* a small well-woven nest (By the Dark Wall)
-P 0 1843 11 1842 4	* a small well-woven nest: an egg
+P 0 1843 11 0 4	* a small well-woven nest: an egg
 M 0 1836 5 1806 1	* a red-eyed vireo (By the Dark Wall)
 M 0 1840 14 1808 1	* a fallow deer (Northeast Corner)
 O 0 1839 0 1809	* a small bush (By the Western Wall)
-P 0 1838 4 1839 1	* a small bush: a small moss and lichen nest
-P 0 1837 8 1838 2	* a small moss and lichen nest: a bean-sized white egg
+P 0 1838 4 0 1	* a small bush: a small moss and lichen nest
+P 0 1837 8 0 2	* a small bush: a bean-sized white egg
 M 0 1837 9 1809 1	* a tiny hummingbird (By the Western Wall)
 O 0 1841 0 1809	* a pink flower (By the Western Wall)
 M 0 1832 11 1809 1	* a small cardinal (By the Western Wall)
@@ -4218,8 +4214,8 @@ M 0 1805 1 1811 1	* the silver unicorn (End of the Path)
 M 0 1832 11 1811 1	* a small cardinal (End of the Path)
 M 0 1830 27 1812 1	* a grey squirrel (In the Thick Woods)
 O 0 1839 0 1812	* a small bush (In the Thick Woods)
-P 0 1838 4 1839 1	* a small bush: a small moss and lichen nest
-P 0 1837 8 1838 2	* a small moss and lichen nest: a bean-sized white egg
+P 0 1838 4 0 1	* a small bush: a small moss and lichen nest
+P 0 1837 8 0 2	* a small bush: a bean-sized white egg
 M 0 1837 9 1812 1	* a tiny hummingbird (In the Thick Woods)
 O 0 1840 0 1812	* a tiny yellow buttercup (In the Thick Woods)
 M 0 1830 27 1813 1	* a grey squirrel (In the Thick Wood)
@@ -4230,12 +4226,12 @@ M 0 1840 14 1816 1	* a fallow deer (By the Dark Eastern Wall)
 M 0 1830 27 1817 1	* a grey squirrel (By the Western Wall)
 M 0 1839 13 1817 1	* a small white bunny (By the Western Wall)
 O 0 1842 0 1817	* a small well-woven nest (By the Western Wall)
-P 0 1843 11 1842 4	* a small well-woven nest: an egg
+P 0 1843 11 0 4	* a small well-woven nest: an egg
 M 0 1836 5 1817 1	* a red-eyed vireo (By the Western Wall)
 M 0 1832 11 1817 1	* a small cardinal (By the Western Wall)
 O 0 1845 0 1817	* a thick shrub (By the Western Wall)
-P 0 1847 4 1845 1	* a thick shrub: a nest
-P 0 1846 16 1847 4	* a nest: a pale green egg
+P 0 1847 4 0 1	* a thick shrub: a nest
+P 0 1846 16 0 4	* a thick shrub: a pale green egg
 O 0 1844 0 1817	* a violet (By the Western Wall)
 M 0 1801 7 1818 2	* a white unicorn (Small Pool in the Glade)
 M 0 1801 7 1818 2	* a white unicorn (Small Pool in the Glade)
@@ -4246,17 +4242,17 @@ M 0 1832 11 1818 1	* a small cardinal (Small Pool in the Glade)
 M 0 1830 27 1819 1	* a grey squirrel (Path in the Thick Wood)
 M 0 1832 11 1819 1	* a small cardinal (Path in the Thick Wood)
 O 0 1845 0 1819	* a thick shrub (Path in the Thick Wood)
-P 0 1847 4 1845 1	* a thick shrub: a nest
-P 0 1846 16 1847 4	* a nest: a pale green egg
+P 0 1847 4 0 1	* a thick shrub: a nest
+P 0 1846 16 0 4	* a thick shrub: a pale green egg
 M 0 1840 14 1820 1	* a fallow deer (In the Thick Wood)
 M 0 1832 11 1820 1	* a small cardinal (In the Thick Wood)
 O 0 1845 0 1820	* a thick shrub (In the Thick Wood)
-P 0 1847 4 1845 1	* a thick shrub: a nest
-P 0 1846 16 1847 4	* a nest: a pale green egg
+P 0 1847 4 0 1	* a thick shrub: a nest
+P 0 1846 16 0 4	* a thick shrub: a pale green egg
 M 0 1830 27 1821 1	* a grey squirrel (In the Thick Wood)
 O 0 1844 0 1821	* a violet (In the Thick Wood)
 M 0 1829 1 1823 1	* the ebony unicorn (In the Dark Wood)
-G 0 1806 0		*	an ivory unicorn sword
+G 0 1806 0		*	the ebony unicorn: an ivory unicorn sword
 M 0 1812 1 1824 1	* a shadow dragon (By the Dark Eastern Wall)
 M 0 1830 27 1825 1	* a grey squirrel (By the Golden Wall)
 M 0 1831 10 1825 1	* a tiny butterfly (By the Golden Wall)
@@ -4282,10 +4278,10 @@ M 0 1831 10 1829 1	* a tiny butterfly (In the Faerie Wood)
 M 0 1835 11 1829 1	* a goldfinch (In the Faerie Wood)
 M 0 1833 6 1829 1	* a bluebird (In the Faerie Wood)
 O 0 1848 0 1829	* an old tree (In the Faerie Wood)
-P 0 1849 3 1848 1	* an old tree: a nest made of grass
-P 0 1850 11 1849 5	* a nest made of grass: a pale blue egg
+P 0 1849 3 0 1	* an old tree: a nest made of grass
+P 0 1850 11 0 5	* an old tree: a pale blue egg
 O 0 1842 0 1831	* a small well-woven nest (In the Dark Wood)
-P 0 1843 11 1842 3	* a small well-woven nest: an egg
+P 0 1843 11 0 3	* a small well-woven nest: an egg
 M 0 1836 5 1831 1	* a red-eyed vireo (In the Dark Wood)
 M 0 1801 7 1833 1	* a white unicorn (By the Golden Wall)
 M 0 1840 14 1833 1	* a fallow deer (By the Golden Wall)
@@ -4307,11 +4303,11 @@ M 0 1830 27 1836 1	* a grey squirrel (The Faerie Circle)
 M 0 1839 13 1836 1	* a small white bunny (The Faerie Circle)
 M 0 1833 6 1836 1	* a bluebird (The Faerie Circle)
 O 0 1848 0 1836	* an old tree (The Faerie Circle)
-P 0 1849 3 1848 1	* an old tree: a nest made of grass
-P 0 1850 11 1849 6	* a nest made of grass: a pale blue egg
+P 0 1850 11 0 6	* an old tree: a pale blue egg
 O 0 1848 0 1836	* an old tree (The Faerie Circle)
-P 0 1849 3 1848 1	* an old tree: a nest made of grass
-P 0 1850 15 1849 4	* a nest made of grass: a pale blue egg
+P 0 1849 3 0 1	* an old tree: a nest made of grass
+P 0 1849 3 0 1	* an old tree: a nest made of grass
+P 0 1850 15 0 4	* an old tree: a pale blue egg
 M 0 1830 27 1837 1	* a grey squirrel (By the Well)
 M 0 1839 13 1837 1	* a small white bunny (By the Well)
 M 0 1840 14 1837 1	* a fallow deer (By the Well)
@@ -4319,24 +4315,24 @@ O 0 1855 0 1837	* an old well (By the Well)
 O 0 1844 0 1838	* a violet (Northern Path in the Pine Wood)
 M 0 1806 1 1839 1	* the golden unicorn (In the Pine Wood)
 M 0 1824 1 1839 1	* the blue warlock (In the Pine Wood)
-E 0 1820 0 16		*	a blue-tinted leather whip: wielded
+E 0 1820 0 16		*	the blue warlock<wielded>: a blue-tinted leather whip
 M 0 1840 14 1839 1	* a fallow deer (In the Pine Wood)
 O 0 1844 0 1839	* a violet (In the Pine Wood)
 M 0 1811 7 1840 3	* a mushroom as tall as a giant's knee (By the Twisted Pines)
 M 0 1811 7 1840 3	* a mushroom as tall as a giant's knee (By the Twisted Pines)
 M 0 1811 7 1840 3	* a mushroom as tall as a giant's knee (By the Twisted Pines)
 M 0 1823 1 1840 1	* the green warlock (By the Twisted Pines)
-E 0 1819 0 14		*	a green wristband: on the left wrist
+E 0 1819 0 14		*	the green warlock<on the left wrist>: a green wristband
 M 0 1825 1 1840 1	* the indigo warlock (By the Twisted Pines)
-E 0 1821 0 5		*	an indigo tunic: on the body
+E 0 1821 0 5		*	the indigo warlock<on the body>: an indigo tunic
 M 0 1818 1 1841 1	* the indigo witch (By a High Cracked Wall)
-E 0 1814 0 12		*	an indigo robe: about the shoulders
+E 0 1814 0 12		*	the indigo witch<about the shoulders>: an indigo robe
 M 0 1820 1 1841 1	* the red warlock (By a High Cracked Wall)
-E 0 1816 0 17		*	an oaken staff: held in the hands
+E 0 1816 0 17		*	the red warlock<held in the hands>: an oaken staff
 M 0 1811 7 1842 2	* a mushroom as tall as a giant's knee (By a Corner of the High Cracked Wall)
 M 0 1811 7 1842 2	* a mushroom as tall as a giant's knee (By a Corner of the High Cracked Wall)
 M 0 1816 1 1842 1	* the green witch (By a Corner of the High Cracked Wall)
-E 0 1812 0 1		*	Ring of the Witch: on the left finger
+E 0 1812 0 1		*	the green witch<on the left finger>: Ring of the Witch
 M 0 1830 27 1843 1	* a grey squirrel (By the Western Wall)
 M 0 1831 10 1843 1	* a tiny butterfly (By the Western Wall)
 M 0 1839 13 1843 1	* a small white bunny (By the Western Wall)
@@ -4344,8 +4340,8 @@ M 0 1835 11 1843 1	* a goldfinch (By the Western Wall)
 M 0 1801 7 1844 1	* a white unicorn (In the Birchwood)
 M 0 1803 1 1844 1	* a black panther (In the Birchwood)
 M 0 1804 1 1844 1	* a young girl with a lovely voice (In the Birchwood)
-E 0 1824 0 3		*	a golden filigree pendant: around the neck
-E 0 1833 0 17		*	a silver harp: held in the hands
+E 0 1824 0 3		*	a young girl with a lovely voice<around the neck>: a golden filigree pendant
+E 0 1833 0 17		*	a young girl with a lovely voice<held in the hands>: a silver harp
 O 0 1807 0 1844	* a rope swing (In the Birchwood)
 M 0 1830 27 1844 1	* a grey squirrel (In the Birchwood)
 M 0 1835 11 1844 1	* a goldfinch (In the Birchwood)
@@ -4364,7 +4360,7 @@ M 0 1830 27 1854 1	* a grey squirrel (The Old Altar)
 M 0 1831 10 1854 1	* a tiny butterfly (The Old Altar)
 M 0 1839 13 1854 1	* a small white bunny (The Old Altar)
 O 0 1857 0 1854	* an old altar (The Old Altar)
-P 0 1859 1 1857 1	* an old altar: a pair of camouflage gloves
+P 0 1859 1 0 1	* an old altar: a pair of camouflage gloves
 M 0 1899 1 1854 1	* ranger healer (The Old Altar)
 M 0 1834 5 1857 1	* a blue bird (On a Path)
 M 0 1802 7 1858 1	* a white unicorn (A Turn in the Path)
@@ -4373,12 +4369,12 @@ M 0 1840 14 1859 1	* a fallow deer (Twin Pines)
 M 0 1834 5 1859 1	* a blue bird (Twin Pines)
 M 0 1811 7 1860 1	* a mushroom as tall as a giant's knee (By the Rotted Stumps)
 M 0 1817 1 1860 1	* the blue witch (By the Rotted Stumps)
-E 0 1813 0 3		*	a blue amulet: around the neck
+E 0 1813 0 3		*	the blue witch<around the neck>: a blue amulet
 M 0 1826 1 1861 1	* the violet warlock (On Unstable Ground)
-E 0 1822 0 7		*	a pair of tight violet leggings: on the legs
+E 0 1822 0 7		*	the violet warlock<on the legs>: a pair of tight violet leggings
 M 0 1811 7 1862 1	* a mushroom as tall as a giant's knee (By the Dark Eastern Wall)
 M 0 1819 1 1862 1	* the violet witch (By the Dark Eastern Wall)
-E 0 1815 0 12		*	a violet robe: about the shoulders
+E 0 1815 0 12		*	the violet witch<about the shoulders>: a violet robe
 M 0 1830 27 1863 1	* a grey squirrel (By the Western Wall)
 M 0 1831 10 1863 1	* a tiny butterfly (By the Western Wall)
 M 0 1840 14 1864 1	* a fallow deer (By the Natural Spring)
@@ -4390,7 +4386,7 @@ M 0 1839 13 1866 1	* a small white bunny (The Five Pines)
 M 0 1840 14 1866 1	* a fallow deer (The Five Pines)
 M 0 1834 5 1866 1	* a blue bird (The Five Pines)
 M 0 1808 1 1867 1	* the copper unicorn (By the Start of a Small Stream)
-G 0 1823 0		*	a one-horned helm
+G 0 1823 0		*	the copper unicorn: a one-horned helm
 O 0 1835 0 1867	* a magic spring (By the Start of a Small Stream)
 M 0 1830 27 1867 1	* a grey squirrel (By the Start of a Small Stream)
 M 0 1831 10 1867 1	* a tiny butterfly (By the Start of a Small Stream)
@@ -4399,47 +4395,47 @@ M 0 1830 27 1868 1	* a grey squirrel (By the Southern Wall)
 M 0 1840 14 1868 1	* a fallow deer (By the Southern Wall)
 M 0 1834 5 1868 1	* a blue bird (By the Southern Wall)
 M 0 1822 1 1869 1	* the yellow warlock (By the Bent Pine)
-E 0 1818 0 16		*	a golden eye sword: wielded
+E 0 1818 0 16		*	the yellow warlock<wielded>: a golden eye sword
 M 0 1830 27 1869 1	* a grey squirrel (By the Bent Pine)
 M 0 1840 14 1869 1	* a fallow deer (By the Bent Pine)
 M 0 1821 1 1871 1	* the orange warlock (By the Blackened Wall)
-E 0 1817 0 8		*	a pair of orange boots: on the feet
-E 0 1808 0 16		*	an ivory mace: wielded
+E 0 1817 0 8		*	the orange warlock<on the feet>: a pair of orange boots
+E 0 1808 0 16		*	the orange warlock<wielded>: an ivory mace
 M 0 1813 1 1872 1	* the red witch (Southeast Corner)
-E 0 1809 0 13		*	a red belt: around the waist
+E 0 1809 0 13		*	the red witch<around the waist>: a red belt
 M 0 1814 1 1872 1	* the orange witch (Southeast Corner)
-E 0 1810 0 12		*	an orange robe: about the shoulders
+E 0 1810 0 12		*	the orange witch<about the shoulders>: an orange robe
 M 0 1815 1 1872 1	* the yellow witch (Southeast Corner)
-E 0 1811 0 16		*	a golden eye dagger: wielded
+E 0 1811 0 16		*	the yellow witch<wielded>: a golden eye dagger
 M 0 1802 7 1873 1	* a white unicorn (Southwestern Corner)
 M 0 1809 1 1873 1	* the chromatic unicorn (Southwestern Corner)
 M 0 1839 13 1873 1	* a small white bunny (Southwestern Corner)
 O 0 1852 0 1880	* a huge black pot (The Kitchen)
-P 0 1853 20 1852 20	* a huge black pot: a bowl of rabbit stew
+P 0 1853 20 0 20	* a huge black pot: a bowl of rabbit stew
 M 0 1838 1 1881 1	* the black warlock (In a Bedroom)
-E 0 1851 0 12		*	the Robe of the Warlock: about the shoulders
+E 0 1851 0 12		*	the black warlock<about the shoulders>: the Robe of the Warlock
 O 0 1854 0 1882	* a silver faucet (The Laboratory)
 M 0 1827 1 1890 1	* the ranger shopkeeper (Ranger Stop 'N' Shop)
-G 0 1805 0		*	a wafer
-G 0 1801 0		*	a ranger's lamp
-G 0 1802 0		*	a camper's canteen
-G 0 1803 0		*	a ranger's backpack
-G 0 1804 0		*	a first aid kit
-G 0 1899 0		*	Elven quiver
+G 0 1805 0		*	the ranger shopkeeper: a wafer
+G 0 1801 0		*	the ranger shopkeeper: a ranger's lamp
+G 0 1802 0		*	the ranger shopkeeper: a camper's canteen
+G 0 1803 0		*	the ranger shopkeeper: a ranger's backpack
+G 0 1804 0		*	the ranger shopkeeper: a first aid kit
+G 0 1899 0		*	the ranger shopkeeper: Elven quiver
 M 0 1828 1 1891 1	* the ranger guildmaster (Ranger Training Room)
-E 0 1860 0 7		*	a pair of camouflage leggings: on the legs
-E 0 1861 0 5		*	a camouflage jacket: on the body
-E 0 1862 0 8		*	a pair of camouflage boots: on the feet
-E 0 1863 0 6		*	a camouflage cap: over the head
+E 0 1860 0 7		*	the ranger guildmaster<on the legs>: a pair of camouflage leggings
+E 0 1861 0 5		*	the ranger guildmaster<on the body>: a camouflage jacket
+E 0 1862 0 8		*	the ranger guildmaster<on the feet>: a pair of camouflage boots
+E 0 1863 0 6		*	the ranger guildmaster<over the head>: a camouflage cap
 M 0 1836 5 1892 1	* a red-eyed vireo (North of the Wall)
 M 0 1833 6 1893 1	* a bluebird (Winding Path)
 M 0 1832 11 1894 1	* a small cardinal (Winding Path)
 O 0 1845 0 1894	* a thick shrub (Winding Path)
-P 0 1847 4 1845 1	* a thick shrub: a nest
-P 0 1846 16 1847 4	* a nest: a pale green egg
+P 0 1847 4 0 1	* a thick shrub: a nest
+P 0 1846 16 0 4	* a thick shrub: a pale green egg
 O 0 1839 0 1895	* a small bush (Winding Path)
-P 0 1838 4 1839 1	* a small bush: a small moss and lichen nest
-P 0 1837 8 1838 2	* a small moss and lichen nest: a bean-sized white egg
+P 0 1838 4 0 1	* a small bush: a small moss and lichen nest
+P 0 1837 8 0 2	* a small bush: a bean-sized white egg
 M 0 1837 9 1895 1	* a tiny hummingbird (Winding Path)
 M 0 1833 6 1895 1	* a bluebird (Winding Path)
 M 0 1835 11 1896 1	* a goldfinch (Winding Path)

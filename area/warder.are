@@ -464,13 +464,13 @@ S
 
 #RESETS
 M 0 96000 1 96001 1	* biomass (Between the three Pines)
-E 0 96000 0 17		*	broken branch: held in the hands
+E 0 96000 0 17		*	biomass<held in the hands>: broken branch
 O 0 96003 0 96005	* a beautiful waterfall (Before Great Oak)
 O 0 96004 0 96005	* spring (Before Great Oak)
 O 0 96005 0 96007	* branch (Dark Part of the Great Oak)
 M 0 96001 1 96008 1	* the ancient owl (The Top of the Great Oak)
 O 0 96002 0 96009	* the hollow (The Room of Silence)
-P 0 96001 0 96002 1	* the hollow: the Leaf of Great Oak
+P 0 96001 0 0 1	* the hollow: the Leaf of Great Oak
 O 0 96010 0 96010	* cap of milk (Desert)
 S
 

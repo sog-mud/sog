@@ -253,14 +253,12 @@ M 95700 spec_cast_seneschal	* the guardian
 S
 
 #RESETS
-D 0 95700 5 1	* The Well: door to the down: closed
-D 0 95701 4 1	* Bottom of the Well: door to the up: closed
 M 0 95700 1 95701 1	* the guardian (Bottom of the Well)
 M 0 95702 1 95701 1	* the guardian (Bottom of the Well)
-E 0 95702 0 17		*	a gray bone: held in the hands
+E 0 95702 0 17		*	the guardian<held in the hands>: a gray bone
 M 0 95701 1 95703 1	* the cleric (Main chambers of Hunt)
 O 0 95700 0 95703	* the golden sign (Main chambers of Hunt)
-P 0 95701 1 95700 1	* the golden sign: the golden tattoo
+P 0 95701 1 0 1	* the golden sign: the golden tattoo
 S
 
 #MOBPROGS

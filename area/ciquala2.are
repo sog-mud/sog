@@ -1079,48 +1079,20 @@ M 13416 spec_cast_undead	* Lich
 S
 
 #RESETS
-D 0 13400 5 1	* A large knothole in a tree: door to the down: closed
-D 0 13401 4 1	* A ladder descending into the darkness!: door to the up: closed
-D 0 13403 3 1	* A dusty tunnel deep under the ground: door to the west: closed
-D 0 13405 0 2	* Ciquala's Laboratory: door to the north: closed and locked
-D 0 13405 1 2	* Ciquala's Laboratory: door to the east: closed and locked
-D 0 13405 2 1	* Ciquala's Laboratory: door to the south: closed
-D 0 13406 0 1	* Supply room: door to the north: closed
-D 0 13407 3 2	* Holding Cell: door to the west: closed and locked
-D 0 13408 2 2	* Holding Cell: door to the south: closed and locked
-D 0 13409 1 1	* Guard room: door to the east: closed
-D 0 13409 3 1	* Guard room: door to the west: closed
-D 0 13410 0 2	* A seemingly empty tunnel: door to the north: closed and locked
-D 0 13410 1 1	* A seemingly empty tunnel: door to the east: closed
-D 0 13410 2 1	* A seemingly empty tunnel: door to the south: closed
-D 0 13410 3 1	* A seemingly empty tunnel: door to the west: closed
-D 0 13411 2 2	* The Map Room: door to the south: closed and locked
-D 0 13412 0 1	* Storage Room: door to the north: closed
-D 0 13413 0 1	* A tunnel with a grate in the floor: door to the north: closed
-D 0 13413 1 1	* A tunnel with a grate in the floor: door to the east: closed
-D 0 13413 2 1	* A tunnel with a grate in the floor: door to the south: closed
-D 0 13413 5 1	* A tunnel with a grate in the floor: door to the down: closed
-D 0 13414 4 1	* The Room of the Automatons: door to the up: closed
-D 0 13415 2 1	* Torture Chamber: door to the south: closed
-D 0 13416 0 1	* Entrance to Ciquala's Throne Room: door to the north: closed
-D 0 13417 2 2	* Ciquala's Throne Room: door to the south: closed and locked
-D 0 13418 0 2	* Treasure Chamber of Ciquala: door to the north: closed and locked
-D 0 13418 5 1	* Treasure Chamber of Ciquala: door to the down: closed
-D 0 13419 4 1	* The hidden crypt of Ciquala: door to the up: closed
 M 0 13400 1 13403 1	* Guardian Lich (A dusty tunnel deep under the ground)
 M 0 13401 2 13405 1	* the vampire lab assistant (Ciquala's Laboratory)
-G 0 13404 0		*	a key
-G 0 13413 0		*	a vial with milky liquid
-G 0 13414 0		*	a black potion
-G 0 13415 0		*	a beaker with yellow liquid
-G 0 13424 0		*	a fizzing bottle
-G 0 13425 0		*	a grey potion
+G 0 13404 0		*	the vampire lab assistant: a key
+G 0 13413 0		*	the vampire lab assistant: a vial with milky liquid
+G 0 13414 0		*	the vampire lab assistant: a black potion
+G 0 13415 0		*	the vampire lab assistant: a beaker with yellow liquid
+G 0 13424 0		*	the vampire lab assistant: a fizzing bottle
+G 0 13425 0		*	the vampire lab assistant: a grey potion
 M 0 13418 2 13405 1	* the vampire lab assistant (Ciquala's Laboratory)
-G 0 13407 0		*	a blue potion
-G 0 13408 0		*	an emerald vial
-G 0 13410 0		*	a clear testube
-G 0 13411 0		*	a green vial
-G 0 13412 0		*	a vial with gold liquid
+G 0 13407 0		*	the vampire lab assistant: a blue potion
+G 0 13408 0		*	the vampire lab assistant: an emerald vial
+G 0 13410 0		*	the vampire lab assistant: a clear testube
+G 0 13411 0		*	the vampire lab assistant: a green vial
+G 0 13412 0		*	the vampire lab assistant: a vial with gold liquid
 M 0 13404 4 13406 2	* the black pudding (Supply room)
 O 0 13403 0 13406	* crate (Supply room)
 O 0 13420 0 13406	* crate (Supply room)
@@ -1130,7 +1102,7 @@ M 0 13403 4 13407 2	* a docile creature (Holding Cell)
 M 0 13402 4 13408 2	* a warped creature from a nightmare (Holding Cell)
 M 0 13403 4 13408 2	* a docile creature (Holding Cell)
 M 0 13405 1 13409 1	* a gigantic automaton (Guard room)
-G 0 13405 0		*	a iron key
+G 0 13405 0		*	a gigantic automaton: a iron key
 M 0 13406 1 13409 1	* the undead guardian (Guard room)
 M 0 13407 1 13410 1	* the lurker above (A seemingly empty tunnel)
 M 0 13408 1 13411 1	* a vampire servant (The Map Room)
@@ -1142,14 +1114,14 @@ M 0 13410 1 13414 1	* the human automaton (The Room of the Automatons)
 M 0 13411 1 13414 1	* the human automaton (The Room of the Automatons)
 M 0 13412 1 13414 1	* the human automaton (The Room of the Automatons)
 M 0 13413 1 13415 1	* the torturer lich (Torture Chamber)
-E 0 13417 0 16		*	the torturer's whip: wielded
+E 0 13417 0 16		*	the torturer lich<wielded>: the torturer's whip
 O 0 13416 0 13415	* an iron maiden (Torture Chamber)
 M 0 13414 2 13416 2	* Ciquala's Undead Dragon (Entrance to Ciquala's Throne Room)
 M 0 13415 1 13417 1	* the lich Ciquala (Ciquala's Throne Room)
-E 0 13400 0 16		*	Ciquala's sword: wielded
-E 0 13401 0 12		*	Ciquala's robe: about the shoulders
-E 0 13402 0 17		*	ciquala's staff: held in the hands
-G 0 13406 0		*	a large key
+E 0 13400 0 16		*	the lich Ciquala<wielded>: Ciquala's sword
+E 0 13401 0 12		*	the lich Ciquala<about the shoulders>: Ciquala's robe
+E 0 13402 0 17		*	the lich Ciquala<held in the hands>: ciquala's staff
+G 0 13406 0		*	the lich Ciquala: a large key
 O 0 13418 0 13418	* a humongous pile of gold (Treasure Chamber of Ciquala)
 O 0 13419 0 13418	* a pile of gems (Treasure Chamber of Ciquala)
 M 0 13416 4 13419 2	* Lich (The hidden crypt of Ciquala)

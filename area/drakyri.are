@@ -5982,345 +5982,247 @@ M 11888 spec_breath_any	* The Warden
 S
 
 #RESETS
-D 0 11802 1 1	* Silvery Gates: door to the east: closed
-D 0 11803 3 1	* Shimmering Pathway: door to the west: closed
-D 0 11806 3 1	* Large clearing: door to the west: closed
-D 0 11807 2 1	* Winding path: door to the south: closed
-D 0 11809 0 1	* Shimmering pathway: door to the north: closed
-D 0 11815 4 2	* Chamber of the Guardian: door to the up: closed and locked
-D 0 11816 5 2	* Council Chamber: door to the down: closed and locked
-D 0 11817 1 1	* Hidden lane: door to the east: closed
-D 0 11817 2 1	* Hidden lane: door to the south: closed
-D 0 11819 0 1	* Blue stone courtyard: door to the north: closed
-D 0 11820 2 1	* Blue Marble Corridor: door to the south: closed
-D 0 11822 1 1	* Dining Hall: door to the east: closed
-D 0 11823 3 1	* Kitchen: door to the west: closed
-D 0 11826 1 1	* Granite storage room: door to the east: closed
-D 0 11827 1 1	* Magic Workroom: door to the east: closed
-D 0 11827 2 1	* Magic Workroom: door to the south: closed
-D 0 11827 3 1	* Magic Workroom: door to the west: closed
-D 0 11828 3 1	* Chemical Lab: door to the west: closed
-D 0 11829 0 1	* Summoning Chamber: door to the north: closed
-D 0 11830 0 1	* Mirrored Hallway: door to the north: closed
-D 0 11830 1 1	* Mirrored Hallway: door to the east: closed
-D 0 11830 2 1	* Mirrored Hallway: door to the south: closed
-D 0 11830 3 1	* Mirrored Hallway: door to the west: closed
-D 0 11831 1 1	* Emerald Suite: door to the east: closed
-D 0 11832 0 1	* Amethyst Suite: door to the north: closed
-D 0 11833 3 1	* Sapphire Suite: door to the west: closed
-D 0 11834 2 1	* Ruby Suite: door to the south: closed
-D 0 11836 1 1	* Ivory Foyer: door to the east: closed
-D 0 11845 0 1	* Second Floor Hallway: door to the north: closed
-D 0 11845 2 1	* Second Floor Hallway: door to the south: closed
-D 0 11846 0 1	* Heir's Bedroom: door to the north: closed
-D 0 11847 0 1	* Wide Hallway: door to the north: closed
-D 0 11847 3 1	* Wide Hallway: door to the west: closed
-D 0 11848 1 1	* Ashwood Panelled Bedroom: door to the east: closed
-D 0 11849 2 1	* Dark Oak Panelled Bedroom: door to the south: closed
-D 0 11850 0 1	* Marble Sitting Room: door to the north: closed
-D 0 11850 1 1	* Marble Sitting Room: door to the east: closed
-D 0 11850 2 1	* Marble Sitting Room: door to the south: closed
-D 0 11851 2 1	* Golden Bedchamber: door to the south: closed
-D 0 11852 3 1	* Glass Tunnel: door to the west: closed
-D 0 11853 1 1	* Before the Black Gates: door to the east: closed
-D 0 11854 3 1	* Black Marble Entryway: door to the west: closed
-D 0 11859 5 2	* Dark niche: door to the down: closed and locked
-D 0 11860 2 2	* Forbidding Doorway: door to the south: closed and locked
-D 0 11860 4 2	* Forbidding Doorway: door to the up: closed and locked
-D 0 11861 0 2	* Pentagram Chamber: door to the north: closed and locked
-D 0 11863 0 1	* Black Marble Corridor: door to the north: closed
-D 0 11863 2 1	* Black Marble Corridor: door to the south: closed
-D 0 11864 0 1	* Dark ash bedroom: door to the north: closed
-D 0 11865 2 1	* Black oak bedroom: door to the south: closed
-D 0 11866 0 1	* Black Marble Corridor: door to the north: closed
-D 0 11866 1 1	* Black Marble Corridor: door to the east: closed
-D 0 11866 2 1	* Black Marble Corridor: door to the south: closed
-D 0 11867 0 1	* Ash bedroom: door to the north: closed
-D 0 11868 2 1	* Charred mahogany bedroom: door to the south: closed
-D 0 11869 3 1	* Dark Chamber: door to the west: closed
-D 0 11870 3 1	* Quiet foyer: door to the west: closed
-D 0 11873 5 1	* Alcove: door to the down: closed
-D 0 11874 1 1	* Plain stone room: door to the east: closed
-D 0 11874 4 1	* Plain stone room: door to the up: closed
-D 0 11875 0 1	* Dark cavern: door to the north: closed
-D 0 11875 1 1	* Dark cavern: door to the east: closed
-D 0 11875 3 1	* Dark cavern: door to the west: closed
-D 0 11875 5 1	* Dark cavern: door to the down: closed
-D 0 11876 1 1	* Chamber of the Panther: door to the east: closed
-D 0 11876 2 1	* Chamber of the Panther: door to the south: closed
-D 0 11877 2 1	* Chamber of the Dagger: door to the south: closed
-D 0 11877 3 1	* Chamber of the Dagger: door to the west: closed
-D 0 11878 0 1	* Chamber of the Lynx: door to the north: closed
-D 0 11878 3 1	* Chamber of the Lynx: door to the west: closed
-D 0 11879 4 1	* Chamber of Shadows: door to the up: closed
-D 0 11880 3 1	* Granite Courtyard: door to the west: closed
-D 0 11881 1 1	* Iron Hallway: door to the east: closed
-D 0 11881 3 1	* Iron Hallway: door to the west: closed
-D 0 11882 2 1	* Iron Hallway: door to the south: closed
-D 0 11883 0 1	* Private Arena: door to the north: closed
-D 0 11884 0 1	* Training and Practice Field: door to the north: closed
-D 0 11884 1 1	* Training and Practice Field: door to the east: closed
-D 0 11884 2 1	* Training and Practice Field: door to the south: closed
-D 0 11884 3 1	* Training and Practice Field: door to the west: closed
-D 0 11885 2 1	* Second Comander's Office: door to the south: closed
-D 0 11886 1 1	* First Commander's Office: door to the east: closed
-D 0 11887 0 1	* Third Commander's Office: door to the north: closed
-D 0 11888 0 1	* Iron Hallway: door to the north: closed
-D 0 11889 2 1	* Marble Bedchamber: door to the south: closed
-D 0 11890 0 1	* Jade Entry Hall: door to the north: closed
-D 0 11891 1 1	* Jade Corridor: door to the east: closed
-D 0 11891 2 1	* Jade Corridor: door to the south: closed
-D 0 11892 3 1	* Shrine of Healing: door to the west: closed
-D 0 11893 0 1	* Garden Path: door to the north: closed
-D 0 11895 0 1	* Jade Corridor: door to the north: closed
-D 0 11895 2 1	* Jade Corridor: door to the south: closed
-D 0 11895 3 1	* Jade Corridor: door to the west: closed
-D 0 11895 4 1	* Jade Corridor: door to the up: closed
-D 0 11896 2 1	* Candlelit Bedroom: door to the south: closed
-D 0 11897 1 1	* Teak Panelled Bedroom: door to the east: closed
-D 0 11898 0 1	* Booklined Bedroom: door to the north: closed
-D 0 11899 5 1	* Sunlit Bedchamber: door to the down: closed
 O 0 11804 0 11801	* a pool of water (Strange Grove)
 M 0 11888 1 11802 1	* The Warden (Silvery Gates)
 M 0 11883 6 11803 2	* a drakyri knight protector (Shimmering Pathway)
-E 0 11894 0 10		*	drakyri arm guards: on the arms
+E 0 11894 0 10		*	a drakyri knight protector<on the arms>: drakyri arm guards
 M 0 11883 6 11803 2	* a drakyri knight protector (Shimmering Pathway)
 M 0 11884 7 11803 1	* a drakyri mage protector (Shimmering Pathway)
-E 0 11895 0 13		*	a drakyri girth: around the waist
+E 0 11895 0 13		*	a drakyri mage protector<around the waist>: a drakyri girth
 M 0 11885 5 11804 1	* a drakyri healer (Winding path)
 M 0 11883 6 11805 1	* a drakyri knight protector (Winding path)
 M 0 11884 7 11806 2	* a drakyri mage protector (Large clearing)
-E 0 11895 0 13		*	a drakyri girth: around the waist
+E 0 11895 0 13		*	a drakyri mage protector<around the waist>: a drakyri girth
 M 0 11884 7 11806 2	* a drakyri mage protector (Large clearing)
 M 0 11879 1 11807 1	* The Hand (Winding path)
-E 0 11890 0 3		*	laerkai life: around the neck
+E 0 11890 0 3		*	The Hand<around the neck>: laerkai life
 M 0 11884 7 11807 1	* a drakyri mage protector (Winding path)
-E 0 11895 0 13		*	a drakyri girth: around the waist
+E 0 11895 0 13		*	a drakyri mage protector<around the waist>: a drakyri girth
 M 0 11885 5 11807 1	* a drakyri healer (Winding path)
-E 0 11896 0 15		*	a drakyri wrist guard: on the right wrist
+E 0 11896 0 15		*	a drakyri healer<on the right wrist>: a drakyri wrist guard
 M 0 11885 5 11808 1	* a drakyri healer (Shimmering pathway)
 M 0 11878 1 11809 1	* The Fist (Shimmering pathway)
-E 0 11889 0 5		*	laerkai might: on the body
+E 0 11889 0 5		*	The Fist<on the body>: laerkai might
 M 0 11884 7 11809 1	* a drakyri mage protector (Shimmering pathway)
-E 0 11895 0 13		*	a drakyri girth: around the waist
+E 0 11895 0 13		*	a drakyri mage protector<around the waist>: a drakyri girth
 M 0 11885 5 11810 1	* a drakyri healer (Narrow path)
-E 0 11896 0 15		*	a drakyri wrist guard: on the right wrist
+E 0 11896 0 15		*	a drakyri healer<on the right wrist>: a drakyri wrist guard
 M 0 11876 1 11811 1	* The Claw (End of the narrow path)
-E 0 11887 0 9		*	laerkai pain: on the hands
+E 0 11887 0 9		*	The Claw<on the hands>: laerkai pain
 M 0 11886 3 11811 1	* a drakyri assassin (End of the narrow path)
-E 0 11897 0 16		*	a drakyri dagger: wielded
+E 0 11897 0 16		*	a drakyri assassin<wielded>: a drakyri dagger
 O 0 11806 0 11812	* a black counter (Outside of space)
 M 0 11874 1 11812 1	* The Flame (Outside of space)
-E 0 11885 0 18		*	laerkai fury: floating nearby
+E 0 11885 0 18		*	The Flame<floating nearby>: laerkai fury
 M 0 11883 6 11812 1	* a drakyri knight protector (Outside of space)
-E 0 11894 0 10		*	drakyri arm guards: on the arms
+E 0 11894 0 10		*	a drakyri knight protector<on the arms>: drakyri arm guards
 M 0 11884 7 11812 1	* a drakyri mage protector (Outside of space)
 M 0 11886 3 11812 1	* a drakyri assassin (Outside of space)
-E 0 11897 0 16		*	a drakyri dagger: wielded
+E 0 11897 0 16		*	a drakyri assassin<wielded>: a drakyri dagger
 M 0 11887 1 11812 1	* a frail old man (Outside of space)
-G 0 11836 0		*	a deep indigo pill
-G 0 11898 0		*	an energy pill
-G 0 11899 0		*	a warp pill
+G 0 11836 0		*	a frail old man: a deep indigo pill
+G 0 11898 0		*	a frail old man: an energy pill
+G 0 11899 0		*	a frail old man: a warp pill
 M 0 11875 1 11813 1	* The Shield (Shimmering pathway)
-E 0 11886 0 11		*	laerkai justice: as a shield
+E 0 11886 0 11		*	The Shield<as a shield>: laerkai justice
 M 0 11883 6 11814 2	* a drakyri knight protector (Before the Grey Tower)
 M 0 11883 6 11814 2	* a drakyri knight protector (Before the Grey Tower)
-E 0 11894 0 10		*	drakyri arm guards: on the arms
+E 0 11894 0 10		*	a drakyri knight protector<on the arms>: drakyri arm guards
 M 0 11885 5 11814 1	* a drakyri healer (Before the Grey Tower)
-E 0 11896 0 15		*	a drakyri wrist guard: on the right wrist
+E 0 11896 0 15		*	a drakyri healer<on the right wrist>: a drakyri wrist guard
 M 0 11881 1 11815 1	* The Guardian (Chamber of the Guardian)
-G 0 11805 0		*	the guardian's key
+G 0 11805 0		*	The Guardian: the guardian's key
 M 0 11884 7 11815 1	* a drakyri mage protector (Chamber of the Guardian)
 O 0 11807 0 11816	* a shimmering curtain (Council Chamber)
 M 0 11882 1 11816 1	* The Mediator (Council Chamber)
-E 0 11893 0 0		*	flame of balance: as a light
+E 0 11893 0 0		*	The Mediator<as a light>: flame of balance
 M 0 11877 1 11817 1	* The Shadow (Hidden lane)
-E 0 11888 0 8		*	laerkai stealth: on the feet
+E 0 11888 0 8		*	The Shadow<on the feet>: laerkai stealth
 M 0 11886 3 11817 1	* a drakyri assassin (Hidden lane)
-E 0 11897 0 16		*	a drakyri dagger: wielded
+E 0 11897 0 16		*	a drakyri assassin<wielded>: a drakyri dagger
 O 0 11808 0 11818	* a large stone table (Laerkai Headquarters)
 M 0 11880 1 11818 1	* the Laerkai Master (Laerkai Headquarters)
-E 0 11891 0 14		*	laerkai power: on the left wrist
-E 0 11892 0 16		*	a honed shortsword 'Zedraikis': wielded
+E 0 11891 0 14		*	the Laerkai Master<on the left wrist>: laerkai power
+E 0 11892 0 16		*	the Laerkai Master<wielded>: a honed shortsword 'Zedraikis'
 O 0 11800 0 11819	* a blue marble fountain (Blue stone courtyard)
 M 0 11813 2 11820 1	* a glyph of warding (Blue Marble Corridor)
-G 0 11822 0		*	a staff of guarding
+G 0 11822 0		*	a glyph of warding: a staff of guarding
 M 0 11811 4 11822 2	* a mage in training (Dining Hall)
 M 0 11811 4 11822 2	* a mage in training (Dining Hall)
 M 0 11811 4 11823 1	* a mage in training (Kitchen)
 M 0 11803 1 11824 1	* Roweni (Blue Marble Corridor)
-E 0 11815 0 13		*	a ((+*+)) chain belt: around the waist
+E 0 11815 0 13		*	Roweni<around the waist>: a ((+*+)) chain belt
 M 0 11813 2 11826 1	* a glyph of warding (Granite storage room)
-G 0 11822 0		*	a staff of guarding
+G 0 11822 0		*	a glyph of warding: a staff of guarding
 M 0 11800 1 11827 1	* Lechandre (Magic Workroom)
-E 0 11809 0 3		*	a mithril ((+*+)) torque: around the neck
-E 0 11810 0 12		*	a shimmering blue robe: about the shoulders
-E 0 11811 0 0		*	a magic flame: as a light
+E 0 11809 0 3		*	Lechandre<around the neck>: a mithril ((+*+)) torque
+E 0 11810 0 12		*	Lechandre<about the shoulders>: a shimmering blue robe
+E 0 11811 0 0		*	Lechandre<as a light>: a magic flame
 M 0 11811 4 11827 1	* a mage in training (Magic Workroom)
 M 0 11802 1 11828 1	* Dyrli (Chemical Lab)
-E 0 11814 0 14		*	a ((+*+)) bracelet: on the left wrist
+E 0 11814 0 14		*	Dyrli<on the left wrist>: a ((+*+)) bracelet
 M 0 11804 1 11828 1	* Xanil (Chemical Lab)
-E 0 11816 0 8		*	a pair of ((+*+)) shoes: on the feet
+E 0 11816 0 8		*	Xanil<on the feet>: a pair of ((+*+)) shoes
 M 0 11810 1 11828 1	* the lab assistant (Chemical Lab)
 M 0 11812 1 11829 1	* a writhing form (Summoning Chamber)
 M 0 11806 1 11831 1	* Nalyss (Emerald Suite)
-E 0 11818 0 6		*	a glittering ((+*+)) earring: over the head
+E 0 11818 0 6		*	Nalyss<over the head>: a glittering ((+*+)) earring
 M 0 11808 1 11832 1	* Ykandres (Amethyst Suite)
-E 0 11820 0 5		*	a ((+*+)) tunic: on the body
+E 0 11820 0 5		*	Ykandres<on the body>: a ((+*+)) tunic
 M 0 11807 1 11833 1	* Daeman (Sapphire Suite)
-E 0 11819 0 18		*	a glowing ((+*+)) sphere: floating nearby
+E 0 11819 0 18		*	Daeman<floating nearby>: a glowing ((+*+)) sphere
 M 0 11805 1 11834 1	* Tyrena (Ruby Suite)
-E 0 11817 0 10		*	some ((+*+)) armbands: on the arms
+E 0 11817 0 10		*	Tyrena<on the arms>: some ((+*+)) armbands
 M 0 11801 1 11835 1	* Noriek (Diamond Suite)
-E 0 11812 0 1		*	an engraved ((+*+)) ring: on the left finger
-E 0 11813 0 17		*	a ((+*+)) crest: held in the hands
+E 0 11812 0 1		*	Noriek<on the left finger>: an engraved ((+*+)) ring
+E 0 11813 0 17		*	Noriek<held in the hands>: a ((+*+)) crest
 M 0 11809 1 11835 1	* Zeion (Diamond Suite)
-E 0 11821 0 6		*	Owl eyes: over the head
+E 0 11821 0 6		*	Zeion<over the head>: Owl eyes
 M 0 11822 4 11836 2	* a white clad paladin (Ivory Foyer)
-E 0 11834 0 16		*	a gleaming white sword: wielded
-E 0 11835 0 11		*	a gleaming white shield: as a shield
+E 0 11834 0 16		*	a white clad paladin<wielded>: a gleaming white sword
+E 0 11835 0 11		*	a white clad paladin<as a shield>: a gleaming white shield
 M 0 11822 4 11836 2	* a white clad paladin (Ivory Foyer)
-E 0 11834 0 16		*	a gleaming white sword: wielded
+E 0 11834 0 16		*	a white clad paladin<wielded>: a gleaming white sword
 M 0 11817 1 11837 1	* Rexena (Art Gallery)
-E 0 11827 0 7		*	a pair of ((-*-)) leggings: on the legs
+E 0 11827 0 7		*	Rexena<on the legs>: a pair of ((-*-)) leggings
 M 0 11818 1 11840 1	* Deis (White Hallway)
-E 0 11828 0 6		*	a white ((-*-)) visor: over the head
+E 0 11828 0 6		*	Deis<over the head>: a white ((-*-)) visor
 M 0 11822 4 11842 1	* a white clad paladin (Tower Center)
-E 0 11834 0 16		*	a gleaming white sword: wielded
-E 0 11835 0 11		*	a gleaming white shield: as a shield
+E 0 11834 0 16		*	a white clad paladin<wielded>: a gleaming white sword
+E 0 11835 0 11		*	a white clad paladin<as a shield>: a gleaming white shield
 M 0 11815 1 11843 1	* Denylis (Observatory)
-E 0 11825 0 13		*	a white ((-*-)) belt: around the waist
+E 0 11825 0 13		*	Denylis<around the waist>: a white ((-*-)) belt
 M 0 11816 1 11843 1	* Kaele (Observatory)
-E 0 11826 0 9		*	a pair of ((-*-)) gauntlets: on the hands
+E 0 11826 0 9		*	Kaele<on the hands>: a pair of ((-*-)) gauntlets
 M 0 11822 4 11845 1	* a white clad paladin (Second Floor Hallway)
-E 0 11834 0 16		*	a gleaming white sword: wielded
+E 0 11834 0 16		*	a white clad paladin<wielded>: a gleaming white sword
 M 0 11819 1 11846 1	* Lyrene (Heir's Bedroom)
-E 0 11829 0 15		*	a golden ((-*-)) bracer: on the right wrist
+E 0 11829 0 15		*	Lyrene<on the right wrist>: a golden ((-*-)) bracer
 M 0 11820 1 11848 1	* Josreke (Ashwood Panelled Bedroom)
-E 0 11830 0 12		*	an embroidered ((-*-)) cape: about the shoulders
-E 0 11831 0 17		*	an ancient tome: held in the hands
-E 0 11832 0 6		*	an ornate mask: over the head
+E 0 11830 0 12		*	Josreke<about the shoulders>: an embroidered ((-*-)) cape
+E 0 11831 0 17		*	Josreke<held in the hands>: an ancient tome
+E 0 11832 0 6		*	Josreke<over the head>: an ornate mask
 M 0 11821 1 11849 1	* Rodwen (Dark Oak Panelled Bedroom)
-E 0 11833 0 10		*	some ((-*-)) sleeves: on the arms
-E 0 11834 0 16		*	a gleaming white sword: wielded
+E 0 11833 0 10		*	Rodwen<on the arms>: some ((-*-)) sleeves
+E 0 11834 0 16		*	Rodwen<wielded>: a gleaming white sword
 M 0 11814 1 11851 1	* Dosandre (Golden Bedchamber)
-E 0 11823 0 6		*	a gleaming ((-*-)) circlet: over the head
-E 0 11824 0 5		*	a set of ((-*-)) chain armor: on the body
+E 0 11823 0 6		*	Dosandre<over the head>: a gleaming ((-*-)) circlet
+E 0 11824 0 5		*	Dosandre<on the body>: a set of ((-*-)) chain armor
 M 0 11832 1 11854 1	* the hellish guardian (Black Marble Entryway)
-E 0 11850 0 3		*	a black runed collar: around the neck
+E 0 11850 0 3		*	the hellish guardian<around the neck>: a black runed collar
 M 0 11833 1 11857 1	* a howling beast (Dark niche)
-E 0 11850 0 3		*	a black runed collar: around the neck
+E 0 11850 0 3		*	a howling beast<around the neck>: a black runed collar
 M 0 11834 1 11858 1	* a demonic figure (Dark niche)
-E 0 11850 0 3		*	a black runed collar: around the neck
+E 0 11850 0 3		*	a demonic figure<around the neck>: a black runed collar
 M 0 11835 1 11859 1	* the necromancer (Dark niche)
-E 0 11850 0 3		*	a black runed collar: around the neck
-G 0 11801 0		*	a black marble key
+E 0 11850 0 3		*	the necromancer<around the neck>: a black runed collar
+G 0 11801 0		*	the necromancer: a black marble key
 M 0 11836 1 11860 1	* a mass of writhing tentacles (Forbidding Doorway)
-G 0 11802 0		*	a tentacled key
+G 0 11802 0		*	a mass of writhing tentacles: a tentacled key
 M 0 11823 1 11861 1	* Rachal (Pentagram Chamber)
-E 0 11837 0 6		*	a jet black  ->*<-  helm: over the head
-E 0 11838 0 9		*	a pair of taloned gloves: on the hands
+E 0 11837 0 6		*	Rachal<over the head>: a jet black  ->*<-  helm
+E 0 11838 0 9		*	Rachal<on the hands>: a pair of taloned gloves
 M 0 11837 1 11861 1	* a summoned demon (Pentagram Chamber)
-E 0 11851 0 10		*	demon's wings: on the arms
+E 0 11851 0 10		*	a summoned demon<on the arms>: demon's wings
 M 0 11826 1 11862 1	* Dreyva (Black Marble Corridor)
-E 0 11841 0 7		*	some  ->*<-  legplates: on the legs
+E 0 11841 0 7		*	Dreyva<on the legs>: some  ->*<-  legplates
 M 0 11829 1 11864 1	* Sorina (Dark ash bedroom)
-E 0 11845 0 4		*	a dark  ->*<-  necklace: on the face
-E 0 11846 0 17		*	a humanoid skull: held in the hands
+E 0 11845 0 4		*	Sorina<on the face>: a dark  ->*<-  necklace
+E 0 11846 0 17		*	Sorina<held in the hands>: a humanoid skull
 M 0 11830 1 11865 1	* Loryn (Black oak bedroom)
-E 0 11847 0 8		*	a pair of  ->*<-  boots: on the feet
-E 0 11848 0 16		*	a tempered throwing dagger: wielded
+E 0 11847 0 8		*	Loryn<on the feet>: a pair of  ->*<-  boots
+E 0 11848 0 16		*	Loryn<wielded>: a tempered throwing dagger
 M 0 11825 1 11866 1	* Janalis (Black Marble Corridor)
-E 0 11840 0 18		*	a dark  ->*<-  orb: floating nearby
+E 0 11840 0 18		*	Janalis<floating nearby>: a dark  ->*<-  orb
 M 0 11831 1 11867 1	* Chake (Ash bedroom)
-E 0 11849 0 10		*	some  ->*<-  sleeves: on the arms
+E 0 11849 0 10		*	Chake<on the arms>: some  ->*<-  sleeves
 M 0 11828 1 11868 1	* Kranali (Charred mahogany bedroom)
-E 0 11844 0 15		*	an ebony  ->*<-  bracer: on the right wrist
+E 0 11844 0 15		*	Kranali<on the right wrist>: an ebony  ->*<-  bracer
 M 0 11824 1 11869 1	* Toryan (Dark Chamber)
-E 0 11839 0 5		*	a  ->*<-  breast plate: on the body
+E 0 11839 0 5		*	Toryan<on the body>: a  ->*<-  breast plate
 M 0 11827 1 11869 1	* Delyrus (Dark Chamber)
-E 0 11842 0 1		*	a carved  ->*<-  ring: on the left finger
-E 0 11843 0 12		*	a cloak of nightmares: about the shoulders
+E 0 11842 0 1		*	Delyrus<on the left finger>: a carved  ->*<-  ring
+E 0 11843 0 12		*	Delyrus<about the shoulders>: a cloak of nightmares
 M 0 11849 1 11871 1	* the stalker (Alcove)
 M 0 11850 1 11872 1	* the hunter (Alcove)
-E 0 11867 0 16		*	a hunter's arrow: wielded
+E 0 11867 0 16		*	the hunter<wielded>: a hunter's arrow
 M 0 11842 1 11874 1	* Gydeas (Plain stone room)
-E 0 11860 0 3		*	a shadowy -=+)> neckchain: around the neck
+E 0 11860 0 3		*	Gydeas<around the neck>: a shadowy -=+)> neckchain
 M 0 11841 1 11875 1	* Ryxis (Dark cavern)
-E 0 11859 0 15		*	a slim -=+)> bracer: on the right wrist
+E 0 11859 0 15		*	Ryxis<on the right wrist>: a slim -=+)> bracer
 M 0 11844 1 11876 1	* Nyxi (Chamber of the Panther)
-E 0 11862 0 8		*	silent -=+)> boots: on the feet
-E 0 11863 0 2		*	a ring of the panther: on the right finger
+E 0 11862 0 8		*	Nyxi<on the feet>: silent -=+)> boots
+E 0 11863 0 2		*	Nyxi<on the right finger>: a ring of the panther
 M 0 11846 1 11876 1	* a black panther (Chamber of the Panther)
 M 0 11840 1 11877 1	* Katyre (Chamber of the Dagger)
-E 0 11858 0 12		*	a -=+)> shroud: about the shoulders
+E 0 11858 0 12		*	Katyre<about the shoulders>: a -=+)> shroud
 M 0 11843 1 11877 1	* Dyraena (Chamber of the Dagger)
-E 0 11861 0 7		*	a pair of black -=+)> leggings: on the legs
+E 0 11861 0 7		*	Dyraena<on the legs>: a pair of black -=+)> leggings
 M 0 11845 1 11878 1	* Delise (Chamber of the Lynx)
-E 0 11864 0 13		*	a black -=+)> belt: around the waist
-E 0 11865 0 2		*	a ring of the lynx: on the right finger
+E 0 11864 0 13		*	Delise<around the waist>: a black -=+)> belt
+E 0 11865 0 2		*	Delise<on the right finger>: a ring of the lynx
 M 0 11847 1 11878 1	* a shadow lynx (Chamber of the Lynx)
 M 0 11838 1 11879 1	* Jaena (Chamber of Shadows)
-E 0 11852 0 6		*	an onyx -=+)> earring: over the head
-E 0 11853 0 9		*	some dark -=+)> gloves: on the hands
-E 0 11854 0 16		*	a sharpened stiletto: wielded
-E 0 11855 0 0		*	an invisible flame: as a light
+E 0 11852 0 6		*	Jaena<over the head>: an onyx -=+)> earring
+E 0 11853 0 9		*	Jaena<on the hands>: some dark -=+)> gloves
+E 0 11854 0 16		*	Jaena<wielded>: a sharpened stiletto
+E 0 11855 0 0		*	Jaena<as a light>: an invisible flame
 M 0 11839 1 11879 1	* Neraikis (Chamber of Shadows)
-E 0 11854 0 16		*	a sharpened stiletto: wielded
-E 0 11856 0 10		*	a pair of -=+)> sleeves: on the arms
+E 0 11854 0 16		*	Neraikis<wielded>: a sharpened stiletto
+E 0 11856 0 10		*	Neraikis<on the arms>: a pair of -=+)> sleeves
 M 0 11848 1 11879 1	* a night hawk (Chamber of Shadows)
-E 0 11866 0 9		*	night hawk talons: on the hands
+E 0 11866 0 9		*	a night hawk<on the hands>: night hawk talons
 M 0 11860 2 11880 2	* a guardian knight (Granite Courtyard)
-E 0 11875 0 16		*	a finely balance adamantite longsword: wielded
+E 0 11875 0 16		*	a guardian knight<wielded>: a finely balance adamantite longsword
 M 0 11860 2 11880 2	* a guardian knight (Granite Courtyard)
-E 0 11875 0 16		*	a finely balance adamantite longsword: wielded
+E 0 11875 0 16		*	a guardian knight<wielded>: a finely balance adamantite longsword
 M 0 11861 2 11882 1	* a warrior in training (Iron Hallway)
-E 0 11875 0 16		*	a finely balance adamantite longsword: wielded
+E 0 11875 0 16		*	a warrior in training<wielded>: a finely balance adamantite longsword
 M 0 11856 1 11883 1	* Versant (Private Arena)
-E 0 11874 0 10		*	strong ][+][ armplates: on the arms
-E 0 11875 0 16		*	a finely balance adamantite longsword: wielded
+E 0 11874 0 10		*	Versant<on the arms>: strong ][+][ armplates
+E 0 11875 0 16		*	Versant<wielded>: a finely balance adamantite longsword
 M 0 11857 1 11883 1	* Saera (Private Arena)
-E 0 11857 0 2		*	an engraved platinum ][+][ ring: on the right finger
-E 0 11875 0 16		*	a finely balance adamantite longsword: wielded
+E 0 11857 0 2		*	Saera<on the right finger>: an engraved platinum ][+][ ring
+E 0 11875 0 16		*	Saera<wielded>: a finely balance adamantite longsword
 M 0 11861 2 11884 1	* a warrior in training (Training and Practice Field)
-E 0 11875 0 16		*	a finely balance adamantite longsword: wielded
+E 0 11875 0 16		*	a warrior in training<wielded>: a finely balance adamantite longsword
 M 0 11862 2 11884 2	* a sparring warrior (Training and Practice Field)
-E 0 11875 0 16		*	a finely balance adamantite longsword: wielded
+E 0 11875 0 16		*	a sparring warrior<wielded>: a finely balance adamantite longsword
 M 0 11862 2 11884 2	* a sparring warrior (Training and Practice Field)
-E 0 11875 0 16		*	a finely balance adamantite longsword: wielded
+E 0 11875 0 16		*	a sparring warrior<wielded>: a finely balance adamantite longsword
 M 0 11854 1 11885 1	* Rakael (Second Comander's Office)
-E 0 11872 0 6		*	a ][+][ helm: over the head
+E 0 11872 0 6		*	Rakael<over the head>: a ][+][ helm
 M 0 11853 1 11886 1	* Nyxil (First Commander's Office)
-E 0 11871 0 7		*	some grey ][+][ legplates: on the legs
+E 0 11871 0 7		*	Nyxil<on the legs>: some grey ][+][ legplates
 M 0 11855 1 11887 1	* Yeven (Third Commander's Office)
-E 0 11873 0 17		*	an engraved ][+][ crest: held in the hands
+E 0 11873 0 17		*	Yeven<held in the hands>: an engraved ][+][ crest
 M 0 11858 1 11888 1	* the grey lion (Iron Hallway)
 M 0 11859 1 11888 1	* the white lion (Iron Hallway)
 M 0 11851 1 11889 1	* Dyana (Marble Bedchamber)
-E 0 11868 0 5		*	a set of ][+][ platemail: on the body
-E 0 11869 0 15		*	a bracer of power: on the right wrist
+E 0 11868 0 5		*	Dyana<on the body>: a set of ][+][ platemail
+E 0 11869 0 15		*	Dyana<on the right wrist>: a bracer of power
 M 0 11852 1 11889 1	* Ryke (Marble Bedchamber)
-E 0 11870 0 11		*	a ][+][ shield: as a shield
+E 0 11870 0 11		*	Ryke<as a shield>: a ][+][ shield
 M 0 11873 1 11890 1	* the guardian spirit (Jade Entry Hall)
 O 0 11803 0 11892	* the lapis statue (Shrine of Healing)
 M 0 11865 1 11892 1	* Jorinne (Shrine of Healing)
-E 0 11879 0 15		*	an inlaid silver -(+)- bracelet: on the right wrist
+E 0 11879 0 15		*	Jorinne<on the right wrist>: an inlaid silver -(+)- bracelet
 M 0 11866 1 11892 1	* Lerylke (Shrine of Healing)
-E 0 11880 0 13		*	a beautiful -(+)- girth: around the waist
+E 0 11880 0 13		*	Lerylke<around the waist>: a beautiful -(+)- girth
 M 0 11867 1 11893 1	* Nerr (Garden Path)
-E 0 11881 0 10		*	a pair of -(+)- sleeves: on the arms
+E 0 11881 0 10		*	Nerr<on the arms>: a pair of -(+)- sleeves
 M 0 11863 1 11894 1	* Yxanes (White Gazebo)
-E 0 11876 0 1		*	a carven -(+)- signet ring: on the left finger
-E 0 11877 0 6		*	a niobium -(+)- circlet: over the head
+E 0 11876 0 1		*	Yxanes<on the left finger>: a carven -(+)- signet ring
+E 0 11877 0 6		*	Yxanes<over the head>: a niobium -(+)- circlet
 M 0 11864 1 11894 1	* Nerael (White Gazebo)
-E 0 11878 0 18		*	a shimmering -(+)- sphere: floating nearby
+E 0 11878 0 18		*	Nerael<floating nearby>: a shimmering -(+)- sphere
 M 0 11872 1 11895 1	* the grey cat (Jade Corridor)
 M 0 11869 1 11896 1	* Dryna (Candlelit Bedroom)
-E 0 11883 0 4		*	a filligree -(+)- necklace: on the face
+E 0 11883 0 4		*	Dryna<on the face>: a filligree -(+)- necklace
 M 0 11868 1 11897 1	* Yllyra (Teak Panelled Bedroom)
-E 0 11882 0 9		*	some finely crafted -(+)- gloves: on the hands
+E 0 11882 0 9		*	Yllyra<on the hands>: some finely crafted -(+)- gloves
 M 0 11870 1 11898 1	* Voryl (Booklined Bedroom)
-E 0 11884 0 8		*	some tooled -(+)- boots: on the feet
+E 0 11884 0 8		*	Voryl<on the feet>: some tooled -(+)- boots
 M 0 11871 1 11899 1	* the white cat (Sunlit Bedchamber)
 S
 

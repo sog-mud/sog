@@ -3666,24 +3666,22 @@ M 31215 spec_cast_adept	* a priestess of Lenny
 S
 
 #RESETS
-D 0 31321 3 1	* The Book Shoppe: door to the west: closed
-D 0 31322 1 1	* The Locksmith: door to the east: closed
 O 0 31216 0 31202	* a wall beacon (Inside the North Tower, West Gatehouse)
 O 0 31216 0 31203	* a wall beacon (Inside the Western City Wall)
 M 0 31211 8 31205 1	* a crossbowman (Inside the Western City Wall)
-E 0 31219 0 16		*	a crossbow: wielded
-E 0 31220 0 5		*	a suit of chainmail: on the body
-E 0 31221 0 7		*	a pair of leather leggings: on the legs
-E 0 31222 0 14		*	a crossbowman's leather wristguard: on the left wrist
+E 0 31219 0 16		*	a crossbowman<wielded>: a crossbow
+E 0 31220 0 5		*	a crossbowman<on the body>: a suit of chainmail
+E 0 31221 0 7		*	a crossbowman<on the legs>: a pair of leather leggings
+E 0 31222 0 14		*	a crossbowman<on the left wrist>: a crossbowman's leather wristguard
 O 0 31216 0 31205	* a wall beacon (Inside the Western City Wall)
 O 0 31216 0 31206	* a wall beacon (Northwest Tower)
 O 0 31216 0 31207	* a wall beacon (Inside the South Tower, West Gatehouse)
 O 0 31216 0 31208	* a wall beacon (Inside the Western City Wall)
 M 0 31211 8 31210 1	* a crossbowman (Inside the Western City Wall)
-E 0 31219 0 16		*	a crossbow: wielded
-E 0 31220 0 5		*	a suit of chainmail: on the body
-E 0 31221 0 7		*	a pair of leather leggings: on the legs
-E 0 31222 0 14		*	a crossbowman's leather wristguard: on the left wrist
+E 0 31219 0 16		*	a crossbowman<wielded>: a crossbow
+E 0 31220 0 5		*	a crossbowman<on the body>: a suit of chainmail
+E 0 31221 0 7		*	a crossbowman<on the legs>: a pair of leather leggings
+E 0 31222 0 14		*	a crossbowman<on the left wrist>: a crossbowman's leather wristguard
 O 0 31216 0 31210	* a wall beacon (Inside the Western City Wall)
 O 0 31216 0 31211	* a wall beacon (Southwest Tower)
 O 0 31216 0 31214	* a wall beacon (Inside the North Tower, East Gatehouse)
@@ -3694,112 +3692,112 @@ O 0 31217 0 31217	* a pot of boiling oil (The Gatehouse)
 O 0 31218 0 31217	* a murder hole (The Gatehouse)
 O 0 31216 0 31218	* a wall beacon (Inside the Eastern City Wall)
 M 0 31211 8 31220 1	* a crossbowman (Inside the Eastern City Wall)
-E 0 31219 0 16		*	a crossbow: wielded
-E 0 31220 0 5		*	a suit of chainmail: on the body
-E 0 31221 0 7		*	a pair of leather leggings: on the legs
-E 0 31222 0 14		*	a crossbowman's leather wristguard: on the left wrist
+E 0 31219 0 16		*	a crossbowman<wielded>: a crossbow
+E 0 31220 0 5		*	a crossbowman<on the body>: a suit of chainmail
+E 0 31221 0 7		*	a crossbowman<on the legs>: a pair of leather leggings
+E 0 31222 0 14		*	a crossbowman<on the left wrist>: a crossbowman's leather wristguard
 O 0 31216 0 31220	* a wall beacon (Inside the Eastern City Wall)
 O 0 31216 0 31221	* a wall beacon (Northeast Tower)
 O 0 31216 0 31222	* a wall beacon (Inside the Eastern City Wall)
 O 0 31216 0 31224	* a wall beacon (Inside the Eastern City Wall)
 M 0 31211 8 31225 1	* a crossbowman (Southeast Tower)
-E 0 31219 0 16		*	a crossbow: wielded
-E 0 31220 0 5		*	a suit of chainmail: on the body
-E 0 31221 0 7		*	a pair of leather leggings: on the legs
-E 0 31222 0 14		*	a crossbowman's leather wristguard: on the left wrist
+E 0 31219 0 16		*	a crossbowman<wielded>: a crossbow
+E 0 31220 0 5		*	a crossbowman<on the body>: a suit of chainmail
+E 0 31221 0 7		*	a crossbowman<on the legs>: a pair of leather leggings
+E 0 31222 0 14		*	a crossbowman<on the left wrist>: a crossbowman's leather wristguard
 O 0 31216 0 31225	* a wall beacon (Southeast Tower)
 M 0 31200 4 31227 1	* an east wall guard (South Tower, Western Gatehouse)
-E 0 31200 0 16		*	an ornate Longsword: wielded
-E 0 31201 0 5		*	an ornate Breastplate: on the body
-E 0 31202 0 14		*	an ornate Bracer: on the left wrist
-E 0 31202 0 15		*	an ornate Bracer: on the right wrist
-E 0 31203 0 3		*	a black cloak with gold trim: around the neck
-E 0 31204 0 6		*	an ornate helm: over the head
-E 0 31205 0 11		*	an ornate shield: as a shield
-E 0 31206 0 17		*	a throwing spear: held in the hands
-E 0 31207 0 1		*	a signet ring: on the left finger
+E 0 31200 0 16		*	an east wall guard<wielded>: an ornate Longsword
+E 0 31201 0 5		*	an east wall guard<on the body>: an ornate Breastplate
+E 0 31202 0 14		*	an east wall guard<on the left wrist>: an ornate Bracer
+E 0 31202 0 15		*	an east wall guard<on the right wrist>: an ornate Bracer
+E 0 31203 0 3		*	an east wall guard<around the neck>: a black cloak with gold trim
+E 0 31204 0 6		*	an east wall guard<over the head>: an ornate helm
+E 0 31205 0 11		*	an east wall guard<as a shield>: an ornate shield
+E 0 31206 0 17		*	an east wall guard<held in the hands>: a throwing spear
+E 0 31207 0 1		*	an east wall guard<on the left finger>: a signet ring
 O 0 31216 0 31230	* a wall beacon (Within the Walls)
 O 0 31216 0 31233	* a wall beacon (Within the Walls)
 M 0 31211 8 31235 1	* a crossbowman (Within the Walls)
-E 0 31219 0 16		*	a crossbow: wielded
-E 0 31220 0 5		*	a suit of chainmail: on the body
-E 0 31221 0 7		*	a pair of leather leggings: on the legs
-E 0 31222 0 14		*	a crossbowman's leather wristguard: on the left wrist
+E 0 31219 0 16		*	a crossbowman<wielded>: a crossbow
+E 0 31220 0 5		*	a crossbowman<on the body>: a suit of chainmail
+E 0 31221 0 7		*	a crossbowman<on the legs>: a pair of leather leggings
+E 0 31222 0 14		*	a crossbowman<on the left wrist>: a crossbowman's leather wristguard
 O 0 31216 0 31236	* a wall beacon (Within the Walls)
 O 0 31216 0 31240	* a wall beacon (Within the Walls)
 O 0 31216 0 31241	* a wall beacon (Within the Walls)
 O 0 31216 0 31245	* a wall beacon (Within the Walls)
 M 0 31211 8 31246 1	* a crossbowman (Within the Walls)
-E 0 31219 0 16		*	a crossbow: wielded
-E 0 31220 0 5		*	a suit of chainmail: on the body
-E 0 31221 0 7		*	a pair of leather leggings: on the legs
-E 0 31222 0 14		*	a crossbowman's leather wristguard: on the left wrist
+E 0 31219 0 16		*	a crossbowman<wielded>: a crossbow
+E 0 31220 0 5		*	a crossbowman<on the body>: a suit of chainmail
+E 0 31221 0 7		*	a crossbowman<on the legs>: a pair of leather leggings
+E 0 31222 0 14		*	a crossbowman<on the left wrist>: a crossbowman's leather wristguard
 O 0 31216 0 31248	* a wall beacon (Within the Walls)
 O 0 31216 0 31251	* a wall beacon (Within the Walls)
 O 0 31223 0 31253	* a torn scroll (Base of Northeast Tower)
 M 0 31212 1 31254 1	* the guard smith (Base of Southwest Tower)
 O 0 31216 0 31268	* a wall beacon (Atop the Gatehouse)
 M 0 31203 4 31269 1	* an west wall guard (Atop the Gatehouse)
-E 0 31200 0 16		*	an ornate Longsword: wielded
-E 0 31201 0 5		*	an ornate Breastplate: on the body
-E 0 31202 0 14		*	an ornate Bracer: on the left wrist
-E 0 31202 0 15		*	an ornate Bracer: on the right wrist
-E 0 31203 0 3		*	a black cloak with gold trim: around the neck
-E 0 31204 0 6		*	an ornate helm: over the head
-E 0 31205 0 11		*	an ornate shield: as a shield
-E 0 31206 0 17		*	a throwing spear: held in the hands
-E 0 31207 0 1		*	a signet ring: on the left finger
+E 0 31200 0 16		*	an west wall guard<wielded>: an ornate Longsword
+E 0 31201 0 5		*	an west wall guard<on the body>: an ornate Breastplate
+E 0 31202 0 14		*	an west wall guard<on the left wrist>: an ornate Bracer
+E 0 31202 0 15		*	an west wall guard<on the right wrist>: an ornate Bracer
+E 0 31203 0 3		*	an west wall guard<around the neck>: a black cloak with gold trim
+E 0 31204 0 6		*	an west wall guard<over the head>: an ornate helm
+E 0 31205 0 11		*	an west wall guard<as a shield>: an ornate shield
+E 0 31206 0 17		*	an west wall guard<held in the hands>: a throwing spear
+E 0 31207 0 1		*	an west wall guard<on the left finger>: a signet ring
 O 0 31216 0 31269	* a wall beacon (Atop the Gatehouse)
 M 0 31200 4 31274 1	* an east wall guard (Heading Along the Battlements)
-E 0 31200 0 16		*	an ornate Longsword: wielded
-E 0 31201 0 5		*	an ornate Breastplate: on the body
-E 0 31202 0 14		*	an ornate Bracer: on the left wrist
-E 0 31202 0 15		*	an ornate Bracer: on the right wrist
-E 0 31203 0 3		*	a black cloak with gold trim: around the neck
-E 0 31204 0 6		*	an ornate helm: over the head
-E 0 31205 0 11		*	an ornate shield: as a shield
-E 0 31206 0 17		*	a throwing spear: held in the hands
-E 0 31207 0 1		*	a signet ring: on the left finger
+E 0 31200 0 16		*	an east wall guard<wielded>: an ornate Longsword
+E 0 31201 0 5		*	an east wall guard<on the body>: an ornate Breastplate
+E 0 31202 0 14		*	an east wall guard<on the left wrist>: an ornate Bracer
+E 0 31202 0 15		*	an east wall guard<on the right wrist>: an ornate Bracer
+E 0 31203 0 3		*	an east wall guard<around the neck>: a black cloak with gold trim
+E 0 31204 0 6		*	an east wall guard<over the head>: an ornate helm
+E 0 31205 0 11		*	an east wall guard<as a shield>: an ornate shield
+E 0 31206 0 17		*	an east wall guard<held in the hands>: a throwing spear
+E 0 31207 0 1		*	an east wall guard<on the left finger>: a signet ring
 M 0 31217 4 31275 1	* a sailor (The Anon Docks)
-E 0 31240 0 16		*	a cutlass: wielded
+E 0 31240 0 16		*	a sailor<wielded>: a cutlass
 M 0 31200 4 31277 1	* an east wall guard (Heading Along the Battlements)
-E 0 31200 0 16		*	an ornate Longsword: wielded
-E 0 31201 0 5		*	an ornate Breastplate: on the body
-E 0 31202 0 14		*	an ornate Bracer: on the left wrist
-E 0 31202 0 15		*	an ornate Bracer: on the right wrist
-E 0 31203 0 3		*	a black cloak with gold trim: around the neck
-E 0 31204 0 6		*	an ornate helm: over the head
-E 0 31205 0 11		*	an ornate shield: as a shield
-E 0 31206 0 17		*	a throwing spear: held in the hands
-E 0 31207 0 1		*	a signet ring: on the left finger
+E 0 31200 0 16		*	an east wall guard<wielded>: an ornate Longsword
+E 0 31201 0 5		*	an east wall guard<on the body>: an ornate Breastplate
+E 0 31202 0 14		*	an east wall guard<on the left wrist>: an ornate Bracer
+E 0 31202 0 15		*	an east wall guard<on the right wrist>: an ornate Bracer
+E 0 31203 0 3		*	an east wall guard<around the neck>: a black cloak with gold trim
+E 0 31204 0 6		*	an east wall guard<over the head>: an ornate helm
+E 0 31205 0 11		*	an east wall guard<as a shield>: an ornate shield
+E 0 31206 0 17		*	an east wall guard<held in the hands>: a throwing spear
+E 0 31207 0 1		*	an east wall guard<on the left finger>: a signet ring
 M 0 31216 4 31278 1	* a burly worker (The Pier)
-E 0 31231 0 16		*	a belaying pin: wielded
-G 0 31232 0		*	a barrel of ale
+E 0 31231 0 16		*	a burly worker<wielded>: a belaying pin
+G 0 31232 0		*	a burly worker: a barrel of ale
 O 0 31232 0 31278	* a barrel of ale (The Pier)
 O 0 31233 0 31278	* an empty barrel (The Pier)
 O 0 31239 0 31278	* a scow (The Pier)
 M 0 31218 1 31278 1	* the dock master (The Pier)
-G 0 31238 0		*	a warehouse key
+G 0 31238 0		*	the dock master: a warehouse key
 M 0 31203 4 31280 1	* an west wall guard (Heading Along the Battlements)
-E 0 31200 0 16		*	an ornate Longsword: wielded
-E 0 31201 0 5		*	an ornate Breastplate: on the body
-E 0 31202 0 14		*	an ornate Bracer: on the left wrist
-E 0 31202 0 15		*	an ornate Bracer: on the right wrist
-E 0 31203 0 3		*	a black cloak with gold trim: around the neck
-E 0 31204 0 6		*	an ornate helm: over the head
-E 0 31205 0 11		*	an ornate shield: as a shield
-E 0 31206 0 17		*	a throwing spear: held in the hands
-E 0 31207 0 1		*	a signet ring: on the left finger
+E 0 31200 0 16		*	an west wall guard<wielded>: an ornate Longsword
+E 0 31201 0 5		*	an west wall guard<on the body>: an ornate Breastplate
+E 0 31202 0 14		*	an west wall guard<on the left wrist>: an ornate Bracer
+E 0 31202 0 15		*	an west wall guard<on the right wrist>: an ornate Bracer
+E 0 31203 0 3		*	an west wall guard<around the neck>: a black cloak with gold trim
+E 0 31204 0 6		*	an west wall guard<over the head>: an ornate helm
+E 0 31205 0 11		*	an west wall guard<as a shield>: an ornate shield
+E 0 31206 0 17		*	an west wall guard<held in the hands>: a throwing spear
+E 0 31207 0 1		*	an west wall guard<on the left finger>: a signet ring
 M 0 31203 4 31283 1	* an west wall guard (Heading Along the Battlements)
-E 0 31200 0 16		*	an ornate Longsword: wielded
-E 0 31201 0 5		*	an ornate Breastplate: on the body
-E 0 31202 0 14		*	an ornate Bracer: on the left wrist
-E 0 31202 0 15		*	an ornate Bracer: on the right wrist
-E 0 31203 0 3		*	a black cloak with gold trim: around the neck
-E 0 31204 0 6		*	an ornate helm: over the head
-E 0 31205 0 11		*	an ornate shield: as a shield
-E 0 31206 0 17		*	a throwing spear: held in the hands
-E 0 31207 0 1		*	a signet ring: on the left finger
+E 0 31200 0 16		*	an west wall guard<wielded>: an ornate Longsword
+E 0 31201 0 5		*	an west wall guard<on the body>: an ornate Breastplate
+E 0 31202 0 14		*	an west wall guard<on the left wrist>: an ornate Bracer
+E 0 31202 0 15		*	an west wall guard<on the right wrist>: an ornate Bracer
+E 0 31203 0 3		*	an west wall guard<around the neck>: a black cloak with gold trim
+E 0 31204 0 6		*	an west wall guard<over the head>: an ornate helm
+E 0 31205 0 11		*	an west wall guard<as a shield>: an ornate shield
+E 0 31206 0 17		*	an west wall guard<held in the hands>: a throwing spear
+E 0 31207 0 1		*	an west wall guard<on the left finger>: a signet ring
 O 0 31232 0 31284	* a barrel of ale (A Warehouse)
 O 0 31233 0 31284	* an empty barrel (A Warehouse)
 O 0 31234 0 31284	* a lantern (A Warehouse)
@@ -3807,141 +3805,141 @@ O 0 31235 0 31284	* a coiled rope (A Warehouse)
 O 0 31236 0 31284	* a leather backpack (A Warehouse)
 O 0 31237 0 31284	* a bolt of cloth (A Warehouse)
 M 0 31202 4 31286 1	* a north wall guard (Heading Along the Battlements)
-E 0 31200 0 16		*	an ornate Longsword: wielded
-E 0 31201 0 5		*	an ornate Breastplate: on the body
-E 0 31202 0 14		*	an ornate Bracer: on the left wrist
-E 0 31202 0 15		*	an ornate Bracer: on the right wrist
-E 0 31203 0 3		*	a black cloak with gold trim: around the neck
-E 0 31204 0 6		*	an ornate helm: over the head
-E 0 31205 0 11		*	an ornate shield: as a shield
-E 0 31206 0 17		*	a throwing spear: held in the hands
-E 0 31207 0 1		*	a signet ring: on the left finger
+E 0 31200 0 16		*	a north wall guard<wielded>: an ornate Longsword
+E 0 31201 0 5		*	a north wall guard<on the body>: an ornate Breastplate
+E 0 31202 0 14		*	a north wall guard<on the left wrist>: an ornate Bracer
+E 0 31202 0 15		*	a north wall guard<on the right wrist>: an ornate Bracer
+E 0 31203 0 3		*	a north wall guard<around the neck>: a black cloak with gold trim
+E 0 31204 0 6		*	a north wall guard<over the head>: an ornate helm
+E 0 31205 0 11		*	a north wall guard<as a shield>: an ornate shield
+E 0 31206 0 17		*	a north wall guard<held in the hands>: a throwing spear
+E 0 31207 0 1		*	a north wall guard<on the left finger>: a signet ring
 M 0 31202 4 31291 1	* a north wall guard (Heading Along the Battlements)
-E 0 31200 0 16		*	an ornate Longsword: wielded
-E 0 31201 0 5		*	an ornate Breastplate: on the body
-E 0 31202 0 14		*	an ornate Bracer: on the left wrist
-E 0 31202 0 15		*	an ornate Bracer: on the right wrist
-E 0 31203 0 3		*	a black cloak with gold trim: around the neck
-E 0 31204 0 6		*	an ornate helm: over the head
-E 0 31205 0 11		*	an ornate shield: as a shield
-E 0 31206 0 17		*	a throwing spear: held in the hands
-E 0 31207 0 1		*	a signet ring: on the left finger
+E 0 31200 0 16		*	a north wall guard<wielded>: an ornate Longsword
+E 0 31201 0 5		*	a north wall guard<on the body>: an ornate Breastplate
+E 0 31202 0 14		*	a north wall guard<on the left wrist>: an ornate Bracer
+E 0 31202 0 15		*	a north wall guard<on the right wrist>: an ornate Bracer
+E 0 31203 0 3		*	a north wall guard<around the neck>: a black cloak with gold trim
+E 0 31204 0 6		*	a north wall guard<over the head>: an ornate helm
+E 0 31205 0 11		*	a north wall guard<as a shield>: an ornate shield
+E 0 31206 0 17		*	a north wall guard<held in the hands>: a throwing spear
+E 0 31207 0 1		*	a north wall guard<on the left finger>: a signet ring
 M 0 31206 1 31291 1	* the north wall guard captain (Heading Along the Battlements)
-E 0 31200 0 16		*	an ornate Longsword: wielded
-E 0 31201 0 5		*	an ornate Breastplate: on the body
-E 0 31202 0 14		*	an ornate Bracer: on the left wrist
-E 0 31202 0 15		*	an ornate Bracer: on the right wrist
-E 0 31203 0 3		*	a black cloak with gold trim: around the neck
-E 0 31204 0 6		*	an ornate helm: over the head
-E 0 31205 0 11		*	an ornate shield: as a shield
-E 0 31206 0 17		*	a throwing spear: held in the hands
-E 0 31207 0 1		*	a signet ring: on the left finger
+E 0 31200 0 16		*	the north wall guard captain<wielded>: an ornate Longsword
+E 0 31201 0 5		*	the north wall guard captain<on the body>: an ornate Breastplate
+E 0 31202 0 14		*	the north wall guard captain<on the left wrist>: an ornate Bracer
+E 0 31202 0 15		*	the north wall guard captain<on the right wrist>: an ornate Bracer
+E 0 31203 0 3		*	the north wall guard captain<around the neck>: a black cloak with gold trim
+E 0 31204 0 6		*	the north wall guard captain<over the head>: an ornate helm
+E 0 31205 0 11		*	the north wall guard captain<as a shield>: an ornate shield
+E 0 31206 0 17		*	the north wall guard captain<held in the hands>: a throwing spear
+E 0 31207 0 1		*	the north wall guard captain<on the left finger>: a signet ring
 M 0 31202 4 31296 1	* a north wall guard (Heading Along the Battlements)
-E 0 31200 0 16		*	an ornate Longsword: wielded
-E 0 31201 0 5		*	an ornate Breastplate: on the body
-E 0 31202 0 14		*	an ornate Bracer: on the left wrist
-E 0 31202 0 15		*	an ornate Bracer: on the right wrist
-E 0 31203 0 3		*	a black cloak with gold trim: around the neck
-E 0 31204 0 6		*	an ornate helm: over the head
-E 0 31205 0 11		*	an ornate shield: as a shield
-E 0 31206 0 17		*	a throwing spear: held in the hands
-E 0 31207 0 1		*	a signet ring: on the left finger
+E 0 31200 0 16		*	a north wall guard<wielded>: an ornate Longsword
+E 0 31201 0 5		*	a north wall guard<on the body>: an ornate Breastplate
+E 0 31202 0 14		*	a north wall guard<on the left wrist>: an ornate Bracer
+E 0 31202 0 15		*	a north wall guard<on the right wrist>: an ornate Bracer
+E 0 31203 0 3		*	a north wall guard<around the neck>: a black cloak with gold trim
+E 0 31204 0 6		*	a north wall guard<over the head>: an ornate helm
+E 0 31205 0 11		*	a north wall guard<as a shield>: an ornate shield
+E 0 31206 0 17		*	a north wall guard<held in the hands>: a throwing spear
+E 0 31207 0 1		*	a north wall guard<on the left finger>: a signet ring
 M 0 31201 4 31297 1	* a south wall guard (Heading Along the Battlements)
-E 0 31200 0 16		*	an ornate Longsword: wielded
-E 0 31201 0 5		*	an ornate Breastplate: on the body
-E 0 31202 0 14		*	an ornate Bracer: on the left wrist
-E 0 31202 0 15		*	an ornate Bracer: on the right wrist
-E 0 31203 0 3		*	a black cloak with gold trim: around the neck
-E 0 31204 0 6		*	an ornate helm: over the head
-E 0 31205 0 11		*	an ornate shield: as a shield
-E 0 31206 0 17		*	a throwing spear: held in the hands
-E 0 31207 0 1		*	a signet ring: on the left finger
+E 0 31200 0 16		*	a south wall guard<wielded>: an ornate Longsword
+E 0 31201 0 5		*	a south wall guard<on the body>: an ornate Breastplate
+E 0 31202 0 14		*	a south wall guard<on the left wrist>: an ornate Bracer
+E 0 31202 0 15		*	a south wall guard<on the right wrist>: an ornate Bracer
+E 0 31203 0 3		*	a south wall guard<around the neck>: a black cloak with gold trim
+E 0 31204 0 6		*	a south wall guard<over the head>: an ornate helm
+E 0 31205 0 11		*	a south wall guard<as a shield>: an ornate shield
+E 0 31206 0 17		*	a south wall guard<held in the hands>: a throwing spear
+E 0 31207 0 1		*	a south wall guard<on the left finger>: a signet ring
 M 0 31205 1 31300 1	* the south wall guard captain (Heading Along the Battlements)
-E 0 31200 0 16		*	an ornate Longsword: wielded
-E 0 31201 0 5		*	an ornate Breastplate: on the body
-E 0 31202 0 14		*	an ornate Bracer: on the left wrist
-E 0 31202 0 15		*	an ornate Bracer: on the right wrist
-E 0 31203 0 3		*	a black cloak with gold trim: around the neck
-E 0 31204 0 6		*	an ornate helm: over the head
-E 0 31205 0 11		*	an ornate shield: as a shield
-E 0 31206 0 17		*	a throwing spear: held in the hands
-E 0 31207 0 1		*	a signet ring: on the left finger
+E 0 31200 0 16		*	the south wall guard captain<wielded>: an ornate Longsword
+E 0 31201 0 5		*	the south wall guard captain<on the body>: an ornate Breastplate
+E 0 31202 0 14		*	the south wall guard captain<on the left wrist>: an ornate Bracer
+E 0 31202 0 15		*	the south wall guard captain<on the right wrist>: an ornate Bracer
+E 0 31203 0 3		*	the south wall guard captain<around the neck>: a black cloak with gold trim
+E 0 31204 0 6		*	the south wall guard captain<over the head>: an ornate helm
+E 0 31205 0 11		*	the south wall guard captain<as a shield>: an ornate shield
+E 0 31206 0 17		*	the south wall guard captain<held in the hands>: a throwing spear
+E 0 31207 0 1		*	the south wall guard captain<on the left finger>: a signet ring
 M 0 31201 4 31302 1	* a south wall guard (Heading Along the Battlements)
-E 0 31200 0 16		*	an ornate Longsword: wielded
-E 0 31201 0 5		*	an ornate Breastplate: on the body
-E 0 31202 0 14		*	an ornate Bracer: on the left wrist
-E 0 31202 0 15		*	an ornate Bracer: on the right wrist
-E 0 31203 0 3		*	a black cloak with gold trim: around the neck
-E 0 31204 0 6		*	an ornate helm: over the head
-E 0 31205 0 11		*	an ornate shield: as a shield
-E 0 31206 0 17		*	a throwing spear: held in the hands
-E 0 31207 0 1		*	a signet ring: on the left finger
+E 0 31200 0 16		*	a south wall guard<wielded>: an ornate Longsword
+E 0 31201 0 5		*	a south wall guard<on the body>: an ornate Breastplate
+E 0 31202 0 14		*	a south wall guard<on the left wrist>: an ornate Bracer
+E 0 31202 0 15		*	a south wall guard<on the right wrist>: an ornate Bracer
+E 0 31203 0 3		*	a south wall guard<around the neck>: a black cloak with gold trim
+E 0 31204 0 6		*	a south wall guard<over the head>: an ornate helm
+E 0 31205 0 11		*	a south wall guard<as a shield>: an ornate shield
+E 0 31206 0 17		*	a south wall guard<held in the hands>: a throwing spear
+E 0 31207 0 1		*	a south wall guard<on the left finger>: a signet ring
 M 0 31201 4 31307 1	* a south wall guard (Heading Along the Battlements)
-E 0 31200 0 16		*	an ornate Longsword: wielded
-E 0 31201 0 5		*	an ornate Breastplate: on the body
-E 0 31202 0 14		*	an ornate Bracer: on the left wrist
-E 0 31202 0 15		*	an ornate Bracer: on the right wrist
-E 0 31203 0 3		*	a black cloak with gold trim: around the neck
-E 0 31204 0 6		*	an ornate helm: over the head
-E 0 31205 0 11		*	an ornate shield: as a shield
-E 0 31206 0 17		*	a throwing spear: held in the hands
-E 0 31207 0 1		*	a signet ring: on the left finger
+E 0 31200 0 16		*	a south wall guard<wielded>: an ornate Longsword
+E 0 31201 0 5		*	a south wall guard<on the body>: an ornate Breastplate
+E 0 31202 0 14		*	a south wall guard<on the left wrist>: an ornate Bracer
+E 0 31202 0 15		*	a south wall guard<on the right wrist>: an ornate Bracer
+E 0 31203 0 3		*	a south wall guard<around the neck>: a black cloak with gold trim
+E 0 31204 0 6		*	a south wall guard<over the head>: an ornate helm
+E 0 31205 0 11		*	a south wall guard<as a shield>: an ornate shield
+E 0 31206 0 17		*	a south wall guard<held in the hands>: a throwing spear
+E 0 31207 0 1		*	a south wall guard<on the left finger>: a signet ring
 M 0 31204 1 31308 1	* the east wall guard captain (Northwest Tower)
-E 0 31200 0 16		*	an ornate Longsword: wielded
-E 0 31201 0 5		*	an ornate Breastplate: on the body
-E 0 31202 0 14		*	an ornate Bracer: on the left wrist
-E 0 31202 0 15		*	an ornate Bracer: on the right wrist
-E 0 31203 0 3		*	a black cloak with gold trim: around the neck
-E 0 31204 0 6		*	an ornate helm: over the head
-E 0 31205 0 11		*	an ornate shield: as a shield
-E 0 31206 0 17		*	a throwing spear: held in the hands
-E 0 31207 0 1		*	a signet ring: on the left finger
+E 0 31200 0 16		*	the east wall guard captain<wielded>: an ornate Longsword
+E 0 31201 0 5		*	the east wall guard captain<on the body>: an ornate Breastplate
+E 0 31202 0 14		*	the east wall guard captain<on the left wrist>: an ornate Bracer
+E 0 31202 0 15		*	the east wall guard captain<on the right wrist>: an ornate Bracer
+E 0 31203 0 3		*	the east wall guard captain<around the neck>: a black cloak with gold trim
+E 0 31204 0 6		*	the east wall guard captain<over the head>: an ornate helm
+E 0 31205 0 11		*	the east wall guard captain<as a shield>: an ornate shield
+E 0 31206 0 17		*	the east wall guard captain<held in the hands>: a throwing spear
+E 0 31207 0 1		*	the east wall guard captain<on the left finger>: a signet ring
 M 0 31208 1 31309 1	* a knight (Southwest Tower)
-E 0 31208 0 5		*	a suit of plate mail: on the body
-E 0 31209 0 16		*	a finely-made broadsword: wielded
-E 0 31210 0 11		*	a knight's shield: as a shield
-E 0 31211 0 6		*	a knight's helm: over the head
-E 0 31212 0 9		*	a pair of mail gauntlets: on the hands
-E 0 31213 0 1		*	a holy signet ring: on the left finger
+E 0 31208 0 5		*	a knight<on the body>: a suit of plate mail
+E 0 31209 0 16		*	a knight<wielded>: a finely-made broadsword
+E 0 31210 0 11		*	a knight<as a shield>: a knight's shield
+E 0 31211 0 6		*	a knight<over the head>: a knight's helm
+E 0 31212 0 9		*	a knight<on the hands>: a pair of mail gauntlets
+E 0 31213 0 1		*	a knight<on the left finger>: a holy signet ring
 M 0 31207 1 31310 1	* the west wall guard captain (Southeast Tower)
-E 0 31200 0 16		*	an ornate Longsword: wielded
-E 0 31201 0 5		*	an ornate Breastplate: on the body
-E 0 31202 0 14		*	an ornate Bracer: on the left wrist
-E 0 31202 0 15		*	an ornate Bracer: on the right wrist
-E 0 31203 0 3		*	a black cloak with gold trim: around the neck
-E 0 31204 0 6		*	an ornate helm: over the head
-E 0 31205 0 11		*	an ornate shield: as a shield
-E 0 31206 0 17		*	a throwing spear: held in the hands
-E 0 31207 0 1		*	a signet ring: on the left finger
+E 0 31200 0 16		*	the west wall guard captain<wielded>: an ornate Longsword
+E 0 31201 0 5		*	the west wall guard captain<on the body>: an ornate Breastplate
+E 0 31202 0 14		*	the west wall guard captain<on the left wrist>: an ornate Bracer
+E 0 31202 0 15		*	the west wall guard captain<on the right wrist>: an ornate Bracer
+E 0 31203 0 3		*	the west wall guard captain<around the neck>: a black cloak with gold trim
+E 0 31204 0 6		*	the west wall guard captain<over the head>: an ornate helm
+E 0 31205 0 11		*	the west wall guard captain<as a shield>: an ornate shield
+E 0 31206 0 17		*	the west wall guard captain<held in the hands>: a throwing spear
+E 0 31207 0 1		*	the west wall guard captain<on the left finger>: a signet ring
 M 0 31214 1 31311 1	* a ghost (A Dusty Chamber)
 M 0 31210 1 31312 1	* the marshal (The Top of Northwest Tower)
-E 0 31214 0 5		*	the marshal's uniform: on the body
-E 0 31215 0 17		*	the marshal's swagger stick: held in the hands
+E 0 31214 0 5		*	the marshal<on the body>: the marshal's uniform
+E 0 31215 0 17		*	the marshal<held in the hands>: the marshal's swagger stick
 O 0 31226 0 31312	* a footlocker (The Top of Northwest Tower)
-P 0 31224 1 31226 1	* a footlocker: an old key
-P 0 31225 1 31226 1	* a footlocker: an old scroll
+P 0 31224 1 0 1	* a footlocker: an old key
+P 0 31225 1 0 1	* a footlocker: an old scroll
 O 0 31227 0 31312	* an ancient tapestry (The Top of Northwest Tower)
 M 0 31209 1 31314 1	* an elven battle mage (The Battlemages' Quarters)
-E 0 31241 0 1		*	a ring of wizardry: on the left finger
-E 0 31242 0 17		*	a staff of power: held in the hands
-E 0 31243 0 12		*	a white robe of the magi: about the shoulders
-E 0 31244 0 8		*	a pair of boots of speed: on the feet
+E 0 31241 0 1		*	an elven battle mage<on the left finger>: a ring of wizardry
+E 0 31242 0 17		*	an elven battle mage<held in the hands>: a staff of power
+E 0 31243 0 12		*	an elven battle mage<about the shoulders>: a white robe of the magi
+E 0 31244 0 8		*	an elven battle mage<on the feet>: a pair of boots of speed
 O 0 31228 0 31314	* an ancient tapestry (The Battlemages' Quarters)
 M 0 31215 1 31316 1	* a priestess of Lenny (The Healing Chambers)
 O 0 31229 0 31316	* an ancient tapestry (The Healing Chambers)
 M 0 31213 1 31318 1	* a vile spectre (A Dusty Chamber)
-E 0 31245 0 5		*	a suit of invincible plate: on the body
+E 0 31245 0 5		*	a vile spectre<on the body>: a suit of invincible plate
 O 0 31230 0 31318	* an ancient tapestry (A Dusty Chamber)
 M 0 31058 1 31320 1	* Clea the Artificer (The Artificer's Workshop)
 M 0 31059 1 31321 1	* Xanafax (The Book Shoppe)
-G 0 31086 0		*	a Tome of Political History
-G 0 31087 0		*	a Tome of Social History
-G 0 31088 0		*	a History book
-G 0 31089 0		*	a Geography text
-G 0 31090 0		*	Xanafax's Compendium of Heroes
+G 0 31086 0		*	Xanafax: a Tome of Political History
+G 0 31087 0		*	Xanafax: a Tome of Social History
+G 0 31088 0		*	Xanafax: a History book
+G 0 31089 0		*	Xanafax: a Geography text
+G 0 31090 0		*	Xanafax: Xanafax's Compendium of Heroes
 M 0 31060 1 31322 1	* Dwart (The Locksmith)
-G 0 31001 0		*	a bronze key
-G 0 31085 0		*	a key to the portal chambers
+G 0 31001 0		*	Dwart: a bronze key
+G 0 31085 0		*	Dwart: a key to the portal chambers
 M 0 31061 1 31323 1	* Thom the Enhancer (Enhancing Shop)
 S
 

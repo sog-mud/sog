@@ -2383,8 +2383,6 @@ S
 #0
 
 #RESETS
-D 0 24367 5 2	* Within a Centaur Hut: door to the down: closed and locked
-D 0 24373 4 2	* Work room: door to the up: closed and locked
 O 0 24305 0 24300	* a steel-tipped spear (Entrance to the Dying Forest)
 O 0 24305 0 24300	* a steel-tipped spear (Entrance to the Dying Forest)
 O 0 24305 0 24300	* a steel-tipped spear (Entrance to the Dying Forest)
@@ -2408,16 +2406,16 @@ M 0 24313 7 24315 2	* a dryad (Within the Dying Forest)
 M 0 24313 7 24315 2	* a dryad (Within the Dying Forest)
 M 0 24312 7 24316 2	* a centaur scout (Within the Dying Forest)
 M 0 24301 18 24317 4	* a centaur guardian (Within the Dying Forest)
-E 0 24302 0 6		*	a centaur helm: over the head
+E 0 24302 0 6		*	a centaur guardian<over the head>: a centaur helm
 M 0 24312 7 24317 2	* a centaur scout (Within the Dying Forest)
 M 0 24314 12 24318 3	* a centaur (Within the Dying Forest)
 M 0 24314 12 24318 3	* a centaur (Within the Dying Forest)
 M 0 24301 18 24319 4	* a centaur guardian (Within the Dying Forest)
-E 0 24301 0 14		*	a steel centaur bracer: on the left wrist
-E 0 24300 0 10		*	a pair of centaur armguards: on the arms
+E 0 24301 0 14		*	a centaur guardian<on the left wrist>: a steel centaur bracer
+E 0 24300 0 10		*	a centaur guardian<on the arms>: a pair of centaur armguards
 M 0 24301 18 24319 4	* a centaur guardian (Within the Dying Forest)
-E 0 24301 0 14		*	a steel centaur bracer: on the left wrist
-E 0 24300 0 10		*	a pair of centaur armguards: on the arms
+E 0 24301 0 14		*	a centaur guardian<on the left wrist>: a steel centaur bracer
+E 0 24300 0 10		*	a centaur guardian<on the arms>: a pair of centaur armguards
 M 0 24312 7 24319 2	* a centaur scout (Within the Dying Forest)
 M 0 24314 12 24319 3	* a centaur (Within the Dying Forest)
 M 0 24314 12 24320 3	* a centaur (Within the Dying Forest)
@@ -2426,13 +2424,13 @@ M 0 24312 7 24321 2	* a centaur scout (Within the Dying Forest)
 M 0 24315 8 24321 3	* a dark stalker (Within the Dying Forest)
 M 0 24305 10 24322 2	* an anti-ranger (Within the Dying Forest)
 M 0 24310 1 24322 1	* Metagar (Within the Dying Forest)
-E 0 24309 0 16		*	Fist of the Earth: wielded
+E 0 24309 0 16		*	Metagar<wielded>: Fist of the Earth
 M 0 24305 10 24323 2	* an anti-ranger (Within the Dying Forest)
 M 0 24311 1 24323 1	* Lethrak (Within the Dying Forest)
 M 0 24315 8 24323 3	* a dark stalker (Within the Dying Forest)
 M 0 24316 6 24324 3	* a marauder troll (Within the Dying Forest)
 M 0 24305 10 24325 2	* an anti-ranger (Within the Dying Forest)
-E 0 24308 0 16		*	a blackened bastard sword: wielded
+E 0 24308 0 16		*	an anti-ranger<wielded>: a blackened bastard sword
 M 0 24315 8 24325 3	* a dark stalker (Within the Dying Forest)
 M 0 24305 10 24326 3	* an anti-ranger (Within the Dying Forest)
 M 0 24305 10 24326 3	* an anti-ranger (Within the Dying Forest)
@@ -2450,40 +2448,40 @@ M 0 24306 10 24333 1	* a greater Forest naga (Within the Dying Forest)
 M 0 24316 6 24333 3	* a marauder troll (Within the Dying Forest)
 M 0 24307 1 24335 1	* Rimlarker (Within the Dying Forest)
 M 0 24301 18 24336 4	* a centaur guardian (Within the Dying Forest)
-E 0 24302 0 6		*	a centaur helm: over the head
+E 0 24302 0 6		*	a centaur guardian<over the head>: a centaur helm
 M 0 24314 12 24336 3	* a centaur (Within the Dying Forest)
 M 0 24314 12 24336 3	* a centaur (Within the Dying Forest)
 M 0 24301 18 24337 4	* a centaur guardian (Within the Dying Forest)
-E 0 24300 0 10		*	a pair of centaur armguards: on the arms
-E 0 24302 0 6		*	a centaur helm: over the head
+E 0 24300 0 10		*	a centaur guardian<on the arms>: a pair of centaur armguards
+E 0 24302 0 6		*	a centaur guardian<over the head>: a centaur helm
 M 0 24301 18 24337 4	* a centaur guardian (Within the Dying Forest)
-E 0 24302 0 6		*	a centaur helm: over the head
+E 0 24302 0 6		*	a centaur guardian<over the head>: a centaur helm
 M 0 24313 7 24337 2	* a dryad (Within the Dying Forest)
 M 0 24301 18 24338 4	* a centaur guardian (Within the Dying Forest)
-E 0 24301 0 14		*	a steel centaur bracer: on the left wrist
-E 0 24300 0 10		*	a pair of centaur armguards: on the arms
+E 0 24301 0 14		*	a centaur guardian<on the left wrist>: a steel centaur bracer
+E 0 24300 0 10		*	a centaur guardian<on the arms>: a pair of centaur armguards
 M 0 24314 12 24338 3	* a centaur (Within the Dying Forest)
 M 0 24301 18 24339 4	* a centaur guardian (Within the Dying Forest)
-E 0 24301 0 14		*	a steel centaur bracer: on the left wrist
+E 0 24301 0 14		*	a centaur guardian<on the left wrist>: a steel centaur bracer
 M 0 24314 12 24339 3	* a centaur (Within the Dying Forest)
 M 0 24301 18 24341 4	* a centaur guardian (Within the Dying Forest)
-E 0 24302 0 6		*	a centaur helm: over the head
+E 0 24302 0 6		*	a centaur guardian<over the head>: a centaur helm
 M 0 24301 18 24341 4	* a centaur guardian (Within the Dying Forest)
-E 0 24300 0 10		*	a pair of centaur armguards: on the arms
+E 0 24300 0 10		*	a centaur guardian<on the arms>: a pair of centaur armguards
 M 0 24301 18 24342 4	* a centaur guardian (Within the Dying Forest)
-E 0 24300 0 10		*	a pair of centaur armguards: on the arms
-E 0 24301 0 14		*	a steel centaur bracer: on the left wrist
-E 0 24301 0 15		*	a steel centaur bracer: on the right wrist
-E 0 24302 0 6		*	a centaur helm: over the head
+E 0 24300 0 10		*	a centaur guardian<on the arms>: a pair of centaur armguards
+E 0 24301 0 14		*	a centaur guardian<on the left wrist>: a steel centaur bracer
+E 0 24301 0 15		*	a centaur guardian<on the right wrist>: a steel centaur bracer
+E 0 24302 0 6		*	a centaur guardian<over the head>: a centaur helm
 M 0 24314 12 24342 3	* a centaur (Within the Dying Forest)
 M 0 24301 18 24344 4	* a centaur guardian (Within the Dying Forest)
-E 0 24300 0 10		*	a pair of centaur armguards: on the arms
+E 0 24300 0 10		*	a centaur guardian<on the arms>: a pair of centaur armguards
 M 0 24301 18 24345 4	* a centaur guardian (Within the Dying Forest)
-E 0 24300 0 10		*	a pair of centaur armguards: on the arms
-E 0 24302 0 6		*	a centaur helm: over the head
+E 0 24300 0 10		*	a centaur guardian<on the arms>: a pair of centaur armguards
+E 0 24302 0 6		*	a centaur guardian<over the head>: a centaur helm
 M 0 24314 12 24346 3	* a centaur (Within the Dying Forest)
 M 0 24301 18 24347 4	* a centaur guardian (Within the Dying Forest)
-E 0 24301 0 14		*	a steel centaur bracer: on the left wrist
+E 0 24301 0 14		*	a centaur guardian<on the left wrist>: a steel centaur bracer
 M 0 24302 9 24347 2	* centaur ranger (Within the Dying Forest)
 M 0 24302 1 24347 1	* centaur ranger (Within the Dying Forest)
 M 0 24302 1 24347 1	* centaur ranger (Within the Dying Forest)
@@ -2508,33 +2506,33 @@ M 0 24302 9 24351 2	* centaur ranger (Within a Centaur Hut)
 M 0 24303 5 24351 1	* a centaur captain (Within a Centaur Hut)
 M 0 24302 9 24352 2	* centaur ranger (Within a Centaur Settlement)
 M 0 24301 18 24353 4	* a centaur guardian (Within a Centaur Hut)
-E 0 24300 0 10		*	a pair of centaur armguards: on the arms
+E 0 24300 0 10		*	a centaur guardian<on the arms>: a pair of centaur armguards
 M 0 24302 9 24353 2	* centaur ranger (Within a Centaur Hut)
 M 0 24302 9 24355 2	* centaur ranger (Within a Centaur Settlement)
 M 0 24301 18 24356 4	* a centaur guardian (Within a Centaur Settlement)
-E 0 24300 0 10		*	a pair of centaur armguards: on the arms
+E 0 24300 0 10		*	a centaur guardian<on the arms>: a pair of centaur armguards
 M 0 24303 5 24359 1	* a centaur captain (Within a Centaur Hut)
 M 0 24303 5 24360 1	* a centaur captain (Within a Centaur Hut)
 M 0 24302 9 24362 2	* centaur ranger (Within a Centaur Settlement)
 M 0 24301 18 24363 4	* a centaur guardian (Within a Centaur Settlement)
-E 0 24300 0 10		*	a pair of centaur armguards: on the arms
+E 0 24300 0 10		*	a centaur guardian<on the arms>: a pair of centaur armguards
 M 0 24302 9 24364 2	* centaur ranger (Within a Centaur Settlement)
 M 0 24303 5 24365 1	* a centaur captain (Within a Centaur Hut)
 M 0 24304 1 24366 1	* the Centaur Leader (Within a Centaur Hut)
-E 0 24305 0 16		*	a steel-tipped spear: wielded
-E 0 24306 0 6		*	a circlet of braided centaur hair: over the head
+E 0 24305 0 16		*	the Centaur Leader<wielded>: a steel-tipped spear
+E 0 24306 0 6		*	the Centaur Leader<over the head>: a circlet of braided centaur hair
 M 0 24301 18 24367 4	* a centaur guardian (Within a Centaur Hut)
-E 0 24302 0 6		*	a centaur helm: over the head
+E 0 24302 0 6		*	a centaur guardian<over the head>: a centaur helm
 M 0 24302 9 24367 2	* centaur ranger (Within a Centaur Hut)
 M 0 24303 5 24367 1	* a centaur captain (Within a Centaur Hut)
-E 0 24308 0 16		*	a blackened bastard sword: wielded
+E 0 24308 0 16		*	a centaur captain<wielded>: a blackened bastard sword
 M 0 24313 1 24367 1	* a dryad (Within a Centaur Hut)
 M 0 24313 1 24367 1	* a dryad (Within a Centaur Hut)
 M 0 24306 10 24369 1	* a greater Forest naga (Within the Dying Forest)
 M 0 24315 8 24370 3	* a dark stalker (Within the Dying Forest)
 M 0 24306 10 24371 1	* a greater Forest naga (Within the Dying Forest)
 M 0 24308 1 24371 1	* Medagar (Within the Dying Forest)
-E 0 24312 0 12		*	a casing of ebonwood bark: about the shoulders
+E 0 24312 0 12		*	Medagar<about the shoulders>: a casing of ebonwood bark
 M 0 24306 10 24372 1	* a greater Forest naga (Within the Dying Forest)
 S
 

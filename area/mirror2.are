@@ -7517,61 +7517,34 @@ M 19068 spec_cast_adept	* Jerry Garcia
 S
 
 #RESETS
-D 0 19005 0 1	* Before the Face of the Mountain: door to the north: closed
-D 0 19006 2 1	* The Path Above the Realm: door to the south: closed
-D 0 19026 3 1	* Floating Beside the Left Wall: door to the west: closed
-D 0 19031 2 1	* Entrance to the Castle: door to the south: closed
-D 0 19042 1 1	* An Alcove: door to the east: closed
-D 0 19043 3 1	* An Alcove: door to the west: closed
-D 0 19045 3 1	* The Foot of the Rock Ladder: door to the west: closed
-D 0 19048 1 1	* Intersection in the Garden: door to the east: closed
-D 0 19067 4 1	* The Gazebo: door to the up: closed
-D 0 19079 4 1	* Entrance to the Rainbow Tower: door to the up: closed
-D 0 19080 4 2	* The Red Room: door to the up: closed and locked
-D 0 19081 4 2	* The Orange Room: door to the up: closed and locked
-D 0 19082 4 2	* The Yellow Room: door to the up: closed and locked
-D 0 19083 4 2	* The Green Room: door to the up: closed and locked
-D 0 19084 4 2	* The Blue Room: door to the up: closed and locked
-D 0 19085 4 2	* The Violet Room: door to the up: closed and locked
-D 0 19108 1 1	* The Foot of the Rock Ladder : door to the east: closed
-D 0 19123 4 1	* Inside the Dark Tower: door to the up: closed
-D 0 19124 4 1	* Inside the Dark Tower: door to the up: closed
-D 0 19125 4 1	* Inside the Dark Tower: door to the up: closed
-D 0 19126 4 1	* Inside the Dark Tower: door to the up: closed
-D 0 19137 5 1	* The Forest : door to the down: closed
-D 0 19138 4 1	* The Tree House: door to the up: closed
-D 0 19157 0 1	* Inside the House: The Kitchen: door to the north: closed
-D 0 19157 1 1	* Inside the House: The Kitchen: door to the east: closed
-D 0 19160 3 1	* The Bedroom: door to the west: closed
-D 0 19163 0 1	* The Green Altar: door to the north: closed
 O 0 19039 0 19005	* a brass plaque (Before the Face of the Mountain)
 M 0 19008 2 19005 1	* a watchman (Before the Face of the Mountain)
-E 0 19040 0 5		*	a brown robe: on the body
+E 0 19040 0 5		*	a watchman<on the body>: a brown robe
 M 0 19008 2 19005 1	* a watchman (Before the Face of the Mountain)
-E 0 19040 0 5		*	a brown robe: on the body
+E 0 19040 0 5		*	a watchman<on the body>: a brown robe
 M 0 19009 1 19009 1	* a watchman (Inside a Watchtower)
-E 0 19040 0 5		*	a brown robe: on the body
-E 0 19085 0 16		*	a thick wooden staff: wielded
+E 0 19040 0 5		*	a watchman<on the body>: a brown robe
+E 0 19085 0 16		*	a watchman<wielded>: a thick wooden staff
 O 0 19041 0 19009	* a telescope (Inside a Watchtower)
 M 0 19010 1 19010 1	* a watchman (Inside a Watchtower)
-E 0 19040 0 5		*	a brown robe: on the body
-E 0 19085 0 16		*	a thick wooden staff: wielded
+E 0 19040 0 5		*	a watchman<on the body>: a brown robe
+E 0 19085 0 16		*	a watchman<wielded>: a thick wooden staff
 O 0 19042 0 19010	* a telescope (Inside a Watchtower)
 O 0 19005 0 19020	* a throne (The King's Alcove)
 M 0 19003 1 19020 1	* King Loranhir (The King's Alcove)
-E 0 19006 0 5		*	a grey robe: on the body
+E 0 19006 0 5		*	King Loranhir<on the body>: a grey robe
 M 0 19001 2 19031 1	* the mirror guardian (Entrance to the Castle)
-E 0 19002 0 5		*	a mirrored plate of armor: on the body
-E 0 19004 0 6		*	a chainmail cowl: over the head
-E 0 19001 0 11		*	a mirrored shield: as a shield
-E 0 19003 0 16		*	a shiny silver sword: wielded
-E 0 19086 0 7		*	a set of mirrored leggings: on the legs
+E 0 19002 0 5		*	the mirror guardian<on the body>: a mirrored plate of armor
+E 0 19004 0 6		*	the mirror guardian<over the head>: a chainmail cowl
+E 0 19001 0 11		*	the mirror guardian<as a shield>: a mirrored shield
+E 0 19003 0 16		*	the mirror guardian<wielded>: a shiny silver sword
+E 0 19086 0 7		*	the mirror guardian<on the legs>: a set of mirrored leggings
 M 0 19001 2 19031 1	* the mirror guardian (Entrance to the Castle)
-E 0 19002 0 5		*	a mirrored plate of armor: on the body
-E 0 19004 0 6		*	a chainmail cowl: over the head
-E 0 19001 0 11		*	a mirrored shield: as a shield
-E 0 19003 0 16		*	a shiny silver sword: wielded
-E 0 19086 0 7		*	a set of mirrored leggings: on the legs
+E 0 19002 0 5		*	the mirror guardian<on the body>: a mirrored plate of armor
+E 0 19004 0 6		*	the mirror guardian<over the head>: a chainmail cowl
+E 0 19001 0 11		*	the mirror guardian<as a shield>: a mirrored shield
+E 0 19003 0 16		*	the mirror guardian<wielded>: a shiny silver sword
+E 0 19086 0 7		*	the mirror guardian<on the legs>: a set of mirrored leggings
 R 0 19032 4	* Mirrors: randomize
 R 0 19033 4	* Mirrors: randomize
 R 0 19034 4	* Mirrors: randomize
@@ -7582,254 +7555,254 @@ R 0 19038 4	* Mirrors: randomize
 R 0 19039 4	* Mirrors: randomize
 R 0 19040 4	* Mirrors: randomize
 M 0 19001 1 19041 1	* the mirror guardian (Intersection)
-E 0 19002 0 5		*	a mirrored plate of armor: on the body
-E 0 19004 0 6		*	a chainmail cowl: over the head
-E 0 19001 0 11		*	a mirrored shield: as a shield
-E 0 19003 0 16		*	a shiny silver sword: wielded
+E 0 19002 0 5		*	the mirror guardian<on the body>: a mirrored plate of armor
+E 0 19004 0 6		*	the mirror guardian<over the head>: a chainmail cowl
+E 0 19001 0 11		*	the mirror guardian<as a shield>: a mirrored shield
+E 0 19003 0 16		*	the mirror guardian<wielded>: a shiny silver sword
 M 0 19002 1 19042 1	* a withered knight (An Alcove)
-E 0 19009 0 5		*	a worn chainmail jerkin: on the body
-E 0 19007 0 6		*	the Golden Circlet: over the head
-E 0 19008 0 16		*	a bent sword: wielded
-E 0 19043 0 0		*	an oil lamp: as a light
+E 0 19009 0 5		*	a withered knight<on the body>: a worn chainmail jerkin
+E 0 19007 0 6		*	a withered knight<over the head>: the Golden Circlet
+E 0 19008 0 16		*	a withered knight<wielded>: a bent sword
+E 0 19043 0 0		*	a withered knight<as a light>: an oil lamp
 M 0 19012 1 19043 1	* a withered knight (An Alcove)
-E 0 19009 0 5		*	a worn chainmail jerkin: on the body
-E 0 19008 0 16		*	a bent sword: wielded
-E 0 19010 0 17		*	the Royal Staff: held in the hands
+E 0 19009 0 5		*	a withered knight<on the body>: a worn chainmail jerkin
+E 0 19008 0 16		*	a withered knight<wielded>: a bent sword
+E 0 19010 0 17		*	a withered knight<held in the hands>: the Royal Staff
 M 0 19018 1 19047 1	* the Yellow Lord (The Path in the Garden)
-E 0 19060 0 12		*	a yellow robe: about the shoulders
-E 0 19064 0 16		*	a prism sword: wielded
+E 0 19060 0 12		*	the Yellow Lord<about the shoulders>: a yellow robe
+E 0 19064 0 16		*	the Yellow Lord<wielded>: a prism sword
 M 0 19019 1 19049 1	* the Green Lord (Path in the Garden)
-E 0 19061 0 12		*	a forest green robe: about the shoulders
-E 0 19064 0 16		*	a prism sword: wielded
+E 0 19061 0 12		*	the Green Lord<about the shoulders>: a forest green robe
+E 0 19064 0 16		*	the Green Lord<wielded>: a prism sword
 M 0 19005 1 19050 1	* the young man (Corner of the Path)
-E 0 19015 0 16		*	a small steel knife: wielded
-G 0 19020 0		*	some coins
+E 0 19015 0 16		*	the young man<wielded>: a small steel knife
+G 0 19020 0		*	the young man: some coins
 O 0 19094 0 19050	* a nectarine tree (Corner of the Path)
+P 0 19095 100 0 1	* a nectarine tree: a nectarine
+P 0 19095 100 0 1	* a nectarine tree: a nectarine
+P 0 19149 100 0 1	* a nectarine tree: the amber sigil
 O 0 19035 0 19051	* a grove of apple trees (A Grove of Trees)
-P 0 19036 100 19035 1	* a grove of apple trees: an apple
-P 0 19036 100 19035 1	* a grove of apple trees: an apple
+P 0 19036 100 0 1	* a grove of apple trees: an apple
+P 0 19036 100 0 1	* a grove of apple trees: an apple
 M 0 19037 1 19051 1	* the young boy (A Grove of Trees)
 O 0 19056 0 19053	* a small jar of pale glowing fish (Under the Gazebo)
 M 0 19006 5 19056 1	* the woman (Along the Edge of the Forest)
-E 0 19015 0 16		*	a small steel knife: wielded
-G 0 19020 0		*	some coins
+E 0 19015 0 16		*	the woman<wielded>: a small steel knife
+G 0 19020 0		*	the woman: some coins
 M 0 19017 1 19057 1	* the Orange Lord (Below the Fisherman's Hut)
-E 0 19059 0 12		*	a burnt-orange robe: about the shoulders
-E 0 19064 0 16		*	a prism sword: wielded
+E 0 19059 0 12		*	the Orange Lord<about the shoulders>: a burnt-orange robe
+E 0 19064 0 16		*	the Orange Lord<wielded>: a prism sword
 M 0 19038 1 19058 1	* the fisherman (The pond)
-E 0 19090 0 5		*	a rain slicker: on the body
-E 0 19088 0 8		*	fishing boots: on the feet
-E 0 19089 0 16		*	a gaff: wielded
-G 0 19091 0		*	a dinghy
+E 0 19090 0 5		*	the fisherman<on the body>: a rain slicker
+E 0 19088 0 8		*	the fisherman<on the feet>: fishing boots
+E 0 19089 0 16		*	the fisherman<wielded>: a gaff
+G 0 19091 0		*	the fisherman: a dinghy
 O 0 19057 0 19059	* the white goldfish (The pond)
 O 0 19037 0 19060	* a grove of plum trees (A Grove of Trees)
-P 0 19038 100 19037 1	* a grove of plum trees: a plum
-P 0 19038 100 19037 1	* a grove of plum trees: a plum
+P 0 19038 100 0 1	* a grove of plum trees: a plum
+P 0 19038 100 0 1	* a grove of plum trees: a plum
 M 0 19020 1 19061 1	* the Blue Lord (Bend in the Path)
-E 0 19062 0 12		*	a sea-blue robe: about the shoulders
-E 0 19064 0 16		*	a prism sword: wielded
+E 0 19062 0 12		*	the Blue Lord<about the shoulders>: a sea-blue robe
+E 0 19064 0 16		*	the Blue Lord<wielded>: a prism sword
 M 0 19021 1 19062 1	* the Violet Lord (Along the Path Behind the Buildings)
-E 0 19063 0 12		*	a violet robe: about the shoulders
-E 0 19064 0 16		*	a prism sword: wielded
+E 0 19063 0 12		*	the Violet Lord<about the shoulders>: a violet robe
+E 0 19064 0 16		*	the Violet Lord<wielded>: a prism sword
 M 0 19016 1 19064 1	* the Red Lord (Along the Path Behind the Wooden Buildings)
-E 0 19058 0 12		*	a crimson robe: about the shoulders
-E 0 19064 0 16		*	a prism sword: wielded
+E 0 19058 0 12		*	the Red Lord<about the shoulders>: a crimson robe
+E 0 19064 0 16		*	the Red Lord<wielded>: a prism sword
 M 0 19022 1 19065 1	* the gardener (Path to the Forest)
-E 0 19065 0 16		*	a hoe: wielded
+E 0 19065 0 16		*	the gardener<wielded>: a hoe
 M 0 19014 1 19067 1	* the bride (The Gazebo)
-E 0 19054 0 1		*	a diamond engagement ring: on the left finger
-E 0 19051 0 5		*	a wedding dress: on the body
-E 0 19053 0 6		*	a thin white veil: over the head
-E 0 19052 0 8		*	a pair of white shoes: on the feet
-E 0 19055 0 17		*	a corsage: held in the hands
+E 0 19054 0 1		*	the bride<on the left finger>: a diamond engagement ring
+E 0 19051 0 5		*	the bride<on the body>: a wedding dress
+E 0 19053 0 6		*	the bride<over the head>: a thin white veil
+E 0 19052 0 8		*	the bride<on the feet>: a pair of white shoes
+E 0 19055 0 17		*	the bride<held in the hands>: a corsage
 M 0 19015 1 19067 1	* the groom (The Gazebo)
-E 0 19050 0 1		*	an engagement band: on the left finger
-E 0 19045 0 3		*	a black bow tie: around the neck
-E 0 19046 0 5		*	a crisp white shirt: on the body
-E 0 19047 0 7		*	a pair of black dress pants: on the legs
-E 0 19049 0 8		*	a pair of black shoes: on the feet
-E 0 19044 0 12		*	a formal white jacket: about the shoulders
-E 0 19048 0 13		*	a cummerbund: around the waist
+E 0 19050 0 1		*	the groom<on the left finger>: an engagement band
+E 0 19045 0 3		*	the groom<around the neck>: a black bow tie
+E 0 19046 0 5		*	the groom<on the body>: a crisp white shirt
+E 0 19047 0 7		*	the groom<on the legs>: a pair of black dress pants
+E 0 19049 0 8		*	the groom<on the feet>: a pair of black shoes
+E 0 19044 0 12		*	the groom<about the shoulders>: a formal white jacket
+E 0 19048 0 13		*	the groom<around the waist>: a cummerbund
 M 0 19023 1 19067 1	* Brother Thomas (The Gazebo)
-E 0 19066 0 12		*	a white robe: about the shoulders
+E 0 19066 0 12		*	Brother Thomas<about the shoulders>: a white robe
 M 0 19004 1 19068 1	* Caerlin (Center of the Street)
-E 0 19014 0 3		*	a bard's amulet: around the neck
-E 0 19061 0 12		*	a forest green robe: about the shoulders
-E 0 19011 0 17		*	a silver harp: held in the hands
+E 0 19014 0 3		*	Caerlin<around the neck>: a bard's amulet
+E 0 19061 0 12		*	Caerlin<about the shoulders>: a forest green robe
+E 0 19011 0 17		*	Caerlin<held in the hands>: a silver harp
 M 0 19006 2 19069 1	* the woman (The Street)
-E 0 19015 0 16		*	a small steel knife: wielded
-G 0 19020 0		*	some coins
+E 0 19015 0 16		*	the woman<wielded>: a small steel knife
+G 0 19020 0		*	the woman: some coins
 M 0 19024 1 19070 1	* a standard issue wizard (The Sorcery)
-E 0 19080 0 6		*	a wizard's peaked cap: over the head
-E 0 19081 0 12		*	a wizard's cloak: about the shoulders
-E 0 19092 0 17		*	a "Wizard's Finishing School" diploma: held in the hands
-G 0 19021 0		*	a clear potion of invisibility
-G 0 19018 0		*	a flask of holy water
-G 0 19016 0		*	a potion of human flight
-G 0 19067 0		*	a poultice of detection
+E 0 19080 0 6		*	a standard issue wizard<over the head>: a wizard's peaked cap
+E 0 19081 0 12		*	a standard issue wizard<about the shoulders>: a wizard's cloak
+E 0 19092 0 17		*	a standard issue wizard<held in the hands>: a "Wizard's Finishing School" diploma
+G 0 19021 0		*	a standard issue wizard: a clear potion of invisibility
+G 0 19018 0		*	a standard issue wizard: a flask of holy water
+G 0 19016 0		*	a standard issue wizard: a potion of human flight
+G 0 19067 0		*	a standard issue wizard: a poultice of detection
 O 0 19013 0 19071	* a pool table (The bar of the Holly Bush)
 M 0 19026 1 19071 1	* Lauraine the barkeep (The bar of the Holly Bush)
-G 0 19070 0		*	lemonade
-G 0 19069 0		*	whisky
-G 0 19068 0		*	beer
+G 0 19070 0		*	Lauraine the barkeep: lemonade
+G 0 19069 0		*	Lauraine the barkeep: whisky
+G 0 19068 0		*	Lauraine the barkeep: beer
 M 0 19025 1 19071 1	* the pool player (The bar of the Holly Bush)
-E 0 19012 0 16		*	a pool cue: wielded
+E 0 19012 0 16		*	the pool player<wielded>: a pool cue
 O 0 19032 0 19072	* a menu (The restaurant of the Holly Bush)
 M 0 19027 1 19072 1	* the waiter (The restaurant of the Holly Bush)
-G 0 19023 0		*	steak and Yorkshire Pudding
-G 0 19024 0		*	roast Chicken
-G 0 19025 0		*	mashed potatoes
-G 0 19026 0		*	peas
-G 0 19027 0		*	baked Ham
-G 0 19029 0		*	shrimp cocktail
-G 0 19030 0		*	green salad
-G 0 19031 0		*	vegetable soup
+G 0 19023 0		*	the waiter: steak and Yorkshire Pudding
+G 0 19024 0		*	the waiter: roast Chicken
+G 0 19025 0		*	the waiter: mashed potatoes
+G 0 19026 0		*	the waiter: peas
+G 0 19027 0		*	the waiter: baked Ham
+G 0 19029 0		*	the waiter: shrimp cocktail
+G 0 19030 0		*	the waiter: green salad
+G 0 19031 0		*	the waiter: vegetable soup
 M 0 19028 1 19073 1	* Master Dunn (Master Dunn's House)
-E 0 19072 0 5		*	a black gi: on the body
-E 0 19073 0 13		*	a red master's belt: around the waist
-E 0 19071 0 16		*	a kendo: wielded
+E 0 19072 0 5		*	Master Dunn<on the body>: a black gi
+E 0 19073 0 13		*	Master Dunn<around the waist>: a red master's belt
+E 0 19071 0 16		*	Master Dunn<wielded>: a kendo
 O 0 19074 0 19073	* a fountain (Master Dunn's House)
 M 0 19005 2 19074 1	* the young man (The Street)
-E 0 19015 0 16		*	a small steel knife: wielded
-G 0 19020 0		*	some coins
+E 0 19015 0 16		*	the young man<wielded>: a small steel knife
+G 0 19020 0		*	the young man: some coins
 M 0 19029 1 19075 1	* the proprietor (The Travellers' Shop)
-G 0 19078 0		*	a pocketknife
-G 0 19077 0		*	rations
-G 0 19076 0		*	a canteen
-G 0 19075 0		*	a suitcase
-G 0 19079 0		*	a small raft
-G 0 19043 0		*	an oil lamp
-G 0 19150 0		*	a jar of honey
+G 0 19078 0		*	the proprietor: a pocketknife
+G 0 19077 0		*	the proprietor: rations
+G 0 19076 0		*	the proprietor: a canteen
+G 0 19075 0		*	the proprietor: a suitcase
+G 0 19079 0		*	the proprietor: a small raft
+G 0 19043 0		*	the proprietor: an oil lamp
+G 0 19150 0		*	the proprietor: a jar of honey
 M 0 19030 1 19076 1	* Mrs. Truxton the Librarian (The Library and Bookstore)
-E 0 19087 0 12		*	a white shawl: about the shoulders
-G 0 19134 0		*	a History of the Mirror Realm
-G 0 19135 0		*	a Book of Legends
-G 0 19136 0		*	a History of Midgaard
+E 0 19087 0 12		*	Mrs. Truxton the Librarian<about the shoulders>: a white shawl
+G 0 19134 0		*	Mrs. Truxton the Librarian: a History of the Mirror Realm
+G 0 19135 0		*	Mrs. Truxton the Librarian: a Book of Legends
+G 0 19136 0		*	Mrs. Truxton the Librarian: a History of Midgaard
 O 0 19082 0 19077	* a hymn (The Chapel)
 M 0 19031 1 19077 1	* Father Franklin (The Chapel)
-E 0 19066 0 12		*	a white robe: about the shoulders
-E 0 19083 0 1		*	a rose-colored ring: on the left finger
+E 0 19066 0 12		*	Father Franklin<about the shoulders>: a white robe
+E 0 19083 0 1		*	Father Franklin<on the left finger>: a rose-colored ring
 M 0 19007 1 19078 1	* the unicorne (Crossing the Bridge to the Rainbow Tower)
-E 0 19034 0 5		*	an ermine blanket: on the body
-E 0 19033 0 16		*	a unicorn's golden horn: wielded
+E 0 19034 0 5		*	the unicorne<on the body>: an ermine blanket
+E 0 19033 0 16		*	the unicorne<wielded>: a unicorn's golden horn
 M 0 19055 1 19080 1	* the Red Master (The Red Room)
-E 0 19122 0 6		*	a silver circlet: over the head
-E 0 19058 0 12		*	a crimson robe: about the shoulders
+E 0 19122 0 6		*	the Red Master<over the head>: a silver circlet
+E 0 19058 0 12		*	the Red Master<about the shoulders>: a crimson robe
 M 0 19056 1 19081 1	* the Amber Master (The Orange Room)
-E 0 19122 0 6		*	a silver circlet: over the head
-E 0 19059 0 12		*	a burnt-orange robe: about the shoulders
+E 0 19122 0 6		*	the Amber Master<over the head>: a silver circlet
+E 0 19059 0 12		*	the Amber Master<about the shoulders>: a burnt-orange robe
 M 0 19060 1 19082 1	* the Yellow Master (The Yellow Room)
-E 0 19122 0 6		*	a silver circlet: over the head
-E 0 19060 0 12		*	a yellow robe: about the shoulders
+E 0 19122 0 6		*	the Yellow Master<over the head>: a silver circlet
+E 0 19060 0 12		*	the Yellow Master<about the shoulders>: a yellow robe
 M 0 19057 1 19083 1	* the Green Master (The Green Room)
-E 0 19122 0 6		*	a silver circlet: over the head
-E 0 19061 0 12		*	a forest green robe: about the shoulders
+E 0 19122 0 6		*	the Green Master<over the head>: a silver circlet
+E 0 19061 0 12		*	the Green Master<about the shoulders>: a forest green robe
 M 0 19058 1 19084 1	* the Blue Master (The Blue Room)
-E 0 19122 0 6		*	a silver circlet: over the head
-E 0 19062 0 12		*	a sea-blue robe: about the shoulders
+E 0 19122 0 6		*	the Blue Master<over the head>: a silver circlet
+E 0 19062 0 12		*	the Blue Master<about the shoulders>: a sea-blue robe
 M 0 19059 1 19085 1	* the Violet Master (The Violet Room)
-E 0 19122 0 6		*	a silver circlet: over the head
-E 0 19063 0 12		*	a violet robe: about the shoulders
+E 0 19122 0 6		*	the Violet Master<over the head>: a silver circlet
+E 0 19063 0 12		*	the Violet Master<about the shoulders>: a violet robe
 M 0 19061 1 19086 1	* the Master of Light (At the Top of the Tower: The Prism Room)
-G 0 19129 0		*	the Sigil of the Light
+G 0 19129 0		*	the Master of Light: the Sigil of the Light
 M 0 19036 1 19091 1	* the gardener (The Corner of the Wooden Path)
-E 0 19084 0 16		*	a pair of clippers: wielded
+E 0 19084 0 16		*	the gardener<wielded>: a pair of clippers
 O 0 19108 0 19092	* a holly tree (A Grove of Trees)
-P 0 19109 100 19108 1	* a holly tree: a few holly berries
+P 0 19109 100 0 1	* a holly tree: a few holly berries
 M 0 19050 1 19092 1	* the waiter (A Grove of Trees)
 O 0 19119 0 19095	* a dead squid (The Swamp)
 O 0 19115 0 19097	* a poison oak tree (A Grove of Trees )
-P 0 19116 100 19115 1	* a poison oak tree: an acorn
-P 0 19116 100 19115 1	* a poison oak tree: an acorn
+P 0 19116 100 0 1	* a poison oak tree: an acorn
+P 0 19116 100 0 1	* a poison oak tree: an acorn
 M 0 19033 1 19097 1	* the Black Lord (A Grove of Trees )
-E 0 19123 0 12		*	a black robe: about the shoulders
-E 0 19110 0 16		*	an eclipse sword: wielded
+E 0 19123 0 12		*	the Black Lord<about the shoulders>: a black robe
+E 0 19110 0 16		*	the Black Lord<wielded>: an eclipse sword
 O 0 19114 0 19099	* a small jar of glowing slugs (Under the Gazebo)
 M 0 19032 2 19102 1	* the White Lord (Corner of the Path )
-E 0 19124 0 12		*	a white robe: about the shoulders
-E 0 19110 0 16		*	an eclipse sword: wielded
+E 0 19124 0 12		*	the White Lord<about the shoulders>: a white robe
+E 0 19110 0 16		*	the White Lord<wielded>: an eclipse sword
 M 0 19033 1 19103 1	* the Black Lord (The Path)
-E 0 19110 0 16		*	an eclipse sword: wielded
-E 0 19123 0 12		*	a black robe: about the shoulders
+E 0 19110 0 16		*	the Black Lord<wielded>: an eclipse sword
+E 0 19123 0 12		*	the Black Lord<about the shoulders>: a black robe
 M 0 19032 2 19106 1	* the White Lord (The End of the Path )
-E 0 19124 0 12		*	a white robe: about the shoulders
-E 0 19110 0 16		*	an eclipse sword: wielded
+E 0 19124 0 12		*	the White Lord<about the shoulders>: a white robe
+E 0 19110 0 16		*	the White Lord<wielded>: an eclipse sword
 M 0 19044 1 19109 1	* Carvallo (Center of the Street)
-E 0 19105 0 13		*	a scabbard: around the waist
-E 0 19104 0 9		*	rubber gloves: on the hands
+E 0 19105 0 13		*	Carvallo<around the waist>: a scabbard
+E 0 19104 0 9		*	Carvallo<on the hands>: rubber gloves
 M 0 19046 1 19110 1	* the woman (Street )
-E 0 19015 0 16		*	a small steel knife: wielded
-G 0 19020 0		*	some coins
+E 0 19015 0 16		*	the woman<wielded>: a small steel knife
+G 0 19020 0		*	the woman: some coins
 M 0 19042 1 19111 1	* the card shark (The Bar of the Hemlock Bush)
 M 0 19043 1 19111 1	* Hepzibah the Barkeep (The Bar of the Hemlock Bush)
-E 0 19101 0 16		*	a broken bottle: wielded
-G 0 19100 0		*	a bottle of water
-G 0 19098 0		*	hemlock
-G 0 19099 0		*	a bottle of evil-smelling ale
+E 0 19101 0 16		*	Hepzibah the Barkeep<wielded>: a broken bottle
+G 0 19100 0		*	Hepzibah the Barkeep: a bottle of water
+G 0 19098 0		*	Hepzibah the Barkeep: hemlock
+G 0 19099 0		*	Hepzibah the Barkeep: a bottle of evil-smelling ale
 M 0 19035 1 19112 1	* a standard issue wizard (The Sorcery)
-E 0 19080 0 6		*	a wizard's peaked cap: over the head
-E 0 19081 0 12		*	a wizard's cloak: about the shoulders
-E 0 19096 0 17		*	a "Wizard's Finishing School" diploma: held in the hands
-G 0 19017 0		*	a pill of mana and life restoration
-G 0 19019 0		*	a staff of destruction
-G 0 19102 0		*	a flask of devil's brew
-G 0 19103 0		*	the Soul Stealer
+E 0 19080 0 6		*	a standard issue wizard<over the head>: a wizard's peaked cap
+E 0 19081 0 12		*	a standard issue wizard<about the shoulders>: a wizard's cloak
+E 0 19096 0 17		*	a standard issue wizard<held in the hands>: a "Wizard's Finishing School" diploma
+G 0 19017 0		*	a standard issue wizard: a pill of mana and life restoration
+G 0 19019 0		*	a standard issue wizard: a staff of destruction
+G 0 19102 0		*	a standard issue wizard: a flask of devil's brew
+G 0 19103 0		*	a standard issue wizard: the Soul Stealer
 O 0 19111 0 19113	* a menu (The Restaurant of the Hemlock Bush )
 O 0 19112 0 19113	* a sign (The Restaurant of the Hemlock Bush )
 M 0 19050 1 19113 1	* the waiter (The Restaurant of the Hemlock Bush )
-G 0 19113 0		*	beef stew
+G 0 19113 0		*	the waiter: beef stew
 M 0 19034 1 19114 1	* Storn the assassin (A Dark House )
-E 0 19126 0 5		*	a black cloak: on the body
-E 0 19127 0 16		*	a blood-red dagger: wielded
+E 0 19126 0 5		*	Storn the assassin<on the body>: a black cloak
+E 0 19127 0 16		*	Storn the assassin<wielded>: a blood-red dagger
 M 0 19045 1 19115 1	* the young man (The Street)
-E 0 19015 0 16		*	a small steel knife: wielded
-G 0 19020 0		*	some coins
+E 0 19015 0 16		*	the young man<wielded>: a small steel knife
+G 0 19020 0		*	the young man: some coins
 M 0 19054 1 19117 1	* the wily little thief (hidden somewhere in the shadows) (The Travellers' Shop )
 M 0 19013 1 19119 1	* the Grey Mare (Path to the Dark Tower )
-E 0 19107 0 3		*	a set of red ribbons: around the neck
-E 0 19106 0 16		*	a horn of bone: wielded
+E 0 19107 0 3		*	the Grey Mare<around the neck>: a set of red ribbons
+E 0 19106 0 16		*	the Grey Mare<wielded>: a horn of bone
 M 0 19052 1 19121 1	* the lady of ill repute (The Gazebo )
-E 0 19117 0 5		*	a tight leather bodice: on the body
-E 0 19118 0 7		*	a tight leather miniskirt: on the legs
+E 0 19117 0 5		*	the lady of ill repute<on the body>: a tight leather bodice
+E 0 19118 0 7		*	the lady of ill repute<on the legs>: a tight leather miniskirt
 M 0 19053 1 19121 1	* the greasy man (The Gazebo )
 M 0 19066 1 19123 1	* the Black Master (Inside the Dark Tower)
-E 0 19132 0 5		*	a black cloak: on the body
+E 0 19132 0 5		*	the Black Master<on the body>: a black cloak
 M 0 19064 1 19124 1	* the White Master (Inside the Dark Tower)
-E 0 19131 0 5		*	a white cloak: on the body
+E 0 19131 0 5		*	the White Master<on the body>: a white cloak
 M 0 19067 1 19125 1	* the Black Master (Inside the Dark Tower)
-E 0 19132 0 5		*	a black cloak: on the body
+E 0 19132 0 5		*	the Black Master<on the body>: a black cloak
 M 0 19065 1 19126 1	* the White Master (Inside the Dark Tower)
-E 0 19131 0 5		*	a white cloak: on the body
+E 0 19131 0 5		*	the White Master<on the body>: a white cloak
 M 0 19040 1 19127 1	* something (The Top of the Dark Tower: Gray Mists)
-G 0 19128 0		*	the Sigil of the Dark
+G 0 19128 0		*	something: the Sigil of the Dark
 O 0 19120 0 19129	* a cabinet door (Merriman's Alcove)
 M 0 19048 1 19131 1	* the moose (The Forest )
-E 0 19093 0 6		*	antlers: over the head
+E 0 19093 0 6		*	the moose<over the head>: antlers
 M 0 19039 1 19132 1	* The buck (The Forest )
-E 0 19093 0 6		*	antlers: over the head
+E 0 19093 0 6		*	The buck<over the head>: antlers
 M 0 19063 1 19138 1	* Mandeep the Beekeeper (The Tree House)
-E 0 19133 0 17		*	a beekeeper's smoke can: held in the hands
+E 0 19133 0 17		*	Mandeep the Beekeeper<held in the hands>: a beekeeper's smoke can
 M 0 19049 1 19139 1	* the bear (Dark Forest)
 M 0 19041 1 19142 1	* the mass of red ants (Up the Tree )
-E 0 19097 0 16		*	some fangs: wielded
+E 0 19097 0 16		*	the mass of red ants<wielded>: some fangs
 M 0 19047 1 19146 1	* the grey fox (Dark Forest )
 M 0 19011 1 19147 1	* Bear-de-bear (Vell, hi!)
 M 0 19062 1 19151 1	* the Phoenix (A Small Room)
 O 0 19137 0 19152	* the crystal altar (The Crystal Altar)
-P 0 19138 100 19137 1	* the crystal altar: the crystal sigil
+P 0 19138 100 0 1	* the crystal altar: the crystal sigil
 O 0 19139 0 19154	* a citrine altar (Inside the Hive)
-P 0 19140 100 19139 1	* a citrine altar: the yellow topaz sigil
+P 0 19140 100 0 1	* a citrine altar: the yellow topaz sigil
 O 0 19141 0 19155	* a purple altar (The Violet Altar)
-P 0 19142 100 19141 1	* a purple altar: the amethyst sigil
+P 0 19142 100 0 1	* a purple altar: the amethyst sigil
 O 0 19143 0 19158	* the red altar (Inside the Fire: The Red Altar)
-P 0 19144 100 19143 1	* the red altar: the ruby sigil
+P 0 19144 100 0 1	* the red altar: the ruby sigil
 O 0 19146 0 19162	* the sapphire altar (Underwater Cave: The Blue Altar)
-P 0 19145 100 19146 1	* the sapphire altar: the sapphire sigil
+P 0 19145 100 0 1	* the sapphire altar: the sapphire sigil
 O 0 19147 0 19163	* the green altar (The Green Altar)
-P 0 19148 100 19147 1	* the green altar: the emerald sigil
-P 0 19095 100 19094 1	* a nectarine tree: a nectarine
-P 0 19095 100 19094 1	* a nectarine tree: a nectarine
-P 0 19149 100 19094 1	* a nectarine tree: the amber sigil
+P 0 19148 100 0 1	* the green altar: the emerald sigil
 M 0 19069 1 19166 1	* Mr. Teece (Mr. Teece's Room)
 O 0 19166 0 19169	* the heart key (The Honeymoon Suite)
 O 0 19167 0 19169	* a bottle of champagne (The Honeymoon Suite)

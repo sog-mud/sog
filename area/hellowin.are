@@ -293,8 +293,8 @@ S
 
 #RESETS
 M 0 34400 1 34400 1	* {ysympathetic bear{w ({GClearing in the woods{w)
-G 0 34406 0		*	{rHot and tasty bite of roasted meat{w
-G 0 34407 0		*	{WHeeled glass filled with {BKosoruloFF{W vodka{w
+G 0 34406 0		*	{ysympathetic bear{w: {rHot and tasty bite of roasted meat{w
+G 0 34407 0		*	{ysympathetic bear{w: {WHeeled glass filled with {BKosoruloFF{W vodka{w
 O 0 34405 0 34400	* fallen tree ({GClearing in the woods{w)
 O 0 34404 0 34400	* {WSpring with crystal and clear water{w ({GClearing in the woods{w)
 S

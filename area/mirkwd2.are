@@ -1886,69 +1886,57 @@ M 8807 spec_cast_mage	* Thranduil, king of the Wood Elves
 S
 
 #RESETS
-D 0 8857 1 2	* A Broad Tree-Lined Path: door to the east: closed and locked
-D 0 8858 3 2	* Inside the Cave: door to the west: closed and locked
-D 0 8859 1 1	* Inside the Cave: door to the east: closed
-D 0 8860 0 2	* A Guard Room: door to the north: closed and locked
-D 0 8860 1 1	* A Guard Room: door to the east: closed
-D 0 8860 3 1	* A Guard Room: door to the west: closed
-D 0 8861 3 1	* Storage Room: door to the west: closed
-D 0 8861 5 1	* Storage Room: door to the down: closed
-D 0 8862 4 1	* The River: door to the up: closed
-D 0 8864 1 1	* Inside the Cave: door to the east: closed
-D 0 8865 3 1	* The Throne Room of Thrandul: door to the west: closed
-D 0 8867 2 2	* A Cell: door to the south: closed and locked
 M 0 8800 4 8810 1	* a sylvan elf scout (A Guard Post)
-E 0 8801 0 16		*	an elvish sword: wielded
-E 0 8802 0 12		*	a plain elven cloak: about the shoulders
-E 0 8803 0 8		*	a pair of plain elven boots: on the feet
-G 0 8804 0		*	a water flask
+E 0 8801 0 16		*	a sylvan elf scout<wielded>: an elvish sword
+E 0 8802 0 12		*	a sylvan elf scout<about the shoulders>: a plain elven cloak
+E 0 8803 0 8		*	a sylvan elf scout<on the feet>: a pair of plain elven boots
+G 0 8804 0		*	a sylvan elf scout: a water flask
 O 0 8800 0 8818	* a pool (The End of the Path)
 M 0 8801 4 8821 2	* a sylvan elf warrior (A Guard Post)
-E 0 8801 0 16		*	an elvish sword: wielded
-E 0 8802 0 12		*	a plain elven cloak: about the shoulders
-E 0 8803 0 8		*	a pair of plain elven boots: on the feet
-G 0 8804 0		*	a water flask
+E 0 8801 0 16		*	a sylvan elf warrior<wielded>: an elvish sword
+E 0 8802 0 12		*	a sylvan elf warrior<about the shoulders>: a plain elven cloak
+E 0 8803 0 8		*	a sylvan elf warrior<on the feet>: a pair of plain elven boots
+G 0 8804 0		*	a sylvan elf warrior: a water flask
 M 0 8802 3 8836 2	* an orc scout (An Evil Section of the Forest)
-E 0 8805 0 11		*	a spiked metal shield: as a shield
-E 0 8806 0 16		*	an orcish scimitar: wielded
-E 0 8807 0 6		*	an ugly spiked helm: over the head
+E 0 8805 0 11		*	an orc scout<as a shield>: a spiked metal shield
+E 0 8806 0 16		*	an orc scout<wielded>: an orcish scimitar
+E 0 8807 0 6		*	an orc scout<over the head>: an ugly spiked helm
 M 0 8803 3 8839 1	* an orc warrior (An Evil Section of the Forest)
-E 0 8805 0 11		*	a spiked metal shield: as a shield
-E 0 8806 0 16		*	an orcish scimitar: wielded
-E 0 8807 0 6		*	an ugly spiked helm: over the head
+E 0 8805 0 11		*	an orc warrior<as a shield>: a spiked metal shield
+E 0 8806 0 16		*	an orc warrior<wielded>: an orcish scimitar
+E 0 8807 0 6		*	an orc warrior<over the head>: an ugly spiked helm
 M 0 8800 4 8846 2	* a sylvan elf scout (A Guard Post)
-E 0 8801 0 16		*	an elvish sword: wielded
-E 0 8802 0 12		*	a plain elven cloak: about the shoulders
-E 0 8803 0 8		*	a pair of plain elven boots: on the feet
-G 0 8804 0		*	a water flask
+E 0 8801 0 16		*	a sylvan elf scout<wielded>: an elvish sword
+E 0 8802 0 12		*	a sylvan elf scout<about the shoulders>: a plain elven cloak
+E 0 8803 0 8		*	a sylvan elf scout<on the feet>: a pair of plain elven boots
+G 0 8804 0		*	a sylvan elf scout: a water flask
 M 0 8804 4 8857 2	* a wood elf guard (A Broad Tree-Lined Path)
-E 0 8801 0 16		*	an elvish sword: wielded
-E 0 8802 0 12		*	a plain elven cloak: about the shoulders
-E 0 8803 0 8		*	a pair of plain elven boots: on the feet
-G 0 8804 0		*	a water flask
-G 0 8813 0		*	a key
+E 0 8801 0 16		*	a wood elf guard<wielded>: an elvish sword
+E 0 8802 0 12		*	a wood elf guard<about the shoulders>: a plain elven cloak
+E 0 8803 0 8		*	a wood elf guard<on the feet>: a pair of plain elven boots
+G 0 8804 0		*	a wood elf guard: a water flask
+G 0 8813 0		*	a wood elf guard: a key
 M 0 8808 2 8859 1	* a male wood elf (Inside the Cave)
 M 0 8810 1 8860 1	* the turnkey (A Guard Room)
-G 0 8812 0		*	a key
-G 0 8808 0		*	a flask of Dorwinion wine
+G 0 8812 0		*	the turnkey: a key
+G 0 8808 0		*	the turnkey: a flask of Dorwinion wine
 M 0 8805 1 8861 1	* the chief of the guard (Storage Room)
-G 0 8808 0		*	a flask of Dorwinion wine
+G 0 8808 0		*	the chief of the guard: a flask of Dorwinion wine
 M 0 8806 1 8861 1	* Galion the butler (Storage Room)
-E 0 8801 0 16		*	an elvish sword: wielded
-E 0 8802 0 12		*	a plain elven cloak: about the shoulders
-E 0 8803 0 8		*	a pair of plain elven boots: on the feet
-G 0 8804 0		*	a water flask
+E 0 8801 0 16		*	Galion the butler<wielded>: an elvish sword
+E 0 8802 0 12		*	Galion the butler<about the shoulders>: a plain elven cloak
+E 0 8803 0 8		*	Galion the butler<on the feet>: a pair of plain elven boots
+G 0 8804 0		*	Galion the butler: a water flask
 O 0 8809 0 8861	* a barrel of Dorwinion wine (Storage Room)
 O 0 8810 0 8861	* an empty barrel (Storage Room)
 M 0 8809 2 8864 1	* a female wood elf (Inside the Cave)
 M 0 8807 1 8865 1	* Thranduil, king of the Wood Elves (The Throne Room of Thrandul)
-E 0 8811 0 16		*	a fine elven sword: wielded
+E 0 8811 0 16		*	Thranduil, king of the Wood Elves<wielded>: a fine elven sword
 M 0 8804 4 8865 2	* a wood elf guard (The Throne Room of Thrandul)
-E 0 8801 0 16		*	an elvish sword: wielded
-E 0 8802 0 12		*	a plain elven cloak: about the shoulders
-E 0 8803 0 8		*	a pair of plain elven boots: on the feet
-G 0 8804 0		*	a water flask
+E 0 8801 0 16		*	a wood elf guard<wielded>: an elvish sword
+E 0 8802 0 12		*	a wood elf guard<about the shoulders>: a plain elven cloak
+E 0 8803 0 8		*	a wood elf guard<on the feet>: a pair of plain elven boots
+G 0 8804 0		*	a wood elf guard: a water flask
 M 0 8811 1 8867 1	* Thorin Oakenshield (A Cell)
 S
 

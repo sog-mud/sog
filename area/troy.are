@@ -3340,35 +3340,35 @@ S
 
 #RESETS
 M 0 29515 1 29531 1	* Automedon (The Battlefield)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29502 0 1		*	an ox hide shield: on the left finger
-E 0 29503 0 6		*	a boar tusk helm: over the head
-E 0 29504 0 5		*	a leather jerkin: on the body
+E 0 29500 0 16		*	Automedon<wielded>: a short thrusting spear
+E 0 29501 0 17		*	Automedon<held in the hands>: a long throwing spear
+E 0 29502 0 1		*	Automedon<on the left finger>: an ox hide shield
+E 0 29503 0 6		*	Automedon<over the head>: a boar tusk helm
+E 0 29504 0 5		*	Automedon<on the body>: a leather jerkin
 O 0 29518 0 29531	* a banner (The Battlefield)
 O 0 29518 0 29532	* a banner (The Battlefield)
 O 0 29518 0 29533	* a banner (The Battlefield)
 M 0 29501 1 29534 1	* Achilles (Achilles' Tent)
-E 0 29508 0 5		*	achilles' breastplate: on the body
-E 0 29509 0 7		*	achilles' greaves: on the legs
-E 0 29510 0 6		*	achilles' helm: over the head
-E 0 29511 0 16		*	achilles' sword: wielded
-E 0 29515 0 11		*	achilles' shield: as a shield
-E 0 29516 0 8		*	a pair of sandals: on the feet
-E 0 29501 0 17		*	a long throwing spear: held in the hands
+E 0 29508 0 5		*	Achilles<on the body>: achilles' breastplate
+E 0 29509 0 7		*	Achilles<on the legs>: achilles' greaves
+E 0 29510 0 6		*	Achilles<over the head>: achilles' helm
+E 0 29511 0 16		*	Achilles<wielded>: achilles' sword
+E 0 29515 0 11		*	Achilles<as a shield>: achilles' shield
+E 0 29516 0 8		*	Achilles<on the feet>: a pair of sandals
+E 0 29501 0 17		*	Achilles<held in the hands>: a long throwing spear
 M 0 29506 1 29534 1	* Patroclus (Achilles' Tent)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29502 0 1		*	an ox hide shield: on the left finger
-E 0 29503 0 6		*	a boar tusk helm: over the head
-E 0 29504 0 5		*	a leather jerkin: on the body
+E 0 29500 0 16		*	Patroclus<wielded>: a short thrusting spear
+E 0 29501 0 17		*	Patroclus<held in the hands>: a long throwing spear
+E 0 29502 0 1		*	Patroclus<on the left finger>: an ox hide shield
+E 0 29503 0 6		*	Patroclus<over the head>: a boar tusk helm
+E 0 29504 0 5		*	Patroclus<on the body>: a leather jerkin
 M 0 29500 1 29535 1	* Ajax (Ajax's Tent)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29519 0 6		*	a bronze helm: over the head
-E 0 29514 0 11		*	a bronze shield: as a shield
-E 0 29505 0 5		*	a bronze breastplate: on the body
-E 0 29516 0 8		*	a pair of sandals: on the feet
+E 0 29500 0 16		*	Ajax<wielded>: a short thrusting spear
+E 0 29501 0 17		*	Ajax<held in the hands>: a long throwing spear
+E 0 29519 0 6		*	Ajax<over the head>: a bronze helm
+E 0 29514 0 11		*	Ajax<as a shield>: a bronze shield
+E 0 29505 0 5		*	Ajax<on the body>: a bronze breastplate
+E 0 29516 0 8		*	Ajax<on the feet>: a pair of sandals
 O 0 29520 0 29535	* a cot (Ajax's Tent)
 O 0 29506 0 29535	* a goblet of watered wine (Ajax's Tent)
 O 0 29507 0 29535	* a board game (Ajax's Tent)
@@ -3418,282 +3418,282 @@ O 0 29520 0 29535	* a cot (Ajax's Tent)
 O 0 29506 0 29535	* a goblet of watered wine (Ajax's Tent)
 O 0 29507 0 29535	* a board game (Ajax's Tent)
 M 0 29542 16 29536 1	* an Achaean soldier (The Battlefield)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29502 0 1		*	an ox hide shield: on the left finger
-E 0 29503 0 6		*	a boar tusk helm: over the head
-E 0 29504 0 5		*	a leather jerkin: on the body
+E 0 29500 0 16		*	an Achaean soldier<wielded>: a short thrusting spear
+E 0 29501 0 17		*	an Achaean soldier<held in the hands>: a long throwing spear
+E 0 29502 0 1		*	an Achaean soldier<on the left finger>: an ox hide shield
+E 0 29503 0 6		*	an Achaean soldier<over the head>: a boar tusk helm
+E 0 29504 0 5		*	an Achaean soldier<on the body>: a leather jerkin
 O 0 29518 0 29537	* a banner (The Battlefield)
 M 0 29504 1 29538 1	* King Nestor (Nestor's Tent)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29519 0 6		*	a bronze helm: over the head
-E 0 29514 0 11		*	a bronze shield: as a shield
-E 0 29505 0 5		*	a bronze breastplate: on the body
-E 0 29516 0 8		*	a pair of sandals: on the feet
+E 0 29500 0 16		*	King Nestor<wielded>: a short thrusting spear
+E 0 29501 0 17		*	King Nestor<held in the hands>: a long throwing spear
+E 0 29519 0 6		*	King Nestor<over the head>: a bronze helm
+E 0 29514 0 11		*	King Nestor<as a shield>: a bronze shield
+E 0 29505 0 5		*	King Nestor<on the body>: a bronze breastplate
+E 0 29516 0 8		*	King Nestor<on the feet>: a pair of sandals
 M 0 29520 1 29538 1	* Antilochus (Nestor's Tent)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29519 0 6		*	a bronze helm: over the head
-E 0 29514 0 11		*	a bronze shield: as a shield
-E 0 29505 0 5		*	a bronze breastplate: on the body
-E 0 29516 0 8		*	a pair of sandals: on the feet
+E 0 29500 0 16		*	Antilochus<wielded>: a short thrusting spear
+E 0 29501 0 17		*	Antilochus<held in the hands>: a long throwing spear
+E 0 29519 0 6		*	Antilochus<over the head>: a bronze helm
+E 0 29514 0 11		*	Antilochus<as a shield>: a bronze shield
+E 0 29505 0 5		*	Antilochus<on the body>: a bronze breastplate
+E 0 29516 0 8		*	Antilochus<on the feet>: a pair of sandals
 M 0 29521 1 29538 1	* Thrasymedes (Nestor's Tent)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29519 0 6		*	a bronze helm: over the head
-E 0 29514 0 11		*	a bronze shield: as a shield
-E 0 29505 0 5		*	a bronze breastplate: on the body
-E 0 29516 0 8		*	a pair of sandals: on the feet
+E 0 29500 0 16		*	Thrasymedes<wielded>: a short thrusting spear
+E 0 29501 0 17		*	Thrasymedes<held in the hands>: a long throwing spear
+E 0 29519 0 6		*	Thrasymedes<over the head>: a bronze helm
+E 0 29514 0 11		*	Thrasymedes<as a shield>: a bronze shield
+E 0 29505 0 5		*	Thrasymedes<on the body>: a bronze breastplate
+E 0 29516 0 8		*	Thrasymedes<on the feet>: a pair of sandals
 O 0 29520 0 29539	* a cot (Odysseus' Tent)
 O 0 29506 0 29539	* a goblet of watered wine (Odysseus' Tent)
 O 0 29507 0 29539	* a board game (Odysseus' Tent)
 M 0 29529 1 29540 1	* Talthybius (The Battlefield)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29502 0 1		*	an ox hide shield: on the left finger
-E 0 29503 0 6		*	a boar tusk helm: over the head
-E 0 29504 0 5		*	a leather jerkin: on the body
+E 0 29500 0 16		*	Talthybius<wielded>: a short thrusting spear
+E 0 29501 0 17		*	Talthybius<held in the hands>: a long throwing spear
+E 0 29502 0 1		*	Talthybius<on the left finger>: an ox hide shield
+E 0 29503 0 6		*	Talthybius<over the head>: a boar tusk helm
+E 0 29504 0 5		*	Talthybius<on the body>: a leather jerkin
 O 0 29518 0 29540	* a banner (The Battlefield)
 M 0 29505 1 29541 1	* King Menelaus (Menelaus' Tent)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29519 0 6		*	a bronze helm: over the head
-E 0 29514 0 11		*	a bronze shield: as a shield
-E 0 29505 0 5		*	a bronze breastplate: on the body
-E 0 29516 0 8		*	a pair of sandals: on the feet
+E 0 29500 0 16		*	King Menelaus<wielded>: a short thrusting spear
+E 0 29501 0 17		*	King Menelaus<held in the hands>: a long throwing spear
+E 0 29519 0 6		*	King Menelaus<over the head>: a bronze helm
+E 0 29514 0 11		*	King Menelaus<as a shield>: a bronze shield
+E 0 29505 0 5		*	King Menelaus<on the body>: a bronze breastplate
+E 0 29516 0 8		*	King Menelaus<on the feet>: a pair of sandals
 M 0 29503 1 29542 1	* King Agamemnon (Agamemnon's Tent)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29519 0 6		*	a bronze helm: over the head
-E 0 29514 0 11		*	a bronze shield: as a shield
-E 0 29505 0 5		*	a bronze breastplate: on the body
-E 0 29516 0 8		*	a pair of sandals: on the feet
+E 0 29500 0 16		*	King Agamemnon<wielded>: a short thrusting spear
+E 0 29501 0 17		*	King Agamemnon<held in the hands>: a long throwing spear
+E 0 29519 0 6		*	King Agamemnon<over the head>: a bronze helm
+E 0 29514 0 11		*	King Agamemnon<as a shield>: a bronze shield
+E 0 29505 0 5		*	King Agamemnon<on the body>: a bronze breastplate
+E 0 29516 0 8		*	King Agamemnon<on the feet>: a pair of sandals
 M 0 29517 1 29542 1	* Chalcas (Agamemnon's Tent)
 M 0 29519 1 29542 1	* Briseis (Agamemnon's Tent)
 M 0 29525 1 29543 1	* Machaon (The Physicians' Tent)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29519 0 6		*	a bronze helm: over the head
-E 0 29514 0 11		*	a bronze shield: as a shield
-E 0 29505 0 5		*	a bronze breastplate: on the body
-E 0 29516 0 8		*	a pair of sandals: on the feet
+E 0 29500 0 16		*	Machaon<wielded>: a short thrusting spear
+E 0 29501 0 17		*	Machaon<held in the hands>: a long throwing spear
+E 0 29519 0 6		*	Machaon<over the head>: a bronze helm
+E 0 29514 0 11		*	Machaon<as a shield>: a bronze shield
+E 0 29505 0 5		*	Machaon<on the body>: a bronze breastplate
+E 0 29516 0 8		*	Machaon<on the feet>: a pair of sandals
 M 0 29516 1 29546 1	* Aias (The Games)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29502 0 1		*	an ox hide shield: on the left finger
-E 0 29503 0 6		*	a boar tusk helm: over the head
-E 0 29504 0 5		*	a leather jerkin: on the body
+E 0 29500 0 16		*	Aias<wielded>: a short thrusting spear
+E 0 29501 0 17		*	Aias<held in the hands>: a long throwing spear
+E 0 29502 0 1		*	Aias<on the left finger>: an ox hide shield
+E 0 29503 0 6		*	Aias<over the head>: a boar tusk helm
+E 0 29504 0 5		*	Aias<on the body>: a leather jerkin
 M 0 29542 16 29548 1	* an Achaean soldier (The Battlefield)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29502 0 1		*	an ox hide shield: on the left finger
-E 0 29503 0 6		*	a boar tusk helm: over the head
-E 0 29504 0 5		*	a leather jerkin: on the body
+E 0 29500 0 16		*	an Achaean soldier<wielded>: a short thrusting spear
+E 0 29501 0 17		*	an Achaean soldier<held in the hands>: a long throwing spear
+E 0 29502 0 1		*	an Achaean soldier<on the left finger>: an ox hide shield
+E 0 29503 0 6		*	an Achaean soldier<over the head>: a boar tusk helm
+E 0 29504 0 5		*	an Achaean soldier<on the body>: a leather jerkin
 O 0 29518 0 29549	* a banner (The Battlefield)
 M 0 29524 1 29550 1	* King Idomeneus (Idoemeneus' Tent)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29519 0 6		*	a bronze helm: over the head
-E 0 29514 0 11		*	a bronze shield: as a shield
-E 0 29505 0 5		*	a bronze breastplate: on the body
-E 0 29516 0 8		*	a pair of sandals: on the feet
+E 0 29500 0 16		*	King Idomeneus<wielded>: a short thrusting spear
+E 0 29501 0 17		*	King Idomeneus<held in the hands>: a long throwing spear
+E 0 29519 0 6		*	King Idomeneus<over the head>: a bronze helm
+E 0 29514 0 11		*	King Idomeneus<as a shield>: a bronze shield
+E 0 29505 0 5		*	King Idomeneus<on the body>: a bronze breastplate
+E 0 29516 0 8		*	King Idomeneus<on the feet>: a pair of sandals
 M 0 29526 1 29551 1	* Menestheus (Menestheus' Tent)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29519 0 6		*	a bronze helm: over the head
-E 0 29514 0 11		*	a bronze shield: as a shield
-E 0 29505 0 5		*	a bronze breastplate: on the body
-E 0 29516 0 8		*	a pair of sandals: on the feet
+E 0 29500 0 16		*	Menestheus<wielded>: a short thrusting spear
+E 0 29501 0 17		*	Menestheus<held in the hands>: a long throwing spear
+E 0 29519 0 6		*	Menestheus<over the head>: a bronze helm
+E 0 29514 0 11		*	Menestheus<as a shield>: a bronze shield
+E 0 29505 0 5		*	Menestheus<on the body>: a bronze breastplate
+E 0 29516 0 8		*	Menestheus<on the feet>: a pair of sandals
 O 0 29518 0 29552	* a banner (The Battlefield)
 M 0 29532 1 29553 1	* Tleopolemus (Tlepolemus' Tent)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29519 0 6		*	a bronze helm: over the head
-E 0 29514 0 11		*	a bronze shield: as a shield
-E 0 29505 0 5		*	a bronze breastplate: on the body
-E 0 29516 0 8		*	a pair of sandals: on the feet
+E 0 29500 0 16		*	Tleopolemus<wielded>: a short thrusting spear
+E 0 29501 0 17		*	Tleopolemus<held in the hands>: a long throwing spear
+E 0 29519 0 6		*	Tleopolemus<over the head>: a bronze helm
+E 0 29514 0 11		*	Tleopolemus<as a shield>: a bronze shield
+E 0 29505 0 5		*	Tleopolemus<on the body>: a bronze breastplate
+E 0 29516 0 8		*	Tleopolemus<on the feet>: a pair of sandals
 M 0 29530 1 29554 1	* the greater Aias (Aias the Greater's Tent)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29519 0 6		*	a bronze helm: over the head
-E 0 29514 0 11		*	a bronze shield: as a shield
-E 0 29505 0 5		*	a bronze breastplate: on the body
-E 0 29516 0 8		*	a pair of sandals: on the feet
+E 0 29500 0 16		*	the greater Aias<wielded>: a short thrusting spear
+E 0 29501 0 17		*	the greater Aias<held in the hands>: a long throwing spear
+E 0 29519 0 6		*	the greater Aias<over the head>: a bronze helm
+E 0 29514 0 11		*	the greater Aias<as a shield>: a bronze shield
+E 0 29505 0 5		*	the greater Aias<on the body>: a bronze breastplate
+E 0 29516 0 8		*	the greater Aias<on the feet>: a pair of sandals
 M 0 29502 1 29555 1	* King Odysseus (The Horse)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29519 0 6		*	a bronze helm: over the head
-E 0 29514 0 11		*	a bronze shield: as a shield
-E 0 29505 0 5		*	a bronze breastplate: on the body
-E 0 29516 0 8		*	a pair of sandals: on the feet
+E 0 29500 0 16		*	King Odysseus<wielded>: a short thrusting spear
+E 0 29501 0 17		*	King Odysseus<held in the hands>: a long throwing spear
+E 0 29519 0 6		*	King Odysseus<over the head>: a bronze helm
+E 0 29514 0 11		*	King Odysseus<as a shield>: a bronze shield
+E 0 29505 0 5		*	King Odysseus<on the body>: a bronze breastplate
+E 0 29516 0 8		*	King Odysseus<on the feet>: a pair of sandals
 M 0 29522 1 29557 1	* King Diomedes (Diomedes' Tent)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29519 0 6		*	a bronze helm: over the head
-E 0 29514 0 11		*	a bronze shield: as a shield
-E 0 29505 0 5		*	a bronze breastplate: on the body
-E 0 29516 0 8		*	a pair of sandals: on the feet
+E 0 29500 0 16		*	King Diomedes<wielded>: a short thrusting spear
+E 0 29501 0 17		*	King Diomedes<held in the hands>: a long throwing spear
+E 0 29519 0 6		*	King Diomedes<over the head>: a bronze helm
+E 0 29514 0 11		*	King Diomedes<as a shield>: a bronze shield
+E 0 29505 0 5		*	King Diomedes<on the body>: a bronze breastplate
+E 0 29516 0 8		*	King Diomedes<on the feet>: a pair of sandals
 M 0 29528 1 29557 1	* Sthenelus (Diomedes' Tent)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29502 0 1		*	an ox hide shield: on the left finger
-E 0 29503 0 6		*	a boar tusk helm: over the head
-E 0 29504 0 5		*	a leather jerkin: on the body
+E 0 29500 0 16		*	Sthenelus<wielded>: a short thrusting spear
+E 0 29501 0 17		*	Sthenelus<held in the hands>: a long throwing spear
+E 0 29502 0 1		*	Sthenelus<on the left finger>: an ox hide shield
+E 0 29503 0 6		*	Sthenelus<over the head>: a boar tusk helm
+E 0 29504 0 5		*	Sthenelus<on the body>: a leather jerkin
 M 0 29531 1 29559 1	* Thersites (The Front Line)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29502 0 1		*	an ox hide shield: on the left finger
-E 0 29503 0 6		*	a boar tusk helm: over the head
-E 0 29504 0 5		*	a leather jerkin: on the body
+E 0 29500 0 16		*	Thersites<wielded>: a short thrusting spear
+E 0 29501 0 17		*	Thersites<held in the hands>: a long throwing spear
+E 0 29502 0 1		*	Thersites<on the left finger>: an ox hide shield
+E 0 29503 0 6		*	Thersites<over the head>: a boar tusk helm
+E 0 29504 0 5		*	Thersites<on the body>: a leather jerkin
 M 0 29537 1 29561 1	* Neoptolemus (The Front Line)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29519 0 6		*	a bronze helm: over the head
-E 0 29514 0 11		*	a bronze shield: as a shield
-E 0 29505 0 5		*	a bronze breastplate: on the body
-E 0 29516 0 8		*	a pair of sandals: on the feet
+E 0 29500 0 16		*	Neoptolemus<wielded>: a short thrusting spear
+E 0 29501 0 17		*	Neoptolemus<held in the hands>: a long throwing spear
+E 0 29519 0 6		*	Neoptolemus<over the head>: a bronze helm
+E 0 29514 0 11		*	Neoptolemus<as a shield>: a bronze shield
+E 0 29505 0 5		*	Neoptolemus<on the body>: a bronze breastplate
+E 0 29516 0 8		*	Neoptolemus<on the feet>: a pair of sandals
 M 0 29523 1 29563 1	* Eurypylus (The Front Line)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29519 0 6		*	a bronze helm: over the head
-E 0 29514 0 11		*	a bronze shield: as a shield
-E 0 29505 0 5		*	a bronze breastplate: on the body
-E 0 29516 0 8		*	a pair of sandals: on the feet
+E 0 29500 0 16		*	Eurypylus<wielded>: a short thrusting spear
+E 0 29501 0 17		*	Eurypylus<held in the hands>: a long throwing spear
+E 0 29519 0 6		*	Eurypylus<over the head>: a bronze helm
+E 0 29514 0 11		*	Eurypylus<as a shield>: a bronze shield
+E 0 29505 0 5		*	Eurypylus<on the body>: a bronze breastplate
+E 0 29516 0 8		*	Eurypylus<on the feet>: a pair of sandals
 M 0 29542 16 29566 1	* an Achaean soldier (The Front Line)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29502 0 1		*	an ox hide shield: on the left finger
-E 0 29503 0 6		*	a boar tusk helm: over the head
-E 0 29504 0 5		*	a leather jerkin: on the body
+E 0 29500 0 16		*	an Achaean soldier<wielded>: a short thrusting spear
+E 0 29501 0 17		*	an Achaean soldier<held in the hands>: a long throwing spear
+E 0 29502 0 1		*	an Achaean soldier<on the left finger>: an ox hide shield
+E 0 29503 0 6		*	an Achaean soldier<over the head>: a boar tusk helm
+E 0 29504 0 5		*	an Achaean soldier<on the body>: a leather jerkin
 M 0 29527 1 29567 1	* Meriones (The Front Line)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29519 0 6		*	a bronze helm: over the head
-E 0 29514 0 11		*	a bronze shield: as a shield
-E 0 29505 0 5		*	a bronze breastplate: on the body
-E 0 29516 0 8		*	a pair of sandals: on the feet
+E 0 29500 0 16		*	Meriones<wielded>: a short thrusting spear
+E 0 29501 0 17		*	Meriones<held in the hands>: a long throwing spear
+E 0 29519 0 6		*	Meriones<over the head>: a bronze helm
+E 0 29514 0 11		*	Meriones<as a shield>: a bronze shield
+E 0 29505 0 5		*	Meriones<on the body>: a bronze breastplate
+E 0 29516 0 8		*	Meriones<on the feet>: a pair of sandals
 M 0 29542 16 29568 1	* an Achaean soldier (The Front Line)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29502 0 1		*	an ox hide shield: on the left finger
-E 0 29503 0 6		*	a boar tusk helm: over the head
-E 0 29504 0 5		*	a leather jerkin: on the body
+E 0 29500 0 16		*	an Achaean soldier<wielded>: a short thrusting spear
+E 0 29501 0 17		*	an Achaean soldier<held in the hands>: a long throwing spear
+E 0 29502 0 1		*	an Achaean soldier<on the left finger>: an ox hide shield
+E 0 29503 0 6		*	an Achaean soldier<over the head>: a boar tusk helm
+E 0 29504 0 5		*	an Achaean soldier<on the body>: a leather jerkin
 M 0 29543 12 29571 1	* a Trojan soldier (The Front Line)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29502 0 1		*	an ox hide shield: on the left finger
-E 0 29503 0 6		*	a boar tusk helm: over the head
-E 0 29504 0 5		*	a leather jerkin: on the body
+E 0 29500 0 16		*	a Trojan soldier<wielded>: a short thrusting spear
+E 0 29501 0 17		*	a Trojan soldier<held in the hands>: a long throwing spear
+E 0 29502 0 1		*	a Trojan soldier<on the left finger>: an ox hide shield
+E 0 29503 0 6		*	a Trojan soldier<over the head>: a boar tusk helm
+E 0 29504 0 5		*	a Trojan soldier<on the body>: a leather jerkin
 M 0 29543 12 29577 1	* a Trojan soldier (The Streets of Ilium)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29502 0 1		*	an ox hide shield: on the left finger
-E 0 29503 0 6		*	a boar tusk helm: over the head
-E 0 29504 0 5		*	a leather jerkin: on the body
+E 0 29500 0 16		*	a Trojan soldier<wielded>: a short thrusting spear
+E 0 29501 0 17		*	a Trojan soldier<held in the hands>: a long throwing spear
+E 0 29502 0 1		*	a Trojan soldier<on the left finger>: an ox hide shield
+E 0 29503 0 6		*	a Trojan soldier<over the head>: a boar tusk helm
+E 0 29504 0 5		*	a Trojan soldier<on the body>: a leather jerkin
 M 0 29539 1 29578 1	* Pandarus (The Streets of Ilium)
-E 0 29517 0 16		*	a stone axe: wielded
+E 0 29517 0 16		*	Pandarus<wielded>: a stone axe
 M 0 29544 6 29578 1	* a Trojan citizen (The Streets of Ilium)
-E 0 29512 0 16		*	a bronze sword: wielded
+E 0 29512 0 16		*	a Trojan citizen<wielded>: a bronze sword
 M 0 29545 6 29578 1	* a Trojan citizen (The Streets of Ilium)
-E 0 29513 0 16		*	a bronze dagger: wielded
+E 0 29513 0 16		*	a Trojan citizen<wielded>: a bronze dagger
 M 0 29518 1 29579 1	* Chryseis (A Residence)
-E 0 29513 0 16		*	a bronze dagger: wielded
+E 0 29513 0 16		*	Chryseis<wielded>: a bronze dagger
 M 0 29533 1 29581 1	* Antenor (A Residence)
-E 0 29513 0 16		*	a bronze dagger: wielded
+E 0 29513 0 16		*	Antenor<wielded>: a bronze dagger
 M 0 29540 1 29581 1	* Polydamas (A Residence)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29519 0 6		*	a bronze helm: over the head
-E 0 29514 0 11		*	a bronze shield: as a shield
-E 0 29505 0 5		*	a bronze breastplate: on the body
-E 0 29516 0 8		*	a pair of sandals: on the feet
+E 0 29500 0 16		*	Polydamas<wielded>: a short thrusting spear
+E 0 29501 0 17		*	Polydamas<held in the hands>: a long throwing spear
+E 0 29519 0 6		*	Polydamas<over the head>: a bronze helm
+E 0 29514 0 11		*	Polydamas<as a shield>: a bronze shield
+E 0 29505 0 5		*	Polydamas<on the body>: a bronze breastplate
+E 0 29516 0 8		*	Polydamas<on the feet>: a pair of sandals
 M 0 29543 12 29583 1	* a Trojan soldier (The Streets of Ilium)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29502 0 1		*	an ox hide shield: on the left finger
-E 0 29503 0 6		*	a boar tusk helm: over the head
-E 0 29504 0 5		*	a leather jerkin: on the body
+E 0 29500 0 16		*	a Trojan soldier<wielded>: a short thrusting spear
+E 0 29501 0 17		*	a Trojan soldier<held in the hands>: a long throwing spear
+E 0 29502 0 1		*	a Trojan soldier<on the left finger>: an ox hide shield
+E 0 29503 0 6		*	a Trojan soldier<over the head>: a boar tusk helm
+E 0 29504 0 5		*	a Trojan soldier<on the body>: a leather jerkin
 M 0 29534 1 29584 1	* Deiphobus (The Streets of Ilium)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29519 0 6		*	a bronze helm: over the head
-E 0 29514 0 11		*	a bronze shield: as a shield
-E 0 29505 0 5		*	a bronze breastplate: on the body
-E 0 29516 0 8		*	a pair of sandals: on the feet
+E 0 29500 0 16		*	Deiphobus<wielded>: a short thrusting spear
+E 0 29501 0 17		*	Deiphobus<held in the hands>: a long throwing spear
+E 0 29519 0 6		*	Deiphobus<over the head>: a bronze helm
+E 0 29514 0 11		*	Deiphobus<as a shield>: a bronze shield
+E 0 29505 0 5		*	Deiphobus<on the body>: a bronze breastplate
+E 0 29516 0 8		*	Deiphobus<on the feet>: a pair of sandals
 M 0 29544 6 29584 1	* a Trojan citizen (The Streets of Ilium)
-E 0 29512 0 16		*	a bronze sword: wielded
+E 0 29512 0 16		*	a Trojan citizen<wielded>: a bronze sword
 M 0 29545 6 29584 1	* a Trojan citizen (The Streets of Ilium)
-E 0 29513 0 16		*	a bronze dagger: wielded
+E 0 29513 0 16		*	a Trojan citizen<wielded>: a bronze dagger
 M 0 29543 12 29585 1	* a Trojan soldier (The Streets of Ilium)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29502 0 1		*	an ox hide shield: on the left finger
-E 0 29503 0 6		*	a boar tusk helm: over the head
-E 0 29504 0 5		*	a leather jerkin: on the body
+E 0 29500 0 16		*	a Trojan soldier<wielded>: a short thrusting spear
+E 0 29501 0 17		*	a Trojan soldier<held in the hands>: a long throwing spear
+E 0 29502 0 1		*	a Trojan soldier<on the left finger>: an ox hide shield
+E 0 29503 0 6		*	a Trojan soldier<over the head>: a boar tusk helm
+E 0 29504 0 5		*	a Trojan soldier<on the body>: a leather jerkin
 M 0 29535 1 29587 1	* Glaucus (A Residence)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29519 0 6		*	a bronze helm: over the head
-E 0 29514 0 11		*	a bronze shield: as a shield
-E 0 29505 0 5		*	a bronze breastplate: on the body
-E 0 29516 0 8		*	a pair of sandals: on the feet
+E 0 29500 0 16		*	Glaucus<wielded>: a short thrusting spear
+E 0 29501 0 17		*	Glaucus<held in the hands>: a long throwing spear
+E 0 29519 0 6		*	Glaucus<over the head>: a bronze helm
+E 0 29514 0 11		*	Glaucus<as a shield>: a bronze shield
+E 0 29505 0 5		*	Glaucus<on the body>: a bronze breastplate
+E 0 29516 0 8		*	Glaucus<on the feet>: a pair of sandals
 M 0 29541 1 29587 1	* King Sarpedon (A Residence)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29519 0 6		*	a bronze helm: over the head
-E 0 29514 0 11		*	a bronze shield: as a shield
-E 0 29505 0 5		*	a bronze breastplate: on the body
-E 0 29516 0 8		*	a pair of sandals: on the feet
+E 0 29500 0 16		*	King Sarpedon<wielded>: a short thrusting spear
+E 0 29501 0 17		*	King Sarpedon<held in the hands>: a long throwing spear
+E 0 29519 0 6		*	King Sarpedon<over the head>: a bronze helm
+E 0 29514 0 11		*	King Sarpedon<as a shield>: a bronze shield
+E 0 29505 0 5		*	King Sarpedon<on the body>: a bronze breastplate
+E 0 29516 0 8		*	King Sarpedon<on the feet>: a pair of sandals
 M 0 29510 1 29589 1	* Aeneas (A Residence)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29519 0 6		*	a bronze helm: over the head
-E 0 29514 0 11		*	a bronze shield: as a shield
-E 0 29505 0 5		*	a bronze breastplate: on the body
-E 0 29516 0 8		*	a pair of sandals: on the feet
+E 0 29500 0 16		*	Aeneas<wielded>: a short thrusting spear
+E 0 29501 0 17		*	Aeneas<held in the hands>: a long throwing spear
+E 0 29519 0 6		*	Aeneas<over the head>: a bronze helm
+E 0 29514 0 11		*	Aeneas<as a shield>: a bronze shield
+E 0 29505 0 5		*	Aeneas<on the body>: a bronze breastplate
+E 0 29516 0 8		*	Aeneas<on the feet>: a pair of sandals
 M 0 29544 6 29591 1	* a Trojan citizen (The End of the Road)
-E 0 29512 0 16		*	a bronze sword: wielded
+E 0 29512 0 16		*	a Trojan citizen<wielded>: a bronze sword
 M 0 29538 1 29592 1	* Idaeus (Inside the Palace)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29519 0 6		*	a bronze helm: over the head
-E 0 29514 0 11		*	a bronze shield: as a shield
-E 0 29505 0 5		*	a bronze breastplate: on the body
-E 0 29516 0 8		*	a pair of sandals: on the feet
+E 0 29500 0 16		*	Idaeus<wielded>: a short thrusting spear
+E 0 29501 0 17		*	Idaeus<held in the hands>: a long throwing spear
+E 0 29519 0 6		*	Idaeus<over the head>: a bronze helm
+E 0 29514 0 11		*	Idaeus<as a shield>: a bronze shield
+E 0 29505 0 5		*	Idaeus<on the body>: a bronze breastplate
+E 0 29516 0 8		*	Idaeus<on the feet>: a pair of sandals
 M 0 29545 6 29593 1	* a Trojan citizen (The End of the Road)
-E 0 29513 0 16		*	a bronze dagger: wielded
+E 0 29513 0 16		*	a Trojan citizen<wielded>: a bronze dagger
 M 0 29508 1 29596 1	* Hector (Atop the Walls)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29519 0 6		*	a bronze helm: over the head
-E 0 29514 0 11		*	a bronze shield: as a shield
-E 0 29505 0 5		*	a bronze breastplate: on the body
-E 0 29516 0 8		*	a pair of sandals: on the feet
+E 0 29500 0 16		*	Hector<wielded>: a short thrusting spear
+E 0 29501 0 17		*	Hector<held in the hands>: a long throwing spear
+E 0 29519 0 6		*	Hector<over the head>: a bronze helm
+E 0 29514 0 11		*	Hector<as a shield>: a bronze shield
+E 0 29505 0 5		*	Hector<on the body>: a bronze breastplate
+E 0 29516 0 8		*	Hector<on the feet>: a pair of sandals
 M 0 29513 1 29596 1	* Andromache (Atop the Walls)
-E 0 29513 0 16		*	a bronze dagger: wielded
+E 0 29513 0 16		*	Andromache<wielded>: a bronze dagger
 M 0 29509 1 29597 1	* King Priam (The Center of the Palace)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29519 0 6		*	a bronze helm: over the head
-E 0 29514 0 11		*	a bronze shield: as a shield
-E 0 29505 0 5		*	a bronze breastplate: on the body
-E 0 29516 0 8		*	a pair of sandals: on the feet
+E 0 29500 0 16		*	King Priam<wielded>: a short thrusting spear
+E 0 29501 0 17		*	King Priam<held in the hands>: a long throwing spear
+E 0 29519 0 6		*	King Priam<over the head>: a bronze helm
+E 0 29514 0 11		*	King Priam<as a shield>: a bronze shield
+E 0 29505 0 5		*	King Priam<on the body>: a bronze breastplate
+E 0 29516 0 8		*	King Priam<on the feet>: a pair of sandals
 M 0 29514 1 29597 1	* Hecabe (The Center of the Palace)
-E 0 29513 0 16		*	a bronze dagger: wielded
+E 0 29513 0 16		*	Hecabe<wielded>: a bronze dagger
 M 0 29507 1 29598 1	* Paris (Chambers)
-E 0 29500 0 16		*	a short thrusting spear: wielded
-E 0 29501 0 17		*	a long throwing spear: held in the hands
-E 0 29519 0 6		*	a bronze helm: over the head
-E 0 29514 0 11		*	a bronze shield: as a shield
-E 0 29505 0 5		*	a bronze breastplate: on the body
-E 0 29516 0 8		*	a pair of sandals: on the feet
+E 0 29500 0 16		*	Paris<wielded>: a short thrusting spear
+E 0 29501 0 17		*	Paris<held in the hands>: a long throwing spear
+E 0 29519 0 6		*	Paris<over the head>: a bronze helm
+E 0 29514 0 11		*	Paris<as a shield>: a bronze shield
+E 0 29505 0 5		*	Paris<on the body>: a bronze breastplate
+E 0 29516 0 8		*	Paris<on the feet>: a pair of sandals
 M 0 29511 1 29598 1	* Helen (Chambers)
-E 0 29513 0 16		*	a bronze dagger: wielded
+E 0 29513 0 16		*	Helen<wielded>: a bronze dagger
 M 0 29536 1 29599 1	* Helenus (Chambers)
-E 0 29513 0 16		*	a bronze dagger: wielded
+E 0 29513 0 16		*	Helenus<wielded>: a bronze dagger
 M 0 29512 1 29600 1	* Cassandra (Chambers)
-E 0 29513 0 16		*	a bronze dagger: wielded
+E 0 29513 0 16		*	Cassandra<wielded>: a bronze dagger
 S
 
 #OLIMITS

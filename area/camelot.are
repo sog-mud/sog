@@ -5698,266 +5698,232 @@ M 17337 spec_breath_fire	* Aigram the demon
 S
 
 #RESETS
-D 0 17305 3 2	* A Hut in Forest Arden: door to the west: closed and locked
-D 0 17308 1 2	* Inside a Hut: door to the east: closed and locked
-D 0 17316 0 1	* Before Blackmoor: door to the north: closed
-D 0 17318 3 1	* Before an Inviting Hut: door to the west: closed
-D 0 17323 1 1	* Inside the Inviting Hut: door to the east: closed
-D 0 17326 1 1	* The Western Gate of Camelot: door to the east: closed
-D 0 17327 0 1	* Bailey of Blackmoor: door to the north: closed
-D 0 17327 2 1	* Bailey of Blackmoor: door to the south: closed
-D 0 17328 2 1	* Inside the Curtain Wall: door to the south: closed
-D 0 17333 2 1	* Entrance to the Keep Proper: door to the south: closed
-D 0 17340 0 1	* The Dark Hall of Mordred: door to the north: closed
-D 0 17341 3 1	* Victory Road and Knights Way: door to the west: closed
-D 0 17346 1 1	* Behind the Pict Lines: door to the east: closed
-D 0 17355 0 1	* Squire's Run at the North Gate: door to the north: closed
-D 0 17355 2 1	* Squire's Run at the North Gate: door to the south: closed
-D 0 17356 2 1	* The Great Northern Gate of Camelot: door to the south: closed
-D 0 17357 0 1	* Squire's Barracks: door to the north: closed
-D 0 17361 0 1	* Noble Road at the South Gate: door to the north: closed
-D 0 17361 2 1	* Noble Road at the South Gate: door to the south: closed
-D 0 17366 0 1	* Noble's Quarters: door to the north: closed
-D 0 17366 2 1	* Noble's Quarters: door to the south: closed
-D 0 17366 3 2	* Noble's Quarters: door to the west: closed and locked
-D 0 17370 0 1	* The Court of Camelot: door to the north: closed
-D 0 17370 1 1	* The Court of Camelot: door to the east: closed
-D 0 17371 2 1	* The Feast Hall: door to the south: closed
-D 0 17372 0 1	* The Ladies' Chambers: door to the north: closed
-D 0 17374 2 1	* Knight's Barracks: door to the south: closed
-D 0 17376 3 1	* The Round Table: door to the west: closed
-D 0 17378 2 1	* Noble's Chambers: door to the south: closed
-D 0 17380 1 2	* Noble's Chambers: door to the east: closed and locked
-D 0 17385 0 1	* The Highlands: door to the north: closed
-D 0 17385 1 1	* The Highlands: door to the east: closed
-D 0 17388 3 1	* An Outpost: door to the west: closed
-D 0 17397 3 1	* Battle!: door to the west: closed
 M 0 17307 1 17302 1	* the black knight (The Crossroads of Arden)
-E 0 17318 0 7		*	a pair of blackened steel greaves: on the legs
-E 0 17356 0 16		*	two-handed knight's sword: wielded
+E 0 17318 0 7		*	the black knight<on the legs>: a pair of blackened steel greaves
+E 0 17356 0 16		*	the black knight<wielded>: two-handed knight's sword
 M 0 17315 1 17303 1	* King Pellinore (The Forest Arden)
-G 0 17321 0		*	a key with the letter "P" on it
-E 0 17356 0 16		*	two-handed knight's sword: wielded
+G 0 17321 0		*	King Pellinore: a key with the letter "P" on it
+E 0 17356 0 16		*	King Pellinore<wielded>: two-handed knight's sword
 M 0 17330 4 17305 1	* a serf (A Hut in Forest Arden)
 M 0 17316 1 17307 1	* the Questing Beast (Lair of the Questing Beast)
 O 0 17324 0 17307	* a pile of bones (Lair of the Questing Beast)
 O 0 17325 0 17307	* a human skull (Lair of the Questing Beast)
 O 0 17326 0 17307	* a small black rock (Lair of the Questing Beast)
 O 0 17374 0 17308	* workbench (Inside a Hut)
-P 0 17375 3 17374 1	* workbench: yellow potion
+P 0 17375 3 0 1	* workbench: yellow potion
 O 0 17365 0 17308	* fireplace (Inside a Hut)
-P 0 17364 1 17365 1	* fireplace: old scroll
-P 0 17376 1 17365 1	* fireplace: scroll
+P 0 17364 1 0 1	* fireplace: old scroll
+P 0 17376 1 0 1	* fireplace: scroll
 M 0 17366 1 17308 1	* small ghost (Inside a Hut)
 M 0 17309 1 17312 1	* Sir Garlon (Dark Hollow)
-E 0 17312 0 10		*	garlon's invisible armbands: on the arms
-E 0 17356 0 16		*	two-handed knight's sword: wielded
+E 0 17312 0 10		*	Sir Garlon<on the arms>: garlon's invisible armbands
+E 0 17356 0 16		*	Sir Garlon<wielded>: two-handed knight's sword
 M 0 17303 9 17314 1	* the knight of quality (A Creek in the Forest Arden)
-E 0 17303 0 16		*	a knight's lance: wielded
+E 0 17303 0 16		*	the knight of quality<wielded>: a knight's lance
 M 0 17323 7 17314 1	* charmed squire (A Creek in the Forest Arden)
 M 0 17306 1 17315 1	* Sir Galahad (Battleplain of Arden)
-E 0 17306 0 14		*	a white bracer: on the left wrist
-E 0 17307 0 17		*	the holy grail: held in the hands
-E 0 17356 0 16		*	two-handed knight's sword: wielded
+E 0 17306 0 14		*	Sir Galahad<on the left wrist>: a white bracer
+E 0 17307 0 17		*	Sir Galahad<held in the hands>: the holy grail
+E 0 17356 0 16		*	Sir Galahad<wielded>: two-handed knight's sword
 M 0 17326 1 17315 1	* Turquine (Battleplain of Arden)
-E 0 17334 0 6		*	a wolf helm: over the head
-E 0 17356 0 16		*	two-handed knight's sword: wielded
+E 0 17334 0 6		*	Turquine<over the head>: a wolf helm
+E 0 17356 0 16		*	Turquine<wielded>: two-handed knight's sword
 M 0 17319 5 17315 1	* charmed knight of renown (Battleplain of Arden)
 M 0 17320 3 17315 1	* charmed knight of quality (Battleplain of Arden)
-E 0 17303 0 16		*	a knight's lance: wielded
+E 0 17303 0 16		*	charmed knight of quality<wielded>: a knight's lance
 M 0 17323 7 17316 1	* charmed squire (Before Blackmoor)
 M 0 17305 1 17317 1	* Sir Benlad de Haudtesert (the green knight) (Forest Blackmoor)
-E 0 17304 0 5		*	a suit of green armor: on the body
-E 0 17305 0 16		*	benlad's axe: wielded
+E 0 17304 0 5		*	Sir Benlad de Haudtesert (the green knight)<on the body>: a suit of green armor
+E 0 17305 0 16		*	Sir Benlad de Haudtesert (the green knight)<wielded>: benlad's axe
 M 0 17319 5 17318 1	* charmed knight of renown (Before an Inviting Hut)
 M 0 17327 1 17322 1	* Perimones (The Chasm)
-E 0 17335 0 5		*	a suit of shimmering red armor: on the body
-E 0 17356 0 16		*	two-handed knight's sword: wielded
+E 0 17335 0 5		*	Perimones<on the body>: a suit of shimmering red armor
+E 0 17356 0 16		*	Perimones<wielded>: two-handed knight's sword
 M 0 17314 1 17323 1	* Morgan Le Fey (Inside the Inviting Hut)
-E 0 17319 0 17		*	a marble rod with a white hot tip: held in the hands
+E 0 17319 0 17		*	Morgan Le Fey<held in the hands>: a marble rod with a white hot tip
 M 0 17320 3 17327 1	* charmed knight of quality (Bailey of Blackmoor)
-E 0 17303 0 16		*	a knight's lance: wielded
+E 0 17303 0 16		*	charmed knight of quality<wielded>: a knight's lance
 M 0 17323 7 17330 1	* charmed squire (Inside the Curtain Wall)
 M 0 17323 7 17332 1	* charmed squire (Inside the Curtain Wall)
 M 0 17323 7 17335 1	* charmed squire (Inside the Curtain Wall)
 M 0 17319 5 17336 1	* charmed knight of renown (The Northwest Tower of Blackmoor)
 M 0 17328 1 17337 1	* a damsel in distress (The Northeastern Tower of Blackmoor)
-G 0 17337 0		*	the reward
+G 0 17337 0		*	a damsel in distress: the reward
 M 0 17319 5 17338 1	* charmed knight of renown (West Bailey Tower)
 M 0 17323 7 17339 1	* charmed squire (East Bailey Tower)
 M 0 17318 1 17340 1	* Mordred (The Dark Hall of Mordred)
-E 0 17328 0 5		*	a suit of golden armor: on the body
-E 0 17329 0 16		*	a spear glowing in an unholy dark light: wielded
+E 0 17328 0 5		*	Mordred<on the body>: a suit of golden armor
+E 0 17329 0 16		*	Mordred<wielded>: a spear glowing in an unholy dark light
 M 0 17319 5 17340 1	* charmed knight of renown (The Dark Hall of Mordred)
 M 0 17320 3 17340 1	* charmed knight of quality (The Dark Hall of Mordred)
-E 0 17303 0 16		*	a knight's lance: wielded
+E 0 17303 0 16		*	charmed knight of quality<wielded>: a knight's lance
 M 0 17323 7 17340 1	* charmed squire (The Dark Hall of Mordred)
 M 0 17323 1 17340 1	* charmed squire (The Dark Hall of Mordred)
 M 0 17302 9 17341 1	* the squire (Victory Road and Knights Way)
-E 0 17301 0 16		*	a squire's dagger: wielded
+E 0 17301 0 16		*	the squire<wielded>: a squire's dagger
 M 0 17303 9 17341 1	* the knight of quality (Victory Road and Knights Way)
-E 0 17303 0 16		*	a knight's lance: wielded
+E 0 17303 0 16		*	the knight of quality<wielded>: a knight's lance
 M 0 17303 9 17341 1	* the knight of quality (Victory Road and Knights Way)
-E 0 17303 0 16		*	a knight's lance: wielded
+E 0 17303 0 16		*	the knight of quality<wielded>: a knight's lance
 M 0 17302 9 17346 1	* the squire (Behind the Pict Lines)
-E 0 17301 0 16		*	a squire's dagger: wielded
+E 0 17301 0 16		*	the squire<wielded>: a squire's dagger
 M 0 17356 1 17346 1	* the pict leader (Behind the Pict Lines)
-E 0 17345 0 17		*	a rod of command: held in the hands
+E 0 17345 0 17		*	the pict leader<held in the hands>: a rod of command
 M 0 17302 9 17348 1	* the squire (Armory)
-E 0 17301 0 16		*	a squire's dagger: wielded
+E 0 17301 0 16		*	the squire<wielded>: a squire's dagger
 M 0 17330 4 17348 1	* a serf (Armory)
 M 0 17338 1 17348 1	* Iron Jack (Armory)
-G 0 17301 0		*	a squire's dagger
-G 0 17302 0		*	a knight's mace
-G 0 17303 0		*	a knight's lance
+G 0 17301 0		*	Iron Jack: a squire's dagger
+G 0 17302 0		*	Iron Jack: a knight's mace
+G 0 17303 0		*	Iron Jack: a knight's lance
 M 0 17332 2 17349 1	* a monk (Corner of Knight's Way and Noble Road)
-E 0 17355 0 16		*	monk's staff: wielded
+E 0 17355 0 16		*	a monk<wielded>: monk's staff
 M 0 17308 1 17351 1	* Sir Gareth (Tower of Valor)
-E 0 17308 0 12		*	a many colored cloak: about the shoulders
-E 0 17309 0 11		*	a shield of many colors: as a shield
+E 0 17308 0 12		*	Sir Gareth<about the shoulders>: a many colored cloak
+E 0 17309 0 11		*	Sir Gareth<as a shield>: a shield of many colors
 M 0 17302 9 17352 1	* the squire (Tourney Yard of Camelot)
-E 0 17301 0 16		*	a squire's dagger: wielded
+E 0 17301 0 16		*	the squire<wielded>: a squire's dagger
 M 0 17301 9 17353 1	* the knight of renown (Tower of Honor)
-E 0 17302 0 16		*	a knight's mace: wielded
+E 0 17302 0 16		*	the knight of renown<wielded>: a knight's mace
 M 0 17331 2 17354 1	* a merchant (Noble Road)
 M 0 17301 9 17355 1	* the knight of renown (Squire's Run at the North Gate)
-E 0 17302 0 16		*	a knight's mace: wielded
+E 0 17302 0 16		*	the knight of renown<wielded>: a knight's mace
 M 0 17301 9 17355 1	* the knight of renown (Squire's Run at the North Gate)
-E 0 17302 0 16		*	a knight's mace: wielded
+E 0 17302 0 16		*	the knight of renown<wielded>: a knight's mace
 M 0 17331 2 17355 1	* a merchant (Squire's Run at the North Gate)
 M 0 17302 9 17357 1	* the squire (Squire's Barracks)
-E 0 17301 0 16		*	a squire's dagger: wielded
+E 0 17301 0 16		*	the squire<wielded>: a squire's dagger
 M 0 17302 9 17357 1	* the squire (Squire's Barracks)
-E 0 17301 0 16		*	a squire's dagger: wielded
+E 0 17301 0 16		*	the squire<wielded>: a squire's dagger
 M 0 17302 9 17357 1	* the squire (Squire's Barracks)
-E 0 17301 0 16		*	a squire's dagger: wielded
+E 0 17301 0 16		*	the squire<wielded>: a squire's dagger
 M 0 17303 9 17358 1	* the knight of quality (Tourney Yard of Camelot)
-E 0 17303 0 16		*	a knight's lance: wielded
+E 0 17303 0 16		*	the knight of quality<wielded>: a knight's lance
 M 0 17312 1 17359 1	* Sir Lancelot du Lake (Tourney Yard of Camelot)
-E 0 17315 0 9		*	gauntlets of bravery: on the hands
-E 0 17373 0 16		*	sword named "Arondight": wielded
+E 0 17315 0 9		*	Sir Lancelot du Lake<on the hands>: gauntlets of bravery
+E 0 17373 0 16		*	Sir Lancelot du Lake<wielded>: sword named "Arondight"
 M 0 17324 1 17361 1	* Barant Les Apres (King of the Hundred Knights) (Noble Road at the South Gate)
-E 0 17332 0 16		*	a massive spiked ball and chain: wielded
-E 0 17358 0 12		*	white cloak: about the shoulders
+E 0 17332 0 16		*	Barant Les Apres (King of the Hundred Knights)<wielded>: a massive spiked ball and chain
+E 0 17358 0 12		*	Barant Les Apres (King of the Hundred Knights)<about the shoulders>: white cloak
 M 0 17301 9 17361 1	* the knight of renown (Noble Road at the South Gate)
-E 0 17302 0 16		*	a knight's mace: wielded
+E 0 17302 0 16		*	the knight of renown<wielded>: a knight's mace
 M 0 17301 9 17361 1	* the knight of renown (Noble Road at the South Gate)
-E 0 17302 0 16		*	a knight's mace: wielded
+E 0 17302 0 16		*	the knight of renown<wielded>: a knight's mace
 M 0 17302 9 17362 1	* the squire (Tourney Yard of Camelot)
-E 0 17301 0 16		*	a squire's dagger: wielded
+E 0 17301 0 16		*	the squire<wielded>: a squire's dagger
 M 0 17303 9 17365 1	* the knight of quality (Tourney Yard of Camelot)
-E 0 17303 0 16		*	a knight's lance: wielded
+E 0 17303 0 16		*	the knight of quality<wielded>: a knight's lance
 M 0 17301 9 17366 1	* the knight of renown (Noble's Quarters)
-E 0 17302 0 16		*	a knight's mace: wielded
+E 0 17302 0 16		*	the knight of renown<wielded>: a knight's mace
 M 0 17336 8 17366 1	* a servant (Noble's Quarters)
 M 0 17310 1 17368 1	* Sir Gawaine (Tourney Yard of Camelot)
-E 0 17313 0 6		*	gawaine's horned helm: over the head
-E 0 17357 0 16		*	longsword named "Galantine": wielded
+E 0 17313 0 6		*	Sir Gawaine<over the head>: gawaine's horned helm
+E 0 17357 0 16		*	Sir Gawaine<wielded>: longsword named "Galantine"
 M 0 17317 1 17369 1	* Sir Tristram of Lyoness (Tourney Yard of Camelot)
-G 0 17327 0		*	a love letter
+G 0 17327 0		*	Sir Tristram of Lyoness: a love letter
 M 0 17304 1 17370 1	* King Arthur (The Court of Camelot)
-E 0 17311 0 13		*	arthur's scabbard: around the waist
-E 0 17310 0 16		*	excalibur: wielded
-E 0 17353 0 5		*	King Arthur's platemail: on the body
-E 0 17354 0 6		*	King Arthur's crown: over the head
+E 0 17311 0 13		*	King Arthur<around the waist>: arthur's scabbard
+E 0 17310 0 16		*	King Arthur<wielded>: excalibur
+E 0 17353 0 5		*	King Arthur<on the body>: King Arthur's platemail
+E 0 17354 0 6		*	King Arthur<over the head>: King Arthur's crown
 M 0 17325 1 17370 1	* Dagonet (The Court of Camelot)
-E 0 17333 0 6		*	fool's motley: over the head
+E 0 17333 0 6		*	Dagonet<over the head>: fool's motley
 M 0 17321 7 17370 1	* a lady in waiting (The Court of Camelot)
-E 0 17330 0 17		*	a silken favor: held in the hands
+E 0 17330 0 17		*	a lady in waiting<held in the hands>: a silken favor
 M 0 17333 1 17370 1	* a troubadour (The Court of Camelot)
 M 0 17335 1 17370 1	* an entertainer (The Court of Camelot)
 M 0 17301 9 17371 1	* the knight of renown (The Feast Hall)
-E 0 17302 0 16		*	a knight's mace: wielded
+E 0 17302 0 16		*	the knight of renown<wielded>: a knight's mace
 M 0 17302 9 17371 1	* the squire (The Feast Hall)
-E 0 17301 0 16		*	a squire's dagger: wielded
+E 0 17301 0 16		*	the squire<wielded>: a squire's dagger
 M 0 17303 9 17371 1	* the knight of quality (The Feast Hall)
-E 0 17303 0 16		*	a knight's lance: wielded
+E 0 17303 0 16		*	the knight of quality<wielded>: a knight's lance
 M 0 17321 7 17371 1	* a lady in waiting (The Feast Hall)
-E 0 17330 0 17		*	a silken favor: held in the hands
+E 0 17330 0 17		*	a lady in waiting<held in the hands>: a silken favor
 M 0 17329 1 17371 1	* a nobleman (The Feast Hall)
-G 0 17339 0		*	a rather heavy looking purse
-G 0 17331 0		*	an emerald necklace
+G 0 17339 0		*	a nobleman: a rather heavy looking purse
+G 0 17331 0		*	a nobleman: an emerald necklace
 M 0 17330 4 17371 1	* a serf (The Feast Hall)
 M 0 17334 1 17371 1	* a bard (The Feast Hall)
 M 0 17336 8 17371 1	* a servant (The Feast Hall)
 M 0 17336 8 17371 1	* a servant (The Feast Hall)
 M 0 17321 7 17372 1	* a lady in waiting (The Ladies' Chambers)
-E 0 17330 0 17		*	a silken favor: held in the hands
+E 0 17330 0 17		*	a lady in waiting<held in the hands>: a silken favor
 M 0 17336 8 17372 1	* a servant (The Ladies' Chambers)
 M 0 17364 1 17373 1	* beautiful woman (The Maiden's Tower)
-E 0 17362 0 16		*	long slim dagger: wielded
+E 0 17362 0 16		*	beautiful woman<wielded>: long slim dagger
 M 0 17321 7 17373 1	* a lady in waiting (The Maiden's Tower)
-E 0 17330 0 17		*	a silken favor: held in the hands
+E 0 17330 0 17		*	a lady in waiting<held in the hands>: a silken favor
 M 0 17321 7 17373 1	* a lady in waiting (The Maiden's Tower)
-E 0 17330 0 17		*	a silken favor: held in the hands
+E 0 17330 0 17		*	a lady in waiting<held in the hands>: a silken favor
 M 0 17321 7 17373 1	* a lady in waiting (The Maiden's Tower)
-E 0 17330 0 17		*	a silken favor: held in the hands
+E 0 17330 0 17		*	a lady in waiting<held in the hands>: a silken favor
 M 0 17332 2 17373 1	* a monk (The Maiden's Tower)
 M 0 17336 8 17373 1	* a servant (The Maiden's Tower)
 M 0 17336 8 17373 1	* a servant (The Maiden's Tower)
 M 0 17311 1 17374 1	* Sir Lamorak (Knight's Barracks)
-E 0 17314 0 8		*	lamorak's spurs: on the feet
+E 0 17314 0 8		*	Sir Lamorak<on the feet>: lamorak's spurs
 M 0 17301 9 17374 1	* the knight of renown (Knight's Barracks)
-E 0 17302 0 16		*	a knight's mace: wielded
+E 0 17302 0 16		*	the knight of renown<wielded>: a knight's mace
 M 0 17301 9 17374 1	* the knight of renown (Knight's Barracks)
-E 0 17302 0 16		*	a knight's mace: wielded
+E 0 17302 0 16		*	the knight of renown<wielded>: a knight's mace
 M 0 17303 9 17374 1	* the knight of quality (Knight's Barracks)
-E 0 17303 0 16		*	a knight's lance: wielded
+E 0 17303 0 16		*	the knight of quality<wielded>: a knight's lance
 M 0 17303 9 17374 1	* the knight of quality (Knight's Barracks)
-E 0 17303 0 16		*	a knight's lance: wielded
+E 0 17303 0 16		*	the knight of quality<wielded>: a knight's lance
 M 0 17336 8 17374 1	* a servant (Knight's Barracks)
 M 0 17313 1 17375 1	* Merlin (Merlin's Tower)
-E 0 17316 0 1		*	the Incubus crest ring: on the left finger
-E 0 17317 0 17		*	merlin's staff: held in the hands
+E 0 17316 0 1		*	Merlin<on the left finger>: the Incubus crest ring
+E 0 17317 0 17		*	Merlin<held in the hands>: merlin's staff
 O 0 17336 0 17375	* a rusty key (Merlin's Tower)
 M 0 17303 9 17376 1	* the knight of quality (The Round Table)
-E 0 17303 0 16		*	a knight's lance: wielded
+E 0 17303 0 16		*	the knight of quality<wielded>: a knight's lance
 M 0 17322 1 17377 1	* Queen Gwenivere (Arthur's Chambers)
-E 0 17331 0 4		*	an emerald necklace: on the face
+E 0 17331 0 4		*	Queen Gwenivere<on the face>: an emerald necklace
 O 0 17366 0 17377	* big chest (Arthur's Chambers)
-P 0 17368 1 17366 1	* big chest: sword named "Excalibur"
+P 0 17368 1 0 1	* big chest: sword named "Excalibur"
 M 0 17336 8 17378 1	* a servant (Noble's Chambers)
 O 0 17339 0 17380	* a rather heavy looking purse (Noble's Chambers)
 M 0 17337 1 17381 1	* Aigram the demon (The Pentagram)
-E 0 17352 0 3		*	devilish amulet of Demon: around the neck
-E 0 17369 0 13		*	belt of power: around the waist
-G 0 17370 0		*	glowing stone
+E 0 17352 0 3		*	Aigram the demon<around the neck>: devilish amulet of Demon
+E 0 17369 0 13		*	Aigram the demon<around the waist>: belt of power
+G 0 17370 0		*	Aigram the demon: glowing stone
 M 0 17346 2 17388 1	* a northern border guard (An Outpost)
 M 0 17347 1 17388 1	* the northern outpost commander (An Outpost)
-E 0 17341 0 16		*	a commander's steel broad sword: wielded
+E 0 17341 0 16		*	the northern outpost commander<wielded>: a commander's steel broad sword
 M 0 17343 1 17389 1	* a Saxon raider (The rocky beach)
 M 0 17344 2 17389 1	* a slave (The rocky beach)
 M 0 17345 1 17389 1	* a Saxon chief (The rocky beach)
-E 0 17340 0 12		*	a lice infested cloak: about the shoulders
+E 0 17340 0 12		*	a Saxon chief<about the shoulders>: a lice infested cloak
 M 0 17363 2 17389 1	* a slave (The rocky beach)
 M 0 17348 2 17390 1	* a Scot clansmen (Scots Keep)
 M 0 17349 1 17390 1	* a Scot clan chief (Scots Keep)
-G 0 17342 0		*	a skin of whiskey
+G 0 17342 0		*	a Scot clan chief: a skin of whiskey
 M 0 17350 9 17391 1	* a busy serf (Farms)
 M 0 17350 9 17392 1	* a busy serf (Farms)
 M 0 17350 9 17393 1	* a busy serf (Farms)
 M 0 17350 9 17394 1	* a busy serf (Farms)
 M 0 17351 2 17395 1	* an Angle raider (Angle Raid!)
 M 0 17352 1 17395 1	* an Angle chief (Angle Raid!)
-E 0 17344 0 16		*	an angle: wielded
+E 0 17344 0 16		*	an Angle chief<wielded>: an angle
 O 0 17343 0 17395	* a dragon ship (Angle Raid!)
 M 0 17360 1 17395 1	* Gaheris (Angle Raid!)
-E 0 17349 0 16		*	an enormous axe: wielded
+E 0 17349 0 16		*	Gaheris<wielded>: an enormous axe
 M 0 17362 2 17396 1	* a southern border guard (An Outpost)
 M 0 17361 1 17396 1	* the southern outpost commander (An Outpost)
-E 0 17341 0 16		*	a commander's steel broad sword: wielded
+E 0 17341 0 16		*	the southern outpost commander<wielded>: a commander's steel broad sword
 M 0 17353 1 17397 1	* the cavalry unit (Battle!)
 M 0 17354 1 17397 1	* the infantry unit (Battle!)
 M 0 17355 1 17397 1	* the pict hoard (Battle!)
 M 0 17357 1 17397 1	* Persante of Inde (the blue knight) (Battle!)
-E 0 17346 0 0		*	the blue war banner of Persante of Inde: as a light
-E 0 17351 0 5		*	blue armor of Persante of Inde: on the body
+E 0 17346 0 0		*	Persante of Inde (the blue knight)<as a light>: the blue war banner of Persante of Inde
+E 0 17351 0 5		*	Persante of Inde (the blue knight)<on the body>: blue armor of Persante of Inde
 M 0 17358 1 17397 1	* Dodinas le Savage (Battle!)
-E 0 17347 0 16		*	lifecutter: wielded
+E 0 17347 0 16		*	Dodinas le Savage<wielded>: lifecutter
 M 0 17359 1 17397 1	* Lionel (Battle!)
-E 0 17348 0 5		*	a suit of full plate armor: on the body
+E 0 17348 0 5		*	Lionel<on the body>: a suit of full plate armor
 M 0 17321 7 17398 1	* a lady in waiting (Stables)
-E 0 17330 0 17		*	a silken favor: held in the hands
+E 0 17330 0 17		*	a lady in waiting<held in the hands>: a silken favor
 M 0 17330 4 17398 1	* a serf (Stables)
 M 0 17339 1 17398 1	* Stirrup (Stables)
 M 0 17340 1 17399 1	* a riding horse (Pet Storage for Stables)

@@ -429,17 +429,17 @@ M 0 2806 10 2803 4	* a fat worm (Troll's Living Room)
 M 0 2806 10 2803 4	* a fat worm (Troll's Living Room)
 M 0 2808 1 2803 1	* the medium troll (Troll's Living Room)
 O 0 2800 0 2804	* the cadaver-toy (The Playpen)
-P 0 2804 -1 2800 1	* the cadaver-toy: a leather belt
+P 0 2804 -1 0 1	* the cadaver-toy: a leather belt
 M 0 2803 4 2804 4	* a baby troll (The Playpen)
 M 0 2803 4 2804 4	* a baby troll (The Playpen)
 M 0 2803 4 2804 4	* a baby troll (The Playpen)
 M 0 2803 4 2804 4	* a baby troll (The Playpen)
 M 0 2806 10 2804 2	* a fat worm (The Playpen)
 M 0 2804 1 2805 1	* the giant troll (Troll's Bedroom)
-E 0 2802 0 12		*	the troll skin: about the shoulders
+E 0 2802 0 12		*	the giant troll<about the shoulders>: the troll skin
 M 0 2805 1 2805 1	* the large female troll (Troll's Bedroom)
 O 0 2801 0 2805	* the heap of carnage (Troll's Bedroom)
-P 0 2803 5 2801 1	* the heap of carnage: an opal ring
+P 0 2803 5 0 1	* the heap of carnage: an opal ring
 S
 
 #$

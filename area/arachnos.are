@@ -1473,8 +1473,6 @@ M 6319 spec_poison	* the Queen Spider
 S
 
 #RESETS
-D 0 6392 0 1	* The Great Door: door to the north: closed
-D 0 6399 2 1	* The Lair of Arachnos: door to the south: closed
 M 0 6301 8 6301 2	* the young spider (Webbed Entrance)
 M 0 6305 1 6303 1	* the Queen Wasp (Wasp Hive)
 M 0 6301 8 6304 2	* the young spider (Webby Passage)
@@ -1497,17 +1495,17 @@ M 0 6307 4 6335 2	* the ethereal spider (A Link in the Ethereal Web)
 M 0 6317 1 6340 1	* the medium dragon wormkin (The Elder Wormkin's Room)
 M 0 6310 1 6342 1	* the Bird Spider (The Bird Spider's Lair)
 M 0 6315 1 6350 1	* the Ki-Rin (The Ki-Rin Chamber)
-G 0 6309 0		*	a blue potion
-G 0 6309 0		*	a blue potion
+G 0 6309 0		*	the Ki-Rin: a blue potion
+G 0 6309 0		*	the Ki-Rin: a blue potion
 M 0 6302 1 6360 1	* Yevaud (Yevaud's Lair)
-G 0 6304 0		*	a black knight's visor
+G 0 6304 0		*	Yevaud: a black knight's visor
 M 0 6313 1 6367 1	* The guardian (The Guardian's Room)
 M 0 6312 1 6370 1	* the Donjonkeeper (The Donjonkeep)
-G 0 6309 0		*	a blue potion
+G 0 6309 0		*	the Donjonkeeper: a blue potion
 M 0 6311 1 6373 1	* the Hermit (The Hermit's Corner)
 M 0 6314 1 6399 1	* Arachnos (The Lair of Arachnos)
-G 0 6303 0		*	a pontiff's headdress
-G 0 6304 0		*	a black knight's visor
+G 0 6303 0		*	Arachnos: a pontiff's headdress
+G 0 6304 0		*	Arachnos: a black knight's visor
 S
 
 #$

@@ -4213,83 +4213,71 @@ M 22471 spec_nasty	* Giant cracken
 S
 
 #RESETS
-D 0 22480 2 1	* In the dark tunnel under forest: door to the south: closed
-D 0 22485 1 1	* A room of Queen: door to the east: closed
-D 0 22510 0 1	* In the Forest of Nowhere: door to the north: closed
-D 0 22512 0 1	* In the Forest of Nowhere: door to the north: closed
-D 0 22528 2 1	* Inside a small hut: door to the south: closed
-D 0 22529 2 1	* Inside a small hut: door to the south: closed
-D 0 22530 0 1	* In the small cave: door to the north: closed
-D 0 22530 2 2	* In the small cave: door to the south: closed and locked
-D 0 22531 0 2	* In the troll's sleeping room: door to the north: closed and locked
-D 0 22553 3 1	* In the dark deep tunnel: door to the west: closed
-D 0 22559 1 1	* In the dark deep tunnel: door to the east: closed
-D 0 22560 3 1	* Inside of treasure keep: door to the west: closed
 O 0 22454 0 22451	* a small sign (Entrance into Forest)
 M 0 22451 8 22452 1	* tiny guard (In the Forest of Nowhere)
-E 0 22456 0 16		*	wooden training mace: wielded
+E 0 22456 0 16		*	tiny guard<wielded>: wooden training mace
 M 0 22452 8 22452 1	* tiny guard (In the Forest of Nowhere)
-E 0 22467 0 3		*	Necklace of Life: around the neck
+E 0 22467 0 3		*	tiny guard<around the neck>: Necklace of Life
 M 0 22453 1 22453 1	* Bullroarer the Hobbit (Camp-In-The-Forest)
-G 0 22451 0		*	a seaweed
-G 0 22452 0		*	green staff
-G 0 22462 0		*	cooked mushroom
+G 0 22451 0		*	Bullroarer the Hobbit: a seaweed
+G 0 22452 0		*	Bullroarer the Hobbit: green staff
+G 0 22462 0		*	Bullroarer the Hobbit: cooked mushroom
 O 0 22453 0 22453	* pool of water (Camp-In-The-Forest)
 M 0 22451 8 22454 1	* tiny guard (In the Forest of Nowhere)
-E 0 22455 0 16		*	wooden training staff: wielded
+E 0 22455 0 16		*	tiny guard<wielded>: wooden training staff
 M 0 22452 8 22454 1	* tiny guard (In the Forest of Nowhere)
-E 0 22466 0 3		*	Necklace of Speed: around the neck
+E 0 22466 0 3		*	tiny guard<around the neck>: Necklace of Speed
 M 0 22451 8 22455 1	* tiny guard (In the Forest of Nowhere)
-E 0 22460 0 16		*	wooden training sword: wielded
+E 0 22460 0 16		*	tiny guard<wielded>: wooden training sword
 M 0 22452 8 22455 1	* tiny guard (In the Forest of Nowhere)
-E 0 22463 0 3		*	Necklace of Power: around the neck
+E 0 22463 0 3		*	tiny guard<around the neck>: Necklace of Power
 M 0 22451 8 22456 1	* tiny guard (In the Forest of Nowhere)
-E 0 22461 0 16		*	wooden training dagger: wielded
+E 0 22461 0 16		*	tiny guard<wielded>: wooden training dagger
 M 0 22452 8 22456 1	* tiny guard (In the Forest of Nowhere)
-E 0 22464 0 3		*	Necklace of Magi: around the neck
+E 0 22464 0 3		*	tiny guard<around the neck>: Necklace of Magi
 M 0 22451 8 22457 1	* tiny guard (In the Forest of Nowhere)
-E 0 22457 0 16		*	wooden training flail: wielded
+E 0 22457 0 16		*	tiny guard<wielded>: wooden training flail
 M 0 22452 8 22457 1	* tiny guard (In the Forest of Nowhere)
-E 0 22467 0 3		*	Necklace of Life: around the neck
+E 0 22467 0 3		*	tiny guard<around the neck>: Necklace of Life
 M 0 22451 8 22458 1	* tiny guard (In the Forest of Nowhere)
-E 0 22458 0 16		*	leather training whip: wielded
+E 0 22458 0 16		*	tiny guard<wielded>: leather training whip
 M 0 22452 8 22458 1	* tiny guard (In the Forest of Nowhere)
-E 0 22468 0 3		*	Necklace of Beauty: around the neck
+E 0 22468 0 3		*	tiny guard<around the neck>: Necklace of Beauty
 M 0 22451 8 22459 1	* tiny guard (In the Forest of Nowhere)
-E 0 22471 0 1		*	ring of wildreness: on the left finger
+E 0 22471 0 1		*	tiny guard<on the left finger>: ring of wildreness
 M 0 22452 8 22459 1	* tiny guard (In the Forest of Nowhere)
 M 0 22451 8 22460 1	* tiny guard (In the Forest of Nowhere)
 M 0 22452 8 22460 1	* tiny guard (In the Forest of Nowhere)
 M 0 22454 8 22461 1	* bloody beast (In the dark tunnel under forest)
 M 0 22455 8 22461 1	* bloody beast (In the dark tunnel under forest)
-E 0 22469 0 17		*	bloody orb: held in the hands
+E 0 22469 0 17		*	bloody beast<held in the hands>: bloody orb
 M 0 22454 8 22462 1	* bloody beast (In the dark tunnel under forest)
 M 0 22455 8 22462 1	* bloody beast (In the dark tunnel under forest)
-E 0 22469 0 17		*	bloody orb: held in the hands
+E 0 22469 0 17		*	bloody beast<held in the hands>: bloody orb
 M 0 22454 8 22463 1	* bloody beast (In the dark tunnel under forest)
 M 0 22455 8 22463 1	* bloody beast (In the dark tunnel under forest)
-E 0 22469 0 17		*	bloody orb: held in the hands
+E 0 22469 0 17		*	bloody beast<held in the hands>: bloody orb
 M 0 22454 8 22464 1	* bloody beast (In the dark tunnel under forest)
 M 0 22455 8 22464 1	* bloody beast (In the dark tunnel under forest)
-E 0 22469 0 17		*	bloody orb: held in the hands
+E 0 22469 0 17		*	bloody beast<held in the hands>: bloody orb
 M 0 22454 8 22465 1	* bloody beast (In the dark tunnel under forest)
 M 0 22455 8 22465 1	* bloody beast (In the dark tunnel under forest)
-E 0 22469 0 17		*	bloody orb: held in the hands
+E 0 22469 0 17		*	bloody beast<held in the hands>: bloody orb
 M 0 22454 8 22466 1	* bloody beast (In the dark tunnel under forest)
 M 0 22455 8 22466 1	* bloody beast (In the dark tunnel under forest)
-E 0 22469 0 17		*	bloody orb: held in the hands
+E 0 22469 0 17		*	bloody beast<held in the hands>: bloody orb
 M 0 22454 8 22467 1	* bloody beast (In the dark tunnel under forest)
 M 0 22455 8 22467 1	* bloody beast (In the dark tunnel under forest)
-E 0 22469 0 17		*	bloody orb: held in the hands
+E 0 22469 0 17		*	bloody beast<held in the hands>: bloody orb
 M 0 22454 8 22468 1	* bloody beast (In the dark tunnel under forest)
 M 0 22455 8 22468 1	* bloody beast (In the dark tunnel under forest)
-E 0 22469 0 17		*	bloody orb: held in the hands
+E 0 22469 0 17		*	bloody beast<held in the hands>: bloody orb
 M 0 22456 8 22469 1	* small guard (In the Forest of Nowhere)
 M 0 22457 8 22469 1	* small guard (In the Forest of Nowhere)
-E 0 22471 0 1		*	ring of wildreness: on the left finger
+E 0 22471 0 1		*	small guard<on the left finger>: ring of wildreness
 M 0 22456 8 22470 1	* small guard (In the Forest of Nowhere)
 M 0 22457 8 22470 1	* small guard (In the Forest of Nowhere)
-E 0 22471 0 1		*	ring of wildreness: on the left finger
+E 0 22471 0 1		*	small guard<on the left finger>: ring of wildreness
 M 0 22456 8 22471 1	* small guard (In the Forest of Nowhere)
 M 0 22457 8 22471 1	* small guard (In the Forest of Nowhere)
 M 0 22456 8 22472 1	* small guard (In the Forest of Nowhere)
@@ -4303,31 +4291,31 @@ M 0 22457 8 22475 1	* small guard (In the Forest of Nowhere)
 M 0 22456 8 22476 1	* small guard (In the Forest of Nowhere)
 M 0 22457 8 22476 1	* small guard (In the Forest of Nowhere)
 M 0 22458 8 22477 1	* white Icky Thing (In the dark tunnel under forest)
-G 0 22470 0		*	slime mold
+G 0 22470 0		*	white Icky Thing: slime mold
 M 0 22459 8 22477 1	* blubbering Icky Thing (In the dark tunnel under forest)
 M 0 22458 8 22478 1	* white Icky Thing (In the dark tunnel under forest)
-G 0 22470 0		*	slime mold
+G 0 22470 0		*	white Icky Thing: slime mold
 M 0 22459 8 22478 1	* blubbering Icky Thing (In the dark tunnel under forest)
 M 0 22458 8 22479 1	* white Icky Thing (In the dark tunnel under forest)
-G 0 22470 0		*	slime mold
+G 0 22470 0		*	white Icky Thing: slime mold
 M 0 22459 8 22479 1	* blubbering Icky Thing (In the dark tunnel under forest)
 M 0 22458 8 22480 1	* white Icky Thing (In the dark tunnel under forest)
-G 0 22470 0		*	slime mold
+G 0 22470 0		*	white Icky Thing: slime mold
 M 0 22459 8 22480 1	* blubbering Icky Thing (In the dark tunnel under forest)
 M 0 22458 8 22481 1	* white Icky Thing (In the dark tunnel under forest)
-G 0 22470 0		*	slime mold
+G 0 22470 0		*	white Icky Thing: slime mold
 M 0 22459 8 22481 1	* blubbering Icky Thing (In the dark tunnel under forest)
 M 0 22458 8 22482 1	* white Icky Thing (In the dark tunnel under forest)
-G 0 22470 0		*	slime mold
+G 0 22470 0		*	white Icky Thing: slime mold
 M 0 22459 8 22482 1	* blubbering Icky Thing (In the dark tunnel under forest)
 M 0 22458 8 22483 1	* white Icky Thing (In the dark tunnel under forest)
-G 0 22470 0		*	slime mold
+G 0 22470 0		*	white Icky Thing: slime mold
 M 0 22459 8 22483 1	* blubbering Icky Thing (In the dark tunnel under forest)
 M 0 22458 8 22484 1	* white Icky Thing (In the dark tunnel under forest)
-G 0 22470 0		*	slime mold
+G 0 22470 0		*	white Icky Thing: slime mold
 M 0 22459 8 22484 1	* blubbering Icky Thing (In the dark tunnel under forest)
 M 0 22464 1 22485 1	* Queen of Nagas (A room of Queen)
-E 0 22472 0 10		*	claw of serpents: on the arms
+E 0 22472 0 10		*	Queen of Nagas<on the arms>: claw of serpents
 M 0 22462 8 22486 1	* Clear naga (In the dark tunnel under forest)
 M 0 22463 8 22486 1	* spirit naga (In the dark tunnel under forest)
 M 0 22462 8 22487 1	* Clear naga (In the dark tunnel under forest)
@@ -4340,10 +4328,10 @@ M 0 22462 8 22490 1	* Clear naga (In the dark tunnel under forest)
 M 0 22463 8 22490 1	* spirit naga (In the dark tunnel under forest)
 M 0 22462 8 22491 1	* Clear naga (In the dark tunnel under forest)
 M 0 22463 8 22491 1	* spirit naga (In the dark tunnel under forest)
-E 0 22474 0 7		*	Naga's tail: on the legs
+E 0 22474 0 7		*	spirit naga<on the legs>: Naga's tail
 M 0 22462 8 22492 1	* Clear naga (In the dark tunnel under forest)
 M 0 22463 8 22492 1	* spirit naga (In the dark tunnel under forest)
-E 0 22474 0 7		*	Naga's tail: on the legs
+E 0 22474 0 7		*	spirit naga<on the legs>: Naga's tail
 M 0 22462 8 22493 1	* Clear naga (In the dark tunnel under forest)
 M 0 22463 8 22493 1	* spirit naga (In the dark tunnel under forest)
 M 0 22460 8 22494 1	* medium guard (In the Forest of Nowhere)
@@ -4354,40 +4342,40 @@ M 0 22460 8 22496 1	* medium guard (In the Forest of Nowhere)
 M 0 22461 8 22496 1	* medium guard (In the Forest of Nowhere)
 M 0 22460 8 22497 1	* medium guard (In the Forest of Nowhere)
 M 0 22461 8 22497 1	* medium guard (In the Forest of Nowhere)
-E 0 22473 0 16		*	leaf blade: wielded
+E 0 22473 0 16		*	medium guard<wielded>: leaf blade
 M 0 22460 8 22498 1	* medium guard (In the Forest of Nowhere)
 M 0 22461 8 22498 1	* medium guard (In the Forest of Nowhere)
 M 0 22460 8 22499 1	* medium guard (In the Forest of Nowhere)
 M 0 22461 8 22499 1	* medium guard (In the Forest of Nowhere)
 M 0 22460 8 22500 1	* medium guard (In the Forest of Nowhere)
 M 0 22461 8 22500 1	* medium guard (In the Forest of Nowhere)
-E 0 22473 0 16		*	leaf blade: wielded
+E 0 22473 0 16		*	medium guard<wielded>: leaf blade
 M 0 22460 8 22501 1	* medium guard (In the Forest of Nowhere)
 M 0 22461 8 22501 1	* medium guard (In the Forest of Nowhere)
 M 0 22467 8 22502 1	* large guard (In the Forest of Nowhere)
 M 0 22468 8 22502 1	* giant guard (In the Forest of Nowhere)
-E 0 22480 0 11		*	wooden shield fashhioned by fresh grass: as a shield
+E 0 22480 0 11		*	giant guard<as a shield>: wooden shield fashhioned by fresh grass
 M 0 22467 8 22504 1	* large guard (In the Forest of Nowhere)
 M 0 22468 8 22504 1	* giant guard (In the Forest of Nowhere)
-E 0 22480 0 11		*	wooden shield fashhioned by fresh grass: as a shield
+E 0 22480 0 11		*	giant guard<as a shield>: wooden shield fashhioned by fresh grass
 M 0 22467 8 22506 1	* large guard (In the Forest of Nowhere)
 M 0 22468 8 22506 1	* giant guard (In the Forest of Nowhere)
 M 0 22467 8 22508 1	* large guard (In the Forest of Nowhere)
 M 0 22468 8 22508 1	* giant guard (In the Forest of Nowhere)
 M 0 22469 8 22509 1	* forest burner (In the Forest of Nowhere)
 M 0 22470 8 22509 1	* forest destroer (In the Forest of Nowhere)
-E 0 22491 0 16		*	twin-bladed axe: wielded
+E 0 22491 0 16		*	forest destroer<wielded>: twin-bladed axe
 M 0 22467 8 22511 1	* large guard (In the Forest of Nowhere)
 M 0 22468 8 22511 1	* giant guard (In the Forest of Nowhere)
 M 0 22469 8 22512 1	* forest burner (In the Forest of Nowhere)
-E 0 22490 0 17		*	box of matches: held in the hands
+E 0 22490 0 17		*	forest burner<held in the hands>: box of matches
 M 0 22470 8 22512 1	* forest destroer (In the Forest of Nowhere)
 M 0 22467 8 22513 1	* large guard (In the Forest of Nowhere)
 M 0 22468 8 22513 1	* giant guard (In the Forest of Nowhere)
-E 0 22480 0 11		*	wooden shield fashhioned by fresh grass: as a shield
+E 0 22480 0 11		*	giant guard<as a shield>: wooden shield fashhioned by fresh grass
 M 0 22469 8 22514 1	* forest burner (In the Forest of Nowhere)
 M 0 22470 8 22514 1	* forest destroer (In the Forest of Nowhere)
-E 0 22491 0 16		*	twin-bladed axe: wielded
+E 0 22491 0 16		*	forest destroer<wielded>: twin-bladed axe
 M 0 22469 8 22516 1	* forest burner (In the Forest of Nowhere)
 M 0 22470 8 22516 1	* forest destroer (In the Forest of Nowhere)
 M 0 22467 8 22517 1	* large guard (In the Forest of Nowhere)
@@ -4395,25 +4383,25 @@ M 0 22468 8 22517 1	* giant guard (In the Forest of Nowhere)
 M 0 22467 8 22519 1	* large guard (In the Forest of Nowhere)
 M 0 22468 8 22519 1	* giant guard (In the Forest of Nowhere)
 M 0 22469 8 22522 1	* forest burner (In the Forest of Nowhere)
-E 0 22490 0 17		*	box of matches: held in the hands
+E 0 22490 0 17		*	forest burner<held in the hands>: box of matches
 M 0 22470 8 22522 1	* forest destroer (In the Forest of Nowhere)
 M 0 22469 8 22524 1	* forest burner (In the Forest of Nowhere)
 M 0 22470 8 22524 1	* forest destroer (In the Forest of Nowhere)
-E 0 22491 0 16		*	twin-bladed axe: wielded
+E 0 22491 0 16		*	forest destroer<wielded>: twin-bladed axe
 M 0 22469 8 22525 1	* forest burner (In the Forest of Nowhere)
 M 0 22470 8 22525 1	* forest destroer (In the Forest of Nowhere)
 M 0 22469 8 22527 1	* forest burner (In the Forest of Nowhere)
 M 0 22470 8 22527 1	* forest destroer (In the Forest of Nowhere)
 M 0 22465 1 22528 1	* Tellias (Inside a small hut)
-E 0 22475 0 16		*	ice crystal staff: wielded
-E 0 22476 0 1		*	FoN signed ring: on the left finger
+E 0 22475 0 16		*	Tellias<wielded>: ice crystal staff
+E 0 22476 0 1		*	Tellias<on the left finger>: FoN signed ring
 M 0 22466 1 22529 1	* Mifner (Inside a small hut)
-E 0 22478 0 16		*	Composite bow named "DarkSlayer": wielded
-E 0 22479 0 12		*	Ornately designed quiver: about the shoulders
+E 0 22478 0 16		*	Mifner<wielded>: Composite bow named "DarkSlayer"
+E 0 22479 0 12		*	Mifner<about the shoulders>: Ornately designed quiver
 M 0 22473 1 22530 1	* Rumpelsteelskin (In the small cave)
-E 0 22495 0 17		*	Black runed key: held in the hands
+E 0 22495 0 17		*	Rumpelsteelskin<held in the hands>: Black runed key
 M 0 22472 1 22560 1	* human sergeant (Inside of treasure keep)
-E 0 22493 0 16		*	Jewelled broadsword: wielded
+E 0 22493 0 16		*	human sergeant<wielded>: Jewelled broadsword
 S
 
 #SHOPS

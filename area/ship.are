@@ -193,7 +193,7 @@ fire огненный вихрь demon~
 хоровод вокруг породившего их вихря.
 ~
 fire elemental~
-F 0 HTVac 0 J 0 0
+FRe 0 HTVac 0 J 0 0
 50 0 105d10+4500 50d10+200 5d20+47 'flame'
 -20 -20 -20 -15
 AFHKZ
@@ -201,6 +201,77 @@ stand stand none 3
 0 0 giant unknown
 g @eng none@rus male~
 r acid 40
+#10609
+flame~
+@eng flame@rus ~~язык~~ пламени~
+@rus Хоровод из языков пламени кружится вокруг тебя.
+~
+~
+fire elemental~
+0 0 TV 0 J 0 0
+20 0 5d30+150 20d10+100 4d5+15 'flame'
+5 5 5 3
+FHUZ
+stand stand none 20
+0 0 small unknown
+g @eng none@rus male~
+#10610
+old dragon старый дракон black черный~
+@eng old black dragon@rus ~~старый~~ ~~черный~~ ~~дракон~~~
+@rus Древний черный дракон дремлет, вспоминая о прожитых веках.
+~
+@rus Древний черный дракон которого издали можно принять
+за каменистый холм дремлет вспоминая о прожитых веках,
+о событиях, в которых он учавствовал,о битвах в которых   
+он побеждал врагов. Но чаще всего - о теплой пещере возле
+горячего вулкана, куда он за свою долгую жизнь успел
+принести столько сокровищь.
+  Его толстая шкура покрыта множеством шрамов, многие
+чешуйки его брони поломаны или исчезли совсем. Из
+приоткрытой пасти при каждом выдохе вырываются клубы дыма
+и иногдя струйки пламени.
+~
+black dragon~
+JRZ 0 Jd 0 ABCDFJL -1000 0
+60 0 110d11+5000 60d10+1000 5d20+50 'frbite'
+-50 -50 -50 -60
+CXY
+stand stand none 20000
+Z QU huge unknown
+g @eng none@rus male~
+r bash 95
+r pierce -80
+r slash 50
+r fire 80
+r cold -50
+r lightning 80
+r acid 90
+r negative 95
+r energy 50
+r mental 40
+r sound -50
+r disease 33
+r poison -10
+r charm -33
+r harm 30
+r light -30
+#10611
+giant гигантский спрут octopus~
+@eng giant octopus@rus ~~гигантский~~ ~~спрут~~~
+@eng Giant octopus lies is here.
+@rus Гигантский спрут дремлет здесь раскинув щупальца во все стороны.
+~
+~
+water fowl~
+BTe 0 Ld 0 J 800 0
+50 0 120d15+10000 50d10+100 5d19+40 'slime'
+-50 -50 -50 -50
+ACEOZ
+sleep sleep none 20000
+0 0 huge unknown
+g @eng none@rus male~
+F aff T
+a 'water breathing' unknown 50 -1 0 0 0
 #0
 
 #OBJECTS
@@ -223,8 +294,8 @@ wand CHUY BCF AO
 45 3000 1000 P
 g @rus none~
 #10603
-штурвал~
-@rus штурвал~
+штурвал handwheel~
+@eng handwheel@rus штурвал~
 @rus Штурвал стоит и ведет корабль в неизвестность.~
 wood~
 furniture BYb ABEF 0
@@ -234,7 +305,7 @@ E
 штурвал~
 @rus Большой темного дерева штурвал с бронзовоми рукоятками.  
 ~
-g @rus none~
+g @rus male~
 #10604
 sleep nightmare сон кошмар~
 @eng nightmare@rus Кошмарный сон~
@@ -353,11 +424,11 @@ pill AGU 0 A
 40 300 100000 P
 g @eng none@rus neutral~
 #10617
-плащь~
-~
-~
+плащь cape skin шкура~
+@eng skin of ice demon@rus ~~шкура~~ ледяного демона~
+@rus Толстая шкура ледяного демона лежит в углу.~
 flame~
-armor BGHMUY BEF AK
+armor BGUY BF AK
 20 20 20 18 0
 43 50 500000 P
 a '' to_affects 43 -1 -10 20 0
@@ -380,6 +451,15 @@ a '' to_affects 43 -1 10 28 0
 a '' to_affects 43 -1 20 33 0
 a '' to_affects 43 -1 100 31 0
 g @eng none@rus male~
+#10618
+присоска~
+@rus ~~присоска~~ спрута~
+~
+meat~
+weapon HM 0 AN
+exotic 0 0 '' 0
+30 200 100000 P
+g @eng none@rus female~
 #10810
 key ключ~
 @eng silver key@rus ~~серебрянный~~ ~~ключик~~~
@@ -4994,12 +5074,6 @@ D0
 ~
 ~
 Z 0 10822
-D1
-~
-~
-~
-~
-Z 0 10824
 D2
 ~
 ~
@@ -5635,12 +5709,6 @@ D3
 ~
 ~
 Z 0 10822
-D4
-~
-~
-~
-~
-Z 0 10819
 D5
 ~
 ~
@@ -6831,62 +6899,6 @@ M 10606 spec_breath_frost	* ice demon
 S
 
 #RESETS
-D 0 10614 5 1	* : door to the down: closed
-D 0 10635 4 1	* The gun-deck: door to the up: closed
-D 0 10649 4 1	* The gun-deck: door to the up: closed
-D 0 10651 5 1	* : door to the down: closed
-D 0 10657 1 1	* : door to the east: closed
-D 0 10659 3 1	* : door to the west: closed
-D 0 10666 4 1	* : door to the up: closed
-D 0 10675 5 1	* : door to the down: closed
-D 0 10690 5 1	* The gun-deck: door to the down: closed
-D 0 10694 5 1	* : door to the down: closed
-D 0 10700 4 1	* : door to the up: closed
-D 0 10700 5 1	* : door to the down: closed
-D 0 10709 4 1	* : door to the up: closed
-D 0 10714 4 1	* : door to the up: closed
-D 0 10720 4 1	* : door to the up: closed
-D 0 10749 0 1	* In fire: door to the north: closed
-D 0 10750 1 1	* ice: door to the east: closed
-D 0 10785 5 1	* : door to the down: closed
-D 0 10857 0 2	* k: door to the north: closed and locked
-D 0 10857 1 2	* k: door to the east: closed and locked
-D 0 10857 2 2	* k: door to the south: closed and locked
-D 0 10857 3 2	* k: door to the west: closed and locked
-D 0 10857 5 2	* k: door to the down: closed and locked
-D 0 10858 2 2	* k: door to the south: closed and locked
-D 0 10859 3 2	* k: door to the west: closed and locked
-D 0 10860 0 2	* k: door to the north: closed and locked
-D 0 10860 2 2	* k: door to the south: closed and locked
-D 0 10861 1 2	* k: door to the east: closed and locked
-D 0 10862 4 2	* k: door to the up: closed and locked
-D 0 10863 0 2	* k: door to the north: closed and locked
-D 0 10863 2 2	* k: door to the south: closed and locked
-D 0 10864 0 2	* k: door to the north: closed and locked
-D 0 10866 0 1	* k: door to the north: closed
-D 0 10866 2 1	* k: door to the south: closed
-D 0 10867 2 1	* k: door to the south: closed
-D 0 10868 0 1	* k: door to the north: closed
-D 0 10869 0 1	* k: door to the north: closed
-D 0 10869 2 1	* k: door to the south: closed
-D 0 10869 3 1	* k: door to the west: closed
-D 0 10870 0 1	* k: door to the north: closed
-D 0 10871 2 1	* k: door to the south: closed
-D 0 10872 1 1	* k: door to the east: closed
-D 0 10872 3 1	* k: door to the west: closed
-D 0 10873 1 1	* k: door to the east: closed
-D 0 10873 5 2	* k: door to the down: closed and locked
-D 0 10874 4 2	* k: door to the up: closed and locked
-D 0 10891 2 1	* k: door to the south: closed
-D 0 10892 0 1	* k: door to the north: closed
-D 0 10893 5 1	* k: door to the down: closed
-D 0 10894 4 1	* k: door to the up: closed
-D 0 10895 1 1	* k: door to the east: closed
-D 0 10896 3 1	* k: door to the west: closed
-D 0 10897 2 1	* k: door to the south: closed
-D 0 10897 3 1	* k: door to the west: closed
-D 0 10897 4 2	* k: door to the up: closed and locked
-D 0 10898 5 2	* k: door to the down: closed and locked
 O 0 10604 0 10634	* nightmare ()
 M 0 10602 1 10634 1	* sleepman ()
 O 0 10602 0 10636	* gun (Porthole)
@@ -6900,7 +6912,7 @@ O 0 10602 0 10645	* gun (Porthole)
 O 0 10602 0 10647	* gun (Porthole)
 O 0 10602 0 10648	* gun (Porthole)
 O 0 10602 0 10650	* gun (Porthole)
-O 0 10603 0 10669	*  ()
+O 0 10603 0 10669	* handwheel ()
 O 0 10602 0 10677	* gun (Porthole)
 O 0 10602 0 10679	* gun (Porthole)
 O 0 10602 0 10680	* gun (Porthole)
@@ -6912,12 +6924,13 @@ O 0 10602 0 10688	* gun (Porthole)
 O 0 10602 0 10689	* gun (Porthole)
 O 0 10602 0 10691	* gun (Porthole)
 M 0 10608 1 10749 1	* fire demon (In fire)
-G 0 10616 0		*	heart of fire demon
-E 0 10617 0 12		*	: about the shoulders
+G 0 10616 0		*	fire demon: heart of fire demon
+E 0 10617 0 12		*	fire demon<about the shoulders>: skin of ice demon
+M 0 10609 20 10749 20	* flame (In fire)
 M 0 10606 1 10750 1	* ice demon (ice)
-E 0 10615 0 16		*	right claw of ice demon: wielded
-E 0 10614 0 20		*	left claw of ice demon: second wielded
-G 0 10611 0		*	heart of ice demon
+E 0 10615 0 16		*	ice demon<wielded>: right claw of ice demon
+E 0 10614 0 20		*	ice demon<second wielded>: left claw of ice demon
+G 0 10611 0		*	ice demon: heart of ice demon
 M 0 10607 20 10750 20	* ice needle (ice)
 M 0 10603 1 10752 1	* gravity (In air)
 R 0 10792 1	* 1th: randomize
@@ -7035,6 +7048,7 @@ R 0 10829 2	* 4th: randomize
 R 0 10829 3	* 4th: randomize
 R 0 10829 4	* 4th: randomize
 R 0 10829 6	* 4th: randomize
+M 0 10610 1 10829 1	* old black dragon (4th)
 R 0 10830 2	* 4th: randomize
 R 0 10830 3	* 4th: randomize
 R 0 10830 4	* 4th: randomize
@@ -7068,6 +7082,7 @@ R 0 10838 2	* 4th: randomize
 R 0 10838 3	* 4th: randomize
 R 0 10838 4	* 4th: randomize
 R 0 10838 5	* 4th: randomize
+M 0 10611 1 10838 1	* giant octopus (4th)
 R 0 10839 2	* 4th: randomize
 R 0 10839 3	* 4th: randomize
 R 0 10839 4	* 4th: randomize
@@ -7119,7 +7134,7 @@ M 0 10605 50 10867 5	*  (k)
 M 0 10605 50 10868 5	*  (k)
 M 0 10605 50 10869 5	*  (k)
 M 0 10604 1 10870 1	* a rat (k)
-G 0 10609 0		*	small key
+G 0 10609 0		*	a rat: small key
 M 0 10605 50 10870 5	*  (k)
 M 0 10605 50 10871 5	*  (k)
 M 0 10605 50 10872 5	*  (k)
@@ -7136,7 +7151,8 @@ O 10602 50	* gun
 O 10614 1	* left claw of ice demon
 O 10615 1	* right claw of ice demon
 O 10616 2	* heart of fire demon
-O 10617 1	* 
+O 10617 1	* skin of ice demon
+O 10618 10	* 
 S
 
 #MOBPROGS
