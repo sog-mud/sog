@@ -505,7 +505,6 @@ B 0 0 0 0 0 0
 0
 stand stand male 4500
 D 0 medium unknown
-F off G
 F for AZ
 F par AD
 #25019
@@ -542,7 +541,6 @@ B 0 H 0 0 0 0
 0
 stand stand male 4906
 D 0 medium unknown
-F off G
 F for Z
 F par AD
 #25021
@@ -561,7 +559,6 @@ B 0 0 0 0 0 0
 0
 stand stand male 4111
 D 0 medium unknown
-F off G
 F for Z
 F par AD
 #25022
@@ -839,9 +836,9 @@ r light 33
 
 #OBJECTS
 #25000
-sword~
-the Sword of the Ancients~
-The Sword of the Ancients rests here~
+sword ancients меч древних~
+@eng the Sword of the Ancients@rus ~~меч~~ Древних~
+@eng The Sword of the Ancients rests here@rus Меч Древних (sword) лежит здесь.~
 steel~
 weapon GJL A AN
 sword 5 8 'pierce' D
@@ -851,14 +848,14 @@ A
 A
 19 4
 E
-ancients~
-This huge sword is very old, and very very big and sharp.
+ancients ancient~
+This huge sword is very old, and very very big and sharp.  
 ~
-g none~
+g @eng none@rus male~
 #25001
-pile silk~
-a pile of blue silk~
-A pile of dark blue silk lies here, rustling slightly.~
+cloak blue silk плащ синего шелка pile куча~
+@eng a pile of blue silk@rus ~~плащ~~ из темно-синего шелка~
+@eng A pile of dark blue silk lies here, rustling slightly.@rus Куча синего шелка (silk) тихо шелестит здесь.~
 wool~
 armor GL 0 AK
 12 12 12 6 0
@@ -869,11 +866,11 @@ E
 dark blue~
 This cloak is dark blue, and looks like very effective armor
 ~
-g none~
+g @eng none@rus male~
 #25002
-silver sleeves~
-a pair of silver sleeves~
-A pair of silver sleeves lies at your feet.~
+silver sleeves сереьряные наручи~
+@eng a pair of silver sleeves@rus ~~серебряные~~ ~~наручи~~~
+@eng A pair of silver sleeves lies at your feet.@rus Серебряные наручи (sleeves) лежат у твоих ног.~
 silver~
 armor GL A AI
 11 11 11 5 0
@@ -884,11 +881,11 @@ E
 silver sleeves~
 These sleeves seem to have a sort of magical aura...
 ~
-g none~
+g @eng none@rus plural~
 #25003
-belt~
-a Rune Covered Belt~
-An ornate looking belt lies here.~
+belt пояс rune covered покрытый рунами~
+@eng a Rune Covered Belt@rus ~~украшенный~~ рунами ~~пояс~~~
+@eng An ornate looking belt lies here.@rus Изящный пояс (belt) лежит здесь.~
 leather~
 armor GL 0 AL
 9 9 9 2 0
@@ -897,11 +894,11 @@ E
 rune covered belt~
 Upon closer inspection of the belt you find strange magical symbols...
 ~
-g none~
+g @eng none@rus male~
 #25004
-helm dragons~
-a Helm of the Dragons~
-A strange helm lies here.~
+helm dragons шлем драконов~
+@eng a Helm of the Dragons@rus ~~Шлем~~ Драконов~
+@eng A strange helm lies here.@rus Необычный шлем (helm) лежит тут.~
 steel~
 armor GJL 0 AE
 12 12 12 2 0
@@ -915,11 +912,11 @@ helm dragons~
 The metal is like nothing you have ever seen, perhaps this helm is of the
 gods...
 ~
-g none~
+g @eng none@rus male~
 #25005
-rune breast plate~
-a Rune Covered Breast Plate~
-A rune covered breast plate lies here in the dirt~
+rune breast plate нагрудник доспех покрытый рунами covered~
+@eng a Rune Covered Breast Plate@rus ~~покрытый~~ рунами ~~доспех~~~
+@eng A rune covered breast plate lies here in the dirt@rus Украшенный рунами нагрудный доспех (breast plate) лежит в грязи.~
 steel~
 armor GJL A AD
 11 11 11 2 0
@@ -933,9 +930,9 @@ cover the plate.
 ~
 g none~
 #25006
-pair silver boot boots~
-a Pair of Silver Boots~
-A pair of silver boots stands neatly in the corner~
+pair silver boot boots серебряный ботинки пара~
+@eng a Pair of Silver Boots@rus ~~серебряные~~ ~~ботинки~~~
+@eng A pair of silver boots stands neatly in the corner@rus Пара серебряных ботинок (boots) стоит в углу.~
 silver~
 armor GL A AG
 10 10 10 2 0
@@ -946,10 +943,10 @@ They are made of pure silver.... they radiate a strong sense of magic.
 ~
 g none~
 #25007
-silver shield~
-silver Shield~
-A Sturdy looking shield of silver rests against a nearby wall, gleaming
-brightly.~
+silver shield серебряный щит~
+@eng silver Shield@rus ~~серебряный~~ ~~щит~~~
+@eng A Sturdy looking shield of silver rests against a nearby wall, gleaming
+brightly.@rus Прочный серебряный щит (shield) прслонен к стене и ярко сияет.~
 silver~
 armor GL A AJ
 12 12 12 2 0
@@ -961,10 +958,10 @@ ever seen.
 ~
 g none~
 #25008
-black silver cloak~
-a Black and Silver Cloak~
-A Black and silver Cloak lies crumpled in a corner.~
-silver~
+black silver cloak черный плащ серебро~
+@eng a Black and Silver Cloak@rus ~~черный~~ с серебром ~~плащ~~~
+@eng A Black and silver Cloak lies crumpled in a corner.@rus Черный с серебром плащ (cloak) лежит в углу.~
+nothingness~
 armor GLM 0 AK
 9 9 9 2 0
 25 50 12340 G
@@ -975,9 +972,9 @@ Silver runes and symbols are carefully inscribed on the back of the cloak.
 ~
 g none~
 #25009
-metallic leg plates~
-a Pair of Metallic Leg Plates~
-A pair of leg plates formed of some metallic substance lie in pile.~
+metallic leg plates металлические поножи~
+@eng a Pair of Metallic Leg Plates@rus ~~металлические~~ ~~поножи~~~
+@eng A pair of leg plates formed of some metallic substance lie in pile.@rus Пара поножей (leg plates), сделанных из какого-то металла, лежит тут.~
 steel~
 armor EGL 0 AF
 9 9 9 1 0
@@ -985,8 +982,8 @@ armor EGL 0 AF
 g none~
 #25010
 pair jeweled gauntlets~
-a Pair of Jeweled Gauntlets~
-A pair of jewel encrusted gauntlets lie here.~
+@eng a Pair of Jeweled Gauntlets@rus богато ~~украшенные~~ ~~рукавицы~~~
+@eng A pair of jewel encrusted gauntlets lie here.@rus Украшенные драгоценными камнями кольчужные рукавицы (gauntlets) лежат тут.~
 steel~
 armor GJL 0 AH
 15 15 15 7 0
@@ -1001,9 +998,9 @@ Looks very useful in combat.  They are made of fine chain mail.
 ~
 g none~
 #25011
-pitch black cloak~
-a Pitch-Black Cloak~
-A dark black cloak lies here in the dirt.~
+pitch black cloak угольно-черный плащ~
+@eng a Pitch-Black Cloak@rus угольно-~~черный~~ ~~плащ~~~
+@eng A dark black cloak lies here in the dirt.@rus Угольно-черный плащ (cloak) лежит в грязи.~
 energy~
 armor GHLM 0 AK
 12 11 10 2 0
