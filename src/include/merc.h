@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.10 1998-04-29 12:41:16 indra Exp $
+ * $Id: merc.h,v 1.11 1998-05-05 01:18:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1250,6 +1250,7 @@ struct	kill_data
 #define SEX_NEUTRAL		      0
 #define SEX_MALE		      1
 #define SEX_FEMALE		      2
+#define SEX_MAX			SEX_FEMALE
 
 /* AC types */
 #define AC_PIERCE			0

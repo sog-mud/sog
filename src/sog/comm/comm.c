@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.18 1998-04-29 11:01:22 fjoe Exp $
+ * $Id: comm.c,v 1.19 1998-05-05 01:18:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -404,6 +404,7 @@ int main( int argc, char **argv )
     
     control = init_socket( port );
     boot_db( );
+    msgdb_load();
     log_printf("ready to rock on port %d.", port);
     game_loop_unix( control );
     close (control);

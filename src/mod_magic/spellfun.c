@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.4 1998-04-29 11:01:25 fjoe Exp $
+ * $Id: spellfun.c,v 1.5 1998-05-05 01:18:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4916,8 +4916,8 @@ void spell_ventriloquate( int sn, int level, CHAR_DATA *ch,void *vo,int target)
 
     target_name = one_argument( target_name, speaker );
 
-    sprintf( buf1, "%s says '%s'.\n\r",              speaker, target_name );
-    sprintf( buf2, "Someone makes %s say '%s'.\n\r", speaker, target_name );
+    sprintf( buf1, "%s says '{G%s{x'.\n\r",              speaker, target_name );
+    sprintf( buf2, "Someone makes %s say '{G%s{x'.\n\r", speaker, target_name );
     buf1[0] = UPPER(buf1[0]);
 
     for ( vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room )

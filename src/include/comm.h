@@ -2,7 +2,7 @@
 #define _COMM_H_
 
 /*
- * $Id: comm.h,v 1.2 1998-04-21 22:03:57 efdi Exp $
+ * $Id: comm.h,v 1.3 1998-05-05 01:18:43 fjoe Exp $
  */
 
 /* comm.c */
@@ -10,7 +10,7 @@ void	show_string	(struct descriptor_data *d, char *input);
 void	close_socket	(DESCRIPTOR_DATA *dclose);
 void	write_to_buffer	(DESCRIPTOR_DATA *d, const char *txt, int length);
 
-#define send_to_char(txt, ch) char_puts(txt, ch)
+#define send_to_char(txt, ch) char_printf(ch, txt)
 void	char_puts(const char *txt, CHAR_DATA *ch);
 void	char_printf(CHAR_DATA *ch, const char *format, ...);
 
