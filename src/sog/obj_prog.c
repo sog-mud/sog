@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.66.2.23 2004-02-18 23:52:39 fjoe Exp $
+ * $Id: obj_prog.c,v 1.66.2.24 2004-04-21 13:27:08 tatyana Exp $
  */
 
 /***************************************************************************
@@ -406,6 +406,9 @@ int speech_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	char *speech = (char*) arg;
 
+	if (ch->wait > 0)
+		return 0;
+
 	if (!str_cmp(speech, "sword of acid")
 	&&  ch->fighting
 	&&  ((get_eq_char(ch, WEAR_WIELD) == obj) ||
@@ -550,6 +553,9 @@ int get_prog_quest_obj(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 int speech_prog_kassandra(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	char *speech = (char*) arg;
+
+	if (ch->wait > 0)
+		return 0;
 
 	if (!str_cmp(speech, "kassandra") && (get_eq_char(ch, WEAR_HOLD) == obj)
 	       && !IS_NPC(ch))
@@ -1577,6 +1583,9 @@ int fight_prog_lion_claw(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 int speech_prog_ring_ra(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	char *speech = (char*) arg;
+
+	if (ch->wait > 0)
+		return 0;
 
 	if (!!str_cmp(speech, "punish")   
 	||  ch->fighting == NULL
