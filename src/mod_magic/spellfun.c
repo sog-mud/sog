@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.10 2000-04-26 07:16:56 avn Exp $
+ * $Id: spellfun.c,v 1.181.2.11 2000-05-05 08:20:28 osya Exp $
  */
 
 /***************************************************************************
@@ -4735,7 +4735,7 @@ spell_ice_sphere(int sn, int level, CHAR_DATA *ch, void *vo)
 	af.where     = TO_AFFECTS;
 	af.type      = sn;
 	af.level     = level;
-	af.duration  = level/2;
+	af.duration  = level/6;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
 	af.bitvector = 0;

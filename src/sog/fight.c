@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.14 2000-04-25 12:03:51 osya Exp $
+ * $Id: fight.c,v 1.202.2.15 2000-05-05 08:20:31 osya Exp $
  */
 
 /***************************************************************************
@@ -1027,8 +1027,9 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 	if (is_affected(victim, gsn_fire_sphere)) {
 		act("$n is burned by $N's fire sphere.", ch, NULL, victim, TO_ROOM);
 		act("$N's fire sphere sears your flesh.", ch, NULL, victim, TO_CHAR);
-		fire_effect((void *) victim, ch->level/2, dam/3, TARGET_CHAR);
-		damage(victim, ch, dam, 0, DAM_FIRE, DAMF_NONE);
+		fire_effect((void *) victim, ch->level/2, dam/4, TARGET_CHAR);
+		
+		damage(victim, ch, dam/4, gsn_fire_sphere, DAM_FIRE, DAMF_SHOW);
 	}
 	
 	/* but do we have a funky weapon? */
@@ -2748,7 +2749,18 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim,
 			}
 		}
 	}
-
+	if (dt == gsn_fire_sphere) {
+		if (ch == victim)
+			act_puts3(msg_char, ch, vs, NULL, attack, 
+				  TO_CHAR | ACT_VERBOSE, POS_RESTING);
+		else {
+			act_puts3(msg_char, ch, vs, victim, attack,
+				  TO_CHAR | ACT_VERBOSE, POS_RESTING);
+			act_puts3(msg_vict, ch, vp, victim, attack,
+				  TO_VICT | ACT_VERBOSE, POS_RESTING);
+		}
+		return;
+	}	
 	if (ch == victim) {
 		act_puts3(msg_notvict, ch, vp, NULL, attack,
 			  TO_ROOM, POS_RESTING);
