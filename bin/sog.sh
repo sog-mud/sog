@@ -17,8 +17,7 @@ LC_TIME=en_US.ISO_8859-1; export LC_TIME
 
 #
 # mud home -- all other paths and filenames are relative from $SOG_HOME
-SOG_HOME=/usr/local/sog; export SOG_HOME
-#SOG_HOME=/home/mud
+SOG_HOME=/home/sog; export SOG_HOME
 
 #
 # logging control
