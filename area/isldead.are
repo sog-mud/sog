@@ -1739,7 +1739,7 @@ silver boot~
 a silver boots~
 A pair of silver boots lies here.~
 unknown~
-armor BY C 0
+armor BY C AG
 10 10 8 7 0
 45 20 45000 P
 A
@@ -1832,6 +1832,50 @@ A
 18 5
 A
 19 2
+g none~
+#22377
+silver mace~
+a small silver mace named "Skullcrasher"~
+A small heavy mace lies on the ground.~
+silver~
+weapon Y C AN
+mace 15 3 'smash' DG
+45 200 50000 P
+S 'head crush' 50 0
+A
+1 3
+A
+18 5
+A
+19 5
+g none~
+#22378
+silver axe~
+a small silver axe named "Meat Cleaver"~
+A small silver axe lies on the ground.~
+silver~
+weapon Y C AN
+axe 17 4 'cleave' BD
+45 200 30000 P
+A
+18 3
+A
+19 5
+S 'cleave' 50 0
+g none~
+#22379
+silver flail~
+a small silver flail named "Death Bringer"~
+A small silver flail lies on the ground.~
+silver~
+weapon Y C AN
+flail 10 5 'charge' CD
+45 100 30000 P
+A
+18 3
+A
+19 3
+S 'deathblow' 30 0
 g none~
 #22399
 battleaxe dagger sword~
@@ -4865,34 +4909,91 @@ M 0 22330 42 22397 2	* the undead guard (The West Wall of Treasure Keep)
 M 0 22329 8 22398 1	* the high guard (The Treasure Keep)
 G 0 22356 0		*	the bone key
 M 0 22330 42 22398 1	* the undead guard (The Treasure Keep)
+E 0 22356 0 17		*	the bone key: held in the hands
+E 0 22369 0 6		*	a silver helm: over the head
+E 0 22370 0 5		*	a silver vest: on the body
+E 0 22371 0 8		*	a silver boots: on the feet
+E 0 22372 0 10		*	a silver sleeves: on the arms
+E 0 22373 0 9		*	a pair of silver gloves: on the hands
+E 0 22374 0 7		*	a set of silver leggings: on the legs
+E 0 22375 0 11		*	a silver shield: as a shield
+E 0 22376 0 16		*	a small silver dagger named "Backstabber": wielded
 M 0 22329 8 22399 1	* the high guard (The Treasure Keep)
 E 0 22357 0 17		*	the bone key: held in the hands
 M 0 22330 42 22399 1	* the undead guard (The Treasure Keep)
+E 0 22369 0 6		*	a silver helm: over the head
+E 0 22370 0 5		*	a silver vest: on the body
+E 0 22371 0 8		*	a silver boots: on the feet
+E 0 22372 0 10		*	a silver sleeves: on the arms
+E 0 22373 0 9		*	a pair of silver gloves: on the hands
+E 0 22374 0 7		*	a set of silver leggings: on the legs
+E 0 22375 0 11		*	a silver shield: as a shield
+E 0 22379 0 16		*	a small silver flail named "Death Bringer": wielded
 M 0 22329 8 22400 1	* the high guard (The Treasure Keep)
 E 0 22355 0 17		*	the bone key: held in the hands
 M 0 22330 42 22400 1	* the undead guard (The Treasure Keep)
+E 0 22369 0 6		*	a silver helm: over the head
+E 0 22370 0 5		*	a silver vest: on the body
+E 0 22371 0 8		*	a silver boots: on the feet
+E 0 22372 0 10		*	a silver sleeves: on the arms
+E 0 22373 0 9		*	a pair of silver gloves: on the hands
+E 0 22374 0 7		*	a set of silver leggings: on the legs
+E 0 22375 0 11		*	a silver shield: as a shield
+E 0 22377 0 16		*	a small silver mace named "Skullcrasher": wielded
 M 0 22330 42 22401 2	* the undead guard (The East Wall of Treasure Keep)
 O 0 22364 0 22402	* chest (The West Wall of Treasure Keep)
 M 0 22330 42 22402 2	* the undead guard (The West Wall of Treasure Keep)
 M 0 22329 8 22403 1	* the high guard (The Treasure Keep)
 E 0 22360 0 17		*	the bone key: held in the hands
 M 0 22330 42 22403 1	* the undead guard (The Treasure Keep)
+E 0 22369 0 6		*	a silver helm: over the head
+E 0 22370 0 5		*	a silver vest: on the body
+E 0 22371 0 8		*	a silver boots: on the feet
+E 0 22372 0 10		*	a silver sleeves: on the arms
+E 0 22373 0 9		*	a pair of silver gloves: on the hands
+E 0 22374 0 7		*	a set of silver leggings: on the legs
+E 0 22375 0 11		*	a silver shield: as a shield
+E 0 22378 0 16		*	a small silver axe named "Meat Cleaver": wielded
 M 0 22330 42 22404 2	* the undead guard (The Entrance to Treasure Keep)
 M 0 22329 8 22405 1	* the high guard (The Treasure Keep)
 E 0 22358 0 17		*	the bony key: held in the hands
 M 0 22330 42 22405 1	* the undead guard (The Treasure Keep)
+E 0 22369 0 6		*	a silver helm: over the head
+E 0 22370 0 5		*	a silver vest: on the body
+E 0 22371 0 8		*	a silver boots: on the feet
+E 0 22372 0 10		*	a silver sleeves: on the arms
+E 0 22373 0 9		*	a pair of silver gloves: on the hands
+E 0 22374 0 7		*	a set of silver leggings: on the legs
+E 0 22375 0 11		*	a silver shield: as a shield
+E 0 22378 0 16		*	a small silver axe named "Meat Cleaver": wielded
 O 0 22365 0 22406	* chest (The East Wall of Treasure Keep)
 M 0 22330 42 22406 2	* the undead guard (The East Wall of Treasure Keep)
 M 0 22330 42 22407 2	* the undead guard (The West Wall of Treasure Keep)
 M 0 22329 8 22408 1	* the high guard (The Treasure Keep)
 E 0 22353 0 17		*	the bone key: held in the hands
 M 0 22330 42 22408 1	* the undead guard (The Treasure Keep)
+E 0 22369 0 6		*	a silver helm: over the head
+E 0 22370 0 5		*	a silver vest: on the body
+E 0 22371 0 8		*	a silver boots: on the feet
+E 0 22372 0 10		*	a silver sleeves: on the arms
+E 0 22373 0 9		*	a pair of silver gloves: on the hands
+E 0 22374 0 7		*	a set of silver leggings: on the legs
+E 0 22375 0 11		*	a silver shield: as a shield
+E 0 22377 0 16		*	a small silver mace named "Skullcrasher": wielded
 M 0 22329 8 22409 1	* the high guard (The Treasure Keep)
 E 0 22359 0 17		*	the bone key: held in the hands
 M 0 22330 42 22409 1	* the undead guard (The Treasure Keep)
 M 0 22329 8 22410 1	* the high guard (The Treasure Keep)
 E 0 22354 0 17		*	the bone key: held in the hands
 M 0 22330 42 22410 1	* the undead guard (The Treasure Keep)
+E 0 22369 0 6		*	a silver helm: over the head
+E 0 22370 0 5		*	a silver vest: on the body
+E 0 22371 0 8		*	a silver boots: on the feet
+E 0 22372 0 10		*	a silver sleeves: on the arms
+E 0 22373 0 9		*	a pair of silver gloves: on the hands
+E 0 22374 0 7		*	a set of silver leggings: on the legs
+E 0 22375 0 11		*	a silver shield: as a shield
+E 0 22376 0 16		*	a small silver dagger named "Backstabber": wielded
 M 0 22330 42 22411 2	* the undead guard (The East Wall of Treasure Keep)
 O 0 22366 0 22412	* chest (The South-West Corner  of Treasure Keep)
 M 0 22330 42 22412 2	* the undead guard (The South-West Corner  of Treasure Keep)
@@ -4922,6 +5023,9 @@ O 22348 10	* a pair of ebony boots
 O 22349 1	* the whip named "Careth Asdriag"
 O 22350 10	* a pair of ebony gloves
 O 22376 2	* a small silver dagger named "Backstabber"
+O 22377 2	* a small silver mace named "Skullcrasher"
+O 22378 2	* a small silver axe named "Meat Cleaver"
+O 22379 2	* a small silver flail named "Death Bringer"
 O 22399 0	* battlaxe 
 S
 

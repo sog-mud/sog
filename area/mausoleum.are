@@ -151,7 +151,7 @@ A large mastiff stands here guarding something.
 ~
 ~
 dog~
-FJT 0 J ABG ABH -1000 0
+BFJT 0 J ABG ABH -1000 0
 45 30 10d50+2000 1d1+200 8d3+23 'acbite'
 -1 -1 -1 -1
 ADEF
@@ -171,7 +171,7 @@ A horrible little face looks at you and bares its teeth. Ugh!
 You don't like it.
 ~
 unique~
-FGH 0 Tc G BH -700 0
+BFGH 0 Tc G BH -700 0
 20 10 20d10+600 1d1+199 7d5+10 'bite'
 1 1 1 1
 FHQ
@@ -1352,7 +1352,7 @@ D3
 hidden~
 the hidden~
 ~
-Z 0 4636
+ABZ 0 4636
 S
 #4622
 Western main area of the Mausoleum.~
@@ -1686,7 +1686,7 @@ D1
 hidden~
 the hidden~
 ~
-ABZ 0 4621
+Z 0 4621
 S
 #4637
 A burnt room.~
@@ -1735,6 +1735,7 @@ D 0 4617 3 2	* Western check point.: door to the west: closed and locked
 D 0 4619 1 2	* Eastern check point.: door to the east: closed and locked
 D 0 4620 3 2	* A vacant workroom.: door to the west: closed and locked
 D 0 4621 2 2	* The Rakshaka's workspace.: door to the south: closed and locked
+D 0 4621 3 1	* The Rakshaka's workspace.: door to the west: closed
 D 0 4625 1 1	* Roaming ground for the Demon.: door to the east: closed
 D 0 4625 2 2	* Roaming ground for the Demon.: door to the south: closed and locked
 D 0 4626 0 2	* A small room.: door to the north: closed and locked
@@ -1748,7 +1749,6 @@ D 0 4630 3 1	* A small room.: door to the west: closed
 D 0 4631 0 1	* A grisly scene, SW corner of Mausoleum.: door to the north: closed
 D 0 4633 0 1	* A grisly scene, SE corner of Mausoleum.: door to the north: closed
 D 0 4634 3 1	* Shadar Lunn's coffin room: door to the west: closed
-D 0 4636 1 1	* A Rakshaka's lair.: door to the east: closed
 O 0 4603 0 4600	* a smelly humanoid corpse (Outside of the mausoleum)
 M 0 4601 40 4600 10	* the Juju zombie (Outside of the mausoleum)
 G 0 4600 0		*	a small black skeleton key
@@ -1824,6 +1824,8 @@ M 0 4600 35 4620 9	* a disgusting, rotting Zombie (A vacant workroom.)
 M 0 4612 1 4620 1	* the dark spectre (A vacant workroom.)
 G 0 4619 0		*	an emerald potion
 G 0 4619 0		*	an emerald potion
+M 0 4606 1 4621 1	* the hell hound (The Rakshaka's workspace.)
+M 0 4608 1 4621 1	* the vampire bat (The Rakshaka's workspace.)
 M 0 4600 35 4622 9	* a disgusting, rotting Zombie (Western main area of the Mausoleum.)
 M 0 4605 12 4622 4	* a hungry ghoul (Western main area of the Mausoleum.)
 M 0 4600 35 4623 9	* a disgusting, rotting Zombie (Central main area of the Mausoleum.)
@@ -1859,6 +1861,9 @@ O 0 4625 0 4634	* a coffin (Shadar Lunn's coffin room)
 P 0 4640 0 4625 1	* a coffin: a potion of healing
 O 0 4618 0 4635	* a half-eaten corpse (Lost in the graveyard fog.)
 O 0 4625 0 4636	* a coffin (A Rakshaka's lair.)
+M 0 4610 1 4636 1	* the great Dracolich (A Rakshaka's lair.)
+E 0 4624 0 16		*	the Claw of great Dracolich: wielded
+G 0 4614 0		*	a ring of fortitude
 O 0 4625 0 4637	* a coffin (A burnt room.)
 P 0 4640 0 4625 1	* a coffin: a potion of healing
 P 0 4611 0 4625 1	* a coffin: a staff of wrath

@@ -1,0 +1,251 @@
+#AREADATA
+Ver 2
+Name Five Verges~
+Builders chindy~
+VNUMs 34101 34399
+Credits Vadkov~
+Security 1
+LevelRange 25 45
+End
+
+#ROOMS
+#34101
+@eng Entrance to Verges@rus Кромка Грани~
+@eng You stay on the great cliff. In front of view you see the beneficial valley of Five Verges. Small path go to north. It is entrance to valley.
+@rus  Вы стоите на огромной Скале. Откуда открывается вид на благословенную долину Пяти граней.На север уходит узенькая тропка. Это вход в долину.
+~
+0 0 mountain
+D0
+~
+~
+~
+~
+Z 0 34102
+S
+#34102
+@eng Verge@rus Грань~
+@eng Verge! Beneficial valley! In the deep sky you see soaring dragons! Around you gardens and vineyards! Smell of blossomming appletrees! Happy peoples hurry on their business!
+@rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
+~
+0 0 field
+D0
+~
+~
+~
+~
+Z 0 34103
+D2
+~
+~
+~
+~
+Z 0 34101
+S
+#34103
+@eng Verge@rus Грань~
+@eng Verge! Beneficial valley! In the deep sky you see soaring dragons! Around you gardens and vineyards! Smell of blossomming appletrees! Happy peoples hurry on their business!
+@rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
+~
+0 0 field
+D1
+~
+~
+~
+~
+Z 0 34105
+D2
+~
+~
+~
+~
+Z 0 34102
+D3
+~
+~
+~
+~
+Z 0 34104
+S
+#34104
+@eng Verge@rus Грань~
+@eng Verge! Beneficial valley! In the deep sky you see soaring dragons! Around you gardens and vineyards! Smell of blossomming appletrees! Happy peoples hurry on their business!
+@rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 34103
+S
+#34105
+@eng Verge@rus Грань~
+@eng Verge! Beneficial valley! In the deep sky you see soaring dragons! Around you gardens and vineyards! Smell of blossomming appletrees! Happy peoples hurry on their business!
+@rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
+~
+0 0 inside
+D3
+~
+~
+~
+~
+Z 0 34103
+S
+#34106
+@eng Verge@rus Грань~
+@eng Verge! Beneficial valley! In the deep sky you see soaring dragons! Around you gardens and vineyards! Smell of blossomming appletrees! Happy peoples hurry on their business!
+@rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
+~
+0 0 inside
+S
+#34107
+@eng Verge@rus Грань~
+@eng Verge! Beneficial valley! In the deep sky you see soaring dragons! Around you gardens and vineyards! Smell of blossomming appletrees! Happy peoples hurry on their business!
+@rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
+~
+0 0 inside
+S
+#34108
+@eng Verge@rus Грань~
+@eng Verge! Beneficial valley! In the deep sky you see soaring dragons! Around you gardens and vineyards! Smell of blossomming appletrees! Happy peoples hurry on their business!
+@rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
+~
+0 0 inside
+S
+#34109
+@eng Verge@rus Грань~
+@eng Verge! Beneficial valley! In the deep sky you see soaring dragons! Around you gardens and vineyards! Smell of blossomming appletrees! Happy peoples hurry on their business!
+@rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
+~
+0 0 inside
+S
+#34110
+@eng Verge@rus Грань~
+@eng Verge! Beneficial valley! In the deep sky you see soaring dragons! Around you gardens and vineyards! Smell of blossomming appletrees! Happy peoples hurry on their business!
+@rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
+~
+0 0 inside
+S
+#34111
+@eng Verge@rus Грань~
+@eng Verge! Beneficial valley! In the deep sky you see soaring dragons! Around you gardens and vineyards! Smell of blossomming appletrees! Happy peoples hurry on their business!
+@rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
+~
+0 0 inside
+S
+#34112
+@eng Verge@rus Грань~
+@eng Verge! Beneficial valley! In the deep sky you see soaring dragons! Around you gardens and vineyards! Smell of blossomming appletrees! Happy peoples hurry on their business!
+@rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
+~
+0 0 inside
+S
+#34113
+@eng Verge@rus Грань~
+@eng Verge! Beneficial valley! In the deep sky you see soaring dragons! Around you gardens and vineyards! Smell of blossomming appletrees! Happy peoples hurry on their business!
+@rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
+~
+0 0 inside
+S
+#34114
+@eng Verge@rus Грань~
+@eng Verge! Beneficial valley! In the deep sky you see soaring dragons! Around you gardens and vineyards! Smell of blossomming appletrees! Happy peoples hurry on their business!
+@rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
+~
+0 0 inside
+S
+#34115
+@eng Verge@rus Грань~
+@eng Verge! Beneficial valley! In the deep sky you see soaring dragons! Around you gardens and vineyards! Smell of blossomming appletrees! Happy peoples hurry on their business!
+@rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
+~
+0 0 inside
+S
+#34116
+@eng Verge@rus Грань~
+@eng Verge! Beneficial valley! In the deep sky you see soaring dragons! Around you gardens and vineyards! Smell of blossomming appletrees! Happy peoples hurry on their business!
+@rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
+~
+0 0 inside
+S
+#34117
+@eng Verge@rus Грань~
+@eng Verge! Beneficial valley! In the deep sky you see soaring dragons! Around you gardens and vineyards! Smell of blossomming appletrees! Happy peoples hurry on their business!
+@rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
+~
+0 0 inside
+S
+#34118
+@eng Verge@rus Грань~
+@eng Verge! Beneficial valley! In the deep sky you see soaring dragons! Around you gardens and vineyards! Smell of blossomming appletrees! Happy peoples hurry on their business!
+@rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
+~
+0 0 inside
+S
+#34119
+@eng Verge@rus Грань~
+@eng Verge! Beneficial valley! In the deep sky you see soaring dragons! Around you gardens and vineyards! Smell of blossomming appletrees! Happy peoples hurry on their business!
+@rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
+~
+0 0 inside
+S
+#34120
+@eng Verge@rus Грань~
+@eng Verge! Beneficial valley! In the deep sky you see soaring dragons! Around you gardens and vineyards! Smell of blossomming appletrees! Happy peoples hurry on their business!
+@rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
+~
+0 0 inside
+S
+#34121
+@eng Verge@rus Грань~
+@eng Verge! Beneficial valley! In the deep sky you see soaring dragons! Around you gardens and vineyards! Smell of blossomming appletrees! Happy peoples hurry on their business!
+@rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
+~
+0 0 inside
+S
+#34122
+@eng Verge@rus Грань~
+@eng Verge! Beneficial valley! In the deep sky you see soaring dragons! Around you gardens and vineyards! Smell of blossomming appletrees! Happy peoples hurry on their business!
+@rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
+~
+0 0 inside
+S
+#34123
+@eng Verge@rus Грань~
+@eng Verge! Beneficial valley! In the deep sky you see soaring dragons! Around you gardens and vineyards! Smell of blossomming appletrees! Happy peoples hurry on their business!
+@rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
+~
+0 0 inside
+S
+#34124
+@eng Verge@rus Грань~
+@eng Verge! Beneficial valley! In the deep sky you see soaring dragons! Around you gardens and vineyards! Smell of blossomming appletrees! Happy peoples hurry on their business!
+@rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
+~
+0 0 inside
+S
+#34125
+@eng Verge@rus Грань~
+@eng Verge! Beneficial valley! In the deep sky you see soaring dragons! Around you gardens and vineyards! Smell of blossomming appletrees! Happy peoples hurry on their business!
+@rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
+~
+0 0 inside
+S
+#34126
+@eng Verge@rus Грань~
+@eng Verge! Beneficial valley! In the deep sky you see soaring dragons! Around you gardens and vineyards! Smell of blossomming appletrees! Happy peoples hurry on their business!
+@rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
+~
+0 0 inside
+S
+#34127
+@eng Verge@rus Грань~
+@eng Verge! Beneficial valley! In the deep sky you see soaring dragons! Around you gardens and vineyards! Smell of blossomming appletrees! Happy peoples hurry on their business!
+@rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
+~
+0 0 inside
+S
+#0
+
+#$
