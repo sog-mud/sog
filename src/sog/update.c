@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.67 1998-10-06 13:18:32 fjoe Exp $
+ * $Id: update.c,v 1.68 1998-10-06 13:49:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1001,20 +1001,19 @@ void char_update(void)
 		AFFECT_DATA *paf;
 		AFFECT_DATA *paf_next;
 		flag_t strip = AFF_FLYING;
+		int chance;
 
 		ch_next = ch->next;
 
-		/* reset hunters path find */
-		if (!IS_NPC(ch) && ch->clan == CLAN_HUNTER)
-			if (number_percent() < get_skill(ch,gsn_path_find)) {
-				ch->endur += (get_skill(ch,gsn_path_find) / 2);
+		/* reset path find */
+		if (!IS_NPC(ch) && (chance = get_skill(ch, gsn_path_find))) {
+			if (number_percent() < chance) {
+				ch->endur += chance / 2;
 				check_improve(ch, gsn_path_find, TRUE, 8);
-			} else
+			}
+			else
 				check_improve(ch, gsn_path_find, FALSE, 16);
-
-		if (!IS_NPC(ch) && ch->clan == CLAN_BATTLE)
-			if (!is_affected(ch, gsn_spellbane))
-				do_spellbane(ch, str_empty);
+		}
 
 		/* Remove caltrops effect after fight off */
 		if (is_affected(ch, gsn_caltrops) && !ch->fighting)

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.98 1998-10-06 13:18:24 fjoe Exp $
+ * $Id: act_move.c,v 1.99 1998-10-06 13:49:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1767,11 +1767,6 @@ void do_visible(CHAR_DATA *ch, const char *argument)
 		affect_bit_strip(ch, TO_AFFECTS, AFF_INVISIBLE | AFF_IMP_INVIS);
 		act("$n fades into existence.", ch, NULL, NULL, TO_ROOM);
 	}
-
-	if (is_bit_affected(ch, TO_AFFECTS, AFF_SNEAK)) {
-		char_puts("You trample around loudly again.\n\r", ch);
-		affect_bit_strip(ch, TO_AFFECTS, AFF_SNEAK);
-	}
 }
 
 void do_recall(CHAR_DATA *ch, const char *argument)
@@ -2061,11 +2056,8 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 	af.where     = TO_AFFECTS;
 	af.location  = 0;
 	af.modifier  = 0;
-	af.bitvector = AFF_FLYING | AFF_INFRARED;
+	af.bitvector = AFF_SNEAK | AFF_FLYING | AFF_INFRARED;
 	affect_to_char(ch, &af);
-
-/* sneak will not be altered by 'vis' or 'faerie fog' */
-	SET_BIT(ch->affected_by, AFF_SNEAK);
 
 	char_puts("You feel yourself getting greater and greater.\n\r", ch);
 	act("You cannot recognize $n anymore.", ch, NULL, NULL, TO_ROOM);
@@ -2978,7 +2970,8 @@ void do_mount(CHAR_DATA *ch, const char *argument)
 	mount->riding = TRUE;
   
 	affect_bit_strip(ch, TO_AFFECTS, AFF_INVISIBLE | AFF_IMP_INVIS | AFF_SNEAK);
-	REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE | AFF_CAMOUFLAGE);
+	REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE | AFF_CAMOUFLAGE |
+				    AFF_INVISIBLE | AFF_IMP_INVIS | AFF_SNEAK);
 }
 
 void do_dismount(CHAR_DATA *ch, const char *argument)
@@ -2996,6 +2989,7 @@ void do_dismount(CHAR_DATA *ch, const char *argument)
 
 		ch->riding = FALSE;
 		mount->riding = FALSE;
+/* XXX AFF_SNEAK/AFF_HIDE are not set XXX */
 	}
 	else {
 		char_puts("You aren't mounted.\n\r", ch);

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.58 1998-10-06 13:18:27 fjoe Exp $
+ * $Id: spellfun.c,v 1.59 1998-10-06 13:49:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2758,9 +2758,6 @@ void spell_faerie_fog(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 		affect_bit_strip(ich, TO_AFFECTS, AFF_INVISIBLE | AFF_IMP_INVIS);
 		REMOVE_BIT(ich->affected_by, AFF_HIDE | AFF_FADE | AFF_CAMOUFLAGE);
-
-		if (is_bit_affected(ch, TO_AFFECTS, AFF_SNEAK))
-			affect_bit_strip(ich, TO_AFFECTS, AFF_SNEAK);
 
 		act("$n is revealed!", ich, NULL, NULL, TO_ROOM);
 		char_puts("You are revealed!\n\r", ich);
