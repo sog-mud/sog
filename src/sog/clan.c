@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.38 1999-04-20 05:18:36 kostik Exp $
+ * $Id: clan.c,v 1.39 1999-04-21 14:44:29 kostik Exp $
  */
 
 #include <sys/time.h>
@@ -130,9 +130,9 @@ void do_mark(CHAR_DATA *ch, const char *argument)
 		char_puts ("Your clan do not have any mark.\n", ch);
 		return;
 	}
-	if (get_eq_char(ch, WEAR_CLANMARK)) {
-		char_puts ("You already have it.\n", ch);
-		return;
+	if ((mark=get_eq_char(ch, WEAR_CLANMARK))!=NULL) {
+		obj_from_char(mark);
+		extract_obj(mark, 0);
 	}
 	mark = create_obj(get_obj_index(clan->mark_vnum), 0);
 	obj_to_char (mark, ch);

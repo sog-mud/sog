@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.84 1999-04-20 05:18:38 kostik Exp $
+ * $Id: martial_art.c,v 1.85 1999-04-21 14:44:29 kostik Exp $
  */
 
 /***************************************************************************
@@ -3421,7 +3421,7 @@ void do_blindness_dust(CHAR_DATA *ch, const char *argument)
 		if (is_safe(ch, vch))
 			return;
 		act("You throw some dust into $N's eyes.", ch, NULL, vch, TO_CHAR);
-		act("$n throws some dust into $N's eyes.", ch, NULL, vch, TO_CHAR);
+		act("$n throws some dust into $N's eyes.", ch, NULL, vch, TO_ROOM);
 		act("$n throws some dust into your eyes.", ch, NULL, vch, TO_VICT);
 		spell_blindness(gsn_blindness, LEVEL(ch), ch, vch, TARGET_CHAR);
 		if (vch != ch)

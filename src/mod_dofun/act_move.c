@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.164 1999-04-16 15:52:14 fjoe Exp $
+ * $Id: act_move.c,v 1.165 1999-04-21 14:44:27 kostik Exp $
  */
 
 /***************************************************************************
@@ -2546,6 +2546,7 @@ void do_push(CHAR_DATA *ch, const char *argument)
 		}
 	}
 
+
 	if (IS_AFFECTED(ch, AFF_DETECT_WEB)) {
 		char_puts("You're webbed, and want to do WHAT?!?\n", ch);
 		act("$n stupidly tries to push $N while webbed.",
@@ -2569,7 +2570,8 @@ void do_push(CHAR_DATA *ch, const char *argument)
 
 	if (victim->position == POS_FIGHTING
 	||  (IS_NPC(victim) && IS_SET(victim->pIndexData->act, ACT_NOTRACK))
-	||  (!IS_NPC(ch) && percent > get_skill(ch, sn))) {
+	||  (!IS_NPC(ch) && percent > get_skill(ch, sn))
+	||  pexit->to_room.r->area != ch->in_room->area) {
 		/*
 		 * Failure.
 		 */
