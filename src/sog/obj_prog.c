@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.20 1998-07-21 00:04:05 efdi Exp $
+ * $Id: obj_prog.c,v 1.21 1998-08-14 03:36:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -582,23 +582,23 @@ bool sac_prog_clan_item(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	if (clan_table[i].obj_ptr == obj) break;
 	if (i < MAX_CLAN)  {
 	if (obj->pIndexData->vnum == clan_table[CLAN_RULER].obj_vnum)
-	  container = create_object(get_obj_index(OBJ_VNUM_RULER_STAND),100);
+	  container = create_obj(get_obj_index(OBJ_VNUM_RULER_STAND),100);
 	else if (obj->pIndexData->vnum == clan_table[CLAN_INVADER].obj_vnum)
-	  container = create_object(get_obj_index(OBJ_VNUM_INVADER_SKULL),100);
+	  container = create_obj(get_obj_index(OBJ_VNUM_INVADER_SKULL),100);
 	else if (obj->pIndexData->vnum == clan_table[CLAN_BATTLE].obj_vnum)
-	  container = create_object(get_obj_index(OBJ_VNUM_BATTLE_THRONE),100);
+	  container = create_obj(get_obj_index(OBJ_VNUM_BATTLE_THRONE),100);
 	else if (obj->pIndexData->vnum == clan_table[CLAN_KNIGHT].obj_vnum)
-	  container = create_object(get_obj_index(OBJ_VNUM_KNIGHT_ALTAR), 100);
+	  container = create_obj(get_obj_index(OBJ_VNUM_KNIGHT_ALTAR), 100);
 	else if (obj->pIndexData->vnum == clan_table[CLAN_CHAOS].obj_vnum)
-	  container = create_object(get_obj_index(OBJ_VNUM_CHAOS_ALTAR), 100);
+	  container = create_obj(get_obj_index(OBJ_VNUM_CHAOS_ALTAR), 100);
 	else if (obj->pIndexData->vnum == clan_table[CLAN_LIONS].obj_vnum)
-	  container = create_object(get_obj_index(OBJ_VNUM_LIONS_ALTAR), 100);
+	  container = create_obj(get_obj_index(OBJ_VNUM_LIONS_ALTAR), 100);
 	else if (obj->pIndexData->vnum == clan_table[CLAN_HUNTER].obj_vnum)
-	  container = create_object(get_obj_index(OBJ_VNUM_HUNTER_ALTAR), 100);
+	  container = create_obj(get_obj_index(OBJ_VNUM_HUNTER_ALTAR), 100);
 	else
-	  container = create_object(get_obj_index(OBJ_VNUM_SHALAFI_ALTAR),100);
+	  container = create_obj(get_obj_index(OBJ_VNUM_SHALAFI_ALTAR),100);
 
-	item = create_object(get_obj_index(clan_table[i].obj_vnum), 100);
+	item = create_obj(get_obj_index(clan_table[i].obj_vnum), 100);
 	obj_to_obj(item, container);
 	obj_to_room(container, get_room_index(clan_table[i].room_vnum));
 	if (get_room_index(clan_table[i].room_vnum)->people != NULL)  {

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.31 1998-08-06 08:48:36 fjoe Exp $
+ * $Id: spellfun2.c,v 1.32 1998-08-14 03:36:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -130,7 +130,7 @@ void spell_portal(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	 	extract_obj(stone);
 	}
 
-	portal = create_object(get_obj_index(OBJ_VNUM_PORTAL),0);
+	portal = create_obj(get_obj_index(OBJ_VNUM_PORTAL),0);
 	portal->timer = 2 + level / 25; 
 	portal->value[3] = victim->in_room->vnum;
 
@@ -173,7 +173,7 @@ void spell_nexus(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	}
 
 	/* portal one */ 
-	portal = create_object(get_obj_index(OBJ_VNUM_PORTAL),0);
+	portal = create_obj(get_obj_index(OBJ_VNUM_PORTAL),0);
 	portal->timer = 1 + level / 10;
 	portal->value[3] = to_room->vnum;
  
@@ -187,7 +187,7 @@ void spell_nexus(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		return;
 
 	/* portal two */
-	portal = create_object(get_obj_index(OBJ_VNUM_PORTAL),0);
+	portal = create_obj(get_obj_index(OBJ_VNUM_PORTAL),0);
 	portal->timer = 1 + level/10;
 	portal->value[3] = from_room->vnum;
 
@@ -399,7 +399,7 @@ void spell_bear_call(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	}
 	}
 
-	bear = create_mobile(get_mob_index(MOB_VNUM_BEAR));
+	bear = create_mob(get_mob_index(MOB_VNUM_BEAR));
 
 	for (i=0;i < MAX_STATS; i++)
 	{
@@ -418,8 +418,8 @@ void spell_bear_call(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	bear->sex = ch->sex;
 	bear->gold = 0;
 	
-	bear2 = create_mobile(bear->pIndexData);
-	clone_mobile(bear,bear2);
+	bear2 = create_mob(bear->pIndexData);
+	clone_mob(bear,bear2);
 	
 	SET_BIT(bear->affected_by, AFF_CHARM);
 	SET_BIT(bear2->affected_by, AFF_CHARM);
@@ -448,7 +448,7 @@ void spell_ranger_staff(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	AFFECT_DATA tohit;
 	AFFECT_DATA todam;
 
-	staff = create_object(get_obj_index(OBJ_VNUM_RANGER_STAFF),level);
+	staff = create_obj(get_obj_index(OBJ_VNUM_RANGER_STAFF),level);
 	send_to_char("You create a ranger's staff!\n\r",ch);
 	act("$n creates a ranger's staff!",ch,NULL,NULL,TO_ROOM);
 
@@ -631,7 +631,7 @@ void spell_demon_summon(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	}
 	}
 
-	demon = create_mobile(get_mob_index(MOB_VNUM_DEMON));
+	demon = create_mob(get_mob_index(MOB_VNUM_DEMON));
 
 	for (i=0;i < MAX_STATS; i++)
 	{
@@ -783,7 +783,7 @@ void spell_shield_ruler(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	shield_vnum = OBJ_VNUM_RULER_SHIELD2;
 	else shield_vnum = OBJ_VNUM_RULER_SHIELD1;
 
-	shield = create_object(get_obj_index(shield_vnum), level);
+	shield = create_obj(get_obj_index(shield_vnum), level);
 	shield->timer = level;
 	shield->cost  = 0;
 	obj_to_char(shield, ch);
@@ -849,7 +849,7 @@ void spell_guard_call(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	}
 	}
 
-	guard = create_mobile(get_mob_index(MOB_VNUM_SPECIAL_GUARD));
+	guard = create_mob(get_mob_index(MOB_VNUM_SPECIAL_GUARD));
 
 	for (i=0;i < MAX_STATS; i++)
 	guard->perm_stat[i] = ch->perm_stat[i];
@@ -871,8 +871,8 @@ void spell_guard_call(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	guard->damage[DICE_TYPE] = number_range(level/4, level/3);
 	guard->damage[DICE_BONUS] = number_range(level/10, level/8);
 
-	guard2 = create_mobile(guard->pIndexData);
-	clone_mobile(guard,guard2);
+	guard2 = create_mob(guard->pIndexData);
+	clone_mob(guard,guard2);
 	
 	SET_BIT(guard->affected_by, AFF_CHARM);
 	SET_BIT(guard2->affected_by, AFF_CHARM);
@@ -922,7 +922,7 @@ void spell_nightwalker(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	}
 	}
 
-	walker = create_mobile(get_mob_index(MOB_VNUM_NIGHTWALKER));
+	walker = create_mob(get_mob_index(MOB_VNUM_NIGHTWALKER));
 
 	for (i=0;i < MAX_STATS; i++)
 	{
@@ -1288,7 +1288,7 @@ void spell_chaos_blade(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	OBJ_DATA *blade;
 	AFFECT_DATA af;
 	
-	blade = create_object(get_obj_index(OBJ_VNUM_CHAOS_BLADE),level);
+	blade = create_obj(get_obj_index(OBJ_VNUM_CHAOS_BLADE),level);
 	send_to_char("You create a blade of chaos!\n\r",ch);
 	act("$n creates a blade of chaos!",ch,NULL,NULL,TO_ROOM);
 
@@ -1341,7 +1341,7 @@ void spell_tattoo(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		    }
 		  else
 		    { 
-	  	      tattoo = create_object(get_obj_index(religion_table[i].vnum),60);
+	  	      tattoo = create_obj(get_obj_index(religion_table[i].vnum),60);
 	   	      act("You tattoo $N with $p!",ch, tattoo, victim, TO_CHAR);
 	  	      act("$n tattoos $N with $p!",ch,tattoo,victim,TO_NOTVICT);
 	  	      act("$n tattoos you with $p!",ch,tattoo,victim,TO_VICT);
@@ -1510,7 +1510,7 @@ void spell_stalker(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	send_to_char("You attempt to summon a stalker.\n\r",ch);
 	act("$n attempts to summon a stalker.",ch,NULL,NULL,TO_ROOM);
 
-	stalker = create_mobile(get_mob_index(MOB_VNUM_STALKER));
+	stalker = create_mob(get_mob_index(MOB_VNUM_STALKER));
 
 	af.where		= TO_AFFECTS;
 	af.type               = sn;
@@ -1648,11 +1648,11 @@ void spell_brew(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	  }
 	
 	if (obj->item_type == ITEM_TRASH)
-	  potion = create_object(get_obj_index(OBJ_VNUM_POTION_SILVER), level);
+	  potion = create_obj(get_obj_index(OBJ_VNUM_POTION_SILVER), level);
 	else if (obj->item_type == ITEM_TREASURE)
-	  potion = create_object(get_obj_index(OBJ_VNUM_POTION_GOLDEN), level);
+	  potion = create_obj(get_obj_index(OBJ_VNUM_POTION_GOLDEN), level);
 	else
-	  potion = create_object(get_obj_index(OBJ_VNUM_POTION_SWIRLING), level);
+	  potion = create_obj(get_obj_index(OBJ_VNUM_POTION_SWIRLING), level);
 
 	spell = 0;
 
@@ -1730,7 +1730,6 @@ void spell_shadowlife(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	CHAR_DATA *shadow;
 	AFFECT_DATA af;
 	int i;
-	char *name;
 
 	if (IS_NPC(victim))
 	{
@@ -1749,12 +1748,12 @@ void spell_shadowlife(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	act("$n gives life to $N's shadow!",ch,NULL,victim,TO_NOTVICT);
 	act("$n gives life to your shadow!", ch, NULL, victim, TO_VICT);
 	
-	shadow = create_mobile(get_mob_index(MOB_VNUM_SHADOW));
-	
+	shadow = create_named_mob(get_mob_index(MOB_VNUM_SHADOW),
+				     IS_NPC(victim) ?
+				     mlstr_mval(victim->short_descr) :
+				     victim->name);
 	for (i=0;i < MAX_STATS; i++)
-	{
-	  shadow->perm_stat[i] = ch->perm_stat[i];
-	}
+		shadow->perm_stat[i] = ch->perm_stat[i];
 	
 	shadow->max_hit = (3 * ch->max_hit) / 4;
 	shadow->hit = shadow->max_hit;
@@ -1768,12 +1767,6 @@ void spell_shadowlife(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	shadow->sex = victim->sex;
 	shadow->gold = 0;
 
-	/* XXX */
-	name = IS_NPC(victim) ? mlstr_mval(victim->short_descr) : victim->name;
-	mlstr_printf(shadow->short_descr, name);
-	mlstr_printf(shadow->long_descr, name);
-	mlstr_printf(shadow->description, name);
-	
 	char_to_room(shadow,ch->in_room);
 
 	do_murder(shadow, victim->name);
@@ -1818,7 +1811,7 @@ void spell_ruler_badge(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	}
 
 
-	badge = create_object(get_obj_index(OBJ_VNUM_RULER_BADGE),level);
+	badge = create_obj(get_obj_index(OBJ_VNUM_RULER_BADGE),level);
 
 	af.where        = TO_OBJECT;
 	af.type         = sn;
@@ -1998,7 +1991,7 @@ void spell_dragonplate(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	
 	plate_vnum = OBJ_VNUM_PLATE;
 
-	plate = create_object(get_obj_index(plate_vnum), level + 5);
+	plate = create_obj(get_obj_index(plate_vnum), level + 5);
 	plate->timer = 2 * level;
 	plate->cost  = 0;
 	plate->level  = ch->level;
@@ -2049,12 +2042,10 @@ void spell_squire(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	}
 	}
 
-	squire = create_mobile(get_mob_index(MOB_VNUM_SQUIRE));
+	squire = create_named_mob(get_mob_index(MOB_VNUM_SQUIRE), ch->name);
 
 	for (i=0;i < MAX_STATS; i++)
-	{
-	  squire->perm_stat[i] = ch->perm_stat[i];
-	}
+		squire->perm_stat[i] = ch->perm_stat[i];
 
 	squire->max_hit = ch->max_hit;
 	squire->hit = squire->max_hit;
@@ -2066,10 +2057,6 @@ void spell_squire(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	squire->armor[3] = interpolate(squire->level,100,0);
 	squire->gold = 0;
 
-	mlstr_printf(squire->short_descr, ch->name);
-	mlstr_printf(squire->long_descr, ch->name);
-	mlstr_printf(squire->description, ch->name);
-	
 	squire->damage[DICE_NUMBER] = number_range(level/20, level/15);   
 	squire->damage[DICE_TYPE] = number_range(level/4, level/3);
 	squire->damage[DICE_BONUS] = number_range(level/10, level/8);
@@ -2117,7 +2104,7 @@ void spell_dragonsword(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	  return;
 	}
 
-	sword = create_object(get_obj_index(sword_vnum), level);
+	sword = create_obj(get_obj_index(sword_vnum), level);
 	sword->timer = level * 2;
 	sword->cost  = 0;
 	if (ch->level  < 50)
@@ -2798,8 +2785,16 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
 			return;
 		}
 
-		undead = create_mobile(get_mob_index(MOB_VNUM_UNDEAD));
-		char_to_room(undead, ch->in_room);
+		/* XXX */
+		p = mlstr_mval(obj->short_descr);
+		if (!str_prefix("The corpse of ", p))
+			p += strlen("The corpse of ");
+
+		if (!str_prefix("The undead body of ", p))
+			p += strlen("The undead body of ");
+
+		undead = create_named_mob(get_mob_index(MOB_VNUM_UNDEAD),
+					     p);
 		for (i = 0; i < MAX_STATS; i++)
 			undead->perm_stat[i] = UMIN(25, 2 * ch->perm_stat[i]);
 
@@ -2818,24 +2813,13 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
 		undead->sex = ch->sex;
 		undead->gold = 0;
 	
-		SET_BIT(undead->act, ACT_UNDEAD);
-		SET_BIT(undead->affected_by, AFF_CHARM);
+		SET_BIT(undead->act, ACT_UNDEAD | AFF_CHARM);
 		undead->master = ch;
 		undead->leader = ch;
 
-		str_printf(&undead->name, obj->name);
+		undead->name = str_printf(undead->name, obj->name);
 
-		/* XXX */
-		p = mlstr_mval(obj->short_descr);
-		if (!str_prefix("The corpse of ", p))
-			p += strlen("The corpse of ");
-
-		if (!str_prefix("The undead body of ", p))
-			p += strlen("The undead body of ");
-
-		mlstr_printf(undead->short_descr, p);
-		mlstr_printf(undead->long_descr, p);
-
+		char_to_room(undead, ch->in_room);
 		for (obj2 = obj->contains; obj2; obj2 = next) {
 			next = obj2->next_content;
 			obj_from_obj(obj2);
@@ -3272,21 +3256,13 @@ void spell_eyed_sword (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 		i=2;
 	else i = 1;
 	
-	eyed	= create_object(get_obj_index(OBJ_VNUM_EYED_SWORD), 0);
-	eyed->from = str_dup(ch->name);
+	eyed	= create_named_obj(get_obj_index(OBJ_VNUM_EYED_SWORD), 0,
+				      ch->name);
 	eyed->from = str_dup(ch->name);
 	eyed->altar = hometown_table[ch->hometown].altar[i];
 	eyed->pit = hometown_table[ch->hometown].pit[i];
 	eyed->level = ch->level;
-
-	/* XXX */
-	mlstr_printf(eyed->short_descr, ch->name);
-	mlstr_printf(eyed->description, ch->name);
-
-	eyed->ed = ed_dup(eyed->pIndexData->ed);
-	eyed->ed->next = NULL;
-	mlstr_printf(eyed->ed->description, ch->name);
-
+	eyed->ed = ed_new2(eyed->pIndexData->ed, ch->name);
 	eyed->value[2] = (ch->level / 10) + 3;  
 	eyed->level = ch->level;
 	eyed->cost = 0;
@@ -3355,7 +3331,7 @@ void spell_lion_help (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	return;
 	}
 
-	lion = create_mobile(get_mob_index(MOB_VNUM_HUNTER));
+	lion = create_mob(get_mob_index(MOB_VNUM_HUNTER));
 
 	for (i=0;i < MAX_STATS; i++)
 	{
@@ -3441,21 +3417,14 @@ void spell_magic_jar(int sn, int level, CHAR_DATA *ch, void *vo , int target)
 		i=2;
 	else i = 1;
 	
-	fire	= create_object(get_obj_index(OBJ_VNUM_MAGIC_JAR), 0);
-	fire->from = str_dup(ch->name);
+	fire	= create_named_obj(get_obj_index(OBJ_VNUM_MAGIC_JAR), 0,
+				victim->name);
 	fire->from = str_dup(ch->name);
 	fire->altar = hometown_table[ch->hometown].altar[i];
 	fire->pit = hometown_table[ch->hometown].pit[i];
 	fire->level = ch->level;
 
-	/* XXX */
-	str_printf(&fire->name, victim->name);
-	mlstr_printf(fire->short_descr, victim->name);
-	mlstr_printf(fire->description, victim->name);
-
-	fire->ed = ed_dup(fire->pIndexData->ed);
-	fire->ed->next = NULL;
-	mlstr_printf(fire->ed->description, victim->name);
+	fire->ed = ed_new2(fire->pIndexData->ed, victim->name);
 
 	fire->level = ch->level;
 	fire->cost = 0;
@@ -3712,19 +3681,13 @@ void spell_fire_shield (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	else
 		i = 1;
 	
-	fire	= create_object(get_obj_index(OBJ_VNUM_FIRE_SHIELD), 0);
-	fire->from = str_dup(ch->name);
+	fire	= create_named_obj(get_obj_index(OBJ_VNUM_FIRE_SHIELD), 0,
+				      arg);
 	fire->from = str_dup(ch->name);
 	fire->altar = hometown_table[ch->hometown].altar[i];
 	fire->pit = hometown_table[ch->hometown].pit[i];
 	fire->level = ch->level;
-
-	mlstr_printf(fire->short_descr, arg);
-	mlstr_printf(fire->description, arg);
-
-	fire->ed = ed_dup(fire->pIndexData->ed);
-	fire->ed->next = NULL;
-	mlstr_printf(fire->ed->description, arg);
+	fire->ed = ed_new2(fire->pIndexData->ed, arg);
 
 	fire->level = ch->level;
 	fire->cost = 0;
@@ -3903,7 +3866,7 @@ void spell_wolf(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	}
 	}
 
-	demon = create_mobile(get_mob_index(MOB_VNUM_WOLF));
+	demon = create_mob(get_mob_index(MOB_VNUM_WOLF));
 
 	for (i=0;i < MAX_STATS; i++)
 	{
@@ -4386,7 +4349,7 @@ void spell_lesser_golem(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	}
 	}
 
-	golem = create_mobile(get_mob_index(MOB_VNUM_LESSER_GOLEM));
+	golem = create_mob(get_mob_index(MOB_VNUM_LESSER_GOLEM));
 
 
 	for (i = 0; i < MAX_STATS; i ++)
@@ -4461,7 +4424,7 @@ void spell_stone_golem(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	}
 	}
 
-	golem = create_mobile(get_mob_index(MOB_VNUM_STONE_GOLEM));
+	golem = create_mob(get_mob_index(MOB_VNUM_STONE_GOLEM));
 
 
 	for (i = 0; i < MAX_STATS; i ++)
@@ -4532,7 +4495,7 @@ void spell_iron_golem(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	}
 	}
 
-	golem = create_mobile(get_mob_index(MOB_VNUM_IRON_GOLEM));
+	golem = create_mob(get_mob_index(MOB_VNUM_IRON_GOLEM));
 
 
 	for (i = 0; i < MAX_STATS; i ++)
@@ -4603,7 +4566,7 @@ void spell_adamantite_golem(int sn, int level, CHAR_DATA *ch, void *vo, int targ
 	}
 	}
 
-	golem = create_mobile(get_mob_index(MOB_VNUM_ADAMANTITE_GOLEM));
+	golem = create_mob(get_mob_index(MOB_VNUM_ADAMANTITE_GOLEM));
 
 
 	for (i = 0; i < MAX_STATS; i ++)
@@ -5199,7 +5162,7 @@ void spell_summon_shadow(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	}
 	}
 
-	shadow = create_mobile(get_mob_index(MOB_VNUM_SUM_SHADOW));
+	shadow = create_mob(get_mob_index(MOB_VNUM_SUM_SHADOW));
 
 	for (i=0;i < MAX_STATS; i++)
 	{

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.69 1998-08-10 10:37:50 fjoe Exp $
+ * $Id: act_comm.c,v 1.70 1998-08-14 03:36:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -428,13 +428,12 @@ void do_say(CHAR_DATA *ch, const char *argument)
 	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
 		if (!is_affected(vch, gsn_deafen)) {
 			strcpy(trans, translate(ch, vch, buf));
-			act_nprintf(ch, trans, vch, TO_VICT, POS_RESTING, 
-					COMM_N_SAYS);
+			act_nputs(COMM_N_SAYS, ch, trans, vch, TO_VICT | TO_BUF, POS_RESTING);
 		}
 	}
 
 	if (!is_affected(ch, gsn_deafen))
-		act_nprintf(ch, NULL, buf, TO_CHAR, POS_RESTING, COMM_YOU_SAY);
+		act_nputs(COMM_YOU_SAY, ch, NULL, buf, TO_CHAR, POS_RESTING);
 
 	if (!IS_NPC(ch)) {
  		CHAR_DATA *mob, *mob_next;
@@ -535,23 +534,15 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 	else
 		strcpy(buf, msg);
 
-	if (!IS_NPC(victim)
-	&&  (!victim->desc || IS_SET(victim->comm, COMM_AFK))){
-		char *p;
-
-		if (!victim->desc)
+	if (!IS_NPC(victim)) {
+		if (victim->desc == NULL)
 			act_puts("$N seems to have misplaced $S link..."
 				 "try again later.", ch, NULL, victim,
 				 TO_CHAR, POS_DEAD);
-		if (IS_SET(victim->comm, COMM_AFK))
+		else if (IS_SET(victim->comm, COMM_AFK))
 			act_puts("$E is AFK, but your tell will go through "
 				 "when $E returns.", ch, NULL, victim,
 				 TO_CHAR, POS_DEAD);
-		p = strend(buf_string(victim->pcdata->buffer));
-		buf_printf(victim->pcdata->buffer, "%s tells you '{G%s{x'\n\r",
-			   PERS(ch,victim), buf);
-		*p = UPPER(*p);
-		return;
 	}
 
 	if (IS_SET(victim->comm, (COMM_QUIET | COMM_DEAF))
@@ -562,9 +553,20 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 	}
 
 	if (!is_affected(ch, gsn_deafen))
-		act_nprintf(ch, buf, victim, TO_CHAR, 
-				POS_SLEEPING, COMM_YOU_TELL);
-	act_nprintf(ch, buf, victim, TO_VICT, POS_SLEEPING, COMM_TELLS_YOU);
+		act_nputs(COMM_YOU_TELL, ch, buf, victim, TO_CHAR, POS_SLEEPING);
+	act_nputs(COMM_TELLS_YOU, ch, buf, victim, TO_VICT | TO_BUF, POS_SLEEPING);
+
+	if (!IS_NPC(victim)) {
+		if (victim->desc == NULL)
+			act_puts("$N seems to have misplaced $S link..."
+				 "try again later.", ch, NULL, victim,
+				 TO_CHAR, POS_DEAD);
+		else if (IS_SET(victim->comm, COMM_AFK))
+			act_puts("$E is AFK, but your tell will go through "
+				 "when $E returns.", ch, NULL, victim,
+				 TO_CHAR, POS_DEAD);
+	}
+
 
 	victim->reply = ch;
 	if (!IS_NPC(ch) && IS_NPC(victim) && HAS_TRIGGER(victim,TRIG_SPEECH))
@@ -669,10 +671,8 @@ void do_emote(CHAR_DATA *ch, const char *argument)
 	else
 		 strcpy(buf,argument);
 
-	MOBtrigger = FALSE;
-	act("$n $T", ch, NULL, buf, TO_ROOM);
-	act("$n $T", ch, NULL, buf, TO_CHAR);
-	MOBtrigger = TRUE;
+	act("$n $T", ch, NULL, buf, TO_ROOM | TO_BUF | NO_TRIGGER);
+	act("$n $T", ch, NULL, buf, TO_CHAR | NO_TRIGGER);
 }
 
 
@@ -700,9 +700,8 @@ void do_pmote(CHAR_DATA *ch, const char *argument)
 			continue;
 
 		if ((letter = strstr(argument,vch->name)) == NULL) {
-			MOBtrigger = FALSE;
-			act("$N $t",vch,argument,ch,TO_CHAR);
-			MOBtrigger = TRUE;
+			act("$N $t", vch, argument, ch,
+			    TO_CHAR | TO_BUF | NO_TRIGGER);
 			continue;
 		}
 
@@ -745,9 +744,7 @@ void do_pmote(CHAR_DATA *ch, const char *argument)
 			name = vch->name;
 		}
 
-		MOBtrigger = FALSE;
-		act("$N $t",vch,temp,ch,TO_CHAR);
-		MOBtrigger = TRUE;
+		act("$N $t", vch, temp, ch, TO_CHAR | TO_BUF | NO_TRIGGER);
 	}
 }
 
@@ -998,9 +995,7 @@ void do_pose(CHAR_DATA *ch, const char *argument)
 	pose  = number_range(0, level);
 
 	act(pose_table[pose].message[2*ch->class+0], ch, NULL, NULL, TO_CHAR);
-	act(pose_table[pose].message[2*ch->class+1], ch, NULL, NULL, TO_ROOM);
-
-	return;
+	act(pose_table[pose].message[2*ch->class+1], ch, NULL, NULL, TO_ROOM | TO_BUF);
 }
 
 
@@ -1790,10 +1785,8 @@ void do_clan(CHAR_DATA *ch, const char *argument)
 	if (d->connected == CON_PLAYING && 
 		 (d->character->clan == ch->clan) &&
 		 !is_affected(d->character, gsn_deafen))
-		act_puts(buf, ch,buf2,d->character,TO_VICT,POS_DEAD);
+		act_puts(buf, ch,buf2,d->character,TO_VICT | TO_BUF,POS_DEAD);
 	}
-
-	return;
 }
 
 void do_pray(CHAR_DATA *ch, const char *argument)
@@ -1817,13 +1810,12 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 		 {
 		if (argument[0] == '\0')
 		act_puts("{W$n{x is PRAYING for: {Gany god{x",
-			ch,argument,d->character,TO_VICT,POS_DEAD);
+			ch,argument,d->character,TO_VICT | TO_BUF,POS_DEAD);
 		else
 		act_puts("{W$n{x is PRAYING for: {G$t{x",
-			ch,argument,d->character,TO_VICT,POS_DEAD);
+			ch,argument,d->character,TO_VICT | TO_BUF,POS_DEAD);
 		 }
 		 }
-	return;
 }
 
 char char_lang_lookup(char c)

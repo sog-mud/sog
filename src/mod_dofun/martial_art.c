@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.26 1998-08-03 00:22:31 efdi Exp $
+ * $Id: martial_art.c,v 1.27 1998-08-14 03:36:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2106,13 +2106,9 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 		if (trophy_vnum != 0) {
 			level = UMIN(part->level + 5, MAX_LEVEL);
  
-			trophy = create_object(get_obj_index(trophy_vnum),
-					       level);
+			trophy = create_named_obj(get_obj_index(trophy_vnum),
+						     level, part->from);
 			trophy->timer = ch->level * 2;
-
-			mlstr_printf(trophy->short_descr, part->from);
-			mlstr_printf(trophy->description, part->from);
-
 			trophy->cost  = 0;
 			trophy->level = ch->level;
 			ch->mana -= 30;
@@ -3355,7 +3351,7 @@ void do_katana(CHAR_DATA *ch, const char *argument)
 		af.location	= 0;
 		affect_to_char(ch,&af);
 	
-		katana = create_object(get_obj_index(OBJ_VNUM_KATANA_SWORD),ch->level);
+		katana = create_obj(get_obj_index(OBJ_VNUM_KATANA_SWORD),ch->level);
 		katana->cost  = 0;
 		katana->level = ch->level;
 		ch->mana -= 300;
@@ -3373,10 +3369,7 @@ void do_katana(CHAR_DATA *ch, const char *argument)
 		affect_to_obj(katana, &af);
 
 		katana->value[2] = ch->level / 10;
-
-		katana->ed = ed_dup(katana->pIndexData->ed);
-		katana->ed->next = NULL;
-		mlstr_printf(katana->ed->description, ch->name);
+		katana->ed = ed_new2(katana->pIndexData->ed, ch->name);
 			
 		obj_to_char(katana, ch);
 		check_improve(ch, gsn_katana, TRUE, 1);

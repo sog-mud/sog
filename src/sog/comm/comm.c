@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.81 1998-08-10 10:37:52 fjoe Exp $
+ * $Id: comm.c,v 1.82 1998-08-14 03:36:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -97,6 +97,7 @@
 #include "string_edit.h"
 #include "mlstring.h"
 #include "util.h"
+#include "buffer.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_help		);
@@ -352,7 +353,6 @@ bool		    newlock;		/* Game is newlocked		*/
 char		    str_boot_time[MAX_INPUT_LENGTH];
 time_t		    current_time;	/* time of this pulse */	
 int                 iNumPlayers = 0; /* The number of players on */
-bool		    MOBtrigger = TRUE;  /* act() switch                 */
  
 
 
@@ -2310,24 +2310,24 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 
 	    do_outfit(ch, "");
 
-	    obj_to_char(create_object(get_obj_index(OBJ_VNUM_MAP),0),ch);
-	    obj_to_char(create_object(get_obj_index(OBJ_VNUM_NMAP1),0),ch);
-	    obj_to_char(create_object(get_obj_index(OBJ_VNUM_NMAP2),0),ch);
+	    obj_to_char(create_obj(get_obj_index(OBJ_VNUM_MAP),0),ch);
+	    obj_to_char(create_obj(get_obj_index(OBJ_VNUM_NMAP1),0),ch);
+	    obj_to_char(create_obj(get_obj_index(OBJ_VNUM_NMAP2),0),ch);
 
 	    if (ch->hometown == 0 && IS_EVIL(ch))
-	      obj_to_char(create_object(get_obj_index(OBJ_VNUM_MAP_SM),0),ch);
+	      obj_to_char(create_obj(get_obj_index(OBJ_VNUM_MAP_SM),0),ch);
 
 	    if (ch->hometown == 1)
-	      obj_to_char(create_object(get_obj_index(OBJ_VNUM_MAP_NT),0),ch);
+	      obj_to_char(create_obj(get_obj_index(OBJ_VNUM_MAP_NT),0),ch);
 
 	    if (ch->hometown == 3)
-	  obj_to_char(create_object(get_obj_index(OBJ_VNUM_MAP_OFCOL),0),ch);
+	  obj_to_char(create_obj(get_obj_index(OBJ_VNUM_MAP_OFCOL),0),ch);
 
 	    if (ch->hometown == 2)
-	  obj_to_char(create_object(get_obj_index(OBJ_VNUM_MAP_TITAN),0),ch);
+	  obj_to_char(create_obj(get_obj_index(OBJ_VNUM_MAP_TITAN),0),ch);
 
 	    if (ch->hometown == 4)
-	  obj_to_char(create_object(get_obj_index(OBJ_VNUM_MAP_OLD),0),ch);
+	  obj_to_char(create_obj(get_obj_index(OBJ_VNUM_MAP_OLD),0),ch);
 
 		if (!skill_is_native(ch, get_weapon_sn(ch, WEAR_WIELD)))
  	    		ch->pcdata->learned[get_weapon_sn(ch, WEAR_WIELD)] = 40;
@@ -2479,7 +2479,7 @@ bool check_parse_name(const char *name)
 		  pMobIndex != NULL;
 		  pMobIndex  = pMobIndex->next)
 	    {
-		if (is_name(name, pMobIndex->player_name))
+		if (is_name(name, pMobIndex->name))
 		    return FALSE;
 	    }
 	}
@@ -2717,7 +2717,7 @@ static char * const his_her [] = { "its", "his", "her" };
  
 static
 void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
-	     const void *arg1, const void *arg2, char *str)
+	     const void *arg1, const void *arg2, char *str, int flags)
 {
     CHAR_DATA 	*vch = (CHAR_DATA *) arg2;
     OBJ_DATA 	*obj1 = (OBJ_DATA  *) arg1;
@@ -2820,15 +2820,19 @@ void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
     parse_colors(buf, to, tmp, sizeof(tmp)); 
     tmp[0] = UPPER(tmp[0]);
 
-    if(to->desc)
+    if (to->desc)
     	write_to_buffer(to->desc, tmp, 0);
-    else if (MOBtrigger)
+    else if (!IS_NPC(to)) {
+	if (IS_SET(flags, TO_BUF))
+		buf_add(to->pcdata->buffer, tmp);
+    }
+    else if (!IS_SET(flags, NO_TRIGGER))
     	mp_act_trigger(tmp, to, ch, arg1, arg2, TRIG_ACT);
 }
 
 
 void act_nprintf(CHAR_DATA *ch, const void *arg1, 
-	      const void *arg2, int type, int min_pos, int msgid, ...)
+	      const void *arg2, int flags, int min_pos, int msgid, ...)
 {
 	CHAR_DATA *to;
 	CHAR_DATA 	*vch = (CHAR_DATA *) arg2;
@@ -2839,7 +2843,7 @@ void act_nprintf(CHAR_DATA *ch, const void *arg1,
 		return;
 
 	to = ch->in_room->people;
-	if (type == TO_VICT) {
+	if (IS_SET(flags, TO_VICT)) {
 		if (!vch) {
 			bug("Act: null vch with TO_VICT.", 0);
 			return;
@@ -2854,18 +2858,18 @@ void act_nprintf(CHAR_DATA *ch, const void *arg1,
 	va_start(ap, msgid);
 
 	for(; to ; to = to->next_in_room) {
-		if ((!IS_NPC(to) && to->desc == NULL)
-		||  (IS_NPC(to) && !HAS_TRIGGER(to, TRIG_ACT))
+		if ((IS_NPC(to) && !HAS_TRIGGER(to, TRIG_ACT))
+	/*	||  (!IS_NPC(to) && to->desc == NULL) */
 		||  to->position < min_pos)
 	        	continue;
  
-		if(type == TO_CHAR && to != ch)
+		if (IS_SET(flags, TO_CHAR) && to != ch)
 			continue;
-		if(type == TO_VICT && (to != vch || to == ch))
+		if (IS_SET(flags, TO_VICT) && (to != vch || to == ch))
 			continue;
-		if(type == TO_ROOM && to == ch)
+		if (IS_SET(flags, TO_ROOM) && to == ch)
 			continue;
-		if(type == TO_NOTVICT && (to == ch || to == vch))
+		if (IS_SET(flags, TO_NOTVICT) && (to == ch || to == vch))
 			continue;
 	
 		/* trying to fix */
@@ -2896,14 +2900,14 @@ void act_nprintf(CHAR_DATA *ch, const void *arg1,
 		}
 		/*****************/
 
-		act_raw(ch, to, arg1, arg2, buf);
+		act_raw(ch, to, arg1, arg2, buf, flags);
 	}
 
 	va_end(ap);
 }
 
 void act_printf(CHAR_DATA *ch, const void *arg1, 
-		const void *arg2, int type, int min_pos,
+		const void *arg2, int flags, int min_pos,
 		const char* format, ...)
 {
 	CHAR_DATA *to;
@@ -2915,7 +2919,7 @@ void act_printf(CHAR_DATA *ch, const void *arg1,
 		return;
 
 	to = ch->in_room->people;
-	if (type == TO_VICT) {
+	if (IS_SET(flags, TO_VICT)) {
 		if (vch == NULL) {
 	        	bug("Act: null vch with TO_VICT.", 0);
 	        	return;
@@ -2928,28 +2932,26 @@ void act_printf(CHAR_DATA *ch, const void *arg1,
 	}
  
 	va_start(ap, format);
+	vsnprintf(buf, sizeof(buf), format, ap);
+	va_end(ap);
 
 	for(; to ; to = to->next_in_room) {
-		if ((!IS_NPC(to) && to->desc == NULL)
-		||  (IS_NPC(to) && !HAS_TRIGGER(to, TRIG_ACT))
+		if ((IS_NPC(to) && !HAS_TRIGGER(to, TRIG_ACT))
+	/*	||  (!IS_NPC(to) && to->desc == NULL) */
 		||  to->position < min_pos)
 	        	continue;
  
-		if (type == TO_CHAR && to != ch)
-	        	continue;
-		if(type == TO_VICT && (to != vch || to == ch))
-	        	continue;
-	    	if(type == TO_ROOM && to == ch)
-	        	continue;
-	    	if(type == TO_NOTVICT && (to == ch || to == vch))
-	        	continue;
- 
-		vsnprintf(buf, sizeof(buf), format, ap);
+		if (IS_SET(flags, TO_CHAR) && to != ch)
+			continue;
+		if (IS_SET(flags, TO_VICT) && (to != vch || to == ch))
+			continue;
+		if (IS_SET(flags, TO_ROOM) && to == ch)
+			continue;
+		if (IS_SET(flags, TO_NOTVICT) && (to == ch || to == vch))
+			continue;
 	
-		act_raw(ch, to, arg1, arg2, buf);
+		act_raw(ch, to, arg1, arg2, buf, flags);
 	}
-
-	va_end(ap);
 }
 
 char* color(char type, CHAR_DATA *ch)

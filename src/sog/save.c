@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.44 1998-08-10 10:37:56 fjoe Exp $
+ * $Id: save.c,v 1.45 1998-08-14 03:36:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -726,13 +726,6 @@ load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 		break;				\
 	}
 
-#define MLSKEY(literal, field)			\
-	if (str_cmp(word, literal) == 0) { 	\
-		mlstr_fread(fp, field);		\
-		fMatch = TRUE;			\
-		break;				\
-	}
-
 void 
 fread_char(CHAR_DATA * ch, FILE * fp)
 {
@@ -910,7 +903,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 		case 'D':
 			KEY("Damroll", ch->damroll, fread_number(fp));
 			KEY("Dam", ch->damroll, fread_number(fp));
-			MLSKEY("Desc", ch->description);
+			KEY("Desc", ch->description, mlstr_fread(fp));
 			KEY("Dead", ch->pcdata->death, fread_number(fp));
 			KEY("Detect", ch->detection, fread_flags(fp));
 			break;
@@ -1107,8 +1100,8 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			KEY("Save", ch->saving_throw, fread_number(fp));
 			KEY("Scro", ch->lines, fread_number(fp));
 			KEY("Sex", ch->sex, fread_number(fp));
-			MLSKEY("ShortDescr", ch->short_descr);
-			MLSKEY("ShD", ch->short_descr);
+			KEY("ShortDescr", ch->short_descr, mlstr_fread(fp));
+			KEY("ShD", ch->short_descr, mlstr_fread(fp));
 			KEY("Sec", ch->pcdata->security, fread_number(fp));
 			KEY("Silv", ch->silver, fread_number(fp));
 
@@ -1184,12 +1177,12 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 		vnum = fread_number(fp);
 		if (get_mob_index(vnum) == NULL) {
 			bug("Fread_pet: bad vnum %d.", vnum);
-			pet = create_mobile(get_mob_index(MOB_VNUM_FIDO));
+			pet = create_mob(get_mob_index(MOB_VNUM_FIDO));
 		} else
-			pet = create_mobile(get_mob_index(vnum));
+			pet = create_mob(get_mob_index(vnum));
 	} else {
 		bug("Fread_pet: no vnum in file.", 0);
-		pet = create_mobile(get_mob_index(MOB_VNUM_FIDO));
+		pet = create_mob(get_mob_index(MOB_VNUM_FIDO));
 	}
 
 	for (;;) {
@@ -1281,7 +1274,7 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 
 		case 'D':
 			KEY("Dam", pet->damroll, fread_number(fp));
-			MLSKEY("Desc", pet->description);
+			KEY("Desc", pet->description, mlstr_fread(fp));
 			KEY("Detect", pet->detection, fread_flags(fp));
 			break;
 
@@ -1328,7 +1321,7 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'L':
-			MLSKEY("LnD",  pet->description);
+			KEY("LnD",  pet->description, mlstr_fread(fp));
 			KEY("Levl", pet->level, fread_number(fp));
 			KEY("LogO", lastlogoff, fread_number(fp));
 			break;
@@ -1353,7 +1346,7 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 		case 'S':
 			KEY("Save", pet->saving_throw, fread_number(fp));
 			KEY("Sex", pet->sex, fread_number(fp));
-			MLSKEY("ShD", pet->short_descr);
+			KEY("ShD", pet->short_descr, mlstr_fread(fp));
 			KEY("Silv", pet->silver, fread_number(fp));
 			break;
 
@@ -1394,7 +1387,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 		if (get_obj_index(vnum) == NULL) {
 			bug("Fread_obj: bad vnum %d.", vnum);
 		} else {
-			obj = create_object_nocount(get_obj_index(vnum), -1);
+			obj = create_obj_nocount(get_obj_index(vnum), -1);
 			new_format = TRUE;
 		}
 
@@ -1472,8 +1465,8 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'D':
-			MLSKEY("Description", obj->description);
-			MLSKEY("Desc", obj->description);
+			KEY("Description", obj->description, mlstr_fread(fp));
+			KEY("Desc", obj->description, mlstr_fread(fp));
 			break;
 
 		case 'E':
@@ -1499,7 +1492,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 				} else {
 					if (!fVnum) {
 						free_obj(obj);
-						obj = create_object(get_obj_index(OBJ_VNUM_DUMMY), 0);
+						obj = create_obj(get_obj_index(OBJ_VNUM_DUMMY), 0);
 					}
 
 					if (!new_format) {
@@ -1520,7 +1513,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 						wear = obj->wear_loc;
 						extract_obj(obj);
 
-						obj = create_object(obj->pIndexData, 0);
+						obj = create_obj(obj->pIndexData, 0);
 						obj->wear_loc = wear;
 					}
 
@@ -1572,8 +1565,8 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'S':
-			MLSKEY("ShortDescr", obj->short_descr);
-			MLSKEY("ShD", obj->short_descr);
+			KEY("ShortDescr", obj->short_descr, mlstr_fread(fp));
+			KEY("ShD", obj->short_descr, mlstr_fread(fp));
 
 			if (!str_cmp(word, "Spell")) {
 				int             iValue;

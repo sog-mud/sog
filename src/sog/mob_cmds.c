@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.9 1998-08-08 06:40:02 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.10 1998-08-14 03:36:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -329,9 +329,7 @@ void do_mpasound(CHAR_DATA *ch, const char *argument)
 	  &&   pexit->u1.to_room != was_in_room)
       	{
 	    ch->in_room = pexit->u1.to_room;
-	    MOBtrigger  = FALSE;
-	    act(argument, ch, NULL, NULL, TO_ROOM);
-	    MOBtrigger  = TRUE;
+	    act(argument, ch, NULL, NULL, TO_ROOM | NO_TRIGGER);
 	}
     }
     ch->in_room = was_in_room;
@@ -524,7 +522,7 @@ void do_mpmload(CHAR_DATA *ch, const char *argument)
 	bug(arg, 0);
 	return;
     }
-    victim = create_mobile(pMobIndex);
+    victim = create_mob(pMobIndex);
     char_to_room(victim, ch->in_room);
     return;
 }
@@ -597,7 +595,7 @@ void do_mpoload(CHAR_DATA *ch, const char *argument)
 	return;
     }
 
-    obj = create_object(pObjIndex, level);
+    obj = create_obj(pObjIndex, level);
     if ((fWear || !fToroom) && CAN_WEAR(obj, ITEM_TAKE))
     {
 	obj_to_char(obj, ch);

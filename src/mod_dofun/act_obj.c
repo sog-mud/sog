@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.57 1998-08-10 10:37:52 fjoe Exp $
+ * $Id: act_obj.c,v 1.58 1998-08-14 03:36:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -871,11 +871,9 @@ do_give(CHAR_DATA * ch, const char *argument)
 	}
 	obj_from_char(obj);
 	obj_to_char(obj, victim);
-	MOBtrigger = FALSE;
-	act("$n gives $p to $N.", ch, obj, victim, TO_NOTVICT);
-	act("$n gives you $p.", ch, obj, victim, TO_VICT);
-	act("You give $p to $N.", ch, obj, victim, TO_CHAR);
-	MOBtrigger = TRUE;
+	act("$n gives $p to $N.", ch, obj, victim, TO_NOTVICT | NO_TRIGGER);
+	act("$n gives you $p.", ch, obj, victim, TO_VICT | NO_TRIGGER);
+	act("You give $p to $N.", ch, obj, victim, TO_CHAR | NO_TRIGGER);
 
 	/*
 	 * Give trigger
@@ -1933,7 +1931,7 @@ do_quaff(CHAR_DATA * ch, const char *argument)
 		WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
 
 	extract_obj(obj);
-	obj_to_char(create_object(get_obj_index(OBJ_VNUM_POTION_VIAL), 0), ch);
+	obj_to_char(create_obj(get_obj_index(OBJ_VNUM_POTION_VIAL), 0), ch);
 }
 
 
@@ -2305,8 +2303,8 @@ do_steal(CHAR_DATA * ch, const char *argument)
 		check_improve(ch, gsn_steal, TRUE, 2);
 	} else {
 		obj_inve = NULL;
-		obj_inve = create_object(obj->pIndexData, 0);
-		clone_object(obj, obj_inve);
+		obj_inve = create_obj(obj->pIndexData, 0);
+		clone_obj(obj, obj_inve);
 		REMOVE_BIT(obj_inve->extra_flags, ITEM_INVENTORY);
 		obj_to_char(obj_inve, ch);
 		send_to_char("You got one of them!\n\r", ch);
@@ -2515,7 +2513,7 @@ do_buy_pet(CHAR_DATA * ch, const char *argument)
 			return;
 		}
 		deduct_cost(ch, cost);
-		pet = create_mobile(pet->pIndexData);
+		pet = create_mob(pet->pIndexData);
 		pet->comm = COMM_NOTELL | COMM_NOSHOUT | COMM_NOCHANNELS;
 
 		char_to_room(pet, ch->in_room);
@@ -2548,15 +2546,13 @@ do_buy_pet(CHAR_DATA * ch, const char *argument)
 		check_improve(ch, gsn_haggle, TRUE, 4);
 	}
 	deduct_cost(ch, cost);
-	pet = create_mobile(pet->pIndexData);
 	SET_BIT(pet->affected_by, AFF_CHARM);
 	pet->comm = COMM_NOTELL | COMM_NOSHOUT | COMM_NOCHANNELS;
 
 	argument = one_argument(argument, arg);
 	if (arg[0] != '\0')
-		str_printf(&pet->name, arg);
-
-	mlstr_printf(pet->description, ch->name);
+		pet->name = str_printf(pet->pIndexData->name, arg);
+	pet->description = mlstr_printf(pet->pIndexData->description, ch->name);
 
 	char_to_room(pet, ch->in_room);
 	add_follower(pet, ch);
@@ -2564,7 +2560,6 @@ do_buy_pet(CHAR_DATA * ch, const char *argument)
 	ch->pet = pet;
 	send_to_char("Enjoy your pet.\n\r", ch);
 	act("$n bought $N as a pet.", ch, NULL, pet, TO_ROOM);
-	return;
 }
 
 void 
@@ -2663,7 +2658,7 @@ do_buy(CHAR_DATA * ch, const char *argument)
 
 	for (count = 0; count < number; count++) {
 		if (IS_SET(obj->extra_flags, ITEM_INVENTORY))
-			t_obj = create_object(obj->pIndexData, obj->level);
+			t_obj = create_obj(obj->pIndexData, obj->level);
 		else {
 			t_obj = obj;
 			obj = obj->next_content;
@@ -3321,12 +3316,7 @@ do_butcher(CHAR_DATA * ch, const char *argument)
 		check_improve(ch, gsn_butcher, TRUE, 1);
 
 		for (i = 0; i < numsteaks; i++) {
-			steak = create_object(get_obj_index(OBJ_VNUM_STEAK), 0);
-
-			mlstr_printf(steak->short_descr,
-					mlstr_mval(obj->short_descr));
-			mlstr_printf(steak->description,
-					mlstr_mval(obj->short_descr));
+			steak = create_named_obj(get_obj_index(OBJ_VNUM_STEAK), 0, mlstr_mval(obj->short_descr));
 			obj_to_room(steak, ch->in_room);
 		}
 	} else {

@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.8 1998-08-07 13:08:37 fjoe Exp $
+ * $Id: string_edit.c,v 1.9 1998-08-14 03:36:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -294,6 +294,9 @@ char *format_string(char *oldstring /*, bool fSpace */)
   int i=0;
   bool cap=TRUE;
   
+  if (oldstring == NULL)
+		return NULL;
+
   xbuf[0]=xbuf2[0]=0;
   
   i=0;

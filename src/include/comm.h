@@ -2,7 +2,7 @@
 #define _COMM_H_
 
 /*
- * $Id: comm.h,v 1.9 1998-07-14 07:47:42 fjoe Exp $
+ * $Id: comm.h,v 1.10 1998-08-14 03:36:19 fjoe Exp $
  */
 
 #define MAX_ON_FILE	"max_on.txt"
@@ -20,12 +20,24 @@ void	char_nprintf(CHAR_DATA *ch, int msgid, ...);
 
 void	page_to_char( const char *txt, CHAR_DATA *ch);
 
+/* the following 5 act target flags are exclusive */
+#define TO_ROOM		(A)
+#define TO_NOTVICT	(B)
+#define TO_VICT		(C)
+#define TO_CHAR		(D)
+#define TO_ALL		(E)
+
+#define TO_BUF		(F)
+#define NO_TRIGGER	(G)
+
 #define act(format, ch, arg1, arg2, type) \
 		act_printf(ch, arg1, arg2, type, POS_RESTING, format)
 #define	act_puts(format, ch, arg1, arg2, type, min_pos) \
 		act_printf(ch, arg1, arg2, type, min_pos, format)
 void    act_printf(CHAR_DATA *ch, const void *arg1, const void *arg2,
 		   int type, int min_pos, const char* format, ...);
+#define	act_nputs(msg_num, ch, arg1, arg2, type, min_pos) \
+		act_nprintf(ch, arg1, arg2, type, min_pos, msg_num)
 void    act_nprintf(CHAR_DATA *ch, const void *arg1, const void *arg2,
 		    int type, int min_pos, int msg_num, ...);
 

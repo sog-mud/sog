@@ -1,5 +1,5 @@
 /*
- * $Id: olc_act.c,v 1.12 1998-08-07 07:48:54 fjoe Exp $
+ * $Id: olc_act.c,v 1.13 1998-08-14 03:36:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -365,7 +365,7 @@ REDIT(redit_mlist)
 
 	for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) {
 		if ((pMobIndex = get_mob_index(vnum)) != NULL) {
-			if (fAll || is_name(arg, pMobIndex->player_name)) {
+			if (fAll || is_name(arg, pMobIndex->name)) {
 				found = TRUE;
 				buf_printf(buffer, "[%5d] %-17.16s",
 					   pMobIndex->vnum,
@@ -1404,7 +1404,7 @@ bool change_exit(CHAR_DATA *ch, const char *argument, int door)
 			    pRoom->exit[door] = new_exit();
 			} */
 
-		if (!mlstr_append(ch, pRoom->exit[door]->description, arg)) {
+		if (!mlstr_append(ch, &pRoom->exit[door]->description, arg)) {
 			send_to_char("Syntax:  [direction] desc lang\n\r", ch);
 			return FALSE;
 		}
@@ -1510,7 +1510,7 @@ REDIT(redit_ed)
 		ed->next		=   pRoom->ed;
 		pRoom->ed	=   ed;
 
-		mlstr_append(ch, ed->description, lang);
+		mlstr_append(ch, &ed->description, lang);
 
 		return TRUE;
 	}
@@ -1528,7 +1528,7 @@ REDIT(redit_ed)
 			return FALSE;
 		}
 
-		mlstr_append(ch, ed->description, lang);
+		mlstr_append(ch, &ed->description, lang);
 
 		return TRUE;
 	}
@@ -1558,7 +1558,7 @@ REDIT(redit_ed)
 		else
 			ped->next = ed->next;
 
-		free_ed(ed);
+		ed_free(ed);
 
 		send_to_char("Extra description deleted.\n\r", ch);
 		return TRUE;
@@ -1577,7 +1577,7 @@ REDIT(redit_ed)
 			return FALSE;
 		}
 
-		mlstr_format(ed->description);
+		mlstr_format(&ed->description);
 		send_to_char("Extra description formatted.\n\r", ch);
 		return TRUE;
 	}
@@ -1648,7 +1648,7 @@ REDIT(redit_name)
 
 	EDIT_ROOM(ch, pRoom);
 
-	if (!mlstr_change(pRoom->name, argument)) {
+	if (!mlstr_change(&pRoom->name, argument)) {
 		send_to_char("Syntax: name lang name\n\r", ch);
 		return FALSE;
 	}
@@ -1665,7 +1665,7 @@ REDIT(redit_desc)
 
 	EDIT_ROOM(ch, pRoom);
 
-	if (!mlstr_append(ch, pRoom->description, argument)) {
+	if (!mlstr_append(ch, &pRoom->description, argument)) {
 		send_to_char("Syntax: desc lang\n\r", ch);
 		return FALSE;
 	}
@@ -1724,7 +1724,7 @@ REDIT(redit_format)
 
 	EDIT_ROOM(ch, pRoom);
 
-	mlstr_format(pRoom->description);
+	mlstr_format(&pRoom->description);
 
 	send_to_char("String formatted.\n\r", ch);
 	return TRUE;
@@ -1779,7 +1779,7 @@ REDIT(redit_mreset)
 	/*
 	 * Create the mobile.
 	 */
-	newmob = create_mobile(pMobIndex);
+	newmob = create_mob(pMobIndex);
 	char_to_room(newmob, pRoom);
 
 	char_printf(ch, "%s (%d) has been loaded and added to resets.\n\r"
@@ -1921,7 +1921,7 @@ REDIT(redit_oreset)
 		pReset->arg4	= 0;
 		add_reset(pRoom, pReset, 0/* Last slot*/);
 
-		newobj = create_object(pObjIndex, number_fuzzy(olevel));
+		newobj = create_obj(pObjIndex, number_fuzzy(olevel));
 		obj_to_room(newobj, pRoom);
 
 		char_printf(ch, "%s (%d) has been loaded and added to resets.\n\r",
@@ -1943,7 +1943,7 @@ REDIT(redit_oreset)
 		pReset->arg4	= 1;
 		add_reset(pRoom, pReset, 0/* Last slot*/);
 
-		newobj = create_object(pObjIndex, number_fuzzy(olevel));
+		newobj = create_obj(pObjIndex, number_fuzzy(olevel));
 		newobj->cost = 0;
 		obj_to_obj(newobj, to_obj);
 
@@ -2005,7 +2005,7 @@ REDIT(redit_oreset)
 		add_reset(pRoom, pReset, 0/* Last slot*/);
 
 		olevel  = URANGE(0, to_mob->level - 2, LEVEL_HERO);
-		 newobj = create_object(pObjIndex, number_fuzzy(olevel));
+		 newobj = create_obj(pObjIndex, number_fuzzy(olevel));
 
 		if (to_mob->pIndexData->pShop)	/* Shop-keeper? */
 		{
@@ -2025,12 +2025,12 @@ REDIT(redit_oreset)
 			break;
 			}
 
-			newobj = create_object(pObjIndex, olevel);
+			newobj = create_obj(pObjIndex, olevel);
 			if (pReset->arg2 == WEAR_NONE)
 			SET_BIT(newobj->extra_flags, ITEM_INVENTORY);
 		}
 		else
-			newobj = create_object(pObjIndex, number_fuzzy(olevel));
+			newobj = create_obj(pObjIndex, number_fuzzy(olevel));
 
 		obj_to_char(newobj, to_mob);
 		if (pReset->command == 'E')
@@ -2826,7 +2826,7 @@ OEDIT(oedit_short)
 		return FALSE;
 	}
 
-	mlstr_change(pObj->short_descr, argument);
+	mlstr_change(&pObj->short_descr, argument);
 	send_to_char("Short description set.\n\r", ch);
 	return TRUE;
 }
@@ -2844,7 +2844,7 @@ OEDIT(oedit_long)
 		return FALSE;
 	}
 
-	mlstr_change(pObj->description, argument);
+	mlstr_change(&pObj->description, argument);
 	send_to_char("Long description set.\n\r", ch);
 	return TRUE;
 }
@@ -3067,7 +3067,7 @@ OEDIT(oedit_ed)
 		ed->next		= pObj->ed;
 		pObj->ed	= ed;
 
-		mlstr_append(ch, ed->description, lang);
+		mlstr_append(ch, &ed->description, lang);
 
 		return TRUE;
 	}
@@ -3084,7 +3084,7 @@ OEDIT(oedit_ed)
 			return FALSE;
 		}
 
-		mlstr_append(ch, ed->description, lang);
+		mlstr_append(ch, &ed->description, lang);
 		return TRUE;
 	}
 
@@ -3112,7 +3112,7 @@ OEDIT(oedit_ed)
 		else
 			ped->next = ed->next;
 
-		free_ed(ed);
+		ed_free(ed);
 
 		send_to_char("Extra description deleted.\n\r", ch);
 		return TRUE;
@@ -3131,7 +3131,7 @@ OEDIT(oedit_ed)
 		         return FALSE;
 		}
 
-		mlstr_format(ed->description);
+		mlstr_format(&ed->description);
 
 		send_to_char("Extra description formatted.\n\r", ch);
 		return TRUE;
@@ -3308,7 +3308,7 @@ MEDIT(medit_show)
 	buf = buf_new(0);
 
 	buf_printf(buf, "Name:        [%s]\n\rArea:        [%5d] %s\n\r",
-		pMob->player_name,
+		pMob->name,
 		!pMob->area ? -1        : pMob->area->vnum,
 		!pMob->area ? "No Area" : pMob->area->name);
 
@@ -3602,7 +3602,7 @@ MEDIT(medit_desc)
 	EDIT_MOB(ch, pMob);
 
 	if (argument[0] != '\0') {
-		mlstr_append(ch, pMob->description, argument);
+		mlstr_append(ch, &pMob->description, argument);
 		return TRUE;
 	}
 
@@ -3619,7 +3619,7 @@ MEDIT(medit_long)
 
 	EDIT_MOB(ch, pMob);
 
-	if (!mlstr_change_desc(pMob->long_descr, argument)) {
+	if (!mlstr_change_desc(&pMob->long_descr, argument)) {
 		send_to_char("Syntax: long lang [string]\n\r", ch);
 		return FALSE;
 	}
@@ -3641,7 +3641,7 @@ MEDIT(medit_short)
 		return FALSE;
 	}
 
-	mlstr_change(pMob->short_descr, argument);
+	mlstr_change(&pMob->short_descr, argument);
 	send_to_char("Short description set.\n\r", ch);
 	return TRUE;
 }
@@ -3660,8 +3660,8 @@ MEDIT(medit_name)
 		return FALSE;
 	}
 
-	free_string(pMob->player_name);
-	pMob->player_name = str_dup(argument);
+	free_string(pMob->name);
+	pMob->name = str_dup(argument);
 
 	send_to_char("Name set.\n\r", ch);
 	return TRUE;
@@ -4449,7 +4449,7 @@ MEDIT(medit_group)
 			if (pMTemp && (pMTemp->group == atoi(argument))) {
 				found = TRUE;
 				buf_printf(buffer, "[%5d] %s\n\r",
-					   pMTemp->vnum, pMTemp->player_name);
+					   pMTemp->vnum, pMTemp->name);
 			}
 		}
 

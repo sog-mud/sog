@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.115 1998-08-10 10:37:50 fjoe Exp $
+ * $Id: act_info.c,v 1.116 1998-08-14 03:36:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2296,7 +2296,7 @@ void do_description(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg);
 
 	if (str_cmp(arg, "edit") == 0) {
-		string_append(ch, mlstr_convert(ch->description, -1));
+		string_append(ch, mlstr_convert(&ch->description, -1));
 		return;
 	}
 
@@ -2837,7 +2837,7 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 	ch->mana -= 125;
 
 	check_improve(ch, gsn_bear_call, TRUE, 1);
-	bear = create_mobile(get_mob_index(MOB_VNUM_BEAR));
+	bear = create_mob(get_mob_index(MOB_VNUM_BEAR));
 
 	for (i=0;i < MAX_STATS; i++)
 		bear->perm_stat[i] = UMIN(25,2 * ch->perm_stat[i]);
@@ -2854,8 +2854,8 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 	bear->sex = ch->sex;
 	bear->gold = 0;
 
-	bear2 = create_mobile(bear->pIndexData);
-	clone_mobile(bear, bear2);
+	bear2 = create_mob(bear->pIndexData);
+	clone_mob(bear, bear2);
 
 	SET_BIT(bear->affected_by, AFF_CHARM);
 	SET_BIT(bear2->affected_by, AFF_CHARM);
@@ -3441,7 +3441,7 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 	}
 	ch->mana -= 125;
 
-	bear = create_mobile(get_mob_index(MOB_VNUM_LION));
+	bear = create_mob(get_mob_index(MOB_VNUM_LION));
 
 	for (i=0;i < MAX_STATS; i++)
 		bear->perm_stat[i] = UMIN(25,2 * ch->perm_stat[i]);
@@ -3458,8 +3458,8 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 	bear->sex = ch->sex;
 	bear->gold = 0;
 
-	bear2 = create_mobile(bear->pIndexData);
-	clone_mobile(bear,bear2);
+	bear2 = create_mob(bear->pIndexData);
+	clone_mob(bear,bear2);
 
 	SET_BIT(bear->affected_by, AFF_CHARM);
 	SET_BIT(bear2->affected_by, AFF_CHARM);
@@ -3910,30 +3910,6 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 		send_to_char("You successfully make an arrow.\n\r", ch);
 		check_improve(ch, gsn_make_arrow, TRUE, 3);
 
-		arrow = create_object(get_obj_index(OBJ_VNUM_RANGER_ARROW),
-				      ch->level);
-		arrow->level = ch->level;
-		arrow->value[1] = 4 + ch->level / 10;
-		arrow->value[2] = 4 + ch->level / 10;
-
-		tohit.where		 = TO_OBJECT;
-		tohit.type		 = gsn_make_arrow;
-		tohit.level		 = ch->level;
-		tohit.duration		 = -1;
-		tohit.location		 = APPLY_HITROLL;
-		tohit.modifier		 = ch->level / 10;
-		tohit.bitvector 	 = 0;
-		affect_to_obj(arrow, &tohit);
-
-		todam.where		 = TO_OBJECT;
-		todam.type		 = gsn_make_arrow;
-		todam.level		 = ch->level;
-		todam.duration		 = -1;
-		todam.location		 = APPLY_DAMROLL;
-		todam.modifier		 = ch->level / 10;
-		todam.bitvector 	 = 0;
-		affect_to_obj(arrow,&todam);
-
 		if (color != 0) {
 			saf.where	 = TO_WEAPON;
 			saf.type	 = color;
@@ -3962,12 +3938,31 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 		else
 			str = "wooden";
 
-		str_printf(&arrow->name, str);
-		mlstr_printf(arrow->short_descr, str);
-		mlstr_printf(arrow->description, str);
+		arrow = create_named_obj(get_obj_index(OBJ_VNUM_RANGER_ARROW), ch->level, str);
+		arrow->level = ch->level;
+		arrow->value[1] = 4 + ch->level / 10;
+		arrow->value[2] = 4 + ch->level / 10;
 
+		tohit.where		 = TO_OBJECT;
+		tohit.type		 = gsn_make_arrow;
+		tohit.level		 = ch->level;
+		tohit.duration		 = -1;
+		tohit.location		 = APPLY_HITROLL;
+		tohit.modifier		 = ch->level / 10;
+		tohit.bitvector 	 = 0;
+		affect_to_obj(arrow, &tohit);
+
+		todam.where		 = TO_OBJECT;
+		todam.type		 = gsn_make_arrow;
+		todam.level		 = ch->level;
+		todam.duration		 = -1;
+		todam.location		 = APPLY_DAMROLL;
+		todam.modifier		 = ch->level / 10;
+		todam.bitvector 	 = 0;
+		affect_to_obj(arrow,&todam);
 		if (color)
 			affect_to_obj(arrow, &saf);
+
 		obj_to_char(arrow, ch);
 		arrow = NULL;
 	}
@@ -4015,7 +4010,7 @@ void do_make_bow(CHAR_DATA *ch, const char *argument)
 	send_to_char("You successfully make bow.\n\r", ch);
 	check_improve(ch, gsn_make_bow, TRUE, 1);
 
-	bow = create_object(get_obj_index(OBJ_VNUM_RANGER_BOW), ch->level);
+	bow = create_obj(get_obj_index(OBJ_VNUM_RANGER_BOW), ch->level);
 	bow->level = ch->level;
 	bow->value[1] = 4 + ch->level / 15;
 	bow->value[2] = 4 + ch->level / 15;

@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.66 1998-08-10 10:37:55 fjoe Exp $
+ * $Id: merc.h,v 1.67 1998-08-14 03:36:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -400,19 +400,6 @@ struct	con_app_type
 	int	hitp;
 	int	shock;
 };
-
-
-
-/*
- * TO types for act.
- */
-#define TO_ROOM 	    0
-#define TO_NOTVICT	    1
-#define TO_VICT 	    2
-#define TO_CHAR 	    3
-#define TO_ALL		    4
-
-
 
 /*
  * Help table types.
@@ -1119,7 +1106,7 @@ enum {
 	SEX_MALE,
 	SEX_FEMALE,
 	SEX_EITHER,		/* used only for NPC, means random sex
-				   in create_mobile */
+				   in create_mob */
 	SEX_MAX = SEX_EITHER
 };
 
@@ -1764,7 +1751,7 @@ struct	mob_index_data
 	bool			new_format;
 	int			count;
 	int			killed;
-	char *			player_name;
+	char *			name;
 	mlstring *		short_descr;
 	mlstring *		long_descr;
 	mlstring *		description;
@@ -2649,20 +2636,25 @@ extern int gsn_thumbling;
 /* new defines */
 #define MAX_CHARM(ch)	((get_curr_stat(ch,STAT_INT) / 4) + (ch->level / 30))
 
+enum {
+	SOC_CHAR_NO_ARG,
+	SOC_OTHERS_NO_ARG,
+	SOC_CHAR_FOUND,
+	SOC_OTHERS_FOUND,
+	SOC_VICT_FOUND,
+	SOC_CHAR_NOT_FOUND,
+	SOC_CHAR_AUTO,
+	SOC_OTHERS_AUTO,
+	SOC_MAX
+};
+
 /*
  * Structure for a social in the socials table.
  */
-struct	social_type
+struct social_type
 {
-	char      name[20];
-	char *    char_no_arg;
-	char *    others_no_arg;
-	char *    char_found;
-	char *    others_found;
-	char *    vict_found;
-	char *    char_not_found;
-	char *    char_auto;
-	char *    others_auto;
+	char *	name;
+	char *	val[SOC_MAX];
 };
 
 

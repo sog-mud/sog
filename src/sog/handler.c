@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.46 1998-08-10 10:37:54 fjoe Exp $
+ * $Id: handler.c,v 1.47 1998-08-14 03:36:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2646,24 +2646,24 @@ OBJ_DATA *create_money(int gold, int silver)
 
 	if (gold == 0 && silver == 1)
 	{
-		obj = create_object(get_obj_index(OBJ_VNUM_SILVER_ONE), 0);
+		obj = create_obj(get_obj_index(OBJ_VNUM_SILVER_ONE), 0);
 	}
 	else if (gold == 1 && silver == 0)
 	{
-		obj = create_object(get_obj_index(OBJ_VNUM_GOLD_ONE), 0);
+		obj = create_obj(get_obj_index(OBJ_VNUM_GOLD_ONE), 0);
 	}
 	else if (silver == 0)
 	{
-	    obj = create_object(get_obj_index(OBJ_VNUM_GOLD_SOME), 0);
-		mlstr_printf(obj->short_descr, gold);
+	    obj = create_obj(get_obj_index(OBJ_VNUM_GOLD_SOME), 0);
+		obj->short_descr = mlstr_printf(obj->pIndexData->short_descr, gold);
 	    obj->value[1]           = gold;
 	    obj->cost               = gold;
 		obj->weight		= gold/5;
 	}
 	else if (gold == 0)
 	{
-	    obj = create_object(get_obj_index(OBJ_VNUM_SILVER_SOME), 0);
-		mlstr_printf(obj->short_descr, silver);
+	    obj = create_obj(get_obj_index(OBJ_VNUM_SILVER_SOME), 0);
+		obj->short_descr = mlstr_printf(obj->pIndexData->short_descr, silver);
 	    obj->value[0]           = silver;
 	    obj->cost               = silver;
 		obj->weight		= silver/20;
@@ -2671,8 +2671,8 @@ OBJ_DATA *create_money(int gold, int silver)
  
 	else
 	{
-		obj = create_object(get_obj_index(OBJ_VNUM_COINS), 0);
-		mlstr_printf(obj->short_descr, silver, gold);
+		obj = create_obj(get_obj_index(OBJ_VNUM_COINS), 0);
+		obj->short_descr = mlstr_printf(obj->pIndexData->short_descr, silver, gold);
 		obj->value[0]		= silver;
 		obj->value[1]		= gold;
 		obj->cost		= 100 * gold + silver;

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.61 1998-08-10 10:37:54 fjoe Exp $
+ * $Id: fight.c,v 1.62 1998-08-14 03:36:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1911,13 +1911,11 @@ void make_corpse(CHAR_DATA *ch)
 	OBJ_DATA *corpse;
 	OBJ_DATA *obj;
 	OBJ_DATA *obj_next;
-	char *name;
 	int i;
 
 	if (IS_NPC(ch)) {
 		/* XXX */
-		name		= mlstr_mval(ch->short_descr);
-		corpse		= create_object(get_obj_index(OBJ_VNUM_CORPSE_NPC), 0);
+		corpse		= create_named_obj(get_obj_index(OBJ_VNUM_CORPSE_NPC), ch->level, mlstr_mval(ch->short_descr));
 		corpse->timer	= number_range(3, 6);
 		if (ch->gold > 0 || ch->silver > 0)
 		  {
@@ -1940,8 +1938,7 @@ void make_corpse(CHAR_DATA *ch)
 		else
 		  i = 1;
 
-		name		= ch->name;
-		corpse		= create_object(get_obj_index(OBJ_VNUM_CORPSE_PC), 0);
+		corpse		= create_named_obj(get_obj_index(OBJ_VNUM_CORPSE_PC), ch->level, ch->name);
 		corpse->timer	= number_range(25, 40);
 		REMOVE_BIT(ch->act,PLR_CANLOOT);
 		corpse->from = str_dup(ch->name);
@@ -1956,13 +1953,7 @@ void make_corpse(CHAR_DATA *ch)
 		corpse->cost = 0;
 	}
 
-	corpse->level = ch->level;
-
-	mlstr_printf(corpse->short_descr, name);
-	mlstr_printf(corpse->description, name);
-
-	for (obj = ch->carrying; obj != NULL; obj = obj_next)
-	{
+	for (obj = ch->carrying; obj != NULL; obj = obj_next) {
 		obj_next = obj->next_content;
 		obj_from_char(obj);
 		if (obj->item_type == ITEM_POTION)
@@ -2074,12 +2065,9 @@ void death_cry_org(CHAR_DATA *ch, int part)
 		/* XXX */
 		name		= IS_NPC(ch) ? mlstr_mval(ch->short_descr) :
 						ch->name;
-		obj		= create_object(get_obj_index(vnum), 0);
+		obj		= create_named_obj(get_obj_index(vnum), 0,
+					name);
 		obj->timer	= number_range(4, 7);
-
-		mlstr_printf(obj->short_descr, name);
-		mlstr_printf(obj->description, name);
-
 		obj->from = str_dup(name);
 
 		if (obj->item_type == ITEM_FOOD) {

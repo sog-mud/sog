@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.52 1998-08-10 10:37:54 fjoe Exp $
+ * $Id: db.c,v 1.53 1998-08-14 03:36:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -374,15 +374,12 @@ int gsn_thumbling;
 MOB_INDEX_DATA *	mob_index_hash		[MAX_KEY_HASH];
 OBJ_INDEX_DATA *	obj_index_hash		[MAX_KEY_HASH];
 ROOM_INDEX_DATA *	room_index_hash		[MAX_KEY_HASH];
-char *			string_hash		[MAX_KEY_HASH];
 
 AREA_DATA *		area_first;
 AREA_DATA *		area_last;
 AREA_DATA *		current_area;
 int			line_number;
 
-char *			string_space;
-char *			top_string;
 char			str_empty	[1];
 
 int			top_affect;
@@ -402,22 +399,6 @@ int			top_mprog_index;	/* OLC */
 int 			mobile_count = 0;
 int			newmobs = 0;
 int			newobjs = 0;
-
-
-/*
- * Memory management. 
- * Increase MAX_STRING if you have too.	
- * Tune the others only if you understand what you're doing.
- */
-#define			MAX_STRING	3500000
-#define			MAX_PERM_BLOCK	150000
-#define			MAX_MEM_LIST	11
-
-void *			rgFreeList	[MAX_MEM_LIST];
-const int		rgSizeList	[MAX_MEM_LIST]	=
-{
-	16, 32, 64, 128, 256, 1024, 2048, 4096, 8192, 16384, 32768-64
-};
 
 int	nAllocString;
 int	sAllocString;
@@ -467,6 +448,9 @@ void	reset_area	(AREA_DATA * pArea);
 int xgetc(FILE *fp);
 void xungetc(int c, FILE *fp);
 
+#define CREATE_NOCOUNT	(A)
+#define CREATE_NAMED	(B)
+
 /*
  * Big mama top level function.
  */
@@ -476,14 +460,10 @@ void boot_db(void)
 	int sn;
 	FILE *fpList;
 
-	/*
-	 * Init some data space stuff.
-	 */
-	if ((string_space = calloc(1, MAX_STRING)) == NULL) {
-		log_printf("boot_db: can't alloc %d string space.", MAX_STRING);
-		exit(1);
-	}
-	top_string	= string_space;
+#ifdef __FreeBSD__
+	extern char* malloc_options;
+	malloc_options = "X";
+#endif
 	fBootDb		= TRUE;
 
 	/*
@@ -655,7 +635,7 @@ void load_area(FILE *fp)
 	pArea->nplayer		= 0;
 	pArea->empty		= FALSE;
 	pArea->count		= 0;
-	pArea->resetmsg		= mlstr_new();
+	pArea->resetmsg		= NULL;
 	pArea->area_flag	= 0;
 
 	if (area_first == NULL)
@@ -698,7 +678,8 @@ void load_area(FILE *fp)
 
 #define MLSKEY(string, field)				\
 		if (!str_cmp(word, string)) {		\
-			mlstr_fread(fp, field);		\
+			mlstr_free(field);		\
+			field = mlstr_fread(fp);	\
 			fMatch = TRUE;			\
 			break;				\
 		}
@@ -735,7 +716,7 @@ void load_areadata(FILE *fp)
 	pArea->low_range	= 0;
 	pArea->high_range	= 0;          
 	pArea->area_flag	= 0;
-	pArea->resetmsg		= mlstr_new();
+	pArea->resetmsg		= NULL;
 /*  pArea->recall       = ROOM_VNUM_TEMPLE;        ROM OLC */
  
 	for (; ;) {
@@ -855,7 +836,7 @@ void load_helps(FILE *fp, char *fname)
 		pHelp		= new_help();
 		pHelp->level	= level;
 		pHelp->keyword	= keyword;
-		mlstr_fread(fp, pHelp->text);
+		pHelp->text	= mlstr_fread(fp);
 
 		if (!str_cmp(pHelp->keyword, "greeting"))
 			help_greeting = mlstr_mval(pHelp->text);
@@ -917,22 +898,22 @@ void load_old_mob(FILE *fp)
 		}
 		fBootDb = TRUE;
 
-		pMobIndex		  = alloc_perm(sizeof(*pMobIndex));
-		pMobIndex->short_descr	  = mlstr_new();
-		pMobIndex->long_descr	  = mlstr_new();
-		pMobIndex->description	  = mlstr_new();
+		pMobIndex		= alloc_perm(sizeof(*pMobIndex));
+		pMobIndex->short_descr	= NULL;
+		pMobIndex->long_descr	= NULL;
+		pMobIndex->description	= NULL;
 
-		pMobIndex->vnum		  = vnum;
-		pMobIndex->area		  = area_last;
-		pMobIndex->new_format	  = FALSE;
-		pMobIndex->player_name	  = fread_string(fp);
-		mlstr_fread(fp, pMobIndex->short_descr);
-		mlstr_fread(fp, pMobIndex->long_descr);
-		mlstr_fread(fp, pMobIndex->description);
+		pMobIndex->vnum		= vnum;
+		pMobIndex->area		= area_last;
+		pMobIndex->new_format	= FALSE;
+		pMobIndex->name	= fread_string(fp);
+		pMobIndex->short_descr	= mlstr_fread(fp);
+		pMobIndex->long_descr	= mlstr_fread(fp);
+		pMobIndex->description	= mlstr_fread(fp);
 
-		pMobIndex->act		  = fread_flags(fp) | ACT_NPC;
-		pMobIndex->affected_by	  = fread_flags(fp);
-		pMobIndex->practicer	  = 0;
+		pMobIndex->act		= fread_flags(fp) | ACT_NPC;
+		pMobIndex->affected_by	= fread_flags(fp);
+		pMobIndex->practicer	= 0;
 
 		/* chronos corrected detection of ROM */
 		if (IS_AFFECTED(pMobIndex,C))	/* detect evil */
@@ -987,7 +968,7 @@ void load_old_mob(FILE *fp)
 		pMobIndex->sex			= fread_number(fp);
 
 		/* compute the race BS */
-		one_argument(pMobIndex->player_name,name);
+		one_argument(pMobIndex->name,name);
  
 		if (name[0] == '\0' || (race =  race_lookup(name)) == 0) {
 			/* fill in with blanks */
@@ -1068,16 +1049,16 @@ void load_old_obj(FILE *fp)
 		fBootDb = TRUE;
 
 		pObjIndex		= alloc_perm(sizeof(*pObjIndex));
-		pObjIndex->short_descr	= mlstr_new();
-		pObjIndex->description	= mlstr_new();
+		pObjIndex->short_descr	= NULL;
+		pObjIndex->description	= NULL;
 		pObjIndex->vnum		= vnum;
 		pObjIndex->area         = area_last;	/* OLC */
 		pObjIndex->new_format	= FALSE;
 		pObjIndex->reset_num	= 0;
 
 		pObjIndex->name		= fread_string(fp);
-		mlstr_fread(fp, pObjIndex->short_descr);
-		mlstr_fread(fp, pObjIndex->description);
+		pObjIndex->short_descr	= mlstr_fread(fp);
+		pObjIndex->description	= mlstr_fread(fp);
 		/* Action description */  fread_string(fp);
 		pObjIndex->material	= str_dup("copper");
 
@@ -1353,8 +1334,8 @@ void load_rooms(FILE *fp)
 		fBootDb = TRUE;
 
 		pRoomIndex		= alloc_perm(sizeof(*pRoomIndex));
-		pRoomIndex->name	= mlstr_new();
-		pRoomIndex->description	= mlstr_new();
+		pRoomIndex->name	= NULL;
+		pRoomIndex->description	= NULL;
 
 		pRoomIndex->owner	= str_dup("");
 		pRoomIndex->people	= NULL;
@@ -1363,8 +1344,8 @@ void load_rooms(FILE *fp)
 		pRoomIndex->history     = NULL;
 		pRoomIndex->area	= area_last;
 		pRoomIndex->vnum	= vnum;
-		mlstr_fread(fp, pRoomIndex->name);
-		mlstr_fread(fp, pRoomIndex->description);
+		pRoomIndex->name	= mlstr_fread(fp);
+		pRoomIndex->description	= mlstr_fread(fp);
 		/* Area number */	  fread_number(fp);
 		pRoomIndex->room_flags	= fread_flags(fp);
  
@@ -1404,9 +1385,7 @@ void load_rooms(FILE *fp)
 				}
 	
 				pexit			= alloc_perm(sizeof(*pexit));
-				pexit->description	= mlstr_new();
-
-				mlstr_fread(fp, pexit->description);
+				pexit->description	= mlstr_fread(fp);
 				pexit->keyword		= fread_string(fp);
 				pexit->exit_info	= 0;
 				pexit->rs_flags		= 0;	/* OLC */
@@ -1883,7 +1862,7 @@ void reset_area(AREA_DATA *pArea)
 		    if (count >= pReset->arg4)
 			break;
 
-		    mob = create_mobile(pMobIndex);
+		    mob = create_mob(pMobIndex);
 
 		    /*
 		     * Check for pet shop.
@@ -1966,7 +1945,7 @@ void reset_area(AREA_DATA *pArea)
 		        break;
 		      }
 
-		    obj       = create_object(pObjIndex, UMIN(number_fuzzy(level),
+		    obj       = create_obj(pObjIndex, UMIN(number_fuzzy(level),
 							       LEVEL_HERO - 1));
 		    obj->cost = 0;
 		    obj_to_room(obj, pRoomIndex);
@@ -2014,7 +1993,7 @@ void reset_area(AREA_DATA *pArea)
 
 		    while (count < pReset->arg4)
 		    {
-		        obj = create_object(pObjIndex, number_fuzzy(obj_to->level));
+		        obj = create_obj(pObjIndex, number_fuzzy(obj_to->level));
 		    	obj_to_obj(obj, obj_to);
 			count++;
 			if (pObjIndex->count >= limit)
@@ -2077,7 +2056,7 @@ void reset_area(AREA_DATA *pArea)
 			case ITEM_TREASURE:	olevel = number_range(10, 20); break;
 			}
 
-			obj = create_object(pObjIndex, olevel);
+			obj = create_obj(pObjIndex, olevel);
 			SET_BIT(obj->extra_flags, ITEM_INVENTORY);
 		    }
 
@@ -2085,7 +2064,7 @@ void reset_area(AREA_DATA *pArea)
 		    {
 		        if ((pObjIndex->limit == -1)  ||
 		          (pObjIndex->count < pObjIndex->limit))
-		          obj=create_object(pObjIndex,UMIN(number_fuzzy(level),
+		          obj=create_obj(pObjIndex,UMIN(number_fuzzy(level),
 		                                           LEVEL_HERO - 1));
 		        else break;
 
@@ -2244,7 +2223,7 @@ void reset_room( ROOM_INDEX_DATA *pRoom )
 	    if (count >= pReset->arg4)
 		break;
 
-            pMob = create_mobile( pMobIndex );
+            pMob = create_mob( pMobIndex );
 
 		pMob->zone = pRoom->area;
             char_to_room( pMob, pRoom );
@@ -2318,7 +2297,7 @@ void reset_room( ROOM_INDEX_DATA *pRoom )
 		        break;
 		      }
 
-            pObj = create_object( pObjIndex,              /* UMIN - ROM OLC */
+            pObj = create_obj( pObjIndex,              /* UMIN - ROM OLC */
 				  UMIN(number_fuzzy( level ), LEVEL_HERO -1) );
             pObj->cost = 0;
             obj_to_room( pObj, pRoom );
@@ -2355,7 +2334,7 @@ void reset_room( ROOM_INDEX_DATA *pRoom )
             if ( pRoom->area->nplayer > 0
               || ( LastObj = get_obj_type( pObjToIndex ) ) == NULL
               || ( LastObj->in_room == NULL && !last)
-              || ( pObjIndex->count >= limit /* && number_range(0,4) != 0 */ )
+              || ( pObjIndex->count >= limit && number_range(0,4) != 0) 
               || ( count = count_obj_list( pObjIndex, LastObj->contains ) ) > pReset->arg4  )
 	    {
 		last = FALSE;
@@ -2373,7 +2352,7 @@ void reset_room( ROOM_INDEX_DATA *pRoom )
 
 	    while (count < pReset->arg4)
 	    {
-            pObj = create_object( pObjIndex, number_fuzzy( LastObj->level ) );
+            pObj = create_obj( pObjIndex, number_fuzzy( LastObj->level ) );
             obj_to_obj( pObj, LastObj );
 		count++;
 		if (pObjIndex->count >= limit)
@@ -2448,7 +2427,7 @@ void reset_room( ROOM_INDEX_DATA *pRoom )
                   break;
                 }
 
-                pObj = create_object( pObjIndex, olevel );
+                pObj = create_obj( pObjIndex, olevel );
 		SET_BIT( pObj->extra_flags, ITEM_INVENTORY );  /* ROM OLC */
 
 #if 0 /* envy version */
@@ -2470,7 +2449,7 @@ void reset_room( ROOM_INDEX_DATA *pRoom )
 
 		if ( pObjIndex->count < limit || number_range(0,4) == 0 )
 		{
-		    pObj = create_object( pObjIndex, 
+		    pObj = create_obj( pObjIndex, 
 			   UMIN( number_fuzzy( level ), LEVEL_HERO - 1 ) );
 		    /* error message if it is too high */
 		    if (pObj->level > LastMob->level + 3
@@ -2491,7 +2470,7 @@ void reset_room( ROOM_INDEX_DATA *pRoom )
 #if 0 /* envy else version */
             else
             {
-                pObj = create_object( pObjIndex, number_fuzzy( level ) );
+                pObj = create_obj( pObjIndex, number_fuzzy( level ) );
             }
 #endif /* envy else version */
 
@@ -2499,7 +2478,7 @@ void reset_room( ROOM_INDEX_DATA *pRoom )
 		else {
 		        if ((pObjIndex->limit == -1)  ||
 		          (pObjIndex->count < pObjIndex->limit))
-		          pObj=create_object(pObjIndex,UMIN(number_fuzzy(level),
+		          pObj=create_obj(pObjIndex,UMIN(number_fuzzy(level),
 		                                           LEVEL_HERO - 1));
 		        else break;
 
@@ -2582,7 +2561,7 @@ void reset_area(AREA_DATA *pArea)
 /*
  * Create an instance of a mobile.
  */
-CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
+CHAR_DATA *create_mob_org(MOB_INDEX_DATA *pMobIndex, int flags)
 {
 	CHAR_DATA *mob;
 	int i;
@@ -2598,15 +2577,17 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 
 	mob = new_char();
 
-	mob->pIndexData	= pMobIndex;
+	mob->pIndexData		= pMobIndex;
 
-	mob->name	= str_dup(pMobIndex->player_name);    /* OLC */
-	mlstr_cpy(mob->short_descr, pMobIndex->short_descr);    /* OLC */
-	mlstr_cpy(mob->long_descr, pMobIndex->long_descr);     /* OLC */
-	mlstr_cpy(mob->description, pMobIndex->description);    /* OLC */
-	mob->id		= get_mob_id();
-	mob->spec_fun	= pMobIndex->spec_fun;
-	mob->class	= CLASS_CLERIC;
+	mob->name		= str_dup(pMobIndex->name);
+	if (!IS_SET(flags, CREATE_NAMED)) {
+		mob->short_descr	= mlstr_dup(pMobIndex->short_descr);
+		mob->long_descr		= mlstr_dup(pMobIndex->long_descr);
+		mob->description	= mlstr_dup(pMobIndex->description);
+	}
+	mob->id			= get_mob_id();
+	mob->spec_fun		= pMobIndex->spec_fun;
+	mob->class		= CLASS_CLERIC;
 
 	if (pMobIndex->wealth) {
 		long wealth;
@@ -2851,9 +2832,24 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 	return mob;
 }
 
+CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
+{
+	return create_mob_org(pMobIndex, 0);
+}
+
+CHAR_DATA *create_named_mob(MOB_INDEX_DATA *pMobIndex, const char *name)
+{
+	CHAR_DATA *res;
+
+	res = create_mob_org(pMobIndex, CREATE_NAMED);
+	res->short_descr	= mlstr_printf(pMobIndex->short_descr, name);
+	res->long_descr		= mlstr_printf(pMobIndex->long_descr, name);
+	res->description	= mlstr_printf(pMobIndex->description, name);
+	return res;
+}
 
 /* duplicate a mobile exactly -- except inventory */
-void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
+void clone_mob(CHAR_DATA *parent, CHAR_DATA *clone)
 {
 	int i;
 	AFFECT_DATA *paf;
@@ -2862,27 +2858,27 @@ void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
 		return;
 	
 	/* start fixing values */ 
-	clone->name 	= str_dup(parent->name);
-	clone->version	= parent->version;
-	mlstr_cpy(clone->short_descr, parent->short_descr);
-	mlstr_cpy(clone->long_descr, parent->long_descr);
-	mlstr_cpy(clone->description, parent->description);
-	clone->group	= parent->group;
+	clone->name 		= str_dup(parent->name);
+	clone->version		= parent->version;
+	clone->short_descr	= mlstr_dup(parent->short_descr);
+	clone->long_descr	= mlstr_dup(parent->long_descr);
+	clone->description	= mlstr_dup(parent->description);
+	clone->group		= parent->group;
 	clone->sex		= parent->sex;
-	clone->class	= parent->class;
+	clone->class		= parent->class;
 	clone->race		= parent->race;
-	clone->level	= parent->level;
-	clone->trust	= 0;
-	clone->timer	= parent->timer;
+	clone->level		= parent->level;
+	clone->trust		= 0;
+	clone->timer		= parent->timer;
 	clone->wait		= parent->wait;
 	clone->hit		= parent->hit;
-	clone->max_hit	= parent->max_hit;
+	clone->max_hit		= parent->max_hit;
 	clone->mana		= parent->mana;
-	clone->max_mana	= parent->max_mana;
+	clone->max_mana		= parent->max_mana;
 	clone->move		= parent->move;
-	clone->max_move	= parent->max_move;
+	clone->max_move		= parent->max_move;
 	clone->gold		= parent->gold;
-	clone->silver	= parent->silver;
+	clone->silver		= parent->silver;
 	clone->exp		= parent->exp;
 	clone->act		= parent->act;
 	clone->comm		= parent->comm;
@@ -2892,26 +2888,26 @@ void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
 	clone->invis_level	= parent->invis_level;
 	clone->affected_by	= parent->affected_by;
 	clone->detection	= parent->detection;
-	clone->position	= parent->position;
-	clone->practice	= parent->practice;
-	clone->train	= parent->train;
+	clone->position		= parent->position;
+	clone->practice		= parent->practice;
+	clone->train		= parent->train;
 	clone->saving_throw	= parent->saving_throw;
 	clone->alignment	= parent->alignment;
-	clone->hitroll	= parent->hitroll;
-	clone->damroll	= parent->damroll;
-	clone->wimpy	= parent->wimpy;
+	clone->hitroll		= parent->hitroll;
+	clone->damroll		= parent->damroll;
+	clone->wimpy		= parent->wimpy;
 	clone->form		= parent->form;
-	clone->parts	= parent->parts;
+	clone->parts		= parent->parts;
 	clone->size		= parent->size;
-	clone->material	= str_dup(parent->material);
+	clone->material		= str_dup(parent->material);
 	clone->extracted	= parent->extracted;
 	clone->off_flags	= parent->off_flags;
-	clone->dam_type	= parent->dam_type;
+	clone->dam_type		= parent->dam_type;
 	clone->start_pos	= parent->start_pos;
 	clone->default_pos	= parent->default_pos;
-	clone->spec_fun	= parent->spec_fun;
-	clone->status	= parent->status;
-	clone->hunting	= NULL;
+	clone->spec_fun		= parent->spec_fun;
+	clone->status		= parent->status;
+	clone->hunting		= NULL;
 
 	for (i = 0; i < 4; i++)
 		clone->armor[i]	= parent->armor[i];
@@ -2931,29 +2927,10 @@ void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
 
 }
 
-
-
-/* 
- * Create an object with modifying the count 
- */
-OBJ_DATA *create_object(OBJ_INDEX_DATA *pObjIndex, int level)
-{
-	return create_object_org(pObjIndex,level,TRUE);
-}
-
-/*
- * for player load/quit
- * Create an object and do not modify the count 
- */
-OBJ_DATA *create_object_nocount(OBJ_INDEX_DATA *pObjIndex, int level)
-{
-	return create_object_org(pObjIndex,level,FALSE);
-}
-
 /*
  * Create an instance of an object.
  */
-OBJ_DATA *create_object_org(OBJ_INDEX_DATA *pObjIndex, int level, bool Count)
+OBJ_DATA *create_obj_org(OBJ_INDEX_DATA *pObjIndex, int level, int flags)
 {
 	AFFECT_DATA *paf;
 	OBJ_DATA *obj;
@@ -2988,22 +2965,23 @@ OBJ_DATA *create_object_org(OBJ_INDEX_DATA *pObjIndex, int level, bool Count)
 		obj->level		= UMAX(0,level);
 	obj->wear_loc	= -1;
 
-
-	obj->name	= str_dup(pObjIndex->name);		/* OLC */
-	mlstr_cpy(obj->short_descr, pObjIndex->short_descr);	/* OLC */
-	mlstr_cpy(obj->description, pObjIndex->description);	/* OLC */
-	obj->material	= str_dup(pObjIndex->material);
-	obj->item_type	= pObjIndex->item_type;
-	obj->extra_flags= pObjIndex->extra_flags;
-	obj->wear_flags	= pObjIndex->wear_flags;
-	obj->value[0]	= pObjIndex->value[0];
-	obj->value[1]	= pObjIndex->value[1];
-	obj->value[2]	= pObjIndex->value[2];
-	obj->value[3]	= pObjIndex->value[3];
-	obj->value[4]	= pObjIndex->value[4];
-	obj->weight	= pObjIndex->weight;
-	obj->from       = str_dup(""); /* used with body parts */
-	obj->condition	= pObjIndex->condition;
+	if (!IS_SET(flags, CREATE_NAMED)) {
+		obj->name		= str_dup(pObjIndex->name);
+		obj->short_descr	= mlstr_dup(pObjIndex->short_descr);
+		obj->description	= mlstr_dup(pObjIndex->description);
+	}
+	obj->material		= str_dup(pObjIndex->material);
+	obj->item_type		= pObjIndex->item_type;
+	obj->extra_flags	= pObjIndex->extra_flags;
+	obj->wear_flags		= pObjIndex->wear_flags;
+	obj->value[0]		= pObjIndex->value[0];
+	obj->value[1]		= pObjIndex->value[1];
+	obj->value[2]		= pObjIndex->value[2];
+	obj->value[3]		= pObjIndex->value[3];
+	obj->value[4]		= pObjIndex->value[4];
+	obj->weight		= pObjIndex->weight;
+	obj->from      		= str_dup(""); /* used with body parts */
+	obj->condition		= pObjIndex->condition;
 
 	if (level == -1 || pObjIndex->new_format)
 		obj->cost = pObjIndex->cost;
@@ -3103,42 +3081,71 @@ OBJ_DATA *create_object_org(OBJ_INDEX_DATA *pObjIndex, int level, bool Count)
 	
 	for (paf = pObjIndex->affected; paf != NULL; paf = paf->next) 
 		if (paf->location == APPLY_SPELL_AFFECT)
-		    affect_to_obj(obj,paf);
+			affect_to_obj(obj,paf);
 	
-	obj->next		= object_list;
-	object_list		= obj;
-	if (Count)
-	  pObjIndex->count++;
+	obj->next	= object_list;
+	object_list	= obj;
+	if (!IS_SET(flags, CREATE_NOCOUNT))
+		pObjIndex->count++;
 	return obj;
 }
 
+/* 
+ * Create an object with modifying the count 
+ */
+OBJ_DATA *create_obj(OBJ_INDEX_DATA *pObjIndex, int level)
+{
+	return create_obj_org(pObjIndex, level, 0);
+}
+
+OBJ_DATA *create_named_obj(OBJ_INDEX_DATA *pObjIndex, int level,
+			   const char *name)
+{
+	OBJ_DATA *res;
+
+	res = create_obj_org(pObjIndex, level, CREATE_NAMED);
+	res->name		= str_printf(pObjIndex->name, name);
+	res->short_descr	= mlstr_printf(pObjIndex->short_descr, name);
+	res->description	= mlstr_printf(pObjIndex->description, name);
+	return res;
+}
+
+/*
+ * for player load/quit
+ * Create an object and do not modify the count 
+ */
+OBJ_DATA *create_obj_nocount(OBJ_INDEX_DATA *pObjIndex, int level)
+{
+	return create_obj_org(pObjIndex, level, CREATE_NOCOUNT);
+}
+
 /* duplicate an object exactly -- except contents */
-void clone_object(OBJ_DATA *parent, OBJ_DATA *clone)
+void clone_obj(OBJ_DATA *parent, OBJ_DATA *clone)
 {
 	int i;
 	AFFECT_DATA *paf;
-	ED_DATA *ed,*ed_new;
+	ED_DATA *ed,*ed2;
 
 	if (parent == NULL || clone == NULL)
 		return;
 
 	/* start fixing the object */
-	clone->name 	= str_dup(parent->name);
-	mlstr_cpy(clone->short_descr, parent->short_descr);
-	mlstr_cpy(clone->description, parent->description);
+	clone->name 		= str_dup(parent->name);
+	clone->short_descr	= mlstr_dup(parent->short_descr);
+	clone->description	= mlstr_dup(parent->description);
 	clone->item_type	= parent->item_type;
 	clone->extra_flags	= parent->extra_flags;
 	clone->wear_flags	= parent->wear_flags;
-	clone->weight	= parent->weight;
+	clone->weight		= parent->weight;
 	clone->cost		= parent->cost;
-	clone->level	= parent->level;
+	clone->level		= parent->level;
 	clone->condition	= parent->condition;
-	clone->material	= str_dup(parent->material);
-	clone->timer	= parent->timer;
-	clone->from         = parent->from;
-	clone->extracted    = parent->extracted;
-	clone->pit          = parent->pit;
-	clone->altar        = parent->altar;
+	clone->material		= str_dup(parent->material);
+	clone->timer		= parent->timer;
+	clone->from		= parent->from;
+	clone->extracted	= parent->extracted;
+	clone->pit		= parent->pit;
+	clone->altar		= parent->altar;
 
 	for (i = 0;  i < 5; i ++)
 		clone->value[i]	= parent->value[i];
@@ -3151,13 +3158,14 @@ void clone_object(OBJ_DATA *parent, OBJ_DATA *clone)
 
 	/* extended desc */
 	for (ed = parent->ed; ed != NULL; ed = ed->next) {
-		ed_new                  = ed_dup(ed);
-		ed_new->next           	= clone->ed;
-		clone->ed  	= ed_new;
+		ed2			= ed_new();
+		ed2->keyword		= str_dup(ed->keyword);
+		ed2->description	= mlstr_dup(ed->description);
+		ed2->next		= clone->ed;
+		clone->ed		= ed2;
 	}
 
 }
-
 
 /*
  * Get an extra description from a list.
@@ -3401,27 +3409,16 @@ long flag_convert(char letter)
 }
 
 
-
-
 /*
  * Read and allocate space for a string from a file.
- * These strings are read-only and shared.
- * Strings are hashed:
- *   each string prepended with hash pointer to prev string,
- *   hash code is simply the string length.
- *   this function takes 40% to 50% of boot-up time.
  */
 char *fread_string(FILE *fp)
 {
+	char buf[MAX_STRING_LENGTH];
 	char *plast;
-	char c;
+	int c;
 
-	plast = top_string + sizeof(char *);
-	if (plast > &string_space[MAX_STRING - MAX_STRING_LENGTH])
-	{
-		bug("Fread_string: MAX_STRING %d exceeded.", MAX_STRING);
-		exit(1);
-	}
+	plast = buf;
 
 	/*
 	 * Skip blanks.
@@ -3434,182 +3431,45 @@ char *fread_string(FILE *fp)
 	while (isspace(c));
 
 	if ((*plast++ = c) == '~')
-		return &str_empty[0];
+		return str_empty;
 
-	for (;;)
-	{
+	for (;;) {
 		/*
 		 * Back off the char type lookup,
 		 *   it was too dirty for portability.
 		 *   -- Furey
 		 */
 
-		switch (*plast = xgetc(fp))
-		{
+		if (plast - buf >= sizeof(buf) - 1) {
+			bug("fread_string: line too long (truncated)", 0);
+			buf[sizeof(buf)-1] = '\0';
+			return strdup(buf);
+		}
+
+		switch (c = xgetc(fp)) {
 		default:
-		    plast++;
-		    break;
+			*plast++ = c;
+			break;
  
 		case EOF:
-		    bug("Fread_string: EOF", 0);
-		    return str_empty;
-		    break;
+			bug("Fread_string: EOF", 0);
+			return str_empty;
+			break;
  
 		case '\n':
-		    plast++;
-		    *plast++ = '\r';
-		    break;
+			*plast++ = '\n';
+			*plast++ = '\r';
+			break;
  
 		case '\r':
-		    break;
+			break;
  
 		case '~':
-		    plast++;
-		    {
-			union
-			{
-			    char *	pc;
-			    char	rgc[sizeof(char *)];
-			} u1;
-			int ic;
-			int iHash;
-			char *pHash;
-			char *pHashPrev;
-			char *pString;
-
-			plast[-1] = '\0';
-			iHash     = UMIN(MAX_KEY_HASH - 1, plast - 1 - top_string);
-			for (pHash = string_hash[iHash]; pHash; pHash = pHashPrev)
-			{
-			    for (ic = 0; ic < sizeof(char *); ic++)
-				u1.rgc[ic] = pHash[ic];
-			    pHashPrev = u1.pc;
-			    pHash    += sizeof(char *);
-
-			    if (top_string[sizeof(char *)] == pHash[0]
-			    &&   !strcmp(top_string+sizeof(char *)+1, pHash+1))
-				return pHash;
-			}
-
-			if (fBootDb)
-			{
-			    pString		= top_string;
-			    top_string		= plast;
-			    u1.pc		= string_hash[iHash];
-			    for (ic = 0; ic < sizeof(char *); ic++)
-				pString[ic] = u1.rgc[ic];
-			    string_hash[iHash]	= pString;
-
-			    nAllocString += 1;
-			    sAllocString += top_string - pString;
-			    return pString + sizeof(char *);
-			}
-			else
-			{
-			    return str_dup(top_string + sizeof(char *));
-			}
-		    }
+			*plast++ = '\0';
+			return strdup(buf);
 		}
 	}
 }
-
-char *fread_string_eol(FILE *fp)
-{
-	static bool char_special[256-EOF];
-	char *plast;
-	char c;
- 
-	if (char_special[EOF-EOF] != TRUE)
-	{
-		char_special[EOF -  EOF] = TRUE;
-		char_special['\n' - EOF] = TRUE;
-		char_special['\r' - EOF] = TRUE;
-	}
- 
-	plast = top_string + sizeof(char *);
-	if (plast > &string_space[MAX_STRING - MAX_STRING_LENGTH])
-	{
-		bug("Fread_string: MAX_STRING %d exceeded.", MAX_STRING);
-		exit(1);
-	}
- 
-	/*
-	 * Skip blanks.
-	 * Read first char.
-	 */
-	do
-	{
-		c = xgetc(fp);
-	}
-	while (isspace(c));
- 
-	if ((*plast++ = c) == '\n')
-		return &str_empty[0];
- 
-	for (;;)
-	{
-		if (!char_special[ (*plast++ = xgetc(fp)) - EOF ])
-		    continue;
- 
-		switch (plast[-1])
-		{
-		default:
-		    break;
- 
-		case EOF:
-		    bug("Fread_string_eol  EOF", 0);
-		    exit(1);
-		    break;
- 
-		case '\n':  case '\r':
-		    {
-		        union
-		        {
-		            char *      pc;
-		            char        rgc[sizeof(char *)];
-		        } u1;
-		        int ic;
-		        int iHash;
-		        char *pHash;
-		        char *pHashPrev;
-		        char *pString;
- 
-		        plast[-1] = '\0';
-		        iHash     = UMIN(MAX_KEY_HASH - 1, plast - 1 - top_string);
-		        for (pHash = string_hash[iHash]; pHash; pHash = pHashPrev)
-		        {
-		            for (ic = 0; ic < sizeof(char *); ic++)
-		                u1.rgc[ic] = pHash[ic];
-		            pHashPrev = u1.pc;
-		            pHash    += sizeof(char *);
- 
-		            if (top_string[sizeof(char *)] == pHash[0]
-		            &&   !strcmp(top_string+sizeof(char *)+1, pHash+1))
-		                return pHash;
-		        }
- 
-		        if (fBootDb)
-		        {
-		            pString             = top_string;
-		            top_string          = plast;
-		            u1.pc               = string_hash[iHash];
-		            for (ic = 0; ic < sizeof(char *); ic++)
-		                pString[ic] = u1.rgc[ic];
-		            string_hash[iHash]  = pString;
- 
-		            nAllocString += 1;
-		            sAllocString += top_string - pString;
-		            return pString + sizeof(char *);
-		        }
-		        else
-		        {
-		            return str_dup(top_string + sizeof(char *));
-		        }
-		    }
-		}
-	}
-}
-
 
 
 /*
@@ -3630,7 +3490,6 @@ void fread_to_eol(FILE *fp)
 	xungetc(c, fp);
 	return;
 }
-
 
 
 /*
@@ -3671,164 +3530,37 @@ char *fread_word(FILE *fp)
 	return NULL;
 }
 
-#ifdef OLD_MEM
-/*
- * Allocate some ordinary memory,
- *   with the expectation of freeing it someday.
- */
-void *alloc_mem(int sMem)
-{
-	void *pMem;
-	int *magic;
-	int iList;
-
-	sMem += sizeof(*magic);
-
-	for (iList = 0; iList < MAX_MEM_LIST; iList++)
-	{
-		if (sMem <= rgSizeList[iList])
-		    break;
-	}
-
-	if (iList == MAX_MEM_LIST)
-	{
-		bug("Alloc_mem: size %d too large.", sMem);
-		exit(1);
-	}
-
-	if (rgFreeList[iList] == NULL)
-	{
-		pMem              = alloc_perm(rgSizeList[iList]);
-	}
-	else
-	{
-		pMem              = rgFreeList[iList];
-		rgFreeList[iList] = * ((void **) rgFreeList[iList]);
-	}
-
-	magic = (int *) pMem;
-	*magic = MAGIC_NUM;
-	pMem += sizeof(*magic);
-
-	return pMem;
-}
-
-
-
-/*
- * Free some memory.
- * Recycle it back onto the free list for blocks of that size.
- */
-void free_mem(void *pMem, int sMem)
-{
-	int iList;
-	int *magic;
-
-	pMem -= sizeof(*magic);
-	magic = (int *) pMem;
-
-	if (*magic != MAGIC_NUM)
-	{
-		bug("Attempt to recyle invalid memory of size %d.",sMem);
-		bug((char*) pMem + sizeof(*magic),0);
-		return;
-	}
-
-	*magic = 0;
-	sMem += sizeof(*magic);
-
-	for (iList = 0; iList < MAX_MEM_LIST; iList++)
-	{
-		if (sMem <= rgSizeList[iList])
-		    break;
-	}
-
-	if (iList == MAX_MEM_LIST)
-	{
-		bug("Free_mem: size %d too large.", sMem);
-		exit(1);
-	}
-
-	* ((void **) pMem) = rgFreeList[iList];
-	rgFreeList[iList]  = pMem;
-
-	return;
-}
-
-
-/*
- * Allocate some permanent memory.
- * Permanent memory is never freed,
- *   pointers into it may be copied safely.
- */
-void *alloc_perm(int sMem)
-{
-	static char *pMemPerm;
-	static int iMemPerm;
-	void *pMem;
-
-	while (sMem % sizeof(long) != 0)
-		sMem++;
-	if (sMem > MAX_PERM_BLOCK)
-	{
-		bug("Alloc_perm: %d too large.", sMem);
-		exit(1);
-	}
-
-	if (pMemPerm == NULL || iMemPerm + sMem > MAX_PERM_BLOCK)
-	{
-		iMemPerm = 0;
-		if ((pMemPerm = calloc(1, MAX_PERM_BLOCK)) == NULL)
-		{
-		    perror("Alloc_perm");
-		    exit(1);
-		}
-	}
-
-	pMem        = pMemPerm + iMemPerm;
-	iMemPerm   += sMem;
-	nAllocPerm += 1;
-	sAllocPerm += sMem;
-	return pMem;
-}
-#else
 
 void *alloc_mem(int sMem)
 {
 	return calloc(1, sMem);
 }
+
 
 void free_mem(void *p, int sMem)
 {
 	free(p);
 }
 
+
 void *alloc_perm(int sMem)
 {
 	return calloc(1, sMem);
 }
-#endif
+
 
 /*
  * Duplicate a string into dynamic memory.
- * Fread_strings are read-only and shared.
  */
 char *str_dup(const char *str)
 {
-	char *str_new;
-
 	if (str == NULL)
 		return NULL;
 
 	if (str[0] == '\0')
-		return &str_empty[0];
+		return str_empty;
 
-	if (str >= string_space && str < top_string)
-		return (char *) str;
-
-	str_new = alloc_mem(strlen(str) + 1);
-	strcpy(str_new, str);
-	return str_new;
+	return strdup(str);
 }
 
 
@@ -3857,20 +3589,16 @@ char *str_add(const char *str,...)
 	return str_new;
 }
 
+
 /*
  * Free a string.
  * Null is legal here to simplify callers.
- * Read-only shared strings are not touched.
  */
 void free_string(char *pstr)
 {
-	if (pstr == NULL
-	||  pstr == &str_empty[0]
-	||  (pstr >= string_space && pstr < top_string))
+	if (pstr == NULL || pstr == str_empty)
 		return;
-
-	free_mem(pstr, strlen(pstr) + 1);
-	return;
+	free(pstr);
 }
 
 
@@ -3878,20 +3606,19 @@ void free_string(char *pstr)
  * str_printf -- like sprintf, but prints into string.
  *		 the format is string itself
  */
-void str_printf(char** pstr,...)
+char *str_printf(const char* format,...)
 {
 	va_list ap;
 	char buf[MAX_STRING_LENGTH];
 
-	if (*pstr == NULL)
-		return;
+	if (format == NULL)
+		return NULL;
 
-	va_start(ap, pstr);
-	vsnprintf(buf, sizeof(buf), *pstr, ap);
+	va_start(ap, format);
+	vsnprintf(buf, sizeof(buf), format, ap);
 	va_end(ap);
 
-        free_string(*pstr);
-        *pstr = str_dup(buf);
+	return str_dup(buf);
 }
 
 void do_areas(CHAR_DATA *ch, const char *argument)
@@ -3956,8 +3683,6 @@ void do_memory(CHAR_DATA *ch, const char *argument)
 	char_printf(ch, "Resets  %5d\n\r", top_reset   );
 	char_printf(ch, "Rooms   %5d\n\r", top_room    );
 	char_printf(ch, "Shops   %5d\n\r", top_shop    );
-	char_printf(ch, "Strings %5d strings of %7d bytes (max %d).\n\r",
-		nAllocString, sAllocString, MAX_STRING);
 	char_printf(ch, "Perms   %5d blocks  of %7d bytes.\n\r",
 		nAllocPerm, sAllocPerm);
 	char_printf(ch, "Buffers %d blocks of %d bytes.\n\r",
@@ -4657,7 +4382,7 @@ void load_practicer(FILE *fp)
 
 void load_resetmsg(FILE *fp)
 {
-	mlstr_fread(fp, current_area->resetmsg);
+	current_area->resetmsg = mlstr_fread(fp);
 }
 
 void load_aflag(FILE *fp)

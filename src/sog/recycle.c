@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.15 1998-08-07 07:48:54 fjoe Exp $
+ * $Id: recycle.c,v 1.16 1998-08-14 03:36:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -158,48 +158,47 @@ void free_descriptor(DESCRIPTOR_DATA *d)
 }
 
 /* stuff for recycling extended descs */
-ED_DATA *ed_free;
+ED_DATA *ed_free_list;
 extern int top_ed;
 
 ED_DATA *ed_new(void)
 {
 	ED_DATA *ed;
 
-	if (ed_free == NULL) {
+	if (ed_free_list == NULL) {
 		ed = alloc_perm(sizeof(*ed));
-		ed->description = mlstr_new();
+		ed->description = NULL;
 		top_ed++;
 	}
 	else {
-		ed = ed_free;
-		ed_free = ed_free->next;
+		ed = ed_free_list;
+		ed_free_list = ed_free_list->next;
 	}
 
 	VALIDATE(ed);
 	return ed;
 }
 
-ED_DATA * ed_dup(const ED_DATA *ed)
+ED_DATA * ed_new2(const ED_DATA *ed, const char* name)
 {
-	ED_DATA *ed2 = ed_new();
-
-	ed2->keyword = str_dup(ed->keyword);
-	mlstr_cpy(ed2->description, ed->description);
-	VALIDATE(ed2);
+	ED_DATA *ed2		= ed_new();
+	ed2->keyword		= str_dup(ed->keyword);
+	ed2->description	= mlstr_printf(ed->description, name);
+	ed2->next		= NULL;
 	return ed2;
 }
 
-void free_ed(ED_DATA *ed)
+void ed_free(ED_DATA *ed)
 {
     if (!IS_VALID(ed))
 	return;
 
     free_string(ed->keyword);
-    mlstr_clear(ed->description);
+    mlstr_free(ed->description);
     INVALIDATE(ed);
     
-    ed->next = ed_free;
-    ed_free = ed;
+    ed->next = ed_free_list;
+    ed_free_list = ed;
 }
 
 
@@ -209,7 +208,7 @@ void ed_fread(FILE *fp, ED_DATA **edp)
 
 	ed		= ed_new();
 	ed->keyword	= fread_string(fp);
-	mlstr_fread(fp, ed->description);
+	ed->description	= mlstr_fread(fp);
 	SLIST_ADD(ED_DATA, *edp, ed);
 }
 
@@ -257,8 +256,8 @@ OBJ_DATA *new_obj(void)
 
 	if (obj_free == NULL) {
 		obj = alloc_perm(sizeof(*obj));
-		obj->short_descr = mlstr_new();
-		obj->description = mlstr_new();
+		obj->short_descr = NULL;
+		obj->description = NULL;
 	}
 	else {
 		obj = obj_free;
@@ -317,13 +316,13 @@ void free_obj(OBJ_DATA *obj)
 
     for (ed = obj->ed; ed != NULL; ed = ed_next ) {
 	ed_next = ed->next;
-	free_ed(ed);
+	ed_free(ed);
     }
     obj->ed = NULL;
    
 	free_string(obj->name);
-	mlstr_clear(obj->description);
-	mlstr_clear(obj->short_descr);
+	mlstr_free(obj->description);
+	mlstr_free(obj->short_descr);
 	free_string(obj->from);
 	free_string(obj->material);
 
@@ -344,9 +343,9 @@ CHAR_DATA *new_char (void)
 
 	if (char_free == NULL) {
 		ch = alloc_perm(sizeof(*ch));
-		ch->short_descr	= mlstr_new();
-		ch->long_descr	= mlstr_new();
-		ch->description	= mlstr_new();
+		ch->short_descr	= NULL;
+		ch->long_descr	= NULL;
+		ch->description	= NULL;
 	}
 	else {
 		ch = char_free;
@@ -487,9 +486,9 @@ void free_char (CHAR_DATA *ch)
     }
 
     free_string(ch->name);
-    mlstr_clear(ch->short_descr);
-    mlstr_clear(ch->long_descr);
-    mlstr_clear(ch->description);
+    mlstr_free(ch->short_descr);
+    mlstr_free(ch->long_descr);
+    mlstr_free(ch->description);
     free_string(ch->prompt);
     free_string(ch->prefix);
     free_string(ch->material);
@@ -661,7 +660,7 @@ HELP_DATA * new_help(void)
 	}
 	else {
 		help		= alloc_perm(sizeof(*help));
-		help->text	= mlstr_new();
+		help->text	= NULL;
 		top_help++;
 	}
  

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.51 1998-08-07 09:21:29 fjoe Exp $
+ * $Id: interp.c,v 1.52 1998-08-14 03:36:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -713,7 +713,7 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 	bool found;
 	found = FALSE;
 
-	for (cmd = 0; social_table[cmd].name[0] != '\0'; cmd++) {
+	for (cmd = 0; social_table[cmd].name != NULL; cmd++) {
 		if (command[0] == social_table[cmd].name[0]
 		&&  !str_prefix(command, social_table[cmd].name)) {
 			found = TRUE;
@@ -748,25 +748,17 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 		 * I just know this is the path to a 12" 'if' statement.  :(
 		 * But two players asked for it already!  -- Furey
 		 */
-		if (!str_cmp(social_table[cmd].name, "snore"))
-			break;
-		char_nputs(IN_YOUR_DREAMS, ch);
-		return TRUE;
-
+			if (!str_cmp(social_table[cmd].name, "snore"))
+				break;
+			char_nputs(IN_YOUR_DREAMS, ch);
+			return TRUE;
 	}
 
-	if (IS_AFFECTED(ch, AFF_HIDE)) {
-		REMOVE_BIT(ch->affected_by, AFF_HIDE);
+	if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE)) {
+		REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE);
 		char_nputs(YOU_STEP_OUT_SHADOWS, ch);
-		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
-			    N_STEPS_OUT_OF_SHADOWS);
-	}
-
-	if (IS_AFFECTED(ch, AFF_FADE)) {
-		REMOVE_BIT(ch->affected_by, AFF_FADE);
-		char_nputs(YOU_STEP_OUT_SHADOWS, ch);
-		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
-			    N_STEPS_OUT_OF_SHADOWS);
+		act_nputs(N_STEPS_OUT_OF_SHADOWS, ch, NULL, NULL, TO_ROOM,
+			  POS_RESTING); 
 	}
 
 	if (IS_AFFECTED(ch, AFF_IMP_INVIS) && !IS_NPC(ch)
@@ -774,15 +766,17 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 		affect_strip(ch, gsn_imp_invis);
 		REMOVE_BIT(ch->affected_by, AFF_IMP_INVIS);
 		char_nputs(YOU_FADE_INTO_EXIST, ch);
-		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
-			    N_FADES_INTO_EXIST);
+		act_nputs(N_FADES_INTO_EXIST, ch, NULL, NULL, TO_ROOM,
+			  POS_RESTING);
 	}
 
 	one_argument(argument, arg);
 	victim = NULL;
 	if (arg[0] == '\0') {
-		act(social_table[cmd].others_no_arg, ch, NULL, victim, TO_ROOM);
-		act(social_table[cmd].char_no_arg, ch, NULL, victim, TO_CHAR);
+		act(social_table[cmd].val[SOC_OTHERS_NO_ARG],
+			ch, NULL, victim, TO_ROOM | TO_BUF);
+		act(social_table[cmd].val[SOC_CHAR_NO_ARG],
+			ch, NULL, victim, TO_CHAR);
 		return TRUE;
 	}
 
@@ -793,8 +787,10 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 	}
 
 	if (victim == ch) {
-		act(social_table[cmd].others_auto, ch, NULL, victim, TO_ROOM);
-		act(social_table[cmd].char_auto, ch, NULL, victim, TO_CHAR);
+		act(social_table[cmd].val[SOC_OTHERS_AUTO],
+			ch, NULL, victim, TO_ROOM | TO_BUF);
+		act(social_table[cmd].val[SOC_CHAR_AUTO],
+			ch, NULL, victim, TO_CHAR);
 		return TRUE;
 	}
 
@@ -802,9 +798,12 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 	char_from_room(victim);
 	char_to_room(victim, ch->in_room);
 
-	act(social_table[cmd].others_found, ch, NULL, victim, TO_NOTVICT);
-	act(social_table[cmd].char_found, ch, NULL, victim, TO_CHAR);
-	act(social_table[cmd].vict_found, ch, NULL, victim, TO_VICT);
+	act(social_table[cmd].val[SOC_OTHERS_FOUND],
+		ch, NULL, victim, TO_NOTVICT | TO_BUF);
+	act(social_table[cmd].val[SOC_CHAR_FOUND],
+		ch, NULL, victim, TO_CHAR);
+	act(social_table[cmd].val[SOC_VICT_FOUND],
+		ch, NULL, victim, TO_VICT | TO_BUF);
 
 	char_from_room(victim);
 	char_to_room(victim, victim_room);
@@ -817,21 +816,21 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 
 			case 1: case 2: case 3: case 4:
 			case 5: case 6: case 7: case 8:
-				act(social_table[cmd].others_found,
-				    victim, NULL, ch, TO_NOTVICT);
-				act(social_table[cmd].char_found,
+				act(social_table[cmd].val[SOC_OTHERS_FOUND],
+				    victim, NULL, ch, TO_NOTVICT | TO_BUF);
+				act(social_table[cmd].val[SOC_CHAR_FOUND],
 					    victim, NULL, ch, TO_CHAR);
-				act(social_table[cmd].vict_found,
-					    victim, NULL, ch, TO_VICT);
+				act(social_table[cmd].val[SOC_VICT_FOUND],
+					    victim, NULL, ch, TO_VICT | TO_BUF);
 				break;
 
 			case 9: case 10: case 11: case 12:
 				act("$n slaps $N.", victim, NULL, ch, 
-					    TO_NOTVICT);
+					    TO_NOTVICT | TO_BUF);
 				act("You slap $N.", victim, NULL, ch, 
 					    TO_CHAR);
 				act("$n slaps you.", victim, NULL, ch, 
-					    TO_VICT);
+					    TO_VICT | TO_BUF);
 				break;
 		}
 	}

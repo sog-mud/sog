@@ -2,7 +2,7 @@
 #define _RECYCLE_H_
 
 /*
- * $Id: recycle.h,v 1.6 1998-07-25 15:02:40 fjoe Exp $
+ * $Id: recycle.h,v 1.7 1998-08-14 03:36:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -66,10 +66,10 @@ void	free_descriptor  (DESCRIPTOR_DATA *d);
 #undef DD
 
 /* extra descr recycling */
-ED_DATA	*ed_new  (void);
-ED_DATA	*ed_dup  (const ED_DATA *ed);
+ED_DATA	*ed_new(void);
+ED_DATA *ed_new2(const ED_DATA *ed, const char* name);
 void	ed_fread(FILE *fp, ED_DATA **edp);
-void	free_ed  (ED_DATA *ed);
+void	ed_free  (ED_DATA *ed);
 
 /* affect recycling */
 #define AD AFFECT_DATA

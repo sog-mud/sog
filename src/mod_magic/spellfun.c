@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.43 1998-08-05 06:43:52 fjoe Exp $
+ * $Id: spellfun.c,v 1.44 1998-08-14 03:36:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1668,7 +1668,7 @@ void spell_continual_light(int sn,int level,CHAR_DATA *ch,void *vo,int target)
 		return;
 	}
 
-	light = create_object(get_obj_index(OBJ_VNUM_LIGHT_BALL), 0);
+	light = create_obj(get_obj_index(OBJ_VNUM_LIGHT_BALL), 0);
 	obj_to_room(light, ch->in_room);
 	act("$n twiddles $s thumbs and $p appears.",   ch, light, NULL, TO_ROOM);
 	act("You twiddle your thumbs and $p appears.", ch, light, NULL, TO_CHAR);
@@ -1698,7 +1698,7 @@ void spell_create_food(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 {
 	OBJ_DATA *mushroom;
 
-	mushroom = create_object(get_obj_index(OBJ_VNUM_MUSHROOM), 0);
+	mushroom = create_obj(get_obj_index(OBJ_VNUM_MUSHROOM), 0);
 	mushroom->value[0] = level / 2;
 	mushroom->value[1] = level;
 	obj_to_room(mushroom, ch->in_room);
@@ -1714,12 +1714,9 @@ void spell_create_rose(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		char_puts("What rose do you want to create?\n\r", ch);
 		return;
 	}
-	rose = create_object(get_obj_index(OBJ_VNUM_ROSE), 0);
-	mlstr_printf(rose->short_descr, target_name);
-	mlstr_printf(rose->description, target_name);
-	rose->ed = ed_dup(rose->pIndexData->ed);
-	rose->ed->next = NULL;                         
-	mlstr_printf(rose->ed->description, target_name);
+	rose = create_named_obj(get_obj_index(OBJ_VNUM_ROSE), 0,
+				   target_name);
+	rose->ed = ed_new2(rose->pIndexData->ed, target_name);
                                                           
 	act("$n has created $p", ch, rose, NULL, TO_ROOM);
 	act("You create $p", ch, rose, NULL, TO_CHAR);
@@ -1730,7 +1727,7 @@ void spell_create_spring(int sn,int level,CHAR_DATA *ch,void *vo,int target)
 {
 	OBJ_DATA *spring;
 
-	spring = create_object(get_obj_index(OBJ_VNUM_SPRING), 0);
+	spring = create_obj(get_obj_index(OBJ_VNUM_SPRING), 0);
 	spring->timer = level;
 	obj_to_room(spring, ch->in_room);
 	act("$p flows from the ground.", ch, spring, NULL, TO_ROOM);
@@ -3116,7 +3113,7 @@ void spell_floating_disc(int sn, int level,CHAR_DATA *ch,void *vo,int target)
 		return;
 	}
 
-	disc = create_object(get_obj_index(OBJ_VNUM_DISC), 0);
+	disc = create_obj(get_obj_index(OBJ_VNUM_DISC), 0);
 	disc->value[0]	= ch->level * 10; /* 10 pounds per level capacity */
 	disc->value[3]	= ch->level * 5; /* 5 pounds per level max per item */
 	disc->timer		= ch->level * 2 - number_range(0,level / 2); 

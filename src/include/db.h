@@ -2,7 +2,7 @@
 #define _DB_H_
 
 /*
- * $Id: db.h,v 1.15 1998-07-14 07:47:43 fjoe Exp $
+ * $Id: db.h,v 1.16 1998-08-14 03:36:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -59,13 +59,14 @@ void	reset_area      (AREA_DATA * pArea);		/* OLC */
 void	reset_room	(ROOM_INDEX_DATA *pRoom);	/* OLC */
 
 void		boot_db		(void);
-CHAR_DATA *	create_mobile	(MOB_INDEX_DATA *pMobIndex);
-void		clone_mobile	(CHAR_DATA *parent, CHAR_DATA *clone);
-OBJ_DATA *	create_object	(OBJ_INDEX_DATA *pObjIndex, int level);
-OBJ_DATA *	create_object_nocount (OBJ_INDEX_DATA *pObjIndex, int level);
-OBJ_DATA *	create_object_org (OBJ_INDEX_DATA *pObjIndex,int level,
-				   bool Count);
-void	clone_object	(OBJ_DATA *parent, OBJ_DATA *clone); 
+CHAR_DATA *	create_mob	(MOB_INDEX_DATA *pMobIndex);
+CHAR_DATA *	create_named_mob(MOB_INDEX_DATA *pMobIndex, const char *name);
+void		clone_mob	(CHAR_DATA *parent, CHAR_DATA *clone);
+OBJ_DATA *	create_obj	(OBJ_INDEX_DATA *pObjIndex, int level);
+OBJ_DATA *	create_named_obj(OBJ_INDEX_DATA *pObjIndex, int level,
+				 const char *name);
+OBJ_DATA *	create_obj_nocount (OBJ_INDEX_DATA *pObjIndex, int level);
+void	clone_obj	(OBJ_DATA *parent, OBJ_DATA *clone); 
 void	clear_char	(CHAR_DATA *ch);
 ED_DATA * ed_lookup(const char *name, ED_DATA *ed);
 MOB_INDEX_DATA *	get_mob_index	(int vnum);
@@ -85,8 +86,8 @@ void *	alloc_perm	(int sMem);
 void	free_mem	(void *pMem, int sMem);
 char *	str_dup		(const char *str);
 char *	str_add		(const char *str,...);
-void	free_string	(char *pstr);
-void	str_printf	(char **pstr,...);
+void	free_string	(char *str);
+char *	str_printf	(const char *format,...);
 int	number_fuzzy	(int number);
 int	number_range	(int from, int to);
 int	number_percent	(void);

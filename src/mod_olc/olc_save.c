@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.15 1998-08-10 10:37:56 fjoe Exp $
+ * $Id: olc_save.c,v 1.16 1998-08-14 03:36:23 fjoe Exp $
  */
 
 /**************************************************************************
@@ -160,7 +160,7 @@ void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
     int temp;
 
     fprintf(fp, "#%d\n",	pMobIndex->vnum);
-    fprintf(fp, "%s~\n",	pMobIndex->player_name);
+    fprintf(fp, "%s~\n",	pMobIndex->name);
     mlstr_fwrite(fp, NULL,	pMobIndex->short_descr);
     mlstr_fwrite(fp, NULL,	pMobIndex->long_descr);
     mlstr_fwrite(fp, NULL,	pMobIndex->description);
@@ -724,7 +724,7 @@ void save_resets(FILE *fp, AREA_DATA *pArea)
 	case 'O':
             pLastObj = get_obj_index(pReset->arg1);
             pRoom = get_room_index(pReset->arg3);
-	    fprintf(fp, "O 0 %d 0 %d\t\t* %s (%s)\n", 
+	    fprintf(fp, "O 0 %d 0 %d\t* %s (%s)\n", 
 	        pReset->arg1,
                 pReset->arg3,
                 mlstr_mval(pLastObj->short_descr),

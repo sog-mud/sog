@@ -1,5 +1,5 @@
 /*
- * $Id: act_quest.c,v 1.59 1998-08-07 09:21:30 fjoe Exp $
+ * $Id: act_quest.c,v 1.60 1998-08-14 03:36:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -636,18 +636,13 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 			i = 1;
 
 		obj_vnum = number_range(QUEST_OBJ_FIRST, QUEST_OBJ_LAST);
-		eyed = create_object(get_obj_index(obj_vnum), ch->level);
+		eyed = create_named_obj(get_obj_index(obj_vnum), ch->level,
+					   ch->name);
 		eyed->from = str_dup(ch->name);
 		eyed->altar = hometown_table[ch->hometown].altar[i];
 		eyed->pit = hometown_table[ch->hometown].pit[i];
 		eyed->level = ch->level;
-
-		mlstr_printf(eyed->description, ch->name);
-
-		eyed->ed = ed_dup(eyed->pIndexData->ed);
-		eyed->ed->next = NULL;
-		mlstr_printf(eyed->ed->description, ch->name);
-
+		eyed->ed = ed_new2(eyed->pIndexData->ed, ch->name);
 		eyed->cost = 0;
 		eyed->timer = 30;
 
@@ -872,7 +867,7 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 
 	/* ok, give him requested item */
 
-	obj = create_object(get_obj_index(item_vnum), ch->level);
+	obj = create_obj(get_obj_index(item_vnum), ch->level);
 
 	mlstr_printf(obj->short_descr,
 			IS_GOOD(ch) ?		"holy" :
@@ -926,7 +921,7 @@ static bool buy_tattoo(CHAR_DATA *ch, CHAR_DATA *questor)
 		return FALSE;
 	}
 
-	tattoo = create_object(get_obj_index(religion_table[ch->religion].vnum),
+	tattoo = create_obj(get_obj_index(religion_table[ch->religion].vnum),
 			       100);
 
 	obj_to_char(tattoo, ch);

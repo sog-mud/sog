@@ -1,5 +1,5 @@
 /*
- * $Id: db2.c,v 1.19 1998-08-07 07:48:53 fjoe Exp $
+ * $Id: db2.c,v 1.20 1998-08-14 03:36:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -67,137 +67,41 @@ int		social_count;
 /* snarf a socials file */
 void load_socials(FILE *fp)
 {
-    for (; ;) 
-    {
-    	struct social_type social;
-    	char *temp;
-        /* clear social */
-	social.char_no_arg = NULL;
-	social.others_no_arg = NULL;
-	social.char_found = NULL;
-	social.others_found = NULL;
-	social.vict_found = NULL; 
-	social.char_not_found = NULL;
-	social.char_auto = NULL;
-	social.others_auto = NULL;
+	for (; ;) {
+		struct social_type social;
+		int i;
 
-    	temp = fread_word(fp);
-    	if (!strcmp(temp,"#0"))
-	    return;  /* done */
+		if (social_count >= MAX_SOCIALS) {
+			bug("load_socials: social_table overflow", 0);
+			return;
+		}
+
+		for (i = 0; i < SOC_MAX; i++)
+			social.val[i] = NULL;
+
+		social.name = fread_string(fp);
+		if (!strcmp(social.name, "#")) {
+			free_string(social.name);
+			social.name = NULL;
+			return;  /* done */
+		}
 #if defined(social_debug) 
-	else 
-	    fprintf(stderr,"%s\n\r",temp);
+		else 
+			fprintf(stderr,"%s\n\r",temp);
 #endif
+		for (i = 0; i < SOC_MAX; i++) {
+			social.val[i] = fread_string(fp);
 
-    	strcpy(social.name,temp);
-    	fread_to_eol(fp);
-
-	temp = fread_string_eol(fp);
-	if (!strcmp(temp,"$"))
-	     social.char_no_arg = NULL;
-	else if (!strcmp(temp,"#"))
-	{
-	     social_table[social_count] = social;
-	     social_count++;
-	     continue; 
+			if (!strcmp(social.val[i], "#")) {
+				free_string(social.val[i]);
+				social.val[i] = NULL;
+				break;
+			}
+		}
+		social_table[social_count++] = social;
 	}
-        else
-	    social.char_no_arg = temp;
-
-        temp = fread_string_eol(fp);
-        if (!strcmp(temp,"$"))
-             social.others_no_arg = NULL;
-        else if (!strcmp(temp,"#"))
-        {
-	     social_table[social_count] = social;
-             social_count++;
-             continue;
-        }
-        else
-	    social.others_no_arg = temp;
-
-        temp = fread_string_eol(fp);
-        if (!strcmp(temp,"$"))
-             social.char_found = NULL;
-        else if (!strcmp(temp,"#"))
-        {
-	     social_table[social_count] = social;
-             social_count++;
-             continue;
-        }
-       	else
-	    social.char_found = temp;
-
-        temp = fread_string_eol(fp);
-        if (!strcmp(temp,"$"))
-             social.others_found = NULL;
-        else if (!strcmp(temp,"#"))
-        {
-	     social_table[social_count] = social;
-             social_count++;
-             continue;
-        }
-        else
-	    social.others_found = temp; 
-
-        temp = fread_string_eol(fp);
-        if (!strcmp(temp,"$"))
-             social.vict_found = NULL;
-        else if (!strcmp(temp,"#"))
-        {
-	     social_table[social_count] = social;
-             social_count++;
-             continue;
-        }
-        else
-	    social.vict_found = temp;
-
-        temp = fread_string_eol(fp);
-        if (!strcmp(temp,"$"))
-             social.char_not_found = NULL;
-        else if (!strcmp(temp,"#"))
-        {
-	     social_table[social_count] = social;
-             social_count++;
-             continue;
-        }
-        else
-	    social.char_not_found = temp;
-
-        temp = fread_string_eol(fp);
-        if (!strcmp(temp,"$"))
-             social.char_auto = NULL;
-        else if (!strcmp(temp,"#"))
-        {
-	     social_table[social_count] = social;
-             social_count++;
-             continue;
-        }
-        else
-	    social.char_auto = temp;
-         
-        temp = fread_string_eol(fp);
-        if (!strcmp(temp,"$"))
-             social.others_auto = NULL;
-        else if (!strcmp(temp,"#"))
-        {
-             social_table[social_count] = social;
-             social_count++;
-             continue;
-        }
-        else
-	    social.others_auto = temp; 
-	
-	social_table[social_count] = social;
-    	social_count++;
-   }
-   return;
 }
     
-
-
-
-
 
 /*
  * Snarf a mob section.  new style
@@ -229,18 +133,18 @@ void load_mobiles(FILE *fp)
         fBootDb = TRUE;
  
         pMobIndex                       = alloc_perm(sizeof(*pMobIndex));
-        pMobIndex->short_descr          = mlstr_new();
-        pMobIndex->long_descr           = mlstr_new();
-        pMobIndex->description          = mlstr_new();
+        pMobIndex->short_descr          = NULL;
+        pMobIndex->long_descr           = NULL;
+        pMobIndex->description          = NULL;
 
         pMobIndex->vnum                 = vnum;
         pMobIndex->area                 = area_last;               /* OLC */
 	pMobIndex->new_format		= TRUE;
 	newmobs++;
-        pMobIndex->player_name          = fread_string(fp);
-        mlstr_fread(fp, pMobIndex->short_descr);
-        mlstr_fread(fp, pMobIndex->long_descr);
-        mlstr_fread(fp, pMobIndex->description);
+        pMobIndex->name          = fread_string(fp);
+        pMobIndex->short_descr		= mlstr_fread(fp);
+        pMobIndex->long_descr		= mlstr_fread(fp);
+        pMobIndex->description		= mlstr_fread(fp);
 	pMobIndex->race		 	= race_lookup(fread_string(fp));
  
         pMobIndex->act                  = fread_flags(fp) | ACT_NPC
@@ -432,8 +336,8 @@ void load_objects(FILE *fp)
         fBootDb = TRUE;
  
         pObjIndex                       = alloc_perm(sizeof(*pObjIndex));
-        pObjIndex->short_descr          = mlstr_new();
-        pObjIndex->description          = mlstr_new();
+        pObjIndex->short_descr          = NULL;
+        pObjIndex->description          = NULL;
 
         pObjIndex->vnum                 = vnum;
         pObjIndex->area                 = area_last;            /* OLC */
@@ -441,8 +345,8 @@ void load_objects(FILE *fp)
 	pObjIndex->reset_num		= 0;
 	newobjs++;
         pObjIndex->name                 = fread_string(fp);
-        mlstr_fread(fp, pObjIndex->short_descr);
-        mlstr_fread(fp, pObjIndex->description);
+        pObjIndex->short_descr		= mlstr_fread(fp);
+        pObjIndex->description		= mlstr_fread(fp);
         pObjIndex->material		= fread_string(fp);
 
 	p = fread_word(fp);
@@ -898,7 +802,7 @@ void convert_object(OBJ_INDEX_DATA *pObjIndex)
  Name:		convert_mobile
  Purpose:	Converts an old_format mob into new_format
  Called by:	load_old_mob (db.c).
- Note:          Dug out of create_mobile (db.c)
+ Note:          Dug out of create_mob (db.c)
  Author:        Hugin
  ****************************************************************************/
 void convert_mobile(MOB_INDEX_DATA *pMobIndex)
@@ -915,7 +819,7 @@ void convert_mobile(MOB_INDEX_DATA *pMobIndex)
 
     /*
      * Calculate hit dice.  Gives close to the hitpoints
-     * of old format mobs created with create_mobile()  (db.c)
+     * of old format mobs created with create_mob()  (db.c)
      * A high number of dice makes for less variance in mobiles
      * hitpoints.
      * (might be a good idea to reduce the max number of dice)
@@ -932,7 +836,7 @@ void convert_mobile(MOB_INDEX_DATA *pMobIndex)
 	30:    10d61+416    426(419)  1026(1026)   600(607)   726(  )
 	50:    10d169+920   930(923)  2610(2610)  1680(1688)  1770(  )
 
-	The values in parenthesis give the values generated in create_mobile.
+	The values in parenthesis give the values generated in create_mob.
         Diff = max - min.  Mean is the arithmetic mean.
 	(hmm.. must be some roundoff error in my calculations.. smurfette got
 	 1d6+23 hp at level 3 ? -- anyway.. the values above should be

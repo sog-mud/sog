@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.47 1998-08-06 08:48:34 fjoe Exp $
+ * $Id: act_wiz.c,v 1.48 1998-08-14 03:36:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -502,7 +502,7 @@ void do_outfit (CHAR_DATA *ch, const char *argument)
 
 	if ((obj = get_eq_char(ch, WEAR_LIGHT)) == NULL)
 	{
-	    obj = create_object(get_obj_index(OBJ_VNUM_SCHOOL_BANNER), 0);
+	    obj = create_obj(get_obj_index(OBJ_VNUM_SCHOOL_BANNER), 0);
 		obj->cost = 0;
 		obj->condition = 100;
 	    obj_to_char(obj, ch);
@@ -511,7 +511,7 @@ void do_outfit (CHAR_DATA *ch, const char *argument)
 	
 	if ((obj = get_eq_char(ch, WEAR_BODY)) == NULL)
 	{
-		obj = create_object(get_obj_index(OBJ_VNUM_SCHOOL_VEST), 0);
+		obj = create_obj(get_obj_index(OBJ_VNUM_SCHOOL_VEST), 0);
 		obj->cost = 0;
 		obj->condition = 100;
 	    obj_to_char(obj, ch);
@@ -526,7 +526,7 @@ void do_outfit (CHAR_DATA *ch, const char *argument)
 		sn = 0; 
 		vnum = OBJ_VNUM_SCHOOL_SWORD; /* just in case! */
 	    vnum = class_table[ch->class].weapon;
-		obj = create_object(get_obj_index(vnum),0);
+		obj = create_obj(get_obj_index(vnum),0);
 		obj->condition = 100;
 	 	obj_to_char(obj,ch);
 		equip_char(ch,obj,WEAR_WIELD);
@@ -536,7 +536,7 @@ void do_outfit (CHAR_DATA *ch, const char *argument)
 	||   !IS_WEAPON_STAT(obj,WEAPON_TWO_HANDS)) 
 	&&  (obj = get_eq_char(ch, WEAR_SHIELD)) == NULL)
 	{
-	    obj = create_object(get_obj_index(OBJ_VNUM_SCHOOL_SHIELD), 0);
+	    obj = create_obj(get_obj_index(OBJ_VNUM_SCHOOL_SHIELD), 0);
 		obj->cost = 0;
 		obj->condition = 100;
 	    obj_to_char(obj, ch);
@@ -1792,7 +1792,7 @@ void do_mfind(CHAR_DATA *ch, const char *argument)
 	for (vnum = 0; nMatch < top_mob_index; vnum++)
 		if ((pMobIndex = get_mob_index(vnum)) != NULL) {
 		    nMatch++;
-		    if (is_name(argument, pMobIndex->player_name)) {
+		    if (is_name(argument, pMobIndex->name)) {
 			found = TRUE;
 			char_printf(ch, "[%5d] %s\n\r", pMobIndex->vnum,
 				    mlstr_mval(pMobIndex->short_descr));
@@ -2211,8 +2211,8 @@ void recursive_clone(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *clone)
 	OBJ_DATA *c_obj, *t_obj;
 	for (c_obj = obj->contains; c_obj != NULL; c_obj = c_obj->next_content)
 		if (obj_check(ch, c_obj)) {
-			t_obj = create_object(c_obj->pIndexData, 0);
-			clone_object(c_obj, t_obj);
+			t_obj = create_obj(c_obj->pIndexData, 0);
+			clone_obj(c_obj, t_obj);
 			obj_to_obj(t_obj, clone);
 			recursive_clone(ch, c_obj, t_obj);
 		}
@@ -2265,8 +2265,8 @@ void do_clone(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		clone = create_object(obj->pIndexData, 0); 
-		clone_object(obj, clone);
+		clone = create_obj(obj->pIndexData, 0); 
+		clone_obj(obj, clone);
 		if (obj->carried_by != NULL)
 		    obj_to_char(clone, ch);
 		else
@@ -2291,13 +2291,13 @@ void do_clone(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		clone = create_mobile(mob->pIndexData);
-		clone_mobile(mob,clone); 
+		clone = create_mob(mob->pIndexData);
+		clone_mob(mob,clone); 
 		
 		for (obj = mob->carrying; obj != NULL; obj = obj->next_content)
 			if (obj_check(ch,obj)) {
-				new_obj = create_object(obj->pIndexData, 0);
-				clone_object(obj, new_obj);
+				new_obj = create_obj(obj->pIndexData, 0);
+				clone_obj(obj, new_obj);
 				recursive_clone(ch, obj, new_obj);
 				obj_to_char(new_obj, clone);
 				new_obj->wear_loc = obj->wear_loc;
@@ -2357,7 +2357,7 @@ void do_mload(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	victim = create_mobile(pMobIndex);
+	victim = create_mob(pMobIndex);
 	char_to_room(victim, ch->in_room);
 	act("$n has created $N!", ch, NULL, victim, TO_ROOM);
 	wiznet_printf(ch, NULL, WIZ_LOAD, WIZ_SECURE, get_trust(ch),
@@ -2400,7 +2400,7 @@ void do_oload(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-	obj = create_object(pObjIndex, level);
+	obj = create_obj(pObjIndex, level);
 	if (CAN_WEAR(obj, ITEM_TAKE))
 		obj_to_char(obj, ch);
 	else
@@ -3044,12 +3044,12 @@ void do_string(CHAR_DATA *ch, const char *argument)
 				char_puts(" Not on PC's.\n\r", ch);
 				return;
 			}
-			mlstr_change(victim->short_descr, arg3);
+			mlstr_change(&victim->short_descr, arg3);
 			return;
 		}
 
 		if (!str_prefix(arg2, "desc")) {
-			mlstr_change_desc(victim->description, arg3);
+			mlstr_change_desc(&victim->description, arg3);
 			return;
 		}
 
@@ -3058,7 +3058,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 				char_puts("Not on PC's.\n\r", ch);
 				return;
 			}
-			mlstr_change_desc(victim->long_descr, arg3);
+			mlstr_change_desc(&victim->long_descr, arg3);
 			return;
 		}
 
@@ -3103,12 +3103,12 @@ void do_string(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (!str_prefix(arg2, "short")) {
-			mlstr_change(obj->short_descr, arg3);
+			mlstr_change(&obj->short_descr, arg3);
 			return;
 		}
 
 		if (!str_prefix(arg2, "long")) {
-			mlstr_change(obj->short_descr, arg3);
+			mlstr_change(&obj->short_descr, arg3);
 			return;
 		}
 
@@ -3126,7 +3126,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 			ed = ed_new();
 			ed->keyword		= str_dup(arg3);
 			ed->next		= obj->ed;
-			mlstr_change_desc(ed->description, argument);
+			mlstr_change_desc(&ed->description, argument);
 			obj->ed	= ed;
 			return;
 		}
