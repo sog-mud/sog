@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.165 2004-02-19 17:16:50 fjoe Exp $
+ * $Id: recycle.c,v 1.166 2004-02-19 23:58:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1874,6 +1874,9 @@ free_descriptor(DESCRIPTOR_DATA *d)
 
 	desc_count--;
 	desc_free_count++;
+
+	free_string(d->showstr_head);
+	free_string(d->showstr_question);
 
 	free_string(d->host);
 	free_string(d->ip);

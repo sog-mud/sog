@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.c,v 1.24 2003-10-10 16:14:53 fjoe Exp $
+ * $Id: comm.c,v 1.25 2004-02-19 23:58:23 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -65,6 +65,7 @@ static bool	read_from_descriptor(DESCRIPTOR_DATA *d);
 
 static bool	process_output	(DESCRIPTOR_DATA *d, bool fPrompt);
 static void	show_string	(DESCRIPTOR_DATA *d, const char *input);
+static void	show_string_end	(DESCRIPTOR_DATA *d);
 static void	stop_idling	(DESCRIPTOR_DATA *d);
 
 static bool	outbuf_empty(DESCRIPTOR_DATA *d);
@@ -118,6 +119,7 @@ page_to_char(const char *txt, CHAR_DATA *ch)
 
 	if (d->dvdata->pagelen == 0) {
 		send_to_char(txt, ch);
+		show_string_end(ch->desc);
 		return;
 	}
 
@@ -631,6 +633,25 @@ charset_print(DESCRIPTOR_DATA *d)
 		write_to_buffer(d, buf, 0);
 	}
 	write_to_buffer(d, "\n\rSelect your charset (non-russian players should choose translit): ", 0);
+}
+
+void
+show_string_addq(DESCRIPTOR_DATA *d, const char *q, ...)
+{
+	va_list ap;
+	char buf[MAX_STRING_LENGTH];
+
+	va_start(ap, q);
+	vsnprintf(buf, sizeof(buf), q, ap);
+	va_end(ap);
+
+	if (IS_NULLSTR(d->showstr_question))
+		d->showstr_question = str_dup(buf);
+	else {
+		free_string(d->showstr_question);
+		d->showstr_question = str_printf(
+		    "%s\n%s", d->showstr_question, buf);
+	}
 }
 
 RUNGAME_FUN(_run_game, in_set, out_set, exc_set)
@@ -1344,6 +1365,22 @@ stop_idling(DESCRIPTOR_DATA *d)
 	}
 }
 
+static void
+show_string_end(DESCRIPTOR_DATA *d)
+{
+	if (d->showstr_head) {
+		free_string(d->showstr_head);
+		d->showstr_head = NULL;
+	}
+	d->showstr_point  = NULL;
+
+	if (!IS_NULLSTR(d->showstr_question)) {
+		write_to_buffer(d, d->showstr_question, 0);
+		free_string(d->showstr_question);
+		d->showstr_question = str_empty;
+	}
+}
+
 /* string pager */
 static void
 show_string(DESCRIPTOR_DATA *d, const char *input)
@@ -1355,11 +1392,7 @@ show_string(DESCRIPTOR_DATA *d, const char *input)
 
 	one_argument(input, buf, sizeof(buf));
 	if (buf[0] != '\0') {
-		if (d->showstr_head) {
-			free_string(d->showstr_head);
-			d->showstr_head = NULL;
-		}
-		d->showstr_point  = NULL;
+		show_string_end(d);
 		return;
 	}
 
@@ -1384,13 +1417,8 @@ show_string(DESCRIPTOR_DATA *d, const char *input)
 
 			for (chk = d->showstr_point; isspace(*chk); chk++)
 				;
-			if (!*chk) {
-				if (d->showstr_head) {
-					free_string(d->showstr_head);
-					d->showstr_head = NULL;
-				}
-				d->showstr_point  = NULL;
-			}
+			if (!*chk)
+				show_string_end(d);
 			return;
 		}
 	}

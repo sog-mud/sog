@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.415 2004-02-19 17:16:40 fjoe Exp $
+ * $Id: merc.h,v 1.416 2004-02-19 23:58:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -428,6 +428,7 @@ struct descriptor_data
 	outbuf_t		snoop_buf;
 	const char *		showstr_head;
 	const char *		showstr_point;
+	const char *		showstr_question;
 	uint			codepage;
 
 /* mccp data */

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.h,v 1.5 2003-04-19 00:26:46 fjoe Exp $
+ * $Id: comm.h,v 1.6 2004-02-19 23:58:23 fjoe Exp $
  */
 
 #ifndef _COMM_H_
@@ -44,6 +44,7 @@ void write_to_snoop(DESCRIPTOR_DATA *d, const char *txt, size_t len);
 bool write_to_descriptor(DESCRIPTOR_DATA *d, const char *txt, size_t length);
 
 void charset_print(DESCRIPTOR_DATA *d);
+void show_string_addq(DESCRIPTOR_DATA *d, const char *q, ...);
 
 /*
  * services

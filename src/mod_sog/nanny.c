@@ -1,5 +1,5 @@
 /*
- * $Id: nanny.c,v 1.17 2003-10-10 20:26:24 tatyana Exp $
+ * $Id: nanny.c,v 1.18 2004-02-19 23:58:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -244,9 +244,8 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 			if (check_ban(d, BCL_NEWBIES) == BAN_DENY)
 				return;
 
+			show_string_addq(d, "Do you accept? ");
 			dofun("help", ch, "NAME");
-			act_puts("Do you accept? ",
-				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 			d->connected = CON_CONFIRM_NEW_NAME;
 			return;
 		}
