@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.132 1999-12-16 12:24:43 fjoe Exp $
+ * $Id: act_quest.c,v 1.133 1999-12-17 12:59:00 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -864,7 +864,7 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 		 */
 
 		if ((qt && qt->count > count_max)
-		||  !IS_SET(pObjIndex->obj_flags, ITEM_QUEST)) {
+		||  !IS_SET(pObjIndex->obj_flags, OBJ_QUEST)) {
 
 			/* ch requested this item too many times	*
 			 * or the item is not quest			*/
@@ -924,7 +924,7 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 				 questor, NULL, ch, TO_VICT, POS_DEAD);
 	}
 
-	if (!qt && IS_SET(pObjIndex->obj_flags, ITEM_QUEST)) {
+	if (!qt && IS_SET(pObjIndex->obj_flags, OBJ_QUEST)) {
 		qt = malloc(sizeof(*qt));
 		qt->vnum = item_vnum;
 		qt->count = 0;
@@ -941,7 +941,7 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 
 	/* ok, give him requested item */
 
-	if (IS_SET(pObjIndex->obj_flags, ITEM_QUEST)) {
+	if (IS_SET(pObjIndex->obj_flags, OBJ_QUEST)) {
 		mlstr_cpy(&reward->owner, &ch->short_descr);
 		mlstr_printf(&reward->short_descr,
 			     &reward->pObjIndex->short_descr,

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.309 1999-12-17 10:38:25 fjoe Exp $
+ * $Id: act_info.c,v 1.310 1999-12-17 12:58:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1890,7 +1890,7 @@ void do_request(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (OBJ_IS(obj, ITEM_QUIT_DROP)) {
+	if (OBJ_IS(obj, OBJ_QUIT_DROP)) {
 		do_say(victim, "Sorry, I must keep it myself.");
 		return;
 	}
@@ -3585,7 +3585,7 @@ void do_demand(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (OBJ_IS(obj, ITEM_QUIT_DROP)) {
+	if (OBJ_IS(obj, OBJ_QUIT_DROP)) {
 		do_say(victim, "Forgive me, my master, I can't give it to anyone.");
 		return;
 	}

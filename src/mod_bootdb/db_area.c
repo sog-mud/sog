@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.82 1999-12-17 10:39:03 fjoe Exp $
+ * $Id: db_area.c,v 1.83 1999-12-17 12:59:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1329,17 +1329,17 @@ flag_subst_t v0_subst_stat[] =
 
 flag_subst_t v0_subst_obj[] =
 {
-	{ V0_ITEM_NOPURGE,	ITEM_NOPURGE		},
-	{ V0_ITEM_NOSAC,	ITEM_NOSAC		},
-	{ V0_ITEM_NOLOCATE,	ITEM_NOLOCATE		},
-	{ V0_ITEM_SELL_EXTRACT,	ITEM_SELL_EXTRACT	},
-	{ V0_ITEM_NOUNCURSE,	ITEM_NOUNCURSE		},
-	{ V0_ITEM_NOSELL,	ITEM_NOSELL		},
-	{ V0_ITEM_QUEST,	ITEM_QUEST		},
-	{ V0_ITEM_CLAN,		ITEM_CLAN		},
-	{ V0_ITEM_QUIT_DROP,	ITEM_QUIT_DROP		},
-	{ V0_ITEM_PIT,		ITEM_PIT		},
-	{ V0_ITEM_CHQUEST,	ITEM_CHQUEST		},
+	{ V0_ITEM_NOPURGE,	OBJ_NOPURGE		},
+	{ V0_ITEM_NOSAC,	OBJ_NOSAC		},
+	{ V0_ITEM_NOLOCATE,	OBJ_NOLOCATE		},
+	{ V0_ITEM_SELL_EXTRACT,	OBJ_SELL_EXTRACT	},
+	{ V0_ITEM_NOUNCURSE,	OBJ_NOUNCURSE		},
+	{ V0_ITEM_NOSELL,	OBJ_NOSELL		},
+	{ V0_ITEM_QUEST,	OBJ_QUEST		},
+	{ V0_ITEM_CLAN,		OBJ_CLAN		},
+	{ V0_ITEM_QUIT_DROP,	OBJ_QUIT_DROP		},
+	{ V0_ITEM_PIT,		OBJ_PIT			},
+	{ V0_ITEM_CHQUEST,	OBJ_CHQUEST		},
 	{ 0 }
 };
 
@@ -1416,7 +1416,7 @@ DBLOAD_FUN(load_objects)
 		if (area_current->ver == 0) {
 			if (IS_SET(pObjIndex->wear_flags, V0_ITEM_NO_SAC)) {
 				REMOVE_BIT(pObjIndex->wear_flags, V0_ITEM_NO_SAC);
-				SET_BIT(pObjIndex->obj_flags, ITEM_NOSAC);
+				SET_BIT(pObjIndex->obj_flags, OBJ_NOSAC);
 			}
 		}
 
@@ -1663,7 +1663,7 @@ DBLOAD_FUN(load_objects)
 		top_vnum_obj = UMAX(top_vnum_obj, vnum);
 		vnum_check(area_current, vnum);
 	
-		if (IS_SET(pObjIndex->obj_flags, ITEM_CHQUEST))
+		if (IS_SET(pObjIndex->obj_flags, OBJ_CHQUEST))
 			chquest_add(pObjIndex);
 	}
 }

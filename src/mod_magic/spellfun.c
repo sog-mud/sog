@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.198 1999-12-17 11:04:13 fjoe Exp $
+ * $Id: spellfun.c,v 1.199 1999-12-17 12:59:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2538,8 +2538,8 @@ void spell_locate_object(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	for (obj = object_list; obj != NULL; obj = obj->next) {
 		if (!can_see_obj(ch, obj) || !is_name(target_name, obj->name)
-		||  OBJ_IS(obj, ITEM_NOLOCATE)
-		||  (OBJ_IS(obj, ITEM_CHQUEST) &&
+		||  OBJ_IS(obj, OBJ_NOLOCATE)
+		||  (OBJ_IS(obj, OBJ_CHQUEST) &&
 		     chquest_carried_by(obj) == NULL)
 		||  number_percent() > 2 * level
 		||  LEVEL(ch) < obj->level)
@@ -3008,7 +3008,7 @@ void spell_remove_curse(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 		if (IS_OBJ_STAT(obj,ITEM_NODROP) || IS_OBJ_STAT(obj,ITEM_NOREMOVE))
 		{
-		    if (!OBJ_IS(obj,ITEM_NOUNCURSE)
+		    if (!OBJ_IS(obj,OBJ_NOUNCURSE)
 		    &&  !saves_dispel(level + 2,obj->level,0))
 		    {
 			REMOVE_OBJ_STAT(obj,ITEM_NODROP | ITEM_NOREMOVE);
@@ -3037,7 +3037,7 @@ void spell_remove_curse(const char *sn, int level, CHAR_DATA *ch, void *vo)
    for (obj = victim->carrying; (obj != NULL && !found); obj = obj->next_content)
    {
 		if ((IS_OBJ_STAT(obj,ITEM_NODROP) || IS_OBJ_STAT(obj,ITEM_NOREMOVE))
-		&&  !OBJ_IS(obj,ITEM_NOUNCURSE))
+		&&  !OBJ_IS(obj,OBJ_NOUNCURSE))
 		{   /* attempt to remove curse */
 		    if (!saves_dispel(level,obj->level,0))
 		    {
@@ -3700,10 +3700,10 @@ void spell_find_object(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	for (obj = object_list; obj != NULL; obj = obj->next) {
 		if (!can_see_obj(ch, obj) || !is_name(target_name, obj->name)
-		||  OBJ_IS(obj, ITEM_NOFIND)
+		||  OBJ_IS(obj, OBJ_NOFIND)
 		||  number_percent() > 2 * level
 		||  LEVEL(ch) < obj->level
-		||  (OBJ_IS(obj, ITEM_CHQUEST) &&
+		||  (OBJ_IS(obj, OBJ_CHQUEST) &&
 		     chquest_carried_by(obj) == NULL))
 			continue;
 

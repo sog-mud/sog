@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.117 1999-12-17 11:04:13 fjoe Exp $
+ * $Id: tables.c,v 1.118 1999-12-17 12:59:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -560,18 +560,18 @@ flaginfo_t obj_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
-	{ "nopurge",		ITEM_NOPURGE,		TRUE	},
-	{ "nosac",		ITEM_NOSAC,		TRUE	},
-	{ "nolocate",		ITEM_NOLOCATE,		TRUE	},
-	{ "sellextract",	ITEM_SELL_EXTRACT,	TRUE	},
-	{ "nouncurse",		ITEM_NOUNCURSE,		TRUE	},
-	{ "nosell",		ITEM_NOSELL,		TRUE	},
-	{ "quest",		ITEM_QUEST,		TRUE	},
-	{ "clan_item",		ITEM_CLAN,		TRUE	},
-	{ "quit_drop",		ITEM_QUIT_DROP,		TRUE	},
-	{ "pit",		ITEM_PIT,		TRUE	},
-	{ "chquest",		ITEM_CHQUEST,		TRUE	},
-	{ "nofind",		ITEM_NOFIND,		TRUE	},
+	{ "nopurge",		OBJ_NOPURGE,		TRUE	},
+	{ "nosac",		OBJ_NOSAC,		TRUE	},
+	{ "nolocate",		OBJ_NOLOCATE,		TRUE	},
+	{ "sellextract",	OBJ_SELL_EXTRACT,	TRUE	},
+	{ "nouncurse",		OBJ_NOUNCURSE,		TRUE	},
+	{ "nosell",		OBJ_NOSELL,		TRUE	},
+	{ "quest",		OBJ_QUEST,		TRUE	},
+	{ "clan_item",		OBJ_CLAN,		TRUE	},
+	{ "quit_drop",		OBJ_QUIT_DROP,		TRUE	},
+	{ "pit",		OBJ_PIT,		TRUE	},
+	{ "chquest",		OBJ_CHQUEST,		TRUE	},
+	{ "nofind",		OBJ_NOFIND,		TRUE	},
 
 	{ NULL }
 };

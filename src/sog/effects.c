@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.24 1999-12-17 11:04:13 fjoe Exp $
+ * $Id: effects.c,v 1.25 1999-12-17 12:59:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -81,7 +81,7 @@ void acid_effect(void *vo, int level, int dam)
 	char *msg;
 
 	if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
-	||  OBJ_IS(obj, ITEM_NOPURGE)
+	||  OBJ_IS(obj, OBJ_NOPURGE)
 	||  number_range(0,4) == 0)
 	    return;
 
@@ -258,7 +258,7 @@ void cold_effect(void *vo, int level, int dam)
 	char *msg;
 
 	if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
-	||  OBJ_IS(obj, ITEM_NOPURGE)
+	||  OBJ_IS(obj, OBJ_NOPURGE)
 	||  number_range(0,4) == 0)
 	    return;
 
@@ -568,7 +568,7 @@ void shock_effect(void *vo,int level, int dam)
 	char *msg;
 
 	if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
-	||  OBJ_IS(obj, ITEM_NOPURGE)
+	||  OBJ_IS(obj, OBJ_NOPURGE)
 	||  number_range(0,4) == 0)
 	    return;
 
@@ -666,7 +666,7 @@ void sand_effect(void *vo, int level, int dam)
 	char *msg;
 
 	if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
-	||  OBJ_IS(obj, ITEM_NOPURGE)
+	||  OBJ_IS(obj, OBJ_NOPURGE)
 	||  number_range(0,4) == 0)
 	    return;
 

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.199 1999-12-16 11:38:42 kostik Exp $
+ * $Id: db.c,v 1.200 1999-12-17 12:59:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -963,7 +963,7 @@ void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 		        last = FALSE;
 		        break;
 		      }
-	    if (IS_SET(pObjIndex->obj_flags, ITEM_CLAN)) {
+	    if (IS_SET(pObjIndex->obj_flags, OBJ_CLAN)) {
 		clan = hash_foreach(&clans, clan_item_cb, pObjIndex);
 		if (clan != NULL) {
 			pObj = create_obj(pObjIndex, 0);

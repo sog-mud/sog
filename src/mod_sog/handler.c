@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.221 1999-12-17 10:38:45 fjoe Exp $
+ * $Id: handler.c,v 1.222 1999-12-17 12:59:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -629,7 +629,7 @@ void obj_to_obj(OBJ_DATA *obj, OBJ_DATA *obj_to)
 	obj->in_obj		= obj_to;
 	obj->in_room		= NULL;
 	obj->carried_by		= NULL;
-	if (OBJ_IS(obj_to, ITEM_PIT))
+	if (OBJ_IS(obj_to, OBJ_PIT))
 		obj->cost = 0; 
 
 	for (; obj_to != NULL; obj_to = obj_to->in_obj) {
@@ -695,10 +695,10 @@ void extract_obj(OBJ_DATA *obj, int flags)
 		return;
 	}
 
-	if (OBJ_IS(obj, ITEM_CLAN))
+	if (OBJ_IS(obj, OBJ_CLAN))
 		return;
 
-	if (OBJ_IS(obj, ITEM_CHQUEST)) {
+	if (OBJ_IS(obj, OBJ_CHQUEST)) {
 		if (!IS_SET(flags, XO_F_NOCHQUEST))
 			chquest_extract(obj);
 		flags |= XO_F_NORECURSE;
@@ -2470,7 +2470,7 @@ static void drop_objs(CHAR_DATA *ch, OBJ_DATA *obj_list)
 	OBJ_DATA *obj, *obj_next;
 
 	/*
-	 * drop ITEM_QUIT_DROP/ITEM_CHQUEST/ITEM_CLAN items
+	 * drop OBJ_QUIT_DROP/OBJ_CHQUEST/OBJ_CLAN items
 	 */
 	for (obj = obj_list; obj != NULL; obj = obj_next) {
 		obj_next = obj->next_content;
@@ -2478,7 +2478,7 @@ static void drop_objs(CHAR_DATA *ch, OBJ_DATA *obj_list)
 		if (obj->contains)
 			drop_objs(ch, obj->contains);
 
-		if (!OBJ_IS(obj, ITEM_CLAN | ITEM_QUIT_DROP | ITEM_CHQUEST))
+		if (!OBJ_IS(obj, OBJ_CLAN | OBJ_QUIT_DROP | OBJ_CHQUEST))
 			continue;
 
 		obj->last_owner = NULL;
@@ -2492,7 +2492,7 @@ static void drop_objs(CHAR_DATA *ch, OBJ_DATA *obj_list)
 			continue;
 		}
 
-		if (!OBJ_IS(obj, ITEM_CLAN)) {
+		if (!OBJ_IS(obj, OBJ_CLAN)) {
 			if (ch->in_room != NULL)
 				obj_to_room(obj, ch->in_room);
 			else
@@ -3556,7 +3556,7 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container,
 	}
 
 	if (container) {
-		if (OBJ_IS(container, ITEM_PIT)
+		if (OBJ_IS(container, OBJ_PIT)
 		&&  !IS_OBJ_STAT(obj, ITEM_HAD_TIMER))
 			obj->timer = 0;
 		REMOVE_OBJ_STAT(obj, ITEM_HAD_TIMER);

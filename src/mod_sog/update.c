@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.177 1999-12-15 15:35:44 fjoe Exp $
+ * $Id: update.c,v 1.178 1999-12-17 12:59:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1460,7 +1460,7 @@ void update_pit(OBJ_DATA *obj)
 	/* more or less an hour */
 	pit_count = ++pit_count % 120;
 
-	if (!OBJ_IS(obj, ITEM_PIT)
+	if (!OBJ_IS(obj, OBJ_PIT)
 	||  pit_count)
 		return;
 
@@ -1614,7 +1614,7 @@ void update_one_obj(OBJ_DATA *obj)
 	}
 
 	if (obj->in_room && (rch = obj->in_room->people)
-	&&  !OBJ_IS(obj, ITEM_PIT))
+	&&  !OBJ_IS(obj, OBJ_PIT))
 		act(message, rch, obj, NULL, TO_ALL);
 
 	if (obj->pObjIndex->item_type == ITEM_CORPSE_PC && obj->contains)

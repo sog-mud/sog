@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.191 1999-12-17 11:04:11 fjoe Exp $
+ * $Id: act_obj.c,v 1.192 1999-12-17 12:58:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -185,7 +185,7 @@ void do_get(CHAR_DATA * ch, const char *argument)
 			if ((arg1[3] == '\0' || is_name(&arg1[4], obj->name))
 			    && can_see_obj(ch, obj)) {
 				found = TRUE;
-				if (OBJ_IS(container, ITEM_PIT)
+				if (OBJ_IS(container, OBJ_PIT)
 				&&  !IS_IMMORTAL(ch)) {
 					act_puts("Don't be so greedy!",
 						 ch, NULL, NULL, TO_CHAR,
@@ -614,7 +614,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (OBJ_IS(obj, ITEM_QUEST)
+	if (OBJ_IS(obj, OBJ_QUEST)
 	&&  !IS_IMMORTAL(ch) && !IS_IMMORTAL(victim)) {
 		act_puts("Even you are not that silly to give $p to $N.",
 			 ch, obj, victim, TO_CHAR, POS_DEAD);
@@ -1995,7 +1995,7 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 
 	/* haggle */
 	roll = number_percent();
-	if (!OBJ_IS(obj, ITEM_SELL_EXTRACT)
+	if (!OBJ_IS(obj, OBJ_SELL_EXTRACT)
 	    && roll < get_skill(ch, "haggle")) {
 		cost -= obj->cost / 2 * roll / 100;
 		act("You haggle with $N.", ch, NULL, keeper, TO_CHAR);
@@ -2158,7 +2158,7 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 	act("$n sells $p.", ch, obj, NULL, TO_ROOM);
 	/* haggle */
 	roll = number_percent();
-	if (!OBJ_IS(obj, ITEM_SELL_EXTRACT) && roll < get_skill(ch, "haggle")) {
+	if (!OBJ_IS(obj, OBJ_SELL_EXTRACT) && roll < get_skill(ch, "haggle")) {
 		roll = get_skill(ch, "haggle") + number_range(1, 20) - 10;
 		char_puts("You haggle with the shopkeeper.\n", ch);
 		cost += obj->cost / 2 * roll / 100;
@@ -2187,7 +2187,7 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 	deduct_cost(keeper, cost);
 
 	if (obj->pObjIndex->item_type == ITEM_TRASH
-	||  OBJ_IS(obj, ITEM_SELL_EXTRACT))
+	||  OBJ_IS(obj, OBJ_SELL_EXTRACT))
 		extract_obj(obj, 0);
 	else {
 		obj_from_char(obj);
@@ -3454,7 +3454,7 @@ static uint get_cost(CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy)
 	if (obj == NULL || (pShop = keeper->pMobIndex->pShop) == NULL)
 		return 0;
 
-	if (OBJ_IS(obj, ITEM_NOSELL))
+	if (OBJ_IS(obj, OBJ_NOSELL))
 		return 0;
 
 	if (fBuy)
@@ -3470,7 +3470,7 @@ static uint get_cost(CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy)
 			}
 		}
 
-		if (!OBJ_IS(obj, ITEM_SELL_EXTRACT))
+		if (!OBJ_IS(obj, OBJ_SELL_EXTRACT))
 			for (obj2 = keeper->carrying; obj2; obj2 = obj2->next_content) {
 				if (obj->pObjIndex == obj2->pObjIndex
 				&&  !mlstr_cmp(&obj->short_descr,
@@ -3501,7 +3501,7 @@ static void sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 	CHAR_DATA      *gch;
 	int             members;
 
-	if (!CAN_WEAR(obj, ITEM_TAKE) || OBJ_IS(obj, ITEM_NOSAC)) {
+	if (!CAN_WEAR(obj, ITEM_TAKE) || OBJ_IS(obj, OBJ_NOSAC)) {
 		act_puts("$p is not an acceptable sacrifice.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		return;
@@ -3636,7 +3636,7 @@ static bool put_obj(CHAR_DATA *ch, OBJ_DATA *container,
 		return FALSE;
 	}
 
-	if (OBJ_IS(container, ITEM_PIT)
+	if (OBJ_IS(container, OBJ_PIT)
 	&&  !CAN_WEAR(obj, ITEM_TAKE)) {
 		if (obj->timer)
 			SET_OBJ_STAT(obj, ITEM_HAD_TIMER);
@@ -3645,7 +3645,7 @@ static bool put_obj(CHAR_DATA *ch, OBJ_DATA *container,
 	}
 
 	if (obj->pObjIndex->limit != -1
-	||  OBJ_IS(obj, ITEM_QUEST)) {
+	||  OBJ_IS(obj, OBJ_QUEST)) {
 		act_puts("This unworthy container won't hold $p.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		return TRUE;
@@ -3966,7 +3966,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 
 	switch (obj->pObjIndex->item_type) {
 	default:
-		if (!OBJ_IS(obj, ITEM_CHQUEST)) {
+		if (!OBJ_IS(obj, OBJ_CHQUEST)) {
 			act_puts("You cannot auction $T.",
 				 ch, NULL,
 				 flag_string(item_types,

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.278 1999-12-17 12:40:34 fjoe Exp $
+ * $Id: merc.h,v 1.279 1999-12-17 12:59:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -692,18 +692,18 @@ struct spec_type
 /*
  * obj_index_data->obj_flags (permanent obj flags)
  */
-#define ITEM_NOPURGE		(A)
-#define ITEM_NOSAC		(B)
-#define ITEM_NOLOCATE		(C)
-#define ITEM_SELL_EXTRACT	(D)
-#define ITEM_NOUNCURSE		(E)
-#define ITEM_NOSELL		(F)
-#define ITEM_QUEST		(G)
-#define ITEM_CLAN		(H)
-#define ITEM_QUIT_DROP		(I)
-#define ITEM_PIT		(J)
-#define ITEM_CHQUEST		(K)
-#define ITEM_NOFIND		(L)
+#define OBJ_NOPURGE		(A)
+#define OBJ_NOSAC		(B)
+#define OBJ_NOLOCATE		(C)
+#define OBJ_SELL_EXTRACT	(D)
+#define OBJ_NOUNCURSE		(E)
+#define OBJ_NOSELL		(F)
+#define OBJ_QUEST		(G)
+#define OBJ_CLAN		(H)
+#define OBJ_QUIT_DROP		(I)
+#define OBJ_PIT			(J)
+#define OBJ_CHQUEST		(K)
+#define OBJ_NOFIND		(L)
 
 #define OBJ_IS(obj, f)		(IS_SET((obj)->pObjIndex->obj_flags, (f)))
 

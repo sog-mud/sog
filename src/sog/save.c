@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.145 1999-12-11 15:31:19 fjoe Exp $
+ * $Id: save.c,v 1.146 1999-12-17 12:59:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -462,7 +462,7 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 
 /* do not save named quest rewards if ch is not owner */
 	if (!IS_IMMORTAL(ch)
-	&&  OBJ_IS(obj, ITEM_QUEST)
+	&&  OBJ_IS(obj, OBJ_QUEST)
 	&&  !IS_OWNER(ch, obj)) {
 		log("fwrite_obj: %s: '%s' of %s",
 			   ch->name, obj->name,
@@ -472,7 +472,7 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 		return;
 	}
 	
-	if (OBJ_IS(obj, ITEM_CLAN | ITEM_QUIT_DROP | ITEM_CHQUEST))
+	if (OBJ_IS(obj, OBJ_CLAN | OBJ_QUIT_DROP | OBJ_CHQUEST))
 		return;
 
 /* Do not save limited eq if player is not in PK */
@@ -1082,7 +1082,7 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 			}
 
 			if (IS_TOKEN(fp, "End")) {
-				if (OBJ_IS(obj, ITEM_QUEST)
+				if (OBJ_IS(obj, OBJ_QUEST)
 				&&  mlstr_null(&obj->owner)) {
 					mlstr_cpy(&obj->owner, &ch->short_descr);
 				}

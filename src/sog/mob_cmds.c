@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.44 1999-12-11 15:31:18 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.45 1999-12-17 12:59:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -492,7 +492,7 @@ void do_mppurge(CHAR_DATA *ch, const char *argument)
 	for (obj = ch->in_room->contents; obj != NULL; obj = obj_next)
 	{
 	    obj_next = obj->next_content;
-	    if (!OBJ_IS(obj, ITEM_NOPURGE))
+	    if (!OBJ_IS(obj, OBJ_NOPURGE))
 		extract_obj(obj, 0);
 	}
 
