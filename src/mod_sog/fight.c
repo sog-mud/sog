@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.298 2001-06-28 08:20:47 fjoe Exp $
+ * $Id: fight.c,v 1.299 2001-06-28 08:59:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1359,11 +1359,9 @@ update_pos(CHAR_DATA *victim)
 void
 set_fighting(CHAR_DATA *ch, CHAR_DATA *victim)
 {
-	if (ch->in_room == victim->in_room) {
-		if (ch->fighting != NULL) {
-			log(LOG_BUG, "set_fighting: already fighting");
-			return;
-		}
+	if (ch->fighting != NULL) {
+		log(LOG_BUG, "set_fighting: already fighting");
+		return;
 	}
 
 	if (IS_AFFECTED(ch, AFF_SLEEP)) {
