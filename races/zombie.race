@@ -4,13 +4,14 @@ Aff slow~
 Imm charm magic poison~
 Res cold~
 Vuln weapon~
-Form edible sentient biped mammal~
+Form edible sentient undead biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
-Flags undead~
 End
 
 #PCRACE
 Shortname Zombi~
+Size medium
+Slang common
 End
 
 #$

@@ -4,13 +4,14 @@ Off dodge fast~
 Imm charm cold lightning poison disease~
 Res weapon fire~
 Vuln holy~
-Form edible sentient biped mammal~
+Form edible sentient undead biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
-Flags undead~
 End
 
 #PCRACE
 Shortname Lich~
+Size large
+Slang common
 End
 
 #$

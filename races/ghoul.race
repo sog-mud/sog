@@ -3,13 +3,14 @@ Name ghoul~
 Imm disease~
 Res charm~
 Vuln magic~
-Form edible sentient biped mammal~
+Form edible sentient undead biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
-Flags undead~
 End
 
 #PCRACE
 Shortname Ghoul~
+Size medium
+Slang common
 End
 
 #$
