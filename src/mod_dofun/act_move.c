@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.152 1999-02-24 18:07:02 fjoe Exp $
+ * $Id: act_move.c,v 1.153 1999-02-25 07:43:06 kostik Exp $
  */
 
 /***************************************************************************
@@ -465,7 +465,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	if (!IS_NPC(ch))
     		mp_greet_trigger(ch);
 
-	if (room_has_pc)
+	if (room_has_pc && (ch->in_room != NULL))
 		for (obj = ch->in_room->contents; obj != NULL; obj = obj_next) {
 			obj_next = obj->next_content;
 			oprog_call(OPROG_GREET, obj, ch, NULL);
