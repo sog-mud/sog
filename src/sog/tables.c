@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.116 1999-12-17 09:00:46 fjoe Exp $
+ * $Id: tables.c,v 1.117 1999-12-17 11:04:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -571,6 +571,7 @@ flaginfo_t obj_flags[] =
 	{ "quit_drop",		ITEM_QUIT_DROP,		TRUE	},
 	{ "pit",		ITEM_PIT,		TRUE	},
 	{ "chquest",		ITEM_CHQUEST,		TRUE	},
+	{ "nofind",		ITEM_NOFIND,		TRUE	},
 
 	{ NULL }
 };

@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.23 1999-12-01 09:07:10 fjoe Exp $
+ * $Id: effects.c,v 1.24 1999-12-17 11:04:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -80,8 +80,8 @@ void acid_effect(void *vo, int level, int dam)
 	int chance;
 	char *msg;
 
-	if (IS_OBJ_STAT(obj,ITEM_BURN_PROOF)
-	||  IS_OBJ_STAT(obj,ITEM_NOPURGE)
+	if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
+	||  OBJ_IS(obj, ITEM_NOPURGE)
 	||  number_range(0,4) == 0)
 	    return;
 
@@ -257,8 +257,8 @@ void cold_effect(void *vo, int level, int dam)
 	int chance;
 	char *msg;
 
-	if (IS_OBJ_STAT(obj,ITEM_BURN_PROOF)
-	||  IS_OBJ_STAT(obj,ITEM_NOPURGE)
+	if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
+	||  OBJ_IS(obj, ITEM_NOPURGE)
 	||  number_range(0,4) == 0)
 	    return;
 
@@ -567,8 +567,8 @@ void shock_effect(void *vo,int level, int dam)
 	int chance;
 	char *msg;
 
-	if (IS_OBJ_STAT(obj,ITEM_BURN_PROOF)
-	||  IS_OBJ_STAT(obj,ITEM_NOPURGE)
+	if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
+	||  OBJ_IS(obj, ITEM_NOPURGE)
 	||  number_range(0,4) == 0)
 	    return;
 
@@ -665,8 +665,8 @@ void sand_effect(void *vo, int level, int dam)
 	int chance;
 	char *msg;
 
-	if (IS_OBJ_STAT(obj,ITEM_BURN_PROOF)
-	||  IS_OBJ_STAT(obj,ITEM_NOPURGE)
+	if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
+	||  OBJ_IS(obj, ITEM_NOPURGE)
 	||  number_range(0,4) == 0)
 	    return;
 

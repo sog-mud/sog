@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.216 1999-12-16 11:38:35 kostik Exp $
+ * $Id: act_wiz.c,v 1.217 1999-12-17 11:04:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2109,7 +2109,7 @@ void do_purge(CHAR_DATA *ch, const char *argument)
 
 		for (obj = ch->in_room->contents; obj != NULL; obj = obj_next) {
 			obj_next = obj->next_content;
-			if (!IS_OBJ_STAT(obj, ITEM_NOPURGE))
+			if (!OBJ_IS(obj, ITEM_NOPURGE))
 				extract_obj(obj, 0);
 		}
 

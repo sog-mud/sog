@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.190 1999-12-17 08:59:55 fjoe Exp $
+ * $Id: act_obj.c,v 1.191 1999-12-17 11:04:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1995,7 +1995,7 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 
 	/* haggle */
 	roll = number_percent();
-	if (!IS_OBJ_STAT(obj, ITEM_SELL_EXTRACT)
+	if (!OBJ_IS(obj, ITEM_SELL_EXTRACT)
 	    && roll < get_skill(ch, "haggle")) {
 		cost -= obj->cost / 2 * roll / 100;
 		act("You haggle with $N.", ch, NULL, keeper, TO_CHAR);
@@ -2158,7 +2158,7 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 	act("$n sells $p.", ch, obj, NULL, TO_ROOM);
 	/* haggle */
 	roll = number_percent();
-	if (!IS_OBJ_STAT(obj, ITEM_SELL_EXTRACT) && roll < get_skill(ch, "haggle")) {
+	if (!OBJ_IS(obj, ITEM_SELL_EXTRACT) && roll < get_skill(ch, "haggle")) {
 		roll = get_skill(ch, "haggle") + number_range(1, 20) - 10;
 		char_puts("You haggle with the shopkeeper.\n", ch);
 		cost += obj->cost / 2 * roll / 100;
@@ -2187,7 +2187,7 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 	deduct_cost(keeper, cost);
 
 	if (obj->pObjIndex->item_type == ITEM_TRASH
-	||  IS_OBJ_STAT(obj, ITEM_SELL_EXTRACT))
+	||  OBJ_IS(obj, ITEM_SELL_EXTRACT))
 		extract_obj(obj, 0);
 	else {
 		obj_from_char(obj);
@@ -3454,7 +3454,7 @@ static uint get_cost(CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy)
 	if (obj == NULL || (pShop = keeper->pMobIndex->pShop) == NULL)
 		return 0;
 
-	if (IS_OBJ_STAT(obj, ITEM_NOSELL))
+	if (OBJ_IS(obj, ITEM_NOSELL))
 		return 0;
 
 	if (fBuy)
@@ -3470,7 +3470,7 @@ static uint get_cost(CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy)
 			}
 		}
 
-		if (!IS_OBJ_STAT(obj, ITEM_SELL_EXTRACT))
+		if (!OBJ_IS(obj, ITEM_SELL_EXTRACT))
 			for (obj2 = keeper->carrying; obj2; obj2 = obj2->next_content) {
 				if (obj->pObjIndex == obj2->pObjIndex
 				&&  !mlstr_cmp(&obj->short_descr,

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.276 1999-12-17 10:38:37 fjoe Exp $
+ * $Id: merc.h,v 1.277 1999-12-17 11:04:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -703,6 +703,7 @@ struct spec_type
 #define ITEM_QUIT_DROP		(I)
 #define ITEM_PIT		(J)
 #define ITEM_CHQUEST		(K)
+#define ITEM_NOFIND		(L)
 
 #define OBJ_IS(obj, f)		(IS_SET((obj)->pObjIndex->obj_flags, (f)))
 
