@@ -10,10 +10,12 @@ End
 #MOBILES
 #12400
 skeletal guardian~
-Skeletal guardian~
+skeletal guardian~
 @eng A skeleton is here, guarding the entrance.
 @rus Скелет охраняет вход в подземелье
 ~
+@eng This skeleton is made of specially selected bones of highest quality. 
+@rus Скелет собран из специально отобраннных костей высочайшего качества.
 ~
 undead~
 ABFOT 0 -1000 0
@@ -36,12 +38,16 @@ key C AO
 G male
 #12401
 bone club~
-~
-~
-unknown~
-weapon 0 0
-mace 0 0 none 0
-0 0 0 P
+@eng a bone club@rus дубина из кости~
+@eng You see a large club made of bone here.@rus Большая дубина из кости лежит здесь.~
+bone~
+weapon C AN
+mace 7 6 crush 0
+20 0 0 P
+A
+18 -2
+A
+19 3
 G none
 #0
 
@@ -61,7 +67,7 @@ stone~
 ABCIZ 12400 12401
 S
 #12401
-@eng The Center of the Floor.@rus Центр первого этажа подземелья.~
+@eng At the first layer@rus На первом ярусе~
 @eng You are in the center of the wide dungeon. Cracked bones, skulls and whole
 skeletons are everywhere. Ouch.. You notice, some of them seems to move.. 
 And they try to approach you. You feel very uncomfortable.
@@ -96,7 +102,7 @@ D5
 ABCFGZ 0 12426
 S
 #12402
-@eng At the first floor@rus На первом этаже.~
+@eng At the first layer@rus На первом ярусе~
 ~
 0 0 inside
 D0
@@ -117,7 +123,7 @@ D3
 Z 0 12407
 S
 #12403
-@eng At the first floor~
+@eng At the first layer@rus На первом ярусе~
 ~
 0 0 inside
 D0
@@ -138,7 +144,7 @@ D3
 Z 0 12418
 S
 #12404
-@eng At the first floor~
+@eng At the first layer@rus На первом ярусе~
 ~
 0 0 inside
 D0
@@ -159,7 +165,7 @@ D3
 Z 0 12409
 S
 #12405
-@eng At the first floor~
+@eng At the first layer@rus На первом ярусе~
 ~
 0 0 inside
 D0
@@ -180,7 +186,7 @@ D3
 Z 0 12401
 S
 #12406
-@eng At the first floor~
+@eng At the first floor@rus На первом ярусе~
 ~
 0 0 inside
 D0
@@ -201,7 +207,7 @@ D3
 Z 0 12402
 S
 #12407
-@eng At the first floor~
+@eng At the first layer@rus На первом ярусе~
 ~
 0 0 inside
 D0
@@ -222,7 +228,7 @@ D3
 Z 0 12419
 S
 #12408
-@eng At the first floor~
+@eng At the first layer@rus На первом ярусе~
 ~
 0 0 inside
 D0
@@ -243,7 +249,7 @@ D3
 Z 0 12404
 S
 #12409
-@eng At the first floor~
+@eng At the first layer@rus На первом ярусе~
 ~
 0 0 inside
 D0
@@ -520,7 +526,7 @@ D3
 Z 0 12414
 S
 #12426
-@eng The Center Of the floor@rus Центр второго этажа подземелья.~
+@eng At the second layer@rus На втором ярусе~
 ~
 0 0 inside
 D0
@@ -549,7 +555,7 @@ D5
 ABCFGZ 0 12452
 S
 #12427
-@eng At the second floor~
+@eng At the second layer@rus На втором ярусе~
 ~
 0 0 inside
 D0
@@ -587,7 +593,7 @@ D3
 Z 0 12441
 S
 #12429
-@eng At the second floor~
+@eng At the second layer@rus На втором ярусе~
 ~
 0 0 inside
 D0
@@ -625,7 +631,7 @@ D3
 Z 0 12445
 S
 #12431
-@eng At the second floor~
+@eng At the second layer@rus На втором ярусе~
 ~
 0 0 inside
 D0
@@ -646,7 +652,7 @@ D3
 Z 0 12426
 S
 #12432
-@eng At the second floor~
+@eng At the second layer@rus На втором ярусе~
 ~
 0 0 inside
 D0
@@ -684,7 +690,7 @@ D3
 Z 0 12428
 S
 #12434
-@eng At the second floor~
+@eng At the second layer@rus На втором ярусе~
 ~
 0 0 inside
 D0
@@ -816,7 +822,7 @@ D3
 Z 0 12447
 S
 #12442
-@eng At the second floor~
+@eng At the second layer@rus На втором ярусе~
 ~
 0 0 inside
 D0
@@ -837,7 +843,7 @@ D3
 Z 0 12448
 S
 #12443
-@eng At the secong floor~
+@eng At the second layer@rus На втором ярусе~
 ~
 0 0 inside
 D0
@@ -858,7 +864,7 @@ D3
 Z 0 12449
 S
 #12444
-@eng At the second floor~
+@eng At the second layer@rus На втором ярусе~
 ~
 0 0 inside
 D0
@@ -1438,15 +1444,20 @@ S
 
 #RESETS
 D 0 12400 5 2	* The Entrance to the Dungeon: door to the down: closed and locked
-D 0 12401 4 2	* The Center of the Floor.: door to the up: closed and locked
-D 0 12401 5 2	* The Center of the Floor.: door to the down: closed and locked
-D 0 12426 4 2	* The Center Of the floor: door to the up: closed and locked
-D 0 12426 5 2	* The Center Of the floor: door to the down: closed and locked
+D 0 12401 4 2	* At the first layer: door to the up: closed and locked
+D 0 12401 5 2	* At the first layer: door to the down: closed and locked
+D 0 12426 4 2	* At the second layer: door to the up: closed and locked
+D 0 12426 5 2	* At the second layer: door to the down: closed and locked
 D 0 12452 4 2	* A Center of the floor: door to the up: closed and locked
 D 0 12452 5 2	* A Center of the floor: door to the down: closed and locked
 D 0 12477 4 2	* : door to the up: closed and locked
-M 0 12400 1 12400 1	* Skeletal guardian (The Entrance to the Dungeon)
+M 0 12400 1 12400 1	* skeletal guardian (The Entrance to the Dungeon)
 E 0 12400 0 17		*	an iron key: held in the hands
+E 0 12401 0 16		*	a bone club: wielded
+S
+
+#OLIMITS
+O 12401 24	* a bone club
 S
 
 #$

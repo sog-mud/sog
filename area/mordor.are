@@ -62,7 +62,7 @@ moby~
 ~
 human~
 A 0 0 0
-300 -10000 1d1+0 0d0+0 0d0+0 none
+1 0 1d1+0 0d0+0 0d0+0 none
 0 0 0 0
 0 0 0 0
 stand stand none 0
@@ -179,6 +179,8 @@ unknown~
 light 0 AO
 0 0 -1 0 0
 50 0 0 P
+S 'lay hands' 100 A
+S 'cure disease' 100 A
 S 'locate object' 100 A
 S 'locate object' 100 A
 S 'locate object' 100 A
