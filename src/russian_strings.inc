@@ -252,6 +252,13 @@ char *strings_rus[MSG_MAX_NUM] = {
 /* MOVE_YOU_CANT_HIDE_RIDDEN */	"Ты не можешь прятаться оседланным.\n\r",
 /* MOVE_YOU_CANNOT_HIDE_GLOWING */"Ты не можешь спрятаться пока светишься.\n\r",
 /* MOVE_YOU_ATTEMPT_TO_HIDE */	"Ты пытаешься спрятаться.\n\r",
+/* MOVE_YOU_CANT_CAMOUFLAGE_MOUNTED */"Ты не можешь маскироваться верхом.\n\r",
+/* MOVE_YOU_CANT_CAMOUFLAGE_RIDDEN */"Ты не можешь маскироваться оседланным.\n\r",
+/* MOVE_YOU_DONT_KNOW_CAMOUFLAGE */"Ты не умеешь маскироваться.\n\r",
+/* MOVE_YOU_CANT_CAMOUFLAGE_GLOWING */"Ты не можешь замаскироваться пока светишься.\n\r",
+/* MOVE_THERES_NO_COVER_HERE */	"Здесь нет прикрытия.\n\r",
+/* MOVE_N_TRIES_TO_CAMOUFLAGE */"$n пытается замаскироваться под одинокий лист на дороге.",
+/* MOVE_YOU_ATTEMPT_TO_CAMOUFLAGE */"ты пытаешься замаскироваться.\n\r", 
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yсерьезно ранено{x.",

@@ -252,6 +252,13 @@ char *strings_engl[MSG_MAX_NUM] =  {
 /* MOVE_YOU_CANT_HIDE_RIDDEN */	"You can't hide while being ridden.\n\r",
 /* MOVE_YOU_CANNOT_HIDE_GLOWING */"You cannot hide while glowing.\n\r",
 /* MOVE_YOU_ATTEMPT_TO_HIDE */	"You attempt to hide.\n\r",
+/* MOVE_YOU_CANT_CAMOUFLAGE_MOUNTED */"You can't camouflage while mounted.\n\r",
+/* MOVE_YOU_CANT_CAMOUFLAGE_RIDDEN */"You can't camouflage while being ridden.\n\r",
+/* MOVE_YOU_DONT_KNOW_CAMOUFLAGE */"You don't know how to camouflage yourself.\n\r",
+/* MOVE_YOU_CANT_CAMOUFLAGE_GLOWING */"You can't camouflage yourself while glowing.\n\r",
+/* MOVE_THERES_NO_COVER_HERE */	"There's no cover here.\n\r",
+/* MOVE_N_TRIES_TO_CAMOUFLAGE */"$n tries to camouflage $mself against the lone leaf on the ground.",
+/* MOVE_YOU_ATTEMPT_TO_CAMOUFLAGE */"You attempt to camouflage yourself.\n\r", 
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yis gushing blood{x.",

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.21 1998-04-29 03:53:57 efdi Exp $
+ * $Id: act_move.c,v 1.22 1998-04-29 04:11:40 efdi Exp $
  */
 
 /***************************************************************************
@@ -1852,24 +1852,24 @@ void do_camouflage( CHAR_DATA *ch, char *argument )
 
     if (MOUNTED(ch)) 
     {
-        send_to_char("You can't camouflage while mounted.\n\r", ch);
+        send_to_char(msg(MOVE_YOU_CANT_CAMOUFLAGE_MOUNTED, ch), ch);
         return;
     }
     if (RIDDEN(ch)) 
     {
-        send_to_char("You can't camouflage while being ridden.\n\r", ch);
+        send_to_char(msg(MOVE_YOU_CANT_CAMOUFLAGE_RIDDEN, ch), ch);
         return;
     }
 
     if ( IS_NPC(ch) || 
          ch->level < skill_table[gsn_camouflage].skill_level[ch->class] )
       {
-	send_to_char("You don't know how to camouflage yourself.\n\r",ch);
+	send_to_char(msg(MOVE_YOU_DONT_KNOW_CAMOUFLAGE, ch), ch);
 	return;
       }
 
     if ( IS_AFFECTED( ch, AFF_FAERIE_FIRE ) )  {
-      send_to_char( "You can't camouflage yourself while glowing.\n\r", ch );
+      send_to_char(msg(MOVE_YOU_CANT_CAMOUFLAGE_GLOWING, ch), ch);
       return;
     }
 
@@ -1877,11 +1877,12 @@ void do_camouflage( CHAR_DATA *ch, char *argument )
 	ch->in_room->sector_type != SECT_HILLS  &&
 	ch->in_room->sector_type != SECT_MOUNTAIN)
       {
-	send_to_char("There is no cover here.\n\r",ch);
-	act("$n tries to camouflage $mself against the lone leaf on the ground.",ch,NULL,NULL,TO_ROOM);
+	send_to_char(msg(MOVE_THERES_NO_COVER_HERE, ch), ch);
+	act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+			MOVE_N_TRIES_TO_CAMOUFLAGE);
 	return;
       }
-    send_to_char( "You attempt to camouflage yourself.\n\r", ch );
+    send_to_char(msg(MOVE_YOU_ATTEMPT_TO_CAMOUFLAGE, ch), ch);
     WAIT_STATE( ch, skill_table[gsn_camouflage].beats );
 
     if ( IS_AFFECTED(ch, AFF_CAMOUFLAGE) )
