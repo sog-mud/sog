@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.85 1999-04-21 14:44:29 kostik Exp $
+ * $Id: martial_art.c,v 1.86 1999-04-23 12:02:25 kostik Exp $
  */
 
 /***************************************************************************
@@ -1178,7 +1178,7 @@ void do_nerve(CHAR_DATA *ch, const char *argument)
 	}
 
 
-	if (is_affected(ch,gsn_nerve)) {
+	if (is_affected(victim, gsn_nerve)) {
 		char_puts("You cannot weaken that character any more.\n",
 			  ch);
 		return;
