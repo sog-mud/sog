@@ -3251,6 +3251,17 @@ Form 6 -ю~
 End
 
 #RULE
+Name волшебница~
+BaseLen 9
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ей~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name титания~
 BaseLen 6
 Form 1 -и~
@@ -9811,6 +9822,17 @@ Form 6 -а~
 End
 
 #RULE
+Name могущественная~
+BaseLen 12
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+Form 6 -ую~
+End
+
+#RULE
 Name мечеглотатель~
 BaseLen 12
 Form 1 -я~
@@ -9970,6 +9992,17 @@ Form 3 -ок~
 Form 4 -ком~
 Form 5 -ке~
 Form 6 -ка~
+End
+
+#RULE
+Name подземный~
+BaseLen 7
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
 End
 
 #RULE
