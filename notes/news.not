@@ -730,3 +730,37 @@ RPTIPS-3, RPTIPS-4
 Также, можно высказывать свои комментарии на 
 http://iclub.nsu.ru/mud/index.pl?section=phorum
 ~
+Sender  Phrinn~
+Date    Wed Oct 16 16:55:14 2002~
+Stamp   1034772914
+To      all~
+Subject first step to new Hunters~
+Text
+Greeting!
+ 
+   Мы делаем первый шаг на пути к новым хантерам. Вводится в эксплуатацию
+начальная версия 'black market' (see help 'black market' for more info)
+Обо всех глюках, багах, typos сообщайте нам наверх via note, e-mail.
+   На аукционе теперь можно продавать объекты следующих типов: scroll,
+boat, potion, pill, map, clothing, drink, warp stone, pole, container.
+Контейнеры можно продавать только пустыми.
+ 
+{WФринн{x.
+~
+Sender  Phrinn~
+Date    Fri Oct 18 11:33:53 2002~
+Stamp   1034926433
+To      all~
+Subject black market, step 2; new skill for hunters~
+Text
+Greeting.
+ 
+   Пользоваться черным рынком теперь приятнее ;) При помощи команды
+{cbm show <item>{x вы можете поглядеть характеристики объектов.
+<item> может быть названием или порядковым номером (обязательна
+точка в конце e.g. {cbm show 35.{x)
+   Хантерам добавлен skill 'hunters trophy'. Делает трофей из трупа
+поверженной жертвы. (для доказательства выполнения заказа)
+ 
+{WФринн{x
+~

@@ -2448,8 +2448,8 @@ a Big Ol'Pack Sack~
 A brownish leather-like sack rests here.~
 leather~
 container 0 AK
-350 A 0 0 0
-1 2 500 P
+650 A 0 10 0
+1 100 500 P
 E
 sack~
 A brownish leather-like sack rests here.
@@ -3015,7 +3015,7 @@ A knapsack made from the finest leather rests here.~
 leather~
 container 0 AK
 650 A 0 10 0
-1 2 90 P
+1 100 90 P
 A
 17 -4
 E

@@ -9157,8 +9157,10 @@ our website forum.
 
 See also: RPTIPS-1 RPTIPS-2 RPTIPS-3
 ~
-0 'BLACK MARKET'~
-@eng    Black market is a service which allows to sale and buy limited
+-2 'BLACK MARKET' 'BM'~
+@eng {CBlack market{x
+
+   Black market is a service which allows to sale and buy limited
    objects (only). Hunters can sell and can't buy, others can buy
    but can't sell. Selling objects may be fellow types: light, map,
    food, scroll, wand, boat, staff, potion, armor, treasure, pill,
@@ -9189,9 +9191,14 @@ Syntax: {cbm accept{x <number.item | number.>
    This service is available only for hunters. This commands allow
    to complete sale. (You can use object's name or ordinal number.)
 
+Syntax:{c bm show{x <number.item | number.>
+   Show object stats.
+
 Annotation: You can't make a bet for object with anti-your alignment
 restriction.
-@rus    'Черный рынок' -- это сервис позволяющий вести торговлю лимитными
+@rus {CЧерный рынок{x
+
+   'Черный рынок' -- это сервис позволяющий вести торговлю лимитными
    объектами (и только ими). Члены клана хантеров продают лимиты,
    остальные их покупают. Продаваемые объекты могут быть следующих
    типов: light, map, food, scroll, wand, boat, staff, potion, armor,
@@ -9220,8 +9227,33 @@ restriction.
    Заключить сделку. Объект может указываться с помощью названия или
    порядкового номера. Доступна только членам клана Hunters.
  
+Синтаксис:{c bm show{x <название объекта | порядковый номер>
+   Показывает характеристики продаваемого объекта.
+
 Примечание: вы не сможете сделать ставку на объект, если не можете
 им владеть из-за ограничений на алигнмент.
+~
+0 'OOC' 'OOCME'~
+@eng Syntax: {cooc{x <string>
+Syntax: {csog{x <string>
+ 
+These commands send a message to all awake players in the world.
+ 
+Syntax: {coocme{x <emote string>
+Syntax: {csogme{x <emote string>
+ 
+These commands send a message to all awake players in the world.
+E.g. oocme smiles show all message [Shades of Gray] Aurian smiles.
+@rus Синтаксис: {cooc{x <сообщение>
+Синтаксис: {csog{x <сообщение>
+ 
+Эти команды посылают сообщение всем активным игрокам мира.
+
+Синтаксис: {csogme{x <сообщение-эмоция>
+Синтаксис: {coocme{x <сообщение-эмоция>
+ 
+Эти команды посылают сообщение-эмоцию. Твое высказывание 'sogme улыбнулась'
+все увидят в виде: [Shades of Gray] Aurian улыбнулась.
 ~
 -1 $~
 
