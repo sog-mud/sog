@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.227 1999-09-09 13:48:46 osya Exp $
+ * $Id: merc.h,v 1.228 1999-09-09 14:35:10 osya Exp $
  */
 
 /***************************************************************************
@@ -727,7 +727,7 @@ where_t *where_lookup(flag32_t where);
 #define AFF_BLEND		(ww)	/* Forest blending */
 #define AFF_AWARENESS		(xx)	/* Detect blend and camouflage */
 #define AFF_TURNED		(yy)	/* Character is turned into other creature */
-#define AFF_RESURECTION_POTENCE (zz)
+#define AFF_RESURRECTION        (zz)
 
 /* where definitions for room */
 #define TO_ROOM_AFFECTS 0

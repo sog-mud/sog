@@ -1,5 +1,5 @@
 /*
- * $Id: fight.h,v 1.12 1999-09-09 13:48:46 osya Exp $
+ * $Id: fight.h,v 1.13 1999-09-09 14:35:09 osya Exp $
  */
 
 /***************************************************************************
@@ -43,10 +43,8 @@
 #ifndef _FIGHT_H_
 #define _FIGHT_H_
 
-void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part);
-void raw_kill_body(CHAR_DATA *ch, CHAR_DATA *victim, int part);
+void raw_kill(CHAR_DATA *ch, CHAR_DATA *victim);
 
-#define raw_kill(ch, victim) raw_kill_org(ch, victim, -1)
 
 bool	is_safe 	(CHAR_DATA *ch, CHAR_DATA *victim);
 bool	is_safe_nomessage (CHAR_DATA *ch, CHAR_DATA *victim);

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.197 1999-09-09 13:50:13 osya Exp $
+ * $Id: fight.c,v 1.198 1999-09-09 14:35:14 osya Exp $
  */
 
 /***************************************************************************
@@ -69,7 +69,6 @@ bool	check_hand_block	(CHAR_DATA *ch, CHAR_DATA *victim);
 void	dam_message		(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 				 int dt, bool immune, int dam_type);
 void	death_cry		(CHAR_DATA *ch);
-void	death_cry_org		(CHAR_DATA *ch, int part);
 void	group_gain		(CHAR_DATA *ch, CHAR_DATA *victim);
 int	xp_compute		(CHAR_DATA *gch, CHAR_DATA *victim,
 				 int total_levels, int members);
@@ -1098,7 +1097,7 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 		&& IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA);
 	OBJ_DATA *corpse;
 	class_t *cl;
-        if (IS_AFFECTED(victim, AFF_RESURECTION_POTENCE)) {
+        if (IS_AFFECTED(victim, AFF_RESURRECTION)) {
 	raw_kill(ch,victim) ;
 	return;
 	} 
@@ -2016,15 +2015,11 @@ void make_corpse(CHAR_DATA *ch)
 	obj_to_room(corpse, ch->in_room);
 }
 
-void death_cry(CHAR_DATA *ch)
-{
-  death_cry_org(ch, -1);
-}
 
 /*
  * Improved Death_cry contributed by Diavolo.
  */
-void death_cry_org(CHAR_DATA *ch, int part)
+void death_cry(CHAR_DATA *ch)
 {
 	ROOM_INDEX_DATA *was_in_room;
 	char *msg;
@@ -2034,10 +2029,8 @@ void death_cry_org(CHAR_DATA *ch, int part)
 	vnum = 0;
 	msg = "You hear $n's death cry.";
 
-	if (part == -1)
-	  part = number_bits(4);
 
-	switch (part) {
+	switch (number_bits(4)) {
 	case  0:
 		msg  = "$n hits the ground ... DEAD.";
 		break;
@@ -2127,18 +2120,19 @@ void death_cry_org(CHAR_DATA *ch, int part)
 	}
 }
 
-void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
+void raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 {
-        AFFECT_DATA *paf1;
-        if (IS_AFFECTED(victim, AFF_RESURECTION_POTENCE)) {
-                char_puts("Yess! Your Great Master resurects you!\n", victim);
-                act("Ouch! Beast stands and fight again, with new power!", victim, NULL, NULL, TO_ROOM);
-                act("$n giggle.", victim, NULL, NULL, TO_ROOM);
-                gain_condition(ch, COND_BLOODLUST, 20);
-                for (paf1 = victim->affected; paf1; paf1 = paf1->next)
-                        if (paf1->bitvector == AFF_RESURECTION_POTENCE)
-                                affect_remove(victim, paf1);
+        CHAR_DATA *vch, *vch_next;
+        OBJ_DATA *obj, *obj_next;
+        int i;
+        OBJ_DATA *tattoo, *clanmark;
 
+        if (IS_AFFECTED(victim, AFF_RESURRECTION)) {
+                char_puts("Yess! Your Great Master resurrects you!\n", victim);
+                act("Ouch! Beast stands and fight again, with new power!", victim, NULL, NULL, TO_ROOM);
+                act("$n giggles.", victim, NULL, NULL, TO_ROOM);
+                gain_condition(ch, COND_BLOODLUST, 20);
+		affect_strip(victim, gsn_resurrection);
                 if (victim->perm_stat[STAT_CHA] > 3)
                         victim->perm_stat[STAT_CHA]--;
                 victim->hit             = victim->max_hit;
@@ -2150,20 +2144,9 @@ void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
                     char_puts("Your muscles stop responding.\n",ch);
                     DAZE_STATE(ch,victim->level);
                 }
-
+		return;
         }
-	else
-		raw_kill_body(ch, victim, part);
-}
 
-
-
-void raw_kill_body(CHAR_DATA *ch, CHAR_DATA *victim, int part)
-{
-	CHAR_DATA *vch, *vch_next;
-	OBJ_DATA *obj, *obj_next;
-	int i;
-	OBJ_DATA *tattoo, *clanmark;
 
 	for (obj = victim->carrying; obj != NULL; obj = obj_next) {
 		obj_next = obj->next_content;
@@ -2182,7 +2165,7 @@ void raw_kill_body(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 	stop_fighting(victim, TRUE);
 	RESET_FIGHT_TIME(victim);
 	victim->last_death_time = current_time;
-	death_cry_org(victim, part);
+	death_cry(victim);
 
 	tattoo = get_eq_char(victim, WEAR_TATTOO);
 	clanmark = get_eq_char(victim, WEAR_CLANMARK);
