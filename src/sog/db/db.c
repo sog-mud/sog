@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.169.2.11 2000-04-25 12:46:31 fjoe Exp $
+ * $Id: db.c,v 1.169.2.12 2000-04-25 13:04:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1934,6 +1934,8 @@ rip_limited_eq(CHAR_DATA *ch, OBJ_DATA *container)
 
 	for (obj = container->contains; obj != NULL; obj = obj_next) {
 		obj_next = obj->next_content;
+
+		obj->pObjIndex->count++;
 
 		/*
 		 * extract_obj(xxx, XO_F_NORECURSE) will add objects to the
