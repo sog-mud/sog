@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_spec.c,v 1.9 2000-03-29 14:50:12 kostik Exp $
+ * $Id: act_spec.c,v 1.10 2000-03-29 17:52:42 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -52,13 +52,13 @@ void do_read(CHAR_DATA* ch, const char* argument)
 	OBJ_DATA *book;
 	int chance;
 
-	if(IS_NPC(ch)) {
+	if (IS_NPC(ch)) {
 		act("You don't know how to read.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
-	if(!(book = get_eq_char(ch, WEAR_HOLD))
-	|| (book->item_type != ITEM_BOOK)) {
+	if ((book = get_eq_char(ch, WEAR_HOLD)) == NULL
+	||  (book->item_type != ITEM_BOOK)) {
 		act("You do not hold any book in your hands.",
 			ch, NULL, NULL, TO_CHAR);
 		return;
@@ -81,8 +81,8 @@ void do_read(CHAR_DATA* ch, const char* argument)
 	chance = INT(book->value[2]);
 	chance = (chance * get_curr_stat(ch, STAT_INT)) / 18;
 
-	if(number_percent() > chance || 
-	(spec_replace(ch, NULL, STR(book->value[1])) != NULL)) {
+	if (number_percent() > chance
+	||  (spec_replace(ch, NULL, STR(book->value[1])) != NULL)) {
 		int eff = INT(book->value[3]);
 		act("You didn't understand contents of $t.",
 			ch, flag_string(book_class, INT(book->value[0])), 
@@ -99,7 +99,6 @@ void do_read(CHAR_DATA* ch, const char* argument)
 		obj_from_char(book);
 		extract_obj(book, 0);
 	}
-
 }
 
 void do_specialize(CHAR_DATA* ch, const char* argument) 

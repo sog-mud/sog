@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: objval.c,v 1.3 2000-03-29 14:50:14 kostik Exp $
+ * $Id: objval.c,v 1.4 2000-03-29 17:52:43 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -131,10 +131,10 @@ void objval_cpy(flag_t item_type, vo_t *dst, vo_t *src)
 
 	case ITEM_BOOK:
 		dst[0] = src[0];
-		dst[1] = str_qdup(src[1].s);
+		dst[1].s = str_qdup(src[1].s);
 		dst[2] = src[2];
 		dst[3] = src[3];
-		dst[4] = str_qdup(src[4].s);
+		dst[4].s = str_qdup(src[4].s);
 		break;
 	}
 }
