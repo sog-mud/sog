@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.82 1998-12-02 13:32:12 fjoe Exp $
+ * $Id: quest.c,v 1.83 1998-12-14 04:26:07 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -514,6 +514,7 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		||  (ch->level > 50 && (diff > 6 || diff < 0))
 		||  victim->pIndexData->pShop
 		||  victim->race == ch->race
+		||  victim->invis_level
 		||  (IS_EVIL(victim) && IS_EVIL(ch))
 		||  (IS_GOOD(victim) && IS_GOOD(ch))
 		||  victim->pIndexData->vnum < 100
@@ -526,7 +527,9 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		||  (IS_SET(victim->pIndexData->act, ACT_SENTINEL) &&
 		     IS_SET(victim->in_room->room_flags,
 			    ROOM_SAFE | ROOM_PRIVATE | ROOM_SOLITARY))
-		||  IS_SET(victim->in_room->area->flags, AREA_HOMETOWN))
+		||  IS_SET(victim->in_room->area->flags,
+			   AREA_HOMETOWN | AREA_UNDER_CONSTRUCTION |
+			   AREA_NOQUEST))
 			continue;
 		mobs[mob_count++] = victim;
 		if (mob_count >= MAX_QMOB_COUNT)

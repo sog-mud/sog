@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.30 1998-12-09 11:57:54 fjoe Exp $
+ * $Id: tables.c,v 1.31 1998-12-14 04:26:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -340,6 +340,8 @@ FLAG clan_flags[] =
 FLAG area_flags[] =
 {
 	{ "hometown",		AREA_HOMETOWN,		TRUE	},
+	{ "under_construction",	AREA_UNDER_CONSTRUCTION,TRUE	},
+	{ "noquest",		AREA_NOQUEST,		TRUE	},
 	{ "changed",		AREA_CHANGED,		FALSE	},
 	{ NULL }
 };

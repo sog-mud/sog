@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.92 1998-12-09 10:06:39 kostik Exp $
+ * $Id: handler.c,v 1.93 1998-12-14 04:26:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2847,6 +2847,7 @@ bool can_gate(CHAR_DATA *ch, CHAR_DATA *victim)
 	||  !can_see_room(ch, victim->in_room)
 	||  IS_SET(ch->in_room->room_flags, ROOM_SAFE)
 	||  IS_SET(victim->in_room->room_flags, ROOM_SAFE)
+	||  IS_SET(ch->in_room->area->flags, AREA_UNDER_CONSTRUCTION)
 	||  room_is_private(victim->in_room)
 	||  IS_SET(ch->in_room->room_flags, ROOM_NORECALL)
 	||  IS_SET(victim->in_room->room_flags, ROOM_NORECALL))

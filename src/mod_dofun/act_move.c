@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.120 1998-12-09 11:57:49 fjoe Exp $
+ * $Id: act_move.c,v 1.121 1998-12-14 04:26:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3343,18 +3343,19 @@ ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch)
 {
 	ROOM_INDEX_DATA *room;
 
-	for (; ;)
-	{
-	    room = get_room_index(number_range(0, 65535));
-	    if (room != NULL)
-	    if (can_see_room(ch,room)
-	&&   !room_is_private(room)
-	    &&   !IS_SET(room->room_flags, ROOM_PRIVATE)
-	    &&   !IS_SET(room->room_flags, ROOM_SOLITARY) 
-	&&   !IS_SET(room->room_flags, ROOM_SAFE) 
-	&&   (IS_NPC(ch) || IS_SET(ch->act,ACT_AGGRESSIVE) 
-	||   !IS_SET(room->room_flags,ROOM_LAW | ROOM_SAFE)))
-	        break;
+	for (; ;) {
+		room = get_room_index(number_range(0, 65535));
+
+		if (!room)
+			continue;
+
+		if (can_see_room(ch,room)
+		&&  !room_is_private(room)
+		&&  !IS_SET(room->room_flags, ROOM_SAFE) 
+		&&  !IS_SET(room->area->flags, AREA_UNDER_CONSTRUCTION)
+		&&  (!IS_NPC(ch) || !IS_SET(ch->act, ACT_AGGRESSIVE) ||
+		     !IS_SET(room->room_flags, ROOM_LAW)))
+			break;
 	}
 
 	return room;

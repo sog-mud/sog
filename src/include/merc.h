@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.124 1998-12-09 11:57:53 fjoe Exp $
+ * $Id: merc.h,v 1.125 1998-12-14 04:26:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -394,8 +394,11 @@ struct kill_data
 /*
  * AREA FLAGS
  */
-#define AREA_HOMETOWN		(A)
-#define AREA_CHANGED		(Z)	/* Area has been modified. */
+#define AREA_HOMETOWN		(A)	/* area is a hometown		*/
+#define AREA_UNDER_CONSTRUCTION	(B)	/* transportation does not work,
+					   no quests			*/
+#define AREA_NOQUEST		(C)	/* no quests in this area	*/
+#define AREA_CHANGED		(Z)	/* area has been modified	*/
 
 
 /*

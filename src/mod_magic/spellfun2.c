@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.63 1998-12-04 06:50:25 kostik Exp $
+ * $Id: spellfun2.c,v 1.64 1998-12-14 04:26:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2110,6 +2110,7 @@ void spell_disperse(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	  	if (pRoomIndex != NULL
 	        &&  can_see_room(ch, pRoomIndex)
 	    	&&  !room_is_private(pRoomIndex)
+		&&  !IS_SET(pRoomIndex->area->flags, AREA_UNDER_CONSTRUCTION)
 		&&  !IS_SET(pRoomIndex->room_flags, ROOM_NORECALL)
 		&&  guild_check(vch, pRoomIndex) >= 0)
 	  		break;
