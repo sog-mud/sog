@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.66.2.17 2002-01-03 21:33:42 tatyana Exp $
+ * $Id: obj_prog.c,v 1.66.2.18 2002-01-15 20:50:25 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1823,7 +1823,7 @@ int fight_prog_wasp_hive(OBJ_DATA *hive, CHAR_DATA *ch, const void *arg)
 	if (get_eq_char(ch, WEAR_HOLD) != hive)
 		return 0;
 
-	if (number_percent() > 25)
+	if (number_percent() > 10)
 		return 0;
 
 	victim = ch->fighting;
