@@ -1,0 +1,232 @@
+/*-
+ * Copyright (c) 1998 fjoe <fjoe@iclub.nsu.ru>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ *
+ * $Id: olc_lang.c,v 1.1 1998-10-06 13:20:14 fjoe Exp $
+ */
+
+#include <stdio.h>
+#include <string.h>
+
+#include "merc.h"
+#include "olc.h"
+#include "interp.h"
+#include "db/lang.h"
+
+#define EDIT_LANG(ch, l)	(l = (LANG_DATA*) (ch->desc->pEdit))
+
+DECLARE_OLC_FUN(langed_create	);
+DECLARE_OLC_FUN(langed_edit	);
+DECLARE_OLC_FUN(langed_touch	);
+DECLARE_OLC_FUN(langed_show	);
+DECLARE_OLC_FUN(langed_list	);
+
+DECLARE_OLC_FUN(langed_name	);
+DECLARE_OLC_FUN(langed_flags	);
+DECLARE_OLC_FUN(langed_slangof	);
+DECLARE_OLC_FUN(langed_genders	);
+DECLARE_OLC_FUN(langed_cases	);
+
+DECLARE_VALIDATE_FUN(validate_langname);
+
+OLC_CMD_DATA olc_cmds_lang[] =
+{
+	{ "create",	langed_create				},
+	{ "edit",	langed_edit				},
+	{ "touch",	langed_touch				},
+	{ "show",	langed_show				},
+	{ "list",	langed_list				},
+
+	{ "name",	langed_name,	validate_langname	},
+	{ "flags",	langed_flags,	lang_flags		},
+	{ "slangof",	langed_slangof				},
+	{ "genders",	langed_genders,	validate_filename	},
+	{ "cases",	langed_cases,	validate_filename	},
+
+	{ "commands",	show_commands				},
+	{ NULL }
+};
+
+OLC_FUN(langed_create)
+{
+	LANG_DATA *l;
+	char arg[MAX_INPUT_LENGTH];
+
+	if (ch->pcdata->security < 9) {
+		char_puts("LangEd: Insufficient security.\n\r", ch);
+		return FALSE;
+	}
+
+	one_argument(argument, arg);
+	if (arg[0] == '\0') {
+		do_help(ch, "'OLC CREATE'");
+		return FALSE;
+	}
+
+	if (lang_lookup(arg) >= 0) {
+		char_puts("LangEd: lang already exists.\n\r", ch);
+		return FALSE;
+	}
+
+	l = lang_new();
+	l->name = str_dup(arg);
+	ch->desc->pEdit = l;
+	ch->desc->editor = ED_LANG;
+	char_puts("LangEd: lang created.\n\r", ch);
+	return FALSE;
+}
+
+OLC_FUN(langed_edit)
+{
+	int lang;
+	char arg[MAX_INPUT_LENGTH];
+
+	if (ch->pcdata->security < SECURITY_MSGDB) {
+		char_puts("LangEd: Insufficient security", ch);
+		return FALSE;
+	}
+
+	one_argument(argument, arg);
+	if (arg[0] == '\0') {
+		do_help(ch, "'OLC EDIT'");
+		return FALSE;
+	}
+
+	if ((lang = lang_lookup(arg)) < 0) {
+		char_puts("LangEd: language not found.\n\r", ch);
+		return FALSE;
+	}
+
+	ch->desc->pEdit = VARR_GET(&langs, lang);
+	ch->desc->editor = ED_LANG;
+	return FALSE;
+}
+
+OLC_FUN(langed_touch)
+{
+	LANG_DATA *l;
+	EDIT_LANG(ch, l);
+	SET_BIT(l->flags, LANG_CHANGED);
+	return FALSE;
+}
+
+OLC_FUN(langed_show)
+{
+	LANG_DATA *l;
+	LANG_DATA *sl;
+	EDIT_LANG(ch, l);
+
+	char_printf(ch, "Name:     [%s]\n\r", l->name);
+	if ((sl = varr_get(&langs, l->slang_of)))
+		char_printf(ch, "Slang of: [%s]\n\r", sl->name);
+	if (!IS_NULLSTR(l->file_genders))
+		char_printf(ch, "Genders:  [%s]\n\r", l->file_genders);
+	if (!IS_NULLSTR(l->file_cases))
+		char_printf(ch, "Cases:    [%s]\n\r", l->file_cases);
+	if (l->flags)
+		char_printf(ch, "Flags:    [%s]\n\r",
+			    flag_string(lang_flags, l->flags)); 
+	return FALSE;
+}
+
+OLC_FUN(langed_list)
+{
+	int lang;
+
+	for (lang = 0; lang < langs.nused; lang++) {
+		LANG_DATA *l = VARR_GET(&langs, lang);
+		char_printf(ch, "[%d] %s\n\r", lang, l->name);
+	}
+
+	return FALSE;
+}
+
+OLC_FUN(langed_name)
+{
+	LANG_DATA *l;
+
+	if (ch->pcdata->security < 9) {
+		char_puts("LangEd: Insufficient security", ch);
+		return FALSE;
+	}
+
+	EDIT_LANG(ch, l);
+	return olced_str(ch, argument, langed_name, &l->name);
+}
+
+OLC_FUN(langed_flags)
+{
+	LANG_DATA *l;
+	EDIT_LANG(ch, l);
+	return olced_flag(ch, argument, langed_flags, &l->flags);
+}
+
+OLC_FUN(langed_slangof)
+{
+	char arg[MAX_STRING_LENGTH];
+	LANG_DATA *l;
+	int lang;
+
+	one_argument(argument, arg);
+	if (arg[0] == '\0') {
+		do_help(ch, "'OLC LANG SLANG'");
+		return FALSE;
+	}
+
+	if ((lang = lang_lookup(arg)) < 0) {
+		char_puts("LangEd: language not found.\n\r", ch);
+		return FALSE;
+	}
+
+	EDIT_LANG(ch, l);
+	l->slang_of = lang;
+	return TRUE;
+}
+
+OLC_FUN(langed_genders)
+{
+	LANG_DATA *l;
+	EDIT_LANG(ch, l);
+	return olced_str(ch, argument, langed_genders, &l->file_genders);
+}
+
+OLC_FUN(langed_cases)
+{
+	LANG_DATA *l;
+	EDIT_LANG(ch, l);
+	return olced_str(ch, argument, langed_cases, &l->file_cases);
+}
+
+/* local functions */
+
+VALIDATE_FUN(validate_langname)
+{
+	if (lang_lookup(arg) >= 0) {
+		char_printf(ch, "%s: language already exists.\n\r",
+			    olc_ed_name(ch));
+		return FALSE;
+	}
+	return TRUE;
+}
+

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.5 1998-10-02 04:48:47 fjoe Exp $
+ * $Id: olc_msg.c,v 1.6 1998-10-06 13:20:14 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -138,7 +138,7 @@ OLC_FUN(msged_list)
 	BUFFER *output = NULL;
 
 	if (argument[0] == '\0') {
-		do_help(ch, "'OLC MSG'");
+		do_help(ch, "'OLC MSG LIST'");
 		return FALSE;
 	}
 		
@@ -151,7 +151,7 @@ OLC_FUN(msged_list)
 
 		for (j = 0; j < v->nused; j++) {
 			mlstring **mlp = VARR_GET(v, j);
-			char *name = mlstr_mval(*mlp);
+			const char *name = mlstr_mval(*mlp);
 
 			if (strstr(name, argument)) {
 				if (output == NULL)
@@ -168,7 +168,7 @@ OLC_FUN(msged_list)
 		buf_free(output);
 	}
 	else
-		send_to_char("MsgEd: no messages found.\n\r", ch);
+		char_puts("MsgEd: no messages found.\n\r", ch);
 
 	return FALSE;
 }
@@ -177,7 +177,7 @@ OLC_FUN(msged_msg)
 {
 	char arg[MAX_STRING_LENGTH];
 	int lang;
-	char **p;
+	const char **p;
 	mlstring *ml;
 
 	mlstring **mlp;

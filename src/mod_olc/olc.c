@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.24 1998-10-02 08:15:39 fjoe Exp $
+ * $Id: olc.c,v 1.25 1998-10-06 13:20:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -82,7 +82,10 @@ const char ED_MPCODE[]	= "mpcode";
 const char ED_HELP[]	= "help";
 const char ED_CLAN[]	= "clan";
 const char ED_MSG[]	= "msgdb";
-const char ED_CLASS[]	= "class";
+const char ED_LANG[]	= "language";
+const char ED_GENDER[]	= "word";
+const char ED_CASE[]	= "word";
+/*const char ED_CLASS[]	= "class";*/
 
 OLCED_DATA olced_table[] = {
 	{ ED_AREA,	"AreaEd",	olc_cmds_area	},
@@ -93,6 +96,9 @@ OLCED_DATA olced_table[] = {
 	{ ED_HELP,	"HelpEd",	olc_cmds_help	},
 	{ ED_MSG,	"MsgEd",	olc_cmds_msg	},
 	{ ED_CLAN,	"ClanEd",	olc_cmds_clan	},
+	{ ED_LANG,	"LangEd",	olc_cmds_lang	},
+	{ ED_GENDER,	"WordEd",	olc_cmds_word	},
+	{ ED_CASE,	"WordEd",	olc_cmds_word	},
 /*	{ ED_CLASS,	"ClassEd",	olc_cmds_class	}, */
 	{ NULL }
 };
@@ -201,7 +207,8 @@ bool olced_number(CHAR_DATA *ch, const char *argument, OLC_FUN* fun, int *pInt)
 	return TRUE;
 }
 
-bool olced_str(CHAR_DATA *ch, const char *argument, OLC_FUN *fun, char **pStr)
+bool olced_str(CHAR_DATA *ch, const char *argument,
+	       OLC_FUN *fun, const char **pStr)
 {
 	OLC_CMD_DATA *cmd;
 	VALIDATE_FUN *validator;
@@ -224,7 +231,7 @@ bool olced_str(CHAR_DATA *ch, const char *argument, OLC_FUN *fun, char **pStr)
 }
 
 bool olced_str_text(CHAR_DATA *ch, const char *argument,
-		    OLC_FUN *fun, char **pStr)
+		    OLC_FUN *fun, const char **pStr)
 {
 	OLC_CMD_DATA *cmd;
 
@@ -529,7 +536,8 @@ bool olced_clan(CHAR_DATA *ch, const char *argument, OLC_FUN *fun, int *vnum)
 VALIDATE_FUN(validate_filename)
 {
 	if (strpbrk(arg, "/")) {
-		char_puts("OLC: Invalid characters in file name.\n\r", ch);
+		char_printf(ch, "%s: Invalid characters in file name.\n\r",
+			    olc_ed_name(ch));
 		return FALSE;
 	}
 	return TRUE;

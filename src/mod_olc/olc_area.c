@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.12 1998-10-02 08:15:40 fjoe Exp $
+ * $Id: olc_area.c,v 1.13 1998-10-06 13:20:14 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,6 +31,7 @@
 #include <stdlib.h>
 #include "merc.h"
 #include "olc.h"
+#include "interp.h"
 
 #define EDIT_AREA(ch, area)	(area = (AREA_DATA*) ch->desc->pEdit)
 
@@ -170,18 +171,8 @@ OLC_FUN(areaed_list)
 	one_argument(argument, arg);
 
 	for (pArea = area_first; pArea; pArea = pArea->next) {
-		if (arg[0] != '\0') {
-			char *lowered;
-			bool match;
-
-			lowered = str_dup(pArea->name);
-			strlwr(lowered);
-			match = strstr(lowered, arg) != NULL;
-			free(lowered);
-
-			if (!match)
-				continue;
-		}
+		if (arg[0] != '\0' && !strstr(strlwr(pArea->name), arg))
+			continue;
 
 		if (output == NULL) {
 			output = buf_new(0);
@@ -274,53 +265,16 @@ OLC_FUN(areaed_builder)
 {
 	AREA_DATA *pArea;
 	char name[MAX_STRING_LENGTH];
-	char buf[MAX_STRING_LENGTH];
 
 	EDIT_AREA(ch, pArea);
 
 	one_argument(argument, name);
-
 	if (name[0] == '\0') {
-		char_puts("Syntax:  builder name  -toggles builder\n\r", ch);
-		char_puts("Syntax:  builder All   -allows everyone\n\r", ch);
+		do_help(ch, "'OLC AREA BUILDER'");
 		return FALSE;
 	}
-
-	name[0] = UPPER(name[0]);
-
-	if (strstr(pArea->builders, name) != '\0') {
-		pArea->builders = string_replace(pArea->builders, name, "\0");
-		pArea->builders = string_unpad(pArea->builders);
-
-		if (pArea->builders[0] == '\0')
-		{
-			free_string(pArea->builders);
-			pArea->builders = str_dup("None");
-		}
-		char_puts("Builder removed.\n\r", ch);
-		return TRUE;
-	}
-	else {
-		buf[0] = '\0';
-		if (strstr(pArea->builders, "None") != '\0') {
-			pArea->builders = string_replace(pArea->builders, "None", "\0");
-			pArea->builders = string_unpad(pArea->builders);
-		}
-
-		if (pArea->builders[0] != '\0') {
-			strcat(buf, pArea->builders);
-			strcat(buf, " ");
-		}
-		strcat(buf, name);
-		free_string(pArea->builders);
-		pArea->builders = string_proper(str_dup(buf));
-
-		char_puts("Builder added.\n\r", ch);
-		char_puts(pArea->builders,ch);
-		return TRUE;
-	}
-
-	return FALSE;
+	name_toggle(ch, name, "AreaEd", &pArea->builders);
+	return TRUE;
 }
 
 OLC_FUN(areaed_minvnum)

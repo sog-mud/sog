@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.31 1998-10-02 08:33:05 fjoe Exp $
+ * $Id: olc_save.c,v 1.32 1998-10-06 13:20:14 fjoe Exp $
  */
 
 /**************************************************************************
@@ -1058,6 +1058,38 @@ void save_msgdb(CHAR_DATA *ch)
 	save_print(ch, "Saved msgdb.");
 }
 
+#if 0
+void save_lang(CHAR_DATA *ch, LANG_DATA *l)
+{
+	int i;
+	FILE *fp;
+	int sec = ch ? (IS_NPC(ch) ? 0 : ch->pcdata->security) : 9;
+
+	if (security < 9) {
+		save_print(ch, "Insufficient security to save langs.");
+		return;
+	}
+}
+#endif
+
+void save_langs(CHAR_DATA *ch)
+{
+#if 0
+	int lang;
+
+	for (lang = 0; lang < langs.nused; lang++) {
+		LANG_DATA *l = VARR_GET(&langs, lang);
+
+		if (IS_SET(l->flags, LANG_GENDERS_CHANGED) 
+			save_words(ch, l, l->file_genders, l->hash_gender);
+		if (IS_SET(l->flags, LANG_CASES_CHANGED)
+			save_words(ch, l, l->file_cases, l->hash_cases);
+		if (IS_SET(l->flags, LANG_CHANGED))
+			save_langs(ch, l);
+	}
+#endif
+}
+
 void do_asave_raw(CHAR_DATA *ch, int flags)
 {
 	AREA_DATA *pArea;
@@ -1158,6 +1190,11 @@ void do_asave(CHAR_DATA *ch, const char *argument)
 
 	if (!str_cmp("msgdb", argument)) {
 		save_msgdb(ch);
+		return;
+	}
+
+	if (!str_cmp("langs", argument)) {
+		save_langs(ch);
 		return;
 	}
 

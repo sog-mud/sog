@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.20 1998-10-02 08:15:40 fjoe Exp $
+ * $Id: olc.h,v 1.21 1998-10-06 13:20:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -103,9 +103,9 @@ DECLARE_DO_FUN(do_resets	);
 bool olced_number	(CHAR_DATA *ch, const char *argument,
 			 OLC_FUN *olc_fun, int*);
 bool olced_str		(CHAR_DATA *ch, const char *argument,
-			 OLC_FUN *olc_fun, char**);
+			 OLC_FUN *olc_fun, const char**pStr);
 bool olced_str_text	(CHAR_DATA *ch, const char *argument,
-			 OLC_FUN *fun, char **pStr);
+			 OLC_FUN *fun, const char **pStr);
 bool olced_mlstr	(CHAR_DATA *ch, const char *argument,
 			 OLC_FUN *olc_fun, mlstring**);
 bool olced_mlstrnl	(CHAR_DATA *ch, const char *argument,
