@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.57 2004-02-19 22:15:43 fjoe Exp $
+ * $Id: act_obj.c,v 1.165.2.58 2004-02-19 22:19:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -138,9 +138,7 @@ void do_get(CHAR_DATA * ch, const char *argument)
 
 		ch->silver += silver;
 		ch->gold += gold;
-		act_flags = HAS_INVIS(ch, ID_SNEAK) &&
-			    number_percent() < get_skill(ch, "stealth") ?
-				ACT_NOMORTAL : 0;
+		act_flags = IS_AFFECTED(ch, AFF_SNEAK) ? ACT_NOMORTAL : 0;
 		if (container != NULL) {
 			if (gold) {
 				act("You get $j $qj{gold coins} from $P.",
@@ -4453,14 +4451,10 @@ do_sharpen_weapon(CHAR_DATA *ch, const char *argument)
 static void
 give_coins(CHAR_DATA *ch, CHAR_DATA *victim, int silver, int gold)
 {
-	if (silver > 0) {
-		dofun("give", ch, sizeof(buf), "%d silver '%s'",
-		    silver, victim->name);
-	}
-	if (gold > 0) {
-		dofun("give", ch, "%d gold '%s'",
-		    gold, victim->name);
-	}
+	if (silver > 0)
+		dofun("give", ch, "%d silver '%s'", silver, victim->name);
+	if (gold > 0)
+		dofun("give", ch, "%d gold '%s'", gold, victim->name);
 }
 
 static const char *
