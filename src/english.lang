@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.59 1998-06-22 14:56:08 efdi Exp $
+# $Id: english.lang,v 1.60 1998-06-24 02:40:07 efdi Exp $
 #
 
 NOTHING		"Nothing.\n\r"
@@ -820,3 +820,26 @@ YOU_RECITE_P		"You recite $p."
 MISPRONOUNCE_SYLLABLE	"You mispronounce a syllable.\n\r"
 NS_P_STRIKES_N		"$n's $p strikes $N!"
 P_STRIKES_N		"$p strikes $n!"
+CANT_REMOVE_IT		"You can't remove $p."
+YOU_MUST_SCRATCH_TO_REMOVE	"You must scratch it to remove $p."
+YOU_REMOVE_P_IN_PAIN	"You remove $p, in pain."
+N_REMOVES_P_IN_PAIN	"$n remove $p, in pain."
+N_STOPS_USING_P		"$n stops using $p."
+YOU_STOP_USING_P	"You stop using $p."
+EAT_WHAT		"Eat what?\n\r"
+NOT_EDIBLE		"That's not edible.\n\r"
+TOO_FULL_TO_EAT		"You are too full to eat more.\n\r"
+N_EATS_P		"$n eats $p."
+YOU_EAT_P		"You eat $p."
+NO_LONGER_HUNGRY	"You are no longer hungry.\n\r"
+YOU_ARE_FULL		"You are full.\n\r"
+N_CHOKES_GAGS		"$n chokes and gags."
+YOU_CHOKE_GAG		"You choke and gag.\n\r"
+DRINK_WHAT		"Drink what?\n\r"
+FAIL_TO_REACH_MOUTH	"You fail to reach your mouth.  *Hic*\n\r"
+CANT_DRINK_FROM_THAT	"You can't drink from that.\n\r"
+TOO_FULL_TO_DRINK	"You're too full to drink more.\n\r"
+N_DRINKS_T_FROM_P	"$n drinks $T from $p."
+YOU_DRINK_T_FROM_P	"You drink $T from $p."
+YOU_FEEL_DRUNK		"You feel drunk.\n\r"
+YOUR_THIRST_QUENCHED	"Your thirst is quenched.\n\r"
