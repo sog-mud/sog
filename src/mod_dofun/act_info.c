@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.341 2000-04-16 09:21:39 fjoe Exp $
+ * $Id: act_info.c,v 1.342 2000-04-18 08:33:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4606,6 +4606,9 @@ show_clanlist(CHAR_DATA *ch, clan_t *clan,
 
 	list = first_arg(list, name, sizeof(name), FALSE);
 	for (; name[0]; list = first_arg(list, name, sizeof(name), FALSE)) {
+		class_t *cl;
+		race_t *r;
+
 		if ((vch = char_load(name, LOAD_F_NOCREATE)) == NULL) {
 			buf_printf(output, "[{RInvalid entry{x] %s (report this to immortals)\n", name);
 			continue;
@@ -4616,12 +4619,15 @@ show_clanlist(CHAR_DATA *ch, clan_t *clan,
 			char_nuke(ch);
 			continue;
 		}
+
 		cnt++;
+		r = race_lookup(vch->race);
+		cl = class_lookup(vch->class);
 		buf_printf(output, "%-8s  %3d  %-5s  %-3s  %7s-%-7s %s\n",
 			flag_string(clan_status_table, PC(vch)->clan_status),
 			vch->level,
-			race_lookup(vch->race)->race_pcdata->who_name,
-			class_lookup(vch->class)->who_name,
+			r && r->race_pcdata ? r->race_pcdata->who_name : "none",
+			cl ? cl->who_name : "none",
 			flag_string(ethos_table, vch->ethos),
 			flag_string(align_names, NALIGN(vch)),
 			vch->name);
