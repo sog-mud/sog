@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.9 2000-04-04 13:58:25 fjoe Exp $
+ * $Id: note.c,v 1.10 2000-09-05 06:05:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -627,7 +627,7 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 
 	if ((type == NOTE_NEWS || type == NOTE_CHANGES)
 	&&  !IS_TRUSTED(ch, LEVEL_IMMORTAL)) {
-		char_printf(ch, "You aren't high enough level to write %s.",
+		char_printf(ch, "You aren't high enough level to write %s.\n",
 			    list_name);
 		return;
 	}
