@@ -1,8 +1,10 @@
-all:
+#
+# $Id: Makefile,v 1.3 1999-06-28 09:04:10 fjoe Exp $
+#
 
-install:
+MODULE_NAME = core.so
 
-depend:
+CFILES = core.c
 
-clean:
+.include "../Makefile.module"
 

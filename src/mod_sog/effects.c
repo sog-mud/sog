@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.15 1999-04-15 09:14:13 fjoe Exp $
+ * $Id: effects.c,v 1.16 1999-06-28 09:04:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,7 +46,6 @@
 #include <string.h>
 #include <time.h>
 #include "merc.h"
-#include "update.h"
 
 void acid_effect(void *vo, int level, int dam, int target)
 {

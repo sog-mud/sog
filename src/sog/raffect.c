@@ -1,5 +1,5 @@
 /*
- * $Id: raffect.c,v 1.27 1999-06-21 20:11:16 avn Exp $
+ * $Id: raffect.c,v 1.28 1999-06-28 09:04:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -331,38 +331,3 @@ void check_room_affects(CHAR_DATA *ch, ROOM_INDEX_DATA *room, int event)
 	}
 }
 	  
-void do_raffects(CHAR_DATA *ch, const char *argument)
-{
-	ROOM_AFFECT_DATA *paf, *paf_last = NULL;
-
-	if (ch->in_room->affected == NULL) {
-		char_puts("The room is not affected by any spells.\n",ch);
-		return;
-	}
-
-	char_puts("The room is affected by the following spells:\n", ch);
-	for (paf = ch->in_room->affected; paf != NULL; paf = paf->next) {
-		if (paf_last != NULL && paf->type == paf_last->type)
-			if (ch->level >= 20)
-				char_puts("                      ", ch);
-			else
-				continue;
-		else
-			char_printf(ch, "Spell: {c%-15s{x",
-				    skill_name(paf->type));
-
-		if (ch->level >= 20) {
-			char_printf(ch, ": modifies {c%s{x by {c%d{x ",
-				    flag_string(rapply_flags, paf->location),
-				    paf->modifier);
-			if (paf->duration == -1 || paf->duration == -2)
-				char_puts("permanently.", ch);
-			else
-				char_printf(ch, "for {c%d{x hours.",
-					    paf->duration);
-		}
-		char_puts("\n", ch);
-		paf_last = paf;
-	}
-}
-

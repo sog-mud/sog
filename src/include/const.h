@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.39 1999-06-25 07:14:33 fjoe Exp $
+ * $Id: const.h,v 1.40 1999-06-28 09:04:16 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -157,7 +157,6 @@ enum {
 #define MAX_COND		6	/* number of char condition stats */
 #define MAX_DIR			6	/* number of exits */
 #define MAX_ALIAS		50	/* number of aliases char can have */
-#define RATING_TABLE_SIZE	20	/* rating table size */
 
 #define MAX_LEVEL		100
 

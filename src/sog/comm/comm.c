@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.191 1999-06-24 20:35:11 fjoe Exp $
+ * $Id: comm.c,v 1.192 1999-06-28 09:04:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -89,7 +89,6 @@
 
 #include "merc.h"
 #include "quest.h"
-#include "update.h"
 #include "ban.h"
 #include "charset.h"
 #include "resolver.h"

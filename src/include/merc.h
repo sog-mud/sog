@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.216 1999-06-25 07:14:33 fjoe Exp $
+ * $Id: merc.h,v 1.217 1999-06-28 09:04:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -119,28 +119,6 @@ extern flag32_t mud_options;
 #define RA_GOOD			(A)
 #define RA_NEUTRAL		(B)
 #define RA_EVIL			(C)
-
-/* note types */
-#define NOTE_NOTE	0
-#define NOTE_IDEA	1
-#define NOTE_PENALTY	2
-#define NOTE_NEWS	3
-#define NOTE_CHANGES	4
-
-/*
- * Data structure for notes.
- */
-struct note_t
-{
-	note_t *	next;
-	const char *	sender;
-	const char *	date;
-	const char *	to_list;
-	const char *	subject;
-	const char *	text;
-	time_t		date_stamp;
-	flag32_t	type;
-};
 
 /*
  * Time and weather stuff.
@@ -1876,6 +1854,8 @@ extern		CHAR_DATA	  *	char_list_lastpc;
 #define npc_list (char_list_lastpc ? char_list_lastpc->next : char_list)
 
 extern		DESCRIPTOR_DATA   *	descriptor_list;
+extern		DESCRIPTOR_DATA   *	descriptor_free;
+
 extern		OBJ_DATA	  *	object_list;
 
 extern		MPCODE	 	 *	mpcode_list;
@@ -1909,14 +1889,7 @@ extern		bool			MOBtrigger;
 
 void	handle_death(CHAR_DATA *ch, CHAR_DATA *victim);
 
-/* act_hera.c */
-/* enter.c */
 ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch, AREA_DATA *area);
-
-/* hunt.c */
-void hunt_victim(CHAR_DATA *ch);
-int find_path(int in_room_vnum, int out_room_vnum, CHAR_DATA *ch, 
-	       int depth, int in_zone);
 
 /* effect.c */
 void	acid_effect	(void *vo, int level, int dam, int target);
@@ -2059,6 +2032,9 @@ bool	saves_dispel	(int dis_level, int spell_level, int duration);
 
 extern const char *target_name;
 
+bool	spellbane	(CHAR_DATA *bch, CHAR_DATA *ch,
+			 int bane_chance, int bane_damage);
+bool	check_trust	(CHAR_DATA *ch, CHAR_DATA *victim);
 void	obj_cast_spell	(int sn, int level, CHAR_DATA *ch, void *vo);
 void	spellfun_call	(const char *name, int level, CHAR_DATA *ch, void *vo);
 void	spellfun_call2	(const char *name, int sn, int level, CHAR_DATA *ch, void *vo);
@@ -2163,8 +2139,16 @@ void		aff_free(AFFECT_DATA *af);
 OBJ_DATA *	new_obj	(void);
 void		free_obj(OBJ_DATA *obj);
 
+extern int obj_count;
+extern int obj_free_count;
+
+/* mob recycling */
 CHAR_DATA *	new_char	(void);
 void		free_char	(CHAR_DATA *ch);
+
+extern int mob_count;
+extern int mob_free_count;
+
 PC_DATA	*	new_pcdata	(void);
 void		free_pcdata	(PC_DATA *pcdata);
 
@@ -2269,6 +2253,16 @@ void advance(CHAR_DATA *victim, int level);
 void advance_level(CHAR_DATA *ch);
 
 bool (*olc_interpret)(DESCRIPTOR_DATA *d, const char *argument);
+
+void	advance_level	(CHAR_DATA *ch);
+void	gain_exp	(CHAR_DATA *ch, int gain);
+void	gain_condition	(CHAR_DATA *ch, int iCond, int value);
+void	update_handler	(void);
+void	char_update	(void);
+void	area_update	(void);
+void	room_update	(void);
+void	track_update	(void);
+void	obj_update	(void);
 
 #endif
 

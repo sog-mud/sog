@@ -1,5 +1,5 @@
 /*
- * $Id: buffer.c,v 1.14 1999-06-24 16:33:13 fjoe Exp $
+ * $Id: buffer.c,v 1.15 1999-06-28 09:04:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -67,8 +67,8 @@ struct buf_data
 #define BUF_LIST_MAX		12
 #define BUF_DEFAULT_SIZE 	1024
 
-extern int nAllocBuf;
-extern int sAllocBuf;
+int	nAllocBuf;
+int	sAllocBuf;
 
 /* valid states */
 enum {

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.119 1999-06-24 20:35:15 fjoe Exp $
+ * $Id: spellfun2.c,v 1.120 1999-06-28 09:04:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3119,7 +3119,7 @@ void spell_lion_help(int sn, int level, CHAR_DATA *ch, void *vo)
 	char_to_room(lion, ch->in_room);
 	if (!IS_EXTRACTED(lion))
 		return;
-	hunt_victim(lion);
+	dofun("hunt", lion, str_empty);
 }
 
 void spell_magic_jar(int sn, int level, CHAR_DATA *ch, void *vo) 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.257 1999-06-25 07:14:20 fjoe Exp $
+ * $Id: act_info.c,v 1.258 1999-06-28 09:04:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -55,11 +55,11 @@
 
 #include "merc.h"
 #include "db.h"
-#include "update.h"
 #include "quest.h"
 #include "obj_prog.h"
 #include "fight.h"
 #include "socials.h"
+#include "rating.h"
 
 #if defined(SUNOS) || defined(SVR4) || defined(LINUX)
 #	include <crypt.h>
@@ -2648,6 +2648,41 @@ void do_affects(CHAR_DATA *ch, const char *argument)
 	buf_free(output);
 }
 
+void do_raffects(CHAR_DATA *ch, const char *argument)
+{
+	ROOM_AFFECT_DATA *paf, *paf_last = NULL;
+
+	if (ch->in_room->affected == NULL) {
+		char_puts("The room is not affected by any spells.\n",ch);
+		return;
+	}
+
+	char_puts("The room is affected by the following spells:\n", ch);
+	for (paf = ch->in_room->affected; paf != NULL; paf = paf->next) {
+		if (paf_last != NULL && paf->type == paf_last->type)
+			if (ch->level >= 20)
+				char_puts("                      ", ch);
+			else
+				continue;
+		else
+			char_printf(ch, "Spell: {c%-15s{x",
+				    skill_name(paf->type));
+
+		if (ch->level >= 20) {
+			char_printf(ch, ": modifies {c%s{x by {c%d{x ",
+				    flag_string(rapply_flags, paf->location),
+				    paf->modifier);
+			if (paf->duration == -1 || paf->duration == -2)
+				char_puts("permanently.", ch);
+			else
+				char_printf(ch, "for {c%d{x hours.",
+					    paf->duration);
+		}
+		char_puts("\n", ch);
+		paf_last = paf;
+	}
+}
+
 void do_lion_call(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *	gch;
@@ -4467,5 +4502,208 @@ void do_wizhelp(CHAR_DATA *ch, const char *argument)
  
 	if (col % 6 != 0)
 		char_puts("\n", ch);
+}
+
+static void
+show_clanlist(CHAR_DATA *ch, clan_t *clan,
+	      const char *list, const char *name_list)
+{
+	BUFFER *output;
+	char name[MAX_STRING_LENGTH];
+	bool found = FALSE;
+
+	output = buf_new(-1);
+	buf_printf(output, "List of %s of %s:\n", name_list, clan->name);
+
+	list = first_arg(list, name, sizeof(name), FALSE);
+	for (; name[0]; list = first_arg(list, name, sizeof(name), FALSE)) {
+		found = TRUE;
+		buf_printf(output, "- %s\n", name);
+	}
+
+	if (!found)
+		buf_add(output, "None.\n");
+
+	page_to_char(buf_string(output), ch);
+	buf_free(output);
+}
+
+void do_clanlist(CHAR_DATA *ch, const char *argument)
+{
+	char arg1[MAX_INPUT_LENGTH];
+	char arg2[MAX_INPUT_LENGTH];
+	clan_t *clan = NULL;
+
+	argument = one_argument(argument, arg1, sizeof(arg1));
+		   one_argument(argument, arg2, sizeof(arg2));
+
+	if (IS_IMMORTAL(ch) && arg2[0]) {
+		int cln;
+
+		if ((cln = cln_lookup(arg2)) < 0) {
+			char_printf(ch, "%s: no such clan.\n", arg2);
+			return;
+		}
+		clan = CLAN(cln);
+	}
+
+	if (!clan
+	&&  (!ch->clan || (clan = clan_lookup(ch->clan)) == NULL)) {
+		char_puts("You are not in a clan.\n", ch);
+		return;
+	}
+
+	if (arg1[0] == '\0' || !str_prefix(arg1, "member")) {
+		show_clanlist(ch, clan, clan->member_list, "members");
+		return;
+	}
+
+	if (!str_prefix(arg1, "leader")) {
+		show_clanlist(ch, clan, clan->leader_list, "leaders");
+		return;
+	}
+
+	if (!str_prefix(arg1, "second")) {
+		show_clanlist(ch, clan, clan->second_list, "secondaries");
+		return;
+	}
+
+	do_clanlist(ch, str_empty);
+}
+
+void do_item(CHAR_DATA* ch, const char* argument)
+{
+	clan_t* clan = NULL;
+	OBJ_DATA* in_obj;
+	int cln;
+	char arg[MAX_STRING_LENGTH];
+
+	one_argument(argument, arg, sizeof(arg));
+	if (IS_IMMORTAL(ch) && arg[0]) {
+		if ((cln = cln_lookup(arg)) < 0) {
+			char_printf(ch, "%s: no such clan.\n", arg);
+			return;
+		}
+		clan = CLAN(cln);
+	}
+
+	if (!clan
+	&&  (!ch->clan || (clan = clan_lookup(ch->clan)) == NULL)) {
+		char_puts("You are not in clan, you should not worry about your clan item.\n", ch);
+		return;
+	}
+
+	if (clan->obj_ptr == NULL) {
+		char_puts("Your clan do not have an item of power.\n",ch);
+		return;
+	}
+
+	for (in_obj = clan->obj_ptr; in_obj->in_obj; in_obj = in_obj->in_obj)
+		;
+
+	if (in_obj->carried_by) {
+		act_puts3("$p is in $R, carried by $N.",
+			  ch, clan->obj_ptr, in_obj->carried_by,
+			  in_obj->carried_by->in_room,
+			  TO_CHAR, POS_DEAD);
+	}
+	else if (in_obj->in_room) {
+		act_puts3("$p is in $R.",
+			  ch, clan->obj_ptr, NULL, in_obj->in_room,
+			  TO_CHAR, POS_DEAD);
+		for (cln = 0; cln < clans.nused; cln++) 
+			if (in_obj->in_room->vnum == CLAN(cln)->altar_vnum) {
+				act_puts("It is altar of $t.",
+					 ch, CLAN(cln)->name, NULL,
+					 TO_CHAR, POS_DEAD);
+			}
+	}
+	else 
+		act_puts("$p is somewhere.",
+			 ch, clan->obj_ptr, NULL, TO_CHAR, POS_DEAD);
+}
+
+void do_rating(CHAR_DATA *ch, const char *argument)
+{
+	int i;
+
+	char_puts("Name                    | PC's killed\n", ch);
+	char_puts("------------------------+------------\n", ch);
+	for (i = 0; i < RATING_TABLE_SIZE; i++) {
+		if (rating_table[i].name == NULL)
+			continue;
+		char_printf(ch, "%-24s| %d\n",
+			    rating_table[i].name, rating_table[i].pc_killed);
+	}
+}
+
+#define SKIP_CLOSED(pArea)						\
+	{								\
+		while (pArea && IS_SET(pArea->area_flags, AREA_CLOSED))	\
+			pArea = pArea->next;				\
+	}
+
+void do_areas(CHAR_DATA *ch, const char *argument)
+{
+	AREA_DATA *pArea1;
+	AREA_DATA *pArea2;
+	int iArea;
+	int iAreaHalf;
+	int maxArea = 0;
+	BUFFER *output;
+
+	if (argument[0] != '\0') {
+		char_puts("No argument is used with this command.\n",ch);
+		return;
+	}
+
+	/*
+	 * count total number of areas, skipping closed ones
+	 */
+	for (pArea1 = area_first; pArea1 != NULL; pArea1 = pArea1->next)
+		if (!IS_SET(pArea1->area_flags, AREA_CLOSED))
+			maxArea++;
+
+	/*
+	 * move pArea2 to the half of area list (skipping closed ones)
+	 * pArea2 can't be NULL after SKIP_CLOSED because iArea < iAreaHalf
+	 */
+	iAreaHalf = (maxArea + 1) / 2;
+	pArea1 = pArea2 = area_first;
+	for (iArea = 0; iArea < iAreaHalf; iArea++) {
+		SKIP_CLOSED(pArea2);
+		pArea2 = pArea2->next;
+	}
+
+	/*
+	 * print areas list
+	 * pArea1 can't be NULL after SKIP_CLOSED because iArea < iAreaHalf
+	 */
+	output = buf_new(-1);
+	buf_add(output, "Current areas of Shades of Gray: \n");
+	for (iArea = 0; iArea < iAreaHalf; iArea++) {
+		SKIP_CLOSED(pArea1);
+		SKIP_CLOSED(pArea2);
+
+		buf_printf(output,"{{%2d %3d} {B%-20.20s{x %8.8s ",
+			   pArea1->min_level, pArea1->max_level,
+			   pArea1->name,
+			   pArea1->credits);
+
+		if (pArea2 != NULL) 
+			buf_printf(output,"{{%2d %3d} {B%-20.20s{x %8.8s",
+				pArea2->min_level, pArea2->max_level,
+				pArea2->name,
+				pArea2->credits);
+		buf_add(output, "\n");
+
+		pArea1 = pArea1->next;
+		if (pArea2 != NULL)
+			pArea2 = pArea2->next;
+	}
+
+	buf_printf(output, "\n%d areas total.\n", maxArea);
+	page_to_char(buf_string(output), ch);	
+	buf_free(output);
 }
 

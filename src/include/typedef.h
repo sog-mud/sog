@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.26 1999-06-24 16:33:10 fjoe Exp $
+ * $Id: typedef.h,v 1.27 1999-06-28 09:04:16 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -90,11 +90,11 @@ typedef struct rulecl_t			rulecl_t;
 typedef struct olc_cmd_t		olc_cmd_t;
 typedef struct olced_t 			olced_t;	
 typedef struct rule_t			rule_t;
+typedef struct module_t			module_t;
 typedef union vo_t			vo_t;
 typedef struct altar_t			altar_t;
 typedef struct hometown_t		hometown_t;
 typedef struct note_t			note_t;
-typedef struct ban_t			ban_t;
 
 union vo_t {
 	int			vnum;

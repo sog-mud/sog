@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.46 1999-06-24 16:33:09 fjoe Exp $
+ * $Id: db.h,v 1.47 1999-06-28 09:04:16 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -93,6 +93,7 @@ struct dbdata {
 extern DBDATA db_areas;
 extern DBDATA db_clans;
 extern DBDATA db_classes;
+extern DBDATA db_cmd;
 extern DBDATA db_hometowns;
 extern DBDATA db_langs;
 extern DBDATA db_msg;
@@ -106,8 +107,6 @@ void db_set_arg(DBDATA *, const char* name, void *arg);
 
 extern int fBootDb;
 
-void	load_notes	(void);
-void	load_bans	(void);
 void	init_raff_table	(void);
 
 int	xgetc	(FILE *fp);

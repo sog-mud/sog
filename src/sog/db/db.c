@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.163 1999-06-25 07:14:44 fjoe Exp $
+ * $Id: db.c,v 1.164 1999-06-28 09:04:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -61,10 +61,11 @@
 #include "chquest.h"
 #include "rating.h"
 #include "socials.h"
-#include "update.h"
 #include "db.h"
 #include "module.h"
 #include "lang.h"
+#include "note.h"
+#include "ban.h"
 
 #ifdef SUNOS
 #	include "compat.h"
@@ -91,9 +92,6 @@ extern	int	_filbuf		(FILE *);
 #endif
 
 #endif
-
-/* externals for counting purposes */
-extern  DESCRIPTOR_DATA *descriptor_free;
 
 /*
  * Globals.
@@ -190,17 +188,10 @@ int                     top_vnum_room;		/* OLC */
 int                     top_vnum_mob;		/* OLC */
 int                     top_vnum_obj;		/* OLC */
 int			top_mprog_index;	/* OLC */
-int 			mob_count;
-int			mob_free_count;
-int			obj_count;
-int			obj_free_count;
 int			newmobs;
 int			newobjs;
 
 int			top_player;
-
-int	nAllocBuf;
-int	sAllocBuf;
 
 const char *dir_name[] =
 {
@@ -406,6 +397,7 @@ void boot_db(void)
 	reboot_counter = 1440;	/* 24 hours */
 
 	db_load_list(&db_langs, LANG_PATH, LANG_LIST);
+	db_load_file(&db_cmd, ETC_PATH, CMD_CONF);
 	db_load_file(&db_msg, ETC_PATH, MSGDB_CONF);
 	db_load_file(&db_socials, ETC_PATH, SOCIALS_CONF);
 
@@ -1552,9 +1544,9 @@ char fread_letter(FILE *fp)
 {
 	char c;
 
-	do
+	do {
 		c = xgetc(fp);
-	while (isspace(c));
+	} while (isspace(c));
 	return c;
 }
 
@@ -1670,16 +1662,15 @@ void fread_to_eol(FILE *fp)
 {
 	char c;
 
-	do
+	do {
 		c = xgetc(fp);
-	while (c != '\n' && c != '\r');
+	} while (c != '\n' && c != '\r');
 
-	do
+	do {
 		c = xgetc(fp);
-	while (c == '\n' || c == '\r');
+	} while (c == '\n' || c == '\r');
 
 	xungetc(c, fp);
-	return;
 }
 
 /*
@@ -1691,9 +1682,18 @@ char *fread_word(FILE *fp)
 	char *pword;
 	char cEnd;
 
-	do
-		cEnd = xgetc(fp);
-	while (isspace(cEnd));
+	for (;;) {
+		do {
+			cEnd = xgetc(fp);
+		} while (isspace(cEnd));
+
+		if (cEnd == '%') {
+			fread_to_eol(fp);
+			continue;
+		}
+
+		break;
+	}
 
 	if (cEnd == '\'' || cEnd == '"')
 		pword   = word;
@@ -1717,235 +1717,6 @@ char *fread_word(FILE *fp)
 
 	db_error("fread_word", "word too long");
 	return NULL;
-}
-
-#define SKIP_CLOSED(pArea)						\
-	{								\
-		while (pArea && IS_SET(pArea->area_flags, AREA_CLOSED))	\
-			pArea = pArea->next;				\
-	}
-
-void do_areas(CHAR_DATA *ch, const char *argument)
-{
-	AREA_DATA *pArea1;
-	AREA_DATA *pArea2;
-	int iArea;
-	int iAreaHalf;
-	int maxArea = 0;
-	BUFFER *output;
-
-	if (argument[0] != '\0') {
-		char_puts("No argument is used with this command.\n",ch);
-		return;
-	}
-
-	/*
-	 * count total number of areas, skipping closed ones
-	 */
-	for (pArea1 = area_first; pArea1 != NULL; pArea1 = pArea1->next)
-		if (!IS_SET(pArea1->area_flags, AREA_CLOSED))
-			maxArea++;
-
-	/*
-	 * move pArea2 to the half of area list (skipping closed ones)
-	 * pArea2 can't be NULL after SKIP_CLOSED because iArea < iAreaHalf
-	 */
-	iAreaHalf = (maxArea + 1) / 2;
-	pArea1 = pArea2 = area_first;
-	for (iArea = 0; iArea < iAreaHalf; iArea++) {
-		SKIP_CLOSED(pArea2);
-		pArea2 = pArea2->next;
-	}
-
-	/*
-	 * print areas list
-	 * pArea1 can't be NULL after SKIP_CLOSED because iArea < iAreaHalf
-	 */
-	output = buf_new(-1);
-	buf_add(output, "Current areas of Shades of Gray: \n");
-	for (iArea = 0; iArea < iAreaHalf; iArea++) {
-		SKIP_CLOSED(pArea1);
-		SKIP_CLOSED(pArea2);
-
-		buf_printf(output,"{{%2d %3d} {B%-20.20s{x %8.8s ",
-			   pArea1->min_level, pArea1->max_level,
-			   pArea1->name,
-			   pArea1->credits);
-
-		if (pArea2 != NULL) 
-			buf_printf(output,"{{%2d %3d} {B%-20.20s{x %8.8s",
-				pArea2->min_level, pArea2->max_level,
-				pArea2->name,
-				pArea2->credits);
-		buf_add(output, "\n");
-
-		pArea1 = pArea1->next;
-		if (pArea2 != NULL)
-			pArea2 = pArea2->next;
-	}
-
-	buf_printf(output, "\n%d areas total.\n", maxArea);
-	page_to_char(buf_string(output), ch);	
-	buf_free(output);
-}
-
-void do_memory(CHAR_DATA *ch, const char *argument)
-{
-	extern int str_count;
-	extern int str_real_count;
-
-	char_printf(ch, "Affects  : %d\n", top_affect );
-	char_printf(ch, "RAffects : %d\n", top_raffect );
-	char_printf(ch, "Areas    : %d\n", top_area   );
-	char_printf(ch, "ExDes    : %d\n", top_ed     );
-	char_printf(ch, "Exits    : %d\n", top_exit   );
-	char_printf(ch, "Helps    : %d\n", top_help   );
-	char_printf(ch, "Socials  : %d\n", socials.nused);
-	char_printf(ch, "Mob idx  : %d (%d old, max vnum %d)\n",
-		    top_mob_index, top_mob_index - newmobs, top_vnum_mob); 
-	char_printf(ch, "Mobs     : %d (%d free)\n",
-		    mob_count, mob_free_count);
-	char_printf(ch, "Obj idx  : %d (%d old, max vnum %d)\n",
-		    top_obj_index, top_obj_index - newobjs, top_vnum_obj); 
-	char_printf(ch, "Objs     : %d (%d free)\n",
-		    obj_count, obj_free_count);
-	char_printf(ch, "Resets   : %d\n", top_reset  );
-	char_printf(ch, "Rooms    : %d (max vnum %d)\n",
-		    top_room, top_vnum_room);
-	char_printf(ch, "Shops    : %d\n", top_shop   );
-	char_printf(ch, "Buffers  : %d (%d bytes)\n",
-					nAllocBuf, sAllocBuf);
-	char_printf(ch, "strings  : %d (%d allocated)\n",
-			str_count, str_real_count);
-}
-
-void do_dump(CHAR_DATA *ch, const char *argument)
-{
-	int count,count2,num_pcs,aff_count;
-	CHAR_DATA *fch;
-	MOB_INDEX_DATA *pMobIndex;
-	OBJ_DATA *obj;
-	OBJ_INDEX_DATA *pObjIndex;
-	ROOM_INDEX_DATA *room;
-	EXIT_DATA *exit;
-	PC_DATA *pc;
-	DESCRIPTOR_DATA *d;
-	AFFECT_DATA *af;
-	FILE *fp;
-	int vnum,nMatch = 0;
-
-	if ((fp = dfopen(TMP_PATH, "mem.dmp", "w")) == NULL)
-		return;
-
-	/* report use of data structures */
-	
-	num_pcs = 0;
-	aff_count = 0;
-
-	/* mobile prototypes */
-	fprintf(fp,"MobProt	%4d (%8d bytes)\n",
-		top_mob_index, top_mob_index * (sizeof(*pMobIndex))); 
-
-	/* mobs */
-	count = 0;
-	for (fch = char_list; fch != NULL; fch = fch->next)
-	{
-		count++;
-		if (fch->pcdata != NULL)
-		    num_pcs++;
-		for (af = fch->affected; af != NULL; af = af->next)
-		    aff_count++;
-	}
-
-	fprintf(fp,"Mobs	%4d (%8d bytes)\n",
-		count, count * (sizeof(*fch)));
-
-	fprintf(fp,"Pcdata	%4d (%8d bytes)\n",
-		num_pcs, num_pcs * (sizeof(*pc)));
-
-	/* descriptors */
-	count = 0; count2 = 0;
-	for (d = descriptor_list; d != NULL; d = d->next)
-		count++;
-	for (d= descriptor_free; d != NULL; d = d->next)
-		count2++;
-
-	fprintf(fp, "Descs	%4d (%8d bytes), %2d free (%d bytes)\n",
-		count, count * (sizeof(*d)), count2, count2 * (sizeof(*d)));
-
-	/* object prototypes */
-	for (vnum = 0; nMatch < top_obj_index; vnum++)
-		if ((pObjIndex = get_obj_index(vnum)) != NULL)
-		{
-		    for (af = pObjIndex->affected; af != NULL; af = af->next)
-			aff_count++;
-		    nMatch++;
-		}
-
-	fprintf(fp,"ObjProt	%4d (%8d bytes)\n",
-		top_obj_index, top_obj_index * (sizeof(*pObjIndex)));
-
-	/* objects */
-	count = 0;
-	for (obj = object_list; obj != NULL; obj = obj->next) {
-		count++;
-		for (af = obj->affected; af != NULL; af = af->next)
-		    aff_count++;
-	}
-
-	fprintf(fp,"Objs	%4d (%8d bytes)\n",
-		count, count * (sizeof(*obj)));
-
-	/* affects */
-	fprintf(fp,"Affects	%4d (%8d bytes)\n",
-		aff_count, aff_count * (sizeof(*af)));
-
-	/* rooms */
-	fprintf(fp,"Rooms	%4d (%8d bytes)\n",
-		top_room, top_room * (sizeof(*room)));
-
-	 /* exits */
-	fprintf(fp,"Exits	%4d (%8d bytes)\n",
-		top_exit, top_exit * (sizeof(*exit)));
-
-	fclose(fp);
-
-	/* start printing out mobile data */
-	if ((fp = dfopen(TMP_PATH, "mob.dmp", "w")) == NULL)
-		return;
-
-	fprintf(fp,"\nMobile Analysis\n");
-	fprintf(fp,  "---------------\n");
-	nMatch = 0;
-	for (vnum = 0; nMatch < top_mob_index; vnum++)
-		if ((pMobIndex = get_mob_index(vnum)) != NULL)
-		{
-		    nMatch++;
-		    fprintf(fp,"#%-4d %3d active %3d killed     %s\n",
-			pMobIndex->vnum,pMobIndex->count,
-			pMobIndex->killed,mlstr_mval(&pMobIndex->short_descr));
-		}
-	fclose(fp);
-
-	/* start printing out object data */
-	if ((fp = dfopen(TMP_PATH, "obj.dmp", "w")) == NULL)
-		return;
-
-	fprintf(fp,"\nObject Analysis\n");
-	fprintf(fp,  "---------------\n");
-	nMatch = 0;
-	for (vnum = 0; nMatch < top_obj_index; vnum++)
-		if ((pObjIndex = get_obj_index(vnum)) != NULL)
-		{
-		    nMatch++;
-		    fprintf(fp,"#%-4d %3d active %3d reset      %s\n",
-			pObjIndex->vnum,pObjIndex->count,
-			pObjIndex->reset_num,
-			mlstr_mval(&pObjIndex->short_descr));
-		}
-
-	/* close file */
-	fclose(fp);
 }
 
 /*

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.168 1999-06-25 07:14:30 fjoe Exp $
+ * $Id: act_wiz.c,v 1.169 1999-06-28 09:04:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -58,7 +58,6 @@
 #endif
 
 #include "merc.h"
-#include "update.h"
 #include "quest.h"
 #include "obj_prog.h"
 #include "fight.h"
@@ -66,6 +65,9 @@
 #include "chquest.h"
 #include "cmd.h"
 #include "db.h"
+#include "ban.h"
+#include "socials.h"
+#include "mob_prog.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_rstat	);
@@ -1678,71 +1680,6 @@ void do_mwhere(CHAR_DATA *ch, const char *argument)
 		act("You didn't find any $T.", ch, NULL, argument, TO_CHAR);
 }
 
-void do_reboo(CHAR_DATA *ch, const char *argument)
-{
-	char_puts("If you want to REBOOT, spell it out.\n", ch);
-}
-
-void do_shutdow(CHAR_DATA *ch, const char *argument)
-{
-	char_puts("If you want to SHUTDOWN, spell it out.\n", ch);
-}
-
-void do_shutdown(CHAR_DATA *ch, const char *argument)
-{
-	bool active;
-	char arg[MAX_INPUT_LENGTH];
-
-	one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0') {
-		do_help(ch, "SHUTDOWN");
-		return;
-	}
-
-	active = dfexist(TMP_PATH, SHUTDOWN_FILE);
-		
-	if (!str_prefix(arg, "status")) {
-		char_printf(ch, "Shutdown status: %s\n",
-			    active ? "active" : "inactive");
-		return;
-	}
-
-	if (!str_prefix(arg, "activate")) {
-		if (!active) {
-			FILE *fp = dfopen(TMP_PATH, SHUTDOWN_FILE, "w");
-			if (!fp) {
-				char_printf(ch, "Error: %s.\n",
-					    strerror(errno));
-				return;
-			}
-			fclose(fp);
-			wiznet("$N has activated shutdown", ch, NULL, 0, 0, 0);
-			char_puts("Shutdown activated.\n", ch);
-		}
-		else
-			char_puts("Shutdown already activated.\n", ch);
-		return;
-	}
-
-	if (!str_prefix(arg, "deactivate") || !str_prefix(arg, "cancel")) {
-		if (!active)
-			char_puts("Shutdown already inactive.\n", ch);
-		else {
-			if (dunlink(TMP_PATH, SHUTDOWN_FILE) < 0) {
-				char_printf(ch, "Error: %s.\n",
-					    strerror(errno));
-				return;
-			}
-			wiznet("$N has deactivated shutdown",
-				ch, NULL, 0, 0, 0);
-			char_puts("Shutdown deactivated.\n", ch);
-		}
-		return;
-	}
-
-	do_shutdown(ch, str_empty);
-}
-
 void do_protect(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
@@ -3165,7 +3102,7 @@ void do_prefi(CHAR_DATA *ch, const char *argument)
 	char_puts("You cannot abbreviate the prefix command.\n", ch);
 }
 
-void do_prefixi(CHAR_DATA *ch, const char *argument)
+void do_prefix(CHAR_DATA *ch, const char *argument)
 {
 	if (argument[0] == '\0') {
 		if (ch->prefix[0] == '\0') {
@@ -4135,112 +4072,6 @@ void do_affrooms(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-static char *find_way(CHAR_DATA *ch, ROOM_INDEX_DATA *rstart,
-		      ROOM_INDEX_DATA *rend) 
-{
-	int direction;
-	static char buf[1024];
-	EXIT_DATA *pExit;
-	char buf2[2];
-
-	snprintf(buf, sizeof(buf), "Bul: ");
-	while (1) {
-		if ((rend == rstart))
-			return buf;
-
-		if ((direction = find_path(rstart->vnum, rend->vnum,
-					   ch, -40000, 0)) == -1) {
-			strnzcat(buf, sizeof(buf), " BUGGY");
-			return buf;
-		}
-
-		if (direction < 0 || direction > 5) {
-			strnzcat(buf, sizeof(buf), " VERY BUGGY");
-			return buf;
-		}
-
-		buf2[0] = dir_name[direction][0];
-		buf2[1] = '\0';
-		strnzcat(buf, sizeof(buf), buf2);
-
-		/* find target room */
-		pExit = rstart->exit[ direction ];
-		if (!pExit)  {
-			strnzcat(buf, sizeof(buf), " VERY VERY BUGGY");
-			return buf;
-		}
-		else
-			rstart = pExit->to_room.r;
-	}
-}	
-
-void do_find(CHAR_DATA *ch, const char *argument)
-{
-	char* path;
-	ROOM_INDEX_DATA *location;
-
-	if (argument[0] == '\0') {
-		char_puts("Ok. But what I should find?\n", ch);
-		return;
-	}
-
-	if ((location = find_location(ch, argument)) == NULL) {
-		char_puts("No such location.\n", ch);
-		return;
-	}
-
-	path = find_way(ch, ch->in_room, location);
-	char_printf(ch, "%s.\n", path);
-	log("From %d to %d: %s.\n",
-		   ch->in_room->vnum, location->vnum, path);
-	return;
-}
-
-void do_reboot(CHAR_DATA *ch, const char *argument)
-{
-	char arg[MAX_INPUT_LENGTH];
-
-	argument = one_argument(argument, arg, sizeof(arg));    
-
-	if (arg[0] == '\0') {
-		char_puts("Usage: reboot now\n"
-			  "Usage: reboot <ticks to reboot>\n"
-			  "Usage: reboot cancel\n"
-			  "Usage: reboot status\n", ch);
-		return;
-	}
-
-	if (is_name(arg, "cancel")) {
-		reboot_counter = -1;
-		char_puts("Reboot canceled.\n", ch);
-		return;
-	}
-
-	if (is_name(arg, "now")) {
-		reboot_mud();
-		return;
-	}
-
-	if (is_name(arg, "status")) {
-		if (reboot_counter == -1) 
-			char_printf(ch, "Automatic rebooting is inactive.\n");
-		else
-			char_printf(ch, "Reboot in %i minutes.\n",
-				    reboot_counter);
-		return;
-	}
-
-	if (is_number(arg)) {
-		reboot_counter = atoi(arg);
-		rebooter = 1;
-		char_printf(ch, "SoG will reboot in %i ticks.\n",
-			    reboot_counter);
-		return;
-	}
-
-	do_reboot(ch, "");   
-}
-
 void do_msgstat(CHAR_DATA *ch, const char *argument)
 {
 	varr *v;
@@ -4454,50 +4285,298 @@ void do_qtarget(CHAR_DATA *ch, const char *argument)
 	affect_to_char(vch, &af);
 }
 
-#include "module.h"
+void do_sla(CHAR_DATA *ch, const char *argument)
+{
+	char_puts("If you want to SLAY, spell it out.\n", ch);
+	return;
+}
 
-void do_modules(CHAR_DATA *ch, const char *argument)
+void do_slay(CHAR_DATA *ch, const char *argument)
+{
+	CHAR_DATA *victim;
+	char arg[MAX_INPUT_LENGTH];
+
+	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0') {
+		char_puts("Slay whom?\n", ch);
+		return;
+	}
+
+	if ((victim = get_char_room(ch, arg)) == NULL) {
+		char_puts("They aren't here.\n", ch);
+		return;
+	}
+
+	if (ch == victim) {
+		char_puts("Suicide is a mortal sin.\n", ch);
+		return;
+	}
+
+	if (IS_IMMORTAL(victim)) {
+		char_puts("You failed.\n", ch);
+		return;
+	}
+
+	act("You slay $M in cold blood!", ch, NULL, victim, TO_CHAR);
+	act("$n slays you in cold blood!", ch, NULL, victim, TO_VICT);
+	act("$n slays $N in cold blood!", ch, NULL, victim, TO_NOTVICT);
+	raw_kill(ch, victim);
+}
+
+void do_ban(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
 	argument = one_argument(argument, arg, sizeof(arg));
+
 	if (arg[0] == '\0') {
-		do_help(ch, "'WIZ MODULES'");
-		return;
-	}
+		ban_t *pban;
 
-	if (!str_prefix(arg, "reload")
-	||  !str_prefix(arg, "load")) {
-		module_t *m;
-
-		one_argument(argument, arg, sizeof(arg));
-		if ((m = mod_lookup(arg)) == NULL) {
-			char_printf(ch, "%s: unknown module name.\n",
-				    arg);
+		if (ban_list == NULL) {
+			char_puts("No ban rules defined.\n", ch);
 			return;
-		}
+  		}
 
-		if (mod_load(m) == 0)
-			char_puts("Ok.\n", ch);
-
+		char_puts("Ban rules:\n", ch);
+		for (pban = ban_list; pban; pban = pban->next)
+			char_printf(ch, "%s\n", format_ban(pban));
 		return;
 	}
 
-	if (!str_prefix(arg, "list")) {
-		int i;
+	if (!str_prefix(arg, "add"))
+		ban_add(ch, argument);
+	else if (!str_prefix(arg, "delete"))
+		ban_delete(ch, argument);
+	else
+		dofun("help", ch, "'WIZ BAN'");
+}
 
-		if (modules.nused == 0) {
-			char_puts("No modules found.\n", ch);
-			return;
-		}
+void do_memory(CHAR_DATA *ch, const char *argument)
+{
+	extern int str_count;
+	extern int str_real_count;
 
-		for (i = 0; i < modules.nused; i++) {
-			module_t *m = VARR_GET(&modules, i);
-			char_printf(ch, "Module: %s\n", m->name);
-		}
+	char_printf(ch, "Affects  : %d\n", top_affect );
+	char_printf(ch, "RAffects : %d\n", top_raffect );
+	char_printf(ch, "Areas    : %d\n", top_area   );
+	char_printf(ch, "ExDes    : %d\n", top_ed     );
+	char_printf(ch, "Exits    : %d\n", top_exit   );
+	char_printf(ch, "Helps    : %d\n", top_help   );
+	char_printf(ch, "Socials  : %d\n", socials.nused);
+	char_printf(ch, "Mob idx  : %d (%d old, max vnum %d)\n",
+		    top_mob_index, top_mob_index - newmobs, top_vnum_mob); 
+	char_printf(ch, "Mobs     : %d (%d free)\n",
+		    mob_count, mob_free_count);
+	char_printf(ch, "Obj idx  : %d (%d old, max vnum %d)\n",
+		    top_obj_index, top_obj_index - newobjs, top_vnum_obj); 
+	char_printf(ch, "Objs     : %d (%d free)\n",
+		    obj_count, obj_free_count);
+	char_printf(ch, "Resets   : %d\n", top_reset  );
+	char_printf(ch, "Rooms    : %d (max vnum %d)\n",
+		    top_room, top_vnum_room);
+	char_printf(ch, "Shops    : %d\n", top_shop   );
+	char_printf(ch, "Buffers  : %d (%d bytes)\n",
+					nAllocBuf, sAllocBuf);
+	char_printf(ch, "strings  : %d (%d allocated)\n",
+			str_count, str_real_count);
+}
+
+void do_dump(CHAR_DATA *ch, const char *argument)
+{
+	int count,count2,num_pcs,aff_count;
+	CHAR_DATA *fch;
+	MOB_INDEX_DATA *pMobIndex;
+	OBJ_DATA *obj;
+	OBJ_INDEX_DATA *pObjIndex;
+	ROOM_INDEX_DATA *room;
+	EXIT_DATA *exit;
+	PC_DATA *pc;
+	DESCRIPTOR_DATA *d;
+	AFFECT_DATA *af;
+	FILE *fp;
+	int vnum,nMatch = 0;
+
+	if ((fp = dfopen(TMP_PATH, "mem.dmp", "w")) == NULL)
 		return;
+
+	/* report use of data structures */
+	
+	num_pcs = 0;
+	aff_count = 0;
+
+	/* mobile prototypes */
+	fprintf(fp,"MobProt	%4d (%8d bytes)\n",
+		top_mob_index, top_mob_index * (sizeof(*pMobIndex))); 
+
+	/* mobs */
+	count = 0;
+	for (fch = char_list; fch != NULL; fch = fch->next)
+	{
+		count++;
+		if (fch->pcdata != NULL)
+		    num_pcs++;
+		for (af = fch->affected; af != NULL; af = af->next)
+		    aff_count++;
 	}
 
-	do_modules(ch, str_empty);
+	fprintf(fp,"Mobs	%4d (%8d bytes)\n",
+		count, count * (sizeof(*fch)));
+
+	fprintf(fp,"Pcdata	%4d (%8d bytes)\n",
+		num_pcs, num_pcs * (sizeof(*pc)));
+
+	/* descriptors */
+	count = 0; count2 = 0;
+	for (d = descriptor_list; d != NULL; d = d->next)
+		count++;
+	for (d= descriptor_free; d != NULL; d = d->next)
+		count2++;
+
+	fprintf(fp, "Descs	%4d (%8d bytes), %2d free (%d bytes)\n",
+		count, count * (sizeof(*d)), count2, count2 * (sizeof(*d)));
+
+	/* object prototypes */
+	for (vnum = 0; nMatch < top_obj_index; vnum++)
+		if ((pObjIndex = get_obj_index(vnum)) != NULL)
+		{
+		    for (af = pObjIndex->affected; af != NULL; af = af->next)
+			aff_count++;
+		    nMatch++;
+		}
+
+	fprintf(fp,"ObjProt	%4d (%8d bytes)\n",
+		top_obj_index, top_obj_index * (sizeof(*pObjIndex)));
+
+	/* objects */
+	count = 0;
+	for (obj = object_list; obj != NULL; obj = obj->next) {
+		count++;
+		for (af = obj->affected; af != NULL; af = af->next)
+		    aff_count++;
+	}
+
+	fprintf(fp,"Objs	%4d (%8d bytes)\n",
+		count, count * (sizeof(*obj)));
+
+	/* affects */
+	fprintf(fp,"Affects	%4d (%8d bytes)\n",
+		aff_count, aff_count * (sizeof(*af)));
+
+	/* rooms */
+	fprintf(fp,"Rooms	%4d (%8d bytes)\n",
+		top_room, top_room * (sizeof(*room)));
+
+	 /* exits */
+	fprintf(fp,"Exits	%4d (%8d bytes)\n",
+		top_exit, top_exit * (sizeof(*exit)));
+
+	fclose(fp);
+
+	/* start printing out mobile data */
+	if ((fp = dfopen(TMP_PATH, "mob.dmp", "w")) == NULL)
+		return;
+
+	fprintf(fp,"\nMobile Analysis\n");
+	fprintf(fp,  "---------------\n");
+	nMatch = 0;
+	for (vnum = 0; nMatch < top_mob_index; vnum++)
+		if ((pMobIndex = get_mob_index(vnum)) != NULL)
+		{
+		    nMatch++;
+		    fprintf(fp,"#%-4d %3d active %3d killed     %s\n",
+			pMobIndex->vnum,pMobIndex->count,
+			pMobIndex->killed,mlstr_mval(&pMobIndex->short_descr));
+		}
+	fclose(fp);
+
+	/* start printing out object data */
+	if ((fp = dfopen(TMP_PATH, "obj.dmp", "w")) == NULL)
+		return;
+
+	fprintf(fp,"\nObject Analysis\n");
+	fprintf(fp,  "---------------\n");
+	nMatch = 0;
+	for (vnum = 0; nMatch < top_obj_index; vnum++)
+		if ((pObjIndex = get_obj_index(vnum)) != NULL)
+		{
+		    nMatch++;
+		    fprintf(fp,"#%-4d %3d active %3d reset      %s\n",
+			pObjIndex->vnum,pObjIndex->count,
+			pObjIndex->reset_num,
+			mlstr_mval(&pObjIndex->short_descr));
+		}
+
+	/* close file */
+	fclose(fp);
+}
+
+void do_mob(CHAR_DATA *ch, const char *argument)
+{
+	/*
+	 * Security check!
+	 */
+	if (ch->desc && ch->level < MAX_LEVEL)
+		return;
+	mob_interpret(ch, argument);
+}
+
+/* 
+ * Displays MOBprogram triggers of a mobile
+ *
+ * Syntax: mpstat [name]
+ */
+void do_mpstat(CHAR_DATA *ch, const char *argument)
+{
+    char        arg[ MAX_STRING_LENGTH  ];
+    MPTRIG  *mptrig;
+    CHAR_DATA   *victim;
+    int i;
+
+    one_argument(argument, arg, sizeof(arg));
+
+    if (arg[0] == '\0')
+    {
+	char_puts("Mpstat whom?\n", ch);
+	return;
+    }
+
+    if ((victim = get_char_world(ch, arg)) == NULL)
+    {
+	char_puts("No such creature.\n", ch);
+	return;
+    }
+
+    if (!IS_NPC(victim))
+    {
+	char_puts("That is not a mobile.\n", ch);
+	return;
+    }
+
+    if ((victim = get_char_world(ch, arg)) == NULL)
+    {
+	char_puts("No such creature visible.\n", ch);
+	return;
+    }
+
+    char_printf(ch, "Mobile #%-6d [%s]\n",
+		victim->pIndexData->vnum, mlstr_mval(&victim->short_descr));
+
+    char_printf(ch, "Delay   %-6d [%s]\n",
+		victim->mprog_delay,
+		victim->mprog_target == NULL ?
+		"No target" : victim->mprog_target->name);
+
+    if (!victim->pIndexData->mptrig_types) {
+	char_puts("[No programs set]\n", ch);
+	return;
+    }
+
+    for (i = 0, mptrig = victim->pIndexData->mptrig_list; mptrig != NULL;
+	 mptrig = mptrig->next)
+	char_printf(ch, "[%2d] Trigger [%-8s] Program [%4d] Phrase [%s]\n",
+	      ++i,
+	      flag_string(mptrig_types, mptrig->type),
+	      mptrig->vnum,
+	      mptrig->phrase);
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.144 1999-06-25 07:14:43 fjoe Exp $
+ * $Id: update.c,v 1.145 1999-06-28 09:04:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,7 +45,6 @@
 #include <string.h>
 #include <time.h>
 #include "merc.h"
-#include "update.h"
 #include "mob_prog.h"
 #include "obj_prog.h"
 #include "fight.h"
@@ -677,7 +676,7 @@ void mobile_update(void)
 
 		act = ch->pIndexData->act;
 		if (IS_SET(act, ACT_HUNTER) && ch->hunting) {
-			hunt_victim(ch);
+			dofun("hunt", ch, str_empty);
 			if (IS_EXTRACTED(ch))
 				continue;
 		}

@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1998 efdi <efdi@iclub.nsu.ru>
+ * Copyright (c) 1999 fjoe <fjoe@iclub.nsu.ru>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,22 +23,69 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rating.h,v 1.6 1999-06-28 09:04:16 fjoe Exp $
+ * $Id: db_cmd.c,v 1.1 1999-06-28 09:04:21 fjoe Exp $
  */
 
-#ifndef _RATING_H_
-#define _RATING_H_
+#include <stdio.h>
+#include "merc.h"
+#include "db.h"
 
-void	rating_update(CHAR_DATA* ch, CHAR_DATA* victim);
-void	rating_add(CHAR_DATA *ch);
+DECLARE_DBLOAD_FUN(load_cmd);
 
-typedef struct rating_t {
-	const char *name;
-	int pc_killed;
-} rating_t;
+DBFUN dbfun_cmd[] =
+{
+	{ "CMD",	load_cmd	},
+	{ NULL }
+};
 
-#define RATING_TABLE_SIZE	20
+DBDATA db_cmd = { dbfun_cmd };
 
-extern struct rating_t rating_table[RATING_TABLE_SIZE];
+DBLOAD_FUN(load_cmd)
+{
+	cmd_t *cmd = cmd_new();
 
-#endif
+	for (;;) {
+		char *word = feof(fp) ? "End" : fread_word(fp);
+		bool fMatch = FALSE;
+
+		switch(UPPER(word[0])) {
+		case 'C':
+			KEY("class", cmd->cmd_class,
+			    fread_fword(cmd_classes, fp));
+			break;
+		case 'D':
+			SKEY("dofun", cmd->dofun_name);
+			break;
+		case 'E':
+			if (!str_cmp(word, "end")) {
+				if (IS_NULLSTR(cmd->name)) {
+					db_error("load_cmd", "NULL name");
+					cmd_free(cmd);
+					commands.nused--;
+				}
+				return;
+			}
+			break;
+		case 'F':
+			KEY("flags", cmd->cmd_flags,
+			    fread_fstring(cmd_flags, fp));
+			break;
+		case 'L':
+			KEY("log", cmd->cmd_log,
+			    fread_fword(cmd_logtypes, fp));
+			break;
+		case 'M':
+			KEY("min_pos", cmd->min_pos,
+			    fread_fword(position_table, fp));
+			KEY("min_level", cmd->min_level,
+			    fread_fword(level_table, fp));
+			break;
+		case 'N':
+			SKEY("name", cmd->name);
+			break;
+		}
+
+		if (!fMatch) 
+			db_error("load_cmd", "%s: Unknown keyword", word);
+	}
+}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest.c,v 1.12 1999-06-24 20:35:04 fjoe Exp $
+ * $Id: chquest.c,v 1.13 1999-06-28 09:04:17 fjoe Exp $
  */
 
 /*
@@ -47,93 +47,7 @@
 #include "chquest.h"
 #include "auction.h"
 
-static void chquest_startq(chquest_t *q);
-static void chquest_stopq(chquest_t *q);
-static inline void chquest_status(CHAR_DATA *ch);
-
-static chquest_t *chquest_lookup(OBJ_INDEX_DATA *obj_index);
-static chquest_t *chquest_lookup_obj(OBJ_DATA *obj);
-
 chquest_t *chquest_list;
-
-void do_chquest(CHAR_DATA *ch, const char *argument)
-{
-	char arg[MAX_INPUT_LENGTH];
-
-	argument = one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0') {
-		dofun("help", ch, "'WIZ CHQUEST'");
-		return;
-	}
-
-	if (!str_prefix(arg, "restart")) {
-		chquest_start(CHQUEST_F_NODELAY);
-		char_puts("Challenge quest restarted.\n", ch);
-		return;
-	}
-
-	if (!str_prefix(arg, "status")) {
-		chquest_status(ch);
-		return;
-	}
-
-	if (!str_prefix(arg, "start")
-	||  !str_prefix(arg, "stop")
-	||  !str_prefix(arg, "add")
-	||  !str_prefix(arg, "delete")) {
-		char arg2[MAX_INPUT_LENGTH];
-		OBJ_INDEX_DATA *obj_index;
-		chquest_t *q;
-
-		one_argument(argument, arg2, sizeof(arg2));
-		if (!is_number(arg2)) {
-			do_chquest(ch, str_empty);
-			return;
-		}
-
-		if ((obj_index = get_obj_index(atoi(arg2))) == NULL) {
-			char_printf(ch, "do_chquest: %s: no object with that vnum.\n", arg2);
-			return;
-		}
-
-		if (!str_prefix(arg, "delete")) {
-			chquest_delete(ch, obj_index);
-			return;
-		}
-
-		if (!str_prefix(arg, "add")) {
-			chquest_add(obj_index);
-			return;
-		}
-
-		if ((q = chquest_lookup(obj_index)) == NULL) {
-			char_printf(ch, "do_chquest: %s: no chquests with that vnum.\n", arg2);
-			return;
-		}
-
-		if (!str_prefix(arg, "start")) {
-			if (IS_RUNNING(q)) {
-				char_printf(ch, "do_chquest: quest vnum %d "
-						"already running.\n",
-						q->obj_index->vnum);
-				return;
-			}
-			chquest_startq(q);
-			return;
-		}
-
-		if (IS_RUNNING(q) && IS_AUCTIONED(q->obj)) {
-			act("$p is on auction right now.",
-			    ch, q->obj, NULL, TO_CHAR);
-			return;
-		}
-
-		chquest_stopq(q);
-		return;
-	}
-
-	do_chquest(ch, str_empty);
-}
 
 /*
  * chquest_start -- create all objects and drop them randomly
@@ -219,6 +133,62 @@ bool chquest_delete(CHAR_DATA *ch, OBJ_INDEX_DATA *obj_index)
 	return TRUE;
 }
 
+chquest_t *chquest_lookup(OBJ_INDEX_DATA *obj_index)
+{
+	chquest_t *q;
+
+	for (q = chquest_list; q; q = q->next) {
+		if (q->obj_index == obj_index)
+			return q;
+	}
+
+	return NULL;
+}
+
+chquest_t *chquest_lookup_obj(OBJ_DATA *obj)
+{
+	chquest_t *q = chquest_lookup(obj->pIndexData);
+
+	if (q == NULL || !IS_RUNNING(q) || q->obj != obj)
+		return NULL;
+	return q;
+}
+
+/*
+ * chquest_startq - start given chquest
+ *
+ * assumes that !IS_RUNNING(q) check is done
+ */
+void chquest_startq(chquest_t *q)
+{
+	ROOM_INDEX_DATA *room;
+
+	log("chquest_startq: started chquest for '%s' (vnum %d)",
+	   	   mlstr_mval(&q->obj_index->short_descr), q->obj_index->vnum);
+
+	SET_RUNNING(q);
+	q->obj = create_obj(q->obj_index, 0);
+	q->obj->timer = number_range(100, 150);
+
+	do {
+		room = get_random_room(NULL, NULL);
+	} while (IS_SET(room->area->area_flags, AREA_NOQUEST));
+
+	obj_to_room(q->obj, room);
+}
+
+void chquest_stopq(chquest_t *q)
+{
+	if (IS_STOPPED(q))
+		return;
+
+	log("chquest_stopq: stopped quest for '%s' (vnum %d)",
+		   mlstr_mval(&q->obj_index->short_descr), q->obj_index->vnum);
+	if (IS_RUNNING(q))
+		extract_obj(q->obj, XO_F_NOCHQUEST);
+	SET_STOPPED(q);
+}
+
 /*
  * stop challenge quest if item is extracted. called from extract_obj
  * quest will be restarted automatically from chquest_update after
@@ -248,111 +218,5 @@ CHAR_DATA *chquest_carried_by(OBJ_DATA *obj)
 		obj = obj->in_obj;
 
 	return obj->carried_by;
-}
-
-/*
- * static functions
- */
-
-static chquest_t *chquest_lookup(OBJ_INDEX_DATA *obj_index)
-{
-	chquest_t *q;
-
-	for (q = chquest_list; q; q = q->next) {
-		if (q->obj_index == obj_index)
-			return q;
-	}
-
-	return NULL;
-}
-
-static chquest_t *chquest_lookup_obj(OBJ_DATA *obj)
-{
-	chquest_t *q = chquest_lookup(obj->pIndexData);
-
-	if (q == NULL || !IS_RUNNING(q) || q->obj != obj)
-		return NULL;
-	return q;
-}
-
-/*
- * chquest_startq - start given chquest
- *
- * assumes that !IS_RUNNING(q) check is done
- */
-static void chquest_startq(chquest_t *q)
-{
-	ROOM_INDEX_DATA *room;
-
-	log("chquest_startq: started chquest for '%s' (vnum %d)",
-	   	   mlstr_mval(&q->obj_index->short_descr), q->obj_index->vnum);
-
-	SET_RUNNING(q);
-	q->obj = create_obj(q->obj_index, 0);
-	q->obj->timer = number_range(100, 150);
-
-	do {
-		room = get_random_room(NULL, NULL);
-	} while (IS_SET(room->area->area_flags, AREA_NOQUEST));
-
-	obj_to_room(q->obj, room);
-}
-
-static void chquest_stopq(chquest_t *q)
-{
-	if (IS_STOPPED(q))
-		return;
-
-	log("chquest_stopq: stopped quest for '%s' (vnum %d)",
-		   mlstr_mval(&q->obj_index->short_descr), q->obj_index->vnum);
-	if (IS_RUNNING(q))
-		extract_obj(q->obj, XO_F_NOCHQUEST);
-	SET_STOPPED(q);
-}
-
-static inline void chquest_status(CHAR_DATA *ch)
-{
-	chquest_t *q;
-
-	char_puts("Challenge quest items:\n", ch);
-	for (q = chquest_list; q; q = q->next) {
-		OBJ_DATA *obj;
-
-		char_printf(ch, "- %s (vnum %d) - ",
-			    mlstr_mval(&q->obj_index->short_descr),
-			    q->obj_index->vnum);
-
-		if (IS_STOPPED(q)) {
-			char_puts("stopped.\n", ch);
-			continue;
-		} else if (IS_WAITING(q)) {
-			char_printf(ch, "%d area ticks to start.\n",
-				    q->delay);
-			continue;
-		}
-
-		if ((obj = q->obj) == NULL) {
-			char_puts("status unknown.\n", ch);
-			continue;
-		}
-
-		char_printf(ch, "running (%d ticks left).\n",
-			    q->obj->timer);
-
-		while (obj->in_obj)
-			obj = obj->in_obj;
-
-		if (obj->carried_by) {
-			act_puts3("        $r (vnum $J), carried by $N.",
-				  ch, obj->carried_by->in_room, obj->carried_by,
-				  (const void*) obj->carried_by->in_room->vnum,
-				  TO_CHAR, POS_DEAD);
-		} else if (obj->in_room) {
-			act_puts3("         $r (vnum $J).",
-				  ch, obj->in_room, NULL,
-				  (const void*) obj->in_room->vnum,
-				  TO_CHAR, POS_DEAD);
-		}
-	}
 }
 

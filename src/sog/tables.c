@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.77 1999-06-25 07:14:42 fjoe Exp $
+ * $Id: tables.c,v 1.78 1999-06-28 09:04:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,7 +45,8 @@
 #include <time.h>
 #include "merc.h"
 #include "lang.h"
-#include "comm/ban.h"
+#include "ban.h"
+#include "note.h"
 
 /*
  * first element of each flag_t[] table describes type of values

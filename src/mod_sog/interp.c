@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.160 1999-06-25 07:14:41 fjoe Exp $
+ * $Id: interp.c,v 1.161 1999-06-28 09:04:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -93,6 +93,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	flag64_t cmd_flags;
 	int cmd_log;
 	int i;
+	bool found = FALSE;
 
 	/*
 	 * Strip leading spaces.
@@ -186,6 +187,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 			return;
 		}
 
+		found = TRUE;
 		break;
 	}
 
@@ -199,7 +201,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		write_to_snoop(ch->desc, buf, 0);
 	}
 
-	if (cmd == NULL) {
+	if (!found) {
 		if (!IS_NPC(ch)
 		&&  IS_SET(ch->plr_flags, PLR_FREEZE)) {
 			char_puts("You're totally frozen!\n", ch);
@@ -543,159 +545,4 @@ void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 	}
     }
     interpret(d->character, buf);
-}
-
-void do_alia(CHAR_DATA *ch, const char *argument)
-{
-    char_puts("I'm sorry, alias must be entered in full.\n",ch);
-    return;
-}
-
-void do_alias(CHAR_DATA *ch, const char *argument)
-{
-    CHAR_DATA *rch;
-    char arg[MAX_INPUT_LENGTH];
-    int pos;
-
-    if (ch->desc == NULL)
-	rch = ch;
-    else
-	rch = ch->desc->original ? ch->desc->original : ch;
-
-    if (IS_NPC(rch))
-	return;
-
-    argument = one_argument(argument, arg, sizeof(arg));
-    
-
-    if (arg[0] == '\0')
-    {
-	if (rch->pcdata->alias[0] == NULL)
-	{
-	    char_puts("You have no aliases defined.\n",ch);
-	    return;
-	}
-	char_puts("Your current aliases are:\n",ch);
-
-	for (pos = 0; pos < MAX_ALIAS; pos++)
-	{
-	    if (rch->pcdata->alias[pos] == NULL
-	    ||	rch->pcdata->alias_sub[pos] == NULL)
-		break;
-
-	    char_printf(ch,"    %s:  %s\n",rch->pcdata->alias[pos],
-		    rch->pcdata->alias_sub[pos]);
-	}
-	return;
-    }
-
-    if (!str_prefix("una",arg) || !str_cmp("alias",arg))
-    {
-	char_puts("Sorry, that word is reserved.\n",ch);
-	return;
-    }
-
-    if (argument[0] == '\0')
-    {
-	for (pos = 0; pos < MAX_ALIAS; pos++)
-	{
-	    if (rch->pcdata->alias[pos] == NULL
-	    ||	rch->pcdata->alias_sub[pos] == NULL)
-		break;
-
-	    if (!str_cmp(arg,rch->pcdata->alias[pos])) {
-		char_printf(ch, "%s aliases to '%s'.\n",
-			    rch->pcdata->alias[pos],
-			    rch->pcdata->alias_sub[pos]);
-		return;
-	    }
-	}
-
-	char_puts("That alias is not defined.\n",ch);
-	return;
-    }
-
-    if (!str_prefix(argument,"delete") || !str_prefix(argument,"prefix"))
-    {
-	char_puts("That shall not be done!\n",ch);
-	return;
-    }
-
-    for (pos = 0; pos < MAX_ALIAS; pos++)
-    {
-	if (rch->pcdata->alias[pos] == NULL)
-	    break;
-
-	if (!str_cmp(arg,rch->pcdata->alias[pos])) /* redefine an alias */
-	{
-	    free_string(rch->pcdata->alias_sub[pos]);
-	    rch->pcdata->alias_sub[pos] = str_dup(argument);
-	    char_printf(ch,"%s is now realiased to '%s'.\n",arg,argument);
-	    return;
-	}
-     }
-
-     if (pos >= MAX_ALIAS)
-     {
-	char_puts("Sorry, you have reached the alias limit.\n",ch);
-	return;
-     }
-  
-     /* make a new alias */
-     rch->pcdata->alias[pos]		= str_dup(arg);
-     rch->pcdata->alias_sub[pos]	= str_dup(argument);
-     char_printf(ch,"%s is now aliased to '%s'.\n",arg,argument);
-}
-
-
-void do_unalias(CHAR_DATA *ch, const char *argument)
-{
-    CHAR_DATA *rch;
-    char arg[MAX_INPUT_LENGTH];
-    int pos;
-    bool found = FALSE;
- 
-    if (ch->desc == NULL)
-	rch = ch;
-    else
-	rch = ch->desc->original ? ch->desc->original : ch;
- 
-    if (IS_NPC(rch))
-	return;
- 
-    argument = one_argument(argument, arg, sizeof(arg));
-
-    if (arg == '\0')
-    {
-	char_puts("Unalias what?\n",ch);
-	return;
-    }
-
-    for (pos = 0; pos < MAX_ALIAS; pos++)
-    {
-	if (rch->pcdata->alias[pos] == NULL)
-	    break;
-
-	if (found)
-	{
-	    rch->pcdata->alias[pos-1]		= rch->pcdata->alias[pos];
-	    rch->pcdata->alias_sub[pos-1]	= rch->pcdata->alias_sub[pos];
-	    rch->pcdata->alias[pos]		= NULL;
-	    rch->pcdata->alias_sub[pos]		= NULL;
-	    continue;
-	}
-
-	if(!strcmp(arg,rch->pcdata->alias[pos]))
-	{
-	    char_puts("Alias removed.\n",ch);
-	    free_string(rch->pcdata->alias[pos]);
-	    free_string(rch->pcdata->alias_sub[pos]);
-	    rch->pcdata->alias[pos] = NULL;
-	    rch->pcdata->alias_sub[pos] = NULL;
-	    found = TRUE;
-	}
-    }
-
-    if (!found)
-	char_puts("No alias of that name to remove.\n",ch);
 }

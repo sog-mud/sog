@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.57 1999-06-24 16:33:16 fjoe Exp $
+ * $Id: recycle.c,v 1.58 1999-06-28 09:04:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -159,8 +159,8 @@ void raff_free(ROOM_AFFECT_DATA *raf)
 
 OBJ_DATA *free_obj_list;
 
-extern int obj_count;
-extern int obj_free_count;
+int obj_count;
+int obj_free_count;
 
 OBJ_DATA *new_obj(void)
 {
@@ -214,8 +214,8 @@ void free_obj(OBJ_DATA *obj)
 
 CHAR_DATA *free_char_list;
 
-extern int mob_count;
-extern int mob_free_count;
+int mob_count;
+int mob_free_count;
 
 CHAR_DATA *new_char(void)
 {

@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.37 1999-06-24 21:08:11 fjoe Exp $
+ * $Id: ban.c,v 1.38 1999-06-28 09:04:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -60,67 +60,7 @@
 #include "ban.h"
 #include "db.h"
 
-ban_t*	new_ban	(void);
-void	free_ban(ban_t *ban);
-
-DECLARE_DO_FUN(do_help);
-
-struct ban_t
-{
-	int		ban_num;
-	flag32_t	ban_action;
-	flag32_t	ban_class;
-	const char *	ban_mask;
-	ban_t *		next;
-};
-
 ban_t *ban_list;
-
-const char *format_ban(ban_t *);
-void save_bans();
-
-void ban_add(CHAR_DATA *ch, const char *argument);
-void ban_delete(CHAR_DATA *ch, const char *argument);
-
-void do_ban(CHAR_DATA *ch, const char *argument)
-{
-	char arg[MAX_INPUT_LENGTH];
-
-	argument = one_argument(argument, arg, sizeof(arg));
-
-	if (arg[0] == '\0') {
-		ban_t *pban;
-
-		if (ban_list == NULL) {
-			char_puts("No ban rules defined.\n", ch);
-			return;
-  		}
-
-		char_puts("Ban rules:\n", ch);
-		for (pban = ban_list; pban; pban = pban->next)
-			char_printf(ch, "%s\n", format_ban(pban));
-		return;
-	}
-
-	if (!str_prefix(arg, "add"))
-		ban_add(ch, argument);
-	else if (!str_prefix(arg, "delete"))
-		ban_delete(ch, argument);
-	else
-		dofun("help", ch, "'WIZ BAN'");
-}
-
-const char *format_ban(ban_t *pban)
-{
-	static char buf[MAX_STRING_LENGTH];
-
-	snprintf(buf, sizeof(buf), "%9d %5s %7s %s",
-		 pban->ban_num,
-		 flag_string(ban_actions, pban->ban_action),
-		 flag_string(ban_classes, pban->ban_class),
-		 pban->ban_mask);
-	return buf;
-}
 
 /*
  * ban_add must work properly if ch == NULL
@@ -294,6 +234,18 @@ void save_bans(void)
 	fclose(fp);
 }
 
+const char *format_ban(ban_t *pban)
+{
+	static char buf[MAX_STRING_LENGTH];
+
+	snprintf(buf, sizeof(buf), "%9d %5s %7s %s",
+		 pban->ban_num,
+		 flag_string(ban_actions, pban->ban_action),
+		 flag_string(ban_classes, pban->ban_class),
+		 pban->ban_mask);
+	return buf;
+}
+
 int check_ban(DESCRIPTOR_DATA *d, int ban_class)
 {
 	ban_t *pban;
@@ -323,3 +275,4 @@ int check_ban(DESCRIPTOR_DATA *d, int ban_class)
 
 	return ban_action;
 }
+

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.1 1999-06-24 20:35:09 fjoe Exp $
+ * $Id: quest.c,v 1.2 1999-06-28 09:04:18 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -51,7 +51,7 @@ void quest_handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 
 			ch = victim->hunter;
-			act_puts("Someone has completed you quest.",
+			act_puts("Someone has completed your quest.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			quest_cancel(ch);
 			ch->pcdata->questtime = -number_range(5, 10);

@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.38 1999-06-24 16:33:16 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.39 1999-06-28 09:04:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -81,19 +81,9 @@ const	struct	mob_cmd_type	mob_cmd_table	[] =
 	{	"flee",		do_mpflee	},
 	{	"remove",	do_mpremove	},
 	{	"religion",	do_mpreligion	},
-	{	"slay",		do_slay		},
-	{	str_empty,		0		}
+	{	"slay",		do_mpslay	},
+	{	str_empty,		0	}
 };
-
-void do_mob(CHAR_DATA *ch, const char *argument)
-{
-	/*
-	 * Security check!
-	 */
-	if (ch->desc && ch->level < MAX_LEVEL)
-		return;
-	mob_interpret(ch, argument);
-}
 
 /*
  * Mob command interpreter. Implemented separately for security and speed
@@ -121,66 +111,6 @@ void mob_interpret(CHAR_DATA *ch, const char *argument)
     }
     log("mob_interpret: invalid cmd from mob %d: '%s'",
 	IS_NPC(ch) ? ch->pIndexData->vnum : 0, command);
-}
-
-/* 
- * Displays MOBprogram triggers of a mobile
- *
- * Syntax: mpstat [name]
- */
-void do_mpstat(CHAR_DATA *ch, const char *argument)
-{
-    char        arg[ MAX_STRING_LENGTH  ];
-    MPTRIG  *mptrig;
-    CHAR_DATA   *victim;
-    int i;
-
-    one_argument(argument, arg, sizeof(arg));
-
-    if (arg[0] == '\0')
-    {
-	char_puts("Mpstat whom?\n", ch);
-	return;
-    }
-
-    if ((victim = get_char_world(ch, arg)) == NULL)
-    {
-	char_puts("No such creature.\n", ch);
-	return;
-    }
-
-    if (!IS_NPC(victim))
-    {
-	char_puts("That is not a mobile.\n", ch);
-	return;
-    }
-
-    if ((victim = get_char_world(ch, arg)) == NULL)
-    {
-	char_puts("No such creature visible.\n", ch);
-	return;
-    }
-
-    char_printf(ch, "Mobile #%-6d [%s]\n",
-		victim->pIndexData->vnum, mlstr_mval(&victim->short_descr));
-
-    char_printf(ch, "Delay   %-6d [%s]\n",
-		victim->mprog_delay,
-		victim->mprog_target == NULL ?
-		"No target" : victim->mprog_target->name);
-
-    if (!victim->pIndexData->mptrig_types) {
-	char_puts("[No programs set]\n", ch);
-	return;
-    }
-
-    for (i = 0, mptrig = victim->pIndexData->mptrig_list; mptrig != NULL;
-	 mptrig = mptrig->next)
-	char_printf(ch, "[%2d] Trigger [%-8s] Program [%4d] Phrase [%s]\n",
-	      ++i,
-	      flag_string(mptrig_types, mptrig->type),
-	      mptrig->vnum,
-	      mptrig->phrase);
 }
 
 /*
@@ -1272,3 +1202,9 @@ void do_mpreligion(CHAR_DATA *ch, const char *argument)
 		"From now on and forever, you are in the way of $T.",
 		religion_table[victim->religion].leader, NULL);
 }
+
+void do_mpslay(CHAR_DATA *ch, const char *argument)
+{
+	dofun("slay", ch, argument);
+}
+

@@ -1,5 +1,5 @@
 /*
- * $Id: ban.h,v 1.4 1999-05-15 09:28:25 fjoe Exp $
+ * $Id: ban.h,v 1.5 1999-06-28 09:04:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -56,6 +56,27 @@ enum {
 	BCL_NEWBIES
 };
 
-int	check_ban(DESCRIPTOR_DATA *d, int ban_class);
+typedef struct ban_t ban_t;
+
+struct ban_t
+{
+	int		ban_num;
+	flag32_t	ban_action;
+	flag32_t	ban_class;
+	const char *	ban_mask;
+	ban_t *		next;
+};
+
+extern ban_t *ban_list;
+
+void ban_add(CHAR_DATA *ch, const char *argument);
+void ban_delete(CHAR_DATA *ch, const char *argument);
+
+void load_bans(void);
+void save_bans(void);
+
+const char *format_ban(ban_t *);
+
+int check_ban(DESCRIPTOR_DATA *d, int ban_class);
 
 #endif

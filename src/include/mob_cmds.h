@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.h,v 1.6 1999-02-03 10:01:14 kostik Exp $
+ * $Id: mob_cmds.h,v 1.7 1999-06-28 09:04:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,8 +46,6 @@ struct	mob_cmd_type
     DO_FUN *		do_fun;
 };
 
-void	mob_interpret	(CHAR_DATA *ch, const char *argument);
-
 /* the command table itself */
 extern	const	struct	mob_cmd_type	mob_cmd_table	[];
 
@@ -86,6 +84,7 @@ DECLARE_DO_FUN(do_mpflee	);
 DECLARE_DO_FUN(do_mpotransfer	);
 DECLARE_DO_FUN(do_mpremove	);
 DECLARE_DO_FUN(do_mpreligion	);
-DECLARE_DO_FUN(do_slay		);
+DECLARE_DO_FUN(do_mpslay	);
+
 #endif
 

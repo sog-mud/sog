@@ -1,6 +1,17 @@
 /*
- * $Id: mob_prog.h,v 1.5 1999-06-28 09:04:16 fjoe Exp $
+ * $Id: note.h,v 1.1 1999-06-28 09:04:16 fjoe Exp $
  */
+
+/***************************************************************************
+ *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
+ *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
+ *	 Serdar BULUT {Chronos} 	bulut@rorqual.cc.metu.edu.tr	   *
+ *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *
+ *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *
+ *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *
+ *     By using this code, you have agreed to follow the terms of the	   *
+ *     ANATOLIA license, in the file Anatolia/anatolia.licence		   *
+ ***************************************************************************/
 
 /***************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,	   *
@@ -18,7 +29,7 @@
  *  benefitting.  We hope that you share your changes too.  What goes	   *
  *  around, comes around.						   *
  ***************************************************************************/
- 
+
 /***************************************************************************
 *	ROM 2.4 is copyright 1993-1995 Russ Taylor			   *
 *	ROM has been brought to you by the ROM consortium		   *
@@ -29,29 +40,40 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
-/***************************************************************************
- *                                                                         *
- *  Based on MERC 2.2 MOBprograms by N'Atas-ha.                            *
- *  Written and adapted to ROM 2.4 by                                      *
- *          Markku Nylander (markku.nylander@uta.fi)                       *
- *                                                                         *
- ***************************************************************************/
+#ifndef _NOTE_H_
+#define _NOTE_H_
 
-#ifndef _MOB_PROG_H_
-#define _MOB_PROG_H_
+/* note types */
+#define NOTE_NOTE	0
+#define NOTE_IDEA	1
+#define NOTE_PENALTY	2
+#define NOTE_NEWS	3
+#define NOTE_CHANGES	4
 
-void	program_flow	(int vnum, CHAR_DATA *mob, CHAR_DATA *ch,
-			 const void *arg1, const void *arg2);
-void	mp_act_trigger	(const char *argument, CHAR_DATA *mob, CHAR_DATA *ch,
-				const void *arg1, const void *arg2, int type);
-bool	mp_percent_trigger (CHAR_DATA *mob, CHAR_DATA *ch, 				
-				const void *arg1, const void *arg2, int type);
-void	mp_bribe_trigger  (CHAR_DATA *mob, CHAR_DATA *ch, int amount);
-bool	mp_exit_trigger   (CHAR_DATA *ch, int dir);
-void	mp_give_trigger   (CHAR_DATA *mob, CHAR_DATA *ch, OBJ_DATA *obj);
-void 	mp_greet_trigger  (CHAR_DATA *ch);
-void	mp_hprct_trigger  (CHAR_DATA *mob, CHAR_DATA *ch);
+struct note_t
+{
+	note_t *	next;
+	const char *	sender;
+	const char *	date;
+	const char *	to_list;
+	const char *	subject;
+	const char *	text;
+	time_t		date_stamp;
+	flag32_t	type;
+};
 
-void	mob_interpret	(CHAR_DATA *ch, const char *argument);
+note_t *	new_note	(void);
+void		free_note	(note_t *note);
+
+void		load_notes	(void);
+void		save_notes	(int);
+
+void		fwrite_note	(FILE *fp, note_t *pnote);
+
+extern note_t *note_list;
+extern note_t *idea_list;
+extern note_t *penalty_list;
+extern note_t *news_list;
+extern note_t *changes_list;
 
 #endif

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rating.c,v 1.15 1999-05-20 19:59:03 fjoe Exp $
+ * $Id: rating.c,v 1.16 1999-06-28 09:04:18 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -33,13 +33,9 @@
 #include "merc.h"
 #include "rating.h"
 
-typedef struct rating_data {
-	const char *name;
-	int pc_killed;
-} rating_data;
+struct rating_t rating_table[RATING_TABLE_SIZE];
 
-struct rating_data rating_table[RATING_TABLE_SIZE];
-bool table_updated;
+static int rating_cmp(const void *a, const void *b);
 
 /*
  * Updates player's rating.
@@ -62,7 +58,7 @@ void rating_update(CHAR_DATA *ch, CHAR_DATA *victim)
 void rating_add(CHAR_DATA *ch)
 {
 	int i;
-	rating_data *p = rating_table;
+	rating_t *p = rating_table;
 
 	/*
 	 * find the minimal entry in rating_table
@@ -76,7 +72,8 @@ void rating_add(CHAR_DATA *ch)
 			p = rating_table + i;
 			if (p->pc_killed < ch->pcdata->pc_killed) {
 				p->pc_killed = ch->pcdata->pc_killed;
-				table_updated = TRUE;
+				qsort(rating_table, RATING_TABLE_SIZE,
+				      sizeof(rating_t), rating_cmp);
 			}
 			return;
 		}
@@ -89,34 +86,13 @@ void rating_add(CHAR_DATA *ch)
 		free_string(p->name);
 		p->name = str_qdup(ch->name);
 		p->pc_killed = ch->pcdata->pc_killed;
-		table_updated = TRUE;
+		qsort(rating_table, RATING_TABLE_SIZE, sizeof(rating_t),
+		      rating_cmp);
 	} 	
 }
 
-static
-int
-rating_data_cmp(const void *a, const void *b)
+static int rating_cmp(const void *a, const void *b)
 {
-	return ((rating_data*) b)->pc_killed - ((rating_data*) a)->pc_killed;
-}
-
-void do_rating(CHAR_DATA *ch, const char *argument)
-{
-	int i;
-
-	if (table_updated) {
-		qsort(rating_table, RATING_TABLE_SIZE, sizeof(rating_data),
-		      rating_data_cmp);
-		table_updated = FALSE;
-	}
-
-	char_puts("Name                    | PC's killed\n", ch);
-	char_puts("------------------------+------------\n", ch);
-	for (i = 0; i < RATING_TABLE_SIZE; i++) {
-		if (rating_table[i].name == NULL)
-			continue;
-		char_printf(ch, "%-24s| %d\n",
-			    rating_table[i].name, rating_table[i].pc_killed);
-	}
+	return ((rating_t*) b)->pc_killed - ((rating_t*) a)->pc_killed;
 }
 

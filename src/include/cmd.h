@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.h,v 1.6 1999-06-25 07:14:33 fjoe Exp $
+ * $Id: cmd.h,v 1.7 1999-06-28 09:04:16 fjoe Exp $
  */
 
 #ifndef _CMD_H_
@@ -70,9 +70,17 @@ struct cmd_t
 	DO_FUN *	do_fun;
 };
 
-cmd_t *	cmd_lookup(const char *name);
+cmd_t *	cmd_new		(void);
+void	cmd_free	(cmd_t*);
 
-void dofun(const char *name, CHAR_DATA *ch, const char *fmt, ...);
+cmd_t *	cmd_lookup	(const char *name);
+void	cmd_foreach	(int cmd_class, void *arg,
+			void (*callback)(cmd_t *cmd, void* arg));
+
+void	cmd_load	(cmd_t *cmd, void *arg);
+void	cmd_unload	(cmd_t *cmd, void *arg);
+
+void	dofun		(const char *name, CHAR_DATA *ch, const char *fmt, ...);
 
 extern varr commands;
 

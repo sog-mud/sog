@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.63 1999-06-24 20:35:03 fjoe Exp $
+ * $Id: olc.c,v 1.64 1999-06-28 09:04:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,9 +44,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <dlfcn.h>
+
 #include "merc.h"
 #include "olc.h"
 #include "lang.h"
+#include "module.h"
 #include "version.h"
 
 /*
@@ -104,6 +107,22 @@ static olc_cmd_t *	olc_cmd_lookup(olc_cmd_t *cmd_table, const char *name);
 static void do_olc(CHAR_DATA *ch, const char *argument, int fun);
 
 int _abi_version = ABI_VERSION;
+
+int _module_load(module_t *m)
+{
+	cmd_foreach(CC_OLC, m, cmd_load);
+	olc_interpret = dlsym(m->dlh, "_olc_interpret");
+	if (olc_interpret == NULL)
+		wizlog("_module_load: %s", dlerror());
+	return 0;
+}
+
+int _module_unload(module_t *m)
+{
+	cmd_foreach(CC_OLC, m, cmd_unload);
+	olc_interpret = NULL;
+	return 0;
+}
 
 bool _olc_interpret(DESCRIPTOR_DATA *d, const char *argument)
 {

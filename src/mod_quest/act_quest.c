@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.113 1999-06-24 20:35:01 fjoe Exp $
+ * $Id: act_quest.c,v 1.114 1999-06-28 09:04:15 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -36,6 +36,7 @@
 #include "merc.h"
 #include "quest.h"
 #include "chquest.h"
+#include "auction.h"
 
 #ifdef SUNOS
 #	include <stdarg.h>
@@ -179,6 +180,131 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 		
 	char_puts("QUEST COMMANDS: points info time request complete list buy trouble.\n", ch);
 	char_puts("For more information, type: help quests.\n", ch);
+}
+
+static inline void chquest_status(CHAR_DATA *ch)
+{
+	chquest_t *q;
+
+	char_puts("Challenge quest items:\n", ch);
+	for (q = chquest_list; q; q = q->next) {
+		OBJ_DATA *obj;
+
+		char_printf(ch, "- %s (vnum %d) - ",
+			    mlstr_mval(&q->obj_index->short_descr),
+			    q->obj_index->vnum);
+
+		if (IS_STOPPED(q)) {
+			char_puts("stopped.\n", ch);
+			continue;
+		} else if (IS_WAITING(q)) {
+			char_printf(ch, "%d area ticks to start.\n",
+				    q->delay);
+			continue;
+		}
+
+		if ((obj = q->obj) == NULL) {
+			char_puts("status unknown.\n", ch);
+			continue;
+		}
+
+		char_printf(ch, "running (%d ticks left).\n",
+			    q->obj->timer);
+
+		while (obj->in_obj)
+			obj = obj->in_obj;
+
+		if (obj->carried_by) {
+			act_puts3("        $r (vnum $J), carried by $N.",
+				  ch, obj->carried_by->in_room, obj->carried_by,
+				  (const void*) obj->carried_by->in_room->vnum,
+				  TO_CHAR, POS_DEAD);
+		} else if (obj->in_room) {
+			act_puts3("         $r (vnum $J).",
+				  ch, obj->in_room, NULL,
+				  (const void*) obj->in_room->vnum,
+				  TO_CHAR, POS_DEAD);
+		}
+	}
+}
+
+void do_chquest(CHAR_DATA *ch, const char *argument)
+{
+	char arg[MAX_INPUT_LENGTH];
+
+	argument = one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0') {
+		dofun("help", ch, "'WIZ CHQUEST'");
+		return;
+	}
+
+	if (!str_prefix(arg, "restart")) {
+		chquest_start(CHQUEST_F_NODELAY);
+		char_puts("Challenge quest restarted.\n", ch);
+		return;
+	}
+
+	if (!str_prefix(arg, "status")) {
+		chquest_status(ch);
+		return;
+	}
+
+	if (!str_prefix(arg, "start")
+	||  !str_prefix(arg, "stop")
+	||  !str_prefix(arg, "add")
+	||  !str_prefix(arg, "delete")) {
+		char arg2[MAX_INPUT_LENGTH];
+		OBJ_INDEX_DATA *obj_index;
+		chquest_t *q;
+
+		one_argument(argument, arg2, sizeof(arg2));
+		if (!is_number(arg2)) {
+			do_chquest(ch, str_empty);
+			return;
+		}
+
+		if ((obj_index = get_obj_index(atoi(arg2))) == NULL) {
+			char_printf(ch, "do_chquest: %s: no object with that vnum.\n", arg2);
+			return;
+		}
+
+		if (!str_prefix(arg, "delete")) {
+			chquest_delete(ch, obj_index);
+			return;
+		}
+
+		if (!str_prefix(arg, "add")) {
+			chquest_add(obj_index);
+			return;
+		}
+
+		if ((q = chquest_lookup(obj_index)) == NULL) {
+			char_printf(ch, "do_chquest: %s: no chquests with that vnum.\n", arg2);
+			return;
+		}
+
+		if (!str_prefix(arg, "start")) {
+			if (IS_RUNNING(q)) {
+				char_printf(ch, "do_chquest: quest vnum %d "
+						"already running.\n",
+						q->obj_index->vnum);
+				return;
+			}
+			chquest_startq(q);
+			return;
+		}
+
+		if (IS_RUNNING(q) && IS_AUCTIONED(q->obj)) {
+			act("$p is on auction right now.",
+			    ch, q->obj, NULL, TO_CHAR);
+			return;
+		}
+
+		chquest_stopq(q);
+		return;
+	}
+
+	do_chquest(ch, str_empty);
 }
 
 void qtrouble_set(CHAR_DATA *ch, int vnum, int count)

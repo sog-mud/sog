@@ -23,11 +23,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.c,v 1.4 1999-06-24 20:35:04 fjoe Exp $
+ * $Id: cmd.c,v 1.5 1999-06-28 09:04:17 fjoe Exp $
  */
 
 #include <stdarg.h>
 #include <stdio.h>
+#include <dlfcn.h>
 
 #include "typedef.h"
 #include "const.h"
@@ -35,8 +36,20 @@
 #include "varr.h"
 #include "cmd.h"
 #include "log.h"
+#include "module.h"
 
 varr commands = { sizeof(cmd_t), 16 };
+
+cmd_t *cmd_new(void)
+{
+	return varr_enew(&commands);
+}
+
+void cmd_free(cmd_t *cmd)
+{
+	free_string(cmd->name);
+	free_string(cmd->dofun_name);
+}
 
 cmd_t *cmd_lookup(const char *name)
 {
@@ -49,6 +62,34 @@ cmd_t *cmd_lookup(const char *name)
 	}
 
 	return NULL;
+}
+
+void cmd_foreach(int cmd_class, void *arg,
+		 void (*callback)(cmd_t *cmd, void *arg))
+{
+	int i;
+
+	for (i = 0; i < commands.nused; i++) {
+		cmd_t *cmd = VARR_GET(&commands, i);
+
+		if (cmd_class < 0
+		||  cmd->cmd_class == cmd_class) {
+			callback(cmd, arg);
+		}
+	}
+}
+
+void cmd_load(cmd_t *cmd, void *arg)
+{
+	module_t *m = (module_t*) arg;
+	cmd->do_fun = dlsym(m->dlh, cmd->dofun_name);
+	if (cmd->do_fun == NULL)
+		wizlog("cmd_load: %s", dlerror());
+}
+
+void cmd_unload(cmd_t *cmd, void *arg)
+{
+	cmd->do_fun = NULL;
 }
 
 void dofun(const char *name, CHAR_DATA *ch, const char *fmt, ...)

@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.24 1999-06-24 20:35:07 fjoe Exp $
+ * $Id: hunt.c,v 1.25 1999-06-28 09:04:15 fjoe Exp $
  */
 
 /* Kak zovut sobaku Gejtsa?
@@ -19,6 +19,8 @@
  *  Modified by Turtle for Merc22 (07-Nov-94).                             *
  *  Adopted to ANATOLIA by Chronos.                                        *
  ***************************************************************************/
+
+static void hunt_victim(CHAR_DATA *ch);
 
 struct hash_link
 {
@@ -411,8 +413,6 @@ int find_path(int in_room_vnum, int out_room_vnum, CHAR_DATA *ch,
   return -1;
 }
 
-
-
 void do_hunt(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_STRING_LENGTH];
@@ -424,6 +424,11 @@ void do_hunt(CHAR_DATA *ch, const char *argument)
 	int chance;
 	int chance2;
   
+	if (IS_NPC(ch) && ch->hunting) {
+		hunt_victim(ch);
+		return;
+	}
+
 	if ((sn_hunt = sn_lookup("hunt")) < 0
 	||  (sn_world_find = sn_lookup("world find")) < 0
 	||  (chance = get_skill(ch, sn_hunt)) == 0)
@@ -554,7 +559,7 @@ void hunt_victim_attack(CHAR_DATA* ch)
 /*
  * revised by chronos.
  */
-void hunt_victim(CHAR_DATA *ch)
+static void hunt_victim(CHAR_DATA *ch)
 {
 	int		dir;
 	bool		found;
@@ -626,3 +631,65 @@ void hunt_victim(CHAR_DATA *ch)
 	move_char(ch, dir, FALSE);
 	hunt_victim_attack(ch);
 }
+
+static char *find_way(CHAR_DATA *ch, ROOM_INDEX_DATA *rstart,
+		      ROOM_INDEX_DATA *rend) 
+{
+	int direction;
+	static char buf[1024];
+	EXIT_DATA *pExit;
+	char buf2[2];
+
+	snprintf(buf, sizeof(buf), "Bul: ");
+	while (1) {
+		if ((rend == rstart))
+			return buf;
+
+		if ((direction = find_path(rstart->vnum, rend->vnum,
+					   ch, -40000, 0)) == -1) {
+			strnzcat(buf, sizeof(buf), " BUGGY");
+			return buf;
+		}
+
+		if (direction < 0 || direction > 5) {
+			strnzcat(buf, sizeof(buf), " VERY BUGGY");
+			return buf;
+		}
+
+		buf2[0] = dir_name[direction][0];
+		buf2[1] = '\0';
+		strnzcat(buf, sizeof(buf), buf2);
+
+		/* find target room */
+		pExit = rstart->exit[ direction ];
+		if (!pExit)  {
+			strnzcat(buf, sizeof(buf), " VERY VERY BUGGY");
+			return buf;
+		}
+		else
+			rstart = pExit->to_room.r;
+	}
+}	
+
+void do_find(CHAR_DATA *ch, const char *argument)
+{
+	char* path;
+	ROOM_INDEX_DATA *location;
+
+	if (argument[0] == '\0') {
+		char_puts("Ok. But what I should find?\n", ch);
+		return;
+	}
+
+	if ((location = find_location(ch, argument)) == NULL) {
+		char_puts("No such location.\n", ch);
+		return;
+	}
+
+	path = find_way(ch, ch->in_room, location);
+	char_printf(ch, "%s.\n", path);
+	log("From %d to %d: %s.\n",
+		   ch->in_room->vnum, location->vnum, path);
+	return;
+}
+

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.102 1999-06-24 20:35:00 fjoe Exp $
+ * $Id: martial_art.c,v 1.103 1999-06-28 09:04:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,6 +44,7 @@
 #include <stdio.h>
 #include "merc.h"
 #include "fight.h"
+#include "mob_prog.h"
 
 #ifdef SUNOS
 #	include <stdarg.h>
@@ -61,6 +62,226 @@ static inline bool	check_yell	(CHAR_DATA *ch, CHAR_DATA *victim,
 void			one_hit		(CHAR_DATA *ch, CHAR_DATA *victim,
 					 int dt, int loc); 
 void			set_fighting	(CHAR_DATA *ch, CHAR_DATA *victim);
+
+void do_kill(CHAR_DATA *ch, const char *argument)
+{
+	char arg[MAX_INPUT_LENGTH];
+	CHAR_DATA *victim;
+	int chance;
+
+	one_argument(argument, arg, sizeof(arg));
+
+	if (arg[0] == '\0') {
+		char_puts("Kill whom?\n", ch);
+		return;
+	}
+
+	WAIT_STATE(ch, 1 * PULSE_VIOLENCE);
+
+	if ((victim = get_char_room(ch, arg)) == NULL) {
+		char_puts("They aren't here.\n", ch);
+		return;
+	}
+
+	if (ch->position == POS_FIGHTING) {
+		if (victim == ch->fighting)
+			char_puts("You do the best you can!\n", ch);
+		else if (victim->fighting != ch)
+			char_puts("One battle at a time, please.\n",ch);
+		else {
+			act("You start aiming at $N.",ch,NULL,victim,TO_CHAR);
+			ch->fighting = victim;
+		}
+		return;
+	}
+
+	if (!IS_NPC(victim)) {
+		char_puts("You must MURDER a player.\n", ch);
+		return;
+	}
+
+	if (victim == ch) {
+		char_puts("You hit yourself.  Ouch!\n", ch);
+		multi_hit(ch, ch, TYPE_UNDEFINED);
+		return;
+	}
+
+	if (IS_AFFECTED(ch, AFF_CHARM) && ch->master == victim) {
+		act("$N is your beloved master.", ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	if (is_safe(ch, victim))
+		return;
+
+	if ((chance = get_skill(ch, gsn_mortal_strike))
+	&&  get_eq_char(ch, WEAR_WIELD)) {
+		chance /= 30;
+		chance += 1 + (ch->level - victim->level) / 2;
+		if (number_percent() < chance) {
+			act_puts("Your flash strike instantly slays $N!",
+				 ch, NULL, victim, TO_CHAR, POS_RESTING);
+			act_puts("$n flash strike instantly slays $N!",
+				 ch, NULL, victim, TO_NOTVICT,
+				 POS_RESTING);
+			act_puts("$n flash strike instantly slays you!",
+				 ch, NULL, victim, TO_VICT, POS_DEAD);
+			damage(ch, victim, (victim->hit + 1),
+			       gsn_mortal_strike, DAM_NONE, DAMF_SHOW);
+			check_improve(ch, gsn_mortal_strike, TRUE, 1);
+			return;
+		} else
+			check_improve(ch, gsn_mortal_strike, FALSE, 3);
+	}
+
+	multi_hit(ch, victim, TYPE_UNDEFINED);
+}
+
+void do_murde(CHAR_DATA *ch, const char *argument)
+{
+	char_puts("If you want to MURDER, spell it out.\n", ch);
+	return;
+}
+
+void do_murder(CHAR_DATA *ch, const char *argument)
+{
+	char arg[MAX_INPUT_LENGTH];
+	CHAR_DATA *victim;
+	int chance;
+
+	one_argument(argument, arg, sizeof(arg));
+
+	if (arg[0] == '\0') {
+		char_puts("Murder whom?\n", ch);
+		return;
+	}
+
+	if (IS_AFFECTED(ch, AFF_CHARM)
+	||  (IS_NPC(ch) && IS_SET(ch->pIndexData->act, ACT_PET)))
+		return;
+
+	if ((victim = get_char_room(ch, arg)) == NULL) {
+		WAIT_STATE(ch, MISSING_TARGET_DELAY);
+		char_puts("They aren't here.\n", ch);
+		return;
+	}
+
+	if (victim == ch) {
+		char_puts("Suicide is a mortal sin.\n", ch);
+		return;
+	}
+
+	if (IS_AFFECTED(ch, AFF_CHARM) && ch->master == victim) {
+		act("$N is your beloved master.", ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	if (ch->position == POS_FIGHTING) {
+		char_puts("You do the best you can!\n", ch);
+		return;
+	}
+
+	if (is_safe(ch, victim))
+		return;
+
+	WAIT_STATE(ch, 1 * PULSE_VIOLENCE);
+
+	if ((chance = get_skill(ch, gsn_mortal_strike))
+	&&  get_eq_char(ch, WEAR_WIELD)) {
+		chance /= 30;
+		chance += 1 + (ch->level - victim->level) / 2;
+		if (number_percent() < chance) {
+			act_puts("Your flash strike instantly slays $N!",
+				 ch, NULL, victim, TO_CHAR, POS_RESTING);
+			act_puts("$n flash strike instantly slays $N!",
+				 ch, NULL, victim, TO_NOTVICT,
+				 POS_RESTING);
+			act_puts("$n flash strike instantly slays you!",
+				 ch, NULL, victim, TO_VICT, POS_DEAD);
+			damage(ch, victim, (victim->hit + 1),
+			       gsn_mortal_strike, DAM_NONE, DAMF_SHOW);
+			check_improve(ch, gsn_mortal_strike, TRUE, 1);
+			return;
+		} else
+			check_improve(ch, gsn_mortal_strike, FALSE, 3);
+	}
+
+	multi_hit(ch, victim, TYPE_UNDEFINED);
+	yell(victim, ch, "Help! $I is attacking me!");
+}
+
+void do_flee(CHAR_DATA *ch, const char *argument)
+{
+	ROOM_INDEX_DATA *was_in;
+	ROOM_INDEX_DATA *now_in;
+	CHAR_DATA *victim;
+	int attempt;
+	class_t *cl;
+
+	if (RIDDEN(ch)) {
+		char_puts("You should ask to your rider!\n", ch);
+		return;
+	}
+
+	if (MOUNTED(ch))
+		dofun("dismount", ch, str_empty);
+
+	if ((victim = ch->fighting) == NULL) {
+		if (ch->position == POS_FIGHTING)
+			ch->position = POS_STANDING;
+		char_puts("You aren't fighting anyone.\n", ch);
+		return;
+	}
+
+	if ((cl = class_lookup(ch->class))
+	&&  !CAN_FLEE(ch, cl)) {
+		 char_puts("Your honour doesn't let you flee, "
+			   "try dishonoring yourself.\n", ch);
+		 return;
+	}
+
+	was_in = ch->in_room;
+	for (attempt = 0; attempt < 6; attempt++) {
+		EXIT_DATA *pexit;
+		int door;
+
+		door = number_door();
+		if ((pexit = was_in->exit[door]) == 0
+		     || pexit->to_room.r == NULL
+		     || (IS_SET(pexit->exit_info, EX_CLOSED)
+		         && (!IS_AFFECTED(ch, AFF_PASS_DOOR)
+		             || IS_SET(pexit->exit_info,EX_NOPASS))
+		             && !IS_TRUSTED(ch, LEVEL_ANG))
+		         || (IS_SET(pexit->exit_info , EX_NOFLEE))
+		         || (IS_NPC(ch)
+		             && IS_SET(pexit->to_room.r->room_flags, ROOM_NOMOB)))
+			continue;
+
+		move_char(ch, door, FALSE);
+		if ((now_in = ch->in_room) == was_in)
+		    continue;
+
+		ch->in_room = was_in;
+		act("$n has fled!", ch, NULL, NULL, TO_ROOM);
+		ch->in_room = now_in;
+
+		if (!IS_NPC(ch)) {
+			act_puts("You fled from combat!",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+			if (ch->level < LEVEL_HERO) {
+				char_printf(ch, "You lose %d exps.\n", 10);
+				gain_exp(ch, -10);
+			}
+		} else
+			ch->last_fought = NULL;
+
+		stop_fighting(ch, TRUE);
+		return;
+	}
+
+	char_puts("PANIC! You couldn't escape!\n", ch);
+	return;
+}
 
 /*
  * Disarm a creature.
@@ -3268,7 +3489,125 @@ void do_blindness_dust(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-bool check_yell(CHAR_DATA *ch, CHAR_DATA *victim, bool fighting)
+void do_dishonor(CHAR_DATA *ch, const char *argument)
+{
+	ROOM_INDEX_DATA *was_in;
+	ROOM_INDEX_DATA *now_in;
+	CHAR_DATA *gch;
+	int attempt, level = 0;
+	int sn_dishonor;
+	int chance;
+
+	if (RIDDEN(ch)) {
+		char_puts("You should ask to your rider!\n", ch);
+		return;
+	}
+
+	if ((sn_dishonor = sn_lookup("dishonor")) < 0
+	||  !HAS_SKILL(ch, sn_dishonor)) {
+		char_puts("Which honor?\n", ch);
+		return;
+	}
+
+	if (ch->fighting == NULL) {
+		if (ch->position == POS_FIGHTING)
+			ch->position = POS_STANDING;
+		char_puts("You aren't fighting anyone.\n", ch);
+		return;
+	}
+
+	for (gch = char_list; gch; gch = gch->next)
+		  if (is_same_group(gch, ch->fighting) || gch->fighting == ch)
+			level += gch->level;
+
+	if ((ch->fighting->level - ch->level) < 5 && ch->level > (level / 3)) {
+		 char_puts("Your fighting doesn't worth "
+			   "to dishonor yourself.\n", ch);
+		 return;
+	}
+
+	was_in = ch->in_room;
+	chance = get_skill(ch, sn_dishonor);
+	for (attempt = 0; attempt < 6; attempt++) {
+		EXIT_DATA *pexit;
+		int door;
+
+		if (number_percent() >= chance)
+			continue;
+
+		door = number_door();
+		if ((pexit = was_in->exit[door]) == 0
+		||  pexit->to_room.r == NULL
+		||  (IS_SET(pexit->exit_info, EX_CLOSED) &&
+		     (!IS_AFFECTED(ch, AFF_PASS_DOOR) ||
+		      IS_SET(pexit->exit_info,EX_NOPASS)) &&
+		     !IS_TRUSTED(ch, LEVEL_ANG))
+		|| IS_SET(pexit->exit_info, EX_NOFLEE)
+		|| (IS_NPC(ch) &&
+		    IS_SET(pexit->to_room.r->room_flags, ROOM_NOMOB)))
+			continue;
+
+		move_char(ch, door, FALSE);
+		if ((now_in = ch->in_room) == was_in)
+			continue;
+
+		ch->in_room = was_in;
+		act("$n has dishonored $mself!",
+		    ch, NULL, NULL, TO_ROOM);
+		ch->in_room = now_in;
+
+		if (!IS_NPC(ch)) {
+			char_puts("You dishonored yourself "
+				     "and flee from combat.\n",ch);
+			if (ch->level < LEVEL_HERO) {
+				char_printf(ch, "You lose %d exps.\n",
+					    ch->level);
+				gain_exp(ch, -(ch->level));
+			}
+		}
+		else
+			ch->last_fought = NULL;
+
+		stop_fighting(ch, TRUE);
+		if (MOUNTED(ch))
+			dofun("dismount", ch, str_empty);
+
+		check_improve(ch, sn_dishonor, TRUE, 1);
+		return;
+	}
+
+	char_puts("PANIC! You couldn't escape!\n", ch);
+	check_improve(ch, sn_dishonor, FALSE, 1);
+}
+
+void do_surrender(CHAR_DATA *ch, const char *argument)
+{
+	CHAR_DATA *mob;
+
+	if (!IS_NPC(ch)) {
+		char_puts("Huh?\n", ch);
+		return;
+	}
+
+	if ((mob = ch->fighting) == NULL) {
+		char_puts("But you're not fighting!\n", ch);
+		return;
+	}
+	act("You surrender to $N!", ch, NULL, mob, TO_CHAR);
+	act("$n surrenders to you!", ch, NULL, mob, TO_VICT);
+	act("$n tries to surrender to $N!", ch, NULL, mob, TO_NOTVICT);
+	stop_fighting(ch, TRUE);
+ 
+	if (!IS_NPC(ch) && IS_NPC(mob) 
+	&&  (!HAS_TRIGGER(mob, TRIG_SURR) ||
+	     !mp_percent_trigger(mob, ch, NULL, NULL, TRIG_SURR))) {
+		act("$N seems to ignore your cowardly act!",
+		    ch, NULL, mob, TO_CHAR);
+		multi_hit(mob, ch, TYPE_UNDEFINED);
+	}
+}
+
+static inline bool check_yell(CHAR_DATA *ch, CHAR_DATA *victim, bool fighting)
 {
 	return (!IS_NPC(ch) && !IS_NPC(victim) &&
 		victim->position > POS_STUNNED && !fighting);

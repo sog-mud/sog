@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.181 1999-06-24 16:32:59 fjoe Exp $
+ * $Id: act_comm.c,v 1.182 1999-06-28 09:04:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -57,7 +57,7 @@
 #include "obj_prog.h"
 #include "auction.h"
 #include "lang.h"
-#include "gsn.h"
+#include "note.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_replay	);
@@ -1347,6 +1347,534 @@ void do_wanted(CHAR_DATA *ch, const char *argument)
 		if (ch->in_room != victim->in_room)
 			act("$n declares $N WANTED!!!", ch, NULL, victim, TO_NOTVICT);
 	}
+}
+
+/*-----------------------------------------------------------------------------
+ * clan stuff
+ */
+void do_mark(CHAR_DATA *ch, const char *argument)
+{
+	OBJ_DATA *mark;
+	clan_t *clan = NULL;
+
+	if ((ch->clan == 0) || ((clan = clan_lookup(ch->clan)) == NULL)) {
+		char_puts("You are not in clan.\n", ch);
+		return;
+	}
+
+	if (!clan->mark_vnum) {
+		char_puts ("Your clan do not have any mark.\n", ch);
+		return;
+	}
+
+	if ((mark = get_eq_char(ch, WEAR_CLANMARK)) != NULL) {
+		obj_from_char(mark);
+		extract_obj(mark, 0);
+	}
+
+	mark = create_obj(get_obj_index(clan->mark_vnum), 0);
+	obj_to_char(mark, ch);
+	equip_char(ch, mark, WEAR_CLANMARK);
+}
+
+void do_petitio(CHAR_DATA *ch, const char *argument)
+{
+	char_puts("You must enter full command to petition.\n",ch);
+}
+
+void do_petition(CHAR_DATA *ch, const char *argument)
+{
+	bool accept;
+	int cln = 0;
+	clan_t *clan = NULL;
+	char arg1[MAX_STRING_LENGTH];
+	OBJ_DATA *mark;
+
+	if (IS_NPC(ch))
+		return;	
+
+	argument = one_argument(argument, arg1, sizeof(arg1));
+
+	if (IS_NULLSTR(arg1)) {
+		if (IS_IMMORTAL(ch)
+		||  (ch->clan && (ch->pcdata->clan_status == CLAN_LEADER ||
+				  ch->pcdata->clan_status == CLAN_SECOND)))
+			char_printf(ch,
+				    "Usage: petition %s<accept | reject> "
+				    "<char name>\n",
+				    IS_IMMORTAL(ch) ? "<clan name> " : str_empty);
+		if (IS_IMMORTAL(ch) || !ch->clan)
+			char_puts("Usage: petition <clan name>\n", ch);
+		return;
+	}
+
+	if (IS_IMMORTAL(ch)) {
+		cln = cln_lookup(arg1);
+		if (cln <= 0) {
+			char_printf(ch, "%s: unknown clan\n", arg1);
+			do_petition(ch, str_empty);
+			return;
+		}
+		argument = one_argument(argument, arg1, sizeof(arg1));
+		if (IS_NULLSTR(arg1)) {
+			do_petition(ch, str_empty);
+			return;
+		}
+		clan = CLAN(cln);
+	}
+
+	if ((accept = !str_prefix(arg1, "accept"))
+	||  !str_prefix(arg1, "reject")) {
+		CHAR_DATA *victim;
+		char arg2[MAX_STRING_LENGTH];
+		bool loaded = FALSE;
+		bool changed;
+
+		if (!IS_IMMORTAL(ch)) {
+			if (ch->clan == 0
+			||  (clan = clan_lookup(ch->clan)) == NULL) {
+				do_petition(ch, str_empty);
+				return;
+			}
+			cln = ch->clan;
+		}
+
+		argument = one_argument(argument, arg2, sizeof(arg2));
+		if (IS_NULLSTR(arg2)) {
+			do_petition(ch, str_empty);
+			return;
+		}
+
+		if (ch->pcdata->clan_status != CLAN_LEADER
+		&&  ch->pcdata->clan_status != CLAN_SECOND
+		&&  !IS_IMMORTAL(ch)) {
+			char_puts("You don't have enough power to "
+				  "accept/reject petitions.\n", ch);
+			return;
+		}
+
+		if ((victim = get_char_world(ch, arg2)) == NULL
+		||  IS_NPC(victim)) {
+			victim = load_char_obj(arg2, LOAD_F_NOCREATE);
+			if (victim == NULL) {
+				char_puts("Can't find them.\n", ch);
+				return;
+			}
+			loaded = TRUE;
+		}
+
+		if (accept) {
+			if (victim->pcdata->petition != cln) {
+				char_puts("They didn't petition.\n", ch);
+				goto cleanup;
+			}
+
+			victim->clan = cln;
+			victim->pcdata->clan_status = CLAN_COMMONER;
+			victim->pcdata->petition = CLAN_NONE;
+			update_skills(victim);
+
+			name_add(&clan->member_list, victim->name, NULL, NULL);
+			clan_save(clan);
+
+			char_puts("Greet new member!\n", ch);
+			if (!loaded)
+				act("Your petition to $t has been accepted.",
+				    victim, clan->name, NULL, TO_CHAR);
+			if ((mark = get_eq_char(victim, WEAR_CLANMARK)) != NULL) {
+				obj_from_char(mark);
+				extract_obj(mark, 0);
+			}
+			if (clan->mark_vnum) {
+				mark = create_obj(get_obj_index(clan->mark_vnum), 0);
+				obj_to_char(mark, victim);
+				equip_char(victim, mark, WEAR_CLANMARK);
+			};
+
+			goto cleanup;
+		}
+
+/* handle 'petition reject' */
+		if (victim->clan == cln) {
+			if (victim->pcdata->clan_status == CLAN_LEADER
+			&&  !IS_IMMORTAL(ch)) {
+				char_puts("You don't have enough power "
+					  "to do that.\n", ch);
+				return;
+			}
+
+			clan_update_lists(clan, victim, TRUE);
+			clan_save(clan);
+
+			victim->clan = CLAN_NONE;
+			REMOVE_BIT(victim->pcdata->trust, TRUST_CLAN);
+			update_skills(victim);
+
+			act("They are not a member of $t anymore.",
+			    ch, clan->name, NULL, TO_CHAR);
+			if (!loaded)
+				act("You are not a member of $t anymore.",
+				    victim, clan->name, NULL, TO_CHAR);
+
+			if ((mark = get_eq_char(victim, WEAR_CLANMARK))) {
+				obj_from_char(mark);
+				extract_obj(mark, 0);
+			}
+
+			goto cleanup;
+		}
+
+		if (victim->pcdata->petition == cln) {
+			victim->pcdata->petition = CLAN_NONE;
+			char_puts("Petition was rejected.\n", ch);
+			if (!loaded)
+				act("Your petition to $t was rejected.",
+				    victim, clan->name, NULL, TO_CHAR);
+			goto cleanup;
+		}
+
+		changed = FALSE;
+		if (is_name(victim->name, clan->member_list)) {
+			name_delete(&clan->member_list, victim->name,
+				    NULL, NULL);
+			changed = TRUE;
+		}
+
+		if (is_name(victim->name, clan->second_list)) {
+			name_delete(&clan->second_list, victim->name,
+				    NULL, NULL);
+			changed = TRUE;
+		}
+
+		if (is_name(victim->name, clan->leader_list)) {
+			name_delete(&clan->leader_list, victim->name,
+				    NULL, NULL);
+			changed = TRUE;
+		}
+
+		if (changed)
+			clan_save(clan);
+
+		char_puts("They didn't petition.\n", ch);
+
+	cleanup:
+		if (loaded) {
+			save_char_obj(victim, SAVE_F_PSCAN);
+			nuke_char_obj(victim);
+		}
+				
+		return;
+	}
+
+	if (IS_IMMORTAL(ch)
+	||  (ch->clan && (ch->pcdata->clan_status == CLAN_LEADER ||
+			  ch->pcdata->clan_status == CLAN_SECOND))) {
+		DESCRIPTOR_DATA *d;
+		bool found = FALSE;
+
+		if (IS_IMMORTAL(ch)) {
+			if ((cln = cln_lookup(arg1)) <= 0) {
+				char_puts("No such clan.\n", ch);
+				return;
+			}
+		}
+		else
+			cln = ch->clan;
+			
+		for (d = descriptor_list; d; d = d->next) {
+			CHAR_DATA *vch = d->original ? d->original :
+						       d->character;
+
+			if (!vch
+			||  vch->clan
+			||  vch->pcdata->petition != cln)
+				continue;
+
+			if (!found) {
+				found = TRUE;
+				char_puts("List of players petitioned to "
+					  "your clan:\n", ch);
+			}
+			char_printf(ch, "%s\n", vch->name);
+		}
+
+		if (!found) 
+			char_puts("Noone has petitioned to your clan.\n", ch);
+		return;
+	}
+
+	if (ch->level < LEVEL_PK) {
+		act("You are not ready to join clans.",
+		    ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if ((cln = cln_lookup(arg1)) <= 0) {
+		char_puts("No such clan.\n", ch);
+		return;
+	}
+
+	if (ch->clan) {
+		char_puts("You cannot leave your clan this way.\n", ch);
+		return;
+	}
+
+	ch->pcdata->petition = cln;
+	char_puts("Petition sent.\n", ch);
+}
+
+void do_promote(CHAR_DATA *ch, const char *argument)
+{
+	char arg1[MAX_STRING_LENGTH];
+	char arg2[MAX_STRING_LENGTH];
+	CHAR_DATA *victim;
+	clan_t *clan;
+
+	if (IS_NPC(ch)
+	||  (!IS_IMMORTAL(ch) && ch->pcdata->clan_status != CLAN_LEADER)) {
+		char_puts("Huh?\n", ch);
+		return;
+	}
+
+	argument = one_argument(argument, arg1, sizeof(arg1));
+	argument = one_argument(argument, arg2, sizeof(arg2));
+
+	if (!*arg1 || !*arg2) {
+		char_puts("Usage: promote <char name> <commoner | secondary>\n",
+			  ch);
+		if (IS_IMMORTAL(ch))
+			char_puts("    or: promote <char name> <leader>\n",
+				  ch);
+		return;
+	}
+
+	victim = get_char_world(ch, arg1);
+	if (!victim || IS_NPC(victim)) {
+		char_puts("They aren't here.\n", ch);
+		return;
+	}
+
+	if (victim->clan == 0 || (clan = clan_lookup(victim->clan)) == NULL
+	||  (victim->clan != ch->clan && !IS_IMMORTAL(ch))) {
+		char_puts("They are not an a clan.\n", ch);
+		return;
+	}
+
+	if (!IS_IMMORTAL(ch) && victim->pcdata->clan_status == CLAN_LEADER) {
+		char_puts("You don't have enough power to promote them.\n",
+			  ch);
+		return;
+	}
+
+	if (!str_prefix(arg2, "leader") && IS_IMMORTAL(ch)) {
+		if (victim->pcdata->clan_status == CLAN_LEADER) {
+			char_puts("They are already leader in a clan.\n",
+				  ch);
+			return;
+		}
+
+		clan_update_lists(clan, victim, FALSE);
+		name_add(&clan->leader_list, victim->name, NULL, NULL);
+		clan_save(clan);
+
+		victim->pcdata->clan_status = CLAN_LEADER;
+		char_puts("Ok.\n", ch);
+		char_puts("They are now leader in their clan.\n", ch);
+		char_puts("You are now leader in your clan.\n", victim);
+		return;
+	}
+
+	if (!str_prefix(arg2, "secondary")) {
+		if (victim->pcdata->clan_status == CLAN_SECOND) {
+			char_puts("They are already second in a clan.\n",
+				  ch);
+			return;
+		}
+
+		clan_update_lists(clan, victim, FALSE);
+		name_add(&clan->second_list, victim->name, NULL, NULL);
+		clan_save(clan);
+
+		victim->pcdata->clan_status = CLAN_SECOND;
+		char_puts("They are now second in the clan.\n", ch);
+		char_puts("You are now second in the clan.\n", victim);
+		return;
+	}
+
+	if (!str_prefix(arg2, "commoner")) {
+		if (victim->pcdata->clan_status == CLAN_COMMONER) {
+			char_puts("They are already commoner in a clan.\n",
+				  ch);
+			return;
+		}
+
+		clan_update_lists(clan, victim, FALSE);
+		clan_save(clan);
+
+		victim->pcdata->clan_status = CLAN_COMMONER;
+		char_puts("They are now commoner in the clan.\n", ch);
+		char_puts("You are now commoner in the clan.\n", victim);
+		return;
+	}
+
+	do_promote(ch, str_empty);
+}
+
+/*-----------------------------------------------------------------------------
+ * alias/unalias stuff
+ */
+
+void do_alia(CHAR_DATA *ch, const char *argument)
+{
+	char_puts("I'm sorry, alias must be entered in full.\n", ch);
+}
+
+void do_alias(CHAR_DATA *ch, const char *argument)
+{
+    CHAR_DATA *rch;
+    char arg[MAX_INPUT_LENGTH];
+    int pos;
+
+    if (ch->desc == NULL)
+	rch = ch;
+    else
+	rch = ch->desc->original ? ch->desc->original : ch;
+
+    if (IS_NPC(rch))
+	return;
+
+    argument = one_argument(argument, arg, sizeof(arg));
+    
+
+    if (arg[0] == '\0')
+    {
+	if (rch->pcdata->alias[0] == NULL)
+	{
+	    char_puts("You have no aliases defined.\n",ch);
+	    return;
+	}
+	char_puts("Your current aliases are:\n",ch);
+
+	for (pos = 0; pos < MAX_ALIAS; pos++)
+	{
+	    if (rch->pcdata->alias[pos] == NULL
+	    ||	rch->pcdata->alias_sub[pos] == NULL)
+		break;
+
+	    char_printf(ch,"    %s:  %s\n",rch->pcdata->alias[pos],
+		    rch->pcdata->alias_sub[pos]);
+	}
+	return;
+    }
+
+    if (!str_prefix("una",arg) || !str_cmp("alias",arg))
+    {
+	char_puts("Sorry, that word is reserved.\n",ch);
+	return;
+    }
+
+    if (argument[0] == '\0')
+    {
+	for (pos = 0; pos < MAX_ALIAS; pos++)
+	{
+	    if (rch->pcdata->alias[pos] == NULL
+	    ||	rch->pcdata->alias_sub[pos] == NULL)
+		break;
+
+	    if (!str_cmp(arg,rch->pcdata->alias[pos])) {
+		char_printf(ch, "%s aliases to '%s'.\n",
+			    rch->pcdata->alias[pos],
+			    rch->pcdata->alias_sub[pos]);
+		return;
+	    }
+	}
+
+	char_puts("That alias is not defined.\n",ch);
+	return;
+    }
+
+    if (!str_prefix(argument,"delete") || !str_prefix(argument,"prefix"))
+    {
+	char_puts("That shall not be done!\n",ch);
+	return;
+    }
+
+    for (pos = 0; pos < MAX_ALIAS; pos++)
+    {
+	if (rch->pcdata->alias[pos] == NULL)
+	    break;
+
+	if (!str_cmp(arg,rch->pcdata->alias[pos])) /* redefine an alias */
+	{
+	    free_string(rch->pcdata->alias_sub[pos]);
+	    rch->pcdata->alias_sub[pos] = str_dup(argument);
+	    char_printf(ch,"%s is now realiased to '%s'.\n",arg,argument);
+	    return;
+	}
+     }
+
+     if (pos >= MAX_ALIAS)
+     {
+	char_puts("Sorry, you have reached the alias limit.\n",ch);
+	return;
+     }
+  
+     /* make a new alias */
+     rch->pcdata->alias[pos]		= str_dup(arg);
+     rch->pcdata->alias_sub[pos]	= str_dup(argument);
+     char_printf(ch,"%s is now aliased to '%s'.\n",arg,argument);
+}
+
+void do_unalias(CHAR_DATA *ch, const char *argument)
+{
+    CHAR_DATA *rch;
+    char arg[MAX_INPUT_LENGTH];
+    int pos;
+    bool found = FALSE;
+ 
+    if (ch->desc == NULL)
+	rch = ch;
+    else
+	rch = ch->desc->original ? ch->desc->original : ch;
+ 
+    if (IS_NPC(rch))
+	return;
+ 
+    argument = one_argument(argument, arg, sizeof(arg));
+
+    if (arg == '\0')
+    {
+	char_puts("Unalias what?\n",ch);
+	return;
+    }
+
+    for (pos = 0; pos < MAX_ALIAS; pos++)
+    {
+	if (rch->pcdata->alias[pos] == NULL)
+	    break;
+
+	if (found)
+	{
+	    rch->pcdata->alias[pos-1]		= rch->pcdata->alias[pos];
+	    rch->pcdata->alias_sub[pos-1]	= rch->pcdata->alias_sub[pos];
+	    rch->pcdata->alias[pos]		= NULL;
+	    rch->pcdata->alias_sub[pos]		= NULL;
+	    continue;
+	}
+
+	if(!strcmp(arg,rch->pcdata->alias[pos]))
+	{
+	    char_puts("Alias removed.\n",ch);
+	    free_string(rch->pcdata->alias[pos]);
+	    free_string(rch->pcdata->alias_sub[pos]);
+	    rch->pcdata->alias[pos] = NULL;
+	    rch->pcdata->alias_sub[pos] = NULL;
+	    found = TRUE;
+	}
+    }
+
+    if (!found)
+	char_puts("No alias of that name to remove.\n",ch);
 }
 
 /*-----------------------------------------------------------------------------

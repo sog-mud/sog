@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.156 1999-06-24 20:34:58 fjoe Exp $
+ * $Id: act_obj.c,v 1.157 1999-06-28 09:04:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,7 +46,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include "merc.h"
-#include "update.h"
 #include "mob_prog.h"
 #include "obj_prog.h"
 #include "fight.h"

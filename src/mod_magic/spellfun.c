@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.169 1999-06-24 20:35:14 fjoe Exp $
+ * $Id: spellfun.c,v 1.170 1999-06-28 09:04:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,7 +46,6 @@
 #include <string.h>
 #include <time.h>
 #include "merc.h"
-#include "update.h"
 #include "chquest.h"
 #include "fight.h"
 
