@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.66.2.5 2000-06-14 15:05:29 fjoe Exp $
+ * $Id: obj_prog.c,v 1.66.2.6 2000-06-15 16:16:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1454,25 +1454,36 @@ int fight_prog_rose_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	return 0;
 }
 
+static bool
+lion_claw_hit(OBJ_DATA *obj, CHAR_DATA *ch, int loc)
+{
+	if (obj != get_eq_char(ch, loc))
+		return FALSE;
+
+	char_puts("The nails of your claw appear from its fingers.\n", ch);
+	act_puts("The nails of $n's claw appear for an instant.",
+		 ch, NULL, NULL, TO_ROOM, POS_DEAD);
+	one_hit(ch, ch->fighting, TYPE_HIT, loc);
+	one_hit(ch, ch->fighting, TYPE_HIT, loc);
+	one_hit(ch, ch->fighting, TYPE_HIT, loc);
+	one_hit(ch, ch->fighting, TYPE_HIT, loc);
+	char_puts("The nails of your claw disappear.\n", ch);
+	act_puts("The nails of $n's claw disappear suddenly.",
+		 ch, NULL, NULL, TO_ROOM, POS_DEAD);
+
+	return TRUE;
+}
+
 int fight_prog_lion_claw(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
-	if (number_percent() < 90) return 0;
+	bool foo;
 
-	if ((obj == get_eq_char(ch,WEAR_WIELD)) || 
-		(obj == get_eq_char(ch,WEAR_SECOND_WIELD)))
-{
-	char_puts("The nails of your claw appears from its fingers.\n",ch);
-	act_puts("The nails of $n's claw appears for an instant.",
-			ch,NULL,NULL,TO_ROOM,POS_DEAD);
-	one_hit(ch, ch->fighting, TYPE_HIT, WEAR_WIELD);
-	one_hit(ch, ch->fighting, TYPE_HIT, WEAR_WIELD);
-	one_hit(ch, ch->fighting, TYPE_HIT, WEAR_WIELD);
-	one_hit(ch, ch->fighting, TYPE_HIT, WEAR_WIELD);
-	char_puts("The nails of your claw disappears.\n",ch);
-	act_puts("the nails of $n's claw disappears suddenly.",
-		ch,NULL,NULL,TO_ROOM,POS_DEAD);
-}
-return 0;
+	if (number_percent() < 90)
+		return 0;
+
+	foo = lion_claw_hit(obj, ch, WEAR_WIELD) ||	/* shut up gcc */
+	      lion_claw_hit(obj, ch, WEAR_SECOND_WIELD);
+	return 0;
 }
 
 int speech_prog_ring_ra(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
