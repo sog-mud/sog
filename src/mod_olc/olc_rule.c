@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.17 1999-10-19 19:22:56 avn Exp $
+ * $Id: olc_rule.c,v 1.18 1999-11-30 20:15:42 avn Exp $
  */
 
 #include "olc.h"
@@ -173,7 +173,8 @@ OLC_FUN(ruleed_create)
 		return FALSE;
 
 	rule_init(&rnew);
-	rnew.name = str_dup(argument);
+	rnew.name 	= str_dup(argument);
+	rnew.arg	= impl ? 0 : strlen(argument);
 	OLCED(ch)	= olced_lookup(rops->id);
 	ch->desc->pEdit = impl ? irule_insert(rcl, atoi(arg2), &rnew) :
 				 erule_add(rcl, &rnew);
