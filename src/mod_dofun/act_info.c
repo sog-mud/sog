@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.203 1999-02-19 09:53:04 fjoe Exp $
+ * $Id: act_info.c,v 1.204 1999-02-19 10:49:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -137,6 +137,12 @@ char *obj_name(OBJ_DATA *obj, CHAR_DATA *ch)
         return buf;
 }
 
+/*
+ * format description (long descr for mobs, description for objs)
+ *
+ * eng name expected to be in form " (foo)" and is stripped
+ * if COMM_NOENG is set
+ */
 const char *format_descr(mlstring *ml, CHAR_DATA *looker)
 {
 	const char *s;
@@ -150,8 +156,11 @@ const char *format_descr(mlstring *ml, CHAR_DATA *looker)
 	||  (q = strchr(p+1, ')')) == NULL)
 		return s;
 
-	strnzcpy(buf, s, UMIN(p - s + 1, sizeof(buf)));
-	strnzcat(buf, *++q ? q+1 : q, sizeof(buf));
+	if (p != s && *(p-1) == ' ')
+		p--;
+
+	strnzcpy(buf, s, UMIN(p-s+1, sizeof(buf)));
+	strnzcat(buf, q+1, sizeof(buf));
 	return buf;
 }
 
