@@ -1,0 +1,9 @@
+#RACE
+Name tree~
+Form instant_decay~
+Resist fire -50
+Resist weapon 50
+LuckBonus 0
+End
+
+#$

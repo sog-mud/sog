@@ -1,0 +1,11 @@
+#RACE
+Name air sprite~
+Aff flying~
+Form instant_decay~
+Resist fire -50
+Resist negative -50
+Resist charm 100
+LuckBonus 0
+End
+
+#$
