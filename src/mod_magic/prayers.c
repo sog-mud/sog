@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.65 2004-03-02 13:14:58 tatyana Exp $
+ * $Id: prayers.c,v 1.66 2004-03-03 09:40:14 tatyana Exp $
  */
 
 /***************************************************************************
@@ -156,6 +156,7 @@ DECLARE_SPELL_FUN(prayer_fire_ward);
 DECLARE_SPELL_FUN(prayer_death_ward);
 DECLARE_SPELL_FUN(prayer_spear_of_death);
 DECLARE_SPELL_FUN(prayer_sleep_of_grave);
+DECLARE_SPELL_FUN(prayer_wind_blow);
 
 static void
 hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
@@ -3668,3 +3669,56 @@ SPELL_FUN(prayer_sleep_of_grave, sn, level, ch, vo)
 	}
 }
 
+SPELL_FUN(prayer_wind_blow, sn, level, ch, vo)
+{
+	char arg[MAX_INPUT_LENGTH];
+	int chance = 0;
+	int door;
+	EXIT_DATA *pexit;
+
+	target_name = one_argument(target_name, arg, sizeof(arg));
+
+	if (arg[0] == '\0') {
+		act_char("Which direction?", ch);
+		return;
+	}
+
+	if ((door = find_door(ch, arg)) < 0)
+		return;
+
+	pexit = ch->in_room->exit[door];
+
+	if (IS_SET(pexit->exit_info, EX_NOPASS)) {
+		act("A mystical shield protects $d.",
+		    ch, &pexit->short_descr, NULL, TO_CHAR);
+		return;
+	}
+
+	chance = level / 5 + get_curr_stat(ch, STAT_INT) + get_skill(ch,sn) / 5;
+
+	act("You create wind fist and send it toward $d.",
+	    ch, &pexit->short_descr, NULL, TO_CHAR);
+	act("$n create wind fist and send it toward $d.",
+	    ch, &pexit->short_descr, NULL, TO_ROOM);
+
+	if (number_percent() < chance) {
+		ROOM_INDEX_DATA *to_room;
+		EXIT_DATA *pexit_rev;
+
+		REMOVE_BIT(pexit->exit_info, EX_LOCKED | EX_CLOSED);
+		REMOVE_BIT(pexit->exit_info, EX_CLOSED);
+		act("Wind opens $d!", ch, &pexit->short_descr, NULL, TO_ALL);
+
+		/* open the other side */
+		if ((to_room = pexit->to_room.r) != NULL
+		&&  (pexit_rev = to_room->exit[rev_dir[door]]) != NULL
+		&&  pexit_rev->to_room.r == ch->in_room) {
+			REMOVE_BIT(pexit_rev->exit_info, EX_CLOSED | EX_LOCKED);
+			act("$d opens.", to_room->people,
+			    &pexit_rev->short_descr, NULL, TO_ROOM);
+		}
+	} else {
+		act("Wind is not strong enought to open $d.",
+		    ch, &pexit->short_descr, NULL, TO_ALL);
+	}
+}
