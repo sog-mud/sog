@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_tell_knave_of_hearts.mpc,v 1.1 2001-09-04 19:36:16 fjoe Exp $
+ */
+
+dofun("say", $n, "Nothing!");

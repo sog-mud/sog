@@ -1,0 +1,9 @@
+/*
+ * $Id: mob_greet_violet_warlock.mpc,v 1.1 2001-09-04 19:36:11 fjoe Exp $
+ */
+
+if (char_sex($N) == SEX_FEMALE) {
+        social_char("wink", $n, $N);
+        dofun("say", $n, "Let's have a kiss, eh, cutie?");
+} else
+        social_char("spit", $n, $N);

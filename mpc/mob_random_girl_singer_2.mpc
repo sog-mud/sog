@@ -1,0 +1,11 @@
+/*
+ * $Id: mob_random_girl_singer_2.mpc,v 1.1 2001-09-04 19:36:13 fjoe Exp $
+ */
+
+dofun("emote", $n, "sings 'Came he from a mage's guild,'");
+dofun("emote", $n, "sings 'In high magics he was skilled,'");
+dofun("emote", $n, "sings 'Upon his spells power he'd build...'");
+dofun("emote", $n, "plucks the strings of her harp.");
+dofun("emote", $n, "sings 'A magic-less knight had him killed,'");
+dofun("emote", $n, "sings 'Promises now unfulfilled,'");
+dofun("emote", $n, "sings 'Magic blood in the forest spilled.'");

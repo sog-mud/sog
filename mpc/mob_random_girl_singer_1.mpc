@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_random_girl_singer_1.mpc,v 1.1 2001-09-04 19:36:12 fjoe Exp $
+ */
+
+dofun("emote", $n, "plucks the strings of her harp.");

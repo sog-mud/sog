@@ -1,0 +1,11 @@
+/*
+ * $Id: mob_greet_violet_witch.mpc,v 1.1 2001-09-04 19:36:12 fjoe Exp $
+ */
+
+if (char_sex($N) == SEX_MALE) {
+        social_char("pinch", $n, $N);
+        mob_interpret($n, "innocent");
+} else {
+        mob_interpret($n, "sigh");
+        dofun("say", $n, "There's never a man around when you need one.");
+}

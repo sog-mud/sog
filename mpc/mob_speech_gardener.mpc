@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_speech_gardener.mpc,v 1.1 2001-09-04 19:36:14 fjoe Exp $
+ */
+
+dofun("emote", $n, "stares at two accusingly.");

@@ -1,0 +1,9 @@
+/*
+ * $Id: mob_greet_black_knight.mpc,v 1.1 2001-09-04 19:36:11 fjoe Exp $
+ */
+
+if (is_ghost($N) || is_immortal($N))
+        return 0;
+ 
+dofun("say", $n, "NONE SHALL PASS!");
+multi_hit($n, $N, NULL);

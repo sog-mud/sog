@@ -1,0 +1,7 @@
+/*
+ * $Id: mob_random_blue_bird.mpc,v 1.1 2001-09-04 19:36:12 fjoe Exp $
+ */
+
+dofun("emote", $n, "swoops down to the ground to catch an insect.");
+dofun("emote", $n, "eats an insect.");
+dofun("emote", $n, "flies back to its tree.");

@@ -1,0 +1,18 @@
+/*
+ * $Id: mob_cmd_lothar_warrior.mpc,v 1.1 2001-09-04 19:36:10 fjoe Exp $
+ */
+
+act("You remove your shoes.", $n, NULL, $N, TO_VICT);
+act("$N removes $s shoes.", $n, NULL, $N, TO_NOTVICT);
+ 
+room r = get_room_index(47000);
+if (r == NULL)
+        return 0;
+
+act_say($n, "Welcome, $N!", $N);
+ 
+act("The statue escorts you to the master's chamber.",
+    $n, NULL, $N, TO_VICT);
+act("The statue opens the west door, letting $N enter.",
+    $n, NULL, $N, TO_NOTVICT);
+transfer_char($N, r);

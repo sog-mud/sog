@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_tell_frog_footman.mpc,v 1.1 2001-09-04 19:36:15 fjoe Exp $
+ */
+
+dofun("say", $n, "I shall sit here. Till tomorrow.");

@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_tell_lory.mpc,v 1.1 2001-09-04 19:36:16 fjoe Exp $
+ */
+
+tell_char($n, $N, "I'm not telling you how old I am!");

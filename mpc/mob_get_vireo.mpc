@@ -1,0 +1,7 @@
+/*
+ * $Id: mob_get_vireo.mpc,v 1.1 2001-09-04 19:36:10 fjoe Exp $
+ */
+
+act("$n screeches at you.", $n, NULL, $N, TO_VICT);
+act("$n screeches at $N.", $n, NULL, $N, TO_NOTVICT);
+multi_hit($n, $N, NULL);

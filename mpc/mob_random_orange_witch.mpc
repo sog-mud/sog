@@ -1,0 +1,6 @@
+/*
+ * $Id: mob_random_orange_witch.mpc,v 1.1 2001-09-04 19:36:13 fjoe Exp $
+ */
+
+dofun("emote", $n, "drops a tiny orb into the pot.");
+dofun("say", $n, "...eye of newt...");

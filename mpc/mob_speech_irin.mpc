@@ -1,0 +1,13 @@
+/*
+ * $Id: mob_speech_irin.mpc,v 1.1 2001-09-04 19:36:14 fjoe Exp $
+ */
+
+room r = get_room_index(298);
+if (r == NULL)
+        return 0;
+
+act("Irin looked at you and her eyes flashed with a bright green light.",
+    NULL, NULL, $N, TO_VICT);
+act("You feel yourself transported to another place.",
+    NULL, NULL, $N, TO_VICT);
+transfer_char($N, r);

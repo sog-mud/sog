@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_speech_cook.mpc,v 1.1 2001-09-04 19:36:14 fjoe Exp $
+ */
+
+dofun("emote", $n, "hurls a plate at the Duchess! *>CRASH<*");

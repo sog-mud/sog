@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_tell_puppy.mpc,v 1.1 2001-09-04 19:36:17 fjoe Exp $
+ */
+
+dofun("emote", $n, "wags its tail and jumps up on you.");
