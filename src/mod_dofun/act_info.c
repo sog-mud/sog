@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.127 1998-09-15 15:17:13 fjoe Exp $
+ * $Id: act_info.c,v 1.128 1998-09-16 09:38:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2049,7 +2049,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 			if (d->connected == CON_PLAYING
 			&&  (victim = d->character) != NULL
 			&&  !IS_NPC(victim)
-			&&  !(fPKonly && in_PK(ch, victim))
+			&&  (!fPKonly || in_PK(ch, victim))
 			&&  victim->in_room != NULL
 			&&  victim->in_room->area == ch->in_room->area
 			&&  can_see(ch, victim)) {

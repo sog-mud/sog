@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.64 1998-09-15 15:17:14 fjoe Exp $
+ * $Id: act_obj.c,v 1.65 1998-09-16 09:38:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2187,11 +2187,12 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 					"its");
 				break;
 			case 2:
-				doprintf(do_yell, victim, "%s tried to rob me!", ch->name);
+				doprintf(do_yell, victim, "%s tried to rob me!",
+					 PERS(ch, victim));
 				break;
 			case 3:
 				doprintf(do_yell, victim, "Keep your hands out of there, %s!",
-					 ch->name);
+					 PERS(ch, victim));
 				break;
 			}
 
@@ -2261,7 +2262,6 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 		check_improve(ch, sn, TRUE, 1);
 	}
 }
-
 
 /*
  * Shopping commands.

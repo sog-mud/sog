@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.21 1998-09-04 05:27:47 fjoe Exp $
+ * $Id: skills.c,v 1.22 1998-09-16 09:38:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -647,7 +647,7 @@ int get_skill(CHAR_DATA *ch, int sn)
 			  IS_SET(ch->act,ACT_THIEF)))
 			skill = ch->level;
 		else if ((sn == gsn_berserk || sn == gsn_tiger_power) &&
-			 IS_SET(ch->off_flags,OFF_BERSERK))
+			 IS_SET(ch->off_flags, OFF_BERSERK))
 			skill = 3 * ch->level;
 		else if (sn == gsn_kick)
 			skill = 10 + 3 * ch->level;
