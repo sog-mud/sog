@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.h,v 1.3 1999-11-24 11:18:41 fjoe Exp $
+ * $Id: spec.h,v 1.4 1999-11-26 08:24:18 kostik Exp $
  */
 
 #ifndef _SPEC_H_
@@ -35,7 +35,8 @@
 enum {
 	SPEC_CLASS,
 	SPEC_RACE,
-	SPEC_CLAN
+	SPEC_CLAN,
+	SPEC_WEAPON
 };
 
 typedef struct spec_t spec_t;
