@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.36 1998-10-30 06:56:35 fjoe Exp $
+ * $Id: skills.c,v 1.37 1998-11-11 10:34:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -162,7 +162,7 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 		found = TRUE;
 		lev = skill_level(ch, ps->sn);
 
-		if (lev >= LEVEL_HERO)
+		if (lev > LEVEL_HERO)
 			continue;
 
 		if (ch->level < lev)
@@ -224,7 +224,7 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 		found = TRUE;
 		lev = skill_level(ch, ps->sn);
 
-		if (lev >= LEVEL_HERO)
+		if (lev > LEVEL_HERO)
 			continue;
 
 		if (ch->level < lev)
@@ -412,7 +412,7 @@ void update_skills(CHAR_DATA *ch)
 /* remove not matched skills */
 	for (i = 0; i < ch->pcdata->learned.nused; i++) {
 		PC_SKILL *ps = VARR_GET(&ch->pcdata->learned, i);
-		if (skill_level(ch, ps->sn) > MAX_LEVEL)
+		if (skill_level(ch, ps->sn) > LEVEL_HERO)
 			ps->percent = 0;
 	}
 }
@@ -889,7 +889,7 @@ int skill_level(CHAR_DATA *ch, int sn)
 	if (IS_NPC(ch))
 		return ch->level;
 
-	slevel = MAX_LEVEL+1;
+	slevel = LEVEL_IMMORTAL;
 
 /* noone can use ill-defined skills */
 /* broken chars can't use any skills */
@@ -911,10 +911,6 @@ int skill_level(CHAR_DATA *ch, int sn)
 
 	if ((race_skill = race_skill_lookup(r, sn)))
 		slevel = UMIN(slevel, race_skill->level);
-
-/* immortals can have all skills */
-	if (slevel > MAX_LEVEL && IS_IMMORTAL(ch))
-		slevel = 1;
 
 	return slevel;
 }

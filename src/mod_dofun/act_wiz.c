@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.84 1998-11-07 11:58:07 fjoe Exp $
+ * $Id: act_wiz.c,v 1.85 1998-11-11 10:34:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2903,7 +2903,8 @@ void do_sockets(CHAR_DATA *ch, const char *argument)
 
 		if (!vch
 		||  (can_see(ch, vch) &&
-		     (arg[0] == '\0' || is_name(arg, vch->name)))) {
+		     (arg[0] == '\0' ||
+		      (!IS_NULLSTR(vch->name) && is_name(arg, vch->name))))) {
 			count++;
 			buf_printf(output, "[%3d %2d] %s@%s",
 				   d->descriptor,
