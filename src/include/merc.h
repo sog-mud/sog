@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.399 2003-04-19 16:12:23 fjoe Exp $
+ * $Id: merc.h,v 1.400 2003-04-22 13:47:31 tatyana Exp $
  */
 
 /***************************************************************************
@@ -581,6 +581,22 @@ enum {
 	GROUP_ALTERATION,
 	GROUP_ABJURATION,
 	GROUP_CHARM,
+
+	GROUP_AIR,
+	GROUP_WATER,
+	GROUP_EARTH,
+	GROUP_FIRE,
+	GROUP_SUN,
+	GROUP_PLANT,
+	GROUP_ANIMAL,
+	GROUP_KNOWLEDGE,
+	GROUP_LUCK,
+	GROUP_CHAOS,
+	GROUP_LAW,
+	GROUP_GOOD,
+	GROUP_RESTORATION,
+	GROUP_DEATH,
+	GROUP_DESTRUCTION,
 };
 
 #define MOB_IS_PRACTICER(mob)	(!c_isempty(&(mob)->pMobIndex->practicer))

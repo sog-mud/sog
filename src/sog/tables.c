@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.196 2003-04-19 16:12:44 fjoe Exp $
+ * $Id: tables.c,v 1.197 2003-04-22 13:47:34 tatyana Exp $
  */
 
 /***************************************************************************
@@ -928,6 +928,21 @@ flaginfo_t skill_groups[] =
 	{ "summoning",		GROUP_SUMMONING,	TRUE	},
 	{ "abjuration",		GROUP_ABJURATION,	TRUE	},
 	{ "charm",		GROUP_CHARM,		TRUE	},
+	{ "air",		GROUP_AIR,		TRUE	},
+	{ "water",		GROUP_WATER,		TRUE	},
+	{ "earth",		GROUP_EARTH,		TRUE	},
+	{ "fire",		GROUP_FIRE,		TRUE	},
+	{ "sun",		GROUP_SUN,		TRUE	},
+	{ "plant",		GROUP_PLANT,		TRUE	},
+	{ "animal",		GROUP_ANIMAL,		TRUE	},
+	{ "knowledge",		GROUP_KNOWLEDGE,	TRUE	},
+	{ "luck",		GROUP_LUCK,		TRUE	},
+	{ "chaos",		GROUP_CHAOS,		TRUE	},
+	{ "law",		GROUP_LAW,		TRUE	},
+	{ "good",		GROUP_GOOD,		TRUE	},
+	{ "restoration",	GROUP_RESTORATION,	TRUE	},
+	{ "death",		GROUP_DEATH,		TRUE	},
+	{ "distruction",	GROUP_DESTRUCTION,	TRUE	},
 
 	{ NULL, 0, FALSE }
 };
