@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.17 1998-12-23 16:11:13 fjoe Exp $
+ * $Id: const.h,v 1.18 1999-02-12 16:22:40 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -65,6 +65,7 @@
 #	define ETC_PATH		"etc"
 #	define CLASSES_PATH	"classes"
 #	define CLANS_PATH	"clans"
+#	define PLISTS_PATH	CLANS_PATH"\\plists"
 #	define AREA_PATH	"area"
 #	define LANG_PATH	"lang"
 #else
@@ -77,6 +78,7 @@
 #	define ETC_PATH		"etc"
 #	define CLASSES_PATH	"classes"
 #	define CLANS_PATH	"clans"
+#	define PLISTS_PATH	CLANS_PATH"/plists"
 #	define AREA_PATH	"area"
 #	define LANG_PATH	"lang"
 #endif

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.2 1999-02-08 16:34:14 fjoe Exp $
+ * $Id: db_race.c,v 1.3 1999-02-12 16:22:41 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -34,24 +34,27 @@
 DECLARE_DBLOAD_FUN(load_race);
 DECLARE_DBLOAD_FUN(load_pcrace);
 
-DBFUN db_load_races[] =
+DECLARE_DBINIT_FUN(init_race);
+
+DBFUN dbfun_races[] =
 {
 	{ "RACE",	load_race	},
 	{ "PCRACE",	load_pcrace	},
 	{ NULL }
 };
 
-static RACE_DATA *race_curr;
+DBDATA db_races = { dbfun_races, init_race };
 
 DBINIT_FUN(init_race)
 {
-	race_curr = NULL;
+	db_set_arg(dbdata, "PCRACE", NULL);
 }
 
 DBLOAD_FUN(load_race)
 {
-	race_curr = race_new();
-	race_curr->file_name = get_filename(filename);
+	RACE_DATA *race = race_new();
+	race->file_name = get_filename(filename);
+	db_set_arg(dbdata, "PCRACE", race);
 
 	for (;;) {
 		char *word = feof(fp) ? "End" : fread_word(fp);
@@ -59,18 +62,18 @@ DBLOAD_FUN(load_race)
 
 		switch(UPPER(word[0])) {
 		case 'A':
-			KEY("Aff", race_curr->aff,
+			KEY("Aff", race->aff,
 			    fread_fstring(affect_flags, fp));
-			KEY("Act", race_curr->act,
+			KEY("Act", race->act,
 			    fread_fstring(act_flags, fp));
 			break;
 
 		case 'E':
 			if (!str_cmp(word, "End")) {
-				if (IS_NULLSTR(race_curr->name)) {
+				if (IS_NULLSTR(race->name)) {
 					db_error("load_race",
 						 "race name undefined");
-					race_free(race_curr);
+					race_free(race);
 					races.nused--;
 				}
 				return;
@@ -78,36 +81,36 @@ DBLOAD_FUN(load_race)
 			break;
 
 		case 'F':
-			KEY("Form", race_curr->form,
+			KEY("Form", race->form,
 			    fread_fstring(form_flags, fp));
 			break;
 
 		case 'I':
-			KEY("Imm", race_curr->imm,
+			KEY("Imm", race->imm,
 			    fread_fstring(imm_flags, fp));
 			break;
 
 		case 'N':
-			SKEY("Name", race_curr->name);
+			SKEY("Name", race->name);
 			break;
 
 		case 'O':
-			KEY("Off", race_curr->off,
+			KEY("Off", race->off,
 			    fread_fstring(off_flags, fp));
 			break;
 
 		case 'P':
-			KEY("Parts", race_curr->parts,
+			KEY("Parts", race->parts,
 			    fread_fstring(part_flags, fp));
 			break;
 
 		case 'R':
-			KEY("Res", race_curr->res,
+			KEY("Res", race->res,
 			    fread_fstring(res_flags, fp));
 			break;
 
 		case 'V':
-			KEY("Vuln", race_curr->vuln,
+			KEY("Vuln", race->vuln,
 			    fread_fstring(vuln_flags, fp));
 			break;
 		}
@@ -119,11 +122,15 @@ DBLOAD_FUN(load_race)
 
 DBLOAD_FUN(load_pcrace)
 {
+	RACE_DATA *race = arg;
 	RACE_PCDATA *pcr;
-	if (!race_curr) 
-		db_error("load_pcrace", "#PCRACE before #RACE");
 
-	pcr = race_curr->pcdata = race_pcdata_new();
+	if (!race) {
+		db_error("load_pcrace", "#PCRACE before #RACE");
+		return;
+	}
+
+	pcr = race->pcdata = race_pcdata_new();
 
 	for (;;) {
 		int i;
@@ -152,7 +159,7 @@ DBLOAD_FUN(load_pcrace)
 					db_error("load_pcrace",
 						 "race who_name undefined");
 					race_pcdata_free(pcr);
-					race_curr->pcdata = NULL;
+					race->pcdata = NULL;
 				}
 				varr_qsort(&pcr->classes, cmpstr);
 				varr_qsort(&pcr->skills, cmpint);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_skill.c,v 1.6 1998-10-30 06:56:55 fjoe Exp $
+ * $Id: db_skill.c,v 1.7 1999-02-12 16:22:41 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -34,11 +34,13 @@
 
 DECLARE_DBLOAD_FUN(load_skill);
 
-DBFUN db_load_skills[] =
+DBFUN dbfun_skills[] =
 {
 	{ "SKILL",	load_skill	},
 	{ NULL }
 };
+
+DBDATA db_skills = { dbfun_skills };
 
 DBLOAD_FUN(load_skill)
 {
@@ -112,7 +114,7 @@ DBLOAD_FUN(load_skill)
 			break;
 		}
 
-		if (!fMatch) 
+		if (!fMatch)
 			db_error("load_skill", "%s: Unknown keyword", word);
 	}
 }

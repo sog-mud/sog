@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.5 1998-11-11 05:47:05 fjoe Exp $
+ * $Id: lang.c,v 1.6 1999-02-12 16:22:41 fjoe Exp $
  */
 
 #if	defined (LINUX) || defined (WIN32)
@@ -35,18 +35,31 @@
 
 #include "const.h"
 #include "typedef.h"
+#include "varr.h"
+#include "word.h"
 #include "lang.h"
 #include "db.h"
 #include "str.h"
 #include "varr.h"
 
-varr 		langs = { sizeof(LANG_DATA), 2 };
+varr langs = { sizeof(LANG_DATA), 2 };
 
 LANG_DATA *lang_new(void)
 {
+	int i;
 	LANG_DATA *lang = varr_enew(&langs);
+
 	lang->slang_of = -1;
 	lang->vnum = langs.nused-1;
+
+	for (i = 0; i < MAX_WORD_HASH; i++) {
+		lang->hash_genders[i].nsize = sizeof(WORD_DATA);
+		lang->hash_genders[i].nstep = 4;
+		
+		lang->hash_cases[i].nsize = sizeof(WORD_DATA);
+		lang->hash_cases[i].nstep = 4;
+	}
+
 	return lang;
 }
 

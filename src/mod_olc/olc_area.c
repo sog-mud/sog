@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.32 1999-02-12 10:33:36 kostik Exp $
+ * $Id: olc_area.c,v 1.33 1999-02-12 16:22:42 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -558,7 +558,6 @@ VALIDATE_FUN(validate_move)
 		}
 	}
 
-	pArea->min_vnum += delta;
 	pArea->max_vnum += delta;
 	touch_area(pArea);
 

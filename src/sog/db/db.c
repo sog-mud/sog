@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.100 1999-02-11 16:40:31 fjoe Exp $
+ * $Id: db.c,v 1.101 1999-02-12 16:22:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -40,6 +40,7 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
+#include <errno.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -180,64 +181,95 @@ int dbfuncmp(const void *p1, const void *p2)
 	return str_cmp(*(char**)p1, *(char**)p2);
 }
 
-int dbfun_qsort(DBFUN *dbfun_table)
+void dbdata_init(DBDATA *dbdata)
 {
-	int dbfun_count = 0;
-	while(dbfun_table[dbfun_count].name)
-		dbfun_count++;
-	qsort(dbfun_table, dbfun_count, sizeof(*dbfun_table), dbfuncmp);
-	return dbfun_count;
+	dbdata->tab_sz = 0;
+	while(dbdata->fun_tab[dbdata->tab_sz].name)
+		dbdata->tab_sz++;
+	qsort(dbdata->fun_tab, dbdata->tab_sz,
+	      sizeof(*dbdata->fun_tab), dbfuncmp);
 }
 
-void db_parse_file(const char *path, const char *file,
-		   DBFUN *dbfun_table, int dbfun_count)
+DBFUN *dbfun_lookup(DBDATA *dbdata, const char *name)
 {
+	return bsearch(&name, dbdata->fun_tab, dbdata->tab_sz,
+		       sizeof(*dbdata->fun_tab), dbfuncmp);
+}
+
+void db_set_arg(DBDATA *dbdata, const char *name, void *arg)
+{
+	DBFUN *fun;
+
+	if (!dbdata->tab_sz)
+		dbdata_init(dbdata);
+
+	if ((fun = dbfun_lookup(dbdata, name)) == NULL)
+		return;
+
+	fun->arg = arg;
+}
+
+/*
+ * db_parse_file - parses file using dbdata
+ * dbdata->tab_sz should be properly intialized
+ */
+void db_parse_file(DBDATA *dbdata, const char *path, const char *file)
+{
+	char buf[PATH_MAX];
+	int linenum;
 	FILE *fp;
 
-	snprintf(filename, sizeof(filename), "%s%c%s", path, PATH_SEPARATOR, file);
-	if ((fp = fopen(filename, "r")) == NULL) {
-		perror(filename);
-		exit(1);
-	}
+	strnzcpy(buf, filename, sizeof(buf));
+	linenum = line_number;
+	line_number = 0;
+	snprintf(filename, sizeof(filename), "%s%c%s",
+		 path, PATH_SEPARATOR, file);
 
-	line_number = 1;
+	if ((fp = fopen(filename, "r")) == NULL) {
+		db_error("db_parse_file", strerror(errno));
+		strnzcpy(filename, buf, sizeof(filename));
+		line_number = linenum;
+		return;
+	}
 
 	for (; ;) {
 		DBFUN *fn;
 		char *word;
 
-		if (fread_letter(fp) != '#') 
+		if (fread_letter(fp) != '#') {
 			db_error("db_parse_file", "'#' not found");
+			break;
+		}
 
 		word = fread_word(fp);
 		if (word[0] == '$')
 			break;
-		fn = bsearch(&word, dbfun_table, dbfun_count,
-			     sizeof(*dbfun_table), dbfuncmp);
 
+		fn = dbfun_lookup(dbdata, word);
 		if (fn) 
-			fn->fun(fp);
+			fn->fun(dbdata, fp, fn->arg);
 		else {
-			log("boot_db: bad section name.");
-			exit(1);
+			db_error("db_parse_file", "bad section name");
+			break;
 		}
 	}
 	fclose(fp);
+
+	strnzcpy(filename, buf, sizeof(filename));
+	line_number = linenum;
 }
 
-void db_load_file(const char *path, const char *file,
-		  DBFUN *dbfun_table, DBINIT_FUN *dbinit)
+void db_load_file(DBDATA *dbdata, const char *path, const char *file)
 {
-	int dbfun_count = dbfun_qsort(dbfun_table);
-	if (dbinit)
-		dbinit();
-	db_parse_file(path, file, dbfun_table, dbfun_count);
+	if (!dbdata->tab_sz)
+		dbdata_init(dbdata);
+	if (dbdata->dbinit)
+		dbdata->dbinit(dbdata);
+	db_parse_file(dbdata, path, file);
 }
 
-void db_load_list(const char *path, const char *file,
-		  DBFUN *dbfun_table, DBINIT_FUN *dbinit)
+void db_load_list(DBDATA *dbdata, const char *path, const char *file)
 {
-	int dbfun_count;
 	FILE *fp;
 
 	if ((fp = dfopen(path, file, "r")) == NULL) {
@@ -245,15 +277,16 @@ void db_load_list(const char *path, const char *file,
 		exit(1);
 	}
 
-	dbfun_count = dbfun_qsort(dbfun_table);
+	if (!dbdata->tab_sz)
+		dbdata_init(dbdata);
 	for (; ;) {
 		char *name = fread_word(fp);
 		if (name[0] == '$')
 			break;
 
-		if (dbinit)
-			dbinit();
-		db_parse_file(path, name, dbfun_table, dbfun_count);
+		if (dbdata->dbinit)
+			dbdata->dbinit(dbdata);
+		db_parse_file(dbdata, path, name);
 	}
 	fclose(fp);
 }
@@ -312,16 +345,16 @@ void boot_db(void)
 
 	fBootDb = TRUE;
 
-	db_load_list(LANG_PATH, LANG_LIST, db_load_langs, NULL);
+	db_load_list(&db_langs, LANG_PATH, LANG_LIST);
 	load_oldmsgdb();
 	load_msgdb();
-	db_load_file(ETC_PATH, SKILLS_CONF, db_load_skills, NULL);
+	db_load_file(&db_skills, ETC_PATH, SKILLS_CONF);
 	namedp_check(gsn_table);
 	namedp_check(spellfn_table);
-	db_load_list(RACES_PATH, RACE_LIST, db_load_races, init_race);
-	db_load_list(CLASSES_PATH, CLASS_LIST, db_load_classes, init_class);
-	db_load_list(CLANS_PATH, CLAN_LIST, db_load_clans, NULL);
-	db_load_list(AREA_PATH, AREA_LIST, db_load_areas, init_area);
+	db_load_list(&db_races, RACES_PATH, RACE_LIST);
+	db_load_list(&db_classes, CLASSES_PATH, CLASS_LIST);
+	db_load_list(&db_clans, CLANS_PATH, CLAN_LIST);
+	db_load_list(&db_areas, AREA_PATH, AREA_LIST);
 
 	fBootDb = FALSE;
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_clan.c,v 1.13 1999-02-12 10:33:36 kostik Exp $
+ * $Id: db_clan.c,v 1.14 1999-02-12 16:22:41 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -35,17 +35,31 @@
 
 DECLARE_DBLOAD_FUN(load_clan);
 
-DBFUN db_load_clans[] =
+DBFUN dbfun_clans[] =
 {
 	{ "CLAN",	load_clan	},
 	{ NULL }
 };
 
+DBDATA db_clans = { dbfun_clans };
+
+DECLARE_DBLOAD_FUN(load_plists);
+
+DBFUN dbfun_plists[] =
+{
+	{ "PLISTS",	load_plists	},
+	{ NULL }
+};
+
+DBDATA db_plists = { dbfun_plists };
+
 DBLOAD_FUN(load_clan)
 {
-	CLAN_DATA *	clan;
+	CLAN_DATA *clan;
+
 	clan = clan_new();
 	clan->file_name = get_filename(filename);
+	db_set_arg(&db_plists, "PLISTS", clan);
 
 	for (;;) {
 		char *word = feof(fp) ? "End" : fread_word(fp);
@@ -64,6 +78,10 @@ DBLOAD_FUN(load_clan)
 					clans.nused--;
 				}
 				varr_qsort(&clan->skills, cmpint);
+				fBootDb = FALSE;
+				db_load_file(&db_plists,
+					     PLISTS_PATH, clan->file_name);
+				fBootDb = TRUE;
 				return;
 			}
 			break;
@@ -103,6 +121,35 @@ DBLOAD_FUN(load_clan)
 
 		if (!fMatch) 
 			db_error("load_clan", "%s: Unknown keyword", word);
+	}
+}
+
+DBLOAD_FUN(load_plists)
+{
+	CLAN_DATA *clan = arg;
+
+	for (;;) {
+		char *word = feof(fp) ? "End" : fread_word(fp);
+		bool fMatch = FALSE;
+
+		switch (UPPER(word[0])) {
+		case 'E':
+			if (!str_cmp(word, "End"))
+				return;
+			break;
+		case 'L':
+			SKEY("Leaders", clan->leader_list);
+			break;
+		case 'M':
+			SKEY("Members", clan->member_list);
+			break;
+		case 'S':
+			SKEY("Seconds", clan->second_list);
+			break;
+		}
+
+		if (!fMatch) 
+			db_error("load_plists", "%s: Unknown keyword", word);
 	}
 }
 

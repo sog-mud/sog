@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.32 1998-11-02 05:28:53 fjoe Exp $
+ * $Id: db.h,v 1.33 1999-02-12 16:22:41 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -73,32 +73,40 @@
 #	define PATH_MAX	_MAX_PATH
 #endif
 
-typedef void DBLOAD_FUN(FILE *fp);
-#define DECLARE_DBLOAD_FUN(fun) DBLOAD_FUN fun
-#define DBLOAD_FUN(fun) void fun(FILE *fp)
-
 extern const char PATH_SEPARATOR;
+
+typedef struct dbdata DBDATA;
+
+typedef void DBLOAD_FUN(DBDATA *dbdata, FILE *fp, void *arg);
+#define DECLARE_DBLOAD_FUN(fun) DBLOAD_FUN fun
+#define DBLOAD_FUN(fun) void fun(DBDATA *dbdata, FILE *fp, void *arg)
+
+typedef void DBINIT_FUN(DBDATA *dbdata);
+#define DECLARE_DBINIT_FUN(fun) DBINIT_FUN fun
+#define DBINIT_FUN(fun) void fun(DBDATA *dbdata)
 
 struct dbfun {
 	char *		name;
 	DBLOAD_FUN *	fun;
+	void *		arg;
 };
 typedef struct dbfun DBFUN;
 
-typedef void DBINIT_FUN(void);
-#define DECLARE_DBINIT_FUN(fun) DBINIT_FUN fun
-#define DBINIT_FUN(fun) void fun(void)
+struct dbdata {
+	DBFUN *		fun_tab;	/* table of parsing functions	*/
+	DBINIT_FUN *	dbinit;		/* init function		*/
+	size_t		tab_sz;		/* table size			*/
+};
 
-extern DBFUN db_load_areas[];
-extern DBFUN db_load_clans[];
-extern DBFUN db_load_classes[];
-extern DBFUN db_load_langs[];
-extern DBFUN db_load_skills[];
-extern DBFUN db_load_races[];
+extern DBDATA db_areas;
+extern DBDATA db_clans;
+extern DBDATA db_classes;
+extern DBDATA db_langs;
+extern DBDATA db_skills;
+extern DBDATA db_races;
 
-DECLARE_DBINIT_FUN(init_area);
-DECLARE_DBINIT_FUN(init_class);
-DECLARE_DBINIT_FUN(init_race);
+void db_load_file(DBDATA *, const char *path, const char *file);
+void db_set_arg(DBDATA *, const char* name, void *arg);
 
 extern int fBootDb;
 
@@ -132,9 +140,6 @@ flag_t		fread_fword	(const FLAG *table, FILE *fp);
 flag_t		fread_fstring	(const FLAG *table, FILE *fp);
 void *		fread_namedp	(NAMEDP *table, FILE *fp);
 int		fread_clan	(FILE *fp);
-
-void db_load_file(const char *path, const char *file,
-		  DBFUN *dbfun_table, DBINIT_FUN *dbinit);
 
 extern char	filename	[PATH_MAX];
 extern int	line_number;

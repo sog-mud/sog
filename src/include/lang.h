@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.h,v 1.4 1998-10-08 13:31:07 fjoe Exp $
+ * $Id: lang.h,v 1.5 1999-02-12 16:22:41 fjoe Exp $
  */
 
 #ifndef _LANG_H_
@@ -40,8 +40,8 @@ struct lang_data {
 	const char *	file_genders;
 	const char *	file_cases;
 
-	varr *	hash_genders[MAX_WORD_HASH];
-	varr *	hash_cases[MAX_WORD_HASH];
+	varr	hash_genders[MAX_WORD_HASH];
+	varr 	hash_cases[MAX_WORD_HASH];
 };
 
 #define LANG_HIDDEN		(A)

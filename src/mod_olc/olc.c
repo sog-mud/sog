@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.36 1998-12-23 16:11:20 fjoe Exp $
+ * $Id: olc.c,v 1.37 1999-02-12 16:22:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -96,8 +96,8 @@ OLCED_DATA olced_table[] = {
 	{ ED_MSG,	"MsgEd",	olc_cmds_msg	},
 	{ ED_CLAN,	"ClanEd",	olc_cmds_clan	},
 	{ ED_LANG,	"LangEd",	olc_cmds_lang	},
-/*	{ ED_GENDER,	"WordEd",	olc_cmds_word	},
-	{ ED_CASE,	"WordEd",	olc_cmds_word	}, */
+	{ ED_GENDER,	"WordEd",	olc_cmds_word	},
+	{ ED_CASE,	"WordEd",	olc_cmds_word	},
 /*	{ ED_CLASS,	"ClassEd",	olc_cmds_class	}, */
 	{ NULL }
 };

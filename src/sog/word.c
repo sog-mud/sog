@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: word.c,v 1.7 1998-11-11 05:47:05 fjoe Exp $
+ * $Id: word.c,v 1.8 1999-02-12 16:22:41 fjoe Exp $
  */
 
 #include <limits.h>
@@ -37,32 +37,27 @@
 
 #define wordhash(s) hashstr(s, 16, MAX_WORD_HASH)
 
-const char* word_form_lookup(varr **hashp, const char *word, int num);
+const char* word_form_lookup(varr *hash, const char *word, int num);
 static int cmpword(const void *p1, const void *p2);
 
-WORD_DATA *word_new(int lang)
+WORD_DATA *word_new(void)
 {
 	WORD_DATA *w = calloc(1, sizeof(WORD_DATA));
 	w->base = str_empty;
 	w->f.nsize = sizeof(char*);
 	w->f.nstep = 4;
-	w->lang = lang;
 	return w;
 }
 
-WORD_DATA *word_add(varr **hashp, WORD_DATA *w)
+WORD_DATA *word_add(varr *hash, WORD_DATA *w)
 {
 	WORD_DATA *wnew;
 	varr *v;
-	int hash;
 
 	if (IS_NULLSTR(w->name))
 		return NULL;
 
-	v = hashp[hash = wordhash(w->name)];
-	if (v == NULL)
-		v = hashp[hash] = varr_new(sizeof(WORD_DATA), 4);
-
+	v = hash + wordhash(w->name);
 	if (varr_bsearch(v, w, cmpword))
 		return NULL;
 
@@ -72,7 +67,7 @@ WORD_DATA *word_add(varr **hashp, WORD_DATA *w)
 	return varr_bsearch(v, w, cmpword);
 }
 
-void word_del(varr **hashp, const char *name)
+void word_del(varr *hash, const char *name)
 {
 	varr *v;
 	WORD_DATA *w;
@@ -80,10 +75,7 @@ void word_del(varr **hashp, const char *name)
 	if (IS_NULLSTR(name))
 		return;
 
-	v = hashp[wordhash(name)];
-	if (v == NULL)
-		return;
-
+	v = hash+wordhash(name);
 	if ((w = varr_bsearch(v, &name, cmpword)) == NULL)
 		return;
 	word_free(w);
@@ -92,11 +84,11 @@ void word_del(varr **hashp, const char *name)
 	v->nused--;
 }
 
-WORD_DATA *word_lookup(varr **hashp, const char *name)
+WORD_DATA *word_lookup(varr *hash, const char *name)
 {
 	if (IS_NULLSTR(name))
 		return NULL;
-	return varr_bsearch(hashp[wordhash(name)], &name, cmpword);
+	return varr_bsearch(hash+wordhash(name), &name, cmpword);
 }
 
 void word_form_add(WORD_DATA* w, int fnum, const char *s)
@@ -149,9 +141,8 @@ const char *word_case(int lang, const char *word, int num)
 
 /* local functions */
 
-const char* word_form_lookup(varr **hashp, const char *word, int num)
+const char* word_form_lookup(varr *hash, const char *word, int num)
 {
-	int hash;
 	varr *v;
 	WORD_DATA *w;
 	char **p;
@@ -160,9 +151,8 @@ const char* word_form_lookup(varr **hashp, const char *word, int num)
 	if (IS_NULLSTR(word) || num == 0)
 		return word;
 
-	hash = wordhash(word);
-	if ((v = hashp[hash]) == NULL
-	||  (w = varr_bsearch(v, &word, cmpword)) == NULL
+	v = hash + wordhash(word);
+	if ((w = varr_bsearch(v, &word, cmpword)) == NULL
 	||  (p = varr_get(&w->f, num)) == NULL
 	||  IS_NULLSTR(*p))
 		return word;

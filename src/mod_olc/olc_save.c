@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.51 1999-02-12 10:33:36 kostik Exp $
+ * $Id: olc_save.c,v 1.52 1999-02-12 16:22:42 fjoe Exp $
  */
 
 /**************************************************************************
@@ -929,9 +929,11 @@ void save_clan(CHAR_DATA *ch, CLAN_DATA *clan)
 	int i;
 	FILE *fp;
 
+/* save clan data */
 	fp = dfopen(CLANS_PATH, clan->file_name, "w");
 	if (fp == NULL) {
-		save_print(ch, "%s%c%s: %s", CLANS_PATH, PATH_SEPARATOR, clan->file_name,
+		save_print(ch, "%s%c%s: %s",
+			   CLANS_PATH, PATH_SEPARATOR, clan->file_name,
 			   strerror(errno));
 		return;
 	}
@@ -962,6 +964,21 @@ void save_clan(CHAR_DATA *ch, CLAN_DATA *clan)
 			fprintf(fp, "Skill '%s' %d %d\n",
 				skill_name(cs->sn), cs->level, cs->percent);
 	}
+
+	fprintf(fp, "End\n\n"
+		    "#$\n");
+	fclose(fp);
+
+/* save plists */
+	fp = dfopen(PLISTS_PATH, clan->file_name, "w");
+	if (fp == NULL) {
+		save_print(ch, "%s%c%s: %s", PLISTS_PATH,
+			   PATH_SEPARATOR, clan->file_name,
+			   strerror(errno));
+		return;
+	}
+
+	fprintf(fp, "#PLISTS\n");
 
 	fwrite_string(fp, "Leaders", clan->leader_list);
 	fwrite_string(fp, "Seconds", clan->second_list);
@@ -1062,7 +1079,7 @@ void save_word(FILE *fp, WORD_DATA *w)
 	fprintf(fp, "End\n\n");
 }
 
-bool save_words(CHAR_DATA *ch, const char *filename, varr **hashp)
+bool save_words(CHAR_DATA *ch, const char *filename, varr *hash)
 {
 	int i;
 	FILE *fp;
@@ -1083,11 +1100,8 @@ bool save_words(CHAR_DATA *ch, const char *filename, varr **hashp)
 	for (i = 0; i < MAX_WORD_HASH; i++) {
 		int j;
 
-		if (hashp[i] == NULL)
-			continue;
-
-		for (j = 0; j < hashp[i]->nused; j++) {
-			WORD_DATA *w = VARR_GET(hashp[i], j);
+		for (j = 0; j < hash[i].nused; j++) {
+			WORD_DATA *w = VARR_GET(hash+i, j);
 			save_word(fp, w);
 		}
 	}

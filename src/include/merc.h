@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.145 1999-02-12 10:48:28 fjoe Exp $
+ * $Id: merc.h,v 1.146 1999-02-12 16:22:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -175,6 +175,7 @@ struct descriptor_data
 /* OLC stuff */
 	const char *		editor;		/* editor id	*/
 	void *             	pEdit;		/* edited obj	*/
+	void *             	pEdit2;		/* edited obj 2	*/
 
 /* string editor stuff */
 	const char **		pString;	/* edited string	*/

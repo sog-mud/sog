@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.21 1998-12-22 18:00:14 fjoe Exp $
+ * $Id: db_area.c,v 1.22 1999-02-12 16:22:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -66,7 +66,9 @@ DECLARE_DBLOAD_FUN(load_practicers);
 DECLARE_DBLOAD_FUN(load_resetmsg);
 DECLARE_DBLOAD_FUN(load_aflag);
 
-DBFUN db_load_areas[] = {
+DECLARE_DBINIT_FUN(init_area);
+
+DBFUN dbfun_areas[] = {
 	{ "AREA",		load_area	},
 	{ "AREADATA",		load_areadata	},
 	{ "HELPS",		load_helps	},
@@ -87,6 +89,8 @@ DBFUN db_load_areas[] = {
 	{ "FLAG",		load_aflag	},
 	{ NULL }
 };
+
+DBDATA db_areas = { dbfun_areas, init_area };
 
 AREA_DATA *		area_current;
 const HELP_DATA *	help_greeting;

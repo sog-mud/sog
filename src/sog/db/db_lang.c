@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.6 1998-11-02 05:28:53 fjoe Exp $
+ * $Id: db_lang.c,v 1.7 1999-02-12 16:22:41 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -35,22 +35,32 @@
 #include "lang.h"
 #include "word.h"
 
-LANG_DATA *	lang_curr;
+LANG_DATA *	lang;
 
 DECLARE_DBLOAD_FUN(load_lang);
 
-DBFUN db_load_langs[] =
+DBFUN dbfun_langs[] =
 {
 	{ "LANG",	load_lang },
 	{ NULL }
 };
 
-void load_hash(const char* file, varr** hash);
+DBDATA db_langs = { dbfun_langs };
+
+DECLARE_DBLOAD_FUN(load_word);
+
+DBFUN dbfun_words[] =
+{
+	{ "WORD",	load_word },
+	{ NULL }
+};
+
+DBDATA db_words = { dbfun_words };
 
 DBLOAD_FUN(load_lang)
 {
-	lang_curr = lang_new();
-	lang_curr->file_name = get_filename(filename);
+	LANG_DATA *lang = lang_new();
+	lang->file_name = get_filename(filename);
 
 	for (;;) {
 		char *word = feof(fp) ? "End" : fread_word(fp);
@@ -58,40 +68,61 @@ DBLOAD_FUN(load_lang)
 
 		switch (UPPER(*word)) {
 		case 'C':
-			SKEY("CasesFile", lang_curr->file_cases);
+			SKEY("CasesFile", lang->file_cases);
 			break;
 
 		case 'E':
 			if (!str_cmp(word, "End")) {
-				if (IS_NULLSTR(lang_curr->name)) {
+				const char *s;
+				char path[PATH_MAX];
+
+				if (IS_NULLSTR(lang->name)) {
 					db_error("load_lang",
 						 "lang name undefined");
 					langs.nused--;
 					return;
 				}
-				load_hash(lang_curr->file_genders,
-					  lang_curr->hash_genders);
-				load_hash(lang_curr->file_cases,
-					  lang_curr->hash_cases);
+
+				s = strrchr(filename, PATH_SEPARATOR);
+				if (s)
+					strnzcpy(path, filename,
+						 UMIN(s - filename + 1,
+						      sizeof(path)));
+				else
+					path[0] = '\0';
+
+				if (lang->file_genders) {
+					db_set_arg(&db_words, "WORD",
+						   lang->hash_genders);
+					db_load_file(&db_words, path,
+						     lang->file_genders);
+				}
+
+				if (lang->file_cases) {
+					db_set_arg(&db_words, "WORD",
+						   lang->hash_cases);
+					db_load_file(&db_words, path,
+						     lang->file_cases);
+				}
 				return;
 			}
 			break;
 
 		case 'F':
-			KEY("Flags", lang_curr->flags,
+			KEY("Flags", lang->flags,
 			    fread_fstring(lang_flags, fp));
 			break;
 
 		case 'G':
-			SKEY("GendersFile", lang_curr->file_genders);
+			SKEY("GendersFile", lang->file_genders);
 			break;
 
 		case 'N':
-			KEY("Name", lang_curr->name, str_dup(fread_word(fp)));
+			KEY("Name", lang->name, str_dup(fread_word(fp)));
 			break;
 
 		case 'S':
-			KEY("SlangOf", lang_curr->slang_of,
+			KEY("SlangOf", lang->slang_of,
 			    lang_lookup(fread_word(fp)));
 		}
 
@@ -100,47 +131,10 @@ DBLOAD_FUN(load_lang)
 	}
 }
 
-/* local functions */
-
-varr** hashp;
-
-DECLARE_DBLOAD_FUN(load_word);
-
-DBFUN db_load_words[] =
-{
-	{ "WORD",	load_word },
-	{ NULL }
-};
-
-void load_hash(const char *file, varr **p)
-{
-	char buf[PATH_MAX];
-	int linenum;
-	char *s;
-	hashp = p;
-
-	if (IS_NULLSTR(file))
-		return;
-
-	strnzcpy(buf, filename, sizeof(buf));
-	linenum = line_number;
-
-	s = strrchr(filename, PATH_SEPARATOR);
-	if (s)
-		*(s+1) = '\0';
-	else
-		filename[0] = '\0';
-	db_load_file(filename, file, db_load_words, NULL);
-
-	strnzcpy(filename, buf, sizeof(buf));
-	line_number = linenum;
-}
-
 DBLOAD_FUN(load_word)
 {
-	WORD_DATA *w;
-
-	w = word_new(lang_curr->vnum);
+	varr *hash = arg;
+	WORD_DATA *w = word_new();
 
 	for (;;) {
 		char *word = feof(fp) ? "End" : fread_word(fp);
@@ -159,7 +153,7 @@ DBLOAD_FUN(load_word)
 					word_free(w);
 					return;
 				}
-				if (!word_add(hashp, w)) {
+				if (!word_add(hash, w)) {
 					word_free(w);
 					return;
 				}
