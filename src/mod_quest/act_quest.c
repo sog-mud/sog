@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.133 1999-12-17 12:59:00 fjoe Exp $
+ * $Id: act_quest.c,v 1.134 2000-01-04 19:27:52 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -585,7 +585,7 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		||  victim->pMobIndex->vnum < 100
 		||  MOB_IS(victim, MOB_TRAIN | MOB_PRACTICE | MOB_HEALER)
 		||  IS_SET(victim->pMobIndex->act,
-			   ACT_NOTRACK | ACT_PET | ACT_IMMSUMMON)
+			   ACT_NOTRACK | ACT_IMMSUMMON | ACT_PET)
 		||  questor->pMobIndex == victim->pMobIndex
 		||  victim->in_room == NULL
 		||  victim->in_room->sector_type == SECT_UNDERWATER
@@ -846,6 +846,20 @@ static void quest_chquest(CHAR_DATA *ch, char *arg)
  * quest buy functions
  */
 
+static void *
+qtrouble_cb(void *vo, va_list ap)
+{
+	OBJ_DATA *obj = (OBJ_DATA *) vo;
+
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	int item_vnum = va_arg(ap, int);
+
+	if (obj->pObjIndex->vnum == item_vnum 
+	&&  IS_OWNER(ch, obj))
+		extract_obj(obj, 0);
+	return NULL;
+}
+
 static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 			    int item_vnum, int count_max)
 {
@@ -882,8 +896,7 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 				 questor, NULL, ch, TO_VICT, POS_DEAD);
 			return FALSE;
 		}
-	}
-	else {
+	} else {
 		/*
 		 * 'quest buy'
 		 */
@@ -900,18 +913,8 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 
 	/* update quest trouble data */
 	if (qt && count_max) {
-		OBJ_DATA *obj;
-		OBJ_DATA *obj_next;
-
 		/* `quest trouble' */
-		for (obj = object_list; obj != NULL; obj = obj_next) {
-			obj_next = obj->next;
-			if (obj->pObjIndex->vnum == item_vnum 
-			&&  IS_OWNER(ch, obj)) {
-				extract_obj(obj, 0);
-				break;
-			}
-		}
+		vo_foreach(NULL, &iter_obj_world, qtrouble_cb, ch, item_vnum);
 
 		QUESTOR_TELLS_YOU(questor, ch);
 		act_puts("    This is the $j$qj{th} time that I am giving "

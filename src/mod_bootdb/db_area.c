@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.87 1999-12-21 06:36:34 fjoe Exp $
+ * $Id: db_area.c,v 1.88 2000-01-04 19:28:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -887,6 +887,7 @@ flag_subst_t v0_subst_act[] =
 	{ ACT_AGGRESSIVE,	ACT_AGGRESSIVE		},
 	{ ACT_STAY_AREA,	ACT_STAY_AREA		},
 	{ ACT_WIMPY,		ACT_WIMPY		},
+	{ ACT_PET,		ACT_PET			},
 	{ ACT_HUNTER,		ACT_HUNTER		},
 	{ ACT_UNDEAD,		ACT_UNDEAD		},
 	{ ACT_CLERIC,		ACT_CLERIC		},
@@ -1377,6 +1378,12 @@ flag_subst_t v0_subst_obj[] =
 	{ 0 }
 };
 
+enum {
+	V0_TO_IMMUNE,	/* = 2 */
+	V0_TO_RESIST,
+	V0_TO_VULN
+};
+
 /*
  * Snarf an obj section. new style
  */
@@ -1531,15 +1538,15 @@ DBLOAD_FUN(load_objects)
 					af.where = TO_AFFECTS;
 					break;
 				case 'I':
-					af.where = TO_IMMUNE;
+					af.where = V0_TO_IMMUNE;
 					set_percent_resistances(f, 0, 0, resists);
 					break;
 				case 'R':
-					af.where = TO_RESIST;
+					af.where = V0_TO_RESIST;
 					set_percent_resistances(0, f, 0, resists);
 					break;
 				case 'V':
-					af.where = TO_VULN;
+					af.where = V0_TO_VULN;
 					set_percent_resistances(0, 0, f, resists);
 					break;
 				case 'i':
@@ -1555,9 +1562,9 @@ DBLOAD_FUN(load_objects)
 					return;
 				}
 		
-				if ((af.where == TO_IMMUNE)
-				||  (af.where == TO_RESIST)
-				||  (af.where == TO_VULN)) {
+				if ((af.where == V0_TO_IMMUNE)
+				||  (af.where == V0_TO_RESIST)
+				||  (af.where == V0_TO_VULN)) {
 					int i;
 					for (i = 0; i < MAX_RESIST; i++) {
 						if (resists[i]) {

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.196 1999-12-29 12:11:30 kostik Exp $
+ * $Id: act_obj.c,v 1.197 2000-01-04 19:27:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1473,10 +1473,49 @@ void do_recite(CHAR_DATA * ch, const char *argument)
 	extract_obj(scroll, 0);
 }
 
+static void *
+brandish_cb(void *vo, va_list ap)
+{
+	CHAR_DATA *vch = (CHAR_DATA *) vo;
+
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	OBJ_DATA *staff = va_arg(ap, OBJ_DATA *);
+	skill_t *sk = va_arg(ap, skill_t *);
+
+	switch (sk->target) {
+	default:
+		return vch;
+
+	case TAR_IGNORE:
+		if (vch != ch)
+			return NULL;
+		break;
+
+	case TAR_CHAR_OFFENSIVE:
+		if (IS_NPC(ch) ? IS_NPC(vch) : !IS_NPC(vch))
+			return NULL;
+		break;
+
+	case TAR_CHAR_DEFENSIVE:
+		if (IS_NPC(ch) ? !IS_NPC(vch) : IS_NPC(vch))
+			return NULL;
+		break;
+
+	case TAR_CHAR_SELF:
+		if (vch != ch)
+			return NULL;
+		break;
+	}
+
+	obj_cast_spell(staff->value[3].s, INT(staff->value[0]), ch, vch);
+	if (IS_EXTRACTED(ch)
+	||  IS_SET(sk->skill_flags, SKILL_AREA_ATTACK))
+		return vch;
+	return NULL;
+}
+
 void do_brandish(CHAR_DATA * ch, const char *argument)
 {
-	CHAR_DATA      *vch;
-	CHAR_DATA      *vch_next;
 	OBJ_DATA       *staff;
 	skill_t *	sk;
 
@@ -1504,50 +1543,14 @@ void do_brandish(CHAR_DATA * ch, const char *argument)
 		act("$n brandishes $p.", ch, staff, NULL, TO_ROOM);
 		act("You brandish $p.", ch, staff, NULL, TO_CHAR);
 		if (ch->level + 3 < staff->level
-		|| number_percent() >= 10 + get_skill(ch, "staves") * 4 / 5) {
+		||  number_percent() >= 10 + get_skill(ch, "staves") * 4 / 5) {
 			act("You fail to invoke $p.", ch, staff, NULL, TO_CHAR);
 			act("...and nothing happens.", ch, NULL, NULL, TO_ROOM);
 			check_improve(ch, "staves", FALSE, 2);
 		} else {
-			if (!sk)
-				return;
-
 			check_improve(ch, "staves", TRUE, 2);
-
-			for (vch = ch->in_room->people; vch; vch = vch_next) {
-				vch_next = vch->next_in_room;
-
-				switch (sk->target) {
-				default:
-					return;
-
-				case TAR_IGNORE:
-					if (vch != ch)
-						continue;
-					break;
-
-				case TAR_CHAR_OFFENSIVE:
-					if (IS_NPC(ch) ? IS_NPC(vch) : !IS_NPC(vch))
-						continue;
-					break;
-
-				case TAR_CHAR_DEFENSIVE:
-					if (IS_NPC(ch) ? !IS_NPC(vch) : IS_NPC(vch))
-						continue;
-					break;
-
-				case TAR_CHAR_SELF:
-					if (vch != ch)
-						continue;
-					break;
-				}
-
-				obj_cast_spell(staff->value[3].s,
-					       INT(staff->value[0]), ch, vch);
-				if (IS_EXTRACTED(ch)
-				||  IS_SET(sk->skill_flags, SKILL_AREA_ATTACK))
-					break;
-			}
+			vo_foreach(ch->in_room, &iter_char_room, brandish_cb,
+				   ch, staff, sk);
 		}
 	}
 

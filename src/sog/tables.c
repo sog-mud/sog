@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.124 2000-01-04 04:14:07 avn Exp $
+ * $Id: tables.c,v 1.125 2000-01-04 19:28:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1427,9 +1427,6 @@ flaginfo_t affect_where_types[] =
 
 	{ "to_affects",		TO_AFFECTS,			TRUE	},
 	{ "to_object",		TO_OBJECT,			FALSE	},
-	{ "to_immune",		TO_IMMUNE,			TRUE	},
-	{ "to_resist",		TO_RESIST,			TRUE	},
-	{ "to_vuln",		TO_VULN,			TRUE	},
 	{ "to_weapon",		TO_WEAPON,			FALSE	},
 	{ "to_skills",		TO_SKILLS,			TRUE	},
 	{ "to_race",		TO_RACE,			FALSE	},

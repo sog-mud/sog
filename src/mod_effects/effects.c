@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.27 1999-12-22 08:29:07 fjoe Exp $
+ * $Id: effects.c,v 1.28 2000-01-04 19:27:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -301,8 +301,6 @@ void cold_effect(void *vo, int level, int dam)
 	return;
     }
 }
-   
-
 
 void fire_effect(void *vo, int level, int dam)
 {
@@ -524,7 +522,6 @@ void poison_effect(void *vo,int level, int dam)
 	return;
     }
 }
-
 
 void shock_effect(void *vo,int level, int dam)
 {
@@ -931,5 +928,4 @@ void scream_effect(void *vo, int level, int dam)
 	return;
     }
 }
-
 

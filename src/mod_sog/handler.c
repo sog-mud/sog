@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.229 1999-12-29 12:11:32 kostik Exp $
+ * $Id: handler.c,v 1.230 2000-01-04 19:27:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -97,9 +97,10 @@ int count_users(OBJ_DATA *obj)
 	if (obj->in_room == NULL)
 		return 0;
 
-	for (fch = obj->in_room->people; fch != NULL; fch = fch->next_in_room)
+	for (fch = obj->in_room->people; fch != NULL; fch = fch->next_in_room) {
 		if (fch->on == obj)
-		    count++;
+			count++;
+	}
 
 	return count;
 }
@@ -155,6 +156,8 @@ int can_carry_w(CHAR_DATA *ch)
 void char_from_room(CHAR_DATA *ch)
 {
 	OBJ_DATA *obj;
+	CHAR_DATA *prev = NULL;
+	CHAR_DATA *vch;
 
 	if (ch->in_room == NULL) {
 		bug("Char_from_room: NULL.", 0);
@@ -162,8 +165,7 @@ void char_from_room(CHAR_DATA *ch)
 	}
 
 	if (ch->in_room->affected)
-		  check_events(ch, ch->in_room->affected,
-			EVENT_ROOM_LEAVE);
+		  check_events(ch, ch->in_room->affected, EVENT_ROOM_LEAVE);
 
 	if (!IS_NPC(ch))
 		--ch->in_room->area->nplayer;
@@ -174,42 +176,32 @@ void char_from_room(CHAR_DATA *ch)
 	&&   ch->in_room->light > 0)
 		--ch->in_room->light;
 
-	if (ch == ch->in_room->people)
-		ch->in_room->people = ch->next_in_room;
-	else
-	{
-		CHAR_DATA *prev;
-
-		for (prev = ch->in_room->people; prev; prev = prev->next_in_room)
-		{
-		    if (prev->next_in_room == ch)
-		    {
-			prev->next_in_room = ch->next_in_room;
+	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
+		if (vch == ch)
 			break;
-		    }
-		}
-
-		if (prev == NULL)
-		    bug("Char_from_room: ch not found.", 0);
+		prev = vch;
 	}
 
-	ch->in_room      = NULL;
+	if (vch == NULL)
+		bug("char_from_room: ch not found");
+	else if (prev == NULL)
+		ch->in_room->people = ch->next_in_room;
+	else 
+		prev->next_in_room = ch->next_in_room;
+
+	ch->in_room = NULL;
 	ch->next_in_room = NULL;
-	ch->on 	     = NULL;  /* sanity check! */
+	ch->on = NULL;  /* sanity check! */
 
-	if (MOUNTED(ch))
-	{
-	 ch->mount->riding	= FALSE;
-	 ch->riding		= FALSE;
+	if (MOUNTED(ch)) {
+		ch->mount->riding = FALSE;
+		ch->riding = FALSE;
 	}
 
-	if (RIDDEN(ch))
-	{
-	 ch->mount->riding	= FALSE;
-	 ch->riding		= FALSE;
+	if (RIDDEN(ch)) {
+		ch->mount->riding = FALSE;
+		ch->riding = FALSE;
 	}
-
-	return;
 }
 
 /*
@@ -235,12 +227,10 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 	ch->next_in_room	= pRoomIndex->people;
 	pRoomIndex->people	= ch;
 
-	if (!IS_NPC(ch))
-	{
-		if (ch->in_room->area->empty)
-		{
-		    ch->in_room->area->empty = FALSE;
-		    ch->in_room->area->age = 0;
+	if (!IS_NPC(ch)) {
+		if (ch->in_room->area->empty) {
+			ch->in_room->area->empty = FALSE;
+			ch->in_room->area->age = 0;
 		}
 		++ch->in_room->area->nplayer;
 	}
@@ -250,48 +240,6 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 	&&   INT(obj->value[2]) != 0)
 		++ch->in_room->light;
 		
-	while (IS_AFFECTED(ch,AFF_PLAGUE))
-	{
-	    AFFECT_DATA *af, plague;
-	    CHAR_DATA *vch;
-	    
-	    for (af = ch->affected; af != NULL; af = af->next)
-	    {
-	        if (IS_SKILL(af->type, "plague"))
-	            break;
-	    }
-	    
-	    if (af == NULL)
-	    {
-	        REMOVE_BIT(ch->affected_by,AFF_PLAGUE);
-	        break;
-	    }
-	    
-	    if (af->level == 1)
-	        break;
-	    
-		plague.where		= TO_AFFECTS;
-	    plague.type 		= "plague";
-	    plague.level 		= af->level - 1; 
-	    plague.duration 	= number_range(1,2 * plague.level);
-	    INT(plague.location) = APPLY_STR;
-	    plague.modifier 	= -5;
-	    plague.bitvector 	= AFF_PLAGUE;
-	    
-	    for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room)
-	    {
-	        if (!saves_spell(plague.level - 2,vch,DAM_DISEASE) 
-		    &&  !IS_IMMORTAL(vch) &&
-	        	!IS_AFFECTED(vch,AFF_PLAGUE) && number_bits(6) == 0)
-	        {
-	        	char_puts("You feel hot and feverish.\n",vch);
-	        	act("$n shivers and looks very ill.",vch,NULL,NULL,TO_ROOM);
-	        	affect_join(vch,&plague);
-	        }
-	    }
-		break;
-	}
-
 	if (pRoomIndex->affected) {
 		if (IS_IMMORTAL(ch))
 			dofun("raffects", ch, str_empty);
@@ -571,9 +519,10 @@ void obj_from_room(OBJ_DATA *obj)
 		return;
 	}
 
-	for (ch = in_room->people; ch != NULL; ch = ch->next_in_room)
+	for (ch = in_room->people; ch != NULL; ch = ch->next_in_room) {
 		if (ch->on == obj)
 			ch->on = NULL;
+	}
 
 	if (obj == in_room->contents)
 		in_room->contents = obj->next_content;
@@ -766,6 +715,11 @@ void extract_obj(OBJ_DATA *obj, int flags)
 
 	if (!IS_SET(flags, XO_F_NOCOUNT))
 		--obj->pObjIndex->count;
+
+	/*
+	 * untag memory
+	 */
+	mem_untag(obj);
 	free_obj(obj);
 }
 
@@ -805,6 +759,11 @@ void extract_char(CHAR_DATA *ch, int flags)
 	
 	if (ch->in_room)
 		char_from_room(ch);
+
+	/*
+	 * untag memory
+	 */
+	mem_untag(ch);
 
 	if (IS_SET(flags, XC_F_INCOMPLETE)) {
 		char_to_room(ch, get_altar(ch)->room);
@@ -1701,21 +1660,19 @@ int isn_dark_safe(CHAR_DATA *ch)
 
 int count_charmed(CHAR_DATA *ch)	
 {
-  CHAR_DATA *gch;
-  int count = 0;
+	CHAR_DATA *gch;
+	int count = 0;
 
-  for (gch = char_list; gch != NULL; gch = gch->next)
-	{
-	  if (IS_AFFECTED(gch,AFF_CHARM) && gch->master == ch)
-		  count++;
+	for (gch = char_list; gch != NULL; gch = gch->next) {
+		if (IS_AFFECTED(gch, AFF_CHARM) && gch->master == ch)
+			count++;
 	}
 
-  if (count >= MAX_CHARM(ch))
-   {
-	char_puts("You are already controlling as many charmed mobs as you can!\n",ch);
-	return count;
-   }
-  return 0;
+	if (count >= MAX_CHARM(ch)) {
+		char_puts("You are already controlling as many charmed mobs as you can!\n", ch);
+		return count;
+	}
+	return 0;
 }
 
 /*
@@ -2605,7 +2562,7 @@ void quit_char(CHAR_DATA *ch, int flags)
 		}
 	}
 
-	for (vch=npc_list; vch; vch=vch->next) {
+	for (vch = npc_list; vch; vch = vch->next) {
 		if (IS_AFFECTED(vch, AFF_CHARM)
 		&& IS_NPC(vch)
 		&& IS_SET(vch->pMobIndex->act, ACT_FAMILIAR)
@@ -3601,12 +3558,13 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container,
 
 	if (obj->in_room != NULL) {
 		for (gch = obj->in_room->people; gch != NULL;
-		     gch = gch->next_in_room)
+		     gch = gch->next_in_room) {
 			if (gch->on == obj) {
 				act_puts("$N appears to be using $p.",
 					 ch, obj, gch, TO_CHAR, POS_DEAD);
 				return;
 			}
+		}
 	}
 
 	if (obj->item_type == ITEM_MONEY) {
@@ -3650,7 +3608,7 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container,
 			for (gch = ch->in_room->people; gch != NULL;
 			     gch = gch->next_in_room) {
 				if (!IS_AFFECTED(gch, AFF_CHARM)
-				    && is_same_group(gch, ch))
+				&&  is_same_group(gch, ch))
 					members++;
 			}
 

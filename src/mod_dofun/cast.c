@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cast.c,v 1.19 1999-12-29 12:11:30 kostik Exp $
+ * $Id: cast.c,v 1.20 2000-01-04 19:27:49 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -415,9 +415,9 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (IS_SET(spell->skill_flags, SKILL_RANGE)
-		&& victim && is_affected(victim, "blur")
-		&& !HAS_DETECT(ch, ID_TRUESEEING)
-		&& (number_percent() < 50)) {
+		&&  victim && is_affected(victim, "blur")
+		&&  !HAS_DETECT(ch, ID_TRUESEEING)
+		&&  (number_percent() < 50)) {
 			act("You failed to focus your spell properly.",
 				ch, NULL, NULL, TO_CHAR);
 			act("$n fails to focus $s spell properly.",
@@ -433,23 +433,19 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			return;
 	}
 		
-	if (cast_far && door != -1)
+	if (cast_far && door != -1) {
 		path_to_track(ch, victim, door);
-	else if (offensive && victim != ch && victim->master != ch) {
-		CHAR_DATA *vch;
-		CHAR_DATA *vch_next;
-
-		for (vch = ch->in_room->people; vch; vch = vch_next) {
-			vch_next = vch->next_in_room;
-			if (victim == vch && victim->fighting == NULL) {
-				if (victim->position != POS_SLEEPING)
-					multi_hit(victim, ch, NULL);
-				break;
-			}
-		}
+		return;
 	}
-}
 
+	if (offensive
+	&&  !IS_EXTRACTED(victim)
+	&&  victim != ch
+	&&  victim->master != ch
+	&&  victim->fighting == NULL
+	&&  victim->position != POS_SLEEPING)
+		multi_hit(victim, ch, NULL);
+}
 
 void do_pray(CHAR_DATA *ch, const char *argument)
 {
@@ -748,21 +744,18 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 			return;
 	}
 		
-	if (cast_far && door != -1)
+	if (cast_far && door != -1) {
 		path_to_track(ch, victim, door);
-	else if (offensive && victim != ch && victim->master != ch) {
-		CHAR_DATA *vch;
-		CHAR_DATA *vch_next;
-
-		for (vch = ch->in_room->people; vch; vch = vch_next) {
-			vch_next = vch->next_in_room;
-			if (victim == vch && victim->fighting == NULL) {
-				if (victim->position != POS_SLEEPING)
-					multi_hit(victim, ch, NULL);
-				break;
-			}
-		}
+		return;
 	}
+
+	if (offensive
+	&&  !IS_EXTRACTED(victim)
+	&&  victim != ch
+	&&  victim->master != ch
+	&&  victim->fighting == NULL
+	&&  victim->position != POS_SLEEPING)
+		multi_hit(victim, ch, NULL);
 }
 
 /*-----------------------------------------------------------------------------

@@ -1,5 +1,5 @@
 /*
- * $Id: affects.h,v 1.11 1999-12-21 06:36:23 fjoe Exp $
+ * $Id: affects.h,v 1.12 2000-01-04 19:27:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -87,9 +87,6 @@ void saff_destroy(saff_t *sa);
 enum {
 	TO_AFFECTS,
 	TO_OBJECT,
-	TO_IMMUNE,
-	TO_RESIST,
-	TO_VULN,
 	TO_WEAPON,
 	TO_SKILLS,
 	TO_RACE,

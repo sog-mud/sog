@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.249 1999-12-29 12:11:32 kostik Exp $
+ * $Id: fight.c,v 1.250 2000-01-04 19:27:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -61,7 +61,6 @@
 /*
  * Local functions.
  */
-void	check_assist		(CHAR_DATA *ch, CHAR_DATA *victim);
 bool	check_dodge		(CHAR_DATA *ch, CHAR_DATA *victim);
 bool	check_parry		(CHAR_DATA *ch, CHAR_DATA *victim, int loc);
 bool	check_block		(CHAR_DATA *ch, CHAR_DATA *victim, int loc);
@@ -125,149 +124,6 @@ int check_forest(CHAR_DATA* ch)
 		return FOREST_ATTACK;
 }
 
-/*
- * Control the fights going on.
- * Called periodically by update_handler.
- */
-void violence_update(void)
-{
-	CHAR_DATA *ch;
-	CHAR_DATA *ch_next;
-	CHAR_DATA *victim;
-	OBJ_DATA *obj;
-	OBJ_DATA *obj_next;
-
-	for (ch = char_list; ch; ch = ch_next) {
-		ch_next = ch->next;
-
-		/* decrement the wait */
-		if (ch->desc == NULL)
-			ch->wait = UMAX(0, ch->wait - PULSE_VIOLENCE);
-
-		if ((victim = ch->fighting) == NULL || ch->in_room == NULL)
-			continue;
-
-		if (IS_AWAKE(ch) && ch->in_room == victim->in_room)
-			multi_hit(ch, victim, NULL);
-		else
-			stop_fighting(ch, FALSE);
-
-		if ((victim = ch->fighting) == NULL)
-			continue;
-
-		if (IS_NPC(ch) && !IS_NPC(victim))
-			NPC(ch)->last_fought = victim;
-
-		SET_FIGHT_TIME(ch);
-
-		if (victim->in_room != ch->in_room)
-			continue;
-
-		for (obj = ch->carrying; obj; obj = obj_next) {
-			obj_next = obj->next_content;
-			if (ch->fighting == NULL)
-				break;
-			oprog_call(OPROG_FIGHT, obj, ch, NULL);
-		}
-
-		if ((victim = ch->fighting) == NULL
-		||  victim->in_room != ch->in_room)
-			continue;
-
-		/*
-		 * Fun for the whole family!
-		 */
-		check_assist(ch, victim);
-		if (IS_NPC(ch)) {
-			if (HAS_TRIGGER(ch, TRIG_FIGHT))
-				mp_percent_trigger(ch, victim, NULL, NULL,
-						   TRIG_FIGHT);
-			if (HAS_TRIGGER(ch, TRIG_HPCNT))
-				mp_hprct_trigger(ch, victim);
-		}
-	}
-}
-
-/* for auto assisting */
-void check_assist(CHAR_DATA *ch, CHAR_DATA *victim)
-{
-	CHAR_DATA *rch, *rch_next;
-
-	for (rch = ch->in_room->people; rch != NULL; rch = rch_next) {
-		rch_next = rch->next_in_room;
-
-		if (!IS_AWAKE(rch) || rch->fighting != NULL)
-			continue;
-
-		/*
-		 * ASSIST_PLAYERS mobs
-		 */
-		if (IS_NPC(rch) && !IS_NPC(ch)
-		&&  IS_SET(rch->pMobIndex->off_flags, ASSIST_PLAYERS)
-		&&  rch->level + 6 > victim->level) {
-			dofun("emote", rch, "screams and attacks!");
-			multi_hit(rch, victim, NULL);
-			continue;
-		}
-
-		/*
-		 * charmed chars or PCs with PLR_AUTOASSIST
-		 */
-		if (((!IS_NPC(rch) && IS_SET(PC(rch)->plr_flags,
-					     PLR_AUTOASSIST)) ||
-		     IS_AFFECTED(rch, AFF_CHARM)
-		     || IS_NPC(rch))
-		&&  is_same_group(ch, rch)
-		&&  !is_safe_nomessage(rch, victim)) {
-			multi_hit (rch, victim, NULL);
-			continue;
-		}
-
-		if (!IS_NPC(ch)) {
-			if (RIDDEN(rch) == ch)
-				multi_hit(rch, victim, NULL);
-			continue;
-		}
-
-		/* that's all for !IS_NPC */
-		if (!IS_NPC(rch))
-			continue;
-
-		if (IS_SET(rch->pMobIndex->off_flags, ASSIST_ALL)
-		||  (IS_SET(rch->pMobIndex->off_flags, ASSIST_RACE) &&
-		     IS_RACE(rch->race, ch->race))
-		||  (rch->pMobIndex == ch->pMobIndex &&
-		     IS_SET(rch->pMobIndex->off_flags, ASSIST_VNUM))
-		||  (IS_SET(rch->pMobIndex->off_flags, ASSIST_ALIGN) &&
-		     NALIGN(rch) == NALIGN(ch))) {
-			CHAR_DATA *vch;
-			CHAR_DATA *target;
-			int number;
-
-			if (number_bits(1) == 0)
-				continue;
-
-			target = NULL;
-			number = 0;
-
-			for (vch = ch->in_room->people; vch;
-						vch = vch->next_in_room) {
-				if (can_see(rch, vch)
-				&&  is_same_group(vch, victim)
-				&&  number_range(0, number) == 0) {
-					target = vch;
-					number++;
-				}
-			}
-
-			if (target != NULL) {
-				dofun("emote", rch, "screams and attacks!");
-				multi_hit(rch, target, NULL);
-			}
-		}
-	}
-}
-
 void secondary_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt) 
 {
 	int chance;
@@ -291,6 +147,26 @@ void secondary_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 			one_hit(ch, victim, dt, WEAR_WIELD);
 	}
 }
+
+static void *
+area_attack_cb(void *vo, va_list ap)
+{
+	CHAR_DATA *vch = (CHAR_DATA *) vo;
+
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	CHAR_DATA *victim = va_arg(ap, CHAR_DATA *);
+	const char *dt = va_arg(ap, const char *);
+	int *pcount = va_arg(ap, int *);
+
+	if (vch != victim && vch->fighting == ch) {
+		one_hit(ch, vch, dt, WEAR_WIELD);
+		if ((*pcount) && !--(*pcount))
+			return vch;
+	}
+
+	return NULL;
+}
+
 /*
  * Do one group of attacks.
  */
@@ -351,11 +227,9 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 
 	if ((chance = get_skill(ch, "area attack"))
 	&&  number_percent() < chance) {
-		int count = 0, max_count;
-		CHAR_DATA *vch, *vch_next;
+		int max_count;
 
 		check_improve(ch, "area attack", TRUE, 6);
-
 		if (LEVEL(ch) < 70)
 			max_count = 1;
 		else if (LEVEL(ch) < 80)
@@ -365,14 +239,8 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 		else
 			max_count = 4;
 
-		for (vch = ch->in_room->people; vch; vch = vch_next) {
-			vch_next = vch->next_in_room;
-			if (vch != victim && vch->fighting == ch) {
-				one_hit(ch, vch, dt, WEAR_WIELD);
-				if (++count == max_count)
-					break;
-			}
-		}
+		vo_foreach(ch->in_room, &iter_char_room,
+			   area_attack_cb, ch, victim, dt, &max_count);
 	}
 
 	wield = get_eq_char(ch, WEAR_WIELD);
@@ -474,7 +342,10 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 		}
 	}
 }
-/* version of multi_hit() for shapeshifted people */
+
+/*
+ * version of multi_hit() for shapeshifted people
+ */
 void form_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 {
 	int chance = 100;
@@ -492,14 +363,14 @@ void form_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 			chance = chance * 2 / 3;
 		if (number_percent() > chance)
 			return;
-
 	}
 }
 
-/* procedure for all mobile attacks */
+/*
+ * procedure for all mobile attacks
+ */
 void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 {
-	CHAR_DATA *vch, *vch_next;
 	flag_t act = ch->pMobIndex->act;
 	flag_t off = ch->pMobIndex->off_flags;
 	bool has_second = get_eq_char(ch, WEAR_SECOND_WIELD) ? TRUE : FALSE;
@@ -527,11 +398,12 @@ void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 	/* Area attack -- BALLS nasty! */
 
 	if (IS_SET(off, OFF_AREA_ATTACK)) {
-		for (vch = ch->in_room->people; vch != NULL; vch = vch_next) {
-			vch_next = vch->next_in_room;
-			if ((vch != victim && vch->fighting == ch))
-				one_hit(ch, vch, dt, WEAR_WIELD);
-		}
+		int count = 0;
+
+		vo_foreach(ch->in_room, &iter_char_room,
+			   area_attack_cb, ch, victim, dt, &count);
+		if (ch->fighting != victim)
+			return;
 	}
 
 	if (IS_AFFECTED(ch, AFF_HASTE) || IS_SET(off, OFF_FAST))
@@ -725,8 +597,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 			thac0_32 = 2;
 		else if (IS_SET(act, ACT_MAGE))
 			thac0_32 = 6;
-	}
-	else {
+	} else {
 		class_t *cl;
 
 		if ((cl = class_lookup(ch->class)) == NULL)
@@ -809,9 +680,9 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 		return;
 	}
 
-	if(is_affected(victim, "blur") 
-	&& !HAS_DETECT(victim, ID_TRUESEEING)
-	&& (number_percent() < 50)) {
+	if (is_affected(victim, "blur") 
+	&&  !HAS_DETECT(victim, ID_TRUESEEING)
+	&&  (number_percent() < 50)) {
 		act("You failed to detect true $N's position.",
 			ch, NULL, victim, TO_CHAR);
 		damage(ch, victim, 0, dt, dam_class, dam_flags);
@@ -823,7 +694,6 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 	 * Hit.
 	 * Calc damage.
 	 */
-
 	if (IS_NPC(ch) && wield == NULL) {
 		NPC_DATA *npc = NPC(ch);
 		dam = dice(npc->dam.dice_number, npc->dam.dice_type);
@@ -2600,8 +2470,7 @@ void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 			if (IS_NPC(gch)) {
 				if (IS_SET(gch->pMobIndex->act, ACT_SUMMONED))
 					continue;
-			}
-			else {
+			} else {
 				if (abs(gch->level - lch->level) <= 8)
 					members++;
 			}
@@ -2688,40 +2557,32 @@ int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 		if (IS_GOOD(victim)) {
 			pc->anti_killed++;
 			neg_cha = 1;
-		}
-		else if (IS_NEUTRAL(victim)) {
+		} else if (IS_NEUTRAL(victim)) {
+			pc->has_killed++;
+			pos_cha = 1;
+		} else if (IS_EVIL(victim)) {
 			pc->has_killed++;
 			pos_cha = 1;
 		}
-		else if (IS_EVIL(victim)) {
-			pc->has_killed++;
-			pos_cha = 1;
-		}
-	}
-	else if (IS_NEUTRAL(gch)) {
+	} else if (IS_NEUTRAL(gch)) {
 		if (IS_GOOD(victim)) {
 			pc->has_killed++;
 			pos_cha = 1;
-		}
-		else if (IS_NEUTRAL(victim)) {
+		} else if (IS_NEUTRAL(victim)) {
 			pc->anti_killed++;
 			neg_cha = 1;
-		}
-		else if (IS_EVIL(victim)) {
+		} else if (IS_EVIL(victim)) {
 			pc->has_killed++;
 			pos_cha =1;
 		}
-	}
-	else if (IS_EVIL(gch)) {
+	} else if (IS_EVIL(gch)) {
 		if (IS_GOOD(victim)) {
 			pc->has_killed++;
 			pos_cha = 1;
-		}
-		else if (IS_NEUTRAL(victim)) {
+		} else if (IS_NEUTRAL(victim)) {
 			pc->has_killed++;
 			pos_cha = 1;
-		}
-		else if (IS_EVIL(victim)) {
+		} else if (IS_EVIL(victim)) {
 			pc->anti_killed++;
 			neg_cha = 1;
 		}

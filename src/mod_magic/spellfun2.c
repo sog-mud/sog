@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.166 2000-01-03 11:33:19 kostik Exp $
+ * $Id: spellfun2.c,v 1.167 2000-01-04 19:28:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -482,39 +482,41 @@ void spell_demon_summon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 }
 
-void spell_scourge(const char *sn, int level, CHAR_DATA *ch, void *vo)	
+static void *
+scourge_cb(void *vo, va_list ap)
 {
-	CHAR_DATA *vch;
-	CHAR_DATA *vch_next;
-	int dam;
+	CHAR_DATA *vch = (CHAR_DATA *) vo;
 
-	if (ch->level < 40)
-		dam = dice(level, 6);
-	else if (ch->level < 65)
-		dam = dice(level, 9);
-	else
-		dam = dice(level, 12);
+	const char *sn = va_arg(ap, const char *);
+	int level = va_arg(ap, int);
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	int dam = va_arg(ap, int);
 
-	for (vch = ch->in_room->people; vch; vch = vch_next) {
-		vch_next = vch->next_in_room;
+	if (is_safe_spell(ch, vch, TRUE))
+		return NULL;
 
-		if (is_safe_spell(ch, vch, TRUE)
-		||  is_affected(vch, sn))	/* XXX ??? */
-			continue;
-
-		if (number_percent() < level)
+	if (number_percent() < level * 2)
 	    		spellfun_call("poison", NULL, level, ch, vch);
 
-		if (number_percent() < level)
-			spellfun_call("blindness", NULL, level, ch, vch);
+	if (number_percent() < level * 2)
+		spellfun_call("blindness", NULL, level, ch, vch);
 
-		if (number_percent() < level)
-			spellfun_call("weaken", NULL, level, ch, vch);
+	if (number_percent() < level * 2)
+		spellfun_call("weaken", NULL, level, ch, vch);
 
-		if (saves_spell(level,vch, DAM_FIRE))
-			dam /= 2;
-		damage(ch, vch, dam, sn, DAM_FIRE, DAMF_SHOW);
-	}
+	if (saves_spell(level, vch, DAM_FIRE))
+		dam /= 2;
+	damage(ch, vch, dam, sn, DAM_FIRE, DAMF_SHOW);
+	return NULL;
+}
+
+void spell_scourge(const char *sn, int level, CHAR_DATA *ch, void *vo)	
+{
+	int dam = ch->level < 40 ? dice(level, 6) :
+		  ch->level < 65 ? dice(level, 9) :
+				   dice(level, 12);
+	vo_foreach(ch->in_room, &iter_char_room, scourge_cb,
+		   sn, level, ch, dam);
 }
 
 void spell_benediction(const char *sn, int level, CHAR_DATA *ch, void *vo)
@@ -2266,8 +2268,7 @@ void spell_disperse(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			if (IS_SET(vch->pMobIndex->act, ACT_AGGRESSIVE)
 			||  IS_SET(vch->pMobIndex->act, ACT_IMMSUMMON))
 				continue;
-		}
-		else {
+		} else {
 			if (is_safe_nomessage(ch, vch))
 				continue;
 		}
@@ -2278,13 +2279,13 @@ void spell_disperse(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			      "$N slowly fades into existence.");
 	}
 
-	af.where = TO_AFFECTS;
-	af.type = sn;
-	af.level = level;
-	af.duration = 15;
-	af.modifier = 0;
-	INT(af.location) = APPLY_NONE;
-	af.bitvector = 0;
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= 15;
+	af.modifier	= 0;
+	INT(af.location)= APPLY_NONE;
+	af.bitvector	= 0;
 	affect_to_char(ch, &af);
 }
 
@@ -2317,228 +2318,121 @@ void spell_honor_shield(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	char_puts("Your honor protects you.\n", victim);
 	act("$n's Honor protects $m.", victim, NULL, NULL, TO_ROOM);
 }
-	
 
 void spell_dragons_breath(const char *sn, int level, CHAR_DATA *ch,
 			  void *vo) 
 {
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	CHAR_DATA *vch, *vch_next;
-	int dam,hp_dam,dice_dam;
-	int hpch;
-
+	const char *sn_fun;
 	act("You call the dragon lord to help you.", ch, NULL, NULL, TO_CHAR);
-	act("$n start to breath like a dragon.", ch, NULL, victim, TO_NOTVICT);
-	act("$n breath disturbs you!", ch, NULL, victim, TO_VICT);
-	act("You breath the breath of lord of Dragons.", ch, NULL, NULL, TO_CHAR);
+	act("$n start to breath like a dragon.", ch, NULL, vo, TO_ROOM);
 
-	hpch = UMAX(10, ch->hit);
-	hp_dam = number_range(hpch/9+1, hpch/5);
-	dice_dam = dice(level,20);
-
-	dam = UMAX(hp_dam + dice_dam / 5, dice_dam + hp_dam / 5);
-	
-	switch(dice(1, 5)) {
+	switch(number_range(1, 5)) {
 	case 1:
-		fire_effect(victim->in_room, level, dam/2);
-
-		for (vch = victim->in_room->people; vch; vch = vch_next) {
-			vch_next = vch->next_in_room;
-
-		if (is_safe_spell(ch, vch, TRUE)
-		||  (IS_NPC(vch) && IS_NPC(ch) &&
-		     (ch->fighting != vch || vch->fighting != ch)))
-			continue;
-
-		if (vch == victim) { /* full damage */
-			if (saves_spell(level, vch, DAM_FIRE)) {
-				fire_effect(vch, level/2, dam/4);
-				damage(ch, vch, dam/2, sn, DAM_FIRE, DAMF_SHOW);
-			} else {
-				fire_effect(vch, level, dam);
-				damage(ch, vch, dam, sn, DAM_FIRE, DAMF_SHOW);
-			}
-		} else { /* partial damage */
-			if (saves_spell(level - 2, vch, DAM_FIRE)) {
-				fire_effect(vch, level/4, dam/8);
-				damage(ch, vch, dam/4, sn, DAM_FIRE, DAMF_SHOW);
-			} else {
-				fire_effect(vch, level/2, dam/4);
-				damage(ch, vch, dam/2, sn, DAM_FIRE, DAMF_SHOW);
-			}
-		}
-		}
+		sn_fun = "fire breath";
 		break;
-
 	case 2:
-		if (saves_spell(level,victim,DAM_ACID)) {
-			acid_effect(victim, level/2, dam/4);
-			damage(ch, victim, dam/2, sn, DAM_ACID, DAMF_SHOW);
-		}
-		else {
-			acid_effect(victim, level, dam);
-			damage(ch, victim, dam, sn, DAM_ACID, DAMF_SHOW);
-		}
+		sn_fun = "acid breath";
 		break;
-
 	case 3:
-		cold_effect(victim->in_room, level, dam/2); 
-
-		for (vch = victim->in_room->people; vch; vch = vch_next) {
-			vch_next = vch->next_in_room;
-
-		if (is_safe_spell(ch, vch, TRUE)
-		||  (IS_NPC(vch) && IS_NPC(ch) &&
-		     (ch->fighting != vch || vch->fighting != ch)))
-			continue;
-
-	if (vch == victim) /* full damage */
-	{
-	    if (saves_spell(level,vch,DAM_COLD))
-	    {
-		cold_effect(vch,level/2,dam/4);
-		damage(ch,vch,dam/2,sn,DAM_COLD,DAMF_SHOW);
-	    }
-	    else
-	    {
-		cold_effect(vch,level,dam);
-		damage(ch,vch,dam,sn,DAM_COLD,DAMF_SHOW);
-	    }
-	}
-	else
-	{
-	    if (saves_spell(level - 2,vch,DAM_COLD))
-	    {
-		cold_effect(vch,level/4,dam/8);
-		damage(ch,vch,dam/4,sn,DAM_COLD,DAMF_SHOW);
-	    }
-	    else
-	    {
-		cold_effect(vch,level/2,dam/4);
-		damage(ch,vch,dam/2,sn,DAM_COLD,DAMF_SHOW);
-	    }
-	}
-	}
-	break;
+		sn_fun = "frost breath";
+		break;
 	case 4:
-		poison_effect(ch->in_room, level, dam);
-
-	for (vch = ch->in_room->people; vch; vch = vch_next) {
-	vch_next = vch->next_in_room;
-
-	if (is_safe_spell(ch,vch,TRUE)
-	||  (IS_NPC(ch) && IS_NPC(vch) 
-	&&  (ch->fighting == vch || vch->fighting == ch)))
-	    continue;
-
-	if (saves_spell(level,vch,DAM_POISON))
-	{
-	    poison_effect(vch,level/2,dam/4);
-	    damage(ch,vch,dam/2,sn,DAM_POISON,DAMF_SHOW);
-	}
-	else
-	{
-	    poison_effect(vch,level,dam);
-	    damage(ch,vch,dam,sn,DAM_POISON,DAMF_SHOW);
-	}
-	}
-	break;
+		sn_fun = "gas breath";
+		break;
 	case 5:
-		if (saves_spell(level, victim, DAM_LIGHTNING)) {
-			shock_effect(victim, level/2, dam/4);
-			damage(ch, victim, dam/2, sn, DAM_LIGHTNING, DAMF_SHOW);
-		}
-		else {
-			shock_effect(victim, level, dam);
-			damage(ch, victim, dam, sn, DAM_LIGHTNING, DAMF_SHOW); 
-		}
+	default:	/* shut up gcc */
+		sn_fun = "lightning breath";
 		break;
 	}
+	spellfun_call(sn_fun, "dragons breath", level, ch, vo);
+}
+
+static void *
+sand_storm_cb(void *vo, va_list ap)
+{
+	CHAR_DATA *vch = (CHAR_DATA *) vo;
+
+	const char *sn = va_arg(ap, const char *);
+	int level = va_arg(ap, int);
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	int dam = va_arg(ap, int);
+
+	if (is_safe_spell(ch, vch, TRUE)
+	||  (IS_NPC(vch) && IS_NPC(ch) &&
+	     (ch->fighting != vch /*|| vch->fighting != ch*/)))
+		return NULL;
+
+	if (saves_spell(level, vch, DAM_COLD)) {
+		sand_effect(vch, level/2, dam/4);
+		damage(ch, vch, dam/2, sn, DAM_COLD, DAMF_SHOW);
+	} else {
+		sand_effect(vch, level, dam);
+		damage(ch, vch, dam, sn, DAM_COLD, DAMF_SHOW);
+	}
+
+	return NULL;
 }
 
 void spell_sand_storm(const char *sn, int level, CHAR_DATA *ch, void *vo)
- {
-	CHAR_DATA *vch, *vch_next;
-	int dam,hp_dam,dice_dam;
+{
+	int dam, hp_dam, dice_dam;
 	int hpch;
 
 	if ((ch->in_room->sector_type == SECT_AIR)
-	|| (ch->in_room->sector_type == SECT_WATER_SWIM)
-	|| (ch->in_room->sector_type == SECT_WATER_NOSWIM))
-	{
-	 char_puts("You don't find any sand here to make storm.\n",ch);
-	 ch->wait = 0;
-	 return;
+	||  (ch->in_room->sector_type == SECT_WATER_SWIM)
+	||  (ch->in_room->sector_type == SECT_WATER_NOSWIM)) {
+		char_puts("You don't find any sand here to make storm.\n", ch);
+		ch->wait = 0;
+		return;
 	}
 
-	act("$n creates a storm with sands on the floor.",ch,NULL,NULL,TO_ROOM);
-	act("You create the ..sand.. storm.",ch,NULL,NULL,TO_CHAR);
+	act("$n creates a storm with sands on the floor.",
+	    ch, NULL, NULL, TO_ROOM);
+	act("You create the ..sand.. storm.", ch, NULL, NULL, TO_CHAR);
 
 	hpch = UMAX(10, ch->hit);
-	hp_dam  = number_range(hpch/9+1, hpch/5);
-	dice_dam = dice(level,20);
+	hp_dam  = number_range(hpch/9 + 1, hpch/5);
+	dice_dam = dice(level, 20);
 
 	dam = UMAX(hp_dam + dice_dam /10, dice_dam + hp_dam / 10);
-	sand_effect(ch->in_room,level,dam/2);
+	sand_effect(ch->in_room, level, dam/2);
+	vo_foreach(ch->in_room, &iter_char_room, sand_storm_cb,
+		   sn, level, ch, dam);
+}
 
-	for (vch = ch->in_room->people; vch != NULL; vch = vch_next)
-	{
-	vch_next = vch->next_in_room;
+static void *
+scream_cb(void *vo, va_list ap)
+{
+	CHAR_DATA *vch = (CHAR_DATA *) vo;
 
-	if (is_safe_spell(ch,vch,TRUE)
-	||  (IS_NPC(vch) && IS_NPC(ch)
-	&&   (ch->fighting != vch /*|| vch->fighting != ch*/)))
-	    continue;
+	int level = va_arg(ap, int);
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	int dam = va_arg(ap, int);
 
-	    if (saves_spell(level,vch,DAM_COLD))
-	    {
-		sand_effect(vch,level/2,dam/4);
-		damage(ch,vch,dam/2,sn,DAM_COLD,DAMF_SHOW);
-	    }
-	    else
-	    {
-		sand_effect(vch,level,dam);
-		damage(ch,vch,dam,sn,DAM_COLD,DAMF_SHOW);
-	    }
-	}
+	if (is_safe_spell(ch, vch, TRUE))
+		return NULL;
+
+	if (saves_spell(level, vch, DAM_ENERGY))
+		scream_effect(vch, level/2, dam/4);
+	else
+		scream_effect(vch, level, dam);
+	if (vch->fighting)
+		stop_fighting(vch, TRUE);
+	return NULL;
 }
 
 void spell_scream(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	CHAR_DATA *vch, *vch_next;
-	int dam=0,hp_dam,dice_dam;
-	int hpch;
+	int hpch = UMAX(10, ch->hit);
+	int hp_dam = number_range(hpch/9 + 1, hpch/5);
+	int dice_dam = dice(level, 20);
+	int dam = UMAX(hp_dam + dice_dam /10, dice_dam + hp_dam /10);
 
-	act("$n screams with a disturbing NOISE!.",ch,NULL,NULL,TO_ROOM);
-	act("You scream with a powerful sound.",ch,NULL,NULL,TO_CHAR);
+	act("$n screams with a disturbing NOISE!.", ch, NULL, NULL, TO_ROOM);
+	act("You scream with a powerful sound.", ch, NULL, NULL, TO_CHAR);
 
-	hpch = UMAX(10, ch->hit);
-	hp_dam  = number_range(hpch/9+1, hpch/5);
-	dice_dam = dice(level,20);
-	dam = UMAX(hp_dam + dice_dam /10 , dice_dam + hp_dam /10);
-
-	scream_effect(ch->in_room,level,dam/2);
-
-	for (vch = ch->in_room->people; vch != NULL; vch = vch_next)
-	{
-	vch_next = vch->next_in_room;
-
-	if (is_safe_spell(ch,vch,TRUE))
-	    continue;
-
-	    if (saves_spell(level,vch,DAM_ENERGY))
-	    {
-		scream_effect(vch,level/2,dam/4);
-/*		damage(ch,vch,dam/2,sn,DAM_ENERGY,DAMF_SHOW); */
-	     if (vch->fighting)  stop_fighting(vch , TRUE);
-	    }
-	    else
-	    {
-		scream_effect(vch,level,dam);
-/*		damage(ch,vch,dam,sn,DAM_ENERGY,DAMF_SHOW); */
-	     if (vch->fighting)  stop_fighting(vch , TRUE);
-	    }
-	}
+	scream_effect(ch->in_room, level, dam/2);
+	vo_foreach(ch->in_room, &iter_char_room, scream_cb, level, ch, dam);
 }
 
 void spell_attract_other(const char *sn, int level, CHAR_DATA *ch, void *vo)
@@ -2875,124 +2769,150 @@ void spell_web(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 }
 
-void spell_group_defense(const char *sn, int level, CHAR_DATA *ch, void *vo ) 
+static void *
+group_defense_cb(void *vo, va_list ap)
 {
-	CHAR_DATA *gch;
+	CHAR_DATA *gch = (CHAR_DATA *) vo;
+
+	int level = va_arg(ap, int);
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
 	AFFECT_DATA af;
 
-	for(gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room) {
-		if (!is_same_group(gch, ch))
-			continue;
-		if (spellbane(gch, ch, 100, dice(2, LEVEL(gch)))) {
-			if (IS_EXTRACTED(ch))
-				return;
-			else
-				continue;
-		}
+	if (!is_same_group(gch, ch))
+		return NULL;
 
-		if (is_affected(gch, "armor")) {
-	    		if (gch == ch)
-				char_puts("You are already armored.\n",ch);
-			else
-				act("$N is already armored.",
-				    ch, NULL, gch, TO_CHAR);
-			continue;
-		} else {
-			af.type      = "armor";
-			af.level     = level;
-			af.duration  = level;
-			INT(af.location) = APPLY_AC;
-			af.modifier  = -20;
-			af.bitvector = 0;
-			affect_to_char(gch, &af);
+	if (spellbane(gch, ch, 100, dice(2, LEVEL(gch)))) {
+		if (IS_EXTRACTED(ch))
+			return gch;
+		return NULL;
+	}
 
-			char_puts("You feel someone protecting you.\n", gch);
-			if (ch != gch)
-				act("$N is protected by your magic.",
-					ch, NULL, gch, TO_CHAR);
-		}
+	if (is_affected(gch, "armor")) {
+		if (gch == ch)
+			char_puts("You are already armored.\n",ch);
+		else
+			act("$N is already armored.", ch, NULL, gch, TO_CHAR);
+	}  else {
+		af.type      = "armor";
+		af.level     = level;
+		af.duration  = level;
+		INT(af.location) = APPLY_AC;
+		af.modifier  = -20;
+		af.bitvector = 0;
+		affect_to_char(gch, &af);
 
-		if (is_affected(gch, "shield")) {
-			if (gch == ch) 	
-				char_puts("You are already shielded.\n",ch);
-			else 
-				act("$N is already shielded.",
-				    ch, NULL, gch, TO_CHAR);
-			continue;
-		} else {
-			af.type		= "shield";
-			af.level	= level;
-			af.duration	= level;
-			INT(af.location)= APPLY_AC;
-			af.modifier	= -20;
-			af.bitvector	= 0;
-			affect_to_char(gch, &af);
-
-			char_puts("You are surrounded by a force shield.\n",gch);
-			if(ch != gch)
-				act("$N is surrounded by a force shield.",
-					ch, NULL, gch, TO_CHAR);
+		char_puts("You feel someone protecting you.\n", gch);
+		if (ch != gch) {
+			act("$N is protected by your magic.",
+			    ch, NULL, gch, TO_CHAR);
 		}
 	}
+
+	if (is_affected(gch, "shield")) {
+		if (gch == ch) 	
+			char_puts("You are already shielded.\n",ch);
+		else 
+			act("$N is already shielded.", ch, NULL, gch, TO_CHAR);
+	} else {
+		af.type		= "shield";
+		af.level	= level;
+		af.duration	= level;
+		INT(af.location)= APPLY_AC;
+		af.modifier	= -20;
+		af.bitvector	= 0;
+		affect_to_char(gch, &af);
+
+		char_puts("You are surrounded by a force shield.\n", gch);
+		if(ch != gch) {
+			act("$N is surrounded by a force shield.",
+			    ch, NULL, gch, TO_CHAR);
+		}
+	}
+
+	return NULL;
+}
+
+void spell_group_defense(const char *sn, int level, CHAR_DATA *ch, void *vo ) 
+{
+	vo_foreach(ch->in_room, &iter_char_room, group_defense_cb, level, ch);
+}
+
+static void *
+inspire_cb(void *vo, va_list ap)
+{
+	CHAR_DATA *gch = (CHAR_DATA *) vo;
+
+	int level = va_arg(ap, int);
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	AFFECT_DATA af;
+
+	if (!is_same_group(gch, ch))
+		return NULL;
+
+	if (spellbane(gch, ch, 100, dice(3, LEVEL(gch)))) {
+		if (IS_EXTRACTED(ch))
+			return gch;
+		return NULL;
+	}
+			
+	if (is_affected(gch, "bless")) {
+		if (gch == ch)
+			char_puts("You are already inspired.\n", ch);
+		else
+			act("$N is already inspired.", ch, NULL, gch, TO_CHAR);
+		return NULL;
+	}
+
+	af.type		= "bless";
+	af.level	= level;
+	af.duration	= level + 6;
+	INT(af.location)= APPLY_HITROLL;
+	af.modifier	= level/12;
+	af.bitvector	= 0;
+	affect_to_char(gch, &af);
+
+	INT(af.location)= APPLY_SAVING_SPELL;
+	af.modifier	= -level/12;
+	affect_to_char(gch, &af);
+
+	char_puts("You feel inspired!\n", gch);
+	if (ch != gch) {
+		act("You inspire $N with the Creator's power!",
+		    ch, NULL, gch, TO_CHAR);
+	}
+
+	return NULL;
 }
 
 void spell_inspire(const char *sn, int level, CHAR_DATA *ch, void *vo) 
 {
-	CHAR_DATA *gch;
-	AFFECT_DATA af;
+	vo_foreach(ch->in_room, &iter_char_room, inspire_cb, level, ch);
+}
 
-	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room) {
-		if (!is_same_group(gch, ch))
-			continue;
+static void *
+mass_sanctuary_cb(void *vo, va_list ap)
+{
+	CHAR_DATA *gch = (CHAR_DATA *) vo;
 
-		if (spellbane(gch, ch, 100, dice(3, LEVEL(gch)))) {
-			if (IS_EXTRACTED(ch))
-				return;
-			else
-				continue;
-		}
-			
-		if (is_affected(gch, "bless")) {
-			if (gch == ch)
-				char_puts("You are already inspired.\n", ch);
-			else
-				act("$N is already inspired.",
-				    ch, NULL, gch, TO_CHAR);
-			continue;
-		}
+	int level = va_arg(ap, int);
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
 
-		af.type      = "bless";
-		af.level     = level;
-		af.duration  = 6 + level;
-		INT(af.location) = APPLY_HITROLL;
-		af.modifier  = level/12;
-		af.bitvector = 0;
-		affect_to_char(gch, &af);
+	if (!is_same_group(gch, ch))
+		return NULL;
 
-		INT(af.location) = APPLY_SAVING_SPELL;
-		af.modifier  = 0 - level/12;
-		affect_to_char(gch, &af);
-
-		char_puts("You feel inspired!\n", gch);
-		if(ch != gch)
-			act("You inspire $N with the Creator's power!",
-				ch, NULL, gch, TO_CHAR);
+	if (spellbane(gch, ch, 100, dice(3, LEVEL(gch)))) {
+		if (IS_EXTRACTED(ch))
+			return gch;
+		return NULL;
 	}
+
+	spellfun_call("sanctuary", NULL, level, ch, gch);
+	return NULL;
 }
 
 void spell_mass_sanctuary(const char *sn, int level, CHAR_DATA *ch, void *vo) 
 {
-	CHAR_DATA *gch;
-
-	for (gch = ch->in_room->people; gch; gch = gch->next_in_room) {
-		if (is_same_group(ch, gch)) {
-			if (!spellbane(gch, ch, 100, dice(3, LEVEL(gch)))) 
-				spellfun_call("sanctuary", NULL, level, ch, gch);
-			else
-				if(IS_EXTRACTED(ch))
-					return;
-		}
-	}
+	vo_foreach(ch->in_room, &iter_char_room, mass_sanctuary_cb, level, ch);
 }
 
 void spell_mend(const char *sn, int level, CHAR_DATA *ch, void *vo)
@@ -3058,25 +2978,27 @@ void spell_shielding(const char *sn, int level, CHAR_DATA *ch, void *vo )
 	}
 
 	if (is_affected(victim, sn)) {
-		af.type    = sn;
-		af.level   = level;
-		af.duration = level / 20;
-		INT(af.location) = APPLY_NONE;
-		af.modifier = 0;
-		af.bitvector = 0;
+		af.where	= TO_AFFECTS;
+		af.type		= sn;
+		af.level	= level;
+		af.duration	= level / 20;
+		INT(af.location)= APPLY_NONE;
+		af.modifier	= 0;
+		af.bitvector	= 0;
 		affect_to_char(victim, &af);
 		act("You wrap $N in more flows of Spirit.",
 		    ch, NULL, victim, TO_CHAR);
-		char_puts("You feel the shielding get stronger.\n",victim);
+		char_puts("You feel the shielding get stronger.\n", victim);
 		return;
 	}
 
-	af.type	= sn;
-	af.level    = level;
-	af.duration = level / 15;
-	INT(af.location) = APPLY_NONE;
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= level / 15;
+	INT(af.location)= APPLY_NONE;
 	af.modifier	= 0;
-	af.bitvector = 0;
+	af.bitvector	= 0;
 	affect_join(victim, &af);
 
 	char_puts("You feel as if you have lost touch with something.\n",
@@ -3087,15 +3009,13 @@ void spell_shielding(const char *sn, int level, CHAR_DATA *ch, void *vo )
 void spell_link(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	int random, tmpmana;
+	int mana;
 
-	random = number_percent ();
-	tmpmana = ch->mana;
+	mana = ch->mana / 2;
 	ch->mana = 0;
 	ch->endur /= 2;
-	tmpmana = (.5 * tmpmana);
-	tmpmana = ((tmpmana + random)/2);
-	victim->mana = victim->mana + tmpmana;    
+	mana = (mana + number_percent()) / 2;
+	victim->mana = victim->mana + mana;    
 }
 
 void spell_power_word_kill(const char *sn, int level, CHAR_DATA *ch, void *vo)
@@ -3128,32 +3048,18 @@ void spell_power_word_kill(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 void spell_eyed_sword(const char *sn, int level, CHAR_DATA *ch, void *vo) 
 {
-	OBJ_DATA *eyed;
-	int i;
-/*
-	if (IS_SET(ch->quest,QUEST_EYE)
-	{
-	 char_puts("You created your sword ,before.\n",ch);
-	 return;
-	}
-	SET_BIT(ch->quest,QUEST_EYE);
-*/
-	if (IS_GOOD(ch))
-		i=0;
-	else if (IS_EVIL(ch))
-		i=2;
-	else i = 1;
-	
-	eyed	= create_obj_of(get_obj_index(OBJ_VNUM_EYED_SWORD),
-				&ch->short_descr);
+	OBJ_DATA *eyed = create_obj_of(get_obj_index(OBJ_VNUM_EYED_SWORD),
+				       &ch->short_descr);
 	eyed->level = ch->level;
 	mlstr_cpy(&eyed->owner, &ch->short_descr);
 	eyed->ed = ed_new2(eyed->pObjIndex->ed, ch->name);
 	INT(eyed->value[2]) = (ch->level / 10) + 3;  
 	eyed->cost = 0;
 	obj_to_char(eyed, ch);
-	char_puts("You create YOUR sword with your name.\n",ch);
+	char_puts("You create YOUR sword with your name.\n", ch);
+/*
 	char_puts("Don't forget that you won't be able to create this weapon anymore.\n",ch);
+*/
 }
 
 void spell_lion_help(const char *sn, int level, CHAR_DATA *ch, void *vo) 
@@ -3299,52 +3205,52 @@ void spell_magic_jar(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		 ch, NULL, victim, TO_VICT, POS_DEAD);
 }
 
-void turn_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
+static void *
+turn_cb(void *vo, va_list ap)
 {
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	CHAR_DATA *vch = (CHAR_DATA *) vo;
+	const char *sn = va_arg(ap, const char *);
+	int level = va_arg(ap, int);
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
 	int dam, align;
 
+	if (is_safe_spell(ch, vch, TRUE))
+		return NULL;
 	if (IS_EVIL(ch)) {
-		victim = ch;
+		vch = ch;
 		char_puts("The energy explodes inside you!\n", ch);
 	}
 
-	if (victim != ch) {
-		act("$n raises $s hand, and a blinding ray of light "
-		    "shoots forth!",
+	if (vch != ch) {
+		act("$n raises $s hand, and a blinding ray of light shoots forth!",
 		    ch, NULL, NULL, TO_ROOM);
-		char_puts("You raise your hand and a blinding ray of light "
-			  "shoots forth!\n", ch);
+		char_puts("You raise your hand and a blinding ray of light shoots forth!\n", ch);
 	}
 
-	if (IS_GOOD(victim) || IS_NEUTRAL(victim)) {
+	if (IS_GOOD(vch) || IS_NEUTRAL(vch)) {
 		act("$n seems unharmed by the light.",
-		    victim, NULL, victim, TO_ROOM);
-		char_puts("The light seems powerless to affect you.\n",
-			  victim);
-		return;
+		    vch, NULL, vch, TO_ROOM);
+		char_puts("The light seems powerless to affect you.\n", vch);
+		return NULL;
 	}
 
 	dam = dice(level, 10);
-	if (saves_spell(level, victim, DAM_HOLY))
+	if (saves_spell(level, vch, DAM_HOLY))
 		dam /= 2;
 
-	align = victim->alignment;
-	align -= 350;
-
+	align = vch->alignment - 350;
 	if (align < -1000)
 		align = -1000 + (align + 1000) / 3;
 
-	dam = (dam * align * align) / 1000000;
-	damage(ch, victim, dam, sn, DAM_HOLY, DAMF_SHOW);
-	if (!IS_EXTRACTED(victim))
-		dofun("flee", victim, str_empty);
+	dam = dam * align * align / 1000000;
+	damage(ch, vch, dam, sn, DAM_HOLY, DAMF_SHOW);
+	if (!IS_EXTRACTED(vch))
+		dofun("flee", vch, str_empty);
+	return NULL;
 }
 
 void spell_turn(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	CHAR_DATA *vch;
-	CHAR_DATA *vch_next;
 	AFFECT_DATA af;
 
 	if (is_affected(ch, sn)) {
@@ -3361,13 +3267,7 @@ void spell_turn(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.bitvector	= 0;
 	affect_to_char(ch, &af);
 
-	for (vch = ch->in_room->people; vch; vch = vch_next) {
-		vch_next = vch->next_in_room;
-
-		if (is_safe_spell(ch, vch, TRUE))
-			continue;
-		turn_spell(sn, ch->level, ch, vch);
-	}
+	vo_foreach(ch->in_room, &iter_char_room, turn_cb, sn, level, ch);
 }
 
 void spell_fear(const char *sn, int level, CHAR_DATA *ch, void *vo)
@@ -3399,7 +3299,7 @@ void spell_fear(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act("$n looks with afraid eyes.", victim, NULL, NULL, TO_ROOM);
 }
 
-void spell_protection_heat (const char *sn, int level, CHAR_DATA *ch, void *vo)
+void spell_protection_heat(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
@@ -3493,7 +3393,6 @@ void spell_fire_shield (const char *sn, int level, CHAR_DATA *ch, void *vo)
 	OBJ_INDEX_DATA *pObjIndex;
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *fire;
-	int i;
 
 	target_name = one_argument(target_name, arg, sizeof(arg));
 	if (str_cmp(arg, "cold") && str_cmp(arg, "fire")) {
@@ -3501,15 +3400,8 @@ void spell_fire_shield (const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	if (IS_GOOD(ch))
-		i = 0;
-	else if (IS_EVIL(ch))
-		i = 2;
-	else
-		i = 1;
-	
 	pObjIndex = get_obj_index(OBJ_VNUM_FIRE_SHIELD);
-	fire	= create_obj(pObjIndex, 0);
+	fire = create_obj(pObjIndex, 0);
 	fire->level = ch->level;
 	name_add(&fire->name, arg, NULL, NULL);
 
@@ -5560,44 +5452,38 @@ void spell_find_familiar(const char *sn, int level, CHAR_DATA *ch, void *vo)
 }
 
 /* function for some necromancers area-attack */
-int damage_to_all_in_room(const char *sn, int level, CHAR_DATA *ch,
-			  ROOM_INDEX_DATA *room, int door)
+static void *
+death_ripple_cb(void *vo, va_list ap)
 {
-        CHAR_DATA *vch, *vch_next;
-	int dam, v_counter;
+	CHAR_DATA *vch = (CHAR_DATA *) vo;
 
-	if (IS_SKILL(sn, "death ripple")) {
-		dam = dice(level,9);
-	} else {
-		dam = dice(level,14);
-	}
+	const char *sn = va_arg(ap, const char *);
+	int level = va_arg(ap, int);
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	int dam = va_arg(ap, int);
+	int door = va_arg(ap, int);
+	int *pcounter = va_arg(ap, int *);
 
-	v_counter = 0;
-	for (vch = room->people; vch != NULL; vch = vch_next) {
-		vch_next = vch->next_in_room;
+	if (is_safe_spell(ch, vch, TRUE)
+	||  (IS_NPC(vch) && IS_NPC(ch))
+	||  (IS_NPC(vch) && IS_SET(vch->pMobIndex->act, ACT_NOTRACK)))
+		return NULL;
 
-                if (is_safe_spell(ch, vch, TRUE)
-                ||  (IS_NPC(vch) && IS_NPC(ch))
-                ||  (IS_NPC(vch) && IS_SET(vch->pMobIndex->act, ACT_NOTRACK)))
-	                continue;
+	(*pcounter)++;
+	if (saves_spell(level, vch, DAM_NEGATIVE))
+		dam /= 2;
+	damage(ch, vch, dam, sn, DAM_NEGATIVE, DAMF_SHOW);
 
-
-		v_counter++;
-                if (saves_spell(level, vch, DAM_NEGATIVE))
-			dam /= 2;
-                damage(ch, vch, dam, sn, DAM_NEGATIVE, DAMF_SHOW);
-
-		if (door != -1 && IS_NPC(vch)) 
-	                path_to_track(ch, vch, door);
-        }
-	return v_counter;
+	if (door != -1 && IS_NPC(vch)) 
+		path_to_track(ch, vch, door);
+	return NULL;
 }
 
 void spell_death_ripple(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	ROOM_INDEX_DATA *this_room;
 	int v_counter, range, door, i;
-
+	int dam;
 	this_room = ch->in_room;
 	range = level/10;
 
@@ -5605,7 +5491,9 @@ void spell_death_ripple(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	    ch, NULL, NULL, TO_ROOM);
         act("Deadly wave emanates from you.",
 	    ch, NULL, NULL, TO_CHAR);
-	v_counter = damage_to_all_in_room(sn, level, ch, this_room, -1);
+	dam = dice(level, 9);
+	vo_foreach(this_room, &iter_char_room, death_ripple_cb,
+		   sn, level, ch, dam, -1, &v_counter);
 
         if (!check_blind(ch))
 		return;
@@ -5629,9 +5517,10 @@ void spell_death_ripple(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		||  v_counter > level/10)
 			return;
 
-		act("You feel breathing from the $T", next_room->people, NULL, from_dir_name[rev_dir[door]], TO_ALL);
-		v_counter += damage_to_all_in_room(sn, level, ch, next_room, door);	
+		act("You feel someone's breath from the $T.", next_room->people, NULL, from_dir_name[rev_dir[door]], TO_ALL);
 		this_room = next_room;
+		vo_foreach(this_room, &iter_char_room, death_ripple_cb,
+			   sn, level, ch, dam, door, &v_counter);
 	}
 }
 
@@ -5650,9 +5539,8 @@ void spell_illusion(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	for (gch = npc_list; gch; gch = gch->next) {
 		if (gch->master == ch
-		&& (is_affected(gch, sn) 
-		|| is_affected(gch, "advanced illusion"))) 
-			count_illusions ++;
+		&& (is_affected(gch, sn) || is_affected(gch, "advanced illusion"))) 
+			count_illusions++;
 	}
 
 	if (count_illusions > LEVEL(ch) / 7) {
@@ -5662,9 +5550,7 @@ void spell_illusion(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	illusion = create_mob(victim->pMobIndex);
-
 	illusion->max_hit = illusion->hit = 1;
-
 	illusion->level = level * 3 / 4;
 
 	af.where	= TO_AFFECTS;
@@ -5674,14 +5560,9 @@ void spell_illusion(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.bitvector	= 0;
 	af.modifier	= 0;
 	INT(af.location)= APPLY_NONE;
-
 	affect_to_char(illusion, &af);
 
 	illusion->master = illusion->leader = ch;
-
 	char_to_room(illusion, ch->in_room);
 }
-
-
-
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.222 1999-12-22 08:29:01 fjoe Exp $
+ * $Id: act_wiz.c,v 1.223 2000-01-04 19:27:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -258,9 +258,15 @@ void do_tick(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!str_prefix(arg, "char player")) {
-		char_update();
+	if (is_name(arg, "char player")) {
+		vo_foreach(NULL, &iter_char_world, char_update_cb);
 		char_puts("Players updated.\n", ch);
+		return;
+	}
+
+	if (!str_prefix(arg, "mobile")) {
+		vo_foreach(NULL, &iter_char_world, mobile_update_cb);
+		char_puts("Mobiles updated.\n", ch);
 		return;
 	}
 
@@ -271,13 +277,13 @@ void do_tick(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_prefix(arg, "track")) {
-		track_update();
+		vo_foreach(NULL, &iter_npc_world, track_update_cb);
 		char_puts("Tracks updated.\n", ch);
 		return;
 	}
 
 	if (!str_prefix(arg, "obj")) {
-		obj_update();
+		vo_foreach(NULL, &iter_obj_world, obj_update_cb);
 		char_puts("Objects updated.\n", ch);
 		return;
 	}
@@ -973,9 +979,9 @@ void do_rstat(CHAR_DATA *ch, const char *argument)
 	buf_add(output, "Characters:");
 	for (rch = location->people; rch; rch = rch->next_in_room) {
 		if (can_see(ch,rch)) {
-		    buf_add(output, " ");
-		    one_argument(rch->name, buf, sizeof(buf));
-		    buf_add(output, buf);
+			buf_add(output, " ");
+			one_argument(rch->name, buf, sizeof(buf));
+			buf_add(output, buf);
 		}
 	}
 
@@ -2795,6 +2801,26 @@ void do_sockets(CHAR_DATA *ch, const char *argument)
 	buf_free(output);
 }
 
+static void *
+force_cb(void *vo, va_list ap)
+{
+	CHAR_DATA *vch = (CHAR_DATA *) vo;
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	const char *argument = va_arg(ap, const char *);
+	bool imms_only = va_arg(ap, bool);
+
+	if (IS_NPC(vch))
+		return vch;
+
+	if (!IS_TRUSTED(ch, trust_level(vch))
+	||  (imms_only && !IS_IMMORTAL(vch)))
+		return NULL;
+	act_puts("$n forces you to '$t'.",
+		 ch, argument, vch, TO_VICT, POS_DEAD);
+	interpret_raw(vch, argument, TRUE);
+	return NULL;
+}
+
 /*
  * Thanks to Grodyn for pointing out bugs in this function.
  */
@@ -2820,46 +2846,23 @@ void do_force(CHAR_DATA *ch, const char *argument)
 
 	if (!str_cmp(arg, "all")
 	||  !str_cmp(arg, "players")) {
-		CHAR_DATA *vch;
-		CHAR_DATA *vch_next;
-
 		if (!IS_TRUSTED(ch, MAX_LEVEL - 3)) {
 			char_puts("Not at your level!\n",ch);
 			return;
 		}
 
-		for (vch = char_list; vch && !IS_NPC(vch); vch = vch_next) {
-			vch_next = vch->next;
-
-			if (!IS_TRUSTED(ch, trust_level(vch)))
-				continue;
-			act_puts("$n forces you to '$t'.",
-				 ch, argument, vch, TO_VICT, POS_DEAD);
-			interpret_raw(vch, argument, TRUE);
-		}
-
+		vo_foreach(NULL, &iter_char_world, force_cb,
+			   ch, argument, FALSE);
 		char_puts("Ok.\n", ch);
 		return;
 	} else if (!str_cmp(arg, "gods")) {
-		CHAR_DATA *vch;
-		CHAR_DATA *vch_next;
-	
 		if (!IS_TRUSTED(ch, MAX_LEVEL - 2)) {
 			char_puts("Not at your level!\n",ch);
 			return;
 		}
 	
-		for (vch = char_list; vch && !IS_NPC(vch); vch = vch_next) {
-			vch_next = vch->next;
-	
-			if (!IS_IMMORTAL(vch)
-			||  !IS_TRUSTED(ch, trust_level(vch)))
-				continue;
-			act_puts("$n forces you to '$t'.",
-				 ch, argument, vch, TO_VICT, POS_DEAD);
-			interpret(vch, argument);
-		}
-
+		vo_foreach(NULL, &iter_char_world, force_cb,
+			   ch, argument, TRUE);
 		char_puts("Ok.\n", ch);
 		return;
 	}
@@ -4269,13 +4272,12 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 
 	/* mobs */
 	count = 0;
-	for (fch = char_list; fch != NULL; fch = fch->next)
-	{
+	for (fch = char_list; fch != NULL; fch = fch->next) {
 		count++;
-		if (PC(fch) != NULL)
-		    num_pcs++;
+		if (!IS_NPC(fch))
+			num_pcs++;
 		for (af = fch->affected; af != NULL; af = af->next)
-		    aff_count++;
+			aff_count++;
 	}
 
 	fprintf(fp,"Mobs	%4d (%8d bytes)\n",

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.80 1999-12-21 06:36:27 fjoe Exp $
+ * $Id: olc_obj.c,v 1.81 2000-01-04 19:27:56 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -396,6 +396,10 @@ OLC_FUN(objed_del)
 	if (!chquest_delete(ch, pObj))
 		return FALSE;
 
+	/*
+	 * extract_obj with XO_F_NORECURSE is safe
+	 * (cannot trash obj_next)
+	 */
 	for (obj = object_list; obj; obj = obj_next) {
 		obj_next = obj->next;
 

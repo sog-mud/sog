@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.196 1999-12-16 11:38:32 kostik Exp $
+ * $Id: act_comm.c,v 1.197 2000-01-04 19:27:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -228,9 +228,10 @@ void do_say(CHAR_DATA *ch, const char *argument)
 		for (mob = ch->in_room->people; mob != NULL; mob = mob_next) {
  			mob_next = mob->next_in_room;
  			if (IS_NPC(mob) && HAS_TRIGGER(mob, TRIG_SPEECH)
- 			&&  mob->position == mob->pMobIndex->default_pos)
- 			mp_act_trigger(argument, mob, ch, NULL, NULL,
-				TRIG_SPEECH);
+ 			&&  mob->position == mob->pMobIndex->default_pos) {
+ 				mp_act_trigger(argument, mob, ch, NULL, NULL,
+					       TRIG_SPEECH);
+			}
  		}
 	}
 
@@ -780,17 +781,31 @@ void do_follow(CHAR_DATA *ch, const char *argument)
 	add_follower(ch, victim);
 }
 
+static void *
+order_cb(void *vo, va_list ap)
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	const char *argument = va_arg(ap, const char *);
+	bool *pfound = va_arg(ap, bool *);
+
+	if (!IS_AFFECTED(victim, AFF_CHARM)
+	||  victim->master != ch)
+		return NULL;
+
+	act("$n orders you to '$t', you do.", ch, argument, victim, TO_VICT);
+	interpret_raw(victim, argument, TRUE);
+	*pfound = TRUE;
+	return NULL;
+}
+
 void do_order(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH],arg2[MAX_INPUT_LENGTH];
+	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
-	CHAR_DATA *och;
-	CHAR_DATA *och_next;
-	bool found;
-	bool fAll;
 
 	argument = one_argument(argument, arg, sizeof(arg));
-	one_argument(argument, arg2, sizeof(arg2));
 
 	if (arg[0] == '\0' || argument[0] == '\0') {
 		char_puts("Order whom to do what?\n", ch);
@@ -803,47 +818,39 @@ void do_order(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_cmp(arg, "all")) {
-		fAll   = TRUE;
-		victim = NULL;
-	} else {
-		fAll   = FALSE;
-		if ((victim = get_char_room(ch, arg)) == NULL) {
-			char_puts("They aren't here.\n", ch);
-			return;
-		}
+		bool found = FALSE;
 
-		if (victim == ch) {
-			char_puts("Aye aye, right away!\n", ch);
-			return;
-		}
+		vo_foreach(ch->in_room, &iter_char_room, order_cb,
+			   ch, argument, &found);
 
-		if (!IS_AFFECTED(victim, AFF_CHARM) || victim->master != ch 
-		||(IS_IMMORTAL(victim) && victim->level >= ch->level)) {
-			char_puts("Do it yourself!\n", ch);
-			return;
-		}
+		if (found) {
+			WAIT_STATE(ch, PULSE_VIOLENCE);
+			char_puts("Ok.\n", ch);
+		} else
+			char_puts("You have no followers here.\n", ch);
+		return;
 	}
 
-	found = FALSE;
-	for (och = ch->in_room->people; och != NULL; och = och_next) {
-		och_next = och->next_in_room;
-
-		if (IS_AFFECTED(och, AFF_CHARM)
-		&&   och->master == ch
-		&& (fAll || och == victim)) {
-			found = TRUE;
-			act("$n orders you to '$t', you do.",
-			    ch, argument, och, TO_VICT);
-			interpret_raw(och, argument, TRUE);
-		}
+	if ((victim = get_char_room(ch, arg)) == NULL) {
+		char_puts("They aren't here.\n", ch);
+		return;
 	}
 
-	if (found) {
-		WAIT_STATE(ch,PULSE_VIOLENCE);
-		char_puts("Ok.\n", ch);
+	if (victim == ch) {
+		char_puts("Aye aye, right away!\n", ch);
+		return;
 	}
-	else
-		char_puts("You have no followers here.\n", ch);
+
+	if (!IS_AFFECTED(victim, AFF_CHARM)
+	||  victim->master != ch) {
+		char_puts("Do it yourself!\n", ch);
+		return;
+	}
+
+	act("$n orders you to '$t', you do.", ch, argument, victim, TO_VICT);
+	interpret_raw(victim, argument, TRUE);
+	WAIT_STATE(ch, PULSE_VIOLENCE);
+	char_puts("Ok.\n", ch);
 }
 
 void do_group(CHAR_DATA *ch, const char *argument)

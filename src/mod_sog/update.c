@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.180 1999-12-22 08:29:14 fjoe Exp $
+ * $Id: update.c,v 1.181 2000-01-04 19:28:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -58,14 +58,7 @@
 int	hit_gain	(CHAR_DATA *ch);
 int	mana_gain	(CHAR_DATA *ch);
 int	move_gain	(CHAR_DATA *ch);
-void	mobile_update	(void);
 void	weather_update	(void);
-void	char_update	(void);
-void	obj_update	(void);
-void	aggr_update	(void);
-int	potion_cure_level	(OBJ_DATA *potion);
-int	potion_arm_level	(OBJ_DATA *potion);
-bool	is_potion		(OBJ_DATA *potion, const char *sn);
 int 	max_hit_gain	(CHAR_DATA *ch);
 int 	min_hit_gain	(CHAR_DATA *ch);
 int	max_mana_gain	(CHAR_DATA *ch);
@@ -79,9 +72,7 @@ void    quest_update    args((void));
 void	auction_update	args((void));
 void	light_update	args((void));
 void	room_update	args((void));
-void	room_affect_update	args((void));
 void	check_reboot	args((void));
-void	track_update	args((void));
 
 /* used for saving */
 int	rebooter = 0;
@@ -489,12 +480,33 @@ int move_gain(CHAR_DATA *ch)
 	return UMIN(gain, ch->max_move - ch->move);
 }
 
+static void *
+bloodthirst_cb(void *vo, va_list ap)
+{
+	CHAR_DATA *vch = (CHAR_DATA *) vo;
+	CHAR_DATA *ch;
+
+	if (IS_IMMORTAL(vch))
+		return NULL;
+
+	ch = va_arg(ap, CHAR_DATA *);
+	if (ch != vch
+	&&  can_see(ch, vch)
+	&&  !is_safe_nomessage(ch, vch)) {
+		dofun("yell", ch, "BLOOD! I NEED BLOOD!");
+		dofun("murder", ch, vch->name);
+		if (IS_EXTRACTED(ch)
+		||  ch->fighting != NULL)
+			return vch;
+	}
+
+	return NULL;
+}
+
 void gain_condition(CHAR_DATA *ch, int iCond, int value)
 {
 	int condition;
 	int damage_hunger;
-	int fdone;
-	CHAR_DATA *vch,*vch_next;
 
 	if (value == 0 || IS_NPC(ch) || ch->level >= LEVEL_IMMORTAL)
 		return;
@@ -572,7 +584,6 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 			break;
 
 		case COND_BLOODLUST:
-			fdone = 0;
 			char_puts("You are suffering from thrist of blood!\n",
 				  ch);
 			act("$n is suffering from thirst of blood!",
@@ -581,26 +592,11 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 			&&  ch->fighting == NULL) {
 				if (!IS_AWAKE(ch))
 					dofun("stand", ch, str_empty);
-			        for (vch = ch->in_room->people;
-			       	     vch != NULL && ch->fighting == NULL;
-				     vch = vch_next) {
-			        	vch_next = vch->next_in_room;
-
-					if (IS_IMMORTAL(vch))
-						continue;
-
-			        	if (ch != vch && can_see(ch, vch)
-					&&  !is_safe_nomessage(ch, vch)) {
-						dofun("yell", ch,
-						      "BLOOD! I NEED BLOOD!");
-						dofun("murder", ch, vch->name);
-						fdone = 1;
-					}
-			         }
+				vo_foreach(ch->in_room, &iter_char_room,
+					   bloodthirst_cb, ch);
+				if (ch->fighting != NULL)
+					break;
 			}
-
-			if (fdone)
-				break;
 
 			damage_hunger = ch->max_hit * number_range(2, 4) / 100;
 			if (!damage_hunger)
@@ -622,342 +618,194 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 }
 
 /*
- * Mob autonomous action.
- * This function takes 25% to 35% of ALL Merc cpu time.
- * -- Furey
+ * auto assisting
  */
-void mobile_update(void)
+static void *
+check_assist_cb(void *vo, va_list ap)
 {
-	CHAR_DATA *ch, *ch_next;
-	EXIT_DATA *pexit;
-	int door;
-	OBJ_DATA *obj;
+	CHAR_DATA *rch = (CHAR_DATA *) vo;
 
-	/* Examine all mobs. */
-	for (ch = char_list; ch; ch = ch_next) {
-		bool bust_prompt = FALSE;
-		flag_t act;
+	CHAR_DATA *ch;
+	CHAR_DATA *victim;
 
-		ch_next = ch->next;
+	if (!IS_AWAKE(rch) || rch->fighting != NULL)
+		return NULL;
 
-		if (IS_EXTRACTED(ch)) {
-			log("mobile_update: extracted char");
-			continue;
-		}
+	ch = va_arg(ap, CHAR_DATA *);
+	victim = va_arg(ap, CHAR_DATA *);
 
-		if (ch->position == POS_FIGHTING)
-			SET_FIGHT_TIME(ch);
-
-		if (!IS_NPC(ch)) {
-/* update ghost state */
-			if (ch->last_death_time != -1
-			&&  current_time - ch->last_death_time >=
-							GHOST_DELAY_TIME
-			&&  IS_SET(PC(ch)->plr_flags, PLR_GHOST)) {
-				char_puts("You return to your normal form.\n",
-					  ch);
-				REMOVE_BIT(PC(ch)->plr_flags, PLR_GHOST);
-			}
-		}
-
-/* update pumped state */
-		if (ch->last_fight_time != -1
-		&&  current_time - ch->last_fight_time >= FIGHT_DELAY_TIME
-		&&  IS_PUMPED(ch)) {
-			if (!IS_NPC(ch) && ch->desc != NULL
-			&&  ch->desc->pString == NULL 
-			&&  (ch->last_death_time == -1 ||
-			     ch->last_death_time < ch->last_fight_time)) {
-				REMOVE_BIT(PC(ch)->plr_flags, PLR_PUMPED);
-				act("You settle down.",
-				    ch, NULL, NULL, TO_CHAR);
-			}
-		}
-
-		if (IS_AFFECTED(ch, AFF_REGENERATION) && ch->in_room != NULL) {
-			ch->hit = UMIN(ch->hit + ch->level / 10, ch->max_hit);
-			if (IS_RACE(ch->race, "troll"))
-				ch->hit = UMIN(ch->hit + ch->level / 10,
-					       ch->max_hit);
-			if (ch->hit != ch->max_hit)
-				bust_prompt = TRUE;
-		}
-
-		if (IS_AFFECTED(ch, AFF_CORRUPTION) && ch->in_room != NULL) {
-			ch->hit -=  ch->level / 10;
-			if (ch->hit < 1) {
-				if (IS_IMMORTAL(ch)) 
-					ch->hit = 1;
-				else {
-					ch->position = POS_DEAD;
-					handle_death(ch, ch);
-					continue;
-				}
-			}
-			bust_prompt = TRUE;
-		}
-
-		if (ch->in_room && ch->in_room->sector_type == SECT_UNDERWATER
-		&& !is_affected(ch, "water breathing")
-		&& !IS_IMMORTAL(ch)) {
-			act("$n gasps for fresh air, but inhales water.",
-				ch, NULL, NULL, TO_ROOM);
-			act("You gasp for fresh air, but inhale water.",
-				ch, NULL, NULL, TO_CHAR);
-			ch->hit -= ch->max_hit/20;
-			if (ch->hit < 1) {
-				ch->position = POS_DEAD;
-				handle_death(ch, ch);
-				continue;
-			}
-			bust_prompt = TRUE;
-		}
-
-		check_events(ch, ch->affected, EVENT_CHAR_UPDFAST);
-		if (IS_EXTRACTED(ch)) continue;
-
-		if (ch->desc
-		&&  bust_prompt
-		&&  !ch->desc->pString
-		&&  !ch->desc->showstr_point
-		&&  !IS_SET(ch->comm, COMM_NOBUST))
-			char_puts(str_empty, ch);
-
-		/*
-		 * that's all for PCs and charmed mobiles
-		 */
-		if (!IS_NPC(ch)
-		||  IS_AFFECTED(ch, AFF_CHARM))
-			continue;
-
-		act = ch->pMobIndex->act;
-		if (IS_SET(act, ACT_HUNTER) && ch->hunting) {
-			dofun("hunt", ch, str_empty);
-			if (IS_EXTRACTED(ch))
-				continue;
-		}
-
-		if (ch->in_room->area->empty
-		&&  !IS_SET(act, ACT_UPDATE_ALWAYS))
-			continue;
-
-		/* Examine call for special procedure */
-		if (ch->pMobIndex->spec_fun != 0) {
-			if (ch->pMobIndex->spec_fun(ch))
-				continue;
-		}
-
-		if (ch->pMobIndex->pShop != NULL /* give him some gold */
-		||  (ch->gold * 100 + ch->silver) < ch->pMobIndex->wealth) {
-			ch->gold += ch->pMobIndex->wealth * number_range(1,20)/5000000;
-			ch->silver += ch->pMobIndex->wealth * number_range(1,20)/50000;
-		}
-	 
-/* check triggers (only if mobile still in default position) */
-
-		if (ch->position == ch->pMobIndex->default_pos) {
-			if (HAS_TRIGGER(ch, TRIG_DELAY)
-			&&  NPC(ch)->mprog_delay > 0) {
-				if (--NPC(ch)->mprog_delay <= 0) {
-					mp_percent_trigger(ch, NULL, NULL,
-							   NULL, TRIG_DELAY);
-					continue;
-				}
-			} 
-			if (HAS_TRIGGER(ch, TRIG_RANDOM)) {
-				if(mp_percent_trigger(ch, NULL, NULL,
-						      NULL, TRIG_RANDOM))
-					continue;
-			}
-		}
-
-/* potion using and stuff for intelligent mobs */
-
-		if (ch->pMobIndex->pShop == NULL
-		&&  (ch->position == POS_STANDING ||
-		     ch->position == POS_RESTING ||
-		     ch->position == POS_FIGHTING)
-		&&  get_curr_stat(ch, STAT_INT) > 15
-		&&  (ch->hit < ch->max_hit * 90 / 100 ||
-		     IS_AFFECTED(ch, AFF_BLIND) ||
-		     IS_AFFECTED(ch, AFF_POISON) ||
-		     IS_AFFECTED(ch, AFF_PLAGUE) ||
-		     ch->fighting != NULL)) {
-			for (obj = ch->carrying; obj; obj = obj->next_content) {
-				if (obj->item_type != ITEM_POTION)
-					continue;
-
-				if (ch->hit < ch->max_hit * 90 / 100) {
-					int cl = potion_cure_level(obj);
-					if (cl > 0) {
-						if (ch->hit < ch->max_hit*0.5
-						&&  cl > 3) {
-							quaff_obj(ch, obj);
-							if (IS_EXTRACTED(ch))
-								break;
-							continue;
-						}
-						if (ch->hit < ch->max_hit*0.7) {
-							quaff_obj(ch, obj);
-							if (IS_EXTRACTED(ch))
-								break;
-							continue;
-						}
-					}
-				}
-
-				if (IS_AFFECTED(ch, AFF_POISON)
-				&&  is_potion(obj, "cure poison")) {
-					quaff_obj(ch, obj);
-					if (IS_EXTRACTED(ch))
-						break;
-					continue;
-				}
-
-				if (IS_AFFECTED(ch, AFF_PLAGUE)
-				&&  is_potion(obj, "cure disease")) {
-					quaff_obj(ch, obj);
-					if (IS_EXTRACTED(ch))
-						break;
-					continue;
-				}
-
-				if (IS_AFFECTED(ch, AFF_BLIND)
-				&&  is_potion(obj, "cure blindness")) {
-					quaff_obj(ch, obj);
-					if (IS_EXTRACTED(ch))
-						break;
-					continue;
-				}
-
-				if (ch->fighting) {
-					int al = potion_arm_level(obj);
-
-					if (ch->level - ch->fighting->level < 7
-					&&  al > 3) {
-						quaff_obj(ch, obj);
-						if (IS_EXTRACTED(ch))
-							break;
-						continue;
-					}
-
-					if (ch->level - ch->fighting->level < 8
-					&&  al > 2) {
-						quaff_obj(ch, obj);
-						if (IS_EXTRACTED(ch))
-							break;
-						continue;
-					}
-
-					if (ch->level - ch->fighting->level < 9
-					&&  al > 1) {
-						quaff_obj(ch, obj);
-						if (IS_EXTRACTED(ch))
-							break;
-						continue;
-					}
-
-					if (ch->level - ch->fighting->level < 10
-					&&  al > 0) {
-						quaff_obj(ch, obj);
-						if (IS_EXTRACTED(ch))
-							break;
-						continue;
-					}
-				} /* if (ch->fighting) */
-			} /* for */
-
-			if (IS_EXTRACTED(ch))
-				continue;
-		}
-
-/* That's all for sleeping / busy monster, and empty zones */
-		if (ch->position != POS_STANDING)
-			continue;
-
-/* Scavenge */
-		if (IS_SET(act, ACT_SCAVENGER)
-		&&  ch->in_room->contents != NULL
-		&&  number_bits(6) == 0) {
-			OBJ_DATA *obj;
-			OBJ_DATA *obj_best = NULL;
-			int max = 1;
-
-			for (obj = ch->in_room->contents; obj;
-			     obj = obj->next_content) {
-				if (CAN_WEAR(obj, ITEM_TAKE)
-				&&  can_loot(ch, obj)
-				&&  obj->cost > max) {
-					obj_best = obj;
-					max	 = obj->cost;
-				}
-			}
-
-			if (obj_best)
-				get_obj(ch, obj_best, NULL, NULL);
-		}
-
-/* Wander */
-		if (!IS_SET(act, ACT_SENTINEL) 
-		&&  number_bits(3) == 0
-		&&  (door = number_bits(5)) <= 5
-		&&  !RIDDEN(ch)
-		&&  (pexit = ch->in_room->exit[door]) != NULL
-		&&  pexit->to_room.r != NULL
-		&&  !IS_SET(pexit->exit_info, EX_CLOSED)
-		&&  !IS_SET(pexit->to_room.r->room_flags, ROOM_NOMOB)
-		&&  (!IS_SET(act, ACT_STAY_AREA) ||
-		     pexit->to_room.r->area == ch->in_room->area) 
-		&&  (!IS_SET(act, ACT_AGGRESSIVE) ||
-		     !IS_SET(pexit->to_room.r->room_flags, ROOM_PEACE))
-		&&  (!IS_SET(act, ACT_OUTDOORS) ||
-		     !IS_SET(pexit->to_room.r->room_flags, ROOM_INDOORS)) 
-		&&  (!IS_SET(act, ACT_INDOORS) ||
-		     IS_SET(pexit->to_room.r->room_flags, ROOM_INDOORS)))
-			move_char(ch, door, FALSE);
+	/*
+	 * ASSIST_PLAYERS mobs
+	 */
+	if (IS_NPC(rch) && !IS_NPC(ch)
+	&&  IS_SET(rch->pMobIndex->off_flags, ASSIST_PLAYERS)
+	&&  rch->level + 6 > victim->level) {
+		dofun("emote", rch, "screams and attacks!");
+		multi_hit(rch, victim, NULL);
+		return NULL;
 	}
+
+	/*
+	 * charmed chars or PCs with PLR_AUTOASSIST
+	 */
+	if (((!IS_NPC(rch) && IS_SET(PC(rch)->plr_flags, PLR_AUTOASSIST)) ||
+	     IS_AFFECTED(rch, AFF_CHARM) ||
+	     IS_NPC(rch))
+	&&  is_same_group(ch, rch)
+	&&  !is_safe_nomessage(rch, victim)) {
+		multi_hit (rch, victim, NULL);
+		return NULL;
+	}
+
+	if (!IS_NPC(ch)) {
+		if (RIDDEN(rch) == ch)
+			multi_hit(rch, victim, NULL);
+		return NULL;
+	}
+
+	/* that's all for !IS_NPC */
+	if (!IS_NPC(rch))
+		return NULL;
+
+	if (IS_SET(rch->pMobIndex->off_flags, ASSIST_ALL)
+	||  (IS_SET(rch->pMobIndex->off_flags, ASSIST_RACE) &&
+	     IS_RACE(rch->race, ch->race))
+	||  (rch->pMobIndex == ch->pMobIndex &&
+	     IS_SET(rch->pMobIndex->off_flags, ASSIST_VNUM))
+	||  (IS_SET(rch->pMobIndex->off_flags, ASSIST_ALIGN) &&
+	     NALIGN(rch) == NALIGN(ch))) {
+		int number = 0;
+		CHAR_DATA *target = NULL;
+		CHAR_DATA *vch;
+
+		if (number_bits(1) == 0)
+			return NULL;
+
+		for (vch = ch->in_room->people; vch; vch = vch->next_in_room) {
+			if (can_see(rch, vch)
+			&&  is_same_group(vch, victim)
+			&&  number_range(0, number) == 0) {
+				target = vch;
+				number++;
+			}
+		}
+
+		if (target != NULL) {
+			dofun("emote", rch, "screams and attacks!");
+			multi_hit(rch, target, NULL);
+		}
+	}
+
+	return NULL;
 }
 
-int potion_cure_level(OBJ_DATA *potion)
+/*
+ * Control the fights going on.
+ * Called periodically by update_handler.
+ */
+void *
+violence_update_cb(void *vo, va_list ap)
 {
-int cl;
-int i;
-  cl = 0;
-  for (i=1;i<5;i++)
-  {
-	if (IS_SKILL(potion->value[i].s, "cure critical"))
-	  cl += 3;
-	if (IS_SKILL(potion->value[i].s, "cure light"))
-	  cl += 1;
-	if (IS_SKILL(potion->value[i].s, "cure serious"))
-	  cl += 2;
-	if (IS_SKILL(potion->value[i].s, "heal"))
-	  cl += 4;
-  }
-  return(cl);
-}
-int potion_arm_level(OBJ_DATA *potion)
-{
-int al;
-int i;
-  al = 0;
-  for (i=1;i<5;i++)
-  {
-	if (IS_SKILL(potion->value[i].s, "armor"))
-	  al += 1;
-	if (IS_SKILL(potion->value[i].s, "shield"))
-	  al += 1;
-	if (IS_SKILL(potion->value[i].s, "stone skin"))
-	  al += 2;
-	if (IS_SKILL(potion->value[i].s, "sanctuary"))
-	  al += 4;
-	if (IS_SKILL(potion->value[i].s, "protection"))
-	  al += 3;
-  }
-  return(al);
+	CHAR_DATA *ch = (CHAR_DATA *) vo;
+	CHAR_DATA *victim;
+	OBJ_DATA *obj;
+	OBJ_DATA *obj_next;
+
+	/* decrement the wait */
+	if (ch->desc == NULL)
+		ch->wait = UMAX(0, ch->wait - PULSE_VIOLENCE);
+
+	if ((victim = ch->fighting) == NULL || ch->in_room == NULL)
+		return NULL;
+
+	if (IS_AWAKE(ch) && ch->in_room == victim->in_room)
+		multi_hit(ch, victim, NULL);
+	else
+		stop_fighting(ch, FALSE);
+
+	if ((victim = ch->fighting) == NULL)
+		return NULL;
+
+	if (IS_NPC(ch) && !IS_NPC(victim))
+		NPC(ch)->last_fought = victim;
+
+	SET_FIGHT_TIME(ch);
+
+	if (victim->in_room != ch->in_room)
+		return NULL;
+
+	for (obj = ch->carrying; obj; obj = obj_next) {
+		obj_next = obj->next_content;
+		if (ch->fighting == NULL)
+			break;
+		oprog_call(OPROG_FIGHT, obj, ch, NULL);
+	}
+
+	if ((victim = ch->fighting) == NULL
+	||  victim->in_room != ch->in_room)
+		return NULL;
+
+	/*
+	 * Fun for the whole family!
+	 */
+	vo_foreach(ch->in_room, &iter_char_room, check_assist_cb, ch, victim);
+	if (IS_NPC(ch)) {
+		if (HAS_TRIGGER(ch, TRIG_FIGHT)) {
+			mp_percent_trigger(ch, victim, NULL, NULL, TRIG_FIGHT);
+			if (IS_EXTRACTED(ch)
+			||  IS_EXTRACTED(victim))
+				return NULL;
+		}
+		if (HAS_TRIGGER(ch, TRIG_HPCNT))
+			mp_hprct_trigger(ch, victim);
+	}
+
+	return NULL;
 }
 
-bool is_potion(OBJ_DATA *potion, const char *sn)
+static int
+potion_cure_level(OBJ_DATA *potion)
+{
+	int cl = 0;
+	int i;
+
+	for (i = 1; i < 5;i++) {
+		if (IS_SKILL(potion->value[i].s, "cure critical"))
+			cl += 3;
+		if (IS_SKILL(potion->value[i].s, "cure light"))
+			cl += 1;
+		if (IS_SKILL(potion->value[i].s, "cure serious"))
+			cl += 2;
+		if (IS_SKILL(potion->value[i].s, "heal"))
+			cl += 4;
+	}
+
+	return cl;
+}
+
+static int
+potion_arm_level(OBJ_DATA *potion)
+{
+	int al = 0;
+	int i;
+
+	for (i = 1; i < 5; i++) {
+		if (IS_SKILL(potion->value[i].s, "armor"))
+			al += 1;
+		if (IS_SKILL(potion->value[i].s, "shield"))
+			al += 1;
+		if (IS_SKILL(potion->value[i].s, "stone skin"))
+			al += 2;
+		if (IS_SKILL(potion->value[i].s, "sanctuary"))
+			al += 4;
+		if (IS_SKILL(potion->value[i].s, "protection"))
+			al += 3;
+	}
+	return al;
+}
+
+static bool
+is_potion(OBJ_DATA *potion, const char *sn)
 {
 	int i;
 	for (i = 1; i < 5; i++) {
@@ -965,6 +813,290 @@ bool is_potion(OBJ_DATA *potion, const char *sn)
 			return TRUE;
 	}
 	return FALSE;
+}
+
+/*
+ * Mob autonomous action.
+ * This function takes 25% to 35% of ALL Merc cpu time.
+ * -- Furey
+ */
+void *
+mobile_update_cb(void *vo, va_list ap)
+{
+	CHAR_DATA *ch = (CHAR_DATA *) vo;
+	EXIT_DATA *pexit;
+	int door;
+	OBJ_DATA *obj;
+
+	bool bust_prompt = FALSE;
+	flag_t act;
+
+	if (ch->position == POS_FIGHTING)
+		SET_FIGHT_TIME(ch);
+
+	if (!IS_NPC(ch)) {
+/* update ghost state */
+		if (ch->last_death_time != -1
+		&&  current_time - ch->last_death_time >= GHOST_DELAY_TIME
+		&&  IS_SET(PC(ch)->plr_flags, PLR_GHOST)) {
+			char_puts("You return to your normal form.\n", ch);
+			REMOVE_BIT(PC(ch)->plr_flags, PLR_GHOST);
+		}
+	}
+
+/* update pumped state */
+	if (ch->last_fight_time != -1
+	&&  current_time - ch->last_fight_time >= FIGHT_DELAY_TIME
+	&&  IS_PUMPED(ch)) {
+		if (!IS_NPC(ch) && ch->desc != NULL
+		&&  ch->desc->pString == NULL 
+		&&  (ch->last_death_time == -1 ||
+		     ch->last_death_time < ch->last_fight_time)) {
+			REMOVE_BIT(PC(ch)->plr_flags, PLR_PUMPED);
+			act("You settle down.", ch, NULL, NULL, TO_CHAR);
+		}
+	}
+
+	if (IS_AFFECTED(ch, AFF_REGENERATION) && ch->in_room != NULL) {
+		ch->hit = UMIN(ch->hit + ch->level / 10, ch->max_hit);
+		if (IS_RACE(ch->race, "troll"))
+			ch->hit = UMIN(ch->hit + ch->level / 10, ch->max_hit);
+		if (ch->hit != ch->max_hit)
+			bust_prompt = TRUE;
+	}
+
+	if (IS_AFFECTED(ch, AFF_CORRUPTION) && ch->in_room != NULL) {
+		ch->hit -=  ch->level / 10;
+		if (ch->hit < 1) {
+			if (IS_IMMORTAL(ch)) 
+				ch->hit = 1;
+			else {
+				ch->position = POS_DEAD;
+				handle_death(ch, ch);
+				return NULL;
+			}
+		}
+		bust_prompt = TRUE;
+	}
+
+	if (ch->in_room && ch->in_room->sector_type == SECT_UNDERWATER
+	&&  !is_affected(ch, "water breathing")
+	&&  !IS_IMMORTAL(ch)) {
+		act("$n gasps for fresh air, but inhales water.",
+		    ch, NULL, NULL, TO_ROOM);
+		act("You gasp for fresh air, but inhale water.",
+		    ch, NULL, NULL, TO_CHAR);
+		ch->hit -= ch->max_hit/20;
+		if (ch->hit < 1) {
+			ch->position = POS_DEAD;
+			handle_death(ch, ch);
+			return NULL;
+		}
+		bust_prompt = TRUE;
+	}
+
+	check_events(ch, ch->affected, EVENT_CHAR_UPDFAST);
+	if (IS_EXTRACTED(ch))
+		return NULL;
+
+	if (ch->desc
+	&&  bust_prompt
+	&&  !ch->desc->pString
+	&&  !ch->desc->showstr_point
+	&&  !IS_SET(ch->comm, COMM_NOBUST))
+		char_puts(str_empty, ch);
+
+	/*
+	 * that's all for PCs and charmed mobiles
+	 */
+	if (!IS_NPC(ch)
+	||  IS_AFFECTED(ch, AFF_CHARM))
+		return NULL;
+
+	act = ch->pMobIndex->act;
+	if (IS_SET(act, ACT_HUNTER) && ch->hunting) {
+		dofun("hunt", ch, str_empty);
+		if (IS_EXTRACTED(ch))
+			return NULL;
+	}
+
+	if (ch->in_room->area->empty
+	&&  !IS_SET(act, ACT_UPDATE_ALWAYS))
+		return NULL;
+
+	/* Examine call for special procedure */
+	if (ch->pMobIndex->spec_fun != 0) {
+		if (ch->pMobIndex->spec_fun(ch))
+			return NULL;
+	}
+
+	if (ch->pMobIndex->pShop != NULL /* give him some gold */
+	||  (ch->gold * 100 + ch->silver) < ch->pMobIndex->wealth) {
+		ch->gold += ch->pMobIndex->wealth * number_range(1, 20) / 5000000;
+		ch->silver += ch->pMobIndex->wealth * number_range(1, 20) / 50000;
+	}
+	 
+/* check triggers (only if mobile still in default position) */
+
+	if (ch->position == ch->pMobIndex->default_pos) {
+		if (HAS_TRIGGER(ch, TRIG_DELAY)
+		&&  NPC(ch)->mprog_delay > 0) {
+			if (--NPC(ch)->mprog_delay <= 0) {
+				mp_percent_trigger(ch, NULL, NULL, NULL, TRIG_DELAY);
+				return NULL;
+			}
+		} 
+		if (HAS_TRIGGER(ch, TRIG_RANDOM)) {
+			if(mp_percent_trigger(ch, NULL, NULL, NULL, TRIG_RANDOM))
+			return NULL;
+		}
+	}
+
+/* potion using and stuff for intelligent mobs */
+
+	if (ch->pMobIndex->pShop == NULL
+	&&  (ch->position == POS_STANDING ||
+	     ch->position == POS_RESTING ||
+	     ch->position == POS_FIGHTING)
+	&&  get_curr_stat(ch, STAT_INT) > 15
+	&&  (ch->hit < ch->max_hit * 90 / 100 ||
+	     IS_AFFECTED(ch, AFF_BLIND) ||
+	     IS_AFFECTED(ch, AFF_POISON) ||
+	     IS_AFFECTED(ch, AFF_PLAGUE) ||
+	     ch->fighting != NULL)) {
+		for (obj = ch->carrying; obj; obj = obj->next_content) {
+			if (obj->item_type != ITEM_POTION)
+				continue;
+
+			if (ch->hit < ch->max_hit * 90 / 100) {
+				int cl = potion_cure_level(obj);
+				if (cl > 0) {
+					if (ch->hit < ch->max_hit*0.5
+					&&  cl > 3) {
+						quaff_obj(ch, obj);
+						if (IS_EXTRACTED(ch))
+							break;
+						continue;
+					}
+					if (ch->hit < ch->max_hit*0.7) {
+						quaff_obj(ch, obj);
+						if (IS_EXTRACTED(ch))
+							break;
+						continue;
+					}
+				}
+			}
+
+			if (IS_AFFECTED(ch, AFF_POISON)
+			&&  is_potion(obj, "cure poison")) {
+				quaff_obj(ch, obj);
+				if (IS_EXTRACTED(ch))
+					break;
+				continue;
+			}
+
+			if (IS_AFFECTED(ch, AFF_PLAGUE)
+			&&  is_potion(obj, "cure disease")) {
+				quaff_obj(ch, obj);
+				if (IS_EXTRACTED(ch))
+					break;
+				continue;
+			}
+
+			if (IS_AFFECTED(ch, AFF_BLIND)
+			&&  is_potion(obj, "cure blindness")) {
+				quaff_obj(ch, obj);
+				if (IS_EXTRACTED(ch))
+					break;
+				continue;
+			}
+
+			if (ch->fighting) {
+				int al = potion_arm_level(obj);
+
+				if (ch->level - ch->fighting->level < 7
+				&&  al > 3) {
+					quaff_obj(ch, obj);
+					if (IS_EXTRACTED(ch))
+						break;
+					continue;
+				}
+
+				if (ch->level - ch->fighting->level < 8
+				&&  al > 2) {
+					quaff_obj(ch, obj);
+					if (IS_EXTRACTED(ch))
+						break;
+					continue;
+				}
+
+				if (ch->level - ch->fighting->level < 9
+				&&  al > 1) {
+					quaff_obj(ch, obj);
+					if (IS_EXTRACTED(ch))
+						break;
+					continue;
+				}
+
+				if (ch->level - ch->fighting->level < 10
+				&&  al > 0) {
+					quaff_obj(ch, obj);
+					if (IS_EXTRACTED(ch))
+						break;
+					continue;
+				}
+			} /* if (ch->fighting) */
+		} /* for */
+
+		if (IS_EXTRACTED(ch))
+			return NULL;
+	}
+
+/* That's all for sleeping / busy monster, and empty zones */
+	if (ch->position != POS_STANDING)
+		return NULL;
+
+/* Scavenge */
+	if (IS_SET(act, ACT_SCAVENGER)
+	&&  ch->in_room->contents != NULL
+	&&  number_bits(6) == 0) {
+		OBJ_DATA *obj;
+		OBJ_DATA *obj_best = NULL;
+		int max = 1;
+
+		for (obj = ch->in_room->contents; obj; obj = obj->next_content) {
+			if (CAN_WEAR(obj, ITEM_TAKE)
+			&&  can_loot(ch, obj)
+			&&  obj->cost > max) {
+				obj_best = obj;
+				max	 = obj->cost;
+			}
+		}
+
+		if (obj_best)
+			get_obj(ch, obj_best, NULL, NULL);
+	}
+
+/* Wander */
+	if (!IS_SET(act, ACT_SENTINEL) 
+	&&  number_bits(3) == 0
+	&&  (door = number_bits(5)) <= 5
+	&&  !RIDDEN(ch)
+	&&  (pexit = ch->in_room->exit[door]) != NULL
+	&&  pexit->to_room.r != NULL
+	&&  !IS_SET(pexit->exit_info, EX_CLOSED)
+	&&  !IS_SET(pexit->to_room.r->room_flags, ROOM_NOMOB)
+	&&  (!IS_SET(act, ACT_STAY_AREA) ||
+	     pexit->to_room.r->area == ch->in_room->area) 
+	&&  (!IS_SET(act, ACT_AGGRESSIVE) ||
+	     !IS_SET(pexit->to_room.r->room_flags, ROOM_PEACE))
+	&&  (!IS_SET(act, ACT_OUTDOORS) ||
+	     !IS_SET(pexit->to_room.r->room_flags, ROOM_INDOORS)) 
+	&&  (!IS_SET(act, ACT_INDOORS) ||
+	     IS_SET(pexit->to_room.r->room_flags, ROOM_INDOORS)))
+		move_char(ch, door, FALSE);
+
+	return NULL;
 }
 
 /*
@@ -1094,215 +1226,216 @@ void weather_update(void)
 /*
  * Update all chars, including mobs.
 */
-void char_update(void)
+void *
+char_update_cb(void *vo, va_list ap)
 {   
-	CHAR_DATA *ch;
-	CHAR_DATA *ch_next;
+	CHAR_DATA *ch = (CHAR_DATA *) vo;
 
-	static time_t last_save_time = -1;
+	AFFECT_DATA *paf;
+	AFFECT_DATA *paf_next;
+	int chance;
+	race_t *r;
 
-	for (ch = char_list; ch; ch = ch_next) {
-		AFFECT_DATA *paf;
-		AFFECT_DATA *paf_next;
-		int chance;
-		race_t *r = race_lookup(ch->race);
+	if ((r = race_lookup(ch->race)) == NULL)
+		return NULL;
 
-		ch_next = ch->next;
-		if (!r)
-			continue;
-
-		/* reset path find */
-		if (!IS_NPC(ch) && (chance = get_skill(ch, "path find"))) {
-			if (number_percent() < chance) {
-				ch->endur += chance / 2;
-				check_improve(ch, "path find", TRUE, 8);
-			}
-			else
-				check_improve(ch, "path find", FALSE, 16);
-		}
+	/* reset path find */
+	if (!IS_NPC(ch) && (chance = get_skill(ch, "path find"))) {
+		if (number_percent() < chance) {
+			ch->endur += chance / 2;
+			check_improve(ch, "path find", TRUE, 8);
+		} else
+			check_improve(ch, "path find", FALSE, 16);
+	}
 		
-		if (!ch->fighting) {
-			flag_t inv_skip = 0;
+	if (!ch->fighting) {
+		flag_t inv_skip = 0;
 
-			affect_check(ch, -1, -1);
+		affect_check(ch, -1, -1);
 
-			/* Remove caltrops effect after fight off */
-			if (is_affected(ch, "caltrops"))
-				affect_strip(ch, "caltrops");
+		/* Remove caltrops effect after fight off */
+		if (is_affected(ch, "caltrops"))
+			affect_strip(ch, "caltrops");
 
-			if (!MOUNTED(ch)) {
-				if (!HAS_INVIS(ch, ID_HIDDEN) 
-				&&  (r->has_invis & ID_HIDDEN))
-					char_puts("You step back into the shadows.\n", ch);
+		if (!MOUNTED(ch)) {
+			if (!HAS_INVIS(ch, ID_HIDDEN) 
+			&&  (r->has_invis & ID_HIDDEN))
+				char_puts("You step back into the shadows.\n", ch);
 
-				if (!HAS_INVIS(ch, ID_SNEAK)
-				&&  (r->has_invis & ID_SNEAK))
-					char_puts("You move silently again.\n", ch);
-			} else
-				inv_skip |= ID_ALL_INVIS;
+			if (!HAS_INVIS(ch, ID_SNEAK)
+			&&  (r->has_invis & ID_SNEAK))
+				char_puts("You move silently again.\n", ch);
+		} else
+			inv_skip |= ID_ALL_INVIS;
 
-			SET_BIT(ch->affected_by, r->aff & ~AFF_FLYING);
-			SET_INVIS(ch, r->has_invis & ~inv_skip);
-			SET_DETECT(ch, r->has_detect);
+		SET_BIT(ch->affected_by, r->aff & ~AFF_FLYING);
+		SET_INVIS(ch, r->has_invis & ~inv_skip);
+		SET_DETECT(ch, r->has_detect);
+	}
+
+	/* Remove vampire effect when morning. */
+	if (is_affected(ch, "vampire")
+	&&  (weather_info.sunlight == SUN_LIGHT ||
+	     weather_info.sunlight == SUN_RISE))
+		dofun("human", ch, str_empty);
+
+	if (!IS_NPC(ch) && is_affected(ch, "thumbling")) {
+		if (dice(5, 6) > get_curr_stat(ch, STAT_DEX)) {
+			act("You failed to reach the true source of tennis ball power.", ch, NULL, NULL, TO_CHAR);
+			act("$n falls to the ground flat on $s face.", ch, NULL, NULL, TO_ROOM);
+			affect_strip(ch, "thumbling");
 		}
+	}
 
-		/* Remove vampire effect when morning. */
-		if (is_affected(ch, "vampire")
-		&&  (weather_info.sunlight == SUN_LIGHT ||
-		     weather_info.sunlight == SUN_RISE))
-			dofun("human", ch, str_empty);
+	if (ch->position >= POS_STUNNED) {
+		int old_hit = ch->hit;
+		int old_mana = ch->mana;
+		int old_move = ch->move;
+		NPC_DATA *npc;
 
-		if (!IS_NPC(ch) && is_affected(ch, "thumbling")) {
-			if (dice(5, 6) > get_curr_stat(ch, STAT_DEX)) {
-				act("You failed to reach the true source of tennis ball power.", ch, NULL, NULL, TO_CHAR);
-				act("$n falls to the ground flat on $s face.", ch, NULL, NULL, TO_ROOM);
-				affect_strip(ch, "thumbling");
-			}
-		}
-
-		if (ch->position >= POS_STUNNED) {
-			int old_hit = ch->hit;
-			int old_mana = ch->mana;
-			int old_move = ch->move;
-			NPC_DATA *npc;
-
-			/* check to see if we need to go home */
-			if (IS_NPC(ch)
-			&&  (npc = NPC(ch))->zone != NULL 
-			&&  ch->in_room != NULL
-			&&  npc->zone != ch->in_room->area
-			&&  ch->desc == NULL 
-			&&  ch->fighting == NULL
+		/* check to see if we need to go home */
+		if (IS_NPC(ch)
+		&&  (npc = NPC(ch))->zone != NULL 
+		&&  ch->in_room != NULL
+		&&  npc->zone != ch->in_room->area
+		&&  ch->desc == NULL 
+		&&  ch->fighting == NULL
 /* && ch->progtypes==0 */
-			&&  !IS_AFFECTED(ch, AFF_CHARM)
-			&&  npc->last_fought == NULL
-			&&  !RIDDEN(ch)) {
-				back_home(ch);
-				continue;
-			}
-
-			if (ch->hit < ch->max_hit)
-				ch->hit += hit_gain(ch);
-			else
-				ch->hit = ch->max_hit;
-
-			if (ch->mana < ch->max_mana)
-				ch->mana += mana_gain(ch);
-			else
-				ch->mana = ch->max_mana;
-
-			if (ch->move < ch->max_move)
-				ch->move += move_gain(ch);
-			else
-				ch->move = ch->max_move;
-
-			if (ch->desc
-			&&  (old_hit != ch->hit || old_mana != ch->mana ||
-			     old_move != ch->move)
-			&&  !ch->desc->pString
-			&&  !ch->desc->showstr_point
-			&&  !IS_SET(ch->comm, COMM_NOBUST))
-				char_puts(str_empty, ch);
+		&&  !IS_AFFECTED(ch, AFF_CHARM)
+		&&  npc->last_fought == NULL
+		&&  !RIDDEN(ch)) {
+			back_home(ch);
+			return NULL;
 		}
 
-		if (ch->position == POS_STUNNED)
-			update_pos(ch);
+		if (ch->hit < ch->max_hit)
+			ch->hit += hit_gain(ch);
+		else
+			ch->hit = ch->max_hit;
 
-		if (!IS_NPC(ch) && ch->level < LEVEL_IMMORTAL) {
-			OBJ_DATA *obj;
-			PC_DATA *pc = PC(ch);
+		if (ch->mana < ch->max_mana)
+			ch->mana += mana_gain(ch);
+		else
+			ch->mana = ch->max_mana;
 
-			if ((obj = get_eq_char(ch, WEAR_LIGHT))
-			&&  obj->item_type == ITEM_LIGHT
-			&&  INT(obj->value[2]) > 0) {
-				if (--INT(obj->value[2]) == 0) {
-					if (ch->in_room->light > 0)
-						--ch->in_room->light;
-					act("$p goes out.",
-					    ch, obj, NULL, TO_ROOM);
-					act("$p flickers and goes out.",
-					    ch, obj, NULL, TO_CHAR);
-					extract_obj(obj, 0);
-				} else if (INT(obj->value[2]) <= 5)
-					act("$p flickers.",
-					    ch, obj, NULL, TO_CHAR);
-			}
+		if (ch->move < ch->max_move)
+			ch->move += move_gain(ch);
+		else
+			ch->move = ch->max_move;
 
-			if (++pc->idle_timer >= 12) {
-				if (pc->was_in_room == NULL) {
-					pc->was_in_room = ch->in_room;
-					if (ch->fighting != NULL)
-						stop_fighting(ch, TRUE);
-					act("$n disappears into the void.",
-					    ch, NULL, NULL, TO_ROOM);
-					char_puts("You disappear "
-						  "into the void.\n", ch);
-					char_save(ch, 0);
-  					char_from_room(ch);
-					char_to_room(ch, get_room_index(ROOM_VNUM_LIMBO));
-					if (IS_EXTRACTED(ch))
-						continue;
-				}
-			}
+		if (ch->desc
+		&&  (old_hit != ch->hit || old_mana != ch->mana ||
+		     old_move != ch->move)
+		&&  !ch->desc->pString
+		&&  !ch->desc->showstr_point
+		&&  !IS_SET(ch->comm, COMM_NOBUST))
+			char_puts(str_empty, ch);
+	}
 
-			if (!pc->was_in_room) {
-				gain_condition(ch, COND_DRUNK, -1);
-				if (IS_VAMPIRE(ch))
-					gain_condition(ch, COND_BLOODLUST, -1);
-				gain_condition(ch, COND_FULL, 
-					     ch->size > SIZE_MEDIUM ? -4 : -2);
-				if (ch->in_room->sector_type == SECT_DESERT)
-					gain_condition(ch, COND_THIRST, -3);
-				else
-					gain_condition(ch, COND_THIRST, -1);
-				gain_condition(ch, COND_HUNGER, 
-					     ch->size > SIZE_MEDIUM ? -2 : -1);
+	if (ch->position == POS_STUNNED)
+		update_pos(ch);
+
+	if (!IS_NPC(ch) && ch->level < LEVEL_IMMORTAL) {
+		OBJ_DATA *obj;
+		PC_DATA *pc = PC(ch);
+
+		if ((obj = get_eq_char(ch, WEAR_LIGHT))
+		&&  obj->item_type == ITEM_LIGHT
+		&&  INT(obj->value[2]) > 0) {
+			if (--INT(obj->value[2]) == 0) {
+				if (ch->in_room->light > 0)
+					--ch->in_room->light;
+				act("$p goes out.", ch, obj, NULL, TO_ROOM);
+				act("$p flickers and goes out.",
+				    ch, obj, NULL, TO_CHAR);
+				extract_obj(obj, 0);
+			} else if (INT(obj->value[2]) <= 5)
+				act("$p flickers.", ch, obj, NULL, TO_CHAR);
+		}
+
+		if (++pc->idle_timer >= 12) {
+			if (pc->was_in_room == NULL) {
+				pc->was_in_room = ch->in_room;
+				if (ch->fighting != NULL)
+					stop_fighting(ch, TRUE);
+				act("$n disappears into the void.",
+				    ch, NULL, NULL, TO_ROOM);
+				char_puts("You disappear "
+					  "into the void.\n", ch);
+				char_save(ch, 0);
+  				char_from_room(ch);
+				char_to_room(ch, get_room_index(ROOM_VNUM_LIMBO));
 				if (IS_EXTRACTED(ch))
-					continue;
+					return NULL;
 			}
 		}
 
-		for (paf = ch->affected; paf != NULL; paf = paf_next) {
-			paf_next = paf->next;
-			if (paf->duration > 0) {
-				paf->duration--;
-				if (number_range(0, 4) == 0 && paf->level > 0)
-					paf->level--;
-				/* spell strength fades with time */
-			} else if (paf->duration == 0) {
-				skill_t *sk;
-
-				if ((paf_next == NULL ||
-				     paf_next->type != paf->type ||
-				     paf_next->duration > 0)
-				&&  (sk = skill_lookup(paf->type)) != NULL
-				&&  !mlstr_null(&sk->msg_off)) 
-					act_mlputs(&sk->msg_off, ch, NULL, NULL,
-						   TO_CHAR, POS_DEAD);
-
-				check_one_event(ch, paf, EVENT_CHAR_TIMEOUT);
-				if (IS_EXTRACTED(ch))
-					break;
-
-				affect_remove(ch, paf);
-			}
+		if (!pc->was_in_room) {
+			gain_condition(ch, COND_DRUNK, -1);
+			if (IS_VAMPIRE(ch))
+				gain_condition(ch, COND_BLOODLUST, -1);
+			gain_condition(ch, COND_FULL, 
+				       ch->size > SIZE_MEDIUM ? -4 : -2);
+			if (ch->in_room->sector_type == SECT_DESERT)
+				gain_condition(ch, COND_THIRST, -3);
+			else
+				gain_condition(ch, COND_THIRST, -1);
+			gain_condition(ch, COND_HUNGER, 
+				       ch->size > SIZE_MEDIUM ? -2 : -1);
+			if (IS_EXTRACTED(ch))
+				return NULL;
 		}
+	}
 
-		check_events(ch, ch->affected, EVENT_CHAR_UPDATE);
-		if (IS_EXTRACTED(ch))
-			continue;
+	for (paf = ch->affected; paf != NULL; paf = paf_next) {
+		paf_next = paf->next;
+		if (paf->duration > 0) {
+			paf->duration--;
+			if (number_range(0, 4) == 0 && paf->level > 0)
+				paf->level--;
+			/* spell strength fades with time */
+		} else if (paf->duration == 0) {
+			skill_t *sk;
 
-		if (ch->position == POS_INCAP 
-		&&  number_range(0, 1) == 0)
-			damage(ch, ch, 1, NULL, DAM_NONE, DAMF_NONE);
-		else if (ch->position == POS_MORTAL)
-			damage(ch, ch, 1, NULL, DAM_NONE, DAMF_NONE);
-	} /* global for */
+			if ((paf_next == NULL ||
+			     paf_next->type != paf->type ||
+			     paf_next->duration > 0)
+			&&  (sk = skill_lookup(paf->type)) != NULL
+			&&  !mlstr_null(&sk->msg_off)) 
+				act_mlputs(&sk->msg_off, ch, NULL, NULL,
+					   TO_CHAR, POS_DEAD);
 
-	/*
-	 * Autosave and autoquit.
-	 * Check that these chars still exist.
-	 */
+			check_one_event(ch, paf, EVENT_CHAR_TIMEOUT);
+			if (IS_EXTRACTED(ch))
+				break;
+
+			affect_remove(ch, paf);
+		}
+	}
+
+	check_events(ch, ch->affected, EVENT_CHAR_UPDATE);
+	if (IS_EXTRACTED(ch))
+		return NULL;
+
+	if (ch->position == POS_INCAP 
+	&&  number_range(0, 1) == 0)
+		damage(ch, ch, 1, NULL, DAM_NONE, DAMF_NONE);
+	else if (ch->position == POS_MORTAL)
+		damage(ch, ch, 1, NULL, DAM_NONE, DAMF_NONE);
+
+	return NULL;
+}
+
+/*
+ * Autosave and autoquit.
+ * Check that these chars still exist.
+ */
+static void
+save_update(void)
+{
+	static time_t last_save_time = -1;
+	CHAR_DATA *ch, *ch_next;
+
 	if (last_save_time == -1 || current_time - last_save_time > 300) {
 		last_save_time = current_time;
 		for (ch = char_list; ch && !IS_NPC(ch); ch = ch_next) {
@@ -1315,39 +1448,32 @@ void char_update(void)
 	}
 }
 
-void water_float_update(void)
+void *
+water_float_update_cb(void *vo, va_list ap)
 {
-	OBJ_DATA *obj_next;
-	OBJ_DATA *obj;
-	CHAR_DATA *ch;
+	OBJ_DATA *obj = (OBJ_DATA *) vo;
 
-	for (obj = object_list; obj != NULL; obj = obj_next) {
-		obj_next = obj->next;
+	if (obj->in_room == NULL || !IS_WATER(obj->in_room))
+		return NULL;
 
-		if (!obj->in_room || !IS_WATER(obj->in_room))
-			continue;
+	obj->water_float = obj->water_float > 0 ?  obj->water_float - 1 : -1;
 
-		obj->water_float = obj->water_float > 0 ?
-						obj->water_float - 1 : -1;
-
-		if (obj->item_type == ITEM_DRINK_CON) {
-			INT(obj->value[1]) =
-				URANGE(1, INT(obj->value[1]) + 8,
-				       INT(obj->value[0]));
-			if ((ch = obj->in_room->people))
-				act("$p makes bubbles on the water.", ch, obj,
-				    NULL, TO_ALL);
-			obj->water_float = INT(obj->value[0]) -
-					   INT(obj->value[1]);
-			INT(obj->value[2]) = 0;
-		}
-		if (obj->water_float == 0) {
-			if((ch = obj->in_room->people))
-				act("$p sinks down the water.", ch, obj, NULL,
-				    TO_ALL); 
-			extract_obj(obj, 0);
-		}
+	if (obj->item_type == ITEM_DRINK_CON) {
+		INT(obj->value[1]) = URANGE(1, INT(obj->value[1]) + 8,
+					    INT(obj->value[0]));
+		act("$p makes bubbles on the water.",
+		    obj->in_room->people, obj, NULL, TO_ALL);
+		obj->water_float = INT(obj->value[0]) - INT(obj->value[1]);
+		INT(obj->value[2]) = 0;
 	}
+
+	if (obj->water_float == 0) {
+		act("$p sinks down the water.",
+		    obj->in_room->people, obj, NULL, TO_ALL); 
+		extract_obj(obj, 0);
+	}
+
+	return NULL;
 }
 
 void update_obj_affects(OBJ_DATA *obj)
@@ -1362,8 +1488,7 @@ void update_obj_affects(OBJ_DATA *obj)
 			/* spell strength fades with time */
         		if (number_range(0,4) == 0 && paf->level > 0)
 				paf->level--;
-        	}
-		else if (paf->duration == 0) {
+        	} else if (paf->duration == 0) {
 			skill_t *sk;
 
 			if ((paf_next == NULL || paf_next->type != paf->type ||
@@ -1399,6 +1524,7 @@ bool update_melt_obj(OBJ_DATA *obj)
 		extract_obj(obj, 0);
 		return TRUE;
 	}
+
 	if (obj->in_room != NULL
 	&&  obj->in_room->sector_type == SECT_DESERT
 	&&  number_percent() < 50) {
@@ -1407,6 +1533,7 @@ bool update_melt_obj(OBJ_DATA *obj)
 		extract_obj(obj, 0);
 		return TRUE;
 	}
+
 	return FALSE;
 }
 
@@ -1420,36 +1547,43 @@ bool update_potion(OBJ_DATA *obj)
 		extract_obj(obj, 0);
 		return TRUE;
 	}
+
 	if (obj->in_room
 	&&  obj->in_room->sector_type == SECT_DESERT
 	&&  number_percent() < 30) {
-		act("$p evaporates by the extream heat.", obj->in_room->people,
+		act("$p evaporates by the extreme heat.", obj->in_room->people,
 		    obj, NULL, TO_ALL);
 		extract_obj(obj, 0);
 		return TRUE;
 	}
+
 	return FALSE;
 }
 
 bool update_drinkcon(OBJ_DATA *obj)
 {
+	if (INT(obj->value[1]) == 0)
+		return FALSE;		/* empty */
+
 	if (obj->carried_by
 	&&  obj->carried_by->in_room->sector_type == SECT_DESERT
 	&&  !IS_NPC(obj->carried_by)
 	&&  number_percent() < 20)  {
 		act("Liquid in $p evaporates.",
-			obj->carried_by, obj, NULL, TO_CHAR);
+		    obj->carried_by, obj, NULL, TO_CHAR);
 		INT(obj->value[1]) = 0;
 		return TRUE;
 	}
+
 	if (obj->in_room
 	&&  obj->in_room->sector_type == SECT_DESERT
 	&&  number_percent() < 30) {
-		act("$p evaporates by the extream heat.", obj->in_room->people,
-		    obj, NULL, TO_ALL);
+		act("Liquid in $p evaporates.",
+		    obj->in_room->people, obj, NULL, TO_ALL);
 		INT(obj->value[1]) = 0;
 		return TRUE;
 	}
+
 	return FALSE;
 }
 
@@ -1530,14 +1664,15 @@ save_corpse_contents(OBJ_DATA *corpse)
 	contents_to_obj(corpse->contains, pit);
 }
 
-void update_one_obj(OBJ_DATA *obj)
+void *
+obj_update_cb(void *vo, va_list ap)
 {
+	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	OBJ_DATA *t_obj;
-	CHAR_DATA *rch;
 	char *message;
 
 	if (IS_AUCTIONED(obj))
-		return;
+		return NULL;
 
 	update_obj_affects(obj);
 
@@ -1554,18 +1689,18 @@ void update_one_obj(OBJ_DATA *obj)
 
 	if (material_is(obj, MATERIAL_SUSC_HEAT) 
 	&&  update_melt_obj(obj))
-		return;
+		return NULL;
 
 	if (obj->item_type == ITEM_POTION
-	&& update_potion(obj))
-		return;
+	&&  update_potion(obj))
+		return NULL;
 
 	if (obj->item_type == ITEM_DRINK_CON
-	&& update_drinkcon(obj))
-		return;
+	&&  update_drinkcon(obj))
+		return NULL;
 
 	if (obj->condition > -1 && (obj->timer <= 0 || --obj->timer > 0))
-		return;
+		return NULL;
 
 	switch (obj->item_type) {
 	default:
@@ -1613,60 +1748,14 @@ void update_one_obj(OBJ_DATA *obj)
 		}
 	}
 
-	if (obj->in_room && (rch = obj->in_room->people)
-	&&  !OBJ_IS(obj, OBJ_PIT))
-		act(message, rch, obj, NULL, TO_ALL);
+	if (obj->in_room && !OBJ_IS(obj, OBJ_PIT))
+		act(message, obj->in_room->people, obj, NULL, TO_ALL);
 
 	if (obj->item_type == ITEM_CORPSE_PC && obj->contains)
 		save_corpse_contents(obj);
 	extract_obj(obj, 0);
-}
 
-OBJ_DATA *last_updated_obj;
-
-void obj_update_list(OBJ_DATA *obj)
-{
-	int i;
-	OBJ_DATA *obj_next;
-
-/* some diagnostics */
-	obj_next = obj;
-	for (i = 0; obj && !mem_is(obj, MT_OBJ); obj = obj->next, i++)
-		;
-	if (i) {
-		log("obj_update_list: skipped %d extracted objs, "
-			   "object_list == %p, obj == %p, "
-			   "last_updated_obj == %p, "
-			   "last_updated_obj->next == %p",
-			   i, object_list, obj_next,
-			   last_updated_obj,
-			   last_updated_obj ? last_updated_obj->next : NULL);
-	}
-
-	for (; obj; obj = obj_next) {
-		obj_next = obj->next;
-
-		if (!mem_is(obj, MT_OBJ)) {
-			obj_update_list(last_updated_obj ?
-					last_updated_obj->next : object_list);
-			return;
-		}
-
-		update_one_obj(obj);
-
-		if (mem_is(obj, MT_OBJ))
-			last_updated_obj = obj;
-	}
-}
-
-/*
- * Update all objs.
- * This function is performance sensitive.
- */
-void obj_update(void)
-{   
-	last_updated_obj = NULL;
-	obj_update_list(object_list);
+	return NULL;
 }
 
 /*
@@ -1683,128 +1772,119 @@ void obj_update(void)
  *
  * -- Furey
  */
-void aggr_update(void)
+
+static void *
+find_aggr_cb(void *vo, va_list ap)
 {
-	CHAR_DATA *wch, *wch_next;
+	CHAR_DATA *ch = (CHAR_DATA *) vo;
 
-	for (wch = char_list; wch && !IS_NPC(wch); wch = wch_next) {
-		CHAR_DATA *ch, *ch_next;
-		CHAR_DATA *vch, *vch_next;
-		wch_next = wch->next;
+	CHAR_DATA *wch;
+	CHAR_DATA *vch;
+	flag_t act;
+	NPC_DATA *npc;
+	int count;
+	CHAR_DATA *victim;
 
-		if (!wch->in_room)
-			continue;
+	if (!IS_NPC(ch))
+		return NULL;
 
-		if (IS_AWAKE(wch)
-		&&  IS_AFFECTED(wch, AFF_BLOODTHIRST)
-		&&  wch->fighting == NULL) {
-			for (vch = wch->in_room->people;
-			     vch != NULL && wch->fighting == NULL;
-			     vch = vch_next) {
-				vch_next = vch->next_in_room;
+	wch = va_arg(ap, CHAR_DATA *);
+	npc = NPC(ch);
+	act = ch->pMobIndex->act;
 
-				if (IS_IMMORTAL(vch))
-					continue;
+	if ((!IS_SET(act, ACT_AGGRESSIVE) &&
+	     npc->last_fought == NULL &&
+	     npc->target == NULL)
+	||  IS_SET(ch->in_room->room_flags, ROOM_PEACE | ROOM_SAFE)
+	||  IS_AFFECTED(ch, AFF_CALM)
+	||  ch->fighting != NULL
+	||  RIDDEN(ch)
+	||  IS_AFFECTED(ch, AFF_CHARM)
+	||  !IS_AWAKE(ch)
+	||  (IS_SET(act, ACT_WIMPY) && IS_AWAKE(wch))
+	||  !can_see(ch, wch) 
+	||  number_bits(1) == 0
+	||  is_safe_nomessage(ch, wch))
+		return NULL;
 
-				if (wch != vch && can_see(wch,vch)
-				&&  !is_safe_nomessage(wch,vch)) {
-					act_puts("{RMORE BLOOD! MORE BLOOD! MORE BLOOD!!!{x", wch,NULL,NULL,TO_CHAR,POS_RESTING);
-					dofun("murder", wch, vch->name);
-					if (IS_EXTRACTED(wch))
-						continue;
-				}
-			}
+	if (npc->target != NULL) {
+		if (npc->target == wch)
+			multi_hit(ch, wch, NULL);
+		return NULL;
+	}
+
+	if (npc->last_fought != NULL) {
+		if (npc->last_fought == wch
+		&&  !IS_AFFECTED(ch, AFF_SCREAM | AFF_CALM)) {
+			act_yell(ch, "$i! Now you die!", wch, NULL);
+			wch = check_guard(wch, ch); 
+			multi_hit(ch, wch, NULL);
 		}
+		return NULL;
+	}
 
-		if (wch->level >= LEVEL_IMMORTAL)
-			continue;
-
-		for (ch = wch->in_room->people; ch; ch = ch_next) {
-			int count;
-			flag_t act;
-			NPC_DATA *npc;
-			CHAR_DATA *victim;
-
-			ch_next = ch->next_in_room;
-
-			if (!IS_NPC(ch))
-				continue;
-
-			npc = NPC(ch);
-			act = ch->pMobIndex->act;
-
-			if ((!IS_SET(act, ACT_AGGRESSIVE) &&
-			     npc->last_fought == NULL &&
-			     npc->target == NULL)
-			||  IS_SET(ch->in_room->room_flags,
-				   ROOM_PEACE | ROOM_SAFE)
-			||  IS_AFFECTED(ch, AFF_CALM)
-			||  ch->fighting != NULL
-			||  RIDDEN(ch)
-			||  IS_AFFECTED(ch, AFF_CHARM)
-			||  !IS_AWAKE(ch)
-			||  (IS_SET(act, ACT_WIMPY) && IS_AWAKE(wch))
-			||  !can_see(ch, wch) 
-			||  number_bits(1) == 0
-			||  is_safe_nomessage(ch, wch))
-				continue;
-
-			if ((victim = npc->target) != NULL) {
-				if (victim == wch)
-					multi_hit(ch, wch, NULL);
-				continue;
-			}
-
-			/* Mad mob attacks! */
-			if (npc->last_fought == wch
-			&&  !IS_AFFECTED(ch, AFF_SCREAM | AFF_CALM)) {
-				act_yell(ch, "$i! Now you die!", wch, NULL);
-				wch = check_guard(wch, ch); 
-				multi_hit(ch, wch, NULL);
-				continue;
-			}
-
-			if (npc->last_fought)
-				continue;
-
-			/*
-			 * Ok we have a 'wch' player character and a 'ch' npc
-			 * aggressor. Now make the aggressor fight a RANDOM
-			 * pc victim in the room, giving each 'vch' an equal
-			 * chance of selection.
-			 */
-			count = 0;
-			victim = NULL;
-			for (vch = wch->in_room->people;
-			     vch != NULL; vch = vch_next) {
-				vch_next = vch->next_in_room;
-				if (!IS_NPC(vch)
-				&&  vch->level < LEVEL_IMMORTAL
-				&&  ch->level >= vch->level - 5 
-				&&  (!IS_SET(act, ACT_WIMPY) || !IS_AWAKE(vch))
-				&&  can_see(ch, vch)
-				/* do not attack vampires */
-				&&  !IS_VAMPIRE(vch)
-				/* good vs good :( */
-				&&  !(IS_GOOD(ch) && IS_GOOD(vch))) {
-					if (number_range(0, count) == 0)
-						victim = vch;
-					count++;
-				}
-			}
-
-			if (victim == NULL)
-				continue;
-
-			if (!is_safe_nomessage(ch, victim)) {
-				victim = check_guard(victim, ch); 
-				if (get_skill(ch, "backstab"))
-					dofun("backstab", ch, victim->name);
-				else
-					multi_hit(ch, victim, NULL);
-			}
+	/*
+	 * Ok we have a 'wch' player character and a 'ch' npc aggressor.
+	 * Now make the aggressor fight a RANDOM pc victim in the room,
+	 * giving each 'vch' an equal chance of selection.
+	 */
+	count = 0;
+	victim = NULL;
+	for (vch = wch->in_room->people; vch != NULL; vch = vch->next_in_room) {
+		if (!IS_NPC(vch)
+		&&  vch->level < LEVEL_IMMORTAL
+		&&  ch->level >= vch->level - 5 
+		&&  (!IS_SET(act, ACT_WIMPY) || !IS_AWAKE(vch))
+		&&  can_see(ch, vch)
+		&&  !is_safe_nomessage(ch, victim)
+		/* do not attack vampires */
+		&&  !IS_VAMPIRE(vch)
+		/* good vs good :( */
+		&&  !(IS_GOOD(ch) && IS_GOOD(vch))) {
+			if (number_range(0, count++) == 0)
+				victim = vch;
 		}
 	}
+
+	if (victim == NULL)
+		return NULL;
+
+	victim = check_guard(victim, ch); 
+	if (get_skill(ch, "backstab"))
+		dofun("backstab", ch, victim->name);
+	else
+		multi_hit(ch, victim, NULL);
+	return NULL;
+}
+
+static void *
+aggr_update_cb(void *vo, va_list ap)
+{
+	CHAR_DATA *wch = (CHAR_DATA *) vo;
+
+	if (IS_NPC(wch))
+		return wch;
+
+	if (IS_IMMORTAL(wch))
+		return NULL;
+
+	if (IS_AWAKE(wch)
+	&&  IS_AFFECTED(wch, AFF_BLOODTHIRST)
+	&&  wch->fighting == NULL
+	&&  vo_foreach(wch->in_room, &iter_char_room,
+		       bloodthirst_cb, wch) != NULL)
+		return NULL;
+
+	vo_foreach(wch->in_room, &iter_char_room, find_aggr_cb, wch);
+	return NULL;
+}
+
+static void *
+raff_update_cb(void *vo, va_list ap)
+{
+	ROOM_INDEX_DATA *room = va_arg(ap, ROOM_INDEX_DATA *);
+	check_events(vo, room->affected, EVENT_ROOM_UPDATE);
+	return NULL;
 }
 
 /*
@@ -1842,29 +1922,32 @@ void update_handler(void)
 
 	if (--pulse_mobile <= 0) {
 		pulse_mobile = PULSE_MOBILE;
-		mobile_update();
+		vo_foreach(NULL, &iter_char_world, mobile_update_cb);
 		light_update();
 	}
 
 	if (--pulse_violence <= 0) {
 		pulse_violence = PULSE_VIOLENCE;
-		violence_update();
+		vo_foreach(NULL, &iter_char_world, violence_update_cb);
 	}
 
 	if (--pulse_water_float <= 0) {
 		pulse_water_float = PULSE_WATER_FLOAT;
-		water_float_update();
+		vo_foreach(NULL, &iter_obj_world, water_float_update_cb);
 	}
 
 	if (--pulse_raffect <= 0) {
+		ROOM_INDEX_DATA *room;
+
 		wiznet("RAFFECT TICK!", NULL, NULL, WIZ_TICKS, 0, 0);
 		pulse_raffect = PULSE_RAFFECT;
-		room_affect_update();
+		for (room = top_affected_room; room ; room = room->aff_next)
+			vo_foreach(room, &iter_char_room, raff_update_cb, room);
 	}
 
 	if (--pulse_track <= 0) {
 		pulse_track = PULSE_TRACK;
-		track_update();
+		vo_foreach(NULL, &iter_npc_world, track_update_cb);
 	}
 
 	if (--pulse_point <= 0) {
@@ -1873,9 +1956,10 @@ void update_handler(void)
 		wiznet("CHAR TICK!", NULL, NULL, WIZ_TICKS, 0, 0);
 		pulse_point = PULSE_TICK;
 		weather_update();
-		char_update();
+		vo_foreach(NULL, &iter_char_world, char_update_cb);
+		save_update();
 		quest_update(); 
-		obj_update();
+		vo_foreach(NULL, &iter_obj_world, obj_update_cb);
 		if (time_info.hour == 0)
 			hash_foreach(&clans, clan_item_update_cb);
 		check_reboot();
@@ -1886,7 +1970,7 @@ void update_handler(void)
 				ch->in_room->area->count++;
 	}
 
-	aggr_update();
+	vo_foreach(NULL, &iter_char_world, aggr_update_cb);
 	auction_update();
 	tail_chain();
 
@@ -1899,7 +1983,6 @@ void light_update(void)
 	int dam_light;
 	DESCRIPTOR_DATA *d;
 
-
 	for (d = descriptor_list; d != NULL; d = d->next) {
 		if (d->connected != CON_PLAYING)
 			continue;
@@ -1910,7 +1993,7 @@ void light_update(void)
 			continue;
 
 		/* also checks vampireness */
-		if ((dam_light = isn_dark_safe(ch)) == 0) 	
+		if ((dam_light = isn_dark_safe(ch)) == 0) 
 			continue;	
 
 		if (dam_light != 2
@@ -1954,33 +2037,13 @@ void room_update(void)
 				paf->duration--;
 				if (number_range(0,4) == 0 && paf->level > 0)
 					paf->level--;
-			}
-			else if (paf->duration == 0) {
+			} else if (paf->duration == 0) {
 				check_one_event(NULL, paf, EVENT_ROOM_TIMEOUT);
 				affect_remove_room(room, paf);
 			}
 		}
 	}
 }
-
-void room_affect_update(void)
-{   
-	ROOM_INDEX_DATA *room;
-	ROOM_INDEX_DATA *room_next;
-	CHAR_DATA	*vch;
-
-	for (room = top_affected_room; room ; room = room_next) {
-		CHAR_DATA *vch_next;
-		room_next = room->aff_next;
-
-		for (vch = room->people; vch; vch = vch_next) {
-			vch_next = vch->next_in_room;
-			check_events(vch, room->affected,
-				EVENT_ROOM_UPDATE);
-		}
-	}
-}
-
 
 void check_reboot(void)
 {
@@ -2020,74 +2083,74 @@ void check_reboot(void)
 	}
 }
 
-void track_update(void)
+void *
+track_update_cb(void *vo, va_list ap)
 {   
-	CHAR_DATA *ch, *ch_next;
+	CHAR_DATA *ch = (CHAR_DATA *) vo;
 
-	for (ch = npc_list; ch; ch = ch_next) {
-		CHAR_DATA *victim;
-		CHAR_DATA *vch, *vch_next;
-		ROOM_INDEX_DATA *was_in_room;
-		NPC_DATA *npc;
+	CHAR_DATA *victim;
+	CHAR_DATA *vch, *vch_next;
+	ROOM_INDEX_DATA *was_in_room;
+	NPC_DATA *npc;
 
-		ch_next = ch->next;
-		if (IS_AFFECTED(ch, AFF_CALM | AFF_CHARM | AFF_SCREAM)
-	        ||  ch->fighting
-		||  !ch->in_room
-	        ||  !IS_AWAKE(ch) 
-		||  RIDDEN(ch))
-			continue;
+	if (IS_AFFECTED(ch, AFF_CALM | AFF_CHARM | AFF_SCREAM)
+        ||  ch->fighting
+	||  !ch->in_room
+        ||  !IS_AWAKE(ch) 
+	||  RIDDEN(ch))
+		return NULL;
 
-		/*
-		 * track the victim
-		 */
-		npc = NPC(ch);
-		victim = npc->target ? npc->target : npc->last_fought;
+	/*
+	 * track the victim
+	 */
+	npc = NPC(ch);
+	victim = npc->target ? npc->target : npc->last_fought;
 
-		if (victim != NULL) {
-			add_mind(ch, victim->name);
+	if (victim != NULL) {
+		add_mind(ch, victim->name);
 
-	        	if (!IS_SET(ch->pMobIndex->act, ACT_NOTRACK)
-			&&  (was_in_room = ch->in_room) != victim->in_room) {
-				dofun("track", ch, victim->name);
-				if (IS_EXTRACTED(ch))
-					continue;
+        	if (!IS_SET(ch->pMobIndex->act, ACT_NOTRACK)
+		&&  (was_in_room = ch->in_room) != victim->in_room) {
+			dofun("track", ch, victim->name);
+			if (IS_EXTRACTED(ch))
+				return NULL;
 
-				/*
-				 * forget about it if we could not find
-				 * the tracks and have no specific target set
-				 * (summoned shadow, stalker)
-				 */
-				if (was_in_room == ch->in_room
-				&&  npc->target == NULL
-				&&  number_range(0, 19) == 0) {
-					npc->last_fought = NULL;
-					back_home(ch);
-					continue;
-				}
+			/*
+			 * forget about it if we could not find
+			 * the tracks and have no specific target set
+			 * (summoned shadow, stalker)
+			 */
+			if (was_in_room == ch->in_room
+			&&  npc->target == NULL
+			&&  number_range(0, 19) == 0) {
+				npc->last_fought = NULL;
+				back_home(ch);
+				return NULL;
 			}
 		}
+	}
 
-		/*
-		 * attack the victims in mind
-		 */
-		if (npc->in_mind == NULL)
+	/*
+	 * attack the victims in mind
+	 */
+	if (npc->in_mind == NULL)
+		return NULL;
+
+	for (vch = ch->in_room->people; vch; vch = vch_next) {
+		vch_next = vch->next_in_room;
+
+		if (IS_IMMORTAL(vch)
+		||  !can_see(ch, vch)
+		||  is_safe_nomessage(ch, vch)
+		||  !is_name(vch->name, npc->in_mind))
 			continue;
 
-		for (vch = ch->in_room->people; vch; vch = vch_next) {
-			vch_next = vch->next_in_room;
-
-			if (IS_IMMORTAL(vch)
-			||  !can_see(ch, vch)
-			||  is_safe_nomessage(ch, vch)
-			||  !is_name(vch->name, npc->in_mind))
-				continue;
-
-			act_yell(ch, "So we meet again, $i!", vch, NULL);
-			dofun("murder", ch, vch->name);
-			break;
-		}
+		act_yell(ch, "So we meet again, $i!", vch, NULL);
+		dofun("murder", ch, vch->name);
+		break;
 	}
+
+	return NULL;
 }
 
 static void *

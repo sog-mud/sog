@@ -23,17 +23,19 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: memalloc.c,v 1.5 1999-12-16 12:24:52 fjoe Exp $
+ * $Id: memalloc.c,v 1.6 2000-01-04 19:28:01 fjoe Exp $
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 
 #include "typedef.h"
+#include "const.h"
 #include "log.h"
 #include "memalloc.h"
 
-void * mem_alloc2(int mem_type, size_t mem_len, size_t mem_prealloc)
+void *
+mem_alloc2(int mem_type, size_t mem_len, size_t mem_prealloc)
 {
 	char *p;
 	memchunk_t *m;
@@ -46,11 +48,13 @@ void * mem_alloc2(int mem_type, size_t mem_len, size_t mem_prealloc)
 	m->mem_type = mem_type;
 	m->mem_sign = MEM_VALID;
 	m->mem_prealloc = mem_prealloc;
+	m->mem_flags = 0;
 
 	return ((void*) (p + mem_prealloc + sizeof(memchunk_t)));
 }
 
-void mem_free(const void *p)
+void
+mem_free(const void *p)
 {
 	memchunk_t *m;
 
@@ -66,7 +70,8 @@ void mem_free(const void *p)
 	free(((char*) m) - m->mem_prealloc);
 }
 
-bool mem_is(const void *p, int mem_type)
+bool
+mem_is(const void *p, int mem_type)
 {
 	memchunk_t *m;
 
@@ -77,7 +82,8 @@ bool mem_is(const void *p, int mem_type)
 	return (m->mem_sign == MEM_VALID && m->mem_type == mem_type);
 }
 
-void mem_validate(const void *p)
+void
+mem_validate(const void *p)
 {
 	memchunk_t *m;
 
@@ -87,7 +93,8 @@ void mem_validate(const void *p)
 	m->mem_sign = MEM_VALID;
 }
 
-void mem_invalidate(const void *p)
+void
+mem_invalidate(const void *p)
 {
 	memchunk_t *m;
 
@@ -95,4 +102,38 @@ void mem_invalidate(const void *p)
 		return;
 	m = GET_CHUNK(p);
 	m->mem_sign = MEM_INVALID;
+}
+
+bool
+mem_tagged(const void *p)
+{
+	memchunk_t *m;
+
+	if (p == NULL)
+		return FALSE;
+
+	m = GET_CHUNK(p);
+	return IS_SET(m->mem_flags, MEM_F_TAGGED);
+}
+
+void
+mem_tag(const void *p)
+{
+	memchunk_t *m;
+
+	if (p == NULL)
+		return;
+	m = GET_CHUNK(p);
+	SET_BIT(m->mem_flags, MEM_F_TAGGED);
+}
+
+void
+mem_untag(const void *p)
+{
+	memchunk_t *m;
+
+	if (p == NULL)
+		return;
+	m = GET_CHUNK(p);
+	REMOVE_BIT(m->mem_flags, MEM_F_TAGGED);
 }

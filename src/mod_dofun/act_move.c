@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.225 1999-12-29 12:11:29 kostik Exp $
+ * $Id: act_move.c,v 1.226 2000-01-04 19:27:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3223,13 +3223,38 @@ void do_throw_weapon(CHAR_DATA *ch, const char *argument)
 	check_improve(ch, "throw weapon", TRUE, 1);
 }
 
+void do_enter(CHAR_DATA *ch, const char *argument);
+
+static void *
+enter_cb(void *vo, va_list ap)
+{
+	CHAR_DATA *vch = (CHAR_DATA *) vo;
+
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	OBJ_DATA *portal = va_arg(ap, OBJ_DATA *);
+	const char *argument = va_arg(ap, const char *);
+
+	/*
+	 * no following through dead portals
+	 */
+	if (!mem_is(portal, MT_OBJ) || INT(portal->value[0]) == -1) 
+		return vch;
+ 
+	if (vch->master != ch || vch->position != POS_STANDING)
+		return NULL;
+
+	act("You follow $N.", vch, NULL, ch, TO_CHAR);
+	do_enter(vch, argument);
+	return NULL;
+}
+
 /* RT Enter portals */
 void do_enter(CHAR_DATA *ch, const char *argument)
 {    
 	ROOM_INDEX_DATA *location; 
 	ROOM_INDEX_DATA *old_room;
 	OBJ_DATA *portal;
-	CHAR_DATA *fch, *fch_next, *mount;
+	CHAR_DATA *mount;
 
 	if (ch->fighting != NULL) 
 		return;
@@ -3242,7 +3267,6 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 
 	old_room = ch->in_room;
 	portal = get_obj_list(ch, argument, ch->in_room->contents);
-	
 	if (portal == NULL) {
 		char_puts("You don't see that here.\n",ch);
 		return;
@@ -3306,16 +3330,17 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 		obj_to_room(portal, location);
 	}
 
-	if (IS_SET(INT(portal->value[2]), GATE_NORMAL_EXIT))
+	if (IS_SET(INT(portal->value[2]), GATE_NORMAL_EXIT)) {
 		act_puts3(mount ? "$i has arrived, riding $I" :
 				  "$i has arrived.",
 			  location->people, ch, portal, mount,
 			  TO_ROOM, POS_RESTING);
-	else
+	} else {
 		act_puts3(mount ? "$i has arrived through $P, riding $I." :
 	        		  "$i has arrived through $P.",
 			  location->people, ch, portal, mount,
 			  TO_ROOM, POS_RESTING);
+	}
 
 	char_to_room(ch, location);
 
@@ -3327,7 +3352,7 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!IS_EXTRACTED(ch))
-		do_look(ch,"auto");
+		do_look(ch, "auto");
 
 	/* charges */
 	if (INT(portal->value[0]) > 0) {
@@ -3340,41 +3365,12 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 	if (old_room == location)
 		return;
 
-	for (fch = old_room->people; fch != NULL; fch = fch_next) {
-	        fch_next = fch->next_in_room;
+	vo_foreach(old_room, &iter_char_room, enter_cb, ch, portal, argument);
 
-		/* no following through dead portals */
-	        if (portal == NULL || INT(portal->value[0]) == -1) 
-	        	continue;
- 
-	        if (fch->master != ch || fch->position != POS_STANDING)
-			continue;
-
-	        if (IS_SET(location->room_flags, ROOM_LAW)
-	        &&  IS_NPC(fch)
-		&&  IS_SET(fch->pMobIndex->act, ACT_AGGRESSIVE)) {
-	        	act("You can't bring $N into the city.",
-	                    ch, NULL, fch, TO_CHAR);
-			act("You aren't allowed in the city.",
-			    fch, NULL, NULL, TO_CHAR);
-			continue;
-	        }
- 
-	        act("You follow $N.", fch, NULL, ch, TO_CHAR);
-		do_enter(fch,argument);
-	}
-
- 	if (portal != NULL && INT(portal->value[0]) == -1) {
+ 	if (mem_is(portal, MT_OBJ) && INT(portal->value[0]) == -1) {
 		act("$p fades out of existence.", ch, portal, NULL, TO_CHAR);
-		if (ch->in_room == old_room)
-			act("$p fades out of existence.",
-			    ch, portal, NULL, TO_ROOM);
-		else if (old_room->people != NULL) {
-			act("$p fades out of existence.", 
-			    old_room->people, portal, NULL, TO_CHAR);
-			act("$p fades out of existence.",
-			    old_room->people,portal,NULL,TO_ROOM);
-		}
+		act("$p fades out of existence.", 
+		    old_room->people, portal, NULL, TO_CHAR);
 		extract_obj(portal, 0);
 	}
 

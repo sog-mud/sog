@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.284 2000-01-04 04:14:07 avn Exp $
+ * $Id: merc.h,v 1.285 2000-01-04 19:27:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -101,6 +101,7 @@
 #include "material.h"
 #include "liquid.h"
 #include "forms.h"
+#include "vo_iter.h"
 
 /*
  * configuration parameters
@@ -414,7 +415,7 @@ struct spec_type
 #define ACT_AGGRESSIVE		(F)		/* Attacks PC's		*/
 #define ACT_STAY_AREA		(G)		/* Won't leave area	*/
 #define ACT_WIMPY		(H)
-#define ACT_PET 		(I)		/* Auto set for pets	*/
+#define ACT_PET			(I)
 #define ACT_IMMSUMMON		(J)
 #define ACT_HUNTER		(L)
 #define ACT_UNDEAD		(O)
@@ -2148,14 +2149,18 @@ void delevel		(CHAR_DATA *ch);
 bool (*olc_interpret)(DESCRIPTOR_DATA *d, const char *argument);
 
 void	gain_condition	(CHAR_DATA *ch, int iCond, int value);
+
 void	update_handler	(void);
-void	char_update	(void);
+
 void	area_update	(void);
 void	room_update	(void);
-void	track_update	(void);
-void	obj_update	(void);
-void *	clan_item_update_cb(void *p, va_list ap);
 void	weather_update	(void);
+
+void *	obj_update_cb	(void *vo, va_list ap);
+void *	char_update_cb	(void *vo, va_list ap);
+void *	mobile_update_cb(void *vo, va_list ap);
+void *	track_update_cb(void *vo, va_list ap);
+void *	clan_item_update_cb(void *p, va_list ap);
 
 flag_t wiznet_lookup	(const char *name);
 

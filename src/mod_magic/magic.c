@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.17 1999-12-16 12:24:52 fjoe Exp $
+ * $Id: magic.c,v 1.18 2000-01-04 19:28:01 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -226,24 +226,15 @@ void obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	target_name = str_empty;
 	spell->fun(sn, level, ch, vo);
 
-	if (offensive && victim != ch && victim->master != ch) {
-		CHAR_DATA *vch;
-		CHAR_DATA *vch_next;
-
-		if (IS_EXTRACTED(victim))
-			return;
-			
-		for (vch = ch->in_room->people; vch; vch = vch_next) {
-			vch_next = vch->next_in_room;
-
-			if (victim == vch)
-				yell(victim, ch, "Help! $lu{$i} is attacking me!");
-
-			if (victim == vch && victim->fighting == NULL) {
-				multi_hit(victim, ch, NULL);
-				break;
-			}
-		}
+	if (offensive
+	&&  !IS_EXTRACTED(victim)
+	&&  victim != ch
+	&&  victim->master != ch
+	&&  victim->in_room == ch->in_room
+	&&  victim->position != POS_SLEEPING) {
+		yell(victim, ch, "Help! $lu{$i} is attacking me!");
+		if (victim->fighting == NULL)
+			multi_hit(victim, ch, NULL);
 	}
 }
 

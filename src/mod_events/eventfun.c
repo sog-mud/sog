@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.7 1999-12-21 06:36:22 fjoe Exp $
+ * $Id: eventfun.c,v 1.8 2000-01-04 19:27:55 fjoe Exp $
  */
 
 
@@ -256,24 +256,26 @@ EVENT_FUN(event_updatechar_plague)
 	plague.modifier	 = -5;
 	plague.bitvector = AFF_PLAGUE;
 	    
-	for (vch = ch->in_room->people; vch; vch = vch->next_in_room)
+	for (vch = ch->in_room->people; vch; vch = vch->next_in_room) {
 		if (!saves_spell(plague.level + 2, vch, DAM_DISEASE) 
-		&& !IS_IMMORTAL(vch) 
-		&& !IS_AFFECTED(vch, AFF_PLAGUE) 
-		&& number_bits(2) == 0) {
+		&&  !IS_IMMORTAL(vch) 
+		&&  !IS_AFFECTED(vch, AFF_PLAGUE) 
+		&&  number_bits(2) == 0) {
 			char_puts("You feel hot and feverish.\n", vch);
 			act("$n shivers and looks very ill.",
 			    vch, NULL, NULL, TO_ROOM);
 			affect_join(vch, &plague);
 		}
+	}
 
 	dam = UMIN(ch->level, af->level/5 + 1);
 	ch->mana -= dam;
 	ch->move -= dam;
 	damage(ch, ch, dam, "plague", DAM_DISEASE, DAMF_NONE);
-	if (number_range(1, 100) < 70)
+	if (number_range(1, 100) < 70) {
 		damage(ch, ch, UMAX(ch->max_hit/20, 50), 
 		       "plague", DAM_DISEASE, DAMF_SHOW);
+	}
 }
 
 EVENT_FUN(event_updatechar_poison)

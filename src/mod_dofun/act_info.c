@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.320 1999-12-29 12:11:28 kostik Exp $
+ * $Id: act_info.c,v 1.321 2000-01-04 19:27:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1651,8 +1651,6 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 	int door;
 	int range;
 	int i;
-	CHAR_DATA *person;
-	int numpeople;
 
 	one_argument(argument, dir, sizeof(dir));
 	if (strchr(dir, '.')) {
@@ -1662,8 +1660,7 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 			    ch, NULL, NULL, TO_CHAR);
 			return;
 		}
-	}
-	else
+	} else
 		range = 1 + ch->level/10;
 
 	switch (dir[0]) {
@@ -1710,27 +1707,25 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 
 	in_room = ch->in_room;
 	for (i = 1; i <= range; i++) {
-		exit = in_room->exit[door];
-		if (!exit)
-			return;
-		to_room = exit->to_room.r;
-		if (!to_room)
+		CHAR_DATA *vch;
+
+		if ((exit = in_room->exit[door]) == NULL
+		||  (to_room = exit->to_room.r) == NULL)
 			return;
 
-		if (IS_SET(exit->exit_info,EX_CLOSED)
-		&&  can_see_room(ch,exit->to_room.r)) {
+		if (IS_SET(exit->exit_info, EX_CLOSED)
+		&&  can_see_room(ch, to_room)) {
 			if (i == 1)
 				char_puts("	You see closed door.\n", ch);
 			return;
 		}
-		for (numpeople = 0, person = to_room->people; person != NULL;
-		     person = person->next_in_room)
-			if (can_see(ch,person)) {
-				numpeople++;
-				break;
-			}
 
-		if (numpeople) {
+		for (vch = to_room->people; vch != NULL; vch = vch->next_in_room) {
+			if (can_see(ch, vch))
+				break;
+		}
+
+		if (vch) {
 			char_printf(ch, "***** Range %d *****\n", i);
 			show_char_to_char(to_room->people, ch);
 			char_puts("\n", ch);
@@ -2140,8 +2135,7 @@ void do_identify(CHAR_DATA *ch, const char *argument)
 		       rch, obj, 0, TO_ROOM);
 		char_puts("You need at least 1 gold.\n", ch);
 		return;
-	}
-	else {
+	} else {
 		ch->gold -= 1;
 		char_puts("Your purse feels lighter.\n", ch);
 	}
