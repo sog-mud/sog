@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.202.2.4 2000-03-25 11:07:04 avn Exp $
+ * $Id: act_move.c,v 1.202.2.5 2000-04-14 12:40:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1605,6 +1605,10 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 	af.modifier  = ch->damroll;
 	affect_to_char(ch, &af);
 
+	act_puts("You feel yourself getting greater and greater.",
+		 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+	act("You cannot recognize $n anymore.", ch, NULL, NULL, TO_ROOM);
+
 /* flying, infrared */
 	af.where     = TO_AFFECTS;
 	af.location  = 0;
@@ -1613,8 +1617,6 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 	affect_to_char(ch, &af);
 	
 	PC(ch)->form_name = "an ugly creature";
-	char_puts("You feel yourself getting greater and greater.\n", ch);
-	act("You cannot recognize $n anymore.", ch, NULL, NULL, TO_ROOM);
 }
 
 void do_vbite(CHAR_DATA *ch, const char *argument)
