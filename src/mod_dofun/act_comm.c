@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.43 2002-11-27 15:25:12 tatyana Exp $
+ * $Id: act_comm.c,v 1.187.2.44 2002-12-11 14:13:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -261,12 +261,6 @@ void do_tell(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
-        if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
-        &&  !IS_IMMORTAL(ch)) {
-                char_puts("You are in silent room, you can't tell.\n", ch);
-                return;
-        }
-
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0' || argument[0] == '\0') {
 		char_puts("Tell whom what?\n", ch);
@@ -283,18 +277,13 @@ void do_reply(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-        if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
-        &&  !IS_IMMORTAL(ch)
-        &&  !IS_IMMORTAL(PC(ch)->reply)) {
-                char_puts("You are in silent room, you can't tell.\n", ch);
-                return;
-        }
 	do_tell_raw(ch, PC(ch)->reply, argument);
 }
 
 void do_mtell(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *vch, *vch_next;
+	CHAR_DATA *victim;
 
 	char arg[MAX_INPUT_LENGTH];
 
@@ -304,7 +293,9 @@ void do_mtell(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	do_tell_raw(ch, get_char_world(ch, arg), argument);
+	victim = get_char_world(ch, arg);
+	if (!do_tell_raw(ch, victim, argument))
+		return;
 
 	if (IS_NPC(ch))
 		return;
@@ -315,15 +306,16 @@ void do_mtell(CHAR_DATA *ch, const char *argument)
 	}
 
 	for (vch = char_list; vch != NULL && !IS_NPC(vch); vch = vch_next) {
-		CHAR_DATA *victim = GET_ORIGINAL(vch);
+		CHAR_DATA *wch = GET_ORIGINAL(vch);
 		vch_next = vch->next;
 
-		if (!IS_IMMORTAL(victim)
-		||  IS_SET(victim->comm, COMM_NOWIZ))
+		if (!IS_IMMORTAL(wch)
+		||  IS_SET(wch->comm, COMM_NOWIZ)
+		||  victim == vch)
 			continue;
 
 		act_puts3("{W$n{x tells $I '{G$t{x'",
-			 ch, argument, vch, get_char_world(ch, arg),
+			 ch, argument, vch, victim,
 			 TO_VICT | ACT_TOBUF, POS_DEAD);
 	}
 }
@@ -2402,11 +2394,5 @@ do_retell(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-        if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
-        &&  !IS_IMMORTAL(ch)
-        &&  !IS_IMMORTAL(PC(ch)->retell)) {
-                char_puts("You are in silent room, you can't tell.\n", ch);
-                return;
-        }
 	do_tell_raw(ch, PC(ch)->retell, argument);
 }

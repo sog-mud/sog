@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.69 2002-12-03 15:53:14 tatyana Exp $
+ * $Id: handler.c,v 1.182.2.70 2002-12-11 14:13:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3512,37 +3512,42 @@ const char *garble(CHAR_DATA *ch, const char *i)
 	return buf;
 }
 
-void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
+bool do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 {
 	if (ch == victim) {
 		char_puts("Talking to yourself, eh?\n", ch);
-		return;
+		return FALSE;
 	}
 
 	if (IS_SET(ch->comm, COMM_NOTELL)) {
 		char_puts("Your message didn't get through.\n", ch);
-		return;
+		return FALSE;
 	}
 
 	if (victim == NULL
 	|| (IS_NPC(victim) && victim->in_room != ch->in_room)) {
 		char_puts("They aren't here.\n", ch);
-		return;
+		return FALSE;
 	}
 
-        if (IS_SET(victim->in_room->room_flags, ROOM_SILENT)
-        &&  !IS_IMMORTAL(victim)
-        &&  !IS_IMMORTAL(ch)) {
-                act_puts("$E is in silent room.", ch, 0, victim,
-                         TO_CHAR, POS_DEAD);
-                return;
-        }
+	if (!IS_IMMORTAL(ch)
+	&&  !IS_IMMORTAL(victim)) {
+		if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)) {
+			char_puts("You are in silent room, you can't tell.\n", ch);
+			return FALSE;
+		}
 
-	if (IS_SET(victim->comm, (COMM_QUIET | COMM_DEAF))
-	&&  !IS_IMMORTAL(ch) && !IS_IMMORTAL(victim)) {
-		act_puts("$E is not receiving tells.", ch, 0, victim,
-			 TO_CHAR, POS_DEAD);
-		return;
+		if (IS_SET(victim->in_room->room_flags, ROOM_SILENT)) {
+			act_puts("$E is in silent room.", ch, 0, victim,
+			    TO_CHAR, POS_DEAD);
+			return FALSE;
+		}
+
+		if (IS_SET(victim->comm, COMM_QUIET | COMM_DEAF)) {
+			act_puts("$E is not receiving tells.", ch, 0, victim,
+				 TO_CHAR, POS_DEAD);
+			return FALSE;
+		}
 	}
 
 	msg = garble(ch, msg);
@@ -3555,17 +3560,16 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 		 POS_SLEEPING);
 
 	if (IS_NPC(ch))
-		return;
+		return TRUE;
 
 	if (IS_NPC(victim)) {
 		if (HAS_TRIGGER(victim, TRIG_SPEECH))
 			mp_act_trigger(msg, victim, ch, NULL, NULL, TRIG_SPEECH);
-	}
-	else {
+	} else {
 		if (!IS_IMMORTAL(victim)
 		&&  !IS_IMMORTAL(ch)
 		&&  is_name(ch->name, PC(victim)->twitlist))
-			return;
+			return TRUE;
 
 		if (victim->desc == NULL)
 			act_puts("$N seems to have misplaced $S link but "
@@ -3578,6 +3582,8 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 		PC(victim)->reply = ch;
 		PC(ch)->retell = victim;
 	}
+
+	return TRUE;
 }
 
 void yell(CHAR_DATA *victim, CHAR_DATA* ch, const char* text)

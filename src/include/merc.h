@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.37 2002-10-27 06:48:56 tatyana Exp $
+ * $Id: merc.h,v 1.234.2.38 2002-12-11 14:13:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2363,7 +2363,7 @@ void		do_music	(CHAR_DATA *ch, const char *argument);
 void		do_gossip	(CHAR_DATA *ch, const char *argument);
 CHAR_DATA*	leader_lookup	(CHAR_DATA *ch);
 const char *	garble		(CHAR_DATA *ch, const char *txt);
-void 		do_tell_raw	(CHAR_DATA *ch, CHAR_DATA *victim,
+bool		do_tell_raw	(CHAR_DATA *ch, CHAR_DATA *victim,
 				 const char *msg);
 #define	is_same_group(ach, bch) (leader_lookup(ach) == leader_lookup(bch))
 void	do_who_raw	(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output);
