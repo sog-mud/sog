@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.112 1999-02-09 09:33:56 kostik Exp $
+ * $Id: act_obj.c,v 1.113 1999-02-12 17:40:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -110,10 +110,10 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 		if ((IS_OBJ_STAT(obj, ITEM_ANTI_EVIL) && IS_EVIL(ch))
 		||  (IS_OBJ_STAT(obj, ITEM_ANTI_GOOD) && IS_GOOD(ch))
 		||  (IS_OBJ_STAT(obj, ITEM_ANTI_NEUTRAL) && IS_NEUTRAL(ch))) {
-			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
-				    MSG_YOU_ZAPPED_BY_P);
-			act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
-				    MSG_N_ZAPPED_BY_P);
+			act_puts("You are zapped by $p and drop it.",
+				 ch, obj, NULL, TO_CHAR, POS_DEAD);
+			act("$n is zapped by $p and drops it.",
+			    ch, obj, NULL, TO_ROOM);
 			return;
 		}
 	}
@@ -1198,7 +1198,7 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 	if (!IS_NPC(ch) && ch->pcdata->condition[COND_FULL] > 60)
 		char_puts("You are full.\n", ch);
 	if (!IS_NPC(ch) && ch->pcdata->condition[COND_THIRST] > 60)
-		char_nputs(MSG_YOUR_THIRST_QUENCHED, ch);
+		char_puts("Your thirst is quenched.\n", ch);
 
 	if (obj->value[3] != 0) {
 		/* The drink was poisoned ! */
@@ -1360,8 +1360,8 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 	if (wear_level < obj->level) {
 		char_printf(ch, "You must be level %d to use this object.\n",
 			    obj->level - wear_level + ch->level);
-		act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
-			    MSG_N_TRIES_TO_USE);
+		act("$n tries to use $p, but is too inexperienced.",
+		    ch, obj, NULL, TO_ROOM);
 		return;
 	}
 
@@ -1729,8 +1729,8 @@ void do_sacrifice(CHAR_DATA * ch, const char *argument)
 
 	one_argument(argument, arg);
 	if (arg[0] == '\0' || !str_cmp(arg, ch->name)) {
-		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
-			    MSG_N_SACS_SELF);
+		act("$n offers $mself to gods, who graciously declines.",
+		    ch, NULL, NULL, TO_ROOM);
 		char_puts("Gods appreciates your offer "
 			  "and may accept it later.\n", ch);
 		return;
@@ -1972,7 +1972,7 @@ void do_recite(CHAR_DATA * ch, const char *argument)
 	act_puts("You recite $p.", ch, scroll, NULL, TO_CHAR, POS_DEAD);
 
 	if (number_percent() >= get_skill(ch, sn) * 4 / 5) {
-		char_nputs(MSG_MISPRONOUNCE_SYLLABLE, ch);
+		char_puts("You mispronounce a syllable.\n", ch);
 		check_improve(ch, sn, FALSE, 2);
 	} else {
 		obj_cast_spell(scroll->value[1], scroll->value[0],
@@ -2229,9 +2229,10 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 
 		if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE) && !IS_NPC(ch)) {
 			REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE);
-			char_nputs(MSG_YOU_STEP_OUT_SHADOWS, ch);
-			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
-				    MSG_N_STEPS_OUT_OF_SHADOWS);
+			char_puts("You step out of shadows.\n", ch);
+			
+			act("$n steps out of shadows.",
+			    ch, NULL, NULL, TO_ROOM);
         	}
 
 		if (!IS_AFFECTED(victim, AFF_SLEEP)) {

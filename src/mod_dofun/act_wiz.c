@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.113 1999-02-11 16:40:27 fjoe Exp $
+ * $Id: act_wiz.c,v 1.114 1999-02-12 17:40:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3253,8 +3253,8 @@ void advance(CHAR_DATA *victim, int level)
 	else 
 		char_puts("**** OOOOHHHHHHHHHH  YYYYEEEESSS ****\n", victim);
 
-	for (iLevel = victim->level ; iLevel < level; iLevel++) {
-		char_nputs(MSG_YOU_RAISE_A_LEVEL, victim);
+	for (iLevel = victim->level; iLevel < level; iLevel++) {
+		char_puts("{CYou raise a level!!{x ", victim);
 		victim->exp += exp_to_level(victim);
 		victim->level++;
 		advance_level(victim);

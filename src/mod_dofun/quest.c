@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.93 1999-02-11 16:40:30 fjoe Exp $
+ * $Id: quest.c,v 1.94 1999-02-12 17:40:43 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -174,10 +174,11 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 			}
 			if (!IS_SET(qcmd->extra, CMD_KEEP_HIDE)
 			&&  IS_SET(ch->affected_by, AFF_HIDE | AFF_FADE)) { 
-				char_nputs(MSG_YOU_STEP_OUT_SHADOWS, ch);
-				REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE);
-				act_nprintf(ch, NULL, NULL, TO_ROOM,
-					   POS_RESTING, MSG_N_STEPS_OUT_OF_SHADOWS);         
+				REMOVE_BIT(ch->affected_by,
+					   AFF_HIDE | AFF_FADE);
+				char_puts("You step out of shadows.\n", ch);
+				act("$n steps out of shadows.",
+				    ch, NULL, NULL, TO_ROOM);
 			}
 			qcmd->do_fn(ch, arg);
 			return;
@@ -195,8 +196,10 @@ void quest_handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	if (victim->hunter != NULL)
 		if (victim->hunter == ch) {
-			char_nputs(MSG_ALMOST_COMPLETE_QUEST, ch);
-			char_puts("Return to questmaster before your time runs out!\n", ch);
+			char_puts("You have almost completed your QUEST!\n",
+				  ch);
+			char_puts("Return to questmaster before your time "
+				  "runs out!\n", ch);
 			ch->pcdata->questmob = -1;
 		}
 		else {
@@ -502,7 +505,7 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		return;
 	}
 
-	quest_tell(ch, questor, msg(MSG_THANK_YOU_BRAVE, ch), ch->name);
+	quest_tell(ch, questor, "Thank you, brave {W%s{z!", ch->name);
 
 	/*
 	 * find MAX_QMOB_COUNT quest mobs and store their vnums in mob_buf
@@ -592,10 +595,10 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 				   "has escaped from the dungeon.",
 				   mlstr_mval(victim->short_descr));
 			quest_tell(ch, questor,
-				   vmsg(MSG_HAS_MURDERED, ch, victim),
+				   "Since the escape, {W%s{z has murdered {W%d{z civilians!",
 				   mlstr_mval(victim->short_descr),
 				   number_range(2, 20));
-			quest_tell(ch, questor, msg(MSG_THE_PENALTY_IS, ch));
+			quest_tell(ch, questor, "The penalty for this crime is death, and you are to deliver the sentence!");
 		}
 		else {
 			quest_tell(ch, questor,

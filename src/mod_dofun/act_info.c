@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.190 1999-02-11 17:16:52 fjoe Exp $
+ * $Id: act_info.c,v 1.191 1999-02-12 17:40:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -431,7 +431,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	
 		switch (victim->position) {
 		case POS_DEAD:
-			buf_add(output, vmsg(MSG_IS_DEAD, ch, victim));
+			buf_add(output, " is {RDEAD!!{x");
 			break;
 	
 		case POS_MORTAL:
@@ -443,7 +443,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			break;
 	
 		case POS_STUNNED:
-			buf_add(output, vmsg(MSG_IS_LYING_HERE_STUNNED, ch, victim));
+			buf_add(output, " is lying here stunned.");
 			break;
 	
 		case POS_SLEEPING:
@@ -593,13 +593,13 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	if (can_see(victim, ch)) {
 		if (ch == victim)
-			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
-					MSG_N_LOOKS_AT_SELF);
+			act("$n looks at $mself.",
+			    ch, NULL, NULL, TO_ROOM);
 		else {
-			act_nprintf(ch, NULL, victim, TO_VICT, POS_RESTING,
-					MSG_N_LOOKS_AT_YOU);
-			act_nprintf(ch, NULL, victim, TO_NOTVICT, POS_RESTING,
-					MSG_N_LOOKS_AT_N);
+			act_puts("$n looks at you.",
+				 ch, NULL, victim, TO_VICT, POS_RESTING);
+			act("$n looks at $N.",
+			    ch, NULL, victim, TO_NOTVICT);
 		}
 	}
 
@@ -611,8 +611,8 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	if (!IS_NULLSTR(desc))
 		char_puts(desc, ch);
 	else
-		act_nprintf(victim, NULL, ch, TO_VICT, POS_DEAD,
-				MSG_SEE_NOTHING_SPECIAL);
+		act_puts("You see nothing special about $m.",
+			 victim, NULL, ch, TO_VICT, POS_DEAD);
 
 	if (MOUNTED(victim))
 		char_printf(ch, "%s is riding %s.\n",
@@ -1413,7 +1413,7 @@ void do_worth(CHAR_DATA *ch, const char *argument)
 	char_puts(".\n", ch);
 
 	if (!IS_NPC(ch))
-		char_printf(ch, msg(MSG_HAVE_KILLED, ch),
+		char_printf(ch, "You have killed %d %s and %d %s.\n",
 			    ch->pcdata->has_killed,
 			    IS_GOOD(ch) ? GETMSG("non-goods", ch->lang) :
 			    IS_EVIL(ch) ? GETMSG("non-evils", ch->lang) : 
@@ -1774,7 +1774,7 @@ void do_whois(CHAR_DATA *ch, const char *argument)
 
 	one_argument(argument, arg);
 	if (arg[0] == '\0') {
-		char_nputs(MSG_MUST_PROVIDE_NAME, ch);
+		char_puts("You must provide a name.\n", ch);
 		return;
 	}
 
@@ -2119,7 +2119,7 @@ void do_title(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (strstr(argument, "{/")) {
-		char_nputs(MSG_ILLEGAL_CHARACTER_TITLE, ch);
+		char_puts("Illegal characters in title.\n", ch);
 		return;
 	}
 		

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.109 1999-02-12 10:48:28 fjoe Exp $
+ * $Id: interp.c,v 1.110 1999-02-12 17:40:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -620,9 +620,10 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE) && !IS_NPC(ch)
 		&& !(cmd->flags & CMD_KEEP_HIDE)) {
 			REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE);
-			char_nputs(MSG_YOU_STEP_OUT_SHADOWS, ch);
-			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
-				    MSG_N_STEPS_OUT_OF_SHADOWS);
+			char_puts("You step out of shadows.\n", ch);
+			act("$n steps out of shadows.",
+			    ch, NULL, NULL, TO_ROOM);
+
         	}
 
 		if (IS_AFFECTED(ch, AFF_IMP_INVIS) && !IS_NPC(ch)
@@ -681,11 +682,13 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 
 			case POS_MORTAL:
 			case POS_INCAP:
-				char_puts("You are hurt far too bad for that.\n", ch);
+				char_puts("You are hurt far too bad "
+					  "for that.\n", ch);
 				break;
 
 			case POS_STUNNED:
-				char_puts("You are too stunned to do that.\n", ch);
+				char_puts("You are too stunned to do that.\n",
+					  ch);
 				break;
 
 			case POS_SLEEPING:
@@ -693,15 +696,17 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 				break;
 
 			case POS_RESTING:
-				char_nputs(MSG_TOO_RELAXED, ch);
+				char_puts("Nah... You feel too relaxed...\n",
+					  ch);
 				break;
 
 			case POS_SITTING:
-				char_nputs(MSG_BETTER_STANDUP, ch);
+				char_puts("Better stand up first.\n", ch);
 				break;
 
 			case POS_FIGHTING:
-				char_puts("No way!  You are still fighting!\n", ch);
+				char_puts("No way! You are still fighting!\n",
+					  ch);
 				break;
 
 		}
@@ -768,9 +773,9 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 
 	if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE)) {
 		REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE);
-		char_nputs(MSG_YOU_STEP_OUT_SHADOWS, ch);
-		act_nputs(MSG_N_STEPS_OUT_OF_SHADOWS, ch, NULL, NULL, TO_ROOM,
-			  POS_RESTING); 
+		char_puts("You step out of shadows.\n", ch);
+		act_puts("$n steps out of shadows.",
+			 ch, NULL, NULL, TO_ROOM, POS_RESTING); 
 	}
 
 	if (IS_AFFECTED(ch, AFF_IMP_INVIS) && !IS_NPC(ch)

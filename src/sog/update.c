@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.98 1999-02-11 18:07:04 fjoe Exp $
+ * $Id: update.c,v 1.99 1999-02-12 17:40:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -178,7 +178,7 @@ void gain_exp(CHAR_DATA *ch, int gain)
 	ch->exp_tl += gain;
 
 	while (ch->level < LEVEL_HERO && exp_to_level(ch) <= 0) {
-		char_nputs(MSG_YOU_RAISE_A_LEVEL, ch);
+		char_puts("{CYou raise a level!!{x ", ch);
 		ch->level += 1;
 		ch->exp_tl = 0;
 
@@ -589,7 +589,7 @@ void mobile_update(void)
 			&&  ch->desc->pString == NULL 
 			&&  (ch->last_death_time == -1 ||
 			     ch->last_death_time < ch->last_fight_time))
-				char_nputs(MSG_YOU_SETTLE_DOWN, ch);
+				char_puts("You settle down.\n", ch);
 		}
 
 		if (IS_AFFECTED(ch, AFF_REGENERATION) && ch->in_room != NULL) {
@@ -1084,8 +1084,8 @@ void char_update(void)
 				&& ch->pIndexData->vnum > 100)
 					back_home(ch);
 				else {
-					act_nprintf(ch, NULL, NULL, TO_ROOM,
-						POS_RESTING, MSG_N_WANDERS_ON_HOME);
+					act("$n wanders on home.",
+					    ch, NULL, NULL, TO_ROOM);
 					extract_char(ch, TRUE);
 				}
 				continue;
@@ -1275,8 +1275,8 @@ void char_update(void)
 				&& !IS_AFFECTED(vch, AFF_PLAGUE) 
 				&& number_bits(2) == 0) {
 					char_puts("You feel hot and feverish.\n", vch);
-					act_nprintf(vch, NULL, NULL, TO_ROOM,
-						POS_RESTING ,MSG_N_SHIVERS_ILL);
+					act("$n shivers and looks very ill.",
+					    vch, NULL, NULL, TO_ROOM);
 					affect_join(vch, &plague);
 				}
 			}
