@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.261 2001-07-04 20:34:04 fjoe Exp $
+ * $Id: act_move.c,v 1.262 2001-07-06 08:32:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -713,33 +713,30 @@ void do_stand(CHAR_DATA *ch, const char *argument)
 
 	switch (ch->position) {
 	case POS_SLEEPING:
-		if (IS_AFFECTED(ch, AFF_SLEEP))
-		    { act_char("You can't wake up!", ch); return; }
-		
+		if (IS_AFFECTED(ch, AFF_SLEEP)) {
+			act_char("You can't wake up!", ch);
+			return;
+		}
+
 		if (obj == NULL) {
-		    act_char("You wake and stand up.", ch);
-		    act("$n wakes and stands up.", ch, NULL, NULL, TO_ROOM);
-				
-		    ch->on = NULL;
-		}
-		else if (IS_SET(INT(obj->value[2]),STAND_AT))
-		{
-		   act_puts("You wake and stand at $p.",
-			    ch, obj, NULL, TO_CHAR, POS_DEAD);
-		   act("$n wakes and stands at $p.", ch, obj, NULL, TO_ROOM);
-				
-		}
-		else if (IS_SET(INT(obj->value[2]),STAND_ON))
-		{
-		   act_puts("You wake and stand on $p.",
-			    ch, obj, NULL, TO_CHAR, POS_DEAD);
-		   act("$n wakes and stands on $p.", ch, obj, NULL, TO_ROOM);
-		}
-		else 
-		{
-		   act_puts("You wake and stand in $p.",
-			    ch, obj, NULL, TO_CHAR, POS_DEAD);
-		   act("$n wakes and stands in $p.", ch, obj, NULL, TO_ROOM);
+			act_char("You wake and stand up.", ch);
+			act("$n wakes and stands up.", ch, NULL, NULL, TO_ROOM);
+			ch->on = NULL;
+		} else if (IS_SET(INT(obj->value[2]), STAND_AT)) {
+			act_puts("You wake and stand at $p.",
+				 ch, obj, NULL, TO_CHAR, POS_DEAD);
+			act("$n wakes and stands at $p.",
+			    ch, obj, NULL, TO_ROOM);
+		} else if (IS_SET(INT(obj->value[2]), STAND_ON)) {
+			act_puts("You wake and stand on $p.",
+				 ch, obj, NULL, TO_CHAR, POS_DEAD);
+			act("$n wakes and stands on $p.",
+			    ch, obj, NULL, TO_ROOM);
+		} else {
+			act_puts("You wake and stand in $p.",
+				 ch, obj, NULL, TO_CHAR, POS_DEAD);
+			act("$n wakes and stands in $p.",
+			    ch, obj, NULL, TO_ROOM);
 		}
 
 		if (IS_HARA_KIRI(ch)) {
@@ -748,30 +745,27 @@ void do_stand(CHAR_DATA *ch, const char *argument)
 		}
 
 		ch->position = POS_STANDING;
-		do_look(ch,"auto");
+		do_look(ch, "auto");
 		break;
 
-	case POS_RESTING: case POS_SITTING:
-		if (obj == NULL)
-		{
-		    act_char("You stand up.", ch);
-		    act("$n stands up.", ch, NULL, NULL, TO_ROOM);
-		    ch->on = NULL;
-		}
-		else if (IS_SET(INT(obj->value[2]),STAND_AT))
-		{
-		    act_puts("You stand at $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
-		    act("$n stands at $p.", ch, obj, NULL, TO_ROOM);
-		}
-		else if (IS_SET(INT(obj->value[2]),STAND_ON))
-		{
-		    act_puts("You stand on $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
-		    act("$n stands on $p.", ch, obj, NULL, TO_ROOM);
-		}
-		else
-		{
-		    act_puts("You stand in $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
-		    act("$n stands in $p.", ch, obj, NULL, TO_ROOM);
+	case POS_RESTING:
+	case POS_SITTING:
+		if (obj == NULL) {
+			act_char("You stand up.", ch);
+			act("$n stands up.", ch, NULL, NULL, TO_ROOM);
+			ch->on = NULL;
+		} else if (IS_SET(INT(obj->value[2]), STAND_AT)) {
+			act_puts("You stand at $p.",
+				 ch, obj, NULL, TO_CHAR, POS_DEAD);
+			act("$n stands at $p.", ch, obj, NULL, TO_ROOM);
+		} else if (IS_SET(INT(obj->value[2]), STAND_ON)) {
+			act_puts("You stand on $p.",
+				 ch, obj, NULL, TO_CHAR, POS_DEAD);
+			act("$n stands on $p.", ch, obj, NULL, TO_ROOM);
+		} else {
+			act_puts("You stand in $p.",
+				 ch, obj, NULL, TO_CHAR, POS_DEAD);
+			act("$n stands in $p.", ch, obj, NULL, TO_ROOM);
 		}
 		ch->position = POS_STANDING;
 		break;

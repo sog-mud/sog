@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.304 2001-07-04 19:51:22 fjoe Exp $
+ * $Id: fight.c,v 1.305 2001-07-06 08:32:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1030,8 +1030,12 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 
 			/*
 			 * stand up if victim was bashed (and is not idle)
+			 * check that victim is fighting
+			 * (if victim is range-attacked and is not fighting
+			 * with someone else victim->fighting will be NULL)
 			 */
-			if (IS_NPC(victim) || PC(victim)->idle_timer <= 4)
+			if ((IS_NPC(victim) || PC(victim)->idle_timer <= 4)
+			&&  victim->fighting != NULL)
 				victim->position = POS_FIGHTING;
 		}
 
@@ -1386,18 +1390,20 @@ update_pos(CHAR_DATA *victim)
 void
 set_fighting(CHAR_DATA *ch, CHAR_DATA *victim)
 {
+	/*
+	 * short circuit if victim is range attacked
+	 */
+	if (ch->in_room != victim->in_room)
+		return;
+
 	if (ch->fighting != NULL) {
 		log(LOG_BUG, "set_fighting: already fighting");
 		return;
 	}
 
 	ch->on = NULL;
-
-	if (ch->in_room == victim->in_room) {
-		ch->fighting = victim;
-		ch->position = POS_FIGHTING;
-	} else
-		ch->position = POS_STANDING;
+	ch->fighting = victim;
+	ch->position = POS_FIGHTING;
 }
 
 static void
@@ -1715,13 +1721,15 @@ bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	if (IS_NPC(ch)
 	&&  IS_AFFECTED(ch, AFF_CHARM)
-	&&  ch->master
+	&&  ch->master != NULL
 	&&  ch->in_room == ch->master->in_room)
 		return is_safe_nomessage(ch->master, victim);
 
 	if (IS_NPC(victim)
+	&&  victim->fighting != ch
 	&&  IS_AFFECTED(victim, AFF_CHARM)
-	&&  victim->master)
+	&&  victim->master != NULL
+	&&  victim->in_room == victim->master->in_room)
 		return is_safe_nomessage(ch, victim->master);
 
 	if (IS_NPC(victim)
@@ -2409,7 +2417,7 @@ check_block(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 	return TRUE;
 }
 
-/* 
+/*
  * Check for hand block
  */
 static bool
@@ -2997,7 +3005,8 @@ dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 	int act_flags = (dam == 0 ? ACT_VERBOSE : 0);
 
 	dam_alias(dam, &vs, &vp);
-	if (ch != victim && IS_SET(dam_flags, DAMF_LIGHT_V | DAMF_HUNGER | DAMF_THIRST)) {
+	if (ch != victim
+	&&  IS_SET(dam_flags, DAMF_LIGHT_V | DAMF_HUNGER | DAMF_THIRST)) {
 		log(LOG_BUG, "dam_message: ch != victim, damf=%d", dam_flags);
 		msg_char = NULL;
 		msg_notvict = NULL;
@@ -3008,30 +3017,25 @@ dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 			vs = vp;
 			msg_notvict = "The trap at room $u $n!";
 			msg_char = "The trap at room $u you!";
-		}
-		else {
+		} else {
 			vs = vp;
 			msg_notvict = "$n's trap at room $u $N!";
 			msg_char = "Your trap at room $u $N!";
 			msg_vict = "$n's trap at room $u you.";
 		}
-	}
-	else if (IS_SET(dam_flags, DAMF_LIGHT_V)) {
+	} else if (IS_SET(dam_flags, DAMF_LIGHT_V)) {
 		vs = vp;
 		msg_notvict = "The light in room $u $n!";
 		msg_char = "The light in room $u you!";
-	}
-	else if (IS_SET(dam_flags, DAMF_HUNGER)) {
+	} else if (IS_SET(dam_flags, DAMF_HUNGER)) {
 		vs = vp;
 		msg_notvict = "$n's hunger $u $mself!";
 		msg_char = "Your hunger $u yourself!";
-	}
-	else if (IS_SET(dam_flags, DAMF_THIRST)) {
+	} else if (IS_SET(dam_flags, DAMF_THIRST)) {
 		vs = vp;
 		msg_notvict = "$n's thirst $u $mself!";
 		msg_char = "Your thirst $u yourself!";
-	}
-	else if (IS_SET(dam_flags, DAMF_HIT) && dam_class == DAM_NONE) {
+	} else if (IS_SET(dam_flags, DAMF_HIT) && dam_class == DAM_NONE) {
 		if (ch == victim) {
 			msg_notvict = "$n $u $mself!";
 			msg_char = "You $u yourself!";
@@ -3041,8 +3045,7 @@ dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 			msg_char = "You $u $N.";
 			msg_vict = "$n $u you.";
 		}
-	}
-	else {
+	} else {
 		if (IS_SET(dam_flags, DAMF_HIT))
 			dam_noun = damtype_noun(dt);
 		else
@@ -3052,27 +3055,24 @@ dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 			if (ch == victim) {
 				msg_notvict = "$n is unaffected by $s own $V.";
 				msg_char = "Luckily, you are immune to that.";
-			}
-			else {
+			} else {
 				msg_notvict = "$N is unaffected by $n's $V!";
 				msg_char = "$N is unaffected by your $V!";
 				msg_vict = "$n's $V is powerless against you.";
 			}
 
-			if (shadow) 
+			if (shadow)
 				msg_char = "$N is even immune to real $V.";
 			if (shadow && is_affected(victim, "shadow magic"))
 				msg_vict = "$n's illusionary $V is powerless "
 					"against you.";
-		}
-		else {
+		} else {
 			vs = vp;
 
 			if (ch == victim) {
 				msg_notvict = "$n's $V $u $m.";
 				msg_char = "Your $V $u you.";
-			}
-			else {
+			} else {
 				msg_notvict = "$n's $V $u $N.";
 				msg_char = "Your $V $u $N.";
 				msg_vict = "$n's $V $u you.";
@@ -3089,20 +3089,20 @@ dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 
 	if (ch == victim) {
 		act_puts3(msg_notvict, ch, vp, NULL, dam_noun,
-			  TO_ROOM | act_flags, POS_RESTING);
+			  TO_ROOM | act_flags, POS_DEAD);
 		act_puts3(msg_char, ch, vs, NULL, dam_noun,
-			  TO_CHAR | act_flags, POS_RESTING);
+			  TO_CHAR | act_flags, POS_DEAD);
 	} else {
 		act_puts3(msg_notvict, ch, vp, victim, dam_noun,
-			  TO_NOTVICT | act_flags, POS_RESTING);
+			  TO_NOTVICT | act_flags, POS_DEAD);
 		act_puts3(msg_char, ch, vs, victim, dam_noun,
-			  TO_CHAR | act_flags, POS_RESTING);
+			  TO_CHAR | act_flags, POS_DEAD);
 		act_puts3(msg_vict, ch, vp, victim, dam_noun,
-			  TO_VICT | act_flags, POS_RESTING);
+			  TO_VICT | act_flags, POS_DEAD);
 	}
 }
 
-/*  
+/*
  * critical strike
  */
 static int
