@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.111 1999-02-11 05:38:24 fjoe Exp $
+ * $Id: spellfun.c,v 1.112 1999-02-11 09:53:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -66,7 +66,7 @@ int allowed_other(CHAR_DATA *ch, int sn)
 }
 
 /*
- * check trust - check if victim allow ch to cast SPELL_QUESTIONABLE spell
+ * check_trust - check if victim allow ch to cast SPELL_QUESTIONABLE spell
  */
 bool check_trust(CHAR_DATA *ch, CHAR_DATA *victim)
 {
@@ -133,7 +133,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	int target;
 	int door, range;
 	bool cast_far = FALSE;
-	bool trust = TRUE;
+	bool offensive = FALSE;
 	int slevel;
 	int chance = 0;
 	SKILL_DATA *spell;
@@ -372,20 +372,25 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	switch (target) {
 	case TARGET_CHAR:
 		vo = (void*) victim;
-		if (IS_SET(spell->flags, SKILL_QUESTIONABLE))
-			trust = check_trust(ch, victim);
 
-		if (!trust) {
-			switch (spell->target) {
-			case TAR_CHAR_DEFENSIVE:
-			case TAR_OBJ_CHAR_DEF:
+		switch (spell->target) {
+		case TAR_CHAR_DEFENSIVE:
+		case TAR_OBJ_CHAR_DEF:
+			if (IS_SET(spell->flags, SKILL_QUESTIONABLE)
+			&&  !check_trust(ch, victim)) {
 				char_puts("They do not trust you enough "
 					  "for this spell.\n", ch);
 				return;
-				/* NOT REACHED */	
+			}
+			break;
 
-			case TAR_CHAR_OFFENSIVE:
-			case TAR_OBJ_CHAR_OFF:
+		case TAR_CHAR_OFFENSIVE:
+		case TAR_OBJ_CHAR_OFF:
+			offensive = TRUE;
+			if (IS_SET(spell->flags, SKILL_QUESTIONABLE))
+				offensive = !check_trust(ch, victim);
+
+			if (offensive) {
 				if (is_safe(ch, victim))
 					return;
 
@@ -479,11 +484,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		
 	if (cast_far && door != -1)
 		path_to_track(ch, victim, door);
-	else if ((spell->target == TAR_CHAR_OFFENSIVE ||
-		  (spell->target == TAR_OBJ_CHAR_OFF && target == TARGET_CHAR))
-	&&   victim != ch
-	&&   victim->master != ch
-	&&   !trust) {
+	else if (offensive && victim != ch && victim->master != ch) {
 		CHAR_DATA *vch;
 		CHAR_DATA *vch_next;
 
@@ -510,7 +511,7 @@ void obj_cast_spell(int sn, int level,
 	CHAR_DATA *bch = NULL;
 	int bane_chance = 100;
 	int bane_damage = 0;
-	bool trust = TRUE;
+	bool offensive = FALSE;
 
 	if (sn <= 0
 	||  (spell = skill_lookup(sn)) == NULL
@@ -603,27 +604,32 @@ void obj_cast_spell(int sn, int level,
 
 	case TARGET_CHAR:
 		vo = (void *) victim;
-		if (IS_SET(spell->flags, SKILL_QUESTIONABLE))
-			trust = check_trust(ch, victim);
 
-		if (!trust) {
-			switch (spell->target) {
-			case TAR_CHAR_DEFENSIVE:
-			case TAR_OBJ_CHAR_DEF:
+		switch (spell->target) {
+		case TAR_CHAR_DEFENSIVE:
+		case TAR_OBJ_CHAR_DEF:
+			if (IS_SET(spell->flags, SKILL_QUESTIONABLE)
+			&&  !check_trust(ch, victim)) {
 				char_puts("They do not trust you enough "
 					  "for this spell.\n", ch);
 				return;
-				/* NOT REACHED */
+			}
+			break;
 
-			case TAR_CHAR_OFFENSIVE:
-			case TAR_OBJ_CHAR_OFF:
+		case TAR_CHAR_OFFENSIVE:
+		case TAR_OBJ_CHAR_OFF:
+			offensive = TRUE;
+			if (IS_SET(spell->flags, SKILL_QUESTIONABLE))
+				offensive = !check_trust(ch, victim);
+
+			if (offensive) {
 				if (is_safe(ch, victim)) {
-					char_puts("Somehting isn't right...\n",
+					char_puts("Something isn't right...\n",
 						  ch);
 					return;
 				}
-				break;
 			}
+			break;
 		}
 	}
 
@@ -633,19 +639,17 @@ void obj_cast_spell(int sn, int level,
 	target_name = str_empty;
 	spell->spell_fun(sn, level, ch, vo, target);
 
-	if ((spell->target == TAR_CHAR_OFFENSIVE ||
-	    (spell->target == TAR_OBJ_CHAR_OFF && target == TARGET_CHAR))
-	&&  victim != ch
-	&&  victim->master != ch
-	&&  !trust) {
+	if (offensive && victim != ch && victim->master != ch) {
 		CHAR_DATA *vch;
 		CHAR_DATA *vch_next;
 
 		for (vch = ch->in_room->people; vch; vch = vch_next) {
 			vch_next = vch->next_in_room;
 
-			if (victim == vch) doprintf(do_yell, victim,
-			"Help! %s is attacking me!", PERS(ch, victim));
+			if (victim == vch)
+				doprintf(do_yell, victim,
+					 "Help! %s is attacking me!",
+					 PERS(ch, victim));
 
 			if (victim == vch && victim->fighting == NULL) {
 				multi_hit(victim, ch, TYPE_UNDEFINED);

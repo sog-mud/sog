@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.188 1999-02-09 19:31:02 fjoe Exp $
+ * $Id: act_info.c,v 1.189 1999-02-11 09:53:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3367,7 +3367,7 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 			||  skill_level(ch, ps->sn) > ch->level)
 				continue;
 
-			buf_printf(output, "%-18s %3d%%  ",
+			buf_printf(output, "%-19s %3d%%  ",
 				   sk->name, ps->percent);
 			if (++col % 3 == 0)
 				buf_add(output, "\n");

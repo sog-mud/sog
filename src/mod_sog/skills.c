@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.48 1999-02-09 14:28:17 fjoe Exp $
+ * $Id: skills.c,v 1.49 1999-02-11 09:53:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -155,10 +155,10 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 			continue;
 
 		if (ch->level < lev)
-			snprintf(buf, sizeof(buf), "%-18s  n/a      ",
+			snprintf(buf, sizeof(buf), "%-19s n/a       ",
 				 sk->name);
 		else
-			snprintf(buf, sizeof(buf), "%-18s  %3d mana  ",
+			snprintf(buf, sizeof(buf), "%-19s %4d mana  ",
 				 sk->name, mana_cost(ch, ps->sn));
 			
 		if (spell_list[lev][0] == '\0')
@@ -224,7 +224,7 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 
 		snprintf(buf, sizeof(buf),
 			 ch->level < lev ?
-				"%-18s n/a      " : "%-18s %3d%%      ",
+				"%-19s n/a      " : "%-19s %3d%%      ",
 			 sk->name, ps->percent);
 
 		if (skill_list[lev][0] == '\0')

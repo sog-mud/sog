@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.125 1999-02-09 14:28:15 fjoe Exp $
+ * $Id: fight.c,v 1.126 1999-02-11 09:53:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1209,9 +1209,10 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 			if (IS_NPC(ch)
 			&&  IS_NPC(victim)
 			&&  IS_AFFECTED(victim, AFF_CHARM)
-			&&  victim->master != NULL
+			&&  victim->master
 			&&  victim->master->in_room == ch->in_room
-			&&  number_bits(3) == 0) {
+			&&  !victim->master->fighting
+			&&  number_bits(2) == 0) {
 				stop_fighting(ch, FALSE);
 				multi_hit(ch, victim->master, TYPE_UNDEFINED);
 				return FALSE;
