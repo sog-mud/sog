@@ -184,16 +184,16 @@ Changes:  'imclisten <channel>' is now 'imcpsettings subscribe <channel>',
 'imcignore <mud>/<person@@mud>' is now 'imcpsettings blacklist 
 <mud>/<person@@mud>'
 
-Syntax: imcpsettings show   - lists IMC2 network functions and IMC2 channels
-        imcpsettings subscribe +channel - creates a subscription to a channel
-        imcpsettings subscribe -channel - deletes a subscription to a channel
-        imcpsettings blacklist +mud - adds a mud to the blacklist
-        imcpsettings blacklist -mud - removes a mud from the blacklist
-        imcpsettings blacklist +person@@mud - adds a player to the blacklist
-        imcpsettings blacklist -person@@mud - removes a player from the 
-blacklist
-        imcpsettings function +nfunction  - switches on a network function
-        imcpsettings function -nfunction  - switches off a network function
+Usage: imcpsettings show   - lists IMC2 network functions and IMC2 channels
+       imcpsettings subscribe +channel - creates a subscription to a channel
+       imcpsettings subscribe -channel - deletes a subscription to a channel
+       imcpsettings blacklist +mud - adds a mud to the blacklist
+       imcpsettings blacklist -mud - removes a mud from the blacklist
+       imcpsettings blacklist +person@@mud - adds a player to the blacklist
+       imcpsettings blacklist -person@@mud - removes a player from the 
+                                             blacklist
+       imcpsettings function +nfunction  - switches on a network function
+       imcpsettings function -nfunction  - switches off a network function
 
 Valid network functions are:
  'IMC-Status' 'IMC-Chan-FYI' 'imcptell' 'imcpbeep' 'imcpvisible' 'imcpcolor'
@@ -219,14 +219,14 @@ Command form in previous clients: imcping, rping
 1 IMCMSTAT IMCSTATS ISTATS~
 imcmstat <argument>
 
-Syntax: imcmstat general - displays general information on the mud
-        imcmstat network - displays network statistical information for the 
-mud
+Usage: imcmstat general - displays general information on the mud
+       imcmstat network - displays network statistical information
+                          for the mud
 
 Command form in previous clients: imcstats, istats
 ~
 92 IMCCADMIN IMCCOMMAND ICOMMAND~
-Syntax: imccadmin <command> <hub:channelname> [<data..>]
+Usage: imccadmin <command> <hub:channelname> [<data..>]
 
 Common commands:  create <channel>           - create a channel
                   refresh <channel>          - refresh channel data
@@ -282,9 +282,9 @@ Adds target MUD to your MUD's blacklist.  All communications packets from that
 blacklisted MUD will be 'ignored' by your MUD.  This is ideal if a certain MUD 
 is causing problems for you and your players.
 
-Syntax: imcmblacklist list         - lists blacklisted muds
-        imcmblacklist add <mud>    - adds a new mud to the blacklist
-        imcmblacklist remove <mud> - removes a mud from the blacklist
+Usage: imcmblacklist list         - lists blacklisted muds
+       imcmblacklist add <mud>    - adds a new mud to the blacklist
+       imcmblacklist remove <mud> - removes a mud from the blacklist
 
 Command form in previous clients: imcignore, rignore
 ~
@@ -477,10 +477,10 @@ imcpflags <victim> +/-<network function>
 Allows a MUD administrator to set allow/deny flags for various IMC2 functions 
 on players.
 
-Syntax: imcpflags <char>                     - check flag settings
-        imcpflags <char> +<network function> - set allow flag
-        imcpflags <char> -<network function> - set deny flag
-        imcpflags <char> =<network function> - reset allow/deny flag
+Usage: imcpflags <char>                     - check flag settings
+       imcpflags <char> +<network function> - set allow flag
+       imcpflags <char> -<network function> - set deny flag
+       imcpflags <char> =<network function> - reset allow/deny flag
 
 Command form in previous clients: imcdeny, rchanset
 ~
