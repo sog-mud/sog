@@ -36,4 +36,4 @@ SOG_SHUTDOWN=tmp/shutdown; export SOG_SHUTDOWN
 # corefile name
 SOG_CORE=sog.core; export SOG_CORE
 
-nohup $SOG_BIN/bin/autorun >/dev/null 2>&1 &
+nohup $SOG_HOME/bin/autorun >/dev/null 2>&1 &
