@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.262 2001-12-08 00:08:38 tatyana Exp $
+ * $Id: act_comm.c,v 1.263 2001-12-12 21:35:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -535,12 +535,12 @@ DO_FUN(do_immtalk, ch, argument)
 		act_char("The gods have revoked your channel privileges.", ch);
 		return;
 	}
-	
+
 	if (IS_SET(orig->chan, CHAN_NOWIZ))
 		do_immtalk(ch, str_empty);
 
 	flags = ACT_SPEECH(orig) & ~(ACT_STRANS | ACT_NODEAF);
-	act_puts("$n: {C$t{x", orig, argument,			// notrans
+	act_puts("[IMM] $n: {C$t{x", orig, argument,		// notrans
 		 NULL, TO_CHAR | flags, POS_DEAD);
 
 	for (vch = char_list; vch != NULL && !IS_NPC(vch); vch = vch_next) {
@@ -551,7 +551,7 @@ DO_FUN(do_immtalk, ch, argument)
 		||  IS_SET(victim->comm, CHAN_NOWIZ))
 			continue;
 
-		act_puts("$n: {C$t{x", orig, argument, vch,	// notrans
+		act_puts("[IMM] $n: {C$t{x", orig, argument, vch,// notrans
 			 TO_VICT | ACT_TOBUF | flags, POS_DEAD);
 	}
 }
