@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.134 2001-09-13 12:02:49 fjoe Exp $
+ * $Id: db_area.c,v 1.135 2001-09-13 19:59:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -792,8 +792,8 @@ DBLOAD_FUN(load_specials)
 
 			while (ssubst - spec_substs < (int) SPEC_SUBSTS_SZ &&
 			       !str_cmp(spec, ssubst->spec)) {
-				trig = varr_enew(&pMobIndex->mp_trigs);
-				trig->trig_type = ssubst->trig;
+				trig = trig_new(
+				    &pMobIndex->mp_trigs, ssubst->trig);
 				trig->trig_prog = str_printf(
 				    "%s_%s",
 				    flag_string(mptrig_types, ssubst->trig),
@@ -802,8 +802,6 @@ DBLOAD_FUN(load_specials)
 
 				ssubst++;
 			}
-
-			varr_qsort(&pMobIndex->mp_trigs, cmpint);
 
 			if (!str_cmp(spec, "spec_janitor"))
 				SET_BIT(pMobIndex->mob_flags, MOB_JANITOR);

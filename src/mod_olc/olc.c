@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.145 2001-09-13 16:22:10 fjoe Exp $
+ * $Id: olc.c,v 1.146 2001-09-13 19:59:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1345,14 +1345,12 @@ olced_trigadd(CHAR_DATA *ch, const char *argument, varr *v)
 		return FALSE;
 	}
 
-	trig = varr_enew(v);
-	trig->trig_type = trig_type;
+	trig = trig_new(v, trig_type);
 	trig->trig_prog = str_qdup(mp->name);
 	log_setchar(ch);
 	trig_set_arg(trig, str_dup(argument));
 	log_unsetchar();
 
-	varr_qsort(v, cmpint);
 	act_char("Trigger added.", ch);
 	return TRUE;
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.h,v 1.11 2001-09-13 16:21:54 fjoe Exp $
+ * $Id: trig.h,v 1.12 2001-09-13 19:59:40 fjoe Exp $
  */
 
 #ifndef _TRIG_H_
@@ -135,6 +135,13 @@ void trig_fwrite_list(const char *pre, varr *v, FILE *fp);
  * Dump trigger list to buffer
  */
 void trig_dump_list(varr *v, BUFFER *buf);
+
+/**
+ * Allocate new trigger
+ *
+ * Preserves order of old elements
+ */
+trig_t *trig_new(varr *v, int trig_type);
 
 /**
  * Set trigger arg

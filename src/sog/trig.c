@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.17 2001-09-13 16:22:25 fjoe Exp $
+ * $Id: trig.c,v 1.18 2001-09-13 19:59:43 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -75,7 +75,7 @@ trig_fread(trig_t *trig, rfile_t *fp)
 	}
 
 	trig->trig_prog = fread_strkey(fp, &mprogs);
-	trig->trig_arg = fread_string(fp);
+	trig_set_arg(trig, fread_string(fp));
 }
 
 void
@@ -110,9 +110,19 @@ trig_destroy_list(varr *v)
 void
 trig_fread_list(varr *v, rfile_t *fp)
 {
-	trig_t *trig = varr_enew(v);
-	trig_fread(trig, fp);
-	varr_qsort(v, cmpint);
+	trig_t *trig;
+
+	int trig_type = fread_fword(mptrig_types, fp);
+	if (trig_type < 0) {
+		log(LOG_ERROR, "trig_fread: %s: unknown mptrig type",
+		    rfile_tok(fp));
+		fread_to_eol(fp);
+		return;
+	}
+
+	trig = trig_new(v, trig_type);
+	trig->trig_prog = fread_strkey(fp, &mprogs);
+	trig_set_arg(trig, fread_string(fp));
 }
 
 static
@@ -161,6 +171,42 @@ trig_dump_list(varr *v, BUFFER *buf)
 	int cnt = 0;
 
 	c_foreach(v, trig_dump_list_cb, &cnt, buf);
+}
+
+static
+FOREACH_CB_FUN(find_greater_cb, p, ap)
+{
+	trig_t *t = (trig_t *) p;
+
+	varr *v = va_arg(ap, varr *);
+	int trig_type = va_arg(ap, int);
+
+	if (t->trig_type > trig_type)
+		return t;
+
+	/*
+	 * we hit the end
+	 *
+	 * c_size(v) > 1
+	 */
+	if (varr_index(v, t) == c_size(v) - 1)
+		return t + 1;
+
+	return NULL;
+}
+
+trig_t *
+trig_new(varr *v, int trig_type)
+{
+	int idx = 0;
+	trig_t *t;
+
+	if ((t = c_foreach(v, find_greater_cb, v, trig_type)) != NULL)
+		idx = varr_index(v, t);
+
+	t = varr_insert(v, idx);
+	t->trig_type = trig_type;
+	return t;
 }
 
 void
