@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.370 2004-03-03 13:52:01 tatyana Exp $
+ * $Id: fight.c,v 1.371 2004-04-08 11:53:08 kets Exp $
  */
 
 /***************************************************************************
@@ -3476,6 +3476,13 @@ damage2(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 		else if (IS_EVIL(ch))
 			dam -= dam / 5;
 		else
+			dam -= dam / 10;
+	}
+
+	if (is_sn_affected(victim, "unholy aura")) {
+		if (IS_GOOD(ch))
+			dam -= dam / 5;
+		else if (IS_NEUTRAL(ch))
 			dam -= dam / 10;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.397 2004-03-07 21:23:37 tatyana Exp $
+ * $Id: handler.c,v 1.398 2004-04-08 11:53:08 kets Exp $
  */
 
 /***************************************************************************
@@ -2400,6 +2400,7 @@ damsubst_t damsubst_tab[] = {
 	{ DAM_AIR,		DAM_MAGIC },
 	{ DAM_EARTH,		DAM_MAGIC },
 	{ DAM_WATER,		DAM_MAGIC },
+	{ DAM_EVIL,		DAM_MAGIC },
 	{ DAM_OTHER,		DAM_MAGIC },
 };
 
