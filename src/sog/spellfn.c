@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spellfn.c,v 1.16 1999-05-27 09:52:43 kostik Exp $
+ * $Id: spellfn.c,v 1.17 1999-05-29 11:38:03 avn Exp $
  */
 
 #include <stdio.h>
@@ -100,6 +100,7 @@ namedp_t spellfn_table[] =
 	{ "spell_heat_metal",		spell_heat_metal		},
 	{ "spell_holy_word",		spell_holy_word			},
 	{ "spell_identify",		spell_identify			},
+	{ "spell_improved_identify",	spell_improved_identify		},
 	{ "spell_infravision",		spell_infravision		},
 	{ "spell_invisibility",		spell_invisibility		},
 	{ "spell_know_alignment",	spell_know_alignment		},
