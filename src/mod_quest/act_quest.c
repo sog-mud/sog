@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.119 1999-07-02 06:15:31 fjoe Exp $
+ * $Id: act_quest.c,v 1.120 1999-07-02 06:19:13 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -877,8 +877,6 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 	qtrouble_t *qt;
 	OBJ_INDEX_DATA *pObjIndex = get_obj_index(item_vnum);
 
-	QUESTOR_TELLS_YOU(questor, ch);
-
 	/*
 	 * check quest trouble data
 	 */
@@ -895,12 +893,14 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 			/* ch requested this item too many times	*
 			 * or the item is not quest			*/
 
+			QUESTOR_TELLS_YOU(questor, ch);
 			act_puts("    This item is beyond the trouble option.",
 				 questor, NULL, ch, TO_VICT, POS_DEAD);
 			return FALSE;
 		}
 		else if (!qt) {
 			/* ch has never bought this item, but requested it */
+			QUESTOR_TELLS_YOU(questor, ch);
 			act_puts("    Sorry, $N, but you haven't bought "
 				 "that quest award, yet.",
 				 questor, NULL, ch, TO_VICT, POS_DEAD);
@@ -913,6 +913,7 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 		 */
 
 		if (qt && qt->count <= TROUBLE_MAX) {
+			QUESTOR_TELLS_YOU(questor, ch);
 			act_puts("    You have already bought this item.",
 				 questor, NULL, ch, TO_VICT, POS_DEAD);
 			return FALSE;
@@ -921,6 +922,7 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 
 	reward = create_obj(pObjIndex, 0);
 	if (get_wear_level(ch, reward) < reward->level) {
+		QUESTOR_TELLS_YOU(questor, ch);
 		act_puts("    $p is too powerful for you.",
 			 questor, reward, ch, TO_VICT, POS_DEAD);
 		extract_obj(reward, 0);
@@ -943,6 +945,7 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 			}
 		}
 
+		QUESTOR_TELLS_YOU(questor, ch);
 		act_puts("    This is the $j$qj{th} time that I am giving "
 			 "that award back.",
 			 questor, (const void*) qt->count, ch,
