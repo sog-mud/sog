@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.55 1998-05-30 16:01:00 efdi Exp $
+ * $Id: act_info.c,v 1.56 1998-05-30 16:13:15 efdi Exp $
  */
 
 /***************************************************************************
@@ -3156,8 +3156,8 @@ void do_score(CHAR_DATA *ch, char *argument)
 "     {G| {RHome :  {x%-12s {C|  {RCon:  {x%2d(%2d)  {C| {R%-10s:   {x%3d       {G|{x\n\r",
 		IS_NPC(ch) ? "Midgaard" : hometown_table[ch->hometown].name,
 		ch->perm_stat[STAT_CON], get_curr_stat(ch,STAT_CON),
-		IS_NPC(ch) ? 0 : IS_QUESTOR(ch) ? "Quest Time" : "Next Quest",
-		abs(ch->pcdata->questtime));
+		IS_NPC(ch) ? "Quest?" : (IS_QUESTOR(ch) ? "Quest Time" : "Next Quest"),
+		IS_NPC(ch) ? 0 : abs(ch->pcdata->questtime));
 	char_printf(ch,
 "     {G| {REthos:  {x%-11s  {C|  {RCha:  {x%2d(%2d)  {C| {R%s     :  {x%4d       {G|{x\n\r",
 		IS_NPC(ch) ? "mobile" : ch->ethos == 1 ? "lawful" :
@@ -3353,9 +3353,9 @@ void do_oscore(CHAR_DATA *ch, char *argument)
 			"Quest Points: {g%d{x.  "
 			"%s: {g%d{x.\n\r",
 			ch->pcdata->questpoints, 
-			IS_NPC(ch) ? 0 : IS_QUESTOR(ch) ? 
-					"Quest Time" : "Next Quest",
-			abs(ch->pcdata->questtime));
+			IS_NPC(ch) ? "Quest?" : (IS_QUESTOR(ch) ? 
+					"Quest Time" : "Next Quest"),
+			IS_NPC(ch) ? 0 : abs(ch->pcdata->questtime));
 
 	if ((ch->class == CLASS_SAMURAI) && (ch->level >= 10))
 		char_printf(ch, "Total {g%d{x deaths up to now.",
