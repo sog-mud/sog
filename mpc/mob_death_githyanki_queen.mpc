@@ -1,0 +1,20 @@
+/*
+ * $Id: mob_death_githyanki_queen.mpc,v 1.1 2001-09-23 16:51:09 fjoe Exp $
+ */
+
+act("{D    As the killing blow destroys the lich-queen's corporeal form, wisps of her spirit arise from the floor. A haunting voice whispers words of a spidery language and the floor suddenly cracks and opens. You fall through the chasm about the altar into a swirling field of blackness, the cackles of a witch following your descent...{x",
+    $n, NULL, NULL, TO_ROOM);
+ 
+room r = get_room_index(7778);
+if (r == NULL)
+       return 0;
+
+char victim;
+foreach (victim, char_in_room(char_room($n))) {
+        if (victim == $n)
+                continue;
+        transfer_char(victim, r);
+}
+ 
+transfer_char($n, r);
+return 0;

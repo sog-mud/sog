@@ -1,0 +1,21 @@
+/*
+ * $Id: mob_fight_githyanki_warlock.mpc,v 1.1 2001-09-23 16:51:10 fjoe Exp $
+ */
+
+char victim = get_random_fighting($n);
+if (victim == NULL)
+        return 0;
+
+dofun("emote", $n, "prays a mantra to his Queen for aid.");
+act("{BSuddenly, floating haunting eyes appear and gaze at you.{x",
+    $n, NULL, victim, TO_VICT);
+act("{BTwo bolts of blazing blue lightning erupt from them, striking you!{x",
+    $n, NULL, victim, TO_VICT);
+act("{BSuddenly, floating haunting eyes appear and gaze at $N.{x",
+    $n, NULL, victim, TO_NOTVICT);
+act("{BTwo bolts of blazing blue lightning erupt from them, striking $N!{x",
+    $n, NULL, victim, TO_NOTVICT);
+ 
+int dam = 2 * dice(char_level($n), 4) + 24;
+damage($n, victim, dam, NULL, DAM_LIGHTNING, DAMF_NONE);
+return 0;

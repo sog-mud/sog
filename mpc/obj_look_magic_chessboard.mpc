@@ -1,0 +1,43 @@
+/*
+ * $Id: obj_look_magic_chessboard.mpc,v 1.1 2001-09-23 16:51:12 fjoe Exp $
+ */
+
+if (char_fighting($n) != NULL)
+        return 0;
+
+room rr = char_room($n);
+if (room_vnum(rr) >= 4201
+&&  room_vnum(rr) <= 4264)
+        return 0;
+
+room r = get_room_index(number_range(4201, 4264));
+if (r == NULL)
+        return 0;
+
+act("As you look at $p you feel as darkness shrouds your.",
+    $n, $p, NULL, TO_CHAR);
+act("When $n looks at $p, cloud of darkness shrouds $gn{his}.",
+    $n, $p, NULL, TO_ROOM);
+act("When cloud of darkness dissapers you find self on the chessboard.",
+    $n, NULL, NULL, TO_CHAR);
+act("Then darkness dissapears but $n vanishes.",
+    $n, NULL, NULL, TO_ROOM);
+ 
+char victim;
+ 
+transfer_char($n, r);
+ 
+foreach (victim, char_in_room(rr)) {
+        if (is_same_group($n, victim)) {
+                transfer_char(victim, r);
+                continue;
+        }
+ 
+        if (is_mount($n, victim)) {
+                transfer_char(victim, r);
+                continue;
+        }
+}
+ 
+extract_obj($p, 0);
+return 0;

@@ -1,0 +1,15 @@
+/*
+ * $Id: mob_greet_githyanki_queen.mpc,v 1.1 2001-09-23 16:51:11 fjoe Exp $
+ */
+
+if (number_percent() > 60)
+        return 0;
+
+dofun("yell", $n, "Yes...more souls to dine on at my leisure!");
+act("{rDeadly flames erupt from the lich-queen's fingers!{x",
+    $n, NULL, NULL, TO_ROOM);
+ 
+/* damage as in 'burning hands' spell */
+int dam = dice(char_level($n), 2) + 7;
+damage($n, $N, dam, NULL, DAM_FIRE, DAMF_NONE);
+return 0;

@@ -1,0 +1,36 @@
+/*
+ * $Id: mob_fight_githyanki_queen.mpc,v 1.1 2001-09-23 16:51:10 fjoe Exp $
+ */
+
+if (number_percent() <= 10) {
+        dofun("emote", $n, "summons her minions from the lower planes...");
+        char hag = load_mob($n, 7702);
+        char protector = load_mob($n, 7709);
+        if (hag != NULL)
+                multi_hit(hag, get_random_fighting($n), NULL);
+        if (protector != NULL)
+                multi_hit(protector, get_random_fighting($n), NULL);
+        return 0;
+} else if (number_percent() <= 40) {
+        char victim = get_random_fighting($n);
+        if (victim == NULL)
+                return 0;
+
+        obj flail = get_eq_char($n, WEAR_WIELD);
+        if (obj_vnum(flail) != 7711)
+                return 0;
+
+        act("$n curls her $p past $N's defenses, mauling $gN{him}!",
+            $n, flail, victim, TO_NOTVICT);
+        act("$n curls her $p past your defenses, mauling you!",
+            $n, flail, victim, TO_VICT);
+
+        int dam = 80;
+        damage($n, victim, dam, NULL, DAM_SLASH, DAMF_NONE);
+        return 0;
+}
+ 
+act("$n sneers at you.", $n, NULL, $N, TO_VICT);
+act("$n sneers at $N.", $n, NULL, $N, TO_NOTVICT);
+cast_char("acid blast", $n, $N);
+return 0;
