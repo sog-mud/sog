@@ -6520,9 +6520,9 @@ yell Die, $q !
 #0
 
 #PRACTICERS
-M 1334 enchantment~	* the Enchanter
-M 1348 illusion~	* the master of illusions
-M 1364 transportation~	* The Grand Mistress
+M 1334 J	* the Enchanter
+M 1348 N	* the master of illusions
+M 1364 Q	* The Grand Mistress
 S
 
 #OMPROGS
