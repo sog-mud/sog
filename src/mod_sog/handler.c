@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.381 2004-02-11 23:06:10 fjoe Exp $
+ * $Id: handler.c,v 1.382 2004-02-16 21:09:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1920,9 +1920,9 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 	}
 
 	if (IS_AFFECTED(in_room, RAFF_GREASE)
-	&& !CAN_FLY(ch)
-	&& !MOUNTED(ch)
-	&& number_percent() > get_curr_stat(ch, STAT_DEX)) {
+	&&  !CAN_FLY(ch)
+	&&  !MOUNTED(ch)
+	&&  number_percent() > get_curr_stat(ch, STAT_DEX)) {
 		act_char("You slipped into a greasy pool.", ch);
 		act("$n tries to leave through $d, but slipped into a greasy pool.",
 			ch, &pexit->short_descr, NULL, TO_ROOM);
