@@ -55,6 +55,14 @@ Form 3 -ли~
 End
 
 #RULE
+Name сделал~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name бормочет~
 BaseLen 6
 Form 1 -ет~
@@ -187,6 +195,14 @@ BaseLen 13
 Form 1 -а~
 Form 2 -о~
 Form 3 -ы~
+End
+
+#RULE
+Name медвяный~
+BaseLen 6
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
 End
 
 #RULE
@@ -451,6 +467,14 @@ Form 3 -ы~
 End
 
 #RULE
+Name стоит~
+BaseLen 3
+Form 1 -ит~
+Form 2 -ит~
+Form 3 -ят~
+End
+
+#RULE
 Name вытягивает~
 BaseLen 8
 Form 1 -ет~
@@ -585,6 +609,14 @@ Form 3 -ют~
 End
 
 #RULE
+Name вступил~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name пожирает~
 BaseLen 6
 Form 1 -ет~
@@ -656,6 +688,14 @@ Form 3 -ые~
 End
 
 #RULE
+Name слышал~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name упал~
 BaseLen 4
 Form 1 -а~
@@ -696,6 +736,14 @@ End
 #RULE
 Name заслужил~
 BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name попал~
+BaseLen 4
 Form 1 -ла~
 Form 2 -ло~
 Form 3 -ли~
@@ -826,6 +874,14 @@ BaseLen 6
 Form 1 -ая~
 Form 2 -ое~
 Form 3 -ые~
+End
+
+#RULE
+Name появился~
+BaseLen 6
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
 End
 
 #RULE

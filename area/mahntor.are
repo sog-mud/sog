@@ -2779,11 +2779,16 @@ D1
 Z 0 2343
 S
 #2343
-Inside the gates~
-You stand just north of the gates to the village. Looking around, you see many
+@eng Inside the gates@rus Внутри ворот~
+@eng You stand just north of the gates to the village. Looking around, you see many
 crude huts and cooking fires. To the north, you see a huge fire pit. Behind 
 it, there appears to be a hut of sorts. Small paths lead east and west among 
 the crude huts. The gates to the south provide an exit from the village.
+@rus Ты стоишь на севере от ворот деревни. Оглядевшись, ты видишь много
+неуклюжих хижин и костров. На севере ты видишь громадный очаг.
+Позади него расположены ранообразные хижины. Маленький тропки ведут
+на запад и на восток между хижинами, а ворота на юге обеспечивают
+выход отсюда.
 ~
 0 0 city
 D0
@@ -2804,11 +2809,16 @@ D3
 Z 0 2342
 S
 #2344
-Among the crude huts~
-You walk through the crude village. Small huts made of wood and thatch
+@eng Among the crude huts@rus Между хижинами~
+@eng You walk through the crude village. Small huts made of wood and thatch
 surround you. Every so often, you can hear grunts and snarls inside the huts.
 The smell here is unbearable. You wonder what type of creature could possibly
 live in such squalor. Small paths lead west and north here.
+@rus Ты идешь через примитивную деревню. Маленькие хижины, сделанные из
+дерева, окружают тебя. Доволно часто ты можешь слышать фырканье и
+хрюканье, доносящееся из хижин. Здесь стоит невыносимая вонь. Ты
+очень долго гадаешь, как же живое существо может жить в такой помойке
+как эта. Маленькие тропки ведут на запад и на север.
 ~
 0 0 city
 D0
