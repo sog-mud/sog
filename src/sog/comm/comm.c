@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.141 1999-02-17 18:58:04 fjoe Exp $
+ * $Id: comm.c,v 1.142 1999-02-20 21:24:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -94,6 +94,7 @@
 #include "olc/olc.h"
 #include "comm_info.h"
 #include "comm_colors.h"
+#include "db/word.h"
 
 DESCRIPTOR_DATA	*	new_descriptor	(void);
 void			free_descriptor	(DESCRIPTOR_DATA *d);
@@ -1050,7 +1051,7 @@ void battle_prompt(CHAR_DATA *ch, CHAR_DATA *victim)
 		msg = "{Ris nearly dead{x.";
 
 	snprintf(buf, sizeof(buf), "%s %s\n", 
-		 PERS(victim, ch), GETMSG(msg, ch->lang));
+		 fix_short(PERS(victim, ch)), GETMSG(msg, ch->lang));
 	buf[0] = UPPER(buf[0]);
 	send_to_char(buf, ch);
 }
