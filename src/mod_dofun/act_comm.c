@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.32 2002-01-08 20:40:54 tatyana Exp $
+ * $Id: act_comm.c,v 1.187.2.33 2002-01-10 13:54:17 tatyana Exp $
  */
 
 /***************************************************************************
@@ -958,7 +958,18 @@ void do_group(CHAR_DATA *ch, const char *argument)
 
 		for (gch = char_list; gch; gch = gch->next) {
 			if (is_same_group(gch, ch)) {
-				char_printf(ch,
+				if (IS_NPC(gch)) {
+					char_printf(ch,
+					    "[%2d %s] %-16s %d/%d hp "
+					    "%d/%d mana %d/%d mv\n",
+					    gch->level,
+					    class_who_name(gch),
+					    PERS(gch, ch),
+					    gch->hit,   gch->max_hit,
+					    gch->mana,  gch->max_mana,
+					    gch->move,  gch->max_move);
+				} else {
+					char_printf(ch,
 					    "[%2d %s] %-16s %d/%d hp "
 					    "%d/%d mana %d/%d mv %5d tnl\n",
 					    gch->level,
@@ -968,6 +979,7 @@ void do_group(CHAR_DATA *ch, const char *argument)
 					    gch->mana,  gch->max_mana,
 					    gch->move,  gch->max_move,
 					    exp_to_level(gch));
+				}
 			}
 		}
 		return;
