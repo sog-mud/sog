@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.133 1999-11-18 15:31:31 fjoe Exp $
+ * $Id: save.c,v 1.134 1999-11-18 18:41:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -619,7 +619,7 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 			KEY("Alig", ch->alignment, fread_number(fp));
 			KEY("AntKilled", PC(ch)->anti_killed, fread_number(fp));
 
-			if (IS_TOKEN(fp, "Alia") || IS_TOKEN(fp, "Alias")) {
+			if (IS_TOKEN(fp, "Alias")) {
 				if (count >= MAX_ALIAS) {
 					fread_to_eol(fp);
 					fMatch = TRUE;
@@ -659,11 +659,7 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 		case 'C':
 			KEY("Class", ch->class,
 			    fread_strkey(fp, &classes, "fread_char"));
-			KEY("ClassW", ch->class,
-			    fread_strkey(fp, &classes, "fread_char"));
 			KEY("Clan", ch->clan,
-			    fread_strkey(fp, &clans, "fread_char"));
-			KEY("ClanW", ch->clan,
 			    fread_strkey(fp, &clans, "fread_char"));
 			KEY("ClanStatus", PC(ch)->clan_status,
 			    fread_number(fp));
@@ -741,7 +737,6 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 				fMatch = TRUE;
 			}
 
-			KEY("Home", PC(ch)->hometown, fread_number(fp));
 			KEY("Haskilled", PC(ch)->has_killed,
 			    fread_number(fp));
 			if (IS_TOKEN(fp, "Homepoint")) {
@@ -793,8 +788,6 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 		case 'P':
 			KEY("Peti", PC(ch)->petition,
 			    fread_strkey(fp, &clans, "fread_char"));
-			KEY("PetiW", PC(ch)->petition,
-			    fread_strkey(fp, &clans, "fread_char"));
 			KEY("PLev", PC(ch)->plevels, fread_number(fp));
 			SKEY("Pass", PC(ch)->pwd, fread_string(fp));
 			KEY("PC_Killed", PC(ch)->pc_killed, fread_number(fp));
@@ -811,7 +804,7 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 
 		case 'R':
 			KEY("Relig", PC(ch)->religion, fread_number(fp));
-			if (IS_TOKEN(fp, "Race") || IS_TOKEN(fp, "RaceW")) {
+			if (IS_TOKEN(fp, "Race")) {
 				free_string(ch->race);
 				ch->race = fread_strkey(fp, &races, "fread_char");
 				PC(ch)->race = str_qdup(ch->race);
@@ -934,8 +927,6 @@ fread_pet(CHAR_DATA * ch, rfile_t * fp, int flags)
 		case 'C':
 			KEY("Clan", pet->clan,
 			    fread_strkey(fp, &clans, "fread_pet"));
-			KEY("ClanW", pet->clan,
-			    fread_strkey(fp, &clans, "fread_pet"));
 			KEY("Comm", pet->comm, fread_flags(fp));
 			break;
 
@@ -1003,7 +994,6 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 {
 	OBJ_DATA       *obj = NULL;
 	int             iNest;
-	bool		fNest;
 
 	fread_keyword(fp);
 	if (IS_TOKEN(fp, "Vnum")) {
@@ -1024,7 +1014,6 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 		return;
 	}
 
-	fNest = FALSE;
 	iNest = 0;
 
 	for (;;) {
@@ -1052,7 +1041,6 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 			break;
 
 		case 'D':
-			MLSKEY("Description", obj->description);
 			MLSKEY("Desc", obj->description);
 			break;
 
@@ -1096,7 +1084,6 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 						   ch->name, iNest);
 				} else {
 					rgObjNest[iNest] = obj;
-					fNest = TRUE;
 				}
 				fMatch = TRUE;
 			}

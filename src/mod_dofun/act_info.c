@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.282 1999-11-18 15:31:26 fjoe Exp $
+ * $Id: act_info.c,v 1.283 1999-11-18 18:41:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2148,8 +2148,8 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 	check_improve(ch, "bear call", TRUE, 1);
 	bear = create_mob(get_mob_index(MOB_VNUM_BEAR));
 
-	for (i=0;i < MAX_STATS; i++)
-		bear->perm_stat[i] = UMIN(25,2 * ch->perm_stat[i]);
+	for (i = 0; i < MAX_STATS; i++)
+		bear->perm_stat[i] = UMIN(25, 2 * ch->perm_stat[i]);
 
 	SET_HIT(bear, ch->perm_hit);
 	SET_MANA(bear, ch->perm_mana);
@@ -2801,14 +2801,14 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 	SET_MANA(lion, ch->perm_mana);
 	lion->alignment = ch->alignment;
 	lion->level = UMIN(100,1 * ch->level-2);
-	for (i=0; i < 3; i++)
+	for (i = 0; i < 3; i++)
 		lion->armor[i] = interpolate(lion->level,100,-100);
 	lion->armor[3] = interpolate(lion->level,100,0);
 	lion->sex = ch->sex;
 	lion->gold = 0;
 
 	lion2 = create_mob(lion->pMobIndex);
-	clone_mob(lion,lion2);
+	clone_mob(lion, lion2);
 
 	SET_BIT(lion->affected_by, AFF_CHARM);
 	SET_BIT(lion2->affected_by, AFF_CHARM);

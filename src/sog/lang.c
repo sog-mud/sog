@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.17 1999-10-06 09:56:07 fjoe Exp $
+ * $Id: lang.c,v 1.18 1999-11-18 18:41:32 fjoe Exp $
  */
 
 #include <string.h>
@@ -224,7 +224,7 @@ void rule_init(rule_t *r)
 	r->f = vform_new();
 }
 
-void rule_clear(rule_t *r)
+void rule_destroy(rule_t *r)
 {
 	free_string(r->name);
 	vform_free(r->f);
@@ -261,8 +261,7 @@ rule_t *irule_insert(rulecl_t *rcl, size_t num, rule_t *r)
 
 void irule_del(rulecl_t *rcl, rule_t *r)
 {
-	rule_clear(r);
-	varr_delete(&rcl->impl, varr_index(&rcl->impl, r));
+	varr_edelete(&rcl->impl, r);
 }
 
 rule_t *irule_lookup(rulecl_t *rcl, const char *num)
@@ -318,12 +317,8 @@ rule_t *erule_add(rulecl_t *rcl, rule_t *r)
 
 void erule_del(rulecl_t *rcl, rule_t *r)
 {
-	varr *v;
-
-	v = rcl->expl + rulehash(r->name);
-	rule_clear(r);
-	varr_qsort(v, cmprule);
-	v->nused--;
+	varr *v = rcl->expl + rulehash(r->name);
+	varr_edelete(v, r);
 }
 
 rule_t *erule_lookup(rulecl_t *rcl, const char *name)
@@ -342,9 +337,14 @@ static void rulecl_init(lang_t *l, int rulecl)
 	rulecl_t *rcl = l->rules + rulecl;
 
 	rcl->rulecl = rulecl;
-	for (i = 0; i < MAX_RULE_HASH; i++) 
+	for (i = 0; i < MAX_RULE_HASH; i++) {
 		varr_init(rcl->expl+i, sizeof(rule_t), 4);
+		rcl->expl[i].e_init = (varr_e_init_t) rule_init;
+		rcl->expl[i].e_destroy = (varr_e_destroy_t) rule_destroy;
+	}
 	varr_init(&rcl->impl, sizeof(rule_t), 4);
+	rcl->impl.e_init = (varr_e_init_t) rule_init;
+	rcl->impl.e_destroy = (varr_e_destroy_t) rule_destroy;
 }
 
 /*----------------------------------------------------------------------------

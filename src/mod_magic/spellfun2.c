@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.145 1999-11-18 15:31:33 fjoe Exp $
+ * $Id: spellfun2.c,v 1.146 1999-11-18 18:41:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -444,8 +444,8 @@ void spell_demon_summon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	SET_HIT(demon, URANGE(ch->perm_hit, ch->hit, 30000));
 	SET_MANA(demon, ch->perm_mana);
 	demon->level = level;
-	for (i=0; i < 3; i++)
-	demon->armor[i] = interpolate(demon->level,100,-100);
+	for (i = 0; i < 3; i++)
+		demon->armor[i] = interpolate(demon->level,100,-100);
 	demon->armor[3] = interpolate(demon->level,100,0);
 	demon->gold = 0;
 	NPC(demon)->dam.dice_number = number_range(level/15, level/10);   
@@ -3764,8 +3764,8 @@ void spell_wolf(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	SET_HIT(demon, URANGE(ch->perm_hit, ch->hit, 30000));
 	SET_MANA(demon, ch->perm_mana);
 	demon->level = ch->level;
-	for (i=0; i < 3; i++)
-	demon->armor[i] = interpolate(demon->level,100,-100);
+	for (i = 0; i < 3; i++)
+		demon->armor[i] = interpolate(demon->level,100,-100);
 	demon->armor[3] = interpolate(demon->level,100,0);
 	demon->gold = 0;
 	NPC(demon)->dam.dice_number = number_range(level/15, level/10);   
@@ -4222,8 +4222,8 @@ void spell_lesser_golem(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	SET_HIT(golem, UMIN(2 * ch->perm_hit + 400, 30000));
 	SET_MANA(golem, ch->perm_mana);
 	golem->level = level;
-	for (i=0; i < 3; i++)
-	golem->armor[i] = interpolate(golem->level,100,-100);
+	for (i = 0; i < 3; i++)
+		golem->armor[i] = interpolate(golem->level,100,-100);
 	golem->armor[3] = interpolate(golem->level,100,0);
 	golem->gold = 0;
 	NPC(golem)->dam.dice_number = 3;   
@@ -4289,8 +4289,8 @@ void spell_stone_golem(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	SET_HIT(golem, UMIN(5 * ch->perm_hit + 2000, 30000));
 	SET_MANA(golem, ch->perm_mana);
 	golem->level = level;
-	for (i=0; i < 3; i++)
-	golem->armor[i] = interpolate(golem->level,100,-100);
+	for (i = 0; i < 3; i++)
+		golem->armor[i] = interpolate(golem->level,100,-100);
 	golem->armor[3] = interpolate(golem->level,100,0);
 	golem->gold = 0;
 	NPC(golem)->dam.dice_number = 8;   
@@ -4415,8 +4415,8 @@ void spell_adamantite_golem(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	SET_HIT(golem, UMIN(10 * ch->perm_hit + 4000, 30000));
 	SET_MANA(golem, ch->perm_mana);
 	golem->level = level;
-	for (i=0; i < 3; i++)
-	golem->armor[i] = interpolate(golem->level,100,-100);
+	for (i = 0; i < 3; i++)
+		golem->armor[i] = interpolate(golem->level,100,-100);
 	golem->armor[3] = interpolate(golem->level,100,0);
 	golem->gold = 0;
 	NPC(golem)->dam.dice_number = 13;   
@@ -5123,8 +5123,8 @@ void spell_summon_shadow(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	SET_HIT(shadow, URANGE(ch->perm_hit, ch->hit, 30000));
 	SET_MANA(shadow, ch->perm_mana);
 	shadow->level = level;
-	for (i=0; i < 3; i++)
-	shadow->armor[i] = interpolate(shadow->level,100,-100);
+	for (i = 0; i < 3; i++)
+		shadow->armor[i] = interpolate(shadow->level, 100, -100);
 	shadow->armor[3] = interpolate(shadow->level,100,0);
 	shadow->gold = 0;
 	NPC(shadow)->dam.dice_number = number_range(level/15, level/10);   

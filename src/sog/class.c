@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.20 1999-10-21 12:51:59 fjoe Exp $
+ * $Id: class.c,v 1.21 1999-11-18 18:41:32 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,6 +31,9 @@
 #include "merc.h"
 
 hash_t classes;
+
+static void	pose_init(pose_t *p);
+static void	pose_destroy(pose_t *p);
 
 void
 class_init(class_t *cl)
@@ -55,7 +58,8 @@ class_init(class_t *cl)
 
 	varr_init(&cl->guilds, sizeof(int), 4);
 	varr_init(&cl->poses, sizeof(pose_t), 4);
-
+	cl->poses.e_init = (varr_e_init_t) pose_init;
+	cl->poses.e_destroy = (varr_e_destroy_t) pose_destroy;
 	for (i = 0; i < MAX_STAT; i++)
 		cl->stats[i] = 0;
 }
@@ -205,5 +209,19 @@ bool can_flee(CHAR_DATA *ch)
 		return TRUE;
 
 	return FALSE;
+}
+
+static void
+pose_init(pose_t *p)
+{
+	p->self = str_empty;
+	p->others = str_empty;
+}
+
+static void
+pose_destroy(pose_t *p)
+{
+	free_string(p->self);
+	free_string(p->others);
 }
 

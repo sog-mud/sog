@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.19 1999-10-26 13:52:58 fjoe Exp $
+ * $Id: db_lang.c,v 1.20 1999-11-18 18:41:34 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -224,10 +224,9 @@ load_rules(rfile_t *fp, rulecl_t *rcl, rule_t* (*rule_add)(rulecl_t*, rule_t*))
 				if (IS_NULLSTR(r.name)) {
 					db_error("load_rules",
 						 "rule name undefined");
-					rule_clear(&r);
-				}
-				else if (!rule_add(rcl, &r))
-					rule_clear(&r);
+					rule_destroy(&r);
+				} else if (!rule_add(rcl, &r))
+					rule_destroy(&r);
 				return;
 			}
 			break;

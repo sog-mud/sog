@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.181 1999-11-18 15:31:32 fjoe Exp $
+ * $Id: db.c,v 1.182 1999-11-18 18:41:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1321,8 +1321,7 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 	if (char_list_lastpc) {
 		mob->next = char_list_lastpc->next;
 		char_list_lastpc->next = mob;
-	}
-	else {
+	} else {
 		mob->next = char_list;
 		char_list = mob;
 	}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.h,v 1.13 1999-06-10 14:33:35 fjoe Exp $
+ * $Id: lang.h,v 1.14 1999-11-18 18:41:32 fjoe Exp $
  */
 
 #ifndef _LANG_H_
@@ -60,10 +60,6 @@ void	vform_del	(vform_t *f, size_t fnum);
  * explicit rules are used in word_form_lookup to build word forms
  * if explicit rules are not found then word_form_lookup
  * tries to use implicit rules to build explicit rules
- *
- * rules are never allocated dynamically (via malloc/calloc)
- * the are always put into varrs ("statically") so rule_init/rule_clear
- * are used instead of rule_new/rule_free
  */
 struct rule_t {
 	const char *	name;
@@ -73,11 +69,11 @@ struct rule_t {
 					/* of the word for implicit rules    */
 };
 
-void	rule_init	(rule_t*);
-void	rule_clear	(rule_t*);
-
 /* create explicit rule from implicit rule and word itself */
 void 	erule_create	(rule_t *expl, rule_t *impl, const char* word);
+
+void	rule_init(rule_t*);
+void	rule_destroy(rule_t*);
 
 #define MAX_RULE_HASH	256
 

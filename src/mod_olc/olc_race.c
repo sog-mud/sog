@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.14 1999-10-21 12:51:58 fjoe Exp $
+ * $Id: olc_race.c,v 1.15 1999-11-18 18:41:32 fjoe Exp $
  */
 
 #include "olc.h"
@@ -657,9 +657,7 @@ OLC_FUN(raceed_delclass)
 		return FALSE;
 	}
 
-	free_string(rc->name);
-	rc->name = str_empty;
-	varr_qsort(&race->race_pcdata->classes, cmpstr);
+	varr_edelete(&race->race_pcdata->classes, rc);
         char_puts("Ok.\n", ch);
 	return TRUE;
 }

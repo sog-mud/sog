@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.c,v 1.5 1999-10-22 13:24:48 fjoe Exp $
+ * $Id: spec.c,v 1.6 1999-11-18 18:41:33 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -335,7 +335,7 @@ bool spec_del(CHAR_DATA *ch, const char *spn)
 	if (pspn == NULL)
 		return FALSE;
 
-	varr_delete(&PC(ch)->specs, varr_index(&PC(ch)->specs, pspn));
+	varr_edelete(&PC(ch)->specs, pspn);
 	return TRUE;
 }
 

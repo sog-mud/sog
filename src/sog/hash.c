@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hash.c,v 1.5 1999-10-25 12:05:22 fjoe Exp $
+ * $Id: hash.c,v 1.6 1999-11-18 18:41:32 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -88,7 +88,7 @@ hash_delete(hash_t *h, const void *k)
 	if (e == NULL)
 		return;
 
-	varr_delete(v, varr_index(v, e));
+	varr_edelete(v, e);
 }
 
 void *

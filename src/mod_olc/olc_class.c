@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.9 1999-10-21 12:51:56 fjoe Exp $
+ * $Id: olc_class.c,v 1.10 1999-11-18 18:41:32 fjoe Exp $
  */
 
 #include "olc.h"
@@ -444,9 +444,7 @@ OLC_FUN(classed_poses)
 			return FALSE;
 		}
 
-		pose->self = str_dup(str_empty);
-		pose->others = str_dup(str_empty);
-		varr_qsort(&class->poses, cmpstr);
+		varr_edelete(&class->poses, pose);
 		char_puts("Pose deleted.\n", ch);
 		return TRUE;
 	}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.12 1999-10-25 12:05:26 fjoe Exp $
+ * $Id: varr.c,v 1.13 1999-11-18 18:41:33 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -149,11 +149,15 @@ void *varr_insert(varr *v, size_t i)
 
 void varr_delete(varr *v, size_t i)
 {
-	if (!v->nused || i >= v->nused || i >= --v->nused)
+	if (!v->nused || i >= v->nused)
 		return;
 
 	if (v->e_destroy)
 		v->e_destroy(VARR_GET(v, i));
+
+	if (i >= --v->nused)
+		return;
+
 	memmove(VARR_GET(v, i), VARR_GET(v, i+1), v->nsize*(v->nused - i));
 }
 

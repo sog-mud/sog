@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.h,v 1.8 1999-10-17 08:55:44 fjoe Exp $
+ * $Id: varr.h,v 1.9 1999-11-18 18:41:32 fjoe Exp $
  */
 
 #ifndef _VARR_H_
@@ -67,5 +67,6 @@ void *	varr_foreach	(varr*, void *(*)(void*, void*), void*);
 #define varr_get(v, i)	((i) < 0 || (i) >= (v)->nused ? \
 			 NULL : VARR_GET((v), (i)))
 #define varr_index(v, q) ((((char*) q) - ((char*) (v)->p)) / (v)->nsize)
+#define varr_edelete(v, p) (varr_delete((v), varr_index((v), (p))))
 
 #endif
