@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_info.c,v 1.8.2.3 2003-09-30 01:25:39 fjoe Exp $
+ * $Id: comm_info.c,v 1.8.2.4 2004-02-18 20:14:27 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -161,7 +161,8 @@ void info_process_cmd(INFO_DESC *id)
 		||  wch->invis_level
 		||  wch->incog_level
 		||  IS_AFFECTED(wch, AFF_FADE | AFF_HIDE | AFF_CAMOUFLAGE | 
-				     AFF_INVIS | AFF_IMP_INVIS))
+				     AFF_INVIS | AFF_IMP_INVIS)
+		||  is_affected(wch, gsn_vampire))
 			continue;
 
 		buf_clear(output);
