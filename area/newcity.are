@@ -82,7 +82,7 @@ G female
 fountain фонтан~
 @eng Gray marble fountain@rus Фонтан из серого мрамора~
 @eng Small gray marble fountain.@rus Небольшой фонтан (fountain), сделанный из серого мрамора.~
-gray marble~
+marble~
 fountain 0 0
 -1 -1 'water' 0 0
 0 0 0 P
@@ -98,7 +98,7 @@ G male
 sign вывеска табличка~
 @eng sign@rus табличка~
 @eng Small marble sign is on the wall near the door.@rus Небольшая мраморная табличка (sign) висит на стене рядом с дверью.~
-gray marble~
+marble~
 trash A 0
 0 0 0 0 0
 0 0 0 P
@@ -127,7 +127,7 @@ G female
 statuette статуэтка undine ундина figurine~
 @eng figurine of the undine@rus ~~статуэтка~~ ундины~
 @eng The saphire statueete of the Undine on the gray granite pedestal.@rus Фигурка унидины (statuettе), сделанная из сапфира, на постаменте из серого мрамора.~
-saphire~
+sapphire~
 gem A 0
 0 0 0 0 0
 0 0 0 P
@@ -156,7 +156,7 @@ G female
 figurine teranim статуэтка фирурка тераним statuette~
 @eng figurine of the teranim@rus ~~фигурка~~ теранима~
 @eng Kaolin figurine of the teranim on the gray granite pedestal.@rus Глиняная фигурка (figurine) теранима на постаменте из серого гранита.~
-kaolin~
+unknown~
 gem A 0
 0 0 0 0 0
 0 0 0 P

@@ -1,6 +1,5 @@
 #AREADATA
 Name Lizard Kingdom~
-Builders vivien~
 VNUMs 22100 22299
 Credits Vivien~
 Security 1
@@ -572,6 +571,116 @@ stand stand none 0
 F for AHMV
 #0
 
+#OBJECTS
+#22101
+sceptre~
+Lizard King Sceptre~
+Very powerful sceptre lays here.~
+unknown~
+weapon ABRT AN
+staff 8 9 'wrath' D
+60 5 100000 P
+G none
+#22102
+gray bracelet~
+gray bracelet~
+Gray bracelet lays here.~
+snakeskin~
+armor 0 AM
+15 15 15 15 0
+50 1 0 P
+A
+14 100
+A
+13 30
+A
+3 1
+A
+1 1
+G none
+#22103
+small bracelet~
+small bracelet~
+Small bracelet lays here.~
+snakeskin~
+armor 0 AM
+10 10 10 10 0
+40 0 0 P
+A
+14 100
+A
+13 10
+A
+20 -5
+G none
+#22104
+huge bracelet~
+wide bracelet~
+Wide bracelet waits you to pick up.~
+snakeskin~
+armor IRT AM
+17 17 17 10 0
+55 1 10000 P
+A
+19 3
+A
+18 3
+A
+13 30
+A
+8 1
+A
+5 2
+A
+1 1
+G none
+#22105
+invisible robe~
+invisible robe~
+An invisible object lays here.~
+unknown~
+armor FHIMRTYZ AK
+18 18 18 18 0
+55 1 0 P
+A
+12 200
+A
+4 3
+A
+3 3
+G none
+#22106
+white robe~
+white robe~
+A white robe glows here.~
+unknown~
+armor AHIMRTYZ AK
+18 18 18 18 0
+55 1 0 P
+A
+13 75
+A
+6 3
+A
+5 3
+G none
+#22107
+red robe~
+red robe~
+A piece of strange red material lays here.~
+unknown~
+armor 0 AK
+17 17 17 17 0
+55 1 0 P
+A
+18 10
+A
+2 3
+A
+1 3
+G none
+#0
+
 #ROOMS
 #22101
 Entrance to the town of the lizards~
@@ -581,6 +690,10 @@ D1
 ~
 ~
 Z 0 22102
+D3
+~
+~
+Z 0 22182
 S
 #22102
 Gate of the lizard town~
@@ -1725,6 +1838,10 @@ Road~
 You on a road in Lizard Kingdom.Road as a road,nothing special.
 ~
 0 0 city
+D1
+~
+~
+Z 0 22101
 D3
 ~
 ~
@@ -3502,5 +3619,14 @@ D2
 Z 0 22179
 S
 #0
+
+#OLIMITS
+O 22101 1	* Lizard King Sceptre
+O 22102 10	* gray bracelet
+O 22104 3	* wide bracelet
+O 22105 2	* invisible robe
+O 22106 2	* white robe
+O 22107 2	* red robe
+S
 
 #$

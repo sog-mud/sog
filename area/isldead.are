@@ -62,20 +62,35 @@ AFJKP ABILMQ CD HN
 stand stand male 100
 BIV ABCHU huge unknown
 #22303
-shade warrior~
+shade warrior ghost~
 the Shade~
 A ghostly form of rough, muscular warrior is here.
 ~
 A shadowy form clutches at you from the darkness, a powerful 
 undead with a deadly touch.
 ~
-ghost~
-ABFT DFm -1000 0
+unique~
+ABFOT DFTUm -1000 0
 42 30 10d50+2000 1d1+100 8d7+30 'drain'
 -30 -30 -30 -30
-FK 0 I 0
-stand stand none 0
-0 0 medium unknown
+FGK LMQ DI HN
+stand stand none 10
+IV 0 medium unknown
+#22304
+daemon faegwath~
+Faegwath the Undead Sorceror~
+A hole in the air, as black as the night, in a form of a big daemon, guards the gate here.
+~
+A stench of corruption and decay surrounds this sorceror, who has 
+clearly risen from the grave to continue his foul plots and schemes .
+~
+unique~
+ABFGORh DFTUcu 0 0
+47 35 100d40+3000 100d5+1000 10d7+30 'blast'
+-30 -30 -30 -30
+AFGK BLMQ I HNS
+stand stand none 20000
+BIZc ABCDEFGHU large unknown
 #22399
 as~
 as~
@@ -100,7 +115,7 @@ A small key with engraved outline of the crypt lies in the dirt.~~~
 iron~
 key Uf O
 0 0 0 0 0
-0 0 0 P
+0 10 10000 P
 G none
 #22301
 bushido blade sword~
@@ -252,13 +267,22 @@ A
 A
 19 2
 G none
+#22311
+key ringwraith~
+the key of ringwraiths~
+A small key engraved with geometrical patterns lies here.~
+iron~
+key Uf AO
+0 0 0 0 0
+0 10 10000 P
+G none
 #22399
-battleaxe~
+battleaxe dagger sword~
 battlaxe ~
 Axe~
 iron~
 weapon 0 AN
-sword 10 10 'cleave' BDI
+sword 100 100 'pierce' BDI
 46 10 100000 P
 G none
 #0
@@ -359,6 +383,10 @@ D2
 ~
 ~
 Z 0 22314
+D5
+~
+~
+ABCFGZ 22311 22356
 S
 #22307
 A Crypt~
@@ -879,6 +907,10 @@ D0
 ~
 ~
 Z 0 22330
+D2
+~
+~
+Z 0 22342
 S
 #22337
 A corridor~
@@ -892,6 +924,10 @@ D0
 ~
 ~
 Z 0 22332
+D2
+~
+~
+Z 0 22344
 S
 #22338
 The central hallway~
@@ -910,6 +946,10 @@ D1
 ~
 ~
 Z 0 22339
+D2
+~
+~
+Z 0 22345
 S
 #22339
 The central hallway~
@@ -941,10 +981,312 @@ D0
 ~
 ~
 Z 0 22335
+D1
+~
+~
+Z 0 22341
+D2
+~
+~
+Z 0 22346
 D3
 ~
 ~
 Z 0 22339
+S
+#22341
+The central hallway~
+You walk along the central hallway of the Hall of Ringwraiths,
+continuing to the west and east.  There is almost unbearably cold
+here, walls are covered with frost, and small snowflakes are flying
+in the air.
+~
+0 ANX inside
+D1
+~
+~
+Z 0 22342
+D3
+~
+~
+Z 0 22340
+S
+#22342
+The central hallway~
+You walk along the central hallway of the Hall of Ringwraiths,
+continuing to the west and east.  There is almost unbearably cold
+here, walls are covered with frost, and small snowflakes are flying
+in the air.  Two narrow corridors lead north and south to the another
+hallways.
+~
+0 ANX inside
+D0
+~
+~
+Z 0 22336
+D1
+~
+~
+Z 0 22343
+D2
+~
+~
+Z 0 22347
+D3
+~
+~
+Z 0 22341
+S
+#22343
+The central hallway~
+You walk along the central hallway of the Hall of Ringwraiths,
+continuing to the west and east.  There is almost unbearably cold
+here, walls are covered with frost, and small snowflakes are flying
+in the air.
+~
+0 ANX inside
+D1
+~
+~
+Z 0 22344
+D3
+~
+~
+Z 0 22342
+S
+#22344
+The end of central hallway~
+You stand in the end of the central hallway of the Hall of Ringwraiths.
+There is almost unbearably cold here, walls are covered with frost, and
+small snowflakes are flying in the air.  The central hallway continues
+to the west.  Two narrow corridors lead north and south to the other
+hallways.
+~
+0 ANX inside
+D0
+~
+~
+Z 0 22337
+D2
+~
+~
+Z 0 22348
+D3
+~
+~
+Z 0 22343
+S
+#22345
+A corridor~
+You stand in the narrow corridor.  To the north you can see central
+hallway, and to the south there is southwest corner of the Hall of Ringwraiths.
+You can feel a cold wind from the north, to the south you see a small
+blue lightings sparkling in the air.
+~
+0 ANX inside
+D0
+~
+~
+Z 0 22338
+D2
+~
+~
+Z 0 22349
+S
+#22346
+A corridor~
+You stand in the narrow corridor.  To the north you can see central
+hallway, and to the south there is southwest corner of the Hall of Ringwraiths.
+You can feel a cold wind from the north, to the south you see a small
+blue lightings sparkling in the air.
+~
+0 ANX inside
+D0
+~
+~
+Z 0 22340
+D2
+~
+~
+Z 0 22351
+S
+#22347
+A corridor~
+You stand in the narrow corridor.  To the north you can see central
+hallway, and to the south there is southwest corner of the Hall of Ringwraiths.
+You can feel a cold wind from the north, to the south you see a small
+blue lightings sparkling in the air.
+~
+0 ANX inside
+D0
+~
+~
+Z 0 22342
+D2
+~
+~
+Z 0 22353
+S
+#22348
+A corridor~
+You stand in the narrow corridor.  To the north you can see central
+hallway, and to the south there is southwest corner of the Hall of Ringwraiths.
+You can feel a cold wind from the north, to the south you see a small
+blue lightings sparkling in the air.
+~
+0 ANX inside
+D0
+~
+~
+Z 0 22344
+D2
+~
+~
+Z 0 22355
+S
+#22349
+The southwest corner of the Hall of Ringwraiths~
+You stand in the southwest corner of the Hall of Ringwraiths.  Your
+hair stands and small sparks sting your fingers as you feel energy
+in the air around you.  Main hallway leads east and a narrow crridor
+leads north.  To the south you see the entrance to this Hall.
+~
+0 ANX inside
+D0
+~
+~
+Z 0 22345
+D1
+~
+~
+Z 0 22350
+D2
+~
+~
+Z 0 22356
+S
+#22350
+The southern hallway~
+You walk along the southern wall of the Hall of Ringwraiths, leading
+east and west.  Your hair stands and small sparks sting your fingers
+as you feel energy in the air around you.
+~
+0 ANX inside
+D1
+~
+~
+Z 0 22351
+D3
+~
+~
+Z 0 22349
+S
+#22351
+The southern hallway~
+You walk along the southern wall of the Hall of Ringwraiths, leading
+east and west.  Your hair stands and small sparks sting your fingers
+as you feel energy in the air around you.  To the north you see a narrow
+corridor to the central hallway.
+~
+0 ANX inside
+D0
+~
+~
+Z 0 22346
+D1
+~
+~
+Z 0 22352
+D3
+~
+~
+Z 0 22350
+S
+#22352
+The southern hallway~
+You walk along the southern wall of the Hall of Ringwraiths, leading
+east and west.  Your hair stands and small sparks sting your fingers
+as you feel energy in the air around you.
+~
+0 ANX inside
+D1
+~
+~
+Z 0 22353
+D3
+~
+~
+Z 0 22351
+S
+#22353
+The southern hallway~
+You walk along the southern wall of the Hall of Ringwraiths, leading
+east and west.  Your hair stands and small sparks sting your fingers
+as you feel energy in the air around you.
+~
+0 ANX inside
+D0
+~
+~
+Z 0 22347
+D1
+~
+~
+Z 0 22354
+D3
+~
+~
+Z 0 22352
+S
+#22354
+The southern hallway~
+You walk along the southern wall of the Hall of Ringwraiths, leading
+east and west.  Your hair stands and small sparks sting your fingers
+as you feel energy in the air around you.
+~
+0 ANX inside
+D1
+~
+~
+Z 0 22355
+D3
+~
+~
+Z 0 22353
+S
+#22355
+The southeast corner of the Hall of Ringwraiths~
+You stand in the southeast corner of the Hall of Guards.  Your hair
+stands and small sparks sting your fingers as you feel energy in the
+air around you.  Southern hallway continues to the west, and a narrow
+corridor leads north to the central hallway.
+~
+0 ANX inside
+D0
+~
+~
+Z 0 22348
+D3
+~
+~
+Z 0 22354
+S
+#22356
+The entrance to the Hall of Ringwraiths~
+You stand at the entrance to the Hall of Guards.  This hall is
+filled with all kinds of instruments and devices used for destruction.
+To the north you see a hallway leading east, and huge black gate leads
+up to the Hall of Crypts.
+~
+0 ANX inside
+D0
+~
+~
+Z 0 22349
+D4
+~
+~
+ABCFGZ 0 22306
 S
 #0
 
@@ -953,6 +1295,7 @@ D 0 22302 5 2	* The Entrance to the Dungeon: door to the down: closed and locked
 D 0 22303 2 1	* A Crypt: door to the south: closed
 D 0 22304 2 1	* A Crypt: door to the south: closed
 D 0 22305 2 1	* A Crypt: door to the south: closed
+D 0 22306 5 2	* The Hall of Crypts: door to the down: closed and locked
 D 0 22307 2 1	* A Crypt: door to the south: closed
 D 0 22308 2 1	* A Crypt: door to the south: closed
 D 0 22309 2 1	* A Crypt: door to the south: closed
@@ -979,16 +1322,40 @@ D 0 22322 4 2	* The Hall of the Crypts: door to the up: closed and locked
 D 0 22323 0 1	* A Crypt: door to the north: closed
 D 0 22324 0 1	* A Crypt: door to the north: closed
 D 0 22325 0 1	* A Crypt: door to the north: closed
+D 0 22356 4 2	* The entrance to the Hall of Ringwraiths: door to the up: closed and locked
 M 0 22300 1 22302 1	* the Manticore (The Entrance to the Dungeon)
 E 0 22300 0 17		*	key of the crypts: held in the hands
-M 0 22303 1 22303 1	* the Shade (A Crypt)
+M 0 22303 12 22303 1	* the Shade (A Crypt)
+G 0 22308 0		*	a bracer of defence
 E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
 E 0 22310 0 3		*	a midnight cloak: around the neck (1)
-M 0 22303 1 22304 1	* the Shade (A Crypt)
-M 0 22303 1 22305 1	* the Shade (A Crypt)
-M 0 22303 1 22307 1	* the Shade (A Crypt)
-M 0 22303 1 22308 1	* the Shade (A Crypt)
-M 0 22303 1 22309 1	* the Shade (A Crypt)
+E 0 22311 0 17		*	the key of ringwraiths: held in the hands
+M 0 22303 12 22304 1	* the Shade (A Crypt)
+G 0 22308 0		*	a bracer of defence
+E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
+E 0 22310 0 3		*	a midnight cloak: around the neck (1)
+E 0 22311 0 17		*	the key of ringwraiths: held in the hands
+M 0 22303 12 22305 1	* the Shade (A Crypt)
+G 0 22308 0		*	a bracer of defence
+E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
+E 0 22310 0 3		*	a midnight cloak: around the neck (1)
+E 0 22311 0 17		*	the key of ringwraiths: held in the hands
+M 0 22304 1 22306 1	* Faegwath the Undead Sorceror (The Hall of Crypts)
+M 0 22303 12 22307 1	* the Shade (A Crypt)
+G 0 22308 0		*	a bracer of defence
+E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
+E 0 22310 0 3		*	a midnight cloak: around the neck (1)
+E 0 22311 0 17		*	the key of ringwraiths: held in the hands
+M 0 22303 12 22308 1	* the Shade (A Crypt)
+G 0 22308 0		*	a bracer of defence
+E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
+E 0 22310 0 3		*	a midnight cloak: around the neck (1)
+E 0 22311 0 17		*	the key of ringwraiths: held in the hands
+M 0 22303 12 22309 1	* the Shade (A Crypt)
+G 0 22308 0		*	a bracer of defence
+E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
+E 0 22310 0 3		*	a midnight cloak: around the neck (1)
+E 0 22311 0 17		*	the key of ringwraiths: held in the hands
 M 0 22302 1 22310 1	* Cantoras the Skeletal Lord (A Crypt)
 E 0 22301 0 16		*	the Bushido blade: wielded
 E 0 22302 0 6		*	the Kabuto: over the head
@@ -997,19 +1364,43 @@ E 0 22303 0 5		*	the Hi-Kane-Do battle gown: on the body
 E 0 22305 0 10		*	the Hi-Kane-Do battle sleeves: on the arms
 E 0 22306 0 9		*	the Hi-Kane-Do battle gloves: on the hands
 E 0 22307 0 8		*	the Hi-Kane-Do battle boots: on the feet
-M 0 22301 1 22311 2	* Green Glutton Ghost (The End of Passage)
-M 0 22301 2 22311 2	* Green Glutton Ghost (The End of Passage)
-M 0 22301 2 22312 2	* Green Glutton Ghost (A Narrow Passage)
-M 0 22301 2 22313 2	* Green Glutton Ghost (A Narrow Passage)
-M 0 22301 2 22315 2	* Green Glutton Ghost (A Narrow Passage)
-M 0 22301 2 22316 2	* Green Glutton Ghost (A Narrow Passage)
-M 0 22301 2 22317 2	* Green Glutton Ghost (The End of Passage)
-M 0 22303 1 22319 1	* the Shade (A Crypt)
-M 0 22303 1 22320 1	* the Shade (A Crypt)
-M 0 22303 1 22321 1	* the Shade (A Crypt)
-M 0 22303 1 22323 1	* the Shade (A Crypt)
-M 0 22303 1 22324 1	* the Shade (A Crypt)
-M 0 22303 1 22325 1	* the Shade (A Crypt)
+M 0 22301 12 22311 2	* Green Glutton Ghost (The End of Passage)
+M 0 22301 12 22312 2	* Green Glutton Ghost (A Narrow Passage)
+M 0 22301 12 22313 2	* Green Glutton Ghost (A Narrow Passage)
+O 0 22399 0 22314	* battlaxe  (The Hall of the Crypts)
+M 0 22301 12 22315 2	* Green Glutton Ghost (A Narrow Passage)
+M 0 22301 12 22316 2	* Green Glutton Ghost (A Narrow Passage)
+M 0 22301 12 22317 2	* Green Glutton Ghost (The End of Passage)
+M 0 22303 12 22319 1	* the Shade (A Crypt)
+G 0 22308 0		*	a bracer of defence
+E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
+E 0 22310 0 3		*	a midnight cloak: around the neck (1)
+E 0 22311 0 17		*	the key of ringwraiths: held in the hands
+M 0 22303 12 22320 1	* the Shade (A Crypt)
+G 0 22308 0		*	a bracer of defence
+E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
+E 0 22310 0 3		*	a midnight cloak: around the neck (1)
+E 0 22311 0 17		*	the key of ringwraiths: held in the hands
+M 0 22303 12 22321 1	* the Shade (A Crypt)
+G 0 22308 0		*	a bracer of defence
+E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
+E 0 22310 0 3		*	a midnight cloak: around the neck (1)
+E 0 22311 0 17		*	the key of ringwraiths: held in the hands
+M 0 22303 12 22323 1	* the Shade (A Crypt)
+G 0 22308 0		*	a bracer of defence
+E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
+E 0 22310 0 3		*	a midnight cloak: around the neck (1)
+E 0 22311 0 17		*	the key of ringwraiths: held in the hands
+M 0 22303 12 22324 1	* the Shade (A Crypt)
+G 0 22308 0		*	a bracer of defence
+E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
+E 0 22310 0 3		*	a midnight cloak: around the neck (1)
+E 0 22311 0 17		*	the key of ringwraiths: held in the hands
+M 0 22303 12 22325 1	* the Shade (A Crypt)
+G 0 22308 0		*	a bracer of defence
+E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
+E 0 22310 0 3		*	a midnight cloak: around the neck (1)
+E 0 22311 0 17		*	the key of ringwraiths: held in the hands
 S
 
 #OLIMITS

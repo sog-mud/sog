@@ -119,6 +119,22 @@ AFHR BDFHNUflty 0 0
 stand stand male 0
 ABDMPYZ E huge unknown
 V 36110
+#36111
+shadow watcher~
+@eng Shadow@rus ~~Тень~~~
+@eng Huge Shadow lies around.
+@rus Огромная тень окружает тебя.
+~
+~
+undead~
+ABOci gl -1000 0
+92 0 1d1+100000 1d1+100000 0d0+0 'wrath'
+-100 -100 -100 -100
+0 DKP 0 0
+stand stand none 0
+0 0 gargantuan unknown
+C Invaders
+W 92
 #36114
 irlaniel~
 @eng Irlaniel@rus Ирланиэль~
@@ -875,7 +891,7 @@ trash 0 0
 G male
 #36163
 aura~
-@eng {Ddark aura{x@rus {D ~~темная~~ ~~аура~~ {x~
+@eng {Ddark aura{x@rus {D~~темная~~ ~~аура~~{x~
 @eng {DDark Aura{x floats in the air.@rus В воздухе витает {Dтемная аура{x (aura).~
 shadow~
 armor ABCEFJSTYb AQ
@@ -918,7 +934,7 @@ wand A AO
 G male
 #36166
 лужа pool~
-@eng {Ddirty{x pool@rus {D ~~грязная~~{x ~~лужа~~~
+@eng {Ddirty{x pool@rus {D~~грязная~~ ~~лужа~~{x~
 @eng The very dirty pool surrounds the column.@rus {DГрязнющая лужа{x (pool) окружает столб.~
 water~
 fountain C 0
@@ -1229,6 +1245,7 @@ S
 
 #SPECIALS
 M 36110 spec_cast_mage	* Solmyr
+M 36111 spec_cast_undead	* Shadow
 M 36114 spec_cast_cleric	* Irlaniel
 M 36115 spec_cast_mage	* Remitoel
 S

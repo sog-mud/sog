@@ -1,6 +1,5 @@
 #AREADATA
 Name Ghost~
-Builders arwen~
 VNUMs 8100 8199
 Credits Yaegar~
 Security 9
@@ -623,7 +622,7 @@ G male
 hand vecna рука~
 @eng the Hand of Vecna@rus ~~рука~~ Векны~
 @eng The Hand of Vecna lies here.@rus Рука (hand) Векны лежит здесь.~
-leather steel~
+leather~
 armor EHJMQ AH
 18 19 18 10 0
 56 5 10000 P
@@ -644,7 +643,7 @@ G female
 eye vecna глаз~
 @eng the Eye of Vecna@rus ~~глаз~~ Векны~
 @eng The Eye of Vecna glows evilly here.@rus Глаз (eye) Векны сверкает красным цветом и просто-таки излучает зло.~
-leather steel~
+leather~
 armor AEJM AE
 18 18 18 10 0
 56 1 10000 P

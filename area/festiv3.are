@@ -1,6 +1,5 @@
 #AREADATA
 Name Festival Town~
-Builders agrael kami thorn diogen~
 VNUMs 36300 36499
 Credits Agrael Kami~
 Security 9
@@ -1280,7 +1279,7 @@ G male
 platemail black scale кольчуга~
 @eng black scale platemail@rus {D~~черная~~ ~~кольчуга~~ {x~
 @eng A platemail glows in dark.@rus Кольчуга (platemail) блестит в темноте.~
-black dragonscale~
+dragonskin~
 armor ABCEG AD
 35 35 35 27 0
 85 23 16700 G
@@ -1297,7 +1296,7 @@ G female
 gauntlets black dragon перчатки~
 @eng black dragon gauntlets@rus {D~~перчатки~~ из кожи черного дракона {z~
 @eng A pair of dark scale gauntlets is waiting to be worn.@rus Пара черных перчаток (gauntlets) ждет своего хозяина.~
-black dragonscale~
+dragonskin~
 armor ABCEG AH
 30 30 30 24 0
 85 20 18000 P
@@ -1310,7 +1309,7 @@ G plural
 leg black dragon plates поножи~
 @eng black dragon leg plates@rus {D~~поножи~~ из черной драконьей кожи {z~
 @eng A pile of black scale lies here.@rus Груда черной чешуи (leg) лежит здесь.~
-black dragonscale~
+dragonskin~
 armor ABCEG AF
 28 28 28 16 0
 85 25 17000 P
@@ -1338,7 +1337,7 @@ G male
 boots black scale dragon сапоги~
 @eng black dragon boots@rus {D~~черные~~ ~~сапоги~~ {z~
 @eng A pair of scale dragon boots sits here.@rus Драконьи морды грозно поглядавают на тебя с носков черных сапог (boots).~
-black dragonscale~
+dragonskin~
 armor ABCEG AG
 31 28 31 20 0
 85 12 15000 P

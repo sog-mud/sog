@@ -356,9 +356,9 @@ A
 2 -1
 G none
 #13008
-spiked adamantite platemail~
-a suit of spiked adamantite platemail~
-Some spiked piles of admantite rest on the floor.~
+spiked adamantite platemail шипастая адамантитовая пластинчатая кольчуга~
+@eng a suit of spiked adamantite platemail@rus ~~кольчужный~~ ~~набор~~ из адамантита с шипами~
+@eng Some spiked piles of admantite rest on the floor.@rus На полу лежит кольчужный набор из адамантита с шипами (platemail).~
 adamantite~
 armor AB AD
 8 8 8 8 8
@@ -369,11 +369,11 @@ A
 2 -3
 A
 20 -10
-G none
+G male
 #13009
-spiked adamantite helm~
-a spiked adamantite battle helm~
-A spiked adamantite helm rests in the corner.~
+spiked adamantite helm шипастый адамантитовый шлем~
+@eng a spiked adamantite battle helm@rus ~~боевой~~ ~~шипастый~~ ~~адамантитовый~~ ~~шлем~~~
+@eng A spiked adamantite helm rests in the corner.@rus Шипастый адамантитовый шлем (helm) закатился в угол.~
 adamantite~
 armor AB AE
 8 8 8 8 8
@@ -386,11 +386,11 @@ A
 2 -2
 A
 20 -5
-G none
+G male
 #13010
-spiked adamantite leggings~
-some spiked adamantite battle leggings~
-Some spiked adamantite leggings sit here.~
+spiked adamantite leggings шипастые адамантитовые гамаши~
+@eng some spiked adamantite battle leggings@rus ~~боевые~~ ~~шипастые~~ ~~адамантитовые~~ ~~гамаши~~~
+@eng Some spiked adamantite leggings sit here.@rus На полу лежат шипастые гамаши из адамантита (leggings).~
 adamantite~
 armor AB AF
 8 8 8 8 8
@@ -401,11 +401,11 @@ A
 2 -2
 A
 20 -5
-G none
+G plural
 #13011
-spiked adamantite boots~
-spiked adamantite battle boots~
-Some spiked adamantite boots are here.~
+spiked adamantite boots шипастые адамантитовые сапоги~
+@eng spiked adamantite battle boots@rus ~~боевые~~ ~~шипастые~~ ~~адамантитовые~~ ~~сапоги~~~
+@eng Some spiked adamantite boots are here.@rus На полу стоят шипастые сапоги из адамантита (boots).~
 adamantite~
 armor AB AG
 8 8 8 8 8
@@ -417,11 +417,11 @@ A
 2 -2
 A
 20 -5
-G none
+G plural
 #13012
-robe~
-Robe of the Healer~
-A crumpled up robe radiates a magical aura here.~
+robe халат~
+@eng Robe of the Healer@rus ~~халат~~ ~~лекаря~~~
+@eng A crumpled up robe radiates a magical aura here.@rus Лежащий на полу скомканный халат (robe) окружен волшебной аурой.~
 wool~
 armor B AD
 8 8 8 8 8
@@ -435,11 +435,11 @@ A
 4 3
 A
 12 75
-G none
+G male
 #13013
-hammer power~
-the Hammer of Power~
-A Huge hammer draws your attention as it radiates power.~
+hammer power молот силы~
+@eng the Hammer of Power@rus ~~Молот~~ ~~Силы~~~
+@eng A Huge hammer draws your attention as it radiates power.@rus Исходящая из огромного молота (hammer) сила влечет тебя.~
 adamantite~
 weapon 0 AN
 mace 8 7 'suction' F
@@ -448,11 +448,11 @@ A
 1 4
 A
 12 50
-G none
+G male
 #13014
-ring signet~
-the Captain's Signet Ring~
-The signet ring of the Captain of the Castle guard is here.~
+ring signet кольцо с печаткой~
+@eng the Captain's Signet Ring@rus ~~капитанское~~ ~~кольцо~~ с печаткой~
+@eng The signet ring of the Captain of the Castle guard is here.@rus На полу лежит кольцо с печаткой (ring) капитана замковой стражи.~
 copper~
 armor A AB
 10 10 10 10 10

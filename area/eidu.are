@@ -1,6 +1,5 @@
 #AREADATA
 Name Eidu~
-Builders eidu lothar~
 VNUMs 44000 44299
 Credits Eidu~
 Security 3
@@ -68,7 +67,7 @@ F for AHMV
 grand katana of war~
 @eng {RGrand Katana of War{x@rus {RGrand Katana of War{x~
 @eng A long curved sword lying here.@rus длинный изогнутый меч лежит здесь~
-japan steel~
+steel~
 weapon IMT AN
 sword 100 30 'pierce' D
 5 10 0 P
@@ -122,7 +121,7 @@ G none
 Statue of Eidu~
 @eng Статуя главного самурая~
 ~
-мрамор~
+marble~
 fountain R 0
 0 0 'water' 0 0
 0 0 0 P
@@ -131,7 +130,7 @@ G none
 axe bloody amputation~
 {RBloody Axe of Amputation{x~
 A large axe is here, its blade stuck in the ground.~
-medicine steel~
+steel~
 weapon 0 AN
 axe 9 9 'chop' DEI
 40 0 0 P
@@ -140,7 +139,7 @@ G none
 hammer great sleep~
 {yGreat Hammer of Sleep{x~
 large wooden hammer hangs here.~
-wooden~
+wood~
 wand 0 AO
 300 1000000 1000000 'terangreal' 0
 40 0 0 P
@@ -175,7 +174,7 @@ G none
 ring black skull~
 @eng ring with little black skull@rus кольцо с маленьким черным черепом~
 small ring lies here~
-steal~
+steel~
 armor PY AB
 0 0 0 0 0
 32 0 0 P

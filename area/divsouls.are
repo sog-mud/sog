@@ -2353,7 +2353,7 @@ G none
 mark gabrian white insignia hair~
 Mark of Gabrian~
 An insignia woven of white panther hair lies here.~
-hair~
+flesh~
 armor BIM AE
 21 21 20 20 32768
 80 0 2000 P
@@ -2879,7 +2879,7 @@ G none
 furry gloves~
 some furry gloves~
 A pair of furry gloves lies here.~
-hair~
+flesh~
 armor 0 AH
 13 13 14 13 0
 45 10 1200 P
@@ -2941,7 +2941,7 @@ G none
 mark daemias black hair~
 Mark of Daemias~
 An insignia woven of shadow black panther hair lies here, humming.~
-hair~
+flesh~
 armor BCM AE
 21 21 20 21 0
 80 0 9400 P

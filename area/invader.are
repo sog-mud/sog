@@ -1,6 +1,5 @@
 #AREADATA
 Name Invader~
-Builders osya~
 VNUMs 95600 95699
 Credits Asena~
 Security 9
@@ -146,7 +145,7 @@ G none
 globe sphere~
 @eng the nothing globe@rus ~~шар~~ пустоты~
 @eng A small, sphere shaped unexistance area floats in the air.@rus Маленькая сфера (sphere) нематериальной субстанции плавает в воздухе.~
-nothing~
+~
 treasure CEORTe AO
 0 0 0 0 0
 0 2 10000 P

@@ -1,6 +1,5 @@
 #AREADATA
 Name Warders~
-Builders vivien~
 VNUMs 96000 96099
 Credits Vivien~
 Security 1
@@ -98,8 +97,8 @@ BD GJOQRST EHKN DGH DGH
 0 1000000 0 P
 G none
 #96010
-~
-cap~
+cap milk~
+cap of milk~
 huge cap of milk is  flying here here~
 wood~
 fountain AB 0
@@ -386,7 +385,7 @@ O 0 96005 0 96007	* branch (Dark Part of the Great Oak)
 M 0 96001 1 96008 1	* the ancient owl (The Top of the Great Oak)
 O 0 96002 0 96009	* the hollow (The Room of Silence)
 P 0 96001 0 96002 1	* the hollow: the Leaf of Great Oak
-O 0 96010 0 96010	* cap (Desert)
+O 0 96010 0 96010	* cap of milk (Desert)
 S
 
 #MOBPROGS

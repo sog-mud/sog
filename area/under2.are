@@ -2265,7 +2265,7 @@ G none
 gauntlet eye~
 Gauntlets of the eye~
 A pair of gauntlets with the design of an eye on them rest here~
-gold amethyst~
+gold~
 armor A AH
 14 13 14 5 0
 43 3 1000 P
@@ -16363,6 +16363,7 @@ S
 
 #OLIMITS
 O 16011 1	* Breast plate of strength
+O 16016 9	* Gauntlets of the eye
 O 16036 2	* Boots of flying
 O 16081 1	* Dragon tattoo
 O 16089 1	* Demon fire

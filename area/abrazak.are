@@ -447,7 +447,7 @@ G none
 box~
 @eng {ra box of chocolate sweets{x@rus {rкоробка шоколадных конфет{x~
 @eng Box of chocolate sweets is here.@rus Коробка шоколадных кофет лежит тут.~
-картон~
+paper~
 container GRYa AOP
 100 0 0 0 0
 0 0 0 P

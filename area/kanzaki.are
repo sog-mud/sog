@@ -336,7 +336,7 @@ G none
 vodka glass paladinskaya~
 @eng A glass of "{WSpecial paladin's{x" vodka@rus Стопка "{WОсобой паладинской{x" водки~
 @eng A glass of vodka catches your eye, drink it!@rus Стопочка водки притягивает твой взгляд.~
-запотевшее стекло~
+glass~
 potion HIRYZ A
 40 'garble' 'frenzy' 'slow' 'make arrow'
 10 0 0 P
@@ -354,7 +354,7 @@ G none
 cucumber~
 @eng {gsalted cucumber{x@rus {gмалосольный огурчик{x~
 @eng Wow it's salted cucumber! Must be perfect with vodka!@rus Огурчик... соленый..!~
-огурятина~
+meat~
 food 0 AN
 A A 0 0 0
 0 10 0 P
@@ -521,7 +521,7 @@ G none
 anvil iron huge~
 @eng a huge anvil@rus Чугунная наковальня~
 @eng A huge anvil made of cast iron is here.@rus Огромная чугунная наковальня стоит здесь.~
-cast iron~
+iron~
 furniture BY 0
 A FHJKPQ EHN BEF BEF
 0 1000 1 P
@@ -572,7 +572,7 @@ G none
 altar~
 @eng Altar@rus Алтарь~
 @eng An altar stands here.@rus Небольшой алтарь стоит здесь.~
-altarite~
+marble~
 furniture Y 0
 0 0 N 0 0
 0 1 1 P
@@ -586,7 +586,7 @@ G none
 tatamis~
 @eng tatamis@rus татами~
 @eng Several tatamis lie on the floor before altar.@rus Татами лежат на полу перед алтарем.~
-tatamite~
+studded leather~
 furniture Y 0
 AB INOPQSUVWXYa EH CFG CFG
 0 1 1 P

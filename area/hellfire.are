@@ -1,6 +1,5 @@
 #AREADATA
 Name Hellfire~
-Builders orrin~
 VNUMs 18700 18799
 Credits Orrin~
 Security 1
@@ -177,7 +176,7 @@ C Shalafi
 axe huge flaming fire orrin~
 @eng {YHuge Flaming Axe{x@rus {Y~~Пылающая~~ ~~секира~~{x~
 @eng Huge {YFlaming{x Axe has been left here.@rus Orrin забыл здесь свою секиру (axe), может стоит вернуть?~
-fire~
+flame~
 weapon ABKLRSTac ANP
 axe 1 9999 'flame' AD
 95 300 2147483647 P
@@ -376,7 +375,7 @@ G male
 mace flaming~
 flaming mace~
 flaming mace lies here.~
-fire~
+flame~
 weapon AB AN
 mace 7 5 'flame' AD
 25 0 32536 P
@@ -463,7 +462,7 @@ G none
 light holy pillar свет~
 @eng holy light@rus ~~божественный~~ ~~свет~~~
 @eng The pillar of light falls from the heaven.@rus Столб света (light) льется с неба, освещая все вокруг.~
-holy~
+light~
 light AIh A
 0 0 -1 0 0
 10 0 100000 P
@@ -1545,7 +1544,7 @@ mob damage all 1 1 nokill
 #0
 
 #PRACTICERS
-M 18700 weaponsmaster attack beguiling benedictions combat creation curative detection draconian enchantment enhancement harmful healing illusion maladictions protective transportation clan defensive wizard~	* Urukhay
+M 18700 weaponsmaster attack beguiling benedictions combat creation curative draconian enchantment enhancement harmful healing illusion maladictions protective transportation clan defensive wizard~	* Urukhay
 S
 
 #$

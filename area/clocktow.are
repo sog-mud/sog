@@ -1,6 +1,5 @@
 #AREADATA
 Name Clock Tower~
-Builders agrael kami diogen~
 VNUMs 4900 4999
 Credits Kami Agrael~
 Security 9
@@ -774,7 +773,7 @@ G plural
 broom chimney black щетка черная~
 @eng black chimney broom@rus ~~черная~~ ~~щетка~~ трубочиста~
 @eng A chimney broom lies here.@rus Щетка (broom) трубочиста лежит тут.~
-wire~
+steel~
 staff 0 AO
 25 10 10 'faerie fog' 0
 15 10 1500 P

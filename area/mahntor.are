@@ -1,6 +1,5 @@
 #AREADATA
 Name Mahn-Tor~
-Builders demirror~
 VNUMs 2300 2399
 Credits Chris~
 Security 9
@@ -569,7 +568,7 @@ stand stand male 5000
 gloves combat~
 a pair of minotaur combat gloves~
 A pair of metal plated gloves lie here.~
-leather steel~
+leather~
 armor 0 AH
 8 8 8 0 0
 25 60 2600 P
@@ -782,7 +781,7 @@ G none
 ring banded~
 a banded ring~
 A small ring made of gold and silver bands lies here.~
-gold silver~
+silver~
 jewelry AG AB
 0 0 0 0 0
 30 20 1520 P
@@ -1530,7 +1529,7 @@ G none
 star morning morningstar~
 a huge morningstar~
 A huge morningstar rests here.~
-wood steel~
+wood~
 weapon G AN
 mace 7 5 'pound' 0
 29 200 2300 P
@@ -1560,7 +1559,7 @@ G none
 ring key multi colored multi-colored~
 a multi-colored key ring~
 A ring of multi-colored keys rests here.~
-steel cloth~
+steel~
 container 0 AC
 10 0 0 2 100
 0 30 0 P
@@ -1636,7 +1635,7 @@ G none
 gauntlets ogre power~
 gauntlets of ogre power~
 Some heavy gauntlets lie here.~
-gold amethyst~
+gold~
 armor BG AH
 9 9 9 0 0
 23 130 5800 P

@@ -1374,7 +1374,7 @@ G none
 bracer~
 an Ornate Bracer~
 An Ornate Bracer with a black and gold coat of arms is lying here.~
-leather gold~
+leather~
 armor 0 AM
 16 17 17 8 0
 52 15 8000 P
@@ -1400,7 +1400,7 @@ G none
 helm~
 an Ornate Helm~
 An Ornate Helm bearing a black and gold coat of arms lies here.~
-steel gold~
+steel~
 armor 0 AE
 17 17 17 8 0
 52 10 3000 P

@@ -257,7 +257,7 @@ stand stand none 13
 pick~
 a small mining pick~
 A small mining pick made of what appears to be silver lies on the ground.~
-wood silver-iron~
+silver~
 weapon J AN
 axe 1 9 'pierce' 0
 5 30 320 P
@@ -266,7 +266,7 @@ G none
 banded mail~
 a glowing suit of banded mail~
 A glowing suit of banded mail lies on the ground.~
-wood-iron~
+iron~
 armor AG AD
 7 7 7 0 0
 23 0 7300 P
@@ -292,7 +292,7 @@ G none
 amulet~
 the amulet~
 A mushroom shaped amulet lies on the ground.~
-marble ruby~
+marble~
 jewelry G AC
 0 0 0 0 0
 5 20 550 P
@@ -475,7 +475,7 @@ G none
 chest~
 an iron bound chest~
 An iron bound chest with a shiny lock sits here.~
-iron-wood~
+iron~
 container 0 0
 200 ACD 5024 200 100
 0 0 0 P

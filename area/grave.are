@@ -103,7 +103,7 @@ stand stand male 5
 candlestick~
 a candlestick~
 A pewter candlestick is standing here.~
-parafin~
+wax~
 light 0 AO
 0 0 24 0 0
 0 50 10 P
@@ -161,7 +161,7 @@ G none
 shovel~
 a shovel~
 A shovel is lying here.~
-iron ebony~
+iron~
 weapon 0 AN
 mace 1 5 'pound' 0
 0 80 169 P

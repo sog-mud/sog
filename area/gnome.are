@@ -381,7 +381,7 @@ stand stand male 130
 key bloody~
 a bloody key~
 A bloody key is stuck to the floor.~
-wood blood~
+wood~
 key 0 A
 B 0 0 0 0
 0 10 0 P
@@ -426,7 +426,7 @@ G none
 shield studded~
 a studded shield~
 A studded wooden shield lies here.~
-iron-wood~
+wood~
 armor 0 AJ
 4 4 4 1 0
 5 100 750 P
@@ -549,7 +549,7 @@ G none
 shield stone~
 a stone shield~
 A stone slab lies here.~
-stone iron~
+stone~
 armor 0 AJ
 4 4 4 2 0
 16 350 3700 P

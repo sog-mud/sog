@@ -700,7 +700,7 @@ G none
 hammer copper~
 a copper hammer~
 A copper hammer is lying on the ground.~
-copper wood~
+copper~
 weapon 0 AN
 mace 4 5 'crush' 0
 15 120 750 P

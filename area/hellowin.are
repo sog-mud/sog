@@ -127,7 +127,7 @@ G none
 food~
 @eng {rHot and tasty bite of roasted meat{w@rus {rВкусный и горЯчий шашлык из свежей баранины{w~
 @eng Appetizing looking roasted bite of meat.@rus Аппетитно выглядящий шашлык нанизан на шампур.~
-баранина~
+meat~
 food SY A
 CE CE 0 0 0
 1 1 1 P
@@ -169,7 +169,7 @@ G none
 karmael statue piss~
 @eng Pissed Karmael@rus {YСтатуя писающего Кармаеля стоит здесь!{\{Y    Он одет в форму штандартенфюрера СС фон{\{Y    Штирлица, глаза дико выпучены!  Он рад!{x~
 @eng {YStatue of Karmael stay there , him eye blob and worry , Karmael pissed at pool. You noise like scent white wine ...{x@rus {YСтатуя писающего Кармаеля стоит здесь!!{\Он одет в форму штандартенфюрера СС фон{\Штирлица, глаза дико выпучены!  Он рад!{x~
-sand~
+marble~
 fountain RTYa AP
 -1 -1 'salt water' 0 0
 1 20000 2147483647 P

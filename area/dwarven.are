@@ -284,7 +284,7 @@ G none
 dwarven hammer~
 a hammer~
 There is a dwarven hammer laying here.~
-iron wood~
+iron~
 weapon 0 AN
 mace 4 5 'pound' 0
 17 30 880 P
@@ -302,7 +302,7 @@ G none
 stick~
 long, black stick~
 There is a long, black stick lying here.~
-wood cloth~
+wood~
 staff 0 AO
 4 10 10 'cure critical' 0
 11 10 4800 P
@@ -311,7 +311,7 @@ G none
 stick~
 long, black stick~
 There is a long, black stick here.~
-wood cloth~
+wood~
 light 0 AO
 0 0 50 0 0
 0 10 0 P
@@ -329,7 +329,7 @@ G none
 two-handed dwarven axe~
 a two-handed dwarven axe~
 A two-handed Dwarven axe is here.~
-wood steel~
+steel~
 weapon 0 AN
 axe 3 7 'cleave' F
 17 50 4100 P
@@ -420,7 +420,7 @@ G none
 pick~
 a mining pick~
 There is a mining pick here.~
-iron wood~
+iron~
 weapon I AN
 axe 2 3 'pierce' 0
 3 10 240 P

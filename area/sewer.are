@@ -492,7 +492,7 @@ G none
 stick small light~
 a small stick~
 A small stick lies here.~
-wood cloth~
+wood~
 light 0 AO
 0 0 120 0 0
 0 10 5 P
@@ -524,7 +524,7 @@ G none
 treasure coins~
 a huge treasure~
 There is a huge treasure here, looking very valuable.~
-silver gold~
+silver~
 money 0 A
 400 3 0 0 0
 0 0 0 P
@@ -691,7 +691,7 @@ G none
 treasure coins~
 a huge treasure~
 A huge treasure is lying here, looking very valuable.~
-silve gold~
+silver~
 money 0 A
 400 12 0 0 0
 0 0 0 P
