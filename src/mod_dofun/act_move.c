@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.202.2.27 2002-11-23 15:36:20 fjoe Exp $
+ * $Id: act_move.c,v 1.202.2.28 2003-12-25 21:20:45 sg Exp $
  */
 
 /***************************************************************************
@@ -2888,7 +2888,7 @@ void do_charge(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->mount == NULL) {
+	if (MOUNTED(ch) == NULL) {
 		char_puts("You have to be riding.\n", ch);
 		return;
 	}
