@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.dist,v 1.14 1999-05-22 16:49:47 avn Exp $
+# $Id: Makefile.dist,v 1.15 1999-05-22 17:42:25 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
@@ -79,7 +79,7 @@ OFILES = act_comm.o act_info.o act_move.o act_obj.o act_wiz.o auction.o\
 	 effects.o fight.o flag.o handler.o healer.o help.o\
 	 hunt.o interp.o log.o lookup.o magic.o magic2.o martial_art.o mem.o\
 	 mlstring.o mob_cmds.o mob_prog.o namedp.o note.o obj_prog.o quest.o\
-	 race.o raffects.o rating.o recycle.o religion.o repair.o rspells.c\
+	 race.o raffects.o rating.o recycle.o religion.o repair.o rspells.o\
 	 save.o skills.o special.o str.o string_edit.o\
 	 tables.o update.o util.o varr.o\
 	 $(COMM_OFILES) $(DB_OFILES) $(OLC_OFILES) $(COMPAT_OFILES)
