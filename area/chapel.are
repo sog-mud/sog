@@ -1,8 +1,14 @@
-#AREA
-chapel.are~
-Chapel~
-{15 25} Copper  Chapel Catacombs~
-3400 3499
+#AREADATA
+Name Chapel~
+Builders None~
+VNUMs 3400 3499
+Credits Copper~
+Security 9
+LevelRange 15 25
+End
+
+
+
 #MOBILES
 #3400
 oldstyle skeleton bony~
@@ -18,7 +24,7 @@ AF 0 0 0
 9 9 9 10
 EFNU 0 0 E
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #3401
 oldstyle undead zombie~
 the undead zombie~
@@ -34,7 +40,7 @@ ABF DF -100 0
 6 6 6 9
 EFNU 0 0 0
 stand stand male 2
-0 0 medium 0
+0 0 medium unknown
 #3402
 oldstyle undead ghoul~
 The ghoul~
@@ -49,7 +55,7 @@ AF D -500 0
 4 4 4 9
 EFNU 0 0 0
 stand stand male 7
-0 0 medium 0
+0 0 medium unknown
 #3403
 oldstyle undead wraith~
 The wraith~
@@ -65,7 +71,7 @@ ABF BDF -750 0
 0 0 0 8
 EFNU 0 0 0
 stand stand male 50
-0 0 medium 0
+0 0 medium unknown
 #3404
 oldstyle undead guardian vampire~
 The guardian vampire~
@@ -80,7 +86,7 @@ ABF DF -1000 0
 -8 -8 -8 6
 EFNU 0 0 0
 stand stand male 750
-0 0 medium 0
+0 0 medium unknown
 #3405
 oldstyle priest~
 the priest~
@@ -96,7 +102,7 @@ ABQ DFH 1000 0
 -2 -2 -2 6
 EIKU 0 0 0
 stand stand male 20
-0 0 medium 0
+0 0 medium unknown
 #3406
 oldstyle Mi-Go Fungi~
 the Mi-Go~
@@ -114,7 +120,7 @@ AF 0 -500 0
 0 0 0 8
 EFNU 0 0 0
 stand stand none 32
-0 0 medium 0
+0 0 medium unknown
 #3407
 oldstyle nightgaunt~
 The nightgaunt~
@@ -132,7 +138,7 @@ AFG PQ -1000 0
 1 1 1 8
 EFNU 0 0 0
 stand stand none 7
-0 0 medium 0
+0 0 medium unknown
 #3408
 oldstyle hunting horror~
 The hunting horror~
@@ -150,7 +156,7 @@ AF DF -1000 0
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand none 100
-0 0 medium 0
+0 0 medium unknown
 #3409
 oldstyle weeds~
 some cave weeds~
@@ -164,7 +170,7 @@ ACF DPQ 0 0
 4 4 4 9
 EFNU 0 0 0
 stand stand none 4
-0 0 medium 0
+0 0 medium unknown
 #3410
 oldstyle snapper joe~
 Snapper Joe~
@@ -180,7 +186,7 @@ AB D -750 0
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 111
-0 0 medium 0
+0 0 medium unknown
 #3411
 oldstyle X-ist eater~
 The X-ist flesh eater~
@@ -198,7 +204,7 @@ ABF D -1000 0
 -3 -3 -3 7
 EFNU 0 0 0
 stand stand male 78
-0 0 medium 0
+0 0 medium unknown
 #3412
 oldstyle spirit ghost king crotus~
 the spirit of King Crotus~
@@ -217,7 +223,7 @@ ABR DF 350 0
 -4 -4 -4 3
 FU 0 0 0
 stand stand male 2
-0 0 medium 0
+0 0 medium unknown
 #3413
 oldstyle rock slug~
 the rock slug~
@@ -231,7 +237,7 @@ AC 0 0 0
 7 7 7 10
 EFNU 0 0 0
 stand stand none 0
-0 0 medium 0
+0 0 medium unknown
 #3414
 oldstyle etcher~
 The mad etcher~
@@ -253,7 +259,7 @@ AGR A 1000 0
 6 6 6 8
 FU 0 0 0
 sit sit male 2
-0 0 medium 0
+0 0 medium unknown
 #3415
 oldstyle wife ghost specter~
 The spectral etcher's wife~
@@ -271,7 +277,7 @@ AB Q 1000 0
 4 4 4 9
 EFNU 0 0 0
 stand stand female 6
-0 0 medium 0
+0 0 medium unknown
 #3416
 oldstyle body~
 The half-decomposed body~
@@ -285,8 +291,11 @@ ACF 0 -350 0
 4 4 4 9
 EFNU 0 0 0
 stand stand male 4
-0 0 medium 0
+0 0 medium unknown
 #0
+
+
+
 #OBJECTS
 #3400
 candlestick~
@@ -324,7 +333,7 @@ disgusting pinkish plasma webbing~
 A pile of pink material is lying here~
 pinkplasma~
 armor JL AD
-5 5 5 4 0
+AC AC AC C 0
 10 100 1800 P
 E
 plasma webbing~
@@ -446,7 +455,7 @@ a mound of coins fit for a dead king~
 You see a mound of coins fit for a dead king here~
 silver~
 money 0 A
-400 8 0 0 0
+EHI D 0 0 0
 0 500 0 P
 #3419
 key~
@@ -492,7 +501,7 @@ a piece of slime~
 You step on a piece of slime...your foot squishes a bit~
 food~
 food 0 A
-15 15 0 0 0
+ABCD ABCD 0 0 0
 0 10 0 P
 E
 slime piece~
@@ -564,7 +573,7 @@ a dark black cape~
 A dark black cape is lying here~
 leather~
 armor G AK
-5 5 5 0 0
+AC AC AC 0 0
 0 100 100 P
 A
 17 10
@@ -599,7 +608,7 @@ a worn and dented breast plate~
 A piece of armour is here.~
 iron~
 armor 0 AD
-6 6 6 0 0
+BC BC BC 0 0
 15 500 2100 P
 E
 breast dented plate worn~
@@ -619,6 +628,8 @@ for the altar...
 ~
 #0
 
+
+
 #ROOMS
 #3405
 Inside the Chapel~
@@ -626,6 +637,14 @@ You are in a small, dark chapel.  The dark brown glass in the tiny windows
 do not let much light through.  A few rows of worn wooden benches stand here.
 ~
 0 0 1
+E
+benches rows~
+The benches are not of the comfortable kind.
+~
+E
+glass windows~
+The windows must be meant to be dark.  At least they are completely clean.
+~
 D0
 The chapel door is made of dark wood.
 ~
@@ -635,14 +654,6 @@ D5
 ~
 altar~
 2 3430 3421
-E
-benches rows~
-The benches are not of the comfortable kind.
-~
-E
-glass windows~
-The windows must be meant to be dark.  At least they are completely clean.
-~
 S
 #3408
 Stairwell into Darkness~
@@ -706,15 +717,6 @@ south with something strange written above it.  Also on the floor are dried
 blood stains, but their color seems a little wrong.
 ~
 0 AD 0
-D1
-~
-~
-0 0 3417
-D2
-A door to the south
-~
-door~
-1 -1 3413
 E
 door writing~
 Above the door is some strange writing!  It is worn with age, but it refers
@@ -724,6 +726,15 @@ E
 stain stains~
 That's odd ... they seem a little GREEN.
 ~
+D1
+~
+~
+0 0 3417
+D2
+A door to the south
+~
+door~
+1 -1 3413
 S
 #3413
 The Shrine of Shohan~
@@ -741,7 +752,7 @@ north~
 D2
 ~
 south~
-1 -1 3414
+0 -1 3414
 S
 #3414
 The Tomb of Shohan~
@@ -752,20 +763,20 @@ of the once powerful King Shohan lies here.  A door leads to the north and a
 doorway has been hewn to the east.
 ~
 0 AD 0
-D0
-~
-door north~
-1 0 3413
-D1
-~
-~
-0 0 3419
 E
 coffin sarcophagus~
 Now destroyed ... there is writing on it: 'All hail the new king; we serve
 the Roch'tar, the Undying One!  Those who decline his worship shall be
 slaughtered!'
 ~
+D0
+~
+door north~
+0 0 3413
+D1
+~
+~
+0 0 3419
 S
 #3415
 The Lower Chambers and Tombs of the Undead~
@@ -792,6 +803,11 @@ The walls have been hewn by a mighty force look as though they were CLAWED.
 The passage slopes upward here and also continues to the north.
 ~
 0 ADN 0
+E
+walls~
+Something BIG must have done this job!  There are traces of BLOOD in the
+claw marks.
+~
 D0
 ~
 ~
@@ -799,12 +815,7 @@ D0
 D4
 ~
 tunnel~
-1 -1 3418
-E
-walls~
-Something BIG must have done this job!  There are traces of BLOOD in the
-claw marks.
-~
+0 -1 3418
 S
 #3417
 The Grand Hall of Kings~
@@ -829,14 +840,6 @@ a ruler of the outlying regions west of Midgaard.  There is a stone staircase
 leading down.  The Ghost of Cristis the Kind stands here.
 ~
 0 AD 0
-D2
-~
-~
-0 0 3419
-D5
-~
-staircase~
-1 -1 3416
 E
 ghost cristis~
 His rest has been disturbed by evil creatures who have invaded his domain
@@ -858,6 +861,14 @@ an inscription on the side:  'Praise the almighty Cristis the bringer of
 good and justice to the world.  He who fought the evilest finally is at
 peace.  May the Gods remember him forever ...'
 ~
+D2
+~
+~
+0 0 3419
+D5
+~
+staircase~
+1 -1 3416
 S
 #3419
 The Tomb of Cristis~
@@ -868,6 +879,10 @@ D0
 ~
 ~
 0 0 3418
+D2
+~
+~
+0 0 4600
 D3
 ~
 ~
@@ -897,17 +912,6 @@ been worth much but they have not lasted well throughout the ages.  Massive
 doors lead off to the south and a large stone staircase leads up.
 ~
 0 AD 0
-D2
-Finely polished oak doors stand to the south.
-~
-oak~
-1 -1 3422
-D4
-You see a large set of stone stairs leading upwards to a small stone door at
-the top. 
-~
-stone trapdoor door~
-2 3410 3405
 E
 letters graffiti~
 'Beware here all of man, because past here lies only death.'
@@ -938,6 +942,17 @@ It's rather small and looks quite heavy but maybe with some kind of leverage
 you could move it.  It has a queerly shaped hole that looks big enough
 for an equally queerly shaped pole to fit inside.  If only you had it!
 ~
+D2
+Finely polished oak doors stand to the south.
+~
+oak~
+1 -1 3422
+D4
+You see a large set of stone stairs leading upwards to a small stone door at
+the top. 
+~
+stone trapdoor door~
+2 3410 3405
 S
 #3422
 The Grand Hall of Kings~
@@ -1376,15 +1391,15 @@ of beasts and monsters terrorizing the countryside; vampires sucking the
 blood of beasts and humans alike.
 ~
 0 ADN 0
-D0
-~
-~
-0 0 3447
 E
 painting paintings mural~
 There is a tiny painting of a vault in this mural ... and it seems to be a
 reflected picture of the vault ... the word in tiny print is 'rathcor'.
 ~
+D0
+~
+~
+0 0 3447
 S
 #3449
 The Lower Chambers and Tombs of the Undead~
@@ -1665,6 +1680,10 @@ ancient rituals ... not all of which seem pleasant.  The hallway continues
 north into the catacombs and further south as long as you can see.
 ~
 0 AD 0
+E
+etchings~
+Beautiful yet disturbing, they urge you to move onward.
+~
 D0
 The glow of your light reflects off the walls and you see the catacombs.
 ~
@@ -1675,10 +1694,6 @@ The glow of your light reflects off the walls ... the gilded hallway.
 ~
 ~
 0 0 3466
-E
-etchings~
-Beautiful yet disturbing, they urge you to move onward.
-~
 S
 #3466
 The Gilded Hallway~
@@ -1687,6 +1702,10 @@ walls.  You are tempted to linger and examine them closely.  Your light source
 flickers off the walls showing you exits north and south.
 ~
 0 AD 0
+E
+etchings~
+Beautiful yet disturbing, they urge you to move onward.
+~
 D0
 Your light reveals more of the hallway.
 ~
@@ -1697,10 +1716,6 @@ Your light reveals more of the hallway.
 ~
 ~
 0 0 3467
-E
-etchings~
-Beautiful yet disturbing, they urge you to move onward.
-~
 S
 #3467
 The Gilded Hallway~
@@ -1709,6 +1724,10 @@ walls.  You are tempted to linger and examine them closely.  Your light source
 flickers off the walls showing you exits north and south.
 ~
 0 AD 0
+E
+etchings~
+Beautiful yet disturbing, they urge you to move onward.
+~
 D0
 Your light reveals more of the hallway.
 ~
@@ -1719,10 +1738,6 @@ Your light reveals more of the hallway.
 ~
 ~
 0 0 3468
-E
-etchings~
-Beautiful yet disturbing, they urge you to move onward.
-~
 S
 #3468
 The Gilded Hallway~
@@ -1731,6 +1746,10 @@ walls.  You are tempted to linger and examine them closely.  Your light source
 flickers off the walls showing you exits north and south.
 ~
 0 AD 0
+E
+etchings~
+Beautiful yet disturbing, they urge you to move onward.
+~
 D0
 Your light reveals more of the hallway.
 ~
@@ -1741,10 +1760,6 @@ Your light reveals more of the hallway.
 ~
 ~
 0 0 3469
-E
-etchings~
-Beautiful yet disturbing, they urge you to move onward.
-~
 S
 #3469
 The Gilded Hallway~
@@ -1753,30 +1768,30 @@ walls.  You are tempted to linger and examine them closely.  Your light source
 flickers off the walls showing you exits north.
 ~
 0 AD 0
+E
+etchings~
+Beautiful yet disturbing, they urge you to move onward.
+~
 D0
 Your light reveals more of the hallway.
 ~
 ~
 0 0 3468
-E
-etchings~
-Beautiful yet disturbing, they urge you to move onward.
-~
 S
 #3470
 A Secret Passageway~
 A secret passage!  You wonder where it may lead!
 ~
 0 AD 0
+E
+east secret door~
+The door closed on you so softly that you didn't even notice!
+~
 D2
 Too dark to tell.
 ~
 ~
 0 0 3471
-E
-east secret door~
-The door closed on you so softly that you didn't even notice!
-~
 S
 #3471
 A Secret Passageway~
@@ -1817,127 +1832,157 @@ lid coffin~
 1 3419 3460
 S
 #0
-#RESETS
-M 0 3405   1 3405  1	* the priest
-G 1 3430  99     	*   a silver key
-D 0 3405   0    2	* Inside the Chapel north
-D 0 3405   5    2	* Inside the Chapel down
-O 0 3400   1 3405	* a candlestick
-M 0 3400   8 3441  2	* the bony skeleton
-E 1 3421  15   16	*   a rusty curved scimitar
-M 0 3400   8 3430  2	* the bony skeleton
-E 1 3421  15   16	*   a rusty curved scimitar
-M 0 3400   8 3410  2	* the bony skeleton
-E 1 3421  15   16	*   a rusty curved scimitar
-M 0 3400   8 3419  2	* the bony skeleton
-E 1 3421  15   16	*   a rusty curved scimitar
-M 0 3401   7 3414  4	* the undead zombie
-M 0 3401   7 3414  4	* the undead zombie
-M 0 3401   7 3414  4	* the undead zombie
-M 0 3401   7 3414  4	* the undead zombie
-M 0 3401   7 3409  3	* the undead zombie
-M 0 3401   7 3409  3	* the undead zombie
-M 0 3401   7 3409  3	* the undead zombie
-M 0 3402  10 3447  2	* The ghoul
-M 0 3402  10 3454  2	* The ghoul
-M 0 3402  10 3462  2	* The ghoul
-M 0 3402  10 3437  2	* The ghoul
-M 0 3402  10 3409  2	* The ghoul
-M 0 3403   1 3411  1	* The wraith
-E 1 3425   3   17	*   an auburn-colored orb
-M 0 3404   1 3460  1	* The guardian vampire
-E 1 3428   3   16	*   the pitch-black flaming longsword
-E 1 3427  10   12	*   a dark black cape
-E 1 3419   1   17	*   key to the coffin
-G 1 3424   5     	*   a tightly rolled scroll
-M 0 3406   3 3466  1	* the Mi-Go
-E 1 3403   8    5	*   disgusting pinkish plasma webbing
-M 0 3406   3 3463  1	* the Mi-Go
-E 1 3403   8    5	*   disgusting pinkish plasma webbing
-M 0 3406   3 3455  1	* the Mi-Go
-E 1 3403   8    5	*   disgusting pinkish plasma webbing
-M 0 3407   5 3465  1	* The nightgaunt
-E 1 3402   5   16	*   a nightgaunt's tickler
-M 0 3407   5 3465  1	* The nightgaunt
-E 1 3402   5   16	*   a nightgaunt's tickler
-M 0 3407   5 3457  1	* The nightgaunt
-E 1 3402   5   16	*   a nightgaunt's tickler
-M 0 3407   5 3452  1	* The nightgaunt
-E 1 3402   5   16	*   a nightgaunt's tickler
-M 0 3407   5 3453  1	* The nightgaunt
-E 1 3402   5   16	*   a nightgaunt's tickler
-M 0 3408   1 3471  1	* The hunting horror
-E 1 3425   3   17	*   an auburn-colored orb
-G 1 3426  10     	*   a bar of gold
-M 0 3409   4 3444  2	* some cave weeds
-M 0 3409   4 3444  2	* some cave weeds
-M 0 3409   4 3426  2	* some cave weeds
-M 0 3409   4 3426  2	* some cave weeds
-M 0 3410   1 3449  1	* Snapper Joe
-E 1 3414  10   16	*   a whisper thin rapier
-E 1 3429   5    5	*   a worn and dented breast plate
-E 1 3411   2   17	*   a large black dirty key
-M 0 3411   1 3434  1	* The X-ist flesh eater
-E 1 3414  10   16	*   a whisper thin rapier
-G 1 3412   2     	*   the mummified head of Jubal the Benevolent
-P 1 3413   2 3412  1	*   a black marble ring
-M 0 3412   1 3424  1	* the spirit of King Crotus
-E 1 3416   1   17	*   a heavy iron key
-O 0 3415   1 3424	* a stone sarcophagus
-P 1 3417   5 3415  1	*   a wineflask
-P 1 3418   1 3415  1	*   a mound of coins fit for a dead king
-M 0 3413   5 3432  1	* the rock slug
-G 1 3422  10     	*   a piece of slime
-M 0 3413   5 3417  1	* the rock slug
-G 1 3422  10     	*   a piece of slime
-M 0 3413   5 3450  1	* the rock slug
-G 1 3422  10     	*   a piece of slime
-M 0 3413   5 3418  1	* the rock slug
-G 1 3422  10     	*   a piece of slime
-M 0 3413   5 3441  1	* the rock slug
-G 1 3422  10     	*   a piece of slime
-M 0 3414   1 3468  1	* The mad etcher
-E 1 3423   4    5	*   an artist's smock
-M 0 3415   1 3468  1	* The spectral etcher's wife
-M 0 3416   4 3426  1	* The half-decomposed body
-M 0 3416   4 3442  1	* The half-decomposed body
-M 0 3416   4 3448  1	* The half-decomposed body
-M 0 3416   4 3411  1	* The half-decomposed body
-O 0 3420   1 3448	* a hidden compartment in the room
-P 1 3410   1 3420  1	*   a queerly shaped rod
-D 0 3418   5    1	* The Shrine of Cristis down
-D 0 3421   2    1	* Entrance Chamber to the Grand Hall of Kings south
-D 0 3422   0    1	* The Grand Hall of Kings north
-D 0 3421   4    2	* Entrance Chamber to the Grand Hall of Kings up
-D 0 3412   2    1	* The Grand Hall of Kings south
-D 0 3413   0    1	* The Shrine of Shohan north
-D 0 3422   2    1	* The Grand Hall of Kings south
-D 0 3423   0    1	* The Shrine of Crotus north
-D 0 3427   2    1	* The Grand Hall of Kings south
-D 0 3428   0    1	* The Shrine of Mitnar north
-D 0 3437   0    1	* The Grand Hall of Kings north
-D 0 3449   1    2	* The Lower Chambers and Tombs of the Undead east
-D 0 3408   3    2	* Stairwell into Darkness west
-D 0 3460   5    2	* Den of the Vampire down
-D 0 3475   4    2	* Inside the coffin up
-D 0 3464   1    1	* The Catacombs east
+
+
+
+#SPECIALS
+M 3400 spec_cast_undead	* the bony skeleton
+M 3401 spec_cast_undead	* the undead zombie
+M 3402 spec_cast_undead	* The ghoul
+M 3403 spec_cast_undead	* The wraith
+M 3404 spec_cast_undead	* The guardian vampire
+M 3405 spec_cast_cleric	* the priest
+M 3407 spec_cast_undead	* The nightgaunt
+M 3408 spec_cast_undead	* The hunting horror
+M 3410 spec_cast_undead	* Snapper Joe
+M 3411 spec_cast_undead	* The X-ist flesh eater
+M 3412 spec_cast_mage	* the spirit of King Crotus
+M 3414 spec_cast_mage	* The mad etcher
+M 3415 spec_cast_undead	* The spectral etcher's wife
+M 3416 spec_cast_undead	* The half-decomposed body
 S
+
+
+
+#RESETS
+D 0 3405 0 2	* Inside the Chapel: door to the north: closed and locked
+D 0 3405 5 2	* Inside the Chapel: door to the down: closed and locked
+D 0 3408 3 2	* Stairwell into Darkness: door to the west: closed and locked
+D 0 3412 2 1	* The Grand Hall of Kings: door to the south: closed
+D 0 3413 0 1	* The Shrine of Shohan: door to the north: closed
+D 0 3418 5 1	* The Shrine of Cristis: door to the down: closed
+D 0 3421 2 1	* Entrance Chamber to the Grand Hall of Kings: door to the south: closed
+D 0 3421 4 2	* Entrance Chamber to the Grand Hall of Kings: door to the up: closed and locked
+D 0 3422 0 1	* The Grand Hall of Kings: door to the north: closed
+D 0 3422 2 1	* The Grand Hall of Kings: door to the south: closed
+D 0 3423 0 1	* The Shrine of Crotus: door to the north: closed
+D 0 3427 2 1	* The Grand Hall of Kings: door to the south: closed
+D 0 3428 0 1	* The Shrine of Mitnar: door to the north: closed
+D 0 3437 0 1	* The Grand Hall of Kings: door to the north: closed
+D 0 3449 1 2	* The Lower Chambers and Tombs of the Undead: door to the east: closed and locked
+D 0 3460 5 2	* Den of the Vampire: door to the down: closed and locked
+D 0 3464 1 1	* The Catacombs: door to the east: closed
+D 0 3475 4 2	* Inside the coffin: door to the up: closed and locked
+M 0 3405 1 3405 1	* the priest (Inside the Chapel)
+G 0 3430 0		*	A silver key
+O 0 3400 0 3405		* A candlestick (Inside the Chapel)
+M 0 3401 7 3409 3	* the undead zombie (The Acolyte's Bedroom)
+M 0 3401 7 3409 3	* the undead zombie (The Acolyte's Bedroom)
+M 0 3401 7 3409 3	* the undead zombie (The Acolyte's Bedroom)
+M 0 3402 10 3409 2	* The ghoul (The Acolyte's Bedroom)
+M 0 3400 8 3410 2	* the bony skeleton (The Lower Chambers and Tombs of the Undead)
+E 0 3421 0 16		*	A rusty curved scimitar: wielded
+M 0 3403 1 3411 1	* The wraith (The Lower Chambers and Tombs of the Undead)
+E 0 3425 0 17		*	An auburn-colored orb: held in the hands
+M 0 3416 4 3411 1	* The half-decomposed body (The Lower Chambers and Tombs of the Undead)
+M 0 3401 7 3414 4	* the undead zombie (The Tomb of Shohan)
+M 0 3401 7 3414 4	* the undead zombie (The Tomb of Shohan)
+M 0 3401 7 3414 4	* the undead zombie (The Tomb of Shohan)
+M 0 3401 7 3414 4	* the undead zombie (The Tomb of Shohan)
+M 0 3413 5 3417 1	* the rock slug (The Grand Hall of Kings)
+G 0 3422 0		*	A piece of slime
+M 0 3413 5 3418 1	* the rock slug (The Shrine of Cristis)
+G 0 3422 0		*	A piece of slime
+M 0 3400 8 3419 2	* the bony skeleton (The Tomb of Cristis)
+E 0 3421 0 16		*	A rusty curved scimitar: wielded
+M 0 3412 1 3424 1	* the spirit of King Crotus (The Tomb of Crotus)
+E 0 3416 0 17		*	A heavy iron key: held in the hands
+O 0 3415 0 3424		* A stone sarcophagus (The Tomb of Crotus)
+P 0 3417 5 3415 1	* A stone sarcophagus: A stone sarcophagus
+P 0 3418 1 3415 1	* A stone sarcophagus: A stone sarcophagus
+M 0 3409 4 3426 2	* some cave weeds (The Lower Chambers and Tombs of the Undead)
+M 0 3409 4 3426 2	* some cave weeds (The Lower Chambers and Tombs of the Undead)
+M 0 3416 4 3426 1	* The half-decomposed body (The Lower Chambers and Tombs of the Undead)
+M 0 3400 8 3430 2	* the bony skeleton (The Lower Chambers and Tombs of the Undead)
+E 0 3421 0 16		*	A rusty curved scimitar: wielded
+M 0 3413 5 3432 1	* the rock slug (The Grand Hall of Kings)
+G 0 3422 0		*	A piece of slime
+M 0 3411 1 3434 1	* The X-ist flesh eater (The Tomb of Frath)
+E 0 3414 0 16		*	A whisper thin rapier: wielded
+G 0 3412 0		*	The mummified head of jubal the benevolent
+P 0 3413 2 3412 1	* The mummified head of jubal the benevolent: The mummified head of jubal the benevolent
+M 0 3402 10 3437 2	* The ghoul (The Grand Hall of Kings)
+M 0 3400 8 3441 2	* the bony skeleton (The Lower Chambers and Tombs of the Undead)
+E 0 3421 0 16		*	A rusty curved scimitar: wielded
+M 0 3413 5 3441 1	* the rock slug (The Lower Chambers and Tombs of the Undead)
+G 0 3422 0		*	A piece of slime
+M 0 3416 4 3442 1	* The half-decomposed body (The Lower Chambers and Tombs of the Undead)
+M 0 3409 4 3444 2	* some cave weeds (The Lower Chambers and Tombs of the Undead)
+M 0 3409 4 3444 2	* some cave weeds (The Lower Chambers and Tombs of the Undead)
+M 0 3402 10 3447 2	* The ghoul (The Lower Chambers and Tombs of the Undead)
+M 0 3416 4 3448 1	* The half-decomposed body (The Lower Chambers and Tombs of the Undead)
+O 0 3420 0 3448		* A hidden compartment in the room (The Lower Chambers and Tombs of the Undead)
+P 0 3410 1 3420 1	* A hidden compartment in the room: A hidden compartment in the room
+M 0 3410 1 3449 1	* Snapper Joe (The Lower Chambers and Tombs of the Undead)
+E 0 3414 0 16		*	A whisper thin rapier: wielded
+E 0 3429 0 5		*	A worn and dented breast plate: on the body
+E 0 3411 0 17		*	A large black dirty key: held in the hands
+M 0 3413 5 3450 1	* the rock slug (Entrance to the Forbidden Catacombs)
+G 0 3422 0		*	A piece of slime
+M 0 3407 5 3452 1	* The nightgaunt (The Catacombs)
+E 0 3402 0 16		*	A nightgaunt's tickler: wielded
+M 0 3407 5 3453 1	* The nightgaunt (The Catacombs)
+E 0 3402 0 16		*	A nightgaunt's tickler: wielded
+M 0 3402 10 3454 2	* The ghoul (The Catacombs)
+M 0 3406 3 3455 1	* the Mi-Go (The Catacombs)
+E 0 3403 0 5		*	Disgusting pinkish plasma webbing: on the body
+M 0 3407 5 3457 1	* The nightgaunt (The Catacombs)
+E 0 3402 0 16		*	A nightgaunt's tickler: wielded
+M 0 3404 1 3460 1	* The guardian vampire (Den of the Vampire)
+E 0 3428 0 16		*	The pitch-black flaming longsword: wielded
+E 0 3427 0 12		*	A dark black cape: about the shoulders
+E 0 3419 0 17		*	Key to the coffin: held in the hands
+G 0 3424 0		*	A tightly rolled scroll
+M 0 3402 10 3462 2	* The ghoul (The Catacombs)
+M 0 3406 3 3463 1	* the Mi-Go (The Catacombs)
+E 0 3403 0 5		*	Disgusting pinkish plasma webbing: on the body
+M 0 3407 5 3465 1	* The nightgaunt (The Gilded Hallway)
+E 0 3402 0 16		*	A nightgaunt's tickler: wielded
+M 0 3407 5 3465 1	* The nightgaunt (The Gilded Hallway)
+E 0 3402 0 16		*	A nightgaunt's tickler: wielded
+M 0 3406 3 3466 1	* the Mi-Go (The Gilded Hallway)
+E 0 3403 0 5		*	Disgusting pinkish plasma webbing: on the body
+M 0 3414 1 3468 1	* The mad etcher (The Gilded Hallway)
+E 0 3423 0 5		*	An artist's smock: on the body
+M 0 3415 1 3468 1	* The spectral etcher's wife (The Gilded Hallway)
+M 0 3408 1 3471 1	* The hunting horror (A Secret Passageway)
+E 0 3425 0 17		*	An auburn-colored orb: held in the hands
+G 0 3426 0		*	A bar of gold
+S
+
+
+
 #SHOPS
 0
-#SPECIALS
-M 3400 spec_cast_undead    	* the bony skeleton
-M 3401 spec_cast_undead    	* the undead zombie
-M 3402 spec_cast_undead    	* The ghoul
-M 3403 spec_cast_undead    	* The wraith
-M 3404 spec_cast_undead    	* The guardian vampire
-M 3405 spec_cast_cleric    	* the priest
-M 3407 spec_cast_undead    	* The nightgaunt
-M 3408 spec_cast_undead    	* The hunting horror
-M 3410 spec_cast_undead    	* Snapper Joe
-M 3411 spec_cast_undead    	* The X-ist flesh eater
-M 3412 spec_cast_mage      	* the spirit of King Crotus
-M 3414 spec_cast_mage      	* The mad etcher
-M 3415 spec_cast_undead    	* The spectral etcher's wife
-M 3416 spec_cast_undead    	* The half-decomposed body
+
+
+
+#OLIMITS
 S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
+
 #$

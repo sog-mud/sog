@@ -6108,7 +6108,7 @@ square, the center of Midgaard.
 D0
 You see the temple.
 ~
-~
+all~
 0 -1 3001
 D1
 You see the good old Grunting Boar Inn.
@@ -6162,7 +6162,7 @@ the western wall, and through the southeastern windows you can see the temple
 square.  This place makes you feel like home.
 A small sign with big letters is fastened to the bar.
 ~
-0 DS 0
+0 CDKS 0
 E
 sign~
 The sign reads:
