@@ -54,9 +54,9 @@ trash CJK AK
 0 0 0 0 0
 9 0 1 P
 A
-19 11
+17 -10
 A
-17 10
+19 11
 #0
 
 
@@ -747,8 +747,8 @@ S
 
 
 #OMPROGS
-O 1201 wear_prog wear_prog_bracer       * riddle brume
-O 1201 remove_prog remove_prog_bracer   * riddle brume
+O 1201 wear_prog wear_prog_bracer *
+O 1201 remove_prog remove_prog_bracer *
 S
 
 
