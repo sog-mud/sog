@@ -3,6 +3,7 @@ Name svirfnebli~
 Det infrared~
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
+Resist bash -40
 Resist fire 33
 Resist cold 33
 Resist lightning 33
@@ -12,8 +13,8 @@ Resist negative 33
 Resist energy 33
 Resist mental 33
 Resist sound 33
-Resist disease 33
-Resist poison 33
+Resist disease 40
+Resist poison 40
 Resist charm 33
 Resist harm 33
 Resist light 33
@@ -29,7 +30,7 @@ Class 'warrior' 100
 Class 'witch' 100
 BonusSkills 'lore' 'identify'~
 Stats 0 -1 3 0 0 0 
-MaxStats 20 19 23 18 19 25 
+MaxStats 20 19 23 20 20 25 
 Size small
 HPBonus 10
 PracBonus 2

@@ -422,6 +422,14 @@ Form 3 -ют~
 End
 
 #RULE
+Name хотел~
+BaseLen 4
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name погас~
 BaseLen 5
 Form 1 -ла~

@@ -22,7 +22,7 @@ Class 'ranger' 100
 Class 'warrior' 100
 BonusSkills 'bash' 'enhanced damage' 'axe'~
 Stats 5 -4 -3 -6 3 0 
-MaxStats 25 15 17 16 23 25 
+MaxStats 25 16 17 14 23 25 
 Size huge
 HPBonus 20
 ManaBonus -20

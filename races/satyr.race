@@ -14,7 +14,7 @@ Class 'thief' 100
 Class 'warrior' 100
 BonusSkills 'camouflage' 'ambush' 'steal'~
 Stats -1 0 0 3 0 0 
-MaxStats 19 23 20 25 18 25 
+MaxStats 19 20 20 23 20 25 
 Size medium
 RestrictAlign neutral~
 Slang human

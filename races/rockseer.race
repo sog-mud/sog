@@ -1,8 +1,8 @@
 #RACE
 Name rockseer~
 Aff pass_door~
-Det infrared~
 Inv sneak~
+Det infrared~
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
 Resist charm 33
@@ -21,7 +21,7 @@ Class 'witch' 100
 SkillSpec race_rockseer
 BonusSkills 'wand'~
 Stats -1 2 0 4 -2 0 
-MaxStats 18 24 21 24 16 25 
+MaxStats 19 22 20 24 18 25 
 Size medium
 HPBonus -10
 ManaBonus 20

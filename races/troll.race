@@ -5,7 +5,12 @@ Det infrared~
 Off berserk~
 Form edible poison sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye claws fangs~
+Resist bash 33
+Resist slash 5
+Resist fire -25
+Resist acid -50
 Resist charm 33
+Damtype smash
 End
 
 #PCRACE
@@ -16,8 +21,8 @@ Class 'ranger' 100
 Class 'warrior' 100
 SkillSpec race_troll
 BonusSkills 'fast healing'~
-Stats 2 -2 -1 -2 3 0 
-MaxStats 19 23 20 25 18 25 
+Stats 3 -2 -1 -2 3 0 
+MaxStats 23 18 19 18 23 25 
 Size large
 RestrictAlign evil~
 Slang trollish

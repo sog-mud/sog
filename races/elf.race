@@ -1,7 +1,7 @@
 #RACE
 Name elf~
-Det infrared~
 Inv sneak~
+Det infrared~
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
 Resist charm 33
@@ -19,7 +19,7 @@ Class 'warrior' 100
 Class 'witch' 100
 BonusSkills 'mastering bow'~
 Stats -2 5 0 2 -2 0 
-MaxStats 18 25 21 23 16 25 
+MaxStats 18 25 21 22 18 25 
 Size medium
 HPBonus -10
 ManaBonus 30

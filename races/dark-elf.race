@@ -1,7 +1,7 @@
 #RACE
 Name dark-elf~
-Det infrared~
 Inv sneak~
+Det infrared~
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
 Resist charm 33
@@ -19,7 +19,7 @@ Class 'warlock' 100
 Class 'warrior' 100
 Class 'witch' 100
 Stats -2 4 0 2 -2 0 
-MaxStats 18 24 21 24 16 25 
+MaxStats 18 24 21 22 18 25 
 Size medium
 HPBonus -10
 ManaBonus 20

@@ -4,6 +4,9 @@ Aff flying~
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
 Flags noch~
+Resist bash 30
+Resist pierce 30
+Resist slash 30
 Resist lightning -50
 Resist mental -50
 Damtype smash
@@ -17,7 +20,7 @@ Class 'ranger' 100
 Class 'warrior' 100
 BonusSkills 'bash' 'enhanced damage' 'sword'~
 Stats 5 -4 -3 -6 3 0 
-MaxStats 25 16 17 16 22 25 
+MaxStats 25 16 17 14 23 25 
 Size huge
 HPBonus 20
 ManaBonus -20
