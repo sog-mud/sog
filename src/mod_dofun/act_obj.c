@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.93 1998-11-11 10:34:01 fjoe Exp $
+ * $Id: act_obj.c,v 1.94 1998-11-17 06:40:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -63,7 +63,7 @@ uint		get_cost	(CHAR_DATA * keeper, OBJ_DATA * obj, bool fBuy);
 void		obj_to_keeper	(OBJ_DATA * obj, CHAR_DATA * ch);
 OBJ_DATA *	get_obj_keeper	(CHAR_DATA * ch, CHAR_DATA * keeper,
 				 const char *argument);
-void		do_sacr		(CHAR_DATA * ch, const char *argument);
+void		sac_obj		(CHAR_DATA * ch, OBJ_DATA *obj);
 AFFECT_DATA *	affect_find	(AFFECT_DATA * paf, int sn);
 
 /* RT part of the corpse looting code */
@@ -1689,52 +1689,49 @@ void do_remove(CHAR_DATA * ch, const char *argument)
 
 void do_sacrifice(CHAR_DATA * ch, const char *argument)
 {
-	OBJ_DATA       *r_cont;
-	OBJ_DATA       *r_next_cont;
-	if (!strcmp(argument, "all"))
-		for (r_cont = ch->in_room->contents; r_cont;
-		     r_cont = r_next_cont) {
-			r_next_cont = r_cont->next_content;
-			do_sacr(ch, r_cont->name);
-	} else
-		do_sacr(ch, argument);
-}
-
-void do_sacr(CHAR_DATA * ch, const char *argument)
-{
 	char            arg[MAX_INPUT_LENGTH];
-	char            buf[MAX_STRING_LENGTH];
-	char            buf2[MAX_STRING_LENGTH];
 	OBJ_DATA       *obj;
-	OBJ_DATA       *obj_content;
-	OBJ_DATA       *obj_next;
-	OBJ_DATA       *two_objs[2];
-	int             silver;
-	int             iScatter;
-	bool            fScatter;
+	OBJ_DATA       *r_next_cont;
 
-
-	/* variables for AUTOSPLIT */
-	CHAR_DATA      *gch;
-	int             members;
-	one_argument(argument, arg);
-
-	if (arg[0] == '\0' || !str_cmp(arg, ch->name)) {
-		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MSG_N_SACS_SELF);
-		char_puts("Gods appreciates your offer and may accept it later.\n\r", ch);
+	if (!strcmp(argument, "all")) {
+		for (obj = ch->in_room->contents; obj; obj = r_next_cont) {
+			r_next_cont = obj->next_content;
+			sac_obj(ch, obj);
+		}
 		return;
 	}
+
+	one_argument(argument, arg);
+	if (arg[0] == '\0' || !str_cmp(arg, ch->name)) {
+		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+			    MSG_N_SACS_SELF);
+		char_puts("Gods appreciates your offer "
+			  "and may accept it later.\n\r", ch);
+		return;
+	}
+
 	obj = get_obj_list(ch, arg, ch->in_room->contents);
 	if (obj == NULL) {
 		char_puts("You can't find it.\n\r", ch);
 		return;
 	}
+
+	sac_obj(ch, obj);
+}
+
+void sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
+{
+	int             silver;
+	CHAR_DATA      *gch;
+	int             members;
+
 	if ((obj->pIndexData->item_type == ITEM_CORPSE_PC && ch->level < MAX_LEVEL)
-	    || (QUEST_OBJ_FIRST <= obj->pIndexData->vnum
-		&& obj->pIndexData->vnum <= QUEST_OBJ_LAST)) {
+	||  (QUEST_OBJ_FIRST <= obj->pIndexData->vnum &&
+	     obj->pIndexData->vnum <= QUEST_OBJ_LAST)) {
 		char_puts("Gods wouldn't like that.\n\r", ch);
 		return;
 	}
+
 	if (!CAN_WEAR(obj, ITEM_TAKE) || CAN_WEAR(obj, ITEM_NO_SAC)) {
 		act_puts("$p is not an acceptable sacrifice.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
@@ -1743,7 +1740,7 @@ void do_sacr(CHAR_DATA * ch, const char *argument)
 	silver = UMAX(1, number_fuzzy(obj->level));
 
 	if (obj->pIndexData->item_type != ITEM_CORPSE_NPC
-	    && obj->pIndexData->item_type != ITEM_CORPSE_PC)
+	&&  obj->pIndexData->item_type != ITEM_CORPSE_PC)
 		silver = UMIN(silver, obj->cost);
 
 	if (silver == 1)
@@ -1771,10 +1768,18 @@ void do_sacr(CHAR_DATA * ch, const char *argument)
 
 	wiznet("$N sends up $p as a burnt offering.",
 	       ch, obj, WIZ_SACCING, 0, 0);
-	fScatter = TRUE;
 	if (obj->pIndexData->item_type == ITEM_CORPSE_NPC
-	    || obj->pIndexData->item_type == ITEM_CORPSE_PC) {
-		iScatter = 0;
+	||  obj->pIndexData->item_type == ITEM_CORPSE_PC) {
+		OBJ_DATA       *obj_content;
+		OBJ_DATA       *obj_next;
+
+		char            buf[MAX_STRING_LENGTH];
+		char            buf2[MAX_STRING_LENGTH];
+		OBJ_DATA       *two_objs[2];
+
+		bool	fScatter = TRUE;
+		int	iScatter = 0;
+
 		for (obj_content = obj->contains; obj_content;
 		     obj_content = obj_next) {
 			obj_next = obj_content->next_content;
@@ -1802,13 +1807,16 @@ void do_sacr(CHAR_DATA * ch, const char *argument)
 		else if (iScatter < 5) {
 			strcat(buf, GETMSG("few things ", ch->lang));
 			strcat(buf2, GETMSG("few things ", ch->lang));
-		} else if (iScatter < 9) {
+		}
+		else if (iScatter < 9) {
 			strcat(buf, GETMSG("a bunch of objects ", ch->lang));
 			strcat(buf2, GETMSG("a bunch of objects ", ch->lang));
-		} else if (iScatter < 15) {
+		}
+		else if (iScatter < 15) {
 			strcat(buf, GETMSG("many things ", ch->lang));
 			strcat(buf2, GETMSG("many things ", ch->lang));
-		} else {
+		}
+		else {
 			strcat(buf, GETMSG("a lot of objects ", ch->lang));
 			strcat(buf2, GETMSG("a lot of objects ", ch->lang));
 		}
@@ -1840,7 +1848,6 @@ void do_sacr(CHAR_DATA * ch, const char *argument)
 		}
 	}
 	extract_obj(obj);
-	return;
 }
 
 void quaff_obj(CHAR_DATA *ch, OBJ_DATA *obj)
