@@ -1,6 +1,5 @@
 #CLASS
 Name necromancer~
-Filename necromancer.class~
 ShortName Nec~
 PrimeStat int
 SchoolWeapon 3701
@@ -17,7 +16,7 @@ ManaRate 100
 Flags mage~
 AddExp 200
 StatMod 0 2 1 0 0 5
-RestrictAlign evil~
+RestrictAlign evil
 Skill 'acid arrow' 48 1
 Skill 'acid blast' 63 1
 Skill 'adamantite golem' 71 1

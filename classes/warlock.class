@@ -1,6 +1,5 @@
 #CLASS
 Name warlock~
-Filename warlock.class~
 ShortName WrK~
 PrimeStat int
 SchoolWeapon 3701
@@ -17,6 +16,7 @@ ManaRate 100
 Flags mage~
 AddExp 300
 StatMod 0 3 0 0 0 5
+RestrictSex male
 Skill 'acid arrow' 48 1
 Skill 'acid blast' 63 1
 Skill 'armor' 13 1

@@ -1,6 +1,5 @@
 #CLASS
 Name vampire~
-Filename vampire.class~
 ShortName Vam~
 PrimeStat int
 SchoolWeapon 3701
@@ -17,7 +16,7 @@ ManaRate 70
 Flags mage~
 AddExp 300
 StatMod 1 2 0 0 0 5
-RestrictAlign evil~
+RestrictAlign evil
 Skill 'animate dead' 42 1
 Skill 'armor' 13 1
 Skill 'blindness' 20 1
