@@ -208,9 +208,10 @@ food 0 0 A
 A A 0 A 0
 0 10 0 P
 E
-plant ivy~
+plant ivy трава плющ~
 @eng This plant has dark green juicy leaves.
-You notice some small white thorns on it.@rus Эта растение имеет темно-зеленые сочные листья. А еще ты
+You notice some small white thorns on it. 
+@rus Эта растение имеет темно-зеленые сочные листья. А еще ты
 замечаешь на нем маленькие белые шипы.
 ~
 g @rus male~
@@ -239,7 +240,8 @@ trash K 0 AEO
 E
 wild flowers дикие цветы~
 @eng These wild flowers are really pretty.
-Just like the flowers you would wear in your hair.@rus Эти цветы просто прекрасны, просто великолепны!
+Just like the flowers you would wear in your hair. 
+@rus Эти цветы просто прекрасны, просто великолепны!
 ~
 g @rus plural~
 #307

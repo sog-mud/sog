@@ -85,6 +85,7 @@ Use 'desc edit' to edit your description.
 @eng $n appears in the room.@rus $n $gn{появляется} в комнате.~
 @eng $N deadly touches $n's neck and puts $m to nightmares.@rus $N касается шеи $c1{$n} и отправляет $gn{его} в мир кошмаров.~
 @eng {gYou mastered {W$v{g!{x@rus {gТы $gn{узнал} все об умении "{W$v{g"!{x~
+@eng You ask $N to cancel your current quest.@rus Ты просишь $c6{$N} отменить твое задание.~
 @eng You wear $p on your left finger.@rus Ты надеваешь $c3{$p} на палец левой руки.~
 @eng You knock $d, and try to open it.@rus Ты тихонько $gn{постучал} и $gn{попытался} открыть $c3{$d}.~
 @eng You can't sleep on that.
@@ -334,6 +335,7 @@ Typing delete with an argument will undo delete status.
 @eng ({gCamf{x) @rus ({gЗамаскированно{x) ~
 @eng $n goes to sleep on $p.@rus $n $gn{ложится} спать на $c3{$p}.~
 @eng $N {xis sleeping at $p.@rus $N {x$gN{спит} за $c4{$p}.~
+@eng Your current quest has been cancelled.@rus $N отменяет твое задание.~
 @eng quest points@rus квестовые очки~
 @eng You step out from your cover.@rus Ты $gn{вышел} из укрытия.~
 @eng Current bet on this item is $j gold.@rus Ставка $j $qj{золотых}.~
@@ -446,7 +448,7 @@ Typing delete with an argument will undo delete status.
 @eng You don't have enough training sessions.
 @rus У тебя не достаточно сессий практики.
 ~
-@eng You cannot recognize $n anymore.@rus $n стал неузнаваем.~
+@eng You cannot recognize $n anymore.@rus $n $gn{стал} $gn{неузнаваем}.~
 @eng You can't do that.
 @rus Ты не можешь этого сделать.
 ~
@@ -659,6 +661,7 @@ You peek at the inventory:
 @rus Околдовать что, как?
 ~
 @eng ({WGlowing{x) @rus ({WПылающее{x) ~
+@eng You throw $p to $T.@rus Ты бросаешь $c3{$p} $T.~
 @eng You pick the lock on $p.@rus Ты взламываешь замок на $c3{$p}.~
 The actioneer appears before $n and hands $m $p.~
 @eng <held>              $t@rus <зажато в руке>        $t~
@@ -1113,6 +1116,7 @@ Get back to questor before your time runs out!
 @eng ({GRidden{x) @rus ({GОседланный{x) ~
 @eng $n pushes $N to $t.@rus $n $gn{выталкивает} $c6{$N} $t.~
 @eng $N grins evilly with you.@rus Вы с $N зло ухмыляетесь друг другу.~
+@eng $n throws $p to $T.@rus $n $gn{бросает} $c3{$p} $T.~
 @eng You can't drink from that.
 @rus Ты не можешь пить отсюда.
 ~
@@ -1373,6 +1377,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng $n tells you:@rus $n $gn{говорит} тебе:~
 @eng {R[*] TEAR UP [*]{x@rus {R[*] РАЗРЫВАЕШЬ В КЛОЧЬЯ [*]{x~
 @eng ({RRed Aura{x) @rus ({RКрасная Аура{x) ~
+@eng $n asks $N to cancel $s current quest.@rus $n $gn{просит} $c6{$N} отменить $gn{его} задание.~
 @eng {*{R[*] POWER HITS [*]{x@rus {*{R[*] БЬЕТ С НЕОПИСУЕМОЙ СИЛОЙ [*]{x~
 @eng You walk through $p and find yourself somewhere else...@rus Ты входишь в $c3{$p}.~
 @eng They must be sleeping.
@@ -1452,7 +1457,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 ~
 @eng $n opens $p.@rus $n открывает $c3{$p}.~
 @eng $n chokes and gags.@rus $n $gn{мучается} от удушья.~
-@eng     You have to REQUEST a quest first, $N.@rus     $N, сначала нужно получить и выполнить задание.~
+@eng     You have to REQUEST a quest first, $N.@rus     $N, сначала нужно получить задание.~
 @eng {chit{x@rus {cбольно задеваешь{x~
 @eng Try flee. It may fit better to you.
 @rus Попробуй flee. Может быть это подойдет тебе лучше.

@@ -451,9 +451,11 @@ r fire 20
 r cold 20
 #22473
 troll small rumpelsteelskin~
-Rumpelsteelskin~
+rumpelsteelskin~
 A small black troll standing here defend his home.
 ~
+Before you stand a small black troll with huge peace of metal.
+He looks on you, licks his mouth and say: "Ye brimme a food?"
 ~
 troll~
 T 0 0 K 0 -500 0
@@ -4418,8 +4420,8 @@ E 0 22476 0 1		*	Tellias<on the left finger>: FoN signed ring
 M 0 22466 1 22529 1	* Mifner (Inside a small hut)
 E 0 22478 0 16		*	Mifner<wielded>: Composite bow named "DarkSlayer"
 E 0 22479 0 12		*	Mifner<about the shoulders>: Ornately designed quiver
-M 0 22473 1 22530 1	* Rumpelsteelskin (In the small cave)
-E 0 22495 0 17		*	Rumpelsteelskin<held in the hands>: Black runed key
+M 0 22473 1 22530 1	* rumpelsteelskin (In the small cave)
+E 0 22495 0 17		*	rumpelsteelskin<held in the hands>: Black runed key
 M 0 22472 1 22560 1	* human sergeant (Inside of treasure keep)
 E 0 22493 0 16		*	human sergeant<wielded>: Jewelled broadsword
 S

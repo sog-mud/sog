@@ -691,12 +691,14 @@ FJ
 stand stand male 900
 0 0 medium unknown
 #14037
-he sits~
-He who sits at the throne~
-He who sits says "I am the alpha and the omega".
+he sits сидящий сей~
+@eng He who sits at the throne@rus ~~Сидящий~~ на престоле~
+@eng He who sits says "I am the alpha and the omega".
+@rus Сидящий на престоле (He who sits at the throne), Который есть Альфа и Омега, начало и конец, Который был, есть и грядет.
 ~
-He is like jasper and carnelian. You better do as
+@eng He is like jasper and carnelian. You better do as
 he says.
+@rus Сей Сидящий видом подобен камню яспису и сардису.
 ~
 unique~
 BJT 0 HNTVd A ABHKL 1000 0
@@ -723,11 +725,14 @@ r harm 999
 r charm 999
 r sound 999
 #14038
-lamb~
-The lamb~
-A Lamb as it had been slain stands here.
+lamb агнец~
+@eng The Lamb@rus Агнец~
+@eng A Lamb as it had been slain stands here.
+@rus Агнец (The Lamb), как бы закланный, стоит пред троном.
 ~
-The lamb has seven horns and seven eyes.
+@eng The lamb has seven horns and seven eyes.
+@rus Агнец имеет семь рогов и семь очей, которые суть семь духов Божьих,
+посланных на всю землю.
 ~
 unique~
 BJTc CD HNTWd A ABHKL 1000 0
@@ -754,12 +759,16 @@ r harm 999
 r charm 999
 r sound 999
 #14039
-elders four twenty~
-Four and twenty elders~
-Four and twenty elders sit at four and twenty thrones.
+elders four twenty 24 старцы старца~
+@eng four and twenty elders@rus ~~24 старца~~~
+@eng Four and twenty elders sit at four and twenty thrones.
+@rus Двадцать четыре старца (elders) сидят на престолах.
 ~
-The elders are in white robes with golden crowns. They
+@eng The elders are in white robes with golden crowns. They
 play harps, and swing golden bowls filled with incense.
+@rus Старцы облачены в белые одежды и имеют на головах своих золотые
+венцы. И каждый имеет гусли и золотые чаши, полные фимиама, ко-
+торые суть молитвы святых.
 ~
 unique~
 BQ 0 NT A 0 1000 0
@@ -768,6 +777,7 @@ BQ 0 NT A 0 1000 0
 F
 sit stand none 900
 ACDHLMV ABCDEFGHIJKP medium unknown
+g @eng none@rus plural~
 r fire 33
 r cold 33
 r negative -50
@@ -775,11 +785,16 @@ r holy 999
 r disease 999
 #14040
 lion creature~
-The lion creature~
-A lion creature sings, "Holy, Holy, Holy, The Lord..." 
+@eng the lion creature@rus ~~животное~~, льву ~~подобное~~~
+@eng A lion creature sings, "Holy, Holy, Holy, The Lord..." 
+@rus Животное, льву подобное (lion creature), взывает: свят, свят, свят Господь Бог Вседержитель...
 ~
-The lion creature is full of eyes in front and behind.
+@eng The lion creature is full of eyes in front and behind.
 It has 6 wings, and even eyes inside.
+@rus Сие животное льву подобно, и исполнено оно очей спереди и сзади, и
+внутри очей исполнено и имеет шесть крыл вокруг. Ни днем, ни ночью
+покоя не знает, взывая: свят, свят, свят Господь Бог Вседержитель,
+Который был, есть и грядет.
 ~
 unique~
 BT 0 N 0 ABHKL 1000 0
@@ -791,12 +806,17 @@ BCDGHLMV ABCDEFGHIJKPQUV large unknown
 r holy 999
 r disease 999
 #14041
-ox creature~
-The ox creature~
-An ox creature sings, "Holy, Holy, Holy, The Lord..." 
+ox creature животное телец создание~
+@eng the ox creature@rus ~~животное~~, тельцу ~~подобное~~~
+@eng An ox creature sings, "Holy, Holy, Holy, The Lord..." 
+@rus Животное, тельцу подобное (ox creature), взывает: свят, свят, свят Господь Бог Вседержитель...
 ~
-The ox creature is full of eyes in front and behind.
+@eng The ox creature is full of eyes in front and behind.
 It has 6 wings, and eleven eyes inside.
+@rus Сие животное тельцу подобно и исполнено оно очей спереди и сзади,
+и внутри очей исполнено, и имеет шесть крыл вокруг. Ни днем, ни 
+ночью покоя не знает, взывая: свят, свят, свят Господь Бог Вседер-
+житель, Который был, есть и грядет.
 ~
 unique~
 BT 0 N 0 ABHKL 1000 0
@@ -808,12 +828,17 @@ CDGHLV ACDEFJKPQW large unknown
 r holy 999
 r disease 999
 #14042
-human face faced creature~
-The creature with a human face~
-A human faced creature sings, "Holy, Holy, Holy, The Lord..." 
+human face faced creature создание лицо~
+@eng the creature with a human face@rus ~~создание~~, лице ~~имеющее~~~
+@eng A human faced creature sings, "Holy, Holy, Holy, The Lord..." 
+@rus Создание (creature), лице имеющее, взывает: свят, свят, свят Господь Бог Вседержитель...
 ~
-The human faced creature is full of eyes in front and behind.
+@eng The human faced creature is full of eyes in front and behind.
 It has 6 wings, and even eyes inside.
+@rus Сие создание имеет лице, как человек, и исполнено оно очей сзади и
+спереди, и внутри очей исполнено, и имеет шесть крыл вокруг. Ни днем,
+ни ночью не знает покоя, взывая: свят, свят, свят Господь Бог Вседер-
+житель, Который был, есть и грядет.
 ~
 human~
 BT 0 N 0 ABHKL 1000 0
@@ -825,12 +850,17 @@ CDGL LP large unknown
 r holy 999
 r disease 999
 #14043
-eagle creature~
-The eagle creature~
-An eagle creature sings, "Holy, Holy, Holy, The Lord..." 
+eagle creature создание орел~
+@eng the eagle creature@rus ~~создание~~, орлу летящему ~~подобное~~~
+@eng An eagle creature sings, "Holy, Holy, Holy, The Lord..." 
+@rus Орлу подобное создание (eagle creature) взывает: свят, свят, свят Господь Бог Вседержитель...
 ~
-The eagle creature is full of eyes in front and behind.
+@eng The eagle creature is full of eyes in front and behind.
 It has 6 wings, and even eyes inside.
+@rus Сие создание орлу подобно, и исполнено оно очей сзади и спереди, и 
+внутри исполнено очей и имеет шесть крыл вокруг. И ни днем, ни ночью
+покоя не знает, взывая: свят, свят, свят Господь Бог Вседержитель, 
+Который был, есть и грядет.
 ~
 unique~
 BT 0 NT 0 ABHKL 1000 0
@@ -1231,78 +1261,69 @@ fountain 0 0 0
 10 10 0 P
 g @rus none~
 #14036
-throne emerald rainbow~
-An emerald throne~
-An emerald throne surrounded by a rainbow is here.~
+throne emerald rainbow rus престол~
+@eng An emerald throne@rus ~~изумрудный~~ ~~престол~~~
+@eng An emerald throne surrounded by a rainbow is here.@rus Изумрудный престол (throne), окруженный радугой.~
 unknown~
 furniture AGKL D 0
 A EIJKN AEHK DGH DGH
 46 500 18000 P
 E
 throne emerald rainbow~
-The throne flashes lightnings, and peals of thunder roll
+@eng The throne flashes lightnings, and peals of thunder roll
 from it.
+@rus Престол, стоящий на небе, окруженный радугой, подобной смарагду.
+И от него исходят молнии и громы, и гласы.
 ~
-g @rus none~
+g @rus male~
 #14037
-thrones four twenty~
-Four and twenty thrones~
-Four and twenty thrones are here.~
+thrones four twenty 24 престола двадцать четыре~
+@eng Four and twenty thrones@rus ~~двадцать четыре престола~~~
+@eng Four and twenty thrones are here.@rus Двадцать четыре престола (thrones) стоят вокруг престола.~
 unknown~
-furniture AGKL D 0
-DE GHIKLMO AEHK BCEH BCEH
+treasure AGKL D 0
+0 0 0 0 0
 35 50 45000 P
 E
-thrones four twenty~
-The thrones are made of gold and have a holy aura.
+thrones four twenty престолы 24 двадцать четыре~
+@eng The thrones are made of gold and have a holy aura.
+@rus Сии престолы сделаны из золота и окружены аурой святости.
 ~
-g @rus none~
-#14039
-scroll seven seals broken~
-A scroll of seven broken seals~
-A scroll of seven broken seals lies here, writing unseen.~
-unknown~
-scroll 0 D 0
-10 '' '' '' ''
-60 100 10 P
-E
-writing~
-You carefully look at the writing on the scroll. It reads:
-
-THOSE MORTALS ARE IN DEEP BLOOD LAKE NOW
-~
-g @rus none~
+g @rus plural~
 #14040
 book~
-The book of life~
-A strange book with billions of names is here.~
+@eng The book of life@rus ~~книга~~ жизней~
+@eng A strange book with billions of names is here.@rus Книга (book), запечатанная семью печатями.~
 unknown~
-scroll 0 D AO
-10 '' '' '' ''
+treasure 0 D AO
+0 0 0 0 0
 60 1000 1000 P
 E
-life~
-I bet mortals will drive themselves crazy about this one.
+life книга~
+@eng I bet mortals will drive themselves crazy about this one.
+@rus Книга сия написана внутри и отвне и запечатана семью печатями. И
+нет смертного, который может раскрыть сию книгу и читать и даже
+посмотреть на нее.
 ~
 g @rus none~
 #14041
-bowl golden incense~
-A golden bowl of incense~
-A golden bowl filled with incense smokes here.~
+bowl golden incense золотая чаша~
+@eng A golden bowl of incense@rus ~~золотая~~ ~~чаша~~~
+@eng A golden bowl filled with incense smokes here.@rus Золотая чаша (bowl), полная фимиама.~
 unknown~
-wand IQ D AO
-0 0 0 '' 0
+staff IQ D AO
+60 3 3 'enchant weapon' 0
 40 10 10000 P
-g @rus none~
+g @rus female~
 #0
 
 #ROOMS
 #14001
 At the corner of the world~
 You smoulder in the flames of the corner of the world
-devoted to fire. The vapors of your burning flesh reach your 
-nose. Beyond the corner is only the blackness. There is
-an unstoppered vial glowing orange red in the flames.
+devoted to fire. The vapors of your burning flesh reach
+your nose. Beyond the corner is only the blackness. There
+is an unstoppered vial glowing orange red in the flames.
 ~
 0 0 noswim
 E
@@ -1418,9 +1439,9 @@ Z 0 14004
 S
 #14006
 MaGog~
-You are in Satan's city of MaGog. About you writhe and covort sinners in
-a final frolic before destruction.Refuse and ofcol are the perfume of the city. 
-Deterioration and decay claim every building you view.
+You are in Satan's city of MaGog. About you writhe and covort sinners
+in a final frolic before destruction.Refuse and ofcol are the perfume of
+the city. Deterioration and decay claim every building you view.
 ~
 0 0 city
 D0
@@ -1440,9 +1461,9 @@ Z 0 14007
 S
 #14007
 MaGog~
-You are in Satan's city of MaGog. About you writhe and covort sinners in
-a final frolic before destruction.Refuse and ofcol are the perfume of the city. 
-Deterioration and decay claim every building you view.
+You are in Satan's city of MaGog. About you writhe and covort sinners
+in a final frolic before destruction.Refuse and ofcol are the perfume of
+the city. Deterioration and decay claim every building you view.
 ~
 0 0 city
 D0
@@ -1469,11 +1490,12 @@ Z 0 14006
 S
 #14008
 MaGog~
-You are in Satan's city of MaGog. About you writhe and covort sinners in
-a final frolic before destruction.Refuse and ofcol are the perfume of the city. 
-Deterioration and decay claim every building you view. Here the evil is so
-strong you can almost feel it caress you. To the south lead a series of stairs
-to a solid adamantite gate emblazoned with the seals of heaven.
+You are in Satan's city of MaGog. About you writhe and covort sinners
+in a final frolic before destruction.Refuse and ofcol are the perfume of
+the city. Deterioration and decay claim every building you view. Here the
+evil is so strong you can almost feel it caress you. To the south lead a
+series of stairs to a solid adamantite gate emblazoned with the seals of
+heaven.
 ~
 0 C city
 D0
@@ -1508,9 +1530,9 @@ Z 0 14007
 S
 #14009
 MaGog~
-You are in Satan's city of MaGog. About you writhe and covort sinners in
-a final frolic before destruction.Refuse and ofcol are the perfume of the city. 
-Deterioration and decay claim every building you view.
+You are in Satan's city of MaGog. About you writhe and covort sinners
+in a final frolic before destruction.Refuse and ofcol are the perfume of
+the city. Deterioration and decay claim every building you view.
 ~
 0 0 city
 D0
@@ -1537,9 +1559,9 @@ Z 0 14008
 S
 #14010
 MaGog~
-You are in Satan's city of MaGog. About you writhe and covort sinners in
-a final frolic before destruction.Refuse and ofcol are the perfume of the city. 
-Deterioration and decay claim every building you view.
+You are in Satan's city of MaGog. About you writhe and covort sinners
+in a final frolic before destruction.Refuse and ofcol are the perfume of
+the city. Deterioration and decay claim every building you view.
 ~
 0 0 city
 D0
@@ -4718,9 +4740,9 @@ S
 #14120
 The Euphrates~
 You walk the bottom of the canyon where the Euphrates used to
-flow. All that is left of the once mighty river are scattered red pools of 
-blood. A terrible wind blows from down stream, bringing the smell
-of death to your nose.
+flow. All that is left of the once mighty river are scattered red
+pools of blood. A terrible wind blows from down stream, bringing
+the smell of death to your nose.
 ~
 0 0 hills
 D1
@@ -6487,7 +6509,7 @@ The heavens
 ~
 Z 0 14181
 D5
-Into the throne room
+Into the throne room.
 ~
 yourheart~
 the yourheart~
@@ -6599,21 +6621,29 @@ Falling further into the black pit
 Z 0 14183
 S
 #14191
-In the throne room~
-You stand in a magnificant throne room. Multitudes and multitudes
+@eng In the throne room@rus Перед престолом~
+@eng You stand in a magnificant throne room. Multitudes and multitudes
 of angles are here singing praise to the one who sits on the throne.
 About you are the souls of the dead shuffling foward to be judged.
+@rus Вот престол стоит на небе, и на престоле есть Сидящий. И Сей Сидящий
+есть Альфа и Омега, начало и конец, первый и последний. И вокруг него
+двадцать четыре старца в белых одеждах и четыре животных, исполненных
+очей сзади и спереди. От престола исходят молнии, громы и гласы и семь
+светильников горяд пред престолом. И тысячи тысяч ангелов вокруг прес-
+тола и животных и старцев.
 ~
 0 NVW inside
 D0
-The throne room
+@eng The throne room.
+@rus Перед престолом.
 ~
 ~
 ~
 ~
 Z 0 14194
 D1
-The throne room
+@eng The throne room.
+@rus Перед престолом.
 ~
 ~
 ~
@@ -6621,28 +6651,37 @@ The throne room
 Z 0 14192
 S
 #14192
-In the throne room~
-You stand in a magnificant throne room. Multitudes and multitudes
+@eng In the throne room@rus Перед престолом~
+@eng You stand in a magnificant throne room. Multitudes and multitudes
 of angles are here singing praise to the one who sits on the throne.
 About you are the souls of the dead shuffling foward to be judged.
+@rus Вот престол стоит на небе, и на престоле есть Сидящий. И Сей Сидящий
+есть Альфа и Омега, начало и конец, первый и последний. И вокруг него
+двадцать четыре старца в белых одеждах и четыре животных, исполненных
+очей сзади и спереди. От престола исходят молнии, громы и гласы и семь
+светильников горяд пред престолом. И тысячи тысяч ангелов вокруг прес-
+тола и животных и старцев.
 ~
 0 NVW inside
 D0
-The throne room
+@eng The throne room.
+@rus Перед престолом.
 ~
 ~
 ~
 ~
 Z 0 14195
 D1
-The throne room
+@eng The throne room.
+@rus Перед престолом.
 ~
 ~
 ~
 ~
 Z 0 14193
 D3
-The throne room
+@eng The throne room.
+@rus Перед престолом.
 ~
 ~
 ~
@@ -6650,21 +6689,29 @@ The throne room
 Z 0 14191
 S
 #14193
-In the throne room~
-You stand in a magnificant throne room. Multitudes and multitudes
+@eng In the throne room@rus Перед престолом~
+@eng You stand in a magnificant throne room. Multitudes and multitudes
 of angles are here singing praise to the one who sits on the throne.
 About you are the souls of the dead shuffling foward to be judged.
+@rus Вот престол стоит на небе, и на престоле есть Сидящий. И Сей Сидящий
+есть Альфа и Омега, начало и конец, первый и последний. И вокруг него
+двадцать четыре старца в белых одеждах и четыре животных, исполненных
+очей сзади и спереди. От престола исходят молнии, громы и гласы и семь
+светильников горяд пред престолом. И тысячи тысяч ангелов вокруг прес-
+тола и животных и старцев.
 ~
 0 NVW inside
 D0
-The throne room
+@eng The throne room.
+@rus Перед престолом.
 ~
 ~
 ~
 ~
 Z 0 14196
 D3
-The throne room
+@eng The throne room.
+@rus Перед престолом.
 ~
 ~
 ~
@@ -6672,28 +6719,37 @@ The throne room
 Z 0 14192
 S
 #14194
-In the throne room~
-You stand in a magnificant throne room. Multitudes and multitudes
+@eng In the throne room@rus Перед престолом~
+@eng You stand in a magnificant throne room. Multitudes and multitudes
 of angles are here singing praise to the one who sits on the throne.
 About you are the souls of the dead shuffling foward to be judged.
+@rus Вот престол стоит на небе, и на престоле есть Сидящий. И Сей Сидящий
+есть Альфа и Омега, начало и конец, первый и последний. И вокруг него
+двадцать четыре старца в белых одеждах и четыре животных, исполненных
+очей сзади и спереди. От престола исходят молнии, громы и гласы и семь
+светильников горяд пред престолом. И тысячи тысяч ангелов вокруг прес-
+тола и животных и старцев.
 ~
 0 NVW inside
 D0
-The throne room
+@eng The throne room.
+@rus Перед престолом.
 ~
 ~
 ~
 ~
 Z 0 14197
 D1
-The throne room
+@eng The throne room.
+@rus Перед престолом.
 ~
 ~
 ~
 ~
 Z 0 14195
 D2
-The throne room
+@eng The throne room.
+@rus Перед престолом.
 ~
 ~
 ~
@@ -6701,35 +6757,45 @@ The throne room
 Z 0 14191
 S
 #14195
-In the throne room~
-You stand in a magnificant throne room. Multitudes and multitudes
+@eng In the throne room@rus Перед престолом~
+@eng You stand in a magnificant throne room. Multitudes and multitudes
 of angles are here singing praise to the one who sits on the throne.
 About you are the souls of the dead shuffling foward to be judged.
+@rus Вот престол стоит на небе, и на престоле есть Сидящий. И Сей Сидящий
+есть Альфа и Омега, начало и конец, первый и последний. И вокруг него
+двадцать четыре старца в белых одеждах и четыре животных, исполненных
+очей сзади и спереди. От престола исходят молнии, громы и гласы и семь
+светильников горяд пред престолом. И тысячи тысяч ангелов вокруг прес-
+тола и животных и старцев.
 ~
 0 NVW inside
 D0
-At the throne
+@eng At the throne
+@rus Престол.
 ~
 ~
 ~
 ~
 Z 0 14198
 D1
-The throne room
+@eng The throne room.
+@rus Перед престолом.
 ~
 ~
 ~
 ~
 Z 0 14196
 D2
-The throne room
+@eng The throne room.
+@rus Перед престолом.
 ~
 ~
 ~
 ~
 Z 0 14192
 D3
-The throne room
+@eng The throne room.
+@rus Перед престолом.
 ~
 ~
 ~
@@ -6737,28 +6803,37 @@ The throne room
 Z 0 14194
 S
 #14196
-In the throne room~
-You stand in a magnificant throne room. Multitudes and multitudes
+@eng In the throne room@rus Перед престолом~
+@eng You stand in a magnificant throne room. Multitudes and multitudes
 of angles are here singing praise to the one who sits on the throne.
 About you are the souls of the dead shuffling foward to be judged.
+@rus Вот престол стоит на небе, и на престоле есть Сидящий. И Сей Сидящий
+есть Альфа и Омега, начало и конец, первый и последний. И вокруг него
+двадцать четыре старца в белых одеждах и четыре животных, исполненных
+очей сзади и спереди. От престола исходят молнии, громы и гласы и семь
+светильников горяд пред престолом. И тысячи тысяч ангелов вокруг прес-
+тола и животных и старцев.
 ~
 0 NVW inside
 D0
-The throne room
+@eng The throne room.
+@rus Перед престолом.
 ~
 ~
 ~
 ~
 Z 0 14199
 D2
-The throne room
+@eng The throne room.
+@rus Перед престолом.
 ~
 ~
 ~
 ~
 Z 0 14193
 D3
-The throne room
+@eng The throne room.
+@rus Перед престолом.
 ~
 ~
 ~
@@ -6766,21 +6841,29 @@ The throne room
 Z 0 14195
 S
 #14197
-In the throne room~
-You stand in a magnificant throne room. Multitudes and multitudes
+@eng In the throne room@rus Перед престолом~
+@eng You stand in a magnificant throne room. Multitudes and multitudes
 of angles are here singing praise to the one who sits on the throne.
 About you are the souls of the dead shuffling foward to be judged.
+@rus Вот престол стоит на небе, и на престоле есть Сидящий. И Сей Сидящий
+есть Альфа и Омега, начало и конец, первый и последний. И вокруг него
+двадцать четыре старца в белых одеждах и четыре животных, исполненных
+очей сзади и спереди. От престола исходят молнии, громы и гласы и семь
+светильников горяд пред престолом. И тысячи тысяч ангелов вокруг прес-
+тола и животных и старцев.
 ~
 0 NVW inside
 D1
-At the throne
+@eng At the throne
+@rus Престол.
 ~
 ~
 ~
 ~
 Z 0 14198
 D2
-The throne room
+@eng The throne room
+@rus Перед престолом.
 ~
 ~
 ~
@@ -6788,36 +6871,44 @@ The throne room
 Z 0 14194
 S
 #14198
-At the throne~
-You grovel before the throne. He who sits at the throne
+@eng At the throne@rus Престол~
+@eng You grovel before the throne. He who sits at the throne
 tells you 'Now is your time'. With a gesture a black
 hole appears at your feet. He motions for you to go into
 the hole, and resumes his Judgement. 
+@rus Ты $gn{распростерся} перед престолом. И Сидящий на пристоле сказал
+тебе:' Вот пришло и твое время отвечать за грехи твои'. И повинуясь
+Его жесту разверзлась дыра черная у твоих ног. И движением Он напра-
+вил тебя в нее и продолжил свое Судейство.
 ~
 0 NVW inside
 D1
-The throne room
+@eng The throne room.
+@rus Перед престолом.
 ~
 ~
 ~
 ~
 Z 0 14199
 D2
-The throne room
+@eng The throne room.
+@rus Перед престолом.
 ~
 ~
 ~
 ~
 Z 0 14195
 D3
-The throne room
+@eng The throne room.
+@rus Перед престолом.
 ~
 ~
 ~
 ~
 Z 0 14197
 D4
-Into the black hole
+@eng Into the black hole
+@rus Черная дыра.
 ~
 ~
 ~
@@ -6825,21 +6916,29 @@ Into the black hole
 Z 0 1
 S
 #14199
-In the throne room~
-You stand in a magnificant throne room. Multitudes and multitudes
+@eng In the throne room@rus Перед престолом~
+@eng You stand in a magnificant throne room. Multitudes and multitudes
 of angles are here singing praise to the one who sits on the throne.
 About you are the souls of the dead shuffling foward to be judged.
+@rus Вот престол стоит на небе, и на престоле есть Сидящий. И Сей Сидящий
+есть Альфа и Омега, начало и конец, первый и последний. И вокруг него
+двадцать четыре старца в белых одеждах и четыре животных, исполненных
+очей сзади и спереди. От престола исходят молнии, громы и гласы и семь
+светильников горяд пред престолом. И тысячи тысяч ангелов вокруг прес-
+тола и животных и старцев.
 ~
 0 NVW inside
 D2
-The throne room
+@eng The throne room.
+@rus Перед престолом.
 ~
 ~
 ~
 ~
 Z 0 14196
 D3
-At the throne
+@eng At the throne
+@rus Престол.
 ~
 ~
 ~
@@ -6997,18 +7096,17 @@ E 0 14002 0 5		*	The giant locust<on the body>: An iron breastplate
 E 0 14003 0 16		*	The giant locust<wielded>: A locust stinger
 M 0 14002 1 14190 1	* Abaddon (The bottomless pit)
 E 0 14004 0 5		*	Abaddon<on the body>: The chain of binding
-M 0 14043 1 14192 1	* The eagle creature (In the throne room)
-M 0 14040 1 14194 1	* The lion creature (In the throne room)
-M 0 14041 1 14195 1	* The ox creature (In the throne room)
-M 0 14042 1 14196 1	* The creature with a human face (In the throne room)
-O 0 14039 0 14197	* A scroll of seven broken seals (In the throne room)
-M 0 14038 1 14197 1	* The lamb (In the throne room)
+M 0 14043 1 14192 1	* the eagle creature (In the throne room)
+M 0 14040 1 14194 1	* the lion creature (In the throne room)
+M 0 14041 1 14195 1	* the ox creature (In the throne room)
+M 0 14042 1 14196 1	* the creature with a human face (In the throne room)
+M 0 14038 1 14197 1	* The Lamb (In the throne room)
 O 0 14036 0 14198	* An emerald throne (At the throne)
 M 0 14037 1 14198 1	* He who sits at the throne (At the throne)
 E 0 14040 0 17		*	He who sits at the throne<held in the hands>: The book of life
 O 0 14037 0 14199	* Four and twenty thrones (In the throne room)
-M 0 14039 1 14199 1	* Four and twenty elders (In the throne room)
-E 0 14041 0 17		*	Four and twenty elders<held in the hands>: A golden bowl of incense
+M 0 14039 1 14199 1	* four and twenty elders (In the throne room)
+E 0 14041 0 17		*	four and twenty elders<held in the hands>: A golden bowl of incense
 S
 
 #OLIMITS

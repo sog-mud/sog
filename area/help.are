@@ -436,7 +436,7 @@ Shades of Gray, you must choose a name accordingly explained below:
    -- Vulgar or sexually suggestive names.  (No examples needed)
    -- Nouns which are names of animals.  (Horse, Doll)
    -- Strings of random characters.  (Asdfg, Qwdldkf)
-   -- Titles which imply rank or privelege.   (Lord, Sir,...)
+   -- Titles which imply rank or privilege.   (Lord, Sir,...)
    -- Scientific phrases, words. (Proof, Logic, Electrics...)
    -- Object names. (Necklace, Staff, Sword etc)
    -- Compound names. (FarmerJoe, Maryjane etc.)
@@ -3863,8 +3863,8 @@ Player killing in Shades of Gray is totally permitted. In fact, it is
 encouraged, and since some fine objects have a finite number, you will have
 to kill other players to get them. You can playerkill after you are
 {Clevel 10{x. People you can pk are shown by a {r[{RPK{r]{x flag in front of their 
-names on the who and the where lists.  These people are anyone within a 
-range of your level.( minimum( 4, level / 10 ) level below and above levels)  
+names on the who and the where lists.  These people are anyone within 
+your pk range (max(4, level/10+2) levels below and above).
 
 Expect to be PK'ed, and don't take it too personally. Remember, there's
 safety in numbers. 
@@ -4532,6 +4532,7 @@ koi8-r:
        То же самое, но с большой буквой 'ъ'.
 
 На данный момент список правильно работающих установок notelnet/noiac таков:
+ZMud 4.62   -- notelnet off, noiac on
 ZMud 3.62a  -- notelnet on, noiac on
 tt++ 1.5pl6 -- notelnet on, noiac on
 tf 4.0g3    -- notelnet off, noiac off
@@ -4633,13 +4634,15 @@ them...)
 0 'OLC RESETS'~
 Syntax: {creset{x
 Syntax: {creset{x ?
-Syntax: {creset{x mob <vnum>
-Syntax: {creset{x obj <vnum> inside <reset_num>
+Syntax: {creset{x mob <vnum> [<total_lim>] [<room_lim>]
+Syntax: {creset{x obj <vnum> inside <reset_num> [<total_lim>] [<inobj_lim>]
 Syntax: {creset{x obj <vnum> room
 Syntax: {creset{x obj <vnum> <none | inventory> <reset_num>
 Syntax: {creset{x obj <vnum> <wear_loc> <reset_num>
 Syntax: {creset{x random <num>
 Syntax: {creset{x delete <reset_num>
+Syntax: {creset{x probability <reset_num> <num>
+Syntax: {creset{x now
 
 <reset_vnum> for '{creset obj{x' is the number of reset after which
 new reset will be inserted.

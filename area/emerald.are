@@ -2112,7 +2112,8 @@ vainglory Morning-Star Morningstar напрасная слава звезда утренняя~
 @eng Along the oaken haft of this holy weapon is engraved a faded psalm:
 " .... wilt thou hide thyself forever? shall thy wrath burn like fire?"
 @rus На рукояти ты видишь полустертые слова:
- ... когда ты придешь, будет ли твой гнев подобен огню?
+ ... будешь ли скрываться вечно?
+ ... стал твой гнев огню подобен?
 ~
 g @eng none@rus female~
 #203
@@ -2147,7 +2148,7 @@ trash G 0 AO
 E
 rose black flower роза черная цветок~
 @eng A vicious yet riveting black rose is here with a heady and sensious
-fragrance that assualts, yet compels your senses.
+fragrance that assaults, yet compels your senses.
 @rus Черная роза, жестокий и красивый символ...
 ~
 g @eng none@rus female~
@@ -2528,7 +2529,7 @@ E
 herbal potion настой трав~
 @eng The potion is marked "Ranger Aid" and seems to have been brewed from
 a colorful variety of forest herbs.
-@rus На пузырьке пометка "Аптечка первой помощи, лесной комплект". Судя по
+@rus На пузырьке пометка "Аптечка первой помощи, комплект для леса". Судя по
 запаху, это настой множества лесных трав.
 ~
 g @eng none@rus male~
@@ -2601,36 +2602,39 @@ bole ствол~
 ~
 g @rus none~
 #229
-nut nuts cache~
-a cache of nuts~
-A cache of nuts lies here.~
+nut nuts cache орехи запас~
+@eng a cache of nuts@rus ~~запас~~ орехов~
+@eng A cache of nuts lies here.@rus На земле лежит кучка орехов.~
 food~
 food 0 0 A
 DE 0 0 0 0
 15 2 100 W
 E
-nuts~
-These delicious-looking nuts must be from a squirrel's winter larder.
+nuts орехи~
+@eng These delicious-looking nuts must be from a squirrel's winter larder.
+@rus Аппетитно выглядящая кучка орехов. Не иначе, как из зимних беличьих запасов.
 ~
-g @rus none~
+g @rus male~
 #230
-Herman Melville book~
-Herman Melville's "Moby Dick"~
-Herman Melville's "Moby Dick" lies here.~
+Herman Melville book книга герман мелвилль~
+@eng Herman Melville's "Moby Dick"@rus ~~роман~~ Германа Мелвилля "Моби Дик"~
+@eng Herman Melville's "Moby Dick" lies here.@rus Роман Германа Мелвилля "Моби Дик" лежит перед тобой.~
 cloth~
 trash 0 0 AO
 0 0 0 0 0
 5 3 50 G
 E
-Herman Melville book~
-A classic tale of man against fish.  Flipping through it, you notice
+Herman Melville book книга герман мелвилль~
+@eng A classic tale of man against fish.  Flipping through it, you notice
 that the word "eskimo" has been circled repeatedly in red.
+@rus Классическая история о человеке и рыбе. Пролистав книгу, ты $gn{заметил},
+что слово "эскимос" несколько раз обведено красным.
 ~
-g @rus none~
+g @rus male~
 #231
-shield melancholic~
-the Knight Melancholic's shield~
-A green and silver shield bears a bleeding heart device.~
+shield melancholic щит рыцарь печальный~
+@eng the Knight Melancholic's shield@rus ~~щит~~ Печального Рыцаря~
+@eng A green and silver shield bears a bleeding heart device.@rus Щит с рассеченным сердцем в серебряно-зеленом поле.~
 steel~
 armor BK 0 AJ
 8 8 9 0 0
@@ -2638,17 +2642,21 @@ armor BK 0 AJ
 a '' to_object 35 -1 -10 13 0
 a '' to_object 35 -1 2 19 0
 E
-shield melancholic~
-This is a Knight Melancholic's shield, and it bears the crest of the
+shield melancholic щит рыцарь печальный~
+@eng This is a Knight Melancholic's shield, and it bears the crest of the
 Order, that of a bleeding heart skewered by a sword and crossed with
 roses.  You feel at once angry with and tired of life just looking
 at the device.
+@rus Этот щит Печального Рыцаря несет на себе странный геральдический символ.
+Ты видишь рассеченное по диагонали сердце, перекрещенное двумя розами.
+На мгновение ты $gn{почувствовал} озлобленность; но она тут ше исчезла,
+оставив лишь ощущение пустоты и усталости от жизни.
 ~
-g @rus none~
+g @rus male~
 #232
-sword swiftbird~
-a sword called "Swiftbird"~
-A sword called "Swiftbird" sings a melancholic lament.~
+sword swiftbird меч быстрая птица~
+@eng a sword called "Swiftbird"@rus ~~меч~~ "Быстрая Птица"~
+@eng A sword called "Swiftbird" sings a melancholic lament.@rus Известный меч "Быстрая птица", кажется, тихо поет.~
 steel~
 weapon K 0 AN
 sword 10 3 'slash' 0
@@ -2657,17 +2665,20 @@ a '' to_object 35 -1 -5 13 0
 a '' to_object 35 -1 4 18 0
 a '' to_object 35 -1 4 19 0
 E
-sword swiftbird~
-This sword has been beautifully crafted, meant to bring woe measure
+sword swiftbird меч быстрая птица~
+@eng This sword has been beautifully crafted, meant to bring woe measure
 for measure to the enemies of its wielder.  Engraved along the blade
 of the weapon is the device of the Order of the Knights Melancholic
 and the words, "Honor, Love, Pain, Death and Poetry".
+@rus Меч сделан, несомненно, руками настоящего мастера и способен принести
+множество горя врагам своего владельца. На лезвии ты видишь эмблему
+Печальных Рыцарей и их девиз, "Честь и любовь, боль и смерть, - поэзия."
 ~
-g @rus none~
+g @rus male~
 #233
-marmalade Orb~
-a marmalade orb~
-A striped marmalade orb floats in the air near you.~
+marmalade orb мармеладный шар~
+@eng a marmalade orb@rus ~~мармеладный~~ ~~шар~~~
+@eng A striped marmalade orb floats in the air near you.@rus Полосатый мармеладный шар парит в воздухе.~
 energy~
 weapon FGI 0 AN
 exotic 10 4 'magic' 0
@@ -2675,16 +2686,20 @@ exotic 10 4 'magic' 0
 a '' to_object 43 -1 3 18 0
 a '' to_object 43 -1 3 19 0
 E
-orb marmalade~
-The orb is fist-sized and pulsates with an otherworldly energy.  As
+orb marmalade шар мармеладный~
+@eng The orb is fist-sized and pulsates with an otherworldly energy.  As
 you examine it closer, it spits a burst of magic into the air.  It
 emits a low hum that sounds almost like the purring of a cat.
+@rus Шар, размером с кулак. Он пульсирует какой-то неземной магической энергией.
+При ближайшем рассмотрении, шар неожиданно вздрогнул и выпустил столько
+магической энергии, что воздух слегка заискрился. Он издает легкий гул,
+напоминающий довольное мурлыкание кошки.
 ~
-g @rus none~
+g @rus male~
 #234
-TianCanShenGong Manual~
-the TianCanShenGong manual~
-An ancient transcript with oriental scriblings radiates brightly here.~
+tiancanshengong Manual книга тяньканшенгонг~
+@eng the TianCanShenGong manual@rus ~~книга~~ "ТянКанШенГонг"~
+@eng An ancient transcript with oriental scriblings radiates brightly here.@rus Старинный манускрипт, испещренный иероглифами, ярко светится.~
 cloth~
 treasure A 0 AO
 0 0 0 0 0
@@ -2693,18 +2708,21 @@ a '' to_object 50 -1 -15 12 0
 a '' to_object 50 -1 1 18 0
 a '' to_object 50 -1 4 19 0
 E
-Tiancanshengong manual~
-Browsing through the manual, you notice the following oriental words
+Tiancanshengong manual книга тянканшенгонг~
+@eng Browsing through the manual, you notice the following oriental words
 that glows right out of the page :
 
           Bu Pa Tian Cang Di Jui  Zi Pa Cheng Jing Yong You
 
+@rus Листая книгу, ты $gn{наткнулся} на мерцающую надпись:
+ 
+      Бу Па Тян Канг Ди Джуй Зи Па Чен Джинг Йонг Йю
 ~
-g @rus none~
+g @rus female~
 #235
-bible~
-the Bible~
-A small black bible lies here.~
+bible библия~
+@eng the Bible@rus ~~Библия~~~
+@eng A small black bible lies here.@rus Маленькая черная Библия лежит тут.~
 wood~
 armor GIKL 0 AO
 7 8 7 0 0
@@ -2713,25 +2731,30 @@ a '' to_object 20 -1 -15 12 0
 a '' to_object 20 -1 2 18 0
 a '' to_object 20 -1 -5 24 0
 E
-bible~
-This small black bible looks well thumbed and has a weathered
+bible библия~
+@eng This small black bible looks well thumbed and has a weathered
 binding. One of the bibles used by chapel-goers of the past, it
 seems to have survived time, dust and wind. A small name seems
 to have been written neatly on the top right hand corner of the
 first page, you can just make out 'Sebastian' on it.
+@rus Маленькая черная Библия с замусоленными страницами и потрепанным переплетом.
+Такие книги раньше носили с собой пилигримы, но этот экземпляр, похоже,
+пережил и пыль, и ветер, и даже, возможно, само время. В верхнем правом
+углу первой страницы аккуратным почерком написано имя. Приглядевшись, ты
+$gn{разобрал} надпись "Себастьян".
 ~
-g @rus none~
+g @rus female~
 #236
-map~
-Smokey's Map~
-A paw-written dirty-old map lies on the floor.~
+map карта~
+@eng Smokey's Map@rus ~~карта~~ Смоки~
+@eng A paw-written dirty-old map lies on the floor.@rus Грубо нарисованная старая карта лежит здесь.~
 wood~
 treasure 0 0 A
 0 0 0 0 0
 10 2 3000 G
 E
-map~
-*-*
+map карта~
+@eng *-*
 
            O oooo         The Map of Emerald Forest
            (    )                as pawed by
@@ -2762,12 +2785,42 @@ map~
                               \  Bonanza   \
                                \\--===\\\\\\\
 
+@rus *-*
+ 
+           O oooo         Карта Изумрудного леса
+           (    )        нарисовал собственнолапно
+            \   |    Смоки, Ренджер-медведь в отставке
+             (  )
+                                                                  С
+                /---                             =-\ 
+               |    --/==========\                  \            /^\ 
+                \--- < Клеверякино>          /------\\            |
+                      \          /        _/         \           -|-
+    /-----\            \\      /         |            \           |
+    /      \             \- /--|        /              \\ 
+    /       \             /           /                  \ 
+    /        /          /           /                     \\ 
+   -/ Ведьмин  --------|-----------|---\                    \\ 
+  //         -         |                \         /=====>     \ 
+  -    Лес   |         |                 \--------< Мой |      \\\\\\\\ 
+   |         |         |                          \ Дом |
+   /\\-|-\\--|\        |                           \====>
+  |    |       \       |
+  |  Мертвые   //      |    И З У М Р У Д Н Ы Й
+  |         ///        |
+  | Болота /           |                  Л Е С
+  \       /-          ---
+   -\\---/             |        /---\\ 
+                       |      //      \\\ 
+                        \-----/ Фестиваль\ 
+                             \            \ 
+                               \\--===\\\\\\\ 
 ~
-g @rus none~
+g @rus female~
 #237
-marcel proust mace book~
-Marcel Proust's "A la Recherche du Temps Perdu"~
-Marcel Proust's "A la Recherche du Temps Perdu" lies here.~
+marcel proust book книга марсель пруст~
+@eng Marcel Proust's "A la Recherche du Temps Perdu"@rus ~~книга~~ Марселя Пруста~
+@eng Marcel Proust's "A la Recherche du Temps Perdu" lies here.@rus Увесистый том Марселя Пруста лежит тут.~
 gold~
 weapon K 0 AN
 mace 10 2 'pound' 0
@@ -2776,247 +2829,259 @@ a '' to_object 15 -1 -1 2 0
 a '' to_object 15 -1 1 18 0
 a '' to_object 15 -1 3 19 0
 E
-marcel proust mace book~
-All 7 related books of this literary masterpiece have been bound in
+marcel proust book книга марсель пруст~
+@eng All 7 related books of this literary masterpiece have been bound in
 one weighty collection.  It looks extremely valuable.
+@rus Все 7 книг собраны в один богато отделаный том. Получилась достаточно
+увесистая книга.
 ~
 g @rus none~
 #238
-dagger stick sword-stick палка меч~
-a sword-stick~
-A sword-stick lies on the grass here.~
-steel~
+stick sword меч ветка~
+@eng a sword-stick@rus ~~меч~~-~~ветка~~~
+@eng A sword-stick lies on the grass here.@rus Ветка, напоминающая формой меч, лежит в траве.~
+wood~
 weapon 0 0 AN
 dagger 8 2 'stab' 0
 5 80 100 G
 E
-stick dagger sword-stick~
-The sword-stick seems to have been cunningly fashioned from the branch
+stick sword меч ветка~
+@eng The sword-stick seems to have been cunningly fashioned from the branch
 of a tree.  It is about 2 feet long and has edges as sharp as that of
 any steel sword.  Its pommel has been carved into the likeness of a
 demon elf with a mysterious expression on her face.
+@rus Эта ветка, похоже, действительно является серьезным оружием. Выточенная
+из неизвестного дерева в форме меча, она может сравниться по остроте с насто-
+ящим мечом. Эфес выполнен в форме фигурки демона-эльфа с загадочным выражением
+на его лице.
 ~
-g @rus none~
+g @rus male~
 #239
-bookcase cabinet~
-book cabinet~
-An ornate mahogany book cabinet sits in the corner of the room.~
+bookcase cabinet шкаф книжный~
+@eng book cabinet@rus ~~книжный~~ ~~шкаф~~~
+@eng An ornate mahogany book cabinet sits in the corner of the room.@rus Украшенный резьюой шкаф из красного дерева стоит в углу комнаты~
 wood~
 container 0 0 0
 50 AC 0 0 0
 30 100000 1000 A
 E
-bookcase cabinet~
-Peering inside, you see that the book cabinet has been furnished with
+bookcase cabinet книжный шкаф~
+@eng Peering inside, you see that the book cabinet has been furnished with
 a complete set of the Bard's plays, lots of Tolkien and C.S.Lewis, a
 set of Edgar Allan Poe's short stories, and other famed works of
 literature, like "Faust", "To The Lighthouse", "Les Fleurs du mal",
 Tama Janowitz's "The Male Cross-Dresser's Support Group", and an
 autographed collection of Steve Nicks lyrics.
+@rus Заглянув внутрь, ты $gn{обнаружил} там хорошую коллекцию Джона Толкиена,
+Карла Льюиса, Эдгара По и многих других классиков литературы. Некоторые книги
+даже подписаны авторами.
 ~
-g @rus none~
+g @rus male~
 #240
-bow ashen longbow~
-an ashen longbow~
-A skillfully crafted longbow with a quiver of arrows lie here.~
-Gold~
+bow ashen longbow лук ясеневый длинный~
+@eng an ashen longbow@rus ~~длинный~~ ~~ясеневый~~ ~~лук~~~
+@eng A skillfully crafted longbow lies here.@rus Сделанный мастером лук лежит на земле.~
+ashwood~
 weapon K 0 AN
 bow 9 3 'pierce' 0
 28 100 4700 G
 a '' to_object 28 -1 3 18 0
 a '' to_object 28 -1 1 19 0
 E
-bow ashen Longbow~
-This longbow is six feet tall and made from the sturdy, supple wood
+bow ashen Longbow длинный ясеневый лук~
+@eng This longbow is six feet tall and made from the sturdy, supple wood
 of the valley ash.  Clearly, it has been crafted by skillful hands.
+@rus Длинный шестифутовый лук, сделанный целиком из жесткого ясеня. Очевидно,
+работа мастера.
 ~
-g @rus none~
+g @rus male~
 #241
-hell-spear spear~
-a Hell-Spear~
-A Hell-Spear wreathed in black flames.~
-iron~
+hell spear копье ад преисподняя~
+@eng a Hell-Spear@rus ~~Копье~~ Преисподней~
+@eng A Hell-Spear wreathed in black flames.@Адское копье окутано языками черного пламени.~
+darkness~
 weapon CHJ 0 AN
 spear 9 3 'pierce' AK
 25 120 3000 G
 a '' to_object 25 -1 1 18 0
 a '' to_object 25 -1 4 19 0
 E
-hellspear spear~
-Five and half feet of night-black iron, the Hell-Spears were forged in
+hellspear spear копье яд преисподняя~
+@eng Five and half feet of night-black iron, the Hell-Spears were forged in
 the Devil's infernal smithies for his huntsmen to claim the souls of
 the damned.  Serpentine tendrils of smoke curl down along its shaft.
+@rus Пять с половиной футов черного как ночь железа. Такие копья изготавлива-
+лись только в кузнях преисподней для демонов-охотников за проклятыми душами.
+Змеевидные щупальца дыма вьются вокруг древка.
 ~
 g @rus none~
 #242
-tulips bunch flower~
-a bunch of tulips~
-There is a bunch of yellow tulips here.~
-energy~
+tulips bunch flower букет тюльпаны цветы~
+@eng a bunch of tulips@rus ~~букет~~ тюльпанов~
+@eng There is a bunch of yellow tulips here.@rus Букет ярко-желтых тюльпанов перед тобой.~
+plant~
 trash G 0 A
 0 0 0 0 0
 1 1 20 G
 E
-tulips bunch flower~
-A few choice stalks of yellow tulips are here, wrapped carefully in
+tulips bunch flower букет тюльпаны цветы~
+@eng A few choice stalks of yellow tulips are here, wrapped carefully in
 brown paper.
+@rus Несколько отборных тюльпанов бережно завернуты в коричневую бумагу.
 ~
-g @rus none~
+g @rus male~
 #243
-gourd~
-a brown leather gourd~
-A hollowed husk of a fruit lies here.~
+gourd тыква~
+@eng a brown gourd@rus ~~тыквенная~~ ~~бутыль~~~
+@eng A hollowed husk of a fruit lies here.@rus Пустотелая оболочка тыквы лежит тут.~
 gourd~
 drink 0 0 A
 140 140 'water' 0 0
 1 4 200 G
 E
-gourd~
-A hollowed husk of a fruit lies here.
+gourd тыква~
+@eng A hollowed husk of a fruit lies here.
+@rus Вычищенная изнутри тыква. Похоже, в ней можно носить жидкости.
 ~
-g @rus none~
+g @rus female~
 #244
-wafers wafer~
-an elven wafer~
-A creamy thin piece of biscuit lies here tempting you.~
-glass~
+wafers вафли~
+@eng an elven wafer@rus ~~эльфийские~~ ~~вафли~~~
+@eng A creamy thin piece of biscuit lies here tempting you.@rus Аппетитный кусок пирожного перед тобой.~
+food~
 food 0 0 A
 EF 0 0 0 0
 1 2 2 P
 E
-wafer wafers~
-Can you resist me?
+wafers вафли~
+@eng Can you resist me?
+@rus Нельзя устоять и не попробовать!
 ~
-g @rus none~
+g all plural~
 #245
-sack~
-a Big Ol'Pack Sack~
-A brownish leather-like sack rests here.~
+sack мешок~
+@eng a Big Ol'Pack Sack@rus ~~большой~~ ~~мешок~~~
+@eng A brownish leather-like sack rests here.@rus Большой мешок из кожи лежит здесь~
 leather~
 container 0 0 AK
 350 A 0 0 0
 1 2 500 P
-E
-sack~
-A brownish leather-like sack rests here.
-~
-g @rus none~
+g @rus male~
 #246
-Brinjal gourd~
-a purplish brinjal gourd~
-Some purplish husk of a fruit lies here.~
+brinjal gourd баклажан бутыль~
+@eng a purplish brinjal gourd@rus ~~фиолетовая~~ ~~бутыль~~ из баклажана~
+@eng Some purplish husk of a fruit lies here.@rus Фиолетовая оболочка какого-то овоща перд тобой.~
 leather~
 drink 0 0 A
 10 10 'water' 0 0
 1 3 10 G
-E
-brinjal gourd~
-Some purplish husk of a fruit lies here.
-~
-g @rus none~
+g @rus female~
 #247
-Omelette surprise plate~
-an Omelette Surprise~
-A plate of beaten eggs, deliciously fried rests here.~
+Omelette surprise plate тарелка омлет~
+@eng an omelette surprise@rus ~~омлет~~~
+@eng A plate of beaten eggs, deliciously fried rests here.@rus Перед тобой тарелка аппетитно поджаренных яиц.~
 food~
 food 0 0 A
 BD 0 0 0 0
 1 1 5 P
-E
-omelette surprise plate~
-An Omelette Surprise!!!
-~
-g @rus none~
+g @rus male~
 #248
-milkshake vanilla~
-a vanilla milkshake~
-A creamy-white glass of milkshake lies untouched here.~
+milkshake vanilla коктейль молочный ванильный~
+@eng a vanilla milkshake@rus ~~ванильный~~ ~~молочный~~ ~~коктейль~~~
+@eng A creamy-white glass of milkshake lies untouched here.@rus Стакан кремово-белого коктейля стоит нетронутым перед тобой.~
 food~
 drink 0 0 A
 1 1 'milk' 0 0
 1 1 2 P
-g @rus none~
+g @rus male~
 #249
-pancakes plate~
-a plate of pancakes~
-A plate of golden pancakes, smothered in maple syrup tempts you.~
+pancakes plate тарелка блины~
+@eng a plate of pancakes@rus ~~тарелка~~ блинов~
+@eng A plate of golden pancakes, smothered in maple syrup tempts you.@rus Тарелка блинов с кленовым сиропом возбуждает твой аппетит.~
 food~
 food 0 0 A
 BD 0 0 0 0
 1 1 7 P
 E
-pancakes plate~
-A stack of pancakes winks at you seductively.
+pancakes plate тарелка блины~
+@eng A stack of pancakes winks at you seductively.
+@rus Ой. Кажется, один из них тебе подмигнул.
 ~
 g @rus none~
 #250
-dish pate saucer~
-goose-liver pate~
-A brown glob in a wide saucer lies here.~
+dish pate saucer паштет гусиный~
+@eng goose-liver pate@rus ~~паштет~~ из гусиной печени~
+@eng A brown glob in a wide saucer lies here.@rus Нечто коричневое в белом соусе.~
 food~
 food 0 0 A
 BD 0 0 0 0
 1 1 3 P
 E
-dish pate saucer~
-Farmer Griff's slaughtered Goose, Duffie's liver!
+dish pate saucer паштет гусиный~
+@eng Farmer Griff's slaughtered Goose, Duffie's liver!
+@rus Печенка Дуффи, невинно убиенного гуся фермера Гриффа.
 ~
-g @rus none~
+g @rus male~
 #251
-duck~
-Griff's Roast Duck~
-A whole roast duck is here.~
+duck утка~
+@eng Griff's Roast Duck@rus ~~жареная~~ ~~утка~~ а-ля Грифф~
+@eng A whole roast duck is here.@rus Зажаренная целиком утка лежит перед тобой.~
 food~
 food 0 0 A
 DE 0 0 0 0
 1 1 8 P
 E
-duck~
-Farmer Griff's Speciality -- A golden roasted duck with a savory aroma,
+duck утка~
+@eng Farmer Griff's Speciality -- A golden roasted duck with a savory aroma,
 fresh from the oven.
+@rus Особое блюдо фермера Гриффа - зажаренная до золотистой корочки утка с
+ароматом чабреца. Только что из печки.
 ~
-g @rus none~
+g @rus female~
 #252
-stew bowl~
-a herbal pig's brain stew~
-A mystical bowl with strange engravings lies here.~
+stew bowl котелок гуляш~
+@eng a herbal pig's brain stew@rus ~~гуляш~~ из свиных мозгов~
+@eng A mystical bowl with strange engravings lies here.@rus Загадочный котелок аппетитно пахнет.~
 food~
 food 0 0 A
 CD 0 0 0 0
 1 1 3 P
 E
-stew bowl~
-This mystical brew blends 21 herbs from the depths of Emerald Forest,
+stew bowl котелок гуляш~
+@eng This mystical brew blends 21 herbs from the depths of Emerald Forest,
 carefully broiled with a pig's brain.
 A fragrant aroma of sea cucumber adds a delicate flavour to this savory
 dish.
+@rus Эта загадочная смесь состоит из 21 травы, растущей в этом лесу. Странный
+аромат морского огурца необычно оттеняет это блюдо.
 ~
 g @rus none~
 #253
-bun~
-a Char Siew Bun~
-A white doughed dumpling with a little red dot is here.~
+bun пирожок~
+@eng a Char Siew Bun@rus ~~поджаристый~~ ~~пирожок~~~
+@eng A white doughed dumpling with a little red dot is here.@rus Пирожок из белого теста с красной точкой сверху.~
 food~
 food 0 0 A
 DE 0 0 0 0
 1 1 2 P
 E
-bun~
-Still warm from the oven rack, this fist-sized white bun is wrapped with
+bun пирожок~
+@eng Still warm from the oven rack, this fist-sized white bun is wrapped with
 roast pork.
+@rus Еще хранящий тепло печи, этот пирожок украшен поджаристымкусочком свинины.
 ~
-g @rus none~
+g @rus male~
 #254
-book~
-Farmer Griff's Culinary Secrets~
-An oil-soiled book is here.~
-cloth~
+book книга~
+@eng "Farmer Griff's Culinary Secrets"@rus "Кулинарные Секреты Фермера Гриффа"~
+@eng An oil-soiled book is here.@rus Обильно покрытая масляными пятнами книга.~
+paper~
 trash 0 0 A
 0 0 0 0 0
 1 1 1000 P
 E
-book~
-As you glance through this precious book of farmer Griff's, your eyes are
+book книга~
+@eng As you glance through this precious book of farmer Griff's, your eyes are
 irresitably drawn to this page...
 
    Coeur de licorne
@@ -3027,56 +3092,72 @@ irresitably drawn to this page...
 
    a) half a pound heart of Unicorn
    b) 3 ounces of blue-capped mushroom pounded into fine dust.
-   c) a teasepoon of sun-flower pollen
+   c) a teaspoon of sun-flower pollen
    d) 2 clover sprigs
    e) a heart of a Nymph
    f) a whisker of a marmalade cat
    g) a cup of spring water
+        (Instructions overleaf)
 
-   Instructions overleaf.
+@rus Пролистывая книгу, твой взгляд останавливается на этой странице:
 
+   Нектар богов
+
+   Специальное блюдо, приготовляемое в День Грома, 3-го месяца в Гроте,
+   дает бессмертие тому, кто его попробует.
+
+   а) полфунта сердец единорога
+   б) три унции грибов с синими шляпками
+   в) чайная ложка подсолнечной пыльцы
+   г) две веточки клевера
+   д) сердце нимфы
+   е) ус мармеладной кошки
+   ж) стакан воды из ручья
+       (продолжение на следующей странице)
 ~
 g @rus none~
 #255
-apron~
-an apron~
-A blue, embroided apron lies folded on the ground.~
+apron фартук~
+@eng an apron@rus ~~фартук~~~
+@eng A blue, embroided apron lies folded on the ground.@rus Вышитый синий фартук скомкан на земле.~
 cloth~
 armor 0 0 AD
 3 2 3 0 0
 1 50 50 G
 E
-apron~
-A fanciful "G" is nicely embroided in the apron's centre.
+apron фартук~
+@eng A fanciful "G" is nicely embroided in the apron's centre.
+@rus Симпатичная буква "Г" вышита в центре фартука.
 ~
-g @rus none~
+g @rus male~
 #256
-cushion cushions~
-a snowy-white cushion~
+cushion подушка~
+@eng a snowy-white cushion@rus ~~белоснежная~~ ~~подушка~~~
 ~
 cloth~
 container 0 0 0
 2 AC 0 0 0
 1 100000 1000 A
-g @rus none~
+g @rus female~
 #257
-key iron~
-a rusty iron key~
-A key lies here tarnished in rust.~
+key iron ключ железный~
+@eng a rusty iron key@rus ржавый железный ключ~
+@eng A key lies here tarnished in rust.@rus Ключ, покрытый ржавчиной.~
 iron~
 key 0 0 A
 0 0 0 0 0
 1 2 10 P
 E
-key iron~
-It is covered with rust.
+key iron ключ железный~
+@eng It is covered with rust.
+@rus Он действительно покрыт рфавчиной.
 ~
-g @rus none~
+g @rus male~
 #258
-skin cloak~
-the skin of an elven princess~
-A wide cloak made from the skin of an elven princess.~
-energy~
+skin cloak накидка кожа~
+@eng the skin of an elven princess@rus ~~накидка~~ из кожи эльфийской принцессы~
+@eng A wide cloak made from the skin of an elven princess.@rus Накидка, сделанная из кожи эльфийской принцессы.~
+elvenskin~
 armor J 0 AC
 9 8 8 0 0
 38 8 9000 G
@@ -3085,18 +3166,23 @@ a '' to_object 38 -1 20 9 0
 a '' to_object 38 -1 10 13 0
 a '' to_object 38 -1 2 19 0
 E
-skin cloak~
-An elven princess of a past age gave up her skin to the witches of the
+skin cloak накидка кожа~
+@eng An elven princess of a past age gave up her skin to the witches of the
 Lochhearn to save her people, and they made this awful artifact from
 her sacrifice.  The coven at Struith is now destroyed, but this example
 of their evil and blasphemy has been saved by the Last Sisters.  It
 retains a flawless and immortal beauty that is horrible to behold.
+@rus Давным давно, одна эльфийская принцесса заплатила Лоххернским ведьмам
+за спасение своего народа очень дорого. Она отдала им свою кожу, и те сделали
+из нее этот ужасный артифакт. Давно уничтожены и те ведьмы, и их Ковен, но
+этот образец их деятельности был сохранен тремя сестрами. Даже сейчас эта
+вещь сохранила странно-безупречную красоту.
 ~
-g @rus none~
+g @rus female~
 #259
-candle~
-a blood candle~
-A blood candle paints the room red.~
+candle свеча~
+@eng a blood candle@rus кроваво-~~красная~~ ~~свеча~~~
+@eng A blood candle paints the room red.@rus Красная свеча окрашивает и комнату вокруг в красный цвет.~
 wax~
 light AGJ 0 A
 0 0 999 0 0
@@ -3104,16 +3190,18 @@ light AGJ 0 A
 a '' to_object 20 -1 1 18 0
 a '' to_object 20 -1 1 19 0
 E
-candle~
-The blood candle burns so that only you can see its light.  It is made
+candle свеча~
+@eng The blood candle burns so that only you can see its light.  It is made
 by witches from the blood and fat of dead women and can be extinguished
 only by dousing its dark flame with milk.
+@rus Свет этой свечи виден лишь тебе. Такие свечи делают болотные ведьмы из
+трупов женщин. Потушить ее можно лишь молоком.
 ~
-g @rus none~
+g @rus female~
 #260
-ring scarab beetle~
-a gold scarab ring~
-A petrified beetle dipped in gold has been dead a long time.~
+ring scarab beetle кольцо скарабей~
+@eng a gold scarab ring@~~золотое~~ ~~кольцо~~ со скарабеем~
+@eng A petrified beetle dipped in gold has been dead a long time.@rus Окаменевший жук оплавлен в золото.~
 gold~
 armor ACGJ 0 AB
 9 9 9 9 9
@@ -3121,10 +3209,12 @@ armor ACGJ 0 AB
 a '' to_object 38 -1 15 12 0
 a '' to_object 38 -1 2 19 0
 E
-ring scarab beetle~
-A large ugly beetle has been dipped in liquid gold.  Its legs curl in
+ring scarab beetle кольцо скарабей~
+@eng A large ugly beetle has been dipped in liquid gold.  Its legs curl in
 the manner of death and you imagine you could slip the thing over your
 finger if you wanted to.
+@rus Огромный жук также отлит из чистого золота. Его ноги как-то угрожающе
+вывернуты. Занятная вещица, так и просит примерить ее на палец.
 ~
 g @rus none~
 #261
@@ -7581,8 +7671,6 @@ S
 mob echoat $n Irin looked at you and her eyes flashed with a bright green light.
 mob echoat $n You feel yourself transported to another place.
 mob transfer $n 298
-~
-#202
 ~
 #0
 
