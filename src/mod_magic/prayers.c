@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.67 2004-03-03 11:41:21 tatyana Exp $
+ * $Id: prayers.c,v 1.68 2004-03-03 12:43:51 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2995,7 +2995,10 @@ SPELL_FUN(prayer_fire_sphere, sn, level, ch, vo)
 	act("Hot violent fire flashes around you.", ch, NULL, NULL, TO_CHAR);
 	act("Hot violent fire flashes around $n.", ch, NULL, NULL, TO_ROOM);
 }
-
+/* Domain: sun
+ * inflict damage
+ * can be used only in the daytime
+ */
 SPELL_FUN(prayer_sunburst, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
@@ -3048,7 +3051,9 @@ SPELL_FUN(prayer_sunburst, sn, level, ch, vo)
 	act("Sun light bursts $N eyes. $gN{He} is blind!",
 	    ch, NULL, victim, TO_NOTVICT);
 }
-
+/* Domain: air
+ * inflict damage to target, area attack with cold effect
+ */
 SPELL_FUN(prayer_cone_of_cold, sn, level, ch, vo)
 {
 	CHAR_DATA *vch;
@@ -3187,7 +3192,10 @@ SPELL_FUN(prayer_power_word_fear, sn, level, ch, vo)
 		WAIT_STATE(ch, 3 * get_pulse("violence"));
 
 }
-
+/* Domain: air
+ * area attack, have a chance to blind,
+ * falls flying creatures to the ground
+ */
 SPELL_FUN(prayer_windwall, sn, level, ch, vo)
 {
 	CHAR_DATA *vch;
@@ -3232,7 +3240,7 @@ SPELL_FUN(prayer_windwall, sn, level, ch, vo)
 	} end_foreach(vch);
 }
 
-/* domen: death
+/* domain: death
  * This prayer force to sound dreadful wail of the banshee.
  * Room attack with target which gets most of the damage.
  * Sometimes wail of the banshee can cause instant death of
@@ -3309,7 +3317,7 @@ SPELL_FUN(prayer_wail_of_the_banshee, sn, level, ch, vo)
 		damage(ch, vch, dam, sn, DAM_F_SHOW);
 	} end_foreach(vch);
 }
-/* domen: sun
+/* domain: sun
  * This prayer inform priest about all invisible person in room.
  * Prayer do not make them visible and request sunlight for work.
  */
@@ -3367,9 +3375,9 @@ SPELL_FUN(prayer_sunbeam, sn, level, ch, vo)
 	if (i == 0)
 		act("    No shadows here.", ch, NULL, NULL, TO_ALL);
 }
-/* domen: water
+/* domain: water
  * Prayer filles room with acid fog. Acid damages all creatures
- * in roomi (owner has immunity), also can corrode items.
+ * in room (owner has immunity), also can corrode items.
  * Enter room event: event_enter_acid_fog
  * Update room event: event_update_acid_fog
  */
@@ -3412,7 +3420,7 @@ SPELL_FUN(prayer_acid_fog, sn, level, ch, vo)
 	act("Caustic acid drops fill air.", ch, NULL, NULL, TO_ALL);
 }
 
-/* Domen: water
+/* Domain: water
  * Simple damage spell.
  */
 SPELL_FUN(prayer_ice_storm, sn, level, ch, vo)
@@ -3430,7 +3438,7 @@ SPELL_FUN(prayer_ice_storm, sn, level, ch, vo)
 	    ch, NULL, victim, TO_NOTVICT);
 	damage(ch, victim, dam, sn, DAM_F_SHOW);
 }
-/* Domen: water
+/* Domain: water
  * Make room dark.
  */
 SPELL_FUN(prayer_fog_cloud, sn, level, ch, vo)
@@ -3451,7 +3459,7 @@ SPELL_FUN(prayer_fog_cloud, sn, level, ch, vo)
 
 	act("Fog clouds surround you.", ch, NULL, NULL, TO_ALL);
 }
-/* Domen: air
+/* Domain: air
  * Prayer remove fog clouds.
  */
 SPELL_FUN(prayer_blast_of_wind, sn, level, ch, vo)
@@ -3462,7 +3470,9 @@ SPELL_FUN(prayer_blast_of_wind, sn, level, ch, vo)
 		    ch, NULL, NULL, TO_ALL);
 	}
 }
-
+/* Domain: air
+ * grants resistance against DAM_AIR, DAM_COLD
+ */
 SPELL_FUN(prayer_air_ward, sn, level, ch, vo)
 {
 	if (!is_sn_affected(ch, sn)) {
@@ -3489,7 +3499,9 @@ SPELL_FUN(prayer_air_ward, sn, level, ch, vo)
 	} else
 		act_char("Power of your god is already with you.", ch);
 }
-
+/* Domain: water
+ * grants resistance against DAM_WATER, DAM_COLD, DAM_ACID
+ */
 SPELL_FUN(prayer_water_ward, sn, level, ch, vo)
 {
 	if (!is_sn_affected(ch, sn)) {
@@ -3524,7 +3536,9 @@ SPELL_FUN(prayer_water_ward, sn, level, ch, vo)
 	} else
 		act_char("Power of your god is already with you.", ch);
 }
-
+/* Domain: earth
+ * grants resistance against DAM_EARTH
+ */
 SPELL_FUN(prayer_earth_ward, sn, level, ch, vo)
 {
 	if (!is_sn_affected(ch, sn)) {
@@ -3543,7 +3557,9 @@ SPELL_FUN(prayer_earth_ward, sn, level, ch, vo)
 	} else
 		act_char("Power of your god is already with you.", ch);
 }
-
+/* Domain: fire
+ * grants resistance against DAM_FIRE
+ */
 SPELL_FUN(prayer_fire_ward, sn, level, ch, vo)
 {
 	if (!is_sn_affected(ch, sn)) {
@@ -3562,7 +3578,10 @@ SPELL_FUN(prayer_fire_ward, sn, level, ch, vo)
 	} else
 		act_char("Power of your god is already with you.", ch);
 }
-
+/* Domain: death
+ * Grants protection from damage, strip when paf->modifier became >= 0
+ * also a part of damage returns to opponent
+ */
 SPELL_FUN(prayer_death_ward, sn, level, ch, vo)
 {
 	AFFECT_DATA *paf;
@@ -3580,7 +3599,10 @@ SPELL_FUN(prayer_death_ward, sn, level, ch, vo)
 
 	act("Your god grant you protection!", ch, NULL, NULL, TO_CHAR);
 }
-
+/* Domain: death
+ * inflict damage to target
+ * decrease target's stats
+ */
 SPELL_FUN(prayer_spear_of_death, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
@@ -3640,6 +3662,10 @@ SPELL_FUN(prayer_spear_of_death, sn, level, ch, vo)
 
 	damage(ch, victim, dam, sn, DAM_F_SHOW);
 }
+/* Domain: death
+ * AFF_SLEEP to target
+ * undead has immune
+ */
 SPELL_FUN(prayer_sleep_of_grave, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
@@ -3669,7 +3695,9 @@ SPELL_FUN(prayer_sleep_of_grave, sn, level, ch, vo)
 		victim->position = POS_SLEEPING;
 	}
 }
-
+/* Domain: air
+ * open closed, locked doors
+ */
 SPELL_FUN(prayer_wind_blow, sn, level, ch, vo)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -3723,6 +3751,9 @@ SPELL_FUN(prayer_wind_blow, sn, level, ch, vo)
 		    ch, &pexit->short_descr, NULL, TO_ALL);
 	}
 }
+/* Domain: air
+ * aka teleport, can't be used in indoors room, can't be used on self
+ */
 SPELL_FUN(prayer_tornado, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
