@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.2 1998-04-14 08:54:35 fjoe Exp $
+ * $Id: update.c,v 1.3 1998-04-17 12:27:09 efdi Exp $
  */
 
 /***************************************************************************
@@ -125,7 +125,7 @@ void advance_level( CHAR_DATA *ch )
 
 	p = title_table[ch->class][ch->level-1][ch->sex == SEX_FEMALE ? 1 : 0];
 	if (strstr(ch->pcdata->title, p) || CANT_CHANGE_TITLE(ch))
-		set_title(ch, "the %s", p);
+		set_title(ch, " the %s", p);
 
 	add_hp = (con_app[get_curr_stat(ch,STAT_CON)].hitp +
 		  number_range(1,5)) - 3;
