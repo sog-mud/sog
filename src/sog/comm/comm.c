@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.40 2004-02-22 23:37:13 fjoe Exp $
+ * $Id: comm.c,v 1.200.2.41 2004-02-23 01:04:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1125,7 +1125,7 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 			break;
 
 		case IAC:
-			*p = d->codepage->from[*p++];
+			*p++ = d->codepage->from[*p];
 			if (d->character != NULL
 			&&  IS_SET(d->character->comm, COMM_NOTELNET))
 				continue;
@@ -1133,6 +1133,11 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 			break;
 
 		default:
+			if (d->character != NULL
+			&&  IS_SET(d->character->comm, COMM_NOTELNET)) {
+				*p++ = d->codepage->from[*p];
+				continue;
+			}
 			q = p + 2;
 			break;
 		}
