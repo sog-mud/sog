@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.153 1999-05-20 06:55:18 fjoe Exp $
+ * $Id: spellfun.c,v 1.154 1999-05-20 19:59:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2931,24 +2931,32 @@ void spell_faerie_fog(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 void spell_floating_disc(int sn, int level,CHAR_DATA *ch,void *vo, int target)
 {
 	OBJ_DATA *disc, *floating;
+	AFFECT_DATA af;
 
-	floating = get_eq_char(ch,WEAR_FLOAT);
-	if (floating != NULL && IS_OBJ_STAT(floating,ITEM_NOREMOVE))
-	{
-		act("You can't remove $p.",ch,floating,NULL,TO_CHAR);
+	floating = get_eq_char(ch, WEAR_FLOAT);
+	if (floating != NULL && IS_OBJ_STAT(floating, ITEM_NOREMOVE)) {
+		act("You can't remove $p.", ch, floating, NULL, TO_CHAR);
 		return;
 	}
 
 	disc = create_obj(get_obj_index(OBJ_VNUM_DISC), 0);
 	disc->value[0]	= ch->level * 10; /* 10 pounds per level capacity */
 	disc->value[3]	= ch->level * 5; /* 5 pounds per level max per item */
-	disc->timer		= ch->level * 2 - number_range(0,level / 2); 
+	disc->timer	= ch->level * 2 - number_range(0, level / 2); 
 
-	act("$n has created a floating black disc.",ch,NULL,NULL,TO_ROOM);
-	char_puts("You create a floating disc.\n",ch);
-	obj_to_char(disc,ch);
-	wear_obj(ch,disc,TRUE);
-	return;
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= disc->timer;
+	af.location	= 0;
+	af.modifier	= 0;
+	af.bitvector	= 0;
+	affect_to_char(ch, &af);
+
+	act("$n has created a floating black disc.", ch, NULL, NULL, TO_ROOM);
+	char_puts("You create a floating disc.\n", ch);
+	obj_to_char(disc, ch);
+	wear_obj(ch, disc, TRUE);
 }
 
 void spell_fly(int sn, int level, CHAR_DATA *ch, void *vo, int target)

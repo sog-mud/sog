@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.166 1999-05-20 07:21:01 fjoe Exp $
+ * $Id: act_comm.c,v 1.167 1999-05-20 19:58:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1000,7 +1000,7 @@ void quit_char(CHAR_DATA *ch, int flags)
 	/*
 	 * After extract_char the ch is no longer valid!
 	 */
-	save_char_obj(ch, FALSE);
+	save_char_obj(ch, 0);
 	name = str_qdup(ch->name);
 	d = ch->desc;
 	extract_char(ch, flags);
@@ -1027,6 +1027,8 @@ void quit_char(CHAR_DATA *ch, int flags)
 			close_descriptor(d);
 		} 
 	}
+
+	free_string(name);
 }
 
 void do_save(CHAR_DATA *ch, const char *argument)
@@ -1038,7 +1040,7 @@ void do_save(CHAR_DATA *ch, const char *argument)
 		char_puts("You must be at least level 2 for saving.\n",ch);
 		return;
 	}
-	save_char_obj(ch, FALSE);
+	save_char_obj(ch, 0);
 	WAIT_STATE(ch, PULSE_VIOLENCE);
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.149 1999-05-19 08:05:15 fjoe Exp $
+ * $Id: act_wiz.c,v 1.150 1999-05-20 19:59:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2289,7 +2289,7 @@ void do_purge(CHAR_DATA *ch, const char *argument)
 		act("$n disintegrates $N.", ch, 0, victim, TO_NOTVICT);
 
 		if (victim->level > 1)
-			save_char_obj(victim, FALSE);
+			save_char_obj(victim, 0);
 		d = victim->desc;
 		extract_char(victim, 0);
 		if (d)
@@ -2420,7 +2420,7 @@ void do_freeze(CHAR_DATA *ch, const char *argument)
 		wiznet("$N puts $i in the deep freeze.",
 			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
 	}
-	save_char_obj(victim, FALSE);
+	save_char_obj(victim, 0);
 }
 
 void do_log(CHAR_DATA *ch, const char *argument)
@@ -3369,7 +3369,7 @@ void advance(CHAR_DATA *victim, int level)
 	victim->exp_tl		= 0;
 	victim->train		= tra;
 	victim->practice	= pra;
-	save_char_obj(victim, FALSE);
+	save_char_obj(victim, 0);
 }
 
 void do_advance(CHAR_DATA *ch, const char *argument)
@@ -4236,7 +4236,7 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 	victim->name = str_dup(new_name);
 	mlstr_free(victim->short_descr);
 	victim->short_descr = mlstr_new(new_name);
-	save_char_obj(victim, FALSE);
+	save_char_obj(victim, 0);
 		
 	char_puts("Character renamed.\n", ch);
 	act_puts("$n has renamed you to $N!",
@@ -4355,7 +4355,7 @@ void do_reboot(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_name(arg,"cancel")) {
+	if (is_name(arg, "cancel")) {
 		reboot_counter = -1;
 		char_puts("Reboot canceled.\n", ch);
 		return;
@@ -4396,9 +4396,20 @@ void reboot_mud(void)
 		d_next = d->next;
 		write_to_buffer(d,"SoG is going down for rebooting NOW!\n\r",0);
 		if (d->character)
-			save_char_obj(d->character, TRUE);
+			save_char_obj(d->character, SAVE_F_REBOOT);
 		close_descriptor(d);
 	}
+
+	if (!rebooter) {
+		FILE *fp = dfopen(TMP_PATH, EQCHECK_FILE, "w");
+		if (!fp)
+			log_printf("reboot_mud: unable to activate eqcheck");
+		else {
+			log_printf("reboot_mud: eqcheck activated");
+			fclose(fp);
+		}
+	}
+
 	merc_down = TRUE;    
 }
 

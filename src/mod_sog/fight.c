@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.171 1999-05-19 15:00:32 kostik Exp $
+ * $Id: fight.c,v 1.172 1999-05-20 19:59:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2167,7 +2167,7 @@ void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 	}
 
 	if (victim->level > 1)
-		save_char_obj(victim, FALSE);
+		save_char_obj(victim, 0);
 
 	/*
 	 * Calm down the tracking mobiles

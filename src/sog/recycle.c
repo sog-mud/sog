@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.47 1999-05-18 17:52:03 fjoe Exp $
+ * $Id: recycle.c,v 1.48 1999-05-20 19:59:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -199,7 +199,7 @@ CHAR_DATA *free_char_list;
 extern int mob_count;
 extern int mob_free_count;
 
-CHAR_DATA *new_char (void)
+CHAR_DATA *new_char(void)
 {
 	CHAR_DATA *ch;
 	int i;
@@ -227,6 +227,7 @@ CHAR_DATA *new_char (void)
 	ch->move		= 100;
 	ch->max_move		= 100;
 	ch->position		= POS_STANDING;
+	ch->version		= CHAR_VERSION;
 	for (i = 0; i < 4; i++)
 		ch->armor[i]	= 100;
 	for (i = 0; i < MAX_STATS; i ++)

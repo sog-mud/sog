@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.134 1999-05-19 08:05:38 fjoe Exp $
+ * $Id: db.c,v 1.135 1999-05-20 19:59:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -74,7 +74,7 @@
 #	define d_namlen d_reclen
 #endif
 
-void load_limited_objects();
+void scan_pfiles();
 
 extern	int	_filbuf		(FILE *);
 
@@ -356,7 +356,7 @@ void boot_db(void)
 	 */
 	fix_exits();
 	check_mob_progs();
-	load_limited_objects();
+	scan_pfiles();
 
 	convert_objects();           /* ROM OLC */
 	area_update();
@@ -372,20 +372,11 @@ void vnum_check(AREA_DATA *area, int vnum)
 	if (area->min_vnum == 0 || area->max_vnum == 0) {
 		log_printf("%s: min_vnum or max_vnum not assigned",
 			   area->file_name);
-#if 0
-		area->min_vnum = area->max_vnum = vnum;
-#endif
 	}
 
 	if (vnum < area->min_vnum || vnum > area->max_vnum) {
 		log_printf("%s: %d not in area vnum range",
 			   area->file_name, vnum);
-#if 0
-		if (vnum < area->min_vnum)
-			area->min_vnum = vnum;
-		else
-			area->max_vnum = vnum;
-#endif
 	}
 }
 
@@ -2064,18 +2055,18 @@ void tail_chain(void)
 }
 
 /*
- * Add the objects in players not logged on to object count 
+ * Count all objects in pfiles
+ * Remove limited objects (with probability 1/10)
+ * Update rating list
  */
-void load_limited_objects()
+void scan_pfiles()
 {
 	struct dirent *dp;
-
 	DIR *dirp;
-	FILE *pfile;
-	char letter;
-	char *word;
-	bool fReadLevel;
-	int vnum;
+	bool eqcheck = dfexist(TMP_PATH, EQCHECK_FILE);
+
+	log_printf("scan_pfiles: start (eqcheck is %s)",
+		   eqcheck ? "active" : "inactive");
 
 	if ((dirp = opendir(PLAYER_PATH)) == NULL) {
 		bug("Load_limited_objects: unable to open player directory.",
@@ -2084,7 +2075,9 @@ void load_limited_objects()
 	}
 
 	for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp)) {
-		const char* pname;
+		CHAR_DATA *ch;
+		OBJ_DATA *obj, *obj_next;
+		bool changed;
 
 #if defined (LINUX) || defined (WIN32)
 		if (strlen(dp->d_name) < 3)
@@ -2093,49 +2086,48 @@ void load_limited_objects()
 		if (dp->d_namlen < 3 || dp->d_type != DT_REG)
 			continue;
 #endif
-		fReadLevel = FALSE;
-		if ((pfile = dfopen(PLAYER_PATH, dp->d_name, "r")) == NULL)
+
+		if (strchr(dp->d_name, '.')
+		||  (ch = load_char_obj(dp->d_name, LOAD_F_NOCREATE)) == NULL)
 			continue;
 
-		pname = NULL;
-		for (letter = fread_letter(pfile); letter != EOF;
-						letter = fread_letter(pfile)) {
-			if (letter == '#') {
-				word = fread_word(pfile);
+		changed = FALSE;
 
-				if (!str_cmp(word, "O")
-				||  !str_cmp(word, "OBJECT")) {
-				  fread_word(pfile); 
-				  vnum = fread_number(pfile);
-				  if (get_obj_index(vnum) != NULL)
-				  	get_obj_index(vnum)->count++;
-				}
-			}
-			else if (letter == 'P') {
-				word = fread_word(pfile);
+		for (obj = ch->carrying; obj; obj = obj_next) {
+			obj_next = obj->next_content;
 
-				if (!str_cmp(word, "C_Killed")) {
-					if (pname == NULL) {
-						bug("load_limited_objects: "
-						    "PC_Killed before Name "
-						    "in pfile", 0);
-						exit(1);
-					}
+			obj->pIndexData->count++;
 
-					rating_add(pname, fread_number(pfile));
-				}	
-			} 
-			else if (letter == 'N') {
-				if (!str_cmp(fread_word(pfile), "ame") == 0
-				&&  pname == NULL)
-					pname = fread_string(pfile);
-			}
+			if (obj->pIndexData->limit < 0
+			||  !eqcheck
+			||  number_percent() < 95)
+				continue;
+
+			changed = TRUE;
+			log_printf("scan_pfiles: %s: %s (vnum %d)",
+				   ch->name,
+				   mlstr_mval(obj->pIndexData->short_descr),
+				   obj->pIndexData->vnum);
+			extract_obj(obj, 0);
 		}
 
-		free_string(pname);
-		fclose(pfile);
+		if (!IS_IMMORTAL(ch))
+			rating_add(ch);
+
+		if (changed || ch->version < CHAR_VERSION)
+			save_char_obj(ch, SAVE_F_PSCAN);
+
+		nuke_char_obj(ch);
 	}
 	closedir(dirp);
+
+	if (eqcheck
+	&&  dunlink(TMP_PATH, EQCHECK_FILE) < 0)
+		log_printf("scan_pfiles: unable to deactivate eq checker (%s)",
+			   strerror(errno));
+
+	log_printf("scan_pfiles: end (eqcheck is %s)",
+		   dfexist(TMP_PATH, EQCHECK_FILE) ? "active" : "inactive");
 }
 
 #define NBUF 5

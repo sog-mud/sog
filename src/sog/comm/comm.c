@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.180 1999-05-20 11:23:07 fjoe Exp $
+ * $Id: comm.c,v 1.181 1999-05-20 19:59:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1649,8 +1649,9 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			return;
 		}
 
-		load_char_obj(d, argument);
-		ch   = d->character;
+		ch = load_char_obj(argument, 0);
+		d->character = ch;
+		ch->desc = d;
 
 		if (d->host == NULL) {
 			size = sizeof(sock);
@@ -2232,8 +2233,6 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 				fclose(max_on_file);
 			}
 		}
-
-		reset_char(ch);
 
 		/* quest code */
 		nextquest = -abs(ch->pcdata->questtime);

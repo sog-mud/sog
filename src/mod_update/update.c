@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.125 1999-05-19 11:14:59 fjoe Exp $
+ * $Id: update.c,v 1.126 1999-05-20 19:59:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -193,7 +193,7 @@ void gain_exp(CHAR_DATA *ch, int gain)
 		wiznet("$N has attained level $j!",
 			ch, (const void*) ch->level, WIZ_LEVELS, 0, 0);
 		advance_level(ch);
-		save_char_obj(ch, FALSE);
+		save_char_obj(ch, 0);
 	}
 }
 
@@ -1153,7 +1153,7 @@ void char_update(void)
 					char_puts("You disappear "
 						  "into the void.\n", ch);
 					if (ch->level > 1)
-						save_char_obj(ch, FALSE);
+						save_char_obj(ch, 0);
   					char_from_room(ch);
 					char_to_room(ch, get_room_index(ROOM_VNUM_LIMBO));
 					if (IS_EXTRACTED(ch))
@@ -1351,7 +1351,7 @@ void char_update(void)
 			if (ch->timer > 20)
 				quit_char(ch, 0);
 			else
-				save_char_obj(ch, FALSE);
+				save_char_obj(ch, 0);
 		}
 	}
 }

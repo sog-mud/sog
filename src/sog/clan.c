@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.39 1999-04-21 14:44:29 kostik Exp $
+ * $Id: clan.c,v 1.40 1999-05-20 19:59:01 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -94,7 +94,7 @@ void do_petitio(CHAR_DATA *ch, const char *argument)
 
 /*
  * clan_update_lists - remove 'victim' from leader and second lists of 'clan'
- *		       if memb is TRUE 'victim' will be delete from members
+ *		       if memb is TRUE 'victim' will be deleted from members
  *		       list
  */
 void clan_update_lists(clan_t *clan, CHAR_DATA *victim, bool memb)
@@ -184,6 +184,8 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 	||  !str_prefix(arg1, "reject")) {
 		CHAR_DATA *victim;
 		char arg2[MAX_STRING_LENGTH];
+		bool loaded = FALSE;
+		bool changed;
 
 		if (!IS_IMMORTAL(ch)) {
 			if (ch->clan == 0
@@ -208,31 +210,34 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (!(victim = get_char_world(ch, arg2))
+		if ((victim = get_char_world(ch, arg2)) == NULL
 		||  IS_NPC(victim)) {
-			char_puts("Can't find them.\n", ch);
-			return;
+			victim = load_char_obj(arg2, LOAD_F_NOCREATE);
+			if (victim == NULL) {
+				char_puts("Can't find them.\n", ch);
+				return;
+			}
+			loaded = TRUE;
 		}
 
 		if (accept) {
 			if (victim->pcdata->petition != cln) {
 				char_puts("They didn't petition.\n", ch);
-				return;
+				goto cleanup;
 			}
 
 			victim->clan = cln;
 			victim->pcdata->clan_status = CLAN_COMMONER;
+			victim->pcdata->petition = CLAN_NONE;
 			update_skills(victim);
 
 			name_add(&clan->member_list, victim->name, NULL, NULL);
 			clan_save(clan);
 
 			char_puts("Greet new member!\n", ch);
-			char_printf(victim, "Your petition to %s has been "
-				    "accepted.\n",
-				    clan->name);
-			char_printf(victim, "You are now one of %s!\n",
-				    clan->name);
+			if (!loaded)
+				act("Your petition to $t has been accepted.",
+				    victim, clan->name, NULL, TO_CHAR);
 			if ((mark = get_eq_char(victim, WEAR_CLANMARK)) != NULL) {
 				obj_from_char(mark);
 				extract_obj(mark, 0);
@@ -242,7 +247,8 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 				obj_to_char(mark, victim);
 				equip_char(victim, mark, WEAR_CLANMARK);
 			};
-			return;
+
+			goto cleanup;
 		}
 
 /* handle 'petition reject' */
@@ -261,29 +267,59 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 			REMOVE_BIT(victim->pcdata->trust, TRUST_CLAN);
 			update_skills(victim);
 
-			char_printf(ch, "They are not a member of %s "
-					"anymore.\n", clan->name);
-			char_printf(victim, "You are not a member of %s "
-					    "anymore.\n", clan->name);
+			act("They are not a member of $t anymore.",
+			    ch, clan->name, NULL, TO_CHAR);
+			if (!loaded)
+				act("You are not a member of $t anymore.",
+				    victim, clan->name, NULL, TO_CHAR);
 
 			if ((mark = get_eq_char(victim, WEAR_CLANMARK))) {
 				obj_from_char(mark);
 				extract_obj(mark, 0);
 			}
 
-			return;
+			goto cleanup;
 		}
 
 		if (victim->pcdata->petition == cln) {
 			victim->pcdata->petition = CLAN_NONE;
 			char_puts("Petition was rejected.\n", ch);
-			char_printf(victim, "Your petition to %s was "
-				    "rejected.\n",
-				    clan->name);
-			return;
+			if (!loaded)
+				act("Your petition to $t was rejected.",
+				    victim, clan->name, NULL, TO_CHAR);
+			goto cleanup;
 		}
 
+		changed = FALSE;
+		if (is_name(victim->name, clan->member_list)) {
+			name_delete(&clan->member_list, victim->name,
+				    NULL, NULL);
+			changed = TRUE;
+		}
+
+		if (is_name(victim->name, clan->second_list)) {
+			name_delete(&clan->second_list, victim->name,
+				    NULL, NULL);
+			changed = TRUE;
+		}
+
+		if (is_name(victim->name, clan->leader_list)) {
+			name_delete(&clan->leader_list, victim->name,
+				    NULL, NULL);
+			changed = TRUE;
+		}
+
+		if (changed)
+			clan_save(clan);
+
 		char_puts("They didn't petition.\n", ch);
+
+	cleanup:
+		if (loaded) {
+			save_char_obj(victim, SAVE_F_PSCAN);
+			nuke_char_obj(victim);
+		}
+				
 		return;
 	}
 
@@ -321,6 +357,12 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 
 		if (!found) 
 			char_puts("Noone has petitioned to your clan.\n", ch);
+		return;
+	}
+
+	if (ch->level < MIN_PK_LEVEL) {
+		act("You are not ready to join clans.",
+		    ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
@@ -556,7 +598,7 @@ void do_item(CHAR_DATA* ch, const char* argument)
 			  TO_CHAR, POS_DEAD);
 		for (cln = 0; cln < clans.nused; cln++) 
 			if (in_obj->in_room->vnum == CLAN(cln)->altar_vnum) {
-				act_puts("It is altar of $t",
+				act_puts("It is altar of $t.",
 					 ch, CLAN(cln)->name, NULL,
 					 TO_CHAR | ACT_TRANS, POS_DEAD);
 			}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rating.c,v 1.14 1998-12-01 10:53:55 fjoe Exp $
+ * $Id: rating.c,v 1.15 1999-05-20 19:59:03 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -33,12 +33,13 @@
 #include "merc.h"
 #include "rating.h"
 
-struct rating_data {
+typedef struct rating_data {
 	const char *name;
 	int pc_killed;
-};
+} rating_data;
 
 struct rating_data rating_table[RATING_TABLE_SIZE];
+bool table_updated;
 
 /*
  * Updates player's rating.
@@ -51,32 +52,44 @@ void rating_update(CHAR_DATA *ch, CHAR_DATA *victim)
 	     IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA)))
 		return;
 
-	rating_add(ch->name, ++ch->pcdata->pc_killed);
+	++ch->pcdata->pc_killed;
+	rating_add(ch);
 }
 
 /*
  * rating_add - add (or replace) `name/pc_killed' to (in) rating_table
  */
-void rating_add(const char* name, int pc_killed)
+void rating_add(CHAR_DATA *ch)
 {
 	int i;
-	struct rating_data *p = rating_table;
+	rating_data *p = rating_table;
 
+	/*
+	 * find the minimal entry in rating_table
+	 */
 	for (i = 0; i < RATING_TABLE_SIZE; i++) {
-		if (rating_table[i].name != NULL
-		&&  str_cmp(name, rating_table[i].name) == 0) {
-			rating_table[i].pc_killed = pc_killed;
+		/*
+		 * if there is already entry for this player
+		 */
+		if (!IS_NULLSTR(rating_table[i].name)
+		&&  !str_cmp(ch->name, rating_table[i].name)) {
+			p = rating_table + i;
+			if (p->pc_killed < ch->pcdata->pc_killed) {
+				p->pc_killed = ch->pcdata->pc_killed;
+				table_updated = TRUE;
+			}
 			return;
 		}
+
 		if (rating_table[i].pc_killed < p->pc_killed)
 			p = rating_table + i;
 	}
 
-	if (p->pc_killed < pc_killed) {
-		if (p->name != NULL)
-			free_string(p->name);
-		p->name = str_dup(name);
-		p->pc_killed = pc_killed;
+	if (p->pc_killed < ch->pcdata->pc_killed) {
+		free_string(p->name);
+		p->name = str_qdup(ch->name);
+		p->pc_killed = ch->pcdata->pc_killed;
+		table_updated = TRUE;
 	} 	
 }
 
@@ -84,16 +97,18 @@ static
 int
 rating_data_cmp(const void *a, const void *b)
 {
-	return ((struct rating_data*) b)->pc_killed 
-		- ((struct rating_data*) a)->pc_killed;
+	return ((rating_data*) b)->pc_killed - ((rating_data*) a)->pc_killed;
 }
 
 void do_rating(CHAR_DATA *ch, const char *argument)
 {
 	int i;
 
-	qsort(rating_table, RATING_TABLE_SIZE, sizeof(struct rating_data),
-	      rating_data_cmp);
+	if (table_updated) {
+		qsort(rating_table, RATING_TABLE_SIZE, sizeof(rating_data),
+		      rating_data_cmp);
+		table_updated = FALSE;
+	}
 
 	char_puts("Name                    | PC's killed\n", ch);
 	char_puts("------------------------+------------\n", ch);
@@ -102,18 +117,6 @@ void do_rating(CHAR_DATA *ch, const char *argument)
 			continue;
 		char_printf(ch, "%-24s| %d\n",
 			    rating_table[i].name, rating_table[i].pc_killed);
-	}
-	if (!ch->pcdata->pc_killed)
-		char_puts("\nDo you profess to be SO {Cpeaceful{x?\n"
-			     "You have killed no one.\n", ch);
-	else {
-		if (!strcmp(rating_table[0].name, ch->name))
-			char_puts("\nI bet you are {Rawful{x. \n"
-				     "You're at the top of this list!", ch);
-		char_printf(ch, "\nYou have killed %s{R%d{x player%s.\n",
-			    ch->pcdata->pc_killed == 1 ? "ONLY " : str_empty,
-			    ch->pcdata->pc_killed, 
-			    ch->pcdata->pc_killed == 1 ? str_empty : "s");
 	}
 }
 

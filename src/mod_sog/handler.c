@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.142 1999-05-20 06:55:14 fjoe Exp $
+ * $Id: handler.c,v 1.143 1999-05-20 19:59:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -64,7 +64,6 @@ DECLARE_DO_FUN(do_look		);
  * Local functions.
  */
 void	affect_modify	(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd);
-int	age_to_num	(int age);
 
 /* friend stuff -- for NPC's mostly */
 bool is_friend(CHAR_DATA *ch, CHAR_DATA *victim)
@@ -357,198 +356,6 @@ int check_immune(CHAR_DATA *ch, int dam_type)
 		return def;
 	else
 	  	return immune;
-}
-
-void reset_obj_affects(CHAR_DATA *ch, OBJ_DATA *obj, AFFECT_DATA *af)
-{
-	for (; af != NULL; af = af->next) {
-		int mod = af->modifier;
-
-		switch(af->location) {
-		case APPLY_MANA:
-			ch->max_mana	-= mod;
-			break;
-		case APPLY_HIT:
-			ch->max_hit	-= mod;
-			break;
-		case APPLY_MOVE:
-			ch->max_move	-= mod;
-			break;
-		}
-
-	}
-}
-
-/* used to de-screw characters */
-void reset_char(CHAR_DATA *ch)
-{
-	 int loc,mod,stat;
-	 OBJ_DATA *obj;
-	 AFFECT_DATA *af;
-	 int i;
-
-	 if (IS_NPC(ch))
-		return;
-
-	if (ch->pcdata->perm_hit == 0 
-	||  ch->pcdata->perm_mana == 0
-	||  ch->pcdata->perm_move == 0
-	||  ch->pcdata->last_level == 0) {
-	/* do a FULL reset */
-		for (loc = 0; loc < MAX_WEAR; loc++) {
-			obj = get_eq_char(ch,loc);
-			if (obj == NULL)
-				continue;
-			if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
-				reset_obj_affects(ch, obj,
-						  obj->pIndexData->affected);
-			reset_obj_affects(ch, obj, obj->affected);
-	        }
-
-		/* now reset the permanent stats */
-		ch->pcdata->perm_hit 	= ch->max_hit;
-		ch->pcdata->perm_mana 	= ch->max_mana;
-		ch->pcdata->perm_move	= ch->max_move;
-		ch->pcdata->last_level	= ch->played/3600;
-		if (ch->pcdata->true_sex < 0 || ch->pcdata->true_sex > 2)
-			if (ch->sex > 0 && ch->sex < 3)
-		    	    ch->pcdata->true_sex	= ch->sex;
-			else
-			    ch->pcdata->true_sex 	= 0;
-	}
-
-	/* now restore the character to his/her true condition */
-	for (stat = 0; stat < MAX_STATS; stat++)
-		ch->mod_stat[stat] = 0;
-
-	if (ch->pcdata->true_sex < 0 || ch->pcdata->true_sex > 2)
-		ch->pcdata->true_sex = 0; 
-	ch->sex		= ch->pcdata->true_sex;
-	ch->max_hit 	= ch->pcdata->perm_hit;
-	ch->max_mana	= ch->pcdata->perm_mana;
-	ch->max_move	= ch->pcdata->perm_move;
-   
-	for (i = 0; i < 4; i++)
-		ch->armor[i]	= 100;
-
-	ch->hitroll		= 0;
-	ch->damroll		= 0;
-	ch->saving_throw	= 0;
-	ch->drain_level		= 0;
-
-	/* now start adding back the effects */
-	for (loc = 0; loc < MAX_WEAR; loc++)
-	{
-	    obj = get_eq_char(ch,loc);
-	    if (obj == NULL)
-	        continue;
-		for (i = 0; i < 4; i++)
-		    ch->armor[i] -= apply_ac(obj, loc, i);
-
-	    if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
-		for (af = obj->pIndexData->affected; af != NULL; af = af->next)
-	    {
-	        mod = af->modifier;
-	        switch(af->location)
-	        {
-			case APPLY_STR:		ch->mod_stat[STAT_STR]	+= mod;	break;
-			case APPLY_DEX:		ch->mod_stat[STAT_DEX]	+= mod; break;
-			case APPLY_INT:		ch->mod_stat[STAT_INT]	+= mod; break;
-			case APPLY_WIS:		ch->mod_stat[STAT_WIS]	+= mod; break;
-			case APPLY_CON:		ch->mod_stat[STAT_CON]	+= mod; break;
- 		case APPLY_CHA:		ch->mod_stat[STAT_CHA]	+= mod; break;
-
-			case APPLY_MANA:	ch->max_mana		+= mod; break;
-			case APPLY_HIT:		ch->max_hit		+= mod; break;
-			case APPLY_MOVE:	ch->max_move		+= mod; break;
-			case APPLY_AGE:		ch->played += age_to_num(mod); break;
-			case APPLY_AC:		
-			    for (i = 0; i < 4; i ++)
-				ch->armor[i] += mod; 
-			    break;
-			case APPLY_HITROLL:	ch->hitroll		+= mod; break;
-			case APPLY_DAMROLL:	ch->damroll		+= mod; break;
-			case APPLY_SIZE:	ch->size		+= mod; break;
-			case APPLY_LEVEL:	ch->drain_level		+= mod; break;
-			case APPLY_SAVES:		ch->saving_throw += mod; break;
-			case APPLY_SAVING_ROD: 		ch->saving_throw += mod; break;
-			case APPLY_SAVING_PETRI:	ch->saving_throw += mod; break;
-			case APPLY_SAVING_BREATH: 	ch->saving_throw += mod; break;
-			case APPLY_SAVING_SPELL:	ch->saving_throw += mod; break;
-		    }
-	    }
- 
-	    for (af = obj->affected; af != NULL; af = af->next)
-	    {
-		if (af->where == TO_SKILLS) affect_to_char(ch, af);
-	        mod = af->modifier;
-	        switch(af->location)
-	        {
-	            case APPLY_STR:         ch->mod_stat[STAT_STR]  += mod; break;
-	            case APPLY_DEX:         ch->mod_stat[STAT_DEX]  += mod; break;
-	            case APPLY_INT:         ch->mod_stat[STAT_INT]  += mod; break;
-	            case APPLY_WIS:         ch->mod_stat[STAT_WIS]  += mod; break;
-	            case APPLY_CON:         ch->mod_stat[STAT_CON]  += mod; break;
-			case APPLY_CHA:		ch->mod_stat[STAT_CHA]	+= mod; break;
- 
-	            case APPLY_MANA:        ch->max_mana            += mod; break;
-	            case APPLY_HIT:         ch->max_hit             += mod; break;
-	            case APPLY_MOVE:        ch->max_move            += mod; break;
-			case APPLY_AGE:		ch->played += age_to_num(mod); break;
- 
-	            case APPLY_AC:
-	                for (i = 0; i < 4; i ++)
-	                    ch->armor[i] += mod;
-	                break;
-			case APPLY_HITROLL:     ch->hitroll             += mod; break;
-	            case APPLY_DAMROLL:     ch->damroll             += mod; break;
- 		case APPLY_SIZE:	ch->size		+= mod; break;
-		case APPLY_LEVEL:	ch->drain_level		+= mod; break;
-	            case APPLY_SAVES:	ch->saving_throw	+= mod; break;
-	            case APPLY_SAVING_ROD:          ch->saving_throw += mod; break;
-	            case APPLY_SAVING_PETRI:        ch->saving_throw += mod; break;
-	            case APPLY_SAVING_BREATH:       ch->saving_throw += mod; break;
-	            case APPLY_SAVING_SPELL:        ch->saving_throw += mod; break;
-	        }
-		}
-	}
-  
-	/* now add back spell effects */
-	for (af = ch->affected; af != NULL; af = af->next)
-	{
-	    mod = af->modifier;
-	    switch(af->location)
-	    {
-	            case APPLY_STR:         ch->mod_stat[STAT_STR]  += mod; break;
-	            case APPLY_DEX:         ch->mod_stat[STAT_DEX]  += mod; break;
-	            case APPLY_INT:         ch->mod_stat[STAT_INT]  += mod; break;
-	            case APPLY_WIS:         ch->mod_stat[STAT_WIS]  += mod; break;
-	            case APPLY_CON:         ch->mod_stat[STAT_CON]  += mod; break;
- 		case APPLY_CHA:		ch->mod_stat[STAT_CHA]	+= mod; break;
-
-	            case APPLY_MANA:        ch->max_mana            += mod; break;
-	            case APPLY_HIT:         ch->max_hit             += mod; break;
-	            case APPLY_MOVE:        ch->max_move            += mod; break;
- 
-	            case APPLY_AC:
-	                for (i = 0; i < 4; i ++)
-	                    ch->armor[i] += mod;
-	                break;
-	            case APPLY_HITROLL:     ch->hitroll             += mod; break;
-	            case APPLY_DAMROLL:     ch->damroll             += mod; break;
- 		case APPLY_SIZE:	ch->size		+= mod; break;
-		case APPLY_LEVEL:	ch->drain_level		+= mod; break;
-	            case APPLY_SAVES:	ch->saving_throw	+= mod; break;
-	            case APPLY_SAVING_ROD:          ch->saving_throw += mod; break;
-	            case APPLY_SAVING_PETRI:        ch->saving_throw += mod; break;
-	            case APPLY_SAVING_BREATH:       ch->saving_throw += mod; break;
-	            case APPLY_SAVING_SPELL:        ch->saving_throw += mod; break;
-	    } 
-	}
-	/* make sure sex is RIGHT! */
-	if (ch->sex < 0 || ch->sex > 2)
-		ch->sex = ch->pcdata->true_sex;
- 
 }
 
 /*
@@ -1960,6 +1767,7 @@ void extract_char(CHAR_DATA *ch, int flags)
 
 	if (ch->desc)
 		ch->desc->character = NULL;
+
 	free_char(ch);
 }
 
@@ -3446,14 +3254,15 @@ void show_loc_affect(CHAR_DATA *ch, BUFFER *output,
 		return;
 	}
 
-	if (paf->location > 0) {
-		show_name(ch, output, paf, *ppaf);
+	show_name(ch, output, paf, *ppaf);
+	if (paf->location > 0)
 		buf_printf(output, ": modifies {c%s{x by {c%d{x ",
 			   flag_string(apply_flags, paf->location),
 			   paf->modifier);
-		show_duration(output, paf);
-		*ppaf = paf;
-	}
+	else
+		buf_add(output, ": ");
+	show_duration(output, paf);
+	*ppaf = paf;
 }
 
 void show_bit_affect(BUFFER *output, AFFECT_DATA *paf, AFFECT_DATA **ppaf,

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.62 1999-05-15 13:01:30 fjoe Exp $
+ * $Id: tables.c,v 1.63 1999-05-20 19:59:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -611,6 +611,7 @@ flag_t apply_flags[] =
 {
 	{ "",			TABLE_INTVAL			},
 
+	{ "none",		APPLY_NONE,		TRUE	},
 	{ "strength",		APPLY_STR,		TRUE	},
 	{ "dexterity",		APPLY_DEX,		TRUE	},
 	{ "intelligence",	APPLY_INT,		TRUE	},

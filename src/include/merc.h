@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.188 1999-05-19 08:05:33 fjoe Exp $
+ * $Id: merc.h,v 1.189 1999-05-20 19:59:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1319,6 +1319,8 @@ struct char_data
 	int 			played;
 	int 			lines;	/* for the pager */
 	time_t			logon;
+	int			version;
+	time_t			logoff;
 	int			timer;
 	int			wait;
 	int 			drain_level;
@@ -1910,11 +1912,11 @@ int	check_immune	(CHAR_DATA *ch, int dam_type);
 bool	check_material	(OBJ_DATA *obj, char *material);
 bool	is_metal	(OBJ_DATA *obj);
 int	get_age 	(CHAR_DATA *ch);
-void	reset_char	(CHAR_DATA *ch);
 int	get_curr_stat	(CHAR_DATA *ch, int stat);
 int	get_max_train	(CHAR_DATA *ch, int stat);
 int	can_carry_n	(CHAR_DATA *ch);
 int	can_carry_w	(CHAR_DATA *ch);
+int	age_to_num	(int);
 
 bool	is_name 	(const char *str, const char *namelist);
 bool	is_name_raw	(const char *str, const char *namelist,
@@ -2051,9 +2053,15 @@ const char *	first_arg	(const char *argument, char *arg_first, size_t,
 const char* PERS2(CHAR_DATA *ch, CHAR_DATA *looker, flag32_t flags);
 
 /* save.c */
-void	delete_player	(CHAR_DATA *victim, char* msg);
-void	save_char_obj	(CHAR_DATA *ch, bool reboot);
-void	load_char_obj	(DESCRIPTOR_DATA *d, const char *name);
+#define SAVE_F_REBOOT	(A)
+#define SAVE_F_PSCAN	(B)
+
+#define LOAD_F_NOCREATE	(A)
+
+void		delete_player	(CHAR_DATA *victim, char* msg);
+void		save_char_obj	(CHAR_DATA *ch, int flags);
+CHAR_DATA *	load_char_obj	(const char *name, int flags);
+void		nuke_char_obj	(CHAR_DATA *ch);
 
 /* special.c */
 SPEC_FUN *	spec_lookup	(const char *name);
@@ -2112,7 +2120,6 @@ void		aff_free(AFFECT_DATA *af);
 OBJ_DATA *	new_obj	(void);
 void		free_obj(OBJ_DATA *obj);
 
-/* character recyling */
 CHAR_DATA *	new_char	(void);
 void		free_char	(CHAR_DATA *ch);
 PC_DATA	*	new_pcdata	(void);

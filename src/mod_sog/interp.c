@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.143 1999-05-20 11:23:07 fjoe Exp $
+ * $Id: interp.c,v 1.144 1999-05-20 19:59:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -152,7 +152,7 @@ cmd_t cmd_table[] =
     { "ideas",		do_idea,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "news",		do_news,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "raffects",	do_raffects,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },
-    { "rating",		do_rating,	POS_DEAD,	ML,  LOG_NORMAL, CMD_KEEP_HIDE },
+    { "rating",		do_rating,	POS_DEAD,	IM,  LOG_NORMAL, CMD_KEEP_HIDE },
     { "read",		do_look,	POS_RESTING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "report",		do_report,	POS_RESTING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "rules",		do_rules,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },

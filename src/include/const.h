@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.31 1999-05-12 18:54:41 avn Exp $
+ * $Id: const.h,v 1.32 1999-05-20 19:59:01 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -48,6 +48,8 @@
 #else
 #	define PATH_SEPARATOR '/'
 #endif
+
+#define CHAR_VERSION	7
 
 #define TMP_PATH	"tmp"
 #define PLAYER_PATH	"player"
@@ -95,14 +97,15 @@
 #define LANG_LIST	"lang.lst"	/* list of languages */
 #define RACE_LIST	"race.lst"
 
-#define BUG_FILE	"bugs.txt"	/* For 'bug' and bug()*/
+#define BUG_FILE	"bugs.txt"	/* For 'bug' and bug() */
 #define TYPO_FILE	"typos.txt"	/* For 'typo'*/
 #define NOTE_FILE	"notes.not"	/* For 'notes'*/
 #define IDEA_FILE	"ideas.not"
 #define PENALTY_FILE	"penal.not"
 #define NEWS_FILE	"news.not"
 #define CHANGES_FILE	"chang.not"
-#define SHUTDOWN_FILE	"shutdown"	/* For 'shutdown'*/
+#define SHUTDOWN_FILE	"shutdown"	/* For 'shutdown' */
+#define EQCHECK_FILE	"eqcheck"	/* For checking limited eq */
 #define BAN_FILE	"ban.txt"
 #define MAXON_FILE	"maxon.txt"
 #define AREASTAT_FILE	"areastat.txt"

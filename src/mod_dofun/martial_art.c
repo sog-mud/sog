@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.93 1999-05-20 12:12:22 kostik Exp $
+ * $Id: martial_art.c,v 1.94 1999-05-20 19:59:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -757,7 +757,7 @@ void do_knife(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (ch == victim) {
-		act("It would be hurt.", ch, NULL, NULL, TO_CHAR);
+		act("Suicide is a mortal sin.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
