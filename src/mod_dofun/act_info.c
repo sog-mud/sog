@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.24 2000-10-13 09:39:41 fjoe Exp $
+ * $Id: act_info.c,v 1.271.2.25 2000-10-15 15:46:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -132,8 +132,8 @@ void do_scroll(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
-		char_printf(ch, "You currently display %d pagelen per "
-				"page.\n", d->dvdata->pagelen + 2);
+		char_printf(ch, "You currently display %d lines per page.\n",
+			    d->dvdata->pagelen + 2);
 		return;
 	}
 

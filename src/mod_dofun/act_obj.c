@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.14 2000-10-03 12:46:22 fjoe Exp $
+ * $Id: act_obj.c,v 1.165.2.15 2000-10-15 15:46:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -491,7 +491,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 
 		if ((carry_w = can_carry_w(victim)) >= 0
 		&&  get_carry_weight(victim) +
-		    COINS_WEIGHT(silver ? 0 : amount, silver ? amount : 0) >
+		    COINS_WEIGHT(silver ? amount : 0, silver ? 0 : amount) >
 								carry_w) {
 			act("$N can't carry that much weight.",
 			    ch, NULL, victim, TO_CHAR);
@@ -1755,7 +1755,7 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 
 		if ((carry_w = can_carry_w(ch)) >= 0
 		&&  get_carry_weight(ch) +
-		    COINS_WEIGHT(amount_g, amount_s) > carry_w) {
+		    COINS_WEIGHT(amount_s, amount_g) > carry_w) {
 			char_puts("You can't carry that much weight.\n", ch);
 			return;
 		}
@@ -2837,8 +2837,8 @@ void do_withdraw(CHAR_DATA * ch, const char *argument)
 	
 	if ((carry_w = can_carry_w(ch)) >= 0
 	&&  get_carry_weight(ch) +
-	    COINS_WEIGHT(silver ? 0 : (amount - fee),
-			 silver ? (amount - fee) : 0) > carry_w) {
+	    COINS_WEIGHT(silver ? (amount - fee) : 0,
+			 silver ? 0 : (amount - fee)) > carry_w) {
 		char_puts("You can't carry that weight.\n", ch);
 		return;
 	}

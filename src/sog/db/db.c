@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.169.2.13 2000-08-17 12:14:13 fjoe Exp $
+ * $Id: db.c,v 1.169.2.14 2000-10-15 15:46:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -91,6 +91,8 @@ extern	int	_filbuf		(FILE *);
 	int getpid();
 	time_t time(time_t *tloc);
 #endif
+
+	static long number_mm(void);
 
 #endif
 

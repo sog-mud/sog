@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.12 2000-08-21 07:51:27 fjoe Exp $
+ * $Id: merc.h,v 1.234.2.13 2000-10-15 15:46:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1889,7 +1889,7 @@ int trust_level(CHAR_DATA *ch);
 #define RESET_WAIT_STATE(ch)	((ch)->wait = 1)
 #define DAZE_STATE(ch, npulse)	((ch)->daze = UMAX((ch)->daze, (npulse)))
 
-#define COINS_WEIGHT(gold, silver) ((silver) / 10 + (gold) * 2 / 5)
+#define COINS_WEIGHT(silver, gold) ((silver) / 10 + (gold) * 2 / 5)
 #define get_carry_weight(ch)	((ch)->carry_weight +			\
 				 COINS_WEIGHT((ch)->silver, (ch)->gold))
 #define MONEY_WEIGHT(obj)	COINS_WEIGHT(obj->value[0], obj->value[1])
