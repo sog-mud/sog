@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_magic.c,v 1.20 2000-01-04 19:27:49 fjoe Exp $
+ * $Id: act_magic.c,v 1.21 2000-01-05 12:00:55 kostik Exp $
  */
 
 #include <stdio.h>
@@ -414,7 +414,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			ch->mana += mana/2;
 		}
 
-		if (IS_SET(spell->skill_flags, SKILL_RANGE)
+		if (IS_SET(spell->skill_flags, SKILL_MISSILE)
 		&&  victim && is_affected(victim, "blur")
 		&&  !HAS_DETECT(ch, ID_TRUESEEING)
 		&&  (number_percent() < 50)) {
