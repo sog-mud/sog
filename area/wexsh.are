@@ -311,21 +311,147 @@ vest sneaking~
 leather~
 armor CF AD
 16 16 16 16 0
-75 15 120000 P
+81 15 120000 P
+F
+A 0 0 P
 F
 A 0 0 f
 F
 A 0 0 g
-F
-A 0 0 Q
-#40299
-piece bit darkness~
-@eng a piece of darkness@rus кусочек тьмы~
-@eng Darkness absorbs all the light here!@rus Тьма поглощает весь свет здесь!~
-darkness~
-treasure C AO
+#40211
+wexsh wex'sh cityguard orb~
+@eng humming orb@rus гудящий шар~
+@eng A sphere levitates above the ground.@rus Шар парит над землей.~
+gold~
+armor BM AQ
+8 8 8 12 0
+49 0 0 P
+A
+18 3
+A
+12 30
+A
+24 -20
+#40212
+amulet warrior~
+@eng warrior's amulet@rus амулет воина~
+@eng Jeweled necklace lies in the dirt.@rus Ожерелье лежит на земле.~
+gold~
+jewelry A AC
 0 0 0 0 0
-0 0 0 P
+72 3 50000 P
+A
+5 2
+A
+1 2
+A
+13 50
+#40213
+amulet cleric~
+@eng cleric's amulet@rus амулет клирика~
+@eng Jeweled necklace lies in the dirt.@rus Ожерелье лежит на земле.~
+gold~
+jewelry A AC
+0 0 0 0 0
+72 3 50000 P
+A
+13 20
+A
+12 50
+A
+3 1
+A
+4 3
+#40214
+amulet mage~
+@eng mage's amulet@rus амулет мага~
+@eng Jeweled necklace lies in the dirt.@rus Ожерелье лежит на земле.~
+gold~
+jewelry A AC
+0 0 0 0 0
+72 3 50000 P
+A
+12 80
+A
+4 1
+A
+3 3
+#40215
+amulet thief~
+@eng thieve's amulet@rus амулет вора~
+@eng Jeweled necklace lies in the dirt.@rus Ожерелье лежит на земле.~
+gold~
+jewelry A AC
+0 0 0 0 0
+72 3 50000 P
+A
+14 100
+A
+6 1
+A
+2 3
+#40216
+amulet vampire~
+@eng vampire's amulet@rus амулет вампира~
+@eng Jeweled necklace lies in the dirt.@rus Ожерелье лежит на земле.~
+gold~
+jewelry A AC
+0 0 0 0 0
+72 3 50000 P
+A
+12 30
+A
+13 30
+A
+1 1
+A
+4 1
+A
+3 1
+A
+2 1
+#40217
+mithril vest~
+@eng fine mithril vest@rus отличная мифрильная броня~
+@eng Shiny vest draws your attention.@rus Ярко блестящая броня привлекает твое внимание.~
+mithril~
+armor 0 AD
+26 25 28 24 0
+72 70 35000 P
+A
+13 20
+A
+24 -5
+A
+17 -30
+#40218
+falchion mithril~
+@eng huge mithril falchion@rus огромный мифрильный меч~
+@eng Mighty sword waits for his owner.@rus Могучий меч ждет своего хозяина.~
+unknown~
+weapon B AN
+sword 5 21 cleave DF
+72 30 24000 P
+A
+24 -3
+A
+17 -15
+A
+18 -5
+A
+19 18
+#40219
+marong mace~
+@eng marong mace@rus палица из маронга~
+@eng Heavy mace made from dark wood.@rus Тяжелая палица темного дерева.~
+wood~
+weapon HIY AN
+mace 10 9 smash I
+72 55 28000 P
+A
+24 -5
+A
+19 10
 #40315
 scroll wsarth~
 @eng scroll named "WSARTH"@rus свиток с надписью "WSARTH"~
@@ -372,16 +498,6 @@ scroll GN AO
 58 5 25000 P
 A
 6 2
-#40364
-wand~
-~
-~
-unknown~
-wand 0 AO
-500 50 50 'severity force' 0
-50 0 0 P
-A
-8 5
 #0
 
 #ROOMS
