@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.18 2001-11-21 07:46:33 avn Exp $
+ * $Id: merc.h,v 1.234.2.19 2001-11-26 13:57:53 kostik Exp $
  */
 
 /***************************************************************************
@@ -849,6 +849,7 @@ where_t *where_lookup(flag32_t where);
 #define ITEM_PIT		(gg)
 #define ITEM_CHQUEST		(hh)
 #define ITEM_NOFIND		(ii)
+#define ITEM_NOIDENT		(jj)
 #define ITEM_OLDSTYLE		(zz)	/* obj is in oldstyle format */
 
 /*

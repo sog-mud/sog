@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.27 2001-07-04 19:43:01 fjoe Exp $
+ * $Id: act_obj.c,v 1.165.2.28 2001-11-26 13:57:55 kostik Exp $
  */
 
 /***************************************************************************
@@ -2342,6 +2342,12 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 	int		mana;
 	int		max_skill;
 	int		sn;
+
+	if (IS_SET(obj->pObjIndex->extra_flags, ITEM_NOIDENT)) {
+		buf_add(output,
+		   "You aren't able to determine true nature of the object.\n");
+		return;
+	}
 
 	if ((sn = sn_lookup("lore")) < 0
 	||  (percent = get_skill(ch, sn)) < 10) {

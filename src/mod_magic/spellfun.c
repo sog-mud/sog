@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.24 2001-07-30 13:07:12 fjoe Exp $
+ * $Id: spellfun.c,v 1.181.2.25 2001-11-26 13:57:57 kostik Exp $
  */
 
 /***************************************************************************
@@ -2799,6 +2799,12 @@ void spell_identify(int sn, int level, CHAR_DATA *ch, void *vo)
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	BUFFER *output;
 
+	if (IS_SET(obj->pObjIndex->extra_flags, ITEM_NOIDENT)) {
+		act("You failed to determine the true nature of the $P.",
+		    ch, NULL, obj, TO_CHAR);
+		return;
+	}
+
 	output = buf_new(-1);
 	format_obj(output, obj);
 	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
@@ -2813,6 +2819,12 @@ void spell_improved_identify(int sn, int level, CHAR_DATA *ch, void *vo)
 {
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	BUFFER *output;
+
+	if (IS_SET(obj->pObjIndex->extra_flags, ITEM_NOIDENT)) {
+		act("You failed to determine the true nature of the $P.",
+		    ch, NULL, obj, TO_CHAR);
+		return;
+	}
 
 	output = buf_new(-1);
 	format_obj(output, obj);

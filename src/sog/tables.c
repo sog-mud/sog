@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.89.2.7 2001-11-21 19:48:25 avn Exp $
+ * $Id: tables.c,v 1.89.2.8 2001-11-26 13:58:01 kostik Exp $
  */
 
 /***************************************************************************
@@ -592,6 +592,7 @@ flag_t extra_flags[] =
 	{ "chquest",		ITEM_CHQUEST,		TRUE	},
 	{ "nofind",		ITEM_NOFIND,		TRUE	},
 	{ "enchanted",		ITEM_ENCHANTED,		FALSE	},
+	{ "noident",		ITEM_NOIDENT,		TRUE	},
 	{ "oldstyle",		ITEM_OLDSTYLE,		FALSE	},
 
 	{ NULL }
