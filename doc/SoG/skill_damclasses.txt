@@ -1,0 +1,135 @@
+#
+# $Id: skill_damclasses.txt,v 1.1 2002-03-04 21:06:56 fjoe Exp $
+#
+
+DAM_BASH
+	tail
+	crush
+	trip
+	bash
+	whirl
+	pound
+	throw
+	bash door
+	kick
+
+DAM_SLASH
+	cut
+
+DAM_PIERCE
+	caltrops
+	blade barrier
+	general purpose
+	high explosive
+	entangle
+	thorns
+
+DAM_FIRE
+	explode
+	heat metal
+	bluefire
+	flamestrike
+	burning hands
+	hellfire
+	fireball
+	fire breath
+	scourge
+	dragon breath
+
+DAM_LIGHTNING
+	lightning shield
+	shocking trap
+	lightning bolt
+	call lightning
+	chain lightning
+	shocking grasp
+	lightning breath
+	galvanic whip
+	magnetic trust
+	quantum spike
+
+DAM_PIERCE
+	settraps
+
+DAM_DISEASE
+	plague
+
+DAM_POISON
+	poison
+	gas breath
+
+DAM_HARM
+	crippled hands
+	harm
+	heal
+	master healing
+	superior heal
+	cure light wounds
+	cure serious wounds
+	cure critical wounds
+	inflict light wounds
+	inflict serious wounds
+	inflict critical wounds
+
+DAM_NEGATIVE
+	dispel good
+	demonfire
+	energy drain
+	draining touch
+	disruption
+	hand of undead
+	witch curse
+	death ripple
+	spellbane
+
+DAM_HOLY
+	dispel evil
+	turn
+	wrath
+	ray of truth
+	matandra
+
+DAM_NONE
+	severity force
+	mana transfer
+
+DAM_EARTH
+	desert fist
+	earthquake
+
+DAM_MENTAL
+	mind wrack (-> mind wreck?)
+	mind wrench
+	mental knife
+	phantasmal force
+
+DAM_ENERGY
+	holy word
+	etheral fist
+	magic missile
+	disintegrate
+
+DAM_ACID
+	acid blast
+	acid breath
+	acid arrow
+	sulfurus spray
+	caustic font
+	acetum primus
+	vampiric blast
+
+DAM_COLD
+	chill touch
+	iceball
+	frost breath
+	sand storm
+
+DAM_LIGHT
+	colour spray
+	spectral furor
+
+DAM_SOUND
+	sonic resonance
+
+DAM_AIR
+	hurricane
