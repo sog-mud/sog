@@ -28,7 +28,7 @@
  * along with this program (see the file COPYING); if not, write to the
  * Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
- * $Id: imc.c,v 1.1.2.6 2003-09-30 01:25:24 fjoe Exp $
+ * $Id: imc.c,v 1.1.2.7 2003-09-30 11:31:46 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -47,6 +47,7 @@
 #include <fcntl.h>
 #include <errno.h>
 #include <sys/file.h>
+#include <compat/compat.h>
 
 #include "imc.h"
 #include "merc.h"
@@ -189,83 +190,6 @@ bool function_usable( CHAR_DATA *ch, long deny_flag, long allow_flag, unsigned c
 
     return 1;
 } 
-
-// Borrowed strlcpy and strlcat from OpenSSH, copyright notice and license is in STRLCPY-STRLCAT-LICENSE file
-#ifndef HAVE_STRLCPY
-/*
- * Copy src to string dst of size siz.  At most siz-1 characters
- * will be copied.  Always NUL terminates (unless siz == 0).
- * Returns strlen(src); if retval >= siz, truncation occurred.
- */
-size_t strlcpy(dst, src, siz)
-	char *dst;
-	const char *src;
-	size_t siz;
-{
-	register char *d = dst;
-	register const char *s = src;
-	register size_t n = siz;
-
-	/* Copy as many bytes as will fit */
-	if (n != 0 && --n != 0) {
-		do {
-			if ((*d++ = *s++) == 0)
-				break;
-		} while (--n != 0);
-	}
-
-	/* Not enough room in dst, add NUL and traverse rest of src */
-	if (n == 0) {
-		if (siz != 0)
-			*d = '\0';		/* NUL-terminate dst */
-		while (*s++)
-			;
-	}
-
-	return(s - src - 1);	/* count does not include NUL */
-}
-
-#endif /* !HAVE_STRLCPY */
-
-#ifndef HAVE_STRLCAT
-/*
- * Appends src to string dst of size siz (unlike strncat, siz is the
- * full size of dst, not space left).  At most siz-1 characters
- * will be copied.  Always NUL terminates (unless siz <= strlen(dst)).
- * Returns strlen(initial dst) + strlen(src); if retval >= siz,
- * truncation occurred.
- */
-size_t strlcat(dst, src, siz)
-	char *dst;
-	const char *src;
-	size_t siz;
-{
-	register char *d = dst;
-	register const char *s = src;
-	register size_t n = siz;
-	size_t dlen;
-
-	/* Find the end of dst and adjust bytes left but don't go past end */
-	while (n-- != 0 && *d != '\0')
-		d++;
-	dlen = d - dst;
-	n = siz - dlen;
-
-	if (n == 0)
-		return(dlen + strlen(s));
-	while (*s != '\0') {
-		if (n != 1) {
-			*d++ = *s;
-			n--;
-		}
-		s++;
-	}
-	*d = '\0';
-
-	return(dlen + (s - src));	/* count does not include NUL */
-}
-
-#endif /* !HAVE_STRLCAT */
 
 /*
  *  Error logging
