@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.98 1999-02-09 19:43:30 fjoe Exp $
+ * $Id: db.c,v 1.99 1999-02-10 06:52:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -146,10 +146,12 @@ int                     top_vnum_room;		/* OLC */
 int                     top_vnum_mob;		/* OLC */
 int                     top_vnum_obj;		/* OLC */
 int			top_mprog_index;	/* OLC */
-int 			mobile_count = 0;
-int			obj_count = 0;
-int			newmobs = 0;
-int			newobjs = 0;
+int 			mob_count;
+int			mob_free_count;
+int			obj_count;
+int			obj_free_count;
+int			newmobs;
+int			newobjs;
 
 int	nAllocBuf;
 int	sAllocBuf;
@@ -959,8 +961,6 @@ CHAR_DATA *create_mob_org(MOB_INDEX_DATA *pMobIndex, int flags)
 		exit(1);
 	}
 
-	mobile_count++;
-
 	mob = new_char();
 
 	mob->pIndexData		= pMobIndex;
@@ -1221,8 +1221,6 @@ OBJ_DATA *create_obj_org(OBJ_INDEX_DATA *pObjIndex, int level, int flags)
 		bug("Create_object: NULL pObjIndex.", 0);
 		exit(1);
 	}
-
-	obj_count++;
 
 	obj = new_obj();
 
@@ -1777,12 +1775,17 @@ void do_memory(CHAR_DATA *ch, const char *argument)
 	char_printf(ch, "Exits    : %d\n", top_exit   );
 	char_printf(ch, "Helps    : %d\n", top_help   );
 	char_printf(ch, "Socials  : %d\n", social_count);
-	char_printf(ch, "Mobs     : %d (%d new format, %d in use)\n",
-					top_mob_index, newmobs, mobile_count); 
-	char_printf(ch, "Objs     : %d (%d new format, %d in use)\n",
-					top_obj_index, newobjs, obj_count); 
+	char_printf(ch, "Mob idx  : %d (%d old, max vnum %d)\n",
+		    top_mob_index, top_mob_index - newmobs, top_vnum_mob); 
+	char_printf(ch, "Mobs     : %d (%d free)\n",
+		    mob_count, mob_free_count);
+	char_printf(ch, "Obj idx  : %d (%d old, max vnum %d)\n",
+		    top_obj_index, top_obj_index - newobjs, top_vnum_obj); 
+	char_printf(ch, "Objs     : %d (%d free)\n",
+		    obj_count, obj_free_count);
 	char_printf(ch, "Resets   : %d\n", top_reset  );
-	char_printf(ch, "Rooms    : %d\n", top_room   );
+	char_printf(ch, "Rooms    : %d (max vnum %d)\n",
+		    top_room, top_vnum_room);
 	char_printf(ch, "Shops    : %d\n", top_shop   );
 	char_printf(ch, "Buffers  : %d (%d bytes)\n",
 					nAllocBuf, sAllocBuf);

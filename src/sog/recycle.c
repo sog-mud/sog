@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.36 1998-11-07 07:30:13 fjoe Exp $
+ * $Id: recycle.c,v 1.37 1999-02-10 06:52:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -127,6 +127,9 @@ void aff_free(AFFECT_DATA *af)
 
 OBJ_DATA *free_obj_list;
 
+extern int obj_count;
+extern int obj_free_count;
+
 OBJ_DATA *new_obj(void)
 {
 	OBJ_DATA *obj;
@@ -135,9 +138,12 @@ OBJ_DATA *new_obj(void)
 		obj = free_obj_list;
 		free_obj_list = free_obj_list->next;
 		memset(obj, '\0', sizeof(*obj));
+		obj_free_count--;
 	}
-	else
+	else {
 		obj = calloc(1, sizeof(*obj));
+		obj_count++;
+	}
 
 	obj->altar = ROOM_VNUM_ALTAR;
 	obj->pit = OBJ_VNUM_PIT;
@@ -182,9 +188,15 @@ void free_obj(OBJ_DATA *obj)
 
 	obj->next = free_obj_list;
 	free_obj_list = obj;
+
+	obj_count--;
+	obj_free_count++;
 }
 
 CHAR_DATA *free_char_list;
+
+extern int mob_count;
+extern int mob_free_count;
 
 CHAR_DATA *new_char (void)
 {
@@ -195,9 +207,12 @@ CHAR_DATA *new_char (void)
 		ch = free_char_list;
 		free_char_list = free_char_list->next;
 		memset(ch, '\0', sizeof(*ch));
+		mob_free_count--;
 	}
-	else
+	else {
 		ch = calloc(1, sizeof(*ch));
+		mob_count++;
+	}
 
 	RESET_FIGHT_TIME(ch);
 	ch->last_death_time	= -1;
@@ -218,8 +233,6 @@ CHAR_DATA *new_char (void)
 	return ch;
 }
 
-extern int mobile_count;
-
 void free_char(CHAR_DATA *ch)
 {
 	OBJ_DATA *obj;
@@ -229,9 +242,6 @@ void free_char(CHAR_DATA *ch)
 
 	if (!ch)
 		return;
-
-	if (IS_NPC(ch))
-		mobile_count--;
 
 	for (obj = ch->carrying; obj; obj = obj_next) {
 		obj_next = obj->next_content;
@@ -273,6 +283,9 @@ void free_char(CHAR_DATA *ch)
 
 	ch->next = free_char_list;
 	free_char_list = ch;
+
+	mob_count--;
+	mob_free_count++;
 }
 
 PC_DATA *new_pcdata(void)
