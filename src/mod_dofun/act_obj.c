@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.83 1998-10-13 08:45:41 fjoe Exp $
+ * $Id: act_obj.c,v 1.84 1998-10-14 18:10:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -59,8 +59,7 @@
  * Local functions.
  */
 CHAR_DATA *	find_keeper	(CHAR_DATA * ch);
-int		get_cost	(CHAR_DATA * keeper, OBJ_DATA * obj,
-				 bool fBuy);
+uint		get_cost	(CHAR_DATA * keeper, OBJ_DATA * obj, bool fBuy);
 void		obj_to_keeper	(OBJ_DATA * obj, CHAR_DATA * ch);
 OBJ_DATA *	get_obj_keeper	(CHAR_DATA * ch, CHAR_DATA * keeper,
 				 const char *argument);
@@ -750,7 +749,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 				victim->gold += change;
 
 			if (change < 1 && can_see(victim, ch)) {
-				act("$n tells you 'I'm sorry, you did not give me enough to change.'",
+				act("$n tells you '{GI'm sorry, you did not give me enough to change.{x'",
 				    victim, NULL, ch, TO_VICT);
 				ch->reply = victim;
 				doprintf(do_give, victim, "%d %s %s",
@@ -762,7 +761,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 				if (silver)
 					doprintf(do_give, victim, "%d silver %s",
 						 (95 * amount / 100 - change * 100), ch->name);
-				act("$n tells you 'Thank you, come again.'",
+				act("$n tells you '{GThank you, come again.{x'",
 				    victim, NULL, ch, TO_VICT);
 				ch->reply = victim;
 			}
@@ -2369,19 +2368,20 @@ OBJ_DATA * get_obj_keeper(CHAR_DATA * ch, CHAR_DATA * keeper, const char *argume
 	return NULL;
 }
 
-int get_cost(CHAR_DATA * keeper, OBJ_DATA * obj, bool fBuy)
+uint get_cost(CHAR_DATA * keeper, OBJ_DATA * obj, bool fBuy)
 {
-	SHOP_DATA      *pShop;
-	int             cost;
+	SHOP_DATA *	pShop;
+	uint		cost;
+
 	if (obj == NULL || (pShop = keeper->pIndexData->pShop) == NULL)
 		return 0;
 
 	if (IS_OBJ_STAT(obj, ITEM_NOSELL))
 		return 0;
 
-	if (fBuy) {
+	if (fBuy)
 		cost = obj->cost * pShop->profit_buy / 100;
-	} else {
+	else {
 		OBJ_DATA       *obj2;
 		int             itype;
 		cost = 0;
@@ -2395,18 +2395,20 @@ int get_cost(CHAR_DATA * keeper, OBJ_DATA * obj, bool fBuy)
 		if (!IS_OBJ_STAT(obj, ITEM_SELL_EXTRACT))
 			for (obj2 = keeper->carrying; obj2; obj2 = obj2->next_content) {
 				if (obj->pIndexData == obj2->pIndexData
-				&& !mlstr_cmp(obj->short_descr, obj2->short_descr))
+				&&  !mlstr_cmp(obj->short_descr,
+					       obj2->short_descr))
 					return 0;
 /*
 	 	    if (IS_OBJ_STAT(obj2,ITEM_INVENTORY))
-			cost /= 2;
+				cost /= 2;
 		    else
 		              	cost = cost * 3 / 4;
 */
 			}
 	}
 
-	if (obj->pIndexData->item_type == ITEM_STAFF || obj->pIndexData->item_type == ITEM_WAND) {
+	if (obj->pIndexData->item_type == ITEM_STAFF
+	||  obj->pIndexData->item_type == ITEM_WAND) {
 		if (obj->value[1] == 0)
 			cost /= 4;
 		else
@@ -2417,9 +2419,9 @@ int get_cost(CHAR_DATA * keeper, OBJ_DATA * obj, bool fBuy)
 
 void do_buy_pet(CHAR_DATA * ch, const char *argument)
 {
-	int             cost, roll;
+	uint		cost, roll;
 	char            arg[MAX_INPUT_LENGTH];
-	CHAR_DATA      *pet;
+	CHAR_DATA	*pet;
 	ROOM_INDEX_DATA *pRoomIndexNext;
 	ROOM_INDEX_DATA *in_room;
 
@@ -2514,11 +2516,11 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 
 void do_buy(CHAR_DATA * ch, const char *argument)
 {
-	int             cost, roll;
+	uint		cost, roll;
 	CHAR_DATA      *keeper;
 	OBJ_DATA       *obj, *t_obj;
 	char            arg[MAX_INPUT_LENGTH];
-	int             number, count = 1;
+	uint		number, count = 1;
 
 	if ((keeper = find_keeper(ch)) == NULL)
 		return;
@@ -2557,7 +2559,7 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 		}
 
 		if (count < number) {
-			act("$n tells you '{GI don't have that many in stock{x.",
+			act("$n tells you '{GI don't have that many in stock.{x'",
 			    keeper, NULL, ch, TO_VICT);
 			ch->reply = keeper;
 			return;
@@ -2565,16 +2567,16 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 	}
 	if ((ch->silver + ch->gold * 100) < cost * number) {
 		if (number > 1)
-			act("$n tells you '{GYou can't afford to buy that many.{x",
+			act("$n tells you '{GYou can't afford to buy that many.{x'",
 			    keeper, obj, ch, TO_VICT);
 		else
-			act("$n tells you '{GYou can't afford to buy $p{x'.",
+			act("$n tells you '{GYou can't afford to buy $p.{x'",
 			    keeper, obj, ch, TO_VICT);
 		ch->reply = keeper;
 		return;
 	}
 	if (obj->level > ch->level) {
-		act("$n tells you '{GYou can't use $p yet{x'.",
+		act("$n tells you '{GYou can't use $p yet.{x'",
 		    keeper, obj, ch, TO_VICT);
 		ch->reply = keeper;
 		return;
@@ -2713,8 +2715,9 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 	char            arg[MAX_INPUT_LENGTH];
 	CHAR_DATA      *keeper;
 	OBJ_DATA       *obj;
-	int             cost, roll;
-	int             gold, silver;
+	uint		cost, roll;
+	uint		gold, silver;
+
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
@@ -2725,7 +2728,7 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 		return;
 
 	if ((obj = get_obj_carry(ch, arg)) == NULL) {
-		act("$n tells you 'You don't have that item'.",
+		act("$n tells you '{GYou don't have that item.{x'",
 		    keeper, NULL, ch, TO_VICT);
 		ch->reply = keeper;
 		return;
@@ -2743,7 +2746,7 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 	if (cost > (keeper->silver + 100 * keeper->gold)) {
-		act("$n tells you 'I'm afraid I don't have enough wealth to buy $p.",
+		act("$n tells you '{GI'm afraid I don't have enough wealth to buy $p.{x'",
 		    keeper, obj, ch, TO_VICT);
 		return;
 	}
@@ -2776,14 +2779,11 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 	ch->gold += gold;
 	ch->silver += silver;
 	deduct_cost(keeper, cost);
-	if (keeper->gold < 0)
-		keeper->gold = 0;
-	if (keeper->silver < 0)
-		keeper->silver = 0;
 
-	if (obj->pIndexData->item_type == ITEM_TRASH || IS_OBJ_STAT(obj, ITEM_SELL_EXTRACT)) {
+	if (obj->pIndexData->item_type == ITEM_TRASH
+	||  IS_OBJ_STAT(obj, ITEM_SELL_EXTRACT))
 		extract_obj(obj);
-	} else {
+	else {
 		obj_from_char(obj);
 		if (obj->timer)
 			SET_BIT(obj->extra_flags, ITEM_HAD_TIMER);
@@ -2809,7 +2809,7 @@ void do_value(CHAR_DATA * ch, const char *argument)
 		return;
 
 	if ((obj = get_obj_carry(ch, arg)) == NULL) {
-		act("$n tells you 'You don't have that item'.",
+		act("$n tells you '{GYou don't have that item.{x'",
 		    keeper, NULL, ch, TO_VICT);
 		ch->reply = keeper;
 		return;
@@ -2827,7 +2827,7 @@ void do_value(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 	act_printf(keeper, obj, ch, TO_VICT, POS_RESTING,
-		   "$n tells you '{GI'll give you %d silver and %d gold coins for $p{x'.",
+		   "$n tells you '{GI'll give you %d silver and %d gold coins for $p.{x'",
 		   cost - (cost / 100) * 100, cost / 100);
 	ch->reply = keeper;
 
@@ -3232,9 +3232,9 @@ void do_butcher(CHAR_DATA * ch, const char *argument)
 void do_balance(CHAR_DATA * ch, const char *argument)
 {
 	char            buf[160];
-	char            buf2[100];
-	long            bank_g;
-	long            bank_s;
+	uint            bank_g;
+	uint            bank_s;
+
 	if (IS_NPC(ch)) {
 		char_puts("You don't have a bank account.\n\r", ch);
 		return;
@@ -3243,29 +3243,29 @@ void do_balance(CHAR_DATA * ch, const char *argument)
 		char_puts("You are not in a bank.\n\r", ch);
 		return;
 	}
+
 	if (ch->pcdata->bank_s + ch->pcdata->bank_g == 0) {
 		char_puts("You don't have any money in the bank.\n\r", ch);
 		return;
 	}
+
 	bank_g = ch->pcdata->bank_g;
 	bank_s = ch->pcdata->bank_s;
-	sprintf(buf, "You have %s%s%s coin%s in the bank.\n\r",
-		bank_g != 0 ? "%ld gold" : str_empty,
-		(bank_g != 0) && (bank_s != 0) ? " and " : str_empty,
-		bank_s != 0 ? "%ld silver" : str_empty,
+	snprintf(buf, sizeof(buf), "You have %s%s%s coin%s in the bank.\n\r",
+		bank_g ? "%ld gold" : str_empty,
+		(bank_g) && (bank_s) ? " and " : str_empty,
+		bank_s ? "%ld silver" : str_empty,
 		bank_s + bank_g > 1 ? "s" : str_empty);
 	if (bank_g == 0)
-		sprintf(buf2, buf, bank_s);
+		char_printf(ch, buf, bank_s);
 	else
-		sprintf(buf2, buf, bank_g, bank_s);
-
-	char_puts(buf2, ch);
+		char_printf(ch, buf, bank_g, bank_s);
 }
 
 void do_withdraw(CHAR_DATA * ch, const char *argument)
 {
 	int	amount;
-	int	fee;
+	uint	fee;
 	bool	silver = FALSE;
 	char	arg[MAX_INPUT_LENGTH];
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.10 1998-10-13 12:39:00 fjoe Exp $
+ * $Id: typedef.h,v 1.11 1998-10-14 18:10:18 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -99,8 +99,8 @@ typedef int	OPROG_FUN	(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg);
 #define SPELL_FUN(fun)	void	fun(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 #define OPROG_FUN(fun)	int	fun(OBJ_DATA *obj, CHAR_DATA *ch, void *arg);
 
-typedef u_int64_t flag_t;	/* flags */
-typedef u_int32_t sflag_t;	/* short flags (less memory usage) */
+typedef u_int64_t	flag_t;		/* flags */
+typedef u_int32_t	sflag_t;	/* short flags (less memory usage) */
 
 #define IS_NULLSTR(str)		(!(str) || *(char*)(str) == '\0')
 

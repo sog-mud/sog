@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.74 1998-10-14 11:04:54 fjoe Exp $
+ * $Id: update.c,v 1.75 1998-10-14 18:10:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -588,7 +588,7 @@ void mobile_update(void)
 			bust_prompt = TRUE;
 		}
 
-		if (!IS_NPC(ch) && bust_prompt
+		if (!IS_NPC(ch) && ch->level < LEVEL_IMMORTAL && bust_prompt
 		&&  ch->desc != NULL && ch->desc->pString == NULL
 		&&  ch->desc->showstr_point == NULL)
 			char_puts(str_empty, ch);
@@ -1095,7 +1095,8 @@ void char_update(void)
 			else
 				ch->move = ch->max_move;
 
-			if (ch->desc != NULL && ch->desc->pString == NULL
+			if (!IS_NPC(ch) && ch->level < LEVEL_IMMORTAL
+			&&  ch->desc != NULL && ch->desc->pString == NULL
 			&&  ch->desc->showstr_point == NULL
 			&&  (old_hit != ch->hit || old_mana != ch->mana ||
 			     old_move != ch->move))

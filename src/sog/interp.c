@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.81 1998-10-14 12:37:11 fjoe Exp $
+ * $Id: interp.c,v 1.82 1998-10-14 18:10:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -853,7 +853,7 @@ bool is_number(const char *argument)
 	return TRUE;
 }
 
-static int x_argument(const char *argument, char *arg, char c)
+static uint x_argument(const char *argument, char arg[MAX_INPUT_LENGTH], char c)
 {
 	char *p;
 	char *q;
@@ -865,22 +865,17 @@ static int x_argument(const char *argument, char *arg, char c)
 		return 1;
 	}
 
-	number = strtod(argument, &q);
-
-	/*
-	 * if c == '.' q will point to next character after p
-	 * otherwise q will point to p
-	 */
-	if (number < 0 || (q != p && (c == '.' && q != p+1)))
+	number = strtoul(argument, &q, 0);
+	if (q != p)
 		number = 0;
-	strcpy(arg, p+1);
+	strnzcpy(arg, p+1, MAX_INPUT_LENGTH);
 	return number;
 }
 
 /*
  * Given a string like 14.foo, return 14 and 'foo'
  */
-int number_argument(const char *argument, char *arg)
+uint number_argument(const char *argument, char arg[MAX_INPUT_LENGTH])
 {
 	return x_argument(argument, arg, '.');
 }
@@ -888,7 +883,7 @@ int number_argument(const char *argument, char *arg)
 /* 
  * Given a string like 14*foo, return 14 and 'foo'
  */
-int mult_argument(const char *argument, char *arg)
+uint mult_argument(const char *argument, char arg[MAX_INPUT_LENGTH])
 {
 	return x_argument(argument, arg, '*');
 }

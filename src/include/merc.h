@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.100 1998-10-14 12:37:12 fjoe Exp $
+ * $Id: merc.h,v 1.101 1998-10-14 18:10:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -156,8 +156,8 @@ struct descriptor_data
 	char			inlast		[MAX_INPUT_LENGTH];
 	int 			repeat;
 	char *			outbuf;
-	int 			outsize;
-	int 			outtop;
+	uint 			outsize;
+	uint 			outtop;
 	const char *		showstr_head;
 	const char *		showstr_point;
 	struct codepage*	codepage;
@@ -218,11 +218,11 @@ struct help_data
 
 struct shop_data
 {
-	SHOP_DATA * next;			/* Next shop in list		*/
+	SHOP_DATA * next;		/* Next shop in list		*/
 	int	keeper; 		/* Vnum of shop keeper mob	*/
 	int	buy_type [MAX_TRADE];	/* Item types shop will buy	*/
-	int	profit_buy;		/* Cost multiplier for buying	*/
-	int	profit_sell;		/* Cost multiplier for selling	*/
+	uint	profit_buy;		/* Cost multiplier for buying	*/
+	uint	profit_sell;		/* Cost multiplier for selling	*/
 	int	open_hour;		/* First opening hour		*/
 	int	close_hour;		/* First closing hour		*/
 };
@@ -1314,8 +1314,8 @@ struct char_data
 	int 			max_mana;
 	int 			move;
 	int 			max_move;
-	int			gold;
-	int			silver;
+	uint			gold;
+	uint			silver;
 	int 			exp;	/* total exp */
 	int			exp_tl;	/* exp gained this level */
 	sflag_t			act;
@@ -1394,8 +1394,8 @@ struct pc_data
 	const char *		alias[MAX_ALIAS];
 	const char *		alias_sub[MAX_ALIAS];
 	int 			security;	/* OLC */ /* Builder security */
-	int			bank_s;
-	int			bank_g;
+	uint			bank_s;
+	uint			bank_g;
 	int 			death;
 	int 			played;
 	int 			anti_killed;
@@ -1482,7 +1482,7 @@ struct obj_index_data
 	int			condition;
 	int			count;
 	int			weight;
-	int 			cost;
+	uint 			cost;
 	int 			value[5];
 	int 			limit;
 	OPROG_FUN **		oprogs;
@@ -1511,7 +1511,7 @@ struct obj_data
 	sflag_t 		wear_flags;
 	sflag_t			wear_loc;
 	int			weight;
-	int 			cost;
+	uint 			cost;
 	int			level;
 	int			condition;
 	const char *		material;
@@ -1594,7 +1594,7 @@ struct area_data
 	int		vnum;		/* OLC */ /* Area vnum  */
 	flag_t		flags;		/* OLC */
 	int		security;	/* OLC */ /* Value 1-9  */
-	unsigned int	count;
+	uint		count;
 	mlstring *	resetmsg;
 };
 
@@ -1896,7 +1896,7 @@ void	scream_effect	(void *vo, int level, int dam, int target);
 AFFECT_DATA	*affect_find (AFFECT_DATA *paf, int sn);
 void	affect_check	(CHAR_DATA *ch, int where, flag_t vector);
 int	count_users	(OBJ_DATA *obj);
-void	deduct_cost	(CHAR_DATA *ch, int cost);
+void	deduct_cost	(CHAR_DATA *ch, uint cost);
 void	affect_enchant	(OBJ_DATA *obj);
 int	check_immune	(CHAR_DATA *ch, int dam_type);
 bool	check_material	(OBJ_DATA *obj, char *material);
@@ -2008,8 +2008,8 @@ void	show_affects(CHAR_DATA *ch, BUFFER *output);
 void	interpret	(CHAR_DATA *ch, const char *argument);
 void	interpret_raw	(CHAR_DATA *ch, const char *argument, bool is_order);
 bool	is_number	(const char *argument);
-int	number_argument (const char *argument, char *arg);
-int	mult_argument	(const char *argument, char *arg);
+uint	number_argument (const char *argument, char arg[MAX_INPUT_LENGTH]);
+uint	mult_argument	(const char *argument, char arg[MAX_INPUT_LENGTH]);
 const char *	one_argument	(const char *argument, char *arg_first);
 const char *	first_arg	(const char *argument, char *arg_first,
 				 bool fCase);
@@ -2080,7 +2080,7 @@ int	number_range	(int from, int to);
 int	number_percent	(void);
 int	number_door	(void);
 int	number_bits	(int width);
-long     number_mm      (void);
+long	number_mm	(void);
 int	dice		(int number, int size);
 int	interpolate	(int level, int value_00, int value_32);
 char *	smash_tilde	(const char *str);

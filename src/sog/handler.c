@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.73 1998-10-13 12:38:05 fjoe Exp $
+ * $Id: handler.c,v 1.74 1998-10-14 18:10:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2198,32 +2198,33 @@ OBJ_DATA *get_obj_world(CHAR_DATA *ch, const char *argument)
 
 /* deduct cost from a character */
 
-void deduct_cost(CHAR_DATA *ch, int cost)
+void deduct_cost(CHAR_DATA *ch, uint cost)
 {
-	int silver = 0, gold = 0;
+	uint silver = 0, gold = 0;
 
-	silver = UMIN(ch->silver,cost); 
+	silver = UMIN(ch->silver, cost); 
 
-	if (silver < cost)
-	{
+	if (silver < cost) {
 		gold = ((cost - silver + 99) / 100);
 		silver = cost - 100 * gold;
 	}
 
+	if (ch->gold < gold) {
+		log_printf("deduct cost: %s: ch->gold (%d) < gold (%d)",
+			   ch->name, ch->gold, gold);
+		ch->gold = gold;
+	}
+
+	if (ch->silver < silver) {
+		log_printf("deduct cost: %s: ch->silver (%d) < silver (%d)",
+			   ch->name, ch->silver, silver);
+		ch->silver = silver;
+	}
+
 	ch->gold -= gold;
 	ch->silver -= silver;
+} 
 
-	if (ch->gold < 0)
-	{
-		bug("deduct costs: gold %d < 0",ch->gold);
-		ch->gold = 0;
-	}
-	if (ch->silver < 0)
-	{
-		bug("deduct costs: silver %d < 0",ch->silver);
-		ch->silver = 0;
-	}
-}   
 /*
  * Create a 'money' obj.
  */
