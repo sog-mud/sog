@@ -8,7 +8,8 @@ End
 
 #HELPS
 -1 WIZLIST~
-__________         ***********************          __________
+ 
+       __________         ***********************          __________
       /+_+_+_+_+_\   **  The Gods of Shades of Gray  **   /+_+_+_+_+_\ 
       \__________/        ***********************         \__________/
         |::XXXX|                                            |::XXXX|
@@ -19,7 +20,7 @@ __________         ***********************          __________
         |::XXXX|                                            |::XXXX|
         |X::XXX|                Creators [99]               |X::XXX|
         |XX::XX|                *************               |XX::XX|
-        |XXXX::|                Diablo, Hedin               |XXXX::|
+        |XXXX::|            Diablo, Hedin, Arborn           |XXXX::|
         |::XXXX|                                            |::XXXX|
 /<<>>\/<<>>\/<<>>\/<<>>\                            /<<>>\/<<>>\/<<>>\/<<>>\  
 \<<>>/\<<>>/\<<>>/\<<>>/      Supremacies [98]      \<<>>/\<<>>/\<<>>/\<<>>/
@@ -33,15 +34,15 @@ __________         ***********************          __________
        | .//\.  |                                          | .//\.  |
        | .//\.  |                Gods [96]                 | .//\.  |
        |.  /  . |                *********                 |.  /  . |
-       | .//\.  |          Lothar, Eidu, Marewell          | .//\.  |
+       | .//\.  |              Eidu, Marewell              | .//\.  |
        | .//\.  |                                          | .//\.  |
        |.  /\ . |              Immortals [95]              |.  /  . |
        | .//\.  |              **************              | .//\.  |
-       |.  /  . |           McLeod, Leon, Arwen            |.  /  . |
+       |.  /  . |               Arwen, Leon                |.  /  . |
        | .//\.  |                                          | .//\.  |
        |.  /  . |               DemiGods [94]              |.  /  . |
        | .//\.  |               *************              | .//\.  |
-       |.  /\ . |                  Arborn                  |.  /  . |
+       |.  /\ . |                                          |.  /  . |
        |.  /  . |                                          |.  /  . |
        | .//\.  |                Angels [93]               | .//\.  |
        |.  /  . |                ***********               |.  /  . |
@@ -49,17 +50,14 @@ __________         ***********************          __________
        | .//\.  |                                          | .//\.  |
        |.  /  . |               Avatars [92]               |.  /  . |
        | .//\.  |               ************               | .//\.  |
-       |.  /  . |                 Setepios                 |.  /  . |
+       |.  /  . |              Setepios, Orrin             |.  /  . |
        |.  /  . |                                          |.  /  . |
         \ //\. /                 Heroes [91]                \ //\. /
          \ /. /                 *************                \ /. /
-          \ //                                                \ //
-           \/                 Oleg, Arnx, Anri                 \/
-                                Kelter, Thorn
-                            Holod, Urukhay, Lilit
-                          Helge, Gargantua, Kitiara
-                          Kalisto, Tempus, Ahellair
-                               Garold, Mitsubo
+          \ //     Oleg, Arnx, Anri, Kelter, Thorn, Holod     \ //
+           \/     Urukhay, Lilit, Helge, Gargantua, Kitiara    \/
+                 Kalisto, Tempus, Ahellair, Garold, Mitsubo
+               Amokk, Hegan, Kelson, Leinad, Minomoto, Venera
 ~
 -1 ANATOLIA~
 . 

@@ -873,13 +873,28 @@ book of healing~
 Book of Healing~
 Old book lies here.~
 unknown~
-trash RT AO
+treasure RT AO
 0 0 0 0 0
 35 1 1 P
 F
 S 'cure light' 20 A
 F
 S 'heal' 45 A
+G none
+#38110
+ring of true hero~
+{Y***{C({W+{C){Y***{x Ring of Hero.~
+Strange ring lies here.~
+divine~
+treasure AIRT AB
+0 0 0 0 0
+70 1 1000000 P
+F
+S 'dirt kicking' 1 A
+F
+S 'kick' 1 A
+F
+S 'bash' 1 A
 G none
 #38200
 bartable~
@@ -1399,6 +1414,7 @@ S
 O 38024 2	* bone necklace
 O 38028 5	* Dragons Skull
 O 38109 0	* Book of Healing
+O 38110 1	* {Y***{C({W+{C){Y***{x Ring of Hero.
 O 38500 0	* the ebony kris
 O 38501 0	* Demon's skin
 S

@@ -1831,3 +1831,48 @@ hi, there!
  
 {WIluvatar{x, Eru, the One
 ~
+Sender  Iluvatar~
+Date    Wed May 19 12:48:48 1999~
+Stamp   927092928
+To      imm~
+Subject safe rooms~
+Text
+hi, there!
+ 
+после ребута можно bear call, lion call, camp, animate dead, lion help
+и gate ИЗ safe room будут работать. в связи с этим не вернуть ли нам
+safe на все кланове комнаты?
+ 
+{WIluvatar{x, Eru, the One
+~
+Sender  Iluvatar~
+Date    Wed May 19 15:17:30 1999~
+Stamp   927101850
+To      all~
+Subject safe rooms, scan~
+Text
+hi, there!
+ 
+after the next reboot bear call, lion call, camp, animate dead, lion help
+and gate FROM safe rooms will be allowed.
+ 
+'scan' command will understand n.direction syntax (where n is limit for
+range).
+ 
+characters will not be able to drop into pet shop stores and guilds
+with vanish/teleport
+ 
+{WIluvatar{x, Eru, the One
+~
+Sender  abrazak~
+Date    Wed May 19 22:05:18 1999~
+Stamp   927126318
+To      all~
+Subject Last changes.~
+Text
+Hi, there!
+После следущего ребута крики при нападении будут отличаться от обычных yells.
+Trip слегка модифицирован.
+ 
+/abrazak, the sovereign of shadows.
+~
