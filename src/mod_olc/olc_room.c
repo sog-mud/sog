@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.23 1998-10-22 08:51:09 fjoe Exp $
+ * $Id: olc_room.c,v 1.24 1998-10-24 12:41:48 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -586,7 +586,6 @@ OLC_FUN(roomed_oreset)
 	int		olevel = 0;
 
 	RESET_DATA	*pReset;
-	char		output [ MAX_STRING_LENGTH ];
 
 	EDIT_ROOM(ch, pRoom);
 
@@ -662,37 +661,32 @@ OLC_FUN(roomed_oreset)
 	/*
 	 * Load into mobile's inventory.
 	 */
-	if ((to_mob = get_char_room(ch, arg2)) != NULL)
-	{
-		int	wear_loc;
+	if ((to_mob = get_char_room(ch, arg2)) != NULL) {
+		int wear_loc;
 
-		/*
-		 * Make sure the location on mobile is valid.
-		 */
-		if ((wear_loc = flag_value(wear_loc_flags, argument)) < 0)
-		{
-			char_puts("RoomEd: Invalid wear_loc.  '? wear-loc'\n\r", ch);
+		if (!str_cmp(argument, "?")) {
+			show_flags(ch, wear_loc_flags);
 			return FALSE;
 		}
+
+		wear_loc = flag_value(wear_loc_flags, argument);
 
 		/*
 		 * Disallow loading a sword(WEAR_WIELD) into WEAR_HEAD.
 		 */
-		if (!IS_SET(pObjIndex->wear_flags, wear_bit(wear_loc)))
-		{
-			char_printf(ch,
-			    "%s (%d) has wear flags: [%s]\n\r",
-			    mlstr_mval(pObjIndex->short_descr),
-			    pObjIndex->vnum,
-			flag_string(wear_flags, pObjIndex->wear_flags));
+		if (!IS_SET(pObjIndex->wear_flags, wear_bit(wear_loc))) {
+			char_printf(ch, "%s (%d) has wear flags: [%s]\n\r",
+				    mlstr_mval(pObjIndex->short_descr),
+				    pObjIndex->vnum,
+				    flag_string(wear_flags,
+						pObjIndex->wear_flags));
 			return FALSE;
 		}
 
 		/*
 		 * Can't load into same position.
 		 */
-		if (get_eq_char(to_mob, wear_loc))
-		{
+		if (get_eq_char(to_mob, wear_loc)) {
 			char_puts("RoomEd: Object already equipped.\n\r", ch);
 			return FALSE;
 		}
@@ -711,19 +705,17 @@ OLC_FUN(roomed_oreset)
 		olevel  = URANGE(0, to_mob->level - 2, LEVEL_HERO);
 		 newobj = create_obj(pObjIndex, number_fuzzy(olevel));
 
-		if (to_mob->pIndexData->pShop)	/* Shop-keeper? */
-		{
-			switch (pObjIndex->item_type)
-			{
-			default:		olevel = 0;				break;
+		if (to_mob->pIndexData->pShop) {	/* Shop-keeper? */
+			switch (pObjIndex->item_type) {
+			default:		olevel = 0;		break;
 			case ITEM_PILL:	olevel = number_range( 0, 10);	break;
-			case ITEM_POTION:	olevel = number_range( 0, 10);	break;
-			case ITEM_SCROLL:	olevel = number_range( 5, 15);	break;
+			case ITEM_POTION:olevel = number_range( 0, 10);	break;
+			case ITEM_SCROLL:olevel = number_range( 5, 15);	break;
 			case ITEM_WAND:	olevel = number_range(10, 20);	break;
-			case ITEM_STAFF:	olevel = number_range(15, 25);	break;
-			case ITEM_ARMOR:	olevel = number_range( 5, 15);	break;
-			case ITEM_WEAPON:	if (pReset->command == 'G')
-						    olevel = number_range(5, 15);
+			case ITEM_STAFF:olevel = number_range(15, 25);	break;
+			case ITEM_ARMOR:olevel = number_range( 5, 15);	break;
+			case ITEM_WEAPON: if (pReset->command == 'G')
+					    olevel = number_range(5, 15);
 				else
 				    olevel = number_fuzzy(olevel);
 			break;
@@ -747,7 +739,6 @@ OLC_FUN(roomed_oreset)
 			flag_string(wear_loc_strings, pReset->arg3),
 			mlstr_mval(to_mob->short_descr),
 			to_mob->pIndexData->vnum);
-		char_puts(output, ch);
 	}
 	else	/* Display Syntax */
 	{
