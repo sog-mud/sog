@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.59 1999-09-23 18:28:41 kostik Exp $
+# $Id: Makefile,v 1.60 1999-09-25 11:28:37 fjoe Exp $
 #
 
 SUBDIR = core dofun olc rspells sog spellfun
@@ -26,4 +26,5 @@ ctags:
 gtags:
 	gtags -co .
 
+.include "Makefile.osdep"
 .include <bsd.subdir.mk>
