@@ -1,6 +1,8 @@
 #
-# $Id: Makefile,v 1.52 1999-06-24 16:32:58 fjoe Exp $
+# $Id: Makefile,v 1.53 1999-06-24 21:07:42 fjoe Exp $
 #
+
+.include "Makefile.inc"
 
 SUBDIR = core dofun sog spellfun olc
 

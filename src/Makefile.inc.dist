@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.inc.dist,v 1.4 1999-06-24 20:36:25 fjoe Exp $
+# $Id: Makefile.inc.dist,v 1.5 1999-06-24 21:09:17 fjoe Exp $
 #
 
 CC		= gcc
@@ -25,39 +25,18 @@ MAKE		= make
 #CFLAGS	+= -DLINUX 
 #LIBS	+= -lcrypt -ldl
 #SO_LFLAGS += -rdynamic
-#COMPAT_CFILES = compat/fnmatch.c
-#COMPAT_OFILES = fnmatch.o
+#COMPAT_CFILES = ../compat/fnmatch.c
 #MAKE = pmake
 
 #
 # for SunOS 5 (Solaris)
 #CFLAGS	+= -DSUNOS
 #LIBS	+= -lsocket -lnsl
-#COMPAT_CFILES = compat/strsep.c compat/snprintf.c
-#COMPAT_OFILES = strsep.o snprintf.o
+#COMPAT_CFILES = ../compat/strsep.c ../compat/snprintf.c
 
 #
 # for Unixware 2.x
 #CFLAGS	+= -DSVR4 -DOLD_RAND
 #LIBS	+= -lsocket -lnsl -lcrypt
-#COMPAT_CFILES = compat/strsep.c
-#COMPAT_OFILES = strsep.o
-
-#
-# Common targets
-#
-
-OFILES != for i in `echo $(CFILES) | sed 's/\.c/.o/g'`; do basename $${i}; done
-
-all: $(MODULE_NAME)
-
-$(MODULE_NAME): $(OFILES)
-	$(LD) -o $(MODULE_NAME) $(LFLAGS) $(OFILES) $(LIBS)
-
-depend:
-	rm -f .depend
-	mkdep $(CFLAGS) $(CFILES)
-
-clean:
-	rm -f $(MODULE_NAME) $(OFILES)
+#COMPAT_CFILES = ../compat/strsep.c
 

@@ -1,0 +1,25 @@
+#
+# $Id: Makefile.rules,v 1.1 1999-06-24 21:07:42 fjoe Exp $
+#
+
+#
+# common rules
+#
+
+OFILES != for i in `echo $(CFILES) | sed 's/\.c/.o/g'`; do basename $${i}; done
+
+all: $(MODULE_NAME)
+
+$(MODULE_NAME): $(OFILES)
+	$(LD) -o $(MODULE_NAME) $(LFLAGS) $(OFILES) $(LIBS)
+
+depend:
+	rm -f .depend
+	mkdep $(CFLAGS) $(CFILES)
+
+clean:
+	rm -f $(MODULE_NAME) $(OFILES)
+
+install: $(MODULE_NAME)
+	install $(INSTALL_FLAGS) $(MODULE_NAME) $(INSTALL_PATH)/$(INSTALL_DIR)
+

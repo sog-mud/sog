@@ -1,8 +1,11 @@
 #
-# $Id: Makefile,v 1.2 1999-06-24 20:35:04 fjoe Exp $
+# $Id: Makefile,v 1.3 1999-06-24 21:07:59 fjoe Exp $
 #
 
+.include "../Makefile.inc"
+
 MODULE_NAME = sog
+INSTALL_DIR = bin
 
 COMM_CFILES = comm/ban.c comm/charset.c comm/comm.c comm/comm_act.c\
 	      comm/comm_colors.c comm/comm_info.c comm/resolver.c
@@ -19,10 +22,6 @@ CFILES = auction.c buffer.c chquest.c clan.c class.c cmd.c\
 	 rating.c recycle.c religion.c rspells.c save.c skills.c\
 	 socials.c special.c str.c string_edit.c tables.c update.c\
 	 util.c varr.c\
-	 $(COMM_CFILES) $(DB_CFILES)
+	 $(COMM_CFILES) $(DB_CFILES) $(COMPAT_CFILES)
 
-install: $(MODULE_NAME)
-	install $(INSTALL_FLAGS) $(MODULE_NAME) $(INSTALL_PATH)/bin
-
-.include "../Makefile.inc"
-
+.include "../Makefile.rules"

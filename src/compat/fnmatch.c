@@ -51,7 +51,7 @@ static char sccsid[] = "@(#)fnmatch.c	8.2 (Berkeley) 4/16/94";
 #	include <fnmatch.h>
 #	include "collate.h"
 #else
-#	include "compat/fnmatch.h"
+#	include "../compat/fnmatch.h"
 #endif
 
 #define	EOS	'\0'
