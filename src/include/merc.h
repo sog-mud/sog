@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.323 2001-05-09 13:15:35 kostik Exp $
+ * $Id: merc.h,v 1.324 2001-06-18 15:03:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -457,7 +457,7 @@ struct wiznet_type
 {
 	const char *	name;
 	flag_t		flag;
-	int 		level;
+	int		level;
 };
 
 struct spec_type
@@ -481,8 +481,8 @@ struct spec_type
 #define GROUP_COMBAT		(E)
 #define GROUP_CREATION		(F)
 #define GROUP_CURATIVE		(G)
-#define GROUP_DIVINATION 	(H)
-#define GROUP_DRACONIAN 	(I)
+#define GROUP_DIVINATION	(H)
+#define GROUP_DRACONIAN		(I)
 #define GROUP_ENCHANTMENT	(J)
 #define GROUP_ENHANCEMENT	(K)
 #define GROUP_HARMFUL		(L)
@@ -496,7 +496,7 @@ struct spec_type
 
 #define GROUP_MEDITATION	(U)
 #define GROUP_CLAN		(V)
-#define GROUP_DEFENSIVE 	(W)
+#define GROUP_DEFENSIVE		(W)
 #define GROUP_WIZARD		(X)
 #define GROUP_NECROMANCY	(Y)
 #define GROUP_EVOCATION		(Z)
@@ -515,7 +515,7 @@ struct spec_type
 #define AREA_UPDATE_ALWAYS	(D)	/* always update area (even if  */
 					/* there are players in it)	*/
 #define AREA_UPDATE_FREQUENTLY	(E)	/* update area more frequently	*/
-					/* (every 3 ticks)		*/   
+					/* (every 3 ticks)		*/
 #define AREA_TAGGED		(Y)	/* area is tagged (for		*/
 					/* conversion or whatever)	*/
 #define AREA_CHANGED		(Z)	/* area has been modified	*/
@@ -524,7 +524,7 @@ struct spec_type
  * ACT bits for mobs.  *ACT*
  * Used in #MOBILES.
  */
-#define ACT_FAMILIAR		(A)		/* familiar 		*/
+#define ACT_FAMILIAR		(A)		/* familiar		*/
 #define ACT_SENTINEL		(B)		/* Stays in one room	*/
 #define ACT_SCAVENGER		(C)		/* Picks up objects	*/
 #define ACT_SUMMONED		(D)
@@ -649,13 +649,13 @@ struct spec_type
  */
 #define AFF_BLIND		(A)
 #define AFF_SCREAM		(B)
-#define AFF_BLOODTHIRST 	(C)
+#define AFF_BLOODTHIRST		(C)
 #define AFF_STUN		(D)
 #define AFF_WEAK_STUN		(E)
 #define AFF_FEAR		(F)
 #define AFF_WEB			(G)
 #define AFF_SANCTUARY		(H)
-#define AFF_FAERIE_FIRE 	(I)
+#define AFF_FAERIE_FIRE		(I)
 #define AFF_BLACK_SHROUD	(J)
 #define AFF_CURSE		(K)
 #define AFF_CORRUPTION		(L)
@@ -710,9 +710,9 @@ struct spec_type
 #define TO_ROOM_AFFECTS 0
 
 /* room applies */
-#define APPLY_ROOM_NONE 	0
-#define APPLY_ROOM_HEAL 	1
-#define APPLY_ROOM_MANA 	2
+#define APPLY_ROOM_NONE		0
+#define APPLY_ROOM_HEAL		1
+#define APPLY_ROOM_MANA		2
 
 /*
  * *AFF* bits for rooms
@@ -724,7 +724,7 @@ struct spec_type
 
 /* AC types */
 #define AC_PIERCE			0
-#define AC_BASH 			1
+#define AC_BASH				1
 #define AC_SLASH			2
 #define AC_EXOTIC			3
 
@@ -740,7 +740,7 @@ struct spec_type
 #define SIZE_LARGE			3
 #define SIZE_HUGE			4
 #define SIZE_GIANT			5
-#define SIZE_GARGANTUAN 		6
+#define SIZE_GARGANTUAN			6
 
 /*
  * Item types.
@@ -770,7 +770,7 @@ struct spec_type
 #define ITEM_PROTECT		27
 #define ITEM_MAP		28
 #define ITEM_PORTAL		29
-#define ITEM_WARP_STONE 	30
+#define ITEM_WARP_STONE		30
 #define ITEM_ROOM_KEY		31
 #define ITEM_GEM		32
 #define ITEM_JEWELRY		33
@@ -798,7 +798,7 @@ struct spec_type
 #define ITEM_VIS_DEATH		(Q)
 #define ITEM_MELT_DROP		(U)
 #define ITEM_HAD_TIMER		(V)
-#define ITEM_BURN_PROOF 	(Y)
+#define ITEM_BURN_PROOF		(Y)
 #define ITEM_NOT_EDIBLE		(bb)
 #define ITEM_ENCHANTED		(dd)	/* obj is enchanted */
 
@@ -835,15 +835,15 @@ struct spec_type
 #define ITEM_WEAR_HEAD		(E)
 #define ITEM_WEAR_LEGS		(F)
 #define ITEM_WEAR_FEET		(G)
-#define ITEM_WEAR_HANDS 	(H)
+#define ITEM_WEAR_HANDS		(H)
 #define ITEM_WEAR_ARMS		(I)
 #define ITEM_WEAR_SHIELD	(J)
-#define ITEM_WEAR_ABOUT 	(K)
-#define ITEM_WEAR_WAIST 	(L)
-#define ITEM_WEAR_WRIST 	(M)
+#define ITEM_WEAR_ABOUT		(K)
+#define ITEM_WEAR_WAIST		(L)
+#define ITEM_WEAR_WRIST		(M)
 #define ITEM_WIELD		(N)
 #define ITEM_HOLD		(O)
-#define ITEM_WEAR_FLOAT 	(Q)
+#define ITEM_WEAR_FLOAT		(Q)
 #define ITEM_WEAR_TATTOO	(R)
 #define ITEM_WEAR_CLANMARK	(S)
 #define ITEM_WEAR_FACE		(T)
@@ -877,11 +877,11 @@ struct spec_type
 /* weapon types */
 #define WEAPON_FLAMING		(A)
 #define WEAPON_FROST		(B)
-#define WEAPON_VAMPIRIC 	(C)
+#define WEAPON_VAMPIRIC		(C)
 #define WEAPON_SHARP		(D)
 #define WEAPON_VORPAL		(E)
 #define WEAPON_TWO_HANDS	(F)
-#define WEAPON_SHOCKING 	(G)
+#define WEAPON_SHOCKING		(G)
 #define WEAPON_POISON		(H)
 #define WEAPON_HOLY		(I)
 #define WEAPON_KATANA		(J)
@@ -902,9 +902,9 @@ struct spec_type
 #define SIT_AT			(D)
 #define SIT_ON			(E)
 #define SIT_IN			(F)
-#define REST_AT 		(G)
-#define REST_ON 		(H)
-#define REST_IN 		(I)
+#define REST_AT			(G)
+#define REST_ON			(H)
+#define REST_IN			(I)
 #define SLEEP_AT		(J)
 #define SLEEP_ON		(K)
 #define SLEEP_IN		(L)
@@ -1025,8 +1025,8 @@ struct spec_type
 #define EX_NOFLEE	(D)
 #define EX_PICKPROOF	(F)
 #define EX_NOPASS	(G)
-#define EX_EASY 	(H)
-#define EX_HARD 	(I)
+#define EX_EASY		(H)
+#define EX_HARD		(I)
 #define EX_INFURIATING	(J)
 #define EX_NOCLOSE	(K)
 #define EX_NOLOCK	(L)
@@ -1126,7 +1126,7 @@ enum {
 #define PLR_NOCANCEL		(S)
 #define PLR_GHOST		(T)
 #define PLR_PERMIT		(U)
-#define PLR_LOG 		(W)
+#define PLR_LOG			(W)
 #define PLR_FREEZE		(Y)
 #define PLR_PUMPED		(Z)	/* adrenalin is gushing */
 #define PLR_PRACTICER		(aa)
@@ -1167,7 +1167,7 @@ enum {
  * OLC flags
  */
 #define OLC_MODE_RAW		(A)	/* show strings without color parsing */
-#define OLC_MODE_TRANS		(B)	/* translation mode (show only	
+#define OLC_MODE_TRANS		(B)	/* translation mode (show only
 					   name/description/gender fields */
 
 #define IS_HARA_KIRI(ch)	(!IS_NPC(ch) &&	\
@@ -1215,7 +1215,7 @@ enum {
 #define CHAN_NOWIZ		(B)
 #define CHAN_NOAUCTION		(C)
 #define CHAN_NOGOSSIP		(D)
-#define CHAN_NOQUESTION 	(E)
+#define CHAN_NOQUESTION		(E)
 #define CHAN_NOMUSIC		(F)
 #define CHAN_NOQUOTE		(G)
 #define CHAN_NOCLAN		(H)
@@ -1282,7 +1282,7 @@ struct mob_index_data
 {
 	MOB_INDEX_DATA *	next;
 	SPEC_FUN *		spec_fun;
-	SHOP_DATA * 		pShop;
+	SHOP_DATA *		pShop;
 	MPTRIG *		mptrig_list;
 	int			mptrig_types;
 	int			vnum;
@@ -1302,8 +1302,8 @@ struct mob_index_data
 	int			alignment;
 	int			level;
 	int			hitroll;
-	int 			hit[3];
-	int 			mana[3];
+	int			hit[3];
+	int			mana[3];
 	int			damage[3];
 	int			ac[4];
 	const char *		damtype;
@@ -1331,7 +1331,7 @@ struct mob_index_data
 #define PC(ch)	((PC_DATA *) ((ch) + 1))
 
 CHAR_DATA *	char_new	(MOB_INDEX_DATA *pMobIndex);
-void 		char_free	(CHAR_DATA *ch);
+void		char_free	(CHAR_DATA *ch);
 
 /* char_load flags */
 #define LOAD_F_NOCREATE	(A)
@@ -1586,7 +1586,7 @@ void pc_skill_init(pc_skill_t *);
  */
 struct ed_data
 {
-	ED_DATA *	next;		/* Next in list 	    */
+	ED_DATA *	next;		/* Next in list		    */
 	const char *	keyword;	/* Keyword in look/examine  */
 	mlstring	description;	/* What to see		    */
 };
@@ -1629,10 +1629,10 @@ struct obj_index_data
 	int			condition;
 	int			count;
 	int			weight;
-	uint 			cost;
+	uint			cost;
 	flag_t			item_type;
-	vo_t 			value[5];
-	int 			limit;
+	vo_t			value[5];
+	int			limit;
 	OPROG_FUN **		oprogs;
 	mlstring		gender;
 	varr			restrictions;	/* cc_expr_t */
@@ -1649,7 +1649,7 @@ struct obj_data
 	OBJ_DATA *		contains;
 	OBJ_DATA *		in_obj;
 	OBJ_DATA *		on;
-	CHAR_DATA * 		carried_by;
+	CHAR_DATA *		carried_by;
 	CHAR_DATA *		last_owner;
 	ED_DATA *		ed;
 	AFFECT_DATA *		affected;
@@ -1658,21 +1658,21 @@ struct obj_data
 	const char *		label;
 	mlstring		short_descr;
 	mlstring		description;
-	flag_t	 		stat_flags;
-	flag_t 			wear_flags;
+	flag_t			stat_flags;
+	flag_t			wear_flags;
 	flag_t			wear_loc;
 	int			weight;
-	uint 			cost;
+	uint			cost;
 	int			level;
 	int			condition;
 	const char *		material;
 	int			timer;
 	flag_t			item_type;
-	vo_t 			value[5];
-	int 			progtypes;
+	vo_t			value[5];
+	int			progtypes;
 	mlstring		owner;
 	altar_t *		altar;
-	int 			water_float;
+	int			water_float;
 };
 
 /*
@@ -1724,7 +1724,7 @@ struct reset_data
  */
 struct area_data
 {
-	AREA_DATA * 	next;
+	AREA_DATA *	next;
 	RESET_DATA *	reset_first;
 	RESET_DATA *	reset_last;
 	HELP_DATA *	help_first;
@@ -1763,11 +1763,11 @@ struct room_index_data
 {
 	ROOM_INDEX_DATA *	next;
 	ROOM_INDEX_DATA *	aff_next;
-	CHAR_DATA * 		people;
+	CHAR_DATA *		people;
 	OBJ_DATA *		contents;
 	ED_DATA *		ed;
-	AREA_DATA * 		area;
-	EXIT_DATA * 		exit	[6];
+	AREA_DATA *		area;
+	EXIT_DATA *		exit	[6];
 	RESET_DATA *		reset_first;	/* OLC */
 	RESET_DATA *		reset_last;	/* OLC */
 	mlstring		name;
@@ -1780,7 +1780,7 @@ struct room_index_data
 	int			heal_rate_mod;
 	int			mana_rate;
 	int			mana_rate_mod;
-	ROOM_HISTORY_DATA * 	history;
+	ROOM_HISTORY_DATA *	history;
 	AFFECT_DATA *		affected;
 	flag_t			affected_by;
 };
@@ -1790,7 +1790,7 @@ struct room_index_data
 
 /*
  * MOBprog definitions
- */                   
+ */
 #define TRIG_ACT	(A)
 #define TRIG_BRIBE	(B)
 #define TRIG_DEATH	(C)
@@ -1819,7 +1819,7 @@ struct mptrig
 	flag_t		mptrig_flags;
 	int		vnum;		/* mob prog code vnum */
 	void *		extra;
-	MPTRIG * 	next;
+	MPTRIG *	next;
 };
 
 struct mpcode
@@ -1843,7 +1843,7 @@ struct mpcode
 /*
  * Utility macros.
  */
-#define IS_WATER(var) 	(((var)->sector_type == SECT_WATER_SWIM) || \
+#define IS_WATER(var)	(((var)->sector_type == SECT_WATER_SWIM) || \
 				 ((var)->sector_type == SECT_WATER_NOSWIM))
 #define PERCENT(cur, max)	(max==0?0:((cur)*100)/(max))
 
@@ -1851,12 +1851,12 @@ struct mpcode
  * Character macros.
  */
 #define IS_NPC(ch)		(ch->pMobIndex != NULL)
-#define IS_IMMORTAL(ch) 	(!IS_NPC(ch) && (ch)->level >= LEVEL_IMMORTAL)
+#define IS_IMMORTAL(ch)		(!IS_NPC(ch) && (ch)->level >= LEVEL_IMMORTAL)
 #define IS_HERO(ch)		(!IS_NPC(ch) && (ch)->level >= LEVEL_HERO)
 
 int trust_level(CHAR_DATA *ch);
 #define GET_ORIGINAL(ch)	(ch->desc && ch->desc->original ?	\
-				 	ch->desc->original : ch)
+					ch->desc->original : ch)
 #define IS_TRUSTED(ch, lev)	(trust_level(ch) >= (lev))
 
 #define IS_AFFECTED(ch, bit)	(IS_SET((ch)->affected_by, (bit)))
@@ -1881,7 +1881,7 @@ int trust_level(CHAR_DATA *ch);
 				       ANUM_NEUTRAL)
 
 #define IS_AWAKE(ch)		(ch->position > POS_SLEEPING)
-#define GET_AC(ch,type) 	((ch)->armor[type]			    \
+#define GET_AC(ch, type)	((ch)->armor[type]			    \
 			+ (IS_AWAKE(ch)			    \
 			? dex_app[get_curr_stat(ch,STAT_DEX)].defensive : 0))
 #define GET_HITROLL(ch) \
@@ -1901,7 +1901,7 @@ int trust_level(CHAR_DATA *ch);
 #define GOLD_WEIGHT(gold)	((gold) * 2 / 5)
 #define SILVER_WEIGHT(silver)	((silver) / 10)
 
-#define COINS_WEIGHT(is_gold, amount)	((is_gold) ? 			\
+#define COINS_WEIGHT(is_gold, amount)	((is_gold) ?			\
 				GOLD_WEIGHT(amount) :			\
 				SILVER_WEIGHT(amount))
 #define get_carry_weight(ch)	((ch)->carry_weight +			\
@@ -1947,11 +1947,11 @@ int trust_level(CHAR_DATA *ch);
 /*
  * Global constants.
  */
-extern	const	struct str_app_type	str_app 	[26];
-extern	const	struct int_app_type	int_app 	[26];
-extern	const	struct wis_app_type	wis_app 	[26];
-extern	const	struct dex_app_type	dex_app 	[26];
-extern	const	struct con_app_type	con_app 	[26];
+extern	const	struct str_app_type	str_app[26];
+extern	const	struct int_app_type	int_app[26];
+extern	const	struct wis_app_type	wis_app[26];
+extern	const	struct dex_app_type	dex_app[26];
+extern	const	struct con_app_type	con_app[26];
 
 extern	const	struct wiznet_type	wiznet_table	[];
 extern	const	struct spec_type	spec_table	[];
@@ -1970,16 +1970,16 @@ extern		DESCRIPTOR_DATA   *	descriptor_free;
 
 extern		OBJ_DATA	  *	object_list;
 
-extern		MPCODE	 	 *	mpcode_list;
+extern		MPCODE		 *	mpcode_list;
 
 extern		ROOM_INDEX_DATA   *	top_affected_room;
 extern		CHAR_DATA	  *	top_affected_char;
 extern		OBJ_DATA	  *	top_affected_obj;
 
-extern		char			bug_buf 	[];
+extern		char			bug_buf[];
 extern		time_t			current_time;
 extern		bool			fLogAll;
-extern		char			log_buf 	[];
+extern		char			log_buf[];
 extern		TIME_INFO_DATA		time_info;
 extern		WEATHER_DATA		weather_info;
 extern		int			reboot_counter;
@@ -2088,7 +2088,7 @@ bool	room_is_dark	(CHAR_DATA *ch);
 bool	room_dark	(ROOM_INDEX_DATA *pRoomIndex);
 int	isn_dark_safe	(CHAR_DATA *ch);
 bool	room_is_private (ROOM_INDEX_DATA *pRoomIndex);
-bool	can_see 	(CHAR_DATA *ch, CHAR_DATA *victim);
+bool	can_see		(CHAR_DATA *ch, CHAR_DATA *victim);
 bool	can_see_obj	(CHAR_DATA *ch, OBJ_DATA *obj);
 bool	can_see_room	(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex);
 bool	can_drop_obj	(CHAR_DATA *ch, OBJ_DATA *obj);
@@ -2237,7 +2237,7 @@ CHAR_DATA *	clone_mob	(CHAR_DATA *parent);
 
 OBJ_DATA *	create_obj	(OBJ_INDEX_DATA *pObjIndex, int flags);
 OBJ_DATA *	create_obj_of	(OBJ_INDEX_DATA *pObjIndex, mlstring *owner);
-OBJ_DATA *	clone_obj	(OBJ_DATA *parent); 
+OBJ_DATA *	clone_obj	(OBJ_DATA *parent);
 
 void	clear_char	(CHAR_DATA *ch);
 ED_DATA * ed_lookup(const char *name, ED_DATA *ed);

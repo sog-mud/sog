@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.240 2001-06-16 18:40:13 fjoe Exp $
+ * $Id: db.c,v 1.241 2001-06-18 15:03:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -103,6 +103,7 @@ extern	int	_filbuf		(FILE *);
 
 #endif
 
+#if !defined(MPC)
 /*
  * Globals.
  */
@@ -1653,6 +1654,7 @@ void fwrite_number(FILE *fp, const char *name, int num)
 	if (num)
 		fprintf(fp, "%s %d\n", name, num);
 }
+#endif /* !defined(MPC) */
 
 /*
  * Stick a little fuzz on a number.
@@ -1870,6 +1872,7 @@ int interpolate(int level, int value_00, int value_32)
 	return value_00 + level * (value_32 - value_00) / 32;
 }
 
+#if !defined(MPC)
 /*
  * Returns an initial-capped string.
  */
@@ -2275,3 +2278,4 @@ const char *GETMSG(const char *msg, int lang)
 		return msg;
 	return mlstr_val(ml, lang);
 }
+#endif /* !defined(MPC) */
