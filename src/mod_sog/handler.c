@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.13 1998-06-12 14:25:59 fjoe Exp $
+ * $Id: handler.c,v 1.14 1998-06-13 11:32:41 efdi Exp $
  */
 
 /***************************************************************************
@@ -2773,7 +2773,7 @@ OBJ_DATA *create_money(int gold, int silver)
     else
     {
 	obj = create_object(get_obj_index(OBJ_VNUM_COINS), 0);
-	str_printf(&obj->short_descr, obj->short_descr, silver);
+	str_printf(&obj->short_descr, obj->short_descr, silver, gold);
 	obj->value[0]		= silver;
 	obj->value[1]		= gold;
 	obj->cost		= 100 * gold + silver;
