@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_impl.h,v 1.26 2001-12-03 22:28:31 fjoe Exp $
+ * $Id: mpc_impl.h,v 1.27 2002-01-21 07:16:16 fjoe Exp $
  */
 
 #ifndef _MPC_IMPL_H_
@@ -67,6 +67,25 @@ struct sym_t {
 	} s;
 };
 typedef struct sym_t sym_t;
+
+/*
+ * Static variable holder
+ */
+struct svh_t {
+	const char *sym_name;
+	avltree_t svars;		/* svar_t */
+};
+typedef struct svh_t svh_t;
+
+/*
+ * Static variable
+ */
+struct svar_t {
+	const char *name;
+	int type_tag;
+	int var_flags;
+};
+typedef struct svar_t svar_t;
 
 typedef struct iter_t iter_t;
 
@@ -129,6 +148,7 @@ struct mpcode_t {
 
 	avltree_t strings;	/**< (const char *) string space	*/
 	avltree_t syms;		/**< (sym_t) symbols			*/
+	avltree_t svhs;		/**< (svh_t) svar_t holders		*/
 
 	/* compiler data */
 	varr cstack;		/**< (void *) compiler stack		*/
@@ -145,7 +165,7 @@ struct mpcode_t {
 	varr code;		/**< (void *) program code		*/
 
 	varr jumptabs;		/**< (varr) 'switch' jump tables	*/
-	varr iters;		/**< (iterdata_t) iterators	*/
+	varr iters;		/**< (iterdata_t) iterators		*/
 
 	jmp_buf jmpbuf;		/**< jmp buf				*/
 	varr data;		/**< data stack				*/
@@ -255,6 +275,7 @@ void	c_declare_assign(mpcode_t *mpc);/* declare variable and assign */
 					/* initial value */
 void	c_cleanup_syms(mpcode_t *mpc);	/* cleanup symbols */
 void	c_return(mpcode_t *mpc);	/* return expr */
+void	c_var_get(mpcode_t *mpc);	/* get static var */
 
 /*--------------------------------------------------------------------
  * binary operations

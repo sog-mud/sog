@@ -23,23 +23,16 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_c.c,v 1.30 2001-12-03 22:28:30 fjoe Exp $
+ * $Id: mpc_c.c,v 1.31 2002-01-21 07:16:16 fjoe Exp $
  */
 
+#include <assert.h>
 #include <stdio.h>
 #include <setjmp.h>
 
-#include <typedef.h>
-#include <log.h>
-#include <memalloc.h>
-#include <varr.h>
-#include <avltree.h>
-#include <container.h>
-#include <dynafun.h>
-#include <util.h>
-#include <flag.h>
+#include <merc.h>
 #include <mprog.h>
-#include <tables.h>
+#include <dynafun.h>
 
 #include "mpc_impl.h"
 
@@ -481,6 +474,63 @@ c_return(mpcode_t *mpc)
 	vo = pop(mpc);
 	mpc->retval = vo->i;
 	mpc->ip = INVALID_ADDR;
+}
+
+void
+c_var_get(mpcode_t *mpc)
+{
+	sym_t *sym;
+	const char *name;
+	int type_tag;
+	int var_flags;
+
+	avltree_t *vars = NULL;
+	var_t *var;
+
+	TRACE((LOG_INFO, __FUNCTION__));
+
+	/*
+	 * get holder and var name
+	 */
+	sym = sym_get(mpc, SYM_VAR);
+	name = code_get(mpc);
+	type_tag = *(int *) code_get(mpc);
+	var_flags = *(int *) code_get(mpc);
+
+	/*
+	 * check that holder is not NULL
+	 */
+	mpc_assert(mpc, __FUNCTION__, sym->s.var.data.p != NULL,
+		   "division by zero");
+
+	switch (sym->s.var.type_tag) {
+	case MT_CHAR:
+		vars = &(sym->s.var.data.ch)->vars;
+		break;
+
+	case MT_OBJ:
+		vars = &(sym->s.var.data.obj)->vars;
+		break;
+
+	case MT_ROOM:
+		vars = &(sym->s.var.data.r)->vars;
+		break;
+
+	default:
+		mpc_assert(mpc, __FUNCTION__, 0,
+			   "invalid holder type '%s' (%s)",
+			   flag_string(mpc_types, sym->s.var.type_tag),
+			   sym->name);
+		/* NOTREACHED */
+	}
+
+	assert(vars != NULL);
+	var = var_get(vars, name, type_tag, var_flags);
+	mpc_assert(mpc, __FUNCTION__, var != NULL,
+		   "static var type mismatch ('%s' required)",
+		   flag_string(mpc_types, type_tag));
+
+	push(mpc, var->value);
 }
 
 /*--------------------------------------------------------------------

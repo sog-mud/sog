@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_lex.c,v 1.21 2001-09-15 17:12:44 fjoe Exp $
+ * $Id: mpc_lex.c,v 1.22 2002-01-21 07:16:16 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -149,6 +149,8 @@ keyword_t ktab[] = {
 	{ "case",	L_CASE		},
 	{ "default",	L_DEFAULT	},
 	{ "return",	L_RETURN	},
+	{ "static",	L_STATIC	},
+	{ "persistent",	L_PERSISTENT	},
 };
 #define KTAB_SIZE	(sizeof(ktab) / sizeof(keyword_t))
 
@@ -295,11 +297,11 @@ mpc_lex(mpcode_t *mpc)
 		case ',':
 		case ':':
 		case '?':
+		case '[':
+		case ']':
 			return ch;
 			/* NOTREACHED */
 
-		case '[':
-		case ']':
 		case '.':
 			goto badch;		/* maybe later */
 			/* NOTREACHED */

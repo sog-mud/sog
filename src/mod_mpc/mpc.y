@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.44 2001-12-08 10:22:46 fjoe Exp $
+ * $Id: mpc.y,v 1.45 2002-01-21 07:16:16 fjoe Exp $
  */
 
 /*
@@ -47,16 +47,8 @@
 #include <dlfcn.h>
 #endif
 
-#include <typedef.h>
-#include <varr.h>
-#include <container.h>
-#include <avltree.h>
+#include <merc.h>
 #include <dynafun.h>
-#include <memalloc.h>
-#include <buffer.h>
-#include <log.h>
-#include <util.h>
-#include <flag.h>
 #include <mprog.h>
 
 #if defined(MPC)
@@ -276,7 +268,7 @@ code3(mpcode_t *mpc,
 
 %token L_IDENT L_TYPE L_INT L_STRING L_ITER
 %token L_IF L_SWITCH L_CASE L_DEFAULT L_ELSE L_FOREACH L_CONTINUE L_BREAK
-%token L_RETURN
+%token L_RETURN L_PERSISTENT L_STATIC
 %token L_ADD_EQ L_SUB_EQ L_DIV_EQ L_MUL_EQ L_MOD_EQ L_AND_EQ L_OR_EQ L_XOR_EQ
 %token L_SHL_EQ L_SHR_EQ
 
@@ -296,7 +288,7 @@ code3(mpcode_t *mpc,
 %nonassoc L_INC L_DEC
 
 %type <type_tag> expr comma_expr L_TYPE
-%type <number> expr_list expr_list_ne L_INT int_const
+%type <number> expr_list expr_list_ne L_INT int_const var_class
 %type <string> L_IDENT L_STRING
 %type <cfun> assign
 %type <iter> L_ITER
@@ -361,6 +353,46 @@ stmt:	';'
 		    c_declare_assign, s->name, (void *) s->s.var.type_tag);
 		code(mpc, (void *) s->s.var.block);
 	}
+	| var_class L_TYPE L_IDENT '[' L_IDENT ']' ';' {
+		sym_t *sym;
+		svh_t *svh;
+		svar_t *svar;
+
+		if ($2 != MT_INT
+		&&  $2 != MT_STR) {
+			compile_error(mpc,
+			    "only '%s' or '%s' static vars are supported",
+			    flag_string(mpc_types, MT_INT),
+			    flag_string(mpc_types, MT_STR));
+			YYERROR;
+		}
+
+		SYM_LOOKUP(sym, $3, SYM_VAR);
+		if (sym->s.var.type_tag != MT_CHAR
+		&&  sym->s.var.type_tag != MT_OBJ
+		&&  sym->s.var.type_tag != MT_ROOM) {
+			compile_error(mpc,
+			    "holder variable can be only of type '%s', '%s' or '%s'",
+			    flag_string(mpc_types, MT_CHAR),
+			    flag_string(mpc_types, MT_OBJ),
+			    flag_string(mpc_types, MT_ROOM));
+			YYERROR;
+		}
+
+		svh = c_get(&mpc->svhs, sym->name);
+		if ((svar = (svar_t *) c_lookup(&svh->svars, $5)) != NULL) {
+			compile_error(mpc,
+			    "%s[%s]: duplicate symbol", $3, $5);
+			YYERROR;
+		}
+
+		svar = c_insert(&svh->svars, $5);
+		assert(svar != NULL);
+
+		svar->name = str_dup($5);
+		svar->type_tag = $2;
+		svar->var_flags = $1;
+	}
 	| comma_expr ';' {
 		/*
 		 * pop calculated value from stack
@@ -375,6 +407,14 @@ stmt:	';'
 	} stmt_list '}' {
 		code2(mpc, c_cleanup_syms, (void *) mpc->curr_block);
 		cleanup_syms(mpc, mpc->curr_block--);
+	}
+	;
+
+var_class: L_PERSISTENT {
+		$$ = VAR_PERSISTENT;
+	}
+	| L_STATIC {
+		$$ = 0;
 	}
 	;
 
@@ -832,6 +872,23 @@ expr:	L_IDENT assign expr %prec '=' {
 		code2(mpc, c_push_var, sym->name);
 		$$ = sym->s.var.type_tag;
 	}
+	| L_IDENT '[' L_IDENT ']' {
+		sym_t *sym;
+		svh_t *svh;
+		svar_t *svar;
+
+		SYM_LOOKUP(sym, $1, SYM_VAR);
+		if ((svh = c_lookup(&mpc->svhs, sym->name)) == NULL
+		||  (svar = (svar_t *) c_lookup(&svh->svars, $3)) == NULL) {
+			compile_error(mpc,
+			    "%s[%s]: unknown identifier", $1, $3);
+			YYERROR;
+		}
+
+		code3(mpc, c_var_get, sym->name, svar->name);
+		code2(mpc, (void *) svar->type_tag, (void *) svar->var_flags);
+		$$ = svar->type_tag;
+	}
 	| L_STRING {
 		code2(mpc, c_push_const, $1);
 		$$ = MT_STR;
@@ -1062,6 +1119,7 @@ struct codeinfo_t codetab[] = {
 	{ c_declare_assign,	"declare_assign",	3 },
 	{ c_cleanup_syms,	"cleanup_syms",		1 },
 	{ c_return,		"return",		0 },
+	{ c_var_get,		"var_get",		5 },
 	{ c_bop_lor,		"bop_lor",		1 },
 	{ c_bop_land,		"bop_land",		1 },
 	{ c_bop_or,		"bop_or",		0 },
@@ -1410,6 +1468,7 @@ _mprog_compile(mprog_t *mp)
 
 	c_erase(&mpc->strings);
 	c_erase(&mpc->syms);
+	c_erase(&mpc->svhs);
 
 	c_erase(&mpc->cstack);
 	c_erase(&mpc->args);

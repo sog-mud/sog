@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.46 2002-01-08 20:21:39 tatyana Exp $
+ * $Id: init_mpc.c,v 1.47 2002-01-21 07:16:15 fjoe Exp $
  */
 
 #include <dlfcn.h>
@@ -97,6 +97,37 @@ jumptab_destroy(varr *v)
 	c_destroy(v);
 }
 
+static void
+svar_init(svar_t *svar)
+{
+	svar->name = str_empty;
+	svar->type_tag = 0;
+	svar->var_flags = 0;
+}
+
+static avltree_info_t c_info_svars = {
+	&avltree_ops,
+
+	(e_init_t) svar_init,
+	strkey_destroy,
+
+	MT_PVOID, sizeof(svar_t), ke_cmp_str
+};
+
+static void
+svh_init(svh_t *svh)
+{
+	svh->sym_name = str_empty;
+	c_init(&svh->svars, &c_info_svars);
+}
+
+static void
+svh_destroy(svh_t *svh)
+{
+	free_string(svh->sym_name);
+	c_destroy(&svh->svars);
+}
+
 static varr_info_t c_info_ints = {
 	&varr_ops, NULL, NULL,
 
@@ -133,6 +164,15 @@ static avltree_info_t c_info_strings = {
 	MT_PVOID, sizeof(char *), ke_cmp_csstr,
 };
 
+static avltree_info_t c_info_svhs = {
+	&avltree_ops,
+
+	(e_init_t) svh_init,
+	(e_destroy_t) svh_destroy,
+
+	MT_PVOID, sizeof(svh_t), ke_cmp_str
+};
+
 static void
 mpcode_init(mpcode_t *mpc)
 {
@@ -142,6 +182,7 @@ mpcode_init(mpcode_t *mpc)
 
 	c_init(&mpc->strings, &c_info_strings);
 	c_init(&mpc->syms, &c_info_syms);
+	c_init(&mpc->svhs, &c_info_svhs);
 
 	c_init(&mpc->cstack, &c_info_ints);
 	c_init(&mpc->args, &c_info_ints);
@@ -168,6 +209,7 @@ mpcode_destroy(mpcode_t *mpc)
 
 	c_destroy(&mpc->strings);
 	c_destroy(&mpc->syms);
+	c_destroy(&mpc->svhs);
 
 	c_destroy(&mpc->cstack);
 	c_destroy(&mpc->args);
