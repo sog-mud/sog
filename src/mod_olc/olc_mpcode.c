@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mpcode.c,v 1.14 1998-09-20 17:01:45 fjoe Exp $
+ * $Id: olc_mpcode.c,v 1.15 1998-09-28 09:44:53 fjoe Exp $
  */
 
 /* The following code is based on ILAB OLC by Jason Dinkel */
@@ -68,7 +68,7 @@ OLC_FUN(mped_create)
 		return FALSE;
 	}
 
-	if (get_mob_index(value)) {
+	if (mpcode_lookup(value)) {
 		char_puts("MPEdit: vnum already exists.\n\r", ch);
 		return FALSE;
 	}

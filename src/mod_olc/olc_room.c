@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.12 1998-09-25 05:51:20 fjoe Exp $
+ * $Id: olc_room.c,v 1.13 1998-09-28 09:44:53 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -1413,6 +1413,8 @@ void do_resets(CHAR_DATA *ch, const char *argument)
     char arg6[MAX_INPUT_LENGTH];
     char arg7[MAX_INPUT_LENGTH];
     RESET_DATA *pReset = NULL;
+	ROOM_INDEX_DATA *pRoom = ch->in_room;
+
 
     argument = one_argument(argument, arg1);
     argument = one_argument(argument, arg2);
@@ -1422,7 +1424,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
     argument = one_argument(argument, arg6);
     argument = one_argument(argument, arg7);
 
-    if (!IS_BUILDER(ch, ch->in_room->area))
+    if (!IS_BUILDER(ch, pRoom->area))
     {
 	char_puts("Resets: Invalid security for editing this area.\n\r",
                       ch);
@@ -1435,7 +1437,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
      */
     if (arg1[0] == '\0')
     {
-	if (ch->in_room->reset_first)
+	if (pRoom->reset_first)
 	{
 	    char_puts(
 		"Resets: M = mobile, R = room, O = object, "
@@ -1453,8 +1455,6 @@ void do_resets(CHAR_DATA *ch, const char *argument)
      */
     if (is_number(arg1))
     {
-	ROOM_INDEX_DATA *pRoom = ch->in_room;
-
 	/*
 	 * Delete a reset.
 	 * ---------------
@@ -1463,7 +1463,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 	{
 	    int insert_loc = atoi(arg1);
 
-	    if (!ch->in_room->reset_first)
+	    if (!pRoom->reset_first)
 	    {
 		char_puts("No resets in this area.\n\r", ch);
 		return;
@@ -1533,7 +1533,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		pReset->command = 'M';
 		pReset->arg1    = atoi(arg3);
 		pReset->arg2    = is_number(arg4) ? atoi(arg4) : 1; /* Max # */
-		pReset->arg3    = ch->in_room->vnum;
+		pReset->arg3    = pRoom->vnum;
 		pReset->arg4	= is_number(arg5) ? atoi(arg5) : 1; /* Min # */
 	    }
 	    else
@@ -1579,7 +1579,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		      }
 		    pReset->command  = 'O';
 		    pReset->arg2     = 0;
-		    pReset->arg3     = ch->in_room->vnum;
+		    pReset->arg3     = pRoom->vnum;
 		    pReset->arg4     = 0;
 		}
 		else
@@ -1620,9 +1620,9 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 			}
 		pReset = new_reset_data ();
 		pReset->command = 'R';
-		pReset->arg1 = ch->in_room->vnum;
+		pReset->arg1 = pRoom->vnum;
 		pReset->arg2 = atoi(arg3);
-		add_reset(ch->in_room, pReset, atoi(arg1));
+		add_reset(pRoom, pReset, atoi(arg1));
 		touch_area(pRoom->area);
 		char_puts("Random exits reset added.\n\r", ch);
 	}
