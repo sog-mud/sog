@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.174 1999-07-09 09:23:12 kostik Exp $
+ * $Id: spellfun.c,v 1.175 1999-07-09 09:34:17 kostik Exp $
  */
 
 /***************************************************************************
@@ -1690,15 +1690,17 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo)
  
 	for (paf = obj->affected; paf != NULL; paf = paf->next)
 	{
-		if (paf->location == APPLY_AC)
-  	{
+		if (paf->location == APPLY_AC) {
 		    ac_bonus = paf->modifier;
 		    ac_found = TRUE;
 		    fail += 5 * (ac_bonus * ac_bonus);
 		}
-
-		else /* things get a little harder */
-		    fail += 20;
+		else if (paf->location == APPLY_HIT) {
+			fail +=30;
+			hp_found = TRUE;
+		}
+		else 
+		    fail += 15;
 	}
 
 	/* apply other modifiers */
