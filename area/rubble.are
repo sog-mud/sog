@@ -71,11 +71,11 @@ stand stand male 0
 0 P medium unknown
 F aff U
 m mob_greet @ all~
-act_say($n, "Это тупик !!" , NULL);
-backstab_char($n, $N, 100);
+act_say($n, "Это тупик!" , NULL);
+backstab_char($n, $N);
 room rr = get_room_index(15002);
-act_say($n, "А не свалить ли тебе отсюда ..." , "" );
-act("", $N, NULL, NULL, TO_CHAR); //free sring - a to slivaetsa
+act_say($n, "А не свалить ли тебе отсюда..." , "");
+act_char("", $N); // free string - a to slivaetsa
 dofun("peace", $n, "");
 transfer_char($N, rr);
 return 0;

@@ -745,7 +745,8 @@ if (number_percent() < 50) {
 return 0;
 ~
 m mob_greet @ 100~
-backstab_char($n, $N, backstab_chance($n));
+if (can_backstab($n))
+	backstab_char($n, $N);
 return 0;
 ~
 #19035

@@ -1,5 +1,5 @@
 #
-# $Id: mprogs.txt,v 1.14 2002-07-16 06:02:49 fjoe Exp $
+# $Id: mprogs.txt,v 1.15 2002-11-23 15:39:36 fjoe Exp $
 #
 
 MPC code style
@@ -226,11 +226,11 @@ affect_char(char ch, int where, string sn, int level, int duration,
 affect_strip(char ch, string aff)
   снимается аффект aff с чара ch
 
-int backstab_chance(char ch)
-  возвращает шанс прохождения backstab
+bool can_backstab(char ch)
+  может ли чар делать backstab
 
-backstab_char(char ch, char victim, int chance)
-  делается backstab чаром ch чару victim с вероятностью chance
+backstab_char(char ch, char victim)
+  делается backstab чаром ch чару victim
 
 bool can_loot(char ch, obj p)
   может ли чар полутить (loot) объект p
