@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.c,v 1.19 2000-02-10 14:08:53 fjoe Exp $
+ * $Id: spec.c,v 1.20 2000-03-21 14:57:36 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -421,6 +421,10 @@ spec_update_cb(void *p, va_list ap)
 	return NULL;
 }
 
+/*
+ * spec_update -- update race, class and clan specs for character
+ * Expects: !IS_NPC(ch)
+ */
 void spec_update(CHAR_DATA *ch)
 {
 	int flags;

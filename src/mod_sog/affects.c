@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.36 2000-03-21 13:43:56 fjoe Exp $
+ * $Id: affects.c,v 1.37 2000-03-21 14:57:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -229,7 +229,8 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 		ch->race = str_dup(fAdd ? paf->location.s : ORG_RACE(ch));
 		race_resetstats(ch);
 		affect_check(ch, -1, -1);
-		spec_update(ch);
+		if (!IS_NPC(ch))
+			spec_update(ch);
 		return;
 	} else if (paf->where == TO_RESIST || paf->where == TO_FORMRESIST) {
 		if (ch->shapeform && paf->where == TO_FORMRESIST)
