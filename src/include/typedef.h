@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.73 2003-10-10 16:14:10 fjoe Exp $
+ * $Id: typedef.h,v 1.74 2004-01-27 22:52:43 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -240,7 +240,6 @@ typedef int (*ke_cmp_t)(const void *k, const void *e);
 #define UMIN(a, b)		((a) < (b) ? (a) : (b))
 #define UMAX(a, b)		((a) > (b) ? (a) : (b))
 #define URANGE(a, b, c)		((b) < (a) ? (a) : ((b) > (c) ? (c) : (b)))
-#define ENTRE(min, num, max)	((min) < (num) && (num) < (max))
 
 #define ISLOWER(c)		(islower((u_char) (c)))
 #define ISUPPER(c)		(isupper((u_char) (c)))
