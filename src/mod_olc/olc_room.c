@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.22 1998-10-21 05:01:25 fjoe Exp $
+ * $Id: olc_room.c,v 1.23 1998-10-22 08:51:09 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -962,6 +962,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		}
 		
 		roomed_create(ch, arg);
+		ch->desc->pEdit = pRoom;
 		snprintf(buf, sizeof(buf), "link %s", arg);
 		olced_exit(ch, buf, fun, door);
 		return TRUE;
