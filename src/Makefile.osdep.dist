@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.osdep.dist,v 1.18 2003-09-30 01:30:01 fjoe Exp $
+# $Id: Makefile.osdep.dist,v 1.19 2003-09-30 01:32:30 fjoe Exp $
 #
 
 #
@@ -17,7 +17,7 @@ BINGRP!=	id -gn
 #
 # for Linux
 #CFLAGS+=	-DLINUX
-#LDADD+=	-lcrypt -ldl
+#LDADD+=		-lcrypt -ldl
 #SO_LDFLAGS+=	-rdynamic
 #COMPAT_SRCS=	fnmatch.c strlcat.c strlcpy.c
 #MAKE=		pmake
@@ -26,7 +26,7 @@ BINGRP!=	id -gn
 #
 # for SunOS 5 (Solaris)
 #CFLAGS+=	-DSUNOS
-#LDADD+=	-lsocket -lnsl
+#LDADD+=		-lsocket -lnsl
 #COMPAT_SRCS=	strsep.c snprintf.c strlcat.c strlcpy.c
 #MAKE=		pmake
 #MKDEPCMD=	${.CURDIR}/../mkdep/mkdep
@@ -34,7 +34,7 @@ BINGRP!=	id -gn
 #
 # for Unixware 2.x
 #CFLAGS+=	-DSVR4 -DOLD_RAND
-#LDADD+=	-lsocket -lnsl -lcrypt
+#LDADD+=		-lsocket -lnsl -lcrypt
 #COMPAT_SRCS=	strsep.c strlcat.c strlcpy.c
 #MAKE=		pmake
 #MKDEPCMD=	${.CURDIR}/../mkdep/mkdep
