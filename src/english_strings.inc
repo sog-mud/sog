@@ -103,6 +103,20 @@ char *strings_engl[] =  {
 
 /* MOVE_ALAS_YOU_CANNOT_GO */	"Alas, you cannot go that way.\n\r",
 /* MOVE_THE_D_IS_CLOSED */	"The $d is closed.",
+/* MOVE_WHAT_YOU_LEAVE */	"What? And leave your beloved master?\n\r",
+/* MOVE_ROOM_IS_PRIVATE */	"That room is private right now.\n\r",
+/* MOVE_MOUNT_MUST_STAND */	"Your mount must be standing.\n\r",
+/* MOVE_MOUNT_REFUSES_GO_THAT_WAY */"Your mount subbornly refuses to go that way.\n\r",
+/* MOVE_YOU_ARENT_ALLOWED_THERE */"You aren't allowed in there.\n\r",
+/* MOVE_YOU_FEEL_TOO_BLOODY */	"You feel too bloody to go in there now.\n\r",
+/* MOVE_YOUR_MOUNT_CANT_FLY */	"You mount can't fly.\n\r",
+/* MOVE_YOU_CANT_FLY */		"You can't fly.\n\r",
+/* MOVE_YOU_CANT_TAKE_MOUNT_THERE */"You can't take your mount there.\n\r",
+/* MOVE_YOU_NEED_A_BOAT */	"You need a boat to go there.\n\r",
+/* MOVE_YOU_TOO_EXHAUSTED */	"You are too exhausted.\n\r",
+/* MOVE_YOU_CANT_BRING_N_CITY */"You can't bring $N into the city.",
+/* MOVE_YOU_ARENT_ALLOWED_CITY */"You aren't allowed in the city.",
+/* MOVE_YOU_FOLLOW_N */		"You follow $N.",
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yis gushing blood{x.",

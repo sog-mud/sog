@@ -103,6 +103,20 @@ char *strings_rus[] = {
 
 /* MOVE_ALAS_YOU_CANNOT_GO */	"Увы, ты не можешь идти туда.\n\r",
 /* MOVE_THE_D_IS_CLOSED */	"$d закрыто.",
+/* MOVE_WHAT_YOU_LEAVE */	"Что? Ты уйдешь от своего любимого хозяина?\n\r",
+/* MOVE_ROOM_IS_PRIVATE */	"Это частная комната.\n\r",
+/* MOVE_MOUNT_MUST_STAND */	"Твое животное должно стоять.\n\r",
+/* MOVE_MOUNT_REFUSES_GO_THAT_WAY */"Твое животное упорно отказывается идти в эту сторону.\n\r",
+/* MOVE_YOU_ARENT_ALLOWED_THERE */"Тебе туда нельзя.\n\r",
+/* MOVE_YOU_FEEL_TOO_BLOODY */	"Ты чувствуешь, что способен осквернить это место еще свежей кровью на твоих руках.\n\r",
+/* MOVE_YOUR_MOUNT_CANT_FLY */	"Твое животное не умеет летать.\n\r",
+/* MOVE_YOU_CANT_FLY */		"Ты не умеешь летать.\n\r",
+/* MOVE_YOU_CANT_TAKE_MOUNT_THERE */"Ты не можешь взять свое животное туда с собой.\n\r",
+/* MOVE_YOU_NEED_A_BOAT */	"Туда нужно плыть на лодке.\n\r",
+/* MOVE_YOU_TOO_EXHAUSTED */	"Ты слишком устал, чтобы идти дальше.\n\r",
+/* MOVE_YOU_CANT_BRING_N_CITY */"Ты не можешь внести $N в этот город.",
+/* MOVE_YOU_ARENT_ALLOWED_CITY */"Тебе не разрешено входить в этот город.",
+/* MOVE_YOU_FOLLOW_N */		"Ты следуешь за $N.",
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yсерьезно ранено{x.",

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.6 1998-04-25 00:37:52 efdi Exp $
+ * $Id: act_move.c,v 1.7 1998-04-26 00:23:27 efdi Exp $
  */
 
 /***************************************************************************
@@ -200,14 +200,14 @@ void move_char( CHAR_DATA *ch, int door, bool follow )
     &&   ch->master != NULL
     &&   in_room == ch->master->in_room )
     {
-	send_to_char( "What?  And leave your beloved master?\n\r", ch );
+	send_to_char( msg(MOVE_WHAT_YOU_LEAVE, ch), ch );
 	return;
     }
 
 /*    if ( !is_room_owner(ch,to_room) && room_is_private( to_room ) )	*/
     if ( room_is_private( to_room ) )
     {
-	send_to_char( "That room is private right now.\n\r", ch );
+	send_to_char( msg(MOVE_ROOM_IS_PRIVATE, ch), ch );
 	return;
     }
 
@@ -215,12 +215,12 @@ void move_char( CHAR_DATA *ch, int door, bool follow )
     {
         if (MOUNTED(ch)->position < POS_FIGHTING) 
         {
-         send_to_char("Your mount must be standing.\n\r", ch);
+         send_to_char(msg(MOVE_MOUNT_MUST_STAND, ch), ch);
          return; 
         }
         if (!mount_success(ch, MOUNTED(ch), FALSE)) 
         {
-         send_to_char("Your mount subbornly refuses to go that way.\n\r", ch);
+         send_to_char(msg(MOVE_MOUNT_REFUSES_GO_THAT_WAY, ch), ch);
          return;
         }
     }
@@ -237,14 +237,13 @@ void move_char( CHAR_DATA *ch, int door, bool follow )
 		     && !IS_IMMORTAL(ch) )
 	    	{
 		    if ( iClass != ch->class )  {
-		      send_to_char( "You aren't allowed in there.\n\r", ch );
+		      send_to_char( msg(MOVE_YOU_ARENT_ALLOWED_THERE, ch), ch );
 		      return;
 		    }
                     if (ch->last_fight_time != -1 &&
                       current_time - ch->last_fight_time < FIGHT_DELAY_TIME)
                     {
-                      send_to_char(
-                           "You feel too bloody to go in there now.\n\r",ch);
+                      send_to_char(msg(MOVE_YOU_FEEL_TOO_BLOODY, ch), ch);
                       return;
                     }
 	        }
@@ -256,13 +255,13 @@ void move_char( CHAR_DATA *ch, int door, bool follow )
             {
                 if( !IS_AFFECTED(MOUNTED(ch), AFF_FLYING) ) 
                 {
-                    send_to_char( "Your mount can't fly.\n\r", ch );
+                    send_to_char(msg(MOVE_YOUR_MOUNT_CANT_FLY, ch), ch);
                     return;
                 }
             } 
            else if ( !IS_AFFECTED(ch, AFF_FLYING) && !IS_IMMORTAL(ch))
 	    {
-	      send_to_char( "You can't fly.\n\r", ch );
+	      send_to_char(msg(MOVE_YOU_CANT_FLY, ch), ch);
 	      return;
             } 
 	}
@@ -271,7 +270,7 @@ void move_char( CHAR_DATA *ch, int door, bool follow )
 	||    to_room->sector_type == SECT_WATER_NOSWIM )
 	&&    (MOUNTED(ch) && !IS_AFFECTED(MOUNTED(ch),AFF_FLYING)) )
 	{
-	    send_to_char("You can't take your mount there.\n\r",ch);
+	    send_to_char(msg(MOVE_YOU_CANT_TAKE_MOUNT_THERE, ch),ch);
 	    return; 
         }  
 
@@ -300,7 +299,7 @@ void move_char( CHAR_DATA *ch, int door, bool follow )
 	    }
 	    if ( !found )
 	    {
-		send_to_char( "You need a boat to go there.\n\r", ch );
+		send_to_char(msg(MOVE_YOU_NEED_A_BOAT, ch), ch);
 		return;
 	    }
 	}
@@ -321,7 +320,7 @@ void move_char( CHAR_DATA *ch, int door, bool follow )
 
 	if ( !MOUNTED(ch) && ch->move < move )
 	{
-	    send_to_char( "You are too exhausted.\n\r", ch );
+	    send_to_char(msg(MOVE_YOU_TOO_EXHAUSTED, ch), ch );
 	    return;
 	}
 
@@ -366,8 +365,8 @@ void move_char( CHAR_DATA *ch, int door, bool follow )
            to_room->sector_type != SECT_HILLS ) 
      {
       REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
-      send_to_char( "You step out from your cover.\n\r", ch );
-      act("$n steps out from $m's cover.", ch, NULL, NULL,TO_ROOM);
+      send_to_char(msg(MOVE_YOU_STEP_OUT_COVER, ch), ch );
+      act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_STEPS_OUT_COVER);
      }	    
 
     mount = MOUNTED(ch);
@@ -447,14 +446,12 @@ void move_char( CHAR_DATA *ch, int door, bool follow )
 	    if (IS_SET(ch->in_room->room_flags,ROOM_LAW)
 	    &&  (IS_NPC(fch) && IS_SET(fch->act,ACT_AGGRESSIVE)))
 	    {
-		act("You can't bring $N into the city.",
-		    ch,NULL,fch,TO_CHAR);
-		act("You aren't allowed in the city.",
-		    fch,NULL,NULL,TO_CHAR);
+		act_printf(ch,NULL,fch,TO_CHAR, POS_RESTING, MOVE_YOU_CANT_BRING_N_CITY);
+		act_printf(fch,NULL,NULL,TO_CHAR, POS_RESTING, MOVE_YOU_ARENT_ALLOWED_CITY);
 		continue;
 	    }
 
-	    act( "You follow $N.", fch, NULL, ch, TO_CHAR );
+	    act_printf(fch, NULL, ch, TO_CHAR, POS_RESTING, MOVE_YOU_FOLLOW_N);
 	    move_char( fch, door, TRUE );
 	}
     }
