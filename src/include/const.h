@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.54 1999-12-16 12:24:44 fjoe Exp $
+ * $Id: const.h,v 1.55 1999-12-22 06:41:33 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -49,7 +49,7 @@
 #	define PATH_SEPARATOR '/'
 #endif
 
-#define PFILE_VERSION	10
+#define PFILE_VERSION	11
 #define AREA_VERSION	2
 
 /*
