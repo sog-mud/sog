@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.41 2001-07-04 20:37:39 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.42 2001-08-17 17:53:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -287,9 +287,9 @@ int check_immune(CHAR_DATA *ch, int dam_type)
 
 	if (IS_SET(ch->imm_flags, bit))
 		immune = IS_IMMUNE;
-	else if (IS_SET(ch->res_flags, bit) && immune != IS_IMMUNE)
+	if (IS_SET(ch->res_flags, bit) && immune != IS_IMMUNE)
 		immune = IS_RESISTANT;
-	else if (IS_SET(ch->vuln_flags, bit)) {
+	if (IS_SET(ch->vuln_flags, bit)) {
 		if (immune == IS_IMMUNE)
 		    immune = IS_RESISTANT;
 		else if (immune == IS_RESISTANT)
