@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: fishing.c,v 1.1.2.4 2003-09-30 01:25:20 fjoe Exp $
+ * $Id: fishing.c,v 1.1.2.5 2004-06-08 14:31:53 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -48,7 +48,8 @@ static int sw_fishes[] = {
 	FISH_SILVERY_SALMON,
 	FISH_BARRACUDA,
 	FISH_SWORDFISH,
-	FISH_SKATE
+	FISH_SKATE,
+	FISH_MACKEREL
 };
 #define SW_FISHES_SZ	(sizeof(sw_fishes) / sizeof(sw_fishes[0]))
 
