@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.76 1999-12-23 09:08:46 fjoe Exp $
+ * $Id: olc_area.c,v 1.77 2000-02-05 08:54:25 avn Exp $
  */
 
 #include "olc.h"
@@ -1459,9 +1459,9 @@ static void save_practicers(FILE *fp, AREA_DATA *pArea)
 				fprintf(fp, "#PRACTICERS\n");
 				found = TRUE;
 			}
-    			fprintf(fp, "M %d %s~\t* %s\n",
+    			fprintf(fp, "M %d %s\t* %s\n",
 				pMobIndex->vnum,
-				flag_string(skill_groups, pMobIndex->practicer),
+				format_flags(pMobIndex->practicer),
 				mlstr_mval(&pMobIndex->short_descr));
 		}
 
@@ -1512,7 +1512,7 @@ static void save_area(CHAR_DATA *ch, AREA_DATA *pArea)
 	mlstr_fwrite(fp, "ResetMessage", &pArea->resetmsg);
 	flags = pArea->area_flags & ~AREA_CHANGED;
 	if (flags)
-		fwrite_string(fp, "Flags", flag_string(area_flags, flags));
+		fprintf(fp, "Flags %s\n", format_flags(flags));
 	fwrite_word(fp, "Clan", pArea->clan);
 	fprintf(fp, "End\n\n");
 
