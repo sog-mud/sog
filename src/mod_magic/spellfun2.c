@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.8 2000-03-27 08:47:23 fjoe Exp $
+ * $Id: spellfun2.c,v 1.139.2.9 2000-03-28 04:58:09 osya Exp $
  */
 
 /***************************************************************************
@@ -1239,7 +1239,7 @@ void spell_stalker(int sn, int level, CHAR_DATA *ch, void *vo)
 	AFFECT_DATA af;
 	int i;
 
-	if ((victim = get_char_world(ch, target_name)) == NULL
+	if ((victim = get_char_area(ch, target_name)) == NULL
 	||  victim == ch
 	||  !IS_WANTED(victim)) {
 		char_puts("You failed.\n", ch);
@@ -1297,6 +1297,7 @@ void spell_stalker(int sn, int level, CHAR_DATA *ch, void *vo)
 	char_puts("An invisible stalker has been sent.\n", ch);
 
 	char_to_room(stalker,victim->in_room);
+	dofun("murder", stalker, victim->name);
 }
 
 static inline void
@@ -2639,13 +2640,15 @@ void spell_animate_dead(int sn, int level, CHAR_DATA *ch, void *vo)
 
 		if (!(obj->pObjIndex->item_type == ITEM_CORPSE_NPC 
 		|| obj->pObjIndex->item_type == ITEM_CORPSE_PC)) {
-			char_puts("You can animate only corpses!\n", ch);
+			act_puts("You can animate only corpses!",
+				ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			return;
 		}
 
 		if (is_affected(ch, sn)) {
-			char_puts("You cannot summon the strength "
-				     "to handle more undead bodies.\n", ch);
+			act_puts("You cannot summon the strength "
+				"to handle more undead bodies.",
+				ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			return;
 		}
 
@@ -2654,7 +2657,8 @@ void spell_animate_dead(int sn, int level, CHAR_DATA *ch, void *vo)
 
 		if (ch->in_room != NULL
 		&&  IS_SET(ch->in_room->room_flags, ROOM_NOMOB)) {
-			char_puts("You can't animate deads here.\n", ch);
+			act_puts("You can't animate deads here.",
+				ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			return;
 		}
 
@@ -2663,19 +2667,21 @@ void spell_animate_dead(int sn, int level, CHAR_DATA *ch, void *vo)
 		&&  obj->in_room
 		&&  IS_SET(obj->in_room->room_flags, ROOM_BATTLE_ARENA)
 		&&  !IS_OWNER(ch, obj)) {
-			char_puts("You cannot do that.\n", ch);
+			act_puts("You cannot do that.",
+				ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			return;
 		}
 
 		if (IS_SET(ch->in_room->room_flags,
 			   ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
-			char_puts("You can't animate here.\n", ch);
+			act_puts("You can't animate here.",
+				ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			return;
 		}
 
 		chance = URANGE(5, get_skill(ch, sn)+(level-obj->level)*7, 95);
 		if (number_percent() > chance) {
-			act_puts("You failed and destroyed it.\n",
+			act_puts("You failed and destroyed it.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			act("$n tries to animate $p, but fails and destroys it.",
 			    ch, obj, NULL, TO_ROOM);
@@ -2759,11 +2765,13 @@ void spell_animate_dead(int sn, int level, CHAR_DATA *ch, void *vo)
 	victim = (CHAR_DATA *) vo;
 
 	if (victim == ch) {
-		char_puts("But you aren't dead!!\n", ch);
+		act_puts("But you aren't dead!!", 
+			ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
 
-	char_puts("But it ain't dead!!\n", ch);
+	act_puts("But it ain't dead!!",
+		ch, NULL, NULL, TO_CHAR, POS_DEAD);
 }
 
 void spell_bone_dragon(int sn, int level, CHAR_DATA *ch, void *vo)

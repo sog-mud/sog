@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.13 2000-03-27 09:34:28 fjoe Exp $
+ * $Id: update.c,v 1.157.2.14 2000-03-28 04:58:14 osya Exp $
  */
 
 /***************************************************************************
@@ -1842,8 +1842,7 @@ void aggr_update(void)
 			act = ch->pMobIndex->act;
 
 			if ((!IS_SET(act, ACT_AGGRESSIVE) &&
-			     npc->last_fought == NULL &&
-			     npc->target == NULL)
+			     npc->last_fought == NULL) 
 			||  IS_SET(ch->in_room->room_flags,
 				   ROOM_PEACE | ROOM_SAFE)
 			||  IS_AFFECTED(ch, AFF_CALM)
@@ -1856,12 +1855,6 @@ void aggr_update(void)
 			||  number_bits(1) == 0
 			||  is_safe_nomessage(ch, wch))
 				continue;
-
-			if ((victim = npc->target) != NULL) {
-				if (victim == wch)
-					multi_hit(ch, wch, TYPE_UNDEFINED);
-				continue;
-			}
 
 			/* Mad mob attacks! */
 			if (npc->last_fought == wch
@@ -2148,8 +2141,8 @@ void track_update(void)
 		 * track the victim
 		 */
 		npc = NPC(ch);
-		victim = npc->target ? npc->target : npc->last_fought;
-
+		/* if sets special target, mob do not tracks last fought */
+		victim = npc->target ? NULL : npc->last_fought;
 		if (victim != NULL) {
 			add_mind(ch, victim->name);
 
@@ -2159,18 +2152,6 @@ void track_update(void)
 				if (IS_EXTRACTED(ch))
 					continue;
 
-				/*
-				 * forget about it if we could not find
-				 * the tracks and have no specific target set
-				 * (summoned shadow, stalker)
-				 */
-				if (was_in_room == ch->in_room
-				&&  npc->target == NULL
-				&&  number_range(0, 19) == 0) {
-					npc->last_fought = NULL;
-					back_home(ch);
-					continue;
-				}
 			}
 		}
 
