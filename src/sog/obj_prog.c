@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.66.2.22 2004-02-18 23:31:35 fjoe Exp $
+ * $Id: obj_prog.c,v 1.66.2.23 2004-02-18 23:52:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -433,7 +433,7 @@ bool sac_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	act("The gods are infuriated!", ch, NULL, NULL, TO_CHAR);
 	act("The gods are infuriated!", ch, NULL, NULL, TO_ROOM);
 	damage(ch, ch, (ch->hit - 1) > 1000? 1000 : (ch->hit - 1),
-	       TYPE_UNDEFINED, DAM_HOLY, TRUE);
+	       TYPE_UNDEFINED, DAM_HOLY, DAMF_NONE);
 
 	ch->gold = 0;
 	ch->silver = 0;
