@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.45 1998-10-11 16:52:45 fjoe Exp $
+ * $Id: martial_art.c,v 1.46 1998-10-14 12:37:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1311,8 +1311,9 @@ void do_assassinate(CHAR_DATA *ch, const char *argument)
 	if (is_safe(ch, victim))
 		return;
 
-	if (number_percent() < chance)
-		multi_hit(ch,victim,gsn_assassinate);
+	if (number_percent() < chance
+	&&  !IS_CLAN_GUARD(victim))
+		multi_hit(ch, victim, gsn_assassinate);
 	else {
 		check_improve(ch, gsn_assassinate, FALSE, 1);
 		damage(ch, victim, 0, gsn_assassinate, DAM_NONE, TRUE);
@@ -1532,7 +1533,8 @@ void do_strangle(CHAR_DATA *ch, const char *argument)
 	SET_FIGHT_TIME(victim);
 	SET_FIGHT_TIME(ch);
 
-	if (number_percent() < chance * 6 /10) {
+	if (number_percent() < chance * 6 /10
+	&&  !IS_CLAN_GUARD(victim)) {
 		act("You grab hold of $N's neck and put $M to sleep.",
 		    ch, NULL, victim, TO_CHAR);
 		act("$n grabs hold of your neck and puts you to sleep.",
@@ -1610,7 +1612,8 @@ void do_blackjack(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(victim) && victim->pIndexData->pShop != NULL)
 		chance -= 40;
  
-	if (number_percent() < chance) {
+	if (number_percent() < chance
+	&&  !IS_CLAN_GUARD(victim)) {
 		act("You hit $N's head with a lead filled sack.",
 		    ch, NULL, victim, TO_CHAR);
 		act("You feel a sudden pain erupts through your skull!",

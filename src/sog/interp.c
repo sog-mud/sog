@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.80 1998-10-11 17:42:05 fjoe Exp $
+ * $Id: interp.c,v 1.81 1998-10-14 12:37:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -232,8 +232,8 @@ const	struct	cmd_type	cmd_table	[] =
     { "long",		do_long,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "nofollow",	do_nofollow,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "noloot",		do_noloot,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
-    { "nosummon",	do_nosummon,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
-    { "nocancel",	do_nocancel,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "nosummon",	do_nosummon,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_NOORDER },
+    { "nocancel",	do_nocancel,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_NOORDER },
     { "noiac",		do_noiac,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "notelnet",	do_notelnet,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "outfit",		do_outfit,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },

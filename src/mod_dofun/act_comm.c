@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.97 1998-10-13 08:53:30 fjoe Exp $
+ * $Id: act_comm.c,v 1.98 1998-10-14 12:37:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -369,7 +369,7 @@ void do_gtell(CHAR_DATA *ch, const char *argument)
 	}
 
 	argument = garble(ch, argument);
-	flags = TO_VICT | TO_BUF | STRANS_TEXT | CHECK_DEAF |
+	flags = TO_VICT | TO_BUF | STRANS_TEXT | 
 		(IS_NPC(ch) && !IS_AFFECTED(ch, AFF_CHARM) ? TRANS_TEXT : 0);
 	for (i = 0, gch = char_list; gch; gch = gch->next) {
 		if (is_same_group(gch, ch) && !is_affected(gch, gsn_deafen)) {
@@ -381,7 +381,7 @@ void do_gtell(CHAR_DATA *ch, const char *argument)
 
 	if (i > 1 && !is_affected(ch, gsn_deafen))
 		act_puts("You tell your group '{G$t{x'",
-			 ch, argument, NULL, TO_CHAR | CHECK_DEAF, POS_DEAD);
+			 ch, argument, NULL, TO_CHAR, POS_DEAD);
 	else
 		char_puts("Quit talking to yourself. You are all alone.\n\r", ch);
 }
@@ -548,14 +548,9 @@ void do_shout(CHAR_DATA *ch, const char *argument)
 {
 	DESCRIPTOR_DATA *d;
 
-	if (IS_NPC(ch))
+	if (IS_NPC(ch) && IS_AFFECTED(ch, AFF_CHARM))
 		return;
 
-	if (IS_SET(ch->comm, COMM_NOCHANNELS)) {
-		 char_puts("The gods have revoked your channel privileges.\n\r", ch);
-		 return;
-	}
-	
 	if (argument[0] == '\0') {
 		if (IS_SET(ch->comm, COMM_NOSHOUT)) {
 			REMOVE_BIT(ch->comm, COMM_NOSHOUT);
@@ -570,6 +565,11 @@ void do_shout(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	if (IS_SET(ch->comm, COMM_NOCHANNELS)) {
+		 char_puts("The gods have revoked your channel privileges.\n\r", ch);
+		 return;
+	}
+	
 	REMOVE_BIT(ch->comm, COMM_NOSHOUT);
 	WAIT_STATE(ch, PULSE_VIOLENCE);
 
@@ -594,14 +594,9 @@ void do_music(CHAR_DATA *ch, const char *argument)
 {
 	DESCRIPTOR_DATA *d;
 
-	if (IS_NPC(ch))
+	if (IS_NPC(ch) && IS_AFFECTED(ch, AFF_CHARM))
 		return;
 
-	if (IS_SET(ch->comm, COMM_NOCHANNELS)) {
-		 char_puts("The gods have revoked your channel privileges.\n\r", ch);
-		 return;
-	}
-	
 	if (argument[0] == '\0') {
 		if (IS_SET(ch->comm, COMM_NOMUSIC)) {
 			REMOVE_BIT(ch->comm, COMM_NOMUSIC);
@@ -615,6 +610,11 @@ void do_music(CHAR_DATA *ch, const char *argument)
 		}
 	}
 
+	if (IS_SET(ch->comm, COMM_NOCHANNELS)) {
+		 char_puts("The gods have revoked your channel privileges.\n\r", ch);
+		 return;
+	}
+	
 	REMOVE_BIT(ch->comm, COMM_NOMUSIC);
 	WAIT_STATE(ch, PULSE_VIOLENCE);
 
@@ -639,7 +639,7 @@ void do_gossip(CHAR_DATA *ch, const char *argument)
 {
 	DESCRIPTOR_DATA *d;
 
-	if (IS_NPC(ch))
+	if (IS_NPC(ch) && IS_AFFECTED(ch, AFF_CHARM))
 		return;
 
 	if (IS_SET(ch->comm, COMM_NOCHANNELS)) {
@@ -680,7 +680,7 @@ void do_gossip(CHAR_DATA *ch, const char *argument)
 void do_clan(CHAR_DATA *ch, const char *argument)
 {
 	CLAN_DATA *clan;
-	DESCRIPTOR_DATA *d;
+	CHAR_DATA *vch;
 	int flags;
 
 	if (!ch->clan) {
@@ -700,17 +700,18 @@ void do_clan(CHAR_DATA *ch, const char *argument)
 
 	flags = TO_VICT | TO_BUF | CHECK_DEAF |
 		(IS_NPC(ch) && !IS_AFFECTED(ch, AFF_CHARM) ? TRANS_TEXT : 0);
-	for (d = descriptor_list; d; d = d->next) {
-		if (d->connected == CON_PLAYING
-		&&  d->character->clan == ch->clan)
+	for (vch = char_list; vch; vch = vch->next)
+		if (vch->clan == ch->clan)
 			act_puts("[CLAN] $n: {C$t{x",
-				 ch, argument, d->character, flags, POS_DEAD);
-	}
+				 ch, argument, vch, flags, POS_DEAD);
 }
 
 void do_pray(CHAR_DATA *ch, const char *argument)
 {
 	DESCRIPTOR_DATA *d;
+
+	if (IS_NPC(ch))
+		return;
 
 	if (IS_SET(ch->comm, COMM_NOCHANNELS)) {
 		 char_puts("The gods refuse to listen to you right now.",ch);

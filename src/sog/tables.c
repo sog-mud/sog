@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.15 1998-10-13 12:38:08 fjoe Exp $
+ * $Id: tables.c,v 1.16 1998-10-14 12:37:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -101,6 +101,7 @@ FLAG act_flags[] =
 	{ "update_always",	ACT_UPDATE_ALWAYS,	TRUE	},
 	{ "changer",		ACT_CHANGER,		TRUE	},
 	{ "notrack",		ACT_NOTRACK,		TRUE	},
+	{ "clan_guard",		ACT_CLAN_GUARD,		TRUE	},
 	{ NULL }
 };
 

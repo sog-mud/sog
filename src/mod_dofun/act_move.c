@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.105 1998-10-13 12:38:04 fjoe Exp $
+ * $Id: act_move.c,v 1.106 1998-10-14 12:37:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2379,7 +2379,8 @@ void do_vtouch(CHAR_DATA *ch, const char *argument)
 	SET_FIGHT_TIME(victim);
 	SET_FIGHT_TIME(ch);
 
-	if (IS_NPC(ch) || number_percent() < 0.85 * chance) {
+	if (number_percent() < 0.85 * chance
+	&&  !IS_CLAN_GUARD(victim)) {
 		act_nprintf(victim, NULL, ch, TO_VICT, POS_DEAD, 
 				MSG_YOU_TOUCH_NS_NECK);
 		act("$N deadly touches your neck and puts you to nightmares.",

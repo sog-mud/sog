@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.99 1998-10-14 11:04:53 fjoe Exp $
+ * $Id: merc.h,v 1.100 1998-10-14 12:37:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -475,6 +475,7 @@ struct kill_data
 #define ACT_UPDATE_ALWAYS	(cc)
 #define ACT_CHANGER		(dd)
 #define ACT_NOTRACK		(ee)
+#define ACT_CLAN_GUARD		(ff)
 
 /* damage classes */
 #define DAM_NONE		0
@@ -1134,6 +1135,7 @@ enum {
 #define PLR_NEW			(ff)
 
 #define IS_HARA_KIRI(ch) (IS_SET((ch)->act, PLR_HARA_KIRI))
+#define IS_CLAN_GUARD(ch) (IS_NPC(ch) && IS_SET(ch->act, ACT_CLAN_GUARD))
 
 #define IS_PUMPED(ch) (IS_SET((ch)->act, PLR_PUMPED))
 #define SET_FIGHT_TIME(ch)					\

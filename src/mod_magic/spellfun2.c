@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.51 1998-10-12 08:47:45 fjoe Exp $
+ * $Id: spellfun2.c,v 1.52 1998-10-14 12:37:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -188,7 +188,6 @@ void spell_nexus(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	}
 }
 
-
 void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
@@ -198,11 +197,12 @@ void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	int i,dam=0;
 	OBJ_DATA *tattoo; 
 	
-	if (saves_spell(level,victim,DAM_MENTAL)
+	if (saves_spell(level, victim, DAM_MENTAL)
 	||  number_bits(1) == 0
-	||  IS_IMMORTAL(victim)) {
+	||  IS_IMMORTAL(victim)
+	||  IS_CLAN_GUARD(victim)) {
 		dam = dice(level, 24) ;
-		damage(ch, victim , dam , sn, DAM_MENTAL, TRUE);
+		damage(ch, victim, dam, sn, DAM_MENTAL, TRUE);
 		return;
 	}
 
@@ -2804,7 +2804,8 @@ void spell_power_word_kill(int sn, int level, CHAR_DATA *ch, void *vo , int targ
 		victim, NULL, ch, TO_CHAR, POS_RESTING);
 
 	if (saves_spell(level,victim,DAM_MENTAL)
-	||  IS_IMMORTAL(victim)) {
+	||  IS_IMMORTAL(victim)
+	||  IS_CLAN_GUARD(victim)) {
 		dam = dice(level , 24) ;
 		damage(ch, victim , dam , sn, DAM_MENTAL, TRUE);
 		return;
@@ -2819,7 +2820,7 @@ void spell_power_word_kill(int sn, int level, CHAR_DATA *ch, void *vo , int targ
 	return;
 }
 
-void spell_eyed_sword (int sn, int level, CHAR_DATA *ch, void *vo , int target) 
+void spell_eyed_sword(int sn, int level, CHAR_DATA *ch, void *vo, int target) 
 {
 	OBJ_DATA *eyed;
 	int i;
@@ -3280,13 +3281,20 @@ void spell_fire_shield (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	char_puts("You create the fire shield.\n\r",ch);
 }
 
-void spell_witch_curse (int sn, int level, CHAR_DATA *ch, void *vo , int target)
+void spell_witch_curse(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	AFFECT_DATA af;
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
 	if (is_affected(victim, gsn_witch_curse)) {
 		char_puts("It has already underflowing with health.\n\r",ch);
+		return;
+	}
+
+	if (saves_spell(level, victim, DAM_NEGATIVE)
+	||  IS_IMMORTAL(victim)
+	||  IS_CLAN_GUARD(victim)) {
+		damage(ch, victim, dice(level, 8), sn, DAM_NEGATIVE, TRUE);
 		return;
 	}
 
