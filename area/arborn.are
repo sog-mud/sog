@@ -15,14 +15,27 @@ Ahellair's personal healer stands here.
 ~
 ~
 human~
-Aa H 1000 0
+ABa H 1000 0
 200 0 1d1+1 1d1+1 1d1+1 magic
 0 0 0 0
-0 CD 0 0
+0 0 0 0
 stand stand female 0
 0 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
+#36101
+target~
+TARGET~
+Target stands here, practice range skills on it.
+~
+~
+human~
+AB JP 0 0
+100 0 1d1+29999 1d1+1 1d1+1 none
+0 0 0 0
+0 0 B Z
+stand stand none 0
+0 0 medium unknown
 #0
 
 #OBJECTS
@@ -171,9 +184,9 @@ D1
 Z 0 36101
 S
 #36101
+Shooting place~
 ~
-~
-0 0 inside
+0 N inside
 D2
 ~
 ~
@@ -184,9 +197,9 @@ D3
 Z 0 36100
 S
 #36102
+Shooting place~
 ~
-~
-0 0 inside
+0 N inside
 D0
 ~
 ~
@@ -197,9 +210,9 @@ D2
 Z 0 36103
 S
 #36103
+Shooting place~
 ~
-~
-0 0 inside
+0 N inside
 D0
 ~
 ~
@@ -210,13 +223,104 @@ D2
 Z 0 36104
 S
 #36104
+Shooting place~
 ~
-~
-0 0 inside
+0 N inside
 D0
 ~
 ~
 Z 0 36103
+D2
+~
+~
+Z 0 36105
+S
+#36105
+Shooting place~
+~
+0 N inside
+D0
+~
+~
+Z 0 36104
+D2
+~
+~
+Z 0 36106
+S
+#36106
+Shooting place~
+~
+0 N inside
+D0
+~
+~
+Z 0 36105
+D2
+~
+~
+Z 0 36107
+S
+#36107
+Shooting place~
+~
+0 N inside
+D0
+~
+~
+Z 0 36106
+D2
+~
+~
+Z 0 36108
+S
+#36108
+Shooting place~
+~
+0 N inside
+D0
+~
+~
+Z 0 36107
+D2
+~
+~
+Z 0 36109
+S
+#36109
+Shooting place~
+~
+0 N inside
+D0
+~
+~
+Z 0 36108
+D2
+~
+~
+Z 0 36110
+S
+#36110
+Shooting place~
+~
+0 N inside
+D0
+~
+~
+Z 0 36109
+D2
+~
+~
+Z 0 36111
+S
+#36111
+At the targets~
+~
+0 N inside
+D0
+~
+~
+Z 0 36110
 S
 #0
 
