@@ -1,0 +1,1533 @@
+#AREADATA
+Ver 7
+Name Thief guild~
+Builders weron vilmarion~
+VNUMs 51300 51599
+Security 1
+LevelRange 0 0
+ResetMessage @rus Свет меркнет в твоих глазах...~
+End
+
+#MOBILES
+#51301
+trainer тренер~
+@eng trainer@rus ~~тренер~~~
+@eng Muscul person sits at the table.@rus Мускулистый человек (trainer) сидит за столом.~
+~
+human~
+BEJ 0 0 0 N 0 0
+45 100 1d1+1999 0d0+0 10d5+30 'punch'
+-10 -10 -10 -10
+IN
+stand stand none 0
+0 0 medium unknown
+g @eng none@rus male~
+F for AHMV
+F par FGHIJK
+m mob_greet @ all~
+act_say($n, "Are you ready to pass test, $N?", $N);
+return 0;
+~
+m mob_random mob_random_secretary 100~
+m mob_look @ 100~
+act_say($n, "If you are ready, pass in necessarying room, $N.", $N);
+dofun("unlock", $n, "south");
+dofun("open", $n, "south");
+return 0;
+~
+#51302
+secretary секретарь~
+@eng secretary@rus ~~секретарь~~~
+@eng Young girl throws fleeting look at you.@rus Молодая девушка (secretary) бросает мимолетный взгляд на тебя.~
+~
+human~
+BEJ 0 0 0 N 0 0
+45 100 1d1+999 0d0+0 10d2+20 'punch'
+-10 -10 -10 -10
+N
+stand stand none 0
+0 0 medium unknown
+g @eng none@rus female~
+F for AHMV
+F par FGHIJK
+x 0
+m mob_random mob_random_secretary 100~
+m mob_exit @ west~
+act_say($n, "Guild master very occupied person, $N.", $N);
+return 0;
+~
+#51303
+elf эльф~
+@eng elf@rus ~~эльф~~~
+@eng High elf examines you attentively@rus Высокий эльф (elf) осматривает тебя внимательно.~
+~
+elf~
+BEJ 0 0 0 N 0 0
+45 100 1d1+1999 0d0+0 10d5+30 'punch'
+-10 -10 -10 -10
+IN
+stand stand none 0
+0 0 medium unknown
+g @eng none@rus male~
+m mob_greet @ all~
+obj portal;
+foreach (portal, obj_in_room(char_room($n))) {
+        if (obj_item_type(portal) != ITEM_PORTAL)
+                continue;
+        extract_obj(portal, XO_F_NORECURSE);
+}
+
+close_door($n, "north");
+lock_door($n, "north");
+act("The elf closes disguiseded manhole.", $N, NULL, NULL, TO_CHAR);
+act_say($n, "Read rules, writing at the board, $N!", $N);
+return 0;
+~
+#0
+
+#OBJECTS
+#51300
+lightning молния~
+@eng chain lightning@rus {W~~Цепная~~ ~~молния~~{x~
+@eng Electric charges flying in the air.@rus Сверкающие электрические разряды летают по комнате.~
+energy~
+weapon CEGIUY CL AN
+exotic 100 100 'blast' FG
+0 0 0 P
+g @eng none@rus female~
+#51301
+chest ящик~
+@eng chest@rus ~~ящик~~~
+@eng Smart chest rests in corner.@rus Здоровый ящик (chest) стоит в углу.~
+wood~
+container 0 0 0
+100 AC 0 1000 25
+0 5000 0 P
+g @eng none@rus male~
+#51302
+table стол~
+@eng writing table@rus письменный стол~
+@eng Nice table for writing stands here.@rus Письменный стол (table) занимает большую часть комнаты.~
+unknown~
+furniture 0 0 0
+0 1 D 0 0
+0 0 0 P
+g @eng none@rus male ~
+#51303
+armor броня~
+@eng leather armor@rus ~~кожанная~~ ~~броня~~~
+@eng Some sort of amunition lying here.@rus Какая-то кожанная броня (armor) лежит на полу.~
+leather~
+armor 0 0 AD
+5 5 5 5 0
+0 200 100 P
+g @eng none@rus female~
+#51304
+hood капюшон~
+@eng grey hood@rus серый ~~капюшон~~~
+@eng Gray hood rests upon floor.@rus Серый капюшон (hood) лежит на полу.~
+unknown~
+armor 0 0 AE
+1 1 1 1 0
+0 1 1 P
+g @eng none@rus male~
+#51305
+boots ботинки~
+@eng leather boots@rus кожанные ботинки~
+@eng Leather boots are lying upon floor.@rus Кожанные ботинки (boots) лежат на полу.~
+unknown~
+armor 0 0 AG
+2 2 2 2 0
+0 5 100 P
+g @eng none@rus male~
+#51306
+portrait портрет~
+@eng portrait@rus портрет~
+@eng Portrait of young woman hungs on wall.@rus Портрет (portrait) молодой женщины висит на стене.~
+unknown~
+trash 0 0 0
+0 0 0 0 0
+0 0 0 P
+E
+портрет~
+@rus Красивая молодая женщина смотрит на тебя.
+~
+g @eng none@rus male~
+#51307
+mirror зеркало~
+@eng mirror@rus ~~зеркало~~~
+@eng Small mirror in mount from mahogany.@rus Небольшое зеркало (mirror) в оправе из красного дерева.~
+unknown~
+trash 0 0 0
+0 0 0 0 0
+0 0 0 P
+m obj_look @ 100~
+dofun("look", $n, "self");
+if (number_percent() < 10)
+        dofun("emote", $n, " поправляет прическу.");
+return 0;
+~
+E
+mirror~
+@eng When you look in mirror you has seen themselves.
+~
+E
+зеркало~
+@rus Всмотревшись в зеркало ты увидел себя.
+~
+g @eng none@rus neutral~
+#51308
+key ключ~
+@eng key@rus ~~ключ~~~
+@eng Old key, wallows on floor.@rus Старый ключ, валяется на полу~
+unknown~
+key 0 0 A
+0 0 0 0 0
+0 1 0 P
+g @eng none@rus male ~
+#51309
+board доска~
+@eng information board@rus ~~информационная~~ ~~доска~~~
+@eng The information board attract your attention.@rus Информационная доска (board) привлекла твоё внимание.~
+unknown~
+trash 0 0 0
+0 0 0 0 0
+0 0 0 P
+m obj_look @ 100~
+obj portal;
+foreach (portal, obj_in_room(char_room($n))) {
+        if (obj_item_type(portal) != ITEM_PORTAL)
+                continue;
+        extract_obj(portal, XO_F_NORECURSE);
+}
+
+act("The elf opens disguiseded manhole.", $n, NULL, NULL, TO_CHAR);
+
+if (real_char_level($n) < 11 && real_char_level($n) > 5) {
+        portal = create_obj(51310, 0);
+        obj_to_room(portal, char_room($n));
+}
+
+if (real_char_level($n) < 21 && real_char_level($n) > 10) {
+        portal = create_obj(51311, 0);
+        obj_to_room(portal, char_room($n));
+}
+
+if (real_char_level($n) < 31 && real_char_level($n) > 20) {
+        portal = create_obj(51312, 0);
+        obj_to_room(portal, char_room($n));
+}
+
+if (real_char_level($n) < 41 && real_char_level($n) > 30) {
+        portal = create_obj(51313, 0);
+        obj_to_room(portal, char_room($n));
+}
+
+if (real_char_level($n) < 45 && real_char_level($n) > 40) {
+        portal = create_obj(51314, 0);
+        obj_to_room(portal, char_room($n));
+}
+
+if (real_char_level($n) > 44) {
+        portal = create_obj(51315, 0);
+        obj_to_room(portal, char_room($n));
+}
+return 0;
+~
+#51310
+trapdoor люк~
+@eng trapdoor@rus люк~
+@eng The dark passage opened near by your legs.@rus Темный проход (trapdoor), открыт рядом с твоими ногами.~
+unknown~
+portal 0 0 0
+0 A A 51307 0
+0 0 0 P
+m obj_enter obj_enter_trapdoor 100~
+g @eng none@rus male~
+#51311
+trapdoor люк~
+@eng trapdoor@rus люк~
+@eng The dark passage opened near by your legs.@rus Темный проход (trapdoor), открыт рядом с твоими ногами.~
+unknown~
+portal 0 0 0
+0 A A 51308 0
+0 0 0 P
+m obj_enter obj_enter_trapdoor 100~
+#51312
+trapdoor люк~
+@eng trapdoor@rus люк~
+@eng The dark passage opened near by your legs.@rus Темный проход (trapdoor), открыт рядом с твоими ногами.~
+unknown~
+portal 0 0 0
+0 A A 51309 0
+0 0 0 P
+m obj_enter obj_enter_trapdoor 100~
+#51313
+trapdoor люк~
+@eng trapdoor@rus люк~
+@eng The dark passage opened near by your legs.@rus Темный проход (trapdoor), открыт рядом с твоими ногами.~
+unknown~
+portal 0 0 0
+0 A A 51310 0
+0 0 0 P
+m obj_enter obj_enter_trapdoor 100~
+#51314
+trapdoor люк~
+@eng trapdoor@rus люк~
+@eng The dark passage opened near by your legs.@rus Темный проход (trapdoor), открыт рядом с твоими ногами.~
+unknown~
+portal 0 0 0
+0 A A 51311 0
+0 0 0 P
+m obj_enter obj_enter_trapdoor 100~
+#51315
+trapdoor люк~
+@eng trapdoor@rus люк~
+@eng The dark passage opened near by your legs.@rus Темный проход (trapdoor), открыт рядом с твоими ногами.~
+unknown~
+portal 0 0 0
+0 A A 51312 0
+0 0 0 P
+m obj_enter obj_enter_trapdoor 100~
+#51398
+ring кольцо~
+@eng Ring, named "Opposition of {RFire{x and {BWater{x"@rus Кольцо, названное "Противостояние {RОгня{x и {BВоды{x"~
+@eng Imperceptible flicker shines in water.@rus Незаметный огонёк (ring) сияет в воде.~
+unknown~
+trash B 0 AB
+0 0 0 0 0
+0 0 0 P
+f resists cold 0 0
+f resists fire 0 0
+#51399
+ring кольцо~
+@eng Ring named "Opposition of {WAir{x and {yLand{x"@rus Кольцо, названное "ПротивостоЯние {WВоздуха{x и {yЗемли{x"~
+@eng Imperceptible flicker shines in water.@rus Незаметный огонёк (ring) сияет в воде.~
+unknown~
+trash B 0 AB
+0 0 0 0 0
+0 0 0 P
+f resists cold 0 0
+f resists fire 0 0
+#51400
+turban тюрбан~
+@eng {RRed{x turban@rus {RКрасный{x тюрбан ~
+@eng The red matter is forgotten someone.@rus Красная материя (turban) забыта кем-то.~
+unknown~
+trash 0 0 AE
+0 0 0 0 0
+0 0 0 P
+#51401
+armor броня~
+@eng armour from skin of {Rred{x Dragon@rus броня из кожи {Rкрасного{x Дракона~
+@eng Mighty armor is lying here.@rus Могущественная броня лежит здесь.~
+unknown~
+trash 0 0 AD
+0 0 0 0 0
+0 0 0 P
+#51450
+door дверь~
+@eng Old door entrance~
+@eng Entrance@rus Заросший вход~
+unknown~
+portal 0 0 0
+0 0 0 0 0
+0 0 0 P
+g @eng none@rus female~
+#51599
+amulet амулет~
+@eng Amulet of {Wimmortality{x@rus Амулет {Wбессмертия{x~
+@eng The luminous chain rests upon floor.@rus Светящаяся цепочка (amulet) лежит на полу.~
+unknown~
+trash AG 0 AC
+0 0 0 0 0
+0 0 0 P
+g @eng none@rus male~
+#0
+
+#ROOMS
+#51300
+@eng Dungeon of young Avatars@rus Пещера юного Аватара~
+~
+0 0 inside
+S
+#51301
+@eng Entrance to the thiefs guild@rus Вход в гильдию воров~
+~
+0 D inside
+D2
+~
+~
+~
+~
+Z 0 51302
+S
+#51302
+@eng Hall@rus Холл~
+~
+0 D inside
+D0
+~
+~
+~
+~
+Z 0 51301
+D1
+~
+~
+~
+~
+Z 0 51304
+D2
+~
+~
+~
+~
+Z 0 51305
+D3
+~
+~
+~
+~
+ABZ 0 51303
+S
+#51303
+@eng Guild master room@rus Комната главы гильдии~
+~
+0 D inside
+D1
+~
+~
+~
+~
+ABZ 0 51302
+S
+#51304
+@eng Store room@rus Склад оружия и амуниции~
+~
+0 D inside
+D3
+~
+~
+~
+~
+Z 0 51302
+S
+#51305
+@eng Entrance to the training side of guild@rus Вход в тренировочную часть гильдии~
+~
+0 D inside
+D0
+~
+~
+~
+~
+Z 0 51302
+D2
+~
+~
+~
+~
+ABCDFGZ 51308 51306
+S
+#51306
+@eng Room of sharing the tasks@rus Комната распределения заданий~
+~
+0 D inside
+D0
+~
+~
+~
+~
+ABCDFGZ 51308 51305
+S
+#51307
+@eng Dark tunnel@rus Тёмный туннель~
+~
+0 0 inside
+S
+#51308
+@eng Dark tunnel@rus Тёмный туннель~
+~
+0 0 inside
+S
+#51309
+@eng Dark tunnel@rus Тёмный туннель~
+~
+0 0 inside
+S
+#51310
+@eng Dark tunnel@rus Тёмный туннель~
+~
+0 0 inside
+S
+#51311
+@eng Dark tunnel@rus Тёмный туннель~
+~
+0 0 inside
+S
+#51312
+@eng Dark tunnel@rus Тёмный туннель~
+~
+0 0 inside
+S
+#51450
+@eng Begin@rus Начало~
+~
+0 D inside
+D0
+~
+~
+~
+~
+Z 0 51451
+S
+#51451
+@eng Entrance to the forest@rus Вход в лес~
+@rus Ты стоишь в поле перед тропинкой, ведущей в светлый лес.  
+~
+0 N forest
+D0
+~
+~
+~
+~
+Z 0 51452
+D2
+~
+~
+~
+~
+Z 0 51450
+S
+#51452
+@eng Path beginning@rus Начало пути~
+@rus . Незаметная, местами заросшая тропинка ведет тебя в глубь светлого,
+радостного леса.  Вокруг солнечно, поют птички.  На душе светло и радостно. 
+
+~
+0 0 forest
+D0
+~
+~
+~
+~
+Z 0 51453
+D2
+~
+~
+~
+~
+Z 0 51451
+S
+#51453
+@eng Small path@rus Тропинка~
+@rus . Тропинка продолжает уводить тебя в глубину леса.  
+~
+0 0 forest
+D0
+~
+~
+~
+~
+Z 0 51454
+D2
+~
+~
+~
+~
+Z 0 51452
+S
+#51454
+@eng Small path@rus Тропинка~
+@rus . Тропинка лежит перед тобой и манит идти по ней все дальше и дальше.  
+~
+0 0 forest
+D0
+~
+~
+~
+~
+Z 0 51455
+D2
+~
+~
+~
+~
+Z 0 51453
+S
+#51455
+@eng Turn of a path@rus Поворот~
+@rus . Ты достиг поворота тропинки.  Она поворачивает на восток и продолжает
+бежать среди деревьев.  
+~
+0 0 forest
+D1
+~
+~
+~
+~
+Z 0 51456
+D2
+~
+~
+~
+~
+Z 0 51454
+S
+#51456
+@eng Small path@rus Тропинка~
+@rus . После поворота ты продолжаешь идти по тропинке, только сейчас ее стало
+еще меньше заметно из-за разросшейся травы.  
+~
+0 0 forest
+D1
+~
+~
+~
+~
+Z 0 51457
+D3
+~
+~
+~
+~
+Z 0 51455
+S
+#51457
+@eng Small path@rus Тропинка~
+@rus . Тропинка постепенно превращается в едва заметный путь, но все равно
+вокруг радостно и светло.  
+~
+0 0 forest
+D1
+~
+~
+~
+~
+Z 0 51458
+D3
+~
+~
+~
+~
+Z 0 51456
+S
+#51458
+@eng End of a small path@rus Конец тропинки~
+@rus . Тропинка совсем изчезла, но все равно можно заметить путь.  Может его
+проложили звери?  
+~
+0 0 forest
+D1
+~
+~
+~
+~
+Z 0 51459
+D3
+~
+~
+~
+~
+Z 0 51457
+S
+#51459
+@eng Another turn@rus Другой поворот~
+@rus . Вперед некуда идти из-за деревьев, зверинная тропа ведет на юг.  
+~
+0 0 forest
+D2
+~
+~
+~
+~
+Z 0 51460
+D3
+~
+~
+~
+~
+Z 0 51458
+S
+#51460
+@eng Animal path@rus Зверинная тропка~
+@rus . Лес, окружающий тебя, немного изменился он стал не таким светлым, но все
+равно не такой густой.  
+~
+0 0 forest
+D0
+~
+~
+~
+~
+Z 0 51459
+D2
+~
+~
+~
+~
+Z 0 51461
+S
+#51461
+@eng Animal path @rus Зверинная тропка~
+@rus . Невдалеке ты слышишь шорохи.  Лес продолжает жить, несмотря на то, что у
+него в гостях ты.  
+~
+0 0 forest
+D0
+~
+~
+~
+~
+Z 0 51460
+D2
+~
+~
+~
+~
+Z 0 51462
+S
+#51462
+@eng End of an animal path@rus Конец зверинной тропки~
+@rus . Ну вот, зверинная тропа по которой ты шел совсем затерялась.  Видимо
+даже звери редко забегают в эти места.  
+~
+0 0 forest
+D0
+~
+~
+~
+~
+Z 0 51461
+D2
+~
+~
+~
+~
+Z 0 51463
+S
+#51463
+@eng An another turn@rus Очередной поворот~
+@rus . Снова ты набредаешь на поворот.  Лес становится не таким уж дружелюбным.
+Он все гуще и гуще.  
+~
+0 0 forest
+D0
+~
+~
+~
+~
+Z 0 51462
+D3
+~
+~
+~
+~
+Z 0 51464
+S
+#51464
+@eng Through thick forest@rus Через густой лес~
+@rus . Идти все труднее и труднее.  Вокруг как-будто все затаилось и это все
+наблюдает за твоими попытками пробиться дальше.  
+~
+0 0 forest
+D1
+~
+~
+~
+~
+Z 0 51463
+D3
+~
+~
+~
+~
+Z 0 51465
+S
+#51465
+@eng End of path through dence wood@rus Конец тропы через редкий лес~
+@rus . Становится все тише и тише.  Не слышно птиц, но где-то есть то, что
+наблюдает за тобой.  И этот кто-то настроен не так дружелюбно, как тебе бы
+этого хотелось.  
+~
+0 0 forest
+D1
+~
+~
+~
+~
+Z 0 51464
+D3
+~
+~
+~
+~
+Z 0 51466
+S
+#51466
+@eng Turn in a thick forest.@rus Поворот в густом лесе.~
+@rus . Идти в выбранном тобой напрвлении становится почти невозможно поэтому ты
+поворачиваешь на север.  
+~
+0 0 forest
+D0
+~
+~
+~
+~
+Z 0 51467
+D1
+~
+~
+~
+~
+Z 0 51465
+S
+#51467
+@eng Unexpected meeting@rus Неожиданная встреча~
+@rus . Идя по этому темному и густому лесу ты натыкаешься на того кто за тобой
+следил.  
+~
+0 0 forest
+D0
+~
+~
+~
+~
+Z 0 51468
+D2
+~
+~
+~
+~
+Z 0 51466
+S
+#51468
+@eng Dark thick forest@rus Темный и густой лес~
+@rus . Страж преодолен, но что же лежит дальше?  
+~
+0 0 forest
+D0
+~
+~
+~
+~
+Z 0 51469
+D2
+~
+~
+~
+~
+Z 0 51467
+S
+#51469
+@eng Turn in a dark thick forest@rus Поворот в темном и густом лесу~
+@rus . Этот лес кажется каким-то странным.  Что-то в нем не так...  Какие-то
+белые нити свисают с деревьев и из-за деревьев на тебя смотрят чьи-то глаза.
+Их много...  
+~
+0 0 forest
+D1
+~
+~
+~
+~
+Z 0 51470
+D2
+~
+~
+~
+~
+Z 0 51468
+S
+#51470
+@eng Spider's net@rus Паучья сеть~
+@rus . А ведь предупреждали тебя!  Теперь ты знаешь что это за нити!  Это
+паучья сеть!  А вон и ее хозяева...  
+~
+0 0 forest
+D1
+~
+~
+~
+~
+Z 0 51471
+D3
+~
+~
+~
+~
+Z 0 51469
+S
+#51471
+@eng In a dark thick forest again@rus Сново в темном и густом лесу~
+@rus . Здесь тоже самое.  То же шипение и таже липкая паутина...  
+~
+0 0 forest
+D2
+~
+~
+~
+~
+Z 0 51472
+D3
+~
+~
+~
+~
+Z 0 51470
+S
+#51472
+@eng Trap@rus Ловушка~
+@rus . Только этого тебе еще не хватало...
+ Угодить в чей-то капкан, хотя страж говорил что он где-то здесь его забыл...
+~
+0 0 forest
+D0
+~
+~
+~
+~
+Z 0 51471
+D2
+~
+~
+~
+~
+Z 0 51473
+S
+#51473
+@eng In a thick forest@rus В непролазной чаще~
+@rus . Лес изменился...  Он стал не таким уж темным, если можно так сказать про
+непролазную чащу, но та темнота что окружала тебя до этого пропала.  
+~
+0 0 forest
+D0
+~
+~
+~
+~
+Z 0 51472
+D3
+~
+~
+~
+~
+Z 0 51474
+S
+#51474
+@eng Bright point@rus Просвет~
+@rus . Наконец-то!!!  Ты видишь светлую точку впереди себя.  Наверное лес
+заканчивается...  
+~
+0 0 forest
+D0
+~
+~
+~
+~
+Z 0 51475
+D1
+~
+~
+~
+~
+Z 0 51473
+S
+#51475
+@eng Small hill@rus Небольшой холмик~
+@rus . Лес, кажущийся в начале таким безообидным, кончился и пред твоим взором
+открылся чудесный вид: Под тобой простирается зеленая долина и стоящий на
+ней замок, окруженный со всех сторон водой.  К замку ведет дорога через
+небольшой мост...  
+~
+0 0 hills
+D2
+~
+~
+~
+~
+Z 0 51474
+D5
+~
+~
+~
+~
+Z 0 51476
+S
+#51476
+@eng Forgotten road@rus Заброшенная дорога~
+@rus . Спустившись с холма ты стоишь на заброшенной дороге.  Сверху она
+смотрелась не такой уж и плохой, но вблизи видно, что местами она проросла
+травой, а кое-где и совсем развалилась.  И у тебя еще одна маленькая
+проблема - ты не найдешь путь , чтобы подняться на холм.  
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51477
+S
+#51477
+@eng Road before old bridge@rus Дорога перед старым мостом~
+@rus . Ты продолжаешь брести по дороге и из твоей головы уже вылетели грустные
+мысли о том, что тебе не подняться по холму обратно,  ведь перед тобой лежит
+замок...  
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51478
+D2
+~
+~
+~
+~
+Z 0 51476
+S
+#51478
+@eng Beginning of old bridge @rus Начало старого моста~
+@rus . Ты стоишь вначале старого моста.  Он кажется таки дряхлым и шатким, что
+тебе приходит в голову мысль: А выдержит ли он тебя?  
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51479
+D2
+~
+~
+~
+~
+Z 0 51477
+S
+#51479
+@eng Middle of an old bridge@rus Середина старого моста~
+@rus . Как не странно мост тебя выдержал.  Под ним журчит голубая вода.  Можно
+продолжить путь по нему, а можно и попробовать искупаться, если тебе очень
+жарко...  Надеемся у тебя есть лодка?  
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51480
+D2
+~
+~
+~
+~
+Z 0 51478
+D5
+~
+~
+~
+~
+Z 0 51507
+S
+#51480
+@eng End of an old bridge@rus Конец старого моста~
+@rus . Мост заканчивается.  Ничего примечательного на нем и в нем нет, кроме
+того что он того и гляди рухнет.  
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51481
+D2
+~
+~
+~
+~
+Z 0 51479
+S
+#51481
+@eng Road before destroyed castle@rus Дорога перед разрушенным замком~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51482
+D2
+~
+~
+~
+~
+Z 0 51480
+S
+#51482
+@eng Before entrance@rus Перед входом~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51483
+D2
+~
+~
+~
+~
+Z 0 51481
+S
+#51483
+@eng Entrance@rus Вход~
+~
+0 0 inside
+D2
+~
+~
+~
+~
+Z 0 51482
+S
+#51484
+@eng In water near bridge@rus В воде недалеко от моста~
+~
+0 0 swim
+D1
+~
+~
+~
+~
+Z 0 51485
+D3
+~
+~
+~
+~
+Z 0 51507
+S
+#51485
+@eng In a water near southern side of old tower@rus В воде возле южной части старой башни~
+~
+0 0 swim
+D1
+~
+~
+~
+~
+Z 0 51486
+D3
+~
+~
+~
+~
+Z 0 51484
+S
+#51486
+@eng In water near dark hole @rus В воде возле темного отверстия~
+~
+0 0 swim
+D0
+~
+~
+~
+~
+Z 0 51487
+D3
+~
+~
+~
+~
+Z 0 51485
+S
+#51487
+@eng In a water near eastern side of old tower@rus В воде возле восточной части старой башни~
+~
+0 0 swim
+D0
+~
+~
+~
+~
+Z 0 51488
+D2
+~
+~
+~
+~
+Z 0 51486
+S
+#51488
+@eng In a water near eastern side of old castle's wall@rus В воде возле восточной стены старого замка~
+~
+0 0 swim
+D0
+~
+~
+~
+~
+Z 0 51489
+D2
+~
+~
+~
+~
+Z 0 51487
+S
+#51489
+@eng In a water near eastern side of old castle's wall@rus В воде возле восточной стены старого замка~
+~
+0 0 swim
+D0
+~
+~
+~
+~
+Z 0 51490
+D2
+~
+~
+~
+~
+Z 0 51488
+S
+#51490
+@eng In a water near eastern side of second old tower@rus В воде возле восточной стороны второй старой башни~
+~
+0 0 swim
+D0
+~
+~
+~
+~
+Z 0 51491
+D2
+~
+~
+~
+~
+Z 0 51489
+S
+#51491
+@eng In a water near dark hole@rus В воде возле темного отверстия~
+~
+0 0 swim
+D2
+~
+~
+~
+~
+Z 0 51490
+D3
+~
+~
+~
+~
+Z 0 51492
+S
+#51492
+@eng In a water near northern side of second old tower@rus В воде возле северной стороны второй старой башни~
+~
+0 0 swim
+D1
+~
+~
+~
+~
+Z 0 51491
+D3
+~
+~
+~
+~
+Z 0 51493
+S
+#51493
+@eng In a water near northern old castle's wall@rus В воде возле северной стены старого замка~
+~
+0 0 swim
+D1
+~
+~
+~
+~
+Z 0 51492
+D3
+~
+~
+~
+~
+Z 0 51494
+S
+#51494
+@eng In a water behind old castle@rus В воде позади старого замка~
+~
+0 0 swim
+D1
+~
+~
+~
+~
+Z 0 51493
+D3
+~
+~
+~
+~
+Z 0 51495
+S
+#51495
+@eng In a water near northern old castle's wall@rus В воде возле северной стены старого замка~
+~
+0 0 swim
+D1
+~
+~
+~
+~
+Z 0 51494
+D3
+~
+~
+~
+~
+Z 0 51496
+S
+#51496
+@eng In a water near northern side of third old tower@rus В воде возле северной части третьей старой башни~
+~
+0 0 swim
+D1
+~
+~
+~
+~
+Z 0 51495
+D3
+~
+~
+~
+~
+Z 0 51497
+S
+#51497
+@eng In a water near dark hole@rus В воде возле темного отверстия~
+~
+0 0 swim
+D1
+~
+~
+~
+~
+Z 0 51496
+D2
+~
+~
+~
+~
+Z 0 51498
+S
+#51498
+@eng In a water near western side of third old tower@rus В воде возле западной стороны третьей старой башни~
+~
+0 0 swim
+D0
+~
+~
+~
+~
+Z 0 51497
+D2
+~
+~
+~
+~
+Z 0 51499
+S
+#51499
+@eng In a water near western side of old castle's wall@rus В воде возле западной стены старого замка~
+~
+0 0 swim
+D0
+~
+~
+~
+~
+Z 0 51498
+D2
+~
+~
+~
+~
+Z 0 51500
+S
+#51500
+@eng In a water near western side of old castle's wall@rus В воде возле западной стены старого замка~
+~
+0 0 swim
+D0
+~
+~
+~
+~
+Z 0 51499
+D2
+~
+~
+~
+~
+Z 0 51501
+S
+#51501
+@eng In a water near western side of fourth old tower@rus В воде возле западной стороны четвертой старой башни~
+~
+0 0 swim
+D0
+~
+~
+~
+~
+Z 0 51500
+D2
+~
+~
+~
+~
+Z 0 51502
+S
+#51502
+@eng In a water near dark hole@rus В воде возле темного отверстия~
+~
+0 0 swim
+D0
+~
+~
+~
+~
+Z 0 51501
+D1
+~
+~
+~
+~
+Z 0 51503
+S
+#51503
+@eng In a water near southern side of fourth old tower@rus В воде возле южной строны четвертой старой башни~
+~
+0 0 swim
+D1
+~
+~
+~
+~
+Z 0 51504
+D3
+~
+~
+~
+~
+Z 0 51502
+S
+#51504
+@eng In a water near bridge@rus В воде недалеко от моста~
+~
+0 0 swim
+D0
+~
+~
+~
+~
+Z 0 51505
+D3
+~
+~
+~
+~
+Z 0 51503
+S
+#51505
+@eng Shore@rus Берег~
+~
+0 0 field
+D0
+~
+~
+~
+~
+Z 0 51506
+D2
+~
+~
+~
+~
+Z 0 51504
+S
+#51506
+@eng Small path@rus Тропинка~
+~
+0 0 field
+D1
+~
+~
+~
+~
+Z 0 51481
+D2
+~
+~
+~
+~
+Z 0 51505
+S
+#51507
+@eng In water under bridge@rus Под мостом в воде~
+~
+0 0 swim
+D1
+~
+~
+~
+~
+Z 0 51484
+S
+#0
+
+#RESETS
+O 0 51300 0 51300	* chain lightning (Dungeon of young Avatars)
+O 0 51307 0 51300	* mirror (Dungeon of young Avatars)
+O 0 51599 0 51300	* Amulet of {Wimmortality{x (Dungeon of young Avatars)
+O 0 51398 0 51300	* Ring, named "Opposition of {RFire{x and {BWater{x" (Dungeon of young Avatars)
+O 0 51399 0 51300	* Ring named "Opposition of {WAir{x and {yLand{x" (Dungeon of young Avatars)
+O 0 51400 0 51300	* {RRed{x turban (Dungeon of young Avatars)
+O 0 51401 0 51300	* armour from skin of {Rred{x Dragon (Dungeon of young Avatars)
+O 0 51302 0 51302	* writing table (Hall)
+O 0 51307 0 51302	* mirror (Hall)
+M 0 51302 1 51302 1	* secretary (Hall)
+O 0 51302 0 51303	* writing table (Guild master room)
+O 0 51306 0 51303	* portrait (Guild master room)
+O 0 51301 0 51304	* chest (Store room)
+P 0 51305 1 0 1	* chest: leather boots
+P 0 51304 1 0 1	* chest: grey hood
+P 0 51303 1 0 1	* chest: leather armor
+O 0 51302 0 51305	* writing table (Entrance to the training side of guild)
+M 0 51301 1 51305 1	* trainer (Entrance to the training side of guild)
+G 0 51308 0		*	trainer: key
+O 0 51309 0 51306	* information board (Room of sharing the tasks)
+M 0 51303 1 51306 1	* elf (Room of sharing the tasks)
+G 0 51308 0		*	elf: key
+O 0 51450 0 51483	* Old door entrance (Entrance)
+S
+
+#$

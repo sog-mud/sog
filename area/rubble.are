@@ -1,0 +1,2531 @@
+#AREADATA
+Ver 7
+Name Rubble of Ancient Temple~
+Builders krol~
+VNUMs 51200 51299
+Credits krol~
+Security 8
+LevelRange 45 50
+ResetMessage Неясные звуки доносится со всех сторон.~
+Flags C
+End
+
+#MOBILES
+#51200
+spirit дух~
+@eng spirit@rus дух~
+@eng Дух (spirit) старого храма.@rus Дух (spirit) старого храма.~
+Дух старого храма выглядит не дружелюбно.
+~
+ghost~
+EGR 0 0 0 0 -1000 0
+50 111 100d100+30000 0d0+0 13d13+1 'wrath'
+0 0 0 0
+0
+stand stand male 0
+0 0 gargantuan unknown
+g @eng male@rus male~
+F aff U
+m mob_death @ 100~
+int n = number_range(1,10);
+
+switch (n) {
+case 1:
+        load_obj($n, 51201);
+        return 0;
+case 10:
+        return 0;
+default:
+        load_obj($n, 51212 + n);
+        return 0;
+};
+
+return 0;
+~
+#51201
+spirit дух~
+@eng spirit of inverse time@rus ~~дух~~ времени~
+@eng Дух (spirit) времени висит в воздухе.@rus Дух (spirit) времени висит в воздухе.~
+@eng Что-то смутное и не понятное затягивает тебя...
+@rus Что-то смутное и не понятное затягивает тебя...
+~
+ghost~
+FGJ 0 0 AG N -1000 0
+50 100 100d100+10000 100d100+1000 10d10+10 'wrath'
+0 0 0 0
+EFU
+stand stand male 0
+0 P medium unknown
+F aff U
+#51202
+demon демон~
+@eng demon@rus ~~цепной~~ ~~демон~~~
+@eng Осторожно! Злой демон (demon) пытается наброситься на тебя.@rus Осторожно! Злой демон (demon) пытается наброситься на тебя.~
+~
+ghost~
+BFGJe 0 0 AG N -1000 1
+50 300 100d100+10000 100d100+1000 10d10+10 'wrath'
+0 0 0 0
+BEFU
+stand stand male 0
+0 P medium unknown
+F aff U
+m mob_greet @ all~
+act_say($n, "Это тупик !!" , NULL);
+backstab_char($n, $N, 100);
+room rr = get_room_index(15002);
+act_say($n, "А не свалить ли тебе отсюда ..." , "" );
+act("", $N, NULL, NULL, TO_CHAR); //free sring - a to slivaetsa
+dofun("peace", $n, "");
+transfer_char($N, rr);
+return 0;
+~
+#51203
+demon~
+@eng demon@rus ~~крылатый~~ ~~демон~~~
+@eng Demon fly here.@rus Крылатый демон (demon) парит в воздухе.~
+@eng The Daemon of enourmous size whole coated by red scales sultry midair. 
+Tell lies it will allow to pass further.  Yes and, sooner whole, it stands
+here not simply so.  
+@rus Демон огромного размера весь покрытый красной чешуей парит в воздухе. 
+Врят ли он позволит пройти дальше.  Да и, скорее всего, он стоит здесь не
+просто так.  
+~
+ghost~
+BEJe 0 0 AN N 1000 0
+60 300 100d100+10000 1d1+9999 10d10+10 'wrath'
+0 0 0 0
+AEFIJK
+stand stand male 10000
+0 P gargantuan unknown
+F aff U
+#51204
+priest dark~
+@eng Dark Priest@rus ~~жрец~~ Темных Богов~
+@eng Priest of Dark Gods something mumbles itself under nose.@rus Жрец (priest) Темных Богов что-то бормочет себе под нос.~
+@eng The Dwarves with hooked nose hardly reaches you before belt.  The Whole
+decrepit and already probably preparing to deaths.  Only, its eye show that
+their master inheres in full reason and healthy.  
+@rus Карлик с крючковатым носом едва доходит тебе до пояса.  Весь дряхлый и
+уже наверно готовящийся к смерти.  Только его глаза показывают, что их
+хозяин находится в полном рассудке и здравии.  
+~
+human~
+BEQe 0 Vc 0 N -1000 0
+100 500 100d100+15000 100d100+10000 10d10+60 'magic'
+-50 -50 -50 -20
+IY
+stand stand none 0
+0 0 small unknown
+g @eng none@rus male~
+F for AHMV
+F par ABCDEFGHIJK
+m mob_give @ 51223~
+extract_obj($p, 0);
+act_say($n, "О! возможно это поможет мне ...", NULL);
+if (get_obj_carry($n, $N, "51226"))
+        return 0;
+obj o;
+if ((o = get_obj_carry($n, $n, "51226")) == NULL)
+        o = load_obj($n, 51226);
+if (!give_obj($n, $N, o))
+        return 0;
+return 0;
+~
+m mob_give @ 51228~
+extract_obj($p, 0);
+act_say($n, "О! это должно мне помочь...", NULL);
+if (get_obj_carry($n, $N, "51227"))
+        return 0;
+obj o;
+if ((o = get_obj_carry($n, $n, "51227")) == NULL)
+        o = load_obj($n, 51227);
+if (!give_obj($n, $N, o))
+         return 0;
+return 0;
+~
+m mob_look @ 100~
+act_say($n, "Здравствуй герой! Всю свою жизнь я потратил на то что бы понять магию зла, но так и не нашел ответа. Может ты мне поможешь?", NULL);
+return 0;
+~
+#51205
+priest light~
+@eng Light Priest@rus ~~жрец~~ Светлых Богов~
+@eng Priest of Light Gods something mumbles itself under nose.@rus Жрец (priest) Светлых Богов что-то бормочет себе под нос.~
+@eng The Dwarves with hooked nose hardly reaches you before belt.  The Whole
+decrepit and already probably preparing to deaths.  Only, its eye show that
+their master inheres in full reason and healthy.  
+@rus Карлик с крючковатым носом едва доходит тебе до пояса.  Весь дряхлый и
+уже наверно готовящийся к смерти.  Только его глаза показывают, что их
+хозяин находится в полном рассудке и здравии.  
+~
+human~
+BEQe 0 Vc 0 N -1000 0
+100 500 100d100+15000 100d100+10000 10d10+60 'magic'
+-50 -50 -50 -20
+IY
+stand stand none 0
+0 0 small unknown
+g @eng none@rus male~
+F for AHMV
+F par ABCDEFGHIJK
+m mob_give @ 51223~
+extract_obj($p, 0);
+act_say($n, "О! это должно мне помочь...", NULL);
+if (get_obj_carry($n, $N, "51230"))
+        return 0;
+obj o;
+if ((o = get_obj_carry($n, $n, "51230")) == NULL)
+        o = load_obj($n, 51230);
+if (!give_obj($n, $N, o))
+        return 0;
+return 0;
+~
+m mob_give @ 51228~
+extract_obj($p, 0);
+act_say($n, "О! возможно это поможет мне ...", NULL);
+if (get_obj_carry($n, $N, "51229"))
+        return 0;
+obj o;
+if ((o = get_obj_carry($n, $n, "51229")) == NULL)
+        o = load_obj($n, 51229);
+if (!give_obj($n, $N, o))
+        return 0;
+return 0;
+~
+m mob_look @ 100~
+act_say($n, "Здравствуй герой! Всю свою жизнь я потратил на то, что бы понять магию добра, но так и не нашел ответа. Может ты мне поможешь?", NULL);
+return 0;
+~
+#51298
+rabbit white кролик белый пушистый мягкий~
+@eng the white rabbit@rus ~~белый~~ ~~кролик~~~
+@eng {WThe small white feathery rabbit enigmatic looks at you.{x@rus {WМаленький беленький пушистенький кролик загадачно смотрит на тебя.{x~
+~
+rabbit~
+BJV 0 HNVc 0 0 1000 0
+0 1 1d1+0 0d0+0 1d1+0 'kiss'
+0 0 0 0
+0
+stand stand none 0
+0 0 small unknown
+g @eng none@rus male~
+x 100000
+#51299
+mobkrol~
+{WKrol{x~
+@eng {WKrol{x is here.@rus {WKrol {xздесь.~
+@eng Too strange to live, but too rare to die.
+@rus Слишком странный, чтобы жить, но слишком редкий, чтобы умереть.
+~
+human~
+B 0 0 0 N 1000 0
+50 666 1d1+0 1d1+666666 1d1+0 'none'
+-66 -66 -66 -66
+0
+stand stand male 0
+0 0 medium unknown
+F for AMV
+F par ABCDEFGHIJK
+I 46
+#0
+
+#OBJECTS
+#51200
+fissure расщелина~
+@eng dark fissure@rus ~~темная~~ ~~расщелина~~~
+~
+stone~
+portal 0 CL 0
+0 0 A 51201 0
+0 0 0 P
+m obj_enter @ 100~
+int l = char_level($n);
+shock_effect($n, l, l);
+return 0;
+~
+E
+fissure расщелина~
+@rus Расщелина выглядит очень опасной и недоброжелаельной.  Острые края так и
+наровят зацепить тебя.  Ты вглядываешься в темноту, но ничего не можешь
+разглядеть.  Только неясные звуки доносятся оттуда.  
+~
+g @eng none@rus female~
+#51201
+stone камень~
+@eng stone@rus камень~
+~
+unknown~
+treasure 0 CL 0
+0 0 0 0 0
+0 100000 0 P
+m obj_look @ 100~
+/*
+ * при лук на камушек - эта часть выводится с "истинным" зрением (c)krol
+ */
+
+if (is_immortal($n) || is_sn_affected($n, "detect invis")) {
+        act("{x", $n, NULL, NULL, TO_CHAR);
+        act("Ты всматриваешься повнимательнее и замечаешь еще одну надпись:",
+            $n, NULL, NULL, TO_CHAR);
+        act("{x         {CRFVFCENHF{x", $n, NULL, NULL, TO_CHAR);
+}
+
+obj small = get_obj_carry($n, $n, "51202");
+obj middle = get_obj_carry($n, $n, "51203");
+obj big = get_obj_carry($n, $n, "51204");
+ 
+if (small == NULL || middle == NULL || big == NULL)
+        return 0;
+
+act("{x", $n, NULL, NULL, TO_CHAR);
+extract_obj(small, 0);
+extract_obj(middle, 0);
+extract_obj(big, 0);
+act("Ты вспомнил, что у тебя есть камни с такими же рунами.",
+    $n, NULL, NULL, TO_CHAR);
+act("Твой внутренний голос подсказал тебе попробовать сложить их.",
+    $n, NULL, NULL, TO_CHAR);
+act("У тебя получилась отличная каменная булава! Такой можно убить одним ударом!",
+    $n, NULL, NULL, TO_CHAR);
+load_obj($n, 51205);
+return 0;
+~
+E
+stone камень~
+@rus Надпись на камне гласит:
+{x         НАЗАД ПУТИ НЕТ
+~
+g @eng none@rus male~
+#51202
+stone rfv small маленький камушек~
+@eng small stone@rus ~~маленький~~ ~~камушек~~~
+@rus Маленький камушек (stone), обломок большой скалы, торчит из земли.~
+stone~
+treasure U BCFIL A
+0 0 0 0 0
+0 1 0 P
+m obj_look @ 100~
+/*
+ * маленький камушек из квеста (c)krol
+ */
+
+if (is_immortal($n)) {
+        act("mprog: {Cто что далее пишетсЯ только чарам AFF_DETECT_INVIS и иммам.{x",
+            $n, NULL, NULL, TO_CHAR);
+}
+
+if (is_immortal($n) || is_sn_affected($n, "detect invis")) {
+        act("Древние руны на камушке гласят:", $n, NULL, NULL, TO_CHAR);
+        act("{x                               {CRFV{x", $n, NULL, NULL, TO_CHAR);
+}
+
+return 0;
+~
+g @eng none@rus male~
+#51203
+stone fce middle средний камушек~
+@eng middle stone@rus ~~средний~~ ~~камушек~~~
+@rus Средний камушек (stone), обломок большой скалы, торчит из земли.~
+stone~
+treasure U BCFIL A
+0 0 0 0 0
+0 10 0 P
+m obj_look @ 100~
+/*
+ * средний камушек из квеста (c)krol
+ */
+  
+if (is_immortal($n)) {
+        act("mprog: {Cто что далее пишетсЯ только чарам AFF_DETECT_INVIS и иммам.{x",
+            $n, NULL, NULL, TO_CHAR);
+}
+
+if (is_immortal($n) || is_sn_affected($n, "detect invis")) {
+        act("Древние руны на камушке гласЯт:", $n, NULL, NULL, TO_CHAR);
+        act("                               {CFCE{x", $n, NULL, NULL, TO_CHAR);
+}
+
+return 0;
+~
+g @eng none@rus male~
+#51204
+stone nhf big большой камушек~
+@eng big stone@rus ~~большой~~ ~~камушек~~~
+@rus Большой камушек (stone), обломок большой скалы, торчит из земли.~
+stone~
+treasure U BCFIL A
+0 0 0 0 0
+0 100 0 P
+m obj_look @ 100~
+/*
+ * большой камушек из квеста (c)krol
+ */
+
+if (is_immortal($n)) {
+        act("mprog: {Cто что далее пишетсЯ только чарам AFF_DETECT_INVIS и иммам.{x",
+             $n, NULL, NULL, TO_CHAR);
+}
+
+if (is_immortal($n) || is_sn_affected($n, "detect invis")) {
+        act("Древние руны на камушке гласЯт:", $n, NULL, NULL, TO_CHAR);
+        act("                               {CNHF{x", $n, NULL, NULL, TO_CHAR);
+}
+return 0;
+~
+g @eng none@rus male~
+#51205
+mace stone каменная булава~
+@eng stone mace@rus ~~каменная~~ ~~булава~~~
+@rus Обломок скалы (stone) торчит из земли.~
+stone~
+weapon Y BCFL AN
+mace 5 10 'crush' CE
+45 200 0 P
+E
+mace булава stone~
+@rus Огромный обломок скалы, но с удобной рукояткой.  Такой штукой можно убить
+одним ударом.  
+~
+g @eng none@rus female~
+#51206
+trush куча мусор~
+@eng trush~
+@eng Trush is here.@rus Куча старого хлама (trush) разбросана по комнате.~
+unknown~
+container 0 0 0
+0 0 0 0 0
+0 0 0 P
+g @eng none@rus female~
+#51207
+amulet амулет~
+@eng белый светящийся амулет@rus белый амулет~
+Тебе невероятно повезло. Старый светящийся амулет (amulet) позабыт здесь кем-то.~
+unknown~
+key U I AC
+0 0 0 0 0
+0 1 0 P
+#51208
+amulet амулет~
+@eng абсолютно черный амулет@rus черный амулет~
+Ты нашел древний черный амулет (amulet). Наверное скоро тебя постигнет беда.~
+unknown~
+key U I AC
+0 0 0 0 0
+0 1 0 P
+#51209
+altar алтарь жертвенник~
+@eng altar@rus алтарь~
+@eng Черный жертвенный камень (altar) возвышается перед тобой.@rus Черный жертвенный камень (altar) возвышается перед тобой.~
+unknown~
+container 0 0 0
+0 ACD 51208 0 0
+0 0 0 P
+#51210
+altar алтарь жертвенник~
+@eng altar@rus алтарь~
+@eng Большой белый камень (altar), испачканный кровью стоит тут.@rus Большой белый камень (altar), испачканный кровью стоит тут.~
+unknown~
+container 0 0 0
+0 ACD 51207 0 0
+0 0 0 P
+#51211
+rock скала камень~
+@eng rock@rus ~~большой~~ ~~камень~~~
+@eng Большой камень (rock) вбит в землю. Какие силы смогли его сюда поставить ?@rus Большой камень (rock) вбит в землю. Какие силы смогли его сюда поставить ?~
+unknown~
+treasure 0 0 0
+0 0 0 0 0
+0 0 0 P
+E
+rock~
+@eng Ты всматриваешь в камень, и тебе удается разглядеть полустертые письмена.
+
+{x                            НАЗАД ПУТИ НЕТ
+@rus Ты всматриваешь в камень, и тебе удается разглядеть полустертые письмена.
+
+{x                            НАЗАД ПУТИ НЕТ
+~
+g @eng none@rus male~
+#51212
+dagger sacrifice кинжал~
+@eng sacrifice dagger@rus ~~жертвенный~~ ~~кинжал~~~
+@eng Кривой кинжал (dagger) для жертвопринашей с ручкой из слоновой кости лежит здесь.@rus Кривой кинжал (dagger) для жертвопринашей с ручкой из слоновой кости лежит здесь.~
+unknown~
+weapon IK CF AN
+dagger 5 10 'pierce' 0
+0 0 0 P
+f affects saves -5 0
+f affects hitroll 5 0
+f affects damroll 5 0
+g @eng none@rus male~
+#51213
+dagger sacrifice кинжал~
+@eng sacrifice dagger@rus ~~жертвенный~~ ~~кинжал~~~
+@eng Кривой кинжал (dagger) длЯ жертвопринашей с эбонитовой ручкой лежит здесь.@rus Кривой кинжал (dagger) длЯ жертвопринашей с эбонитовой ручкой лежит здесь.~
+unknown~
+weapon K CF AN
+dagger 5 10 'pierce' 0
+0 0 0 P
+f affects saves -5 0
+f affects hitroll 5 0
+f affects damroll 5 0
+#51214
+key ключ~
+@eng very old key @rus ~~ключ~~ от древнего храма~
+@eng Very old key is here.@rus Большой древний ключ (key) забыт сдесь.~
+gold~
+key U I A
+0 0 0 0 0
+0 1 0 P
+#51215
+key ключ~
+@eng very old key @rus ~~ключ~~ от древнего храма~
+@eng Very old key is here.@rus Большой древний ключ (key) забыт сдесь.~
+gold~
+key U I A
+0 0 0 0 0
+0 1 0 P
+#51216
+key ключ~
+@eng very old key @rus ~~ключ~~ от древнего храма~
+@eng Very old key is here.@rus Большой древний ключ (key) забыт сдесь.~
+gold~
+key U I A
+0 0 0 0 0
+0 1 0 P
+#51217
+key ключ~
+@eng very old key @rus ~~ключ~~ от древнего храма~
+@eng Very old key is here.@rus Большой древний ключ (key) забыт сдесь.~
+gold~
+key U I A
+0 0 0 0 0
+0 1 0 P
+#51218
+key ключ~
+@eng very old key @rus ~~ключ~~ от древнего храма~
+@eng Very old key is here.@rus Большой древний ключ (key) забыт сдесь.~
+gold~
+key U I A
+0 0 0 0 0
+0 1 0 P
+#51219
+key ключ~
+@eng very old key @rus ~~ключ~~ от древнего храма~
+@eng Very old key is here.@rus Большой древний ключ (key) забыт сдесь.~
+gold~
+key U I A
+0 0 0 0 0
+0 1 0 P
+#51220
+key ключ~
+@eng very old key @rus ~~ключ~~ от древнего храма~
+@eng Very old key is here.@rus Большой древний ключ (key) забыт сдесь.~
+gold~
+key U I A
+0 0 0 0 0
+0 1 0 P
+#51221
+key ключ~
+@eng very old key @rus ~~ключ~~ от древнего храма~
+@eng Very old key is here.@rus Большой древний ключ (key) забыт сдесь.~
+gold~
+key U I A
+0 0 0 0 0
+0 1 0 P
+#51222
+chear taburet стул табурет~
+@eng chear@rus деревянный табурет~
+@eng Chear is here.@rus Ветхий деревЯнный табурет (chear) со сломанной ножкой стоит около стола.~
+unknown~
+furniture 0 0 0
+13 100000 EHK 300 300
+0 0 0 P
+g @eng none@rus male~
+#51223
+dark тьма~
+@eng {Ddark{x@rus {D~~образование~~ тьмы{x~
+@eng The dark is here.@rus Что-то черное (dark) и непонятное заполняет комнату.~
+darkness~
+treasure EJ CFL AQ
+0 0 0 0 0
+0 0 10000 P
+g @eng none@rus neutral~
+#51224
+cloak хламида~
+@eng {Ddark cloak{x@rus {D~~черная~~ ~~хламида~~{x~
+The black cloak.~
+darkness~
+clothing JU CL AK
+0 0 0 0 0
+0 0 0 P
+f affects saves -15 0
+m obj_wear obj_wear_hero_only 100~
+E
+cloak~
+{DТемная хламида{x из неизвесного материала.  Похоже она создана древними
+богами.  То тут, то там вспыхивают маленькие искорки и сразу гаснут.  
+~
+g @eng none@rus female~
+#51225
+staff посох~
+@eng {Ddark staff{x@rus {D~~черный~~ ~~посох~~{x~
+@eng Dark staff lies here.@rus Посох (staff) вырезанный из черного дерева притягивает взгляд.~
+darkness~
+weapon 0 CL AN
+staff 1 80 'crush' CEF
+0 0 0 P
+m obj_wear obj_wear_hero_only 100~
+g @eng none@rus male~
+#51226
+aura аура dark~
+@eng {Ddark aura{x@rus {D~~аура~~ тьмы{x~
+@eng The dark aura.@rus Что-то (aura) черное просится к тебе в руки.~
+darkness~
+treasure EJ CL AQ
+0 0 0 0 0
+0 0 10000 P
+f affects level 1 0
+g @eng none@rus female~
+#51227
+aura аура dark~
+@eng {Dabsolute dark aura{x@rus {D~~аура~~ абсолютной тьмы{x~
+@eng The absolute dark aura.@rus Что-то (aura) черное притягивает тебя.~
+darkness~
+treasure EJL CL AQ
+0 0 0 0 0
+0 0 10000 P
+f affects level 2 0
+g @eng none@rus female~
+#51228
+light свет~
+@eng {Wlight{x@rus {W~~источник~~ света{x~
+@eng The light is here.@rus Чистый белый свет (lignt) заливает комнату.~
+light~
+treasure K CFL AQ
+0 0 0 0 0
+0 0 10000 P
+g @eng none@rus male~
+#51229
+aura аура dark~
+@eng {Wlight aura{x@rus {W~~аура~~ света{x~
+@eng The light aura.@rus Круги (aura) света завораживают тебя.~
+light~
+treasure J CL AQ
+0 0 0 0 0
+0 0 10000 P
+f affects level 1 0
+#51230
+aura аура light~
+@eng {Wabsolute light aura{x@rus {W~~аура~~ абсолютного света{x~
+@eng The absolute light aura.@rus Белый свет (aura) слепит глаза.~
+light~
+treasure KL CL AQ
+0 0 0 0 0
+0 0 10000 P
+f affects level 2 0
+g @eng none@rus female~
+#51231
+cloak хламида~
+@eng {Wlight cloak{x@rus {W~~белая~~ ~~хламида~~{x~
+The white cloak.~
+light~
+clothing JU CL AK
+0 0 0 0 0
+0 0 0 P
+f affects saves -15 0
+g @eng none@rus female~
+#51232
+staff посох~
+@eng {Wlight staff{x@rus {W~~белый~~ ~~посох~~{x~
+@eng White staff lies here.@rus Посох (staff) из слоновой кости излучат свет.~
+light~
+weapon 0 CL AN
+staff 1 80 'crush' CEF
+0 0 0 P
+g @eng none@rus male~
+#51293
+mirror зеркало~
+{C~~кривое~~ ~~зеркало~~{x~
+~
+unknown~
+treasure 0 0 0
+0 0 0 0 0
+0 0 0 P
+m obj_look @ 100~
+dofun("look", $n, "self");
+return 0;
+~
+#51294
+bed nary нары koika койка~
+койка~
+Мягкая койка размером с аэродром зовет тебя отдохнуть.~
+unknown~
+furniture 0 0 0
+666 4000000 BEH 666666 666666
+0 0 0 P
+g @eng none@rus female~
+#51295
+absolut vodka bottle~
+{WAbsolut{x~
+Початая бутылка настоящего {Wabsolut{xа кем-то забыта.~
+unknown~
+drink 0 0 A
+-1 -1 'vodka' 0 0
+0 0 0 P
+#51296
+bar table стол~
+@eng bar@rus бар~
+@eng Маленькая бар-стойка уставлена посудой.@rus Маленькая бар-стойка уставлена посудой.~
+pearl~
+container 0 0 0
+0 ABC 0 0 0
+0 0 0 P
+#51297
+trava durman kanoplya трава дурман канопля шмаль~
+{yдурман-трава{x~
+@eng Неприметный {yкоробок{x лежит в углу.@rus Неприметный {yкоробок{x лежит в углу.~
+blood~
+pill 0 BCFL A
+666 'disgrace' 'berserk' 'master healing' 'blur'
+0 0 0 P
+g @eng none@rus female~
+#51298
+secret~
+@eng {Dtop secret{x@rus {D~~секретный~~ ~~тайник~~{x~
+~
+unknown~
+container 0 0 0
+0 0 0 0 0
+0 0 0 P
+g @eng none@rus male~
+#51299
+armatura арматура~
+{Dарматура{x~
+Кем то припрятанная {DАрматура {xлежит сдесь.~
+plasma~
+weapon I BCL AN
+sword 1 1 'cleave' CDEI
+0 1 0 P
+m obj_fight @ 100~
+// типа handle_death()
+char victim =  char_fighting($n);
+if (is_immortal(victim)) {
+        dofun("peace", $n, "");
+        return 0;
+}
+act("{gТы проникаешь в матрицу этого мира и уничтожаешь ссылку на $N.{x",
+    $n, NULL, victim, TO_CHAR);
+act("{g$n проникает в матрицу этого мира и уничтожает ссылку на $N.{x",
+    $n, NULL, victim, TO_NOTVICT);
+act("{g$n проникает в матрицу этого мира и уничтожает ссылку на тебя.{x",
+    $n, NULL, NULL, TO_VICT);
+handle_death($n, victim);
+return 0;
+~
+g @eng none@rus female~
+#0
+
+#ROOMS
+#51200
+@eng Gorge@rus Ущелье~
+@rus Тебя занесло в глубое темное ущелье.  Повсюду торчат острые камни. 
+Отвесные стены навесают со всех сторон.  В одной стен просматривается темная
+расщелина и камень перед ней.
+~
+0 0 mountain
+E
+east west north south~
+@rus Тебя окружают отвесные скалы.
+~
+E
+up~
+@rus Высоко вверх уходят отвесные скалы, и только тоненькая полоска голубого
+неба между ними.  
+~
+E
+down~
+@rus Твои ноги утопают в толстом слое пыли, накопленной здесь за столетия.
+~
+S
+#51201
+@eng Abandoned quarries@rus Заброшенные каменоломни~
+@rus Здесь все источено как червяками.  То мрамор ломали для царских дворцов,
+от них ныне песка не осталось, то целыми племенами прятались от чужаков, то
+опять же что-то рыли, искали, выгребали...  Эти пещеры только дурак или
+ленивый не приспособлял для чего-нибудь нового, своего.  
+~
+0 ADN mountain
+E
+up~
+@rus Кто-то летает над тобой, но слишком темно, чтобы разглядеть.
+~
+E
+north west~
+@rus Твой взгляд уперся в голую стену.
+~
+D1
+@eng You see the quarries.
+@rus На востоке все те же каменоломни.
+~
+~
+~
+~
+Z 0 51202
+D2
+@eng You see the quarries.
+@rus На юг все те же каменоломни.
+~
+~
+~
+~
+Z 0 51204
+S
+#51202
+@eng Abandoned quarries@rus Заброшенные каменоломни~
+@rus Здесь все источено как червяками.  То мрамор ломали для царских дворцов,
+от них ныне песка не осталось, то целыми племенами прятались от чужаков, то
+опять же что-то рыли, искали, выгребали...  Эти пещеры только дурак или
+ленивый не приспособлял для чего-нибудь нового, своего.  
+~
+0 ADN mountain
+E
+up~
+@rus Кто-то летает над тобой, но слишком темно, чтобы разглядеть.
+~
+E
+north~
+@rus Твой взгляд уперся в голую стену.
+~
+D1
+~
+~
+~
+~
+Z 0 51203
+D2
+~
+~
+~
+~
+Z 0 51205
+D3
+~
+~
+~
+~
+Z 0 51201
+S
+#51203
+@eng Abandoned quarries@rus Заброшенные каменоломни~
+@rus Здесь все источено как червяками.  То мрамор ломали для царских дворцов,
+от них ныне песка не осталось, то целыми племенами прятались от чужаков, то
+опять же что-то рыли, искали, выгребали...  Эти пещеры только дурак или
+ленивый не приспособлял для чего-нибудь нового, своего.  
+~
+0 ADN mountain
+E
+up~
+@rus Кто-то летает над тобой, но слишком темно, чтобы разглядеть.
+~
+E
+north east~
+@rus Твой взгляд уперся в голую стену.
+~
+D2
+~
+~
+~
+~
+Z 0 51206
+D3
+~
+~
+~
+~
+Z 0 51202
+S
+#51204
+@eng Abandoned quarries@rus Заброшенные каменоломни~
+@rus Здесь все источено как червяками.  То мрамор ломали для царских дворцов,
+от них ныне песка не осталось, то целыми племенами прятались от чужаков, то
+опять же что-то рыли, искали, выгребали...  Эти пещеры только дурак или
+ленивый не приспособлял для чего-нибудь нового, своего.  
+~
+0 ADN mountain
+E
+up~
+@rus Кто-то летает над тобой, но слишком темно, чтобы разглядеть.
+~
+E
+west~
+@rus Твой взгляд уперся в голую стену.
+~
+D0
+~
+~
+~
+~
+Z 0 51201
+D1
+~
+~
+~
+~
+Z 0 51205
+D2
+~
+~
+~
+~
+Z 0 51207
+S
+#51205
+@eng Abandoned quarries@rus Заброшенные каменоломни~
+@rus Здесь все источено как червяками.  То мрамор ломали для царских дворцов,
+от них ныне песка не осталось, то целыми племенами прятались от чужаков, то
+опять же что-то рыли, искали, выгребали...  Эти пещеры только дурак или
+ленивый не приспособлял для чего-нибудь нового, своего.  
+~
+0 ADN mountain
+E
+up~
+@rus Кто-то летает над тобой, но слишком темно, чтобы разглядеть.
+~
+D0
+~
+~
+~
+~
+Z 0 51202
+D1
+~
+~
+~
+~
+Z 0 51206
+D2
+~
+~
+~
+~
+Z 0 51208
+D3
+~
+~
+~
+~
+Z 0 51204
+S
+#51206
+@eng Abandoned quarries@rus Заброшенные каменоломни~
+@rus Здесь все источено как червяками.  То мрамор ломали для царских дворцов,
+от них ныне песка не осталось, то целыми племенами прятались от чужаков, то
+опять же что-то рыли, искали, выгребали...  Эти пещеры только дурак или
+ленивый не приспособлял для чего-нибудь нового, своего.  
+~
+0 ADN mountain
+E
+up~
+@rus Кто-то летает над тобой, но слишком темно, чтобы разглядеть.
+~
+E
+east~
+@rus Твой взгляд уперся в голую стену.
+~
+D0
+~
+~
+~
+~
+Z 0 51203
+D2
+~
+~
+~
+~
+Z 0 51209
+D3
+~
+~
+~
+~
+Z 0 51205
+S
+#51207
+@eng Abandoned quarries@rus Заброшенные каменоломни~
+@rus Здесь все источено как червяками.  То мрамор ломали для царских дворцов,
+от них ныне песка не осталось, то целыми племенами прятались от чужаков, то
+опять же что-то рыли, искали, выгребали...  Эти пещеры только дурак или
+ленивый не приспособлял для чего-нибудь нового, своего.  
+~
+0 ADN mountain
+E
+up~
+@rus Кто-то летает над тобой, но слишком темно, чтобы разглядеть.
+~
+E
+west south~
+@rus Твой взгляд уперся в голую стену.
+~
+D0
+~
+~
+~
+~
+Z 0 51204
+D1
+~
+~
+~
+~
+Z 0 51208
+S
+#51208
+@eng Abandoned quarries@rus Заброшенные каменоломни~
+@rus Здесь все источено как червяками.  То мрамор ломали для царских дворцов,
+от них ныне песка не осталось, то целыми племенами прятались от чужаков, то
+опять же что-то рыли, искали, выгребали...  Эти пещеры только дурак или
+ленивый не приспособлял для чего-нибудь нового, своего.  
+~
+0 ADN mountain
+E
+up~
+@rus Кто-то летает над тобой, но слишком темно, чтобы разглядеть.
+~
+E
+south~
+@rus Твой взгляд уперся в голую стену.
+~
+D0
+~
+~
+~
+~
+Z 0 51205
+D1
+~
+~
+~
+~
+Z 0 51209
+D3
+~
+~
+~
+~
+Z 0 51207
+S
+#51209
+@eng Abandoned quarries@rus Заброшенные каменоломни~
+@rus Здесь все источено как червяками.  То мрамор ломали для царских дворцов,
+от них ныне песка не осталось, то целыми племенами прятались от чужаков, то
+опять же что-то рыли, искали, выгребали...  Эти пещеры только дурак или
+ленивый не приспособлял для чего-нибудь нового, своего.  
+~
+0 ADN mountain
+E
+up~
+@rus Кто-то летает над тобой, но слишком темно, чтобы разглядеть.
+~
+E
+south east~
+@rus Твой взгляд уперся в голую стену.
+~
+D0
+~
+~
+~
+~
+Z 0 51206
+D3
+~
+~
+~
+~
+Z 0 51208
+S
+#51210
+@eng Gates of ancient temple@rus Ворота древнего храма~
+~
+0 ADN inside
+D0
+~
+~
+~
+~
+Z 0 51211
+S
+#51211
+~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51212
+D2
+~
+~
+~
+~
+Z 0 51210
+S
+#51212
+Коридор~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51215
+D2
+~
+~
+~
+~
+Z 0 51211
+D4
+~
+~
+~
+~
+ABZ 0 51213
+D5
+~
+~
+~
+~
+ABZ 0 51214
+S
+#51213
+Светлая комнатка~
+~
+0 0 inside
+D5
+~
+~
+~
+~
+ABZ 0 51212
+S
+#51214
+Темная комнатка~
+~
+0 0 inside
+D4
+~
+~
+~
+~
+ABZ 0 51212
+S
+#51215
+Коридор~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51216
+D2
+~
+~
+~
+~
+Z 0 51212
+S
+#51216
+Центр храма~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51217
+D1
+~
+~
+~
+~
+Z 0 51221
+D2
+~
+~
+~
+~
+Z 0 51215
+D3
+~
+~
+~
+~
+Z 0 51219
+S
+#51217
+Дорога к большому алтарю~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51218
+D1
+~
+~
+~
+~
+ABZ 0 51224
+D2
+~
+~
+~
+~
+Z 0 51216
+D3
+~
+~
+~
+~
+ABZ 0 51223
+S
+#51218
+Большой алтарь~
+~
+0 0 inside
+D2
+~
+~
+~
+~
+Z 0 51217
+D5
+~
+~
+~
+~
+ABCFGZ 0 51225
+S
+#51219
+Темный зал~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 51216
+D3
+~
+~
+~
+~
+Z 0 51220
+S
+#51220
+Темый алтарь~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 51219
+S
+#51221
+Светлый зал~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 51222
+D3
+~
+~
+~
+~
+Z 0 51216
+S
+#51222
+Светлый алтарь~
+~
+0 0 inside
+D3
+~
+~
+~
+~
+Z 0 51221
+S
+#51223
+Темная кладовая~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+ABZ 0 51217
+S
+#51224
+Светлая кладовая~
+~
+0 0 inside
+D3
+~
+~
+~
+~
+ABZ 0 51217
+S
+#51225
+Спуск в подземелье~
+~
+0 0 inside
+D4
+~
+~
+~
+~
+ABCFGZ 0 51218
+D5
+~
+~
+~
+~
+Z 0 51226
+S
+#51226
+Спуск в подземелье~
+~
+0 0 inside
+D4
+~
+~
+~
+~
+Z 0 51225
+D5
+~
+~
+~
+~
+Z 0 51227
+S
+#51227
+В начале лабиринта~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 51228
+D3
+~
+~
+~
+~
+Z 0 51253
+D4
+~
+~
+~
+~
+Z 0 51226
+S
+#51228
+@eng Лабиринт@rus Лабиринт~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51229
+D3
+~
+~
+~
+~
+Z 0 51227
+S
+#51229
+@eng Лабиринт@rus Лабиринт~
+~
+0 0 inside
+D2
+~
+~
+~
+~
+Z 0 51228
+D3
+~
+~
+~
+~
+Z 0 51230
+S
+#51230
+@eng Лабиринт@rus Лабиринт~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 51229
+D3
+~
+~
+~
+~
+Z 0 51231
+S
+#51231
+@eng Лабиринт@rus Лабиринт~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 51230
+D2
+~
+~
+~
+~
+Z 0 51232
+S
+#51232
+@eng Лабиринт@rus Лабиринт~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51231
+D2
+~
+~
+~
+~
+Z 0 51233
+S
+#51233
+@eng Лабиринт@rus Лабиринт~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51232
+D1
+~
+~
+~
+~
+Z 0 51234
+D2
+~
+~
+~
+~
+Z 0 51280
+S
+#51234
+@eng Лабиринт@rus Лабиринт~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 51235
+D3
+~
+~
+~
+~
+Z 0 51233
+S
+#51235
+@eng Лабиринт@rus Лабиринт~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51228
+D1
+~
+~
+~
+~
+Z 0 51236
+D3
+~
+~
+~
+~
+Z 0 51234
+S
+#51236
+@eng Лабиринт@rus Лабиринт~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51237
+D3
+~
+~
+~
+~
+Z 0 51235
+S
+#51237
+@eng Лабиринт@rus Лабиринт~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51238
+D2
+~
+~
+~
+~
+Z 0 51236
+S
+#51238
+@eng Лабиринт@rus Лабиринт~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51239
+D2
+~
+~
+~
+~
+Z 0 51237
+D3
+~
+~
+~
+~
+Z 0 51229
+S
+#51239
+@eng Лабиринт@rus Лабиринт~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51278
+D2
+~
+~
+~
+~
+Z 0 51238
+D3
+~
+~
+~
+~
+Z 0 51240
+S
+#51240
+@eng Лабиринт@rus Лабиринт~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 51239
+D3
+~
+~
+~
+~
+Z 0 51241
+S
+#51241
+@eng Лабиринт@rus Лабиринт~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 51240
+D3
+~
+~
+~
+~
+Z 0 51242
+S
+#51242
+@eng Лабиринт@rus Лабиринт~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 51241
+D2
+~
+~
+~
+~
+Z 0 51231
+D3
+~
+~
+~
+~
+Z 0 51243
+S
+#51243
+@eng Лабиринт@rus Лабиринт~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 51242
+D2
+~
+~
+~
+~
+Z 0 51244
+D3
+~
+~
+~
+~
+Z 0 51279
+S
+#51244
+@eng Лабиринт@rus Лабиринт~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51243
+D2
+~
+~
+~
+~
+Z 0 51245
+S
+#51245
+@eng Лабиринт@rus Лабиринт~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51244
+D2
+~
+~
+~
+~
+Z 0 51246
+S
+#51246
+@eng Лабиринт@rus Лабиринт~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51245
+D1
+~
+~
+~
+~
+Z 0 51233
+D2
+~
+~
+~
+~
+Z 0 51247
+S
+#51247
+@eng Лабиринт@rus Лабиринт~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51246
+D1
+~
+~
+~
+~
+Z 0 51248
+S
+#51248
+@eng Лабиринт@rus Лабиринт~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 51249
+D3
+~
+~
+~
+~
+Z 0 51247
+S
+#51249
+@eng Лабиринт@rus Лабиринт~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 51250
+D3
+~
+~
+~
+~
+Z 0 51248
+S
+#51250
+@eng Лабиринт@rus Лабиринт~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 51251
+D3
+~
+~
+~
+~
+Z 0 51249
+S
+#51251
+@eng Лабиринт@rus Лабиринт~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51236
+D1
+~
+~
+~
+~
+ABCZ 0 51252
+D3
+~
+~
+~
+~
+Z 0 51250
+S
+#51252
+@eng Светлая комната@rus Светлая комната~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+ABCFGZ 0 51284
+D3
+~
+~
+~
+~
+ABCZ 0 51251
+S
+#51253
+@eng Темный лабиринт@rus Темный лабиринт~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51254
+D1
+~
+~
+~
+~
+Z 0 51227
+S
+#51254
+@eng Темный лабиринт@rus Темный лабиринт~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 51255
+D2
+~
+~
+~
+~
+Z 0 51253
+S
+#51255
+@eng Темный лабиринт@rus Темный лабиринт~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 51256
+D3
+~
+~
+~
+~
+Z 0 51254
+S
+#51256
+@eng Темный лабиринт@rus Темный лабиринт~
+~
+0 0 inside
+D2
+~
+~
+~
+~
+Z 0 51257
+D3
+~
+~
+~
+~
+Z 0 51255
+S
+#51257
+@eng Темный лабиринт@rus Темный лабиринт~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51256
+D2
+~
+~
+~
+~
+Z 0 51258
+S
+#51258
+@eng Темный лабиринт@rus Темный лабиринт~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51257
+D3
+~
+~
+~
+~
+Z 0 51259
+S
+#51259
+@eng Темный лабиринт@rus Темный лабиринт~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 51258
+D3
+~
+~
+~
+~
+Z 0 51260
+S
+#51260
+@eng Темный лабиринт@rus Темный лабиринт~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51253
+D1
+~
+~
+~
+~
+Z 0 51259
+D3
+~
+~
+~
+~
+Z 0 51261
+S
+#51261
+@eng Темный лабиринт@rus Темный лабиринт~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51262
+D1
+~
+~
+~
+~
+Z 0 51260
+S
+#51262
+@eng Темный лабиринт@rus Темный лабиринт~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51263
+D2
+~
+~
+~
+~
+Z 0 51261
+S
+#51263
+@eng Темный лабиринт@rus Темный лабиринт~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51264
+D1
+~
+~
+~
+~
+Z 0 51254
+D2
+~
+~
+~
+~
+Z 0 51262
+S
+#51264
+@eng Темный лабиринт@rus Темный лабиринт~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51281
+D1
+~
+~
+~
+~
+Z 0 51265
+D2
+~
+~
+~
+~
+Z 0 51263
+S
+#51265
+@eng Темный лабиринт@rus Темный лабиринт~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 51266
+D3
+~
+~
+~
+~
+Z 0 51264
+S
+#51266
+@eng Темный лабиринт@rus Темный лабиринт~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 51267
+D3
+~
+~
+~
+~
+Z 0 51265
+S
+#51267
+@eng Темный лабиринт@rus Темный лабиринт~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 51268
+D2
+~
+~
+~
+~
+Z 0 51256
+D3
+~
+~
+~
+~
+Z 0 51266
+S
+#51268
+@eng Темный лабиринт@rus Темный лабиринт~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 51282
+D2
+~
+~
+~
+~
+Z 0 51269
+D3
+~
+~
+~
+~
+Z 0 51267
+S
+#51269
+@eng Темный лабиринт@rus Темный лабиринт~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51268
+D2
+~
+~
+~
+~
+Z 0 51270
+S
+#51270
+@eng Темный лабиринт@rus Темный лабиринт~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51269
+D2
+~
+~
+~
+~
+Z 0 51271
+S
+#51271
+@eng Темный лабиринт@rus Темный лабиринт~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51270
+D2
+~
+~
+~
+~
+Z 0 51272
+D3
+~
+~
+~
+~
+Z 0 51258
+S
+#51272
+@eng Темный лабиринт@rus Темный лабиринт~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51271
+D2
+~
+~
+~
+~
+Z 0 51283
+D3
+~
+~
+~
+~
+Z 0 51273
+S
+#51273
+@eng Темный лабиринт@rus Темный лабиринт~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 51272
+D3
+~
+~
+~
+~
+Z 0 51274
+S
+#51274
+@eng Темный лабиринт@rus Темный лабиринт~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 51273
+D3
+~
+~
+~
+~
+Z 0 51275
+S
+#51275
+@eng Темный лабиринт@rus Темный лабиринт~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 51274
+D3
+~
+~
+~
+~
+Z 0 51276
+S
+#51276
+@eng Темный лабиринт@rus Темный лабиринт~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51261
+D1
+~
+~
+~
+~
+Z 0 51275
+D3
+~
+~
+~
+~
+ABCZ 0 51277
+S
+#51277
+@eng Темная комната@rus Темная комната~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+ABCZ 0 51276
+D2
+~
+~
+~
+~
+ABCFGZ 0 51285
+S
+#51278
+@eng Тупик@rus Тупик~
+~
+0 0 inside
+D2
+~
+~
+~
+~
+Z 0 51239
+S
+#51279
+@eng Тупик@rus Тупик~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 51243
+S
+#51280
+@eng Тупик@rus Тупик~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51233
+S
+#51281
+@eng Тупик@rus Тупик~
+~
+0 0 inside
+D2
+~
+~
+~
+~
+Z 0 51264
+S
+#51282
+@eng Тупик@rus Тупик~
+~
+0 0 inside
+D3
+~
+~
+~
+~
+Z 0 51268
+S
+#51283
+@eng Тупик@rus Тупик~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 51272
+S
+#51284
+@eng The Light Priest's room@rus Комната жреца Светлых Богов~
+~
+0 0 inside
+D2
+~
+~
+~
+~
+ABCFGZ 0 51252
+S
+#51285
+@eng The Dark Priest's room@rus Комната жреца Темных Богов~
+@eng The dark room.  The ill comes from all subjects.  The wings of vampires
+and fly mouses weigh on walls.  The different herbs dry under ceiling.  The
+fizzy liquids stand in vials.  А in the centre of room on floor is drawn the
+ancient symbol (sign).  Seems you sometime already saw such.  But suddenly
+your glance finds the master of room..  
+@rus Темная комната.  Зло исходит от всех предметов.  На стенах весят крылья
+упырей и лутучих мышей.  Разные травы сушатся под потолком.  В склянках
+стоят шипучие жидкости.  А в центре комнаты на полу начертан древний символ
+(sign).  Кажется ты где-то уже видел такой-же.  Но вдруг твой взгляд находит
+хозяина комнаты...  
+~
+0 DNX inside
+E
+sign~
+Древний символ начертан на полу:
+{x           _______
+{x          |  ___  |
+{x          | |__ | |
+{x          |_____| |
+{x          ________|
+КажетсЯ ты где-то его уже видел...
+Что бы это значило ?
+~
+D0
+~
+~
+~
+~
+ABCFGZ 0 51277
+S
+#51298
+@eng {yBeerлога{x@rus {yBeerлога{x~
+~
+0 0 inside
+D4
+~
+~
+~
+~
+Z 0 51299
+m room_cmd room_cmd_sog sog~
+m room_cmd @ do_kick~
+// аналог do_kick, почти аналог, нет некоторых функций
+int chance = get_skill($n, "kick");
+if (chance == 0) {
+        act_char("You better leave the martial arts to fighters.", $n);
+        return 0;
+}
+
+char victim = char_fighting($n);
+if (victim == NULL) {
+        act_char("You aren't fighting anyone.", $n);
+        return 0;
+}
+
+room here = char_room($n);
+char pet;
+foreach (pet, char_in_room(here)) {
+        if (is_npc(pet))
+                if (is_mount($n, pet)) {
+                        act_char("You can't kick while riding!", $n);
+                         return 0;
+                }
+}
+
+if (is_affected($n, AFF_FLYING))
+        chance = chance * 110 / 100;
+
+if (number_percent() < chance) {
+        int kick_dam = number_range(1, char_level($n));
+        damage($n, victim, kick_dam, NULL, DAM_BASH, DAM_F_SHOW);
+}
+
+return 0;
+~
+m room_cmd room_cmd_room room~
+S
+#51299
+@eng {GБлат-room{x@rus {GБлатная комната{x~
+{WAbsalut{Rno{x пустые четыре стенки.  Решетки на окнах ({Cwindow{x). 
+Кровать типа "нары" откидывающаяся от стенки.  Столик в углу.  Зеркало
+({Cmirror{x) на стене.  Но что-то подсказывает тебе, что за видимой пустотой
+скрывается куча предметов.  Если пошарится наверняка найдешь какой-нить
+тайничек ({Dsecret{x).  Но лучше ентого не делать - хозяин будет не доволен.
+
+~
+0 DK inside
+E
+window~
+Поднявшись на ципочках, ты заглядываешь в окошко.  То, что ты увидел,
+поражает тебя до глубины души.  За окном ничего нет !!  Ты с ужасом
+понимаешь, что это место - всего лишь маленькое пространство, отваеванное у
+хаоса.  
+~
+D5
+~
+~
+~
+~
+Z 0 51298
+m room_cmd room_cmd_room room~
+m room_cmd room_cmd_sog sog~
+S
+#0
+
+#RESETS
+O 0 51200 0 51200	* dark fissure (Gorge)
+O 0 51201 0 51200	* stone (Gorge)
+O 0 51209 0 51220	* altar (Темый алтарь)
+P 0 51213 -1 0 1	* altar: sacrifice dagger
+O 0 51210 0 51222	* altar (Светлый алтарь)
+P 0 51212 -1 0 1	* altar: sacrifice dagger
+O 0 51206 0 51223	* trush (Темная кладовая)
+P 0 51208 -1 0 1	* trush: абсолютно черный амулет
+O 0 51206 0 51224	* trush (Светлая кладовая)
+P 0 51207 -1 0 1	* trush: белый светящийся амулет
+M 0 51203 2 51252 1	* demon (Светлая комната)
+G 0 51228 0		*	demon: {Wlight{x
+M 0 51203 2 51277 1	* demon (Темная комната)
+G 0 51223 0		*	demon: {Ddark{x
+M 0 51202 6 51278 1	* demon (Тупик)
+M 0 51202 6 51279 1	* demon (Тупик)
+M 0 51202 6 51280 1	* demon (Тупик)
+M 0 51202 6 51281 1	* demon (Тупик)
+M 0 51202 6 51282 1	* demon (Тупик)
+M 0 51202 6 51283 1	* demon (Тупик)
+M 0 51205 1 51284 1	* Light Priest (The Light Priest's room)
+E 0 51232 0 16		*	Light Priest<wielded>: {Wlight staff{x
+E 0 51231 0 12		*	Light Priest<about the shoulders>: {Wlight cloak{x
+M 0 51204 1 51285 1	* Dark Priest (The Dark Priest's room)
+E 0 51224 0 12		*	Dark Priest<about the shoulders>: {Ddark cloak{x
+E 0 51225 0 16		*	Dark Priest<wielded>: {Ddark staff{x
+O 0 51298 0 51299	* {Dtop secret{x ({GБлат-room{x)
+P 0 51297 -1 0 1	* {Dtop secret{x: {yдурман-трава{x
+P 0 51299 -1 0 1	* {Dtop secret{x: {Dарматура{x
+O 0 51296 0 51299	* bar ({GБлат-room{x)
+P 0 51295 -1 0 1	* bar: {WAbsolut{x
+O 0 51294 0 51299	* койка ({GБлат-room{x)
+M 0 51299 1 51299 1	* {WKrol{x ({GБлат-room{x)
+E 0 51299 0 16		*	{WKrol{x<wielded>: {Dарматура{x
+O 0 51293 0 51299	* {C~кривое~ ~зеркало~{x ({GБлат-room{x)
+M 0 51298 1 51299 1	* the white rabbit ({GБлат-room{x)
+E 0 51023 0 5		*	the white rabbit<on the body>: {Yyellow{x leader's T-shirt
+S
+
+#OLIMITS
+O 51202 1	* small stone
+O 51203 1	* middle stone
+O 51204 1	* big stone
+S
+
+#$

@@ -1,0 +1,261 @@
+#AREADATA
+Ver 7
+Name Kendermore~
+VNUMs 14900 14950
+Credits Yaegar~
+Security 1
+LevelRange 1 51
+End
+
+#MOBILES
+#14900
+kender scout~
+a kender scout ~
+A kender scout patrols for enemies.~
+Kender scouts are respected by the whole community for their role in
+detecting potential threats to their village. They are rather serious by
+Kender standards, as recent attacks have made them constantly alert for
+any invaders. They thus glare at you VERY suspiciously.
+~
+kender~
+0 0 0 0 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 ''
+0 0 0 0
+0
+stand stand either 0
+0 0 medium unknown
+#14901
+kender adult male~
+an adult male kender~
+An adult male kender rushes past you, topknot bobbing madly.~
+He sure seemed to be in a hurry. Doubtless he'd just discovered something
+curious he wanted to examine as soon as possible... Hey! Didn't you have
+TWO of those silver bracelets???
+~
+kender~
+0 0 0 0 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 ''
+0 0 0 0
+0
+stand stand male 0
+0 0 medium unknown
+#14902
+kender adult female~
+an adult female kender~
+An adult female kender smiles at you and curtseys.~
+She seems friendly enough. In fact she seems quite nice. Imagine people
+thinking such sweet people could be THIEVES... You smile as you reach for
+a trinket to give to her, only to notice that your trinkets are all gone...
+~
+kender~
+0 0 0 0 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 ''
+0 0 0 0
+0
+stand stand female 0
+0 0 medium unknown
+#14903
+kender child~
+a kender child~
+A small kender child gazes at you curiously.~
+Younger kender, unused to the outside world, find strangers and the strange
+items they bear of GREAT interest...
+~
+human~
+0 0 0 0 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 ''
+0 0 0 0
+0
+stand stand either 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#14904
+kender healer~
+the kender healer~
+An ancient kender smiles benevolently at you.~
+This fellow cures the ailments of the locals and travellers alike. He seems
+to be a sweet old fellow... WAIT! Did you just see him steal a loaf of bread
+off an elderly woman? No, that's ok... he just BORROWED it.
+~
+kender~
+0 0 0 0 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 ''
+0 0 0 0
+0
+stand stand male 0
+0 0 medium unknown
+#14905
+kender warrior~
+a kender warrior~
+A kender warrior swaggers past you, chased by a flock of young girls.~
+Kender warriors as a scary lot, scary in the way that it's scary to trust
+nuclear weapons in the hands of people with the minds of eight year olds-
+WAIT! We do that anyway! Ah well... Kender warriors, indeed all Kender, are
+most feared (to them, other races consider it avoiding) for their taunt
+ability, with which they can stoke the temper of the most placid of foes into
+a raging fury.
+~
+kender~
+0 0 0 0 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 ''
+0 0 0 0
+0
+stand stand male 0
+0 0 medium unknown
+#14906
+kender storyteller~
+the kender storyteller~
+The kender storyteller is amusing a horde of children with his tales.~
+Kender fairytales are quite fascinating and very humorous. Unfortunately,
+you don't have time to sit and listen to one (and I don't have the time to
+sit here and write one :P).
+~
+kender~
+0 0 0 0 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 ''
+0 0 0 0
+0
+stand stand male 0
+0 0 medium unknown
+#14907
+kender chief~
+the kender chief~
+The chief of Kendermore greets you.~
+The chief is a cheery fellow, full of energy and humor. He grabs your hand
+and shakes it rapidly, then pounds you on the back (or more likely your
+buttocks if you are over four feet tall) and invites you to the tavern for
+a drink and a chat. What a splendid fellow! You find yourself suddenly
+reaching for your wallet. You could have SWORN you had it in your back
+pocket...
+~
+kender~
+0 0 0 0 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 ''
+0 0 0 0
+0
+stand stand male 0
+0 0 medium unknown
+#14908
+kender tas tasslehoff burrfoot~
+Tasslehoff Burrfoot~
+A particularly inquisitive kender introduces himself as Tas.~
+Everyone knows Tas, that most famous of Kender. Guard your possessions
+carefully.
+~
+kender~
+0 0 0 0 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 ''
+0 0 0 0
+0
+stand stand male 0
+0 0 medium unknown
+#14909
+kender drunk~
+a drunk kender~
+A drunk kender staggers into you.~
+Watch your wallet!
+~
+kender~
+0 0 0 0 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 ''
+0 0 0 0
+0
+stand stand either 0
+0 0 medium unknown
+#14910
+kender baker~
+the kender baker~
+A kender baker greets you.~
+This fellow stocks a wide variety of goods.
+~
+kender~
+0 0 0 0 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 ''
+0 0 0 0
+0
+stand stand male 0
+0 0 medium unknown
+#14911
+kender grocer~
+the kender grocer~
+A kender grocer greets you.~
+This woman stocks a wide variety of goods.
+~
+kender~
+0 0 0 0 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 ''
+0 0 0 0
+0
+stand stand female 0
+0 0 medium unknown
+#14912
+kender armorer~
+the kender armorer~
+A kender armorer greets you.~
+This fellow stocks a wide variety of goods.
+~
+kender~
+0 0 0 0 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 ''
+0 0 0 0
+0
+stand stand male 0
+0 0 medium unknown
+#14913
+kender herbalist~
+the kender herbalist~
+A kender herbalist greets you.~
+This woman stocks a wide variety of goods.
+~
+kender~
+0 0 0 0 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 ''
+0 0 0 0
+0
+stand stand female 0
+0 0 medium unknown
+#14914
+kender bartender~
+the kender bartender~
+The bartender smiles and offers you a drink.~
+This rotund fellow was once an adventurer like yourself. As he pours your
+beers he recounts a tale of a time when he slew two dragons.
+~
+kender~
+0 0 0 0 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 ''
+0 0 0 0
+0
+stand stand male 0
+0 0 medium unknown
+#14915
+wild boar~
+a wild boar~
+A wild boar charges at you!~
+These boar are hunted by the Kender. They deserve it.
+~
+boar~
+0 0 0 0 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 ''
+0 0 0 0
+0
+stand stand none 0
+0 0 medium unknown
+#14916
+dog hunting~
+a hunting dog~
+A hunting dog barks at you.~
+Don't kill it -- it's a natural reaction. 
+)
+~
+dog~
+0 0 0 0 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 ''
+0 0 0 0
+0
+stand stand none 0
+0 0 medium unknown
+#0
+
+#$
