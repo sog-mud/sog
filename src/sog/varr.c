@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.8 1999-03-18 16:14:23 fjoe Exp $
+ * $Id: varr.c,v 1.9 1999-06-24 06:36:32 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -36,16 +36,13 @@
  * Variable size array implementation
  */
 
-varr *varr_new(size_t size, size_t step)
+void varr_init(varr *v, size_t nsize, size_t nstep)
 {
-	varr *v;
-	v = calloc(1, sizeof(*v));
-	v->nsize = size;
-	v->nstep = step;
-	return v;
+	v->nsize = nsize;
+	v->nstep = nstep;
 }
 
-void varr_free(varr *v)
+void varr_destroy(varr *v)
 {
 	v->nalloc = v->nused = 0;
 	free(v->p);

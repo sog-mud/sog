@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.43 1999-06-21 15:56:45 fjoe Exp $
+ * $Id: clan.c,v 1.44 1999-06-24 06:36:32 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -48,15 +48,14 @@ clan_t *clan_new(void)
 	clan_t *clan;
 
 	clan = varr_enew(&clans);
-	clan->skills.nsize = sizeof(clskill_t);
-	clan->skills.nstep = 4;
+	varr_init(&clan->skills, sizeof(clskill_t), 4);
 
 	return clan;
 }
 
 void clan_free(clan_t *clan)
 {
-	varr_free(&clan->skills);
+	varr_destroy(&clan->skills);
 }
 
 void clan_save(clan_t *clan)

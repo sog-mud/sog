@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_msg.c,v 1.2 1999-06-10 18:19:05 fjoe Exp $
+ * $Id: db_msg.c,v 1.3 1999-06-24 06:36:32 fjoe Exp $
  */
 
 #include <limits.h>
@@ -54,11 +54,8 @@ DBINIT_FUN(init_msgdb)
 {
 	int i;
 
-	for (i = 0; i < MAX_MSG_HASH; i++) {
-		varr *v = msg_hash_table+i;
-		v->nsize = sizeof(msg_t);
-		v->nstep = 4;
-	}
+	for (i = 0; i < MAX_MSG_HASH; i++) 
+		varr_init(msg_hash_table+i, sizeof(msg_t), 4);
 }
 
 DBLOAD_FUN(load_msg)

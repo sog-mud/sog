@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.13 1999-06-10 11:47:27 fjoe Exp $
+ * $Id: class.c,v 1.14 1999-06-24 06:36:32 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -37,22 +37,20 @@ class_t *class_new(void)
 	class_t *class;
 
 	class = varr_enew(&classes);
-	class->skills.nsize = sizeof(cskill_t);
-	class->skills.nstep = 8;
+	varr_init(&class->skills, sizeof(cskill_t), 8);
+	varr_init(&class->poses, sizeof(pose_t), 4);
+	varr_init(&class->guild, sizeof(int), 4);
 	class->restrict_sex = -1;
 	class->death_limit = -1;
-	class->poses.nsize = sizeof(pose_t);
-	class->poses.nstep = 4;
-	class->guild.nsize = sizeof(int);
-	class->guild.nstep = 4;
 
 	return class;
 }
 
 void class_free(class_t *class)
 {
-	varr_free(&class->skills);
-	varr_free(&class->poses);
+	varr_destroy(&class->skills);
+	varr_destroy(&class->poses);
+	varr_destroy(&class->guild);
 }
 
 /*

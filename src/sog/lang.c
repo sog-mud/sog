@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.15 1999-06-10 14:33:35 fjoe Exp $
+ * $Id: lang.c,v 1.16 1999-06-24 06:36:32 fjoe Exp $
  */
 
 #include <string.h>
@@ -163,8 +163,7 @@ const char *word_form(const char *word, int fnum, int lang, int rulecl)
 vform_t *vform_new(void)
 {
 	vform_t *f = calloc(1, sizeof(*f));
-	f->v.nsize = sizeof(char*);
-	f->v.nstep = 4;
+	varr_init(&f->v, sizeof(char*), 4);
 	f->ref = 1;
 	return f;
 }
@@ -183,7 +182,7 @@ void vform_free(vform_t *f)
 		return;
 	for (i = 0; i < f->v.nused; i++)
 		free_string(VARR_GET(&f->v, i));
-	varr_free(&f->v);
+	varr_destroy(&f->v);
 	free(f);
 }
 
@@ -343,12 +342,9 @@ static void rulecl_init(lang_t *l, int rulecl)
 	rulecl_t *rcl = l->rules + rulecl;
 
 	rcl->rulecl = rulecl;
-	for (i = 0; i < MAX_RULE_HASH; i++) {
-		rcl->expl[i].nsize = sizeof(rule_t);
-		rcl->expl[i].nstep = 4;
-	}
-	rcl->impl.nsize = sizeof(rule_t);
-	rcl->impl.nstep = 4;
+	for (i = 0; i < MAX_RULE_HASH; i++) 
+		varr_init(rcl->expl+i, sizeof(rule_t), 4);
+	varr_init(&rcl->impl, sizeof(rule_t), 4);
 }
 
 /*----------------------------------------------------------------------------

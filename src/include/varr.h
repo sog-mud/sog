@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.h,v 1.5 1999-03-08 13:56:05 fjoe Exp $
+ * $Id: varr.h,v 1.6 1999-06-24 06:36:32 fjoe Exp $
  */
 
 #ifndef _VARR_H_
@@ -40,11 +40,13 @@ struct varr {
 	size_t nalloc;		/* elems allocated */
 };
 
-varr *	varr_new	(size_t nsize, size_t nstep);
-void	varr_free	(varr*);
+void	varr_init	(varr*, size_t nsize, size_t nstep);
+void	varr_destroy	(varr*);
+
 void *	varr_touch	(varr*, size_t i);
 void *	varr_insert	(varr*, size_t i);
 void	varr_del	(varr*, void*);
+
 void	varr_qsort	(varr*, int (*)(const void*, const void*));
 void *	varr_bsearch	(varr*, const void *e,
 			 int (*)(const void*, const void*));
