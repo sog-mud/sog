@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.131 1999-09-14 03:11:01 avn Exp $
+ * $Id: spellfun2.c,v 1.132 1999-09-14 07:47:07 kostik Exp $
  */
 
 /***************************************************************************
@@ -5371,6 +5371,125 @@ void spell_mana_restore(int sn, int level, CHAR_DATA *ch, void *vo)
 	vch->mana = UMIN(vch->max_mana, vch->mana + restore);
 	act("A warm glow passes through you.", vch, NULL, NULL, TO_CHAR);
 	if (ch != vch) char_puts("Ok.\n", ch);
+}
+
+/*
+	An alteration spell which enlarges a given person
+*/
+
+void spell_enlarge(int sn, int level, CHAR_DATA *ch, void *vo)
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	AFFECT_DATA af;
+
+	if (is_affected(victim, sn)) {
+		if (ch==victim)
+			act("You are already as large as you can get.",
+				ch, NULL, NULL, TO_CHAR);
+		else	
+			act("$N is already as large as $E can get.", 
+				ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	if (check_trust(ch, victim) || 
+	   !saves_spell(level, victim, DAM_NEGATIVE)) {
+
+		if(is_affected(victim, sn_lookup("shrink"))) {
+			affect_strip(victim, sn_lookup("shrink"));
+			act("You grow back to your normal size.",
+				victim, NULL, NULL, TO_CHAR);
+			act("$n grows back to $s normal size.",
+				victim, NULL, NULL, TO_ROOM);
+			return;
+		}
+		af.where 	= TO_AFFECTS;
+		af.where	= TO_AFFECTS;
+		af.type		= sn;
+		af.level	= level;
+		af.duration	= 5 + level / 10;
+		af.location	= APPLY_SIZE;
+		af.modifier	= 1;
+		af.bitvector	= 0;
+		affect_to_char(victim, &af);
+
+		af.location	= APPLY_STR;
+		af.modifier	= 1;
+		affect_to_char(victim, &af);
+
+		af.location	= APPLY_DEX;
+		af.modifier	= -1;
+		affect_to_char(victim, &af);
+
+		af.location	= APPLY_DAMROLL;
+		af.modifier	= level/18+1;
+		affect_to_char(victim, &af);
+		
+		act("Your body suddenly becomes much larger.", 
+			victim, NULL, NULL, TO_CHAR);
+		act("$n suddenly seems to become much larger.",
+			victim, NULL, NULL, TO_ROOM);
+	}
+	else char_puts("You failed.", ch);
+}
+/* 
+   A reversed enlarge spell.
+*/
+
+void spell_shrink(int sn, int level, CHAR_DATA *ch, void *vo)
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	AFFECT_DATA af;
+
+	if (is_affected(victim, sn)) {
+		if (ch==victim)
+			act("You are already as small as you can get.",
+				ch, NULL, NULL, TO_CHAR);
+		else	
+			act("$N is already as small as $E can get.", 
+				ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	if (check_trust(ch, victim) || 
+	   !saves_spell(level, victim, DAM_NEGATIVE)) {
+
+		if(is_affected(victim, sn_lookup("enlarge"))) {
+			affect_strip(victim, sn_lookup("enlarge"));
+			act("You shrink back to your normal size.",
+				victim, NULL, NULL, TO_CHAR);
+			act("$n shrink back to $s normal size.",
+				victim, NULL, NULL, TO_ROOM);
+			return;
+		}
+		af.where 	= TO_AFFECTS;
+		af.where	= TO_AFFECTS;
+		af.type		= sn;
+		af.level	= level;
+		af.duration	= 5 + level / 10;
+		af.location	= APPLY_SIZE;
+		af.modifier	= -1;
+		af.bitvector	= 0;
+		affect_to_char(victim, &af);
+
+		af.location	= APPLY_STR;
+		af.modifier	= -1;
+		affect_to_char(victim, &af);
+
+		af.location	= APPLY_DEX;
+		af.modifier	= 1;
+		affect_to_char(victim, &af);
+
+		af.location	= APPLY_HITROLL;
+		af.modifier	= level/18+1;
+		affect_to_char(victim, &af);
+		
+		act("Your body suddenly becomes much smaller.", 
+			victim, NULL, NULL, TO_CHAR);
+		act("$n suddenly seems to become much smaller.",
+			victim, NULL, NULL, TO_ROOM);
+	}
+	else char_puts("You failed.", ch);
 }
 
 void spell_water_breathing(int sn, int level, CHAR_DATA *ch, void *vo)
