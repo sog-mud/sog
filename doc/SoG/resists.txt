@@ -1,0 +1,105 @@
+#
+# $Id: resists.txt,v 1.1 2001-08-17 17:46:58 fjoe Exp $
+#
+
+This document describes SoG resistances implementation.
+
+Prerequisites:
+--------------
+damage modifier (DM) attributes:
+	Damage inflicted on a mob may be reduced if mobile has damage modifier
+	attributes (imm/res/vuln flags in ROM (Anatolia, SoG 1), resistances
+	in SoG 2)
+
+The following objects have DM attributes:
+- races
+- mobiles
+
+Race DM attributes affect all mobiles of that race. In other words race
+holds common DM attributes for all mobiles of that race. Mobiles might have
+DM attributes that differ from their race DM attributes.
+
+Implementation requirements:
+----------------------------
+(1) fine-grained control over DM attributes
+
+	In ROM (Anatolia, SoG 1) DM attributes (imm/res/vuln) were stored as
+	bit flags. The following DM's calculated based upon these attributes
+	were in effect:
+	- mob is 'immune' -- damage is totally reduced (by 100%)
+	- mob is 'resistant' -- damage is reduced by 50%
+	- mob is 'vulnerable' -- damage is increased by 50%
+
+(2) correct behaviour when changing mob race
+    	mobiles might have imm/res/vuln damage modifiers that differ from
+	race imm/res/vuln damage modifiers and they should not be affected
+	when mob race is changed. E.g. if mobile had immunity to some
+	damage class (damclass) and its race was changed mob should remain
+	immune to that damclass.
+
+(3) correct behaviour when race DM attributes are changed
+
+	when changing race DM attributes most mobs of that race (e.g. whose
+	DM attributes do not differ from their race DM attributes) should also
+	be affected by this change. E.g. if resistance to some damclass was
+	added to race DM attributes all (or most) mobs of that race
+	should gain resistance to that damclass.
+
+(4) ROM implementation had 'default' DM attributes. new implementation must
+also have them
+
+	ROM had XXX_WEAPON and XXX_MAGIC imm/res/vuln flags. XXX_WEAPON
+	imm/res/vuln were taken in account when XXX_BASH, XXX_SLASH or
+	XXX_PIERCE imm/res/vuln flags were not set. Likewise, XXX_MAGIC flags
+	were defaults for magical imm/res/vuln flags (e.g. XXX_FIRE or
+	XXX_CHARM). In earlier SoG 2 implementations 'default' DM attributes
+	were removed (XXX_WEAPON flags were converted to new resistances
+        as if all XXX_BASH, XXX_SLAGH and XXX_PIERCE were set, XXX_MAGIC flags
+	were converted as if all magical imm/res/vuln flags were set)
+	but it turned out that maintaining long lists of resistances
+	is very difficult.
+
+Implementation details:
+-----------------------
+
+In SoG 2 DM attributes are stored in an array. Each dam_class has corresponding
+value (resist) in that array.
+
+Each resist is an integer value in range from -100 (damage is doubled) to
++100 (no damage, immunity). +50 is analogous to 'resistance' in ROM and
+-50 is analogous to 'vulnerability'.
+There is also one distinguished value RES_UNDEF.
+
+The behaviour of misc. functions which deal with DM attributes (or which dealt
+with DM attributes in SoG 1) is described below:
+
+mobed_race
+----------
+Unlike SoG 1 `mobed_race' in SoG 2 does not touch mob resistances at all.
+
+load_mobile
+-----------
+Unlike ROM (and also Anatolia and SoG 1) race resistances are not applied to
+loaded mobile.
+
+save_mobile
+-----------
+Unlike SoG 1 race resistances are not taken into account when saving mobile.
+
+create_mob
+----------
+Race resistances are applied in this function but only for mob resistances that
+have resist RES_UNDEF.
+
+get_resist
+----------
+This function is a replacement for `check_immune'. Signature of this function is
+'int get_resist(CHAR_DATA *ch, int dam_class)' and it should return `ch'
+resistance for specified `dam_class' (in range -100..100).
+If resistance for given dam_class is RES_UNDEF, resistance for default
+dam_class (default resistance) is looked up. If default resistance is RES_UNDEF
+after substituting dam_class with default dam_class, 0 is returned.
+
+Default resistance dam_class'es are defined in `damsubst_tab' array
+(this array is defined in the same file with `get_resist' right before
+this function)
