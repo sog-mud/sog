@@ -395,7 +395,7 @@ sword меч black bastard~
 @eng A charred and etched bastard sword lies here.@rus Черный меч (sword) с гравировкой на рукояти лежит здесь.~
 steel~
 weapon CEJY AN
-sword 7 7 pierce DH
+sword 7 7 slash DH
 40 160 9000 P
 A
 18 8
@@ -2231,7 +2231,7 @@ S
 #OLIMITS
 O 24305 1	* a steel-tipped spear
 O 24306 8	* a circlet of braided centaur hair
-O 24308 10	* a blackened bastard sword
+O 24308 8	* a blackened bastard sword
 O 24309 3	* Fist of the Earth
 O 24312 4	* a casing of ebonwood bark
 S

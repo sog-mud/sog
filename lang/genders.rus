@@ -206,6 +206,14 @@ Form 3 -ли~
 End
 
 #RULE
+Name кипящий~
+BaseLen 5
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ие~
+End
+
+#RULE
 Name заинтересован~
 BaseLen 13
 Form 1 -а~

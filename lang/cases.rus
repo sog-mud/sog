@@ -907,6 +907,17 @@ Form 6 -ую~
 End
 
 #RULE
+Name кипящая~
+BaseLen 5
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+Form 6 -ую~
+End
+
+#RULE
 Name огромный~
 BaseLen 6
 Form 1 -ого~
@@ -3581,6 +3592,16 @@ Form 3 -ую~
 Form 4 -ой~
 Form 5 -ой~
 Form 6 -ую~
+End
+
+#RULE
+Name заклинание~
+BaseLen 9
+Form 1 -х~
+Form 2 -м~
+Form 4 -ми~
+Form 5 -х~
+Form 6 -х~
 End
 
 #RULE
