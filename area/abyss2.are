@@ -706,62 +706,6 @@ CDIK
 stand stand male 5400
 0 0 medium unknown
 r charm 100
-#25037
-black slayer~
-a Black Slayer~
-A huge, shadowy figure materializes from the shadows around you.
-~
-The black slayer is a shadowy figure, about 7 feet in height. Garbed in
-a heavey, black cloak, in his right hand, he wields a wicked dagger.
-~
-human~
-BCFJ 0 0 G AH -1000 0
-25 0 5d10+550 249d1+1 2d10+7 'punch'
--7 -7 -7 6
-ACFHIK
-stand stand male 999
-0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r holy 33
-r negative 33
-r energy 33
-r mental 33
-r sound 33
-r disease 33
-r poison 33
-r harm 33
-r light 33
-#25038
-black slayer~
-a Black Slayer~
-A huge, shadowy figure materializes from the shadows around you.
-~
-The black slayer is a shadowy figure, about 7 feet in height. Garbed in
-a heavey, black cloak, in his right hand, he wields a wicked dagger.
-~
-human~
-BCFJ 0 0 G AH -1000 0
-25 0 5d10+550 249d1+1 2d10+7 'punch'
-0 0 0 0
-ACFHIK
-stand stand male 0
-0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r holy 33
-r negative 33
-r energy 33
-r mental 33
-r sound 33
-r disease 33
-r poison 33
-r harm 33
-r light 33
 #0
 
 #OBJECTS

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Ghost~
 VNUMs 8100 8199
 Credits Yaegar~
@@ -899,10 +899,14 @@ W E L C O M E    T O    G H O S T T O W N
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8101
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 9584
 S
 #8101
@@ -917,10 +921,14 @@ choice.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8102
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8100
 S
 #8102
@@ -934,14 +942,20 @@ right. Up ahead lies a small town square.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8106
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8104
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8103
 S
 #8103
@@ -959,6 +973,8 @@ to kill...
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8102
 S
 #8104
@@ -976,6 +992,8 @@ to kill...
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8102
 S
 #8105
@@ -989,10 +1007,14 @@ There is a well in the middle of the square.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8108
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8106
 S
 #8106
@@ -1006,18 +1028,26 @@ There is a well in the middle of the square.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8109
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8107
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8102
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8105
 S
 #8107
@@ -1031,10 +1061,14 @@ There is a well in the middle of the square.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8110
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8106
 S
 #8108
@@ -1048,18 +1082,26 @@ There is a well in the middle of the square.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8111
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8109
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8105
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8114
 S
 #8109
@@ -1072,18 +1114,26 @@ the well, as a small amount of grass has managed to grow around it.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8112
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8110
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8106
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8108
 S
 #8110
@@ -1097,18 +1147,26 @@ There is a well in the middle of the square.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8113
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8124
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8107
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8109
 S
 #8111
@@ -1122,10 +1180,14 @@ There is a well in the middle of the square.
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8112
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8108
 S
 #8112
@@ -1139,18 +1201,26 @@ There is a well in the middle of the square.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8134
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8113
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8109
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8111
 S
 #8113
@@ -1164,10 +1234,14 @@ There is a well in the middle of the square.
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8110
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8112
 S
 #8114
@@ -1179,18 +1253,26 @@ Square. Houses lie to the north and south.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8115
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8108
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8116
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8117
 S
 #8115
@@ -1208,6 +1290,8 @@ to kill...
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8114
 S
 #8116
@@ -1225,6 +1309,8 @@ to kill...
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8114
 S
 #8117
@@ -1236,18 +1322,26 @@ Square. Houses lie to the north and south.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8118
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8114
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8119
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8120
 S
 #8118
@@ -1265,6 +1359,8 @@ to kill...
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8117
 S
 #8119
@@ -1282,6 +1378,8 @@ to kill...
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8117
 S
 #8120
@@ -1293,18 +1391,26 @@ Square. Houses lie to the north, west and south.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8121
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8117
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8122
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8123
 S
 #8121
@@ -1322,6 +1428,8 @@ to kill...
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8120
 S
 #8122
@@ -1339,6 +1447,8 @@ to kill...
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8120
 S
 #8123
@@ -1356,6 +1466,8 @@ to kill...
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8120
 S
 #8124
@@ -1367,18 +1479,26 @@ Square. Houses lie to the north and south.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8125
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8127
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8126
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8110
 S
 #8125
@@ -1396,6 +1516,8 @@ to kill...
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8124
 S
 #8126
@@ -1413,6 +1535,8 @@ to kill...
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8124
 S
 #8127
@@ -1424,18 +1548,26 @@ Square. Houses lie to the north and south.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8128
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8130
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8129
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8124
 S
 #8128
@@ -1453,6 +1585,8 @@ to kill...
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8127
 S
 #8129
@@ -1470,6 +1604,8 @@ to kill...
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8127
 S
 #8130
@@ -1481,18 +1617,26 @@ Square. Houses lie to the north, east and south.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8131
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8133
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8132
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8127
 S
 #8131
@@ -1510,6 +1654,8 @@ to kill...
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8130
 S
 #8132
@@ -1527,6 +1673,8 @@ to kill...
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8130
 S
 #8133
@@ -1544,6 +1692,8 @@ to kill...
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8130
 S
 #8134
@@ -1555,18 +1705,26 @@ North toward an intersection. Houses line the street.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8137
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8136
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8112
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8135
 S
 #8135
@@ -1584,6 +1742,8 @@ to kill...
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8134
 S
 #8136
@@ -1601,6 +1761,8 @@ to kill...
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8134
 S
 #8137
@@ -1614,14 +1776,20 @@ enshrouded in dark fog...
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8155
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8134
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8138
 S
 #8138
@@ -1635,10 +1803,14 @@ here.
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8137
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8139
 S
 #8139
@@ -1652,14 +1824,20 @@ as some very tall, sinister-looking trees.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8171
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8138
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8140
 S
 #8140
@@ -1673,10 +1851,14 @@ you to suspect that perhaps someone (or thing) important now resides here...
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8139
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8141
 S
 #8141
@@ -1690,18 +1872,26 @@ south of here.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8143
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8140
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8142
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8144
 S
 #8142
@@ -1715,6 +1905,8 @@ not to vomit.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8141
 S
 #8143
@@ -1728,6 +1920,8 @@ not to vomit.
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8141
 S
 #8144
@@ -1741,18 +1935,26 @@ south of here.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8146
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 8141
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8145
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8147
 S
 #8145
@@ -1766,6 +1968,8 @@ not to vomit.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8144
 S
 #8146
@@ -1779,6 +1983,8 @@ not to vomit.
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8144
 S
 #8147
@@ -1790,10 +1996,14 @@ dreadful stench emanating from upstairs, makes you reluctant to proceed...
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8144
 D4
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8148
 S
 #8148
@@ -1806,10 +2016,14 @@ breathe, and steel yourself to continue.
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8149
 D5
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8147
 S
 #8149
@@ -1823,18 +2037,26 @@ the east.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8150
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8152
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8151
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8148
 S
 #8150
@@ -1848,6 +2070,8 @@ not to vomit.
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8149
 S
 #8151
@@ -1861,6 +2085,8 @@ not to vomit.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8149
 S
 #8152
@@ -1875,14 +2101,20 @@ behind this sits a plush leather chair. Wonder whose domain this is...?
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8153
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8154
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8149
 S
 #8153
@@ -1905,6 +2137,8 @@ evil-looking gentleman of middle years.
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8152
 S
 #8154
@@ -1920,6 +2154,8 @@ the very least...
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8152
 S
 #8155
@@ -1933,10 +2169,14 @@ clutching at your heart.
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8156
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8137
 S
 #8156
@@ -1950,14 +2190,20 @@ clutching at your heart.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8159
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8157
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8155
 S
 #8157
@@ -1970,10 +2216,14 @@ directly to the east.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8156
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8158
 S
 #8158
@@ -1988,6 +2238,8 @@ of ORCUS! If he isn't here, leave quickly. If he is...
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8157
 S
 #8159
@@ -2001,14 +2253,20 @@ clutching at your heart.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8163
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8160
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8156
 S
 #8160
@@ -2021,10 +2279,14 @@ can see shapes moving about.
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8161
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8159
 S
 #8161
@@ -2037,10 +2299,14 @@ can see a staircase leading down.
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8162
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8160
 S
 #8162
@@ -2053,6 +2319,8 @@ what may below, but can see only darkness.
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8161
 S
 #8163
@@ -2066,10 +2334,14 @@ clutching at your heart.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8164
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8159
 S
 #8164
@@ -2084,14 +2356,20 @@ to the east.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8195
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8165
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8163
 S
 #8165
@@ -2116,10 +2394,14 @@ The runes on the door read-
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8166
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8164
 S
 #8166
@@ -2133,10 +2415,14 @@ You hope you don't run into the spinner of these webs.
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8165
 D5
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8167
 S
 #8167
@@ -2150,18 +2436,26 @@ arched ceiling.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8168
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8170
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8169
 D4
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8166
 S
 #8168
@@ -2175,6 +2469,8 @@ is it...?
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8167
 S
 #8169
@@ -2188,6 +2484,8 @@ is it...?
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8167
 S
 #8170
@@ -2201,6 +2499,8 @@ is it...?
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 8167
 S
 #8171
@@ -2213,10 +2513,14 @@ thorns that look like teeth...
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8172
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8139
 S
 #8172
@@ -2231,14 +2535,20 @@ of branches.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8173
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8171
 D5
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8174
 S
 #8173
@@ -2252,10 +2562,14 @@ through, you become reluctant to enter. It looks like a virtual maze...
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 8177
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8172
 S
 #8174
@@ -2268,6 +2582,8 @@ too petrified to leave his hole.
 D4
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8172
 S
 #8175
@@ -2288,10 +2604,14 @@ your surroundings.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8180
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8176
 S
 #8176
@@ -2312,14 +2632,20 @@ your surroundings.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8181
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8177
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8175
 S
 #8177
@@ -2340,14 +2666,20 @@ your surroundings.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8182
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8178
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8176
 S
 #8178
@@ -2368,14 +2700,20 @@ your surroundings.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8183
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8179
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8177
 S
 #8179
@@ -2396,10 +2734,14 @@ your surroundings.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8184
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8178
 S
 #8180
@@ -2420,14 +2762,20 @@ your surroundings.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8185
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8181
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8175
 S
 #8181
@@ -2448,18 +2796,26 @@ your surroundings.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8186
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8182
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8176
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8180
 S
 #8182
@@ -2480,18 +2836,26 @@ your surroundings.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8187
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8183
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8177
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8181
 S
 #8183
@@ -2512,18 +2876,26 @@ your surroundings.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8188
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8184
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8178
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8182
 S
 #8184
@@ -2544,14 +2916,20 @@ your surroundings.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8189
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8179
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8183
 S
 #8185
@@ -2572,14 +2950,20 @@ your surroundings.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8190
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8186
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8180
 S
 #8186
@@ -2600,18 +2984,26 @@ your surroundings.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8191
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8187
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8181
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8185
 S
 #8187
@@ -2632,18 +3024,26 @@ your surroundings.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8192
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8188
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8182
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8186
 S
 #8188
@@ -2664,18 +3064,26 @@ your surroundings.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8193
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8189
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8183
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8187
 S
 #8189
@@ -2696,14 +3104,20 @@ your surroundings.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8194
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8184
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8188
 S
 #8190
@@ -2724,10 +3138,14 @@ your surroundings.
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8191
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8185
 S
 #8191
@@ -2748,14 +3166,20 @@ your surroundings.
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8192
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8186
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8190
 S
 #8192
@@ -2775,14 +3199,20 @@ wish here.
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8193
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8187
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8191
 S
 #8193
@@ -2803,14 +3233,20 @@ your surroundings.
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8194
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8188
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8192
 S
 #8194
@@ -2831,10 +3267,14 @@ your surroundings.
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8189
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8193
 S
 #8195
@@ -2849,14 +3289,20 @@ to the east. A gaping hole looms out of the fog in the ground to the right.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8197
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8164
 D5
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8196
 S
 #8196
@@ -2870,6 +3316,8 @@ at least 90% sure you have entered the lair of one...
 D4
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8195
 S
 #8197
@@ -2884,10 +3332,14 @@ to the east.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8198
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8195
 S
 #8198
@@ -2903,10 +3355,14 @@ ahead.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8199
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8197
 S
 #8199
@@ -2927,6 +3383,8 @@ escape.
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 8198
 S
 #0
@@ -3143,8 +3601,7 @@ This is purely a simple hack-n-slash area with the interesting added feature
 that you can't recall... You have to fight your way through the many powerful
 high level undead that populate this place. To a good mudder its heaven. To
 someone who flees when fighting the children in Mud School, its probably gonna
-be considered impossible. Either way, have fun.
-~
+be considered impossible. Either way, have fun.~
 -1 $~
 
 #$

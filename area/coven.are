@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Coven~
 VNUMs 29120 29180
 Credits MacAsp~
@@ -581,10 +581,14 @@ D0
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29121
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 5263
 S
 #29121
@@ -604,11 +608,15 @@ D2
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29120
 D3
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29122
 S
 #29122
@@ -627,11 +635,15 @@ D0
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29123
 D1
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29121
 S
 #29123
@@ -658,16 +670,22 @@ D0
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29124
 D2
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29122
 D3
 The western road
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29138
 S
 #29124
@@ -698,16 +716,22 @@ D1
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29125
 D2
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29123
 D3
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29137
 S
 #29125
@@ -728,11 +752,15 @@ D2
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29126
 D3
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29124
 S
 #29126
@@ -760,11 +788,15 @@ D0
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29125
 D1
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29127
 S
 #29127
@@ -786,16 +818,22 @@ D0
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29130
 D1
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29128
 D3
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29126
 S
 #29128
@@ -817,11 +855,15 @@ D0
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29129
 D3
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29127
 S
 #29129
@@ -843,11 +885,15 @@ D2
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29128
 D3
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29130
 S
 #29130
@@ -869,16 +915,22 @@ D0
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29131
 D1
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29129
 D2
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29127
 S
 #29131
@@ -900,16 +952,22 @@ D1
 The Murkmire
 ~
 underbrush brush~
+the underbrush~
+none~
 ABCFZ 29120 29162
 D2
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29130
 D3
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29132
 S
 #29132
@@ -931,16 +989,22 @@ D0
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29133
 D1
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29131
 D3
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29135
 S
 #29133
@@ -968,11 +1032,15 @@ D2
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29132
 D3
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29134
 S
 #29134
@@ -994,11 +1062,15 @@ D1
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29133
 D2
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29135
 S
 #29135
@@ -1020,16 +1092,22 @@ D0
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29134
 D1
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29132
 D3
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29136
 S
 #29136
@@ -1055,16 +1133,22 @@ D1
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29135
 D2
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29137
 D3
 The Cave
 ~
 rubble stones pile~
+the rubble~
+none~
 ABCFZ 29121 29156
 S
 #29137
@@ -1089,11 +1173,15 @@ D0
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29136
 D1
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29124
 S
 #29138
@@ -1115,21 +1203,29 @@ D0
 A log house
 ~
 door~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ -1 29139
 D1
 The Murkmire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29123
 D2
 A log house
 ~
 door~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ -1 29140
 D3
 Main Street
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29141
 S
 #29139
@@ -1150,6 +1246,8 @@ D2
 Main Street
 ~
 door~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ -1 29138
 S
 #29140
@@ -1177,6 +1275,8 @@ D0
 Main Street
 ~
 door~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ -1 29138
 S
 #29141
@@ -1198,21 +1298,29 @@ D0
 A log house
 ~
 door~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ -1 29142
 D1
 Main Street
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29138
 D2
 A log house
 ~
 door~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ -1 29143
 D3
 Main Street
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29144
 S
 #29142
@@ -1240,6 +1348,8 @@ D2
 Main Street
 ~
 door~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ -1 29141
 S
 #29143
@@ -1267,6 +1377,8 @@ D0
 Main Street
 ~
 door~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ -1 29141
 S
 #29144
@@ -1298,21 +1410,29 @@ D0
 The two story building
 ~
 door~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29146
 D1
 Main Street
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29141
 D2
 Main Street
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29152
 D3
 The saw mill
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29145
 S
 #29145
@@ -1336,6 +1456,8 @@ D1
 Main Street
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29144
 S
 #29146
@@ -1358,11 +1480,15 @@ D2
 Main Street
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29144
 D4
 Up the stairs
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29147
 S
 #29147
@@ -1380,26 +1506,36 @@ D0
 A room
 ~
 door~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABCZ 29126 29150
 D1
 A room
 ~
 door~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABCZ 29126 29151
 D2
 A room
 ~
 door~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABCZ 29126 29148
 D3
 A room
 ~
 door~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABCZ 29126 29149
 D5
 Down the stairs
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29146
 S
 #29148
@@ -1426,6 +1562,8 @@ D0
 The landing
 ~
 door~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABCZ 29126 29147
 S
 #29149
@@ -1452,6 +1590,8 @@ D1
 The landing
 ~
 door~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABCZ 29126 29147
 S
 #29150
@@ -1478,6 +1618,8 @@ D2
 The landing
 ~
 door~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABCZ 29126 29147
 S
 #29151
@@ -1504,6 +1646,8 @@ D3
 The landing
 ~
 door~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABCZ 29126 29147
 S
 #29152
@@ -1519,21 +1663,29 @@ D0
 Main Street
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29144
 D1
 The stables
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29154
 D2
 The village smith
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29155
 D3
 The store
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29153
 S
 #29153
@@ -1547,6 +1699,8 @@ D1
 Main Street
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29152
 S
 #29154
@@ -1565,6 +1719,8 @@ D3
 Main Street
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29152
 S
 #29155
@@ -1582,6 +1738,8 @@ D0
 Main Street
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29152
 S
 #29156
@@ -1613,11 +1771,15 @@ D0
 The dark cave
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29157
 D1
 The cave mouth
 ~
 rubble~
+the rubble~
+none~
 ABCFZ 29121 29136
 S
 #29157
@@ -1639,11 +1801,15 @@ D0
 The dark cave
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29158
 D2
 The dark cave
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29156
 S
 #29158
@@ -1665,11 +1831,15 @@ D1
 The dark cave
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29159
 D2
 The dark cave
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29157
 S
 #29159
@@ -1697,11 +1867,15 @@ D1
 The dark cave
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29160
 D3
 The dark cave
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29158
 S
 #29160
@@ -1715,11 +1889,15 @@ D0
 The green meadow
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29161
 D3
 The dark cave
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29159
 S
 #29161
@@ -1736,6 +1914,8 @@ D2
 The dark cave
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29160
 S
 #29162
@@ -1772,21 +1952,29 @@ D0
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29163
 D1
 The inner circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29169
 D2
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29178
 D3
 The underbrush
 ~
 brush underbrush~
+the brush~
+none~
 ABCFZ 29120 29131
 S
 #29163
@@ -1822,16 +2010,22 @@ D0
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29175
 D1
 The inner circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29166
 D2
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29162
 S
 #29164
@@ -1868,16 +2062,22 @@ D1
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29165
 D2
 The inner circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29166
 D3
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29175
 S
 #29165
@@ -1913,16 +2113,22 @@ D1
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29176
 D2
 The inner circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29167
 D3
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29164
 S
 #29166
@@ -1959,21 +2165,29 @@ D0
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29164
 D1
 The inner circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29167
 D2
 The inner circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29169
 D3
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29163
 S
 #29167
@@ -2010,21 +2224,29 @@ D0
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29165
 D1
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29168
 D2
 The inner circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29170
 D3
 The inner circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29166
 S
 #29168
@@ -2060,16 +2282,22 @@ D0
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29176
 D2
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29171
 D3
 The inner circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29167
 S
 #29169
@@ -2106,26 +2334,36 @@ D0
 The inner circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29166
 D1
 The inner circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29170
 D2
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29172
 D3
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29162
 D5
 Into the fire
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29174
 S
 #29170
@@ -2162,21 +2400,29 @@ D0
 The inner circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29167
 D1
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29171
 D2
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29173
 D3
 The inner circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29169
 S
 #29171
@@ -2212,16 +2458,22 @@ D0
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29168
 D2
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29177
 D3
 The inner circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29170
 S
 #29172
@@ -2257,16 +2509,22 @@ D0
 The inner circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29169
 D1
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29173
 D3
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29178
 S
 #29173
@@ -2302,16 +2560,22 @@ D0
 The inner circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29170
 D1
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29177
 D3
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29172
 S
 #29174
@@ -2330,6 +2594,8 @@ D4
 The inner circle
 ~
 barrier flame~
+the barrier~
+none~
 ABCFZ 29127 29169
 S
 #29175
@@ -2361,11 +2627,15 @@ D1
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29164
 D2
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29163
 S
 #29176
@@ -2397,11 +2667,15 @@ D2
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29168
 D3
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29165
 S
 #29177
@@ -2433,11 +2707,15 @@ D0
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29171
 D3
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29173
 S
 #29178
@@ -2469,11 +2747,15 @@ D0
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29162
 D1
 The outer circle
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 29172
 S
 #0
@@ -2593,8 +2875,7 @@ Once in the coven, they discover the horrible truth of the witchcraft
 practice of blood sacrifice. If they are playing good guys, they should 
 slay all of the witches. From there they can move on to the fire, which 
 is pick proof from inside, and the devil carries the key. IF they kill 
-the devil, they escape with otherworldly treasure.
-~
+the devil, they escape with otherworldly treasure.~
 -1 $~
 
 #$

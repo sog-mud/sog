@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name The Keep of the Warlock~
 VNUMs 15700 15799
 Credits Yaegar~
@@ -838,10 +838,14 @@ are used to strange visitors...
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 5365
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15701
 S
 #15701
@@ -854,10 +858,14 @@ were expecting visitors...
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15700
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15704
 S
 #15702
@@ -870,10 +878,14 @@ you. The stairs continue up and down.
 D4
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15703
 D5
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15704
 S
 #15703
@@ -889,6 +901,8 @@ the castle of the dread Lord Krogthar is located.
 D5
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15702
 S
 #15704
@@ -901,22 +915,32 @@ stairs leads up into the tower of the gatehouse.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15705
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15701
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15706
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15707
 D4
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15702
 S
 #15705
@@ -929,6 +953,8 @@ the eating of the horses. They have not been replaced yet.
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15704
 S
 #15706
@@ -941,6 +967,8 @@ not a stickler for discipline.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15704
 S
 #15707
@@ -954,18 +982,26 @@ servants appear to be rather lifeless and cold...
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15708
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15704
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15709
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15710
 S
 #15708
@@ -979,14 +1015,20 @@ servants appear to be rather lifeless and cold...
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15741
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15707
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 15711
 S
 #15709
@@ -1000,14 +1042,20 @@ servants appear to be rather lifeless and cold...
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15707
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15742
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15712
 S
 #15710
@@ -1023,18 +1071,26 @@ The doors to the inner keep lie to the west of here.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15711
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 15707
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15712
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15715
 S
 #15711
@@ -1048,14 +1104,20 @@ servants appear to be rather lifeless and cold...
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 15708
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15710
 D5
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ -1 15713
 S
 #15712
@@ -1069,14 +1131,20 @@ servants appear to be rather lifeless and cold...
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15710
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 15709
 D5
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ -1 15714
 S
 #15713
@@ -1088,6 +1156,8 @@ eating creature they keep in here. It smells very bad.... very VERY bad...
 D4
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15711
 S
 #15714
@@ -1100,6 +1170,8 @@ in devouring you.
 D4
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15712
 S
 #15715
@@ -1111,18 +1183,26 @@ with only four wooden doors to break the monotony of the black walls.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15716
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15710
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15717
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15718
 S
 #15716
@@ -1135,6 +1215,8 @@ he is intensely curious as to the nature of any visitors, welcome or not.
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15715
 S
 #15717
@@ -1147,6 +1229,8 @@ he is intensely curious as to the nature of any visitors, welcome or not.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15715
 S
 #15718
@@ -1158,14 +1242,20 @@ dungeons. You can hear sounds of construction coming from below.
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15715
 D4
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15719
 D5
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15727
 S
 #15719
@@ -1177,14 +1267,20 @@ dungeons. You can hear sounds of construction coming from below.
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15720
 D4
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15726
 D5
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15718
 S
 #15720
@@ -1197,14 +1293,20 @@ screams, and you shiver uncomfortably.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15721
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15722
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15719
 S
 #15721
@@ -1217,6 +1319,8 @@ They will not be impressed by your intrusion...
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15720
 S
 #15722
@@ -1229,6 +1333,8 @@ dares not slay her for Alara would be displeased...
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15720
 S
 #15723
@@ -1241,14 +1347,20 @@ screams, and you shiver uncomfortably.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15724
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15725
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15726
 S
 #15724
@@ -1261,6 +1373,8 @@ You are surprised that such a wicked man would be so neat and disciplined.
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15723
 S
 #15725
@@ -1275,6 +1389,8 @@ care to find out more about.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15723
 S
 #15726
@@ -1286,14 +1402,20 @@ dungeons. You can hear sounds of construction coming from below.
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15723
 D4
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15736
 D5
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15719
 S
 #15727
@@ -1306,10 +1428,14 @@ more clearly now.
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15728
 D4
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15718
 S
 #15728
@@ -1325,19 +1451,27 @@ runes inscribed upon it.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ -1 15729
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15727
 D2
 This door is inscribed with strange runes
 ~
 door~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15730
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15731
 S
 #15729
@@ -1349,6 +1483,8 @@ as you enter, you feel rather uneasy about the whole situation.
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15728
 S
 #15730
@@ -1362,6 +1498,8 @@ Way to go.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15728
 S
 #15731
@@ -1376,18 +1514,26 @@ rumored to lie in the ancient caverns beneath his keep...?
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15733
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15728
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15735
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15732
 S
 #15732
@@ -1400,10 +1546,14 @@ lies the entryway to the ancient caverns, where no one dares travel.
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15731
 D5
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15737
 S
 #15733
@@ -1415,10 +1565,14 @@ from here, permeating the perpetual darkness here.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15734
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15731
 S
 #15734
@@ -1431,6 +1585,8 @@ cast you out!
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15733
 S
 #15735
@@ -1445,6 +1601,8 @@ occasionally feeds it the odd slave or guard.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15731
 S
 #15736
@@ -1460,6 +1618,8 @@ place filled with wondrous treasures.
 D5
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15726
 S
 #15737
@@ -1474,10 +1634,14 @@ ignore such wealth.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15738
 D4
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15732
 S
 #15738
@@ -1492,14 +1656,20 @@ ignore such wealth.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15740
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15737
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15739
 S
 #15739
@@ -1514,6 +1684,8 @@ ignore such wealth.
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15738
 S
 #15740
@@ -1528,6 +1700,8 @@ ignore such wealth.
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 15738
 S
 #15741
@@ -1541,6 +1715,8 @@ she enters unaccompanied.
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15708
 S
 #15742
@@ -1554,6 +1730,8 @@ she enters unaccompanied.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 15709
 S
 #0
@@ -1750,8 +1928,7 @@ near the jagged peak of Mount Doom. By traveling to the past dimension, you
 will have the chance to meet and slay this evil mercenary who worked against
 his own race for the money of foul forces such as Krogthar, Jher and Lord
 Vax. The warlock is not alone in his keep, however, and you will find
-yourself pitted against many heinous foes in your journey.
-~
+yourself pitted against many heinous foes in your journey.~
 -1 $~
 
 #$

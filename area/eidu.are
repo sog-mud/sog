@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Eidu~
 VNUMs 44000 44299
 Credits Eidu~
@@ -109,9 +109,11 @@ armor 0 0 AB
 0 0 0 0 0
 96 0 0 P
 A
-19 150
+29 100
 A
-18 300
+28 100
+A
+27 100
 F A 0 0 H
 A
 12 20000
@@ -255,14 +257,20 @@ g none~
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 44001
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 44002
 D5
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 44003
 S
 #44001
@@ -272,6 +280,8 @@ S
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 44000
 S
 #44002
@@ -281,6 +291,8 @@ Garden~
 D1
 ~
 painting~
+the painting~
+none~
 Z 0 44000
 S
 #44003
@@ -290,6 +302,8 @@ S
 D4
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 44000
 S
 #44100

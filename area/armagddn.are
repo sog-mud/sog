@@ -1340,22 +1340,16 @@ g none~
 
 #ROOMS
 #14001
-@eng At the corner of the world@rus Край мира~
-@eng You smoulder in the flames of the corner of the world
+At the corner of the world~
+You smoulder in the flames of the corner of the world
 devoted to fire. The vapors of your burning flesh reach your 
 nose. Beyond the corner is only the blackness. There is
 an unstoppered vial glowing orange red in the flames.
-@rus Ты сгораешь заживо в пламени посвященного огню края мира, чувствуя
-запах собственной обугливающейся плоти. Пространство за краем погру-
-жено в непроглядную тьму и ты сомневаешься, есть ли там вообще что-
-нибудь. Твой взгляд привлекает незакупоренная бутыль, каким-то чудом
-уцелевшая в огне и теперь светящаяся ярко-оранжевым.
 ~
 0 0 noswim
 E
-vial бутыль~
-@eng 4th vial of wrath: fire for blasphemers.
-@rus Четвертый сосуд гнева - огонь для богохульствующих.
+vial~
+4th vial of wrath: fire for blasphemers.
 ~
 D0
 Lake of fire
@@ -1373,12 +1367,9 @@ D3
 Z 0 29236
 S
 #14002
-@eng On the lake of fire@rus Огненное озеро~
-@eng You are upon a vast lake of fire burning with brimstone. About
+On the lake of fire~
+You are upon a vast lake of fire burning with brimstone. About
 you the wrath of God is visited upon the sinful.
-@rus Ты стоишь прямо посреди озера яростного пламени,
-а вокруг тебя находятся грешники, дождавшиеся-таки кары
-небесной.
 ~
 0 0 noswim
 D0
@@ -1398,12 +1389,9 @@ The corner of the world
 Z 0 14001
 S
 #14003
-@eng On the lake of fire@rus Огненное озеро~
-@eng You are upon a vast lake of fire burning with brimstone. About
+On the lake of fire~
+You are upon a vast lake of fire burning with brimstone. About
 you the wrath of God is visited upon the sinful.
-@rus Ты стоишь прямо посреди озера яростного пламени,
-а вокруг тебя находятся грешники, дождавшиеся-таки кары
-небесной.
 ~
 0 0 noswim
 D3
@@ -1413,13 +1401,10 @@ Lake of fire
 Z 0 14002
 S
 #14004
-@eng The plagued lands@rus Зачумленная земля~
-@eng You walk through the wreteched, fetid wreak of the plagued lands.
+The plagued lands~
+You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
-@rus Вокруг тебя раскинулись однажды покрытые сочной зеленой
-травой, а теперь безжизненные зачумленные земли. Ты видишь,
-как мухи откладывают яйца прямо в плоть умирающих людей.
 ~
 0 0 desert
 D0
@@ -1434,13 +1419,10 @@ The plagued lands
 Z 0 14005
 S
 #14005
-@eng The plagued lands@rus Зачумленная земля~
-@eng You walk through the wreteched, fetid wreak of the plagued lands.
+The plagued lands~
+You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
-@rus Вокруг тебя раскинулись однажды покрытые сочной зеленой
-травой, а ныне безжизненные зачумленные земли. Ты видишь,
-как мухи откладывают яйца прямо в плоть умирающих людей.
 ~
 0 0 desert
 D0
@@ -1455,14 +1437,10 @@ The plagued lands
 Z 0 14004
 S
 #14006
-@eng MaGog@rus Ма-Гог~
-@eng You are in Satan's city of MaGog. About you writhe and covort sinners in
+MaGog~
+You are in Satan's city of MaGog. About you writhe and covort sinners in
 a final frolic before destruction.Refuse and ofcol are the perfume of the city. 
 Deterioration and decay claim every building you view.
-@rus Ты попал в Ма-Гог, город Сатаны. Корчащиеся от боли грешники
-заполняют улицы, очевидно, полагая, что эти полуразрушенные стены
-и провонявший отбросами воздух способны защитить их и оттянуть
-окончательное уничтожение.
 ~
 0 0 city
 D0
@@ -1477,14 +1455,10 @@ MaGog
 Z 0 14007
 S
 #14007
-@eng MaGog@rus Ма-Гог~
-@eng You are in Satan's city of MaGog. About you writhe and covort sinners in
+MaGog~
+You are in Satan's city of MaGog. About you writhe and covort sinners in
 a final frolic before destruction.Refuse and ofcol are the perfume of the city. 
 Deterioration and decay claim every building you view.
-@rus Ты попал в Ма-Гог, город Сатаны. Корчащиеся от боли грешники
-заполняют улицы, очевидно, полагая, что эти полуразрушенные стены
-и провонявший отбросами воздух способны защитить их и оттянуть
-окончательное уничтожение.
 ~
 0 0 city
 D0
@@ -1504,18 +1478,12 @@ MaGog
 Z 0 14006
 S
 #14008
-@eng MaGog@rus Ма-Гог~
-@eng You are in Satan's city of MaGog. About you writhe and covort sinners in
+MaGog~
+You are in Satan's city of MaGog. About you writhe and covort sinners in
 a final frolic before destruction.Refuse and ofcol are the perfume of the city. 
 Deterioration and decay claim every building you view. Here the evil is so
 strong you can almost feel it caress you. To the south lead a series of stairs
 to a solid adamantite gate emblazoned with the seals of heaven.
-@rus Ты попал в Ма-Гог, город Сатаны. Корчащиеся от боли грешники
-заполняют улицы, очевидно, полагая, что эти полуразрушенные стены
-и провонявший отбросами воздух способны защитить их и оттянуть
-окончательное уничтожение. Ты чувствуешь, что праввящее здесь зло
-готово принять и тебя в свои объятия. Ступени уходят на юг, в
-сторону сияющих ворот, отмеченных печатями небес.
 ~
 0 C city
 D0
@@ -1541,14 +1509,10 @@ MaGog
 Z 0 14007
 S
 #14009
-@eng MaGog@rus Ма-Гог~
-@eng You are in Satan's city of MaGog. About you writhe and covort sinners in
+MaGog~
+You are in Satan's city of MaGog. About you writhe and covort sinners in
 a final frolic before destruction.Refuse and ofcol are the perfume of the city. 
 Deterioration and decay claim every building you view.
-@rus Ты попал в Ма-Гог, город Сатаны. Корчащиеся от боли грешники
-заполняют улицы, очевидно, полагая, что эти полуразрушенные стены
-и провонявший отбросами воздух способны защитить их и оттянуть
-окончательное уничтожение.
 ~
 0 0 city
 D0
@@ -1568,14 +1532,10 @@ MaGog
 Z 0 14008
 S
 #14010
-@eng MaGog@rus Ма-Гог~
-@eng You are in Satan's city of MaGog. About you writhe and covort sinners in
+MaGog~
+You are in Satan's city of MaGog. About you writhe and covort sinners in
 a final frolic before destruction.Refuse and ofcol are the perfume of the city. 
 Deterioration and decay claim every building you view.
-@rus Ты попал в Ма-Гог, город Сатаны. Корчащиеся от боли грешники
-заполняют улицы, очевидно, полагая, что эти полуразрушенные стены
-и провонявший отбросами воздух способны защитить их и оттянуть
-окончательное уничтожение.
 ~
 0 0 city
 D0
@@ -1591,12 +1551,8 @@ Z 0 14009
 S
 #14011
 The many waters~
-@eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
+You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
-@rus Безбрежное море крови окружает тебя со всех сторон. Стервятники
-парят высоко в красном небе, высматривая падаль, и остовы тысяч
-разбитых кораблей торчат над поверхностью, символизируя собой об-
-реченность.
 ~
 0 0 noswim
 D0
@@ -1612,12 +1568,8 @@ Z 0 14012
 S
 #14012
 The many waters~
-@eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
+You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
-@rus Безбрежное море крови окружает тебя со всех сторон. Стервятники
-парят высоко в красном небе, высматривая падаль, и остовы тысяч
-разбитых кораблей торчат над поверхностью, символизируя собой об-
-реченность.
 ~
 0 0 noswim
 D0
@@ -1638,12 +1590,8 @@ Z 0 14011
 S
 #14013
 The many waters~
-@eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
+You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
-@rus Безбрежное море крови окружает тебя со всех сторон. Стервятники
-парят высоко в красном небе, высматривая падаль, и остовы тысяч
-разбитых кораблей торчат над поверхностью, символизируя собой об-
-реченность.
 ~
 0 0 noswim
 D0
@@ -1663,24 +1611,19 @@ More blood
 Z 0 14012
 S
 #14014
-@eng The corner of the world@rus Край мира~
-@eng You are at the corner of the world, floating on a vast sea of blood.
+The corner of the world~
+You are at the corner of the world, floating on a vast sea of blood.
 An unstoppered vial floats in the water here. Beyond the corner is 
 an endless stretch of empty black.
-@rus Плавая по морю крови, ты достиг края мира - дальше нет
-ничего, кроме кромешной тьмы. Откупоренный сосуд наполовину
-выглядывает над поверхностью, привлекая внимание.
 ~
 0 0 noswim
 E
-runes strange руны странные~
-@eng 2nd vial of wrath: Turning of the seas to blood.
-@rus Второй сосуд гнева : моря, полные крови.
+runes strange~
+2nd vial of wrath: Turning of the seas to blood.
 ~
 E
-vial unstoppered откупоренный сосуд~
-@eng You look at the vial. On the side are some strange runes.
-@rus Присмотревшись, ты замечаешь странные руны, которыми исписан сосуд.
+vial unstoppered~
+You look at the vial. On the side are some strange runes.
 ~
 D0
 More blood
@@ -1694,11 +1637,9 @@ More blood
 Z 0 14013
 S
 #14015
-@eng On the lake of fire@rus Огненное озеро~
-@eng You are upon a vast lake of fire burning with brimstone. About
+On the lake of fire~
+You are upon a vast lake of fire burning with brimstone. About
 you the wrath of God is visited upon the sinful.
-@rus Ты стоишь прямо посреди озера яростного пламени, а вокруг
-тебя находятся грешники, дождавшиеся-таки кары небесной.
 ~
 0 0 noswim
 D0
@@ -1718,11 +1659,9 @@ The corner of the world
 Z 0 14001
 S
 #14016
-@eng On the lake of fire@rus Огненное озеро~
-@eng You are upon a vast lake of fire burning with brimstone. About
+On the lake of fire~
+You are upon a vast lake of fire burning with brimstone. About
 you the wrath of God is visited upon the sinful.
-@rus Ты стоишь прямо посреди озера яростного пламени, а вокруг
-тебя находятся грешники, дождавшиеся-таки кары небесной.
 ~
 0 0 noswim
 D1
@@ -1742,13 +1681,10 @@ Lake of fire
 Z 0 14015
 S
 #14017
-@eng The plagued lands@rus Зачумленная земля~
-@eng You walk through the wreteched, fetid wreak of the plagued lands.
+The plagued lands~
+You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
-@rus Вокруг тебя раскинулись однажды покрытые сочной зеленой
-травой, а теперь безжизненные зачумленные земли. Ты видишь,
-как мухи откладывают яйца прямо в плоть умирающих людей.
 ~
 0 C desert
 D0
@@ -1768,13 +1704,10 @@ Lake of fire
 Z 0 14016
 S
 #14018
-@eng The plagued lands@rus Зачумленная земля~
-@eng You walk through the wreteched, fetid wreak of the plagued lands.
+The plagued lands~
+You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
-@rus Вокруг тебя раскинулись однажды покрытые сочной зеленой
-травой, а теперь безжизненные зачумленные земли. Ты видишь,
-как мухи откладывают яйца прямо в плоть умирающих людей.
 ~
 0 0 desert
 D0
@@ -1799,13 +1732,10 @@ The plagued lands
 Z 0 14017
 S
 #14019
-@eng The plagued lands@rus Зачумленная земля~
-@eng You walk through the wreteched, fetid wreak of the plagued lands.
+The plagued lands~
+You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
-@rus Вокруг тебя раскинулись однажды покрытые сочной зеленой
-травой, а теперь безжизненные зачумленные земли. Ты видишь,
-как мухи откладывают яйца прямо в плоть умирающих людей.
 ~
 0 0 desert
 D0
@@ -1825,14 +1755,10 @@ The plagued lands
 Z 0 14018
 S
 #14020
-@eng MaGog@rus Ма-Гог~
-@eng You are in Satan's city of MaGog. About you writhe and covort sinners in
+MaGog~
+You are in Satan's city of MaGog. About you writhe and covort sinners in
 a final frolic before destruction.Refuse and ofcol are the perfume of the city. 
 Deterioration and decay claim every building you view.
-@rus Ты попал в Ма-Гог, город Сатаны. Корчащиеся от боли грешники
-заполняют улицы, очевидно, полагая, что эти полуразрушенные стены
-и провонявший отбросами воздух способны защитить их и оттянуть
-окончательное уничтожение.
 ~
 0 0 city
 D0
@@ -1852,14 +1778,10 @@ MaGog
 Z 0 14006
 S
 #14021
-@eng MaGog@rus Ма-Гог~
-@eng You are in Satan's city of MaGog. About you writhe and covort sinners in
+MaGog~
+You are in Satan's city of MaGog. About you writhe and covort sinners in
 a final frolic before destruction.Refuse and ofcol are the perfume of the city. 
 Deterioration and decay claim every building you view.
-@rus Ты попал в Ма-Гог, город Сатаны. Корчащиеся от боли грешники
-заполняют улицы, очевидно, полагая, что эти полуразрушенные стены
-и провонявший отбросами воздух способны защитить их и оттянуть
-окончательное уничтожение.
 ~
 0 0 city
 D0
@@ -1884,16 +1806,12 @@ MaGog
 Z 0 14020
 S
 #14022
-@eng MaGog@rus Ма-Гог~
-@eng You are in Satan's city of MaGog. About you writhe and covort sinners in
+MaGog~
+You are in Satan's city of MaGog. About you writhe and covort sinners in
 a final frolic before destruction.Refuse and ofcol are the perfume of the city. 
 Deterioration and decay claim every building you view. South of you
 is the 'Synagogue of Satan' where people claiming to be Jews fornicate
 and eat food sacrificed to idols.
-@rus Ты попал в Ма-Гог, город Сатаны. Корчащиеся от боли грешники
-заполняют улицы, очевидно, полагая, что эти полуразрушенные стены
-и провонявший отбросами воздух способны защитить их и оттянуть
-окончательное уничтожение.
 ~
 0 0 city
 D0
@@ -1918,14 +1836,10 @@ MaGog
 Z 0 14021
 S
 #14023
-@eng MaGog@rus Ма-Гог~
-@eng You are in Satan's city of MaGog. About you writhe and covort sinners in
+MaGog~
+You are in Satan's city of MaGog. About you writhe and covort sinners in
 a final frolic before destruction.Refuse and ofcol are the perfume of the city. 
 Deterioration and decay claim every building you view.
-@rus Ты попал в Ма-Гог, город Сатаны. Корчащиеся от боли грешники
-заполняют улицы, очевидно, полагая, что эти полуразрушенные стены
-и провонявший отбросами воздух способны защитить их и оттянуть
-окончательное уничтожение.
 ~
 0 0 city
 D0
@@ -1950,16 +1864,11 @@ MaGog
 Z 0 14022
 S
 #14024
-@eng MaGog@rus Ма-Гог~
-@eng You are in Satan's city of MaGog. About you writhe and covort sinners in
+MaGog~
+You are in Satan's city of MaGog. About you writhe and covort sinners in
 a final frolic before destruction.Refuse and ofcol are the perfume of the city. 
 Deterioration and decay claim every building you view. A Nicolaitane walks
 by- why dont you stone him?
-@rus Ты попал в Ма-Гог, город Сатаны. Корчащиеся от боли грешники
-заполняют улицы, очевидно, полагая, что эти полуразрушенные стены
-и провонявший отбросами воздух способны защитить их и оттянуть
-окончательное уничтожение. Николайтэйн проходит мимо - почему
-бы тебе не забросать его камнями?
 ~
 0 0 city
 D0
@@ -1980,12 +1889,8 @@ Z 0 14023
 S
 #14025
 The many waters~
-@eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
+You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
-@rus Безбрежное море крови окружает тебя со всех сторон. Стервятники
-парят высоко в красном небе, высматривая падаль, и остовы тысяч
-разбитых кораблей торчат над поверхностью, символизируя собой об-
-реченность.
 ~
 0 0 noswim
 D0
@@ -2006,12 +1911,8 @@ Z 0 14011
 S
 #14026
 The many waters~
-@eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
+You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
-@rus Безбрежное море крови окружает тебя со всех сторон. Стервятники
-парят высоко в красном небе, высматривая падаль, и остовы тысяч
-разбитых кораблей торчат над поверхностью, символизируя собой об-
-реченность.
 ~
 0 0 noswim
 D0

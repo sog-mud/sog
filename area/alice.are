@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Wonderland~
 VNUMs 21000 21099
 Credits Yaegar~
@@ -1625,10 +1625,14 @@ watch. You are inspired to investigate!
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 9101
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21001
 S
 #21001
@@ -1641,6 +1645,8 @@ sense something magical about it...
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21000
 S
 #21002
@@ -1654,6 +1660,8 @@ that it will cause you any injury upon impact.
 D5
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21003
 S
 #21003
@@ -1668,10 +1676,14 @@ why.
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21004
 D4
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21002
 S
 #21004
@@ -1684,10 +1696,14 @@ disappearing around a corner just up ahead.
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21005
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21003
 S
 #21005
@@ -1701,10 +1717,14 @@ the edge of a pool to the far north.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21006
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21004
 S
 #21006
@@ -1717,15 +1737,21 @@ looks like a pool of salty water.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21007
 D1
 You see a small golden door partially obscured by a curtain.
 ~
 curtain golden~
+the curtain~
+none~
 ABCDZ 21013 21012
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21005
 S
 #21007
@@ -1739,14 +1765,20 @@ phenomenon.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21010
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21006
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21008
 S
 #21008
@@ -1760,10 +1792,14 @@ phenomenon.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21009
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21007
 S
 #21009
@@ -1777,10 +1813,14 @@ phenomenon.
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21010
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21008
 S
 #21010
@@ -1793,14 +1833,20 @@ running about madly, and your curiosity is aroused.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21011
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21007
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21009
 S
 #21011
@@ -1813,6 +1859,8 @@ though determining a winner is rather difficult.
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21010
 S
 #21012
@@ -1825,10 +1873,14 @@ at you quizzically.
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21013
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABCDZ 21013 21006
 S
 #21013
@@ -1843,14 +1895,20 @@ D0
 The door has a plate that reads- W. RABBIT.
 ~
 door~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 21014
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21019
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21012
 S
 #21014
@@ -1865,18 +1923,26 @@ A set of stairs leads up to the second floor.
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 21018
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 21013
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 21015
 D4
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21016
 S
 #21015
@@ -1890,6 +1956,8 @@ hat.
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 21014
 S
 #21016
@@ -1909,10 +1977,14 @@ you weren't Mary Ann, and has called in for some help.
 D4
 ~
 chimney fireplace~
+the chimney~
+none~
 Z -1 21017
 D5
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21014
 S
 #21017
@@ -1925,6 +1997,8 @@ screaming for the house to be burnt down. They are trying to kill you!
 D5
 ~
 chimney fireplace~
+the chimney~
+none~
 Z -1 21016
 S
 #21018
@@ -1937,10 +2011,14 @@ rabbit shouting something from outside.
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21019
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 21014
 S
 #21019
@@ -1955,14 +2033,20 @@ appointment.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21018
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21020
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21013
 S
 #21020
@@ -1975,10 +2059,14 @@ continues around it to the east.
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21021
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21019
 S
 #21021
@@ -1991,14 +2079,20 @@ continues into the wood to the east and west.
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21024
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21020
 D4
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21022
 S
 #21022
@@ -2011,10 +2105,14 @@ of several broad branches.
 D4
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21023
 D5
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21021
 S
 #21023
@@ -2028,6 +2126,8 @@ and cleansing you. A bird's nest rests in the canopy near your head.
 D5
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21022
 S
 #21024
@@ -2040,10 +2140,14 @@ that direction.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21025
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21021
 S
 #21025
@@ -2056,10 +2160,14 @@ you to see a small field surrounding the house.
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21026
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21024
 S
 #21026
@@ -2073,14 +2181,20 @@ strong odor of pepper, emanating from within.
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21030
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 21027
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21025
 S
 #21027
@@ -2094,14 +2208,20 @@ at the feet of the duchess, and its smirk unsettles you
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 21026
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ -1 21029
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ -1 21028
 S
 #21028
@@ -2112,6 +2232,8 @@ This is the sleeping quarters of the cook. It is currently empty.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 21027
 S
 #21029
@@ -2123,6 +2245,8 @@ child.
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 21027
 S
 #21030
@@ -2133,10 +2257,14 @@ The path bends away from the field, heading back north into the wood.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21031
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21026
 S
 #21031
@@ -2148,10 +2276,14 @@ point a large tree grows near the center of the T. You approach cautiously.
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21032
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21030
 S
 #21032
@@ -2166,15 +2298,21 @@ D0
 In this direction lives the March Hare!
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21033
 D2
 In this direction lives the Mad Hatter!
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21037
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21031
 S
 #21033
@@ -2185,10 +2323,14 @@ You are standing outside the March Hare's House. It appears to be deserted...
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABCZ 0 21034
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21032
 S
 #21034
@@ -2202,14 +2344,20 @@ progress.
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21036
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 21033
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21035
 S
 #21035
@@ -2223,6 +2371,8 @@ progress.
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21034
 S
 #21036
@@ -2236,6 +2386,8 @@ progress.
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21034
 S
 #21037
@@ -2248,14 +2400,20 @@ about. Every now and again they stand up, change places and sit down again.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21032
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21041
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 21038
 S
 #21038
@@ -2268,14 +2426,20 @@ adjoining this one, both of them equally packed.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 21037
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21040
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21039
 S
 #21039
@@ -2288,6 +2452,8 @@ one...
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21038
 S
 #21040
@@ -2300,6 +2466,8 @@ one...
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21038
 S
 #21041
@@ -2312,6 +2480,8 @@ which you can proceed...
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21037
 S
 #21042
@@ -2326,6 +2496,8 @@ way onwards.
 D1
 ~
 curtain golden~
+the curtain~
+none~
 ABZ 0 21043
 S
 #21043
@@ -2339,10 +2511,14 @@ white rose bush red...
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21044
 D3
 ~
 curtain golden~
+the curtain~
+none~
 ABZ 0 21042
 S
 #21044
@@ -2356,18 +2532,26 @@ playing cards bent double. How peculiar!
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21045
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21049
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21047
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21043
 S
 #21045
@@ -2381,14 +2565,20 @@ playing cards bent double. How peculiar!
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21046
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21050
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21044
 S
 #21046
@@ -2402,10 +2592,14 @@ playing cards bent double. How peculiar!
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21051
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21045
 S
 #21047
@@ -2419,10 +2613,14 @@ playing cards bent double. How peculiar!
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21044
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21048
 S
 #21048
@@ -2436,14 +2634,20 @@ playing cards bent double. How peculiar!
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21049
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21055
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21047
 S
 #21049
@@ -2457,18 +2661,26 @@ playing cards bent double. How peculiar!
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21050
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21054
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21048
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21044
 S
 #21050
@@ -2482,18 +2694,26 @@ playing cards bent double. How peculiar!
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21051
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21053
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21049
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21045
 S
 #21051
@@ -2509,18 +2729,26 @@ To the north there is a courthouse.
 D0
 ~
 courthouse~
+the courthouse~
+none~
 ABZ -1 21059
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21052
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21050
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21046
 S
 #21052
@@ -2534,10 +2762,14 @@ playing cards bent double. How peculiar!
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21053
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21051
 S
 #21053
@@ -2551,18 +2783,26 @@ playing cards bent double. How peculiar!
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21052
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21056
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21054
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21050
 S
 #21054
@@ -2576,14 +2816,20 @@ playing cards bent double. How peculiar!
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21053
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21055
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21049
 S
 #21055
@@ -2597,10 +2843,14 @@ playing cards bent double. How peculiar!
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21054
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21048
 S
 #21056
@@ -2612,10 +2862,14 @@ the sea is in the air, and a brisk northerly breeze invigorates you.
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21057
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21053
 S
 #21057
@@ -2628,10 +2882,14 @@ to and from their rocky aeries.
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21058
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21056
 S
 #21058
@@ -2644,6 +2902,8 @@ to and from their rocky aeries.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21057
 S
 #21059
@@ -2655,18 +2915,26 @@ for the trial of the Knave of Hearts, who stole the Queen's tarts.
 D0
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21062
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21061
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 ABZ 0 21051
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21060
 S
 #21060
@@ -2679,6 +2947,8 @@ futile process.
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21059
 S
 #21061
@@ -2691,6 +2961,8 @@ ignored or shouted down.
 D3
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21059
 S
 #21062
@@ -2702,10 +2974,14 @@ throne where the judge (the King) sits.
 D2
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21059
 D4
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21063
 S
 #21063
@@ -2717,6 +2993,8 @@ finished pardoning the players the Queen condemned to death (all of them).
 D5
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z -1 21062
 S
 #0
@@ -3227,8 +3505,7 @@ trigger code by the coders at AnonyMud!
 
 Enjoy!
 
-Yaegar, October 1996.
-~
+Yaegar, October 1996.~
 -1 $~
 
 #$

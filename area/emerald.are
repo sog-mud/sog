@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Emerald Forest~
 Builders dias~
 VNUMs 200 299
@@ -2594,7 +2594,7 @@ magic.  It is surrounded by an aura of goodness.
 g @eng none@rus male~
 #227
 sandstone altar алтарь песчаник~
-@eng an ancient sandstone altar@rus старый ~~алтарь~~ из песчаника~
+@eng an ancient sandstone altar@rus ~~старый~~ ~~алтарь~~ из песчаника~
 @eng An ancient sandstone altar sits here, weathering all time.@rus Древний алтарь стоит здесь, наперекор времени.~
 stone~
 treasure I 0 0
@@ -2607,17 +2607,24 @@ sandstone altar алтарь песчаник~
 ~
 g none~
 #228
-bole~
-a bole~
+bole ствол~
+@eng a bole@rus дупло~
 ~
 wood~
 container 0 0 0
 2 0 0 0 0
 30 100000 1000 A
 E
-bole~
-You see miniature furniture inside the bole of this tree.  This could
+hole дупло~
+@eng You see miniature furniture inside the bole of this tree. This could
 very well be the home of a fairy, or a house-proud squirrel.
+@rus Маленькая мебель аккуратно расставлена внутри этого дупла. Тут, видно
+живет или фейри, или очень хозяйственная белка.
+~
+E
+bole ствол~
+@eng You see a hole in a bole.
+@rus Ты видишь дупло в стволе на уровне твоего роста.
 ~
 g none~
 #229
@@ -3620,12 +3627,16 @@ Nigel Poh
 D1
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 3511
 D4
 @eng The Haunted Pine Forest lies above.
 @rus Выше начинается сосновый лес.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 202
 S
 #202
@@ -3649,12 +3660,16 @@ D4
 @rus Поднимаясь дальше вверх, ты достигнешь вершины.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 203
 D5
 @eng You see a fog shrouded trail.
 @rus Туман скрывает тропинку, идущую вниз.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 201
 S
 #203
@@ -3675,12 +3690,16 @@ D2
 @rus Глядя на юг, ты замечаешь узкое ущелье.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 204
 D5
 @eng The Haunted Pine forest is below.
 @rus Тропинка, идущая вниз, скрывается в сосновом лесу.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 202
 S
 #204
@@ -3699,18 +3718,24 @@ D0
 @rus Вершина горы величественно возвышается над тобой.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 203
 D2
 @eng A mountain pass lies there.
 @rus Ущелье лежит к югу отсюда.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 205
 D5
 @eng You don't see anything there.
 @rus Ты не видишь ничего особенного.
 ~
 secret~
+@eng the secret@rus секретная дверь~
+@eng none@rus female~
 ABZ 0 297
 S
 #205
@@ -3730,12 +3755,16 @@ D0
 @rus Ты видишь узкое ущелье.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 204
 D3
 @eng Westwards is a thickly-wooded dell.
 @rus На запад тропинка уходит в лощину, густо заросшую деревьями.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 206
 S
 #206
@@ -3758,18 +3787,24 @@ D1
 @rus Ты видишь тропинку, уходящую в ущелье в горах.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 205
 D2
 @eng You can make out a Signpost of sort in that direction.
 @rus Указатель виден вдалеке, но отсюда невозможно разглядеть надписи на нем.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 207
 D3
 @eng The road to Clover lies to the west.
 @rus Заросшая клевером долина видна на западе.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 209
 S
 #207
@@ -3805,24 +3840,32 @@ D0
 @rus Заросшая лощина видна на севере.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 206
 D1
 @eng A well-used trail through the forest lies to the east.
 @rus Тропинка убегает в лес к востоку. Судя по следам, по ней часто ходят.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 233
 D2
 @eng The Emerald Forest!
 @rus Изумрудный лес приглашает войти.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 231
 D3
 @eng You see a Fae Crossing.
 @rus Дорога к фейри.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 208
 S
 #208
@@ -3846,12 +3889,16 @@ D1
 @rus Вдалеке виден столб-указатель.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 207
 D2
 @eng Dark Woods!
 @rus Темный лес. Очень темный.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 230
 S
 #209
@@ -3873,12 +3920,16 @@ D0
 @rus Впереди ты видишь маленькую деревушку.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 210
 D1
 @eng You see a thickly wooded Dell.
 @rus Заросшая лощина скрывает троинку на востоке.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 206
 S
 #210
@@ -3900,18 +3951,24 @@ D0
 @rus Деревенская площадь видна на севере.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 213
 D1
 @eng The Green Hillock is to the East.
 @rus Тропинка взбирается по небольшому зеленому холмику.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 211
 D2
 @eng The road leading out of Clover is there.
 @rus Пойдя на юг, ты покинешь эту чудесную деревушку.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 209
 S
 #211
@@ -3936,12 +3993,16 @@ D0
 @rus Ничего особенного. Пригорок и пригорок.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 212
 D3
 @eng The road to Clover is to the West.
 @rus Дорога в Клеверякино лежит на запад.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 210
 S
 #212
@@ -3967,6 +4028,8 @@ D2
 @rus Там видна лужайка на склонах зеленого холма.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 211
 S
 #213
@@ -3990,18 +4053,24 @@ D0
 @rus Впереди видна ферма.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 216
 D2
 @eng You see a path leading out of the villlage.
 @rus Дорога из деревни лежит на юг.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 210
 D3
 @eng You see an old dirt track.
 @rus Старая дорога уходит на запад.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 214
 S
 #214
@@ -4020,12 +4089,16 @@ D0
 @rus Старая дорога поворачивает на север.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 215
 D1
 @eng The village square is to the east.
 @rus Вдалеке ты видишь разноцветные домики Клеверякино.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 213
 S
 #215
@@ -4041,12 +4114,16 @@ D0
 @rus Огромный, но почти разрушенный монастырь виден впереди.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 288
 D2
 @eng The old dirt track continues south.
 @rus Старая дорога ведет на юг.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 214
 S
 #216
@@ -4084,6 +4161,8 @@ D2
 @rus Деревенская площадь шумит на юге.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 213
 S
 #217
@@ -4106,18 +4185,24 @@ D0
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 218
 D2
 @eng You see the entrance of witch wood to the south.
 @rus На юге, кажется, становится чуть светлее. Может, это выход?
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 229
 D3
 @eng More eerie woods!
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 227
 S
 #218
@@ -4140,12 +4225,16 @@ D2
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 217
 D3
 @eng You see an altar ahead.
 @rus Странный алтарь виден среди деревьев.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 219
 S
 #219
@@ -4167,24 +4256,32 @@ D0
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 220
 D1
 @eng More eerie woods!
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 218
 D2
 @eng More eerie woods!
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 227
 D3
 @eng More eerie woods!
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 225
 S
 #220
@@ -4207,18 +4304,24 @@ D1
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 221
 D2
 @eng You see an altar ahead.
 @rus Странный алтар виден среди деревьев.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 219
 D3
 @eng More eerie woods!
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 222
 S
 #221
@@ -4241,6 +4344,8 @@ D3
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 220
 S
 #222
@@ -4263,24 +4368,32 @@ D0
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 223
 D1
 @eng More eerie woods!
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 220
 D2
 @eng More eerie woods!
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 225
 D3
 @eng You see a broken jetty ahead.
 @rus Разрушенная плотина видна за зарослями тростника.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 295
 S
 #223
@@ -4305,12 +4418,16 @@ D1
 @rus Три темные фигуры стоят там.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 224
 D2
 @eng More eerie woods!
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 222
 S
 #224
@@ -4338,6 +4455,8 @@ D3
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 223
 S
 #225
@@ -4360,18 +4479,24 @@ D0
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 222
 D1
 @eng You see an altar ahead.
 @rus Странный алтарь виден среди деревьев.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 219
 D2
 @eng More eerie woods!
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 226
 S
 #226
@@ -4394,18 +4519,24 @@ D0
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 225
 D1
 @eng More eerie woods!
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 227
 D2
 @eng More eerie woods!
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 294
 S
 #227
@@ -4428,24 +4559,32 @@ D0
 @rus Странный алтар виден среди деревьев.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 219
 D1
 @eng More eerie woods!
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 217
 D2
 @eng More eerie woods!
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 228
 D3
 @eng More eerie woods!
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 226
 S
 #228
@@ -4468,24 +4607,32 @@ D0
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 227
 D1
 @eng You see the entrance of witch wood to the east.
 @rus На востоке виден какой-то просвет, может быть это выход?
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 229
 D2
 @eng More Dead Moors!
 @rus Мертвые болота источают зловония...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 293
 D3
 @eng More eerie woods!
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 294
 S
 #229
@@ -4508,18 +4655,24 @@ D0
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 217
 D1
 @eng Dark woods!
 @rus Тропинка скрывается в темном лесу.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 230
 D3
 @eng More eerie woods!
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 228
 S
 #230
@@ -4585,18 +4738,24 @@ D0
 @rus Странный перекресток виден неподалеку.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 208
 D2
 @eng A Forest Road
 @rus Тропинка становится шире и светлее.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 248
 D3
 @eng You see the entrance of witch wood to the west.
 @rus Вход в Ведьмин лес.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 229
 S
 #231
@@ -4618,18 +4777,24 @@ D0
 @rus Впереди ты видишь указатель.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 207
 D1
 @eng The Emerald Forest!
 @rus Изумрудный лес во всей красе стоит перед тобою.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 232
 D2
 @eng The Emerald Forest!
 @rus Изумрудный лес во всей красе стоит перед тобою.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 247
 S
 #232
@@ -4651,18 +4816,24 @@ D0
 @rus Ухоженная тропка уходит на север.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 233
 D2
 @eng The Emerald Forest!
 @rus Изумрудный лес во всей красе стоит перед тобою.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 237
 D3
 @eng The Emerald Forest!
 @rus Изумрудный лес во всей красе стоит перед тобою.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 231
 S
 #233
@@ -4682,18 +4853,24 @@ D1
 @rus Застава хранителей леса видна на востоке.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 234
 D2
 @eng The Emerald Forest!
 @rus Изумрудный лес во всей красе стоит перед тобою.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 232
 D3
 @eng A sigh post lies there.
 @rus Ты видишь указатель.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 207
 S
 #234
@@ -4716,24 +4893,32 @@ D0
 @rus Хижина мастера-лесника.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 235
 D1
 @eng Smokey's Supplies is to the east.
 @rus Магазин Смоки.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 236
 D2
 @eng A wood-keeper's cabin is to the south.
 @rus Хижины хранителей леса.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 296
 D3
 @eng A well-used trail through the forest lies there.
 @rus Протоптанная тропка убегает на запад.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 233
 S
 #235
@@ -4755,6 +4940,8 @@ D2
 @rus Застава хранителей леса видна чуть южнее.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 234
 S
 #236
@@ -4789,6 +4976,8 @@ D3
 @rus Застава хранителей леса видна чуть западнее.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 234
 S
 #237
@@ -4810,24 +4999,32 @@ D0
 @rus Изумрудный лес!
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 232
 D1
 @eng The Emerald Forest!
 @rus Изумрудный лес!
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 238
 D2
 @eng The Emerald Forest!
 @rus Изумрудный лес!
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 245
 D3
 @eng The Emerald Forest!
 @rus Изумрудный лес!
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 247
 S
 #238
@@ -4855,12 +5052,16 @@ D1
 @rus Высокое раскидистое дерево стоит на востоке.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 239
 D3
 @eng The Emerald Forest!
 @rus Изумрудный лес!
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 237
 S
 #239
@@ -4893,12 +5094,16 @@ D2
 @rus Волшебный холм виден на юге.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 243
 D3
 @eng The Emerald Forest!
 @rus Изумрудный лес!
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 238
 S
 #240
@@ -4925,6 +5130,8 @@ D2
 @rus Ручей течет на юг.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 241
 S
 #241
@@ -4945,17 +5152,23 @@ D0
 @rus Ручеек впадает в водоем на севере.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 240
 D2
 @eng A waterfall glade lies to the south.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 242
 D3
 @eng A faerie hill lies to the west.
 @rus Волшебный холм возвышается на западе.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 243
 S
 #242
@@ -4981,6 +5194,8 @@ D0
 @rus Ручей течет на север.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 241
 S
 #243
@@ -5003,24 +5218,32 @@ D0
 @rus Гигантское дерево стоит перед тобой.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 239
 D1
 @eng A stream flows to the east.
 @rus Поток воды звенит на востоке.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 241
 D2
 @eng A Woodland Trail.
 @rus Лесная тропа, извиваясь, уходит на юг.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 261
 D3
 @eng You see a three-way junction to the west.
 @rus Перекресток виден на западе.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 244
 S
 #244
@@ -5041,18 +5264,24 @@ D1
 @rus Магический холм возвышается на востоке.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 243
 D2
 @eng The Emerald Forest!
 @rus Изумрудный лес!
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 262
 D3
 @eng The Emerald Forest!
 @rus Изумрудный лес!
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 245
 S
 #245
@@ -5074,18 +5303,24 @@ D0
 @rus Изумрудный лес!
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 237
 D1
 @eng You see a three-way junction to the east.
 @rus Перекресток трех тропинок на востоке от тебя.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 244
 D3
 @eng You see a STUMP!
 @rus В этом лесу ты видишь... ПЕНЬ!
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 246
 S
 #246
@@ -5107,12 +5342,16 @@ D0
 @rus Изумрудный лес!
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 247
 D1
 @eng The Emerald Forest!
 @rus Изумрудный лес!
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 245
 S
 #247
@@ -5134,24 +5373,32 @@ D0
 @rus Изумрудный лес!
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 231
 D1
 @eng The Emerald Forest!
 @rus Изумрудный лес!
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 237
 D2
 @eng You see a STUMP!
 @rus В этом лесу ты видишь... ПЕНЬ!
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 246
 D3
 @eng A Forest Road
 @rus Тропка в лесу
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 248
 S
 #248
@@ -5171,18 +5418,24 @@ D0
 @rus Темный лес...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 230
 D1
 @eng More Emerald Forest!
 @rus Изумрудный лес.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 247
 D2
 @eng A Forest Road.
 @rus Лесная дорога идет на юг.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 255
 S
 #249
@@ -5203,12 +5456,16 @@ D2
 @rus Мертвые болота источают зловония...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 250
 D3
 @eng More Dead Moors!
 @rus Мертвые болота источают зловония...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 293
 S
 #250
@@ -5229,18 +5486,24 @@ D0
 @rus Мертвые болота источают зловония...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 249
 D2
 @eng You see a hill in the marsh.
 @rus Небольшой холм посреди болота кажется надежным местом.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 253
 D3
 @eng More Dead Moors!
 @rus Мертвые болота источают зловония...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 251
 S
 #251
@@ -5261,24 +5524,32 @@ D0
 @rus Мертвые болота источают зловония...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 293
 D1
 @eng More Dead Moors!
 @rus Мертвые болота источают зловония...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 250
 D2
 @eng More Dead Moors!
 @rus Мертвые болота источают зловония...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 252
 D3
 @eng More Dead Moors!
 @rus Мертвые болота источают зловония...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 291
 S
 #252
@@ -5299,12 +5570,16 @@ D0
 @rus Мертвые болота источают зловония...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 251
 D1
 @eng You see a hill in the marsh.
 @rus Холм посреди болота кажется надежным местом.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 253
 S
 #253
@@ -5326,12 +5601,16 @@ D0
 @rus Мертвые болота источают зловония...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 250
 D3
 @eng More Dead Moors!
 @rus Мертвые болота источают зловония...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 252
 S
 #254
@@ -5351,12 +5630,16 @@ D0
 @rus Дорога продолжается на север.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 255
 D2
 @eng A trail lies to the south.
 @rus Дорога продолжается на юг.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 256
 S
 #255
@@ -5376,12 +5659,16 @@ D0
 @rus Лесная дорога продолжается на север.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 248
 D2
 @eng A Forest Road.
 @rus Лесная дорога продолжается на юг.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 254
 S
 #256
@@ -5403,18 +5690,24 @@ D0
 @rus Лесная дорога.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 254
 D1
 @eng You see a shady bridge.
 @rus Тенистый мост
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 257
 D2
 @eng A woodland trail lies to the south.
 @rus Тропинка бежит по лесу на юг.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 270
 S
 #257
@@ -5441,12 +5734,16 @@ D1
 @rus Тропинка идет по мосту
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 258
 D3
 @eng You see a trail.
 @rus Тропинка уходит в лес.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 256
 S
 #258
@@ -5471,12 +5768,16 @@ D1
 @rus Дорожка скрывается в лесу на востоке.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 259
 D3
 @eng You see a shady bridge.
 @rus Тенистый мост перед тобой.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 257
 S
 #259
@@ -5501,24 +5802,32 @@ D0
 @rus Изумрудный лес!
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 262
 D1
 @eng A dense path lies to the east.
 @rus Тропинка идет в густые заросли.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 260
 D2
 @eng You see a ragged trail.
 @rus Петляя, тропа идет на юг.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 267
 D3
 @eng A shady bridge lies to the west.
 @rus Деревянный мост стоит к западу от тебя.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 258
 S
 #260
@@ -5540,18 +5849,24 @@ D0
 @rus Тропинка в лесу.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 261
 D2
 @eng A clearing opens to the south.
 @rus На юге видна небольшая поляна
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 266
 D3
 @eng You see a woodland trail there.
 @rus Тропинка в лесу.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 259
 S
 #261
@@ -5568,12 +5883,16 @@ D0
 @rus Волщебный холм возвышается на севере.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 243
 D2
 @eng A dense path is to the south.
 @rus Густые заросли скрывают тропинку на юге.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 260
 S
 #262
@@ -5595,18 +5914,24 @@ D0
 @rus Перекресток тропинок на севере от тебя.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 244
 D2
 @eng A woodland trail is to the south.
 @rus Лесная тропка бежит на юг.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 259
 D3
 @eng The Emerald Forest!
 @rus Изумрудный лес!
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 263
 S
 #263
@@ -5629,12 +5954,16 @@ D1
 @rus Изумрудный лес!
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 262
 D3
 @eng A woody copse is to the west.
 @rus Молодая поросль деревьев на западе от тебя.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 264
 S
 #264
@@ -5657,10 +5986,14 @@ D1
 @rus Изумрудный лес!
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 263
 D4
 ~
 secret~
+@eng the secret@rus секретная дверь~
+@eng none@rus female~
 ABZ 0 265
 S
 #265
@@ -5681,6 +6014,8 @@ another book lies half-read on the floor.
 D5
 ~
 secret секрет~
+@eng the secret@rus секретная дверь~
+@eng none@rus female~
 ABZ 0 264
 S
 #266
@@ -5706,12 +6041,16 @@ D0
 @rus Густые заросли видны на севере.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 260
 D3
 @eng A ragged trail lies westwards.
 @rus Тропинка петляет, уходя на запад.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 267
 S
 #267
@@ -5735,24 +6074,32 @@ D0
 @rus Лесная тропинка уходит на север.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 259
 D1
 @eng A small clearing opens eastwards.
 @rus Маленькая полянка впереди.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 266
 D2
 @eng You see the south-easterly end of the forest.
 @rus На юго-востоке ты видишь выход из леса.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 284
 D3
 @eng You see a bunch of pixies and brownies in a game.
 @rus Брауни и пикси веселятся, играя.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 268
 S
 #268
@@ -5776,18 +6123,24 @@ D1
 @rus Тропинка петляет, уходя на восток.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 267
 D2
 @eng The south-east end of the Bonanza is there.
 @rus Фестиваль.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 283
 D3
 @eng You see a fairly large clearing to the west.
 @rus Достаточно большая поляна.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 269
 S
 #269
@@ -5811,18 +6164,24 @@ D1
 @rus Брауни и пикси развлекаются какой-то игрой.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 268
 D2
 @eng The south-west end of the pixie bonanza is there.
 @rus Край фестивального поля.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 281
 D3
 @eng You see a three way woodland ahead.
 @rus Перекресток трех дорог.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 270
 S
 #270
@@ -5843,18 +6202,24 @@ D0
 @rus Тропинка уходит на север.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 256
 D1
 @eng You see a fairly large clearing to the east.
 @rus Ты видишь большую поляну.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 269
 D3
 @eng A forest trail lies to the west.
 @rus Тропинка уходит на запад.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 271
 S
 #271
@@ -5877,18 +6242,24 @@ D0
 @rus Огромное дерево стоит на твоем пути.
 ~
 tree~
+the tree~
+none~
 ABZ 0 253
 D1
 @eng You see a three way woodland to the east.
 @rus Впереди видна развилка.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 270
 D2
 @eng A lovely trail lies south.
 @rus Тропинка идет по очаровательным местам.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 273
 S
 #272
@@ -5911,12 +6282,16 @@ D1
 @rus Лесная тропинка проходит с севера на юг.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 273
 D2
 @eng You see a small tombstone to the south.
 @rus Ты видишь небольшую могилку.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 274
 S
 #273
@@ -5941,18 +6316,24 @@ D0
 @rus Лесная тропинка бежит на север.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 271
 D2
 @eng You see a wood-path.
 @rus На юге ты видишь протоптанный путь.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 275
 D3
 @eng A forest path lies to the west.
 @rus На запад идет едва заметная тропинка.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 272
 S
 #274
@@ -6001,12 +6382,16 @@ D0
 @rus Почти незаметная тропинка находится к северу от тебя.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 272
 D1
 @eng You see a wood-path.
 @rus Дорожка проходит по лесу на востоке.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 275
 S
 #275
@@ -6031,18 +6416,24 @@ D0
 @rus Маленькая тропинка бежит на север.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 273
 D2
 @eng You see a clearing.
 @rus На юге видна небольшая поляна.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 276
 D3
 @eng You see a tombstone.
 @rus Ты видишь небольшую могилку на западе.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 274
 S
 #276
@@ -6134,12 +6525,16 @@ D0
 @rus Лесная тропинка вьется между деревьями.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 275
 D1
 @eng Some green vines lies to the east.
 @rus Зеленая лоза почти перегораживает тропинку.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 277
 S
 #277
@@ -6163,18 +6558,24 @@ D0
 @rus Ты видишь залитую солнцем рощицу.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 278
 D1
 @eng The border of the forest lies east.
 @rus Край леса на востоке приглашает войти.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 279
 D3
 @eng You see a clearing.
 @rus Громкий веселый разговор слышен с поляны на западе.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 276
 S
 #278
@@ -6201,6 +6602,8 @@ D2
 @rus Тропинка упирается в стену из лиан.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 277
 S
 #279
@@ -6222,12 +6625,16 @@ D0
 @rus Ничего особенного. Лес как лес.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 280
 D3
 @eng You see thick green vines in the yonder.
 @rus Непроходимая зеленая стена тянется по левую руку от тропинки.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 277
 S
 #280
@@ -6250,18 +6657,24 @@ D0
 @rus Ничего особенного. Лес как лес.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 281
 D1
 @eng A clearing is to the east.
 @rus Вдалеке на востоке виден просвет.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 282
 D2
 @eng You see the southern border of the forest.
 @rus Недалеко южная граница леса.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 279
 S
 #281
@@ -6298,18 +6711,24 @@ D0
 @rus Достаточно большая поляна видна севере.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 269
 D1
 @eng The south-east end of the Bonanza is there.
 @rus Фестивальное поле продолжается на восток.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 283
 D2
 @eng You see nothing special there.
 @rus Ничего особенного.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 280
 S
 #282
@@ -6333,12 +6752,16 @@ D0
 @rus Великий Фестиваль проходит на поляне к северу от тебя.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 283
 D3
 @eng A wood area.
 @rus Лес.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 280
 S
 #283
@@ -6365,24 +6788,32 @@ D0
 @rus Пикси и брауни играют в какие-то странные салочки.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 268
 D1
 @eng You see the South-easterly end of the forest.
 @rus Выход из леса виден на юго-востоке.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 284
 D2
 @eng A clearing is to the south.
 @rus Поляна в лесу.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 282
 D3
 @eng The south-west end of the Bonanza is there.
 @rus Фестивальное поле.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 281
 S
 #284
@@ -6407,18 +6838,24 @@ D0
 @rus Тропинка петляет, уходя на север.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 267
 D1
 @eng You see a garden.
 @rus Ты видишь небольшой садик.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 285
 D3
 @eng A Bonanza!.
 @rus Фестиваль шумит и веселится.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 283
 S
 #285
@@ -6445,18 +6882,24 @@ D1
 @rus Каменистый водоем.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 286
 D2
 @eng You see somebody's house.
 @rus Домик.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 287
 D3
 @eng You see the southern end of the forest.
 @rus Край леса.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 284
 S
 #286
@@ -6481,6 +6924,8 @@ D3
 @rus Садик.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 285
 S
 #287
@@ -6565,6 +7010,8 @@ D0
 @rus Садик.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 285
 S
 #288
@@ -6590,12 +7037,16 @@ D2
 @rus Старая дорога ведет в Клеверякино.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 215
 D3
 @eng You see a huge chapel.
 @rus Старая, но не потерявшая красоты часовня стоит перед тобой.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 289
 S
 #289
@@ -6620,12 +7071,16 @@ D1
 @rus Огромный, но почти разрушенный монастырь стоит перед тобой.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 288
 D3
 @eng You see a knight in the distance.
 @rus Ты видишь одинокого рыцаря вдалеке.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 290
 S
 #290
@@ -6647,10 +7102,14 @@ D1
 @eng You see a chapel in the distance.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 289
 D4
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 3757
 S
 #291
@@ -6671,12 +7130,16 @@ D0
 @rus Мертвые болота источают зловония...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 292
 D1
 @eng More Dead Moors!
 @rus Мертвые болота источают зловония...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 251
 S
 #292
@@ -6700,18 +7163,24 @@ D0
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 294
 D1
 @eng More Dead Moors!
 @rus Мертвые болота источают зловония...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 293
 D2
 @eng More Dead Moors!
 @rus Мертвые болота источают зловония...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 291
 S
 #293
@@ -6731,24 +7200,32 @@ D0
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 228
 D1
 @eng More Dead Moors!
 @rus Мертвые болота источают зловония...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 249
 D2
 @eng More Dead Moors!
 @rus Мертвые болота источают зловония...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 251
 D3
 @eng More Dead Moors!
 @rus Мертвые болота источают зловония...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 292
 S
 #294
@@ -6771,18 +7248,24 @@ D0
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 226
 D1
 @eng More eerie woods!
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 228
 D2
 @eng More Dead Moors!
 @rus Мертвые болота источают зловония...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 292
 S
 #295
@@ -6802,6 +7285,8 @@ D1
 @rus Ужасный лес тянется бесконечно...
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 222
 S
 #296
@@ -6820,6 +7305,8 @@ D0
 @rus Застава хранителей леса на севере.
 ~
 ~
+@eng the door@rus дверь~
+@eng none@rus female~
 Z 0 234
 S
 #297
@@ -6842,6 +7329,8 @@ D3
 @rus Дверь придавлена огромным валуном.
 ~
 boulder~
+the boulder~
+none~
 ABZ 0 206
 S
 #298
@@ -6868,6 +7357,8 @@ D1
 @rus Дверь из красного дерева.
 ~
 rose-wood door дверь красная~
+the rose-wood~
+none~
 ABZ 0 299
 S
 #299
@@ -6899,6 +7390,8 @@ D3
 @rus Дверь красного дерева.
 ~
 rose-wood door дверь красная~
+the rose-wood~
+none~
 Z 0 298
 S
 #0
