@@ -1614,7 +1614,7 @@ wings demon black feather~
 wings of black demon feather~
 A huge pair of wings made from black demon feathers is here.~
 energy~
-trash CG 0 AI
+npc_corpse CG 0 AI
 0 0 0 0 0
 34 200 8 P
 f object hp 45 0

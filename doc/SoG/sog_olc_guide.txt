@@ -1,5 +1,5 @@
 #
-# $Id: sog_olc_guide.txt,v 1.7 2004-02-19 22:02:19 fjoe Exp $
+# $Id: sog_olc_guide.txt,v 1.8 2004-06-23 17:14:20 tatyana Exp $
 #
 
 Оглавление:
@@ -625,7 +625,8 @@ Type: команда 'type <object type>':
 	(может использоваться для красоты, особого смысла не несет),
 	portal -- портал, warp_stone -- ингредиент для nexus, room_key (не
 	используется), gem -- драгоценный камень, jewelry -- украшение,
-	jukebox -- автомат (играет песенки), book -- магическая книжка.
+	jukebox -- автомат (играет песенки), book -- магическая книжка,
+	herb -- травяная витаминка.
 
 Gender: команда 'gender all/eng/rus <gender>':
 	род объекта (female, male, plural, neutral, none = neutral).
