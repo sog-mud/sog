@@ -1,4 +1,5 @@
 #!/bin/sh
+# $Id: sog.sh,v 1.4.2.6 2001-01-18 12:00:17 avn Exp $
 
 #
 # determine our home

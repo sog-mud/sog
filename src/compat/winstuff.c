@@ -1,3 +1,4 @@
+/* $Id: winstuff.c,v 1.2.4.1 2001-01-18 12:00:18 avn Exp $ /
 #if defined (WIN32)
 
 #include <string.h>

@@ -1,4 +1,5 @@
 #!/bin/sh
+# $Id: backup.sh,v 1.1.2.4 2001-01-18 12:00:17 avn Exp $
 
 #
 # determine our home

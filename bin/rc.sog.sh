@@ -1,4 +1,6 @@
 #!/bin/sh
+# $Id: rc.sog.sh,v 1.1.2.2 2001-01-18 12:00:17 avn Exp $
+
 sog_home=/home/sog
 sog_sh=$sog_home/bin/sog.sh
 test -x $sog_sh || exit 1
