@@ -1,8 +1,9 @@
 /*
- * $Id: mob_random_girl_singer_3.mpc,v 1.1 2001-09-04 19:36:13 fjoe Exp $
+ * $Id: mob_random_girl_singer_3.mpc,v 1.2 2001-09-12 08:20:37 fjoe Exp $
  */
 
 dofun("emote", $n, "sings 'The stranger came from way out east'");
 dofun("emote", $n, "sings 'To magic wood to kill a beast,'");
 dofun("emote", $n, "sings 'His sole intent to have a feast,'");
 dofun("emote", $n, "sings 'Some fresh meat at the very least.'");
+return 0;

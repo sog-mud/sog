@@ -1,5 +1,5 @@
 /*
- * $Id: mob_greet_lothar_warrior.mpc,v 1.1 2001-09-04 19:36:11 fjoe Exp $
+ * $Id: mob_greet_lothar_warrior.mpc,v 1.2 2001-09-12 08:20:21 fjoe Exp $
  */
 
 if (is_good($N)) {
@@ -12,3 +12,4 @@ if (is_good($N)) {
         dofun("say", $n, "You must have an awesome reason to come here.");
         social_char("grin", $n, $N);
 }
+return 0;

@@ -1,5 +1,5 @@
 /*
- * $Id: obj_fight_armbands.mpc,v 1.1 2001-09-07 13:47:08 fjoe Exp $
+ * $Id: obj_fight_armbands.mpc,v 1.2 2001-09-12 08:20:44 fjoe Exp $
  */
 
 char victim = char_fighting($n);
@@ -10,3 +10,4 @@ act("$n's $p burns your face!", $n, $p, victim, TO_VICT);
 int dam = number_percent()/2 + 30 + 5 * char_level($n);
 damage($n, victim, dam, "burning hands", DAM_FIRE, DAMF_SHOW);
 fire_effect(victim, obj_level($p)/2, dam);
+return 0;

@@ -1,5 +1,6 @@
 /*
- * $Id: mob_greet_beggar.mpc,v 1.1 2001-09-02 16:05:17 fjoe Exp $
+ * $Id: mob_greet_beggar.mpc,v 1.2 2001-09-12 08:20:14 fjoe Exp $
  */
 
 act_say($n, "Beg $N! Spare some gold?", $N);
+return 0;

@@ -1,6 +1,7 @@
 /*
- * $Id: mob_look_queen_of_hearts.mpc,v 1.1 2001-09-01 18:56:22 fjoe Exp $
+ * $Id: mob_look_queen_of_hearts.mpc,v 1.2 2001-09-12 08:20:33 fjoe Exp $
  */
 
 tell_char($n, $N, "Off with YOUR head!");
 cast_char("black shroud", $n, $n);
+return 0;

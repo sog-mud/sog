@@ -1,5 +1,5 @@
 /*
- * $Id: obj_fight_golden_weapon.mpc,v 1.1 2001-09-07 13:47:09 fjoe Exp $
+ * $Id: obj_fight_golden_weapon.mpc,v 1.2 2001-09-12 08:20:45 fjoe Exp $
  */
 
 if (number_percent() < 4) {
@@ -11,3 +11,4 @@ if (number_percent() < 4) {
         act("$n's $p glows bright blue!", $n, $p, NULL, TO_ROOM);
         spellfun_call("cure serious wounds", NULL, char_level($n), $n, $n);
 }
+return 0;

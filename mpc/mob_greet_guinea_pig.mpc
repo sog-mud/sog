@@ -1,5 +1,6 @@
 /*
- * $Id: mob_greet_guinea_pig.mpc,v 1.1 2001-08-31 10:19:35 fjoe Exp $
+ * $Id: mob_greet_guinea_pig.mpc,v 1.2 2001-09-12 08:20:20 fjoe Exp $
  */
 
 dofun("emote", $n, "looks concerned.");
+return 0;

@@ -1,5 +1,6 @@
 /*
- * $Id: mob_tell_queen_of_hearts.mpc,v 1.1 2001-09-04 19:36:17 fjoe Exp $
+ * $Id: mob_tell_queen_of_hearts.mpc,v 1.2 2001-09-12 08:20:44 fjoe Exp $
  */
 
 tell_char($n, $N, "Tsk! Such impertinence!");
+return 0;

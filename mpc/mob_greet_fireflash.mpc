@@ -1,5 +1,5 @@
 /*
- * $Id: mob_greet_fireflash.mpc,v 1.1 2001-09-05 12:43:39 fjoe Exp $
+ * $Id: mob_greet_fireflash.mpc,v 1.2 2001-09-12 08:20:18 fjoe Exp $
  */
 
 if (get_obj_carry($n, $N, "91") != NULL)
@@ -22,3 +22,4 @@ dofun("say", $n, "These papers might help you.");
 give_obj($n, $N, papers);
 close_obj($n, o);
 lock_obj($n, o);
+return 0;

@@ -1,5 +1,6 @@
 /*
- * $Id: mob_greet_mock_turtle.mpc,v 1.1 2001-08-30 19:06:36 fjoe Exp $
+ * $Id: mob_greet_mock_turtle.mpc,v 1.2 2001-09-12 08:20:22 fjoe Exp $
  */
 
 dofun("emote", $n, "is far too upset to talk.");
+return 0;

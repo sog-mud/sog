@@ -1,5 +1,5 @@
 /*
- * $Id: mob_greet_armourer.mpc,v 1.1 2001-09-02 16:05:17 fjoe Exp $
+ * $Id: mob_greet_armourer.mpc,v 1.2 2001-09-12 08:20:11 fjoe Exp $
  */
 
 if (is_immortal($N))
@@ -12,3 +12,4 @@ dofun("say", $n, "I have the finest armour in my store!");
 dofun("emote", $n, "beams with pride.");
 if (number_percent() < 2)
         dofun("say", $n, "Now it's time to repair the equipment.");
+return 0;

@@ -12,3 +12,4 @@ if (!give_obj($n, $N, o))
 
 dofun("say", $n, "Here is your reward!");
 dofun("say", $n, "This stone has some special powers, use it well.");
+return 0;

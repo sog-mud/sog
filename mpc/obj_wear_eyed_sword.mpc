@@ -1,5 +1,5 @@
 /*
- * $Id: obj_wear_eyed_sword.mpc,v 1.1 2001-09-07 13:47:13 fjoe Exp $
+ * $Id: obj_wear_eyed_sword.mpc,v 1.2 2001-09-12 08:20:50 fjoe Exp $
  */
 
 act("$p's eye opens.", $n, $p, NULL, TO_ALL);
@@ -18,3 +18,4 @@ else
         dice_type = 7;
 set_weapon_dice_type($p, dice_type);
 set_obj_level($p, level);
+return 0;

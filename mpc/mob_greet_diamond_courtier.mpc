@@ -1,5 +1,6 @@
 /*
- * $Id: mob_greet_diamond_courtier.mpc,v 1.1 2001-08-30 19:06:32 fjoe Exp $
+ * $Id: mob_greet_diamond_courtier.mpc,v 1.2 2001-09-12 08:20:16 fjoe Exp $
  */
 
 dofun("emote", $n, "swings his flamingo and sends a hedgehog scuttling under a soldier card.");
+return 0;

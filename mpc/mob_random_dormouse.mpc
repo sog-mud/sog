@@ -1,5 +1,6 @@
 /*
- * $Id: mob_random_dormouse.mpc,v 1.1 2001-08-31 10:19:43 fjoe Exp $
+ * $Id: mob_random_dormouse.mpc,v 1.2 2001-09-12 08:20:36 fjoe Exp $
  */
 
 dofun("say", $n, "Once upon a time there were three little sisters...");
+return 0;

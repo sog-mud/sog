@@ -1,6 +1,7 @@
 /*
- * $Id: mob_exit_cheshire_cat.mpc,v 1.1 2001-08-28 17:33:55 fjoe Exp $
+ * $Id: mob_exit_cheshire_cat.mpc,v 1.2 2001-09-12 08:20:03 fjoe Exp $
  */
 
 tell_char($n, $N, "Do you play croquet with the Queen today? I'll see you there!");
 dofun("emote", $n, "waves its tail and vanishes.");
+return 0;

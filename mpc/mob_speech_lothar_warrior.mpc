@@ -1,5 +1,5 @@
 /*
- * $Id: mob_speech_lothar_warrior.mpc,v 1.1 2001-09-04 19:36:15 fjoe Exp $
+ * $Id: mob_speech_lothar_warrior.mpc,v 1.2 2001-09-12 08:20:39 fjoe Exp $
  */
 
 if (is_good($N)) {
@@ -17,3 +17,4 @@ else if (is_evil($N)) {
         social_char("wave", $n, $N);
         transfer_char($N, r);
 }
+return 0;

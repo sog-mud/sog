@@ -1,5 +1,6 @@
 /*
- * $Id: mob_greet_repair_equipment.mpc,v 1.1 2001-09-02 16:05:17 fjoe Exp $
+ * $Id: mob_greet_repair_equipment.mpc,v 1.2 2001-09-12 08:20:26 fjoe Exp $
  */
 
 dofun("say", $n, "Now it's time to repair equipment.");
+return 0;

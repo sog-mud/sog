@@ -1,6 +1,7 @@
 /*
- * $Id: mob_greet_white_rabbit.mpc,v 1.1 2001-08-30 19:06:37 fjoe Exp $
+ * $Id: mob_greet_white_rabbit.mpc,v 1.2 2001-09-12 08:20:27 fjoe Exp $
  */
 
 dofun("say", $n, "I'm late! Oh dear!");
 dofun("emote", $n, "looks at his watch.");
+return 0;

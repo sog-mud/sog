@@ -1,6 +1,7 @@
 /*
- * $Id: mob_greet_caterpillar.mpc,v 1.1 2001-08-30 19:06:32 fjoe Exp $
+ * $Id: mob_greet_caterpillar.mpc,v 1.2 2001-09-12 08:20:14 fjoe Exp $
  */
 
 dofun("say", $n, "Who are YOU?");
 dofun("emote", $n, "puffs on its hookah.");
+return 0;

@@ -1,5 +1,5 @@
 /*
- * $Id: obj_wear_snake_whip.mpc,v 1.1 2001-09-07 13:47:14 fjoe Exp $
+ * $Id: obj_wear_snake_whip.mpc,v 1.2 2001-09-12 08:20:51 fjoe Exp $
  */
 
 act("Snakes of whip starts to breath a poisonous air.", $n, NULL, NULL, TO_ALL);
@@ -17,3 +17,4 @@ else if (level <= 40)
 else
         dice_type = 7;
 set_weapon_dice_type($p, dice_type);
+return 0;

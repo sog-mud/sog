@@ -1,5 +1,5 @@
 /*
- * $Id: mob_greet_black_knight.mpc,v 1.1 2001-09-04 19:36:11 fjoe Exp $
+ * $Id: mob_greet_black_knight.mpc,v 1.2 2001-09-12 08:20:14 fjoe Exp $
  */
 
 if (is_ghost($N) || is_immortal($N))
@@ -7,3 +7,4 @@ if (is_ghost($N) || is_immortal($N))
  
 dofun("say", $n, "NONE SHALL PASS!");
 multi_hit($n, $N, NULL);
+return 0;

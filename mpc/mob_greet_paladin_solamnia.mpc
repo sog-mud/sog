@@ -1,5 +1,5 @@
 /*
- * $Id: mob_greet_paladin_solamnia.mpc,v 1.1 2001-09-05 12:43:39 fjoe Exp $
+ * $Id: mob_greet_paladin_solamnia.mpc,v 1.2 2001-09-12 08:20:23 fjoe Exp $
  */
 
 if (get_obj_carry($n, $N, "2438") == NULL)
@@ -7,3 +7,4 @@ if (get_obj_carry($n, $N, "2438") == NULL)
 
 dofun("say", $n, "I think you bring something for me...");
 mob_interpret($n, "smile");
+return 0;

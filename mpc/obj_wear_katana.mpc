@@ -1,5 +1,5 @@
 /*
- * $Id: obj_wear_katana.mpc,v 1.1 2001-09-07 13:47:14 fjoe Exp $
+ * $Id: obj_wear_katana.mpc,v 1.2 2001-09-12 08:20:50 fjoe Exp $
  */
 
 if (!is_owner($n, $p))
@@ -21,3 +21,4 @@ else
 set_weapon_dice_type($p, dice_type);
 set_obj_level($p, level);
 act("You feel your $p like a part of you!", $n, $p, NULL, TO_CHAR);
+return 0;

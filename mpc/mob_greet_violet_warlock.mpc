@@ -1,5 +1,5 @@
 /*
- * $Id: mob_greet_violet_warlock.mpc,v 1.1 2001-09-04 19:36:11 fjoe Exp $
+ * $Id: mob_greet_violet_warlock.mpc,v 1.2 2001-09-12 08:20:26 fjoe Exp $
  */
 
 if (char_sex($N) == SEX_FEMALE) {
@@ -7,3 +7,4 @@ if (char_sex($N) == SEX_FEMALE) {
         dofun("say", $n, "Let's have a kiss, eh, cutie?");
 } else
         social_char("spit", $n, $N);
+return 0;

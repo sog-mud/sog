@@ -1,5 +1,6 @@
 /*
- * $Id: mob_look_diamond_courtier.mpc,v 1.1 2001-08-30 19:06:38 fjoe Exp $
+ * $Id: mob_look_diamond_courtier.mpc,v 1.2 2001-09-12 08:20:29 fjoe Exp $
  */
 
 dofun("emote", $n, "smiles and nods.");
+return 0;

@@ -1,7 +1,8 @@
 /*
- * $Id: mob_open_undead_guard.mpc,v 1.1 2001-09-04 19:36:12 fjoe Exp $
+ * $Id: mob_open_undead_guard.mpc,v 1.2 2001-09-12 08:20:34 fjoe Exp $
  */
 
 act_yell($n, "You are loosy thief, $N. So you MUST DIE!", $N, NULL);
 dofun("yell", $n, "GUARDS! GUARDS! GUARDS!");
 multi_hit($n, $N, NULL);
+return 0;

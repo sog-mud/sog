@@ -1,5 +1,6 @@
 /*
- * $Id: obj_wear_hands_warm.mpc,v 1.1 2001-09-07 13:47:13 fjoe Exp $
+ * $Id: obj_wear_hands_warm.mpc,v 1.2 2001-09-12 08:20:50 fjoe Exp $
  */
 
 act("Your hands warm up by $p.", $n, $p, NULL, TO_CHAR);
+return 0;
