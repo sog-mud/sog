@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.105 1998-10-06 13:19:50 fjoe Exp $
+ * $Id: comm.c,v 1.106 1998-10-08 02:46:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1965,7 +1965,7 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 		break;
 	   default:
 	    write_to_buffer(d, "\n\rThat is not a valid ethos.\n\r", 0);
-	    write_to_buffer(d, "What ethos do you want, (L/N/C) <type help for more info> ?",0);
+	    write_to_buffer(d, "What ethos do you want, (L/N/C) <type help for more info>? ",0);
 	    return;
 	   }
 	} else {
@@ -2100,7 +2100,7 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 			       		count++;
 			max_on = UMAX(count, max_on);
 			if(!(max_on_file = dfopen(TMP_PATH, MAXON_FILE, "r")))
-				log_printf("nanny: couldn't open %s for read",
+				log_printf("nanny: couldn't open %s for reading",
 					   MAXON_FILE);
 			else {
 				fscanf(max_on_file, "%d", &tmp);
@@ -2108,11 +2108,13 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 			}
 			if (tmp < max_on) {
 				if(!(max_on_file = dfopen(TMP_PATH, MAXON_FILE, "w")))
-					log_printf("nanny: couldn't open %s"
-						   "for write", MAXON_FILE);
-				fprintf(max_on_file, "%d", max_on);
-				log("Global max_on changed.");
-				fclose(max_on_file);
+					log_printf("nanny: couldn't open %s "
+						   "for writing", MAXON_FILE);
+				else {
+					fprintf(max_on_file, "%d", max_on);
+					log("Global max_on changed.");
+					fclose(max_on_file);
+				}
 			}
 		}
 
