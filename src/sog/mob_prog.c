@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.4 1998-04-29 11:01:26 fjoe Exp $
+ * $Id: mob_prog.c,v 1.5 1998-05-17 05:00:25 efdi Exp $
  */
 
 /***************************************************************************
@@ -52,6 +52,7 @@
 #include "db.h"
 #include "comm.h"
 #include "hometown.h"
+#include "resource.h"
 
 void raw_kill args( (CHAR_DATA *victim) );
 DECLARE_DO_FUN(do_yell);
@@ -1234,7 +1235,7 @@ void area_prog_janitor(CHAR_DATA *mob)
      {
       do_say(mob,"All I do each day is cleanup other people's messes.");
       if (number_percent() < 20 )
-         do_say(mob,"I do not get paid enough.");
+         do_say(mob,msg(MOB_PROGS_I_DO_NOT_GET_PAID_ENOUGH, mob));
       else if (number_percent() < 20) 
 	   {
 	    do_say(mob,"Day in. Day out. This is all I do in 24 hours a day.");

@@ -2,7 +2,7 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.41 1998-05-15 13:32:03 efdi Exp $
+ * $Id: resource.h,v 1.42 1998-05-17 05:00:25 efdi Exp $
  */
 
 #define msg(msgid, ch) vmsg(msgid, ch, ch)
@@ -390,6 +390,7 @@ enum {
 	MOVE_YOU_SLOWLY_TOUCH_GROUND,
 	MOVE_YOU_ARE_ALREADY_ON_GROUND,
 	MOVE_TYPE_WITH_UP_OR_DOWN,
+	MOB_PROGS_I_DO_NOT_GET_PAID_ENOUGH,
 };
 
 #endif

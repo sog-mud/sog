@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.10 1998-05-09 12:20:18 fjoe Exp $
+ * $Id: quest.c,v 1.11 1998-05-17 05:00:25 efdi Exp $
  */
 
 /***************************************************************************
@@ -904,7 +904,9 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 	      || (IS_GOOD(vsearch) && !IS_GOOD(ch))
 	      || (IS_NEUTRAL(vsearch) && !IS_GOOD(ch)))
 		{
-		 bug("Error unknown mob in quest: %d",i);
+		/*
+		 * bug("Error unknown mob in quest: %d",i);
+		 */
 		 found++;
 		 if (found > (mob_count-1)) break;
 		 else continue;
@@ -954,7 +956,7 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 	do_tell_quest(ch,questman,buf);
      }
      ch->pcdata->questmob = victim->pIndexData->vnum;
-     victim->pIndexData->hunter_name = ch->name; /*added by Indra*/
+     victim->hunter_name = ch->name; /*added by Indra*/
     }
     return;
 }

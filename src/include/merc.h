@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.15 1998-05-08 20:35:36 fjoe Exp $
+ * $Id: merc.h,v 1.16 1998-05-17 05:00:24 efdi Exp $
  */
 
 /***************************************************************************
@@ -1895,7 +1895,6 @@ struct	mob_index_data
     bool		new_format;
     sh_int		count;
     sh_int		killed;
-    char *		hunter_name;	/* added by Indra */
     char *		player_name;
     char *		short_descr;
     char *		long_descr;
@@ -2086,6 +2085,7 @@ struct	char_data
     CHAR_DATA	*	mount;
     sh_int		language;
     sh_int		i_lang; /* interface language */
+    char *		hunter_name;	/* who quested to slay */
 };
 
 

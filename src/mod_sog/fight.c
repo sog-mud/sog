@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.9 1998-05-11 19:23:33 fjoe Exp $
+ * $Id: fight.c,v 1.10 1998-05-17 05:00:24 efdi Exp $
  */
 
 /***************************************************************************
@@ -2265,7 +2265,7 @@ void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 	else gch = ch;
 	if (!IS_NPC(gch) && IS_QUESTOR(gch) && IS_NPC(victim))
 	{
-		if (victim->pIndexData->hunter_name == gch->name)
+		if (victim->hunter_name == gch->name)
   /* gch->pcdata->questmob == victim->pIndexData->vnum) */  /* changed by Indra */
 		{
 			send_to_char("You have almost completed your QUEST!\n\r",gch);
