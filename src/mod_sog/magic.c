@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.40 2003-12-29 13:21:05 sg Exp $
+ * $Id: magic.c,v 1.41 2004-02-09 20:29:12 sg Exp $
  */
 
 #include <stdio.h>
@@ -1034,6 +1034,14 @@ cast_spell(CHAR_DATA *ch, cpdata_t *cp, sptarget_t *spt)
 			return;
 		}
 
+		if (victim != NULL
+		&&  is_sn_affected(victim, "antimagic aura")) {
+			act_char("For some odd reason your magic fizzles.", ch);
+			act("You antimagic aura protects you from $n's magic.",
+			    ch, victim, NULL, TO_VICT);
+			return;
+		}
+
 		check_improve(ch, cp->sn, TRUE, 1);
 
 		if (cp->shadow)
@@ -1136,6 +1144,13 @@ casting_allowed(CHAR_DATA *ch, cpdata_t *cp)
 		return FALSE;
 	}
 
+	if (is_sn_affected(ch, "silence person")
+	||  IS_SET(ch->in_room->room_flags, ROOM_SILENT)
+	||  is_sn_affected_room(ch->in_room, "silence")) {
+		act_char("As you start to chant you notice that the words are hollow and useless so you stop chanting.", ch);
+		return FALSE;
+	}
+
 	if (cp->sk->skill_type == ST_SPELL
 	&&  IS_VAMPIRE(ch)
 	&&  !IS_IMMORTAL(ch)
@@ -1148,6 +1163,11 @@ casting_allowed(CHAR_DATA *ch, cpdata_t *cp)
 
 	if (ch->position < cp->sk->min_pos) {
 		act_char("You can't concentrate enough.", ch);
+		return FALSE;
+	}
+
+	if (is_sn_affected(ch, "antimagic aura")) {
+		act_char("For some odd reason your magic fizzles.", ch);
 		return FALSE;
 	}
 

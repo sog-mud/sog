@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.312 2004-02-04 22:02:22 sg Exp $
+ * $Id: spellfun.c,v 1.313 2004-02-09 20:29:11 sg Exp $
  */
 
 /***************************************************************************
@@ -238,6 +238,9 @@ DECLARE_SPELL_FUN(spell_globe_of_invulnerability);
 DECLARE_SPELL_FUN(spell_cloak_of_leaves);
 DECLARE_SPELL_FUN(spell_deathspell);
 DECLARE_SPELL_FUN(spell_grease);
+DECLARE_SPELL_FUN(spell_antimagic_aura);
+DECLARE_SPELL_FUN(spell_silence_person);
+DECLARE_SPELL_FUN(spell_silence);
 
 SPELL_FUN(generic_damage_spellfun, sn, level, ch, vo)
 {
@@ -7987,6 +7990,98 @@ SPELL_FUN(spell_grease, sn, level, ch, vo)
 	aff_free(paf);
 
 	act("The ground turns into a squashy slush.",
+	    ch, NULL, NULL, TO_ALL);
+}
+
+SPELL_FUN(spell_antimagic_aura, sn, level, ch, vo)
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	AFFECT_DATA *paf;
+
+	if (is_sn_affected(victim, sn)) {
+		/* This shouldn't happen */
+		return;
+	}
+
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	 = level;
+	paf->duration	 = 1 + level / 9;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
+	if (ch == victim)
+		act_char("You surround yourself with a faint glowing antimagic aura.", victim);
+	else
+		act_char("You are surrounded with a faint glowing antimagic aura.", victim);
+	act("$n is surrounded with a faint glowing aura.", victim, NULL, NULL, TO_ROOM);
+}
+
+SPELL_FUN(spell_silence_person, sn, level, ch, vo)
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	AFFECT_DATA *paf;
+
+	if (ch == victim) {
+		act_char("Silence whom?", ch);
+		return;
+	}
+
+	if (is_sn_affected(victim, sn)) {
+		act("But $N is already affected by silence person.", ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	if (is_safe_nomessage(ch, victim)) {
+		act_char("You cannot silence that person.", ch);
+		return;
+	}
+
+	if (saves_spell(level, victim, DAM_NONE))
+		return;
+
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level     = level;
+	paf->duration  = 1 + level / 5;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
+	act("You have silenced $N!", ch, NULL, victim, TO_CHAR);
+	act_char("You feel you lost your voice!", victim);
+}
+
+SPELL_FUN(spell_silence, sn, level, ch, vo)
+{
+	AFFECT_DATA *paf;
+
+	if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
+	||  is_sn_affected_room(ch->in_room, sn)) {
+		act_char("This room is already silent.", ch);
+		return;
+	}
+
+	if (IS_SET(ch->in_room->room_flags, ROOM_LAW)) {
+		act_char("This room is protected by gods.", ch);
+		return;
+	}
+
+	if (is_sn_affected(ch, sn)) {
+		act_char("This spell is used too recently.", ch);
+		return;
+	}
+
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= ch->level;
+	paf->duration	= level / 10;
+	affect_to_char(ch, paf);
+
+	paf->where	= TO_ROOM_AFFECTS;
+	paf->level	= level;
+	paf->duration	= level / 10;
+	paf->owner	= ch;
+	affect_to_room(ch->in_room, paf);
+	aff_free(paf);
+
+	act("Deathly silence now rules in this room.",
 	    ch, NULL, NULL, TO_ALL);
 }
 
