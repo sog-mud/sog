@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.70.2.4 2000-10-21 19:44:49 fjoe Exp $
+ * $Id: olc.c,v 1.70.2.5 2002-11-21 09:28:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -83,7 +83,7 @@ const char ED_LANG[]	= "languages";
 const char ED_IMPL[]	= "implicit";
 const char ED_EXPL[]	= "explicit";
 const char ED_SOCIAL[]	= "socials";
-const char ED_CMD[]	= "cmds";
+const char ED_CMD[]	= "commands";
 const char ED_SKILL[]	= "skills";
 const char ED_RACE[]	= "races";
 const char ED_CLASS[]	= "classes";
@@ -285,9 +285,6 @@ bool olced_name(CHAR_DATA *ch, const char *argument,
 		return FALSE;
 	}
 
-	if ((validator = cmd->arg1) && !validator(ch, argument))
-		return FALSE;
-
 	changed = FALSE;
 	for (; arg[0]; argument = one_argument(argument, arg, sizeof(arg))) {
 		if (!str_cmp(arg, "all")) {
@@ -295,6 +292,14 @@ bool olced_name(CHAR_DATA *ch, const char *argument,
 				    OLCED(ch)->name, arg);
 			continue;
 		}
+
+		/*
+		 * call validator only if we are adding a name
+		 */
+		if (!is_name_strict(arg, *pStr)
+		&&  (validator = cmd->arg1) && !validator(ch, arg))
+			return FALSE;
+
 		changed = TRUE;
 		name_toggle(pStr, arg, ch, OLCED(ch)->name);
 	}
