@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.90 1998-12-01 10:54:47 fjoe Exp $
+ * $Id: db.c,v 1.91 1998-12-10 15:37:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1330,7 +1330,7 @@ OBJ_DATA *create_obj_org(OBJ_INDEX_DATA *pObjIndex, int level, int flags)
 	obj->value[3]		= pObjIndex->value[3];
 	obj->value[4]		= pObjIndex->value[4];
 	obj->weight		= pObjIndex->weight;
-	obj->owner      		= str_dup(str_empty); /* used with body parts */
+	obj->owner		= str_dup(str_empty); /* used with body parts */
 	obj->condition		= pObjIndex->condition;
 	obj->cost = pObjIndex->cost;
 

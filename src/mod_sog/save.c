@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.87 1998-12-10 08:54:15 fjoe Exp $
+ * $Id: save.c,v 1.88 1998-12-10 15:37:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1372,8 +1372,10 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 
 				if (IS_SET(obj->pIndexData->extra_flags,
 					   ITEM_QUEST)
-				&&  !obj->owner)
+				&&  IS_NULLSTR(obj->owner)) {
+					free_string(obj->owner);
 					obj->owner = str_dup(ch->name);
+				}
 
 				if (iNest == 0 || rgObjNest[iNest] == NULL)
 					obj_to_char(obj, ch);
