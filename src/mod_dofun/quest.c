@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.45 1998-07-10 12:25:50 fjoe Exp $
+ * $Id: quest.c,v 1.46 1998-07-10 15:17:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -322,6 +322,7 @@ void quest_update(void)
 				char_nputs(QUEST_RUN_OUT_TIME, ch);
 				char_nputs(QUEST_YOU_MAY_NOW_QUEST_AGAIN, ch);
 				quest_cancel(ch);
+				ch->pcdata->questtime = -number_range(5, 10);
 			} else if (ch->pcdata->questtime < 6) {
 				char_nputs(QUEST_BETTER_HURRY, ch);
 				return;

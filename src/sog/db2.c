@@ -1,5 +1,5 @@
 /*
- * $Id: db2.c,v 1.14 1998-07-09 15:29:59 fjoe Exp $
+ * $Id: db2.c,v 1.15 1998-07-10 15:17:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -242,9 +242,6 @@ void load_mobiles(FILE *fp)
         pMobIndex->long_descr           = fread_string(fp);
         pMobIndex->description          = fread_string(fp);
 	pMobIndex->race		 	= race_lookup(fread_string(fp));
- 
-        pMobIndex->long_descr[0]        = UPPER(pMobIndex->long_descr[0]);
-        pMobIndex->description[0]       = UPPER(pMobIndex->description[0]);
  
         pMobIndex->act                  = fread_flags(fp) | ACT_NPC
 					| race_table[pMobIndex->race].act;
