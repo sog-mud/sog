@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.14 1999-02-26 13:27:01 fjoe Exp $
+ * $Id: comm_act.c,v 1.15 1999-02-27 04:44:12 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -59,11 +59,19 @@ void act_puts3(const char *format, CHAR_DATA *ch,
 	if ((to = act_args(ch, vch, flags, format)) == NULL)
 		return;
 
-	for(; to && !act_skip(ch, vch, to, flags, min_pos); to = to->next_in_room) {
+	if (IS_SET(flags, TO_CHAR | TO_VICT)) {
+		if (!act_skip(ch, vch, to, flags, min_pos)) {
+			act_raw(ch, to, arg1, arg2, arg3,
+				GETMSG(format, to->lang), flags);
+		}
+		return;
+	}
+		
+	for(; to; to = to->next_in_room) {
+		if (act_skip(ch, vch, to, flags, min_pos)) 
+			continue;
 		act_raw(ch, to, arg1, arg2, arg3,
 			GETMSG(format, to->lang), flags);
-		if (IS_SET(flags, TO_CHAR | TO_VICT))
-			break;
 	}
 }
 
