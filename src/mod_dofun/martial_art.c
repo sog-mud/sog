@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.71 1999-02-22 15:56:56 kostik Exp $
+ * $Id: martial_art.c,v 1.72 1999-03-15 12:57:20 kostik Exp $
  */
 
 /***************************************************************************
@@ -1623,6 +1623,12 @@ void do_blackjack(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	if (MOUNTED(victim)) {
+		act("You can't blackjack a riding person.\n", 
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
 	if (IS_AFFECTED(ch, AFF_CHARM))  {
 		char_puts("You don't want to hit your beloved masters' head with a full filled jack.\n",
 			  ch);
@@ -1766,7 +1772,7 @@ void do_spellbane(CHAR_DATA *ch, const char *argument)
 	af.where	= TO_AFFECTS;
 	af.type 	= gsn_spellbane;
 	af.level 	= ch->level;
-	af.duration	= ch->level / 3;
+	af.duration	= -1;
 	af.location	= APPLY_SAVING_SPELL;
 	af.modifier	= -ch->level/4;
 	af.bitvector	= 0;
@@ -1783,8 +1789,17 @@ void do_resistance(CHAR_DATA *ch, const char *argument)
 {
 	int chance;
 	int mana;
+	PC_SKILL* ps;
+	
+	if (IS_NPC(ch)) 
+		return;
+	if ((ps = pc_skill_lookup(ch, gsn_resistance)) == NULL
+	||  skill_level(ch, gsn_resistance) > ch->level)
+		chance = 0;
+	else
+		chance = ps->percent;
 
-	if ((chance = get_skill(ch, gsn_resistance)) == 0) {
+	if (chance == 0) {
 		char_puts("Huh?\n", ch);
 		return;
 	}
