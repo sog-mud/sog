@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.214 1999-11-05 05:48:49 kostik Exp $
+ * $Id: fight.c,v 1.215 1999-11-18 12:44:37 kostik Exp $
  */
 
 /***************************************************************************
@@ -1120,6 +1120,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	PC_DATA *vpc;
+	int lost_exp;
 	bool vnpc = IS_NPC(victim);
 	ROOM_INDEX_DATA *vroom = victim->in_room;
 	bool is_duel = !IS_NPC(victim) 
@@ -1185,44 +1186,27 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 		return;
 
 	vpc = PC(victim);
+	
+	lost_exp = exp_for_level(victim, victim->level+1)-exp_for_level(victim, victim->level);
+	
+	lost_exp /= 4;
 
 	/* Dying penalty: 2/3 way back. */
-	if (IS_WANTED(victim) && victim->level > 2) {
+	if (IS_WANTED(victim)) {
 		SET_WANTED(victim, NULL);
+		lost_exp *=2;
+	}
+
+	vpc->death++;
+
+	if (vpc->exp < exp_for_level(victim, victim->level) 
+	&& victim->level > 1) {
 		victim->level--;
-		PC(victim)->plevels++;
-		vpc->exp = exp_for_level(victim, victim->level);
-		vpc->exp_tl = 0;
-		wiznet("$N has died wanted, demoted to level $j.",
-			victim, (const void *)victim->level, WIZ_LEVELS, 0, 0);
+		act("You loose a level!", victim, NULL, NULL, TO_VICT);
+		delevel(victim);
 	}
-	else  {
-		if (vpc->exp_tl > 0)
-			gain_exp(victim, -vpc->exp_tl*2/3);
-	}
-
-	if ((++vpc->death % 3) != 2)
-		return;
-
-	/* Die too much and is deleted ... :( */
-	if (!can_flee(ch)) {
-		class_t *cl = class_lookup(ch->class);
-		victim->perm_stat[STAT_CHA]--;
-		if (cl && vpc->death > cl->death_limit) {
-			char msg[MAX_STRING_LENGTH];
-
-			snprintf(msg, sizeof(msg),
-				 "%d deaths limit for %s",
-				 cl->death_limit, cl->name);
-			delete_player(victim, msg);
-			return;
-		}
-	} else if (--victim->perm_stat[STAT_CON] < 3) {
-		delete_player(victim, "lack of CON");
-		return;
-	} else
-		char_puts("You feel your life power has decreased "
-			  "with this death.\n", victim);
+	
+	gain_exp(victim, -lost_exp);
 }
 
 /*
@@ -2371,10 +2355,11 @@ void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 		}
 
 		xp = xp_compute(gch, victim, group_levels, members);
-		if (gch->level < LEVEL_HERO) {
+		if(xp >= 0)	
 			char_printf(gch, "You receive %d experience points.\n", xp);
-			gain_exp(gch, xp);
-		}
+		else
+			char_printf(gch, "You loose %d experience points.\n", -xp);
+		gain_exp(gch, xp);
 	}
 }
 
@@ -2393,7 +2378,7 @@ int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 	int neg_cha = 0, pos_cha = 0;
 	double diff;
 
-	base_exp = 125 * (victim->level + 2 +
+	base_exp = 125 * (victim->level + 1 +
 			  (double) (gch->level - victim->level) / gch->level);
 	diff = (victim->level + gch->level) / 2.0 * gch->level;
 	diff *= diff;
@@ -2405,8 +2390,6 @@ int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 	if ((IS_EVIL(gch) && IS_GOOD(victim))
 	||  (IS_EVIL(victim) && IS_GOOD(gch)))
 		xp = base_exp * 8 / 5;
-	else if (IS_GOOD(gch) && IS_GOOD(victim))
-		xp = 0;
 	else if (!IS_NEUTRAL(gch) && IS_NEUTRAL(victim))
 		xp = base_exp * 1.1;
 	else if (IS_NEUTRAL(gch) && !IS_NEUTRAL(victim))
@@ -2420,6 +2403,7 @@ int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 
 	/* randomize the rewards */
 	xp = number_range(xp * 3/4, xp * 5/4);
+
 
 /* adjust for grouping */
 	xp = xp * gch->level/total_levels;
@@ -2473,6 +2457,9 @@ int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 			neg_cha = 1;
 		}
 	}
+	
+	if (IS_GOOD(gch) && IS_GOOD(victim)) 
+		xp = -xp;
 
 	if (neg_cha) {
 		if ((pc->anti_killed % 100) == 99) {

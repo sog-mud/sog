@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.131 1999-10-26 13:52:52 fjoe Exp $
+ * $Id: save.c,v 1.132 1999-11-18 12:44:37 kostik Exp $
  */
 
 /***************************************************************************
@@ -316,7 +316,6 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 		if (pc->train != 0)
 			fprintf(fp, "Trai %d\n", pc->train);
 		fprintf(fp, "Exp %d\n", pc->exp);
-		fprintf(fp, "ExpTL %d\n", pc->exp_tl);
 		fwrite_string(fp, "Hometown", hometown_name(pc->hometown));
 		fprintf(fp, "LogO %ld\n",
 			IS_SET(flags, SAVE_F_PSCAN) ?
@@ -1025,7 +1024,6 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 				return;
 			}
 			KEY("Exp", PC(ch)->exp, fread_number(fp));
-			KEY("ExpTL", PC(ch)->exp_tl, fread_number(fp));
 			KEY("Etho", ch->ethos, (1 << (fread_number(fp)-1)));
 			KEY("Ethos", ch->ethos, fread_fword(ethos_table, fp));
 			break;

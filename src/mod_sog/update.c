@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.166 1999-10-26 13:26:42 fjoe Exp $
+ * $Id: update.c,v 1.167 1999-11-18 12:44:38 kostik Exp $
  */
 
 /***************************************************************************
@@ -66,6 +66,13 @@ void	aggr_update	(void);
 int	potion_cure_level	(OBJ_DATA *potion);
 int	potion_arm_level	(OBJ_DATA *potion);
 bool	is_potion		(OBJ_DATA *potion, const char *sn);
+int 	max_hit_gain	(CHAR_DATA *ch);
+int 	min_hit_gain	(CHAR_DATA *ch);
+int	max_mana_gain	(CHAR_DATA *ch);
+int 	min_mana_gain	(CHAR_DATA *ch);
+int 	max_move_gain	(CHAR_DATA *ch);
+int	min_move_gain	(CHAR_DATA *ch);
+
 
 /* below done by chronos */
 void    quest_update    args((void));
@@ -87,7 +94,7 @@ void advance_level(CHAR_DATA *ch)
 	int add_hp;
 	int add_mana;
 	int add_move;
-	int add_prac;
+	int add_prac=0;
 	class_t *cl;
 
 	if (IS_NPC(ch)) {
@@ -103,37 +110,33 @@ void advance_level(CHAR_DATA *ch)
 
 	update_skills(ch);
 
-	if (PC(ch)->plevels > 0) {
-		PC(ch)->plevels--;
-		return;
-	}
+	add_hp = number_range(min_hit_gain(ch), max_hit_gain(ch));
 
-	add_hp = (con_app[get_curr_stat(ch,STAT_CON)].hitp +
-		  number_range(1,5)) - 3;
-	add_hp = (add_hp * cl->hp_rate) / 100;
-	add_mana = number_range(get_curr_stat(ch,STAT_INT)/2,
-				(2*get_curr_stat(ch,STAT_INT) +
-				 get_curr_stat(ch,STAT_WIS)/5));
-	add_mana = (add_mana * cl->mana_rate) / 100;
+	add_mana = number_range(min_mana_gain(ch), max_mana_gain(ch));
 
-	add_move = number_range(1, (get_curr_stat(ch,STAT_CON) +
-				    get_curr_stat(ch,STAT_DEX)) / 6);
-	add_prac = wis_app[get_curr_stat(ch,STAT_WIS)].practice;
+	add_move = number_range(min_move_gain(ch), max_move_gain(ch));
 
-	add_hp = UMAX(3, add_hp);
-	add_mana = UMAX(3, add_mana);
-	add_move = UMAX(6, add_move);
 
+/* No more sex discrimination :) 
 	if (ch->sex == SEX_FEMALE) {
 		add_hp   -= 1;
 		add_mana += 2;
 	}
+*/
 
 	ch->max_hit += add_hp;
 	ch->max_mana += add_mana;
 	ch->max_move += add_move;
 	PC(ch)->practice += add_prac;
-	PC(ch)->train += ch->level % 5 ? 0 : 1;
+
+
+	if (PC(ch)->plevels > 0) {
+		PC(ch)->plevels--;
+	}
+	else {
+		PC(ch)->train += ch->level % 5 ? 0 : 1;
+		add_prac = wis_app[get_curr_stat(ch,STAT_WIS)].practice;
+	}
 
 	PC(ch)->perm_hit += add_hp;
 	PC(ch)->perm_mana += add_mana;
@@ -142,6 +145,59 @@ void advance_level(CHAR_DATA *ch)
 	char_printf(ch, "Your gain is {C%d{x hp, {C%d{x mana, {C%d{x mv {C%d{x prac.\n",
 			add_hp, add_mana, add_move, add_prac);
 }   
+
+void delevel(CHAR_DATA *ch)
+{
+	int lost_hitp;
+	int lost_mana;
+	int lost_move;
+	class_t *cl;
+
+	if (IS_NPC(ch)) {
+		bug("Delevel: a mob to delevel!", 0);
+		return;
+	}
+
+	if ((cl = class_lookup(ch->class)) == NULL) {
+		log("delevel: %s: unknown class %s",
+		    ch->name, ch->class);
+		return;
+	}
+
+	update_skills(ch);
+
+	lost_hitp = max_hit_gain(ch);
+
+	lost_mana = max_mana_gain(ch);
+
+	lost_move = max_move_gain(ch);
+
+	ch->max_hit  -= lost_hitp;
+	ch->max_mana -= lost_mana;
+	ch->max_move -= lost_move;
+
+	PC(ch)->perm_hit  -= lost_hitp;
+	PC(ch)->perm_mana -= lost_mana;
+	PC(ch)->perm_move -= lost_move;
+
+	PC(ch)->plevels++;
+
+	char_printf(ch, "You loose {C%d{x hp, {C%d{x mana, {C%d{x mv.\n",
+			lost_hitp, lost_mana, lost_move);
+
+	if(PC(ch)->perm_hit <= 0) {
+		act("You lost your life power.", ch, NULL, NULL, TO_CHAR);
+		delete_player(ch, "lack of HP");
+	}
+	else if (PC(ch)->perm_mana <= 0) {
+		act("You lost all your power.", ch, NULL, NULL, TO_CHAR);
+		delete_player(ch, "lack of mana");
+	}
+	else if (PC(ch)->perm_move <= 0) {
+		act("You lost all your ability to move.", ch, NULL, NULL, TO_CHAR);
+		delete_player(ch, "lack of move");
+	}
+}
 
 /*
  * assumes !IS_NPC(victim)
@@ -192,7 +248,6 @@ void advance(CHAR_DATA *victim, int level)
 		victim->level++;
 		advance_level(victim);
 	}
-	PC(victim)->exp_tl	= 0;
 	PC(victim)->train	= tra;
 	PC(victim)->practice= pra;
 	char_save(victim, 0);
@@ -212,14 +267,12 @@ void gain_exp(CHAR_DATA *ch, int gain)
 	}
 
 	PC(ch)->exp += gain;
-	PC(ch)->exp_tl += gain;
 
 	while (ch->level < LEVEL_HERO && exp_to_level(ch) <= 0) {
 		class_t *cl;
 
 		char_puts("{CYou raise a level!!{x ", ch);
 		ch->level++;
-		PC(ch)->exp_tl = 0;
 
 		if ((cl = class_lookup(ch->class)) != NULL
 		&&  cl->death_limit != 0
@@ -2066,4 +2119,42 @@ clan_item_update_cb(void *p, void *d)
 
 	obj_to_obj(clan->obj_ptr, clan->altar_ptr);
 	return NULL;
+}
+
+/*
+Following functions assume IS_NPC(ch). 
+*/
+
+int max_hit_gain(CHAR_DATA *ch)
+{	
+	return (con_app[get_max_train(ch, STAT_CON)].hitp + 2) * 
+		class_lookup(ch->class)->hp_rate / 100;
+}
+
+int min_hit_gain(CHAR_DATA *ch)
+{	
+	return (con_app[get_curr_stat(ch, STAT_CON)].hitp - 3) * 
+		class_lookup(ch->class)->hp_rate / 100;
+}
+
+int max_mana_gain(CHAR_DATA *ch)
+{
+	return (get_max_train(ch, STAT_WIS) + get_max_train(ch, STAT_INT) + 5) *
+		class_lookup(ch->class)->mana_rate / 200;
+}
+
+int min_mana_gain(CHAR_DATA *ch)
+{
+	return (get_curr_stat(ch, STAT_WIS) + get_curr_stat(ch, STAT_INT) - 3) *
+		class_lookup(ch->class)->mana_rate / 200;
+}
+
+int min_move_gain(CHAR_DATA *ch)
+{
+	return UMAX(6, get_curr_stat(ch, STAT_DEX)/5 + get_curr_stat(ch, STAT_CON)/7);
+}
+
+int max_move_gain(CHAR_DATA *ch) 
+{
+	return UMAX(6, get_max_train(ch, STAT_DEX)/4+get_max_train(ch, STAT_CON)/6);
 }
