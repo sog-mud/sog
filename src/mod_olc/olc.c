@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.146 2001-09-13 19:59:42 fjoe Exp $
+ * $Id: olc.c,v 1.147 2001-09-14 10:01:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -282,12 +282,8 @@ OLC_FUN(olced_spell_out)
 OLC_FUN(olced_strkey)
 {
 	char arg[MAX_INPUT_LENGTH];
-	const char *old_key;
 	olced_strkey_t *o;
-	void *q;
-
-	act_char("olced_strkey is currently broken.", ch);
-	return FALSE;
+	const char **pold_key;
 
 	one_argument(argument, arg, sizeof(arg));
 	if (IS_NULLSTR(arg)) {
@@ -299,11 +295,10 @@ OLC_FUN(olced_strkey)
 	if (cmd->validator && !cmd->validator(ch, arg))
 		return FALSE;
 
-	if (olced_busy(ch, OLCED(ch)->id, NULL, NULL))
-		return FALSE;
+	pold_key = (const char **) ch->desc->pEdit;
+	o = (olced_strkey_t *) cmd->arg1;
 
-	old_key = *(const char **) ch->desc->pEdit;
-	if (!str_cmp(old_key, arg)) {
+	if (!str_cmp(*pold_key, arg)) {
 		/*
 		 * nothing to change
 		 */
@@ -311,31 +306,26 @@ OLC_FUN(olced_strkey)
 		return FALSE;
 	}
 
-	o = (olced_strkey_t *) cmd->arg1;
-	if ((q = c_insert(o->c, arg)) == NULL) {
+	if (c_lookup(o->c, arg) != NULL) {
 		act_puts("$t: $T: duplicate name.",
 			 ch, OLCED(ch)->name, arg,
 			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 		return FALSE;
 	}
 
-	free_string(*(const char **) q);
-	*(const char **) q = str_dup(arg);
-
 	if (o->path) {
-		d2rename(o->path, strkey_filename(old_key, o->ext),
-			 o->path, strkey_filename(arg, o->ext));
+		const char *old_file;
+
+		old_file = strkey_filename(*pold_key, o->ext);
+		if (dfexist(o->path, old_file)) {
+			d2rename(o->path, old_file,
+				 o->path, strkey_filename(arg, o->ext));
+		}
 	}
 
-	c_delete(o->c, old_key);
-	ch->desc->pEdit = c_lookup(o->c, arg);
-	if (ch->desc->pEdit == NULL) {
-		act_puts("$t: $T: not found.",
-			 ch, OLCED(ch)->name, arg,
-			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
-		edit_done(ch->desc);
-		return FALSE;
-	}
+	c_move(o->c, *pold_key, arg);
+	free_string(*pold_key);
+	*pold_key = str_dup(arg);
 
 	act_char("Ok.", ch);
 	return TRUE;
@@ -345,16 +335,15 @@ bool
 _olced_mlstrkey(CHAR_DATA *ch, const char *langname, const char *argument,
 		olc_cmd_t *cmd)
 {
+	char arg[MAX_INPUT_LENGTH];
+	olced_strkey_t *o;
+	mlstring *ml;
+
 	lang_t *lang;
 	const char **pp;
-	const char *old_key;
-	void *q;
-	olced_strkey_t *o;
 
-	act_char("olced_mlstrkey is currently broken.", ch);
-	return FALSE;
-
-	if (IS_NULLSTR(argument)) {
+	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0') {
 		act_puts("Syntax: $t <lang> <string>",
 			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
@@ -369,66 +358,52 @@ _olced_mlstrkey(CHAR_DATA *ch, const char *langname, const char *argument,
 		return FALSE;
 	}
 
-	if (cmd->validator && !cmd->validator(ch, argument))
+	if (cmd->validator && !cmd->validator(ch, arg))
 		return FALSE;
 
-	q = ch->desc->pEdit;
-	old_key = mlstr_mval((mlstring *) q);
+	ml = (mlstring *) ch->desc->pEdit;
 	o = (olced_strkey_t *) cmd->arg1;
 
 	if (lang == NULL || lang == VARR_GET(&langs, 0)) {
+		const char *old_key = mlstr_mval(ml);
+
 		/*
 		 * gonna change key
 		 */
-		if (olced_busy(ch, OLCED(ch)->id, NULL, NULL))
-			return FALSE;
-
-		if (!str_cmp(old_key, argument)) {
+		if (!str_cmp(old_key, arg)) {
 			/*
 			 * key remain unchanged
-			 *
-			 * possibly changing to the same mlstring
-			 * but too lazy to check this
 			 */
-
-			pp = mlstr_convert((mlstring *) q, lang);
-			free_string(*pp);
-			*pp = str_dup(argument);
 			act_char("Ok.", ch);
 			return TRUE;
 		}
 
-		if ((q = c_insert(o->c, argument)) == NULL) {
+		if (c_lookup(o->c, arg) != NULL) {
 			act_puts("$t: $T: duplicate name.",
-				 ch, OLCED(ch)->name, argument,
+				 ch, OLCED(ch)->name, arg,
 				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			return FALSE;
+		}
+
+		c_move(o->c, old_key, arg);
+
+		if (o->path) {
+			const char *old_file;
+
+			old_file = strkey_filename(old_key, o->ext);
+			if (dfexist(o->path, old_file)) {
+				d2rename(o->path, old_file,
+					 o->path, strkey_filename(arg, o->ext));
+			}
 		}
 	}
 
 	/*
 	 * make the change
 	 */
-	pp = mlstr_convert((mlstring *) q, lang);
+	pp = mlstr_convert(ml, lang);
 	free_string(*pp);
-	*pp = str_dup(argument);
-
-	if (lang == NULL || lang == VARR_GET(&langs, 0)) {
-		if (o->path) {
-			d2rename(o->path, strkey_filename(old_key, o->ext),
-				 o->path, strkey_filename(argument, o->ext));
-		}
-
-		c_delete(o->c, old_key);
-		ch->desc->pEdit = c_lookup(o->c, argument);
-		if (ch->desc->pEdit == NULL) {
-			act_puts("$t: $T: not found.",
-				 ch, OLCED(ch)->name, langname,
-				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
-			edit_done(ch->desc);
-			return FALSE;
-		}
-	}
+	*pp = str_dup(arg);
 
 	act_char("Ok.", ch);
 	return TRUE;

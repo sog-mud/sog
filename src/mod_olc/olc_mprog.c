@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mprog.c,v 1.8 2001-09-13 16:22:13 fjoe Exp $
+ * $Id: olc_mprog.c,v 1.9 2001-09-14 10:01:09 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -66,11 +66,6 @@ OLC_FUN(mped_create)
 	first_arg(argument, arg, sizeof(arg), FALSE);
 	if (arg[0] == '\0')
 		OLC_ERROR("'OLC CREATE'");
-
-	/*
-	 * olced_busy check is not needed since c_insert
-	 * adds new elements to the end of varr
-	 */
 
 	if ((mp = c_insert(&mprogs, arg)) == NULL) {
 		act_puts("MProgEd: $t: already exists.",

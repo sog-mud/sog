@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_spec.c,v 1.18 2001-09-13 16:22:15 fjoe Exp $
+ * $Id: olc_spec.c,v 1.19 2001-09-14 10:01:11 fjoe Exp $
  */
 
 #include "olc.h"
@@ -85,11 +85,6 @@ OLC_FUN(speced_create)
 	first_arg(argument, arg, sizeof(arg), FALSE);
 	if (arg[0] == '\0')
 		OLC_ERROR("'OLC CREATE'");
-
-	/*
-	 * olced_busy check is not needed since c_insert
-	 * adds new elements to the end of varr
-	 */
 
 	if ((spec = c_insert(&specs, arg)) == NULL) {
 		act_puts("SpecEd: $t: already exists.",

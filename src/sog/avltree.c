@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: avltree.c,v 1.5 2001-09-14 06:49:04 fjoe Exp $
+ * $Id: avltree.c,v 1.6 2001-09-14 10:01:06 fjoe Exp $
  */
 
 #include <assert.h>
@@ -52,10 +52,14 @@
 static void avlnode_init(avlnode_t *node,
 			 avlnode_t *left, int left_tag,
 			 avlnode_t *right, int right_tag);
-static avlnode_t *avlnode_new(avltree_t *avl,
+static avlnode_t *avlnode_new(avltree_t *avl, avlnode_t *node,
 			      avlnode_t *left, int left_tag,
 			      avlnode_t *right, int right_tag);
-static void avlnode_delete(avltree_t *avl, avlnode_t *node);
+static void avlnode_free(avltree_t *avl, avlnode_t *node);
+
+static avlnode_t *avlnode_add(void *c, const void *key, int flags,
+			      avlnode_t *node);
+static avlnode_t *avlnode_delete(void *c, const void *key, bool free_node);
 
 #define AVL_MAX_HEIGHT 32
 
@@ -109,7 +113,7 @@ avltree_destroy(void *c)
 				break;
 			}
 
-			avlnode_delete(avl, curr);
+			avlnode_free(avl, curr);
 		}
 	}
 
@@ -160,6 +164,124 @@ avltree_lookup(void *c, const void *k)
 static void *
 avltree_add(void *c, const void *k, int flags)
 {
+	return avlnode_add(c, k, flags, NULL);
+}
+
+static void
+avltree_delete(void *c, const void *key)
+{
+	avlnode_delete(c, key, TRUE);
+}
+
+static void
+avltree_move(void *c, const void *k, const void *k_new)
+{
+	avlnode_t *node;
+
+	if ((node = avlnode_delete(c, k, FALSE)) == NULL)
+		return;
+
+	if (avlnode_add(c, k_new, CA_F_INSERT, node) == NULL)
+		avlnode_free(c, node);
+}
+
+static void *
+avltree_foreach(void *c, foreach_cb_t cb, va_list ap)
+{
+	avltree_t *avl = (avltree_t *) c;
+	avlnode_t *curr = &avl->root;
+	void *rv = NULL;
+
+	avlnode_t *next = RIGHT(curr);
+	int rtag = RTAG(curr);
+
+	for (; ;) {
+		curr = next;
+		if (rtag == TAG_TREE) {
+			while (LEFT(curr) != NULL)
+				curr = LEFT(curr);
+		}
+
+		if (curr == &avl->root)
+			break;
+
+		next = RIGHT(curr);
+		rtag = RTAG(curr);
+
+		if ((rv = cb(GET_DATA(curr), ap)) != NULL)
+			break;
+	}
+
+	return rv;
+}
+
+static size_t
+avltree_size(void *c)
+{
+	avltree_t *avl = (avltree_t *) c;
+	return avl->count != NULL;
+}
+
+static bool
+avltree_isempty(void *c)
+{
+	return c_size(c) == 0;
+}
+
+static void *
+avltree_random_elem(void *c)
+{
+	return c_random_elem_foreach(c);
+}
+
+/*--------------------------------------------------------------------
+ * static functions
+ */
+
+static void
+avlnode_init(avlnode_t *node,
+	      avlnode_t *left, int left_tag, avlnode_t *right, int right_tag)
+{
+	LEFT(node) = left;
+	LTAG(node) = left_tag;
+	RIGHT(node) = right;
+	RTAG(node) = right_tag;
+
+	node->bal = 0;
+	node->dir_cache = 0;
+}
+
+static avlnode_t *
+avlnode_new(avltree_t *avl, avlnode_t *node,
+	    avlnode_t *left, int left_tag, avlnode_t *right, int right_tag)
+{
+	if (node == NULL) {
+		void *p = mem_alloc2(
+		    avl->info->type_tag, avl->info->esize, sizeof(avlnode_t));
+		if (avl->info->e_init != NULL)
+			avl->info->e_init(p);
+
+		node = GET_AVLNODE(p);
+	}
+
+	avl->count++;
+	avlnode_init(node, left, left_tag, right, right_tag);
+
+	return node;
+}
+
+static void
+avlnode_free(avltree_t *avl, avlnode_t *node)
+{
+	void *p = GET_DATA(node);
+	if (avl->info->e_destroy != NULL)
+		avl->info->e_destroy(p);
+	mem_free(p);
+}
+
+static avlnode_t *
+avlnode_add(void *c, const void *k, int flags, avlnode_t *node)
+{
 	avltree_t *avl = (avltree_t *) c;
 	avlnode_t *curr, *next;
 	avlnode_t *r, *s, *t;
@@ -176,7 +298,7 @@ avltree_add(void *c, const void *k, int flags)
 			return NULL;
 
 		next = LEFT(t) = avlnode_new(
-		    avl, NULL, TAG_TREE, t, TAG_THREAD);
+		    avl, node, NULL, TAG_TREE, t, TAG_THREAD);
 		assert(avl->count == 1);
 
 		return GET_DATA(next);
@@ -197,7 +319,8 @@ avltree_add(void *c, const void *k, int flags)
 					return NULL;
 
 				next = avlnode_new(
-				    avl, NULL, TAG_TREE, curr, TAG_THREAD);
+				    avl, node,
+				    NULL, TAG_TREE, curr, TAG_THREAD);
 				LEFT(curr) = next;
 				break;
 			}
@@ -214,8 +337,8 @@ avltree_add(void *c, const void *k, int flags)
 					return NULL;
 
 				next = avlnode_new(
-				    avl, NULL, TAG_TREE,
-				    RIGHT(curr), RTAG(curr));
+				    avl, node,
+				    NULL, TAG_TREE, RIGHT(curr), RTAG(curr));
 				RIGHT(curr) = next;
 				RTAG(curr) = TAG_TREE;
 				break;
@@ -364,8 +487,8 @@ avltree_add(void *c, const void *k, int flags)
 	return GET_DATA(next);
 }
 
-void
-avltree_delete(void *c, const void *key)
+static avlnode_t *
+avlnode_delete(void *c, const void *key, bool free_node)
 {
 	avltree_t *avl = (avltree_t *) c;
 
@@ -373,12 +496,12 @@ avltree_delete(void *c, const void *key)
 	unsigned char a[AVL_MAX_HEIGHT];	/* Stack P: Bits. */
 	int k = 1;				/* Stack P: Pointer. */
 
-	avlnode_t *curr;
+	avlnode_t *curr, *rv;
 	avlnode_t **q;
 
 	curr = avl->root.link[0];
 	if (curr == NULL)
-		return;
+		return NULL;
 
 	a[0] = 0;
 	pa[0] = &avl->root;
@@ -398,13 +521,13 @@ avltree_delete(void *c, const void *key)
 				curr = LEFT(curr);
 				a[k] = 0;
 			} else
-				return;
+				return NULL;
 		} else if (diff > 0) {
 			if (RTAG(curr) == TAG_TREE) {
 				curr = RIGHT(curr);
 				a[k] = 1;
 			} else
-				return;
+				return NULL;
 		}
 		k++;
 	}
@@ -499,7 +622,9 @@ avltree_delete(void *c, const void *key)
 	 * call e_destroy() and free memory
 	 */
 	avl->count--;
-	avlnode_delete(avl, curr);
+	rv = curr;
+	if (free_node)
+		avlnode_free(avl, curr);
 
 	/*
 	 * fixup balance
@@ -636,98 +761,6 @@ avltree_delete(void *c, const void *key)
 			}
 		}
 	}
-}
-
-static void *
-avltree_foreach(void *c, foreach_cb_t cb, va_list ap)
-{
-	avltree_t *avl = (avltree_t *) c;
-	avlnode_t *curr = &avl->root;
-	void *rv = NULL;
-
-	avlnode_t *next = RIGHT(curr);
-	int rtag = RTAG(curr);
-
-	for (; ;) {
-		curr = next;
-		if (rtag == TAG_TREE) {
-			while (LEFT(curr) != NULL)
-				curr = LEFT(curr);
-		}
-
-		if (curr == &avl->root)
-			break;
-
-		next = RIGHT(curr);
-		rtag = RTAG(curr);
-
-		if ((rv = cb(GET_DATA(curr), ap)) != NULL)
-			break;
-	}
 
 	return rv;
-}
-
-static size_t
-avltree_size(void *c)
-{
-	avltree_t *avl = (avltree_t *) c;
-	return avl->count != NULL;
-}
-
-static bool
-avltree_isempty(void *c)
-{
-	return c_size(c) == 0;
-}
-
-static void *
-avltree_random_elem(void *c)
-{
-	return c_random_elem_foreach(c);
-}
-
-/*--------------------------------------------------------------------
- * static functions
- */
-
-static void
-avlnode_init(avlnode_t *node,
-	      avlnode_t *left, int left_tag, avlnode_t *right, int right_tag)
-{
-	LEFT(node) = left;
-	LTAG(node) = left_tag;
-	RIGHT(node) = right;
-	RTAG(node) = right_tag;
-
-	node->bal = 0;
-	node->dir_cache = 0;
-}
-
-static avlnode_t *
-avlnode_new(avltree_t *avl,
-	    avlnode_t *left, int left_tag, avlnode_t *right, int right_tag)
-{
-	avlnode_t *node;
-	void *p;
-
-	p = mem_alloc2(
-	    avl->info->type_tag, avl->info->esize, sizeof(avlnode_t));
-	if (avl->info->e_init != NULL)
-		avl->info->e_init(p);
-
-	avl->count++;
-	node = GET_AVLNODE(p);
-	avlnode_init(node, left, left_tag, right, right_tag);
-
-	return node;
-}
-
-static void
-avlnode_delete(avltree_t *avl, avlnode_t *node)
-{
-	void *p = GET_DATA(node);
-	if (avl->info->e_destroy != NULL)
-		avl->info->e_destroy(p);
-	mem_free(p);
 }

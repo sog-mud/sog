@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_material.c,v 1.23 2001-09-13 16:22:12 fjoe Exp $
+ * $Id: olc_material.c,v 1.24 2001-09-14 10:01:09 fjoe Exp $
  */
 
 #include "olc.h"
@@ -83,11 +83,6 @@ OLC_FUN(mated_create)
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0')
 		OLC_ERROR("'OLC CREATE'");
-
-	/*
-	 * olced_busy check is not needed since c_insert
-	 * adds new elements to the end of varr
-	 */
 
 	if ((m = c_insert(&materials, arg)) == NULL) {
 		act_puts("MatEd: $t: already exists.",
@@ -251,12 +246,12 @@ OLC_FUN(mated_delete)
 {
 	material_t *mat;
 
-	if (olced_busy(ch, ED_MATERIAL, NULL, NULL))
+	EDIT_MAT(ch, mat);
+
+	if (olced_busy(ch, ED_MATERIAL, mat, NULL))
 		return FALSE;
 
-	EDIT_MAT(ch, mat);
 	c_delete(&materials, mat->name);
 	edit_done(ch->desc);
 	return TRUE;
 }
-

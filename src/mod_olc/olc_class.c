@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.34 2001-09-13 16:22:11 fjoe Exp $
+ * $Id: olc_class.c,v 1.35 2001-09-14 10:01:08 fjoe Exp $
  */
 
 #include "olc.h"
@@ -114,11 +114,6 @@ OLC_FUN(classed_create)
 	first_arg(argument, arg, sizeof(arg), FALSE);
 	if (arg[0] == '\0')
 		OLC_ERROR("'OLC CREATE'");
-
-	/*
-	 * olced_busy check is not needed since c_insert
-	 * adds new elements to the end of varr
-	 */
 
 	if ((cl = c_insert(&classes, arg)) == NULL) {
 		act_puts("ClassEd: $t: already exists.",

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_damtype.c,v 1.11 2001-09-13 16:22:12 fjoe Exp $
+ * $Id: olc_damtype.c,v 1.12 2001-09-14 10:01:08 fjoe Exp $
  */
 
 /*
@@ -96,11 +96,6 @@ OLC_FUN(damted_create)
 		OLC_ERROR("'OLC CREATE'");
 
 	one_argument(argument, arg, sizeof(arg));
-
-	/*
-	 * olced_busy check is not needed since c_insert
-	 * adds new elements to the end of varr
-	 */
 
 	if ((dt = c_insert(&damtypes, arg)) == NULL) {
 		act_puts("DamtEd: $t: already exists.",
@@ -193,7 +188,7 @@ OLC_FUN(damted_show)
 	if (argument[0] == '\0') {
 		if (IS_EDIT(ch, ED_DAMT))
 			EDIT_DAMT(ch, dt);
-		else 
+		else
 			OLC_ERROR("'OLC ASHOW'");
 	} else if ((dt = damtype_search(argument)) == NULL) {
 			act_puts("DamtEd: $t: no such damage type.",
@@ -201,7 +196,7 @@ OLC_FUN(damted_show)
 				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 	}
-	
+
 	buf = buf_new(0);
 	buf_printf(buf, BUF_END, "Name:       [%s]\n", dt->dam_name);
 	mlstr_dump(buf, "NounDamage: ", &dt->dam_noun.ml, DUMP_LEVEL(ch));
@@ -263,12 +258,12 @@ OLC_FUN(damted_delete)
 {
 	damtype_t *dt;
 
-	if (olced_busy(ch, ED_DAMT, NULL, NULL))
+	EDIT_DAMT(ch, dt);
+
+	if (olced_busy(ch, ED_DAMT, dt, NULL))
 		return FALSE;
 
-	EDIT_DAMT(ch, dt);
 	c_delete(&damtypes, dt->dam_name);
 	edit_done(ch->desc);
 	return TRUE;
 }
-

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_hint.c,v 1.8 2001-09-12 19:43:01 fjoe Exp $
+ * $Id: olc_hint.c,v 1.9 2001-09-14 10:01:09 fjoe Exp $
  */
 
 #include "olc.h"
@@ -202,6 +202,9 @@ OLC_FUN(hinted_delete)
 	hint_t *hint;
 	EDIT_HINT(ch, hint);
 
+	if (olced_busy(ch, ED_HINT, NULL, NULL))
+		return FALSE;
+
 	varr_edelete(&hints, hint);
 	edit_done(ch->desc);
 	return TRUE;
@@ -251,4 +254,3 @@ hint_list_cb(void *p, va_list ap)
 	}
 	return NULL;
 }
-

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.37 2001-09-13 17:54:16 fjoe Exp $
+ * $Id: varr.c,v 1.38 2001-09-14 10:01:06 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -344,6 +344,14 @@ varr_delete(void *c, const void *k)
 {
 	UNUSED_ARG(c);
 	UNUSED_ARG(k);
+}
+
+static void
+varr_move(void *c, const void *k, const void *k_new)
+{
+	UNUSED_ARG(c);
+	UNUSED_ARG(k);
+	UNUSED_ARG(k_new);
 }
 
 static void *

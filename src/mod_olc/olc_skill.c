@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.27 2001-09-13 12:03:02 fjoe Exp $
+ * $Id: olc_skill.c,v 1.28 2001-09-14 10:01:11 fjoe Exp $
  */
 
 #include "olc.h"
@@ -106,11 +106,6 @@ OLC_FUN(skilled_create)
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0')
 		OLC_ERROR("'OLC CREATE'");
-
-	/*
-	 * olced_busy check is not needed since c_insert
-	 * adds new elements to the end of varr
-	 */
 
 	if ((sk = c_insert(&skills, arg)) == NULL) {
 		act_puts("SkillEd: $t: already exists.",
@@ -501,12 +496,12 @@ OLC_FUN(skilled_delete)
 {
 	skill_t *sk;
 
-	if (olced_busy(ch, ED_SKILL, NULL, NULL))
+	EDIT_SKILL(ch, sk);
+
+	if (olced_busy(ch, ED_SKILL, sk, NULL))
 		return FALSE;
 
-	EDIT_SKILL(ch, sk);
 	c_delete(&skills, gmlstr_mval(&sk->sk_name));
 	edit_done(ch->desc);
 	return TRUE;
 }
-

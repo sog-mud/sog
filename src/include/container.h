@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: container.h,v 1.3 2001-09-13 16:21:50 fjoe Exp $
+ * $Id: container.h,v 1.4 2001-09-14 10:01:05 fjoe Exp $
  */
 
 #ifndef _CONTAINER_H_
@@ -41,6 +41,7 @@ struct c_ops_t {
 
 	void *(*c_add)(void *c, const void *k, int flags);
 	void (*c_delete)(void *c, const void *k);
+	void (*c_move)(void *c, const void *k, const void *k_new);
 
 	void *(*c_foreach)(void *c, foreach_cb_t cb, va_list ap);
 
@@ -63,6 +64,7 @@ struct c_ops_t {
 				    (c), (k), CA_F_INSERT | CA_F_UPDATE))
 
 #define c_delete(c, k)		(C_OPS(c)->c_delete((c), (k)))
+#define c_move(c, k, k_new)	(C_OPS(c)->c_move((c), (k), (k_new)))
 
 #define c_size(c)		(C_OPS(c)->c_size(c))
 #define c_isempty(c)		(C_OPS(c)->c_isempty(c))
@@ -125,6 +127,7 @@ char *	strkey_filename(const char *name, const char *ext);
 									\
 	static void *name##_add(void *c, const void *k, int flags);	\
 	static void name##_delete(void *c, const void *k);		\
+	static void name##_move(void *c, const void *k, const void *k_new); \
 									\
 	static void *name##_foreach(void *c, foreach_cb_t cb, va_list ap); \
 									\
@@ -141,6 +144,7 @@ char *	strkey_filename(const char *name, const char *ext);
 									\
 		name##_add,						\
 		name##_delete,						\
+		name##_move,						\
 									\
 		name##_foreach,						\
 									\
