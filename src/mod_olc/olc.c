@@ -1,5 +1,5 @@
 /*
- * $Id: olc.c,v 1.1 1998-06-28 04:47:16 fjoe Exp $
+ * $Id: olc.c,v 1.2 1998-06-30 17:45:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -345,8 +345,8 @@ const struct olc_cmd_type medit_table[] =
     {   "hitroll",      medit_hitroll   },  /* ROM */
     {	"damtype",	medit_damtype	},  /* ROM */
     {   "group",	medit_group	},  /* ROM */
-    {   "addmprog",	medit_addmprog  },  /* ROM */
-    {	"delmprog",	medit_delmprog	},  /* ROM */
+    {   "mpadd",	medit_mpadd	},  /* ROM */
+    {	"mpdel",	medit_mpdel	},  /* ROM */
 
     {   "?",		show_help	},
     {   "version",	show_version	},

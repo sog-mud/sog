@@ -1,5 +1,5 @@
 /*
- * $Id: olc_act.c,v 1.1 1998-06-28 04:47:16 fjoe Exp $
+ * $Id: olc_act.c,v 1.2 1998-06-30 17:45:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4725,7 +4725,7 @@ REDIT(redit_owner)
     return TRUE;
 }
 
-MEDIT (medit_addmprog)
+MEDIT (medit_mpadd)
 {
   int value;
   MOB_INDEX_DATA *pMob;
@@ -4742,7 +4742,7 @@ MEDIT (medit_addmprog)
 
   if (!is_number(num) || trigger[0] =='\0' || phrase[0] =='\0')
   {
-        send_to_char("Syntax:   addmprog [vnum] [trigger] [phrase]\n\r",ch);
+        send_to_char("Syntax:   mpadd [vnum] [trigger] [phrase]\n\r",ch);
         return FALSE;
   }
 
@@ -4772,7 +4772,7 @@ MEDIT (medit_addmprog)
   return TRUE;
 }
 
-MEDIT (medit_delmprog)
+MEDIT (medit_mpdel)
 {
     MOB_INDEX_DATA *pMob;
     MPROG_LIST *list;
@@ -4786,7 +4786,7 @@ MEDIT (medit_delmprog)
     one_argument(argument, mprog);
     if (!is_number(mprog) || mprog[0] == '\0')
     {
-       send_to_char("Syntax:  delmprog [#mprog]\n\r",ch);
+       send_to_char("Syntax:  mpdel [#mprog]\n\r",ch);
        return FALSE;
     }
 

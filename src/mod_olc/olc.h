@@ -2,7 +2,7 @@
 #define _OLC_H_
 
 /*
- * $Id: olc.h,v 1.1 1998-06-28 04:47:16 fjoe Exp $
+ * $Id: olc.h,v 1.2 1998-06-30 17:45:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -257,8 +257,8 @@ DECLARE_OLC_FUN(medit_gold		);  /* ROM */
 DECLARE_OLC_FUN(medit_hitroll		);  /* ROM */
 DECLARE_OLC_FUN(medit_damtype		);  /* ROM */
 DECLARE_OLC_FUN(medit_group		);  /* ROM */
-DECLARE_OLC_FUN(medit_addmprog		);  /* ROM */
-DECLARE_OLC_FUN(medit_delmprog		);  /* ROM */
+DECLARE_OLC_FUN(medit_mpadd		);  /* ROM */
+DECLARE_OLC_FUN(medit_mpdel		);  /* ROM */
 
 /* Mobprog editor */
 DECLARE_OLC_FUN(mpedit_create		);
