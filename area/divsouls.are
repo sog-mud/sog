@@ -1108,12 +1108,12 @@ Strange, you can see right through it..  It appears to be keeping the area
 clean.
 ~
 ghost~
-BCG 0 IU A H 0 0
+BCG 0 I A H 0 0
 32 17 50d4+1150 1d1+1200 7d6+18 'magic'
 -20 -20 -20 -17
 F
 stand stand either 100
-DIL 0 medium unknown
+D 0 medium unknown
 #11650
 ykres silent figure~
 Ykres~
@@ -1631,7 +1631,7 @@ Summoned from the elemental plane of air, the servant is bound to
 follow its master's orders until it is killed or freed.
 ~
 human~
-B 0 TU A A 0 0
+BI 0 TU A A 0 0
 20 0 50d3+650 1d10+400 4d4+2 'chill'
 -7 -7 -7 -4
 FG
@@ -1645,7 +1645,7 @@ A gauntleted fist hovers menacingly.
 Hard adamantite knuckles gleam with a fierce power. 
 ~
 modron~
-B 0 T 0 0 0 0
+BI 0 T 0 0 0 0
 22 0 50d3+800 1d10+450 4d4+3 'crush'
 -8 -8 -8 -5
 CDK
@@ -1660,7 +1660,7 @@ Midnight black hair ripples across the sleek muscles of a large,
 powerful cat.
 ~
 cat~
-B 0 0 G 0 0 0
+BI 0 0 G 0 0 0
 25 0 50d3+900 1d10+500 4d5+5 'claw'
 -10 -10 -10 -9
 DE
@@ -1679,7 +1679,7 @@ The huge silver cat form moves with a liquid grace that leaves the
 impression of a living bolt of pure lightning.
 ~
 cat~
-B 0 0 G A 0 0
+BI 0 0 G A 0 0
 27 0 50d4+1150 1d10+550 4d5+5 'shbite'
 -11 -11 -11 -10
 CD
@@ -1696,7 +1696,7 @@ Powerful snow white wings sprout from the equinne shoulder blades.
 Intelligent sea blue eyes seem to follow your every move.
 ~
 pig~
-B 0 T 0 AL 500 0
+BI 0 T 0 AL 500 0
 30 0 50d4+1300 1d10+600 5d5+10 'cleave'
 -13 -13 -13 -12
 FIK
@@ -1711,7 +1711,7 @@ Pure flame has been shaped into the form of a large cat.  Blue eyes
 glint like twin furnaces amidst the heat.
 ~
 cat~
-B C 0 G 0 0 0
+BI C 0 G 0 0 0
 32 0 50d4+1600 1d10+650 5d5+9 'flbite'
 -15 -15 -15 -13
 DE
@@ -1729,7 +1729,7 @@ hardness of its make the cat moves with the silent, dangerous grace of
 a killer.
 ~
 cat~
-B 0 0 G 0 0 0
+BI 0 0 G 0 0 0
 32 0 50d4+1600 1d10+650 5d5+9 'frbite'
 -15 -15 -15 -13
 DE
@@ -1749,7 +1749,7 @@ the ability to do quite a bit of very real damage to those who oppose
 its master..
 ~
 cat~
-B 0 TU AG AB 0 0
+BI 0 TU AG AB 0 0
 35 0 50d4+1800 1d10+700 5d6+10 'wrath'
 -22 -22 -22 -21
 DE
@@ -1778,7 +1778,7 @@ arms and powerful legs.  A narrow enchanted collar encircles the thick
 neck, binding it to the will of its master.
 ~
 human~
-B 0 0 0 L -500 0
+BI 0 0 0 L -500 0
 37 0 50d5+2050 1d10+750 5d6+12 'slash'
 -24 -24 -24 -23
 CDK
@@ -1794,7 +1794,7 @@ bat wings.  A thick tail protrudes from the demon's hindquarters, ending
 in a sharp, triangular tip.
 ~
 human~
-B 0 T 0 L -700 0
+BI 0 T 0 L -700 0
 40 0 50d5+2500 1d10+800 6d6+10 'slash'
 -25 -25 -25 -25
 CDEKM
@@ -1810,7 +1810,7 @@ to absorb all light in the area.  Two muscular arms sprout from
 either side of the broad torso, ending in wickedly sharp black talons.
 ~
 human~
-B 0 O 0 L -900 0
+BI 0 O 0 L -900 0
 42 0 50d6+3050 1d10+800 6d7+12 'claw'
 -27 -27 -27 -27
 CDK
@@ -1827,7 +1827,7 @@ The soft brown fur stands on end, giving the hamster the appearance
 of a small and deadly fluffball.  Watch those incisors!
 ~
 rabbit~
-BC 0 0 0 0 0 0
+BCI 0 0 0 0 0 0
 45 0 50d6+3400 1d10+900 6d7+15 'bite'
 -30 -30 -30 -30
 DJ
@@ -1841,7 +1841,7 @@ A small guinea pig hisses at you viciously.
 It snuffles viciously.  Fatal and furry!
 ~
 rabbit~
-BC 0 a 0 0 0 0
+BCI 0 a 0 0 0 0
 46 0 50d6+3300 1d10+950 7d7+16 'chomp'
 -34 -34 -34 -34
 DEJ
@@ -1856,7 +1856,7 @@ Exquisitely crafted of mithril, the blade has been given life through
 powerful magic.  It is very precise and extremely deadly.
 ~
 modron~
-BT 0 T 0 0 0 0
+BIT 0 T 0 0 0 0
 46 0 50d6+3300 1d10+950 7d7+20 'slash'
 -33 -33 -33 -33
 DEFK
@@ -1872,7 +1872,7 @@ resembles a large rabbit.  Though small, it possesses an intelligence
 and training which make it an deadly fighter.
 ~
 rabbit~
-BT 0 TU A AB 0 0
+BIT 0 TU A AB 0 0
 47 0 50d6+3500 1d10+1000 7d7+22 'magic'
 -37 -37 -37 -37
 CDEGK
@@ -1901,7 +1901,7 @@ Powerful runes shimmer along both faces of the finely crafted adamantite
 blade.  Magically empowered and honed, the blade is a lethal enemy.
 ~
 modron~
-BT 0 NOT 0 0 0 0
+BIT 0 NOT 0 0 0 0
 45 0 50d7+3500 1d10+1000 7d7+24 'cleave'
 -35 -35 -35 -35
 CDEFK

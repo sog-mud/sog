@@ -353,7 +353,7 @@ cat black кошка кот~
 ~
 ~
 cat~
-ADJ 0 S G 0 0 0
+ADIJ 0 S G 0 0 0
 0 0 1d1+1 1d1+1 3d10+12 'claw'
 0 0 0 0
 0
@@ -370,7 +370,7 @@ black familiar crow ворон~
 ~
 ~
 song bird~
-ADJ 0 S 0 0 0 0
+ADIJ 0 S 0 0 0 0
 0 0 1d1+1 1d1+1 3d10+12 'claw'
 0 0 0 0
 0

@@ -169,14 +169,14 @@ r light 100
 белочка серая squirrel~
 @eng gray squirrel@rus ~~серая~~ ~~белочка~~~
 @eng A small squirell is sitting here.
-@rus Маленькая серая белочка (squirell) скачет вогруг своей любимой хозяйки.
+@rus Маленькая серая белочка (squirell) скачет вокруг своей любимой хозяйки.
 ~
 @eng A small gray squirrel.
 @rus Маленький серый зверек с большими влажными глазами и очень пушистым 
 хвостом.
 ~
 unique~
-BJ E HTVc ABCDFG BCD 1000 0
+BIJ E HTVc ABCDFG BCD 1000 0
 95 1000 10d10+500 10d10+500 15d15+500 'bite'
 0 0 0 0
 ACDEFGHIJKNO

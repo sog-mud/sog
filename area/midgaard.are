@@ -1374,7 +1374,7 @@ kitten cat pet котенок~
 @rus Котенок выглядит хитрым, маленьким и свирепым.
 ~
 cat~
-BU 0 0 0 0 400 0
+BIU 0 0 0 0 400 0
 1 2 2d6+11 1d1+99 1d4+0 'scratch'
 8 8 8 10
 0
@@ -1404,7 +1404,7 @@ puppy dog pet щенок~
 @rus Щенок выглядит хитрым, маленьким и свирепым.
 ~
 dog~
-BU 0 0 0 B 400 0
+BIU 0 0 0 B 400 0
 3 2 4d6+25 1d1+99 1d6+0 'bite'
 7 7 7 10
 N
@@ -1434,7 +1434,7 @@ beagle dog pet гончая~
 @rus Гончая выглядит бесстрашно.
 ~
 dog~
-BU 0 0 0 B 400 0
+BIU 0 0 0 B 400 0
 5 3 3d12+50 1d1+99 1d6+0 'bite'
 5 5 5 9
 N
@@ -1464,7 +1464,7 @@ rottweiler dog pet ротвейлер~
 @rus Ротвейлер похож на сильного, храброго бойца.
 ~
 dog~
-BU 0 0 0 B 400 0
+BIU 0 0 0 B 400 0
 7 3 6d10+60 1d1+149 2d4+1 'bite'
 4 4 4 8
 CDL
@@ -1494,7 +1494,7 @@ wolf pet волк~
 @rus Волк похож на сильного, храброго бойца.
 ~
 wolf~
-BU 0 0 0 B 0 0
+BIU 0 0 0 B 0 0
 9 3 6d10+80 1d1+99 2d5+1 'bite'
 4 4 4 8
 C
@@ -1522,7 +1522,7 @@ A loyal eagle circles overhead.
 The eagle looks like a strong fierce fighter.
 ~
 song bird~
-BU 0 0 0 B 0 0
+BIU 0 0 0 B 0 0
 12 3 6d10+130 1d1+99 2d5+3 'claw'
 0 0 0 8
 N
@@ -1550,7 +1550,7 @@ A large, faithful lion is here.
 The great lion looks very fierce.
 ~
 cat~
-BU 0 0 0 B 0 0
+BIU 0 0 0 B 0 0
 15 2 4d9+205 1d1+99 2d8+3 'chomp'
 -2 -2 -2 7
 C
@@ -1578,7 +1578,7 @@ A great, loyal tiger is here.
 The large, striped tiger looks like a savage fighter.
 ~
 cat~
-BU 0 0 0 B 0 0
+BIU 0 0 0 B 0 0
 20 3 4d9+325 1d1+99 4d4+5 'claw'
 -4 -4 -4 6
 CMN

@@ -1120,7 +1120,7 @@ A black cougar is here, protecting its master.
 Very large and very deadly, you would NOT want to mess with this black cougar!
 ~
 cat~
-BTV 0 HUV 0 AB 1000 0
+BITV 0 HUV 0 AB 1000 0
 40 1 15d10+1500 1d1+200 4d8+13 'beating'
 -13 -13 -13 4
 EN
@@ -1140,7 +1140,7 @@ VERY very big and tough, this kraken looks to be the most fearsome thing you
 have ever seen!
 ~
 dragon~
-BTV 0 HUV 0 AB 1000 0
+BITV 0 HUV 0 AB 1000 0
 45 1 25d10+2100 1d1+102 8d4+16 'beating'
 -15 -15 -15 3
 EN
@@ -1161,7 +1161,7 @@ Despite her size, she is one of the most rare and deadly creatures in all of
 Shades of Gray.  
 ~
 dragon~
-BORV 0 HUV 0 AB 1000 0
+BIORV 0 HUV 0 AB 1000 0
 50 0 50d10+3000 1d1+499 5d6+14 'beating'
 -20 -20 -20 2
 CEFIOY
@@ -1182,7 +1182,7 @@ A small but cute little spider monkey is here, aiding its master
 in their times of need.
 ~
 human~
-BT 0 V 0 A 1000 0
+BIT 0 V 0 A 1000 0
 20 1 3d9+300 1d1+310 2d8+5 'beating'
 -4 -4 -4 7
 C
@@ -1202,7 +1202,7 @@ A cute little male lion is here, following his master about,
 always ready for combat.
 ~
 cat~
-BT 0 V 0 A 1000 0
+BIT 0 V 0 A 1000 0
 25 0 5d10+500 1d1+249 2d10+7 'beating'
 -7 -7 -7 5
 C
@@ -1227,7 +1227,7 @@ A large black wolf is here, guarding his master.
 A fearsome black wolf is here, protecting his master.
 ~
 dog~
-BT 0 TV 0 A 1000 0
+BIT 0 TV 0 A 1000 0
 30 0 6d12+823 1d1+299 4d6+8 'beating'
 -9 -9 -9 6
 C
@@ -1250,7 +1250,7 @@ A large and deadly Java Beast is here, protecting her master with
 its magical flames.
 ~
 dragon~
-BR 0 V 0 A 1000 0
+BIR 0 V 0 A 1000 0
 35 1 10d10+1550 1d1+904 4d7+11 'beating'
 -11 -11 -11 5
 C
@@ -1621,7 +1621,7 @@ A large and deadly Hydra is here.
 A large deadly Hydra is here and will do anything to protect her master.
 ~
 dragon~
-BRTV C V 0 AB 1000 0
+BIRTV C V 0 AB 1000 0
 35 0 10d10+1550 1d1+348 4d8+13 'beating'
 -11 -11 -11 5
 N

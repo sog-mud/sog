@@ -1249,7 +1249,7 @@ A hawk is here, loyal to it's owner.
 The hawk glares at you.
 ~
 human~
-G 0 0 0 0 1000 0
+GI 0 0 0 0 1000 0
 20 0 3d9+333 199d1+1 2d8+5 'punch'
 -4 -4 -4 7
 EKN

@@ -732,7 +732,7 @@ A large macaw is here.
 The macaw looks like a strong, fearless fighter. It is a beautiful bird.
 ~
 song bird~
-BC 0 0 0 0 0 0
+BCI 0 0 0 0 0 0
 12 0 2d10+150 5d5+100 1d10+3 'claw'
 0 0 0 7
 0
@@ -746,7 +746,7 @@ A large, black raven is here.
 The raven looks like a strong, fearless fighter.
 ~
 human~
-BC 0 0 0 0 0 0
+BCI 0 0 0 0 0 0
 15 0 3d9+208 5d5+100 2d6+3 'claw'
 -2 -2 -2 6
 EK
@@ -761,7 +761,7 @@ The hawk looks like a strong, fearless fighter. It has been trained for
 hunting game.
 ~
 song bird~
-BC 0 0 0 0 0 0
+BCI 0 0 0 0 0 0
 18 0 3d9+283 5d5+1000 2d7+4 'claw'
 -3 -3 -3 6
 E
@@ -776,7 +776,7 @@ The battle falcon looks like a strong, fearless fighter. This giant breed has
 been trained especially for combat.
 ~
 song bird~
-BC 0 0 0 0 0 0
+BCI 0 0 0 0 0 0
 21 0 4d10+360 5d5+1000 4d4+5 'claw'
 -5 -5 -5 5
 E

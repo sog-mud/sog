@@ -694,7 +694,7 @@ A small loyal kitten with grey and black stripes is here.
 The kitten looks like a cute, little, fierce fighter.
 ~
 cat~
-BU 0 0 0 0 400 0
+BIU 0 0 0 0 400 0
 1 2 2d6+11 1d1+99 1d4+0 'scratch'
 8 8 8 10
 U
@@ -710,7 +710,7 @@ A small loyal puppy with big brown eyes is here.
 The puppy looks like a cute, little, fierce fighter.
 ~
 dog~
-BU C 0 0 B 400 0
+BIU C 0 0 B 400 0
 3 2 4d6+25 1d1+99 1d6+0 'bite'
 7 7 7 10
 N
@@ -738,7 +738,7 @@ A large, loyal doberman is here.
 The doberman looks like a strong, fierce, tenacious fighter.
 ~
 dog~
-BU C 0 0 B 400 0
+BIU C 0 0 B 400 0
 7 3 6d10+60 1d1+149 2d4+1 'bite'
 4 4 4 8
 CDL
@@ -766,7 +766,7 @@ A loyal falcon circles overhead.
 The falcon looks like a strong, fierce fighter.
 ~
 song bird~
-BU C 0 0 B 0 0
+BIU C 0 0 B 0 0
 12 3 6d10+130 1d1+99 2d5+3 'claw'
 0 0 0 8
 N
@@ -794,7 +794,7 @@ A mercenary stands here waiting for a job.
 You see an assassin down on his luck looking to be freelanced out.
 ~
 human~
-BTU C 0 0 0 0 0
+BITU C 0 0 0 0 0
 15 0 3d9+208 1d1+200 2d6+3 'pierce'
 -2 -2 -2 -5
 CDEIKLU
@@ -808,7 +808,7 @@ A dwarf stands here waiting to serve his master.
 You see a warrior who thinks nothing of selling his services.
 ~
 dwarf~
-BG C 0 0 0 600 0
+BGI C 0 0 0 600 0
 20 0 3d9+333 1d1+400 2d8+5 'thwack'
 -4 -4 -4 -8
 CDEIKLU
@@ -822,7 +822,7 @@ A giant stands by awaiting his master's command.
 You see a giant who will be loyal to his master... for a price.
 ~
 giant~
-BG C 0 0 0 0 0
+BGI C 0 0 0 0 0
 30 0 6d12+853 1d1+200 3d10+12 'smash'
 -9 -9 -9 -13
 CDEIKLU

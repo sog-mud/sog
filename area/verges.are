@@ -126,6 +126,40 @@ stand stand male 5000
 r bash 0
 r pierce 0
 r slash 0
+#34107
+novice paladin~
+@eng Novice paladin~
+@eng Novice paladin points you and curses
+~
+@eng You looked on thin man with book in his hand. And you say : 'Hay, wanna eating'. 'Of course'- sad the man. You and novice paladin sits and eat some pizza. But after the dinner paladin sad : 'You don't clean my shoes',and curse you. You are thinking : 'how need eat that soil shoes.
+~
+half-elf~
+JQT 0 Nd 0 0 1000 0
+45 0 25d10+2750 24d7+100 8d4+16 'wrath'
+-15 -15 -15 2
+0
+stand stand male 2799
+E 0 medium unknown
+F for HMV
+r negative -20
+r charm 100
+#34108
+girl tiny child~
+@eng child@rus ~~девочка~~~
+@eng tiny girl here maked a sand pie
+@rus Священник (Bishop) в светлой мантии стоит рядом с тобой.
+~
+@eng The White Bishop seems willing to help you in any possible so that he can
+attain a higher spirituality.
+@rus Священник хочет помочь тебе в твоих мирских делах своим советом и молитвой.
+~
+human~
+J 0 N 0 A 500 0
+25 0 5d15+500 1d1+239 2d10+6 'slash'
+-6 -6 -6 6
+CDEF
+sit sit male 590
+0 0 small unknown
 #0
 
 #OBJECTS
@@ -674,6 +708,7 @@ S
 M 34103 spec_breath_any	* Baby dragon
 M 34104 spec_guard	* Guardian of Verges
 M 34105 spec_cast_mage	* Novice Mage
+M 34107 spec_cast_cleric	* Novice paladin
 S
 
 #RESETS
