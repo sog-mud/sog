@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.61 2000-04-28 08:20:08 fjoe Exp $
+ * $Id: act.c,v 1.62 2000-05-30 14:40:58 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -949,7 +949,9 @@ act_skip(CHAR_DATA *ch, CHAR_DATA *vch, CHAR_DATA *to,
 		return TRUE;
 
 /* check "deaf dumb blind" chars */
-	if (IS_SET(act_flags, ACT_NODEAF) && is_affected(to, "deafen"))
+	if (IS_SET(act_flags, ACT_NODEAF)
+	&&  !IS_IMMORTAL(to)
+	&&  is_affected(to, "deafen"))
 		return TRUE;
 
 /* skip verbose messages */
