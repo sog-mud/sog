@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_system.c,v 1.20 2001-08-05 16:36:30 fjoe Exp $
+ * $Id: db_system.c,v 1.21 2001-08-19 19:24:51 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -60,15 +60,16 @@ static void fread_host(rfile_t *fp, varr *v);
 
 DBLOAD_FUN(load_system)
 {
+	bool fListen;
+
+	/*
+	 * command line parameters override
+	 * configuration settings
+	 */
+	fListen = varr_isempty(&control_sockets);
+
 	for (;;) {
 		bool fMatch = FALSE;
-		bool fListen;
-
-		/*
-		 * command line parameters override
-		 * configuration settings
-		 */
-		fListen = varr_isempty(&control_sockets);
 
 		fread_keyword(fp);
 		switch(rfile_tokfl(fp)) {
@@ -105,15 +106,16 @@ DBLOAD_FUN(load_system)
 
 DBLOAD_FUN(load_info)
 {
+	bool fListen;
+
+	/*
+	 * command line parameters override
+	 * configuration settings
+	 */
+	fListen = varr_isempty(&info_sockets);
+
 	for (;;) {
 		bool fMatch = FALSE;
-		bool fListen;
-
-		/*
-		 * command line parameters override
-		 * configuration settings
-		 */
-		fListen = varr_isempty(&info_sockets);
 
 		fread_keyword(fp);
 		switch(rfile_tokfl(fp)) {
