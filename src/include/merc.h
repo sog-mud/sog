@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.40 2003-09-11 13:41:16 matrim Exp $
+ * $Id: merc.h,v 1.234.2.41 2004-02-18 22:26:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -884,7 +884,7 @@ where_t *where_lookup(flag32_t where);
 #define ITEM_WEAR_WRIST 	(M)
 #define ITEM_WIELD		(N)
 #define ITEM_HOLD		(O)
-#define ITEM_NO_SAC		(P)
+#define ITEM_NO_SAC		(P)	/* deprecated */
 #define ITEM_WEAR_FLOAT 	(Q)
 #define ITEM_WEAR_TATTOO	(R)
 #define ITEM_WEAR_CLANMARK	(S)
