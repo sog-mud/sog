@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.299 1999-12-11 15:30:59 fjoe Exp $
+ * $Id: act_info.c,v 1.300 1999-12-14 05:24:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2024,7 +2024,7 @@ void do_detect_hidden(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	af.where     = TO_INVIS;
+	af.where     = TO_DETECTS;
 	af.type      = "detect hide";
 	af.level     = LEVEL(ch);
 	af.duration  = LEVEL(ch);
