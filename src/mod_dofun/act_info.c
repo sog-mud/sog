@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.272 1999-10-06 09:55:43 fjoe Exp $
+ * $Id: act_info.c,v 1.273 1999-10-07 19:01:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2855,12 +2855,12 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 void do_practice(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA	*mob;
-	skill_t	*sk;
 	pc_skill_t	*pc_sk;
 	spec_skill_t	spec_sk;
 	bool		found;
 	char		arg[MAX_STRING_LENGTH];
 	PC_DATA	*	pc;
+	skill_t *	sk;
 
 	if (IS_NPC(ch))
 		return;
@@ -2875,14 +2875,19 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 		output = buf_new(-1);
 
 		for (i = 0; i < pc->learned.nused; i++) {
+			spec_skill_t spec_sk;
 			pc_sk = VARR_GET(&pc->learned, i);
 
+			spec_sk.sn = pc_sk->sn;
+			spec_stats(ch, &spec_sk);
+
 			if (pc_sk->percent == 0
-			||  skill_level(ch, pc_sk->sn) > ch->level)
+			||  spec_sk.max <= 0)
 				continue;
 
 			buf_printf(output, "%-19s %3d%%  ",
-				   pc_sk->sn, pc_sk->percent);
+				   pc_sk->sn,
+				   UMAX(100 * pc_sk->percent / spec_sk.max, 1));
 			if (++col % 3 == 0)
 				buf_add(output, "\n");
 		}
@@ -2907,6 +2912,7 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 	pc_sk = (pc_skill_t*) skill_vsearch(&pc->learned, arg);
 	if (pc_sk == NULL
 	||  (sk = skill_lookup(pc_sk->sn)) == NULL
+	||  pc_sk->percent == 0
 	||  get_skill(ch, pc_sk->sn) == 0) {
 		char_puts("You can't practice that.\n", ch);
 		return;
@@ -2956,7 +2962,7 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 	spec_stats(ch, &spec_sk);
 	if (pc_sk->percent >= spec_sk.adept) {
 		char_printf(ch, "You are already learned at %s.\n",
-			    sk->name);
+			    pc_sk->sn);
 		return;
 	}
 
@@ -2979,8 +2985,8 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *practicer;
 	pc_skill_t *pc_sk;
+	pc_skill_t *pc_sk2;
 	spec_skill_t spec_sk;
-	skill_t *sk;
 	PC_DATA *pc;
 
 	if (IS_NPC(ch))
@@ -3006,7 +3012,8 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg, sizeof(arg));
 	pc_sk = (pc_skill_t*) skill_vsearch(&pc->learned, arg);
 	if (pc_sk == NULL
-	||  (sk = skill_lookup(pc_sk->sn)) == NULL
+	||  skill_lookup(pc_sk->sn) == 0
+	||  pc_sk->percent == 0
 	||  get_skill(ch, pc_sk->sn) == 0) {
 		char_puts("You can't learn that.\n", ch);
 		return;
@@ -3038,14 +3045,15 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 
 	spec_sk.sn = pc_sk->sn;
 	spec_stats(practicer, &spec_sk);
-	if (get_skill(practicer, pc_sk->sn) < spec_sk.max) {
+	if ((pc_sk2 = pc_skill_lookup(practicer, pc_sk->sn)) == NULL
+	||  pc_sk2->percent < spec_sk.max) {
 		char_puts("Your hero doesn't know that skill enough to teach you.\n",ch);
 		return;
 	}
 
 	spec_stats(ch, &spec_sk);
 	if (pc_sk->percent >= spec_sk.adept) {
-		char_printf(ch, "You are already learned at %s.\n", sk->name);
+		char_printf(ch, "You are already learned at %s.\n", pc_sk->sn);
 		return;
 	}
 
@@ -3054,17 +3062,17 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 	pc_sk->percent += int_app[get_curr_stat(ch, STAT_INT)].learn /
 						spec_sk.rating;
 
-	act("You teach $T.", practicer, NULL, sk->name, TO_CHAR);
-	act("$n teaches $T.", practicer, NULL, sk->name, TO_ROOM);
+	act("You teach $T.", practicer, NULL, pc_sk->sn, TO_CHAR);
+	act("$n teaches $T.", practicer, NULL, pc_sk->sn, TO_ROOM);
 	REMOVE_BIT(PC(practicer)->plr_flags, PLR_PRACTICER);
 
 	if (pc_sk->percent < spec_sk.adept) {
-		act("You learn $T.", ch, NULL, sk->name, TO_CHAR);
-		act("$n learn $T.", ch, NULL, sk->name, TO_ROOM);
+		act("You learn $T.", ch, NULL, pc_sk->sn, TO_CHAR);
+		act("$n learn $T.", ch, NULL, pc_sk->sn, TO_ROOM);
 	} else {
 		pc_sk->percent = spec_sk.adept;
-		act("You are now learned at $T.", ch, NULL, sk->name, TO_CHAR);
-		act("$n is now learned at $T.", ch, NULL, sk->name, TO_ROOM);
+		act("You are now learned at $T.", ch, NULL, pc_sk->sn, TO_CHAR);
+		act("$n is now learned at $T.", ch, NULL, pc_sk->sn, TO_ROOM);
 	}
 }
 
@@ -3172,15 +3180,10 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 
 		found = TRUE;
 		lev = skill_level(ch, pc_sk->sn);
-
-		if (lev > (IS_IMMORTAL(ch) ? LEVEL_IMMORTAL : LEVEL_HERO))
+		if (lev > ch->level)
 			continue;
 
-		if (ch->level < lev)
-			snprintf(buf, sizeof(buf), "%-19s n/a       ",
-				 pc_sk->sn);
-		else
-			snprintf(buf, sizeof(buf), "%-19s %4d mana  ",
+		snprintf(buf, sizeof(buf), "%-19s %4d mana  ",
 				 pc_sk->sn, skill_mana(ch, pc_sk->sn));
 			
 		if (spell_list[lev][0] == '\0')
@@ -3234,6 +3237,7 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 	for (i = 0; i < PC(ch)->learned.nused; i++) {
 		pc_skill_t *pc_sk = VARR_GET(&PC(ch)->learned, i);
 		skill_t *sk;
+		spec_skill_t spec_sk;
 
 		if (pc_sk->percent == 0
 		||  (sk = skill_lookup(pc_sk->sn)) == NULL
@@ -3241,15 +3245,16 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 			continue;
 
 		found = TRUE;
-		lev = skill_level(ch, pc_sk->sn);
-
-		if (lev > (IS_IMMORTAL(ch) ? LEVEL_IMMORTAL : LEVEL_HERO))
+		spec_sk.sn = pc_sk->sn;
+		spec_stats(ch, &spec_sk);
+		lev = spec_sk.level;
+		if (lev > ch->level)
 			continue;
 
-		snprintf(buf, sizeof(buf),
-			 ch->level < lev ?
-				"%-19s n/a      " : "%-19s %3d%%      ",
-			 pc_sk->sn, pc_sk->percent);
+		snprintf(buf, sizeof(buf), "%-19s %3d%%      ",
+			 pc_sk->sn,
+			 spec_sk.max <= 0 ? 0 :
+				UMAX(100 * pc_sk->percent / spec_sk.max, 1));
 
 		if (skill_list[lev][0] == '\0')
 			snprintf(skill_list[lev], sizeof(skill_list[lev]),
