@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.363 2000-11-17 17:14:18 avn Exp $
+ * $Id: act_info.c,v 1.364 2001-01-07 17:52:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1535,7 +1535,7 @@ void do_description(CHAR_DATA *ch, const char *argument)
 	}
 
 	act_char("Your description is:", ch);
-	act_puts("$t", ch, mlstr_mval(&ch->description), NULL,
+	act_puts("$t{x", ch, mlstr_mval(&ch->description), NULL,
 		 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 	act_char("Use 'desc edit' to edit your description.", ch);
 }
@@ -4485,11 +4485,18 @@ static void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	else
 		desc = mlstr_mval(&doppel->description);
 
-	if (!IS_NULLSTR(desc)) 
-		act_puts(desc, ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
-	else
+	if (!IS_NULLSTR(desc)) {
+		if (doppel->shapeform || IS_NPC(doppel)) {
+			act_puts(desc, ch, NULL, NULL,
+				 TO_CHAR | ACT_NOLF, POS_DEAD);
+		} else {
+			act_puts("$t{x", ch, desc, NULL,
+				 TO_CHAR | ACT_NOLF, POS_DEAD);
+		}
+	} else {
 		act_puts("You see nothing special about $m.",
 			 victim, NULL, ch, TO_VICT, POS_DEAD);
+	}
 
 	if (MOUNTED(victim))
 		act_puts("$N is riding $i.",

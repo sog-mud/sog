@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.245 2000-10-15 17:19:30 fjoe Exp $
+ * $Id: act_move.c,v 1.246 2001-01-07 17:52:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1551,8 +1551,6 @@ void do_track(CHAR_DATA *ch, const char *argument)
 {
 	ROOM_HISTORY_DATA *rh;
 	EXIT_DATA *pexit;
-	static char *door[] = { "north","east","south","west","up","down",
-		                      "that way" };
 	int d;
 	int chance;
 
@@ -1570,14 +1568,15 @@ void do_track(CHAR_DATA *ch, const char *argument)
 		for (rh = ch->in_room->history; rh != NULL; rh = rh->next)
 			if (is_name(argument, rh->name)) {
 				check_improve(ch, "track", TRUE, 1);
-			if ((d = rh->went) == -1)
+			if ((d = rh->went) == -1
+			||  d >= MAX_DIR)
 				continue;
 			act_puts("$t's tracks lead $T.",
-				 ch, rh->name, door[d], TO_CHAR, POS_DEAD);
+				 ch, rh->name, dir_name[d], TO_CHAR, POS_DEAD);
 			if ((pexit = ch->in_room->exit[d]) != NULL
 			&&  IS_SET(pexit->exit_info, EX_ISDOOR)
 			&&  pexit->keyword != NULL)
-				dofun("open", ch, "%s", door[d]);
+				dofun("open", ch, "%s", dir_name[d]);
 			move_char(ch, rh->went, FALSE);
 			return;
 		}
