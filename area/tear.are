@@ -353,29 +353,40 @@ G none
 #110001
 ~
 @eng the King of Heart's crown@rus the King of Heart's crown@rusoff 0~
-@eng the King of Heart's crown lies here.@rus the King of Heart's crown lies here.@rusoff 0~
+@eng the King of Heart's crown@rus the King of Heart's crown@rusoff 0~
 steel~
 armor AJLPTUa AEN
 100 100 100 100 0
 60 50 100000 P
 F
-A 20 -5 Z
-F
-A 20 -5 P
-F
 A 20 -5 m
+F
+A 20 -5 t
 F
 A 20 -5 l
 F
+A 20 -5 Z
+F
 A 20 -5 F
 F
-I 20 -5 B
+R 20 -5 B
 F
-R 18 50 E
+I 20 -5 A
 F
-R 8 50 C
+R 8 50 E
+F
+R 18 50 C
 F
 R 19 6 D
+G none
+#110002
+~
+@eng harp@rus harp~
+@eng harp@rus harp~
+glass~
+armor PTU ANO
+0 0 0 0 0
+58 10 100 P
 G none
 #110003
 all Rod Of Rage~

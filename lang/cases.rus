@@ -433,6 +433,17 @@ Form 6 -у~
 End
 
 #RULE
+Name тролль-разбойник~
+BaseLen 16
+Form 1 тролля-разбойника~
+Form 2 троллю-разбойнику~
+Form 3 тролля-разбойника~
+Form 4 троллем-разбойником~
+Form 5 тролле-разбойнике~
+Form 6 тролля-разбойника~
+End
+
+#RULE
 Name стражница~
 BaseLen 8
 Form 1 -ы~
@@ -444,6 +455,17 @@ Form 6 -у~
 End
 
 #RULE
+Name разведчик~
+BaseLen 9
+Form 1 -а~
+Form 2 -у~
+Form 3 -~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
+End
+
+#RULE
 Name серебряная~
 BaseLen 8
 Form 1 -ой~
@@ -452,6 +474,17 @@ Form 3 -ую~
 Form 4 -ой~
 Form 5 -ой~
 Form 6 -ую~
+End
+
+#RULE
+Name нимфа~
+BaseLen 4
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
 End
 
 #RULE
@@ -850,6 +883,17 @@ Form 6 -а~
 End
 
 #RULE
+Name титания~
+BaseLen 6
+Form 1 -и~
+Form 2 -и~
+Form 3 -ю~
+Form 4 -ей~
+Form 5 -и~
+Form 6 -ю~
+End
+
+#RULE
 Name костяное~
 BaseLen 6
 Form 1 -ого~
@@ -883,11 +927,33 @@ Form 6 -а~
 End
 
 #RULE
+Name сильфида~
+BaseLen 7
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name бармен~
 BaseLen 6
 Form 1 -а~
 Form 2 -у~
 Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
+End
+
+#RULE
+Name cказочник~
+BaseLen 9
+Form 1 -а~
+Form 2 -у~
+Form 3 -~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -а~
@@ -981,6 +1047,17 @@ Form 6 -у~
 End
 
 #RULE
+Name Нага~
+BaseLen 3
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name палка~
 BaseLen 4
 Form 1 -и~
@@ -1000,6 +1077,17 @@ Form 3 -ую~
 Form 4 -ой~
 Form 5 -ой~
 Form 6 -ую~
+End
+
+#RULE
+Name оберон~
+BaseLen 6
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
 End
 
 #RULE
@@ -1033,6 +1121,17 @@ Form 3 -~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -~
+End
+
+#RULE
+Name дриада~
+BaseLen 5
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
 End
 
 #RULE
@@ -1267,6 +1366,17 @@ Form 6 -а~
 End
 
 #RULE
+Name кентавр-охранник~
+BaseLen 16
+Form 1 -а~
+Form 2 -у~
+Form 3 -~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
+End
+
+#RULE
 Name тупой~
 BaseLen 3
 Form 1 -ого~
@@ -1297,9 +1407,31 @@ Form 6 -у~
 End
 
 #RULE
+Name желудевый~
+BaseLen 7
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
 Name серебряная монета~
 Form 3 серебряную монету~
 Form 6 серебряную монету~
+End
+
+#RULE
+Name русалка~
+BaseLen 6
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
 End
 
 #RULE
@@ -1427,6 +1559,17 @@ Form 6 -ого~
 End
 
 #RULE
+Name эльф~
+BaseLen 4
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
+End
+
+#RULE
 Name золотые~
 Form 1 золотых~
 End
@@ -1547,6 +1690,17 @@ End
 #RULE
 Name Бессмертная~
 BaseLen 9
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+Form 6 -ую~
+End
+
+#RULE
+Name Пылающая~
+BaseLen 6
 Form 1 -ой~
 Form 2 -ой~
 Form 3 -ую~
@@ -1693,6 +1847,17 @@ Form 3 -у~
 Form 4 -ой~
 Form 5 -е~
 Form 6 -у~
+End
+
+#RULE
+Name пылающий~
+BaseLen 6
+Form 1 -его~
+Form 2 -ему~
+Form 3 -ий~
+Form 4 -им~
+Form 5 -ем~
+Form 6 -его~
 End
 
 #RULE
@@ -1997,6 +2162,17 @@ Form 6 соленую воду~
 End
 
 #RULE
+Name леснаЯ~
+BaseLen 4
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+Form 6 -ую~
+End
+
+#RULE
 Name вооруженный~
 BaseLen 9
 Form 1 -ого~
@@ -2056,6 +2232,17 @@ Form 6 -у~
 End
 
 #RULE
+Name водяной~
+BaseLen 5
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ой~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
 Name кролик~
 BaseLen 6
 Form 1 -а~
@@ -2101,6 +2288,17 @@ End
 
 #RULE
 Name фиолетовый~
+BaseLen 8
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
+Name Бессмерный~
 BaseLen 8
 Form 1 -ого~
 Form 2 -ому~
@@ -2230,6 +2428,17 @@ Form 6 -ого~
 End
 
 #RULE
+Name хищник~
+BaseLen 6
+Form 1 -а~
+Form 2 -у~
+Form 3 -~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
+End
+
+#RULE
 Name тигр~
 BaseLen 4
 Form 1 -а~
@@ -2271,6 +2480,17 @@ Form 3 -ой~
 Form 4 -ым~
 Form 5 -ом~
 Form 6 -ого~
+End
+
+#RULE
+Name Адрия~
+BaseLen 4
+Form 1 -и~
+Form 2 -и~
+Form 3 -ю~
+Form 4 -ей~
+Form 5 -и~
+Form 6 -ю~
 End
 
 #RULE

@@ -4,6 +4,7 @@ VNUMs 95400 95499
 Credits Chronos~
 Security 9
 LevelRange 90 100
+Flags noquest~
 Clan BattleRager~
 End
 
@@ -79,8 +80,8 @@ key ORYf AO
 40 4 0 P
 G none
 #95401
-skull~
-@eng Skull of mage@rus Череп мага~
+skull череп~
+@eng Skull of mage@rus ~~Череп~~ мага~
 An old glowing small skull is sitting on the ground.~
 bone~
 treasure ORe AO
@@ -145,6 +146,15 @@ adamantite~
 weapon 0 AN
 axe 6 6 cleave DF
 36 450 5600 P
+G none
+#95408
+tattoo clanmark~
+@eng {DI hate magic{x@rus {DНенавижу магию{x~
+@eng Strange tattoo.@rus Странная татуировка (tattoo).~
+unknown~
+jewelry AHMZ S
+0 0 0 0 0
+0 0 0 P
 G none
 #0
 

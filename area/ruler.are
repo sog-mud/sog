@@ -4,6 +4,7 @@ VNUMs 95100 95109
 Credits Chronos~
 Security 9
 LevelRange 90 100
+Flags noquest~
 Clan Ruler~
 End
 
@@ -99,6 +100,15 @@ Book of LAW~
 A big book lies here.~
 unknown~
 jewelry Y S
+0 0 0 0 0
+0 0 0 P
+G none
+#95105
+law~
+@eng {CLaw and order{x@rus {CНа страже порядка{x~
+Interesting tattoo.~
+unknown~
+trash AHOZ S
 0 0 0 0 0
 0 0 0 P
 G none

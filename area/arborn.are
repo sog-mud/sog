@@ -150,6 +150,25 @@ AZ 0 0 0
 CDI 0 0 0
 stand stand none 0
 0 0 medium unknown
+#36130
+balthazar~
+Balthazar~
+Balthazar is here, looking mighty.
+~
+Man dressed in a gold-embroidered black robe stands before you. Though
+he looks tough, you do not feel enmity from him.
+~
+human~
+ABGRTf DFHVclm 0 0
+150 20 1d1+29999 1d1+12999 50d5+150 magic
+-150 -150 -150 -150
+ACDEFHIJKNO 0 0 0
+stand stand male 0
+0 0 large unknown
+F for AHMV
+F par ABCDEFGHIJK
+M speech 36130 quest~
+M speech 36131 oahzxalq~
 #0
 
 #OBJECTS
@@ -413,17 +432,292 @@ A
 G none
 #36118
 mithras axe~
-huge axe called "{RMithras{W"~
+huge axe called "{RMithras{x"~
 Blood-red axe lies on the ground.~
 mithril~
 weapon BRTa ANP
-axe 5 19 chop EF
+axe 5 19 chop E
 50 50 200000 P
 A
 18 10
 F
 A 19 25 a
 G male
+#36119
+warmonger sword~
+legendary sword "{wWarmonger{x"~
+Dark blade with glowing runes on its blade lies near.~
+adamantite~
+weapon ACEMORZa AN
+sword 24 6 slice DEF
+85 80 1200000 P
+A
+8 1
+A
+19 20
+F
+A 18 15 V
+E
+warmonger~
+This legendary sword, once belonged to Borel, is n your hands. Though
+you feel it strikes fear in your heart, you are somewhat attracted to it.
+For there are some rumors saying that this is not a plain sword, but a
+sentient being which looks like a sword. Hoping you'll be able to master
+it, you grasp this sword.
+Knowing that with this sword Borel challenged even gods to a battle, you
+feel that you are able to do the same. Remembering that he failed to
+defeat the God of Magic, you decide that better not.
+~
+G male
+#36120
+ember bow~
+everburning bow "{rEmber{x"~
+Bow with fires on it lies near you.~
+energy~
+weapon AORa AN
+bow 7 17 flame AEF
+65 50 700000 P
+F
+I 8 1 H
+A
+19 10
+A
+18 30
+G male
+#36121
+carnage dagger~
+long slim dagger "{MCarnage{x"~
+Long and slim dagger glints in the grass.~
+steel~
+weapon AORa AN
+dagger 14 10 stab BDE
+75 50 900000 P
+F
+I 8 1 MN
+A
+19 25
+A
+18 -10
+G male
+#36122
+battlecraft flail~
+deadly mace "{YBattleCraft{x"~
+Brightly glowing flail lies forgotten.~
+unknown~
+weapon AORa AN
+flail 10 9 smash ADE
+55 50 500000 P
+F
+R 8 1 F
+A
+19 15
+A
+18 10
+G none
+#36130
+erastus~
+skull of Erastus~
+Skull of a powerful mage is here, impaled on a rod.~
+steel~
+trash AOT 0
+0 0 0 0 0
+0 0 0 P
+E
+erastus~
+There is a writing '1-o' on a skull.
+~
+G none
+#36131
+zona~
+skull of Zona~
+Skull of a powerful mage is here, impaled on a dagger.~
+steel~
+trash AOT 0
+0 0 0 0 0
+0 0 0 P
+E
+zona~
+There is a writing '2-a' on a skull.
+~
+G none
+#36132
+searaven~
+skull of SeaRaven~
+Skull of a powerful mage is here, impaled on a spear.~
+steel~
+trash AOT 0
+0 0 0 0 0
+0 0 0 P
+E
+searaven~
+There is a writing '3-h' on a skull.
+~
+G none
+#36133
+zekiel~
+skull of Zekiel~
+Skull of a powerful mage is here, impaled on a sword.~
+steel~
+trash AOT 0
+0 0 0 0 0
+0 0 0 P
+E
+zekiel~
+There is a writing '4-z' on a skull.
+~
+G none
+#36134
+cloudburst~
+skull of CloudBurst~
+Skull of a powerful mage is here, impaled on a lance.~
+steel~
+trash AOT 0
+0 0 0 0 0
+0 0 0 P
+E
+cloudburst~
+There is a writing '5-x' on a skull.
+~
+G none
+#36135
+firefang~
+skull of FireFang~
+Skull of a powerful mage is here, impaled on a staff.~
+steel~
+trash AOT 0
+0 0 0 0 0
+0 0 0 P
+E
+firefang~
+There is a writing '6-a' on a skull.
+~
+G none
+#36136
+pale~
+skull of Pale~
+Skull of a powerful mage is here, impaled on a halberd.~
+steel~
+trash AOT 0
+0 0 0 0 0
+0 0 0 P
+E
+pale~
+There is a writing '7-l' on a skull.
+~
+G none
+#36137
+silvanus~
+skull of Silvanus~
+Skull of a powerful mage is here, impaled on a mace.~
+steel~
+trash AOT 0
+0 0 0 0 0
+0 0 0 P
+E
+silvanus~
+There is a writing '8-q' on a skull.
+~
+G none
+#36138
+book weaponry~
+a book on ancient weaponry~
+An old book lies here.~
+paper~
+treasure 0 A
+0 0 0 0 0
+0 20 50000 P
+E
+book weaponry~
+You see an old fragile book with yellow-old pages. In this book you see
+bookmarks which read:
+"{wWarmonger{x", "{MCarnage{x", "{rEmber{x", "{YBattleCraft{x",
+"{GRancor{x", "{RMithras{x".
+~
+E
+mithras~
+Name: huge axe called "{RMithras{x"
+Level: 50
+Extra: nosac nolocate nosell
+Cost: 200000
+Type: axe
+Damage: 5d19(average 50), chop
+Weapon flags: vorpal
+Affects: hitroll by 10
+         damroll by 25
+Adds berserk affect.
+~
+E
+rancor~
+Name: long sword named "{GRancor{x"
+Level: 20
+Extra: antigood nosac nolocate nosell
+Cost: 100000
+Type: sword
+Damage: 4d13(average 28), cleave
+Weapon flags: poison
+Affects: hp by -30
+         hitroll by 10
+         damroll by 3
+Adds poison affect.
+~
+E
+warmonger~
+Name: legendary sword "{wWarmonger{x"
+Level: 85
+Extra: dark evil noremove nopurge nosac nouncurse nosell
+Cost: 1200000
+Type: sword
+Damage: 24d6(average 84), slice
+Weapon flags: sharp vorpal twohands
+Affects: level by 1
+         hitroll by 15
+         damroll by 20
+Adds haste affect.
+~
+E
+carnage~
+Name: long slim dagger "{MCarnage{x"
+Level: 75
+Extra: nopurge nosac nosell
+Cost: 900000
+Type: dagger
+Damage: 14d10(average 77), stab
+Weapon flags: frost sharp vorpal
+Affects: level by 1
+         hitroll by -10
+         damroll by 25
+Adds negative immunity.
+Adds holy immunity.
+~
+E
+ember~
+Name: everburning bow "{rEmber{x"
+Level: 65
+Extra: nopurge nosac nosell
+Cost: 700000
+Type: bow
+Damage: 7d17(average 63), flame
+Weapon flags: flaming vorpal twohands
+Affects: level by 1
+         hitroll by 30
+         damroll by 10
+Adds fire immunity.
+~
+E
+battlecraft~
+Name: deadly mace "{YBattlecraft{x"
+Level:55
+Extra flags: nosac nosell
+Cost: 500000
+Type: flail
+Damage: 10d9(average 50), smash
+Weapon flags: flaming sharp vorpal
+Affects: level by 1
+         hitroll by 10
+         damroll by 15
+Adds pierce resistance.
+~
+G none
 #0
 
 #ROOMS
@@ -610,6 +904,19 @@ D4
 ~
 ABCFZ 0 36100
 S
+#36130
+Balthazar's home~
+It's pretty dark here. Little light came through a small window.
+Furniture is not cheap, but there is only a bed and a table in this
+room. You feel you are being watched.
+~
+0 JNX inside
+S
+#36131
+Quest storage~
+~
+0 0 inside
+S
 #0
 
 #SPECIALS
@@ -643,6 +950,93 @@ S
 #MOBPROGS
 #36101
 mob gecho Behold the Ancient Warlock, Master of Frost!
+~
+#36130
+if level $n < 50
+tell $n You are too weak to make my quest. Grow, then return.
+end
+endif
+ tell $n I have a quest for you, brave one. Many years ago,
+tell $n mighty mage Abighael, known also as Shadow Weaver,
+tell $n undertook an attempt to take over the world. Nine
+tell $n wizards defied her will and rose against her. I was
+tell $n among them. Alas, we failed. I was enslaved by Abighael,
+tell $n and the rest of us shared the fearsome destiny. Their
+tell $n bodies were stripped of flesh, and their skulls were
+tell $n impaled on weapons and cast all around the world with
+tell $n their souls imprisoned within their skulls. Later, a
+tell $n hero came to defeat Abighael and succeeded. I was
+tell $n freed, as well as the souls of my companions. Now
+tell $n thay have thair rest, and I was left alone in this
+tell $n world... Now listen, stranger, for I'll tell you our
+tell $n names: Erastus, Zona, SeaRaven, Zekiel, CloudBurst,
+tell $n FireFang, Pale, Silvanus and me, Balthazar. Find
+tell $n skulls of my companions, for each of them knows one
+tell $n letter of a 'GATEWAY' spell. If I'll be able to cast
+tell $n it, I'll be able to join my companions, whereever
+tell $n they are. I'm eager to meet my brothers, Pale and
+tell $n FireFang. I long for your return, stranger!
+~
+#36131
+if level $n < 50
+tell $n Get away, cheater, before I get angry!
+end
+endif
+if level $n < 61
+mob goto 36131
+get battlecraft
+mob goto 36130
+if carries $i 36122
+tell $n Thank you, brave one! Here is your reward.
+give battlecraft $n
+end
+endif
+tell $n Sorry, this quest is already completed.
+end
+endif
+if level $n < 71
+mob goto 36131
+get ember
+mob goto 36130
+if carries $i 36120
+tell $n Thank you, brave one. Here is your reward.
+give ember $n
+end
+endif
+tell $n Sorry, this quest is already completed.
+end
+endif
+if level $n < 81
+mob goto 36131
+get carnage
+mob goto 36130
+if carries $i 36121
+tell $n Thank you, brave one! Here is your reward.
+give carnage $n
+end
+endif
+tell $n Sorry, this quest is already completed.
+end
+endif
+if level $n < 92
+mob goto 36131
+get warmonger
+mob goto 36130
+if carries $i 36119
+tell $n Thank you, brave one! Here is your reward.
+tell $n Be careful with this sword, for noone knows its powers.
+give warmonger $n
+end
+endif
+tell $n Sorry, this quest is already completed.
+end
+endif
+tell $n Immortals should run quest, not complete them! :)
+~
+#36132
+tell $n Tricking me???
+mob transfer $n 8108
+mob goto 36130
 ~
 #0
 

@@ -9,14 +9,19 @@ End
 
 #MOBILES
 #12000
-Oberon oberon King king~
-Oberon~
-Oberon, King of the Seelie Court, stands here watching over his realm.
+оберон oberon king~
+@eng Oberon@rus ~~Оберон~~~
+@eng Oberon, King of the Seelie Court, stands here watching over his realm.
+@rus Оберон (Oberon), повелитель всего Видимого, стоит, задумчиво обозревая свои владения.
 ~
-Oberon appears as a tall, regal man with shoulder length, light blonde 
+@eng Oberon appears as a tall, regal man with shoulder length, light blonde 
 hair, eyes of forest green and golden skin.  His every feature 
 exemplefies what it is to be nobility.  He is the embodyment of the 
 Seelie way, light, love, celebration, honor and wisdom.
+@rus Высокий импозантный мужчина со светлыми волосами до плеч, глазами цвета 
+лесной зелени и золотистой кожей. Каждая его черточка говорит о его
+непостоянстве. Он живое олицетворение света, любви, радости, мудрости 
+и благородства.
 ~
 elf~
 ABT CDEFH 1000 0
@@ -26,9 +31,10 @@ EFHIKN BLQ 0 N
 stand stand male 5000
 0 0 medium unknown
 #12001
-titania queen~
-Queen Titania~
-Queen Titania of the Seelie Court is here dancing with her fairy maids.
+titania queen титания~
+@eng Queen Titania@rus ~~королева~~ ~~Титания~~~
+@eng Queen Titania of the Seelie Court is here dancing with her fairy maids.
+@rus Королева Титания (Titania) танцует и играет со своими друзьями фейри.
 ~
 The Queen of the Seelie is a tall, fair-skinned, perfectly perportioned 
 woman.  She radiates a soft golden glow, her laughter is like the 
@@ -570,11 +576,14 @@ EFHJK M LQ NSZ
 stand stand female 500
 AHMV ABCDEFGHIJK small unknown
 #12036
-pixie~
-a pixie~
-A small pixie is here looking for a few sylphs.
+pixie пикси~
+@eng a pixie@rus пикси~
+@eng A small pixie is here looking for a few sylphs.
+@rus Маленький пикси (pixie) бродит вокруг в поисках сильфид.
 ~
-He looks like a little elf about 3 inches tall with small insect wings.
+@eng He looks like a little elf about 3 inches tall with small insect wings.
+@rus Он выглядит как маленький эльф, ростом всего 3 дюйма с маленькими
+полупрозрачными крылышками.  
 ~
 unique~
 AGR BTY 100 0
@@ -584,12 +593,15 @@ FHKR 0 D Z
 stand stand male 500
 AHMV ABCDEFGHIJK tiny unknown
 #12037
-sprite~
-a sprite~
-A small sprite notices you and decides to have some fun.
+sprite эльф~
+@eng a sprite@rus ~~эльф~~~
+@eng A small sprite notices you and decides to have some fun.
+@rus Маленький эльф (sprite) заметил тебя и решил немного развлечься.
 ~
-This sprite looks like a little man with butterfly wings and a mishcevous 
+@eng This sprite looks like a little man with butterfly wings and a mishcevous 
 smile on his face.
+@rus Этот маленький эльф похож на маленького человечка только с крыльями как у
+бабочки и хитрой улыбкой.
 ~
 unique~
 AFHW BTV -300 0
@@ -599,12 +611,15 @@ EFIK 0 D NZ
 stand stand male 500
 AHMV ABCDEFGHIJK tiny unknown
 #12038
-sylph~
-a sylph~
-A lovely, gossamer winged sylph floats upon the wind.
+sylph сильфида~
+@eng a sylph@rus ~~сильфида~~~
+@eng A lovely, gossamer winged sylph floats upon the wind.
+@rus Прекрасная, словна сотканная из невидимой паутины сильфида (sylph) парит в воздухе.
 ~
-This beautiful and elusive creature is like the wind itself.  Her grace 
+@eng This beautiful and elusive creature is like the wind itself.  Her grace 
 and form amaze and beguile you.
+@rus Прекрасное и неуловимое создание, напоминающее ветер. Ее грация и красота
+очаровывают и вызывает изумление.
 ~
 unique~
 AGHQ BNT 300 0
@@ -614,11 +629,13 @@ FH 0 LQ NZ
 stand stand female 500
 AHMV ABCDEFGHIJK tiny unknown
 #12039
-nymph~
-a beautiful nymph~
-A beautiful nymph plays in the water.
+nymph нимфа~
+@eng a beautiful nymph@rus ~~прекрасная~~ ~~нимфа~~~
+@eng A beautiful nymph plays in the water.
+@rus Прекрасная нимфа (nymph) играется в воде.
 ~
-A scantily clad nymph stands here half in the water.
+@eng A scantily clad nymph stands here half in the water.
+@rus Скудно одетая нимфа стоит здесь наполовину в воде.
 ~
 elf~
 ABHQ 0 100 0
@@ -628,12 +645,16 @@ FN R 0 N
 stand stand female 500
 0 0 medium unknown
 #12040
-dryad~
-a playful dryad~
-A playful dryad runs among the trees.
+dryad дриада~
+@eng a playful dryad@rus ~~игривая~~ ~~дриада~~~
+@eng A playful dryad runs among the trees.
+@rus Очаровательная дриада (dryad) резвится среди деревьев.
 ~
-This beautiful brown skinned maiden with dark eyes, clothed in a few 
+@eng This beautiful brown skinned maiden with dark eyes, clothed in a few 
 leaves runs among the trees darting in and out of sight.
+@rus Красивая молодая девушка с золотистой кожей и темными глазами, одетая в
+наряд из лестных листьев, резвится среди деревьев, то скрываять с глаз, то
+снова появляясь в поле зрения.
 ~
 elf~
 AGHQ 0 100 0
@@ -643,12 +664,15 @@ FN R 0 N
 stand stand female 500
 0 0 medium unknown
 #12041
-mermaid~
-an exotic mermaid~
-An exotic mermaid swims quickly away from you.
+mermaid русалка~
+@eng an exotic mermaid@rus ~~русалка~~~
+@eng An exotic mermaid swims quickly away from you.
+@rus Молодая русалка (mermaid) плавает неподалеку от тебя.
 ~
-This aquatic beauty has a well formed upper human half and a strong 
+@eng This aquatic beauty has a well formed upper human half and a strong 
 finned tail.
+@rus У нее верхняя половина как у человека и сильный хвост с переливающейся 
+чешуей.
 ~
 unique~
 ABHT Tc 250 0
@@ -658,12 +682,15 @@ FMW R 0 JNZ
 stand stand female 500
 0 0 medium unknown
 #12042
-merman~
-an strange merman~
-An strange merman swims quickly around you.
+merman водяной~
+@eng an strange merman@rus ~~водяной~~~
+@eng An strange merman swims quickly around you.
+@rus Водяной (merman) плавает около тебя.
 ~
-This aquatic creature has a well formed upper human half and a strong
+@eng This aquatic creature has a well formed upper human half and a strong
 finned tail.
+@rus Верхняя половина этого морского создания как у человека. Но у него еще 
+есть и сильный хвост.
 ~
 unique~
 ABHT Tc 250 0
@@ -673,26 +700,30 @@ FMW R 0 JNZ
 stand stand male 500
 0 0 medium unknown
 #12043
-flower fae~
-a flower faery~
-A beautiful flower grows here.
+flower fae фейри~
+@eng a flower faery@rus ~~цветочный~~ фейри~
+@eng A beautiful flower grows here.
+@rus Прекрасный цветок (flower) растет здесь.
 ~
-Something seems quite strange about this flower.  It almost seems to be 
+@eng Something seems quite strange about this flower.  It almost seems to be 
 alive.
+@rus Что-то странное с этим цветком. Такое чувство, что на самом деле он живой.
 ~
 unique~
 ACGU PVd 100 0
 22 0 5d10+400 10d20+2000 4d4+6 none
 -12 -10 -12 -1
 FNU ABES D GHNZ
-stand stand none 0
+stand stand male 0
 AHMV ABCDEFGHIJK tiny unknown
 #12044
-acorn fae~
-an acorn faery~
-A small acorn lies here.
+acorn fae фейри~
+@eng an acorn faery@rus ~~желудевый~~ фейри~
+@eng A small acorn lies here.
+@rus Маленький желудь (acorn) лежит здесь.
 ~
-Looks like an ordinary acorn...only it keeps moving.....
+@eng Looks like an ordinary acorn...only it keeps moving.....
+@rus Желудь как желудь. Только вот он почему-то двигается...
 ~
 unique~
 ACGU PVd 100 0
@@ -702,12 +733,15 @@ FNU ABES D GHNZ
 stand stand none 0
 AHMV ABCDEFGHIJK tiny unknown
 #12045
-boy charmer~
-A little boy~
-A little boy with a set of small pipes.
+boy charmer мальчик~
+@eng A little boy@rus ~~маленький~~ ~~мальчик~~~
+@eng A little boy with a set of small pipes.
+@rus Маленький мальчик (boy) со свирелью сидит на камне.
 ~
-This little boy has seemingly charmed several forest creatures with his 
+@eng This little boy has seemingly charmed several forest creatures with his 
 strange music.  He holds a small set of glowing pipes in his hands.
+@rus Этот маленький мальчик своей странной музыкой очаровал окружающих его
+зверей. В руках он держит маленькую тростниковую свирель.
 ~
 unique~
 ABCU PVd 100 0
@@ -790,17 +824,17 @@ armor G AE
 22 3 30 P
 G none
 #12001
-nectar~
-A drop of nectar~
-A small drop af amber nectar.~
+nectar нектар~
+@eng A drop of nectar@rus ~~капелька~~ нектара~
+@eng A small drop af amber nectar.@rus Маленькая капелька янтарного нектара (nectar).~
 cloth~
 potion Q A
 25 'refresh' 'cure critical' 'cure poison' 'cure blindness'
 22 1 0 P
 G none
 #12002
-trident~
-A silver trident~
+trident трезубец~
+@eng A silver trident@rus ~~серебряный~~ ~~трезубец~~~
 A long, perfectly balanced silver trident.~
 silver~
 weapon AG AN
@@ -3928,7 +3962,7 @@ Before the Castle Gates
 Z -1 12081
 S
 #12081
-Before the Castle Gates~
+@eng Before the Castle Gates@rus Перед замковыми воротами~
 The glowing gates of the Sidhe Castle stand open before you and from 
 inside you hear the sounds of laughter and revalry.  To the south you can 
 see a meadow that extends into a forest even farther south and to the 
@@ -5674,7 +5708,7 @@ let you grasp onto your hope and escape from your own actions.
 0 CD inside
 S
 #12156
-Behind the Hill~
+@eng Behind the Hill@rus Позади холма~
 In the shadow of the hill where the castle lies is a small glade.
 Many woodland creatures, small and large are gathered around a little boy
 playing a pipe.  The music captures you for a moment and then the boy
@@ -5684,34 +5718,42 @@ you hear?'
 ~
 0 M field
 D0
-The Flower Meadow
+@eng The Flower Meadow
+@rus Цветочный луг.
 ~
 ~
 Z -1 12095
 D1
-The Flower Meadow
+@eng The Flower Meadow
+@rus Цветочный луг.
 ~
 ~
 Z -1 12089
 D2
-Under the Hill.
+@eng Under the Hill.
+@rus Под холмом.
 ~
 ~
 ABCFZ 0 12157
 D3
-The Flower Meadow
+@eng The Flower Meadow
+@rus Цветочный луг.
 ~
 ~
 Z -1 12087
 S
 #12157
-Under the Hill~
-You are Under the hill that the Fae stronghold stands upon.  There 
+@eng Under the Hill@rus Под холмом~
+@eng You are Under the hill that the Fae stronghold stands upon.  There 
 are several wondrous creatures standing here studying you.
+@rus Ты находишься под холмом.  И это место является домом для интереснейших
+созданий. Они находятся прямо рядом с тобой, с интересом наблюдая за
+твоими действиями.
 ~
 0 M field
 D0
-Behind the Hill.
+@eng Behind the Hill.
+@rus Позади холма.
 ~
 ~
 ABFZ 0 12156

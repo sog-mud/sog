@@ -4,6 +4,7 @@ VNUMs 95200 95229
 Credits Chronos~
 Security 9
 LevelRange 90 100
+Flags noquest~
 Clan Knight~
 End
 
@@ -180,11 +181,11 @@ A
 18 20
 G none
 #95210
-clan mark aura majesty~
+aura majesty аура~
 Aura of {BMajesty{x~
 Something strange is here.~
 unknown~
-jewelry Y S
+jewelry AHIMYZ S
 0 0 0 0 0
 0 0 0 P
 G none

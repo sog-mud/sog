@@ -5,6 +5,7 @@ VNUMs 95600 95629
 Credits Asena~
 Security 9
 LevelRange 90 100
+Flags noquest~
 Clan Invader~
 End
 
@@ -199,6 +200,15 @@ fountain BJ P
 0 0 'blood' 0 0
 0 0 0 P
 G male
+#95608
+mark знак~
+@eng {DMark of the {RBeast{x@rus {DЗнак {RЗверя{x~
+A small leather scarp with unholy runes lies here.~
+darkness~
+jewelry AHMYZ S
+0 0 0 0 0
+0 0 0 P
+G none
 #0
 
 #ROOMS
@@ -538,6 +548,7 @@ else
 ' Greetings, dark one.
 end
 endif
+endif
 if isimmort $n 
 bow $n
 end
@@ -582,11 +593,11 @@ mob vforce 95604 mob kill $n
 ~
 #95603
 if clan $n invader
-mob transfer $n 95608
+mob gtransfer $n 95608
 end
 endif
 if isimmort $n 
-mob transfer $n 95608
+mob gtransfer $n 95608
 end
 endif
 mob attack $n

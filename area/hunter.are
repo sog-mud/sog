@@ -4,6 +4,7 @@ VNUMs 95700 95709
 Credits Asena~
 Security 9
 LevelRange 90 100
+Flags noquest~
 Clan Hunter~
 End
 
@@ -98,6 +99,15 @@ bone~
 key CEORYf A
 0 0 0 0 0
 40 4 0 P
+G none
+#95703
+tattoo~
+@eng {YGolden Skull{x@rus {Yтатуировка в виде черепа{x~
+strange tattoo~
+unknown~
+jewelry AHMZ S
+0 0 0 0 0
+0 0 0 P
 G none
 #0
 

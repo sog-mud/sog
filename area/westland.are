@@ -676,7 +676,7 @@ stand stand female 300
 
 #OBJECTS
 #10001
-warden mace boundary дубинка~
+mace boundary дубинка warden~
 @eng a boundary warden's mace@rus ~~дубинка~~ стража границы~
 @eng A large powerful mace is resting against the wall here.@rus Большая, мрачного вида дубинка (mace) брошена кем-то.~
 unknown~
@@ -700,7 +700,7 @@ the use of killing. This truly is a strong weapon.
 ~
 G none
 #10002
-bone necklace ожерелье~
+necklace ожерелье bone~
 @eng the Bone Woman's necklace@rus ~~костяное~~ ~~ожерелье~~~
 @eng A Beautiful necklace lies here on the ground.@rus Красивое ожерелье (necklace), сделанное из костей, кем-то брошено здесь.~
 stone~
@@ -722,7 +722,7 @@ neck. It must be very powerful since the kill took awhile.
 ~
 G none
 #10003
-gripper teeth зубы~
+teeth зубы gripper~
 @eng some grippers teeth@rus ~~острые~~ ~~кривые~~ ~~зубы~~~
 @eng Here are the teeth of the Gripper monster.@rus Острые зубы (teeth), оставшиеся от хватало, валяются тут.~
 stone~
@@ -744,7 +744,7 @@ drink BC A
 1 1 1 P
 G none
 #10005
-thief boot boots black ботинки~
+boots black ботинки thief~
 @eng a pair of black boots@rus ~~пара~~ кожаных черных ботинок~
 @eng A dark pair of boots lie here soaking up the sun.@rus Пара черных ботинок (boots) валяется тут, впитывая солнечный свет.~
 leather~
@@ -759,7 +759,7 @@ A
 1 2
 G none
 #10006
-boundary glove warden gloves рукавицы~
+glove warden gloves рукавицы boundary~
 @eng boundary warden gloves@rus ~~рукавицы~~ стража границы~
 @eng A pair of gloves have been left here, waiting too be picked up.@rus Пара черных рукавиц (gloves) забыта своим хозяином.~
 unknown~
@@ -774,7 +774,7 @@ A
 1 2
 G none
 #10007
-boundary boot warden boots ботинки~
+boot warden boots ботинки boundary~
 @eng boundary warden boots@rus ~~ботинки~~ стража границы~
 @eng A pair of boots have been left here.@rus Армированные ботинки (boots) оставлены тут за ненадобностью.~
 unknown~
@@ -789,7 +789,7 @@ A
 18 5
 G none
 #10008
-boundary sleeves warden нарукавники~
+sleeves warden нарукавники boundary~
 @eng boundary warden sleeves@rus ~~нарукавники~~ стража границы~
 @eng A pair of sleeves have been left resting against a tree.@rus Кожаные нарукавники (sleeves) валяются, брошенные хозяином.~
 unknown~
@@ -804,7 +804,7 @@ A
 1 2
 G none
 #10009
-boundary shield warden щит~
+shield warden щит boundary~
 @eng boundary warden's shield@rus ~~щит~~ стража границы~
 @eng A shield made from the finest metal has been left here.@rus Щит (shield), сделанный из превосходной стали, валяется у твоих ног.~
 unknown~
@@ -817,7 +817,7 @@ A
 17 -9
 G none
 #10010
-boundary tunic warden плащ~
+tunic warden плащ boundary~
 @eng boundary warden's tunic@rus ~~плащ~~ стража границы~
 @eng A tunic made from good leather has been left here.@rus Плащ (tunic), сделанный из хорошей кожы, оставлен здесь своим хозаином.~
 unknown~
@@ -828,7 +828,7 @@ A
 17 -21
 G none
 #10011
-boundary helmet warden шлем~
+helmet warden шлем boundary~
 @eng a boundary warden's helmet@rus ~~шлем~~ стража границы~
 @eng A large helmet has been left by its owner...such a shame.@rus Чей-то шлем (helmet) валяется тут, забытый.~
 unknown~
@@ -841,7 +841,7 @@ A
 1 2
 G none
 #10012
-boundary ring warden кольцо~
+ring warden кольцо boundary~
 @eng a boundary warden's ring@rus ~~кольцо~~ стража границы~
 @eng A bright silver ring has been left in the dust.@rus Массивное серебрянное кольцо (ring) кем-то оставлено здесь.~
 unknown~
@@ -852,7 +852,7 @@ A
 13 75
 G none
 #10013
-boundary legging warden leggings штаны~
+legging warden leggings штаны boundary~
 @eng boundary warden leggins@rus ~~штаны~~ стража границы~
 @eng A pair of leggings have been left here.@rus Какие-то черные штаны (leggins) оставлены здесь.~
 unknown~
@@ -920,7 +920,7 @@ BD 0 0 0 0
 1 10 0 P
 G none
 #10019
-boundary sword warden меч~
+sword warden меч boundary~
 @eng a boundary warden's sword@rus ~~меч~~ стража границы~
 @eng A well made sword has been left here.@rus Качественно выкованный меч (sword) почему-то брошен здесь.~
 unknown~
@@ -937,7 +937,7 @@ This is a boundary warden sword that is made just for their use.
 ~
 G none
 #10020
-boundary flail warden кистень~
+flail warden кистень boundary~
 @eng a boundary warden's flail@rus ~~кистень~~ стража границы~
 @eng A flail has been left here.@rus Мрачного вида оружие (flail) валяется возле тебя.~
 unknown~
@@ -950,7 +950,7 @@ A
 18 4
 G none
 #10021
-boundary mace warden палица стража границы~
+mace warden палица стража границы boundary~
 @eng a boundary warden's mace@rus ~~палица~~ стража границы~
 @eng A mace has been left here.@rus Чья-то палица (mace) оставлено здесь.~
 unknown~
@@ -963,7 +963,7 @@ A
 18 3
 G none
 #10022
-boundary dagger warden кинжал~
+dagger warden кинжал boundary~
 @eng a boundary warden's dagger@rus ~~кинжал~~ стража границы~
 @eng A dagger has been left here.@rus Небольшой, но острый кинжал (dagger) валяется подле тебя.~
 steel~

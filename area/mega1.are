@@ -3,14 +3,14 @@ Name Mega City One~
 Builders beedell~
 VNUMs 8000 8099
 Credits Glop~
-Security 9
+Security 0
 LevelRange 5 35
 End
 
 #MOBILES
 #8000
 juve~
-@eng a juve@rus юноша~
+@eng a juve@rus ~~юноша~~~
 @eng A juve is standing here plotting mischief.
 @rus Юноша (juve) стоит здесь, затевая озорство.
 ~
@@ -29,7 +29,7 @@ stand stand male 0
 0 0 medium unknown
 #8001
 punk~
-@eng a punk@rus панк~
+@eng a punk@rus ~~панк~~~
 @eng A punk is here plotting a crime wave.
 @rus Панк (punk) стоит здесь здесь, замышляя что-то нехорошее.
 ~
@@ -47,7 +47,7 @@ stand stand male 0
 0 0 medium unknown
 #8002
 Futsie~
-@eng a Futsie@rus Психбольной~
+@eng a Futsie@rus ~~Психбольной~~~
 @eng A Futsie is here reciting Monty Python sketches.
 @rus Психбольной (Futsie) стоит здесь, зачитывая отрывки из Monty Python.
 ~
@@ -67,7 +67,7 @@ stand stand male 0
 0 0 medium unknown
 #8003
 Citi-Def Militiaman~
-@eng a Citi-Def Militiaman@rus Городской Милиционер~
+@eng a Citi-Def Militiaman@rus ~~Городской Милиционер~~~
 @eng A Citi-Def Militiaman is here contemplating a Block War.
 @rus Городской милиционер (Militiaman) стоит здесь в раздумии.
 ~
@@ -84,7 +84,7 @@ stand stand male 0
 0 0 medium unknown
 #8004
 dunk~
-@eng a dunk@rus Карманник~
+@eng a dunk@rus ~~Карманник~~~
 @eng A dunk is here blending into the crowd.
 @rus Карманик (dunk) ходит здесь, сливаясь с толпой.
 ~
@@ -100,7 +100,7 @@ stand stand male 0
 0 0 medium unknown
 #8005
 tap~
-@eng a tap@rus Попрошайка~
+@eng a tap@rus ~~Попрошайка~~~
 @eng A tap is here eyeing your belongings.
 @rus Попрошайка (tap) всматривается в твоё снаряжение.
 ~
@@ -117,7 +117,7 @@ stand stand female 0
 0 0 medium unknown
 #8006
 rookie judge~
-@eng a rookie judge@rus Судья-новичок~
+@eng a rookie judge@rus ~~Судья-новичок~~~
 @eng A Rookie judge is on his first beat here.
 @rus Судья-новичок (rookie) стоит здесь.
 ~
@@ -136,7 +136,7 @@ stand stand male 0
 0 0 medium unknown
 #8007
 Wallaby Gleep~
-@eng Wallaby Gleep@rus Мистер Глип~
+@eng Wallaby Gleep@rus ~~Мистер Глип~~~
 @eng Mr. Gleep is here wanting to know what you want.
 @rus Мистер Глип (Gleep) стоит здесь. Он хочет узнать чего хочешь ты!
 ~
@@ -154,7 +154,7 @@ stand stand male 0
 0 0 medium unknown
 #8008
 Pinkerton Throt~
-@eng Pinkerton Throt@rus Пинки Трот~
+@eng Pinkerton Throt@rus ~~Пинки Трот~~~
 @eng Pinky Throt is here Wringing his hands.
 @rus Пинки Трот (Throt) стоит тут выкручивая свои руки.
 ~
@@ -174,7 +174,7 @@ stand stand male 0
 0 0 medium unknown
 #8009
 Ernie Ramirez~
-@eng Ernie Ramirez@rus Ерни Рамирез~
+@eng Ernie Ramirez@rus ~~Ерни Рамирез~~~
 @eng Ernie Ramirez is here collecting for the mob.
 @rus Ерни Рамирез (Ernie) стоит здесь.
 ~
@@ -193,9 +193,9 @@ stand stand male 0
 0 0 medium unknown
 #8010
 Judge Eckersely~
-@eng Judge Eckersely@rus Судья Экерсели~
+@eng Judge Eckersely@rus ~~Cудья Экерсели~~~
 @eng Judge Eckersely is here shaking down a Perp.
-@rus Судья Экерсели (Eckersely) стоит здесь.
+@rus Судья Экерсели (judge) стоит здесь.
 ~
 @eng He is a dedicated, if somewhat pessimistic Judge.  He is the Senior Judge
 of the Downtown Quadrant.
@@ -210,9 +210,9 @@ stand stand male 0
 0 0 medium unknown
 #8011
 Judge Beddows~
-@eng Judge Beddows@rus Судья Беддоуз~
+@eng Judge Beddows@rus ~~Судья Беддоуз~~~
 @eng Judge Beddows is here calling Resyk.
-@rus Судья Беддоуз (Beddows) стоит здесь.
+@rus Судья Беддоуз (judge) стоит здесь.
 ~
 @eng Beddows is a clone from the same stock as the ex-Chief Judge McGruder.
 She is fanatically dedicated to her job and has no ambitions other than
@@ -229,7 +229,7 @@ stand stand female 0
 0 0 medium unknown
 #8012
 bite fighter~
-@eng a bite fighter@rus Кусающий боец~
+@eng a bite fighter@rus ~~Кусающий боец~~~
 @eng A bite fighter is here sharpening his teeth.
 @rus Кусающий боец (fighter) стоит здесь, точа свои клыки.
 ~
@@ -491,7 +491,7 @@ G none
 @eng Entrance to Mega-City One@rus Вход в Mega-City One~
 @eng A road begins here in the glowing sands.  You follow it through a gate
 in a Plasteen wall onto the Megway of Mega-City One.
-@rus Здесь, в золотых песках, свой путь начинает Megway - главная дорога Mega-City One.
+@rus Здесь, в золотых песках, свой путь начинает Megway - главнаЯ дорога Mega-City One.
 ~
 0 0 city
 D0
@@ -506,7 +506,7 @@ The Megway continues in this direction.
 Z 0 8002
 S
 #8002
-Mahmount Allesh Megway~
+@eng Mahmount Allesh Megway@rus Шоссе Megway~
 @eng You are on one mile of over 13 and a half billion kilometers of
 roadway in Mega-City One.  The Megway continues north and south.
 @rus Вы находитесь на первой миле из всех 13-ти с половиной миллиардов километров разных
@@ -525,10 +525,13 @@ There is an intersection ahead.
 Z 0 8003
 S
 #8003
-Intersection of Junket Way and Megway~
-The Megway intersects with Junket Way here.  Junket Way is to the east,
+@eng Intersection of Junket Way and Megway@rus Перекресток Megway и Улицы Отбросов~
+@eng The Megway intersects with Junket Way here.  Junket Way is to the east,
 the Megway continues north and south, and the Pustule Palace Cafe is
 to the west.
+@rus Здесь Megway пересекается с Улицой Отбросов. Улица Отбросов находится на восток (east),
+Megway продолжается на север (north) и юг (south), а на запад (west) отсюда находится
+небольшое кафе.
 ~
 0 0 city
 D0
@@ -553,11 +556,14 @@ The Pustule Palace Cafe is in this direction.
 Z 0 8021
 S
 #8004
-Mahmount Allesh Megway~
-The traffic here is really congested due in part to the over 11 million
+@eng Mahmount Allesh Megway@rus Шоссе Megway~
+@eng The traffic here is really congested due in part to the over 11 million
 people driving Mo-Pads, the mobile homes which are constantly on the
 move until their owners can find an apartment in one of the City-blocks.
 The Megway continues north and south.
+@rus Очень оживлённое движение машин на этой улице вызвано тем что более 11 миллионов горожан
+водят свои передвижные дома на колесах до тех пор пока они не найдут квартиру в одном
+из городских жилых блоков. Megway продолжается на север (north) и юг (south).
 ~
 0 0 city
 D0
@@ -572,13 +578,17 @@ The Megway continues in this direction.
 Z 0 8005
 S
 #8005
-Mahmount Allesh Megway~
-The Megway continues north and south.  On the off-ramps here you see
+@eng Mahmount Allesh Megway@rus Шоссе Megway~
+@eng The Megway continues north and south.  On the off-ramps here you see
 many of the citizens of Mega-City One doing nothing.  You see of
 every hundred citizens, it can be guaranteed that 87 of them will
 be totally unemployed, and that a further five will not work more
 than ten hours a week.  To the east there is a dark alley and to the
 west is Rietzik's Shuggy Hall.
+@rus Megway продолжается на север (north) и юг (south). Вы видите расслабляющихся
+жителей сидящих на скамеечках. Вы понимаете что 87 процентов этих людей -
+безработны. На восток (east) находится тёмная аллея, а на запад (west) вы 
+видите Холл Риецика.
 ~
 0 0 city
 D0
@@ -603,11 +613,15 @@ A building is in this direction.
 Z 0 8022
 S
 #8006
-Central Plaza~
-You are at the Central Plaza of the downtown district.  There are a couple
+@eng Central Plaza@rus Центр Города~
+@eng You are at the Central Plaza of the downtown district.  There are a couple
 of juves Boingging (tm) in the air above you.  Max Jaffa Boulevard goes
 east, the Megway continues north and south, and Bazza's Home for the
 Terminally Sarky is to the west.
+@rus Вы находитесь в центрe города. Парочка подростков плюет в воздух над вами.
+Бульвар имени Макса Джаффы идёт на восток (east), Megway продолжается на
+север (north) и юг (south), и Дом Баццы для Терминальных Сарков находится
+на запад (west).
 ~
 0 0 city
 D0
@@ -632,11 +646,17 @@ A home for Sarky people is to the west.
 Z 0 8023
 S
 #8007
-Corner of Ed Hilldreth Memorial Parkway and Megway~
-Another major intersection which is being negotiated by vehicles that
+@eng Corner of Ed Hilldreth Memorial Parkway and Megway@rus Пересечение Улицы имени Эда Хиллдрета и Megway~
+@eng Another major intersection which is being negotiated by vehicles that
 are bound to minimum speed limits.  Many Slow Driving offenses are being
 handed out by the Judges.  The Megway goes north and south, a Parkway
 goes east, and Nu Phisog Parlour is west.
+@rus Этот перекресток наводнен транспортом, двигающемся медленно, несмотря на 
+знак с минимальным лимитом скорости. Множество самых медленных механизмов 
+остановлены судьями и их водители будут вынуждены заплатить штраф. Megway идет
+на север (north) и юг (south), Парковая дорога идет на восток (east) и 
+улица Ню Пхисог Палоура на западе (west).
+ 
 ~
 0 0 city
 D0
@@ -661,11 +681,16 @@ A City Block lies to the west.
 Z 0 8024
 S
 #8008
-Mahmount Allesh Megway~
-As you travel the Megway you notice many citizens participating in their
+@eng Mahmount Allesh Megway@rus Шоссе Megway~
+@eng As you travel the Megway you notice many citizens participating in their
 favorite hobbies such as spot welding and metalwork, scratch building
 fashion Kneepads, giving blood, or just looking out the window.  The
 Megway continues north and south.
+@rus Во время твоей прогулки по Megway ты обращаешь свое внимание на множество
+горожан, занимающихсЯ своими делами - кузнечным делом, рисованием небоскребов
+на листке бумаги или просто смотрящих из окна. Megway продожается на 
+юг (south) и север (north).
+ 
 ~
 0 0 city
 D0
@@ -680,10 +705,13 @@ The Megway continues in this direction.
 Z 0 8009
 S
 #8009
-Mahmount Allesh Megway~
-The Megway ends here.  To the west is Ziggi Piggi's Home for the
+@eng Mahmount Allesh Megway@rus Шоссе Megway~
+@eng The Megway ends here.  To the west is Ziggi Piggi's Home for the
 Semi-Stiff, to the east and south are construction areas, and the
 Megway goes north.
+@rus Megway заканчивается здесь. На западе (west) дом Зигги Пигги для Полустифов, 
+на востоке (east) и юге (south) строительные площадки, на севере (north) Megway.
+ 
 ~
 0 0 city
 D0
@@ -708,8 +736,9 @@ Ziggi Piggi's Home the Semi-Stiff is ahead.
 Z 0 8025
 S
 #8010
-Junket Way~
-Junket Way a small Skedway continues east and west.
+@eng Junket Way@rus Улица Отбросов~
+@eng Junket Way a small Skedway continues east and west.
+@rus Улица Отбросов продлжается на восток (east) и запад (west).
 ~
 0 0 city
 D1
@@ -724,10 +753,13 @@ An intersection is ahead.
 Z 0 8003
 S
 #8011
-Davies Alley~
-You are in a very dark and seedy alley.  This is just the right place for
+@eng Davies Alley@rus Аллея имени Давиеса~
+@eng You are in a very dark and seedy alley.  This is just the right place for
 a bite fight.  Bite fighting is an illegal activity where both combatants
 can only use their sharpened teeth as weapons.
+@rus Вы находитесь в очень тёмной аллее. Если вы любите кусачные бои, вы пришли
+куда надо. А вообще кусачные бои это незаконный вид боя когда оба пролтивника
+используют только лишь свои остронаточенные зубы чтобы драться.
 ~
 0 A city
 D1
@@ -742,8 +774,10 @@ An intersection is ahead.
 Z 0 8005
 S
 #8012
-Max Jaffa Boulevard~
-Max Jaffa Boulevard continues east and west.
+@eng Max Jaffa Boulevard@rus Бульвар Макса Джаффы~
+@eng Max Jaffa Boulevard continues east and west.
+@rus Бульвар Макса Джаффы ведет на восток (east) и на запад (west).
+ 
 ~
 0 0 city
 D1
@@ -758,8 +792,10 @@ A large plaza is to the west.
 Z 0 8006
 S
 #8013
-Ed Hilldreth Memorial Parkway ~
-The Parkway goes east and west.
+@eng Ed Hilldreth Memorial Parkway @rus Улица имени Эда Хиллдрета~
+@eng The Parkway goes east and west.
+@rus Парковая дорога ведет на запад (west) и восток (east).
+ 
 ~
 0 0 city
 D1
@@ -774,10 +810,12 @@ An intersection is ahead.
 Z 0 8007
 S
 #8014
-Construction site of the Harold Finkelbaum Block.~
-A Mega-City One City Block is being constructed at this site.  A
+@eng Construction site of the Harold Finkelbaum Block.@rus Строительная площадка будущего блока Гарольда Финкельбаума.~
+@eng A Mega-City One City Block is being constructed at this site.  A
 typical block is from 100 to 1000 stories high with hundreds of
 thousands inhabitants.
+@rus Здесь строится городской жилой блок. Жилой блок обычно бывает высотой от
+100 до 1000 этажей, и может содеражть несколько тысяч жителей.
 ~
 0 0 city
 D3
@@ -787,10 +825,13 @@ An intersection is ahead.
 Z 0 8009
 S
 #8015
-Corner of Junket Way and Threep Lane~
-There is a second-hand kneepad stall is doing a brisk business with a
+@eng Corner of Junket Way and Threep Lane@rus Угол Улицы Отбросов и Threep Lane~
+@eng There is a second-hand kneepad stall is doing a brisk business with a
 group of juves on their way to school.  Junket Way goes west and Threep
 Lane travels south.
+@rus Вы видите одинокий прилавок с разложенными использованными наколенниками
+на нем, и группу подростков на их пути в школу. Улица Отбросов идёт на 
+запад (west) и Threep Lane на юг (south).
 ~
 0 0 city
 D2
@@ -806,8 +847,11 @@ Z 0 8010
 S
 #8016
 Threep Lane~
-Threep Lane continues north and south.  There is a building to the east
+@eng Threep Lane continues north and south.  There is a building to the east
 with a sign next to the door.
+@rus Threep Way идет на север (north) и юг (south). На востоке видно здание с 
+табличкой около двери.
+ 
 ~
 0 0 city
 E
@@ -832,7 +876,9 @@ Z 0 8017
 S
 #8017
 Threep Lane~
-Threep Lane continues north and south.  There is a dark alley to the west.
+@eng Threep Lane continues north and south.  There is a dark alley to the west.
+@rus Threep Way идет на север (north) и юг (south). Какая-то темная аллея ведет
+на запад (west) в темноту.
 ~
 0 0 city
 D0
@@ -852,9 +898,11 @@ A dark alley is west.
 Z 0 8011
 S
 #8018
-Corner of Max Jaffa Blvd and Threep Way~
-A proprietor of Uncle Sumpty's Ugly Emporium meanders by.  Threep Lane
+@eng Corner of Max Jaffa Blvd and Threep Way@rus Пересечение Бульвара Макса Джаффы и Threep Way~
+@eng A proprietor of Uncle Sumpty's Ugly Emporium meanders by.  Threep Lane
 continues north and south while Max Jaffa Boulevard goes west.
+@rus Threep Lane продолжается на север (north) и юг (south) в то время как Бульвар
+Макса Джаффы идёт на запад (west).
 ~
 0 0 city
 D0
@@ -874,9 +922,12 @@ Max Jaffa Blvd continues west
 Z 0 8012
 S
 #8019
-Corner of Ed Hilldreth Mem. Prkwy and Threep Lane~
-Threep Lane goes north from here while Ed Hilldreth Memorial Parkway goes
+@eng Corner of Ed Hilldreth Mem. Prkwy and Threep Lane@rus Пересечение улицы имени Эда Хиллдрета и Threep Lane~
+@eng Threep Lane goes north from here while Ed Hilldreth Memorial Parkway goes
 west.
+@rus Threep Lane на идет на север (north) отсюда, улица имени Эда Хиллдрета
+на запад (west).
+ 
 ~
 0 0 city
 D0
@@ -891,9 +942,11 @@ Ed Hilldreth continues west.
 Z 0 8013
 S
 #8020
-Construction Site for the Brit-Cit One tunnel.~
-Construction is under way for the Black Atlantic Tunnel to connect
+@eng Construction Site for the Brit-Cit One tunnel.@rus Строительная площадка туннеля в Brit-Cit One.~
+@eng Construction is under way for the Black Atlantic Tunnel to connect
 Mega-City One and Brit-Cit One.
+@rus Здесь ведется строительство туннеля соединяющего Mega-City One и Brit-cit One.
+ 
 ~
 0 0 city
 D0
@@ -903,9 +956,11 @@ An intersection lies north.
 Z 0 8009
 S
 #8021
-Pustule Palace Cafe~
-A scabrous hole.  Run by Ernie Ramirez, an ex-perp, it is a meeting place
+@eng Pustule Palace Cafe@rus Кафе "Дворец"~
+@eng A scabrous hole.  Run by Ernie Ramirez, an ex-perp, it is a meeting place
 for the low-life in the area.
+@rus Наискучнейшая дыра.. Заведумая Ерни Рамирезом, эта кафешка является местом
+встречи бедных людей в этом районе.
 ~
 0 D inside
 D1
@@ -915,10 +970,13 @@ An intersection lies east.
 Z 0 8003
 S
 #8022
-Rietzik's Shuggy Hall~
-A sleazy dive and the meeting place of a lot of perps.  Shuggy is a
+@eng Rietzik's Shuggy Hall@rus Холл Риецика~
+@eng A sleazy dive and the meeting place of a lot of perps.  Shuggy is a
 twenty-second Century version of pool, played on a hilly table, usually
 with large side bets.
+@rus Этот холл представляет собой кинотеатр.Это очень удобное место для свиданий
+и ты даже сейчас видишь несколько парочек. Сейчас здесь показывают 
+самый крутой боевик двадцатого века - Титаник.
 ~
 0 D inside
 D1
@@ -928,10 +986,17 @@ An intersection lies east.
 Z 0 8005
 S
 #8023
-Bazza's Home for the Terminally Sarky~
-This is an experimental psychiatric home.  Named after a 20th Century
+@eng Bazza's Home for the Terminally Sarky@rus Дом Баццы длЯ Терминальных Сарков~
+@eng This is an experimental psychiatric home.  Named after a 20th Century
 vid-critic, the home attempts, by various methods, to readjust the
 socially unacceptable attitudes of the inmates.
+@rus Ты находишься в экспирементальной комнате психиатра.Названная после двадцатого
+века Вид-критикой технология излечения больных или избавления от них  
+является самой совершенной на сегодняшний день. Основные элементы лечения 
+позаимствованны из далекого 16 века. Твой взгляд натыкается на весьма
+интересные лечебные препараты: плоскогубцы, молоток и костер, горящий 
+непонятно зачем.
+ 
 ~
 0 D inside
 D1
@@ -941,11 +1006,17 @@ A large plaza lies east.
 Z 0 8006
 S
 #8024
-Nu Phisog Parlour~
-Opened as a direct rival to the New You Face Parlour chain to offer quick
+@eng Nu Phisog Parlour@rus Улица Ню Пхисог Палоура~
+@eng Opened as a direct rival to the New You Face Parlour chain to offer quick
 and cheap face-changing facilities to the general public.  However,
 since the closure of Sump's Ugly clinics, the craze for face-changing has
 died down.
+@rus  
+ Все постройки на этой улице явно клиники для сумасшедших. Из дверей 
+постоянно выбегают с громкими воплями какие-то люди...которых затем ловят
+врачи в белых халатах...Постояв еще немного ты понимаешь что сам вот-вот 
+побежишь по улице, издавая такие же безумные вопли как эти несчастные.
+ 
 ~
 0 D inside
 D1
@@ -955,10 +1026,12 @@ An intersection lies east.
 Z 0 8007
 S
 #8025
-Ziggi Piggi's Home for the Semi-Stiff~
-The only suspended animation parlour in the area.  It has a high turnover
+@eng Ziggi Piggi's Home for the Semi-Stiff@rus Дом Зигги Пигги для Полустифов~
+@eng The only suspended animation parlour in the area.  It has a high turnover
 rate.  It is rumored that the patrons are being used in body sharking and
 organ legging activities.
+@rus Единственное ателье которое было закрыто из-за слишком коррупционных деяний
+которые были совершены в нём.
 ~
 0 D inside
 D1
@@ -968,11 +1041,15 @@ An intersection lies east.
 Z 0 8009
 S
 #8026
-Throt & Gleep's Megger Store~
-This place promises to provide everything that the citizens don't need,
+@eng Throt & Gleep's Megger Store@rus Склад Трота и Глипа~
+@eng This place promises to provide everything that the citizens don't need,
 with the utmost discourtesy.  Of course, something as crazy as this was
 bound to succeed.  There is a door to the north with a slot next to it.
 There is also a sign next to the slot.
+@rus Это место предназначено для хранения всего что не нужно горожанам.Конечно,
+здесь можно найти и ценную вещь, но такое бывает очень редко. На севере (north)
+видна дверь. Также ты замечаешь небольшую табличку около двери.
+ 
 ~
 0 D inside
 E
@@ -989,9 +1066,11 @@ door~
 ABZ 0 8016
 S
 #8027
-Stockroom of Throt & Gleep's Megger Store~
-Many useless items stock the shelves of this stockroom.  A door leads
+@eng Stockroom of Throt & Gleep's Megger Store@rus Склад в Магазине Трота и Глипа~
+@eng Many useless items stock the shelves of this stockroom.  A door leads
 south and large vault door is to the north.
+@rus Много бесполезных вещей разложено здесь на полках. Вы видите дверь на юг
+(south) и огромную подвальную дверину на север (north).
 ~
 0 D inside
 E

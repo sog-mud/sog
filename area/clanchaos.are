@@ -4,6 +4,7 @@ VNUMs 95500 95550
 Credits Asena~
 Security 9
 LevelRange 90 100
+Flags noquest~
 Clan Chaos~
 End
 
@@ -89,11 +90,11 @@ dagger 6 6 pierce D
 20 200 0 P
 G none
 #95504
-clan mark earing gleaming~
+earing gleaming~
 {WGleaming {Rm{Gu{Yl{bt{Mi{Cc{Wo{Rl{Go{Yr{x earing ~
 A small gleaming multicolor earing lies here.~
 unknown~
-jewelry Y S
+jewelry AHMYZ S
 0 0 0 0 0
 0 0 0 P
 G none

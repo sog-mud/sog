@@ -19,7 +19,7 @@ ACG X 0 0
 10 1 1d1+32000 1d1+1 1d1+0 none
 0 0 0 0
 0 0 0 0
-stand stand none 0
+stand stand none 2147483647
 0 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
@@ -54,30 +54,30 @@ AH BJLPUX 0 0
 stand stand male 10000
 0 0 huge unknown
 #38003
-no name vasilius~
-Vasilius i~
-Vasilius is hunting here
+demon of eros varfiv~
+Varfiv~
+Varfiv is hunting here.
 ~
 What a smell ... I can't open my eyes ... Ouuh ... Damn this Troll !
 ~
 troll~
 ABQRST HV 100 0
-68 120 1d1+15000 1d1+30000 1d1+350 smash
--30 -40 -10 -50
+78 220 1d1+19999 1d1+9999 10d20+300 smash
+-50 -50 -50 -50
 ACEFHIJKO BJKOPQU 0 0
 stand stand male 100000
 0 0 medium unknown
 #38004
-muncar~
-Muncar~
-Muncar is here ... What's wrong with him ?
+mavtar~
+Mavtar~
+Mavtar is here ! Get him !
 ~
 ~
 centaur~
-A DFHJTV 0 0
-30 100 1d1+10000 1d1+5000 1d1+90 divine
-50 50 30 10
-0 BU 0 0
+ABCGQRST DFHJTVc 0 0
+50 200 1d1+10000 1d1+5000 10d10+250 cleave
+40 40 40 30
+H BU 0 0
 stand stand male 100000
 0 0 medium unknown
 #38005
@@ -94,21 +94,20 @@ ABGRT u -1000 0
 stand stand none 0
 0 0 medium unknown
 #38006
-tripidios~
-Tripidios~
-Tripidius the fisherman
+demoniar~
+{RDemoniar{x~
+Demoniar is here !!!
 ~
 Smells like a beggar.
 ~
-human~
-ABGQRST 0 0 0
-50 0 1d1+999 1d1+999 1d1+20 flame
-0 0 0 0
-0 BCDU 0 0
-stand stand none 10000
+zombie~
+A Vu -1000 0
+65 300 1d1+19999 1d1+999 10d50+250 flame
+-50 -50 -50 -50
+AEHJ 0 0 0
+stand stand male 10000
 0 0 medium unknown
-F for AHMV
-F par ABCDEFGHIJK
+F aff d
 #38007
 varafinij kabidir~
 {MKabidir{x~
@@ -858,36 +857,45 @@ A 0 D 0 0
 0 1 1 P
 G none
 #38500
-club spiked skullsmasher~
-the spiked club named 'Skullsmasher'~
-A huge spiked club belonging to a troll lies here in the dirt.~
+club spiked skullsmasher ebony kris~
+the ebony kris~
+weapon~
 stone~
-weapon MY AN
-mace 11 11 pound DEFH
-89 300 100000 P
+weapon HIMY AN
+dagger 10 10 stab CDGH
+40 300 100000 P
 A
-26 2
+18 20
 A
-5 6
+19 40
 A
-1 6
-A
-19 15
-A
-18 15
+18 20
 G none
 #38501
 winged boots~
-@eng Winged Boots of Setepios@rus '{WКрылатые туфли{x'~
-Some dirty boots lies here ...~
+Demon's skin~
+armor~
 divine~
-armor C AG
-1000 1000 1000 1000 0
-92 1 1 P
+armor CM AD
+200 200 200 200 0
+40 1 1 P
 A
-12 10000
+18 10
 A
-13 10000
+19 10
+A
+12 500
+A
+13 500
+G none
+#38502
+transfer leticia 3001~
+~
+~
+unknown~
+trash 0 0
+0 0 0 0 0
+0 0 0 P
 G none
 #0
 
@@ -975,7 +983,7 @@ S
 небеса. Пол покрыт дубовым паркетом. Спокойствие и дух вечности царят
 тут. {YЗолотой шар{w освещает комнату мягким светом.
 ~
-0 N inside
+0 0 inside
 D3
 ~
 ~
@@ -1325,7 +1333,7 @@ O 0 38002 0 38103	* armchair (Cabinet)
 O 0 38004 0 38103	* table (Cabinet)
 O 0 38200 0 38200	* long wooden table (Budy's)
 M 0 38500 1 38500 1	* war-rawan (The Gates of Nightmare)
-E 0 38500 0 16		*	the spiked club named 'Skullsmasher': wielded
+E 0 38500 0 16		*	the ebony kris: wielded
 M 0 38510 1 38510 1	* Ga-nocry (Enterance to the temple of Dreams)
 S
 
@@ -1340,7 +1348,8 @@ O 38019 1	* {RBlessed Ring of Life{x
 O 38020 1	* {YBlessed Belt of Truth{x
 O 38024 2	* bone necklace
 O 38028 5	* Dragons Skull
-O 38501 1	* Winged Boots of Setepios
+O 38500 0	* the ebony kris
+O 38501 0	* Demon's skin
 S
 
 #MOBPROGS

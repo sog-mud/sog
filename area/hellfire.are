@@ -17,16 +17,16 @@ urukhay урукхай troll~
 ~
 ~
 troll~
-AGJKTbef DFOPUVlmrtu -1000 0
-200 100 1d1+29999 0d0+0 1d1+200 none
+AJKTbef DFOPUVlmrtu -1000 0
+200 100 1d1+29999 1d1+999 1d1+200 none
 -200 -200 -200 -200
-ACEFIJKLN C D 0
-stand stand male 100000000
+ACEFIJKLN CD D 0
+stand stand male 1000000
 0 0 huge unknown
 M speech 18799 Urukhay!~
 M speech 18798 Как тебя зовут?~
-M speech 18797 А что ты можешь?~
-M speech 44000 hi~
+M act 18797 sleep~
+C BattleRager~
 #18701
 griswold грисвольд~
 @eng Griswold@rus кузнец Гризвольд~
@@ -93,76 +93,126 @@ F for AHMV
 F par ABCDEFGHIJK
 M speech 18700 aid me~
 M speech 18701 haste~
+M act 18705 say~
 #18705
-witch adria ведьма адрия~
-~
+adria ведьма адрия witch~
+@eng Adria witch@rus ~~Ведьма~~ ~~Адрия~~~
+Ведьма Адрия (Adria) варит здесь какое-то зелье.
 ~
 ~
 human~
-ABRe 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 none
-0 0 0 0
-0 0 0 0
-stand stand none 0
+ABRcef DFVu -1000 0
+92 0 1d1+28999 1d1+999 10d10+20 none
+-70 -70 -70 -70
+F AB CD M
+stand stand female 0
 0 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
 #18706
-drunk алкаш~
-@eng drunk@rus ~~алкаш~~~
+farnham алкаш drunk~
+@eng Farnham@rus ~~пьяница~~ Фанхам~
 @eng Drunk resting here and singing.
-@rus Пьяница (drunk) сидит здесь и поет песни.
+@rus Фанхам (Farnham) сидит здесь и напевает какую-то странную песенку
 ~
 ~
 human~
 ABUe Yd 0 0
 15 0 15d15+200 1d1+149 2d4+5 punch
 10 10 10 10
-DFK 0 CI BPR
+DFK A CI BPR
 stand rest male 0
 0 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
+#18707
+wirt вирт~
+@eng Wirt@rus ~~Вирт~~~
+@eng Wirt stands here, selling hodgepodge.
+@rus Вирт (Wirt) стоит здесь продавая всякую всячину.
+~
+~
+human~
+ABCSce CDFGPdlmtu -436 0
+50 0 50d10+18000 1d1+99 6d8+30 none
+-23 -54 -34 -67
+BFNT ABLQ D ER
+stand stand male 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+M grall 18700 666~
+M exall 18702 2~
+M bribe 18701 5000~
+#18708
+bank~
+~
+~
+~
+human~
+ABe 0 0 0
+0 0 1d1+29999 0d0+0 0d0+0 none
+0 0 0 0
+0 CD 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+M speech 18703 Хорошая штука, правда?~
 #0
 
 #OBJECTS
 #18700
-big axe топор~
-@eng BattleRager's Axe@rus Огромный тапор@rusoff BattleRager's axe~
-@eng Huge Battlerager axe has been left here.~
-adamantit~
-weapon 0 AN
-sword 100 99 crush CD
-95 0 0 P
-A
-17 100
-A
-19 100
-A
-18 100
-A
-8 10
+axe huge flaming fire orrin~
+@eng {YHuge Flaming Axe{x@rus {Y~~Пылающая~~ ~~секира~~{x~
+@eng Huge {YFlaming{x Axe has been left here.@rus Orrin забыл здесь свою секиру (axe), может стоит вернуть?~
+fire~
+weapon ABJKRSTac ANP
+axe 1 9999 flame ADF
+95 600 2147483647 P
+F
+A 19 100000 a
+F
+A 18 100000 a
+F
+I 0 0 H
+F
+A 2 15 V
+F
+A 0 0 A
 G none
 #18701
 ring power кольцо силы~
 @eng ring of power@rus Кольцо силы~
 @eng Ring of power lies here.@rus Кольцо силы(ring) валяется здесь.~
 energy~
-treasure BRSTYa AB
+treasure BSTYa AB
 0 0 0 0 0
 103 0 0 P
 F
-A 0 0 V
-A
-13 20000
-A
-18 10
-A
-19 10
+A 8 54 H
 F
-A 0 0 V
+A 12 1000000 G
 F
-A 0 0 H
+A 13 1000000 m
+F
+A 20 -1000000000 J
+F
+A 17 -1000000000 E
+F
+A 6 100 F
+F
+A 5 100 l
+F
+A 2 100 t
+F
+A 4 100 O
+F
+A 3 100 N
+F
+A 1 100 P
+F
+A 0 0 U
 G none
 #18702
 troll skin кожа троля~
@@ -194,7 +244,7 @@ pill~
 pill~
 unknown~
 pill 0 0
-1000 'cancellation' 'cancellation' 'cancellation' 'cure disease'
+2147483647 'cure critical' 'cure critical' 'cure critical' 'cure critical'
 0 0 10 P
 G none
 #18705
@@ -203,7 +253,7 @@ pill~
 pill~
 unknown~
 pill 0 A
-1000 'plague' 'adamantite golem' 'adamantite golem' 'adamantite golem'
+2147483647 'cure poison' 'cure disease' 'cure blindness' 'heal'
 0 0 100 P
 G none
 #18706
@@ -233,9 +283,9 @@ dagger knight~
 knight's dagger of burning~
 Strange dagger lies here~
 steel~
-weapon AHINY AN
+weapon AIY AN
 dagger 10 8 thrust AD
-70 300 135457 P
+70 300 85461 P
 A
 19 7
 A
@@ -248,7 +298,7 @@ Mistical aura lies here.~
 energy~
 armor BFIRST AQ
 100 100 100 100 0
-37 1500 1000 P
+38 1500 1000 P
 F
 I 0 0 C
 F
@@ -271,13 +321,95 @@ fountain A 0
 1000000 1000000 'water' 0 0
 0 1000000 0 P
 G none
+#18711
+altar алтарь~
+~
+~
+silver~
+portal AY 0
+0 0 0 0 0
+0 1000000000 0 P
+G none
+#18712
+axe large deadly~
+deadly axe of might~
+@eng Large two-handed axe lies here.@rus Большой двуручный топор (axe) лежит здесь.~
+unknown~
+weapon 0 AN
+axe 6 16 grep DEF
+70 524 150000 P
+A
+19 8
+A
+1 5
+G none
+#18713
+club дубинка log~
+club~
+Dimly log lies here.~
+wood~
+weapon 0 AN
+mace 7 3 pound 0
+15 10 1000 P
+G none
+#18714
+axe~
+axe~
+Tiny axe has been left on the ground.~
+unknown~
+weapon 0 AN
+axe 6 3 claw 0
+5 50 1000 P
+G none
+#18715
+glass vodka~
+@eng glass of vodka@rus ~~Стопарик~~ ~~водки~~~
+@eng A glass of vodka catches your eye, drink it!@rus Стопочка водки (vodka) притягивает твой взгляд.~
+glass~
+drink 0 A
+1 1 'vodka' 0 0
+0 10 10000 P
+G none
+#18716
+sword~
+sword~
+Small sword lies here.~
+unknown~
+weapon 0 AN
+sword 3 6 slash 0
+5 20 1000 P
+G none
+#18717
+nail rusty~
+rusty nail~
+Rusty nail lies on the ground.~
+iron~
+weapon 0 AN
+exotic 2 9 scratch 0
+3 0 900 P
+G none
+#18718
+skin strong fox~
+strong skin of fox~
+Skin lies here.~
+skin~
+armor 0 AD
+5 5 5 5 0
+12 0 10000 P
+A
+13 10
+A
+20 -1
+A
+19 1
+G none
 #18750
 thron трон~
 @eng Orrin's throne@rus ~~Золотой~~ ~~трон~~ ~~Орина~~~
 @eng Orrin's throne is here, waiting his master.@rus Золотой трон Орина стоит здесь ожидая своего хозяина.~
 unknown~
 furniture A 0
-A CFG HK EIJKN EIJKN
+A CFG HK ABCDEFGHIJKLMNOPQRSTUVWXYZabcde ABCDEFGHIJKLMNOPQRSTUVWXYZabcde
 0 0 0 P
 G none
 #18751
@@ -289,63 +421,147 @@ portal B 0
 0 I A 3001 0
 0 2147483647 0 P
 G none
-#18798
-~
+#18786
+girdle strength~
 ~
 ~
 unknown~
-trash 0 0
+armor 0 AL
 0 0 0 0 0
-0 0 0 P
+92 0 0 P
+G none
+#18787
+poncho~
+a poncho from the carcass of Seneschal~
+A poncho from the carcass of Seneschal lies here.~
+flesh~
+armor 0 AK
+92 92 92 92 0
+92 40 0 P
+A
+19 18
+A
+18 18
+A
+3 -2
+A
+1 2
+A
+6 1
+A
+13 35
+G none
+#18788
+shield justice~
+{MJustice{x~
+A finely crafted shield is here.~
+mithril~
+armor AI AJ
+200 200 200 200 0
+92 0 0 P
+G none
+#18789
+bracer bracers energy~
+{Gbracers of energy{x~
+Bracers formed of multicolored energy lie here.~
+energy~
+armor 0 AI
+200 200 200 200 0
+92 0 0 P
+G none
+#18790
+gauntlets~
+gauntlets of bravery~
+A glowing pair of burnished chain mesh gauntlets lies here.~
+iron~
+armor I AH
+200 200 200 200 0
+92 0 0 P
+G none
+#18791
+boots~
+Orrin's boots~
+The shadows are deep here.~
+shadow~
+armor CF AG
+200 200 200 200 0
+92 0 0 P
+G none
+#18792
+leggings~
+{DDark leggings{x~
+The shadows are deep here.~
+shadow~
+armor C AF
+200 200 200 200 0
+92 0 0 P
+G none
+#18793
+helm~
+{YFlaming helm{x~
+Great helm lies here.~
+fire~
+armor AB AE
+200 200 200 200 0
+92 100 0 P
+G none
+#18794
+plate breast strength orrin battlerager~
+breast plate of battlerager's strength~
+Orrin's breast plate lies here.~
+steel~
+armor AIS AD
+200 200 200 200 0
+92 100 0 P
+G none
+#18795
+necklace silver orrin~
+{Csilver necklace{x~
+The {Csilver necklace{x shine lie in sun.~
+silver~
+treasure 0 AC
+0 0 0 0 0
+92 0 0 P
+G none
+#18796
+cloak crimson orrin~
+{RCrimson cloak{x~
+Crimson cloak lies here.~
+silk~
+clothing 0 AC
+0 0 0 0 0
+92 0 0 P
+G none
+#18797
+ring platinum~
+{cplatinum ring{x~
+A small ring lies here.~
+platinum~
+jewelry WY AB
+0 0 0 0 0
+92 0 0 P
+G none
+#18798
+ring golden brilliant orrin~
+{YGolden ring{x with huge {Wbrilliant{x~
+The beautiful brilliant shine in the beam of sun.~
+gold~
+jewelry WY AB
+0 0 0 0 0
+92 0 0 P
 G none
 #18799
-aura shadow white~
-dark aura~
-Shadow lies hhere.~
-shadow~
-container BCGST AQ
-2147483647 0 0 2147483647 2147483647
-1 0 0 P
-A
-6 1000
-A
-5 1000
-A
-2 1000
-A
-4 1000
-A
-3 1000
-A
-1 1000
+light holy pillar orrin~
+{WHoly Light{x~
+The pillar of light falls from the heaven.~
+holy~
+light AIK A
+0 0 -1 0 0
+92 0 0 P
 F
-A 0 0 P
+I 0 0 M
 F
-I 0 0 D
-F
-I 0 0 C
-F
-A 0 0 s
-F
-A 0 0 q
-F
-A 0 0 p
-F
-A 0 0 e
-F
-A 0 0 f
-F
-A 0 0 B
-F
-A 0 0 Q
-F
-A 0 0 t
-F
-A 0 0 n
-F
-A 0 0 F
-F
-A 0 0 l
+A 0 0 J
 F
 A 0 0 E
 F
@@ -353,11 +569,15 @@ A 0 0 C
 F
 A 0 0 G
 F
+A 0 0 t
+F
+A 0 0 l
+F
 A 0 0 D
 F
-A 0 0 m
+A 0 0 F
 F
-A 0 0 g
+A 0 0 m
 G none
 #0
 
@@ -675,9 +895,13 @@ D2
 Z 0 18718
 S
 #18720
-@eng Church@rus Заброшеная церковь~
+@eng Entrance to church@rus Заброшеная церковь~
 ~
 0 0 inside
+D0
+~
+~
+Z 0 18751
 D2
 ~
 ~
@@ -717,6 +941,10 @@ S
 @eng Trail@rus Тропинка~
 ~
 0 0 inside
+D0
+~
+~
+Z 0 18761
 D1
 ~
 ~
@@ -787,7 +1015,7 @@ D3
 Z 0 18728
 S
 #18728
-@eng Burfication@rus Развилка~
+@eng Bifurcation@rus Развилка~
 ~
 0 0 inside
 D0
@@ -804,7 +1032,7 @@ D3
 Z 0 18740
 S
 #18729
-@eng Hut@rus Шалаш~
+@eng Hut@rus Хижина~
 ~
 0 0 inside
 D2
@@ -958,10 +1186,6 @@ S
 @eng Entrance to cave@rus Вход в пещеру~
 ~
 0 0 inside
-D0
-~
-~
-Z 0 18739
 D1
 ~
 ~
@@ -1071,6 +1295,11 @@ D3
 ~
 Z 0 18747
 S
+#18749
+@eng Entrance to dangeon@rus Вход в поземелье~
+~
+0 0 inside
+S
 #18750
 @eng Adria's witch hut@rus Домик ведьмы Адрии~
 ~
@@ -1080,10 +1309,172 @@ D2
 ~
 Z 0 18745
 S
+#18751
+~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18754
+D1
+~
+~
+Z 0 18752
+D2
+~
+~
+Z 0 18720
+D3
+~
+~
+Z 0 18753
+S
+#18752
+~
+~
+0 0 inside
+D3
+~
+~
+Z 0 18751
+S
+#18753
+~
+~
+0 0 inside
+D1
+~
+~
+Z 0 18751
+S
+#18754
+~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18757
+D1
+~
+~
+Z 0 18756
+D2
+~
+~
+Z 0 18751
+D3
+~
+~
+Z 0 18755
+S
+#18755
+~
+~
+0 0 inside
+D1
+~
+~
+Z 0 18754
+S
+#18756
+~
+~
+0 0 inside
+D3
+~
+~
+Z 0 18754
+S
+#18757
+~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18760
+D1
+~
+~
+Z 0 18759
+D2
+~
+~
+Z 0 18754
+D3
+~
+~
+Z 0 18758
+S
+#18758
+~
+~
+0 0 inside
+D1
+~
+~
+Z 0 18757
+S
+#18759
+~
+~
+0 0 inside
+D3
+~
+~
+Z 0 18757
+S
+#18760
+~
+~
+0 0 inside
+D2
+~
+~
+Z 0 18757
+S
+#18761
+@eng Trail@rus Тропинка~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18762
+D2
+~
+~
+Z 0 18723
+S
+#18762
+@eng Trail@rus Тропинка~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18770
+D2
+~
+~
+Z 0 18761
+S
+#18770
+@eng Entrance to catacombs@rus Вход в катакомбы~
+~
+0 0 inside
+D2
+~
+~
+Z 0 18762
+S
 #18799
 @eng Armory chamber@rus Оружейная палата~
 ~
-0 NUWZ inside
+0 NUWZ forest
+M 2147483555 H 2147483463
 S
 #0
 
@@ -1097,33 +1488,45 @@ O 0 18710 0 18704	* town fountain (Town square)
 M 0 18703 1 18704 1	* ~староста~ ~Кейн~ (Town square)
 M 0 18704 1 18705 1	* healer Pepin (Drugstone)
 G 0 18703 0		*	potion of healing
+G 0 15000 0		*	strange pill
+G 0 15008 0		*	Anti-invader's pill
+G 0 18705 0		*	pill
 M 0 18702 1 18707 1	* innkeeper Ogden (Tavern)
 M 0 18701 1 18710 1	* Griswold (Forge)
-G 0 18708 0		*	knight's dagger of burning
-G 0 18706 0		*	silver stake
+G 0 18717 0		*	rusty nail
+G 0 18716 0		*	sword
+G 0 18714 0		*	axe
+G 0 18718 0		*	strong skin of fox
+G 0 18713 0		*	club
 G 0 18709 0		*	spellbane
-M 0 18706 1 18747 1	* drunk (Trail)
+M 0 18707 1 18729 1	* Wirt (Hut)
+G 0 18713 0		*	club
+G 0 18714 0		*	axe
+G 0 18716 0		*	sword
+G 0 18717 0		*	rusty nail
+G 0 18718 0		*	strong skin of fox
+M 0 18706 1 18747 1	* Farnham (Trail)
+M 0 18705 1 18750 1	* Adria witch (Adria's witch hut)
 O 0 18750 0 18799	* Orrin's throne (Armory chamber)
 O 0 18751 0 18799	* portal (Armory chamber)
 M 0 18700 1 18799 1	* Urukhay (Armory chamber)
-E 0 18700 0 16		*	BattleRager's Axe: wielded
+E 0 18700 0 16		*	{YHuge Flaming Axe{x: wielded
 E 0 18701 0 2		*	ring of power: on the right finger
 E 0 18702 0 12		*	tanned troll skin: about the shoulders
 E 0 18701 0 1		*	ring of power: on the left finger
-O 0 18750 0 18799	* Orrin's throne (Armory chamber)
-O 0 18751 0 18799	* portal (Armory chamber)
-O 0 18750 0 18799	* Orrin's throne (Armory chamber)
-O 0 18751 0 18799	* portal (Armory chamber)
-O 0 18750 0 18799	* Orrin's throne (Armory chamber)
+O 0 18787 0 18799	* a poncho from the carcass of Seneschal (Armory chamber)
+O 0 18787 0 18799	* a poncho from the carcass of Seneschal (Armory chamber)
 S
 
 #SHOPS
-18701 0 0 0 0 5 100 70 0 23
+18701 0 5 9 0 -1 200 50 0 23
 18704 0 0 0 0 0 100 0 0 23
+18705 0 3 10 4 2 200 50 0 23
+18707 0 5 9 0 0 400 50 0 23
 0
 
 #OLIMITS
-O 18700 2	* BattleRager's Axe
+O 18700 1	* {YHuge Flaming Axe{x
 O 18701 2	* ring of power
 O 18702 2	* tanned troll skin
 O 18709 1	* spellbane
@@ -1131,21 +1534,95 @@ S
 
 #MOBPROGS
 #18700
-mob oload 18707
-give bandage $n
-mob force $n wear bandage
+if isimmort $n
+bow $n
+tell $n Добро пожаловать в мою лачугу.
+tell $n Что-то хотели купить?
+mob forget
+end
+endif
+tell $n Ей! Иди сюда у меня есть для тебя что-то интересное!
+tell $n За 50 золотых я могу показать эту штуку.
+mob forget
 ~
 #18701
-take all
+mob forget
+mob remember $n
+if level $n > 62
+if class $n warrior
+if rand 50
+mob oload 18712
+mob echoat $q Object 'axe large deadly' is type weapon, extra flags none.
+mob echoat $q Weight is 52, value is 150000, level is 70.
+mob echoat $q Weapon type is axe.
+mob echoat $q Damage is 6d16 (average 51).
+mob echoat $q Weapons flags: sharp vorpal twohands
+mob echoat $q Affects damroll by 8.
+mob echoat $q Affects strength by 5.
+say Хорошая штука, правда?
+end
+else
+mob oload 18708
+mob echoat $q Object 'dagger knight' is type weapon, extra flags glow bless burnproof.
+mob echoat $q Weight is 30, value is 85461, level is 70.
+mob echoat $q Weapon type is dagger.
+mob echoat $q Damage is 10d8 (average 45).
+mob echoat $q Weapons flags: flaming sharp
+mob echoat $q Affects damroll by 7.
+mob echoat $q Affects hitroll by 10.
+say Хорошая штука, правда?
+end
+endif
+if level $n > 35
+mob oload 18706
+mob echoat $q Object 'stake silver' is type weapon, extra flags glow magic bless antievil.
+mob echoat $q Weight is 24, value is 16230, level is 40.
+mob echoat $q Weapon type is exotic.
+mob echoat $q Damage is 6d7 (average 24).
+mob echoat $q Weapons flags: sharp holy
+mob echoat $q Affects hitroll by 8.
+say Хорошая штука, правда?
+end
+endif
+ 
+~
+#18702
+if carries $i 18706
+or carries $i 18708
+tell $q Купишь?
+mob force $q tell $i Нет,спасибо
+drop all.stake
+drop all.knight dagger
+drop all.axe large
+sacrifice all
+mob forget
+mob transfer $n 18728
+end
+endif
+mob transfer $n 18728
+mob forget
+~
+#18703
+emote скривил губы пытаясь улыбнутся.
+say привет
+say Хочешь выпить?
+mob say Привет
+~
+#18704
+mob oload 18715
+mob oload 18715
+give glass $n
+say За красивую жизнь!
+drink glass
+mob force $n drink glass
+~
+#18705
 ~
 #18796
 tell $n Не пиздеть!
 ~
 #18797
-tell $n Убить тебя $n!
- 
-yell $n! Now you die!!!
-mob attack $n
+say Хозяин будет недоволен
 ~
 #18798
 tell $n Урукхай
@@ -1154,5 +1631,9 @@ tell $n Урукхай
 tell $n Чего тебе?
 ~
 #0
+
+#PRACTICERS
+M 18700 weaponsmaster attack beguiling benedictions combat creation curative detection draconian enchantment enhancement harmful healing illusion maladictions protective transportation clan defensive wizard~	* Urukhay
+S
 
 #$

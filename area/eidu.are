@@ -253,6 +253,17 @@ A
 A
 19 5
 G none
+#44014
+ring constricting~
+{rconstricting ring{x~
+A small ring made of black metal lies here.~
+steel~
+jewelry CMY AB
+0 0 0 0 0
+96 0 0 P
+F
+A 0 0 L
+G none
 #0
 
 #ROOMS

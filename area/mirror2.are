@@ -1151,6 +1151,7 @@ E
 mirror shield mirrored~
 You see your own reflection on the surface of the mirror shield.
 ~
+G none
 #19002
 mirror plate mirrored~
 a mirrored plate of armor~
@@ -1164,6 +1165,7 @@ E
 mirror plate mirrored~
 Your own reflection stares up from the mirrored plate.
 ~
+G none
 #19003
 sword shiny silver~
 a shiny silver sword~
@@ -1173,6 +1175,7 @@ silver~
 weapon G AN
 sword 4 7 slash 0
 23 10 100 P
+G none
 #19004
 chainmail cowl chainmail~
 a chainmail cowl~
@@ -1182,6 +1185,7 @@ steel~
 armor 0 AD
 6 6 6 0 0
 23 10 10 P
+G none
 #19005
 throne~
 a throne~
@@ -1190,6 +1194,7 @@ unknown~
 furniture 0 0
 0 0 0 0 0
 0 0 0 P
+G none
 #19006
 robe grey~
 a grey robe~
@@ -1205,6 +1210,7 @@ A
 5 3
 A
 17 -10
+G none
 #19007
 circlet golden~
 the Golden Circlet~
@@ -1227,6 +1233,7 @@ throne; he removed it for the last time when he split the land in
 two, saying that he no longer deserved to wear it.  Though it is simply
 made, it is nevertheless intricate, with fine milled edges and a beautiful
 ruby sigil at the front.~
+G none
 #19008
 bent sword~
 a bent sword~
@@ -1240,6 +1247,7 @@ A
 18 -5
 A
 19 -5
+G none
 #19009
 worn jerkin chain mail~
 a worn chainmail jerkin~
@@ -1249,6 +1257,7 @@ leather~
 armor 0 AD
 13 13 13 4 0
 45 10 10 P
+G none
 #19010
 royal staff king~
 the Royal Staff~
@@ -1268,6 +1277,7 @@ beautiful blendings of silver and gold.  As you hold it in your hand, you
 somehow feel more confident, calmer, even happier, even though the king
 gave up the sceptre just after he was plunged into despair and depression.
 ~
+G none
 #19011
 harp silver caerlin~
 a silver harp~
@@ -1276,6 +1286,7 @@ silver~
 wand K AO
 30 25 25 'sanctuary' 0
 15 10 1000 P
+G none
 #19012
 pool cue~
 a pool cue~
@@ -1285,6 +1296,7 @@ wood~
 weapon G AN
 mace 5 6 blast 0
 25 4 100 P
+G none
 #19013
 pool table~
 a pool table~
@@ -1300,6 +1312,7 @@ years of continuous use.  The balls strewn across its surface look
 well-used as well; most are scratched or marred, and some have whole chips
 taken out of their sides.
 ~
+G none
 #19014
 amulet bard's bard~
 a bard's amulet~
@@ -1313,6 +1326,7 @@ A
 5 2
 A
 24 -5
+G none
 #19015
 small steel knife~
 a small steel knife~
@@ -1326,6 +1340,7 @@ E
 small steel dagger~
 The good citizens of the Mirror Realm have no need for weapons; they carry
 at most a small knife, simply because it's handy to have around.~
+G none
 #19016
 potion human flight~
 a potion of human flight~
@@ -1334,6 +1349,7 @@ glass~
 potion H A
 20 'fly' '' '' ''
 10 0 0 P
+G none
 #19017
 pill restore restoration~
 a pill of mana and life restoration~
@@ -1342,6 +1358,7 @@ silver~
 pill H A
 30 'heal' 'refresh' 'teleport' ''
 15 3 0 P
+G none
 #19018
 flask holy water~
 a flask of holy water~
@@ -1350,6 +1367,7 @@ glass~
 potion AH A
 25 'bless' 'cure blindness' 'remove curse' ''
 10 5 1000 P
+G none
 #19019
 staff destruction~
 a staff of destruction~
@@ -1358,6 +1376,7 @@ wood~
 staff BH AO
 25 7 7 'earthquake' 0
 10 3 100 P
+G none
 #19020
 gold coins~
 some coins~
@@ -1366,6 +1385,7 @@ gold~
 money 0 A
 1000 0 0 0 0
 1 4 100 P
+G none
 #19021
 potion invis invisible~
 a clear potion of invisibility~
@@ -1374,6 +1394,7 @@ glass~
 potion H A
 20 'invisibility' 'detect magic' '' ''
 10 5 0 P
+G none
 #19022
 hamburger burger~
 a hamburger~
@@ -1382,6 +1403,7 @@ food~
 food 0 A
 ABCD ABCD 0 0 0
 1 2 20 P
+G none
 #19023
 steak yorkshire pudding food~
 steak and Yorkshire Pudding~
@@ -1390,6 +1412,7 @@ food~
 food 0 A
 ABCD ABCD 0 0 0
 1 2 20 P
+G none
 #19024
 roast chicken food~
 roast Chicken~
@@ -1398,6 +1421,7 @@ food~
 food 0 A
 ABCD ABCD 0 0 0
 1 1 0 P
+G none
 #19025
 mashed potatoes food~
 mashed potatoes~
@@ -1406,6 +1430,7 @@ food~
 food 0 A
 C C 0 0 0
 1 1 0 P
+G none
 #19026
 peas food~
 peas~
@@ -1414,6 +1439,7 @@ food~
 food 0 A
 B B 0 0 0
 1 1 0 P
+G none
 #19027
 baked ham food~
 baked Ham~
@@ -1422,6 +1448,7 @@ food~
 food 0 A
 ABCD BD 0 0 0
 1 1 0 P
+G none
 #19028
 green beans food~
 green beans~
@@ -1430,6 +1457,7 @@ food~
 food 0 A
 B B 0 0 0
 1 1 0 P
+G none
 #19029
 shrimp cocktail food~
 shrimp cocktail~
@@ -1438,6 +1466,7 @@ food~
 food 0 A
 B B 0 0 0
 1 1 0 P
+G none
 #19030
 green salad food~
 green salad~
@@ -1446,6 +1475,7 @@ food~
 food 0 A
 C C 0 0 0
 1 2 0 P
+G none
 #19031
 vegetable soup food~
 vegetable soup~
@@ -1454,6 +1484,7 @@ food~
 food 0 A
 C C 0 0 0
 1 1 0 P
+G none
 #19032
 menu~
 a menu~
@@ -1484,6 +1515,7 @@ menu~
 *                                                                  *
 *  Your waiter will take your order.                               *
 ********************************************************************~
+G none
 #19033
 horn golden~
 a unicorn's golden horn~
@@ -1504,6 +1536,7 @@ glittering diamond; down at the base, where it was severed from the
 unicorn's head, you can see some dried blood and fibers.  As you hold 
 the horn in your hand, you feel a strange current running through your 
 body, as though it still retained life in some way.~
+G none
 #19034
 ermine blanket~
 an ermine blanket~
@@ -1513,6 +1546,7 @@ unknown~
 armor 0 AD
 13 12 12 5 0
 39 5 10 P
+G none
 #19035
 apple tree trees~
 a grove of apple trees~
@@ -1521,6 +1555,7 @@ wood~
 container 0 0
 100 0 0 10 100
 0 0 0 P
+G none
 #19036
 apple fruit~
 an apple~
@@ -1529,6 +1564,7 @@ food~
 pill 0 A
 10 'refresh' '' '' ''
 1 1 0 P
+G none
 #19037
 plum tree trees~
 a grove of plum trees~
@@ -1537,6 +1573,7 @@ wood~
 container 0 0
 100 0 0 0 100
 0 0 0 P
+G none
 #19038
 plum fruit~
 a plum~
@@ -1545,6 +1582,7 @@ food~
 food 0 A
 AB AB 0 0 0
 1 1 0 P
+G none
 #19039
 plaque brass~
 a brass plaque~
@@ -1565,6 +1603,7 @@ you like for the sword Taliesin and the Sunrise Shield, but you may not
 attempt to transport any citizen from one side of our realm to another, 
 nor may you try to help any citizen leave....
 ~
+G none
 #19040
 brown robe~
 a brown robe~
@@ -1573,6 +1612,7 @@ leather~
 armor 0 AD
 5 5 5 0 0
 19 3 0 P
+G none
 #19041
 telescope~
 a telescope~
@@ -1592,6 +1632,7 @@ beautiful unicorn in front of the sparkling tower, which now appears to be
 made out of frosted glass; there are riders in robes of every color of the 
 rainbow.
 ~
+G none
 #19042
 telescope~
 a telescope~
@@ -1608,6 +1649,7 @@ horn on its skull; riders cloaked in black and white robes patrol the area
 with flashing swords; ragged citizens walk through a decaying swamp; a 
 glittering palace of obsidian rises from the mire at the far end of the 
 land.~
+G none
 #19043
 oil lamp~
 an oil lamp~
@@ -1616,6 +1658,7 @@ oil~
 light A A
 0 0 15 0 0
 1 0 0 P
+G none
 #19044
 white jacket coat~
 a formal white jacket~
@@ -1624,6 +1667,7 @@ unknown~
 armor 0 AK
 8 8 8 0 0
 25 5 0 P
+G none
 #19045
 black tie~
 a black bow tie~
@@ -1632,6 +1676,7 @@ leather~
 armor 0 AC
 5 5 5 0 0
 25 5 0 P
+G none
 #19046
 shirt white~
 a crisp white shirt~
@@ -1640,6 +1685,7 @@ cloth~
 armor 0 AD
 5 5 5 0 0
 25 5 0 P
+G none
 #19047
 pants black~
 a pair of black dress pants~
@@ -1648,6 +1694,7 @@ cloth~
 armor 0 AF
 5 5 5 0 0
 25 5 0 P
+G none
 #19048
 cummerbund~
 a cummerbund~
@@ -1660,6 +1707,7 @@ A
 2 -1
 A
 1 1
+G none
 #19049
 big black shoes~
 a pair of black shoes~
@@ -1672,6 +1720,7 @@ A
 14 -25
 A
 19 2
+G none
 #19050
 engagement band ring~
 an engagement band~
@@ -1685,6 +1734,7 @@ A
 E
 engagement ring band~
 "Till Death Do Us Part......"~
+G none
 #19051
 wedding dress~
 a wedding dress~
@@ -1702,6 +1752,7 @@ touch of lace accents the collar and the short sleeves.  The train looks just
 as simple as the rest of the dress, but it shimmers gently in the light, 
 revealing the pure, beautifully cut silk from which it was made.
 ~
+G none
 #19052
 white shoes flat flats~
 a pair of white shoes~
@@ -1712,6 +1763,7 @@ armor 0 AG
 25 10 0 P
 A
 14 15
+G none
 #19053
 wedding veil~
 a thin white veil~
@@ -1722,6 +1774,7 @@ armor 0 AE
 25 10 0 P
 A
 18 -3
+G none
 #19054
 engagement ring diamond~
 a diamond engagement ring~
@@ -1736,6 +1789,7 @@ E
 engagement diamond ring~
 "Till Death Do Us Part...."
 ~
+G none
 #19055
 corsage flowers~
 a corsage~
@@ -1746,6 +1800,7 @@ armor 0 AO
 25 10 0 P
 A
 13 20
+G none
 #19056
 jar glowing fish~
 a small jar of pale glowing fish~
@@ -1756,6 +1811,7 @@ light A A
 15 0 0 P
 A
 12 20
+G none
 #19057
 goldfish white~
 the white goldfish~
@@ -1764,6 +1820,7 @@ food~
 food 0 A
 C C 0 0 0
 2 2 0 P
+G none
 #19058
 crimson robe~
 a crimson robe~
@@ -1774,6 +1831,7 @@ armor 0 AK
 35 5 100 P
 A
 13 20
+G none
 #19059
 burnt orange robe~
 a burnt-orange robe~
@@ -1784,6 +1842,7 @@ armor 0 AK
 35 5 10 P
 A
 14 35
+G none
 #19060
 yellow sun robe~
 a yellow robe~
@@ -1794,6 +1853,7 @@ armor 0 AK
 35 5 10 P
 A
 18 5
+G none
 #19061
 forest green robe~
 a forest green robe~
@@ -1804,6 +1864,7 @@ armor 0 AK
 35 5 10 P
 A
 12 35
+G none
 #19062
 sea blue robe sea-blue~
 a sea-blue robe~
@@ -1814,6 +1875,7 @@ armor 0 AK
 35 5 10 P
 A
 19 5
+G none
 #19063
 violet robe~
 a violet robe~
@@ -1824,6 +1886,7 @@ armor 0 AK
 35 5 10 P
 A
 13 25
+G none
 #19064
 prism sword~
 a prism sword~
@@ -1837,6 +1900,7 @@ A
 18 5
 A
 24 -5
+G none
 #19065
 hoe~
 a hoe~
@@ -1846,6 +1910,7 @@ iron~
 weapon G AN
 exotic 4 7 charge 0
 25 14 100 P
+G none
 #19066
 robe white~
 a white robe~
@@ -1854,6 +1919,7 @@ cloth~
 armor K AK
 11 12 11 10 0
 39 5 100 P
+G none
 #19067
 poultice detection~
 a poultice of detection~
@@ -1862,6 +1928,7 @@ food~
 pill 0 AO
 20 'detect invis' 'detect magic' '' ''
 10 1 0 P
+G none
 #19068
 beer glass~
 beer~
@@ -1870,6 +1937,7 @@ glass~
 drink 0 A
 1 1 'beer' 0 0
 1 0 0 P
+G none
 #19069
 whisky whiskey shot~
 whisky~
@@ -1878,6 +1946,7 @@ glass~
 drink 0 A
 1 1 'whisky' 0 0
 5 3 0 P
+G none
 #19070
 lemonade~
 lemonade~
@@ -1886,6 +1955,7 @@ glass~
 drink 0 A
 1 1 'lemonade' 0 0
 5 2 0 P
+G none
 #19071
 kendo stick staff~
 a kendo~
@@ -1899,6 +1969,7 @@ A
 2 1
 A
 18 10
+G none
 #19072
 karate uniform gi~
 a black gi~
@@ -1911,6 +1982,7 @@ A
 2 4
 A
 17 -10
+G none
 #19073
 red belt master~
 a red master's belt~
@@ -1921,6 +1993,7 @@ armor K AL
 45 5 10 P
 A
 4 2
+G none
 #19074
 fountains fountain~
 a fountain~
@@ -1929,6 +2002,7 @@ marble~
 fountain 0 0
 110 110 'water' 0 0
 0 0 0 P
+G none
 #19075
 suitcase~
 a suitcase~
@@ -1937,6 +2011,7 @@ unknown~
 container 0 AO
 25 0 0 10 100
 3 0 0 P
+G none
 #19076
 canteen~
 a canteen~
@@ -1945,6 +2020,7 @@ metal~
 drink H A
 10 10 'water' 0 0
 1 2 0 P
+G none
 #19077
 pack rations~
 rations~
@@ -1953,6 +2029,7 @@ food~
 food 0 A
 BC BC 0 0 0
 1 1 0 P
+G none
 #19078
 knife pocket pocketknife~
 a pocketknife~
@@ -1962,6 +2039,7 @@ steel~
 weapon G AN
 dagger 1 6 pierce 0
 2 2 10 P
+G none
 #19079
 raft~
 a small raft~
@@ -1970,6 +2048,7 @@ leather~
 boat 0 A
 0 0 0 0 0
 10 10 0 P
+G none
 #19080
 cap wizard wizard's~
 a wizard's peaked cap~
@@ -1980,6 +2059,7 @@ armor 0 AE
 45 12 100 P
 A
 12 25
+G none
 #19081
 cloak wizards wizard's~
 a wizard's cloak~
@@ -1988,6 +2068,7 @@ cloth~
 armor 0 AK
 13 13 13 5 0
 45 10 100 P
+G none
 #19082
 page hymn~
 a hymn~
@@ -1996,6 +2077,7 @@ glass~
 scroll 0 A
 20 'bless' '' '' ''
 5 1 0 P
+G none
 #19083
 ring rose~
 a rose-colored ring~
@@ -2008,6 +2090,7 @@ A
 13 -25
 A
 3 1
+G none
 #19084
 clippers~
 a pair of clippers~
@@ -2017,6 +2100,7 @@ steel~
 weapon G AN
 exotic 4 4 slice 0
 25 10 10 P
+G none
 #19085
 club staff wood wooden~
 a thick wooden staff~
@@ -2026,6 +2110,7 @@ wood~
 weapon 0 AN
 spear 4 4 crush 0
 19 10 0 P
+G none
 #19086
 leggings mirror mirrored~
 a set of mirrored leggings~
@@ -2034,6 +2119,7 @@ steel~
 armor 0 AF
 7 7 7 0 0
 23 5 0 P
+G none
 #19087
 shawl white~
 a white shawl~
@@ -2042,6 +2128,7 @@ cloth~
 armor 0 AK
 13 13 14 6 0
 45 11 100 P
+G none
 #19088
 boots fishing~
 fishing boots~
@@ -2052,6 +2139,7 @@ armor M AG
 25 5 0 P
 A
 2 -1
+G none
 #19089
 gaff~
 a gaff~
@@ -2061,6 +2149,7 @@ steel~
 weapon G AN
 spear 5 6 pierce D
 25 10 100 P
+G none
 #19090
 rain slicker~
 a rain slicker~
@@ -2071,6 +2160,7 @@ armor 0 AD
 25 10 0 P
 A
 14 -50
+G none
 #19091
 dinghy boat~
 a dinghy~
@@ -2079,6 +2169,7 @@ leather~
 boat 0 A
 0 0 0 0 0
 20 10 0 P
+G none
 #19092
 diploma wizard finishing~
 a "Wizard's Finishing School" diploma~
@@ -2103,6 +2194,7 @@ diploma wizard finishing~
 *	.....................Asena					  *
 ***************************************************************************
 ~
+G none
 #19093
 antlers~
 antlers~
@@ -2115,6 +2207,7 @@ A
 2 -1
 A
 18 5
+G none
 #19094
 nectarine tree trees~
 a nectarine tree~
@@ -2123,6 +2216,7 @@ wood~
 container 0 0
 100 0 0 10 100
 0 0 0 P
+G none
 #19095
 nectarine fruit~
 a nectarine~
@@ -2131,6 +2225,7 @@ food~
 food 0 A
 AB AB 0 0 0
 1 1 0 P
+G none
 #19096
 diploma wizard finishing~
 a "Wizard's Finishing School" diploma~
@@ -2141,6 +2236,7 @@ treasure GJ AO
 1 0 0 P
 A
 3 1
+G none
 #19097
 fangs~
 some fangs~
@@ -2152,6 +2248,7 @@ exotic 6 6 bite 0
 35 5 100 P
 A
 19 2
+G none
 #19098
 hemlock extract~
 hemlock~
@@ -2160,6 +2257,7 @@ glass~
 drink 0 A
 1 1 'water' 0 0
 1 0 0 P
+G none
 #19099
 ale evil darkale bottle~
 a bottle of evil-smelling ale~
@@ -2168,6 +2266,7 @@ glass~
 drink 0 A
 2 2 'water' 0 0
 1 0 0 P
+G none
 #19100
 water~
 a bottle of water~
@@ -2176,6 +2275,7 @@ glass~
 drink 0 A
 3 3 'water' 0 0
 1 1 0 P
+G none
 #19101
 broken bottle~
 a broken bottle~
@@ -2189,6 +2289,7 @@ A
 18 -5
 A
 19 5
+G none
 #19102
 flask devil brew devil's~
 a flask of devil's brew~
@@ -2197,6 +2298,7 @@ glass~
 potion BEGH A
 10 'giant strength' 'shield' '' ''
 5 5 0 P
+G none
 #19103
 wand soul stealer~
 the Soul Stealer~
@@ -2213,6 +2315,7 @@ it looms larger and larger in your eyes, filling your field of vision....
 
 ....till you bring it too close and poke yourself in the eye.  Ouch.
 ~
+G none
 #19104
 rubber gloves~
 rubber gloves~
@@ -2221,6 +2324,7 @@ rubber~
 armor J AH
 11 10 10 5 0
 35 2 0 P
+G none
 #19105
 scabbard~
 a scabbard~
@@ -2229,6 +2333,7 @@ unknown~
 container F AL
 20 0 0 5 100
 5 0 0 P
+G none
 #19106
 bone horn~
 a horn of bone~
@@ -2242,6 +2347,7 @@ A
 1 -1
 A
 19 5
+G none
 #19107
 red ribbons ribbon~
 a set of red ribbons~
@@ -2258,6 +2364,7 @@ E
 red ribbons~
 These red ribbons are just the ghosts of actual reins....
 ~
+G none
 #19108
 holly tree~
 a holly tree~
@@ -2266,6 +2373,7 @@ wood~
 container 0 0
 100 0 0 0 100
 0 0 0 P
+G none
 #19109
 holly berries berry~
 a few holly berries~
@@ -2274,6 +2382,7 @@ food~
 pill 0 A
 10 'poison' '' '' ''
 2 2 0 P
+G none
 #19110
 sword obsidian eclipse~
 an eclipse sword~
@@ -2294,6 +2403,7 @@ eclipse sword obsidian~
 This dark sword seems to draw in all the light near it and swallow it up....
 its edges and hilt are fuzzy and hard to make out, since all the light that
 falls near them is consumed by the power of the sword.~
+G none
 #19111
 menu~
 a menu~
@@ -2315,6 +2425,7 @@ menu~
 *                                                                          *
 ****************************************************************************
 ~
+G none
 #19112
 sign health board~
 a sign~
@@ -2336,6 +2447,7 @@ sign health~
 *                                                 Reg Felix Dept Mud Admin *
 ****************************************************************************
 ~
+G none
 #19113
 beef stew~
 beef stew~
@@ -2344,6 +2456,7 @@ food~
 food 0 A
 AB AB 0 0 0
 0 2 0 P
+G none
 #19114
 jar slugs light~
 a small jar of glowing slugs~
@@ -2358,6 +2471,7 @@ Glowing slugs fill the jar, excreting vile ooze all over the jar's inside--and
 its outside as well; it appears that some of the slug slime has spilled over,
 forming a sticky residue on the outside of the jar.  
 ~
+G none
 #19115
 oak tree poison trees~
 a poison oak tree~
@@ -2366,6 +2480,7 @@ A small grove of Poison Oaks grows here.~
 container 0 0
 100 0 0 0 100
 0 0 0 P
+G none
 #19116
 acorn~
 an acorn~
@@ -2374,6 +2489,7 @@ food~
 food H A
 BD BD 0 0 0
 1 1 0 P
+G none
 #19117
 tight leather bodice~
 a tight leather bodice~
@@ -2386,6 +2502,7 @@ A
 13 -25
 A
 18 5
+G none
 #19118
 leather miniskirt~
 a tight leather miniskirt~
@@ -2396,6 +2513,7 @@ armor M AF
 25 2 10 P
 A
 2 -2
+G none
 #19119
 squid~
 a dead squid~
@@ -2404,6 +2522,7 @@ food~
 food 0 A
 B B 0 0 0
 2 2 0 P
+G none
 #19120
 cabinet door~
 a cabinet door~
@@ -2413,6 +2532,7 @@ wood~
 container 0 0
 100 0 0 0 100
 0 0 0 P
+G none
 #19121
 bag newbie~
 a Newbie Bag!~
@@ -2429,6 +2549,7 @@ type 'look in bag'.  To put stuff in the bag, type 'put <object name> in bag'.
 That's all for the bag....good luck, and ask an immortal or a high-level
 mortal if you have any questions.....
 ~
+G none
 #19122
 circlet silver~
 a silver circlet~
@@ -2439,6 +2560,7 @@ armor AK AE
 50 15 0 P
 A
 12 50
+G none
 #19123
 robe black~
 a black robe~
@@ -2453,6 +2575,7 @@ A
 2 2
 A
 13 -50
+G none
 #19124
 white robe~
 a white robe~
@@ -2465,6 +2588,7 @@ A
 3 1
 A
 12 -100
+G none
 #19125
 amulet death~
 the Amulet of Death and Dishonor~
@@ -2493,6 +2617,7 @@ A
 18 -100
 A
 19 -100
+G none
 #19126
 cloak black~
 a black cloak~
@@ -2501,6 +2626,7 @@ cloth~
 armor F AK
 16 16 16 7 0
 50 5 0 P
+G none
 #19127
 blood red dagger~
 a blood-red dagger~
@@ -2523,6 +2649,7 @@ excellent grip, while the creature's gaping mouth and head form the hilt
 at the dagger's top.  The blade itself has been notched like a saw, for 
 extra destructive power....
  ~
+G none
 #19128
 sigil dark~
 the Sigil of the Dark~
@@ -2543,6 +2670,7 @@ than made out of several different pieces...and as you look closer, you see
 runes inscribed all over the Sigil, runes that chill you to the heart.  You
 realize that a cold power beats out of the Sigil, more than anything that ever
 came out of any more usual sign....~
+G none
 #19129
 sigil light~
 the Sigil of the Light~
@@ -2560,6 +2688,7 @@ light strikes the bright circle of glass, you see that it contains more than
 just a beautiful representation of the Sign of the Light: intricate runes have
 been carved into its face, and the sigil as a whole glows with a warm, almost
 friendly energy.~
+G none
 #19130
 netting hat netted beekeeper~
 a beekeeper's hat~
@@ -2578,6 +2707,7 @@ The beekeeper's hat has white netting sewn to the brim; when zipped into the
 collar of the beekeeper's jacket, it prevents the bees from attacking the
 wearer's face.
 ~
+G none
 #19131
 white cloak~
 a white cloak~
@@ -2588,6 +2718,7 @@ armor J AD
 50 5 0 P
 A
 12 50
+G none
 #19132
 black cloak~
 a black cloak~
@@ -2598,6 +2729,7 @@ armor 0 AD
 50 5 0 P
 A
 12 50
+G none
 #19133
 smoke can jug~
 a beekeeper's smoke can~
@@ -2612,6 +2744,7 @@ The beekeeper's smoke can is an invaluable tool: bees calm down tremendously
 when doused with thick smoke, allowing the beekeeper to handle them without
 being stung.
 ~
+G none
 #19134
 history mirror realm book~
 a History of the Mirror Realm~
@@ -2667,6 +2800,7 @@ a rock wall between good and evil, and separating them forever.  The Sword and
 Shield were hidden, never to be found by any but those most dedicated to the
 realm.....
 ~
+G none
 #19135
 book legends~
 a Book of Legends~
@@ -2700,6 +2834,7 @@ VIOLET: ............shadowy spring.......namesake.
 
 And for the final ....... search above honor, above faith, above love.....
 ~
+G none
 #19136
 book history midgaard~
 a History of Midgaard~
@@ -2724,6 +2859,7 @@ the streets and allowing for faster and less rocky travel.
 ...And now, though towns and villages have been colonized all around Midgaard,
 some large, some small, millions upon millions still call Midgaard home..... 
 ~
+G none
 #19137
 altar crystal drawer~
 the crystal altar~
@@ -2735,6 +2871,7 @@ container 0 0
 E
 altar crystal~
 You see a small drawer in the front of the sparkling altar.~
+G none
 #19138
 crystal sigil~
 the crystal sigil~
@@ -2745,6 +2882,7 @@ trash A A
 5 0 0 P
 A
 12 10
+G none
 #19139
 altar yellow drawer~
 a citrine altar~
@@ -2753,6 +2891,7 @@ unknown~
 container 0 0
 100 0 0 0 100
 0 0 0 P
+G none
 #19140
 topaz sigil~
 the yellow topaz sigil~
@@ -2763,6 +2902,7 @@ trash 0 BD
 5 0 0 P
 A
 12 10
+G none
 #19141
 drawer altar amethyst purple~
 a purple altar~
@@ -2774,6 +2914,7 @@ container 0 0
 E
 drawer purple altar~
 A drawer has been set into the front of the altar.~
+G none
 #19142
 amethyst sigil~
 the amethyst sigil~
@@ -2784,6 +2925,7 @@ treasure 0 AO
 1 1 0 P
 A
 13 10
+G none
 #19143
 drawer red altar~
 the red altar~
@@ -2795,6 +2937,7 @@ container 0 0
 E
 altar ruby red drawer~
 A small drawer has been set into the front of the altar.~
+G none
 #19144
 ruby sigil~
 the ruby sigil~
@@ -2805,6 +2948,7 @@ treasure 0 A
 2 2 10 P
 A
 14 20
+G none
 #19145
 sigil sapphire~
 the sapphire sigil~
@@ -2815,6 +2959,7 @@ treasure 0 AO
 5 0 0 P
 A
 13 10
+G none
 #19146
 drawer altar sapphire~
 the sapphire altar~
@@ -2826,6 +2971,7 @@ container 0 0
 E
 drawer sapphire altar~
 A small drawer has been set into the front of the altar.~
+G none
 #19147
 drawer green altar~
 the green altar~
@@ -2837,6 +2983,7 @@ container 0 0
 E
 drawer altar~
 A small drawer has been set into the front of the altar.~
+G none
 #19148
 emerald sigil~
 the emerald sigil~
@@ -2847,6 +2994,7 @@ furniture 0 AO
 8 0 0 P
 A
 18 2
+G none
 #19149
 amber sigil~
 the amber sigil~
@@ -2857,6 +3005,7 @@ furniture 0 AO
 5 0 0 P
 A
 14 20
+G none
 #19150
 honey jar~
 a jar of honey~
@@ -2868,6 +3017,7 @@ B B 0 0 0
 E
 honey jar~
 "Golden Blossom Honey"~
+G none
 #19157
 sword taliesin~
 taliesin~
@@ -2893,6 +3043,7 @@ from tip to hilt.  The hilt itself has been crafted of fine gold, worked
 into an ornate, twisting pattern, with a strange sigil carved on its hilt: 
 the sign of the Light has been interlocked with the sign of the Dark.
 ~
+G none
 #19158
 sunrise shield~
 the Sunrise Shield~
@@ -2914,6 +3065,7 @@ jewels: sapphires, rubies, diamonds, and emeralds have been mixed together
 to create the shield's border, while soft, braided gold forms the rays
 of light that lead to the polished gold sun in the shield's center.
 ~
+G none
 #19159
 red key~
 a red key~
@@ -2922,6 +3074,7 @@ iron~
 key 0 A
 0 0 0 0 0
 1 0 0 P
+G none
 #19160
 orange key~
 an orange key~
@@ -2930,6 +3083,7 @@ iron~
 key 0 A
 0 0 0 0 0
 1 0 0 P
+G none
 #19161
 yellow key~
 a yellow key~
@@ -2938,6 +3092,7 @@ iron~
 key 0 A
 0 0 0 0 0
 1 0 0 P
+G none
 #19162
 green key~
 a green key~
@@ -2946,6 +3101,7 @@ iron~
 key 0 A
 0 0 0 0 0
 1 0 0 P
+G none
 #19163
 blue key~
 a blue key~
@@ -2954,6 +3110,7 @@ key~
 key 0 A
 0 0 0 0 0
 1 0 0 P
+G none
 #19164
 violet key~
 a violet key~
@@ -2962,6 +3119,7 @@ iron~
 key 0 A
 0 0 0 0 0
 1 0 0 P
+G none
 #19165
 fish trout~
 a trout~
@@ -2970,6 +3128,7 @@ food~
 food 0 A
 BC BC 0 0 0
 2 2 0 P
+G none
 #19166
 heart key~
 the heart key~
@@ -2978,6 +3137,7 @@ food~
 food 0 A
 0 0 0 0 0
 1 0 0 P
+G none
 #19167
 champagne bottle~
 a bottle of champagne~
@@ -2986,6 +3146,7 @@ glass~
 drink 0 A
 10 10 'champagne' 0 0
 2 2 0 P
+G none
 #19168
 spam can~
 a can of Spam~
@@ -2994,6 +3155,7 @@ food~
 food 0 A
 CE BD 0 0 0
 1 3 0 P
+G none
 #19169
 bottle water~
 a bottle of water~
@@ -3002,6 +3164,7 @@ glass~
 drink 0 A
 20 20 'water' 0 0
 1 2 0 P
+G none
 #19170
 silver pendant~
 a small silver pendant~
@@ -3012,6 +3175,7 @@ armor A AC
 1 0 0 P
 A
 13 5
+G none
 #19171
 bronze band~
 a simple bronze band~
@@ -3024,6 +3188,7 @@ A
 3 1
 A
 14 5
+G none
 #19172
 thick brown robe~
 a thick brown robe~
@@ -3036,6 +3201,7 @@ A
 5 1
 A
 4 1
+G none
 #0
 
 #ROOMS
@@ -5282,7 +5448,7 @@ somewhat less here, probably because of the fresh air that spills over the
 mountain wall to the north and east; in any case, your stomach isn't churning
 quite as much now.....
 ~
-0 0 field
+0 0 city
 D2
 ~
 ~

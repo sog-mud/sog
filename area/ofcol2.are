@@ -1438,11 +1438,15 @@ G none
 
 #ROOMS
 #600
-Granny's Still Room~
-You are in Granny Jenkins' still room.  The smell of whiskey is heady, and
+@eng Granny's Still Room@rus Самогонная Гренни~
+@eng You are in Granny Jenkins' still room.  The smell of whiskey is heady, and
 the bottles of it on the floor make your mouth water and your mind swirl.  You
 also see a very large still.  So THIS is why there are so many grain fields!
 The exit is to the east.
+@rus  Ты попал к Гренни в самогонную.  Пьянящий аромат виски да куча полных
+бутылок на полу кружат тебе голову и сушат горло, кроме того здесь стоит
+огромный перегонный аппарат.  Теперь ты понимаешь зачем ему столько полей. 
+Выход отсюда на востоке (east).  
 ~
 0 DS inside
 D1
@@ -1688,16 +1692,16 @@ You see the fields.
 Z 0 612
 S
 #612
-@eng Fields@rus Поля~
+@eng Fields@rus Кукурузное поле~
 @eng You are in a corn field.  You can't see far, since the corn stalks are
 taller than you are.  You remember that the end of Impy Way is east of here, 
 and you think you see a building to the north.  The field continues south and 
 west.
-@rus  Вы находитесь на кукурузном поле. Вы плохо видите окрестности через  
-кукурузные стебли, которые выше, чем Вы сами. Вы помните,
-что к востоку отсюда находится окраина улицы Путь Чертят [Impy Way] 
-и думаете что видите какое-то строение к северу отсюда. 
-Поле простирается на запад и юг.
+@rus  Ты находишься на кукурузном поле.  Ты плохо видишь окрестности через
+кукурузные стебли, которые намного выше тебя.  Ты все еще помнишь, что к
+востоку (east) отсюда - окраина чертовой дороги (Impy Way) и думаешь, что
+видишь какое-то строение к северу (north) отсюда.  Поле простирается на
+запад (west) и юг (south).  
 ~
 0 S field
 D0
@@ -1722,10 +1726,14 @@ You can make a path to the fields west.
 Z 0 615
 S
 #613
-Fields~
-You are among fruit trees in a field.  You see many apple and orange 
+@eng Fields@rus Фруктовый сад~
+@eng You are among fruit trees in a field.  You see many apple and orange 
 trees.  You can make out the corn fields north and some vegetable patches west.
 The sight of the fruit makes your mouth water.
+@rus  Ты прогуливаешься по фруктовому саду.  Вокруг тебя куча деревьев с
+обворожительными яблоками и апельсинами на ветках - попробовать не
+хочется?  Можешь прогуляться по кукурузному полю на севере (north) или по
+овощным плантациям на западе (west) если, конечно, хочешь.  
 ~
 0 S field
 D0
@@ -1740,10 +1748,13 @@ You see the vegetable fields.
 Z 0 614
 S
 #614
-Fields~
-You are among the vegetable fields.  You see many cabbage and lettuce
+@eng Fields@rus Овощная плантация~
+@eng You are among the vegetable fields.  You see many cabbage and lettuce
 patches, along with tomato bushes and potato plants.  To the east are some
 fruit trees, and north are some wheat fields.
+@rus  Ты гуляешь по овощной плантации.  Вокруг много грядок с капустой и
+салатом вперемешку с помидорами и картофелем.  Фруктовый сад к востоку
+(east), а пшеничное поле к северу (north) отсюда.  
 ~
 0 S field
 D0
@@ -1758,11 +1769,15 @@ You see the fruit trees.
 Z 0 613
 S
 #615
-Fields~
-You are among the wheat fields.  The gentle caress of the wheat and the
+@eng Fields@rus Пшеничное поле~
+@eng You are among the wheat fields.  The gentle caress of the wheat and the
 cool shadow from the tall stalks and scarecrow lulls you to sleep and dream
 of a little girl and little dog from a faraway place.  To the east are the corn
 stalks, and south of you are the vegetable patches.
+@rus  Ты шагаешь вдоль кромки пшеничного поля.  Тишина и благодать этого места
+навевает воспоминания о твоих лучших мечтах.  Тебе не хочется уходить
+отсюда, но это насущная необходимость.  К востоку (east) от тебя кукурузное
+поле, к югу (south) же - овощная плантация.  
 ~
 0 S field
 D1
@@ -1781,9 +1796,10 @@ S
 @eng You are in the storage shed.  Bales of wheat, corn and hay are piled
 against the wall, and some vegetables are in carts.  You see a small door
 to the west.  The main exit is south.
-@rus  Вы попали в сарай. Повсюду кукуруза, пшеница да сено, застоженные в маленькие
-копешки, и немного овощей, хранящихся в тележках. Приглядевшись, Вы видите 
-маленькую дверцу в западной(west) стене сарая. Главный вход с юга(south).
+@rus  Вы попали в сарай.  Повсюду кукуруза, пшеница да сено, застоженные в
+маленькие копешки, и немного овощей, хранящихся в тележках.  Приглядевшись,
+Вы видите маленькую дверцу в западной (west) стене сарая.  Главный вход с
+юга (south).  
 ~
 0 DS inside
 D2
@@ -1798,10 +1814,12 @@ door~
 ABZ -1 600
 S
 #617
-Slaughterhouse~
-You are in the slaughterhouse, where all the animals are slaughtered so
+@eng Slaughterhouse@rus Бойня~
+@eng You are in the slaughterhouse, where all the animals are slaughtered so
 that they can be sold or their skins be tanned.  The scream of dying animals
 makes your stomach churn.  The exit is to the west.
+@rus  Ты попал на зверобойню, где предсмертный рёв животных режет твои нежные
+уши. Выход из этого рая для некромантов на западе (west).  
 ~
 0 DS inside
 D3
@@ -2684,10 +2702,14 @@ Raff Way continues west.
 Z 0 666
 S
 #668
-Dirt Road~
-You are on a dirt road.  To the east is a large building with a bad smell
+@eng Dirt Road@rus Грязная дорога~
+@eng You are on a dirt road.  To the east is a large building with a bad smell
 emanating from it.  To the west is the end of Impy Way, and this road continues
 south.
+@rus  Ты попал на грязную дорогу.  Внимательно осмотревшись, ты замечаешь
+большое строение к востоку (east) от себя, откуда несет каким-то смрадом.  К
+западу (west) от тебя окраина чертовой дороги (Impy Way) а эта дорога
+продолжается на юг (south).  
 ~
 0 S field
 D1

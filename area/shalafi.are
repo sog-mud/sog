@@ -4,6 +4,7 @@ VNUMs 95300 95320
 Credits Asena~
 Security 9
 LevelRange 90 100
+Flags noquest~
 Clan Shalafi~
 End
 
@@ -161,6 +162,15 @@ sofa софа~
 unknown~
 furniture GRT P
 BD 0 HK DGH DGH
+0 0 0 P
+G none
+#95306
+talisman талисман~
+@eng {CMagic talisman{x@rus ~~{CМагический{x~~ ~~{Cталисман{x~~~
+@eng A very beautiful magic talisman is here.@rus Прекрасный магический талисман (talisman) виднеется здесь.~
+magic~
+jewelry AGHIMTYZ S
+0 0 0 0 0
 0 0 0 P
 G none
 #0
