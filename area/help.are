@@ -4611,23 +4611,20 @@ standard merc values.  (Will be put in when there's time to calculate
 them...)
 ~
 0 'OLC RESETS'~
-Syntax: RESET <number> OBJ <vnum> <location on body>    - equips last mobile
-        RESET <number> OBJ <vnum> inside <obj vnum>     - store in container
-        RESET <number> OBJ <vnum> room                  - store in room
-        RESET <number> MOB <vnum> [<max #>]             - load a mobile
-        RESET <number> DELETE                           - delete a reset
+Syntax: {creset{x
+Syntax: {creset{x ?
+Syntax: {creset{x mob <vnum>
+Syntax: {creset{x obj <vnum> inside <reset_num>
+Syntax: {creset{x obj <vnum> room
+Syntax: {creset{x obj <vnum> <none | inventory> <reset_num>
+Syntax: {creset{x obj <vnum> <wear_loc> <reset_num>
+Syntax: {creset{x random <num>
+Syntax: {creset{x delete <reset_num>
 
-RESET alone will display the resets in the current room.  The <number> will
-be displayed with this list.  Typing ? WEAR-LOC will list possible locations
-that an object can be loaded to.  The [<max #>] is the maximum number of
-mobiles allowed in this room and will default to 1 if no number is entered.
-
-For resets to be successful make sure that you add them in a logical order.
-For example if you are equiping a mobile don't load a container in the room
-and fill it with some objects and then continue equiping the mobile.  It is
-likely that resets will backfire if they are not carefully entered.
-
-If you wish to reset the room then use EDIT ROOM RESET.  
+<reset_vnum> for '{creset obj{x' is the number of reset after which
+new reset will be inserted.
+ 
+{creset{x without params shows resets in room.
 ~
 0 MOB_AC~
 The values ROM generates for a merc format mob is:
