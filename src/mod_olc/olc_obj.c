@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.18 1998-10-23 09:23:37 fjoe Exp $
+ * $Id: olc_obj.c,v 1.19 1998-10-23 09:33:35 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -807,6 +807,8 @@ OLC_FUN(objed_clone)
 		*ped = ed_dup(ed);
 		ped = &(*ped)->next;
 	}
+
+	return TRUE;
 }
 
 void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *obj)
