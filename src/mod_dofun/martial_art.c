@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.10 2000-10-10 15:46:49 fjoe Exp $
+ * $Id: martial_art.c,v 1.114.2.11 2000-10-11 12:53:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1135,6 +1135,14 @@ void do_ambush(CHAR_DATA *ch, const char *argument)
 	if (can_see(victim, ch)) {
 		char_puts("But they can see you.\n", ch);
 		return;
+	}
+
+	if (!IS_AFFECTED(ch, AFF_CAMOUFLAGE)) {
+		dofun("camouflage", ch, str_empty);
+		if (!IS_AFFECTED(ch, AFF_CAMOUFLAGE)) {
+			char_puts("You failed.\n", ch);
+			return;
+		}
 	}
 
 	if (is_safe(ch, victim))
