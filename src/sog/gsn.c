@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.32.2.13 2001-10-25 18:53:12 tatyana Exp $
+ * $Id: gsn.c,v 1.32.2.14 2001-12-12 18:42:23 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -149,6 +149,7 @@ int gsn_light_resistance;
 int gsn_blink;
 int gsn_path_find;
 int gsn_critical;
+int gsn_sharp_claws;
 int gsn_mend;
 int gsn_shielding;
 int gsn_blind_fighting;
@@ -379,6 +380,7 @@ namedp_t gsn_table[] =
 	{ "gsn_blink",			&gsn_blink			},
 	{ "gsn_path_find",		&gsn_path_find			},
 	{ "gsn_critical",		&gsn_critical			},
+	{ "gsn_sharp_claws",		&gsn_sharp_claws		},
 	{ "gsn_mend",			&gsn_mend			},
 	{ "gsn_shielding",		&gsn_shielding			},
 	{ "gsn_blind_fighting",		&gsn_blind_fighting		},

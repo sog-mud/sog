@@ -23,7 +23,7 @@
 * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 * SUCH DAMAGE.
 *
-* $Id: gsn.h,v 1.30.2.12 2001-10-25 18:53:05 tatyana Exp $
+* $Id: gsn.h,v 1.30.2.13 2001-12-12 18:42:20 tatyana Exp $
 */
 
 #ifndef _GSN_H_
@@ -151,6 +151,7 @@ extern int gsn_light_resistance;
 extern int gsn_blink;
 extern int gsn_path_find;
 extern int gsn_critical;
+extern int gsn_sharp_claws;
 extern int gsn_mend;
 extern int gsn_shielding;
 extern int gsn_blind_fighting;

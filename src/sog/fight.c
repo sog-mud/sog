@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.46 2001-12-10 12:08:39 cs Exp $
+ * $Id: fight.c,v 1.202.2.47 2001-12-12 18:42:21 tatyana Exp $
  */
 
 /***************************************************************************
@@ -83,10 +83,11 @@ void	set_fighting		(CHAR_DATA *ch, CHAR_DATA *victim);
 void	disarm			(CHAR_DATA *ch, CHAR_DATA *victim,
 				 int disarm_second);
 int	critical_strike		(CHAR_DATA *ch, CHAR_DATA *victim, int dam);
+int	sharp_claws		(CHAR_DATA *ch, CHAR_DATA *victim, int dam);
 void	check_eq_damage		(CHAR_DATA *ch, CHAR_DATA *victim, int loc);
 void	check_shield_damage	(CHAR_DATA *ch, CHAR_DATA *victim, int loc);
 void	check_weapon_damage	(CHAR_DATA *ch, CHAR_DATA *victim, int loc);
-int 	check_forest		(CHAR_DATA *ch);
+int	check_forest		(CHAR_DATA *ch);
 
 #define FOREST_ATTACK 1
 #define FOREST_DEFENCE 2
@@ -1463,6 +1464,9 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	if (dt >= TYPE_HIT && ch != victim) {
 		if ((dam2 = critical_strike(ch, victim, dam)) != 0)
 			dam = dam2;
+
+		if ((dam2 = sharp_claws(ch, victim, dam)) != 0)
+			dam = dam2;
 	}
 
 	if (IS_SET(dam_flags, DAMF_SHOW))
@@ -1480,12 +1484,12 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	 */
 	if (dam_type == DAM_FIRE
 	&& is_affected(victim, gsn_ice_sphere)
-	&& !saves_spell(ch->level, victim, DAM_FIRE)) 
+	&& !saves_spell(ch->level, victim, DAM_FIRE))
 		affect_strip(victim, gsn_ice_sphere);
 
 	if (dam_type == DAM_COLD
 	&& is_affected(victim, gsn_fire_sphere)
-	&& !saves_spell(ch->level, victim, DAM_COLD)) 
+	&& !saves_spell(ch->level, victim, DAM_COLD))
 		affect_strip(victim, gsn_fire_sphere);
 
 	victim->hit -= dam;
@@ -2971,4 +2975,27 @@ int critical_strike(CHAR_DATA *ch, CHAR_DATA *victim, int dam)
 	dam += dam * number_range(2, 5);			
 	return dam;
 }  
+int sharp_claws(CHAR_DATA *ch, CHAR_DATA *victim, int dam)
+{
+	int chance;
 
+	if ((chance = get_skill(ch, gsn_sharp_claws)) == 0)
+		return dam;
+
+	if (get_eq_char(ch, WEAR_SECOND_WIELD) != NULL
+	||  get_eq_char(ch, WEAR_WIELD) != NULL)
+		return dam;
+
+	if (number_percent() < 9 * chance / 10 + (get_curr_stat(ch, STAT_DEX)
+				- get_curr_stat(victim, STAT_DEX)) * 3) {
+
+		dam += dam * number_range(3, 5) / 2;
+		act("You scratches $N by your sharp claws.",
+		    ch, NULL, victim, TO_CHAR);
+		act("$n scratches your by $gn{his} sharp claws.",
+		    ch, NULL, victim, TO_VICT);
+		act("$n scratches $N by $gn{his} sharp claws.",
+		    ch, NULL, victim, TO_NOTVICT);
+	}
+	return dam;
+}
