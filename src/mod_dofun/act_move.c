@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.90 1998-09-20 17:00:59 fjoe Exp $
+ * $Id: act_move.c,v 1.91 1998-09-22 09:14:24 kostik Exp $
  */
 
 /***************************************************************************
@@ -2895,8 +2895,10 @@ void do_escape(CHAR_DATA *ch, const char *argument)
 
 			check_improve(ch, sn, TRUE, 1);	
 			move_char(ch, door, FALSE);
-			if ((now_in = ch->in_room) == was_in)
-				continue;
+			if ((now_in = ch->in_room) == was_in) {
+				char_puts("It was pointless to escape here.\n\r",ch);
+				return;
+			}
 
 			ch->in_room = was_in;
 			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.51 1998-09-20 17:01:01 fjoe Exp $
+ * $Id: spellfun.c,v 1.52 1998-09-22 09:14:25 kostik Exp $
  */
 
 /***************************************************************************
@@ -4210,7 +4210,33 @@ void spell_teleport(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	return;
 }
 
-
+void spell_bamf(int sn, int level, CHAR_DATA *ch, void *vo,int target)
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	ROOM_INDEX_DATA* pRoomIndex;
+	if (victim->in_room==NULL || saves_spell(level,victim,DAM_OTHER)) {
+		send_to_char("You failed.\n\r",ch);
+		return;
+	}
+	for (;;) {
+		pRoomIndex = get_room_index(number_range(0,65535));
+		if (pRoomIndex!=NULL
+		&& can_see_room(victim,pRoomIndex) 
+		&& !room_is_private(pRoomIndex)
+		&& !IS_SET(pRoomIndex->room_flags,ROOM_SOLITARY)
+		&& !IS_SET(pRoomIndex->room_flags,ROOM_SAFE)
+		&& victim->in_room->area==pRoomIndex->area)
+			break;
+	}
+	if (victim!=ch) 
+		send_to_char("You have been teleported.\n\r",victim);
+	act("$n vanishes.",victim,NULL,NULL,TO_ROOM);
+	char_from_room(victim);
+	char_to_room(victim,pRoomIndex);
+	act("$n slowly fades into existence.", victim, NULL, NULL, TO_ROOM);
+	do_look(victim, "auto");
+	return;
+}
 
 void spell_ventriloquate(int sn, int level, CHAR_DATA *ch,void *vo,int target)
 {
