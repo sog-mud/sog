@@ -1,5 +1,5 @@
 /*
- * $Id: olc_help.c,v 1.10 1998-09-15 02:52:14 fjoe Exp $
+ * $Id: olc_help.c,v 1.11 1998-09-16 09:38:43 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -26,17 +26,17 @@ DECLARE_VALIDATE_FUN(validate_keyword	);
 
 OLC_CMD_DATA olc_cmds_help[] =
 {
-	{ "create",	hedit_create				},
-	{ "edit",	hedit_edit				},
-	{ "touch",	hedit_touch				},
-	{ "show",	hedit_show				},
+	{ "create",	hedit_create	},
+	{ "edit",	hedit_edit	},
+	{ "touch",	hedit_touch	},
+	{ "show",	hedit_show	},
 
-	{ "level",	hedit_level			 	},
-	{ "keywords",	hedit_keyword,	validate_keyword	},
-	{ "text",	hedit_text				},
-	{ "del",	hedit_del				},
+	{ "level",	hedit_level	},
+	{ "keywords",	hedit_keyword	},
+	{ "text",	hedit_text	},
+	{ "del",	hedit_del	},
 
-	{ "commands",	show_commands				},
+	{ "commands",	show_commands	},
 	{ NULL }
 };
 
@@ -167,16 +167,3 @@ OLC_FUN(hedit_del)
 	return FALSE;
 }
 
-VALIDATE_FUN(validate_keyword)
-{
-	HELP_DATA *pHelp;
-
-	if ((pHelp = help_lookup(1, (char*) arg))
-	&&  pHelp != ch->desc->pEdit) {
-		char_printf(ch,
-			    "HEdit: Help already exists in area %s (%s).\n\r",
-			    pHelp->area->name, pHelp->area->file_name);
-		return FALSE;
-	}
-	return TRUE;
-}
