@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: damtype.h,v 1.14 2001-08-20 17:38:19 fjoe Exp $
+ * $Id: damtype.h,v 1.15 2001-08-21 09:31:24 fjoe Exp $
  */
 
 #ifndef _DAMTYPE_H_
@@ -31,54 +31,48 @@
 
 /*
  * damage classes
- *
- * NEVER [re]move enum elements if you want to load areas with
- * versions 0 < ver < 6
  */
-enum {
-	/* DAM_WEAPON damtypes */
-	DAM_BASH,
-	DAM_PIERCE,
-	DAM_SLASH,
 
-	/* DAM_MAGIC damtypes */
-	DAM_FIRE,
-	DAM_COLD,
-	DAM_LIGHTNING,
-	DAM_ACID,
-	DAM_POISON,
-	DAM_NEGATIVE,
-	DAM_HOLY,
-	DAM_ENERGY,
-	DAM_MENTAL,
-	DAM_DISEASE,
-	DAM_FOO0,		/* DAM_DROWNING */
-	DAM_LIGHT,
-	DAM_OTHER,
-	DAM_HARM,
-	DAM_CHARM,
-	DAM_SOUND,
+/* DAM_WEAPON damtypes */
 
-	/*
-	 * material damtypes
-	 */
-	DAM_IRON,
-	DAM_WOOD,
-	DAM_SILVER,
+#define	DAM_BASH	0
+#define DAM_PIERCE	1
+#define	DAM_SLASH	2
 
-	/*
-	 * special damtypes (used ONLY as defaults for corresponding
-	 * damtype groups)
-	 */
-	DAM_WEAPON,
-	DAM_MAGIC,
+/* DAM_MAGIC damtypes */
+#define DAM_FIRE	3
+#define DAM_COLD	4
+#define DAM_LIGHTNING	5
+#define DAM_ACID	6
+#define DAM_POISON	7
+#define DAM_NEGATIVE	8
+#define DAM_HOLY	9
+#define DAM_ENERGY	10
+#define DAM_MENTAL	11
+#define DAM_DISEASE	12
+#define DAM_LIGHT	14
+#define DAM_OTHER	15
+#define DAM_HARM	16
+#define DAM_CHARM	17
+#define DAM_SOUND	18
 
-	DAM_NONE,	/* should be the last */
-};
+/* material damtypes */
+#define DAM_IRON	19
+#define DAM_WOOD	20
+#define DAM_SILVER	21
 
-#define MAX_RESIST		DAM_NONE
+/*
+ * special damtypes (used ONLY as defaults for corresponding
+ * damtype groups)
+ */
+#define DAM_WEAPON	22
+#define DAM_MAGIC	23
 
-#define RES_UNDEF		666
+#define DAM_NONE	24	/* should be the last */
+
+#define MAX_RESIST	DAM_NONE
+
+#define RES_UNDEF	666
 
 typedef struct damtype_t damtype_t;
 struct damtype_t {
