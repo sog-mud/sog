@@ -1,5 +1,5 @@
 /*
- * $Id: nanny.c,v 1.5 2001-09-12 19:43:08 fjoe Exp $
+ * $Id: nanny.c,v 1.6 2001-09-17 18:42:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -544,7 +544,7 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 			return;
 		}
 
-		PC(ch)->hometown = htn; 
+		PC(ch)->hometown = htn;
 		act_puts("\nNow your hometown is $t.",
 			 ch, hometown_name(htn), NULL,
 			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
@@ -554,7 +554,7 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 		break;
 	}
 
-	  case CON_GET_ETHOS:
+	case CON_GET_ETHOS:
 		if (!ch->endur) {
 			switch(argument[0]) {
 			case 'H': case 'h': case '?':
@@ -563,13 +563,13 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 				/* NOTREACHED */
 
 			case 'L': case 'l':
-				ch->ethos = ETHOS_LAWFUL;
+				PC(ch)->ethos = ETHOS_LAWFUL;
 				break;
 			case 'N': case 'n':
-				ch->ethos = ETHOS_NEUTRAL;
+				PC(ch)->ethos = ETHOS_NEUTRAL;
 				break;
 			case 'C': case 'c':
-				ch->ethos = ETHOS_CHAOTIC;
+				PC(ch)->ethos = ETHOS_CHAOTIC;
 				break;
 			default:
 				send_to_char("\n", ch);
@@ -580,7 +580,7 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 				return;
 			}
 			act_puts("Now you are $t-$T.",
-				 ch, flag_string(ethos_table, ch->ethos),
+				 ch, flag_string(ethos_table, PC(ch)->ethos),
 				 flag_string(align_names, NALIGN(ch)),
 				 TO_CHAR, POS_DEAD);
 		} else {
@@ -591,10 +591,10 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 					 TO_CHAR | ACT_NOLF, POS_DEAD);
 				d->connected = CON_GET_ETHOS;
 				return;
-			} else {
-				ch->ethos = 1;
-			}
+			} else
+				PC(ch)->ethos = ETHOS_LAWFUL;
 		}
+
 		act_puts("[Hit Return to continue]",
 			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 		d->connected = CON_CREATE_DONE;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.408 2001-09-16 18:14:13 fjoe Exp $
+ * $Id: act_info.c,v 1.409 2001-09-17 18:42:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1235,7 +1235,7 @@ DO_FUN(do_who, ch, argument)
 						 !in_PK(ch, wch)))
 		||  (IS_SET(flags, WHO_F_CLAN) && IS_NULLSTR(wch->clan))
 		||  (ralign && ((RALIGN(wch) & ralign) == 0))
-		||  (rethos && ((wch->ethos & rethos) == 0)))
+		||  (rethos && ((PC(wch)->ethos & rethos) == 0)))
 			continue;
 
 		if (IS_SET(flags, WHO_F_TATTOO)) {
@@ -1913,10 +1913,6 @@ DO_FUN(do_request, ch, argument)
 		return;
 	}
 
-	if (obj->wear_loc != WEAR_NONE
-	&&  !unequip_char(victim, obj))
-		return;
-
 	if (!can_drop_obj(victim, obj)) {
 		do_say(victim, "Sorry, I can't let go of it. It's cursed.");
 		return;
@@ -1944,7 +1940,14 @@ DO_FUN(do_request, ch, argument)
 		return;
 	}
 
+	if (obj->wear_loc != WEAR_NONE
+	&&  !remove_obj(victim, obj->wear_loc, TRUE)) {
+		do_say(victim, "Sorry, I can't remove it.");
+		return;
+	}
+
 	obj_to_char(obj, ch);
+
 	act("$n requests $p from $N.", ch, obj, victim, TO_NOTVICT);
 	act("You request $p from $N.",	 ch, obj, victim, TO_CHAR);
 	act("$n requests $p from you.", ch, obj, victim, TO_VICT);
@@ -2322,7 +2325,7 @@ DO_FUN(do_score, ch, argument)
 	buf_printf(output, BUF_END,
 "     {G| {REthos: {x%-12.12s {C| {RCha: {x%-11.11s {C| {R%s     : {x%-5d      {G|{x\n",
 	    IS_NPC(ch) ?
-		"mobile" : flag_string(ethos_table, ch->ethos),	// notrans
+		"mobile" : flag_string(ethos_table, PC(ch)->ethos), // notrans
 		buf2,
 		_can_flee ? "Wimpy" : "Death",
 		_can_flee ? ch->wimpy : PC(ch)->death);
@@ -2675,23 +2678,23 @@ DO_FUN(do_oscore, ch, argument)
 	else
 		buf_append(output, "neutral.");
 
-	switch (ch->ethos) {
-	case ETHOS_LAWFUL:
-		buf_append(output, "  You have a lawful ethos.\n");
-		break;
-	case ETHOS_NEUTRAL:
-		buf_append(output, "  You have a neutral ethos.\n");
-		break;
-	case ETHOS_CHAOTIC:
-		buf_append(output, "  You have a chaotic ethos.\n");
-		break;
-	default:
-		buf_append(output, "  You have no ethos");
-		if (!IS_NPC(ch))
-			buf_append(output, ", report it to the gods!\n");
-		else
-			buf_append(output, ".\n");
-	}
+	if (!IS_NPC(ch)) {
+		switch (PC(ch)->ethos) {
+		case ETHOS_LAWFUL:
+			buf_append(output, "  You have a lawful ethos.\n");
+			break;
+		case ETHOS_NEUTRAL:
+			buf_append(output, "  You have a neutral ethos.\n");
+			break;
+		case ETHOS_CHAOTIC:
+			buf_append(output, "  You have a chaotic ethos.\n");
+			break;
+		default:
+			buf_append(output, "  You have no ethos.\n");
+			break;
+		}
+	} else
+		buf_append(output, "  You have no ethos.\n");
 
 /*
 	if (i <= RELIGION_NONE || i > MAX_RELIGION)
@@ -3663,13 +3666,8 @@ DO_FUN(do_demand, ch, argument)
 		return;
 	}
 
-	if (obj->wear_loc != WEAR_NONE
-	&&  !unequip_char(victim, obj))
-		return;
-
 	if (!can_drop_obj(victim, obj)) {
-		do_say(victim, "It's cursed, so I can't let go of it. "
-			       "Forgive me, my master.");
+		do_say(victim, "It's cursed, so I can't let go of it. Forgive me, my master.");
 		return;
 	}
 
@@ -3687,6 +3685,17 @@ DO_FUN(do_demand, ch, argument)
 
 	if (!can_see_obj(ch, obj)) {
 		act("You don't see that.", ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	if (OBJ_IS(obj, OBJ_QUIT_DROP)) {
+		do_say(victim, "Sorry, I must keep it myself.");
+		return;
+	}
+
+	if (obj->wear_loc != WEAR_NONE
+	&&  !remove_obj(victim, obj->wear_loc, TRUE)) {
+		do_say(victim, "I can't remove it. Forgive me, my master.");
 		return;
 	}
 
@@ -4438,7 +4447,7 @@ show_clanlist(CHAR_DATA *ch, clan_t *clan,
 			vch->level,
 			r && r->race_pcdata ? r->race_pcdata->who_name : "none",
 			cl ? cl->who_name : "none",
-			flag_string(ethos_table, vch->ethos),
+			flag_string(ethos_table, PC(vch)->ethos),
 			flag_string(align_names, NALIGN(vch)),
 			vch->name);
 

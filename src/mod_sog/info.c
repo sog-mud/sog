@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: info.c,v 1.32 2001-09-12 12:32:42 fjoe Exp $
+ * $Id: info.c,v 1.33 2001-09-17 18:42:31 fjoe Exp $
  */
 
 #if !defined (WIN32)
@@ -347,7 +347,7 @@ CMD_FUN(cmd_show)
 		(IS_SET(PC(ch)->www_show_flags, WSHOW_CLAN) && !IS_NULLSTR(ch->clan)) ? flag_string(clan_status_table, PC(ch)->clan_status) : "",
 		IS_SET(PC(ch)->www_show_flags, WSHOW_LEVEL) ? ch->level : -1,
 		IS_SET(PC(ch)->www_show_flags, WSHOW_ALIGN) ? flag_string(align_names, NALIGN(ch)) : "Unknown",
-		IS_SET(PC(ch)->www_show_flags, WSHOW_ETHOS) ? flag_string(ethos_table, ch->ethos) : "Unknown",
+		IS_SET(PC(ch)->www_show_flags, WSHOW_ETHOS) ? flag_string(ethos_table, PC(ch)->ethos) : "Unknown",
 		IS_SET(PC(ch)->www_show_flags, WSHOW_SEX) ? mlstr_mval(&ch->gender) : "Unknown",
 		IS_SET(PC(ch)->www_show_flags, WSHOW_SLANG) ? flag_string(slang_table, ch->slang) : "Unknown",
 		IS_SET(PC(ch)->www_show_flags, WSHOW_DEATHS) ? PC(ch)->death : -1,

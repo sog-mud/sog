@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.c,v 1.21 2001-09-16 18:14:20 fjoe Exp $
+ * $Id: mpc_dynafun.c,v 1.22 2001-09-17 18:42:28 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -422,6 +422,15 @@ bool
 is_owner_name(OBJ_DATA *obj, const char *name)
 {
 	return is_name_strict(name, mlstr_mval(&obj->owner));
+}
+
+int
+char_ethos(CHAR_DATA *ch)
+{
+	if (IS_NPC(ch))
+		return ETHOS_NONE;
+
+	return PC(ch)->ethos;
 }
 
 #else /* !defined(MPC) */

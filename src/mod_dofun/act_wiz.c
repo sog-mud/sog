@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.303 2001-09-16 18:14:16 fjoe Exp $
+ * $Id: act_wiz.c,v 1.304 2001-09-17 18:42:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1309,7 +1309,7 @@ DO_FUN(do_mstat, ch, argument)
 			religion_table[PC(victim)->religion].leader);
 */
 		snprintf(buf, sizeof(buf), "%s-%s",		// notrans
-			 flag_string(ethos_table, victim->ethos),
+			 flag_string(ethos_table, PC(victim)->ethos),
 			 flag_string(align_names, NALIGN(victim)));
 	}
 
@@ -3607,7 +3607,7 @@ DO_FUN(do_mset, ch, argument)
 			goto cleanup;
 		}
 
-		victim->ethos = ethos;
+		PC(victim)->ethos = ethos;
 		altered = TRUE;
 		goto cleanup;
 	}

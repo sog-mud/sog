@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.253 2001-09-15 19:23:29 fjoe Exp $
+ * $Id: act_comm.c,v 1.254 2001-09-17 18:42:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1338,7 +1338,7 @@ DO_FUN(do_judge, ch, argument)
 
 	act_puts3("$N is $u-$U.",
 		  ch,
-		  flag_string(ethos_table, victim->ethos),
+		  flag_string(ethos_table, PC(victim)->ethos),
 		  victim,
 		  flag_string(align_names, NALIGN(victim)),
 		  TO_CHAR | ACT_NOTRANS | ACT_FORMSH, POS_DEAD);

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.195 2001-09-13 12:03:04 fjoe Exp $
+ * $Id: save.c,v 1.196 2001-09-17 18:42:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -176,7 +176,7 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 	fprintf(fp, "Vers %d\n", PFILE_VERSION);
 	fwrite_string(fp, "Name", ch->name);
 	mlstr_fwrite(fp, "ShD", &ch->short_descr);
-	fprintf(fp, "Ethos %s\n", flag_string(ethos_table, ch->ethos));
+	fprintf(fp, "Ethos %s\n", flag_string(ethos_table, PC(ch)->ethos));
 	fwrite_word(fp, "Clan", ch->clan);
 	fwrite_string(fp, "Desc", mlstr_mval(&ch->description));
 	mlstr_fwrite(fp, "SSex", &ch->gender);
@@ -709,7 +709,8 @@ fread_char(CHAR_DATA *ch, rfile_t *fp, int flags)
 				return;
 			}
 			KEY("Exp", PC(ch)->exp, fread_number(fp));
-			KEY("Ethos", ch->ethos, fread_fword(ethos_table, fp));
+			KEY("Ethos", PC(ch)->ethos,
+			    fread_fword(ethos_table, fp));
 			break;
 
 		case 'F':
@@ -1097,8 +1098,12 @@ fread_obj(CHAR_DATA *ch, CHAR_DATA *obj_to, rfile_t *fp, int flags)
 
 				if (iNest == 0 || rgObjNest[iNest] == NULL) {
 					obj_to_char(obj, obj_to);
-					if (obj->wear_loc != WEAR_NONE)
-						_equip_char(obj_to, obj);
+					if (obj->wear_loc != WEAR_NONE) {
+						int wear_loc = obj->wear_loc;
+						obj->wear_loc = WEAR_NONE;
+						equip_char(
+						    obj_to, obj, wear_loc);
+					}
 				} else
 					obj_to_obj(obj, rgObjNest[iNest - 1]);
 				return;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.27 2001-09-16 18:14:11 fjoe Exp $
+ * $Id: sog.h,v 1.28 2001-09-17 18:42:19 fjoe Exp $
  */
 
 #ifndef _SOG_H_
@@ -118,19 +118,19 @@ DECLARE_FUN1(int, get_obj_weight,
 DECLARE_FUN1(int, get_obj_realweight,
 	     ARG(OBJ_DATA), obj)
 
-DECLARE_PROC2(_equip_char,
+DECLARE_PROC3(equip_char,
+	      ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj, ARG(int), iWear)
+DECLARE_PROC2(unequip_char,
 	      ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj)
-DECLARE_FUN3(OBJ_DATA, equip_char,
-	     ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj, ARG(int), iWear)
-DECLARE_FUN2(bool, unequip_char,
-	     ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj)
 DECLARE_FUN2(OBJ_DATA, get_eq_char,
 	     ARG(CHAR_DATA), ch, ARG(int), iWear)
 
-DECLARE_FUN2(int, pull_exit_triggers,
+DECLARE_FUN2(bool, pull_exit_triggers,
 	     ARG(CHAR_DATA), ch, ARG(int), door)
-DECLARE_FUN3(int, pull_greet_entry_triggers,
+DECLARE_FUN3(bool, pull_greet_entry_triggers,
 	     ARG(CHAR_DATA), ch, ARG(ROOM_INDEX_DATA), to_room, ARG(int), door)
+DECLARE_FUN2(bool, pull_wear_triggers,
+	     ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj)
 
 /*
  * move_char flags
@@ -593,7 +593,9 @@ DECLARE_PROC4(check_improve,
 DECLARE_FUN1(cchar_t, get_weapon_sn,
 	     NULLABLE_ARG(OBJ_DATA), obj)
 DECLARE_FUN2(int, get_weapon_skill,
-	     ARG(CHAR_DATA), ch, ARG(cchar_t), sn)
+	     ARG(CHAR_DATA), ch, NULLABLE_ARG(cchar_t), sn)
+DECLARE_PROC2(show_weapon_skill,
+	      ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj)
 
 DECLARE_PROC2(say_spell,
 	      ARG(CHAR_DATA), ch, ARG(cchar_t), sn)

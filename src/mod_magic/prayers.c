@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.19 2001-09-07 19:34:34 fjoe Exp $
+ * $Id: prayers.c,v 1.20 2001-09-17 18:42:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2294,7 +2294,7 @@ SPELL_FUN(prayer_know_alignment, sn, level, ch, vo)
 	act(msg, ch, NULL, victim, TO_CHAR);
 
 	if (!IS_NPC(victim)) {
-		switch (victim->ethos) {
+		switch (PC(victim)->ethos) {
 		case ETHOS_LAWFUL:
 			msg = "$N upholds the laws.";
 			break;

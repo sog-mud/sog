@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.369 2001-09-16 18:14:10 fjoe Exp $
+ * $Id: merc.h,v 1.370 2001-09-17 18:42:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1377,7 +1377,6 @@ struct char_data
 	const char *		class;
 	const char *		race;
 	const char *		clan;
-	int			ethos;
 	int			level;
 	int			wait;
 	int			add_level;
@@ -1506,6 +1505,7 @@ struct pc_data
 	int			qroom_vnum;	/* quest location */
 
 	const char *		race;
+	int			ethos;
 	int			pc_killed;
 
 	int			clan_status;

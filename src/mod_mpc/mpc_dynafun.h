@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.h,v 1.13 2001-09-16 18:14:21 fjoe Exp $
+ * $Id: mpc_dynafun.h,v 1.14 2001-09-17 18:42:28 fjoe Exp $
  */
 
 #ifndef _MPC_DYNAFUN_H_
@@ -134,6 +134,8 @@ DECLARE_FUN1(cchar_t, char_hometown,
 	     ARG(CHAR_DATA), ch)
 DECLARE_FUN2(bool, is_owner_name,
 	     ARG(OBJ_DATA), obj, ARG(cchar_t), name)
+DECLARE_FUN1(int, char_ethos,
+	     ARG(CHAR_DATA), ch)
 
 __MODULE_END_DECL
 

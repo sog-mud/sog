@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.171 2001-09-16 18:14:29 fjoe Exp $
+ * $Id: tables.c,v 1.172 2001-09-17 18:42:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1556,6 +1556,9 @@ flaginfo_t mptrig_types[] =
 	{ "obj_close",		TRIG_OBJ_CLOSE,		TRUE	},
 	{ "obj_lock",		TRIG_OBJ_LOCK,		TRUE	},
 	{ "obj_unlock",		TRIG_OBJ_UNLOCK,	TRUE	},
+
+	{ "room_random",	TRIG_ROOM_RANDOM,	TRUE	},
+	{ "room_cmd",		TRIG_ROOM_CMD,		TRUE	},
 
 	{ "spec",		TRIG_SPEC,		TRUE	},
 

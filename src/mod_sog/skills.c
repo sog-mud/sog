@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.c,v 1.130 2001-09-13 12:03:04 fjoe Exp $
+ * $Id: skills.c,v 1.131 2001-09-17 18:42:32 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -278,6 +278,35 @@ get_weapon_skill(CHAR_DATA *ch, const char *sn)
 		return 3 * ch->level;
 
 	return get_skill(ch, sn);
+}
+
+void
+show_weapon_skill(CHAR_DATA *ch, OBJ_DATA *obj)
+{
+	int skill = get_weapon_skill(ch, get_weapon_sn(obj));
+
+	if (skill >= 100) {
+		act("$p feels like a part of you!",
+		    ch, obj, NULL, TO_CHAR);
+	} else if (skill > 85) {
+		act("You feel quite confident with $p.",
+		    ch, obj, NULL, TO_CHAR);
+	} else if (skill > 70) {
+		act("You are skilled with $p.",
+		    ch, obj, NULL, TO_CHAR);
+	} else if (skill > 50) {
+		act("Your skill with $p is adequate.",
+		    ch, obj, NULL, TO_CHAR);
+	} else if (skill > 25) {
+		act("$p feels a little clumsy in your hands.",
+		    ch, obj, NULL, TO_CHAR);
+	} else if (skill > 1) {
+		act("You fumble and almost drop $p.",
+		    ch, obj, NULL, TO_CHAR);
+	} else {
+		act("You don't even know which end is up on $p.",
+		    ch, obj, NULL, TO_CHAR);
+	}
 }
 
 /*

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.266 2001-09-16 18:14:15 fjoe Exp $
+ * $Id: act_obj.c,v 1.267 2001-09-17 18:42:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1305,11 +1305,15 @@ DO_FUN(do_wear, ch, argument)
 			if (obj->wear_loc == WEAR_NONE && can_see_obj(ch, obj))
 				wear_obj(ch, obj, FALSE);
 		}
-	} else if ((obj = get_obj_carry(ch, ch, arg)) == NULL) {
+		return;
+	}
+
+	if ((obj = get_obj_carry(ch, ch, arg)) == NULL) {
 		act_char("You do not have that item.", ch);
 		return;
-	} else
-		wear_obj(ch, obj, TRUE);
+	}
+
+	wear_obj(ch, obj, TRUE);
 }
 
 DO_FUN(do_remove, ch, argument)
@@ -3025,25 +3029,42 @@ DO_FUN(do_deposit, ch, argument)
 /* wear object as a secondary weapon */
 DO_FUN(do_second_wield, ch, argument)
 {
-	OBJ_DATA *	obj;
-	OBJ_DATA *	wield;
-	int		skill;
+	OBJ_DATA *obj;
 
 	if (get_skill(ch, "dual wield") == 0) {
 		act_char("You don't know how to wield a second weapon.", ch);
 		return;
 	}
+
 	if (argument[0] == '\0') {
 		act_char("Wear which weapon in your off-hand?", ch);
 		return;
 	}
+
 	obj = get_obj_carry(ch, ch, argument);
 	if (obj == NULL) {
 		act_char("You don't have that item.", ch);
 		return;
 	}
+
 	if (!CAN_WEAR(obj, ITEM_WIELD)) {
 		act_char("You can't wield that as your second weapon.", ch);
+		return;
+	}
+
+	if (IS_WEAPON_STAT(obj, WEAPON_TWO_HANDS|WEAPON_NO_OFFHAND)
+	||  WEAPON_IS_LONG(obj)) {
+		act_char("You can't dual wield this weapon!", ch);
+		return;
+	}
+
+	if (get_eq_char(ch, WEAR_WIELD) == NULL) {
+		act_char("You need to wield a primary weapon, before using a secondary one!", ch);
+		return;
+	}
+
+	if (get_obj_weight(obj) > str_app[get_curr_stat(ch, STAT_STR)].wield / 2) {
+		act_char("This weapon is too heavy to be used as a secondary weapon by you.", ch);
 		return;
 	}
 
@@ -3052,45 +3073,17 @@ DO_FUN(do_second_wield, ch, argument)
 		return;
 	}
 
-	if (IS_WEAPON_STAT(obj, WEAPON_TWO_HANDS|WEAPON_NO_OFFHAND) 
-	|| WEAPON_IS_LONG(obj)) {
-		act_char("You can't dual wield this weapon!", ch);
-		return;
-	}
-	if ((wield = get_eq_char(ch, WEAR_WIELD)) == NULL) {
-		act_char("You need to wield a primary weapon, before using a secondary one!", ch);
-		return;
-	}
-	if (get_obj_weight(obj) > str_app[get_curr_stat(ch, STAT_STR)].wield / 2) {
-		act_char("This weapon is too heavy to be used as a secondary weapon by you.", ch);
-		return;
-	}
 	if (!remove_obj(ch, WEAR_SECOND_WIELD, TRUE))
+		return;
+
+	if (!pull_wear_triggers(ch, obj))
 		return;
 
 	act("$n wields $p in $s off-hand.", ch, obj, NULL, TO_ROOM);
 	act("You wield $p in your off-hand.", ch, obj, NULL, TO_CHAR);
-	obj = equip_char(ch, obj, WEAR_SECOND_WIELD);
-	if (obj == NULL)
-		return;
+	equip_char(ch, obj, WEAR_SECOND_WIELD);
 
-	skill = get_weapon_skill(ch, get_weapon_sn(obj));
-
-	if (skill >= 100)
-		act("$p feels like a part of you!", ch, obj, NULL, TO_CHAR);
-	else if (skill > 85)
-		act("You feel quite confident with $p.", ch, obj, NULL, TO_CHAR);
-	else if (skill > 70)
-		act("You are skilled with $p.", ch, obj, NULL, TO_CHAR);
-	else if (skill > 50)
-		act("Your skill with $p is adequate.", ch, obj, NULL, TO_CHAR);
-	else if (skill > 25)
-		act("$p feels a little clumsy in your hands.", ch, obj, NULL, TO_CHAR);
-	else if (skill > 1)
-		act("You fumble and almost drop $p.", ch, obj, NULL, TO_CHAR);
-	else
-		act("You don't even know which end is up on $p.",
-		    ch, obj, NULL, TO_CHAR);
+	show_weapon_skill(ch, obj);
 }
 
 DO_FUN(do_enchant, ch, argument)
