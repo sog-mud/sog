@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.89.2.4 2000-07-01 14:57:33 avn Exp $
+ * $Id: tables.c,v 1.89.2.5 2000-10-21 18:11:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -370,6 +370,7 @@ flag_t comm_flags[] =
 	{ "nobust",		COMM_NOBUST,		TRUE	},
 	{ "noeng",		COMM_NOENG,		TRUE	},
 	{ "noautoflee",		COMM_NOFLEE,		TRUE	},
+	{ "show_race",		COMM_SHOW_RACE,		TRUE	},
 
 	{ NULL }
 };
