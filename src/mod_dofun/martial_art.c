@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.57 1998-12-08 11:12:30 kostik Exp $
+ * $Id: martial_art.c,v 1.58 1998-12-09 12:12:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2488,7 +2488,7 @@ int critical_strike(CHAR_DATA *ch, CHAR_DATA *victim, int dam)
 		check_improve(ch, gsn_critical, TRUE, 4);
 		if (!IS_AFFECTED(victim, AFF_BLIND)) {
 			baf.where = TO_AFFECTS;
-			baf.type = gsn_dirt;
+			baf.type = gsn_critical;
 			baf.level = ch->level; 
 			baf.location = APPLY_HITROLL; 
 			baf.modifier = -4;
