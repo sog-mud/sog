@@ -16,7 +16,7 @@ Powerman~
 @eng The Powerman of martial arts is here.@rus Мастер (Powerman) боевых искусств стоит здесь.~
 @eng This old giant warrior has spent all his time on martial arts. He 
 never believed the power of magic. He never used potions, wands or 
-staffs. Even he had never used a magical item. Those shows how he
+staves. Even he had never used a magical item. Those shows how he
 hates magic.
 @rus Этот гигантский воин потратил всю свою жизнь на военные искусства. Он не верит в силу магии. Он никогда не использует жезлы, посохи и другие магические предметы. Он очень сильно ненавидит магию.
 ~
@@ -269,7 +269,7 @@ g @rus none~
 @eng In the caven@rus В пещере~
 @eng Beyond the water fall, you are in the caven. Things getting darker. You
 seek for the light but you couldn't find. But the light coming from the
-water fall still can light the enterance of the caven.
+water fall still can light the entrance of the caven.
 @rus Пройдя сквозь водопад, ты $gn{оказался} в пещере.  Тут темно, и ты пытаешься
 найти какой-нибудь светильник, но не можешь.  Однако, света, проходящего
 сквозь водопад, достаточно для освещения входа.  
@@ -365,7 +365,7 @@ S
 writing on the floor.
       "Every battlerager is your brother."
 Then you change your mind, and want to put some good clothing and weapon
-here for all other cabal members to strengten themselves, and to destroy
+here for all other cabal members to strengthen themselves, and to destroy
 magicians.
 @rus На полу лежит множество обмундирования и оружия. Вы видите надпись:
        "Каждый battlerager твой брат."
@@ -454,11 +454,11 @@ D1
 Z -1 95405
 S
 #95408
-@eng The Shrine of Battleragers@rus Святыня клана Battlerager~
+@eng The Shrine of Battleragers@rus Святыня ордена "Яростных-в-Битве"~
 @eng You are in front of a large white throne made from bones. There are
 shelves line the walls, upon them there are many jars inside of which are
 blood and heads of magicians. 
-  A stone tabled placed on the wall, here.
+  A stone tablet placed on the wall, here.
 @rus Перед вами находится большой белый трон, сделанный из костей. Вдоль стен тянутся полки на которых стоят кувшины, наполненные кровью и головами магов.
 На стене висит каменная табличка.
 ~

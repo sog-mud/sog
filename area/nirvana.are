@@ -334,11 +334,10 @@ g @rus none~
 #ROOMS
 #9000
 Entrance to the Plane of Nirvana~
-You stand before the entrance to a plane of absolute balance and order.  It is
-equally hot and cold, equally light and dark, and made of equal parts of solid
-and liquid.
- 
-The plane extends to the west and east, while an exit lies downward.
+You stand before the entrance to a plane of absolute balance and order. 
+It is equally hot and cold, equally light and dark, and made of equal parts
+of solid and liquid.  The plane extends to the west and east, while an exit
+lies downward.  
 ~
 0 0 field
 D1
@@ -365,8 +364,8 @@ Z -1 8905
 S
 #9001
 The Plane of Nirvana~
-You are traveling the Plane of Nirvana.  It has endless boundaries to the east
-and west
+You are traveling the Plane of Nirvana.  It has endless boundaries to the
+east and west.
 ~
 0 0 field
 D1

@@ -622,7 +622,7 @@ bell breast plate колокол~
 @eng bell breast plate@rus колокол~
 @eng A Bell lies here forgotten.@rus Большой колокол (bell) лежит на земле.~
 bronze~
-armor BY B AD
+armor BY 0 AD
 10 10 10 5 0
 30 100 100000 P
 a '' to_object 30 -1 1 1 0

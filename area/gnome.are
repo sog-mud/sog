@@ -2835,4 +2835,33 @@ M 0 1524 1 1589 1	* a hermit (Hermit's Lair)
 M 0 1520 6 1590 2	* a hobgoblin miner (A Hole)
 S
 
+#HELPS
+0 GNOME VILLAGE~
+.                                       Chief
+                           *  --  *      House
+               The Gnome Fo|rtress        |
+             *  --  *  --  *  --  *  ---  *
+      (down)/       |      |              |
+          ???       *      *  --  *       *
+                                          |
+                                 House -- * -- House
+                        Eastern           |
+                         Road   House     |     House
+                          |       |       |       |     Unused
+                          *  ---  *  ---  *  ---  *  --- Path --> ???
+                                          |       |
+                                          |     House
+                                  Shop -- *
+                                          |
+                                  Shop -- * -- Shop
+                         Small            |
+                         House -- *  ---  *
+                                  |       |                        N up
+                                  * Stream*         *              |/
+                                          |     Cave|         W -- * -- E
+                                          * -- * -- *             /|
+                                                              down S
+~
+-1 $~
+
 #$

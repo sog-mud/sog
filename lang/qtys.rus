@@ -112,6 +112,15 @@ Form 4 обьявления~
 End
 
 #RULE
+Name единиц~
+BaseLen 6
+Form 1 -а~
+Form 2 -ы~
+Form 3 -ы~
+Form 4 -ы~
+End
+
+#RULE
 Name часов~
 BaseLen 3
 Form 1 -~

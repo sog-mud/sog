@@ -188,10 +188,11 @@ stand stand none 0
 0 0 medium unknown
 g @eng none@rus female~
 #7810
-hermit man old~
-an old hermit~
-An old hermit sits here, smoking a pipe.~
-He looks old and feeble.
+hermit man old отшельник~
+@eng an old hermit@rus ~~старый~~ ~~отшельник~~~
+@eng An old hermit sits here, smoking a pipe.@rus Старый отшельник (hermit) сидит здесь, покуривая трубку.~
+@eng He looks old and feeble.
+@rus Он выглядит старым и немощным.
 ~
 human~
 BCH 0 0 0 0 0 0
