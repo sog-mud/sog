@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.16 2000-06-08 18:13:30 fjoe Exp $
+ * $Id: fight.c,v 1.202.2.17 2000-07-31 13:58:55 kostik Exp $
  */
 
 /***************************************************************************
@@ -1024,7 +1024,8 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 			  "your victim's blood.\n", ch);
 	}
 
-	if (is_affected(victim, gsn_fire_sphere)) {
+	if (is_affected(victim, gsn_fire_sphere)
+	&& !saves_spell(LEVEL(victim), ch, DAM_FIRE)) {
 		act("$n is burned by $N's fire sphere.", ch, NULL, victim, TO_ROOM);
 		act("$N's fire sphere sears your flesh.", ch, NULL, victim, TO_CHAR);
 		fire_effect((void *) victim, ch->level/2, dam/4, TARGET_CHAR);
@@ -1365,13 +1366,13 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 
 		if (check_parry(ch, victim, loc))
 			return FALSE;
+		if (check_hand_block(ch, victim))
+			return FALSE;
 		if (check_block(ch, victim, loc))
 			return FALSE;
 		if (check_dodge(ch, victim))
 			return FALSE;
 		if (check_blink(ch, victim))
-			return FALSE;
-		if (check_hand_block(ch, victim))
 			return FALSE;
 	}
 
@@ -1848,7 +1849,7 @@ bool check_hand_block(CHAR_DATA *ch, CHAR_DATA *victim)
 	|| (chance=get_skill(victim, gsn_hand_block)<=0)) 
 		return FALSE;
 
-	chance = URANGE(5, chance*2/5 + LEVEL(victim) - LEVEL(ch), 55);
+	chance = URANGE(5, chance*3/7 + LEVEL(victim) - LEVEL(ch), 59);
 
 	if (number_percent() < chance) {
 		act("Your hand blocks $n's attack.", 
