@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.22 2001-01-21 11:19:06 cs Exp $
+ * $Id: fight.c,v 1.202.2.23 2001-02-20 14:33:45 cs Exp $
  */
 
 /***************************************************************************
@@ -777,6 +777,15 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 	if (diceroll == 0
 	|| (diceroll != 19 && diceroll < thac0 - victim_ac)) {
 		/* Miss. */
+		damage(ch, victim, 0, dt, dam_type, dam_flags);
+		tail_chain();
+		return;
+	}
+
+	if (is_affected(victim, gsn_blur)
+	&& (number_percent() < 50)) {
+		act("You failed to detect true $N's position.",
+			ch, NULL, victim, TO_CHAR);
 		damage(ch, victim, 0, dt, dam_type, dam_flags);
 		tail_chain();
 		return;

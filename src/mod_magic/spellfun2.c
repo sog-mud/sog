@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.31 2001-02-11 18:23:17 fjoe Exp $
+ * $Id: spellfun2.c,v 1.139.2.32 2001-02-20 14:33:44 cs Exp $
  */
 
 /***************************************************************************
@@ -3337,7 +3337,7 @@ void spell_magic_jar(int sn, int level, CHAR_DATA *ch, void *vo)
 	mlstr_cpy(&fire->owner, &victim->short_descr);
 	fire->ed = ed_new2(fire->pObjIndex->ed, victim->name);
 	fire->cost = 0;
-	obj_to_char(fire, ch);    
+	obj_to_char(fire, ch);
 	SET_BIT(PC(victim)->plr_flags, PLR_NOEXP);
 	act_puts("You catch $N's spirit into your vial.",
 		 ch, NULL, victim, TO_CHAR, POS_DEAD);

@@ -23,7 +23,7 @@
 * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 * SUCH DAMAGE.
 *
-* $Id: gsn.h,v 1.30.2.9 2000-04-25 12:03:44 osya Exp $
+* $Id: gsn.h,v 1.30.2.10 2001-02-20 14:33:41 cs Exp $
 */
 
 #ifndef _GSN_H_
@@ -255,6 +255,7 @@ extern int gsn_notrack;
 extern int gsn_crypt_thing;
 extern int gsn_ice_sphere;
 extern int gsn_fire_sphere;
+extern int gsn_blur;
 
 extern int gsn_qtarget;
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.32.2.10 2000-04-25 12:03:52 osya Exp $
+ * $Id: gsn.c,v 1.32.2.11 2001-02-20 14:33:46 cs Exp $
  */
 
 #include <stdio.h>
@@ -252,6 +252,7 @@ int gsn_notrack;
 int gsn_crypt_thing;
 int gsn_ice_sphere;
 int gsn_fire_sphere;
+int gsn_blur;
 
 /* special gsns */
 int gsn_qtarget;
@@ -471,6 +472,7 @@ namedp_t gsn_table[] =
 	{ "gsn_crypt_thing",		&gsn_crypt_thing		},
 	{ "gsn_ice_sphere",    	        &gsn_ice_sphere	                },
 	{ "gsn_fire_sphere",            &gsn_fire_sphere                },
+	{ "gsn_blur",			&gsn_blur			},
 	{ NULL }
 };
 

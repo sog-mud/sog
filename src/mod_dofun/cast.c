@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cast.c,v 1.5.2.1 1999-12-16 12:39:49 fjoe Exp $
+ * $Id: cast.c,v 1.5.2.2 2001-02-20 14:33:42 cs Exp $
  */
 
 #include <stdio.h>
@@ -88,7 +88,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			if (ch->wait)
 				ch->wait = 0;
 		}
-		else if (ch->wait) 
+		else if (ch->wait)
 			return;
 		sn = sn_lookup(arg1);
 	}
@@ -104,7 +104,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 	spell = SKILL(sn);
-	
+
 	if (IS_VAMPIRE(ch)
 	&&  !IS_IMMORTAL(ch)
 	&&  !is_affected(ch, gsn_vampire)
@@ -137,7 +137,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		if (IS_AFFECTED(gch, AFF_CHARM)
 		&& IS_NPC(gch)
 		&& IS_SET(gch->pMobIndex->act, ACT_FAMILIAR)
-		&& gch->master==ch) 	
+		&& gch->master==ch)
 			familiar=gch;
 	}
 
@@ -198,7 +198,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 						WAIT_STATE(ch, spell->beats);
 						act_puts("You can't cast this spell to $N at this distance.", ch, NULL, victim, TO_CHAR, POS_DEAD);
 						return;
-					}	
+					}
 				}
 			}
 		}
@@ -379,7 +379,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 				check_improve(ch, gsn_improved_benediction,
 					      TRUE, 1);
 			}
-			else 
+			else
 				check_improve(ch, gsn_improved_benediction,
 					      FALSE, 1);
 		}
@@ -411,6 +411,20 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			ch->mana += mana/2;
 		}
 
+		/*
+		 * check for blur.
+		 */
+		if (IS_SET(spell->skill_flags, SKILL_RANGE)
+		&& victim && is_affected(victim, gsn_blur)
+		&& (number_percent() < 50)) {
+			act("You failed to focus your spell properly.",
+				ch, NULL, NULL, TO_CHAR);
+			act("$n fails to focus $s spell properly.",
+				ch, NULL, NULL, TO_ROOM);
+
+			return;
+		}
+
 		check_improve(ch, sn, TRUE, 1);
 		if (bch && spellbane(bch, ch, bane_chance, 3 * LEVEL(bch)))
 			return;
@@ -418,7 +432,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		if (victim && IS_EXTRACTED(victim))
 			return;
 	}
-		
+
 	if (cast_far && door != -1)
 		path_to_track(ch, victim, door);
 	else if (offensive && victim != ch && victim->master != ch) {

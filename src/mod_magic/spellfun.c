@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.16 2001-02-11 18:23:16 fjoe Exp $
+ * $Id: spellfun.c,v 1.181.2.17 2001-02-20 14:33:42 cs Exp $
  */
 
 /***************************************************************************
@@ -4800,3 +4800,25 @@ spell_fire_sphere(int sn, int level, CHAR_DATA *ch, void *vo)
 	act("Hot violent fire flashes around $n.", ch, NULL, NULL, TO_ROOM);
 }
 
+void spell_blur(int sn, int level, CHAR_DATA *ch, void *vo)
+{
+	AFFECT_DATA af;
+
+	if (is_affected(ch, sn)) {
+		act_puts("Your body is already blurred.",
+			ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		return;
+	}
+
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= level / 12 + 2;
+	af.location	= APPLY_NONE;
+	af.modifier	= 0;
+	af.bitvector	= 0;
+	affect_to_char(ch, &af);
+
+	act("$n's body becomes blurred.", ch, NULL, NULL, TO_ROOM);
+	act("Your body becomes blurred.", ch, NULL, NULL, TO_CHAR);
+}
