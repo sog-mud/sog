@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rspellfn.c,v 1.1 1999-07-30 05:18:21 avn Exp $
+ * $Id: rspellfn.c,v 1.2 1999-09-25 11:29:31 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,8 +31,8 @@
 
 #include "typedef.h"
 #include "varr.h"
-#include "raffects.h"
 #include "log.h"
+#include "raffect.h"
 
 #include "module.h"
 

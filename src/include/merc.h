@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.232 1999-09-23 18:25:31 kostik Exp $
+ * $Id: merc.h,v 1.233 1999-09-25 11:29:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -93,7 +93,7 @@
 #include "class.h"
 #include "clan.h"
 #include "skills.h"
-#include "raffects.h"
+#include "raffect.h"
 #include "religion.h"
 
 /*

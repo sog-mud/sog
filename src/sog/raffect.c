@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: raffect.c,v 1.29 1999-07-30 05:18:23 avn Exp $
+ * $Id: raffect.c,v 1.30 1999-09-25 11:29:35 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -31,7 +31,6 @@
 
 #include "merc.h"
 #include "fight.h"
-#include "raffects.h"
 
 varr rspells = { sizeof(rspell_t), 8 };
 

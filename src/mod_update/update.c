@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.154 1999-09-24 04:16:08 avn Exp $
+ * $Id: update.c,v 1.155 1999-09-25 11:29:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1851,8 +1851,6 @@ void aggr_update(void)
 				continue;
 
 			if (!is_safe_nomessage(ch, victim)) {
-				int dt = TYPE_UNDEFINED;
-
 				victim = check_guard(victim, ch); 
 				if (get_skill(ch, gsn_backstab))
 					dofun("backstab", ch, victim->name);
