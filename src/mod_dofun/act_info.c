@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.129 1998-09-16 09:50:35 fjoe Exp $
+ * $Id: act_info.c,v 1.130 1998-09-16 10:20:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -388,15 +388,20 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	if (victim->incog_level >= LEVEL_HERO)
 		buf_add(output, "[{DIncog{x] ");
 
-	if (IS_NPC(victim) && victim->position == victim->start_pos)
-		buf_printf(output, "{g%s{x",
-			   mlstr_cval(victim->long_descr, ch));
+	if (IS_NPC(victim) && victim->position == victim->start_pos) {
+		char *p = mlstr_cval(victim->long_descr, ch);
+		if (IS_NULLSTR(p)) {	/* for the hell of "It" (#2006) :) */
+			buf_free(output);
+			return;
+		}
+		buf_printf(output, "{g%s{x", p);
+	}
 	else {
 		int msgnum;
 
 		if (IS_IMMORTAL(victim))
 			buf_add(output, "{W");
-		buf_add(output, PERS(victim, ch));
+		buf_add(output, capitalize(PERS(victim, ch)));
 		if (IS_IMMORTAL(victim))
 			buf_add(output, "{x");
 
