@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.38 2001-09-23 16:24:16 fjoe Exp $
+ * $Id: init_mpc.c,v 1.39 2001-09-30 20:58:42 fjoe Exp $
  */
 
 #include <dlfcn.h>
@@ -248,7 +248,7 @@ const char *mpc_dynafuns[] = {
 #if !defined(MPC)
 	"acid_effect",
 	"act",
-	"act_asound",
+	"act_around",
 	"act_char",
 	"act_say",
 	"act_yell",
@@ -263,6 +263,7 @@ const char *mpc_dynafuns[] = {
 	"cast_char",
 	"cast_obj",
 	"char_clan",
+	"char_ethos",
 	"char_fighting",
 	"char_gold",
 	"char_hit",
