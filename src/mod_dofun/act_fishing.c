@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_fishing.c,v 1.1.2.2 2002-08-31 17:41:34 tatyana Exp $
+ * $Id: act_fishing.c,v 1.1.2.3 2002-09-01 14:03:08 tatyana Exp $
  */
 
 #include <sys/types.h>
@@ -44,21 +44,22 @@ void do_castout(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (IS_SET(PC(ch)->plr_flags, PLR_FISHING)) {
-		char_puts("You are already fishing!\n", ch);
+		act("You are already fishing!", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
 	if ((pole = get_eq_char(ch, WEAR_HOLD)) == NULL
 	||   pole->pObjIndex->item_type != ITEM_FISHING_POLE) {
-		char_puts("You need to be holding a fishing pole first.\n", ch);
+		act("You need to be holding a fishing pole first.",
+		    ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
 	if (!ch->in_room
 	|| (!IS_SET(ch->in_room->room_flags, ROOM_SALTWATER) &&
             !IS_SET(ch->in_room->room_flags, ROOM_FRESHWATER))) {
-		char_puts("This is not a good place to fish, you'll want "
-			  "to find a better spot.\n", ch);
+		act("This is not a good place to fish, you'll want "
+		    "to find a better spot.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
@@ -66,7 +67,8 @@ void do_castout(CHAR_DATA *ch, const char *argument)
 
 	if (IS_AFFECTED(ch, AFF_BLIND)) {
 		if ((sk =get_skill(ch, gsn_blind_fishing)) == 0) {
-			char_puts("You don't know how to fish blinded.\n", ch);
+			act("You don't know how to fish blinded.",
+			    ch, NULL, NULL, TO_CHAR);
 			return;
 		}
 
@@ -82,7 +84,8 @@ void do_castout(CHAR_DATA *ch, const char *argument)
 
 	if (MOUNTED(ch)) {
 		if ((sk = get_skill(ch, gsn_mounted_fishing)) == 0) {
-			char_puts("You don't know how to fish mounted.\n", ch);
+			act("You don't know how to fish mounted.",
+			    ch, NULL, NULL, TO_CHAR);
 			return;
 		}
 
@@ -135,11 +138,11 @@ void do_castout(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, gsn_expert_fishing, FALSE, 1);
 
 	if (fail <= 30) {
-		char_puts("You pull your arm back and try to cast out "
-			 "your line, but it gets all tangled up. Try again.\n",
-                         ch);
-		act("$n pulls $s arm back, trying to cast $gn{his} fishing "
-		    "line out into the water, but ends up just a bit "
+		act("You pull your arm back and try to cast out "
+		    "your line, but it gets all tangled up. Try again.",
+                    ch, NULL, NULL, TO_CHAR);
+		act("$n pulls $gn{his} arm back, trying to cast $gn{his} "
+		    "fishing line out into the water, but ends up just a bit "
 		    "tangled.", ch, NULL, NULL, TO_ROOM);
 		WAIT_STATE(ch, 23);
 		return;
@@ -147,8 +150,8 @@ void do_castout(CHAR_DATA *ch, const char *argument)
 
 /* Ok, now they've gone through the checks, now set them fishing */
 	SET_BIT(PC(ch)->plr_flags, PLR_FISHING);
-	char_puts("You cast your line out into the water, "
-		  "hoping for a bite.\n", ch);
+	act("You cast your line out into the water, "
+	    "hoping for a bite.", ch, NULL, NULL, TO_CHAR);
 	act("$n casts $gn{his} line out into the water, hoping "
 	    "to catch some food.", ch, NULL, NULL, TO_ROOM);
 	WAIT_STATE(ch, 25);
@@ -165,13 +168,13 @@ void do_reelin(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (!IS_SET(PC(ch)->plr_flags, PLR_FISHING)) {
-		char_puts("You aren't even fishing!\n", ch);
+		act("You aren't even fishing!", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
 	if (!IS_SET(PC(ch)->plr_flags, PLR_FISH_ON)) {
-		char_puts("You reel in your line, but alas... nothing on "
-			  "the end. Better luck next time.\n", ch);
+		act("You reel in your line, but alas... nothing on the end. "
+		    "Better luck next time.", ch, NULL, NULL, TO_CHAR);
 		REMOVE_BIT(PC(ch)->plr_flags, PLR_FISHING);
 		act("$n reels $gn{his} line in, but with nothing on the end.",
                     ch, NULL, NULL, TO_ROOM);
@@ -253,7 +256,7 @@ void do_reelin(CHAR_DATA *ch, const char *argument)
 
 	if (success <= 60) {
 		act("You reel in your line, putting up a good fight, but you "
-                    "lose him!\nTry again?", ch, NULL, NULL, TO_CHAR);
+                    "lose him! Try again?", ch, NULL, NULL, TO_CHAR);
 		act("$n reels $gn{his} line in, fighting with whatever is "
 		    "on the end, but loses the catch.",
 		    ch, NULL, NULL, TO_ROOM);
@@ -270,8 +273,8 @@ void do_reelin(CHAR_DATA *ch, const char *argument)
 
 		index = get_obj_index(fish_num);
 		if (index == NULL) {
-			char_puts("Something wrong. Report it to immortals.\n",
-				  ch);
+			act("Something wrong. Report it to immortals.",
+			    ch, NULL, NULL, TO_CHAR);
 			log("[*****] BUG: NULL object, vnum %d.", fish_num);
 			return;
 		}
@@ -297,8 +300,8 @@ void do_reelin(CHAR_DATA *ch, const char *argument)
 
 		index = get_obj_index(fish_num);
 		if (index == NULL) {
-			char_puts("Something wrong. Report it to immortals.\n",
-				  ch);
+			act("Something wrong. Report it to immortals.",
+			    ch, NULL, NULL, TO_CHAR);
 			log("[*****] BUG: NULL object, vnum %d.", fish_num);
 			return;
 		}
@@ -318,8 +321,8 @@ void do_reelin(CHAR_DATA *ch, const char *argument)
 		SET_FIGHT_TIME(ch);
 		return;
 	} else {
-		char_puts("You should never see this message, "
-			  "please report it.\n", ch);
+		act("You should never see this message, "
+		    "please report it.", ch, NULL, NULL, TO_CHAR);
 	}
 }
 
@@ -330,8 +333,8 @@ int fish_number(int type)
 		       34447, 34448, 0};
 	int salt[] = {34432, 34433, 34434, 34435, 34436, 34437, 34438, 0};
 
-	for(fsize = 0; fresh[fsize] != 0; fsize++);
-	for(ssize = 0; salt[ssize] != 0; ssize++);
+	for (fsize = 0; fresh[fsize] != 0; fsize++);
+	for (ssize = 0; salt[ssize] != 0; ssize++);
 	if (type == 0)
 		return salt[number_range(0, ssize-1)];
 	else
