@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.335 2001-09-23 18:23:58 fjoe Exp $
+ * $Id: handler.c,v 1.336 2001-09-25 11:49:14 kostik Exp $
  */
 
 /***************************************************************************
@@ -5222,10 +5222,12 @@ format_obj(BUFFER *output, OBJ_DATA *obj)
 		obj->cost,
 		obj->level);
 
-	if (obj->pObjIndex->limit != -1)
-		buf_printf(output, BUF_END,
-			   "This equipment has been LIMITED by number %d.\n",
-			   obj->pObjIndex->limit);
+	if (obj->pObjIndex->limit < 0)
+		;
+	else if (obj->pObjIndex->limit < 2)
+		buf_printf(output, BUF_END, "It is an artifact.\n");
+	else if (obj->pObjIndex->limit < 6)
+		buf_printf(output, BUF_END, "It is very rare equipment.\n");
 
 	switch (obj->item_type) {
 	case ITEM_SCROLL:

@@ -23,13 +23,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.98 2001-09-12 12:32:35 fjoe Exp $
+ * $Id: olc_obj.c,v 1.99 2001-09-25 11:49:11 kostik Exp $
  */
 
 #include <ctype.h>
 #include <time.h>
 
 #include "olc.h"
+#include "adjust.h"
 
 #include <quest.h>
 
@@ -284,8 +285,10 @@ OLC_FUN(objed_show)
 
 	buf_printf(output, BUF_END,
 		   "Weight:      [%5d]\n"
-		   "Cost:        [%5d]\n",
-		   pObj->weight, pObj->cost);
+		   "Cost:        [%5d]\n"
+		   "Approx level [%5d]\n",
+		   pObj->weight, pObj->cost,
+		   calc_price(pObj));
 
 	aff_dump_list(pObj->affected, output);
 	objval_show(output, pObj->item_type, pObj->value);
