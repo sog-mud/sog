@@ -1,8 +1,9 @@
 #RULE
 Name твой~
-BaseLen 2
-Form 1 -оя~
-Form 2 -ое~
+BaseLen 3
+Form 1 -я~
+Form 2 -е~
+Form 3 -и~
 End
 
 #RULE
@@ -53,6 +54,14 @@ Form 3 -ли~
 End
 
 #RULE
+Name вспыхнул~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name способен~
 BaseLen 6
 Form 1 -на~
@@ -79,6 +88,14 @@ Form 1 -а~
 End
 
 #RULE
+Name ослеплен~
+BaseLen 8
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
 Name разделал~
 BaseLen 8
 Form 1 -а~
@@ -89,6 +106,14 @@ Name уклонился~
 BaseLen 7
 Form 1 -ась~
 Form 2 -ось~
+End
+
+#RULE
+Name сбежал~
+BaseLen 6
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
 End
 
 #RULE
@@ -148,6 +173,14 @@ End
 Name успокоился~
 BaseLen 8
 Form 1 -ась~
+End
+
+#RULE
+Name переместил~
+BaseLen 9
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
 End
 
 #RULE

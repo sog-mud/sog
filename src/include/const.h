@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.33 1999-05-21 22:49:33 fjoe Exp $
+ * $Id: const.h,v 1.34 1999-05-23 08:44:23 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -74,8 +74,7 @@ extern const char SKILLS_CONF	[];
 extern const char SOCIALS_CONF	[];
 extern const char SYSTEM_CONF	[];
 extern const char LANG_CONF	[];
-extern const char MSG_FILE	[];
-extern const char MSGDB_FILE	[];
+extern const char MSGDB_CONF	[];
 
 extern const char AREA_LIST	[];
 extern const char CLAN_LIST	[];
