@@ -178,6 +178,9 @@ color it would normally be in, such as a gossip, the color is magenta, so:
         looks better than:
                 {mLope gossips '{ghello,{r world'{x
 
+Other {{? sequences are:
+         {{*     beep    {{\     new line
+
 Color is courtesy of Lope from Loping Through The MUD.
 Direct questions to ant@solace.mh.se or leave at note at Loping
 Through The MUD, current site lttm.westside.net port 23 or 9000
@@ -3035,14 +3038,6 @@ camouflaged player will remain camouflaged until he/she/it moves.
 A camouflaged player may ambush someone who doesn't see him/her/it.
 
 Acute vision is the spell used to detect camouflaged players.
-~
-0 REGISTER~
-
-In order to register 	mail to: advise12@rorqual.cc.metu.edu.tr 
-			Subject: Registration
-			Message:
-			Nick: <Your Nick>
-
 ~
 -1 ENDURE~
 Syntax: Endure
