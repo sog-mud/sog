@@ -4550,10 +4550,6 @@ writing carving carvings symbols symbol~
 Although it is very hard to understand, you think it looks a lot like beer,
 poems about beer, and small beer-mugs.
 ~
-D1
-~
-~
-Z 0 95810
 D2
 You see the bar of Samurai's.
 ~
@@ -4716,16 +4712,6 @@ You are standing on the market square, the famous Square of Midgaard.
 A large, peculiar looking statue is standing in the middle of the square.
 Roads lead in every direction, north to the temple square, south to the
 road to common square, east and westbound is the main street.
-{R   С Новым годом!{x
-{R          *{x
-{G         /{y|{G\{B*{x
-{G        //{y|{G\\{x
-{Y       *{G//{y|{G\\\{x
-{G      /{C*{G//{y|{G\\{M*{G\{x
-{y          |{x
- 
-{WПраздничная гулянка проводится в Grunting Boar Inn!{x
-Не опоздайте ;)
 ~
 0 S city
 E
@@ -8070,7 +8056,6 @@ G 0 3000 0		*	a barrel of beer
 G 0 3001 0		*	a bottle of beer
 E 0 3022 0 16		*	a long sword: wielded
 M 0 3064 3 3007 3	* the drunk (The Grunting Boar)
-O 0 9 0 3007	* Christmas tree (The Grunting Boar)
 O 0 3139 0 3008	* the receptionist's letter of resignation (The Defunct Reception)
 O 0 3140 0 3008	* the bank's notice of liquidation (The Defunct Reception)
 M 0 3001 1 3009 1	* the baker (The Bakery)

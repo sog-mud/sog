@@ -2,7 +2,7 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.96 1998-10-06 13:05:16 fjoe Exp $
+ * $Id: resource.h,v 1.97 1999-01-18 05:16:33 fjoe Exp $
  */
 
 #define msg(msgid, ch) vmsg(msgid, ch, ch)
@@ -51,8 +51,6 @@ enum {
 	MSG_N_PUSHES_VICT_WEBBED,
 	MSG_N_TRIED_PUSH_YOU,
 	MSG_N_TRIED_PUSH_N,
-	MSG_DO_I_KNOW_YOU,
-	MSG_OK_MY_DEAR,
 	MSG_YOU_SETTLE_DOWN,
 	MSG_CANT_PRAY_NOW,
 	MSG_ESCAPE_FAILED,

@@ -1,5 +1,5 @@
 #
-# $Id: russian.lang,v 1.107 1999-01-03 13:58:52 fjoe Exp $
+# $Id: russian.lang,v 1.108 1999-01-18 05:16:34 fjoe Exp $
 #
 
 MSG_YOU_TOO_EXHAUSTED sexdep	"Ты слишком устало, чтобы идти дальше.\n\r"
@@ -125,12 +125,6 @@ MSG_N_TRIED_PUSH_YOU vsexdep	"$n попыталось толкнуть тебя.\n\r"
 MSG_N_TRIED_PUSH_N vsexdep	"$n попыталось толкнуть $N.\n\r"
 	"$n попытался толкнуть $N.\n\r"
 	"$n попыталась толкнуть $N.\n\r"
-MSG_DO_I_KNOW_YOU vsexdep	"А ты кто такое?"
-	"А ты кто такой?"
-	"А ты кто такая?"
-MSG_OK_MY_DEAR sexdep	"А, это ты. Я вспомнило."
-	"А, это ты. Я вспомнил."
-	"А, это ты. Я вспомнила.'"
 MSG_YOU_SETTLE_DOWN sexdep	"Ты успокоилось.\n\r"
 	"Ты успокоился.\n\r"
 	"Ты успокоилась.\n\r"

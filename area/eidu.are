@@ -283,7 +283,6 @@ S
 #0
 
 #RESETS
-O 0 44008 0 44000	* Christmas tree (The grand samurai's house)
 O 0 44012 0 44000	* the statue of Eidu (The grand samurai's house)
 O 0 44011 0 44003	* {rrivulet{x (Path to the grand samurai's house)
 M 0 44000 1 44003 1	* Samurai (Path to the grand samurai's house)

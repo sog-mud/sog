@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.87 1999-01-03 13:58:52 fjoe Exp $
+# $Id: english.lang,v 1.88 1999-01-18 05:16:33 fjoe Exp $
 #
 
 MSG_YOU_TOO_EXHAUSTED "You are too exhausted.\n\r"
@@ -43,8 +43,6 @@ MSG_PUSH_VICT_WEBBED "You attempt to push $N, but the webs hold $m in place."
 MSG_N_PUSHES_VICT_WEBBED "$n attempts to push $n, but fails as the webs hold $n in place."
 MSG_N_TRIED_PUSH_YOU "$n tried to push you.\n\r"
 MSG_N_TRIED_PUSH_N "$n tried to push $N.\n\r"
-MSG_DO_I_KNOW_YOU "Do i know you?"
-MSG_OK_MY_DEAR "Ok, my dear. I have just remembered."
 MSG_YOU_SETTLE_DOWN "You settle down.\n\r"
 MSG_CANT_PRAY_NOW "You can't pray now.\n\r"
 MSG_ESCAPE_FAILED "You failed to escape.\n\r"

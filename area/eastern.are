@@ -537,6 +537,14 @@ gem~
 warp_stone T AO
 ABCE 0 0 0 0
 0 1 4000 P
+#5033
+rose~
+@eng {YGolden flower{x@rus {YЗолотой цветок{x~
+@eng {YWonderful golden flower grows here from the sand{x.@rus {YУдивительный золотой цветок растет из песка{x.~
+unknown~
+furniture 0 0
+0 0 0 0 0
+0 0 0 P
 #0
 
 #ROOMS
@@ -934,6 +942,12 @@ A vast desert stretches for miles, the sand constantly shifting around you.
 You feel lost.
 ~
 0 N desert
+E
+flower~
+Магическое цветение, благодоря воле Богов проросло своими корнями в Песках
+Горя. Это награда старику Баргану за его многолетние молитвы сильным мира сего.
+Возвышенные чувства охватывают тебя и ты склоняешь голову.
+~
 D0
 You see a nomad camp by an oasis.
 ~
@@ -1420,6 +1434,7 @@ E 0 5003 0 3		*	the amulet: around the neck (1)
 M 0 5015 4 5024 1	* The dustdigger (The Sands of Sorrow)
 M 0 5000 3 5025 1	* The dervish (The Sands of Sorrow)
 E 0 3021 0 16		*	a small sword: wielded
+O 0 5033 0 5025	* {YGolden flower{x (The Sands of Sorrow)
 M 0 5015 4 5026 1	* The dustdigger (The Sands of Sorrow)
 M 0 5000 3 5027 1	* The dervish (The Sands of Sorrow)
 E 0 3021 0 16		*	a small sword: wielded

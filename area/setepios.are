@@ -8,19 +8,21 @@ End
 
 #MOBILES
 #38001
-Коменда~
+old father Kimafat mage~
+@eng Bargan@rus Барган~
+@eng Oldman Bargan stands here.
+@rus Старик Барган стоит тут.
 ~
-~
+@eng You can't see anything because of  his robe.
+@rus Ни чего не видно кроме его рясы.
 ~
 human~
-A 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 none
+AR H 0 0
+110 20 1d1+30000 1d1+30000 1d1+10 divine
 -100 -100 -100 -100
-0 0 0 0
-stand stand none 32000
+0 CD 0 0
+stand stand male 32000
 0 0 medium unknown
-F for AHMV
-F par ABCDEFGHIJK
 #38102
 ded moroz~
 @eng {CFather Frost{x@rus {CДед Мороз{x~
@@ -273,6 +275,14 @@ armor CHIM AR
 0 0 0 P
 A
 14 28000
+#38016
+book~
+@eng Book of Time@rus Летопись~
+@eng Old Book@rus Старая книга~
+paper~
+treasure CHIMZ AO
+0 0 0 0 0
+110 1 1 P
 #38095
 {rБольшой пионерский БАРАБАН{w~
 @eng drum@rus барабан~
@@ -372,6 +382,10 @@ D0
 ~
 ~
 Z 0 38101
+D1
+~
+~
+Z 0 3001
 S
 #38103
 @eng Cabinet@rus Кабинет~
@@ -718,6 +732,7 @@ S
 O 0 38003 0 38101	* fountain (Coridor)
 O 0 38002 0 38101	* armchair (Coridor)
 O 0 38001 0 38102	* big bed (Bedroom)
+M 0 38001 1 38102 1	* Bargan (Bedroom)
 O 0 38002 0 38103	* armchair (Cabinet)
 O 0 38004 0 38103	* table (Cabinet)
 O 0 38200 0 38200	* long wooden table (Budy's)

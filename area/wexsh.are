@@ -105,39 +105,44 @@ guard cityguard wexsh wex'sh~
 @rus Большой, крутой и страшный. Лучше всти себя прилично в его присутствии.
 ~
 human~
-AGT FVac 900 0
-55 22 40d20+3900 1d1+200 11d7+10 crush
+AGT FVact 900 0
+55 22 40d20+5700 1d1+200 11d7+10 crush
 -2 -2 -2 -2
-CEFHIKOT ABL D K
+CEFHIKOT AL BD K
 stand stand male 4000
 BP 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
 #40205
-no name~
+guard cityguard wexsh wex'sh~
 @eng Wex'sh cityguard@rus Wex'sh cityguard~
+@eng Cityguard watches your actions.
+@rus Стражник следит за тобой.
 ~
+@eng Slender six-legged creature bearing a mark of cityguards. His eye show wit and knowledge of ways of magic.
+@rus Худощавый полупаук-получеловек. В его глазах ты видишь ум и знание.
+На рукаве повязка с надписью "ДРУЖИННИК"
 ~
 human~
-A 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 none
-0 0 0 0
-0 0 0 0
-stand stand none 0
-0 0 medium unknown
+AGR DTl 600 0
+57 15 40d20+5000 1d1+2500 5d11+32 magic
+-2 -2 -2 -2
+FIKTU L BHI E
+stand stand male 5000
+BP 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
 #40206
-no name~
+old man oldman~
 @eng Wex'sh cityguard~
 ~
 ~
 human~
-A 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 none
+AB 0 0 0
+5 -5 0d0+0 0d0+0 0d0+0 scratch
 0 0 0 0
 0 0 0 0
-stand stand none 0
+stand stand male 0
 0 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
@@ -236,7 +241,7 @@ A
 2 -1
 #40204
 spear wexsh wex'sh~
-@eng a spear@rus копье~
+@eng spear@rus копье~
 @eng Short spear lies here.@rus На земле лежит короткое копье.~
 steel~
 weapon AM AN
@@ -452,6 +457,20 @@ A
 24 -5
 A
 19 10
+#40220
+white woolen robe~
+@eng white woolen robe@rus белая шерстяная роба~
+@eng A pile of white clothing.@rus Белая тряпка.~
+wool~
+armor G AK
+20 20 24 18 0
+73 20 30000 P
+A
+24 -5
+A
+13 40
+A
+19 7
 #40315
 scroll wsarth~
 @eng scroll named "WSARTH"@rus свиток с надписью "WSARTH"~
@@ -498,6 +517,14 @@ scroll GN AO
 58 5 25000 P
 A
 6 2
+#40364
+blue potion~
+@eng blue potion~
+~
+unknown~
+potion 0 AO
+90 'improved invis' 'heal' 'heal' 'heal'
+75 0 0 P
 #0
 
 #ROOMS
@@ -1813,6 +1840,7 @@ M 40201 spec_cast_mage	* Wex'sh citizen
 M 40202 spec_cast_cleric	* Wex'sh citizen
 M 40203 spec_nasty	* Wex'sh outlaw
 M 40204 spec_guard	* Wex'sh cityguard
+M 40205 spec_cast_mage	* Wex'sh cityguard
 M 40250 spec_cast_mage	* Phran'thea
 S
 
@@ -1944,7 +1972,7 @@ E 0 40202 0 16		*	carved mace: wielded
 M 0 40202 22 40257 2	* Wex'sh citizen (Lean'th street)
 E 0 40202 0 16		*	carved mace: wielded
 M 0 40200 20 40258 2	* Wex'sh citizen (Royal avenue)
-E 0 40204 0 16		*	a spear: wielded
+E 0 40204 0 16		*	spear: wielded
 M 0 40203 5 40262 1	* Wex'sh outlaw (Guild lane)
 E 0 40201 0 16		*	short-bladed dagger: wielded
 M 0 40201 10 40262 2	* Wex'sh citizen (Guild lane)
@@ -1965,7 +1993,7 @@ S
 0
 
 #OLIMITS
-O 40204 2	* a spear
+O 40204 2	* spear
 O 40205 2	* short-bladed dagger
 O 40206 2	* carved mace
 O 40210 1	* vest of sneaking
@@ -2002,8 +2030,8 @@ endif
 endif
 ~
 #40204
-mob oload 40315
-give scroll ahellair
+mob oload 40208
+give stone ahell
 ~
 #0
 
