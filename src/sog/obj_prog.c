@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.12 1998-06-20 20:53:27 fjoe Exp $
+ * $Id: obj_prog.c,v 1.13 1998-06-23 17:08:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -482,13 +482,14 @@ void wear_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch)
 {
 	act("$p begins to shine a bright white.",ch,obj,NULL,TO_CHAR);
 	act("$p begins to shine a bright white.",ch,obj,NULL,TO_ROOM);
-	if (ch->level > 20 && ch->level <= 30)	obj->value[2] = 4;
-	else if (ch->level > 30 && ch->level <= 40)   obj->value[2] = 5;
-	else if (ch->level > 40 && ch->level <= 50)   obj->value[2] = 6;
-	else if (ch->level > 50 && ch->level <= 60)   obj->value[2] = 8;
-	else if (ch->level > 60 && ch->level <= 70)   obj->value[2] = 10;
-	else if (ch->level > 70 && ch->level <= 80)   obj->value[2] = 11;
-	else obj->value[2] = 12;
+	if (			   ch->level <= 20)	obj->value[2] = 3;
+	else if (ch->level > 20 && ch->level <= 30)	obj->value[2] = 4;
+	else if (ch->level > 30 && ch->level <= 40)	obj->value[2] = 5;
+	else if (ch->level > 40 && ch->level <= 50)	obj->value[2] = 6;
+	else if (ch->level > 50 && ch->level <= 60)	obj->value[2] = 8;
+	else if (ch->level > 60 && ch->level <= 70)	obj->value[2] = 10;
+	else if (ch->level > 70 && ch->level <= 80)	obj->value[2] = 11;
+	else						obj->value[2] = 12;
 	return;
 }
 
@@ -1837,7 +1838,8 @@ void wear_prog_quest_weapon(OBJ_DATA *obj, CHAR_DATA *ch)
 {
 	if (strstr(obj->short_descr, ch->name) != NULL)  {
 		send_to_char("Your weapon starts glowing.\n\r",ch);
-		     if (ch->level > 20 && ch->level <= 30) obj->value[2] = 4;
+		     if (                  ch->level <= 20) obj->value[2] = 3;
+		else if (ch->level > 20 && ch->level <= 30) obj->value[2] = 4;
 		else if (ch->level > 30 && ch->level <= 40) obj->value[2] = 5;
 		else if (ch->level > 40 && ch->level <= 50) obj->value[2] = 6;
 		else if (ch->level > 50 && ch->level <= 60) obj->value[2] = 8;
