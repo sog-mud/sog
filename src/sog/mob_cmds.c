@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.42.2.4 2001-05-21 18:53:58 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.42.2.5 2002-10-27 10:08:33 tatyana Exp $
  */
 
 /***************************************************************************
@@ -652,7 +652,7 @@ void do_mptransfer(CHAR_DATA *ch, const char *argument)
     char             arg1[ MAX_INPUT_LENGTH ];
     char             arg2[ MAX_INPUT_LENGTH ];
     ROOM_INDEX_DATA *location;
-    CHAR_DATA       *victim;
+    CHAR_DATA       *victim, *pet = NULL;
 
     argument = one_argument(argument, arg1, sizeof(arg1));
     argument = one_argument(argument, arg2, sizeof(arg2));
@@ -705,10 +705,21 @@ void do_mptransfer(CHAR_DATA *ch, const char *argument)
 
     if (victim->fighting != NULL)
 	stop_fighting(victim, TRUE);
-    char_from_room(victim);
-    char_to_room(victim, location);
-    if (!IS_EXTRACTED(victim))
-    	dofun("look", victim, "auto");
+
+	pet = GET_PET(victim);
+
+	char_from_room(victim);
+	char_to_room(victim, location);
+	if (!IS_EXTRACTED(victim))
+		dofun("look", victim, "auto");
+
+	if (pet && !IS_AFFECTED(pet, AFF_SLEEP)) {
+		if (pet->position != POS_STANDING)
+			dofun("stand", pet, str_empty);
+
+		char_from_room(pet);
+		char_to_room(pet, location);
+	}
 }
 
 /*
