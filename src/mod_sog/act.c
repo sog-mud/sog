@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.35 1999-07-01 11:20:03 fjoe Exp $
+ * $Id: act.c,v 1.36 1999-07-01 15:27:53 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -690,6 +690,13 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 						CHECK_STRING(arg3);
 						tstack[sp].arg =
 							msg_gender(arg3);
+						break;
+
+					case '0':
+					case '1':
+					case '2':
+					case '3':
+						tstack[sp].arg = subcode - '0';
 						break;
 
 					default:
