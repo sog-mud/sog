@@ -137,6 +137,19 @@ stand stand none 0
 0 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
+#36120
+horse~
+Arborn's war horse~
+Arborn's war horse stands here.
+~
+~
+horse~
+AZ 0 0 0
+93 50 1d1+29999 5d5+70 1d500+100 none
+0 0 0 0
+CDI 0 0 0
+stand stand none 0
+0 0 medium unknown
 #0
 
 #OBJECTS
@@ -176,6 +189,8 @@ unknown~
 armor 0 AE
 100 100 100 100 0
 100 0 0 P
+A
+8 1000
 F
 A 0 0 t
 F
@@ -380,6 +395,21 @@ F
 I 0 0 A
 F
 R 0 0 O
+G none
+#36117
+rancor sword~
+{Wlong sword named "{GRancor{W"{x~
+Strange sword is glowing bright green.~
+steel~
+weapon AJRTa ANP
+sword 4 13 cleave H
+20 20 100000 P
+F
+A 13 -30 M
+A
+19 3
+A
+18 10
 G none
 #0
 
@@ -594,10 +624,12 @@ S
 
 #OLIMITS
 O 36110 1	* Holy Grail
+O 36117 1	* {Wlong sword named "{GRancor{W"{x
 S
 
 #MOBPROGS
 #36101
+mob gecho Behold the Ancient Warlock, Master of Frost!
 ~
 #0
 

@@ -28,6 +28,7 @@ ACEFIK AB D 0
 stand stand male 0
 0 0 giant unknown
 M grall 95400 100~
+M exall 95401 3~
 C BattleRager~
 #95401
 Gordall~
@@ -375,6 +376,14 @@ mob slay $n
 end
 endif
 clan We are attacked by $n!
+mob attack $n
+~
+#95401
+if clan $n battlerager
+or isimmort $n
+mob transfer $n 95402
+end
+endif
 mob attack $n
 ~
 #0

@@ -40,6 +40,7 @@ ACDEFKNU AB 0 0
 stand stand male 5000
 0 0 medium unknown
 M grall 95200 100~
+M exall 95201 0~
 C Knight~
 #95202
 knight shopkeeper mount~
@@ -177,6 +178,15 @@ A
 19 20
 A
 18 20
+G none
+#95210
+clan mark aura majesty~
+Aura of {BMajesty{x~
+Something strange is here.~
+unknown~
+jewelry Y S
+0 0 0 0 0
+0 0 0 P
 G none
 #0
 
@@ -464,6 +474,14 @@ mob slay $n
 end
 endif
 clan We are attacked by $n!
+mob attack $n
+~
+#95201
+if clan $n knight 
+or isimmort $n
+mob transfer $n 95207
+end
+endif
 mob attack $n
 ~
 #0

@@ -4027,12 +4027,17 @@ The Dirt Trod
 Z 0 12083
 S
 #12085
-The Flower Meadow~
-You are standing in a meadow full of tall grasses and an amazing
+@eng The Flower Meadow@rus Цветочный луг~
+@eng You are standing in a meadow full of tall grasses and an amazing
 array of flowers.  The miasma of scents makes you slightly dizzy and the
 swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the south east you see a hill with a glorious castle on 
 top and to the south is the wall of an inn.
+@rus Все вокруг усыпано разноцветными цветами. Они в сочетании со свежей зеленью
+травы создают необычайно красивый узор. Цветочные ароматы, витающие в 
+воздухе, столь сильны, что вызывают головокружение. На юго-востоке виден
+холм, на вершине которого виден какой-то замок. А на юге взгляд
+упирается в стену местного постоялого двора.
 ~
 0 0 field
 D0
@@ -4047,12 +4052,16 @@ The Flower Meadow
 Z -1 12086
 S
 #12086
-The Flower Meadow~
-You are standing in a meadow full of tall grasses and an amazing
+@eng The Flower Meadow@rus Цветочный луг~
+@eng You are standing in a meadow full of tall grasses and an amazing
 array of flowers.  The miasma of scents makes you slightly dizzy and the
 swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the south east you see a hill with a glorious castle on 
 top. 
+@rus Все вокруг усыпано разноцветными цветами. Они в сочетании со свежей зеленью
+травы создают необычайно красивый узор. Цветочные ароматы, витающие в 
+воздухе, столь сильны, что вызывают головокружение. На юго-востоке виден
+холм, на вершине которого виден какой-то замок.
 ~
 0 0 field
 D0
@@ -4077,12 +4086,16 @@ The Flower Meadow
 Z -1 12085
 S
 #12087
-The Flower Meadow~
-You are standing in a meadow full of tall grasses and an amazing
+@eng The Flower Meadow@rus Цветочный луг~
+@eng You are standing in a meadow full of tall grasses and an amazing
 array of flowers.  The miasma of scents makes you slightly dizzy and the
 swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the south east you see a hill with a glorious castle on 
 top. 
+@rus Все вокруг усыпано разноцветными цветами. Они в сочетании со свежей зеленью
+травы создают необычайно красивый узор. Цветочные ароматы, витающие в 
+воздухе, столь сильны, что вызывают головокружение. На юго-востоке виден
+холм, на вершине которого виден какой-то замок.
 ~
 0 0 field
 D0
@@ -4203,7 +4216,7 @@ The Flower Meadow
 Z -1 12090
 S
 #12092
-The Flower Meadow~
+@eng The Flower Meadow@rus Цветочный луг~
 @eng You are standing in a meadow full of tall grasses and an amazing
 array of flowers.  The miasma of scents makes you slightly dizzy and the
 swirl of colors as the flowers sway in the breeze doesn't help you
@@ -4228,7 +4241,7 @@ The Flower Meadow
 Z -1 12093
 S
 #12093
-The Flower Meadow~
+@eng The Flower Meadow@rus Цветочный луг~
 @eng You are standing in a meadow full of tall grasses and an amazing
 array of flowers.  The miasma of scents makes you slightly dizzy and the
 swirl of colors as the flowers sway in the breeze doesn't help you
@@ -4363,7 +4376,7 @@ The Flower Meadow
 Z -1 12097
 S
 #12097
-The Flower Meadow~
+@eng The Flower Meadow@rus Цветочный луг~
 @eng You are standing in a meadow full of tall grasses and an amazing
 array of flowers.  The miasma of scents makes you slightly dizzy and the
 swirl of colors as the flowers sway in the breeze doesn't help you
@@ -4393,7 +4406,7 @@ The Flower Meadow
 Z -1 12098
 S
 #12098
-The Flower Meadow~
+@eng The Flower Meadow@rus Цветочный луг~
 @eng You are standing in a meadow full of tall grasses and an amazing
 array of flowers.  The miasma of scents makes you slightly dizzy and the
 swirl of colors as the flowers sway in the breeze doesn't help you

@@ -439,7 +439,7 @@ alias ff cast 'fireball' --> ff orc will equal 'cast 'fireball' orc'
 
 Only the first word on the line will be subsituted at this time.
 ~
-100 MERLIN~
+100 GREETING~
 '        '
 
    -==================================================-

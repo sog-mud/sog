@@ -228,4 +228,14 @@ Form 5 -е~
 Form 6 -е~
 End
 
+#RULE
+Name -ыня~
+BaseLen -1
+Form 1 -и~
+Form 2 -е~
+Form 3 -ю~
+Form 4 -ей~
+Form 5 -е~
+End
+
 #$

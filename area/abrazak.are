@@ -192,7 +192,7 @@ drink AGHIOTYZa AOP
 G none
 #15005
 fountain~
-@eng a fountain with milk@rus фонтан с молоком~
+@eng a fountain with milk@rus ~~фонтан~~ с молоком~
 @eng Fountain with milk is here.@rus Тут зачем-то еще и фонтан с молоком.~
 unknown~
 fountain O 0
@@ -595,9 +595,9 @@ G none
 
 #ROOMS
 #15000
-@eng Abrazak's Office@rus Офис абразака.~
+@eng Abrazak's Lair.@rus Логово абразака.~
 @eng You are in Abrazak's office..  Hmmm...  It's very strange place.  
-@rus Ты попал в офис абразака..... Достаточно странное место... 
+@rus Ты попал в огромную пещеру. Здесь темно и страшно. В углу - фонтан с водкой.
 ~
 0 0 forest
 D2
@@ -649,9 +649,9 @@ S
 #0
 
 #RESETS
-M 0 15000 1 15000 1	* Avatar of abrazak (Abrazak's Office)
-M 0 15000 1 15000 1	* Avatar of abrazak (Abrazak's Office)
-O 0 15002 0 15000	* a fountain (Abrazak's Office)
+M 0 15000 1 15000 1	* Avatar of abrazak (Abrazak's Lair.)
+M 0 15000 1 15000 1	* Avatar of abrazak (Abrazak's Lair.)
+O 0 15002 0 15000	* a fountain (Abrazak's Lair.)
 O 0 15005 0 15002	* a fountain with milk (Cell)
 M 0 15001 1 15002 1	* the prisoner (Cell)
 M 0 15002 1 15002 1	* cockroach (Cell)

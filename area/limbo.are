@@ -199,7 +199,7 @@ stand stand male 0
 0 0 small unknown
 #22
 golem stone голем~
-@eng a stone golem@rus каменный голем~
+@eng a stone golem@rus ~~каменный~~ ~~голем~~~
 A stone golem stands ready to rend its master's enemies apart.
 ~
 This is a large stone statue of a man. The statue stands eight feet tall

@@ -187,6 +187,7 @@ Use 'desc edit' to edit your description.
 @eng $p strikes $n!@rus $p попадает в $c6{$n}!~
 @eng $n buys $P.@rus $n покупает $c3{$P}.~
 @eng $N dodges your attack.@rus $N $gN{уклонился} от твоей атаки.~
+@eng {cwounds{x@rus {cранит{x~
 @eng You are already riding.
 @rus Ты уже верхом.
 ~
@@ -688,7 +689,7 @@ You peek at the inventory:
 @eng Death will thank you for your gift.@rus Ты станешь приятным подарком СМЕРТИ.~
 @eng You scan $t.@rus Ты пристально вглядываешься $t.~
 @eng You ask $N for a quest.@rus Ты просишь задание у $c1{$N}.~
-@eng Gods give you $j silver $qj{coins} for your sacrifice.@rus Боги дают тебе $j $c3{$qj{серебряных монет}} за твое жервоприношение.~
+@eng Gods give you $j silver $qj{coins} for your sacrifice.@rus Боги дают тебе $j $c3{$qj{серебряных монет}} за твое жертвоприношение.~
 @eng Eat what?
 @rus Что съесть?
 ~
@@ -781,6 +782,7 @@ Get back to questor before your time runs out!
 @eng $n wakes and sits on $p.@rus $n просыпается и садится на $c3{$p}.~
 @eng $n fades into existence.@rus $n появляется словно ниоткуда.~
 @eng $N{x$t {xis here.@rus $N{x$t {xздесь.~
+@eng {cwound{x@rus {cранишь{x~
 @eng You tell $N '{G$t{x'@rus Ты говоришь $c2{$N}: "{G$t{x"~
 @eng You buy $P for $j silver.@rus Ты покупаешь $c3{$P} за $j $c3{$qj{серебряных}}.~
 @eng $n looks at $N.@rus $n смотрит на $c6{$N}.~

@@ -8,6 +8,21 @@ Flags closed noquest~
 End
 
 #MOBILES
+#38000
+plaguer~
+Blekurij~
+Blekurij is walking here ...
+~
+~
+human~
+ACG X 0 0
+10 1 1d1+32000 1d1+1 1d1+0 none
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
 #38001
 bargan~
 @eng Bargan@rus Барган~
@@ -95,18 +110,18 @@ stand stand none 10000
 F for AHMV
 F par ABCDEFGHIJK
 #38007
-varafinij~
-Varafinij~
-Varafinij is snooping here .
+varafinij kabidir~
+{MKabidir{x~
+Kabidir is snooping all around ...
 ~
 It's him !!!
 ~
 troll~
-A DFHV 0 0
-35 30 1d1+4000 1d1+1000 1d1+40 pound
--10 -10 -10 -10
-0 BU 0 0
-stand stand none 10000
+ABCGQRST DFHV 0 0
+70 70 1d1+18999 1d1+999 10d5+100 cleave
+-100 -70 -70 -40
+AJ BU 0 0
+stand stand male 10000
 0 0 medium unknown
 #38008
 demon of second circle red dragon~
@@ -122,18 +137,51 @@ AEFHKO BU 0 0
 stand stand none 999999
 0 0 medium unknown
 #38009
-guaba~
-{RGuaba{x~
-Evil Witch Guaba is looking for new victim here ...
+grabi~
+{rGrabi{x~
+Grabi is smiling here ...
 ~
 You think she'll die if she smile ...
 ~
 human~
-ABCGQRST DFV -1000 0
-40 30 1d1+1999 1d1+999 5d8+3 scratch
--5 -5 -5 -5
-A BU 0 0
-stand stand female 0
+ABCGQRST DFVl -1000 0
+100 320 1d1+29999 1d1+2999 20d10+200 scratch
+-200 -200 -200 -200
+ACFHJKO BU C 0
+stand stand female 10000
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#38010
+sheeala~
+@eng {MSheeala{x@rus {MШиала{x~
+@eng Sheeala is hunting for spiders here ...
+@rus Шиала охотиться на паучков ...
+~
+~
+human~
+ABCGQRST DFTVu -1000 0
+1 220 1d1+19999 1d1+10000 10d5+100 flbite
+-30 -40 -30 -50
+0 BCDU 0 0
+stand stand female 100
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#38011
+natasha~
+@eng Natasha@rus Наташа~
+Natasha is dancing here
+~
+@rus Красавица Наташа исполняет для гостей Сетепиоса Танец Живота переходящий в
+стриптиз ... Как она Хороша ... Какие формы ... 
+~
+human~
+ACG 0 0 0
+1 0 1d1+1 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand female 1
 0 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
@@ -224,7 +272,7 @@ B EIJKN EHK EIJKN EIJKN
 G none
 #38002
 armchair~
-@eng armchair@rus {yудобое кресло{w~
+@eng armchair@rus {yудобном кресле{x~
 @eng Armchair@rus {yКресло-качалка{w~
 wood~
 furniture G 0
@@ -237,7 +285,7 @@ fountain~
 @eng Big fountain@rus {BБольшой фонтан из {Cмрамора{w~
 marble~
 fountain G 0
-1000 1000 'ale' 0 0
+1000 1000 'vodka' 0 0
 92 1 1 P
 G none
 #38004
@@ -363,12 +411,16 @@ treasure RT A
 G none
 #38013
 weapon~
-Third Power~
+{MO**{Y({W=====-{x Third Power Of Heavens{x~
 Third Power lies here.~
 energy~
 weapon CI AN
-exotic 1000 1000 divine ABCDGH
+dagger 5000 5000 stab ABCDGH
 92 1 1 P
+A
+19 10000
+A
+18 10000
 A
 6 15
 A
@@ -648,6 +700,64 @@ A
 A
 13 70
 G male
+#38030
+kelsons helm of love~
+Kelsons Helm of Love~
+Kelsons Helm lies on the floor~
+divine~
+armor Ra AE
+15 15 15 15 0
+55 1 1 P
+A
+18 10
+A
+19 10
+G none
+#38031
+terminators helm of power~
+Terminators Helm of Power~
+Terminators helm lies here ...~
+gold~
+armor ARa AE
+20 20 10 0 0
+55 1 2 P
+A
+1 10
+A
+19 20
+G none
+#38032
+flaming shield of earth~
+{YFlaming Shield of Earth{x~
+Strange shield is flaming here ...~
+gold~
+armor IMRa AJ
+10 20 30 40 0
+65 3 10000 P
+A
+8 2
+A
+18 7
+A
+19 13
+A
+1 2
+A
+5 5
+G none
+#38033
+diamond ring~
+{W[{Y*{G(+){Y*{W]{x diamond ring of life.~
+What a beautiful ring is here ...~
+gold diamond~
+treasure AIRa AB
+0 0 0 0 0
+65 1 1000000 P
+A
+13 234
+A
+13 500
+G none
 #38095
 {rБольшой пионерский БАРАБАН{w dark glass~
 dark glass~
@@ -656,6 +766,78 @@ wood~
 treasure GT A
 0 0 0 0 0
 92 1 100000 P
+G none
+#38100
+ring of eros~
+{YRing Of Eros{x~
+Ring of Eros lies here.~
+gold~
+treasure HIRTa AB
+0 0 0 0 0
+1 1 9000000 P
+G none
+#38101
+helm of enki~
+{YHelm of Enki{x~
+Helm of Enki lies here.~
+unknown~
+treasure HIa AE
+0 0 0 0 0
+0 1 9000000 P
+G none
+#38102
+shield of seth~
+{YShield of Seth{x~
+Shield of Seth lies here.~
+divine~
+trash HIRTa AJ
+0 0 0 0 0
+1 1 9000000 P
+G none
+#38103
+sword of venus~
+{YSword of Venus{x~
+Sword of Venus lies here.~
+unknown~
+treasure HIRTa AN
+0 0 0 0 0
+0 1 9000000 P
+G none
+#38104
+flame of hera~
+{YFlame of Hera{x~
+Flame of Hera lies here.~
+unknown~
+light IRTa A
+0 0 1 0 0
+1 1 9000000 P
+G none
+#38105
+boots of goktengri~
+{YBoots Of Goktengri{x~
+Boots of Goktengri lies here ...~
+unknown~
+trash IRTa AG
+0 0 0 0 0
+0 1 9000000 P
+G none
+#38106
+ring of ares~
+{YRing Of Ares{x~
+Ring of Ares lies here.~
+unknown~
+treasure IRTa AB
+0 0 0 0 0
+0 1 9000000 P
+G none
+#38107
+robe of teshub~
+{YRobe Of Teshub{x~
+Robe of Teshub lies here.~
+unknown~
+treasure IRTa AK
+0 0 0 0 0
+0 1 9000000 P
 G none
 #38200
 bartable~
@@ -737,7 +919,7 @@ S
 востоке кабинет. Потолки разрисованны фресками величайших художников, на
 стенах портреты богов и зеркала. Пол облицован мрамором.
 ~
-0 K inside
+0 KO inside
 D0
 ~
 ~
@@ -779,7 +961,7 @@ S
 небеса. Пол покрыт дубовым паркетом. Спокойствие и дух вечности царят
 тут. {YЗолотой шар{w освещает комнату мягким светом.
 ~
-0 0 inside
+0 N inside
 D3
 ~
 ~
@@ -1124,7 +1306,6 @@ S
 O 0 38003 0 38101	* fountain (Coridor)
 O 0 38002 0 38101	* armchair (Coridor)
 O 0 38001 0 38102	* big bed (Bedroom)
-M 0 38001 1 38102 1	* Bargan (Bedroom)
 O 0 38002 0 38103	* armchair (Cabinet)
 O 0 38004 0 38103	* table (Cabinet)
 O 0 38200 0 38200	* long wooden table (Budy's)

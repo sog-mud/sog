@@ -1,6 +1,6 @@
 #AREADATA
 Name Chaos~
-VNUMs 95500 95509
+VNUMs 95500 95550
 Credits Asena~
 Security 9
 LevelRange 90 100
@@ -47,6 +47,7 @@ CEFKNU AB 0 S
 stand stand male 5000
 0 0 medium unknown
 M grall 95500 100~
+M exall 95501 0~
 C Chaos~
 #0
 
@@ -86,6 +87,15 @@ gold~
 weapon AIPTW AN
 dagger 6 6 pierce D
 20 200 0 P
+G none
+#95504
+clan mark earing gleaming~
+{WGleaming {Rm{Gu{Yl{bt{Mi{Cc{Wo{Rl{Go{Yr{x earing ~
+A small gleaming multicolor earing lies here.~
+unknown~
+jewelry Y S
+0 0 0 0 0
+0 0 0 P
 G none
 #0
 
@@ -208,6 +218,14 @@ mob slay $n
 end
 endif
 clan We are attacked by $n !
+mob attack $n
+~
+#95501
+if clan $n chaos
+or isimmort $n
+mob transfer $n 95501
+end
+endif
 mob attack $n
 ~
 #0

@@ -2,7 +2,7 @@
 Name Wex'sh city~
 Builders ahellair~
 VNUMs 40200 40499
-Credits gate calico~
+Credits ahellair~
 Security 1
 LevelRange 40 90
 ResetMessage @eng A blinding flash lights all around ...@rus Ослепительная вспышка осветила все вокруг ....~
@@ -193,6 +193,7 @@ A
 18 4
 A
 2 -1
+G none
 #40201
 dagger wexsh wex'sh~
 @eng short-bladed dagger@rus кинжал с коротким лезвием~
@@ -207,6 +208,7 @@ A
 18 7
 A
 19 3
+G none
 #40202
 mace wexsh wex'sh~
 @eng carved mace@rus резная булава~
@@ -221,6 +223,7 @@ A
 19 6
 A
 4 1
+G none
 #40203
 sword wexsh wex'sh~
 @eng Wex'sh sword@rus Векс'шианский меч~
@@ -239,6 +242,7 @@ A
 13 70
 A
 2 -1
+G none
 #40204
 spear wexsh wex'sh~
 @eng spear@rus копье~
@@ -251,6 +255,7 @@ A
 19 8
 A
 18 5
+G none
 #40205
 dagger wexsh wex'sh~
 @eng short-bladed dagger@rus кинжал с коротким лезвием~
@@ -263,6 +268,7 @@ A
 19 4
 A
 18 10
+G none
 #40206
 mace wexsh wex'sh~
 @eng carved mace@rus резная булава~
@@ -277,6 +283,7 @@ A
 18 3
 A
 4 1
+G none
 #40207
 shield wexsh wex'sh~
 @eng round shield@rus круглый щит~
@@ -293,6 +300,7 @@ A
 19 5
 A
 13 20
+G none
 #40208
 stone~
 @eng grey stone@rus серый камень~
@@ -301,6 +309,7 @@ stone~
 portal 0 A
 A D B 40208 0
 0 10 0 P
+G none
 #40209
 scroll assist~
 @eng glowing scroll@rus мерцающий свиток~
@@ -309,6 +318,7 @@ paper~
 scroll AG AO
 70 'sanctuary' 'assist' 'assist' 'assist'
 49 2 2000 P
+G none
 #40210
 vest sneaking~
 @eng vest of sneaking@rus броня скрытности~
@@ -323,6 +333,7 @@ F
 A 0 0 f
 F
 A 0 0 g
+G none
 #40211
 wexsh wex'sh cityguard orb~
 @eng humming orb@rus гудящий шар~
@@ -337,6 +348,7 @@ A
 12 30
 A
 24 -20
+G none
 #40212
 amulet warrior~
 @eng warrior's amulet@rus амулет воина~
@@ -351,6 +363,7 @@ A
 1 2
 A
 13 50
+G none
 #40213
 amulet cleric~
 @eng cleric's amulet@rus амулет клирика~
@@ -367,6 +380,7 @@ A
 3 1
 A
 4 3
+G none
 #40214
 amulet mage~
 @eng mage's amulet@rus амулет мага~
@@ -381,6 +395,7 @@ A
 4 1
 A
 3 3
+G none
 #40215
 amulet thief~
 @eng thieve's amulet@rus амулет вора~
@@ -395,6 +410,7 @@ A
 6 1
 A
 2 3
+G none
 #40216
 amulet vampire~
 @eng vampire's amulet@rus амулет вампира~
@@ -415,6 +431,7 @@ A
 3 1
 A
 2 1
+G none
 #40217
 mithril vest~
 @eng fine mithril vest@rus отличная мифрильная броня~
@@ -429,6 +446,7 @@ A
 24 -5
 A
 17 -30
+G none
 #40218
 falchion mithril~
 @eng huge mithril falchion@rus огромный мифрильный меч~
@@ -445,6 +463,7 @@ A
 18 -5
 A
 19 18
+G none
 #40219
 marong mace~
 @eng marong mace@rus палица из маронга~
@@ -457,6 +476,7 @@ A
 24 -5
 A
 19 10
+G none
 #40220
 white woolen robe~
 @eng white woolen robe@rus белая шерстяная роба~
@@ -471,6 +491,7 @@ A
 13 40
 A
 19 7
+G none
 #40315
 scroll wsarth~
 @eng scroll named "WSARTH"@rus свиток с надписью "WSARTH"~
@@ -479,6 +500,7 @@ paper~
 scroll N AO
 120 'bless' 'enchant weapon' 'enchant weapon' 'enchant weapon'
 78 0 12000 P
+G none
 #40360
 scroll divine wrath~
 @eng scroll of divine wrath@rus Свиток божественного гнева~
@@ -487,6 +509,7 @@ paper~
 scroll ABGN AO
 95 'power word stun' 'shielding' 'severity force' 'acid blast'
 80 2 70000 P
+G none
 #40361
 staff healing~
 @eng staff of healing@rus лечащий посох~
@@ -497,6 +520,7 @@ staff AGN AO
 76 10 56000 P
 A
 5 2
+G none
 #40362
 wand escaping~
 @eng wand of escaping@rus палочка убегания~
@@ -507,6 +531,7 @@ wand BGN AO
 69 10 15000 P
 A
 2 2
+G none
 #40363
 scroll yuialkos~
 @eng scroll named "YUIALKOS"@rus свиток с надписью "YUIALKOS"~
@@ -517,6 +542,7 @@ scroll GN AO
 58 5 25000 P
 A
 6 2
+G none
 #40364
 blue potion~
 @eng blue potion~
@@ -525,6 +551,7 @@ unknown~
 potion 0 AO
 90 'improved invis' 'heal' 'heal' 'heal'
 75 0 0 P
+G none
 #40400
 no name~
 ~
@@ -533,6 +560,7 @@ unknown~
 key 0 0
 0 0 0 0 0
 0 0 0 P
+G none
 #40401
 no name~
 ~
@@ -541,6 +569,7 @@ unknown~
 key 0 0
 0 0 0 0 0
 0 0 0 P
+G none
 #40402
 no name~
 ~
@@ -549,6 +578,7 @@ unknown~
 key 0 0
 0 0 0 0 0
 0 0 0 P
+G none
 #40403
 no name~
 ~
@@ -557,6 +587,7 @@ unknown~
 key 0 0
 0 0 0 0 0
 0 0 0 P
+G none
 #40404
 no name~
 ~
@@ -565,6 +596,7 @@ unknown~
 key 0 0
 0 0 0 0 0
 0 0 0 P
+G none
 #40405
 no name~
 ~
@@ -573,6 +605,7 @@ unknown~
 key 0 0
 0 0 0 0 0
 0 0 0 P
+G none
 #40406
 no name~
 ~
@@ -581,6 +614,7 @@ unknown~
 key 0 0
 0 0 0 0 0
 0 0 0 P
+G none
 #40407
 no name~
 ~
@@ -589,6 +623,7 @@ unknown~
 key 0 0
 0 0 0 0 0
 0 0 0 P
+G none
 #0
 
 #ROOMS

@@ -3236,7 +3236,7 @@ D3
 Z -1 9528
 S
 #9530
-East Main Street~
+@eng East Main Street@rus Главная восточная улица~
 The Main street through eastern New Thalos begins here and heads westward
 towards the marketplace. One of the main gates can be seen to the east, and
 Braheem's Magic Shop awaits your business to the north.
@@ -3256,7 +3256,7 @@ D3
 Z -1 9529
 S
 #9531
-Inside the Eastern Gate of New Thalos~
+@eng Inside the Eastern Gate of New Thalos@rus Внутри восточных ворот Нового Талоса~
 Two large stone towers imbedded in the wall loom over you. The massive
 iron gate, emblazened with the crest of New Thalos, swings easily on
 four ornately crafted hinges. It is obvious the makers of this city spared no
@@ -3761,8 +3761,9 @@ D3
 Z -1 9652
 S
 #9557
-Underground~
-The small passage continues north and south.
+@eng Underground@rus Подземелье~
+@eng The small passage continues north and south.
+@rus Небольшой проход ведет на север (north)и юг (south).
 ~
 0 ADS city
 D0
@@ -4006,7 +4007,7 @@ D2
 Z -1 9571
 S
 #9570
-Alley~
+@eng Alley@rus Аллея~
 This is a dead end to the tiny alley.  There is an unusual amount of wear
 appearent on the ground.
 ~
@@ -4117,7 +4118,7 @@ D2
 Z -1 9577
 S
 #9577
-Underground~
+@eng Underground@rus Подземелье~
 The tunnel branches here going north, east, and west.
 ~
 0 ADS city
@@ -4135,7 +4136,7 @@ D3
 Z -1 9579
 S
 #9578
-Underground~
+@eng Underground@rus Подземелье~
 The alley turns again here and heads south and west. You notice a small
 glint of light from above.
 ~
@@ -4154,7 +4155,7 @@ manhole man hole~
 ABZ -1 9570
 S
 #9579
-Underground~
+@eng Underground@rus Подземелье~
 The passage ends here and you hear some low chanting from the west.
 You also notice the clearing of dust on the ground but can't seem to
 find any door in that direction.
@@ -4166,8 +4167,9 @@ D1
 Z -1 9577
 S
 #9580
-Underground~
-The small passage continues north and south from here.
+@eng Underground@rus Подземелье~
+@eng The small passage continues north and south from here.
+@rus Небольшой проход ведет на север (north)и юг (south).
 ~
 0 ADS city
 D0
@@ -4180,9 +4182,12 @@ D2
 Z -1 9581
 S
 #9581
-Underground~
-The small passage heads north and east from here. You here the sounds
+@eng Underground@rus Подземелье~
+@eng The small passage heads north and east from here. You here the sounds
 of the city above you.
+@rus Небольшой проход ведет на север (north) и восток (east).  Вы слышите
+звуки города над собой.  
+ 
 ~
 0 ADS city
 D0
@@ -4199,9 +4204,11 @@ manhole man hole~
 ABZ -1 9574
 S
 #9582
-Underground~
-The tunnel continues you west and east. Hopefully you have a good sense
-of direction.
+@eng Underground@rus Подземелье~
+@eng The tunnel continues west and east.  Hopefully you have a good sense of
+direction.
+@rus Тунель продолжается на запад (west) и восток (east).  К счатью вы имеете
+хорошее чуство направления .  
 ~
 0 ADS city
 D1

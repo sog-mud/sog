@@ -42,7 +42,7 @@ sam~
 ~
 human~
 AZ 0 1000 0
-20 0 0d0+0 0d0+0 0d0+0 none
+200 0 0d0+0 0d0+0 0d0+0 none
 1000 1000 1000 1000
 0 0 0 0
 stand stand none 0
@@ -137,8 +137,8 @@ axe bloody amputation~
 A large axe is here, its blade stuck in the ground.~
 medicine steel~
 weapon 0 AN
-axe 40 20 chop DEI
-105 0 0 P
+axe 9 9 chop DEI
+60 0 0 P
 G none
 #44006
 hammer great sleep~
@@ -249,7 +249,7 @@ armor 0 AB
 0 0 0 0 0
 50 0 0 P
 A
-20 15
+20 -15
 A
 19 5
 G none

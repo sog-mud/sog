@@ -585,15 +585,14 @@ key 0 AO
 0 1 0 P
 G none
 #24101
-barrel beer~
-a barrel of beer~
-A beer barrel has been left here.
-~
+barrel beer бочонок пива~
+@eng a barrel of beer@rus ~~бочонок~~ пива~
+@eng A beer barrel has been left here.@rus Бочонок пива (barrel) лежит здесь.~
 copper~
 drink 0 A
 30 30 'beer' 0 0
-0 60 0 P
-G none
+0 60 100 P
+G male
 #24102
 bottle beer~
 a bottle of rough beer~
@@ -601,7 +600,7 @@ A beer bottle has been left here.~
 copper~
 drink 0 A
 4 4 'beer' 0 0
-0 10 0 P
+0 10 110 P
 G none
 #24103
 bottle ale~
@@ -610,7 +609,7 @@ A dark bottle of ale has been left here.~
 copper~
 drink 0 A
 5 5 'ale' 0 0
-0 10 0 P
+0 10 120 P
 G none
 #24104
 bottle firebreather~
@@ -619,7 +618,7 @@ A firebreather has been left here.~
 copper~
 drink 0 A
 8 8 'firebreather' 0 0
-0 10 0 P
+0 10 130 P
 G none
 #24105
 bottle local~
@@ -628,7 +627,7 @@ A dark bottle has been left here.~
 copper~
 drink 0 A
 8 8 'local specialty' 0 0
-0 10 0 P
+0 10 140 P
 G none
 #24106
 torch~
@@ -637,7 +636,7 @@ A large torch.~
 copper~
 light 0 AQ
 0 0 24 0 0
-0 1 0 P
+0 1 10 P
 G none
 #24107
 lamp~
@@ -646,7 +645,7 @@ A stone lamp that uses animal fat as fuel has been left here.~
 copper~
 light 0 AO
 0 0 100 0 0
-0 4 0 P
+0 4 20 P
 G none
 #24108
 brew yellow~
@@ -664,7 +663,7 @@ A buffalo water skin is on the floor.~
 copper~
 drink 0 A
 25 25 'water' 0 0
-0 5 0 P
+0 5 50 P
 G none
 #24110
 jug water~
@@ -673,7 +672,7 @@ A large jug of water sloshes on the floor.~
 copper~
 drink A A
 60 60 'water' 0 0
-0 85 0 P
+0 85 60 P
 G none
 #24111
 club~
@@ -778,7 +777,7 @@ A bronze ring.~
 copper~
 key A AB
 0 0 0 0 0
-0 1 0 P
+0 1 10 P
 G none
 #24120
 black bread~
@@ -787,7 +786,7 @@ Black bread.~
 copper~
 food 0 A
 AC 0 0 0 0
-0 3 0 P
+0 3 10 P
 G none
 #24121
 cheese~
@@ -796,7 +795,7 @@ A sour cheese.~
 copper~
 food 0 A
 D 0 0 0 0
-0 5 0 P
+0 5 20 P
 G none
 #24122
 dried meat~
@@ -805,7 +804,7 @@ A strip of unidentifiable dried meat.~
 copper~
 food 0 A
 BD 0 0 0 0
-0 5 0 P
+0 5 50 P
 G none
 #24123
 egg~
@@ -814,7 +813,7 @@ An egg (raw), warm from the nest.~
 copper~
 food 0 A
 C 0 0 0 0
-0 5 0 P
+0 5 30 P
 G none
 #24124
 potion foul~

@@ -1,6 +1,5 @@
 #AREADATA
 Name Midgaard~
-Builders fess~
 VNUMs 3000 3399
 Credits Diku~
 Security 9
@@ -4648,14 +4647,14 @@ picturing gods, giants and peasants.
 mound upon which the temple is built and ends on the temple square below.
    Equally large steps lead UP through a small door into the ENTRANCE to MUD 
 SCHOOL.  (type 'up' to go to MUD SCHOOL.)  A small plaque is on this wall.
-@rus Вы находитесь в южной части зала Храма Мидгаарда. Храм состоит из гигантских 
+@rus Ты находишься в южной части зала Храма Мидгаарда. Храм состоит из гигантских 
 мраморных блоков, на вид очень древних. Большинство стен покрыто нарисованными
 изображениями богов, гигантов и крестьян. 
   Большие ступени ведут вниз через массивные храмовые врата, спускаясь с 
 огромного холма, на котором и построен Храм и заканчиваются внизу соборной 
 площадью.
 {x  Похожие ступени ведут ВВЕРХ через маленькую дверцу ко ВХОДУ в МУД
-ШКОЛУ (нажмите "up" для входа в МУД ШКОЛУ). Маленькая дощечка висит на стене.
+ШКОЛУ (нажмите "up" для входа в МУД ШКОЛУ). Маленькая дощечка (plaque) висит на стене.
 ~
 0 CDS inside
 E
@@ -4673,41 +4672,51 @@ D0
 Z -1 3054
 D2
 @eng You see the temple square.
-@rus Вы видите соборную площадь.
+@rus Ты видишь соборную площадь.
 ~
 ~
 Z -1 3005
 D4
 @eng You see the entrance to Mud School.
-@rus Вы видите вход в МУД школу.
+@rus Ты видишь вход в МУД школу.
 ~
 ~
 Z 0 3700
 S
 #3002
-Cleric's Inner Sanctum~
-This is the inner sanctum.  A pictures of the mighty gods is hanging on
+@eng Cleric's Inner Sanctum@rus Внутренний кабинет клериков~
+@eng This is the inner sanctum.  A pictures of the mighty gods is hanging on
 the wall, just above the altar which is set against the western wall.  A well
 in the middle of the floor leads down into darkness.  Vile smells waft from
 the depths.
+@rus Это внутренний кабинет. Изображения могущественных богов висят на стенах, 
+точно над алтарем, который установлен напротив западной стены. Колодец в 
+центре комнаты уходит вниз (down) в непроглядную тьму. Отвратительный запах
+доносится из глубины.
 ~
 0 CDSXY inside
 D1
-You see your favorite place, the bar of divination.
+@eng You see your favorite place, the bar of divination.
+@rus Ты видишь свое любимое место, бар клериков.
 ~
 ~
 Z -1 3003
 D5
-You can't see what is down there, it is too dark.  Looks like it would be
+@eng You can't see what is down there, it is too dark.  Looks like it would be
 impossible to climb back up.
+@rus Ты не видишь ничего внизу, там очень темно. Похоже оттуда нельзя будет 
+поднятся назад наверх.
 ~
 ~
 Z -1 7026
 S
 #3003
 @eng Cleric's Bar@rus Бар клериков~
-The bar is one of the finest in the land, lucky it is members only.  Fine
+@eng The bar is one of the finest in the land, lucky it is members only.  Fine
 furniture is set all around the room.  A small sign is hanging on the wall.
+@rus Этот бар один из самых изящных на земле, здесь рады только членам братства.
+Изящная мебель установлена повсюду в комнате. Маленькая записка (sign) висит
+на стене.
 ~
 0 CDSXY inside
 E
@@ -4720,12 +4729,14 @@ Free instructions provided by the waiter:
           specialties, and tell the price of each.
 ~
 D2
-You see the entrance.
+@eng You see the entrance.
+@rus Ты видишь выход.
 ~
 ~
 Z -1 3004
 D3
-You see the inner sanctum.
+@eng You see the inner sanctum.
+@rus Ты видишь внутренний кабинет.
 ~
 ~
 Z -1 3002
@@ -4736,19 +4747,19 @@ S
 the Clerics.  The exit leads east to the temple square.  A small entrance to
 the bar is in the northern wall.
 @rus Входной зал - это маленькая скромная комнатка, отражающая истинную сущность 
-клериков. Выход ведет на восток(east) к соборной площади. Маленький вход в бар 
-расположен у северной(north) стены.
+клериков. Выход ведет на восток (east) к соборной площади. Маленький вход в бар 
+расположен у северной (north) стены.
 ~
 0 DS inside
 D0
 @eng You see the bar, richly decorated with really stylish furniture.
-@rus Вы видите бар, богато украшенный модной обстановкой.
+@rus Ты видишь бар, богато украшенный модной обстановкой.
 ~
 ~
 Z -1 3003
 D1
 @eng You see the Temple Square.
-@rus Вы видите соборную площадь.
+@rus Ты видишь соборную площадь.
 ~
 ~
 Z -1 3005
@@ -4767,31 +4778,31 @@ square, the center of Midgaard.
 0 S city
 D0
 @eng You see the temple.
-@rus Вы видите храм.
+@rus Ты видишь храм.
 ~
 all~
 Z -1 3001
 D1
 @eng You see the good old Grunting Boar Inn.
-@rus Вы видите старую добрую таверну "Хрюкающий кабан".
+@rus Ты видишь старую добрую таверну "Хрюкающий кабан".
 ~
 ~
 Z -1 3006
 D2
 @eng You see the Market Square.
-@rus Вы видите рыночную площадь.
+@rus Ты видишь рыночную площадь.
 ~
 ~
 Z -1 3014
 D3
 @eng You see the entrance to the Clerics Guild.
-@rus Вы видите вход в гильдию клериков.
+@rus Ты видишь вход в гильдию клериков.
 ~
 ~
 Z -1 3004
 D4
 @eng You see the air.
-@rus Вы видите небо.
+@rus Ты видишь небо.
 ~
 ~
 Z -1 3057
@@ -4801,26 +4812,26 @@ S
 @eng You are standing in the entrance hall of the Grunting Boar Inn.  The hall
 has been wisely decorated with simple but functional furniture.  A small
 staircase leads up to the defunct reception room and the bar is to the east.
-@rus Вы стоите во входном зале таверны "Хрюкающий кабан". Зал обставлен простой,
+@rus Ты стоишь во входном зале таверны "Хрюкающий кабан". Зал обставлен простой,
 но удобной мебелью. Маленькая лестница ведет вверх (up) в заброшенную приемную 
 и в бар на востоке (east).
 ~
 0 DS inside
 D1
 @eng Surprise! You see the bar.
-@rus Сюрприз! Вы видите бар.
+@rus Сюрприз! Ты видишь бар.
 ~
 ~
 Z -1 3007
 D3
 @eng You see the temple square.
-@rus Вы видите соборную площадь.
+@rus Ты видишь соборную площадь.
 ~
 ~
 Z -1 3005
 D4
 @eng You see the defunct reception room.
-@rus Вы видите заброшенную приемную.
+@rus Ты видишь заброшенную приемную.
 ~
 ~
 Z -1 3008
@@ -4832,11 +4843,11 @@ archaic writing, carvings and symbols cover its top.  A fireplace is built into
 the western wall, and through the southeastern windows you can see the temple
 square.  This place makes you feel like home.
 A small sign with big letters is fastened to the bar.
-@rus Вы стоите у стойке бара. Она установлена у северной стены; старые
-архаичные письменна, резьба и символы покрывают ее всю. Камин пристроен к
-западной стене, а через окна на юге и востоке вам видна соборная площадь.
-Здесь вы чувствуете себя как дома.
-  Маленькая вывеска прикрепленна к стойке.
+@rus Ты стоишь у стойке бара. Она установлена у северной стены; старые
+архаичные письменна, резьба и символы (symbols) покрывают ее всю. Камин
+пристроен к западной стене, а через окна на юге и востоке вам видна соборная
+площадь. Здесь ты чувствуешь себя как дома.
+  Маленькая вывеска (sign) прикрепленна к стойке.
 ~
 0 CDKS inside
 E
@@ -4870,13 +4881,13 @@ S
 @eng The Defunct Reception@rus Заброшенная приемная~
 @eng You are standing in a dusty, defunct reception.  The staircase leads
 down to the entrance hall.
-@rus Вы стоите в грязной, заброшенной приемной. Лестница ведет вниз (down) во
+@rus Ты стоишь в грязной, заброшенной приемной. Лестница ведет вниз (down) во
 входной зал.
 ~
 0 DS inside
 D5
 @eng You see the entrance hall.
-@rus Вы видите входной зал.
+@rus Ты видишь входной зал.
 ~
 ~
 Z -1 3006
@@ -4887,9 +4898,9 @@ S
 fine bread fills the room.  The bread and Danish are arranged in fine order
 on the shelves, and seem to be of the finest quality.
 A small sign is on the counter.
-@rus Вы стоите внутри маленькой пекарни. Сладкий аромат пироженных(pastry) и хлеба
-наполняет комнату. Хлеба и пирожные ровными рядами выложенны на полки.
-  Маленькая записка находится на приловке.
+@rus Ты стоишь внутри маленькой пекарни. Сладкий аромат пироженных (pastry) и
+хлеба наполняет комнату. Хлеба и пирожные ровными рядами выложенны на полки.
+  Маленькая записка (sign) находится на прилавке.
 ~
 0 S inside
 E
@@ -4912,19 +4923,19 @@ Free instructions provided by the store:
 ~
 D2
 @eng You see the main street.
-@rus Вы видите Главную улицу.
+@rus Ты видишь Главную улицу.
 ~
 ~
 Z -1 3013
 S
 #3010
-@eng The General Store@rus Центральный склад.~
+@eng The General Store@rus Центральный склад~
 @eng You are inside the general store.  All sorts of items are stacked on shelves
 behind the counter, safely out of your reach.
 A small note hangs on the wall.
-@rus Вы находитесь внутри центрального склада. Всякого рода вещи разбросанны на 
-полках позади прилвка, до которых вам не дотянуться. 
-  Маленькая записка(note) прибита к стене.
+@rus Ты находишься внутри центрального склада. Всякого рода вещи разбросанны на 
+полках позади прилавка, до которых тебе не дотянуться. 
+  Маленькая записка (note) прибита к стене.
 ~
 0 DS inside
 E
@@ -4939,7 +4950,7 @@ The note reads:
 ~
 D1
 @eng You see the High Road .
-@rus Вы видите главную дорогу.
+@rus Ты видишь главную дорогу.
 ~
 ~
 Z -1 3067
@@ -4947,7 +4958,7 @@ S
 #3011
 @eng The Weapon Shop@rus Оружейный магазин~
 @eng You are inside the weapon shop.  There is a small note on the counter.
-@rus Вы находитесь в оружейном магазине. На прилавке лежит маленькая табличка.
+@rus Ты находишься в оружейном магазине. На прилавке лежит маленькая табличка.
 ~
 0 DS inside
 E
@@ -4961,7 +4972,8 @@ The note reads:
   Sell  - Sell an item.
 ~
 D2
-You see the main street.
+@eng You see the main street.
+@rus Ты видишь Главную улицу.
 ~
 ~
 Z -1 3016
@@ -4972,33 +4984,33 @@ S
 entrance to the Guild of Magic Users.  The street continues east towards the
 market square.  The magic shop is to the north and to the west is the city
 gate.
-@rus Вы находитесь в конце главной улицы Мидгаарда. На юге(south) расположен вход
-в гильдию магов. Улица заканчивается на востоке(east) рыночной площадью.
-Магазин магических вещей находится на севере(north), а на западе(west) - 
+@rus Ты находишься в конце главной улицы Мидгаарда. На юге (south) расположен вход
+в гильдию магов. Улица заканчивается на востоке (east) рыночной площадью.
+Магазин магических вещей находится на севере (north), а на западе (west) - 
 городские ворота.
 ~
 0 S city
 D0
 @eng You see the magic shop.
-@rus Вы видите магазин магических вещей.
+@rus Ты видишь магазин магических вещей.
 ~
 ~
 Z -1 3033
 D1
 @eng You see the main street.
-@rus Вы видите Главную дорогу.
+@rus Ты видишь Главную дорогу.
 ~
 ~
 Z -1 3013
 D2
 @eng You see the entrance to the Guild of Magic Users.
-@rus Вы видите вход в гильдию магов.
+@rus Ты видишь вход в гильдию магов.
 ~
 ~
 Z -1 3017
 D3
 @eng You see the city gate.
-@rus Вы видите городские ворота.
+@rus Ты видишь городские ворота.
 ~
 ~
 Z -1 3040
@@ -5008,32 +5020,32 @@ S
 @eng You are on the main street passing through the City of Midgaard.  South of
 here is the entrance to the Armoury, and the bakery is to the north.  East of
 here is the market square.
-@rus Вы находитесь на Главной улице, проходящей по Мидгаарду. На юге(south) отсюда
-расположен вход в арсенал, а на севере(north) - пекарня. На востоке(east)
-отсюда раскинулась рыночная площадь.
+@rus Ты находишься на Главной улице, проходящей по Мидгаарду. На юге (south)
+отсюда расположен вход в арсенал, а на севере (north) - пекарня. На востоке
+(east) отсюда раскинулась рыночная площадь.
 ~
 0 S city
 D0
 @eng You see the bakery.
-@rus Вы видите пекарню.
+@rus Ты видишь пекарню.
 ~
 ~
 Z -1 3009
 D1
 @eng You see the market square.
-@rus Вы видите рыночную площадь.
+@rus Ты видишь рыночную площадь.
 ~
 ~
 Z -1 3014
 D2
 @eng You see the armoury.
-@rus Вы видите арсенал.
+@rus Ты видишь арсенал.
 ~
 ~
 Z -1 3020
 D3
 @eng You see the main street.
-@rus Вы видите Главную дорогу.
+@rus Ты видишь Главную дорогу.
 ~
 ~
 Z -1 3012
@@ -5044,10 +5056,10 @@ S
 A large, peculiar looking statue is standing in the middle of the square.
 Roads lead in every direction, north to the temple square, south to the
 road to common square, east and westbound is the main street.
-@rus Вы стоите на рыночной площади, знаменитой Площади Мидгаарда. Большие,
+@rus Ты стоишь на рыночной площади, знаменитой Площади Мидгаарда. Большие,
 странные статуи расположены посреди площади. Дороги ведут в разные стороны: 
-на север(north) к соборной площади, на юг(south) идет дорога к общей площади,
-а на запад(west) и на восток(east) - основная дорога.
+на север (north) к соборной площади, на юг (south) идет дорога к общей площади,
+а на запад (west) и на восток (east) - основная дорога.
 ~
 0 S city
 E
@@ -5056,13 +5068,13 @@ What you see is the Midgaard Worm, stretching around the Palace of Midgaard.
 ~
 D0
 @eng You see the temple square.
-@rus Вы видите соборную площадь.
+@rus Ты видишь соборную площадь.
 ~
 ~
 Z -1 3005
 D1
 @eng You see the main street.
-@rus Вы видите Главную улицу.
+@rus Ты видишь Главную улицу.
 ~
 ~
 Z -1 3015
@@ -5074,7 +5086,7 @@ D2
 Z -1 3065
 D3
 @eng You see the main street.
-@rus Вы видите Главную улицу.
+@rus Ты видишь Главную улицу.
 ~
 ~
 Z -1 3013
@@ -5084,33 +5096,33 @@ S
 @eng You are on Main Street crossing through town.  To the north is the Holy 
 temple, and the main street continues east.  To the west you see and hear the
 market place and to the south is the Jeweller's Shop.
-@rus Вы находитесь на Главной улице, пересекающей весь город насквозь. На 
-севере(north) расположен Святой храм, а Главная улица продолжается на  
-востоке(east). На западе(west) вы видете Рыночную площадь и на юге(south) -  
-ювелирный магазин.
+@rus Ты находишься на Главной улице, пересекающей весь город насквозь. На 
+севере (north) расположен Святой храм, а Главная улица продолжается на  
+востоке (east). На западе (west) ты видешь Рыночную площадь и на юге 
+(south) - ювелирный магазин.
 ~
 0 S city
 D0
 @eng You see the enterance of Holy Temple.
-@rus Вы видите вход в Святой храм.
+@rus Ты видишь вход в Святой храм.
 ~
 ~
 Z -1 3063
 D1
 @eng You see Main Street.
-@rus Вы видите Главную улицу.
+@rus Ты видишь Главную улицу.
 ~
 ~
 Z -1 3016
 D2
 @eng You see the Jeweller's Shop.
-@rus Вы видите ювелирный магазин.
+@rus Ты видишь ювелирный магазин.
 ~
 ~
 Z -1 3034
 D3
 @eng You see the market square.
-@rus Вы видите рыночную площадь.
+@rus Ты видишь рыночную площадь.
 ~
 ~
 Z -1 3014
@@ -5120,32 +5132,32 @@ S
 @eng The main street, to the north is the weapon shop and to the south is the
 Guild of Swordsmen.  To the east you leave town and to the west the street
 leads to the market square.
-@rus Главная улица, на севере(north) расположен оружейный магазин, а на
-юге(south) - Гильдия мечников. На востоке(east) вы можете выйти из города. 
-А на западе(west) улица ведет к рыночной площади.
+@rus Главная улица, на севере (north) расположен оружейный магазин, а на
+юге (south) - Гильдия мечников. На востоке (east) ты можешь выйти из города. 
+А на западе (west) улица ведет к рыночной площади.
 ~
 0 S city
 D0
 @eng You see the weapon shop.
-@rus Вы видите оружейный магазин.
+@rus Ты видишь оружейный магазин.
 ~
 ~
 Z -1 3011
 D1
 @eng You see the city gate.
-@rus Вы видите городские ворота.
+@rus Ты видишь городские ворота.
 ~
 ~
 Z -1 3041
 D2
 @eng You see the swordsmen's guild.
-@rus Вы видите гильдию мечников.
+@rus Ты видишь гильдию мечников.
 ~
 ~
 Z -1 3021
 D3
 @eng You see the main street leading to the market square.
-@rus Вы видите Главную улицу, уходящую к рыночной площади.
+@rus Ты видишь Главную улицу, уходящую к рыночной площади.
 ~
 ~
 Z -1 3015
@@ -5158,53 +5170,67 @@ S
 0 DS inside
 D0
 @eng You see the main street.
-@rus Вы видите Главную улицу.
+@rus Ты видишь Главную улицу.
 ~
 ~
 Z -1 3012
 D2
 @eng You see your favorite place, the Mage's Bar.
-@rus Вы видите ваше любимое место, бар магов
+@rus Ты видишь ваше любимое место, бар магов.
 ~
 ~
 Z -1 3018
 S
 #3018
 @eng Mage's Bar@rus Бар магов~
-The bar is one of the wierdest in the land.  Mystical images float around
+@eng The bar is one of the wierdest in the land.  Mystical images float around
 the air.  Illusions of fine furniture appear all around the room.
+@rus Этот бар один из самых загадочных на земле. Таинсвенные образы плавают в 
+воздухе. Иллюзии богатой мебели окружают тебя.
 ~
 0 CDSXY inside
 D0
-You see the lobby.
+@eng You see the lobby.
+@rus Ты видишь вестибюль.
 ~
 ~
 Z -1 3017
 D1
-You see the laboratory.
+@eng You see the laboratory.
+@rus Ты видишь лабораторию.
 ~
 ~
 Z -1 3019
 S
 #3019
 @eng Mage's Laboratory@rus Магическая лаборатория~
-This is the Magical Experiments Laboratory.  Dark smoke-stained stones
+@eng This is the Magical Experiments Laboratory.  Dark smoke-stained stones
 arch over numerous huge oaken tables, most of these cluttered with strange-
 looking pipes and flasks.  The floor is covered with half-erased pentagrams
 and even weirder symbols, and a blackboard in a dark corner has only been
 partially cleaned, some painful-looking letters faintly visible.  A well in
 the middle of the floor leads down into darkness.  Vile smells waft from the
 depths.
+@rus Это лаборатория для магических эскпериментов. Черная из покрытых копотью 
+камней арка возвышается над многочисленными огромными дубовыми столами, 
+большинство которых завалено странными трубками и колбами. Пол покрыт 
+полустертыми пентаграммами и загадочными символами. Письмена на доске в темном
+углу частично стерты. Но некоторые из этих кособоких букв еще можно разобрать.
+Колодец посреди комнаты уходит вниз (down) в непроглядную тьму. Отвратительный
+запах доносится из глубины.
 ~
 0 CDSXY inside
 D3
-You see the bar.
+@eng You see the bar.
+@rus Ты видишь бар.
 ~
 ~
 Z -1 3018
 D5
-You can't see what is down there, it is too dark.  Looks like it would be
+@eng You can't see what is down there, it is too dark.  Looks like it would be
 impossible to climb back up.
+@rus Ты ничего не видишь там внизу, там очень темно. Похоже ты не сможешь 
+вернуться оттуда назад наверх.
 ~
 ~
 Z -1 7017
@@ -5214,9 +5240,9 @@ S
 @eng The armoury with all kinds of armours on the walls and in the window.  You
 see helmets, shields and chain mails.  To the north is the main street.
 On the wall is a small note.
-@rus Арсенал всевозможных доспехов, развешанных на стенах и в окошке. Вы видите 
-шлемы, щиты и кольчуги. На севере(north) находится Главная улица.
-К стене прикреплена маленькая записка.
+@rus Арсенал всевозможных доспехов, развешанных на стенах и в окошке. Ты видишь 
+шлемы, щиты и кольчуги. На севере (north) находится Главная улица.
+К стене прикреплена маленькая записка (note).
 ~
 0 DS inside
 E
@@ -5233,7 +5259,7 @@ You can use these commands for trading:
 ~
 D0
 @eng You see the main street.
-@rus Вы видите Главную улицу.
+@rus Ты видишь Главную улицу.
 ~
 ~
 Z -1 3013
@@ -5244,54 +5270,64 @@ S
 careful not to say something wrong (or right).  To the east is the bar and to
 the north is the main street.
 @rus Входной зал гильдии мечников. Это место где не любят трепать языком. На 
-востоке(east) находится бар, а на севере(north) - Главная улица.
+востоке (east) находится бар, а на севере (north) - Главная улица.
 ~
 0 DS inside
 D0
 @eng You see the main street.
-@rus Вы видите Главную улицу.
+@rus Ты видишь Главную улицу.
 ~
 ~
 Z -1 3016
 D1
 @eng You see the swordsmen's bar, many noises comes from there.
-@rus Вы видите бар мечников, откуда слышится много шума.
+@rus Ты видишь бар мечников, откуда слышится много шума.
 ~
 ~
 Z -1 3022
 S
 #3022
 @eng The Bar of Swordsmen@rus Бар мечников~
-The bar of swordsmen, once upon a time beautifully furnished.  But now the
+@eng The bar of swordsmen, once upon a time beautifully furnished.  But now the
 furniture is all around you in small pieces.  To the south is the yard, and
 to the west is the entrance hall.
+@rus Бар мечников, когда-то прекрасно обставленный. Но сейчас вокруг тебя остались
+одни лишь маленькие кусочки, когда-то целой мебели. На юге (south) находится
+двор, а на западе (west) - входной зал в гильдию.
 ~
 0 CDSXY inside
 D2
-You see the practice yard.
+@eng You see the practice yard.
+@rus Ты видишь тренеровочный зал.
 ~
 ~
 Z -1 3023
 D3
-You see the entrance hall to the thieves guild.
+@eng You see the entrance hall to the thieves guild.
+@rus Ты видишь вход в гильдию мечников.
 ~
 ~
 Z -1 3021
 S
 #3023
 @eng The Tournament and Practice Yard@rus Тренировочная площадка~
-The practice yard of the fighters.  To the north is the bar.  A well leads
+@eng The practice yard of the fighters.  To the north is the bar.  A well leads
 down into darkness.
+@rus Тренировочный зал воинов. На севере (north) расположен бар. Колодец ведет 
+вниз (down) в непроглядную тьму.
 ~
 0 CDSXY inside
 D0
-You see the bar.
+@eng You see the bar.
+@rus Ты видишь бар.
 ~
 ~
 Z -1 3022
 D5
-You can't see what is down there, it is too dark.  Looks like it would be
+@eng You can't see what is down there, it is too dark.  Looks like it would be
 impossible to climb back up.
+@rus Ты не видишь ничего вниз, там очень темно. Похоже ты не сможешь выбраться 
+оттуда назад наверх.
 ~
 ~
 Z -1 7048
@@ -5301,32 +5337,32 @@ S
 @eng You are at the poor alley. South of here is the Grubby Inn and to the
 east you see common square. Melancholy's map shop is north. The alley continues 
 further west.
-@rus Вы стоите в переулке бедняков. На юге(south) отсюда находится грязная
-таверна, а на севере(north) вы видите магазин карт Меланхолика. Переулок
-заканчивается дальше на западе(west).
+@rus Ты стоишь в переулке бедняков. На юге (south) отсюда находится грязная
+таверна, а на севере (north) вы видите магазин карт Меланхолика. Переулок
+заканчивается дальше на западе (west).
 ~
 0 S city
 D0
 @eng You see Melancholy's Map Shop
-@rus Вы видите магазин карт Меланхолика.
+@rus Ты видишь магазин карт Меланхолика.
 ~
 ~
 Z -1 3160
 D1
 @eng You see the common square.
-@rus Вы видите Общую площадь.
+@rus Ты видишь Общую площадь.
 ~
 ~
 Z -1 3025
 D2
 @eng You see the Inn.
-@rus Вы видите таверну.
+@rus Ты видишь таверну.
 ~
 ~
 Z -1 3048
 D3
 @eng You see the poor alley.
-@rus Вы видите переулок бедняков.
+@rus Ты видишь переулок бедняков.
 ~
 ~
 Z -1 3044
@@ -5337,33 +5373,33 @@ S
 the poor alley and to the east is the dark alley.  To the north, this square
 is connected to the market square by a road.  From the south you notice a 
 nasty smell.
-@rus Общая площадь, люди проходят мимо вас, разговаривая каждый о своем. На 
-западе(west) находится переулок бедняков, а на востоке(east) - темный переулок.
-На севере(north) эта площадь стыкуется с рыночной площадью посредством дороги.
-С юга(south) вы чувствуете неприятный запах. 
+@rus Общая площадь, люди проходят мимо, разговаривая каждый о своем. На 
+западе (west) находится переулок бедняков, а на востоке (east) - темный
+переулок. На севере (north) эта площадь стыкуется с рыночной площадью
+посредством дороги. С юга (south) ты чувствуешь неприятный запах.
 ~
 0 S city
 D0
 @eng You see the High road leading to the market place.
-@rus Вы видите главную дорогу, ведущую на рыночную площадь.
+@rus Ты видишь главную дорогу, ведущую на рыночную площадь.
 ~
 ~
 Z -1 3067
 D1
 @eng You see the dark alley.
-@rus Вы видите темную аллею.
+@rus Ты видишь темную аллею.
 ~
 ~
 Z -1 3026
 D2
 @eng You see the city dump.
-@rus Вы видите городскую свалку.
+@rus Ты видишь городскую свалку.
 ~
 ~
 Z -1 3030
 D3
 @eng You see the poor alley.
-@rus Вы видите переулок бедняков.
+@rus Ты видишь переулок бедняков.
 ~
 ~
 Z -1 3024
@@ -5373,9 +5409,9 @@ S
 @eng The dark alley, to the west is the common square and to the south is the
 Guild of Thieves.  Grebe's Tavern, the famous sailor's dive, is north.
 The alley continues east.
-@rus Темный переулок, на западе(west) - Общая площадь, а на юге(south) - Гильдия 
-(guild) воров. Таверна Греба, знаменитый притон моряков, находится на
-севере(north). Переулок заканчивается на востоке(east).
+@rus Темный переулок, на западе (west) - Общая площадь, а на юге (south) -
+Гильдия (guild) воров. Таверна Греба, знаменитый притон моряков, находится на
+севере (north). Переулок заканчивается на востоке(east).
 ~
 0 S city
 E
@@ -5385,7 +5421,7 @@ guild~
 ~
 D0
 @eng You see a foul-smelling sailor's dive.
-@rus Вы видите противно пахнущий притон моряков.
+@rus Ты видишь противно пахнущий притон моряков.
 ~
 ~
 Z -1 3352
@@ -5397,41 +5433,50 @@ D1
 Z -1 3045
 D2
 @eng You see the entrance to the thieves guild.
-@rus Вы видите вход в гильдию воров.
+@rus Ты видишь вход в гильдию воров.
 ~
 ~
 Z -1 3027
 D3
 @eng You see the common square.
-@rus Вы видите общую площадь.
+@rus Ты видишь общую площадь.
 ~
 ~
 Z -1 3025
 S
 #3027
 @eng Entrance Hall to the Guild of Thieves@rus Вход в гильдию воров~
-The entrance hall to the thieves' and assassins' guild.  A place where you
+@eng The entrance hall to the thieves' and assassins' guild.  A place where you
 can lose both your life and your money, if you are not careful.  To the north
 is the dark alley and to the east is the thieves' bar.
+@rus Входной зал гильдии воров и убийц. В этом месте ты можешь потерять как деньги,
+так и саму жизнь, если ты будешь не осторожен. На севере (north) находится
+темный переулок, а на востоке (east) - бар воров.
 ~
 0 DS inside
 D0
-You see the alley.
+@eng You see the alley.
+@rus Ты видишь переулок.
 ~
 ~
 Z -1 3026
 D1
-You see the thieves bar, where everything disappears.
+@eng You see the thieves bar, where everything disappears.
+@rus Ты видишь бар воров, где все исчезает.
 ~
 ~
 Z -1 3028
 S
 #3028
 @eng The Thieves Bar@rus Бар воров~
-The bar of the thieves.  Once upon a time this place was beautifully
+@eng The bar of the thieves.  Once upon a time this place was beautifully
 furnished, but now it seems almost empty.  To the south is the yard, and to
 the west is the entrance hall.
    (Maybe the furniture has been stolen?!)
+@rus Бар воров. Когда-то это место было красиво обставлено, но сейчас здесь 
+абсолютно пусто. На юге (south) находится двор, а на западе (west) - входной
+зал.
+          (Может быть мебель была украдена?!)
 ~
 0 CDSXY inside
 E
@@ -5439,30 +5484,37 @@ furniture~
 As you look at the furniture, the chair you sit on disappears.
 ~
 D2
-You see the secret yard.
+@eng You see the secret yard.
+@rus Ты видишь секретное место.
 ~
 ~
 Z -1 3029
 D3
-You see the entrance hall to the thieves guild.
+@eng You see the entrance hall to the thieves guild.
+@rus Ты видишь входной зал гильдии воров.
 ~
 ~
 Z -1 3027
 S
 #3029
 @eng The Secret Yard@rus Потайное место~
-The secret practice yard of thieves and assassins.  To the north is the
+@eng The secret practice yard of thieves and assassins.  To the north is the
 bar.  A well leads down into darkness.
+@rus Секретный тренировочный зал воров и убийц. На севере (north) находится бар.
+Колодец уходит вниз (down) в непроглядную тьму.
 ~
 0 CDSXY inside
 D0
-You see the bar.
+@eng You see the bar.
+@rus Ты видишь бар.
 ~
 ~
 Z -1 3028
 D5
-You can't see what is down there, it is too dark.  Looks like it would be
+@eng You can't see what is down there, it is too dark.  Looks like it would be
 impossible to climb back up.
+@rus Ты ничего не видишь внизу, там очень темно. Похоже ты не сможешь выбратся 
+оттуда обратно наверх.
 ~
 ~
 Z -1 7043
@@ -5517,7 +5569,7 @@ The sign reads:
 ~
 D2
 @eng You see the Alley.
-@rus Вы видите переулок.
+@rus Ты видишь переулок.
 ~
 ~
 Z -1 3045
@@ -5537,10 +5589,10 @@ S
 Dividing the room in two is a large desk, and on the wall behind it are
 numerous shelves crammed with jars, bottles, books and scrolls of all
 sorts and sizes.
-@rus Вы находитесь в маленькой комнате, где пахнет редкими химическими прпаратами
+@rus Ты находишься в маленькой комнате, где пахнет редкими химическими препаратами
 и специями. Внутри комнаты стоят два длинных стола, позади которых находятся
-многочисленные полки, заполненные банками, бутылками, книгами и свитками 
-всевозможных видов и размеров.
+многочисленные полки, заполненные банками, бутылками (bottles), книгами
+(books) и свитками (scrolls) всевозможных видов и размеров.
 ~
 0 DS inside
 E
@@ -5558,7 +5610,7 @@ Each scroll is stored in a leather tube that protects it from moist.
 ~
 D2
 @eng You see the main street.
-@rus Вы видите Главную улицу.
+@rus Ты видишь Главную улицу.
 ~
 ~
 Z -1 3012
@@ -5569,11 +5621,11 @@ S
 from the small oil lamps on the walls is reflected in the hard, polished
 surface of the big mahogany desk that stands in the centre of the room.
 A small sign with golden letters stands on the desk.
-@rus Вы находитесь в маленькой, прекрасно обставленной комнате. Мягкий свет, 
-излучаемый небольшими масляными лампами на стенах, отражается в темной, 
-полированной поверхности письменного стола из красного дерева, стоящего в 
-центре комнаты. 
-Вывеска с золотыми письменами стоит на столе.
+@rus Ты находишься в маленькой, прекрасно обставленной комнате. Мягкий свет, 
+излучаемый небольшими масляными лампами (lamp) на стенах, отражается в темной, 
+полированной поверхности письменного стола (desk) из красного дерева, стоящего
+в центре комнаты.
+Вывеска (sign) с золотыми письменами стоит на столе.
 ~
 0 DS inside
 E
@@ -5596,7 +5648,7 @@ The golden letters say :-
 ~
 D0
 @eng You see Main Street.
-@rus Вы видите Главную улицу.
+@rus Ты видишь Главную улицу.
 ~
 ~
 Z -1 3015
@@ -5644,9 +5696,9 @@ S
 @eng You are by two small towers that have been built into the city wall and
 connected with a footbridge across the heavy wooden gate.  Main Street leads
 east and Wall Road leads both north and south from here.
-@rus  Вы стоите между двумя башнями, которые построены в городской стене и 
+@rus  Ты стоишь между двумя башнями, которые построены в городской стене и 
 соединены мостиком поверх тяжелых деревянных ворот. Главная улица уходит на
-восток(east), а дорога вдоль городской стены - на север(north) и юг(south).
+восток (east), а дорога вдоль городской стены - на север (north) и юг (south).
 ~
 0 S city
 E
@@ -5678,14 +5730,14 @@ D0
 Z -1 3257
 D1
 @eng You see Main Street.
-@rus Вы видите Главную дорогу.
+@rus Ты видишь Главную дорогу.
 ~
 ~
 Z -1 3012
 D2
 @eng You see the road running along the inner side of the city wall.  You notice
 that it is called Wall Road.
-@rus Вы видите дорогу, уходящую вдоль внутренней городской стены. 
+@rus Ты видишь дорогу, уходящую вдоль внутренней городской стены.
 ~
 ~
 Z -1 3042
@@ -5702,10 +5754,10 @@ S
 connected with a footbridge across the heavy wooden gate.  Main Street leads
 west from here.  Wall road crosses the street, heading north and south along
 the city wall.
-@rus Вы стоите между двумя башнями, которые построены в городской стене и
-соединены поверх тяжелых деревянных ворот. Главная улица уходит на запад(west)
-отсюда. Дорога вдоль городской стены пересекает улицу и уходит на север(north)
-и на юг(south).
+@rus Ты стоишь между двумя башнями, которые построены в городской стене и
+соединены поверх тяжелых деревянных ворот. Главная улица уходит на запад (west)
+отсюда. Дорога вдоль городской стены пересекает улицу и уходит на север (north)
+и на юг (south).
 ~
 0 S city
 E
@@ -5715,7 +5767,7 @@ from one tower to the other.
 ~
 E
 gate~
-It is a set of very big double doors made from hard wood.  They have been
+@eng It is a set of very big double doors made from hard wood.  They have been
 reinforced with large iron bands to make them even more sturdy.  One of the
 doors is equipped with a very big lock.
 ~
@@ -5737,7 +5789,7 @@ D0
 Z -1 3267
 D1
 @eng You see the city gate.
-@rus Вы видите городские ворота.
+@rus Ты видишь городские ворота.
 ~
 gate~
 Z 3379 3053
@@ -5748,7 +5800,7 @@ D2
 ~
 Z 0 3250
 D3
-@eng You see Main Street.@rus Вы видите Главную улицу.
+@eng You see Main Street.@rus Ты видишь Главную улицу.
 ~
 ~
 Z -1 3016
@@ -5849,14 +5901,14 @@ S
 @eng Alley at Levee@rus Возле набережной~
 @eng You are standing in the alley which continues east and west.  South of
 here you see the levee.  North is the Pet Shop.
-@rus Вы стоите на переулке, который заканчивается на западе(west) и востоке(easat)
-отсюда. На юге(south) вы видите набережную. На севере(north) расположен
-зоомагазин.
+@rus Ты стоишь на переулке, который заканчивается на западе (west) и востоке
+(east) отсюда. На юге (south) ты видишь набережную. На севере (north)
+расположен зоомагазин.
 ~
 0 S city
 D0
 @eng You see, hear, and smell the pet shop.
-@rus Вы видите, слышите и обоняете зоомагазин.
+@rus Ты видишь, слышишь и обоняешь зоомагазин.
 ~
 ~
 Z 0 3031
@@ -5868,7 +5920,7 @@ D1
 Z -1 3046
 D2
 @eng You see the levee.
-@rus Вы видите набережную.
+@rus Ты видишь набережную.
 ~
 ~
 Z -1 3049
@@ -5885,33 +5937,33 @@ S
 Wall road loops around the city to your east, and you can see an old 
 three-story warehouse to the south.  The Fountain of Youth Apothecary is 
 north.
-@rus Вы стоите в восточной части переулка, ближней к городской стене. Дорога вдоль
-городской стены делает круг вокруг города на западе(east) отсюда, и вы можете
-видеть старый трехэтажный склад на юге(south). Аптека "Источник молодости" 
-расположен на севере(north).
+@rus Ты стоишь в восточной части переулка, ближней к городской стене. Дорога вдоль
+городской стены делает круг вокруг города на западе(east) отсюда, и ты можешь
+видеть старый трехэтажный склад на юге (south). Аптека "Источник молодости" 
+расположен на севере (north).
 ~
 0 S city
 D0
 @eng You see a pricey-looking potion shop.
-@rus Вы видите магазин микстур.
+@rus Ты видишь магазин микстур.
 ~
 ~
 Z 0 3056
 D1
 @eng You see wall road, running a north-south loop around the city.
-@rus Вы видите дорогу вокруг городской стены, идущая с севера на юг вокруг города.
+@rus Ты видишь дорогу вокруг городской стены, идущая с севера на юг вокруг города.
 ~
 ~
 Z -1 3251
 D2
 @eng You see the warehouse.
-@rus Вы видите склад.
+@rus Ты видишь склад.
 ~
 ~
 Z -1 3050
 D3
 @eng You see the alley.
-@rus Вы видите переулок.
+@rus Ты видишь переулок.
 ~
 ~
 Z -1 3045
@@ -5967,21 +6019,21 @@ S
 @eng You are at the levee.  South of here you see the river gently flowing west.
 The river bank is very low making it possible to enter the river.  Directly
 across the river you can see a small boat landing built off of Kate's Diner.
-@rus Вы находитесь на набережной. На юге(south) отсюда вы видите реку, медленно 
-протекающую на запад(west). Берег реки очень пологий, что делает возможным
-спуск к реке. На противоположном берегу вы можете увидеть маленькую лодку, на
+@rus Ты находишься на набережной. На юге (south) отсюда ты видишь реку, медленно 
+протекающую на запад (west). Берег реки очень пологий, что делает возможным
+спуск к реке. На противоположном берегу ты можешь увидеть маленькую лодку, на
 которой расположен ресторанчик Катти.
 ~
 0 S city
 D0
 @eng You see the Alley.
-@rus Вы видите переулок.
+@rus Ты видишь переулок.
 ~
 ~
 Z -1 3045
 D2
 @eng You see the river flowing west.
-@rus Вы видите реку, протекающую на запад.
+@rus Ты видишь реку, протекающую на запад.
 ~
 ~
 Z -1 3203
@@ -5991,19 +6043,20 @@ S
 @eng You are inside the only room in the old warehouse.  The place is very dusty
 and appears to have been unused for many years.  The skylight spills
 violet-tinged light.
-@rus Вы находитесь внутри единственной комнаты старого склада. Это место очень 
-пыльное и давно не используемое. Сверху падает светло-фиолетовых свет.
+@rus Ты находишься внутри единственной комнаты старого склада. Это место очень 
+пыльное и давно не использовалось по назначению. Сверху падает 
+бледно-фиолетовый свет.
 ~
 0 DS inside
 D0
 @eng You see the alley.
-@rus Вы видите переулок.
+@rus Ты видишь переулок.
 ~
 ~
 Z -1 3046
 D4
 @eng You see machine dreams and taste violet phosphor.
-@rus Вы видите машину снов и фиолетовый фосфорный свет.
+@rus Ты видишь машину снов и фиолетовый фосфорный свет.
 ~
 ~
 Z 0 8604
@@ -6047,9 +6100,9 @@ S
 connected with a footbridge across the heavy wooden gate.  To the west you
 can see the edge of a big forest. A small dusty trail leads north along the
 wall.
-@rus  Вы стоите между двумя башнями, которые построены в городской стене и 
-соединены мостиком поверх тяжелых деревянных ворот. На западе(west) видна 
-опушка большого леса. Узкая пыльная тропинка уходит на север(north) вдоль
+@rus  Ты стоишь между двумя башнями, которые построены в городской стене и 
+соединены мостиком поверх тяжелых деревянных ворот. На западе (west) видна 
+опушка большого леса. Узкая пыльная тропинка уходит на север (north) вдоль
 стены.
 ~
 0 S city
@@ -6099,7 +6152,7 @@ S
 connected with a footbridge across the heavy wooden gate.  To the east the
 plains stretch out in the distance. To the north a small dusty trail follow
 the city wall.
-@rus  Вы стоите между двумя башнями, которые построены в городской стене и 
+@rus  Ты стоишь между двумя башнями, которые построены в городской стене и 
 соединены мостиком поверх тяжелых деревянных ворот. На востоке(east) видны 
 равнины раскинувшиеся вдали. Узкая пыльная тропинка уходит на север(north)
 вдоль стены.
@@ -6115,7 +6168,7 @@ gate~
 @eng It is a set of very big double doors made from hard wood.  They have been
 reinforced with large iron bands to make them even more sturdy.  One of the
 doors is equipped with a very big lock.
-@rus Вы видите городские ворота.
+@rus Ты видишь городские ворота.
 ~
 E
 tower towers~
@@ -6134,7 +6187,7 @@ D0
 ~
 Z -1 3908
 D1
-@eng You see the plains.@rus Вы видите равнины.
+@eng You see the plains.@rus Ты видишь равнины.
 ~
 ~
 Z -1 3503
@@ -6152,9 +6205,9 @@ A huge altar made from white polished marble is standing in front of you and
 behind it is a ten foot tall sitting statue of Odin, the King of the Gods.
 The back of the altar opens into a a beautiful atrium, above which can be
 seen a rainbow.
-@rus Вы находитесь у храмового алтаря в северном конце Храма Мидгаарда. Огромный 
+@rus Ты находишься у храмового алтаря в северном конце Храма Мидгаарда. Огромный 
 алтарь, изготовленный из белого шлифованного мрамора, стоит лицевой стороной к
-вам, а за ним находится десятифутовая статуя сидящего Одина, Короля Богов.
+тебе, а за ним находится десятифутовая статуя сидящего Одина, Короля Богов.
 Позади алтаря открывается прекрасный атриум, над которым видна радуга.
 ~
 0 DKS inside
@@ -6165,13 +6218,13 @@ single block of white virgin marble.
 ~
 D0
 @eng You see the room of templeman.
-@rus Вы видите комнату жреца.
+@rus Ты видишь комнату жреца.
 ~
 door~
 Z -1 3077
 D2
 @eng You see the southern end of the temple.
-@rus Вы видите южную часть храма.
+@rus Ты видишь южную часть храма.
 ~
 ~
 Z -1 3001
@@ -6190,6 +6243,7 @@ and curative philtres.  He turns as you enter, and looks on with avarice.
 Judging from the furnishings, he's been made very wealthy by his trade.
 @rus Старый человек стоит позади прилавка, изготовляя странные любовные напитки и 
 приворотные зелья. Он поворачивается к вам и смотрит на вас с жадностью. Он
+очень сильно разбогател, продавая свой товар.
 ~
 0 S inside
 D2
@@ -6217,41 +6271,54 @@ Z 0 3005
 S
 #3060
 @eng Enterance to Anti-Paladin's guild@rus Вход в гильдию анти-паладинов~
-You are standing at the enterance, west of the practice yard. The place 
+@eng You are standing at the enterance, west of the practice yard. The place 
 is gloomy lit, and no windows can be noticed. The bothering silence makes 
 you think that this place was abondoned long time ago.  Two young man 
 bareing longswords guard the doorway to the east.
+@rus Ты стоишь на входе в гильдию, на востоке (east) находится тренировочный зал.
+В этом месте царит полумрак, здесь нет ни одного окна. Гнетущая тишина наводит
+тебя на мысль, что это место покинуто много веков назад. Два молодых человека
+с обнаженными длинными мечами охраняют дверь на восток.
 ~
 0 DS inside
 D0
-North is the poor alley, even more safe than this dark temple.
+@eng North is the poor alley, even more safe than this dark temple.
+@rus На севере находится аллея бедняков, сохранившаяся намного лучше, чем этот 
+храм Тьмы.
 ~
 ~
 Z -1 3044
 D1
-The room looks to be a practice yard.
+@eng The room looks to be a practice yard.
+@rus Комната выглядит как тренировочный зал.
 ~
 ~
 Z -1 3061
 S
 #3061
 @eng The Torture Chamber@rus Комната пыток~
-This unholy guild of yours does not contain many combat weapons, and 
+@eng This unholy guild of yours does not contain many combat weapons, and 
 armors. About the center of the room is a book stand, and an old black 
 book resting closed on it. The book seems to represent the spells of the 
 evil. This place also does not have any windows, what makes you feel 
 strong and safe here. Guildmaster's torture tools are spread all around 
 the room.
+@rus Твоя нечистая гильдия не содержит много боевого оружия и доспехов. В центре
+комнаты покоится закрытая старая черная книга. Эта книга переполнена
+заклинаниями Великого Зла. Это место не имеет окон, и поэтому ты здесь
+чувствуешь себя сильным и защищенным. Орудия пыток хозяина гильдии раскиданны
+повсюду вокруг.
 ~
 0 DSXY inside
 D3
-Exit to the tample hall is to the west.
+@eng Exit to the tample hall is to the west.
+@rus Выход в храмовый зал на западе отсюда.
 ~
 ~
 Z -1 3060
 S
 #3062
-Underground Chamber~
+@eng Underground Chamber@rus Подземная комната~
 You are standing in a large chamber, lit by only the openings of the 
 air channels to the surface.  The walls look solid rock, and strong mud 
 sometimes.  The floor is compleately covered with wood, naked.  You can 
@@ -6267,35 +6334,48 @@ ABZ -1 3048
 S
 #3063
 @eng Holy Temple@rus Святой храм~
-You are standing at the middle of an huge hall.  The ceiling is very 
+@eng You are standing at the middle of an huge hall.  The ceiling is very 
 high over your head, but you can see the perfect carvings on it.  Near 
 the walls, round marble blocks rise up to the ceiling.  On the north wall 
 is a big picture of an old priest.  Two body armors stand like guarding 
 the picture. There is a doorway, guarded by  two knights at the  
 enterance, to the east, seems leading to a large room.
+@rus Ты стоишь посреди огромного зала. Высоко над твоей головой находится потолок
+богато украшенный замечательной резьбой. Около стен, круглые мраморные блоки
+поднимаются вверх до потолка. На северной стене находится большое изображение
+старого священника. Два панциря стоят, как будто охраняя это изображение.
+Здесь находится дверь, охраняемая двумя рыцарями, которая ведет на восток
+(east) в большую комнату.
 ~
 0 DSXY inside
 D1
-The room seems lead to a large shrine.
+@eng The room seems lead to a large shrine.
+@rus Комната уходит в большую святыню.
 ~
 ~
 Z -1 3064
 D2
-You see Main Street.
+@eng You see Main Street.
+@rus Ты видишь Главную улицу.
 ~
 ~
 Z -1 3015
 S
 #3064
 @eng Knight's Shrine@rus Святыня рыцарей~
-You are at the place, where the paladins and knights practice their 
+@eng You are at the place, where the paladins and knights practice their 
 skills.  The walls are decorated with large, valuable tapestries.  
 Two bright, (probably polised every day) body armors are standing near 
 the opposite walls.  Big swords and silvery shields are hanging on the wall.
+@rus Ты стоишь там, где паладины и рыцари практикуют свои умения. Стены украшены 
+большыми дорогими гобеленами. Два блестящих, (вероятно полируемых каждый день)
+панциря стоят возле противоположной стены. Большие мечи и серебренные щиты
+висят на стенах.
 ~
 0 DSXY inside
 D3
-To the west you see the big hall of temple.
+@eng To the west you see the big hall of temple.
+@rus На западе ты видишь большой зал храма.
 ~
 ~
 Z -1 3063
@@ -6306,15 +6386,15 @@ S
 The large square is cleary seen no the north, while much quite part of 
 the town lies to the south.  To the east is the Butchers', where the
 smell of meat can even be felt from the place you are standing.
-@rus Вы находитесь в северной части главной дороги, завершающей рыночную площадь.
-Большая площадь прекрасно видна на севере(north), хотя очень большая часть 
-города находится на юге(south). На востоке(east) расположен мясной магазин,
-запах мяса из которого заставляет вас свернуть в это место.
+@rus Ты находишься в северной части главной дороги, завершающей рыночную площадь.
+Большая площадь прекрасно видна на севере (north), хотя очень большая часть 
+города находится на юге (south). На востоке (east) расположен мясной магазин,
+запах мяса из которого заставляет тебя свернуть в это место.
 ~
 0 S city
 D0
 @eng You see the large square.
-@rus Вы видите большую площадь.
+@rus Ты видишь большую площадь.
 ~
 ~
 Z -1 3014
@@ -6339,14 +6419,14 @@ pick up an assortment of raw meats to cook at home or some of the butcher's
 famous beef jerky, dried out back in the sun, or one of his cooked 
 selections. The High Road lies to the west.
 @rus Эта лавка наполнена ароматом жаренного мяса и неперебиваемого ничем запах  
-сырого мяса, подвешенного позади прилавка. Здесь вы можете выбрать из
+сырого мяса, подвешенного позади прилавка. Здесь ты можешь выбрать из
 ассортимента сырое мясо, приготовленное здесь же, либо кусок говядины, высохший
-на солнце. Главная дорога пролегает на западе(west) отсюда.
+на солнце. Главная дорога пролегает на западе (west) отсюда.
 ~
 0 DS inside
 D3
 @eng You see the High Road.
-@rus Вы видите главную дорогу.
+@rus Ты видишь главную дорогу.
 ~
 ~
 Z -1 3065
@@ -6357,10 +6437,10 @@ S
 This part is rather less active than the north part of the city.  To the 
 west is a building with a sigh hanging over it's door. The road continues 
 to north, and Common Square is to the south.
-@rus Вы находитесь в южной части дороги, заканчивающейся на Общей площади. Эта
-часть города является менее оживленной, чем северная. На западе(west) отсюда
-находится здание с вывеской(sign), подвешенной над дверью. Дорога проходит 
-далее на север(north), а на юге(south) расположена Общая площадь.
+@rus Ты находишься в южной части дороги, заканчивающейся на Общей площади. Эта
+часть города является менее оживленной, чем северная. На западе (west) отсюда
+находится здание с вывеской (sign), подвешенной над дверью. Дорога проходит 
+далее на север (north), а на юге (south) расположена Общая площадь.
 ~
 0 S city
 E
@@ -6376,12 +6456,13 @@ D0
 Z -1 3065
 D2
 @eng You see the Common Square.
-@rus Вы видите Общую площадь.
+@rus Ты видишь Общую площадь.
 ~
 ~
 Z -1 3025
 D3
 @eng The sign reads: General Store
+@rus Вывеска гласит: Центральный склад.
 ~
 ~
 Z -1 3010
@@ -6501,70 +6582,94 @@ Z -1 3071
 S
 #3073
 @eng Warlock's Bar@rus Бар варлоков~
-The bar of warlocks smell very bad.But the mystic air relaxes you.
+@eng The bar of warlocks smell very bad.But the mystic air relaxes you.
+@rus Бар варлоков пахнет очень плохо. Но мистическая атмосфера этого места 
+успокаивает тебя.
 ~
 0 CDSXY inside
 D0
-You see the laboratories of males..
+@eng You see the laboratories of males..
+@rus Ты видишь чисто мужские лаборатории.
 ~
 ~
 Z -1 3074
 D3
-Tavern in midgaard..
+@eng Tavern in midgaard..
+@rus Мидгаардская таверна.
 ~
 ~
 Z -1 3352
 S
 #3074
 @eng Warlock laboratory@rus Лаборатория варлоков~
-This is the Magical Experiments Laboratory of WARLocks.  Dark smoke-stained 
+@eng This is the Magical Experiments Laboratory of WARLocks.  Dark smoke-stained 
 stones arch over numerous huge oaken tables, most of these cluttered with 
 strange-looking  flasks.  The floor is covered with half-erased pentagrams
 and even weirder symbols, and a blackboard in a dark corner has only been
 partially cleaned, some painful-looking letters faintly visible.  A well in
 the middle of the floor leads down into darkness.  Vile smells waft from the
 depths.
+@rus Это лаборатория для магических эскпериментов варлоков.  Черная из
+покрытых копотью камней арка возвышается над многочисленными огромными
+дубовыми столами, большинство которых завалено странными трубками и колбами.
+Пол покрыт полустертыми пентаграммами и загадочными символами.  Письмена на
+доске в темном углу частично стерты.  Но некоторые из этих кособоких букв
+еще можно разобрать.  Колодец посреди комнаты уходит вниз (down) в
+непроглядную тьму.  Отвратительный запах доносится из глубины.  
 ~
 0 CDSXY inside
 D2
-You see the bar.
+@eng You see the bar.
+@rus Ты видишь бар.
 ~
 ~
 Z -1 3073
 D5
-You can't see what is down there, it is too dark.  Looks like it would be
+@eng You can't see what is down there, it is too dark.  Looks like it would be
 impossible to climb back up.
+@rus Ты ничего не видишь там внизу, там очень темно. Похоже ты не сможешь
+вернуться оттуда назад наверх.
 ~
 ~
 Z -1 7017
 S
 #3075
 @eng Bar of Samurai's@rus Бар самураев~
-The bar of Samurai's' doors shines.But you can't see a waiter, because
+@eng The bar of Samurai's' doors shines.But you can't see a waiter, because
 they don't drink drinks with alcohol.
+@rus Двери бара самураев сверкают. Вряд ли ты встретишь здесь посетителей, потому
+что здесь не разрешено пить алкогольные напитки.
 ~
 0 CDSXY inside
 D0
-You see the guarting board..
+@eng You see the guarting board..
+@rus Ты видишь таверну 'Хрюкающий кабан'.
 ~
 ~
 Z -1 3007
 D3
-You see the practice yard of samruais..
+@eng You see the practice yard of samruais..
+@rus Ты видишь тренировочную площадку самураев.
 ~
 ~
 Z -1 3076
 S
 #3076
 @eng Samurai's Shrine@rus Святыня самураев~
-You are at the place, where the samurais and knights practice their 
+@eng You are at the place, where the samurais and knights practice their 
 skills.  The walls are decorated with large, valuable tapestries.  
 Two bright, (probably polised every day) body armors are standing near 
 the opposite walls.  Short swords and light shields are hanging on the 
-wall. ~
+wall.  
+@rus Ты стоишь там, где самураи оттачивают свои умения. Стены украшены большими
+очень дорогими гобеленами. Два ярких, (вероятно полируемых каждый день) панциря
+стоят около противоположной стены. Короткие мечи и сверкающие щиты весят на
+стенах.
+~
 0 CDSXY inside
 D1
-To the east you see the bar..
+@eng To the east you see the bar..
+@rus На востоке ты видишь бар.
 ~
 ~
 Z -1 3075
@@ -6576,10 +6681,10 @@ at you, wandering why you are here. But he now that every believer must
 know him as well as its religion.The room is full of mist. You start 
 praying with the templeman.
 	Try to talk with templeman about religion.
-@rus Вы видите тысячи древних книг и стоящего рядом жреца. Он смотрит на вас и 
-думает, о том зачем вы здесь. Он обязан знать о религии каждого верующего.
-Комната заполненна загадочным туманом. Вы начинаете молится жрецу.
-         Назовите жрецу свою религию. 
+@rus Ты видишь тысячи древних книг и стоящего рядом жреца. Он смотрит на тебя и 
+думает, о том зачем ты здесь. Он обязан знать о религии каждого верующего.
+Комната заполненна загадочным туманом. Ты начинаешь молится жрецу.
+{x      Назови жрецу имя бога, которому ты поклоняешься.
 ~
 0 DS inside
 D2
@@ -7688,7 +7793,7 @@ Z -1 3201
 S
 #3203
 @eng On the River@rus На реке~
-The levee is directly north of here, and a small boat landing for Kate's
+@eng The levee is directly north of here, and a small boat landing for Kate's
 Diner is to the south.  The river flows in an east west direction.
 ~
 0 CS noswim
@@ -8363,17 +8468,17 @@ on the floor toward the center of the room.  There's no
 decorations on the wall; they've all been ripped down in anger
 or for use as weapons at one time or another.  Looking around,
 you search vainly for a clean table to sit at, and then give up.
-@rus Притон. Все вокруг вас в этом месте как бы говорит: это притон. Вы ступаете
+@rus Притон. Все вокруг тебя в этом месте как бы говорит: это притон. Ты ступаешь
 осторожно по мертвым и/или пьяным матросам на полу, направляясь в центр 
-комнаты. Тут нет украшений на стенах(wall); все они были сорванны когда-то в
-гневе. Оглядываясь вокруг, вы тщетно ищете чистый стол(table), чтобы присесть,
-и, не найдя такового, отказываетесь от своего намерения.
+комнаты. Тут нет украшений на стенах (wall); все они были сорванны когда-то в
+гневе. Оглядываясь вокруг, ты тщетно ищешь чистый стол (table), чтобы присесть,
+и, не найдя такового, отказываешься от своего намерения.
 ~
 0 DS inside
 E
 table tables~
 @eng You find a table that's relatively vomit-free.
-@rus Вы находите стол, относительно свободный от блевотины.
+@rus Ты находишь стол, относительно свободный от блевотины.
 ~
 E
 wall walls~
@@ -8382,7 +8487,7 @@ wall walls~
 ~
 D1
 @eng You see the enterance to the guild of warlocks..
-@rus Вы видите вход в гильдию варлоков.
+@rus Ты видишь вход в гильдию варлоков.
 ~
 ~
 Z -1 3073
