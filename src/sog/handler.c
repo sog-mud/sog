@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.51 2002-01-03 21:33:41 tatyana Exp $
+ * $Id: handler.c,v 1.182.2.52 2002-08-24 14:57:21 tatyana Exp $
  */
 
 /***************************************************************************
@@ -4782,7 +4782,7 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		act("WEAR ?", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
-	
+
 	if (wear_level < obj->level) {
 		char_printf(ch, "You must be level %d to use this object.\n",
 			    obj->level - wear_level + ch->level);
@@ -5079,7 +5079,8 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		}
 
 		if ((wield = get_eq_char(ch, WEAR_WIELD)) != NULL
-		&&  wield->value[0] == WEAPON_STAFF) {
+		&&  (IS_WEAPON_STAT(wield, WEAPON_TWO_HANDS) ||
+		     wield->value[0] == WEAPON_STAFF)) {
 			char_puts("You cannot hold something with the weapon you wield.\n", ch);
 			return;
 		}

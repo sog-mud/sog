@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.36 2002-02-01 02:45:40 tatyana Exp $
+ * $Id: act_obj.c,v 1.165.2.37 2002-08-24 14:57:17 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2997,8 +2997,11 @@ void do_second_wield(CHAR_DATA * ch, const char *argument)
 		char_puts("You need to wield a primary weapon, before using a secondary one!\n", ch);
 		return;
 	}
-	if (wield->value[0] == WEAPON_STAFF) {
-		char_puts("You can't use second weapon while wielding a staff.\n", ch);
+	if (wield->value[0] == WEAPON_STAFF
+	||  (IS_WEAPON_STAT(wield, WEAPON_TWO_HANDS) &&
+	     ch->size < SIZE_LARGE)) {
+		act("You can't use second weapon with $p.",
+		    ch, wield, NULL, TO_CHAR);
 		return;
 	}
 	if (get_obj_weight(obj) > (str_app[get_curr_stat(ch, STAT_STR)].wield * 5)) {
