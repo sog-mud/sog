@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.193 1999-06-29 03:07:23 fjoe Exp $
+ * $Id: comm.c,v 1.194 1999-06-29 04:09:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -96,6 +96,7 @@
 #include "comm_colors.h"
 #include "lang.h"
 #include "db.h"
+#include "string_edit.h"
 
 DESCRIPTOR_DATA	*	new_descriptor	(void);
 void			free_descriptor	(DESCRIPTOR_DATA *d);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.40 1999-06-24 16:33:15 fjoe Exp $
+ * $Id: mlstring.c,v 1.41 1999-06-29 04:09:18 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -33,6 +33,7 @@
 #include <ctype.h>
 
 #include "merc.h"
+#include "string_edit.h"
 #include "db.h"
 #include "lang.h"
 

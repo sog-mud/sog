@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.64 1999-06-28 09:04:17 fjoe Exp $
+ * $Id: olc.c,v 1.65 1999-06-29 04:09:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,6 +49,7 @@
 #include "merc.h"
 #include "olc.h"
 #include "lang.h"
+#include "string_edit.h"
 #include "module.h"
 #include "version.h"
 
@@ -119,6 +120,19 @@ int _module_load(module_t *m)
 
 int _module_unload(module_t *m)
 {
+	DESCRIPTOR_DATA *d;
+
+	/* drop all the builders out OLC editors */
+	for (d = descriptor_list; d; d = d->next) {
+		if (d->olced == NULL)
+			continue;
+
+		char_puts("Unloading OLC module.\n", d->character);
+		if (d->pString)
+			string_add_exit(d->character, FALSE);
+		edit_done(d);
+	}
+
 	cmd_foreach(CC_OLC, m, cmd_unload);
 	olc_interpret = NULL;
 	return 0;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_clan.c,v 1.19 1999-06-10 14:33:35 fjoe Exp $
+ * $Id: db_clan.c,v 1.20 1999-06-29 04:09:19 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -59,7 +59,6 @@ DBLOAD_FUN(load_clan)
 
 	clan = clan_new();
 	clan->file_name = get_filename(filename);
-	db_set_arg(&db_plists, "PLISTS", clan);
 
 	for (;;) {
 		char *word = feof(fp) ? "End" : fread_word(fp);
@@ -78,10 +77,12 @@ DBLOAD_FUN(load_clan)
 					clans.nused--;
 				}
 				varr_qsort(&clan->skills, cmpint);
-				if (dfexist(PLISTS_PATH, clan->file_name))
+				if (dfexist(PLISTS_PATH, clan->file_name)) {
+					db_set_arg(&db_plists, "PLISTS", clan);
 					db_load_file(&db_plists,
 						     PLISTS_PATH,
 						     clan->file_name);
+				}
 				return;
 			}
 			break;

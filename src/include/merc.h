@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.217 1999-06-28 09:04:16 fjoe Exp $
+ * $Id: merc.h,v 1.218 1999-06-29 04:09:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -88,7 +88,6 @@
 #include "log.h"
 #include "util.h"
 #include "lookup.h"
-#include "string_edit.h"
 
 #include "race.h"
 #include "class.h"
