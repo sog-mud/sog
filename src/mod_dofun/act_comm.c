@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.5 2000-03-30 16:21:48 fjoe Exp $
+ * $Id: act_comm.c,v 1.187.2.6 2000-03-30 21:17:00 avn Exp $
  */
 
 /***************************************************************************
@@ -1711,6 +1711,8 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 	if (victim->clan == 0 || (clan = clan_lookup(victim->clan)) == NULL
 	||  (victim->clan != ch->clan && !IS_IMMORTAL(ch))) {
 		char_puts("They are not an a clan.\n", ch);
+		if (loaded)
+			char_nuke(victim);
 		return;
 	}
 
@@ -1722,15 +1724,17 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 	vpc = PC(victim);
 
 	if (!IS_IMMORTAL(ch) && vpc->clan_status == CLAN_LEADER) {
-		char_puts("You don't have enough power to promote them.\n",
-			  ch);
+		char_puts("You don't have enough power to promote them.\n", ch);
+		if (loaded)
+			char_nuke(victim);
 		return;
 	}
 
 	if (!str_prefix(arg2, "leader") && IS_IMMORTAL(ch)) {
 		if (vpc->clan_status == CLAN_LEADER) {
-			char_puts("They are already leader in a clan.\n",
-				  ch);
+			char_puts("They are already leader in a clan.\n", ch);
+			if (loaded)
+				char_nuke(victim);
 			return;
 		}
 
@@ -1740,15 +1744,18 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 
 		vpc->clan_status = CLAN_LEADER;
 		char_puts("Ok.\n", ch);
-		char_puts("They are now leader in their clan.\n", ch);
+		if (ch != victim)
+			char_puts("They are now leader in their clan.\n", ch);
 		char_puts("You are now leader in your clan.\n", victim);
 		changed = TRUE;
+		goto cleanup;
 	}
 
 	if (!str_prefix(arg2, "secondary")) {
 		if (vpc->clan_status == CLAN_SECOND) {
-			char_puts("They are already second in a clan.\n",
-				  ch);
+			char_puts("They are already second in a clan.\n", ch);
+			if (loaded)
+				char_nuke(victim);
 			return;
 		}
 
@@ -1757,15 +1764,19 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 		clan_save(clan);
 
 		vpc->clan_status = CLAN_SECOND;
-		char_puts("They are now second in the clan.\n", ch);
+		if (ch != victim)
+			char_puts("They are now second in the clan.\n", ch);
 		char_puts("You are now second in the clan.\n", victim);
 		changed = TRUE;
+		goto cleanup;
 	}
 
 	if (!str_prefix(arg2, "commoner")) {
 		if (vpc->clan_status == CLAN_COMMONER) {
 			char_puts("They are already commoner in a clan.\n",
 				  ch);
+			if (loaded)
+				char_nuke(victim);
 			return;
 		}
 
@@ -1773,19 +1784,21 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 		clan_save(clan);
 
 		vpc->clan_status = CLAN_COMMONER;
-		char_puts("They are now commoner in the clan.\n", ch);
+		if (ch != victim)
+			char_puts("They are now commoner in the clan.\n", ch);
 		char_puts("You are now commoner in the clan.\n", victim);
 		changed = TRUE;
+		goto cleanup;
 	}
 
-	if (changed && loaded) {
-		char_save(victim, SAVE_F_PSCAN);
+	do_promote(ch, str_empty);
+	return;
+
+cleanup:
+	if (changed)
+		char_save(victim, loaded ? SAVE_F_PSCAN : 0);
+	if (loaded)
 		char_nuke(victim);
-	}
-	else if (changed)
-		dofun("save", victim, str_empty);
-	else
-		do_promote(ch, str_empty);
 }
 
 /*-----------------------------------------------------------------------------

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.11 2000-03-30 06:57:26 fjoe Exp $
+ * $Id: act_wiz.c,v 1.186.2.12 2000-03-30 21:17:01 avn Exp $
  */
 
 /***************************************************************************
@@ -3828,17 +3828,15 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	if (!str_prefix(arg2, "clan")) {
 		int cn;
 
-		if (IS_NPC(victim)) {
-			char_puts("Not on NPC's.\n", ch);
-			goto cleanup;
-		}
-
 		if ((cn = cln_lookup(arg3)) < 0) {
 			char_puts("Incorrect clan name.\n", ch);
 			goto cleanup;
 		}
 
-		if (cn != victim->clan) {
+		if (IS_NPC(victim))
+			victim->clan = cn;
+
+		if (!IS_NPC(victim) && cn != victim->clan) {
 			clan_t *clan;
 
 			if (victim->clan
