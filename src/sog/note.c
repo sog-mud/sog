@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.54 1999-05-21 22:49:34 fjoe Exp $
+ * $Id: note.c,v 1.55 1999-05-24 11:12:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -696,6 +696,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		char buf[MAX_INPUT_LENGTH];
 		char from[MAX_INPUT_LENGTH];
 		char to[MAX_INPUT_LENGTH];
+		BUFFER *output;
 
 #		define CHECK_TO		(A)
 #		define CHECK_FROM	(B)
@@ -727,6 +728,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		}
 
 		vnum = 0;
+		output = buf_new(-1);
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (is_note_to(ch, pnote)) {
 				vnum++;
@@ -740,12 +742,15 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 				&&  str_prefix(from, pnote->sender))
 					continue;
 
-				char_printf(ch, "[%3d%c] %s: %s\n{x",
-					    vnum-1,
-					    hide_note(ch, pnote) ? ' ' : 'N', 
-					    pnote->sender, pnote->subject);
+				buf_printf(output, "[%3d%c] %s: %s\n{x",
+					   vnum-1,
+					   hide_note(ch, pnote) ? ' ' : 'N', 
+					   pnote->sender, pnote->subject);
 			}
 		}
+
+		page_to_char(buf_string(output), ch);
+		buf_free(output);
 		return;
 	}
 

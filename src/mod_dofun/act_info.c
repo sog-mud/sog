@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.239 1999-05-22 16:21:04 avn Exp $
+ * $Id: act_info.c,v 1.240 1999-05-24 11:12:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2267,7 +2267,8 @@ void scan_list(ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch,
 	for (rch = scan_room->people; rch; rch = rch->next_in_room) {
 		if (rch == ch || !can_see(ch, rch))
 			continue;
-		char_printf(ch, "	%s.\n", PERS(rch, ch));
+		char_printf(ch, "	%s.\n",
+			    format_short(rch->short_descr, rch->name, ch));
 	}
 }
 
