@@ -23,7 +23,7 @@
 * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 * SUCH DAMAGE.
 *
-* $Id: gsn.h,v 1.30.2.16 2002-09-09 19:26:27 tatyana Exp $
+* $Id: gsn.h,v 1.30.2.17 2002-09-10 14:08:25 tatyana Exp $
 */
 
 #ifndef _GSN_H_
@@ -281,5 +281,19 @@ extern int gsn_outraging_fishing;
 
 extern int gsn_herring;
 extern int gsn_codfish;
+extern int gsn_silvery_salmon;
+extern int gsn_barracuda;
+extern int gsn_mackerel;
+extern int gsn_swordfish;
+extern int gsn_skate;
+
+extern int gsn_crusian;
+extern int gsn_perch;
+extern int gsn_carp;
+extern int gsn_omul;
+extern int gsn_sazan;
+extern int gsn_pike;
+extern int gsn_bream;
+extern int gsn_piranha;
 
 #endif

@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1998-2002 SoG Development Team
+ * Copyright (c) 2002 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_fishing.c,v 1.1.2.4 2002-09-09 19:26:29 tatyana Exp $
+ * $Id: act_fishing.c,v 1.1.2.5 2002-09-10 14:08:26 tatyana Exp $
  */
 
 #include <sys/types.h>
@@ -72,7 +72,7 @@ void do_castout(CHAR_DATA *ch, const char *argument)
 			check_improve(ch, gsn_blind_fishing, TRUE, 1);
 		else {
 			check_improve(ch, gsn_blind_fishing, FALSE, 1);
-			success = -30;
+			success -= 30;
 		}
 	}
 
@@ -128,7 +128,7 @@ void do_castout(CHAR_DATA *ch, const char *argument)
 
 /* expert fishing */
 	sk = get_skill(ch, gsn_expert_fishing);
-	if (number_percent() + 8 < sk && success > 0) {
+	if (number_percent() + 8 < sk) {
 		check_improve(ch, gsn_expert_fishing, TRUE, 1);
 		success = 100;
 	} else
@@ -219,7 +219,7 @@ void do_reelin(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (number_percent() < sk - 3) {
+		if (number_percent() + 3 < sk) {
 			act("You are tangled with $N and fall down.",
 			    ch, NULL, ch->mount, TO_CHAR);
 			act("$n is tangled with you and fall down.",
@@ -233,7 +233,7 @@ void do_reelin(CHAR_DATA *ch, const char *argument)
 
 			ch->mount = NULL;
 			ch->position = POS_RESTING;
-			damage(ch, ch, dice(4,6),
+			damage(ch, ch, dice(4, 6),
 			       gsn_mounted_fishing, DAM_BASH, DAMF_SHOW);
 			WAIT_STATE(ch, 15);
 			check_improve(ch, gsn_mounted_fishing, FALSE, 1);
@@ -243,28 +243,27 @@ void do_reelin(CHAR_DATA *ch, const char *argument)
 	}
 
 	sk = get_skill(ch, gsn_mastering_fishing);
-	if (number_percent() < sk - 9) {
+	if (number_percent() + 9 < sk && success > 0) {
 		check_improve(ch, gsn_mastering_fishing, TRUE, 1);
 		success *= 2;
 	} else
 		check_improve(ch, gsn_mastering_fishing, FALSE, 1);
 
 	sk = get_skill(ch, gsn_improved_fishing);
-	if (number_percent() < sk - 10) {
+	if (number_percent() + 10 < sk)  {
 		check_improve(ch, gsn_improved_fishing, TRUE, 1);
 		success += 20;
 	} else
 		check_improve(ch, gsn_improved_fishing, FALSE, 1);
 
 	sk = get_skill(ch, gsn_expert_fishing);
-	if (number_percent() < (sk - 8)
-	&&  success > 0) {
+	if (number_percent() + 8 < sk) {
 		check_improve(ch, gsn_expert_fishing, TRUE, 1);
 		success = 100;
 	} else
 		check_improve(ch, gsn_expert_fishing, FALSE, 1);
 
-	if (success <= 60) {
+	if (success <= 50) {
 		act("You reel in your line, putting up a good fight, but you "
                     "lose him! Try again?", ch, NULL, NULL, TO_CHAR);
 		act("$n reels $gn{his} line in, fighting with whatever is "

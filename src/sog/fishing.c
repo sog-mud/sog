@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: fishing.c,v 1.1.2.1 2002-09-09 19:26:34 tatyana Exp $
+ * $Id: fishing.c,v 1.1.2.2 2002-09-10 14:08:28 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -87,10 +87,135 @@ int fish_vnum_lookup(flag32_t room_flags)
 
 void fish_affect(CHAR_DATA *ch, int fish_vnum)
 {
-	int gsn;
+	int gsn, modifier, location;
+	AFFECT_DATA af;
 
-	if ((gsn = fish_gsn_lookup(fish_vnum)) < 0)
+	if ((gsn = fish_gsn_lookup(fish_vnum)) < 0) {
+		char_puts("Something wrong. Report it to immortals.\n", ch);
+		log("[*****] BUG: gsn not exists, fish_vnum %d", fish_vnum);
 		return;
+	}
+
+	if (is_affected(ch, gsn))
+		return;
+
+	af.where = TO_AFFECTS;
+	af.type	 = gsn;
+	af.level = ch->level;
+	af.bitvector = 0;
+
+	switch (number_bits(4)) {
+	case 0:
+		location = APPLY_DEX;
+		break;
+	case 1:
+		location = APPLY_CON;
+		break;
+	case 2:
+		location = APPLY_INT;
+		break;
+	case 3:
+		location = APPLY_WIS;
+		break;
+	case 4:
+		location = APPLY_CHA;
+		break;
+	case 5:
+		location = APPLY_CHA;
+		break;
+	default:
+		location = APPLY_NONE;
+		break;
+	}
+
+	if (location != APPLY_NONE) {
+		af.duration = number_range(5, 15);
+		af.location = location;
+		while ((modifier = number_range(-3, 3)) == 0)
+			;
+		af.modifier = modifier;
+		affect_to_char(ch, &af);
+	}
+
+	switch (number_bits(3)) {
+	case 0:
+		location = APPLY_MANA;
+		break;
+	case 1:
+		location = APPLY_HIT;
+		break;
+	case 2:
+	case 3:
+		location = APPLY_MOVE;
+		break;
+	default:
+		location = APPLY_NONE;
+		break;
+	}
+
+	if (location != APPLY_NONE) {
+		af.duration = number_range(5, 10);
+		af.location = location;
+		while ((modifier = number_range(-3, 3)) == 0)
+			;
+		af.modifier = modifier * 10;
+		affect_to_char(ch, &af);
+	}
+
+	switch (number_bits(3)) {
+	case 0:
+		modifier *= 10;
+		location = APPLY_AC;
+		break;
+	case 1:
+		location = APPLY_HITROLL;
+		break;
+	case 2:
+		location = APPLY_DAMROLL;
+		break;
+	case 3:
+		location = APPLY_SAVES;
+		break;
+	default:
+		location = APPLY_NONE;
+		break;
+	}
+
+	if (location != APPLY_NONE) {
+		while ((modifier = number_range(-3, 3)) == 0)
+			;
+		if (location == APPLY_AC)
+			modifier *= 10;
+		af.duration = number_range(1, 20);
+		af.location = location;
+		af.modifier = modifier;
+		affect_to_char(ch, &af);
+	}
+
+	switch (number_bits(4)) {
+	case 0:
+		modifier = -2;
+		break;
+	case 1:
+		modifier = -1;
+		break;
+	case 2:
+		modifier = 1;
+		break;
+	case 3:
+		modifier = 2;
+		break;
+	default:
+		modifier = 0;
+		break;
+	}
+
+	if (modifier != 0) {
+		af.duration = number_range(1, 20);
+		af.location = APPLY_LEVEL;
+		af.modifier = modifier;
+		affect_to_char(ch, &af);
+	}
 }
 
 struct fish_gsn_t
@@ -102,8 +227,22 @@ typedef struct fish_gsn_t fish_gsn_t;
 
 static fish_gsn_t fish_gsn[] =
 {
-	{ FISH_HERRING,			&gsn_herring	},
-	{ FISH_CODFISH,			&gsn_codfish	},
+	{ FISH_HERRING,			&gsn_herring		},
+	{ FISH_CODFISH,			&gsn_codfish		},
+	{ FISH_SILVERY_SALMON,		&gsn_silvery_salmon	},
+	{ FISH_BARRACUDA,		&gsn_barracuda		},
+	{ FISH_MACKEREL,		&gsn_mackerel		},
+	{ FISH_SWORDFISH,		&gsn_swordfish		},
+	{ FISH_SKATE,			&gsn_skate		},
+
+	{ FISH_CRUSIAN,			&gsn_crusian		},
+	{ FISH_PERCH,			&gsn_perch		},
+	{ FISH_CARP,			&gsn_carp		},
+	{ FISH_OMUL,			&gsn_omul		},
+	{ FISH_SAZAN,			&gsn_sazan		},
+	{ FISH_PIKE,			&gsn_pike		},
+	{ FISH_BREAM,			&gsn_bream		},
+	{ FISH_PIRANHA,			&gsn_piranha		},
 };
 #define FISH_GSN_SZ	(sizeof(fish_gsn) / sizeof(fish_gsn[0]))
 

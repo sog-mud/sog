@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.32.2.17 2002-09-09 19:26:34 tatyana Exp $
+ * $Id: gsn.c,v 1.32.2.18 2002-09-10 14:08:28 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -274,6 +274,20 @@ int gsn_outraging_fishing;
 
 int gsn_herring;
 int gsn_codfish;
+int gsn_silvery_salmon;
+int gsn_barracuda;
+int gsn_mackerel;
+int gsn_swordfish;
+int gsn_skate;
+
+int gsn_crusian;
+int gsn_perch;
+int gsn_carp;
+int gsn_omul;
+int gsn_sazan;
+int gsn_pike;
+int gsn_bream;
+int gsn_piranha;
 
 /* special gsns */
 int gsn_qtarget;
@@ -516,6 +530,21 @@ namedp_t gsn_table[] =
 
 	{ "gsn_herring",		&gsn_herring			},
 	{ "gsn_codfish",		&gsn_codfish			},
+	{ "gsn_silvery_salmon",		&gsn_silvery_salmon		},
+	{ "gsn_barracuda",		&gsn_barracuda			},
+	{ "gsn_mackerel",		&gsn_mackerel			},
+	{ "gsn_swordfish",		&gsn_swordfish			},
+	{ "gsn_skate",			&gsn_skate			},
+
+	{ "gsn_crusian",		&gsn_crusian			},
+	{ "gsn_perch",			&gsn_perch			},
+	{ "gsn_carp",			&gsn_carp			},
+	{ "gsn_omul",			&gsn_omul			},
+	{ "gsn_sazan",			&gsn_sazan			},
+	{ "gsn_pike",			&gsn_pike			},
+	{ "gsn_bream",			&gsn_bream			},
+	{ "gsn_piranha",		&gsn_piranha			},
+
 	{ NULL }
 };
 
