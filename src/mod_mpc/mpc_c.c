@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_c.c,v 1.28 2001-09-15 17:12:42 fjoe Exp $
+ * $Id: mpc_c.c,v 1.29 2001-09-15 17:17:31 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -41,7 +41,6 @@
 #include <mprog.h>
 #include <tables.h>
 
-#include "mpc_iter.h"
 #include "mpc_impl.h"
 
 static void push(mpcode_t *mpc, vo_t vo);
