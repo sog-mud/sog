@@ -1,5 +1,5 @@
 /*
- * $Id: act_quest.c,v 1.40 1998-06-23 17:41:01 efdi Exp $
+ * $Id: act_quest.c,v 1.41 1998-06-24 21:46:34 efdi Exp $
  */
 
 /***************************************************************************
@@ -194,18 +194,20 @@ struct qitem_data qitem_table[] = {
 struct qcmd_data {
 	char *name;
 	void (*do_fn)(CHAR_DATA *ch, char* arg);
+	int min_position;
+	int extra;
 };
 typedef struct qcmd_data QCMD_DATA;
 
 QCMD_DATA qcmd_table[] = {
-	{ "points",	quest_points   },
-	{ "info",	quest_info     },
-	{ "time",	quest_time     },
-	{ "list",	quest_list     },
-	{ "buy",	quest_buy      },
-	{ "request",	quest_request  },
-	{ "complete",	quest_complete },
-	{ "trouble",	quest_trouble  },
+	{ "points",	quest_points,	POS_DEAD,	CMD_KEEP_HIDE},
+	{ "info",	quest_info,	POS_DEAD,	CMD_KEEP_HIDE},
+	{ "time",	quest_time,	POS_DEAD,	CMD_KEEP_HIDE},
+	{ "list",	quest_list,	POS_RESTING,	0},
+	{ "buy",	quest_buy,	POS_RESTING,	0},
+	{ "request",	quest_request,	POS_RESTING,	0},
+	{ "complete",	quest_complete,	POS_RESTING,	0},
+	{ "trouble",	quest_trouble,	POS_RESTING,	0},
 	{ NULL}
 };
 
@@ -226,6 +228,17 @@ void do_quest(CHAR_DATA *ch, char *argument)
 
 	for (qcmd = qcmd_table; qcmd->name != NULL; qcmd++)
 		if (str_prefix(cmd, qcmd->name) == 0) {
+			if (ch->position < qcmd->min_position) {
+				char_nputs(I_YOUR_DREAMS, ch);
+				return;
+			}
+			if (!IS_SET(qcmd->extra, CMD_KEEP_HIDE)
+			&&  IS_SET(ch->affected_by, AFF_HIDE)) { 
+				char_nputs(YOU_STEP_OUT_SHADOWS, ch);
+				REMOVE_BIT(ch->affected_by, AFF_HIDE);
+				act_nprintf(ch, NULL, NULL, TO_ROOM,
+					   POS_RESTING, N_STEPS_OUT_OF_SHADOWS);         
+			}
 			qcmd->do_fn(ch, arg);
 			return;
 		}

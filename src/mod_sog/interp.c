@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.32 1998-06-23 18:16:37 efdi Exp $
+ * $Id: interp.c,v 1.33 1998-06-24 21:46:34 efdi Exp $
  */
 
 /***************************************************************************
@@ -240,7 +240,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "tick",		do_tick,	POS_DEAD,	ML,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "password",	do_password,	POS_DEAD,	 0,  LOG_NEVER,  1, CMD_KEEP_HIDE|CMD_GHOST },
     { "prompt",		do_prompt,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "quest",          do_quest,       POS_RESTING,     0,  LOG_NORMAL, 1 , CMD_GHOST},
+    { "quest",          do_quest,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST},
     { "quiet",		do_quiet,	POS_SLEEPING, 	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "scroll",		do_scroll,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "title",		do_title,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
