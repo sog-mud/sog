@@ -1,5 +1,5 @@
 #
-# $Id: sog_olc_guide.txt,v 1.6 2002-11-27 14:12:52 tatyana Exp $
+# $Id: sog_olc_guide.txt,v 1.7 2004-02-19 22:02:19 fjoe Exp $
 #
 
 Оглавление:
@@ -316,9 +316,10 @@ Description: команда '<dir> desc all/eng/rus':
 tiny, small, medium, large, huge, giant, gargantuan.
 
 В комнате могут присутствовать так называемые дополнительные описания (exd).
-На них можно смотреть :) Синтаксис: 'exd add keyword all/eng/rus', 'exd edit
-keyword all/eng/rus'. Для полного списка возможный действий с exd используй 
-'exd ?' или просто 'exd'. Описаний может быть несколько.
+На них можно смотреть :) Использование: 'exd add keyword all/eng/rus',
+'exd edit keyword all/eng/rus', 'exd edit keyword reset'. Для полного списка
+возможный действий с exd используй 'exd ?' или просто 'exd'.
+Описаний может быть несколько.
 
 		IV. Создание мобов и их редактирование.
 		---------------------------------------
