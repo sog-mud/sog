@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.190 1999-06-30 15:42:26 fjoe Exp $
+ * $Id: fight.c,v 1.191 1999-07-11 04:00:22 osya Exp $
  */
 
 /***************************************************************************
@@ -2615,7 +2615,7 @@ bool check_obj_dodge(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj, int bonus)
 	if (!IS_AWAKE(victim) || MOUNTED(victim))
 		return FALSE;
 
-	if (!IS_NPC(victim) && HAS_SKILL(victim, gsn_spellbane)) {
+      /*if (!IS_NPC(victim) && HAS_SKILL(victim, gsn_spellbane)) {
 		if (victim->pcdata->clan_status) {
 			act("You catch $p that had been shot to you.",
 			    ch, obj, victim, TO_VICT);
@@ -2626,7 +2626,7 @@ bool check_obj_dodge(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj, int bonus)
 			obj_to_char(obj, victim);
 		}
 		return TRUE;
-	}
+	} *//*Strange code commented by Osya*/
 
 	if (IS_NPC(victim))
 		 chance  = UMIN(30, victim->level);
