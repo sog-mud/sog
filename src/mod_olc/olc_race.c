@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.20 1999-12-11 15:31:13 fjoe Exp $
+ * $Id: olc_race.c,v 1.21 1999-12-12 17:07:30 avn Exp $
  */
 
 #include "olc.h"
@@ -149,7 +149,7 @@ OLC_FUN(raceed_create)
 
 	race_init(&race);
 	race.name = str_dup(arg);
-	r = hash_insert(&races, &race, race.name);
+	r = hash_insert(&races, race.name, &race);
 	race_destroy(&race);
 
 	if (r == NULL) {
