@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.91 1999-03-09 09:49:59 kostik Exp $
+ * $Id: spellfun2.c,v 1.92 1999-03-10 08:28:44 kostik Exp $
  */
 
 /***************************************************************************
@@ -2799,31 +2799,8 @@ void spell_mass_sanctuary(int sn, int level, CHAR_DATA *ch, void *vo, int target
 	sanc_sn = sn_lookup("sanctuary");
 
 	for(gch=ch->in_room->people; gch != NULL; gch=gch->next_in_room)
-	{
-		if(!is_same_group(gch, ch))
-			continue;
-		if(IS_AFFECTED(gch, AFF_SANCTUARY))
-		{
-		  if(gch == ch)
-			char_puts("You are already in sanctuary.\n", ch);
-		  else 
-		    act("$N is already in sanctuary.", ch, NULL, gch, TO_CHAR);
-		  continue;
-		}
-
-		af.type      = sanc_sn;
-		af.level     = level;
-		af.duration  = number_fuzzy(level/6);
-		af.location  = APPLY_NONE;
-		af.modifier  = 0;
-		af.bitvector = AFF_SANCTUARY;
-		affect_to_char(gch, &af);
-
-		char_puts("You are surrounded by a white aura.\n",gch);
-		if(ch != gch)
-			act("$N is surrounded by a white aura.",
-				ch, NULL, gch, TO_CHAR);
-	}
+		if (is_same_group(ch, gch)) 
+			spell_sanctuary(sanc_sn, level, ch, (void*)gch, TARGET_CHAR); 
 }
 
 void spell_mend(int sn, int level, CHAR_DATA *ch, void *vo, int target)
