@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.33 2002-11-23 22:03:53 fjoe Exp $
+ * $Id: olc_skill.c,v 1.34 2004-03-01 19:00:51 tatyana Exp $
  */
 
 #include "olc.h"
@@ -246,13 +246,11 @@ OLC_FUN(skilled_show)
 	buf_printf(buf, BUF_END, "MinPos     [%s]     Target      [%s]\n",
 			flag_string(position_table, sk->min_pos),
 			flag_string(skill_targets, sk->target));
-	if (sk->beats)
-		buf_printf(buf, BUF_END, "Beats      [%d]\n", sk->beats);
+	buf_printf(buf, BUF_END, "Beats      [%d]\n", sk->beats);
 	if (sk->skill_flags)
 		buf_printf(buf, BUF_END, "Flags      [%s]\n",
 				flag_string(skill_flags, sk->skill_flags));
-	if (sk->min_mana)
-		buf_printf(buf, BUF_END, "MinMana    [%d]\n", sk->min_mana);
+	buf_printf(buf, BUF_END, "MinMana    [%d]\n", sk->min_mana);
 	mlstr_dump(buf, "NounDamage ", &sk->noun_damage.ml, DUMP_LEVEL(ch));
 	mlstr_dump(buf, "NounGender ", &sk->noun_damage.gender, DL_NONE);
 	buf_printf(buf, BUF_END, "DamClass:  [%s]\n",
@@ -261,8 +259,7 @@ OLC_FUN(skilled_show)
 		buf_printf(buf, BUF_END, "Effect:    [%s]\n", sk->effect);
 	buf_printf(buf, BUF_END, "Rank       [%d]\n", sk->rank);
 
-	if (!IS_NULLSTR(sk->fun_name))
-		buf_printf(buf, BUF_END, "SpellFun   [%s]\n", sk->fun_name);
+	buf_printf(buf, BUF_END, "SpellFun   [%s]\n", sk->fun_name);
 
 	mlstr_dump(buf, "WearOff    ", &sk->msg_off, DUMP_LEVEL(ch));
 	mlstr_dump(buf, "ObjWearOff ", &sk->msg_obj, DUMP_LEVEL(ch));
