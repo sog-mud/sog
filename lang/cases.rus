@@ -3141,6 +3141,17 @@ Form 6 -ое~
 End
 
 #RULE
+Name мусорка~
+BaseLen 6
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name хозяйка~
 BaseLen 6
 Form 1 -и~
@@ -6586,6 +6597,17 @@ Form 6 -а~
 End
 
 #RULE
+Name алый~
+BaseLen 2
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
 Name зеркало~
 BaseLen 6
 Form 1 -а~
@@ -8512,6 +8534,17 @@ Form 6 -а~
 End
 
 #RULE
+Name серрая~
+BaseLen 4
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+Form 6 -ую~
+End
+
+#RULE
 Name садовая~
 BaseLen 5
 Form 1 -ой~
@@ -9528,6 +9561,17 @@ Form 5 -ах~
 End
 
 #RULE
+Name лампа~
+BaseLen 4
+Form 1 -ы~
+Form 2 -у~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name адмирал~
 BaseLen 7
 Form 1 -а~
@@ -9918,6 +9962,17 @@ Form 3 -у~
 Form 4 -ой~
 Form 5 -е~
 Form 6 -у~
+End
+
+#RULE
+Name оранжевый~
+BaseLen 7
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
 End
 
 #RULE
@@ -10565,6 +10620,16 @@ Form 1 -а~
 Form 2 -у~
 Form 4 -ом~
 Form 5 -е~
+End
+
+#RULE
+Name ты~
+BaseLen 1
+Form 1 тебя~
+Form 2 тебе~
+Form 3 тебя~
+Form 4 тобой~
+Form 5 тебе~
 End
 
 #RULE

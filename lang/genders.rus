@@ -1237,14 +1237,6 @@ Form 3 -и~
 End
 
 #RULE
-Name обнаружил~
-BaseLen 9
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
 Name напал~
 BaseLen 4
 Form 1 -ла~
@@ -1629,6 +1621,14 @@ BaseLen 3
 Form 1 -а~
 Form 2 -о~
 Form 3 -и~
+End
+
+#RULE
+Name воткнулся~
+BaseLen 7
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
 End
 
 #RULE
