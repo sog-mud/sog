@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.8.2.1 1999-12-16 12:39:57 fjoe Exp $
+ * $Id: olc_race.c,v 1.8.2.2 2000-03-27 22:13:04 avn Exp $
  */
 
 #include "olc.h"
@@ -367,7 +367,8 @@ OLC_FUN(raceed_list)
 
 	buffer = buf_new(-1);
 	for (i = 0; i < races.nused; i++) {
-		buf_printf(buffer, "[%3d] %-18.17s", i, RACE(i)->name);
+		buf_printf(buffer, "[%3d%s] %-18.17s",
+			i, RACE(i)->race_pcdata ? "*" : " ", RACE(i)->name);
 		if (++col % 3 == 0) buf_add(buffer, "\n");
 	}
 	if (col % 3) buf_add(buffer, "\n");
