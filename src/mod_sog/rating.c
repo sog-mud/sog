@@ -1,5 +1,5 @@
 /*
- * $Id: rating.c,v 1.2 1998-06-03 07:27:19 fjoe Exp $
+ * $Id: rating.c,v 1.3 1998-06-03 20:56:34 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -39,7 +39,8 @@ void rating_add(char* name, int pc_killed)
 	struct rating_data *p = rating_table;
 
 	for (i = 0; i < RATING_TABLE_SIZE; i++) {
-		if (str_cmp(name, rating_table[i].name) == 0) {
+		if (rating_table[i].name != NULL
+		&&  str_cmp(name, rating_table[i].name) == 0) {
 			rating_table[i].pc_killed = pc_killed;
 			return;
 		}

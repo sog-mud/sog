@@ -1,5 +1,5 @@
 /*
- * $Id: resource.c,v 1.16 1998-05-28 20:54:41 efdi Exp $
+ * $Id: resource.c,v 1.17 1998-06-03 20:56:35 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -334,7 +334,7 @@ lang_load(int langnum, char* fname)
 					break;
 			
 			if (*q == '\0') {
-				fprintf(stderr, "%s:%d: unmatched '\"' \n",
+				fprintf(stderr, "%s:%d: missing '\"' \n",
 					fname, line);
 				exit(EX_DATAERR);
 			}
