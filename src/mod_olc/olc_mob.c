@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.9 1998-09-20 17:01:45 fjoe Exp $
+ * $Id: olc_mob.c,v 1.10 1998-09-24 14:09:04 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -485,7 +485,7 @@ OLC_FUN(mobed_shop)
 		return TRUE;
 	}
 
-	mobed_shop(ch, "");
+	mobed_shop(ch, str_empty);
 	return FALSE;
 }
 

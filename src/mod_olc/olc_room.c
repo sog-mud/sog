@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.10 1998-09-20 17:01:45 fjoe Exp $
+ * $Id: olc_room.c,v 1.11 1998-09-24 14:09:05 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -210,7 +210,7 @@ OLC_FUN(roomed_show)
 	output = buf_new(0);
 	
 	buf_add(output, "Description:\n\r");
-	mlstr_dump(output, "", pRoom->description);
+	mlstr_dump(output, str_empty, pRoom->description);
 	mlstr_dump(output, "Name:       ", pRoom->name);
 	buf_printf(output, "Area:       [%5d] %s\n\r",
 		   pRoom->area->vnum, pRoom->area->name);
@@ -314,7 +314,7 @@ OLC_FUN(roomed_show)
 			if (!IS_NULLSTR(pexit->keyword))
 				buf_printf(output, "Kwds: [%s]\n\r",
 					   pexit->keyword);
-			mlstr_dump(output, "", pexit->description);
+			mlstr_dump(output, str_empty, pexit->description);
 		}
 	}
 
@@ -912,7 +912,7 @@ OLC_FUN(roomed_owner)
 
 	free_string(pRoom->owner);
 	if (!str_cmp(argument, "none"))
-		pRoom->owner = str_dup("");
+		pRoom->owner = str_dup(str_empty);
 	else
 		pRoom->owner = str_dup(argument);
 
@@ -1194,7 +1194,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		if (str_cmp(arg,"none"))
 			pRoom->exit[door]->keyword = str_dup(arg);
 		else
-			pRoom->exit[door]->keyword = str_dup("");
+			pRoom->exit[door]->keyword = str_dup(str_empty);
 
 		char_puts("Exit name set.\n\r", ch);
 		return TRUE;

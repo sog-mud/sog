@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.9 1998-09-20 17:01:45 fjoe Exp $
+ * $Id: olc_obj.c,v 1.10 1998-09-24 14:09:05 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -400,7 +400,7 @@ OLC_FUN(objed_long)
 bool set_value(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj, const char *argument, int value)
 {
 	if (argument[0] == '\0') {
-		set_obj_values(ch, pObj, -1, "");
+		set_obj_values(ch, pObj, -1, str_empty);
 		return FALSE;
 	}
 

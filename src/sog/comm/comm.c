@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.99 1998-09-22 18:07:21 fjoe Exp $
+ * $Id: comm.c,v 1.100 1998-09-24 14:07:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1910,7 +1910,7 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 	  case CON_PICK_HOMETOWN:
 	sprintf(buf1,", [O]fcol");
 	sprintf(buf,"[M]idgaard, [N]ew Thalos%s?",
-		IS_NEUTRAL(ch) ? buf1 : "");
+		IS_NEUTRAL(ch) ? buf1 : str_empty);
 	if (ch->endur)
 	 {
 	  ch->endur = 0;
@@ -2161,7 +2161,7 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 
 		set_title(ch, title_lookup(ch));
 
-	    do_outfit(ch, "");
+	    do_outfit(ch, str_empty);
 
 	    obj_to_char(create_obj(get_obj_index(OBJ_VNUM_MAP),0),ch);
 	    obj_to_char(create_obj(get_obj_index(OBJ_VNUM_NMAP1),0),ch);
@@ -2508,7 +2508,7 @@ void page_to_char(const char *txt, CHAR_DATA *ch)
 	ch->desc->showstr_head = alloc_mem(strlen(txt) + 1);
 	strcpy(ch->desc->showstr_head, txt);
 	ch->desc->showstr_point = ch->desc->showstr_head;
-	show_string(ch->desc, "");
+	show_string(ch->desc, str_empty);
 }
 
 /* string pager */

@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.16 1998-09-20 17:01:21 fjoe Exp $
+ * $Id: ban.c,v 1.17 1998-09-24 14:07:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -219,9 +219,9 @@ void ban_site(CHAR_DATA *ch, const char *argument, bool fPerm)
 			char buf2[MAX_STRING_LENGTH];
 
 			snprintf(buf2, sizeof(buf2), "%s%s%s",
-				IS_SET(pban->ban_flags,BAN_PREFIX) ? "*" : "",
+				IS_SET(pban->ban_flags,BAN_PREFIX) ? "*" : str_empty,
 				pban->name,
-				IS_SET(pban->ban_flags,BAN_SUFFIX) ? "*" : "");
+				IS_SET(pban->ban_flags,BAN_SUFFIX) ? "*" : str_empty);
 
 			buf_printf(buffer,"%-12s    %-3d  %-7s  %s\n\r",
 				buf2, pban->level,
@@ -232,7 +232,7 @@ void ban_site(CHAR_DATA *ch, const char *argument, bool fPerm)
 				IS_SET(pban->ban_flags,BAN_PERMIT)  ?
 					"permit" :
 				IS_SET(pban->ban_flags,BAN_ALL)     ?
-					"all"	: "",
+					"all"	: str_empty,
 	    			IS_SET(pban->ban_flags,BAN_PERMANENT) ?
 					"perm" : "temp");
 		}

@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.28 1998-09-20 17:01:45 fjoe Exp $
+ * $Id: olc_save.c,v 1.29 1998-09-24 14:09:05 fjoe Exp $
  */
 
 /**************************************************************************
@@ -303,13 +303,13 @@ void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 /* no negative numbers */
 		     pObjIndex->value[0] > 0 ? pObjIndex->value[0] : 0,
 		     pObjIndex->value[1] != -1 ?
-			skill_name(pObjIndex->value[1]) : "",
+			skill_name(pObjIndex->value[1]) : str_empty,
 		     pObjIndex->value[2] != -1 ?
-		     	skill_name(pObjIndex->value[2]) : "",
+		     	skill_name(pObjIndex->value[2]) : str_empty,
 		     pObjIndex->value[3] != -1 ?
-		     	skill_name(pObjIndex->value[3]) : "",
+		     	skill_name(pObjIndex->value[3]) : str_empty,
 		     pObjIndex->value[4] != -1 ?
-		     	skill_name(pObjIndex->value[4]) : "");
+		     	skill_name(pObjIndex->value[4]) : str_empty);
 	    break;
 
         case ITEM_STAFF:
@@ -319,7 +319,7 @@ void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 	    			pObjIndex->value[1],
 	    			pObjIndex->value[2],
 	    			pObjIndex->value[3] != -1 ?
-	    				skill_name(pObjIndex->value[3]) : "",
+	    				skill_name(pObjIndex->value[3]) : str_empty,
 	    			pObjIndex->value[4]);
 	    break;
 	case ITEM_PORTAL:
@@ -1164,7 +1164,7 @@ void do_asave(CHAR_DATA *ch, const char *argument)
 	/* Show correct syntax. */
 	/* -------------------- */
 	if (ch)
-		do_asave(ch, "");
+		do_asave(ch, str_empty);
 }
 
 static void save_print(CHAR_DATA *ch, const char *format, ...)
