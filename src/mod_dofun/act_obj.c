@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.77 1998-10-09 13:42:36 fjoe Exp $
+ * $Id: act_obj.c,v 1.78 1998-10-09 15:34:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3119,7 +3119,7 @@ void do_lore(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (!obj->enchanted)
+	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
 		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next)
 			if (paf->location != APPLY_NONE && paf->modifier != 0)
 				char_printf(ch, "Affects %s by %d.\n\r",

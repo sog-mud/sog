@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.65 1998-10-09 13:42:38 fjoe Exp $
+ * $Id: handler.c,v 1.66 1998-10-09 15:34:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -383,7 +383,7 @@ void reset_char(CHAR_DATA *ch)
 			obj = get_eq_char(ch,loc);
 			if (obj == NULL)
 				continue;
-			if (!obj->enchanted)
+			if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
 				reset_obj_affects(ch, obj,
 						  obj->pIndexData->affected);
 			reset_obj_affects(ch, obj, obj->affected);
@@ -428,7 +428,7 @@ void reset_char(CHAR_DATA *ch)
 		for (i = 0; i < 4; i++)
 		    ch->armor[i] -= apply_ac(obj, loc, i);
 
-	    if (!obj->enchanted)
+	    if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
 		for (af = obj->pIndexData->affected; af != NULL; af = af->next)
 	    {
 	        mod = af->modifier;
@@ -709,10 +709,9 @@ void name_toggle(CHAR_DATA *ch, const char *name,
 void affect_enchant(OBJ_DATA *obj)
 {
 	/* okay, move all the old flags into new vectors if we have to */
-	if (!obj->enchanted)
-	{
+	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED)) {
 	    AFFECT_DATA *paf, *af_new;
-	    obj->enchanted = TRUE;
+	    SET_BIT(obj->extra_flags, ITEM_ENCHANTED);
 
 	    for (paf = obj->pIndexData->affected;
 	         paf != NULL; paf = paf->next)
@@ -929,7 +928,7 @@ void affect_check(CHAR_DATA *ch, int where, flag_t vector)
 			continue;
 		affect_check_list(ch, obj->affected, where, vector);
 
-		if (obj->enchanted)
+		if (IS_SET(obj->extra_flags, ITEM_ENCHANTED))
 			continue;
 
 		affect_check_list(ch, obj->pIndexData->affected, where, vector);
@@ -1139,7 +1138,7 @@ bool has_obj_affect(CHAR_DATA *ch, int vector)
 	        	if (paf->bitvector & vector)
 				return TRUE;
 
-		if (obj->enchanted)
+		if (IS_SET(obj->extra_flags, ITEM_ENCHANTED))
 			continue;
 
 		for (paf = obj->pIndexData->affected; paf; paf = paf->next)
@@ -1472,7 +1471,7 @@ void equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 		ch->armor[i]      	-= apply_ac(obj, iWear,i);
 	obj->wear_loc	 = iWear;
 
-	if (!obj->enchanted)
+	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
 		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next)
 		    if (paf->location != APPLY_SPELL_AFFECT)
 		        affect_modify(ch, paf, TRUE);
@@ -1536,7 +1535,7 @@ void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 		ch->armor[i]	+= apply_ac(obj, obj->wear_loc,i);
 	obj->wear_loc	 = -1;
 
-	if (!obj->enchanted)
+	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
 		strip_obj_affects(ch, obj, obj->pIndexData->affected);
 	strip_obj_affects(ch, obj, obj->affected);
 

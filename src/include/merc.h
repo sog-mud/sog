@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.89 1998-10-09 13:42:42 fjoe Exp $
+ * $Id: merc.h,v 1.90 1998-10-09 15:34:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -149,7 +149,6 @@ struct descriptor_data
 	DESCRIPTOR_DATA *	snoop_by;
 	CHAR_DATA * 		character;
 	CHAR_DATA *	 	original;
-	bool			valid;
 	const char *		host;
 	int			descriptor;
 	int			connected;
@@ -327,7 +326,6 @@ struct spec_type
 struct affect_data
 {
 	AFFECT_DATA *	next;
-	bool		valid;
 	int		where;
 	int		type;
 	int		level;
@@ -837,6 +835,7 @@ enum {
 #define ITEM_NOSELL		(aa)
 #define ITEM_NOT_EDIBLE		(bb)
 #define ITEM_QUEST		(cc)
+#define ITEM_ENCHANTED		(dd)	/* replacement for enchanted */
 
 /*
  * Wear flags.	 *WEAR*
@@ -1286,7 +1285,6 @@ struct char_data
 	ROOM_INDEX_DATA *	was_in_room;
 	AREA_DATA * 		zone;
 	PC_DATA *		pcdata;
-	bool			valid;
 	const char *		name;
 	int			id;
 	int			version;
@@ -1441,7 +1439,6 @@ struct liq_type
 struct ed_data
 {
 	ED_DATA *	next;		/* Next in list 	    */
-	bool		valid;
 	const char *	keyword;	/* Keyword in look/examine  */
 	mlstring *	description;	/* What to see		    */
 };
@@ -1507,8 +1504,6 @@ struct obj_data
 	AFFECT_DATA *		affected;
 	OBJ_INDEX_DATA *	pIndexData;
 	ROOM_INDEX_DATA *	in_room;
-	bool			valid;
-	bool			enchanted;
 	const char *		name;
 	mlstring *		short_descr;
 	mlstring *		description;
@@ -1670,7 +1665,6 @@ struct mptrig
 	sflag_t		flags;
 	int		vnum;		/* mob prog code vnum */
 	MPTRIG * 	next;
-	bool		valid;
 };
 
 struct mpcode

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.71 1998-10-09 13:42:37 fjoe Exp $
+ * $Id: act_wiz.c,v 1.72 1998-10-09 15:34:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1232,7 +1232,7 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 	}
 
 	format_obj_affects(output, obj->affected, TRUE);
-	if (!obj->enchanted)
+	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
 		format_obj_affects(output, obj->pIndexData->affected, FALSE);
 
 	if (obj->pIndexData->oprogs) {

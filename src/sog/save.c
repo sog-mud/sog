@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.64 1998-10-09 13:42:43 fjoe Exp $
+ * $Id: save.c,v 1.65 1998-10-09 15:34:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -448,8 +448,6 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 	fprintf(fp, "Vnum %d\n", obj->pIndexData->vnum);
 	fprintf(fp, "Cond %d\n", obj->condition);
 
-	if (obj->enchanted)
-		fprintf(fp, "Enchanted\n");
 	fprintf(fp, "Nest %d\n", iNest);
 
 	if (str_cmp(obj->name, obj->pIndexData->name) != 0)
@@ -1238,6 +1236,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 	bool            fNest;
 	bool            fVnum;
 	bool            first;
+	bool		enchanted = FALSE;
 	fVnum = FALSE;
 	obj = NULL;
 	first = TRUE;		/* used to counter fp offset */
@@ -1332,7 +1331,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 
 		case 'E':
 			if (!str_cmp(word, "Enchanted")) {
-				obj->enchanted = TRUE;
+				enchanted = TRUE;
 				fMatch = TRUE;
 				break;
 			}
@@ -1345,6 +1344,8 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 				fMatch = TRUE;
 			}
 			if (!str_cmp(word, "End")) {
+				if (enchanted)
+					SET_BIT(obj->extra_flags, ITEM_ENCHANTED);
 				if (!fNest
 				||  (fVnum && obj->pIndexData == NULL)) {
 					bug("Fread_obj: incomplete object.", 0);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.7 1998-10-08 13:27:54 fjoe Exp $
+ * $Id: typedef.h,v 1.8 1998-10-09 15:34:33 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -40,10 +40,6 @@
 #endif
 
 typedef int bool;
-
-#if	!defined(NULL)
-#define	NULL	0
-#endif
 
 typedef struct affect_data		AFFECT_DATA;
 typedef struct area_data		AREA_DATA;
@@ -106,7 +102,7 @@ typedef int	OPROG_FUN	(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg);
 typedef u_int64_t flag_t;	/* flags */
 typedef u_int32_t sflag_t;	/* short flags (less memory usage) */
 
-#define IS_NULLSTR(str)		((str) == NULL || *(char*)(str) == '\0')
+#define IS_NULLSTR(str)		(!(str) || *(char*)(str) == '\0')
 
 #define IS_SET(flag, bit)	((flag) & (bit))
 #define SET_BIT(var, bit)	((var) |= (bit))
@@ -118,9 +114,9 @@ typedef u_int32_t sflag_t;	/* short flags (less memory usage) */
 #define URANGE(a, b, c) 	((b) < (a) ? (a) : ((b) > (c) ? (c) : (b)))
 #define ENTRE(min, num, max)	((min) < (num) && (num) < (max))
 
-#define IS_VALID(data)		((data) != NULL && (data)->valid)
-#define VALIDATE(data)		((data)->valid = TRUE)
-#define INVALIDATE(data)	((data)->valid = FALSE)
+#define IS_VALID(data)		((data))
+#define VALIDATE(data)
+#define INVALIDATE(data)
 
 #define ISLOWER(c)		(islower(c))
 #define ISUPPER(c)		(isupper(c))

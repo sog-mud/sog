@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.75 1998-10-09 13:43:06 fjoe Exp $
+ * $Id: db.c,v 1.76 1998-10-09 15:34:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -85,10 +85,7 @@ extern	int	_filbuf		(FILE *);
 
 
 /* externals for counting purposes */
-extern	OBJ_DATA	*obj_free;
-extern	CHAR_DATA	*char_free;
 extern  DESCRIPTOR_DATA *descriptor_free;
-extern  AFFECT_DATA	*affect_free;
 
 /*
  * Globals.
@@ -1410,9 +1407,6 @@ void clone_obj(OBJ_DATA *parent, OBJ_DATA *clone)
 	for (i = 0;  i < 5; i ++)
 		clone->value[i]	= parent->value[i];
 
-	/* affects */
-	clone->enchanted	= parent->enchanted;
-	
 	for (paf = parent->affected; paf != NULL; paf = paf->next) 
 		affect_to_obj(clone,paf);
 
@@ -1874,7 +1868,7 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 		top_mob_index, top_mob_index * (sizeof(*pMobIndex))); 
 
 	/* mobs */
-	count = 0;  count2 = 0;
+	count = 0;
 	for (fch = char_list; fch != NULL; fch = fch->next)
 	{
 		count++;
@@ -1883,11 +1877,9 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 		for (af = fch->affected; af != NULL; af = af->next)
 		    aff_count++;
 	}
-	for (fch = char_free; fch != NULL; fch = fch->next)
-		count2++;
 
-	fprintf(fp,"Mobs	%4d (%8d bytes), %2d free (%d bytes)\n",
-		count, count * (sizeof(*fch)), count2, count2 * (sizeof(*fch)));
+	fprintf(fp,"Mobs	%4d (%8d bytes)\n",
+		count, count * (sizeof(*fch)));
 
 	fprintf(fp,"Pcdata	%4d (%8d bytes)\n",
 		num_pcs, num_pcs * (sizeof(*pc)));
@@ -1914,28 +1906,20 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 	fprintf(fp,"ObjProt	%4d (%8d bytes)\n",
 		top_obj_index, top_obj_index * (sizeof(*pObjIndex)));
 
-
 	/* objects */
-	count = 0;  count2 = 0;
-	for (obj = object_list; obj != NULL; obj = obj->next)
-	{
+	count = 0;
+	for (obj = object_list; obj != NULL; obj = obj->next) {
 		count++;
 		for (af = obj->affected; af != NULL; af = af->next)
 		    aff_count++;
 	}
-	for (obj = obj_free; obj != NULL; obj = obj->next)
-		count2++;
 
-	fprintf(fp,"Objs	%4d (%8d bytes), %2d free (%d bytes)\n",
-		count, count * (sizeof(*obj)), count2, count2 * (sizeof(*obj)));
+	fprintf(fp,"Objs	%4d (%8d bytes)\n",
+		count, count * (sizeof(*obj)));
 
 	/* affects */
-	count = 0;
-	for (af = affect_free; af != NULL; af = af->next)
-		count++;
-
-	fprintf(fp,"Affects	%4d (%8d bytes), %2d free (%d bytes)\n",
-		aff_count, aff_count * (sizeof(*af)), count, count * (sizeof(*af)));
+	fprintf(fp,"Affects	%4d (%8d bytes)\n",
+		aff_count, aff_count * (sizeof(*af)));
 
 	/* rooms */
 	fprintf(fp,"Rooms	%4d (%8d bytes)\n",

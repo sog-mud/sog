@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.63 1998-10-09 13:42:38 fjoe Exp $
+ * $Id: spellfun.c,v 1.64 1998-10-09 15:34:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2232,7 +2232,7 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 	/* find the bonuses */
 
-	if (!obj->enchanted)
+	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
 		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next)
 		{
 		    if (paf->location == APPLY_AC)
@@ -2286,7 +2286,7 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 		act("$p glows brightly, then fades...oops.",ch,obj,NULL,TO_CHAR);
 		act("$p glows brightly, then fades.",ch,obj,NULL,TO_ROOM);
-		obj->enchanted = TRUE;
+		SET_BIT(obj->extra_flags, ITEM_ENCHANTED);
 
 		/* remove all affects */
 		for (paf = obj->affected; paf != NULL; paf = paf_next)
@@ -2308,10 +2308,9 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	}
 
 	/* okay, move all the old flags into new vectors if we have to */
-	if (!obj->enchanted)
-	{
+	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED)) {
 		AFFECT_DATA *af_new;
-		obj->enchanted = TRUE;
+		SET_BIT(obj->extra_flags, ITEM_ENCHANTED);
 
 		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next) 
 		{
@@ -2411,7 +2410,7 @@ void spell_enchant_weapon(int sn,int level,CHAR_DATA *ch, void *vo,int target)
 
 	/* find the bonuses */
 
-	if (!obj->enchanted)
+	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
 		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next)
 		{
 	        if (paf->location == APPLY_HITROLL)
@@ -2479,7 +2478,7 @@ void spell_enchant_weapon(int sn,int level,CHAR_DATA *ch, void *vo,int target)
 
 		act("$p glows brightly, then fades...oops.",ch,obj,NULL,TO_CHAR);
 		act("$p glows brightly, then fades.",ch,obj,NULL,TO_ROOM);
-		obj->enchanted = TRUE;
+		SET_BIT(obj->extra_flags, ITEM_ENCHANTED);
 
 		/* remove all affects */
 		for (paf = obj->affected; paf != NULL; paf = paf_next)
@@ -2501,10 +2500,9 @@ void spell_enchant_weapon(int sn,int level,CHAR_DATA *ch, void *vo,int target)
 	}
 
 	/* okay, move all the old flags into new vectors if we have to */
-	if (!obj->enchanted)
-	{
+	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED)) {
 		AFFECT_DATA *af_new;
-		obj->enchanted = TRUE;
+		SET_BIT(obj->extra_flags, ITEM_ENCHANTED);
 
 		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next) 
 		{
@@ -3212,7 +3210,7 @@ void spell_identify(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 	output = buf_new(0);
 	format_obj(output, obj);
-	if (!obj->enchanted)
+	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
 		format_obj_affects(output, obj->pIndexData->affected, FALSE);
 	format_obj_affects(output, obj->affected, TRUE);
 	page_to_char(buf_string(output), ch);

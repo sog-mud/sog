@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.26 1998-10-09 13:42:43 fjoe Exp $
+ * $Id: recycle.c,v 1.27 1998-10-09 15:34:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,24 +50,13 @@
 #include "db/db.h"
 
 /* stuff for recycling extended descs */
-ED_DATA *ed_free_list;
 extern int top_ed;
 
 ED_DATA *ed_new(void)
 {
 	ED_DATA *ed;
-
-	if (ed_free_list == NULL) {
-		ed = alloc_perm(sizeof(*ed));
-		ed->description = NULL;
-		top_ed++;
-	}
-	else {
-		ed = ed_free_list;
-		ed_free_list = ed_free_list->next;
-	}
-
-	VALIDATE(ed);
+	ed = calloc(1, sizeof(*ed));
+	top_ed++;
 	return ed;
 }
 
@@ -82,17 +71,14 @@ ED_DATA * ed_new2(const ED_DATA *ed, const char* name)
 
 void ed_free(ED_DATA *ed)
 {
-    if (!IS_VALID(ed))
-	return;
+	if (!ed)
+		return;
 
-    free_string(ed->keyword);
-    mlstr_free(ed->description);
-    INVALIDATE(ed);
-    
-    ed->next = ed_free_list;
-    ed_free_list = ed;
+	free_string(ed->keyword);
+	mlstr_free(ed->description);
+	free(ed);
+	top_ed--;
 }
-
 
 void ed_fread(FILE *fp, ED_DATA **edp)
 {
@@ -104,143 +90,59 @@ void ed_fread(FILE *fp, ED_DATA **edp)
 	SLIST_ADD(ED_DATA, *edp, ed);
 }
 
-
-/* stuff for recycling affects */
-AFFECT_DATA *affect_free;
-
 AFFECT_DATA *new_affect(void)
 {
-    static AFFECT_DATA af_zero;
-    AFFECT_DATA *af;
-
-    if (affect_free == NULL)
-	af = alloc_perm(sizeof(*af));
-    else
-    {
-	af = affect_free;
-	affect_free = affect_free->next;
-    }
-
-    *af = af_zero;
-
-
-    VALIDATE(af);
-    return af;
+	return calloc(1, sizeof(AFFECT_DATA));
 }
 
 void free_affect(AFFECT_DATA *af)
 {
-    if (!IS_VALID(af))
-	return;
-
-    INVALIDATE(af);
-    af->next = affect_free;
-    affect_free = af;
+	free(af);
 }
-
-/* stuff for recycling objects */
-OBJ_DATA *obj_free;
 
 OBJ_DATA *new_obj(void)
 {
-	int i;
 	OBJ_DATA *obj;
 
-	if (obj_free == NULL)
-		obj = alloc_perm(sizeof(*obj));
-	else {
-		obj = obj_free;
-		obj_free = obj_free->next;
-	}
-	VALIDATE(obj);
+	obj = calloc(1, sizeof(*obj));
+	obj->altar = ROOM_VNUM_ALTAR;
+	obj->pit = OBJ_VNUM_PIT;
 
-	obj->short_descr	= NULL;
-	obj->description	= NULL;
-	obj->next		= NULL;
-	obj->next_content	= NULL;
-	obj->contains		= NULL;
-	obj->in_obj		= NULL;
-	obj->on			= NULL;
-	obj->carried_by		= NULL;
-	obj->ed			= NULL;
-	obj->affected		= NULL;
-	obj->pIndexData		= NULL;
-	obj->in_room		= NULL;
-	obj->enchanted		= FALSE;
-	obj->name		= NULL;
-	obj->extra_flags	= 0;
-	obj->wear_flags		= 0;
-	obj->wear_loc		= 0;
-	obj->weight		= 0;
-	obj->cost		= 0;
-	obj->level		= 0;
-	obj->condition		= 0;
-	obj->material		= NULL;
-	obj->timer		= 0;
-	for (i = 0; i < 5; i++)
-		obj->value[i]	= 0;
-	obj->progtypes		= 0;
-	obj->from		= NULL;
-	obj->altar		= ROOM_VNUM_ALTAR;
-	obj->pit		= OBJ_VNUM_PIT;
-	obj->extracted		= FALSE;
-	obj->water_float	= 0;
 	return obj;
 }
 
 void free_obj(OBJ_DATA *obj)
 {
-    AFFECT_DATA *paf, *paf_next;
-    ED_DATA *ed, *ed_next;
+	AFFECT_DATA *paf, *paf_next;
+	ED_DATA *ed, *ed_next;
 
+	if (!obj)
+		return;
 
-    if (!IS_VALID(obj))
-	return;
+	for (paf = obj->affected; paf; paf = paf_next) {
+		paf_next = paf->next;
+		free_affect(paf);
+    	}
 
-    for (paf = obj->affected; paf != NULL; paf = paf_next)
-    {
-	paf_next = paf->next;
-	free_affect(paf);
-    }
-    obj->affected = NULL;
-
-    for (ed = obj->ed; ed != NULL; ed = ed_next ) {
-	ed_next = ed->next;
-	ed_free(ed);
-    }
-    obj->ed = NULL;
+	for (ed = obj->ed; ed != NULL; ed = ed_next ) {
+		ed_next = ed->next;
+		ed_free(ed);
+    	}
    
 	free_string(obj->name);
 	mlstr_free(obj->description);
 	mlstr_free(obj->short_descr);
 	free_string(obj->from);
 	free_string(obj->material);
-
-    INVALIDATE(obj);
-
-    obj->next   = obj_free;
-    obj_free    = obj; 
+	free(obj);
 }
-
-
-/* stuff for recyling characters */
-CHAR_DATA *char_free;
 
 CHAR_DATA *new_char (void)
 {
 	CHAR_DATA *ch;
 	int i;
 
-	if (char_free == NULL) 
-		ch = calloc(1, sizeof(*ch));
-	else {
-		ch = char_free;
-		char_free = char_free->next;
-		memset(ch, 0, sizeof(*ch));
-	}
-
-	VALIDATE(ch);
-
+	ch = calloc(1, sizeof(*ch));
 	RESET_FIGHT_TIME(ch);
 	ch->last_death_time	= -1;
 	ch->prefix		= str_empty;
@@ -260,48 +162,41 @@ CHAR_DATA *new_char (void)
 	return ch;
 }
 
-void free_char (CHAR_DATA *ch)
+void free_char(CHAR_DATA *ch)
 {
-    OBJ_DATA *obj;
-    OBJ_DATA *obj_next;
-    AFFECT_DATA *paf;
-    AFFECT_DATA *paf_next;
+	OBJ_DATA *obj;
+	OBJ_DATA *obj_next;
+	AFFECT_DATA *paf;
+	AFFECT_DATA *paf_next;
 
-    if (!IS_VALID(ch))
-	return;
+	if (!ch)
+		return;
 
-    if (IS_NPC(ch))
-	mobile_count--;
+	if (IS_NPC(ch))
+		mobile_count--;
 
-    for (obj = ch->carrying; obj != NULL; obj = obj_next)
-    {
-	obj_next = obj->next_content;
-	extract_obj_nocount(obj);
-    }
+	for (obj = ch->carrying; obj; obj = obj_next) {
+		obj_next = obj->next_content;
+		extract_obj_nocount(obj);
+	}
 
-    for (paf = ch->affected; paf != NULL; paf = paf_next)
-    {
-	paf_next = paf->next;
-	affect_remove(ch,paf);
-    }
+	for (paf = ch->affected; paf; paf = paf_next) {
+		paf_next = paf->next;
+		affect_remove(ch,paf);
+	}
 
-    free_string(ch->name);
-    mlstr_free(ch->short_descr);
-    mlstr_free(ch->long_descr);
-    mlstr_free(ch->description);
-    free_string(ch->prompt);
-    free_string(ch->prefix);
-    free_string(ch->material);
-    free_string(ch->in_mind);
+	free_string(ch->name);
+	mlstr_free(ch->short_descr);
+	mlstr_free(ch->long_descr);
+	mlstr_free(ch->description);
+	free_string(ch->prompt);
+	free_string(ch->prefix);
+	free_string(ch->material);
+	free_string(ch->in_mind);
 
-    if (ch->pcdata != NULL)
-    	free_pcdata(ch->pcdata);
-
-    ch->next = char_free;
-    char_free  = ch;
-
-    INVALIDATE(ch);
-    return;
+	if (ch->pcdata != NULL)
+		free_pcdata(ch->pcdata);
+	free(ch);
 }
 
 PC_DATA *new_pcdata(void)
@@ -335,6 +230,7 @@ void free_pcdata(PC_DATA *pcdata)
 		free_string(pcdata->alias[alias]);
 		free_string(pcdata->alias_sub[alias]);
 	}
+	free(pcdata);
 }
 
 /* stuff for setting ids */
@@ -343,45 +239,30 @@ long	last_mob_id;
 
 long get_pc_id(void)
 {
-    int val;
-
-    val = (current_time <= last_pc_id) ? last_pc_id + 1 : current_time;
-    last_pc_id = val;
-    return val;
+	return last_pc_id = (current_time <= last_pc_id) ?
+			    last_pc_id + 1 : current_time;
 }
 
 long get_mob_id(void)
 {
-    last_mob_id++;
-    return last_mob_id;
+	last_mob_id++;
+	return last_mob_id;
 }
-
     
-/* stuff for recycling mobprograms */
-MPTRIG *mptrig_free_list;
- 
 MPTRIG *mptrig_new(int type, const char *phrase, int vnum)
 {
 	const char *p;
 	MPTRIG *mptrig;
 
-	if (mptrig_free_list == NULL)
-		mptrig = alloc_perm(sizeof(*mptrig));
-	else {
-		mptrig = mptrig_free_list;
-		mptrig_free_list = mptrig_free_list->next;
-	}
-
+	mptrig = calloc(1, sizeof(*mptrig));
 	mptrig->type	= type;
 	mptrig->phrase	= str_dup(phrase);
 	mptrig->vnum	= vnum;
-	mptrig->flags	= 0;
 	for (p = mptrig->phrase; *p; p++)
 		if (ISUPPER(*p)) {
 			SET_BIT(mptrig->flags, TRIG_CASEDEP);
 			break;
 		}
-	VALIDATE(mptrig);
 	return mptrig;
 }
 
@@ -393,10 +274,7 @@ void mptrig_add(MOB_INDEX_DATA *mob, MPTRIG *mptrig)
 
 void mptrig_free(MPTRIG *mp)
 {
-	if (!IS_VALID(mp))
+	if (!mp)
 		return;
-
-	INVALIDATE(mp);
-	mp->next = mptrig_free_list;
-	mptrig_free_list = mp;
+	free(mp);
 }
