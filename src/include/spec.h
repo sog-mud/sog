@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.h,v 1.6 1999-12-11 15:31:10 fjoe Exp $
+ * $Id: spec.h,v 1.7 1999-12-13 14:10:38 avn Exp $
  */
 
 #ifndef _SPEC_H_
@@ -39,12 +39,15 @@ enum {
 	SPEC_WEAPON
 };
 
+#define	SPF_CHANGED	(Z)
+
 typedef struct spec_t spec_t;
 struct spec_t {
 	const char *spec_name;	/* spec name, also used as file name	*/
 	flag_t spec_class;	/* spec class				*/
 	varr spec_skills;	/* spec_skill_t				*/
 	cc_ruleset_t spec_deps;	/* spec deps				*/
+	flag_t spec_flags;	/* SPF_CHANGED - for OLC		*/
 };
 
 extern hash_t specs;
@@ -65,9 +68,11 @@ spec_t *spec_cpy(spec_t *dst, const spec_t *src);
 void spec_destroy(spec_t *spec);
 
 void spec_skill_init(spec_skill_t *spec_sk);
+spec_skill_t *spec_skill_lookup(spec_t *s, const char *sn);
 
 /* fast spec lookup by precise name */
 #define spec_lookup(spn)	((spec_t*) strkey_lookup(&specs, (spn)))
+#define spec_search(spn)	((spec_t*) strkey_search(&specs, (spn)))
 
 void spec_stats		(CHAR_DATA *ch, spec_skill_t *spec_sk);
 

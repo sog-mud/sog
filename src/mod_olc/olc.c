@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.90 1999-12-11 15:31:10 fjoe Exp $
+ * $Id: olc.c,v 1.91 1999-12-13 14:10:38 avn Exp $
  */
 
 /***************************************************************************
@@ -84,6 +84,7 @@ const char ED_EXPL[]	= "explicit";
 const char ED_SOCIAL[]	= "socials";
 const char ED_CMD[]	= "cmds";
 const char ED_SKILL[]	= "skills";
+const char ED_SPEC[]	= "specs";
 const char ED_RACE[]	= "races";
 const char ED_CLASS[]	= "classes";
 const char ED_MATERIAL[]= "materials";
@@ -107,6 +108,7 @@ olced_t olced_table[] = {
 	{ ED_MATERIAL,	"MatEd",	olc_cmds_mat	},
 	{ ED_LIQUID,	"LiqEd",	olc_cmds_liq	},
 	{ ED_SKILL,	"SkillEd",	olc_cmds_skill	},
+	{ ED_SPEC,	"SpecEd",	olc_cmds_spec	},
 #if 0
 	{ ED_CMD,	"CmdEd",	olc_cmds_cmd	}, 
 #endif
@@ -870,11 +872,13 @@ olced_cc_ruleset(CHAR_DATA *ch, const char *argument,
 	if (!str_prefix(arg, "order"))
 		return olced_flag(ch, argument, cmd, &rs->order);
 
-	if (!str_prefix(arg, "delete")) {
-		argument = one_argument(argument, arg, sizeof(arg));
+	if (!str_prefix(arg, "delete"))
 		del = TRUE;
-	}
 
+	if (!del && str_prefix(arg, "add"))
+		CC_RULESET_ERR;
+
+	argument = one_argument(argument, arg, sizeof(arg));
 	if (!str_prefix(arg, "allow"))
 		v = &rs->allow;
 	else if (!str_prefix(arg, "deny"))

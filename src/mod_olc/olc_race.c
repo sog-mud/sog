@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.21 1999-12-12 17:07:30 avn Exp $
+ * $Id: olc_race.c,v 1.22 1999-12-13 14:10:39 avn Exp $
  */
 
 #include "olc.h"
@@ -694,7 +694,7 @@ OLC_FUN(raceed_addclass)
 		return FALSE;
 	}
 
-	if ((rc = rclass_lookup(race, cl->name))) {
+	if (rclass_lookup(race, cl->name)) {
 		char_printf(ch, "RaceEd: %s: already there.\n", cl->name);
 		return FALSE;
 	}

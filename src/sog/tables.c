@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.110 1999-12-12 20:43:07 avn Exp $
+ * $Id: tables.c,v 1.111 1999-12-13 14:10:39 avn Exp $
  */
 
 /***************************************************************************
@@ -1395,6 +1395,15 @@ flaginfo_t spec_classes[] =
 	{ "race",		SPEC_RACE,			TRUE	},
 	{ "clan",		SPEC_CLAN,			TRUE	},
 	{ "weapon",		SPEC_WEAPON,			TRUE	},
+
+	{ NULL }
+};
+
+flaginfo_t spec_flags[] =
+{
+	{ "",			TABLE_BITVAL,				},
+
+	{ "changed",		SPF_CHANGED,			FALSE	},
 
 	{ NULL }
 };

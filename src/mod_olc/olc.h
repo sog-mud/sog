@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.56 1999-12-11 15:31:11 fjoe Exp $
+ * $Id: olc.h,v 1.57 1999-12-13 14:10:39 avn Exp $
  */
 
 /***************************************************************************
@@ -82,6 +82,7 @@ extern const char ED_EXPL	[];
 extern const char ED_SOCIAL	[];
 extern const char ED_CMD	[];
 extern const char ED_SKILL	[];
+extern const char ED_SPEC	[];
 extern const char ED_RACE	[];
 extern const char ED_CLASS	[];
 extern const char ED_MATERIAL	[];
@@ -113,6 +114,7 @@ extern olc_cmd_t	olc_cmds_expl[];
 extern olc_cmd_t	olc_cmds_soc[];
 extern olc_cmd_t	olc_cmds_cmd[];
 extern olc_cmd_t	olc_cmds_skill[];
+extern olc_cmd_t	olc_cmds_spec[];
 extern olc_cmd_t	olc_cmds_race[];
 extern olc_cmd_t	olc_cmds_class[];
 extern olc_cmd_t	olc_cmds_mat[];
@@ -183,8 +185,9 @@ AREA_DATA *get_edited_area(CHAR_DATA *ch);
 bool	touch_area	(AREA_DATA*);
 bool	touch_vnum	(int vnum);
 bool	touch_clan	(clan_t *clan);
-bool	touch_race	(race_t *clan);
-bool	touch_class	(class_t *clan);
+bool	touch_race	(race_t *race);
+bool	touch_class	(class_t *class);
+bool	touch_spec	(spec_t *spec);
 
 void		edit_done	(DESCRIPTOR_DATA *d);
 olced_t *	olced_lookup	(const char * id);
@@ -204,6 +207,7 @@ void		olc_printf	(CHAR_DATA *ch, const char *format, ...);
 #define SECURITY_CLASS		9
 #define SECURITY_MATERIAL	2
 #define SECURITY_SKILL		8
+#define SECURITY_SPEC		8
 
 #endif
 

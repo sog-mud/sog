@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.c,v 1.13 1999-12-11 15:31:20 fjoe Exp $
+ * $Id: spec.c,v 1.14 1999-12-13 14:10:39 avn Exp $
  */
 
 #include <stdio.h>
@@ -93,6 +93,11 @@ void spec_skill_init(spec_skill_t *spec_sk)
 	spec_sk->max = 100;
 }
 
+spec_skill_t *
+spec_skill_lookup(spec_t *s, const char *sn)
+{
+	return (spec_skill_t*) varr_bsearch(&s->spec_skills, &sn, cmpstr);
+}
 /*-------------------------------------------------------------------
  * update_skills stuff
  */

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_rule.c,v 1.6 1999-12-11 15:31:14 fjoe Exp $
+ * $Id: cc_rule.c,v 1.7 1999-12-13 14:10:39 avn Exp $
  */
 
 #include <ctype.h>
@@ -169,24 +169,24 @@ fwrite_cc_ruleset(cc_ruleset_t *rs, const char *pre, FILE *fp)
 		return;
 
 	fprintf(fp, "%s\n"
-		    "order %s\n",
+		    "Order %s\n",
 		pre, 
 		fix_word(flag_string(cc_order_types, rs->order)));
 
 	switch (rs->order) {
 	case CC_O_DENY_ALLOW:
-		varr_foreach(&rs->deny, fwrite_arg_cb, fp, "deny");
-		varr_foreach(&rs->allow, fwrite_arg_cb, fp, "allow");
+		varr_foreach(&rs->deny, fwrite_arg_cb, fp, "Deny");
+		varr_foreach(&rs->allow, fwrite_arg_cb, fp, "Allow");
 		break;
 
 	case CC_O_ALLOW_DENY:
 	default:
-		varr_foreach(&rs->allow, fwrite_arg_cb, fp, "allow");
-		varr_foreach(&rs->deny, fwrite_arg_cb, fp, "deny");
+		varr_foreach(&rs->allow, fwrite_arg_cb, fp, "Allow");
+		varr_foreach(&rs->deny, fwrite_arg_cb, fp, "Deny");
 		break;
 	}
 
-	fprintf(fp, "end\n");
+	fprintf(fp, "End\n");
 }
 
 static void *
@@ -195,9 +195,10 @@ print_arg_cb(void *p, va_list ap)
 	const char **parg = (const char **) p;
 	BUFFER *buf = va_arg(ap, BUFFER *);
 	const char *rn = va_arg(ap, const char *);
+	varr *v = va_arg(ap, varr *);
 
-	buf_printf(buf, "        %s %s\n",
-		   rn, *parg);
+	buf_printf(buf, "  (%2d) %s [%s]\n",
+		   varr_index(v, parg), rn, *parg);
 	return NULL;
 }
 
@@ -208,20 +209,20 @@ print_cc_ruleset(cc_ruleset_t *rs, const char *pre, BUFFER *buf)
 		return;
 
 	buf_printf(buf, "%s\n"
-			"        order %s\n",
+			"       Order [%s]\n",
 		   pre,
 		   fix_word(flag_string(cc_order_types, rs->order)));
 
 	switch (rs->order) {
 	case CC_O_DENY_ALLOW:
-		varr_foreach(&rs->deny, print_arg_cb, buf, "deny");
-		varr_foreach(&rs->allow, print_arg_cb, buf, "allow");
+		varr_foreach(&rs->deny, print_arg_cb, buf, "Deny", &rs->deny);
+		varr_foreach(&rs->allow, print_arg_cb, buf, "Allow", &rs->allow);
 		break;
 
 	case CC_O_ALLOW_DENY:
 	default:
-		varr_foreach(&rs->allow, print_arg_cb, buf, "allow");
-		varr_foreach(&rs->deny, print_arg_cb, buf, "deny");
+		varr_foreach(&rs->allow, print_arg_cb, buf, "Allow", &rs->allow);
+		varr_foreach(&rs->deny, print_arg_cb, buf, "Deny", &rs->deny);
 		break;
 	}
 
