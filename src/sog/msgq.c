@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: msgq.c,v 1.3 2003-03-06 20:07:48 avn Exp $
+ * $Id: msgq.c,v 1.4 2004-06-09 08:24:38 tatyana Exp $
  */
 
 #include <sys/types.h>
@@ -33,6 +33,7 @@
 #include <str.h>
 
 msgq_t msgq_immtalk;
+msgq_t msgq_prays;
 
 void
 msgq_init(msgq_t *msgq, size_t qlen)

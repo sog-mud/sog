@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.55 2004-03-07 21:23:36 tatyana Exp $
+ * $Id: sog.h,v 1.56 2004-06-09 08:24:37 tatyana Exp $
  */
 
 #ifndef _SOG_H_
@@ -666,8 +666,8 @@ DECLARE_FUN4(cchar_t, PERS,
 /*
  * layout of act_flags is:
  * bits 0..2	-- act target
- * bits 3..5	-- queue
- * bits 6..31	-- flags
+ * bits 3..6	-- queue
+ * bits 7..31	-- flags
  */
 
 /*
@@ -689,11 +689,11 @@ DECLARE_FUN4(cchar_t, PERS,
 #define ACTQ_SOG	(5 << 3)
 #define ACTQ_CHAN	(6 << 3)
 #define ACTQ_IMMTALK	(7 << 3)
+#define ACTQ_PRAYS	(8 << 3)
 
 /*
  * act flags
  */
-#define ACT_NOTRIG	(G)	/* do not pull act triggers		    */
 #define ACT_NOTWIT	(H)	/* do not perform twit list checking	    */
 #define ACT_NOTRANS	(I)	/* do not perform $t, $T, $u and $U transl. */
 #define ACT_NODEAF	(J)	/* skip is_sn_affected(to, "deafen") chars  */
@@ -707,6 +707,7 @@ DECLARE_FUN4(cchar_t, PERS,
 				/* (do not buffer it)			    */
 #define ACT_NOCANSEE	(R)	/* do not perform can_see checks	    */
 #define ACT_TOBUF	(S)	/* append to replay buffer if link-dead */
+#define ACT_NOTRIG	(T)	/* do not pull act triggers		    */
 #define ACT_NOFIXSH	(Z)	/* do not fix char/obj short descrs	    */
 				/* (used internally in comm_act.c for not   */
 				/* stripping '~' when short descrs are      */
@@ -716,7 +717,7 @@ DECLARE_FUN4(cchar_t, PERS,
 				ACT_NOTRANS : 0))
 
 #define ACT_TO(act_flags)	((act_flags) & (7 << 0))
-#define ACTQ(act_flags)		((act_flags) & (7 << 3))
+#define ACTQ(act_flags)		((act_flags) & (15 << 3))
 
 /*
  * ->to must not be NULL for all char/obj formatting or if ACT_STRANS is set

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.286 2004-02-22 14:09:50 fjoe Exp $
+ * $Id: act_comm.c,v 1.287 2004-06-09 08:24:37 tatyana Exp $
  */
 
 /***************************************************************************
@@ -741,7 +741,7 @@ DO_FUN(do_implore, ch, argument)
 
 		act_puts("{W$n{x implores you for '{G$t{x'",
 			 ch, argument, vch,
-			 TO_VICT | ACT_TOBUF, POS_DEAD);
+			 TO_VICT | ACT_TOBUF | ACTQ_PRAYS, POS_DEAD);
 	 }
 }
 
@@ -2115,6 +2115,9 @@ DO_FUN(do_last, ch, argument)
 	} else if (!str_prefix(arg, "immtalk") && IS_IMMORTAL(ch)) {
 		qname = "imm talks";
 		msgq = &msgq_immtalk;
+	} else if (!str_prefix(arg, "prays") && IS_IMMORTAL(ch)) {
+		qname = "prays";
+		msgq = &msgq_prays;
 	}
 
 	if (msgq == NULL) {
