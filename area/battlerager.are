@@ -141,13 +141,13 @@ treasure ORe AO
 G none
 #95402
 white throne~
-@eng A white throne@rus белый трон~
-@eng A large white throne made from bones is standing in front of the wall here.@rus Большой белый трон (throne), сделанный из костей, стои возле стены.~
+@eng a white throne@rus ~~белый~~ ~~трон~~~
+@eng White throne made of bone stands here.@rus Большой белый трон (throne), сделанный из костей, стоит возле стены.~
 bone~
 container ORY P
-10 ABCD 95400 15 100
+10 ABCDE 95400 15 100
 60 1 20 P
-G none
+G male
 #95403
 pit~
 the pit for donations~
@@ -439,8 +439,8 @@ G 0 95405 0		*	a fine dagger
 G 0 95406 0		*	a fine sword
 G 0 95407 0		*	a fine two-handed axe
 M 0 95402 1 95408 1	* A Wiseman (The Shrine of Battleragers)
-O 0 95402 0 95408	* A white throne (The Shrine of Battleragers)
-P 0 95401 1 95402 1	* A white throne: Skull of mage
+O 0 95402 0 95408	* a white throne (The Shrine of Battleragers)
+P 0 95401 1 95402 1	* a white throne: Skull of mage
 M 0 95405 1 95409 1	* rock (Dark tunnel)
 M 0 95403 1 95410 1	* Urukhay (Troll's lair)
 O 0 95404 0 95411	* soldier's plank bed (Resting room)

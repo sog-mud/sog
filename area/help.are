@@ -136,6 +136,7 @@ Example:  PROMPT <%hhp %mm %vmv>
 Команда PROMPT без аргументов выведет тебе твое текущее приглашение.
 Команда PROMPT SHOW покажет текущую конфигурацию строки приглашения.
 Команда PROMPT ALL установит тебе стандартное приглашение.
+
 С помощью команды PROMPT <...> ты можешь установить свое собственное
 приглашение. При этом в угловых скобках могут стоять следующие аргументы:
        %h : покажет твое текущее здоровье (hp)
@@ -566,16 +567,16 @@ COMPARE with one argument compares an object in your inventory to the object
 you are currently wearing or wielding of the same type.
  
 COMPARE doesn't consider any special modifiers of the objects.
-@rus Синтаксис: {Gcompare {C<объект-1> <объект-2>{x
-Синтаксис: {Gcompare {C<объект>{x
+@rus Синтаксис: {ccompare{x <объект-1> <объект-2>
+Синтаксис: {ccompare{x <обьект>
 
-{GCOMPARE{x сравнивает два объекта находящихся в твоем мешке.  Если предметы 
+COMPARE сравнивает два объекта находящихся в твоем мешке.  Если предметы 
 являются оружием, она сообщит об объекте с лучшим наносимым средним ущербом.
 Если оба объекта - броня, она сообщит о предмете с лучшим классом брони.
 
-{GCOMPARE{x с одним аргументом сравнивает предмет с аналогичным одетым на тебе.
+COMPARE с одним аргументом сравнивает предмет с аналогичным одетым на тебе.
 
-{GCOMPARE{x не учитывает специальные модификаторы ообъектов.
+COMPARE не учитывает специальные модификаторы ообъектов.
 ~
 0 FLEE RESCUE ESCAPE DISHONOR~
 @eng Syntax: flee
@@ -599,29 +600,29 @@ clan guardians.
 If you are Samurai, after level 10 you can NOT FLEE,so be careful.(You may 
 flee if victim's level is much higher than your level (level difference is
 6). But you won't wimp out.)
-@rus Синтаксис: {Gflee{x
-Синтаксис: {Grescue {C<персонаж>{x
-Синтаксис: {Gescape {C<направление>{x
-Синтаксис: {Gdishonor{x
+@rus Синтаксис: {cflee{x
+Синтаксис: {crescue{x <персонаж>
+Синтаксис: {cescape{x <направление>
+Синтаксис: {cdishonor{x
 
 Как только ты начал бой, ты уже не можете просто выйти из него. Если тебе не
-нравится течение боя, ты можешь пытаться cбежать ({GFLEE{x), или другой персонаж
-может спасти ({GRESCUE{x) тебя.
+нравится течение боя, ты можешь пытаться cбежать (FLEE), или другой персонаж
+может спасти (RESCUE) тебя.
 
 Некоторые классы настолько преуспели в сбегании из боя, что могут выбирать
-направление, в котором они будут пытаться сбежать ({GESCAPE{x).
+направление, в котором они будут пытаться сбежать (ESCAPE).
 
 Если ты теряешь связь в течение боя, то персонаж продолжает его, но будет
 автоматически пытаться сбежать время от времени. 
 
-Если ты находишся под действием заклинания '{gpass door{x', то ты можешь сбегать
+Если ты находишся под действием заклинания 'pass door', то ты можешь сбегать
 через закрытые двери.
 
 Ты не можешь сбежать внутрь клана из боя с клановыми охранниками.
 
 Если ты выбрал путь самурая, то после 10-го уровня ты не можешь сбежать из
-боя. Если уровень противника намного выше твоего (более чем на 6), то ты можеim
-обесчестить ({GDISHONOR{x) себя и покинуть поле боя.
+боя. Если уровень противника намного выше твоего (более чем на 6), то ты можешь
+обесчестить (DISHONOR) себя и покинуть поле боя.
 ~
 0 LOOK EXAMINE GLANCE~
 @eng Syntax: look
@@ -637,23 +638,22 @@ Syntax: examine <corpse>
 LOOK looks at something and sees what you can see.
 
 EXAMINE is short for 'LOOK container' followed by 'LOOK IN container'.
-@rus Синтаксис: {Glook{x
-Синтаксис: {Glook    {C<объект>{x
-Синтаксис: {Glook    {C<персонаж>{x
-Синтаксис: {Glook    {C<направление>{x
-Синтаксис: {Glook    {C<ключевое слово>{x
-Синтаксис: {Glook in {C<контейнер>{x
-Синтаксис: {Glook in {C<труп>{x
-Синтаксис: {Gexamine {C<контейнер>{x
-Синтаксис: {Gexamine {C<труп>{x
-Синтаксис: {Gglance
-
-{GLOOK{x позволяет посмотреть на или во что-либо и сообщает тебе, что ты можешь
-увидеть.
-
-{GGLANCE{x сообщает название комнаты, пропуская ее описание.
-
-{GEXAMINE{x - сокращения для {GLOOK {C<контейнер>{x и {GLOOK IN {C<контейнер>{x последовательно.
+@rus Синтаксис: {clook{x
+Синтаксис: {clook{x <обьект>
+Синтаксис: {clook{x <персонаж>
+Синтаксис: {clook{x <напрвление>
+Синтаксис: {clook{x <ключевое слово>
+Синтаксис: {clook in{x <контейнер>
+Синтаксис: {clook in{x <труп>
+Синтаксис: {cexamine{x <труп>
+Синтаксис: {cexamine{x <контейнер>
+Синтаксис: {cglance{x 
+ 
+LOOK позволяет посмотреть на что-то или во что-то и сообщает тебе о том,
+что ты увидел.
+GLANCE является аналогом look без параметров. Но не показывает описание
+комнаты.
+EXAMINE является сокращением для look in <контейнер> и look in <труп>.
 ~
 0 ORDER~
 @eng Syntax: order <character> command
@@ -667,10 +667,10 @@ will incur the same penalty as if they attacked you directly.
 Most charmed creatures lose their aggresive nature (while charmed).
 
 If your charmed creature engages in combat, that will break the charm.
-@rus Синтаксис: {Gorder {C<персонаж> <команда>{x
-Синтаксис: {Gorder all {C<команда>{x
+@rus Синтаксис: {corder{x <персонаж> <команда>
+Синтаксис: {corder all{x <команда>
 
-{GORDER{x приказывает одному или всем зачарованным вами существам, включая домашних
+ORDER приказывает одному или всем зачарованным вами существам, включая домашних
 животных, исполнить команду. Вы несете ответственность за действия зачарованных
 вами существ, и за атаку ваших последователей другие несут ту же ответствен-
 ность, что и за нападение непосредственно на вас.
@@ -692,24 +692,24 @@ you won't hear many things happen.
 
 Use STAND or WAKE to come back to a standing position.  You can
 also WAKE other sleeping characters.
-@rus Синтаксис: {Grest{x
-Синтаксис: {Gsleep{x
-Синтаксис: {Gstand{x
-Синтаксис: {Gsit{x
-Синтаксис: {Gwake{x
-Синтаксис: {Gwake {C<персонаж>{x
-Синтаксис: {Gsit {C<объект>{x
-Синтаксис: {Grest {C<объект>{x
-Синтаксис: {Gsleep {C<объект>{x
-Синтаксис: {Gstand {C<объект>{x
+@rus Синтаксис: {crest{x
+Синтаксис: {csleep{x
+Синтаксис: {cstand{x
+Синтаксис: {csit{x
+Синтаксис: {cwake{x
+Синтаксис: {cwake {x{x{x{x{x<персонаж>{x
+Синтаксис: {csit{x <обьект>
+Синтаксис: {crest{x <обьект>
+Синтаксис: {csleep{x <обьект>
+Синтаксис: {cstand{x <обьект>
 
 Эти команды служат для изменения положения твоего тела. Когда ты отдыхаешь 
-({GREST{x) или спишь ({GSLEEP{x), твои hp/mana/move восстанавливаются быстрее. Но,
+(REST) или спишь (SLEEP), твои hp/mana/move восстанавливаются быстрее. Но,
 в этих положениях ты гораздо уязвимее для нападения, а когда ты спишь, ты
 можешь не заметить многих вещей.
 
-Команды {GSTAND{x или {GWAKE{x возвращают в вертикальное положение. Nы также можете
-разбудить ({GWAKE{x) другого спящего персонажа.
+Команды STAND или WAKE возвращают в вертикальное положение. Nы также можете
+разбудить (WAKE) другого спящего персонажа.
 
 Использование этих команд с именем обьекта как аргументом приведет к использо-
 ванию этого объекта для отдыха или сна.
@@ -731,22 +731,22 @@ TELL sends a message to one awake player anywhere in the world.
 REPLY sends a message to the last player who sent you a TELL.  REPLY will work
 even if you can't see the player, and without revealing their identity.  This
 is handy for talking to invisible or switched immortal players.
-@rus Синтаксис: {Ggtell {C<сообщение>{x
-Синтаксис: {Gsay   {C<сообщение>{x
-Синтаксис: {Gtell  {C<персонаж> <сообщение>{x
-Синтаксис: {Greply {C<сообщение>{x
+@rus Синтаксис: {cgtell {x<сообщение>
+Синтаксис: {csay   {x<сообщение>
+Синтаксис: {ctell  {x<персонаж> <сообщение>
+Синтаксис: {creply {x<сообщение>
 
-Все эти команды предназначены для общения с джругими персонажами. {GGTELL{x посылает
+Все эти команды предназначены для общения с джругими персонажами. GTELL посылает
 сообщение всем членам твоей группы, где бы они ни были, даже если они спят,
-оглушены или умирают. {G;{x является синонимом для {GGTELL{x.
+оглушены или умирают. ; является синонимом для GTELL.
 
-{GSAY{x посылает сообщение всем бодрствующим игрокам, находящимся в одной комнате с
-тобой. Апостроф ({G'{x) является синонимом для {GSAY{x.
+SAY посылает сообщение всем бодрствующим игрокам, находящимся в одной комнате с
+тобой. Апостроф (') является синонимом для SAY.
 
-{GTELL{x посылает сообщение указанному персонажу.
+TELL посылает сообщение указанному персонажу.
 
-{GREPLY{x посылает сообщение игроку, который последним послал тебе сообщение при
-помощи команды {GTELL{x. Команду {GREPLY{x можно использовать даже если ты не видишь
+REPLY посылает сообщение игроку, который последним послал тебе сообщение при
+помощи команды TELL. Команду REPLY можно использовать даже если ты не видишь
 персонажа, с которым говоришь, что делает ее незаменимой для разговора с
 игроками, которых ты не видишь или с Богами.
 ~
@@ -832,20 +832,20 @@ shouting, SHOUT imposes a three-second delay on the shouter.
 YELL sends a message to all awake players within your area.
 
 Type a channel name by itself to turn it off.
-@rus Синтаксис: {Gshout   {C<сообщение>{x
-Синтаксис: {Gyell    {C<сообщение>{x
-Синтаксис: {Ggossip  {C<сообщение>{x
-Синтаксис: {Gmusic   {C<сообщение>{x
+@rus Синтаксис: {cshout   {x<сообщение>
+Синтаксис: {cyell    {x<сообщение>
+Синтаксис: {cgossip  {x<сообщение>
+Синтаксис: {cmusic   {x<сообщение>
 
-{GSHOUT{x посылает сообщение всем игрокам по всему миру. Для предотвращения
+SHOUT посылает сообщение всем игрокам по всему миру. Для предотвращения
 излишних криков, использование SHOUT на 3 секунды блокирует кричавшего.
 
-{GYELL{x посылает сообщение всем бодрствующим игрокам в одной с вами зоне.
+YELL посылает сообщение всем бодрствующим игрокам в одной с вами зоне.
 
-{GGOSSIP{x посылает сообщение всем игрокам, игнорируя {ctwitlist{x (смотри {CHELP TWIT{x).
-Канал {GGOSSIP{x не может быть отключен.
+GOSSIP посылает сообщение всем игрокам, игнорируя {ctwitlist{x (смотри {CHELP TWIT{x).
+Канал GOSSIP не может быть отключен.
 
-{GMUSIC{x предназначен для громкого, на весь мир распевания песен.
+MUSIC предназначен для громкого, на весь мир распевания песен.
 
 Использование этих команд без аргументов включает/выключает соответствующий
 канал.
@@ -863,28 +863,28 @@ name (i.e. pmote bonks Alander will be read as bonks you by Alander, and
 as bonks Alander by everyone else).
 
 POSE produces a random message depending on your class and level.
-@rus Синтаксис: {Gemote {C<действие>{x
-Синтаксис: {Gpmote {C<действие>{x
-Синтаксис: {Gpose{x
+@rus Синтаксис: {cemote {x<действие>
+Синтаксис: {cpmote {x<действие>
+Синтаксис: {cpose{x
 
-{GEMOTE{x используется, чтобы выразить эмоции или действия. Помимо {GEMOTE{x существует
-множество встроенных команд, например {GCACKLE, HUG{x и {GTHANK{x (введите {GSOCIALS{x для
+EMOTE используется, чтобы выразить эмоции или действия. Помимо EMOTE существует
+множество встроенных команд, например CACKLE, HUG{x и THANK (введите SOCIALS для
 вывода списка).
 
-{GPMOTE{x действует аналогично {GEMOTE{x, но будет заменять имена персонажа на 'you'.
-Например, {Gpmote bonks Alander{x выведет '{Bbonks you{x' Аландеру, и '{Bbonks Alander{x'
+PMOTE действует аналогично EMOTE, но будет заменять имена персонажа на 'you'.
+Например, {cpmote bonks Alander{x выведет '{cbonks you{x' Аландеру, и '{cbonks Alander{x'
 всем остальным.
 
-{GPOSE{x выдает случайное сообщение, зависящее от вашего класса и уровня.
+POSE выдает случайное сообщение, зависящее от вашего класса и уровня.
 ~
 52 SMOTE~
 @eng Syntax: smote <action>
 
 Smote works exactly like pmote, except you must place your name somewhere in
 the string, and it will show that string to everyone in the room.
-@rus Синтаксис: {Gsmote {C<действие>{x
+@rus Синтаксис: {csmote {x<действие>
 
-{GSMOTE{x работает аналогично {GPMOTE{x, за исключением того, что имя может стоять в
+SMOTE работает аналогично PMOTE, за исключением того, что имя может стоять в
 любом месте строки.
 ~
 0 HOLD REMOVE WEAR WIELD~
@@ -3227,7 +3227,7 @@ Syntax: cast 'protective shield'
 This spell makes a shield around the caster which can deflect blunt blows
 such as those from bashes and throws.
 ~
-0 'QUEST REWARD'~
+92 'QUEST REWARD'~
 Quest rewards cannot be sacrificed and these items
 are special for the character. Any other character cannot get or wear 
 these items. Also these items cannot get damage. As you lost one of them 
@@ -3245,7 +3245,7 @@ quest points   : show quest points
                         at most 3 times.
 ~
 -1 AUCTION~
-Syntax of the auction command is:
+@eng Syntax of the auction command is:
 
 auction (no parameters) - will show the current item's stats
 auction <item> <price>  - will auction an <item>, if no auction is going on.
@@ -3254,6 +3254,19 @@ auction on | off	- will make the channel auction on/off
 auction bet <bet>	- will bet on the item
 auction stop		- will stop the auction, return the gold to the last
 			  better and transfer the item to seller (imm only).
+@rus С помощью аукциона вы можете выставить на продажу имеющуюся у вас вещь.
+И соответственно приобрести то, что продается на аукционе.
+ 
+{cauction {x(без параметров) -- покажет характеристику продающегося обьекта
+{cauction {x<обьект> <цена>  -- дает возможность выставить на продажу 
+                            обьект и указать его начальную цену. Если
+                            начальная цена не указывается, то она принимается
+                            равной 20 золотым.
+{cauction on | off{x         -- позволяет включить или отключить аукцион
+{cauction bet {x<сумма>      -- вы можете указать сумму, за которую хотите 
+                            купить предлагаемые обьект.
+{cauction stop{x             -- останавливает аукцион. (Команда может быть
+                            использована только Богами этого мира.)
 ~
 -1 CHA CHARISMA~
 * Charisma is regenerated again. If your charisma is below 18
@@ -4619,7 +4632,7 @@ Thanks to Ezra for drawing the originals of several maps on ROM.
 ``.    `:    .'     :           (  `\    ________________/'(_)`\_______________
     :    :   :        :          \   ~~~~~~ ____________   __   __   ____________~~
      :   :   :         :          )>  _               ~~-~~  ~~-~~  ~~-~~
-     :    :   :        :         <(  (_)   @@}-->     Shades of Grays      <--{{@@
+     :    :   :        :         <(  (_)   @@}-->     Shades of Gray      <--{{@@
       :    :   :..''''``::.        \
        : ...:..'     .''           |      Original DikuMUD by Hans Staerfeldt,
        .'   .'  .::::'             |  Katja Nyboe, Tom Madsen, Michael Seifert,

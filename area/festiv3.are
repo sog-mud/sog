@@ -2650,15 +2650,86 @@ paper~
 map 0 AO
 0 0 0 0 0
 0 0 0 P
+E
+map~
+=== The Map of the Festival Town ===
+ 
+This is the map the wise little hedgehog has painted.
+But he dislike [C]averns, so enter it at your own risc!
+
+                                [Path to the Forest] [Dark Hill]
+                                          |                |
+[The edge of]                             |                |
+[the forest ]                        [Unused Path]       [D L]
+    |                                     |                |
+[Shooting]         [The edge of] [W]-[W]-[W]-[W]-[W]     [D L]
+[  Place ]         [the forest ]  |       |       |        |
+    |                    |        |       |       |        |
+[Shooting] [W L]-[W L]-[W L]     [W] [L]-[L]-[L] [W]     [D L]-[H]-[H]-[H]
+[  Place ]   |     |     |        |   |   |   |   |        |    |   |   |
+    |        |     |     |        |   |   |   |   |        |    |   |   |
+[Shooting]-[W L]-[W L]-[W L]-[#]-[W] [L]-[L]-[L] [W]-[#]-[D L] [H]-[M]-[H]
+[  Place ]   |     |     |        |   |   |   |   |        |    | / |   |
+     |       |     |     |        |   |   |   |   |        |    |[C]|   |
+[Shooting] [W L]-[W L]-[W L]     [W] [L]-[L]-[L] [W]     [D L]-[H]-[H]-[H]
+[  Place ]         |              |       |       |        |    |
+     |         [Strange]          |       |       |        |   [Small]
+[Shooting]     [ Grove ]         [W]-[W]-[W]-[W]-[W]    [Lit ] [ Bush]
+[  Place ]                                |             [Hill]   
+     |                                   [#]
+[The edge of]                             |
+[the forest ] [2nd Line]-[2nd Line]-[Intersection]-[2nd Line]-[2nd Line]
+                   |          |           |             |          |
+                [Small]    [Small]    [ Main ]       [Small]    [Small]  
+                [House]    [House]    [Street]       [House]    [House]   
+                                        |
+                      [Samurai's]  [ Main ]  [Ranger's]       [Living]
+                      [  House  ]--[Street]--[  House ]       [ Room ]
+                                       |                        /
+            [Living]  [Warrior's]  [ Main ]  [Paladin's]   [Great]
+ [Bedroom]--[ Room ]  [  House  ]--[Street]--[  House  ]   [ Hall]--[GL]
+                |                      |                       |
+           [Entrance]  [Entrance]  [Central]  [Entrance]  [Entrance] [DH]
+           [  Hall  ]--[to  Bank]--[Square ]--[to Mayor]--[  Hall  ]/    
+                |      [ Office ]      |      [Residenc]       |    _[MO] 
+[Dark Room]--[Office]                  |                   [Secr's]/
+                       [Vampir's]  [ Main ]  [Witch's]     [Office]-[A]
+                       [  House ]--[Street]--[ House ]
+                                       |                         
+                       [Cleric's]  [ Main ]  [ Mage's]
+                       [  House ]--[Street]--[ House ]
+                                       |
+             [Small]    [Small]    [ Main ]       [Small]    [Small]
+             [House]    [House]    [Street]       [House]    [House]
+                |          |           |             |          |
+           [1st Line]-[1st Line]-[Intersection]-[1st Line]-[1st Line]
+                                       |
+GL - Great Library               [The Gates]           WL - Wasted Lawn
+DH - Dining Hall                       |               DL - Deserted Lawn
+MO - Mayor's Office           [Before the Gates]       H  - Hills
+A  - Archives                          |               M  - Rocky Mountain
+W  - Walkway                    [ Path to the ]        L  - Lawn
+# - Small Path (grate)          [Festival Town]
+~
+E
+map~
+@eng The map.
+~
+E
+paper~
+~
 G none
 #0
 
 #ROOMS
 #36300
 Path to the Festival Town~
-You are on the path to a beautiful town lying north. Flags
+@eng You are on the path to a beautiful town lying north. Flags
 flow above the entrance tower. Opened gates invite you to
 enter the town.
+@rus Ты идешь по дороге, ведущей к городу на севере.
+Над входной башней трепещут и вьются яркие флаги.
+Открытые ворота приглашают тебя войти в город.
 ~
 0 0 field
 D0
@@ -2672,11 +2743,15 @@ Z 0 40166
 S
 #36301
 Fountain~
-Children play in the fountain, having ventured down into the
+@eng Children play in the fountain, having ventured down into the
 shallow stone bowl, darting in and out of the spray, laughing
 and teasing one another. Light catches the water and creates
 small, shimmering rainbows.
 
+@rus Дети играют в фонтане, ныряя в каменной чаше бассейна,
+стрелой устремляясь под струи и выскакивая обратно, смеясь
+и гоняясь друг за другом. Свет, преломляясь в воде,
+образует маленькие сверкающие радуги.
 ~
 0 0 field
 D0
@@ -2698,11 +2773,15 @@ Z -1 36308
 S
 #36302
 The Lawn~
-A grassy flat spreads all around a great stone basin. A fountain
+@eng A grassy flat spreads all around a great stone basin. A fountain
 at the center of the basin spouts a plume of water that arches
 high into the air in a feathery spray.  People are seated all
 across the lawn and at the edge of the fountain.
 
+@rus Заросшая травой лужайка окружает большой каменный бассейн.
+Фонтан в центре бассейна извергает струи  воды, распадающиеся на
+капли высоко в воздухе. Люди разместились по всей лужайке и на
+краю фонтана.
 ~
 0 0 field
 D0
@@ -2724,11 +2803,15 @@ Z -1 36309
 S
 #36303
 The Lawn~
-A grassy flat spreads all around a great stone basin. A fountain
+@eng A grassy flat spreads all around a great stone basin. A fountain
 at the center of the basin spouts a plume of water that arches
 high into the air in a feathery spray.  People are seated all
 across the lawn and at the edge of the fountain.
 
+@rus Заросшая травой лужайка окружает большой каменный бассейн.
+Фонтан в центре бассейна извергает струи  воды, распадающиеся на
+капли высоко в воздухе. Люди разместились по всей лужайке и на
+краю фонтана.
 ~
 0 0 field
 D2
@@ -2742,11 +2825,15 @@ Z -1 36302
 S
 #36304
 The Lawn~
-A grassy flat spreads all around a great stone basin. A fountain
+@eng A grassy flat spreads all around a great stone basin. A fountain
 at the center of the basin spouts a plume of water that arches
 high into the air in a feathery spray.  People are seated all
 across the lawn and at the edge of the fountain.
 
+@rus Заросшая травой лужайка окружает большой каменный бассейн.
+Фонтан в центре бассейна извергает струи  воды, распадающиеся на
+капли высоко в воздухе. Люди разместились по всей лужайке и на
+краю фонтана.
 ~
 0 0 field
 D0
@@ -2768,11 +2855,15 @@ Z -1 36301
 S
 #36305
 The Lawn~
-A grassy flat spreads all around a great stone basin. A fountain
+@eng A grassy flat spreads all around a great stone basin. A fountain
 at the center of the basin spouts a plume of water that arches
 high into the air in a feathery spray.  People are seated all
 across the lawn and at the edge of the fountain.
 
+@rus Заросшая травой лужайка окружает большой каменный бассейн.
+Фонтан в центре бассейна извергает струи  воды, распадающиеся на
+капли высоко в воздухе. Люди разместились по всей лужайке и на
+краю фонтана.
 ~
 0 0 field
 D0
@@ -2786,11 +2877,15 @@ Z -1 36306
 S
 #36306
 The Lawn~
-A grassy flat spreads all around a great stone basin. A fountain
+@eng A grassy flat spreads all around a great stone basin. A fountain
 at the center of the basin spouts a plume of water that arches
 high into the air in a feathery spray.  People are seated all
 across the lawn and at the edge of the fountain.
 
+@rus Заросшая травой лужайка окружает большой каменный бассейн.
+Фонтан в центре бассейна извергает струи  воды, распадающиеся на
+капли высоко в воздухе. Люди разместились по всей лужайке и на
+краю фонтана.
 ~
 0 0 field
 D0
@@ -2812,11 +2907,15 @@ Z -1 36307
 S
 #36307
 The Lawn~
-A grassy flat spreads all around a great stone basin. A fountain
+@eng A grassy flat spreads all around a great stone basin. A fountain
 at the center of the basin spouts a plume of water that arches
 high into the air in a feathery spray.  People are seated all
 across the lawn and at the edge of the fountain.
 
+@rus Заросшая травой лужайка окружает большой каменный бассейн.
+Фонтан в центре бассейна извергает струи  воды, распадающиеся на
+капли высоко в воздухе. Люди разместились по всей лужайке и на
+краю фонтана.
 ~
 0 0 field
 D0
@@ -2830,11 +2929,15 @@ Z -1 36306
 S
 #36308
 The Lawn~
-A grassy flat spreads all around a great stone basin. A fountain
+@eng A grassy flat spreads all around a great stone basin. A fountain
 at the center of the basin spouts a plume of water that arches
 high into the air in a feathery spray.  People are seated all
 across the lawn and at the edge of the fountain.
 
+@rus Заросшая травой лужайка окружает большой каменный бассейн.
+Фонтан в центре бассейна извергает струи  воды, распадающиеся на
+капли высоко в воздухе. Люди разместились по всей лужайке и на
+краю фонтана.
 ~
 0 0 field
 D0
@@ -2856,11 +2959,15 @@ Z -1 36323
 S
 #36309
 The Lawn~
-A grassy flat spreads all around a great stone basin. A fountain
+@eng A grassy flat spreads all around a great stone basin. A fountain
 at the center of the basin spouts a plume of water that arches
 high into the air in a feathery spray.  People are seated all
 across the lawn and at the edge of the fountain.
 
+@rus Заросшая травой лужайка окружает большой каменный бассейн.
+Фонтан в центре бассейна извергает струи  воды, распадающиеся на
+капли высоко в воздухе. Люди разместились по всей лужайке и на
+краю фонтана.
 ~
 0 0 field
 D1
@@ -2874,12 +2981,17 @@ Z -1 36308
 S
 #36310
 Walkway~
-Walkways border the lawn, packed end to end with makeshift
+@eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
 all sorts. Others are jammed with carts and stands selling
 food and drink.
 
+@rus Вокруг лужайки идет аллея, заполненная торговыми рядами,
+где продаются изделия художников и ремесленников:
+стеклянные призмы, деревянные поделки, металлические
+скульптуры и одежда всевозможных фасонов. Повсюду стоят
+тележки и палатки, в которых продают еду и напитки.
 ~
 0 0 field
 D1
@@ -2893,12 +3005,17 @@ Z -1 36325
 S
 #36311
 Walkway~
-Walkways border the lawn, packed end to end with makeshift
+@eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
 all sorts. Others are jammed with carts and stands selling
 food and drink.
 
+@rus Вокруг лужайки идет аллея, заполненная торговыми рядами,
+где продаются изделия художников и ремесленников:
+стеклянные призмы, деревянные поделки, металлические
+скульптуры и одежда всевозможных фасонов. Повсюду стоят
+тележки и палатки, в которых продают еду и напитки.
 ~
 0 0 field
 D0
@@ -2920,12 +3037,17 @@ Z -1 36310
 S
 #36312
 Walkway~
-Walkways border the lawn, packed end to end with makeshift
+@eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
 all sorts. Others are jammed with carts and stands selling
 food and drink.
 
+@rus  Вокруг лужайки идет аллея, заполненная торговыми рядами,
+где продаются изделия художников и ремесленников:
+стеклянные призмы, деревянные поделки, металлические
+скульптуры и одежда всевозможных фасонов. Повсюду стоят
+тележки и палатки, в которых продают еду и напитки.
 ~
 0 0 field
 D1
@@ -2939,12 +3061,17 @@ Z -1 36311
 S
 #36313
 Walkway~
-Walkways border the lawn, packed end to end with makeshift
+@eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
 all sorts. Others are jammed with carts and stands selling
 food and drink.
 
+@rus Вокруг лужайки идет аллея, заполненная торговыми рядами,
+где продаются изделия художников и ремесленников:
+стеклянные призмы, деревянные поделки, металлические
+скульптуры и одежда всевозможных фасонов. Повсюду стоят
+тележки и палатки, в которых продают еду и напитки.
 ~
 0 0 field
 D2
@@ -2958,12 +3085,17 @@ Z -1 36312
 S
 #36314
 Walkway~
-Walkways border the lawn, packed end to end with makeshift
+@eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
 all sorts. Others are jammed with carts and stands selling
 food and drink.
 
+@rus Вокруг лужайки идет аллея, заполненная торговыми рядами,
+где продаются изделия художников и ремесленников:
+стеклянные призмы, деревянные поделки, металлические
+скульптуры и одежда всевозможных фасонов. Повсюду стоят
+тележки и палатки, в которых продают еду и напитки.
 ~
 0 0 field
 D0
@@ -2977,12 +3109,17 @@ Z -1 36315
 S
 #36315
 Walkway~
-Walkways border the lawn, packed end to end with makeshift
+@eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
 all sorts. Others are jammed with carts and stands selling
 food and drink.
 
+@rus Вокруг лужайки идет аллея, заполненная торговыми рядами,
+где продаются изделия художников и ремесленников:
+стеклянные призмы, деревянные поделки, металлические
+скульптуры и одежда всевозможных фасонов. Повсюду стоят
+тележки и палатки, в которых продают еду и напитки.
 ~
 0 0 field
 D0
@@ -3004,12 +3141,17 @@ Z -1 36304
 S
 #36316
 Walkway~
-Walkways border the lawn, packed end to end with makeshift
+@eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
 all sorts. Others are jammed with carts and stands selling
 food and drink.
 
+@rus Вокруг лужайки идет аллея, заполненная торговыми рядами,
+где продаются изделия художников и ремесленников:
+стеклянные призмы, деревянные поделки, металлические
+скульптуры и одежда всевозможных фасонов. Повсюду стоят
+тележки и палатки, в которых продают еду и напитки.
 ~
 0 0 field
 D0
@@ -3023,12 +3165,17 @@ Z -1 36317
 S
 #36317
 Walkway~
-Walkways border the lawn, packed end to end with makeshift
+@eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
 all sorts. Others are jammed with carts and stands selling
 food and drink.
 
+@rus Вокруг лужайки идет аллея, заполненная торговыми рядами,
+где продаются изделия художников и ремесленников:
+стеклянные призмы, деревянные поделки, металлические
+скульптуры и одежда всевозможных фасонов. Повсюду стоят
+тележки и палатки, в которых продают еду и напитки.
 ~
 0 0 field
 D0
@@ -3042,12 +3189,17 @@ Z -1 36318
 S
 #36318
 Walkway~
-Walkways border the lawn, packed end to end with makeshift
+@eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
 all sorts. Others are jammed with carts and stands selling
 food and drink.
 
+@rus Вокруг лужайки идет аллея, заполненная торговыми рядами,
+где продаются изделия художников и ремесленников:
+стеклянные призмы, деревянные поделки, металлические
+скульптуры и одежда всевозможных фасонов. Повсюду стоят
+тележки и палатки, в которых продают еду и напитки.
 ~
 0 0 field
 D1
@@ -3061,12 +3213,17 @@ Z -1 36319
 S
 #36319
 Walkway~
-Walkways border the lawn, packed end to end with makeshift
+@eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
 all sorts. Others are jammed with carts and stands selling
 food and drink.
 
+@rus Вокруг лужайки идет аллея, заполненная торговыми рядами,
+где продаются изделия художников и ремесленников:
+стеклянные призмы, деревянные поделки, металлические
+скульптуры и одежда всевозможных фасонов. Повсюду стоят
+тележки и палатки, в которых продают еду и напитки.
 ~
 0 0 field
 D0
@@ -3088,12 +3245,17 @@ Z -1 36320
 S
 #36320
 Walkway~
-Walkways border the lawn, packed end to end with makeshift
+@eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
 all sorts. Others are jammed with carts and stands selling
 food and drink.
 
+@rus  Вокруг лужайки идет аллея, заполненная торговыми рядами,
+где продаются изделия художников и ремесленников:
+стеклянные призмы, деревянные поделки, металлические
+скульптуры и одежда всевозможных фасонов. Повсюду стоят
+тележки и палатки, в которых продают еду и напитки.
 ~
 0 0 field
 D1
@@ -3107,12 +3269,17 @@ Z -1 36321
 S
 #36321
 Walkway~
-Walkways border the lawn, packed end to end with makeshift
+@eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
 all sorts. Others are jammed with carts and stands selling
 food and drink.
 
+@rus Вокруг лужайки идет аллея, заполненная торговыми рядами,
+где продаются изделия художников и ремесленников:
+стеклянные призмы, деревянные поделки, металлические
+скульптуры и одежда всевозможных фасонов. Повсюду стоят
+тележки и палатки, в которых продают еду и напитки.
 ~
 0 0 field
 D0
@@ -3126,12 +3293,17 @@ Z -1 36320
 S
 #36322
 Walkway~
-Walkways border the lawn, packed end to end with makeshift
+@eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
 all sorts. Others are jammed with carts and stands selling
 food and drink.
 
+@rus Вокруг лужайки идет аллея, заполненная торговыми рядами,
+где продаются изделия художников и ремесленников:
+стеклянные призмы, деревянные поделки, металлические
+скульптуры и одежда всевозможных фасонов. Повсюду стоят
+тележки и палатки, в которых продают еду и напитки.
 ~
 0 0 field
 D0
@@ -3145,12 +3317,17 @@ Z -1 36321
 S
 #36323
 Walkway~
-Walkways border the lawn, packed end to end with makeshift
+@eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
 all sorts. Others are jammed with carts and stands selling
 food and drink.
 
+@rus Вокруг лужайки идет аллея, заполненная торговыми рядами,
+где продаются изделия художников и ремесленников:
+стеклянные призмы, деревянные поделки, металлические
+скульптуры и одежда всевозможных фасонов. Повсюду стоят
+тележки и палатки, в которых продают еду и напитки.
 ~
 0 0 field
 D0
@@ -3172,12 +3349,17 @@ ABZ -1 36329
 S
 #36324
 Walkway~
-Walkways border the lawn, packed end to end with makeshift
+@eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
 all sorts. Others are jammed with carts and stands selling
 food and drink.
 
+@rus  Вокруг лужайки идет аллея, заполненная торговыми рядами,
+где продаются изделия художников и ремесленников:
+стеклянные призмы, деревянные поделки, металлические
+скульптуры и одежда всевозможных фасонов. Повсюду стоят
+тележки и палатки, в которых продают еду и напитки.
 ~
 0 0 field
 D0
@@ -3191,12 +3373,17 @@ Z -1 36323
 S
 #36325
 Walkway~
-Walkways border the lawn, packed end to end with makeshift
+@eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
 all sorts. Others are jammed with carts and stands selling
 food and drink.
 
+@rus Вокруг лужайки идет аллея, заполненная торговыми рядами,
+где продаются изделия художников и ремесленников:
+стеклянные призмы, деревянные поделки, металлические
+скульптуры и одежда всевозможных фасонов. Повсюду стоят
+тележки и палатки, в которых продают еду и напитки.
 ~
 0 0 field
 D1
@@ -3240,9 +3427,12 @@ ABZ -1 36315
 S
 #36328
 Small Path~
-You are on a small path. A wide lawn lies to the north. There
+@eng You are on a small path. A wide lawn lies to the north. There
 are people everywhere on the lawn, and everyone is celebrating.
 South you can return back to the streets.
+@rus Вы на маленькой тропинке. Широкая лужайка лежит севернее.
+Люди прогуливаются по лужайке и все они радуются празднику.
+Южнее вы можете вернуться обратно на улицы города.
 ~
 0 C forest
 D0
@@ -3273,11 +3463,16 @@ Z -1 36373
 S
 #36330
 Main Street~
-You are walking along the main street. Brightly colored houses
+@eng You are walking along the main street. Brightly colored houses
 are on the sides of the street. Some of them are closed, other
 opened and you can catch some shadows inside. Probably, all the
 inhabitants celebrate the Festival. You here some noises from
 the northern part of the town.
+@rus Ты идешь вдоль Главной улицы. Ярко раскрашенные дома
+стоят по обоим сторонам улицы. Некоторые из них заперты,
+другие открыты, и ты  замечаешь  подозрительные тени внутри.
+Вероятно, все обитатели дома ушли на фестиваль. Ты слышишь
+какие-то звуки, доносящиеся из северной части города.
 ~
 0 0 city
 D0
@@ -3299,11 +3494,16 @@ Z -1 36344
 S
 #36331
 Main Street~
-You are walking along the main street. Brightly colored houses
+@eng You are walking along the main street. Brightly colored houses
 are on the sides of the street. Some of them are closed, other
 opened and you can catch some shadows inside. Probably, all the
 inhabitants celebrate the Festival. You here some noises from
 the northern part of the town.
+@rus Ты идешь вдоль Главной улицы. Ярко раскрашенные дома
+стоят по обоим сторонам улицы. Некоторые из них заперты,
+другие открыты, и ты  замечаешь  подозрительные тени внутри.
+Вероятно, все обитатели дома ушли на фестиваль. Ты слышишь
+какие-то звуки, доносящиеся из северной части города. 
 ~
 0 0 city
 D0
@@ -3325,10 +3525,14 @@ Z -1 36346
 S
 #36332
 Central Square~
-You are on the Central Square of Festival Town. North and
+@eng You are on the Central Square of Festival Town. North and
 south the main road continues, west is a Bank Office,
 east you can enter a Mayor's Residence.
 The Clock Tower is in the middle of the square.
+@rus Ты стоишь на Центральной Площади Фестивального городка.
+Главная улица продолжается к северу и югу, на западе Банк,
+а на востоке ты можешь зайти в резиденцию Мэра.
+Часовая башня возвышается посреди площади.
 ~
 0 0 city
 D0
@@ -3350,11 +3554,16 @@ Z -1 36337
 S
 #36333
 Main Street~
-You are walking along the main street. Brightly colored houses
+@eng You are walking along the main street. Brightly colored houses
 are on the sides of the street. Some of them are closed, other
 opened and you can catch some shadows inside. Probably, all the
 inhabitants celebrate the Festival. You here some noises from
 the northern part of the town.
+@rus Ты идешь вдоль Главной улицы. Ярко раскрашенные дома
+стоят по обоим сторонам улицы. Некоторые из них заперты,
+другие открыты, и ты  замечаешь  подозрительные тени внутри.
+Вероятно, все обитатели дома ушли на фестиваль. Ты слышишь
+какие-то звуки, доносящиеся из северной части города.
 ~
 0 0 city
 D0
@@ -3376,11 +3585,16 @@ ABZ -1 36348
 S
 #36334
 Main Street~
-You are walking along the main street. Brightly colored houses
+@eng You are walking along the main street. Brightly colored houses
 are on the sides of the street. Some of them are closed, other
 opened and you can catch some shadows inside. Probably, all the
 inhabitants celebrate the Festival. You here some noises from
 the northern part of the town.
+@rus Ты идешь вдоль Главной улицы. Ярко раскрашенные дома
+стоят по обоим сторонам улицы. Некоторые из них заперты,
+другие открыты, и ты  замечаешь  подозрительные тени внутри.
+Вероятно, все обитатели дома ушли на фестиваль. Ты слышишь
+какие-то звуки, доносящиеся из северной части города.
 ~
 0 0 city
 D0
@@ -3402,9 +3616,12 @@ Z -1 36350
 S
 #36335
 The Gates~
-You enter the gates and step into a nice archway, leading
+@eng You enter the gates and step into a nice archway, leading
 to the brightness of a festival. Gate guards greet you warmly
 and invite to the town.
+@rus Ты входишь в ворота и оказываешься под величественной аркой,
+ведущей в многоцветие фестиваля. Стражники тепло приветствуют
+тебя и приглашают в город.
 ~
 0 0 city
 D0
@@ -3418,9 +3635,12 @@ Z -1 36336
 S
 #36336
 Before the Gates~
-You are before the gates with a beautiful carvings. A brightly
+@eng You are before the gates with a beautiful carvings. A brightly
 painted wall stretches east and west. A road carries you fore
 to the entrance.
+@rus Ты стоишь перед воротами, покрытыми изумительной резьбой. Ярко
+раскрашенная стена продолжается на восток и запад. Дорога ведет 
+тебя ко входу в город.
 ~
 0 0 field
 D0
@@ -4118,7 +4338,7 @@ A dark hill, filled with a black magic, covered with fairy
 mists, shows you a deserted line to the south. Far you can
 see a lit hill.
 ~
-0 0 desert
+0 0 hills
 D2
 ~
 ~
@@ -4246,7 +4466,7 @@ Lit Hill~
 You are on the top of a lit hill. North spreads the desert
 you have left just now. South you can see Festival Town.
 ~
-0 0 desert
+0 0 hills
 D0
 ~
 ~
@@ -5338,11 +5558,16 @@ Z -1 36425
 S
 #36439
 Main Street~
-You are walking along the main street. Brightly colored houses
+@eng You are walking along the main street. Brightly colored houses
 are on the sides of the street. Some of them are closed, other
 opened and you can catch some shadows inside. Probably, all the
 inhabitants celebrate the Festival. You here some noises from
 the northern part of the town.
+@rus Ты идешь вдоль Главной улицы. Ярко раскрашенные дома
+стоят по обеим сторонам улицы. Некоторые из них заперты,
+другие открыты, и ты  замечаешь  подозрительные тени внутри.
+Вероятно, все обитатели дома ушли на фестиваль. Ты слышишь
+какие-то звуки, доносящиеся из северной части города.
 ~
 0 0 city
 D0
@@ -5356,9 +5581,13 @@ Z -1 36330
 S
 #36440
 Intersection~
-You are at the intersection of the 2nd Line and Main street.
+@eng You are at the intersection of the 2nd Line and Main street.
 A smart grate blocks path northward, south lies the central
 part of the town. East and west 2nd Line continues.
+@rus Ты находишся на пересечении Второй Линии и Главной улицы.
+Маленькая калитка загораживает путь на север, южнее
+расположена центральная часть города. К востоку и западу
+продолжается Вторая Линия.
 ~
 0 0 city
 D0
@@ -5492,11 +5721,16 @@ Z -1 36444
 S
 #36449
 Main Street~
-You are walking along the main street. Brightly colored houses
+@eng You are walking along the main street. Brightly colored houses
 are on the sides of the street. Some of them are closed, other
 opened and you can catch some shadows inside. Probably, all the
 inhabitants celebrate the Festival. You here some noises from
 the northern part of the town.
+@rus  Ты идешь вдоль Главной улицы. Ярко раскрашенные дома
+стоят по обоим сторонам улицы. Некоторые из них заперты,
+другие открыты, и ты  замечаешь  подозрительные тени внутри.
+Вероятно, все обитатели дома ушли на фестиваль. Ты слышишь
+какие-то звуки, доносящиеся из северной части города.
 ~
 0 0 city
 D0
@@ -5510,9 +5744,12 @@ Z -1 36450
 S
 #36450
 Intersection~
-You are at the intersection of the 1st Line and Main street.
+@eng You are at the intersection of the 1st Line and Main street.
 North lies the town you are to visit now. East and west
 the 1st Line continues. South you can return to the gates.
+@rus Ты находишся на пересечении Первой Линии и Главной улицы.
+Севернее лежит город, который ты обязан посетить. С востока 
+на запад идет Первая Линия. Южнее ты видишь ворота.
 ~
 0 0 city
 D0
@@ -5534,9 +5771,11 @@ Z -1 36453
 S
 #36451
 1st Line Street~
-You walk along the street called simply "the 1st". Small
+@eng You walk along the street called simply "the 1st". Small
 houses are on the northern side of the street.
 
+@rus Ты идешь вдоль улицы именуемой просто "Первая".
+Маленький домик находится на северной стороне улицы.
 ~
 0 0 city
 D0
@@ -5554,9 +5793,11 @@ Z -1 36450
 S
 #36452
 1st Line Street~
-You walk along the street called simply "the 1st". Small
+@eng You walk along the street called simply "the 1st". Small
 houses are on the northern side of the street.
 
+@rus Ты идешь вдоль улицы именуемой просто "Первая".
+Маленький домик находится на северной стороне улицы.
 ~
 0 0 city
 D0
@@ -5570,9 +5811,11 @@ Z -1 36451
 S
 #36453
 1st Line Street~
-You walk along the street called simply "the 1st". Small
+@eng You walk along the street called simply "the 1st". Small
 houses are on the northern side of the street.
 
+@rus Ты идешь вдоль улицы именуемой просто "Первая".
+ Маленький домик находится на северной стороне улицы.
 ~
 0 0 city
 D0
@@ -5590,9 +5833,11 @@ Z -1 36454
 S
 #36454
 1st Line Street~
-You walk along the street called simply "the 1st". Small
+@eng You walk along the street called simply "the 1st". Small
 houses are on the northern side of the street.
 
+@rus Ты идешь вдоль улицы именуемой просто "Первая".
+Маленький домик находится на северной стороне улицы.
 ~
 0 0 city
 D0

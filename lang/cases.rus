@@ -267,6 +267,17 @@ Form 6 -ого~
 End
 
 #RULE
+Name повязка~
+BaseLen 6
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name пиво~
 BaseLen 3
 Form 1 -а~
@@ -965,6 +976,17 @@ Form 3 -а~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -а~
+End
+
+#RULE
+Name кроличья~
+BaseLen 6
+Form 1 -ей~
+Form 2 -ей~
+Form 3 -ью~
+Form 4 -ей~
+Form 5 -ей~
+Form 6 -ью~
 End
 
 #RULE
@@ -3772,6 +3794,15 @@ Form 3 -ю~
 Form 4 -ей~
 Form 5 -и~
 Form 6 -ю~
+End
+
+#RULE
+Name трон~
+BaseLen 4
+Form 1 -а~
+Form 2 -у~
+Form 4 -ом~
+Form 5 -е~
 End
 
 #RULE
