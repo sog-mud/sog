@@ -498,7 +498,6 @@ inventory.
 
 0 BUG TYPO~
 Syntax: bug <message>
-Syntax: idea <message>
 Syntax: typo <message>
 
 These commands will take your message and record it into a file as feedback
