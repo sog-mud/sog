@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.196 1999-09-08 10:39:50 fjoe Exp $
+ * $Id: act_move.c,v 1.197 1999-09-09 13:48:29 osya Exp $
  */
 
 /***************************************************************************
@@ -1580,6 +1580,7 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	int chance;
+	AFFECT_DATA af;
 
 	one_argument(argument, arg, sizeof(arg));
 
@@ -1625,7 +1626,7 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 	if (is_safe(ch, victim))
 		return;
 
-	if (victim->hit < (8 * victim->max_hit / 10) ) {
+	if (victim->hit < (2 * victim->max_hit / 10) ) {
 		act_puts("$N is hurt and suspicious ... doesn't worth up.",
 			 ch, NULL, victim, TO_CHAR, POS_DEAD);
 		return;
@@ -1639,6 +1640,20 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 		(2 * (LEVEL(ch) - LEVEL(victim))) ))) {
 		check_improve(ch,gsn_vampiric_bite,TRUE,1);
 		one_hit(ch, victim, gsn_vampiric_bite, WEAR_WIELD);
+		if (LEVEL(victim) > LEVEL(ch) &&
+		    number_percent() < (get_skill(ch, gsn_resurection) / 10 *
+                    (LEVEL(victim) - LEVEL(ch)))) {
+		        af.where         = TO_AFFECTS;
+		        af.type      = gsn_resurection;
+		        af.level     = LEVEL(ch);
+		        af.duration  = number_fuzzy(4);
+		        af.location  = APPLY_NONE;
+		        af.modifier  = 0;
+		        af.bitvector = AFF_RESURECTION_POTENCE;
+		        affect_join(ch, &af);
+		        char_puts("You gain power of undead!\n", ch);
+			check_improve(ch,gsn_resurection,TRUE,1);
+		} 
 	}
 	else {
 		check_improve(ch, gsn_vampiric_bite, FALSE, 1);
@@ -2545,8 +2560,10 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 	ROOM_INDEX_DATA *dest_room;
 	AFFECT_DATA *paf;
 	int damroll = 0, hitroll = 0, sn;
+        int range_hit;
 	AFFECT_DATA af;
-
+	
+	range_hit = -1;
 	/* instant kill */
 	if (get_skill(ch, gsn_bow) > 90 
 	&&  !IS_NPC(victim)
@@ -2586,15 +2603,16 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 		   + (get_curr_stat(ch,STAT_DEX) - 18)) * 2;
 	damroll *= 10;
 	while (1) {
-		chance -= 10;
+		range_hit += 1;
+                chance -= 10;
 		if (victim->in_room == dest_room) {
 			if (number_percent() < chance) { 
 				if (check_obj_dodge(ch, victim, arrow, chance))
 					return 0;
 				act("$p strikes you!",
 				    victim, arrow, NULL, TO_CHAR);
-				act_puts("Your $p strikes $N!",
-					 ch, arrow, victim, TO_CHAR, POS_DEAD);
+				act_puts3("Your $p strikes $N on [$J] range!",
+					 ch, arrow, victim,  range_hit, TO_CHAR, POS_DEAD);
 				if (ch->in_room == victim->in_room)
 					act("$n's $p strikes $N!",
 					    ch, arrow, victim, TO_NOTVICT);

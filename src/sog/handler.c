@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.175 1999-09-08 10:40:08 fjoe Exp $
+ * $Id: handler.c,v 1.176 1999-09-09 13:50:15 osya Exp $
  */
 
 /***************************************************************************
@@ -2606,7 +2606,7 @@ int isn_dark_safe(CHAR_DATA *ch)
 	light_exist = 0;
 	for (rch = ch->in_room->people; rch; rch = rch->next_in_room) {
 		if ((light = get_eq_char(rch, WEAR_LIGHT))
-		&&  IS_OBJ_STAT(light, ITEM_MAGIC)) {
+		&&  light->value[2] != 0) {
 			light_exist = 1;
 			break;
 		}

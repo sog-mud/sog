@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.196 1999-09-08 10:40:07 fjoe Exp $
+ * $Id: fight.c,v 1.197 1999-09-09 13:50:13 osya Exp $
  */
 
 /***************************************************************************
@@ -1098,7 +1098,10 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 		&& IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA);
 	OBJ_DATA *corpse;
 	class_t *cl;
-
+        if (IS_AFFECTED(victim, AFF_RESURECTION_POTENCE)) {
+	raw_kill(ch,victim) ;
+	return;
+	} 
 	group_gain(ch, victim);
 
 	/*
@@ -1113,7 +1116,6 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 	 * IS_NPC victim is not valid after raw_kill
 	 */
 	raw_kill(ch, victim);
-
 	/* RT new auto commands */
 	if (!IS_NPC(ch) && vnpc && vroom == ch->in_room
 	&&  (corpse = get_obj_list(ch, "corpse", ch->in_room->contents))) {
@@ -1124,8 +1126,11 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 				 ch, corpse, NULL, TO_ROOM, POS_RESTING);
 			act_puts("You suck {Rblood{x from $p!",
 				 ch, corpse, NULL, TO_CHAR, POS_DEAD);
-			gain_condition(ch, COND_BLOODLUST, 3);
-		}
+		 if (IS_NPC(victim)) 
+			gain_condition(ch, COND_BLOODLUST, 3) ;
+		  else
+			gain_condition(ch, COND_BLOODLUST, 10);
+		}	
 
 		if (IS_SET(plr_flags, PLR_AUTOLOOK))
 			dofun("examine", ch, "corpse");
@@ -2123,6 +2128,37 @@ void death_cry_org(CHAR_DATA *ch, int part)
 }
 
 void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
+{
+        AFFECT_DATA *paf1;
+        if (IS_AFFECTED(victim, AFF_RESURECTION_POTENCE)) {
+                char_puts("Yess! Your Great Master resurects you!\n", victim);
+                act("Ouch! Beast stands and fight again, with new power!", victim, NULL, NULL, TO_ROOM);
+                act("$n giggle.", victim, NULL, NULL, TO_ROOM);
+                gain_condition(ch, COND_BLOODLUST, 20);
+                for (paf1 = victim->affected; paf1; paf1 = paf1->next)
+                        if (paf1->bitvector == AFF_RESURECTION_POTENCE)
+                                affect_remove(victim, paf1);
+
+                if (victim->perm_stat[STAT_CHA] > 3)
+                        victim->perm_stat[STAT_CHA]--;
+                victim->hit             = victim->max_hit;
+                victim->mana            = victim->max_mana;
+                victim->move            = victim->max_move;
+                victim->position = POS_STANDING;
+                if (!saves_spell(victim->level,ch,DAM_NEGATIVE))
+                {
+                    char_puts("Your muscles stop responding.\n",ch);
+                    DAZE_STATE(ch,victim->level);
+                }
+
+        }
+	else
+		raw_kill_body(ch, victim, part);
+}
+
+
+
+void raw_kill_body(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 {
 	CHAR_DATA *vch, *vch_next;
 	OBJ_DATA *obj, *obj_next;

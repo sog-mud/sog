@@ -1,5 +1,5 @@
 /*
- * $Id: fight.h,v 1.11 1999-05-19 15:00:32 kostik Exp $
+ * $Id: fight.h,v 1.12 1999-09-09 13:48:46 osya Exp $
  */
 
 /***************************************************************************
@@ -44,6 +44,7 @@
 #define _FIGHT_H_
 
 void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part);
+void raw_kill_body(CHAR_DATA *ch, CHAR_DATA *victim, int part);
 
 #define raw_kill(ch, victim) raw_kill_org(ch, victim, -1)
 

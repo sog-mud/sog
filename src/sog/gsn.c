@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.26 1999-07-12 04:56:25 kostik Exp $
+ * $Id: gsn.c,v 1.27 1999-09-09 13:50:14 osya Exp $
  */
 
 #include <stdio.h>
@@ -247,6 +247,7 @@ int gsn_forest_blending;
 int gsn_throw_weapon;
 int gsn_herbs;
 int gsn_fence;
+int gsn_resurection;
 
 /* special gsns */
 int gsn_qtarget;
@@ -461,6 +462,7 @@ namedp_t gsn_table[] =
 	{ "gsn_throw_weapon",		&gsn_throw_weapon		},
 	{ "gsn_herbs",			&gsn_herbs			},
 	{ "gsn_fence",			&gsn_fence			},
+	{ "gsn_resurection",            &gsn_resurection		},
 	{ NULL }
 };
 

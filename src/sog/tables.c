@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.85 1999-09-08 10:40:13 fjoe Exp $
+ * $Id: tables.c,v 1.86 1999-09-09 13:50:16 osya Exp $
  */
 
 /***************************************************************************
@@ -206,6 +206,7 @@ flag_t affect_flags[] =
 	{ "detect_blend",	AFF_AWARENESS,		TRUE	},
 	{ "form_changed",	AFF_TURNED,		TRUE	},
 	{ "questtarget",	AFF_QUESTTARGET,	FALSE	},
+	{ "resurection potency",AFF_RESURECTION_POTENCE,TRUE    },
 
 	{ NULL }
 };
