@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.247 2001-09-04 19:32:46 fjoe Exp $
+ * $Id: act_comm.c,v 1.248 2001-09-04 19:47:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -899,7 +899,7 @@ DO_FUN(do_order, ch, argument)
 	act_char("Ok.", ch);
 }
 static bool
-is_in_opposite_cabals(CHAR_DATA *ch1, CHAR_DATA *ch2)
+is_in_opposite_clans(CHAR_DATA *ch1, CHAR_DATA *ch2)
 {
 	return (has_spec(ch1, "clan_rulers") && has_spec(ch2, "clan_chaos"))
 	|| (has_spec(ch1, "clan_chaos") && has_spec(ch2, "clan_rulers"))
@@ -1039,14 +1039,14 @@ DO_FUN(do_group, ch, argument)
 				    ch, NULL, victim, TO_CHAR,POS_SLEEPING);
 				return;
 			}
-			if (is_in_opposite_cabals(ch, gch)) {
-				act_puts("You hate $n's cabal, how can you join $n's group?",
+			if (is_in_opposite_clans(ch, gch)) {
+				act_puts("You hate $n's clan, how can you join $n's group?",
 				    gch, NULL, victim, TO_VICT, POS_SLEEPING);
 				if (gch == ch) {
-					act_puts("You hate $N's cabal, how can you want $N to join your group?",
+					act_puts("You hate $N's clan, how can you want $N to join your group?",
 					    ch, NULL, victim, TO_CHAR, POS_SLEEPING);
 				} else {
-					act_puts("There are $N cabal enemies in your group, how can $E join you?", ch, NULL, victim, TO_CHAR, POS_SLEEPING);
+					act_puts("There are $N clan enemies in your group, how can $E join you?", ch, NULL, victim, TO_CHAR, POS_SLEEPING);
 				}
 			return;
 			}
@@ -1358,7 +1358,7 @@ DO_FUN(do_trust, ch, argument)
 			act_char("You allow everyone to cast questionable spells on you.", ch);
 			return;
 		}
-		if (IS_SET(pc->trust, TRUST_CLAN)) 
+		if (IS_SET(pc->trust, TRUST_CLAN))
 			act_char("You trust your clan with questionable spells.", ch);
 		if (IS_SET(pc->trust, TRUST_GROUP))
 			act_char("You trust your group with questionable spells.", ch);
@@ -1375,8 +1375,7 @@ DO_FUN(do_trust, ch, argument)
 		if (IS_SET(pc->trust, TRUST_CLAN)) {
 			REMOVE_BIT(pc->trust, TRUST_ALL);
 			act_char("You now trust your clan with questionable spells.", ch);
-		}
-		else 
+		} else
 			act_char("You no longer trust your clan with questionable spells.", ch);
 		return;
 	}
