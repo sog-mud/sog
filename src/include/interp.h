@@ -1,5 +1,5 @@
 /*
- * $Id: interp.h,v 1.37 1999-02-18 12:01:09 kostik Exp $
+ * $Id: interp.h,v 1.38 1999-02-22 15:56:54 kostik Exp $
  */
 
 /***************************************************************************
@@ -153,6 +153,7 @@ DECLARE_DO_FUN(do_fly		);
 DECLARE_DO_FUN(do_flee		);
 DECLARE_DO_FUN(do_follow	);
 DECLARE_DO_FUN(do_force		);
+DECLARE_DO_FUN(do_forest	);
 DECLARE_DO_FUN(do_freeze	);
 DECLARE_DO_FUN(do_gain		);
 DECLARE_DO_FUN(do_grant		);

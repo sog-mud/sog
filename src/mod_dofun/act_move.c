@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.147 1999-02-20 12:54:27 fjoe Exp $
+ * $Id: act_move.c,v 1.148 1999-02-22 15:56:52 kostik Exp $
  */
 
 /***************************************************************************
@@ -2064,9 +2064,8 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	WAIT_STATE(ch, SKILL(gsn_vampiric_bite)->beats);
-
 	if ((victim = get_char_room(ch, arg)) == NULL) {
+		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		char_puts("They aren't here.\n", ch);
 		return;
 	}
@@ -2103,6 +2102,8 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 			 ch, NULL, victim, TO_CHAR, POS_DEAD);
 		return;       
 	}
+
+	WAIT_STATE(ch, SKILL(gsn_vampiric_bite)->beats);
 
 	if (!IS_AWAKE(victim)
 	&&  (IS_NPC(ch) ||
@@ -2377,14 +2378,13 @@ void do_vtouch(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	WAIT_STATE(ch, SKILL(sn)->beats);
-
 	if (IS_AFFECTED(ch, AFF_CHARM))  {
 		char_puts("You don't want to drain your master.\n", ch);
 		return;
 	} 
 
 	if ((victim = get_char_room(ch,argument)) == NULL) {
+		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		char_puts("They aren't here.\n", ch);
 		return;
 	}
@@ -2399,6 +2399,8 @@ void do_vtouch(CHAR_DATA *ch, const char *argument)
 
 	if (is_safe(ch,victim))
 		return;
+
+	WAIT_STATE(ch, SKILL(sn)->beats);
 
 	SET_FIGHT_TIME(victim);
 	SET_FIGHT_TIME(ch);
@@ -2521,9 +2523,8 @@ void do_push(CHAR_DATA *ch, const char *argument)
 	if ((sn = sn_lookup("push")) < 0)
 		return;
 
-	WAIT_STATE(ch, SKILL(sn)->beats);
-
 	if ((victim = get_char_room(ch, arg1)) == NULL) {
+		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		char_puts("They aren't here.\n", ch);
 		return;
 	}
@@ -2545,6 +2546,8 @@ void do_push(CHAR_DATA *ch, const char *argument)
 
 	if ((door = find_exit(ch, arg2)) < 0)
 		return;
+
+	WAIT_STATE(ch, SKILL(sn)->beats);
 
 	if ((pexit = ch->in_room->exit[door])
 	&&  IS_SET(pexit->exit_info, EX_ISDOOR)) {
@@ -3201,8 +3204,10 @@ DO_FUN(do_charge)
 		return;
 	}
 
-	if ((victim = find_char(ch, arg2, direction, 1)) == NULL) 
+	if ((victim = find_char(ch, arg2, direction, 1)) == NULL) { 
+		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		return;
+	}
 
 	if (ch->in_room == victim->in_room) {
 		act("$N is here. Just MURDER $M.", ch, NULL, victim, TO_CHAR);
@@ -3310,9 +3315,8 @@ DO_FUN(do_shoot)
 		return;
 	}
 		
-	WAIT_STATE(ch, SKILL(gsn_bow)->beats);
-   
 	if ((victim = find_char(ch, arg2, direction, range)) == NULL) {
+		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		char_puts("They aren't there.\n", ch);
 		return;
 	}
@@ -3354,6 +3358,8 @@ DO_FUN(do_shoot)
 		
 	if (is_safe(ch, victim))
 		return;
+
+	WAIT_STATE(ch, SKILL(gsn_bow)->beats);
 
 	chance = (chance - 50) * 2;
 	if (ch->position == POS_SLEEPING)
@@ -3461,9 +3467,8 @@ void do_throw_spear(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 		
-	WAIT_STATE(ch, SKILL(gsn_spear)->beats);
-   
 	if ((victim = find_char(ch, arg2, direction, range)) == NULL) {
+		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		char_puts("They aren't there.\n", ch);
 		return;
 	}
@@ -3492,6 +3497,8 @@ void do_throw_spear(CHAR_DATA *ch, const char *argument)
 
 	if (is_safe(ch,victim))
 		return;
+
+	WAIT_STATE(ch, SKILL(gsn_spear)->beats);
 
 	chance = (chance - 50) * 2;
 	if (ch->position == POS_SLEEPING)
@@ -3810,4 +3817,72 @@ void do_thumbling(CHAR_DATA *ch, const char *argument)
 
 	check_improve(ch, gsn_thumbling, TRUE, 3);
 }
+
+void do_forest(CHAR_DATA* ch, const char* argument)
+{
+	char arg[MAX_STRING_LENGTH];
+	AFFECT_DATA af;
+	bool attack;
+
+	if (IS_NPC(ch) || !get_skill(ch, gsn_forest_fighting)) {
+		char_puts("Huh?\n", ch);
+		return;
+	}
+	
+	one_argument(argument, arg, sizeof(arg));
+
+	if (arg == '\0') {
+		char_puts("Usage: forest {{ attack|defence|normal}", ch);
+		return;
+	}
+
+	if (!str_prefix(arg, "normal")) {
+		if (!is_affected(ch, gsn_forest_fighting)) {
+			char_puts("You do not use your knowledge of forest in fight.\n", ch);
+			return;
+		}
+		else {
+			char_puts("You stop using your knowledge of forest in fight.\n", ch);
+			affect_strip(ch, gsn_forest_fighting);
+			return;
+		}
+	}
+
+	if (!str_prefix(arg, "defence"))
+		attack = FALSE;
+	else if (!str_prefix(arg, "attack"))
+		attack = TRUE;
+	else {
+		char_puts("Usage: forest {{ attack|defence|normal}.\n", ch);
+		return;
+	}
+
+	if (is_affected(ch, gsn_forest_fighting))
+		affect_strip(ch, gsn_forest_fighting);
+	
+	af.where 	= TO_AFFECTS;
+	af.type  	= gsn_forest_fighting;
+	af.level 	= ch->level;
+	af.duration	= -1;
+	af.bitvector	= 0;
+
+	if (attack) {
+		af.modifier	= ch->level/8;
+		af.location	= APPLY_HITROLL;
+		affect_to_char(ch, &af);
+		af.location	= APPLY_DAMROLL;
+		char_puts("You feel yourself wild.\n", ch);
+		act("$N looks wild.", ch, NULL, NULL, TO_ROOM);
+	}
+	else {
+		af.modifier	= -ch->level;
+		af.location	= APPLY_AC;
+		char_puts("You feel yourself protected.\n", ch);
+		act("$N looks protected.\n", ch, NULL, NULL, TO_ROOM);
+	}
+
+	affect_to_char(ch, &af);
+	return;
+}
+
 

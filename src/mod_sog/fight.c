@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.144 1999-02-22 15:13:08 fjoe Exp $
+ * $Id: fight.c,v 1.145 1999-02-22 15:56:54 kostik Exp $
  */
 
 /***************************************************************************
@@ -107,6 +107,11 @@ int	critical_strike		(CHAR_DATA *ch, CHAR_DATA *victim, int dam);
 void	check_eq_damage		(CHAR_DATA *ch, CHAR_DATA *victim, int loc);
 void	check_shield_damage	(CHAR_DATA *ch, CHAR_DATA *victim, int loc);
 void	check_weapon_damage	(CHAR_DATA *ch, CHAR_DATA *victim, int loc);
+int 	check_forest		(CHAR_DATA *ch);
+
+#define FOREST_ATTACK 1
+#define FOREST_DEFENCE 2
+#define FOREST_NONE 0
 
 void	handle_death		(CHAR_DATA *ch, CHAR_DATA *victim);
 
@@ -122,6 +127,27 @@ void get_gold_corpse(CHAR_DATA *ch, OBJ_DATA *corpse)
 			get_obj(ch, tmp, corpse);
 	}
 }
+
+int check_forest(CHAR_DATA* ch)
+{
+	AFFECT_DATA* paf;
+
+	if (ch->in_room->sector_type != SECT_FOREST
+	&& ch->in_room->sector_type != SECT_HILLS
+	&& ch->in_room->sector_type != SECT_MOUNTAIN) 
+		return FOREST_NONE;
+	for (paf = ch->affected; paf; paf = paf->next) {
+		if (paf->type == gsn_forest_fighting) {
+			if (paf->location == APPLY_AC) 
+				return FOREST_DEFENCE;
+			else 
+				return FOREST_ATTACK;
+		}
+	}
+	return FOREST_NONE;
+}
+
+
 
 /*
  * Control the fights going on.
@@ -391,6 +417,18 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 		if (ch->fighting != victim)
 		    return;
 	}
+
+	if (check_forest(ch) == FOREST_ATTACK) {
+		chance = get_skill(ch, gsn_forest_fighting);
+		while (number_percent() < chance) {
+			one_hit(ch, victim, dt, WEAR_WIELD);
+			check_improve (ch, gsn_forest_fighting, TRUE, 8);
+			if (ch->fighting != victim)
+				return;
+			chance /= 3;
+		}
+	}
+		
 
 	chance = get_skill(ch, gsn_second_weapon) / 2;
 	if (number_percent() < chance)
@@ -907,12 +945,12 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 		}
 	}
 	if (dt == gsn_charge)
-		dam *= ch->level/15;
+		dam *= ch->level/12;
 
 	dam += GET_DAMROLL(ch) * UMIN(100, sk) / 100;
 
 	if (dt == gsn_ambush)
-		dam *= 3;
+		dam *= UMIN(3, ch->level/12);
 
 	if ((sk2 = get_skill(ch, gsn_deathblow)) > 1) {
 		if (number_percent() <  (sk2/8)) {
@@ -1528,6 +1566,13 @@ bool check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 			chance *= 1.2;
 	}
 
+	if (check_forest(ch) == FOREST_DEFENCE
+	 && (number_percent() < get_skill(ch, gsn_forest_fighting))) {
+		chance *= 1.2;
+		check_improve (ch, gsn_forest_fighting, TRUE, 7);
+	}
+
+
 	if (number_percent() >= chance + victim->level - ch->level)
 		return FALSE;
 
@@ -1633,7 +1678,14 @@ bool check_block(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 			return FALSE;
 		chance = get_skill(victim,gsn_shield_block) / 2;
 		chance -= (victim->class == CLASS_WARRIOR) ? 0 : 10;
+	}	
+
+	if (check_forest(ch) == FOREST_DEFENCE 
+	&& (number_percent() < get_skill(ch, gsn_forest_fighting))) {
+		chance *= 1.2;
+		check_improve (ch, gsn_forest_fighting, TRUE, 7);
 	}
+
 
 	if (number_percent() >= chance + victim->level - ch->level)
 		return FALSE;
@@ -1670,6 +1722,12 @@ bool check_dodge(CHAR_DATA *ch, CHAR_DATA *victim)
 		    chance *= 1.2;
 		if (victim->class == CLASS_THIEF || victim->class ==CLASS_NINJA)
 		    chance *= 1.1;
+	}
+	
+	if (check_forest(ch) == FOREST_DEFENCE 
+	  && (get_skill(ch, gsn_forest_fighting) > number_percent())) {
+		chance *= 1.2;
+		check_improve (ch, gsn_forest_fighting, TRUE, 7);
 	}
 
 	if (number_percent() >= chance + (victim->level - ch->level) / 2)
@@ -2584,9 +2642,8 @@ void do_murder(CHAR_DATA *ch, const char *argument)
 	||  (IS_NPC(ch) && IS_SET(ch->pIndexData->act, ACT_PET)))
 		return;
 
-	WAIT_STATE(ch, 1 * PULSE_VIOLENCE);
-
 	if ((victim = get_char_room(ch, arg)) == NULL) {
+		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		char_puts("They aren't here.\n", ch);
 		return;
 	}
@@ -2608,6 +2665,8 @@ void do_murder(CHAR_DATA *ch, const char *argument)
 
 	if (is_safe(ch, victim))
 		return;
+
+	WAIT_STATE(ch, 1 * PULSE_VIOLENCE);
 
 	if ((chance = get_skill(ch, gsn_mortal_strike))
 	&&  get_eq_char(ch, WEAR_WIELD)

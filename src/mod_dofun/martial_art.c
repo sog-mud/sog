@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.70 1999-02-21 19:19:25 fjoe Exp $
+ * $Id: martial_art.c,v 1.71 1999-02-22 15:56:56 kostik Exp $
  */
 
 /***************************************************************************
@@ -239,7 +239,7 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 		}
 	}
 	else if ((victim = get_char_room(ch, arg)) == NULL) {
-		WAIT_STATE(ch, SKILL(gsn_bash)->beats);
+		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		char_puts("They aren't here.\n",ch);
 		return;
 	}
@@ -382,7 +382,7 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		}
 	}
 	else if ((victim = get_char_room(ch, arg)) == NULL) {
-		WAIT_STATE(ch, SKILL(gsn_dirt)->beats);
+		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		char_puts("They aren't here.\n", ch);
 		return;
 	}
@@ -517,6 +517,7 @@ void do_trip(CHAR_DATA *ch, const char *argument)
  		}
 	}
 	else if ((victim = get_char_room(ch, arg)) == NULL) {
+		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		char_puts("They aren't here.\n",ch);
 		return;
 	}
@@ -698,6 +699,7 @@ void do_backstab(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, SKILL(gsn_backstab)->beats);
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
+		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		char_puts("They aren't here.\n", ch);
 		return;
 	}
@@ -743,9 +745,8 @@ void do_cleave(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	WAIT_STATE(ch, SKILL(gsn_cleave)->beats);
-
 	if ((victim = get_char_room(ch, arg)) == NULL) {
+		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		char_puts("They aren't here.\n", ch);
 		return;
 	}
@@ -779,6 +780,8 @@ void do_cleave(CHAR_DATA *ch, const char *argument)
 
 	if (is_safe(ch, victim))
 		return;
+
+	WAIT_STATE(ch, SKILL(gsn_cleave)->beats);
 
 	if (!IS_AWAKE(victim)
 	||  IS_NPC(ch)
@@ -820,6 +823,7 @@ void do_ambush(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, SKILL(gsn_ambush)->beats);
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
+		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		char_puts("They aren't here.\n", ch);
 		return;
 	}
@@ -1282,9 +1286,8 @@ void do_assassinate(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	WAIT_STATE(ch, SKILL(gsn_assassinate)->beats);
-
 	if ((victim = get_char_room(ch, arg)) == NULL) {
+		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		char_puts("They aren't here.\n", ch);
 		return;
 	}
@@ -1330,6 +1333,8 @@ void do_assassinate(CHAR_DATA *ch, const char *argument)
 
 	if (is_safe(ch, victim))
 		return;
+
+	WAIT_STATE(ch, SKILL(gsn_assassinate)->beats);
 
 	if (number_percent() < chance
 	&&  !IS_CLAN_GUARD(victim)
@@ -1537,9 +1542,9 @@ void do_strangle(CHAR_DATA *ch, const char *argument)
 		return;
 	} 
 
-	WAIT_STATE(ch, SKILL(gsn_strangle)->beats);
 
 	if ((victim = get_char_room(ch,argument)) == NULL) {
+		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		char_puts("You do not see that person here.\n", ch);
 		return;
 	}
@@ -1557,6 +1562,8 @@ void do_strangle(CHAR_DATA *ch, const char *argument)
 
 	SET_FIGHT_TIME(victim);
 	SET_FIGHT_TIME(ch);
+	
+	WAIT_STATE(ch, SKILL(gsn_strangle)->beats);
 
 	if (number_percent() < chance * 6 /10
 	&&  !IS_CLAN_GUARD(victim)
@@ -1605,9 +1612,8 @@ void do_blackjack(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	WAIT_STATE(ch, SKILL(gsn_blackjack)->beats);
-
 	if ((victim = get_char_room(ch,argument)) == NULL) {
+		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		char_puts("You do not see that person here.\n", ch);
 		return;
 	}
@@ -1639,6 +1645,8 @@ void do_blackjack(CHAR_DATA *ch, const char *argument)
 	chance += can_see(victim, ch) ? 0 : 5;
 	if (IS_NPC(victim) && victim->pIndexData->pShop != NULL)
 		chance -= 40;
+
+	WAIT_STATE(ch, SKILL(gsn_blackjack)->beats);
  
 	if (number_percent() < chance
 	&&  !IS_CLAN_GUARD(victim)
@@ -2196,7 +2204,6 @@ void do_explode(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	WAIT_STATE(ch, SKILL(gsn_explode)->beats);
 
 	if (victim == NULL) {
 		one_argument(argument, arg, sizeof(arg));
@@ -2206,6 +2213,7 @@ void do_explode(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 		if ((victim = get_char_room(ch,arg)) == NULL) {
+			WAIT_STATE(ch, MISSING_TARGET_DELAY);
 			char_puts("They aren't here.\n", ch);
 			return;
 		}
@@ -2217,7 +2225,9 @@ void do_explode(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 	ch->mana -= mana;
- 
+	
+	WAIT_STATE(ch, SKILL(gsn_explode)->beats);
+
 	act("$n burns something.", ch, NULL, victim, TO_NOTVICT);
 	act("$n burns a cone of exploding material over you!",
 	    ch, NULL, victim, TO_VICT);

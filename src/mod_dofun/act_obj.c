@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.126 1999-02-22 14:33:32 fjoe Exp $
+ * $Id: act_obj.c,v 1.127 1999-02-22 15:56:53 kostik Exp $
  */
 
 /***************************************************************************
@@ -1945,6 +1945,7 @@ void do_recite(CHAR_DATA * ch, const char *argument)
 		victim = ch;
 	else if ((victim = get_char_room(ch, arg2)) == NULL
 	&&       (obj = get_obj_here(ch, arg2)) == NULL) {
+		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		char_puts("You can't find it.\n", ch);
 		return;
 	}
@@ -2104,6 +2105,7 @@ void do_zap(CHAR_DATA * ch, const char *argument)
 	} else {
 		if ((victim = get_char_room(ch, arg)) == NULL
 		    && (obj = get_obj_here(ch, arg)) == NULL) {
+			WAIT_STATE(ch, MISSING_TARGET_DELAY);
 			char_puts("You can't find it.\n", ch);
 			return;
 		}
@@ -2170,6 +2172,7 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 	WAIT_STATE(ch, SKILL(sn)->beats);
 
 	if ((victim = get_char_room(ch, arg2)) == NULL) {
+		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		char_puts("They aren't here.\n", ch);
 		return;
 	}

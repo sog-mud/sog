@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.125 1999-02-21 19:19:24 fjoe Exp $
+ * $Id: spellfun.c,v 1.126 1999-02-22 15:56:55 kostik Exp $
  */
 
 /***************************************************************************
@@ -259,7 +259,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		else if ((range = allowed_other(ch, sn)) > 0) {
 			if ((victim = get_char_spell(ch, target_name,
 						     &door, range)) == NULL) {
-				WAIT_STATE(ch, spell->beats);
+				WAIT_STATE(ch, MISSING_TARGET_DELAY);
 				return;
 			}
 
@@ -282,7 +282,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			}
 		}
 		else if ((victim = get_char_room(ch, target_name)) == NULL) {
-			WAIT_STATE(ch, spell->beats);
+			WAIT_STATE(ch, MISSING_TARGET_DELAY);
 			char_puts("They aren't here.\n", ch);
 			return;
 		}
@@ -337,6 +337,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	case TAR_OBJ_CHAR_OFF:
 		if (target_name[0] == '\0') {
 			if ((victim = ch->fighting) == NULL) {
+				WAIT_STATE(ch, MISSING_TARGET_DELAY);
 				char_puts("Cast the spell on whom or what?\n",
 					  ch);
 				return;

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.122 1999-02-21 20:24:20 fjoe Exp $
+ * $Id: interp.c,v 1.123 1999-02-22 15:56:54 kostik Exp $
  */
 
 /***************************************************************************
@@ -359,6 +359,7 @@ CMD_DATA cmd_table[] =
     { "resistance",     do_resistance,  POS_FIGHTING,    0,  LOG_NORMAL	},
     { "truesight",      do_truesight,   POS_FIGHTING,    0,  LOG_NORMAL	},
     { "thumbling",	do_thumbling,	POS_FIGHTING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },
+    { "forest",		do_forest,	POS_FIGHTING,	 0,  LOG_NORMAL },
     { "shield",		do_shield,	POS_FIGHTING,	 0,  LOG_NORMAL	},
     { "spellbane",      do_spellbane,   POS_FIGHTING,    0,  LOG_NORMAL	},
     { "strangle",       do_strangle,    POS_STANDING,    0,  LOG_NORMAL },

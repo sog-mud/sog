@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.24 1999-02-19 18:48:52 fjoe Exp $
+ * $Id: const.h,v 1.25 1999-02-22 15:56:54 kostik Exp $
  */
 
 #ifndef _CONST_H_
@@ -188,6 +188,7 @@
 
 #define FIGHT_DELAY_TIME	(20 * PULSE_PER_SECOND)
 #define GHOST_DELAY_TIME	600
+#define MISSING_TARGET_DELAY	10
 
 /*
  * Well known mob virtual numbers.
