@@ -27,6 +27,14 @@ Max 100
 End
 
 #SKILL
+Skill 'reversal'
+Level 32
+Rating 1
+Adept 75
+Max 100
+End
+
+#SKILL
 Skill 'hand to hand'
 Level 1
 Rating 1

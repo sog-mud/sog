@@ -148,6 +148,15 @@ Max 100
 End
 
 #SKILL
+Skill 'reversal'
+Level 30
+Rating 1
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
 Skill 'master hand'
 Level 28
 Rating 1

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.226 1999-12-03 06:01:35 kostik Exp $
+ * $Id: fight.c,v 1.227 1999-12-04 07:45:58 kostik Exp $
  */
 
 /***************************************************************************
@@ -361,10 +361,6 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 	}
 
 	wield = get_eq_char(ch, WEAR_WIELD);
-	if (wield && wield->pObjIndex->item_type == ITEM_WEAPON
-	&&  WEAPON_IS(wield, WEAPON_STAFF)
-	&&  number_percent() < get_skill(ch, "staff") / 3)
-		one_hit(ch, victim, dt, WEAR_WIELD);
 
 	if (ch->fighting != victim
 	||  IS_SKILL(dt, "backstab")
@@ -387,6 +383,8 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 		chance /= 2;
 	if (IS_AFFECTED(ch, AFF_HASTE))
 		chance += 50;
+	if (wield && WEAPON_IS_LONG(wield))
+		chance = chance * 5 / 6;
 	if (number_percent() < chance) {
 		one_hit(ch, victim, dt, WEAR_WIELD);
 		check_improve(ch, "second attack", TRUE, 5);
@@ -400,6 +398,8 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 		chance /= 2;
 	if (IS_AFFECTED(ch, AFF_HASTE))
 		chance += 25;
+	if (wield && WEAPON_IS_LONG(wield))
+		chance = chance * 4 / 5;
 	if (number_percent() < chance) {
 		one_hit(ch, victim, dt, WEAR_WIELD);
 		check_improve(ch, "third attack", TRUE, 6);
@@ -416,6 +416,8 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 		chance /= 2;
 	if (IS_AFFECTED(ch, AFF_HASTE))
 		chance += 15;
+	if (wield && WEAPON_IS_LONG(wield))
+		chance = chance * 3 / 4;
 	if (number_percent() < chance) {
 		one_hit(ch, victim, dt, WEAR_WIELD);
 		check_improve(ch, "fourth attack", TRUE, 7);
@@ -432,6 +434,8 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 		chance /= 2;
 	if (IS_AFFECTED(ch, AFF_HASTE))
 		chance +=7;
+	if (wield && WEAPON_IS_LONG(wield))
+		chance = chance * 2 / 3;
 	if (number_percent() < chance) {
 		one_hit(ch, victim, dt, WEAR_WIELD);
 		check_improve(ch, "fifth attack", TRUE, 8);
@@ -454,22 +458,23 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 			chance /= 3;
 		}
 	}
+}
 
-	if (get_eq_char(ch, WEAR_SECOND_WIELD) != NULL) {
-		chance = get_skill(ch, "second weapon") / 2;
-		if (IS_AFFECTED(ch, AFF_HASTE)) 
-			chance = chance * 3 / 2;
-		if (number_percent() < chance) {
-			one_hit(ch, victim, dt, WEAR_SECOND_WIELD);
-			check_improve(ch, "second weapon", TRUE, 2);
-			if (ch->fighting != victim)
-				return;
-			secondary_hit(ch, victim, dt);
-			if (ch->fighting != victim)
-				return;
-		}
+int get_resistance(CHAR_DATA *ch, int dam_type)
+{
+	int imm;
+	imm = check_immune(ch, dam_type);
+	switch (imm) {
+	case IS_IMMUNE:
+		return 100;
+	case IS_RESISTANT:
+		return 33;
+	case IS_VULNERABLE:
+		return -33;
+	case IS_NORMAL:
+		return 100 - reduce_damage(ch, 100, dam_type);
 	}
-
+	return 0;
 }
 
 /* procedure for all mobile attacks */
@@ -698,6 +703,8 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 			thac0 -= 10 * (100 - get_skill(ch, "dual backstab"));
 		else if (IS_SKILL(dt, "cleave"))
 			thac0 -= 10 * (100 - get_skill(ch, "cleave"));
+		else if (IS_SKILL(dt, "impale"))
+			thac0 -= 10 * (100 - get_skill(ch, "impale"));
 		else if (IS_SKILL(dt, "ambush"))
 			thac0 -= 10 * (100 - get_skill(ch, "ambush"));
 		else if (IS_SKILL(dt, "vampiric bite"))
@@ -918,7 +925,27 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 			dam *= 2;
 		else if (IS_SKILL(dt, "charge"))
 			dam = (LEVEL(ch)/12 + 1) * dam + LEVEL(ch);
-		else if (IS_SKILL(dt, "cleave") && wield != NULL) {
+		else if (IS_SKILL(dt, "impale")) {
+			if (number_percent() < 
+				URANGE(4, 5 + LEVEL(ch) - LEVEL(victim), 11)
+			&& !counter && !IS_IMMORTAL(victim)) {
+				act_puts("Your weapon ran through $N's chest!",
+					ch, NULL, victim, TO_CHAR, POS_RESTING);
+				act_puts("$n impales you with $s weapon!", 
+					ch, NULL, victim, TO_VICT, POS_RESTING);
+				act_puts("$n's weapon runs through $N's chest!",
+				 	ch, NULL, victim,
+				 	TO_NOTVICT, POS_RESTING);
+				char_puts("You have been KILLED!\n", victim);
+				act("$n is DEAD!", victim, NULL, NULL, TO_ROOM);
+				WAIT_STATE(ch, 2);
+				victim->position = POS_DEAD;
+				handle_death(ch, victim);
+				return;
+			} else {
+				dam *= 2;
+			}
+		} else if (IS_SKILL(dt, "cleave") && wield != NULL) {
 			if (number_percent() <
 				(URANGE(4, 5 + LEVEL(ch) - LEVEL(victim), 10)
 				+ (WEAPON_IS(wield, WEAPON_AXE)) ? 2 : 0 +
@@ -1765,7 +1792,9 @@ bool check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 		case WEAPON_FLAIL:
 			chance /= 2;
 			break;
-
+		case WEAPON_STAFF:
+		case WEAPON_LANCE:
+			chance = chance * 6 / 5;
 		case WEAPON_SWORD:
 			if (number_percent() < get_skill(victim, "fence") / 2) {
 				chance = chance * 3 / 2;

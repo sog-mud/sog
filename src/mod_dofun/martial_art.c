@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.135 1999-12-03 06:01:34 kostik Exp $
+ * $Id: martial_art.c,v 1.136 1999-12-04 07:45:57 kostik Exp $
  */
 
 /***************************************************************************
@@ -65,6 +65,9 @@ static bool check_close_contact(CHAR_DATA *ch, CHAR_DATA *victim)
 	OBJ_DATA *v_weapon2;
 	int chance;
 
+	if (IS_EXTRACTED(ch) || IS_EXTRACTED(victim))
+		return FALSE;
+
 	v_weapon = get_eq_char(victim, WEAR_WIELD);
 	v_weapon2 = get_eq_char(victim, WEAR_SECOND_WIELD);
 	chance = get_skill(victim, "close contact");
@@ -79,7 +82,7 @@ static bool check_close_contact(CHAR_DATA *ch, CHAR_DATA *victim)
 	chance += get_curr_stat(victim, STAT_DEX);
 
 	if (number_percent() < chance / 9) {
-		act("To close.. $N turns you into bloody mess with rapid "
+		act("Too close.. $N turns you into bloody mess with rapid "
 		"dagger blows.", ch, NULL, victim, TO_CHAR);
 		act("$n gets too close to you. It's $s fault.", 
 		ch, NULL, victim, TO_VICT);
@@ -103,6 +106,71 @@ static bool check_close_contact(CHAR_DATA *ch, CHAR_DATA *victim)
 	return FALSE;
 }
 
+static bool check_reversal(CHAR_DATA *ch, CHAR_DATA *victim)
+{	
+	int chance;
+
+	if (IS_EXTRACTED(ch) || IS_EXTRACTED(victim))
+		return FALSE;
+
+	chance = get_skill(victim, "reversal");
+	if (get_eq_char(victim, WEAR_WIELD))
+		return FALSE;
+
+	if (!chance || !free_hands(ch))
+		return FALSE;
+
+	chance += get_curr_stat(victim, STAT_DEX);
+
+	if (number_percent() < chance / 7) {
+		act("You make a mistake coming too close to $M.",
+			ch, NULL, victim, TO_CHAR);
+		act("$n gets too close to you. It's $s fault.", 
+		ch, NULL, victim, TO_VICT);
+		switch(number_bits(2)) {
+		case 1:
+			act("You grab $n and throw $m to the ground.",
+		    		ch, NULL, victim, TO_VICT);
+			act("$N grabs you and throws to the ground.",
+		    		ch, NULL, victim, TO_CHAR);
+			WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
+
+			damage(victim, ch, 
+			(LEVEL(victim) + get_curr_stat(victim, STAT_STR)), 
+	       		"throw", DAM_BASH, DAMF_SHOW);
+			return TRUE;
+		default:
+			act("You foresee $N's maneuver and meet $M well "
+			"prepared.", ch, NULL, victim, TO_CHAR);
+			act("$n foresees your maneuver. You should be faster "
+			"next time.", ch, NULL, victim, TO_CHAR);
+
+			while(number_percent() < chance) {
+				if (IS_EXTRACTED(ch))
+					return TRUE;
+				one_hit(victim, ch, "reversal", WEAR_WIELD);
+				if (IS_EXTRACTED(ch))
+					return TRUE;
+				if (free_hands(ch) > 1) 
+					one_hit(victim, ch, "reversal", WEAR_WIELD);
+				chance /= 3;
+			}
+		}
+		check_improve(victim, "reversal", TRUE, 2);
+		return TRUE;
+	} else {
+		return FALSE;
+	}
+}
+
+static bool check_close(CHAR_DATA* ch, CHAR_DATA* victim) 
+{
+	if (check_close_contact(ch, victim))
+		return TRUE;
+	else
+		return check_reversal(ch, victim);
+}
+
 static void check_downstrike(CHAR_DATA *victim)
 {
 	CHAR_DATA *ch;
@@ -124,8 +192,12 @@ static void check_downstrike(CHAR_DATA *victim)
 
 		chance /= 3;
 		if (number_percent() < chance) {
-			act("You reach $N with your dagger as $E falls to the" 
+			act("You stab $N down as $E falls to the" 
 				" ground.", ch, NULL, victim, TO_CHAR);
+			act("$n takes advantage of your fall, stabbing you "
+				"down.", ch, NULL, victim, TO_VICT);
+			act("$n takes advantage of $N's fall.",
+				ch, NULL, victim, TO_NOTVICT);
 			one_hit(ch, victim, "downstrike", WEAR_WIELD);
 			check_improve(ch, "downstrike", TRUE, 5);
 			if (IS_EXTRACTED(victim))
@@ -150,7 +222,7 @@ bool distance_check(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	chance += get_curr_stat(victim, STAT_DEX) - get_curr_stat(ch, STAT_DEX);
 	
-	if (number_percent() < chance / 6) {
+	if (number_percent() < chance / 4) {
 		act("You fail to reach $N.", ch, NULL, victim, TO_CHAR);
 		act("You stay out of $n's reach.", ch, NULL, victim, TO_VICT);
 		check_improve(victim, "distance", TRUE, 5);
@@ -336,7 +408,7 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 	}
 
 	was_in = ch->in_room;
-	for (attempt = 0; attempt < 6; attempt++) {
+	for (attempt = 0; attempt < 4; attempt++) {
 		EXIT_DATA *pexit;
 		int door;
 
@@ -375,7 +447,7 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 		stop_fighting(ch, TRUE);
 		return;
 	}
-
+	WAIT_STATE(ch, PULSE_VIOLENCE);
 	char_puts("PANIC! You couldn't escape!\n", ch);
 }
 
@@ -987,7 +1059,7 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 	RESET_WAIT_STATE(ch);
 	attack = !(ch->fighting == victim);
 	
-	if (check_close_contact(ch, victim) 
+	if (check_close(ch, victim) 
 	|| distance_check(ch, victim))
 		return;
 
@@ -1267,7 +1339,7 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 	RESET_WAIT_STATE(ch);
 	attack = (ch->fighting != victim);
 	
-	if (check_close_contact(ch, victim)
+	if (check_close(ch, victim)
 	|| distance_check(ch, victim)) 
 		return;
 
@@ -1513,6 +1585,80 @@ void do_cleave(CHAR_DATA *ch, const char *argument)
 	yell(victim, ch, "Die, $i, you butchering fool!");
 }
 
+void do_impale(CHAR_DATA *ch, const char *argument)
+{
+	char arg[MAX_INPUT_LENGTH];
+	CHAR_DATA *victim;
+	OBJ_DATA *obj;
+	int chance;
+
+	one_argument(argument, arg, sizeof(arg));
+
+	if (ch->master != NULL && IS_NPC(ch))
+		return;
+
+	if ((chance = get_skill(ch, "impale")) == 0) {
+		char_puts("You don't know how to impale the opponent with a spear.\n",ch);
+		return;
+	}
+
+	if (arg[0] == '\0') {
+		char_puts("Impale whom?\n", ch);
+		return;
+	}
+
+	if ((victim = get_char_room(ch, arg)) == NULL) {
+		WAIT_STATE(ch, MISSING_TARGET_DELAY);
+		char_puts("They aren't here.\n", ch);
+		return;
+	}
+
+	if (victim == ch) {
+		char_puts("How can you sneak up on yourself?\n", ch);
+		return;
+	}
+
+	if ((obj = get_eq_char(ch, WEAR_WIELD)) == NULL) {
+		char_puts("You need to wield a weapon to impale.\n", ch);
+		return;
+	}
+
+	if (!WEAPON_IS(obj, WEAPON_SPEAR)
+	&&  !WEAPON_IS(obj, WEAPON_LANCE)) {
+		char_puts("You must wield spear or lance to impale.\n", ch);
+		return;
+	}
+
+	if (victim->fighting != NULL) {
+		char_puts("You can't cleave a fighting person.\n", ch);
+		return;
+	}
+
+	if ((victim->hit < (0.9 * victim->max_hit))
+	&&  (IS_AWAKE(victim))) {
+		act("$N is hurt and suspicious ... you can't sneak up.",
+		    ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	if (is_safe(ch, victim))
+		return;
+
+	WAIT_STATE(ch, skill_beats("impale"));
+
+	if (!IS_AWAKE(victim)
+	||  IS_NPC(ch)
+	||  number_percent() < chance) {
+		check_improve(ch, "impale", TRUE, 1);
+		one_hit(ch, victim, "impale", WEAR_WIELD);
+	}
+	else {
+		check_improve(ch, "impale", FALSE, 1);
+		damage(ch, victim, 0, "impale", DAM_NONE, DAMF_SHOW);
+	}
+	yell(victim, ch, "Help! $i just tryed to impale me!");
+}
+
 void do_ambush(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -1662,7 +1808,7 @@ void do_kick(CHAR_DATA *ch, const char *argument)
 	if (IS_AFFECTED(ch, AFF_FLYING))
 		chance = chance * 110 / 100;
 
-	if (check_close_contact(ch, victim)
+	if (check_close(ch, victim)
 	|| distance_check(ch, victim)) 
 		return;
 
@@ -1981,7 +2127,7 @@ void do_nerve(CHAR_DATA *ch, const char *argument)
 
 	attack = (ch->fighting != victim);
 
-	if (check_close_contact(ch, victim)
+	if (check_close(ch, victim)
 	|| distance_check(ch, victim)) 
 		return;
 
@@ -2359,7 +2505,7 @@ void do_throw(CHAR_DATA *ch, const char *argument)
 	/* level */
 	chance += (LEVEL(ch) - LEVEL(victim)) * 2;
 
-	if (check_close_contact(ch, victim) 
+	if (check_close(ch, victim) 
 	|| distance_check(ch, victim))
 		return;
 
@@ -3467,7 +3613,7 @@ void do_shield(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((shield = get_eq_char(victim, WEAR_SHIELD)) == NULL) {
-		char_puts("Your opponent must wield a shield.\n", ch);
+		char_puts("Your opponent must wear a shield.\n", ch);
 		return;
 	}
 
@@ -4000,7 +4146,7 @@ void do_crush(CHAR_DATA *ch, const char *argument)
 	if (is_safe(ch, victim))
 		return;
 
-	if (check_close_contact(ch, victim)
+	if (check_close(ch, victim)
 	|| distance_check(ch, victim))
 		return;
 

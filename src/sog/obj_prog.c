@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.71 1999-12-01 09:07:12 fjoe Exp $
+ * $Id: obj_prog.c,v 1.72 1999-12-04 07:45:59 kostik Exp $
  */
 
 /***************************************************************************
@@ -1441,7 +1441,7 @@ int fight_prog_rose_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 static bool
 lion_claw_hit(OBJ_DATA *obj, CHAR_DATA *ch, int loc)
 {
-	if (obj == get_eq_char(ch, loc))
+	if (obj != get_eq_char(ch, loc))
 		return FALSE;
 
 	char_puts("The nails of your claw appears from its fingers.\n",ch);
