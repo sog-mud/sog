@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.51 1998-06-20 20:53:25 fjoe Exp $
+ * $Id: comm.c,v 1.52 1998-06-20 23:21:28 efdi Exp $
  */
 
 /***************************************************************************
@@ -567,8 +567,7 @@ void game_loop_unix(int control)
 	    d_next	= d->next;
 	    d->fcommand	= FALSE;
 
-	    if (FD_ISSET(d->descriptor, &in_set))
-	    {
+	    if (FD_ISSET(d->descriptor, &in_set)) {
 		if (d->character != NULL)
 		    d->character->timer = 0;
 		if (!read_from_descriptor(d))
@@ -585,15 +584,13 @@ void game_loop_unix(int control)
 	    if (d->character != NULL && d->character->daze > 0)
 		--d->character->daze;
 
-	    if (d->character != NULL && d->character->wait > 0)
-	    {
+	    if (d->character != NULL && d->character->wait > 0) {
 		--d->character->wait;
 		continue;
 	    }
 
 	    read_from_buffer(d);
-	    if (d->incomm[0] != '\0')
-	    {
+	    if (d->incomm[0] != '\0') {
 		d->fcommand	= TRUE;
 		stop_idling(d->character);
 
@@ -608,27 +605,20 @@ void game_loop_unix(int control)
 	    }
 	}
 
-
-
 	/*
 	 * Autonomous game motion.
 	 */
 	update_handler();
 
-
-
 	/*
 	 * Output.
 	 */
-	for (d = descriptor_list; d != NULL; d = d_next)
-	{
+	for (d = descriptor_list; d != NULL; d = d_next) {
 	    d_next = d->next;
 
 	    if ((d->fcommand || d->outtop > 0)
-	    &&   FD_ISSET(d->descriptor, &out_set))
-	    {
-		if (!process_output(d, TRUE))
-		{
+	    &&   FD_ISSET(d->descriptor, &out_set)) {
+		if (!process_output(d, TRUE)) {
 		    if (d->character != NULL && d->character->level > 1)
 			save_char_obj(d->character);
 		    d->outtop	= 0;
@@ -653,20 +643,17 @@ void game_loop_unix(int control)
 	    usecDelta	= ((int) last_time.tv_usec) - ((int) now_time.tv_usec)
 			+ 1000000 / PULSE_PER_SCD;
 	    secDelta	= ((int) last_time.tv_sec) - ((int) now_time.tv_sec);
-	    while (usecDelta < 0)
-	    {
+	    while (usecDelta < 0) {
 		usecDelta += 1000000;
 		secDelta  -= 1;
 	    }
 
-	    while (usecDelta >= 1000000)
-	    {
+	    while (usecDelta >= 1000000) {
 		usecDelta -= 1000000;
 		secDelta  += 1;
 	    }
 
-	    if (secDelta > 0 || (secDelta == 0 && usecDelta > 0))
-	    {
+	    if (secDelta > 0 || (secDelta == 0 && usecDelta > 0)) {
 		struct timeval stall_time;
 
 		stall_time.tv_usec = usecDelta;
@@ -681,9 +668,9 @@ void game_loop_unix(int control)
 
 	gettimeofday(&last_time, NULL);
 	current_time = (time_t) last_time.tv_sec;
-	}
+    }
 
-	return;
+    return;
 }
 
 static void cp_print(DESCRIPTOR_DATA* d)
@@ -712,20 +699,18 @@ void init_descriptor(int control)
 
 	size = sizeof(sock);
 	getsockname(control, (struct sockaddr *) &sock, &size);
-	if ((desc = accept(control, (struct sockaddr *) &sock, &size)) < 0)
-	{
-	perror("New_descriptor: accept");
-	return;
+	if ((desc = accept(control, (struct sockaddr *) &sock, &size)) < 0) {
+		perror("New_descriptor: accept");
+		return;
 	}
 
 #if !defined(FNDELAY)
 #define FNDELAY O_NDELAY
 #endif
 
-	if (fcntl(desc, F_SETFL, FNDELAY) == -1)
-	{
-	perror("New_descriptor: fcntl: FNDELAY");
-	return;
+	if (fcntl(desc, F_SETFL, FNDELAY) == -1) {
+		perror("New_descriptor: fcntl: FNDELAY");
+		return;
 	}
 	/*
 	 * Cons a new descriptor.
@@ -742,13 +727,10 @@ void init_descriptor(int control)
 	dnew->codepage	= codepages;
 
 	size = sizeof(sock);
-	if (getpeername(desc, (struct sockaddr *) &sock, &size) < 0)
-	{
-	perror("New_descriptor: getpeername");
-	dnew->host = str_dup("(unknown)");
-	}
-	else
-	{
+	if (getpeername(desc, (struct sockaddr *) &sock, &size) < 0) {
+		perror("New_descriptor: getpeername");
+		dnew->host = str_dup("(unknown)");
+	} else {
 	/*
 	 * Would be nice to use inet_ntoa here but it takes a struct arg,
 	 * which ain't very compatible between gcc and system libraries.
@@ -774,13 +756,12 @@ void init_descriptor(int control)
 	 *
 	 * Furey: added suffix check by request of Nickel of HiddenWorlds.
 	 */
-	if (check_ban(dnew->host,BAN_ALL))
-	{
-	write_to_descriptor(desc,
-	    "Your site has been banned from this mud.\n\r", 0);
-	close(desc);
-	free_descriptor(dnew);
-	return;
+	if (check_ban(dnew->host,BAN_ALL)) {
+		write_to_descriptor(desc,
+			"Your site has been banned from this mud.\n\r", 0);
+		close(desc);
+		free_descriptor(dnew);
+		return;
 	}
 	/*
 	 * Init descriptor data.
@@ -1515,13 +1496,11 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 
 	ch = d->character;
 
-	switch (d->connected)
-	{
-
+	switch (d->connected) {
 	default:
-	bug("Nanny: bad d->connected %d.", d->connected);
-	close_socket(d);
-	return;
+		bug("Nanny: bad d->connected %d.", d->connected);
+		close_socket(d);
+		return;
 
 	case CON_GET_CODEPAGE: {
 		int num;
@@ -1632,8 +1611,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
  	    write_to_buffer(d, "Password: ", 0);
 	    d->connected = CON_GET_OLD_PASSWORD;
 	    return;
-	}
-	else {
+	} else {
 	    /* New player */
  	    if (newlock) {
 	            write_to_buffer(d, "The game is newlocked.\n\r", 0);
@@ -1653,101 +1631,6 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 	    d->connected = CON_CONFIRM_NEW_NAME;
 	    return;
 	}
-	break;
-
-	case CON_GET_OLD_PASSWORD:
-	write_to_buffer(d, "\n\r", 2);
-
-	if (strcmp(crypt(argument, ch->pcdata->pwd), ch->pcdata->pwd)) {
-	    write_to_buffer(d, "Wrong password.\n\r", 0);
-	    sprintf(buf, "Wrong password by %s@%s", ch->name, d->host);
-	    log(buf);
-	    if (ch->endur == 2)
-	    	close_socket(d);
-	    else {
-	    	write_to_descriptor(d->descriptor, (char *) echo_off_str, 0);
- 	    	write_to_buffer(d, "Password: ", 0);
-	    	d->connected = CON_GET_OLD_PASSWORD;
-		ch->endur++;
-	    }
-	    return;
-	}
- 
-
-	if (ch->pcdata->pwd[0] == (int) NULL)
-	{
-	    write_to_buffer(d, "Warning! Null password!\n\r",0);
-	    write_to_buffer(d, "Please report old password with bug.\n\r",0);
-	    write_to_buffer(d, 
-		"Type 'password null <new password>' to fix.\n\r",0);
-	}
-
-
-	write_to_descriptor(d->descriptor, (char *) echo_on_str, 0);
-
-	if (check_reconnect(d, ch->name, TRUE))
-	    return;
-
-	if (check_playing(d, ch->name))
-	    return;
-
-	/* Count objects in loaded player file */
-	for (obj = ch->carrying,obj_count = 0; obj != NULL; 
-	     obj = obj->next_content)
-	  obj_count += get_obj_realnumber(obj);
-
-	strcpy(buf,ch->name);
-
-	free_char(ch);
-	fOld = load_char_obj(d, buf);
-	ch   = d->character;
-
-
-	if (!fOld) {
-	  write_to_buffer(d,
-			  "Please login again to create a new character.\n\r",
-			  0);
-	  close_socket(d);
-	  return;
-	}
-	  
-	/* Count objects in refreshed player file */
-	for (obj = ch->carrying,obj_count2 = 0; obj != NULL;
-	     obj = obj->next_content)
-	  obj_count2 += get_obj_realnumber(obj);
-
-
-	log_printf("%s@%s has connected.", ch->name, d->host);
-	if (IS_HERO(ch))
-	{
-	    do_help(ch, "imotd");
-	    d->connected = CON_READ_IMOTD;
- 	}
-	else
-	{
-	    do_help(ch, "motd");
-	    d->connected = CON_READ_MOTD;
-	}
-
-	/* This player tried to use the clone cheat -- 
-	 * Log in once, connect a second time and enter only name,
-	     * drop all and quit with first character, finish login with second.
-	     * This clones the player's inventory.
-	     */
-	if (obj_count != obj_count2) {
-	  log_printf("%s@%s tried to use the clone cheat.", ch->name, d->host);
-	  for (obj = ch->carrying; obj != NULL; obj = inobj) {
-	    inobj = obj->next_content;
-	    extract_obj_nocount(obj);
-	  }
-
-	  for (obj_count = 0; obj_count < MAX_STATS; obj_count++)
-	    ch->perm_stat[obj_count]--;
-
-	  save_char_obj(ch);
-	  send_to_char("The gods frown upon your actions.\n\r",ch);
-	}
-
 	break;
 
 /* RT code for breaking link */
@@ -2242,29 +2125,115 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 	    return;
 	break;
 
-	case CON_READ_IMOTD:
-	write_to_buffer(d,"\n\r",2);
-	    do_help(ch, "motd");
-	    d->connected = CON_READ_MOTD;
-	break;
+	case CON_GET_OLD_PASSWORD:
+	write_to_buffer(d, "\n\r", 2);
 
-	case CON_READ_MOTD:
-	write_to_buffer(d, 
-	"\n\rWelcome to Muddy Multi User Dungeon. Enjoy!!...\n\r",
-	    0);
-	ch->next	= char_list;
-	char_list	= ch;
-	d->connected	= CON_PLAYING;
-	reset_char(ch);
-	{
-	int count;
-	extern int max_on;
-	    count=0;
-	    for (d = descriptor_list; d != NULL; d = d->next)
-	    	if (d->connected == CON_PLAYING)
-	        	count++;
-	    max_on = UMAX(count,max_on);
+	if (strcmp(crypt(argument, ch->pcdata->pwd), ch->pcdata->pwd)) {
+	    write_to_buffer(d, "Wrong password.\n\r", 0);
+	    sprintf(buf, "Wrong password by %s@%s", ch->name, d->host);
+	    log(buf);
+	    if (ch->endur == 2)
+	    	close_socket(d);
+	    else {
+	    	write_to_descriptor(d->descriptor, (char *) echo_off_str, 0);
+ 	    	write_to_buffer(d, "Password: ", 0);
+	    	d->connected = CON_GET_OLD_PASSWORD;
+		ch->endur++;
+	    }
+	    return;
 	}
+ 
+
+	if (ch->pcdata->pwd[0] == (int) NULL)
+	{
+	    write_to_buffer(d, "Warning! Null password!\n\r",0);
+	    write_to_buffer(d, "Please report old password with bug.\n\r",0);
+	    write_to_buffer(d, 
+		"Type 'password null <new password>' to fix.\n\r",0);
+	}
+
+
+	write_to_descriptor(d->descriptor, (char *) echo_on_str, 0);
+
+	if (check_reconnect(d, ch->name, TRUE))
+	    return;
+
+	if (check_playing(d, ch->name))
+	    return;
+
+	/* Count objects in loaded player file */
+	for (obj = ch->carrying,obj_count = 0; obj != NULL; 
+	     obj = obj->next_content)
+	  obj_count += get_obj_realnumber(obj);
+
+	strcpy(buf,ch->name);
+
+	free_char(ch);
+	fOld = load_char_obj(d, buf);
+	ch   = d->character;
+
+
+	if (!fOld) {
+	  write_to_buffer(d,
+			  "Please login again to create a new character.\n\r",
+			  0);
+	  close_socket(d);
+	  return;
+	}
+	  
+	/* Count objects in refreshed player file */
+	for (obj = ch->carrying,obj_count2 = 0; obj != NULL;
+	     obj = obj->next_content)
+	  obj_count2 += get_obj_realnumber(obj);
+
+
+	log_printf("%s@%s has connected.", ch->name, d->host);
+	d->connected = CON_READ_IMOTD;
+
+	/* This player tried to use the clone cheat -- 
+	 * Log in once, connect a second time and enter only name,
+	     * drop all and quit with first character, finish login with second.
+	     * This clones the player's inventory.
+	     */
+	if (obj_count != obj_count2) {
+	  log_printf("%s@%s tried to use the clone cheat.", ch->name, d->host);
+	  for (obj = ch->carrying; obj != NULL; obj = inobj) {
+	    inobj = obj->next_content;
+	    extract_obj_nocount(obj);
+	  }
+
+	  for (obj_count = 0; obj_count < MAX_STATS; obj_count++)
+	    ch->perm_stat[obj_count]--;
+
+	  save_char_obj(ch);
+	  send_to_char("The gods frown upon your actions.\n\r",ch);
+	}
+
+	/* FALL THRU */
+	case CON_READ_IMOTD:
+		if (IS_HERO(ch))
+		    do_help(ch, "imotd");
+		write_to_buffer(d,"\n\r",2);
+		do_help(ch, "motd");
+		d->connected = CON_READ_MOTD;
+	/* FALL THRU */
+	case CON_READ_MOTD:
+		write_to_buffer(d, 
+		"\n\rWelcome to Muddy Multi User Dungeon. Enjoy!!...\n\r",
+		    0);
+		ch->next	= char_list;
+		char_list	= ch;
+		d->connected	= CON_PLAYING;
+		reset_char(ch);
+		{
+			int count;
+			extern int max_on;
+			    count=0;
+			    for (d = descriptor_list; d != NULL; d = d->next)
+			    	if (d->connected == CON_PLAYING)
+			        	count++;
+			    max_on = UMAX(count,max_on);
+		}
 
 
 
@@ -2366,8 +2335,7 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 
 	do_look(ch, "auto");
 
-	if (ch->gold > 6000 && !IS_IMMORTAL(ch))
-	{
+	if (ch->gold > 6000 && !IS_IMMORTAL(ch)) {
 	    sprintf(buf,"You are taxed %ld gold to pay for the Mayor's bar.\n\r",
 		(ch->gold - 6000) / 2);
 	    send_to_char(buf,ch); 
@@ -2375,8 +2343,7 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 	}
 	
 
-	if (ch->pcdata->bank_g > 50000 && !IS_IMMORTAL(ch))
-	{
+	if (ch->pcdata->bank_g > 50000 && !IS_IMMORTAL(ch)) {
 	    sprintf(buf,"You are taxed %ld gold to pay for war expenses of Sultan.\n\r",
 		(ch->pcdata->bank_g - 50000));
 	    send_to_char(buf,ch); 
@@ -2384,37 +2351,15 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 	}
 	
 
-	if (ch->pet != NULL)
-	{
+	if (ch->pet != NULL) {
 	    char_to_room(ch->pet,ch->in_room);
 	    act("$n has entered the game.",ch->pet,NULL,NULL,TO_ROOM);
 	}
 	do_unread(ch, "login");  
 
-	/* check notes        
-	notes = 0;            * Nanny() is removed from CF compleately,
-	                          * sure it took a lot of time to transfer here.
- 			      * noteings will remain same.
-
-	for (pnote = note_list; pnote != NULL; pnote = pnote->next)
-	    if (is_note_to(ch,pnote) && str_cmp(ch->name,pnote->sender)
-	    &&  pnote->date_stamp > ch->last_note)
-	     	notes++;
-	
-	if (notes == 1)
-	    send_to_char("\n\rYou have one new note waiting.\n\r",ch);
-
-	else if (notes > 1)
-	{
-	    sprintf(buf,"\n\rYou have %d new notes waiting.\n\r",notes);
-	    send_to_char(buf,ch);
-	}
-	            *  CF note check ends here...   */
-
-
 	break;
-	}
-	return;
+    }
+    return;
 }
 
 

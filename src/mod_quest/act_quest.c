@@ -1,5 +1,5 @@
 /*
- * $Id: act_quest.c,v 1.37 1998-06-20 22:26:56 efdi Exp $
+ * $Id: act_quest.c,v 1.38 1998-06-20 23:21:28 efdi Exp $
  */
 
 /***************************************************************************
@@ -571,9 +571,6 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 	}
 
 	victim = mobs[number_range(0, mob_count-1)];
-		   ch->name, ch->level,
-		   victim->name, victim->level, victim->pIndexData->vnum,
-		   victim->in_room->name, victim->in_room->vnum);
 	ch->pcdata->questroom = victim->in_room;
 
 	if (chance(40)) { /* Quest to find an obj */
