@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.13 1998-10-14 11:05:17 fjoe Exp $
+ * $Id: db_area.c,v 1.14 1998-10-14 18:33:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -297,7 +297,7 @@ DBLOAD_FUN(load_old_mob)
 			break;
 
 		fBootDb = FALSE;
-		if (get_mob_index(vnum) != NULL) {
+		if (get_mob_index(vnum)) {
 			log_printf("load_mobiles: vnum %d duplicated.", vnum);
 			exit(1);
 		}
@@ -471,8 +471,10 @@ DBLOAD_FUN(load_old_obj)
 			break;
 
 		fBootDb = FALSE;
-		if (get_obj_index(vnum) != NULL)
+		if (get_obj_index(vnum)) {
 			db_error("load_old_obj", "vnum %d duplicated.", vnum);
+			exit(1);
+		}
 		fBootDb = TRUE;
 
 		pObjIndex		= alloc_perm(sizeof(*pObjIndex));
@@ -725,8 +727,10 @@ DBLOAD_FUN(load_rooms)
 			break;
 
 		fBootDb = FALSE;
-		if (get_room_index(vnum) != NULL)
+		if (get_room_index(vnum)) {
 			db_error("load_rooms", "vnum %d duplicated.", vnum);
+			exit(1);
+		}
 		fBootDb = TRUE;
 
 		pRoomIndex		= alloc_perm(sizeof(*pRoomIndex));
@@ -1073,8 +1077,10 @@ DBLOAD_FUN(load_mobiles)
             break;
  
         fBootDb = FALSE;
-        if (get_mob_index(vnum) != NULL)
-            db_error("load_mobiles", "vnum %d duplicated.", vnum);
+        if (get_mob_index(vnum)) {
+        	db_error("load_mobiles", "vnum %d duplicated.", vnum);
+		exit(1);
+	}
         fBootDb = TRUE;
  
         pMobIndex                       = alloc_perm(sizeof(*pMobIndex));
@@ -1271,8 +1277,10 @@ DBLOAD_FUN(load_objects)
             break;
  
         fBootDb = FALSE;
-        if (get_obj_index(vnum) != NULL)
-            db_error("load_objects", "vnum %d duplicated.", vnum);
+        if (get_obj_index(vnum)) {
+        	db_error("load_objects", "vnum %d duplicated.", vnum);
+		exit(1);
+	}
         fBootDb = TRUE;
  
         pObjIndex                       = alloc_perm(sizeof(*pObjIndex));
