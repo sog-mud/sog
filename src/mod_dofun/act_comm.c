@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.167 1999-05-20 19:58:59 fjoe Exp $
+ * $Id: act_comm.c,v 1.168 1999-05-22 13:37:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -922,25 +922,36 @@ void quit_char(CHAR_DATA *ch, int flags)
 				obj_from_char(obj);
 				obj_to_room(obj,ch->in_room);
 			}
-		if (IS_SET(obj->pIndexData->extra_flags, ITEM_CLAN)
-		  ||IS_SET(obj->pIndexData->extra_flags, ITEM_QUIT_DROP)) {
-			if (obj->in_room != NULL) continue;
-			if ((obj_in=obj->in_obj) != NULL) {
-				for (;obj_in->in_obj != NULL; obj_in = obj_in->in_obj);
-				if (obj_in->carried_by != ch) continue;
-			};
-			if (obj->carried_by == ch) obj_from_char(obj);
-			else if (obj->carried_by != NULL) continue;
-			if (obj_in != NULL) obj_from_obj (obj);
-			if (IS_SET(obj->pIndexData->extra_flags, ITEM_QUIT_DROP)) {
+		if (IS_SET(obj->pIndexData->extra_flags,
+			   ITEM_CLAN | ITEM_QUIT_DROP | ITEM_CHQUEST)) {
+			if (obj->in_room != NULL)
+				continue;
+
+			if ((obj_in = obj->in_obj) != NULL) {
+				for (;obj_in->in_obj != NULL; obj_in = obj_in->in_obj)
+					;
+				if (obj_in->carried_by != ch)
+					continue;
+			}
+
+			if (obj->carried_by == ch)
+				obj_from_char(obj);
+			else if (obj->carried_by != NULL)
+				continue;
+			else if (obj_in != NULL)
+				obj_from_obj(obj);
+
+			if (IS_SET(obj->pIndexData->extra_flags, ITEM_CLAN)) {
+				for (cn = 0; cn < clans.nused; cn++)
+					if (obj == clan_lookup(cn)->obj_ptr) 
+						obj_to_room(obj, get_room_index(clan_lookup(cn)->altar_vnum));
+			}
+			else {
 				if (ch->in_room != NULL) 
 					obj_to_room(obj, ch->in_room);
 				else 
 					extract_obj(obj, 0);
 			}
-			else for (cn=0; cn < clans.nused; cn++)
-			    if (obj == clan_lookup(cn)->obj_ptr) 
-				obj_to_room(obj, get_room_index(clan_lookup(cn)->altar_vnum));
 		}
 	}
 

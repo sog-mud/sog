@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.138 1999-05-21 22:49:34 fjoe Exp $
+ * $Id: db.c,v 1.139 1999-05-22 13:37:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -58,6 +58,7 @@
 #endif
 
 #include "merc.h"
+#include "chquest.h"
 #include "rating.h"
 #include "socials.h"
 #include "update.h"
@@ -416,6 +417,7 @@ void boot_db(void)
 	area_update();
 	load_notes();
 	load_bans();
+	chquest_start(0);
 }
 
 /*

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.103 1999-04-16 15:52:20 fjoe Exp $
+ * $Id: quest.c,v 1.104 1999-05-22 13:37:30 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -35,6 +35,7 @@
 
 #include "merc.h"
 #include "quest.h"
+#include "chquest.h"
 
 #ifdef SUNOS
 #	include <stdarg.h>
@@ -64,6 +65,7 @@ static void quest_buy(CHAR_DATA *ch, char *arg);
 static void quest_request(CHAR_DATA *ch, char *arg);
 static void quest_complete(CHAR_DATA *ch, char *arg);
 static void quest_trouble(CHAR_DATA *ch, char *arg);
+static void quest_chquest(CHAR_DATA *ch, char *arg);
 
 static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 			    int item_vnum, int count_max);
@@ -80,8 +82,8 @@ enum qitem_type {
 	TYPE_OTHER
 };
 
-typedef struct qitem_data QITEM_DATA;
-struct qitem_data {
+typedef struct qitem_t qitem_t;
+struct qitem_t {
 	char		*name;
 	int		price;
 	const char	*restrict_class;
@@ -89,7 +91,7 @@ struct qitem_data {
 	bool		(*do_buy)(CHAR_DATA *ch, CHAR_DATA *questor);
 };
 
-struct qitem_data qitem_table[] = {
+qitem_t qitem_table[] = {
 	{ "small magic rug",		 750, NULL,
 	   QUEST_VNUM_RUG, NULL					},
 
@@ -123,17 +125,18 @@ struct qcmd_data {
 	int min_position;
 	int extra;
 };
-typedef struct qcmd_data Qcmd_t;
+typedef struct qcmd_data qcmd_t;
 
-Qcmd_t qcmd_table[] = {
-	{ "points",	quest_points,	POS_DEAD,	CMD_KEEP_HIDE},
-	{ "info",	quest_info,	POS_DEAD,	CMD_KEEP_HIDE},
-	{ "time",	quest_time,	POS_DEAD,	CMD_KEEP_HIDE},
-	{ "list",	quest_list,	POS_RESTING,	0},
-	{ "buy",	quest_buy,	POS_RESTING,	0},
-	{ "request",	quest_request,	POS_RESTING,	0},
-	{ "complete",	quest_complete,	POS_RESTING,	0},
-	{ "trouble",	quest_trouble,	POS_RESTING,	0},
+qcmd_t qcmd_table[] = {
+	{ "points",	quest_points,	POS_DEAD,	CMD_KEEP_HIDE	},
+	{ "info",	quest_info,	POS_DEAD,	CMD_KEEP_HIDE	},
+	{ "time",	quest_time,	POS_DEAD,	CMD_KEEP_HIDE	},
+	{ "list",	quest_list,	POS_RESTING,	0		},
+	{ "buy",	quest_buy,	POS_RESTING,	0		},
+	{ "request",	quest_request,	POS_RESTING,	0		},
+	{ "complete",	quest_complete,	POS_RESTING,	0		},
+	{ "trouble",	quest_trouble,	POS_RESTING,	0		},
+	{ "items",	quest_chquest,	POS_RESTING,	0		},
 	{ NULL}
 };
 
@@ -144,7 +147,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 {
 	char cmd[MAX_INPUT_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
-	Qcmd_t *qcmd;
+	qcmd_t *qcmd;
 
 	argument = one_argument(argument, cmd, sizeof(cmd));
 	argument = one_argument(argument, arg, sizeof(arg));
@@ -398,7 +401,7 @@ static void quest_time(CHAR_DATA *ch, char* arg)
 static void quest_list(CHAR_DATA *ch, char *arg)
 {
 	CHAR_DATA *questor;
-	QITEM_DATA *qitem;
+	qitem_t *qitem;
 	class_t *cl;
 
 	if ((questor = questor_lookup(ch)) == NULL
@@ -427,7 +430,7 @@ static void quest_list(CHAR_DATA *ch, char *arg)
 static void quest_buy(CHAR_DATA *ch, char *arg)
 {
 	CHAR_DATA *questor;
-	QITEM_DATA *qitem;
+	qitem_t *qitem;
 	class_t *cl;
 
 	if ((questor = questor_lookup(ch)) == NULL
@@ -712,7 +715,7 @@ static void quest_complete(CHAR_DATA *ch, char *arg)
 static void quest_trouble(CHAR_DATA *ch, char *arg)
 {
 	CHAR_DATA *questor;
-	QITEM_DATA *qitem;
+	qitem_t *qitem;
 	class_t *cl;
 
 	if ((questor = questor_lookup(ch)) == NULL
@@ -739,6 +742,48 @@ static void quest_trouble(CHAR_DATA *ch, char *arg)
 		   "Sorry, {W%s{z, but you haven't bought "
 		   "that quest award, yet.\n",
 		   ch->name);
+}
+
+static void quest_chquest(CHAR_DATA *ch, char *arg)
+{
+	CHAR_DATA *questor;
+	bool found;
+	chquest_t *q;
+
+	if ((questor = questor_lookup(ch)) == NULL)
+		return;
+
+	act("$n asks $N about current challenge quests.",
+	    ch, NULL, questor, TO_ROOM);
+	act_puts("You ask $N about current challenge quests.",
+		 ch, NULL, questor, TO_CHAR, POS_DEAD);
+
+	found = FALSE;
+	for (q = chquest_list; q; q = q->next) {
+		CHAR_DATA *carried_by;
+
+		if (!q->obj)
+			continue;
+
+		if (!found) {
+			found = TRUE;
+			act("Current challenge quest items available:", 
+			    ch, NULL, NULL, TO_CHAR);
+		}
+
+		if ((carried_by = chquest_carried_by(q->obj)))
+			act("- $p (carried by $N)",
+			    ch, q->obj, carried_by, TO_CHAR);
+		else
+			act("- $p (somewhere)",
+			    ch, q->obj, NULL, TO_CHAR);
+	}
+
+	if (!found) {
+		act("No challenge quests are running.",
+		    ch, NULL, NULL, TO_CHAR);
+		return;
+	}
 }
 
 /*

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.64 1999-05-21 14:30:23 fjoe Exp $
+ * $Id: tables.c,v 1.65 1999-05-22 13:37:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -571,6 +571,7 @@ flag_t extra_flags[] =
 	{ "clan_item",		ITEM_CLAN,		TRUE	},
 	{ "quit_drop",		ITEM_QUIT_DROP,		TRUE	},
 	{ "pit",		ITEM_PIT,		TRUE	},
+	{ "chquest",		ITEM_CHQUEST,		TRUE	},
 	{ "enchanted",		ITEM_ENCHANTED,		FALSE	},
 	{ "oldstyle",		ITEM_OLDSTYLE,		FALSE	},
 

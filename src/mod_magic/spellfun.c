@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.155 1999-05-21 13:04:26 fjoe Exp $
+ * $Id: spellfun.c,v 1.156 1999-05-22 13:37:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,6 +47,7 @@
 #include <time.h>
 #include "merc.h"
 #include "update.h"
+#include "chquest.h"
 #include "fight.h"
 
 DECLARE_DO_FUN(do_look		);
@@ -3506,7 +3507,9 @@ void spell_locate_object(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	for (obj = object_list; obj != NULL; obj = obj->next) {
 		if (!can_see_obj(ch, obj) || !is_name(target_name, obj->name)
-		||  IS_OBJ_STAT(obj,ITEM_NOLOCATE)
+		||  IS_OBJ_STAT(obj, ITEM_NOLOCATE)
+		||  (IS_SET(obj->pIndexData->extra_flags, ITEM_CHQUEST) &&
+		     chquest_carried_by(obj) == NULL)
 		||  number_percent() > 2 * level
 		||  ch->level < obj->level)
 			continue;

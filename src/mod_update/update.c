@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.128 1999-05-21 18:42:27 fjoe Exp $
+ * $Id: update.c,v 1.129 1999-05-22 13:37:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1834,6 +1834,7 @@ void update_handler(void)
 		pulse_area = PULSE_AREA; 
 		area_update();
 		room_update();
+		chquest_update();
 		do_asave(NULL, "rules");
 	}
 

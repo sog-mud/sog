@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.146 1999-05-21 17:55:38 fjoe Exp $
+ * $Id: interp.c,v 1.147 1999-05-22 13:37:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -384,6 +384,7 @@ cmd_t cmd_table[] =
      */
     { "advance",	do_advance,	POS_DEAD,	ML,  LOG_ALWAYS	}, 
     { "set",		do_set,		POS_DEAD,	L1,  LOG_ALWAYS	},
+    { "chquest",	do_chquest,	POS_DEAD,	IM,  LOG_ALWAYS	},
     { "dump",		do_dump,	POS_DEAD,	ML,  LOG_ALWAYS	},
     { "rename",		do_rename,	POS_DEAD,	ML,  LOG_ALWAYS	},
     { "violate",	do_violate,	POS_DEAD,	ML,  LOG_ALWAYS	},

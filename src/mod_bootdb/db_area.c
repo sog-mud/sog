@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.39 1999-05-21 20:22:10 fjoe Exp $
+ * $Id: db_area.c,v 1.40 1999-05-22 13:37:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,6 +44,7 @@
 #include <string.h>
 
 #include "merc.h"
+#include "chquest.h"
 #include "obj_prog.h"
 #include "db.h"
 #include "olc/olc.h"
@@ -1528,6 +1529,9 @@ DBLOAD_FUN(load_objects)
         top_obj_index++;
         top_vnum_obj = top_vnum_obj < vnum ? vnum : top_vnum_obj; /* OLC */
         vnum_check(area_current, vnum);				  /* OLC */
+
+		if (IS_SET(pObjIndex->extra_flags, ITEM_CHQUEST))
+			chquest_add(pObjIndex);
     }
 }
 

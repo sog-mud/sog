@@ -1,5 +1,5 @@
 /*
- * $Id: auction.c,v 1.29 1999-05-14 20:09:05 avn Exp $
+ * $Id: auction.c,v 1.30 1999-05-22 13:37:27 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -199,7 +199,7 @@ void auction_give_obj(CHAR_DATA* victim, OBJ_DATA *obj)
 		obj_to_char (obj, victim);
 }
 
-void auction_update (void)
+void auction_update(void)
 {
 	if (auction.item == NULL)
 		return;
@@ -438,11 +438,16 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 
 	switch (obj->pIndexData->item_type) {
 	default:
-		act_puts("You cannot auction $T.",
-			 ch, NULL,
-			 flag_string(item_types, obj->pIndexData->item_type),
-			 TO_CHAR, POS_SLEEPING);
-		break;
+		if (!IS_SET(obj->pIndexData->extra_flags, ITEM_CHQUEST)) {
+			act_puts("You cannot auction $T.",
+				 ch, NULL,
+				 flag_string(item_types,
+					     obj->pIndexData->item_type),
+				 TO_CHAR, POS_SLEEPING);
+			break;
+		}
+
+		/* FALLTHRU */
 
 	case ITEM_LIGHT:
 	case ITEM_WEAPON:

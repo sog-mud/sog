@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.46 1999-05-12 18:54:51 avn Exp $
+ * $Id: olc_obj.c,v 1.47 1999-05-22 13:37:32 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -34,6 +34,7 @@
 #include <time.h>
 #include "merc.h"
 #include "olc.h"
+#include "chquest.h"
 #include "db/db.h"
 
 #define EDIT_OBJ(ch, obj)	(obj = (OBJ_INDEX_DATA*) ch->desc->pEdit)
@@ -425,6 +426,8 @@ OLC_FUN(objed_del)
 		return FALSE;
 
 /* delete all the instances of obj index */
+	chquest_delete(pObj);
+
 	for (obj = object_list; obj; obj = obj_next) {
 		obj_next = obj->next;
 

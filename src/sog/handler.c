@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.144 1999-05-21 13:04:25 fjoe Exp $
+ * $Id: handler.c,v 1.145 1999-05-22 13:37:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,6 +50,7 @@
 #include "raffects.h"
 #include "fight.h"
 #include "quest.h"
+#include "chquest.h"
 #include "db/db.h"
 #include "olc/olc.h"
 #include "db/lang.h"
@@ -1605,8 +1606,13 @@ void extract_obj(OBJ_DATA *obj, int flags)
 	}
 	else
 		obj->extracted = TRUE;
-	if (IS_SET(obj->extra_flags, ITEM_CLAN)) return;
- 
+
+	if (IS_SET(obj->pIndexData->extra_flags, ITEM_CLAN))
+		return;
+
+	if (IS_SET(obj->pIndexData->extra_flags, ITEM_CHQUEST))
+		chquest_extract(obj);
+
 	for (obj_content = obj->contains; obj_content; obj_content = obj_next) {
 		obj_next = obj_content->next_content;
 
@@ -2912,17 +2918,20 @@ ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch, AREA_DATA *area)
 
 	for (; ;) {
 		room = get_room_index(number_range(min_vnum, max_vnum));
-
 		if (!room)
 			continue;
 
-		if (can_see_room(ch, room)
-		&&  !room_is_private(room)
+		if (ch) {
+			if (!can_see_room(ch, room)
+			||  (IS_NPC(ch) &&
+			     IS_SET(ch->pIndexData->act, ACT_AGGRESSIVE) &&
+			     IS_SET(room->room_flags, ROOM_LAW)))
+				continue;
+		}
+
+		if (!room_is_private(room)
 		&&  !IS_SET(room->room_flags, ROOM_SAFE | ROOM_PEACE) 
-		&&  !(IS_SET(room->area->flags, AREA_CLOSED) && !area)
-		&&  (!IS_NPC(ch) ||
-		     !IS_SET(ch->pIndexData->act, ACT_AGGRESSIVE) ||
-		     !IS_SET(room->room_flags, ROOM_LAW)))
+		&&  (area || !IS_SET(room->area->flags, AREA_CLOSED)))
 			break;
 	}
 
