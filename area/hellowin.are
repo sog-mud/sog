@@ -89,6 +89,47 @@ BF 0 0 0 0 -1000 0
 0
 stand stand male 0
 0 0 huge unknown
+#34410
+air elemental воздушный элементаль~
+@eng an air elemental@rus ~~воздушный~~ ~~элементаль~~~
+@eng You feel something unusual in air here.@rus Что-то странное носится в воздухе.~
+~
+air elemental~
+D 0 SUV 0 ABH 0 0
+0 0 0d0+0 0d0+0 0d0+0 'none'
+0 0 0 0
+FH
+stand stand male 0
+0 0 huge unknown
+g @eng male@rus male~
+m mob_fight @ 100~
+if (number_bits(2) != 0)
+        return 0;
+
+Char victim = get_random_fighting(mob);
+if (victim == NULL)
+        return 0;
+
+if (mob->level > 36)
+        cast_char("lightning breath", mob, victim);
+else
+        cast_char("lightning bolt", mob, victim);
+
+return 0;
+~
+#34411
+water водяной elemental элементаль~
+@eng the water elemental@rus ~~водяной~~ ~~элементаль~~~
+@eng You see strange water creature here.@rus Ты видишь странное существо из воды (elemental).~
+~
+water elemental~
+D 0 SUV 0 ABH 0 0
+0 0 0d0+0 0d0+0 0d0+0 'none'
+0 0 0 0
+FH
+stand stand male 0
+0 0 huge unknown
+g @eng male@rus male~
 #0
 
 #OBJECTS
