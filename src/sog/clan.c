@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.26 1999-02-02 15:50:21 kostik Exp $
+ * $Id: clan.c,v 1.27 1999-02-05 09:22:05 kostik Exp $
  */
 
 #include <sys/time.h>
@@ -443,7 +443,7 @@ void do_item(CHAR_DATA* ch, const char* argument)
 		char_printf(ch, "%s is in %s, carried by %s\n",
 			mlstr_mval(clan->obj_ptr->short_descr),
 			mlstr_mval(in_obj->carried_by->in_room->name),
-			PERS(ch, in_obj->carried_by));
+			PERS(in_obj->carried_by, ch));
 	else {
 		char_printf(ch, "%s is in %s.\n",
 			mlstr_mval(clan->obj_ptr->short_descr),

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.129 1999-02-02 15:50:20 kostik Exp $
+ * $Id: act_comm.c,v 1.130 1999-02-05 09:22:04 kostik Exp $
  */
 
 /***************************************************************************
@@ -1836,6 +1836,12 @@ DO_FUN(do_wanted)
 		    ch, NULL, victim, TO_CHAR);
 		return;
 	}
+
+	if (!clan_item_ok(ch->clan)) {
+		char_puts("Your book of laws is lost, you can't do that.\n", ch);
+		return;
+	}
+
 
 	if (victim == ch) {
 		char_puts( "You cannot do that to yourself.\n", ch);

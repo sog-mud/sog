@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.121 1999-01-26 07:08:21 kostik Exp $
+ * $Id: fight.c,v 1.122 1999-02-05 09:22:06 kostik Exp $
  */
 
 /***************************************************************************
@@ -1462,6 +1462,12 @@ bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	if ((mount = RIDDEN(victim)))
 		return is_safe_nomessage(ch, mount);
+
+	if (victim->in_room != NULL 
+		&& victim->in_room->area->clan != 0
+		&& victim->clan != victim->in_room->area->clan
+		&& ch->clan == victim->in_room->area->clan)
+		return FALSE;
 
 	if ((safe = cant_kill(ch, victim)) || IS_NPC(ch))
 		return safe;
