@@ -1,9 +1,9 @@
 #
-# $Id: Makefile.dist,v 1.9 1999-05-15 10:32:38 fjoe Exp $
+# $Id: Makefile.dist,v 1.10 1999-05-15 10:56:22 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
-INCLUDES	= -I .
+INCLUDES	= -I . 
 
 CFLAGS		= -g -Wall -O -pipe $(INCLUDES)
 LFLAGS		= -g
@@ -19,22 +19,22 @@ INSTALL_PATH	= ..
 # for Linux
 #CFLAGS	+= -DLINUX 
 #LIBS	+= -lcrypt
-#CFILES += compat/fnmatch.c
-#OFILES += fnmatch.o
+#COMPAT_CFILES = compat/fnmatch.c
+#COMPAT_OFILES = fnmatch.o
 
 #
 # for SunOS 5 (Solaris)
 #CFLAGS	+= -DSUNOS
 #LIBS	+= -lsocket -lnsl
-#CFILES	+= compat/strsep.c compat/snprintf.c
-#OFILES	+= strsep.o snprintf.o
+#COMPAT_CFILES = compat/strsep.c compat/snprintf.c
+#COMPAT_OFILES = strsep.o snprintf.o
 
 #
 # for Unixware 2.x
 #CFLAGS	+= -DSVR4 -DOLD_RAND
 #LIBS	+= -lsocket -lnsl -lcrypt
-#CFILES	+= compat/strsep.c
-#OFILES	+= strsep.o
+#COMPAT_CFILES = compat/strsep.c
+#COMPAT_OFILES = strsep.o
 
 #
 # Generally Makefile should not be edited below this line
@@ -72,7 +72,7 @@ CFILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c auction.c\
 	 race.c raffects.c rating.c recycle.c religion.c repair.c\
 	 save.c skills.c special.c str.c string_edit.c\
 	 tables.c update.c util.c varr.c\
-	 $(COMM_CFILES) $(DB_CFILES) $(OLC_CFILES)
+	 $(COMM_CFILES) $(DB_CFILES) $(OLC_CFILES) $(COMPAT_CFILES)
 
 OFILES = act_comm.o act_info.o act_move.o act_obj.o act_wiz.o auction.o\
          buffer.o clan.o class.o\
@@ -82,7 +82,7 @@ OFILES = act_comm.o act_info.o act_move.o act_obj.o act_wiz.o auction.o\
 	 race.o raffects.o rating.o recycle.o religion.o repair.o\
 	 save.o skills.o special.o str.o string_edit.o\
 	 tables.o update.o util.o varr.o\
-	 $(COMM_OFILES) $(DB_OFILES) $(OLC_OFILES)
+	 $(COMM_OFILES) $(DB_OFILES) $(OLC_OFILES) $(COMPAT_OFILES)
 
 sog: $(OFILES)
 	rm -f sog
