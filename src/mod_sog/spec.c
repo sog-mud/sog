@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.c,v 1.34 2001-12-03 22:28:43 fjoe Exp $
+ * $Id: spec.c,v 1.35 2003-09-30 00:31:30 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -87,7 +87,7 @@ spec_stats(CHAR_DATA *ch, spec_skill_t *spec_sk)
 /* noone can use ill-defined skills */
 	if ((sk = skill_lookup(spec_sk->sn)) == NULL) {
 #ifdef C_STRKEY_STRICT_CHECKS
-		log(LOG_BUG, "spec_stats: %s: unknown skill", spec_sk->sn);
+		printlog(LOG_BUG, "spec_stats: %s: unknown skill", spec_sk->sn);
 #endif
 		goto bailout;
 	}
@@ -107,7 +107,7 @@ spec_stats(CHAR_DATA *ch, spec_skill_t *spec_sk)
 		spec = spec_lookup(*pspn);
 		if (spec == NULL) {
 #ifdef C_STRKEY_STRICT_CHECKS
-			log(LOG_INFO, "spec_stats: %s: unknown spec", *pspn);
+			printlog(LOG_INFO, "spec_stats: %s: unknown spec", *pspn);
 #endif
 			continue;
 		}
@@ -175,7 +175,7 @@ update_skills(CHAR_DATA *ch)
 
 		if (spec == NULL) {
 #ifdef C_STRKEY_STRICT_CHECKS
-			log(LOG_INFO, "update_skills: %s: %s: unknown spec",
+			printlog(LOG_INFO, "update_skills: %s: %s: unknown spec",
 			    ch->name, *pspn);
 #endif
 			continue;
@@ -242,7 +242,7 @@ spec_update(CHAR_DATA *ch)
 			spec_t *spec = spec_lookup(*pspn);
 
 			if (spec == NULL) {
-				log(LOG_INFO,
+				printlog(LOG_INFO,
 				    "spec_update: %s: %s: unknown spec",
 				    ch->name, *pspn);
 				continue;

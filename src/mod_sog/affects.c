@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.83 2003-04-17 19:33:15 fjoe Exp $
+ * $Id: affects.c,v 1.84 2003-09-30 00:31:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -131,9 +131,9 @@ affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 		int res = INT(paf->location);
 
 		if (res < 0)
-			log(LOG_BUG, "affect_modify: res %d < 0", res);
+			printlog(LOG_BUG, "affect_modify: res %d < 0", res);
 		else if (res >= MAX_RESIST) {
-			log(LOG_BUG, "affect_modify: res %d >= MAX_RESIST",
+			printlog(LOG_BUG, "affect_modify: res %d >= MAX_RESIST",
 			    res);
 		} else {
 			if (ch->shapeform && paf->where == TO_FORMRESISTS)
@@ -231,12 +231,12 @@ affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 
 	default:
 		if (IS_NPC(ch)) {
-			log(LOG_INFO, "affect_modify: vnum %d: in room %d: unknown location %d, where: %d",
+			printlog(LOG_INFO, "affect_modify: vnum %d: in room %d: unknown location %d, where: %d",
 				   ch->pMobIndex->vnum,
 				   ch->in_room ? ch->in_room->vnum : -1,
 				   INT(paf->location), paf->where);
 		} else {
-			log(LOG_INFO, "affect_modify: %s: unknown location %d where: %d",
+			printlog(LOG_INFO, "affect_modify: %s: unknown location %d where: %d",
 			    ch->name, INT(paf->location), paf->where);
 		}
 		return;
@@ -405,7 +405,7 @@ affect_remove(CHAR_DATA *ch, AFFECT_DATA *paf)
 	bool hadowner;
 
 	if (ch->affected == NULL) {
-		log(LOG_BUG, "affect_remove: no affect");
+		printlog(LOG_BUG, "affect_remove: no affect");
 		return;
 	}
 
@@ -427,7 +427,7 @@ affect_remove(CHAR_DATA *ch, AFFECT_DATA *paf)
 		}
 
 		if (prev == NULL) {
-			log(LOG_BUG, "affect_remove: cannot find paf");
+			printlog(LOG_BUG, "affect_remove: cannot find paf");
 			return;
 		}
 	}
@@ -447,7 +447,7 @@ affect_remove(CHAR_DATA *ch, AFFECT_DATA *paf)
 					prev->aff_next && prev->aff_next != ch;
 					prev = prev->aff_next);
 				if (prev == NULL) {
-					log(LOG_BUG, "affect_remove: cannot find char");
+					printlog(LOG_BUG, "affect_remove: cannot find char");
 					return;
 				}
 				prev->aff_next = ch->aff_next;
@@ -505,7 +505,7 @@ affect_remove_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 		}
 
 		if (prev == NULL) {
-			log(LOG_BUG, "affect_remove_obj: cannot find paf");
+			printlog(LOG_BUG, "affect_remove_obj: cannot find paf");
 			return;
 		}
 	}
@@ -525,7 +525,7 @@ affect_remove_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 					prev->aff_next && prev->aff_next != obj;
 					prev = prev->aff_next);
 				if (prev == NULL) {
-					log(LOG_BUG, "affect_remove_obj: cannot find obj");
+					printlog(LOG_BUG, "affect_remove_obj: cannot find obj");
 					return;
 				}
 				prev->aff_next = obj->aff_next;
@@ -698,7 +698,7 @@ affect_modify_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf, bool fAdd)
 
 	switch (INT(paf->location)) {
 	default:
-		log(LOG_BUG, "affect_modify_room: unknown location %d",
+		printlog(LOG_BUG, "affect_modify_room: unknown location %d",
 		    INT(paf->location));
 		break;
 	case APPLY_ROOM_NONE:
@@ -721,7 +721,7 @@ affect_to_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
 	AFFECT_DATA *paf_new;
 
 	if (paf->owner == NULL) {
-		log(LOG_BUG, "affect_to_room: NULL owner");
+		printlog(LOG_BUG, "affect_to_room: NULL owner");
 		return;
 	}
 
@@ -766,7 +766,7 @@ affect_remove_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
 	}
 
 	if (af == NULL) {
-		log(LOG_BUG, "affect_remove_room: cannot find paf");
+		printlog(LOG_BUG, "affect_remove_room: cannot find paf");
 		return;
 	}
 

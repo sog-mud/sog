@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: scan_pfiles.c,v 1.7 2003-09-29 23:11:50 fjoe Exp $
+ * $Id: scan_pfiles.c,v 1.8 2003-09-30 00:31:30 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -63,7 +63,7 @@ rip_limited_eq(CHAR_DATA *ch, OBJ_DATA *container)
 			continue;
 
 		extract_obj(obj, XO_F_NORECURSE);
-		log(LOG_INFO, "scan_pfiles: %s: %s (vnum %d)",
+		printlog(LOG_INFO, "scan_pfiles: %s: %s (vnum %d)",
 		    ch->name,
 		    mlstr_mval(&obj->pObjIndex->short_descr),
 		    obj->pObjIndex->vnum);
@@ -82,20 +82,20 @@ void scan_pfiles()
 	bool eqcheck = dfexist(TMP_PATH, EQCHECK_FILE);
 	bool eqcheck_save_all = dfexist(TMP_PATH, EQCHECK_SAVE_ALL_FILE);
 
-	log(LOG_INFO, "scan_pfiles: start (eqcheck: %s, save all: %s)",
+	printlog(LOG_INFO, "scan_pfiles: start (eqcheck: %s, save all: %s)",
 	    eqcheck ? "yes" : "no",				// notrans
 	    eqcheck_save_all ? "yes" : "no");			// notrans
 
 	if (eqcheck
 	&&  dunlink(TMP_PATH, EQCHECK_FILE) < 0)
-		log(LOG_INFO, "scan_pfiles: unable to deactivate 'eqcheck' (%s)", strerror(errno));
+		printlog(LOG_INFO, "scan_pfiles: unable to deactivate 'eqcheck' (%s)", strerror(errno));
 
 	if (eqcheck_save_all
 	&&  dunlink(TMP_PATH, EQCHECK_SAVE_ALL_FILE) < 0)
-		log(LOG_INFO, "scan_pfiles: unable to deactivate 'save all' (%s)", strerror(errno));
+		printlog(LOG_INFO, "scan_pfiles: unable to deactivate 'save all' (%s)", strerror(errno));
 
 	if ((dirp = opendir(PLAYER_PATH)) == NULL) {
-		log(LOG_ERROR, "scan_pfiles: unable to open player directory");
+		printlog(LOG_ERROR, "scan_pfiles: unable to open player directory");
 		exit(1);
 	}
 
@@ -120,7 +120,7 @@ void scan_pfiles()
 
 		/* Remove limited eq from the pfile if it's two weeks old */
 		if (dstat(PLAYER_PATH, dp->d_name, &s) < 0) {
-			log(LOG_ERROR, "scan_pfiles: %s%c%s: stat: %s",
+			printlog(LOG_ERROR, "scan_pfiles: %s%c%s: stat: %s",
 			    PLAYER_PATH, PATH_SEPARATOR, dp->d_name,
 			    strerror(errno));
 			continue;
@@ -161,7 +161,7 @@ void scan_pfiles()
 				continue;
 
 			changed = TRUE;
-			log(LOG_INFO, "scan_pfiles: %s: %s (vnum %d)",
+			printlog(LOG_INFO, "scan_pfiles: %s: %s (vnum %d)",
 				   ch->name,
 				   mlstr_mval(&obj->pObjIndex->short_descr),
 				   obj->pObjIndex->vnum);
@@ -180,7 +180,7 @@ void scan_pfiles()
 	}
 	closedir(dirp);
 
-	log(LOG_INFO, "scan_pfiles: end (eqcheck: %s, save all: %s)",
+	printlog(LOG_INFO, "scan_pfiles: end (eqcheck: %s, save all: %s)",
 	    dfexist(TMP_PATH, EQCHECK_FILE) ?
 		"yes" : "no",					// notrans
 	    dfexist(TMP_PATH, EQCHECK_SAVE_ALL_FILE) ?

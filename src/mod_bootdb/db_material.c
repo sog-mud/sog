@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_material.c,v 1.16 2001-09-13 16:21:59 fjoe Exp $
+ * $Id: db_material.c,v 1.17 2003-09-30 00:31:04 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -89,7 +89,7 @@ DBLOAD_FUN(load_material)
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			printlog(LOG_ERROR, "%s: %s: Unknown keyword",
 			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}

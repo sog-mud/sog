@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_update.c,v 1.18 2003-04-24 12:42:16 fjoe Exp $
+ * $Id: init_update.c,v 1.19 2003-09-30 00:31:35 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -121,9 +121,9 @@ DBLOAD_FUN(load_uhandler)
 			if (IS_TOKEN(fp, "End")) {
 				hdlr->cnt = number_range(1, hdlr->ticks);
 				if (IS_NULLSTR(hdlr->fun_name))
-					log(LOG_ERROR, "load_uhandler: fun name undefined");
+					printlog(LOG_ERROR, "load_uhandler: fun name undefined");
 				else if (!hdlr->ticks) {
-					log(LOG_ERROR, "load_uhandler: ticks undefined");
+					printlog(LOG_ERROR, "load_uhandler: ticks undefined");
 					hdlr->ticks = 1;
 				}
 				return;
@@ -168,7 +168,7 @@ DBLOAD_FUN(load_uhandler)
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			printlog(LOG_ERROR, "%s: %s: Unknown keyword",
 			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}

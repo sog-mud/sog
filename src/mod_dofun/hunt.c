@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.50 2003-09-29 23:11:30 fjoe Exp $
+ * $Id: hunt.c,v 1.51 2003-09-30 00:31:11 fjoe Exp $
  */
 
 /*
@@ -130,7 +130,7 @@ DO_FUN(do_hunt, ch, argument)
 			while ((ch->in_room->exit[direction] == NULL) ||
 			       (ch->in_room->exit[direction]->to_room.r == NULL));
 		} else {
-			log(LOG_BUG, "do_hunt(player): no exits from room!");
+			printlog(LOG_BUG, "do_hunt(player): no exits from room!");
 			ch->hunting = NULL;
 			act_char("Your room has not exits!!!!", ch);
 			return;
@@ -162,7 +162,7 @@ DO_FUN(do_find, ch, argument)
 	path = find_way(ch, ch->in_room, location);
 	act_puts("$t.", ch, path, NULL,				// notrans
 		 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
-	log(LOG_INFO, "From %d to %d: %s.\n",
+	printlog(LOG_INFO, "From %d to %d: %s.\n",
 		   ch->in_room->vnum, location->vnum, path);
 }
 
@@ -227,7 +227,7 @@ find_path(int in_room_vnum, int out_room_vnum,
 
 		herep = get_room_index(q_head->room_nr);
 		if (herep == NULL) {
-			log(LOG_BUG, "Null herep in hunt.c, room #%d",
+			printlog(LOG_BUG, "Null herep in hunt.c, room #%d",
 			    q_head->room_nr);
 			continue;
 		}
@@ -262,7 +262,7 @@ find_path(int in_room_vnum, int out_room_vnum,
 				/* return direction if first layer */
 				dp = c_lookup(&x_room, &tmp_room);
 				if (dp == NULL) {
-					log(LOG_BUG, "key %d: not found",
+					printlog(LOG_BUG, "key %d: not found",
 					    tmp_room);
 					c_destroy(&x_room);
 					return -1;
@@ -291,7 +291,7 @@ find_path(int in_room_vnum, int out_room_vnum,
 			/* ancestor for first layer is the direction */
 			dp = c_lookup(&x_room, &q_head->room_nr);
 			if (dp == NULL) {
-				log(LOG_BUG, "vnum %d: ancestor not found",
+				printlog(LOG_BUG, "vnum %d: ancestor not found",
 				    q_head->room_nr);
 				continue;
 			}
@@ -388,7 +388,7 @@ hunt_victim(CHAR_DATA *ch)
 	}
 
 	if (!ch->in_room->exit[dir]) {
-		log(LOG_BUG, "hunt through null door");
+		printlog(LOG_BUG, "hunt through null door");
 		ch->hunting = NULL;
 		return;
 	}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.101 2003-09-29 23:11:46 fjoe Exp $
+ * $Id: act.c,v 1.102 2003-09-30 00:31:27 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -313,7 +313,7 @@ act_format_door(const gmlstr_t *gml)
 
 #define CHECK_STRING(p)							\
 	if (p == NULL) {						\
-		log(LOG_INFO, "act_buf: format '%s': NULL string arg",	\
+		printlog(LOG_INFO, "act_buf: format '%s': NULL string arg",\
 		    format);						\
 		i = NULL;						\
 		break;							\
@@ -321,7 +321,7 @@ act_format_door(const gmlstr_t *gml)
 
 #define CHECK_STRING2(p)						\
 	if (p == NULL) {						\
-		log(LOG_INFO, "act_buf: format '%s': NULL string arg",	\
+		printlog(LOG_INFO, "act_buf: format '%s': NULL string arg",\
 		    format);						\
 		sp--;							\
 		break;							\
@@ -329,7 +329,7 @@ act_format_door(const gmlstr_t *gml)
 
 #define CHECK_GMLSTR(gml)						\
 	if (gml == NULL || !mlstr_valid(&(gml)->ml)) {			\
-		log(LOG_INFO, "act_buf: format '%s': invalid mlstring arg",\
+		printlog(LOG_INFO, "act_buf: format '%s': invalid mlstring arg",\
 		    format);						\
 		i = NULL;						\
 		break;							\
@@ -337,7 +337,7 @@ act_format_door(const gmlstr_t *gml)
 
 #define CHECK_GMLSTR2(gml)						\
 	if (gml == NULL || !mlstr_valid(&(gml)->gender)) { 		\
-		log(LOG_INFO, "act_buf: format '%s': invalid mlstring arg (2)",\
+		printlog(LOG_INFO, "act_buf: format '%s': invalid mlstring arg (2)",\
 		    format);						\
 		sp--;							\
 		break;							\
@@ -345,7 +345,7 @@ act_format_door(const gmlstr_t *gml)
 
 #define CHECK_TYPE(p, mem_type)						\
 	if (!mem_is(p, mem_type)) {					\
-		log(LOG_INFO, "act_buf: format '%s': expected type %d",	\
+		printlog(LOG_INFO, "act_buf: format '%s': expected type %d",\
 		    format, mem_type);					\
 		i = NULL;						\
 		break;							\
@@ -353,7 +353,7 @@ act_format_door(const gmlstr_t *gml)
 
 #define CHECK_TYPE2(p, mem_type)					\
 	if (!mem_is(p, mem_type)) {					\
-		log(LOG_INFO, "act_buf: format '%s': expected type %d",	\
+		printlog(LOG_INFO, "act_buf: format '%s': expected type %d",\
 		    format, mem_type);					\
 		sp--;							\
 		break;							\
@@ -587,7 +587,7 @@ act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 			switch (code = *s++) {
 			default:
 				i = " <@@@> ";		// notrans
-				log(LOG_INFO, "act_buf: '%s': bad code $%c",
+				printlog(LOG_INFO, "act_buf: '%s': bad code $%c",
 					   format, code);
 				continue;
 
@@ -738,7 +738,7 @@ act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 			case 'l':
 			case 'F':
 				if (++sp >= TSTACK_SZ) {
-					log(LOG_INFO, "act_raw: '%s': tstack overflow", format);
+					printlog(LOG_INFO, "act_raw: '%s': tstack overflow", format);
 					continue;
 				}
 
@@ -760,7 +760,7 @@ act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 						tstack[sp].arg = subcode;
 						break;
 					default:
-						log(LOG_INFO, "act_buf: '%s': bad subcode '%c' (pos %d)",
+						printlog(LOG_INFO, "act_buf: '%s': bad subcode '%c' (pos %d)",
 						    format, subcode,
 						    s - format);
 						sp--;
@@ -849,7 +849,7 @@ act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 						break;
 
 					default:
-						log(LOG_INFO, "act_buf: '%s': bad subcode '%c' (pos %d)",
+						printlog(LOG_INFO, "act_buf: '%s': bad subcode '%c' (pos %d)",
 						    format, subcode,
 						    s - format);
 						sp--;
@@ -872,7 +872,7 @@ act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 						tstack[sp].arg = NUM3;
 						break;
 					default:
-						log(LOG_INFO, "act_buf: '%s': bad subcode '%c' (pos %d)",
+						printlog(LOG_INFO, "act_buf: '%s': bad subcode '%c' (pos %d)",
 						    format, subcode,
 						    s - format);
 						sp--;
@@ -883,7 +883,7 @@ act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 				}
 
 				if (*s != '{') {
-					log(LOG_INFO, "act_buf: '%s': syntax error (pos %d)",
+					printlog(LOG_INFO, "act_buf: '%s': syntax error (pos %d)",
 					    format, s - format);
 					sp--;
 					continue;
@@ -929,7 +929,7 @@ act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 		else if (actq == ACTQ_IMMTALK)
 			msgq = &msgq_immtalk;
 		else {
-			log(LOG_INFO,
+			printlog(LOG_INFO,
 			    "act_buf: %d: invalid actq (act_flags = 0x%08x)\n",
 			    actq, opt->act_flags);
 		}

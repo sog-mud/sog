@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.c,v 1.27 2003-09-29 23:11:54 fjoe Exp $
+ * $Id: rwfile.c,v 1.28 2003-09-30 00:31:39 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -110,25 +110,25 @@ rfile_open(const char *dir, const char *file)
 
 	snprintf(name, sizeof(name), "%s%c%s", dir, PATH_SEPARATOR, file);
 	if ((fd = open(name, O_RDONLY)) < 0) {
-		log(LOG_INFO, "%s: %s", name, strerror(errno));
+		printlog(LOG_INFO, "%s: %s", name, strerror(errno));
 		return NULL;
 	}
 
 	if (fstat(fd, &s) < 0) {
 		close(fd);
-		log(LOG_INFO, "%s: %s", name, strerror(errno));
+		printlog(LOG_INFO, "%s: %s", name, strerror(errno));
 		return NULL;
 	}
 
 	if ((p = mmap(NULL, s.st_size, PROT_READ, MAP_PRIVATE, fd, (off_t) 0)) == MAP_FAILED) {
 		close(fd);
-		log(LOG_INFO, "%s: %s", name, strerror(errno));
+		printlog(LOG_INFO, "%s: %s", name, strerror(errno));
 		return NULL;
 	}
 
 #if !defined(LINUX)
 	if (madvise(p, s.st_size, MADV_SEQUENTIAL) < 0)
-		log(LOG_INFO, "%s: %s", name, strerror(errno));
+		printlog(LOG_INFO, "%s: %s", name, strerror(errno));
 #endif
 
 	fp = malloc(sizeof(rfile_t));
@@ -226,7 +226,7 @@ fread_word(rfile_t *fp)
 	}
 
 	if (fp->tok_len >= MAX_STRING_LENGTH) {
-		log(LOG_WARN, "fread_word: word too long, truncated");
+		printlog(LOG_WARN, "fread_word: word too long, truncated");
 		fp->tok_len = MAX_STRING_LENGTH-1;
 	}
 }
@@ -302,7 +302,7 @@ fread_word(rfile_t *fp)
 		}
 	}
 
-	log(LOG_ERROR, "fread_word: word too long");
+	printlog(LOG_ERROR, "fread_word: word too long");
 }
 
 void
@@ -336,7 +336,7 @@ fread_string(rfile_t *fp)
 
 	for (;;) {
 		if (plast >= buf + sizeof(buf) - 1) {
-			log(LOG_ERROR, "fread_string: line too long (truncated)");
+			printlog(LOG_ERROR, "fread_string: line too long (truncated)");
 			buf[sizeof(buf)-1] = '\0';
 			return str_dup(buf);
 		}
@@ -347,7 +347,7 @@ fread_string(rfile_t *fp)
 			break;
 
 		case EOF:
-			log(LOG_ERROR, "fread_string: EOF");
+			printlog(LOG_ERROR, "fread_string: EOF");
 			*plast = '\0';
 			return str_dup(buf);
 
@@ -426,7 +426,7 @@ fread_number(rfile_t *fp)
 	}
 
 	if (!isdigit(c)) {
-		log(LOG_ERROR, "fread_number: bad format");
+		printlog(LOG_ERROR, "fread_number: bad format");
 		return 0;
 	}
 

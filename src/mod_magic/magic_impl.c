@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic_impl.c,v 1.19 2003-04-19 16:12:36 fjoe Exp $
+ * $Id: magic_impl.c,v 1.20 2003-09-30 00:31:17 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -305,7 +305,7 @@ find_sptarget(CHAR_DATA *ch, skill_t *sk, sptarget_t *spt)
 
 	switch (sk->target) {
 	default:
-		log(LOG_BUG, "find_sptarget: %s: bad target %d",
+		printlog(LOG_BUG, "find_sptarget: %s: bad target %d",
 		    gmlstr_mval(&sk->sk_name), sk->target);
 		return FALSE;
 
@@ -465,7 +465,7 @@ cast_spell(CHAR_DATA *ch, cpdata_t *cp, sptarget_t *spt)
 	else if (mem_is(spt->vo, MT_OBJ))
 		obj = spt->vo;
 	else if (spt->vo != NULL) {
-		log(LOG_BUG, "cast_spell: spt->vo is neither MT_CHAR nor MT_OBJ");
+		printlog(LOG_BUG, "cast_spell: spt->vo is neither MT_CHAR nor MT_OBJ");
 		return;
 	}
 

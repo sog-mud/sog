@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest_impl.c,v 1.10 2003-05-08 14:00:13 fjoe Exp $
+ * $Id: chquest_impl.c,v 1.11 2003-09-30 00:31:25 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -81,13 +81,13 @@ chquest_startq(chquest_t *q)
 
 	obj = create_obj(q->obj_index->vnum, 0);
 	if (obj == NULL) {
-		log(LOG_ERROR,
+		printlog(LOG_ERROR,
 		    "chquest_startq: can't create obj '%s' (vnum %d)",
 		    mlstr_mval(&q->obj_index->short_descr), q->obj_index->vnum);
 	}
 
 #if CHQUEST_DEBUG
-	log(LOG_INFO, "chquest_startq: started chquest for '%s' (vnum %d)",
+	printlog(LOG_INFO, "chquest_startq: started chquest for '%s' (vnum %d)",
 	    mlstr_mval(&q->obj_index->short_descr), q->obj_index->vnum);
 #endif
 
@@ -109,7 +109,7 @@ chquest_stopq(chquest_t *q)
 		return;
 
 #if CHQUEST_DEBUG
-	log(LOG_INFO, "chquest_stopq: stopped quest for '%s' (vnum %d)",
+	printlog(LOG_INFO, "chquest_stopq: stopped quest for '%s' (vnum %d)",
 		   mlstr_mval(&q->obj_index->short_descr), q->obj_index->vnum);
 #endif
 

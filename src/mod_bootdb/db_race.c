@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.44 2003-09-29 23:11:26 fjoe Exp $
+ * $Id: db_race.c,v 1.45 2003-09-30 00:31:04 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -136,7 +136,7 @@ DBLOAD_FUN(load_race)
 			if (IS_TOKEN(fp, "Resist")) {
 				int res = fread_fword(dam_classes, fp);
 				if (res < 0 || res == DAM_NONE) {
-					log(LOG_ERROR,
+					printlog(LOG_ERROR,
 					    "%s: unknown resist name",
 					    __FUNCTION__);
 					fread_number(fp);
@@ -149,7 +149,7 @@ DBLOAD_FUN(load_race)
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			printlog(LOG_ERROR, "%s: %s: Unknown keyword",
 			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
@@ -162,7 +162,7 @@ DBLOAD_FUN(load_pcrace)
 	pcrace_t *pcr;
 
 	if (!r) {
-		log(LOG_ERROR, "load_pcrace: #PCRACE before #RACE");
+		printlog(LOG_ERROR, "load_pcrace: #PCRACE before #RACE");
 		return;
 	}
 
@@ -193,7 +193,7 @@ DBLOAD_FUN(load_pcrace)
 		case 'E':
 			if (IS_TOKEN(fp, "End")) {
 				if (pcr->who_name[0] == '\0') {
-					log(LOG_ERROR, "load_pcrace: race who_name undefined");
+					printlog(LOG_ERROR, "load_pcrace: race who_name undefined");
 					pcrace_free(pcr);
 					r->race_pcdata = NULL;
 				}
@@ -253,7 +253,7 @@ DBLOAD_FUN(load_pcrace)
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			printlog(LOG_ERROR, "%s: %s: Unknown keyword",
 			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}

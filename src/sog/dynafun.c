@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun.c,v 1.22 2003-04-24 12:42:19 fjoe Exp $
+ * $Id: dynafun.c,v 1.23 2003-09-30 00:31:38 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -140,7 +140,7 @@ dynafun_call(int rv_tag, const char *name, int nargs, ...)
 		return NULL;
 
 	if (rv_tag != d->rv_tag) {
-		log(LOG_BUG, "dynafun_call: %s: rv type %d does not match requested rv type %d",
+		printlog(LOG_BUG, "dynafun_call: %s: rv type %d does not match requested rv type %d",
 		    d->name, d->rv_tag, rv_tag);
 		return NULL;
 	}
@@ -184,14 +184,14 @@ dynafun_check_arg(dynafun_data_t *d, int i, const void *arg)
 {
 	if (arg == NULL) {
 		if (!d->argtype[i].nullable) {
-			log(LOG_BUG, "%s: %s: arg[%d] type is not nullable",
+			printlog(LOG_BUG, "%s: %s: arg[%d] type is not nullable",
 			    __FUNCTION__, d->name, i+1);
 			return FALSE;
 		}
 	} else if (d->argtype[i].type_tag != MT_STR
 	       &&  d->argtype[i].type_tag != MT_MLSTR
 	       &&  !mem_is(arg, d->argtype[i].type_tag)) {
-		log(LOG_BUG, "%s: %s: invalid arg[%d] type '%s' ('%s' expected)",
+		printlog(LOG_BUG, "%s: %s: invalid arg[%d] type '%s' ('%s' expected)",
 		    __FUNCTION__,
 		    d->name, i+1,
 		    flag_string(mt_types, mem_type(arg)),
@@ -214,17 +214,17 @@ dynafun_build_args(const char *name, dynafun_args_t *args, int nargs, va_list ap
 	va_list args_ap = args->p;
 
 	if ((d = dynafun_data_lookup(name)) == NULL) {
-		log(LOG_BUG, "dynafun_call: %s: not found", name);
+		printlog(LOG_BUG, "dynafun_call: %s: not found", name);
 		return NULL;
 	}
 
 	if (d->fun == NULL) {
-		log(LOG_BUG, "dynafun_call: %s: NULL fun", d->name);
+		printlog(LOG_BUG, "dynafun_call: %s: NULL fun", d->name);
 		return NULL;
 	}
 
 	if (nargs != d->nargs) {
-		log(LOG_BUG, "dynafun_call: %s: called with %d args (expected %d)", d->name, nargs, d->nargs);
+		printlog(LOG_BUG, "dynafun_call: %s: called with %d args (expected %d)", d->name, nargs, d->nargs);
 		return NULL;
 	}
 
@@ -290,7 +290,7 @@ dynafun_build_args(const char *name, dynafun_args_t *args, int nargs, va_list ap
 
 		default:
 			va_end(ap);
-			log(LOG_BUG, "dynafun_call: %s: invalid arg[%d] type %s (%d)",
+			printlog(LOG_BUG, "dynafun_call: %s: invalid arg[%d] type %s (%d)",
 			    d->name, i+1,
 			    flag_string(mt_types, d->argtype[i].type_tag),
 			    d->argtype[i].type_tag);
@@ -309,7 +309,7 @@ dynafun_register(dynafun_data_t *d, module_t *m)
 	int i;
 
 	if ((d2 = c_insert(&dynafuns, d->name)) == NULL) {
-		log(LOG_BUG, "dynafun_register: %s: duplicate dynafun name",
+		printlog(LOG_BUG, "dynafun_register: %s: duplicate dynafun name",
 		    d->name);
 	}
 
@@ -325,7 +325,7 @@ dynafun_register(dynafun_data_t *d, module_t *m)
 		d2->argtype[i] = d->argtype[i];
 
 	if ((d2->fun = dlsym(m->dlh, d2->name)) == NULL)
-		log(LOG_BUG, "dynafun_register: %s: not found", d2->name);
+		printlog(LOG_BUG, "dynafun_register: %s: not found", d2->name);
 }
 
 static void

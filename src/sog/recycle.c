@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.158 2003-05-08 14:00:20 fjoe Exp $
+ * $Id: recycle.c,v 1.159 2003-09-30 00:31:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -454,7 +454,7 @@ free_obj(OBJ_DATA *obj)
 		return;
 
 	if (!mem_is(obj, MT_OBJ)) {
-		log(LOG_BUG, "free_obj: obj is not MT_OBJ");
+		printlog(LOG_BUG, "free_obj: obj is not MT_OBJ");
 		return;
 	}
 	mem_invalidate(obj);
@@ -709,7 +709,7 @@ char_free(CHAR_DATA *ch)
 	int *free_count;
 
 	if (!mem_is(ch, MT_CHAR)) {
-		log(LOG_BUG, "free_char: ch is not MT_CHAR");
+		printlog(LOG_BUG, "free_char: ch is not MT_CHAR");
 		return;
 	}
 	mem_invalidate(ch);
@@ -756,7 +756,7 @@ char_free(CHAR_DATA *ch)
 	}
 
 	if (ch->carrying != NULL) {
-		log(LOG_BUG, "char_free: ch->carrying != NULL");
+		printlog(LOG_BUG, "char_free: ch->carrying != NULL");
 		ch->carrying = NULL;
 	}
 
@@ -850,7 +850,7 @@ reset_add(ROOM_INDEX_DATA *room, RESET_DATA *reset, RESET_DATA *after)
 	}
 
 	if (r == NULL) {
-		log(LOG_BUG, "reset_add: `after' reset not found");
+		printlog(LOG_BUG, "reset_add: `after' reset not found");
 		return;
 	}
 
@@ -1790,7 +1790,7 @@ free_descriptor(DESCRIPTOR_DATA *d)
 		return;
 
 	if (!mem_is(d, MT_DESCRIPTOR)) {
-		log(LOG_BUG, "free_descriptor: d is not MT_DESCRIPTOR");
+		printlog(LOG_BUG, "free_descriptor: d is not MT_DESCRIPTOR");
 		return;
 	}
 	mem_invalidate(d);

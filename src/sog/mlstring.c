@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.72 2003-09-29 23:11:54 fjoe Exp $
+ * $Id: mlstring.c,v 1.73 2003-09-30 00:31:38 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -110,18 +110,18 @@ mlstr_fread(rfile_t *fp, mlstring *mlp)
 		/* s points at lang id */
 		q = strchr(s, ' ');
 		if (q == NULL) {
-			log(LOG_ERROR, "mlstr_fread: no ` ' after `@' found");
+			printlog(LOG_ERROR, "mlstr_fread: no ` ' after `@' found");
 			return;
 		}
 
 		if ((l = lang_nlookup(s, q-s)) == NULL) {
-			log(LOG_ERROR, "mlstr_fread: %s: unknown language", s);
+			printlog(LOG_ERROR, "mlstr_fread: %s: unknown language", s);
 			return;
 		}
 		lang = varr_index(&langs, l);
 
 		if (mlp->u.lstr[lang] != NULL) {
-			log(LOG_ERROR, "mlstr_fread: lang %s: redefined", s);
+			printlog(LOG_ERROR, "mlstr_fread: lang %s: redefined", s);
 			return;
 		}
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.169 2003-09-29 23:11:44 fjoe Exp $
+ * $Id: act_quest.c,v 1.170 2003-09-30 00:31:25 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -169,7 +169,7 @@ DO_FUN(do_quest, ch, argument)
 	act_char("For more information, type: help quests.", ch);
 }
 
-static inline void
+static void
 chquest_status(CHAR_DATA *ch)
 {
 	chquest_t *q;

@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.52 2003-09-29 23:11:36 fjoe Exp $
+ * $Id: mpc.y,v 1.53 2003-09-30 00:31:21 fjoe Exp $
  */
 
 /*
@@ -135,7 +135,7 @@ code(mpcode_t *mpc, const void *opcode)
 /**
  * Append two opcodes to program (compiled) text
  */
-static inline void
+static void
 code2(mpcode_t *mpc, const void *opcode1, const void *opcode2)
 {
 	code(mpc, opcode1);
@@ -145,7 +145,7 @@ code2(mpcode_t *mpc, const void *opcode1, const void *opcode2)
 /**
  * Append three opcodes to program (compiled) text
  */
-static inline void
+static void
 code3(mpcode_t *mpc,
       const void *opcode1, const void *opcode2, const void *opcode3)
 {
@@ -1397,7 +1397,7 @@ cleanup_syms(mpcode_t *mpc, int block)
 			break;
 
 		if (IS_SET(mpc->mp->flags, MP_F_TRACE)) {
-			log(LOG_INFO, "%s: %s (%d)",
+			printlog(LOG_INFO, "%s: %s (%d)",
 			    __FUNCTION__, sym->name, sym->s.var.block);
 		}
 
@@ -1498,12 +1498,12 @@ var_assign(mpcode_t *mpc, const char *name, int type_tag, void *vo)
 	if (type_tag != MT_STR
 	&&  vo != NULL
 	&&  !mem_is(vo, type_tag)) {
-		log(LOG_BUG, "%s: vo is not of type '%s'",
+		printlog(LOG_BUG, "%s: vo is not of type '%s'",
 		    __FUNCTION__, flag_string(mpc_types, type_tag));
 	}
 
 	if (IS_SET(mpc->mp->flags, MP_F_TRACE)) {
-		log(LOG_INFO, "%s: %s: %p (type '%s')",
+		printlog(LOG_INFO, "%s: %s: %p (type '%s')",
 		    __FUNCTION__, name, vo,
 		    flag_string(mpc_types, type_tag));
 	}
@@ -1525,7 +1525,7 @@ _mprog_compile(mprog_t *mp)
 
 	if ((mpc = mpcode_lookup(mp->name)) == NULL) {
 		if ((mpc = (mpcode_t *) c_insert(&mpcodes, mp->name)) == NULL) {
-			log(LOG_ERROR, "compile_mprog: %s: mpcode already exists",
+			printlog(LOG_ERROR, "compile_mprog: %s: mpcode already exists",
 			    mp->name);
 			return MPC_ERR_INTERNAL;
 		}
@@ -1634,7 +1634,7 @@ _mprog_execute(mprog_t *mp, void *arg1, void *arg2, void *arg3, void *arg4)
 	int rv;
 
 	if ((mpc = mpcode_lookup(mp->name)) == NULL) {
-		log(LOG_ERROR, "Runtime error: %s: mpcode not found",
+		printlog(LOG_ERROR, "Runtime error: %s: mpcode not found",
 		    mp->name);
 		return MPC_ERR_RUNTIME;
 	}

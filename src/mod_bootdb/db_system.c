@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_system.c,v 1.26 2003-04-19 00:26:41 fjoe Exp $
+ * $Id: db_system.c,v 1.27 2003-09-30 00:31:04 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -91,7 +91,7 @@ DBLOAD_FUN(load_system)
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			printlog(LOG_ERROR, "%s: %s: Unknown keyword",
 			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
@@ -145,7 +145,7 @@ load_service(varr *v, rfile_t *fp)
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			printlog(LOG_ERROR, "%s: %s: Unknown keyword",
 			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}

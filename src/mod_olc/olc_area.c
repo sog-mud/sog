@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.115 2003-05-08 15:30:12 fjoe Exp $
+ * $Id: olc_area.c,v 1.116 2003-09-30 00:31:23 fjoe Exp $
  */
 
 #include "olc.h"
@@ -192,7 +192,7 @@ OLC_FUN(areaed_save)
 		if (ch)
 			act_char("You saved the world.", ch);
 		else
-			log(LOG_INFO, "The world is saved.");
+			printlog(LOG_INFO, "The world is saved.");
 	}
 
 	return FALSE;
@@ -759,7 +759,7 @@ save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 	int i;
 
 	if (r == NULL) {
-		log(LOG_INFO, "save_mobile: vnum %d: %s: unknown race",
+		printlog(LOG_INFO, "save_mobile: vnum %d: %s: unknown race",
 		       pMobIndex->vnum, pMobIndex->race);
 		return;
 	}
@@ -1072,7 +1072,7 @@ save_resets_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex, bool *pfound)
 
 		switch (r->command) {
 		default:
-			log(LOG_BUG, "Save_resets: bad command %c.", r->command);
+			printlog(LOG_BUG, "Save_resets: bad command %c.", r->command);
 			break;
 
 #if defined(VERBOSE)

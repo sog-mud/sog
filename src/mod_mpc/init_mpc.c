@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.54 2003-05-14 17:42:09 fjoe Exp $
+ * $Id: init_mpc.c,v 1.55 2003-09-30 00:31:21 fjoe Exp $
  */
 
 #include <dlfcn.h>
@@ -237,13 +237,13 @@ MODINIT_FUN(_module_load, m)
 
 	mprog_compile = dlsym(m->dlh, "_mprog_compile");	// notrans
 	if (mprog_compile == NULL) {
-		log(LOG_INFO, "_module_load(mod_mpc): %s", dlerror());
+		printlog(LOG_INFO, "_module_load(mod_mpc): %s", dlerror());
 		return -1;
 	}
 
 	mprog_execute = dlsym(m->dlh, "_mprog_execute");	// notrans
 	if (mprog_execute == NULL) {
-		log(LOG_INFO, "_module_load(mod_mpc): %s", dlerror());
+		printlog(LOG_INFO, "_module_load(mod_mpc): %s", dlerror());
 		return -1;
 	}
 
@@ -261,7 +261,7 @@ MODINIT_FUN(_module_load, m)
 			/* strip trailing slash */
 			if (errmsg[len - 1] == '\n')
 				len--;
-			log(LOG_INFO, "load_mprog: %s\n%.*s",
+			printlog(LOG_INFO, "load_mprog: %s\n%.*s",
 			    format_mpname(mp), len, errmsg);
 		}
 	}
@@ -420,7 +420,7 @@ mpc_init(void)
 		sym_t *s;
 
 		if ((s = c_insert(&glob_syms, ic->name)) == NULL) {
-			log(LOG_ERROR, "%s: duplicate symbol (const)",
+			printlog(LOG_ERROR, "%s: duplicate symbol (const)",
 			    ic->name);
 			continue;
 		}
@@ -439,7 +439,7 @@ mpc_init(void)
 		sym_t *s;
 
 		if ((s = c_insert(&glob_syms, *pp)) == NULL) {
-			log(LOG_ERROR, "%s: duplicate symbol (func)", *pp);
+			printlog(LOG_ERROR, "%s: duplicate symbol (func)", *pp);
 			continue;
 		}
 
@@ -457,7 +457,7 @@ mpc_init(void)
 		fprintf(stderr, "dlopen: %s", dlerror());
 		exit(1);
 #else
-		log(LOG_ERROR, "%s: dlopen: %s", __FUNCTION__, dlerror());
+		printlog(LOG_ERROR, "%s: dlopen: %s", __FUNCTION__, dlerror());
 		return -1;
 #endif
 	}

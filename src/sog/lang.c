@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.42 2003-09-29 23:11:54 fjoe Exp $
+ * $Id: lang.c,v 1.43 2003-09-30 00:31:38 fjoe Exp $
  */
 
 #include <string.h>
@@ -384,6 +384,6 @@ lang_nlookup(const char *name, size_t len)
 			return l;
 	}
 
-	log(LOG_ERROR, "lang_lookup: %s: unknown language", name);
+	printlog(LOG_ERROR, "lang_lookup: %s: unknown language", name);
 	return NULL;
 }

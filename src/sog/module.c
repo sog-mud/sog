@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.c,v 1.34 2001-12-10 12:12:41 fjoe Exp $
+ * $Id: module.c,v 1.35 2003-09-30 00:31:38 fjoe Exp $
  */
 
 /*
@@ -105,7 +105,7 @@ mod_reload(module_t *m, time_t curr_time)
 		 */
 		dlh = dlopen((*mp)->file_name, RTLD_NOW);
 		if (dlh == NULL) {
-			log(LOG_ERROR, "mod_load: %s", dlerror());
+			printlog(LOG_ERROR, "mod_load: %s", dlerror());
 			continue;
 		}
 
@@ -132,7 +132,7 @@ mod_reload(module_t *m, time_t curr_time)
 		 * update `last_reload' time
 		 */
 		time(&(*mp)->last_reload);
-		log(LOG_INFO, "module `%s' (%s) loaded",
+		printlog(LOG_INFO, "module `%s' (%s) loaded",
 		    (*mp)->name, (*mp)->file_name);
 	}
 
@@ -162,7 +162,7 @@ mod_unload(module_t *m)
 			continue;
 
 		if (is_name_strict(m->name, m_dep->mod_deps)) {
-			log(LOG_ERROR, "module `%s' (%s) can't be unloaded: module `%s' (%s) depends on it",
+			printlog(LOG_ERROR, "module `%s' (%s) can't be unloaded: module `%s' (%s) depends on it",
 			    m->name, m->file_name,
 			    m_dep->name, m_dep->file_name);
 			return -1;
@@ -171,7 +171,7 @@ mod_unload(module_t *m)
 
 	dlclose(m->dlh);
 	m->dlh = NULL;
-	log(LOG_INFO, "module `%s' (%s) unloaded", m->name, m->file_name);
+	printlog(LOG_INFO, "module `%s' (%s) unloaded", m->name, m->file_name);
 	return 0;
 }
 
@@ -209,7 +209,7 @@ boot_modules()
 	 */
 	fp = dfopen(ETC_PATH, MODULES_CONF, "r");
 	if (fp == NULL) {
-		log(LOG_ERROR, "%s%c%s: %s",
+		printlog(LOG_ERROR, "%s%c%s: %s",
 		    ETC_PATH, PATH_SEPARATOR, MODULES_CONF, strerror(errno));
 		exit(1);
 	}
@@ -225,7 +225,7 @@ boot_modules()
 		if (len == 0)
 			continue;
 		if (buf[len-1] != '\n') {
-			log(LOG_INFO, "%s%c%s: line too long",
+			printlog(LOG_INFO, "%s%c%s: line too long",
 			    ETC_PATH, PATH_SEPARATOR, MODULES_CONF);
 			continue;
 		}
@@ -238,7 +238,7 @@ boot_modules()
 			continue;
 
 		if (!is_number(arg)) {
-			log(LOG_ERROR, "%s%c%s: priority expected",
+			printlog(LOG_ERROR, "%s%c%s: priority expected",
 			    ETC_PATH, PATH_SEPARATOR, MODULES_CONF);
 			exit(1);
 		}
@@ -248,13 +248,13 @@ boot_modules()
 		/* read module name */
 		p = first_arg(p, arg, sizeof(arg), FALSE);
 		if (arg[0] == '\0') {
-			log(LOG_ERROR, "%s%c%s: module name expected",
+			printlog(LOG_ERROR, "%s%c%s: module name expected",
 			    ETC_PATH, PATH_SEPARATOR, MODULES_CONF);
 			exit(1);
 		}
 
 		if (p[0] != '\0') {
-			log(LOG_INFO, "%s%c%s: extra characters on line",
+			printlog(LOG_INFO, "%s%c%s: extra characters on line",
 			    ETC_PATH, PATH_SEPARATOR, MODULES_CONF);
 		}
 
@@ -264,13 +264,13 @@ boot_modules()
 		m->name = str_dup(arg);
 		m->mod_id = flag_value(module_names, m->name);
 		if (m->mod_id < 0) {
-			log(LOG_ERROR, "%s%c%s: %s: unknown module",
+			printlog(LOG_ERROR, "%s%c%s: %s: unknown module",
 			    ETC_PATH, PATH_SEPARATOR, MODULES_CONF, m->name);
 		}
 		m->file_name = str_printf("%s%c%s.so.%d",
 		    MODULES_PATH, PATH_SEPARATOR, m->name, ABI_VERSION);
 
-		log(LOG_INFO, "module %s (%d)", m->name, m->mod_prio);
+		printlog(LOG_INFO, "module %s (%d)", m->name, m->mod_prio);
 	}
 
 	fclose(fp);
@@ -323,7 +323,7 @@ modset_add(varr *v, module_t *m, time_t curr_time)
 	 * sanity checking
 	 */
 	if (stat(m->file_name, &s) < 0) {
-		log(LOG_ERROR, "mod_load: %s: %s", m->file_name, strerror(errno));
+		printlog(LOG_ERROR, "mod_load: %s: %s", m->file_name, strerror(errno));
 		return -1;
 	}
 
@@ -331,20 +331,20 @@ modset_add(varr *v, module_t *m, time_t curr_time)
 	if (!stat(buf, &s))
 		unlink(buf);
 	if (link(m->file_name, buf) < 0) {
-		log(LOG_ERROR, "mod_load: %s: %s", buf, strerror(errno));
+		printlog(LOG_ERROR, "mod_load: %s: %s", buf, strerror(errno));
 		return -1;
 	}
 
 	dlh = dlopen(buf, RTLD_NOW);
 	unlink(buf);
 	if (dlh == NULL) {
-		log(LOG_ERROR, "mod_load: %s", dlerror());
+		printlog(LOG_ERROR, "mod_load: %s", dlerror());
 		return -1;
 	}
 
 	if (dlsym(dlh, "_depend") == NULL) {			// notrans
 		dlclose(dlh);
-		log(LOG_ERROR, "mod_load: %s", dlerror());
+		printlog(LOG_ERROR, "mod_load: %s", dlerror());
 		return -1;
 	}
 

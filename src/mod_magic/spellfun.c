@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.307 2003-09-29 23:11:34 fjoe Exp $
+ * $Id: spellfun.c,v 1.308 2003-09-30 00:31:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1408,7 +1408,7 @@ SPELL_FUN(spell_levitation, sn, level, ch, vo)
 	act("$n rises off the ground.", victim, NULL, NULL, TO_ROOM);
 }
 
-static inline void
+static void
 gate(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	teleport_char(ch, NULL, victim->in_room,
@@ -2744,7 +2744,7 @@ SPELL_FUN(spell_hand_of_undead, sn, level, ch, vo)
 	damage(ch, victim, dam, sn, DAM_F_SHOW);
 }
 
-static inline void
+static void
 astral_walk(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	teleport_char(ch, victim, victim->in_room,
@@ -4056,7 +4056,7 @@ SPELL_FUN(spell_stalker, sn, level, ch, vo)
 	char_to_room(stalker,victim->in_room);
 }
 
-static inline void
+static void
 tesseract_other(CHAR_DATA *ch, CHAR_DATA *victim, ROOM_INDEX_DATA *to_room)
 {
 	teleport_char(victim, ch, to_room,

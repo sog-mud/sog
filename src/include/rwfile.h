@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.h,v 1.14 2001-09-13 12:02:48 fjoe Exp $
+ * $Id: rwfile.h,v 1.15 2003-09-30 00:31:01 fjoe Exp $
  */
 
 #ifndef _RWFILE_H_
@@ -123,7 +123,7 @@ void		fwrite_number	(FILE *fp, const char *name, int num);
 		const char *name = (val);				\
 									\
 		if ((var) != NULL) {					\
-			log(LOG_ERROR, "%s: duplicate '%s'",		\
+			printlog(LOG_ERROR, "%s: duplicate '%s'",	\
 			    __FUNCTION__, (k));				\
 			free_string(name);				\
 			fread_to_end(fp);				\
@@ -132,7 +132,7 @@ void		fwrite_number	(FILE *fp, const char *name, int num);
 									\
 		(var) = c_insert((c), name);				\
 		if ((var) == NULL) {					\
-			log(LOG_ERROR, "%s: %s: duplicate elem",	\
+			printlog(LOG_ERROR, "%s: %s: duplicate elem",	\
 			    __FUNCTION__, (name));			\
 			free_string(name);				\
 			fread_to_end(fp);				\
@@ -152,7 +152,7 @@ void		fwrite_number	(FILE *fp, const char *name, int num);
 		mlstr_fread(fp, &ml);					\
 									\
 		if ((var) != NULL) {					\
-			log(LOG_ERROR, "%s: duplicate '%s'",		\
+			printlog(LOG_ERROR, "%s: duplicate '%s'",	\
 			    __FUNCTION__, (k));				\
 			mlstr_destroy(&ml);				\
 			fread_to_end(fp);				\
@@ -161,7 +161,7 @@ void		fwrite_number	(FILE *fp, const char *name, int num);
 									\
 		(var) = c_insert((c), mlstr_mval(&ml));			\
 		if ((var) == NULL) {					\
-			log(LOG_ERROR, "%s: %s: duplicate elem",	\
+			printlog(LOG_ERROR, "%s: %s: duplicate elem",	\
 			    __FUNCTION__, mlstr_mval(&ml));		\
 			mlstr_destroy(&ml);				\
 			fread_to_end(fp);				\
@@ -176,7 +176,7 @@ void		fwrite_number	(FILE *fp, const char *name, int num);
 
 #define CHECK_VAR(var, name)						\
 	if ((var) == NULL) {						\
-		log(LOG_ERROR, "%s: '%s' expected",			\
+		printlog(LOG_ERROR, "%s: '%s' expected",		\
 		    __FUNCTION__, (name));				\
 		fread_to_end(fp);					\
 		return;							\

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_hometown.c,v 1.17 2002-03-21 13:54:00 fjoe Exp $
+ * $Id: db_hometown.c,v 1.18 2003-09-30 00:31:04 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -100,7 +100,7 @@ DBLOAD_FUN(load_hometown)
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			printlog(LOG_ERROR, "%s: %s: Unknown keyword",
 			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
@@ -122,14 +122,14 @@ fread_altar(hometown_t *h, rfile_t *fp)
 
 	vnum = fread_number(fp);
 	if ((room = get_room_index(vnum)) == NULL) {
-		log(LOG_ERROR, "fread_altar: %d: no such room", vnum);
+		printlog(LOG_ERROR, "fread_altar: %d: no such room", vnum);
 		fread_to_eol(fp);
 		return;
 	}
 
 	vnum = fread_number(fp);
 	if ((pit = get_obj_index(vnum)) == NULL) {
-		log(LOG_ERROR, "fread_altar: %d: no such obj", vnum);
+		printlog(LOG_ERROR, "fread_altar: %d: no such obj", vnum);
 		fread_to_eol(fp);
 		return;
 	}
@@ -158,7 +158,7 @@ fread_recall(hometown_t *h, rfile_t *fp)
 
 	vnum = fread_number(fp);
 	if ((room = get_room_index(vnum)) == NULL) {
-		log(LOG_ERROR, "fread_altar: %d: no such room", vnum);
+		printlog(LOG_ERROR, "fread_altar: %d: no such room", vnum);
 		fread_to_eol(fp);
 		return;
 	}
@@ -184,7 +184,7 @@ fread_map(hometown_t *h, rfile_t *fp)
 		return;
 
 	if ((obj = get_obj_index(vnum)) == NULL) {
-		log(LOG_ERROR, "fread_altar: %d: no such obj", vnum);
+		printlog(LOG_ERROR, "fread_altar: %d: no such obj", vnum);
 		fread_to_eol(fp);
 		return;
 	}
@@ -204,23 +204,23 @@ check_hometown(hometown_t *h)
 	int i;
 
 	if (IS_NULLSTR(h->area)) {
-		log(LOG_ERROR, "load_hometown: Area undefined");
+		printlog(LOG_ERROR, "load_hometown: Area undefined");
 		return FALSE;
 	}
 
 	for (i = 0; i < MAX_AN; i++) {
 		if (!h->recall[i]) {
-			log(LOG_ERROR, "load_hometown: Recall for '%s' undefined",
+			printlog(LOG_ERROR, "load_hometown: Recall for '%s' undefined",
 				 flag_string(align_names, i));
 			return FALSE;
 		}
 		if (!h->altar[i].room) {
-			log(LOG_ERROR, "load_hometown: Altar for '%s' undefined",
+			printlog(LOG_ERROR, "load_hometown: Altar for '%s' undefined",
 				 flag_string(align_names, i));
 			return FALSE;
 		}
 		if (!h->altar[i].pit) {
-			log(LOG_ERROR, "load_hometown: Pit for '%s' undefined",
+			printlog(LOG_ERROR, "load_hometown: Pit for '%s' undefined",
 				 flag_string(align_names, i));
 			return FALSE;
 		}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_bootdb.c,v 1.26 2003-09-29 23:11:26 fjoe Exp $
+ * $Id: init_bootdb.c,v 1.27 2003-09-30 00:31:04 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -87,7 +87,7 @@ MODINIT_FUN(_module_load, m)
 	load_hints();
 
 	if (bootdb_errors != 0) {
-		log(LOG_ERROR, "%d errors found", bootdb_errors);
+		printlog(LOG_ERROR, "%d errors found", bootdb_errors);
 		exit(1);
 	}
 
@@ -124,7 +124,7 @@ load_msgdb(void)
 	snprintf(bootdb_filename, sizeof(bootdb_filename), "%s%c%s",
 		 ETC_PATH, PATH_SEPARATOR, MSGDB_FILE);
 	if ((fp = rfile_open(ETC_PATH, MSGDB_FILE)) == NULL) {
-		log(LOG_ERROR, "load_msgdb: %s", strerror(errno));
+		printlog(LOG_ERROR, "load_msgdb: %s", strerror(errno));
 		return;
 	}
 
@@ -142,7 +142,7 @@ load_msgdb(void)
 		}
 
 		if ((mlp = c_insert(&msgdb, key)) == NULL) {
-			log(LOG_ERROR, "load_msgdb: %s: duplicate msg", key);
+			printlog(LOG_ERROR, "load_msgdb: %s: duplicate msg", key);
 			mlstr_destroy(&ml);
 			continue;
 		}
@@ -152,7 +152,7 @@ load_msgdb(void)
 		mlstr_destroy(&ml);
 	}
 
-	log(LOG_INFO, "load_msgdb: %d msgs loaded", msgcnt);
+	printlog(LOG_INFO, "load_msgdb: %d msgs loaded", msgcnt);
 	rfile_close(fp);
 }
 
@@ -168,7 +168,7 @@ load_hints(void)
 		 ETC_PATH, PATH_SEPARATOR, HINTS_FILE);
 
 	if ((fp = rfile_open(ETC_PATH, HINTS_FILE)) == NULL) {
-		log(LOG_ERROR, "load_hints: %s", strerror(errno));
+		printlog(LOG_ERROR, "load_hints: %s", strerror(errno));
 		return;
 	}
 
@@ -199,7 +199,7 @@ load_mprog(const char *name)
 
 	fp = rfile_open(MPC_PATH, name);
 	if (fp == NULL) {
-		log(LOG_ERROR, "load_mprog: fopen: %s: %s",
+		printlog(LOG_ERROR, "load_mprog: fopen: %s: %s",
 		    name, strerror(errno));
 		return;
 	}
@@ -214,20 +214,20 @@ load_mprog(const char *name)
 	mp_name = str_ndup(name, q - name);
 
 	if ((q = strchr(name, '_')) == NULL) {
-		log(LOG_ERROR, "load_mprog: %s: unable to determine mprog type (no underscores in name)", name);
+		printlog(LOG_ERROR, "load_mprog: %s: unable to determine mprog type (no underscores in name)", name);
 		free_string(mp_name);
 		goto bailout;
 	}
 	strlncpy(buf, name, sizeof(buf), q - name);
 
 	if ((mp_type = flag_svalue(mprog_types, buf)) < 0) {
-		log(LOG_ERROR, "load_mprog: %s: unknown type", buf);
+		printlog(LOG_ERROR, "load_mprog: %s: unknown type", buf);
 		free_string(mp_name);
 		goto bailout;
 	}
 
 	if ((mp = (mprog_t *) c_insert(&mprogs, mp_name)) == NULL) {
-		log(LOG_ERROR, "load_mprog: %s: duplicate mprog", mp_name);
+		printlog(LOG_ERROR, "load_mprog: %s: duplicate mprog", mp_name);
 		free_string(mp_name);
 		goto bailout;
 	}
@@ -248,7 +248,7 @@ load_mprogs()
 	char mask[PATH_MAX];
 
 	if ((dirp = opendir(MPC_PATH)) == NULL) {
-		log(LOG_ERROR, "load_mprogs: %s: %s",
+		printlog(LOG_ERROR, "load_mprogs: %s: %s",
 		    MPC_PATH, strerror(errno));
 		return;
 	}
@@ -370,7 +370,7 @@ restart:
 			}
 
 			if (to_room == NULL) {
-				log(LOG_BUG, "fix_resets_room: no 'E', 'G' or 'O' reset for obj vnum %d in area", r->arg3);
+				printlog(LOG_BUG, "fix_resets_room: no 'E', 'G' or 'O' reset for obj vnum %d in area", r->arg3);
 				continue;
 			}
 		} else if (reset_in_EGO(after, r)) {
@@ -382,10 +382,10 @@ restart:
 
 		TOUCH_AREA(room->area);
 		if (to_room) {
-			log(LOG_INFO, "fix_resets_room: moving reset 'P 0 %d %d %d %d' to room %d", r->arg1, r->arg2, r->arg3, r->arg4, to_room->vnum);
+			printlog(LOG_INFO, "fix_resets_room: moving reset 'P 0 %d %d %d %d' to room %d", r->arg1, r->arg2, r->arg3, r->arg4, to_room->vnum);
 		} else {
 			to_room = room;
-			log(LOG_INFO, "fix_resets_room: moving reset 'P 0 %d %d %d %d' inside room", r->arg1, r->arg2, r->arg3, r->arg4);
+			printlog(LOG_INFO, "fix_resets_room: moving reset 'P 0 %d %d %d %d' inside room", r->arg1, r->arg2, r->arg3, r->arg4);
 		}
 
 		reset_del(room, r);
@@ -506,7 +506,7 @@ fix_mprogs(void)
 	mprog_t *mp;
 
 	if ((fp = dfopen(TMP_PATH, "mprogs", "a")) == NULL) {
-		log(LOG_ERROR, "%s: %s", __FUNCTION__, strerror(errno));
+		printlog(LOG_ERROR, "%s: %s", __FUNCTION__, strerror(errno));
 		return;
 	}
 
@@ -541,7 +541,7 @@ fix_mprogs(void)
 				}
 
 				if (spec == NULL) {
-					log(LOG_ERROR, "%s: mprog %s: spec not found",
+					printlog(LOG_ERROR, "%s: mprog %s: spec not found",
 					    __FUNCTION__, mp->name);
 					continue;
 				}
@@ -569,7 +569,7 @@ fix_mprogs(void)
 			}
 
 			if (mprog_lookup(mp_name) != NULL) {
-				log(LOG_ERROR, "%s: %s: duplicate mprog",
+				printlog(LOG_ERROR, "%s: %s: duplicate mprog",
 				    __FUNCTION__, mp_name);
 				continue;
 			}
@@ -578,7 +578,7 @@ fix_mprogs(void)
 			free_string(mp->name);
 			mp->name = str_dup(mp_name);
 
-			log(LOG_INFO, "%s: %s -> %s",
+			printlog(LOG_INFO, "%s: %s -> %s",
 			    __FUNCTION__, trig->trig_prog, mp->name);
 			fprintf(fp, "mpc/%s.mpc\n", trig->trig_prog);
 
@@ -612,14 +612,14 @@ fix_practicers()
 			||  !IS_SET(mob->mob_flags, V7_MOB_PRACTICE))
 				continue;
 
-			log(LOG_INFO, "fix_practicers: vnum %d", vnum);
+			printlog(LOG_INFO, "fix_practicers: vnum %d", vnum);
 			REMOVE_BIT(mob->mob_flags, V7_MOB_PRACTICE);
 			TOUCH_AREA(area);
 			if (IS_SET(mob->mob_flags, MOB_CLAN_GUARD)) {
 				if (IS_SET(mob->mob_flags, MOB_GAIN | MOB_TRAIN)) {
 					REMOVE_BIT(mob->mob_flags,
 					    MOB_GAIN | MOB_TRAIN);
-					log(LOG_INFO,
+					printlog(LOG_INFO,
 					    "fix_practicers: vnum %d: MOB_GAIN and MOB_TRAIN removed", vnum);
 				}
 				continue;
@@ -628,7 +628,7 @@ fix_practicers()
 			SET_BIT(mob->mob_flags, MOB_GAIN | MOB_TRAIN);
 			if (c_isempty(&mob->practicer)) {
 				mob_add_practicer(mob, GROUP_NONE);
-				log(LOG_INFO,
+				printlog(LOG_INFO,
 				     "fix_practicers: vnum %d: group none",
 				     vnum);
 			}

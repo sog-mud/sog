@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_spec.c,v 1.29 2003-05-14 19:19:54 fjoe Exp $
+ * $Id: db_spec.c,v 1.30 2003-09-30 00:31:04 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -103,7 +103,7 @@ DBLOAD_FUN(load_spec)
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			printlog(LOG_ERROR, "%s: %s: Unknown keyword",
 			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
@@ -116,7 +116,7 @@ DBLOAD_FUN(load_spec_skill)
 	spec_skill_t *spec_sk;
 
 	if (!spec) {
-		log(LOG_ERROR, "load_spec_skill: No #SPEC seen yet");
+		printlog(LOG_ERROR, "load_spec_skill: No #SPEC seen yet");
 		fread_to_end(fp);
 		return;
 	}
@@ -134,7 +134,7 @@ DBLOAD_FUN(load_spec_skill)
 		case 'E':
 			if (IS_TOKEN(fp, "End")) {
 				if (IS_NULLSTR(spec_sk->sn)) {
-					log(LOG_ERROR, "load_spec_skill: skill name undefined");
+					printlog(LOG_ERROR, "load_spec_skill: skill name undefined");
 					spec->spec_skills.nused--;
 				} else {
 					varr_qsort(&spec->spec_skills, cmpstr);
@@ -163,7 +163,7 @@ DBLOAD_FUN(load_spec_skill)
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			printlog(LOG_ERROR, "%s: %s: Unknown keyword",
 			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}

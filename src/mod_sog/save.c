@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.205 2003-04-23 08:13:21 fjoe Exp $
+ * $Id: save.c,v 1.206 2003-09-30 00:31:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -146,7 +146,7 @@ char_save(CHAR_DATA *ch, int flags)
 		char fname[PATH_MAX];
 
 		if (dstat(PLAYER_PATH, name, &s) < 0) {
-			log(LOG_INFO, "char_save: %s%c%s: stat: %s",
+			printlog(LOG_INFO, "char_save: %s%c%s: stat: %s",
 			    PLAYER_PATH, PATH_SEPARATOR, name, strerror(errno));
 			goto err;
 		}
@@ -158,7 +158,7 @@ char_save(CHAR_DATA *ch, int flags)
 		snprintf(fname, sizeof(fname), "%s%c%s",
 			 PLAYER_PATH, PATH_SEPARATOR, TMP_FILE);
 		if (utimes(fname, tv) < 0) {
-			log(LOG_INFO, "char_save: %s: utimes: %s",
+			printlog(LOG_INFO, "char_save: %s: utimes: %s",
 			    fname, strerror(errno));
 			goto err;
 		}
@@ -457,7 +457,7 @@ fwrite_obj(CHAR_DATA *ch, OBJ_DATA *obj, FILE *fp, int iNest)
 	if (!IS_IMMORTAL(ch)
 	&&  OBJ_IS(obj, OBJ_QUEST)
 	&&  !IS_OWNER(ch, obj)) {
-		log(LOG_INFO, "fwrite_obj: %s: '%s' of %s",
+		printlog(LOG_INFO, "fwrite_obj: %s: '%s' of %s",
 			   ch->name, obj->pObjIndex->name,
 			   mlstr_mval(&obj->owner));
 		act("$p vanishes!", ch, obj, NULL, TO_CHAR);
@@ -585,7 +585,7 @@ char_load(const char *name, int flags)
 			continue;
 		}
 		if (letter != '#') {
-			log(LOG_INFO, "char_load: %s: # not found.", ch->name);
+			printlog(LOG_INFO, "char_load: %s: # not found.", ch->name);
 			break;
 		}
 
@@ -604,7 +604,7 @@ char_load(const char *name, int flags)
 		} else if (IS_TOKEN(fp, "END"))
 			break;
 		else {
-			log(LOG_INFO, "char_load: %s: %s: bad section.",
+			printlog(LOG_INFO, "char_load: %s: %s: bad section.",
 			    ch->name, rfile_tok(fp));
 			break;
 		}
@@ -906,7 +906,7 @@ fread_char(CHAR_DATA *ch, rfile_t *fp, int flags)
 		}
 
 		if (!fMatch) {
-			log(LOG_INFO, "fread_char: %s: %s: no match",
+			printlog(LOG_INFO, "fread_char: %s: %s: no match",
 			    ch->name, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
@@ -931,7 +931,7 @@ fread_pet(CHAR_DATA *ch, rfile_t *fp, int flags)
 	}
 
 	if (pet == NULL) {
-		log(LOG_INFO, "fread_pet: %s: no pet vnum or bad vnum in file", ch->name);
+		printlog(LOG_INFO, "fread_pet: %s: no pet vnum or bad vnum in file", ch->name);
 		fread_to_end(fp);
 		return;
 	}
@@ -1056,7 +1056,7 @@ fread_pet(CHAR_DATA *ch, rfile_t *fp, int flags)
 		}
 
 		if (!fMatch) {
-			log(LOG_INFO, "fread_pet: %s: %s: no match",
+			printlog(LOG_INFO, "fread_pet: %s: %s: no match",
 			    ch->name, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
@@ -1070,7 +1070,7 @@ fread_obj(CHAR_DATA *ch, CHAR_DATA *obj_to, rfile_t *fp, int flags)
 	int             iNest;
 
 	if (obj_to == NULL) {
-		log(LOG_INFO, "fread_obj: %s: obj_to == NULL", ch->name);
+		printlog(LOG_INFO, "fread_obj: %s: obj_to == NULL", ch->name);
 		fread_to_end(fp);
 		return;
 	}
@@ -1084,14 +1084,14 @@ fread_obj(CHAR_DATA *ch, CHAR_DATA *obj_to, rfile_t *fp, int flags)
 			MOVE(vnum);
 
 		if ((obj = create_obj(vnum, CO_F_NOCOUNT)) == NULL) {
-			log(LOG_INFO,
+			printlog(LOG_INFO,
 			    "fread_obj: %s: can't create object vnum %d",
 			    ch->name, vnum);
 			fread_to_end(fp);
 			return;
 		}
 	} else {
-		log(LOG_INFO, "fread_obj: %s: no obj vnum in file", ch->name);
+		printlog(LOG_INFO, "fread_obj: %s: no obj vnum in file", ch->name);
 		fread_to_end(fp);
 		return;
 	}
@@ -1169,7 +1169,7 @@ fread_obj(CHAR_DATA *ch, CHAR_DATA *obj_to, rfile_t *fp, int flags)
 			if (IS_TOKEN(fp, "Nest")) {
 				iNest = fread_number(fp);
 				if (iNest < 0 || iNest >= MAX_NEST) {
-					log(LOG_INFO, "fread_obj: %s: bad nest %d",
+					printlog(LOG_INFO, "fread_obj: %s: bad nest %d",
 						   ch->name, iNest);
 				} else {
 					rgObjNest[iNest] = obj;
@@ -1191,7 +1191,7 @@ fread_obj(CHAR_DATA *ch, CHAR_DATA *obj_to, rfile_t *fp, int flags)
 				const char *sn = fread_strkey(fp, &skills);
 
 				if (iValue < 0 || iValue > 3) {
-					log(LOG_INFO, "%s: %s: %d: bad iValue",
+					printlog(LOG_INFO, "%s: %s: %d: bad iValue",
 					    __FUNCTION__, ch->name, iValue);
 					free_string(sn);
 				} else
@@ -1226,7 +1226,7 @@ fread_obj(CHAR_DATA *ch, CHAR_DATA *obj_to, rfile_t *fp, int flags)
 		}
 
 		if (!fMatch) {
-			log(LOG_INFO, "fread_obj: %s: %s: no match",
+			printlog(LOG_INFO, "fread_obj: %s: %s: no match",
 			    ch->name, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
@@ -1312,7 +1312,7 @@ move_pfiles(int minvnum, int maxvnum, int delta)
 	DIR *dirp;
 
 	if ((dirp = opendir(PLAYER_PATH)) == NULL) {
-		log(LOG_ERROR, "move_pfiles: unable to open player directory");
+		printlog(LOG_ERROR, "move_pfiles: unable to open player directory");
 		return;
 	}
 

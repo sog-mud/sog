@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.434 2003-09-29 23:11:28 fjoe Exp $
+ * $Id: act_info.c,v 1.435 2003-09-30 00:31:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -446,7 +446,7 @@ static DO_FUN(do_look_in, ch, argument)
 		break;
 	case ITEM_DRINK_CON:
 		if ((lq = liquid_lookup(STR(obj->value[2]))) == NULL) {
-			log(LOG_BUG, "Do_look_in: bad liquid %s.", STR(obj->value[2]));
+			printlog(LOG_BUG, "Do_look_in: bad liquid %s.", STR(obj->value[2]));
 			break;
 		}
 		if (INT(obj->value[1]) == 0) {
@@ -3325,7 +3325,7 @@ list_form_skills(CHAR_DATA *ch, BUFFER *output)
 		return FALSE;
 
 	if (!(fsp=spec_lookup(ch->shapeform->index->skill_spec))) {
-		log(LOG_BUG, "get_skill: bad form (%s) spec (%s).\n",
+		printlog(LOG_BUG, "get_skill: bad form (%s) spec (%s).\n",
 		    ch->shapeform->index->name,
 		    ch->shapeform->index->skill_spec);
 		return FALSE;

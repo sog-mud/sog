@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_effect.c,v 1.1 2002-03-21 13:30:31 fjoe Exp $
+ * $Id: db_effect.c,v 1.2 2003-09-30 00:31:04 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -80,7 +80,7 @@ DBLOAD_FUN(load_effect)
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			printlog(LOG_ERROR, "%s: %s: Unknown keyword",
 			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}

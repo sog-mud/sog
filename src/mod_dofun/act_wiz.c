@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.323 2003-09-29 23:11:29 fjoe Exp $
+ * $Id: act_wiz.c,v 1.324 2003-09-30 00:31:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -614,7 +614,7 @@ DO_FUN(do_disconnect, ch, argument)
 		}
 	}
 
-	log(LOG_BUG, "do_disconnect: desc not found");
+	printlog(LOG_BUG, "do_disconnect: desc not found");
 	act_char("Descriptor not found!", ch);
 }
 
@@ -4815,7 +4815,7 @@ DO_FUN(do_modules, ch, argument)
 			return;
 		}
 
-		log(LOG_INFO, "do_modules: reloading module '%s'", m->name);
+		printlog(LOG_INFO, "do_modules: reloading module '%s'", m->name);
 		act_puts("Reloading module '$t'.",
 			 ch, m->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 

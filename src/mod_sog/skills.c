@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.c,v 1.137 2003-09-29 23:11:50 fjoe Exp $
+ * $Id: skills.c,v 1.138 2003-09-30 00:31:30 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -61,7 +61,7 @@ skill_beats(const char *sn)
 
 	if ((sk = skill_lookup(sn)) == NULL) {
 #ifdef C_STRKEY_STRICT_CHECKS
-		log(LOG_BUG, "skill_beats: %s: unknown skill", sn);
+		printlog(LOG_BUG, "skill_beats: %s: unknown skill", sn);
 #endif
 		return 0;
 	}
@@ -78,7 +78,7 @@ skill_mana(CHAR_DATA *ch, const char *sn)
 
 	if ((sk = skill_lookup(sn)) == NULL) {
 #ifdef C_STRKEY_STRICT_CHECKS
-		log(LOG_BUG, "skill_mana: %s: unknown skill", sn);
+		printlog(LOG_BUG, "skill_mana: %s: unknown skill", sn);
 #endif
 		return 0;
 	}
@@ -125,7 +125,7 @@ get_skill(CHAR_DATA *ch, const char *sn)
 			spec_skill_t *sp_sk;
 			spec_t *fsp = spec_lookup(ch->shapeform->index->skill_spec);
 			if (fsp == NULL) {
-				log(LOG_BUG, "get_skill: bad form (%s) spec (%s).\n",
+				printlog(LOG_BUG, "get_skill: bad form (%s) spec (%s).\n",
 					ch->shapeform->index->name,
 					ch->shapeform->index->skill_spec);
 				return 0;
@@ -385,7 +385,7 @@ say_spell(CHAR_DATA *ch, const char *sn)
 	};
 
 	if ((spell = skill_lookup(sn)) == NULL) {
-		log(LOG_BUG, "say_spell: %s: unknown skill", sn);
+		printlog(LOG_BUG, "say_spell: %s: unknown skill", sn);
 		return;
 	}
 
@@ -439,7 +439,7 @@ check_one_event(CHAR_DATA *ch, AFFECT_DATA *paf, flag_t event)
 	evf_t *evf;
 
 	if ((sk = skill_lookup(paf->type)) == NULL) {
-		log(LOG_BUG, "check_one_event: %s: unknown skill", paf->type);
+		printlog(LOG_BUG, "check_one_event: %s: unknown skill", paf->type);
 		return;
 	}
 

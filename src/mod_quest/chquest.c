@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest.c,v 1.26 2001-08-20 16:47:37 fjoe Exp $
+ * $Id: chquest.c,v 1.27 2003-09-30 00:31:25 fjoe Exp $
  */
 
 /*
@@ -78,7 +78,7 @@ chquest_add(OBJ_INDEX_DATA *obj_index)
 		return;
 
 #if CHQUEST_DEBUG
-	log(LOG_INFO, "chquest_add: added '%s' (vnum %d)",
+	printlog(LOG_INFO, "chquest_add: added '%s' (vnum %d)",
 		   mlstr_mval(&obj_index->short_descr), obj_index->vnum);
 #endif
 
@@ -122,7 +122,7 @@ chquest_delete(CHAR_DATA *ch, OBJ_INDEX_DATA *obj_index)
 	free(q);
 
 #if CHQUEST_DEBUG
-	log(LOG_INFO, "chquest_delete: deleted '%s' (vnum %d)",
+	printlog(LOG_INFO, "chquest_delete: deleted '%s' (vnum %d)",
 		   mlstr_mval(&obj_index->short_descr), obj_index->vnum);
 #endif
 	return TRUE;
@@ -142,7 +142,7 @@ chquest_extract(OBJ_DATA *obj)
 		return;
 
 #if CHQUEST_DEBUG
-	log(LOG_INFO, "chquest_extract: finished quest for '%s' (vnum %d)",
+	printlog(LOG_INFO, "chquest_extract: finished quest for '%s' (vnum %d)",
 		   mlstr_mval(&q->obj_index->short_descr), q->obj_index->vnum);
 #endif
 	SET_WAITING(q, number_range(15, 20));

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.223 2003-09-29 23:11:30 fjoe Exp $
+ * $Id: martial_art.c,v 1.224 2003-09-30 00:31:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -113,9 +113,6 @@ DECLARE_DO_FUN(do_sit);
 DECLARE_DO_FUN(do_bash_door);
 DECLARE_DO_FUN(do_dismount);
 DECLARE_DO_FUN(do_throw_weapon);
-
-static inline bool	check_yell	(CHAR_DATA *ch, CHAR_DATA *victim,
-					 bool fighting);
 
 static bool
 check_close_contact(CHAR_DATA *ch, CHAR_DATA *victim)
@@ -492,11 +489,11 @@ DO_FUN(do_flee, ch, argument)
 			act_puts("You fled from combat!",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			if (ch->level < LEVEL_HERO) {
-				int exp = FLEE_EXP(ch);
+				int xp = FLEE_EXP(ch);
 				act_puts("You lose $j exp.",
-					 ch, (const void *) exp, NULL,
+					 ch, (const void *) xp, NULL,
 					 TO_CHAR, POS_DEAD);
-				gain_exp(ch, -exp);
+				gain_exp(ch, -xp);
 			}
 		} else {
 			/* Once fled, the mob will not go after */
@@ -4327,11 +4324,11 @@ DO_FUN(do_dishonor, ch, argument)
 		if (!IS_NPC(ch)) {
 			act_char("You dishonored yourself and flee from combat.",ch);
 			if (ch->level < LEVEL_HERO) {
-				int exp = FLEE_EXP(ch) * 3;
+				int xp = FLEE_EXP(ch) * 3;
 				act_puts("You lose $j exp.",
-					 ch, (const void *) exp, NULL,
+					 ch, (const void *) xp, NULL,
 					 TO_CHAR, POS_DEAD);
-				gain_exp(ch, -exp);
+				gain_exp(ch, -xp);
 			}
 		} else {
 			/* Once fled, the mob will not go after */
@@ -4469,11 +4466,4 @@ DO_FUN(do_rake, ch, argument)
 
 	if (attack)
 		yell(victim, ch, "Help! $lu{$N} is raking me!");
-}
-
-static inline bool
-check_yell(CHAR_DATA *ch, CHAR_DATA *victim, bool fighting)
-{
-	return (!IS_NPC(ch) && !IS_NPC(victim) &&
-		victim->position > POS_STUNNED && !fighting);
 }

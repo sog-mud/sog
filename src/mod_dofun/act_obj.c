@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.288 2003-09-29 23:11:29 fjoe Exp $
+ * $Id: act_obj.c,v 1.289 2003-09-30 00:31:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -859,7 +859,7 @@ DO_FUN(do_feed, ch, argument)
 			break;
 
 	if (!paf) {
-		log(LOG_BUG, "do_feed: bone dragon cocoon w/o affect");
+		printlog(LOG_BUG, "do_feed: bone dragon cocoon w/o affect");
 		return;
 	}
 
@@ -927,7 +927,7 @@ DO_FUN(do_fill, ch, argument)
 		return;
 	}
         if ((lq = liquid_lookup(STR(fountain->value[2]))) == NULL) {
-		log(LOG_BUG, "Unknown liquid: %s", STR(fountain->value[2]));
+		printlog(LOG_BUG, "Unknown liquid: %s", STR(fountain->value[2]));
 		return;
 	}
 	act_puts3("You fill $p with $V from $P.",
@@ -961,7 +961,7 @@ DO_FUN(do_pour, ch, argument)
 		return;
 	}
         if ((lq = liquid_lookup(STR(out->value[2]))) == NULL) {
-		log(LOG_BUG, "Unknown liquid: %s", STR(out->value[2]));
+		printlog(LOG_BUG, "Unknown liquid: %s", STR(out->value[2]));
 		return;
 	}
 	if (!str_cmp(argument, "out")) {
@@ -1110,7 +1110,7 @@ DO_FUN(do_drink, ch, argument)
 	}
 
 	if ((lq = liquid_lookup(STR(obj->value[2]))) == NULL) {
-		log(LOG_BUG, "Do_drink: bad liquid %s.", STR(obj->value[2]));
+		printlog(LOG_BUG, "Do_drink: bad liquid %s.", STR(obj->value[2]));
 		return;
 	}
 
@@ -1993,7 +1993,7 @@ DO_FUN(do_buy_pet, ch, argument)
 
 	pRoomIndexNext = get_room_index(ch->in_room->vnum + 1);
 	if (pRoomIndexNext == NULL) {
-		log(LOG_BUG, "Do_buy: bad pet shop at vnum %d.", ch->in_room->vnum);
+		printlog(LOG_BUG, "Do_buy: bad pet shop at vnum %d.", ch->in_room->vnum);
 		act_char("Sorry, you can't buy that here.", ch);
 		return;
 	}
@@ -2212,7 +2212,7 @@ DO_FUN(do_list, ch, argument)
 
 		pRoomIndexNext = get_room_index(ch->in_room->vnum + 1);
 		if (pRoomIndexNext == NULL) {
-			log(LOG_BUG, "Do_list: bad pet shop at vnum %d.", ch->in_room->vnum);
+			printlog(LOG_BUG, "Do_list: bad pet shop at vnum %d.", ch->in_room->vnum);
 			act_char("You can't do that here.", ch);
 			return;
 		}

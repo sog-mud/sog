@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.37 2003-04-25 12:49:25 fjoe Exp $
+ * $Id: magic.c,v 1.38 2003-09-30 00:31:17 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -58,7 +58,7 @@ obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	switch (spell->target) {
 	default:
-		log(LOG_BUG, "obj_cast_spell: %s: bad target %d",
+		printlog(LOG_BUG, "obj_cast_spell: %s: bad target %d",
 		    gmlstr_mval(&spell->sk_name), spell->target);
 		return;
 
@@ -203,7 +203,7 @@ cast(const char *sn, CHAR_DATA *ch, const char *argument)
 
 	switch (cp.sk->target) {
 	default:
-		log(LOG_BUG, "cast_mob: %s: bad target %d",
+		printlog(LOG_BUG, "cast_mob: %s: bad target %d",
 		    sn, cp.sk->target);
 		return;
 
@@ -241,7 +241,7 @@ cast_char(const char *sn, CHAR_DATA *ch, CHAR_DATA *victim)
 
 	switch (cp.sk->target) {
 	default:
-		log(LOG_BUG, "cast_mob: %s: bad target %d",
+		printlog(LOG_BUG, "cast_mob: %s: bad target %d",
 		    sn, cp.sk->target);
 		return;
 
@@ -287,7 +287,7 @@ cast_obj(const char *sn, CHAR_DATA *ch, OBJ_DATA *obj)
 
 	switch (cp.sk->target) {
 	default:
-		log(LOG_BUG, "cast_obj: %s: bad target %d",
+		printlog(LOG_BUG, "cast_obj: %s: bad target %d",
 		    sn, cp.sk->target);
 		return;
 
@@ -321,7 +321,7 @@ spellfun(const char *sn_fun, const char *sn, int level,
 	skill_t *sk;
 
 	if ((sk = skill_lookup(sn_fun)) == NULL) {
-		log(LOG_BUG, "spellfun: %s (name): unknown or reserved spell",
+		printlog(LOG_BUG, "spellfun: %s (name): unknown or reserved spell",
 		    sn_fun);
 		return;
 	}
@@ -329,19 +329,19 @@ spellfun(const char *sn_fun, const char *sn, int level,
 	if (sn == NULL)
 		sn = sn_fun;
 	else if (skill_lookup(sn) == NULL) {
-		log(LOG_BUG, "spellfun: %s (sn): unknown or reserved spell", sn);
+		printlog(LOG_BUG, "spellfun: %s (sn): unknown or reserved spell", sn);
 		return;
 	}
 
 	if (sk->skill_type != ST_SPELL
 	&&  sk->skill_type != ST_PRAYER) {
-		log(LOG_BUG, "spellfun: %s: not a spell or prayer",
+		printlog(LOG_BUG, "spellfun: %s: not a spell or prayer",
 		    gmlstr_mval(&sk->sk_name));
 		return;
 	}
 
 	if (sk->fun == NULL) {
-		log(LOG_BUG, "spellfun: %s: NULL skill function",
+		printlog(LOG_BUG, "spellfun: %s: NULL skill function",
 		    gmlstr_mval(&sk->sk_name));
 		return;
 	}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_c.c,v 1.36 2003-04-25 12:49:32 fjoe Exp $
+ * $Id: mpc_c.c,v 1.37 2003-09-30 00:31:21 fjoe Exp $
  */
 
 #include <assert.h>
@@ -55,7 +55,7 @@ static void dumpvar(const char *ctx, mpcode_t *mpc, sym_t *sym);
 #define TRACE(a)							\
 	do {								\
 		if (IS_SET(mpc->mp->flags, MP_F_TRACE))			\
-			log a;						\
+			printlog a;					\
 	} while (0)
 
 void
@@ -197,17 +197,17 @@ c_push_retval(mpcode_t *mpc)
 	/*
 	 * dump function info
 	 */
-	log(LOG_INFO, "%s: %d %s (%d args)",
+	printlog(LOG_INFO, "%s: %d %s (%d args)",
 	    __FUNCTION__, rv_tag, sym->name, nargs);
 	for (i = 0; i < nargs; i++)
-		log(LOG_INFO, "\t%d", argtype[i]);
+		printlog(LOG_INFO, "\t%d", argtype[i]);
 
 	/*
 	 * dump arguments
 	 */
-	log(LOG_INFO, "%s: dumping arguments", __FUNCTION__);
+	printlog(LOG_INFO, "%s: dumping arguments", __FUNCTION__);
 	for (i = 0; i < nargs; i++)
-		log(LOG_INFO, "\t%d", peek(mpc, i)->i);
+		printlog(LOG_INFO, "\t%d", peek(mpc, i)->i);
 #endif
 
 	/*
@@ -893,7 +893,7 @@ sym_get(mpcode_t *mpc, symtype_t symtype)
 	sym_t *sym;
 
 	symname = code_get(mpc);
-/*	log(LOG_INFO, "%s: '%s'", __FUNCTION__, symname); */
+/*	printlog(LOG_INFO, "%s: '%s'", __FUNCTION__, symname); */
 
 	sym = sym_lookup(mpc, symname);
 	mpc_assert(mpc, __FUNCTION__,
@@ -929,17 +929,17 @@ dumpvar(const char *ctx, mpcode_t *mpc, sym_t *sym)
 
 	switch (sym->s.var.type_tag) {
 	case MT_INT:
-		log(LOG_INFO, "%s: %s: (int) %d",
+		printlog(LOG_INFO, "%s: %s: (int) %d",
 		    ctx, sym->name, sym->s.var.data.i);
 		break;
 
 	case MT_STR:
-		log(LOG_INFO, "%s: %s: (string) '%s'",
+		printlog(LOG_INFO, "%s: %s: (string) '%s'",
 		    ctx, sym->name, sym->s.var.data.s);
 		break;
 
 	default:
-		log(LOG_INFO, "%s: %s: (%s) %p",
+		printlog(LOG_INFO, "%s: %s: (%s) %p",
 		    ctx, sym->name,
 		    flag_string(mpc_types, sym->s.var.type_tag),
 		    sym->s.var.data.ch);

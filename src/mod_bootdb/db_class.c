@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.44 2003-09-29 23:11:25 fjoe Exp $
+ * $Id: db_class.c,v 1.45 2003-09-30 00:31:03 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -175,7 +175,7 @@ DBLOAD_FUN(load_class)
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			printlog(LOG_ERROR, "%s: %s: Unknown keyword",
 			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
@@ -188,7 +188,7 @@ DBLOAD_FUN(load_pose)
 	pose_t *pose;
 
 	if (!class) {
-		log(LOG_ERROR, "load_pose: No #CLASS seen yet");
+		printlog(LOG_ERROR, "load_pose: No #CLASS seen yet");
 		return;
 	}
 
@@ -213,7 +213,7 @@ DBLOAD_FUN(load_pose)
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			printlog(LOG_ERROR, "%s: %s: Unknown keyword",
 			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}

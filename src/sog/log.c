@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: log.c,v 1.35 2003-09-29 23:11:54 fjoe Exp $
+ * $Id: log.c,v 1.36 2003-09-30 00:31:38 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -60,7 +60,7 @@ static char_logger_t char_logger;
  * Writes a string to the log.
  */
 void
-log(int llevel, const char *format, ...)
+printlog(int llevel, const char *format, ...)
 {
 	char buf[MAX_STRING_LENGTH];
 	va_list ap;

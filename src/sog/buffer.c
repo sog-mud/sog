@@ -1,5 +1,5 @@
 /*
- * $Id: buffer.c,v 1.37 2003-06-18 07:41:03 fjoe Exp $
+ * $Id: buffer.c,v 1.38 2003-09-30 00:31:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -233,7 +233,7 @@ buf_resize(BUFFER *buffer, const char *string)
 		if (buffer->size == 0) { /* overflow */
 			buffer->size = oldsize;
 			mem_tag(buffer, BUF_OFLOW);
-			log(LOG_INFO,
+			printlog(LOG_INFO,
 			    "buf_append: '%s': buffer overflow", string); // notrans
 			return FALSE;
 		}
@@ -246,7 +246,7 @@ buf_resize(BUFFER *buffer, const char *string)
 		if (p == NULL) {
 			buffer->size = oldsize;
 			mem_tag(buffer, BUF_OFLOW);
-			log(LOG_INFO,
+			printlog(LOG_INFO,
 			    "buf_append: '%s': realloc failed", string); // notrans
 			return FALSE;
 		}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: reset.c,v 1.7 2003-04-23 08:13:21 fjoe Exp $
+ * $Id: reset.c,v 1.8 2003-09-30 00:31:29 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -91,7 +91,7 @@ reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 
 		switch (pReset->command) {
 		default:
-			log(LOG_BUG, "bad command %c", pReset->command);
+			printlog(LOG_BUG, "bad command %c", pReset->command);
 			break;
 
 		case 'M':
@@ -103,7 +103,7 @@ reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 			 *	arg4 - mob count limit (in room)
 			 */
 			if ((pMobIndex = get_mob_index(pReset->arg1)) == NULL) {
-				log(LOG_BUG, "%d: no such mob", pReset->arg1);
+				printlog(LOG_BUG, "%d: no such mob", pReset->arg1);
 				lmob = FALSE;
 				break;
 			}
@@ -151,13 +151,13 @@ reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 				break;
 
 			if (last_mob == NULL) {
-				log(LOG_BUG, "no previous mob");
+				printlog(LOG_BUG, "no previous mob");
 				lobj = FALSE;
 				break;
 			}
 
 			if ((pObjIndex = get_obj_index(pReset->arg1)) == NULL) {
-				log(LOG_BUG, "%d: no such obj", pReset->arg1);
+				printlog(LOG_BUG, "%d: no such obj", pReset->arg1);
 				lobj = FALSE;
 				break;
 			}
@@ -194,7 +194,7 @@ reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 			 * obj limits are checked
 			 */
 			if ((pObjIndex = get_obj_index(pReset->arg1)) == NULL) {
-				log(LOG_BUG, "%d: no such obj", pReset->arg1);
+				printlog(LOG_BUG, "%d: no such obj", pReset->arg1);
 				lobj = FALSE;
 				break;
 			}
@@ -237,12 +237,12 @@ reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 				break;
 
 			if (last_obj == NULL) {
-				log(LOG_BUG, "no previous obj");
+				printlog(LOG_BUG, "no previous obj");
 				break;
 			}
 
 			if ((pObjIndex = get_obj_index(pReset->arg1)) == NULL) {
-				log(LOG_BUG, "%d: no such obj", pReset->arg1);
+				printlog(LOG_BUG, "%d: no such obj", pReset->arg1);
 				break;
 			}
 

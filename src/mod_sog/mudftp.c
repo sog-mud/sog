@@ -1,5 +1,5 @@
 /*
- * $Id: mudftp.c,v 1.3 2003-09-29 23:11:50 fjoe Exp $
+ * $Id: mudftp.c,v 1.4 2003-09-30 00:31:29 fjoe Exp $
  *
  * MUDftp module
  * (c) Copyright 1997, 1998 Erwin S. Andreasen and Oliver Jowett
@@ -139,7 +139,7 @@ handle_mudftp(DESCRIPTOR_DATA *d)
 		} while (d->incomm[0] != '\0');
 		break;
 	default:
-		log(LOG_INFO, "handle_mudftp: invalid state %d", d->connected);
+		printlog(LOG_INFO, "handle_mudftp: invalid state %d", d->connected);
 		close_descriptor(d, 0);
 		break;
 	}
@@ -256,7 +256,7 @@ mudftp_reply(DESCRIPTOR_DATA *d, const char *fmt, ...)
 	vsnprintf(buf, sizeof(buf), fmt, ap);
 	va_end(ap);
 
-	log(LOG_INFO, "mudftp_reply: [%s]", buf);
+	printlog(LOG_INFO, "mudftp_reply: [%s]", buf);
 	write_to_buffer(d, buf, 0);
 	write_to_buffer(d, "\n", 0);
 }
@@ -321,7 +321,7 @@ mudftp_notify(const char *fmt, ... )
 	va_end(va);
 
 	wiznet("$t.", NULL, buf, WIZ_LINKS, 0, 0);
-	log(LOG_INFO, "%s", buf);
+	printlog(LOG_INFO, "%s", buf);
 }
 
 /*

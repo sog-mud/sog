@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.57 2003-09-29 23:11:50 fjoe Exp $
+ * $Id: string_edit.c,v 1.58 2003-09-30 00:31:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -190,7 +190,7 @@ format_string(const char *oldstring)
 			while (*rdesc == ' ')
 				rdesc++;
 		} else {
-			log(LOG_WARN, "format_string: no spaces");
+			printlog(LOG_WARN, "format_string: no spaces");
 			strlncat(xbuf, rdesc, sizeof(xbuf), 75);
 			strlcat(xbuf, "-\n", sizeof(xbuf));	// notrans
 			rdesc += 76;

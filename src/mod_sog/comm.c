@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.c,v 1.22 2003-09-29 23:11:48 fjoe Exp $
+ * $Id: comm.c,v 1.23 2003-09-30 00:31:27 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -437,7 +437,7 @@ close_descriptor(DESCRIPTOR_DATA *dclose, int save_flags)
 		CHAR_DATA *ch = dclose->original ? dclose->original : dclose->character;
 		if (!IS_SET(save_flags, SAVE_F_NONE))
 			char_save(ch, save_flags);
-		log(LOG_INFO, "Closing link to %s.", ch->name);
+		printlog(LOG_INFO, "Closing link to %s.", ch->name);
 		if (dclose->connected == CON_PLAYING) {
 			act("$n has lost $s link.", ch, NULL, NULL, TO_ROOM);
 			wiznet("Net death has claimed $N.", ch, NULL,
@@ -477,7 +477,7 @@ close_descriptor(DESCRIPTOR_DATA *dclose, int save_flags)
 		if (d != NULL)
 			d->next = dclose->next;
 		else
-			log(LOG_BUG, "close_socket: dclose not found.");
+			printlog(LOG_BUG, "close_socket: dclose not found.");
 	}
 
 #if !defined(WIN32)
@@ -611,7 +611,7 @@ write_to_descriptor(DESCRIPTOR_DATA *d, const char *txt, size_t length)
 #else
 		if ((nWrite = send(d->descriptor, txt + iStart, nBlock, 0)) < 0) {
 #endif
-			log(LOG_INFO, "write_to_descriptor: %s", strerror(errno));
+			printlog(LOG_INFO, "write_to_descriptor: %s", strerror(errno));
 			return FALSE;
 		}
 	}
@@ -667,7 +667,7 @@ RUNGAME_FUN(_run_game, in_set, out_set, exc_set)
 	}
 
 	if (select(maxdesc+1, in_set, out_set, exc_set, &null_time) < 0) {
-		log(LOG_INFO, "game_loop: select: %s", strerror(errno));
+		printlog(LOG_INFO, "game_loop: select: %s", strerror(errno));
 		return;
 	}
 
@@ -791,13 +791,13 @@ RUNGAME_FUN(_run_game_bottom, in_set, out_set, exc_set)
 		if (waitpid(rpid, &st, WNOHANG | WUNTRACED) == rpid) {
 			/* resolver died/stopped */
 			if (WIFEXITED(st))
-				log(LOG_BUG, "resolver exited with status %d",
+				printlog(LOG_BUG, "resolver exited with status %d",
 					WEXITSTATUS(st));
 			else if (WIFSIGNALED(st))
-				log(LOG_BUG, "resolver died on signal %d",
+				printlog(LOG_BUG, "resolver died on signal %d",
 					WTERMSIG(st));
 			else if (WIFSTOPPED(st))
-				log(LOG_BUG, "resolver stopped on signal %d",
+				printlog(LOG_BUG, "resolver stopped on signal %d",
 					WSTOPSIG(st));
 			/* to prevent reading from resolver */
 			rpid = -1;
@@ -851,24 +851,24 @@ init_descriptor(int control, int d_type)
 #if 0
 	size = sizeof(sock);
 	if (getsockname(control, (struct sockaddr *) &sock, &size) < 0) {
-		log(LOG_INFO, "%s: getsockname: %s",
+		printlog(LOG_INFO, "%s: getsockname: %s",
 		    ctx, strerror(errno));
 		return NULL;
 	}
 #endif
 	size = sizeof(sock);
 	if ((desc = accept(control, (struct sockaddr *) &sock, &size)) < 0) {
-		log(LOG_INFO, "%s: accept: %s", ctx, strerror(errno));
+		printlog(LOG_INFO, "%s: accept: %s", ctx, strerror(errno));
 		return;
 	}
 	size = sizeof(sock);
 	if (getpeername(desc, (struct sockaddr *) &sock, &size) < 0) {
-		log(LOG_INFO, "%s: getpeername: %s", ctx, strerror(errno));
+		printlog(LOG_INFO, "%s: getpeername: %s", ctx, strerror(errno));
 		return;
 	}
 #if !defined (WIN32)
 	if (fcntl(desc, F_SETFL, FNDELAY) < 0) {
-		log(LOG_INFO, "%s: fcntl: FNDELAY: %s", ctx, strerror(errno));
+		printlog(LOG_INFO, "%s: fcntl: FNDELAY: %s", ctx, strerror(errno));
 		close(desc);
 		return;
 	}
@@ -878,7 +878,7 @@ init_descriptor(int control, int d_type)
 	 * Create a new descriptor.
 	 */
 	d = new_descriptor(desc, d_type, inet_ntoa(sock.sin_addr));
-	log(LOG_INFO, "%s: sock.sinaddr: %s", ctx, d->ip);
+	printlog(LOG_INFO, "%s: sock.sinaddr: %s", ctx, d->ip);
 	if (rpid > 0) {
 		d->host	= str_qdup(d->ip);
 		fprintf(rfout, "%s\n", d->ip); // notrans
@@ -930,7 +930,7 @@ read_from_descriptor(DESCRIPTOR_DATA *d)
 	/* Check for overflow. */
 	iOld = iStart = strlen(d->inbuf);
 	if (iStart >= sizeof(d->inbuf) - 10) {
-		log(LOG_INFO, "%s input overflow!", d->host);
+		printlog(LOG_INFO, "%s input overflow!", d->host);
 		write_to_descriptor(d, "\n\r*** PUT A LID ON IT!!! ***\n\r", 0);
 		return FALSE;
 	}
@@ -954,7 +954,7 @@ read_from_descriptor(DESCRIPTOR_DATA *d)
 				break;
 		}
 		else if (nRead == 0) {
-			log(LOG_INFO, "EOF encountered on read.");
+			printlog(LOG_INFO, "EOF encountered on read.");
 			return FALSE;
 			break;
 		}
@@ -966,7 +966,7 @@ read_from_descriptor(DESCRIPTOR_DATA *d)
 	    break;
 #endif
 		else {
-			log(LOG_INFO, "read_from_descriptor: %s", strerror(errno));
+			printlog(LOG_INFO, "read_from_descriptor: %s", strerror(errno));
 			return FALSE;
 		}
 	}
@@ -1115,7 +1115,7 @@ read_from_buffer(DESCRIPTOR_DATA *d)
 			if (ch && ++d->repeat >= 100) {
 				char buf[MAX_STRING_LENGTH];
 
-				log(LOG_INFO, "%s input spamming!", d->host);
+				printlog(LOG_INFO, "%s input spamming!", d->host);
 				snprintf(buf, sizeof(buf),
 					 "Inlast:[%s] Incomm:[%s]!", // notrans
 					 d->inlast, d->incomm);
@@ -1430,13 +1430,13 @@ outbuf_adjust(outbuf_t *o, size_t len)
 		newsize <<= 1;
 
 		if (newsize > 32768) {
-			log(LOG_INFO, "outbuf_adjust: buffer overflow, closing");
+			printlog(LOG_INFO, "outbuf_adjust: buffer overflow, closing");
 			return FALSE;
 		}
 	}
 
 	if ((newbuf = realloc(o->buf, newsize)) == NULL) {
-		log(LOG_INFO, "outbuf_adjust: not enough memory to expand output buffer");
+		printlog(LOG_INFO, "outbuf_adjust: not enough memory to expand output buffer");
 		return FALSE;
 	}
 

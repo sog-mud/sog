@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.201 2003-09-29 23:11:49 fjoe Exp $
+ * $Id: interp.c,v 1.202 2003-09-30 00:31:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -265,7 +265,7 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 	     cmd_log == LOG_ALWAYS)
 	&&  cmd_log != LOG_NEVER
 	&&  save_argument[0] != '\0')
-		log(LOG_INFO, "Log %s: %s", vch->name, save_argument);
+		printlog(LOG_INFO, "Log %s: %s", vch->name, save_argument);
 
 	if (!IS_NPC(ch)) {
 		/* Come out of hiding for most commands */
@@ -371,7 +371,7 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 	 * Dispatch the command.
 	 */
 	if (cmd->do_fun == NULL)
-		log(LOG_BUG, "interpret: %s: NULL do_fun", cmd->name);
+		printlog(LOG_BUG, "interpret: %s: NULL do_fun", cmd->name);
 	else
 		cmd->do_fun(ch, argument);
 }

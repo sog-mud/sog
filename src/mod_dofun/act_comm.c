@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.278 2003-09-29 23:11:27 fjoe Exp $
+ * $Id: act_comm.c,v 1.279 2003-09-30 00:31:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1343,7 +1343,7 @@ DO_FUN(do_lang, ch, argument)
 	if (*arg == '\0') {
 		l = varr_get(&langs, d->dvdata->lang);
 		if (l == NULL) {
-			log(LOG_INFO, "do_lang: %s: lang == %d\n",
+			printlog(LOG_INFO, "do_lang: %s: lang == %d\n",
 				   ch->name, d->dvdata->lang);
 			l = VARR_GET(&langs, d->dvdata->lang = 0);
 		}

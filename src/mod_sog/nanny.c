@@ -1,5 +1,5 @@
 /*
- * $Id: nanny.c,v 1.15 2003-09-29 23:11:50 fjoe Exp $
+ * $Id: nanny.c,v 1.16 2003-09-30 00:31:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -121,7 +121,7 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 	switch (d->connected) {
 	default:
-		log(LOG_BUG, "Nanny: bad d->connected %d.", d->connected);
+		printlog(LOG_BUG, "Nanny: bad d->connected %d.", d->connected);
 		close_descriptor(d, SAVE_F_NONE);
 		return;
 
@@ -589,7 +589,7 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 		break;
 
 	case CON_CREATE_DONE:
-		log(LOG_INFO, "%s@%s new player.", ch->name, d->host);
+		printlog(LOG_INFO, "%s@%s new player.", ch->name, d->host);
 		dofun("help", ch, "MOTD");
 		act_puts("[Hit Return to continue]",
 			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
@@ -600,7 +600,7 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 		send_to_char("\n", ch);
 		if (strcmp(crypt(argument, PC(ch)->pwd), PC(ch)->pwd)) {
 			act_char("Wrong password.", ch);
-			log(LOG_INFO, "Wrong password by %s@%s", ch->name, d->host);
+			printlog(LOG_INFO, "Wrong password by %s@%s", ch->name, d->host);
 			if (ch->endur == 2)
 				close_descriptor(d, SAVE_F_NONE);
 			else {
@@ -628,7 +628,7 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 		||  check_reconnect(d, TRUE))
 			return;
 
-		log(LOG_INFO, "%s@%s has connected.", ch->name, d->host);
+		printlog(LOG_INFO, "%s@%s has connected.", ch->name, d->host);
 		d->connected = CON_READ_IMOTD;
 
 		/* FALL THRU */
@@ -854,7 +854,7 @@ check_reconnect(DESCRIPTOR_DATA *d, bool fConn)
 				act("$n has reconnected.",
 				    ch, NULL, NULL, TO_ROOM);
 
-				log(LOG_INFO, "%s@%s reconnected.",
+				printlog(LOG_INFO, "%s@%s reconnected.",
 					   ch->name, d->host);
 				wiznet("$N groks the fullness of $S link.",
 				       ch, NULL, WIZ_LINKS, 0, 0);

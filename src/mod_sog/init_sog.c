@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_sog.c,v 1.8 2001-09-12 12:32:42 fjoe Exp $
+ * $Id: init_sog.c,v 1.9 2003-09-30 00:31:29 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -47,13 +47,13 @@ MODINIT_FUN(_module_load, m)
 {
 	run_game = dlsym(m->dlh, "_run_game");			// notrans
 	if (run_game == NULL) {
-		log(LOG_INFO, "_module_load(mod_sog): %s", dlerror());
+		printlog(LOG_INFO, "_module_load(mod_sog): %s", dlerror());
 		return -1;
 	}
 
 	run_game_bottom = dlsym(m->dlh, "_run_game_bottom");	// notrans
 	if (run_game_bottom == NULL) {
-		log(LOG_INFO, "_module_load(mod_sog): %s", dlerror());
+		printlog(LOG_INFO, "_module_load(mod_sog): %s", dlerror());
 		return -1;
 	}
 

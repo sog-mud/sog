@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: events.c,v 1.14 2001-12-03 22:28:26 fjoe Exp $
+ * $Id: events.c,v 1.15 2003-09-30 00:31:16 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -45,7 +45,7 @@ MODINIT_FUN(_module_load, m)
 		C_FOREACH(evf, &sk->events) {
 			evf->fun = dlsym(m->dlh, evf->fun_name);
 			if (evf->fun == NULL) {
-				log(LOG_INFO, "_module_load(events): %s",
+				printlog(LOG_INFO, "_module_load(events): %s",
 				    dlerror());
 			}
 		}

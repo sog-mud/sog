@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.43 2003-09-29 23:11:54 fjoe Exp $
+ * $Id: flag.c,v 1.44 2003-09-30 00:31:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -108,7 +108,7 @@ _flag_value(const flaginfo_t *flag_table, const char *argument,
 
 			f = lookup(flag_table, word);
 			if (f == NULL) {
-				log(LOG_ERROR, "_flag_value: %s: unknown flag name", word);
+				printlog(LOG_ERROR, "_flag_value: %s: unknown flag name", word);
 				continue;
 			}
 
@@ -126,7 +126,7 @@ _flag_value(const flaginfo_t *flag_table, const char *argument,
 		/* NOT REACHED */
 
 	default:
-		log(LOG_BUG, "_flag_value: %s: unknown table type %d",
+		printlog(LOG_BUG, "_flag_value: %s: unknown table type %d",
 			   tname, ttype);
 		break;
 	}
@@ -194,7 +194,7 @@ flag_string(const flaginfo_t *flag_table, flag_t bits)
 			break;
 
 		default:
-			log(LOG_BUG, "flag_value: %s: unknown table type %d",
+			printlog(LOG_BUG, "flag_value: %s: unknown table type %d",
 				   tname, ttype);
 			buf[cnt][0] = '\0';
 			return buf[cnt];

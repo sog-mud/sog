@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.68 2001-08-05 17:27:22 fjoe Exp $
+ * $Id: note.c,v 1.69 2003-09-30 00:31:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -221,5 +221,5 @@ static void load_thread(const char *name, note_t **list,
 		pnotelast = pnote;
 	}
 
-	log(LOG_ERROR, "load_notes: %s: %s: bad keyword", name, rfile_tok(fp));
+	printlog(LOG_ERROR, "load_notes: %s: %s: bad keyword", name, rfile_tok(fp));
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.c,v 1.45 2003-09-29 23:11:55 fjoe Exp $
+ * $Id: util.c,v 1.46 2003-09-30 00:31:39 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -47,7 +47,7 @@ dfopen(const char *dir, const char *file, const char *mode)
 	FILE *f;
 	snprintf(name, sizeof(name), "%s%c%s", dir, PATH_SEPARATOR, file);
 	if ((f = fopen(name, mode)) == NULL)
-		log(LOG_INFO, "%s: %s", name, strerror(errno));
+		printlog(LOG_INFO, "%s: %s", name, strerror(errno));
 	return f;
 }
 
@@ -79,11 +79,11 @@ d2rename(const char *dir1, const char *file1,
 #if defined (WIN32)
 	res = unlink(name2);
 	if (res == -1)
-		log(LOG_INFO, "d2rename: can't delete file %s", name2);
+		printlog(LOG_INFO, "d2rename: can't delete file %s", name2);
 #endif
 	res = rename(name1, name2);
 	if (res < 0)
-		log(LOG_INFO, "d2rename: error renaming %s -> %s", name1, name2);
+		printlog(LOG_INFO, "d2rename: error renaming %s -> %s", name1, name2);
 	return res;
 }
 

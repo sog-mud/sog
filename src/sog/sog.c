@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.c,v 1.11 2003-09-29 23:11:54 fjoe Exp $
+ * $Id: sog.c,v 1.12 2003-09-30 00:31:39 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -94,7 +94,7 @@ main(int argc, char **argv)
 	srand((unsigned) time(NULL));
 	err = WSAStartup(wVersionRequested, &wsaData);
 	if (err) {
-		log(LOG_INFO, "winsock.dll: %s", strerror(errno));
+		printlog(LOG_INFO, "winsock.dll: %s", strerror(errno));
 		exit(1);
 	}
 #else
@@ -148,9 +148,9 @@ main(int argc, char **argv)
 	 * unload bootdb module (it is not needed anymore)
 	 */
 	if ((m = mod_lookup("bootdb")) == NULL)			// notrans
-		log(LOG_BUG, "bootdb: no such module");
+		printlog(LOG_BUG, "bootdb: no such module");
 	else if (mod_unload(m) < 0)
-		log(LOG_BUG, "bootdb: module can't be unloaded");
+		printlog(LOG_BUG, "bootdb: module can't be unloaded");
 
 	/*
 	 * load notes and bans
@@ -158,7 +158,7 @@ main(int argc, char **argv)
 	load_notes();
 
 	if (c_isempty(&control_sockets)) {
-		log(LOG_INFO, "no control sockets defined");
+		printlog(LOG_INFO, "no control sockets defined");
 		exit(1);
 	}
 	check_info = !c_isempty(&info_sockets);
@@ -172,17 +172,17 @@ main(int argc, char **argv)
 		     "mudftp service started on port %d");	// notrans
 
 	if (c_isempty(&control_sockets)) {
-		log(LOG_INFO, "no control sockets could be opened");
+		printlog(LOG_INFO, "no control sockets could be opened");
 		exit(1);
 	}
 
 	if (check_info && c_isempty(&info_sockets)) {
-		log(LOG_INFO, "no info service sockets could be opened");
+		printlog(LOG_INFO, "no info service sockets could be opened");
 		exit(1);
 	}
 
 	if (check_mudftp && c_isempty(&mudftp_sockets)) {
-		log(LOG_INFO, "no mudftp Service sockets could be opened");
+		printlog(LOG_INFO, "no mudftp Service sockets could be opened");
 		exit(1);
 	}
 
@@ -203,7 +203,7 @@ main(int argc, char **argv)
 	/*
 	 * That's all, folks.
 	 */
-	log(LOG_INFO, "Normal termination of game.");
+	printlog(LOG_INFO, "Normal termination of game.");
 	return 0;
 }
 
@@ -233,14 +233,14 @@ init_socket(int port)
 #else
 	if ((fd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
 #endif
-		log(LOG_INFO, "init_socket(%d): socket: %s",
+		printlog(LOG_INFO, "init_socket(%d): socket: %s",
 			   port, strerror(errno));
 		return -1;
 	}
 
 	if (setsockopt(fd, SOL_SOCKET, SO_REUSEADDR,
 		       (char *) &x, sizeof(x)) < 0) {
-		log(LOG_INFO, "init_socket(%d): setsockopt: SO_REUSEADDR: %s",
+		printlog(LOG_INFO, "init_socket(%d): setsockopt: SO_REUSEADDR: %s",
 			   port, strerror(errno));
 #if defined (WIN32)
 		closesocket(fd);
@@ -253,7 +253,7 @@ init_socket(int port)
 	ld.l_onoff  = 0;
 	if (setsockopt(fd, SOL_SOCKET, SO_LINGER,
 		       (char *) &ld, sizeof(ld)) < 0) {
-		log(LOG_INFO, "init_socket(%d): setsockopt: SO_LINGER: %s",
+		printlog(LOG_INFO, "init_socket(%d): setsockopt: SO_LINGER: %s",
 			   port, strerror(errno));
 #if defined (WIN32)
 		closesocket(fd);
@@ -272,7 +272,7 @@ init_socket(int port)
 	sa.sin_port	= htons(port);
 
 	if (bind(fd, (struct sockaddr *) &sa, sizeof(sa)) < 0) {
-		log(LOG_INFO, "init_socket(%d): bind: %s", port, strerror(errno));
+		printlog(LOG_INFO, "init_socket(%d): bind: %s", port, strerror(errno));
 #if defined (WIN32)
 		closesocket(fd);
 #else
@@ -282,7 +282,7 @@ init_socket(int port)
 	}
 
 	if (listen(fd, 3) < 0) {
-		log(LOG_INFO, "init_socket(%d): listen: %s",
+		printlog(LOG_INFO, "init_socket(%d): listen: %s",
 			   port, strerror(errno));
 #if defined (WIN32)
 		closesocket(fd);
@@ -308,7 +308,7 @@ open_sockets(varr *v, const char *logm)
 		if ((sock = init_socket(*pport)) < 0)
 			continue;
 
-		log(LOG_INFO, logm, *pport);
+		printlog(LOG_INFO, logm, *pport);
 		pport2 = VARR_GET(v, j);
 		*pport2 = sock;
 		j++;
@@ -392,7 +392,7 @@ game_loop(void)
 			stall_time.tv_usec = usecDelta;
 			stall_time.tv_sec  = secDelta;
 			if (select(0, NULL, NULL, NULL, &stall_time) < 0) {
-				log(LOG_INFO, "game_loop: select: stall: %s",
+				printlog(LOG_INFO, "game_loop: select: stall: %s",
 				    strerror(errno));
 				continue;
 			}

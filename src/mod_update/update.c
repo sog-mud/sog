@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update.c,v 1.210 2003-04-24 12:42:16 fjoe Exp $
+ * $Id: update.c,v 1.211 2003-09-30 00:31:35 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -85,7 +85,7 @@ uhandler_load(const char *mod_name)
 	uhandler_t *hdlr;
 
 	if ((m = mod_lookup(mod_name)) == NULL) {
-		log(LOG_ERROR, "%s: %s: unknown module",
+		printlog(LOG_ERROR, "%s: %s: unknown module",
 		    __FUNCTION__, mod_name);
 		return;
 	}
@@ -96,7 +96,7 @@ uhandler_load(const char *mod_name)
 
 		hdlr->fun = dlsym(m->dlh, hdlr->fun_name);
 		if (hdlr->fun == NULL)
-			log(LOG_ERROR, "%s: %s", __FUNCTION__, dlerror());
+			printlog(LOG_ERROR, "%s: %s", __FUNCTION__, dlerror());
 	}
 }
 
@@ -134,7 +134,7 @@ get_pulse(const char *hdlr_name)
 	uhandler_t *hdlr = uhandler_lookup(hdlr_name);
 
 	if (!hdlr) {
-		log(LOG_BUG, "get_pulse: %s: unknown update handler",
+		printlog(LOG_BUG, "get_pulse: %s: unknown update handler",
 		    hdlr_name);
 		return 0;
 	}

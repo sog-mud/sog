@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: log.h,v 1.10 2001-08-05 16:36:21 fjoe Exp $
+ * $Id: log.h,v 1.11 2003-09-30 00:31:01 fjoe Exp $
  */
 
 #ifndef _LOG_H_
@@ -38,7 +38,7 @@ enum {
 	LOG_MAX
 };
 
-void	log(int llevel,
+void	printlog(int llevel,
 	    const char *fmt, ...) __attribute__((format(printf, 2, 3)));
 
 /*

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.160 2003-05-14 19:20:03 fjoe Exp $
+ * $Id: olc.c,v 1.161 2003-09-30 00:31:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -140,7 +140,7 @@ MODINIT_FUN(_module_load, m)
 
 	olc_interpret = dlsym(m->dlh, "_olc_interpret");
 	if (olc_interpret == NULL) {
-		log(LOG_INFO, "_module_load(mod_olc): %s", dlerror());
+		printlog(LOG_INFO, "_module_load(mod_olc): %s", dlerror());
 		return -1;
 	}
 
@@ -1681,7 +1681,7 @@ olc_printf(CHAR_DATA *ch, const char *format, ...)
 		act_puts("$t", ch, buf, NULL,
 			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 	} else
-		log(LOG_INFO, buf);
+		printlog(LOG_INFO, buf);
 	wiznet("$t", ch, buf, WIZ_OLC, 0, 0);
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.59 2003-04-24 12:42:17 fjoe Exp $
+ * $Id: updfun.c,v 1.60 2003-09-30 00:31:35 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -67,7 +67,7 @@ static void	update_obj_affects(OBJ_DATA *obj);
 static bool	update_melt_obj(OBJ_DATA *obj);
 static bool	update_potion(OBJ_DATA *obj);
 static bool	update_drinkcon(OBJ_DATA *obj);
-static inline void contents_to_obj(OBJ_DATA *obj, OBJ_DATA *to_obj);
+static void	contents_to_obj(OBJ_DATA *obj, OBJ_DATA *to_obj);
 static void	save_corpse_contents(OBJ_DATA *corpse);
 static void	print_resetmsg(AREA_DATA *pArea);
 
@@ -549,7 +549,7 @@ UPDATE_FUN(weather_update)
 
 	switch (weather_info.sky) {
 	default:
-		log(LOG_BUG, "Weather_update: bad sky %d.", weather_info.sky);
+		printlog(LOG_BUG, "Weather_update: bad sky %d.", weather_info.sky);
 		weather_info.sky = SKY_CLOUDLESS;
 		break;
 
@@ -1322,7 +1322,7 @@ UPDATE_FUN(clan_update)
 			continue;
 
 		if (clan->altar_ptr == NULL) {
-			log(LOG_BUG, "clan_item_update_foreach: clan %s: no altar_ptr",
+			printlog(LOG_BUG, "clan_item_update_foreach: clan %s: no altar_ptr",
 			    clan->name);
 			continue;
 		}
@@ -1857,7 +1857,7 @@ update_drinkcon(OBJ_DATA *obj)
 	return FALSE;
 }
 
-static inline void
+static void
 contents_to_obj(OBJ_DATA *obj, OBJ_DATA *to_obj)
 {
 	OBJ_DATA *obj_next;
@@ -1897,7 +1897,7 @@ save_corpse_contents(OBJ_DATA *corpse)
 			if (pit->pObjIndex == altar->pit)
 				break;
 	} else {
-		log(LOG_INFO, "save_corpse_contents: null altar (owner: %s)",
+		printlog(LOG_INFO, "save_corpse_contents: null altar (owner: %s)",
 			   mlstr_mval(&corpse->owner));
 	}
 

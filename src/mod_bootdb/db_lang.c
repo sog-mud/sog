@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.38 2003-09-29 23:11:25 fjoe Exp $
+ * $Id: db_lang.c,v 1.39 2003-09-30 00:31:04 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -103,7 +103,7 @@ DBLOAD_FUN(load_lang)
 		case 'E':
 			if (IS_TOKEN(fp, "End")) {
 				if (IS_NULLSTR(lang->name)) {
-					log(LOG_ERROR, "load_lang: lang name undefined");
+					printlog(LOG_ERROR, "load_lang: lang name undefined");
 					langs.nused--;
 					return;
 				}
@@ -126,7 +126,7 @@ DBLOAD_FUN(load_lang)
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			printlog(LOG_ERROR, "%s: %s: Unknown keyword",
 			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
@@ -139,7 +139,7 @@ DBLOAD_FUN(load_rulecl)
 	rulecl_t *rcl = NULL;
 
 	if (!l) {
-		log(LOG_ERROR, "load_rulecl: #RULECLASS before #LANG");
+		printlog(LOG_ERROR, "load_rulecl: #RULECLASS before #LANG");
 		return;
 	}
 
@@ -147,7 +147,7 @@ DBLOAD_FUN(load_rulecl)
 	if (IS_TOKEN(fp, "Class"))
 		rcl = l->rules + fread_fword(rulecl_names, fp);
 	else {
-		log(LOG_ERROR, "load_rulecl: Class must be defined first");
+		printlog(LOG_ERROR, "load_rulecl: Class must be defined first");
 		return;
 	}
 
@@ -190,7 +190,7 @@ DBLOAD_FUN(load_rulecl)
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			printlog(LOG_ERROR, "%s: %s: Unknown keyword",
 			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
@@ -228,7 +228,7 @@ load_rules(rfile_t *fp, rulecl_t *rcl, rule_t* (*rule_add)(rulecl_t*, rule_t*))
 		case 'E':
 			if (IS_TOKEN(fp, "End")) {
 				if (IS_NULLSTR(r.name)) {
-					log(LOG_ERROR, "load_rules: rule name undefined");
+					printlog(LOG_ERROR, "load_rules: rule name undefined");
 					rule_destroy(&r);
 				} else if (!rule_add(rcl, &r))
 					rule_destroy(&r);
@@ -253,7 +253,7 @@ load_rules(rfile_t *fp, rulecl_t *rcl, rule_t* (*rule_add)(rulecl_t*, rule_t*))
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			printlog(LOG_ERROR, "%s: %s: Unknown keyword",
 			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}

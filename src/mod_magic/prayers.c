@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.50 2003-04-25 12:49:25 fjoe Exp $
+ * $Id: prayers.c,v 1.51 2003-09-30 00:31:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2714,7 +2714,7 @@ SPELL_FUN(prayer_fly, sn, level, ch, vo)
 	act("$n starts to fly.", victim, NULL, NULL, TO_ROOM);
 }
 
-static inline void
+static void
 mist_walk(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	teleport_char(ch, NULL, victim->in_room,

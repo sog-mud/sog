@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.c,v 1.5 2003-09-29 23:11:54 fjoe Exp $
+ * $Id: db.c,v 1.6 2003-09-30 00:31:38 fjoe Exp $
  */
 
 #include <errno.h>
@@ -67,7 +67,7 @@ db_load_dir(DBDATA *dbdata, const char *path, const char *ext)
 	char mask[PATH_MAX];
 
 	if ((dirp = opendir(path)) == NULL) {
-		log(LOG_ERROR, "db_load_dir: %s: %s", path, strerror(errno));
+		printlog(LOG_ERROR, "db_load_dir: %s: %s", path, strerror(errno));
 		return;
 	}
 
@@ -98,7 +98,7 @@ db_load_list(DBDATA *dbdata, const char *path, const char *file)
 	rfile_t *fp;
 
 	if ((fp = rfile_open(path, file)) == NULL) {
-		log(LOG_ERROR, "%s%c%s: %s",
+		printlog(LOG_ERROR, "%s%c%s: %s",
 		    path, PATH_SEPARATOR, file, strerror(errno));
 		return;
 	}
@@ -173,7 +173,7 @@ db_parse_file(DBDATA *dbdata, const char *path, const char *file)
 		 path, PATH_SEPARATOR, file);
 
 	if ((fp = rfile_open(path, file)) == NULL) {
-		log(LOG_ERROR, "db_parse_file: %s", strerror(errno));
+		printlog(LOG_ERROR, "db_parse_file: %s", strerror(errno));
 		goto bail_out;
 		return;
 	}
@@ -183,7 +183,7 @@ db_parse_file(DBDATA *dbdata, const char *path, const char *file)
 		DBFUN *fn;
 
 		if (fread_letter(fp) != '#') {
-			log(LOG_ERROR, "db_parse_file: '#' not found");
+			printlog(LOG_ERROR, "db_parse_file: '#' not found");
 			break;
 		}
 
@@ -195,7 +195,7 @@ db_parse_file(DBDATA *dbdata, const char *path, const char *file)
 		if (fn)
 			fn->fun(dbdata, fp, fn->arg);
 		else {
-			log(LOG_ERROR, "db_parse_file: bad section name");
+			printlog(LOG_ERROR, "db_parse_file: bad section name");
 			break;
 		}
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.297 2003-04-25 12:49:13 fjoe Exp $
+ * $Id: act_move.c,v 1.298 2003-09-30 00:31:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2086,11 +2086,11 @@ DO_FUN(do_escape, ch, argument)
 		act_puts("You escaped from combat!",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		if (ch->level < LEVEL_HERO) {
-			int exp = FLEE_EXP(ch);
+			int xp = FLEE_EXP(ch);
 			act_puts("You lose $j exp.",
-				 ch, (const void *) exp, NULL,
+				 ch, (const void *) xp, NULL,
 				 TO_CHAR, POS_DEAD);
-			gain_exp(ch, -exp);
+			gain_exp(ch, -xp);
 		}
 	} else {
 		/* Once fled, the mob will not go after */

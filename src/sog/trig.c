@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.33 2003-09-29 23:11:54 fjoe Exp $
+ * $Id: trig.c,v 1.34 2003-09-30 00:31:39 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -70,7 +70,7 @@ trig_fread(trig_t *trig, int mp_type, const char *mp_name, rfile_t *fp)
 {
 	trig->trig_type = fread_fword(mptrig_types, fp);
 	if (trig->trig_type < 0) {
-		log(LOG_ERROR, "trig_fread: %s: unknown mptrig type",
+		printlog(LOG_ERROR, "trig_fread: %s: unknown mptrig type",
 		    rfile_tok(fp));
 		fread_to_eol(fp);
 		return;
@@ -86,7 +86,7 @@ trig_fread_inline_prog(trig_t *trig, int mp_type, const char *mp_name,
 	mprog_t *mp;
 
 	if ((mp = (mprog_t *) c_insert(&mprogs, mp_name)) == NULL) {
-		log(LOG_ERROR, "%s: %s: duplicate mprog",
+		printlog(LOG_ERROR, "%s: %s: duplicate mprog",
 		    __FUNCTION__, mp_name);
 		return FALSE;
 	}
@@ -117,7 +117,7 @@ trig_fwrite(const char *pre, trig_t *trig, FILE *fp)
 		const char *text;
 
 		if (mp == NULL) {
-			log(LOG_ERROR, "%s: %s: mprog not found",
+			printlog(LOG_ERROR, "%s: %s: mprog not found",
 			    __FUNCTION__, trig->trig_prog);
 			text = str_empty;
 		} else
@@ -158,7 +158,7 @@ trig_fread_list(varr *v, int mp_type, const char *mp_name, rfile_t *fp)
 
 	int trig_type = fread_fword(mptrig_types, fp);
 	if (trig_type < 0) {
-		log(LOG_ERROR, "trig_fread: %s: unknown mptrig type",
+		printlog(LOG_ERROR, "trig_fread: %s: unknown mptrig type",
 		    rfile_tok(fp));
 		fread_to_eol(fp);
 		return FALSE;
@@ -293,7 +293,7 @@ trig_set_arg(trig_t *trig, const char *arg)
 		return;
 
 	regerror(errcode, trig->trig_extra, buf, sizeof(buf));
-	log(LOG_ERROR, "invalid trigger arg '%s': %s",
+	printlog(LOG_ERROR, "invalid trigger arg '%s': %s",
 	    trig->trig_arg, buf);
 }
 
@@ -416,7 +416,7 @@ pull_one_trigger(trig_t *trig, int mp_type,
 
 	if (mprog_execute == NULL) {
 #if 0
-		log(LOG_ERROR, "%s: Module mod_mpc is not loaded",
+		printlog(LOG_ERROR, "%s: Module mod_mpc is not loaded",
 		    __FUNCTION__);
 #endif
 		return MPC_ERR_UNLOADED;
@@ -424,7 +424,7 @@ pull_one_trigger(trig_t *trig, int mp_type,
 
 	if ((mp = mprog_lookup(trig->trig_prog)) == NULL) {
 #if 0
-		log(LOG_ERROR, "%s: %s: mprog not found",
+		printlog(LOG_ERROR, "%s: %s: mprog not found",
 		    __FUNCTION__, trig->trig_prog);
 #endif
 		return MPC_ERR_NOTFOUND;
@@ -432,7 +432,7 @@ pull_one_trigger(trig_t *trig, int mp_type,
 
 	if (mp->type != mp_type) {
 #if 0
-		log(LOG_ERROR,
+		printlog(LOG_ERROR,
 		    "%s: %s: mprog is type `%s', type `%s' requested",
 		    __FUNCTION__, trig->trig_prog,
 		    flag_string(mprog_types, mp->type),

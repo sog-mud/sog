@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.360 2003-09-29 23:11:48 fjoe Exp $
+ * $Id: fight.c,v 1.361 2003-09-30 00:31:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -760,7 +760,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 	}
 }
 
-static inline void
+static void
 _obj_one_hit(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj,
 	     const char *sn, int dam)
 {
@@ -1281,7 +1281,7 @@ set_fighting(CHAR_DATA *ch, CHAR_DATA *victim)
 		return;
 
 	if (ch->fighting != NULL) {
-		log(LOG_BUG, "set_fighting: already fighting");
+		printlog(LOG_BUG, "set_fighting: already fighting");
 		return;
 	}
 
@@ -1540,7 +1540,7 @@ check_obj_dodge(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj, int bonus)
 	return TRUE;
 }
 
-static inline bool
+static bool
 is_safe_raw(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	/*
@@ -1847,7 +1847,7 @@ calc_spell_damage(CHAR_DATA *ch, int level, const char *sn)
 {
 	skill_t *sk = skill_lookup(sn);
 	if (sk == NULL) {
-		log(LOG_BUG, "%s: unknown skill in calc_spell_damage", sn);
+		printlog(LOG_BUG, "%s: unknown skill in calc_spell_damage", sn);
 		return 0;
 	}
 	return calc_spell_damage_org(ch, level, sk);
@@ -1861,7 +1861,7 @@ inflict_spell_damage(CHAR_DATA *ch, CHAR_DATA *victim, int level,
 	skill_t *sk = skill_lookup(sn);
 
 	if (sk == NULL) {
-		log(LOG_BUG, "%s: unknown skill in inflict_spell_damage", sn);
+		printlog(LOG_BUG, "%s: unknown skill in inflict_spell_damage", sn);
 		return;
 	}
 
@@ -3105,7 +3105,7 @@ dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 	int act_flags = (dam == 0 ? ACT_VERBOSE : 0);
 
 	if (IS_SET(dam_flags, DAM_F_HUNGER | DAM_F_THIRST | DAM_F_LIGHT_V)) {
-		log(LOG_BUG, "dam_message: damf=%x (DAM_F_HUNGER, DAM_F_THIRST or DAM_F_LIGHT_V set)",
+		printlog(LOG_BUG, "dam_message: damf=%x (DAM_F_HUNGER, DAM_F_THIRST or DAM_F_LIGHT_V set)",
 		    dam_flags);
 		return;
 	}
@@ -3265,7 +3265,7 @@ is_safe_rspell_nom(AFFECT_DATA *af, CHAR_DATA *victim)
 {
 	if (af->owner)
 		return is_safe_nomessage(victim, af->owner);
-	log(LOG_BUG, "is_safe_rspell_nom: no affect owner");
+	printlog(LOG_BUG, "is_safe_rspell_nom: no affect owner");
 	affect_remove_room(victim->in_room, af);
 	return TRUE; /* protected from broken room affects */
 }
@@ -3569,7 +3569,7 @@ calc_spell_damage_org(CHAR_DATA *ch, int level, skill_t *sk)
 	UNUSED_ARG(ch);
 
 	if (sk->rank < 0 || sk->rank > 7) {
-		log(LOG_BUG, "%d: invalid skill rank", sk->rank);
+		printlog(LOG_BUG, "%d: invalid skill rank", sk->rank);
 		sk->rank = 0;
 	}
 	return dice(level, spell_rank_dices_types[8]);

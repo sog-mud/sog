@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.c,v 1.28 2002-11-21 13:31:30 fjoe Exp $
+ * $Id: cmd.c,v 1.29 2003-09-30 00:31:38 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -80,7 +80,7 @@ cmd_load(cmd_t *cmd, int cmd_mod, module_t *m)
 	||  cmd_mod == cmd->cmd_mod) {
 		cmd->do_fun = dlsym(m->dlh, cmd->dofun_name);
 		if (cmd->do_fun == NULL)
-			log(LOG_INFO, "cmd_load: %s", dlerror());
+			printlog(LOG_INFO, "cmd_load: %s", dlerror());
 	}
 }
 
@@ -98,12 +98,12 @@ dofun(const char *name, CHAR_DATA *ch, const char *argument)
 	cmd_t *cmd;
 
 	if ((cmd = cmd_lookup(name)) == NULL) {
-		log(LOG_BUG, "dofun: %s: unknown dofun", name);
+		printlog(LOG_BUG, "dofun: %s: unknown dofun", name);
 		return;
 	}
 
 	if (cmd->do_fun == NULL)
-		log(LOG_BUG, "dofun: %s: NULL do_fun", cmd->name);
+		printlog(LOG_BUG, "dofun: %s: NULL do_fun", cmd->name);
 	else
 		cmd->do_fun(ch, argument);
 }

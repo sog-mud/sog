@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_glob_gmlstr.c,v 1.6 2002-03-21 13:54:00 fjoe Exp $
+ * $Id: db_glob_gmlstr.c,v 1.7 2003-09-30 00:31:04 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -57,13 +57,13 @@ DBLOAD_FUN(load_glob_gmlstr)
 	mlstr_fread(fp, &gml.ml);
 	if (mlstr_null(&gml.ml)) {
 		gmlstr_destroy(&gml);
-		log(LOG_ERROR, "%s: null gmlstr", __FUNCTION__);
+		printlog(LOG_ERROR, "%s: null gmlstr", __FUNCTION__);
 		fread_to_end(fp);
 		return;
 	}
 
 	if ((gmlp = c_insert(&glob_gmlstr, gmlstr_mval(&gml))) == NULL) {
-		log(LOG_ERROR, "%s: %s: duplicate gmlstr",
+		printlog(LOG_ERROR, "%s: %s: duplicate gmlstr",
 		    __FUNCTION__, gmlstr_mval(&gml));
 		fread_to_end(fp);
 		return;
@@ -87,7 +87,7 @@ DBLOAD_FUN(load_glob_gmlstr)
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			printlog(LOG_ERROR, "%s: %s: Unknown keyword",
 			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: container.h,v 1.8 2003-05-08 14:00:02 fjoe Exp $
+ * $Id: container.h,v 1.9 2003-09-30 00:31:01 fjoe Exp $
  */
 
 #ifndef _CONTAINER_H_
@@ -108,7 +108,7 @@ char *	strkey_filename(const char *name, const char *ext);
 	do {								\
 		if (!IS_NULLSTR(key)					\
 		&&  c_strkey_lookup((c), (key)) == NULL)		\
-			log(LOG_WARN, "%s: unknown string key '%s'",	\
+			printlog(LOG_WARN, "%s: unknown string key '%s'",\
 			    (ctx), (key));				\
 	} while (0)
 #define STRKEY_CHECK(c, key)	C_STRKEY_CHECK(__FUNCTION__, (c), (key))

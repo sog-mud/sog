@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_skill.c,v 1.37 2002-11-23 22:03:52 fjoe Exp $
+ * $Id: db_skill.c,v 1.38 2003-09-30 00:31:04 fjoe Exp $
  */
 
 #include <assert.h>
@@ -88,14 +88,14 @@ DBLOAD_FUN(load_skill)
 				evf_t *evf;
 
 				if (event < 0) {
-					log(LOG_ERROR, "load_skill: unknown event");
+					printlog(LOG_ERROR, "load_skill: unknown event");
 					fread_to_eol(fp);
 					break;
 				}
 
 				evf = varr_bsearch(&sk->events, &event, cmpint);
 				if (evf != NULL) {
-					log(LOG_ERROR, "load_skill: %s: duplicate event", flag_string(event_classes, event));
+					printlog(LOG_ERROR, "load_skill: %s: duplicate event", flag_string(event_classes, event));
 					fread_to_eol(fp);
 					break;
 				}
@@ -154,7 +154,7 @@ DBLOAD_FUN(load_skill)
 			KEY("Rank", sk->rank, fread_number(fp));
 			if (sk->rank < 0 || sk->rank > 7) {
 				sk->rank = 0;
-				log(LOG_ERROR, "%s: rank should be beetwen 0..7",
+				printlog(LOG_ERROR, "%s: rank should be beetwen 0..7",
 				    __FUNCTION__);
 			}
 			break;
@@ -182,7 +182,7 @@ DBLOAD_FUN(load_skill)
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			printlog(LOG_ERROR, "%s: %s: Unknown keyword",
 			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}

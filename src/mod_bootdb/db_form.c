@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_form.c,v 1.19 2002-03-20 19:39:30 fjoe Exp $
+ * $Id: db_form.c,v 1.20 2003-09-30 00:31:04 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -148,7 +148,7 @@ DBLOAD_FUN(load_form)
 			if (IS_TOKEN(fp, "Resist")) {
 				int res = fread_fword(dam_classes, fp);
 				if (res < 0 || res == DAM_NONE) {
-					log(LOG_ERROR, "load_form: unknown resistance name");
+					printlog(LOG_ERROR, "load_form: unknown resistance name");
 					fread_number(fp);
 				} else {
 					f->resists[res] = fread_number(fp);
@@ -161,7 +161,7 @@ DBLOAD_FUN(load_form)
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			printlog(LOG_ERROR, "%s: %s: Unknown keyword",
 			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}

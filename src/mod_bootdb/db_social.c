@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_social.c,v 1.23 2002-03-21 13:54:00 fjoe Exp $
+ * $Id: db_social.c,v 1.24 2003-09-30 00:31:04 fjoe Exp $
  */
 
 #include <limits.h>
@@ -64,7 +64,7 @@ DBLOAD_FUN(load_social)
 		case 'E':
 			if (IS_TOKEN(fp, "end")) {
 				if (IS_NULLSTR(soc->name)) {
-					log(LOG_ERROR, "load_social: social name not defined");
+					printlog(LOG_ERROR, "load_social: social name not defined");
 					varr_edelete(&socials, soc);
 				}
 				return;
@@ -96,7 +96,7 @@ DBLOAD_FUN(load_social)
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			printlog(LOG_ERROR, "%s: %s: Unknown keyword",
 			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
