@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: objval.c,v 1.21 2003-03-16 16:46:09 fjoe Exp $
+ * $Id: objval.c,v 1.22 2003-09-08 15:17:29 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -981,8 +981,7 @@ objval_set_spell(BUFFER *output, vo_t *v, int value_num, const char *argument)
 		return 2;
 	}
 
-	buf_printf(output, BUF_END,
-	    "SPELL/PRAYER SET.\n\n", value_num);
+	buf_printf(output, BUF_END, "SPELL/PRAYER SET.\n\n");
 	STR_ASSIGN(v[value_num], str_qdup(gmlstr_mval(&sk->sk_name)));
 	return 0;
 }
