@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.32.2.9 2000-04-24 09:18:02 osya Exp $
+ * $Id: gsn.c,v 1.32.2.10 2000-04-25 12:03:52 osya Exp $
  */
 
 #include <stdio.h>
@@ -250,6 +250,8 @@ int gsn_resurrection;
 int gsn_free_action;
 int gsn_notrack;
 int gsn_crypt_thing;
+int gsn_ice_sphere;
+int gsn_fire_sphere;
 
 /* special gsns */
 int gsn_qtarget;
@@ -467,6 +469,8 @@ namedp_t gsn_table[] =
         { "gsn_death_wave",             &gsn_death_wave                 },
         { "gsn_notrack",	        &gsn_notrack  	                },
 	{ "gsn_crypt_thing",		&gsn_crypt_thing		},
+	{ "gsn_ice_sphere",    	        &gsn_ice_sphere	                },
+	{ "gsn_fire_sphere",            &gsn_fire_sphere                },
 	{ NULL }
 };
 

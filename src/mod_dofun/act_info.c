@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.18 2000-04-25 08:34:43 osya Exp $
+ * $Id: act_info.c,v 1.271.2.19 2000-04-25 12:03:47 osya Exp $
  */
 
 /***************************************************************************
@@ -4078,7 +4078,7 @@ static void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch,
 	free(prgnShow);
 }
 
-#define FLAG_SET(pos, c, exp) (FLAGS[pos] = (exp) ? (flags = TRUE, c) : '.')
+#define FLAG_SET(pos, c, exp) (buf[pos] = (exp) ? (flags = TRUE, c) : '.')
 
 static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 {
@@ -4138,16 +4138,18 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			char_puts("({gCamf{x) ", ch);
 		if (IS_AFFECTED(victim, AFF_BLEND))
 			char_puts("({gBlending{x) ", ch);
-		if (is_affected(victim, sn_lookup("ice sphere")))
+		if (is_affected(victim, gsn_ice_sphere))
 			act_puts("({CIn ice sphere{x) ", ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
-		if (is_affected(victim, sn_lookup("fire sphere")))
+		if (is_affected(victim, gsn_fire_sphere))
 			act_puts("({RIn fire sphere{x) ", ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 		if (IS_SET(ch->comm, COMM_SHOW_RACE))
 			act_puts("({c$T{x) ", ch, NULL, race_name(victim->race), TO_CHAR | ACT_NOLF, POS_DEAD);
 	}
 	else {
 		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{g.{g.{x.{x";
+		char buf[sizeof(FLAGS)];
 		bool flags = FALSE;
+		strnzcpy(buf, sizeof(buf), FLAGS);
 
 		FLAG_SET( 5, 'I', IS_AFFECTED(victim, AFF_INVIS));
 		FLAG_SET( 8, 'H', IS_AFFECTED(victim, AFF_HIDE));
@@ -4173,19 +4175,20 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		FLAG_SET(38, 'F', IS_AFFECTED(victim, AFF_FADE));
 		FLAG_SET(41, 'C', IS_AFFECTED(victim, AFF_CAMOUFLAGE));
 		FLAG_SET(44, 'B', IS_AFFECTED(victim, AFF_BLEND));
-		FLAG_SET(46, 'C', is_affected(victim, sn_lookup("ice sphere")));
-		FLAG_SET(47, 'I', is_affected(victim, sn_lookup("ice sphere")));
-		
-		if (is_affected(victim, sn_lookup("fire sphere"))) {
+		if (is_affected(victim, gsn_ice_sphere)) {
+			FLAG_SET(46, 'C', TRUE);
+			FLAG_SET(47, 'I', TRUE);
+		}
+		if (is_affected(victim, gsn_fire_sphere)) {
 			FLAG_SET(46, 'R', TRUE);
 			FLAG_SET(47, 'F', TRUE);
 		}
-		if (flags || IS_SET(ch->comm, COMM_SHOW_RACE)) 
+		if (strcmp(buf, FLAGS) || IS_SET(ch->comm, COMM_SHOW_RACE)) 
 			if (IS_SET(ch->comm, COMM_SHOW_RACE)) {
-				char_puts(FLAGS, ch);
+				char_puts(buf, ch);
 		                act_puts("{c$T{x] ", ch, NULL, race_name(victim->race), TO_CHAR | ACT_NOLF, POS_DEAD);
 			} else {
-				char_puts(FLAGS, ch);
+				char_puts(buf, ch);
 				char_puts("] ", ch);
 			}
 	}
