@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.40 1999-02-23 22:26:13 fjoe Exp $
+ * $Id: olc_obj.c,v 1.41 1999-02-27 07:26:16 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -829,9 +829,6 @@ OLC_FUN(objed_clone)
 	AFFECT_DATA *paf;
 	AFFECT_DATA *paf_next;
 	AFFECT_DATA **ppaf;
-	ED_DATA *ed;
-	ED_DATA *ed_next;
-	ED_DATA **ped;
 
 	one_argument(argument, arg, sizeof(arg));
 	if (!is_number(arg)) {
@@ -884,16 +881,8 @@ OLC_FUN(objed_clone)
 	}
 
 /* copy extra descriptions */
-	for (ed = pObj->ed; ed; ed = ed_next) {
-		ed_next = ed->next;
-		ed_free(ed);
-	}
-
-	ped = &pObj->ed;
-	for (ed = pFrom->ed; ed; ed = ed->next) {
-		*ped = ed_dup(ed);
-		ped = &(*ped)->next;
-	}
+	ed_free(pObj->ed);
+	pObj->ed = ed_dup(pFrom->ed);
 
 	return TRUE;
 }

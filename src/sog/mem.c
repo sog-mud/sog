@@ -1,5 +1,5 @@
 /*
- * $Id: mem.c,v 1.25 1999-02-25 14:59:23 fjoe Exp $
+ * $Id: mem.c,v 1.26 1999-02-27 07:26:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -33,7 +33,6 @@ extern          int                     top_exit;
 extern          int                     top_room;
 extern		int			top_mprog_index;
 
-void	ed_free		(ED_DATA *pExtra);
 void	aff_free	(AFFECT_DATA *af);
 
 RESET_DATA *new_reset_data(void)
@@ -149,7 +148,6 @@ ROOM_INDEX_DATA *new_room_index(void)
 void free_room_index(ROOM_INDEX_DATA *pRoom)
 {
 	int door;
-	ED_DATA *pExtra;
 	RESET_DATA *pReset;
 
 	mlstr_free(pRoom->name);
@@ -160,8 +158,7 @@ void free_room_index(ROOM_INDEX_DATA *pRoom)
         	if (pRoom->exit[door])
 			free_exit(pRoom->exit[door]);
 
-	for (pExtra = pRoom->ed; pExtra; pExtra = pExtra->next)
-		ed_free(pExtra);
+	ed_free(pRoom->ed);
 
 	for (pReset = pRoom->reset_first; pReset; pReset = pReset->next)
 		free_reset_data(pReset);
@@ -209,7 +206,6 @@ OBJ_INDEX_DATA *new_obj_index(void)
 
 void free_obj_index(OBJ_INDEX_DATA *pObj)
 {
-	ED_DATA *pExtra;
 	AFFECT_DATA *pAf;
 
 	if (!pObj)
@@ -223,8 +219,7 @@ void free_obj_index(OBJ_INDEX_DATA *pObj)
 	for (pAf = pObj->affected; pAf; pAf = pAf->next)
 		aff_free(pAf);
 
-	for (pExtra = pObj->ed; pExtra; pExtra = pExtra->next)
-		ed_free(pExtra);
+	ed_free(pObj->ed);
     
 	top_obj_index--;
 	free(pObj);

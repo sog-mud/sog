@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.47 1999-02-22 13:30:28 fjoe Exp $
+ * $Id: olc.c,v 1.48 1999-02-27 07:26:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -487,6 +487,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 		else
 			prev->next = ed->next;
 
+		ed->next = NULL;
 		ed_free(ed);
 
 		char_puts("Extra description deleted.\n", ch);

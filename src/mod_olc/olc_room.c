@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.40 1999-02-27 06:45:35 fjoe Exp $
+ * $Id: olc_room.c,v 1.41 1999-02-27 07:26:16 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -62,6 +62,7 @@ DECLARE_OLC_FUN(roomed_owner		);
 DECLARE_OLC_FUN(roomed_room		);
 DECLARE_OLC_FUN(roomed_sector		);
 DECLARE_OLC_FUN(roomed_reset		);
+DECLARE_OLC_FUN(roomed_clone		);
 
 OLC_CMD_DATA olc_cmds_room[] =
 {
@@ -79,6 +80,7 @@ OLC_CMD_DATA olc_cmds_room[] =
 	{ "heal",	roomed_heal			},
 	{ "mana",	roomed_mana			},
 	{ "clan",	roomed_clan			},
+	{ "clone",	roomed_clone			},
 
 	{ "north",	roomed_north			},
 	{ "south",	roomed_south			},
@@ -786,6 +788,60 @@ OLC_FUN(roomed_reset)
 	reset_room(pRoom);
 	char_puts("RoomEd: Room reset.\n", ch);
 	return FALSE;
+}
+
+OLC_FUN(roomed_clone)
+{
+	ROOM_INDEX_DATA *room;
+	ROOM_INDEX_DATA *proto;
+	char arg[MAX_INPUT_LENGTH];
+	int i;
+	bool fAll = FALSE;
+
+	argument = one_argument(argument, arg, sizeof(arg));
+	if (!str_cmp(arg, "all")) {
+		fAll = TRUE;
+		argument = one_argument(argument, arg, sizeof(arg));
+	}
+
+	if (!is_number(arg)) {
+		do_help(ch, "'OLC ROOM CLONE'");
+		return FALSE;
+	}
+
+	i = atoi(arg);
+	if ((proto = get_room_index(i)) == NULL) {
+		char_printf(ch, "RoomEd: %d: Vnum does not exist.\n", i);
+		return FALSE;
+	}
+
+	EDIT_ROOM(ch, room);
+	if (room == proto) {
+		char_puts("RoomEd: Huh, cloning from self?\n", ch);
+		return FALSE;
+	}
+
+	mlstr_free(room->name);
+	room->name = mlstr_dup(proto->name);
+
+	mlstr_free(room->name);
+	room->description = mlstr_dup(proto->description);
+
+	if (fAll) {
+		ed_free(room->ed);
+		room->ed = ed_dup(proto->ed);
+
+		free_string(room->owner);
+		room->owner = str_dup(proto->owner);
+
+		room->room_flags = proto->room_flags;
+		room->sector_type = proto->sector_type;
+		room->heal_rate = proto->heal_rate;
+		room->mana_rate = proto->mana_rate;
+		room->clan = proto->clan;
+	}
+
+	return TRUE;
 }
 
 void roomed_edit_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoom, bool drop_out)

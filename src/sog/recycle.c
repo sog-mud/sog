@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.41 1999-02-21 19:19:27 fjoe Exp $
+ * $Id: recycle.c,v 1.42 1999-02-27 07:26:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -71,21 +71,34 @@ ED_DATA *ed_new2(const ED_DATA *ed, const char* name)
 
 ED_DATA *ed_dup(const ED_DATA *ed)
 {
-	ED_DATA *ned = ed_new();
-	ned->keyword		= str_qdup(ed->keyword);
-	ned->description	= mlstr_dup(ed->description);
+	ED_DATA *ned = NULL;
+	ED_DATA **ped = &ned;
+
+	for (; ed; ed = ed->next) {
+		*ped = ed_new();
+		(*ped)->keyword		= str_qdup(ed->keyword);
+		(*ped)->description	= mlstr_dup(ed->description);
+		ped = &(*ped)->next;
+	}
+
 	return ned;
 }
 
 void ed_free(ED_DATA *ed)
 {
+	ED_DATA *ed_next;
+
 	if (!ed)
 		return;
 
-	free_string(ed->keyword);
-	mlstr_free(ed->description);
-	free(ed);
-	top_ed--;
+	for (; ed; ed = ed_next) {
+		ed_next = ed->next;
+
+		free_string(ed->keyword);
+		mlstr_free(ed->description);
+		free(ed);
+		top_ed--;
+	}
 }
 
 void ed_fread(FILE *fp, ED_DATA **edp)
@@ -154,7 +167,6 @@ OBJ_DATA *new_obj(void)
 void free_obj(OBJ_DATA *obj)
 {
 	AFFECT_DATA *paf, *paf_next;
-	ED_DATA *ed, *ed_next;
 
 	if (!obj)
 		return;
@@ -165,10 +177,7 @@ void free_obj(OBJ_DATA *obj)
     	}
 	obj->affected = NULL;
 
-	for (ed = obj->ed; ed != NULL; ed = ed_next ) {
-		ed_next = ed->next;
-		ed_free(ed);
-    	}
+	ed_free(obj->ed);
 	obj->ed = NULL;
    
 	free_string(obj->name);
