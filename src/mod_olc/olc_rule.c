@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.16 1999-10-17 08:55:46 fjoe Exp $
+ * $Id: olc_rule.c,v 1.17 1999-10-19 19:22:56 avn Exp $
  */
 
 #include "olc.h"
@@ -217,7 +217,7 @@ OLC_FUN(ruleed_edit)
 		return FALSE;
 	}
 
-	ch->desc->olced = olced_lookup(rops->id);
+	OLCED(ch) = olced_lookup(rops->id);
 	ch->desc->pEdit	= r;
 	ch->desc->pEdit2= rcl;
 	return FALSE;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.6 1999-10-17 08:55:45 fjoe Exp $
+ * $Id: olc_class.c,v 1.7 1999-10-19 19:22:56 avn Exp $
  */
 
 #include "olc.h"
@@ -38,7 +38,6 @@ DECLARE_OLC_FUN(classed_touch		);
 DECLARE_OLC_FUN(classed_show		);
 DECLARE_OLC_FUN(classed_list		);
 
-DECLARE_OLC_FUN(classed_name		);
 DECLARE_OLC_FUN(classed_whoname		);
 DECLARE_OLC_FUN(classed_titles		);
 DECLARE_OLC_FUN(classed_primary		);
@@ -60,9 +59,9 @@ DECLARE_OLC_FUN(classed_guilds		);
 
 DECLARE_OLC_FUN(olc_skill_update	);
 
-static DECLARE_VALIDATE_FUN(validate_name);
 static DECLARE_VALIDATE_FUN(validate_whoname);
 
+olced_strkey_t strkey_classes = { &classes, CLASSES_PATH };
 
 olc_cmd_t olc_cmds_class[] =
 {
@@ -73,7 +72,7 @@ olc_cmd_t olc_cmds_class[] =
 	{ "show",	classed_show					},
 	{ "list",	classed_list					},
 
-	{ "name",	classed_name,		validate_name		},
+	{ "name",	olced_strkey,		NULL,	&strkey_classes	},
 	{ "whoname",	classed_whoname,	validate_whoname	},
 	{ "primary",	classed_primary,	NULL,	stat_names	},
 	{ "weapon",	classed_weapon					},
@@ -122,13 +121,10 @@ OLC_FUN(classed_create)
 		return FALSE;
 	}
 
-	if ((cl = class_lookup(arg)) != 0) {
-		char_printf(ch, "ClassEd: %s: already exists.\n", cl->name);
-		return FALSE;
-	}
-
-	if (olced_busy(ch, ED_CLASS, NULL, NULL))
-		return FALSE;
+	/*
+	 * olced_busy check is not needed since hash_insert
+	 * adds new elements to the end of varr
+	 */
 
 	class_init(&class);
 	class.name	= str_dup(arg);
@@ -136,7 +132,7 @@ OLC_FUN(classed_create)
 	class_destroy(&class);
 
 	if (cl == NULL) {
-		char_puts("ClassEd: hash_insert failed.\n", ch);
+		char_printf(ch, "ClassEd: %s: already exists.\n", cl->name);
 		return FALSE;
 	}
 
@@ -268,17 +264,6 @@ OLC_FUN(classed_list)
 	page_to_char(buf_string(buffer), ch);
 	buf_free(buffer);
 	return FALSE;
-}
-
-OLC_FUN(classed_name)
-{
-	class_t *class;
-
-	if (olced_busy(ch, ED_CLASS, NULL, NULL))
-		return FALSE;
-
-	EDIT_CLASS(ch, class);
-	return olced_str(ch, argument, cmd, &class->name);
 }
 
 OLC_FUN(classed_whoname)
@@ -652,23 +637,6 @@ bool touch_class(class_t *class)
 {
 	SET_BIT(class->class_flags, CLASS_CHANGED);
 	return FALSE;
-}
-
-static VALIDATE_FUN(validate_name)
-{
-	class_t *cl;
-	class_t *cl2;
-
-	EDIT_CLASS(ch, cl);
-	if ((cl2 = class_lookup(arg)) != NULL
-	&&  cl2 != cl) {
-		char_printf(ch, "ClassEd: %s: duplicate class name.\n", arg);
-		return FALSE;
-	}
-
-	d2rename(CLASSES_PATH, smash_spaces(cl->name),
-		 CLASSES_PATH, smash_spaces(arg));
-	return TRUE;
 }
 
 static void *

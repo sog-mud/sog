@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.48 1999-10-18 18:08:06 avn Exp $
+ * $Id: olc.h,v 1.49 1999-10-19 19:22:56 avn Exp $
  */
 
 /***************************************************************************
@@ -118,9 +118,19 @@ bool olced_obj_busy(CHAR_DATA *ch);
 bool olced_busy(CHAR_DATA *ch, const char *id, void *edit, void *edit2);
 
 /*
+ * structure for passing parameters to hash key OLC editor
+ */
+typedef struct olced_strkey_t olced_strkey_t;
+struct olced_strkey_t {
+	hash_t *h;
+	const char *path;	/* path to conf files for edited hash */
+};
+
+/*
  * Generic data edit functions
  */
 DECLARE_OLC_FUN(olced_spell_out);
+DECLARE_OLC_FUN(olced_strkey);
 
 bool olced_number	(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, int*);

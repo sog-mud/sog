@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: material.c,v 1.1 1999-10-18 18:08:10 avn Exp $
+ * $Id: material.c,v 1.2 1999-10-19 19:22:57 avn Exp $
  */
 
 #include <stdio.h>
@@ -31,26 +31,6 @@
 #include "merc.h"
 
 hash_t materials;
-
-static void *
-material_search_cb(void *p, void *d)
-{
-	material_t *mat = (material_t*) p;
-	const char *pmn = (const char *) d;
-	if (!str_prefix(pmn, mat->name))
-		return p;
-	return NULL;
-}
-
-/*
- * material_search -- lookup material by prefix
- */
-material_t *material_search(const char *pmn)
-{
-	if (IS_NULLSTR(pmn))
-		return NULL;
-	return hash_foreach(&materials, material_search_cb, (void*) pmn);
-}
 
 void material_init(material_t *mat)
 {
@@ -103,16 +83,21 @@ int floating_time(OBJ_DATA *obj)
 		return -1;
 
 	if ((mat = material_lookup(obj->material)) != NULL
-	&& (ftime = mat->float_time) < 0)
+	&&  (ftime = mat->float_time) == 0)
 		return ftime;
 
-	switch(obj->pObjIndex->item_type) {
-		default: break;
-		case ITEM_POTION:	ftime += 1;	break;
-		case ITEM_FOOD:		ftime += 1;	break;
-		case ITEM_CONTAINER:	ftime += 1;	break;
-		case ITEM_CORPSE_NPC:	ftime += 3;	break;
-		case ITEM_CORPSE_PC:	ftime += 3;	break;
+	switch (obj->pObjIndex->item_type) {
+	default:
+		break;
+	case ITEM_POTION:
+	case ITEM_FOOD:
+	case ITEM_CONTAINER:
+		ftime += 1;
+		break;
+	case ITEM_CORPSE_NPC:
+	case ITEM_CORPSE_PC:
+		ftime += 3;
+		break;
 	}
 
 	return ftime;

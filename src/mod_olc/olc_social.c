@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.11 1999-10-17 08:55:46 fjoe Exp $
+ * $Id: olc_social.c,v 1.12 1999-10-19 19:22:57 avn Exp $
  */
 
 #include "olc.h"
@@ -49,7 +49,7 @@ DECLARE_OLC_FUN(soced_self_char		);
 DECLARE_OLC_FUN(soced_self_room		);
 DECLARE_OLC_FUN(soced_notfound_char	);
 
-static DECLARE_VALIDATE_FUN(validate_name);
+static DECLARE_VALIDATE_FUN(validate_soc_name);
 
 olc_cmd_t olc_cmds_soc[] =
 {
@@ -60,7 +60,7 @@ olc_cmd_t olc_cmds_soc[] =
 	{ "show",	soced_show					},
 	{ "list",	soced_list					},
 
-	{ "name",	soced_name,	validate_name 			},
+	{ "name",	soced_name,	validate_soc_name 		},
 	{ "minpos",	soced_minpos,	NULL,		position_table	},
 
 	{ "found_char",	soced_found_char				},
@@ -317,7 +317,7 @@ OLC_FUN(soced_notfound_char)
 	return olced_str(ch, argument, cmd, &soc->notfound_char);
 }
 
-static VALIDATE_FUN(validate_name)
+static VALIDATE_FUN(validate_soc_name)
 {
 	const char *name = (const char*) arg;
 	social_t *soc, *soc2;

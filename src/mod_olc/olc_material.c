@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_material.c,v 1.3 1999-10-18 19:05:36 avn Exp $
+ * $Id: olc_material.c,v 1.4 1999-10-19 19:22:56 avn Exp $
  */
 
 #include "olc.h"
@@ -37,14 +37,13 @@ DECLARE_OLC_FUN(mated_touch		);
 DECLARE_OLC_FUN(mated_show		);
 DECLARE_OLC_FUN(mated_list		);
 
-DECLARE_OLC_FUN(mated_name		);
 DECLARE_OLC_FUN(mated_float		);
 DECLARE_OLC_FUN(mated_damclass		);
 DECLARE_OLC_FUN(mated_material		);
 
 DECLARE_OLC_FUN(mated_delete		);
 
-static DECLARE_VALIDATE_FUN(validate_name);
+olced_strkey_t strkey_materials = { &materials, NULL };
 
 olc_cmd_t olc_cmds_mat[] =
 {
@@ -55,10 +54,10 @@ olc_cmd_t olc_cmds_mat[] =
 	{ "show",	mated_show					},
 	{ "list",	mated_list					},
 
-	{ "name",	mated_name,		validate_name		},
+	{ "name",	olced_strkey,	NULL,	&strkey_materials	},
 	{ "float",	mated_float					},
-	{ "damclass",	mated_damclass,		NULL,	dam_classes	},
-	{ "material",	mated_material,		NULL,	material_flags	},
+	{ "damclass",	mated_damclass,	NULL,	dam_classes		},
+	{ "material",	mated_material,	NULL,	material_flags		},
 
 	{ "delete",	mated_delete					},
 
@@ -71,6 +70,7 @@ static void *material_save_cb(void *p, void *d);
 OLC_FUN(mated_create)
 {
 	material_t mat;
+	material_t *m;
 
 	if (PC(ch)->security < SECURITY_MATERIAL) {
 		char_puts("MatEd: Insufficient security for creating materials.\n", ch);
@@ -82,16 +82,23 @@ OLC_FUN(mated_create)
 		return FALSE;
 	}
 
+	/*
+	 * olced_busy check is not needed since hash_insert
+	 * adds new elements to the end of varr
+	 */
+
 	material_init(&mat);
 	mat.name = str_dup(argument);
+	m = hash_insert(&materials, mat.name, &mat);
+	material_destroy(&mat);
 
-	if (!(ch->desc->pEdit = (void*)hash_insert(&materials, mat.name, &mat))) {
-		char_printf(ch, "MatEd: %s: already exists.\n",
-			    mat.name);
+	if (m == NULL) {
+		char_printf(ch, "MatEd: %s: already exists.\n", mat.name);
 		return FALSE;
 	}
 
 	OLCED(ch)	= olced_lookup(ED_MATERIAL);
+	ch->desc->pEdit = m;
 	char_puts("Material created.\n",ch);
 	return FALSE;
 }
@@ -196,14 +203,6 @@ OLC_FUN(mated_list)
 	return FALSE;
 }
 
-OLC_FUN(mated_name)
-{
-	material_t *mat;
-
-	EDIT_MAT(ch, mat);
-	return olced_str(ch, argument, cmd, &mat->name);
-}
-
 OLC_FUN(mated_float)
 {
 	material_t *mat;
@@ -234,29 +233,6 @@ OLC_FUN(mated_delete)
 
 	EDIT_MAT(ch, mat);
 	hash_delete(&materials, mat);
-	return TRUE;
-}
-
-static VALIDATE_FUN(validate_name)
-{
-	material_t *mat, *m2;
-	const char *old;
-
-	EDIT_MAT(ch, mat);
-	
-	old = mat->name;
-	mat->name = str_dup(arg);
-	if (!(m2 = hash_insert(&materials, mat->name, mat))) {
-		char_printf(ch, "MatEd: %s: duplicate name.\n", arg);
-		free_string(mat->name);
-		mat->name = old;
-		return FALSE;
-	}
-
-	free_string(mat->name);
-	mat->name = old;
-	hash_delete(&materials, mat);
-	ch->desc->pEdit = (void*)m2;
 	return TRUE;
 }
 

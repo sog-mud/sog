@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.33 1999-10-17 08:55:45 fjoe Exp $
+ * $Id: olc_clan.c,v 1.34 1999-10-19 19:22:56 avn Exp $
  */
 
 #include "olc.h"
@@ -47,7 +47,7 @@ DECLARE_OLC_FUN(claned_altar		);
 DECLARE_OLC_FUN(claned_plist		);
 DECLARE_OLC_FUN(claned_skillspec	);
 
-static DECLARE_VALIDATE_FUN(validate_name);
+static DECLARE_VALIDATE_FUN(validate_clan_name);
 
 olc_cmd_t olc_cmds_clan[] =
 {
@@ -58,7 +58,7 @@ olc_cmd_t olc_cmds_clan[] =
 	{ "show",	claned_show					},
 	{ "list",	claned_list					},
 
-	{ "name",	claned_name,	validate_name	 		},
+	{ "name",	claned_name,	validate_clan_name	 	},
 	{ "filename",	claned_filename,validate_filename		},
 	{ "recall",	claned_recall,	validate_room_vnum		},
 	{ "flags",	claned_flags,	NULL,		clan_flags	},
@@ -347,7 +347,7 @@ bool touch_clan(clan_t *clan)
 	return FALSE;
 }
 
-static VALIDATE_FUN(validate_name)
+static VALIDATE_FUN(validate_clan_name)
 {
 	int i;
 	clan_t *clan;

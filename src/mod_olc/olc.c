@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.74 1999-10-18 18:50:10 avn Exp $
+ * $Id: olc.c,v 1.75 1999-10-19 19:22:55 avn Exp $
  */
 
 /***************************************************************************
@@ -249,6 +249,48 @@ OLC_FUN(olced_spell_out)
 {
 	char_puts("Spell it out.\n", ch);
 	return FALSE;
+}
+
+OLC_FUN(olced_strkey)
+{
+	void *p, *q;
+	char arg[MAX_INPUT_LENGTH];
+	olced_strkey_t *o;
+
+	one_argument(argument, arg, sizeof(arg));
+	if (IS_NULLSTR(arg)) {
+		char_printf(ch, "Syntax: %s string\n", cmd->name);
+		return FALSE;
+	}
+
+	if (olced_busy(ch, OLCED(ch)->id, NULL, NULL))
+		return FALSE;
+
+	p = ch->desc->pEdit;
+	if (!str_cmp(*(const char **)p, arg)) {
+		char_puts("Ok.\n", ch);
+		return FALSE;
+	}
+
+	o = (olced_strkey_t *) cmd->arg1;
+	if ((q = hash_insert(o->h, arg, p)) == NULL) {
+		char_printf(ch, "%s: %s: duplicate name.\n",
+			    OLCED(ch)->name, arg);
+		return FALSE;
+	}
+
+	if (o->path) {
+		d2rename(o->path, smash_spaces(*(const char**) p),
+			 o->path, smash_spaces(*(const char**) q));
+	}
+
+	hash_delete(o->h, p);
+	ch->desc->pEdit = q;
+
+	free_string(*(const char **) q);
+	*(const char **) q = str_dup(arg);
+	char_puts("Ok.\n", ch);
+	return TRUE;
 }
 
 bool olced_number(CHAR_DATA *ch, const char *argument,

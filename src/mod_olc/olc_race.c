@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.11 1999-10-18 18:08:06 avn Exp $
+ * $Id: olc_race.c,v 1.12 1999-10-19 19:22:56 avn Exp $
  */
 
 #include "olc.h"
@@ -37,7 +37,6 @@ DECLARE_OLC_FUN(raceed_touch		);
 DECLARE_OLC_FUN(raceed_show		);
 DECLARE_OLC_FUN(raceed_list		);
 
-DECLARE_OLC_FUN(raceed_name		);
 DECLARE_OLC_FUN(raceed_act		);
 DECLARE_OLC_FUN(raceed_affect		);
 DECLARE_OLC_FUN(raceed_off		);
@@ -70,9 +69,10 @@ DECLARE_OLC_FUN(raceed_delclass		);
 
 DECLARE_OLC_FUN(olc_skill_update	);
 
-static DECLARE_VALIDATE_FUN(validate_name);
 static DECLARE_VALIDATE_FUN(validate_whoname);
 static DECLARE_VALIDATE_FUN(validate_haspcdata);
+
+olced_strkey_t strkey_races = { &races, RACES_PATH };
 
 olc_cmd_t olc_cmds_race[] =
 {
@@ -83,7 +83,7 @@ olc_cmd_t olc_cmds_race[] =
 	{ "show",	raceed_show					},
 	{ "list",	raceed_list					},
 
-	{ "name",	raceed_name,	validate_name			},
+	{ "name",	olced_strkey,	NULL,		&strkey_races	},
 	{ "act",	raceed_act,	NULL,		act_flags	},
 	{ "affect",	raceed_affect,	NULL,		affect_flags	},
 	{ "off",	raceed_off,	NULL,		off_flags	},
@@ -144,13 +144,10 @@ OLC_FUN(raceed_create)
 		return FALSE;
 	}
 
-	if ((r = race_lookup(arg)) != NULL) {
-		char_printf(ch, "RaceEd: %s: already exists.\n", r->name);
-		return FALSE;
-	}
-
-	if (olced_busy(ch, ED_RACE, NULL, NULL))
-		return FALSE;
+	/*
+	 * olced_busy check is not needed since hash_insert
+	 * adds new elements to the end of varr
+	 */
 
 	race_init(&race);
 	race.name = str_dup(arg);
@@ -158,7 +155,7 @@ OLC_FUN(raceed_create)
 	race_destroy(&race);
 
 	if (r == NULL) {
-		char_puts("RaceEd: hash_insert failed.\n", ch);
+		char_printf(ch, "RaceEd: %s: already exists.\n", r->name);
 		return FALSE;
 	}
 
@@ -347,17 +344,6 @@ OLC_FUN(raceed_list)
 	page_to_char(buf_string(buffer), ch);
 	buf_free(buffer);
 	return FALSE;
-}
-
-OLC_FUN(raceed_name)
-{
-	race_t *race;
-
-	if (olced_busy(ch, ED_RACE, NULL, NULL))
-		return FALSE;
-
-	EDIT_RACE(ch, race);
-	return olced_str(ch, argument, cmd, &race->name);
 }
 
 OLC_FUN(raceed_act)
@@ -692,23 +678,6 @@ bool touch_race(race_t *race)
 {
 	SET_BIT(race->race_flags, RACE_CHANGED);
 	return FALSE;
-}
-
-static VALIDATE_FUN(validate_name)
-{
-	race_t *r;
-	race_t *r2;
-	EDIT_RACE(ch, r);
-
-	if ((r2 = race_lookup(arg)) != NULL
-	&&  r2 != r) {
-		char_printf(ch, "RaceEd: %s: duplicate race name.\n", arg);
-		return FALSE;
-	}
-
-	d2rename(RACES_PATH, smash_spaces(r->name),
-		 RACES_PATH, smash_spaces(arg));
-	return TRUE;
 }
 
 static void *
