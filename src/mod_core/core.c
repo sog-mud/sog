@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: core.c,v 1.15 2000-10-07 20:41:03 fjoe Exp $
+ * $Id: core.c,v 1.16 2000-10-13 08:46:14 fjoe Exp $
  */
 
 #include <errno.h>
@@ -103,7 +103,7 @@ do_modules(CHAR_DATA *ch, const char *argument)
 
 		buf = buf_new(-1);
 		buf_append(buf, "  Module  Prio          Load time         Deps\n");
-		buf_append(buf, "--------- ---- -------------------------- -----------------------------------");
+		buf_append(buf, "--------- ---- -------------------------- -----------------------------------\n");
 		for (i = 0; i < modules.nused; i++) {
 			module_t *m = VARR_GET(&modules, i);
 			buf_printf(buf, BUF_END, "%9s %4d [%24s] %s\n",
