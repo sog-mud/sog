@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.1 1999-11-10 09:52:53 fjoe Exp $
+ * $Id: update.c,v 1.157.2.2 1999-11-18 15:35:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -173,12 +173,11 @@ void advance(CHAR_DATA *victim, int level)
 
 		char_puts("**** OOOOHHHHHHHHHH  NNNNOOOO ****\n", victim);
 		temp_prac = PC(victim)->practice;
-		victim->level		= 1;
+		victim->level = 1;
 		PC(victim)->exp	= base_exp(victim);
 		SET_HIT(victim, 20);
 		SET_MANA(victim, 100);
 		SET_MOVE(victim, 100);
-		PC(victim)->practice= 0;
 		advance_level(victim);
 		PC(victim)->practice= temp_prac;
 	} else 

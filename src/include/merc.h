@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.1 1999-11-10 09:52:43 fjoe Exp $
+ * $Id: merc.h,v 1.234.2.2 1999-11-18 15:35:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1475,7 +1475,6 @@ struct pc_data
 	flag32_t		wiznet; /* wiz stuff */
 	int			condition	[MAX_COND];
 	varr			learned;
-	int			points;
 	int 			security;	/* OLC */ /* Builder security */
 	int			bank_s;
 	int			bank_g;

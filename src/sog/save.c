@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.126.2.2 1999-11-10 09:52:51 fjoe Exp $
+ * $Id: save.c,v 1.126.2.3 1999-11-18 15:35:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -235,7 +235,7 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 		ch->position == POS_FIGHTING ? POS_STANDING : ch->position);
 	fprintf(fp, "Alig  %d\n", ch->alignment);
 	if (ch->wimpy != 0)
-		fprintf(fp, "Wimp  %d\n", ch->wimpy);
+		fprintf(fp, "Wimp %d\n", ch->wimpy);
 	fprintf(fp, "Attr %d %d %d %d %d %d\n",
 		ch->perm_stat[STAT_STR],
 		ch->perm_stat[STAT_INT],
@@ -313,9 +313,7 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 		fwrite_string(fp, "Bout", pc->bamfout);
 		fwrite_string(fp, "Titl", pc->title);
 		fwrite_string(fp, "WantedBy", pc->wanted_by);
-		if (pc->form_name)
-			fwrite_string(fp, "FormName", pc->form_name);
-		fprintf(fp, "Pnts %d\n", pc->points);
+		fwrite_string(fp, "FormName", pc->form_name);
 		fprintf(fp, "CndC %d %d %d %d %d %d\n",
 			pc->condition[0],
 			pc->condition[1],
@@ -474,7 +472,7 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 
 	fprintf(fp, "Wear %d\n", obj->wear_loc);
 	if (obj->level != obj->pObjIndex->level)
-		fprintf(fp, "Lev  %d\n", obj->level);
+		fprintf(fp, "Lev %d\n", obj->level);
 	if (obj->timer != 0)
 		fprintf(fp, "Time %d\n", obj->timer);
 	fprintf(fp, "Cost %d\n", obj->cost);
@@ -483,7 +481,7 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 	    || obj->value[2] != obj->pObjIndex->value[2]
 	    || obj->value[3] != obj->pObjIndex->value[3]
 	    || obj->value[4] != obj->pObjIndex->value[4])
-		fprintf(fp, "Val  %d %d %d %d %d\n",
+		fprintf(fp, "Val %d %d %d %d %d\n",
 		  obj->value[0], obj->value[1], obj->value[2], obj->value[3],
 			obj->value[4]);
 
@@ -613,7 +611,6 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 
 	for (;;) {
 		bool fMatch = FALSE;
-		int foo;
 		const char *word = feof(fp) ? "End" : fread_word(fp);
 
 		switch (UPPER(word[0])) {
@@ -665,7 +662,7 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 				fMatch = TRUE;
 				break;
 			}
-			if (!str_cmp(word, "AttrPerm") || !str_cmp(word, "Attr")) {
+			if (!str_cmp(word, "Attr")) {
 				int             stat;
 				for (stat = 0; stat < MAX_STATS; stat++)
 					ch->perm_stat[stat] = fread_number(fp);
@@ -675,10 +672,8 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 			break;
 
 		case 'B':
-			SKEY("Bamfin", PC(ch)->bamfin);
 			KEY("Banks", PC(ch)->bank_s, fread_number(fp));
 			KEY("Bankg", PC(ch)->bank_g, fread_number(fp));
-			SKEY("Bamfout", PC(ch)->bamfout);
 			SKEY("Bin", PC(ch)->bamfin);
 			SKEY("Bout", PC(ch)->bamfout);
 			break;
@@ -686,18 +681,9 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 		case 'C':
 			KEY("ClassW", ch->class, cn_lookup(fread_word(fp)));
 			KEY("Class", ch->class, cn_lookup(fread_word(fp)));
-			KEY("Cla", ch->class, fread_number(fp));
 			KEY("Clan", ch->clan, fread_clan(fp));
 			KEY("ClanStatus", PC(ch)->clan_status,
 			    fread_number(fp));
-			if (!str_cmp(word, "Condition")
-			|| !str_cmp(word, "Cond")) {
-				PC(ch)->condition[0] = fread_number(fp);
-				PC(ch)->condition[1] = fread_number(fp);
-				PC(ch)->condition[2] = fread_number(fp);
-				fMatch = TRUE;
-				break;
-			}
 			if (!str_cmp(word, "CndC")) {
 				PC(ch)->condition[0] = fread_number(fp);
 				PC(ch)->condition[1] = fread_number(fp);
@@ -705,14 +691,6 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 				PC(ch)->condition[3] = fread_number(fp);
 				PC(ch)->condition[4] = fread_number(fp);
 				PC(ch)->condition[5] = fread_number(fp);
-				fMatch = TRUE;
-				break;
-			}
-			if (!str_cmp(word, "Cnd")) {
-				PC(ch)->condition[0] = fread_number(fp);
-				PC(ch)->condition[1] = fread_number(fp);
-				PC(ch)->condition[2] = fread_number(fp);
-				PC(ch)->condition[3] = fread_number(fp);
 				fMatch = TRUE;
 				break;
 			}
@@ -729,24 +707,7 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 			if (!str_cmp(word, "End")) {
 				clan_t *clan;
 				const char **nl = NULL;
-				race_t *r;
 				bool touched = FALSE;
-
-				if (PC(ch)->race == 0)
-					PC(ch)->race = rn_lookup("human");
-				if (ch->race == 0)
-					ch->race = PC(ch)->race;
-
-				r = RACE(ch->race);
-				ch->size = r->race_pcdata->size;
-				ch->dam_type = 17;	/* punch */
-
-				ch->affected_by = r->aff;
-				ch->imm_flags = r->imm;
-				ch->res_flags = r->res;
-				ch->vuln_flags = r->vuln;
-				ch->form = r->form;
-				ch->parts = r->parts;
 
 				if (PC(ch)->condition[COND_BLOODLUST] < 48
 				&&  !IS_VAMPIRE(ch))
@@ -777,9 +738,9 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 			}
 			KEY("Exp", PC(ch)->exp, fread_number(fp));
 			KEY("ExpTL", PC(ch)->exp_tl, fread_number(fp));
-			KEY("Etho", ch->ethos, (1 << (fread_number(fp)-1)));
 			KEY("Ethos", ch->ethos, fread_fword(ethos_table, fp));
 			break;
+
 		case 'F':
 			SKEY("FormName", PC(ch)->form_name);
 			break;
@@ -787,10 +748,6 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 		case 'G':
 			KEY("Gold", ch->gold, fread_number(fp));
 			SKEY("Granted", PC(ch)->granted);
-			if (!str_cmp(word, "Group") || !str_cmp(word, "Gr")) {
-				fread_word(fp);
-				fMatch = TRUE;
-			}
 			break;
 
 		case 'H':
@@ -814,7 +771,7 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 				break;
 			}
 
-			if (!str_cmp(word, "HpManaMove") || !str_cmp(word, "HMV")) {
+			if (!str_cmp(word, "HMV")) {
 				ch->hit = fread_number(fp);
 				ch->max_hit = ch->perm_hit = fread_number(fp);
 				ch->mana = fread_number(fp);
@@ -824,7 +781,8 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 				fMatch = TRUE;
 				break;
 			}
-			if (!str_cmp(word, "HpManaMovePerm") || !str_cmp(word, "HMVP")) {
+
+			if (!str_cmp(word, "HMVP")) {
 				ch->max_hit = ch->perm_hit = fread_number(fp);
 				ch->max_mana = ch->perm_mana = fread_number(fp);
 				ch->max_move = ch->perm_move = fread_number(fp);
@@ -834,15 +792,11 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 			break;
 
 		case 'I':
-			KEY("InvisLevel", ch->invis_level, fread_number(fp));
 			KEY("Inco", ch->incog_level, fread_number(fp));
 			KEY("Invi", ch->invis_level, fread_number(fp));
-			KEY("Id", foo, fread_number(fp));
 			break;
 
 		case 'L':
-			KEY("Level", ch->level, fread_number(fp));
-			KEY("Lev", ch->level, fread_number(fp));
 			KEY("Levl", ch->level, fread_number(fp));
 			KEY("LogO", PC(ch)->logoff, fread_number(fp));
 			KEY("Lang", PC(ch)->dvdata->lang, fread_number(fp));
@@ -850,7 +804,6 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 
 		case 'N':
 			SKEY("Name", ch->name);
-			KEY("Note", PC(ch)->last_note, fread_number(fp));
 			if (!str_cmp(word, "Not")) {
 				PC(ch)->last_note = fread_number(fp);
 				PC(ch)->last_idea = fread_number(fp);
@@ -863,10 +816,13 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 			break;
 
 		case 'O':
-			if (!str_cmp(word, "OrgRaceW")
-			||  !str_cmp(word, "RaceW")) {
+			if (!str_cmp(word, "OrgRaceW")) {
+				/*
+				 * old pfiles compatibility
+				 */
 				ch->race = rn_lookup(fread_word(fp));
 				PC(ch)->race = ch->race;
+				race_setstats(ch, ch->race);
 				fMatch = TRUE;
 			}
 			break;
@@ -876,15 +832,9 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 			SKEY("Password", PC(ch)->pwd);
 			SKEY("Pass", PC(ch)->pwd);
 			KEY("PC_Killed", PC(ch)->pc_killed, fread_number(fp));
-			KEY("Played", PC(ch)->played, fread_number(fp));
 			KEY("Plyd", PC(ch)->played, fread_number(fp));
-			KEY("Points", PC(ch)->points, fread_number(fp));
-			KEY("Pnts", PC(ch)->points, fread_number(fp));
-			KEY("Position", ch->position, fread_number(fp));
 			KEY("Pos", ch->position, fread_number(fp));
-			KEY("Practice", PC(ch)->practice, fread_number(fp));
 			KEY("Prac", PC(ch)->practice, fread_number(fp));
-			SKEY("Prompt", PC(ch)->dvdata->prompt);
 			SKEY("Prom", PC(ch)->dvdata->prompt);
 			break;
 
@@ -899,6 +849,7 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 			||  !str_cmp(word, "Race")) {
 				ch->race = rn_lookup(fread_word(fp));
 				PC(ch)->race = ch->race;
+				race_setstats(ch, ch->race);
 				fMatch = TRUE;
 			}
 			if (!str_cmp(word, "Room")) {
@@ -917,12 +868,11 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 		case 'S':
 			KEY("Scro", PC(ch)->dvdata->pagelen, fread_number(fp));
 			KEY("Sex", ch->sex, fread_number(fp));
-			MLSKEY("ShortDescr", ch->short_descr);
 			MLSKEY("ShD", ch->short_descr);
 			KEY("Sec", PC(ch)->security, fread_number(fp));
 			KEY("Silv", ch->silver, fread_number(fp));
 
-			if (!str_cmp(word, "Skill") || !str_cmp(word, "Sk")) {
+			if (!str_cmp(word, "Sk")) {
 				int value = fread_number(fp);
 				char *skname = fread_word(fp);
 				int sn = sn_lookup(skname);
@@ -949,15 +899,9 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 
 		case 'V':
 			KEY("Vers", PC(ch)->version, fread_number(fp));
-			if (!str_cmp(word, "Vnum")) {
-				ch->pMobIndex = get_mob_index(fread_number(fp));
-				fMatch = TRUE;
-				break;
-			}
 			break;
 
 		case 'W':
-			KEY("Wimpy", ch->wimpy, fread_number(fp));
 			KEY("Wimp", ch->wimpy, fread_number(fp));
 			KEY("Wizn", PC(ch)->wiznet, fread_flags(fp));
 			SKEY("WantedBy", PC(ch)->wanted_by);
@@ -990,7 +934,7 @@ fread_pet(CHAR_DATA * ch, FILE * fp, int flags)
 		
 		if ((pMobIndex = get_mob_index(vnum)) != NULL)
 			pet = create_mob(pMobIndex);
-	} else
+	}
 
 	if (pet == NULL) {
 		log("fread_pet: %s: no pet vnum or bad vnum in file", ch->name);
@@ -1103,8 +1047,6 @@ fread_pet(CHAR_DATA * ch, FILE * fp, int flags)
 	}
 }
 
-extern	OBJ_DATA	*obj_free;
-
 void 
 fread_obj(CHAR_DATA * ch, FILE * fp, int flags)
 {
@@ -1112,7 +1054,6 @@ fread_obj(CHAR_DATA * ch, FILE * fp, int flags)
 	char           *word;
 	int             iNest;
 	bool            fNest;
-	obj = NULL;
 
 	word = feof(fp) ? "End" : fread_word(fp);
 	if (!str_cmp(word, "Vnum")) {
@@ -1126,7 +1067,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp, int flags)
 			obj = create_obj(pObjIndex, CO_F_NOCOUNT);
 	}
 
-	if (obj == NULL) {	/* either not found or old style */
+	if (obj == NULL) {
 		log("fread_obj: %s: no obj vnum or bad vnum in file", ch->name);
 		fread_to_end(fp);
 		return;
@@ -1183,10 +1124,9 @@ fread_obj(CHAR_DATA * ch, FILE * fp, int flags)
 			break;
 
 		case 'E':
-			KEY("ExtraFlags", obj->extra_flags, fread_number(fp));
 			KEY("ExtF", obj->extra_flags, fread_number(fp));
 
-			if (!str_cmp(word, "ExtraDescr") || !str_cmp(word, "ExDe")) {
+			if (!str_cmp(word, "ExDe")) {
 				ed_fread(fp, &obj->ed);
 				fMatch = TRUE;
 				break;
@@ -1210,7 +1150,6 @@ fread_obj(CHAR_DATA * ch, FILE * fp, int flags)
 			break;
 
 		case 'L':
-			KEY("Level", obj->level, fread_number(fp));
 			KEY("Lev", obj->level, fread_number(fp));
 			break;
 
@@ -1234,12 +1173,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp, int flags)
 			MLSKEY("Owner", obj->owner);
 			break;
 
-		case 'Q':
-			KEY("Quality", obj->condition, fread_number(fp));
-			break;
-
 		case 'S':
-			MLSKEY("ShortDescr", obj->short_descr);
 			MLSKEY("ShD", obj->short_descr);
 
 			if (!str_cmp(word, "Spell")) {
@@ -1260,21 +1194,10 @@ fread_obj(CHAR_DATA * ch, FILE * fp, int flags)
 			break;
 
 		case 'T':
-			KEY("Timer", obj->timer, fread_number(fp));
 			KEY("Time", obj->timer, fread_number(fp));
 			break;
 
 		case 'V':
-			if (!str_cmp(word, "Values") || !str_cmp(word, "Vals")) {
-				obj->value[0] = fread_number(fp);
-				obj->value[1] = fread_number(fp);
-				obj->value[2] = fread_number(fp);
-				obj->value[3] = fread_number(fp);
-				if (obj->pObjIndex->item_type == ITEM_WEAPON && obj->value[0] == 0)
-					obj->value[0] = obj->pObjIndex->value[0];
-				fMatch = TRUE;
-				break;
-			}
 			if (!str_cmp(word, "Val")) {
 				obj->value[0] = fread_number(fp);
 				obj->value[1] = fread_number(fp);
@@ -1287,10 +1210,8 @@ fread_obj(CHAR_DATA * ch, FILE * fp, int flags)
 			break;
 
 		case 'W':
-			KEY("WearLoc", obj->wear_loc, fread_number(fp));
 			KEY("Wear", obj->wear_loc, fread_number(fp));
 			break;
-
 		}
 
 		if (!fMatch) {

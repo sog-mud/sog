@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.2 1999-11-10 10:31:17 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.3 1999-11-18 15:35:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -564,7 +564,9 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 	OBJ_DATA *wield, *obj2;
 	int mod, i;
 
-	if (paf->where == TO_SKILLS) return;
+	if (paf->where == TO_SKILLS)
+		return;
+
 	mod = paf->modifier;
 	if (fAdd) {
 		switch (paf->where) {
@@ -705,8 +707,11 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 	/*
 	 * Check for weapon wielding.
 	 * Guard against recursion (for weapons with affects).
+	 * May be called from char_load (ch->in_room will be NULL)
 	 */
-	if (!IS_NPC(ch) && (wield = get_eq_char(ch, WEAR_WIELD)) != NULL
+	if (!IS_NPC(ch)
+	&&  ch->in_room != NULL
+	&&  (wield = get_eq_char(ch, WEAR_WIELD)) != NULL
 	&&  get_obj_weight(wield) > (str_app[get_curr_stat(ch,STAT_STR)].wield*10))
 	{
 		static int depth;
@@ -1295,6 +1300,7 @@ void _equip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
 		for (paf = obj->pObjIndex->affected; paf; paf = paf->next)
 			affect_modify(ch, paf, TRUE);
+
 	for (paf = obj->affected; paf; paf = paf->next)
 		affect_modify(ch, paf, TRUE);
 }
@@ -1360,7 +1366,6 @@ void strip_obj_affects(CHAR_DATA *ch, OBJ_DATA *obj, AFFECT_DATA *paf)
 	}
 }
 
-
 /*
  * Unequip a char with an obj.
  */
@@ -1404,8 +1409,7 @@ int count_obj_list(OBJ_INDEX_DATA *pObjIndex, OBJ_DATA *list)
 	int nMatch;
 
 	nMatch = 0;
-	for (obj = list; obj != NULL; obj = obj->next_content)
-	{
+	for (obj = list; obj != NULL; obj = obj->next_content) {
 		if (obj->pObjIndex == pObjIndex)
 		    nMatch++;
 	}

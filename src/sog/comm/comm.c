@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.1 1999-11-10 09:52:56 fjoe Exp $
+ * $Id: comm.c,v 1.200.2.2 1999-11-18 15:35:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1687,17 +1687,18 @@ static void print_hometown(CHAR_DATA *ch)
 }
 
 static void
-adjust_hp_mana_move(CHAR_DATA *ch, int percent)
+adjust_hmv(CHAR_DATA *ch, int percent)
 {
 	if (percent > 0
-	&&  !IS_AFFECTED(ch, AFF_POISON)
-	&&  !IS_AFFECTED(ch, AFF_PLAGUE)) {
+	&&  !IS_AFFECTED(ch, AFF_POISON | AFF_PLAGUE)) {
 		ch->hit += (ch->max_hit - ch->hit) * percent / 100;
 		ch->mana += (ch->max_mana - ch->mana) * percent / 100;
 		ch->move += (ch->max_move - ch->move) * percent / 100;
-		if (!IS_NPC(ch))
+
+		if (!IS_NPC(ch)) {
 			PC(ch)->questtime = -abs(PC(ch)->questtime *
 				(100 - UMIN(5 * percent, 100)) / 100);
+		}
 	}
 }
 
@@ -2032,16 +2033,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		SET_HIT(ch, ch->perm_hit + r->race_pcdata->hp_bonus);
 		SET_MANA(ch, ch->perm_mana + r->race_pcdata->mana_bonus);
 		PC(ch)->practice = r->race_pcdata->prac_bonus;
-
-		ch->affected_by = ch->affected_by| r->aff;
-		ch->imm_flags	= ch->imm_flags| r->imm;
-		ch->res_flags	= ch->res_flags| r->res;
-		ch->vuln_flags	= ch->vuln_flags| r->vuln;
-		ch->form	= r->form;
-		ch->parts	= r->parts;
-
-		PC(ch)->points = r->race_pcdata->points;
-		ch->size = r->race_pcdata->size;
+		race_setstats(ch, ch->race);
 
 		char_puts("What is your sex (M/F)? ", ch);
 		d->connected = CON_GET_NEW_SEX;
@@ -2102,7 +2094,6 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		}
 
 		ch->class = cl;
-		PC(ch)->points += CLASS(cl)->points;
 		act("You are now $t.", ch, CLASS(cl)->name, NULL, TO_CHAR);
 
 		dofun("help", ch, "STATS");
@@ -2388,11 +2379,11 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 				logoff = current_time;
 
 			/*
-			 * adjust hp mana move up
+			 * adjust hp/mana/move/up
 			 */
 			percent = (current_time - logoff) * 25 / (2 * 60 * 60);
 			percent = UMIN(percent, 100);
-			adjust_hp_mana_move(ch, percent);
+			adjust_hmv(ch, percent);
 
 			if (ch->in_room
 			&&  (room_is_private(ch->in_room) ||
@@ -2413,7 +2404,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			char_to_room(ch, to_room);
 
 			if (pet) {
-				adjust_hp_mana_move(pet, percent);
+				adjust_hmv(pet, percent);
 				act("$N has entered the game.",
 				    to_room->people, NULL, pet, TO_ROOM);
 				char_to_room(pet, to_room);

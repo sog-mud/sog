@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.h,v 1.11 1999-09-08 10:40:04 fjoe Exp $
+ * $Id: race.h,v 1.11.2.1 1999-11-18 15:35:32 fjoe Exp $
  */
 
 #ifndef _RACE_H_
@@ -93,6 +93,7 @@ void		race_free(race_t*);
 void		pcrace_free(pcrace_t*);
 
 const char *	race_name(int);
+void		race_setstats(CHAR_DATA *ch, int rn);
 int		rn_lookup(const char*);
 
 #endif
