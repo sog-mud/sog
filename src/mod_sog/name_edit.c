@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: name_edit.c,v 1.7 2001-06-24 10:50:49 avn Exp $
+ * $Id: name_edit.c,v 1.8 2001-07-29 09:43:22 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -50,7 +50,7 @@ bool _is_name(const char *str, const char *namelist,
 {
 	char name[MAX_INPUT_LENGTH], part[MAX_INPUT_LENGTH];
 	const char *list, *string;
-	
+
 	if (IS_NULLSTR(namelist) || IS_NULLSTR(str))
 		return FALSE;
 
@@ -94,7 +94,7 @@ void cat_name(char *buf, const char *name, size_t len)
 		strnzcat(buf, len, "'");
 }
 
-/* 
+/*
  * name_edit flags
  */
 #define NE_F_DELETE	(A)	/* delete name if found		*/
@@ -212,4 +212,3 @@ bool name_toggle(const char **nl, const char *name,
 
 	return name_edit(nl, name, NE_F_ADD | NE_F_DELETE, ch, editor_name);
 }
-

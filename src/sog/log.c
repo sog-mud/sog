@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: log.c,v 1.29 2001-06-16 18:40:11 fjoe Exp $
+ * $Id: log.c,v 1.30 2001-07-29 09:43:22 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -144,4 +144,3 @@ logger_bug(const char *buf)
 	snprintf(buf2, sizeof(buf2), "[*****] BUG: %s", buf);	// notrans
 	logger_default(buf2);
 }
-

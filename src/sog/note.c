@@ -1,16 +1,16 @@
 /*
- * $Id: note.c,v 1.64 2000-02-10 14:08:50 fjoe Exp $
+ * $Id: note.c,v 1.65 2001-07-29 09:43:23 fjoe Exp $
  */
 
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
  *	 Serdar BULUT {Chronos}		bulut@rorqual.cc.metu.edu.tr       *
- *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *	
- *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *	
- *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *	
+ *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *
+ *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *
+ *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *
  *     By using this code, you have agreed to follow the terms of the      *
- *     ANATOLIA license, in the file Anatolia/anatolia.licence             *	
+ *     ANATOLIA license, in the file Anatolia/anatolia.licence             *
  ***************************************************************************/
 
 /***************************************************************************
@@ -29,7 +29,7 @@
  *  benefitting.  We hope that you share your changes too.  What goes      *
  *  around, comes around.                                                  *
  ***************************************************************************/
- 
+
 /***************************************************************************
 *	ROM 2.4 is copyright 1993-1995 Russ Taylor			   *
 *	ROM has been brought to you by the ROM consortium		   *
@@ -66,7 +66,7 @@ note_t *new_note()
 
 	if (note_free == NULL)
 		note = malloc(sizeof(*note));
-	else { 
+	else {
 		note = note_free;
 		note_free = note_free->next;
 	}
@@ -120,7 +120,7 @@ void save_notes(int type)
 	if ((fp = dfopen(NOTES_PATH, name, "w")) == NULL)
 		return;
 
-	for (; pnote; pnote = pnote->next) 
+	for (; pnote; pnote = pnote->next)
 		fwrite_note(fp, pnote);
 	fclose(fp);
 }
@@ -149,71 +149,70 @@ static void load_thread(const char *name, note_t **list,
 {
 	rfile_t *fp;
 	note_t *pnotelast;
- 
+
 	if (!dfexist(NOTES_PATH, name))
 		return;
 
 	if ((fp = rfile_open(NOTES_PATH, name)) == NULL)
 		return;
-	 
+
 	pnotelast = NULL;
 	for (; ;) {
 		note_t *pnote;
-	 
+
 		fread_letter(fp);
 		if (rfile_feof(fp)) {
 			rfile_close(fp);
 			return;
 		}
 		xungetc(fp);
-			
+
 		pnote = new_note();
- 
+
 		fread_word(fp);
 		if (!IS_TOKEN(fp, "sender"))
 			break;
 		pnote->sender = fread_string(fp);
- 
+
 		fread_word(fp);
 		if (!IS_TOKEN(fp, "date"))
 			break;
 		pnote->date = fread_string(fp);
- 
+
 		fread_word(fp);
 		if (!IS_TOKEN(fp, "stamp"))
 			break;
 		pnote->date_stamp = fread_number(fp);
- 
+
 		fread_word(fp);
 		if (!IS_TOKEN(fp, "to"))
 			break;
 		pnote->to_list = fread_string(fp);
- 
+
 		fread_word(fp);
 		if (!IS_TOKEN(fp, "subject"))
 			break;
 		pnote->subject  = fread_string(fp);
- 
+
 		fread_word(fp);
 		if (!IS_TOKEN(fp, "text"))
 			break;
 		pnote->text = fread_string(fp);
- 
+
 		if (free_time && pnote->date_stamp < current_time - free_time) {
 			free_note(pnote);
 			continue;
 		}
 
 		pnote->type = type;
- 
+
 		if (*list == NULL)
 			*list = pnote;
 		else
 			pnotelast->next = pnote;
- 
+
 		pnotelast = pnote;
 	}
- 
+
 	log(LOG_ERROR, "load_notes: %s: %s: bad keyword", name, rfile_tok(fp));
 }
-

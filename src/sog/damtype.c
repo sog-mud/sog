@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: damtype.c,v 1.13 2001-06-24 21:12:47 avn Exp $
+ * $Id: damtype.c,v 1.14 2001-07-29 09:43:18 fjoe Exp $
  */
 
 #include <string.h>
@@ -108,4 +108,3 @@ damtype_class(const char *dn)
 	else
 		return DAM_NONE;
 }
-

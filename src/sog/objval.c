@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: objval.c,v 1.8 2001-01-23 21:47:00 fjoe Exp $
+ * $Id: objval.c,v 1.9 2001-07-29 09:43:23 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -112,7 +112,7 @@ void objval_cpy(flag_t item_type, vo_t *dst, vo_t *src)
 		dst[3] = src[3];
 		dst[4] = src[4];
 		break;
-		
+
 	case ITEM_WEAPON:
 	case ITEM_STAFF:
 	case ITEM_WAND:
@@ -183,20 +183,20 @@ void fwrite_objval(flag_t item_type, vo_t *v, FILE *fp)
 	default:
 		fprintf(fp, "%s %s %s %s %s\n",
 			FLAGS(v[0]),
-	    		FLAGS(v[1]),
-	    		FLAGS(v[2]),
-	    		FLAGS(v[3]),
-	    		FLAGS(v[4]));
+			FLAGS(v[1]),
+			FLAGS(v[2]),
+			FLAGS(v[3]),
+			FLAGS(v[4]));
 		break;
 
 	case ITEM_MONEY:
 	case ITEM_ARMOR:
 		fprintf(fp, "%d %d %d %d %d\n",
 			INT(v[0]),
-	    		INT(v[1]),
-	    		INT(v[2]),
-	    		INT(v[3]),
-	    		INT(v[4]));
+			INT(v[1]),
+			INT(v[2]),
+			INT(v[3]),
+			INT(v[4]));
 		break;
 
         case ITEM_DRINK_CON:
@@ -226,7 +226,7 @@ void fwrite_objval(flag_t item_type, vo_t *v, FILE *fp)
 			STR(v[3]),
 			FLAGS(v[4]));
 		break;
-            
+
         case ITEM_PILL:
         case ITEM_POTION:
         case ITEM_SCROLL:
@@ -278,7 +278,14 @@ void fwrite_objval(flag_t item_type, vo_t *v, FILE *fp)
 			STR(v[4]));
 		break;
 
-
+	case ITEM_FURNITURE:
+		fprintf(fp, "%d %d %s %d %d\n",
+			INT(v[0]),
+			INT(v[1]),
+			FLAGS(v[2]),
+			INT(v[3]),
+			INT(v[4]));
+		break;
 	}
 }
 
@@ -362,7 +369,7 @@ void objval_show(BUFFER *output, flag_t item_type, vo_t *v)
 	case ITEM_JUKEBOX:
 	case ITEM_TATTOO:
 		break;
-		     
+
 	case ITEM_LIGHT:
 		if (INT(v[2]) < 0) {
 			buf_printf(output, BUF_END,
@@ -400,8 +407,8 @@ void objval_show(BUFFER *output, flag_t item_type, vo_t *v)
 			    INT(v[3]),
 			    INT(v[4]));
 		break;
-			
-	case ITEM_FURNITURE:          
+
+	case ITEM_FURNITURE:
 		buf_printf(output, BUF_END,
 			    "[v0] Max people:       [%d]\n"
 			    "[v1] Max weight:       [%d]\n"
@@ -511,7 +518,7 @@ void objval_show(BUFFER *output, flag_t item_type, vo_t *v)
 		break;
 
 	case ITEM_BOOK:
-		buf_printf(output, BUF_END, 
+		buf_printf(output, BUF_END,
 			"[v0] Book class:       [%s]\n"
 			"[v1] Spec:             [%s]\n"
 			"[v2] Base chance:      [%d%%]\n"
@@ -524,7 +531,6 @@ void objval_show(BUFFER *output, flag_t item_type, vo_t *v)
 			STR(v[4]));
 		break;
 	}
-					
 }
 
 /*
@@ -545,7 +551,7 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 	switch (item_type) {
 	default:
 		return 1;
-		     
+
 	case ITEM_LIGHT:
 		switch (value_num) {
 		default:
@@ -579,7 +585,7 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 				STR_ASSIGN(v[3], str_empty);
 				break;
 			}
-			if (!str_cmp(argument, "?") 
+			if (!str_cmp(argument, "?")
 			|| (sk = skill_lookup(argument)) == 0) {
 				skills_dump(output, ST_SPELL);
 				skills_dump(output, ST_PRAYER);
@@ -619,7 +625,7 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 			STR_ASSIGN(v[value_num],
 				   str_qdup(gmlstr_mval(&sk->sk_name)));
 			break;
- 		}
+		}
 		break;
 
 /* ARMOR for ROM: */
@@ -754,7 +760,7 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 			break;
 		}
 		break;
-		   
+
 	case ITEM_CONTAINER:
 		switch (value_num) {
 		case 0:
@@ -809,7 +815,7 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 			buf_append(output, "CURRENT AMOUNT OF LIQUID HOURS SET.\n\n");
 			INT(v[1]) = atoi(argument);
 			break;
-		case 2: 
+		case 2:
 			if (!str_cmp(argument, "?")
 			||  (liq = liquid_search(argument)) == NULL) {
 				mlstrkey_printall(&liquids, output);
@@ -873,7 +879,6 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 			INT(v[0]) = val;
 			break;
 		case 1:
-			
 			if (!str_cmp(argument, "none")) {
 				STR_ASSIGN(v[1], str_empty);
 				break;
@@ -881,7 +886,7 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 
 			if (!str_cmp(argument, "?")
 			||  (spc = spec_lookup(argument)) == 0) {
-				buf_append(output, "No such spec.\n");	
+				buf_append(output, "No such spec.\n");
 				return 2;
 			}
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: material.c,v 1.5 1999-12-22 08:29:10 fjoe Exp $
+ * $Id: material.c,v 1.6 2001-07-29 09:43:22 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -102,4 +102,3 @@ int floating_time(OBJ_DATA *obj)
 
 	return ftime;
 }
-

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.61 2001-06-30 11:45:52 kostik Exp $
+ * $Id: mlstring.c,v 1.62 2001-07-29 09:43:22 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -570,4 +570,3 @@ static char *fix_mlstring(const char *s)
 	strnzcat(buf, sizeof(buf), s);
 	return buf;
 }
-

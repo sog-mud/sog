@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: forms.c,v 1.7 2000-06-07 08:55:56 fjoe Exp $
+ * $Id: forms.c,v 1.8 2001-07-29 09:43:18 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -36,12 +36,12 @@ hash_t forms;
 void form_init(form_index_t *f)
 {
 	int i;
-	f->name 		= str_empty;
+	f->name			= str_empty;
 	mlstr_init2(&f->description, str_empty);
 	mlstr_init2(&f->short_desc, str_empty);
 	mlstr_init2(&f->long_desc, str_empty);
 	f->damtype		= str_empty;
-	f->damage[DICE_TYPE] 	= 0;
+	f->damage[DICE_TYPE]	= 0;
 	f->damage[DICE_NUMBER]	= 0;
 	f->damage[DICE_BONUS]	= 1;
 	f->hitroll		= 0;
@@ -57,7 +57,7 @@ void form_init(form_index_t *f)
 form_index_t* form_cpy(form_index_t *dst, const form_index_t *src)
 {
 	int i;
-	dst->name 		= str_qdup(src->name);
+	dst->name		= str_qdup(src->name);
 	mlstr_cpy(&dst->description, &src->description);
 	mlstr_cpy(&dst->short_desc, &src->short_desc);
 	mlstr_cpy(&dst->long_desc, &src->long_desc);
@@ -66,7 +66,7 @@ form_index_t* form_cpy(form_index_t *dst, const form_index_t *src)
 	dst->num_attacks	= src->num_attacks;
 	dst->skill_spec		= str_qdup(src->skill_spec);
 	dst->flags		= src->flags;
-	dst->damage[DICE_TYPE] 	= src->damage[DICE_TYPE];
+	dst->damage[DICE_TYPE]	= src->damage[DICE_TYPE];
 	dst->damage[DICE_NUMBER]= src->damage[DICE_NUMBER];
 	dst->damage[DICE_BONUS]	= src->damage[DICE_BONUS];
 	for (i = 0; i < MAX_RESIST; i++)
@@ -104,7 +104,7 @@ bool shapeshift(CHAR_DATA* ch, const char* shapeform)
 	form->damroll = form_index->damage[DICE_BONUS];
 	form->hitroll = form_index->hitroll;
 
-	for (i = 0; i < MAX_RESIST; i++) 
+	for (i = 0; i < MAX_RESIST; i++)
 		form->resists[i] = form_index->resists[i];
 
 	ch->shapeform = form;
@@ -113,13 +113,13 @@ bool shapeshift(CHAR_DATA* ch, const char* shapeform)
 }
 
 bool revert(CHAR_DATA* ch)
-{	
+{
 	AFFECT_DATA *paf;
 	AFFECT_DATA *paf_next;
 
 	for (paf = ch->affected; paf; paf = paf_next) {
 		paf_next = paf->next;
-		if (paf->where == TO_FORMAFFECTS) 
+		if (paf->where == TO_FORMAFFECTS)
 			affect_remove(ch, paf);
 	}
 

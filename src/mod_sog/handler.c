@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.295 2001-07-16 18:42:10 fjoe Exp $
+ * $Id: handler.c,v 1.296 2001-07-29 09:43:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -93,16 +93,16 @@ void room_record(const char *name, ROOM_INDEX_DATA *room, int door)
 		}
 	}
 
-	if (prev == NULL || i < 4) 
-		rec = malloc(sizeof(*rec)); 
-	else { 
+	if (prev == NULL || i < 4)
+		rec = malloc(sizeof(*rec));
+	else {
 		rec = prev->next;
 		prev->next = NULL;
 		free_string(rec->name);
 	}
 
 	rec->next = room->history;
-	room->history = rec; 
+	room->history = rec;
 
 	rec->name = str_dup(name);
 	rec->went = door;
@@ -207,7 +207,7 @@ void char_from_room(CHAR_DATA *ch)
 		log(LOG_BUG, "char_from_room: ch not found");
 	else if (prev == NULL)
 		ch->in_room->people = ch->next_in_room;
-	else 
+	else
 		prev->next_in_room = ch->next_in_room;
 
 	ch->in_room = NULL;
@@ -621,7 +621,7 @@ void obj_to_obj(OBJ_DATA *obj, OBJ_DATA *obj_to)
 	obj->in_room		= NULL;
 	obj->carried_by		= NULL;
 	if (OBJ_IS(obj_to, OBJ_PIT))
-		obj->cost = 0; 
+		obj->cost = 0;
 
 	for (; obj_to != NULL; obj_to = obj_to->in_obj) {
 		if (obj_to->carried_by != NULL)
@@ -651,7 +651,7 @@ void obj_from_obj(OBJ_DATA *obj)
 		OBJ_DATA *prev;
 
 		for (prev = obj_from->contains; prev; prev = prev->next_content) {
-			if (prev->next_content == obj) 
+			if (prev->next_content == obj)
 				break;
 		}
 
@@ -724,9 +724,9 @@ void extract_obj(OBJ_DATA *obj, int flags)
 
 	if (obj->pObjIndex->vnum == OBJ_VNUM_MAGIC_JAR) {
 		 CHAR_DATA *wch;
-		 
+
 		 for (wch = char_list; wch && !IS_NPC(wch); wch = wch->next) {
-		 	if (!mlstr_cmp(&obj->owner, &wch->short_descr)) {
+			if (!mlstr_cmp(&obj->owner, &wch->short_descr)) {
 				REMOVE_BIT(PC(wch)->plr_flags, PLR_NOEXP);
 				act_char("Now you catch your spirit.", wch);
 				break;
@@ -791,25 +791,25 @@ void extract_char(CHAR_DATA *ch, int flags)
 		log(LOG_BUG, "extract_char: ch is not MT_CHAR");
 		return;
 	}
-	
+
 	strip_raff_owner(ch);
 	if (!IS_NPC(ch))
 		nuke_pets(ch);
 
 	if (!IS_SET(flags, XC_F_INCOMPLETE))
 		die_follower(ch);
-	
+
 	stop_fighting(ch, TRUE);
 
 	if ((wield = get_eq_char(ch, WEAR_WIELD)) != NULL)
-		unequip_char(ch, wield); 
+		unequip_char(ch, wield);
 
 	extract_obj_flags = (IS_SET(flags, XC_F_NOCOUNT) ? XO_F_NOCOUNT : 0);
 	for (obj = ch->carrying; obj != NULL; obj = obj_next) {
 		obj_next = obj->next_content;
 		extract_obj(obj, extract_obj_flags);
 	}
-	
+
 	for (wch = char_list; wch && !IS_NPC(wch); wch = wch->next) {
 		if (PC(wch)->reply == ch)
 			PC(wch)->reply = NULL;
@@ -953,7 +953,7 @@ CHAR_DATA *get_char_area(CHAR_DATA *ch, const char *argument)
 	if (arg[0] == '\0')
 		return NULL;
 
-	for (ach = char_list; ach; ach = ach->next) { 
+	for (ach = char_list; ach; ach = ach->next) {
 		if (!ach->in_room
 		||  ach->in_room == ch->in_room)
 			continue;
@@ -991,7 +991,7 @@ CHAR_DATA *get_char_world(CHAR_DATA *ch, const char *argument)
 	for (wch = char_list; wch; wch = wch->next) {
 		if (!wch->in_room
 		||  wch->in_room == ch->in_room
-		||  !can_see(ch, wch) 
+		||  !can_see(ch, wch)
 		||  !is_name(arg, wch->name))
 			continue;
 
@@ -1019,7 +1019,7 @@ int opposite_door(int door)
 	return opdoor;
 }
 
-CHAR_DATA *find_char(CHAR_DATA *ch, const char *argument, int door, int range) 
+CHAR_DATA *find_char(CHAR_DATA *ch, const char *argument, int door, int range)
 {
 	EXIT_DATA *pExit, *bExit;
 	ROOM_INDEX_DATA *dest_room = ch->in_room;
@@ -1057,7 +1057,7 @@ CHAR_DATA *find_char(CHAR_DATA *ch, const char *argument, int door, int range)
 			act_char("The path you choose prevents your power to pass.", ch);
 			return NULL;
 		}
-		if ((target = get_char_room_raw(ch, arg, &number, dest_room))) 
+		if ((target = get_char_room_raw(ch, arg, &number, dest_room)))
 			return target;
 	}
 
@@ -1297,7 +1297,7 @@ void deduct_cost(CHAR_DATA *ch, int cost)
 	/*
 	 * price in silver. MUST BE signed for proper exchange operations
 	 */
-	int silver = UMIN(ch->silver, cost); 
+	int silver = UMIN(ch->silver, cost);
 	int gold = 0;
 
 	if (silver < cost) {
@@ -1414,7 +1414,7 @@ OBJ_DATA *create_money(int gold, int silver)
 int get_obj_number(OBJ_DATA *obj)
 {
 	int number;
-/* 
+/*
 	if (obj->item_type == ITEM_CONTAINER || obj->item_type == ITEM_MONEY
 	||  obj->item_type == ITEM_GEM || obj->item_type == ITEM_JEWELRY)
 	    number = 0;
@@ -1424,10 +1424,10 @@ int get_obj_number(OBJ_DATA *obj)
 	else
 	    number = 1;
 
-/* 
+/*
 	for (obj = obj->contains; obj != NULL; obj = obj->next_content)
 	    number += get_obj_number(obj);
-*/ 
+*/
 	return number;
 }
 
@@ -1459,11 +1459,11 @@ int get_obj_weight(OBJ_DATA *obj)
 int get_true_weight(OBJ_DATA *obj)
 {
 	int weight;
- 
+
 	weight = obj->weight;
 	for (obj = obj->contains; obj != NULL; obj = obj->next_content)
 	    weight += get_obj_weight(obj);
- 
+
 	return weight;
 }
 
@@ -1527,7 +1527,7 @@ bool room_is_private(const ROOM_INDEX_DATA *pRoomIndex)
 
 	if (IS_SET(pRoomIndex->room_flags, ROOM_SOLITARY) && count >= 1)
 		return TRUE;
-	
+
 	if (IS_SET(pRoomIndex->room_flags, ROOM_IMP_ONLY))
 		return TRUE;
 
@@ -1537,7 +1537,7 @@ bool room_is_private(const ROOM_INDEX_DATA *pRoomIndex)
 /* visibility on a room -- for entering and exits */
 bool can_see_room(const CHAR_DATA *ch, const ROOM_INDEX_DATA *pRoomIndex)
 {
-	if (IS_SET(pRoomIndex->room_flags, ROOM_IMP_ONLY) 
+	if (IS_SET(pRoomIndex->room_flags, ROOM_IMP_ONLY)
 	&&  !IS_TRUSTED(ch, LEVEL_IMP))
 		return FALSE;
 
@@ -1689,7 +1689,7 @@ int isn_dark_safe(const CHAR_DATA *ch)
 	return light_exist;
 }
 
-int count_charmed(CHAR_DATA *ch)	
+int count_charmed(CHAR_DATA *ch)
 {
 	CHAR_DATA *gch;
 	int count = 0;
@@ -1736,7 +1736,7 @@ void remove_mind(CHAR_DATA *ch, const char *str)
 		return;
 
 	if (IS_NULLSTR(npc->in_mind) || is_number(npc->in_mind)) {
-		dofun("say", ch, "At last, I took my revenge!"); 
+		dofun("say", ch, "At last, I took my revenge!");
 		back_home(ch);
 		if (!IS_EXTRACTED(ch)) {
 			free_string(npc->in_mind);
@@ -1781,7 +1781,7 @@ void path_to_track(CHAR_DATA *ch, CHAR_DATA *victim, int door)
 	int range = 0;
 
 	SET_FIGHT_TIME(ch);
-  	if (!IS_NPC(victim)) {
+	if (!IS_NPC(victim)) {
 		SET_FIGHT_TIME(victim);
 		return;
 	}
@@ -1820,7 +1820,7 @@ void path_to_track(CHAR_DATA *ch, CHAR_DATA *victim, int door)
 		if ((pExit = temp->exit[opdoor]) == NULL
 		||  (temp = pExit->to_room.r) == NULL) {
 			log(LOG_BUG, "path_to_track: Range: %d Room: %d opdoor:%d",
-			     range, temp->vnum, opdoor); 
+			     range, temp->vnum, opdoor);
 			return;
 		}
 	}
@@ -1900,7 +1900,7 @@ void look_at(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
 		adjust_light = TRUE;
 		room->light++;
 	}
-		
+
 	ch->in_room = room;
 	dofun("look", ch, str_empty);
 	ch->in_room = was_in;
@@ -1939,7 +1939,7 @@ ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch, AREA_DATA *area)
 		}
 
 		if (!room_is_private(room)
-		&&  !IS_SET(room->room_flags, ROOM_SAFE | ROOM_PEACE) 
+		&&  !IS_SET(room->room_flags, ROOM_SAFE | ROOM_PEACE)
 		&&  (area || !IS_SET(room->area->area_flags, AREA_CLOSED)))
 			break;
 	}
@@ -1951,7 +1951,7 @@ const CHAR_DATA *nth_char(const CHAR_DATA *ch, int n)
 {
 	const CHAR_DATA *vch;
 	int i = 0;
-	
+
 	for (vch = ch; i < n; vch = (vch->next) ? vch->next : char_list)
 		i++;
 	return vch;
@@ -1971,24 +1971,24 @@ const OBJ_DATA *nth_obj(const OBJ_DATA *obj, int n)
 
 CHAR_DATA *random_char(ROOM_INDEX_DATA *room)
 {
-    	CHAR_DATA *vch, *victim = NULL;
-    	int now = 0, highest = 0;
+	CHAR_DATA *vch, *victim = NULL;
+	int now = 0, highest = 0;
 
 	if (room != NULL) {
-    		for (vch = room->people; vch; vch = vch->next_in_room) {
-        		if ((now = number_percent()) > highest) {
-            			victim = vch;
-            			highest = now;
-        		}
-    		}
+		for (vch = room->people; vch; vch = vch->next_in_room) {
+			if ((now = number_percent()) > highest) {
+				victim = vch;
+				highest = now;
+			}
+		}
 		return victim;
 	} else {
 		for (vch = char_list; vch; vch = vch->next)  {
-        		if ((now = number_range(1, 20000)) > highest) {
-            			victim = vch;
-            			highest = now;
-        		}
-    		}
+			if ((now = number_range(1, 20000)) > highest) {
+				victim = vch;
+				highest = now;
+			}
+		}
 		return victim;
 	}
 }
@@ -2161,18 +2161,18 @@ bool pc_name_ok(const char *name)
 {
 	const unsigned char *pc;
 	bool fIll,adjcaps = FALSE,cleancaps = FALSE;
- 	uint total_caps = 0;
+	uint total_caps = 0;
 
 	/*
 	 * Reserved words.
 	 */
 	if (is_name(name, "chronos all auto immortals self someone something the you demise balance circle loner honor none clan"))		// notrans
 		return FALSE;
-	
+
 	/*
 	 * Length restrictions.
 	 */
-	 
+
 	if (strlen(name) < 2)
 		return FALSE;
 
@@ -2219,7 +2219,7 @@ bool pc_name_ok(const char *name)
 
 		for (iHash = 0; iHash < MAX_KEY_HASH; iHash++) {
 			for (pMobIndex  = mob_index_hash[iHash];
-			     pMobIndex != NULL; pMobIndex  = pMobIndex->next) 
+			     pMobIndex != NULL; pMobIndex  = pMobIndex->next)
 				if (is_name(name, pMobIndex->name))
 					return FALSE;
 		}
@@ -2337,7 +2337,7 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 		return;
 	}
 
-	if (ch->shapeform 
+	if (ch->shapeform
 	&& IS_SET(ch->shapeform->index->flags, FORM_NOSPEAK)) {
 		act("You can't speak in this form.", ch, NULL, NULL, TO_CHAR);
 		return;
@@ -2348,7 +2348,7 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 		return;
 	}
 
-	if (victim == NULL 
+	if (victim == NULL
 	|| (IS_NPC(victim) && victim->in_room != ch->in_room)) {
 		act_char("They aren't here.", ch);
 		return;
@@ -2520,7 +2520,7 @@ void quit_char(CHAR_DATA *ch, int flags)
 		&&  IS_SET(vch->pMobIndex->act, ACT_FAMILIAR)
 		&&  vch->master == ch
 		&&  vch->in_room != ch->in_room) {
-			act("You cannot quit and leave your $N alone.", 
+			act("You cannot quit and leave your $N alone.",
 				ch, NULL, vch, TO_CHAR);
 			return;
 		}
@@ -2560,7 +2560,7 @@ void quit_char(CHAR_DATA *ch, int flags)
 			return;
 		}
 
-		if (current_time - PC(ch)->last_offence < OFFENCE_DELAY_TIME 
+		if (current_time - PC(ch)->last_offence < OFFENCE_DELAY_TIME
 		&& !IS_IMMORTAL(ch)) {
 			act_char("You cannot quit yet.", ch);
 			return;
@@ -2670,7 +2670,7 @@ void quit_char(CHAR_DATA *ch, int flags)
 		close_descriptor(d, SAVE_F_NONE);
 
 	/*
-	 * toast evil cheating bastards 
+	 * toast evil cheating bastards
 	 *
 	 * Workaround against clone cheat --
 	 * Log in once, connect a second time and enter only name,
@@ -2686,7 +2686,7 @@ void quit_char(CHAR_DATA *ch, int flags)
 			if (d->connected == CON_PLAYING)
 				extract_char(tch, XC_F_NOCOUNT);
 			close_descriptor(d, SAVE_F_NONE);
-		} 
+		}
 	}
 
 	free_string(name);
@@ -2700,9 +2700,9 @@ void add_follower(CHAR_DATA *ch, CHAR_DATA *master)
 	ch->leader = NULL;
 
 	if (can_see(master, ch))
-		act_puts("$n now follows you.", ch, NULL, master, 
+		act_puts("$n now follows you.", ch, NULL, master,
 			 TO_VICT, POS_RESTING);
-	act_puts("You now follow $N.", ch, NULL, master, 
+	act_puts("You now follow $N.", ch, NULL, master,
 		 TO_CHAR, POS_RESTING);
 }
 
@@ -2798,7 +2798,7 @@ void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 	buf_append(output, "{x");
 	if (ch) {
 		if (IS_IMMORTAL(ch)) {
-			buf_printf(output, BUF_END, 
+			buf_printf(output, BUF_END,
 				   "[%3d %5.5s %3.3s] ",	// notrans
 				   wch->level,
 				   r->race_pcdata->who_name,

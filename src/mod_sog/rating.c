@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rating.c,v 1.19 2001-06-24 10:50:51 avn Exp $
+ * $Id: rating.c,v 1.20 2001-07-29 09:43:24 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -88,11 +88,10 @@ void rating_add(CHAR_DATA *ch)
 		p->pc_killed = PC(ch)->pc_killed;
 		qsort(rating_table, RATING_TABLE_SIZE, sizeof(rating_t),
 		      rating_cmp);
-	} 	
+	}
 }
 
 static int rating_cmp(const void *a, const void *b)
 {
 	return ((const rating_t*) b)->pc_killed - ((const rating_t*) a)->pc_killed;
 }
-

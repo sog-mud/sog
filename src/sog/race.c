@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.25 2001-06-24 10:50:50 avn Exp $
+ * $Id: race.c,v 1.26 2001-07-29 09:43:23 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -185,4 +185,3 @@ int get_max_train(const CHAR_DATA *ch, int stat)
 
 	return UMIN(25, r->race_pcdata->max_stat[stat]);
 }
-

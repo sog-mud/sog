@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.c,v 1.16 2000-10-22 17:53:46 fjoe Exp $
+ * $Id: cmd.c,v 1.17 2001-07-29 09:43:18 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -126,4 +126,3 @@ dofun(const char *name, CHAR_DATA *ch, const char *fmt, ...)
 	else
 		cmd->do_fun(ch, buf);
 }
-

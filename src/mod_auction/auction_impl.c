@@ -1,5 +1,5 @@
 /*
- * $Id: auction_impl.c,v 1.51 2001-06-20 06:37:43 avn Exp $
+ * $Id: auction_impl.c,v 1.52 2001-07-29 09:43:17 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -208,5 +208,3 @@ static int advatoi(const char *s)
 
   return (number);
 }
-
-

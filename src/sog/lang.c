@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.30 2001-06-30 11:45:52 kostik Exp $
+ * $Id: lang.c,v 1.31 2001-07-29 09:43:21 fjoe Exp $
  */
 
 #include <string.h>
@@ -57,7 +57,7 @@ word_form_lookup(lang_t *l, rulecl_t *rcl, const char *word, uint fnum)
 	/*
 	 * variable part(s) of word can be specified by tildes
 	 * (simple recursion)
- 	 */
+	 */
 	if ((q = strchr(word, '~'))) {
 		char buf2[MAX_STRING_LENGTH];
 		char buf3[MAX_STRING_LENGTH];

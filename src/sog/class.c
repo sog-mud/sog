@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.31 2001-06-20 06:37:44 avn Exp $
+ * $Id: class.c,v 1.32 2001-07-29 09:43:17 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -124,7 +124,7 @@ guild_ok_cb(void *p, va_list ap)
 	size_t iGuild;
 
 	for (iGuild = 0; iGuild < cl->guilds.nused; iGuild++) {
-	    	if (vnum == *(int *) VARR_GET(&cl->guilds, iGuild)) {
+		if (vnum == *(int *) VARR_GET(&cl->guilds, iGuild)) {
 			if (IS_CLASS(cl->name, ch->class))
 				return p;
 			*cn_found = cl->name;
@@ -203,4 +203,3 @@ pose_destroy(pose_t *p)
 	free_string(p->self);
 	free_string(p->others);
 }
-

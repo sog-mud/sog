@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.53 2001-07-04 19:21:20 fjoe Exp $
+ * $Id: affects.c,v 1.54 2001-07-29 09:43:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -182,7 +182,7 @@ void affect_enchant(OBJ_DATA *obj)
 		}
 	}
 }
- 
+
 static void *
 remove_sa_cb(void *p, va_list ap)
 {
@@ -303,20 +303,20 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 	case APPLY_HIT:		ch->max_hit		+= mod;	break;
 	case APPLY_MOVE:	ch->max_move		+= mod;	break;
 
-	case APPLY_HITROLL:	
-				if ((paf->where == TO_FORMAFFECTS) 
+	case APPLY_HITROLL:
+				if ((paf->where == TO_FORMAFFECTS)
 				&& ch->shapeform)
 					ch->shapeform->hitroll += mod;
 				ch->hitroll		+= mod;	break;
-	case APPLY_DAMROLL:	
-				if ((paf->where == TO_FORMAFFECTS) 
+	case APPLY_DAMROLL:
+				if ((paf->where == TO_FORMAFFECTS)
 				&& ch->shapeform)
 					ch->shapeform->damroll += mod;
 				ch->damroll		+= mod;	break;
 	case APPLY_LEVEL:	ch->add_level		+= mod; break;
 
 	case APPLY_SIZE:	ch->size		+= mod;	break;
-	case APPLY_AGE:	
+	case APPLY_AGE:
 		if (!IS_NPC(ch))
 			PC(ch)->add_age += age_to_num(mod);
 		break;
@@ -483,7 +483,7 @@ void affect_to_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 			break;
 		case TO_WEAPON:
 			if (obj->item_type == ITEM_WEAPON)
-		        	SET_BIT(INT(obj->value[4]), paf->bitvector);
+				SET_BIT(INT(obj->value[4]), paf->bitvector);
 			break;
 		}
 	}
@@ -693,7 +693,7 @@ bool has_obj_affect(CHAR_DATA *ch, int vector)
 			continue;
 
 		for (paf = obj->affected; paf; paf = paf->next)
-	        	if (paf->bitvector & vector)
+			if (paf->bitvector & vector)
 				return TRUE;
 
 		if (IS_OBJ_STAT(obj, ITEM_ENCHANTED))
@@ -1086,7 +1086,7 @@ static void show_name(CHAR_DATA *ch, BUFFER *output,
 {
 	skill_t *aff;
 	const char *aff_type;
-	
+
 	if (IS_NULLSTR(paf->type))
 		aff_type = "Item:";
 	else if ((aff = skill_lookup(paf->type)) != NULL) {
@@ -1103,7 +1103,7 @@ static void show_name(CHAR_DATA *ch, BUFFER *output,
 		default:
 			aff_type = "???:";			// notrans
 		}
-	} else 
+	} else
 		aff_type = "???:";				// notrans
 
 	if (paf_last && IS_SKILL(paf->type, paf_last->type)) {
@@ -1175,5 +1175,3 @@ static void show_obj_affects(BUFFER *output, AFFECT_DATA *paf)
 	for (; paf; paf = paf->next)
 		show_bit_affect(output, paf, &paf_last);
 }
-
-

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: liquid.c,v 1.6 1999-12-20 08:31:21 fjoe Exp $
+ * $Id: liquid.c,v 1.7 2001-07-29 09:43:21 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -60,4 +60,3 @@ void liquid_destroy(liquid_t *lq)
 	gmlstr_destroy(&lq->lq_name);
 	mlstr_destroy(&lq->lq_color);
 }
-

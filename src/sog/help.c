@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: help.c,v 1.20 2001-06-22 07:13:52 avn Exp $
+ * $Id: help.c,v 1.21 2001-07-29 09:43:20 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -53,7 +53,7 @@ void help_add(AREA_DATA *pArea, HELP_DATA* pHelp)
 		help_last->next = pHelp;
 	help_last		= pHelp;
 	pHelp->next		= NULL;
-	
+
 /* insert into help list for given area */
 	if (pArea->help_first == NULL)
 		pArea->help_first = pHelp;
@@ -163,9 +163,9 @@ void help_free(HELP_DATA *pHelp)
 			break;
 		prev = p;
 	}
-		
+
 	if (p) {
-		if (prev) 
+		if (prev)
 			prev->next = pHelp->next;
 		else
 			help_first = help_first->next;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.c,v 1.18 2001-06-24 10:50:51 avn Exp $
+ * $Id: rwfile.c,v 1.19 2001-07-29 09:43:24 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -101,7 +101,6 @@ xungetc(rfile_t *fp)
 	if (!rfile_feof(fp)
 	&&  fp->p[fp->pos] == '\n')
 		line_number--;
-		
 }
 
 rfile_t *
@@ -350,12 +349,12 @@ fread_string(rfile_t *fp)
 		default:
 			*plast++ = c;
 			break;
- 
+
 		case EOF:
 			log(LOG_ERROR, "fread_string: EOF");
 			*plast = '\0';
 			return str_dup(buf);
- 
+
 		case '~':
 			if ((c = xgetc(fp)) == '~') {
 				*plast++ = c;
@@ -457,7 +456,7 @@ flag_convert(int letter, int low_end)
 {
 	int64_t rv;
 
-	if ('A' <= letter && letter <= 'Z') 
+	if ('A' <= letter && letter <= 'Z')
 		rv = (A) << (letter - 'A');
 	else if ('a' <= letter && letter <= low_end)
 		rv = (int64_t) (aa) << (letter - 'a');

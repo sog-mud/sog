@@ -23,19 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.54 2001-01-23 21:46:59 fjoe Exp $
+ * $Id: clan.c,v 1.55 2001-07-29 09:43:17 fjoe Exp $
  */
 
 #include <sys/time.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-#if	defined (WIN32)
-#	include <compat/compat.h>
-#else
-#	include <dirent.h>
-#endif
 
 #include "merc.h"
 
@@ -136,15 +130,15 @@ bool clan_item_ok(const char *cln)
 	int room_in;
 
 	if ((clan = clan_lookup(cln)) == NULL
-	||  clan->obj_ptr == NULL) 
+	||  clan->obj_ptr == NULL)
 		return TRUE;
 
 	for (obj = clan->obj_ptr; obj->in_obj != NULL; obj = obj->in_obj)
 		;
 
-	if (obj->in_room) 
+	if (obj->in_room)
 		room_in=obj->in_room->vnum;
-	else 
+	else
 		return TRUE;
 
 	if (room_in == clan->altar_vnum)
