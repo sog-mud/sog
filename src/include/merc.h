@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.111 1998-11-02 05:28:30 fjoe Exp $
+ * $Id: merc.h,v 1.112 1998-11-07 07:30:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2133,6 +2133,7 @@ int floating_time	(OBJ_DATA *obj);
 bool may_float		(OBJ_DATA *obj);
 bool cant_float 	(OBJ_DATA *obj);
 void wear_obj		(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace);
+void quaff_obj		(CHAR_DATA *ch, OBJ_DATA *obj);
 
 /* act_wiz.h */
 #define wiznet(string, ch, obj, flag, flag_skip, min_level) \

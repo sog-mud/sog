@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.35 1998-10-26 08:38:22 fjoe Exp $
+ * $Id: recycle.c,v 1.36 1998-11-07 07:30:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -157,17 +157,28 @@ void free_obj(OBJ_DATA *obj)
 		paf_next = paf->next;
 		aff_free(paf);
     	}
+	obj->affected = NULL;
 
 	for (ed = obj->ed; ed != NULL; ed = ed_next ) {
 		ed_next = ed->next;
 		ed_free(ed);
     	}
+	obj->ed = NULL;
    
 	free_string(obj->name);
+	obj->name = NULL;
+
 	mlstr_free(obj->description);
+	obj->description = NULL;
+
 	mlstr_free(obj->short_descr);
+	obj->short_descr = NULL;
+
 	free_string(obj->owner);
+	obj->owner = NULL;
+
 	free_string(obj->material);
+	obj->material = NULL;
 
 	obj->next = free_obj_list;
 	free_obj_list = obj;
@@ -231,18 +242,34 @@ void free_char(CHAR_DATA *ch)
 		paf_next = paf->next;
 		affect_remove(ch,paf);
 	}
+	ch->affected = NULL;
 
 	free_string(ch->name);
-	mlstr_free(ch->short_descr);
-	mlstr_free(ch->long_descr);
-	mlstr_free(ch->description);
-	free_string(ch->prompt);
-	free_string(ch->prefix);
-	free_string(ch->material);
-	free_string(ch->in_mind);
+	ch->name = NULL;
 
-	if (ch->pcdata != NULL)
-		free_pcdata(ch->pcdata);
+	mlstr_free(ch->short_descr);
+	ch->short_descr = NULL;
+
+	mlstr_free(ch->long_descr);
+	ch->long_descr = NULL;
+
+	mlstr_free(ch->description);
+	ch->description = NULL;
+
+	free_string(ch->prompt);
+	ch->prompt = NULL;
+
+	free_string(ch->prefix);
+	ch->prefix = NULL;
+
+	free_string(ch->material);
+	ch->material = NULL;
+
+	free_string(ch->in_mind);
+	ch->in_mind = NULL;
+
+	free_pcdata(ch->pcdata);
+	ch->pcdata = NULL;
 
 	ch->next = free_char_list;
 	free_char_list = ch;
@@ -267,6 +294,9 @@ PC_DATA *new_pcdata(void)
 void free_pcdata(PC_DATA *pcdata)
 {
 	int alias;
+
+	if (!pcdata)
+		return;
 
 	varr_free(&pcdata->learned);
 	free_string(pcdata->pwd);

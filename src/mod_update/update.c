@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.81 1998-11-07 06:01:21 fjoe Exp $
+ * $Id: update.c,v 1.82 1998-11-07 07:30:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -56,7 +56,6 @@
 DECLARE_DO_FUN(do_human		);
 DECLARE_DO_FUN(do_murder	);
 DECLARE_DO_FUN(do_rescue	);
-DECLARE_DO_FUN(do_quaff		);
 DECLARE_DO_FUN(do_quit		);
 DECLARE_DO_FUN(do_quit_count	);
 DECLARE_DO_FUN(do_spellbane	);
@@ -641,82 +640,84 @@ void mobile_update(void)
 			}
 		}
 
-/* Potion using and stuff for intelligent mobs */
+/* potion using and stuff for intelligent mobs */
 
-		if (ch->position == POS_STANDING
-		||  ch->position == POS_RESTING
-		||  ch->position == POS_FIGHTING) {
-			if (get_curr_stat(ch, STAT_INT) > 15
-			&&  (ch->hit<ch->max_hit*0.9
-			||  IS_AFFECTED(ch,AFF_BLIND)
-			||  IS_AFFECTED(ch,AFF_POISON)
-			||  IS_AFFECTED(ch,AFF_PLAGUE)
-			||  ch->fighting!=NULL)) {
-	      for(obj=ch->carrying;obj!=NULL;obj=obj->next_content)
-		 if (obj->pIndexData->item_type == ITEM_POTION)
-		 {
-		   if (ch->hit < ch->max_hit*0.9)  /* hp curies */
-		   {
-		   int cl;	
-		     cl=potion_cure_level(obj);
-		     if (cl > 0)
-		     {
-			if (ch->hit<ch->max_hit*0.5 && cl > 3)  {
-			  do_quaff(ch, obj->name);
-			  continue;
-			}
-			else if (ch->hit<ch->max_hit*0.7)  {
-			  do_quaff(ch, obj->name);
-			  continue;
-			}
-		     }
-		   }
-	     	   if (IS_AFFECTED(ch,AFF_POISON) && potion_cure_poison(obj))
-		   {
-		     do_quaff(ch, obj->name);
-		     continue;
-		   }
-	     	   if (IS_AFFECTED(ch,AFF_PLAGUE) && potion_cure_disease(obj))
-		   {
-		     do_quaff(ch, obj->name);
-		     continue;
-		   }
-	     	   if (IS_AFFECTED(ch,AFF_BLIND) && potion_cure_blind(obj))
-		   {
-		     do_quaff(ch, obj->name);
-		     continue;
-		   }
-	     	   if (ch->fighting != NULL)
-		   {
-		   int al;
-		     al = potion_arm_level(obj);
-		     if (ch->level-ch->fighting->level < 7 && al>3)
-		     {
-		     	do_quaff(ch, obj->name);
-			continue;
-		     }
-		     if (ch->level-ch->fighting->level < 8 && al>2)
-		     {
-		     	do_quaff(ch, obj->name);
-			continue;
-		     }
-		     if (ch->level-ch->fighting->level < 9 && al>1)
-		     {
-		     	do_quaff(ch, obj->name);
-			continue;
-		     }
-		     if (ch->level-ch->fighting->level < 10 && al>0)
-		     {
-		     	do_quaff(ch, obj->name);
-			continue;
-		     }
-		     else 
-		        continue;
-		   }
-		 }  
-	   }
-	}
+		if (ch->pIndexData->pShop == NULL
+		&&  (ch->position == POS_STANDING ||
+		     ch->position == POS_RESTING ||
+		     ch->position == POS_FIGHTING)
+		&&  get_curr_stat(ch, STAT_INT) > 15
+		&&  (ch->hit < ch->max_hit * 90 / 100 ||
+		     IS_AFFECTED(ch, AFF_BLIND) ||
+		     IS_AFFECTED(ch, AFF_POISON) ||
+		     IS_AFFECTED(ch, AFF_PLAGUE) ||
+		     ch->fighting != NULL)) {
+			for (obj = ch->carrying; obj; obj = obj->next_content) {
+				if (obj->pIndexData->item_type != ITEM_POTION)
+					continue;
 
+				if (ch->hit < ch->max_hit * 90 / 100) {
+					int cl = potion_cure_level(obj);
+					if (cl > 0) {
+						if (ch->hit < ch->max_hit*0.5
+						&&  cl > 3) {
+							quaff_obj(ch, obj);
+							continue;
+						}
+						if (ch->hit < ch->max_hit*0.7) {
+							quaff_obj(ch, obj);
+							continue;
+						}
+					}
+				}
+
+				if (IS_AFFECTED(ch, AFF_POISON)
+				&&  potion_cure_poison(obj)) {
+					quaff_obj(ch, obj);
+					continue;
+				}
+
+				if (IS_AFFECTED(ch, AFF_PLAGUE)
+				&&  potion_cure_disease(obj)) {
+					quaff_obj(ch, obj);
+					continue;
+				}
+
+				if (IS_AFFECTED(ch, AFF_BLIND)
+				&&  potion_cure_blind(obj)) {
+					quaff_obj(ch, obj);
+					continue;
+				}
+
+				if (ch->fighting) {
+					int al = potion_arm_level(obj);
+
+					if (ch->level - ch->fighting->level < 7
+					&&  al > 3) {
+						quaff_obj(ch, obj);
+						continue;
+					}
+
+					if (ch->level - ch->fighting->level < 8
+					&&  al > 2) {
+						quaff_obj(ch, obj);
+						continue;
+					}
+
+					if (ch->level - ch->fighting->level < 9
+					&&  al > 1) {
+						quaff_obj(ch, obj);
+						continue;
+					}
+
+					if (ch->level - ch->fighting->level < 10
+					&&  al > 0) {
+						quaff_obj(ch, obj);
+						continue;
+					}
+				}
+			}
+		}
 
 /* That's all for sleeping / busy monster, and empty zones */
 		if (ch->position != POS_STANDING)
@@ -1551,30 +1552,39 @@ void update_one_obj(OBJ_DATA *obj)
 	extract_obj(obj);
 }
 
+OBJ_DATA *last_updated_obj;
+
+void obj_update_list(OBJ_DATA *obj)
+{
+	OBJ_DATA *obj_next;
+
+	for (; obj; obj = obj_next) {
+		obj_next = obj->next;
+
+		if (obj->extracted) {
+			log("obj_update: extracted obj found, "
+			    "restarting obj update");
+			obj_update_list(last_updated_obj ?
+					last_updated_obj->next : object_list);
+			return;
+		}
+
+		update_one_obj(obj);
+
+		if (!obj->extracted)
+			last_updated_obj = obj;
+	}
+}
+
 /*
  * Update all objs.
  * This function is performance sensitive.
  */
 void obj_update(void)
 {   
-	OBJ_DATA *obj;
-	OBJ_DATA *obj_next;
- 
-	for (obj = object_list; obj != NULL; obj = obj_next) {
-		obj_next = obj->next;
-		if (obj->extracted) {
-/* XXX
- * temporary patch. i don't have enough time to find out why extracted objs
- * appear in object_list
- */
-			log_printf("obj_update: updating extracted obj (%s)",
-				   obj->pIndexData->name);
-			continue;
-		}
-		update_one_obj(obj);
-	}
+	last_updated_obj = NULL;
+	obj_update_list(object_list);
 }
-
 
 /*
  * Aggress.

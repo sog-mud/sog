@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.89 1998-11-02 05:28:28 fjoe Exp $
+ * $Id: act_obj.c,v 1.90 1998-11-07 07:30:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1843,28 +1843,8 @@ void do_sacr(CHAR_DATA * ch, const char *argument)
 	return;
 }
 
-void do_quaff(CHAR_DATA * ch, const char *argument)
+void quaff_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 {
-	char            arg[MAX_INPUT_LENGTH];
-	OBJ_DATA       *obj;
-	one_argument(argument, arg);
-
-	if (arg[0] == '\0') {
-		char_puts("Quaff what?\n\r", ch);
-		return;
-	}
-	if ((obj = get_obj_carry(ch, arg)) == NULL) {
-		char_puts("You do not have that potion.\n\r", ch);
-		return;
-	}
-	if (obj->pIndexData->item_type != ITEM_POTION) {
-		char_puts("You can quaff only potions.\n\r", ch);
-		return;
-	}
-	if (ch->level < obj->level) {
-		char_puts("This liquid is too powerful for you to drink.\n\r", ch);
-		return;
-	}
 	act("$n quaffs $p.", ch, obj, NULL, TO_ROOM);
 	act_puts("You quaff $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 
@@ -1878,6 +1858,35 @@ void do_quaff(CHAR_DATA * ch, const char *argument)
 
 	extract_obj(obj);
 	obj_to_char(create_obj(get_obj_index(OBJ_VNUM_POTION_VIAL), 0), ch);
+}
+
+void do_quaff(CHAR_DATA * ch, const char *argument)
+{
+	char            arg[MAX_INPUT_LENGTH];
+	OBJ_DATA       *obj;
+	one_argument(argument, arg);
+
+	if (arg[0] == '\0') {
+		char_puts("Quaff what?\n\r", ch);
+		return;
+	}
+
+	if ((obj = get_obj_carry(ch, arg)) == NULL) {
+		char_puts("You do not have that potion.\n\r", ch);
+		return;
+	}
+
+	if (obj->pIndexData->item_type != ITEM_POTION) {
+		char_puts("You can quaff only potions.\n\r", ch);
+		return;
+	}
+
+	if (ch->level < obj->level) {
+		char_puts("This liquid is too powerful for you to drink.\n\r", ch);
+		return;
+	}
+
+	quaff_obj(ch, obj);
 }
 
 void do_recite(CHAR_DATA * ch, const char *argument)
