@@ -15,7 +15,6 @@ HPRate 90
 ManaRate 60
 AddExp 200
 StatMod 1 0 0 1 1 5
-Skill 'acute vision' 7 1 0
 Skill 'bark skin' 22 1 0
 Skill 'homepoint' 60 1 0
 Skill 'lion help' 63 1 0
@@ -73,6 +72,7 @@ Skill 'mastering bow' 61 1 0
 Skill 'throwing weapons' 32 1 0
 Skill 'hold breath' 33 1 0
 Skill 'notrack' 15 1 -20
+Skill 'acute eye' 7 1 0
 End
 
 #$
