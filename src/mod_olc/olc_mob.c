@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.37 1999-04-16 15:52:24 fjoe Exp $
+ * $Id: olc_mob.c,v 1.38 1999-05-23 18:07:16 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -81,6 +81,7 @@ DECLARE_OLC_FUN(mobed_prac		);
 DECLARE_OLC_FUN(mobed_clan		);
 DECLARE_OLC_FUN(mobed_clone		);
 DECLARE_OLC_FUN(mobed_invis		);
+DECLARE_OLC_FUN(mobed_incog		);
 DECLARE_OLC_FUN(mobed_fvnum		);
 
 DECLARE_VALIDATE_FUN(validate_fvnum	);
@@ -131,6 +132,7 @@ olc_cmd_t olc_cmds_mob[] =
 	{ "trigdel",	mobed_trigdel				},
 	{ "clone",	mobed_clone				},
 	{ "invis",	mobed_invis				},
+	{ "incog",	mobed_incog				},
 	{ "fvnum",	mobed_fvnum,		validate_fvnum	},
 
 	{ "commands",	show_commands				},
@@ -337,6 +339,9 @@ OLC_FUN(mobed_show)
 
 	if (pMob->invis_level)
 		buf_printf(buf, "Invis level: [%d]\n", pMob->invis_level);
+
+	if (pMob->incog_level)
+		buf_printf(buf, "Incog level: [%d]\n", pMob->incog_level);
 
 	if (pMob->fvnum)
 		buf_printf(buf, "Female vnum: [%d]\n", pMob->fvnum);
@@ -1177,6 +1182,7 @@ OLC_FUN(mobed_clone)
 	pMob->practicer		= pFrom->practicer;
 	pMob->clan		= pFrom->clan;
 	pMob->invis_level	= pFrom->invis_level;
+	pMob->incog_level	= pFrom->incog_level;
 	pMob->fvnum		= pFrom->fvnum;
 
 	for (i = 0; i < 3; i++)
@@ -1196,6 +1202,13 @@ OLC_FUN(mobed_invis)
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
 	return olced_number(ch, argument, cmd, &pMob->invis_level);
+}
+
+OLC_FUN(mobed_incog)
+{
+	MOB_INDEX_DATA *pMob;
+	EDIT_MOB(ch, pMob);
+	return olced_number(ch, argument, cmd, &pMob->incog_level);
 }
 
 OLC_FUN(mobed_fvnum)

@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.40 1999-05-22 13:37:31 fjoe Exp $
+ * $Id: db_area.c,v 1.41 1999-05-23 18:07:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1242,8 +1242,10 @@ DBLOAD_FUN(load_mobiles)
 		}
 		pMobIndex->clan = fread_clan(fp);
 	    }
-	    else if (letter == 'I') 
+	    else if (letter == 'W') 
 		pMobIndex->invis_level = fread_number(fp);
+	    else if (letter == 'I')
+		pMobIndex->incog_level = fread_number(fp);
 	    else if (letter == 'V') 
 		pMobIndex->fvnum = fread_number(fp);
             else if (letter == 'F') {

@@ -1,5 +1,5 @@
 /*
- * $Id: auction.c,v 1.30 1999-05-22 13:37:27 fjoe Exp $
+ * $Id: auction.c,v 1.31 1999-05-23 18:07:13 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -234,7 +234,7 @@ void auction_update(void)
 	        	talk_auction("%s: sold to %s for %d.",
 				     fix_short(mlstr_mval(auction.item->short_descr)),
 				     auction.buyer->invis_level >= LEVEL_HERO ?
-				     "someone" : auction.buyer->name,
+				     "an immortal" : auction.buyer->name,
 				     auction.bet);
 
 			auction_give_obj(auction.buyer, auction.item);

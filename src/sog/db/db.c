@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.143 1999-05-23 08:44:33 fjoe Exp $
+ * $Id: db.c,v 1.144 1999-05-23 18:07:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -978,6 +978,7 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 	mob->size		= pMobIndex->size;
 	mob->clan		= pMobIndex->clan;
 	mob->invis_level	= pMobIndex->invis_level;
+	mob->incog_level	= pMobIndex->incog_level;
  	mob->group		= pMobIndex->group;
 	mob->material		= str_qdup(pMobIndex->material);
 
@@ -1156,6 +1157,7 @@ void clone_mob(CHAR_DATA *parent, CHAR_DATA *clone)
 	clone->res_flags	= parent->res_flags;
 	clone->vuln_flags	= parent->vuln_flags;
 	clone->invis_level	= parent->invis_level;
+	clone->incog_level	= parent->incog_level;
 	clone->affected_by	= parent->affected_by;
 	clone->position		= parent->position;
 	clone->practice		= parent->practice;
@@ -1175,7 +1177,6 @@ void clone_mob(CHAR_DATA *parent, CHAR_DATA *clone)
 	clone->spec_fun		= parent->spec_fun;
 	clone->hunting		= NULL;
 	clone->clan		= parent->clan;
-	clone->invis_level	= parent->invis_level;
 
 	for (i = 0; i < 4; i++)
 		clone->armor[i]	= parent->armor[i];

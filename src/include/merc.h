@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.195 1999-05-22 16:21:07 avn Exp $
+ * $Id: merc.h,v 1.196 1999-05-23 18:07:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1282,6 +1282,7 @@ struct mob_index_data
 	flag32_t		practicer;
 	int			clan;
 	int			invis_level;	/* mobinvis level */
+	int			incog_level;	/* mobincog level */
 };
 
 /*
