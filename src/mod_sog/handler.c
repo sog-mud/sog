@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.354 2002-03-21 15:47:34 fjoe Exp $
+ * $Id: handler.c,v 1.355 2002-09-17 19:08:12 tatyana Exp $
  */
 
 /***************************************************************************
@@ -5199,7 +5199,7 @@ pc_name_ok(const char *name)
 	if (is_name(name, "chronos all auto immortals self someone something "
 			  "the you demise balance circle loner honor none clan "
 			  "aulin lirail dakkorn amtinor cariel ulwark vilirna "
-			  "calamir trorgrim gwinnerai irian stivrosh moarith "
+			  "calamir throrgrim gwinnerai irian stivrosh moarith "
 		          "lessa trussk hathir ilissa sog"))	// notrans
 		return FALSE;
 

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.353 2002-03-26 14:35:09 kostik Exp $
+ * $Id: fight.c,v 1.354 2002-09-17 19:08:11 tatyana Exp $
  */
 
 /***************************************************************************
@@ -140,7 +140,6 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 	int sk, sk2;
 	int dam_class;
 	bool counter = FALSE;
-	bool result;
 	int sercount;
 	int dam_flags;
 	material_t *m = NULL;
@@ -601,7 +600,8 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 		return;
 	}
 
-	result = damage2(ch, victim, dam, dt, dam_class, dam_flags);
+	if (!damage2(ch, victim, dam, dt, dam_class, dam_flags))
+		return;
 
 	/* vampiric bite gives hp to ch from victim */
 	if (IS_SKILL(dt, "vampiric bite")) {
@@ -613,8 +613,20 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 		act_char("Your health increases as you suck your victim's blood.", ch);
 	}
 
+	if (is_sn_affected(victim, "fire sphere")) {
+		int dam_fire;
+		dam_fire = dam * (2 * get_skill(victim, "fire sphere") - 100) / 300;
+		if (dam_fire > 0) {
+			act("$n is burned by $N's fire sphere.",
+			    ch, NULL, victim, TO_ROOM | ACT_VERBOSE);
+			act("$N's fire sphere sears your flesh.",
+			    ch, NULL, victim, TO_CHAR | ACT_VERBOSE);
+			damage(victim, ch, dam_fire, "fire sphere", DAM_F_SHOW);
+		}
+	}
+
 	/* but do we have a funky weapon? */
-	if (result && wield != NULL && ch->fighting == victim) {
+	if (wield != NULL && ch->fighting == victim) {
 		if (IS_WEAPON_STAT(wield, WEAPON_VORPAL)) {
 			int chance;
 
@@ -3420,6 +3432,9 @@ damage2(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 	if (IS_AFFECTED(victim, AFF_PROTECT_GOOD) && IS_GOOD(ch))
 		dam -= dam / 4;
 
+	if (is_sn_affected(victim, "fire sphere"))
+		dam -= dam / 4;
+
 	if (is_sn_affected(victim, "golden aura")) {
 		if (IS_GOOD(ch)) /* Goodies shouldn't fight each other */
 			dam /= 8;
@@ -3561,7 +3576,6 @@ damage2(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 			return TRUE;
 		}
 	}
-
 
 	return TRUE;
 }

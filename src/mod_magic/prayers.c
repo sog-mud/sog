@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.38 2002-08-02 13:25:25 tatyana Exp $
+ * $Id: prayers.c,v 1.39 2002-09-17 19:08:07 tatyana Exp $
  */
 
 /***************************************************************************
@@ -141,6 +141,7 @@ DECLARE_SPELL_FUN(prayer_air_walk);
 DECLARE_SPELL_FUN(prayer_nightmare);
 DECLARE_SPELL_FUN(prayer_abolish_undead);
 DECLARE_SPELL_FUN(prayer_golden_aura);
+DECLARE_SPELL_FUN(prayer_fire_sphere);
 
 static void
 hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
@@ -2679,7 +2680,9 @@ static struct mutually_exclusive_spells mx_sancs[] = {
 	{ "black shroud",	"But you are protected by black shroud.",
 		"But $N is protected by black shroud." },
 	{ "obscuring mist",	"But mist around you already protects you well.",
-		"Obscuring mist around $N already protects $M well enough." },
+		"Obscuring mist around $N already protects $gN{him} well enough." },
+	{ "fire sphere",	"But hot fire sphere protects you well enough.",
+		"Hot fire sphere around $N protects $gN{him} well enough."},
 	{ NULL,	NULL, NULL }
 };
 
@@ -2989,3 +2992,28 @@ SPELL_FUN(prayer_golden_aura, sn, level, ch, vo)
 	}
 }
 
+SPELL_FUN(prayer_fire_sphere, sn, level, ch, vo)
+{
+        AFFECT_DATA *paf;
+
+        if (is_sn_affected(ch, sn)) {
+                act_puts("Fire sphere already surrounds you.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		return;
+        };
+
+	if (!can_cast_sanctuary(ch, ch))
+		return;
+
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->type      = sn;
+	paf->level     = level;
+	paf->duration  = UMAX (2, level/4);
+	paf->modifier  = 0;
+	paf->bitvector = 0;
+	affect_to_char(ch, paf);
+	aff_free(paf);
+
+	act("Hot violent fire flashes around you.", ch, NULL, NULL, TO_CHAR);
+	act("Hot violent fire flashes around $n.", ch, NULL, NULL, TO_ROOM);
+}

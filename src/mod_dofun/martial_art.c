@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.214 2002-08-24 13:59:28 tatyana Exp $
+ * $Id: martial_art.c,v 1.215 2002-09-17 19:08:01 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1470,7 +1470,8 @@ DO_FUN(do_dirt, ch, argument)
 	}
 
 	if (IS_AFFECTED(victim, AFF_BLIND)) {
-		act("$e's already been blinded.", ch, NULL, victim, TO_CHAR);
+		act("$gN{He}'s already been blinded.",
+		    ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
