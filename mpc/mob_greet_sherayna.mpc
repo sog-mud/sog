@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_greet_sherayna.mpc,v 1.1 2001-08-27 16:53:01 fjoe Exp $
+ */
+
+dofun("say", $n, "Welcome to Zeinia International!  How may I help you?");

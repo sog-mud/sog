@@ -1,3 +1,7 @@
+/*
+ * $Id: mob_greet_questor.mpc,v 1.2 2001-08-27 16:53:00 fjoe Exp $
+ */
+
 if (can_see($n, $N))
         tell_char($n, $N, "Don't you want a quest?");
 return 0;
