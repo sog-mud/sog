@@ -13,16 +13,17 @@ End
 @eng {DShades of Gray{x is based on Anatolia MUD -- see {CHELP ANATOLIA{x.
 
                      Original idea, concept and coding:
-        Max Khon                         [{cTyan{x] (fjoe@@iclub.nsu.ru)
+        fjoe                           [{cTyan{x] (fjoe@@iclub.nsu.ru)
         Constantin Svintsoff           [{cNergal{x] (kostik@@iclub.nsu.ru)
         Alexey Neyman                  [{cArborn{x] (avn@@any.ru)
+        Alexander Morokhovets                   (efdi@@iclub.nsu.ru)
 
                      Web page design:
         Denis Petrakov                          (den@@oapmg.sscc.ru)
  
-                    Partial message translation:
+                    Message translation:
         Alexander Morokhovets                   (efdi@@iclub.nsu.ru)
-        Max Khon                         [{cTyan{x] (fjoe@@iclub.nsu.ru)
+        fjoe                           [{cTyan{x] (fjoe@@iclub.nsu.ru)
         Tatyana Novikova               [{cPhrinn{x] (tatyana@@iclub.nsu.ru)
         Kirill Rodionov                         (kir@@iclub.nsu.ru)
 
@@ -41,12 +42,13 @@ End
         Alex Pchelintsev                        (glabrezu@@mail.ru)
         Artie Konin                  [{cTenobaal{x] (asp.jesby.tstu.ru)
         Vitaly Suharev                 [{cVulfer{x] (suharev2000@@mailru.com)
-@rus {DShades of Gray{x составлен на основе MUDа Anatolia -- смотри {CHELP ANATOLIA{x.
+@rus {DShades of Gray{x разработан на основе MUDа Anatolia -- смотри {CHELP ANATOLIA{x.
  
                    Первоначальная идея, концепция и кодирование:
-          Максим Хон                     [{cTyan{x]   (fjoe@@iclub.nsu.ru)
+          fjoe                           [{cTyan{x]   (fjoe@@iclub.nsu.ru)
           Константин Свинцов             [{cNergal{x] (kostik@@iclub.nsu.ru)
           Алексей Нейман                 [{cArborn{x] (avn@@any.ru)
+          Александр Мороховец                     (efdi@@iclub.nsu.ru)
  
                                Дизайн Web-страницы:
           Денис Петраков                          (den@@oapmg.sscc.ru)
@@ -54,7 +56,7 @@ End
                                 Перевод сообщений:
           Александр Мороховец                     (efdi@@iclub.nsu.ru)
           Татьяна Новикова               [{cPhrinn{x] (tatyana@@iclub.nsu.ru)
-          Максим Хон                     [{cTyan{x]   (fjoe@@iclub.nsu.ru)
+          fjoe                           [{cTyan{x]   (fjoe@@iclub.nsu.ru)
           Кирилл Родионов                         (kir@@iclub.nsu.ru)
  
                            Перевод помощи:
@@ -4742,6 +4744,7 @@ Syntax: {calist clan{x
 Syntax: {calist class{x
 Syntax: {calist implicit{x {{ {ccases{x | {cgenders{x | {cqtys{x }
 Syntax: {calist help{x [<keyword>]
+Syntax: {calist hint{x <substring>
 Syntax: {calist lang{x
 Syntax: {calist liquid{x
 Syntax: {calist material{x
@@ -4816,6 +4819,7 @@ Syntax: {ccreate class{x <name>
 Syntax: {ccreate command{x <name>
 Syntax: {ccreate explicit{x <rule class> <word>
 Syntax: {ccreate help{x <topic>
+Syntax: {ccreate hint{x
 Syntax: {ccreate implicit{x <rule class> <num> <word>
 Syntax: {ccreate lang{x <name>
 Syntax: {ccreate liquid{x <name>
@@ -4842,6 +4846,7 @@ Syntax: {cedit class{x <name>
 Syntax: {cedit command{x <name>
 Syntax: {cedit explicit{x <rule class> <word>
 Syntax: {cedit help{x [<num>.]<topic>
+Syntax: {cedit hint{x [<num>.]<substr>
 Syntax: {cedit implicit{x <rule class> <num>
 Syntax: {cedit lang{x <name>
 Syntax: {cedit liquid{x <name>
@@ -5558,7 +5563,7 @@ immortal _GREETING~
 * Added multi-language support command. See '{Clanguage{x' command.
 * Added short mode for flags. See '{CHELP TOGGLE{x'.
 * {CGossip{x and {Cmusic{x channels added.
-* Use '{Cbug{x' command or mail to {Csog@@any.ru{x for bug reports
+* Use '{Cbug{x' command or mail to {Csog2@@iclub.nsu.ru{x for bug reports
   and suggestions.
 * Players who use russian codepages, see '{CHELP RUSSIAN{x'.
 * Check out our homepage at {Chttp://iclub.nsu.ru/mud/{x.
@@ -6684,12 +6689,12 @@ TITLE changes character's title to given one.
 TITLE устанавливает титул указанного персонажа.
 ~
 0 WIZLIST~
-@eng {WDEITIES OF THIS WORLD{x
+{WDEITIES OF THIS WORLD{x
  
 {G                                    .\|/.
                                    . .{y|{G. .
                                   ..  {y|{G/. . .
-                        {Y Nergal{G  . \ .{y|{G//. ./ {YIluvatar{G
+                        {Y Nergal{G  . \ .{y|{G//. ./ {YTyan{G
                         . _--. .\ . \ {y|{G/.._/. .__---_
                        . /.../\ .\_ {y |.|{G / . _/  \. .
                              . \. .\ {y|@@|{G/.: /. / .
@@ -6744,66 +6749,6 @@ TITLE устанавливает титул указанного персонажа.
                                    {y|@@@@@@@@@@@@|{G
                                    {y|@@@@@@@@@@@@|{G
                                    {y|@@@@@@@@@@@@|{x
-@rus {WБОГИ НАШЕГО МИРА
- 
-                                    {G.\|/.
-                                   . .{y|{G. .
-                                  ..  {y|{G/. . .
-                         {YNergal{G  . \ .{y|{G//. ./ {YIluvatar{G
-                        . _--. .\ . \ {y|{G/.._/. .__---_
-                       . /.../\ .\_  {y|.|{G / . _/  \. .
-                             . \. .\ {y|@@|{G/.: /. / .
-                             . .\_ .\{y|.|{G.._/._/.
-                                 . \.{y|@@{G/._/.
-                                   .\.{y@@{G./.
-                  {YDiablo            Arwen       Arborn{G
-               .____---__           {y|@@@@@@|{G      __----__..
-               ./../. /. \__ .      {y|@@@@@@|{G _ __/..\__.\.\.
-                 ./. .. _/. \__     {y|@@@@@@|{G/_/ .\:..\. .\.
-                  . .  ./. .. .\__ .{y|@@@@@@@@|{G
-                                  \ {y|@@@@@@@@|{G
-                                   \/{y@@@@@@@@|{G
-                                    {y|@@@@@@@@|{G              ____ .
-                                    {y|@@@@@@@@|{G      .._---_/. ..\.
-                                    {y|@@@@@@@@|{G ....__/.\+ .\..  .
-                  {YMarewell          {y|@@@@@@@@|{G. ._/..\ .\... .
-           .. . ____----____        {y|@@@@@@@@{G \/ ..  .  ..
-         .. /.--. ./\.. . / \___ .. {y|@@@@@@@@{G /
-          ./. . . .. . __/ .. ./\__.{y|@@@@@@@@|{G
-              .. / . ./..\.  . ..  \/{y@@@@@@@@|{G
-                                   {y|@@@@@@@@@@|                 {YEidu
-                                   {y|@@@@@@@@@@|{G    . . . ______------____ . .
-                                   {y|@@@@@@@@@@|{G ... ____/\__.. \_. ..\ ..\___ .
-                                   {y|@@@@@@@@@@|{G.___/ . .\__.. ./ \__. .. / ..\.
-          {YJullyRoger McLoud        {y|@@@@@@@@@@|{G/. .\. ... \. .. . .  .  . .
-       .. .___-----______. . .     {y|@@@@@@@@@@|{G     . .
-       . /. ./..__/ .. . \._._ . . {y|@@@@@@@@@@|{G
-      . /\ . . /.. .  . _/.. .\.__.{y|@@@@@@@@@@|{G
-       ...   ...     . /..  . . ..\/{y@@@@@@@@@@|{G
-                      ..          .{y|@@@@@@@@@@|               {YShamash
-                                   {y|@@@@@@@@@@|{G  ..  . _______--------______  . .
-                                   {y|@@@@@@@@@@|{G ..____/. . . .\ ... . \ . . \___
-                                   {y|@@@@@@@@@@|{G__/.. .\_.. .. .\__. ../\ . . \ .\ 
-                                   {y|@@@@@@@@@@{G/.. . . . \.      . .  ... .  . . /
-           {YRondor                  {y|@@@@@@@@@@|{G         .                    .. .
-   . .. ____---_____ ..  .. .      {y|@@@@@@@@@@|{G
-  . ___/. ..\.. ./..\_______ .  .. {y|@@@@@@@@@@|{G
- ._/\  \..  /. ./. ./.. .. .\_____.{y|@@@@@@@@@@|{G
- . . . /\. .. ./.  .\.     ./ . . \/{y@@@@@@@@@@|{G
-      . ..     .    .      ...   . {y|@@@@@@@@@@|{G
-                                   {y|@@@@@@@@@@|               {YVivien Maedhros
-                                   {y|@@@@@@@@@@|{G      . .  ..______------_____. ..
-                                   {y|@@@@@@@@@@|{G.. .. ______/. . . \_ ../ . ./\___
-                                   {y|@@@@@@@@@@|{G.____/. \.. \_. . ./ \__ .. .\ .\_
-                                   {y|@@@@@@@@@@{G\/.. .\. .. . . \ . . . .\ .  .. .
-                                   {y|@@@@@@@@@@@@|{G    ..       ...       . .
-                                   {y|@@@@@@@@@@@@|
-                                   |@@@@@@@@@@@@|
-                                   |@@@@@@@@@@@@|
-                                   |@@@@@@@@@@@@|
-                                   |@@@@@@@@@@@@|
-                                   |@@@@@@@@@@@@|
-                                   |@@@@@@@@@@@@|{x
 ~
 immortal 'WIZ PREFIX' PREFIX~
 @eng Syntax: {cprefix{x <command>
@@ -7513,6 +7458,27 @@ Syntax: {ccheck flags{x <flags>
 Syntax: {ccheck delete{x
 
 <flags> are mprog flags, Use '?' to get list of valid mprog flags.
+~
+0 GREASE~
+Syntax: {ccast grease{x
+ 
+This spell creates a greasy pool on the ground
+which trips the unwary bypassers.
+~
+-1 WIZARDS~
+@eng Wizard is a sort of mage, not a God!
+@rus Колдун - это такой вот маг, а вовсе и не Бог!
+~
+0 ORCS~
+@eng . 
+Orcs are dirty and evil creatures. They are perfect fighters, who can
+see in darkness and have a little resistanse to poison, but they are
+afraid of anything holy and light. The are rather dumb and not too wise
+but their constitution is realy great...
+@rus Орки - это грязные и злобные создания. Отличные воины, которые могут
+видеть в темноте и обладают небольшой устойчивостью к ядам, но боятся
+всего доброго и светлого. Они туповаты и не очень мудры, однако их
+телосложение заставит позавидовать всякого...
 ~
 -1 $~
 
