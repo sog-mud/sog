@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.2 2000-02-01 09:25:27 fjoe Exp $
+ * $Id: spellfun2.c,v 1.139.2.3 2000-03-15 12:36:14 osya Exp $
  */
 
 /***************************************************************************
@@ -5724,5 +5724,110 @@ void spell_death_ripple(int sn, int level, CHAR_DATA *ch, void *vo)
 		prev_room = next_room ;
 	}
 	
+}
+
+void spell_abolish_undead(int sn, int level, CHAR_DATA *ch, void *vo)
+{
+        CHAR_DATA *victim = (CHAR_DATA *) vo;
+        CHAR_DATA *tmp_ch;
+        OBJ_DATA *obj;
+        OBJ_DATA *obj_next;
+        int i,dam=0;
+        OBJ_DATA *tattoo, *clanmark;
+        PC_DATA *vpc;
+	race_t *r;
+
+	if  (ch->alignment < 1) {
+                act("You are not of the Light.",ch,NULL,victim,TO_CHAR);
+                return;
+	}
+	
+        r = RACE(victim->race);
+
+        if  ((!IS_NPC(victim) || !IS_SET(victim->pMobIndex->act, ACT_UNDEAD))
+             && (!IS_SET(r->form, FORM_UNDEAD))) {
+                act("$N doesn't seem to be an undead.",ch,NULL,victim,TO_CHAR);
+                return;
+        }
+
+        if (saves_spell(level+2, victim, DAM_HOLY)
+        ||  number_bits(1) == 0
+        ||  IS_IMMORTAL(victim)
+        ||  IS_CLAN_GUARD(victim)) {
+                dam = dice(level, 24) ;
+                damage(ch, victim, dam, sn, DAM_HOLY, TRUE);
+                return;
+        }
+
+        act_puts("$N's holy light holds you! Your flash decays into dust.",
+              victim, NULL, ch, TO_CHAR, POS_RESTING);
+        act_puts("$n's holy light holds $N! $N's flash decays into dust.",
+              ch, NULL, victim, TO_NOTVICT, POS_RESTING);
+        act_puts("Your holy light holds $N! $N's flash decays into dust.",
+              ch, NULL, victim, TO_CHAR, POS_RESTING);
+        char_puts("You have been KILLED!\n", victim);
+
+        act("$N does not exist anymore!\n", ch, NULL, victim, TO_CHAR);
+        act("$N does not exist anymore!\n", ch, NULL, victim, TO_ROOM);
+
+        char_puts("You turn into an invincible ghost for a few minutes.\n",
+                     victim);
+        char_puts("As long as you don't attack anything.\n", victim);
+
+        /*  disintegrate the objects... */
+        tattoo = get_eq_char(victim, WEAR_TATTOO); /* keep tattoos for later */
+        if (tattoo != NULL)
+                obj_from_char(tattoo);
+        if ((clanmark = get_eq_char(victim, WEAR_CLANMARK)) != NULL)
+                obj_from_char(clanmark);
+
+        victim->gold = 0;
+        victim->silver = 0;
+
+        for (obj = victim->carrying; obj != NULL; obj = obj_next) {
+                obj_next = obj->next_content;
+                extract_obj(obj, 0);
+        }
+
+        if (IS_NPC(victim)) {
+                quest_handle_death(ch, victim);
+                victim->pMobIndex->killed++;
+                extract_char(victim, 0);
+                return;
+        }
+        extract_char(victim, XC_F_INCOMPLETE);
+
+        while (victim->affected)
+                affect_remove(victim, victim->affected);
+        victim->affected_by   = 0;
+        for (i = 0; i < 4; i++)
+                victim->armor[i]= 100;
+        victim->position      = POS_RESTING;
+        victim->hit           = 1;
+        victim->mana      = 1;
+
+        vpc = PC(victim);
+        REMOVE_BIT(vpc->plr_flags, PLR_BOUGHT_PET);
+        SET_WANTED(victim, NULL);
+
+        vpc->condition[COND_THIRST] = 40;
+        vpc->condition[COND_HUNGER] = 40;
+        vpc->condition[COND_FULL] = 40;
+        vpc->condition[COND_BLOODLUST] = 40;
+        vpc->condition[COND_DESIRE] = 40;
+
+        if (tattoo != NULL) {
+                obj_to_char(tattoo, victim);
+                equip_char(victim, tattoo, WEAR_TATTOO);
+        }
+
+        if (clanmark != NULL) {
+                obj_to_char(clanmark, victim);
+                equip_char(victim, clanmark, WEAR_CLANMARK);
+        }
+
+        for (tmp_ch = npc_list; tmp_ch; tmp_ch = tmp_ch->next)
+                if (NPC(tmp_ch)->last_fought == victim)
+                        NPC(tmp_ch)->last_fought = NULL;
 }
 
