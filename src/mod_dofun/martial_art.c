@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.207 2001-12-03 22:39:09 fjoe Exp $
+ * $Id: martial_art.c,v 1.208 2001-12-04 13:22:52 kostik Exp $
  */
 
 /***************************************************************************
@@ -2383,8 +2383,9 @@ DO_FUN(do_nerve, ch, argument)
 		return;
 
 	if (IS_NPC(ch)
-	||  number_percent() < (chance + ch->level
-			                 + get_curr_stat(ch,STAT_DEX))/2) {
+	||  number_percent() < (chance + LEVEL(ch) - LEVEL(victim) -
+	    get_curr_stat(victim, STAT_CON) + get_curr_stat(ch,STAT_DEX)/2)
+	||  (ch == victim)) {
 		AFFECT_DATA *paf;
 
 		paf = aff_new(TO_AFFECTS, "nerve");
@@ -2394,6 +2395,12 @@ DO_FUN(do_nerve, ch, argument)
 		paf->modifier	= -3;
 		affect_to_char(victim, paf);
 		aff_free(paf);
+
+		if (ch == victim) {
+			act_char("You can't resist your own nerve pressure.",
+			    ch);
+			return;
+		}
 
 		act("You weaken $N with your nerve pressure.",
 		    ch, NULL, victim, TO_CHAR);
