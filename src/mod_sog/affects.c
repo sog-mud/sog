@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.74 2001-11-07 13:09:16 kostik Exp $
+ * $Id: affects.c,v 1.75 2001-11-14 17:54:57 tatyana Exp $
  */
 
 /***************************************************************************
@@ -990,7 +990,7 @@ show_name(CHAR_DATA *ch, BUFFER *output,
 	const char *aff_type;
 
 	if (ch != NULL
-	&&  (ch->level < MAX_LEVEL / 3 || IS_SET(ch->comm, COMM_SHORT_AFFECTS))
+	&&  (ch->level < MAX_LEVEL / 3 || IS_SET(ch->comm, COMM_SHORT_AFF))
 	&&  paf_last != NULL
 	&&  IS_SKILL(paf->type, paf_last->type))
 		return FALSE;
@@ -1052,7 +1052,7 @@ show_loc_affect(CHAR_DATA *ch, BUFFER *output,
 	if (!show_name(ch, output, paf, *ppaf))
 		return;
 
-	if (IS_SET(ch->comm, COMM_SHORT_AFFECTS))
+	if (IS_SET(ch->comm, COMM_SHORT_AFF))
 		buf_append(output, ":");			// notrans
 	else {
 		buf_append(output, ": ");			// notrans
@@ -1080,7 +1080,7 @@ show_bit_affect(CHAR_DATA *ch, BUFFER *output,
 	if (!show_name(NULL, output, paf, *ppaf))
 		return;
 
-	if (ch != NULL && IS_SET(ch->comm, COMM_SHORT_AFFECTS))
+	if (ch != NULL && IS_SET(ch->comm, COMM_SHORT_AFF))
 		buf_append(output, ":");			// notrans
 	else {
 		buf_append(output, ": ");			// notrans

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.257 2001-11-09 16:09:12 kostik Exp $
+ * $Id: act_comm.c,v 1.258 2001-11-14 17:54:56 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2201,9 +2201,9 @@ toggle_t toggle_table[] =
 	  "You will now see empty equipment slots."
 	},
 
-	{ "short affects",					// notrans
+	{ "short aff",						// notrans
 	  "short affects mode",
-	  NULL, comm_flags,	COMM_SHORT_AFFECTS,
+	  NULL, comm_flags,	COMM_SHORT_AFF,
 	  "Short affects mode on.",
 	  "Short affects mode off."
 	},
