@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.124 1998-11-14 09:01:18 fjoe Exp $
+ * $Id: comm.c,v 1.125 1998-11-18 05:20:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2107,19 +2107,19 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	 	sprintf(buf,"\n\rNow you are lawful-%s.\n\r",
 		   IS_GOOD(ch) ? "good" : IS_EVIL(ch) ? "evil" : "neutral");
 	        write_to_buffer(d, buf, 0);
-		ch->ethos = 1; 
+		ch->ethos = ETHOS_LAWFUL; 
 		break;
 	   case 'N': case 'n': 
 	 	sprintf(buf,"\n\rNow you are neutral-%s.\n\r",
 		   IS_GOOD(ch) ? "good" : IS_EVIL(ch) ? "evil" : "neutral");
 	        write_to_buffer(d, buf, 0);
-		ch->ethos = 2; 
+		ch->ethos = ETHOS_NEUTRAL; 
 		break;
 	   case 'C': case 'c': 
 	 	sprintf(buf,"\n\rNow you are chaotic-%s.\n\r",
 		   IS_GOOD(ch) ? "good" : IS_EVIL(ch) ? "evil" : "neutral");
 	        write_to_buffer(d, buf, 0);
-		ch->ethos = 3; 
+		ch->ethos = ETHOS_CHAOTIC; 
 		break;
 	   default:
 	    write_to_buffer(d, "\n\rThat is not a valid ethos.\n\r", 0);
