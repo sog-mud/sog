@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hash.c,v 1.13 2000-04-16 09:21:55 fjoe Exp $
+ * $Id: hash.c,v 1.14 2001-02-11 18:07:22 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -213,6 +213,19 @@ hash_add(hash_t *h, const void *k, const void *e, int flags)
 			v->v_data->e_destroy(elem);
 	}
 
-	return h->h_data->e_cpy(elem, e);
+	if (h->h_data->e_cpy)
+		return h->h_data->e_cpy(elem, e);
+	return memcpy(elem, e, h->h_data->nsize);
 }
 
+int
+vnum_hash(const void *k, size_t hsize)
+{
+	return (*(int *) k) * 17 % hsize;
+}
+
+int
+vnum_ke_cmp(const void *k, const void *e)
+{
+	return *(int *) k - *(int *) e;
+}

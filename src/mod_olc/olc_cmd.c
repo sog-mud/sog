@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_cmd.c,v 1.14 2000-10-07 20:41:06 fjoe Exp $
+ * $Id: olc_cmd.c,v 1.15 2001-02-11 18:07:22 fjoe Exp $
  */
 
 #include "olc.h"
@@ -390,8 +390,8 @@ static void *save_cmd_cb(void *p, va_list ap)
 	FILE *fp = va_arg(ap, FILE *);
 
 	fprintf(fp, "#CMD\n");
-	fprintf(fp, "name %s~\n", cmnd->name);
-	fprintf(fp, "dofun %s~\n", cmnd->dofun_name);
+	fwrite_string(fp, "name", cmnd->name);
+	fwrite_string(fp, "dofun", cmnd->dofun_name);
 	fprintf(fp, "min_pos %s\n",
 		flag_string(position_table, cmnd->min_pos));
 	if (cmnd->min_level)

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.280 2001-02-11 14:35:43 fjoe Exp $
+ * $Id: handler.c,v 1.281 2001-02-11 18:07:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3198,22 +3198,22 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		move = (movement_loss[URANGE(0, in_room->sector_type, MAX_SECT)]
 		  + movement_loss[URANGE(0, to_room->sector_type, MAX_SECT)])/2;
 
-		can_carry = can_carry_w(ch);
-
 		if (IS_AFFECTED(ch, AFF_FLYING)
 		||  IS_AFFECTED(ch, AFF_HASTE))
 			move /= 2;
 
-		if (ch->carry_weight > can_carry * 3 / 4) {
-			act_puts("You're carrying too much to go further.",
-			    ch, NULL, NULL, TO_CHAR, POS_DEAD);
-			return FALSE;
-		} else if (ch->carry_weight > can_carry * 2 / 3) {
-			/* Overburdened much */
-			move *= 2;
-		} else if (ch->carry_weight > can_carry / 2) {
-			/* slightly overburdened */
-			move = move * 3 / 2;
+		if ((can_carry = can_carry_w(ch)) >= 0) {
+			if (ch->carry_weight > can_carry * 3 / 4) {
+				act_puts("You're carrying too much to go further.",
+				    ch, NULL, NULL, TO_CHAR, POS_DEAD);
+				return FALSE;
+			} else if (ch->carry_weight > can_carry * 2 / 3) {
+				/* Overburdened much */
+				move *= 2;
+			} else if (ch->carry_weight > can_carry / 2) {
+				/* slightly overburdened */
+				move = move * 3 / 2;
+			}
 		}
 
 		if (IS_AFFECTED(ch, AFF_SLOW))

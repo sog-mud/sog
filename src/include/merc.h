@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.319 2001-02-11 14:35:35 fjoe Exp $
+ * $Id: merc.h,v 1.320 2001-02-11 18:07:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2345,4 +2345,3 @@ enum {
 const char *strdump	(const char *argument, int dump_level);
 
 #endif
-
