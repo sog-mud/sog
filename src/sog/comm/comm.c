@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.73 1998-07-14 08:29:21 efdi Exp $
+ * $Id: comm.c,v 1.74 1998-07-14 18:26:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -149,7 +149,7 @@ static char R_B_WHITE[]		= "[0m[1;37m";
 static char* reset_color = CLEAR;
 static char* curr_color = CLEAR;
 char* color(char type, CHAR_DATA *ch);
-void parse_colors(const char *i, CHAR_DATA *ch, char *o);
+void parse_colors(const char *i, CHAR_DATA *ch, char *o, size_t);
 
 
 /*
@@ -2624,28 +2624,24 @@ void char_nprintf(CHAR_DATA* ch, int msgid, ...)
 }
 
 /*
- * Parse color symbols.
+ * Parse color symbols. len MUST BE > 1
  */
-void parse_colors(const char *i, CHAR_DATA *ch, char *o)
+void parse_colors(const char *i, CHAR_DATA *ch, char *o, size_t len)
 {
-	int l;
-	*o = '\0';
+	char *p;
 
-	if (i == NULL)
-		return;
-	
-	for (; *i; ++i) {
+	reset_color = curr_color = CLEAR;
+	for (p = o; *i && p - o < len - 1; i++) {
 		if (*i == '{') {
-			++i;
-			if (*i)
-				strnzcat(o, color(*i, ch), MAX_STRING_LENGTH);
+			if (*++i) {
+				strnzcpy(p, color(*i, ch), len - 1 - (p - o));
+				p = strchr(p, '\0');
+			}
 			continue;
 		}
-		l = strlen(o);
-		if (l < MAX_STRING_LENGTH - 1)
-			o[l] = *i;
-		o[l+1] = '\0';
+		*p++ = *i;
 	}
+	*p = '\0';
 }
 
 /*
@@ -2653,13 +2649,12 @@ void parse_colors(const char *i, CHAR_DATA *ch, char *o)
  */
 void char_puts(const char *txt, CHAR_DATA *ch)
 {
-	char buf[MAX_STRING_LENGTH];
+	char buf[MAX_STRING_LENGTH*4];
 
 	if (txt == NULL || ch->desc == NULL)
 		return;
 
-	reset_color = curr_color = CLEAR;
-	parse_colors(txt, ch, buf);
+	parse_colors(txt, ch, buf, sizeof(buf));
 	write_to_buffer(ch->desc, buf, 0);
 }
 
@@ -2843,14 +2838,12 @@ void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
     *point++	= '\r';
     *point	= '\0';
 
-    reset_color = curr_color = CLEAR;
-    parse_colors(buf, to, tmp); 
-    strnzcpy(buf, tmp, MAX_STRING_LENGTH);
+    parse_colors(buf, to, tmp, sizeof(tmp)); 
 
     if(to->desc)
-    	write_to_buffer(to->desc, buf, 0);
+    	write_to_buffer(to->desc, tmp, 0);
     else if (MOBtrigger)
-    	mp_act_trigger(buf, to, ch, arg1, arg2, TRIG_ACT);
+    	mp_act_trigger(tmp, to, ch, arg1, arg2, TRIG_ACT);
 }
 
 
