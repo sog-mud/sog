@@ -1,6 +1,7 @@
 #AREADATA
 Ver 5
 Name Magic Forest~
+Builders astonix~
 VNUMs 1800 1899
 Credits Xyza~
 Security 9
@@ -10,13 +11,17 @@ End
 #MOBILES
 #1801
 unicorn white единорог белый~
-@eng a white unicorn@rus белый единорог~
-@eng A white unicorn regards you warily.@rus Белый единорог осторожно приветствует тебя.~
-This beautiful creature is the whitest of whites, its eyes sparkling like
+@eng a white unicorn@rus ~~белый~~ ~~единорог~~~
+@eng A white unicorn regards you warily.@rus Белый единорог (white unicorn) настороженно приветствует тебя.~
+@eng This beautiful creature is the whitest of whites, its eyes sparkling like
 sapphires, its spiral horn and cloven hooves of a shiny silver. Graceful,
 it resembles a horse, but it has the beard of a goat. Tufts of hair on its
 long tail remind you of another creature, but you can't quite remember the
 name of it. It also has wings! Such a beautiful creature...
+@rus сапфиры, его спиральный рог и раздвоенные копыта сияют серебром. Осанкой
+он похож на коня, но имеет козлиную бородку. Кисточка на конце длинного
+хвоста напоминает тебе о еще одном существе, но ты не можешь вспомнить его
+название. Смотри-ка, да у него еще и крылья! Что за милое создание...
 ~
 pig~
 BGY 0 TV 0 H 1000 0
@@ -25,18 +30,24 @@ BGY 0 TV 0 H 1000 0
 EFHIJK
 stand stand either 0
 0 PQW large unknown
+g @eng either@rus male~
 r fire -50
 r poison 33
 r disease 33
 #1802
 unicorn white~
-a white unicorn~
-A white unicorn regards you warily.~
-This beautiful creature is the whitest of whites, its eyes sparkling like
+@eng a white unicorn@rus ~~белый~~ ~~единорог~~~
+@eng A white unicorn regards you warily.@rus Белый единорог (white unicorn) настороженно приветствует тебя.~
+@eng This beautiful creature is the whitest of whites, its eyes sparkling like
 sapphires, its spiral horn and cloven hooves of a shiny silver. Graceful,
 it resembles a horse, but it has the beard of a goat. Tufts of hair on its
 long tail remind you of another creature, but you can't quite remember the
 name of it. It also has wings! Such a beautiful creature...
+@rus Шкура этого прекрасного создания белее белого, его глаза сверкают как
+сапфиры, его спиральный рог и раздвоенные копыта сияют серебром. Осанкой
+он похож на коня, но имеет козлиную бородку. Кисточка на конце длинного
+хвоста напоминает тебе о еще одном существе, но ты не можешь вспомнить его
+название. Смотри-ка, да у него еще и крылья! Что за милое создание...
 ~
 pig~
 BGY 0 TV 0 H 1000 0
@@ -45,16 +56,20 @@ BGY 0 TV 0 H 1000 0
 EFHIJK
 stand stand either 0
 0 PQW large unknown
+g @eng either@rus male~
 r fire -50
 r poison 33
 r disease 33
 #1803
 panther black~
-a black panther~
-A huge black panther is here contemplating its thoughts.~
-It's huge, very huge, and it has long gleaming sharp fangs. Its eyes shine
+@eng a black panther@rus черная пантера~
+@eng A huge black panther is here contemplating its thoughts.@rus Большая черная пантера (huge black panther) задумалась о своем.~
+@eng It's huge, very huge, and it has long gleaming sharp fangs. Its eyes shine
 with a red glow. Claws half a foot long protract and retract. Its tail
 twitches menacingly.
+@rus Она большая, очень большая, в ее пасти сверкают длинные острые клыки. Ее
+глаза отсвечивают красным светом. Она втягивает и выпускает когти в полфута
+длиной. Хвост ее угрожающе подергивается.
 ~
 cat~
 G 0 H 0 0 1000 0
@@ -63,17 +78,22 @@ G 0 H 0 0 1000 0
 EIJKP
 stand stand male 0
 0 0 large unknown
+g @eng male@rus female~
 r fire -50
 r acid -50
 r mental 33
 #1804
-bard girl singer~
-a young girl with a lovely voice~
-A young girl sits on the swing, strums her harp, and sings sweetly.~
-Long black hair and emerald green eyes catch your attention when you look at
+bard girl singer девушка молодая~
+@eng a young girl with a lovely voice@rus ~~молодая~~ ~~девушка~~ с приЯтным голосом~
+@eng A young girl sits on the swing, strums her harp, and sings sweetly.@rus Молодая девушка (young girl) сидит на качелях, играет на арфе и нежно напевает.~
+@eng Long black hair and emerald green eyes catch your attention when you look at
 this singing beauty. She sits upon the swing and plays the harp easily, as
 though it were a part of her. Her voice is beautiful, the most beautiful
 voice you have ever heard.
+@rus Длинные черные волосы и изумрудно-зеленые глаза привлекают твое внимание,
+когда ты смотришь на эту поющую красавицу. Она сидит на качелях и играет на
+своей арфе так свободно, как будто та является ее продолжением. Ее голос
+прекрасен, самый прекрасный голос, который ты когда-либо $gn{слышал}.
 ~
 human~
 BG H 0 0 0 0 0
@@ -93,9 +113,9 @@ r mental 33
 r light -50
 r sound 999
 #1805
-unicorn silver~
-the silver unicorn~
-The silver unicorn stands here, ready to pierce you with his horn.~
+unicorn silver единорог серебряный~
+@eng the silver unicorn@rus ~~серебрЯный~~ ~~единорог~~~
+@eng The silver unicorn stands here, ready to pierce you with his horn.@rus Тут стоит серебряный единорог (silver unicorn), готовый пронзить тебя своим рогом.~
 This magnificent animal has a spiral horn of some crystal, and his cloven
 hooves are made of crystal as well. Wings folded at his side prepare to un-
 fold and lift him beyond your reach. His obsidian eyes regard you with great
@@ -112,13 +132,18 @@ r fire -50
 r poison 33
 r disease 33
 #1806
-unicorn gold~
-the golden unicorn~
-The golden unicorn stands here, ready to pierce you with his horn.~
-This magnificent animal has a spiral horn of emerald, and his cloven
+unicorn gold единорог золотой~
+@eng the golden unicorn@rus ~~золотой~~ ~~единорог~~~
+@eng The golden unicorn stands here, ready to pierce you with his horn.@rus Тут стоит золотой единорог (golden unicorn), готовый пронзить тебя своим рогом.~
+@eng This magnificent animal has a spiral horn of emerald, and his cloven
 hooves are of emerald as well. Wings folded at his side prepare to un-
 fold and lift him beyond your reach. His beryl eyes regard you with great
 distrust; you are intruding in his home.
+@rus Спиральный рог этого великолепного животного -- изумрудный, также как и
+раздвоенные копыта. Крылья, сложенные по бокам туловища, готовы раскрыться и
+унести его за пределы твоей досягаемости. Его берилловые глаза наблюдают за
+тобой недоверчиво: ты вторгаешься в его дом.
+edit mobile 1805
 ~
 pig~
 BGY 0 TV 0 ABHKLM 1000 0
@@ -131,13 +156,17 @@ r fire -50
 r poison 33
 r disease 33
 #1807
-unicorn platinum~
-the platinum unicorn~
-The platinum unicorn stands here, ready to pierce you with his horn.~
-This magnificent animal has a spiral horn of sapphire, and his cloven
+unicorn platinum единорог платиновый~
+@eng the platinum unicorn@rus ~~платиновый~~ ~~единорог~~~
+@eng The platinum unicorn stands here, ready to pierce you with his horn.@rus Тут стоит платиновый единорог (platinum unicorn), готовый пронзить тебя своим рогом.~
+@eng This magnificent animal has a spiral horn of sapphire, and his cloven
 hooves seem made of sapphire as well. Wings folded at his side prepare
 to unfold and lift him beyond your reach. His ruby eyes regard you with
 great distrust; you are intruding in his home.
+@rus Спиральный рог этого великолепного животного -- сапфировый, также как и
+раздвоенные копыта. Крылья, сложенные по бокам туловища, готовы раскрыться и
+унести его за пределы твоей досягаемости. Его рубиновые глаза наблюдают за
+тобой недоверчиво: ты вторгаешься в его дом.
 ~
 pig~
 BGY 0 TV 0 ABHKLM 1000 0
@@ -150,13 +179,17 @@ r fire -50
 r poison 33
 r disease 33
 #1808
-unicorn copper~
-the copper unicorn~
-The copper unicorn stands here, ready to pierce you with his horn.~
-This magnificent animal has a spiral horn of ebony, and his cloven hooves
+unicorn copper единорог медный~
+@eng the copper unicorn@rus ~~медный~~ ~~единорог~~~
+@eng The copper unicorn stands here, ready to pierce you with his horn.@rus Тут стоит медный единорог (copper unicorn), готовый пронзить тебя своим рогом.~
+@eng This magnificent animal has a spiral horn of ebony, and his cloven hooves
 are of ebony as well. Wings folded at his side prepare to unfold and lift
 him beyond your reach. His emerald eyes regard you with great distrust;
 you are intruding in his home.
+@rus Это удивительное животное имеет эбеновые раздвоенные копыта и спиральный
+рог. Крылья, сложенные по бокам туловища, готовы раскрыться и унести его за
+пределы твоей досягаемости. Его изумрудные глаза наблюдают за тобой
+недоверчиво: ты вторгаешься в его дом.
 ~
 pig~
 BGY 0 TV 0 ABHKLM 1000 0
@@ -169,13 +202,17 @@ r fire -50
 r poison 33
 r disease 33
 #1809
-unicorn chromatic~
-the chromatic unicorn~
-The chromatic unicorn stands here, ready to pierce you with his horn.~
-This magnificent animal has a spiral horn of light refracted into the
+unicorn chromatic единорог радужный~
+@eng the chromatic unicorn@rus ~~радужный~~ ~~единорог~~~
+@eng The chromatic unicorn stands here, ready to pierce you with his horn.@rus Тут стоит радужный единорог (chromatic unicorn), готовый пронзить тебя своим рогом.~
+@eng This magnificent animal has a spiral horn of light refracted into the
 rainbow colors, and his cloven hooves are made of the same refracted light.
 Wings folded at his side prepare to unfold and lift him beyond your reach.
 His grey eyes regard you with great distrust; you are intruding in his home.
+@rus Чудесное создание с витым рогом и раздвоенными копытами из радужного
+света. Крылья, сложенные по бокам туловища, готовы раскрыться и унести
+его за пределы твоей досягаемости. Его изумрудные глаза наблюдают за
+тобой с недоверием: ты вторгаешься в его дом.
 ~
 pig~
 BGY 0 TV 0 ABHKLM 1000 0
@@ -188,13 +225,17 @@ r fire -50
 r poison 33
 r disease 33
 #1810
-unicorn brass~
-the brass unicorn~
-The brass unicorn stands here, ready to pierce you with his horn.~
-This magnificent animal has a spiral horn of topaz, and his cloven hooves are
+unicorn brass единорог латунный~
+@eng the brass unicorn@rus ~~латунный~~ ~~единорог~~~
+@eng The brass unicorn stands here, ready to pierce you with his horn.@rus Тут стоит латунный единорог (chromatic unicorn), готовый пронзить тебя своим рогом.~
+@eng This magnificent animal has a spiral horn of topaz, and his cloven hooves are
 topaz as well. Wings folded at his side prepare to unfold and lift him beyond
 your reach. His obsidian eyes regard you with great distrust; you are
 intruding in his home.
+@rus Спиральный рог этого великолепного животного -- из топаза, также как и
+раздвоенные копыта. Крылья, сложенные по бокам туловища, готовы раскрыться и
+унести его за пределы твоей досягаемости. Его рубиновые глаза наблюдают за
+тобой очень недоверчиво: ты вторгаешься в его дом.
 ~
 pig~
 BGY 0 TV 0 ABHKLM 1000 0
@@ -207,12 +248,15 @@ r fire -50
 r poison 33
 r disease 33
 #1811
-mushroom mush shroom~
-a mushroom as tall as a giant's knee~
-A mushroom as tall as a giant's knee is here.~
-It is taller than any mushroom you've ever seen in your life. Brown with
+mushroom mush shroom гриб~
+@eng a mushroom as tall as a giant's knee@rus ~~гриб~~ высотой по колено гиганту~
+@eng A mushroom as tall as a giant's knee is here.@rus Ты видишь гриб по колено гиганту высотой (mushroom as tall as a giant's knee).~
+@eng It is taller than any mushroom you've ever seen in your life. Brown with
 greenish polka-dots, and having spores the color of oak leaves late in
 autumn, the thing looks as though it would feed a crowd.
+@rus Самый большой из когда-либо виденных тобой грибов. У него коричневая в
+зеленоватую крапинку шляпка, споры цвета дубовых листьев поздней осенью.
+Кажется, этим грибом можно накормить толпу.
 ~
 fido~
 BGHUY 0 0 0 0 -1000 0
@@ -236,12 +280,15 @@ r harm 50
 r charm 50
 r sound 50
 #1812
-shadow dragon~
-a shadow dragon~
-A shadow dragon sucks in a deep breath and prepares to blast you.~
-Ethereal in form, and yet solid, this serpentine monster is dark green in
+shadow dragon дракон теневой~
+@eng a shadow dragon@rus ~~теневой~~ ~~дракон~~~
+@eng A shadow dragon sucks in a deep breath and prepares to blast you.@rus Теневой дракон (shadow dragon) набрал побольше воздуха, готовЯсь поразить тебЯ.~
+@eng Ethereal in form, and yet solid, this serpentine monster is dark green in
 color with multicolored eyes, like two rainbow gems staring at you. His
 bat-like wings prepare to flap hot air at you.
+@rus Призрачный по форме, но осязаемый, этот змеиный монстр имеет темнозеленую
+окраску. Его многоцветные глаза, словно два радужных самоцвета, уставились
+на тебя. Его перепончатые крылья угрожающе расправлены тебе навстречу.
 ~
 dragon~
 BGR 0 U 0 ABKLM -1000 0
@@ -256,13 +303,17 @@ r fire -33
 r cold 50
 r charm -33
 #1813
-red witch~
-the red witch~
-The red witch is here, stirring a bubbling cauldron.~
-She has scraggly grey hair, a face that badly needs beauty cream (but even
+witch red ведьма красная~
+@eng the red witch@rus ~~красная~~ ~~ведьма~~~
+@eng The red witch is here, stirring a bubbling cauldron.@rus Красная ведьма помешивает в кипящем котле.~
+@eng She has scraggly grey hair, a face that badly needs beauty cream (but even
 so, it seems too little too late), and a nose that has been broken one time
 too many. Her robe is red with golden embroidery. On her head is a pointed
 hat, its color and design matching her robe.
+@rus Спутанные серые волосы, лицо явно нуждается в косметике (оно даже и с ней
+будет выглядеть непривлекательно), крючковатый нос. Ее куртка -- красного
+цвета с золотой вышивкой, на голову надет остроконечный колпак, выполненный
+в том же стиле, что и куртка.
 ~
 human~
 BR 0 TU 0 0 -1000 0
@@ -276,13 +327,17 @@ r acid 33
 r negative 33
 r holy -50
 #1814
-orange witch~
-the orange witch~
-The orange witch is here, waving a magic wand.~
-She has hair of black streaked with grey, a face that appears to have gotten
+witch orange ведьма рыжая~
+@eng the orange witch@rus ~~рыжая~~ ~~ведьма~~~
+@eng The orange witch is here, waving a magic wand.@rus Рыжая ведьма помахивает волшебной палочкой.~
+@eng She has hair of black streaked with grey, a face that appears to have gotten
 too close to a dragon's claws while they were still attached to the dragon,
 and eyes as black as midnight. Her robe is orange with embroidery done in
 brown thread. Her head is uncovered, her hair moving with the breeze.
+@rus У нее черные волосы с седыми прядями, лицо выглядит побывавшим слишком
+близко к когтям дракона, когда те еще были частью дракона. Глаза ее черны,
+как ночь. Она одета в куртку оранжевого цвета с коричневой вышивкой. Ее
+голова непокрыта, волосы развеваются по ветру.
 ~
 human~
 BR 0 TU 0 0 -1000 0
@@ -296,14 +351,18 @@ r acid 33
 r negative 33
 r holy -50
 #1815
-yellow witch~
-the yellow witch~
-The yellow witch is here, mumbling a spell.~
-Her hair is blonde, a golden yellow blonde, and her face is young and
+witch yellow ведьма желтая~
+@eng the yellow witch@rus ~~желтая~~ ~~ведьма~~~
+@eng The yellow witch is here, mumbling a spell.@rus Желтая ведьма бормочет заклинание.~
+@eng Her hair is blonde, a golden yellow blonde, and her face is young and
 without wrinkles. Her eyes regard you with curiosity, curiosity of the
 order of what kind of animal she can turn you into. Her robe is yellow
 with black embroidery. On her head is a small yellow cap with a yellow
 feather stuck in the left side.
+@rus Золотоволосая блондинка с молодым лицом без единой морщинки смотрит на
+тебя с любопытством, любопытством типа в какое бы животное попротивнее
+тебя превратить. Ее платье желтого цвета с черной вышивкой, на голове --
+маленькая желтая шляпка с желтым пером, прикрепленным слева.
 ~
 human~
 BR 0 TU 0 0 -1000 0
@@ -317,12 +376,15 @@ r acid 33
 r negative 33
 r holy -50
 #1816
-green witch~
-the green witch~
-The green witch looks up and frowns at you.~
-Her hair is cinereal and unkempt, her face beginning to wrinkle, and her
+witch green ведьма зеленая~
+@eng the green witch@rus ~~зеленая~~ ~~ведьма~~~
+@eng The green witch looks up and frowns at you.@rus Зеленая ведьма (green witch) взглянула на тебя и нахмурилась.~
+@eng Her hair is cinereal and unkempt, her face beginning to wrinkle, and her
 eyes flash with evil intent. Her robe is plain, the solid green broken by
 a rope tied around her waist.
+@rus Ее волосы взлохмачены и спутаны, лицо тронуто морщинами. В ее глазах
+светится недоброе намерение. Она одета в прямое зеленое платье, перехваченное
+на талии шнуром.
 ~
 human~
 BR 0 TU 0 0 -1000 0
@@ -335,11 +397,13 @@ r acid 33
 r negative 33
 r holy -50
 #1817
-blue witch~
-the blue witch~
-The blue witch glares at you. How dare you interrupt her spellcasting!~
-Red haired and green eyed, this young magic user wears a light blue robe
+witch blue ведьма синяя~
+@eng the blue witch@rus ~~синяя~~ ~~ведьма~~~
+@eng The blue witch glares at you. How dare you interrupt her spellcasting!@rus Синяя ведьма (blue witch) свирепо смотрит на $gn{посмевшего} прервать ее колдовство.~
+@eng Red haired and green eyed, this young magic user wears a light blue robe
 with silver embroidery.
+@rus Рыжеволосая и зеленоглазая, эта молодая колдунья одета в светло-голубое
+платье с серебрянной вышивкой.
 ~
 human~
 BR 0 TU 0 0 -1000 0
@@ -352,14 +416,19 @@ r acid 33
 r negative 33
 r holy -50
 #1818
-indigo witch~
-the indigo witch~
-The indigo witch recites a spell from a spellbook.~
-With dark brown hair and sapphire blue eyes, the indigo witch looks more
+witch indigo ведьма индиго~
+@eng the indigo witch@rus ~~ведьма~~ индиго~
+@eng The indigo witch recites a spell from a spellbook.@rus ведьма индиго (indigo witch) читает свои заклинания.~
+@eng With dark brown hair and sapphire blue eyes, the indigo witch looks more
 like a cute girl who has learned magic than a witch, and yet she is a
 very powerful user of magic, and of evil magic at that. Her robe of indigo
 is spattered with silvery moons that sparkle as she moves. She wears a
 pointed hat with a wide brim, indigo with silvery moons as well.
+@rus Со своими темно-каштановыми волосами и голубыми как сапфиры глазами,
+ведьма индиго выглядит скорее как милая девушка, изучившая магию, чем как
+ведьма. Но она весьма сильный адепт магии, и злой магии к тому же. Ее платье
+цвета индиго усыпано серебрянными лунами, сверкающими при ее движении. На
+голове - остроконечная шляпа с широкими полями, в тон платью.
 ~
 human~
 BR 0 TU 0 0 -1000 0
@@ -372,14 +441,19 @@ r acid 33
 r negative 33
 r holy -50
 #1819
-violet witch~
-the violet witch~
-The violet witch gives you a sultry smile.~
-Her hair is platinum blonde, her eyes blue... ah, who are you kidding,
+witch violet ведьма фиолетовая~
+@eng the violet witch@rus ~~фиолетовая~~ ~~ведьма~~~
+@eng The violet witch gives you a sultry smile.@rus Фиолетовая ведьма (violet witch) дарит тебе страстную улыбку.~
+@eng Her hair is platinum blonde, her eyes blue... ah, who are you kidding,
 looking at her smooth fair face when there's so much to stare at below
 her neck? Her violet robe is way too tight for her. Indeed, it's sprung
 open, revealing some of her cleavage. The violet robe is ripped in places.
 It is hard to believe that this is an evil witch, and yet...
+@rus Платиновая блондинка с голубыми глазами... Эй, а что это ты таращишься
+на ее гладкое белое личико, когда есть на что посмотреть пониже ее шеи?
+Ее фиолетовое платье, явно слишком тесно для нее. Естественно, оно лопнуло,
+местами давая взору за что зацепиться. А какие разрезы... Трудно поверить,
+что перед тобой злая ведьма, но...
 ~
 human~
 BR 0 TU 0 0 -1000 0
@@ -393,11 +467,13 @@ r acid 33
 r negative 33
 r holy -50
 #1820
-red warlock~
-the red warlock~
-The red warlock is here, brandishing an oaken staff.~
-He stares at you with malevolence, his red robe glowing an evil red as
+warlock red колдун красный~
+@eng the red warlock@rus ~~красный~~ ~~колдун~~~
+@eng The red warlock is here, brandishing an oaken staff.@rus Красный колдун (red warlock) размахивает дубовым посохом.~
+@eng He stares at you with malevolence, his red robe glowing an evil red as
 he calls forth the powers of magic to harm you.
+@rus Он злорадно уставился на тебя, его красное одеяние вспыхивает зловеще
+красным, когда он вызывает против тебя силы магии.
 ~
 human~
 BR 0 TU 0 0 -1000 0
@@ -410,11 +486,13 @@ r acid 33
 r negative 33
 r holy -50
 #1821
-orange warlock~
-the orange warlock~
-The orange warlock is here, waving a silver wand.~
-He has long unkempt white hair, a wrinkled face, and grey eyes. His robe
+warlock orange колдун оранжевый~
+@eng the orange warlock@rus ~~оранжевый~~ ~~колдун~~~
+@eng The orange warlock is here, waving a silver wand.@rus оранжевый колдун~
+@eng He has long unkempt white hair, a wrinkled face, and grey eyes. His robe
 is orange with yellow, almost golden stars sprinkled throughout.
+@rus У него длинные белые неубранные волосы, морщинистое лицо и серые глаза. Он
+одет в оранжевый халат с желтыми, почти золотыми проблескивающими звездами.
 ~
 human~
 BR 0 TU 0 0 -1000 0
@@ -427,13 +505,16 @@ r acid 33
 r negative 33
 r holy -50
 #1822
-yellow warlock~
-the yellow warlock~
-The yellow warlock is here, reciting a scroll.~
-His hair is raven-black, his eyes blue as a deep tarn, and his skin
+warlock yellow колдун желтый~
+@eng the yellow warlock@rus ~~желтый~~ ~~колдун~~~
+@eng The yellow warlock is here, reciting a scroll.@rus желтый колдун (yellow warlock) зачитывает свиток.~
+@eng His hair is raven-black, his eyes blue as a deep tarn, and his skin
 smooth, with just the hint of a beard starting to grow. His yellow
 robe is unadorned with symbols or decoration, and his cap is equally
 plain yellow.
+@rus Его волосы черны как смоль, клаза -- синие, как глубокое озеро, кожа
+гладкая. Его желтый халат не украшен никакими символами или орнаментом и
+шапочка также чисто желтая.
 ~
 human~
 BR 0 TU 0 0 -1000 0
@@ -446,12 +527,15 @@ r acid 33
 r negative 33
 r holy -50
 #1823
-green warlock~
-the green warlock~
-The green warlock looks up from his grimoire and grins evilly at you.~
-His orangy-red hair clashes with his green robe, and even worse, he is
+warlock green колдун зеленый~
+@eng the green warlock@rus ~~зеленый~~ ~~колдун~~~
+@eng The green warlock looks up from his grimoire and grins evilly at you.@rus Зеленый колдун (green warlock) отрывается от своих записей и злобно ухмыляется тебе.~
+@eng His orangy-red hair clashes with his green robe, and even worse, he is
 wearing orange shoes. The man obviously spends more time with his magic
 than learning the aesthetics of fashion.
+@rus Мало того, что его красно-рыжие волосы диссонируют с зеленым одеянием,
+так он еще напялил оранжевые ботинки. Он явно уделяет больше времени своей
+магии, нежели изучению эстетики или стилистики.
 ~
 human~
 BR 0 TU 0 0 -1000 0
@@ -464,12 +548,15 @@ r acid 33
 r negative 33
 r holy -50
 #1824
-blue warlock~
-the blue warlock~
-The blue warlock glares at you. How dare you interrupt his spellcasting!~
-Grey haired and wrinkled, this old warlock is not very friendly. His blue
+warlock blue колдун синий filimordr~
+@eng the blue warlock@rus ~~синий~~ ~~колдун~~~
+@eng The blue warlock glares at you. How dare you interrupt his spellcasting!@rus Синий колдун (blue warlock) уставился на тебя. Как ты посмел прервать его колдовство!~
+@eng Grey haired and wrinkled, this old warlock is not very friendly. His blue
 robe is embroidered with black thread, and you sense an aura of evilness
 about him that you have seen nowhere else... this one is truly evil!
+@rus Седовласый и морщинистый, этот старый колдун не очень дружелюбен. Его
+синий халат расшит черной нитью, и ты чувствуешь такую злую ауру, исходящую
+от него, какой тебе прежде не приходилось видеть. Этот -- точно злой.
 ~
 human~
 BR 0 TU 0 0 -1000 0
@@ -482,15 +569,21 @@ r acid 33
 r negative 33
 r holy -50
 #1825
-indigo warlock~
-the indigo warlock~
-The indigo warlock recites a spell from a spellbook.~
-This warlock appears to have been around nearly forever. His face is so
+warlock indigo колдун индиго~
+@eng the indigo warlock@rus ~~колдун~~ ~~индиго~~~
+@eng The indigo warlock recites a spell from a spellbook.@rus Колдун индиго (indigo warlock) зачитывает заклинание из своей книги.~
+@eng This warlock appears to have been around nearly forever. His face is so
 wrinkled you can hardly see his eyes, nevermind what color they are. His
 hair is sparse and white, more of his head shows than hair. His indigo robe
 is filled with silver and gold embroidered symbols. Suddenly he realizes
 that he is not alone and looks up at you, a bemused expression on his face,
 slowly turning to anger at the interruption of his thoughts.
+@rus Такое впечатление, что этот колдун жил здесь всегда. Его лицо настолько
+сморщено, что ты с трудом можешь различить его глаза, какого бы цвета они
+ни были. Редкие белые волосы выглядят скорее как ореол, нежели как прическа.
+Его халат цвета индиго расшит вычурными серебрянными и золотыми символами.
+Внезапно он замечает, что он не один и поднимает на тебя глаза, ошеломленное
+выражение на его лице медленно сменяется гневом на прервавшего его мысли.
 ~
 human~
 BR 0 TU 0 0 -1000 0
@@ -503,14 +596,18 @@ r acid 33
 r negative 33
 r holy -50
 #1826
-violet warlock~
-the violet warlock~
-The violet warlock leers at you, undressing you with his eyes.~
-If it weren't for the crooked leer on his face, this fellow might be
+warlock violet колдун фиолетовый~
+@eng the violet warlock@rus ~~фиолетовый~~ ~~колдун~~~
+@eng The violet warlock leers at you, undressing you with his eyes.@rus Фиолетовый колдун (violet warlock) косится на тебя, раздевая глазами.~
+@eng If it weren't for the crooked leer on his face, this fellow might be
 handsome. His eyes spark with a red light, and he exudes evil and
 sliminess. His violet robe is plain, solid violet, except for a few
 unsightly stains. They might be bloodstains. You don't suppose he'd
 tell you if you asked, do you?
+@rus Если бы не загнанный взгляд, этот парнишка был бы недурен собой. Его глаза
+сверкают красным огнем, он источает зло и гнусь. Его халат чисто фиолетового
+цвета, за исключением нескольких отвратительных потеков. Быть может, это кровь.
+Ты же не думаешь, что он признается, если ты спросишь?
 ~
 human~
 BR 0 TU 0 0 -1000 0
@@ -524,11 +621,13 @@ r acid 33
 r negative 33
 r holy -50
 #1827
-shopkeeper ranger~
-the ranger shopkeeper~
-The ranger shopkeeper is here, waiting to sell you something useful.~
-Wearing camouflage green, the ranger shopkeeper is as ready for life in
+shopkeeper ranger продавец егерь торговец~
+@eng the ranger shopkeeper@rus ~~егерский~~ ~~торговец~~~
+@eng The ranger shopkeeper is here, waiting to sell you something useful.@rus Егерский торговец (ranger shopkeeper) готов продать тебе что-нибудь полезное.~
+@eng Wearing camouflage green, the ranger shopkeeper is as ready for life in
 the wilds as he is for keeping shop here at the Ranger Station.
+@rus Одетый в зеленый камуфляж, этот егерь равно приспособлен как для жизни в
+лесу, так и для содержания этого магазинчика на егерской стоянке.
 ~
 human~
 BGJTW A HV 0 0 1000 0
@@ -555,13 +654,16 @@ r harm 999
 r charm 999
 r sound 33
 #1828
-guildmaster ranger~
-the ranger guildmaster~
-The ranger guildmaster is waiting to teach you skills of forest
-survival.~
-He is tall and tanned from spending many hours outside. Wearing typical
+guildmaster ranger егерь мастер гильдии~
+@eng the ranger guildmaster@rus ~~мастер~~ гильдии егерей~
+@eng The ranger guildmaster is waiting to teach you skills of forest
+survival.@rus Мастер гильдии егерей (ranger guildmaster) готов обучить тебя навыкам лесного выживания.~
+@eng He is tall and tanned from spending many hours outside. Wearing typical
 camouflage clothing, he looks ready for a foray into the wilds beyond the
 Ranger Station.
+@rus Он высокий и стройный, благодаря многим часам, проведенным на свежем
+воздухе. Одетый в типичную камуфляжную форму, он выглядит в любой момент
+готовым к походу в чащу за пределами егерской станции.
 ~
 human~
 BGJT BCD HV 0 0 0 0
@@ -588,13 +690,17 @@ r harm 999
 r charm 999
 r sound 33
 #1829
-unicorn black ebony~
-the ebony unicorn~
-The ebony unicorn stands here, ready to pierce you with his ivory horn.~
-This magnificent animal has a spiral horn of ivory, and his cloven hooves
+unicorn black ebony единорог черный эбеновый~
+@eng the ebony unicorn@rus ~~эбеновый~~ ~~единорог~~~
+@eng The ebony unicorn stands here, ready to pierce you with his ivory horn.@rus Эбеновый единорог (ebony unicorn) готов пронзить тебя своим костяным рогом.~
+@eng This magnificent animal has a spiral horn of ivory, and his cloven hooves
 are ivory as well. Wings folded at his side prepare to unfold and lift him
 beyond your reach. His obsidian eyes regard you with great distrust; you are
 intruding in his home.
+@rus Чудесное создание с витым рогом и раздвоенными копытами цвета слоновой
+кости. Крылья, сложенные по бокам туловища, готовы раскрыться и унести
+его за пределы твоей досягаемости. Его обсидиановые глаза наблюдают за
+тобой с большим недоверием: ты вторгаешься в его дом.
 ~
 pig~
 BGY 0 TV 0 ABHKLM -1000 0
@@ -607,13 +713,16 @@ r fire -50
 r poison 33
 r disease 33
 #1830
-grey squirrel~
-a grey squirrel~
-A grey squirrel scampers away as you approach.~
-It stops at the far side of the room and regards you with eyes that seem
+squirrel grey белка серая~
+@eng a grey squirrel@rus ~~серая~~ ~~белка~~~
+@eng A grey squirrel scampers away as you approach.@rus Серая белка (grey squirrel) шмыгнула прочь при твоем появлении.~
+@eng It stops at the far side of the room and regards you with eyes that seem
 almost intelligent. Head cocked to one side, it appears to be thinking
 deeply what you might be. Its grey fur looks soft and luxurious, and its
 tail is a mass of feathery hairs.
+@rus Остановившись в отдалении, она смотрит на тебя, ее глаза кажутся чуть ли
+не умными. Склонив голову на бок, она будто бы размышляет, что же ты такое.
+Ее серый мех выглядит мягким и роскошным, хвост ее -- масса перистых волосков.
 ~
 rabbit~
 CGH 0 V 0 0 300 0
@@ -629,12 +738,14 @@ r mental 33
 r disease -50
 r light 33
 #1831
-butterfly~
-a tiny butterfly~
-A tiny blue and gold butterfly flits from plant to plant.~
-This tiny insect is beautiful. Gold trim on blue wings, with golden 'eyes'
+butterfly бабочка~
+@eng a tiny butterfly@rus ~~легкая~~ ~~бабочка~~~
+@eng A tiny blue and gold butterfly flits from plant to plant.@rus Легкая синяя с золотом бабочка порхает с цветка на цветок.~
+@eng This tiny insect is beautiful. Gold trim on blue wings, with golden 'eyes'
 on the larger wing sections, it flitters and flutters from flower to
 flower, visiting the leafier plants also.
+@rus Это легкое насекомое прекрасно. Золотая окантовка синих крыльев, золотые
+"глаза" в широкой части крыльев. Она весело порхает от цветка к цветку.
 ~
 song bird~
 GU 0 V 0 0 0 0
@@ -645,13 +756,17 @@ stand stand either 0
 O 0 tiny unknown
 r energy -50
 #1832
-cardinal red bird~
-a small cardinal~
-A small cardinal checks the ground for food.~
-Brilliant red with a black face and red bill, the cardinal whistles
+cardinal red bird кардинал птичка красная~
+@eng a small cardinal@rus ~~маленький~~ ~~кардинал~~~
+@eng A small cardinal checks the ground for food.@rus Маленький кардинал (small cardinal) ищет еду на земле.~
+@eng Brilliant red with a black face and red bill, the cardinal whistles
 cheerily and looks for food on the ground. You remember your wildlife
 class before you entered your guild, where you learned that this bird
 makes its nest low in thickets and shrubs.
+@rus Бриллиантово красный, с черной головой и красным клювом, кардинал весело
+посвистывает и разыскивает пищу на земле. Ты вспоминаешь уроки природоведения
+в своей гильдии, где рассказывалось, что эта птица вьет гнезда низко у земли,
+в зарослях и кустарнике.
 ~
 song bird~
 GU 0 V 0 0 0 0
@@ -663,12 +778,14 @@ O 0 tiny unknown
 r lightning 33
 r energy -50
 #1833
-bluebird blue bird~
-a bluebird~
-A small bird of vivid blue with a red breast sings softly.~
-Its wings are long, tail short. It has a deep blue hood, its upper parts
+bluebird bird blue птица синяя~
+@eng a bluebird@rus ~~синяя~~ ~~птица~~~
+@eng A small bird of vivid blue with a red breast sings softly.@rus маленькая ярко-синяя птичка с красной грудкой (bluebird) поет мягко и красиво.~
+@eng Its wings are long, tail short. It has a deep blue hood, its upper parts
 equally blue, with a rusty red breast and a white crescent mark across its
 upper back.
+@rus У нее длинные крылья и короткий хвост, хохолок и оперение глубокого синего
+цвета, ржаво-красная грудка и белая серповидная отметина в верхней части спины.
 ~
 song bird~
 GU 0 V 0 0 0 0
@@ -842,23 +959,23 @@ r sound 999
 
 #OBJECTS
 #1801
-lamp light~
-a ranger's lamp~
-A brass ranger's lamp has been left here.~
+lamp light лампа свет~
+@eng a ranger's lamp@rus егерская лампа~
+@eng A brass ranger's lamp has been left here.@rus латунная егерская лампа оставлена здесь.~
 brass~
 light 0 0 A
 0 0 500 0 0
 0 30 60 P
-g @rus none~
+g @rus female~
 #1802
-camper's canteen~
-a camper's canteen~
-A camper's canteen is on the floor.~
+canteen camper's фляжка туриста~
+@eng a camper's canteen@rus фляжка туриста~
+@eng A camper's canteen is on the floor.@rus На земле лежит туристическая фляжка.~
 steel~
 drink 0 0 A
 120 120 'water' 0 0
 0 20 75 P
-g @rus none~
+g @rus female~
 #1803
 back backpack pack~
 a ranger's backpack~
@@ -1368,14 +1485,14 @@ container 0 0 A
 0 300 0 P
 g @rus none~
 #1848
-old tree~
-an old tree~
-The old tree looks as if it has been here since the dawn of time.~
+tree old дерево старое~
+@eng an old tree@rus Старое дерево~
+@eng The old tree looks as if it has been here since the dawn of time.@rus Старое дерево выглядит растущим тут с начала времен.~
 wood~
 container 0 0 0
 200 0 0 20 100
 0 30000 0 P
-g @rus none~
+g @rus neutral~
 #1849
 nest grass~
 a nest made of grass~
@@ -1541,14 +1658,43 @@ g @rus none~
 #0
 
 #ROOMS
+#1800
+@eng Hidden Workplace@rus Тайная мастерская~
+@eng You are in some place which seems to have no exit. But you don't feel any
+danger here. And you feel no agression around. And you feel no swirling looks
+on your back.. The worst thing is that you feel nothing at all..
+{gYou see a floating table, something is scratched on it{x
+@rus Ты оказался в месте, по всей видимости не имеющем выхода. Но ты не
+чувствуешь здесь никакой опасности. И никаких тяжелых взглядов, буравящих
+твою спину.. Плохо одно - ты вообще ничего не чувствуешь..
+{gВ воздухе висит грифельная табличка, на которой что-то нацарапано{x
+~
+0 0 inside
+E
+табличка table sign~
+@eng {Gobjects     {W|  {Gtranslated  {W|  {G checked    {W|
+{W------------+--------------+--------------|
+{Grooms       {W| 1801 -- 1897 | 1801 -- 1804 |
+{Gmobs        {W| 1801 -- 1833 |              |
+{Gthings      {W|              |              |{x
+@rus {W.----------------.--------------.--------------.
+{W|    {Gобъекты     {W|  {Gпереведены  {W|  {Gпроверены   {W|
+{W|----------------+--------------+--------------|
+{W|    {Gкомнаты     {W| 1801 -- 1897 | 1801 -- 1804 |
+{W|----------------+--------------+--------------|
+{W|     {Gмобы       {W| 1801 -- 1833 |              |
+{W|----------------+--------------+--------------|
+{W|     {Gвещи       {W|              |              |
+{W`----------------`--------------`--------------`{x
+~
+S
 #1801
 @eng Northwest Corner@rus Северо-западный угол~
 @eng To the north and west you see a finely constructed wall, too high to peer
 over. The foliage is thick here, with tall trees. You hear the songs of
 birds overhead.
-@rus На севере и западе ты видишь превосходно построенную стену, слишком высокую,
-чтобы за ней можно было что-то увидеть. Кругом густая растительность и высокие 
-деревья. Ты слышишь пение птиц над головой.
+@rus К северу и западу видна добротная высокая стена. Тебя окружают густые
+заросли и высокие деревья. Над головой слышно пение птиц.
 ~
 0 0 forest
 D0
@@ -1577,10 +1723,9 @@ S
 foliage is thick here, preventing you from touching the wall. You hear the
 songs of birds overhead. Looking up, you see that the trees here are very
 tall.
-@rus На севере ты видишь превосходно построенную стену, слишком высокую чтобы
-за ней можно было что-то увидеть. Густой кустарник не дает тебе подобраться к
-ней. Ты слышишь пение птиц над головой. Взглянув вверх, ты понимаешь, что
-деревья здесь высокие.
+@rus К северу тянется прочная неприступная стена. Густые заросли не
+позволяют подойти к ней вплотную. Сверху доносятся птичьи голоса.
+Взглянув наверх, ты отмечаешь, что деревья здесь очень высоки.
 ~
 0 0 forest
 D1
@@ -1607,9 +1752,9 @@ S
 @eng A finely-made wall is to your north, too high to peer over. The shrubs are
 thick here, and the trees tall. From above, you can hear the chirping of
 birds.
-@rus Хорошо выстроенная стена на севере от тебя слишком высока, чтобы за ней
-можно было что-то увидеть. Кругом высокие деревья и густой кустарник.
-Сверху доносится щебетание птиц.
+@rus К северу от тебя -- добротная неприступная стена. Густые кусты и
+высокие деревья, с вершин которых доносятся птичьи трели, окружают
+тропу.
 ~
 0 0 forest
 D1
@@ -1636,9 +1781,9 @@ S
 @eng A finely-made wall is to your north, too high to peer over. A thicket of
 shrubs and vines keeps you from touching the wall. The trees are tall. From
 above, you can hear birdsong.
-@rus Хорошо отстроенная стена на севере слишком высока, чтобы за ней можно было
-что-то увидеть. Заросли кустарника и виноградная лоза не дают тебе прибли-
-зиться к ней. Кругом высокие деревья. Сверху доносится птичья трель.
+@rus яьтСработанная на совесть стена видна к северу от тебя, ее заслоняют
+непроходимые заросли кустарника и плюща. Деревья высоки. Сверху доносится
+птичья песня.
 ~
 0 0 forest
 D1
@@ -1756,8 +1901,8 @@ S
 @eng To the north and east you see a very dark wall, too high to peer over. The
 foliage here is very thick, as is the canopy of leaves above you.
 @rus На севере и востоке ты видишь очень мрачную стену, слишком высокую чтобы
-можно было что-то увидеть за ней. Растительность здесь очень густая, как лес-
-ной полог у тебя над головой.
+можно было что-то увидеть за ней. Густая растительность смыкается, образуя
+полог у тебЯ над головой.
 ~
 0 A forest
 D2
@@ -2050,7 +2195,7 @@ D1
 Z -1 1818
 S
 #1818
-@eng Small Pool in the Glade@rus Маленький Родничок на Поляне~
+@eng Small Pool in the Glade@rus Родничок в траве~
 @eng Surrounded by thick foliage and tall trees, the soft grass in the clearing
 is broken only by a small pool of clear, sweet water, gurgling up from
 underground, and snaking a small ways until it finds a path back underground.
@@ -2279,7 +2424,7 @@ D3
 Z -1 1823
 S
 #1825
-@eng By the Golden Wall@rus Возле Золотой Стены~
+@eng By the Golden Wall@rus У золотой стены~
 @eng To the west the high wall glitters golden in the light. You cannot peer over
 it, try as you might. Northward, the way is impassable, there is a darkness
 there. Here, the fern-like trees are surrounded by pretty flowers. Birdsong
@@ -2797,7 +2942,7 @@ D3
 Z -1 1839
 S
 #1841
-@eng By a High Cracked Wall@rus Возле Высокой Потресканой Стены~
+@eng By a High Cracked Wall@rus У высокой потрескавшейся стены~
 @eng North is a high wall riddled with cracks. You cannot peer over it, you
 cannot peek through the cracks. The trees here are bent out of shape,
 very unnatural-looking.
@@ -2826,10 +2971,13 @@ D3
 Z -1 1840
 S
 #1842
-@eng By a Corner of the High Cracked Wall@rus В углу высокой потресканой стены~
-North and east are a high wall riddled with cracks. You cannot peer over it,
+@eng By a Corner of the High Cracked Wall@rus В углу высокой потрескавшейся стены~
+@eng North and east are a high wall riddled with cracks. You cannot peer over it,
 you cannot peek through the cracks. The trees here are bent out of shape,
 very unnatural-looking.
+@rus .  К северу и к востоку -- высокаЯ стена, испещренная трещинами. Ты не
+можешь перелезть через нее, а сквозь трещины ничего не разглядеть.
+Бесформенно скрученные деревья выглядят очень неестественно.
 ~
 0 0 forest
 D2
@@ -2846,10 +2994,13 @@ D3
 Z -1 1841
 S
 #1843
-By the Western Wall~
-The well-made wall to the west is too high to peer over. Here the woods are
+@eng By the Western Wall@rus У западной стены~
+@eng The well-made wall to the west is too high to peer over. Here the woods are
 not too thick but not thin either. The trees are silver-barked with golden
 leaves.
+@rus Добротная стена к востоку от тебя слишком высока, чтобы перелезть. Лес тут
+не особенно густой, но и редким его не назвать. Деревья с серебряной корой
+шелестят золотыми листьями.
 ~
 0 0 forest
 D0
@@ -2872,11 +3023,15 @@ D2
 Z -1 1853
 S
 #1844
-In the Birchwood~
-The trees here have silver bark with uneven black striations, and the leaves
+@eng In the Birchwood@rus В березовой роще~
+@eng The trees here have silver bark with uneven black striations, and the leaves
 are green. They are of a medium height, relative to trees. The grass is low
 as though cared for by a gardener. A swing hangs from a couple of ropes from
 the overhanging bough of a thick birch.
+@rus У здешних деревьев - серебряная кора с необычными черными полосками и
+зеленые листья на длинных ветвях. Низкая трава создает впечатление, будто
+за ней ухаживает садовник. Веревочные качели свисают с простертой ветви
+толстой безезы.
 ~
 0 0 forest
 D0
@@ -2905,10 +3060,13 @@ D3
 Z -1 1843
 S
 #1845
-On a Path in the Woods~
-The path continues northward, southward branching. The trees to the west are
+@eng On a Path in the Woods@rus На лесной тропинке~
+@eng The path continues northward, southward branching. The trees to the west are
 silver with uneven black striations and green leaves. To the east, the trees
 are more golden-hued.
+@rus Тропинка тянется на север, к югу виден перекресток. Деревья на западе имеют
+серебристую кору с необычными черными полосками. К востоку -- деревья более
+золотистых оттенков.
 ~
 0 0 forest
 D0
@@ -2937,11 +3095,15 @@ D3
 Z -1 1844
 S
 #1846
-By the Golden Trees~
-Not only are the leaves of these trees golden-hued, but the trunks are as
+@eng By the Golden Trees@rus У золотых деревьев~
+@eng Not only are the leaves of these trees golden-hued, but the trunks are as
 well. They are only seven in number, the rest of the trees here being pine
 trees, normal brown trunked and dark green needled. Brown needles carpet the
 forest floor here.
+@rus Не только кроны, но и стволы этих деревьев имеют золотой оттенок. Этих
+деревьев лишь семь, остальные деревья, растущие здесь, -- обычные сосны с
+коричневой корой и зелеными иглами. Ковер из сухой хвои расстилается под
+ногами.
 ~
 0 0 forest
 D0
@@ -2970,10 +3132,12 @@ D3
 Z -1 1845
 S
 #1847
-By the Leaning Pines~
-All the trees here stand straight up except for five of them which are
+@eng By the Leaning Pines@rus У склоненных сосен~
+@eng All the trees here stand straight up except for five of them which are
 leaning to the north. The forest floor here is covered with dead brown pine
 needles.
+@rus Все деревья здесь стоят прямо, за исключением пяти, склоненных к северу.
+Сухая хвоя устилает землю.
 ~
 0 0 forest
 D0
@@ -3002,9 +3166,11 @@ D3
 Z -1 1846
 S
 #1848
-The Fork in the Road~
-The path leads in three directions: north, east, south. All around are pine
+@eng The Fork in the Road@rus Развилка~
+@eng The path leads in three directions: north, east, south. All around are pine
 trees, large healthy pine trees.
+@rus Дорога ведет в трех направлениях: север, юг и восток. Повсюду вокруг растут
+сосны, большие и здоровые сосны.
 ~
 0 0 forest
 D0
@@ -3033,9 +3199,11 @@ D3
 Z -1 1847
 S
 #1849
-Path Through the Pine Wood~
-The path stretches out east and west. All around you are pine trees with
+@eng Path Through the Pine Wood@rus Дорожка в сосновом лесу~
+@eng The path stretches out east and west. All around you are pine trees with
 long, dark green needles.
+@rus Дорожка тянется на восток и на запад. Всюду вокруг тебя -- сосны с длинными
+темнозелеными иглами.
 ~
 0 0 forest
 D0
@@ -3064,12 +3232,17 @@ D3
 Z -1 1848
 S
 #1850
-Path in an Evil Place~
-The forest seems... evil... in this place. The path stretches east and west,
+@eng Path in an Evil Place@rus Путь через гиблое место~
+@eng The forest seems... evil... in this place. The path stretches east and west,
 east leading toward more evil, west leading away from the evil. You feel...
 something... but you cannot quite name what it is. It seems to be at the root
 of your fears. The plant life here seems unhealthy, as though some disease
 has attacked their cores and is weakening them.
+@rus Лес выглядит... злым... в этом месте. Путь пролегает с востока на запад,
+к востоку ведя к большему злу, а на запад -- уводя от зла. Ты чувствуешь...
+нечто... но ты не можешь сказать, что именно. Это сродни твоим тайным
+страхам. Растительность здесь выглядит нездорово, как будто какая-то
+болезнь точит корни и ослабляет жизнь.
 ~
 0 0 forest
 D0
@@ -3098,12 +3271,16 @@ D3
 Z -1 1849
 S
 #1851
-Path in an Evil Place~
-The forest seems... evil... in this place. The path stretches east and west,
+@eng Path in an Evil Place@rus Путь через гиблое место~
+@eng The forest seems... evil... in this place. The path stretches east and west,
 east leading toward more evil, west leading away from the evil. You feel...
 something... but you cannot quite name what it is. It seems to be at the root
 of your fears. Black and yellow leaves attest to illness in the plantlife
 here.
+@rus Лес выглядит... злым... в этом месте. Путь пролегает с востока на запад,
+на запад уводя от зла, а на восток -- ведя к большему злу. Ты чувствуешь...
+нечто... но ты не можешь сказать, что именно. Это сродни твоим тайным
+страхам. Черные и желтые листья указывают, что растения тут больны.
 ~
 0 0 forest
 D0
@@ -3132,11 +3309,15 @@ D3
 Z -1 1850
 S
 #1852
-End of the Path~
-The path ends here with a wall to the east. The wall is covered with spider
+@eng End of the Path@rus Конец пути~
+@eng The path ends here with a wall to the east. The wall is covered with spider
 webs and is much too high to peer over. All around you, the flora seems to
 have caught some plant disease, the otherwise green leaves are turning black
 or yellow and rotting.
+@rus Путь оканчивается здесь, упираясь в стену на востоке. Стена покрыта паутиной
+и слишком высока, чтобы перебраться через нее. Повсюду вокруг растительность
+выглядит отравленной какими-то болезнями. Обычно зеленые, листья чернеют или
+желтеют и гниют.
 ~
 0 0 forest
 D0
@@ -3159,10 +3340,13 @@ D3
 Z -1 1851
 S
 #1853
-By the Western Wall~
-The well-made wall to the west is too high to peer over. Here the woods are
+@eng By the Western Wall@rus Вдоль западной стены~
+@eng The well-made wall to the west is too high to peer over. Here the woods are
 not too thick but not thin either. The trees are silver-barked with golden
 leaves.
+@rus Добротная стена к западу слишком высока, чтобы перебраться. Лес здесь
+не особенно густой, но и не то чтобы редкий. Деревья с серебристой корой
+шелестят золотой листвой.
 ~
 0 0 forest
 D0
@@ -3185,11 +3369,16 @@ D2
 Z -1 1863
 S
 #1854
-The Old Altar~
-Someone long ago set a stone altar here. Finely carved of marble, the old
+@eng The Old Altar@rus Старый алтарь~
+@eng Someone long ago set a stone altar here. Finely carved of marble, the old
 altar seems to still be in use. You can see fresh bloodstains on its surface
 where something was apparently sacrificed. Or perhaps hunters have been using
 it for butchering their kills.
+@rus Кто-то давным давно установил тут каменный алтарь, покрытый изящной
+резьбой по мрамору. Такое впечатление, что старый алтарь по-прежнему
+используется. Ты видишь потеки крови на его поверхности, где явно
+приносили жертву. Впрочем, возможно, что охотники используют его для
+разделываниЯ добычи.
 ~
 0 SUb forest
 D0
@@ -3218,9 +3407,11 @@ D3
 Z -1 1853
 S
 #1855
-The Fork in the Path~
-The path leads in three directions: north, south, east. To the east are pine
+@eng The Fork in the Path@rus Развилка тропинок~
+@eng The path leads in three directions: north, south, east. To the east are pine
 trees, to the west a small clearing surrounded by trees.
+@rus Дорожки ведут в трех направлениях: на север, юг и восток. На востоке видны
+сосны, на западе - маленькая полянка, окруженная деревьями.
 ~
 0 0 forest
 D0
@@ -3249,10 +3440,13 @@ D3
 Z -1 1854
 S
 #1856
-On a Path~
-The path extends east and west. All around are pine trees with long dark
+@eng On a Path@rus На лесной тропинке~
+@eng The path extends east and west. All around are pine trees with long dark
 green needles. Some new growth is evident, smaller trees whose needles are
 of a lighter green.
+@rus Дорожка простирается к востоку и западу. Повсюду вокруг сосны с длинными
+темнозелеными иголками. Кое-где пробивается новая порасль -- маленькие деревца
+с более светлой хвоей.
 ~
 0 0 forest
 D0
@@ -3281,9 +3475,11 @@ D3
 Z -1 1855
 S
 #1857
-On a Path~
-The path extends east and west. All around are new pine trees, most of
+@eng On a Path@rus На тропинке~
+@eng The path extends east and west. All around are new pine trees, most of
 them eye level, with short light-green needles.
+@rus Тропинка продолжается к востоку и западу. Всюду вокруг сосны с короткой и
+светлой хвоей, большинство высотой до уровня глаз.
 ~
 0 0 forest
 D0
@@ -3312,9 +3508,11 @@ D3
 Z -1 1856
 S
 #1858
-A Turn in the Path~
-The path curves here, extending to the north and the west. Pine trees are
+@eng A Turn in the Path@rus Поворот тропинки~
+@eng The path curves here, extending to the north and the west. Pine trees are
 thick here.
+@rus Тропа делает поворот, продолжаясь на север и на запад. По сторонам тропинку
+плотно обступают сосны.
 ~
 0 0 forest
 D0
@@ -3343,12 +3541,17 @@ D3
 Z -1 1857
 S
 #1859
-Twin Pines~
-You stand in a small clearing. Instead of the usual pine needles on the
+@eng Twin Pines@rus Сосны-близнецы~
+@eng You stand in a small clearing. Instead of the usual pine needles on the
 forest floor here, there is grass. Except, in the middle of the clearing,
 are two pine trees that look almost exactly alike, and below them are some
 dead needles. The wood to the east becomes thick again almost immediately,
 and you feel an imposing evil coming from that direction.
+@rus Ты стоишь на маленькой полянке. Вместо привычного игольчатого ковра,
+земля здесь покрыта зеленой травой. Исключение составляет середина поляны,
+где растут две сосны, которые выглядят совершенно одинаковыми, под ними
+видна опавшая хвоя. Лес к востоку снова быстро сгущается, и ты чувствуешь
+эманации зла, исходящие с той стороны.
 ~
 0 0 forest
 D0
@@ -3377,10 +3580,13 @@ D3
 Z -1 1858
 S
 #1860
-By the Rotted Stumps~
-It looks as though someone had taken an axe to most of the trees in this
+@eng By the Rotted Stumps@rus У трухлявых пней~
+@eng It looks as though someone had taken an axe to most of the trees in this
 area. The stumps left behind appear somewhat sickly, however. The wood
 appears to be rotted. A hillock is nearby to the southeast.
+@rus Кажется, кто-то вырубил здесь большую часть деревьев. Оставшиеся после
+вырубки пни смотрятся как-то нездорово. Древесина выглядит трухлявой. Рядом
+на юго-востоке ты видишь холмик.
 ~
 0 0 forest
 D0
@@ -3415,10 +3621,12 @@ D4
 Z -1 1878
 S
 #1861
-On Unstable Ground~
-Your footing is not quite as reliable here as elsewhere. The ground is
+@eng On Unstable Ground@rus На зыбкой почве~
+@eng Your footing is not quite as reliable here as elsewhere. The ground is
 covered with leaves, and the trees nearby are twisted and sick looking,
 the leaves not quite right...
+@rus Твоя ступаешь здесь не так уверенно, как в других местах. Земля покрыта
+листвой, а деревья скрючены и выглядят больными. С листвой что-то не так..
 ~
 0 0 forest
 D0
@@ -3453,11 +3661,15 @@ D5
 Z -1 1889
 S
 #1862
-By the Dark Eastern Wall~
-A high but unkempt wall lies to the east. Closer examination of the wall
+@eng By the Dark Eastern Wall@rus В тени восточной стены~
+@eng A high but unkempt wall lies to the east. Closer examination of the wall
 reveals that what you thought were cracks are actually spider webs on the
 surface of the wall. You cannot peer beyond the wall. The very essence of
 evil permeates the place.
+@rus Высокая, но неухоженная стена стоит к востоку от тебя. При близком ее
+рассмотрении выясняется, что то, что ты $gn{принимал} за трещины, на самом
+деле -- паутина на поверхности стены. Через стену не перелезть. Все здесь
+пропитано злом.
 ~
 0 0 forest
 D0
@@ -3480,10 +3692,12 @@ D3
 Z -1 1861
 S
 #1863
-By the Western Wall~
-The well-made wall to the west is too high to peer over. Here the woods are
+@eng By the Western Wall@rus Вдоль западной стены~
+@eng The well-made wall to the west is too high to peer over. Here the woods are
 not too thick but not thin either. The trees are silver-barked with golden
 leaves.
+@rus На западе - добротная неприступная стена. Лес здесь не особо густой, но и
+не слишком редкий. У деревьев -- золотые листья и серебристая кора.
 ~
 0 0 forest
 D0
@@ -3506,16 +3720,21 @@ D2
 Z -1 1873
 S
 #1864
-By the Natural Spring~
-A spring gurgles from the ground here, forming an oval-shaped pool. Someone
+@eng By the Natural Spring@rus У родника~
+@eng A spring gurgles from the ground here, forming an oval-shaped pool. Someone
 has put shiny black stones around the edges of the pool. To the south is a
 well-constructed wooden building with a sign on a post near it.
+@rus Образуя овальное озерцо, из-под земли пробивается родник. Кто-то укрепил
+ложе родника блестящими черными камнями. К югу стоит добротное деревянное
+здание, рядом с которым укреплен знак.
 ~
 0 0 forest
 E
-sign~
-The sign reads: Ranger Station
+sign знак~
+@eng The sign reads: Ranger Station
                 Entrance ---->
+@rus Знак гласит: Вход на егерскую
+             стоянку >------->
 ~
 D0
 ~
@@ -3543,9 +3762,11 @@ D4
 Z 0 3757
 S
 #1865
-Entrance to the Magic Forest~
-The path stretches north and south. To your west is a clearing, and you hear
+@eng Entrance to the Magic Forest@rus Вход в зачарованный лес~
+@eng The path stretches north and south. To your west is a clearing, and you hear
 the sounds of gurgling water coming from there. East of you are pine trees.
+@rus Путь ведет на север и на юг. На западе виден просвет, оттуда доносится
+журчание воды.
 ~
 0 0 forest
 D0
@@ -3574,13 +3795,18 @@ D3
 Z -1 1864
 S
 #1866
-The Five Pines~
-In the midst of a small clearing are five pine trees, each spaced evenly
+@eng The Five Pines@rus Пять сосен~
+@eng In the midst of a small clearing are five pine trees, each spaced evenly
 apart, forming the points of an equilateral pentagon. You can only guess
 that some sentient being placed them here, rather than nature. In the
 very center of the 'pentagon' is a very small pine tree, appearing to be
 newly planted. To the south is a wall, too high to peer over. From the
 east comes the sound of gurgling water.
+@rus В центре маленькой полянки растут пять сосен, каждая на равном расстоянии,
+образуя углы равностороннего пятиугольника. Ты догадываешься, что их скорее
+кто-то заботливо посадил здесь, нежели они выросли сами. В самом центре
+пятиугольника растет очень маленькая сосна, по видимому, свежепосаженная.
+К югу видна неприступная стена. С востока доносится журчание воды.
 ~
 0 0 forest
 D0
@@ -3603,11 +3829,15 @@ D3
 Z -1 1865
 S
 #1867
-By the Start of a Small Stream~
-A spring gurgles here, forming a small stream that flows south. It seems to
+@eng By the Start of a Small Stream@rus У истоков ручья~
+@eng A spring gurgles here, forming a small stream that flows south. It seems to
 have found a way to pass the wall to the south, for you can hear the sound
 of water beyond the wall. All around are pine trees. You may have to move the
 needles out of the way before you drink from the clear stream.
+@rus Здесь пробивается родник, образуя маленький ручей, текущий к югу. Кажется,
+он сумел пробиться под стеной на юге, судя по журчанию, доносящемуся из-за нее.
+Везде вокруг -- сосны. Чтобы напиться из родника, тебе придется расчистить его
+от покрывающих поверхность иголок.
 ~
 0 0 forest
 D0
@@ -3630,11 +3860,15 @@ D3
 Z -1 1866
 S
 #1868
-By the Southern Wall~
-The wall to the south seems to close in on you here. It is too high to peer
+@eng By the Southern Wall@rus Вдоль южной стены~
+@eng The wall to the south seems to close in on you here. It is too high to peer
 over. All around you are pine trees, and the forest floor is covered with
 pine needles. A small squirrel regards you warily then scampers off. You
 hear the sound of gurgling water from the west.
+@rus Южная стена подступает тут поближе к твоему пути. Она неприступна.
+Кругом растут сосны, земля усеяна опавшей хвоей. Маленькая белочка
+встревоженно осмотрела тебя и скрылась. С запада доносится журчание
+воды.
 ~
 0 0 forest
 D0
@@ -3657,10 +3891,13 @@ D3
 Z -1 1867
 S
 #1869
-By the Bent Pine~
-You are surrounded by pine trees. One of them is bent at the trunk, leaning
+@eng By the Bent Pine@rus У загнутой сосны~
+@eng You are surrounded by pine trees. One of them is bent at the trunk, leaning
 partly at a 75-degree angle. High above, a couple of birds flutter and fly
 away.
+@rus Ты окружен соснами. Одна из них согнута посреди ствола, верхушка склонена
+на 75 градусов. Высоко наверху пара птиц вспорхнула и улетела при твоем
+появлении.
 ~
 0 0 forest
 D0
@@ -3683,13 +3920,19 @@ D3
 Z -1 1868
 S
 #1870
-By the Blackened Pines~
-The pine trees here are all blackened, trunks, needles... not so much as
+@eng By the Blackened Pines@rus У почерневших сосен~
+@eng The pine trees here are all blackened, trunks, needles... not so much as
 though a fire had harmed them, but as though something unnatural had so
 darkened their color as to eliminate anything that appeared life-like. Still,
 you can tell that they live, for the low blackened branch of one is pliable.
 The needles on the ground are black, as well. An aura of evilness permeates
 this place. To the south is a wall, blackened like the trees.
+@rus Сосны здесь почерневшие, изогнутые, хвоя.. не то чтобы опалена огнем,
+но похоже, что-то неестественное так затемнило ее цвет, будто бы в попытке
+истребить все, что напоминает о жизни. Но по гибкости нижних почерневших
+ветвей ты можешь сказать, что они живы. Хвоя на земле также черная. Злая
+аура пропитывает это место. К югу ты видишь стену, почерневшую, как и
+деревья.
 ~
 0 0 forest
 D0
@@ -3712,11 +3955,14 @@ D3
 Z -1 1869
 S
 #1871
-By the Blackened Wall~
-The wall to the south has been blackened by something, perhaps fire, perhaps
+@eng By the Blackened Wall@rus У почерневшей стены~
+@eng The wall to the south has been blackened by something, perhaps fire, perhaps
 something else. The trees here are few, and they, too, are blackened, and
 yet you can tell that they live. The needles on the forest floor are also
 blackened. An aura of evilness permeates this place.
+@rus К югу видна стеня, почерневшая то ли от огня, то ли от чего-то еще. Деревья
+здесь редки и они тоже зачернены, но ты можешь заметить, что они еще живы. На
+земле -- ковер из черных иголок. Аура зла пропитывает все вокруг.
 ~
 0 0 forest
 D0
@@ -3739,11 +3985,15 @@ D3
 Z -1 1870
 S
 #1872
-Southeast Corner~
-The eastern wall, covered with spider webs, and the southern wall, blackened,
+@eng Southeast Corner@rus Юго-восточный угол~
+@eng The eastern wall, covered with spider webs, and the southern wall, blackened,
 meet at the southeastern corner. The few trees here are blackened like the
 wall, like the few trees to the west. Black needles partly cover the forest
 floor here, but looking at it you can see some of the soil. It is black, too.
+@rus Восточная стена, покрытая паутиной и южная почерневшая стена встречаются
+здесь, образуя юго-восточный угол. Несколько растущих здесь деревьев также
+черны, как стена и деревья на западе. Черная хвоя частично покрывает землю,
+но всмотревшись, ты замечаешь проступающую кое-где почву, также почерневшую.
 ~
 0 0 forest
 D0
@@ -3760,11 +4010,14 @@ D3
 Z -1 1871
 S
 #1873
-Southwestern Corner~
-The wall to the west meets the wall to the south. You can peer over neither
+@eng Southwestern Corner@rus Юго-западный угол~
+@eng The wall to the west meets the wall to the south. You can peer over neither
 wall, they are too high. There is an herb garden here, very well tended.
 Looking east, you see the Ranger Station, and you know who is taking care of
 the herbs.
+@rus Южная стена соединяется с западной. Обе стены высоки и неприступны. Тут
+расположен травяной садик, очень заботливо ухоженный. Глядя на восток, ты
+$gn{заметил} егерскую стоянку. Теперь понятно, кто ухаживает за травами.
 ~
 0 0 forest
 D0
@@ -3781,12 +4034,17 @@ D1
 Z -1 1874
 S
 #1874
-Ranger Station~
-The polished wooden floor is covered with bearskin rugs. Along the walls
+@eng Ranger Station@rus Егерская стоянка~
+@eng The polished wooden floor is covered with bearskin rugs. Along the walls
 are comfy chairs and a few tables. On two of the  walls you see trophies
 of a 10-point buck and a green dragon. A fireplace graces one wall, and
 on the mantle are a quiver of arrows and a stuffed raccoon. You see a
 stair leading up.
+@rus Полированный деревянный пол покрыт ковром из медвежьей шкуры. У стен
+расставлены удобные кресла и несколько столиков. На стенах висят 
+охотничьи трофеи -- головы большого оленя и зеленого дракона. Одну из
+стен украшает камин, на каминной полке -- колчан стрел и чучело енота.
+Наверх ведет лестница.
 ~
 0 CKY forest
 D3
@@ -3803,11 +4061,15 @@ D4
 Z -1 1890
 S
 #1875
-Approaching the Forest~
-The path continues north to a lovely forest, south through the narrow canyon
+@eng Approaching the Forest@rus Вступая в лес~
+@eng The path continues north to a lovely forest, south through the narrow canyon
 walled by sheer hills. You can smell the freshness, the life, coming from
 the north. Peering north, you think you see something so fantastic that you
 doubt your eyes and credit your imagination.
+@rus Путь продолжается на север, в прекрасный лес, и к югу, через узкий каньон,
+окруженный отвесными холмами. Ты чувствуешь свежесть и жизнь, сквозящие с
+севера. Взглянув на север, ты увидел нечто столь фантастическое, что не
+поверил своим глазам, приняв это за игру воображения.
 ~
 0 0 forest
 D0
@@ -3824,10 +4086,13 @@ D2
 Z -1 1876
 S
 #1876
-Narrow Path~
-The path is surrounded east and west by impassable thickets and trees, a dark
+@eng Narrow Path@rus Узкий проход~
+@eng The path is surrounded east and west by impassable thickets and trees, a dark
 forest on either side. The path extends north and south. Peering north, you
 see signs of life.
+@rus С востока и запада проход стеснен непроходимыми зарослями и деревьями,
+темный лес с обеих сторон. Путь продолжается с юга на север. Взглянув на
+север, ты $gn{заметил} признаки жизни.
 ~
 0 0 forest
 D0
@@ -3844,10 +4109,12 @@ D2
 Z -1 1877
 S
 #1877
-Narrow Path~
-The path, which extends northward, is surrounded by impassable thickets of
+@eng Narrow Path@rus Узкий проход~
+@eng The path, which extends northward, is surrounded by impassable thickets of
 scrub, shrub, vines, and thorns. Sharp twigs jut out at you, forcing you
 to keep to the path.
+@rus Проход, ведущий на север, окружен непроходимыми зарослями кустов, лозы
+и терновника. Острые шипы нацелены на тебя, заставляя держаться дороги.
 ~
 0 0 forest
 D0
@@ -3864,14 +4131,25 @@ D1
 Z 0 40158
 S
 #1878
-On a Hillock~
-The ground rises a little here, and the most interesting part of this part
+@eng On a Hillock@rus На вершине холма~
+@eng The ground rises a little here, and the most interesting part of this part
 of the wood is not that there are ill-appearing trees here, or shrubs in
 need of healing, but that there is a structure here, a house, and it stands
 on four feet. A ladder leads to the door, and there are windows with frilly
 curtains.
+@rus Ты стоишь на возвышении, и в этом месте наиболее интересны не болезненно
+выглядящие деревья и не нуждающийся в лечении кустарник, а некое строение,
+стоящее здесь, причем стоящее на четырех ногах. Лестница ведет к двери, на
+окнах висят занавески с оборочками.
 ~
 0 0 hills
+E
+дом~
+@rus Глядя на этот дом, ты окончательно убеждаешься,
+что с этим лесом -- не все в порядке: во-первых,
+у него ЧЕТЫРЕ ноги, и во-вторых -- что самое
+возмутительное -- они не куриные!
+~
 D4
 ~
 ~
@@ -3886,10 +4164,13 @@ D5
 Z -1 1860
 S
 #1879
-Inside the House on Four Feet~
-It is very homey looking in here, with a fancy rug on the floor, a few easy
+@eng Inside the House on Four Feet@rus Внутри четвероногого дома~
+@eng It is very homey looking in here, with a fancy rug on the floor, a few easy
 chairs, a table, a fireplace. The windows are clean, and the curtains which
 frame them are frilly. Above the fireplace is a picture of a beautiful woman.
+@rus Тут весьма уютно, на полу лежит расшитый ковер, стоит несколько легких
+кресел, стол, камин. Чистые окна обрамляют занавески с оборками. Над камином
+висит портрет красивой женщины.
 ~
 0 D inside
 D0
@@ -3906,13 +4187,17 @@ D5
 ABZ -1 1878
 S
 #1880
-The Kitchen~
-Amazingly enough, this elevated house is sturdy enough to support a fire pit.
+@eng The Kitchen@rus Кухня~
+@eng Amazingly enough, this elevated house is sturdy enough to support a fire pit.
 Surrounded by stones, it is filled with something flammable which is
 currently burning. Suspended over the fire is a large black pot, partially
 covered and simmering, and the aroma is tempting. A counter which appears to
 have been used recently to prepare food is against one wall, and a table and
 three chairs in the corner.
+@rus Что удивительно, этот подвешенный дом достаточно прочен для устройства
+очага. В выложенном камнями очаге пылают дрова. Над огнем подвешен котел,
+из-под сдвинутой крышки пахнет чем-то вкусным. У одной из стен - стойка,
+используемая для приготовления пищи, в углу - стол и три кресла.
 ~
 0 D inside
 D1
@@ -3929,9 +4214,12 @@ D2
 Z -1 1879
 S
 #1881
-In a Bedroom~
-A huge bed dominates this room. It appears to be large enough to hold five
+@eng In a Bedroom@rus В спальне~
+@eng A huge bed dominates this room. It appears to be large enough to hold five
 people. In the remaining space is a chest of drawers and a tall wardrobe.
+@rus Огромная кровать главенствует в обстановке этой комнаты. Она выглядит
+способной вместить пять человек. Остальное место занимают комод с множеством
+ящиков и гардероб.
 ~
 0 D inside
 D2
@@ -3948,11 +4236,15 @@ D3
 Z -1 1880
 S
 #1882
-The Laboratory~
-You have found a laboratory, and if you are unlucky, you have also found the
+@eng The Laboratory@rus Лаборатория~
+@eng You have found a laboratory, and if you are unlucky, you have also found the
 man who uses this laboratory. There are counters and drawers and tables all
 around, and even a silver faucet with running water draining in a silver
 sink. On the tables are flasks filled with different colored liquids.
+@rus Ты обнаружил лабораторию, а если тебе не повезло - то и того, кто ее
+использует. Вокруг все уставлено стойками, полками и столами, есть даже
+серебряный краник, из которого в серебряную раковину льется вода. Столы
+заполнены склянками с разноцветными жидкостями.
 ~
 0 D inside
 D0
@@ -3963,10 +4255,12 @@ D0
 Z -1 1881
 S
 #1889
-Hole in the Ground~
-Well, you didn't keep a solid footing, and now you're in a hole. Best see
+@eng Hole in the Ground@rus Яма~
+@eng Well, you didn't keep a solid footing, and now you're in a hole. Best see
 if you can climb out of here. The worms and roots and other things are
 rather unpleasant up against your face.
+@rus Итак, ты не сумел ступать осторожно и теперь ты в яме. Лучше постарайся
+выбраться отсюда. Черви, корни и прочие гадости прямо перед твоим лицом.
 ~
 0 A forest
 D4
@@ -3977,10 +4271,13 @@ D4
 Z -1 1861
 S
 #1890
-Ranger Stop 'N' Shop~
-Here you can get a variety of useful items (and some not so useful). Along
+@eng Ranger Stop 'N' Shop@rus Лавка на егерской стоянке~
+@eng Here you can get a variety of useful items (and some not so useful). Along
 one wall is a bar to sit at and enjoy a drink. You see a stairway leading
 down, and another one leading up.
+@rus Здесь можно купить кучу полезных (и не очень) вещей. Вдоль стены тянется
+барная стойка, где можно присесть и насладиться напитком. Видна ведущая вниз
+лестница и еще один пролет, ведущий наверх.
 ~
 0 CKSY forest
 D4
@@ -3997,11 +4294,15 @@ D5
 Z -1 1874
 S
 #1891
-Ranger Training Room~
-Here is where Rangers learn campcraft, how to talk to the animals, and the
+@eng Ranger Training Room@rus Егерский учебный класс~
+@eng Here is where Rangers learn campcraft, how to talk to the animals, and the
 care of the land. Here, too, they learn to defend themselves and others,
 skills with weapons, and how to dress a killed beast to turn it into food.
 The old ranger who runs the Station is here to help you learn.
+@rus Тут егерей учат устройству стоянок, общению с животными и заботе о земле.
+Также, здесь они изучают защищать себя и других, упражняются с оружием и
+осваивают разделывание добычи и приготовление пищи. Тут стоит тарый егерь,
+управляющий стоянкой, готовый помочь тебе в обучении.
 ~
 0 CDKSY forest
 D5
@@ -4012,10 +4313,13 @@ D5
 Z -1 1890
 S
 #1892
-North of the Wall~
-You feel smug as you pass the wall barrier. On either side of you is
-impenetrable forest, south is a the wall, well-constructed and well-kept.
+@eng North of the Wall@rus К северу от стены~
+@eng You feel smug as you pass the wall barrier. On either side of you is
+impenetrable forest, south is the wall, well-constructed and well-kept.
 North is a barely visible path.
+@rus Ты $gn{оглянулся}, выйдя за пределы стены. С каждой стороны от тебя --
+непроходимый лес, к югу -- стена, прочная и надежная. На север ведет еле
+заметная тропинка.
 ~
 0 0 forest
 D0
@@ -4033,10 +4337,12 @@ secret door
 ABZ -1 1801
 S
 #1893
-Winding Path~
-The path winds to the west and the south, looking south you see a wall, well
+@eng Winding Path@rus Сквозной проход~
+@eng The path winds to the west and the south, looking south you see a wall, well
 made, well-kept. Birdsong assails your ears, but you do not attempt to veer
 off the path.
+@rus Дорожка ведет на запад и на юг. На юге заметна надежная прочная стена.
+Птичий гомон оглушает тебя, но ты не пытаешься свернуть с пути.
 ~
 0 0 forest
 D2
@@ -4053,11 +4359,14 @@ D3
 Z -1 1894
 S
 #1894
-Winding Path~
-The path winds north and east, surrounded by impenetrable forest, thickets
+@eng Winding Path@rus Сквозной проход~
+@eng The path winds north and east, surrounded by impenetrable forest, thickets
 so thick and thorny that it is much too much trouble to try to cut through
 with even the sharpest blade. The songs of birds reach your ears from high
 up in the trees.
+@rus Путь ведет на север и восток, окруженная столь густым и дремучим лесом,
+что было бы очень сложно прорубиться сквозь него даже с острейшим клинком.
+Пение птиц доносится до тебя с верхушек деревьев.
 ~
 0 0 forest
 D0
@@ -4074,10 +4383,13 @@ D1
 Z -1 1893
 S
 #1895
-Winding Path~
-The path leads east and south, winding within impenetrable thicket of leaves,
+@eng Winding Path@rus Сквозной проход~
+@eng The path leads east and south, winding within impenetrable thicket of leaves,
 vines, and thorny shrubbery. You stay on the path, loathe to scratch your
 skin on the thorns and woody protuberances.
+@rus Проход ведет на север и восток, петляя в непроходимой толще листвы, лиан
+и терновых кустов. Ты стараешься держаться пути, не желая ободрать кожу о
+шипы и сплетение ветвей.
 ~
 0 0 forest
 D1
@@ -4094,11 +4406,15 @@ D2
 Z -1 1894
 S
 #1896
-Winding Path~
-To the north and west you see more of the path, surrounded by thicket so
+@eng Winding Path@rus Сквозной проход~
+@eng To the north and west you see more of the path, surrounded by thicket so
 dense and sharp that nobody wants to take the time to cut a path through it.
 In the trees above are birds; you can hear their singing. Looking north, you
 think you see a building.
+@rus К северу и западу ты видишь продолжение прохода, окруженного столь
+густыми и колючими зарослями, что никто не хочет тратить время на
+прокладывание сквозь них пути. В деревьях наверху -- птицы, ты слышишь
+их пение. При взгляде на север тебе показалось, что ты $gn{заметил} строение.
 ~
 0 0 forest
 D0
@@ -4115,25 +4431,31 @@ D3
 Z -1 1895
 S
 #1897
-Winding Path~
-South of you is a path leading through impenetrable thicket. North is a
+@eng Winding Path@rus Сквозной проход~
+@eng South of you is a path leading through impenetrable thicket. North is a
 building, a most magnificent building, for a structure built close to the
 ground.
+@rus К югу ведет проход, ведущий сквозь непроходимую чащу. К северу находится
+строение, весьма великолепное строение, для невысокого домика.
 ~
 0 0 forest
 E
-building magnificent~
-As far as you can tell, it is made entirely of faceted crystals,
+building magnificent строение великолепное~
+@eng As far as you can tell, it is made entirely of faceted crystals,
 refracting the light into rainbows, dazzling to the sight. Peering
 closely at the crystaline columns which form the entrance, you think
 you see movement inside.
+@rus Насколько ты можешь судить, домик целиком сделан из граненых кристаллов,
+преломляющих солнечный свет в слепящие мириады радужных бликов. Поближе
+присмотревшись к кристаллическим колоннам, образующим вход, ты вроде бы
+заметил движение внутри.
 ~
-D0
+D2
 ~
 ~
 ~
 ~
-Z -1 1896
+Z 0 1896
 S
 #0
 

@@ -728,9 +728,12 @@ g @rus none~
 
 #ROOMS
 #2201
-The Tower Gates~
-You are at the entrance to a tall tower.  Lightning flashes periodically and
+@eng The Tower Gates@rus Врата башни~
+@eng You are at the entrance to a tall tower.  Lightning flashes periodically and
 it is raining.  You think it might be a good idea to turn back into the grove.
+@rus Ты стоишь у входа в высокую башню. Идет сильный дождь и постоянно
+сверкают молнии. Возможно, лучше вернуться назад, в рощу, а не идти
+дальше.
 ~
 0 A city
 E
@@ -753,10 +756,13 @@ The shadows cloud your vision.
 Z 0 1304
 S
 #2202
-The Foyer~
-This is the entrance to the Tower.  The hallway continues to the north,
+@eng The Foyer@rus Фойе~
+@eng This is the entrance to the Tower.  The hallway continues to the north,
 leading towards a staircase.  You notice a grim painting on the wall,  and 
 quickly look away.
+@rus Ты находишься около самого входа в башню. Коридор продолжается
+на север, ведя к лестнице. Ты замечаешь зловещий рисунок на сте-
+нах и быстро отводишь взгляд.
 ~
 0 CD inside
 E
