@@ -509,12 +509,6 @@ ABGe DFN 1000 0
 FIJ 0 0 0
 stand stand male 0
 0 0 medium unknown
-M speech 34402 древнее знание~
-M speech 34402 знание~
-M speech 34402 ancient knowledge~
-M speech 34402 knowledge~
-M speech 34402 drevnee znanie~
-M speech 34402 znanie~
 #19031
 father franklin~
 Father Franklin~
@@ -1034,10 +1028,6 @@ ABCG DFIN 0 0
 FH 0 0 0
 stand stand none 0
 0 0 medium unknown
-M greet 34419 100~
-M speech 34420 500~
-M speech 34420 1460~
-M speech 34420 12954~
 M death 19003 100~
 #19063
 mandeep beekeeper bee keeper~
@@ -6849,9 +6839,7 @@ M 0 19005 1 19050 1	* the young man (Corner of the Path)
 E 0 19015 0 16		*	a small steel knife: wielded
 G 0 19020 0		*	some coins
 O 0 19094 0 19050	* a nectarine tree (Corner of the Path)
-P 0 34415 100 19094 10	* a nectarine tree: {ythe orange key{x
 O 0 19035 0 19051	* a grove of apple trees (A Grove of Trees)
-P 0 34415 100 19035 1	* a grove of apple trees: {ythe orange key{x
 P 0 19036 100 19035 1	* a grove of apple trees: an apple
 P 0 19036 100 19035 1	* a grove of apple trees: an apple
 M 0 19037 1 19051 1	* the young boy (A Grove of Trees)
@@ -6869,7 +6857,6 @@ E 0 19089 0 16		*	a gaff: wielded
 G 0 19091 0		*	a dinghy
 O 0 19057 0 19059	* the white goldfish (The pond)
 O 0 19037 0 19060	* a grove of plum trees (A Grove of Trees)
-P 0 34415 100 19037 1	* a grove of plum trees: {ythe orange key{x
 P 0 19038 100 19037 1	* a grove of plum trees: a plum
 P 0 19038 100 19037 1	* a grove of plum trees: a plum
 M 0 19020 1 19061 1	* the Blue Lord (Bend in the Path)
@@ -7130,8 +7117,6 @@ mob purge
 mob goto 19020
 ~
 #19003
-mob oload 34416
-drop key
 mob echo The Phoenix begins to glow...and then suddenly explodes in a fireball!
 mob echo A pile of ashes drifts to the floor....
 mob echo As you peer closer, you see a small phoenix amidst the ashes.

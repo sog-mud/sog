@@ -1043,7 +1043,6 @@ E 0 13402 0 17		*	ciquala's staff: held in the hands
 G 0 13406 0		*	a large key
 O 0 13418 0 13418	* a humongous pile of gold (Treasure Chamber of Ciquala)
 O 0 13419 0 13418	* a pile of gems (Treasure Chamber of Ciquala)
-O 0 34420 0 13418	* {mthe violet key{x (Treasure Chamber of Ciquala)
 M 0 13416 4 13419 2	* Lich (The hidden crypt of Ciquala)
 M 0 13416 4 13419 2	* Lich (The hidden crypt of Ciquala)
 M 0 13417 4 13419 2	* vampire (The hidden crypt of Ciquala)

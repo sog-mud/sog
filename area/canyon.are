@@ -1678,10 +1678,6 @@ D1
 ~
 ~
 Z -1 9242
-D3
-~
-~
-ABCGZ 34414 34404
 S
 #9246
 Electric Pathway~
@@ -2000,7 +1996,6 @@ M 9239 spec_cast_mage	* The Combat Magician
 S
 
 #RESETS
-D 0 9245 3 2	* The Fire Chamber: door to the west: closed and locked
 M 0 9201 3 9201 3	* the mountain climber (A Mountain Path)
 M 0 9201 3 9202 3	* the mountain climber (A Mountain Path)
 G 0 9231 0		*	anti-cyclops elixir

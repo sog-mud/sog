@@ -2385,10 +2385,6 @@ E
 bone bones floor~
 Most of the bones on the floor appear to be of human origin.
 ~
-D0
-~
-~
-ABCGZ 34417 34410
 D2
 The exit leads out into the forest.
 ~
@@ -2588,7 +2584,6 @@ S
 
 #RESETS
 D 0 6009 0 1	* Outside a small cabin in the forest: door to the north: closed
-D 0 6143 0 2	* The cave of the Green Dragon: door to the north: closed and locked
 D 0 6152 1 1	* The circle of trees.: door to the east: closed
 D 0 6153 3 1	* Inside the great tree.: door to the west: closed
 O 0 6011 0 6006	* a mushroom (A small path in the dense forest)

@@ -2654,10 +2654,6 @@ D3
 ~
 ~
 Z -1 40132
-D4
-~
-~
-ABCGZ 34416 34408
 S
 #40142
 @eng The Fountain of Magic@rus Магический фонтан~
@@ -3958,7 +3954,6 @@ S
 #RESETS
 D 0 40103 2 1	* East Main Road: door to the south: closed
 D 0 40109 1 1	* Guild Road: door to the east: closed
-D 0 40141 4 2	* By the Fountain of Light: door to the up: closed and locked
 D 0 40167 3 1	* Stradi's Various Instruments: door to the west: closed
 D 0 40196 0 1	* Necromancers' Supply Shoppe: door to the north: closed
 M 0 40117 11 40100 1	* the Gate Guard (Outside the East Gate of Elvenhame)

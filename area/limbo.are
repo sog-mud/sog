@@ -1688,11 +1688,6 @@ cast nowait 'lightning breath'
 #2
 clan yes, sir?
 ~
-#3
-mob oload 34467
-say Take this tablet. It's my part of the key.
-give tablet $n
-~
 #32
 if isimmort $n
      break

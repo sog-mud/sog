@@ -1180,10 +1180,6 @@ You are in the small store which supplies the residents of this town with
 their food.  It smells wonderful in here!
 ~
 0 D city
-D0
-~
-~
-ABCGZ 34415 34406
 D1
 ~
 ~
@@ -1573,7 +1569,6 @@ D 0 919 3 2	* Dungeon: door to the west: closed and locked
 D 0 920 2 2	* Cell: door to the south: closed and locked
 D 0 921 1 2	* Cell: door to the east: closed and locked
 D 0 922 3 2	* Cell: door to the west: closed and locked
-D 0 924 0 2	* Bakery: door to the north: closed and locked
 D 0 937 3 1	* Smithy: door to the west: closed
 D 0 939 4 1	* Second Floor: door to the up: closed
 M 0 923 10 904 2	* A citizen (Entrance)

@@ -1268,10 +1268,6 @@ You see the top of the mountain.
 ~
 ~
 AFZ 2241 2243
-D4
-~
-~
-ABCGZ 34420 34416
 S
 #2232
 Stairwell~
@@ -1569,7 +1565,6 @@ D 0 2218 1 2	* Entrance to the Crypt: door to the east: closed and locked
 D 0 2222 3 2	* The Crypt Ends: door to the west: closed and locked
 D 0 2229 1 2	* The Great Hall Ends.: door to the east: closed and locked
 D 0 2230 3 2	* THE Lair: door to the west: closed and locked
-D 0 2231 4 2	* The End...: door to the up: closed and locked
 D 0 2243 0 2	* The top of the mountain: door to the north: closed and locked
 M 0 2200 12 2201 1	* the dragon hatchling (The Tower Gates)
 G 0 2231 0		*	a steel key

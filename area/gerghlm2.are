@@ -2750,10 +2750,6 @@ You see the clean sewers.
 ~
 ~
 Z -1 7554
-D4
-~
-~
-ABCGZ 34419 34414
 S
 #7556
 Junction in the dark Forest~
@@ -4988,7 +4984,6 @@ S
 #RESETS
 D 0 7513 1 1	* The split in the trail in the Park.: door to the east: closed
 D 0 7514 3 1	* Care-Takers House.: door to the west: closed
-D 0 7555 4 2	* Old library in the very clean Sewers.: door to the up: closed and locked
 M 0 7503 6 7502 1	* a swallow (The Park.)
 M 0 7506 4 7502 1	* a ground-hog (The Park.)
 M 0 7509 6 7502 1	* a starry eyed lover (The Park.)
