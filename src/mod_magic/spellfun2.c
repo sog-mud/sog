@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.173 2000-01-31 08:23:47 kostik Exp $
+ * $Id: spellfun2.c,v 1.174 2000-02-01 09:23:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -784,17 +784,15 @@ void spell_eyes_of_intrigue(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim;
 
-	if ((victim = get_char_world(ch, target_name)) == NULL)
-	  {
-	char_puts("Your spy network reveals no such player.\n",ch);
-	return;
-	  }
+	if ((victim = get_char_world(ch, target_name)) == NULL) {
+		char_puts("Your spy network reveals no such player.\n", ch);
+		return;
+	}
 
-	if ((victim->level > ch->level + 7) && saves_spell(level, victim, DAM_NONE))
-	  {
-	char_puts("Your spy network cannot find that player.\n",ch);
-	return;
-	  }
+	if (saves_spell(level, victim, DAM_NONE)) {
+		char_puts("Your spy network cannot find that player.\n", ch);
+		return;
+	}
 
 	if (ch->in_room == victim->in_room)
 		dofun("look", ch, str_empty);

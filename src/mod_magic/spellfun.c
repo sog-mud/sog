@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.206 2000-01-31 08:23:47 kostik Exp $
+ * $Id: spellfun.c,v 1.207 2000-02-01 09:23:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -601,6 +601,7 @@ void spell_charm_person(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	if (IS_AFFECTED(victim, AFF_CHARM)
 	||  IS_AFFECTED(ch, AFF_CHARM)
 	||  !IS_AWAKE(victim)
+	||  victim->position == POS_FIGHTING
 	||  level < LEVEL(victim)
 	||  saves_spell(level, victim, DAM_CHARM) 
 	||  (IS_NPC(victim) && victim->pMobIndex->pShop != NULL)
