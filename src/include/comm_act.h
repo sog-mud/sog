@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.h,v 1.16.2.5 2002-10-26 16:51:24 fjoe Exp $
+ * $Id: comm_act.h,v 1.16.2.6 2002-11-20 22:42:12 fjoe Exp $
  */
 
 #ifndef _COMM_ACT_H_
@@ -107,11 +107,14 @@ typedef struct actopt_t {
 	int act_flags;
 } actopt_t;
 
-#define act(format, ch, arg1, arg2, type) \
+#define act(format, ch, arg1, arg2, type)			 \
 		act_puts((format), (ch), (arg1), (arg2), (type), POS_RESTING)
 #define act_puts(format, ch, arg1, arg2, type, min_pos)		\
 		act_puts3((format), (ch), (arg1), (arg2), NULL,	\
 			  (type), (min_pos))
+#define act_char(format, ch)					\
+	act_puts((format), (ch), NULL, NULL, TO_CHAR | ACT_NOUCASE, POS_DEAD)
+
 /*
  * ->to must not be NULL for all char/obj formatting or if ACT_STRANS is set
  * other formatting functions use opt->to_lang/opt->to_sex instead
