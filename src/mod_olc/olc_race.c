@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.33 2000-03-27 23:53:52 avn Exp $
+ * $Id: olc_race.c,v 1.34 2000-03-28 06:18:31 fjoe Exp $
  */
 
 #include "olc.h"
@@ -914,7 +914,7 @@ save_race_cb(void *p, va_list ap)
 void *
 print_race_cb(void *p, va_list ap)
 {
-	static buf[256];
+	static char buf[256];
         varr *v = va_arg(ap, varr *);
         const char **q = varr_enew(v);
 	snprintf(buf, sizeof(buf), "%s%s",
