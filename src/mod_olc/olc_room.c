@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.11 1998-09-24 14:09:05 fjoe Exp $
+ * $Id: olc_room.c,v 1.12 1998-09-25 05:51:20 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -1507,6 +1507,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 	    }
 
 	    free_reset_data(pReset);
+	    touch_area(pRoom->area);
 	    char_puts("Reset deleted.\n\r", ch);
 	}
 	else
@@ -1605,8 +1606,8 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 			pReset->command = 'E';
 		}
 	    }
-	    add_reset(ch->in_room, pReset, atoi(arg1));
-	    touch_area(ch->in_room->area);
+	    add_reset(pRoom, pReset, atoi(arg1));
+	    touch_area(pRoom->area);
 	    char_puts("Reset added.\n\r", ch);
 	}
 	else
@@ -1622,7 +1623,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		pReset->arg1 = ch->in_room->vnum;
 		pReset->arg2 = atoi(arg3);
 		add_reset(ch->in_room, pReset, atoi(arg1));
-		touch_area(ch->in_room->area);
+		touch_area(pRoom->area);
 		char_puts("Random exits reset added.\n\r", ch);
 	}
 	else
@@ -1635,8 +1636,6 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 	char_puts("        RESET <number> RANDOM [#x exits]\n\r", ch);
 	}
     }
-
-    return;
 }
 
 /* Static functions */
