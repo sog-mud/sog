@@ -1,5 +1,5 @@
 #
-# $Id: russian.lang,v 1.91 1998-07-31 15:39:54 fjoe Exp $
+# $Id: russian.lang,v 1.92 1998-08-03 11:03:56 efdi Exp $
 #
 
 NOTHING  		"Ничего.\n\r",	
@@ -536,7 +536,8 @@ QUEST_COMMANDS	"QUEST COMMANDS: points info time request complete list buy troub
 QUEST_TYPE_HELP_QUEST	"Для получения дополнительной информации набери: help quests.\n\r"
 QUEST_YOU_MAY_NOW_QUEST_AGAIN	"{*Теперь ты снова можешь получить задание.\n\r"
 QUEST_RUN_OUT_TIME	"У тебя вышло время, отведенное на задание!\n\r"
-QUEST_BETTER_HURRY	"Лучше поторопись, время, отведенное на задание почти вышло!\n\r"
+QUEST_BETTER_HURRY
+	    "Лучше поторопись, время, отведенное на задание, почти вышло!\n\r"
 QUEST_ITEMS_AVAIL_PURCHASE   "Ты можешь приобрести:\n\r"
 YOU_COMPLETED_SOMEONES_QUEST  sexdep	"Ты выполнило чье-то задание.\n\r"
   					"Ты выполнил чье-то задание.\n\r"
