@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.20 2001-12-04 12:57:48 kostik Exp $
+ * $Id: martial_art.c,v 1.114.2.21 2001-12-04 20:37:47 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1421,15 +1421,15 @@ void do_nerve(CHAR_DATA *ch, const char *argument)
 	bool attack;
 	int chance;
 
-	if (MOUNTED(ch)) {
-		char_puts("You can't nerve while riding!\n", ch);
-		return;
-	}
-
 	one_argument(argument, arg, sizeof(arg));
 
 	if ((chance = get_skill(ch, gsn_nerve)) == 0) {
 		char_puts("Huh?\n", ch);
+		return;
+	}
+
+	if (MOUNTED(ch)) {
+		char_puts("You can't nerve while riding!\n", ch);
 		return;
 	}
 

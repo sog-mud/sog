@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.25 2001-11-26 13:57:57 kostik Exp $
+ * $Id: spellfun.c,v 1.181.2.26 2001-12-04 20:37:48 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2761,6 +2761,12 @@ void spell_holy_word(int sn, int level, CHAR_DATA *ch, void *vo)
 		if ((IS_GOOD(ch) && IS_GOOD(vch)) ||
 		    (IS_EVIL(ch) && IS_EVIL(vch)) ||
 		    (IS_NEUTRAL(ch) && IS_NEUTRAL(vch))) {
+			if (spellbane(vch, ch, 100, dice(3, LEVEL(vch)))) {
+				if (IS_EXTRACTED(ch))
+					return;
+				else
+					continue;
+			}
 			char_puts("You feel full more powerful.\n", vch);
 			spellfun_call("frenzy", level, ch, vch);
 			spellfun_call("bless", level, ch, vch);
@@ -3080,6 +3086,12 @@ void spell_mass_healing(int sn, int level, CHAR_DATA *ch, void *vo)
 	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room)
 		if ((IS_NPC(ch) && IS_NPC(gch))
 		||  (!IS_NPC(ch) && !IS_NPC(gch))) {
+			if (spellbane(gch, ch, 100, dice(3, LEVEL(gch)))) {
+				if (IS_EXTRACTED(ch))
+					return;
+				else
+					continue;
+			}
 			spellfun_call("heal", level, ch, gch);
 			spellfun_call("refresh", level, ch, gch);
 		}

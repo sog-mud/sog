@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.27 2001-09-04 19:48:19 fjoe Exp $
+ * $Id: act_comm.c,v 1.187.2.28 2001-12-04 20:37:45 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2132,6 +2132,18 @@ toggle_t toggle_table[] =
 	  comm_flags,	COMM_SHORT_EQ,
 	  "You will no longer see empty equipment slots.",
 	  "You will now see empty equipment slots."
+	},
+
+	{ "short aff",		"short affects mode",
+	  comm_flags,	COMM_SHORT_AFF,
+	  "Short affects mode on.",
+	  "Short affects mode off."
+	},
+
+	{ "battle",		"do not show battle prompt",
+	  comm_flags,	COMM_NO_BATTLE_PROMPT,
+	  "You will no longer see battle prompt when fighting.",
+	  "You will now see battle prompt when fighting."
 	},
 
 	{ NULL }

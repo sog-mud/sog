@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.19 2001-11-21 19:23:44 avn Exp $
+ * $Id: comm.c,v 1.200.2.20 2001-12-04 20:37:56 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1192,6 +1192,9 @@ void battle_prompt(CHAR_DATA *ch, CHAR_DATA *victim)
 	int percent;
 	char* msg;
  
+	if (IS_SET(ch->comm, COMM_NO_BATTLE_PROMPT))
+		return;
+
         if (victim->max_hit > 0)
 		percent = victim->hit * 100 / victim->max_hit;
         else

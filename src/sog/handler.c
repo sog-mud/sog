@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.43 2001-11-15 13:52:51 tatyana Exp $
+ * $Id: handler.c,v 1.182.2.44 2001-12-04 20:37:53 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3184,7 +3184,7 @@ void show_name(CHAR_DATA *ch, BUFFER *output,
 	       AFFECT_DATA *paf, AFFECT_DATA *paf_last)
 {
 	if (paf_last && paf->type == paf_last->type)
-		if (ch && ch->level < 20)
+		if (ch && (ch->level < 20 || IS_SET(ch->comm, COMM_SHORT_AFF)))
 			return;
 		else
 			buf_add(output, "                      ");
@@ -3244,7 +3244,8 @@ void show_obj_affects(CHAR_DATA *ch, BUFFER *output, AFFECT_DATA *paf)
 	AFFECT_DATA *paf_last = NULL;
 
 	for (; paf; paf = paf->next)
-		if (paf->location != APPLY_SPELL_AFFECT)
+		if (paf->location != APPLY_SPELL_AFFECT
+	 	&&  !IS_SET(ch->comm, COMM_SHORT_AFF))
 			show_bit_affect(output, paf, &paf_last);
 }
 
@@ -3263,6 +3264,17 @@ void show_affects(CHAR_DATA *ch, BUFFER *output)
 			paf_last = paf;
 			continue;
 		}
+
+		if (IS_SET(ch->comm, COMM_SHORT_AFF)) {
+			show_name(ch, output, paf, paf_last);
+			if (paf_last && paf_last->type == paf->type)
+				continue;
+			buf_add(output, ": ");
+			show_duration(output, paf);
+			paf_last = paf;
+			continue;
+		}
+
 		show_loc_affect(ch, output, paf, &paf_last);
 		show_bit_affect(output, paf, &paf_last);
 	}

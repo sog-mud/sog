@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.50 2001-11-11 19:49:02 avn Exp $
+ * $Id: spellfun2.c,v 1.139.2.51 2001-12-04 20:37:51 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1725,6 +1725,13 @@ void spell_golden_aura(int sn, int level, CHAR_DATA *ch, void *vo)
 			continue;
 		}
 
+		if (spellbane(vch, ch, 100, dice(3, LEVEL(vch)))) {
+			if (IS_EXTRACTED(ch))
+				return;
+			else
+				continue;
+		}
+
 		if (is_affected(vch, sn)) {
 			if (vch == ch)
 				char_puts("You are already protected by a golden aura.\n",ch);
@@ -2974,15 +2981,17 @@ void spell_group_defense(int sn, int level, CHAR_DATA *ch, void *vo )
 
 	for(gch=ch->in_room->people; gch != NULL; gch=gch->next_in_room)
 	{
-		if(!is_same_group(gch, ch))
+		if (!is_same_group(gch, ch))
 			continue;
+
 		if (spellbane(gch, ch, 100, dice(2, LEVEL(gch)))) {
 			if (IS_EXTRACTED(ch))
 				return;
 			else
 				continue;
 		}
-		if(is_affected(gch, armor_sn)) {
+
+		if (is_affected(gch, armor_sn)) {
 	    	    if(gch == ch)
 			char_puts("You are already armored.\n",ch);
 		    else
@@ -4196,10 +4205,18 @@ void spell_group_heal(int sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *gch;
 
 	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room) {
-		if (is_same_group(ch, gch) && !HAS_SKILL(gch, gsn_spellbane)) {
-			spellfun_call("master healing", level, ch, gch);
-			spellfun_call("refresh", level, ch, gch);
+		if (!is_same_group(ch, gch))
+			continue;
+
+		if (spellbane(gch, ch, 100, dice(3, LEVEL(gch)))) {
+			if (IS_EXTRACTED(ch))
+				return;
+			else
+				continue;
 		}
+
+		spellfun_call("master healing", level, ch, gch);
+		spellfun_call("refresh", level, ch, gch);
 	}
 }
 
