@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.91 1999-01-18 05:15:18 fjoe Exp $
+ * $Id: act_quest.c,v 1.92 1999-02-10 15:13:09 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -763,22 +763,22 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 		 * 'quest trouble'
 		 */
 
-		if (qt == NULL) {
-			/* ch has never bought this item, but requested it */
-			quest_tell(ch, questor,
-				   "Sorry, {W%s{z, but you haven't bought "
-				   "that quest award, yet.\n",
-				   ch->name);
-			return FALSE;
-		}
-		else if (qt->count > count_max ||
-			 !IS_SET(pObjIndex->extra_flags, ITEM_QUEST)) {
+		if ((qt && qt->count > count_max)
+		||  !IS_SET(pObjIndex->extra_flags, ITEM_QUEST)) {
 
 			/* ch requested this item too many times	*
 			 * or the item is not quest			*/
 
 			quest_tell(ch, questor,
 				   "This item is beyond the trouble option.");
+			return FALSE;
+		}
+		else if (!qt) {
+			/* ch has never bought this item, but requested it */
+			quest_tell(ch, questor,
+				   "Sorry, {W%s{z, but you haven't bought "
+				   "that quest award, yet.\n",
+				   ch->name);
 			return FALSE;
 		}
 	}
@@ -804,7 +804,7 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 
 	/* update quest trouble data */
 
-	if (qt != NULL && count_max) {
+	if (qt && count_max) {
 		OBJ_DATA *obj;
 		OBJ_DATA *obj_next;
 
@@ -828,7 +828,7 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 				   "with trouble option.\n");
 	}
 
-	if (qt == NULL) {
+	if (!qt && IS_SET(pObjIndex->extra_flags, ITEM_QUEST)) {
 		qt = malloc(sizeof(*qt));
 		qt->vnum = item_vnum;
 		qt->count = 0;
@@ -836,10 +836,12 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 		ch->pcdata->qtrouble = qt;
 	}
 
-	if (count_max)
-		qt->count++;
-	else
-		qt->count = 1;
+	if (qt) {
+		if (count_max)
+			qt->count++;
+		else
+			qt->count = 1;
+	}
 
 	/* ok, give him requested item */
 
