@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.21 2004-06-28 19:21:04 tatyana Exp $
+# $Id: Makefile,v 1.22 2004-06-28 19:32:16 tatyana Exp $
 #
 
 MODULE=		olc
@@ -18,5 +18,5 @@ SRCS+=		dump.cpp
 .include <bsd.prog.mk>
 
 .if defined(WITH_LIBODBCXX)
-CFLAGS+=	-I/usr/local/include
+CFLAGS+=	-I/usr/local/include -DWITH_LIBODBCXX
 .endif

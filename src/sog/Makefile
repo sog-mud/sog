@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.61 2004-06-28 19:21:10 tatyana Exp $
+# $Id: Makefile,v 1.62 2004-06-28 19:32:16 tatyana Exp $
 #
 
 PROG=		sog
@@ -16,5 +16,4 @@ LDADD=		$(COMPAT_LIBS) -lz
 
 .if defined(WITH_LIBODBCXX)
 LDADD+=		-L/usr/local/lib -lodbc++ -lstdc++ $(PTHREAD_LIBS)
-CFLAGS+=	-DWITH_LIBODBCXX
 .endif
