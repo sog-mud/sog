@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.26 2001-09-30 20:38:12 fjoe Exp $
+ * $Id: note.c,v 1.27 2001-11-10 21:02:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -200,7 +200,7 @@ note_quote(note_t *pnote)
 
 	q = strchr(buf, '\0');
 	need_quote = TRUE;
-	for (p = pnote->text; *p && (size_t) (q-buf) < sizeof(buf); p++) {
+	for (p = pnote->text; *p && (size_t) (q-buf) < sizeof(buf) - 4; p++) {
 		if (need_quote) {
 			*q++ = '>';
 			*q++ = ' ';
