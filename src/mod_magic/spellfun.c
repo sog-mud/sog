@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.196 1999-12-14 05:25:40 fjoe Exp $
+ * $Id: spellfun.c,v 1.197 1999-12-16 10:06:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -322,7 +322,6 @@ static spell_dispel_t dispel_tab[] = {
 	{ "bless",		NULL					},
 	{ "blindness",		"$n is no longer blinded."		},
 	{ "calm",		"$n no longer looks so peaceful..."	},
-	{ "change sex",		"$n looks more like $mself again."	},
 	{ "charm person",	"$n regains $s free will."		},
 	{ "chill touch",	"$n looks warmer."			},
 	{ "curse",		NULL					},
@@ -353,9 +352,7 @@ static spell_dispel_t dispel_tab[] = {
 	{ "fear",		NULL					},
 	{ "protection heat",	NULL					},
 	{ "protection cold",	NULL					},
-	{ "magic resistance",	NULL					},
 	{ "hallucination",	NULL					},
-	{ "terrangreal",	NULL					},
 	{ "power word stun",	NULL					},
 	{ "corruption",		"$n looks healthier."			},
 	{ "web",		"The webs around $n dissolve."		},
