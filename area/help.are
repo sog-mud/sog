@@ -807,11 +807,12 @@ object for resting/sleeping.
 Использование этих команд с именем обьекта как аргументом приведет к использо-
 ванию этого объекта для отдыха или сна.
 ~
-0 GTELL ; REPLY SAY TELL '~
+0 GTELL ; REPLY SAY TELL RETELL~
 @eng Syntax: {cgtell{x <message>
 Syntax: {csay{x   <message>
 Syntax: {ctell{x  <character> <message>
 Syntax: {creply{x <message>
+Syntax:{c retell{x <message>
 
 All of these commands send messages to other players.  GTELL sends a message to
 all of the characters in your group, wherever they are, even if they are
@@ -824,11 +825,13 @@ TELL sends a message to one awake player anywhere in the world.
 
 REPLY sends a message to the last player who sent you a TELL.  REPLY will work
 even if you can't see the player, and without revealing their identity.  This
-is handy for talking to invisible or switched immortal players.
+is handy for talking to invisible or switched immortal players. RETELL
+sends a messate to the player which received previous tell.
 @rus Синтаксис: {cgtell {x<сообщение>
 Синтаксис: {csay   {x<сообщение>
 Синтаксис: {ctell  {x<персонаж> <сообщение>
 Синтаксис: {creply {x<сообщение>
+Синтаксис: {cretell{x <сообщение>
 
 Все эти команды предназначены для общения с другими персонажами. GTELL посылает
 сообщение всем членам твоей группы, где бы они ни были, даже если они спят,
@@ -842,7 +845,8 @@ TELL посылает сообщение указанному персонажу.
 REPLY посылает сообщение игроку, который последним послал тебе сообщение при
 помощи команды TELL. Команду REPLY можно использовать даже если ты не видишь
 персонажа, с которым говоришь, что делает ее незаменимой для разговора с
-игроками, которых ты не видишь или с Богами.
+игроками, которых ты не видишь или с Богами. Командой RETELL сообщение
+посылается тому игроку, которому было адресовано предыдущее послание.
 ~
 -1 NOTES CHANGES NEWS PENALTY PENALTIES IDEAS UNREAD~
 @eng The notes in Shades of Gray replace the bulletin boards and mail systems
@@ -3867,8 +3871,8 @@ foes.
 -2 NINJAS~
 @eng NINJA
 Masters of the art of weaponless combat, these mysterious warriors have
-recently become more common in the land.  They strike quickly and
-silently before fading into the shadows.  Ninjas are skilled in the
+recently become more common in the land. They strike quickly and
+silently before fading into the shadows. Ninjas are skilled in the
 knowledge of nerve pressure, and can weaken their foes with a well placed
 strike. At high levels, Ninjas learn the art of assassination,
 killing their foe instantly and silently.
@@ -3965,16 +3969,16 @@ taking the direct approach, even when another method might be called for.
 которые у  варлоков  весьма  разнообразны.  Только мужчины могут стать
 боевыми магами.
 ~
--2 SAMURAIS~
-@eng More powerful honour warriors..But after level 10 they cannot flee 
-because they are thought like that.
-@rus {                             {W- САМУРАЙ -{x
- 
-Могучие благородные  воины  с  многочисленными   правилами  поведения,
-определяемыми воспитанием. Они  считают  неприемлимым сбежать  из боя,
-это для них бесчестие. Но подобные ограничения  вследствии постоянного
-самоконтроля позволяют им достичь огромных высот в воинский искусствах
-Помимо этого самураи владеют азами лечебной магии.
+-1 SAMURAIS~
+@eng Samurai is a powerful honourable warrior,
+following the ideals of Warrior's Path 'Bushido'.
+The essense of Bushido is to die.
+This means, samurai forced to choose - 
+life or death, - will choose death.
+@rus Самурай - могущественный воин, придерживающийся Пути Воина 'Бусидо'.
+Знай, что сущность бусидо заключается в том, чтобы умереть.
+Это значит, что самурай, перед которым стоит выбор -
+жизнь или смерть, - выбирает смерть.
 ~
 -2 VAMPIRES~
 @eng Powerful mage/warriors..But after they can only transform into VAMPIRE 
@@ -4147,6 +4151,11 @@ faster than normally.
  
 Самурай совершает самоубийство, теряя здоровье и ману. Но после этого, он
 восстанавливает их быстрее, чем обычно.
+ 
+Пасть на поле битвы и совершить ритуальное самоубийство -
+в равной мере достойно. Самоубийство, называемое сэппуку,
+для самурая - не признак поражения, а окончательное волеизъявление
+человека, которое призвано защитить его честь.
 ~
 0 'VAMPIRIC BITE' BITE~
 @eng Syntax: {cbite{x <victim>
@@ -4695,9 +4704,10 @@ the hits.  It requires the use of a piercing instrument.
 @eng `Critical strike' is a ninja/samuray autoskill. When strike
 is successful opponent get a higher damage and can be blinded
 or stuned.
-@rus Это срабатывающие  автоматически  умение,  которым  обладают  нинзи  и
-самураи. В случае  успеха  удар,  наносимый  по  жертве,  сильнее, чем
-обычный, а также есть шанс, что он ослепит или обездвижет жертву.
+@rus 'Critical strike' -- срабатывающие автоматически умение, которым
+обладают нинзи и самураи. В случае успеха удар, наносимый по
+жертве, сильнее, чем обычный, а также есть шанс, что он ослепит
+или обездвижит жертву.
 ~
 0 THROW ~
 @eng Syntax: throw <victim>
@@ -7351,6 +7361,7 @@ Where option defines what should be updated. It can be one of the following:
    {ctick quest{x   : update quest time
    {ctick clan{x    : update clan item locations
    {ctick weather{x : update weather and time
+   {ctick bmitem{x  : update bmlist
 @rus Синтаксис: {ctick{x <тип>
  
 Вызывает обновление чего-либо в игре. Что именно подлежит обновлению,
@@ -7364,6 +7375,7 @@ Where option defines what should be updated. It can be one of the following:
    {ctick quest{x   : уменьшение времени квестов
    {ctick clan{x    : проверка положения клановых обьектов
    {ctick weather{x : обновление погоды, увеличение времени
+   {ctick bmitem{x  : увеличение таймера на объектах на черном рынке
 ~
 0 'THROWING WEAPONS'~
 @eng Syntax: {cthrow weapon{x <direction> <victim>
@@ -9853,7 +9865,7 @@ Syntax: {cbm bet{x <newbet> <number.item | number.>
    on object using its ordinal number. E.g. {cbm bet <newbet> 8.{x
    makes a bet on eight object.
 
-Syntax: {cbm propose/sell{x <object>
+Syntax: {cbm propose/sell{x <object> <price>
    This command allows you to propose your object for sale. This
    service is available only for hunters.
 
@@ -9882,18 +9894,18 @@ fish, gem and container. Контейнеры обязательно должны быть пустыми.
     С помощью этой команды можно увидеть, что продается на черном рынке.
 
 Синтаксис: {cbm bet{x <новая ставка> <название объекта | порядковый номер>
-    Эта команда позволяет делать ставку  на  желанный  объект.  Название
-    объекта может быть простым (bracelet), с  номером  (2.bracelet)  или
-    можно сделать ставку по порядковому  номеру  ({cbm bet 500 8.{x - ставка
-    сделается на объект с порядковым номером 8)
-
-Синтаксис: {cbm propose/sell {x<объект>
-    Эта команда позволяет  выставить  объект на продажу. Доступна только
-    членам клана Hunters.
-
-Синтаксис: {cbm accept {x<название объекта | порядковый номер>
-    Заключить сделку. Объект может указываться с  помощью  названия  или
-    порядкового номера. Доступна только членам клана Hunters.
+   Эта команда позволяет делать ставку на желанный объект. Название
+   объекта может быть простым (bracelet), с номером (2.bracelet) или
+   можно сделать ставку по порядковому номеру ({cbm bet 500 8.{x - ставка
+   сделается на объект с порядковым номером 8)
+ 
+Синтаксис: {cbm propose/sell{x <объект> <цена>
+   Эта команда позволяет выставить объект на продажу. Доступна только
+   членам клана Hunters.
+ 
+Синтаксис: {cbm accept{x <название объекта | порядковый номер>
+   Заключить сделку. Объект может указываться с помощью названия или
+   порядкового номера. Доступна только членам клана Hunters.
 
 Синтаксис: {cbm show {x<название объекта | порядковый номер>
     Показывает характеристики продаваемого объекта.
@@ -9923,20 +9935,32 @@ E.g. oocme smiles show all message [Shades of Gray] Aurian smiles.
 Эти команды посылают сообщение-эмоцию. Твое высказывание 'sogme улыбнулась'
 все увидят в виде: [Shades of Gray] Aurian улыбнулась.
 ~
--2 ARIAL~
-                               {W- АРИАЛ -{x
+0 LAST~
+Syntax: {clast tell{x
+Syntax: {clast say{x
+Syntax: {clast gtell/group{x
+Syntax: {clast channels/shout/gossip{x
+Syntax: {clast sog/ooc{x
+Syntax: {clast clan{x (for clan members only)
+Syntax: {clast immtalk{x (for imms only)
  
-Ариалы - потомки огромных птиц, существовавших много веков назад.  Они
-быстры и умеют летать, что позволяет им легко перемещаться на огромные
-расстояния. Очень легкие  и хрупкие,  чтобы  не  потерять  способности
-летать.
+   This command allows to see several last message. LAST TELL shows
+your tells, both received and sended. LAST SAY shows say messages.
+LAST GTELL or LAST GROUP shows group tells. LAST CHANNELS shows shouts
+and gossips. LAST CLAN shows clan talks. LAST SOG shows message from
+sog general line.
 ~
--2 WITCHES~
-                               {W- ВЕДЬМА -{x
+0 SHARPEN WEAPON 'SHARPEN WEAPON'~
+Syntax: {csharpen{x <weapon>
  
-Ведьмы - крайне  опасные колдуньи.  Обладают огромным арсеналом  магии
-нападения и неплохими защитными  заклинаниями. Лучше не становитесь на
-пути у ведьмы - от их проклятья нет спасения! 
+   This skill allows to sharpen your weapon. Only blade weapons:
+axes, daggers, swords - can be sharpened. Also you need sharpstone
+(hold) for sharpen. Weapon which you like to sharpen must be in
+your inventory.
+   You have a little chance to make your weapon sharp for ever. 
+Differently your level depends duration of affect. Vorpal, holy
+and vampiric flags decrease chance of success. You must remember
+that there is a chance to destroy your weapon.
 ~
 -1 $~
 
