@@ -2,7 +2,7 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.25 1998-04-29 03:27:27 efdi Exp $
+ * $Id: resource.h,v 1.26 1998-04-29 03:39:32 efdi Exp $
  */
 
 char* msg(int resnum, CHAR_DATA *ch);
@@ -252,6 +252,11 @@ enum {
 	MOVE_N_GOES_TO_SLEEP_ON,
 	MOVE_YOU_GO_TO_SLEEP_IN,
 	MOVE_N_GOES_TO_SLEEP_IN,
+	MOVE_YOU_ARE_ASLEEP_YOURSELF,
+	MOVE_THEY_ARENT_HERE,
+	MOVE_N_IS_ALREADY_AWAKE,
+	MOVE_YOU_CANT_WAKE_M,
+	MOVE_N_WAKES_YOU,
 
 /*	Here start sex-dependent messages */
 	MSG_SEX_DEPENDENT,

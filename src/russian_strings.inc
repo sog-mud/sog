@@ -241,6 +241,11 @@ char *strings_rus[MSG_MAX_NUM] = {
 /* MOVE_N_GOES_TO_SLEEP_ON */	"$n засыпет на $p.",
 /* MOVE_YOU_GO_TO_SLEEP_IN */	"Ты засыпаешь в $p.",
 /* MOVE_N_GOES_TO_SLEEP_IN */	"$n засыпает в $p.",
+/* MOVE_YOU_ARE_ASLEEP_YOURSELF */"Но ты же сам спишь!\n\r",
+/* MOVE_THEY_ARENT_HERE */	"Тут нет таких.\n\r",
+/* MOVE_N_IS_ALREADY_AWAKE */	"$N уже бодрствует.",
+/* MOVE_YOU_CANT_WAKE_M */	"Ты не можешь разбудить $M!",
+/* MOVE_N_WAKES_YOU */		"$n будит тебя.",
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yсерьезно ранено{x.",

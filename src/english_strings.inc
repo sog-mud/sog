@@ -241,6 +241,11 @@ char *strings_engl[MSG_MAX_NUM] =  {
 /* MOVE_N_GOES_TO_SLEEP_ON */	"$n goes to sleep on $p.",
 /* MOVE_YOU_GO_TO_SLEEP_IN */	"You go to sleep in $p.",
 /* MOVE_N_GOES_TO_SLEEP_IN */	"$n goes to sleep in $p.",
+/* MOVE_YOU_ARE_ASLEEP_YOURSELF */"You are asleep yourself!\n\r",
+/* MOVE_THEY_ARENT_HERE */	"They aren't here.\n\r",
+/* MOVE_N_IS_ALREADY_AWAKE */	"$N is already awake.",
+/* MOVE_YOU_CANT_WAKE_M */	"You can't wake $M!",
+/* MOVE_N_WAKES_YOU */		"$n wakes you.",
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yis gushing blood{x.",

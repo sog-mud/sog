@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.19 1998-04-29 03:27:27 efdi Exp $
+ * $Id: act_move.c,v 1.20 1998-04-29 03:39:31 efdi Exp $
  */
 
 /***************************************************************************
@@ -1739,7 +1739,6 @@ void do_sleep( CHAR_DATA *ch, char *argument )
 }
 
 
-
 void do_wake( CHAR_DATA *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
@@ -1750,18 +1749,22 @@ void do_wake( CHAR_DATA *ch, char *argument )
 	{ do_stand( ch, argument ); return; }
 
     if ( !IS_AWAKE(ch) )
-	{ send_to_char( "You are asleep yourself!\n\r",       ch ); return; }
+	{ send_to_char(msg(MOVE_YOU_ARE_ASLEEP_YOURSELF, ch), ch); return; }
 
     if ( ( victim = get_char_room( ch, arg ) ) == NULL )
-	{ send_to_char( "They aren't here.\n\r",              ch ); return; }
+	{ send_to_char(msg(MOVE_THEY_ARENT_HERE,  ch), ch); return; }
 
-    if ( IS_AWAKE(victim) )
-	{ act( "$N is already awake.", ch, NULL, victim, TO_CHAR ); return; }
+    if ( IS_AWAKE(victim) ) { 
+	act_printf(ch, NULL, victim, TO_CHAR, POS_DEAD,
+			MOVE_N_IS_ALREADY_AWAKE); return; 
+    }
 
-    if ( IS_AFFECTED(victim, AFF_SLEEP) )
-	{ act( "You can't wake $M!",   ch, NULL, victim, TO_CHAR );  return; }
+    if ( IS_AFFECTED(victim, AFF_SLEEP) ) { 
+	act_printf(ch, NULL, victim, TO_CHAR, POS_DEAD, MOVE_YOU_CANT_WAKE_M);  
+	return; 
+    }
 
-    act_puts( "$n wakes you.", ch, NULL, victim, TO_VICT,POS_SLEEPING );
+    act_printf(ch, NULL, victim, TO_VICT, POS_SLEEPING, MOVE_N_WAKES_YOU);
     do_stand(victim,"");
     return;
 }
