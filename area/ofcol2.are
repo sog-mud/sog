@@ -5,7 +5,7 @@ VNUMs 600 699
 Credits Hatchet~
 Security 9
 LevelRange 5 35
-Flags A
+Flags hometown~
 End
 
 #MOBILES
@@ -3487,8 +3487,8 @@ S
 0
 
 #PRACTICERS
-M 601 maladictions	* Marshall Diana
-M 628 healing	* the Priestess of Ofcol
+M 601 maladictions~	* Marshall Diana
+M 628 healing~	* the Priestess of Ofcol
 S
 
 #$

@@ -5,7 +5,7 @@ VNUMs 9500 9800
 Credits Conner~
 Security 9
 LevelRange 10 35
-Flags A
+Flags hometown~
 End
 
 #MOBILES
@@ -7359,7 +7359,7 @@ if carries $i 2436
 #0
 
 #PRACTICERS
-M 9594 weaponsmaster	* The Samurai Weaponsmaster
+M 9594 weaponsmaster~	* The Samurai Weaponsmaster
 S
 
 #$

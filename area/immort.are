@@ -700,11 +700,7 @@ M 0 1200 1 1221 1	* Heimdall (The End of the Rainbow Bridge)
 S
 
 #PRACTICERS
-M 1200 fightmaster	* Heimdall
-M 1200 defensive	* Heimdall
-S
-
-#OMPROGS
+M 1200 fightmaster defensive~	* Heimdall
 S
 
 #$

@@ -7991,12 +7991,12 @@ Z -1 16190
 S
 #16192
 Death's Lane~
-@eng This is death's lane.  A most dangerous street that even the people of the
+This is death's lane.  A most dangerous street that even the people of the
 Underdark will not go near. The only reason to travel along this deadly
 street is when a person is trying to find an assassin to either kill or hire.
 
 South death's lane continues, north is Sunrise begins.
-@rus ~
+~
 0 ADN city
 D0
 Sunrise

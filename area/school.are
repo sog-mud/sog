@@ -2673,15 +2673,7 @@ S
 0
 
 #PRACTICERS
-M 3719 weaponsmaster	* the priest of Circe
-M 3719 combat	* the priest of Circe
-M 3719 harmful	* the priest of Circe
-M 3719 healing	* the priest of Circe
-M 3719 illusion	* the priest of Circe
-M 3719 protective	* the priest of Circe
-M 3719 fightmaster	* the priest of Circe
-M 3719 defensive	* the priest of Circe
-M 3719 wizard	* the priest of Circe
+M 3719 weaponsmaster combat harmful healing illusion protective fightmaster defensive wizard~	* the priest of Circe
 S
 
 #OMPROGS

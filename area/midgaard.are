@@ -6,7 +6,7 @@ Credits Diku~
 Security 9
 LevelRange 1 100
 ResetMessage The earth rumbles with the after affects of another experience gone away...~
-Flags none
+Flags hometown~
 End
 
 #MOBILES
@@ -8225,8 +8225,8 @@ endif
 #0
 
 #PRACTICERS
-M 3000 wizard	* the wizard
-M 3172 benedictions	* the templeman
+M 3000 wizard~	* the wizard
+M 3172 benedictions~	* the templeman
 S
 
 #$
