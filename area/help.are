@@ -7475,6 +7475,24 @@ of ticks can be viewed by entering this command without arguments.
 команду без параметров. 1 временная единица соответствует приблизи-
 тельно 0.25 сек.
 ~
+0 'OLC TRIG'~
+Syntax: {ctrig{x {cadd{x <type> [name [arg]]
+Syntax: {ctrig{x {cdelete{x <num>
+Syntax: {ctrig{x {carg{x <num> arg
+
+Syntax: {ctrig{x {cshow{x <num>
+Syntax: {ctrig{x {cedit{x <num>
+Syntax: {ctrig{x {ccompile{x <num>
+Syntax: {ctrig{x {cflags{x <flags>
+ 
+<type> is trigger type. Use '?' to get list of valid trigger types.
+ 
+<flags> are mprog flags, Use '?' to get list of valid mprog flags.
+
+If `name' is omitted in {ctrig{x {cadd{x, inline trigger is created.
+{ctrig{x {cshow/edit/compile/flags{x can be used to show/edit/compile
+inline trigger mprog or set its flags.
+~
 -1 $~
 
 #$
