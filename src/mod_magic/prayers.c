@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.36 2002-08-02 12:23:06 tatyana Exp $
+ * $Id: prayers.c,v 1.37 2002-08-02 13:10:38 tatyana Exp $
  */
 
 /***************************************************************************
@@ -140,6 +140,7 @@ DECLARE_SPELL_FUN(prayer_mist_walk);
 DECLARE_SPELL_FUN(prayer_air_walk);
 DECLARE_SPELL_FUN(prayer_nightmare);
 DECLARE_SPELL_FUN(prayer_abolish_undead);
+DECLARE_SPELL_FUN(prayer_golden_aura);
 
 static void
 hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
@@ -2954,5 +2955,42 @@ SPELL_FUN(prayer_abolish_undead, sn, level, ch, vo)
         for (tmp_ch = npc_list; tmp_ch; tmp_ch = tmp_ch->next)
                 if (NPC(tmp_ch)->last_fought == victim)
                         NPC(tmp_ch)->last_fought = NULL;
+}
+
+SPELL_FUN(prayer_golden_aura, sn, level, ch, vo)
+{
+	CHAR_DATA *vch = vo;
+
+	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
+		AFFECT_DATA *paf;
+
+		if (!is_same_group(vch, ch) || !IS_GOOD(ch))
+			continue;
+
+		if (is_sn_affected(vch, sn)) {
+			if (vch == ch)
+				act_char("You are already protected by a golden aura.", ch);
+			else
+				act("$N is already protected by a golden aura.",
+				    ch, NULL, vch, TO_CHAR);
+			continue;
+		}
+
+		paf = aff_new(TO_AFFECTS, sn);
+		INT(paf->location)= APPLY_HITROLL;
+		paf->modifier	= UMAX(1, level / 8);
+		paf->bitvector	= 0;
+		affect_to_char(vch, paf);
+
+		INT(paf->location)= APPLY_SAVING_SPELL;
+		paf->modifier	=  -UMAX(1, level / 8);
+		affect_to_char(vch, paf);
+		aff_free(paf);
+
+		act_char("You feel a golden aura around you.", vch);
+		if (ch != vch)
+			act("A golden aura surrounds $N.",
+			    ch, NULL, vch, TO_CHAR);
+	}
 }
 

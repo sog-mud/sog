@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.293 2002-08-02 11:14:21 tatyana Exp $
+ * $Id: spellfun.c,v 1.294 2002-08-02 13:10:39 tatyana Exp $
  */
 
 /***************************************************************************
@@ -161,7 +161,6 @@ DECLARE_SPELL_FUN(spell_shadowlife);
 DECLARE_SPELL_FUN(spell_ruler_badge);
 DECLARE_SPELL_FUN(spell_remove_badge);
 DECLARE_SPELL_FUN(spell_dragon_strength);
-DECLARE_SPELL_FUN(spell_golden_aura);
 DECLARE_SPELL_FUN(spell_blue_dragon);
 DECLARE_SPELL_FUN(spell_green_dragon);
 DECLARE_SPELL_FUN(spell_white_dragon);
@@ -4492,44 +4491,6 @@ SPELL_FUN(spell_dragon_strength, sn, level, ch, vo)
 	act_char("The strength of the dragon enters you.", ch);
 	act("$n looks a bit meaner now.", ch, NULL, NULL, TO_ROOM);
 }
-
-SPELL_FUN(spell_golden_aura, sn, level, ch, vo)
-{
-	CHAR_DATA *vch = vo;
-
-	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
-		AFFECT_DATA *paf;
-
-		if (!is_same_group(vch, ch) || !IS_GOOD(ch))
-			continue;
-
-		if (is_sn_affected(vch, sn)) {
-			if (vch == ch)
-				act_char("You are already protected by a golden aura.", ch);
-			else
-				act("$N is already protected by a golden aura.",
-				    ch, NULL, vch, TO_CHAR);
-			continue;
-		}
-
-		paf = aff_new(TO_AFFECTS, sn);
-		INT(paf->location)= APPLY_HITROLL;
-		paf->modifier	= level / 8;
-		paf->bitvector	= 0;
-		affect_to_char(vch, paf);
-
-		INT(paf->location)= APPLY_SAVING_SPELL;
-		paf->modifier	=  -level / 8;
-		affect_to_char(vch, paf);
-		aff_free(paf);
-
-		act_char("You feel a golden aura around you.", vch);
-		if (ch != vch)
-			act("A golden aura surrounds $N.",
-			    ch, NULL, vch, TO_CHAR);
-	}
-}
-
 SPELL_FUN(spell_blue_dragon, sn, level, ch, vo)
 {
 	AFFECT_DATA *paf;
