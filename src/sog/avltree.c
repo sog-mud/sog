@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: avltree.c,v 1.6 2001-09-14 10:01:06 fjoe Exp $
+ * $Id: avltree.c,v 1.7 2001-11-10 11:39:37 avn Exp $
  */
 
 #include <assert.h>
@@ -219,7 +219,7 @@ static size_t
 avltree_size(void *c)
 {
 	avltree_t *avl = (avltree_t *) c;
-	return avl->count != NULL;
+	return avl->count != 0;
 }
 
 static bool
