@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.75 1998-10-02 08:13:51 fjoe Exp $
+ * $Id: interp.c,v 1.76 1998-10-03 07:25:03 kostik Exp $
  */
 
 /***************************************************************************
@@ -583,7 +583,21 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
  	         * Implement charmed mobs commands.
        		 */
 		if (!is_order && IS_AFFECTED(ch,AFF_CHARM)
-		&&  cmd_table[cmd].do_fun != do_return) {
+		&&  cmd_table[cmd].do_fun != do_return
+		&&  cmd_table[cmd].do_fun != do_tell
+		&&  cmd_table[cmd].do_fun != do_reply
+		&&  cmd_table[cmd].do_fun != do_gtell
+		&&  cmd_table[cmd].do_fun != do_say
+		&&  cmd_table[cmd].do_fun != do_socials
+		&&  cmd_table[cmd].do_fun != do_emote 
+		&&  cmd_table[cmd].do_fun != do_clan
+		&&  cmd_table[cmd].do_fun != do_gossip
+		&&  cmd_table[cmd].do_fun != do_music
+		&&  cmd_table[cmd].do_fun != do_shout
+		&&  cmd_table[cmd].do_fun != do_yell
+		&&  cmd_table[cmd].do_fun != do_immtalk
+		&&  cmd_table[cmd].do_fun != do_who
+		&&  cmd_table[cmd].do_fun != do_whois ) {
 			char_puts("First ask to your beloved master!\n\r", ch);
 			return;
 		}

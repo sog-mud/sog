@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.62 1998-10-02 04:48:25 fjoe Exp $
+ * $Id: handler.c,v 1.63 1998-10-03 07:25:03 kostik Exp $
  */
 
 /***************************************************************************
@@ -2868,7 +2868,7 @@ bool can_gate(CHAR_DATA *ch, CHAR_DATA *victim)
 	else {
 		if ((!in_PK(ch, victim) && IS_SET(victim->act, PLR_NOSUMMON))
 		||  victim->level >= LEVEL_HERO		/* not trust (!) */
-		||  ch->in_room->area != victim->in_room->area
+		||  (ch->in_room->area != victim->in_room->area && IS_SET(victim->act, PLR_NOSUMMON))
 		||  guild_check(ch, victim->in_room) < 0)
 			return FALSE;
 	}
