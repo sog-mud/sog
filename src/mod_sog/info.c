@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: info.c,v 1.13 2000-01-04 20:06:22 fjoe Exp $
+ * $Id: info.c,v 1.14 2000-01-04 23:50:04 avn Exp $
  */
 
 #include <sys/types.h>
@@ -61,6 +61,7 @@ void	cmd_who(const char *argument);
 void	cmd_auth(const char *argument);
 void	cmd_help(const char *argument);
 void	cmd_show(const char *argument);
+void	cmd_setf(const char *argument);
 void	cmd_dumb(const char *argument);
 
 typedef void CMD_FUN (const char *argument);
@@ -73,7 +74,8 @@ typedef struct {
  * WHO <fmt>				- outputs list of visible players
  * AUTH <plr> <pwd>			- authentificate a player
  * HELP <fmt> <lang> <lev> <topic>	- show help
- * SHOW	<plr>				- dump player's information
+ * SHOW	<fmt> <plr>				- dump player's information
+ * SETF <plr> <pwd> <flags>		- set www_show_flags equal to <flags>
  */
 
 infocmd_t info_cmds[] =
@@ -82,6 +84,7 @@ infocmd_t info_cmds[] =
 	{ "AUTH",	cmd_auth		},
 	{ "HELP",	cmd_help		},
 	{ "SHOW",	cmd_show		},
+	{ "SETF",	cmd_setf		},
 	{ NULL,		cmd_dumb		}
 };
 
@@ -275,7 +278,7 @@ void	cmd_auth(const char *argument)
 	if (!ch || strcmp(crypt(arg2, ch->name), PC(ch)->pwd)) {
 		strncpy(buf, "AUTH FAILED.\n", sizeof(buf));
 		if (ch)
-			char_free(ch);
+			char_nuke(ch);
 		return;
 	}
 	strncpy(buf, "AUTH OK.\n", sizeof(buf));
@@ -305,7 +308,111 @@ void	cmd_help(const char *argument)
 
 void	cmd_show(const char *argument)
 {
-	strncpy(buf, "SHOW: not implemented yet.\n", sizeof(buf));
+	char arg[MAX_INPUT_LENGTH];
+	CHAR_DATA *ch;
+	BUFFER *output;
+	int format;
+
+	argument = one_argument(argument, arg, sizeof(arg));
+	format = format_lookup(arg);
+
+	argument = first_arg(argument, arg, sizeof(arg), FALSE);
+	ch = char_load(arg, LOAD_F_NOCREATE);
+	if (!ch) {
+		strncpy(buf, "This character has not born yet.\n", sizeof(buf));
+		return;
+	}
+
+	buf[0] = '\0';
+
+	snprintf(buf, sizeof(buf), "%s\n",
+		IS_SET(PC(ch)->www_show_flags, WSHOW_RACE) ? PC(ch)->race : "Unknown");
+
+	snprintf(buf, sizeof(buf), "%s%s\n", buf,
+		IS_SET(PC(ch)->www_show_flags, WSHOW_CLASS) ? ch->class : "Unknown");
+
+	snprintf(buf, sizeof(buf), "%s%s %s\n", buf,
+		IS_SET(PC(ch)->www_show_flags, WSHOW_CLAN) ? ch->clan : "Unknown",
+		IS_SET(PC(ch)->www_show_flags, WSHOW_CLAN) ? flag_string(clan_status_table, PC(ch)->clan_status) : "");
+
+	snprintf(buf, sizeof(buf), "%s%d\n", buf,
+		IS_SET(PC(ch)->www_show_flags, WSHOW_LEVEL) ? ch->level : -1);
+
+	snprintf(buf, sizeof(buf), "%s%s\n", buf,
+		IS_SET(PC(ch)->www_show_flags, WSHOW_ALIGN) ? flag_string(align_names, NALIGN(ch)) : "Unknown");
+
+	snprintf(buf, sizeof(buf), "%s%s\n", buf,
+		IS_SET(PC(ch)->www_show_flags, WSHOW_RELIGION) ? religion_name(GET_RELIGION(ch)) : "Unknown");
+
+	snprintf(buf, sizeof(buf), "%s%s\n", buf,
+		IS_SET(PC(ch)->www_show_flags, WSHOW_ETHOS) ? flag_string(ethos_table, ch->ethos) : "Unknown");
+
+	snprintf(buf, sizeof(buf), "%s%s\n", buf,
+		IS_SET(PC(ch)->www_show_flags, WSHOW_SEX) ? mlstr_mval(&ch->gender) : "Unknown");
+
+	snprintf(buf, sizeof(buf), "%s%s\n", buf,
+		IS_SET(PC(ch)->www_show_flags, WSHOW_SLANG) ? flag_string(slang_table, ch->slang) : "Unknown");
+
+	snprintf(buf, sizeof(buf), "%s%d\n", buf,
+		IS_SET(PC(ch)->www_show_flags, WSHOW_DEATHS) ? PC(ch)->death : -1);
+
+	snprintf(buf, sizeof(buf), "%s%d %d\n", buf,
+		IS_SET(PC(ch)->www_show_flags, WSHOW_KILLS) ? PC(ch)->has_killed : -1,
+		IS_SET(PC(ch)->www_show_flags, WSHOW_KILLS) ? PC(ch)->anti_killed : -1);
+
+	snprintf(buf, sizeof(buf), "%s%d\n", buf,
+		IS_SET(PC(ch)->www_show_flags, WSHOW_PCKILLS) ? PC(ch)->pc_killed : -1);
+
+	output = buf_new(-1);
+	buf_add(output, PC(ch)->title);
+	parse_colors(buf_string(output), arg, sizeof(arg), format);
+
+	snprintf(buf, sizeof(buf), "%s%s\n", buf,
+		IS_SET(PC(ch)->www_show_flags, WSHOW_TITLE) ? arg : "");
+
+	buf_free(output);
+
+	snprintf(buf, sizeof(buf), "%s%s\n", buf,
+		IS_SET(PC(ch)->www_show_flags, WSHOW_HOMETOWN) ? hometown_name(PC(ch)->hometown) : "Unknown");
+		   
+	snprintf(buf, sizeof(buf), "%s%d\n", buf,
+		IS_SET(PC(ch)->www_show_flags, WSHOW_AGE) ? get_age(ch) : -1);
+
+	snprintf(buf, sizeof(buf), "%s%s\n", buf,
+		IS_WANTED(ch) ? "WANTED" : "");
+
+	char_nuke(ch);
+}
+
+void	cmd_setf(const char *argument)
+{
+	char arg1[MAX_INPUT_LENGTH],arg2[MAX_INPUT_LENGTH];
+	CHAR_DATA *ch, *vch;
+
+	argument = first_arg(argument, arg1, sizeof(arg1), FALSE);
+	argument = first_arg(argument, arg2, sizeof(arg2), FALSE);
+
+	ch = char_load(arg1, LOAD_F_NOCREATE);
+	if (!ch || strcmp(crypt(arg2, ch->name), PC(ch)->pwd)) {
+		strncpy(buf, "AUTH FAILED.\n", sizeof(buf));
+		if (ch)
+			char_nuke(ch);
+		return;
+	}
+
+	for (vch = char_list; vch && !IS_NPC(vch); vch = vch->next)
+		if (!str_cmp(ch->name, vch->name)) {
+			strncpy(buf, "CHAR LOGGED IN.\n", sizeof(buf));
+			char_nuke(ch);
+			return;
+		}
+	
+	PC(ch)->www_show_flags = flag_value(www_flags_table, argument);
+	char_save(ch, SAVE_F_PSCAN);
+	strncpy(buf, "FLAGS SET: ", sizeof(buf));
+	snprintf(buf, sizeof(buf), "%s%s\n", buf,
+		flag_string(www_flags_table, PC(ch)->www_show_flags));
+	char_nuke(ch);
 }
 
 void	cmd_dumb(const char *argument)

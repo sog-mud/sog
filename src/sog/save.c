@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.149 1999-12-22 08:29:12 fjoe Exp $
+ * $Id: save.c,v 1.150 2000-01-04 23:50:03 avn Exp $
  */
 
 /***************************************************************************
@@ -265,6 +265,8 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 		fprintf(fp, "Silv %d\n", 0);
 	if (PC(ch)->plr_flags)
 		fprintf(fp, "Act %s\n", format_flags(PC(ch)->plr_flags));
+	if (PC(ch)->www_show_flags)
+		fprintf(fp, "WWW %s\n", format_flags(PC(ch)->www_show_flags));
 	if (ch->comm)
 		fprintf(fp, "Comm %s\n", format_flags(ch->comm));
 	if (ch->chan)
@@ -876,6 +878,7 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 			KEY("Wimp", ch->wimpy, fread_number(fp));
 			KEY("Wizn", PC(ch)->wiznet, fread_flags(fp));
 			SKEY("WantedBy", PC(ch)->wanted_by, fread_string(fp));
+			KEY("WWW", PC(ch)->www_show_flags, fread_flags(fp));
 			break;
 		}
 

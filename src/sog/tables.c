@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.125 2000-01-04 19:28:01 fjoe Exp $
+ * $Id: tables.c,v 1.126 2000-01-04 23:50:04 avn Exp $
  */
 
 /***************************************************************************
@@ -1434,6 +1434,40 @@ flaginfo_t affect_where_types[] =
 	{ "to_invis",		TO_INVIS,			TRUE	},
 	{ "to_form",		TO_FORM,			FALSE	},
 	{ "to_formaffects",	TO_FORMAFFECTS,			FALSE	},
+
+	{ NULL }
+};
+
+flaginfo_t www_flags_table[] =
+{
+	{ "",			TABLE_BITVAL				},
+
+	{ "race",		WSHOW_RACE				},
+	{ "class",		WSHOW_CLASS				},
+	{ "clan",		WSHOW_CLAN				},
+	{ "level",		WSHOW_LEVEL				},
+	{ "align",		WSHOW_ALIGN				},
+	{ "religion",		WSHOW_RELIGION				},
+	{ "ethos",		WSHOW_ETHOS				},
+	{ "sex",		WSHOW_SEX				},
+	{ "language",		WSHOW_SLANG				},
+	{ "deaths",		WSHOW_DEATHS				},
+	{ "kills",		WSHOW_KILLS				},
+	{ "pckills",		WSHOW_PCKILLS				},
+	{ "title",		WSHOW_TITLE				},
+	{ "hometown",		WSHOW_HOMETOWN				},
+	{ "age",		WSHOW_AGE				},
+
+	{ NULL }
+};
+
+flaginfo_t clan_status_table[] =
+{
+	{ "",			TABLE_INTVAL				},
+
+	{ "commoner",		CLAN_COMMONER,			TRUE	},
+	{ "secondary",		CLAN_SECOND,			TRUE	},
+	{ "leader",		CLAN_LEADER,			TRUE	},
 
 	{ NULL }
 };

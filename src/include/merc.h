@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.285 2000-01-04 19:27:55 fjoe Exp $
+ * $Id: merc.h,v 1.286 2000-01-04 23:50:02 avn Exp $
  */
 
 /***************************************************************************
@@ -1020,6 +1020,24 @@ enum {
 #define PLR_HARA_KIRI		(dd)
 #define PLR_NEW			(ee)
 
+#define WSHOW_RACE		(A)
+#define WSHOW_CLASS		(B)
+#define WSHOW_CLAN		(C)
+#define WSHOW_LEVEL		(D)
+#define WSHOW_ALIGN		(E)
+#define WSHOW_RELIGION		(F)
+#define WSHOW_ETHOS		(G)
+#define WSHOW_SEX		(H)
+#define WSHOW_SLANG		(I)
+#define WSHOW_DEATHS		(J)
+#define WSHOW_KILLS		(K)
+#define WSHOW_PCKILLS		(L)
+#define WSHOW_TITLE		(M)
+#define WSHOW_HOMETOWN		(N)
+#define WSHOW_AGE		(O)
+
+
+
 /* Trust stuff */
 #define TRUST_GROUP		(A)
 #define TRUST_CLAN		(B)
@@ -1356,6 +1374,7 @@ struct pc_data
 	time_t			last_offence;
 	flag_t			trust;
 	flag_t			plr_flags;
+	flag_t			www_show_flags;
 	flag_t			wiznet;		/* wiz stuff */
 	int			condition	[MAX_COND];
 	varr			learned;	/* pc_skill_t */
