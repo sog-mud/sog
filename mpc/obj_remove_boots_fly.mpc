@@ -1,0 +1,10 @@
+/*
+ * $Id: obj_remove_boots_fly.mpc,v 1.1 2001-09-07 13:47:10 fjoe Exp $
+ */
+
+if (!is_sn_affected($n, "fly"))
+        return 0;
+ 
+affect_strip($n, "fly");
+act_char("You fall down to the ground. Ouch!", $n);
+act_char("You start to walk again instead of flying!", $n);

@@ -1,0 +1,5 @@
+/*
+ * $Id: obj_get_snake_whip.mpc,v 1.1 2001-09-07 13:47:10 fjoe Exp $
+ */
+
+act("You feel as if snakes of whip moved.", $n, NULL, NULL, TO_ALL);

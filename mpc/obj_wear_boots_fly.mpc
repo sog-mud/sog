@@ -1,0 +1,13 @@
+/*
+ * $Id: obj_wear_boots_fly.mpc,v 1.1 2001-09-07 13:47:12 fjoe Exp $
+ */
+
+if (is_sn_affected($n, "fly"))
+        return 0;
+ 
+act("As you wear $p on your feet, they hold you up.",
+     $n, $p, NULL, TO_CHAR);
+act_char("You start to fly.", $n);
+ 
+affect_char($n, TO_AFFECTS, "fly", char_level($n), -2,
+            0, 0, AFF_FLYING);

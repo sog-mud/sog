@@ -1,0 +1,5 @@
+/*
+ * $Id: obj_remove_hands_cool.mpc,v 1.1 2001-09-07 13:47:11 fjoe Exp $
+ */
+
+act_char("Your hands cool down.", $n);

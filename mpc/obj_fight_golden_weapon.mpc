@@ -1,0 +1,13 @@
+/*
+ * $Id: obj_fight_golden_weapon.mpc,v 1.1 2001-09-07 13:47:09 fjoe Exp $
+ */
+
+if (number_percent() < 4) {
+        act("Your $p glows bright blue!", $n, $p, NULL, TO_CHAR);
+        act("$n's $p glows bright blue!", $n, $p, NULL, TO_ROOM);
+        spellfun_call("cure critial wounds", NULL, char_level($n), $n, $n);
+} else if (number_percent() > 92) {
+        act("Your $p glows bright blue!", $n, $p, NULL, TO_CHAR);
+        act("$n's $p glows bright blue!", $n, $p, NULL, TO_ROOM);
+        spellfun_call("cure serious wounds", NULL, char_level($n), $n, $n);
+}

@@ -1,0 +1,5 @@
+/*
+ * $Id: obj_remove_excalibur.mpc,v 1.1 2001-09-07 13:47:11 fjoe Exp $
+ */
+
+act("$p stops glowing.", $n, $p, NULL, TO_ALL);

@@ -1,0 +1,10 @@
+/*
+ * $Id: obj_fight_ranger_staff.mpc,v 1.1 2001-09-07 13:47:09 fjoe Exp $
+ */
+
+if (number_percent() < 90)
+        return 0;
+ 
+act("Your $p glows blue!", $n, $p, NULL, TO_CHAR);
+act("$n's $p glows blue!", $n, $p, NULL, TO_ROOM);
+spellfun_call("cure critical wounds", NULL, char_level($n), $n, $n);

@@ -1,0 +1,15 @@
+/*
+ * $Id: obj_wear_bracer.mpc,v 1.1 2001-09-07 13:47:13 fjoe Exp $
+ */
+
+if (is_sn_affected($n, "haste"))
+        return 0;
+
+act("As you slide your arms into $p, they mold to your skin.",
+    $n, $p, NULL, TO_CHAR);
+act_char("Your hands and arms feel incredibly light.", $n);
+
+int mod = 1 + (char_level($n) >= 18) + (char_level($n) >= 30) +
+          (char_level($n) >= 45); 
+affect_char($n, TO_AFFECTS, "haste", char_level($n), -2,
+            APPLY_DEX, mod, AFF_HASTE);

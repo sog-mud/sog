@@ -1,0 +1,21 @@
+/*
+ * $Id: obj_fight_vorpalblade.mpc,v 1.1 2001-09-07 13:47:10 fjoe Exp $
+ */
+
+char victim = char_fighting($n);
+if (is_immortal(victim))
+        return 0;
+ 
+act("$p swings at $N's neck without control!",
+    $n, $p, victim, TO_CHAR);
+
+if (number_percent() < 80)
+        return 0;
+ 
+act("$p makes a huge arc in the air, chopping $N's head OFF!",
+    $n, $p, victim, TO_CHAR);
+act("$n's $p whistles in the air, chopping your head OFF!",
+    $n, $p, victim, TO_VICT);
+act("$n's $p whistles in the air, chopping $N's head OFF!",
+    $n, $p, victim, TO_NOTVICT);
+handle_death($n, victim);

@@ -1,0 +1,27 @@
+/*
+ * $Id: obj_fight_snake_whip.mpc,v 1.1 2001-09-07 13:47:09 fjoe Exp $
+ */
+
+char victim = char_fighting($n);
+
+switch (number_bits(7)) {
+case 0:
+        act("One of the snake heads on your whip bites $N!",
+	    $n, NULL, victim, TO_CHAR);
+        act("A snake from $n's whip strikes out and bites you!",
+	    $n, NULL, victim, TO_VICT);
+        act("A snake from $n's whip strikes out and bites $N!",
+	    $n, NULL, victim, TO_NOTVICT);
+        spellfun_call("poison", NULL, char_level($n), $n, victim);
+        break;
+
+case 1:
+        act("One of the snake heads on your whip bites $N!",
+	    $n, NULL, victim, TO_CHAR);
+        act("A snake from $n's whip strikes out and bites you!",
+	    $n, NULL, victim, TO_VICT);
+        act("A snake from $n's whip strikes out and bites $N!",
+	    $n, NULL, victim, TO_NOTVICT);
+        spellfun_call("weaken", NULL, char_level($n), $n, victim);
+        break;
+}

@@ -1,0 +1,5 @@
+/*
+ * $Id: obj_remove_snake_whip.mpc,v 1.1 2001-09-07 13:47:12 fjoe Exp $
+ */
+
+act("Snakes of whip slowly melds to non-living skin.", $n, NULL, NULL, TO_ALL);

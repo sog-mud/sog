@@ -1,0 +1,19 @@
+/*
+ * $Id: obj_wear_snake_whip.mpc,v 1.1 2001-09-07 13:47:14 fjoe Exp $
+ */
+
+act("Snakes of whip starts to breath a poisonous air.", $n, NULL, NULL, TO_ALL);
+
+int level = char_level($n);
+int dice_type;
+if (level <= 10)
+        dice_type = 3;
+else if (level <= 20)
+        dice_type = 4;
+else if (level <= 30)
+        dice_type = 5;
+else if (level <= 40)
+        dice_type = 6;
+else
+        dice_type = 7;
+set_weapon_dice_type($p, dice_type);
