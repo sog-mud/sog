@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.39 2001-09-12 12:32:50 fjoe Exp $
+ * $Id: flag.c,v 1.40 2001-12-07 21:30:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -76,6 +76,9 @@ _flag_value(const flaginfo_t *flag_table, const char *argument,
 
 			if (word[0] == '\0')
 				break;
+
+			if (!strcmp(word, "none"))
+				continue;
 
 			f = _flag_lookup(flag_table, word, cmpfun);
 			if (f == NULL) {
