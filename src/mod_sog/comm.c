@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.c,v 1.8 2001-12-03 22:28:39 fjoe Exp $
+ * $Id: comm.c,v 1.9 2001-12-04 20:38:26 tatyana Exp $
  */
 
 #include <sys/types.h>
@@ -1075,6 +1075,9 @@ battle_prompt(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	int percent;
 	const char* msg;
+
+	if (IS_SET(ch->comm, COMM_NO_BATTLE_PROMPT))
+		return;
 
         if (victim->max_hit > 0)
 		percent = victim->hit * 100 / victim->max_hit;

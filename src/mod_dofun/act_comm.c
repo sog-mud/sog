@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.260 2001-12-03 22:28:22 fjoe Exp $
+ * $Id: act_comm.c,v 1.261 2001-12-04 20:38:25 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2232,6 +2232,13 @@ toggle_t toggle_table[] =
 	  NULL, comm_flags,	COMM_SHORT_AFF,
 	  "Short affects mode on.",
 	  "Short affects mode off."
+	},
+
+	{ "battle",						// notrans
+	  "do not show battle prompt",
+	  NULL, comm_flags,	COMM_NO_BATTLE_PROMPT,
+	  "You will no longer see battle prompt when fighting.",
+	  "You will now see battle prompt when fighting.",
 	},
 
 	{ NULL, NULL, NULL, NULL, 0, NULL, NULL }

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.208 2001-12-04 13:22:52 kostik Exp $
+ * $Id: martial_art.c,v 1.209 2001-12-04 20:38:25 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2343,15 +2343,15 @@ DO_FUN(do_nerve, ch, argument)
 	bool attack;
 	int chance;
 
-	if (MOUNTED(ch)) {
-		act_char("You can't nerve while riding!", ch);
-		return;
-	}
-
 	one_argument(argument, arg, sizeof(arg));
 
 	if ((chance = get_skill(ch, "nerve")) == 0) {
 		act_char("Huh?", ch);
+		return;
+	}
+
+	if (MOUNTED(ch)) {
+		act_char("You can't nerve while riding!", ch);
 		return;
 	}
 
