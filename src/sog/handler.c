@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.80 2004-02-22 21:55:26 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.81 2004-03-07 14:05:04 tatyana Exp $
  */
 
 /***************************************************************************
@@ -4206,7 +4206,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		else {
 			act_puts("You attempt to leave the room, but the webs "
 				 "hold you tight.",
-				 ch, NULL, NULL, TO_ROOM, POS_DEAD);
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			act("$n struggles vainly against the webs which "
 			    "hold $m in place.",
 			    ch, NULL, NULL, TO_ROOM);
