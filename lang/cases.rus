@@ -5085,6 +5085,16 @@ Form 6 -шую~
 End
 
 #RULE
+Name винный дух~
+Form 1 винного духа~
+Form 2 винному духу~
+Form 3 винный дух~
+Form 4 винным духом~
+Form 5 винном духе~
+Form 6 винный дух~
+End
+
+#RULE
 Name рыба~
 BaseLen 3
 Form 1 -ы~
@@ -6178,6 +6188,17 @@ Form 6 -я~
 End
 
 #RULE
+Name шишка~
+BaseLen 4
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name золотистая~
 BaseLen 8
 Form 1 -ой~
@@ -6803,6 +6824,17 @@ Form 6 -а~
 End
 
 #RULE
+Name фляга~
+BaseLen 4
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name ботинок~
 BaseLen 5
 Form 1 -ка~
@@ -7001,6 +7033,15 @@ Form 3 -е~
 Form 4 -ми~
 Form 5 -х~
 Form 6 -х~
+End
+
+#RULE
+Name колечко~
+BaseLen 6
+Form 1 -а~
+Form 2 -у~
+Form 4 -ом~
+Form 5 -е~
 End
 
 #RULE
@@ -10551,6 +10592,17 @@ Form 6 -ого~
 End
 
 #RULE
+Name наполненная~
+BaseLen 9
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+Form 6 -ую~
+End
+
+#RULE
 Name Лич~
 BaseLen 3
 Form 1 -а~
@@ -12304,6 +12356,17 @@ End
 #RULE
 Name дворничиха~
 BaseLen 9
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
+Name табличка~
+BaseLen 7
 Form 1 -и~
 Form 2 -е~
 Form 3 -у~

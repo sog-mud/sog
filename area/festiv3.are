@@ -1244,8 +1244,6 @@ A
 A
 5 1
 A
-13 75
-A
 19 8
 A
 24 -5
@@ -1412,7 +1410,7 @@ mist накидка cloak illusory~
 air~
 armor ABCFGIRWY AK
 0 0 0 0 0
-100 0 100000 P
+94 0 100000 P
 A
 3 2
 A
@@ -1437,7 +1435,7 @@ sword long illusory mist меч~
 air~
 weapon ACFGORWY AN
 sword 13 13 slash DEFG
-100 80 100000 P
+94 80 100000 P
 A
 2 1
 A
@@ -1501,17 +1499,15 @@ armor AGI AD
 32 30 32 21 0
 97 10 2500 P
 A
+13 30
+A
 2 1
 A
 12 40
 A
-13 80
-A
 18 10
 A
 19 7
-A
-24 -1
 G none
 #36324
 leggings leather штаны~
@@ -1543,17 +1539,13 @@ armor BG AG
 35 33 35 26 0
 96 20 3000 P
 A
+20 -7
+A
 5 1
 A
 13 80
 A
 14 45
-A
-18 10
-A
-19 7
-A
-24 -1
 G plural
 #36326
 bow long лук~
@@ -1651,7 +1643,7 @@ A
 G plural
 #36331
 spiritus vini~
-@eng spiritus vini@rus ~~винный~~ ~~дух~~~
+@eng spiritus vini@rus винный дух~
 @eng A strange aura floats here.@rus Винный дух (vini) витает здесь.~
 nothingness~
 armor BG AQ
@@ -1665,7 +1657,7 @@ A
 18 -5
 A
 19 10
-G none
+G male
 #36332
 waistcoat dirty плащ~
 @eng dirty waistcoat@rus ~~пыльный~~ ~~плащ~~~
@@ -1674,8 +1666,6 @@ silk~
 armor AGY AK
 28 28 28 24 0
 87 20 18000 P
-A
-18 10
 A
 19 8
 A
@@ -1690,15 +1680,15 @@ container GY AL
 150 0 0 150 50
 100 10 25000 P
 A
+19 5
+A
+18 5
+A
+13 30
+A
 12 50
 A
-13 100
-A
 17 -30
-A
-18 8
-A
-19 8
 G female
 #36334
 sword veteran old меч~
@@ -7118,12 +7108,17 @@ S
 0
 
 #OLIMITS
-O 36309 3	* black scale platemail
-O 36318 3	* illusory cloak
-O 36319 3	* illusory longsword
+O 36301 2	* tomahawk
+O 36307 2	* reet stick
+O 36309 1	* black scale platemail
+O 36318 1	* illusory cloak
+O 36319 1	* illusory longsword
 O 36320 3	* silver arrow
 O 36330 3	* some moccasins
+O 36334 2	* old veteran's sword
 O 36344 1	* Grand Prize
+O 36415 2	* quartz crystall
+O 36423 3	* titanium-headed arrow
 S
 
 #MOBPROGS

@@ -164,12 +164,12 @@ BD 0 EHK DGH DGH
 G none
 #95306
 talisman талисман~
-@eng {CMagic talisman{x@rus ~~{CМагический{x~~ ~~{Cталисман{x~~~
+@eng {Cmagic talisman{x@rus {Cмагический талисман{x~
 @eng A very beautiful magic talisman is here.@rus Прекрасный магический талисман (talisman) виднеется здесь.~
 magic~
 jewelry AGIMTYZ AS
 0 0 0 0 0
-0 0 0 P
+0 1 0 P
 G none
 #0
 

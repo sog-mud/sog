@@ -4119,6 +4119,7 @@ for deletion. For other matters, use common sense.
     gods and exploiting bugs.
 12. If you are level 20 and have not description you will be given
     one warning. Then you will be punished.
+13. Pictures ARE NOT allowed in description.
   
   These are simple, clear rules.  If you violate them you WILL be
   punished.  Punishments may vary, depending on previous rules violations, 
@@ -5318,7 +5319,7 @@ invent new spells. No one  knows what had been  said there. Death would be the
 lightest punishment to those who do not keep these secrets. Masters  of  their
 arts, they found a salvation. They had brought forth Diablo, god of death.  He
 lead them to forge an Order, which was named Shalafi. One of  the best witches
-in this realm, Lilit, Queen of Night, was promoted to lead the Order. 
+in this realm, Lilith, Queen of Night, was promoted to lead the Order. 
   
 No one  outside that Order  knows  what happens  there.  Few  can  undergo the 
 challenges to enter it and even less can withstand trials to stay there. Those
@@ -5776,29 +5777,30 @@ Thanks to ...
       and hours of enjoyment.
 ~
 -1 GREETING~
-.         .     .
-    ...  :``..':
-     : ````.'   :''::'                                     _=_
-   ..:..  :     .'' :            __                       ( _ )
-``.    `:    .'     :           (  `\    ________________/'(_)`\_______________
-    :    :   :        :          \   ~~~~~~ ____________   __   __   ____________~~
-     :   :   :         :          )>  _               ~~-~~  ~~-~~  ~~-~~
-     :    :   :        :         <(  (_)   @@}-->     Shades of Gray      <--{{@@
-      :    :   :..''''``::.        \
-       : ...:..'     .''           |      Original DikuMUD by Hans Staerfeldt,
-       .'   .'  .::::'             |  Katja Nyboe, Tom Madsen, Michael Seifert,
-      :..'''``:::::::              |   and Sebastian Hammer. Based on MERC 2.1
-      '         `::::              |  __   code by Hatchet, Furey, and Kahn.
-                  `::.             | (  )   ROM 2.4 copyright (c) 1993-1995
-                   `::             |  \    Russ Taylor. ANATOLIA 2.1 by 1997
-                    :::.           |   )    Serdar BULUT, Ibrahim CANPUNAR,
-         ,,:,:,::.   ::'`   .-:~~:-._\  (     Murat BICER, Devrim Baris ACAR.
-       ..'      `:.: ::   :'       .|   \,/  SoG code by fjoe, kostik and avn.
-      .:        .:``:::  :       .: |   /`\                 _
-      .:    ..''     :::.'    :':    \         ___         (_)         ___
-       : .''         .:: : : '       `\  /====~~   ~~=====\       /=====~~   ~~====
-        :          .'`::               \(                )/~~^~~\(
-                      ::                `                '     `
+,   ,
+         ,-`{-`/
+      ,-~~ , \ {-~~~~-,
+    ,~~  ,   ,`,-~~~~-,`,                                              }/
+   ,`   ,        } }          Welcome to                   }/      /,/
+ ;     ,--/`\ \    / /                 Shades of Gray     /,;    ,/ ,/
+;  ,-./      \ \  { {  (                                     / `,  ,/  `,/ 
+; /   `       } } `, `-`-.___                           / ,`,,/  ,`,;
+ \|         ,`,`    `~~.___,---}                    __  /  ,`/   ,`,;
+  `        {{ {{                                  _,`, `{{  `,{{   `,`;`
+        /   \ \        /~~\                     (--,   ;\ `,}  `,`;
+       {{     } }     /` , \                      `~~;   \},/  `,`;     ,-=-
+       \\._./ /     /. `  .\_                  __,{{     `/  `,`;     {{
+        `-..-`     / , ~~ . ^ `~~`\          <<~~>-,,`,    `-,  ``,_    }
+                /~~~~ . `  . ~~  , .`~~~~\           _-~~  ;__,        `,-`
+       /`\    /~~Original DikuMUD by '\         <<<~~```   ``-,,__   ;
+      /` .`\ /`Hans Staerfeldt, Katja~~\                        \\, `,__
+     / ` , ,`\.Nyboe, Michael Seifert,``~~~~~~`,                   `-`--, \
+    / , ~~ . ~~ \ Tom Madsen, Sebastian Hammer.`-,___,---,__            ``
+  /`dan. ~~ . ` `\Based on MERC 2.1 code by Hatchet, Furey,~~---,____
+/` .hunt,  . ~~ , \Kahn. ROM 2.4 copyright (c) 1993-1995 Russ Taylor`-,,
+.` . ~~' . ` . . ~~  \ANATOLIA 2.1 by 1997 Serdar BULUT, Ibrahim CANPUNAR,\
+~~.  ` ` ,. ` , . ~~ ~~\ .~~ '`. '.Murat BICER, Devrim Baris ACAR.` . ~~` .' ~~\
+    Shades of Gray code by fjoe, Constantin Svintsoff, Alexey Neyman.
 ~
 -2 MOTD~
 * This is a Roleplaying, PlayerKilling and Adventure MUD.
@@ -7508,6 +7510,26 @@ Syntax: {cpose sort{x
 Syntax: {cpose list{x
  
 To add new pose: {cpose add, pose self{x <number> <msg>, {cpose others{x <number> <msg>
+~
+0 BONE DRAGON~
+@eng Syntax: {ccast 'bone dragon'{x
+ 
+This spell creates a cocoon in which a dracolich grows. Growing dracolich
+as well as mature dragon may be fed with corpses, thus growing stronger.
+When dracolich emerges from its shell, it will die without help from the
+caster.
+ 
+Mature bone dragon will follow necromancer and obey his orders, and even
+will follow his master when he leaves this realm.
+@rus Синтаксис: {ccast 'bone dragon'{x
+ 
+Это заклинание создает кокон, в котором растет драколич. Как растущего,
+так и зрелого костяного дракона можно кормить трупами; при этом дракон
+становится сильнее. Во время рождения дракону нужна помощь хозяина, без
+которой он умирает.
+ 
+Вылупившийся дракон будет следовать за своим хозяином и исполнять его приказы,
+он последует за хозяином даже когда хозяин временно покинет этот мир.
 ~
 -1 $~
 

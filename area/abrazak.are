@@ -269,7 +269,7 @@ Anti-invader's pill~
 Someone has left an anti-invader's pill here.~
 energy~
 pill ABOT A
-15 'detect fade' 'protection evil' 'bless' 'cure critical'
+15 'detect fade' 'bless' 'protection evil' 'cure critical'
 0 1 10000 P
 G none
 #15009
@@ -341,7 +341,7 @@ dress платье~
 @eng a green dress@rus {G~~платье~~ из зеленого муслина{x~
 @eng Beautiful green dress is lying here.@rus Очаровательнейшее муслиновое платье (dress) оставлено своей хозяйкой.~
 unknown~
-clothing GITY AD
+clothing DGITY AD
 0 0 0 0 0
 95 0 0 P
 G none
@@ -458,8 +458,8 @@ ring кольцо~
 ~
 G none
 #15024
-plate mail~
-@eng shing plate mail bearing the Sun disc@rus ~~сверкающая~~ ~~броня~~ с диском Солнца на груди~
+plate mail sun~
+@eng shining plate mail bearing the Sun disc@rus ~~сверкающая~~ ~~броня~~ с диском Солнца на груди~
 @eng Enormous plate mail shines on the ground.@rus Броня огромного размера лежит на земле.~
 unknown~
 armor A AD
@@ -472,13 +472,11 @@ sword darkness меч тьмы~
 @eng {DSword of Darkness{x@rus {D Меч ТЬМЫ {x~
 @eng {DSword of Darkness{x lies here.@rus {DМеч ТЬМЫ{x лежит здесь.~
 darkness~
-weapon ABCGHIMO AN
-sword 100 100 slash CDE
+weapon ABCGIOTi AN
+sword 100 100 digestion ABCDEGHI
 99 50 0 P
 A
 8 100
-A
-23 -1000
 A
 24 -1000
 F A 19 500 u
@@ -763,6 +761,42 @@ A
 8 1000
 F A 19 1000 V
 G male
+#15052
+altar алтарь~
+@eng altar@rus алтарь~
+@eng White stone altar is here.@rus Алтарь (altar) из белого камня предстал твоему взору.~
+magic~
+container AGIRTi 0
+500 E 0 10 100
+0 10 0 P
+G male
+#15053
+letter буква~
+@rus ~~буква~~ А~
+@eng Letter 'А'.@rus Буква 'А'.~
+caolin~
+treasure A AO
+0 0 0 0 0
+1 1 0 P
+G none
+#15054
+letter буква~
+@eng letter@rus ~~буква~~ 'О'~
+@eng Letter.@rus Буква 'О' (letter).~
+caolin~
+treasure A AO
+0 0 0 0 0
+1 1 0 P
+G none
+#15087
+nut орех~
+@eng the gold nut@rus ~~золотой~~ ~~орех~~~
+@eng The gold nut.@rus Золотой орех (nut).~
+gold~
+pill G A
+100 'frenzy' 'black shroud' 'heal' 'improved invis'
+1 10 1000 P
+G none
 #15101
 aqualung акваланг~
 @eng a rubber aqualung@rus ~~резиновый~~ ~~акваланг~~~
@@ -790,7 +824,7 @@ gold~
 armor ABCGRTi AK
 500 500 500 500 0
 99 1 100000 P
-F I 8 4000 CD
+F I 8 5 CDE
 G none
 #15191
 grandelven quiver~

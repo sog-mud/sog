@@ -1744,6 +1744,23 @@ armor G AJ
 A
 17 -10
 G none
+#12070
+bow лук~
+@eng yew bow@rus ~~тисовый~~ ~~лук~~~
+@eng The yew bow is here.@rus Добротно сделанный лук (bow) лежит на земле.~
+wood~
+weapon A AN
+bow 12 8 pound F
+85 50 1000 P
+A
+13 50
+A
+8 1
+A
+20 -5
+A
+19 10
+G none
 #0
 
 #ROOMS
@@ -6222,6 +6239,7 @@ E 0 12044 0 7		*	A pair of sidhe greaves: on the legs
 E 0 12043 0 10		*	A pair of sidhe armguards: on the arms
 M 0 12000 1 12146 1	* Oberon (The Throne of the Seelie Fae)
 E 0 12056 0 3		*	A golden torc: around the neck (1)
+E 0 12070 0 16		*	yew bow: wielded
 M 0 12001 1 12146 1	* Queen Titania (The Throne of the Seelie Fae)
 E 0 12054 0 5		*	An embroidered gown: on the body
 E 0 12055 0 3		*	A summer locket: around the neck (1)
@@ -6263,6 +6281,7 @@ S
 
 #OLIMITS
 O 12049 1	* night's blood
+O 12070 1	* yew bow
 S
 
 #$

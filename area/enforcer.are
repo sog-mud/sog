@@ -103,13 +103,13 @@ jewelry Y S
 0 0 0 P
 G none
 #95105
-law~
-@eng {CLaw and order{x@rus {CНа страже порядка{x~
+law tatoo~
+@eng {Claw and order{x@rus {Cна страже порядка{x~
 Interesting tattoo.~
 unknown~
 trash AMOTZ AS
 0 0 0 0 0
-0 0 0 P
+0 1 0 P
 G none
 #0
 

@@ -83,6 +83,26 @@ D CD 0 0
 stand stand male 100
 0 0 gargantuan unknown
 F vul I
+#34406
+dragon golden золотистый дракон~
+@eng the golden dragon@rus ~~золотистый~~ ~~дракон~~~
+@eng The golden dragon towers above you.
+@rus Золотистый дракон (dragon) навис над тобой.
+~
+@eng Very huge dragon. You notice that he is discontened your
+encroachment.
+@rus Огромный, действительно огромный дракон. Чуть приоткрыв фасеточные
+глаза, он следит за тобой. Судя по нервным взмахам кончика его хвос-
+та, он очень недоволен твоим вторжением.
+~
+dragon~
+ABGe DEFHNOUVYc 0 0
+150 250 1d1+28000 1d1+25000 50d60+100 divine
+-66 -66 -66 -66
+CDEFHIKNO ABCDU 0 0
+stand stand male 0
+0 0 huge unknown
+F for H
 #0
 
 #OBJECTS
@@ -334,6 +354,31 @@ S 'camp' 100 A
 S 'camouflage move' 100 A
 S 'camouflage' 100 A
 G female
+#34458
+wings dragon крылья~
+@eng dragon's wings@rus ~~крылья~~ дракона~
+@eng Dragon's wings is here.@rus Ты видишь крылья (wings) словно сотканные из блестящей пыли.~
+magic~
+armor GIh AD
+-20 -20 -20 -20 0
+10 1 1000 P
+S 'acid breath' 100 A
+S 'fire breath' 100 A
+S 'fireball' 100 A
+F A 0 0 T
+A
+12 50
+A
+13 50
+A
+18 5
+A
+19 5
+A
+20 -5
+A
+9 5
+G plural
 #34460
 shield щит metal~
 @eng metal shield@rus ~~щит~~ из неизвестного металла~
@@ -360,6 +405,136 @@ A
 A
 20 -10
 G male
+#34462
+altar алтарь~
+@eng altar@rus алтарь~
+@eng White stone altar is here.@rus Алтарь (altar) из белого камня предстал твоему взору.~
+magic~
+container AGIRTi 0
+500 E 0 10 100
+0 10 0 P
+G male
+#34463
+scroll свиток~
+@eng the magic scroll@rus ~~магический~~ ~~свиток~~~
+@eng The scroll emits blue-green radiance.@rus Свиток (scroll), излучающий голубовато-зеленое сияние, лежит здесь.~
+light~
+treasure AGI AO
+0 0 0 0 0
+1 1 15000 P
+G male
+#34464
+tablet табличка~
+@eng a tablet@rus табличка~
+@eng The silvery tablet lies on the ground.@rus Табличка (tablet) из серебристого металла лежит на земле.~
+silver~
+treasure A AO
+0 0 0 0 0
+1 1 1000 P
+E
+tablet табличка~
+@eng Tablet with symbol 'А' carved on it.
+@rus Табличка с выгравированным на ней символом 'А'.
+~
+G none
+#34465
+tablet табличка~
+@eng a tablet@rus табличка~
+@eng The silvery tablet lies on the ground.@rus Табличка (tablet) из серебристого металла лежит на земле.~
+silver~
+treasure A AO
+0 0 0 0 0
+1 1 1000 P
+E
+tablet табличка~
+@eng Tablet with symbol 'О' carved on it.
+@rus Табличка с выгравированным на ней символом 'О'.
+~
+G female
+#34466
+tablet табличка~
+@eng a tablet@rus табличка~
+@eng The silvery tablet lies on the ground.@rus Табличка (tablet) из серебристого металла лежит на земле.~
+silver~
+treasure A AO
+0 0 0 0 0
+1 1 1000 P
+E
+tablet табличка~
+@eng Tablet with symbol 'П' carved on it.
+@rus Табличка с выгравированным на ней символом 'П'.
+~
+G female
+#34467
+tablet табличка~
+@eng a tablet@rus табличка~
+@eng The silvery tablet lies on the ground.@rus Табличка (tablet) из серебристого металла лежит на земле.~
+silver~
+treasure A AO
+0 0 0 0 0
+1 1 1000 P
+E
+tablet табличка~
+@eng Tablet with symbol 'Р' carved on it.
+@rus Табличка с выгравированным на ней символом 'Р'.
+~
+G female
+#34468
+tablet табличка~
+@eng a tablet@rus табличка~
+@eng The silvery tablet lies on the ground.@rus Табличка (tablet) из серебристого металла лежит на земле.~
+silver~
+treasure A AO
+0 0 0 0 0
+1 1 1000 P
+E
+tablet табличка~
+@eng Tablet with symbol 'Д' carved on it.
+@rus Табличка с выгравированным на ней символом 'Д'.
+~
+G female
+#34469
+tablet табличка~
+@eng a tablet@rus табличка~
+@eng The silvery tablet lies on the ground.@rus Табличка (tablet) из серебристого металла лежит на земле.~
+silver~
+treasure A AO
+0 0 0 0 0
+1 1 1000 P
+E
+tablet табличка~
+@eng Tablet with symbol 'Н' carved on it.
+@rus Табличка с выгравированным на ней символом 'Н'.
+~
+G female
+#34470
+tablet табличка~
+@eng a tablet@rus табличка~
+@eng The silvery tablet lies on the ground.@rus Табличка (tablet) из серебристого металла лежит на земле.~
+silver~
+treasure A AO
+0 0 0 0 0
+1 1 1000 P
+E
+tablet табличка~
+@eng Tablet with symbol 'У' carved on it.
+@rus Табличка с выгравированным на ней символом 'У'.
+~
+G female
+#34471
+tablet табличка~
+@eng a tablet@rus табличка~
+@eng The silvery tablet lies on the ground.@rus Табличка (tablet) из серебристого металла лежит на земле.~
+silver~
+treasure A AO
+0 0 0 0 0
+1 1 1000 P
+E
+tablet табличка~
+@eng Tablet with symbol 'Г' carved on it.
+@rus Табличка с выгравированным на ней символом 'Г'.
+~
+G female
 #0
 
 #ROOMS
@@ -376,10 +551,53 @@ G male
 ~
 0 C forest
 S
+#34401
+@eng Near the cave@rus Около входа в пещеру~
+@rus Ты стоишь на склоне горы, около зияющего глаза пещеры. Ни одного
+звука не слышно изнутри. А непонятное сияние, исходящее отовсюду,
+заставляет тебя нервничать. Надо, наконец, принять окончательное ре-
+шение: войти внутрь или отступить...
+~
+0 0 inside
+D1
+~
+~
+Z 0 34402
+S
+#34402
+@eng In the cave@rus В пещере~
+@rus Эта гора на проверку оказалась огромным кристаллом. Она вся светится,
+ослепляя тебя. Каждый твой шаг гулко звучит под высокими сводами пещеры.
+Задумавшись, ты едва не $gn{воткнулся} носом во что-то большое и жесткое.
+~
+0 0 inside
+D0
+~
+~
+Z 0 34403
+D3
+~
+~
+Z 0 34401
+S
+#34403
+@eng Heart of the mountain@rus Сердце горы~
+@rus Вот оно... Ты, преодолев все препятствия на своем пути, $gn{достиг} цели
+своего путешествия. И вот Он -- легендарный алтарь в сердце кристальной
+горы. Вот то, что искали многие поколения до тебя и, видимо, будут искать,
+когда тебя уже не станет.
+~
+0 0 inside
+D2
+~
+~
+Z 0 34402
+S
 #0
 
 #SPECIALS
 M 34405 spec_cast_undead	* Master of Undead
+M 34406 spec_breath_any	* the golden dragon
 S
 
 #RESETS
@@ -388,6 +606,9 @@ G 0 34406 0		*	{rHot and tasty bite of roasted meat{w
 G 0 34407 0		*	{WHeeled glass filled with {BKosoruloFF{W vodka{w
 O 0 34405 0 34400	* fallen tree ({GClearing in the woods{w)
 O 0 34404 0 34400	* {WSpring with crystal and clear water{w ({GClearing in the woods{w)
+M 0 34406 1 34402 1	* the golden dragon (In the cave)
+O 0 34462 0 34403	* altar (Heart of the mountain)
+P 0 34463 1 34462 1	* altar: the magic scroll
 S
 
 #SHOPS

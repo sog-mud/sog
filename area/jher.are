@@ -268,7 +268,7 @@ stand stand none 0
 K 0 small unknown
 F for AHMV
 F par ABCEFGHIJK
-M bribe 32700 100000~
+M bribe 32700 15000~
 #0
 
 #OBJECTS
@@ -437,7 +437,7 @@ a gold coin~
 A small gold coin catches your eye here.~
 ~
 pill A A
-0 'detect invis' '' '' ''
+10 'detect invis' '' '' ''
 35 5 350 P
 G none
 #0
@@ -839,12 +839,12 @@ Z -1 32724
 S
 #32724
 The Secret Room~
-When you finally make it to this room, you are incredibly exhausted.  
-You sit down to rest on an old trunk.  As you sit, you brush aside some dust 
-on the trunk.  The shine from your light off the golden chest is blinding.  As 
-you try to open it, you realize in disappointment that it is locked.  
-However 
-if you look around, you may find something hidden that will open it.
+When you finally make it to this room, you are incredibly exhausted.  You
+sit down to rest on an old trunk.  As you sit, you brush aside some dust on
+the trunk.  The shine from your light off the golden chest is blinding.  As
+you try to open it, you realize in disappointment that it is locked. 
+However if you look around, you may find something hidden that will open it.
+
 ~
 0 ACDN forest
 S
@@ -909,8 +909,6 @@ O 0 32711 0 32724	* the golden chest (The Secret Room)
 O 0 32714 0 32724	* a glowing zapath necklace (The Secret Room)
 O 0 32715 0 32724	* a gold coin (The Secret Room)
 M 0 32717 1 32724 1	* A small statue (The Secret Room)
-M 0 32717 0 32724 0	* A small statue (The Secret Room)
-M 0 32717 1 32724 1	* A small statue (The Secret Room)
 S
 
 #SHOPS
@@ -923,7 +921,6 @@ say Hey $n ... You wanna get out of here.... Ok..I'll help you...
 giggle
 MOB ECHO A small statue has teleported you.
 MOB TRANSFER $n 8102
- 
 ~
 #0
 

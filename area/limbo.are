@@ -349,7 +349,7 @@ This fell creature will not attack you, despite its evil- it will merely
 taunt you, though it will not hesitate to defend itself.
 ~
 undead~
-ABFGO 0 -1000 0
+ABGO 0 -1000 0
 0 0 1d1+0 1d1+0 1d1+0 pierce
 -25 -25 -25 0
 EFN ABM 0 0

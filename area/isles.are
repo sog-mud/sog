@@ -1499,7 +1499,7 @@ Frostbite sword winter~
 A long bastard sword made of ice lies here melting.~
 ice~
 weapon DFL AN
-sword 10 13 frbite 0
+sword 10 13 frbite BD
 90 30 0 P
 A
 1 -2
@@ -4747,6 +4747,8 @@ S
 #OLIMITS
 O 17019 1	* the girdle of might
 O 17025 1	* armbands of the Volcanoes
+O 17029 3	* Ettin's blood
+O 17063 1	* "Frostbite" sword of winter
 S
 
 #OMPROGS

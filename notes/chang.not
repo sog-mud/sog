@@ -3053,3 +3053,60 @@ happy mudding
  
 {WTyan{x
 ~
+Sender  Arwen~
+Date    Thu Nov  2 19:05:12 2000~
+Stamp   973181112
+To      all~
+Subject "Frostbite" sword of winter~
+Text
+Приветствую!
+ 
+"Frostbite" sword of winter is now sharp and limit by 1.
+ 
+{WАрвен{x.
+~
+Sender  Arwen~
+Date    Fri Nov  3 10:44:51 2000~
+Stamp   973237491
+To      all~
+Subject a honed shortsword 'Zedraikis'~
+Text
+приветствую!
+ 
+a honed shortsword 'Zedraikis' is now limit by 5.
+ 
+{WАрвен{x.
+~
+Sender  Arborn~
+Date    Tue Nov 21 18:53:26 2000~
+Stamp   974822006
+To      imm~
+Subject witch curse~
+Text
+hi, there!
+ 
+%subj% fixed, после ребута будет работать
+правильно (снимать хиты постепенно пока не станет <0, тогда
+хиты остановтяся на 0 до слетания аффекта)
+ 
+#Arb
+~
+Sender  Marewell~
+Date    Tue Nov 21 19:56:36 2000~
+Stamp   974825796
+To      all~
+Subject изменения вокруг рейнджеров и BR~
+Text
+hi, there!
+
+после ребута у рейнджеров появится вместо спелла acute vision
+одноименный скилл (командочка acute). Кроме этого, из truesight
+аффект acute_vision исчезнет.
+Второе - отношения у баттлов к прилетающим в них стрелам будет
+то же что и у всех. то есть ловить их как раньше они не смогут.
+ 
+{WMarewell{x.
+ 
+P.S. еще, не относящееся к этим всем делишкам - появилась новая
+    ария, первому нашедшему вход в нее будет приз.
+~

@@ -2554,7 +2554,7 @@ You see the medina.
 Z -1 9503
 S
 #9505
-@eng The Southern Market Square@rus Южная часть рынка.~
+@eng The Southern Market Square@rus Южная часть рынка~
 @eng The large square of markets fills your vision. Strange sights and sounds,
 those known only to the New Thalos market, barrage your senses. The only
 hope of making any sense of what's going on here is to wander around. The
@@ -7111,6 +7111,10 @@ D3
 ~
 ~
 Z -1 9794
+D5
+~
+~
+Z 0 9798
 S
 #9796
 @eng The Dragon Sea@rus Море Дракона~
@@ -7142,6 +7146,10 @@ To the east ocean ends turning into a small dirt path leading down
 the beach of the cursed island.
 ~
 0 S noswim
+D0
+~
+~
+Z 0 32100
 D1
 ~
 ~
@@ -7163,10 +7171,18 @@ as you gaze westward, but you think you can make out an iron grating in
 that direction.
 ~
 0 AS noswim
+D1
+~
+~
+Z 0 35000
 D3
 ~
 grate~
 Z 1 9799
+D4
+~
+~
+Z 0 9795
 S
 #9799
 Lair of the Ixitxachitl~

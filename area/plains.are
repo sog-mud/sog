@@ -498,6 +498,10 @@ The winds are more than average here but it feels nice. You can follow
 the path east or west.
 ~
 0 0 field
+D0
+~
+~
+Z 0 11001
 D1
 The path continues in the foothills
 ~
@@ -580,6 +584,10 @@ To your east you see a T-intersection and to the west the path
 continues far.
 ~
 0 0 field
+D0
+~
+~
+Z 0 15400
 D1
 You can go to the T-intersection this way.
 ~

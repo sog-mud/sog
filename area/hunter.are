@@ -103,13 +103,13 @@ key CEORYf AOP
 0 4 0 P
 G none
 #95703
-tattoo~
-{Rbrand of the outlaw{x~
+tattoo татуировка~
+@eng {Rbrand of the outlaw{x@rus {Rвне закона{x~
 strange tattoo~
 unknown~
 jewelry AMTZ AS
 0 0 0 0 0
-0 0 0 P
+0 1 0 P
 G none
 #0
 

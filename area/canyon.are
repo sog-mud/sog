@@ -29,7 +29,7 @@ A hungry cyclops snarls at you!
 He looks like he's about to have dinner (maybe it's you?).
 ~
 giant~
-ABFQT DF -700 0
+ABFQT F -700 0
 22 7 10d10+600 10d10+100 6d4+10 smash
 -7 -7 -7 -2
 ACDIO AB CD 0
@@ -2003,7 +2003,7 @@ M 0 9236 15 9202 15	* a little imp (A Mountain Path)
 M 0 9201 3 9203 3	* the mountain climber (Mountainside Tombs)
 M 0 9238 1 9203 1	* the elixir vendor (Mountainside Tombs)
 G 0 9231 0		*	anti-cyclops elixir
-M 0 9202 0 9204 0	* the cyclops (A Blind Curve on the Mountain Path.)
+M 0 9202 1 9204 1	* the cyclops (A Blind Curve on the Mountain Path.)
 E 0 9213 0 10		*	a platinum arm band: on the arms
 E 0 9214 0 7		*	some platinum leg bands: on the legs
 M 0 9205 12 9207 12	* a small elemental (Entrance to Elemental Canyon)

@@ -573,9 +573,11 @@ G none
 
 #ROOMS
 #5001
-A long tunnel~
-You encounter some rapids as you enter this tunnel cut out of
+@eng A long tunnel@rus Длинный туннель~
+@eng You encounter some rapids as you enter this tunnel cut out of
 the mountains by the river.
+@rus Войдя в пробитый прорвавшейся сквозь скалы рекой туннель, ты попал в
+пенную сеть множества бурлящих потоков, с шумом огибающих камни.
 ~
 0 AD noswim
 D1
@@ -588,8 +590,9 @@ D3
 Z 0 3205
 S
 #5002
-A long tunnel~
-The tunnel branches off north.
+@eng A long tunnel@rus Длинный тунель~
+@eng The tunnel branches off north.
+@rus Здесь туннель разветвляется - справа от тебя темнеет проход.
 ~
 0 AD noswim
 D0
@@ -606,8 +609,9 @@ D3
 Z 0 5001
 S
 #5003
-A long tunnel~
-The tunnel branches off south.
+@eng A long tunnel@rus Длинный туннель~
+@eng The tunnel branches off south.
+@rus Ты заметил ответвление на юг.
 ~
 0 AD noswim
 D1
@@ -624,8 +628,9 @@ D3
 Z 0 5002
 S
 #5004
-A long tunnel~
-The tunnel branches off to the south.
+@eng A long tunnel@rus Длинный туннель~
+@eng The tunnel branches off to the south.
+@rus Еще один поворот на юг.
 ~
 0 AD noswim
 D1
@@ -642,11 +647,14 @@ D3
 Z 0 5003
 S
 #5005
-An underground lake~
-You are floating on a jet-black underground lake fed by dripping
+@eng An underground lake@rus Подземное озеро~
+@eng You are floating on a jet-black underground lake fed by dripping
 water and lime from above. The tunnel continues to the east and the river
 leads back west. To the north is a roughly-hewn hallway. There is also
 a tunnel south.
+@rus Ты плывешь по чернильной глади подземного озера.  Отовсюду слышна капель
+и журчание ручейков, питающих его.  На севере виден искуственный, но грубо
+сработанный проход.  
 ~
 0 AD noswim
 D0
@@ -667,8 +675,9 @@ D3
 Z 0 5004
 S
 #5006
-A long narrow tunnel~
-The tunnel rises sharply to the east.
+@eng A long narrow tunnel@rus Узкий проход~
+@eng The tunnel rises sharply to the east.
+@rus Дальше на восток туннель сужается превращаясь в щель.
 ~
 0 AD mountain
 D1
@@ -681,9 +690,11 @@ D3
 Z 0 5005
 S
 #5007
-A wide tunnel~
-The tunnel continues east and west. To the east the tunnel dives
+@eng A wide tunnel@rus Широкий туннель~
+@eng The tunnel continues east and west. To the east the tunnel dives
 down into a bright light.
+@rus Туннель тянется с востока, заметно сужаясь к западу.  На востоке всве
+тонет в ярких лучах солнца.  
 ~
 0 AD mountain
 D1
@@ -696,9 +707,10 @@ D3
 Z 0 5006
 S
 #5008
-Cave-in~
-You stand at the edge of a large pile of rubble created from the last
+@eng Cave-in@rus В пещере~
+@eng You stand at the edge of a large pile of rubble created from the last
 rockslide.
+@rus Ты стоишь на краю огромной груды булыжников недавнего обвала.
 ~
 0 AD mountain
 D2
@@ -706,15 +718,18 @@ D2
 ~
 Z 0 5002
 D5
-You can easily slide down the rocks without getting hurt.
+@eng You can easily slide down the rocks without getting hurt.
+@rus Похоже здесь можно спустится вниз неразбившись.
 ~
 ~
 Z 0 5009
 S
 #5009
-At the foot of the rubble~
-You are at the bottom of a large pile of rubble. A tunnel branches
+@eng At the foot of the rubble@rus У подножия завала~
+@eng You are at the bottom of a large pile of rubble. A tunnel branches
 off to the north and east.
+@rus Ты у подножия огромной груды камней.  Туннель разветвляется на север и
+восток.  
 ~
 0 AD mountain
 D0
@@ -731,9 +746,11 @@ D4
 Z 0 5008
 S
 #5010
-Cave entrance~
-You stand in the middle of a large and beautiful cave. A path leads
+@eng Cave entrance@rus Вход в пещеру~
+@eng You stand in the middle of a large and beautiful cave. A path leads
 deeper into the darkness.
+@rus Ты стоишь посреди огромной прекрасной пещеры.  Путь же ведет дальше, во
+тьму.  
 ~
 0 AD mountain
 D2
@@ -741,15 +758,18 @@ D2
 ~
 Z 0 5009
 D5
-You look down into the cave. Bones are strewn about everywhere.
+@eng You look down into the cave. Bones are strewn about everywhere.
+@rus Ты всматриваешься тьму пещеры. Похоже она завалена костями.
 ~
 ~
 Z 0 5011
 S
 #5011
-Giant cave~
-This cavern overwhelms you. The walls and ceiling seem miles away.
+@eng Giant cave@rus Огромная пещера~
+@eng This cavern overwhelms you. The walls and ceiling seem miles away.
 Bones of previous adventurers lie strewn on the cavern floor.
+@rus Это пещера ошеломляет.  Кажется что стены и свод в милях от тебя.  Кости
+твоих предшетственников усеивают пол.  
 ~
 0 AD mountain
 D4
