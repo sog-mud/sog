@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun.c,v 1.14 2001-09-02 16:22:04 fjoe Exp $
+ * $Id: dynafun.c,v 1.15 2001-09-02 16:33:33 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -311,8 +311,7 @@ dynafun_build_args(const char *name, dynafun_args_t *args, int nargs, va_list ap
 
 		default:
 			va_end(ap);
-			log(LOG_BUG,
-			    "dynafun_call: %s: invalid arg[%d] type %s (%d)",
+			log(LOG_BUG, "dynafun_call: %s: invalid arg[%d] type %s (%d)",
 			    d->name, i+1,
 			    flag_string(mt_types, d->argtype[i].type_tag),
 			    d->argtype[i].type_tag);
