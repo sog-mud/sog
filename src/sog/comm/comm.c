@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.226 2000-04-06 05:41:00 fjoe Exp $
+ * $Id: comm.c,v 1.227 2000-04-16 09:21:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1767,6 +1767,13 @@ void adjust_hmv(CHAR_DATA *ch, int percent)
 	}
 }
 
+#define OBJ_VNUM_MAP			3162
+#define OBJ_VNUM_NMAP1			3385
+#define OBJ_VNUM_NMAP2			3386
+
+#define ROOM_VNUM_CHAT			1200
+#define ROOM_VNUM_SCHOOL		3700
+
 /*
  * Deal with sockets that haven't logged in yet.
  */
@@ -2085,7 +2092,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		SET_HIT(ch, ch->perm_hit + r->race_pcdata->hp_bonus);
 		SET_MANA(ch, ch->perm_mana + r->race_pcdata->mana_bonus);
 		PC(ch)->practice = r->race_pcdata->prac_bonus;
-		for (i = 0; i < MAX_STATS; i++)
+		for (i = 0; i < MAX_STAT; i++)
 			ch->perm_stat[i] += r->race_pcdata->mod_stat[i];
 		race_resetstats(ch);
 
@@ -2148,7 +2155,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		}
 
 		ch->class = str_qdup(cl->name);
-		for (i = 0; i < MAX_STATS; i++)
+		for (i = 0; i < MAX_STAT; i++)
 			ch->perm_stat[i] += cl->mod_stat[i];
 		act("You are now $t.", ch, cl->name, NULL, TO_CHAR);
 
@@ -2330,7 +2337,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		wiznet("{W$N{x has left real life behind.",
 			ch, NULL, WIZ_LOGINS, 0, ch->level);
 
-		for (i = 0; i < MAX_STATS; i++) {
+		for (i = 0; i < MAX_STAT; i++) {
 			int max_stat = get_max_train(ch, i);
 
 			if (ch->perm_stat[i] > max_stat) {

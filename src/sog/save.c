@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.162 2000-04-10 14:14:32 fjoe Exp $
+ * $Id: save.c,v 1.163 2000-04-16 09:21:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -675,7 +675,7 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 			}
 			if (IS_TOKEN(fp, "Attr")) {
 				int stat;
-				for (stat = 0; stat < MAX_STATS; stat++)
+				for (stat = 0; stat < MAX_STAT; stat++)
 					ch->perm_stat[stat] = fread_number(fp);
 				fMatch = TRUE;
 				break;
@@ -981,7 +981,7 @@ fread_pet(CHAR_DATA * ch, rfile_t * fp, int flags)
 			}
 			if (IS_TOKEN(fp, "Attr")) {
 				int stat;
-				for (stat = 0; stat < MAX_STATS; stat++)
+				for (stat = 0; stat < MAX_STAT; stat++)
 					pet->perm_stat[stat] = fread_number(fp);
 				fMatch = TRUE;
 				break;

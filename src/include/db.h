@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.72 2000-04-10 15:45:50 fjoe Exp $
+ * $Id: db.h,v 1.73 2000-04-16 09:21:35 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -68,6 +68,8 @@
 ***************************************************************************/
 
 #include "rfile.h"
+
+#define MAX_KEY_HASH		1024
 
 typedef struct dbdata DBDATA;
 

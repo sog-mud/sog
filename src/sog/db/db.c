@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.220 2000-04-10 15:45:53 fjoe Exp $
+ * $Id: db.c,v 1.221 2000-04-16 09:22:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -150,8 +150,6 @@ const char TIPS_FILE		[] = "tips";		/* tips */
 const char AREA_LIST		[] = "area.lst";	/* list of areas */
 const char LANG_LIST		[] = "lang.lst";	/* list of languages */
 
-const char BUG_FILE		[] = "bugs.txt";	/* 'bug' and log(LOG_ERROR, ) */
-const char TYPO_FILE		[] = "typos.txt";	/* 'typo' */
 const char NOTE_FILE		[] = "notes.not";	/* 'notes' */
 const char IDEA_FILE		[] = "ideas.not";
 const char PENALTY_FILE		[] = "penal.not";
@@ -1161,7 +1159,7 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 		mlstr_cpy(&mob->gender, &pMobIndex->gender);
 	}
 
-	for (i = 0; i < MAX_STATS; i ++)
+	for (i = 0; i < MAX_STAT; i ++)
 		mob->perm_stat[i] = UMIN(25, 11 + mob->level/4);
 
 	mob->perm_stat[STAT_STR] += mob->size - SIZE_MEDIUM;
@@ -1349,7 +1347,7 @@ clone_mob(CHAR_DATA *parent)
 	for (i = 0; i < 4; i++)
 		clone->armor[i]	= parent->armor[i];
 
-	for (i = 0; i < MAX_STATS; i++) {
+	for (i = 0; i < MAX_STAT; i++) {
 		clone->perm_stat[i]	= parent->perm_stat[i];
 		clone->mod_stat[i]	= parent->mod_stat[i];
 	}

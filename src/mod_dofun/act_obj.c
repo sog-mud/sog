@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.207 2000-04-10 14:14:24 fjoe Exp $
+ * $Id: act_obj.c,v 1.208 2000-04-16 09:21:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2626,6 +2626,8 @@ void do_lore(CHAR_DATA *ch, const char *argument)
 	buf_free(output);
 }
 
+#define OBJ_VNUM_STEAK			27
+
 void do_butcher(CHAR_DATA * ch, const char *argument)
 {
 	OBJ_DATA       *obj;
@@ -2693,6 +2695,8 @@ void do_butcher(CHAR_DATA * ch, const char *argument)
 	}
 	extract_obj(obj, 0);
 }
+
+#define OBJ_VNUM_CROSS			8
 
 void do_crucify(CHAR_DATA *ch, const char *argument)
 {	
@@ -3117,6 +3121,8 @@ void do_label(CHAR_DATA* ch, const char *argument)
 	PC(ch)->questpoints -= 10;
 	char_puts("Ok.\n",ch);
 }
+
+#define OBJ_VNUM_HAMMER 		6522
 
 void do_repair(CHAR_DATA *ch, const char *argument)
 {
@@ -3780,7 +3786,13 @@ static void drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	}
 }
 
-/* equips a character */
+#define OBJ_VNUM_SCHOOL_VEST		3703
+#define OBJ_VNUM_SCHOOL_SHIELD		3704
+#define OBJ_VNUM_SCHOOL_BANNER		3716
+
+/*
+ * equips a character
+ */
 void do_outfit(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj;
@@ -3789,49 +3801,48 @@ void do_outfit(CHAR_DATA *ch, const char *argument)
 
 	if ((ch->level > 5 && !IS_IMMORTAL(ch))
 	||  IS_NPC(ch) || cl == NULL) {
-		char_puts("Find it yourself!\n",ch);
+		act_puts("Find it yourself!",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
 
-	if ((obj = get_eq_char(ch, WEAR_LIGHT)) == NULL)
-	{
-	    obj = create_obj(get_obj_index(OBJ_VNUM_SCHOOL_BANNER), 0);
+	if ((obj = get_eq_char(ch, WEAR_LIGHT)) == NULL
+	&&  (obj = create_obj(get_obj_index(OBJ_VNUM_SCHOOL_BANNER), 0))) {
 		obj->cost = 0;
 		obj->condition = 100;
-	    obj_to_char(obj, ch);
-	    equip_char(ch, obj, WEAR_LIGHT);
+		obj_to_char(obj, ch);
+		equip_char(ch, obj, WEAR_LIGHT);
 	}
 	
-	if ((obj = get_eq_char(ch, WEAR_BODY)) == NULL)
-	{
-		obj = create_obj(get_obj_index(OBJ_VNUM_SCHOOL_VEST), 0);
+	if ((obj = get_eq_char(ch, WEAR_BODY)) == NULL
+	&&  (obj = create_obj(get_obj_index(OBJ_VNUM_SCHOOL_VEST), 0))) {
 		obj->cost = 0;
 		obj->condition = 100;
-	    obj_to_char(obj, ch);
-	    equip_char(ch, obj, WEAR_BODY);
+		obj_to_char(obj, ch);
+		equip_char(ch, obj, WEAR_BODY);
 	}
 
 	/* do the weapon thing */
-	if (((obj = get_eq_char(ch,WEAR_WIELD)) == NULL)
-	&& free_hands(ch)) {
-		vnum = cl->weapon;
-		obj = create_obj(get_obj_index(vnum),0);
+	if (((obj = get_eq_char(ch, WEAR_WIELD)) == NULL)
+	&&  free_hands(ch)
+	&&  (obj = create_obj(get_obj_index(cl->weapon), 0))) {
+		obj->cost = 0;
 		obj->condition = 100;
-	 	obj_to_char(obj,ch);
-		equip_char(ch,obj,WEAR_WIELD);
+	 	obj_to_char(obj, ch);
+		equip_char(ch, obj, WEAR_WIELD);
 	}
 
 	if (((obj = get_eq_char(ch, WEAR_SHIELD)) == NULL)
-	&& free_hands(ch))
-	{
-	    obj = create_obj(get_obj_index(OBJ_VNUM_SCHOOL_SHIELD), 0);
+	&&  free_hands(ch)
+	&&  (obj = create_obj(get_obj_index(OBJ_VNUM_SCHOOL_SHIELD), 0))) {
 		obj->cost = 0;
 		obj->condition = 100;
-	    obj_to_char(obj, ch);
-	    equip_char(ch, obj, WEAR_SHIELD);
+		obj_to_char(obj, ch);
+		equip_char(ch, obj, WEAR_SHIELD);
 	}
 
-	char_puts("You have been equipped by gods.\n",ch);
+	act_puts("You have been equipped by gods.",
+		 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 }
 
 void do_auction(CHAR_DATA *ch, const char *argument)

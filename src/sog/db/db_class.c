@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.31 2000-02-10 14:08:59 fjoe Exp $
+ * $Id: db_class.c,v 1.32 2000-04-16 09:22:03 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -147,7 +147,7 @@ DBLOAD_FUN(load_class)
 				fMatch = TRUE;
 			}
 			if (IS_TOKEN(fp, "StatMod")) {
-				for (i = 0; i < MAX_STATS; i++)
+				for (i = 0; i < MAX_STAT; i++)
 					class.mod_stat[i] = fread_number(fp);
 				fMatch = TRUE;
 			}

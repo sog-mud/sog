@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_form.c,v 1.7 2000-03-03 04:09:12 avn Exp $
+ * $Id: db_form.c,v 1.8 2000-04-16 09:22:03 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -119,7 +119,7 @@ DBLOAD_FUN(load_form)
 				fread_strkey(fp, &specs, "load_form"))
 			if (IS_TOKEN(fp, "Stats")) {
 				int i;
-				for (i = 0; i < MAX_STATS; i++)
+				for (i = 0; i < MAX_STAT; i++)
 					f.stats[i] = fread_number(fp);
 				fMatch = TRUE;
 				break;

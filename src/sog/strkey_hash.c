@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: strkey_hash.c,v 1.14 2000-03-28 21:59:38 fjoe Exp $
+ * $Id: strkey_hash.c,v 1.15 2000-04-16 09:21:56 fjoe Exp $
  */
 
 #include <limits.h>
@@ -33,7 +33,6 @@
 #include <stdio.h>
 #include <ctype.h>
 
-#include "const.h"
 #include "typedef.h"
 #include "varr.h"
 #include "hash.h"

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_social.c,v 1.11 2000-02-10 14:09:00 fjoe Exp $
+ * $Id: db_social.c,v 1.12 2000-04-16 09:22:03 fjoe Exp $
  */
 
 #include <limits.h>
@@ -32,7 +32,6 @@
 #include <ctype.h>
 
 #include "typedef.h"
-#include "const.h"
 #include "varr.h"
 #include "hash.h"
 #include "socials.h"

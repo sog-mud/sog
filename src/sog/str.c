@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.c,v 1.19 2000-03-28 21:59:37 fjoe Exp $
+ * $Id: str.c,v 1.20 2000-04-16 09:21:56 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -33,7 +33,6 @@
 #include <stdio.h>
 
 #include "typedef.h"
-#include "const.h"
 #include "str.h"
 #include "memalloc.h"
 

@@ -23,14 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: memalloc.c,v 1.8 2000-02-10 14:08:49 fjoe Exp $
+ * $Id: memalloc.c,v 1.9 2000-04-16 09:21:55 fjoe Exp $
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 
 #include "typedef.h"
-#include "const.h"
 #include "log.h"
 #include "memalloc.h"
 

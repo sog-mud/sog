@@ -23,11 +23,19 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.h,v 1.20 2000-04-10 15:45:50 fjoe Exp $
+ * $Id: util.h,v 1.21 2000-04-16 09:21:36 fjoe Exp $
  */
 
 #ifndef _UTIL_H_
 #define _UTIL_H_
+
+#if defined(WIN32)
+#	include <stdlib.h>
+#	define PATH_MAX	_MAX_PATH
+#	define PATH_SEPARATOR '\\'
+#else
+#	define PATH_SEPARATOR '/'
+#endif
 
 struct stat;
 

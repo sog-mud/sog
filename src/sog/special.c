@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.68 2000-03-21 14:57:36 fjoe Exp $
+ * $Id: special.c,v 1.69 2000-04-16 09:21:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -155,6 +155,10 @@ char *mob_spec_name(SPEC_FUN *function)
 	return NULL;
 }
 
+#define GROUP_VNUM_TROLLS		2100
+#define GROUP_VNUM_OGRES		2101
+#define MOB_VNUM_PATROLMAN		2106
+
 bool spec_troll_member(CHAR_DATA *ch)
 {
 	CHAR_DATA *vch, *victim = NULL;
@@ -268,6 +272,8 @@ bool spec_ogre_member(CHAR_DATA *ch)
 	multi_hit(ch, victim, NULL);
 	return TRUE;
 }
+
+#define OBJ_VNUM_WHISTLE		2116
 
 bool spec_patrolman(CHAR_DATA *ch)
 {

@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.99 2000-02-29 17:14:58 avn Exp $
+ * $Id: recycle.c,v 1.100 2000-04-16 09:21:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -266,7 +266,7 @@ CHAR_DATA *char_new(MOB_INDEX_DATA *pMobIndex)
 
 	for (i = 0; i < 4; i++)
 		ch->armor[i] = 100;
-	for (i = 0; i < MAX_STATS; i++) {
+	for (i = 0; i < MAX_STAT; i++) {
 		ch->perm_stat[i] = 15;
 		ch->mod_stat[i] = 0;
 	}

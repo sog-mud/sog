@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.c,v 1.12 2000-02-10 14:08:45 fjoe Exp $
+ * $Id: cmd.c,v 1.13 2000-04-16 09:21:53 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -31,7 +31,6 @@
 #include <dlfcn.h>
 
 #include "typedef.h"
-#include "const.h"
 #include "str.h"
 #include "varr.h"
 #include "cmd.h"

@@ -23,14 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: events.c,v 1.6 2000-02-10 14:08:41 fjoe Exp $
+ * $Id: events.c,v 1.7 2000-04-16 09:21:45 fjoe Exp $
  */
 
 #include <stdarg.h>
 #include <stdio.h>
 #include <dlfcn.h>
 
-#include "const.h"
 #include "typedef.h"
 #include "varr.h"
 #include "hash.h"

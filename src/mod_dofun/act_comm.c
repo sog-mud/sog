@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.205 2000-03-31 13:20:40 fjoe Exp $
+ * $Id: act_comm.c,v 1.206 2000-04-16 09:21:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -715,20 +715,6 @@ void do_pose(CHAR_DATA *ch, const char *argument)
 	pose = VARR_GET(&cl->poses, number_range(0, maxnum));
 	act(pose->self, ch, NULL, NULL, TO_CHAR);
 	act(pose->others, ch, NULL, NULL, TO_ROOM | ACT_TOBUF);
-}
-
-void do_bug(CHAR_DATA *ch, const char *argument)
-{
-	append_file(ch, BUG_FILE, argument);
-	char_puts("Bug logged.\n", ch);
-	return;
-}
-
-void do_typo(CHAR_DATA *ch, const char *argument)
-{
-	append_file(ch, TYPO_FILE, argument);
-	char_puts("Typo logged.\n", ch);
-	return;
 }
 
 void do_rent(CHAR_DATA *ch, const char *argument)

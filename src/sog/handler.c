@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.248 2000-04-11 01:07:30 fjoe Exp $
+ * $Id: handler.c,v 1.249 2000-04-16 09:21:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2321,7 +2321,7 @@ bool pc_name_ok(const char *name)
 	return TRUE;
 }
 
-const char *stat_aliases[MAX_STATS][6] =
+const char *stat_aliases[MAX_STAT][6] =
 {
 	{ "Titanic", "Herculian", "Strong", "Average", "Poor", "Weak"	},
 	{ "Genious", "Clever", "Good", "Average", "Poor", "Hopeless"	},
@@ -2336,7 +2336,7 @@ const char *get_stat_alias(CHAR_DATA *ch, int stat)
 	int val;
 	int i;
 
-	if (stat >= MAX_STATS)
+	if (stat >= MAX_STAT)
 		return "Unknown";
 
 	val = get_curr_stat(ch, stat);

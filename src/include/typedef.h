@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.39 1999-12-21 06:36:26 fjoe Exp $
+ * $Id: typedef.h,v 1.40 2000-04-16 09:21:36 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -123,7 +123,6 @@ typedef void	SPELL_FUN	(const char *sn, int level,
 typedef int	OPROG_FUN	(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg);
 typedef void	EVENT_FUN	(CHAR_DATA *ch, AFFECT_DATA *af);
 
-#define args(a) a
 #define DECLARE_SPEC_FUN(fun) 	SPEC_FUN  fun
 #define DECLARE_DO_FUN(fun) 	DO_FUN fun
 #define DECLARE_OPROG_FUN(fun)	OPROG_FUN fun
@@ -141,31 +140,61 @@ typedef void	EVENT_FUN	(CHAR_DATA *ch, AFFECT_DATA *af);
 #	define inline
 #endif
  
-/* 64-bit int value is compiler-specific (not a ANSI standard) */
 #if defined (WIN32)
-typedef __int32		flag_t;		/* flags (less memory usage) */
+typedef __int32		flag_t;
 typedef unsigned int	u_int;
 typedef unsigned char	u_char;
 #else
-typedef int32_t		flag_t;		/* flags (less memory usage) */
+typedef int32_t		flag_t;
 #endif
   
-#define IS_NULLSTR(str)		(!(str) || *(char*)(str) == '\0')
-
 #define IS_SET(flag, bit)	((flag) & (bit))
 #define SET_BIT(var, bit)	((var) |= (bit))
 #define TOGGLE_BIT(var, bit)    ((var) ^= (bit))
 #define REMOVE_BIT(var, bit)	((var) &= ~(bit))
 #define DIFF_BIT(a, b)		(~(~(a) | (b)))
 
+/* RT ASCII conversions */
+
+#define A	((flag_t) 1 <<  0)
+#define B	((flag_t) 1 <<  1)
+#define C	((flag_t) 1 <<  2)
+#define D	((flag_t) 1 <<  3)
+#define E	((flag_t) 1 <<  4)
+#define F	((flag_t) 1 <<  5)
+#define G	((flag_t) 1 <<  6)
+#define H	((flag_t) 1 <<  7)
+
+#define I	((flag_t) 1 <<  8)
+#define J	((flag_t) 1 <<  9)
+#define K	((flag_t) 1 << 10)
+#define L	((flag_t) 1 << 11)
+#define M	((flag_t) 1 << 12)
+#define N	((flag_t) 1 << 13)
+#define O	((flag_t) 1 << 14)
+#define P	((flag_t) 1 << 15)
+
+#define Q	((flag_t) 1 << 16)
+#define R	((flag_t) 1 << 17)
+#define S	((flag_t) 1 << 18)
+#define T	((flag_t) 1 << 19)
+#define U	((flag_t) 1 << 20)
+#define V	((flag_t) 1 << 21)
+#define W	((flag_t) 1 << 22)
+#define X	((flag_t) 1 << 23)
+
+#define Y	((flag_t) 1 << 24)
+#define Z	((flag_t) 1 << 25)
+#define aa	((flag_t) 1 << 26) /* letters doubled due to conflicts */
+#define bb	((flag_t) 1 << 27)
+#define cc	((flag_t) 1 << 28)
+#define dd	((flag_t) 1 << 29)
+#define ee	((flag_t) 1 << 30)
+
 #define UMIN(a, b)		((a) < (b) ? (a) : (b))
 #define UMAX(a, b)		((a) > (b) ? (a) : (b))
 #define URANGE(a, b, c) 	((b) < (a) ? (a) : ((b) > (c) ? (c) : (b)))
 #define ENTRE(min, num, max)	((min) < (num) && (num) < (max))
-
-#define IS_VALID(data)		((data))
-#define VALIDATE(data)
-#define INVALIDATE(data)
 
 #define ISLOWER(c)		(islower((unsigned char) (c)))
 #define ISUPPER(c)		(isupper((unsigned char) (c)))

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.h,v 1.27 1999-12-21 14:48:12 kostik Exp $
+ * $Id: class.h,v 1.28 2000-04-16 09:21:35 fjoe Exp $
  */
 
 #ifndef _CLASS_H_
@@ -44,7 +44,7 @@ struct class_t {
 	int		mana_rate;	/* mana rate (when gaining level */
 	flag_t		class_flags;	/* class flags */
 	int		points;			/* cost in exp */
-	int		mod_stat[MAX_STATS];	/* starting stat mod */
+	int		mod_stat[MAX_STAT];	/* starting stat mod */
 	flag_t		restrict_align;		/* alignment restrictions */
 	const char *	restrict_sex;		/* sex restrictions */
 	flag_t		restrict_ethos;		/* ethos restrictions */

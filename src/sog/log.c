@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: log.c,v 1.24 2000-02-10 14:08:49 fjoe Exp $
+ * $Id: log.c,v 1.25 2000-04-16 09:21:55 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -32,7 +32,7 @@
 #include <time.h>
 
 #include "typedef.h"
-#include "const.h"
+#include "str.h"
 #include "log.h"
 #include "util.h"
 

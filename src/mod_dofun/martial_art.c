@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.155 2000-04-10 14:14:26 fjoe Exp $
+ * $Id: martial_art.c,v 1.156 2000-04-16 09:21:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3230,6 +3230,8 @@ void do_toughen(CHAR_DATA *ch, const char *argument)
 	}
 }
 
+#define OBJ_VNUM_BATTLE_PONCHO		26
+
 void do_trophy(CHAR_DATA *ch, const char *argument)
 {
 	int trophy_vnum;
@@ -4293,6 +4295,9 @@ void do_bandage(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, "bandage", FALSE, 2);
 	}
 }
+
+#define OBJ_VNUM_CHUNK_IRON		6521
+#define OBJ_VNUM_KATANA_SWORD		98
 
 void do_katana(CHAR_DATA *ch, const char *argument)
 {

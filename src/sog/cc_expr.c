@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_expr.c,v 1.7 2000-02-10 14:08:44 fjoe Exp $
+ * $Id: cc_expr.c,v 1.8 2000-04-16 09:21:53 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -33,7 +33,6 @@
 #include <stdlib.h>
 
 #include "typedef.h"
-#include "const.h"
 #include "varr.h"
 #include "hash.h"
 #include "log.h"

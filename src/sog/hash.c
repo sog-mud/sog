@@ -23,14 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hash.c,v 1.12 2000-03-28 21:59:37 fjoe Exp $
+ * $Id: hash.c,v 1.13 2000-04-16 09:21:55 fjoe Exp $
  */
 
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "const.h"
 #include "typedef.h"
 #include "varr.h"
 #include "hash.h"

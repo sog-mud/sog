@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.211 2000-04-06 05:40:52 fjoe Exp $
+ * $Id: spellfun.c,v 1.212 2000-04-16 09:21:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -685,6 +685,8 @@ void spell_colour_spray(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	damage(ch, victim, dam, sn, DAM_LIGHT, DAMF_SHOW);
 }
 
+#define OBJ_VNUM_LIGHT_BALL		21
+
 void spell_continual_light(const char *sn, int level,CHAR_DATA *ch,void *vo)
 {
 	OBJ_DATA *light;
@@ -730,6 +732,8 @@ void spell_control_weather(const char *sn, int level,CHAR_DATA *ch,void *vo)
 	char_puts("Ok.\n", ch);
 }
 
+#define OBJ_VNUM_MUSHROOM		20
+
 void spell_create_food(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	OBJ_DATA *mushroom;
@@ -743,6 +747,8 @@ void spell_create_food(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act("$p suddenly appears.", ch, mushroom, NULL, TO_CHAR);
 }
 
+#define OBJ_VNUM_ROSE			1001
+
 void spell_create_rose(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	OBJ_DATA *rose = create_obj(get_obj_index(OBJ_VNUM_ROSE), 0);
@@ -750,6 +756,8 @@ void spell_create_rose(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act("You create $p.", ch, rose, NULL, TO_CHAR);
 	obj_to_char(rose, ch);
 }
+
+#define OBJ_VNUM_SPRING 		22
 
 void spell_create_spring(const char *sn, int level,CHAR_DATA *ch,void *vo)
 {
@@ -1992,6 +2000,8 @@ void spell_faerie_fog(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 }
 
+#define OBJ_VNUM_DISC			23
+
 void spell_floating_disc(const char *sn, int level,CHAR_DATA *ch,void *vo)
 {
 	OBJ_DATA *disc, *floating;
@@ -2259,6 +2269,8 @@ void spell_restoration(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	affect_to_char(ch, &af);
 }
+
+#define OBJ_VNUM_HOLY_HAMMER		18
 
 void spell_holy_hammer(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {

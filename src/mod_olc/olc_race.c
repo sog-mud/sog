@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.34 2000-03-28 06:18:31 fjoe Exp $
+ * $Id: olc_race.c,v 1.35 2000-04-16 09:21:47 fjoe Exp $
  */
 
 #include "olc.h"
@@ -292,21 +292,21 @@ OLC_FUN(raceed_show)
 	if (r->race_pcdata->bonus_skills)
 		buf_printf(output, "Bonus skills:  [%s]\n",
 			   r->race_pcdata->bonus_skills);
-	for (i = 0, found = FALSE; i < MAX_STATS; i++)
+	for (i = 0, found = FALSE; i < MAX_STAT; i++)
 		if (r->race_pcdata->mod_stat[i]) found = TRUE;
 	if (found) {
 		buf_add(output, "Stats mod:     [");
-		for (i = 0; i < MAX_STATS; i++)
+		for (i = 0; i < MAX_STAT; i++)
 			buf_printf(output, "%s: %2d ",
 				   flag_string(stat_names, i),
 				   r->race_pcdata->mod_stat[i]);
 		buf_add(output, "]\n");
 	}
-	for (i = 0, found = FALSE; i < MAX_STATS; i++)
+	for (i = 0, found = FALSE; i < MAX_STAT; i++)
 		if (r->race_pcdata->max_stat[i]) found = TRUE;
 	if (found) {
 		buf_add(output, "Max stats:     [");
-		for (i = 0; i < MAX_STATS; i++)
+		for (i = 0; i < MAX_STAT; i++)
 			buf_printf(output, "%s: %2d ",
 				   flag_string(stat_names, i),
 				   r->race_pcdata->max_stat[i]);
@@ -514,7 +514,7 @@ OLC_FUN(raceed_stats)
 	bool st = FALSE;
 
 	EDIT_RACE(ch, race);
-	for (i = 0; i < MAX_STATS; i++) {
+	for (i = 0; i < MAX_STAT; i++) {
 		argument = one_argument(argument, arg, sizeof(arg));
 		if (*arg == '\0')
 			break;
@@ -541,7 +541,7 @@ OLC_FUN(raceed_maxstats)
 	bool st = FALSE;
 
 	EDIT_RACE(ch, race);
-	for (i = 0; i < MAX_STATS; i++) {
+	for (i = 0; i < MAX_STAT; i++) {
 		argument = one_argument(argument, arg, sizeof(arg));
 		if (*arg == '\0')
 			break;
@@ -796,7 +796,7 @@ fwrite_rstats(FILE *fp, const char *name, int *stats)
 	bool found;
 	int i;
 
-	for (i = 0, found = FALSE; i < MAX_STATS; i++) {
+	for (i = 0, found = FALSE; i < MAX_STAT; i++) {
 		if (stats[i])
 			found = TRUE;
 	}
@@ -805,7 +805,7 @@ fwrite_rstats(FILE *fp, const char *name, int *stats)
 		return;
 
 	fprintf(fp, "%s ", name);
-	for (i = 0; i < MAX_STATS; i++)
+	for (i = 0; i < MAX_STAT; i++)
 		fprintf(fp, "%d ", stats[i]);
 	fprintf(fp, "\n");
 }

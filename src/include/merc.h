@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.300 2000-04-06 05:40:45 fjoe Exp $
+ * $Id: merc.h,v 1.301 2000-04-16 09:21:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -66,7 +66,51 @@
 #include <stdarg.h>
 
 #include "typedef.h"
-#include "const.h"
+
+/*
+ * sex or gender
+ */
+enum {
+	SEX_NEUTRAL,
+	SEX_MALE,
+	SEX_FEMALE,
+	SEX_EITHER,		/* used only for NPC, means random sex
+				   in create_mob */
+	SEX_PLURAL
+};
+
+/* align numbers */
+enum {
+	ANUM_GOOD,
+	ANUM_NEUTRAL,
+	ANUM_EVIL,
+
+	MAX_ANUM
+};
+
+enum {
+	STAT_STR,
+	STAT_INT,
+	STAT_WIS,
+	STAT_DEX,
+	STAT_CON,
+	STAT_CHA,
+
+	MAX_STAT			/* number of char stats */
+};
+
+/*
+ * Conditions.
+ */
+enum {
+	COND_DRUNK,
+	COND_FULL,
+	COND_THIRST,
+	COND_HUNGER,
+	COND_BLOODLUST,
+	COND_DESIRE,
+	MAX_COND
+};
 
 /* basic types */
 #include "buffer.h"
@@ -102,6 +146,79 @@
 #include "forms.h"
 #include "vo_iter.h"
 #include "update.h"
+
+#define PFILE_VERSION	12
+#define AREA_VERSION	4
+
+/*
+ * Game parameters.
+ */
+#define MAX_INPUT_LENGTH	1024
+#define MAX_PROMPT_LENGTH	60
+#define MAX_TITLE_LENGTH	45
+#define MAX_CHAR_NAME		12
+#define DEFAULT_PAGELEN		22
+#define MIN_PAGELEN		16
+#define MAX_PAGELEN		192
+#define MAX_RELIGION		18
+#define MAX_NEWBIES		120	/* number of newbies allowed */
+#define MAX_OLDIES		999	/* number of oldies allowed */
+#define MAX_TRADE		5	/* number of trade types for shops */
+#define MAX_DIR			6	/* number of exits */
+#define MAX_ALIAS		50	/* number of aliases char can have */
+
+/*
+ * level consts
+ */
+#define MAX_LEVEL		50
+
+#define LEVEL_IMP		MAX_LEVEL	/* implementor		*/
+#define LEVEL_CRE 		(MAX_LEVEL - 1)	/* creator		*/
+#define LEVEL_DEI		(MAX_LEVEL - 2)	/* deity		*/
+#define LEVEL_GOD		(MAX_LEVEL - 3)	/* god			*/
+#define LEVEL_AVA		(MAX_LEVEL - 4)	/* avatar		*/
+#define LEVEL_HERO		(MAX_LEVEL - 5)	/* hero			*/
+
+#define LEVEL_IMMORTAL		LEVEL_AVA
+#define LEVEL_NEWBIE		5
+#define LEVEL_PK		10	/* min PK level */
+
+#define PULSE_PER_SCD		4
+#define PULSE_PER_SECOND	4
+
+#define FIGHT_DELAY_TIME	(20 * PULSE_PER_SECOND)
+#define OFFENCE_DELAY_TIME	600
+#define GHOST_DELAY_TIME	600
+#define MISSING_TARGET_DELAY	10
+
+/*
+ * vnum globals
+ * skill/spell specific vnums should not be defined here
+ */
+#define MOB_VNUM_SHADOW 		10
+#define MOB_VNUM_STALKER		15
+#define MOB_VNUM_COCOON			27
+#define MOB_VNUM_BONE_DRAGON		28
+
+#define OBJ_VNUM_SILVER_ONE		1
+#define OBJ_VNUM_GOLD_ONE		2
+#define OBJ_VNUM_GOLD_SOME		3
+#define OBJ_VNUM_SILVER_SOME		4
+#define OBJ_VNUM_COINS			5
+#define OBJ_VNUM_CORPSE_NPC		10
+#define OBJ_VNUM_CORPSE_PC		11
+#define OBJ_VNUM_SEVERED_HEAD		12
+#define OBJ_VNUM_TORN_HEART		13
+#define OBJ_VNUM_SLICED_ARM		14
+#define OBJ_VNUM_SLICED_LEG		15
+#define OBJ_VNUM_GUTS			16
+#define OBJ_VNUM_BRAINS			17
+#define OBJ_VNUM_POTION_VIAL		42
+#define OBJ_VNUM_RENEGADE_MARK		76
+#define OBJ_VNUM_MAGIC_JAR		93
+
+#define ROOM_VNUM_LIMBO			2
+#define ROOM_VNUM_TEMPLE		3001
 
 /*
  * configuration parameters
@@ -1310,8 +1427,8 @@ struct char_data
 	int			wimpy;
 
 	/* stats */
-	int			perm_stat[MAX_STATS];
-	int			mod_stat[MAX_STATS];
+	int			perm_stat[MAX_STAT];
+	int			mod_stat[MAX_STAT];
 
 	/* resistances */
 	int16_t			resists[MAX_RESIST];
@@ -2098,9 +2215,16 @@ OBJ_DATA *	clone_obj	(OBJ_DATA *parent);
 
 void	clear_char	(CHAR_DATA *ch);
 ED_DATA * ed_lookup(const char *name, ED_DATA *ed);
+
 MOB_INDEX_DATA *	get_mob_index	(int vnum);
+MOB_INDEX_DATA *	_get_mob_index	(const char *name);
+
 OBJ_INDEX_DATA *	get_obj_index	(int vnum);
+MOB_INDEX_DATA *	_get_mob_index	(const char *name);
+
 ROOM_INDEX_DATA *	get_room_index	(int vnum);
+MOB_INDEX_DATA *	_get_room_index	(const char *name);
+
 int	number_fuzzy	(int number);
 int	number_range	(int from, int to);
 int	number_percent	(void);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.h,v 1.11 2000-01-19 06:51:45 fjoe Exp $
+ * $Id: str.h,v 1.12 2000-04-16 09:21:36 fjoe Exp $
  */
 
 #ifndef _STR_H_
@@ -34,6 +34,9 @@
  */
 #define STR_ALLOC_MEM 1
 
+#define MAX_STRING_HASH		16384
+#define MAX_STRING_LENGTH	8192
+
 const char *	str_dup		(const char *str);
 const char *	str_qdup	(const char *str);
 void		free_string	(const char *str);
@@ -42,6 +45,8 @@ const char *	str_printf	(const char *format,...)
 
 extern char	str_empty[1];
 	
+#define IS_NULLSTR(str)		(!(str) || *(char*)(str) == '\0')
+
 char *	strnzcpy(char *dest, size_t len, const char *src);
 #define strnzncpy(dest, len, src, count) \
 		strnzcpy((dest), UMIN((len), (count)+1), (src))

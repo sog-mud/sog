@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.20 2000-01-19 06:57:42 fjoe Exp $
+ * $Id: olc_class.c,v 1.21 2000-04-16 09:21:46 fjoe Exp $
  */
 
 #include "olc.h"
@@ -215,11 +215,11 @@ OLC_FUN(classed_show)
 	if (class->points)
 		buf_printf(output, "Exp points:     [%d]\n", class->points);
 
-	for (i = 0, found = FALSE; i < MAX_STATS; i++)
+	for (i = 0, found = FALSE; i < MAX_STAT; i++)
 		if (class->mod_stat[i]) found = TRUE;
 	if (found) {
 		buf_add(output, "Stats mod:      [");
-		for (i = 0; i < MAX_STATS; i++)
+		for (i = 0; i < MAX_STAT; i++)
 			buf_printf(output, "%s: %2d ",
 				   flag_string(stat_names, i),
 				   class->mod_stat[i]);
@@ -352,7 +352,7 @@ OLC_FUN(classed_stats)
 
 	EDIT_CLASS(ch, class);
 
-	for (i = 0; i < MAX_STATS; i++) {
+	for (i = 0; i < MAX_STAT; i++) {
 		argument = one_argument(argument, arg, sizeof(arg));
 		if (*arg == '\0') break;
 		val = strtol(arg, &endptr, 0);
@@ -647,7 +647,7 @@ save_class_cb(void *p, va_list ap)
 	if (cl->points)
 		fprintf(fp, "AddExp %d\n", cl->points);
 	fprintf(fp, "StatMod");
-	for (i = 0; i < MAX_STATS; i++)
+	for (i = 0; i < MAX_STAT; i++)
 		fprintf(fp, " %d", cl->mod_stat[i]);
 	fprintf(fp, "\n");
 	if (cl->restrict_align)

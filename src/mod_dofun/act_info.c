@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.340 2000-04-06 05:40:47 fjoe Exp $
+ * $Id: act_info.c,v 1.341 2000-04-16 09:21:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1980,6 +1980,8 @@ void do_awareness(CHAR_DATA *ch, const char *argument)
 	check_improve(ch, "awareness", TRUE, 1);
 }
 
+#define MOB_VNUM_BEAR			12
+
 void do_bear_call(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *	gch;
@@ -2050,7 +2052,7 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 	check_improve(ch, "bear call", TRUE, 1);
 	bear = create_mob(get_mob_index(MOB_VNUM_BEAR));
 
-	for (i = 0; i < MAX_STATS; i++)
+	for (i = 0; i < MAX_STAT; i++)
 		bear->perm_stat[i] = UMIN(25, 2 * ch->perm_stat[i]);
 
 	SET_HIT(bear, ch->perm_hit);
@@ -2686,6 +2688,8 @@ void do_resistances(CHAR_DATA *ch, const char *argument)
 	}
 }
 
+#define MOB_VNUM_LION			19
+
 void do_lion_call(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *	gch;
@@ -2755,7 +2759,7 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 	check_improve(ch, "lion call", TRUE, 1);
 	lion = create_mob(get_mob_index(MOB_VNUM_LION));
 
-	for (i=0;i < MAX_STATS; i++)
+	for (i = 0; i < MAX_STAT; i++)
 		lion->perm_stat[i] = UMIN(25,2 * ch->perm_stat[i]);
 
 	SET_HIT(lion, ch->perm_hit);
@@ -3614,6 +3618,12 @@ void do_control(CHAR_DATA *ch, const char *argument)
 		    ch, NULL, victim, TO_NOTVICT);
 }
 
+#define OBJ_VNUM_WOODEN_ARROW		6
+#define OBJ_VNUM_GREEN_ARROW		34
+#define OBJ_VNUM_RED_ARROW		35
+#define OBJ_VNUM_WHITE_ARROW		36
+#define OBJ_VNUM_BLUE_ARROW		37
+
 void do_make_arrow(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *arrow;
@@ -3725,6 +3735,8 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 			 ch, arrow, NULL, TO_CHAR, POS_DEAD);
 	}
 }
+
+#define OBJ_VNUM_RANGER_BOW		7
 
 void do_make_bow(CHAR_DATA *ch, const char *argument)
 {

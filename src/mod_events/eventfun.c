@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.14 2000-03-25 17:01:35 avn Exp $
+ * $Id: eventfun.c,v 1.15 2000-04-16 09:21:45 fjoe Exp $
  */
 
 
@@ -363,7 +363,7 @@ EVENT_FUN(event_timeoutchar_bonedragon)
 	    ch, NULL, NULL, TO_ALL);
 
 	drag = create_mob(get_mob_index(MOB_VNUM_BONE_DRAGON));
-	for (i=0; i < MAX_STATS; i++)
+	for (i = 0; i < MAX_STAT; i++)
 		drag->perm_stat[i] = UMIN(25, 15 + dlev / 10);
 	drag->perm_stat[STAT_STR] += 3;
 	drag->perm_stat[STAT_DEX] += 1;
