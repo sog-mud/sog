@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.32 1998-10-16 09:37:15 fjoe Exp $
+# $Id: Makefile,v 1.33 1998-10-17 11:45:21 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
@@ -91,5 +91,5 @@ ctags:
 	ctags -dtw $(CFILES) *.h
 
 install: muddy
-	install -c -m 554 muddy $(INSTALL_PATH)/bin
+	install -cp -m 770 muddy $(INSTALL_PATH)/bin
 
