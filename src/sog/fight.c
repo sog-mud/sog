@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.101 1998-11-17 05:29:55 fjoe Exp $
+ * $Id: fight.c,v 1.102 1998-11-17 07:28:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1186,6 +1186,11 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	}
 
 	/*
+	 * No one in combat can hide, be invis or camoed.
+	 */
+	do_visible(ch, str_empty);
+
+	/*
 	 * Damage modifiers.
 	 */
 	if (IS_AFFECTED(victim, AFF_SANCTUARY)
@@ -1696,11 +1701,6 @@ void set_fighting(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	if (IS_AFFECTED(ch, AFF_SLEEP))
 		affect_bit_strip(ch, TO_AFFECTS, AFF_SLEEP);
-
-	/*
-	 * No one in combat can hide, be invis or camoed.
-	 */
-	do_visible(ch, str_empty);
 
 	ch->fighting = victim;
 	ch->position = POS_FIGHTING;
