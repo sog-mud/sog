@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.21 1998-05-29 07:45:19 efdi Exp $
+ * $Id: fight.c,v 1.22 1998-05-29 09:08:58 efdi Exp $
  */
 
 /***************************************************************************
@@ -129,7 +129,7 @@ void get_gold_corpse(CHAR_DATA *ch, OBJ_DATA *corpse)
 void rating_update(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	int i, minnum = -1;
-	if (IS_NPC(ch) || IS_NPC(victim))
+	if (IS_NPC(ch) || IS_NPC(victim) || ch == victim)
 		return;
 
 	ch->pcdata->pc_killed++;
