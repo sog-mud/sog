@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.100 2001-11-15 20:30:41 avn Exp $
+ * $Id: olc_room.c,v 1.101 2001-11-15 21:19:50 avn Exp $
  */
 
 #include "olc.h"
@@ -1402,6 +1402,11 @@ DO_FUN(do_resets, ch, argument)
 		TOUCH_AREA(room->area);
 
 		act_char("Resets in the room cleared.", ch);
+		return;
+	}
+
+	if (!str_prefix(arg1, "clear")) {
+		olced_spell_out(ch, str_empty, NULL);
 		return;
 	}
 
