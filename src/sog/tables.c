@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.188 2002-03-20 19:39:50 fjoe Exp $
+ * $Id: tables.c,v 1.189 2002-03-20 20:15:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1185,13 +1185,14 @@ flaginfo_t level_table[] =
 {
 	{ "",			TABLE_INTVAL,		FALSE	},
 
+	{ "immortal",		LEVEL_IMMORTAL,		TRUE	},
+
 	{ "imp",		LEVEL_IMP,		TRUE	},
 	{ "cre",		LEVEL_CRE,		TRUE	},
 	{ "dei",		LEVEL_DEI,		TRUE	},
 	{ "god",		LEVEL_GOD,		TRUE	},
 	{ "ava",		LEVEL_AVA,		TRUE	},
 
-	{ "immortal",		LEVEL_IMMORTAL,		TRUE	},
 	{ "hero",		LEVEL_HERO,		TRUE	},
 	{ "newbie",		LEVEL_NEWBIE,		TRUE	},
 	{ "pk",			LEVEL_PK,		TRUE	},
