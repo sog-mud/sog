@@ -349,13 +349,15 @@ This fell creature will not attack you, despite its evil- it will merely
 taunt you, though it will not hesitate to defend itself.
 ~
 undead~
-ABGO 0 -1000 0
+ABFGO 0 -1000 0
 0 0 1d1+0 1d1+0 1d1+0 pierce
 -25 -25 -25 0
-EFN AB 0 0
-stand stand none 5300
+EFN ABM 0 0
+rest rest none 5300
 0 0 medium unknown
 F aff U
+F imm R
+F res M
 M greet 32 100~
 #50
 junkseller junk seller~
@@ -1243,6 +1245,15 @@ pill G AO
 0 'reserved' 'reserved' 'reserved' 'reserved'
 0 1 1 P
 G none
+#76
+spot renegade whisp skin кусок пятно~
+@eng Bloody spot of renegade@rus ~~Кровавое~~ ~~пятно~~ ренегада~
+@eng Whisp of skin with bloody spot lies here.@rus Кусок (whisp) кожи с кровавым пятном лежит здесь.~
+flesh~
+trash HMTZ AS
+0 0 0 0 0
+1 0 0 P
+G none
 #80
 golden dagger кинжал~
 @eng a golden dagger@rus ~~золотистый~~ ~~кинжал~~~
@@ -1652,15 +1663,20 @@ clan yes, sir?
 if isimmort $n
      break
 else
-     if isspectar $n
+     if istarget $n
           break
      else
-          wake $a
-          mob sechoat $a Your thing detects arrives life.
-          if inpk $a $n
-               mob kill $n
-          endif
-     endif
+          wake $q
+          mob sechoat $q Your thing detects arrives life.
+         if isghost $n
+               break
+         else
+               if inpk $q $n
+                   stand
+                   mob kill $n
+               endif
+         endif
+   endif
 endif
 ~
 #0
