@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.69 1998-08-05 06:56:29 fjoe Exp $
+# $Id: english.lang,v 1.70 1998-08-06 08:48:36 fjoe Exp $
 #
 
 NOTHING		"Nothing.\n\r"
@@ -398,7 +398,7 @@ QUEST_HAS_MURDERED     "Since the escape, {W%s{z has murdered {W%d{z civilians!"
 QUEST_THE_PENALTY_IS	"The penalty for this crime is death, and you are to deliver the sentence!"
 QUEST_ENEMY_OF_MINE	"An enemy of mine, {W%s{z, is making vile threats against the crown."
 QUEST_ELIMINATE_THREAT	"This threat must be eliminated!"
-QUEST_SEEK_S_OUT	"Seek {W%s{z out in vicinity of {W%s{z!"
+QUEST_SEEK_S_OUT	"Seek {W%s{z out in general area of {W%s{z in vicinity of {W%s{z!"
 QUEST_LOCATION_IS_IN_AREA	"That location is in general area of {W%s{z for {W%s{z."
 QUEST_VILE_PILFERERS	"Vile pilferers have stolen {W%s{z from the royal treasury!"
 QUEST_MY_COURT_WIZARDESS	"My court wizardess, with her magic mirror, has pinpointed its location."

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.46 1998-08-05 10:56:24 fjoe Exp $
+ * $Id: act_wiz.c,v 1.47 1998-08-06 08:48:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1978,23 +1978,14 @@ void do_shutdow(CHAR_DATA *ch, const char *argument)
 void do_shutdown(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	extern bool merc_down;
-	DESCRIPTOR_DATA *d,*d_next;
 
 	if (ch->invis_level < LEVEL_HERO)
-	snprintf(buf, sizeof(buf), "Shutdown by %s.", ch->name);
+		snprintf(buf, sizeof(buf), "Shutdown by %s.", ch->name);
 	append_file(ch, SHUTDOWN_FILE, buf);
-	strcat(buf, "\n\r");
-	if (ch->invis_level < LEVEL_HERO)
+	if (ch->invis_level < LEVEL_HERO) {
+		strnzcat(buf, "\n\r", sizeof(buf));
 		do_echo(ch, buf);
-	do_force (ch, "all save");
-	do_save (ch, "");
-	merc_down = TRUE;
-	for (d = descriptor_list; d != NULL; d = d_next) {
-		d_next = d->next;
-		close_socket(d);
 	}
-	return;
 }
 
 void do_protect(CHAR_DATA *ch, const char *argument)

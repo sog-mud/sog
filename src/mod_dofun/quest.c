@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.57 1998-08-05 06:43:53 fjoe Exp $
+ * $Id: quest.c,v 1.58 1998-08-06 08:48:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -438,7 +438,7 @@ static void quest_info(CHAR_DATA *ch, char* arg)
 			if (ch->pcdata->questroom)
 				char_nprintf(ch, QUEST_INFO_LOCATION,
 					ch->pcdata->questroom->area->name, 
-					mlstr_cval(ch->pcdata->questroom->name, ch));
+					mlstr_mval(ch->pcdata->questroom->name));
 		}
 		else 
 			char_nputs(QUEST_ARENT_ON_QUEST, ch);
@@ -451,11 +451,11 @@ static void quest_info(CHAR_DATA *ch, char* arg)
 		questinfo = get_mob_index(ch->pcdata->questmob);
 		if (questinfo != NULL) {
 			char_nprintf(ch, QUEST_SLAY_DREADED,
-				     mlstr_cval(questinfo->short_descr, ch));
+				     mlstr_mval(questinfo->short_descr));
 			if (ch->pcdata->questroom)
 				char_nprintf(ch, QUEST_INFO_LOCATION,
 					ch->pcdata->questroom->area->name, 
-					mlstr_cval(ch->pcdata->questroom->name, ch));
+					mlstr_mval(ch->pcdata->questroom->name));
 		} else 
 			char_nputs(QUEST_ARENT_ON_QUEST, ch);
 		return;
@@ -655,43 +655,38 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		ch->pcdata->questobj = eyed->pIndexData->vnum;
 
 		quest_tell(ch, questor, msg(QUEST_VILE_PILFERERS, ch),
-			   mlstr_cval(eyed->short_descr, ch));
+			   mlstr_mval(eyed->short_descr));
 		quest_tell(ch, questor, msg(QUEST_MY_COURT_WIZARDESS, ch));
+		quest_tell(ch, questor, msg(QUEST_LOCATION_IS_IN_AREA, ch),
+			   victim->in_room->area->name,
+			   mlstr_mval(victim->in_room->name));
 	}
 	else {	/* Quest to kill a mob */
 		if (IS_GOOD(ch)) {
 			quest_tell(ch, questor,
 				   msg(QUEST_RUNES_MOST_HEINOUS, ch),
-				   mlstr_cval(victim->short_descr, ch));
+				   mlstr_mval(victim->short_descr));
 			quest_tell(ch, questor,
 				   vmsg(QUEST_HAS_MURDERED, ch, victim),
-				   mlstr_cval(victim->short_descr, ch),
+				   mlstr_mval(victim->short_descr),
 				   number_range(2, 20));
 			quest_tell(ch, questor, msg(QUEST_THE_PENALTY_IS, ch));
 		}
 		else {
 			quest_tell(ch, questor, msg(QUEST_ENEMY_OF_MINE, ch),
-				   mlstr_cval(victim->short_descr, ch));
+				   mlstr_mval(victim->short_descr));
 			quest_tell(ch, questor,
 				   msg(QUEST_ELIMINATE_THREAT, ch));
 		}
 
 		quest_tell(ch, questor, msg(QUEST_SEEK_S_OUT, ch),
-			   mlstr_cval(victim->short_descr, ch),
-			   mlstr_cval(victim->in_room->name, ch));
+			   mlstr_mval(victim->short_descr),
+			   victim->in_room->area->name,
+			   mlstr_mval(victim->in_room->name));
 
 		ch->pcdata->questmob = victim->pIndexData->vnum;
 		victim->hunter = ch;
 	}
-
-	/* 
-	 * I changed my area names so that they have just the name
-	 * of the area and none of the level stuff. You may want
-	 * to comment these next two lines. - Vassago
-	 */
-	quest_tell(ch, questor, msg(QUEST_LOCATION_IS_IN_AREA, ch),
-		   victim->in_room->area->name,
-		   mlstr_cval(victim->in_room->name, ch));
 
 	ch->pcdata->questgiver = questor->pIndexData->vnum;
 	ch->pcdata->questtime = number_range(15, 30);
@@ -748,7 +743,7 @@ static void quest_complete(CHAR_DATA *ch, char *arg)
 				if (chance(15))
 					prac_reward = number_range(1, 6);
 				qp_reward = number_range(20, 40);
-				gold_reward = 35 + number_range(0, 2*ch->level);
+				gold_reward = 35 + number_range(ch->level, 2*ch->level);
 
 				complete = TRUE;
 				break;

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.48 1998-08-03 15:09:02 fjoe Exp $
+ * $Id: interp.c,v 1.49 1998-08-06 08:48:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -276,7 +276,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "qui",		do_qui,		POS_DEAD,	 0,  LOG_NORMAL, 0, CMD_KEEP_HIDE|CMD_GHOST },
     { "quit",		do_quit,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "rent",		do_rent,	POS_DEAD,	 0,  LOG_NORMAL, 0,0 },
-    { "save",		do_save,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_GHOST },
+    { "save",		do_save,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
     { "sleep",		do_sleep,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
     { "slist",		do_slist,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "sneak",		do_sneak,	POS_STANDING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },

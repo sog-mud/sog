@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.48 1998-08-05 06:43:50 fjoe Exp $
+ * $Id: db.c,v 1.49 1998-08-06 08:48:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1370,9 +1370,6 @@ void load_rooms(FILE *fp)
 		/* Area number */	  fread_number(fp);
 		pRoomIndex->room_flags	= fread_flags(fp);
  
-		if (3000 <= vnum && vnum < 3400)
-			SET_BIT(pRoomIndex->room_flags, ROOM_LAW);
-
 		pRoomIndex->sector_type		= fread_number(fp);
 		pRoomIndex->light		= 0;
 		for (door = 0; door <= 5; door++)
@@ -3215,11 +3212,8 @@ MOB_INDEX_DATA *get_mob_index(int vnum)
 		    return pMobIndex;
 	}
 
-	if (fBootDb)
-	{
-		bug("Get_mob_index: bad vnum %d.", vnum);
-		exit(1);
-	}
+	if (fBootDb) 
+		db_error("get_mob_index", "bad vnum %d.", vnum);
 
 	return NULL;
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.30 1998-08-03 00:22:31 efdi Exp $
+ * $Id: spellfun2.c,v 1.31 1998-08-06 08:48:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4020,7 +4020,7 @@ void spell_insanity (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (IS_NPC(ch))
+	if (IS_NPC(victim))
 	{
 	 send_to_char("This spell can cast on PC's only.\n\r",ch);
 	 return;

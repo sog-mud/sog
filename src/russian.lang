@@ -1,5 +1,5 @@
 #
-# $Id: russian.lang,v 1.93 1998-08-03 15:09:02 fjoe Exp $
+# $Id: russian.lang,v 1.94 1998-08-06 08:48:36 fjoe Exp $
 #
 
 NOTHING  		"Ничего.\n\r",	
@@ -469,7 +469,7 @@ QUEST_THE_PENALTY_IS  vsexdep  "Расплата за это - смерть, и ты должно исполнить 
 			      "Расплата за это - смерть, и ты должна исполнить приговор!"
 QUEST_ENEMY_OF_MINE	"Мой враг, {W%s{z, подло угрожает короне."
 QUEST_ELIMINATE_THREAT	"Эти угрозы нужно прекратить!"
-QUEST_SEEK_S_OUT	"Ищи {W%s{z в окрестности {W%s{z!"
+QUEST_SEEK_S_OUT	"Ищи {W%s{z где-то в {W%s{z в окрестности {W%s{z!"
 QUEST_LOCATION_IS_IN_AREA	"Это находится где-то в {W%s{z возле {W%s{z."
 QUEST_VILE_PILFERERS	"Подлые жулики украли {W%s{z из королевской сокровищницы!"
 QUEST_MY_COURT_WIZARDESS	"При помощи магического зеркала моя королевская волшебница нашла местоположение этой вещи."
