@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.57 2002-09-02 16:03:51 tatyana Exp $
+ * $Id: handler.c,v 1.182.2.58 2002-09-02 17:04:41 tatyana Exp $
  */
 
 /***************************************************************************
@@ -883,12 +883,9 @@ void affect_remove(CHAR_DATA *ch, AFFECT_DATA *paf)
 		}
 	}
 
-	if ((paf->type == gsn_charm_person ||
-	     paf->type == sn_lookup("attract other") ||
-	     paf->type == sn_lookup("control undead"))
-	&&   ch->master != NULL) {
-		stop_follower(ch);
-	}
+	if (paf->type == gsn_charm_person
+	||  paf->type == sn_lookup("control undead"))
+		ch->leader = NULL;
 
 	aff_free(paf);
 	affect_check(ch, where, vector);
@@ -3845,6 +3842,12 @@ void stop_follower(CHAR_DATA *ch)
 		return;
 	}
 
+	if (IS_AFFECTED(ch, AFF_CHARM)) {
+		REMOVE_BIT(ch->affected_by, AFF_CHARM);
+		affect_bit_strip(ch, TO_AFFECTS, AFF_CHARM);
+		update_pos(ch);
+	}
+
 	if (can_see(ch->master, ch) && ch->in_room != NULL) {
 		act_puts("$n stops following you.",ch, NULL, ch->master,
 			 TO_VICT, POS_RESTING);
@@ -3852,14 +3855,7 @@ void stop_follower(CHAR_DATA *ch)
 			 TO_CHAR, POS_RESTING);
 	}
 
-	if (IS_AFFECTED(ch, AFF_CHARM)) {
-		REMOVE_BIT(ch->affected_by, AFF_CHARM);
-		affect_bit_strip(ch, TO_AFFECTS, AFF_CHARM);
-		update_pos(ch);
-	}
-
-
-	if (ch->master != NULL && !IS_NPC(ch->master)) {
+	if (!IS_NPC(ch->master)) {
 		PC_DATA *pc = PC(ch->master);
 		if (pc->pet == ch)
 			pc->pet = NULL;
