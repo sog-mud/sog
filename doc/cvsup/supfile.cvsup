@@ -1,0 +1,7 @@
+*default host=localhost
+#*default host=cvsup.FreeBSD.org
+*default base=/home/fjoe/foo2
+*default prefix=/home/fjoe/foo2
+*default release=cvs tag=.
+*default delete use-rel-suffix
+muddy
