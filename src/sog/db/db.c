@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.169.2.5 2000-03-31 13:57:03 fjoe Exp $
+ * $Id: db.c,v 1.169.2.6 2000-04-10 14:07:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1959,7 +1959,10 @@ void scan_pfiles()
 	for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp)) {
 		CHAR_DATA *ch;
 		OBJ_DATA *obj, *obj_next;
-		bool changed, pet;
+		bool changed = FALSE;
+		struct stat s;
+		bool should_clear = FALSE;
+		bool pet = FALSE;
 
 #if defined (LINUX) || defined (WIN32)
 		if (strlen(dp->d_name) < 3)
@@ -1973,11 +1976,16 @@ void scan_pfiles()
 		||  (ch = char_load(dp->d_name, LOAD_F_NOCREATE)) == NULL)
 			continue;
 
-		changed = FALSE;
-		pet = FALSE;
+		/* Remove limited eq from the pfile if it's two weeks old */
+		if (stat(dp->d_name, &s) < 0) {
+			log(LOG_ERROR, "scan_pfiles: unable to stat %s.",
+			    dp->d_name);
+		} else
+			should_clear = (current_time - s.st_mtime) > 60*60*24*14;
 
 		for (obj = ch->carrying; obj; obj = obj_next) {
 			obj_next = obj->next_content;
+
 			if (!obj_next && !pet && GET_PET(ch)) {
 				obj_next = GET_PET(ch)->carrying;
 				pet = TRUE;
@@ -1987,7 +1995,7 @@ void scan_pfiles()
 
 			if (obj->pObjIndex->limit < 0
 			||  !eqcheck
-			||  number_percent() < 95)
+			||  !should_clear)
 				continue;
 
 			changed = TRUE;
