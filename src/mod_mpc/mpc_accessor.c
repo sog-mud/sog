@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_accessor.c,v 1.2 2003-05-01 07:37:06 fjoe Exp $
+ * $Id: mpc_accessor.c,v 1.3 2003-09-08 15:45:30 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -94,11 +94,11 @@
 /*
  * CHAR_DATA accessors
  */
-#define CHAR_GET_INT(name)	GET_INT(char, name, vo->ch->##name)
-#define CHAR_GET_STR(name)	GET_STR(char, name, vo->ch->##name)
-#define CHAR_GET_CHAR(name)	GET_CHAR(char, name, vo->ch->##name)
-#define CHAR_GET_OBJ(name)	GET_OBJ(char, name, vo->ch->##name)
-#define CHAR_GET_ROOM(name)	GET_ROOM(char, name, vo->ch->##name)
+#define CHAR_GET_INT(name)	GET_INT(char, name, vo->ch->name)
+#define CHAR_GET_STR(name)	GET_STR(char, name, vo->ch->name)
+#define CHAR_GET_CHAR(name)	GET_CHAR(char, name, vo->ch->name)
+#define CHAR_GET_OBJ(name)	GET_OBJ(char, name, vo->ch->name)
+#define CHAR_GET_ROOM(name)	GET_ROOM(char, name, vo->ch->name)
 
 #define DEF_CHAR_INT(name)	DEF_INT(char, name, MT_CHAR)
 #define DEF_CHAR_STR(name)	DEF_STR(char, name, MT_STR)
@@ -106,7 +106,7 @@
 #define DEF_CHAR_OBJ(name)	DEF_OBJ(char, name, MT_CHAR)
 #define DEF_CHAR_ROOM(name)	DEF_ROOM(char, name, MT_CHAR)
 
-#define CHAR_SET_INT(name)	SET_INT(char, name, vo->ch->##name)
+#define CHAR_SET_INT(name)	SET_INT(char, name, vo->ch->name)
 
 #define DEF_CHAR_MUTABLE_INT(name)	DEF_MUTABLE_INT(char, name, MT_CHAR)
 
@@ -198,11 +198,11 @@ mpc_accessor_t char_acstab[] =
 /*
  * OBJ_DATA accessors
  */
-#define OBJ_GET_INT(name)	GET_INT(obj, name, vo->obj->##name)
-#define OBJ_GET_STR(name)	GET_STR(obj, name, vo->obj->##name)
-#define OBJ_GET_CHAR(name)	GET_CHAR(obj, name, vo->obj->##name)
-#define OBJ_GET_OBJ(name)	GET_OBJ(obj, name, vo->obj->##name)
-#define OBJ_GET_ROOM(name)	GET_ROOM(obj, name, vo->obj->##name)
+#define OBJ_GET_INT(name)	GET_INT(obj, name, vo->obj->name)
+#define OBJ_GET_STR(name)	GET_STR(obj, name, vo->obj->name)
+#define OBJ_GET_CHAR(name)	GET_CHAR(obj, name, vo->obj->name)
+#define OBJ_GET_OBJ(name)	GET_OBJ(obj, name, vo->obj->name)
+#define OBJ_GET_ROOM(name)	GET_ROOM(obj, name, vo->obj->name)
 
 #define DEF_OBJ_INT(name)	DEF_INT(obj, name, MT_OBJ)
 #define DEF_OBJ_STR(name)	DEF_STR(obj, name, MT_OBJ)
@@ -210,7 +210,7 @@ mpc_accessor_t char_acstab[] =
 #define DEF_OBJ_OBJ(name)	DEF_OBJ(obj, name, MT_OBJ)
 #define DEF_OBJ_ROOM(name)	DEF_ROOM(obj, name, MT_OBJ)
 
-#define OBJ_SET_INT(name)	SET_INT(obj, name, vo->obj->##name)
+#define OBJ_SET_INT(name)	SET_INT(obj, name, vo->obj->name)
 
 #define DEF_OBJ_MUTABLE_INT(name)	DEF_MUTABLE_INT(obj, name, MT_OBJ)
 
@@ -257,11 +257,11 @@ mpc_accessor_t obj_acstab[] =
 /*
  * ROOM_DATA accessors
  */
-#define ROOM_GET_INT(name)	GET_INT(room, name, vo->r->##name)
-#define ROOM_GET_STR(name)	GET_STR(room, name, vo->r->##name)
-#define ROOM_GET_CHAR(name)	GET_CHAR(room, name, vo->r->##name)
-#define ROOM_GET_OBJ(name)	GET_OBJ(room, name, vo->r->##name)
-#define ROOM_GET_ROOM(name)	GET_ROOM(room, name, vo->r->##name)
+#define ROOM_GET_INT(name)	GET_INT(room, name, vo->r->name)
+#define ROOM_GET_STR(name)	GET_STR(room, name, vo->r->name)
+#define ROOM_GET_CHAR(name)	GET_CHAR(room, name, vo->r->name)
+#define ROOM_GET_OBJ(name)	GET_OBJ(room, name, vo->r->name)
+#define ROOM_GET_ROOM(name)	GET_ROOM(room, name, vo->r->name)
 
 #define DEF_ROOM_GET_INT(name)	DEF_INT(room, name, MT_ROOM)
 #define DEF_ROOM_GET_STR(name)	DEF_STR(room, name, MT_ROOM)
