@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1999, 2000 SoG Development Team
+ * Copyright (c) 2001 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,50 +23,18 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest_impl.c,v 1.4 2001-08-02 14:21:40 fjoe Exp $
+ * $Id: auction_impl.h,v 1.1 2001-08-02 14:21:32 fjoe Exp $
  */
 
-#include <stdio.h>
+#ifndef _AUCTION_IMPL_H_
+#define _AUCTION_IMPL_H_
 
-#include <merc.h>
+#define MIN_START_PRICE 20
 
-#include <quest.h>
-#include "quest_impl.h"
+void act_auction(const char *fmt,
+		 const void *arg1, const void *arg2, const void *arg3,
+		 int act_flags, int min_pos);
+int parsebet(const int currentbet, const char *argument);
+void auction_give_obj(CHAR_DATA* victim);
 
-void
-quest_update(void)
-{
-	CHAR_DATA *ch, *ch_next;
-
-	for (ch = char_list; ch && !IS_NPC(ch); ch = ch_next) {
-		ch_next = ch->next;
-
-		if (PC(ch)->questtime < 0) {
-			if (++PC(ch)->questtime == 0) {
-				act_char("{*You may now quest again.", ch);
-				return;
-			}
-		} else if (IS_ON_QUEST(ch)) {
-			if (--PC(ch)->questtime == 0) {
-				act_char("You have run out of time for your quest!", ch);
-				quest_cancel(ch);
-				PC(ch)->questtime = -number_range(5, 10);
-			} else if (PC(ch)->questtime < 6) {
-				act_char("Better hurry, you're almost out of time for your quest!", ch);
-				return;
-			}
-		}
-	}
-}
-
-qtrouble_t *
-qtrouble_lookup(CHAR_DATA *ch, int vnum)
-{
-	qtrouble_t *qt;
-
-	for (qt = PC(ch)->qtrouble; qt != NULL; qt = qt->next)
-		if (qt->vnum == vnum)
-			return qt;
-
-	return NULL;
-}
+#endif

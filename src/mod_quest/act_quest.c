@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.154 2001-07-31 18:15:04 fjoe Exp $
+ * $Id: act_quest.c,v 1.155 2001-08-02 14:21:39 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -33,7 +33,6 @@
 #include <time.h>
 
 #include <merc.h>
-#include <auction.h>
 
 #include <handler.h>
 

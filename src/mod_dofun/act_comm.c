@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.237 2001-07-31 18:14:37 fjoe Exp $
+ * $Id: act_comm.c,v 1.238 2001-08-02 14:21:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -52,7 +52,6 @@
 #endif
 
 #include <merc.h>
-#include <auction.h>
 #include <lang.h>
 #include <note.h>
 
@@ -83,7 +82,7 @@ void do_delete(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch))
 		return;
-	
+
 	if (IS_SET(PC(ch)->plr_flags, PLR_CONFIRM_DELETE)) {
 		if (argument[0] != '\0') {
 			act_char("Delete status removed.", ch);
@@ -92,7 +91,7 @@ void do_delete(CHAR_DATA *ch, const char *argument)
 		}
 
 		wiznet("$N turns $Mself into line noise.", ch, NULL, 0, 0, 0);
-		delete_player(ch, NULL);
+		char_delete(ch, NULL);
 		return;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: auction_impl.c,v 1.53 2001-07-29 20:14:59 fjoe Exp $
+ * $Id: auction_impl.c,v 1.54 2001-08-02 14:21:32 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -8,9 +8,10 @@
 #include <string.h>
 
 #include <merc.h>
-#include <auction.h>
 
-#include "handler.h"
+#include <handler.h>
+
+#include "auction_impl.h"
 
 static int advatoi(const char *s);
 
@@ -22,9 +23,10 @@ AUCTION_DATA auction = { NULL, NULL, NULL, 0, 0, 0 };
  *  Adopted to Anatolia MUD by chronos.                                    *
  ***************************************************************************/
 
-void act_auction(const char *fmt,
-		 const void *arg1, const void *arg2, const void *arg3,
-		 int act_flags, int min_pos)
+void
+act_auction(const char *fmt,
+	    const void *arg1, const void *arg2, const void *arg3,
+	    int act_flags, int min_pos)
 {
 	DESCRIPTOR_DATA *d;
 
@@ -42,7 +44,8 @@ void act_auction(const char *fmt,
 	}
 }
 
-int parsebet(const int currentbet, const char *argument)
+int
+parsebet(const int currentbet, const char *argument)
 {
   int newbet = 0;               /* a variable to temporarily hold the new bet */
   char string[MAX_INPUT_LENGTH];/* a buffer to modify the bet string */
@@ -77,7 +80,8 @@ int parsebet(const int currentbet, const char *argument)
   return newbet;        /* return the calculated bet */
 }
 
-void auction_give_obj(CHAR_DATA* victim)
+void
+auction_give_obj(CHAR_DATA* victim)
 {
 	int carry_w, carry_n;
 	OBJ_DATA *obj = auction.item;
@@ -107,9 +111,68 @@ void auction_give_obj(CHAR_DATA* victim)
 	auction.item = NULL;
 }
 
+void
+auction_update(void)
+{
+	if (auction.item == NULL)
+		return;
+
+	switch (++auction.going) { /* increase the going state */
+	case 1 : /* going once */
+	case 2 : /* going twice */
+	        if (auction.bet > 0) {
+			act_auction("$p: going $T for $J gold.",
+				    auction.item,
+				    (auction.going == 1) ? "once" : "twice",
+				    (const void*) auction.bet,
+				    ACT_FORMSH, POS_RESTING);
+	        } else {
+			act_auction("$p: going $T, starting price $J gold.",
+				    auction.item,
+				    (auction.going == 1) ? "once" : "twice",
+				    (const void*) auction.starting,
+				    ACT_FORMSH, POS_RESTING);
+		}
+	        break;
+
+	 case 3 : /* SOLD! */
+	        if (auction.bet > 0) {
+			int tax;
+			int pay;
+
+			act_auction("$p: sold to $N for $J gold.",
+				    auction.item, auction.buyer,
+				    (const void*) auction.bet,
+				    ACT_FORMSH, POS_RESTING);
+
+			auction_give_obj(auction.buyer);
+
+			pay = (auction.bet * 85) / 100;
+			tax = auction.bet - pay;
+
+			 /* give him the money */
+			act_puts3("The auctioneer pays you $j gold, "
+				  "charging an auction fee of $J gold.",
+				  auction.seller, (const void*) pay,
+				  NULL, (const void*) tax, TO_CHAR, POS_DEAD);
+			PC(auction.seller)->bank_g += pay;
+		} else {
+			/* not sold */
+			act_auction("No bets received for $p.",
+				    auction.item, NULL, NULL,
+				    ACT_FORMSH, POS_RESTING);
+			act_auction("Object has been removed from auction.",
+				    NULL, NULL, NULL,
+				    ACT_FORMSH, POS_RESTING);
+			auction_give_obj(auction.seller);
+	        }
+        }
+}
+
 /*-------------------------------------------------------------------------
  *  local functions
  */
+
 /*
   This function allows the following kinds of bets to be made:
 
@@ -133,7 +196,8 @@ void auction_give_obj(CHAR_DATA* victim)
 
 */
 
-static int advatoi(const char *s)
+static int
+advatoi(const char *s)
 /*
   util function, converts an 'advanced' ASCII-number-string into a number.
   Used by parsebet() but could also be used by do_give or do_wimpy.
@@ -169,7 +233,7 @@ static int advatoi(const char *s)
 {
 
 /* the pointer to buffer stuff is not really necessary, but originally I
-   modified the buffer, so I had to make a copy of it. What the hell, it 
+   modified the buffer, so I had to make a copy of it. What the hell, it
    works:) (read: it seems to work:)
 */
 

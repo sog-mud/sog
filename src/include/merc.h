@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.341 2001-07-31 19:09:35 fjoe Exp $
+ * $Id: merc.h,v 1.342 2001-08-02 14:21:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1328,23 +1328,6 @@ struct mob_index_data
 CHAR_DATA *	char_new	(MOB_INDEX_DATA *pMobIndex);
 void		char_free	(CHAR_DATA *ch);
 
-/* char_load flags */
-#define LOAD_F_NOCREATE	(A)
-#define LOAD_F_MOVE	(B)
-
-/* char_save flags (these are mutually exclusive) */
-#define SAVE_F_NONE	(A)
-#define SAVE_F_NORMAL	(B)
-#define SAVE_F_REBOOT	(C)
-#define SAVE_F_PSCAN	(D)
-
-CHAR_DATA *	char_load	(const char *name, int flags);
-void		char_save	(CHAR_DATA *ch, int flags);
-void		char_nuke	(CHAR_DATA *ch);
-void		move_pfile	(const char *name,
-				 int minvnum, int maxvnum, int delta);
-void		move_pfiles	(int minvnum, int maxvnum, int delta);
-
 void	objval_init	(flag_t item_type, vo_t *v);
 void	objval_cpy	(flag_t item_type, vo_t *dst, vo_t *src);
 void	objval_destroy	(flag_t item_type, vo_t *v);
@@ -1937,11 +1920,6 @@ const char *	one_argument	(const char *argument, char *arg_first, size_t);
 const char *	first_arg	(const char *argument, char *arg_first, size_t,
 				 bool fCase);
 
-/*
- * victim is assumed to be !IS_NPC
- */
-void		delete_player	(CHAR_DATA *victim, const char* msg);
-
 /* special.c */
 SPEC_FUN *	mob_spec_lookup	(const char *name);
 const char *	mob_spec_name(SPEC_FUN *function);
@@ -2292,5 +2270,23 @@ void	social_destroy	(social_t *soc);
 
 #define social_lookup(name)	((social_t *) vstr_lookup(&socials, (name)))
 #define social_search(name)	((social_t *) vstr_search(&socials, (name)))
+
+/*----------------------------------------------------------------------
+ * socials stuff
+ */
+
+struct auction_data
+{
+	OBJ_DATA  * item;	/* a pointer to the item */
+	CHAR_DATA * seller;	/* a pointer to the seller (may NOT quit) */
+	CHAR_DATA * buyer;	/* a pointer to the buyer (may NOT quit) */
+	int	starting;
+	int	bet;		/* last bet - or 0 if noone has bet anything */
+	int	going;		/* 1,2, sold */
+};
+
+extern AUCTION_DATA auction;
+
+#define IS_AUCTIONED(obj) (auction.item == obj)
 
 #endif

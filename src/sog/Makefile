@@ -1,14 +1,14 @@
 #
-# $Id: Makefile,v 1.39 2001-07-31 18:15:12 fjoe Exp $
+# $Id: Makefile,v 1.40 2001-08-02 14:21:41 fjoe Exp $
 #
 
 PROG=		sog
-SRCS=		affect.c auction.c buffer.c clan.c class.c\
+SRCS=		affect.c buffer.c clan.c class.c\
 		cmd.c damtype.c dynafun.c flag.c hash.c\
 		help.c hometown.c interp.c lang.c log.c material.c\
 		memalloc.c mlstring.c module.c\
 		module_decl.c namelist.c note.c objval.c race.c\
-		rating.c recycle.c rfile.c save.c\
+		rating.c recycle.c rfile.c\
 		special.c str.c string_edit.c strkey_hash.c\
 		tables.c util.c varr.c vo_iter.c\
 		$(COMM_SRCS) $(DB_SRCS)

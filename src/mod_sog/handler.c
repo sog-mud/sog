@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.301 2001-07-31 18:14:48 fjoe Exp $
+ * $Id: handler.c,v 1.302 2001-08-02 14:21:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,7 +49,6 @@
 #include <merc.h>
 #include <db.h>
 #include <lang.h>
-#include <auction.h>
 
 #include <magic.h>
 #include <update.h>
@@ -2510,14 +2509,14 @@ delevel(CHAR_DATA *ch)
 	if(ch->perm_hit <= 0) {
 		act("You've lost all your life power.", ch, NULL, NULL,
 		    TO_CHAR);
-		delete_player(ch, "lack of hp");
+		char_delete(ch, "lack of hp");
 	} else if (ch->perm_mana <= 0) {
 		act("You've lost all your power.", ch, NULL, NULL, TO_CHAR);
-		delete_player(ch, "lack of mana");
+		char_delete(ch, "lack of mana");
 	} else if (ch->perm_move <= 0) {
 		act("You've lost all your ability to move.",
 		    ch, NULL, NULL, TO_CHAR);
-		delete_player(ch, "lack of move");
+		char_delete(ch, "lack of move");
 	}
 }
 

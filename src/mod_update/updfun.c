@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.32 2001-07-31 18:15:10 fjoe Exp $
+ * $Id: updfun.c,v 1.33 2001-08-02 14:21:40 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -33,7 +33,6 @@
 
 #include <merc.h>
 #include <db.h>
-#include <auction.h>
 
 #include <core.h>
 #include <handler.h>
@@ -1265,63 +1264,6 @@ area_update(void)
 		else if (pArea->nplayer == 0) 
 			pArea->empty = TRUE;
 	}
-}
-
-void auction_update(void)
-{
-	if (auction.item == NULL)
-		return;
-
-	switch (++auction.going) { /* increase the going state */
-	case 1 : /* going once */
-	case 2 : /* going twice */
-	        if (auction.bet > 0) {
-			act_auction("$p: going $T for $J gold.",
-				    auction.item,
-				    (auction.going == 1) ? "once" : "twice",
-				    (const void*) auction.bet,
-				    ACT_FORMSH, POS_RESTING);
-	        } else {
-			act_auction("$p: going $T, starting price $J gold.",
-				    auction.item,
-				    (auction.going == 1) ? "once" : "twice",
-				    (const void*) auction.starting,
-				    ACT_FORMSH, POS_RESTING);
-		}
-	        break;
-
-	 case 3 : /* SOLD! */
-	        if (auction.bet > 0) {
-			int tax;
-			int pay;
-
-			act_auction("$p: sold to $N for $J gold.",
-				    auction.item, auction.buyer,
-				    (const void*) auction.bet,
-				    ACT_FORMSH, POS_RESTING);
-
-			auction_give_obj(auction.buyer);
-
-			pay = (auction.bet * 85) / 100;
-			tax = auction.bet - pay;
-
-			 /* give him the money */
-			act_puts3("The auctioneer pays you $j gold, "
-				  "charging an auction fee of $J gold.",
-				  auction.seller, (const void*) pay,
-				  NULL, (const void*) tax, TO_CHAR, POS_DEAD);
-			PC(auction.seller)->bank_g += pay;
-		} else {
-			/* not sold */
-			act_auction("No bets received for $p.",
-				    auction.item, NULL, NULL,
-				    ACT_FORMSH, POS_RESTING);
-			act_auction("Object has been removed from auction.",
-				    NULL, NULL, NULL,
-				    ACT_FORMSH, POS_RESTING);
-			auction_give_obj(auction.seller);
-	        }
-        }
 }
 
 /*----------------------------------------------------------------------------

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.48 2001-07-29 20:14:30 fjoe Exp $
+ * $Id: typedef.h,v 1.49 2001-08-02 14:21:30 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -72,6 +72,7 @@ typedef struct shop_data		SHOP_DATA;
 typedef struct time_info_data		TIME_INFO_DATA;
 typedef struct weather_data		WEATHER_DATA;
 typedef struct room_history_data	ROOM_HISTORY_DATA;
+typedef struct auction_data		AUCTION_DATA;
 typedef struct qtrouble_t		qtrouble_t;
 typedef struct flaginfo_t		flaginfo_t;
 

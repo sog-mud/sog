@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1999, 2000 SoG Development Team
+ * Copyright (c) 2001 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,50 +23,33 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest_impl.c,v 1.4 2001-08-02 14:21:40 fjoe Exp $
+ * $Id: init_auction.c,v 1.1 2001-08-02 14:21:33 fjoe Exp $
  */
 
 #include <stdio.h>
+#include <stdarg.h>
 
-#include <merc.h>
+#include <typedef.h>
+#include <memalloc.h>
+#include <varr.h>
+#include <hash.h>
+#include <cmd.h>
+#include <module.h>
 
-#include <quest.h>
-#include "quest_impl.h"
+#include <update.h>
 
-void
-quest_update(void)
+int
+_module_load(module_t *m)
 {
-	CHAR_DATA *ch, *ch_next;
-
-	for (ch = char_list; ch && !IS_NPC(ch); ch = ch_next) {
-		ch_next = ch->next;
-
-		if (PC(ch)->questtime < 0) {
-			if (++PC(ch)->questtime == 0) {
-				act_char("{*You may now quest again.", ch);
-				return;
-			}
-		} else if (IS_ON_QUEST(ch)) {
-			if (--PC(ch)->questtime == 0) {
-				act_char("You have run out of time for your quest!", ch);
-				quest_cancel(ch);
-				PC(ch)->questtime = -number_range(5, 10);
-			} else if (PC(ch)->questtime < 6) {
-				act_char("Better hurry, you're almost out of time for your quest!", ch);
-				return;
-			}
-		}
-	}
+	varr_foreach(&commands, cmd_load_cb, MODULE, m);
+	uhandler_load(m->name);
+	return 0;
 }
 
-qtrouble_t *
-qtrouble_lookup(CHAR_DATA *ch, int vnum)
+int
+_module_unload(module_t *m)
 {
-	qtrouble_t *qt;
-
-	for (qt = PC(ch)->qtrouble; qt != NULL; qt = qt->next)
-		if (qt->vnum == vnum)
-			return qt;
-
-	return NULL;
+	uhandler_unload(m->name);
+	varr_foreach(&commands, cmd_unload_cb, MODULE);
+	return 0;
 }

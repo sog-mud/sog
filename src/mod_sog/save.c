@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.183 2001-07-31 18:15:15 fjoe Exp $
+ * $Id: save.c,v 1.184 2001-08-02 14:21:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,10 +46,7 @@
 #include <time.h>
 #include <limits.h>
 #include <stdlib.h>
-
-#ifndef BSD44
-#include <malloc.h>
-#endif
+#include <dirent.h>
 
 #include <merc.h>
 #include <db.h>
@@ -62,117 +59,40 @@
  */
 #define MAX_NEST	100
 static OBJ_DATA *rgObjNest[MAX_NEST];
-CHAR_DATA *obj_to;
 
 /*
  * global vars for areaed_move()
  */
-int minv, maxv, del;
-
-extern int damtbl [17];
+static int minv, maxv, del;
 
 /*
  * Local functions.
  */
-static void fwrite_char (CHAR_DATA * ch, FILE * fp, int flags);
-static void fwrite_obj (CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest);
-static void fwrite_pet (CHAR_DATA * pet, FILE * fp, int flags);
-static void fread_char (CHAR_DATA * ch, rfile_t * fp, int flags);
-static void fread_pet  (CHAR_DATA * ch, rfile_t * fp, int flags);
-static void fread_obj  (CHAR_DATA * ch, rfile_t * fp, int flags);
+static void fwrite_char(CHAR_DATA *ch, FILE *fp, int flags);
+static void fwrite_obj(CHAR_DATA *ch, OBJ_DATA *obj, FILE *fp, int iNest);
+static void fwrite_pet(CHAR_DATA *pet, FILE *fp, int flags);
+static void fread_char(CHAR_DATA *ch, rfile_t *fp, int flags);
+static void fread_pet(CHAR_DATA *ch, rfile_t *fp, int flags);
+static void fread_obj(CHAR_DATA *ch, CHAR_DATA *obj_to, rfile_t *fp, int flags);
+static void move_pfile(const char *name, int minvnum, int maxvnum, int delta);
 
 /*
  * move_pfile - shifts vnum in range minvnum..maxvnum by delta)
  */
 #define IN_RANGE(i, l, u)	((l) <= (i) && (i) <= (u))
-#define MOVE(i)		if (IN_RANGE(i, minv, maxv)) i += del
-
-void move_pfile(const char *name, int minvnum, int maxvnum, int delta)
-{
-	CHAR_DATA *ch;
-	minv = minvnum; maxv = maxvnum; del = delta;
-	ch = char_load(name, LOAD_F_MOVE | LOAD_F_NOCREATE);
-	char_save(ch, SAVE_F_PSCAN);
-	char_nuke(ch);
-}
-
-/*
- * delete_player -- delete player, update clan lists if necessary
- *		    if !msg then the player is deleted due to
- *		    low con or high number of deaths. this msg is logged
- *		    victim is assumed to be !IS_NPC
- */
-void delete_player(CHAR_DATA *victim, const char* msg)
-{
-	bool touched;
-	AREA_DATA *pArea;
-	clan_t *clan;
-	char *name;
-
-	if (msg) {
-		act_char("You became a ghost permanently and leave the earth realm.", victim);
-		act("$n is dead, and will not rise again.",
-		    victim, NULL, NULL, TO_ROOM);
-		victim->hit = 1;
-		victim->position = POS_STANDING;
-		wiznet("$N is deleted due to $t.", victim, msg, 0, 0, 0);
-	}
-
-	/*
-	 * remove char from clan lists
-	 */
-	if ((clan = clan_lookup(victim->clan))) {
-		clan_update_lists(clan, victim, TRUE);
-		clan_save(clan);
-	}
-
-	/*
-	 * remove char from builder's lists
-	 */
-	touched = FALSE;
-	for (pArea = area_first; pArea != NULL; pArea = pArea->next) {
-		if (!is_name_strict(victim->name, pArea->builders))
-			continue;
-		name_delete(&pArea->builders, victim->name, NULL, NULL);
-		SET_BIT(pArea->area_flags, AREA_CHANGED);
-		touched = TRUE;
-	}
-
-	if (touched)
-		dofun("asave", NULL, "changed");		// notrans
-
-	RESET_FIGHT_TIME(victim);
-	name = capitalize(victim->name);
-	quit_char(victim, 0);
-	dunlink(PLAYER_PATH, name);
-}
-
-void
-char_nuke(CHAR_DATA *ch)
-{
-	OBJ_DATA *obj;
-	OBJ_DATA *obj_next;
-	PC_DATA *pc;
-
-	if (!IS_NPC(ch) && (pc = PC(ch))->pet != NULL) {
-		char_nuke(pc->pet);
-		pc->pet = NULL;
-	}
-
-	for (obj = ch->carrying; obj; obj = obj_next) {
-		obj_next = obj->next_content;
-		extract_obj(obj, XO_F_NOCOUNT);
-	}
-
-	char_free(ch);
-}
+#define MOVE(i)					\
+	do {					\
+		if (IN_RANGE(i, minv, maxv))	\
+			i += del;		\
+	} while (0)
 
 /*
  * Save a character and inventory.
  * Would be cool to save NPC's too for quest purposes,
  *   some of the infrastructure is provided.
  */
-void char_save(CHAR_DATA *ch, int flags)
+void
+char_save(CHAR_DATA *ch, int flags)
 {
 	FILE           *fp;
 	const char	*name;
@@ -212,7 +132,8 @@ void char_save(CHAR_DATA *ch, int flags)
 	d2rename(PLAYER_PATH, TMP_FILE, PLAYER_PATH, name);
 }
 
-static FOREACH_CB_FUN(pc_skill_save_cb, p, ap)
+static
+FOREACH_CB_FUN(pc_skill_save_cb, p, ap)
 {
 	pc_skill_t *pc_sk = (pc_skill_t *) p;
 
@@ -225,7 +146,8 @@ static FOREACH_CB_FUN(pc_skill_save_cb, p, ap)
 	return NULL;
 }
 
-static FOREACH_CB_FUN(spn_save_cb, p, ap)
+static
+FOREACH_CB_FUN(spn_save_cb, p, ap)
 {
 	const char *spn = *(const char **) p;
 
@@ -426,7 +348,7 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 /* write a pet */
 /* flags do not affect pet saving, reserved for future use */
 static void
-fwrite_pet(CHAR_DATA * pet, FILE * fp, int flags __attribute__((unused)))
+fwrite_pet(CHAR_DATA *pet, FILE *fp, int flags __attribute__((unused)))
 {
 	fprintf(fp, "#PET\n");
 
@@ -480,7 +402,7 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp, int flags __attribute__((unused)))
  * Write an object and its contents.
  */
 static void
-fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
+fwrite_obj(CHAR_DATA *ch, OBJ_DATA *obj, FILE *fp, int iNest)
 {
 	ED_DATA *ed;
 
@@ -575,12 +497,14 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 /*
  * Load a char and inventory into a new ch structure.
  */
-CHAR_DATA *char_load(const char *name, int flags)
+CHAR_DATA *
+char_load(const char *name, int flags)
 {
 	CHAR_DATA *ch;
 	rfile_t	*fp = NULL;
 	bool found;
 
+	CHAR_DATA *obj_to = NULL;
 	int iNest;
 
 	name = capitalize(name);
@@ -628,9 +552,9 @@ CHAR_DATA *char_load(const char *name, int flags)
 			fread_char(ch, fp, flags);
 			obj_to = ch;
 		} else if (IS_TOKEN(fp, "OBJECT"))
-			fread_obj(ch, fp, flags);
+			fread_obj(ch, obj_to, fp, flags);
 		else if (IS_TOKEN(fp, "O"))
-			fread_obj(ch, fp, flags);
+			fread_obj(ch, obj_to, fp, flags);
 		else if (IS_TOKEN(fp, "PET")) {
 			fread_pet(ch, fp, flags);
 			if (GET_PET(ch))
@@ -638,7 +562,7 @@ CHAR_DATA *char_load(const char *name, int flags)
 		} else if (IS_TOKEN(fp, "END"))
 			break;
 		else {
-			log(LOG_INFO, "char_load: %s: %s: bad section.", 
+			log(LOG_INFO, "char_load: %s: %s: bad section.",
 			    ch->name, rfile_tok(fp));
 			break;
 		}
@@ -652,7 +576,7 @@ CHAR_DATA *char_load(const char *name, int flags)
  * Read in a char.
  */
 static void
-fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
+fread_char(CHAR_DATA *ch, rfile_t *fp, int flags)
 {
 	int count = 0;
 
@@ -947,7 +871,7 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 
 /* load a pet from the forgotten reaches */
 static void
-fread_pet(CHAR_DATA * ch, rfile_t * fp, int flags)
+fread_pet(CHAR_DATA *ch, rfile_t *fp, int flags)
 {
 	CHAR_DATA *pet = NULL;
 
@@ -1092,10 +1016,16 @@ fread_pet(CHAR_DATA * ch, rfile_t * fp, int flags)
 }
 
 static void
-fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
+fread_obj(CHAR_DATA *ch, CHAR_DATA *obj_to, rfile_t *fp, int flags)
 {
 	OBJ_DATA       *obj = NULL;
 	int             iNest;
+
+	if (obj_to == NULL) {
+		log(LOG_INFO, "fread_obj: %s: obj_to == NULL", ch->name);
+		fread_to_end(fp);
+		return;
+	}
 
 	fread_keyword(fp);
 	if (IS_TOKEN(fp, "Vnum")) {
@@ -1247,4 +1177,115 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 			fread_to_eol(fp);
 		}
 	}
+}
+
+void
+char_nuke(CHAR_DATA *ch)
+{
+	OBJ_DATA *obj;
+	OBJ_DATA *obj_next;
+	PC_DATA *pc;
+
+	if (!IS_NPC(ch) && (pc = PC(ch))->pet != NULL) {
+		char_nuke(pc->pet);
+		pc->pet = NULL;
+	}
+
+	for (obj = ch->carrying; obj; obj = obj_next) {
+		obj_next = obj->next_content;
+		extract_obj(obj, XO_F_NOCOUNT);
+	}
+
+	char_free(ch);
+}
+
+/*
+ * char_delete -- delete player, update clan lists if necessary
+ *		    if !msg then the player is deleted due to
+ *		    low con or high number of deaths. this msg is logged
+ *		    victim is assumed to be !IS_NPC
+ */
+void
+char_delete(CHAR_DATA *victim, const char* msg)
+{
+	bool touched;
+	AREA_DATA *pArea;
+	clan_t *clan;
+	char *name;
+
+	if (msg) {
+		act_char("You became a ghost permanently and leave the earth realm.", victim);
+		act("$n is dead, and will not rise again.",
+		    victim, NULL, NULL, TO_ROOM);
+		victim->hit = 1;
+		victim->position = POS_STANDING;
+		wiznet("$N is deleted due to $t.", victim, msg, 0, 0, 0);
+	}
+
+	/*
+	 * remove char from clan lists
+	 */
+	if ((clan = clan_lookup(victim->clan))) {
+		clan_update_lists(clan, victim, TRUE);
+		clan_save(clan);
+	}
+
+	/*
+	 * remove char from builder's lists
+	 */
+	touched = FALSE;
+	for (pArea = area_first; pArea != NULL; pArea = pArea->next) {
+		if (!is_name_strict(victim->name, pArea->builders))
+			continue;
+		name_delete(&pArea->builders, victim->name, NULL, NULL);
+		SET_BIT(pArea->area_flags, AREA_CHANGED);
+		touched = TRUE;
+	}
+
+	if (touched)
+		dofun("asave", NULL, "changed");		// notrans
+
+	RESET_FIGHT_TIME(victim);
+	name = capitalize(victim->name);
+	quit_char(victim, 0);
+	dunlink(PLAYER_PATH, name);
+}
+
+void
+move_pfiles(int minvnum, int maxvnum, int delta)
+{
+	struct dirent *dp;
+	DIR *dirp;
+
+	if ((dirp = opendir(PLAYER_PATH)) == NULL) {
+		log(LOG_ERROR, "move_pfiles: unable to open player directory");
+		exit(1);
+	}
+	for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp)) {
+
+#if defined (LINUX) || defined (WIN32)
+		if (strlen(dp->d_name) < 3)
+			continue;
+#else
+		if (dp->d_namlen < 3 || dp->d_type != DT_REG)
+			continue;
+#endif
+
+		if (strchr(dp->d_name, '.'))
+			continue;
+
+		move_pfile(dp->d_name, minvnum, maxvnum, delta);
+	}
+	closedir(dirp);
+
+}
+
+static void
+move_pfile(const char *name, int minvnum, int maxvnum, int delta)
+{
+	CHAR_DATA *ch;
+	minv = minvnum; maxv = maxvnum; del = delta;
+	ch = char_load(name, LOAD_F_MOVE | LOAD_F_NOCREATE);
+	char_save(ch, SAVE_F_PSCAN);
+	char_nuke(ch);
 }

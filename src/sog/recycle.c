@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.117 2001-07-31 19:09:38 fjoe Exp $
+ * $Id: recycle.c,v 1.118 2001-08-02 14:21:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -967,3 +967,9 @@ social_destroy(social_t *soc)
 
 	mlstr_destroy(&soc->notfound_char);
 }
+
+/*--------------------------------------------------------------------
+ * AUCTION_DATA
+ */
+
+AUCTION_DATA auction;

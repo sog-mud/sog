@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.182 2001-07-31 18:15:13 fjoe Exp $
+ * $Id: interp.c,v 1.183 2001-08-02 14:21:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,7 +50,7 @@
 #include <merc.h>
 #include <cmd.h>
 
-#include "handler.h"	// interpret_social
+#include <handler.h>	// interpret_social
 
 #undef IMMORTALS_LOGS
 
@@ -179,17 +179,14 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 			if (IS_SET(cmd->cmd_flags, CMD_NOORDER)
 			||  cmd->min_level >= LEVEL_IMMORTAL)
 				return;
-		}
-		else {
-			if (IS_AFFECTED(ch, AFF_CHARM)
-			&&  !IS_SET(cmd->cmd_flags, CMD_CHARMED_OK)
-			&&  ch->master != NULL
-			&&  cmd->min_level < LEVEL_IMMORTAL
-			&&  !IS_IMMORTAL(ch)) {
-				act("First ask your beloved master!",
-				    ch, NULL, ch->master, TO_CHAR);
-				return;
-			}
+		} else if (IS_AFFECTED(ch, AFF_CHARM)
+		&&  !IS_SET(cmd->cmd_flags, CMD_CHARMED_OK)
+		&&  ch->master != NULL
+		&&  cmd->min_level < LEVEL_IMMORTAL
+		&&  !IS_IMMORTAL(ch)) {
+			act("First ask your beloved master!",
+			    ch, NULL, ch->master, TO_CHAR);
+			return;
 		}
 
 		if (IS_AFFECTED(ch, AFF_STUN)
@@ -235,8 +232,7 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 		min_pos = soc->min_pos;
 		cmd_flg = 0;
 		cmd_log = LOG_NORMAL;
-	}
-	else {
+	} else {
 		min_pos = cmd->min_pos;
 		cmd_flg = cmd->cmd_flags;
 		cmd_log = cmd->cmd_log;
@@ -315,7 +311,8 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 		cmd->do_fun(ch, argument);
 }
 
-void interpret_social(social_t *soc, CHAR_DATA *ch, const char *argument)
+void
+interpret_social(social_t *soc, CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -353,7 +350,7 @@ void interpret_social(social_t *soc, CHAR_DATA *ch, const char *argument)
 
 	victim->in_room = victim_room;
 
-	if (!IS_NPC(ch) && IS_NPC(victim) 
+	if (!IS_NPC(ch) && IS_NPC(victim)
 	&&  !IS_AFFECTED(victim, AFF_CHARM)
 	&&  IS_AWAKE(victim) && !victim->desc) {
 		switch (number_bits(4)) {
@@ -371,17 +368,18 @@ void interpret_social(social_t *soc, CHAR_DATA *ch, const char *argument)
 				break;
 
 			case 9: case 10: case 11: case 12:
-				act("$n slaps $N.", victim, NULL, ch, 
+				act("$n slaps $N.", victim, NULL, ch,
 				    TO_NOTVICT | ACT_TOBUF | ACT_NOTWIT);
 				act("You slap $N.", victim, NULL, ch, TO_CHAR);
-				act("$n slaps you.", victim, NULL, ch, 
+				act("$n slaps you.", victim, NULL, ch,
 				    TO_VICT | ACT_TOBUF);
 				break;
 		}
 	}
 }
 
-static uint x_argument(const char *argument, int c, char *arg, size_t len)
+static uint
+x_argument(const char *argument, int c, char *arg, size_t len)
 {
 	char *p;
 	char *q;
@@ -401,7 +399,7 @@ static uint x_argument(const char *argument, int c, char *arg, size_t len)
 	number = strtoul(argument, &q, 0);
 	if (q == p)
 		argument = p+1;
-	else 
+	else
 		number = 1;
 	strnzcpy(arg, len, argument);
 	return number;
@@ -410,15 +408,17 @@ static uint x_argument(const char *argument, int c, char *arg, size_t len)
 /*
  * Given a string like 14.foo, return 14 and 'foo'
  */
-uint number_argument(const char *argument, char *arg, size_t len)
+uint
+number_argument(const char *argument, char *arg, size_t len)
 {
 	return x_argument(argument, '.', arg, len);
 }
 
-/* 
+/*
  * Given a string like 14*foo, return 14 and 'foo'
  */
-uint mult_argument(const char *argument, char *arg, size_t len)
+uint
+mult_argument(const char *argument, char *arg, size_t len)
 {
 	return x_argument(argument, '*', arg, len);
 }
@@ -427,7 +427,8 @@ uint mult_argument(const char *argument, char *arg, size_t len)
  * Pick off one argument from a string and return the rest.
  * Understands quotes.
  */
-const char *one_argument(const char *argument, char *arg_first, size_t len)
+const char *
+one_argument(const char *argument, char *arg_first, size_t len)
 {
 	return first_arg(argument, arg_first, len, TRUE);
 }
@@ -435,11 +436,11 @@ const char *one_argument(const char *argument, char *arg_first, size_t len)
 /*****************************************************************************
  Name:		first_arg
  Purpose:	Pick off one argument from a string and return the rest.
- 		Understands quotes, if fCase then arg_first will be lowercased
+		Understands quotes, if fCase then arg_first will be lowercased
  Called by:	string_add(string.c)
  ****************************************************************************/
-const char *first_arg(const char *argument, char *arg_first, size_t len,
-		      bool fCase)
+const char *
+first_arg(const char *argument, char *arg_first, size_t len, bool fCase)
 {
 	char *q;
 	char cEnd = '\0';
@@ -455,7 +456,7 @@ const char *first_arg(const char *argument, char *arg_first, size_t len,
 
 /* check quotes */
 	if (*argument == '\'' || *argument == '"')
-        	cEnd = *argument++;
+		cEnd = *argument++;
 
 	for (q = arg_first; *argument && q + 1 < arg_first + len; argument++) {
 		if ((!cEnd && isspace(*argument)) || *argument == cEnd) {
@@ -473,7 +474,8 @@ const char *first_arg(const char *argument, char *arg_first, size_t len,
 }
 
 /* does aliasing and other fun stuff */
-void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
+void
+substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	char prefix[MAX_INPUT_LENGTH];

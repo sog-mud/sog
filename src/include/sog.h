@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.6 2001-07-31 19:09:35 fjoe Exp $
+ * $Id: sog.h,v 1.7 2001-08-02 14:21:29 fjoe Exp $
  */
 
 #ifndef _HANDLER_H_
@@ -473,6 +473,30 @@ DECLARE_PROC4(focus_positive_energy,
 DECLARE_PROC4(focus_negative_energy,
 	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(cchar_t), sn,
 	      ARG(int), amount)
+
+/*--- save.c */
+
+/* char_load flags */
+#define LOAD_F_NOCREATE	(A)
+#define LOAD_F_MOVE	(B)
+
+/* char_save flags (these are mutually exclusive) */
+#define SAVE_F_NONE	(A)
+#define SAVE_F_NORMAL	(B)
+#define SAVE_F_REBOOT	(C)
+#define SAVE_F_PSCAN	(D)
+
+DECLARE_FUN2(CHAR_DATA, char_load,
+	     ARG(cchar_t), name, ARG(int), flags)
+DECLARE_PROC2(char_save,
+	      ARG(CHAR_DATA), ch, ARG(int), flags)
+DECLARE_PROC1(char_nuke,
+	     ARG(CHAR_DATA), ch)
+DECLARE_PROC2(char_delete,
+	      ARG(CHAR_DATA), victim, NULLABLE_ARG(cchar_t), msg)
+
+DECLARE_PROC3(move_pfiles,
+	      ARG(int), minvnum, ARG(int), maxvnum, ARG(int), delta)
 
 /*--- skills.c */
 DECLARE_FUN2(int, skill_level,

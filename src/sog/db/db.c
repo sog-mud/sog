@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.252 2001-07-31 18:15:21 fjoe Exp $
+ * $Id: db.c,v 1.253 2001-08-02 14:21:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1079,34 +1079,6 @@ char *capitalize(const char *str)
 	strcap[i] = '\0';
 	strcap[0] = UPPER(strcap[0]);
 	return strcap;
-}
-
-void move_pfiles(int minvnum, int maxvnum, int delta)
-{
-	struct dirent *dp;
-	DIR *dirp;
-
-	if ((dirp = opendir(PLAYER_PATH)) == NULL) {
-		log(LOG_ERROR, "move_pfiles: unable to open player directory");
-		exit(1);
-	}
-	for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp)) {
-
-#if defined (LINUX) || defined (WIN32)
-		if (strlen(dp->d_name) < 3)
-			continue;
-#else
-		if (dp->d_namlen < 3 || dp->d_type != DT_REG)
-			continue;
-#endif
-
-		if (strchr(dp->d_name, '.'))
-			continue;
-
-		move_pfile(dp->d_name, minvnum, maxvnum, delta);
-	}
-	closedir(dirp);
-
 }
 
 #define NBUF 5
