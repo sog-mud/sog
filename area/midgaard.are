@@ -8092,8 +8092,10 @@ M 0 3167 1 3064 1	* the guildmaster (Knight's Shrine)
 M 0 3164 1 3066 1	* the butcher (Butcher Shop)
 G 0 3380 0		*	some beef jerky
 G 0 3381 0		*	a whole chicken
+O 0 3135 0 3069		* a fountain (Temple Square)
 O 0 3010 0 3070		* the donation pit (Altar)
 M 0 3166 1 3070 1	* Nacya (Altar)
+O 0 3135 0 3071		* a fountain (Dark Temple)
 S
 
 

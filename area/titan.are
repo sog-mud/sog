@@ -2164,6 +2164,14 @@ A pit for sacrifices is in front of the altar.~
 container O 0
 10000 0 0 1000 100
 0 0 0 P
+#18102
+fountain~
+a fountain~
+A small marble fountain.~
+unknown~
+fountain A P
+0 0 'water' 0 0
+0 0 0 P
 #0
 
 
@@ -4499,6 +4507,10 @@ The Southern Ave.
 ~
 ~
 0 0 18107
+D3
+~
+~
+0 0 18140
 S
 #18109
 The Royal Gates~
@@ -4519,7 +4531,7 @@ D1
 The Palace Gates. 
 ~
 gates~
-1 0 18110
+0 0 18110
 D3
 The Gates to the Royal Square.
 ~
@@ -4550,7 +4562,7 @@ D2
 The Doors to The Warriors and Clerics Guild.
 ~
 door~
-1 0 18111
+0 0 18111
 D3
 The Palace Gates.
 ~
@@ -4902,6 +4914,17 @@ Healer's temple.
 ~
 0 -1 18126
 S
+#18140
+Royal Bank.~
+You are in a large hall, nicely lit by big chandeliers hanging from the
+ceilings. A long counter lies through the room.
+~
+0 KSU 0
+D1
+~
+~
+0 0 18108
+S
 #0
 
 
@@ -4954,210 +4977,210 @@ D 0 18108 1 1	* The Royal Square: door to the east: closed
 D 0 18112 1 1	* The Road To The Palace: door to the east: closed
 D 0 18112 2 1	* The Road To The Palace: door to the south: closed
 D 0 18122 1 1	* The Throne Room: door to the east: closed
-O 0 18084 0 18017		* A beautiful large marble fountain. (The Druid Lord's Secret Study)
+O 0 18084 0 18017		* a beautiful large marble fountain. (The Druid Lord's Secret Study)
 M 0 18029 1 18022 1	* the house chef (Inside The Front Foyer)
-E 0 18055 0 6		*	The cook's hat: over the head
-E 0 18056 0 17		*	The cook's pot: held in the hands
+E 0 18055 0 6		*	the Cook's Hat: over the head
+E 0 18056 0 17		*	the Cook's Pot: held in the hands
 M 0 18030 2 18022 2	* the serf (Inside The Front Foyer)
-E 0 18057 0 8		*	The little serfs shoes: on the feet
+E 0 18057 0 8		*	the little serfs shoes: on the feet
 M 0 18001 10 18027 2	* the town guard (At The Bridge Gates)
-E 0 18026 0 5		*	A townguard crest: on the body
+E 0 18026 0 5		*	a townguard crest: on the body
 M 0 18001 10 18027 2	* the town guard (At The Bridge Gates)
-E 0 18026 0 5		*	A townguard crest: on the body
+E 0 18026 0 5		*	a townguard crest: on the body
 M 0 18050 8 18027 2	* a titan girl (At The Bridge Gates)
 M 0 18001 10 18028 2	* the town guard (The Begging of The Bridge)
-E 0 18026 0 5		*	A townguard crest: on the body
+E 0 18026 0 5		*	a townguard crest: on the body
 M 0 18001 10 18028 2	* the town guard (The Begging of The Bridge)
-E 0 18026 0 5		*	A townguard crest: on the body
+E 0 18026 0 5		*	a townguard crest: on the body
 M 0 18001 10 18032 2	* the town guard (Along The Western Side of the Bridge)
-E 0 18026 0 5		*	A townguard crest: on the body
+E 0 18026 0 5		*	a townguard crest: on the body
 M 0 18099 3 18033 2	* a happy villager (The City Entrance)
-G 0 18025 0		*	A broken wine bottle
+G 0 18025 0		*	a broken wine bottle
 M 0 18002 7 18035 2	* a poor ally cat (The Western Stables)
-G 0 18024 0		*	A fish bone
+G 0 18024 0		*	a fish bone
 M 0 18002 7 18037 2	* a poor ally cat (The Main Road at The Prison)
-G 0 18024 0		*	A fish bone
+G 0 18024 0		*	a fish bone
 M 0 18017 1 18038 1	* the town sheriff (The Main Office of The Prison)
 M 0 18018 1 18042 1	* the jail guard (The Guardsman)
-E 0 18063 0 16		*	A long golden dagger: wielded
+E 0 18063 0 16		*	a Long Golden Dagger: wielded
 M 0 18020 2 18043 1	* a stinky prisoner (The Eastern Cell)
-E 0 18013 0 5		*	A prisoner's strip-suit: on the body
+E 0 18013 0 5		*	a Prisoner's Strip-Suit: on the body
 M 0 18065 3 18043 2	* a happy peasant (The Eastern Cell)
 M 0 18020 2 18044 1	* a stinky prisoner (The Western Cell)
-E 0 18013 0 5		*	A prisoner's strip-suit: on the body
+E 0 18013 0 5		*	a Prisoner's Strip-Suit: on the body
 M 0 18001 10 18045 2	* the town guard (The Main Road Continues)
-E 0 18026 0 5		*	A townguard crest: on the body
+E 0 18026 0 5		*	a townguard crest: on the body
 M 0 18014 1 18047 1	* a kind waiter (The Blue Rabbit Bar)
-G 0 18000 0		*	A bottle of bordeau wine
-G 0 18001 0		*	A bottle of chablis wine
-G 0 18002 0		*	A bottle of liebfraumilch
-G 0 18003 0		*	A bottle of austrian red
-G 0 18004 0		*	A bottle of sauvignon blanc
-G 0 18005 0		*	A bottle of tanqueray
+G 0 18000 0		*	a bottle of Bordeau Wine
+G 0 18001 0		*	a bottle of Chablis Wine
+G 0 18002 0		*	a bottle of Liebfraumilch
+G 0 18003 0		*	a bottle of Austrian Red
+G 0 18004 0		*	a bottle of Sauvignon Blanc
+G 0 18005 0		*	a bottle of Tanqueray
 M 0 18028 4 18047 2	* a titan citizen (The Blue Rabbit Bar)
-E 0 18060 0 8		*	A titan citizen's leather boots.: on the feet
+E 0 18060 0 8		*	a Titan Citizen's Leather Boots.: on the feet
 M 0 18021 1 18048 1	* the chocolate shopkeeper (The Chocolate Shoppe)
-G 0 18076 0		*	Some chocolate covered almonds
-G 0 18077 0		*	Some chocolate fudge
-G 0 18078 0		*	Some chocolate brittle
-G 0 18079 0		*	Some chocolate mint
+G 0 18076 0		*	some chocolate covered almonds
+G 0 18077 0		*	some chocolate fudge
+G 0 18078 0		*	some chocolate brittle
+G 0 18079 0		*	some chocolate mint
 M 0 18076 2 18048 2	* the store aid (The Chocolate Shoppe)
 M 0 18099 3 18049 2	* a happy villager (The Town Center)
-G 0 18025 0		*	A broken wine bottle
+G 0 18025 0		*	a broken wine bottle
 M 0 18022 1 18051 1	* the icecreams vendor (The Icecream Shoppe)
-G 0 18073 0		*	A double scoop of chocolate icecream
-G 0 18074 0		*	A tripple scoop of blueberry icecream
-G 0 18075 0		*	A single scoop of fudge icecream
+G 0 18073 0		*	a Double Scoop of Chocolate Icecream
+G 0 18074 0		*	a Tripple Scoop of Blueberry Icecream
+G 0 18075 0		*	a Single Scoop of Fudge Icecream
 M 0 18012 1 18052 1	* the designer (The Red Dragon)
-G 0 91 0		*	A rug with turkish patterns
-G 0 18080 0		*	A pair of black suede boots
-G 0 18081 0		*	A long navy blue skirt
-G 0 18082 0		*	A beautiful silver and white cloak
-G 0 18083 0		*	An emerald-studded bracer
+G 0 91 0		*	a rug with Turkish patterns
+G 0 18080 0		*	a pair of black suede boots
+G 0 18081 0		*	a long navy blue skirt
+G 0 18082 0		*	a beautiful silver and white cloak
+G 0 18083 0		*	an emerald-studded bracer
 M 0 18077 1 18053 1	* the leather worker (The Back Room of The Red Dragon)
 M 0 18001 10 18054 2	* the town guard (Along The Southern Main Street)
-E 0 18026 0 5		*	A townguard crest: on the body
+E 0 18026 0 5		*	a townguard crest: on the body
 M 0 18016 1 18055 1	* the florist (The Flower Shop)
-G 0 18050 0		*	A bright yellow tulip
-G 0 18051 0		*	A bright red tulip
-G 0 18052 0		*	A beautiful single white rose
-G 0 18053 0		*	One dozen red roses
-G 0 18054 0		*	Twenty-two bright yellow chrysanthemums
+G 0 18050 0		*	a Bright Yellow Tulip
+G 0 18051 0		*	a Bright Red Tulip
+G 0 18052 0		*	a Beautiful Single White Rose
+G 0 18053 0		*	One Dozen Red Roses
+G 0 18054 0		*	Twenty-Two Bright Yellow Chrysanthemums
 M 0 18050 8 18055 2	* a titan girl (The Flower Shop)
 M 0 18023 1 18058 1	* the apiarist (The Rare Apiarists' Shop)
-G 0 18019 0		*	A honey comb
-G 0 18020 0		*	A bottle of honey mead
-G 0 18021 0		*	A jar of honey
+G 0 18019 0		*	a honey comb
+G 0 18020 0		*	a bottle of honey mead
+G 0 18021 0		*	a jar of honey
 M 0 18001 10 18059 2	* the town guard (The Market Square)
-E 0 18026 0 5		*	A townguard crest: on the body
+E 0 18026 0 5		*	a townguard crest: on the body
 M 0 18099 3 18059 2	* a happy villager (The Market Square)
-G 0 18025 0		*	A broken wine bottle
+G 0 18025 0		*	a broken wine bottle
 M 0 18003 1 18059 1	* the bongo drummer (The Market Square)
-E 0 18010 0 16		*	A groovy bong drum: wielded
+E 0 18010 0 16		*	a groovy Bong Drum: wielded
 M 0 18004 1 18059 1	* the guitar player of the band (The Market Square)
-E 0 18011 0 16		*	A groovy guitar: wielded
+E 0 18011 0 16		*	a groovy Guitar: wielded
 M 0 18005 1 18059 1	* the windpipe player of the band (The Market Square)
-E 0 18012 0 16		*	A groovy wind-pipe: wielded
+E 0 18012 0 16		*	a groovy Wind-Pipe: wielded
 M 0 18028 4 18059 2	* a titan citizen (The Market Square)
-E 0 18060 0 8		*	A titan citizen's leather boots.: on the feet
+E 0 18060 0 8		*	a Titan Citizen's Leather Boots.: on the feet
 M 0 18032 2 18060 2	* a patrol guard (Along The Southern-side Streets)
-E 0 18061 0 16		*	A patrol guard's club: wielded
+E 0 18061 0 16		*	a patrol guard's club: wielded
 M 0 18033 3 18060 2	* a happy villager (Along The Southern-side Streets)
 M 0 18006 1 18061 1	* the armourer (A Large Armour Shop)
-G 0 18033 0		*	The silver breast plate of the titans
-G 0 18034 0		*	The silver bracer of the titans
-G 0 18035 0		*	The silver leggings of the titans
-G 0 18036 0		*	The silver boots of the titans
-G 0 18037 0		*	The silver helm of the titans
+G 0 18033 0		*	the silver breast plate of the Titans
+G 0 18034 0		*	the silver bracer of the Titans
+G 0 18035 0		*	the silver leggings of the Titans
+G 0 18036 0		*	the silver boots of the Titans
+G 0 18037 0		*	the silver helm of the Titans
 M 0 18049 6 18061 2	* a small boy titan (A Large Armour Shop)
 M 0 18087 1 18063 1	* a hard working armourer (A Large Workroom)
 M 0 18010 1 18066 1	* the weaponsmith (The Weapon Shop)
-G 0 18044 0		*	A silver sword of the titans
-G 0 18045 0		*	A silver mace of the titans
-G 0 18046 0		*	A silver axe of the titans
-G 0 18047 0		*	A silver spear of the titans
-G 0 18048 0		*	A silver-linked whip of the titans
-G 0 18049 0		*	A leather bound book on titan lore
+G 0 18044 0		*	a Silver Sword of The Titans
+G 0 18045 0		*	a Silver Mace of The Titans
+G 0 18046 0		*	a Silver Axe of The Titans
+G 0 18047 0		*	a Silver Spear of The Titans
+G 0 18048 0		*	a Silver-Linked Whip of The Titans
+G 0 18049 0		*	a Leather Bound Book on Titan Lore
 M 0 18075 1 18066 1	* a tourist (The Weapon Shop)
-G 0 18023 0		*	A tourists' scribler
+G 0 18023 0		*	a tourists' scribler
 M 0 18078 1 18066 1	* a hard working blacksmith (The Weapon Shop)
 M 0 18028 4 18067 2	* a titan citizen (A Quaint Cul-De-Sac)
-E 0 18060 0 8		*	A titan citizen's leather boots.: on the feet
+E 0 18060 0 8		*	a Titan Citizen's Leather Boots.: on the feet
 M 0 18098 1 18068 1	* the apothecary (The Apothecary)
-G 0 18028 0		*	A magical potion of invisibility.
-G 0 18029 0		*	A magical potion of teleportation.
-G 0 18030 0		*	A magical potion of the holy touch.
-G 0 18099 0		*	A magical potion of cure sickness.
-G 0 18031 0		*	A magical potion of deadly combat.
-G 0 18032 0		*	A magical potion to cure battle wounds.
+G 0 18028 0		*	a Magical Potion of Invisibility.
+G 0 18029 0		*	a Magical Potion of Teleportation.
+G 0 18030 0		*	a Magical Potion of The Holy Touch.
+G 0 18099 0		*	a Magical Potion of Cure Sickness.
+G 0 18031 0		*	a Magical Potion of Deadly Combat.
+G 0 18032 0		*	A Magical Potion to Cure Battle Wounds.
 M 0 18051 2 18069 2	* a sleeping patrol guard (The Garden in Front of The House)
 M 0 18009 1 18071 1	* the produce grocer (The Produce Section)
-G 0 18038 0		*	A titan grown carrot
-G 0 18039 0		*	A titan grown head of spinich
-G 0 18040 0		*	A titan grown apple
-G 0 18041 0		*	A titan grown orange
-G 0 18042 0		*	A titan grown cherry
+G 0 18038 0		*	a Titan grown carrot
+G 0 18039 0		*	a Titan grown head of spinich
+G 0 18040 0		*	a Titan grown apple
+G 0 18041 0		*	a Titan grown orange
+G 0 18042 0		*	a Titan grown cherry
 M 0 18049 6 18071 2	* a small boy titan (The Produce Section)
 M 0 18076 2 18072 2	* the store aid (The Dried Goods and your Other Baking Items)
 M 0 18008 1 18073 1	* the meat grocer (The Meat and Fish Department)
-G 0 18006 0		*	A slice of ham
-G 0 18007 0		*	A side of beef
-G 0 18008 0		*	A chicken wing
-G 0 18009 0		*	A leg of lamb
-G 0 18100 0		*	An apple pie
+G 0 18006 0		*	a slice of ham
+G 0 18007 0		*	a side of beef
+G 0 18008 0		*	a chicken wing
+G 0 18009 0		*	a leg of lamb
+G 0 18100 0		*	an apple pie
 M 0 18001 10 18074 2	* the town guard (The Western Side Roads)
-E 0 18026 0 5		*	A townguard crest: on the body
+E 0 18026 0 5		*	a townguard crest: on the body
 M 0 18002 7 18074 2	* a poor ally cat (The Western Side Roads)
-G 0 18024 0		*	A fish bone
+G 0 18024 0		*	a fish bone
 M 0 18033 3 18074 2	* a happy villager (The Western Side Roads)
 M 0 18065 3 18074 2	* a happy peasant (The Western Side Roads)
 M 0 18013 1 18075 1	* the bartender (The Pub)
-G 0 18051 0		*	A bright red tulip
+G 0 18051 0		*	a Bright Red Tulip
 M 0 18002 7 18081 2	* a poor ally cat (A Back Ally)
-G 0 18024 0		*	A fish bone
+G 0 18024 0		*	a fish bone
 M 0 18002 7 18081 2	* a poor ally cat (A Back Ally)
-G 0 18024 0		*	A fish bone
+G 0 18024 0		*	a fish bone
 M 0 18031 2 18081 2	* a grubby beggar (A Back Ally)
-G 0 18058 0		*	A little beggar's money pouch
+G 0 18058 0		*	a little beggar's money pouch
 M 0 18002 7 18082 2	* a poor ally cat (The Garbage Dump)
-G 0 18024 0		*	A fish bone
+G 0 18024 0		*	a fish bone
 M 0 18031 2 18082 1	* a grubby beggar (The Garbage Dump)
-G 0 18058 0		*	A little beggar's money pouch
+G 0 18058 0		*	a little beggar's money pouch
 M 0 18050 8 18082 2	* a titan girl (The Garbage Dump)
 M 0 18033 3 18083 2	* a happy villager (The End of The Western Road)
 M 0 18051 2 18083 2	* a sleeping patrol guard (The End of The Western Road)
 M 0 18015 2 18085 1	* the inn keeper (The Blue Crossings Inn)
-G 0 18027 0		*	A bottle of rum
+G 0 18027 0		*	a bottle of Rum
 M 0 18049 6 18085 2	* a small boy titan (The Blue Crossings Inn)
 M 0 18015 2 18088 1	* the inn keeper (The Green Dragon Inn)
-G 0 18027 0		*	A bottle of rum
+G 0 18027 0		*	a bottle of Rum
 M 0 18002 7 18089 2	* a poor ally cat (The Western Road Continues)
-G 0 18024 0		*	A fish bone
+G 0 18024 0		*	a fish bone
 M 0 18028 4 18089 2	* a titan citizen (The Western Road Continues)
-E 0 18060 0 8		*	A titan citizen's leather boots.: on the feet
+E 0 18060 0 8		*	a Titan Citizen's Leather Boots.: on the feet
 M 0 18032 2 18089 2	* a patrol guard (The Western Road Continues)
-E 0 18061 0 16		*	A patrol guard's club: wielded
+E 0 18061 0 16		*	a patrol guard's club: wielded
 M 0 18065 3 18089 2	* a happy peasant (The Western Road Continues)
 M 0 18025 1 18090 1	* Zanrich the Shopkeeper (Zanrich's Grade (A) Containers!)
-G 0 18064 0		*	A beautifully carved music box
-G 0 18065 0		*	A small steel box
-G 0 18066 0		*	A designer backpack
+G 0 18064 0		*	a beautifully carved music box
+G 0 18065 0		*	a small steel box
+G 0 18066 0		*	a Designer Backpack
 M 0 18011 1 18093 1	* the librarian (The Large Balcony)
-G 0 18049 0		*	A leather bound book on titan lore
+G 0 18049 0		*	a Leather Bound Book on Titan Lore
 M 0 18064 3 18095 2	* a small rat (The Secret Corridor Inside The Library)
 M 0 18064 3 18096 2	* a small rat (A Three-Way Passage in The Dark Corridor)
 M 0 18001 10 18099 1	* the town guard (The End of The Western Roads)
-E 0 18026 0 5		*	A townguard crest: on the body
+E 0 18026 0 5		*	a townguard crest: on the body
 M 0 18007 1 18100 1	* the young pet-shop girl (The Pet Shop)
 M 0 18057 1 18101 1	* a Spider Monkey (The Secret Store Room)
 M 0 18058 1 18101 1	* a tame lion (The Secret Store Room)
 M 0 18059 1 18101 1	* a large black wolf (The Secret Store Room)
 M 0 18060 1 18101 1	* a Fearsome Java Beast (The Secret Store Room)
 M 0 18024 1 18102 1	* the baker (The Valley of The Titans' Best Bakery)
-G 0 18014 0		*	A fresh baked bread
-G 0 18015 0		*	A batch of cookies
-G 0 18016 0		*	A fresh breadstick
-G 0 18017 0		*	A peach pie
-G 0 18018 0		*	A blueberry pie
+G 0 18014 0		*	a fresh baked bread
+G 0 18015 0		*	a batch of cookies
+G 0 18016 0		*	a fresh breadstick
+G 0 18017 0		*	a peach pie
+G 0 18018 0		*	a blueberry pie
 M 0 18026 1 18103 1	* the wand making wizard (The Magical Wands Shop)
-G 0 18067 0		*	A wand of titan magic
-G 0 18068 0		*	A wand of elven magic
-G 0 18069 0		*	A wand of druid magic
-G 0 18070 0		*	A wand of pixie magic
-G 0 18071 0		*	A wand of avian magic
-G 0 18072 0		*	A wand of drow magic
+G 0 18067 0		*	a Wand of Titan Magic
+G 0 18068 0		*	a Wand of Elven Magic
+G 0 18069 0		*	a Wand of Druid Magic
+G 0 18070 0		*	a Wand of Pixie Magic
+G 0 18071 0		*	a Wand of Avian Magic
+G 0 18072 0		*	a Wand of Drow Magic
 M 0 18027 2 18104 2	* the knight templar (The Eastern Boulevard)
 M 0 18027 2 18105 2	* the knight templar (The Eastern Boulevard)
-E 0 18059 0 17		*	The staff of the knight templar: held in the hands
+E 0 18059 0 17		*	the Staff of The Knight Templar: held in the hands
 M 0 18048 8 18108 2	* a Royal Titan guard (The Royal Square)
-G 0 18062 0		*	The golden key to the  valley of the titans
+G 0 18062 0		*	the Golden Key to The  Valley of The Titans
 M 0 18048 8 18108 2	* a Royal Titan guard (The Royal Square)
-G 0 18062 0		*	The golden key to the  valley of the titans
-O 0 18084 0 18108		* A beautiful large marble fountain. (The Royal Square)
+G 0 18062 0		*	the Golden Key to The  Valley of The Titans
+O 0 18084 0 18108		* a beautiful large marble fountain. (The Royal Square)
 M 0 18048 8 18109 2	* a Royal Titan guard (The Royal Gates)
-G 0 18062 0		*	The golden key to the  valley of the titans
+G 0 18062 0		*	the Golden Key to The  Valley of The Titans
 M 0 18048 8 18109 2	* a Royal Titan guard (The Royal Gates)
-G 0 18062 0		*	The golden key to the  valley of the titans
+G 0 18062 0		*	the Golden Key to The  Valley of The Titans
 M 0 18066 1 18111 1	* the guildmaster (The Guild of The Warriors and The Clerics)
 M 0 18067 1 18111 1	* the guildstudent (The Guild of The Warriors and The Clerics)
 M 0 18068 1 18111 1	* the guildstudent (The Guild of The Warriors and The Clerics)
@@ -5171,31 +5194,31 @@ M 0 18069 1 18113 1	* the guildmaster (The Guild of The Ranger and The Anti-Pala
 M 0 18070 1 18113 1	* the guildguard (The Guild of The Ranger and The Anti-Paladins)
 M 0 18073 1 18113 1	* the guildguard (The Guild of The Ranger and The Anti-Paladins)
 M 0 18034 1 18114 1	* the tournament guard (The Training Grounds South)
-E 0 18086 0 16		*	An enhanced tournament combat weapon: wielded
+E 0 18086 0 16		*	an Enhanced Tournament Combat Weapon: wielded
 M 0 18039 1 18114 1	* an evil baby dragon (The Training Grounds South)
 M 0 18035 1 18115 1	* a tournament warrior (The Training Grounds, South-Center)
-E 0 18022 0 16		*	A standard tournament combat weapon: wielded
+E 0 18022 0 16		*	a Standard Tournament Combat Weapon: wielded
 M 0 18040 1 18115 1	* a gloomy evil tree (The Training Grounds, South-Center)
 M 0 18047 1 18115 1	* a demon of stone (The Training Grounds, South-Center)
-E 0 18085 0 16		*	A standard demon weapon: wielded
+E 0 18085 0 16		*	a Standard Demon Weapon: wielded
 M 0 18036 1 18116 1	* a tournament anti-paladin (The Training Grounds South)
 M 0 18041 1 18116 1	* a deadly rain cloud (The Training Grounds South)
 M 0 18037 1 18117 1	* a tournament cleric (The Training Grounds, Center)
-E 0 18022 0 16		*	A standard tournament combat weapon: wielded
+E 0 18022 0 16		*	a Standard Tournament Combat Weapon: wielded
 M 0 18042 1 18117 1	* a demon of fire (The Training Grounds, Center)
-E 0 18085 0 16		*	A standard demon weapon: wielded
+E 0 18085 0 16		*	a Standard Demon Weapon: wielded
 M 0 18043 1 18117 1	* a demon of water (The Training Grounds, Center)
-E 0 18085 0 16		*	A standard demon weapon: wielded
+E 0 18085 0 16		*	a Standard Demon Weapon: wielded
 M 0 18038 1 18118 1	* a tournament ranger (The Northern Training Grounds, Center)
-E 0 18022 0 16		*	A standard tournament combat weapon: wielded
+E 0 18022 0 16		*	a Standard Tournament Combat Weapon: wielded
 M 0 18044 1 18118 1	* a demon of air (The Northern Training Grounds, Center)
-E 0 18085 0 16		*	A standard demon weapon: wielded
+E 0 18085 0 16		*	a Standard Demon Weapon: wielded
 M 0 18045 1 18119 1	* a demon of earth (The Training Grounds, North)
-E 0 18085 0 16		*	A standard demon weapon: wielded
+E 0 18085 0 16		*	a Standard Demon Weapon: wielded
 M 0 18046 1 18119 1	* a demon of wood (The Training Grounds, North)
-E 0 18085 0 16		*	A standard demon weapon: wielded
+E 0 18085 0 16		*	a Standard Demon Weapon: wielded
 M 0 18030 2 18120 1	* the serf (Inside The Palace)
-E 0 18057 0 8		*	The little serfs shoes: on the feet
+E 0 18057 0 8		*	the little serfs shoes: on the feet
 M 0 18074 1 18121 1	* a servant boy (An Elegant Massive Hall)
 M 0 18097 1 18122 1	* the court aritist (The Throne Room)
 M 0 18052 1 18122 1	* the first advisor (The Throne Room)
@@ -5208,8 +5231,9 @@ M 0 18054 1 18125 1	* the Visious Black Cougar (Store of the deadly beast)
 M 0 18055 1 18125 1	* the Deadly Kraken (Store of the deadly beast)
 M 0 18056 1 18125 1	* the Magical Sylph (Store of the deadly beast)
 M 0 18100 1 18126 1	* Qeustor (Temple of Titans Valley)
-O 0 18101 0 18127		* The donation pit (By the temple of Titans Valley)
+O 0 18101 0 18127		* the donation pit (By the temple of Titans Valley)
 M 0 18101 5 18127 1	* the healer (By the temple of Titans Valley)
+O 0 18102 0 18140		* a fountain (Royal Bank.)
 S
 
 

@@ -47,12 +47,12 @@ On the top of this coffin you can see a sign. The sign reads:
 ~
 #1201
 riddle brume~
-riddle from patch of brume~
+sand-colored robes~
 riddle from patch of brume~
 unknown~
-trash CJK AK
-0 0 0 0 0
-9 0 1 P
+armor JKTYZa AK
+BD BD BD BD 0
+1 0 1 P
 A
 17 -10
 A
@@ -747,8 +747,8 @@ S
 
 
 #OMPROGS
-O 1201 wear_prog wear_prog_bracer	* `riddle from patch of brume'
-O 1201 remove_prog remove_prog_bracer	* `riddle from patch of brume'
+O 1201 wear_prog wear_prog_bracer	* `sand-colored robes'
+O 1201 remove_prog remove_prog_bracer	* `sand-colored robes'
 S
 
 

@@ -1,6 +1,6 @@
 #AREADATA
 Name Heaven~
-Builders All~
+Builders None~
 VNUMs 15000 15199
 Credits abrazak~
 Security 1
@@ -23,9 +23,11 @@ ABGc H 0 0
 0 0 0 0
 0 ABDFGIJLMOPQRTXYZ 0 0
 stand stand male 2147483647
-0 0 medium unknown
+CK 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
+M RANDOM 15000 2~
+M RANDOM 15000 1~
 M BRIBE 15000 1~
 #0
 
@@ -41,12 +43,12 @@ pill ABG AOQ
 66 'detect invis' 'detect hidden' 'acute vision' 'improved detect'
 1 1 100000 P
 #15001
-pill detectction truesight~
-Pill of detection.~
-~
+food~
+Food~
+food~
 unknown~
-pill 0 A
-0 'reserved' 'reserved' 'reserved' 'reserved'
+food 0 A
+HJKMPTUX 0 0 0 0
 0 0 0 P
 #15100
 cheburator~
@@ -98,10 +100,15 @@ A
 
 #ROOMS
 #15000
-Abrazak's Office~
-You are in Abrazak's office..  Hmmm...  It's very strange place.  
+@eng Abrazak's Office@rus Офис абразака.~
+@eng You are in Abrazak's office..  Hmmm...  It's very strange place.  
+@rus Ты попал в офис абразака..... Достаточно странное место... 
 ~
 0 C 0
+D2
+~
+~
+0 0 34400
 S
 #15100
 ~
@@ -138,7 +145,6 @@ S
 
 #MOBPROGS
 #15000
-emote makes some orders.
 if mobexists junkseller
 smile
 else
@@ -147,15 +153,12 @@ mob vforce 50 mob oload 15000
 mob vforce 50 mob goto 11740
 mob vforce 50 mob cast 'teleport'
 endif
-if random 10
+mob vforce 50 mob oload 15000
 mob vforce 50 say I'm very sorry but I must go to other places.....
 mob vforce 50 wave
 mob vforce 50 mob goto 15000
 mob vforce 50 mob cast 'teleport'
 mob vforce 50 yell Hey! I have some funny junk for you !
-endif
- 
-.ld 17
 ~
 #15100
 ~

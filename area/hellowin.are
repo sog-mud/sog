@@ -22,12 +22,45 @@ but same you can see than he is corking something in leaves.
 которая растет тут. Но ты замечаешь, что он что-то заныкивает в кустах...
 ~
 bear~
-AGW ADFGHQRSTYZe 1000 0
-1 0 1d1+1 0d0+0 0d0+0 bite
+AGVWZ DFGHZe 1000 0
+50 0 1d1+1 0d0+0 0d0+0 bite
 0 0 0 0
-N ABCDEFGHIKLMNOPQRTXYZ 0 0
-stand stand male 2147483647
+0 ABCDEFGHIKLMNOPQRTXYZ 0 0
+stand stand male 10000
 H 0 small unknown
+#34401
+tank t-34~
+@eng {DTank Abrams A1M1{w@rus {DТанк Т-34{w~
+@eng {DA1M1 {WAbrams{D here rumbles by his egnie.{w
+@rus {DТанк {WТ-34{D стоит здесь урча мотором.{w
+~
+@eng You're looking at mighty TANK....
+It's armor is covered by blood and squashed brains.
+@rus Ты смотришь на ТАНК. Он грозен....
+Его броня заляпана мозгами и кровью тех кого он раздавил.
+~
+human~
+AUVZ CDEFGHJNOQRTZbcde 0 0
+96 1 1d1+29999 1d1+29999 1d1+0 blast
+-900 -900 -900 -900
+0 ABDEFGHIJLMNPQRTXY CJK S
+stand stand either 0
+EIc X giant unknown
+#34403
+test~
+test~
+Test is here
+~
+~
+human~
+AG AV 0 0
+15 0 1d1+99 0d0+0 0d0+0 none
+0 0 0 0
+FK CDEFGH 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
 #0
 
 
@@ -55,6 +88,18 @@ unknown~
 armor AJKRSTYa APR
 0 0 0 0 0
 96 0 2147483647 P
+A
+6 50
+A
+5 50
+A
+4 50
+A
+3 50
+A
+2 50
+A
+1 50
 A
 23 -200
 A
@@ -88,7 +133,7 @@ A ABCDEFGHIJKLMNOPQRSTUVWXYZabcde FIL EHI EHI
 #34404
 spring crystal~
 @eng {WSpring with crystal and clear water{w@rus {WРодник с кристально-чистой водой{w~
-@eng {WSpring with crystal and clear water flushes from ground.{w@rus {WРодник с кристально-чистой водой бьет из под земли.{w~
+@eng {WSpring with crystal and clear water flushes from ground.{w@rus {WРодник кристально-чистой воды бьет из под земли.{w~
 unknown~
 fountain AIORTY P
 -1 -1 'water' 0 0
@@ -103,12 +148,34 @@ BD ABCDEFGHIJKLMNOPQRSTUVWXYZabcde AEHKN EHI EHI
 1 0 0 P
 #34406
 food~
-~
-~
+@eng {rHot and tasty bite of roasted meat{w@rus {rВкусный и горЯчий шашлык из свежей баранины{w~
+@eng Appetizing looking roasted bite of meat.@rus Аппетитно выглядящий шашлык нанизан на шампур.~
 баранина~
-food 0 0
-CFG 0 0 0 0
+food SY A
+AC AC 0 0 0
+1 1 1 P
+#34407
+glass vodka~
+@eng {WHeeled glass filled with {BKosoruloFF{W vodka{w@rus {WГраненый стакан водовки {BКосорылоФФ{w~
+@eng Heeled glass stands on the ground.@rus Граненый стакан стоит на земле.~
+glass~
+drink IU AO
+1 1 'vodka' 0 0
 1 0 1 P
+#34408
+hero helm oleg~
+{WThe Real Hero helm of Oleg{x~
+First hero's helm lies here.~
+unknown~
+armor ABKTYZa AEP
+AF AF AF AF 0
+91 0 2147483647 P
+A
+20 -15
+A
+18 15
+A
+19 15
 #0
 
 
@@ -125,7 +192,7 @@ CFG 0 0 0 0
 ягоды, по середине  -  журчит родник с кристальной чистой водой и
 маленький ручеек скрывается в глубине леса.
 ~
-0 K 3
+0 C 3
 S
 #0
 
@@ -138,6 +205,8 @@ S
 
 #RESETS
 M 0 34400 1 34400 1	* {ysympathetic bear{w ({GClearing in the woods{w)
+G 0 34406 0		*	{rHot and tasty bite of roasted meat{w
+G 0 34407 0		*	{WHeeled glass filled with {BKosoruloFF{W vodka{w
 O 0 34405 0 34400		* {cFallen tree{w ({GClearing in the woods{w)
 O 0 34404 0 34400		* {WSpring with crystal and clear water{w ({GClearing in the woods{w)
 S
@@ -145,7 +214,7 @@ S
 
 
 #SHOPS
-34400 0 19 17 26 0 100 100 0 23
+34400 0 0 0 0 0 100 100 0 23
 0
 
 
@@ -154,6 +223,7 @@ S
 O 34400 1	* {W0==][ {YHeliacal Fire {W>>{w
 O 34401 1	* {Wfrom Russia with love{x
 O 34403 1	* {DCosily armchair{w
+O 34408 1	* {WThe Real Hero helm of Oleg{x
 S
 
 

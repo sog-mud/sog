@@ -36,8 +36,8 @@ fafhrd guard~
 недоброжелательно скользит по тебе, он готов к бою.
 ~
 human~
-ABSTe CDFHPQTVZce 1000 0
-96 333 10d5000+25000 1d1+999 1d1+999 divine
+ABSTe BCDFHPQTVZce 1000 0
+96 333 10d5000+25000 1d1+999 10d100+1000 divine
 -66 -66 -66 -66
 ABCEFHJKL ABHILMQ CDJKPTYZ R
 stand stand male 0
@@ -220,6 +220,9 @@ S
 
 #MOBPROGS
 #33000
+if istarget $n
+end
+endif
 if isghost $n
 mob transfer $n 33000
 end
@@ -233,7 +236,6 @@ yell Die, $n, you dirty bitch!!!
 endif
 mob kill $n
 endif
- 
 ~
 #0
 

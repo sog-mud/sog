@@ -2609,7 +2609,7 @@ A glowing sphere~
 A glowing sphere lights up the room~
 unknown~
 light A AO
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 3 0 0 P
 A
 12 20
@@ -2953,7 +2953,7 @@ A hand grasping an orb~
 A hand grasping an orb lies on the ground~
 unknown~
 light AG AO
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 15 3 0 P
 A
 12 50
@@ -10529,12 +10529,12 @@ Death's lane
 S
 #16192
 Death's Lane~
-This is death's lane.  A most dangerous street that even the people of the
+@eng This is death's lane.  A most dangerous street that even the people of the
 Underdark will not go near. The only reason to travel along this deadly
 street is when a person is trying to find an assassin to either kill or hire.
 
-East and south death's lane continues, north is Sunrise begins 
-~
+South death's lane continues, north is Sunrise begins.
+@rus ~
 0 ADN 1
 D0
 Sunrise
@@ -15614,8 +15614,8 @@ M 0 16108 1 16440 1	* The xaren (The Cage)
 M 0 16109 1 16441 1	* The cloaker (The Cage)
 M 0 16048 3 16442 1	* The svirfneblin patron (Common Room of the Traveller's Den)
 M 0 16118 1 16443 1	* The inn keep (Common Room at Bar)
-G 0 3002 0		*	A bottle of ale
-G 0 16093 0		*	Merchant's gold
+G 0 3002 0		*	a bottle of ale
+G 0 16093 0		*	merchant's gold
 M 0 16110 1 16444 1	* Lord Rygar (Common Room)
 M 0 16111 1 16444 1	* Orak (Common Room)
 E 0 16065 0 15		*	Thieve's patch: on the right wrist
@@ -15637,9 +15637,9 @@ E 0 16086 0 16		*	A demon blade: wielded
 M 0 16120 3 16459 1	* A demon clan mage (Hallway in the Demon Clan)
 E 0 16085 0 14		*	Demon bracer: on the left wrist
 M 0 16123 2 16460 1	* The cambion (Clan Member's Sleeping Quarters)
-E 0 16088 0 5		*	Demon plate: on the body
+E 0 16088 0 5		*	Demon Plate: on the body
 M 0 16124 2 16461 1	* A noble cambion (Eastern Summoning Chamber)
-E 0 16088 0 5		*	Demon plate: on the body
+E 0 16088 0 5		*	Demon Plate: on the body
 M 0 16120 3 16462 1	* A demon clan mage (Eastern Summoning Chamber)
 E 0 16085 0 14		*	Demon bracer: on the left wrist
 M 0 16122 3 16462 1	* The demon summoner (Eastern Summoning Chamber)
@@ -15651,7 +15651,7 @@ E 0 16084 0 1		*	A demon clan signet ring: on the left finger
 M 0 16119 3 16474 1	* The demon clan member (Hallway in the Demon Clan)
 E 0 16084 0 1		*	A demon clan signet ring: on the left finger
 M 0 16123 2 16475 1	* The cambion (Western Summoning Chamber)
-E 0 16088 0 5		*	Demon plate: on the body
+E 0 16088 0 5		*	Demon Plate: on the body
 M 0 16122 3 16477 1	* The demon summoner (Western Summoning Chamber)
 E 0 16087 0 17		*	Gem of gate: held in the hands
 M 0 16125 1 16478 1	* Irmugar (Western Summoning Chamber)
@@ -15660,7 +15660,7 @@ M 0 16126 1 16478 1	* The hezron (Western Summoning Chamber)
 M 0 16121 3 16479 1	* A demon clan fighter (Hallway in the Demon Clan)
 E 0 16086 0 16		*	A demon blade: wielded
 M 0 16124 2 16480 1	* A noble cambion (Northern Summoning Room)
-E 0 16088 0 5		*	Demon plate: on the body
+E 0 16088 0 5		*	Demon Plate: on the body
 M 0 16122 3 16482 1	* The demon summoner (Northern Summoning Room)
 E 0 16087 0 17		*	Gem of gate: held in the hands
 M 0 16001 35 16001 1	* The enforcer eye (Corner of Wyrm Street and Sunset)
@@ -15737,7 +15737,7 @@ M 0 16083 5 16066 1	* The filcher (Moonlight Avenue)
 E 0 16066 0 9		*	Thieve's gloves: on the hands
 M 0 16014 10 16067 1	* The lizard man (Moonlight Avenue)
 M 0 16056 15 16068 1	* The slave trader (Emerald Street)
-E 0 16038 0 16		*	Slaver's whip: wielded
+E 0 16038 0 16		*	Slaver's Whip: wielded
 M 0 16001 35 16069 1	* The enforcer eye (Emerald Street)
 M 0 16002 24 16071 1	* The floating eye (Sunrise)
 M 0 16081 16 16071 1	* The footpad (Sunrise)
@@ -15748,18 +15748,18 @@ M 0 16002 24 16073 1	* The floating eye (Sunrise)
 M 0 16127 4 16074 1	* An eye of fear and flame (Slaver's Route)
 M 0 16002 24 16075 1	* The floating eye (Slaver's Route)
 M 0 16056 15 16077 1	* The slave trader (Slaver's Route)
-E 0 16038 0 16		*	Slaver's whip: wielded
+E 0 16038 0 16		*	Slaver's Whip: wielded
 M 0 16001 35 16080 1	* The enforcer eye (Slaver's Route)
 E 0 16001 0 5		*	Scale of the enforcer: on the body
 M 0 16008 12 16080 1	* The drow trader (Slaver's Route)
 E 0 16007 0 16		*	Sword of darkness: wielded
 M 0 16056 15 16080 1	* The slave trader (Slaver's Route)
-E 0 16038 0 16		*	Slaver's whip: wielded
+E 0 16038 0 16		*	Slaver's Whip: wielded
 M 0 16002 24 16083 1	* The floating eye (Slaver's Route)
 M 0 16002 24 16083 1	* The floating eye (Slaver's Route)
 M 0 16014 10 16084 1	* The lizard man (Slaver's Route (midtown))
 M 0 16056 15 16084 1	* The slave trader (Slaver's Route (midtown))
-E 0 16038 0 16		*	Slaver's whip: wielded
+E 0 16038 0 16		*	Slaver's Whip: wielded
 M 0 16041 3 16085 1	* The worker of the night (Slaver's route, before the Whore House)
 M 0 16007 16 16086 1	* The svirfneblin (Slaver's Route)
 E 0 16006 0 16		*	Glinting gnome mace: wielded
@@ -15767,15 +15767,15 @@ M 0 16001 35 16087 1	* The enforcer eye (Slaver's Route at Emerald)
 M 0 16002 24 16087 1	* The floating eye (Slaver's Route at Emerald)
 M 0 16002 24 16088 1	* The floating eye (Slaver's Route before the Inn)
 M 0 16056 15 16088 1	* The slave trader (Slaver's Route before the Inn)
-E 0 16038 0 16		*	Slaver's whip: wielded
+E 0 16038 0 16		*	Slaver's Whip: wielded
 M 0 16081 16 16088 1	* The footpad (Slaver's Route before the Inn)
 E 0 16065 0 15		*	Thieve's patch: on the right wrist
 M 0 16007 16 16089 1	* The svirfneblin (Slaver's Route Before the Prisons)
 E 0 16006 0 16		*	Glinting gnome mace: wielded
 M 0 16056 15 16089 1	* The slave trader (Slaver's Route Before the Prisons)
-E 0 16038 0 16		*	Slaver's whip: wielded
+E 0 16038 0 16		*	Slaver's Whip: wielded
 M 0 16056 15 16089 1	* The slave trader (Slaver's Route Before the Prisons)
-E 0 16038 0 16		*	Slaver's whip: wielded
+E 0 16038 0 16		*	Slaver's Whip: wielded
 M 0 16057 12 16090 1	* A slaver buyer (Slaver's Route)
 G 0 16039 0		*	A pair of manacles
 M 0 16057 12 16090 1	* A slaver buyer (Slaver's Route)
@@ -15783,9 +15783,9 @@ M 0 16014 10 16091 1	* The lizard man (Slaver's Route)
 M 0 16001 35 16092 1	* The enforcer eye (Slaver's Route)
 E 0 16001 0 5		*	Scale of the enforcer: on the body
 M 0 16056 15 16092 1	* The slave trader (Slaver's Route)
-E 0 16038 0 16		*	Slaver's whip: wielded
+E 0 16038 0 16		*	Slaver's Whip: wielded
 M 0 16056 15 16092 1	* The slave trader (Slaver's Route)
-E 0 16038 0 16		*	Slaver's whip: wielded
+E 0 16038 0 16		*	Slaver's Whip: wielded
 M 0 16057 12 16093 1	* A slaver buyer (Before the east entrance)
 M 0 16057 12 16094 1	* A slaver buyer (The Gathering Place)
 G 0 16039 0		*	A pair of manacles
@@ -15796,7 +15796,7 @@ M 0 16009 18 16097 1	* The duergar (The Gathering Place)
 M 0 16057 12 16098 1	* A slaver buyer (The Slave's Square)
 G 0 16039 0		*	A pair of manacles
 M 0 16056 15 16099 1	* The slave trader (The Slave's Square)
-E 0 16038 0 16		*	Slaver's whip: wielded
+E 0 16038 0 16		*	Slaver's Whip: wielded
 M 0 16081 16 16099 1	* The footpad (The Slave's Square)
 E 0 16065 0 15		*	Thieve's patch: on the right wrist
 M 0 16001 35 16100 1	* The enforcer eye (The slave's square)
@@ -15809,7 +15809,7 @@ G 0 16090 0		*	A fire gem
 M 0 16007 16 16101 1	* The svirfneblin (The slave's square)
 E 0 16006 0 16		*	Glinting gnome mace: wielded
 M 0 16056 15 16101 1	* The slave trader (The slave's square)
-E 0 16038 0 16		*	Slaver's whip: wielded
+E 0 16038 0 16		*	Slaver's Whip: wielded
 M 0 16057 12 16101 1	* A slaver buyer (The slave's square)
 G 0 16039 0		*	A pair of manacles
 M 0 16009 18 16103 1	* The duergar (Sunrise before the cages)
@@ -15823,8 +15823,8 @@ E 0 16074 0 16		*	A blade of poison: wielded
 M 0 16002 24 16108 1	* The floating eye (Street of the Gods, Silence)
 M 0 16001 35 16109 1	* The enforcer eye (Street of the Gods, Snikt)
 M 0 16009 18 16109 1	* The duergar (Street of the Gods, Snikt)
-O 0 16091 0 16109		* Statue of the a god (Street of the Gods, Snikt)
-P 0 16092 0 16091 1	* Statue of the a god: Statue of the a god
+O 0 16091 0 16109		* Statue of the a God (Street of the Gods, Snikt)
+P 0 16092 0 16091 1	* Statue of the a God: brains of the god
 M 0 16007 16 16110 1	* The svirfneblin (Street of the Gods, Ironhand)
 E 0 16006 0 16		*	Glinting gnome mace: wielded
 M 0 16082 5 16110 1	* The cutpurse (Street of the Gods, Ironhand)
@@ -15847,7 +15847,7 @@ M 0 16002 24 16120 1	* The floating eye (Street of the Gods, Calliope)
 M 0 16129 7 16120 1	* The eye killer (Street of the Gods, Calliope)
 M 0 16014 10 16121 1	* The lizard man (Street of the Gods, Garth)
 M 0 16056 15 16123 1	* The slave trader (Street of the Gods, Etaine)
-E 0 16038 0 16		*	Slaver's whip: wielded
+E 0 16038 0 16		*	Slaver's Whip: wielded
 M 0 16127 4 16123 1	* An eye of fear and flame (Street of the Gods, Etaine)
 G 0 16090 0		*	A fire gem
 M 0 16084 5 16125 1	* The rogue (Sunset)
@@ -15880,7 +15880,7 @@ G 0 16010 0		*	A piece of polished blood stone
 M 0 16012 1 16135 1	* The fighter (Road of Shadows)
 E 0 16011 0 5		*	Breast plate of strength: on the body
 M 0 16013 1 16135 1	* A high priest of Xevior (Road of Shadows)
-E 0 16012 0 17		*	A shining holy symbol of xevior: held in the hands
+E 0 16012 0 17		*	A shining holy symbol of Xevior: held in the hands
 M 0 16001 35 16136 1	* The enforcer eye (Road of Shadows)
 M 0 16057 12 16137 1	* A slaver buyer (Road Of Shadows)
 M 0 16082 5 16137 1	* The cutpurse (Road Of Shadows)
@@ -15891,7 +15891,7 @@ M 0 16092 6 16139 1	* The murderer (Road of Shadows)
 E 0 16074 0 16		*	A blade of poison: wielded
 M 0 16009 18 16140 1	* The duergar (Road of Shadows)
 M 0 16056 15 16140 1	* The slave trader (Road of Shadows)
-E 0 16038 0 16		*	Slaver's whip: wielded
+E 0 16038 0 16		*	Slaver's Whip: wielded
 M 0 16081 16 16140 1	* The footpad (Road of Shadows)
 E 0 16065 0 15		*	Thieve's patch: on the right wrist
 M 0 16127 4 16140 1	* An eye of fear and flame (Road of Shadows)
@@ -15980,7 +15980,7 @@ M 0 16002 24 16198 1	* The floating eye (Beginning of Sunset)
 M 0 16002 24 16198 1	* The floating eye (Beginning of Sunset)
 G 0 16002 0		*	Blood shot eye
 M 0 16056 15 16198 1	* The slave trader (Beginning of Sunset)
-E 0 16038 0 16		*	Slaver's whip: wielded
+E 0 16038 0 16		*	Slaver's Whip: wielded
 M 0 16001 35 16201 1	* The enforcer eye (Traveller's Crescent)
 E 0 16001 0 5		*	Scale of the enforcer: on the body
 M 0 16007 16 16201 1	* The svirfneblin (Traveller's Crescent)
@@ -16029,19 +16029,19 @@ M 0 16022 4 16244 1	* The duergar patron (The Gemstone)
 M 0 16024 2 16244 1	* The human patron (The Gemstone)
 M 0 16022 4 16245 1	* The duergar patron (The Gemstone)
 M 0 16025 1 16245 1	* Caris (The Gemstone)
-E 0 3072 0 5		*	A scale mail jerkin: on the body
-E 0 3073 0 6		*	A scale mail coif: over the head
-E 0 3074 0 7		*	A long scale mail skirt: on the legs
-E 0 3077 0 10		*	A pair of scale mail sleeves: on the arms
-E 0 9212 0 14		*	An elemental bracelet: on the left wrist
+E 0 3072 0 5		*	a scale mail jerkin: on the body
+E 0 3073 0 6		*	a scale mail coif: over the head
+E 0 3074 0 7		*	a long scale mail skirt: on the legs
+E 0 3077 0 10		*	a pair of scale mail sleeves: on the arms
+E 0 9212 0 14		*	an elemental bracelet: on the left wrist
 M 0 16026 1 16245 1	* Antryg (The Gemstone)
-E 0 1615 0 14		*	A mithril bracer: on the left wrist
-E 0 633 0 7		*	Silver leggings: on the legs
+E 0 1615 0 14		*	a mithril bracer: on the left wrist
+E 0 633 0 7		*	silver leggings: on the legs
 M 0 16023 3 16246 1	* The drow patron (The Gemstone)
 M 0 16024 2 16246 1	* The human patron (The Gemstone)
 M 0 16021 1 16247 1	* The Barkeep (The Gemstone)
-G 0 3002 0		*	A bottle of ale
-G 0 16093 0		*	Merchant's gold
+G 0 3002 0		*	a bottle of ale
+G 0 16093 0		*	merchant's gold
 M 0 16022 4 16247 1	* The duergar patron (The Gemstone)
 M 0 16023 3 16247 1	* The drow patron (The Gemstone)
 M 0 16029 5 16248 1	* The huge rat (Deserted Warehouse)
@@ -16088,48 +16088,48 @@ M 0 16028 3 16273 1	* The slime creature (Abandoned Rest Room)
 E 0 16019 0 16		*	Very muddy branch: wielded
 M 0 16039 2 16280 1	* The servant (Guest Room)
 M 0 16036 1 16282 1	* Itreres (Guest Chamber)
-E 0 1704 0 16		*	An ancient long sword: wielded
-E 0 2009 0 5		*	A suit of chainmail: on the body
-E 0 16026 0 11		*	Black shield of protection: as a shield
+E 0 1704 0 16		*	an ancient long sword: wielded
+E 0 2009 0 5		*	a suit of chainmail: on the body
+E 0 16026 0 11		*	Black Shield of Protection: as a shield
 M 0 16035 4 16283 1	* The stone golem (A Hallway in the Mansion)
-E 0 16025 0 16		*	A huge stone mace: wielded
+E 0 16025 0 16		*	A Huge Stone Mace: wielded
 M 0 16033 1 16285 1	* The mage (Small Well Furnished Chamber)
 G 0 16023 0		*	Dull eyes
 M 0 16035 4 16286 1	* The stone golem (End of Hall in the Mansion)
-E 0 16025 0 16		*	A huge stone mace: wielded
+E 0 16025 0 16		*	A Huge Stone Mace: wielded
 M 0 16039 2 16287 1	* The servant (Dining Hall)
 M 0 16040 1 16288 1	* The gibbering mouther (Dining Hall)
 M 0 16038 2 16289 1	* The babau (Secret Chamber)
-G 0 16028 0		*	Demon horn
+G 0 16028 0		*	Demon Horn
 M 0 16034 3 16290 1	* The iron golem (Main Hall)
-E 0 16024 0 16		*	An iron sword: wielded
+E 0 16024 0 16		*	An Iron Sword: wielded
 M 0 16035 4 16293 1	* The stone golem (Main Hall)
-E 0 16025 0 16		*	A huge stone mace: wielded
+E 0 16025 0 16		*	A Huge Stone Mace: wielded
 M 0 16034 3 16294 1	* The iron golem (Main Hall)
-E 0 16024 0 16		*	An iron sword: wielded
+E 0 16024 0 16		*	An Iron Sword: wielded
 M 0 16037 1 16294 1	* The imp (Main Hall)
 E 0 16027 0 17		*	A small black stone: held in the hands
 M 0 16038 2 16295 1	* The babau (Audience Chamber)
-G 0 16028 0		*	Demon horn
+G 0 16028 0		*	Demon Horn
 M 0 16034 3 16296 1	* The iron golem (Audience Chamber)
-E 0 16024 0 16		*	An iron sword: wielded
+E 0 16024 0 16		*	An Iron Sword: wielded
 M 0 16035 4 16297 1	* The stone golem (Audience Chamber)
-E 0 16025 0 16		*	A huge stone mace: wielded
+E 0 16025 0 16		*	A Huge Stone Mace: wielded
 M 0 16032 1 16298 1	* The bodak (Audience Chamber)
 E 0 16021 0 17		*	A black wand inlaid with gold symbols: held in the hands
 E 0 16022 0 13		*	Girth of protection: around the waist
 M 0 16045 1 16300 1	* The pimp (Paying Room)
-G 0 16032 0		*	Gold teeth
+G 0 16032 0		*	Gold Teeth
 M 0 16041 3 16301 1	* The worker of the night (Whoring Area)
 M 0 16044 2 16301 1	* A preferred customer (Whoring Area)
 E 0 16031 0 1		*	Ring of nobility: on the left finger
 M 0 16042 2 16302 1	* A maid of passion (Whoring Area)
-E 0 16029 0 12		*	Translucent robe: about the shoulders
+E 0 16029 0 12		*	Translucent Robe: about the shoulders
 M 0 16044 2 16302 1	* A preferred customer (Whoring Area)
 E 0 16031 0 1		*	Ring of nobility: on the left finger
 M 0 16041 3 16303 1	* The worker of the night (Whoring Area)
 M 0 16042 2 16303 1	* A maid of passion (Whoring Area)
-E 0 16029 0 12		*	Translucent robe: about the shoulders
+E 0 16029 0 12		*	Translucent Robe: about the shoulders
 M 0 16043 1 16304 1	* A granter of pleasure (Whoring Area)
 E 0 16030 0 13		*	Belt of pleasure: around the waist
 M 0 16048 3 16308 1	* The svirfneblin patron (Common Room)
@@ -16147,13 +16147,13 @@ M 0 16052 1 16312 1	* Drevlin (Inn Room)
 E 0 16036 0 8		*	Boots of flying: on the feet
 M 0 16046 3 16314 1	* The halfling patron (Common Room)
 M 0 16049 1 16314 1	* The inn keeper (Common Room)
-G 0 3002 0		*	A bottle of ale
-G 0 16093 0		*	Merchant's gold
+G 0 3002 0		*	a bottle of ale
+G 0 16093 0		*	merchant's gold
 M 0 16054 3 16314 1	* The serving wench (Common Room)
 M 0 16051 1 16318 1	* Geg (Inn Room)
 E 0 16035 0 6		*	A gnome hat: over the head
 M 0 16055 1 16319 1	* The Slave Dealer (Entrance to the Slaver's Market)
-G 0 16094 0		*	Not so rich merchant gold
+G 0 16094 0		*	not so rich merchant gold
 M 0 16058 1 16320 1	* The orc slave (Slave Cage)
 M 0 16059 1 16320 1	* The goblin slave (Slave Cage)
 M 0 16060 1 16320 1	* A male human slave (Slave Cage)
@@ -16166,7 +16166,7 @@ G 0 16039 0		*	A pair of manacles
 M 0 16057 12 16323 1	* A slaver buyer (Slave Hall)
 G 0 16039 0		*	A pair of manacles
 M 0 16056 15 16325 1	* The slave trader (Slave Hall)
-E 0 16038 0 16		*	Slaver's whip: wielded
+E 0 16038 0 16		*	Slaver's Whip: wielded
 M 0 16003 3 16331 1	* The prisoner (Prison Cell)
 M 0 16003 3 16334 1	* The prisoner (Prison Cell)
 M 0 16001 35 16336 1	* The enforcer eye (Prison Hall)
@@ -16195,8 +16195,8 @@ M 0 16072 1 16351 1	* Shillikif (Dining Area)
 E 0 16046 0 5		*	Black drow chainmail: on the body
 M 0 16022 4 16352 1	* The duergar patron (The Dining Area)
 M 0 16065 1 16352 1	* The Bar Tender (The Dining Area)
-G 0 3002 0		*	A bottle of ale
-G 0 16094 0		*	Not so rich merchant gold
+G 0 3002 0		*	a bottle of ale
+G 0 16094 0		*	not so rich merchant gold
 M 0 16066 1 16353 1	* Prax (Dining Area)
 E 0 16040 0 3		*	A mage cloak: around the neck (1)
 M 0 16067 1 16353 1	* Thespan (Dining Area)
@@ -16209,27 +16209,27 @@ M 0 16073 1 16356 1	* Yie'Stei (The Glowing Hand)
 G 0 16059 0		*	Scroll of reveal
 G 0 16060 0		*	Hand of shocking grasp
 G 0 16061 0		*	Potion of detection
-G 0 16093 0		*	Merchant's gold
+G 0 16093 0		*	merchant's gold
 M 0 16074 1 16357 1	* Zae'tres (The Cracked Sword)
 G 0 16047 0		*	A drow sword
 G 0 16048 0		*	A drow dagger
 G 0 16049 0		*	A drow mace
-G 0 16093 0		*	Merchant's gold
+G 0 16093 0		*	merchant's gold
 M 0 16075 1 16358 1	* Raesarnt (The Dented Shield)
 G 0 16050 0		*	Duergar breastplate
 G 0 16051 0		*	A duergar helm
 G 0 16052 0		*	A duergar shield
 G 0 16053 0		*	Duergar leggings
 G 0 16054 0		*	A duergar bracer
-G 0 16093 0		*	Merchant's gold
+G 0 16093 0		*	merchant's gold
 M 0 16076 1 16359 1	* Satori (The Sparkling Jewel)
-G 0 16093 0		*	Merchant's gold
+G 0 16093 0		*	merchant's gold
 M 0 16077 1 16360 1	* Jiestis (The Darkened Root)
 G 0 16055 0		*	A brown mushroom
 G 0 16056 0		*	A large mushroom
 G 0 16057 0		*	Red moss
 G 0 16058 0		*	A dirty root
-G 0 16093 0		*	Merchant's gold
+G 0 16093 0		*	merchant's gold
 M 0 16078 2 16364 1	* The svirfneblin (Svirfneblin Chamber)
 E 0 16062 0 7		*	Svirfneblin leggings: on the legs
 M 0 16078 2 16365 1	* The svirfneblin (Svirfneblin Hallway)
@@ -16237,7 +16237,7 @@ E 0 16062 0 7		*	Svirfneblin leggings: on the legs
 M 0 16079 1 16366 1	* The svirfneblin dignitary (Svirfneblin Chamber)
 E 0 16063 0 3		*	Necklace of nobility: around the neck (1)
 M 0 16080 1 16368 1	* The caretaker (Svirfneblin Chamber)
-E 0 16064 0 16		*	A broadsword named 'vision': wielded
+E 0 16064 0 16		*	A broadsword named 'Vision': wielded
 M 0 16085 8 16370 1	* The sharper (Thieve's Guard Room)
 M 0 16085 8 16370 1	* The sharper (Thieve's Guard Room)
 E 0 16068 0 17		*	Lucky dice: held in the hands

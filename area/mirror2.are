@@ -1,8 +1,12 @@
-#AREA
-mirror2.are~
-Mirror of Realm~
-{20 50} Merri   Mirror Realm~
-19000 19200
+#AREADATA
+Name Mirror of Realm~
+Builders None~
+VNUMs 19000 19200
+Credits Merri~
+Security 9
+LevelRange 20 50
+End
+
 
 
 #MOBILES
@@ -20,11 +24,11 @@ on the empty space in front of him.
 ~
 human~
 ABGT DF 0 0
-23 0 5d10+450 5d5+1000 3d6+6 pound     
+23 0 5d10+450 5d5+1000 3d6+6 pound
 -6 -6 -6 4
 CDEFIJKU 0 0 0
 stand stand male 10
-0 0 medium 0
+0 0 medium unknown
 #19002
 pale withered knight~
 a withered knight~
@@ -41,7 +45,7 @@ ABCFG DFJQ 0 0
 -15 -15 -15 2
 CDEFIJK 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19003
 king loranhir man~
 King Loranhir~
@@ -64,7 +68,7 @@ ABGT DFJNU 0 0
 -19 -19 -19 1
 CDEFIJKN 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19004
 caerlin bard~
 Caerlin~
@@ -80,7 +84,7 @@ ABG H 1000 0
 -11 -11 -11 3
 CDEFIJK 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19005
 commoner mirror citizen man~
 the young man~
@@ -93,11 +97,11 @@ he smiles at you as you walk by, and nods his head in greeting.
 ~
 human~
 AG N 1000 0
-19 0  3d9+308 5d5+1000 2d7+5 punch     
+19 0 3d9+308 5d5+1000 2d7+5 punch
 -4 -4 -4 5
 CDEFIJ 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19006
 citizen mirror commoner woman~
 the woman~
@@ -111,11 +115,11 @@ in greeting.
 ~
 human~
 AG N 1000 0
-19 0  3d9+308 5d5+1000 2d7+5 punch      
+19 0 3d9+308 5d5+1000 2d7+5 punch
 -4 -4 -4 5
 CDEFIJ 0 0 0
 stand stand female 0
-0 0 medium 0
+0 0 medium unknown
 #19007
 unicorne silver horse~
 the unicorne~
@@ -131,7 +135,7 @@ ABG DFHN 1000 0
 -13 -13 -13 3
 CDEFK 0 0 0
 stand stand none 0
-0 0 medium 0
+0 0 medium unknown
 #19008
 watchman~
 a watchman~
@@ -143,11 +147,11 @@ completely still with the hood of his robe pulled far over his head.
 ~
 human~
 ABG DFN 0 0
-19 0  3d9+308 5d5+1000 2d7+5 slap     
+19 0 3d9+308 5d5+1000 2d7+5 slap
 -4 -4 -4 5
 CDEFIJ 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19009
 watchman~
 a watchman~
@@ -158,11 +162,11 @@ his eyes shines through the dark shadows inside the robe's hood.
 ~
 human~
 ABG DFJ 0 0
-19 0  3d9+308 5d5+1000 2d7+5 slap     
+19 0 3d9+308 5d5+1000 2d7+5 slap
 -4 -4 -4 5
 DEF 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19010
 watchman~
 a watchman~
@@ -173,11 +177,11 @@ his eyes shines through the dark shadows inside the robe's hood.
 ~
 human~
 ABG DFJ 0 0
-19 0 3d9+308 5d5+1000 2d7+5 slap     
+19 0 3d9+308 5d5+1000 2d7+5 slap
 -4 -4 -4 5
 DF 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19011
 bear zbear~
 Bear-de-bear~
@@ -193,9 +197,9 @@ bear~
 ABGH BDFNU 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 claw
 -21 -21 -21 -1
-CDEFIJK 0 0 0
+CFIJK 0 0 0
 stand stand male 0
-0 0 large 0
+0 0 large unknown
 #19012
 knight withered~
 a withered knight~
@@ -212,7 +216,7 @@ ABCFGT DFJQ 0 0
 -15 -15 -15 2
 DEF 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19013
 grey mare horse skeleton~
 the Grey Mare~
@@ -222,13 +226,13 @@ The Grey Mare's fleshless skull seems to laugh at you as it inspects you
 carefully; as it approaches, it lowers its head, pointing its bone horn
 directly at your chest.
 ~
-unknown~
+unique~
 AG DFIP -1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 magic
 -15 -15 -15 2
 CDFIJ 0 0 0
 stand stand none 0
-0 0 medium 0
+0 0 medium unknown
 #19014
 bride woman~
 the bride~
@@ -240,11 +244,11 @@ silently as he blushes and smiles.
 ~
 human~
 ABG HN 1000 0
-25 0  5d10+550 5d5+1000 2d10+7 slap    
+25 0 5d10+550 5d5+1000 2d10+7 slap
 -7 -7 -7 4
 F 0 0 0
 stand stand female 0
-0 0 medium 0
+0 0 medium unknown
 #19015
 groom man~
 the groom~
@@ -256,11 +260,11 @@ he relaxes, blushing faintly and smiling at her.
 ~
 human~
 ABG HN 1000 0
-25 0  5d10+550 5d5+1000 2d10+7 pound    
+25 0 5d10+550 5d5+1000 2d10+7 pound
 -7 -7 -7 4
 FIJ 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19016
 red lord scarlet~
 the Red Lord~
@@ -276,7 +280,7 @@ AG DFN 1000 0
 -11 -11 -11 3
 FIJK 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19017
 orange lord~
 the Orange Lord~
@@ -294,7 +298,7 @@ AG DFJN 1000 0
 -11 -11 -11 3
 FIJK 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19018
 yellow lord~
 the Yellow Lord~
@@ -311,7 +315,7 @@ AG DFJN 1000 0
 -11 -11 -11 3
 FIJK 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19019
 green lord~
 the Green Lord~
@@ -328,7 +332,7 @@ AG DFJN 1000 0
 -11 -11 -11 3
 FIJK 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19020
 blue lord~
 the Blue Lord~
@@ -345,7 +349,7 @@ AG DFJN 1000 0
 -11 -11 -11 3
 FIJK 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19021
 violet lord~
 the Violet Lord~
@@ -362,7 +366,7 @@ AG DFJN 1000 0
 -11 -11 -11 3
 FIJK 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19022
 gardner gardener lady~
 the gardener~
@@ -372,11 +376,11 @@ An old lady bends over her plants, clearing away the moss and dead leaves.
 ~
 human~
 AG P 1000 0
-25 0  5d10+550 5d5+1000 2d10+7 punch    
+25 0 5d10+550 5d5+1000 2d10+7 punch
 -7 -7 -7 4
 FIJ 0 0 0
 stand stand female 0
-0 0 medium 0
+0 0 medium unknown
 #19023
 priest brother thomas~
 Brother Thomas~
@@ -388,11 +392,11 @@ religious duties in the town.
 ~
 human~
 ABG H 1000 0
-39 0 15d10+1700 5d5+1000 5d6+13 pound 
+39 0 15d10+1700 5d5+1000 5d6+13 pound
 -13 -13 -13 3
 FIJK 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19024
 wizard standard~
 a standard issue wizard~
@@ -409,7 +413,7 @@ ABG DFGJN 1000 0
 -13 -13 -13 3
 F 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19025
 pool man~
 the pool player~
@@ -420,11 +424,11 @@ rack after rack; he smiles as you enter, then turns back to his game.
 ~
 human~
 ABG 0 1000 0
-25 0  5d10+550 5d5+1000 2d10+7 punch    
+25 0 5d10+550 5d5+1000 2d10+7 punch
 -7 -7 -7 4
 FIJ 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19026
 lauraine barkeep~
 Lauraine the barkeep~
@@ -439,7 +443,7 @@ ABG 0 1000 0
 -13 -13 -13 3
 FIJ 0 0 0
 stand stand female 0
-0 0 medium 0
+0 0 medium unknown
 #19027
 waiter~
 the waiter~
@@ -454,7 +458,7 @@ ABG 0 1000 0
 -13 -13 -13 3
 FIJ 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19028
 master karate dunn~
 Master Dunn~
@@ -472,7 +476,7 @@ ABGJK DFHN 1000 0
 -15 -15 -15 2
 CDEFIJKN 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19029
 proprietor shopkeeper man~
 the proprietor~
@@ -487,7 +491,7 @@ ABGJK DFN 1000 0
 -15 -15 -15 2
 FIJ 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19030
 truxton librarian~
 Mrs. Truxton the Librarian~
@@ -504,7 +508,7 @@ ABG DFN 1000 0
 -15 -15 -15 2
 FIJ 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19031
 father franklin~
 Father Franklin~
@@ -522,7 +526,7 @@ ABG H 1000 0
 -13 -13 -13 3
 FI 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19032
 dark lord white~
 the White Lord~
@@ -539,7 +543,7 @@ AG DFJP -1000 0
 -11 -11 -11 3
 FIK 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19033
 lord dark black~
 the Black Lord~
@@ -555,7 +559,7 @@ AG DFJP -1000 0
 -11 -11 -11 3
 FIK 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19034
 storn assassin~
 Storn the assassin~
@@ -568,11 +572,11 @@ forming thick, hard scars.
 ~
 human~
 AGKe DFJPQ -1000 0
-45 0 25d10+3000 5d5+1000 8d4+16 pound 
+45 0 25d10+3000 5d5+1000 8d4+16 pound
 -15 -15 -15 2
 FIK 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19035
 wizard standard evil~
 a standard issue wizard~
@@ -588,7 +592,7 @@ ABG DFJ -1000 0
 -15 -15 -15 2
 FI 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19036
 gardener gardner lady~
 the gardener~
@@ -598,11 +602,11 @@ The gardener grins evilly at you as she decapitates a dead rose bush.
 ~
 human~
 ACG DFJ -1000 0
-25 0  5d10+550 5d5+1000 2d10+7 punch    
+25 0 5d10+550 5d5+1000 2d10+7 punch
 -7 -7 -7 4
 FI 0 0 0
 stand stand female 0
-0 0 medium 0
+0 0 medium unknown
 #19037
 kid boy child~
 the young boy~
@@ -613,11 +617,11 @@ running; still, he looks healthy and strong.
 ~
 human~
 ABCGH 0 1000 0
-20 0  3d9+333 5d5+1000 2d8+5 punch     
+20 0 3d9+333 5d5+1000 2d8+5 punch
 -4 -4 -4 5
 FI 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19038
 fisherman man~
 the fisherman~
@@ -628,11 +632,11 @@ so that you don't disturb the fish.
 ~
 human~
 ABG 0 1000 0
-25 0  5d10+550 5d5+1000 2d10+7 pound    
+25 0 5d10+550 5d5+1000 2d10+7 pound
 -7 -7 -7 4
 FI 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19039
 deer buck~
 The buck~
@@ -645,11 +649,11 @@ even if they are shaky.
 ~
 human~
 ABG 0 1000 0
-30 0  6d12+853 5d5+1000 4d6+8 charge     
+30 0 6d12+853 5d5+1000 4d6+8 charge
 -9 -9 -9 3
 FI 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19040
 something~
 something~
@@ -658,13 +662,13 @@ Something swirls about the mists.
 You can't tell anything about whatever this might be...the mists are just too
 thick.
 ~
-unknown~
+unique~
 ABFG BDFINQ -1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 magic
 -20 -20 -20 0
 F 0 0 0
 stand stand none 0
-0 0 medium 0
+0 0 medium unknown
 #19041
 mass red ants~
 the mass of red ants~
@@ -674,13 +678,13 @@ Thousands of ants have clumped together here to form a basketball-sized mass;
 your skin prickles faintly as you watch the creepy creatures climb all over 
 each other in their search for food.
 ~
-unknown~
+unique~
 ABCFG I -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 magic
 -11 -11 -11 3
 F 0 0 0
 stand stand none 0
-0 0 small 0
+0 0 small unknown
 #19042
 man card shark~
 the card shark~
@@ -692,11 +696,11 @@ light up as you enter, however, and he motions you over to play a game.
 ~
 human~
 ABCG JP -1000 0
-25 0  5d10+550 5d5+1000 2d10+7 bite    
+25 0 5d10+550 5d5+1000 2d10+7 bite
 -7 -7 -7 4
 F 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19043
 hepzibah bartender~
 Hepzibah the Barkeep~
@@ -714,7 +718,7 @@ ABG DF -1000 0
 -13 -13 -13 3
 FI 0 0 0
 stand stand female 0
-0 0 medium 0
+0 0 medium unknown
 #19044
 carvallo undertaker~
 Carvallo~
@@ -731,7 +735,7 @@ ABCG DFJP -1000 0
 -11 -11 -11 3
 F 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19045
 citizen man commoner~
 the young man~
@@ -744,11 +748,11 @@ go.
 ~
 human~
 AG P -1000 0
-20 0  3d9+333 5d5+1000 2d8+5 punch     
+20 0 3d9+333 5d5+1000 2d8+5 punch
 -4 -4 -4 5
 F 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19046
 commoner citizen woman~
 the woman~
@@ -760,11 +764,11 @@ you.
 ~
 human~
 AG 0 -1000 0
-20 0  3d9+333 5d5+1000 2d8+5 punch     
+20 0 3d9+333 5d5+1000 2d8+5 punch
 -4 -4 -4 5
 F 0 0 0
 stand stand female 0
-0 0 medium 0
+0 0 medium unknown
 #19047
 fox grey~
 the grey fox~
@@ -779,9 +783,9 @@ fox~
 ABFG DFP -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 charge
 -11 -11 -11 3
-F 0 0 0
+0 0 0 0
 stand stand none 0
-0 0 medium 0
+0 0 medium unknown
 #19048
 moose~
 the moose~
@@ -795,11 +799,11 @@ he's dopey, but still.....
 ~
 human~
 ABCG 0 1000 0
-30 0  6d12+853 5d5+1000 4d6+8 bite     
+30 0 6d12+853 5d5+1000 4d6+8 bite
 -9 -9 -9 3
 F 0 0 0
 stand stand none 0
-0 0 medium 0
+0 0 medium unknown
 #19049
 bear~
 the bear~
@@ -811,11 +815,11 @@ And it's coming right at you.
 ~
 bear~
 ABCFG DFIP -1000 0
-30 0  6d12+853 5d5+1000 4d6+8 claw     
+30 0 6d12+853 5d5+1000 4d6+8 claw
 -9 -9 -9 3
-CDF 0 0 0
+CF 0 0 0
 stand stand none 0
-0 0 large 0
+0 0 large unknown
 #19050
 waiter~
 the waiter~
@@ -831,7 +835,7 @@ ABCG DFJP -1000 0
 -13 -13 -13 3
 F 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19051
 urchin boy~
 the young urchin~
@@ -844,11 +848,11 @@ he only extends his hand towards you, silently asking for money.
 ~
 human~
 ABCG DFPQ -1000 0
-20 0  3d9+333 5d5+1000 2d8+5 punch     
+20 0 3d9+333 5d5+1000 2d8+5 punch
 -4 -4 -4 5
 F 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19052
 lady woman slut whore night~
 the lady of ill repute~
@@ -862,11 +866,11 @@ What could she possibly want?
 ~
 human~
 ABCG DF -1000 0
-25 0  5d10+550 5d5+1000 2d10+7 slap    
+25 0 5d10+550 5d5+1000 2d10+7 slap
 -7 -7 -7 4
 F 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19053
 pimp man master~
 the greasy man~
@@ -882,7 +886,7 @@ ABG DF -1000 0
 -11 -11 -11 3
 F 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19054
 thief hidden~
 the wily little thief (hidden somewhere in the shadows)~
@@ -896,7 +900,7 @@ ABG BDFJNPQ -1000 0
 -11 -11 -11 3
 FHJN 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19055
 red master~
 the Red Master~
@@ -911,7 +915,7 @@ ABG DFHJN 1000 0
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19056
 amber master~
 the Amber Master~
@@ -926,7 +930,7 @@ ABG DFHJN 1000 0
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19057
 green master~
 the Green Master~
@@ -941,7 +945,7 @@ ABG DFHJN 1000 0
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19058
 blue master~
 the Blue Master~
@@ -956,7 +960,7 @@ ABG DFHJN 1000 0
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19059
 violet master~
 the Violet Master~
@@ -971,7 +975,7 @@ ABG DFHJN 1000 0
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19060
 yellow master~
 the Yellow Master~
@@ -986,7 +990,7 @@ ABG DFHJN 1000 0
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19061
 light figure being lord master~
 the Master of Light~
@@ -1006,7 +1010,7 @@ ABG DFHJN 1000 0
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand none 0
-0 0 medium 0
+0 0 medium unknown
 #19062
 phoenix bird~
 the Phoenix~
@@ -1017,13 +1021,13 @@ look in its eyes.  The Phoenix's plumage glitters brightly, with reddish-purple
 feathers intertwined with a few golden ones; its silvery beak glistens in the
 light, with faint sparkles shining on its razor-sharp edges.
 ~
-bird~
+unique~
 ABCFG DFIN 0 0
 50 0 50d10+4250 5d5+5000 5d8+19 pierce
 -20 -20 -20 0
 FH 0 0 0
 stand stand none 0
-0 0 medium 0
+0 0 medium unknown
 #19063
 mandeep beekeeper bee keeper~
 Mandeep the Beekeeper~
@@ -1040,7 +1044,7 @@ ABG N 1000 0
 -13 -13 -13 3
 FK 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19064
 white master~
 the White Master~
@@ -1055,7 +1059,7 @@ ABFG DFJ -1000 0
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19065
 white master~
 the White Master~
@@ -1070,7 +1074,7 @@ ABFG DFJ -1000 0
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19066
 black master~
 the Black Master~
@@ -1085,7 +1089,7 @@ ABFG DFJ -1000 0
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19067
 black master~
 the Black Master~
@@ -1096,11 +1100,11 @@ and hands can be seen.
 ~
 human~
 ABFG DFJ -1000 0
-50 0 50d10+4250 5d5+5000 5d8+19 pound 
+50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19068
 jerry garcia~
 Jerry Garcia~
@@ -1115,7 +1119,7 @@ ABG DFNU 0 0
 -60 -60 -60 -27
 CDEFHK 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19069
 mr teece~
 Mr. Teece~
@@ -1131,8 +1135,9 @@ ABG DFNU 1000 0
 -13 -13 -13 3
 CDEFHK 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #0
+
 
 
 #OBJECTS
@@ -1143,7 +1148,7 @@ A shield with a mirrored surface lies on the ground.
 ~
 glass~
 armor 0 AJ
-7 7 7 0 0
+ABC ABC ABC 0 0
 23 5 100 P
 A
 2 1
@@ -1158,7 +1163,7 @@ A metal plate is on the ground; your face is reflected in its surface.
 ~
 glass~
 armor 0 AD
-6 6 6 0 0 
+BC BC BC 0 0
 23 10 100 P
 E
 mirror plate mirrored~
@@ -1171,7 +1176,7 @@ A shiny silver sword lies on the ground here.
 ~
 silver~
 weapon G AN
-sword 4 7 slash 0 
+sword 4 7 slash 0
 23 10 100 P
 #19004
 chainmail cowl chainmail~
@@ -1180,7 +1185,7 @@ A chainmail cowl is here.
 ~
 steel~
 armor 0 AD
-6 6 6 0 0
+BC BC BC 0 0
 23 10 10 P
 #19005
 throne~
@@ -1197,7 +1202,7 @@ A thin grey robe is here.
 ~
 leather~
 armor 0 AD
-15 15 15 10 0 
+ABCD ABCD ABCD BD 0
 49 5 500 P
 A
 2 3
@@ -1212,7 +1217,7 @@ A golden circlet lies here.
 ~
 gold~
 armor AFGM AE
-15 15 15 7 0 
+ABCD ABCD ABCD ABC 0
 45 30 10000 P
 A
 4 2
@@ -1234,7 +1239,7 @@ A sword with a rusted, bent blade is here.
 ~
 steel~
 weapon GHM AN
-sword 4 11 slash 0 
+sword 4 11 slash 0
 45 10 200 P
 A
 18 -5
@@ -1247,7 +1252,7 @@ This chainmail jerkin is worn and full of holes.
 ~
 leather~
 armor 0 AD
-13 13 13 4 0
+ACD ACD ACD C 0
 45 10 10 P
 #19010
 royal staff king~
@@ -1255,7 +1260,7 @@ the Royal Staff~
 King Loranhir's golden staff lies here.~
 wood~
 staff L AO
-45 10 10 'heal' 0 
+45 10 10 'heal' 0
 30 10 1000 P
 A
 5 1
@@ -1274,7 +1279,7 @@ a silver harp~
 A bright silver harp lies here.~
 silver~
 wand K AO
-30 25 25 'sanctuary' 0 
+30 25 25 'sanctuary' 0
 15 10 1000 P
 #19012
 pool cue~
@@ -1283,7 +1288,7 @@ A wooden pool cue is here.
 ~
 wood~
 weapon G AN
-mace 5 6 blast 0 
+mace 5 6 blast 0
 25 4 100 P
 #19013
 pool table~
@@ -1291,7 +1296,7 @@ a pool table~
 A well-used pool table is here.~
 wood~
 furniture 0 0
-0 0 0 0 0 
+0 0 0 0 0
 0 0 0 P
 E
 pool table~
@@ -1307,7 +1312,7 @@ An amulet with a silver rope chain lies here.
 ~
 silver~
 armor K AC
-11 12 12 4 0
+ABD CD CD C 0
 35 20 500 P
 A
 5 2
@@ -1320,7 +1325,7 @@ A small steel knife is here.
 ~
 steel~
 weapon G AN
-dagger 6 3 pierce 0 
+dagger 6 3 pierce 0
 19 2 10 P
 E
 small steel dagger~
@@ -1332,7 +1337,7 @@ a potion of human flight~
 A cloudy potion lies here.~
 glass~
 potion H A
-20 'fly' '' '' '' 
+20 'fly' '' '' ''
 10 0 0 P
 #19017
 pill restore restoration~
@@ -1340,7 +1345,7 @@ a pill of mana and life restoration~
 A glittering silver pill lies here.~
 silver~
 pill H A
-30 'heal' 'refresh' 'teleport' '' 
+30 'heal' 'refresh' 'teleport' ''
 15 3 0 P
 #19018
 flask holy water~
@@ -1348,7 +1353,7 @@ a flask of holy water~
 A small flask of clear, bright water lies here.~
 glass~
 potion AH A
-25 'bless' 'cure blindness' 'remove curse' '' 
+25 'bless' 'cure blindness' 'remove curse' ''
 10 5 1000 P
 #19019
 staff destruction~
@@ -1356,7 +1361,7 @@ a staff of destruction~
 A vicious staff lies here.~
 wood~
 staff BH AO
-25 7 7 'earthquake' 0 
+25 7 7 'earthquake' 0
 10 3 100 P
 #19020
 gold coins~
@@ -1364,7 +1369,7 @@ some coins~
 Some gold coins are scattered on the ground here.~
 gold~
 money 0 A
-1000 0 0 0 0 
+DFGHIJ 0 0 0 0
 1 4 100 P
 #19021
 potion invis invisible~
@@ -1372,7 +1377,7 @@ a clear potion of invisibility~
 A clear potion of invisibility is here.~
 glass~
 potion H A
-20 'invisibility' 'detect magic' '' '' 
+20 'invisibility' 'detect magic' '' ''
 10 5 0 P
 #19022
 hamburger burger~
@@ -1380,7 +1385,7 @@ a hamburger~
 A juicy hamburger is here.~
 food~
 food 0 A
-15 15 0 0 0  
+ABCD ABCD 0 0 0
 1 2 20 P
 #19023
 steak yorkshire pudding food~
@@ -1388,7 +1393,7 @@ steak and Yorkshire Pudding~
 A plate of food lies here.~
 food~
 food 0 A
-15 15 0 0 0 
+ABCD ABCD 0 0 0
 1 2 20 P
 #19024
 roast chicken food~
@@ -1396,7 +1401,7 @@ roast Chicken~
 A plate of food lies here.~
 food~
 food 0 A
-15 15 0 0 0 
+ABCD ABCD 0 0 0
 1 1 0 P
 #19025
 mashed potatoes food~
@@ -1404,7 +1409,7 @@ mashed potatoes~
 A small bowl of mashed potatoes is here.~
 food~
 food 0 A
-4 4 0 0 0
+C C 0 0 0
 1 1 0 P
 #19026
 peas food~
@@ -1412,7 +1417,7 @@ peas~
 A small bowl of peas is here.~
 food~
 food 0 A
-2 2 0 0 0
+B B 0 0 0
 1 1 0 P
 #19027
 baked ham food~
@@ -1420,7 +1425,7 @@ baked Ham~
 A plate of food lies here.~
 food~
 food 0 A
-15 10 0 0 0 
+ABCD BD 0 0 0
 1 1 0 P
 #19028
 green beans food~
@@ -1428,7 +1433,7 @@ green beans~
 A small dish of green beans lies here.~
 food~
 food 0 A
-2 2 0 0 0
+B B 0 0 0
 1 1 0 P
 #19029
 shrimp cocktail food~
@@ -1436,7 +1441,7 @@ shrimp cocktail~
 A small dish of shrimp is here.~
 food~
 food 0 A
-2 2 0 0 0 
+B B 0 0 0
 1 1 0 P
 #19030
 green salad food~
@@ -1444,7 +1449,7 @@ green salad~
 A salad is here.~
 food~
 food 0 A
-4 4 0 0 0
+C C 0 0 0
 1 2 0 P
 #19031
 vegetable soup food~
@@ -1452,7 +1457,7 @@ vegetable soup~
 A bowl of vegetable soup is here.~
 food~
 food 0 A
-4 4 0 0 0
+C C 0 0 0
 1 1 0 P
 #19032
 menu~
@@ -1460,7 +1465,7 @@ a menu~
 There is a menu on the wall here.~
 paper~
 furniture 0 0
-0 0 0 0 0 
+0 0 0 0 0
 0 0 0 P
 E
 menu~
@@ -1491,7 +1496,7 @@ A unicorn's horn is here.
 ~
 gold~
 weapon AGK AN
-exotic 5 12 stab 0 
+exotic 5 12 stab 0
 39 30 30000 P
 A
 18 8
@@ -1511,7 +1516,7 @@ An ermine blanket is here.
 ~
 unknown~
 armor 0 AD
-13 12 12 5 0  
+ACD CD CD AC 0
 39 5 10 P
 #19035
 apple tree trees~
@@ -1519,7 +1524,7 @@ a grove of apple trees~
 A few apple trees grow here.~
 wood~
 container 0 0
-100 0 0 10 100 
+100 0 0 10 100
 0 0 0 P
 #19036
 apple fruit~
@@ -1527,7 +1532,7 @@ an apple~
 A ripe red apple is here.~
 food~
 pill 0 A
-10 'refresh' '' '' '' 
+10 'refresh' '' '' ''
 1 1 0 P
 #19037
 plum tree trees~
@@ -1535,7 +1540,7 @@ a grove of plum trees~
 A few plum trees grow here.~
 wood~
 container 0 0
-100 0 0 0 100 
+100 0 0 0 100
 0 0 0 P
 #19038
 plum fruit~
@@ -1543,7 +1548,7 @@ a plum~
 A plum is here.~
 food~
 food 0 A
-3 3 0 0 0
+AB AB 0 0 0
 1 1 0 P
 #19039
 plaque brass~
@@ -1571,7 +1576,7 @@ a brown robe~
 A brown robe is here.~
 leather~
 armor 0 AD
-5 5 5 0 0
+AC AC AC 0 0
 19 3 0 P
 #19041
 telescope~
@@ -1598,7 +1603,7 @@ a telescope~
 A telescope stands here on a tripod, pointed downwards at the land below.~
 unknown~
 trash 0 0
-0 0 0 0 0 
+0 0 0 0 0
 500 0 0 P
 E
 telescope~
@@ -1622,7 +1627,7 @@ a formal white jacket~
 A white jacket lies here.~
 unknown~
 armor 0 AK
-8 8 8 0 0
+D D D 0 0
 25 5 0 P
 #19045
 black tie~
@@ -1630,7 +1635,7 @@ a black bow tie~
 A black bow tie is here.~
 leather~
 armor 0 AC
-5 5 5 0 0
+AC AC AC 0 0
 25 5 0 P
 #19046
 shirt white~
@@ -1638,7 +1643,7 @@ a crisp white shirt~
 A heavily starched white shirt is here.~
 cloth~
 armor 0 AD
-5 5 5 0 0
+AC AC AC 0 0
 25 5 0 P
 #19047
 pants black~
@@ -1646,7 +1651,7 @@ a pair of black dress pants~
 A pair of black pants lies here.~
 cloth~
 armor 0 AF
-5 5 5 0 0
+AC AC AC 0 0
 25 5 0 P
 #19048
 cummerbund~
@@ -1654,7 +1659,7 @@ a cummerbund~
 A cummerbund lies here.~
 cloth~
 armor 0 AL
-6 6 6 0 0
+BC BC BC 0 0
 25 10 0 P
 A
 2 -1
@@ -1666,7 +1671,7 @@ a pair of black shoes~
 A pair of black shoes lies here.~
 leather~
 armor 0 AG
-6 6 6 0 0
+BC BC BC 0 0
 25 3 0 P
 A
 14 -25
@@ -1676,10 +1681,9 @@ A
 engagement band ring~
 an engagement band~
 An engagement band lies here.~
-
 unknown~
 jewelry AHM AB
-0 0 0 3 0
+0 0 0 AB 0
 25 5 0 P
 A
 4 1
@@ -1692,7 +1696,7 @@ a wedding dress~
 A wedding dress is here.~
 cloth~
 armor 0 AD
-5 5 5 0 0
+AC AC AC 0 0
 25 5 0 P
 A
 5 1
@@ -1709,7 +1713,7 @@ a pair of white shoes~
 A pair of white flats lie here.~
 cloth~
 armor 0 AG
-5 5 5 0 0
+AC AC AC 0 0
 25 10 0 P
 A
 14 15
@@ -1719,7 +1723,7 @@ a thin white veil~
 A transparent white veil lies here.~
 cloth~
 armor 0 AE
-5 5 5 0 0 
+AC AC AC 0 0
 25 10 0 P
 A
 18 -3
@@ -1743,7 +1747,7 @@ a corsage~
 A corsage of beautiful flowers lies here.~
 cloth~
 armor 0 AO
-5 5 5 0 0
+AC AC AC 0 0
 25 10 0 P
 A
 13 20
@@ -1763,7 +1767,7 @@ the white goldfish~
 The white goldfish nuzzles gently at you as you pass by.~
 food~
 food 0 A
-4 4 0 0 0
+C C 0 0 0
 2 2 0 P
 #19058
 crimson robe~
@@ -1771,7 +1775,7 @@ a crimson robe~
 A crimson robe lies here.~
 cloth~
 armor 0 AK
-10 12 11 5 0
+BD CD ABD AC 0
 35 5 100 P
 A
 13 20
@@ -1781,7 +1785,7 @@ a burnt-orange robe~
 A burnt orange robe lies here.~
 cloth~
 armor 0 AK
-10 10 11 5 0
+BD BD ABD AC 0
 35 5 10 P
 A
 14 35
@@ -1791,7 +1795,7 @@ a yellow robe~
 A yellow robe lies here.~
 cloth~
 armor 0 AK
-11 11 10 4 0
+ABD ABD BD C 0
 35 5 10 P
 A
 18 5
@@ -1801,7 +1805,7 @@ a forest green robe~
 A forest green robe lies here.~
 cloth~
 armor 0 AK
-11 11 10 7 0 
+ABD ABD BD ABC 0
 35 5 10 P
 A
 12 35
@@ -1811,7 +1815,7 @@ a sea-blue robe~
 A sea-blue robe lies here.~
 cloth~
 armor 0 AK
-12 11 11 8 0
+CD ABD ABD D 0
 35 5 10 P
 A
 19 5
@@ -1821,7 +1825,7 @@ a violet robe~
 A violet robe lies here.~
 cloth~
 armor 0 AK
-11 11 11 6 0
+ABD ABD ABD BC 0
 35 5 10 P
 A
 13 25
@@ -1832,7 +1836,7 @@ A clear glass sword lies here, reflecting all sorts of rainbow colors.
 ~
 glass~
 weapon G AN
-sword 4 10 slice 0 
+sword 4 10 slice 0
 35 10 4000 P
 A
 18 5
@@ -1845,7 +1849,7 @@ A hoe lies here.
 ~
 iron~
 weapon G AN
-exotic 4 7 charge 0 
+exotic 4 7 charge 0
 25 14 100 P
 #19066
 robe white~
@@ -1853,7 +1857,7 @@ a white robe~
 A white robe lies here.~
 cloth~
 armor K AK
-11 12 11 10 0
+ABD CD ABD BD 0
 39 5 100 P
 #19067
 poultice detection~
@@ -1861,7 +1865,7 @@ a poultice of detection~
 A small herbal poultice lies hee.~
 food~
 pill 0 AO
-20 'detect invis' 'detect magic' '' '' 
+20 'detect invis' 'detect magic' '' ''
 10 1 0 P
 #19068
 beer glass~
@@ -1869,7 +1873,7 @@ beer~
 A foaming glass of beer sits here.~
 glass~
 drink 0 A
-1 1 'beer' 0 0 
+1 1 'beer' 0 0
 1 0 0 P
 #19069
 whisky whiskey shot~
@@ -1894,7 +1898,7 @@ A long wooden staff lies here.
 ~
 wood~
 weapon GH AN
-staff 5 9 crush D 
+staff 5 9 crush D
 45 10 100 P
 A
 2 1
@@ -1906,7 +1910,7 @@ a black gi~
 A black karate uniform lies here.~
 cloth~
 armor 0 AD
-15 15 15 8 0
+ABCD ABCD ABCD D 0
 45 10 1000 P
 A
 2 4
@@ -1918,7 +1922,7 @@ a red master's belt~
 A red master's belt lies here.~
 silk~
 armor K AL
-13 13 12 6 0
+ACD ACD CD BC 0
 45 5 10 P
 A
 4 2
@@ -1928,7 +1932,7 @@ a fountain~
 Four small fountains splash water here, helping to cool off the warm air.~
 marble~
 fountain 0 0
-110 110 0 0 0
+110 110 'water' 0 0
 0 0 0 P
 #19075
 suitcase~
@@ -1943,8 +1947,8 @@ canteen~
 a canteen~
 A small canteen lies here.~
 metal~
-drink 0 A
-10 10 'water' 0 0 
+drink H A
+10 10 'water' 0 0
 1 2 0 P
 #19077
 pack rations~
@@ -1952,7 +1956,7 @@ rations~
 A small pack of rations lies here.~
 food~
 food 0 A
-6 6 0 0 0
+BC BC 0 0 0
 1 1 0 P
 #19078
 knife pocket pocketknife~
@@ -1961,7 +1965,7 @@ A pocketknife lies here.
 ~
 steel~
 weapon G AN
-dagger 1 6 pierce 0 
+dagger 1 6 pierce 0
 2 2 10 P
 #19079
 raft~
@@ -1977,7 +1981,7 @@ a wizard's peaked cap~
 A navy blue cap lies here, covered with stars and moons.~
 cloth~
 armor 0 AE
-13 13 13 4 0
+ACD ACD ACD C 0
 45 12 100 P
 A
 12 25
@@ -1987,7 +1991,7 @@ a wizard's cloak~
 A navy blue cloak lies here, covered with stars and moons.~
 cloth~
 armor 0 AK
-13 13 13 5 0
+ACD ACD ACD AC 0
 45 10 100 P
 #19082
 page hymn~
@@ -1995,7 +1999,7 @@ a hymn~
 A page from a hymnal has fallen on the ground here.~
 glass~
 scroll 0 A
-20 'bless' '' '' '' 
+20 'bless' '' '' ''
 5 1 0 P
 #19083
 ring rose~
@@ -2016,7 +2020,7 @@ A pair of clippers lie here.
 ~
 steel~
 weapon G AN
-exotic 4 4 slice 0 
+exotic 4 4 slice 0
 25 10 10 P
 #19085
 club staff wood wooden~
@@ -2025,7 +2029,7 @@ A rough wooden staff lies here.
 ~
 wood~
 weapon 0 AN
-staff 4 4 crush 0 
+staff 4 4 crush 0
 19 10 0 P
 #19086
 leggings mirror mirrored~
@@ -2033,7 +2037,7 @@ a set of mirrored leggings~
 A set of mirrored leggings lies here.~
 steel~
 armor 0 AF
-7 7 7 0 0 
+ABC ABC ABC 0 0
 23 5 0 P
 #19087
 shawl white~
@@ -2041,7 +2045,7 @@ a white shawl~
 A white shawl lies here.~
 cloth~
 armor 0 AK
-13 13 14 6 0
+ACD ACD BCD BC 0
 45 11 100 P
 #19088
 boots fishing~
@@ -2049,7 +2053,7 @@ fishing boots~
 A pair of fishing boots lies here.~
 leather~
 armor M AG
-7 7 7 0 0
+ABC ABC ABC 0 0
 25 5 0 P
 A
 2 -1
@@ -2060,7 +2064,7 @@ A fisherman's gaff lies here.
 ~
 steel~
 weapon G AN
-staff 5 6 pierce D 
+staff 5 6 pierce D
 25 10 100 P
 #19090
 rain slicker~
@@ -2068,7 +2072,7 @@ a rain slicker~
 A rain slicker lies here.~
 cloth~
 armor 0 AD
-5 5 5 0 0
+AC AC AC 0 0
 25 10 0 P
 A
 14 -50
@@ -2086,7 +2090,7 @@ a "Wizard's Finishing School" diploma~
 A rolled-up piece of paper lies here.~
 paper~
 treasure GK AO
-1 0 0 0 0
+A 0 0 0 0
 1 0 0 P
 A
 3 1
@@ -2110,7 +2114,7 @@ antlers~
 A set of antlers lies on the ground here.~
 cloth~
 armor 0 AE
-9 9 9 4 0
+AD AD AD C 0
 30 8 10 P
 A
 2 -1
@@ -2130,7 +2134,7 @@ a nectarine~
 A nectarine stands here.~
 food~
 food 0 A
-3 3 0 0 0
+AB AB 0 0 0
 1 1 0 P
 #19096
 diploma wizard finishing~
@@ -2149,7 +2153,7 @@ Someone's teeth (?) are lying here.
 ~
 bone~
 weapon N AN
-exotic 6 6 bite 0 
+exotic 6 6 bite 0
 35 5 100 P
 A
 19 2
@@ -2159,7 +2163,7 @@ hemlock~
 A glass of hemlock extract lies here.~
 glass~
 drink 0 A
-1 1 'water' 0 0 
+1 1 'water' 0 0
 1 0 0 P
 #19099
 ale evil darkale bottle~
@@ -2167,7 +2171,7 @@ a bottle of evil-smelling ale~
 A bottle of evil-smelling ale lies here.~
 glass~
 drink 0 A
-2 2 'water'0 0 
+2 2 'water' 0 0
 1 0 0 P
 #19100
 water~
@@ -2175,7 +2179,7 @@ a bottle of water~
 A bottle of water lies here.~
 glass~
 drink 0 A
-3 3 'water' 0 0 
+3 3 'water' 0 0
 1 1 0 P
 #19101
 broken bottle~
@@ -2184,7 +2188,7 @@ A broken bottle lies here.
 ~
 glass~
 weapon G AN
-exotic 6 6 slime 0 
+exotic 6 6 slime 0
 40 2 100 P
 A
 18 -5
@@ -2196,7 +2200,7 @@ a flask of devil's brew~
 A flask of devil's brew lies here.~
 glass~
 potion BEGH A
-10 'giant strength' 'shield' '' '' 
+10 'giant strength' 'shield' '' ''
 5 5 0 P
 #19103
 wand soul stealer~
@@ -2204,7 +2208,7 @@ the Soul Stealer~
 A strange wand is here.~
 wood~
 wand H AO
-15 15 15 'charm person' 0 
+15 15 15 'charm person' 0
 5 5 5 P
 E
 wand soul stealer~
@@ -2220,7 +2224,7 @@ rubber gloves~
 A pair of rubber gloves lies here.~
 rubber~
 armor J AH
-11 10 10 5 0
+ABD BD BD AC 0
 35 2 0 P
 #19105
 scabbard~
@@ -2237,7 +2241,7 @@ A unicorn's bony horn lies here.
 ~
 bone~
 weapon EGHJ AN
-exotic 6 7 pierce 0 
+exotic 6 7 pierce 0
 45 5 100 P
 A
 1 -1
@@ -2249,7 +2253,7 @@ a set of red ribbons~
 Some red ribbons lie here.~
 silk~
 armor EHJM AC
-9 9 9 4 0
+AD AD AD C 0
 45 1 10 P
 A
 14 50
@@ -2265,7 +2269,7 @@ a holly tree~
 A holly tree stands here, its branches full of berries.~
 wood~
 container 0 0
-100 0 0 0 100 
+100 0 0 0 100
 0 0 0 P
 #19109
 holly berries berry~
@@ -2282,7 +2286,7 @@ A sword of pure obsidian lies here, seeming to swallow up the rays of light.
 ~
 obsidian~
 weapon FGHJM AN
-sword 5 10 slash DG 
+sword 5 10 slash DG
 35 20 20000 P
 A
 13 -50
@@ -2301,7 +2305,7 @@ a menu~
 A menu hangs on the wall.~
 paper~
 furniture 0 0
-0 0 0 0 0 
+0 0 0 0 0
 0 0 0 P
 E
 menu~
@@ -2343,7 +2347,7 @@ beef stew~
 A bowl of beef stew lies here.~
 food~
 food 0 A
-3 3 0 0 0
+AB AB 0 0 0
 0 2 0 P
 #19114
 jar slugs light~
@@ -2365,7 +2369,7 @@ a poison oak tree~
 A small grove of Poison Oaks grows here.~
 ~
 container 0 0
-100 0 0 0 100 
+100 0 0 0 100
 0 0 0 P
 #19116
 acorn~
@@ -2373,7 +2377,7 @@ an acorn~
 An acorn lies here.~
 food~
 food H A
-10 10 0 0 0 
+BD BD 0 0 0
 1 1 0 P
 #19117
 tight leather bodice~
@@ -2381,7 +2385,7 @@ a tight leather bodice~
 A tight leather bodice sits here.~
 leather~
 armor JM AD
-6 6 6 0 0
+BC BC BC 0 0
 25 3 0 P
 A
 13 -25
@@ -2393,7 +2397,7 @@ a tight leather miniskirt~
 A tight leather miniskirt lies here.~
 leather~
 armor M AF
-5 5 5 0 0
+AC AC AC 0 0
 25 2 10 P
 A
 2 -2
@@ -2403,7 +2407,7 @@ a dead squid~
 Bubbles of swamp gas gently shake the arms of this dead squid.~
 food~
 food 0 A
-2 2 0 0 0 
+B B 0 0 0
 2 2 0 P
 #19120
 cabinet door~
@@ -2412,15 +2416,15 @@ a cabinet door
 ~
 wood~
 container 0 0
-100 0 0 0 100 
+100 0 0 0 100
 0 0 0 P
 #19121
 bag newbie~
 a Newbie Bag!~
 A Newbie Bag lies here. ~
 leather~
-container 0 1
-20 0 0 5 100 
+container 0 A
+20 0 0 5 100
 0 0 0 P
 E
 bag newbie~
@@ -2436,7 +2440,7 @@ a silver circlet~
 A silver circlet lies here.~
 silver~
 armor AK AE
-10 10 10 0 0
+BD BD BD 0 0
 50 15 0 P
 A
 12 50
@@ -2446,7 +2450,7 @@ a black robe~
 A black robe lies here.~
 cloth~
 armor J AK
-6 6 6 0 0
+BC BC BC 0 0
 35 5 0 P
 A
 1 2
@@ -2460,7 +2464,7 @@ a white robe~
 A white robe lies here.~
 cloth~
 armor J AK
-6 6 6 0 0
+BC BC BC 0 0
 35 5 0 P
 A
 3 1
@@ -2500,7 +2504,7 @@ a black cloak~
 A black cloak lies here.~
 cloth~
 armor F AK
-16 16 16 7 0
+E E E ABC 0
 50 5 0 P
 #19127
 blood red dagger~
@@ -2567,7 +2571,7 @@ a beekeeper's hat~
 A beekeeper's hat rests here.~
 cloth~
 armor 0 AE
-2 0 0 0 0
+B 0 0 0 0
 2 0 0 P
 A
 2 -1
@@ -2585,7 +2589,7 @@ a white cloak~
 A white cloak lies here.~
 cloth~
 armor J AD
-16 17 16 9 0
+E AE E AD 0
 50 5 0 P
 A
 12 50
@@ -2595,7 +2599,7 @@ a black cloak~
 A black cloak lies here.~
 cloth~
 armor 0 AD
-16 17 17 6 0
+E AE AE BC 0
 50 5 0 P
 A
 12 50
@@ -2605,7 +2609,7 @@ a beekeeper's smoke can~
 Thin smoke pours out of a small jug on the ground.~
 wood~
 wand 0 AO
-30 10 10 'blindness' 0 
+30 10 10 'blindness' 0
 25 5 100 P
 E
 smoke can jug~
@@ -2619,7 +2623,7 @@ a History of the Mirror Realm~
 A book lies here.~
 paper~
 trash 0 A
-0 0 0 0  0
+0 0 0 0 0
 2 0 0 P
 E
 history book mirror realm~
@@ -2707,7 +2711,7 @@ a History of Midgaard~
 A book lies on the ground.~
 paper~
 trash 0 A
-0 0 0 0 0 
+0 0 0 0 0
 2 0 0 P
 E
 midgaard history book~
@@ -2731,7 +2735,7 @@ the crystal altar~
 A beautiful altar of glass and crystal sparkles in the sunlight.~
 crystal~
 container 0 0
-100 0 0 0 100 
+100 0 0 0 100
 0 0 0 P
 E
 altar crystal~
@@ -2752,14 +2756,14 @@ a citrine altar~
 A beautiful altar covered in bright yellow gems stands here.~
 unknown~
 container 0 0
-100 0 0 0 100 
+100 0 0 0 100
 0 0 0 P
 #19140
 topaz sigil~
 the yellow topaz sigil~
 A small piece of topaz lies here.~
 unknown~
-trash 0 A0
+trash 0 BD
 0 0 0 0 0
 5 0 0 P
 A
@@ -2770,7 +2774,7 @@ a purple altar~
 An altar made of sparkling amethyst stands here.~
 unknown~
 container 0 0
-100 0 0 0 100 
+100 0 0 0 100
 0 0 0 P
 E
 drawer purple altar~
@@ -2791,7 +2795,7 @@ the red altar~
 An altar encrusted with bright red rubies stands here.~
 unknown~
 container 0 0
-100 0 0 0 100 
+100 0 0 0 100
 0 0 0 P
 E
 altar ruby red drawer~
@@ -2822,7 +2826,7 @@ the sapphire altar~
 A beautiful altar of sapphire stands before you.~
 unknown~
 container 0 0
-100 0 0 0 100 
+100 0 0 0 100
 0 0 0 P
 E
 drawer sapphire altar~
@@ -2833,7 +2837,7 @@ the green altar~
 An emerald altar stands before you.~
 unknown~
 container 0 0
-100 0 0 0 100 
+100 0 0 0 100
 0 0 0 P
 E
 drawer altar~
@@ -2864,7 +2868,7 @@ a jar of honey~
 A jar of honey lies here.~
 food~
 food 0 A
-2 2 0 0 0
+B B 0 0 0
 2 2 0 P
 E
 honey jar~
@@ -2876,7 +2880,7 @@ A beautiful sword lies here.
 ~
 gold~
 weapon GM AN
-sword 5 9 slash 0 
+sword 5 9 slash 0
 45 0 1000 P
 A
 13 50
@@ -2900,7 +2904,7 @@ the Sunrise Shield~
 A beautiful jewelled shield lies here.~
 gold~
 armor GM AJ
-5 5 5 0 0
+AC AC AC 0 0
 10 0 0 P
 A
 2 1
@@ -2921,7 +2925,7 @@ a red key~
 A red key lies here.~
 iron~
 key 0 A
-0 0 0 0 0 
+0 0 0 0 0
 1 0 0 P
 #19160
 orange key~
@@ -2929,7 +2933,7 @@ an orange key~
 An orange key lies here.~
 iron~
 key 0 A
-0 0 0 0 0 
+0 0 0 0 0
 1 0 0 P
 #19161
 yellow key~
@@ -2937,7 +2941,7 @@ a yellow key~
 A yellow key lies here.~
 iron~
 key 0 A
-0 0 0 0 0 
+0 0 0 0 0
 1 0 0 P
 #19162
 green key~
@@ -2945,7 +2949,7 @@ a green key~
 A green key lies here.~
 iron~
 key 0 A
-0 0 0 0 0 
+0 0 0 0 0
 1 0 0 P
 #19163
 blue key~
@@ -2953,7 +2957,7 @@ a blue key~
 A blue key lies here.~
 key~
 key 0 A
-0 0 0 0 0 
+0 0 0 0 0
 1 0 0 P
 #19164
 violet key~
@@ -2961,7 +2965,7 @@ a violet key~
 A violet key lies here.~
 iron~
 key 0 A
-0 0 0 0 0 
+0 0 0 0 0
 1 0 0 P
 #19165
 fish trout~
@@ -2969,7 +2973,7 @@ a trout~
 A trout lies here.~
 food~
 food 0 A
-6 6 0 0 0
+BC BC 0 0 0
 2 2 0 P
 #19166
 heart key~
@@ -2985,7 +2989,7 @@ a bottle of champagne~
 A bottle of champagne sits on the counter.~
 glass~
 drink 0 A
-10 10 'champagne' 0 0 
+10 10 'champagne' 0 0
 2 2 0 P
 #19168
 spam can~
@@ -2993,7 +2997,7 @@ a can of Spam~
 A can of Spam lies here.~
 food~
 food 0 A
-20 10 0 0 0 
+CE BD 0 0 0
 1 3 0 P
 #19169
 bottle water~
@@ -3001,7 +3005,7 @@ a bottle of water~
 A bottle of water stands here.~
 glass~
 drink 0 A
-20 20 'water' 0 0 
+20 20 'water' 0 0
 1 2 0 P
 #19170
 silver pendant~
@@ -3009,7 +3013,7 @@ a small silver pendant~
 A small silver pendant lies here.~
 silver~
 armor A AC
-4 0 0 0 0
+C 0 0 0 0
 1 0 0 P
 A
 13 5
@@ -3019,7 +3023,7 @@ a simple bronze band~
 A simple bronze band lies here.~
 bronze~
 armor A AB
-2 0 0 0 0
+B 0 0 0 0
 5 0 0 P
 A
 3 1
@@ -3031,13 +3035,14 @@ a thick brown robe~
 A thick brown robe lies here.~
 cloth~
 armor A AK
-2 0 0 0 0
+B 0 0 0 0
 5 0 0 P
 A
 5 1
 A
 4 1
 #0
+
 
 
 #ROOMS
@@ -3050,14 +3055,6 @@ stretches high into the air, with the tallest peak rising steeply enough to
 prevent anything from taking root.
 ~
 0 0 2
-D1
-~
-~
-0 -1 19002
-D3
-~
-~
-0 -1 3500
 E
 plaque sign credit credits author~
 This area has been created by Merriman of the Glass Dragon for any semi-
@@ -3073,6 +3070,14 @@ is Rising Sequence_, which you should perhaps read if you like fantasy,
 especially vaguely Arthurian fantasy.  
 
 That's about it.  Have fun! :-)~
+D1
+~
+~
+0 -1 19002
+D3
+~
+~
+0 -1 3500
 S
 #19002
 The Path~
@@ -3120,6 +3125,11 @@ the mountain, broken only by the distant base of this rocky path.  Another path
 stretches east and west from here; a small sign gives directions.
 ~
 0 0 5
+E
+sign directions~
+To the North -- The Mirror Realm
+To the West  -- Dryad's Forest
+To the East  -- The Volcano~
 D0
 ~
 ~
@@ -3128,11 +3138,6 @@ D2
 ~
 ~
 0 -1 19003
-E
-sign directions~
-To the North -- The Mirror Realm
-To the West  -- Dryad's Forest
-To the East  -- The Volcano~
 S
 #19005
 Before the Face of the Mountain~
@@ -3144,14 +3149,6 @@ that forms the frame, they have been intricately carved with many strange
 symbols and figures.
 ~
 0 0 5
-D0
-~
-door doors~
-1 -1 19006
-D2
-~
-~
-0 -1 19004
 E
 door doors figure figures symbol symbols~
 Each door has a large circular symbol at its center: the left door depicts a 
@@ -3161,6 +3158,14 @@ surround the larger symbols; the left door contains figures like beautiful
 blooming flowers and a bard playing a silver harp, while the door on the right
 contains more grim images, including the skeleton of a horse and a ship
 foundering in a storm.~
+D0
+~
+door doors~
+1 -1 19006
+D2
+~
+~
+0 -1 19004
 S
 #19006
 The Path Above the Realm~
@@ -3215,7 +3220,7 @@ D0
 D1
 ~
 ~
-1 -1 19010
+0 -1 19010
 D2
 ~
 ~
@@ -3223,7 +3228,7 @@ D2
 D3
 ~
 ~
-1 -1 19009
+0 -1 19009
 S
 #19009
 Inside a Watchtower~
@@ -3238,11 +3243,11 @@ iron knob.
 D1
 ~
 ~
-1 -1 19008
+0 -1 19008
 D5
 ~
 hatch door knob~
-1 -1 19044
+0 -1 19044
 S
 #19010
 Inside a Watchtower~
@@ -3256,11 +3261,11 @@ floor.
 D3
 ~
 ~
-1 -1 19008
+0 -1 19008
 D5
 ~
 ~
-1 -1 19107
+0 -1 19107
 S
 #19011
 Along the Pathway Above the Realm~
@@ -3366,6 +3371,13 @@ however; a recessed alcove fills the center of the wall, flanked by tapestries
 depicting a magnificent shining sword and a sparkling jewelled shield.
 ~
 0 AD 0
+E
+tapestry tapestries pattern walls wall patterns ~
+The tapestries on each wall combine to form a complete picture; the two blue
+tapestries make up the sea that the king's ship sails on; the two red ones
+form the fire that threatens the unicorn; the two brownish ones make up
+the pit that holds the trapped child.  
+~
 D0
 ~
 ~
@@ -3386,13 +3398,6 @@ D4
 ~
 ~
 0 -1 19025
-E
-tapestry tapestries pattern walls wall patterns ~
-The tapestries on each wall combine to form a complete picture; the two blue
-tapestries make up the sea that the king's ship sails on; the two red ones
-form the fire that threatens the unicorn; the two brownish ones make up
-the pit that holds the trapped child.  
-~
 S
 #19016
 Left Wall of the Great Hall~
@@ -3530,6 +3535,13 @@ the face of a king standing on the bow of his ship, leading his navy into
 battle.
 ~
 0 AD 9
+E
+tapestry tapestries king boat~
+The king stands on the prow of his ship, with his long hair blowing in 
+the wind and with his cape stretched out behind him like a wind-filled
+sail.  The background of the tapestry has more ships, though none 
+have the elegant sails and carved masts of the one in the foreground;
+they also seem smaller and more heavily buffeted by the high seas.~
 D0
 ~
 ~
@@ -3546,13 +3558,6 @@ D5
 ~
 ~
 0 -1 19012
-E
-tapestry tapestries king boat~
-The king stands on the prow of his ship, with his long hair blowing in 
-the wind and with his cape stretched out behind him like a wind-filled
-sail.  The background of the tapestry has more ships, though none 
-have the elegant sails and carved masts of the one in the foreground;
-they also seem smaller and more heavily buffeted by the high seas.~
 S
 #19023
 Above the Corner~
@@ -3739,6 +3744,10 @@ and ornate figurines of the doors set into the face on the mountain; here,
 there are only a few words carved into the frame.
 ~
 0 0 2
+E
+word words door doors~
+--THE CASTLE OF LORANHIR, KING OF THE REALM--
+~
 D0
 ~
 ~
@@ -3747,10 +3756,6 @@ D2
 ~
 ~
 0 -1 19011
-E
-word words door doors~
---THE CASTLE OF LORANHIR, KING OF THE REALM--
-~
 S
 #19031
 Entrance to the Castle~
@@ -3768,7 +3773,7 @@ D0
 D2
 ~
 ~
-1 -1 19030
+0 -1 19030
 S
 #19032
 Mirrors~
@@ -3776,14 +3781,6 @@ The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
 0 D 0
-D0
-~
-~
-0 -1 19036
-D1
-~
-~
-0 -1 19033
 D2
 ~
 ~
@@ -3792,6 +3789,14 @@ D3
 ~
 ~
 0 -1 19034
+D1
+~
+~
+0 -1 19033
+D0
+~
+~
+0 -1 19036
 S
 #19033
 Mirrors~
@@ -3799,10 +3804,6 @@ The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
 0 D 0
-D0
-~
-~
-0 -1 19035
 D1
 ~
 ~
@@ -3811,6 +3812,10 @@ D3
 ~
 ~
 0 -1 19032
+D0
+~
+~
+0 -1 19035
 S
 #19034
 Mirrors~
@@ -3822,14 +3827,14 @@ D0
 ~
 ~
 0 -1 19037
-D1
-~
-~
-0 -1 19032
 D3
 ~
 ~
 0 -1 19033
+D1
+~
+~
+0 -1 19032
 S
 #19035
 Mirrors~
@@ -3841,18 +3846,18 @@ D0
 ~
 ~
 0 -1 19038
-D1
-~
-~
-0 -1 19037
-D2
-~
-~
-0 -1 19033
 D3
 ~
 ~
 0 -1 19036
+D2
+~
+~
+0 -1 19033
+D1
+~
+~
+0 -1 19037
 S
 #19036
 Mirrors~
@@ -3860,22 +3865,22 @@ The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
 0 D 0
-D0
-~
-~
-0 -1 19040
-D1
-~
-~
-0 -1 19035
-D2
-~
-~
-0 -1 19032
 D3
 ~
 ~
 0 -1 19037
+D1
+~
+~
+0 -1 19035
+D0
+~
+~
+0 -1 19040
+D2
+~
+~
+0 -1 19032
 S
 #19037
 Mirrors~
@@ -3883,14 +3888,6 @@ The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
 0 D 0
-D0
-~
-~
-0 -1 19039
-D1
-~
-~
-0 -1 19036
 D2
 ~
 ~
@@ -3899,6 +3896,14 @@ D3
 ~
 ~
 0 -1 19035
+D1
+~
+~
+0 -1 19036
+D0
+~
+~
+0 -1 19039
 S
 #19038
 Mirrors~
@@ -3910,14 +3915,14 @@ D1
 ~
 ~
 0 -1 19039
-D2
-~
-~
-0 -1 19035
 D3
 ~
 ~
 0 -1 19040
+D2
+~
+~
+0 -1 19035
 S
 #19039
 Mirrors~
@@ -3944,22 +3949,22 @@ The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
 0 D 0
-D0
-~
-~
-0 -1 19041
-D1
-~
-~
-0 -1 19038
-D2
-~
-~
-0 -1 19036
 D3
 ~
 ~
 0 -1 19039
+D0
+~
+~
+0 -1 19041
+D2
+~
+~
+0 -1 19036
+D1
+~
+~
+0 -1 19038
 S
 #19041
 Intersection~
@@ -4005,7 +4010,7 @@ side of the wall; a thin blanket covers half its rough surface.
 D3
 ~
 tapestry~
-1 -1 19024
+0 -1 19024
 S
 #19044
 Below the Watchtower~
@@ -4019,7 +4024,7 @@ a small handle attached to the hatchway above.
 D4
 ~
 hatch hatchway door handle~
-1 -1 19009
+0 -1 19009
 D5
 ~
 ~
@@ -4033,6 +4038,9 @@ reveals the faint outline of a door set into the western wall, as well as a
 small figure carved into the rock above the doorway.
 ~
 0 CD 0
+E
+sign figure carving~
+You see a rainbow in a circle of ivy, the sign of the Light.~
 D3
 ~
 door~
@@ -4041,9 +4049,6 @@ D4
 ~
 ~
 0 -1 19044
-E
-sign figure carving~
-You see a rainbow in a circle of ivy, the sign of the Light.~
 S
 #19046
 End of the Path~
@@ -4566,6 +4571,12 @@ with a simple sign over its doorway; a cloth covers the entrance, preventing
 you from seeing inside.
 ~
 0 0 1
+E
+sign signs~
+The sign on the west says,                 The sign on the east says,
+
+"The Holly Bush Restaurant and Bar.....      "The Sorcery"
+<--------------------------------------    ------------------------->~
 D0
 ~
 ~
@@ -4582,12 +4593,6 @@ D3
 ~
 ~
 0 -1 19071
-E
-sign signs~
-The sign on the west says,                 The sign on the east says,
-
-"The Holly Bush Restaurant and Bar.....      "The Sorcery"
-<--------------------------------------    ------------------------->~
 S
 #19070
 The Sorcery~
@@ -4598,10 +4603,6 @@ runes are painted on the ceiling, and are glowing faintly in the
 darkness; the sign of the Light is painted on the floor.
 ~
 0 D 0
-D3
-~
-~
-0 -1 19069
 E
 runes~
 Don't bother.  You'd only rune your appetite. *rofl*~
@@ -4620,6 +4621,10 @@ says,
 		  item.
 
 (Reg Felix Dept Mud Admin)~
+D3
+~
+~
+0 -1 19069
 S
 #19071
 The bar of the Holly Bush~
@@ -4654,15 +4659,15 @@ by a row of tables, flops open and shut constantly as the waiter rushes in
 and out.
 ~
 0 D 0
-D2
-~
-~
-0 -1 19071
 E
 pictures posters~
 You see landscapes of the Plains of the North, the valley of the Mirror Realm,
 and the far eastern sea; you also see a portrait of Merriman, and another of
 Felix, tucked away in two separate corners.~
+D2
+~
+~
+0 -1 19071
 S
 #19073
 Master Dunn's House~
@@ -4685,6 +4690,14 @@ shop is filled with books, while the window of the eastward shop contains
 daggers, canteens, and other adventuring equipment.
 ~
 0 0 1
+E
+sign signs~
+The sign to the west says,                  The sign to the east says,
+
+     "The Library"                            "The Travellers' Shop"
+<------------------------                   ------------------------->
+
+~
 D0
 ~
 ~
@@ -4701,14 +4714,6 @@ D3
 ~
 ~
 0 -1 19076
-E
-sign signs~
-The sign to the west says,                  The sign to the east says,
-
-     "The Library"                            "The Travellers' Shop"
-<------------------------                   ------------------------->
-
-~
 S
 #19075
 The Travellers' Shop~
@@ -4718,7 +4723,7 @@ The well-stocked shelves have a number of items appropriate for adventurers;
 there is one whole section devoted to "Weapons and Armor," while other sections
 have titles like "Luggage" and "Rations".
 ~
-0 8 0
+0 D 0
 D3
 ~
 ~
@@ -4799,6 +4804,9 @@ intricately patterned Persian rug covers the floor, with a small
 octagonal section cut out above the hatch that allowed you into this room.
 ~
 0 D 0
+E
+sign light~
+You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
 D4
 ~
 ~
@@ -4807,9 +4815,6 @@ D5
 ~
 ~
 0 -1 19079
-E
-sign light~
-You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
 S
 #19081
 The Orange Room~
@@ -4821,6 +4826,9 @@ two snapdragons grow on its left and right, while sprigs of goldenrod grow
 upwards just behind its head.
 ~
 0 C 0
+E
+sign light~
+You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
 D4
 ~
 ~
@@ -4829,9 +4837,6 @@ D5
 ~
 ~
 2 19159 19080
-E
-sign light~
-You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
 S
 #19082
 The Yellow Room~
@@ -4841,6 +4846,9 @@ throne on the north wall seems to blaze with its own light; the sunflowers and
 forsythia branches that surround it seem dull in comparison.
 ~
 0 CD 0
+E
+sign light~
+You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
 D4
 ~
 ~
@@ -4849,9 +4857,6 @@ D5
 ~
 ~
 2 19160 19081
-E
-sign light~
-You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
 S
 #19083
 The Green Room~
@@ -4862,6 +4867,9 @@ wooden throne beneath them...and partially obscure the Sign of the Light on the
 wall.
 ~
 0 CD 0
+E
+sign light~
+You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
 D4
 ~
 ~
@@ -4870,9 +4878,6 @@ D5
 ~
 ~
 2 19161 19082
-E
-sign light~
-You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
 S
 #19084
 The Blue Room~
@@ -4884,6 +4889,9 @@ bluebells grow in planters around the room, matching the blue
 speedwell of the throne as well as the blue marble below your feet.
 ~
 0 CD 0
+E
+sign light~
+You see the Sign of the Light, a rainbow inside a circle of ivy.~
 D4
 ~
 ~
@@ -4892,9 +4900,6 @@ D5
 ~
 ~
 2 19162 19083
-E
-sign light~
-You see the Sign of the Light, a rainbow inside a circle of ivy.~
 S
 #19085
 The Violet Room~
@@ -4907,6 +4912,9 @@ from behind the dark throne on the north wall, brushing gently against
 the Sign of the Light.
 ~
 0 CD 0
+E
+sign light~
+You see the Sign of the Light, a rainbow surrounded by a circle of ivy.~
 D4
 ~
 ~
@@ -4915,9 +4923,6 @@ D5
 ~
 ~
 2 19163 19084
-E
-sign light~
-You see the Sign of the Light, a rainbow surrounded by a circle of ivy.~
 S
 #19086
 At the Top of the Tower: The Prism Room~
@@ -4930,13 +4935,13 @@ Above the throne hangs the Sign of the Light; here, the unfiltered light allows
 it to sparkle with all its rainbow colors.
 ~
 0 CD 0
+E
+sign light~
+You see the Sign of the Light, a rainbow surrounded by a circle of ivy.~
 D5
 ~
 ~
 2 19164 19085
-E
-sign light~
-You see the Sign of the Light, a rainbow surrounded by a circle of ivy.~
 S
 #19087
 End of the Path~
@@ -5006,7 +5011,7 @@ D2
 D3
 ~
 ~
-1 -1 19108
+0 -1 19108
 S
 #19090
 The Wooden Path~
@@ -5393,7 +5398,7 @@ enough light for you to see a small handle attached to the hatchway above.
 D4
 ~
 ~
-1 -1 19010
+0 -1 19010
 D5
 ~
 ~
@@ -5407,6 +5412,10 @@ a door set into the eastern wall, as well as a small figure carved into the
 rock above the doorway.
 ~
 0 CD 0
+E
+sign figure~
+The Sign of the Dark, a raven diving inside a circle of bone, is carved into
+the rock above the door.~
 D1
 ~
 ~
@@ -5415,10 +5424,6 @@ D4
 ~
 ~
 0 -1 19107
-E
-sign figure~
-The Sign of the Dark, a raven diving inside a circle of bone, is carved into
-the rock above the door.~
 S
 #19109
 Center of the Street~
@@ -5458,6 +5463,12 @@ no sign out front--and is covered by a thin black cloth, probably in an attempt
 to keep out the smell.
 ~
 0 0 1
+E
+sign signs~
+The sign to the west reads:                     The sign to the east reads:
+
+     "The Sorcery"                                  "The Hemlock Bush"
+<--------------------------                     --------------------------->~
 D0
 ~
 ~
@@ -5474,12 +5485,6 @@ D3
 ~
 ~
 0 -1 19112
-E
-sign signs~
-The sign to the west reads:                     The sign to the east reads:
-
-     "The Sorcery"                                  "The Hemlock Bush"
-<--------------------------                     --------------------------->~
 S
 #19111
 The Bar of the Hemlock Bush~
@@ -5510,14 +5515,14 @@ back corner of the room, and the runes etched on the ceiling give you faint
 shivers; the sign of the Dark is painted on the floor.
 ~
 0 D 0
-D1
-~
-~
-0 -1 19110
 E
 rune runes sign~
 You can't understand them....but you find that every hair of your body is
 tingling faintly and beginning to stand on end.~
+D1
+~
+~
+0 -1 19110
 S
 #19113
 The Restaurant of the Hemlock Bush ~
@@ -5680,7 +5685,7 @@ D3
 D4
 ~
 ~
-1 -1 19123
+0 -1 19123
 S
 #19123
 Inside the Dark Tower~
@@ -5954,7 +5959,7 @@ D1
 D2
 ~
 ~
-1 -1 19163
+0 -1 19163
 D3
 ~
 ~
@@ -5970,6 +5975,10 @@ cluster of African violets still manages to grow on a small rock near the
 foot of the mountain.
 ~
 0 0 3
+E
+violet violets rock~
+The violets cover the rock...which in turn appears to cover a small opening in
+the mountain wall.~
 D0
 ~
 ~
@@ -5982,10 +5991,6 @@ D5
 ~
 rock~
 1 -1 19155
-E
-violet violets rock~
-The violets cover the rock...which in turn appears to cover a small opening in
-the mountain wall.~
 S
 #19138
 The Tree House~
@@ -5999,6 +6004,9 @@ out the southern window; the owner has flattened out part of it, and now
 uses it as a table.
 ~
 0 D 0
+E
+bee hive beehive bees~
+~
 D4
 The space in the ceiling looks large enough to pass through, but you'd have to
 move the netting.~
@@ -6008,9 +6016,6 @@ D5
 ~
 ~
 0 -1 19135
-E
-bee hive beehive bees~
-~
 S
 #19139
 Dark Forest~
@@ -6185,7 +6190,7 @@ was one.  You're not supposed to be here....trust me.  I know.  I wrote this
 area :-).  Anyway, better recall or get someone to transfer you out of here,
 'cause this is just a room used by mobprogs.....
 ~
-0 O 0
+0 CO 0
 S
 #19148
 The Fisherman's Hut~
@@ -6279,7 +6284,7 @@ D0
 D5
 ~
 ~
-1 -1 19138
+0 -1 19138
 S
 #19154
 Inside the Hive~
@@ -6310,7 +6315,7 @@ to lie.
 D4
 ~
 ~
-1 -1 19137
+0 -1 19137
 S
 #19156
 Inside the House: The Living Room~
@@ -6366,7 +6371,7 @@ to be far hotter and larger than it seemed from the outside.
 D2
 ~
 ~
-1 -1 19157
+0 -1 19157
 S
 #19159
 Crawling Through the Oven~
@@ -6380,11 +6385,11 @@ at the other.
 D1
 ~
 panel~
-1 -1 19160
+0 -1 19160
 D3
 ~
 oven door~
-1 -1 19157
+0 -1 19157
 S
 #19160
 The Bedroom~
@@ -6466,11 +6471,11 @@ D0
 D1
 ~
 door~
-1 -1 19166
+0 -1 19166
 D3
 ~
 door~
-1 -1 19165
+0 -1 19165
 D5
 ~
 ~
@@ -6487,7 +6492,7 @@ near the bed.
 D1
 ~
 door~
-1 -1 19164
+0 -1 19164
 S
 #19166
 Mr. Teece's Room~
@@ -6501,7 +6506,7 @@ lyrics for various sorts of blues and jazz.
 D3
 ~
 door~
-1 -1 19164
+0 -1 19164
 S
 #19167
 Hallway~
@@ -6513,7 +6518,7 @@ the door to the east holds a plaque that reads "Honeymoon Suite."
 D1
 ~
 door~
-1 -1 19169
+0 -1 19169
 D2
 ~
 ~
@@ -6521,7 +6526,7 @@ D2
 D3
 ~
 ~
-1 -1 19168
+0 -1 19168
 S
 #19168
 A Bedroom~
@@ -6534,7 +6539,7 @@ the bed.
 D1
 ~
 ~
-1 -1 19167
+0 -1 19167
 S
 #19169
 The Honeymoon Suite~
@@ -6566,493 +6571,403 @@ S
 #0
 
 
-#RESETS
-*
-*
-O 1 19005 100 19020               *    a throne to The Alcove with the King's Throne *
-M 1 19003 1 19020 1                 *   King Loranhir to The King's Alcove
-E 1 19006 100 5
-O 1 19039 100 19005  *  a brass plaque to Before the Face of the Mountain *
-M 1 19008 2 19005 1 *         a watchman to Before the Face of the Mountain
-E 1 19040 100 5
-D 1 19005 0 1      *           ; Before the Face of the Mountain Close North
-D 1 19006 2 1      *          ; The Path Above the Realm Close South
-D 1 19008 3 0      *           ; Beside the Watchtowers Open West
-*
-M 1 19009 1 19009 1  *                  a watchman to Inside the Watchtower
-E 1 19040 100 5
-E 1 19085 100 16
-O 1 19041 100 19009  *                 a telescope to Inside the Watchtower
-D 1 19008 1 0         *        ; Beside the Watchtowers Open East
-*
-M 1 19010 1 19010  1    *               a watchman to Inside a  Watchtower
-E 1 19040 100 5
-E 1 19085 100 16
-O 1 19042 100 19010  *                 a telescope to Inside a  Watchtower
-D 1 19030 0 1         *        ; In Front of the Castle Entrance Close North
-*
-M 1 19001 2 19031 1    *                the mirror guardian to A room
-E 1 19002 100 5
-E 1 19004 100 6
-E 1 19001 100 11
-E 1 19003 100 16
-E 1 19086 100 7
-*
-M 1 19001 2 19031  1   *                the mirror guardian to A room
-E 1 19002 100 5
-E 1 19004 100 6
-E 1 19001 100 11
-E 1 19003 100 16
-E 1 19086 100 7
-R 1 19032 4           *        ; Randomize Mirrors
-R 1 19033 4           *        ; Randomize Mirrors
-R 1 19034 4           *        ; Randomize Mirrors
-R 1 19035 4           *        ; Randomize Mirrors
-R 1 19038 4           *        ; Randomize Mirrors
-R 1 19039 4           *        ; Randomize Mirrors
-R 1 19040 4           *        ; Randomize Mirrors
-*
-M 1 19001 1 19041  1    *               the mirror guardian to Intersection
-E 1 19002 100 5
-E 1 19004 100 6
-E 1 19001 100 11
-E 1 19003 100 16
-*
-M 1 19002 1 19042  1     *              a withered knight to An Alcove
-E 1 19009 100 5
-E 1 19007 100 6
-E 1 19008 100 16
-E 1 19043 100 0
-D 1 19026 3 1           *      ; Floating Beside the Left Wall Close West
-D 1 19042 1 1            *     ; An Alcove Close East
-*
-*
-M 1 19012 1 19043  1      *             a withered knight to An Alcove
-E 1 19009 100 5
-E 1 19008 100 16
-E 1 19010 100 17
-*
-*
-D 1 19024 1 1            *     ; Floating Beside the Right Wall Close East
-D 1 19009 5 0            *     ; Inside a  Watchtower Open Down
-D 1 19048 1 1            *     ; Intersection in the Garden Close East
-D 1 19045 3 1            *     ; The Foot of the Rock Ladder Close West
-O 1 19035 100 19051      *             a grove of apple trees to A Small Grove
-P 1 19036 100 19035 1    *             an apple to container apple tree
-P 1 19036 100 19035 1     *             an apple to container apple tree
-O 1 19056 100 19053      * a small jar of pale glowing fish to Under the Gazebo
-O 1 19057 100 19059      *             the white goldfish to The pond
-O 1 19037 100 19060      *             a grove of plum trees to A room
-P 1 19038 100 19037 1     *             a plum to container plum tree
-P 1 19038 100 19037 1     *             a plum to container plum tree
-*
-M 1 19014 1 19067   1     *             the bride to The Gazebo
-E 1 19054 100 1
-E 1 19051 100 5
-E 1 19053 100 6
-E 1 19052 100 8
-E 1 19055 100 17
-*
-M 1 19015 1 19067   1      *            the groom to The Gazebo
-E 1 19050 100 1
-E 1 19045 100 3
-E 1 19046 100 5
-E 1 19047 100 7
-E 1 19049 100 8
-E 1 19044 100 12
-E 1 19048 100 13
-*
-M 1 19023 1 19067   1       *           the priest to The Gazebo
-E 1 19066 100 12
-*
-M 1 19016 1 19064  1 *                  the Red Lord to Along the Path
-E 1 19058 100 12
-E 1 19064 100 16
-*
-M 1 19017 1 19057   1       *           the Orange Lord to Along the Path
-E 1 19059 100 12
-E 1 19064 100 16
-*
-M 1 19018 1 19047   1      *            the Yellow Lord to The Path in  
-E 1 19060 100 12
-E 1 19064 100 16
-*
-M 1 19019 1 19049  1      *             the Green Lord to Path in the Garden
-E 1 19061 100 12
-E 1 19064 100 16
-*
-M 1 19020 1 19061  1       *            the Blue Lord to Bend in the Path
-E 1 19062 100 12
-E 1 19064 100 16
-*
-M 1 19021 1 19062  1    
-E 1 19063 100 12
-E 1 19064 100 16
-*
-M 1 19022 1 19065  1        *           the gardener to Bend in the Path
-E 1 19065 100 16
-*
-M 1 19006 5 19056  1
-E 1 19015 100 16
-G 1 19020 100
-*
-M 1 19005 1 19050   1
-E 1 19015 100 16
-G 1 19020 100
-*
-M 1 19004 1 19068   1        *          Caerlin to Center of the Street
-E 1 19014 100 3
-E 1 19061 100 12
-E 1 19011 100 17
-*
-M 1 19024 1 19070   1         *         the wizard to The Sorcery
-E 1 19080 100 6
-E 1 19081 100 12
-E 1 19092 100 17
-G 1 19021 100
-G 1 19018 100
-G 1 19016 100
-G 1 19067 100
-*
-*
-*
-O 1 19013 100 19071        *           a pool table to A room
-*
-M 1 19026 1 19071  1   *     Lauraine the barkeep to The bar of theHolly 
-G 1 19070 100
-G 1 19069 100
-G 1 19068 100
-*
-M 1 19025 1 19071 1  *    the pool player to The bar of the Holly Bush 
-E 1 19012 100 16
-O 1 19032 100 19072  *                 a menu to A room
-*
-M 1 19027 1 19072  1   *    the waiter to The restaurant of the Holly Bush
-G 1 19023 100
-G 1 19024 100
-G 1 19025 100
-G 1 19026 100
-G 1 19027 100
-G 1 19029 100
-G 1 19030 100
-G 1 19031 100
-*
-M 1 19028 1 19073  1    *               Master Dunn to 
-E 1 19072 100 5
-E 1 19073 100 13
-E 1 19071 100 16
-O 1 19074 100 19073     *              a fountain to Master Dunn's House
-*
-M 1 19029 1 19075   1     *             the proprietor to The Travellers' 
-G 1 19078 100
-G 1 19077 100
-G 1 19076 100
-G 1 19075 100
-G 1 19079 100
-G 1 19043 100
-G 1 19150 100
-*
-*
-M 1 19006 2 19069  1       *   a citizen of the Mirror Realm to The Street
-E 1 19015 100 16
-G 1 19020 100
-O 1 19082 100 19077        *           a hymn to The Chapel
-*
-M 1 19031 1 19077   1        *          Father Franklin to The Chapel
-E 1 19066 100 12
-E 1 19083 100 1
-*
-*
-M 1 19007 1 19078   1
-E 1 19034 100 5
-E 1 19033 100 16
-D 1 19079 4 1   *              ; Entrance to the Rainbow Tower Close Up
-D 1 19080 4 1    *             ; The Red Room Close Up
-D 1 19081 4 1     *            ; The Orange Room Close Up
-D 1 19082 4 1      *           ; The Yellow Room Close Up
-D 1 19083 4 1       *          ; The Green Room Close Up
-D 1 19084 4 1        *         ; The Blue Room Close Up
-D 1 19085 4 1         *        ; The Violet Room Close Up
-D 1 19108 1 1          *       ; The Foot of the Rock Ladder  Close East
-*
-M 1 19013 1 19119   1  *   the Gray Mare to Path to the Dark Tower [EDIT]
-E 1 19107 100 3
-E 1 19106 100 16
-*
-*
-*
-M 1 19034 1 19114  1      *             Storn the assassin to A Dark House
-E 1 19126 100 5
-E 1 19127 100 16
-*
-M 1 19032 2 19102   1     *            the White Lord to Corner of the Path
-E 1 19124 100 12
-E 1 19110 100 16
-*
-*
-M 1 19032 2 19106  1      *           the White Lord to The Corner of the 
-E 1 19124 100 12
-E 1 19110 100 16
-*
-*
-*
-M 1 19036 1 19091 1   *       the gardener to The Corner of the Wooden Path
-E 1 19084 100 16
-*
-M 1 19008 2 19005  1
-E 1 19040 100 5
-*
-M 1 19030 1 19076  1
-E 1 19087 100 12
-G 1 19134 100
-G 1 19135 100
-G 1 19136 100
-*
-M 1 19037 1 19051  1 *                   the young boy to A Grove of Trees
-*
-M 1 19038 1 19058  1 *                  the fisherman to The pond
-E 1 19090 100 5
-E 1 19088 100 8
-E 1 19089 100 16
-G 1 19091 100
-*
-M 1 19039 1 19132  1  *                 The buck to The Forest 
-E 1 19093 100 6
-O 1 19094 100 19050   *                a  tree to Corner of the Path 
-*
-M 1 19035 1 19112  1    *               the wizard to The Sorcery [EDIT]
-E 1 19080 100 6
-E 1 19081 100 12
-E 1 19096 100 17
-G 1 19017 100
-G 1 19019 100
-G 1 19102 100
-G 1 19103 100
-*
-M 1 19041 1 19142   1    *            the mass of red ants to Up the Tree 
-E 1 19097 100 16
-*
-M 1 19040 1 19127   1
-G 1 19128 100
-*
-M 1 19011 1 19147   1
-*
-M 1 19042 1 19111   1
-*
-M 1 19043 1 19111  1 
-E 1 19101 100 16
-G 1 19100 100
-G 1 19098 100
-G 1 19099 100
-*
-M 1 19044 1 19109  1 *                  Carvallo to Center of the Street
-E 1 19105 100 13
-E 1 19104 100 9
-*
-M 1 19045 1 19115  1  *                 the young man to The Street
-E 1 19015 100 16
-G 1 19020 100
-*
-M 1 19046 1 19110  1   *                the woman to Street 
-E 1 19015 100 16
-G 1 19020 100
-*
-M 1 19047 1 19146  1    *               the grey fox to Dark Forest 
-*
-M 1 19048 1 19131  1   *                the moose to The Forest 
-E 1 19093 100 6
-*
-M 1 19049 1 19139   1    *              the bear to Dark Forest
-O 1 19108 100 19092  1    *             a holly tree to A Grove of Trees 
-P 1 19109 100 19108 1      
-*
-M 1 19033 1 19103    1     *            the Black Lord to The Path [EDIT]
-E 1 19110 100 16
-E 1 19123 100 12
-O 1 19111 100 19113  *           a menu to The Restaurant of the Hemlock Bush 
-O 1 19112 100 19113  *       a sign to The Restaurant of the Hemlock Bush 
-*
-M 1 19050 1 19113  1   *   the waiter to The Restaurant of the Hemlock Bush 
-G 1 19113 100
-O 1 19114 100 19099    *    a small jar of glowing slugs to Under the Gazebo
-O 1 19115 100 19097     *              a poison oak tree to A Grove of Trees 
-P 1 19116 100 19115 1     *             an acorn to container oak tree poison
-P 1 19116 100 19115 1      *            an acorn to container oak tree poison
-*
-M 1 19050 1 19092   1       *           the waiter to A Grove of Trees 
-*
-M 1 19052 1 19121   1        *          the lady of ill repute to The Gazebo 
-E 1 19117 100 5
-E 1 19118 100 7
-*
-M 1 19053 1 19121    1        *         the master to The Gazebo 
-O 1 19119 100 19095           *        a dead squid to The Swamp
-*
-M 1 19054 1 19117    1
-O 1 19120 100 19129   *                a cabinet door to Merriman's Alcove
-*
-M 1 19055 1 19080  1  *                 the Crimson Master to The Red Room
-E 1 19122 100 6
-E 1 19058 100 12
-*
-M 1 19056 1 19081  1   *                the Amber Master to The Orange Room
-E 1 19122 100 6
-E 1 19059 100 12
-*
-M 1 19033 1 19097  1    *               the Black Lord to A Grove of Trees 
-E 1 19123 100 12
-E 1 19110 100 16
-*
-M 1 19057 1 19083   1    *              the Green Master to The Green Room
-E 1 19122 100 6
-E 1 19061 100 12
-*
-M 1 19058 1 19084   1     *             the Blue Master to The Blue Room
-E 1 19122 100 6
-E 1 19062 100 12
-*
-*
-M 1 19059 1 19085    1     *            the Violet Master to The Violet Room
-E 1 19122 100 6
-E 1 19063 100 12
-*
-*
-M 1 19060 1 19082     1     *           the Yellow Master to The Yellow Room
-E 1 19122 100 6
-E 1 19060 100 12
-*
-M 1 19061 1 19086      1     *          the Master of Light to At the Top 
-G 1 19129 100
-*
-M 1 19062 1 19151 1   *                 the Phoenix to A Small Room
-D 1 19010 5 0         *        ; Inside a  Watchtower Open Down
-R 1 19037 4            *       ; Randomize Mirrors
-R 1 19036 4             *      ; Randomize Mirrors
-*
-M 1 19005 2 19074  1      *             the young man to The Street
-E 1 19015 100 16
-G 1 19020 100
-*
-M 1 19066 1 19123  1       *            the Black Master to Inside the 
-E 1 19132 100 5
-D 1 19123 4 1  *               ; Inside the Dark Tower Close Up
-*
-M 1 19064 1 19124 1 *                    the White Master to Inside the ark Tower 
-E 1 19131 100 5
-D 1 19124 4 1  *               ; Inside the Dark Tower Close Up
-*
-M 1 19067 1 19125 1 *              the Black Master to Inside the Dark Tower
-E 1 19132 100 5
-D 1 19125 4 1      *           ; Inside the Dark Tower Close Up
-*
-M 1 19065 1 19126   1
-E 1 19131 100 5
-D 1 19126 4 1   
-*
-M 1 19063 1 19138 1
-E 1 19133 100 17
-D 1 19080 4 2     *            ; The Yellow Room Lock Down
-D 1 19081 4 2      *           ; The Orange Room Lock Up
-D 1 19082 4 2       *          ; The Blue Room Lock Down
-D 1 19083 4 2        *         ; The Violet Room Lock Down
-D 1 19084 4 2         *        ; The Blue Room Lock Up
-D 1 19085 4 2          *       ; The Violet Room Lock Up
-D 1 19067 4 1           *      ; The Gazebo Close Up
-O 1 19137 100 19152      
-P 1 19138 100 19137 1     
-D 1 19138 4 1            
-O 1 19139 100 19154      
-P 1 19140 100 19139 1     
-D 1 19137 5 1            
-O 1 19141 100 19155      
-P 1 19142 100 19141  1    
-D 1 19157 0 1            
-D 1 19157 1 1            
-D 1 19160 3 1            
-O 1 19143 100 19158      
-P 1 19144 100 19143  1    
-O 1 19146 100 19162      
-P 1 19145 100 19146  1    
-D 1 19163 0 1            
-O 1 19147 100 19163      
-P 1 19148 100 19147  1    
-P 1 19095 100 19094  1    
-P 1 19095 100 19094  1   
-P 1 19149 100 19094  1   
-*
-*M 1 19068 1 19170   1    *              Jerry Garcia to The Suite
-*E 1 19151 100 5
-*E 1 19152 100 6
-*E 1 19153 100 7
-*E 1 19154 100 17
-*G 1 19155 100
-*
-M 1 19069 1 19166   1     *             Mr. Teece to Mr. Teece's Room
-*E 1 19156 100 17
-*
-O 1 19166 100 19169 1      *            the heart key to The Honeymoon Suite
-O 1 19167 100 19169 1       *           the wine bottle to The Honeymoon 
+
+#SPECIALS
+M 19002 spec_breath_frost	* a withered knight
+M 19003 spec_cast_mage	* King Loranhir
+M 19004 spec_cast_cleric	* Caerlin
+M 19011 spec_breath_fire	* Bear-de-bear
+M 19012 spec_breath_frost	* a withered knight
+M 19013 spec_poison	* the Grey Mare
+M 19023 spec_cast_cleric	* Brother Thomas
+M 19024 spec_cast_mage	* a standard issue wizard
+M 19031 spec_cast_adept	* Father Franklin
+M 19035 spec_cast_mage	* a standard issue wizard
+M 19036 spec_thief	* the gardener
+M 19040 spec_breath_any	* something
+M 19041 spec_poison	* the mass of red ants
+M 19042 spec_thief	* the card shark
+M 19044 spec_thief	* Carvallo
+M 19045 spec_thief	* the young man
+M 19046 spec_thief	* the woman
+M 19047 spec_fido	* the grey fox
+M 19050 spec_thief	* the waiter
+M 19051 spec_thief	* the young urchin
+M 19052 spec_thief	* the lady of ill repute
+M 19053 spec_thief	* the greasy man
+M 19054 spec_thief	* the wily little thief (hidden somewhere in the shadows)
+M 19055 spec_breath_fire	* the Red Master
+M 19056 spec_breath_gas	* the Amber Master
+M 19057 spec_breath_acid	* the Green Master
+M 19058 spec_breath_frost	* the Blue Master
+M 19059 spec_breath_gas	* the Violet Master
+M 19060 spec_breath_lightning	* the Yellow Master
+M 19061 spec_breath_any	* the Master of Light
+M 19062 spec_breath_any	* the Phoenix
+M 19064 spec_cast_undead	* the White Master
+M 19065 spec_cast_undead	* the White Master
+M 19066 spec_cast_undead	* the Black Master
+M 19067 spec_cast_undead	* the Black Master
+M 19068 spec_cast_adept	* Jerry Garcia
 S
+
+
+
+#RESETS
+D 0 19005 0 1	* Before the Face of the Mountain: door to the north: closed
+D 0 19006 2 1	* The Path Above the Realm: door to the south: closed
+D 0 19024 1 1	* Floating Beside the Right Wall: door to the east: closed
+D 0 19026 3 1	* Floating Beside the Left Wall: door to the west: closed
+D 0 19030 0 1	* In Front of the Castle Entrance: door to the north: closed
+D 0 19042 1 1	* An Alcove: door to the east: closed
+D 0 19045 3 1	* The Foot of the Rock Ladder: door to the west: closed
+D 0 19048 1 1	* Intersection in the Garden: door to the east: closed
+D 0 19067 4 1	* The Gazebo: door to the up: closed
+D 0 19079 4 1	* Entrance to the Rainbow Tower: door to the up: closed
+D 0 19080 4 2	* The Red Room: door to the up: closed and locked
+D 0 19081 4 2	* The Orange Room: door to the up: closed and locked
+D 0 19082 4 2	* The Yellow Room: door to the up: closed and locked
+D 0 19083 4 2	* The Green Room: door to the up: closed and locked
+D 0 19084 4 2	* The Blue Room: door to the up: closed and locked
+D 0 19085 4 2	* The Violet Room: door to the up: closed and locked
+D 0 19108 1 1	* The Foot of the Rock Ladder : door to the east: closed
+D 0 19123 4 1	* Inside the Dark Tower: door to the up: closed
+D 0 19124 4 1	* Inside the Dark Tower: door to the up: closed
+D 0 19125 4 1	* Inside the Dark Tower: door to the up: closed
+D 0 19126 4 1	* Inside the Dark Tower: door to the up: closed
+D 0 19137 5 1	* The Forest : door to the down: closed
+D 0 19138 4 1	* The Tree House: door to the up: closed
+D 0 19157 0 1	* Inside the House: The Kitchen: door to the north: closed
+D 0 19157 1 1	* Inside the House: The Kitchen: door to the east: closed
+D 0 19160 3 1	* The Bedroom: door to the west: closed
+D 0 19163 0 1	* The Green Altar: door to the north: closed
+O 0 19039 0 19005		* a brass plaque (Before the Face of the Mountain)
+M 0 19008 2 19005 1	* a watchman (Before the Face of the Mountain)
+E 0 19040 0 5		*	a brown robe: on the body
+M 0 19008 2 19005 1	* a watchman (Before the Face of the Mountain)
+E 0 19040 0 5		*	a brown robe: on the body
+M 0 19009 1 19009 1	* a watchman (Inside a Watchtower)
+E 0 19040 0 5		*	a brown robe: on the body
+E 0 19085 0 16		*	a thick wooden staff: wielded
+O 0 19041 0 19009		* a telescope (Inside a Watchtower)
+M 0 19010 1 19010 1	* a watchman (Inside a Watchtower)
+E 0 19040 0 5		*	a brown robe: on the body
+E 0 19085 0 16		*	a thick wooden staff: wielded
+O 0 19042 0 19010		* a telescope (Inside a Watchtower)
+O 0 19005 0 19020		* a throne (The King's Alcove)
+M 0 19003 1 19020 1	* King Loranhir (The King's Alcove)
+E 0 19006 0 5		*	a grey robe: on the body
+M 0 19001 2 19031 1	* the mirror guardian (Entrance to the Castle)
+E 0 19002 0 5		*	a mirrored plate of armor: on the body
+E 0 19004 0 6		*	a chainmail cowl: over the head
+E 0 19001 0 11		*	a mirrored shield: as a shield
+E 0 19003 0 16		*	a shiny silver sword: wielded
+E 0 19086 0 7		*	a set of mirrored leggings: on the legs
+M 0 19001 2 19031 1	* the mirror guardian (Entrance to the Castle)
+E 0 19002 0 5		*	a mirrored plate of armor: on the body
+E 0 19004 0 6		*	a chainmail cowl: over the head
+E 0 19001 0 11		*	a mirrored shield: as a shield
+E 0 19003 0 16		*	a shiny silver sword: wielded
+E 0 19086 0 7		*	a set of mirrored leggings: on the legs
+R 0 19032 4	* Mirrors: randomize
+R 0 19033 4	* Mirrors: randomize
+R 0 19034 4	* Mirrors: randomize
+R 0 19035 4	* Mirrors: randomize
+R 0 19036 4	* Mirrors: randomize
+R 0 19037 4	* Mirrors: randomize
+R 0 19038 4	* Mirrors: randomize
+R 0 19039 4	* Mirrors: randomize
+R 0 19040 4	* Mirrors: randomize
+M 0 19001 1 19041 1	* the mirror guardian (Intersection)
+E 0 19002 0 5		*	a mirrored plate of armor: on the body
+E 0 19004 0 6		*	a chainmail cowl: over the head
+E 0 19001 0 11		*	a mirrored shield: as a shield
+E 0 19003 0 16		*	a shiny silver sword: wielded
+M 0 19002 1 19042 1	* a withered knight (An Alcove)
+E 0 19009 0 5		*	a worn chainmail jerkin: on the body
+E 0 19007 0 6		*	the Golden Circlet: over the head
+E 0 19008 0 16		*	a bent sword: wielded
+E 0 19043 0 0		*	an oil lamp: as a light
+M 0 19012 1 19043 1	* a withered knight (An Alcove)
+E 0 19009 0 5		*	a worn chainmail jerkin: on the body
+E 0 19008 0 16		*	a bent sword: wielded
+E 0 19010 0 17		*	the Royal Staff: held in the hands
+M 0 19018 1 19047 1	* the Yellow Lord (The Path in the Garden)
+E 0 19060 0 12		*	a yellow robe: about the shoulders
+E 0 19064 0 16		*	a prism sword: wielded
+M 0 19019 1 19049 1	* the Green Lord (Path in the Garden)
+E 0 19061 0 12		*	a forest green robe: about the shoulders
+E 0 19064 0 16		*	a prism sword: wielded
+M 0 19005 1 19050 1	* the young man (Corner of the Path)
+E 0 19015 0 16		*	a small steel knife: wielded
+G 0 19020 0		*	some coins
+O 0 19094 0 19050		* a nectarine tree (Corner of the Path)
+O 0 19035 0 19051		* a grove of apple trees (A Grove of Trees)
+P 0 19036 100 19035 1	* a grove of apple trees: an apple
+P 0 19036 100 19035 1	* a grove of apple trees: an apple
+M 0 19037 1 19051 1	* the young boy (A Grove of Trees)
+O 0 19056 0 19053		* a small jar of pale glowing fish (Under the Gazebo)
+M 0 19006 5 19056 1	* the woman (Along the Edge of the Forest)
+E 0 19015 0 16		*	a small steel knife: wielded
+G 0 19020 0		*	some coins
+M 0 19017 1 19057 1	* the Orange Lord (Below the Fisherman's Hut)
+E 0 19059 0 12		*	a burnt-orange robe: about the shoulders
+E 0 19064 0 16		*	a prism sword: wielded
+M 0 19038 1 19058 1	* the fisherman (The pond)
+E 0 19090 0 5		*	a rain slicker: on the body
+E 0 19088 0 8		*	fishing boots: on the feet
+E 0 19089 0 16		*	a gaff: wielded
+G 0 19091 0		*	a dinghy
+O 0 19057 0 19059		* the white goldfish (The pond)
+O 0 19037 0 19060		* a grove of plum trees (A Grove of Trees)
+P 0 19038 100 19037 1	* a grove of plum trees: a plum
+P 0 19038 100 19037 1	* a grove of plum trees: a plum
+M 0 19020 1 19061 1	* the Blue Lord (Bend in the Path)
+E 0 19062 0 12		*	a sea-blue robe: about the shoulders
+E 0 19064 0 16		*	a prism sword: wielded
+M 0 19021 1 19062 1	* the Violet Lord (Along the Path Behind the Buildings)
+E 0 19063 0 12		*	a violet robe: about the shoulders
+E 0 19064 0 16		*	a prism sword: wielded
+M 0 19016 1 19064 1	* the Red Lord (Along the Path Behind the Wooden Buildings)
+E 0 19058 0 12		*	a crimson robe: about the shoulders
+E 0 19064 0 16		*	a prism sword: wielded
+M 0 19022 1 19065 1	* the gardener (Path to the Forest)
+E 0 19065 0 16		*	a hoe: wielded
+M 0 19014 1 19067 1	* the bride (The Gazebo)
+E 0 19054 0 1		*	a diamond engagement ring: on the left finger
+E 0 19051 0 5		*	a wedding dress: on the body
+E 0 19053 0 6		*	a thin white veil: over the head
+E 0 19052 0 8		*	a pair of white shoes: on the feet
+E 0 19055 0 17		*	a corsage: held in the hands
+M 0 19015 1 19067 1	* the groom (The Gazebo)
+E 0 19050 0 1		*	an engagement band: on the left finger
+E 0 19045 0 3		*	a black bow tie: around the neck (1)
+E 0 19046 0 5		*	a crisp white shirt: on the body
+E 0 19047 0 7		*	a pair of black dress pants: on the legs
+E 0 19049 0 8		*	a pair of black shoes: on the feet
+E 0 19044 0 12		*	a formal white jacket: about the shoulders
+E 0 19048 0 13		*	a cummerbund: around the waist
+M 0 19023 1 19067 1	* Brother Thomas (The Gazebo)
+E 0 19066 0 12		*	a white robe: about the shoulders
+M 0 19004 1 19068 1	* Caerlin (Center of the Street)
+E 0 19014 0 3		*	a bard's amulet: around the neck (1)
+E 0 19061 0 12		*	a forest green robe: about the shoulders
+E 0 19011 0 17		*	a silver harp: held in the hands
+M 0 19006 2 19069 1	* the woman (The Street)
+E 0 19015 0 16		*	a small steel knife: wielded
+G 0 19020 0		*	some coins
+M 0 19024 1 19070 1	* a standard issue wizard (The Sorcery)
+E 0 19080 0 6		*	a wizard's peaked cap: over the head
+E 0 19081 0 12		*	a wizard's cloak: about the shoulders
+E 0 19092 0 17		*	a "Wizard's Finishing School" diploma: held in the hands
+G 0 19021 0		*	a clear potion of invisibility
+G 0 19018 0		*	a flask of holy water
+G 0 19016 0		*	a potion of human flight
+G 0 19067 0		*	a poultice of detection
+O 0 19013 0 19071		* a pool table (The bar of the Holly Bush)
+M 0 19026 1 19071 1	* Lauraine the barkeep (The bar of the Holly Bush)
+G 0 19070 0		*	lemonade
+G 0 19069 0		*	whisky
+G 0 19068 0		*	beer
+M 0 19025 1 19071 1	* the pool player (The bar of the Holly Bush)
+E 0 19012 0 16		*	a pool cue: wielded
+O 0 19032 0 19072		* a menu (The restaurant of the Holly Bush)
+M 0 19027 1 19072 1	* the waiter (The restaurant of the Holly Bush)
+G 0 19023 0		*	steak and Yorkshire Pudding
+G 0 19024 0		*	roast Chicken
+G 0 19025 0		*	mashed potatoes
+G 0 19026 0		*	peas
+G 0 19027 0		*	baked Ham
+G 0 19029 0		*	shrimp cocktail
+G 0 19030 0		*	green salad
+G 0 19031 0		*	vegetable soup
+M 0 19028 1 19073 1	* Master Dunn (Master Dunn's House)
+E 0 19072 0 5		*	a black gi: on the body
+E 0 19073 0 13		*	a red master's belt: around the waist
+E 0 19071 0 16		*	a kendo: wielded
+O 0 19074 0 19073		* a fountain (Master Dunn's House)
+M 0 19005 2 19074 1	* the young man (The Street)
+E 0 19015 0 16		*	a small steel knife: wielded
+G 0 19020 0		*	some coins
+M 0 19029 1 19075 1	* the proprietor (The Travellers' Shop)
+G 0 19078 0		*	a pocketknife
+G 0 19077 0		*	rations
+G 0 19076 0		*	a canteen
+G 0 19075 0		*	a suitcase
+G 0 19079 0		*	a small raft
+G 0 19043 0		*	an oil lamp
+G 0 19150 0		*	a jar of honey
+M 0 19030 1 19076 1	* Mrs. Truxton the Librarian (The Library and Bookstore)
+E 0 19087 0 12		*	a white shawl: about the shoulders
+G 0 19134 0		*	a History of the Mirror Realm
+G 0 19135 0		*	a Book of Legends
+G 0 19136 0		*	a History of Midgaard
+O 0 19082 0 19077		* a hymn (The Chapel)
+M 0 19031 1 19077 1	* Father Franklin (The Chapel)
+E 0 19066 0 12		*	a white robe: about the shoulders
+E 0 19083 0 1		*	a rose-colored ring: on the left finger
+M 0 19007 1 19078 1	* the unicorne (Crossing the Bridge to the Rainbow Tower)
+E 0 19034 0 5		*	an ermine blanket: on the body
+E 0 19033 0 16		*	a unicorn's golden horn: wielded
+M 0 19055 1 19080 1	* the Red Master (The Red Room)
+E 0 19122 0 6		*	a silver circlet: over the head
+E 0 19058 0 12		*	a crimson robe: about the shoulders
+M 0 19056 1 19081 1	* the Amber Master (The Orange Room)
+E 0 19122 0 6		*	a silver circlet: over the head
+E 0 19059 0 12		*	a burnt-orange robe: about the shoulders
+M 0 19060 1 19082 1	* the Yellow Master (The Yellow Room)
+E 0 19122 0 6		*	a silver circlet: over the head
+E 0 19060 0 12		*	a yellow robe: about the shoulders
+M 0 19057 1 19083 1	* the Green Master (The Green Room)
+E 0 19122 0 6		*	a silver circlet: over the head
+E 0 19061 0 12		*	a forest green robe: about the shoulders
+M 0 19058 1 19084 1	* the Blue Master (The Blue Room)
+E 0 19122 0 6		*	a silver circlet: over the head
+E 0 19062 0 12		*	a sea-blue robe: about the shoulders
+M 0 19059 1 19085 1	* the Violet Master (The Violet Room)
+E 0 19122 0 6		*	a silver circlet: over the head
+E 0 19063 0 12		*	a violet robe: about the shoulders
+M 0 19061 1 19086 1	* the Master of Light (At the Top of the Tower: The Prism Room)
+G 0 19129 0		*	the Sigil of the Light
+M 0 19036 1 19091 1	* the gardener (The Corner of the Wooden Path)
+E 0 19084 0 16		*	a pair of clippers: wielded
+O 0 19108 0 19092		* a holly tree (A Grove of Trees)
+P 0 19109 100 19108 1	* a holly tree: a few holly berries
+M 0 19050 1 19092 1	* the waiter (A Grove of Trees)
+O 0 19119 0 19095		* a dead squid (The Swamp)
+O 0 19115 0 19097		* a poison oak tree (A Grove of Trees )
+P 0 19116 100 19115 1	* a poison oak tree: an acorn
+P 0 19116 100 19115 1	* a poison oak tree: an acorn
+M 0 19033 1 19097 1	* the Black Lord (A Grove of Trees )
+E 0 19123 0 12		*	a black robe: about the shoulders
+E 0 19110 0 16		*	an eclipse sword: wielded
+O 0 19114 0 19099		* a small jar of glowing slugs (Under the Gazebo)
+M 0 19032 2 19102 1	* the White Lord (Corner of the Path )
+E 0 19124 0 12		*	a white robe: about the shoulders
+E 0 19110 0 16		*	an eclipse sword: wielded
+M 0 19033 1 19103 1	* the Black Lord (The Path)
+E 0 19110 0 16		*	an eclipse sword: wielded
+E 0 19123 0 12		*	a black robe: about the shoulders
+M 0 19032 2 19106 1	* the White Lord (The End of the Path )
+E 0 19124 0 12		*	a white robe: about the shoulders
+E 0 19110 0 16		*	an eclipse sword: wielded
+M 0 19044 1 19109 1	* Carvallo (Center of the Street)
+E 0 19105 0 13		*	a scabbard: around the waist
+E 0 19104 0 9		*	rubber gloves: on the hands
+M 0 19046 1 19110 1	* the woman (Street )
+E 0 19015 0 16		*	a small steel knife: wielded
+G 0 19020 0		*	some coins
+M 0 19042 1 19111 1	* the card shark (The Bar of the Hemlock Bush)
+M 0 19043 1 19111 1	* Hepzibah the Barkeep (The Bar of the Hemlock Bush)
+E 0 19101 0 16		*	a broken bottle: wielded
+G 0 19100 0		*	a bottle of water
+G 0 19098 0		*	hemlock
+G 0 19099 0		*	a bottle of evil-smelling ale
+M 0 19035 1 19112 1	* a standard issue wizard (The Sorcery)
+E 0 19080 0 6		*	a wizard's peaked cap: over the head
+E 0 19081 0 12		*	a wizard's cloak: about the shoulders
+E 0 19096 0 17		*	a "Wizard's Finishing School" diploma: held in the hands
+G 0 19017 0		*	a pill of mana and life restoration
+G 0 19019 0		*	a staff of destruction
+G 0 19102 0		*	a flask of devil's brew
+G 0 19103 0		*	the Soul Stealer
+O 0 19111 0 19113		* a menu (The Restaurant of the Hemlock Bush )
+O 0 19112 0 19113		* a sign (The Restaurant of the Hemlock Bush )
+M 0 19050 1 19113 1	* the waiter (The Restaurant of the Hemlock Bush )
+G 0 19113 0		*	beef stew
+M 0 19034 1 19114 1	* Storn the assassin (A Dark House )
+E 0 19126 0 5		*	a black cloak: on the body
+E 0 19127 0 16		*	a blood-red dagger: wielded
+M 0 19045 1 19115 1	* the young man (The Street)
+E 0 19015 0 16		*	a small steel knife: wielded
+G 0 19020 0		*	some coins
+M 0 19054 1 19117 1	* the wily little thief (hidden somewhere in the shadows) (The Travellers' Shop )
+M 0 19013 1 19119 1	* the Grey Mare (Path to the Dark Tower )
+E 0 19107 0 3		*	a set of red ribbons: around the neck (1)
+E 0 19106 0 16		*	a horn of bone: wielded
+M 0 19052 1 19121 1	* the lady of ill repute (The Gazebo )
+E 0 19117 0 5		*	a tight leather bodice: on the body
+E 0 19118 0 7		*	a tight leather miniskirt: on the legs
+M 0 19053 1 19121 1	* the greasy man (The Gazebo )
+M 0 19066 1 19123 1	* the Black Master (Inside the Dark Tower)
+E 0 19132 0 5		*	a black cloak: on the body
+M 0 19064 1 19124 1	* the White Master (Inside the Dark Tower)
+E 0 19131 0 5		*	a white cloak: on the body
+M 0 19067 1 19125 1	* the Black Master (Inside the Dark Tower)
+E 0 19132 0 5		*	a black cloak: on the body
+M 0 19065 1 19126 1	* the White Master (Inside the Dark Tower)
+E 0 19131 0 5		*	a white cloak: on the body
+M 0 19040 1 19127 1	* something (The Top of the Dark Tower: Gray Mists)
+G 0 19128 0		*	the Sigil of the Dark
+O 0 19120 0 19129		* a cabinet door (Merriman's Alcove)
+M 0 19048 1 19131 1	* the moose (The Forest )
+E 0 19093 0 6		*	antlers: over the head
+M 0 19039 1 19132 1	* The buck (The Forest )
+E 0 19093 0 6		*	antlers: over the head
+M 0 19063 1 19138 1	* Mandeep the Beekeeper (The Tree House)
+E 0 19133 0 17		*	a beekeeper's smoke can: held in the hands
+M 0 19049 1 19139 1	* the bear (Dark Forest)
+M 0 19041 1 19142 1	* the mass of red ants (Up the Tree )
+E 0 19097 0 16		*	some fangs: wielded
+M 0 19047 1 19146 1	* the grey fox (Dark Forest )
+M 0 19011 1 19147 1	* Bear-de-bear (Vell, hi!)
+M 0 19062 1 19151 1	* the Phoenix (A Small Room)
+O 0 19137 0 19152		* the crystal altar (The Crystal Altar)
+P 0 19138 100 19137 1	* the crystal altar: the crystal sigil
+O 0 19139 0 19154		* a citrine altar (Inside the Hive)
+P 0 19140 100 19139 1	* a citrine altar: the yellow topaz sigil
+O 0 19141 0 19155		* a purple altar (The Violet Altar)
+P 0 19142 100 19141 1	* a purple altar: the amethyst sigil
+O 0 19143 0 19158		* the red altar (Inside the Fire: The Red Altar)
+P 0 19144 100 19143 1	* the red altar: the ruby sigil
+O 0 19146 0 19162		* the sapphire altar (Underwater Cave: The Blue Altar)
+P 0 19145 100 19146 1	* the sapphire altar: the sapphire sigil
+O 0 19147 0 19163		* the green altar (The Green Altar)
+P 0 19148 100 19147 1	* the green altar: the emerald sigil
+P 0 19095 100 19094 1	* a nectarine tree: a nectarine
+P 0 19095 100 19094 1	* a nectarine tree: a nectarine
+P 0 19149 100 19094 1	* a nectarine tree: the amber sigil
+M 0 19069 1 19166 1	* Mr. Teece (Mr. Teece's Room)
+O 0 19166 0 19169		* the heart key (The Honeymoon Suite)
+O 0 19167 0 19169		* a bottle of champagne (The Honeymoon Suite)
+S
+
 
 
 #SHOPS
-19024 3 2 10 4 26 125 75 0 23  *               the wizard
-19026 0 0 0 0 0 100 100 0 23    *              Lauraine the barkeep
-19027 0 0 0 0 0 100 100 0 23     *             the waiter
-19029 9 5 15 1 0 150 50 0 23      *            the proprietor
-19030 0 0 0 0 0 100 100 0 23       *           Mrs. Truxton the Librarian
-19043 0 0 0 0 0 100 100 0 23        *          (mobile is from another zone)
-19035 2 3 4 10 26 175 25 0 23        *         (mobile is from another zone)
-19044 23 19 12 13 15 200 25 0 23      *        (mobile is from another zone)
-19050 0 0 0 0 0 100 100 0 23           *       (mobile is from another zone)
+19024 3 2 10 4 26 125 75 0 23
+19026 0 0 0 0 0 100 100 0 23
+19027 0 0 0 0 0 100 100 0 23
+19029 9 5 15 1 0 150 50 0 23
+19030 0 0 0 0 0 100 100 0 23
+19035 2 3 4 10 26 175 25 0 23
+19043 0 0 0 0 0 100 100 0 23
+19044 23 19 12 13 15 200 25 0 23
+19050 0 0 0 0 0 100 100 0 23
 0
 
 
-#SPECIALS
-M  19002 spec_breath_frost          *            a withered knight
-M  19003 spec_cast_mage             *    King Loranhir
-M  19004 spec_cast_cleric           *            Corwin
-M  19011 spec_breath_fire           *            Bear-de-bear
-M  19012 spec_breath_frost          *            a withered knight
-M  19013 spec_poison                *    the Gray Mare
-M  19023 spec_cast_cleric           *            the priest
-M  19024 spec_cast_mage             *    the wizard
-M  19031 spec_cast_adept            *            Father Franklin
-M  19035 spec_cast_mage             *    the wizard
-M  19036 spec_thief                 *    the gardener
-M  19040 spec_breath_any            *            something
-M  19041 spec_poison                *    the mass of red ants
-M  19042 spec_thief                 *    the card shark
-M  19044 spec_thief                 *    Carvallo
-M  19045 spec_thief                 *    the young man
-M  19046 spec_thief                 *    the woman
-M  19047 spec_fido                  *    the grey fox
-M  19050 spec_thief                 *    the waiter
-M  19051 spec_thief                 *    the young urchin
-M  19052 spec_thief                 *    the lady of ill repute
-M  19053 spec_thief                 *    the master
-M  19054 spec_thief                 *    the hidden thief cackles silently and
-M  19055 spec_breath_fire           *            the Crimson Master
-M  19056 spec_breath_gas            *            the Amber Master
-M  19057 spec_breath_acid           *            the Green Master
-M  19058 spec_breath_frost          *            the Blue Master
-M  19059 spec_breath_gas            *            the Violet Master
-M  19060 spec_breath_lightning      *            the Yellow Master
-M  19061 spec_breath_any            *            the Master of Light
-M  19062 spec_breath_any            *            the Phoenix
-M  19064 spec_cast_undead           *            the White Master
-M  19065 spec_cast_undead           *            the White Master
-M  19066 spec_cast_undead           *            the Black Master
-M  19067 spec_cast_undead           *            the Black Master
-M  19068 spec_cast_adept            *            Jerry Garcia
-S
-
 
 #OLIMITS
-O 19033 1 * a unicorn's golden horn
-O 19110 1 * sword obsidian
-O 19127 1 * blood red dagger
-O 19062 1 * sea blue robe
+O 19033 1	* a unicorn's golden horn
+O 19062 1	* a sea-blue robe
+O 19110 1	* an eclipse sword
+O 19127 1	* a blood-red dagger
 S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
+
 #$
-	
