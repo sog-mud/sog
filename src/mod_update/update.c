@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.5 1999-12-14 11:23:23 fjoe Exp $
+ * $Id: update.c,v 1.157.2.6 2000-01-06 04:21:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1877,10 +1877,13 @@ void aggr_update(void)
 
 			if (!is_safe_nomessage(ch, victim)) {
 				victim = check_guard(victim, ch); 
-				if (get_skill(ch, gsn_backstab))
+				if (get_skill(ch, gsn_backstab)) {
 					dofun("backstab", ch, victim->name);
-				else
-					multi_hit(ch, victim, TYPE_UNDEFINED);
+					if (IS_EXTRACTED(victim)
+					||  ch->fighting != NULL)
+						continue;
+				}
+				multi_hit(ch, victim, TYPE_UNDEFINED);
 			}
 		}
 	}
