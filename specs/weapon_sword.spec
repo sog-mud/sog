@@ -19,7 +19,7 @@ End
 
 #SKILL
 Skill 'feint'
-Level 25
+Level 32
 Rating 2
 Min 1
 Adept 75
@@ -28,6 +28,15 @@ End
 
 #SKILL
 Skill 'counter strike'
+Level 23
+Rating 2
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
+Skill 'cut'
 Level 19
 Rating 2
 Min 1

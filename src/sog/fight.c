@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.220 1999-11-30 06:12:30 kostik Exp $
+ * $Id: fight.c,v 1.221 1999-11-30 09:38:10 kostik Exp $
  */
 
 /***************************************************************************
@@ -1672,7 +1672,8 @@ bool check_distance(CHAR_DATA *ch, CHAR_DATA *victim, int loc) {
 	|| WEAPON_IS(weapon, WEAPON_POLEARM))) 
 		return FALSE;
 
-	chance = get_skill(victim, "distance");
+	if (!(chance = get_skill(victim, "distance")))
+		return FALSE;
 
 	ch_weapon = get_eq_char(ch, loc);
 

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.129 1999-11-30 06:12:30 kostik Exp $
+ * $Id: martial_art.c,v 1.130 1999-11-30 09:38:09 kostik Exp $
  */
 
 /***************************************************************************
@@ -353,6 +353,99 @@ void do_pound(CHAR_DATA *ch, const char *argument)
 
 		one_hit(ch, victim, "pound", wear_loc);
 		check_improve(ch, "pound", 3, TRUE);
+	}
+
+	if (attack) 
+		yell(victim, ch, "Help! $i is attacking me!");
+}
+
+void do_cut(CHAR_DATA *ch, const char *argument) 
+{
+	CHAR_DATA *victim;
+	int chance;
+	OBJ_DATA *weapon;
+	OBJ_DATA *second_weap;
+	bool attack;
+	char arg[MAX_INPUT_LENGTH];
+
+	if (!(chance = get_skill(ch, "cut"))) {
+		char_puts("Huh?\n", ch);
+		return;
+	}
+
+	weapon = get_eq_char(ch, WEAR_WIELD);
+	second_weap = get_eq_char(ch, WEAR_SECOND_WIELD);
+
+	if (!weapon) {
+		act("You need a weapon to do that.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if (!WEAPON_IS(weapon, WEAPON_SWORD) 
+	&& (!second_weap || !WEAPON_IS(second_weap, WEAPON_SWORD))) {
+		act("You need a sword to do that.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	one_argument(argument, arg, sizeof(arg));
+
+	if (arg[0] == '\0') {
+		victim = ch->fighting;
+		if (victim == NULL) {
+			char_puts("But you aren't fighting anyone!\n", ch);
+			return;
+		}
+	}
+	else 
+		victim = get_char_room(ch, arg);
+
+	if (!victim || victim->in_room != ch->in_room) {
+		WAIT_STATE(ch, MISSING_TARGET_DELAY);
+		char_puts("They aren't here.\n", ch);
+		return;
+	}
+
+	if (victim == ch) {
+		act("You can't do that to yourself.",
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	WAIT_STATE(ch, skill_beats("cut"));
+
+	if (is_safe(ch, victim)) 
+		return;
+
+	attack = (victim != ch->fighting) && (victim->fighting != ch);
+	
+	if (WEAPON_IS(weapon, WEAPON_SWORD)) {
+		if (number_percent() > chance) {
+			damage(ch, victim, 0, "cut", DAM_BASH, DAMF_SHOW); 
+			check_improve(ch, "cut", 3, FALSE);
+		} else {
+			act("You attempt to cut $N with your weapon.", 
+				ch, NULL, victim, TO_CHAR);
+			act("$n attempts to cut you with $s weapon.",
+				ch, NULL, victim, TO_VICT);
+		
+			one_hit(ch, victim, "cut", WEAR_WIELD);
+			check_improve(ch, "cut", 3, TRUE);
+		}
+	}
+
+	if (second_weap && WEAPON_IS(second_weap, WEAPON_SWORD)) {
+		if (number_percent() > chance) {
+			damage(ch, victim, 0, "cut", DAM_BASH, DAMF_SHOW); 
+			check_improve(ch, "cut", 3, FALSE);
+		} else {
+			act("You attempt to cut $N with your weapon.", 
+				ch, NULL, victim, TO_CHAR);
+			act("$n attempts to cut you with $s weapon.",
+				ch, NULL, victim, TO_VICT);
+		
+			one_hit(ch, victim, "cut", WEAR_WIELD);
+			check_improve(ch, "cut", 3, TRUE);
+		}
 	}
 
 	if (attack) 
