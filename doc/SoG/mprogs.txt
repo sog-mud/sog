@@ -1,5 +1,5 @@
 #
-# $Id: mprogs.txt,v 1.11 2001-12-10 20:04:14 tatyana Exp $
+# $Id: mprogs.txt,v 1.12 2002-02-07 20:03:22 tatyana Exp $
 #
 
 MPC code style
@@ -495,6 +495,9 @@ poison_effect(char ch, int num, int dam)
 
 int real_char_level(char ch)
   возвращает реальный (без +lev) уровень чара ch
+
+bool room_is(room r, int flags)
+  есть ли у комнаты соответствующий флажок (ROOM_NOMAGIC, ROOM_LAW, etc)
 
 int room_sector(room r)
   возвращает сектор в комнате r.
