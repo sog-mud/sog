@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.48 1998-05-21 13:49:34 efdi Exp $
+ * $Id: act_info.c,v 1.49 1998-05-21 14:55:40 efdi Exp $
  */
 
 /***************************************************************************
@@ -397,7 +397,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		char_printf(ch, "%s%s", buf, victim->long_descr);
 		return;
 	}
-
+	
 	if (is_affected(victim, gsn_doppelganger)) {
 		strcat(buf, PERS(victim->doppel, ch));
 		if (!IS_NPC(victim->doppel) && !IS_SET(ch->comm, COMM_BRIEF))
@@ -507,7 +507,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		break;
 	}
 
-	strcat(buf, "\n\r");
+	strcat(buf, "{x\n\r");
 	send_to_char(buf, ch);
 	return;
 }
