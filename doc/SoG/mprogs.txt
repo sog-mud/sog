@@ -1,5 +1,5 @@
 #
-# $Id: mprogs.txt,v 1.21 2003-07-21 19:10:15 fjoe Exp $
+# $Id: mprogs.txt,v 1.22 2003-07-21 22:26:16 fjoe Exp $
 #
 
 MPC code style
@@ -21,14 +21,14 @@ MPC types and classes
 
 int	-- integer
 string	-- a string
-char	-- character or mobile (CHAR_DATA)
-obj	-- object (OBJ_DATA)
-room	-- room (ROOM_INDEX_DATA)
+Char	-- character or mobile (CHAR_DATA)
+Obj	-- object (OBJ_DATA)
+Room	-- Room (ROOM_INDEX_DATA)
 
 'int' and 'string' are basic types and do not have properties
-'char', 'obj' and 'room' properties are listed below:
+'Char', 'Obj' and 'Room' properties are listed below:
 
-class char {
+class Char {
 	mutable int gold;	// количество золотых монет
 	mutable int silver;	// количество серебряных монет
 
@@ -51,14 +51,14 @@ class char {
 
 	string clan;		// клан, или NULL
 	int ethos;		// ethos (ETHOS_LAWFUL, ETHOS_CHAOTIC, etc.)
-	char fighting;		// чар, с которым дерется ch (или NULL)
+	Char fighting;		// чар, с которым дерется ch (или NULL)
 	string hometown;	// 'hometown' для !npc,
 				// для npc зона в которой он
 				// заресечен, или (если родился не через reset)
 				// зона в которой находится в настоящий момент
-	room in_room;		// комната, в которой находится чар
+	Room in_room;		// комната, в которой находится чар
 	int luck;		// удача
-	char pet;		// pet чара, или NULL
+	Char pet;		// pet чара, или NULL
 	int position;		// позиция (POS_RESTING, POS_FIGHTING etc.)
 	int quest_time;		// quest time (-1 если нет квеста или npc)
 	string race;		// раса
@@ -67,12 +67,12 @@ class char {
 	int vnum;		// vnum (0 для !npc)
 };
 
-class obj {
-	char carried_by;	// чар, у которого находится объект,
+class Obj {
+	Char carried_by;	// чар, у которого находится объект,
 				// или NULL
-	obj in_obj;		// объект, в котором находится
+	Obj in_obj;		// объект, в котором находится
 				// этот объект, или NULL
-	room in_room;		// комната, в которой находится
+	Room in_room;		// комната, в которой находится
 				// объект, или NULL
 
 	int cost;		// стоимость
@@ -86,7 +86,7 @@ class obj {
 				// или WEAR_NONE
 };
 
-class room {
+class Room {
 	int sector_type;	// тип сектора (SECTOR_XXX)
 	int vnum;		// vnum
 };
@@ -94,7 +94,7 @@ class room {
 Properties are read-only by default. 'mutable' properties can be changed.
 Properties are accessed using '->' operator:
 
-char owner;
+Char owner;
 owner->hit = umin(owner->hit + bonus, owner->max_hit);
 
 MPC statements
@@ -160,9 +160,9 @@ string s;	// объявление переменной s типа string
 	- string
 
 Переменная var может быть следущих типов:
-	- char
-	- obj
-	- room
+	- Char
+	- Obj
+	- Room
 
 Указание одного из модификаторов static или persistent обязательно.
 Модификатор static используется для объявления обычной статической
@@ -184,10 +184,10 @@ string s;	// объявление переменной s типа string
 из одной программы в другую (и из программы в саму себя).
 
 Примеры:
-int $n[num];	// объявление переменной num, хранящейся в переменной $n
-string $N[foobar_quest_status];
+int mob[num];	// объявление переменной num, хранящейся в переменной mob 
+string actor[foobar_quest_status];
 		// объявление строковой переменной foobar_quest_status,
-		// хранящейся в переменной $N
+		// хранящейся в переменной actor 
 
 MPC expressions
 ---------------
@@ -206,25 +206,25 @@ MPC iterators
 int range(int from, int to)
 	all integers in range [from..to]
 
-char char_in_room(room r)
-	all characters in room r
+Char char_in_room(Room r)
+	all characters in Room r
 
-char char_in_world()
+Char char_in_world()
 	all characters in world
 
-char npc_in_world()
+Char npc_in_world()
 	all npc (mobiles) in world
 
-obj obj_in_obj(obj o)
+Obj obj_in_obj(Obj o)
 	all objects in object o (without recursion)
 
-obj obj_of_char(char ch)
+Obj obj_of_char(Char ch)
 	all objects that are carried by ch (without recursion)
 
-obj obj_in_room(room r)
-	all objects in room r
+Obj obj_in_room(Room r)
+	all objects in Room r
 
-obj obj_in_world()
+Obj obj_in_world()
 	all objects in world
 
 Examples:
@@ -234,7 +234,7 @@ foreach (i, range(0, 10)) {
 	/* do something */
 }
 
-char vch;
+Char vch;
 foreach (vch, char_in_room(ch->in_room)) {
 	/* do something */
 }
@@ -282,7 +282,7 @@ inline-триггеров сохраняются в том же .are файле, что и объекты, на
 MPC functions:
 --------------
 
-act(string msg, char ch, void arg1, void arg2, int act_flags)
+act(string msg, Char ch, any arg1, any arg2, int act_flags)
   выводит сообщение msg
   act_flags: TO_CHAR    -- чару ch
              TO_ROOM    -- всем в комнате кроме чара ch
@@ -290,167 +290,167 @@ act(string msg, char ch, void arg1, void arg2, int act_flags)
 	     TO_VICT    -- жертве (arg2)
 	     TO_NOTVICT -- всем к комнате кроме чара ch и жертвы (arg2)
 
-act_around(room r, string text, void arg)
+act_around(Room r, string text, any arg)
   text выврдится в соседние с r комнаты, arg может использоваться как параметр
   в text
 
-act_char(string msg, char ch)
+act_char(string msg, Char ch)
   выводит сообщение msg чару ch
 
-act_clan(char ch, string text, void arg)
+act_clan(Char ch, string text, any arg)
   сообщение text выводится по клановому каналу чара ch, arg может использоваться
   как параметр в text
 
-act_say(char ch, string msg, void arg)
+act_say(Char ch, string msg, any arg)
   чаром ch говорится ("say") сообщение msg, в которое подставляется
   arg как параметр ($N, $P, $T, $K etc)
 
-act_yell(char ch, string msg, void arg, string format)
+act_yell(Char ch, string msg, any arg, string format)
   чаром ch выкрикивается сообщение msg, в котором могут быть использованы
   различные параметры ($N, $T etc)
 
-affect_char(char ch, int where, string sn, int level, int duration,
+affect_char(Char ch, int where, string sn, int level, int duration,
             int loc, int mod, int bits)
   вешается на чара ch указанный аффект sn с задаваемыми характеристиками
   (уровень level, длительность duration, ...)
 
-affect_strip(char ch, string aff)
+affect_strip(Char ch, string aff)
   снимается аффект aff с чара ch
 
-bool can_backstab(char ch)
+bool can_backstab(Char ch)
   может ли чар делать backstab
 
-backstab_char(char ch, char victim)
+backstab_char(Char ch, Char victim)
   делается backstab чаром ch чару victim
 
-bool can_loot(char ch, obj p)
+bool can_loot(Char ch, Obj p)
   может ли чар полутить (loot) объект p
 
-bool can_see(char ch, char victim)
+bool can_see(Char ch, Char victim)
   проверяется видит ли чар ch чара victim
 
-bool can_wear(obj p, int wear)
+bool can_wear(Obj p, int wear)
   может ли объект одеться в слот wear
 
-cast(string sn, char ch, string arg)
+cast(string sn, Char ch, string arg)
   чаром ch кастится заклинание/молитва sn с аргументом arg
 
-cast_char(string sn, char ch, char victim)
+cast_char(string sn, Char ch, Char victim)
   чаром ch на чар victim кастится заклинание/молитва sn
 
-cast_obj(string sn, char ch, obj p)
+cast_obj(string sn, Char ch, Obj p)
   чаром ch на объект p накладывается заклинание/молитва sn
 
-bool char_form_is(char ch, int form)
+bool char_form_is(Char ch, int form)
   есть ли у чара данная форма (FORM_UNDEAD, etc)
 
-bool char_name_is(char ch, string name);
+bool char_name_is(Char ch, string name);
   является ли name именем для чара ch
 
-bool close_door(char ch, string door)
+bool close_door(Char ch, string door)
   чар ch закрывает (пытается) дверь
 
-bool close_obj(char ch, obj p)
+bool close_obj(Char ch, Obj p)
   чар ch выполняет операцию закрытия обьекта p
 
-char create_mob(int vnum, int flags)
+Char create_mob(int vnum, int flags)
   создает моба по его внуму
 
-obj create_obj(int vnum, int flags)
+Obj create_obj(int vnum, int flags)
   создает обьект по его внуму
 
-bool damage(char ch, char victim, int dam, string dt, int dam_flags)
+bool damage(Char ch, Char victim, int dam, string dt, int dam_flags)
   чаром ch наносится чару victim урон в размере dam. Урон типа sn.
   ("touch", etc)
 
 int dice(int num, int size)
   бросает num раз кубик с числом граней size
 
-dofun(string name, char ch, string arg)
+dofun(string name, Char ch, string arg)
   чар ch выполняет do-функцию 'name'
 
-drop_obj(char ch, obj p)
+drop_obj(Char ch, Obj p)
   чаром ch бросается обьект p
 
-extract_obj(obj p, int flags)
+extract_obj(Obj p, int flags)
   уничтожает обьект p
 
-char get_char_area(char ch, string arg)
+Char get_char_area(Char ch, string arg)
   чаром ch в арии, где он находится, ищется чар с именем arg
   (arg может быть vnum'ом)
 
-char get_char_here(char ch, string arg)
+Char get_char_here(Char ch, string arg)
   чаром ch в комнате, где он находится, ищется чар с именем arg
   (arg может быть vnum'ом)
 
-char get_char_room(char ch, room r, string arg)
+Char get_char_room(Char ch, Room r, string arg)
   чаром ch в комнате r ищется чар с именем arg
   (arg может быть vnum'ом)
 
-char get_char_world(char ch, string arg)
+Char get_char_world(Char ch, string arg)
   чаром ch в мире ищется чар с именем arg (arg может быть vnum'ом)
 
-obj get_eq_char(char ch, int iWear)
+Obj get_eq_char(Char ch, int iWear)
   возвращается объект, одетый у чара ch в слоте iWear
 
-bool get_obj(char ch, obj p, obj container, string msg_others)
+bool get_obj(Char ch, Obj p, Obj container, string msg_others)
   чаром ch берется объект p из container или с пола (если container == NULL)
   msg_others -- сообщение, пишущееся тем, кто стоит в той же комнате, где
   происходит действие (может быть NULL)
 
-obj get_obj_carry(char ch, char victim, string arg)
+Obj get_obj_carry(Char ch, Char victim, string arg)
   чаром ch смотрится у чара victim, есть ли у последнего обьект c 
   именем arg, arg может быть vnum'ом
 
-obj get_obj_here(char ch, string arg)
+Obj get_obj_here(Char ch, string arg)
   чаром ch смотрится есть ли в комнате, где находится чар ch, объект
   с именем arg (ищется на полу и у чара ch), arg может быть vnum'ом
 
-obj get_obj_obj(char ch, obj p, string arg)
+Obj get_obj_obj(Char ch, Obj p, string arg)
   чаром ch смотрится есть ли в объекте p объект с именем arg, arg может
   быть vnum'ом
 
-obj get_obj_room(char ch, room r, string arg)
+Obj get_obj_room(Char ch, Room r, string arg)
   чаром ch смотрится есть ли в комнате r объект c именем arg
   (ищется на полу), arg может быть vnum'ом
 
-obj get_obj_wear(char ch, char victim, string arg)
+Obj get_obj_wear(Char ch, Char victim, string arg)
   чаром ch смотрится, одет ли на чаре victim объект с именем arg,
   arg может быть vnum'ом
 
-obj get_obj_world(char ch, string arg)
+Obj get_obj_world(Char ch, string arg)
   чаром ch ищется в мире объект с именем arg, arg может быть vnum'ом
 
 get_pulse(
 
-char get_random_fighting(char ch)
+Char get_random_fighting(Char ch)
   возвращает случайного чара в одной комнате с ch, который сражается
   с ch или который сражается с чаром, который сидит верхом на ch
 
-room get_room_index(int vnum)
+Room get_room_index(int vnum)
   возвращает комнату по ее внуму (NULL, если комнаты с таким внумом нет)
 
-get_skill(char ch, string skill_name)
+get_skill(Char ch, string skill_name)
   имеется лм у чара указанное умение 
 
-bool give_obj(char ch, char victim, obj p)
+bool give_obj(Char ch, Char victim, Obj p)
   чаром ch чару victim дается объект p (пытается)
 
-handle_death(char ch, char victim)
+handle_death(Char ch, Char victim)
   зовется функция handle_death чару ch для умершего чара victim
 
-bool has_detect(char ch, int f)
+bool has_detect(Char ch, int f)
   есть ли у чара детект f
 f может быть: ID_INVIS, ID_HIDDEN, ID_FADE, ID_IMP_INVIS, ID_BLEND,
 ID_CAMOUFLAGE, ID_INFRARED, ID_UNDEAD, ID_LIFE, ID_EVIL, ID_MAGIC, ID_CHARM,
 ID_TRUESEEN, ID_GOOD, ID_TREEFORM, ID_ALL_INVIS
 
-bool has_invis(char ch, int f)
+bool has_invis(Char ch, int f)
   есть ли на чаре невидимость f (значения см в has_detect)
 
-int has_sp(char ch, string spn, string spn_add, string spn_rm)
+int has_sp(Char ch, string spn, string spn_add, string spn_rm)
 
-inflict_effect(string effect, char ch, int num, int dam)
+inflict_effect(string effect, Char ch, int num, int dam)
   вешает (пытается повесить) на чара ch эффект effect
   уровня num, наносится урон dam
 
@@ -463,77 +463,77 @@ inflict_effect(string effect, char ch, int num, int dam)
   - "scream"
   - "shock"
 
-bool is_act(char ch, int act_flags)
+bool is_act(Char ch, int act_flags)
   стоит ли у чара ch ACT act_flags
 
-bool is_affected(char ch, int aff)
+bool is_affected(Char ch, int aff)
   наложен ли на чара ch аффект aff (e.g AFF_POISON)
 
 bool is_awake(ch)
   char_position(ch) > POS_SLEEPING
 
-bool is_evil(char ch)
+bool is_evil(Char ch)
   имеет ли чар ch align evil
 
-bool is_ghost(char ch)
+bool is_ghost(Char ch)
   является ли чар ch привидением
 
-bool is_good(char ch)
+bool is_good(Char ch)
   имеет ли чар ch align good
 
-bool is_immortal(char ch)
+bool is_immortal(Char ch)
   является ли чар ch immortal'ом
 
-bool is_mount(char ch, char mob)
+bool is_mount(Char ch, Char mob)
   служит ли mob верховым животным для чара ch
 
-bool is_neutral(char ch)
+bool is_neutral(Char ch)
   имеет ли чар ch align neutral
 
-bool is_npc(char ch)
+bool is_npc(Char ch)
   является ли чар ch мобом (npc)
 
-bool is_owner(char ch, obj p)
+bool is_owner(Char ch, Obj p)
   является ли чар ch owner'ом обьекта p
 
-bool is_owner_name(obj p, string name)
+bool is_owner_name(Obj p, string name)
   принадлежит ли обьект p чару с именем name
 
-bool is_pumped(char ch)
+bool is_pumped(Char ch)
   есть ли у чара ch адреналин в крови
 
-bool is_safe(char ch, char victim)
+bool is_safe(Char ch, Char victim)
 
-bool is_safe_nomessage(char ch, char victim)
+bool is_safe_nomessage(Char ch, Char victim)
 
-bool is_same_group(char first, char second)
+bool is_same_group(Char first, Char second)
   принадлежит ли чар second группе чара first
 
-bool is_sn_affected(char ch, string sn)
+bool is_sn_affected(Char ch, string sn)
   наложен ли на чара аффект sn (e.g. "berserk")
 
-bool is_wanted(char ch)
+bool is_wanted(Char ch)
   является лм чар ch WANTED
 
-char load_mob(char ch, int vnum)
+Char load_mob(Char ch, int vnum)
   создается моб с номером vnum и ставится в комнату, где находится ch
 
-obj load_obj(char ch, int vnum)
+Obj load_obj(Char ch, int vnum)
   создается объект с номером vnum и дается чару ch
 
-bool lock_door(char ch, string door)
+bool lock_door(Char ch, string door)
   замыкается (пытается) дверь чаром ch 
 
-bool lock_obj(char ch, obj p)
+bool lock_obj(Char ch, Obj p)
   замыкается (пытается) объект p чаром ch
 
-look_char(char ch, char victim)
+look_char(Char ch, Char victim)
   чар ch смотрит на чара victim (делает "look")
 
-mob_interpret(char ch, string arg)
+mob_interpret(Char ch, string arg)
   чаром ch выполняется команда arg (без параметров)
 
-multi_hit(char ch, char victim, string dt)
+multi_hit(Char ch, Char victim, string dt)
   зовется функция multi_hit (один battle round) для чара ch по жертве,
   чару victim)
 
@@ -546,60 +546,60 @@ int number_percent()
 int number_range(int from, int to)
   возвращает случайное число в диапазоне от from до to
 
-obj_cast_spell(string sn, int level, char ch, void vo)
+obj_cast_spell(string sn, int level, Char ch, any vo)
 
-obj_to_char(obj p, char ch)
+obj_to_char(Obj p, Char ch)
   объет p дается чару ch
 
-obj_to_obj(obj p, obj obj_to)
+obj_to_obj(Obj p, Obj obj_to)
   объект p кладется в объект obj_to
 
-obj_to_room(obj p, room r)
+obj_to_room(Obj p, Room r)
   объект p помещается в комнату r
 
-one_hit(char ch, char victim, string dt, bool secondary)
+one_hit(Char ch, Char victim, string dt, bool secondary)
   наносится один удар чаром ch по чару victim
 
-bool open_door(char ch, string door)
+bool open_door(Char ch, string door)
   чар ch открывает (пытается) дверь door 
 
-bool open_obj(char ch, obj p)
+bool open_obj(Char ch, Obj p)
   открывает (пытается открыть) обьет p, открывает обьект чар ch
 
-int real_char_level(char ch)
+int real_char_level(Char ch)
   возвращает реальный (без +lev) уровень чара ch
 
-bool room_is(room r, int flags)
+bool room_is(Room r, int flags)
   есть ли у комнаты соответствующий флажок (ROOM_NOMAGIC, ROOM_LAW, etc)
 
-say_spell(char ch, string sn)
+say_spell(Char ch, string sn)
   произносится заклинание sn (или возносится молитва)
 
-bool saves_spell(int ch_level, char victim, int dam_type)
+bool saves_spell(int ch_level, Char victim, int dam_type)
   проверяются saves в выбранному dam_type (DAM_ACID, DAM_ENERGY, etc)
 
-set_obj_owner(obj p, char ch)
+set_obj_owner(Obj p, Char ch)
   owner'ом объекта p делается чар ch
 
-social_char(string name, char ch, char victim)
+social_char(string name, Char ch, Char victim)
   делается social name (e.g "smile") чаром ch чару victim
 
-spclass_count(char ch, string spn, string spn_add, string spn_rm)
+spclass_count(Char ch, string spn, string spn_add, string spn_rm)
 
-spellfun(string fn, string sn, int level, char ch, void vo)
-  зовется спеллфункция fn уровня level на аргумент vo (char/obj)
+spellfun(string fn, string sn, int level, Char ch, any vo)
+  зовется спеллфункция fn уровня level на аргумент vo (Char/Obj)
   для чара ch, sn в подавляющем большинстве случаев NULL
 
-tell_char(char ch, char victim, string msg)
+tell_char(Char ch, Char victim, string msg)
   msg передается от чара ch чару victim посредством tell'а
 
-int time_hour(char ch)
+int time_hour(Char ch)
   текущий час (по времени мира)
 
-bool transfer_char(char ch, room r)
+bool transfer_char(Char ch, Room r)
   переносится чар ch в комнату r
 
-bool transfer_group(char ch, room r)
+bool transfer_group(Char ch, Room r)
   переносится группа чара ch в комнату r
 
 int umax(int i1, int i2)
@@ -608,16 +608,16 @@ int umax(int i1, int i2)
 int umin(int i1, int i2)
   минимальное из чисел i1, i2
 
-bool unlock_door(char ch, door)
+bool unlock_door(Char ch, door)
   размыкает (пытается) дверь, действие пройзволит чар ch
 
-bool unlock_obj(char ch, obj p)
+bool unlock_obj(Char ch, Obj p)
   размыкает (пытается) обьект p, действие пройзволит чар ch
 
-wait_state(char ch, int dur)
+wait_state(Char ch, int dur)
   чару ch делается задержка длительностью dur
 
-bool weapon_is(obj p, int wclass)
+bool weapon_is(Obj p, int wclass)
   является ли p оружием класса wclass (WEAPON_SWORD, WEAPON_DAGGER etc.)
 
 Porting ROM 2.4 mob progs:
@@ -627,19 +627,19 @@ isvisible проверки излишни, потому что в SoG 2 триггера
 срабатывают только тогда, когда mob видит игрока
 
 echoat $N
-	act("...", $n, NULL, $N, TO_VICT);
+	act("...", mob, NULL, actor, TO_VICT);
 
 echoaround $N
-	act("...", $n, NULL, $N, TO_NOTVICT);	
+	act("...", mob, NULL, actor, TO_NOTVICT);	
 
 oload 2345
-	load_obj($n, 2345)
+	load_obj(mob, 2345)
 
 purge $p
-	extract_obj($p, 0);
+	extract_obj(obj, 0);
 
 slay $N
-	raw_kill($n, $N);
+	raw_kill(mob, actor);
 
 ROM 2.4 specials:
 -----------------
