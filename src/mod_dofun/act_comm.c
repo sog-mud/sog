@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.111 1998-11-18 05:20:38 fjoe Exp $
+ * $Id: act_comm.c,v 1.112 1998-11-18 07:49:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -69,19 +69,11 @@ void do_quit_org	(CHAR_DATA *ch, const char *argument, bool Count);
 
 void do_afk(CHAR_DATA *ch, const char *argument)
 {
-	if (IS_SET(ch->comm, COMM_AFK)) {
-		REMOVE_BIT(ch->comm, COMM_AFK);
+	if (IS_SET(ch->comm, COMM_AFK))
 		do_replay(ch, str_empty);
-	} else {
-		if (!IS_SET(ch->in_room->room_flags, ROOM_SAFE)
-		&&  !IS_IMMORTAL(ch)) {
-			char_puts("You may be in AFK only in safe room.\n\r",
-				  ch);
-			return;
-		}
-		SET_BIT(ch->comm, COMM_AFK);
+	else
 		char_puts("You are now in AFK mode.\n\r", ch);
-	}
+	TOGGLE_BIT(ch->comm, COMM_AFK);
 }
 
 /* RT code to delete yourself */
