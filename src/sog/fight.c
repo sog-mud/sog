@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.266 2000-03-22 06:13:39 fjoe Exp $
+ * $Id: fight.c,v 1.267 2000-03-28 09:36:37 avn Exp $
  */
 
 /***************************************************************************
@@ -1734,19 +1734,15 @@ bool check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 		return FALSE;
 	
 	v_weapon = get_eq_char(victim, WEAR_WIELD);
-	if (IS_NPC(victim))
-		chance	= UMIN(35, victim->level);
-	else {
-		if (v_weapon == NULL)
-			return FALSE;
+	if (!IS_NPC(victim) && v_weapon == NULL)
+		return FALSE;
 
-		chance = get_skill(victim, "parry") / 2;
-	}
+	chance = get_skill(victim, "parry") / 2;
 	
 	ch_weapon = get_eq_char(ch, loc);
 	
 	if (v_weapon) {
-		switch (INT(v_weapon->value[1])) {
+		switch (INT(v_weapon->value[0])) {
 		case WEAPON_WHIP:
 		case WEAPON_FLAIL:
 			chance /= 2;
@@ -1894,13 +1890,9 @@ bool check_block(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 	if (is_affected(victim, "entanglement"))
 		return FALSE;
 
-	if (IS_NPC(victim))
-		chance = 10;
-	else {
-		chance = get_skill(victim, "shield block") / 2;
-		if (chance <= 1)
-			return FALSE;
-	}	
+	chance = get_skill(victim, "shield block") / 2;
+	if (chance <= 1)
+		return FALSE;
 
 	if (check_forest(victim) == FOREST_DEFENCE 
 	&& (number_percent() < get_skill(victim, "forest fighting"))) {
@@ -1934,7 +1926,6 @@ bool check_hand_block(CHAR_DATA *ch, CHAR_DATA *victim)
 	int chance;
 
 	if (!IS_AWAKE(victim) 
-	|| IS_NPC(victim) 
 	|| get_eq_char(victim, WEAR_WIELD)
 	|| get_eq_char(victim, WEAR_SECOND_WIELD)
 	|| (chance = get_skill(victim, "hand block") == 0)) 
@@ -1971,14 +1962,11 @@ bool check_dodge(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (is_affected(ch, "entanglement"))
 		return FALSE;
 
-	if (IS_NPC(victim))
-		 chance  = UMIN(30, victim->level);
-	else {
-		chance  = get_skill(victim, "dodge") / 2;
-		/* chance for high dex. */
-		chance += 2 * (get_curr_stat(victim,STAT_DEX) - 20);
-	}
-	
+	chance  = get_skill(victim, "dodge") / 2;
+
+	/* chance for high dex. */
+	chance += 2 * (get_curr_stat(victim,STAT_DEX) - 20);
+
 	if (check_forest(victim) == FOREST_DEFENCE 
 	  && (get_skill(victim, "forest fighting") > number_percent())) {
 		chance *= 1.2;

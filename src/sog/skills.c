@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.109 2000-03-25 13:17:40 avn Exp $
+ * $Id: skills.c,v 1.110 2000-03-28 09:36:38 avn Exp $
  */
 
 /***************************************************************************
@@ -785,14 +785,14 @@ MOB_SKILL(mob_dual_backstab)
 MOB_SKILL(mob_dodge)
 {
 	if (IS_SET(mob->pMobIndex->off_flags, OFF_DODGE))
-		return mob->level * 2;
+		return UMIN(mob->level, 30);
 	return 0;
 }
 
 MOB_SKILL(mob_parry)
 {
 	if (IS_SET(mob->pMobIndex->off_flags, OFF_PARRY))
-		return mob->level * 2;
+		return UMIN(mob->level, 35);
 	return 0;
 }
 
@@ -831,7 +831,7 @@ MOB_SKILL(mob_dirt_kicking)
 
 MOB_SKILL(mob_shield_block)
 {
-	return 10 + 2 * mob->level;
+	return 10;
 }
 
 MOB_SKILL(mob_second_attack)
