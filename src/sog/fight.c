@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.67 2004-02-20 16:26:32 fjoe Exp $
+ * $Id: fight.c,v 1.202.2.68 2004-06-09 14:47:20 tatyana Exp $
  */
 
 /***************************************************************************
@@ -799,7 +799,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 	}
 
 	if (is_affected(victim, gsn_blur)
-	&& (number_percent() < 50)) {
+	&& (number_percent() < 30)) {
 		act("You failed to detect true $N's position.",
 			ch, NULL, victim, TO_CHAR);
 		damage(ch, victim, 0, dt, dam_type, dam_flags);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cast.c,v 1.5.2.5 2002-09-27 09:28:38 tatyana Exp $
+ * $Id: cast.c,v 1.5.2.6 2004-06-09 14:47:20 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -430,7 +430,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		 */
 		if (IS_SET(spell->skill_flags, SKILL_RANGE)
 		&& victim && is_affected(victim, gsn_blur)
-		&& (number_percent() < 50)) {
+		&& (number_percent() < 30)) {
 			act("You failed to focus your spell properly.",
 				ch, NULL, NULL, TO_CHAR);
 			act("$n fails to focus $s spell properly.",
