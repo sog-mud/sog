@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.28 2001-12-25 19:20:25 tatyana Exp $
+ * $Id: spellfun.c,v 1.181.2.29 2001-12-27 10:42:53 cs Exp $
  */
 
 /***************************************************************************
@@ -869,23 +869,30 @@ void spell_create_water(int sn, int level, CHAR_DATA *ch, void *vo)
 void spell_cure_blindness(int sn, int level,CHAR_DATA *ch,void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	AFFECT_DATA *paf;
 
-	if (!is_affected(victim, gsn_blindness))
-	{
+	if (!IS_AFFECTED(victim, AFF_BLIND)) {
 		if (victim == ch)
 		  char_puts("You aren't blind.\n",ch);
 		else
-		  act("$N doesn't appear to be blinded.",ch,NULL,victim,TO_CHAR);
+		  act("$N doesn't appear to be blinded.",
+		      ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
-	if (check_dispel(level,victim,gsn_blindness))
-	{
-		char_puts("Your vision returns!\n", victim);
-		act("$n is no longer blinded.",victim,NULL,NULL,TO_ROOM);
+	for (paf = victim->affected; paf != NULL; paf = paf->next) {
+		if (paf->where == TO_AFFECTS && paf->bitvector == AFF_BLIND) {
+			if (check_dispel(level, victim, paf->type)
+			&& !IS_AFFECTED(victim, AFF_BLIND)) {
+				char_puts("Your vision returns!\n", victim);
+				act("$n is no longer blinded.",
+				    victim, NULL, NULL, TO_ROOM);
+			} else
+				char_puts("Spell failed.\n",ch);
+
+			return;
+		}
 	}
-	else
-		char_puts("Spell failed.\n",ch);
 }
 
 void spell_cure_critical(int sn, int level, CHAR_DATA *ch, void *vo)
