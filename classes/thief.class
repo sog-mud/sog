@@ -13,6 +13,7 @@ Thac0_32 -4
 HPRate 100
 ManaRate 50
 StatMod 0 0 0 3 0 5
+RestrictEthos neutral chaotic~
 Skill 'detect hide' 10 1 0
 Skill 'dagger' 1 1 20
 Skill 'mace' 1 1 0

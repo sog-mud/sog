@@ -17,6 +17,7 @@ Flags magic noch~
 AddExp 300
 StatMod 1 2 0 0 0 5
 RestrictAlign evil~
+RestrictEthos chaotic~
 Skill 'animate dead' 42 1 0
 Skill 'armor' 13 1 0
 Skill 'blindness' 20 1 0
