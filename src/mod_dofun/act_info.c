@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.7 2000-03-30 16:29:30 fjoe Exp $
+ * $Id: act_info.c,v 1.271.2.8 2000-03-31 05:50:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1090,20 +1090,6 @@ void do_who(CHAR_DATA *ch, const char *argument)
 			continue;
 		}
 
-
-		if ((i = cln_lookup(arg)) > 0
-		 && IS_IMMORTAL(ch)) {
-			name_add(&clan_names, CLAN(i)->name, NULL, NULL);
-			SET_BIT(flags, WHO_F_RCLAN);
-			continue;
-		}
-
-		if ((i = rn_lookup(arg)) > 0 && RACE(i)->race_pcdata) {
-			name_add(&race_names, RACE(i)->name, NULL, NULL);
-			SET_BIT(flags, WHO_F_RRACE);
-			continue;
-		}
-
 		if (!str_cmp(arg, "clan")) {
 			if (IS_IMMORTAL(ch))
 				SET_BIT(flags, WHO_F_CLAN);
@@ -1115,7 +1101,20 @@ void do_who(CHAR_DATA *ch, const char *argument)
 			continue;
 		}
 
-		if (!IS_IMMORTAL(ch)) continue;
+		if (!IS_IMMORTAL(ch))
+			continue;
+
+		if ((i = cln_lookup(arg)) > 0) {
+			name_add(&clan_names, CLAN(i)->name, NULL, NULL);
+			SET_BIT(flags, WHO_F_RCLAN);
+			continue;
+		}
+
+		if ((i = rn_lookup(arg)) > 0 && RACE(i)->race_pcdata) {
+			name_add(&race_names, RACE(i)->name, NULL, NULL);
+			SET_BIT(flags, WHO_F_RRACE);
+			continue;
+		}
 
 		if ((i = cn_lookup(arg)) >= 0) {
 			name_add(&class_names, CLASS(i)->name, NULL, NULL);
