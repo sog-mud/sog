@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.117 1998-11-25 15:17:43 fjoe Exp $
+ * $Id: act_move.c,v 1.118 1998-11-27 07:23:38 kostik Exp $
  */
 
 /***************************************************************************
@@ -2315,7 +2315,8 @@ void do_vanish(CHAR_DATA *ch, const char *argument)
 
 void do_fade(CHAR_DATA *ch, const char *argument)
 {
-	if (get_skill(ch, gsn_fade) == 0)
+	int chance;
+	if ((chance=get_skill(ch, gsn_fade)) == 0)
 		return;
 
 	if (MOUNTED(ch)) {
@@ -2329,8 +2330,11 @@ void do_fade(CHAR_DATA *ch, const char *argument)
 	}
 
 	char_puts("You attempt to fade.\n\r", ch);
-	SET_BIT(ch->affected_by, AFF_FADE);
-	check_improve(ch, gsn_fade, TRUE, 3);
+	if (number_percent()<=chance) {
+		SET_BIT(ch->affected_by, AFF_FADE);
+		check_improve(ch, gsn_fade, TRUE, 3);
+	}
+	else check_improve(ch, gsn_fade, FALSE, 3);
 }
 
 void do_vtouch(CHAR_DATA *ch, const char *argument)

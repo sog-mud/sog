@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.169 1998-11-26 10:49:01 fjoe Exp $
+ * $Id: act_info.c,v 1.170 1998-11-27 07:23:37 kostik Exp $
  */
 
 /***************************************************************************
@@ -1454,22 +1454,20 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 		&&  check_blind_raw(ch)) { 
 			bool show_closed = FALSE;
 
-			if (IS_SET(pexit->exit_info, EX_CLOSED)) {
-				int chance;
+		if (IS_SET(pexit->exit_info, EX_CLOSED)) {
+			int chance;
 
-				if (IS_IMMORTAL(ch))
-					show_closed = TRUE;
-				else if (!fAuto &&
-					 (chance = get_skill(ch, gsn_perception))) {
-					 if (number_percent() < chance) {
-						check_improve(ch, gsn_perception,
+			if (IS_IMMORTAL(ch))
+				show_closed = TRUE;
+			else if((chance = get_skill(ch, gsn_perception))){
+				 if (number_percent() < chance) {
+					check_improve(ch, gsn_perception,
 							      TRUE, 5);
-						show_closed = TRUE;
-					}
+					show_closed = TRUE;
 				}
-				if (!show_closed)
-					continue;
 			}
+			if (!show_closed) continue;
+		}
 
 			found = TRUE;
 			if (fAuto)
@@ -2673,6 +2671,7 @@ void do_detect_hidden(CHAR_DATA *ch, const char *argument)
 		char_puts("You peer intently at the shadows "
 			     "but they are unrevealing.\n\r", ch);
 		return;
+		check_improve(ch, sn, FALSE, 1);
 	}
 
 	af.where     = TO_AFFECTS;
@@ -2684,6 +2683,7 @@ void do_detect_hidden(CHAR_DATA *ch, const char *argument)
 	af.bitvector = AFF_DETECT_HIDDEN;
 	affect_to_char(ch, &af);
 	char_puts("Your awareness improves.\n\r", ch);
+	check_improve(ch, sn, TRUE, 1);
 }
 
 void do_bear_call(CHAR_DATA *ch, const char *argument)

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.58 1998-11-24 08:29:58 kostik Exp $
+ * $Id: spellfun2.c,v 1.59 1998-11-27 07:23:39 kostik Exp $
  */
 
 /***************************************************************************
@@ -1443,7 +1443,11 @@ void spell_brew(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	  spell = sn_lookup("detect invis");
 	else if (number_percent() < 65)
 	  spell = sn_lookup("pass door");
-	else
+	else if (number_percent() < 70)
+	  spell = sn_lookup("detect hidden");
+	else if (number_percent() < 75)
+	  spell = sn_lookup("improved detect");
+	else 
 	  spell = sn_lookup("acute vision");
 	  }
 
