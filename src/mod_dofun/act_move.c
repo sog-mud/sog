@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.202.2.9 2000-06-08 18:13:17 fjoe Exp $
+ * $Id: act_move.c,v 1.202.2.10 2000-06-13 09:57:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1196,10 +1196,8 @@ void do_hide(CHAR_DATA *ch, const char *argument)
 
 	char_puts("You attempt to hide.\n", ch);
 
-	if ((chance = get_skill(ch, gsn_hide)) == 0) {
-		char_puts("Huh?\n", ch);
+	if ((chance = get_skill(ch, gsn_hide)) == 0)
 		return;
-	}
 
 	sector = ch->in_room->sector_type;
 	if (sector == SECT_FOREST
@@ -1212,8 +1210,7 @@ void do_hide(CHAR_DATA *ch, const char *argument)
 	if (number_percent() < chance) {
 		SET_BIT(ch->affected_by, AFF_HIDE);
 		check_improve(ch, gsn_hide, TRUE, 3);
-	}
-	else  {
+	} else  {
 		REMOVE_BIT(ch->affected_by, AFF_HIDE);
 		check_improve(ch, gsn_hide, FALSE, 3);
 	}
