@@ -1,5 +1,5 @@
 /*
- * $Id: nanny.c,v 1.8 2001-12-03 22:28:41 fjoe Exp $
+ * $Id: nanny.c,v 1.9 2001-12-10 15:30:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -404,15 +404,15 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 		r = race_search(argument);
 		if (r == NULL
-		||  !r->race_pcdata
+		||  r->race_pcdata == NULL
 		||  c_isempty(&r->race_pcdata->classes)) {
 			act_char("That is not a valid race.", ch);
 			act_char("The following races are available:", ch);
 			send_to_char("  ", ch);			// notrans
 			col = 0;
 			C_FOREACH(r, &races) {
-				if (!r->race_pcdata
-				||  c_isempty(&r->race_pcdata->classes) == 0)
+				if (r->race_pcdata == NULL
+				||  c_isempty(&r->race_pcdata->classes))
 					continue;
 
 				print_cb(r->name, ch, &col);
