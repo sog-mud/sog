@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.129 1999-04-15 12:58:47 fjoe Exp $
+ * $Id: db.c,v 1.130 1999-04-16 09:44:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -804,6 +804,7 @@ void reset_room(ROOM_INDEX_DATA *pRoom)
 
             if (LastMob->pIndexData->pShop) {  /* Shop-keeper? */
                 pObj = create_obj(pObjIndex, 0);
+		SET_BIT(pObj->extra_flags, ITEM_INVENTORY);
             }
 		else {
 		        if ((pObjIndex->limit == -1)  ||
