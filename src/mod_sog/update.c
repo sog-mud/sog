@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.34 1998-06-21 11:43:11 fjoe Exp $
+ * $Id: update.c,v 1.35 1998-06-24 06:29:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -712,11 +712,6 @@ void mobile_update(void)
 	/* That's all for sleeping / busy monster, and empty zones */
 	if (ch->position != POS_STANDING)
 	    continue;
-
-	    if (IS_SET(ch->progtypes,MPROG_AREA) &&
-	        (ch->in_room->area->nplayer > 0))
-	      (ch->pIndexData->mprogs->area_prog) (ch);
-
 
 	    if (ch->position < POS_STANDING)
 	      continue;

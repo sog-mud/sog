@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.43 1998-06-24 02:42:22 efdi Exp $
+ * $Id: fight.c,v 1.44 1998-06-24 06:29:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -166,10 +166,6 @@ void violence_update(void)
 		    if (IS_SET(obj->progtypes,OPROG_FIGHT))
 		      (obj->pIndexData->oprogs->fight_prog) (obj,ch);
 		  }
-
-		if (IS_SET(ch->progtypes,MPROG_FIGHT) && (ch->wait <= 0))
-		  (ch->pIndexData->mprogs->fight_prog) (ch,victim);
-
 
 		/*
 		 * Fun for the whole family!
@@ -2121,13 +2117,6 @@ void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 		  }
 	}
   victim->last_fight_time = -1;
-  if (IS_SET(victim->progtypes,MPROG_DEATH))
-	if ((victim->pIndexData->mprogs->death_prog) (victim))
-	  {
-		victim->position = POS_STANDING;
-		return;
-	  }
-
   victim->last_death_time = current_time;
 
   tattoo = get_eq_char(victim, WEAR_TATTOO);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.56 1998-06-23 15:22:46 fjoe Exp $
+ * $Id: act_move.c,v 1.57 1998-06-24 06:29:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -411,10 +411,6 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 		    if (IS_SET(obj->progtypes,OPROG_GREET))
 		      (obj->pIndexData->oprogs->greet_prog) (obj,ch);
 		  }
-
-		/* greet programs for npcs  */
-		if (room_has_pc && IS_SET(fch->progtypes,MPROG_GREET))
-		  (fch->pIndexData->mprogs->greet_prog) (fch,ch);
 	}
 
 	/* entry programs for items */
@@ -456,11 +452,6 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 		  if (IS_SET(obj->progtypes,OPROG_GREET))
 		    (obj->pIndexData->oprogs->greet_prog) (obj,ch);
 		}
-
-	if (IS_SET(ch->progtypes,MPROG_ENTRY))
-		(ch->pIndexData->mprogs->entry_prog) (ch);
-
-	return;
 }
 
 
@@ -468,7 +459,6 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 void do_north(CHAR_DATA *ch, char *argument)
 {
 	move_char(ch, DIR_NORTH, FALSE);
-	return;
 }
 
 
@@ -476,7 +466,6 @@ void do_north(CHAR_DATA *ch, char *argument)
 void do_east(CHAR_DATA *ch, char *argument)
 {
 	move_char(ch, DIR_EAST, FALSE);
-	return;
 }
 
 
@@ -484,7 +473,6 @@ void do_east(CHAR_DATA *ch, char *argument)
 void do_south(CHAR_DATA *ch, char *argument)
 {
 	move_char(ch, DIR_SOUTH, FALSE);
-	return;
 }
 
 
@@ -492,7 +480,6 @@ void do_south(CHAR_DATA *ch, char *argument)
 void do_west(CHAR_DATA *ch, char *argument)
 {
 	move_char(ch, DIR_WEST, FALSE);
-	return;
 }
 
 
@@ -500,7 +487,6 @@ void do_west(CHAR_DATA *ch, char *argument)
 void do_up(CHAR_DATA *ch, char *argument)
 {
 	move_char(ch, DIR_UP, FALSE);
-	return;
 }
 
 
@@ -508,7 +494,6 @@ void do_up(CHAR_DATA *ch, char *argument)
 void do_down(CHAR_DATA *ch, char *argument)
 {
 	move_char(ch, DIR_DOWN, FALSE);
-	return;
 }
 
 
@@ -517,15 +502,15 @@ int find_exit(CHAR_DATA *ch, char *arg)
 {
 	int door;
 
-		 if (!str_cmp(arg, "n") || !str_cmp(arg, "north")) door = 0;
+	     if (!str_cmp(arg, "n") || !str_cmp(arg, "north")) door = 0;
 	else if (!str_cmp(arg, "e") || !str_cmp(arg, "east" )) door = 1;
 	else if (!str_cmp(arg, "s") || !str_cmp(arg, "south")) door = 2;
 	else if (!str_cmp(arg, "w") || !str_cmp(arg, "west" )) door = 3;
 	else if (!str_cmp(arg, "u") || !str_cmp(arg, "up"   )) door = 4;
 	else if (!str_cmp(arg, "d") || !str_cmp(arg, "down" )) door = 5;
-	else
-	{
-		act_nprintf(ch, NULL, arg, TO_CHAR, POS_DEAD, I_SEE_NO_EXIT_T_HERE);
+	else {
+		act_nprintf(ch, NULL, arg, TO_CHAR, POS_DEAD,
+			    I_SEE_NO_EXIT_T_HERE);
 		return -1;
 	}
 
@@ -538,16 +523,14 @@ int find_door(CHAR_DATA *ch, char *arg)
 	EXIT_DATA *pexit;
 	int door;
 
-		 if (!str_cmp(arg, "n") || !str_cmp(arg, "north")) door = 0;
+	     if (!str_cmp(arg, "n") || !str_cmp(arg, "north")) door = 0;
 	else if (!str_cmp(arg, "e") || !str_cmp(arg, "east" )) door = 1;
 	else if (!str_cmp(arg, "s") || !str_cmp(arg, "south")) door = 2;
 	else if (!str_cmp(arg, "w") || !str_cmp(arg, "west" )) door = 3;
 	else if (!str_cmp(arg, "u") || !str_cmp(arg, "up"   )) door = 4;
 	else if (!str_cmp(arg, "d") || !str_cmp(arg, "down" )) door = 5;
-	else
-	{
-		for (door = 0; door <= 5; door++)
-		{
+	else {
+		for (door = 0; door <= 5; door++) {
 		    if ((pexit = ch->in_room->exit[door]) != NULL
 		    &&   IS_SET(pexit->exit_info, EX_ISDOOR)
 		    &&   pexit->keyword != NULL
@@ -558,14 +541,13 @@ int find_door(CHAR_DATA *ch, char *arg)
 		return -1;
 	}
 
-	if ((pexit = ch->in_room->exit[door]) == NULL)
-	{
-		act_nprintf(ch, NULL, arg, TO_CHAR, POS_DEAD, I_SEE_NO_DOOR_T_HERE);
+	if ((pexit = ch->in_room->exit[door]) == NULL) {
+		act_nprintf(ch, NULL, arg, TO_CHAR, POS_DEAD,
+			    I_SEE_NO_DOOR_T_HERE);
 		return -1;
 	}
 
-	if (!IS_SET(pexit->exit_info, EX_ISDOOR))
-	{
+	if (!IS_SET(pexit->exit_info, EX_ISDOOR)) {
 		char_nputs(YOU_CANT_DO_THAT, ch);
 		return -1;
 	}

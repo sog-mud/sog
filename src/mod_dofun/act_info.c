@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.83 1998-06-24 03:36:04 efdi Exp $
+ * $Id: act_info.c,v 1.84 1998-06-24 06:29:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2719,9 +2719,6 @@ void do_request(CHAR_DATA *ch, char *argument)
 	if (IS_SET(obj->progtypes,OPROG_GIVE))
 		(obj->pIndexData->oprogs->give_prog) (obj,ch,victim);
 
-	if (IS_SET(victim->progtypes,MPROG_GIVE))
-		(victim->pIndexData->mprogs->give_prog) (victim,ch,obj);
-
 	ch->move -= (50 + ch->level);
 	ch->move = UMAX(ch->move, 0);
 	ch->hit -= 3 * (ch->level / 2);
@@ -3899,9 +3896,6 @@ void do_demand(CHAR_DATA *ch, char *argument)
 
 	if (IS_SET(obj->progtypes,OPROG_GIVE))
 		(obj->pIndexData->oprogs->give_prog) (obj,ch,victim);
-
-	if (IS_SET(victim->progtypes,MPROG_GIVE))
-		(victim->pIndexData->mprogs->give_prog) (victim,ch,obj);
 
 	send_to_char("Your power makes all around the world shivering.\n\r",ch);
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.26 1998-06-24 02:42:22 efdi Exp $
+ * $Id: db.c,v 1.27 1998-06-24 06:29:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -780,7 +780,6 @@ void load_old_mob(FILE *fp)
 		pMobIndex->alignment		= fread_number(fp);
 		letter				= fread_letter(fp);
 		pMobIndex->level		= fread_number(fp);
-		pMobIndex->mprogs		= NULL;
 		/*
 		 * The unused stuff is for imps who want to use the old-style
 		 * stats-in-files method.

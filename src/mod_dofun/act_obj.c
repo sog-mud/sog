@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.33 1998-06-24 02:42:22 efdi Exp $
+ * $Id: act_obj.c,v 1.34 1998-06-24 06:29:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -798,8 +798,6 @@ do_give(CHAR_DATA * ch, char *argument)
 		act("$n gives $N some coins.", ch, NULL, victim, TO_NOTVICT);
 		act_printf(ch, NULL, victim, TO_CHAR, POS_RESTING,
 		   "You give $N %d %s.", amount, silver ? "silver" : "gold");
-		if (IS_SET(victim->progtypes, MPROG_BRIBE))
-			(victim->pIndexData->mprogs->bribe_prog) (victim, ch, amount);
 
 		if (IS_NPC(victim) && IS_SET(victim->act, ACT_IS_CHANGER)) {
 			int             change;
@@ -845,8 +843,7 @@ do_give(CHAR_DATA * ch, char *argument)
 		send_to_char("They aren't here.\n\r", ch);
 		return;
 	}
-	if ((IS_NPC(victim) && victim->pIndexData->pShop != NULL) &&
-	    !IS_SET(victim->progtypes, MPROG_GIVE)) {
+	if (IS_NPC(victim) && victim->pIndexData->pShop != NULL) {
 		act("$N tells you 'Sorry, you'll have to sell that.'",
 		    ch, NULL, victim, TO_CHAR);
 		ch->reply = victim;
@@ -883,11 +880,6 @@ do_give(CHAR_DATA * ch, char *argument)
 	act("You give $p to $N.", ch, obj, victim, TO_CHAR);
 	if (IS_SET(obj->progtypes, OPROG_GIVE))
 		(obj->pIndexData->oprogs->give_prog) (obj, ch, victim);
-
-	if (IS_SET(victim->progtypes, MPROG_GIVE))
-		(victim->pIndexData->mprogs->give_prog) (victim, ch, obj);
-
-	return;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.28 1998-06-24 00:14:58 efdi Exp $
+ * $Id: act_wiz.c,v 1.29 1998-06-24 06:29:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1910,28 +1910,6 @@ void do_mstat(CHAR_DATA *ch, char *argument)
 			victim->pcdata->questtime < 0 ? -victim->pcdata->questtime : 0);
 	   }	
 
-	if (IS_NPC(victim) )
-	  if (victim->pIndexData->progtypes != 0)  {
-	    strcpy(buf, "Mobile progs: ");
-		if (IS_SET(victim->progtypes, MPROG_BRIBE))
-		  strcat(buf, "bribe ");
-		if (IS_SET(victim->progtypes, MPROG_SPEECH))
-		  strcat(buf, "speech ");
-		if (IS_SET(victim->progtypes, MPROG_GIVE))
-		  strcat(buf, "give ");
-		if (IS_SET(victim->progtypes, MPROG_DEATH))
-		  strcat(buf, "death ");
-		if (IS_SET(victim->progtypes, MPROG_GREET))
-		  strcat(buf, "greet ");
-		if (IS_SET(victim->progtypes, MPROG_ENTRY))
-		  strcat(buf, "entry ");
-		if (IS_SET(victim->progtypes, MPROG_FIGHT))
-		  strcat(buf, "fight ");
-		if (IS_SET(victim->progtypes, MPROG_AREA))
-		  strcat(buf, "area ");
-	    strcat(buf, "\n\r");
-	    send_to_char(buf, ch);
-	}	
 	char_printf(ch, "Last fought: %10s  Last fight time: %s", 
 		victim->last_fought!=NULL?victim->last_fought->name:"none", 
 		ctime(&(victim->last_fight_time))    );

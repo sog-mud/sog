@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.37 1998-06-24 02:42:23 efdi Exp $
+ * $Id: merc.h,v 1.38 1998-06-24 06:29:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,15 +47,6 @@
 #define DECLARE_DO_FUN(fun)	DO_FUN	  fun
 #define DECLARE_SPEC_FUN(fun) 	SPEC_FUN  fun
 #define DECLARE_SPELL_FUN(fun)	SPELL_FUN fun
-
-#define DECLARE_MPROG_FUN_BRIBE(fun)	    MPROG_FUN_BRIBE fun
-#define DECLARE_MPROG_FUN_ENTRY(fun)	    MPROG_FUN_ENTRY fun
-#define DECLARE_MPROG_FUN_GREET(fun)	    MPROG_FUN_GREET fun
-#define DECLARE_MPROG_FUN_GIVE(fun)	    MPROG_FUN_GIVE fun
-#define DECLARE_MPROG_FUN_FIGHT(fun)	    MPROG_FUN_FIGHT fun
-#define DECLARE_MPROG_FUN_DEATH(fun)	    MPROG_FUN_DEATH fun
-#define DECLARE_MPROG_FUN_AREA(fun)	    MPROG_FUN_AREA fun
-#define DECLARE_MPROG_FUN_SPEECH(fun)     MPROG_FUN_SPEECH fun
 
 #define DECLARE_OPROG_FUN_WEAR(fun)	OPROG_FUN_WEAR fun
 #define DECLARE_OPROG_FUN_REMOVE(fun)	OPROG_FUN_REMOVE fun
@@ -109,7 +100,6 @@ typedef struct	shop_data		SHOP_DATA;
 typedef struct	time_info_data		TIME_INFO_DATA;
 typedef struct	weather_data		WEATHER_DATA;
 typedef struct	oprog_data		OPROG_DATA;
-typedef struct	mprog_data		MPROG_DATA;
 typedef struct	room_history_data	ROOM_HISTORY_DATA;
 typedef struct	auction_data		AUCTION_DATA;
 
@@ -121,14 +111,6 @@ typedef void DO_FUN	(CHAR_DATA *ch, char *argument);
 typedef bool SPEC_FUN	(CHAR_DATA *ch);
 typedef void SPELL_FUN	(int sn, int level, CHAR_DATA *ch, void *vo,
 				int target);
-typedef void MPROG_FUN_BRIBE (CHAR_DATA *mob, CHAR_DATA *ch, int amount);
-typedef void MPROG_FUN_ENTRY (CHAR_DATA *mob);
-typedef void MPROG_FUN_GREET (CHAR_DATA *mob, CHAR_DATA *ch);
-typedef void MPROG_FUN_GIVE (CHAR_DATA *mob, CHAR_DATA *ch, OBJ_DATA *obj);
-typedef void MPROG_FUN_FIGHT (CHAR_DATA *mob, CHAR_DATA *victim);
-typedef bool MPROG_FUN_DEATH (CHAR_DATA *mob);
-typedef void MPROG_FUN_AREA (CHAR_DATA *mob);
-typedef void MPROG_FUN_SPEECH (CHAR_DATA *mob, CHAR_DATA *ch, char *speech);
 
 typedef void OPROG_FUN_WEAR (OBJ_DATA *obj, CHAR_DATA *ch);
 typedef void OPROG_FUN_REMOVE (OBJ_DATA *obj, CHAR_DATA *ch);
@@ -157,15 +139,6 @@ typedef void OPROG_FUN_AREA (OBJ_DATA *obj);
 #define MAX_STRING_LENGTH	 4608
 #define MAX_INPUT_LENGTH	  256
 #define PAGELEN 		   22
-
-#define MPROG_BRIBE		  (A)
-#define MPROG_ENTRY		  (B)
-#define MPROG_GREET		  (C)
-#define MPROG_GIVE		  (D)
-#define MPROG_FIGHT		  (E)
-#define MPROG_DEATH		  (F)
-#define MPROG_AREA		  (G)
-#define MPROG_SPEECH		  (H)
 
 #define OPROG_WEAR		  (A)
 #define OPROG_REMOVE		  (B)
@@ -1823,7 +1796,6 @@ struct	mob_index_data
 {
     MOB_INDEX_DATA *	next;
     SPEC_FUN *		spec_fun;
-    MPROG_DATA *	mprogs;
     int 		progtypes;
     SHOP_DATA * 	pShop;
     int		vnum;
@@ -1879,18 +1851,6 @@ struct mem_data
     int 	id;
     int 	reaction;
     time_t	when;
-};
-
-struct mprog_data
-{
-	MPROG_FUN_BRIBE		*bribe_prog;
-	MPROG_FUN_ENTRY		*entry_prog;
-	MPROG_FUN_GIVE		*give_prog;
-	MPROG_FUN_GREET		*greet_prog;
-	MPROG_FUN_FIGHT		*fight_prog;
-	MPROG_FUN_DEATH		*death_prog;
-	MPROG_FUN_AREA		*area_prog;
-	MPROG_FUN_SPEECH	*speech_prog;
 };
 
 struct oprog_data

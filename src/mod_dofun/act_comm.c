@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.51 1998-06-24 02:42:22 efdi Exp $
+ * $Id: act_comm.c,v 1.52 1998-06-24 06:29:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -390,7 +390,6 @@ void do_immtalk(CHAR_DATA *ch, char *argument)
 
 void do_say(CHAR_DATA *ch, char *argument)
 {
-	CHAR_DATA *room_char;
 	OBJ_DATA *char_obj;
 	CHAR_DATA *vch;
 	char buf[MAX_STRING_LENGTH];
@@ -420,13 +419,6 @@ void do_say(CHAR_DATA *ch, char *argument)
 
 	if (!is_affected(ch, gsn_deafen))
 		act_nprintf(ch, NULL, buf, TO_CHAR, POS_RESTING, COMM_YOU_SAY);
-
-	for (room_char = ch->in_room->people; room_char != NULL;
-		 room_char = room_char->next_in_room)
-	{
-		 if (IS_SET(room_char->progtypes,MPROG_SPEECH) && room_char != ch) 
-		(room_char->pIndexData->mprogs->speech_prog) (room_char,ch,buf);
-	}
 
 	for (char_obj = ch->carrying; char_obj != NULL;
 		  char_obj = char_obj->next_content)
