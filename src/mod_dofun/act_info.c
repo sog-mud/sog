@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.63 2002-09-09 14:01:04 tatyana Exp $
+ * $Id: act_info.c,v 1.271.2.64 2002-09-25 06:12:58 tatyana Exp $
  */
 
 /***************************************************************************
@@ -5186,7 +5186,7 @@ void do_finger(CHAR_DATA *ch, const char *argument)
 		buf_printf(output, " {CLast login:{x %s\n",
 			   strtime(PC(victim)->ll_time));
 	} else {
-		buf_printf(output, " {COn since:{x %s\n",
+		buf_printf(output, " {COn since  :{x %s\n",
 			   strtime(PC(victim)->ll_time));
 	}
 	buf_printf(output, "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");

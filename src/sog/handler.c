@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.60 2002-09-09 19:26:34 tatyana Exp $
+ * $Id: handler.c,v 1.182.2.61 2002-09-25 06:13:11 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3656,13 +3656,6 @@ void quit_char(CHAR_DATA *ch, int flags)
 		return;
 	}
 
-	if (IS_SET(PC(ch)->plr_flags, PLR_FISHING | PLR_FISH_ON)) {
-		REMOVE_BIT(PC(ch)->plr_flags, PLR_FISHING | PLR_FISH_ON);
-		act("You pack up your fishing gear.",
-		    ch, NULL, NULL, TO_CHAR);
-		return;
-	}
-
 	for (vch = npc_list; vch; vch=vch->next) {
 		if (IS_AFFECTED(vch, AFF_CHARM)
 		&&  IS_NPC(vch)
@@ -3746,6 +3739,12 @@ void quit_char(CHAR_DATA *ch, int flags)
 				    ch, NULL, vch, TO_NOTVICT);
 			}
 		}
+	}
+
+	if (IS_SET(PC(ch)->plr_flags, PLR_FISHING | PLR_FISH_ON)) {
+		REMOVE_BIT(PC(ch)->plr_flags, PLR_FISHING | PLR_FISH_ON);
+		act("You pack up your fishing gear.",
+		    ch, NULL, NULL, TO_CHAR);
 	}
 
 	char_puts("Alas, all good things must come to an end.\n", ch);
