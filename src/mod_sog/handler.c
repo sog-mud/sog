@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.396 2004-03-03 15:37:30 tatyana Exp $
+ * $Id: handler.c,v 1.397 2004-03-07 21:23:37 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1891,7 +1891,7 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 		} else {
 			act_puts("You attempt to leave the room, but the webs "
 				 "hold you tight.",
-				 ch, NULL, NULL, TO_ROOM, POS_DEAD);
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			act("$n struggles vainly against the webs which "
 			    "hold $m in place.",
 			    ch, NULL, NULL, TO_ROOM);
@@ -5107,6 +5107,59 @@ can_gate(CHAR_DATA *ch, CHAR_DATA *victim)
 	||  victim->level >= LEVEL_HERO
 	||  !guild_ok(ch, victim->in_room))
 		return FALSE;
+
+	return TRUE;
+}
+
+struct alone_creatures {
+	int vnum;
+	const char *have_msg;
+};
+
+static struct alone_creatures elementales[] = {
+	{ MOB_VNUM_FIRE_ELEMENTAL,
+	  "You control fire elemental and can't summon another creature." },
+	{ MOB_VNUM_AIR_ELEMENTAL,
+	  "You control air elemental and can't summon another creature." },
+	{ MOB_VNUM_WATER_ELEMENTAL,
+	  "You control water elemental and can't summon another creature." },
+	{ MOB_VNUM_EARTH_ELEMENTAL,
+	  "You control earth elemental and can't summon another creature." },
+	{ 0, NULL }
+};
+
+bool
+can_summon_creature(CHAR_DATA *ch)
+{
+	int counter = 0;
+	CHAR_DATA *gch;
+	int max_creature = UMIN(1, ch->level / 10);
+
+	if (IS_SET(ch->in_room->room_flags,
+		   ROOM_NOMOB | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
+		act_char("You can't summon creature here.", ch);
+		return FALSE;
+	}
+
+	for (gch = npc_list; gch; gch = gch->next) {
+		if (IS_AFFECTED(gch, AFF_CHARM)
+		&&  gch->master == ch) {
+			struct alone_creatures *p;
+
+			for(p = elementales; p->vnum; p++) {
+				if (gch->pMobIndex->vnum == p->vnum) {
+					act_char(p->have_msg, ch);
+					return FALSE;
+				}
+			}
+			counter++;
+		}
+	}
+
+	if (counter >= max_creature) {
+		act_char("You can't control one more creature.", ch);
+		return FALSE;
+	}
 
 	return TRUE;
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.422 2004-03-01 18:55:56 tatyana Exp $
+ * $Id: merc.h,v 1.423 2004-03-07 21:23:35 tatyana Exp $
  */
 
 /***************************************************************************
@@ -235,6 +235,11 @@ enum {
 #define MOB_VNUM_STALKER		15
 #define MOB_VNUM_COCOON			27
 #define MOB_VNUM_BONE_DRAGON		28
+
+#define MOB_VNUM_AIR_ELEMENTAL		34410
+#define MOB_VNUM_WATER_ELEMENTAL	34411
+#define MOB_VNUM_FIRE_ELEMENTAL		34412
+#define MOB_VNUM_EARTH_ELEMENTAL	34413
 
 #define OBJ_VNUM_SILVER_ONE		1
 #define OBJ_VNUM_GOLD_ONE		2

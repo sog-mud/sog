@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.208 2004-02-19 17:16:48 fjoe Exp $
+ * $Id: save.c,v 1.209 2004-03-07 21:23:38 tatyana Exp $
  */
 
 /***************************************************************************
@@ -473,6 +473,9 @@ fwrite_obj(CHAR_DATA *ch, OBJ_DATA *obj, FILE *fp, int iNest)
 	}
 
 	if (OBJ_IS(obj, OBJ_CLAN | OBJ_QUIT_DROP | OBJ_CHQUEST))
+		return;
+
+	if (obj->pObjIndex->vnum == OBJ_VNUM_MAGIC_JAR)
 		return;
 
 /* Do not save limited eq if player is not in PK */

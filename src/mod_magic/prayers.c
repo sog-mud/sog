@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.76 2004-03-05 18:09:01 tatyana Exp $
+ * $Id: prayers.c,v 1.77 2004-03-07 21:23:36 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2434,15 +2434,12 @@ SPELL_FUN(prayer_darkness, sn, level, ch, vo)
 	act("The darkness falls.", ch, NULL, NULL, TO_ALL);
 }
 
-#define MOB_VNUM_AIR_ELEMENTAL 34410
-
 static int air_elemental_stats[MAX_STAT] = {
 	23, 23, 3, 24, 16, 25
 };
 
 SPELL_FUN(prayer_air_elemental, sn, level, ch, vo)
 {
-	CHAR_DATA *gch;
 	CHAR_DATA *elemental;
 	AFFECT_DATA *paf;
 	int i;
@@ -2458,25 +2455,11 @@ SPELL_FUN(prayer_air_elemental, sn, level, ch, vo)
 		return;
 	}
 
+	if (!can_summon_creature(ch))
+		return;
+
 	act("You notice some strange motions in air around you.", ch,
 	    NULL, NULL, TO_ALL);
-
-	if (IS_SET(ch->in_room->room_flags,
-		   ROOM_NOMOB | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
-		act("But nothing else happens.", ch, NULL, NULL, TO_ALL);
-		return;
-	}
-
-	for (gch = npc_list; gch; gch = gch->next) {
-		if (IS_AFFECTED(gch, AFF_CHARM)
-		&&  gch->master == ch
-		&&  gch->pMobIndex->vnum == MOB_VNUM_AIR_ELEMENTAL) {
-			act_char("Two air elemental is too much.", ch);
-			act("But nothing else happens.", ch, NULL, NULL,
-			    TO_ROOM);
-			return;
-		}
-	}
 
 	elemental = create_mob(MOB_VNUM_AIR_ELEMENTAL, 0);
 	if (elemental == NULL) {
@@ -3967,7 +3950,6 @@ SPELL_FUN(prayer_geyser, sn, level, ch, vo)
 	act("$n's geyser dries up and dissapears.", ch, NULL, NULL, TO_ROOM);
 	act_char("Your geyser dries up and dissapears.", ch);
 }
-#define MOB_VNUM_WATER_ELEMENTAL 34411
 
 static int water_elemental_stats[MAX_STAT] = {
 	23, 23, 20, 24, 16, 25
@@ -3975,7 +3957,6 @@ static int water_elemental_stats[MAX_STAT] = {
 
 SPELL_FUN(prayer_water_elemental, sn, level, ch, vo)
 {
-	CHAR_DATA *gch;
 	CHAR_DATA *elemental;
 	AFFECT_DATA *paf;
 	int i;
@@ -3986,6 +3967,9 @@ SPELL_FUN(prayer_water_elemental, sn, level, ch, vo)
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
+
+	if (!can_summon_creature(ch))
+		return;
 
 	if (ch->in_room->sector_type == SECT_DESERT) {
 		act_char("There is not enought water.", ch);
@@ -3999,23 +3983,6 @@ SPELL_FUN(prayer_water_elemental, sn, level, ch, vo)
 
 	act("You notice some strange motions around you.",
 	    ch, NULL, NULL, TO_ALL);
-
-	if (IS_SET(ch->in_room->room_flags,
-		   ROOM_NOMOB | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
-		act("But nothing else happens.", ch, NULL, NULL, TO_ALL);
-		return;
-	}
-
-	for (gch = npc_list; gch; gch = gch->next) {
-		if (IS_AFFECTED(gch, AFF_CHARM)
-		&&  gch->master == ch
-		&&  gch->pMobIndex->vnum == MOB_VNUM_WATER_ELEMENTAL) {
-			act_char("Two water elemental is too much.", ch);
-			act("But nothing else happens.", ch, NULL, NULL,
-			    TO_ROOM);
-			return;
-		}
-	}
 
 	elemental = create_mob(MOB_VNUM_WATER_ELEMENTAL, 0);
 	if (elemental == NULL) {
@@ -4090,15 +4057,12 @@ can_cast_wards(CHAR_DATA *ch, CHAR_DATA *victim)
 	return TRUE;
 }
 
-#define MOB_VNUM_FIRE_ELEMENTAL 34412
-
 static int fire_elemental_stats[MAX_STAT] = {
 	23, 23, 20, 24, 16, 25
 };
 
 SPELL_FUN(prayer_fire_elemental, sn, level, ch, vo)
 {
-	CHAR_DATA *gch;
 	CHAR_DATA *elemental;
 	AFFECT_DATA *paf;
 	int i;
@@ -4109,6 +4073,9 @@ SPELL_FUN(prayer_fire_elemental, sn, level, ch, vo)
 		return;
 	}
 
+	if (!can_summon_creature(ch))
+		return;
+
 	if (ch->in_room->sector_type == SECT_UNDERWATER
 	||  IS_WATER(ch->in_room)) {
 		act_char("You can't summon fire elemental here.", ch);
@@ -4117,23 +4084,6 @@ SPELL_FUN(prayer_fire_elemental, sn, level, ch, vo)
 
 	act("You notice some strange motions around you.",
 	    ch, NULL, NULL, TO_ALL);
-
-	if (IS_SET(ch->in_room->room_flags,
-		   ROOM_NOMOB | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
-		act("But nothing else happens.", ch, NULL, NULL, TO_ALL);
-		return;
-	}
-
-	for (gch = npc_list; gch; gch = gch->next) {
-		if (IS_AFFECTED(gch, AFF_CHARM)
-		&&  gch->master == ch
-		&&  gch->pMobIndex->vnum == MOB_VNUM_FIRE_ELEMENTAL) {
-			act_char("Two fire elemental is too much.", ch);
-			act("But nothing else happens.", ch, NULL, NULL,
-			    TO_ROOM);
-			return;
-		}
-	}
 
 	elemental = create_mob(MOB_VNUM_FIRE_ELEMENTAL, 0);
 	if (elemental == NULL) {
@@ -4169,15 +4119,12 @@ SPELL_FUN(prayer_fire_elemental, sn, level, ch, vo)
 	char_to_room(elemental, ch->in_room);
 }
 
-#define MOB_VNUM_EARTH_ELEMENTAL 34413
-
 static int earth_elemental_stats[MAX_STAT] = {
 	23, 23, 20, 24, 16, 25
 };
 
 SPELL_FUN(prayer_earth_elemental, sn, level, ch, vo)
 {
-	CHAR_DATA *gch;
 	CHAR_DATA *elemental;
 	AFFECT_DATA *paf;
 	int i;
@@ -4188,6 +4135,9 @@ SPELL_FUN(prayer_earth_elemental, sn, level, ch, vo)
 		return;
 	}
 
+	if (!can_summon_creature(ch))
+		return;
+
 	if (ch->in_room->sector_type == SECT_UNDERWATER
 	||  IS_WATER(ch->in_room)) {
 		act_char("You can't summon earth elemental here.", ch);
@@ -4196,23 +4146,6 @@ SPELL_FUN(prayer_earth_elemental, sn, level, ch, vo)
 
 	act("You notice some strange motions around you.",
 	    ch, NULL, NULL, TO_ALL);
-
-	if (IS_SET(ch->in_room->room_flags,
-		   ROOM_NOMOB | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
-		act("But nothing else happens.", ch, NULL, NULL, TO_ALL);
-		return;
-	}
-
-	for (gch = npc_list; gch; gch = gch->next) {
-		if (IS_AFFECTED(gch, AFF_CHARM)
-		&&  gch->master == ch
-		&&  gch->pMobIndex->vnum == MOB_VNUM_EARTH_ELEMENTAL) {
-			act_char("Two earth elemental is too much.", ch);
-			act("But nothing else happens.", ch, NULL, NULL,
-			    TO_ROOM);
-			return;
-		}
-	}
 
 	elemental = create_mob(MOB_VNUM_EARTH_ELEMENTAL, 0);
 	if (elemental == NULL) {

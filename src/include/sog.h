@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.54 2004-02-20 16:25:25 fjoe Exp $
+ * $Id: sog.h,v 1.55 2004-03-07 21:23:36 tatyana Exp $
  */
 
 #ifndef _SOG_H_
@@ -305,6 +305,8 @@ DECLARE_PROC2(recall,
 
 DECLARE_FUN2(bool, can_gate,
 	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim)
+DECLARE_FUN1(bool, can_summon_creature,
+	     ARG(CHAR_DATA), ch)
 DECLARE_FUN2(bool, can_drop_obj,
 	     ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj)
 DECLARE_FUN2(bool, can_loot,
