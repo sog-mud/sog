@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.56 2002-08-24 05:53:23 tatyana Exp $
+ * $Id: act_info.c,v 1.271.2.57 2002-08-24 06:20:38 tatyana Exp $
  */
 
 /***************************************************************************
@@ -5118,7 +5118,7 @@ void do_finger(CHAR_DATA *ch, const char *argument)
 
 	buf_printf(output, "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 	buf_printf(output, "%30s%s\n", victim->name, PC(victim)->title);
-	buf_printf(output, "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+	buf_printf(output, "{x-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 
 	if (same_clan || IS_IMMORTAL(ch) || (ch == victim)) {
 		buf_printf(output, " {CLevel     :{x %-3d                       {CAlignment:{x %s %s\n",
@@ -5151,14 +5151,16 @@ void do_finger(CHAR_DATA *ch, const char *argument)
 " {CReligion  :{x unknown                   {CClan     :{x unknown\n");
 	}
 
-	if (IS_NULLSTR(PC(ch)->ll_ip))
+	if (IS_NULLSTR(PC(victim)->ll_ip)
+	||  IS_NULLSTR(PC(victim)->ll_host))
 		buf_printf(output, " {CLast login:{x unknown\n");
 	else if (loaded) {
 		buf_printf(output, " {CLast login:{x %s\n",
 			   strtime(PC(victim)->ll_time));
-	} else
+	} else {
 		buf_printf(output, " {COn since  :{x %s\n",
 			   strtime(PC(victim)->ll_time));
+	}
 	buf_printf(output, "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 
 	send_to_char(buf_string(output), ch);
