@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.6 1998-11-18 05:20:39 fjoe Exp $
+ * $Id: class.c,v 1.7 1998-12-02 08:56:39 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -137,7 +137,7 @@ int get_max_train(CHAR_DATA *ch, int stat)
 		return 25;
 
 	if ((cl = class_lookup(ch->class)) == NULL
-	||  (r = race_lookup(ch->race)) == NULL
+	||  (r = race_lookup(ch->pcdata->race)) == NULL
 	||  !r->pcdata)
 		return 0;
 
