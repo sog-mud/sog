@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_spec.c,v 1.2 1999-11-27 09:50:17 fjoe Exp $
+ * $Id: act_spec.c,v 1.3 1999-11-27 09:52:50 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -92,8 +92,14 @@ void do_specialize(CHAR_DATA* ch, const char* argument)
 		return;
 	}
 
+	if (has_spec(ch, weapon)) {
+		act_puts("You already specialize in $T.", 
+			ch, NULL, output, TO_CHAR, POS_DEAD);
+		return;
+	}
+
 	if (!spec_replace(ch, NULL, weapon)) {
-		act_puts("You are now specialized in $T.", 
+		act_puts("You specialize in $T.", 
 			ch, NULL, output, TO_CHAR, POS_DEAD);
 	} else {
 		act_puts("You can't specialize in $T.",
