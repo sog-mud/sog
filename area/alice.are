@@ -9,8 +9,8 @@ End
 
 #MOBILES
 #21000
-alice~
-Alice~
+alice алиса~
+@eng Alice@rus Алиса~
 Alice raises her eyebrows and says "Curiouser and curiouser!"
 ~
 In her amazement she has completely forgotten proper English. As if the
@@ -704,7 +704,7 @@ M act 21071 leaves west.~
 M act 21071 leaves.~
 #21034
 queen hearts~
-the Queen of Hearts~
+@eng the Queen of Hearts@rus ~~Червовая~~ ~~Королева~~~
 The Queen of Hearts screams "Off with their heads!"
 ~
 The Queen is an imposing aggressive woman who solves every problem by
@@ -1541,14 +1541,14 @@ container 0 0 A
 39 15 390 P
 g @rus none~
 #21065
-rabbit hole~
-a rabbit hole~
-A rabbit hole beckons for you to enter!~
+rabbit hole нора дыра~
+@eng a rabbit hole@rus ~~кроличья~~ ~~нора~~~
+@eng A rabbit hole beckons for you to enter!@rus Кроличья нора (hole) приглашает тебя войти.~
 copper~
 portal 0 0 0
 0 0 0 21002 0
 48 1 480 P
-g @rus none~
+g @rus female~
 #21066
 tree door~
 a tree with a tiny door~

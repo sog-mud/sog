@@ -9,8 +9,8 @@ End
 
 #MOBILES
 #8100
-spectre~
-a spectre~
+spectre призрак~
+@eng a spectre@rus призрак~
 A Spectre screams at you and attacks!
 ~
 The spirit of some former minion of this place, this foul Undead creature
@@ -24,6 +24,7 @@ FGO 0 T 0 0 -1000 0
 EFNQ
 stand stand none 5000
 0 0 medium unknown
+g @eng none@rus male~
 r poison -100
 r negative -33
 r holy 50
@@ -102,8 +103,8 @@ r energy -33
 r disease -100
 r light 50
 #8104
-vampire~
-a vampire~
+vampire вампир~
+@eng a vampire@rus вампир~
 An evil vampire rises from the sarcophagus, bares its fangs and attacks!
 ~
 The Evil Baron and his two brothers were vampires imprisoned here by Xanan
@@ -1000,18 +1001,24 @@ g @rus male~
 
 #ROOMS
 #8100
-A Dusty Trail~
-You are heading along a dusty trail that runs toward the town ahead. There
+@eng A Dusty Trail@rus Пыльная тропа~
+@eng You are heading along a dusty trail that runs toward the town ahead. There
 is a horrid stench detectable even here. You see a sign up ahead.
+@rus Ты идешь по пыльной тропе, ведущей к городу, виднеющемуся впереди.
+Ужасающее зловоние заставляет сдерживать дыхание. Перед собой ты видишь
+знак, вкопаный в землю.
 ~
 0 C field
 E
-sign~
-W E L C O M E    T O    G H O S T T O W N
+sign знак~
+@eng W E L C O M E    T O    G H O S T T O W N
 
                        Population : 0
 
 
+@rus             Добро пожаловать в город призраков.
+
+Население: 0.
 ~
 D0
 ~
@@ -1222,10 +1229,10 @@ D3
 Z -1 8114
 S
 #8109
-The Well in the Town Square~
-You are standing in the middle of the town square, at the well. Paths stretch
-past houses and shops in every direction. There must still be some water in
-the well, as a small amount of grass has managed to grow around it.
+@eng The Well in the Town Square@rus Колодец на городской площади~
+You are standing in the middle of the town square, at the well.  Paths
+stretch past houses and shops in every direction.  There must still be some
+water in the well, as a small amount of grass has managed to grow around it.
 ~
 0 N city
 D0
@@ -1362,9 +1369,11 @@ D3
 Z -1 8112
 S
 #8114
-A Side Street~
-You are advancing along a side street that runs west away from the Town
+@eng A Side Street@rus Боковая улица~
+@eng You are advancing along a side street that runs west away from the Town
 Square. Houses lie to the north and south.
+@rus Ты идешь по улице, уведшей тебя на запад от городской площади. На
+севере и на юге видны полуразрушенные строения.
 ~
 0 N city
 D0
@@ -1431,9 +1440,11 @@ D0
 ABZ 0 8114
 S
 #8117
-A Side Street~
-You are advancing along a side street that runs west away from the Town
+@eng A Side Street@rus Боковая улица~
+@eng You are advancing along a side street that runs west away from the Town
 Square. Houses lie to the north and south.
+@rus Ты идешь по улице, уведшей тебя на запад от городской площади. На
+севере и на юге видны полуразрушенные строения.
 ~
 0 N city
 D0
@@ -1500,9 +1511,11 @@ D0
 ABZ 0 8117
 S
 #8120
-A Side Street~
-You have reached the end of a side street that runs west away from the Town
+@eng A Side Street@rus Боковая улица~
+@eng You have reached the end of a side street that runs west away from the Town
 Square. Houses lie to the north, west and south.
+@rus Вот ты и $gn{добрался} до конца улицы, уведшей тебя на запад от городской
+площади. На севере, юге и западе находятся разрушенные строения.
 ~
 0 N city
 D0
@@ -1588,9 +1601,11 @@ D1
 ABZ 0 8120
 S
 #8124
-A Side Street~
-You are advancing along a side street that runs east away from the Town
+@eng A Side Street@rus Боковая улица~
+@eng You are advancing along a side street that runs east away from the Town
 Square. Houses lie to the north and south.
+@rus Ты идешь по улице, уведшей тебя на восток от городской площади.
+На севере и на юге видны полуразрушенные дома.
 ~
 0 N city
 D0
@@ -1657,9 +1672,11 @@ D0
 ABZ 0 8124
 S
 #8127
-A Side Street~
-You are advancing along a side street that runs east away from the Town
+@eng A Side Street@rus Боковая улица~
+@eng You are advancing along a side street that runs east away from the Town
 Square. Houses lie to the north and south.
+@rus Ты идешь по улице, уведшей тебя на восток от городской площади.
+На севере и на юге видны полуразрушенные дома.
 ~
 0 N city
 D0
@@ -1726,9 +1743,12 @@ D0
 ABZ 0 8127
 S
 #8130
-A Side Street~
-You have reached the end of a side street that runs east away from the Town
+@eng A Side Street@rus Боковая улица~
+@eng You have reached the end of a side street that runs east away from the Town
 Square. Houses lie to the north, east and south.
+@rus Вот ты и $gn{добрался} до конца этой улицы, уведшей тебя на восток от
+городской площади. На севере, на юге и на востоке видны разрушенные
+строения.
 ~
 0 N city
 D0
@@ -1980,10 +2000,10 @@ ABZ 0 8141
 S
 #8141
 The Hallway~
-You are advancing along a dimly-lit hall lined with garish paintings depicting
-rather macabre-looking members of some decadent family. To the west lies
-a crooked stairway that leads up to the next level. Doors lie to the north and
-south of here.
+You are advancing along a dimly-lit hall lined with garish paintings
+depicting rather macabre-looking members of some decadent family.  To the
+west lies a crooked stairway that leads up to the next level.  Doors lie to
+the north and south of here.  
 ~
 0 ADN inside
 D0
@@ -2043,10 +2063,10 @@ ABZ 0 8141
 S
 #8144
 The Hallway~
-You are advancing along a dimly-lit hall lined with garish paintings depicting
-rather macabre-looking members of some decadent family. To the west lies
-a crooked stairway that leads up to the next level. Doors lie to the north and
-south of here.
+You are advancing along a dimly-lit hall lined with garish paintings
+depicting rather macabre-looking members of some decadent family.  To the
+west lies a crooked stairway that leads up to the next level.  Doors lie to
+the north and south of here.  
 ~
 0 ADN inside
 D0
@@ -2242,7 +2262,7 @@ of this domain usually recline. A painting on one wall catches your eye.
 @rus Достопримечательностью этой комнаты является огромная кровать на резных
 ножках, застеленная сатиновыми простынями.  А напротив этой великолепной
 кровати стоит небольшой уютный диванчик, на котором любит полежать живущая
-здесь девушка.  Висящий над диваном рисунок неприодолимо притягивает к себе
+здесь девушка.  Висящий над диваном рисунок непреодолимо притягивает к себе
 твой взгляд.  
 ~
 0 ADN inside
@@ -2324,7 +2344,7 @@ D3
 Z -1 8155
 S
 #8157
-A Small House~
+@eng A Small House@rus Маленький дом~
 The mist clears suddenly, and you find yourself standing outside a rather
 creepy little stone dwelling, with no windows, but a stout oak door 
 directly to the east.
@@ -2387,10 +2407,14 @@ D2
 Z -1 8156
 S
 #8160
-A Clearing~
-You have reached an area devoid of mist, the front yard of a ruined cottage
+@eng A Clearing@rus Просвет в тумане~
+@eng You have reached an area devoid of mist, the front yard of a ruined cottage
 whose door lies to the east. Peering through the windows, you imagine you
 can see shapes moving about.
+@rus Буквально вынырнув из тумана, ты $gn{оказался} здесь, где тумана почему-то
+нет. Прямо перед собой ты видишь разрушенный дом, вход в который находится
+на востоке. Заглянув в окно, ты $gn{заметил} какие-то странные тени, скользящие
+по комнатам.
 ~
 0 N city
 D1
@@ -2407,10 +2431,13 @@ D3
 Z -1 8159
 S
 #8161
-The Interior of the Cottage~
-This cottage is, as all the other residences of this place, a ruined mess.
+@eng The Interior of the Cottage@rus В разрушенном доме~
+@eng This cottage is, as all the other residences of this place, a ruined mess.
 Broken furniture and decaying corpses litter the floor. To the east, you
 can see a staircase leading down.
+@rus Этот дом, как и все в этом странном месте, разрушен. На полу валяется
+сломаная мебель и разлагающиеся трупы. На востоке ты замечаешь лестницу,
+ведущую вниз.
 ~
 0 AN inside
 D1
@@ -2427,10 +2454,14 @@ D3
 ABZ 0 8160
 S
 #8162
-A Staircase~
-This staircase is an ancient stone structure that looks far older than the
+@eng A Staircase@rus Лестница~
+@eng This staircase is an ancient stone structure that looks far older than the
 other structures in the village. You peer down in an attempt to ascertain
 what may below, but can see only darkness.
+@rus Эта лесница -- древнее каменное сооружение, она выглядит гораздо
+старше всего уже виденного тобой в этом мертвом городе. Ты глядишь
+вниз, пытаясь разглядеть, что там такое, но не видишь ничего кроме
+темноты.
 ~
 0 ACN inside
 D3
@@ -2522,7 +2553,7 @@ D3
 Z -1 8164
 S
 #8166
-Inside The Crypt~
+@eng Inside The Crypt@rus Склеп~
 The interior of the crypt is dark, damp and cramped. It looks as though
 no-one has been here in centuries. A layer of dust ankle-deep makes progress
 difficult, as do the hanging cobwebs, with strands as thick as your wrist.

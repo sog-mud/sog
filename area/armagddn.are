@@ -9,14 +9,18 @@ End
 
 #MOBILES
 #14001
-locust~
-The giant locust~
-A giant locust is here, devouring sinners.
+locust саранча~
+@eng the giant locust@rus ~~гигантская~~ ~~саранча~~~
+@eng A giant locust is here, devouring sinners.
+@rus Гигантская саранча (locust) мучает грешников.
 ~
-The locust is man sized, with the face of man and
+@eng The locust is man sized, with the face of man and
 the hair of a woman. It bears its lion teeth and beats
 his breastplate of iron with its wings. Its long body
 ends in a scorpion stinger.
+@rus Саранча размером с человека, с лицом человечьим и волосами, как у
+женщины, и зубами, как у льва. Ее тело заканчивается хвостом с 
+жалом, как у скорпиона.
 ~
 unique~
 FT 0 0 0 ABH -1000 0
@@ -25,20 +29,24 @@ FT 0 0 0 ABH -1000 0
 FIKW
 stand stand none 900
 AGHNO ACDEFHKQV large unknown
+g @eng none@rus female~
 r negative 33
 r holy -50
 r light -50
 r charm 999
 #14002
-abaddon king angel~
-Abaddon~
-The angel of the bottomless pit is here, bound in a chain.
+abaddon king аваддон~
+@eng Abaddon@rus Аваддон~
+@eng The angel of the bottomless pit is here, bound in a chain.
+@rus Аваддон, ангел бездны, опутанный цепями, предстал перед тобой.
 ~
-Abaddon pleads with you to release him from his binding.
+@eng Abaddon pleads with you to release him from his binding.
 He claims the chain is the source of all his suffering.
 He promises you great power and position in the world to
 come. His appearance is to your liking, whatever that may be,
 and you find his voice pleasant and reasonable.
+@rus Аваддон молит тебя освободить его от оков, заставляющих его
+страдать. Он обещает тебе все богатства мира и огромную силу.
 ~
 unique~
 BT 0 AITX A H -1000 0
@@ -52,14 +60,19 @@ r cold 33
 r holy 33
 r charm 999
 #14003
-babylon whore woman harlot~
-Babylon~
-A woman arrayed in purple and scarlet beckons to you!
+babylon whore woman harlot вавилон блудница женщина~
+@eng Babylon@rus Вавилон~
+@eng A woman arrayed in purple and scarlet beckons to you!
+@rus Женщина (woman), облаченная в порфиру и багряницу.
 ~
-The woman is decked in gold, precious stones, and pearls.
+@eng The woman is decked in gold, precious stones, and pearls.
 Upon her forehead is written:
 MYSTERY BABYLON THE GREAT. THE MOTHER
 OF HARLOTS AND ABOMINATIONS OF THE EARTH.
+@rus Женщина украшена золотом, драгоценными камнями и жемчугом. 
+На челе ее написано:
+   Тайна, Вавилон великий, мать блудницам и мерзостям
+   земным.
 ~
 human~
 HQ 0 c 0 0 -1000 0
@@ -69,12 +82,15 @@ FN
 stand stand female 900
 0 0 medium unknown
 #14004
-angel water waters~
-The angel of the waters~
-An angel is here, holding down the watery corner of the world.
+angel water waters ангел~
+@eng The angel of the waters@rus ~~Ангел~~ вод~
+@eng An angel is here, holding down the watery corner of the world.
+@rus Ангел (angel), повеливающий водами, стоит на углу земли.
 ~
-The angel looks you over and tells you that you are too late.
+@eng The angel looks you over and tells you that you are too late.
 He has already cast the second vial of wrath into the sea.
+@rus Ангел глянул на тебя.. Он уже вылил вторую чашу гнева Господня
+в море.
 ~
 unique~
 BT 0 NT A 0 1000 0
@@ -90,12 +106,14 @@ r holy 999
 r disease 999
 r charm 999
 #14005
-angel earth~
-The angel of the earth~
-An angel is here, shaking the earthen corner of the world!
+angel earth ангел~
+@eng The angel of the earth@rus ~~Ангел~~ земли~
+@eng An angel is here, shaking the earthen corner of the world!
+@rus Ангел (angel) встряхивает восточную часть земли.
 ~
-The angel looks you over and tells you that you are too late.
+@eng The angel looks you over and tells you that you are too late.
 The 6th seal already has been broken.
+@rus Ангел взглянул на тебя.. Слишком поздно. Шестая печать уже снята.
 ~
 unique~
 BT 0 NT A 0 1000 0
@@ -111,12 +129,15 @@ r holy 999
 r disease 999
 r charm 999
 #14006
-angel air~
-The angel of the air~
-An angel is here, holding down the airy corner of the world.
+angel air ангел~
+@eng The angel of the air@rus ~~Ангел~~ воздуха~
+@eng An angel is here, holding down the airy corner of the world.
+@rus Ангел (angel), повеливающий воздухом, стоит на углу земли.
 ~
-The angel looks you over and tells you that you are too late.
+@eng The angel looks you over and tells you that you are too late.
 He has already scattered the seventh vial of wrath on the wind.
+@rus Ангел взглянул на тебя.. Слишком поздно. Седьмая чаша гнева
+Господня уже вылита на воздух.
 ~
 unique~
 BT 0 NT A H 1000 0
@@ -132,12 +153,15 @@ r holy 999
 r disease 999
 r charm 999
 #14007
-angel fire~
-The angel with the fiery censer~
-An angel is here, containing the fiery corner of the world.
+angel fire ангел~
+@eng The angel with the fiery censer@rus ~~Ангел~~ с золотой кадильницей~
+@eng An angel is here, containing the fiery corner of the world.
+@rus Ангел (angel) стоит на углу земли.
 ~
-The angel looks you over and tells you that you are too late.
+@eng The angel looks you over and tells you that you are too late.
 He has already poured the fourth vial of wrath upon the sun.
+@rus Ангел взглянул на тебя. Слишком поздно. Четвертая чаша гнева
+Господня уже вылита на солнце.
 ~
 unique~
 BT 0 NT A 0 1000 0
@@ -153,11 +177,14 @@ r holy 999
 r disease 999
 r charm 999
 #14008
-angel harvesting~
-The harvesting angel~
-An angel is here, harvesting sinners with his sickle.
+angel harvesting ангел~
+@eng The harvesting angel@rus Ангел~
+@eng An angel is here, harvesting sinners with his sickle.
+@rus Ангел (angel), жнущий грешников своим серпом.
 ~
-The angel has no mercy for those without seals.
+@eng The angel has no mercy for those without seals.
+@rus Этот ангел не знает жалости по отношению к тем, кто не отмечен
+печатью Господа.
 ~
 unique~
 T 0 NT A ABK 1000 0
@@ -173,12 +200,15 @@ r holy 999
 r disease 999
 r charm 999
 #14009
-army heaven~
-An army of heaven~
-An army of heaven is here, laying waste to sinners.
+army heaven небесное войско~
+@eng An army of heaven@rus ~~небесное~~ ~~войско~~~
+@eng An army of heaven is here, laying waste to sinners.
+@rus Небесное войско (army) несет кару согрешившим.
 ~
-The army of heaven is approximately 50 troops, lightly
+@eng The army of heaven is approximately 50 troops, lightly
 armed with simple spears and shields.
+@rus Небесное войско -- это около 50 отрядов, вооруженных щитами и
+копьями.
 ~
 human~
 T 0 N 0 H 1000 0
@@ -187,16 +217,20 @@ T 0 N 0 H 1000 0
 CEP
 stand stand none 900
 S 0 huge unknown
+g @eng none@rus plural~
 r bash 999
 r negative -50
 r holy 33
 #14010
-horseman white~
-The white horseman~
-A rider mounted on a white horse conquers all in sight!
+horseman white белый всадник~
+@eng the white horseman@rus ~~всадник~~ на белом коне~
+@eng A rider mounted on a white horse conquers all in sight!
+@rus Конь белый, и на нем всадник (horseman), пришел, чтобы победить.
 ~
-The rider is mounted on a lion headed horse, which breathes
+@eng The rider is mounted on a lion headed horse, which breathes
 fire, smoke and brimstone as it rears.
+@rus Конь белый, с головой львиною, а на нем всадник. Становясь на дыбы конь
+извергает огонь, дым и серу.
 ~
 human~
 FT 0 0 0 ABH -1000 0
@@ -205,16 +239,20 @@ FT 0 0 0 ABH -1000 0
 CDEFK
 stand stand male 900
 BCN 0 large unknown
+g @eng male@rus male~
 r negative 33
 r holy -50
 r charm 999
 #14011
-horseman red~
-The red horseman~
-A rider mounted on a red horse wages war here.
+horseman red всадник рыжий~
+@eng the red horseman@rus ~~всадник~~ на рыжем коне~
+@eng A rider mounted on a red horse wages war here.
+@rus Конь рыжий, и на нем всадник (horseman), пришел, чтобы забрать мир.
 ~
-The rider is mounted on a lion headed horse, which breathes
+@eng The rider is mounted on a lion headed horse, which breathes
 fire, smoke and brimstone as it rears.
+@rus Конь рыжий, с головой львиною, а на нем всадник. Становясь на дыбы,
+конь извергает огонь, дым и серу.
 ~
 human~
 FT 0 0 0 ABH -1000 0
@@ -227,12 +265,15 @@ r negative 33
 r holy -50
 r charm 999
 #14012
-horseman black~
-The black horseman~
-A rider mounted on a black horse rampages here!
+horseman black всадник~
+@eng The black horseman@rus ~~всадник~~ на вороном коне~
+@eng A rider mounted on a black horse rampages here!
+@rus Всадник (horseman) восседает на вороном коне.
 ~
-The rider is mounted on a lion headed horse, which breathes
+@eng The rider is mounted on a lion headed horse, which breathes
 fire, smoke and brimstone as it rears.
+@rus Конь вороной, с головой львиною, а на нем всадник. Становясь на
+дыбы, конь извергает огонь, дым и серу.
 ~
 human~
 FT 0 0 0 ABH -1000 0
@@ -245,12 +286,15 @@ r negative 33
 r holy -50
 r charm 999
 #14013
-horseman pale~
-The pale horseman~
-A rider mounted on a pale horse leaves death in his wake.
+horseman pale всадник~
+@eng The pale horseman@rus ~~всадник~~ на бледном коне~
+@eng A rider mounted on a pale horse leaves death in his wake.
+@rus Всадник (horseman), которому имя смерть, восседает на бледном коне.
 ~
-The rider is mounted on a lion headed horse, which breathes
+@eng The rider is mounted on a lion headed horse, which breathes
 fire, smoke and brimstone as it rears.
+@rus Конь бледный, с головой львиною, а на нем всадник. Становясь на
+дыбы, конь извергает огонь, дым и серу.
 ~
 human~
 FT 0 0 0 ABH -1000 0
@@ -268,8 +312,10 @@ michael archangel архангел михаил~
 @eng Michael, Archangel of war is here, fighting the dragon.
 @rus Архангел Михаил (Michael) сражается с драконом.
 ~
-Michael towers some 18', and is dressed in the blinding
+@eng Michael towers some 18', and is dressed in the blinding
 white of heaven. His voice booms in a deep base laugh.
+@rus Архангел высотой порядка 18 футов. Он одет в светящиеся белые
+одежды. Его смех разносится вокруг.
 ~
 unique~
 BT 0 NTVd A ABH 1000 0
@@ -315,13 +361,16 @@ r negative 33
 r holy -50
 r charm -33
 #14016
-jezebel woman~
-Jezebel the prophetess~
-A woman is here encouraging everyone to fornicate!
+jezebel woman пророчица иезавель женщина~
+@eng Jezebel the prophetess@rus ~~пророчица~~ ~~Иезавель~~~
+@eng A woman is here encouraging everyone to fornicate!
+@rus Женщина (woman), проповедующая любодейство, обратила свое внимание на тебя.
 ~
-Jezebel the prophetess is a firm believier in fornication
+@eng Jezebel the prophetess is a firm believier in fornication
 and the eating of food sacrificed to idols. She will 
 gladly try to sway you to her point of view.
+@rus Она называет себя пророчицей и учит любодейству и
+идолопоклонству. Но у нее еще есть время раскаяться.
 ~
 human~
 Q 0 0 0 0 -1000 0
@@ -331,13 +380,16 @@ FN
 sit sit female 900
 0 0 medium unknown
 #14017
-Balaam teacher man~
-Balaam the teacher of Balac~
-A man is here teaching all to eat idol sacrifices!
+Balaam teacher man валаам учитель~
+@eng Balaam the teacher of Balac@rus Валаам~
+@eng A man is here teaching all to eat idol sacrifices!
+@rus Валаам (Balaam), учащий есть идоложертвенное и любодействовать.
 ~
-Balaam, teacher of Balac is engrossed in his discourse
+@eng Balaam, teacher of Balac is engrossed in his discourse
 on the merits of eating food sacrificed to idols. His
 rapt audience pays you no heed.
+@rus Валаам. Он нучил Валака ввести в соблазн сынов Израилевых,
+чтобы они ели идоложертвенное и любодействовали.
 ~
 human~
 R 0 0 0 0 -1000 0
@@ -347,13 +399,16 @@ FN
 sit sit male 900
 0 0 medium unknown
 #14018
-balac disciple man~
-Balac, disciple of Balaam~
-A man casts a stumbling block to the children of Isreal!
+balac disciple man валак последователь мужчина~
+@eng Balac, disciple of Balaam@rus Валак~
+@eng A man casts a stumbling block to the children of Isreal!
+@rus Мужчина (man) вводящий в заблуждение сынов Израилевых посмотрел на тебя.
 ~
-Balac, disciple of Balaam looks at you then begins a
+@eng Balac, disciple of Balaam looks at you then begins a
 fanatical speech on how life has no meaning unless you
 fornicate freely and eat sacrificed food.
+@rus Валак. Он последователь учения Валаама, призывающий есть
+идоложертвенное и любодействовать.
 ~
 human~
 Q 0 0 0 0 -1000 0
@@ -363,15 +418,20 @@ FN
 sit sit male 900
 0 0 medium unknown
 #14019
-spirit unclean frog~
-The unclean spirit~
-A spirit like a frog howls here.
+spirit unclean frog дух~
+@eng The unclean spirit@rus ~~дух~~ ~~нечистый~~~
+@eng A spirit like a frog howls here.
+@rus Дух (spirit) нечистый, подобный жабе, смотрит на тебя.
 ~
-The unclean spirit came from the mouth of
+@eng The unclean spirit came from the mouth of
 the dragon, and is really a devil. It
 performs a series of miracles to impress you
 with its power and sway you to fight on the 
 side of the dragon.
+@rus Дух нечистый, вышедший из уст дракона, из уст зверя.
+Это бесовский дух, творящий знамения. Он выходит к
+царям земли всей вселенной, чтобы собрать их на брань
+в оный великий день.
 ~
 unique~
 R 0 KT AG AHK -1000 0
@@ -388,8 +448,8 @@ r holy -50
 r energy -50
 r charm 999
 #14020
-prophet false~
-The false prophet~
+prophet false лжепророк~
+@eng The false prophet@rus лжепророк~
 A smoke-breathing man with rams horns shouts here!
 ~
 The false prophet is the spokesman for the beast.
@@ -410,14 +470,18 @@ stand stand male 900
 0 W medium unknown
 r holy -50
 #14021
-woman sun~
-The woman clothed with the sun~
-A woman clothed with the sun flys here.
+woman sun жена женщина~
+@eng The woman clothed with the sun@rus ~~жена~~, ~~облаченная~~ в солнце~
+@eng A woman clothed with the sun flys here.
+@rus Жена (woman), облаченная в солнце, пролетает мимо тебя.
 ~
-The woman is clothed with the sun, has
+@eng The woman is clothed with the sun, has
 the moon under her feet. She is beautiful
 to behold. She tells you to run, for a
 great dragon is hunting her.
+@rus Жена, облаченная в солнце; под ногами ее луна, а на голове
+венец из двенадцати звезд. Она просит тебя остановть дракона,
+охотящегося за ней.
 ~
 human~
 BT 0 N 0 0 1000 0
@@ -433,16 +497,22 @@ r mental 33
 r disease 999
 r charm 999
 #14022
-word god~
-The word of God~
+word god слово божие верный истинный~
+@eng The word of God@rus ~~Верный~~ и ~~Истинный~~~
 The word of God is here uniting all nations.
 ~
-The word of God rides upon a white horse. His
+@eng The word of God rides upon a white horse. His
 eyes are flames of fire, and on his head is
 a white crown. He is clothed in a vesture dipped
 in blood, and he treadeth the winepress and 
 fierceness and wrath of Almighty God. On his 
 thigh is written King of Kings and Lord of Lords.
+@rus Ты видишь коня белого и всадника, сидящего на нем, который
+называется Верный и Истинный, Который праведно судит и воин-
+ствует. Очи у Него как пламень огненный, и на голове много 
+диадем. Он облачен в одежду, обагренную кровью, и имя ему --
+Слово Божие. На одежде и на бедре его написано: Царь царей и
+Господь господствующих.
 ~
 unique~
 BJT 0 HNTVd A ABHKL 1000 0
@@ -463,13 +533,18 @@ r disease 999
 r light 999
 r charm 999
 #14023
-one sealed~
-The sealed one~
-A sealed one is here, singing a hymn of praise.
+one sealed запечатленный~
+@eng The sealed one@rus запечатленный~
+@eng A sealed one is here, singing a hymn of praise.
+@rus Запечатленный (sealed one) поет хвалебный гимн Господу.
 ~
-The sealed one is one of the 12 tribes of Isreal.
+@eng The sealed one is one of the 12 tribes of Isreal.
 All of the tribes were marked with a seal so as
 to spare them from the wrath of God.
+@rus Этот человек -- один из запечатленных из двенадцати колен
+Израилевых. Сто сорок четыре тысячи были запечатлены, нало-
+жены печали Божии на чела их, сохраняющие из от гнева Гос-
+подня.
 ~
 human~
 T 0 0 0 H 1000 0
@@ -478,13 +553,17 @@ T 0 0 0 H 1000 0
 FI
 stand stand male 900
 0 0 medium unknown
+g @eng male@rus male~
 #14024
-one marked~
-The marked one~
-A marked one is here, preparing for the final battle.
+one marked меченый~
+@eng The marked one@rus меченый~
+@eng A marked one is here, preparing for the final battle.
+@rus Меченый (marked one), готовится к последней битве.
 ~
-The marked one has chosen the side of evil for
+@eng The marked one has chosen the side of evil for
 the final conflict. He seems to be suffering from a pox.
+@rus Он выбрал сторону зла в последней битве. На его теле видны язвы,
+видимо, он сильно мучается.
 ~
 human~
 T 0 X 0 H -1000 0
@@ -494,15 +573,21 @@ FJ
 stand stand male 900
 0 0 medium unknown
 #14025
-beast~
-The beast~
-The seven headed, ten horned beast is here.
+beast зверь~
+@eng The beast@rus зверь~
+@eng The seven headed, ten horned beast is here.
+@rus Семиголовый, десятирогий зверь (beast) предстал перед тобой.
 ~
-The beast has seven heads, ten horns. Upon the ten 
+@eng The beast has seven heads, ten horns. Upon the ten 
 horns are ten crowns. It is like a leopard with
 feet like a bear and the mouth of a lion. A huge
 scar runs across one head, where it was mortally
 wounded and healed.
+@rus Зверь, представшей твоему взору имеет семь голов и десять рогов.
+На рогах его десять диадем, а на головах его имена богохульные. А
+сам зверь подобен барсу; ноги его -- как у медведя; а пасть у не-
+го -- как пасть у льва. Одна из его голов как-бы смертельно ранена,
+но эта смертельная рана исцелена.
 ~
 unique~
 BT 0 Td 0 HK -1000 0
@@ -516,12 +601,15 @@ r cold 33
 r negative 999
 r holy -50
 #14026
-idolator man~
-The idolator~
-A man is here worshipping an idol.
+idolator man идолопоклонник человек мужчина~
+@eng The idolator@rus идолопоклонник~
+@eng A man is here worshipping an idol.
+@rus Мужчина (idolator) молится на идола.
 ~
-The idolator is engrossed in his worship, and
+@eng The idolator is engrossed in his worship, and
 does not see you.
+@rus Идолопоклонник полностью поглащен своим молением и совершенно тебя
+не замечает.
 ~
 human~
 HT 0 0 0 H -1000 0
@@ -531,12 +619,14 @@ FJ
 stand stand male 900
 0 0 medium unknown
 #14027
-whoremonger man~
-The whoremonger~
-A man is here, buying the services of a prostitute.
+whoremonger man мужчина~
+@eng the whoremonger@rus ~~мужчина~~, ~~охочий~~ до развлечений~
+@eng A man is here, buying the services of a prostitute.
+@rus Мужчина (man) выбирает себе девочку по вкусу.
 ~
-The whoremonger has chosen a paticularly sleezy 
+@eng The whoremonger has chosen a paticularly sleezy 
 woman, who probably is infected.
+@rus Мужчина выбрал себе смазливую девицу, но, кажется она больна.
 ~
 human~
 HT 0 0 0 0 -1000 0
@@ -546,13 +636,16 @@ FJ
 stand stand male 900
 0 0 medium unknown
 #14028
-murderer~
-The murderer~
-A murderer is here to slit your throat.
+murderer убийца~
+@eng The murderer@rus убийца~
+@eng A murderer is here to slit your throat.
+@rus Убийца (murderer) хочет перерезать тебе глотку.
 ~
-You have evaded the murder's notice. He
+@eng You have evaded the murder's notice. He
 is dressed in rags and carries a bloody 
 knife.
+@rus Мужчина, одетый в лохмотья, в руках он держит обагренный кровью
+нож. Лучше не привлекать его внимания.
 ~
 human~
 HT 0 0 0 0 -1000 0
@@ -562,14 +655,18 @@ FJ
 stand stand male 900
 0 0 medium unknown
 #14029
-harlot woman~
-The harlot~
-A woman is here, peddling her body.
+harlot woman проститутка~
+@eng the harlot@rus проститутка~
+@eng A woman is here, peddling her body.
+@rus Женщина (harlot), торгующая своим телом.
 ~
-The harlot winks at you from her pasty
+@eng The harlot winks at you from her pasty
 animal greased complexion. She wiggles
 her hips suggestively. She smells nice,
 having bathed in the last week.
+@rus Проститутка подмигнула тебе, приглашающе обнажив бедро. Ее лицо
+бледно и опухше и чем-то напоминает звериное. А пахнет она почти
+сносно, видимо, принимала ванну не далее, как на прошлой неделе.
 ~
 human~
 HT 0 0 0 0 -1000 0
@@ -579,13 +676,15 @@ FJ
 stand stand female 900
 0 0 medium unknown
 #14030
-thief~
-The thief~
+thief вор~
+@eng the thief@rus вор~
 A thief is here, robbing you blind.
 ~
-The thief bumps into you. You drop
+@eng The thief bumps into you. You drop
 your purse. He picks it up and returns
 it to you.
+@rus Вор внезапно напал на тебя. От испуга и неожиданности ты $gn{бросил}
+свой кошелек. Он выпотрошил его и вернул назад.
 ~
 human~
 HS 0 0 0 H -1000 0
@@ -595,9 +694,10 @@ FJ
 stand stand male 900
 0 0 medium unknown
 #14031
-man rich~
-The rich man~
-A rich man is here, fleeing divine wrath.
+man rich богач~
+@eng The rich man@rus богач~
+@eng A rich man is here, fleeing divine wrath.
+@rus Богач (rich man) испытывает на себе силу божественного гнева.
 ~
 The rich man is moving slowly, as he is
 carrying alot of gawdy babbles. He blames
@@ -628,15 +728,20 @@ FJ
 stand stand male 900
 0 0 medium unknown
 #14033
-king~
-The former king~
-A former king is here, fleeing divine wrath.
+king король~
+@eng the former king@rus ~~бывший~~ ~~король~~~
+@eng A former king is here, fleeing divine wrath.
+@rus Бывший король (king), сейчас он испытывает силу Божественного гнева.
 ~
-The former king is dressed in rags. He clutches
+@eng The former king is dressed in rags. He clutches
 fiercly to his crown, the last symbol of his
 authority. You notice most of the stones in the
 crown are missing. He blames his sins on his
 corrupt ministers who ruined the kingdom.
+@rus Этот бывший король сейчас одет в лохмотья. Он судорожно вцепился в
+свою корону -- последний символ его власти. Приглядевшись, ты заме-
+чаешь, что в короне не хватает значительной части камней. Он винит
+в своих грехах своит продажных министров, разрушивших его королевство.
 ~
 human~
 HT 0 0 0 0 -1000 0
@@ -646,12 +751,15 @@ FJ
 stand stand male 900
 0 0 medium unknown
 #14034
-bondsman~
-The bondsman~
-A bondsman is here, fleeing divine wrath.
+bondsman раб~
+@eng The bondsman@rus раб~
+@eng A bondsman is here, fleeing divine wrath.
+@rus Раб (bondsman) испытывает божественный гнев.
 ~
-The bondsman has somehow escaped his master.
+@eng The bondsman has somehow escaped his master.
 He blames all his sins on his master.
+@rus Этот раб когда-то сбежал от хозяина. Он пытается свалить свои
+грехи на своего бывшего господина.
 ~
 human~
 HT 0 0 0 0 -1000 0
@@ -875,29 +983,29 @@ r disease 999
 
 #OBJECTS
 #14001
-key david~
-The key of David~
-A key with a heavenly aura hums here. ~
+key david ключ~
+@eng the key of David@rus ~~ключ~~ от кладязя бездны~
+@eng A key with a heavenly aura hums here. @rus Ключ (key), окруженный аурой, лежит здесь.~
 adamantite~
 key BG 0 AO
 0 0 0 0 0
 0 10 0 P
-g @rus none~
+g @rus male~
 #14002
-breastplate iron~
-An iron breastplate~
-A huge, iron breastplate is here.~
+breastplate iron броня железная~
+@eng An iron breastplate@rus ~~железная~~ ~~броня~~~
+@eng A huge, iron breastplate is here.@rus Броня (breastplate), как бы броня железная, предстала твоему взору.~
 iron~
 armor 0 0 AD
 24 24 24 15 0
 45 450 3000 P
 a '' to_affects 45 -1 8 19 0
 a '' to_affects 45 -1 -15 17 0
-g @rus none~
+g @eng none@rus female~
 #14003
-sting locust~
-A locust stinger~
-A large barbed sting is here.~
+sting locust жало~
+@eng A locust stinger@rus жало~
+@eng A large barbed sting is here.@rus Ядовитое жало (stinger) гигантской саранчи лежит здесь. ~
 stone~
 weapon EQ 0 AN
 dagger 6 10 'pierce' GH
@@ -906,8 +1014,8 @@ a '' to_object 45 -1 10 18 0
 g @rus none~
 #14004
 chain binding~
-The chain of binding~
-A pretty silver chain lies here.~
+@eng The chain of binding@rus оковы~
+@eng A pretty silver chain lies here.@rus Серебряная цепь (chain) лежит здесь.~
 silver~
 treasure GM 0 AD
 0 0 0 0 0
@@ -917,11 +1025,11 @@ a '' to_object 30 -1 100 17 0
 a '' to_object 30 -1 -10 5 0
 a '' to_object 30 -1 -10 2 0
 a '' to_object 30 -1 -10 1 0
-g @rus none~
+g @rus plural~
 #14005
-cup babylon~
-The golden cup of Babylon~
-A golden cup filled with blood lies here.~
+cup babylon чаша золотая~
+@eng The golden cup of Babylon@rus ~~золотая~~ ~~чаша~~~
+@eng A golden cup filled with blood lies here.@rus Золотая чаша (cup), наполненная мерзостями и нечистотою блудодейства.~
 gold~
 drink G D AO
 19 19 'blood' 0 0
@@ -931,11 +1039,11 @@ blood cup babylon~
 You look inside the cup and find it filled with
 the blood of saints.
 ~
-g @rus none~
+g @rus female~
 #14006
-girdle golden~
-A golden girdle~
-A golden girdle is here.~
+girdle golden золотой пояс~
+@eng A golden girdle@rus ~~золотой~~ ~~пояс~~~
+@eng A golden girdle is here.@rus Золотой пояс (girdle) блестит в лучах солнца.~
 gold~
 armor GIKL 0 AL
 12 12 12 0 0
@@ -945,38 +1053,38 @@ a '' to_affects 40 -1 4 19 0
 a '' to_object 40 -1 -5 24 0
 g @rus none~
 #14007
-sickle golden~
-A golden sickle~
-A golden sickle is here.~
+sickle golden золотой серп~
+@eng A golden sickle@rus ~~золотой~~ ~~серп~~~
+@eng A golden sickle is here.@rus Золотой серп (sickle) блестит на солнце.~
 gold~
 weapon GIKL 0 AN
 exotic 10 6 'slice' E
 40 450 3500 P
 a '' to_object 40 -1 5 19 0
 a '' to_object 40 -1 5 18 0
-g @rus none~
+g @rus male~
 #14008
-saints prayers~
-The prayers of saints~
-A vial humming with holiness lies here.~
+saints prayers молитвы сосуд vial~
+@eng The prayers of saints@rus ~~молитвы~~ всех святых~
+@eng A vial humming with holiness lies here.@rus Сосуд (vial), наполненный священной водой.~
 glass~
 potion BI 0 AO
-40 'bless' 'faerie fog' 'flamestrike' ''
+40 'bless' 'faerie fog' '' ''
 40 2 9000 P
-g @rus none~
+g @rus plural~
 #14009
-censer~
-A censer~
-A censer, smoking with incense burns here.~
+censer кадильница~
+@eng A censer@rus кадильница~
+@eng A censer, smoking with incense burns here.@rus Кадильница (censer), наполненная огнем.~
 bronze~
 wand AG 0 AO
 50 3 3 'fireball' 0
 40 25 6700 P
 g @rus none~
 #14010
-crown white conquerer~
-The white crown of the conquerer~
-A white crown lies here.~
+crown white conquerer венец~
+@eng the white crown of the conquerer@rus ~~венец~~, пришедшего победить~
+@eng A white crown lies here.@rus Белый венец (crown) лежит на земле.~
 adamantite~
 armor EJ 0 AE
 13 13 13 8 0
@@ -985,70 +1093,71 @@ a '' to_affects 43 -1 25 13 0
 a '' to_affects 43 -1 25 12 0
 a '' to_affects 43 -1 3 18 0
 a '' to_affects 43 -1 4 19 0
-g @rus none~
+g @rus male~
 #14011
-bow white conquerer~
-The white bow of the conquerer~
-A great white bow lies here.~
+bow white conquerer лук~
+@eng the white bow of the conquerer@rus ~~лук~~, пришедшего победить~
+@eng A great white bow lies here.@rus Белый лук (bow) лежит здесь.~
 adamantite~
 weapon EJM 0 AN
 bow 6 6 'blast' AFH
 43 100 12000 P
 a '' to_object 43 -1 5 19 0
 a '' to_object 43 -1 10 18 0
-g @rus none~
+g @rus male~
 #14012
-breastplate fire~
-A breastplate of fire~
-A breastplate of fire smoulders here.~
+breastplate fire броня~
+@eng A breastplate of fire@rus ~~огненная~~ ~~броня~~~
+@eng A breastplate of fire smoulders here.@rus Огненная броня (breastplate) дымиться у тебя на виду.~
 unknown~
 armor EJ D AD
 15 15 15 5 0
 43 300 14000 P
 a '' to_affects 43 -1 5 19 0
 a '' to_object 43 -1 -10 17 0
-g @rus none~
+g @rus female~
 #14013
-sword war~
-The sword of war~
-A great two-handed sword lies here.~
+sword war rus меч~
+@eng The sword of war@rus ~~меч~~, войну ~~несущий~~~
+@eng A great two-handed sword lies here.@rus Огромный двуручный меч (sword) предстал твоему взору.~
 adamantite~
 weapon EJM 0 AN
 sword 7 10 'slash' DEFH
 43 500 14000 P
 a '' to_affects 43 -1 5 18 0
 a '' to_affects 43 -1 5 19 0
-g @rus none~
+g @rus male~
 #14014
-breastplate jacinth~
-A breastplate of jacinth~
-A breastplate of jacinth glitters here.~
+breastplate jacinth броня~
+@eng A breastplate of jacinth@rus Броня (breastplate) гиацинтовая блестит в лучах солнца.~
+@eng A breastplate of jacinth glitters here.@rus Гранатовая броня (breastplate) сверкает в лучах солнца.~
 unknown~
 armor EJ D AD
 15 15 15 5 0
 43 300 14000 P
 a '' to_affects 43 -1 -15 17 0
 a '' to_affects 43 -1 40 12 0
-g @rus none~
+g @rus female~
 #14015
-breastplate brimstone~
-A breastplate of brimstone~
-A breastplate of brimstone smokes here.~
+breastplate brimstone броня серная~
+@eng A breastplate of brimstone@rus ~~броня~~ ~~серная~~~
+@eng A breastplate of brimstone smokes here.@rus Броня (breastplate) серная оставлена кем-то.~
 unknown~
 armor EJ D AD
 15 15 15 5 0
 43 300 14000 P
 a '' to_affects 43 -1 -10 17 0
 a '' to_affects 43 -1 -10 24 0
-g @rus none~
+g @rus female~
 #14016
-balances pair~
-A pair of engraved balances~
-A fine set of engraved balances lies here.~
+balances pair мера~
+@eng A pair of engraved balances@rus мера~
+@eng A fine set of engraved balances lies here.@rus Мера (balances) лежит на земле.~
 iron~
 gem G 0 AO
 0 0 0 0 0
-43 10 8000 P
+30 10 8000 P
+a '' to_affects 30 -1 -5 20 0
 E
 engrave engraved writing letters~
 The lettering says:
@@ -1056,7 +1165,7 @@ A measure of wheat for a penny, and three
 measures of barley for a penny; and see
 thou hurt not the oil and the wine.
 ~
-g @rus none~
+g @rus female~
 #14017
 cloak death deaths death's~
 Death's cloak~
@@ -1172,14 +1281,14 @@ armor AFKLQ 0 AB
 a '' to_affects 45 -1 100 12 0
 g @rus none~
 #14027
-rod iron~
-A rod of iron~
-A heavy rod of iron lies here.~
+rod iron жезл железный~
+@eng A rod of iron@rus ~~жезл~~ ~~железный~~~
+@eng A heavy rod of iron lies here.@rus Жезл (rod) железный лежит на земле.~
 iron~
 wand GIKL 0 AO
 60 10 10 'cure blindness' 0
 40 100 25000 P
-g @rus none~
+g @rus male~
 #14028
 raiment white~
 White raiment~
@@ -1224,33 +1333,33 @@ armor IKL 0 AK
 a '' to_object 35 -1 -10 17 0
 g @rus none~
 #14032
-seal~
-A seal~
-A seal lies here.~
+seal печать~
+@eng A seal@rus печать~
+@eng A seal lies here.@rus Печать (seal) Божия почему-то оказалась здесь.~
 unknown~
 armor IKL 0 AE
 11 11 11 11 0
 35 0 5000 P
 a '' to_object 35 -1 -1 18 0
-g @rus none~
+g @rus female~
 #14033
-star morning~
-The morning star~
-A fallen star glows as the morning.~
+star morning звезда~
+@eng The morning star@rus ~~звезда~~, ~~падшая~~ с неба~
+@eng A fallen star glows as the morning.@rus Звезда (star), падшая с неба, ярко светится, слепя тебе глаза.~
 unknown~
 container A 0 0
 150 0 0 150 100
 10 10 10000 P
-g @rus none~
+g @rus female~
 #14034
-blood puddle~
-A puddle of blood~
-A puddle of blood has collected here.~
-unknown~
+puddle blood лужа лужица~
+@eng A puddle of blood@rus ~~лужица~~ крови~
+@eng A puddle of blood has collected here.@rus Лужица (puddle) крови предстала твоему взору.~
+blood~
 drink 0 0 0
 150 150 'blood' 0 0
 10 10 0 P
-g @rus none~
+g @rus female~
 #14035
 blood fountain~
 A fountain of blood~
@@ -1319,26 +1428,32 @@ g @rus female~
 
 #ROOMS
 #14001
-At the corner of the world~
-You smoulder in the flames of the corner of the world
+@eng At the corner of the world@rus Угол мира~
+@eng You smoulder in the flames of the corner of the world
 devoted to fire. The vapors of your burning flesh reach
 your nose. Beyond the corner is only the blackness. There
 is an unstoppered vial glowing orange red in the flames.
+@rus Ты стоишь на углу земли. Вогруг тебя пляшут языки пламени и 
+ветер доносит до тебя запах опаленной кожи. За тобой лишь тьма.
+И ярким красным светом светится уже пустая чаша гнева Господня.
 ~
 0 0 noswim
 E
-vial~
-4th vial of wrath: fire for blasphemers.
+vial чаша~
+@eng 4th vial of wrath: fire for blasphemers.
+@rus Четвертая чаша гнева Божия:
+   'Четвертый Ангел вылил свою чашу на солнце: и дано было ему жечь
+   людей огнем. И жег людей сильный зной, и они хулили имя Бога.'
 ~
 D0
-Lake of fire
+Lake of fire.
 ~
 ~
 ~
 ~
 Z 0 14015
 D1
-Lake of fire
+Lake of fire.
 ~
 ~
 ~
@@ -1352,27 +1467,29 @@ D3
 Z 0 29236
 S
 #14002
-On the lake of fire~
-You are upon a vast lake of fire burning with brimstone. About
+@eng On the lake of fire@rus Огненное озеро~
+@eng You are upon a vast lake of fire burning with brimstone. About
 you the wrath of God is visited upon the sinful.
+@rus Бескрайнее море огня. Горящая сера издает пренеприятный аромат.
+Гнев Господень обрушился на это место.
 ~
 0 0 noswim
 D0
-Lake of fire
+Lake of fire.
 ~
 ~
 ~
 ~
 Z 0 14016
 D1
-Lake of fire
+Lake of fire.
 ~
 ~
 ~
 ~
 Z 0 14003
 D3
-The corner of the world
+The corner of the world.
 ~
 ~
 ~
@@ -1380,13 +1497,15 @@ The corner of the world
 Z 0 14001
 S
 #14003
-On the lake of fire~
-You are upon a vast lake of fire burning with brimstone. About
+@eng On the lake of fire@rus Огненное озеро~
+@eng You are upon a vast lake of fire burning with brimstone. About
 you the wrath of God is visited upon the sinful.
+@rus Бескрайнее море огня. Горящая сера издает пренеприятный аромат.
+Гнев Господень обрушился на это место.
 ~
 0 0 noswim
 D3
-Lake of fire
+Lake of fire.
 ~
 ~
 ~
@@ -1394,21 +1513,27 @@ Lake of fire
 Z 0 14002
 S
 #14004
-The plagued lands~
-You walk through the wreteched, fetid wreak of the plagued lands.
+@eng The plagued lands@rus Наказанные земли~
+@eng You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
+@rus 'Пошел первый Ангел и вылил чашу свою на землю: и сделались
+жестокие и отвратительные гнойные раны на людях, имеющих на-
+чертание зверя и поклоняющихся образу его.'
+  То, что ты видишь, просто ужасно. Эта земля мертва. Здесь
+осталась только трава. Все остальное покрыто отвратительными
+гнойными язвами. От них страдают и люди, и их питомцы.
 ~
 0 0 desert
 D0
-The  plagued lands
+The plagued lands.
 ~
 ~
 ~
 ~
 Z 0 14018
 D1
-The plagued lands
+The plagued lands.
 ~
 ~
 ~
@@ -1416,21 +1541,27 @@ The plagued lands
 Z 0 14005
 S
 #14005
-The plagued lands~
-You walk through the wreteched, fetid wreak of the plagued lands.
+@eng The plagued lands@rus Наказанные земли~
+@eng You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
+@rus 'Пошел первый Ангел и вылил чашу свою на землю: и сделались
+жестокие и отвратительные гнойные раны на людях, имеющих на-
+чертание зверя и поклоняющихся образу его.'
+  То, что ты видишь, просто ужасно. Эта земля мертва. Здесь
+осталась только трава. Все остальное покрыто отвратительными
+гнойными язвами. От них страдают и люди, и их питомцы.
 ~
 0 0 desert
 D0
-The  plagued lands
+The plagued lands.
 ~
 ~
 ~
 ~
 Z 0 14019
 D3
-The plagued lands
+The plagued lands.
 ~
 ~
 ~
@@ -1438,21 +1569,21 @@ The plagued lands
 Z 0 14004
 S
 #14006
-MaGog~
+@eng MaGog@rus Магог~
 You are in Satan's city of MaGog. About you writhe and covort sinners
 in a final frolic before destruction.Refuse and ofcol are the perfume of
 the city. Deterioration and decay claim every building you view.
 ~
 0 0 city
 D0
-MaGog
+MaGog.
 ~
 ~
 ~
 ~
 Z 0 14020
 D1
-MaGog
+MaGog.
 ~
 ~
 ~
@@ -1467,21 +1598,21 @@ the city. Deterioration and decay claim every building you view.
 ~
 0 0 city
 D0
-MaGog
+MaGog.
 ~
 ~
 ~
 ~
 Z 0 14021
 D1
-MaGog
+MaGog.
 ~
 ~
 ~
 ~
 Z 0 14008
 D3
-MaGog
+MaGog.
 ~
 ~
 ~
@@ -1499,21 +1630,21 @@ heaven.
 ~
 0 C city
 D0
-MaGog
+MaGog.
 ~
 ~
 ~
 ~
 Z 0 14022
 D1
-MaGog
+MaGog.
 ~
 ~
 ~
 ~
 Z 0 14009
 D2
-Into the bottomless pit
+Into the bottomless pit.
 ~
 gate adamantite south
 ~
@@ -1536,21 +1667,21 @@ the city. Deterioration and decay claim every building you view.
 ~
 0 0 city
 D0
-MaGog
+MaGog.
 ~
 ~
 ~
 ~
 Z 0 14023
 D1
-MaGog
+MaGog.
 ~
 ~
 ~
 ~
 Z 0 14010
 D3
-MaGog
+MaGog.
 ~
 ~
 ~
@@ -1565,14 +1696,14 @@ the city. Deterioration and decay claim every building you view.
 ~
 0 0 city
 D0
-MaGog
+MaGog.
 ~
 ~
 ~
 ~
 Z 0 14024
 D3
-MaGog
+MaGog.
 ~
 ~
 ~
@@ -1580,20 +1711,24 @@ MaGog
 Z 0 14009
 S
 #14011
-The many waters~
-You are on a vast sea of blood. Vultures soar in the red sky in search of 
+@eng The many waters@rus Морской простор~
+@eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
+@rus Бескрайнее море, вода в котором превратилась в кровь. В небе
+над волнами кружат стервятники, высматривая себе обед. Множес-
+тво мусора и того, что когда-то было гордыми судами плавает на
+поверхности.
 ~
 0 0 noswim
 D0
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14025
 D1
-More blood
+More blood.
 ~
 ~
 ~
@@ -1601,27 +1736,31 @@ More blood
 Z 0 14012
 S
 #14012
-The many waters~
-You are on a vast sea of blood. Vultures soar in the red sky in search of 
+@eng The many waters@rus Морской простор~
+@eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
+@rus Бескрайнее море, вода в котором превратилась в кровь. В небе
+над волнами кружат стервятники, высматривая себе обед. Множес-
+тво мусора и того, что когда-то было гордыми судами плавает на
+поверхности.
 ~
 0 0 noswim
 D0
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14026
 D1
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14013
 D3
-More blood
+More blood.
 ~
 ~
 ~
@@ -1629,27 +1768,31 @@ More blood
 Z 0 14011
 S
 #14013
-The many waters~
-You are on a vast sea of blood. Vultures soar in the red sky in search of 
+@eng The many waters@rus Морской простор~
+@eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
+@rus Бескрайнее море, вода в котором превратилась в кровь. В небе
+над волнами кружат стервятники, высматривая себе обед. Множес-
+тво мусора и того, что когда-то было гордыми судами плавает на
+поверхности.
 ~
 0 0 noswim
 D0
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14027
 D1
-The corner of the world
+The corner of the world.
 ~
 ~
 ~
 ~
 Z 0 14014
 D3
-More blood
+More blood.
 ~
 ~
 ~
@@ -1657,29 +1800,35 @@ More blood
 Z 0 14012
 S
 #14014
-The corner of the world~
-You are at the corner of the world, floating on a vast sea of blood.
+@eng The corner of the world@rus Угол мира~
+@eng You are at the corner of the world, floating on a vast sea of blood.
 An unstoppered vial floats in the water here. Beyond the corner is 
 an endless stretch of empty black.
+@rus Угол мира, затерявшийся в безбрежном море, вода в котором стала
+кровью. На волнах покачивается уже пустая чаша.
 ~
 0 0 noswim
 E
-runes strange~
-2nd vial of wrath: Turning of the seas to blood.
+runes strange надпись~
+@eng 2nd vial of wrath: Turning of the seas to blood.
+@rus Вторая чаша гнева Господня:
+    'Второй ангел вылил чашу свою в море: и сделалась кровь,
+     как бы мертвеца, и все одушевленное умерло в море.'
 ~
 E
-vial unstoppered~
-You look at the vial. On the side are some strange runes.
+vial unstoppered чаша~
+@eng You look at the vial. On the side are some strange runes.
+@rus Ты замечаешь на чаше надпись.
 ~
 D0
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14028
 D3
-More blood
+More blood.
 ~
 ~
 ~
@@ -1687,27 +1836,29 @@ More blood
 Z 0 14013
 S
 #14015
-On the lake of fire~
-You are upon a vast lake of fire burning with brimstone. About
+@eng On the lake of fire@rus Огненное озеро~
+@eng You are upon a vast lake of fire burning with brimstone. About
 you the wrath of God is visited upon the sinful.
+@rus Бескрайнее море огня. Горящая сера издает пренеприятный аромат.
+Гнев Господень обрушился на это место.
 ~
 0 0 noswim
 D0
-Lake of fire
+Lake of fire.
 ~
 ~
 ~
 ~
 Z 0 14029
 D1
-Lake of fire
+Lake of fire.
 ~
 ~
 ~
 ~
 Z 0 14016
 D2
-The corner of the world
+The corner of the world.
 ~
 ~
 ~
@@ -1715,27 +1866,29 @@ The corner of the world
 Z 0 14001
 S
 #14016
-On the lake of fire~
-You are upon a vast lake of fire burning with brimstone. About
+@eng On the lake of fire@rus Огненное озеро~
+@eng You are upon a vast lake of fire burning with brimstone. About
 you the wrath of God is visited upon the sinful.
+@rus Бескрайнее море огня. Горящая сера издает пренеприятный аромат.
+Гнев Господень обрушился на это место.
 ~
 0 0 noswim
 D1
-The plagued lands
+The plagued lands.
 ~
 ~
 ~
 ~
 Z 0 14017
 D2
-Lake of fire
+Lake of fire.
 ~
 ~
 ~
 ~
 Z 0 14002
 D3
-Lake of fire
+Lake of fire.
 ~
 ~
 ~
@@ -1743,28 +1896,34 @@ Lake of fire
 Z 0 14015
 S
 #14017
-The plagued lands~
-You walk through the wreteched, fetid wreak of the plagued lands.
+@eng The plagued lands@rus Наказанные земли~
+@eng You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
+@rus 'Пошел первый Ангел и вылил чашу свою на землю: и сделались
+жестокие и отвратительные гнойные раны на людях, имеющих на-
+чертание зверя и поклоняющихся образу его.'
+  То, что ты видишь, просто ужасно. Эта земля мертва. Здесь
+осталась только трава. Все остальное покрыто отвратительными
+гнойными язвами. От них страдают и люди, и их питомцы.
 ~
 0 C desert
 D0
-The  plagued lands
+The plagued lands.
 ~
 ~
 ~
 ~
 Z 0 14031
 D1
-The plagued lands
+The plagued lands.
 ~
 ~
 ~
 ~
 Z 0 14018
 D3
-Lake of fire
+Lake of fire.
 ~
 ~
 ~
@@ -1772,35 +1931,41 @@ Lake of fire
 Z 0 14016
 S
 #14018
-The plagued lands~
-You walk through the wreteched, fetid wreak of the plagued lands.
+@eng The plagued lands@rus Наказанные земли~
+@eng You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
+@rus 'Пошел первый Ангел и вылил чашу свою на землю: и сделались
+жестокие и отвратительные гнойные раны на людях, имеющих на-
+чертание зверя и поклоняющихся образу его.'
+  То, что ты видишь, просто ужасно. Эта земля мертва. Здесь
+осталась только трава. Все остальное покрыто отвратительными
+гнойными язвами. От них страдают и люди, и их питомцы.
 ~
 0 0 desert
 D0
-The  plagued lands
+The plagued lands.
 ~
 ~
 ~
 ~
 Z 0 14032
 D1
-The plagued lands
+The plagued lands.
 ~
 ~
 ~
 ~
 Z 0 14019
 D2
-The plagued lands
+The plagued lands.
 ~
 ~
 ~
 ~
 Z 0 14004
 D3
-The plagued lands
+The plagued lands.
 ~
 ~
 ~
@@ -1808,28 +1973,34 @@ The plagued lands
 Z 0 14017
 S
 #14019
-The plagued lands~
-You walk through the wreteched, fetid wreak of the plagued lands.
+@eng The plagued lands@rus Наказанные земли~
+@eng You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
+@rus 'Пошел первый Ангел и вылил чашу свою на землю: и сделались
+жестокие и отвратительные гнойные раны на людях, имеющих на-
+чертание зверя и поклоняющихся образу его.'
+  То, что ты видишь, просто ужасно. Эта земля мертва. Здесь
+осталась только трава. Все остальное покрыто отвратительными
+гнойными язвами. От них страдают и люди, и их питомцы.
 ~
 0 0 desert
 D0
-The  plagued lands
+The plagued lands.
 ~
 ~
 ~
 ~
 Z 0 14033
 D2
-The plagued lands
+The plagued lands.
 ~
 ~
 ~
 ~
 Z 0 14005
 D3
-The plagued lands
+The plagued lands.
 ~
 ~
 ~
@@ -1838,27 +2009,27 @@ Z 0 14018
 S
 #14020
 MaGog~
-You are in Satan's city of MaGog. About you writhe and covort sinners in
-a final frolic before destruction.Refuse and ofcol are the perfume of the city. 
-Deterioration and decay claim every building you view.
+You are in Satan's city of MaGog.  About you writhe and covort sinners in
+a final frolic before destruction.  Refuse and ofcol are the perfume of the
+city.  Deterioration and decay claim every building you view.  
 ~
 0 0 city
 D0
-MaGog
+MaGog.
 ~
 ~
 ~
 ~
 Z 0 14034
 D1
-MaGog
+MaGog.
 ~
 ~
 ~
 ~
 Z 0 14021
 D2
-MaGog
+MaGog.
 ~
 ~
 ~
@@ -1867,34 +2038,34 @@ Z 0 14006
 S
 #14021
 MaGog~
-You are in Satan's city of MaGog. About you writhe and covort sinners in
-a final frolic before destruction.Refuse and ofcol are the perfume of the city. 
-Deterioration and decay claim every building you view.
+You are in Satan's city of MaGog.  About you writhe and covort sinners in
+a final frolic before destruction.  Refuse and ofcol are the perfume of the
+city.  Deterioration and decay claim every building you view.  
 ~
 0 0 city
 D0
-MaGog
+MaGog.
 ~
 ~
 ~
 ~
 Z 0 14035
 D1
-MaGog
+MaGog.
 ~
 ~
 ~
 ~
 Z 0 14022
 D2
-MaGog
+MaGog.
 ~
 ~
 ~
 ~
 Z 0 14007
 D3
-MaGog
+MaGog.
 ~
 ~
 ~
@@ -1911,28 +2082,28 @@ and eat food sacrificed to idols.
 ~
 0 0 city
 D0
-MaGog
+MaGog.
 ~
 ~
 ~
 ~
 Z 0 14036
 D1
-MaGog
+MaGog.
 ~
 ~
 ~
 ~
 Z 0 14023
 D2
-MaGog
+MaGog.
 ~
 ~
 ~
 ~
 Z 0 14008
 D3
-MaGog
+MaGog.
 ~
 ~
 ~
@@ -1947,28 +2118,28 @@ Deterioration and decay claim every building you view.
 ~
 0 0 city
 D0
-MaGog
+MaGog.
 ~
 ~
 ~
 ~
 Z 0 14037
 D1
-MaGog
+MaGog.
 ~
 ~
 ~
 ~
 Z 0 14024
 D2
-MaGog
+MaGog.
 ~
 ~
 ~
 ~
 Z 0 14009
 D3
-MaGog
+MaGog.
 ~
 ~
 ~
@@ -1984,21 +2155,21 @@ by- why dont you stone him?
 ~
 0 0 city
 D0
-MaGog
+MaGog.
 ~
 ~
 ~
 ~
 Z 0 14038
 D2
-MaGog
+MaGog.
 ~
 ~
 ~
 ~
 Z 0 14010
 D3
-MaGog
+MaGog.
 ~
 ~
 ~
@@ -2006,27 +2177,31 @@ MaGog
 Z 0 14023
 S
 #14025
-The many waters~
-You are on a vast sea of blood. Vultures soar in the red sky in search of 
+@eng The many waters@rus Морской простор~
+@eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
+@rus Бескрайнее море, вода в котором превратилась в кровь. В небе
+над волнами кружат стервятники, высматривая себе обед. Множес-
+тво мусора и того, что когда-то было гордыми судами плавает на
+поверхности.
 ~
 0 0 noswim
 D0
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14039
 D1
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14026
 D2
-More blood
+More blood.
 ~
 ~
 ~
@@ -2034,34 +2209,38 @@ More blood
 Z 0 14011
 S
 #14026
-The many waters~
-You are on a vast sea of blood. Vultures soar in the red sky in search of 
+@eng The many waters@rus Морской простор~
+@eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
+@rus Бескрайнее море, вода в котором превратилась в кровь. В небе
+над волнами кружат стервятники, высматривая себе обед. Множес-
+тво мусора и того, что когда-то было гордыми судами плавает на
+поверхности.
 ~
 0 0 noswim
 D0
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14040
 D1
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14027
 D2
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14012
 D3
-More blood
+More blood.
 ~
 ~
 ~
@@ -2069,34 +2248,38 @@ More blood
 Z 0 14025
 S
 #14027
-The many waters~
-You are on a vast sea of blood. Vultures soar in the red sky in search of 
+@eng The many waters@rus Морской простор~
+@eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
+@rus Бескрайнее море, вода в котором превратилась в кровь. В небе
+над волнами кружат стервятники, высматривая себе обед. Множес-
+тво мусора и того, что когда-то было гордыми судами плавает на
+поверхности.
 ~
 0 0 noswim
 D0
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14041
 D1
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14028
 D2
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14013
 D3
-More blood
+More blood.
 ~
 ~
 ~
@@ -2104,27 +2287,31 @@ More blood
 Z 0 14026
 S
 #14028
-The many waters~
-You are on a vast sea of blood. Vultures soar in the red sky in search of 
+@eng The many waters@rus Морской простор~
+@eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
+@rus Бескрайнее море, вода в котором превратилась в кровь. В небе
+над волнами кружат стервятники, высматривая себе обед. Множес-
+тво мусора и того, что когда-то было гордыми судами плавает на
+поверхности.
 ~
 0 0 noswim
 D0
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14042
 D2
-The corner of the world
+The corner of the world.
 ~
 ~
 ~
 ~
 Z 0 14014
 D3
-More blood
+More blood.
 ~
 ~
 ~
@@ -2132,13 +2319,15 @@ More blood
 Z 0 14027
 S
 #14029
-On the lake of fire~
-You are upon a vast lake of fire burning with brimstone. About
+@eng On the lake of fire@rus Огненное озеро~
+@eng You are upon a vast lake of fire burning with brimstone. About
 you the wrath of God is visited upon the sinful.
+@rus Бескрайнее море огня. Горящая сера издает пренеприятный аромат.
+Гнев Господень обрушился на это место.
 ~
 0 0 noswim
 D2
-Lake of fire
+Lake of fire.
 ~
 ~
 ~
@@ -2146,21 +2335,27 @@ Lake of fire
 Z 0 14015
 S
 #14030
-The plagued lands~
-You walk through the wreteched, fetid wreak of the plagued lands.
+@eng The plagued lands@rus Наказанные земли~
+@eng You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
+@rus 'Пошел первый Ангел и вылил чашу свою на землю: и сделались
+жестокие и отвратительные гнойные раны на людях, имеющих на-
+чертание зверя и поклоняющихся образу его.'
+  То, что ты видишь, просто ужасно. Эта земля мертва. Здесь
+осталась только трава. Все остальное покрыто отвратительными
+гнойными язвами. От них страдают и люди, и их питомцы.
 ~
 0 0 desert
 D0
-The  plagued lands
+The plagued lands.
 ~
 ~
 ~
 ~
 Z 0 14044
 D1
-The plagued lands
+The plagued lands.
 ~
 ~
 ~
@@ -2168,35 +2363,41 @@ The plagued lands
 Z 0 14031
 S
 #14031
-The plagued lands~
-You walk through the wreteched, fetid wreak of the plagued lands.
+@eng The plagued lands@rus Наказанные земли~
+@eng You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
+@rus 'Пошел первый Ангел и вылил чашу свою на землю: и сделались
+жестокие и отвратительные гнойные раны на людях, имеющих на-
+чертание зверя и поклоняющихся образу его.'
+  То, что ты видишь, просто ужасно. Эта земля мертва. Здесь
+осталась только трава. Все остальное покрыто отвратительными
+гнойными язвами. От них страдают и люди, и их питомцы.
 ~
 0 0 desert
 D0
-The  plagued lands
+The plagued lands.
 ~
 ~
 ~
 ~
 Z 0 14045
 D1
-The plagued lands
+The plagued lands.
 ~
 ~
 ~
 ~
 Z 0 14032
 D2
-The plagued lands
+The plagued lands.
 ~
 ~
 ~
 ~
 Z 0 14017
 D3
-The plagued lands
+The plagued lands.
 ~
 ~
 ~
@@ -2204,21 +2405,27 @@ The plagued lands
 Z 0 14030
 S
 #14032
-The plagued lands~
-You walk through the wreteched, fetid wreak of the plagued lands.
+@eng The plagued lands@rus Наказанные земли~
+@eng You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
+@rus 'Пошел первый Ангел и вылил чашу свою на землю: и сделались
+жестокие и отвратительные гнойные раны на людях, имеющих на-
+чертание зверя и поклоняющихся образу его.'
+  То, что ты видишь, просто ужасно. Эта земля мертва. Здесь
+осталась только трава. Все остальное покрыто отвратительными
+гнойными язвами. От них страдают и люди, и их питомцы.
 ~
 0 0 desert
 D2
-The  plagued lands
+The plagued lands.
 ~
 ~
 ~
 ~
 Z 0 14018
 D3
-The plagued lands
+The plagued lands.
 ~
 ~
 ~
@@ -2226,14 +2433,20 @@ The plagued lands
 Z 0 14031
 S
 #14033
-The plagued lands~
-You walk through the wreteched, fetid wreak of the plagued lands.
+@eng The plagued lands@rus Наказанные земли~
+@eng You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
+@rus 'Пошел первый Ангел и вылил чашу свою на землю: и сделались
+жестокие и отвратительные гнойные раны на людях, имеющих на-
+чертание зверя и поклоняющихся образу его.'
+  То, что ты видишь, просто ужасно. Эта земля мертва. Здесь
+осталась только трава. Все остальное покрыто отвратительными
+гнойными язвами. От них страдают и люди, и их питомцы.
 ~
 0 0 desert
 D2
-The  plagued lands
+The plagued lands.
 ~
 ~
 ~
@@ -2242,21 +2455,21 @@ Z 0 14019
 S
 #14034
 MaGog~
-You are in Satan's city of MaGog. About you writhe and covort sinners in
-a final frolic before destruction.Refuse and ofcol are the perfume of the city. 
-Deterioration and decay claim every building you view. A lukewarm worshipper
-is here to be spewed out of the mouth of the one to come.
+You are in Satan's city of MaGog.  About you writhe and covort sinners in
+a final frolic before destruction.  Refuse and ofcol are the perfume of the
+city.  Deterioration and decay claim every building you view.  A lukewarm
+worshipper is here to be spewed out of the mouth of the one to come.  
 ~
 0 0 city
 D1
-MaGog
+MaGog.
 ~
 ~
 ~
 ~
 Z 0 14035
 D2
-MaGog
+MaGog.
 ~
 ~
 ~
@@ -2271,21 +2484,21 @@ Deterioration and decay claim every building you view.
 ~
 0 0 city
 D1
-MaGog
+MaGog.
 ~
 ~
 ~
 ~
 Z 0 14036
 D2
-MaGog
+MaGog.
 ~
 ~
 ~
 ~
 Z 0 14021
 D3
-MaGog
+MaGog.
 ~
 ~
 ~
@@ -2301,28 +2514,28 @@ to mind the open gate.
 ~
 0 C city
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14050
 D1
-MaGog
+MaGog.
 ~
 ~
 ~
 ~
 Z 0 14037
 D2
-MaGog
+MaGog.
 ~
 ~
 ~
 ~
 Z 0 14022
 D3
-MaGog
+MaGog.
 ~
 ~
 ~
@@ -2337,21 +2550,21 @@ Deterioration and decay claim every building you view.
 ~
 0 0 city
 D1
-MaGog
+MaGog.
 ~
 ~
 ~
 ~
 Z 0 14038
 D2
-MaGog
+MaGog.
 ~
 ~
 ~
 ~
 Z 0 14023
 D3
-MaGog
+MaGog.
 ~
 ~
 ~
@@ -2366,14 +2579,14 @@ Deterioration and decay claim every building you view.
 ~
 0 0 city
 D2
-MaGog
+MaGog.
 ~
 ~
 ~
 ~
 Z 0 14024
 D3
-MaGog
+MaGog.
 ~
 ~
 ~
@@ -2381,27 +2594,31 @@ MaGog
 Z 0 14037
 S
 #14039
-The many waters~
-You are on a vast sea of blood. Vultures soar in the red sky in search of 
+@eng The many waters@rus Морской простор~
+@eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
+@rus Бескрайнее море, вода в котором превратилась в кровь. В небе
+над волнами кружат стервятники, высматривая себе обед. Множес-
+тво мусора и того, что когда-то было гордыми судами плавает на
+поверхности.
 ~
 0 0 noswim
 D0
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14053
 D1
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14040
 D2
-More blood
+More blood.
 ~
 ~
 ~
@@ -2409,34 +2626,38 @@ More blood
 Z 0 14025
 S
 #14040
-The many waters~
-You are on a vast sea of blood. Vultures soar in the red sky in search of 
+@eng The many waters@rus Морской простор~
+@eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
+@rus Бескрайнее море, вода в котором превратилась в кровь. В небе
+над волнами кружат стервятники, высматривая себе обед. Множес-
+тво мусора и того, что когда-то было гордыми судами плавает на
+поверхности.
 ~
 0 0 noswim
 D0
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14054
 D1
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14041
 D2
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14026
 D3
-More blood
+More blood.
 ~
 ~
 ~
@@ -2444,34 +2665,38 @@ More blood
 Z 0 14039
 S
 #14041
-The many waters~
-You are on a vast sea of blood. Vultures soar in the red sky in search of 
+@eng The many waters@rus Морской простор~
+@eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
+@rus Бескрайнее море, вода в котором превратилась в кровь. В небе
+над волнами кружат стервятники, высматривая себе обед. Множес-
+тво мусора и того, что когда-то было гордыми судами плавает на
+поверхности.
 ~
 0 0 noswim
 D0
-A cloud of steam
+A cloud of steam.
 ~
 ~
 ~
 ~
 Z 0 14055
 D1
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14042
 D2
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14027
 D3
-More blood
+More blood.
 ~
 ~
 ~
@@ -2479,27 +2704,31 @@ More blood
 Z 0 14040
 S
 #14042
-The many waters~
-You are on a vast sea of blood. Vultures soar in the red sky in search of 
+@eng The many waters@rus Морской простор~
+@eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
+@rus Бескрайнее море, вода в котором превратилась в кровь. В небе
+над волнами кружат стервятники, высматривая себе обед. Множес-
+тво мусора и того, что когда-то было гордыми судами плавает на
+поверхности.
 ~
 0 0 noswim
 D0
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14056
 D2
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14028
 D3
-More blood
+More blood.
 ~
 ~
 ~
@@ -2507,21 +2736,27 @@ More blood
 Z 0 14041
 S
 #14043
-The plagued lands~
-You walk through the wreteched, fetid wreak of the plagued lands.
+@eng The plagued lands@rus Наказанные земли~
+@eng You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
+@rus 'Пошел первый Ангел и вылил чашу свою на землю: и сделались
+жестокие и отвратительные гнойные раны на людях, имеющих на-
+чертание зверя и поклоняющихся образу его.'
+  То, что ты видишь, просто ужасно. Эта земля мертва. Здесь
+осталась только трава. Все остальное покрыто отвратительными
+гнойными язвами. От них страдают и люди, и их питомцы.
 ~
 0 0 desert
 D0
-The  plagued lands
+The plagued lands.
 ~
 ~
 ~
 ~
 Z 0 14057
 D1
-The plagued lands
+The plagued lands.
 ~
 ~
 ~
@@ -2529,35 +2764,41 @@ The plagued lands
 Z 0 14044
 S
 #14044
-The plagued lands~
-You walk through the wreteched, fetid wreak of the plagued lands.
+@eng The plagued lands@rus Наказанные земли~
+@eng You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
+@rus 'Пошел первый Ангел и вылил чашу свою на землю: и сделались
+жестокие и отвратительные гнойные раны на людях, имеющих на-
+чертание зверя и поклоняющихся образу его.'
+  То, что ты видишь, просто ужасно. Эта земля мертва. Здесь
+осталась только трава. Все остальное покрыто отвратительными
+гнойными язвами. От них страдают и люди, и их питомцы.
 ~
 0 0 desert
 D0
-The  plagued lands
+The plagued lands.
 ~
 ~
 ~
 ~
 Z 0 14058
 D1
-The plagued lands
+The plagued lands.
 ~
 ~
 ~
 ~
 Z 0 14045
 D2
-The plagued lands
+The plagued lands.
 ~
 ~
 ~
 ~
 Z 0 14030
 D3
-The plagued lands
+The plagued lands.
 ~
 ~
 ~
@@ -2565,28 +2806,34 @@ The plagued lands
 Z 0 14043
 S
 #14045
-The plagued lands~
-You walk through the wreteched, fetid wreak of the plagued lands.
+@eng The plagued lands@rus Наказанные земли~
+@eng You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
+@rus 'Пошел первый Ангел и вылил чашу свою на землю: и сделались
+жестокие и отвратительные гнойные раны на людях, имеющих на-
+чертание зверя и поклоняющихся образу его.'
+  То, что ты видишь, просто ужасно. Эта земля мертва. Здесь
+осталась только трава. Все остальное покрыто отвратительными
+гнойными язвами. От них страдают и люди, и их питомцы.
 ~
 0 0 desert
 D0
-The plagued lands
+The plagued lands.
 ~
 ~
 ~
 ~
 Z 0 14059
 D2
-The plagued lands
+The plagued lands.
 ~
 ~
 ~
 ~
 Z 0 14031
 D3
-The plagued lands
+The plagued lands.
 ~
 ~
 ~
@@ -2594,22 +2841,26 @@ The plagued lands
 Z 0 14044
 S
 #14046
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14060
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -2617,29 +2868,33 @@ Armageddon
 Z 0 14047
 S
 #14047
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14061
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14048
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -2647,29 +2902,33 @@ Armageddon
 Z 0 14046
 S
 #14048
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14062
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14049
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -2677,29 +2936,33 @@ Armageddon
 Z 0 14047
 S
 #14049
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14063
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14050
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -2707,36 +2970,40 @@ Armageddon
 Z 0 14048
 S
 #14050
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14064
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14051
 D2
-MaGog
+MaGog.
 ~
 ~
 ~
 ~
 Z 0 14036
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -2744,29 +3011,33 @@ Armageddon
 Z 0 14049
 S
 #14051
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14065
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14052
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -2774,22 +3045,26 @@ Armageddon
 Z 0 14050
 S
 #14052
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14066
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -2797,27 +3072,31 @@ Armageddon
 Z 0 14051
 S
 #14053
-The many waters~
-You are on a vast sea of blood. Vultures soar in the red sky in search of 
+@eng The many waters@rus Морской простор~
+@eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
+@rus Бескрайнее море, вода в котором превратилась в кровь. В небе
+над волнами кружат стервятники, высматривая себе обед. Множес-
+тво мусора и того, что когда-то было гордыми судами плавает на
+поверхности.
 ~
 0 0 noswim
 D0
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14067
 D1
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14054
 D2
-More blood
+More blood.
 ~
 ~
 ~
@@ -2825,34 +3104,38 @@ More blood
 Z 0 14039
 S
 #14054
-The many waters~
-You are on a vast sea of blood. Vultures soar in the red sky in search of 
+@eng The many waters@rus Морской простор~
+@eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
+@rus Бескрайнее море, вода в котором превратилась в кровь. В небе
+над волнами кружат стервятники, высматривая себе обед. Множес-
+тво мусора и того, что когда-то было гордыми судами плавает на
+поверхности.
 ~
 0 0 noswim
 D0
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14068
 D1
-A cloud of steam
+A cloud of steam.
 ~
 ~
 ~
 ~
 Z 0 14055
 D2
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14040
 D3
-More blood
+More blood.
 ~
 ~
 ~
@@ -2868,28 +3151,28 @@ You are enveloped in clouds of blood steam.
 ~
 0 0 noswim
 D0
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14069
 D1
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14056
 D2
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14041
 D3
-More blood
+More blood.
 ~
 ~
 ~
@@ -2897,27 +3180,31 @@ More blood
 Z 0 14054
 S
 #14056
-The many waters~
-You are on a vast sea of blood. Vultures soar in the red sky in search of 
+@eng The many waters@rus Морской простор~
+@eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
+@rus Бескрайнее море, вода в котором превратилась в кровь. В небе
+над волнами кружат стервятники, высматривая себе обед. Множес-
+тво мусора и того, что когда-то было гордыми судами плавает на
+поверхности.
 ~
 0 0 noswim
 D0
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14070
 D2
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14042
 D3
-A cloud of steam
+A cloud of steam.
 ~
 ~
 ~
@@ -2925,21 +3212,27 @@ A cloud of steam
 Z 0 14055
 S
 #14057
-The plagued lands~
-You walk through the wreteched, fetid wreak of the plagued lands.
+@eng The plagued lands@rus Наказанные земли~
+@eng You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
+@rus 'Пошел первый Ангел и вылил чашу свою на землю: и сделались
+жестокие и отвратительные гнойные раны на людях, имеющих на-
+чертание зверя и поклоняющихся образу его.'
+  То, что ты видишь, просто ужасно. Эта земля мертва. Здесь
+осталась только трава. Все остальное покрыто отвратительными
+гнойными язвами. От них страдают и люди, и их питомцы.
 ~
 0 0 desert
 D1
-The plagued lands
+The plagued lands.
 ~
 ~
 ~
 ~
 Z 0 14058
 D2
-The plagued lands
+The plagued lands.
 ~
 ~
 ~
@@ -2947,28 +3240,34 @@ The plagued lands
 Z 0 14043
 S
 #14058
-The plagued lands~
-You walk through the wreteched, fetid wreak of the plagued lands.
+@eng The plagued lands@rus Наказанные земли~
+@eng You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
+@rus 'Пошел первый Ангел и вылил чашу свою на землю: и сделались
+жестокие и отвратительные гнойные раны на людях, имеющих на-
+чертание зверя и поклоняющихся образу его.'
+  То, что ты видишь, просто ужасно. Эта земля мертва. Здесь
+осталась только трава. Все остальное покрыто отвратительными
+гнойными язвами. От них страдают и люди, и их питомцы.
 ~
 0 0 desert
 D1
-The  plagued lands
+The plagued lands.
 ~
 ~
 ~
 ~
 Z 0 14059
 D2
-The plagued lands
+The plagued lands.
 ~
 ~
 ~
 ~
 Z 0 14044
 D3
-The plagued lands
+The plagued lands.
 ~
 ~
 ~
@@ -2976,28 +3275,34 @@ The plagued lands
 Z 0 14057
 S
 #14059
-The plagued lands~
-You walk through the wreteched, fetid wreak of the plagued lands.
+@eng The plagued lands@rus Наказанные земли~
+@eng You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
+@rus 'Пошел первый Ангел и вылил чашу свою на землю: и сделались
+жестокие и отвратительные гнойные раны на людях, имеющих на-
+чертание зверя и поклоняющихся образу его.'
+  То, что ты видишь, просто ужасно. Эта земля мертва. Здесь
+осталась только трава. Все остальное покрыто отвратительными
+гнойными язвами. От них страдают и люди, и их питомцы.
 ~
 0 0 desert
 D0
-Wormwood
+Wormwood.
 ~
 ~
 ~
 ~
 Z 0 14073
 D2
-The  plagued lands
+The plagued lands.
 ~
 ~
 ~
 ~
 Z 0 14045
 D3
-The plagued lands
+The plagued lands.
 ~
 ~
 ~
@@ -3005,29 +3310,33 @@ The plagued lands
 Z 0 14058
 S
 #14060
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14074
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14061
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -3035,36 +3344,40 @@ Armageddon
 Z 0 14046
 S
 #14061
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14075
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14062
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14047
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -3072,36 +3385,40 @@ Armageddon
 Z 0 14060
 S
 #14062
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14076
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14063
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14048
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -3109,36 +3426,40 @@ Armageddon
 Z 0 14061
 S
 #14063
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14077
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14064
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14049
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -3146,36 +3467,40 @@ Armageddon
 Z 0 14062
 S
 #14064
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14078
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14065
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14050
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -3183,36 +3508,40 @@ Armageddon
 Z 0 14063
 S
 #14065
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14079
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14066
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14051
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -3220,29 +3549,33 @@ Armageddon
 Z 0 14064
 S
 #14066
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14080
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14052
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -3250,27 +3583,31 @@ Armageddon
 Z 0 14065
 S
 #14067
-The many waters~
-You are on a vast sea of blood. Vultures soar in the red sky in search of 
+@eng The many waters@rus Морской простор~
+@eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
+@rus Бескрайнее море, вода в котором превратилась в кровь. В небе
+над волнами кружат стервятники, высматривая себе обед. Множес-
+тво мусора и того, что когда-то было гордыми судами плавает на
+поверхности.
 ~
 0 C noswim
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14081
 D1
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14068
 D2
-More blood
+More blood.
 ~
 ~
 ~
@@ -3278,34 +3615,38 @@ More blood
 Z 0 14053
 S
 #14068
-The many waters~
-You are on a vast sea of blood. Vultures soar in the red sky in search of 
+@eng The many waters@rus Морской простор~
+@eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
+@rus Бескрайнее море, вода в котором превратилась в кровь. В небе
+над волнами кружат стервятники, высматривая себе обед. Множес-
+тво мусора и того, что когда-то было гордыми судами плавает на
+поверхности.
 ~
 0 0 noswim
 D0
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14082
 D1
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14069
 D2
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14054
 D3
-More blood
+More blood.
 ~
 ~
 ~
@@ -3313,34 +3654,38 @@ More blood
 Z 0 14067
 S
 #14069
-The many waters~
-You are on a vast sea of blood. Vultures soar in the red sky in search of 
+@eng The many waters@rus Морской простор~
+@eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
+@rus Бескрайнее море, вода в котором превратилась в кровь. В небе
+над волнами кружат стервятники, высматривая себе обед. Множес-
+тво мусора и того, что когда-то было гордыми судами плавает на
+поверхности.
 ~
 0 0 noswim
 D0
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14083
 D1
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14070
 D2
-A cloud of steam
+A cloud of steam.
 ~
 ~
 ~
 ~
 Z 0 14055
 D3
-More blood
+More blood.
 ~
 ~
 ~
@@ -3348,27 +3693,31 @@ More blood
 Z 0 14068
 S
 #14070
-The many waters~
-You are on a vast sea of blood. Vultures soar in the red sky in search of 
+@eng The many waters@rus Морской простор~
+@eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
+@rus Бескрайнее море, вода в котором превратилась в кровь. В небе
+над волнами кружат стервятники, высматривая себе обед. Множес-
+тво мусора и того, что когда-то было гордыми судами плавает на
+поверхности.
 ~
 0 0 noswim
 D0
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14084
 D2
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14056
 D3
-More blood
+More blood.
 ~
 ~
 ~
@@ -3376,22 +3725,31 @@ More blood
 Z 0 14069
 S
 #14071
-Wormwood~
-You are in the burning forest of Wormwood. In the sky above you, 
+@eng Wormwood@rus Полынь~
+@eng You are in the burning forest of Wormwood. In the sky above you, 
 stars fall earthward to land with  resounding explosions. The 
 smoke is thick. You hear the wail, and smell the seared flesh
 of the dying from all around you.
+@rus 'Первый Ангел вострубил, и сделались град и огонь, сме-
+шанные с кровью, и пали на землю; и третья часть дерев
+сгорела и вся трава зеленая сгорела.'
+  'Третий Ангел вострубил, и упала с неба большая звезда,
+горящая подобно светильнику, и пала на третью часть вод
+и на источники вод. Имя сей звезде полынь: и третья часть
+вод сделались полынью.'
+  Ты стоишь в полыхающем лесу. Небо прочерчивают яркие
+вспышки. А ветер доносит запах обожженной кожи.
 ~
 0 0 forest
 D0
-Wormwood
+Wormwood.
 ~
 ~
 ~
 ~
 Z 0 14085
 D1
-Wormwood
+Wormwood.
 ~
 ~
 ~
@@ -3399,29 +3757,38 @@ Wormwood
 Z 0 14072
 S
 #14072
-Wormwood~
-You are in the burning forest of Wormwood. In the sky above you, 
+@eng Wormwood@rus Полынь~
+@eng You are in the burning forest of Wormwood. In the sky above you, 
 stars fall earthward to land with  resounding explosions. The 
 smoke is thick. You hear the wail, and smell the seared flesh
 of the dying from all around you.
+@rus 'Первый Ангел вострубил, и сделались град и огонь, сме-
+шанные с кровью, и пали на землю; и третья часть дерев
+сгорела и вся трава зеленая сгорела.'
+  'Третий Ангел вострубил, и упала с неба большая звезда,
+горящая подобно светильнику, и пала на третью часть вод
+и на источники вод. Имя сей звезде полынь: и третья часть
+вод сделались полынью.'
+  Ты стоишь в полыхающем лесу. Небо прочерчивают яркие
+вспышки. А ветер доносит запах обожженной кожи.
 ~
 0 0 forest
 D0
-Wormwood
+Wormwood.
 ~
 ~
 ~
 ~
 Z 0 14086
 D1
-Wormwood
+Wormwood.
 ~
 ~
 ~
 ~
 Z 0 14073
 D3
-Wormwood
+Wormwood.
 ~
 ~
 ~
@@ -3429,29 +3796,38 @@ Wormwood
 Z 0 14071
 S
 #14073
-Wormwood~
-You are in the burning forest of Wormwood. In the sky above you, 
+@eng Wormwood@rus Полынь~
+@eng You are in the burning forest of Wormwood. In the sky above you, 
 stars fall earthward to land with  resounding explosions. The 
 smoke is thick. You hear the wail, and smell the seared flesh
 of the dying from all around you.
+@rus 'Первый Ангел вострубил, и сделались град и огонь, сме-
+шанные с кровью, и пали на землю; и третья часть дерев
+сгорела и вся трава зеленая сгорела.'
+  'Третий Ангел вострубил, и упала с неба большая звезда,
+горящая подобно светильнику, и пала на третью часть вод
+и на источники вод. Имя сей звезде полынь: и третья часть
+вод сделались полынью.'
+  Ты стоишь в полыхающем лесу. Небо прочерчивают яркие
+вспышки. А ветер доносит запах обожженной кожи.
 ~
 0 C forest
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14074
 D2
-The plagued lands
+The plagued lands.
 ~
 ~
 ~
 ~
 Z 0 14059
 D3
-Wormwood
+Wormwood.
 ~
 ~
 ~
@@ -3459,29 +3835,33 @@ Wormwood
 Z 0 14072
 S
 #14074
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14075
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14060
 D3
-Wormwood
+Wormwood.
 ~
 ~
 ~
@@ -3489,29 +3869,33 @@ Wormwood
 Z 0 14073
 S
 #14075
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14076
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14061
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -3519,29 +3903,33 @@ Armageddon
 Z 0 14074
 S
 #14076
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14077
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14062
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -3549,36 +3937,40 @@ Armageddon
 Z 0 14075
 S
 #14077
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14091
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14078
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14063
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -3586,36 +3978,40 @@ Armageddon
 Z 0 14076
 S
 #14078
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14092
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14079
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14064
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -3623,36 +4019,40 @@ Armageddon
 Z 0 14077
 S
 #14079
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14093
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14080
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14065
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -3660,36 +4060,40 @@ Armageddon
 Z 0 14078
 S
 #14080
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14094
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14081
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14066
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -3697,29 +4101,33 @@ Armageddon
 Z 0 14079
 S
 #14081
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14095
 D2
-The many waters
+The many waters.
 ~
 ~
 ~
 ~
 Z 0 14067
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -3727,20 +4135,24 @@ Armageddon
 Z 0 14080
 S
 #14082
-The many waters~
-You are on a vast sea of blood. Vultures soar in the red sky in search of 
+@eng The many waters@rus Морской простор~
+@eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
+@rus Бескрайнее море, вода в котором превратилась в кровь. В небе
+над волнами кружат стервятники, высматривая себе обед. Множес-
+тво мусора и того, что когда-то было гордыми судами плавает на
+поверхности.
 ~
 0 0 noswim
 D1
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14083
 D2
-More blood
+More blood.
 ~
 ~
 ~
@@ -3748,34 +4160,38 @@ More blood
 Z 0 14068
 S
 #14083
-The many waters~
-You are on a vast sea of blood. Vultures soar in the red sky in search of 
+@eng The many waters@rus Морской простор~
+@eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
+@rus Бескрайнее море, вода в котором превратилась в кровь. В небе
+над волнами кружат стервятники, высматривая себе обед. Множес-
+тво мусора и того, что когда-то было гордыми судами плавает на
+поверхности.
 ~
 0 0 noswim
 D0
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14097
 D1
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14084
 D2
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14069
 D3
-More blood
+More blood.
 ~
 ~
 ~
@@ -3783,27 +4199,31 @@ More blood
 Z 0 14082
 S
 #14084
-The many waters~
-You are on a vast sea of blood. Vultures soar in the red sky in search of 
+@eng The many waters@rus Морской простор~
+@eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
+@rus Бескрайнее море, вода в котором превратилась в кровь. В небе
+над волнами кружат стервятники, высматривая себе обед. Множес-
+тво мусора и того, что когда-то было гордыми судами плавает на
+поверхности.
 ~
 0 0 noswim
 D0
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14098
 D2
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14070
 D3
-More blood
+More blood.
 ~
 ~
 ~
@@ -3811,29 +4231,38 @@ More blood
 Z 0 14083
 S
 #14085
-Wormwood~
-You are in the burning forest of Wormwood. In the sky above you, 
+@eng Wormwood@rus Полынь~
+@eng You are in the burning forest of Wormwood. In the sky above you, 
 stars fall earthward to land with  resounding explosions. The 
 smoke is thick. You hear the wail, and smell the seared flesh
 of the dying from all around you.
+@rus 'Первый Ангел вострубил, и сделались град и огонь, сме-
+шанные с кровью, и пали на землю; и третья часть дерев
+сгорела и вся трава зеленая сгорела.'
+  'Третий Ангел вострубил, и упала с неба большая звезда,
+горящая подобно светильнику, и пала на третью часть вод
+и на источники вод. Имя сей звезде полынь: и третья часть
+вод сделались полынью.'
+  Ты стоишь в полыхающем лесу. Небо прочерчивают яркие
+вспышки. А ветер доносит запах обожженной кожи.
 ~
 0 0 forest
 D0
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
 ~
 Z 0 14099
 D1
-Wormwood
+Wormwood.
 ~
 ~
 ~
 ~
 Z 0 14086
 D2
-Wormwood
+Wormwood.
 ~
 ~
 ~
@@ -3841,22 +4270,31 @@ Wormwood
 Z 0 14071
 S
 #14086
-Wormwood~
-You are in the burning forest of Wormwood. In the sky above you, 
+@eng Wormwood@rus Полынь~
+@eng You are in the burning forest of Wormwood. In the sky above you, 
 stars fall earthward to land with  resounding explosions. The 
 smoke is thick. You hear the wail, and smell the seared flesh
 of the dying from all around you.
+@rus 'Первый Ангел вострубил, и сделались град и огонь, сме-
+шанные с кровью, и пали на землю; и третья часть дерев
+сгорела и вся трава зеленая сгорела.'
+  'Третий Ангел вострубил, и упала с неба большая звезда,
+горящая подобно светильнику, и пала на третью часть вод
+и на источники вод. Имя сей звезде полынь: и третья часть
+вод сделались полынью.'
+  Ты стоишь в полыхающем лесу. Небо прочерчивают яркие
+вспышки. А ветер доносит запах обожженной кожи.
 ~
 0 0 forest
 D2
-Wormwood
+Wormwood.
 ~
 ~
 ~
 ~
 Z 0 14072
 D3
-Wormwood
+Wormwood.
 ~
 ~
 ~
@@ -3864,22 +4302,26 @@ Wormwood
 Z 0 14085
 S
 #14087
-The Euphrates~
-You walk the bottom of the canyon where the Euphrates used to
+@eng The Euphrates@rus Ефрат~
+@eng You walk the bottom of the canyon where the Euphrates used to
 flow. All that is left of the once mighty river are scattered red pools of 
 blood. A terrible wind blows from down stream, bringing the smell
 of death to your nose.
+@rus Ты идешь по дну каньона, по которому когда-то нес свои воды
+могучий Ефрат. Сейчас от некогда великой реки остались жалкие
+кровавые лужицы. Ужасный ветер, дующий в каньоне, доносит до
+тебя запах смерти.
 ~
 0 0 hills
 D0
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
 ~
 Z 0 14101
 D1
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
@@ -3887,22 +4329,26 @@ The Euphrates
 Z 0 14088
 S
 #14088
-The Euphrates~
-You walk the bottom of the canyon where the Euphrates used to
+@eng The Euphrates@rus Ефрат~
+@eng You walk the bottom of the canyon where the Euphrates used to
 flow. All that is left of the once mighty river are scattered red pools of 
 blood. A terrible wind blows from down stream, bringing the smell
 of death to your nose.
+@rus Ты идешь по дну каньона, по которому когда-то нес свои воды
+могучий Ефрат. Сейчас от некогда великой реки остались жалкие
+кровавые лужицы. Ужасный ветер, дующий в каньоне, доносит до
+тебя запах смерти.
 ~
 0 0 hills
 D1
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
 ~
 Z 0 14089
 D3
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
@@ -3910,22 +4356,26 @@ The Euphrates
 Z 0 14087
 S
 #14089
-The Euphrates~
-You walk the bottom of the canyon where the Euphrates used to
+@eng The Euphrates@rus Ефрат~
+@eng You walk the bottom of the canyon where the Euphrates used to
 flow. All that is left of the once mighty river are scattered red pools of 
 blood. A terrible wind blows from down stream, bringing the smell
 of death to your nose.
+@rus Ты идешь по дну каньона, по которому когда-то нес свои воды
+могучий Ефрат. Сейчас от некогда великой реки остались жалкие
+кровавые лужицы. Ужасный ветер, дующий в каньоне, доносит до
+тебя запах смерти.
 ~
 0 0 hills
 D1
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
 ~
 Z 0 14090
 D3
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
@@ -3933,22 +4383,26 @@ The Euphrates
 Z 0 14088
 S
 #14090
-The Euphrates~
-You walk the bottom of the canyon where the Euphrates used to
+@eng The Euphrates@rus Ефрат~
+@eng You walk the bottom of the canyon where the Euphrates used to
 flow. All that is left of the once mighty river are scattered red pools of 
 blood. A terrible wind blows from down stream, bringing the smell
 of death to your nose.
+@rus Ты идешь по дну каньона, по которому когда-то нес свои воды
+могучий Ефрат. Сейчас от некогда великой реки остались жалкие
+кровавые лужицы. Ужасный ветер, дующий в каньоне, доносит до
+тебя запах смерти.
 ~
 0 0 hills
 D0
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
 ~
 Z 0 14104
 D3
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
@@ -3956,29 +4410,33 @@ The Euphrates
 Z 0 14089
 S
 #14091
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-A bridge over the Euprhates
+A bridge over the Euprhates.
 ~
 ~
 ~
 ~
 Z 0 14105
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14092
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -3986,29 +4444,33 @@ Armageddon
 Z 0 14077
 S
 #14092
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14093
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14078
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -4016,36 +4478,40 @@ Armageddon
 Z 0 14091
 S
 #14093
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14107
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14094
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14079
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -4053,36 +4519,40 @@ Armageddon
 Z 0 14092
 S
 #14094
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14108
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14095
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14080
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -4090,29 +4560,33 @@ Armageddon
 Z 0 14093
 S
 #14095
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14096
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14081
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -4120,15 +4594,19 @@ Armageddon
 Z 0 14094
 S
 #14096
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -4136,27 +4614,31 @@ Armageddon
 Z 0 14095
 S
 #14097
-The many waters~
-You are on a vast sea of blood. Vultures soar in the red sky in search of 
+@eng The many waters@rus Морской простор~
+@eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
+@rus Бескрайнее море, вода в котором превратилась в кровь. В небе
+над волнами кружат стервятники, высматривая себе обед. Множес-
+тво мусора и того, что когда-то было гордыми судами плавает на
+поверхности.
 ~
 0 0 noswim
 D0
-The Euprates river
+The Euprates river.
 ~
 ~
 ~
 ~
 Z 0 14111
 D1
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14098
 D2
-More blood
+More blood.
 ~
 ~
 ~
@@ -4164,27 +4646,31 @@ More blood
 Z 0 14083
 S
 #14098
-The many waters~
-You are on a vast sea of blood. Vultures soar in the red sky in search of 
+@eng The many waters@rus Морской простор~
+@eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
+@rus Бескрайнее море, вода в котором превратилась в кровь. В небе
+над волнами кружат стервятники, высматривая себе обед. Множес-
+тво мусора и того, что когда-то было гордыми судами плавает на
+поверхности.
 ~
 0 0 noswim
 D0
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14112
 D2
-More blood
+More blood.
 ~
 ~
 ~
 ~
 Z 0 14084
 D3
-More blood
+More blood.
 ~
 ~
 ~
@@ -4192,40 +4678,51 @@ More blood
 Z 0 14097
 S
 #14099
-The source of the Euphrates~
-You stand at the headwaters for the Euphrates. A dirty dry
+@eng The source of the Euphrates@rus Исток Ефрата~
+@eng You stand at the headwaters for the Euphrates. A dirty dry
 wind blows across what is left of the once mighty river. Now all 
 you see are occasional puddles of bloody water. There is a vial 
 floating in the largest puddle of blood.
+@rus Ты стоишь у истока Ефрата. Сухой ветер носится над тем, что когда-то
+было великой могучей рекой. Сейчас от нее остались лишь жалкие неболь-
+шие кровавые лужицы. А в самой большой луже ты замечаешь пустую чашу.
 ~
 0 C hills
 E
-lettering~
-The 3rd vial of wrath: rivers and fountains to blood.
+lettering письмена надпись буквы~
+@eng The 3rd vial of wrath: rivers and fountains to blood.
 The 6th vial of wrath: Drying of Euphrates.
+@rus Третья чаша гнева Божия:
+  'Третий Ангел вылил чашу свою в реки и источники вод: 
+   и сделалась кровь.'
+Шестая чаша гнева Божия:
+  'Шестой ангел вылил чашу свою в великую реку Ефрат: и
+   высохла в ней вода.'
 ~
 E
-vial~
-You scoop out the vial. 
+vial чаша~
+@eng You scoop out the vial. 
 Actually there are two vials.
 There is some lettering on them.
+@rus Ты замечаешь, что, на самом деле, там две чашы. И на них
+видны какие-то надписи.
 ~
 D0
-Wormwood
+Wormwood.
 ~
 ~
 ~
 ~
 Z 0 14113
 D1
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
 ~
 Z 0 14100
 D2
-Wormwood
+Wormwood.
 ~
 ~
 ~
@@ -4233,22 +4730,26 @@ Wormwood
 Z 0 14085
 S
 #14100
-The Euphrates~
-You walk the bottom of the canyon where the Euphrates used to
+@eng The Euphrates@rus Ефрат~
+@eng You walk the bottom of the canyon where the Euphrates used to
 flow. All that is left of the once mighty river are scattered red pools of 
 blood. A terrible wind blows from down stream, bringing the smell
 of death to your nose.
+@rus Ты идешь по дну каньона, по которому когда-то нес свои воды
+могучий Ефрат. Сейчас от некогда великой реки остались жалкие
+кровавые лужицы. Ужасный ветер, дующий в каньоне, доносит до
+тебя запах смерти.
 ~
 0 0 hills
 D1
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
 ~
 Z 0 14101
 D3
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
@@ -4256,22 +4757,26 @@ The Euphrates
 Z 0 14099
 S
 #14101
-The Euphrates~
-You walk the bottom of the canyon where the Euphrates used to
+@eng The Euphrates@rus Ефрат~
+@eng You walk the bottom of the canyon where the Euphrates used to
 flow. All that is left of the once mighty river are scattered red pools of 
 blood. A terrible wind blows from down stream, bringing the smell
 of death to your nose.
+@rus Ты идешь по дну каньона, по которому когда-то нес свои воды
+могучий Ефрат. Сейчас от некогда великой реки остались жалкие
+кровавые лужицы. Ужасный ветер, дующий в каньоне, доносит до
+тебя запах смерти.
 ~
 0 0 hills
 D2
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
 ~
 Z 0 14087
 D3
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
@@ -4279,15 +4784,24 @@ The Euphrates
 Z 0 14100
 S
 #14102
-Wormwood~
-You are in the burning forest of Wormwood. In the sky above you, 
+@eng Wormwood@rus Полынь~
+@eng You are in the burning forest of Wormwood. In the sky above you, 
 stars fall earthward to land with  resounding explosions. The 
 smoke is thick. You hear the wail, and smell the seared flesh
 of the dying from all around you.
+@rus 'Первый Ангел вострубил, и сделались град и огонь, сме-
+шанные с кровью, и пали на землю; и третья часть дерев
+сгорела и вся трава зеленая сгорела.'
+  'Третий Ангел вострубил, и упала с неба большая звезда,
+горящая подобно светильнику, и пала на третью часть вод
+и на источники вод. Имя сей звезде полынь: и третья часть
+вод сделались полынью.'
+  Ты стоишь в полыхающем лесу. Небо прочерчивают яркие
+вспышки. А ветер доносит запах обожженной кожи.
 ~
 0 0 forest
 D0
-Wormwood
+Wormwood.
 ~
 ~
 ~
@@ -4295,15 +4809,19 @@ Wormwood
 Z 0 14116
 S
 #14103
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -4311,22 +4829,26 @@ Armageddon
 Z 0 14117
 S
 #14104
-The Euphrates~
-You walk the bottom of the canyon where the Euphrates used to
+@eng The Euphrates@rus Ефрат~
+@eng You walk the bottom of the canyon where the Euphrates used to
 flow. All that is left of the once mighty river are scattered red pools of 
 blood. A terrible wind blows from down stream, bringing the smell
 of death to your nose.
+@rus Ты идешь по дну каньона, по которому когда-то нес свои воды
+могучий Ефрат. Сейчас от некогда великой реки остались жалкие
+кровавые лужицы. Ужасный ветер, дующий в каньоне, доносит до
+тебя запах смерти.
 ~
 0 0 hills
 D1
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
 ~
 Z 0 14105
 D2
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
@@ -4334,38 +4856,41 @@ The Euphrates
 Z 0 14090
 S
 #14105
-The Euphrates at the Bridge~
-You stand at a bridge crossing the canyon
+@eng The Euphrates at the Bridge@rus Мост через Ефрат~
+@eng You stand at a bridge crossing the canyon
 that used to be the river Euphrates. Steps are carved
 into the wall leading up to the bridge and down
 to the canyon. From the bridge you may go north
 and south into the plain of Armageddon, or you
 may follow The Euphrates east and west.
+@rus Ты стоишь на мосту через каньон, по которому когда-то нес
+свои воды могущественный Ефрат. Но сейчас от великой реки
+остались жалкие кровавые лужицы.
 ~
 0 C hills
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14119
 D1
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
 ~
 Z 0 14106
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14091
 D3
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
@@ -4373,22 +4898,26 @@ The Euphrates
 Z 0 14104
 S
 #14106
-The Euphrates~
-You walk the bottom of the canyon where the Euphrates used to
+@eng The Euphrates@rus Ефрат~
+@eng You walk the bottom of the canyon where the Euphrates used to
 flow. All that is left of the once mighty river are scattered red pools of 
 blood. A terrible wind blows from down stream, bringing the smell
 of death to your nose.
+@rus Ты идешь по дну каньона, по которому когда-то нес свои воды
+могучий Ефрат. Сейчас от некогда великой реки остались жалкие
+кровавые лужицы. Ужасный ветер, дующий в каньоне, доносит до
+тебя запах смерти.
 ~
 0 0 hills
 D0
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
 ~
 Z 0 14120
 D3
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
@@ -4396,22 +4925,26 @@ The Euphrates
 Z 0 14105
 S
 #14107
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14108
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -4419,22 +4952,26 @@ Armageddon
 Z 0 14093
 S
 #14108
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14094
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -4442,22 +4979,26 @@ Armageddon
 Z 0 14107
 S
 #14109
-The Euphrates~
-You walk the bottom of the canyon where the Euphrates used to
+@eng The Euphrates@rus Ефрат~
+@eng You walk the bottom of the canyon where the Euphrates used to
 flow. All that is left of the once mighty river are scattered red pools of 
 blood. A terrible wind blows from down stream, bringing the smell
 of death to your nose.
+@rus Ты идешь по дну каньона, по которому когда-то нес свои воды
+могучий Ефрат. Сейчас от некогда великой реки остались жалкие
+кровавые лужицы. Ужасный ветер, дующий в каньоне, доносит до
+тебя запах смерти.
 ~
 0 0 hills
 D0
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
 ~
 Z 0 14123
 D1
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
@@ -4465,22 +5006,26 @@ The Euphrates
 Z 0 14110
 S
 #14110
-The Euphrates~
-You walk the bottom of the canyon where the Euphrates used to
+@eng The Euphrates@rus Ефрат~
+@eng You walk the bottom of the canyon where the Euphrates used to
 flow. All that is left of the once mighty river are scattered red pools of 
 blood. A terrible wind blows from down stream, bringing the smell
 of death to your nose.
+@rus Ты идешь по дну каньона, по которому когда-то нес свои воды
+могучий Ефрат. Сейчас от некогда великой реки остались жалкие
+кровавые лужицы. Ужасный ветер, дующий в каньоне, доносит до
+тебя запах смерти.
 ~
 0 0 hills
 D1
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
 ~
 Z 0 14111
 D3
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
@@ -4488,22 +5033,26 @@ The Euphrates
 Z 0 14109
 S
 #14111
-The Euphrates~
-You walk the bottom of the canyon where the Euphrates used to
+@eng The Euphrates@rus Ефрат~
+@eng You walk the bottom of the canyon where the Euphrates used to
 flow. All that is left of the once mighty river are scattered red pools of 
 blood. A terrible wind blows from down stream, bringing the smell
 of death to your nose.
+@rus Ты идешь по дну каньона, по которому когда-то нес свои воды
+могучий Ефрат. Сейчас от некогда великой реки остались жалкие
+кровавые лужицы. Ужасный ветер, дующий в каньоне, доносит до
+тебя запах смерти.
 ~
 0 0 hills
 D2
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
 ~
 Z 0 14097
 D3
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
@@ -4511,20 +5060,23 @@ The Euphrates
 Z 0 14110
 S
 #14112
-The many waters~
-You are on a vast sea of blood. Vultures soar in the red sky in search of 
+@eng The many waters@rus Морской простор~
+@eng You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
+@rus Бескрайнее море, вода в котором превратилась в кровь. В небе
+над волнами кружат стервятники, высматривая себе обед. Множес-
+тво мусора и того, что когда-то было гордыми судами плавает на
+поверхности.
 ~
 0 0 noswim
 D0
-Armageddon
 ~
 ~
 ~
 ~
 Z 0 14126
 D2
-More blood
+More blood.
 ~
 ~
 ~
@@ -4532,29 +5084,38 @@ More blood
 Z 0 14098
 S
 #14113
-Wormwood~
-You are in the burning forest of Wormwood. In the sky above you, 
+@eng Wormwood@rus Полынь~
+@eng You are in the burning forest of Wormwood. In the sky above you, 
 stars fall earthward to land with  resounding explosions. The 
 smoke is thick. You hear the wail, and smell the seared flesh
 of the dying from all around you.
+@rus 'Первый Ангел вострубил, и сделались град и огонь, сме-
+шанные с кровью, и пали на землю; и третья часть дерев
+сгорела и вся трава зеленая сгорела.'
+  'Третий Ангел вострубил, и упала с неба большая звезда,
+горящая подобно светильнику, и пала на третью часть вод
+и на источники вод. Имя сей звезде полынь: и третья часть
+вод сделались полынью.'
+  Ты стоишь в полыхающем лесу. Небо прочерчивают яркие
+вспышки. А ветер доносит запах обожженной кожи.
 ~
 0 0 forest
 D0
-Wormwood
+Wormwood.
 ~
 ~
 ~
 ~
 Z 0 14127
 D1
-A strange glow
+A strange glow.
 ~
 ~
 ~
 ~
 Z 0 14114
 D2
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
@@ -4562,32 +5123,42 @@ The Euphrates
 Z 0 14099
 S
 #14114
-Wormwood~
-You are in the heart of Wormwood, where the flames are most
+@eng Wormwood@rus Полынь~
+@eng You are in the heart of Wormwood, where the flames are most
 intense. A giant star lies on the ground here, glowing a hateful
 red. All of the brush nearby has been blasted flat. A young boy
 stands staring at the star. You ask him what happened, and he
 says that an angel came, sounded a horn, and the star fell from
 the sky. He was told that someone would come by the 5th horn to
 get the key of david to unlock the pit.
+@rus   'Первый Ангел вострубил, и сделались град и огонь, сме-
+шанные с кровью, и пали на землю; и третья часть дерев
+сгорела и вся трава зеленая сгорела.'
+  'Третий Ангел вострубил, и упала с неба большая звезда,
+горящая подобно светильнику, и пала на третью часть вод
+и на источники вод. Имя сей звезде полынь: и третья часть
+вод сделались полынью.'
+  Именно сюда упала эта звезда. Своим сиянием она освещает
+все вокруг. Ты знаешь, что в этой звезде ключ, откроющий
+кладязь бездны после пятой трубы.
 ~
 0 0 forest
 D0
-Wormwood
+Wormwood.
 ~
 ~
 ~
 ~
 Z 0 14128
 D1
-Wormwood
+Wormwood.
 ~
 ~
 ~
 ~
 Z 0 14115
 D3
-Wormwood
+Wormwood.
 ~
 ~
 ~
@@ -4595,29 +5166,38 @@ Wormwood
 Z 0 14113
 S
 #14115
-Wormwood~
-You are in the burning forest of Wormwood. In the sky above you, 
+@eng Wormwood@rus Полынь~
+@eng You are in the burning forest of Wormwood. In the sky above you, 
 stars fall earthward to land with  resounding explosions. The 
 smoke is thick. You hear the wail, and smell the seared flesh
 of the dying from all around you.
+@rus 'Первый Ангел вострубил, и сделались град и огонь, сме-
+шанные с кровью, и пали на землю; и третья часть дерев
+сгорела и вся трава зеленая сгорела.'
+  'Третий Ангел вострубил, и упала с неба большая звезда,
+горящая подобно светильнику, и пала на третью часть вод
+и на источники вод. Имя сей звезде полынь: и третья часть
+вод сделались полынью.'
+  Ты стоишь в полыхающем лесу. Небо прочерчивают яркие
+вспышки. А ветер доносит запах обожженной кожи.
 ~
 0 0 forest
 D0
-Wormwood
+Wormwood.
 ~
 ~
 ~
 ~
 Z 0 14129
 D1
-Wormwood
+Wormwood.
 ~
 ~
 ~
 ~
 Z 0 14116
 D3
-A strange glow
+A strange glow.
 ~
 ~
 ~
@@ -4625,22 +5205,31 @@ A strange glow
 Z 0 14114
 S
 #14116
-Wormwood~
-You are in the burning forest of Wormwood. In the sky above you, 
+@eng Wormwood@rus Полынь~
+@eng You are in the burning forest of Wormwood. In the sky above you, 
 stars fall earthward to land with  resounding explosions. The 
 smoke is thick. You hear the wail, and smell the seared flesh
 of the dying from all around you.
+@rus 'Первый Ангел вострубил, и сделались град и огонь, сме-
+шанные с кровью, и пали на землю; и третья часть дерев
+сгорела и вся трава зеленая сгорела.'
+  'Третий Ангел вострубил, и упала с неба большая звезда,
+горящая подобно светильнику, и пала на третью часть вод
+и на источники вод. Имя сей звезде полынь: и третья часть
+вод сделались полынью.'
+  Ты стоишь в полыхающем лесу. Небо прочерчивают яркие
+вспышки. А ветер доносит запах обожженной кожи.
 ~
 0 0 forest
 D2
-Wormwood
+Wormwood.
 ~
 ~
 ~
 ~
 Z 0 14102
 D3
-Wormwood
+Wormwood.
 ~
 ~
 ~
@@ -4648,29 +5237,33 @@ Wormwood
 Z 0 14115
 S
 #14117
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14131
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14118
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -4678,29 +5271,33 @@ Armageddon
 Z 0 14103
 S
 #14118
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14132
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14119
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -4708,29 +5305,33 @@ Armageddon
 Z 0 14117
 S
 #14119
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14133
 D2
-A bridge over the Euphrates
+A bridge over the Euphrates.
 ~
 ~
 ~
 ~
 Z 0 14105
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -4738,22 +5339,26 @@ Armageddon
 Z 0 14118
 S
 #14120
-The Euphrates~
-You walk the bottom of the canyon where the Euphrates used to
-flow. All that is left of the once mighty river are scattered red
-pools of blood. A terrible wind blows from down stream, bringing
-the smell of death to your nose.
+@eng The Euphrates@rus Ефрат~
+@eng You walk the bottom of the canyon where the Euphrates used to
+flow. All that is left of the once mighty river are scattered red pools of 
+blood. A terrible wind blows from down stream, bringing the smell
+of death to your nose.
+@rus Ты идешь по дну каньона, по которому когда-то нес свои воды
+могучий Ефрат. Сейчас от некогда великой реки остались жалкие
+кровавые лужицы. Ужасный ветер, дующий в каньоне, доносит до
+тебя запах смерти.
 ~
 0 0 hills
 D1
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
 ~
 Z 0 14121
 D2
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
@@ -4761,22 +5366,26 @@ The Euphrates
 Z 0 14106
 S
 #14121
-The Euphrates~
-You walk the bottom of the canyon where the Euphrates used to
+@eng The Euphrates@rus Ефрат~
+@eng You walk the bottom of the canyon where the Euphrates used to
 flow. All that is left of the once mighty river are scattered red pools of 
 blood. A terrible wind blows from down stream, bringing the smell
 of death to your nose.
+@rus Ты идешь по дну каньона, по которому когда-то нес свои воды
+могучий Ефрат. Сейчас от некогда великой реки остались жалкие
+кровавые лужицы. Ужасный ветер, дующий в каньоне, доносит до
+тебя запах смерти.
 ~
 0 0 hills
 D1
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
 ~
 Z 0 14122
 D3
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
@@ -4784,22 +5393,26 @@ The Euphrates
 Z 0 14120
 S
 #14122
-The Euphrates~
-You walk the bottom of the canyon where the Euphrates used to
+@eng The Euphrates@rus Ефрат~
+@eng You walk the bottom of the canyon where the Euphrates used to
 flow. All that is left of the once mighty river are scattered red pools of 
 blood. A terrible wind blows from down stream, bringing the smell
 of death to your nose.
+@rus Ты идешь по дну каньона, по которому когда-то нес свои воды
+могучий Ефрат. Сейчас от некогда великой реки остались жалкие
+кровавые лужицы. Ужасный ветер, дующий в каньоне, доносит до
+тебя запах смерти.
 ~
 0 0 hills
 D1
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
 ~
 Z 0 14123
 D3
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
@@ -4807,22 +5420,26 @@ The Euphrates
 Z 0 14121
 S
 #14123
-The Euphrates~
-You walk the bottom of the canyon where the Euphrates used to
+@eng The Euphrates@rus Ефрат~
+@eng You walk the bottom of the canyon where the Euphrates used to
 flow. All that is left of the once mighty river are scattered red pools of 
 blood. A terrible wind blows from down stream, bringing the smell
 of death to your nose.
+@rus Ты идешь по дну каньона, по которому когда-то нес свои воды
+могучий Ефрат. Сейчас от некогда великой реки остались жалкие
+кровавые лужицы. Ужасный ветер, дующий в каньоне, доносит до
+тебя запах смерти.
 ~
 0 0 hills
 D2
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
 ~
 Z 0 14109
 D3
-The Euphrates
+The Euphrates.
 ~
 ~
 ~
@@ -4830,22 +5447,26 @@ The Euphrates
 Z 0 14122
 S
 #14124
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14138
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -4853,29 +5474,33 @@ Armageddon
 Z 0 14125
 S
 #14125
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14139
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14126
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -4883,22 +5508,32 @@ Armageddon
 Z 0 14124
 S
 #14126
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14140
+D2
+~
+~
+~
+~
+Z 0 14112
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -4906,22 +5541,31 @@ Armageddon
 Z 0 14125
 S
 #14127
-Wormwood~
-You are in the burning forest of Wormwood. In the sky above you, 
+@eng Wormwood@rus Полынь~
+@eng You are in the burning forest of Wormwood. In the sky above you, 
 stars fall earthward to land with  resounding explosions. The 
 smoke is thick. You hear the wail, and smell the seared flesh
 of the dying from all around you.
+@rus 'Первый Ангел вострубил, и сделались град и огонь, сме-
+шанные с кровью, и пали на землю; и третья часть дерев
+сгорела и вся трава зеленая сгорела.'
+  'Третий Ангел вострубил, и упала с неба большая звезда,
+горящая подобно светильнику, и пала на третью часть вод
+и на источники вод. Имя сей звезде полынь: и третья часть
+вод сделались полынью.'
+  Ты стоишь в полыхающем лесу. Небо прочерчивают яркие
+вспышки. А ветер доносит запах обожженной кожи.
 ~
 0 0 forest
 D1
-Wormwood
+Wormwood.
 ~
 ~
 ~
 ~
 Z 0 14128
 D2
-Wormwood
+Wormwood.
 ~
 ~
 ~
@@ -4929,29 +5573,38 @@ Wormwood
 Z 0 14113
 S
 #14128
-Wormwood~
-You are in the burning forest of Wormwood. In the sky above you, 
+@eng Wormwood@rus Полынь~
+@eng You are in the burning forest of Wormwood. In the sky above you, 
 stars fall earthward to land with  resounding explosions. The 
 smoke is thick. You hear the wail, and smell the seared flesh
 of the dying from all around you.
+@rus 'Первый Ангел вострубил, и сделались град и огонь, сме-
+шанные с кровью, и пали на землю; и третья часть дерев
+сгорела и вся трава зеленая сгорела.'
+  'Третий Ангел вострубил, и упала с неба большая звезда,
+горящая подобно светильнику, и пала на третью часть вод
+и на источники вод. Имя сей звезде полынь: и третья часть
+вод сделались полынью.'
+  Ты стоишь в полыхающем лесу. Небо прочерчивают яркие
+вспышки. А ветер доносит запах обожженной кожи.
 ~
 0 0 forest
 D1
-Wormwood
+Wormwood.
 ~
 ~
 ~
 ~
 Z 0 14129
 D2
-A strange glow
+A strange glow.
 ~
 ~
 ~
 ~
 Z 0 14114
 D3
-Wormwood
+Wormwood.
 ~
 ~
 ~
@@ -4959,22 +5612,31 @@ Wormwood
 Z 0 14127
 S
 #14129
-Wormwood~
-You are in the burning forest of Wormwood. In the sky above you, 
+@eng Wormwood@rus Полынь~
+@eng You are in the burning forest of Wormwood. In the sky above you, 
 stars fall earthward to land with  resounding explosions. The 
 smoke is thick. You hear the wail, and smell the seared flesh
 of the dying from all around you.
+@rus 'Первый Ангел вострубил, и сделались град и огонь, сме-
+шанные с кровью, и пали на землю; и третья часть дерев
+сгорела и вся трава зеленая сгорела.'
+  'Третий Ангел вострубил, и упала с неба большая звезда,
+горящая подобно светильнику, и пала на третью часть вод
+и на источники вод. Имя сей звезде полынь: и третья часть
+вод сделались полынью.'
+  Ты стоишь в полыхающем лесу. Небо прочерчивают яркие
+вспышки. А ветер доносит запах обожженной кожи.
 ~
 0 0 forest
 D2
-Wormwood
+Wormwood.
 ~
 ~
 ~
 ~
 Z 0 14115
 D3
-Wormwood
+Wormwood.
 ~
 ~
 ~
@@ -4982,22 +5644,26 @@ Wormwood
 Z 0 14128
 S
 #14130
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14144
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -5005,29 +5671,33 @@ Armageddon
 Z 0 14131
 S
 #14131
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14132
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14117
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -5035,29 +5705,33 @@ Armageddon
 Z 0 14130
 S
 #14132
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14133
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14118
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -5065,36 +5739,40 @@ Armageddon
 Z 0 14131
 S
 #14133
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Gog
+Gog.
 ~
 ~
 ~
 ~
 Z 0 14147
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14134
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14119
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -5102,22 +5780,26 @@ Armageddon
 Z 0 14132
 S
 #14134
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14135
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -5125,22 +5807,26 @@ Armageddon
 Z 0 14133
 S
 #14135
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14136
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -5148,29 +5834,33 @@ Armageddon
 Z 0 14134
 S
 #14136
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14150
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14137
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -5178,29 +5868,33 @@ Armageddon
 Z 0 14135
 S
 #14137
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14151
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14138
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -5208,36 +5902,40 @@ Armageddon
 Z 0 14136
 S
 #14138
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Into the heavens
+Into the heavens.
 ~
 ~
 ~
 ~
 Z 0 14152
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14139
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14124
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -5245,29 +5943,33 @@ Armageddon
 Z 0 14137
 S
 #14139
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14140
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14125
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -5275,22 +5977,26 @@ Armageddon
 Z 0 14138
 S
 #14140
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14126
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -5305,14 +6011,14 @@ do to make headway on all fours.
 ~
 0 0 mountain
 D0
-The shaking lands
+The shaking lands.
 ~
 ~
 ~
 ~
 Z 0 14155
 D1
-The shaking lands
+The shaking lands.
 ~
 ~
 ~
@@ -5327,21 +6033,21 @@ do to make headway on all fours.
 ~
 0 0 mountain
 D0
-The shaking lands
+The shaking lands.
 ~
 ~
 ~
 ~
 Z 0 14156
 D1
-The shaking lands
+The shaking lands.
 ~
 ~
 ~
 ~
 Z 0 14143
 D3
-The shaking lands
+The shaking lands.
 ~
 ~
 ~
@@ -5356,14 +6062,14 @@ do to make headway on all fours.
 ~
 0 0 mountain
 D0
-The shaking lands
+The shaking lands.
 ~
 ~
 ~
 ~
 Z 0 14157
 D3
-The shaking lands
+The shaking lands.
 ~
 ~
 ~
@@ -5371,22 +6077,26 @@ The shaking lands
 Z 0 14142
 S
 #14144
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14158
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -5403,14 +6113,14 @@ a devil idol.
 ~
 0 AD city
 D0
-Gog
+Gog.
 ~
 ~
 ~
 ~
 Z 0 14159
 D1
-Gog
+Gog.
 ~
 ~
 ~
@@ -5426,21 +6136,21 @@ center of the city.
 ~
 0 AD city
 D0
-Gog
+Gog.
 ~
 ~
 ~
 ~
 Z 0 14160
 D1
-Gog
+Gog.
 ~
 ~
 ~
 ~
 Z 0 14147
 D3
-Gog
+Gog.
 ~
 ~
 ~
@@ -5456,28 +6166,28 @@ center of the city.
 ~
 0 ACD city
 D0
-Gog
+Gog.
 ~
 ~
 ~
 ~
 Z 0 14161
 D1
-Gog
+Gog.
 ~
 ~
 ~
 ~
 Z 0 14148
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14133
 D3
-Gog
+Gog.
 ~
 ~
 ~
@@ -5494,21 +6204,21 @@ blood of a boy for a spell component.
 ~
 0 AD city
 D0
-Gog
+Gog.
 ~
 ~
 ~
 ~
 Z 0 14162
 D1
-Gog
+Gog.
 ~
 ~
 ~
 ~
 Z 0 14149
 D3
-Gog
+Gog.
 ~
 ~
 ~
@@ -5528,14 +6238,14 @@ vial~
 5th vial of wrath: the darkening.
 ~
 D0
-Gog
+Gog.
 ~
 ~
 ~
 ~
 Z 0 14163
 D3
-Gog
+Gog.
 ~
 ~
 ~
@@ -5543,29 +6253,33 @@ Gog
 Z 0 14148
 S
 #14150
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14164
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14151
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -5573,29 +6287,33 @@ Armageddon
 Z 0 14136
 S
 #14151
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14165
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14137
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -5603,29 +6321,34 @@ Armageddon
 Z 0 14150
 S
 #14152
-The heavens~
-You fight the strong buffeting wind of a raging thunderstorm
+@eng The heavens@rus Небеса~
+@eng You fight the strong buffeting wind of a raging thunderstorm
 as you fly upwards into the sky. About you lightning arcs in
 great sizzling bolts, followed by the deafening boom of thunder.
 Rain beats hard against your face, making it difficult to see.
+@rus Ты находишься в самом центре сильнейшей грозы. Порывистый ветер  
+ураганной силы пытается сбить тебя с ног, молнии прочерчивают про-
+странство совсем рядом с тобой, а от звуков грома можно просто ог-
+лохнуть. Ливень застилает глаза, бьет по лицу и не дает разглядеть
+что-либо.
 ~
 0 AC air
 D0
-The heavens
+The heavens.
 ~
 ~
 ~
 ~
 Z 0 14166
 D1
-The heavens
+The heavens.
 ~
 ~
 ~
 ~
 Z 0 14153
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -5633,29 +6356,34 @@ Armageddon
 Z 0 14138
 S
 #14153
-The heavens~
-You fight the strong buffeting wind of a raging thunderstorm
+@eng The heavens@rus Небеса~
+@eng You fight the strong buffeting wind of a raging thunderstorm
 as you fly upwards into the sky. About you lightning arcs in
 great sizzling bolts, followed by the deafening boom of thunder.
 Rain beats hard against your face, making it difficult to see.
+@rus Ты находишься в самом центре сильнейшей грозы. Порывистый ветер  
+ураганной силы пытается сбить тебя с ног, молнии прочерчивают про-
+странство совсем рядом с тобой, а от звуков грома можно просто ог-
+лохнуть. Ливень застилает глаза, бьет по лицу и не дает разглядеть
+что-либо.
 ~
 0 A air
 D0
-The heavens
+The heavens.
 ~
 ~
 ~
 ~
 Z 0 14167
 D1
-The heavens
+The heavens.
 ~
 ~
 ~
 ~
 Z 0 14154
 D3
-The heavens
+The heavens.
 ~
 ~
 ~
@@ -5663,22 +6391,27 @@ The heavens
 Z 0 14152
 S
 #14154
-The heavens~
-You fight the strong buffeting wind of a raging thunderstorm
+@eng The heavens@rus Небеса~
+@eng You fight the strong buffeting wind of a raging thunderstorm
 as you fly upwards into the sky. About you lightning arcs in
 great sizzling bolts, followed by the deafening boom of thunder.
 Rain beats hard against your face, making it difficult to see.
+@rus Ты находишься в самом центре сильнейшей грозы. Порывистый ветер  
+ураганной силы пытается сбить тебя с ног, молнии прочерчивают про-
+странство совсем рядом с тобой, а от звуков грома можно просто ог-
+лохнуть. Ливень застилает глаза, бьет по лицу и не дает разглядеть
+что-либо.
 ~
 0 A air
 D0
-The heavens
+The heavens.
 ~
 ~
 ~
 ~
 Z 0 14168
 D3
-The heavens
+The heavens.
 ~
 ~
 ~
@@ -5693,21 +6426,21 @@ do to make headway on all fours.
 ~
 0 0 mountain
 D0
-The corner of the world
+The corner of the world.
 ~
 ~
 ~
 ~
 Z 0 14169
 D1
-The shaking lands
+The shaking lands.
 ~
 ~
 ~
 ~
 Z 0 14156
 D2
-The shaking lands
+The shaking lands.
 ~
 ~
 ~
@@ -5722,28 +6455,28 @@ do to make headway on all fours.
 ~
 0 0 mountain
 D0
-The shaking lands
+The shaking lands.
 ~
 ~
 ~
 ~
 Z 0 14170
 D1
-The shaking lands
+The shaking lands.
 ~
 ~
 ~
 ~
 Z 0 14157
 D2
-The shaking lands
+The shaking lands.
 ~
 ~
 ~
 ~
 Z 0 14142
 D3
-The shaking lands
+The shaking lands.
 ~
 ~
 ~
@@ -5758,28 +6491,28 @@ do to make headway on all fours.
 ~
 0 C mountain
 D0
-The shaking lands
+The shaking lands.
 ~
 ~
 ~
 ~
 Z 0 14171
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14158
 D2
-The shaking lands
+The shaking lands.
 ~
 ~
 ~
 ~
 Z 0 14143
 D3
-The shaking lands
+The shaking lands.
 ~
 ~
 ~
@@ -5787,29 +6520,33 @@ The shaking lands
 Z 0 14156
 S
 #14158
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14172
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14144
 D3
-The shaking lands
+The shaking lands.
 ~
 ~
 ~
@@ -5825,21 +6562,21 @@ center of the city.
 ~
 0 AD city
 D0
-Gog
+Gog.
 ~
 ~
 ~
 ~
 Z 0 14173
 D1
-Gog
+Gog.
 ~
 ~
 ~
 ~
 Z 0 14160
 D2
-Gog
+Gog.
 ~
 ~
 ~
@@ -5855,28 +6592,28 @@ center of the city.
 ~
 0 AD city
 D0
-Gog
+Gog.
 ~
 ~
 ~
 ~
 Z 0 14174
 D1
-Gog
+Gog.
 ~
 ~
 ~
 ~
 Z 0 14161
 D2
-Gog
+Gog.
 ~
 ~
 ~
 ~
 Z 0 14146
 D3
-Gog
+Gog.
 ~
 ~
 ~
@@ -5896,28 +6633,28 @@ Vial~
 First vial of Divine wrath: the pox.
 ~
 D0
-The unholy shrine
+The unholy shrine.
 ~
 ~
 ~
 ~
 Z 0 14175
 D1
-Gog
+Gog.
 ~
 ~
 ~
 ~
 Z 0 14162
 D2
-Gog
+Gog.
 ~
 ~
 ~
 ~
 Z 0 14147
 D3
-Gog
+Gog.
 ~
 ~
 ~
@@ -5934,28 +6671,28 @@ wine.
 ~
 0 AD city
 D0
-Gog
+Gog.
 ~
 ~
 ~
 ~
 Z 0 14176
 D1
-Gog
+Gog.
 ~
 ~
 ~
 ~
 Z 0 14163
 D2
-Gog
+Gog.
 ~
 ~
 ~
 ~
 Z 0 14148
 D3
-Gog
+Gog.
 ~
 ~
 ~
@@ -5971,21 +6708,21 @@ center of the city.
 ~
 0 AD city
 D0
-Gog
+Gog.
 ~
 ~
 ~
 ~
 Z 0 14177
 D2
-Gog
+Gog.
 ~
 ~
 ~
 ~
 Z 0 14149
 D3
-Gog
+Gog.
 ~
 ~
 ~
@@ -5993,29 +6730,33 @@ Gog
 Z 0 14162
 S
 #14164
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 AD field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14178
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14165
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -6023,29 +6764,33 @@ Armageddon
 Z 0 14150
 S
 #14165
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 AD field
 D0
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14179
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14151
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -6053,29 +6798,34 @@ Armageddon
 Z 0 14164
 S
 #14166
-The heavens~
-You fight the strong buffeting wind of a raging thunderstorm
+@eng The heavens@rus Небеса~
+@eng You fight the strong buffeting wind of a raging thunderstorm
 as you fly upwards into the sky. About you lightning arcs in
 great sizzling bolts, followed by the deafening boom of thunder.
 Rain beats hard against your face, making it difficult to see.
+@rus Ты находишься в самом центре сильнейшей грозы. Порывистый ветер  
+ураганной силы пытается сбить тебя с ног, молнии прочерчивают про-
+странство совсем рядом с тобой, а от звуков грома можно просто ог-
+лохнуть. Ливень застилает глаза, бьет по лицу и не дает разглядеть
+что-либо.
 ~
 0 A air
 D0
-The heavens
+The heavens.
 ~
 ~
 ~
 ~
 Z 0 14180
 D1
-The heavens
+The heavens.
 ~
 ~
 ~
 ~
 Z 0 14167
 D2
-The heavens
+The heavens.
 ~
 ~
 ~
@@ -6083,37 +6833,41 @@ The heavens
 Z 0 14152
 S
 #14167
-The heavens~
-You fight the strong buffeting wind of a raging thunderstorm
+@eng The heavens@rus Небеса~
+@eng You fight the strong buffeting wind of a raging thunderstorm
 as you fly upwards into the sky. About you lightning arcs in
 great sizzling bolts, followed by the deafening boom of thunder.
 Rain beats hard against your face, making it difficult to see.
-Great hail the size of talents pelts you.
+@rus Ты находишься в самом центре сильнейшей грозы. Порывистый ветер  
+ураганной силы пытается сбить тебя с ног, молнии прочерчивают про-
+странство совсем рядом с тобой, а от звуков грома можно просто ог-
+лохнуть. Ливень застилает глаза, бьет по лицу и не дает разглядеть
+что-либо.
 ~
 0 A air
 D0
-The heavens
+The heavens.
 ~
 ~
 ~
 ~
 Z 0 14181
 D1
-The heavens
+The heavens.
 ~
 ~
 ~
 ~
 Z 0 14168
 D2
-The heavens
+The heavens.
 ~
 ~
 ~
 ~
 Z 0 14153
 D3
-The heavens
+The heavens.
 ~
 ~
 ~
@@ -6121,29 +6875,34 @@ The heavens
 Z 0 14166
 S
 #14168
-The heavens~
-You fight the strong buffeting wind of a raging thunderstorm
+@eng The heavens@rus Небеса~
+@eng You fight the strong buffeting wind of a raging thunderstorm
 as you fly upwards into the sky. About you lightning arcs in
 great sizzling bolts, followed by the deafening boom of thunder.
 Rain beats hard against your face, making it difficult to see.
+@rus Ты находишься в самом центре сильнейшей грозы. Порывистый ветер  
+ураганной силы пытается сбить тебя с ног, молнии прочерчивают про-
+странство совсем рядом с тобой, а от звуков грома можно просто ог-
+лохнуть. Ливень застилает глаза, бьет по лицу и не дает разглядеть
+что-либо.
 ~
 0 A air
 D0
-The corner of the world
+The corner of the world.
 ~
 ~
 ~
 ~
 Z 0 14182
 D2
-The heavens
+The heavens.
 ~
 ~
 ~
 ~
 Z 0 14154
 D3
-The heavens
+The heavens.
 ~
 ~
 ~
@@ -6151,22 +6910,26 @@ The heavens
 Z 0 14167
 S
 #14169
-The corner of the world~
-You stand at the corner of the world. As any alchemist will
+@eng The corner of the world@rus Угол мира~
+@eng You stand at the corner of the world. As any alchemist will
 tell you, the world has 4 corners, one devoted to each element, and
 held in place by angels. You are at the earth corner. Beyond the
 corner stretches the infinite black nothing.
+@rus Ты стоишь в одном из углов земли. Один человек сказал тебе когда-то,
+что их существует всего четыре: по одному на каждую из стихий. Это тот
+угол, который отвечает стихии земли. Углы эти держат четыре ангела, а 
+за ангелами только тьма и пустота.
 ~
 0 0 mountain
 D1
-The shaking lands
+The shaking lands.
 ~
 ~
 ~
 ~
 Z 0 14170
 D2
-The shaking lands
+The shaking lands.
 ~
 ~
 ~
@@ -6181,21 +6944,21 @@ do to make headway on all fours.
 ~
 0 0 mountain
 D1
-The shaking lands
+The shaking lands.
 ~
 ~
 ~
 ~
 Z 0 14171
 D2
-The shaking lands
+The shaking lands.
 ~
 ~
 ~
 ~
 Z 0 14156
 D3
-The corner of the world
+The corner of the world.
 ~
 ~
 ~
@@ -6210,14 +6973,14 @@ do to make headway on all fours.
 ~
 0 0 mountain
 D2
-The shaking lands
+The shaking lands.
 ~
 ~
 ~
 ~
 Z 0 14157
 D3
-The shaking lands
+The shaking lands.
 ~
 ~
 ~
@@ -6225,15 +6988,19 @@ The shaking lands
 Z 0 14170
 S
 #14172
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -6249,14 +7016,14 @@ center of the city.
 ~
 0 AD city
 D1
-Gog
+Gog.
 ~
 ~
 ~
 ~
 Z 0 14174
 D2
-Gog
+Gog.
 ~
 ~
 ~
@@ -6272,21 +7039,21 @@ center of the city.
 ~
 0 AD city
 D1
-The unholy shrine
+The unholy shrine.
 ~
 ~
 ~
 ~
 Z 0 14175
 D2
-Gog
+Gog.
 ~
 ~
 ~
 ~
 Z 0 14160
 D3
-Gog
+Gog.
 ~
 ~
 ~
@@ -6303,21 +7070,21 @@ the throne where the beast rests.
 ~
 0 AD city
 D1
-Gog
+Gog.
 ~
 ~
 ~
 ~
 Z 0 14176
 D2
-Gog
+Gog.
 ~
 ~
 ~
 ~
 Z 0 14161
 D3
-Gog
+Gog.
 ~
 ~
 ~
@@ -6333,21 +7100,21 @@ center of the city.
 ~
 0 AD city
 D1
-Gog
+Gog.
 ~
 ~
 ~
 ~
 Z 0 14177
 D2
-Gog
+Gog.
 ~
 ~
 ~
 ~
 Z 0 14162
 D3
-The unholy shrine
+The unholy shrine.
 ~
 ~
 ~
@@ -6363,14 +7130,14 @@ center of the city.
 ~
 0 AD city
 D2
-Gog
+Gog.
 ~
 ~
 ~
 ~
 Z 0 14163
 D3
-Gog
+Gog.
 ~
 ~
 ~
@@ -6378,22 +7145,26 @@ Gog
 Z 0 14176
 S
 #14178
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D1
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14179
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -6401,22 +7172,26 @@ Armageddon
 Z 0 14164
 S
 #14179
-Armageddon~
-You stand in the vast plain of Armageddon. About you angels
+@eng Armageddon@rus Армагеддон~
+@eng You stand in the vast plain of Armageddon. About you angels
 sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
+@rus Та стоишь на бескрайней равнине, имя которой Армагеддон. В небе
+над собой ты видишь ангелов с трубами. И ангелов с серпами, пожи-
+нающии урожай грешников. Солнца нет, оно скрыто во тьме. Только 
+лишь кроваво-красный лунный свет освещает равнину.
 ~
 0 0 field
 D2
-Armageddon
+Armageddon.
 ~
 ~
 ~
 ~
 Z 0 14165
 D3
-Armageddon
+Armageddon.
 ~
 ~
 ~
@@ -6424,22 +7199,27 @@ Armageddon
 Z 0 14178
 S
 #14180
-The heavens~
-You fight the strong buffeting wind of a raging thunderstorm
+@eng The heavens@rus Небеса~
+@eng You fight the strong buffeting wind of a raging thunderstorm
 as you fly upwards into the sky. About you lightning arcs in
 great sizzling bolts, followed by the deafening boom of thunder.
 Rain beats hard against your face, making it difficult to see.
+@rus Ты находишься в самом центре сильнейшей грозы. Порывистый ветер  
+ураганной силы пытается сбить тебя с ног, молнии прочерчивают про-
+странство совсем рядом с тобой, а от звуков грома можно просто ог-
+лохнуть. Ливень застилает глаза, бьет по лицу и не дает разглядеть
+что-либо.
 ~
 0 A air
 D1
-The heavens
+The heavens.
 ~
 ~
 ~
 ~
 Z 0 14181
 D2
-The heavens
+The heavens.
 ~
 ~
 ~
@@ -6447,29 +7227,34 @@ The heavens
 Z 0 14166
 S
 #14181
-The heavens~
-You fight the strong buffeting wind of a raging thunderstorm
+@eng The heavens@rus Небеса~
+@eng You fight the strong buffeting wind of a raging thunderstorm
 as you fly upwards into the sky. About you lightning arcs in
 great sizzling bolts, followed by the deafening boom of thunder.
 Rain beats hard against your face, making it difficult to see.
+@rus Ты находишься в самом центре сильнейшей грозы. Порывистый ветер  
+ураганной силы пытается сбить тебя с ног, молнии прочерчивают про-
+странство совсем рядом с тобой, а от звуков грома можно просто ог-
+лохнуть. Ливень застилает глаза, бьет по лицу и не дает разглядеть
+что-либо.
 ~
 0 A air
 D1
-The corner of the world
+The corner of the world.
 ~
 ~
 ~
 ~
 Z 0 14182
 D2
-The heavens
+The heavens.
 ~
 ~
 ~
 ~
 Z 0 14167
 D3
-The heavens
+The heavens.
 ~
 ~
 ~
@@ -6477,12 +7262,19 @@ The heavens
 Z 0 14180
 S
 #14182
-The corner of the world~
-You have flown to the corner of the sky. Here the wind is
+@eng The corner of the world@rus Угол мира~
+@eng You have flown to the corner of the sky. Here the wind is
 is somewhat calmer than the rest of the heavens. Beyond the 
 corner is the infinite nothing. You feel at peace here. As you
 relax you hear the 7th horn and a SIGHT unfolds before your eyes.
 Floating in the wind is a vial.
+@rus Ты $gn{достиг} угла мира. Дальше ничего нет -- только темнота.
+Прямо в воздухе покачивается пустая чаша, вылитая Ангелом на воздух.
+Здесь ветер отдыхает и набирается сил прежде чем обрушиться всей
+своей мощью на грешную землю. Внезвпно из того расслабленного сос-
+тояния, в котором ты $gn{находился} тебя вырвал звук седьмой трубы.
+У тебя словно открылось второе зрение и способность видеть то, что
+было скрыто до этого момента.
 ~
 0 ATU air
 E
@@ -6492,17 +7284,21 @@ You can see in his temple the ark of his testament.
 The temple of New Jerusalem desends earthward.
 ~
 E
-vial~
-The 7th vial of wrath: lightnings, thunders and hail.~
+vial чаша~
+@eng The 7th vial of wrath: lightnings, thunders and hail.
+@rus Седьмая чаша гнева Господня:
+   'Седьмой ангел вылил чашу свою на воздух: и из храма небесного
+    от престола раздался громкий голос, говорящий: совершилось!'
+~
 D2
-The heavens
+The heavens.
 ~
 ~
 ~
 ~
 Z 0 14168
 D3
-The heavens
+The heavens.
 ~
 ~
 ~
@@ -6517,12 +7313,14 @@ the yourheart~
 AFZ 0 14191
 S
 #14183
-The bottomless pit~
-You fall, forever downwards into the bottomless pit. 
+@eng The bottomless pit@rus Бездна~
+@eng You fall, forever downwards into the bottomless pit. 
+@rus Ты падаешь, падаешь и падаешь. И нет никакой надежды достигнуть
+дна этой бездны.
 ~
 0 ADN inside
 D5
-Falling further into the black pit
+Falling further into the black pit.
 ~
 ~
 ~
@@ -6530,12 +7328,14 @@ Falling further into the black pit
 Z 0 14184
 S
 #14184
-The bottomless pit~
-You fall, forever downwards into the bottomless pit. 
+@eng The bottomless pit@rus Бездна~
+@eng You fall, forever downwards into the bottomless pit. 
+@rus Ты падаешь, падаешь и падаешь. И нет никакой надежды достигнуть
+дна этой бездны.
 ~
 0 ADN inside
 D5
-Falling further into the black pit
+Falling further into the black pit.
 ~
 ~
 ~
@@ -6543,12 +7343,14 @@ Falling further into the black pit
 Z 0 14185
 S
 #14185
-The bottomless pit~
-You fall, forever downwards into the bottomless pit. 
+@eng The bottomless pit@rus Бездна~
+@eng You fall, forever downwards into the bottomless pit. 
+@rus Ты падаешь, падаешь и падаешь. И нет никакой надежды достигнуть
+дна этой бездны.
 ~
 0 ADN inside
 D5
-Falling further into the black pit
+Falling further into the black pit.
 ~
 ~
 ~
@@ -6556,12 +7358,14 @@ Falling further into the black pit
 Z 0 14186
 S
 #14186
-The bottomless pit~
-You fall, forever downwards into the bottomless pit. 
+@eng The bottomless pit@rus Бездна~
+@eng You fall, forever downwards into the bottomless pit. 
+@rus Ты падаешь, падаешь и падаешь. И нет никакой надежды достигнуть
+дна этой бездны.
 ~
 0 ADN inside
 D5
-Falling further into the black pit
+Falling further into the black pit.
 ~
 ~
 ~
@@ -6569,12 +7373,14 @@ Falling further into the black pit
 Z 0 14187
 S
 #14187
-The bottomless pit~
-You fall, forever downwards into the bottomless pit. 
+@eng The bottomless pit@rus Бездна~
+@eng You fall, forever downwards into the bottomless pit. 
+@rus Ты падаешь, падаешь и падаешь. И нет никакой надежды достигнуть
+дна этой бездны.
 ~
 0 ADN inside
 D5
-Falling further into the black pit
+Falling further into the black pit.
 ~
 ~
 ~
@@ -6582,12 +7388,14 @@ Falling further into the black pit
 Z 0 14188
 S
 #14188
-The bottomless pit~
-You fall, forever downwards into the bottomless pit.
+@eng The bottomless pit@rus Бездна~
+@eng You fall, forever downwards into the bottomless pit. 
+@rus Ты падаешь, падаешь и падаешь. И нет никакой надежды достигнуть
+дна этой бездны.
 ~
 0 ADN inside
 D5
-Falling further into the black pit
+Falling further into the black pit.
 ~
 ~
 ~
@@ -6595,12 +7403,14 @@ Falling further into the black pit
 Z 0 14189
 S
 #14189
-The bottomless pit~
-You fall, forever downwards into the bottomless pit. 
+@eng The bottomless pit@rus Бездна~
+@eng You fall, forever downwards into the bottomless pit. 
+@rus Ты падаешь, падаешь и падаешь. И нет никакой надежды достигнуть
+дна этой бездны.
 ~
 0 AD inside
 D5
-Falling further into the black pit
+Falling further into the black pit.
 ~
 ~
 ~
@@ -6608,12 +7418,14 @@ Falling further into the black pit
 Z 0 14190
 S
 #14190
-The bottomless pit~
-You fall, forever downwards into the bottomless pit. 
+@eng The bottomless pit@rus Бездна~
+@eng You fall, forever downwards into the bottomless pit. 
+@rus Ты падаешь, падаешь и падаешь. И нет никакой надежды достигнуть
+дна этой бездны.
 ~
 0 ADN inside
 D5
-Falling further into the black pit
+Falling further into the black pit.
 ~
 ~
 ~
@@ -6770,7 +7582,7 @@ About you are the souls of the dead shuffling foward to be judged.
 ~
 0 NVW inside
 D0
-@eng At the throne
+@eng At the throne.
 @rus Престол.
 ~
 ~
@@ -6854,7 +7666,7 @@ About you are the souls of the dead shuffling foward to be judged.
 ~
 0 NVW inside
 D1
-@eng At the throne
+@eng At the throne.
 @rus Престол.
 ~
 ~
@@ -6862,7 +7674,7 @@ D1
 ~
 Z 0 14198
 D2
-@eng The throne room
+@eng The throne room.
 @rus Перед престолом.
 ~
 ~
@@ -6907,7 +7719,7 @@ D3
 ~
 Z 0 14197
 D4
-@eng Into the black hole
+@eng Into the black hole.
 @rus Черная дыра.
 ~
 ~
@@ -6937,7 +7749,7 @@ D2
 ~
 Z 0 14196
 D3
-@eng At the throne
+@eng At the throne.
 @rus Престол.
 ~
 ~
@@ -6948,15 +7760,15 @@ S
 #0
 
 #SPECIALS
-M 14010 spec_breath_fire	* The white horseman
-M 14011 spec_breath_acid	* The red horseman
+M 14010 spec_breath_fire	* the white horseman
+M 14011 spec_breath_acid	* the red horseman
 M 14012 spec_breath_gas	* The black horseman
 M 14015 spec_cast_mage	* The dragon
 M 14016 spec_cast_cleric	* Jezebel the prophetess
 M 14017 spec_cast_mage	* Balaam the teacher of Balac
 M 14019 spec_cast_mage	* The unclean spirit
 M 14020 spec_cast_mage	* The false prophet
-M 14030 spec_thief	* The thief
+M 14030 spec_thief	* the thief
 S
 
 #RESETS
@@ -6972,8 +7784,8 @@ E 0 14006 0 13		*	The angel of the waters<around the waist>: A golden girdle
 E 0 14007 0 16		*	The angel of the waters<wielded>: A golden sickle
 G 0 14008 0		*	The angel of the waters: The prayers of saints
 M 0 14032 2 14018 1	* The mighty man (The plagued lands)
-M 0 14027 1 14021 1	* The whoremonger (MaGog)
-M 0 14029 1 14022 1	* The harlot (MaGog)
+M 0 14027 1 14021 1	* the whoremonger (MaGog)
+M 0 14029 1 14022 1	* the harlot (MaGog)
 O 0 14035 0 14022	* A fountain of blood (MaGog)
 M 0 14028 1 14023 1	* The murderer (MaGog)
 M 0 14018 1 14034 1	* Balac, disciple of Balaam (MaGog)
@@ -7012,7 +7824,7 @@ M 0 14008 4 14095 1	* The harvesting angel (Armageddon)
 E 0 14006 0 13		*	The harvesting angel<around the waist>: A golden girdle
 E 0 14007 0 16		*	The harvesting angel<wielded>: A golden sickle
 G 0 14008 0		*	The harvesting angel: The prayers of saints
-M 0 14033 2 14098 1	* The former king (The many waters)
+M 0 14033 2 14098 1	* the former king (The many waters)
 O 0 14034 0 14099	* A puddle of blood (The source of the Euphrates)
 M 0 14013 1 14100 1	* The pale horseman (The Euphrates)
 E 0 14017 0 12		*	The pale horseman<about the shoulders>: Death's cloak
@@ -7024,19 +7836,19 @@ E 0 14023 0 5		*	The woman clothed with the sun<on the body>: Clothing of the su
 E 0 14024 0 7		*	The woman clothed with the sun<on the legs>: Clothing of the sun
 E 0 14025 0 8		*	The woman clothed with the sun<on the feet>: The moon under your feet
 M 0 14019 3 14109 1	* The unclean spirit (The Euphrates)
-M 0 14010 1 14110 1	* The white horseman (The Euphrates)
-E 0 14010 0 6		*	The white horseman<over the head>: The white crown of the conquerer
-E 0 14011 0 16		*	The white horseman<wielded>: The white bow of the conquerer
-E 0 14012 0 5		*	The white horseman<on the body>: A breastplate of fire
+M 0 14010 1 14110 1	* the white horseman (The Euphrates)
+E 0 14010 0 6		*	the white horseman<over the head>: the white crown of the conquerer
+E 0 14011 0 16		*	the white horseman<wielded>: the white bow of the conquerer
+E 0 14012 0 5		*	the white horseman<on the body>: A breastplate of fire
 O 0 14034 0 14111	* A puddle of blood (The Euphrates)
 O 0 14033 0 14114	* The morning star (Wormwood)
-P 0 14001 1 0 1	* The morning star: The key of David
-M 0 14011 1 14121 1	* The red horseman (The Euphrates)
-E 0 14013 0 16		*	The red horseman<wielded>: The sword of war
-E 0 14014 0 5		*	The red horseman<on the body>: A breastplate of jacinth
+P 0 14001 1 0 1	* The morning star: the key of David
+M 0 14011 1 14121 1	* the red horseman (The Euphrates)
+E 0 14013 0 16		*	the red horseman<wielded>: The sword of war
+E 0 14014 0 5		*	the red horseman<on the body>: A breastplate of jacinth
 M 0 14019 3 14122 1	* The unclean spirit (The Euphrates)
 O 0 14034 0 14122	* A puddle of blood (The Euphrates)
-M 0 14033 2 14127 1	* The former king (Wormwood)
+M 0 14033 2 14127 1	* the former king (Wormwood)
 M 0 14023 4 14130 1	* The sealed one (Armageddon)
 E 0 14031 0 12		*	The sealed one<about the shoulders>: A white robe
 E 0 14032 0 6		*	The sealed one<over the head>: A seal
@@ -7056,8 +7868,8 @@ E 0 14006 0 13		*	The harvesting angel<around the waist>: A golden girdle
 E 0 14007 0 16		*	The harvesting angel<wielded>: A golden sickle
 G 0 14008 0		*	The harvesting angel: The prayers of saints
 M 0 14032 2 14152 1	* The mighty man (The heavens)
-M 0 14030 1 14160 1	* The thief (Gog)
-E 0 14020 0 3		*	The thief<around the neck>: The mark of the beast
+M 0 14030 1 14160 1	* the thief (Gog)
+E 0 14020 0 3		*	the thief<around the neck>: The mark of the beast
 M 0 14020 1 14161 1	* The false prophet (Gog)
 E 0 14020 0 3		*	The false prophet<around the neck>: The mark of the beast
 O 0 14035 0 14161	* A fountain of blood (Gog)
@@ -7073,9 +7885,7 @@ E 0 14007 0 16		*	The angel of the earth<wielded>: A golden sickle
 G 0 14008 0		*	The angel of the earth: The prayers of saints
 M 0 14024 4 14173 1	* The marked one (Gog)
 E 0 14020 0 3		*	The marked one<around the neck>: The mark of the beast
-M 0 14025 3 14175 3	* The beast (The unholy shrine)
-M 0 14025 3 14175 3	* The beast (The unholy shrine)
-M 0 14025 3 14175 3	* The beast (The unholy shrine)
+M 0 14025 1 14175 1	* The beast (The unholy shrine)
 M 0 14024 4 14177 1	* The marked one (Gog)
 E 0 14020 0 3		*	The marked one<around the neck>: The mark of the beast
 M 0 14014 1 14180 1	* The archangel Michael (The heavens)
@@ -7085,15 +7895,15 @@ M 0 14006 1 14182 1	* The angel of the air (The corner of the world)
 E 0 14006 0 13		*	The angel of the air<around the waist>: A golden girdle
 E 0 14007 0 16		*	The angel of the air<wielded>: A golden sickle
 G 0 14008 0		*	The angel of the air: The prayers of saints
-M 0 14001 3 14184 1	* The giant locust (The bottomless pit)
-E 0 14002 0 5		*	The giant locust<on the body>: An iron breastplate
-E 0 14003 0 16		*	The giant locust<wielded>: A locust stinger
-M 0 14001 3 14186 1	* The giant locust (The bottomless pit)
-E 0 14002 0 5		*	The giant locust<on the body>: An iron breastplate
-E 0 14003 0 16		*	The giant locust<wielded>: A locust stinger
-M 0 14001 3 14188 1	* The giant locust (The bottomless pit)
-E 0 14002 0 5		*	The giant locust<on the body>: An iron breastplate
-E 0 14003 0 16		*	The giant locust<wielded>: A locust stinger
+M 0 14001 3 14184 1	* the giant locust (The bottomless pit)
+E 0 14002 0 5		*	the giant locust<on the body>: An iron breastplate
+E 0 14003 0 16		*	the giant locust<wielded>: A locust stinger
+M 0 14001 3 14186 1	* the giant locust (The bottomless pit)
+E 0 14002 0 5		*	the giant locust<on the body>: An iron breastplate
+E 0 14003 0 16		*	the giant locust<wielded>: A locust stinger
+M 0 14001 3 14188 1	* the giant locust (The bottomless pit)
+E 0 14002 0 5		*	the giant locust<on the body>: An iron breastplate
+E 0 14003 0 16		*	the giant locust<wielded>: A locust stinger
 M 0 14002 1 14190 1	* Abaddon (The bottomless pit)
 E 0 14004 0 5		*	Abaddon<on the body>: The chain of binding
 M 0 14043 1 14192 1	* the eagle creature (In the throne room)
@@ -7115,7 +7925,7 @@ O 14003 4	* A locust stinger
 O 14006 1	* A golden girdle
 O 14007 10	* A golden sickle
 O 14009 5	* A censer
-O 14010 2	* The white crown of the conquerer
+O 14010 2	* the white crown of the conquerer
 O 14012 1	* A breastplate of fire
 O 14013 1	* The sword of war
 O 14014 1	* A breastplate of jacinth

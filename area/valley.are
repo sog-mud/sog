@@ -236,9 +236,10 @@ ENR
 stand stand none 0
 0 0 medium unknown
 #7814
-antelope~
-an antelope~
-An antelope is here, peacefully munching on grass.
+antelope антилопа~
+@eng an antelope@rus антилопа~
+@eng An antelope is here, peacefully munching on grass.
+@rus Антилопа (antelope) мирно щиплет травку.
 ~
 With horns and spots over coarse, brown hair, this beast is the spit and
 image of ... an antelope.
@@ -250,70 +251,71 @@ H 0 0 0 0 0 0
 EFNU
 stand stand none 0
 0 0 medium unknown
+g @eng none@rus female~
 #0
 
 #OBJECTS
 #7800
-chainmail elven chain mail~
-elven chainmail~
-A shiny metallic shirt is on the floor.~
+chainmail elven chain mail эльфийская кольчуга shirt рубаха~
+@eng elven chainmail@rus ~~эльфийская~~ ~~кольчуга~~~
+@eng A shiny metallic shirt is on the floor.@rus Блестящая металическая рубаха (shirt) лежит здесь.~
 iron~
 armor 0 0 AD
 4 4 4 2 0
 5 30 1080 P
-g @rus none~
+g @rus female~
 #7801
-boots elven~
-elven boots~
-Some soft boots are on the floor.~
+boots elven ботинки эльфийские~
+@eng elven boots@rus ~~эльфийские~~ ~~ботинки~~~
+@eng Some soft boots are on the floor.@rus Мягкие эльфийские ботинки (boots) лежат на земле.~
 steel~
 armor 0 0 AG
 3 3 3 0 0
 7 30 390 P
 a '' to_object 7 -1 5 14 0
-g @rus none~
+g @rus plural~
 #7802
-longsword elven sword long~
-an elven longsword~
-A shiny blade is on the floor.~
+longsword elven sword long эльфийский клинок~
+@eng an elven longsword@rus ~~эльфийский~~ ~~клинок~~~
+@eng A shiny blade is on the floor.@rus Светящийся клинок (blade) лежит на земле.~
 steel~
 weapon G 0 AN
 sword 3 3 'slash' 0
 7 30 670 P
 a '' to_object 7 -1 1 18 0
-g @rus none~
+g @rus male~
 #7803
-cloak brown~
-a brown cloak~
-A pile of brown cloth is on the floor.~
+cloak brown коричневый плащ~
+@eng a brown cloak@rus ~~коричневый~~ ~~плащ~~~
+@eng A pile of brown cloth is on the floor.@rus Коричневый плащ (cloak) кучей валяется на полу.~
 cloth~
 armor G 0 AC
 3 3 3 0 0
 7 30 900 P
 a '' to_object 7 -1 1 2 0
-g @rus none~
+g @rus male~
 #7804
-key~
-a key~
-A shiny key is on the floor.~
+key ключ~
+@eng a key@rus ключ~
+@eng A shiny key is on the floor.@rus Блестящий ключ (key) лежит здесь.~
 bronze~
 key 0 0 A
 BCFHJKLM 0 0 0 0
 0 10 0 P
-g @rus none~
+g @rus male~
 #7805
-key~
-a key~
-A shiny key is on the floor.~
+key ключ~
+@eng a key@rus ключ~
+@eng A shiny key is on the floor.@rus Блестящий ключ (key) лежит здесь.~
 wood~
 key 0 0 A
 DGHJKLM 0 0 0 0
 0 10 0 P
-g @rus none~
+g @rus male~
 #7806
-ring gold~
-a gold ring~
-A shiny ring is on the floor.~
+ring gold золотое кольцо~
+@eng a gold ring@rus ~~золотое~~ ~~кольцо~~~
+@eng A shiny ring is on the floor.@rus Излучающее сияние золотое колечко (ring) лежит здесь.~
 gold~
 jewelry G 0 AB
 0 0 0 0 0
@@ -331,149 +333,149 @@ staff 5 5 'pound' F
 a '' to_object 21 -1 2 19 0
 g @rus none~
 #7808
-potion~
-a potion~
-A potion is on the floor.~
+potion зелье~
+@eng a potion@rus зелье~
+@eng A potion is on the floor.@rus Небольшая склянка с непонятным зельем (potion) лежит здесь.~
 glass~
 potion G 0 A
 10 'armor' 'invisibility' '' ''
 0 10 200 P
 g @rus none~
 #7809
-potion~
-a potion~
-A potion is on the floor.~
+potion зелье~
+@eng a potion@rus зелье~
+@eng A potion is on the floor.@rus Небольшая склянка с непонятным зельем (potion) лежит здесь.~
 glass~
 potion G 0 A
 10 'energy drain' '' '' ''
 8 10 580 P
 g @rus none~
 #7810
-potion~
-a potion~
-A potion is on the floor.~
+potion зелье~
+@eng a potion@rus зелье~
+@eng A potion is on the floor.@rus Небольшая склянка с непонятным зельем (potion) лежит здесь.~
 glass~
 potion G 0 A
 10 'detect invis' 'detect magic' '' ''
 4 10 290 P
 g @rus none~
 #7811
-potion~
-a potion~
-A potion is on the floor.~
+potion зелье~
+@eng a potion@rus зелье~
+@eng A potion is on the floor.@rus Небольшая склянка с непонятным зельем (potion) лежит здесь.~
 glass~
 potion G 0 A
 50 'dispel magic' 'dispel magic' 'dispel magic' ''
 6 10 1380 P
 g @rus none~
 #7812
-potion~
-a potion~
-A potion is on the floor.~
+potion зелье~
+@eng a potion@rus зелье~
+@eng A potion is on the floor.@rus Небольшая склянка с непонятным зельем (potion) лежит здесь.~
 glass~
 potion G 0 A
 10 'refresh' 'protection evil' '' ''
 2 10 240 P
 g @rus none~
 #7813
-potion~
-a potion~
-A potion is on the floor.~
+potion зелье~
+@eng a potion@rus зелье~
+@eng A potion is on the floor.@rus Небольшая склянка с непонятным зельем (potion) лежит здесь.~
 glass~
 potion G 0 A
 10 'sleep' '' '' ''
 1 10 250 P
 g @rus none~
 #7814
-potion~
-a potion~
-A potion is on the floor.~
+potion зелье~
+@eng a potion@rus зелье~
+@eng A potion is on the floor.@rus Небольшая склянка с непонятным зельем (potion) лежит здесь.~
 glass~
 potion G 0 A
 10 'bless' '' '' ''
 1 10 220 P
 g @rus none~
 #7815
-potion~
-a potion~
-A potion is on the floor.~
+potion зелье~
+@eng a potion@rus зелье~
+@eng A potion is on the floor.@rus Небольшая склянка с непонятным зельем (potion) лежит здесь.~
 glass~
 potion G 0 A
 10 'cure critical' '' '' ''
 5 10 330 P
 g @rus none~
 #7816
-potion~
-a potion~
-A potion is on the floor.~
+potion зелье~
+@eng a potion@rus зелье~
+@eng A potion is on the floor.@rus Небольшая склянка с непонятным зельем (potion) лежит здесь.~
 glass~
 potion G 0 A
 14 'farsight' '' '' ''
 6 10 420 P
 g @rus none~
 #7817
-scroll~
-a scroll~
-A scroll is on the floor.~
+scroll свиток~
+@eng a scroll@rus свиток~
+@eng A scroll is on the floor.@rus На полу валяется свиток (scroll).~
 vellum~
 scroll G 0 A
 10 'cure critical' '' '' ''
 5 10 660 P
-g @rus none~
+g @rus male~
 #7818
-scroll~
-a scroll~
-A scroll is on the floor.~
+scroll свиток~
+@eng a scroll@rus свиток~
+@eng A scroll is on the floor.@rus На полу валяется свиток (scroll).~
 vellum~
 scroll G 0 A
-16 'enchant armor' '' '' ''
+16 'detect hidden' '' '' ''
 8 10 1090 P
 g @rus none~
 #7819
-scroll~
-a scroll~
-A scroll is on the floor.~
+scroll свиток~
+@eng a scroll@rus свиток~
+@eng A scroll is on the floor.@rus На полу валяется свиток (scroll).~
 vellum~
 scroll G 0 A
 10 'detect evil' '' '' ''
 0 10 400 P
-g @rus none~
+g @rus male~
 #7820
-scroll~
-a scroll~
-A scroll is on the floor.~
+scroll свиток~
+@eng a scroll@rus свиток~
+@eng A scroll is on the floor.@rus На полу валяется свиток (scroll).~
 vellum~
 scroll G 0 A
 10 'create water' '' '' ''
 0 10 400 P
-g @rus none~
+g @rus male~
 #7821
-scroll~
-a scroll~
-A scroll is on the floor.~
+scroll свиток~
+@eng a scroll@rus свиток~
+@eng A scroll is on the floor.@rus На полу валяется свиток (scroll).~
 vellum~
 scroll G 0 A
-10 'magic missile' '' '' ''
+10 'word of recall' '' '' ''
 0 10 400 P
-g @rus none~
+g @rus male~
 #7822
-scroll~
-a scroll~
-A scroll is on the floor.~
+scroll свиток~
+@eng a scroll@rus свиток~
+@eng A scroll is on the floor.@rus На полу валяется свиток (scroll).~
 vellum~
 scroll G 0 A
-10 'chill touch' '' '' ''
+10 'enchant armor' '' '' ''
 0 10 400 P
-g @rus none~
+g @rus male~
 #7823
-scroll~
-a scroll~
-A scroll is on the floor.~
+scroll свиток~
+@eng a scroll@rus свиток~
+@eng A scroll is on the floor.@rus На полу валяется свиток (scroll).~
 vellum~
 scroll G 0 A
 10 'heal' '' '' ''
 11 10 1360 P
-g @rus none~
+g @rus male~
 #7825
 quarterstaff staff two-handed~
 a quarterstaff~
@@ -488,10 +490,15 @@ g @rus none~
 
 #ROOMS
 #7800
-A Path from the Plains~
-You are on a path away from the Plains of Ofcol.  The path doesn't look well
-tread, but it is relatively well kept.  To the south are the Plains of Ofcol,
-while this path leads north.
+@eng A Path from the Plains@rus Дорога с равнин~
+@eng You are on a path away from the Plains of Ofcol.  The path doesn't look
+well tread, but it is relatively well kept.  To the south are the Plains of
+Ofcol, while this path leads north.  
+@rus Ты находишься на дороге, уходящей прочь с равнины, где расположен
+Офкол. Видно, что по этой дороге не слишком часто ходили в прошлом,
+да и сейчас она практически не используема. Тем не менее, дорога на-
+ходится в хорошем состоянии. Дорога уходит на север, на юге она ве-
+дет на равнину.
 ~
 0 0 field
 D0
@@ -552,8 +559,10 @@ You see the small trail.
 Z 0 7802
 S
 #7802
-A Small Trail~
-This small deer trail leads north and east.
+@eng A Small Trail@rus Маленькая тропинка~
+@eng This small deer trail leads north and east.
+@rus Едва заметная звериная тропинка. Отсюда по ней можно пойти на восток
+или на север.
 ~
 0 0 field
 D0
@@ -572,8 +581,10 @@ The main path is to the east.
 Z 0 7801
 S
 #7803
-A Small Trail~
-This small deer trail leads north and west.
+@eng A Small Trail@rus Маленькая тропинка~
+@eng This small deer trail leads north and west.
+@rus Едва заметная звериная тропинка. Отсюда по ней можно пойти на запад
+или на север.
 ~
 0 0 field
 D0
@@ -651,8 +662,9 @@ Z 0 7804
 S
 #7806
 The Edge of the Valley~
-You are at the edge of the Valley of the Elves.  High above you, you see a small
-trail circling the entire valley.  The valley continues north and east.
+You are at the edge of the Valley of the Elves.  High above you, you see
+a small trail circling the entire valley.  The valley continues north and
+east.  
 ~
 0 0 field
 D0
@@ -672,8 +684,9 @@ Z 0 7805
 S
 #7807
 The Edge of the Valley~
-You are at the edge of the Valley of the Elves.  High above you, you see a small
-trail circling the entire valley.  The valley continues north and west.
+You are at the edge of the Valley of the Elves.  High above you, you see
+a small trail circling the entire valley.  The valley continues north and
+west.  
 ~
 0 0 field
 D0
@@ -693,8 +706,9 @@ Z 0 7805
 S
 #7808
 The Edge of the Valley~
-You are at the edge of the Valley of the Elves.  High above you, you see a small
-trail circling the entire valley.  The valley continues north and east.
+You are at the edge of the Valley of the Elves.  High above you, you see
+a small trail circling the entire valley.  The valley continues north and
+east.  
 ~
 0 0 field
 D0
@@ -713,8 +727,10 @@ The valley continues east.
 Z 0 7809
 S
 #7809
-The Valley of the Elves~
-You are in the Valley of the Elves.  The valley continues in all directions.
+@eng The Valley of the Elves@rus Долина эльфов~
+@eng You are in the Valley of the Elves.  The valley continues in all directions.
+@rus Ты находишься в благословенной долине эльфов. Она простивается повсюду, 
+куда ни кинь взгляд.
 ~
 0 0 field
 D0
@@ -747,9 +763,11 @@ The valley continues west.
 Z 0 7808
 S
 #7810
-The Valley of the Elves~
-You are in the Valley of the Elves.  The valley continues in all directions.
+@eng The Valley of the Elves@rus Долина эльфов~
+@eng You are in the Valley of the Elves.  The valley continues in all directions.
 The entrance to the valley is towards the south.
+@rus Ты находишься в благословенной долине эльфов. Она простирается повсюду, 
+куда ни кинь взгляд. Вход в долину находится на юге.
 ~
 0 0 field
 D0
@@ -782,8 +800,10 @@ The valley continues west.
 Z 0 7809
 S
 #7811
-The Valley of the Elves~
-You are in the Valley of the Elves.  The valley continues in all directions.
+@eng The Valley of the Elves@rus Долина эльфов~
+@eng You are in the Valley of the Elves.  The valley continues in all directions.
+@rus Ты находишься в благословенной долине эльфов. Она простивается повсюду, 
+куда ни кинь взгляд.
 ~
 0 0 field
 D0
@@ -837,10 +857,10 @@ The valley continues west.
 Z 0 7811
 S
 #7813
-The Edge of the Valley~
-You are at the edge of the Valley of the Elves.  A steep trail leads up toward
-the deer trail circling the valley.  The valley continues north, south, and
-east.
+@eng The Edge of the Valley@rus Окраина долины эльфов~
+You are at the edge of the Valley of the Elves.  A steep trail leads up
+toward the deer trail circling the valley.  The valley continues north,
+south, and east.  
 ~
 0 0 field
 D0
@@ -873,8 +893,10 @@ The steep trail leads up.
 Z 0 7863
 S
 #7814
-The Valley of the Elves~
-You are in the Valley of the Elves.  The valley continues in all directions.
+@eng The Valley of the Elves@rus Долина эльфов~
+@eng You are in the Valley of the Elves.  The valley continues in all directions.
+@rus Ты находишься в благословенной долине эльфов. Она простивается повсюду, 
+куда ни кинь взгляд.
 ~
 0 0 field
 D0
@@ -907,8 +929,10 @@ The valley continues west.
 Z 0 7813
 S
 #7815
-The Valley of the Elves~
-You are in the Valley of the Elves.  The valley continues in all directions.
+@eng The Valley of the Elves@rus Долина эльфов~
+@eng You are in the Valley of the Elves.  The valley continues in all directions.
+@rus Ты находишься в благословенной долине эльфов. Она простивается повсюду, 
+куда ни кинь взгляд.
 ~
 0 0 field
 D0
@@ -941,8 +965,10 @@ The valley continues west.
 Z 0 7814
 S
 #7816
-The Valley of the Elves~
-You are in the Valley of the Elves.  The valley continues in all directions.
+@eng The Valley of the Elves@rus Долина эльфов~
+@eng You are in the Valley of the Elves.  The valley continues in all directions.
+@rus Ты находишься в благословенной долине эльфов. Она простивается повсюду, 
+куда ни кинь взгляд.
 ~
 0 0 field
 D0
@@ -1032,8 +1058,10 @@ The valley continues south.
 Z 0 7813
 S
 #7819
-The Valley of the Elves~
-You are in the Valley of the Elves.  The valley continues in all directions.
+@eng The Valley of the Elves@rus Долина эльфов~
+@eng You are in the Valley of the Elves.  The valley continues in all directions.
+@rus Ты находишься в благословенной долине эльфов. Она простивается повсюду, 
+куда ни кинь взгляд.
 ~
 0 0 field
 D0
@@ -1066,8 +1094,10 @@ The valley continues west.
 Z 0 7818
 S
 #7820
-The Valley of the Elves~
-You are in the Valley of the Elves.  The valley continues in all directions.
+@eng The Valley of the Elves@rus Долина эльфов~
+@eng You are in the Valley of the Elves.  The valley continues in all directions.
+@rus Ты находишься в благословенной долине эльфов. Она простивается повсюду, 
+куда ни кинь взгляд.
 ~
 0 0 field
 D0
@@ -1100,8 +1130,10 @@ The valley continues west.
 Z 0 7819
 S
 #7821
-The Valley of the Elves~
-You are in the Valley of the Elves.  The valley continues in all directions.
+@eng The Valley of the Elves@rus Долина эльфов~
+@eng You are in the Valley of the Elves.  The valley continues in all directions.
+@rus Ты находишься в благословенной долине эльфов. Она простивается повсюду, 
+куда ни кинь взгляд.
 ~
 0 0 field
 D0
@@ -1156,8 +1188,9 @@ Z 0 7821
 S
 #7823
 The Edge of the Valley~
-You are at the edge of the Valley of the Elves.  High above you, you see a small
-trail circling the entire valley.  The valley continues south and east.
+You are at the edge of the Valley of the Elves.  High above you, you see
+a small trail circling the entire valley.  The valley continues south and
+east.  
 ~
 0 0 field
 D1
@@ -1177,8 +1210,11 @@ Z 0 7819
 S
 #7824
 The Edge of the Valley~
-You are in the Valley of the Elves.  The valley continues in all directions.
+@eng You are in the Valley of the Elves.  The valley continues in all directions.
 To the north, a small, narrow trail leads away from the valley.
+@rus Ты находишься в благословенной долине эльфов. Она простирается во всех
+направлениях. На север ведет маленькая узкая тропинка, уходящая прочь из
+долины.
 ~
 0 0 field
 D0
@@ -1212,8 +1248,9 @@ Z 0 7823
 S
 #7825
 The Edge of the Valley~
-You are at the edge of the Valley of the Elves.  High above you, you see a small
-trail circling the entire valley.  The valley continues south and west.
+You are at the edge of the Valley of the Elves.  High above you, you see
+a small trail circling the entire valley.  The valley continues south and
+west.  
 ~
 0 0 field
 D2
@@ -1374,9 +1411,11 @@ You see the trail.
 Z 0 7829
 S
 #7831
-A Trail in the Valley~
-You are on the trail in the Valley of the Elves.  This trail leads west and
+@eng A Trail in the Valley@rus Тропа в долине~
+@eng You are on the trail in the Valley of the Elves.  This trail leads west and
 east.  To the north is a building.
+@rus Ты ступаешь по тропе, пересекающей долину эльфов. Тропа проходит с
+востока на запад. На севере ты замечаешь строение.
 ~
 0 0 field
 D1
@@ -1466,10 +1505,10 @@ ABZ -1 7829
 S
 #7835
 The Kitchen~
-You are in a community kitchen for this valley elven home.  Pots and pans line
-the walls, along with shelves filled with many foodstuffs.  A big oven is to one
-side, and you can smell elfcakes being baked.
-There is a doorway to the north and one to the west.
+You are in a community kitchen for this valley elven home.  Pots and pans
+line the walls, along with shelves filled with many foodstuffs.  A big oven
+is to one side, and you can smell elfcakes being baked.  There is a doorway
+to the north and one to the west.  
 ~
 0 D inside
 D0
@@ -1530,7 +1569,7 @@ You see the trail.
 Z 0 7832
 S
 #7838
-The Living Room~
+@eng The Living Room@rus Гостинная~
 You are in the living room of the elven home.  Mats cover the floor, and a
 on a table is a bowl full of fruits.  Through the window you can see the
 valley, with its wild flowers and tall, green grasses.
@@ -1552,10 +1591,15 @@ The entrance is to the south.
 Z 0 7834
 S
 #7839
-The Storage Room~
-You are in the storage room of the elven home.  Sacks of flour cover one side,
-and cleaning accessories cover the other side.  You find nothing of use here.
-A staircase leads up.
+@eng The Storage Room@rus Кладовка~
+@eng You are in the storage room of the elven home.  Sacks of flour cover one
+side, and cleaning accessories cover the other side.  You find nothing of
+use here.  A staircase leads up.  
+@rus Обыкновенная комната, куда складывают домашнюю утварь и всякий хлам.
+В одном их углов, ты замечаешь несколько свертков непонятно с чем, в
+другом аккуратно сложены тряпки, ведра и другие предметы полезные при
+уборке дома. Ты не видишь здесь ничего полезного для себя. На верх ве-
+дет лестница.
 ~
 0 D inside
 D2
@@ -1708,8 +1752,10 @@ door~
 ABCZ 7804 7846
 S
 #7846
-The Storage Room~
-You are in a storage room.  Many useless (to you) items fill this room.
+@eng The Storage Room@rus Кладовка~
+@eng You are in a storage room.  Many useless (to you) items fill this room.
+@rus Эта комната используется как место хранения различных вещей. Среди
+лежащего здесь ты видишь много предметов, которые могут пригодиться.
 ~
 0 D inside
 D0
@@ -1728,10 +1774,14 @@ door~
 ABCZ 7804 7845
 S
 #7847
-The Sleeping Quarters~
-You are in the sleeping quarters of the valley elves.  Cots line the floor,
+@eng The Sleeping Quarters@rus Спальня~
+@eng You are in the sleeping quarters of the valley elves.  Cots line the floor,
 with two windows showing a view of the valley.  Books in strange languages
 line the shelves, but nothing of interest is here.
+@rus Это помещение используется эльфами долины как спальня. Маленькие кроватки
+выстроились в ряд между двумя окнами, из которых открывается вид на долину.
+На полках стоят книги, написанные на странном непонятном языке. В общем, в
+комнате нет ничего особенного.
 ~
 0 D inside
 D1
@@ -1750,11 +1800,15 @@ door~
 ABZ -1 7845
 S
 #7848
-Study~
-You are in the study room of the valley elves.  Comfortable mats are on the
+@eng Study@rus Учебный центр~
+@eng You are in the study room of the valley elves.  Comfortable mats are on the
 floor, and musical instruments are neatly stacked on shelves.  Books in
 strange languages line some other elves.  A stairway leads down to the
 first floor.
+@rus Здесь эльфы долины изучают различные премудрости. Пол покрыт циновками,
+на полках ты замечаешь аккуратно сложенные музыкальные инструменты. Книги
+на странных, незнакомых тебе языках, выстроились в шкафу. Вниз, на первый
+этаж, ведет лестница.
 ~
 0 D inside
 D2
@@ -1780,9 +1834,11 @@ You see the first floor.
 Z 0 7839
 S
 #7849
-Along a Windy Trail on the Rim of the Valley~
-You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+@eng Along a Windy Trail on the Rim of the Valley@rus Узкая тропа, огибающая долину~
+@eng You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
 you can see the valley, filled with wild flowers and tall, green grasses.
+@rus Ты ступаешь по узкой тропе, огибающей долину эльфов. Внизу виднеется
+долина, поросшая высокой зеленой травой, доносятся запахи диких цветов.
 ~
 0 0 field
 D1
@@ -1806,9 +1862,11 @@ The trail down doesn't look safe to travel on at all.
 Z 0 7883
 S
 #7850
-Along a Windy Trail on the Rim of the Valley~
-You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+@eng Along a Windy Trail on the Rim of the Valley@rus Узкая тропа, огибающая долину~
+@eng You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
 you can see the valley, filled with wild flowers and tall, green grasses.
+@rus Ты ступаешь по узкой тропе, огибающей долину эльфов. Внизу виднеется
+долина, поросшая высокой зеленой травой, доносятся запахи диких цветов.
 ~
 0 0 field
 D0
@@ -1832,9 +1890,11 @@ The trail down doesn't look safe to travel on at all.
 Z 0 7883
 S
 #7851
-Along a Windy Trail on the Rim of the Valley~
-You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+@eng Along a Windy Trail on the Rim of the Valley@rus Узкая тропа, огибающая долину~
+@eng You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
 you can see the valley, filled with wild flowers and tall, green grasses.
+@rus Ты ступаешь по узкой тропе, огибающей долину эльфов. Внизу виднеется
+долина, поросшая высокой зеленой травой, доносятся запахи диких цветов.
 ~
 0 0 field
 D1
@@ -1858,9 +1918,11 @@ The trail down doesn't look safe to travel on at all.
 Z 0 7883
 S
 #7852
-Along a Windy Trail on the Rim of the Valley~
-You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+@eng Along a Windy Trail on the Rim of the Valley@rus Узкая тропа, огибающая долину~
+@eng You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
 you can see the valley, filled with wild flowers and tall, green grasses.
+@rus Ты ступаешь по узкой тропе, огибающей долину эльфов. Внизу виднеется
+долина, поросшая высокой зеленой травой, доносятся запахи диких цветов.
 ~
 0 0 field
 D0
@@ -1884,10 +1946,13 @@ The trail down doesn't look safe to travel on at all.
 Z 0 7883
 S
 #7853
-Along a Windy Trail on the Rim of the Valley~
-You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+@eng Along a Windy Trail on the Rim of the Valley@rus Узкая тропа, огибающая долину~
+@eng You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
 you can see the valley, filled with wild flowers and tall, green grasses.
 A safe trail leads down into the valley.
+@rus Ты ступаешь по узкой тропе, огибающей долину эльфов. Внизу виднеется
+долина, поросшая высокой зеленой травой, доносятся запахи диких цветов.
+Вниз, в долину, спускается небольшая тропка.
 ~
 0 0 field
 D0
@@ -1911,9 +1976,11 @@ The trail down looks safe.
 Z 0 7817
 S
 #7854
-Along a Windy Trail on the Rim of the Valley~
-You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+@eng Along a Windy Trail on the Rim of the Valley@rus Узкая тропа, огибающая долину~
+@eng You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
 you can see the valley, filled with wild flowers and tall, green grasses.
+@rus Ты ступаешь по узкой тропе, огибающей долину эльфов. Внизу виднеется
+долина, поросшая высокой зеленой травой, доносятся запахи диких цветов.
 ~
 0 0 field
 D2
@@ -1937,9 +2004,11 @@ The trail down doesn't look safe to travel on at all.
 Z 0 7883
 S
 #7855
-Along a Windy Trail on the Rim of the Valley~
-You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+@eng Along a Windy Trail on the Rim of the Valley@rus Узкая тропа, огибающая долину~
+@eng You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
 you can see the valley, filled with wild flowers and tall, green grasses.
+@rus Ты ступаешь по узкой тропе, огибающей долину эльфов. Внизу виднеется
+долина, поросшая высокой зеленой травой, доносятся запахи диких цветов.
 ~
 0 0 field
 D0
@@ -1963,9 +2032,11 @@ The trail down doesn't look safe to travel on at all.
 Z 0 7883
 S
 #7856
-Along a Windy Trail on the Rim of the Valley~
-You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+@eng Along a Windy Trail on the Rim of the Valley@rus Узкая тропа, огибающая долину~
+@eng You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
 you can see the valley, filled with wild flowers and tall, green grasses.
+@rus Ты ступаешь по узкой тропе, огибающей долину эльфов. Внизу виднеется
+долина, поросшая высокой зеленой травой, доносятся запахи диких цветов.
 ~
 0 0 field
 D2
@@ -1989,9 +2060,11 @@ The trail down doesn't look safe to travel on at all.
 Z 0 7883
 S
 #7857
-Along a Windy Trail on the Rim of the Valley~
-You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+@eng Along a Windy Trail on the Rim of the Valley@rus Узкая тропа, огибающая долину~
+@eng You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
 you can see the valley, filled with wild flowers and tall, green grasses.
+@rus Ты ступаешь по узкой тропе, огибающей долину эльфов. Внизу виднеется
+долина, поросшая высокой зеленой травой, доносятся запахи диких цветов.
 ~
 0 0 field
 D1
@@ -2016,12 +2089,18 @@ The trail down doesn't look safe to travel on at all.
 Z 0 7883
 S
 #7858
-On the Rope Bridge~
-You are on the rope bridge.  From here, you can see the whole Valley of the
+@eng On the Rope Bridge@rus Веревочный мост~
+@eng You are on the rope bridge.  From here, you can see the whole Valley of the
 Elves.  To the south, you see the main valley.  To the north-east, you see a
 smaller valley with a building in the center of it.  To the north-west, you
 can see a very small valley with a shack in it's center.  A rope ladder
 leads down into a trail.
+@rus Ты ступаешь по веревочному мосту, покачивающемся под тобой. Вниз свисает
+лесница, сделанная из того же материала, что и мост, по которой можно спу-
+ститься в долину. Отсюда на нее открывается великолепный вид. Можно разгля-
+деть малейшие детали. Видно, что основная часть долины, находится на юге. 
+Но зато на северо-востоке и на северо-западе, в небольших долинках, ответ-
+вляющихся от основной расположились живописные домики.
 ~
 0 0 field
 D1
@@ -2045,9 +2124,11 @@ You see the trail.
 Z 0 7826
 S
 #7859
-Along a Windy Trail on the Rim of the Valley~
-You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+@eng Along a Windy Trail on the Rim of the Valley@rus Узкая тропа, огибающая долину~
+@eng You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
 you can see the valley, filled with wild flowers and tall, green grasses.
+@rus Ты ступаешь по узкой тропе, огибающей долину эльфов. Внизу виднеется
+долина, поросшая высокой зеленой травой, доносятся запахи диких цветов.
 ~
 0 0 field
 D1
@@ -2072,9 +2153,11 @@ The trail down doesn't look safe to travel on at all.
 Z 0 7883
 S
 #7860
-Along a Windy Trail on the Rim of the Valley~
-You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+@eng Along a Windy Trail on the Rim of the Valley@rus Узкая тропа, огибающая долину~
+@eng You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
 you can see the valley, filled with wild flowers and tall, green grasses.
+@rus Ты ступаешь по узкой тропе, огибающей долину эльфов. Внизу виднеется
+долина, поросшая высокой зеленой травой, доносятся запахи диких цветов.
 ~
 0 0 field
 D1
@@ -2104,9 +2187,11 @@ The trail down doesn't look safe to travel on at all.
 Z 0 7883
 S
 #7861
-Along a Windy Trail on the Rim of the Valley~
-You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+@eng Along a Windy Trail on the Rim of the Valley@rus Узкая тропа, огибающая долину~
+@eng You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
 you can see the valley, filled with wild flowers and tall, green grasses.
+@rus Ты ступаешь по узкой тропе, огибающей долину эльфов. Внизу виднеется
+долина, поросшая высокой зеленой травой, доносятся запахи диких цветов.
 ~
 0 0 field
 D0
@@ -2130,9 +2215,11 @@ The trail down doesn't look safe to travel on at all.
 Z 0 7883
 S
 #7862
-Along a Windy Trail on the Rim of the Valley~
-You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+@eng Along a Windy Trail on the Rim of the Valley@rus Узкая тропа, огибающая долину~
+@eng You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
 you can see the valley, filled with wild flowers and tall, green grasses.
+@rus Ты ступаешь по узкой тропе, огибающей долину эльфов. Внизу виднеется
+долина, поросшая высокой зеленой травой, доносятся запахи диких цветов.
 ~
 0 0 field
 D1
@@ -2156,10 +2243,13 @@ The trail down doesn't look safe to travel on at all.
 Z 0 7883
 S
 #7863
-Along a Windy Trail on the Rim of the Valley~
-You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+@eng Along a Windy Trail on the Rim of the Valley@rus Узкая тропа, огибающая долину~
+@eng You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
 you can see the valley, filled with wild flowers and tall, green grasses.
 A safe trail leads down into the valley.
+@rus Ты ступаешь по узкой тропе, огибающей долину эльфов. Внизу виднеется
+долина, поросшая высокой зеленой травой, доносятся запахи диких цветов.
+Тропинка убегает вниз, в долину.
 ~
 0 0 field
 D0
@@ -2183,9 +2273,11 @@ The trail down looks safe.
 Z 0 7813
 S
 #7864
-Along a Windy Trail on the Rim of the Valley~
-You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+@eng Along a Windy Trail on the Rim of the Valley@rus Узкая тропа, огибающая долину~
+@eng You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
 you can see the valley, filled with wild flowers and tall, green grasses.
+@rus Ты ступаешь по узкой тропе, огибающей долину эльфов. Внизу виднеется
+долина, поросшая высокой зеленой травой, доносятся запахи диких цветов.
 ~
 0 0 field
 D0
@@ -2209,9 +2301,11 @@ The trail down doesn't look safe to travel on at all.
 Z 0 7883
 S
 #7865
-Along a Windy Trail on the Rim of the Valley~
-You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+@eng Along a Windy Trail on the Rim of the Valley@rus Узкая тропа, огибающая долину~
+@eng You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
 you can see the valley, filled with wild flowers and tall, green grasses.
+@rus Ты ступаешь по узкой тропе, огибающей долину эльфов. Внизу виднеется
+долина, поросшая высокой зеленой травой, доносятся запахи диких цветов.
 ~
 0 0 field
 D2
@@ -2235,9 +2329,11 @@ The trail down doesn't look safe to travel on at all.
 Z 0 7883
 S
 #7866
-Along a Windy Trail on the Rim of the Valley~
-You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+@eng Along a Windy Trail on the Rim of the Valley@rus Узкая тропа, огибающая долину~
+@eng You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
 you can see the valley, filled with wild flowers and tall, green grasses.
+@rus Ты ступаешь по узкой тропе, огибающей долину эльфов. Внизу виднеется
+долина, поросшая высокой зеленой травой, доносятся запахи диких цветов.
 ~
 0 0 field
 D0
@@ -2261,9 +2357,11 @@ The trail down doesn't look safe to travel on at all.
 Z 0 7883
 S
 #7867
-Along a Windy Trail on the Rim of the Valley~
-You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
+@eng Along a Windy Trail on the Rim of the Valley@rus Узкая тропа, огибающая долину~
+@eng You are on a narrow trail on the rim of the Valley of the Elves.  Below you,
 you can see the valley, filled with wild flowers and tall, green grasses.
+@rus Ты ступаешь по узкой тропе, огибающей долину эльфов. Внизу виднеется
+долина, поросшая высокой зеленой травой, доносятся запахи диких цветов.
 ~
 0 0 field
 D2
@@ -2288,8 +2386,8 @@ Z 0 7883
 S
 #7868
 A Bend in the Trail~
-You are on a bend in the trail leading from the main valley.  The hills around
-you make this trail quite narrow.
+You are on a bend in the trail leading from the main valley.  The hills
+around you make this trail quite narrow.  
 ~
 0 0 field
 D0
@@ -2309,9 +2407,9 @@ Z 0 7827
 S
 #7869
 A Bend in the Trail~
-You are on a bend in the trail leading from the main valley.  The hills around
-you make this trail quite narrow.  To the west, you can see an even smaller
-valley, with looks like a small shack in the center of it.
+You are on a bend in the trail leading from the main valley.  The hills
+around you make this trail quite narrow.  To the west, you can see an even
+smaller valley, with looks like a small shack in the center of it.  
 ~
 0 0 field
 D2
@@ -2331,9 +2429,9 @@ Z 0 7870
 S
 #7870
 The Small Valley~
-You are in the small valley.  Strangely, tall trees grow here, almost as if some
-magic was used to help them grow.  The exit from this valley is to the east, and
-the entrance to the shack is to the west.
+You are in the small valley.  Strangely, tall trees grow here, almost as
+if some magic was used to help them grow.  The exit from this valley is to
+the east, and the entrance to the shack is to the west.  
 ~
 0 0 field
 D0
@@ -2599,9 +2697,11 @@ door~
 ABCZ 7805 7880
 S
 #7882
-The Storage Room~
-This room is used to store scrolls, potions, and other magical items.  The
+@eng The Storage Room@rus Кладовка~
+@eng This room is used to store scrolls, potions, and other magical items.  The
 whole room radiates with a magical aura.
+@rus Эта комната используется для хранения волшебных микстур, свитков и
+других магических предметов. Вся комната наполнена магической энергией.
 ~
 0 D inside
 D3
@@ -2680,7 +2780,6 @@ O 0 7817 0 7846	* a scroll (The Storage Room)
 O 0 7815 0 7846	* a potion (The Storage Room)
 O 0 7816 0 7846	* a potion (The Storage Room)
 O 0 7819 0 7846	* a scroll (The Storage Room)
-M 0 7806 5 7847 2	* a valley elf (The Sleeping Quarters)
 M 0 7806 5 7847 2	* a valley elf (The Sleeping Quarters)
 M 0 7803 4 7848 1	* a valley elf sentry (Study)
 E 0 7800 0 5		*	a valley elf sentry<on the body>: elven chainmail
@@ -2764,6 +2863,10 @@ O 0 7814 0 7882	* a potion (The Storage Room)
 O 0 7813 0 7882	* a potion (The Storage Room)
 O 0 7823 0 7882	* a scroll (The Storage Room)
 M 0 7812 1 7882 1	* the guardian daemon (The Storage Room)
+S
+
+#OLIMITS
+O 7818 2	* a scroll
 S
 
 #$

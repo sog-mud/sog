@@ -258,14 +258,18 @@ CDEFIJKQ
 stand stand male 1000
 0 0 medium unknown
 #14711
-red dragon~
-a red dragon~
-A red dragon prepares to incinerate you.
+dragon red красный дракон~
+@eng a red dragon@rus ~~красный~~ ~~дракон~~~
+@eng A red dragon prepares to incinerate you.
+@rus Красный дракон (dragon) собирается сжечь тебя своим дыханием.
 ~
-This dragon is one of Krothgar's five favorites, and is loyal to its master.
+@eng This dragon is one of Krothgar's five favorites, and is loyal to its master.
 Huge teeth protrude from a mouth capable of spewing forth destructive matter
 and baleful eyes gleam dangerously from above this maw directly at you. You
 regret your intrusion.
+@rus Этот дракон -- один из пяти фаворитов, Лорда Кротгара, верный своему
+хозяину. Огромные зубы торчат из его пасти. Мрачные глаза опасно блестят,
+в упор глядя на тебя. Ты сожалеешь, что $gn{пришел} сюда.
 ~
 red dragon~
 BFG 0 J 0 AB -1000 0
@@ -274,6 +278,7 @@ BFG 0 J 0 AB -1000 0
 CEFM
 stand stand none 1000
 0 0 medium unknown
+g @eng none@rus male~
 r bash -33
 r pierce 50
 r fire -33
@@ -1522,9 +1527,9 @@ a '' to_object 50 -1 4 18 0
 a '' to_object 50 -1 6 19 0
 g @rus none~
 #14757
-tiara~
-a tiara~
-A tiara lies here.~
+tiara тиара~
+@eng a tiara@rus тиара~
+@eng A tiara lies here.@rus Драгоценная тиара (tiara) лежит здесь.~
 unknown~
 armor GJ 0 AE
 17 17 16 7 0
@@ -1532,7 +1537,7 @@ armor GJ 0 AE
 a '' to_object 50 -1 2 3 0
 a '' to_object 50 -1 2 4 0
 a '' to_object 50 -1 25 12 0
-g @rus none~
+g @rus female~
 #14758
 key~
 a door key~
@@ -4157,7 +4162,7 @@ D3
 Z -1 14781
 S
 #14781
-A Junction~
+@eng The end of corridor@rus Конец коридора~
 @eng You may head through doors to the north or south from here, or back east
 to the outer fortress. There is a sign on the south door, and a plaque on
 the northern.
@@ -4475,7 +4480,7 @@ D3
 Z -1 14789
 S
 #14793
-A Spiral Staircase~
+@eng A Spiral Staircase@rus Спиральная лестница~
 @eng You are ascending a spiral staircase that winds up into the heights of the
 multitude of towers that adorn the heights of the Fortress.
 @rus Ты поднимаешься по спиральной лестнице, которая ведет к вершине множества
@@ -4499,6 +4504,8 @@ S
 @eng A Landing@rus Площадка~
 @eng You have come to a landing, upon which are 4 doors leading in the cardinal
 directions. The staircase continues its climb in the center.
+@rus Ты $gn{достиг} лестничной площадки. По сторонам света расположились
+четыре двери. А лестница ведет дальше наверх.
 ~
 0 D inside
 D0
@@ -4539,11 +4546,15 @@ D5
 Z 0 14793
 S
 #14795
-A Bedchamber~
-You have entered a luxurious boudoir full of expensive furniture and a wide
+@eng A Bedchamber@rus Спальные апартаменты~
+@eng You have entered a luxurious boudoir full of expensive furniture and a wide
 variety of perfumes, unguents and other cosmetics. Piles of clothing are
 piled on the floor, as if someone had but recently gone through them in
 search of an outfit.
+@rus Ты $gn{вступил} в роскошный будуар, обставленный дорогой мебелью.
+Туалетный столик заставлен всевозможными духами, мазями и другой
+косметикой. Горы одежды разбросаны по полу, видимо, кто-то недавно
+подбирал себе туалет по вкусу.
 ~
 0 D inside
 D0
@@ -4554,11 +4565,15 @@ D0
 ABZ 0 14794
 S
 #14796
-A Bedchamber~
-You have entered a luxurious boudoir full of expensive furniture and a wide
+@eng A Bedchamber@rus Спальные апартаменты~
+@eng You have entered a luxurious boudoir full of expensive furniture and a wide
 variety of perfumes, unguents and other cosmetics. Piles of clothing are
 piled on the floor, as if someone had but recently gone through them in
 search of an outfit.
+@rus Ты $gn{вступил} в роскошный будуар, обставленный дорогой мебелью.
+Туалетный столик заставлен всевозможными духами, мазями и другой
+косметикой. Горы одежды разбросаны по полу, видимо, кто-то недавно
+подбирал себе туалет по вкусу.
 ~
 0 D inside
 D1
@@ -4569,11 +4584,16 @@ D1
 ABZ 0 14794
 S
 #14797
-A Hall~
-You have entered a long dining hall filled with a huge table lined with
+@eng A Hall@rus Зала~
+@eng You have entered a long dining hall filled with a huge table lined with
 high-backed chairs. Seated in these chairs are skeletons (the normal sort)
 clad in royal regalia- these are the many opponents that Krothgar has
 vanquished. He keeps their mortal remains here as trophies.
+@rus Ты $gn{вошел} в протяженную столовую, в центре которой стоит длинный
+стол, по периметру обставленный стульями. Сидят на этих стульях скелеты,
+украшенные королевскими регалиями -- это те, кто имел несчастье противо-
+стоять Лорду Кротгару и были им побеждены. Теперь их останки здесь, в 
+качестве трофеев Лорда.
 ~
 0 D inside
 D2
@@ -4584,11 +4604,15 @@ D2
 ABZ 0 14794
 S
 #14798
-A Bedchamber~
-You have entered a luxurious boudoir full of expensive furniture and a wide
+@eng A Bedchamber@rus Спальные апартаменты~
+@eng You have entered a luxurious boudoir full of expensive furniture and a wide
 variety of perfumes, unguents and other cosmetics. Piles of clothing are
 piled on the floor, as if someone had but recently gone through them in
 search of an outfit.
+@rus Ты $gn{вступил} в роскошный будуар, обставленный дорогой мебелью.
+Туалетный столик заставлен всевозможными духами, мазями и другой
+косметикой. Горы одежды разбросаны по полу, видимо, кто-то недавно
+подбирал себе туалет по вкусу.
 ~
 0 D inside
 D3
@@ -4599,9 +4623,11 @@ D3
 ABZ 0 14794
 S
 #14799
-A Spiral Staircase~
-You are ascending a spiral staircase that winds up into the heights of the
+@eng A Spiral Staircase@rus Спиральная лестница~
+@eng You are ascending a spiral staircase that winds up into the heights of the
 multitude of towers that adorn the heights of the Fortress.
+@rus Ты поднимаешься по спиральной лестнице, которая ведет к вершине множества
+башен, украшающих верхнюю часть Крепости.
 ~
 0 D inside
 D4
@@ -4618,12 +4644,19 @@ D5
 Z -1 14794
 S
 #14800
-The Throne Room~
-You have entered the Throne Room of Lord Krothgar. He sits here, upon his
+@eng The Throne Room@rus Тронный зал~
+@eng You have entered the Throne Room of Lord Krothgar. He sits here, upon his
 throne, located in the center of the 5 towers which emerge in all directions
 from this room. In each tower resides a powerful dragon, loyal allies of the
 Lord. Long wall hangings depict the many victories won by Krothgar, and
 in between them stand members of his elite guard, ready to defend their lord.
+@rus Ты находишься в тронном зале Лорда Крогтара. Он сидит на своем троне
+в центре зала в окружении пяти башен, расположенных на севере, на юге,
+на западе, на востоке от его трона. А еще одна башня возвышается прямо
+над ним. В каждой башне живет по могущественному дракону, являющихся
+союзниками Лорда. Длинная стена завешена изобрашениями множества побед
+Лорда Кротгара. И возле нее стоит член элитной гвардии, всегда готовый
+защитить своего повелителя.
 ~
 0 D inside
 D0
@@ -4664,9 +4697,12 @@ D5
 Z -1 14799
 S
 #14801
-Dragon Tower~
-In this tower rests a huge dragon, the largest of its kind. It will not
+@eng Dragon Tower@rus Башня дракона~
+@eng In this tower rests a huge dragon, the largest of its kind. It will not
 appreciate being disturbed by a mortal such as yourself...
+@rus В этой башне отдыхает огромный дракон, самый крупный среди своих
+сородичей. Смертные (вроде тебя) не представляют для него никакого
+интереса.
 ~
 0 D inside
 D2
@@ -4677,9 +4713,12 @@ D2
 Z -1 14800
 S
 #14802
-Dragon Tower~
-In this tower rests a huge dragon, the largest of its kind. It will not
+@eng Dragon Tower@rus Башня дракона~
+@eng In this tower rests a huge dragon, the largest of its kind. It will not
 appreciate being disturbed by a mortal such as yourself...
+@rus В этой башне отдыхает огромный дракон, самый крупный среди своих
+сородичей. Смертные (вроде тебя) не представляют для него никакого
+интереса.
 ~
 0 D inside
 D1
@@ -4690,9 +4729,12 @@ D1
 Z -1 14800
 S
 #14803
-Dragon Tower~
-In this tower rests a huge dragon, the largest of its kind. It will not
+@eng Dragon Tower@rus Башня дракона~
+@eng In this tower rests a huge dragon, the largest of its kind. It will not
 appreciate being disturbed by a mortal such as yourself...
+@rus В этой башне отдыхает огромный дракон, самый крупный среди своих
+сородичей. Смертные (вроде тебя) не представляют для него никакого
+интереса.
 ~
 0 D inside
 D0
@@ -4703,9 +4745,12 @@ D0
 Z -1 14800
 S
 #14804
-Dragon Tower~
-In this tower rests a huge dragon, the largest of its kind. It will not
+@eng Dragon Tower@rus Башня дракона~
+@eng In this tower rests a huge dragon, the largest of its kind. It will not
 appreciate being disturbed by a mortal such as yourself...
+@rus В этой башне отдыхает огромный дракон, самый крупный среди своих
+сородичей. Смертные (вроде тебя) не представляют для него никакого
+интереса.
 ~
 0 D inside
 D3
@@ -4716,9 +4761,12 @@ D3
 Z -1 14800
 S
 #14805
-Dragon Tower~
-In this tower rests a huge dragon, the largest of its kind. It will not
+@eng Dragon Tower@rus Башня дракона~
+@eng In this tower rests a huge dragon, the largest of its kind. It will not
 appreciate being disturbed by a mortal such as yourself...
+@rus В этой башне отдыхает огромный дракон, самый крупный среди своих
+сородичей. Смертные (вроде тебя) не представляют для него никакого
+интереса.
 ~
 0 D inside
 D5
@@ -4729,9 +4777,11 @@ D5
 Z -1 14800
 S
 #14806
-Stables~
-Here, the blackguard keep their steeds, evil destriers bred on the plains
+@eng Stables@rus Конюшня~
+@eng Here, the blackguard keep their steeds, evil destriers bred on the plains
 of Hel itself.
+@rus Здесь стража держит своих скакунов, специально для них выведенных 
+на равнине.
 ~
 0 AD inside
 D4

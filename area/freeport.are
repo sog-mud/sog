@@ -9,64 +9,77 @@ End
 
 #MOBILES
 #29201
-lizard blue-tongued~
-the blue-tongued lizard~
-A blue-tongued lizard hisses at you.
+lizard ящерица blue-tongued голубая~
+@eng the blue-tongued lizard@rus ~~голубая~~ ~~ящерица~~~
+@eng A blue-tongued lizard hisses at you.
+@rus Голубая ящерица (lizard) шипит на тебя.
 ~
-The blue-tongued lizard measures some 18" from head to tail,
+@eng The blue-tongued lizard measures some 18" from head to tail,
 is very quick, and has sharp pointy teeth.
+@rus Эта ящерица длиной примерно 18 дюймов от головы до кончика хвоста.
+Она на редкость проворна и у нее очень острые зубы!
 ~
 lizard~
 CH 0 0 0 0 0 0
 8 0 2d7+96 5d5+100 1d7+2 'bite'
 3 3 3 8
 FHMR
-stand stand none 0
+stand stand female 0
 0 P small unknown
 r cold 50
 r poison -33
 #29202
-lizard red-tongued~
-the red-tongued lizard~
-A red-tongued lizard hisses at you.
+lizard ящерица red-tongued красная~
+@eng the red-tongued lizard@rus ~~красная~~ ~~ящерица~~~
+@eng A red-tongued lizard hisses at you.
+@rus Красная ящерица (lizard) шипит на тебя.
 ~
-The red-tongued lizard measures some 18" from head to tail,
+@eng The red-tongued lizard measures some 18" from head to tail,
 is very quick, and has sharp pointy teeth.
+@rus Эта ящерица длиной примерно 18 дюймов от головы до кончика хвоста.
+Она на редкость проворна и у нее очень острые зубы!
 ~
 lizard~
 CH 0 0 0 0 0 0
 9 0 2d6+110 5d5+100 1d8+2 'bite'
 2 2 2 7
 HMR
-stand stand none 0
+stand stand female 0
 0 0 small unknown
 r cold 50
 r poison -33
 #29203
-lizard green-tongued~
-the green-tongued lizard~
-A green-tongued lizard hisses at you.
+lizard ящерица green-tongued зеленая~
+@eng the green-tongued lizard@rus ~~зеленая~~ ~~ящерица~~~
+@eng A green-tongued lizard hisses at you.
+@rus Зеленая ящерица (lizard) шипит на тебя.
 ~
-The green-tongued lizard measures some 18" from head to tail,
+@eng The green-tongued lizard measures some 18" from head to tail,
 is very quick, and has sharp pointy teeth.
+@rus Эта ящерица длиной примерно 18 дюймов от головы до кончика хвоста.
+Она на редкость проворна и у нее очень острые зубы!
 ~
 lizard~
 CH 0 0 0 0 0 0
 8 0 2d7+96 5d5+100 1d7+2 'bite'
 3 3 3 8
 FHMR
-stand stand none 0
+stand stand female 0
 0 0 small unknown
 r cold 50
 r poison -33
 #29204
-watchman man old sailor~
-the watchman of Widow's Cape~
-An old sailor is here tending the watchfire.
+watchman сторож man человек old старый sailor моряк~
+@eng the watchman of Widow's Cape@rus ~~сторож~~ Вдовьего Мыса~
+@eng An old sailor is here tending the watchfire.
+@rus Старый моряк (watchman) следит за сигнальными огнями маяка.
 ~
-You strike up a conversation with the watchman. He tells you that
+@eng You strike up a conversation with the watchman. He tells you that
 he has noticed several craft entering and leaving Freeport harbor
 at night, but when he reported it, nobody seemed to care.
+@rus Ты вступил в разговор со сторожем маяка. Он рассказал тебе, что ночью
+он заметил несколько кораблей,  тайно входящих и выходящих из гавани,
+но никто из вышестоящих чиновников не обратил на его рассказ внимания.
 ~
 human~
 BC 0 0 0 0 300 0
@@ -76,13 +89,16 @@ EFNU
 stand stand male 100
 0 0 medium unknown
 #29205
-fisherman man~
-the fisherman~
-A fisherman with a long cane pole angles here.
+fisherman рыбак man рыболов~
+@eng the fisherman@rus рыболов~
+@eng A fisherman with a long cane pole angles here.
+@rus Рыболов (fisherman) с длинной тростниковой удочкой ловит тут рыбу.
 ~
-You strike up a conversation with the fisherman. He tells you that
+@eng You strike up a conversation with the fisherman. He tells you that
 you really should try the blue-tongued lizards which hide in the
 jetty rocks.
+@rus Из разговора с рыбаком ты $gn{узнал}, что тебе действительно стоит попробо-
+вать мясо голубых ящериц, прячущихся между камней дамбы.
 ~
 human~
 BC 0 0 0 0 200 0
@@ -92,12 +108,15 @@ EFNU
 stand stand male 10
 0 0 medium unknown
 #29206
-longshoreman worker dock man~
-the longshoreman~
-A dock worker is here lifting a heavy crate.
+longshoreman грузчик worker рабочий dock портовый man~
+@eng the longshoreman@rus ~~портовый~~ ~~грузчик~~~
+@eng A dock worker is here lifting a heavy crate.
+@rus Портовый грузчик (longshoreman) ворочает тяжелый ящик.
 ~
-The dockworker is dressed in loose-fitting cotton clothing and uses
+@eng The dockworker is dressed in loose-fitting cotton clothing and uses
 a rope to lift the heavy crate.
+@rus Портовый грузчик, одетый в свободную одежду из хлопка, использует веревку,
+чтобы ворочать свои ящики. 
 ~
 human~
 C 0 0 0 0 0 0
@@ -107,12 +126,16 @@ EFNU
 stand stand male 10
 0 0 medium unknown
 #29207
-harbormaster man~
-the harbormaster~
-The harbormaster is here asking you what you have to declare.
+harbormaster таможенник man~
+@eng the harbormaster@rus таможенник~
+@eng The harbormaster is here asking you what you have to declare.
+@rus Таможенник (harbormaster) приказывает тебе продекларировать свой груз.
 ~
-The harbormaster is an old hand at this, and doesn't put up with
+@eng The harbormaster is an old hand at this, and doesn't put up with
 any crap from you. Give him his list or go to the brig.
+@rus Этот таможенник собаку съел в своем  деле и не даст себя обмануть. Лучше
+тебе сделать то, что он просит  -  предъявить список контрабанды, которую 
+ты пытаешься тайком пронести.
 ~
 human~
 BC 0 0 0 0 0 0
@@ -122,11 +145,13 @@ EFNU
 stand stand male 300
 0 0 medium unknown
 #29208
-citizen freeport~
-the citizen of Freeport~
-A citizen of Freeport walks along, whistling a sailing song.
+citizen горожанин freeport свободной гавани~
+@eng the citizen of Freeport@rus горожанин~
+@eng A citizen of Freeport walks along, whistling a sailing song.
+@rus Горожанин (citizen) проходит мимо, насвистывая морскую песенку.
 ~
-The citizen is dressed in light cotton clothing and sandals.
+@eng The citizen is dressed in light cotton clothing and sandals.
+@rus Горожанин одет в легкую хлопчатобумажную одежду и сандалии.
 ~
 human~
 C 0 0 0 0 200 0
@@ -136,11 +161,13 @@ EFNU
 stand stand male 15
 0 0 medium unknown
 #29209
-child laughing~
-the laughing child~
-A small child is laughing and playing a game here.
+child ребенок laughing смеющийся~
+@eng the laughing child@rus ~~смеющийся~~ ~~ребенок~~~
+@eng A small child is laughing and playing a game here.
+@rus Маленький ребенок (child), смеясь, играет неподалеку.
 ~
-The child is dressed in a white cotton shirt.
+@eng The child is dressed in a white cotton shirt.
+@rus Ребенок одет в белую хлопчатобумажную рубашку.
 ~
 human~
 C 0 0 0 0 500 0
@@ -150,13 +177,16 @@ EFNU
 stand stand female 1
 0 0 medium unknown
 #29210
-wife sailor's~
-the sailor's wife~
-A sailor's wife asks you to keep her company while her
+wife жена sailor's моряка~
+@eng the sailor's wife@rus ~~жена~~ моряка~
+@eng A sailor's wife asks you to keep her company while her
 husband is away at sea.
+@rus Жена моряка (wife) просит тебя составить ей компанию, пока мужа нет.
 ~
-The sailor's wife is dressed in a simple cotton dress,
+@eng The sailor's wife is dressed in a simple cotton dress,
 and has hair bleached blond by the sun and the sea.
+@rus Жена моряка одета в простую хлопчатобумажную одежду. Ее волосы
+выбелены солнцем и морем.
 ~
 human~
 C 0 0 0 0 100 0
@@ -166,14 +196,19 @@ EFNU
 stand stand female 3
 0 0 medium unknown
 #29211
-shipbuilder master~
-the master shipbuilder~
-The master shipbuilder is here, working on a new prototype.
+shipbuilder корабел master мастер~
+@eng the master shipbuilder@rus ~~мастер~~ ~~корабел~~~
+@eng The master shipbuilder is here, working on a new prototype.
+@rus Мастер корабел (shipbuilder) работает над новым прототипом судна.
 ~
-After introducing yourself and the usual small talk, you 
+@eng After introducing yourself and the usual small talk, you 
 find out from the master shipbuilder that he has been recently
 commissioned to build 3 triremes, boats which offer little 
 cargo storage, but excellent raiding speed.
+@rus После короткого знакомства и обычного в таких случаях обмена любезностями,
+ты узнаешь от корабела, что недавно он получил заказ на строительство трех
+трирем, высокоскоростных судов,  которые,  однако,  могут  принять на борт 
+минимальное количество груза. Это будут явно не обычные торговые корабли...
 ~
 human~
 BCe 0 0 0 0 300 0
@@ -183,12 +218,14 @@ EFNU
 stand stand male 8000
 0 0 medium unknown
 #29212
-apprentice shipbuilder~
-the apprentice shipbuilder~
-An apprentice shipbuilder is here applying pitch to a seam.
+apprentice ученик shipbuilder корабела~
+@eng the apprentice shipbuilder@rus ~~ученик~~ корабела~
+@eng An apprentice shipbuilder is here applying pitch to a seam.
+@rus Ученик корабела (apprentice) тщательно проклеивает швы.
 ~
-The apprentice shipbuilder is a young boy dressed in a dirty
+@eng The apprentice shipbuilder is a young boy dressed in a dirty
 grey smock.
+@rus Ученик корабела - это молодой мальчик, одетый в грязную серую блузу.
 ~
 human~
 BC 0 0 0 0 300 0
@@ -198,13 +235,17 @@ EFNU
 stand stand male 18
 0 0 medium unknown
 #29213
-overseer warehouse~
-the warehouse overseer~
-The warehouse overseer is here, yelling at a longshoreman.
+overseer смотритель warehouse склада~
+@eng the warehouse overseer@rus ~~смотритель~~ склада~
+@eng The warehouse overseer is here, yelling at a longshoreman.
+@rus Смотритель склада (overseer) кричит на грузчика.
 ~
-The warehouse overseer complains about the shoddy record keeping
+@eng The warehouse overseer complains about the shoddy record keeping
 of his employees. Why just this last month the records show 60 missing
 crates bound for destinations around the world.
+@rus Смотритель жалуется тебе по поводу дрянного ведения учетных записей его
+работниками.  Только за этот месяц, согласно отчетам, 60 ящиков исчезли
+в неизвестном направлении.
 ~
 human~
 BC 0 0 0 0 300 0
@@ -214,12 +255,15 @@ EFNU
 stand stand male 340
 0 0 medium unknown
 #29214
-patrolman harbor~
-the harbor patrolman~
-The harbor patrol is here, so you better behave.
+patrolman патрульный harbor портовый~
+@eng the harbor patrolman@rus ~~портовый~~ ~~патрульный~~~
+@eng The harbor patrol is here, so you better behave.
+@rus Ведите себя прилично в присутствии патрульного (patrolman).
 ~
-The harbor patrolman is dressed in light armor. He is well armed
+@eng The harbor patrolman is dressed in light armor. He is well armed
 though, and looks like he is in no mood for your crap.
+@rus Портовый патрульный носит легкие доспехи. Однако, он достаточно
+хорошо вооружен, и, кажется, не собирается церемониться с тобой.
 ~
 human~
 C 0 0 0 0 500 0
@@ -229,11 +273,14 @@ EFNU
 stand stand male 100
 0 0 medium unknown
 #29215
-teamster~
-the teamster~
-A teamster is here, taking a wagonload of cargo to the wharf.
+teamster возчик~
+@eng the teamster@rus возчик~
+@eng A teamster is here, taking a wagonload of cargo to the wharf.
+@rus Возчик (teamster) подгоняет тележку с грузом к пристани.
 ~
-The teamster drives his single mule with a long whip and foul language.
+@eng The teamster drives his single mule with a long whip and foul language.
+@rus Возчик управляет своим единственным мулом с помощью длинного кнута и
+грязной ругани.
 ~
 human~
 C 0 0 0 0 0 0
@@ -243,13 +290,16 @@ EFNU
 stand stand male 70
 0 0 medium unknown
 #29216
-lefty~
-Lefty, owner of the Sunken Pirate~
-Lefty, owner of the Sunken Pirate, dispenses food and drink here.
+lefty трактирщик лефти~
+@eng Lefty, owner of the Sunken Pirate@rus ~~Трактирщик~~ Лефти~
+@eng Lefty, owner of the Sunken Pirate, dispenses food and drink here.
+@rus Лефти (Lefty), владелец "Пирата-Утопленника", продает еду и выпивку.
 ~
-When you ask about the recent gossip, Lefty tells you that he heard
+@eng When you ask about the recent gossip, Lefty tells you that he heard
 a shady looking bunch talking about how Oglethorpe the master merchant
 had sold out Freeport to the pirates.
+@rus Трактирщик поведал тебе последние слухи о том, что старший купец
+Oglethorpe продал Свободную Гавань пиратам.
 ~
 human~
 BCe 0 0 0 0 600 0
@@ -259,14 +309,19 @@ EFNU
 stand stand male 10000
 0 0 medium unknown
 #29217
-anwar~
-Anwar, proprietor of the Emporium~
-Anwar is here offering exotic goods for your inspection.
+anwar владелец анвар~
+@eng Anwar, proprietor of the Emporium@rus Анвар~
+@eng Anwar is here offering exotic goods for your inspection.
+@rus Анвар (Anwar) предлагает тебе широкий выбор экзотических товаров.
 ~
-You flip Anwar a gold coin. He holds out his hand for more. You give
+@eng You flip Anwar a gold coin. He holds out his hand for more. You give
 him 50 gold. He tells you that he has access to some goods which are
 very cheap in which you might be interested. When you scoff at his
 fenced goods, Anwar clams up.
+@rus Ты даешь Анвару золотую монету. Однако он все еще протягивает свою руку.
+Ты даешь ему еще 50 золотых.  Тогда он сообщает тебе,  что может достать
+некоторые интересующие тебя вещи практически нахаляву.  В  ответ на твои
+насмешки над его товарами, Анвар угрюмо замыкается в себе.
 ~
 elf~
 BCVe 0 0 0 0 -300 0
@@ -278,14 +333,20 @@ stand stand male 15000
 r negative 10
 r charm -33
 #29218
-raedner dwarf dwarven smith~
-Raedner the dwarven smith~
-A dwarven smith hammers on a suit of plate armor here.
+raedner dwarf гном dwarven кузнец smith рэднер~
+@eng Raedner the dwarven smith@rus ~~кузнец~~ ~~Рэднер~~~
+@eng A dwarven smith hammers on a suit of plate armor here.
+@rus Гном-кузнец (Raedner) создает новый комплект доспехов.
 ~
-Raedner gladly accepts a pull from your ale skin. As he wipes his brow,
+@eng Raedner gladly accepts a pull from your ale skin. As he wipes his brow,
 he begins a story about how he thinks the last election was rigged, since
 nobody he had talked to voted for Mayor Friendly. He offers to repair your
 armor.
+@rus Рэднер с благодарностью принимает твое предложение глотнуть пива. Вытерев
+пот с лица,  он рассказывает тебе историю о том,  что результаты последних
+выборов мэра Свободной Гавани были, по его мнению, фальсифицированы. Никто,
+с кем ему приходилось говорить, не голосовал за мэра Френдли.  После этого
+кузнец предлагает подремонтировать твои доспехи.
 ~
 dwarf~
 BCSVe 0 0 0 0 700 0
@@ -310,14 +371,21 @@ r harm 33
 r charm 33
 r sound 33
 #29219
-samantha~
-Samantha, witch of the Mystic Eye~
-Samantha, witch of the Mystic Eye displays her ample goods for you.
+samantha ведьма~
+@eng Samantha, witch of the Mystic Eye@rus ~~ведьма~~ ~~Саманта~~~
+@eng Samantha, witch of the Mystic Eye displays her ample goods for you.
+@rus Саманта (Samantha), хозяйка "Мистического Глаза" показывает свои товары.
 ~
-Samantha bats her eyes at you with no shame at all. She propositions you
+@eng Samantha bats her eyes at you with no shame at all. She propositions you
 for some indecent activity. You accept to pump her for more information.
 She lets slip that Lord Mourning was seen recently in her shop. She offers
 to identify anything you may have.
+@rus Саманта томно смотрит на тебя своими прекрасными глазами. Она как будто
+подталкивает тебя к  кое-чему  не совсем приличному.  Ты принимаешь это
+предложение, надеясь получить от ведьмы еще немного полезной информации.
+Во время приятного времяпровождения, Саманта  вскользь упоминает о  том,
+что недавно в ее лавке побывал Лорд Моурнинг. Кроме того, Саманта умеет
+идентифицировать вещи.
 ~
 human~
 BCRVe 0 0 0 0 -700 0
@@ -327,12 +395,15 @@ EFNU
 stand stand female 15000
 0 0 medium unknown
 #29220
-apprentice merchant~
-the apprentice merchant~
-An apprentice merchant tries to interest you in a trip to Dunkeldorf.
+apprentice ученик merchant купца~
+@eng the apprentice merchant@rus ~~ученик~~ купца~
+@eng An apprentice merchant tries to interest you in a trip to Dunkeldorf.
+@rus Ученик купца (apprentice) пытается навязать тебе поездку в Дункельдорф.
 ~
-The apprentice is trying to fill his docket for the evening's tide. He
+@eng The apprentice is trying to fill his docket for the evening's tide. He
 wears a simple yellow smock.
+@rus Ученик пытается заполнить квитанцию об уплате таможенной пошлины. Он носит
+простую блузу желтого цвета.
 ~
 human~
 BC 0 0 0 0 200 0
@@ -342,13 +413,17 @@ EFNU
 stand stand male 300
 0 0 medium unknown
 #29221
-ceres merchant~
-Ceres, merchant of the 3rd chair~
-Ceres, master merchant of the 3rd chair greets you with a warm smile.
+ceres церес merchant купец~
+@eng Ceres, merchant of the 3rd chair@rus ~~купец~~ ~~Керес~~~
+@eng Ceres, master merchant of the 3rd chair greets you with a warm smile.
+@rus Керес (Ceres), старший купец третьего кресла, приветствует тебя улыбкой.
 ~
-You strike up a conversation with Ceres. He tells you that he was recently
+@eng You strike up a conversation with Ceres. He tells you that he was recently
 threatened by Oglethorpe (1st chair) when he brought up the subject of
 missing records of the guild.
+@rus Во время диалога с Кересом ты узнаешь, что недавно он подвергся угрозам со
+стороны Оглторпа (1-е кресло), когда пытался поднять вопрос о пропадающих
+торговых записях.
 ~
 human~
 BC 0 0 0 0 400 0
@@ -358,13 +433,17 @@ EFNU
 stand stand male 1000
 0 0 medium unknown
 #29222
-elken banker~
-Elken, banker of Freeport~
-Elken, banker of Freeport awaits your next deposit.
+elken элкин banker банкир~
+@eng Elken, banker of Freeport@rus ~~банкир~~ ~~Элкин~~~
+@eng Elken, banker of Freeport awaits your next deposit.
+@rus Элкин (Elken), банкир Свободной Гавани, ждет твоего следующего вклада.
 ~
-Elken seems to squirm and shift when you begin gentle inquiries into
+@eng Elken seems to squirm and shift when you begin gentle inquiries into
 the strange happenings of Freeport. He excuses himself and goes to
 talk to a teller, who in turn leaves the bank in a hurry.
+@rus Элкин начинает морщится как от зубной боли, когда ты пытаешься ненавязчиво
+разузнать о недавних странных событиях в Свободной Гавани. Он извиняется и
+шепчет что-то кассиру, который тут же в спешке покидает здание банка.
 ~
 human~
 BC 0 0 0 0 -500 0
@@ -374,15 +453,21 @@ EFNU
 stand stand male 1000
 0 0 medium unknown
 #29224
-cadet young~
-the young cadet~
-A young cadet stops to offer you assistance.
+cadet кадет young молодой~
+@eng the young cadet@rus ~~молодой~~ ~~кадет~~~
+@eng A young cadet stops to offer you assistance.
+@rus Молодой кадет (cadet) останавливается и предлагает тебе свою помощь.
 ~
-You strike up a conversation, and he tells you of the rigors of the
+@eng You strike up a conversation, and he tells you of the rigors of the
 Naval academy. He relays a funny story of how during last summers
 sailors games he took his girl off to a secret tunnel from Freeport
 bay, and wound up sinking his boat and having to swim back, missing
 the final race.
+@rus Во время завязавшегося разговора  вы узнаете  о  суровых порядках Морской
+Академии. Кадет ссылается на забавную историю о том, как во время морских
+учений прошлым летом он со своей девушкой поплыл  в секретный  туннель из
+бухты Свободной Гавани. Закончилось это тем, что он потопил свою лодку  и
+был вынужден самостоятельно плыть обратно, пропустив заключительную гонку.
 ~
 human~
 BC 0 0 0 0 400 0
@@ -392,15 +477,22 @@ EFNU
 stand stand male 10
 0 0 medium unknown
 #29225
-whitecap old salt~
-Whitecap, 8th Admiral of Freeport~
-An old salt sits here smoking his pipe.
+whitecap уайткэп old старый salt моряк адмирал~
+@eng Whitecap, 8th Admiral of Freeport@rus ~~адмирал~~ ~~Уайткэп~~~
+@eng An old salt sits here smoking his pipe.
+@rus Старый моряк (salt) неподвижно сидит здесь, потягивая трубку.
 ~
-You offer Whitecap some honey gold pipe tobacco. He smiles, kicks back,
+@eng You offer Whitecap some honey gold pipe tobacco. He smiles, kicks back,
 and lights up his pipe. An hour later, you are much wiser in the ways of the
 sea. He also tells you of how recently he has grown concerned for the
 first admiral of Freeport, Blacksail, who has acquired an addiction to
 devil weed.
+@rus Ты  предлагаешь Уайткэпу немного золотого трубочного табака  из своего
+личного запаса. Моряк улыбается, откидывается назад и  с удовольствием
+затягивается. Уже через час ты почувствовал, что знаешь все  (ну почти
+все) о мореплавании. Кроме того, Уайткэп поведал тебе о своей растущей
+озабоченности о первом адмирале Свободной Гавани,  Блэксэйле,  который
+приобрел наркотическую привязанность к дьявольской траве.
 ~
 human~
 BCQ 0 0 0 0 900 0
@@ -410,13 +502,18 @@ EFNU
 stand stand male 500
 0 0 medium unknown
 #29226
-mayor friendly~
-Mayor Friendly~
-Mayor Friendly greets you with a smile and a handshake.
+mayor мэр friendly френдли~
+@eng Mayor Friendly@rus ~~мэр~~ ~~Френдли~~~
+@eng Mayor Friendly greets you with a smile and a handshake.
+@rus Мэр Френдли (Friendly) приветствует тебя улыбкой и рукопожатием.
 ~
-When you begin to subtly inquire about the strange happenings in Freeport
+@eng When you begin to subtly inquire about the strange happenings in Freeport
 Mayor Friendly gets nervous and clams up. You notice that he keeps looking
 at a white marble statue.
+@rus Когда ты начинаешь тонко расспрашивать мэра о странных событиях в Свободной
+Гавани, его свинячьи глазенки начинают бегать по сторонам, часто останавли-
+ваясь на белой мраморной статуе. Статуя как статуя. По-твоему, просто  без-
+дарная дешевка... Но проверить не мешает.
 ~
 human~
 BC 0 0 0 0 -700 0
@@ -426,14 +523,20 @@ EFNU
 stand stand male 6000
 0 0 medium unknown
 #29227
-midge innkeeper~
-Midge, the innkeeper of the Crew's Quarters~
-Midge, the innkeeper of the Crew's Quarters offers you a wholesome meal.
+midge мидж innkeeper владелица гостиницы~
+@eng Midge, the innkeeper of the Crew's Quarters@rus Мидж~
+@eng Midge, the innkeeper of the Crew's Quarters offers you a wholesome meal.
+@rus Мидж (Midge), владелица гостиницы "Веселый Кубрик", угощает тебя обедом.
 ~
-Midge sits down with you as you have the meal, as her business right now
+@eng Midge sits down with you as you have the meal, as her business right now
 has been slow. She tells you that her business has steadily declined for
 the last 6 years. Recently her business picked up again. In fact, she 
 just last month had a week stay by a very rich visitor named Lord Vulture.
+@rus Мидж присаживается рядом, пока ты занимаешься усиленным поглощением еды.
+Она рассказывает,  что ее доходы медленно снижаются последние 6  лет. Но
+недавно бизнес  как будто  снова  пошел в гору. Это связано с тем, что в
+прошлом месяце в гостинице на целую неделю остановливался очень богатый
+человек, которого зовут Лорд Валчер.
 ~
 human~
 BCe 0 0 0 0 400 0
@@ -443,26 +546,30 @@ EFNU
 stand stand female 9000
 0 0 medium unknown
 #29228
-sailor scruffy pirate~
-the scruffy pirate~
-A scruffy sailor labors here to unload crates.
+sailor моряк scruffy потрепанный pirate пират~
+@eng the scruffy pirate@rus ~~потрепанный~~ ~~моряк~~~
+@eng A scruffy sailor labors here to unload crates.
+@rus Потрепанный моряк (sailor) трудится тут, без устали разгружая ящики.
 ~
-The sailor reeks of rum and the sea.
+@eng The sailor reeks of rum and the sea.
+@rus От моряка несет ромом и морем.
 ~
 human~
-C E 0 0 0 -200 0
+C 0 0 0 0 -200 0
 45 0 25d10+3000 5d5+1000 8d4+16 'slash'
 -15 -15 -15 2
 EFNU
 stand stand male 45
 0 0 medium unknown
 #29229
-guard stoic pirate~
-the pirate guard~
-A stoic guard stands here, barring the way.
+guard стражник stoic стоический pirate пират~
+@eng the pirate guard@rus ~~пират~~-~~стражник~~~
+@eng A stoic guard stands here, barring the way.
+@rus Стоический стражник (guard) нагло преграждает тебе дорогу.
 ~
-The guard is heavily armed and moves with military 
+@eng The guard is heavily armed and moves with military 
 precision.
+@rus Стражник отлично вооружен и отличается военной точностью движений.
 ~
 human~
 BCF 0 0 0 H -600 0
@@ -472,14 +579,19 @@ EFNU
 stand stand male 150
 0 0 medium unknown
 #29230
-blacksail admiral~
-Admiral Blacksail~
-Admiral Blacksail is here, shivering from his addiction to devil weed.
+blacksail блэксэйл admiral адмирал~
+@eng Admiral Blacksail@rus ~~адмирал~~ ~~Блэксэйл~~~
+@eng Admiral Blacksail is here, shivering from his addiction to devil weed.
+@rus Адмирал Блэксэйл (Blacksail) трясется из-за своей наркотической зависимости.
 ~
-You confront Blacksail with his villainy. He begs for your mercy. He
+@eng You confront Blacksail with his villainy. He begs for your mercy. He
 claims Mourning forced him into his present addiction, and threatens
 to cut him off from all devil weed unless he complies with his every
 whim.
+@rus Ты обвиняешь Блэксэйла в подлости. Он просит у тебя прощения и говорит,
+что это Моурнинг пристрастил его к наркотику.  Потом он угрожает,  что 
+прекратит поставки дьявольской травы Моурнингу, пока тот не станет вы-
+полнять малейшие прихоти адмирала.
 ~
 human~
 BC 0 0 0 0 -200 0
@@ -489,14 +601,21 @@ EFNU
 stand stand male 250
 0 0 medium unknown
 #29231
-oglethorpe master merchant~
-Oglethorpe, 1st Master Merchant of Freeport~
-Oglethorpe, the 1st Master Merchant of Freeport, startles at your presence!
+oglethorpe оглторп master старший merchant купец~
+@eng Oglethorpe, 1st Master Merchant of Freeport@rus Оглторп~
+@eng Oglethorpe, the 1st Master Merchant of Freeport, startles at your presence!
+@rus Оглторп (Oglethorpe), Старшина Купцов, удивленно смотрит на тебя.
 ~
-Oglethorpe, when faced with your accusations proudly admits to skimming
+@eng Oglethorpe, when faced with your accusations proudly admits to skimming
 off profits from his information scandal and ties to the pirate lords.
 He laughs at your puny attempts to frighten him, and vows your slow, cold
 torture. With that, he laughs and eats a blue lizard tongue.
+@rus Оглторп,  слыша от тебя обвинения в свой адрес,  гордо признает снижение
+прибылей после поступления информации о его связи с пиратскими главарями
+и  разразившегося вслед за этим скандала.  На все  твои попытки запугать 
+его, Оглторп отвечает презрительным смехом и предсказывает тебе мучитель-
+ную смерть от жестоких пыток. После чего он заглатывает язык голубой яще-
+рицы.
 ~
 human~
 BC 0 0 0 0 -1000 0
@@ -506,15 +625,21 @@ EFNU
 stand stand male 1500
 0 0 medium unknown
 #29232
-mourning lord~
-Lord Mourning~
-Lord Mourning, the secret 6th Pirate Lord laughs at you!
+mourning моурнинг lord лорд~
+@eng Lord Mourning@rus ~~лорд~~ ~~Моурнинг~~~
+@eng Lord Mourning, the secret 6th Pirate Lord laughs at you!
+@rus Лорд Моурнинг (Mourning), 6-й король пиратов, смеется тебе в лицо.
 ~
-Bah! Who are you to threaten me? I was sinking navies when you were a mere
+@eng Bah! Who are you to threaten me? I was sinking navies when you were a mere
 strapling on your mother's teat! I will destroy you! And if not me, then
 someone else, for every one of us you kill, 2 more sprout up to take my
 place! With that Lord Mourning draws his saber and eats a blue lizard 
 tongue.
+@rus Ба! Кто ты такой,  чтобы угрожать МНЕ? Я топил целые флоты, когда ты еще
+пешком под стол $gn{ходил}! Я уничтожу тебя! А если и не я, то кто-нибудь дру-
+гой. Вместо каждого убитого тобой пирата появятся еще двое, чтобы занять
+мое место! С этими словами, лорд Моурнинг обнажает свою сабли и есть язык
+голубой ящерицы.
 ~
 human~
 BC 0 J 0 0 -1000 0
@@ -524,17 +649,21 @@ EFNU
 stand stand male 500
 0 0 medium unknown
 #29233
-sailor drunken~
-the drunken sailor~
-A drunken sailor staggers here.
+sailor моряк drunken пьяный~
+@eng the drunken sailor@rus ~~пьяный~~ ~~моряк~~~
+@eng A drunken sailor staggers here.
+@rus Пьяный моряк (sailor) бредет, покачиваясь из стороны в сторону.
 ~
-The drunken sailor has been a long time away at sea, and this is his
+@eng The drunken sailor has been a long time away at sea, and this is his
 first day back in port. His wandering drunk shows on his clothing. Here
 a stain from the red wine he had this morning. There is the gravy from
 the meat he had for lunch.
+@rus Пьяница провел много времени в море и это его первый день после возвращения
+в порт. На его одежде хорошо видны следы вина и еды,  употребеленной им  во
+время обеда.
 ~
 human~
-C E 0 0 0 0 0
+C 0 0 0 0 0 0
 8 0 2d7+96 5d5+100 1d7+2 'pound'
 3 3 3 8
 EFNU
@@ -544,274 +673,275 @@ stand stand male 10
 
 #OBJECTS
 #29201
-key old~
-an old key~
-An old key is lying on the ground.~
+key ключ old старый~
+@eng an old key@rus ~~старый~~ ~~ключ~~~
+@eng An old key is lying on the ground.@rus Старый ключ (key) лежит на земле.~
 iron~
 key 0 0 A
 0 0 0 0 0
 44 1 440 P
-g @rus none~
+g @rus male~
 #29202
-tongue blue lizard~
-a blue lizard tongue~
-A blue lizard tongue is here.~
+tongue язык blue голубой lizard ящерицы~
+@eng a blue lizard tongue@rus ~~язык~~ голубой ящерицы~
+@eng A blue lizard tongue is here.@rus Ты видишь язык (tongue) голубой ящерицы.~
 flesh~
 pill 0 0 A
 30 'sanctuary' '' '' ''
 8 1 450 P
-g @rus none~
+g @rus male~
 #29203
-tongue red lizard~
-a red lizard tongue~
-A red lizard tongue is here.~
+tongue язык red красной lizard ящерицы~
+@eng a red lizard tongue@rus ~~язык~~ красной ящерицы~
+@eng A red lizard tongue is here.@rus Ты видишь язык (tongue) красной ящерицы.~
 flesh~
 pill 0 0 A
 30 'poison' '' '' ''
 9 1 90 P
-g @rus none~
+g @rus male~
 #29204
-tongue green lizard~
-a green lizard tongue~
-A green lizard tongue is here.~
+tongue язык green зеленой lizard ящерицы~
+@eng a green lizard tongue@rus ~~язык~~ зеленой ящерицы~
+@eng A green lizard tongue is here.@rus Ты видишь язык (tongue) голубой ящерицы.~
 flesh~
 pill 0 0 A
 30 'curse' '' '' ''
 8 1 80 P
-g @rus none~
+g @rus male~
 #29205
-watchfire~
-a watchfire~
-A watchfire is here, burning brightly.~
+watchfire сигнальный костер огонь~
+@eng a watchfire@rus ~~сигнальный~~ ~~огонь~~~
+@eng A watchfire is here, burning brightly.@rus Сигнальный огонь (watchfire) ярко светит в ночи.~
 unknown~
 light A 0 AO
 0 0 999 0 0
 10 20 100 P
-g @rus none~
+g @rus male~
 #29206
-pole fishing~
-a fishing pole~
-A fishing pole is here, hooked and baited.~
+pole fishing удочка~
+@eng a fishing pole@rus удочка~
+@eng A fishing pole is here, hooked and baited.@rus Удочка (pole) с грузилом и крючком лежит тут.~
 wood~
 weapon 0 0 AN
 exotic 3 5 'none' 0
 10 30 100 P
-g @rus none~
+g @rus female~
 #29207
-notebook~
-a notebook~
-A notebook has been left here.~
+notebook блокнот~
+@eng a notebook@rus блокнот~
+@eng A notebook has been left here.@rus Ты видишь забытый кем-то блокнот (notebook).~
 vellum~
 treasure G 0 AO
 0 0 0 0 0
 29 4 290 P
-g @rus none~
+g @rus male~
 #29208
-globe patrol~
-a patrol globe~
-A glowing globe has been left here.~
+globe шар patrol патрульного~
+@eng a patrol globe@rus ~~шар~~ патрульного~
+@eng A glowing globe has been left here.@rus Ты видишь ярко светящийся шар (globe).~
 glass~
 light A 0 AO
 0 0 999 0 0
 20 5 200 P
 a '' to_object 20 -1 -5 24 0
-g @rus none~
+g @rus male~
 #29209
-mail scale~
-scale mail~
-A suit of scale mail is here.~
+mail броня scale чешуйчатая~
+@eng scale mail@rus ~~чешуйчатая~~ ~~броня~~~
+@eng A suit of scale mail is here.@rus Чешуйчататя броня (mail) оставлена тут.~
 iron~
 armor G 0 AD
 7 7 7 0 0
 20 20 200 P
-g @rus none~
+g @rus female~
 #29210
-trident~
-a trident~
-A trident has been left here.~
+trident трезубец~
+@eng a trident@rus трезубец~
+@eng A trident has been left here.@rus  Трезубец (trident) брошен кем-то на землю.~
 wood~
 weapon G 0 AN
 polearm 5 5 'none' 0
 20 90 200 P
 a '' to_object 20 -1 3 19 0
-g @rus none~
+g @rus male~
 #29211
-pie meat~
-a steaming meat pie~
-A steaming meat pie is here.~
+pie пирог meat мясной~
+@eng a steaming meat pie@rus ~~мясной~~ ~~пирог~~~
+@eng A steaming meat pie is here.@rus Дымящийся мясной пирог (pie) вызывает голодное урчание у тебя в животе.~
 flesh~
 food 0 0 A
 D D 0 0 0
 0 2 5 P
-g @rus none~
+g @rus male~
 #29212
-grog sailor's~
-a mug of sailor's grog~
-A mug of sailor's grog is here.~
+grog грог sailor's кружка~
+@eng a mug of sailor's grog@rus ~~кружка~~ грога~
+@eng A mug of sailor's grog is here.@rus Ты видишь кружку грога (grog).~
 glass~
 drink 0 0 A
 2 2 'water' 0 0
 0 2 10 P
-g @rus none~
+g @rus female~
 #29213
-wafer holy~
-a holy wafer~
-A holy wafer is here.~
+wafer вода holy святая~
+@eng a holy wafer@rus ~~святая~~ ~~вода~~~
+@eng A holy wafer is here.@rus Святая вода (water). Очень полезна против демонов.~
 flesh~
 pill G 0 A
 50 'bless' '' '' ''
 5 1 50 P
-g @rus none~
+g @rus female~
 #29214
-plate silver~
-a silver plate~
-A silver plate has been left here.~
+plate тарелка silver серебряная~
+@eng a silver plate@rus ~~серебряная~~ ~~тарелка~~~
+@eng A silver plate has been left here.@rus Ты видишь серебряную тарелку (plate).~
 silver~
 treasure 0 0 A
 0 0 0 0 0
 15 8 300 P
-g @rus none~
+g @rus female~
 #29215
-tapestry~
-a tapestry~
-A tapestry has been left here.~
+tapestry гобелен~
+@eng a tapestry@rus гобелен~
+@eng A tapestry has been left here.@rus Гобелен (tapestry) висит тут.~
 cloth~
 treasure 0 0 A
 0 0 0 0 0
 15 30 150 P
 E
-tapestry~
-The tapestry is of knights locked in battle in the Battleplain
+tapestry гобелен~
+@eng The tapestry is of knights locked in battle in the Battleplain
 of Arden.
+@rus На гобелене изображены рыцари, сошедшиеся в битве на равнинах Ардена.
 ~
-g @rus none~
+g @rus male~
 #29216
-armor emerald~
-emerald armor~
-A suit of emerald armor is here.~
+armor броня emerald изумрудная~
+@eng emerald armor@rus ~~изумрудная~~ ~~броня~~~
+@eng A suit of emerald armor is here.@rus Ты видишь изумрудную броню (armor).~
 stone~
 armor G 0 AD
 13 13 13 10 0
 46 400 2000 P
 a '' to_object 46 -1 -30 17 0
-g @rus none~
+g @rus female~
 #29217
-hammer dwarven thrower~
-a dwarven thrower~
-A dwarven throwing hammer is here.~
+hammer молот dwarven гнома thrower метательный~
+@eng a dwarven thrower@rus ~~метательный~~ ~~молот~~~
+@eng A dwarven throwing hammer is here.@rus Ты видишь метательный молот (hammer), какими пользуются гномы.~
 unknown~
 weapon GP 0 AN
 mace 9 5 'none' K
 40 200 1500 P
 a '' to_object 40 -1 4 18 0
 a '' to_object 40 -1 4 19 0
-g @rus none~
+g @rus male~
 #29218
-sleeves elven chainmail~
-elven chainmail sleeves~
-A set of elven chainmail sleeves is here.~
+sleeves наручи elven эльфийские chainmail кольчужные~
+@eng elven chainmail sleeves@rus ~~эльфийские~~ ~~кольчужные~~ ~~наручи~~~
+@eng A set of elven chainmail sleeves is here.@rus Ты видишь эльфийские кольчужные наручи (sleeves).~
 mithril~
 armor G 0 AI
 5 5 5 5 0
 10 4 100 P
-g @rus none~
+g @rus plural~
 #29219
-leggings elven chainmail~
-elven chainmail leggings~
-A pair of elven chainmail leggings is here.~
+leggings поножи elven эльфийские chainmail кольчужные~
+@eng elven chainmail leggings@rus ~~эльфийские~~ ~~кольчужные~~ ~~поножи~~~
+@eng A pair of elven chainmail leggings is here.@rus Ты видишь эльфийские кольчужные поножи (leggings).~
 mithril~
 armor GQ 0 AF
 5 5 5 5 0
 10 5 100 P
-g @rus none~
+g @rus plural~
 #29220
-wine red~
-a glass of Freeport burgundy~
-A glass of Freeport Burgundy is here.~
+wine вино red красное freeport glass стакан burgundy бургундское~
+@eng a glass of Freeport burgundy@rus ~~стакан~~ бургундского~
+@eng A glass of Freeport Burgundy is here.@rus Ты видишь стакан прекрасного бургундского (glass).~
 leather~
 drink 0 0 A
 1 1 'red wine' 0 0
 0 1 10 P
-g @rus none~
+g @rus male~
 #29221
-wine white~
-a glass of Freeport chablis~
-A glass of Freeport Chablis is here.~
+wine вино white белое chablis glass стакан freeport~
+@eng a glass of Freeport chablis@rus ~~стакан~~ белого вина~
+@eng A glass of Freeport Chablis is here.@rus Ты видишь стакан белого вина (glass).~
 glass~
 drink 0 0 A
 1 1 'white wine' 0 0
 46 1 20 P
-g @rus none~
+g @rus male~
 #29222
-dumplings plate gravy~
-a plate of gravy and dumplings~
-A plate of gravy and dumplings is here.~
+dumplings клецки plate тарелка gravy соус~
+@eng a plate of gravy and dumplings@rus ~~тарелка~~ с клецками в соусе~
+@eng A plate of gravy and dumplings is here.@rus Ты видишь тарелку (plate) с клецками в соусе.~
 flesh~
 food 0 0 A
 AC AC 0 0 0
 0 2 14 P
-g @rus none~
+g @rus female~
 #29223
-crate~
-a huge box crate~
-A huge box crate is here.~
+crate ящик~
+@eng a huge box crate@rus ~~огромный~~ ~~ящик~~~
+@eng A huge box crate is here.@rus Огромный ящик (crate) стоит здесь.~
 wood~
 trash 0 0 A
 0 0 0 0 0
 7 100 70 P
-g @rus none~
+g @rus male~
 #29224
-ship moored~
-a moored ship~
-A moored ship is here.~
+ship судно moored пришвартованное~
+@eng a moored ship@rus ~~пришвартованное~~ ~~судно~~~
+@eng A moored ship is here.@rus Какое-то судно (ship) пришвартовалось здесь.~
 wood~
 boat 0 0 0
 0 0 0 0 0
 7 100 70 P
 g @rus none~
 #29225
-wristguard emerald~
-an emerald wristguard~
-An emerald wristguard is here.~
+wristguard браслет emerald изумрудный~
+@eng an emerald wristguard@rus ~~изумрудный~~ ~~браслет~~~
+@eng An emerald wristguard is here.@rus Изумрудный браслет (wristguard) лежит и пылится.~
 stone~
 armor G 0 AM
 12 12 12 6 0
 46 10 3500 P
 a '' to_object 46 -1 -20 17 0
-g @rus none~
+g @rus male~
 #29226
-longsword emerald~
-an emerald longsword~
-An emerald longsword is here.~
+longsword длинный меч emerald изумрудный~
+@eng an emerald longsword@rus ~~изумрудный~~ ~~длинный~~ ~~меч~~~
+@eng An emerald longsword is here.@rus Ты видишь изумрудный длинный меч (longsword).~
 stone~
 weapon G 0 AN
 sword 5 10 'none' 0
 46 100 3200 P
 a '' to_object 46 -1 -10 17 0
-g @rus none~
+g @rus male~
 #29227
-helm emerald~
-an emerald helm~
-An emerald helm is here.~
+helm шлем emerald изумрудный~
+@eng an emerald helm@rus ~~изумрудный~~ ~~шлем~~~
+@eng An emerald helm is here.@rus Ты видишь изумрудный шлем (helm).~
 stone~
 armor G 0 AE
 12 12 12 6 0
 46 15 1800 P
 a '' to_object 46 -1 -10 17 0
-g @rus none~
+g @rus male~
 #29228
-weed devil's~
-a pinch of devil's weed~
-A pinch of devil's weed is here.~
+weed трава devil's дьявольская сорняк~
+@eng a pinch of devil's weed@rus ~~щепотка~~ дьявольской травы~
+@eng A pinch of devil's weed is here.@rus Не хочешь отведать дьявольской травки (weed)?~
 cloth~
 pill G 0 A
 40 'poison' '' '' ''
 45 1 450 P
-g @rus none~
+g @rus female~
 #29229
-cape admiral's~
-an admiral's cape~
-A cape with the emblem of Freeport is here.~
+cape накидка admiral's адмирала~
+@eng an admiral's cape@rus ~~накидка~~ адмирала~
+@eng A cape with the emblem of Freeport is here.@rus Ты видишь накидку (cape) с эмблемой Свободной Гавани.~
 cloth~
 armor GI 0 ACD
 12 12 12 6 0
@@ -821,11 +951,11 @@ a '' to_object 45 -1 2 19 0
 a '' to_object 45 -1 -20 17 0
 a '' to_object 45 -1 -5 23 0
 a '' to_object 45 -1 -5 24 0
-g @rus none~
+g @rus female~
 #29230
-signet ring freeport~
-an admiral's signet~
-A ring with the seal of Freeport is here.~
+signet печатка ring кольцо freeport~
+@eng an admiral's signet@rus ~~кольцо~~ адмирала~
+@eng A ring with the seal of Freeport is here.@rus Кольцо (signet) с печатью Свободной Гавани лежит здесь.~
 gold~
 armor G 0 AB
 12 12 12 6 0
@@ -835,18 +965,18 @@ a '' to_object 45 -1 6 18 0
 a '' to_object 45 -1 3 19 0
 g @rus none~
 #29231
-purse heavy~
-a very heavy purse~
-A very heavy purse is here.~
+purse кошелек heavy тяжелый~
+@eng a very heavy purse@rus очень ~~тяжелый~~ ~~кошелек~~~
+@eng A very heavy purse is here.@rus Ты видишь очень тяжелый кошелек (purse).~
 leather~
 money 0 0 A
 800 0 0 0 0
 47 100 470 P
-g @rus none~
+g @rus male~
 #29232
-boots bladed~
-bladed boots~
-A pair of boots with a spring action blade lie here.~
+boots ботинки bladed лезвия~
+@eng bladed boots@rus ~~ботинки~~ с лезвиями~
+@eng A pair of boots with a spring action blade lie here.@rus Пара ботинок (boots) с пружинными лезвиями лежит здесь.~
 leather~
 armor 0 0 AG
 17 17 17 9 0
@@ -855,9 +985,9 @@ a '' to_object 52 -1 5 19 0
 a '' to_object 52 -1 5 18 0
 g @rus none~
 #29233
-cape dimensional~
-a dimensional cape~
-A hole in reality lies here.~
+cape накидка dimensional пространственная~
+@eng a dimensional cape@rus ~~пространственная~~ ~~накидка~~~
+@eng A hole in reality lies here.@rus Ты видишь дыру (cape) в другие измерения.~
 unknown~
 armor G 0 AC
 13 13 13 13 0
@@ -870,42 +1000,50 @@ a '' to_object 52 -1 1 5 0
 a '' to_object 52 -1 20 12 0
 a '' to_object 52 -1 20 13 0
 a '' to_object 52 -1 5 19 0
-g @rus none~
+g @rus female~
 #29234
-stone troll~
-the troll stone~
-A stone covered in green icor lies here.~
+stone камень troll тролля~
+@eng the troll stone@rus ~~камень~~ тролля~
+@eng A stone covered in green icor lies here.@rus Ты видишь камень (stone), покрытый свернувшейся зеленой кровью.~
 glass~
 staff FG 0 AO
 55 10 8 'sanctuary' 0
 52 1 3000 P
-g @rus none~
+g @rus male~
 #0
 
 #ROOMS
 #29201
-Dusk's Edge~
-You have reached the point of Freeport isle, a place locals 
+@eng Dusk's Edge@rus Край Заката~
+@eng You have reached the point of Freeport isle, a place locals 
 call Dusk's edge. There is an ivory statue of a dolphin entering the 
 water from a great leap is here.
+@rus Ты $gn{достиг} той точки Свободной Гавани, которую тут называют
+Край Заката. Здесь находится статуя из слоновой кости, изобража-
+ющая дельфина, изогнувшегося в изящном прыжке.
 ~
 0 0 mountain
 E
-statue~
-The statue shows the Dolphin as it is entering the water. The inscription 
+statue статуя~
+@eng The statue shows the Dolphin as it is entering the water. The inscription 
 reads `When Dolphin was created at the dawn of time, she leaped forth from 
 the water with great joy, and the water which fell from her back became the 
 isle of Freeport.
+@rus Статуя изображает дельфина, ныряющего в воду. Надпись гласит: "Когда на заре
+времен был создан Дельфин, он радостно выпрыгнул из воды,  и брызги, скатив-
+шиеся по его спине, стали островом Свободная Гавань".
 ~
 D1
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
 ~
 Z -1 29202
 D3
-Land Ho!!
+@eng Land Ho!!
+@rus Хей, земля!
 ~
 ~
 ~
@@ -913,21 +1051,26 @@ Land Ho!!
 Z -1 14501
 S
 #29202
-On the Rock Jetty~
-You walk along the rock jetty of the isle of Freeport. The waves crash and 
+@eng On the Rock Jetty@rus Каменная Дамба~
+@eng You walk along the rock jetty of the isle of Freeport. The waves crash and 
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
+@rus Ты идешь вдоль каменной дамбы острова Свободная Гавань. Волны разбиваются о
+камень и создают в воздухе завесу из соленых брызг.  Чайки  носятся  в небе
+над твоей головой, когда, заметив тебя, отрываются от рыбной ловли.
 ~
 0 0 hills
 D2
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
 ~
 Z -1 29203
 D3
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная Дамба.
 ~
 ~
 ~
@@ -935,21 +1078,26 @@ On the rock jetty
 Z -1 29201
 S
 #29203
-On the Rock Jetty~
-You walk along the rock jetty of the isle of Freeport. The waves crash and 
+@eng On the Rock Jetty@rus Каменная Дамба~
+@eng You walk along the rock jetty of the isle of Freeport. The waves crash and 
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
+@rus Ты идешь вдоль каменной дамбы острова Свободная Гавань. Волны разбиваются о
+камень и создают в воздухе завесу из соленых брызг.  Чайки  носятся в  небе
+над твоей головой, когда, заметив тебя, отрываются от рыбной ловли.
 ~
 0 0 hills
 D0
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
 ~
 Z -1 29202
 D2
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
@@ -957,28 +1105,34 @@ On the rock jetty
 Z -1 29204
 S
 #29204
-On the Rock Jetty~
-You walk along the rock jetty of the isle of Freeport. The waves crash and 
+@eng On the Rock Jetty@rus Каменная Дамба~
+@eng You walk along the rock jetty of the isle of Freeport. The waves crash and 
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
+@rus Ты идешь вдоль каменной дамбы острова Свободная Гавань. Волны разбиваются о
+камень и создают в воздухе завесу из соленых брызг.  Чайки  носятся в  небе
+над твоей головой, когда, заметив тебя, отрываются от рыбной ловли.
 ~
 0 0 hills
 D0
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
 ~
 Z -1 29203
 D1
-On the wharf
+@eng On the wharf.
+@rus Пристань.
 ~
 ~
 ~
 ~
 Z -1 29206
 D2
-Wharf road
+@eng Wharf road.
+@rus Дорога у пристани.
 ~
 ~
 ~
@@ -986,21 +1140,26 @@ Wharf road
 Z -1 29205
 S
 #29205
-Wharf Road~
-You are on the stone paved wharf road. To your south is a rock jetty upon
+@eng Wharf Road@rus Дорога у пристани~
+@eng You are on the stone paved wharf road. To your south is a rock jetty upon
 which the waves crash. Traffic from the warehouse to the west travels to
 the wharf via wharf road.
+@rus Ты стоишь на вымощенной камнем дороге, идущей вдоль пристани. На юге видна
+дамба, о которую разбиваются волны. Товары непрерывным потоком движутся по
+дороге со склада на запад к пристани.
 ~
 0 0 city
 D0
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
 ~
 Z -1 29204
 D1
-Wharf road
+@eng Wharf road.
+@rus Дорога у пристани.
 ~
 ~
 ~
@@ -1008,28 +1167,34 @@ Wharf road
 Z -1 29207
 S
 #29206
-On the Wharf~
-You are on the wharf of Freeport, where ships dock and load. The docks 
+@eng On the Wharf@rus Пристань~
+@eng You are on the wharf of Freeport, where ships dock and load. The docks 
 are busy today as any day, for the commerce of the seas knows no holiday.
 To the north of you the harbor of Freeport stretches.
+@rus Ты находишься на пристани Свободной Гавани, куда причаливают и где загружа-
+ются корабли. Доки заполнены судами,  как и в любой другой день,  поскольку
+морская торговля не знает выходных. На север продолжается гавань.
 ~
 0 0 field
 D1
-On the wharf
+@eng On the wharf.
+@rus Пристань.
 ~
 ~
 ~
 ~
 Z -1 29208
 D2
-Wharf road
+@eng Wharf road.
+@rus Дорога у пристани.
 ~
 ~
 ~
 ~
 Z -1 29207
 D3
-On the jetty
+@eng On the jetty.
+@rus Дамба.
 ~
 ~
 ~
@@ -1037,28 +1202,34 @@ On the jetty
 Z -1 29204
 S
 #29207
-Wharf Road~
-You are on the stone paved wharf road. To your south is a rock jetty upon
+@eng Wharf Road@rus Дорога у пристани~
+@eng You are on the stone paved wharf road. To your south is a rock jetty upon
 which the waves crash. Traffic from the warehouse to the west travels to
 the wharf via wharf road.
+@rus Ты стоишь на вымощенной камнем дороге, идущей вдоль пристани. На юге видна
+дамба, о которую разбиваются волны. Товары непрерывным потоком движутся по
+дороге со склада на запад к пристани.
 ~
 0 0 city
 D0
-On the wharf
+@eng On the wharf.
+@rus Пристань.
 ~
 ~
 ~
 ~
 Z -1 29206
 D1
-Wharf road
+@eng Wharf road.
+@rus Дорога у пристани.
 ~
 ~
 ~
 ~
 Z -1 29209
 D3
-You see the wharf
+@eng You see the wharf.
+@rus Пристань.
 ~
 ~
 ~
@@ -1066,28 +1237,34 @@ You see the wharf
 Z -1 29205
 S
 #29208
-On the Wharf~
-You are on the wharf of Freeport, where ships dock and load. The docks 
+@eng On the Wharf@rus Пристань~
+@eng You are on the wharf of Freeport, where ships dock and load. The docks 
 are busy today as any day, for the commerce of the seas knows no holiday.
 To the north of you the harbor of Freeport stretches.
+@rus Ты находишься на пристани Свободной Гавани, куда причаливают и где загружа-
+ются корабли. Доки заполнены судами,  как и в любой другой день,  поскольку
+морская торговля не знает выходных. На север продолжается гавань.
 ~
 0 0 field
 D1
-On the wharf
+@eng On the wharf.
+@rus Пристань.
 ~
 ~
 ~
 ~
 Z -1 29212
 D2
-Wharf road
+@eng Wharf road.
+@rus Дорога у пристани.
 ~
 ~
 ~
 ~
 Z -1 29209
 D3
-On the jetty
+@eng On the jetty.
+@rus Дамба.
 ~
 ~
 ~
@@ -1095,35 +1272,42 @@ On the jetty
 Z -1 29206
 S
 #29209
-Wharf Road~
-You are on the stone paved wharf road. To your south is a rock jetty upon
+@eng Wharf Road@rus Дорога у пристани~
+@eng You are on the stone paved wharf road. To your south is a rock jetty upon
 which the waves crash. Traffic from the warehouse to the west travels to
 the wharf via wharf road.
+@rus Ты стоишь на вымощенной камнем дороге, идущей вдоль пристани. На юге видна
+дамба, о которую разбиваются волны. Товары непрерывным потоком движутся по
+дороге со склада на запад к пристани.
 ~
 0 0 city
 D0
-On the wharf
+@eng On the wharf.
+@rus На пристани.
 ~
 ~
 ~
 ~
 Z -1 29208
 D1
-Wharf road
+@eng Wharf road.
+@rus Дорога у пристани.
 ~
 ~
 ~
 ~
 Z -1 29213
 D2
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
 ~
 Z -1 29210
 D3
-Wharf road
+@eng Wharf road.
+@rus Дорога у пристани.
 ~
 ~
 ~
@@ -1131,21 +1315,26 @@ Wharf road
 Z -1 29207
 S
 #29210
-On the Rock Jetty~
-You walk along the rock jetty of the isle of Freeport. The waves crash 
+@eng On the Rock Jetty@rus Каменная Дамба~
+@eng You walk along the rock jetty of the isle of Freeport. The waves crash 
 and spray a salt mist into the air. Gulls wheel in the sky above you, 
 having flown from their perches upon seeing you.
+@rus Ты идешь вдоль каменной дамбы острова Свободная Гавань. Волны разбиваются о
+камень и создают в воздухе завесу из соленых брызг.  Чайки  носятся в  небе
+над твоей головой, когда, заметив тебя, отрываются от рыбной ловли.
 ~
 0 0 hills
 D0
-Wharf road
+@eng Wharf road.
+@rus Дорога у пристани.
 ~
 ~
 ~
 ~
 Z -1 29209
 D1
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
@@ -1153,21 +1342,26 @@ On the rock jetty
 Z -1 29214
 S
 #29211
-On the Wharf~
-You are on the wharf of Freeport, where ships dock and load. The docks 
+@eng On the Wharf@rus Пристань~
+@eng You are on the wharf of Freeport, where ships dock and load. The docks 
 are busy today as any day, for the commerce of the seas knows no holiday.
 To the north of you the harbor of Freeport stretches.
+@rus Ты находишься на пристани Свободной Гавани, куда причаливают и где загружа-
+ются корабли. Доки заполнены судами,  как и в любой другой день,  поскольку
+морская торговля не знает выходных. На север продолжается гавань.
 ~
 0 0 field
 D1
-On the wharf
+@eng On the wharf.
+@rus Пристань.
 ~
 ~
 ~
 ~
 Z -1 29217
 D2
-On the wharf
+@eng On the wharf.
+@rus Пристань.
 ~
 ~
 ~
@@ -1175,35 +1369,42 @@ On the wharf
 Z -1 29212
 S
 #29212
-On the Wharf~
-You are on the wharf of Freeport, where ships dock and load. The docks 
+@eng On the Wharf@rus Пристань~
+@eng You are on the wharf of Freeport, where ships dock and load. The docks 
 are busy today as any day, for the commerce of the seas knows no holiday.
 To the north of you the harbor of Freeport stretches.
+@rus Ты находишься на пристани Свободной Гавани, куда причаливают и где загружа-
+ются корабли. Доки заполнены судами,  как и в любой другой день,  поскольку
+морская торговля не знает выходных. На север продолжается гавань.
 ~
 0 0 field
 D0
-On the wharf
+@eng On the wharf.
+@rus Пристань.
 ~
 ~
 ~
 ~
 Z -1 29211
 D1
-Wharf road
+@eng Wharf road.
+@rus Дорога у пристани.
 ~
 ~
 ~
 ~
 Z -1 29218
 D2
-Wharf road
+@eng Wharf road.
+@rus Дорога у пристани.
 ~
 ~
 ~
 ~
 Z -1 29213
 D3
-On the wharf
+@eng On the wharf.
+@rus Пристань.
 ~
 ~
 ~
@@ -1211,35 +1412,42 @@ On the wharf
 Z -1 29208
 S
 #29213
-Wharf Road~
-You are on the stone paved wharf road. To your south is a rock jetty upon
+@eng Wharf Road@rus Дорога у пристани~
+@eng You are on the stone paved wharf road. To your south is a rock jetty upon
 which the waves crash. Traffic from the warehouse to the west travels to
 the wharf via wharf road.
+@rus Ты стоишь на вымощенной камнем дороге, идущей вдоль пристани. На юге видна
+дамба, о которую разбиваются волны. Товары непрерывным потоком движутся по
+дороге со склада на запад к пристани.
 ~
 0 0 city
 D0
-On the wharf
+@eng On the wharf.
+@rus Пристань.
 ~
 ~
 ~
 ~
 Z -1 29212
 D1
-Wharf road
+@eng Wharf road.
+@rus Дорога у пристани.
 ~
 ~
 ~
 ~
 Z -1 29219
 D2
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная Дамба.
 ~
 ~
 ~
 ~
 Z -1 29214
 D3
-Wharf road
+@eng Wharf road.
+@rus Дорога у пристани.
 ~
 ~
 ~
@@ -1247,28 +1455,34 @@ Wharf road
 Z -1 29209
 S
 #29214
-On the Rock Jetty~
-You walk along the rock jetty of the isle of Freeport. The waves crash 
+@eng On the Rock Jetty@rus Каменная Дамба~
+@eng You walk along the rock jetty of the isle of Freeport. The waves crash 
 and spray a salt mist into the air. Gulls wheel in the sky above you, 
 having flown from their perches upon seeing you.
+@rus Ты идешь вдоль каменной дамбы острова Свободная Гавань. Волны разбиваются о
+камень и создают в воздухе завесу из соленых брызг.  Чайки  носятся в  небе
+над твоей головой, когда, заметив тебя, отрываются от рыбной ловли.
 ~
 0 0 hills
 D0
-Wharf road
+@eng Wharf road.
+@rus Дорога у пристани.
 ~
 ~
 ~
 ~
 Z -1 29213
 D2
-Widow's Cape
+@eng Widow's Cape.
+@rus Вдовий Мыс.
 ~
 ~
 ~
 ~
 Z -1 29215
 D3
-On the Rock Jetty
+@eng On the Rock Jetty.
+@rus Каменная Дамба.
 ~
 ~
 ~
@@ -1276,14 +1490,18 @@ On the Rock Jetty
 Z -1 29210
 S
 #29215
-Widow's Cape~
-You have climbed the rocks of widows cape, and can see the violent southern 
+@eng Widow's Cape@rus Вдовий Мыс~
+@eng You have climbed the rocks of widows cape, and can see the violent southern 
 shoals which have claimed many a ship. A watchfire is kept burning here at 
 night to warn sailors.
+@rus Ты $gn{забрался} на камни Вдовьего Мыса. Отсюда хорошо видны страшные южные
+мели, на которых затонуло множество кораблей. Сигнальный огонь горит здесь
+в ночи, предупреждая моряков о смертельной опасности.
 ~
 0 0 mountain
 D0
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная Дамба.
 ~
 ~
 ~
@@ -1291,20 +1509,25 @@ On the rock jetty
 Z -1 29214
 S
 #29216
-On the Wharf~
-You are on the wharf of Freeport, where ships dock and load. The docks 
+@eng On the Wharf@rus Пристань~
+@eng You are on the wharf of Freeport, where ships dock and load. The docks 
 are busy today as any day, for the commerce of the seas knows no holiday.
+@rus Ты находишься на пристани Свободной Гавани, куда причаливают и где загружа-
+ются корабли. Доки заполнены судами,  как и в любой другой день,  поскольку
+морская торговля не знает выходных.
 ~
 0 0 field
 D1
-On the wharf
+@eng On the wharf.
+@rus Пристань.
 ~
 ~
 ~
 ~
 Z -1 29221
 D2
-On the wharf
+@eng On the wharf.
+@rus Пристань.
 ~
 ~
 ~
@@ -1312,35 +1535,42 @@ On the wharf
 Z -1 29217
 S
 #29217
-On the Wharf~
-You are on the wharf of Freeport, where ships dock and load. The docks 
+@eng On the Wharf@rus Пристань~
+@eng You are on the wharf of Freeport, where ships dock and load. The docks 
 are busy today as any day, for the commerce of the seas knows no holiday.
 To the north of you the harbor of Freeport stretches.
+@rus Ты находишься на пристани Свободной Гавани, куда причаливают и где загружа-
+ются корабли. Доки заполнены судами,  как и в любой другой день,  поскольку
+морская торговля не знает выходных. На север продолжается гавань.
 ~
 0 0 field
 D0
-On the wharf
+@eng On the wharf.
+@rus Пристань.
 ~
 ~
 ~
 ~
 Z -1 29216
 D1
-Wharf road
+@eng Wharf road.
+@rus Дорога у пристани.
 ~
 ~
 ~
 ~
 Z -1 29222
 D2
-Wharf road
+@eng Wharf road.
+@rus Дорога у пристани.
 ~
 ~
 ~
 ~
 Z -1 29218
 D3
-On the wharf
+@eng On the wharf.
+@rus Пристань.
 ~
 ~
 ~
@@ -1348,35 +1578,42 @@ On the wharf
 Z -1 29211
 S
 #29218
-Wharf Road~
-You are on the stone paved wharf road. Here you see a ship being hauled up 
+@eng Wharf Road@rus Дорога у пристани~
+@eng You are on the stone paved wharf road. Here you see a ship being hauled up 
 to dry dock for repairs. Traffic from the warehouse to the west travels to
 the wharf via wharf road.
+@rus Ты стоишь на вымощенной камнем дороге, идущей вдоль пристани. На юге видна
+дамба, о которую разбиваются волны. Товары непрерывным потоком движутся по
+дороге со склада на запад к пристани.
 ~
 0 0 city
 D0
-On the wharf
+@eng On the wharf.
+@rus Пристань.
 ~
 ~
 ~
 ~
 Z -1 29217
 D1
-Wharf road
+@eng Wharf road.
+@rus Дорога у пристани.
 ~
 ~
 ~
 ~
 Z -1 29223
 D2
-Wharf road
+@eng Wharf road.
+@rus Дорога у пристани.
 ~
 ~
 ~
 ~
 Z -1 29219
 D3
-On the wharf
+@eng On the wharf.
+@rus Пристань.
 ~
 ~
 ~
@@ -1384,28 +1621,34 @@ On the wharf
 Z -1 29212
 S
 #29219
-Wharf Road~
-You are on the stone paved wharf road. To your south is a rock jetty upon
+@eng Wharf Road@rus Дорога у пристани~
+@eng You are on the stone paved wharf road. To your south is a rock jetty upon
 which the waves crash. Traffic from the warehouse to the west travels to
 the wharf via wharf road.
+@rus Ты стоишь на вымощенной камнем дороге, идущей вдоль пристани. На юге видна
+дамба, о которую разбиваются волны. Товары непрерывным потоком движутся по
+дороге со склада на запад к пристани.
 ~
 0 0 city
 D0
-Wharf road
+@eng Wharf road.
+@rus Дорога у пристани.
 ~
 ~
 ~
 ~
 Z -1 29218
 D1
-Freeport village
+@eng Freeport village.
+@rus Деревня Свободная Гавань.
 ~
 ~
 ~
 ~
 Z -1 29224
 D3
-Wharf road
+@eng Wharf road.
+@rus Дорога у пристани.
 ~
 ~
 ~
@@ -1413,21 +1656,26 @@ Wharf road
 Z -1 29213
 S
 #29220
-On the Wharf~
-You are on the wharf of Freeport, where ships dock and load. The docks 
+@eng On the Wharf@rus Пристань~
+@eng You are on the wharf of Freeport, where ships dock and load. The docks 
 are busy today as any day, for the commerce of the seas knows no holiday.
 To the north of you the harbor of Freeport stretches.
+@rus Ты находишься на пристани Свободной Гавани, куда причаливают и где загружа-
+ются корабли. Доки заполнены судами,  как и в любой другой день,  поскольку
+морская торговля не знает выходных. На север продолжается гавань.
 ~
 0 0 field
 D1
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
 ~
 Z -1 29226
 D2
-Wharf road
+@eng Wharf road.
+@rus Дорога у пристани.
 ~
 ~
 ~
@@ -1435,35 +1683,43 @@ Wharf road
 Z -1 29221
 S
 #29221
-Wharf Road~
-You are on the stone paved wharf road. Traffic from the warehouse to the 
+@eng Wharf Road@rus Дорога у пристани~
+@eng You are on the stone paved wharf road. Traffic from the warehouse to the 
 west travels to the wharf via wharf road. To your immediate east is the
 shipyards, where you can hear the sounds of construction.
+@rus Ты стоишь на вымощенной камнем дороге, идущей вдоль пристани. Товары 
+непрерывным потоком движутся по дороге со склада на запад к пристани.
+Непосредсвенно на восток располагается корабельная верфь, откуда до-
+носятся звуки различных строительных работ.
 ~
 0 0 city
 D0
-On the wharf
+@eng On the wharf.
+@rus Пристань.
 ~
 ~
 ~
 ~
 Z -1 29220
 D1
-Shipyards
+@eng Shipyards.
+@rus Верфь.
 ~
 ~
 ~
 ~
 Z -1 29227
 D2
-Wharf road
+@eng Wharf road.
+@rus Дорога у пристани.
 ~
 ~
 ~
 ~
 Z -1 29222
 D3
-On the wharf
+@eng On the wharf.
+@rus Пристань.
 ~
 ~
 ~
@@ -1471,35 +1727,42 @@ On the wharf
 Z -1 29216
 S
 #29222
-Wharf Road~
-You are on the stone paved wharf road. Traffic from the warehouse to the 
+@eng Wharf Road@rus Дорога у пристани~
+@eng You are on the stone paved wharf road. Traffic from the warehouse to the 
 west travels to the wharf via wharf road. To your immediate east you see
 the road to the city of Freeport.
+@rus Ты стоишь на вымощенной камнем дороге, идущей вдоль пристани. Товары 
+непрерывным потоком движутся по дороге со склада на запад к пристани.
+Непосредсвенно на восток идет дорога к городу Свободная Гавань.
 ~
 0 0 city
 D0
-Wharf road
+@eng Wharf road.
+@rus Дорога у пристани.
 ~
 ~
 ~
 ~
 Z -1 29221
 D1
-The road to the city of Freeport
+@eng The road to the city of Freeport.
+@rus Дорога к городу Свободная Гавань.
 ~
 ~
 ~
 ~
 Z -1 29228
 D2
-Wharf road
+@eng Wharf road.
+@rus Дорога у пристани.
 ~
 ~
 ~
 ~
 Z -1 29223
 D3
-On the wharf
+@eng On the wharf.
+@rus Пристань.
 ~
 ~
 ~
@@ -1507,35 +1770,43 @@ On the wharf
 Z -1 29217
 S
 #29223
-Wharf Road~
-You are on the stone paved wharf road. Traffic from the warehouse to the west travels to
+@eng Wharf Road@rus Дорога у пристани~
+@eng You are on the stone paved wharf road. Traffic from the warehouse to the west travels to
 the wharf via wharf road. Immediately to the east you see the mercantile
 warehouse, where crates of goods are in temporary storage for shipping.
+@rus Ты стоишь на вымощенной камнем дороге, идущей вдоль пристани. Товары 
+непрерывным потоком движутся по дороге со склада на запад к пристани.
+На востоке ты  видишь склад,  где  временно хранятся ждущие отправки
+ящики с товарами.
 ~
 0 0 city
 D0
-Wharf road
+@eng Wharf road.
+@rus Дорога у пристани.
 ~
 ~
 ~
 ~
 Z -1 29222
 D1
-Warehouse
+@eng Warehouse.
+@rus Склады.
 ~
 ~
 ~
 ~
 Z -1 29229
 D2
-Freeport village
+@eng Freeport village.
+@rus Деревня Свободная Гавань.
 ~
 ~
 ~
 ~
 Z -1 29224
 D3
-Wharf road
+@eng Wharf road.
+@rus Дорога у пристани.
 ~
 ~
 ~
@@ -1543,31 +1814,40 @@ Wharf road
 Z -1 29218
 S
 #29224
-Freeport Village~
-You stand in the burrows of Freeport, where all the sailors and merchants
+@eng Freeport Village@rus Пригород Свободной Гавани~
+@eng You stand in the burrows of Freeport, where all the sailors and merchants
 families live. The houses are made of the local stone and have slate roofs.
 The closer the houses are to the city, the more beautiful and grandiose they
 become. Down next to the jetty where flooding is likely, live the poorest
 families, in temporary shacks which are prone to flooding. A small road leads
 east into the village.
+@rus Ты находишься в трущобах Свободной Гавани, где живут семьи всех моряков
+и купцов. Здания построены из местного  камня  и имеют сланцевые крыши.
+Ближе к городу располагаются наиболее большие и красивые здания. Внизу,
+ближе к  дамбе,  где вероятность наводнения выше,  живут  самые  бедные 
+семьи. Дома здесь, скорее похожие на халупы, очень уязвимы для наводне-
+ний. Узкая дорога стремится на восток, углубляясь в деревню.
 ~
 0 C hills
 D0
-Wharf road
+@eng Wharf road.
+@rus Дорога у пристани.
 ~
 ~
 ~
 ~
 Z -1 29223
 D1
-Freeport village
+@eng Freeport village.
+@rus Деревня Свободная Гавань.
 ~
 ~
 ~
 ~
 Z -1 29243
 D3
-Wharf road
+@eng Wharf road.
+@rus Дорога у пристани.
 ~
 ~
 ~
@@ -1575,21 +1855,26 @@ Wharf road
 Z -1 29219
 S
 #29225
-On the Rock Jetty~
-You walk along the rock jetty of the isle of Freeport. The waves crash and 
+@eng On the Rock Jetty@rus Каменная Дамба~
+@eng You walk along the rock jetty of the isle of Freeport. The waves crash and 
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
+@rus Ты идешь вдоль каменной дамбы острова Свободная Гавань. Волны разбиваются о
+камень и создают в воздухе завесу из соленых брызг.  Чайки  носятся в  небе
+над твоей головой, когда, заметив тебя, отрываются от рыбной ловли.
 ~
 0 0 hills
 D0
-On the Rock Jetty
+@eng On the Rock Jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
 ~
 Z -1 29237
 D2
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
@@ -1597,35 +1882,42 @@ On the rock jetty
 Z -1 29226
 S
 #29226
-On the Rock Jetty~
-You walk along the rock jetty of the isle of Freeport. The waves crash and 
+@eng On the Rock Jetty@rus Каменная Дамба~
+@eng You walk along the rock jetty of the isle of Freeport. The waves crash and 
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
+@rus Ты идешь вдоль каменной дамбы острова Свободная Гавань. Волны разбиваются о
+камень и создают в воздухе завесу из соленых брызг.  Чайки  носятся в  небе
+над твоей головой, когда, заметив тебя, отрываются от рыбной ловли.
 ~
 0 0 hills
 D0
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
 ~
 Z -1 29225
 D1
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
 ~
 Z -1 29230
 D2
-Shipyards
+@eng Shipyards.
+@rus Верфь.
 ~
 ~
 ~
 ~
 Z -1 29227
 D3
-On the wharf
+@eng On the wharf.
+@rus Пристань.
 ~
 ~
 ~
@@ -1633,38 +1925,48 @@ On the wharf
 Z -1 29220
 S
 #29227
-The Shipyards~
-You are in the shipyards of Freeport. About you in dry storage are many
+@eng The Shipyards@rus Верфь~
+@eng You are in the shipyards of Freeport. About you in dry storage are many
 vessels either in repair or in the process of being developed. Of particular
 interest is the deep-keeled prototype vessel currently under construction.
 You get the sense that sailing as you know it is about to change. Many of
 the islanders are employed here, and ages range from the youthful 12 year
 old apprentice, to the grizzled old shipwrights.
+@rus Ты находишься на верфи Свободной Гавани. Множество кораблей в сухих доках
+ремонтируются или только строятся. Особый интерес вызывает прототип судна
+с большой осадкой. У тебя появляется такое чувство, что искусство морепла-
+вания очень скоро уйдет вперед и станет непохожим на то, которое тебе из-
+вестно. Множество жителей острова нашли себе работу  на верфи.  Тут можно
+увидеть и двенадцатилетнего ученика, и матерого старого корабела.
 ~
 0 0 inside
 D0
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
 ~
 Z -1 29226
 D1
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
 ~
 Z -1 29231
 D2
-On the rode to Freeport city
+@eng On the road to Freeport city.
+@rus Дорога к городу Свободная Гавань.
 ~
 ~
 ~
 ~
 Z -1 29228
 D3
-Wharf road
+@eng Wharf road.
+@rus Дорога у пристани.
 ~
 ~
 ~
@@ -1672,44 +1974,54 @@ Wharf road
 Z -1 29221
 S
 #29228
-On the Road to Freeport City~
-You are on a stone paved road which rises up the hill to Freeport City.
+@eng On the Road to Freeport City@rus Дорога к городу Свободная Гавань~
+@eng You are on a stone paved road which rises up the hill to Freeport City.
 The city itself has been built on the highest part of the island. The city
 has walls, made of the local slate and a mortar joint. Roads stretch off
 north to the shipyards, east to Freeport village, south to the mercantile
 warehouse, and westward wharf road continues along the harbor.
+@rus Ты путешествуешь по выложенной камнем дороге, которая поднимается по холму
+к городу Свободная Гавань. Сам город построен на самой высокой части остро-
+ва. Стены города сделаны из местного сланца, скрепленного известью. Дорога
+ведет на север к верфи, на восток к пригородам Свободной Гавани,  на юг  к
+торговым складам и на запад дорога идет вдоль пристани.
 ~
 0 C city
 D0
-The shipyards
+@eng The shipyards.
+@rus Верфь.
 ~
 ~
 ~
 ~
 Z -1 29227
 D1
-Freeport village
+@eng Freeport village.
+@rus Пригород Свободной Гавани.
 ~
 ~
 ~
 ~
 Z -1 29232
 D2
-The mercantile warehouse
+@eng The mercantile warehouse.
+@rus Склады.
 ~
 ~
 ~
 ~
 Z -1 29229
 D3
-Wharf road
+@eng Wharf road.
+@rus Дорога у пристани.
 ~
 ~
 ~
 ~
 Z -1 29222
 D4
-The city gates
+@eng The city gates.
+@rus Городские ворота.
 ~
 ~
 ~
@@ -1717,24 +2029,32 @@ The city gates
 Z -1 29246
 S
 #29229
-The Mercantile Warehouse~
-You dodge porters and errand boys in the whirling mayhem of the mercantile
+@eng The Mercantile Warehouse@rus Склады~
+@eng You dodge porters and errand boys in the whirling mayhem of the mercantile
 warehouse. Longshoremen load crates of cargo into horse drawn carts and 
 lead the teams down to the wharf for embarking vessels. The cargomaster
 signals to his apprentices in a strange sign language of the merchants
 guild. You get caught up in the excitement of the warehouse, and lend a
 hand to two struggling boys.
+@rus Ты с трудом уклоняешься от грузчиков и мальчиков на побегушках в кружащемся
+водовороте складов. Рабочие грузят ящики с товарами на повозки  и  ведут их
+вниз на пристань для дальнейшей погрузки на корабли. Суперкарго общается со
+своими учениками на странном языке сигналов гильдии купцов. Ты, кажется, то-
+же $gn{заразился} общим возбуждением царящим здесь и на радостях $gn{полез} разнимать
+двух дерущихся пацанов.
 ~
 0 0 inside
 D0
-The road to the city of Freeport
+@eng The road to the city of Freeport.
+@rus Дорога к городу Свободная Гавань.
 ~
 ~
 ~
 ~
 Z -1 29228
 D3
-Wharf road
+@eng Wharf road.
+@rus Дорога у пристани.
 ~
 ~
 ~
@@ -1742,21 +2062,26 @@ Wharf road
 Z -1 29223
 S
 #29230
-On the Rock Jetty~
-You walk along the rock jetty of the isle of Freeport. The waves crash and 
+@eng On the Rock Jetty@rus Каменная Дамба~
+@eng You walk along the rock jetty of the isle of Freeport. The waves crash and 
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
+@rus Ты идешь вдоль каменной дамбы острова Свободная Гавань. Волны разбиваются о
+камень и создают в воздухе завесу из соленых брызг.  Чайки  носятся в  небе
+над твоей головой, когда, заметив тебя, отрываются от рыбной ловли.
 ~
 0 0 hills
 D2
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
 ~
 Z -1 29231
 D3
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
@@ -1764,35 +2089,42 @@ On the rock jetty
 Z -1 29226
 S
 #29231
-On the Rock Jetty~
-You walk along the rock jetty of the isle of Freeport. The waves crash and 
+@eng On the Rock Jetty@rus Каменная Дамба~
+@eng You walk along the rock jetty of the isle of Freeport. The waves crash and 
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
+@rus Ты идешь вдоль каменной дамбы острова Свободная Гавань. Волны разбиваются о
+камень и создают в воздухе завесу из соленых брызг.  Чайки  носятся в  небе
+над твоей головой, когда, заметив тебя, отрываются от рыбной ловли.
 ~
 0 0 hills
 D0
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
 ~
 Z -1 29230
 D1
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
 ~
 Z -1 29233
 D2
-Freeport village
+@eng Freeport village.
+@rus Пригород Свободной Гавани.
 ~
 ~
 ~
 ~
 Z -1 29232
 D3
-Shipyards
+@eng Shipyards.
+@rus Верфь.
 ~
 ~
 ~
@@ -1800,31 +2132,40 @@ Shipyards
 Z -1 29227
 S
 #29232
-Freeport village~
-You stand in the burrows of Freeport, where all the sailors and merchants
+@eng Freeport village@rus Пригород Свободной Гавани~
+@eng You stand in the burrows of Freeport, where all the sailors and merchants
 families live. The houses are made of the local stone and have slate roofs.
 The closer the houses are to the city, the more beautiful and grandiose they
 become. Down next to the jetty where flooding is likely, live the poorest
 families, in temporary shacks which are prone to flooding. The road to the
 city of Freeport is to your west.
+@rus Ты находишься в трущобах Свободной Гавани, где живут семьи всех моряков
+и купцов. Здания построены из местного  камня  и имеют сланцевые крыши.
+Ближе к городу располагаются наиболее большие и красивые здания. Внизу,
+ближе к  дамбе,  где вероятность наводнения выше,  живут  самые  бедные 
+семьи. Дома здесь, скорее похожие на халупы, очень уязвимы для наводне-
+ний. Дорога ведет на запад, к городу.
 ~
 0 C hills
 D0
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
 ~
 Z -1 29231
 D2
-Freeport village
+@eng Freeport village.
+@rus Пригород Свободной Гавани.
 ~
 ~
 ~
 ~
 Z -1 29245
 D3
-The road to Freeport city
+@eng The road to Freeport city.
+@rus Дорога к городу Свободная Гавань.
 ~
 ~
 ~
@@ -1832,21 +2173,26 @@ The road to Freeport city
 Z -1 29228
 S
 #29233
-On the Rock Jetty~
-You walk along the rock jetty of the isle of Freeport. The waves crash and 
+@eng On the Rock Jetty@rus Каменная Дамба~
+@eng You walk along the rock jetty of the isle of Freeport. The waves crash and 
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
+@rus Ты идешь вдоль каменной дамбы острова Свободная Гавань. Волны разбиваются о
+камень и создают в воздухе завесу из соленых брызг.  Чайки  носятся в  небе
+над твоей головой, когда, заметив тебя, отрываются от рыбной ловли.
 ~
 0 0 hills
 D1
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
 ~
 Z -1 29234
 D3
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
@@ -1854,21 +2200,26 @@ On the rock jetty
 Z -1 29231
 S
 #29234
-On the Rock Jetty~
-You walk along the rock jetty of the isle of Freeport. The waves crash and 
+@eng On the Rock Jetty@rus Каменная Дамба~
+@eng You walk along the rock jetty of the isle of Freeport. The waves crash and 
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
+@rus Ты идешь вдоль каменной дамбы острова Свободная Гавань. Волны разбиваются о
+камень и создают в воздухе завесу из соленых брызг.  Чайки  носятся в  небе
+над твоей головой, когда, заметив тебя, отрываются от рыбной ловли.
 ~
 0 0 hills
 D2
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
 ~
 Z -1 29235
 D3
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
@@ -1876,21 +2227,26 @@ On the rock jetty
 Z -1 29233
 S
 #29235
-On the Rock Jetty~
-You walk along the rock jetty of the isle of Freeport. The waves crash and 
+@eng On the Rock Jetty@rus Каменная Дамба~
+@eng You walk along the rock jetty of the isle of Freeport. The waves crash and 
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
+@rus Ты идешь вдоль каменной дамбы острова Свободная Гавань. Волны разбиваются о
+камень и создают в воздухе завесу из соленых брызг.  Чайки  носятся в  небе
+над твоей головой, когда, заметив тебя, отрываются от рыбной ловли.
 ~
 0 0 hills
 D0
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
 ~
 Z -1 29234
 D1
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
@@ -1898,28 +2254,36 @@ On the rock jetty
 Z -1 29236
 S
 #29236
-Dawn's Edge~
-You have reached the easternmost point of Freeport isle, a place locals call 
+@eng Dawn's Edge@rus Край Зари~
+@eng You have reached the easternmost point of Freeport isle, a place locals call 
 Dawn's edge. There is an ivory statue of a dolphin leaping out of the water 
 here. To the east you see the corner of the world.
+@rus Ты $gn{достиг} крайней восточной точки острова Свободная Гавань.  Местные
+называют ее Край Зари.  Здесь стоит статуя из слоновой кости, изображающая
+дельфина, выпрыгивающего из воды.  На востоке виден конец мира.  
 ~
 0 0 mountain
 E
-statue~
-The statue shows the Dolphin as it is rising out of the water. The 
+statue статуя~
+@eng The statue shows the Dolphin as it is rising out of the water. The 
 inscription reads `When Dolphin was created at the dawn of time, she 
 leaped forth from the water with great joy, and the water which fell 
-from her back became the isle of Freeport'
+from her back became the isle of Freeport.'
+@rus Статуя изображает дельфина, выпрыгивающего из воды. Надпись гласит: "Когда
+на заре времен был создан Дельфин, он радостно выпрыгнул из воды, и брызги,
+скатившиеся по его спине, стали островом Свободная Гавань."
 ~
 D1
-The corner of the World
+@eng The corner of the World.
+@rus Конец мира.
 ~
 ~
 ~
 ~
 Z -1 14001
 D3
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
@@ -1927,21 +2291,26 @@ On the rock jetty
 Z -1 29235
 S
 #29237
-On the Rock Jetty~
-You walk along the rock jetty of the isle of Freeport. The waves crash and 
+@eng On the Rock Jetty@rus Каменная Дамба~
+@eng You walk along the rock jetty of the isle of Freeport. The waves crash and 
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
+@rus Ты идешь вдоль каменной дамбы острова Свободная Гавань. Волны разбиваются о
+камень и создают в воздухе завесу из соленых брызг.  Чайки  носятся в  небе
+над твоей головой, когда, заметив тебя, отрываются от рыбной ловли.
 ~
 0 0 hills
 D2
-On the Rock Jetty
+@eng On the Rock Jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
 ~
 Z -1 29225
 D3
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
@@ -1949,21 +2318,26 @@ On the rock jetty
 Z -1 29238
 S
 #29238
-On the Rock Jetty~
-You walk along the rock jetty of the isle of Freeport. The waves crash and 
+@eng On the Rock Jetty@rus Каменная Дамба~
+@eng You walk along the rock jetty of the isle of Freeport. The waves crash and 
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
+@rus Ты идешь вдоль каменной дамбы острова Свободная Гавань. Волны разбиваются о
+камень и создают в воздухе завесу из соленых брызг.  Чайки  носятся в  небе
+над твоей головой, когда, заметив тебя, отрываются от рыбной ловли.
 ~
 0 0 hills
 D0
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
 ~
 Z -1 29239
 D1
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
@@ -1971,21 +2345,26 @@ On the rock jetty
 Z -1 29237
 S
 #29239
-On the Rock Jetty~
-You walk along the rock jetty of the isle of Freeport. The waves crash and 
+@eng On the Rock Jetty@rus Каменная Дамба~
+@eng You walk along the rock jetty of the isle of Freeport. The waves crash and 
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
+@rus Ты идешь вдоль каменной дамбы острова Свободная Гавань. Волны разбиваются о
+камень и создают в воздухе завесу из соленых брызг.  Чайки  носятся в  небе
+над твоей головой, когда, заметив тебя, отрываются от рыбной ловли.
 ~
 0 0 hills
 D2
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
 ~
 Z -1 29238
 D3
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
@@ -1993,21 +2372,26 @@ On the rock jetty
 Z -1 29240
 S
 #29240
-On the Rock Jetty~
-You walk along the rock jetty of the isle of Freeport. The waves crash and 
+@eng On the Rock Jetty@rus Каменная Дамба~
+@eng You walk along the rock jetty of the isle of Freeport. The waves crash and 
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
+@rus Ты идешь вдоль каменной дамбы острова Свободная Гавань. Волны разбиваются о
+камень и создают в воздухе завесу из соленых брызг.  Чайки  носятся в  небе
+над твоей головой, когда, заметив тебя, отрываются от рыбной ловли.
 ~
 0 0 hills
 D1
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
 ~
 Z -1 29239
 D3
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
@@ -2015,21 +2399,26 @@ On the rock jetty
 Z -1 29241
 S
 #29241
-On the Rock Jetty~
-You walk along the rock jetty of the isle of Freeport. The waves crash and 
+@eng On the Rock Jetty@rus Каменная Дамба~
+@eng You walk along the rock jetty of the isle of Freeport. The waves crash and 
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
+@rus Ты идешь вдоль каменной дамбы острова Свободная Гавань. Волны разбиваются о
+камень и создают в воздухе завесу из соленых брызг.  Чайки  носятся в  небе
+над твоей головой, когда, заметив тебя, отрываются от рыбной ловли.
 ~
 0 0 hills
 D0
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
 ~
 Z -1 29242
 D1
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
@@ -2037,15 +2426,20 @@ On the rock jetty
 Z -1 29240
 S
 #29242
-Northpoint~
-You have reached the end of the jetty at a place called Northpoint. Here 
+@eng Northpoint@rus Северный Край~
+@eng You have reached the end of the jetty at a place called Northpoint. Here 
 long swells from the northeast crash with great force upon the island. You 
 see why the island has been reinforced with a rock jetty- without it, it 
 would rapidly erode.
+@rus Ты $gn{достиг} конца дамбы в месте, называемом Северный Край. Огромные волны 
+обрушиваются на остров с северо-востока с неописуемой силой.  Теперь ты
+понимаешь, почему берега острова укреплены каменной дамбой.  Без  дамбы
+остров был бы мгновенно размыт волнами.
 ~
 0 0 mountain
 D2
-On the rock jetty
+@eng On the rock jetty.
+@rus Каменная дамба.
 ~
 ~
 ~
@@ -2053,24 +2447,32 @@ On the rock jetty
 Z -1 29241
 S
 #29243
-Freeport Village~
-You stand in the burrows of Freeport, where all the sailors and merchants
+@eng Freeport Village@rus Пригород Свободной Гавани~
+@eng You stand in the burrows of Freeport, where all the sailors and merchants
 families live. The houses are made of the local stone and have slate roofs.
 The closer the houses are to the city, the more beautiful and grandiose they
 become. Down next to the jetty where flooding is likely, live the poorest
 families, in temporary shacks which are prone to flooding. To the north is 
 the mercantile warehouse.
+@rus Ты находишься в трущобах Свободной Гавани, где живут семьи всех моряков
+и купцов. Здания построены из местного  камня  и имеют сланцевые крыши.
+Ближе к городу располагаются наиболее большие и красивые здания. Внизу,
+ближе к  дамбе,  где вероятность наводнения выше,  живут  самые  бедные 
+семьи. Дома здесь, скорее похожие на халупы, очень уязвимы для наводне-
+ний. На севере располагаются склады.
 ~
 0 0 hills
 D1
-Freeport village
+@eng Freeport village.
+@rus Пригород Свободной Гавани.
 ~
 ~
 ~
 ~
 Z -1 29244
 D3
-Freeport village
+@eng Freeport village.
+@rus Пригород Свободной Гавани.
 ~
 ~
 ~
@@ -2078,22 +2480,28 @@ Freeport village
 Z -1 29224
 S
 #29244
-Freeport Village~
-You have reached the heart of Freeport village. Sailors wives wave at
+@eng Freeport Village@rus Пригород Свободной Гавани~
+@eng You have reached the heart of Freeport village. Sailors wives wave at
 you and ask you to join them for tea. Children run along the main street
 playing sailors and pirates. There is a small church here at the point
 on the shore.
+@rus Ты $gn{достиг} сердца пригорода Свободной Гавани. Жены моряков приветливо 
+машут тебе и приглашают присоединиться к их чаепитию. Ребятня бегает по
+улицам, увлеченно играя  в пиратов.  Неподалеку от берега расположилась 
+старенькая церковь.
 ~
 0 0 hills
 D0
-Freeport village
+@eng Freeport village.
+@rus Пригород Свободной Гавани.
 ~
 ~
 ~
 ~
 Z -1 29245
 D3
-Freeport village
+@eng Freeport village.
+@rus Пригород Свободной Гавани.
 ~
 ~
 ~
@@ -2101,24 +2509,32 @@ Freeport village
 Z -1 29243
 S
 #29245
-Freeport Village~
-You stand in the burrows of Freeport, where all the sailors and merchants
+@eng Freeport Village@rus Пригород Свободной Гавани~
+@eng You stand in the burrows of Freeport, where all the sailors and merchants
 families live. The houses are made of the local stone and have slate roofs.
 The closer the houses are to the city, the more beautiful and grandiose they
 become. Down next to the jetty where flooding is likely, live the poorest
 families, in temporary shacks which are prone to flooding. To the west is 
 the mercantile warehouse.
+@rus Ты находишься в трущобах Свободной Гавани, где живут семьи всех моряков
+и купцов. Здания построены из местного  камня  и имеют сланцевые крыши.
+Ближе к городу располагаются наиболее большие и красивые здания. Внизу,
+ближе к  дамбе,  где вероятность наводнения выше,  живут  самые  бедные 
+семьи. Дома здесь, скорее похожие на халупы, очень уязвимы для наводне-
+ний. На западе располагаются склады.
 ~
 0 0 hills
 D0
-Freeport village
+@eng Freeport village.
+@rus Пригород Свободной Гавани.
 ~
 ~
 ~
 ~
 Z -1 29232
 D2
-Freeport village
+@eng Freeport village.
+@rus Пригород Свободной Гавани.
 ~
 ~
 ~
@@ -2126,24 +2542,31 @@ Freeport village
 Z -1 29244
 S
 #29246
-The Gates of Freeport~
-You stand at the famed bronze gates of Freeport, built on the thriving
+@eng The Gates of Freeport@rus Ворота Свободной Гавани~
+@eng You stand at the famed bronze gates of Freeport, built on the thriving
 commerce of the city. From here you have a commanding view of the island
 and the harbor. You stop and rest, watching the Liola Lew hoist anchor
 and sail off with her cargo into the seas. Yes, you think you could get
 used to life here on Freeport. Commerce lane goes south through the city
 gates.
+@rus Ты стоишь у знаменитых бронзовых ворот Свободной Гавани, посроенные на
+деньги купцов. Отсюда открывается отличный вид на весь остров и гавань.
+Ты $gn{остановился} немного отдожнуть, наблюдая как  "Льела Лью"  поднимает
+якоря и отплывает со своим  грузом в открытое море.  Да, кажется, тебе
+тут нравится. На юг от ворот идет Купеческая Улица.
 ~
 0 C city
 D2
-Commerce lane
+@eng Commerce lane.
+@rus Купеческая Улица.
 ~
-gates bronze~
-the gates~
+gates ворота bronze бронзовые~
+@eng the gates@rus ворота~
 ~
 Z -1 29247
 D5
-The road to the island
+@eng The road to the island.
+@rus Дорога на остров.
 ~
 ~
 ~
@@ -2151,37 +2574,45 @@ The road to the island
 Z -1 29228
 S
 #29247
-Commerce Street~
-You stroll down bustling Commerce street, taking in the sights, sounds,
+@eng Commerce Street@rus Купеческая Улица~
+@eng You stroll down bustling Commerce street, taking in the sights, sounds,
 and smells of the Jewel of the Pirate Seas, as Freeport is often called.
 To your east is the Sunken Pirate, the local watering hole, and to the
 west is the Emporium, a store of exotic goods. Commerce street continues
 south.
+@rus Ты идешь по Купеческой улице, наслаждаясь видами, звуками и запахами
+Жемчужины Пиратских Морей,  как часто называют Свободную Гавань.  На 
+востоке находится местный трактир  "Пират-Утопленник",  на  западе -
+магазин экзотических товаров. Купеческая Улица идет дальше на юг.
 ~
 0 0 city
 D0
-The gates of Freeport
+@eng The gates of Freeport.
+@rus Ворота Свободной Гавани.
 ~
 ~
 ~
 ~
 Z -1 29246
 D1
-The Sunken Pirate
+@eng The Sunken Pirate.
+@rus "Пират-Утопленник".
 ~
 ~
 ~
 ~
 Z -1 29248
 D2
-Commerce Street
+@eng Commerce Street.
+@rus Купеческая Улица.
 ~
 ~
 ~
 ~
 Z -1 29250
 D3
-The Emporium
+@eng The Emporium.
+@rus Магазин экзотических товаров.
 ~
 ~
 ~
@@ -2189,18 +2620,25 @@ The Emporium
 Z -1 29249
 S
 #29248
-The Sunken Pirate~
-Here, amid the reek of spilled beer, bad cigars, and other unmentionable
+@eng The Sunken Pirate@rus "Пират-Утопленник"~
+@eng Here, amid the reek of spilled beer, bad cigars, and other unmentionable
 smells lies an endearing little bar done up in a nautical theme. The jolly
 roger flies over the main bar, where the local beer and wine is served
 as the locals like it- warm. Waitresses clad in little wiggle between
 the packed tables to the delight of their naval and mercantile clientele.
 An unleavened spiced bread called Pilas is served hot and in generous portions
 in wicker baskets.
+@rus Здесь, среди вони пролитого пива, плохого табака и других неприятных запахов,
+расположен небольшой  прилавок,  выполненный в морском стиле.  Над прилавком
+гордо реет "Веселый Роджер", здесь же продается вино и пиво. Местные почему-
+то пьют пиво теплым - фу,  какая гадость!  Практически  раздетые  официантки 
+скользят между тесно расставленных столов к восхищению своих клиентов. В пле-
+теных корзинах подается в горячем виде местный пряный хлеб, зовущийся пилас.
 ~
 0 D inside
 D3
-Commerce Street
+@eng Commerce Street.
+@rus Купеческая Улица.
 ~
 ~
 ~
@@ -2208,15 +2646,21 @@ Commerce Street
 Z -1 29247
 S
 #29249
-The Emporium~
-This warehouse-sized store is packed to the ceiling with goods from
+@eng The Emporium@rus Магазин экзотических товаров~
+@eng This warehouse-sized store is packed to the ceiling with goods from
 several lands. Bolts of cloth, silver plates and utensils, lanterns
 candles, rugs, etc. dazzle you. Several store boys work the floor, helping
 their customers.
+@rus Этот огромный магазин, по размерам напоминающий склад, до потолка уставлен
+товарами из разных стран.  Стопки ткани, серебряных тарелок, посуды, фона-
+рей, свечей, ковров и прочего хлама ослепляют тебя.  Несколько раюботающих
+в магазине мальчиков помогают своим клиентам  сделать правильный выбор  (и
+заодно избавиться от тянущих карманы денег).
 ~
 0 D inside
 D1
-Commerce Street
+@eng Commerce Street.
+@rus Купеческая Улица.
 ~
 ~
 ~
@@ -2224,37 +2668,46 @@ Commerce Street
 Z -1 29247
 S
 #29250
-Commerce Street~
-You stroll down bustling Commerce street, taking in the sights, sounds,
+@eng Commerce Street@rus Купеческая Улица~
+@eng You stroll down bustling Commerce street, taking in the sights, sounds,
 and smells of the Jewel of the Pirate Seas, as Freeport is often called.
 To the east is the Bronze Scabbard, the shop of the armourer of Freeport.
 To the west is the Mystic Eye, a famed magic shop. Commerce street continues
 north and south.
+@rus Ты идешь по Купеческой улице, наслаждаясь видами, звуками и запахами
+Жемчужины Пиратских Морей,  как часто называют Свободную Гавань.  На 
+востоке находится  оружейная  лавка  "Бронзовые Ножны",  на западе -
+"Мистический глаз", известная магическая лавка. Купеческая Улица про-
+должается к северу и югу.
 ~
 0 0 city
 D0
-Commerce Street
+@eng Commerce Street.
+@rus Купеческая Улица.
 ~
 ~
 ~
 ~
 Z -1 29247
 D1
-The Bronze Scabbard
+@eng The Bronze Scabbard.
+@rus "Бронзовые Ножны".
 ~
 ~
 ~
 ~
 Z -1 29251
 D2
-The town square
+@eng The town square.
+@rus Городская Площадь.
 ~
 ~
 ~
 ~
 Z -1 29253
 D3
-The Mystic Eye
+@eng The Mystic Eye.
+@rus "Мистический Глаз".
 ~
 ~
 ~
@@ -2262,16 +2715,22 @@ The Mystic Eye
 Z -1 29252
 S
 #29251
-The Bronze Scabbard~
-The Bronze Scabbard is actually a front store for the blacksmith the 
+@eng The Bronze Scabbard@rus "Бронзовые Ножны"~
+@eng The Bronze Scabbard is actually a front store for the blacksmith the 
 metalworkers of Freeport. The bulk of the commissions come from the
 Captains guild and the shipyards, where most of the arms of Freeport
 are made. In their spare time the metalworkers make various trinkets
 for the local citizenry and tourists.
+@rus "Бронзовые Ножны"  фактически являются  первостепенным магазином для 
+кузнецов Свободной Гавани. Большая часть товара идет сюда из Гильдии
+Капитанов и с верфи, где производится большая часть местного оружия.
+В свободное время кузнецы изготовляют различные побрякушки и сувени-
+ры для туристов и местного люда.
 ~
 0 D inside
 D3
-Commerce Street
+@eng Commerce Street.
+@rus Купеческая Улица.
 ~
 ~
 ~
@@ -2279,15 +2738,19 @@ Commerce Street
 Z -1 29250
 S
 #29252
-The Mystic Eye~
-Your head swims in the exotic fumes emitted by the candles of this shop.
+@eng The Mystic Eye@rus "Мистический Глаз"~
+@eng Your head swims in the exotic fumes emitted by the candles of this shop.
 Several lamps on display change from color to color, in addition to the
 everlasting variety. Scrolls and books are stored in a glass cabinet behind
 the counter.
+@rus Твоя голова окружена экзотическим  дымом от свечей этой  лавки.  Несколько
+ламп красиво меняют свой цвет, дополняя собой царящее вокруг разнообразие.
+Свитки и книги хранятся в стеклянном шкафчике позади прилавка.
 ~
 0 D inside
 D1
-Commerce Street
+@eng Commerce Street.
+@rus Купеческая Улица.
 ~
 ~
 ~
@@ -2295,39 +2758,51 @@ Commerce Street
 Z -1 29250
 S
 #29253
-The Town Square of Freeport~
-You are in the broad town square of Freeport, which measures 100 yds by 100
+@eng The Town Square of Freeport@rus Городская Площадь Свободной Гавани~
+@eng You are in the broad town square of Freeport, which measures 100 yds by 100
 yds. Small outdoor cafes have set up shop in the square, catering to 
 their people watching customers. To the south is the town hall, where
 the famed waterclock of Freeport chimes the martial song of the Captains
 guild every hour. To the east, Naval street runs to the Captains guild at
 the end, and to the west Shippers Lane goes to the Merchants guild. Commerce
 street leads northwards out of the city.
+@rus Ты стоишь на просторной городской площади Свободной Гавани. Размеры
+площади  составляют примерно 100 на 100  ярдов.  Маленькие открытые
+кафе располагаются прямо на  площади,  обслуживая своих посетителей
+по первому классу. На юге располагается ратуша, где знаменитые водя-
+ные часы Свободной Гавани каждый час исполняют военную песню Гильдии
+Капитанов. На востоке Флотская Улица ведет к зданию Гильдии Капита-
+нов, на западе Улица Грузоотправителей ведет к Гильдии Купцов.  Ку-
+печеская улица идет на север к выходу из города.
 ~
 0 K city
 D0
-Commerce Street
+@eng Commerce Street.
+@rus Купеческая Улица.
 ~
 ~
 ~
 ~
 Z -1 29250
 D1
-Naval Street
+@eng Naval Street.
+@rus Флотская Улица.
 ~
 ~
 ~
 ~
 Z -1 29254
 D2
-Town hall
+@eng Town hall.
+@rus Ратуша.
 ~
 ~
 ~
 ~
 Z -1 29256
 D3
-Shippers lane
+@eng Shippers lane.
+@rus Улица Грузоотправителей.
 ~
 ~
 ~
@@ -2335,29 +2810,37 @@ Shippers lane
 Z -1 29255
 S
 #29254
-Naval Street~
-You stand on Naval street, which has been paved with engraved stones,
+@eng Naval Street@rus Флотская Улица~
+@eng You stand on Naval street, which has been paved with engraved stones,
 each stone commemorating a naval engagement in the city's history. Cadets
 drill at the end of the street, marching up and down, over and over in
 tight formation. To the south is an inn called The Crew's Quarters.
+@rus Ты стоишь на Флотской Улице, выложенной гравированным камнем. На каждом
+камне искусно изображено какое-нибудь морское сражение из богатой таки-
+ми событиями истории города. Кадеты тренируются в конце улицы, маршируя
+ввехр и вниз, снова и снова в плотном порядке.  На юге находится гости-
+ница "Веселый Кубрик".
 ~
 0 0 city
 D1
-Naval Street
+@eng Naval Street.
+@rus Флотская Улица.
 ~
 ~
 ~
 ~
 Z -1 29276
 D2
-The Crew's Quarters
+@eng The Crew's Quarters.
+@rus "Веселый Кубрик".
 ~
 ~
 ~
 ~
 Z -1 29257
 D3
-Town square
+@eng Town square.
+@rus Городская площадь.
 ~
 ~
 ~
@@ -2365,14 +2848,18 @@ Town square
 Z -1 29253
 S
 #29255
-Shipper's Lane~
-You walk Shippers lane. Two story houses press closely to the to the
-street and people bustle back and forth. To the south is the bank of 
+@eng Shipper's Lane@rus Улица Грузоотправителей~
+@eng You walk Shippers lane. Two story houses press closely to the street
+and people bustle back and forth. To the south is the bank of 
 Freeport.
+@rus Ты идешь по Улице Грузоотправителей. Двухэтажные дома располагаются
+близко к улице и люди суетятся между ними. На юге видно здание Банка
+Свободной Гавани.
 ~
 0 0 city
 D1
-Town square
+@eng Town square.
+@rus Городская площадь.
 ~
 ~
 ~
@@ -2385,7 +2872,8 @@ D2
 ~
 Z 0 29258
 D3
-Shipper's lane
+@eng Shipper's lane.
+@rus Улица Грузоотправителей.
 ~
 ~
 ~
@@ -2393,8 +2881,8 @@ Shipper's lane
 Z -1 29259
 S
 #29256
-Town Hall~
-You stand inside the town hall of the city of Freeport. Town hall
+@eng Town Hall@rus Ратуша~
+@eng You stand inside the town hall of the city of Freeport. Town hall
 is arranged for meetings. To your left are the 9 captains chairs, where
 the representatives of the Captains guild sit. To your right are the
 5 chairs of the merchants guild. Ahead, in the center, is where the mayor
@@ -2402,42 +2890,64 @@ sits. Around you are many wooden benches upon which townsmen may sit and
 participate in the meetings. The role of the mayor is as arbitrator, and
 he is freely elected by popular vote. White marble statues are displayed
 in alcoves about the hall.
+@rus Ты стоишь внутри ратуши Свободной Гавани. Ратуша обставлена мебелью
+специально для собраний.  Слева  от тебя стоят 9 капитанских кресел,
+где сидят представители Гильдии Капитанов.  Справа  стоят  5 кресел 
+Гильдии Купцов. Впереди, в центре, место мэра. Вокруг располагается
+множество деревянных скамей, на которых размещаются горожане, желаю-
+щие принять участие в собрании. На мэра возлагается роль арбитра; он
+выбирается открытым голосованием населения города.  В альковах стен
+стоят статуи из белого мрамора.
 ~
 0 D inside
 E
-statues~
-The statues are of past mayors of the city. As you examine them more
+statues статуя статуи~
+@eng The statues are of past mayors of the city. As you examine them more
 closely, you notice one of them shows signs of having been moved across the 
 floor many many times. You try to move it, but the statue is held in place
 by a locking mechanism.
+@rus Статуи изображают всех мэров города прошлых лет. При более тщательном
+осмотре, ты $gn{заметил}, что одну из них явно очень часто двигают с места
+на место. При попытке сдвинуть ее с места выяснилось, что статуя удер-
+живается на месте каким-то запирающим механизмом.
 ~
 D0
-Town square
+@eng Town square.
+@rus Городская площадь.
 ~
 ~
 ~
 ~
 Z -1 29253
 D5
-A secret passage
+@eng A secret passage.
+@rus Секретный проход.
 ~
-statue~
-the statue~
+statue статуя~
+@eng the statue@rus статуя~
 ~
 ABCZ 29201 29264
 S
 #29257
-The Crew's Quarters~
-You are inside a homely inn. Here in the giant common room, a fire roars
+@eng The Crew's Quarters@rus "Веселый Кубрик"~
+@eng You are inside a homely inn. Here in the giant common room, a fire roars
 in the stone fireplace, and patrons sip wine next to it. Rooms are available
 for let, starting at 50 G a night. The tables are made of a thickly varnished
 and dark stained oak, the walls are paneled, and the windows facing the
 street resemble portholes. This is a popular meeting place for the captains
 when they have foreign visitors.
+@rus Ты стоишь  внутри уютной гостиницы.  В огромной  гостиной в  пяти  очагах
+горит яркий огонь, и посетители потягивают пиво, рассевшись поближе к не-
+му. Комнаты сдаются начиная со скромной суммы в 50 монет  за ночь.  Столы
+сделаны из темного дуба и покрыты толстым слоем лака. стены покрыты дере-
+вянными панелями,  а окна,  выходящие на улицу,  напоминают иллюминаторы.
+Это популярное место для встреч капитанов, когда у них бывают иностранные
+гости.
 ~
 0 D inside
 D0
-Naval Street
+@eng Naval Street.
+@rus Флотская Улица.
 ~
 ~
 ~
@@ -2445,13 +2955,17 @@ Naval Street
 Z -1 29254
 S
 #29258
-The Bank of Freeport~
-You stand inside the stout walls of the bank of Freeport. There is a 
+@eng The Bank of Freeport@rus Банк Свободной Гавани~
+@eng You stand inside the stout walls of the bank of Freeport. There is a 
 continual stream of customers entering and depositing vast sums of money in
 the well guarded vault. The bank is faring well, as you can judge by
 the amount of gilding inside the building.
+@rus Ты стоишь в окружении крепких стен банка Свободной Гавани. Клиенты входят
+непрерывным потоком, чтобы оставить немаленькие суммы денег в этом надеж-
+ном хранилище. Дела у банка идут хорошо,  если судить по обилию золоченых
+украшений внутри здания.
 ~
-0 CD inside
+0 CDU inside
 D0
 ~
 ~
@@ -2460,28 +2974,34 @@ D0
 Z 0 29255
 S
 #29259
-Shipper's Lane~
-You walk Shippers lane. Two story houses press closely to the to the
+@eng Shipper's Lane@rus Улица Грузоотправителей~
+@eng You walk Shippers lane. Two story houses press closely to the to the
 street and people bustle back and forth. To the north is the mercantile
 school, and to the south is the merchant's guild.
+@rus Ты идешь по Улице Грузоотправителей. Двухэтажные дома располагаются
+близко к улице и люди суетятся между ними. На севере находится зда-
+ние Торговой Школы, на юге - Гильдия Купцов Свободной Гавани.
 ~
 0 0 city
 D0
-The mercantile school
+@eng The mercantile school.
+@rus Торговая Школа.
 ~
 ~
 ~
 ~
 Z -1 29260
 D1
-Shipper's lane
+@eng Shipper's lane.
+@rus Улица Грузоотправителей.
 ~
 ~
 ~
 ~
 Z -1 29255
 D2
-The merchant's guild
+@eng The merchant's guild.
+@rus Гильдия Купцов.
 ~
 ~
 ~
@@ -2489,16 +3009,22 @@ The merchant's guild
 Z -1 29261
 S
 #29260
-The Mercantile School~
-You stand in the courtyard of the mercantile school of Freeport. It is 
+@eng The Mercantile School@rus Торговая Школа~
+@eng You stand in the courtyard of the mercantile school of Freeport. It is 
 here that young boys master the subtleties of profit and trade. Scribes
 record the latest buy and sell rates of commodities around the world upon
 the rolls of the school. This school is one of the main reasons for the
 economic dominance of Freeport of world trade.
+@rus Ты стоишь во внутреннем дворе Торговой Школы Свободной Гавани. Здесь эти
+молодые ребята овладевают всеми тонкостями торговли и получения прибыли.
+Писцы записывают все самые свежие цены на товары по всему миру на свитки
+в этой школе. Школа является одной из главных причин экономического пре-
+восходства Свободной Гавани в мировой торговле.
 ~
 0 D inside
 D2
-Shipper's Lane
+@eng Shipper's Lane.
+@rus Улица Грузоотправителей.
 ~
 ~
 ~
@@ -2506,8 +3032,8 @@ Shipper's Lane
 Z -1 29259
 S
 #29261
-The Merchant's Guild~
-You have entered the grand arch of the merchants guild of Freeport. It is
+@eng The Merchant's Guild@rus Гильдия Купцов~
+@eng You have entered the grand arch of the merchants guild of Freeport. It is
 here that the master traders conduct their business of contracting with
 captains for the transport of cargo to remote destinations. Each member of
 the merchant's guild tithes to the guild, money which is used to not
@@ -2518,10 +3044,21 @@ each master. The 5 richest masters make up the council of 5, and argue on
 the guilds behalf in contractual negotiations in town meetings. It has been
 said that the council of 5 collectively owns one quarter of the world's 
 wealth.
+@rus Вы прошли под большой аркой ворот Гильдии Купцов Свободной Гавани. Именно
+здесь профессиональные торговцы заключают контракты с капитанами на транс-
+портировку грузов в другие страны. Каждый член Гильдии Купцов платит член-
+ские взносы, которые используются не только для содержания  собственности
+Гильдии, но и на открытие новых рынков в других землях.  Старшины гильдии
+обладают большим уважением, богатсвом и силой по всему миру. Старшины вы-
+бираются голосованием и располагаются в порядке возрастания богатства каж-
+дого из них. 5 самых богатых старшин составляют Совет Пяти, который пред-
+ставляет интересы гильдии на городских собраниях в ратуше. По слухам, Со-
+вет Пяти владеет четвертью мирового богатства.
 ~
 0 D inside
 D0
-Shipper's Lane
+@eng Shipper's Lane.
+@rus Улица Грузоотправителей.
 ~
 ~
 ~
@@ -2529,17 +3066,25 @@ Shipper's Lane
 Z -1 29259
 S
 #29262
-The Naval Academy~
-You stand on the grounds of the renowned naval academy of Freeport, the
+@eng The Naval Academy@rus Военно-Морская Академия~
+@eng You stand on the grounds of the renowned naval academy of Freeport, the
 training grounds for the worlds captains. Young boys are taught for a
 period of 8 years the art of sailing, and finish their apprenticeship onboard
 actual military vessels. The academy has a long tradition of turning out
 fine sailors. Most cadets eventually become captains of their own vessels
 and under contract to the Merchants guild.
+@rus Ты находишься на территории знаменитой Военно-Морской Академии Свобод-
+ной Гавани, места где проходят обучение будущие  капитаны всего  мира.
+Молодых парней обучают 8 лет искусству хождения под парусом, после че-
+го они заканчивают свое обучение на борту настоящих военных  кораблей.
+Традиционно из стен Академии выходят первоклассные моряки. Большинство
+кадетов становятся капитанами собственных судов и подписывают контрак-
+ты с Гильдией Купцов.
 ~
 0 D inside
 D2
-Naval Street
+@eng Naval Street.
+@rus Флотская Улица.
 ~
 ~
 ~
@@ -2547,8 +3092,8 @@ Naval Street
 Z -1 29276
 S
 #29263
-The Captains Guild~
-Here in the halls of the Captains guild, the worlds shipping begins and
+@eng The Captains Guild@rus Гильдия Капитанов~
+@eng Here in the halls of the Captains guild, the worlds shipping begins and
 ends. The guild was founded over 300 years ago to represent the collective
 interests of the ship owners. To be a member, one must demonstrate the 
 clear title to at least one vessel. Ahead of you is the great hall where
@@ -2556,10 +3101,20 @@ the guild holds its meetings. Votes in the guild are based weighted by
 the number of vessels the captain has. The richest men with the most ships
 fill the 9 seats of honor in the guild, and are called the Admirals. It has
 been said that they control one third of the world's shipping.
+@rus Здесь, в залах Гильдии Капитанов начинается и заканчивается мировая пере-
+возка грузов. Гильдия была основана более чем 300 лет назад, чтобы предс-
+тавлять коллективные интересы владельцев судов. Чтобы стать членом  гиль-
+дии, претендент должен предоставить права владения как минимум одним суд-
+ном. Впереди находится огромный зал, где проходят собрания гильдии. Голо-
+са в Гильдии распределяются в зависимости от количества судов,  которыми
+владеет капитан. Богатейшые люди, владеющие  наибольшим числом  кораблей,
+занимают 9 почетных мест в гильдии,  и называются Адмиралами.  По слухам,
+Адмиралы контролируют одну треть мировых грузоперевозок.
 ~
 0 D inside
 D0
-Naval Street
+@eng Naval Street.
+@rus Флотская Улица.
 ~
 ~
 ~
@@ -2567,48 +3122,61 @@ Naval Street
 Z -1 29276
 S
 #29264
-On a Secret Staircase~
-You follow a secret staircase south and downward underground. The stairs
+@eng On a Secret Staircase@rus Секретная Лестница~
+@eng You follow a secret staircase south and downward underground. The stairs
 are wet and mossy. Far below you hear the sounds of men loading a ship.
 The old torch sconces on the wall have not been used in years. There is 
 a sign on the wall.
+@rus Ты спускаешься по секретной лестнице вниз и на юг. Ступеньки сырые и
+замшелые. Далеко  внизу слышны  звуки людей,  занимающихся погрузкой 
+товара на судно. Старый факел, торчащий из стены, использовался пос-
+ледний раз во времена строительсва Вавилонской Башни. На стене виден
+некий знак (sign).
 ~
 0 AD hills
 E
-sign wall~
+sign знак wall стена~
 {45 53} Lok  Hall of the 6th Pirate Lord
 ~
 D2
-On a secret staircase
+@eng On a secret staircase.
+@rus Секретная Лестница.
 ~
 ~
 ~
 ~
 Z -1 29265
 D4
-Through the secret door
+@eng Through the secret door.
+@rus Секретная дверь.
 ~
-statue~
-the statue~
+statue статуя~
+@eng the statue@rus статуя~
 ~
 ABCZ 29201 29256
 S
 #29265
-On a Secret Staircase~
-You follow a secret staircase south and downward underground. The stairs
+@eng On a Secret Staircase@rus Секретная Лестница~
+@eng You follow a secret staircase south and downward underground. The stairs
 are wet and mossy. Far below you hear the sounds of men loading a ship.
 The old torch sconces on the wall have not been used in years.
+@rus Ты спускаешься по секретной лестнице вниз и на юг. Ступеньки сырые и
+замшелые. Далеко  внизу слышны  звуки людей,  занимающихся погрузкой 
+товара на судно. Старым факелом, торчащим тут из стены, похоже,  за-
+бивали гвозди в свои инструменты отцы инквизиции.
 ~
 0 AD hills
 D0
-On a secret staircase
+@eng On a secret staircase.
+@rus Секретная Лестница.
 ~
 ~
 ~
 ~
 Z -1 29264
 D2
-On a secret staircase
+@eng On a secret staircase.
+@rus Секретная Лестница.
 ~
 ~
 ~
@@ -2616,29 +3184,36 @@ On a secret staircase
 Z -1 29267
 S
 #29267
-In the Hidden Cavern~
-You have discovered a hidden underground cavern. In the center of the
+@eng In the Hidden Cavern@rus Тайная Пещера~
+@eng You have discovered a hidden underground cavern. In the center of the
 room is a deep pool in which several triremes have been moored. 
 Laughing sailors are unloading cargo from one of the ships. You quickly
 disguise yourself as one of the sailors.
+@rus Ты $gn{обнаружил} тайную подземную пещеру. В центре помещения находится
+глубокий бассейн, в котором пришвартовалось несколько трирем. Дико
+ржущие матросы разгружают один из кораблей. Ты быстренько маскиру-
+ешься под одного из этих пьяных уродов.
 ~
 0 D inside
 D0
-On a secret staircase
+@eng On a secret staircase.
+@rus Секретная Лестница.
 ~
 ~
 ~
 ~
 Z -1 29265
 D1
-In the hidden cavern
+@eng In the hidden cavern.
+@rus Тайная Пещера.
 ~
 ~
 ~
 ~
 Z -1 29269
 D2
-In the hidden cavern
+@eng In the hidden cavern.
+@rus Тайная Пещера.
 ~
 ~
 ~
@@ -2646,33 +3221,42 @@ In the hidden cavern
 Z -1 29268
 S
 #29268
-In the Hidden Cavern~
-You walk along the shore of an underground water cave in which several
+@eng In the Hidden Cavern@rus Тайная Пещера~
+@eng You walk along the shore of an underground water cave in which several
 triremes have been moored, one of which is being unloaded. You sneak
 unnoticed behind several CRATES which have been recently off-loaded.
+@rus Ты идешь вдоль берега  подземного озера в котором пришвартовалось
+несколько трирем,  одну из которых как раз разгружают  напившиеся
+до поросячьего визга пираты. Ты тихонько крадешься за несколькими
+ЯЩИКАМИ, которые, похоже, только недавно выгружены из трюма.
 ~
 0 D inside
 E
-crates~
-These crates are marked with a destination of Solace. That's funny. What
+crates ящики~
+@eng These crates are marked with a destination of Solace. That's funny. What
 are they doing here?
+@rus На этих ящиках указан пункт назначения - Solace. Прикольно... Что
+они делают здесь???
 ~
 D0
-In the hidden cavern
+@eng In the hidden cavern.
+@rus Тайная Пещера.
 ~
 ~
 ~
 ~
 Z -1 29267
 D1
-In the hidden harbor
+@eng In the hidden harbor.
+@rus Тайная Пристань.
 ~
 ~
 ~
 ~
 Z -1 29275
 D2
-In the hidden cavern
+@eng In the hidden cavern.
+@rus Тайная Пещера.
 ~
 ~
 ~
@@ -2680,41 +3264,52 @@ In the hidden cavern
 Z -1 29273
 S
 #29269
-In the Hidden Cavern~
-You walk along the shore of an underground water cave in which several
+@eng In the Hidden Cavern@rus Тайная Пещера~
+@eng You walk along the shore of an underground water cave in which several
 triremes have been moored, one of which is being unloaded. You sneak
 unnoticed behind several CRATES which have been recently off-loaded. To
 the north of you is a guarded door.
+@rus Ты идешь  вдоль берега  подземного озера в котором пришвартовалось
+несколько  трирем,  одну из которых как раз разгружают  напившиеся
+до зеленых крокодильчиков пираты. Ты тихонько крадешься, прячась за
+несколькими ЯЩИКАМИ,  которые,  похоже, только недавно выгружены из 
+трюма. На севере находится охраняемая дверь.
 ~
 0 D inside
 E
-crates~
-These crates are marked with a destination of Antharia. That's funny. What
+crates ящики~
+@eng These crates are marked with a destination of Antharia. That's funny. What
 are they doing here?
+@rus На этих ящиках указан пункт назначения - Antharia. Прикольно... Что
+они делают здесь???
 ~
 D0
-Through the guarded door
+@eng Through the guarded door.
+@rus Охраняемая дверь.
 ~
-door~
+door дверь~
 ~
 ~
 ABZ -1 29270
 D1
-In the hidden cavern
+@eng In the hidden cavern.
+@rus Тайная Пещера.
 ~
 ~
 ~
 ~
 Z -1 29271
 D2
-In the hidden harbor
+@eng In the hidden harbor.
+@rus Тайная Пристань.
 ~
 ~
 ~
 ~
 Z -1 29275
 D3
-In the hidden cavern
+@eng In the hidden cavern.
+@rus Тайная Пещера.
 ~
 ~
 ~
@@ -2722,8 +3317,8 @@ In the hidden cavern
 Z -1 29267
 S
 #29270
-In The Secret Cave of the 6th Pirate Lord~
-You have boldly entered the secret cave of the 6th pirate lord. About
+@eng In The Secret Cave of the 6th Pirate Lord@rus Тайная Пещера 6-го Лорда Пиратов~
+@eng You have boldly entered the secret cave of the 6th pirate lord. About
 you the evidence of his terrible crimes abounds. Here is a pilfered
 shipping schedule, duplicated on scrolls addressed to the other pirate
 lords. There is a cargo list of several missing merchant vessels. On the
@@ -2731,37 +3326,57 @@ desk is a scroll of the departure time, vessel name, and destination of
 a rich noble. Yes you have discovered the kingpin of the pirate lords,
 the man who has terrorized commerce for a decade. What will you do about 
 it?
+@rus Ты смело $gn{ворвался} в секретную пещеру 6-го короля пиратов.  Вокруг тебя
+громоздятся доказательства его ужасных преступлений. Тут и уворованное
+расписание отправки грузов,  и копии свитков, адресуемых другим пират-
+ским лордам. Здесь также находятся списки  груза нескольких  пропавших
+купеческих судов. На столе лежит свиток с указанным временем отправле-
+ния, названием судна и местом назначения одного богатого дворянина. Да,
+ты действительно $gn{обнаружил} нычку пиратских лордов, уродов, которые тер-
+роризировали торговые пути десятилетиями. Что ты собираешься делать со
+всем этим?
 ~
 0 D inside
 D2
-Through the door
+@eng Through the door.
+@rus Дверь.
 ~
-door~
+door дверь~
 ~
 ~
 Z -1 29269
 S
 #29271
-In the Hidden Cavern~
-You walk along the shore of an underground water cave in which several
+@eng In the Hidden Cavern@rus Тайная Пещера~
+@eng You walk along the shore of an underground water cave in which several
 triremes have been moored, one of which is being unloaded. You sneak
 unnoticed behind several CRATES which have been recently off-loaded.
+@rus Ты идешь  вдоль берега  подземного озера в котором пришвартовалось
+несколько  трирем,  одну из которых как раз разгружают  напившиеся
+до зеленых крокодильчиков пираты. Ты тихонько крадешься, прячась за
+несколькими ЯЩИКАМИ,  которые,  похоже, только недавно выгружены из 
+трюма.
 ~
 0 D inside
 E
-crates~
-These crates are marked with a destination of the Shire. That's funny. What
+crates ящики~
+@eng These crates are marked with a destination of the Shire. That's funny. What
 are they doing here?
+@rus На этих ящиках указан пункт назначения - Shire. Прикольно... Что
+они делают здесь???  (На самом  деле ничего прикольного нет. Уж давно
+бы $gn{догадался}, если бы $gn{имел} хоть чуть-чуть мозгов в голове.)
 ~
 D2
-In the hidden cavern
+@eng In the hidden cavern.
+@rus Тайная Пещера.
 ~
 ~
 ~
 ~
 Z -1 29272
 D3
-In the hidden cavern
+@eng In the hidden cavern.
+@rus Тайная Пещера.
 ~
 ~
 ~
@@ -2769,33 +3384,43 @@ In the hidden cavern
 Z -1 29269
 S
 #29272
-In the Hidden Cavern~
-You walk along the shore of an underground water cave in which several
+@eng In the Hidden Cavern@rus Тайная Пещера~
+@eng You walk along the shore of an underground water cave in which several
 triremes have been moored, one of which is being unloaded. You sneak
 unnoticed behind several CRATES which have been recently off-loaded.
+@rus Ты идешь  вдоль берега  подземного озера в котором пришвартовалось
+несколько  трирем,  одну из которых как раз разгружают  напившиеся
+до зеленых крокодильчиков пираты. Ты тихонько крадешься, прячась за
+несколькими ЯЩИКАМИ,  которые,  похоже, только недавно выгружены из 
+трюма.
 ~
 0 D inside
 E
-crates~
-These crates are marked with a destination of Camelot. That's funny. What
+crates ящики~
+@eng These crates are marked with a destination of Camelot. That's funny. What
 are they doing here?
+@rus На этих ящиках указан пункт назначения - Camelot. Прикольно... Что
+они делают здесь??? 
 ~
 D0
-In the hidden cavern
+@eng In the hidden cavern.
+@rus Тайная Пещера.
 ~
 ~
 ~
 ~
 Z -1 29271
 D2
-In the hidden cavern
+@eng In the hidden cavern.
+@rus Тайная Пещера.
 ~
 ~
 ~
 ~
 Z -1 29274
 D3
-In the hidden harbor
+@eng In the hidden harbor.
+@rus Тайная Пристань.
 ~
 ~
 ~
@@ -2803,21 +3428,30 @@ In the hidden harbor
 Z -1 29275
 S
 #29273
-In the Hidden Cavern~
-You walk along the shore of an underground water cave in which several
+@eng In the Hidden Cavern@rus Тайная Пещера~
+@eng You walk along the shore of an underground water cave in which several
 triremes have been moored, one of which is being unloaded. You sneak
 unnoticed behind several CRATES which have been recently off-loaded. To 
 the south of you the waterway leaves the cavern through a tunnel which
 U's in a long curve.
+@rus Ты идешь  вдоль берега  подземного озера в котором пришвартовалось
+несколько  трирем,  одну из которых как раз разгружают  напившиеся
+до зеленых крокодильчиков пираты. Ты тихонько крадешься, прячась за
+несколькими ЯЩИКАМИ,  которые,  похоже, только недавно выгружены из 
+трюма. На юге виден водный путь, который покидает пещеру, изгибаясь
+по длинной U-образной дуге.
 ~
 0 D inside
 E
-crates~
-These crates are marked with a destination of Dunkeldorf. That's funny. What
+crates ящики~
+@eng These crates are marked with a destination of Dunkeldorf. That's funny. What
 are they doing here?
+@rus На этих ящиках указан пункт назначения - Dunkeldorf. Прикольно... Что
+они делают здесь??? 
 ~
 D0
-In the hidden cavern
+@eng In the hidden cavern.
+@rus Тайная Пещера.
 ~
 ~
 ~
@@ -2825,19 +3459,26 @@ In the hidden cavern
 Z -1 29268
 S
 #29274
-In the Hidden Cavern~
-You walk along the shore of an underground water cave in which several
+@eng In the Hidden Cavern@rus Тайная Пещера~
+@eng You walk along the shore of an underground water cave in which several
 triremes have been moored, one of which is being unloaded. You sneak
 unnoticed behind several CRATES which have been recently off-loaded.
-~
+@rus Ты идешь  вдоль берега  подземного озера в котором пришвартовалось
+несколько  трирем,  одну из которых как раз разгружают  напившиеся
+до зеленых крокодильчиков пираты. Ты тихонько крадешься, прячась за
+несколькими ЯЩИКАМИ,  которые,  похоже, только недавно выгружены из 
+трюма.~
 0 D inside
 E
-crates~
-These crates are marked with a destination of Malancandra. That's funny. What
+crates ящики~
+@eng These crates are marked with a destination of Malancandra. That's funny. What
 are they doing here?
+@rus На этих ящиках указан пункт назначения - Malancandra. Прикольно... Что
+они делают здесь??? 
 ~
 D0
-In the hidden cavern
+@eng In the hidden cavern.
+@rus Тайная Пещера.
 ~
 ~
 ~
@@ -2845,33 +3486,40 @@ In the hidden cavern
 Z -1 29272
 S
 #29275
-On the Hidden Harbor~
-You bob in the waters of the hidden harbor among several docked triremes.
+@eng On the Hidden Harbor@rus Тайная Пристань~
+@eng You bob in the waters of the hidden harbor among several docked triremes.
 You can dock in any cardinal direction except south, where the harbor
 turns into a dark tunnel which bends around to the west. There is a small
 buoy floating here.
+@rus Ты зачем-то $gn{залез} в воду тайной пристани между несколькими пришварто-
+ванными триремами. Отсюда ты можешь плыть в любом направлении, кроме
+юга,  где бухта превращается в темный туннель, который изгибается на 
+запад. Здесь плавает маленький буй.
 ~
 0 0 noswim
 E
-buoy~
+buoy буй~
 {45 53} Lok   The hall of the 6th Pirate Lord
 ~
 D0
-On the docks
+@eng On the docks.
+@rus Доки.
 ~
 ~
 ~
 ~
 Z -1 29269
 D1
-On the docks
+@eng On the docks.
+@rus Доки.
 ~
 ~
 ~
 ~
 Z -1 29272
 D3
-On the docks
+@eng On the docks.
+@rus Доки.
 ~
 ~
 ~
@@ -2879,30 +3527,38 @@ On the docks
 Z -1 29268
 S
 #29276
-Naval Street~
-You stand on Naval street, which has been paved with engraved stones,
+@eng Naval Street@rus Флотская Улица~
+@eng You stand on Naval street, which has been paved with engraved stones,
 each stone commemorating a naval engagement in the city's history. Cadets
 drill at the end of the street, marching up and down, over and over in
 tight formation. To the north is the Naval Academy, and to the south
 is the Captains guild.
+@rus Ты стоишь на Флотской Улице, выложенной гравированным камнем. На каждом
+камне искусно изображено какое-нибудь морское сражение из богатой таки-
+ми событиями истории города. Кадеты тренируются в конце улицы, маршируя
+ввехр и вниз, снова и снова в плотном порядке. На севере  располагается
+Военно-Морская Академия, на юге - Гильдия Капитанов.
 ~
 0 0 city
 D0
-The naval academy
+@eng The naval academy.
+@rus Военно-Морская Академия.
 ~
 ~
 ~
 ~
 Z -1 29262
 D2
-The Captains guild
+@eng The Captains guild.
+@rus Гильдия Капитанов.
 ~
 ~
 ~
 ~
 Z -1 29263
 D3
-Naval Street
+@eng Naval Street.
+@rus Флотская Улица.
 ~
 ~
 ~
