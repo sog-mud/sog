@@ -1,5 +1,5 @@
 /*
- * $Id: auction_impl.c,v 1.19 1998-10-09 13:42:37 fjoe Exp $
+ * $Id: auction_impl.c,v 1.20 1998-11-21 06:00:35 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -299,7 +299,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 					    "%d gold.\n\r"
 					    "No bets on this item have been "
 					    "received.\n\r", auction.starting);
-			spell_identify(0, 0, ch, auction.item,0);
+			spell_identify(0, 0, ch, auction.item, 0);
 			return;
 		}
 		else {	

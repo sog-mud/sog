@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.103 1998-11-18 07:43:43 fjoe Exp $
+ * $Id: fight.c,v 1.104 1998-11-21 06:00:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1485,51 +1485,53 @@ bool check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 	if (number_percent() >= chance + victim->level - ch->level)
 		return FALSE;
 
-	act("You parry $n's attack.", ch, NULL, victim, TO_VICT);
-	act("$N parries your attack.", ch, NULL, victim, TO_CHAR);
+	act("You parry $n's attack.", ch, NULL, victim, TO_VICT | ACT_VERBOSE);
+	act("$N parries your attack.", ch, NULL, victim, TO_CHAR | ACT_VERBOSE);
+
 	check_weapon_damage(ch, victim, loc);
+
 	if (number_percent() >  get_skill(victim,gsn_parry)) {
-	 /* size and weight */
-	 chance += ch->carry_weight / 25;
-	 chance -= victim->carry_weight / 20;
+		/* size and weight */
+		chance += ch->carry_weight / 25;
+		chance -= victim->carry_weight / 20;
 
-	 if (ch->size < victim->size)
-		chance += (ch->size - victim->size) * 25;
-	 else
-		chance += (ch->size - victim->size) * 10;
+		if (ch->size < victim->size)
+			chance += (ch->size - victim->size) * 25;
+		else
+			chance += (ch->size - victim->size) * 10;
 
+		/* stats */
+		chance += get_curr_stat(ch, STAT_STR);
+		chance -= get_curr_stat(victim, STAT_DEX) * 4/3;
 
-	 /* stats */
-	 chance += get_curr_stat(ch,STAT_STR);
-	 chance -= get_curr_stat(victim,STAT_DEX) * 4/3;
+		if (IS_AFFECTED(ch, AFF_FLYING))
+			chance -= 10;
 
-	 if (IS_AFFECTED(ch,AFF_FLYING))
-		chance -= 10;
+		/* speed */
+		if (IS_SET(ch->off_flags, OFF_FAST))
+			chance += 10;
+		if (IS_SET(victim->off_flags,OFF_FAST))
+			chance -= 20;
 
-	 /* speed */
-	 if (IS_SET(ch->off_flags,OFF_FAST))
-		chance += 10;
-	 if (IS_SET(victim->off_flags,OFF_FAST))
-		chance -= 20;
+		/* level */
+		chance += (ch->level - victim->level) * 2;
 
-	 /* level */
-	 chance += (ch->level - victim->level) * 2;
+		/* now the attack */
+		if (number_percent() < (chance / 20 )) {
+			act("You couldn't manage to keep your position!",
+			    ch, NULL, victim, TO_VICT);
+			act("You fall down!", ch, NULL, victim, TO_VICT);
+			act("$N couldn't manage to hold your attack "
+			    "and falls down!",
+			    ch, NULL, victim, TO_CHAR);
+			act("$n stunning force makes $N falling down.",
+			    ch, NULL, victim, TO_NOTVICT);
 
-	 /* now the attack */
-	 if (number_percent() < (chance / 20 ))
-	 {
-		act("You couldn't manage to keep your position!",
-			ch,NULL,victim,TO_VICT);
-		act("You fall down!",ch,NULL,victim,TO_VICT);
-		act("$N couldn't manage to hold your attack and falls down!",
-			ch,NULL,victim,TO_CHAR);
-		act("$n stunning force makes $N falling down.",
-			ch,NULL,victim,TO_NOTVICT);
-
-		WAIT_STATE(victim, SKILL(gsn_bash)->beats);
-		victim->position = POS_RESTING;
-	 }
+			WAIT_STATE(victim, SKILL(gsn_bash)->beats);
+			victim->position = POS_RESTING;
+		}
 	}
+
 	check_improve(victim, gsn_parry, TRUE, 6);
 	return TRUE;
 }
@@ -1554,11 +1556,13 @@ bool check_blink(CHAR_DATA *ch, CHAR_DATA *victim)
 	||  victim->mana < 10)
 		return FALSE;
 
-	victim->mana -= UMAX(victim->level / 10,1);
+	victim->mana -= UMAX(victim->level / 10, 1);
 
-	act("You blink out $n's attack.", ch, NULL, victim, TO_VICT);
-	act("$N blinks out your attack.", ch, NULL, victim, TO_CHAR);
-	check_improve(victim,gsn_blink,TRUE,6);
+	act("You blink out $n's attack.",
+	    ch, NULL, victim, TO_VICT | ACT_VERBOSE);
+	act("$N blinks out your attack.",
+	    ch, NULL, victim, TO_CHAR | ACT_VERBOSE);
+	check_improve(victim, gsn_blink, TRUE, 6);
 	return TRUE;
 }
 
@@ -1587,9 +1591,10 @@ bool check_block(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 	if (number_percent() >= chance + victim->level - ch->level)
 		return FALSE;
 
-	act("Your shield blocks $n's attack.", ch, NULL, victim, TO_VICT);
+	act("Your shield blocks $n's attack.",
+	    ch, NULL, victim, TO_VICT | ACT_VERBOSE);
 	act("$N deflects your attack with $S shield.",
-	    ch, NULL, victim, TO_CHAR);
+	    ch, NULL, victim, TO_CHAR | ACT_VERBOSE);
 	check_shield_damage(ch, victim, loc);
 	check_improve(victim, gsn_shield_block, TRUE, 6);
 	return TRUE;
@@ -1611,55 +1616,60 @@ bool check_dodge(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (IS_NPC(victim))
 		 chance  = UMIN(30, victim->level);
 	else {
-		  chance  = get_skill(victim,gsn_dodge) / 2;
-		  /* chance for high dex. */
-		  chance += 2 * (get_curr_stat(victim,STAT_DEX) - 20);
-		 if (victim->class == CLASS_WARRIOR || victim->class == CLASS_SAMURAI)
+		chance  = get_skill(victim,gsn_dodge) / 2;
+		/* chance for high dex. */
+		chance += 2 * (get_curr_stat(victim,STAT_DEX) - 20);
+		if (victim->class == CLASS_WARRIOR || victim->class == CLASS_SAMURAI)
 		    chance *= 1.2;
 		if (victim->class == CLASS_THIEF || victim->class ==CLASS_NINJA)
 		    chance *= 1.1;
-		 }
+	}
 
 	if (number_percent() >= chance + (victim->level - ch->level) / 2)
 		return FALSE;
 
-	act("You dodge $n's attack.", ch, NULL, victim, TO_VICT	);
-	act("$N dodges your attack.", ch, NULL, victim, TO_CHAR	);
-   if (number_percent() < (get_skill(victim,gsn_dodge) / 20)
-		&& !(IS_AFFECTED(ch,AFF_FLYING) || ch->position < POS_FIGHTING))
-   {
-	 /* size */
-	 if (victim->size < ch->size)
-		chance += (victim->size - ch->size) * 10;  /* bigger = harder to trip */
+	act("You dodge $n's attack.", ch, NULL, victim, TO_VICT | ACT_VERBOSE);
+	act("$N dodges your attack.", ch, NULL, victim, TO_CHAR	| ACT_VERBOSE);
 
-	 /* dex */
-	 chance += get_curr_stat(victim,STAT_DEX);
-	 chance -= get_curr_stat(ch,STAT_DEX) * 3 / 2;
+	if (number_percent() < get_skill(victim,gsn_dodge) / 20
+	&&  !(IS_AFFECTED(ch, AFF_FLYING) || ch->position < POS_FIGHTING)) {
+		/* size */
+		if (victim->size < ch->size)
+			/* bigger = harder to trip */
+			chance += (victim->size - ch->size) * 10;
 
-	 if (IS_AFFECTED(victim,AFF_FLYING))
-		chance -= 10;
+		/* dex */
+		chance += get_curr_stat(victim, STAT_DEX);
+		chance -= get_curr_stat(ch, STAT_DEX) * 3 / 2;
 
-	 /* speed */
-	 if (IS_SET(victim->off_flags,OFF_FAST) || IS_AFFECTED(victim,AFF_HASTE))
-		chance += 10;
-	 if (IS_SET(ch->off_flags,OFF_FAST) || IS_AFFECTED(ch,AFF_HASTE))
-		chance -= 20;
+		if (IS_AFFECTED(victim, AFF_FLYING))
+			chance -= 10;
 
-	 /* level */
-	 chance += (victim->level - ch->level) * 2;
+		/* speed */
+		if (IS_SET(victim->off_flags, OFF_FAST)
+		||  IS_AFFECTED(victim, AFF_HASTE))
+			chance += 10;
+		if (IS_SET(ch->off_flags, OFF_FAST)
+		||  IS_AFFECTED(ch, AFF_HASTE))
+			chance -= 20;
 
+		/* level */
+		chance += (victim->level - ch->level) * 2;
 
-	 /* now the attack */
-	 if (number_percent() < (chance / 20)) {
-		act("$n lost his postion and fall down!",ch,NULL,victim,TO_VICT);
-		act("As $N moves you lost your position fall down!",ch,NULL,victim,TO_CHAR);
-		act("As $N dodges $N's attack ,$N lost his position and falls down.",ch,NULL,victim,TO_NOTVICT);
+		/* now the attack */
+		if (number_percent() < (chance / 20)) {
+			act("$n lost his postion and fall down!",
+			    ch, NULL, victim, TO_VICT);
+			act("As $N moves you lost your position fall down!",
+			    ch, NULL, victim, TO_CHAR);
+			act("As $N dodges $N's attack, $N lost his position "
+			    "and falls down.", ch, NULL, victim, TO_NOTVICT);
 
-		WAIT_STATE(ch, SKILL(gsn_trip)->beats);
-		ch->position = POS_RESTING;
-	 }
+			WAIT_STATE(ch, SKILL(gsn_trip)->beats);
+			ch->position = POS_RESTING;
+		}
 	}
-	check_improve(victim,gsn_dodge,TRUE,6);
+	check_improve(victim, gsn_dodge, TRUE, 6);
 	return TRUE;
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.118 1998-11-18 07:43:45 fjoe Exp $
+ * $Id: merc.h,v 1.119 1998-11-21 06:00:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -810,6 +810,14 @@ enum {
 #define ITEM_WEAR_FLOAT 	(Q)
 #define ITEM_WEAR_TATTOO	(R)
 
+/* obj_data->condition */
+#define COND_EXCELLENT		100
+#define COND_FINE		80
+#define COND_GOOD		60
+#define COND_AVERAGE		40
+#define COND_POOR		20
+#define COND_FRAGILE		0
+
 /* weapon class */
 #define WEAPON_EXOTIC		0
 #define WEAPON_SWORD		1
@@ -1141,7 +1149,7 @@ enum {
 #define COMM_LONG		(aa)
 #define COMM_NOTELNET		(bb)
 #define COMM_NOIAC		(cc)
-#define COMM_NOENG		(dd)
+#define COMM_NOVERBOSE		(dd)
 
 /* IAC replacement if COMM_NOIAC is set */
 /* COMM_NOIAC is useful to map 'Ñ' (IAC) to 'ñ' when using win1251 codepage */

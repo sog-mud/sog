@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.113 1998-11-20 10:12:17 fjoe Exp $
+ * $Id: act_comm.c,v 1.114 1998-11-21 06:00:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -249,10 +249,10 @@ void do_say(CHAR_DATA *ch, const char *argument)
 
 	argument = garble(ch, argument);
 	act_puts("You say '{G$t{x'", ch, argument, NULL,
-		 TO_CHAR | CHECK_DEAF, POS_DEAD);
+		 TO_CHAR | ACT_NODEAF, POS_DEAD);
 	act("$n says '{G$t{x'", ch, argument, NULL,
-	    TO_ROOM | TO_BUF | CHECK_TWIT | STRANS_TEXT | CHECK_DEAF |
-	    (IS_NPC(ch) && !IS_AFFECTED(ch, AFF_CHARM) ? TRANS_TEXT : 0));
+	    TO_ROOM | ACT_TOBUF | ACT_NOTWIT | ACT_STRANS | ACT_NODEAF |
+	    (IS_NPC(ch) && !IS_AFFECTED(ch, AFF_CHARM) ? ACT_TRANS : 0));
 
 	if (!IS_NPC(ch)) {
  		CHAR_DATA *mob, *mob_next;
@@ -300,11 +300,11 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 
 	msg = garble(ch, msg);
 	act_puts("You tell $N '{G$t{x'",
-		 ch, msg, victim, TO_CHAR | CHECK_DEAF, POS_DEAD);
+		 ch, msg, victim, TO_CHAR | ACT_NODEAF, POS_DEAD);
 	act_puts("$n tells you '{G$t{x'",
 		 ch, msg, victim,
-		 TO_VICT | TO_BUF | CHECK_TWIT | CHECK_DEAF |
-		 (IS_NPC(ch) && !IS_AFFECTED(ch, AFF_CHARM) ? TRANS_TEXT : 0),
+		 TO_VICT | ACT_TOBUF | ACT_NOTWIT | ACT_NODEAF |
+		 (IS_NPC(ch) && !IS_AFFECTED(ch, AFF_CHARM) ? ACT_TRANS : 0),
 		 POS_SLEEPING);
 
 	if (IS_NPC(ch))
@@ -367,8 +367,8 @@ void do_gtell(CHAR_DATA *ch, const char *argument)
 	}
 
 	argument = garble(ch, argument);
-	flags = TO_VICT | TO_BUF | STRANS_TEXT | 
-		(IS_NPC(ch) && !IS_AFFECTED(ch, AFF_CHARM) ? TRANS_TEXT : 0);
+	flags = TO_VICT | ACT_TOBUF | ACT_STRANS | 
+		(IS_NPC(ch) && !IS_AFFECTED(ch, AFF_CHARM) ? ACT_TRANS : 0);
 	for (i = 0, gch = char_list; gch; gch = gch->next) {
 		if (is_same_group(gch, ch) && !is_affected(gch, gsn_deafen)) {
 			act_puts("$n tells the group '{G$t{x'",
@@ -398,9 +398,9 @@ void do_emote(CHAR_DATA *ch, const char *argument)
 	
 	argument = garble(ch, argument);
 	act("$n $T", ch, NULL, argument,
-	    TO_ROOM | TO_BUF | NO_TRIGGER | CHECK_TWIT |
-	    (IS_NPC(ch) && !IS_AFFECTED(ch, AFF_CHARM) ? TRANS_TEXT : 0));
-	act("$n $T", ch, NULL, argument, TO_CHAR | NO_TRIGGER);
+	    TO_ROOM | ACT_TOBUF | ACT_NOTRIG | ACT_NOTWIT |
+	    (IS_NPC(ch) && !IS_AFFECTED(ch, AFF_CHARM) ? ACT_TRANS : 0));
+	act("$n $T", ch, NULL, argument, TO_CHAR | ACT_NOTRIG);
 }
 
 void do_pmote(CHAR_DATA *ch, const char *argument)
@@ -424,8 +424,8 @@ void do_pmote(CHAR_DATA *ch, const char *argument)
 	argument = garble(ch, argument);
 	act("$n $t", ch, argument, NULL, TO_CHAR);
 
-	flags = TO_CHAR | TO_BUF | CHECK_TWIT | NO_TRIGGER |
-		(IS_NPC(ch) && !IS_AFFECTED(ch, AFF_CHARM) ? TRANS_TEXT : 0);
+	flags = TO_CHAR | ACT_TOBUF | ACT_NOTWIT | ACT_NOTRIG |
+		(IS_NPC(ch) && !IS_AFFECTED(ch, AFF_CHARM) ? ACT_TRANS : 0);
 
 	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
 		if (vch->desc == NULL || vch == ch)
@@ -510,7 +510,7 @@ void do_immtalk(CHAR_DATA *ch, const char *argument)
 		&&  IS_IMMORTAL(victim)
 		&&  !IS_SET(victim->comm, COMM_NOWIZ))
 			act_puts("{W$n{x: {C$t{x", ch, argument, d->character,
-				 TO_VICT | TO_BUF, POS_DEAD);
+				 TO_VICT | ACT_TOBUF, POS_DEAD);
 	}
 }
 
@@ -533,7 +533,7 @@ void do_yell(CHAR_DATA *ch, const char *argument)
 
 	argument = garble(ch, argument);
 	act_puts("You yell '{M$t{x'",
-		 ch, argument, NULL, TO_CHAR | CHECK_DEAF, POS_DEAD);
+		 ch, argument, NULL, TO_CHAR | ACT_NODEAF, POS_DEAD);
 
 	for (d = descriptor_list; d; d = d->next) {
 		if (d->connected == CON_PLAYING
@@ -542,7 +542,7 @@ void do_yell(CHAR_DATA *ch, const char *argument)
 		&&  d->character->in_room->area == ch->in_room->area)
 			act_puts("$n yells '{M$t{x'",
 				 ch, argument, d->character,
-	    			 TO_VICT | STRANS_TEXT | CHECK_DEAF,
+	    			 TO_VICT | ACT_STRANS | ACT_NODEAF,
 				 POS_DEAD);
 	}
 }
@@ -579,7 +579,7 @@ void do_shout(CHAR_DATA *ch, const char *argument)
 	argument = garble(ch, argument);
 	act_puts("You shout '{Y$t{x'",
 		 ch, argument, NULL,
-		 TO_CHAR | CHECK_DEAF, POS_DEAD);
+		 TO_CHAR | ACT_NODEAF, POS_DEAD);
 
 	for (d = descriptor_list; d; d = d->next) {
 		if (d->connected == CON_PLAYING
@@ -587,8 +587,8 @@ void do_shout(CHAR_DATA *ch, const char *argument)
 		&&  !IS_SET(d->character->comm, COMM_NOSHOUT))
 			act_puts("$n shouts '{Y$t{x'",
 				 ch, argument, d->character,
-	    			 TO_VICT | CHECK_TWIT |
-				 STRANS_TEXT | CHECK_DEAF,
+	    			 TO_VICT | ACT_NOTWIT |
+				 ACT_STRANS | ACT_NODEAF,
 				 POS_DEAD);
 	}
 }
@@ -624,7 +624,7 @@ void do_music(CHAR_DATA *ch, const char *argument)
 	argument = garble(ch, argument);
 	act_puts("You music '{W$t{x'",
 		 ch, argument, NULL,
-		 TO_CHAR | CHECK_DEAF, POS_DEAD);
+		 TO_CHAR | ACT_NODEAF, POS_DEAD);
 
 	for (d = descriptor_list; d; d = d->next) {
 		if (d->connected == CON_PLAYING
@@ -632,8 +632,8 @@ void do_music(CHAR_DATA *ch, const char *argument)
 		&&  !IS_SET(d->character->comm, COMM_NOMUSIC))
 			act_puts("$n musics '{W$t{x'",
 		        	 ch, argument, d->character,
-	    			 TO_VICT | CHECK_TWIT |
-				 STRANS_TEXT | CHECK_DEAF,
+	    			 TO_VICT | ACT_NOTWIT |
+				 ACT_STRANS | ACT_NODEAF,
 				 POS_DEAD);
 	}
 }
@@ -668,14 +668,14 @@ void do_gossip(CHAR_DATA *ch, const char *argument)
 	argument = garble(ch, argument);
 	act_puts("You gossip '{R$t{x'",
 		 ch, argument, NULL,
-		 TO_CHAR | CHECK_DEAF, POS_DEAD);
+		 TO_CHAR | ACT_NODEAF, POS_DEAD);
 
 	for (d = descriptor_list; d; d = d->next) {
 		if (d->connected == CON_PLAYING
 		&&  d->character != ch)
 			act_puts("$n gossips '{R$t{x'",
 		        	 ch, argument, d->character,
-	    			 TO_VICT | STRANS_TEXT | CHECK_DEAF,
+	    			 TO_VICT | ACT_STRANS | ACT_NODEAF,
 				 POS_DEAD);
 	}
 }
@@ -699,10 +699,10 @@ void do_clan(CHAR_DATA *ch, const char *argument)
 
 	argument = garble(ch, argument);
 	act_puts("[CLAN] $n: {C$t{x",
-		 ch, argument, NULL, TO_CHAR | CHECK_DEAF, POS_DEAD);
+		 ch, argument, NULL, TO_CHAR | ACT_NODEAF, POS_DEAD);
 
-	flags = TO_VICT | TO_BUF | CHECK_DEAF |
-		(IS_NPC(ch) && !IS_AFFECTED(ch, AFF_CHARM) ? TRANS_TEXT : 0);
+	flags = TO_VICT | ACT_TOBUF | ACT_NODEAF |
+		(IS_NPC(ch) && !IS_AFFECTED(ch, AFF_CHARM) ? ACT_TRANS : 0);
 	for (vch = char_list; vch; vch = vch->next)
 		if (vch->clan == ch->clan)
 			act_puts("[CLAN] $n: {C$t{x",
@@ -736,7 +736,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 		&&  !IS_SET(victim->comm, COMM_NOWIZ))
 			act_puts("{W$n{x is PRAYING for: {G$t{x",
 				 ch, argument, d->character,
-				 TO_VICT | TO_BUF, POS_DEAD);
+				 TO_VICT | ACT_TOBUF, POS_DEAD);
 	 }
 }
 
@@ -986,7 +986,7 @@ void do_pose(CHAR_DATA *ch, const char *argument)
 	level = UMIN(ch->level, sizeof(pose_table) / sizeof(pose_table[0]) - 1);
 	pose  = number_range(0, level);
 	act(pose_table[pose].message[2*ch->class+0], ch, NULL, NULL, TO_CHAR);
-	act(pose_table[pose].message[2*ch->class+1], ch, NULL, NULL, TO_ROOM | TO_BUF);
+	act(pose_table[pose].message[2*ch->class+1], ch, NULL, NULL, TO_ROOM | ACT_TOBUF);
 #endif
 }
 
@@ -1695,6 +1695,15 @@ void do_notelnet(CHAR_DATA *ch, const char *argument)
 		char_puts("Telnet parser is OFF.\n\r", ch);
 	else
 		char_puts("Telnet parser is ON.\n\r", ch);
+}
+
+DO_FUN(do_verbose)
+{
+	TOGGLE_BIT(ch->comm, COMM_NOVERBOSE);
+	if (IS_SET(ch->comm, COMM_NOVERBOSE))
+		char_puts("You will not see verbose messages anymore.\n\r", ch);
+	else
+		char_puts("Now you will see verbose messages.\n\r", ch);
 }
 
 DO_FUN(do_twit)

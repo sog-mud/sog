@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.164 1998-11-18 05:20:38 fjoe Exp $
+ * $Id: act_info.c,v 1.165 1998-11-21 06:00:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -175,7 +175,9 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 
 	if (fShort) {
 		strcat(buf, obj_name(obj, ch));
-		if (obj->pIndexData->vnum > 5)	/* not money, gold, etc */
+		if (obj->pIndexData->vnum > 5 /* not money, gold, etc */
+		&&  (obj->condition < COND_EXCELLENT ||
+		     !IS_SET(ch->comm, COMM_NOVERBOSE)))
 			sprintf(strend(buf), " [{g%s{x]",
 				GETMSG(get_cond_alias(obj), ch->lang));
 		return buf;
@@ -558,7 +560,7 @@ void show_obj_to_char(CHAR_DATA *ch, OBJ_DATA *obj, sflag_t wear_loc)
 	bool can_see = can_see_obj(ch, obj);
 	act(wear_loc_names[wear_loc], ch,
 	    can_see ? format_obj_to_char(obj, ch, TRUE) : "something",
-	    NULL, TO_CHAR | (can_see ? 0 : TRANS_TEXT));
+	    NULL, TO_CHAR | (can_see ? 0 : ACT_TRANS));
 }
 
 void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
@@ -822,6 +824,7 @@ void do_autolist(CHAR_DATA *ch, const char *argument)
 	do_print_sw(ch, "autosac", IS_SET(ch->act, PLR_AUTOSAC));
 	do_print_sw(ch, "autosplit", IS_SET(ch->act, PLR_AUTOSPLIT));
 	do_print_sw(ch, "compact mode", IS_SET(ch->comm, COMM_COMPACT));
+	do_print_sw(ch, "verbose messages", !IS_SET(ch->comm, COMM_NOVERBOSE));
 	do_print_sw(ch, "long flags", IS_SET(ch->comm, COMM_LONG));
 	do_print_sw(ch, "prompt", IS_SET(ch->comm, COMM_PROMPT));
 	do_print_sw(ch, "combine items", IS_SET(ch->comm, COMM_COMBINE));
@@ -2423,11 +2426,11 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	act("$n scans $t.", ch, dir_name[door], NULL, TO_ROOM | TRANS_TEXT);
+	act("$n scans $t.", ch, dir_name[door], NULL, TO_ROOM | ACT_TRANS);
 	if (!check_blind(ch))
 		return;
 
-	act_puts("You scan $t.", ch, dir_name[door], NULL, TO_CHAR | TRANS_TEXT,
+	act_puts("You scan $t.", ch, dir_name[door], NULL, TO_CHAR | ACT_TRANS,
 		 POS_DEAD);
 
 	range = 1 + ch->level/10;
@@ -3395,16 +3398,14 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 char *get_cond_alias(OBJ_DATA *obj)
 {
 	char *stat;
-	int istat;
+	int istat = obj->condition;
 
-	istat = obj->condition;
-
-	if	(istat >  99)	stat = "excellent";
-	else if (istat >= 80)	stat = "good";
-	else if (istat >= 60)	stat = "fine";
-	else if (istat >= 40)	stat = "average";
-	else if (istat >= 20)	stat = "poor";
-	else			stat = "fragile";
+	     if	(istat >= COND_EXCELLENT)	stat = "excellent";
+	else if (istat >= COND_FINE)		stat = "fine";
+	else if (istat >= COND_GOOD)		stat = "good";
+	else if (istat >= COND_AVERAGE)		stat = "average";
+	else if (istat >= COND_POOR)		stat = "poor";
+	else					stat = "fragile";
 
 	return stat;
 }

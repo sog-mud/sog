@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.20 1998-11-18 05:20:39 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.21 1998-11-21 06:00:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -268,7 +268,7 @@ void do_mpasound(CHAR_DATA *ch, const char *argument)
 	  &&   pexit->u1.to_room != was_in_room)
       	{
 	    ch->in_room = pexit->u1.to_room;
-	    act(argument, ch, NULL, NULL, TO_ROOM | NO_TRIGGER);
+	    act(argument, ch, NULL, NULL, TO_ROOM | ACT_NOTRIG);
 	}
     }
     ch->in_room = was_in_room;

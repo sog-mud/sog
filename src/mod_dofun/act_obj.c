@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.94 1998-11-17 06:40:39 fjoe Exp $
+ * $Id: act_obj.c,v 1.95 1998-11-21 06:00:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -142,14 +142,14 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 		act_puts("You get $p from $P.",
 			 ch, obj, container, TO_CHAR, POS_DEAD);
 		act("$n gets $p from $P.", ch, obj, container,
-		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0));
+		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? ACT_NOMORTAL : 0));
 		REMOVE_BIT(obj->extra_flags, ITEM_HAD_TIMER);
 		obj_from_obj(obj);
 	}
 	else {
 		act_puts("You get $p.", ch, obj, container, TO_CHAR, POS_DEAD);
 		act("$n gets $p.", ch, obj, container,
-		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0));
+		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? ACT_NOMORTAL : 0));
 		obj_from_room(obj);
 	}
 
@@ -489,7 +489,7 @@ void drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	obj_to_room(obj, ch->in_room);
 
 	act("$n drops $p.", ch, obj, NULL,
-	    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0));
+	    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? ACT_NOMORTAL : 0));
 	act_puts("You drop $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 
 	if (obj->pIndexData->vnum == OBJ_VNUM_POTION_VIAL
@@ -515,13 +515,13 @@ void drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 
 	if (!may_float(obj) && cant_float(obj) && IS_WATER(ch->in_room)) {
 		act("$p sinks down the water.", ch, obj, NULL,
-		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0));
+		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? ACT_NOMORTAL : 0));
 		act("$p sinks down the water.", ch, obj, NULL, TO_CHAR);
 		extract_obj(obj);
 	}
 	else if (IS_OBJ_STAT(obj, ITEM_MELT_DROP)) {
 		act("$p dissolves into smoke.", ch, obj, NULL,
-		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0));
+		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? ACT_NOMORTAL : 0));
 		act("$p dissolves into smoke.", ch, obj, NULL, TO_CHAR);
 		extract_obj(obj);
 	}
@@ -603,13 +603,13 @@ void do_drop(CHAR_DATA * ch, const char *argument)
 		obj = create_money(gold, silver);
 		obj_to_room(obj, ch->in_room);
 		act("$n drops some coins.", ch, NULL, NULL,
-		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0));
+		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? ACT_NOMORTAL : 0));
 		char_puts("Ok.\n\r", ch);
 		if (IS_WATER(ch->in_room)) {
 			extract_obj(obj);
 			act("The coins sink down, and disapear in the water.",
 			    ch, NULL, NULL,
-			    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0));
+			    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? ACT_NOMORTAL : 0));
 			act_puts("The coins sink down, and disapear in the water.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		}
@@ -722,11 +722,11 @@ void do_give(CHAR_DATA * ch, const char *argument)
 		}
 
 		act_printf(ch, silver ? "silver" : "gold", victim,
-			   TO_VICT | TRANS_TEXT, POS_RESTING,
+			   TO_VICT | ACT_TRANS, POS_RESTING,
 			   "$n gives you %d $t.", amount);
 		act("$n gives $N some coins.", ch, NULL, victim, TO_NOTVICT);
 		act_printf(ch, silver ? "silver" : "gold", victim,
-			   TO_CHAR | TRANS_TEXT, POS_RESTING,
+			   TO_CHAR | ACT_TRANS, POS_RESTING,
 			   "You give $N %d $t.", amount);
 
 		/*
@@ -836,9 +836,9 @@ void do_give(CHAR_DATA * ch, const char *argument)
 
 	obj_from_char(obj);
 	obj_to_char(obj, victim);
-	act("$n gives $p to $N.", ch, obj, victim, TO_NOTVICT | NO_TRIGGER);
-	act("$n gives you $p.", ch, obj, victim, TO_VICT | NO_TRIGGER);
-	act("You give $p to $N.", ch, obj, victim, TO_CHAR | NO_TRIGGER);
+	act("$n gives $p to $N.", ch, obj, victim, TO_NOTVICT | ACT_NOTRIG);
+	act("$n gives you $p.", ch, obj, victim, TO_VICT | ACT_NOTRIG);
+	act("You give $p to $N.", ch, obj, victim, TO_CHAR | ACT_NOTRIG);
 
 	/*
 	 * Give trigger
@@ -937,7 +937,7 @@ void do_envenom(CHAR_DATA * ch, const char *argument)
 			affect_to_obj(obj, &af);
 
 			act("$n coats $p with deadly venom.", ch, obj, NULL,
-			    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0));
+			    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? ACT_NOMORTAL : 0));
 			act("You coat $p with venom.", ch, obj, NULL, TO_CHAR);
 			check_improve(ch, sn, TRUE, 3);
 			return;

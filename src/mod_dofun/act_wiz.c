@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.90 1998-11-20 10:12:19 fjoe Exp $
+ * $Id: act_wiz.c,v 1.91 1998-11-21 06:00:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3607,12 +3607,12 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		ethos = flag_value(ethos_table, arg3);
 		if (ethos < 0) {
 			char_puts("%s: Unknown ethos.\n\r", ch);
-			char_puts("Valid ethos types are: ", ch);
+			char_puts("Valid ethos types are:\n\r", ch);
 			show_flags(ch, ethos_table);
 			return;
 		}
 
-		victim->ethos = value;
+		victim->ethos = ethos;
 		return;
 	}
 

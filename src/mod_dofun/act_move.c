@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.115 1998-11-20 10:12:19 fjoe Exp $
+ * $Id: act_move.c,v 1.116 1998-11-21 06:00:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -315,7 +315,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	&&  ch->invis_level < LEVEL_HERO) 
 		act_flags = TO_ROOM;
 	else
-		act_flags = TO_ROOM | SKIP_MORTAL;
+		act_flags = TO_ROOM | ACT_NOMORTAL;
 
 	if (!IS_NPC(ch)
 	&&  ch->in_room->sector_type != SECT_INSIDE
@@ -328,7 +328,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	else {
 		act(MOUNTED(ch) ? "$n leaves $t, riding on $N." :
 				  "$n leaves $t.",
-		    ch, dir_name[door], MOUNTED(ch), act_flags | TRANS_TEXT);
+		    ch, dir_name[door], MOUNTED(ch), act_flags | ACT_TRANS);
 	}
 
 	if (IS_AFFECTED(ch, AFF_CAMOUFLAGE)
@@ -352,7 +352,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	if (!IS_AFFECTED(ch, AFF_SNEAK) && ch->invis_level < LEVEL_HERO) 
 		act_flags = TO_ROOM;
 	else
-		act_flags = TO_ROOM | SKIP_MORTAL;
+		act_flags = TO_ROOM | ACT_NOMORTAL;
 
 	act_nprintf(ch, NULL, mount, act_flags, POS_RESTING,
 		    mount ? MSG_ARRIVED_RIDING : MSG_ARRIVED);
@@ -3378,7 +3378,6 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-
 	old_room = ch->in_room;
 	portal = get_obj_list(ch, argument, ch->in_room->contents);
 	
@@ -3388,20 +3387,21 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (portal->pIndexData->item_type != ITEM_PORTAL 
-	||  (IS_SET(portal->value[1],EX_CLOSED) && !IS_TRUSTED(ch, ANGEL))) {
+	||  (IS_SET(portal->value[1], EX_CLOSED) && !IS_TRUSTED(ch, ANGEL))) {
 		char_puts("You can't seem to find a way in.\n\r", ch);
 		return;
 	}
 
-	if (!IS_TRUSTED(ch,ANGEL) && !IS_SET(portal->value[2],GATE_NOCURSE)
-	&&  (IS_AFFECTED(ch,AFF_CURSE) 
-	||  IS_SET(old_room->room_flags,ROOM_NORECALL) 
-	||  IS_RAFFECTED(old_room,RAFF_CURSE))) {
+	if (IS_SET(portal->value[2], GATE_NOCURSE)
+	&&  !IS_TRUSTED(ch, ANGEL)
+	&&  (IS_AFFECTED(ch, AFF_CURSE) ||
+	     IS_SET(old_room->room_flags, ROOM_NORECALL) ||
+	     IS_RAFFECTED(old_room, RAFF_CURSE))) {
 		char_puts("Something prevents you from leaving...\n\r",ch);
 		return;
 	}
 
-	if (IS_SET(portal->value[2],GATE_RANDOM) || portal->value[3] == -1) {
+	if (IS_SET(portal->value[2], GATE_RANDOM) || portal->value[3] == -1) {
 		location = get_random_room(ch);
 		portal->value[3] = location->vnum; /* keeps record */
 	}
@@ -3412,13 +3412,13 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 
 	if (location == NULL
 	||  location == old_room
-	||  !can_see_room(ch,location) 
-	||  (room_is_private(location) && !IS_TRUSTED(ch,IMPLEMENTOR))) {
+	||  !can_see_room(ch, location) 
+	||  (room_is_private(location) && !IS_TRUSTED(ch, IMPLEMENTOR))) {
 		act("$p doesn't seem to go anywhere.", ch, portal,NULL,TO_CHAR);
 		return;
 	}
 
-	if (IS_NPC(ch) && IS_SET(ch->act,ACT_AGGRESSIVE)
+	if (IS_NPC(ch) && IS_SET(ch->act, ACT_AGGRESSIVE)
 	&&  IS_SET(location->room_flags, ROOM_LAW | ROOM_SAFE)) {
 	        char_puts("Something prevents you from leaving...\n\r",ch);
 	        return;
@@ -3439,10 +3439,10 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 
 	if (IS_SET(portal->value[2], GATE_GOWITH)) {/* take the gate along */
 		obj_from_room(portal);
-		obj_to_room(portal,location);
+		obj_to_room(portal, location);
 	}
 
-	if (IS_SET(portal->value[2],GATE_NORMAL_EXIT))
+	if (IS_SET(portal->value[2], GATE_NORMAL_EXIT))
 		act(mount ? "$n has arrived, riding $N" : "$n has arrived.",
 		    ch, portal, mount, TO_ROOM);
 	else
@@ -3461,21 +3461,21 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 
 	/* charges */
 	if (portal->value[0] > 0) {
-	    portal->value[0]--;
-	    if (portal->value[0] == 0)
-		portal->value[0] = -1;
+		portal->value[0]--;
+		if (portal->value[0] == 0)
+			portal->value[0] = -1;
 	}
 
 	/* protect against circular follows */
 	if (old_room == location)
-	    return;
+		return;
 
 	for (fch = old_room->people; fch != NULL; fch = fch_next) {
 	        fch_next = fch->next_in_room;
 
 		/* no following through dead portals */
 	        if (portal == NULL || portal->value[0] == -1) 
-	            continue;
+	        	continue;
  
 	        if (fch->master != ch || fch->position != POS_STANDING)
 			continue;

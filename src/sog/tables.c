@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.23 1998-11-18 05:20:40 fjoe Exp $
+ * $Id: tables.c,v 1.24 1998-11-21 06:00:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -326,6 +326,7 @@ FLAG comm_flags[] =
 	{ "afk",		COMM_AFK,		TRUE	},
 	{ "notelnet",		COMM_NOTELNET,		TRUE	},
 	{ "noiac",		COMM_NOIAC,		TRUE	},
+	{ "verbose",		COMM_NOVERBOSE,		TRUE	},
 	{ NULL }
 };
 

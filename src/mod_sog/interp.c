@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.89 1998-11-20 10:12:19 fjoe Exp $
+ * $Id: interp.c,v 1.90 1998-11-21 06:00:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -236,22 +236,22 @@ CMD_DATA cmd_table[] =
     { "noloot",		do_noloot,	POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "nosummon",	do_nosummon,	POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_NOORDER },
     { "nocancel",	do_nocancel,	POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_NOORDER },
-    { "noiac",		do_noiac,	POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
-    { "notelnet",	do_notelnet,	POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "noiac",		do_noiac,	POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_NOORDER },
+    { "notelnet",	do_notelnet,	POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_NOORDER },
     { "outfit",		do_outfit,	POS_RESTING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },
     { "tick",		do_tick,	POS_DEAD,	ML,  LOG_ALWAYS, CMD_KEEP_HIDE },
-    { "password",	do_password,	POS_DEAD,	 0,  LOG_NEVER, CMD_KEEP_HIDE | CMD_CHARMED_OK },
-    { "prompt",		do_prompt,	POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
-    { "quest",          do_quest,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_NOORDER},
-    { "qui",		do_qui,		POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
-    { "quit",		do_quit,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },
-    { "quiet",		do_quiet,	POS_SLEEPING, 	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
-    { "scroll",		do_scroll,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
-    { "title",		do_title,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
-    { "twit",		do_twit,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
-    { "unalias",	do_unalias,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
-    { "wimpy",		do_wimpy,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
-
+    { "password",	do_password,	POS_DEAD,	 0,  LOG_NEVER, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_NOORDER },
+    { "prompt",		do_prompt,	POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_NOORDER },
+    { "quest",          do_quest,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_NOORDER },
+    { "qui",		do_qui,		POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_NOORDER },
+    { "quit",		do_quit,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_NOORDER },
+    { "quiet",		do_quiet,	POS_SLEEPING, 	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_NOORDER },
+    { "scroll",		do_scroll,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_NOORDER },
+    { "title",		do_title,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_NOORDER },
+    { "twit",		do_twit,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_NOORDER },
+    { "unalias",	do_unalias,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_NOORDER },
+    { "verbose",	do_verbose,	POS_DEAD,	0,   LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_NOORDER },
+    { "wimpy",		do_wimpy,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_NOORDER },
 
     /*
      * Mob command interpreter (placed here for faster scan...)
@@ -796,7 +796,7 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 	victim = NULL;
 	if (arg[0] == '\0') {
 		act(social_table[cmd].val[SOC_OTHERS_NO_ARG],
-			ch, NULL, victim, TO_ROOM | TO_BUF | CHECK_TWIT);
+			ch, NULL, victim, TO_ROOM | ACT_TOBUF | ACT_NOTWIT);
 		act(social_table[cmd].val[SOC_CHAR_NO_ARG],
 			ch, NULL, victim, TO_CHAR);
 		return TRUE;
@@ -810,7 +810,7 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 
 	if (victim == ch) {
 		act(social_table[cmd].val[SOC_OTHERS_AUTO],
-			ch, NULL, victim, TO_ROOM | TO_BUF | CHECK_TWIT);
+			ch, NULL, victim, TO_ROOM | ACT_TOBUF | ACT_NOTWIT);
 		act(social_table[cmd].val[SOC_CHAR_AUTO],
 			ch, NULL, victim, TO_CHAR);
 		return TRUE;
@@ -820,11 +820,11 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 	victim->in_room = ch->in_room;
 
 	act(social_table[cmd].val[SOC_OTHERS_FOUND],
-		ch, NULL, victim, TO_NOTVICT | TO_BUF | CHECK_TWIT);
+		ch, NULL, victim, TO_NOTVICT | ACT_TOBUF | ACT_NOTWIT);
 	act(social_table[cmd].val[SOC_CHAR_FOUND],
 		ch, NULL, victim, TO_CHAR);
 	act(social_table[cmd].val[SOC_VICT_FOUND],
-		ch, NULL, victim, TO_VICT | TO_BUF | CHECK_TWIT);
+		ch, NULL, victim, TO_VICT | ACT_TOBUF | ACT_NOTWIT);
 
 	victim->in_room = victim_room;
 
@@ -838,19 +838,19 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 			case 5: case 6: case 7: case 8:
 				act(social_table[cmd].val[SOC_OTHERS_FOUND],
 				    victim, NULL, ch,
-				    TO_NOTVICT | TO_BUF | CHECK_TWIT);
+				    TO_NOTVICT | ACT_TOBUF | ACT_NOTWIT);
 				act(social_table[cmd].val[SOC_CHAR_FOUND],
 				    victim, NULL, ch, TO_CHAR);
 				act(social_table[cmd].val[SOC_VICT_FOUND],
-				    victim, NULL, ch, TO_VICT | TO_BUF);
+				    victim, NULL, ch, TO_VICT | ACT_TOBUF);
 				break;
 
 			case 9: case 10: case 11: case 12:
 				act("$n slaps $N.", victim, NULL, ch, 
-				    TO_NOTVICT | TO_BUF | CHECK_TWIT);
+				    TO_NOTVICT | ACT_TOBUF | ACT_NOTWIT);
 				act("You slap $N.", victim, NULL, ch, TO_CHAR);
 				act("$n slaps you.", victim, NULL, ch, 
-				    TO_VICT | TO_BUF);
+				    TO_VICT | ACT_TOBUF);
 				break;
 		}
 	}

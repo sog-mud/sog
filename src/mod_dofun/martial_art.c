@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.53 1998-11-18 10:28:46 fjoe Exp $
+ * $Id: martial_art.c,v 1.54 1998-11-21 06:00:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -72,11 +72,11 @@ void disarm(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 		return;
 	}
 
-	if ((skill = get_skill(victim, gsn_grip)) != 0) {
-		skill += (get_curr_stat(victim,STAT_STR) -
-			  get_curr_stat(ch,STAT_STR)) * 5;
+	if ((skill = get_skill(victim, gsn_grip))) {
+		skill += (get_curr_stat(victim, STAT_STR) -
+			  get_curr_stat(ch, STAT_STR)) * 5;
 		if (number_percent() < skill) {
-			act("$N grips and prevent you to disarm $S!",
+			act("$N grips and prevent you to disarm $M!",
 			    ch, NULL, victim, TO_CHAR);
 			act("$n tries to disarm you, but you grip and escape!",
 			    ch, NULL, victim, TO_VICT);

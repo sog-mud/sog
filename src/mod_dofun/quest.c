@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.79 1998-11-18 05:20:40 fjoe Exp $
+ * $Id: quest.c,v 1.80 1998-11-21 06:00:36 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -512,7 +512,8 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		if (!IS_NPC(victim)
 		||  (ch->level < 51 && (diff > 4 || diff < -1))
 		||  (ch->level > 50 && (diff > 6 || diff < 0))
-		||  victim->pIndexData->pShop != NULL
+		||  victim->pIndexData->pShop
+		||  victim->race == ch->race
 		||  (IS_EVIL(victim) && IS_EVIL(ch))
 		||  (IS_GOOD(victim) && IS_GOOD(ch))
 		||  victim->pIndexData->vnum < 100
@@ -802,7 +803,6 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 		/* `quest trouble' */
 		for (obj = object_list; obj != NULL; obj = obj_next) {
 			obj_next = obj->next;
-			/* XXX */
 			if (obj->pIndexData->vnum == item_vnum 
 			&&  !str_cmp(obj->owner, ch->name)) {
 				extract_obj(obj);

@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.11 1998-10-23 09:22:23 fjoe Exp $
+ * $Id: effects.c,v 1.12 1998-11-21 06:00:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -719,7 +719,7 @@ void sand_effect(void *vo, int level, int dam, int target)
 		break;
 	    case ITEM_ARMOR:
 		chance -=10;
-		msg = "$p is etched by sand";
+		msg = "$p is etched by sand.";
 		break;
 	    case ITEM_CLOTHING:
 		msg = "$p is corroded by sands.";

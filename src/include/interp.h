@@ -1,5 +1,5 @@
 /*
- * $Id: interp.h,v 1.30 1998-11-07 11:26:22 fjoe Exp $
+ * $Id: interp.h,v 1.31 1998-11-21 06:00:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -359,6 +359,7 @@ DECLARE_DO_FUN(do_value		);
 DECLARE_DO_FUN(do_vampire	);
 DECLARE_DO_FUN(do_vanish	);
 DECLARE_DO_FUN(do_vbite		);
+DECLARE_DO_FUN(do_verbose	);
 DECLARE_DO_FUN(do_visible	);
 DECLARE_DO_FUN(do_violate	);
 DECLARE_DO_FUN(do_vnum		);
