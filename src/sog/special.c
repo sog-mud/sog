@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.54 1999-09-11 12:50:02 fjoe Exp $
+ * $Id: special.c,v 1.55 1999-10-06 09:56:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -119,19 +119,19 @@ const   struct  spec_type    spec_table[] =
 };
 
 static bool dragon(CHAR_DATA *ch, const char *spell_name);
-static void spec_cast(CHAR_DATA *ch, const char *spell_name, CHAR_DATA *victim);
+static void spec_cast(CHAR_DATA *ch, const char *sn, CHAR_DATA *victim);
 
 /*
  * Given a name, return the appropriate spec fun.
  */
-SPEC_FUN *spec_lookup(const char *name)
+SPEC_FUN *mob_spec_lookup(const char *name)
 {
 	char buf[MAX_INPUT_LENGTH];
 	int i;
  
 	if (str_prefix("spec_", name)) {
 		snprintf(buf, sizeof(buf), "spec_%s", name);
-		return spec_lookup(buf);
+		return mob_spec_lookup(buf);
 	}
 
 	for (i = 0; spec_table[i].name != NULL; i++) {
@@ -143,7 +143,7 @@ SPEC_FUN *spec_lookup(const char *name)
 	return 0;
 }
 
-char *spec_name(SPEC_FUN *function)
+char *mob_spec_name(SPEC_FUN *function)
 {
 	int i;
 
@@ -416,42 +416,42 @@ bool spec_cast_adept(CHAR_DATA *ch)
 	switch (number_bits(4)) {
 	case 0:
 		act("$n utters the words, '$t'.", ch, "abrazak", NULL, TO_ROOM);
-		spellfun_call("armor", ch->level, ch, victim);
+		spellfun_call("armor", NULL, ch->level, ch, victim);
 		return TRUE;
 
 	case 1:
 		act("$n utters the words, '$t'.", ch, "fido", NULL, TO_ROOM);
-		spellfun_call("bless", ch->level, ch, victim);
+		spellfun_call("bless", NULL, ch->level, ch, victim);
 		return TRUE;
 
 	case 2:
 		act("$n utters the words, '$t'.",
 		    ch, "judicandus noselacri", NULL, TO_ROOM);
-		spellfun_call("cure blindness", ch->level, ch, victim);
+		spellfun_call("cure blindness", NULL, ch->level, ch, victim);
 		return TRUE;
 
 	case 3:
 		act("$n utters the words, '$t'.",
 		    ch, "judicandus dies", NULL, TO_ROOM);
-		spellfun_call("cure light", ch->level, ch, victim);
+		spellfun_call("cure light", NULL, ch->level, ch, victim);
 		return TRUE;
 
 	case 4:
 		act("$n utters the words, '$t'.",
 		    ch, "judicandus sausabru", NULL, TO_ROOM);
-		spellfun_call("cure poison", ch->level, ch, victim);
+		spellfun_call("cure poison", NULL, ch->level, ch, victim);
 	return TRUE;
 
 	case 5:
 		act("$n utters the words, '$t'.",
 		    ch, "candusima", NULL, TO_ROOM);
-		spellfun_call("refresh", ch->level, ch, victim);
+		spellfun_call("refresh", NULL, ch->level, ch, victim);
 		return TRUE;
 
 	case 6:
 		act("$n utters the words, '$t'.",
 		    ch, "judicandus eugzagz", NULL, TO_ROOM);
-		spellfun_call("cure disease", ch->level, ch, victim);
+		spellfun_call("cure disease", NULL, ch->level, ch, victim);
 	}
 
 	return FALSE;
@@ -849,7 +849,7 @@ bool spec_poison(CHAR_DATA *ch)
 	act_puts("You bite $N!", ch, NULL, victim, TO_CHAR, POS_DEAD);
 	act("$n bites $N!", ch, NULL, victim, TO_NOTVICT);
 	act_puts("$n bites you!", ch, NULL, victim, TO_VICT, POS_DEAD);
-	spellfun_call("poison", ch->level, ch, victim);
+	spellfun_call("poison", NULL, ch->level, ch, victim);
 	return TRUE;
 }
 
@@ -916,36 +916,36 @@ bool spec_cast_clan(CHAR_DATA *ch)
 	switch (number_bits(4)) {
 	case 0:
 		act("$n utters the words, '$t'.", ch, "abracal", NULL, TO_ROOM);
-		spellfun_call("armor", ch->level, ch, victim);
+		spellfun_call("armor", NULL, ch->level, ch, victim);
 		return TRUE;
 
 	case 1:
 		act("$n utters the words, '$t'.", ch, "balc", NULL, TO_ROOM);
-		spellfun_call("bless", ch->level, ch, victim);
+		spellfun_call("bless", NULL, ch->level, ch, victim);
 		return TRUE;
 
 	case 2:
 		act("$n utters the words, '$t'.",
 		    ch, "judicandus noselacba", NULL, TO_ROOM);
-		spellfun_call("cure blindness", ch->level, ch, victim);
+		spellfun_call("cure blindness", NULL, ch->level, ch, victim);
 		return TRUE;
 
 	case 3:
 		act("$n utters the words, '$t'.",
 		    ch, "judicandus bacla", NULL, TO_ROOM);
-		spellfun_call("cure light", ch->level, ch, victim);
+		spellfun_call("cure light", NULL, ch->level, ch, victim);
 		return TRUE;
 
 	case 4:
 		act("$n utters the words, '$t'.",
 		    ch, "judicandus sausabcla", NULL, TO_ROOM);
-		spellfun_call("cure poison", ch->level, ch, victim);
+		spellfun_call("cure poison", NULL, ch->level, ch, victim);
 		return TRUE;
 
 	case 5:
 		act("$n utters the words, '$t'.",
 		    ch, "candabala", NULL, TO_ROOM);
-		spellfun_call("refresh", ch->level, ch, victim);
+		spellfun_call("refresh", NULL, ch->level, ch, victim);
 		return TRUE;
 	}
 
@@ -1153,7 +1153,7 @@ bool spec_assassinater(CHAR_DATA *ch)
 	}
 
 	dofun("say", ch, msg);
-	multi_hit(ch, victim, gsn_assassinate);
+	multi_hit(ch, victim, "assassinate");
 	return TRUE;
 }
 
@@ -1406,21 +1406,20 @@ static bool dragon(CHAR_DATA *ch, const char *spell_name)
 	return TRUE;
 }
 
-static void spec_cast(CHAR_DATA *ch, const char *spell_name, CHAR_DATA *victim)
+static void spec_cast(CHAR_DATA *ch, const char *sn, CHAR_DATA *victim)
 {
 	int num = 1;
 	CHAR_DATA *vch;
+	skill_t *sk;
 	char name[MAX_STRING_LENGTH];
-	int sn;
-	flag32_t target;
 
-	if ((sn = sn_lookup(spell_name)) < 0)
+	if ((sk = skill_lookup(sn)) < 0)
 		return;
-	target = SKILL(sn)->target;
 
 	if (ch->fighting == victim
-	&&  (target == TAR_CHAR_OFFENSIVE || target == TAR_OBJ_CHAR_OFF)) {
-		dofun("cast", ch, "'%s'", spell_name);
+	&&  (sk->target == TAR_CHAR_OFFENSIVE ||
+	     sk->target == TAR_OBJ_CHAR_OFF)) {
+		dofun("cast", ch, "'%s'", sn);
 		return;
 	}
 
@@ -1435,6 +1434,6 @@ static void spec_cast(CHAR_DATA *ch, const char *spell_name, CHAR_DATA *victim)
 	if (vch == NULL)
 		return;		/* can't happen */
 
-	dofun("cast", ch, "'%s' %d.'%s'", spell_name, num, name);
+	dofun("cast", ch, "'%s' %d.'%s'", sn, num, name);
 }
 

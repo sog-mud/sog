@@ -4,13 +4,7 @@ Item 95301
 Mark 95306
 Altar 95300
 Flags hidden~
-Skill 'transform' 10 1
-Skill 'mental knife' 15 1
-Skill 'demon summon' 25 1
-Skill 'scourge' 30 1
-Skill 'tesseract' 29 1
-Skill 'brew' 23 1
-Skill 'mastering spell' 37 1
+SkillSpec clan_shalafi
 End
 
 #$

@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.58 1999-07-21 04:19:19 avn Exp $
+ * $Id: db_area.c,v 1.59 1999-10-06 09:56:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -93,12 +93,12 @@ DBDATA db_areas = { dbfun_areas, init_area };
 
 AREA_DATA *		area_current;
 
-static int	slot_lookup	(int slot);
 static void	convert_mobile	(MOB_INDEX_DATA *pMobIndex);
 
 DBINIT_FUN(init_area)
 {
-	area_current = NULL;
+	if (DBDATA_VALID(dbdata))
+		area_current = NULL;
 }
 
 /*
@@ -167,11 +167,11 @@ DBLOAD_FUN(load_areadata)
 
 		switch (UPPER(word[0])) {
 		case 'B':
-			SKEY("Builders", pArea->builders);
+			SKEY("Builders", pArea->builders, fread_string(fp));
 			break;
 		case 'C':
 			KEY("Clan", pArea->clan, fread_clan(fp));
-			SKEY("Credits", pArea->credits);
+			SKEY("Credits", pArea->credits, fread_string(fp));
 			break;
 		case 'E':
 			if (!str_cmp(word, "End")) {
@@ -197,7 +197,7 @@ DBLOAD_FUN(load_areadata)
 			}
 			break;
 		case 'N':
-			SKEY("Name", pArea->name);
+			SKEY("Name", pArea->name, fread_string(fp));
 			break;
 		case 'R':
 			MLSKEY("ResetMessage", pArea->resetmsg);
@@ -515,12 +515,6 @@ DBLOAD_FUN(load_old_obj)
 		pObjIndex->limit	= -1;
 		pObjIndex->oprogs	= NULL;
 
-		if (pObjIndex->item_type == ITEM_WEAPON)
-			if (is_name("two",pObjIndex->name) 
-			||  is_name("two-handed",pObjIndex->name) 
-			||  is_name("claymore",pObjIndex->name))
-				SET_BIT(pObjIndex->value[4], WEAPON_TWO_HANDS);
-
 		for (; ;) {
 			char letter;
 
@@ -531,7 +525,7 @@ DBLOAD_FUN(load_old_obj)
 
 				paf		= aff_new();
 				paf->where	= TO_OBJECT;
-				paf->type	= -1;
+				paf->type	= str_empty;
 				paf->level	= 20; /* RT temp fix */
 				paf->duration	= -1;
 				paf->location	= fread_number(fp);
@@ -559,26 +553,40 @@ DBLOAD_FUN(load_old_obj)
 		 * Translate spell "slot numbers" to internal "skill numbers."
 		 */
 		switch (pObjIndex->item_type) {
+			int i;
+
 		case ITEM_PILL:
 		case ITEM_POTION:
 		case ITEM_SCROLL:
-			pObjIndex->value[1] = slot_lookup(pObjIndex->value[1]);
-			pObjIndex->value[2] = slot_lookup(pObjIndex->value[2]);
-			pObjIndex->value[3] = slot_lookup(pObjIndex->value[3]);
-			pObjIndex->value[4] = slot_lookup(pObjIndex->value[4]);
+			for (i = 1; i < 5; i++) {
+				STR_VAL_ASSIGN(pObjIndex->value[i],
+					skill_slot_lookup(pObjIndex->value[i].i));
+			}
 			break;
 
 		case ITEM_STAFF:
 		case ITEM_WAND:
-			pObjIndex->value[3] = slot_lookup(pObjIndex->value[3]);
+			STR_VAL_ASSIGN(pObjIndex->value[3],
+				skill_slot_lookup(pObjIndex->value[3].i));
 			break;
 
 		case ITEM_WEAPON:
-			if (pObjIndex->value[0] == WEAPON_SPEAR
-			&&  !IS_SET(pObjIndex->value[4], WEAPON_THROW)) {
-				SET_BIT(pObjIndex->value[4], WEAPON_THROW);
+			if (is_name("two", pObjIndex->name) 
+			||  is_name("two-handed", pObjIndex->name) 
+			||  is_name("claymore", pObjIndex->name)) {
+				SET_BIT(INT_VAL(pObjIndex->value[4]),
+					WEAPON_TWO_HANDS);
 				TOUCH_AREA(area_current);
 			}
+
+			if (WEAPON_IS(pObjIndex, WEAPON_SPEAR)
+			&&  !IS_WEAPON_STAT(pObjIndex, WEAPON_THROW)) {
+				SET_BIT(INT_VAL(pObjIndex->value[4]),
+					WEAPON_THROW);
+				TOUCH_AREA(area_current);
+			}
+			STR_VAL_ASSIGN(pObjIndex->value[3],
+				damtype_slot_lookup(pObjIndex->value[3].i));
 			break;
 		}
 
@@ -1017,7 +1025,7 @@ DBLOAD_FUN(load_specials)
 
 		case 'M':
 		    pMobIndex		= get_mob_index	(fread_number (fp));
-		    pMobIndex->spec_fun	= spec_lookup	(fread_word   (fp));
+		    pMobIndex->spec_fun	= mob_spec_lookup	(fread_word   (fp));
 		    if (pMobIndex->spec_fun == NULL) {
 			db_error("load_specials", "'M': vnum %d.",
 				 pMobIndex->vnum);
@@ -1181,7 +1189,8 @@ DBLOAD_FUN(load_mobiles)
 	pMobIndex->damage[DICE_TYPE]	= fread_number(fp);
 					  fread_letter(fp);
 	pMobIndex->damage[DICE_BONUS]	= fread_number(fp);
-	pMobIndex->dam_type		= attack_lookup(fread_word(fp));
+	pMobIndex->damtype		=
+			fread_name(fp, &damtypes, "load_mobiles");
 
 	/* read armor class */
 	pMobIndex->ac[AC_PIERCE]	= fread_number(fp) * 10;
@@ -1365,56 +1374,7 @@ DBLOAD_FUN(load_objects)
 	pObjIndex->item_type		= fread_fword(item_types, fp);
         pObjIndex->extra_flags          = fread_flags(fp);
         pObjIndex->wear_flags           = fread_flags(fp);
-	switch(pObjIndex->item_type)
-	{
-	case ITEM_WEAPON:
-	    pObjIndex->value[0]		= flag_value(weapon_class,
-						     fread_word(fp));
-	    pObjIndex->value[1]		= fread_number(fp);
-	    pObjIndex->value[2]		= fread_number(fp);
-	    pObjIndex->value[3]		= attack_lookup(fread_word(fp));
-	    pObjIndex->value[4]		= fread_flags(fp);
-	    break;
-	case ITEM_CONTAINER:
-	    pObjIndex->value[0]		= fread_number(fp);
-	    pObjIndex->value[1]		= fread_flags(fp);
-	    pObjIndex->value[2]		= fread_number(fp);
-	    pObjIndex->value[3]		= fread_number(fp);
-	    pObjIndex->value[4]		= fread_number(fp);
-	    break;
-        case ITEM_DRINK_CON:
-	case ITEM_FOUNTAIN:
-            pObjIndex->value[0]         = fread_number(fp);
-            pObjIndex->value[1]         = fread_number(fp);
-	    pObjIndex->value[2]		= liq_lookup(fread_word(fp));
-            pObjIndex->value[3]         = fread_number(fp);
-            pObjIndex->value[4]         = fread_number(fp);
-            break;
-	case ITEM_WAND:
-	case ITEM_STAFF:
-	    pObjIndex->value[0]		= fread_number(fp);
-	    pObjIndex->value[1]		= fread_number(fp);
-	    pObjIndex->value[2]		= fread_number(fp);
-	    pObjIndex->value[3]		= sn_lookup(fread_word(fp));
-	    pObjIndex->value[4]		= fread_number(fp);
-	    break;
-	case ITEM_POTION:
-	case ITEM_PILL:
-	case ITEM_SCROLL:
- 	    pObjIndex->value[0]		= fread_number(fp);
-	    pObjIndex->value[1]		= sn_lookup(fread_word(fp));
-	    pObjIndex->value[2]		= sn_lookup(fread_word(fp));
-	    pObjIndex->value[3]		= sn_lookup(fread_word(fp));
-	    pObjIndex->value[4]		= sn_lookup(fread_word(fp));
-	    break;
-	default:
-            pObjIndex->value[0]             = fread_flags(fp);
-            pObjIndex->value[1]             = fread_flags(fp);
-            pObjIndex->value[2]             = fread_flags(fp);
-            pObjIndex->value[3]             = fread_flags(fp);
-	    pObjIndex->value[4]		    = fread_flags(fp);
-	    break;
-	}
+	fread_objval(pObjIndex->item_type, pObjIndex->value, fp);
 	pObjIndex->level		= fread_number(fp);
         pObjIndex->weight               = fread_number(fp);
         pObjIndex->cost                 = fread_number(fp); 
@@ -1444,7 +1404,7 @@ DBLOAD_FUN(load_objects)
  
                 paf                     = aff_new();
 		paf->where		= TO_OBJECT;
-                paf->type               = -1;
+                paf->type               = str_empty;
                 paf->level              = pObjIndex->level;
                 paf->duration           = -1;
                 paf->location           = fread_number(fp);
@@ -1463,10 +1423,10 @@ DBLOAD_FUN(load_objects)
 		AFFECT_DATA *paf;
 		paf = aff_new();
 		paf->where = TO_SKILLS;
-		paf->type = -1;
+		paf->type = str_empty;
 		paf->level = pObjIndex->level;
 		paf->duration = -1;
-		paf->location = -sn_lookup(fread_word(fp)); 
+		paf->location = fread_name(fp, &skills, "load_objects");
                 paf->modifier = fread_number(fp);
                 paf->bitvector = fread_flags(fp);
 		SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
@@ -1498,7 +1458,7 @@ DBLOAD_FUN(load_objects)
 			        pObjIndex->vnum, letter);
 			return;
 		}
-                paf->type               = -1;
+                paf->type               = str_empty;
                 paf->level              = pObjIndex->level;
                 paf->duration           = -1;
                 paf->location		= fread_number(fp);
@@ -1517,9 +1477,9 @@ DBLOAD_FUN(load_objects)
         }
  
 	if (pObjIndex->item_type == ITEM_WEAPON
-	&&  pObjIndex->value[0] == WEAPON_SPEAR
-	&&  !IS_SET(pObjIndex->value[4], WEAPON_THROW)) {
-		SET_BIT(pObjIndex->value[4], WEAPON_THROW);
+	&&  WEAPON_IS(pObjIndex, WEAPON_SPEAR)
+	&&  !IS_WEAPON_STAT(pObjIndex, WEAPON_THROW)) {
+		SET_BIT(INT_VAL(pObjIndex->value[4]), WEAPON_THROW);
 		TOUCH_AREA(area_current);
 	}
 
@@ -1571,25 +1531,6 @@ DBLOAD_FUN(load_omprogs)
 
 	fread_to_eol(fp);
     }
-}
-
-/*
- * Lookup a skill by slot number.
- * Used for object loading.
- */
-static int slot_lookup(int slot)
-{
-	int sn;
-
-	if (slot <= 0)
-		return -1;
-
-	for (sn = 0; sn < skills.nused; sn++)
-		if (slot == SKILL(sn)->slot)
-			return sn;
-
-	db_error("slot_lookup", "bad slot %d.", slot);
-	return -1;
 }
 
 /*****************************************************************************
@@ -1663,9 +1604,15 @@ void convert_mobile(MOB_INDEX_DATA *pMobIndex)
 	pMobIndex->damage[DICE_BONUS]  = bonus;
 
 	switch (number_range(1, 3)) {
-		case (1): pMobIndex->dam_type =  3;       break;  /* slash  */
-		case (2): pMobIndex->dam_type =  7;       break;  /* pound  */
-		case (3): pMobIndex->dam_type = 11;       break;  /* pierce */
+	case 1:
+		pMobIndex->damtype = str_dup("slash");
+		break;
+	case 2:
+		pMobIndex->damtype = str_dup("pound");
+		break;
+	case 3:
+		pMobIndex->damtype = str_dup("pierce");
+		break;
 	}
 
 	for (i = 0; i < 3; i++)

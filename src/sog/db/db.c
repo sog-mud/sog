@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.169 1999-09-25 12:10:45 avn Exp $
+ * $Id: db.c,v 1.170 1999-10-06 09:56:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -67,6 +67,12 @@
 #include "note.h"
 #include "ban.h"
 
+#if defined(BSD44)
+#	include <fnmatch.h>
+#else
+#	include "../compat/fnmatch.h"
+#endif
+
 #ifdef SUNOS
 #	include "compat.h"
 #	define d_namlen d_reclen
@@ -107,6 +113,9 @@ const char CLANS_PATH		[] = "clans";
 const char AREA_PATH		[] = "area";
 const char LANG_PATH		[] = "lang";
 const char MODULES_PATH		[] = "modules";
+const char SPEC_PATH		[] = "specs";
+
+const char SPEC_MASK		[] = "*.spec";
 
 #if defined (WIN32)
 const char PLISTS_PATH		[] = "clans\\plists";
@@ -125,7 +134,8 @@ const char SOCIALS_CONF		[] = "socials.conf";	/* socials */
 const char SYSTEM_CONF		[] = "system.conf";	/* system conf */
 const char LANG_CONF		[] = "lang.conf";	/* lang definitions */
 const char MSGDB_CONF		[] = "msgdb.conf";	/* msgdb */
-const char CMD_CONF		[] = "cmd.conf";
+const char CMD_CONF		[] = "cmd.conf";	/* commands */
+const char DAMTYPE_CONF		[] = "damtype.conf";	/* damtypes */
 
 const char AREA_LIST		[] = "area.lst";	/* list of areas */
 const char CLAN_LIST		[] = "clan.lst";	/* list of clans */
@@ -225,24 +235,21 @@ void    check_mob_progs	(void);
 
 void	reset_area	(AREA_DATA * pArea);
 
-int dbfuncmp(const void *p1, const void *p2)
-{
-	return str_cmp(*(char**)p1, *(char**)p2);
-}
-
 void dbdata_init(DBDATA *dbdata)
 {
 	dbdata->tab_sz = 0;
+	if (dbdata->dbinit)
+		dbdata->dbinit(dbdata);
 	while(dbdata->fun_tab[dbdata->tab_sz].name)
 		dbdata->tab_sz++;
 	qsort(dbdata->fun_tab, dbdata->tab_sz,
-	      sizeof(*dbdata->fun_tab), dbfuncmp);
+	      sizeof(*dbdata->fun_tab), cmpstr);
 }
 
 DBFUN *dbfun_lookup(DBDATA *dbdata, const char *name)
 {
 	return bsearch(&name, dbdata->fun_tab, dbdata->tab_sz,
-		       sizeof(*dbdata->fun_tab), dbfuncmp);
+		       sizeof(*dbdata->fun_tab), cmpstr);
 }
 
 void db_set_arg(DBDATA *dbdata, const char *name, void *arg)
@@ -317,6 +324,37 @@ void db_load_file(DBDATA *dbdata, const char *path, const char *file)
 	db_parse_file(dbdata, path, file);
 }
 
+void db_load_dir(DBDATA *dbdata, const char *path, const char *mask)
+{
+	struct dirent *dp;
+	DIR *dirp;
+	if (!dbdata->tab_sz)
+		dbdata_init(dbdata);
+
+	if ((dirp = opendir(path)) == NULL) {
+		db_error("db_load_dir", "%s: %s", path, strerror(errno));
+		return;
+	}
+
+	for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp)) {
+#if defined (LINUX) || defined (WIN32)
+		if (strlen(dp->d_name) < 3)
+			continue;
+#else
+		if (dp->d_namlen < 3 || dp->d_type != DT_REG)
+			continue;
+#endif
+
+		if (fnmatch(mask, dp->d_name, 0) == FNM_NOMATCH)
+			continue;
+
+		if (dbdata->dbinit)
+			dbdata->dbinit(dbdata);
+		db_parse_file(dbdata, path, dp->d_name);
+	}
+	closedir(dirp);
+}
+
 void db_load_list(DBDATA *dbdata, const char *path, const char *file)
 {
 	FILE *fp;
@@ -356,6 +394,7 @@ void boot_db(void)
 	extern char* malloc_options;
 	malloc_options = "X";
 #endif
+
 	/*
 	 * Init random number generator.
 	 */
@@ -403,8 +442,9 @@ void boot_db(void)
 	db_load_file(&db_socials, ETC_PATH, SOCIALS_CONF);
 
 	db_load_file(&db_skills, ETC_PATH, SKILLS_CONF);
-	namedp_check(gsn_table);
+	db_load_dir(&db_spec, SPEC_PATH, SPEC_MASK);
 	db_load_file(&db_rspells, ETC_PATH, RSPELLS_CONF);
+	db_load_file(&db_damtype, ETC_PATH, DAMTYPE_CONF);
 
 	db_load_list(&db_races, RACES_PATH, RACE_LIST);
 	db_load_list(&db_classes, CLASSES_PATH, CLASS_LIST);
@@ -605,7 +645,7 @@ void area_update(void)
 
 				ch = d->original ?  d->original : d->character;
 				if (ch->in_room->area == pArea
-				&&  get_skill(ch, gsn_track) > 50
+				&&  get_skill(ch, "track") > 50
 				&&  !IS_SET(ch->in_room->room_flags,
 					    ROOM_INDOORS)) {
 					act_puts("Rain devastates the tracks on the ground.",
@@ -1009,13 +1049,20 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 	mob->incog_level	= pMobIndex->incog_level;
 	mob->material		= str_qdup(pMobIndex->material);
 
-	mob->dam_type		= pMobIndex->dam_type;
-	if (mob->dam_type == 0)
-		switch(number_range(1,3)) {
-		case (1): mob->dam_type = 3;        break;  /* slash */
-		case (2): mob->dam_type = 7;        break;  /* pound */
-		case (3): mob->dam_type = 11;       break;  /* pierce */
+	mob->damtype		= str_qdup(pMobIndex->damtype);
+	if (IS_NULLSTR(mob->damtype)) {
+		switch (number_range(1, 3)) {
+		case 1:
+			mob->damtype = str_dup("slash");
+			break;
+		case 2:
+			mob->damtype = str_dup("pound");
+			break;
+		case 3:
+			mob->damtype = str_dup("pierce");
+			break;
 		}
+	}
 
 	mob->sex		= pMobIndex->sex;
 	if (mob->sex == SEX_EITHER) { /* random sex */
@@ -1079,9 +1126,9 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 		mob->perm_stat[STAT_DEX] += 2;
 		    
 	/* let's get some spell action */
-	if (IS_AFFECTED(mob,AFF_SANCTUARY)) {
+	if (IS_AFFECTED(mob, AFF_SANCTUARY)) {
 		af.where	= TO_AFFECTS;
-		af.type		= sn_lookup("sanctuary");
+		af.type		= "sanctuary";
 		af.level	= mob->level;
 		af.duration	= -1;
 		af.location	= APPLY_NONE;
@@ -1092,7 +1139,7 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 
 	if (IS_AFFECTED(mob, AFF_HASTE)) {
 		af.where	= TO_AFFECTS;
-		af.type		= sn_lookup("haste");
+		af.type		= "haste";
 		af.level	= mob->level;
 	  	af.duration	= -1;
 		af.location	= APPLY_DEX;
@@ -1104,7 +1151,7 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 
 	if (IS_AFFECTED(mob,AFF_PROTECT_EVIL)) {
 		af.where	= TO_AFFECTS;
-		af.type		= sn_lookup("protection evil");
+		af.type		= "protection evil";
 		af.level	= mob->level;
 		af.duration	= -1;
 		af.location	= APPLY_SAVES;
@@ -1115,7 +1162,7 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 
 	if (IS_AFFECTED(mob,AFF_PROTECT_GOOD)) {
 		af.where	= TO_AFFECTS;
-		af.type		= sn_lookup("protection good");
+		af.type		= "protection good";
 		af.level	= mob->level;
 		af.duration	= -1;
 		af.location	= APPLY_SAVES;
@@ -1193,7 +1240,7 @@ void clone_mob(CHAR_DATA *parent, CHAR_DATA *clone)
 	clone->parts		= parent->parts;
 	clone->size		= parent->size;
 	clone->material		= str_qdup(parent->material);
-	clone->dam_type		= parent->dam_type;
+	clone->damtype		= str_qdup(parent->damtype);
 	clone->hunting		= NULL;
 	clone->clan		= parent->clan;
 	NPC(clone)->dam	= NPC(parent)->dam;
@@ -1239,11 +1286,7 @@ OBJ_DATA *create_obj(OBJ_INDEX_DATA *pObjIndex, int flags)
 	obj->material		= str_qdup(pObjIndex->material);
 	obj->extra_flags	= pObjIndex->extra_flags;
 	obj->wear_flags		= pObjIndex->wear_flags;
-	obj->value[0]		= pObjIndex->value[0];
-	obj->value[1]		= pObjIndex->value[1];
-	obj->value[2]		= pObjIndex->value[2];
-	obj->value[3]		= pObjIndex->value[3];
-	obj->value[4]		= pObjIndex->value[4];
+	objval_cpy(pObjIndex->item_type, obj->value, pObjIndex->value);
 	obj->weight		= pObjIndex->weight;
 	obj->condition		= pObjIndex->condition;
 	obj->cost		= pObjIndex->cost;
@@ -1253,19 +1296,19 @@ OBJ_DATA *create_obj(OBJ_INDEX_DATA *pObjIndex, int flags)
 	 */
 	switch (pObjIndex->item_type) {
 	case ITEM_LIGHT:
-		if (obj->value[2] == 999)
-			obj->value[2] = -1;
+		if (INT_VAL(obj->value[2]) == 999)
+			INT_VAL(obj->value[2]) = -1;
 		break;
 
 	case ITEM_JUKEBOX:
 		for (i = 0; i < 5; i++)
-		   obj->value[i] = -1;
+			INT_VAL(obj->value[i]) = -1;
 		break;
 	}
 	
 	for (paf = pObjIndex->affected; paf != NULL; paf = paf->next) 
-		if (paf->location == APPLY_SPELL_AFFECT
-		    || paf->where == TO_SKILLS)
+		if (paf->where == TO_SKILLS
+		||  INT_VAL(paf->location) == APPLY_SPELL_AFFECT)
 			SET_BIT(obj->extra_flags, ITEM_ENCHANTED);
 	
 	if (IS_SET(obj->extra_flags, ITEM_ENCHANTED))
@@ -1291,7 +1334,6 @@ OBJ_DATA *create_obj_of(OBJ_INDEX_DATA *pObjIndex, mlstring *owner)
 /* duplicate an object exactly -- except contents */
 void clone_obj(OBJ_DATA *parent, OBJ_DATA *clone)
 {
-	int i;
 	AFFECT_DATA *paf;
 	ED_DATA *ed,*ed2;
 
@@ -1311,9 +1353,7 @@ void clone_obj(OBJ_DATA *parent, OBJ_DATA *clone)
 	clone->material		= str_qdup(parent->material);
 	clone->timer		= parent->timer;
 	mlstr_cpy(&clone->owner, &parent->owner);
-
-	for (i = 0;  i < 5; i ++)
-		clone->value[i]	= parent->value[i];
+	objval_cpy(parent->pObjIndex->item_type, clone->value, parent->value);
 
 	for (paf = parent->affected; paf != NULL; paf = paf->next) 
 		affect_to_obj(clone,paf);
@@ -1935,7 +1975,7 @@ void scan_pfiles()
 			   strerror(errno));
 
 	if ((dirp = opendir(PLAYER_PATH)) == NULL) {
-		bug("Load_limited_objects: unable to open player directory.",
+		bug("scan_pfiles: unable to open player directory.",
 		    0);
 		exit(1);
 	}
@@ -2107,6 +2147,9 @@ void convert_object(OBJ_INDEX_DATA *pObjIndex)
             break;
 
         case ITEM_LIGHT:
+		if (INT_VAL(pObjIndex->value[2]) == 999)
+			INT_VAL(pObjIndex->value[2]) = -1;
+		break;
         case ITEM_TREASURE:
         case ITEM_FURNITURE:
         case ITEM_TRASH:
@@ -2173,7 +2216,7 @@ void convert_object(OBJ_INDEX_DATA *pObjIndex)
             break;
 
         case ITEM_MONEY:
-	    pObjIndex->value[0] = pObjIndex->cost;
+	    INT_VAL(pObjIndex->value[0]) = pObjIndex->cost;
 	    break;
     }
 
@@ -2207,18 +2250,6 @@ flag64_t fread_fstring(const flag_t *table, FILE *fp)
 
 	free_string(s);
 	return val;
-}
-
-void *fread_namedp(namedp_t *table, FILE *fp)
-{
-	char *name = fread_word(fp);
-	namedp_t *np = namedp_lookup(table, name);
-
-	if (np == NULL)
-		db_error("fread_namedp", "%s: unknown named pointer", name);
-
-	np->touched = TRUE;
-	return np->p;
 }
 
 int fread_clan(FILE *fp)

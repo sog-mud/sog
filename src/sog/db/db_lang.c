@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.16 1999-06-10 14:33:35 fjoe Exp $
+ * $Id: db_lang.c,v 1.17 1999-10-06 09:56:15 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -70,7 +70,8 @@ DBDATA db_impl = { dbfun_impl };
  */
 DBINIT_FUN(init_lang)
 {
-	db_set_arg(dbdata, "RULECLASS", NULL);
+	if (DBDATA_VALID(dbdata))
+		db_set_arg(dbdata, "RULECLASS", NULL);
 }
 
 DBLOAD_FUN(load_lang)
@@ -137,7 +138,7 @@ DBLOAD_FUN(load_rulecl)
 
 		switch (UPPER(*word)) {
 		case 'E':
-			SKEY("Expl", rcl->file_expl);
+			SKEY("Expl", rcl->file_expl, fread_string(fp));
 			if (!str_cmp(word, "End")) {
 				const char *s;
 				char path[PATH_MAX];
@@ -165,7 +166,7 @@ DBLOAD_FUN(load_rulecl)
 			}
 			break;
 		case 'I':
-			SKEY("Impl", rcl->file_impl);
+			SKEY("Impl", rcl->file_impl, fread_string(fp));
 			break;
 		}
 
@@ -232,7 +233,7 @@ load_rules(FILE *fp, rulecl_t *rcl, rule_t* (*rule_add)(rulecl_t*, rule_t*))
 			break;
 
 		case 'N':
-			SKEY("Name", r.name);
+			SKEY("Name", r.name, fread_string(fp));
 			break;
 		}
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_skill.c,v 1.11 1999-06-22 12:37:23 fjoe Exp $
+ * $Id: db_skill.c,v 1.12 1999-10-06 09:56:15 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -34,19 +34,33 @@
 
 DECLARE_DBLOAD_FUN(load_skill);
 
+DECLARE_DBINIT_FUN(init_skills);
+
 DBFUN dbfun_skills[] =
 {
 	{ "SKILL",	load_skill	},
 	{ NULL }
 };
 
-DBDATA db_skills = { dbfun_skills };
+DBDATA db_skills = { dbfun_skills, init_skills };
+
+DBINIT_FUN(init_skills)
+{
+	if (DBDATA_VALID(dbdata)) {
+		hash_init(&skills, NAME_HASH_SIZE, sizeof(skill_t),
+			  (varr_e_init_t) skill_init,
+			  (varr_e_destroy_t) skill_destroy);
+		skills.k_hash = name_hash;
+		skills.ke_cmp = name_struct_cmp;
+		skills.e_cpy = (hash_e_cpy_t) skill_cpy;
+	}
+}
 
 DBLOAD_FUN(load_skill)
 {
-	skill_t *skill;
+	skill_t sk;
 
-	skill = varr_enew(&skills);
+	skill_init(&sk);
 
 	for (;;) {
 		char *word = feof(fp) ? "End" : fread_word(fp);
@@ -54,57 +68,55 @@ DBLOAD_FUN(load_skill)
 
 		switch (UPPER(word[0])) {
 		case 'B':
-			KEY("Beats", skill->beats, fread_number(fp));
+			KEY("Beats", sk.beats, fread_number(fp));
 			break;
 		case 'E':
 			if (!str_cmp(word, "End")) {
-				if (IS_NULLSTR(skill->name)) {
+				if (IS_NULLSTR(sk.name)) {
 					db_error("load_skill",
 						 "skill name undefined");
-					skills.nused--;
+				} else if (!hash_insert(&skills, sk.name, &sk)) {
+					db_error("load_skill",
+						 "duplicate skill name");
 				}
+				skill_destroy(&sk);
 				return;
 			}
 			break;
 		case 'F':
-			KEY("Flags", skill->skill_flags,
+			KEY("Flags", sk.skill_flags,
 			    fread_fstring(skill_flags, fp));
-			SKEY("Fun", skill->fun_name);
+			SKEY("Fun", sk.fun_name, fread_string(fp));
 			break;
 		case 'G':
-			KEY("Group", skill->group,
+			KEY("Group", sk.group,
 			    fread_fword(skill_groups, fp));
-			if (!str_cmp(word, "Gsn")) {
-				skill->pgsn = fread_namedp(gsn_table, fp);
-				*skill->pgsn = skills.nused - 1;
-				fMatch = TRUE;
-			}
 			break;
 		case 'M':
-			KEY("MinMana", skill->min_mana, fread_number(fp));
-			KEY("MinPos", skill->minimum_position,
+			KEY("MinMana", sk.min_mana, fread_number(fp));
+			KEY("MinPos", sk.min_pos,
 			    fread_fword(position_table, fp));
 			break;
 		case 'N':
-			SKEY("Name", skill->name);
-			SKEY("NounDamage", skill->noun_damage);
+			SKEY("Name", sk.name, fread_string(fp));
+			SKEY("NounDamage", sk.noun_damage, fread_string(fp));
 			break;
 		case 'O':
-			SKEY("ObjWearOff", skill->msg_obj);
+			SKEY("ObjWearOff", sk.msg_obj, fread_string(fp));
 			break;
 		case 'S':
-			KEY("Slot", skill->slot, fread_number(fp));
-			KEY("SpellFun", skill->fun_name, /* XXX */
+			KEY("Slot", sk.slot, fread_number(fp));
+			KEY("SpellFun", sk.fun_name,
 			    str_dup(fread_word(fp)));
 			break;
 		case 'T':
-			KEY("Type", skill->skill_type,
+			KEY("Type", sk.skill_type,
 			    fread_fword(skill_types, fp));
-			KEY("Target", skill->target,
+			KEY("Target", sk.target,
 			    fread_fword(skill_targets, fp));
 			break;
 		case 'W':
-			SKEY("WearOff", skill->msg_off);
+			SKEY("WearOff", sk.msg_off, fread_string(fp));
 			break;
 		}
 

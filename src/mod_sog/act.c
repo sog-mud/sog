@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.40 1999-09-11 12:50:05 fjoe Exp $
+ * $Id: act.c,v 1.41 1999-10-06 09:56:13 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -128,7 +128,7 @@ const char *format_long(mlstring *ml, CHAR_DATA *to)
  */
 const char *PERS2(CHAR_DATA *ch, CHAR_DATA *looker, int act_flags)
 {
-	if (is_affected(ch, gsn_doppelganger)
+	if (is_affected(ch, "doppelganger")
 	&&  (IS_NPC(looker) ||
 	     !IS_SET(PC(looker)->plr_flags, PLR_HOLYLIGHT)))
 		ch = ch->doppel;
@@ -222,7 +222,7 @@ struct tdata {
 
 static int SEX(CHAR_DATA *ch, CHAR_DATA *looker)
 {
-	if (is_affected(ch, gsn_doppelganger)
+	if (is_affected(ch, "doppelganger")
 	&&  (IS_NPC(looker) || !IS_SET(PC(looker)->plr_flags, PLR_HOLYLIGHT)))
 		ch = ch->doppel;
 	return URANGE(0, ch->sex, 2);
@@ -852,7 +852,7 @@ act_skip(CHAR_DATA *ch, CHAR_DATA *vch, CHAR_DATA *to,
 		return TRUE;
 
 /* check "deaf dumb blind" chars */
-	if (IS_SET(act_flags, ACT_NODEAF) && is_affected(to, gsn_deafen))
+	if (IS_SET(act_flags, ACT_NODEAF) && is_affected(to, "deafen"))
 		return TRUE;
 
 /* skip verbose messages */

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.h,v 1.18 1999-06-10 14:33:25 fjoe Exp $
+ * $Id: clan.h,v 1.19 1999-10-06 09:55:57 fjoe Exp $
  */
 
 #ifndef _CLAN_H_
@@ -49,8 +49,7 @@ struct clan_t
 	const char *	file_name;	/* file name */
 
 	int	 	recall_vnum;	/* recall room vnum */
-
-	varr		skills;		/* clan skills */
+	const char *	skill_spec;	/* skill spec for this clan */
 
 	flag32_t	clan_flags;	/* clan flags */
 
@@ -78,16 +77,6 @@ extern varr	clans;
 
 #define CLAN(cln)		((clan_t*) VARR_GET(&clans, cln))
 #define clan_lookup(cln)	((clan_t*) varr_get(&clans, cln))
-
-struct clskill_t {
-	int	sn;		/* skill number. leave this field first	 */
-				/* in order sn_vlookup to work properly  */
-	int	level;		/* level at which skill become available */
-	int	percent;	/* initial percent			 */
-};
-
-#define clskill_lookup(clan, sn) \
-	((clskill_t*) varr_bsearch(&clan->skills, &sn, cmpint))
 
 /*
  * clan lists utils

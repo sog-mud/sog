@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.16 1999-09-08 10:40:07 fjoe Exp $
+ * $Id: class.c,v 1.17 1999-10-06 09:56:04 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -37,10 +37,9 @@ class_t *class_new(void)
 	class_t *class;
 
 	class = varr_enew(&classes);
-	varr_init(&class->skills, sizeof(cskill_t), 8);
 	varr_init(&class->poses, sizeof(pose_t), 4);
-	varr_init(&class->guild, sizeof(int), 4);
-	class->skill_adept = 75;
+	varr_init(&class->guilds, sizeof(int), 4);
+	class->skill_spec = str_empty;
 	class->hp_rate = 100;
 	class->mana_rate = 100;
 	class->restrict_sex = -1;
@@ -51,9 +50,9 @@ class_t *class_new(void)
 
 void class_free(class_t *class)
 {
-	varr_destroy(&class->skills);
+	free_string(class->skill_spec);
 	varr_destroy(&class->poses);
-	varr_destroy(&class->guild);
+	varr_destroy(&class->guilds);
 }
 
 /*
@@ -70,8 +69,8 @@ int guild_ok(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
 
 	for (iClass = 0; iClass < classes.nused; iClass++) {
 		class_t *cl = CLASS(iClass);
-		for (iGuild = 0; iGuild < cl->guild.nused; iGuild++) {
-		    	if (room->vnum == *(int*)VARR_GET(&cl->guild, iGuild)) {
+		for (iGuild = 0; iGuild < cl->guilds.nused; iGuild++) {
+		    	if (room->vnum == *(int*)VARR_GET(&cl->guilds, iGuild)) {
 				if (iClass == ch->class)
 					return TRUE;
 				class = iClass;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.31 1999-09-08 10:40:05 fjoe Exp $
+ * $Id: olc_clan.c,v 1.32 1999-10-06 09:56:02 fjoe Exp $
  */
 
 #include "olc.h"
@@ -41,14 +41,11 @@ DECLARE_OLC_FUN(claned_name		);
 DECLARE_OLC_FUN(claned_filename		);
 DECLARE_OLC_FUN(claned_recall		);
 DECLARE_OLC_FUN(claned_flags		);
-DECLARE_OLC_FUN(claned_skill		);
 DECLARE_OLC_FUN(claned_item		);
 DECLARE_OLC_FUN(claned_mark		);
 DECLARE_OLC_FUN(claned_altar		);
 DECLARE_OLC_FUN(claned_plist		);
-
-DECLARE_OLC_FUN(claned_skill_add	);
-DECLARE_OLC_FUN(claned_skill_del	);
+DECLARE_OLC_FUN(claned_skillspec	);
 
 static DECLARE_VALIDATE_FUN(validate_name);
 
@@ -65,10 +62,10 @@ olc_cmd_t olc_cmds_clan[] =
 	{ "filename",	claned_filename,	validate_filename	},
 	{ "recall",	claned_recall,		validate_room_vnum	},
 	{ "flags",	claned_flags,		clan_flags		},
-	{ "skill",	claned_skill					},
 	{ "item",	claned_item					},
 	{ "mark",	claned_mark					},
 	{ "altar", 	claned_altar					},
+	{ "skillspec",	claned_skillspec,	validate_skill_spec	},
 	{ "plist",	claned_plist					},
 
 	{ "commands",	show_commands					},
@@ -203,6 +200,8 @@ OLC_FUN(claned_show)
 		   "Filename:    [%s]\n",
 		   clan->name,
 		   clan->file_name);
+	if (!IS_NULLSTR(clan->skill_spec))
+		buf_printf(output, "SkillSpec:   [%s]\n", clan->skill_spec);
 	if (clan->clan_flags)
 		buf_printf(output, "Flags:       [%s]\n",
 			   flag_string(clan_flags, clan->clan_flags));
@@ -218,17 +217,6 @@ OLC_FUN(claned_show)
 	if (clan->altar_vnum)
 		buf_printf(output, "Altar:       [%d]\n",
 			   clan->altar_vnum);
-
-	for (i = 0; i < clan->skills.nused; i++) {
-		clskill_t *cs = VARR_GET(&clan->skills, i);
-		skill_t *sk;
-
-		if (cs->sn <= 0
-		||  (sk = skill_lookup(cs->sn)) == NULL)
-			continue;
-		buf_printf(output, "Skill:       '%s' (level %d, %d%%)\n",
-			   sk->name, cs->level, cs->percent);
-	}
 
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
@@ -287,25 +275,18 @@ OLC_FUN(claned_altar)
 	return olced_number(ch, argument, cmd, &clan->altar_vnum);
 }
 
+OLC_FUN(claned_skillspec)
+{
+	clan_t *clan;
+	EDIT_CLAN(ch, clan);
+	return olced_str(ch, argument, cmd, &clan->skill_spec);
+}
+
 OLC_FUN(claned_flags)
 {
 	clan_t *clan;
 	EDIT_CLAN(ch, clan);
 	return olced_flag32(ch, argument, cmd, &clan->clan_flags);
-}
-
-OLC_FUN(claned_skill)
-{
-	char arg[MAX_STRING_LENGTH];
-
-	argument = one_argument(argument, arg, sizeof(arg));
-	if (!str_prefix(arg, "add")) 
-		return claned_skill_add(ch, argument, cmd);
-	else if (!str_prefix(arg, "delete"))
-		return claned_skill_del(ch, argument, cmd);
-
-	dofun("help", ch, "'OLC CLAN SKILL'");
-	return FALSE;
 }
 
 OLC_FUN(claned_plist)
@@ -360,82 +341,6 @@ OLC_FUN(claned_plist)
 	return TRUE;
 }
 
-OLC_FUN(claned_skill_add)
-{
-	int sn;
-	int percent;
-	clskill_t *clsk;
-	char	arg1[MAX_STRING_LENGTH];
-	char	arg2[MAX_STRING_LENGTH];
-	char	arg3[MAX_STRING_LENGTH];
-	clan_t *clan;
-	EDIT_CLAN(ch, clan);
-
-	argument = one_argument(argument, arg1, sizeof(arg1));
-	argument = one_argument(argument, arg2, sizeof(arg2));
-		   one_argument(argument, arg3, sizeof(arg3));
-
-	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
-		dofun("help", ch, "'OLC CLAN SKILL'");
-		return FALSE;
-	}
-
-	if ((sn = sn_lookup(arg1)) <= 0) {
-		char_printf(ch, "ClanEd: %s: unknown skill.\n", arg1);
-		return FALSE;
-	}
-
-	if (!IS_SET(SKILL(sn)->skill_flags, SKILL_CLAN)) {
-		char_printf(ch, "ClanEd: %s: not a clan skill.\n",
-			    SKILL(sn)->name);
-		return FALSE;
-	}
-
-	if ((clsk = clskill_lookup(clan, sn))) {
-		char_printf(ch, "ClanEd: %s: already there.\n",
-			    SKILL(sn)->name);
-		return FALSE;
-	}
-
-	percent = atoi(arg3);
-	if (percent < 1 || percent > 100) {
-		char_puts("ClanEd: percent value must be in range 1..100.\n",
-			  ch);
-		return FALSE;
-	}
-
-	clsk = varr_enew(&clan->skills);
-	clsk->sn = sn;
-	clsk->level = atoi(arg2);
-	clsk->percent = percent;
-	varr_qsort(&clan->skills, cmpint);
-
-	return TRUE;
-}
-
-OLC_FUN(claned_skill_del)
-{
-	char	arg[MAX_STRING_LENGTH];
-	clskill_t *clsk;
-	clan_t *clan;
-	EDIT_CLAN(ch, clan);
-
-	one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0') {
-		dofun("help", ch, "'OLC CLAN SKILL'");
-		return FALSE;
-	}
-
-	if ((clsk = skill_vlookup(&clan->skills, arg)) == NULL) {
-		char_printf(ch, "ClanEd: %s: not found in clan skill list.\n",
-			    arg);
-		return FALSE;
-	}
-	clsk->sn = 0;
-	varr_qsort(&clan->skills, cmpint);
-	return TRUE;
-}
-
 bool touch_clan(clan_t *clan)
 {
 	SET_BIT(clan->clan_flags, CLAN_CHANGED);
@@ -461,7 +366,6 @@ static VALIDATE_FUN(validate_name)
 
 static void save_clan(CHAR_DATA *ch, clan_t *clan)
 {
-	int i;
 	FILE *fp;
 
 /* save clan data */
@@ -471,6 +375,8 @@ static void save_clan(CHAR_DATA *ch, clan_t *clan)
 	fprintf(fp, "#CLAN\n");
 
 	fwrite_string(fp, "Name", clan->name);
+	if (!IS_NULLSTR(clan->skill_spec))
+		fprintf(fp, "SkillSpec '%s'\n", clan->skill_spec);
 	if (clan->recall_vnum)
 		fprintf(fp, "Recall %d\n", clan->recall_vnum);
 	if (clan->obj_vnum)
@@ -484,14 +390,6 @@ static void save_clan(CHAR_DATA *ch, clan_t *clan)
 	if (clan->clan_flags)
 		fprintf(fp, "Flags %s~\n",
 			flag_string(clan_flags, clan->clan_flags));
-
-	for (i = 0; i < clan->skills.nused; i++) {
-		clskill_t *cs = VARR_GET(&clan->skills, i);
-
-		if (cs->sn > 0) 
-			fprintf(fp, "Skill '%s' %d %d\n",
-				skill_name(cs->sn), cs->level, cs->percent);
-	}
 
 	fprintf(fp, "End\n\n"
 		    "#$\n");

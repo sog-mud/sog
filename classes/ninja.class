@@ -5,72 +5,13 @@ PrimeStat dex
 SchoolWeapon 3701
 GuildRoom 3062
 GuildRoom 3078
-SkillAdept 75
 Thac0_00 18
 Thac0_32 -10
 HPRate 90
 ManaRate 60
 AddExp 300
 StatMod 1 0 0 2 0 5
-Skill 'armor' 13 1 0
-Skill 'call lightning' 30 1 0
-Skill 'control weather' 11 1 0
-Skill 'cure blindness' 9 1 0
-Skill 'cure critical' 25 1 0
-Skill 'cure light' 9 1 0
-Skill 'cure serious' 18 1 0
-Skill 'detect hide' 10 1 0
-Skill 'detect invis' 10 1 0
-Skill 'faerie fire' 8 1 0
-Skill 'hellfire' 45 1 0
-Skill 'infravision' 5 1 0
-Skill 'invisibility' 13 1 0
-Skill 'locate object' 14 1 0
-Skill 'shield' 19 1 0
-Skill 'stone skin' 35 1 0
-Skill 'word of recall' 29 1 0
-Skill 'dagger' 1 1 0
-Skill 'shield block' 12 1 -15
-Skill 'spear' 1 1 0
-Skill 'sword' 1 1 0
-Skill 'second weapon' 33 1 0
-Skill 'assassinate' 65 1 0
-Skill 'bash' 1 1 0
-Skill 'bash door' 1 1 0
-Skill 'blind fighting' 11 1 0
-Skill 'blindness dust' 28 1 0
-Skill 'caltrops' 18 1 0
-Skill 'critical strike' 58 1 0
-Skill 'dirt kicking' 3 1 0
-Skill 'disarm' 23 1 0
-Skill 'dodge' 1 1 20
-Skill 'endure' 20 1 0
-Skill 'enhanced damage' 16 1 -10
-Skill 'escape' 55 1 0
-Skill 'hand to hand' 3 1 10
-Skill 'kick' 1 1 0
-Skill 'nerve' 29 1 0
-Skill 'hand block' 10 1 20
-Skill 'shield cleave' 31 1 0
-Skill 'strangle' 26 1 0
-Skill 'throw' 25 1 0
-Skill 'trip' 8 1 0
-Skill 'vanish' 18 1 0
-Skill 'weapon cleave' 35 1 0
-Skill 'second attack' 15 1 0
-Skill 'third attack' 26 1 0
-Skill 'fast healing' 9 1 0
-Skill 'haggle' 17 1 0
-Skill 'hide' 10 1 0
-Skill 'lore' 19 2 0
-Skill 'master hand' 61 1 0
-Skill 'meditation' 14 1 0
-Skill 'pick lock' 34 1 0
-Skill 'poison smoke' 30 1 0
-Skill 'sneak' 18 1 0
-Skill 'staves' 1 2 0
-Skill 'throwing weapons' 28 1 0
-Skill 'hold breath' 25 1 10
+SkillSpec class_ninja
 Title 0 male the Man~
 Title 0 female the Woman~
 Title 1 male the Uke~

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.123 1999-09-15 11:15:51 fjoe Exp $
+ * $Id: quest.c,v 1.124 1999-10-06 09:55:56 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -1066,7 +1066,7 @@ static bool buy_katana(CHAR_DATA *ch, CHAR_DATA *questor)
 	}
 
 	af.where	= TO_WEAPON;
-	af.type 	= gsn_katana;
+	af.type 	= "katana";
 	af.level	= 100;
 	af.duration	= -1;
 	af.modifier	= 0;
@@ -1080,7 +1080,7 @@ static bool buy_katana(CHAR_DATA *ch, CHAR_DATA *questor)
 
 static bool buy_vampire(CHAR_DATA *ch, CHAR_DATA *questor)
 {
-	set_skill(ch, gsn_vampire, 100);
+	set_skill(ch, "vampire", 100);
 	act("$N gives secret of undead to $n.", ch, NULL, questor, TO_ROOM);
 	act_puts("$N gives you SECRET of undead.",
 		 ch, NULL, questor, TO_CHAR, POS_DEAD);

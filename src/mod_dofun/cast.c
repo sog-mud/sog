@@ -23,14 +23,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cast.c,v 1.5 1999-09-23 18:28:41 kostik Exp $
+ * $Id: cast.c,v 1.6 1999-10-06 09:55:54 fjoe Exp $
  */
 
 #include <stdio.h>
 #include "merc.h"
 #include "fight.h"
 
-static int allowed_other(CHAR_DATA *ch, int sn);
+static int allowed_other(CHAR_DATA *ch, skill_t *sk);
 
 void do_cast(CHAR_DATA *ch, const char *argument)
 {
@@ -39,11 +39,10 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *obj;
 	void *vo;
 	int mana;
-	int sn = -1;
 	int door, range;
 	bool cast_far = FALSE;
 	bool offensive = FALSE;
-	bool has_skill = FALSE;
+	pc_skill_t *pc_sk = NULL;
 	int slevel;
 	int chance = 0;
 	skill_t *spell;
@@ -58,19 +57,19 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	if ((cl = class_lookup(ch->class)) == NULL)
 		return;
 
-	if (HAS_SKILL(ch, gsn_spellbane) && !IS_IMMORTAL(ch)) {
+	if (HAS_SKILL(ch, "spellbane") && !IS_IMMORTAL(ch)) {
 		char_puts("You are Battle Rager, not the filthy magician.\n",
 			  ch);
 		return;
 	}
 
-	if (is_affected(ch, gsn_shielding)) {
+	if (is_affected(ch, "shielding")) {
 		char_puts("You reach for the True Source and feel something "
 			  "stopping you.\n", ch);
 		return;
 	}
 
-	if (is_affected(ch, gsn_garble) || is_affected(ch, gsn_deafen)) {
+	if (is_affected(ch, "garble") || is_affected(ch, "deafen")) {
 		char_puts("You can't get the right intonations.\n", ch);
 		return;
 	}
@@ -87,28 +86,26 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 						   arg1, sizeof(arg1));
 			if (ch->wait)
 				ch->wait = 0;
-		}
-		else if (ch->wait) 
+		} else if (ch->wait) 
 			return;
-		sn = sn_lookup(arg1);
-	}
-	else {
-		pcskill_t *ps;
-		ps = (pcskill_t*) skill_vlookup(&PC(ch)->learned, arg1);
-		if (ps) {sn = ps->sn; has_skill = TRUE; }
-		    else sn = sn_lookup(arg1);
-	}
+	} else
+		pc_sk = (pc_skill_t*) skill_vsearch(&PC(ch)->learned, arg1);
 
-	if ((chance = get_skill(ch, sn)) == 0) {
+	if (pc_sk != NULL)
+		spell = skill_lookup(pc_sk->sn);
+	else
+		spell = skill_search(arg1);
+
+	if (spell == NULL
+	||  (chance = get_skill(ch, spell->name)) == 0) {
 		char_puts("You don't know any spells of that name.\n", ch);
 		return;
 	}
-	spell = SKILL(sn);
 	
 	if (IS_VAMPIRE(ch)
 	&&  !IS_IMMORTAL(ch)
-	&&  !is_affected(ch, gsn_vampire)
-	&&  has_skill
+	&&  !is_affected(ch, "vampire")
+	&&  pc_sk
 	&&  !IS_SET(spell->skill_flags, SKILL_CLAN)) {
 		char_puts("You must transform to vampire before casting!\n",
 			  ch);
@@ -121,7 +118,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->position < spell->minimum_position) {
+	if (ch->position < spell->min_pos) {
 		char_puts("You can't concentrate enough.\n", ch);
 		return;
 	}
@@ -142,8 +139,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!IS_NPC(ch)) {
-		mana = mana_cost(ch, sn);
-
+		mana = skill_mana(ch, spell->name);
 		if (ch->mana < mana) {
 			char_puts("You don't have enough mana.\n", ch);
 			return;
@@ -176,8 +172,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 				char_puts("Cast the spell on whom?\n", ch);
 				return;
 			}
-		}
-		else if ((range = allowed_other(ch, sn)) > 0) {
+		} else if ((range = allowed_other(ch, spell)) > 0) {
 			if ((victim = get_char_spell(ch, target_name,
 						     &door, range)) == NULL) {
 				WAIT_STATE(ch, MISSING_TARGET_DELAY);
@@ -210,7 +205,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 
 		vo = victim;
 		bch = victim;
-		bane_chance = 2*get_skill(bch, gsn_spellbane)/3;
+		bane_chance = 2*get_skill(bch, "spellbane")/3;
 		break;
 
 	case TAR_CHAR_DEFENSIVE:
@@ -295,7 +290,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (str_cmp(spell->name, "ventriloquate"))
-		say_spell(ch, sn);
+		say_spell(ch, spell->name);
 
 	if (mem_is(vo, MT_CHAR)) {
 		vo = (void*) victim;
@@ -338,56 +333,53 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 
 	if (number_percent() > chance) {
 		char_puts("You lost your concentration.\n", ch);
-		check_improve(ch, sn, FALSE, 1);
+		check_improve(ch, spell->name, FALSE, 1);
 		ch->mana -= mana / 2;
 		if (cast_far) cast_far = FALSE;
-	}
-	else {
+	} else {
 		if (IS_SET(cl->class_flags, CLASS_MAGIC))
 			slevel = LEVEL(ch) - UMAX(0, (LEVEL(ch) / 20));
 		else
 			slevel = LEVEL(ch) - UMAX(5, (LEVEL(ch) / 10));
 
-		if ((chance = get_skill(ch, gsn_spell_craft))) {
+		if ((chance = get_skill(ch, "spell craft"))) {
 			if (number_percent() < chance) {
 				slevel = LEVEL(ch); 
-				check_improve(ch, gsn_spell_craft, TRUE, 1);
+				check_improve(ch, "spell craft", TRUE, 1);
 			}
 			else 
-				check_improve(ch, gsn_spell_craft, FALSE, 1);
+				check_improve(ch, "spell craft", FALSE, 1);
 		}
 
 
 		if (IS_SET(spell->group, GROUP_MALADICTIONS)
-		&&  (chance = get_skill(ch, gsn_improved_maladiction))) {
+		&&  (chance = get_skill(ch, "improved maladiction"))) {
 			if (number_percent() < chance) {
 				slevel = LEVEL(ch);
 				slevel += chance/20;
-				check_improve(ch, gsn_improved_maladiction,
+				check_improve(ch, "improved maladiction",
 					      TRUE, 1);
-			}
-			else
-				check_improve(ch, gsn_improved_maladiction,
+			} else
+				check_improve(ch, "improved maladiction",
 					      FALSE, 1);
 		}
 
 		if (IS_SET(spell->group, GROUP_BENEDICTIONS)
-		&&  (chance = get_skill(ch, gsn_improved_benediction))) {
+		&&  (chance = get_skill(ch, "improved benediction"))) {
 			if (number_percent() < chance) {
 				slevel = LEVEL(ch);
 				slevel += chance/10;
-				check_improve(ch, gsn_improved_benediction,
+				check_improve(ch, "improved benediction",
 					      TRUE, 1);
-			}
-			else 
-				check_improve(ch, gsn_improved_benediction,
+			} else 
+				check_improve(ch, "improved benediction",
 					      FALSE, 1);
 		}
 
-		if ((chance = get_skill(ch, gsn_mastering_spell))
+		if ((chance = get_skill(ch, "mastering spell"))
 		&&  number_percent() < chance) {
 			slevel += number_range(1,4); 
-			check_improve(ch, gsn_mastering_spell, TRUE, 1);
+			check_improve(ch, "mastering spell", TRUE, 1);
 		}
 
 		if (familiar && number_percent()<20 && familiar->mana > mana) {
@@ -411,10 +403,11 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			ch->mana += mana/2;
 		}
 
-		check_improve(ch, sn, TRUE, 1);
+		check_improve(ch, spell->name, TRUE, 1);
 		if (bch && spellbane(bch, ch, bane_chance, 3 * LEVEL(bch)))
 			return;
-		spell->fun(sn, IS_NPC(ch) ? ch->level : slevel, ch, vo);
+		spell->fun(spell->name,
+			   IS_NPC(ch) ? ch->level : slevel, ch, vo);
 		if (victim && IS_EXTRACTED(victim))
 			return;
 	}
@@ -444,9 +437,9 @@ void do_cast(CHAR_DATA *ch, const char *argument)
  * for casting different rooms 
  * returned value is the range 
  */
-static int allowed_other(CHAR_DATA *ch, int sn)
+static int allowed_other(CHAR_DATA *ch, skill_t *sk)
 {
-	if (IS_SET(SKILL(sn)->skill_flags, SKILL_RANGE))
+	if (IS_SET(sk->skill_flags, SKILL_RANGE))
 		return LEVEL(ch) / 20 + 1;
 	return 0;
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rmagic.c,v 1.2 1999-09-25 11:29:31 fjoe Exp $
+ * $Id: rmagic.c,v 1.3 1999-10-06 09:56:03 fjoe Exp $
  */
 
 
@@ -33,18 +33,18 @@
 #include "merc.h"
 #include "fight.h"
 
-DECLARE_EVENT_FUN(event_enter_lshield		);
-DECLARE_EVENT_FUN(event_enter_shocking		);
-DECLARE_EVENT_FUN(event_enter_thieftrap		);
-DECLARE_EVENT_FUN(event_enter_mist		);
-DECLARE_EVENT_FUN(event_update_plague		);
-DECLARE_EVENT_FUN(event_update_poison		);
-DECLARE_EVENT_FUN(event_update_slow		);
-DECLARE_EVENT_FUN(event_update_sleep		);
-DECLARE_EVENT_FUN(event_update_espirit		);
-DECLARE_EVENT_FUN(event_leave_lshield		);
-DECLARE_EVENT_FUN(event_enter_rlight		);
-DECLARE_EVENT_FUN(event_update_rlight		);
+DECLARE_REVENT_FUN(event_enter_lshield		);
+DECLARE_REVENT_FUN(event_enter_shocking		);
+DECLARE_REVENT_FUN(event_enter_thieftrap		);
+DECLARE_REVENT_FUN(event_enter_mist		);
+DECLARE_REVENT_FUN(event_update_plague		);
+DECLARE_REVENT_FUN(event_update_poison		);
+DECLARE_REVENT_FUN(event_update_slow		);
+DECLARE_REVENT_FUN(event_update_sleep		);
+DECLARE_REVENT_FUN(event_update_espirit		);
+DECLARE_REVENT_FUN(event_leave_lshield		);
+DECLARE_REVENT_FUN(event_enter_rlight		);
+DECLARE_REVENT_FUN(event_update_rlight		);
 
 
 void show_owner(CHAR_DATA *ch, ROOM_AFFECT_DATA *raf)
@@ -61,7 +61,7 @@ void show_owner(CHAR_DATA *ch, ROOM_AFFECT_DATA *raf)
 	act("Sure, this is $N's work!", ch, NULL, owner, TO_CHAR);
 }
 
-EVENT_FUN(event_enter_lshield)
+REVENT_FUN(event_enter_lshield)
 {
 	if (raf->owner->in_room != ch->in_room)
 		{
@@ -82,74 +82,72 @@ EVENT_FUN(event_enter_lshield)
 		}
 }
 
-EVENT_FUN(event_enter_shocking)
+REVENT_FUN(event_enter_shocking)
 {
 	if (raf->owner == ch) {
 		act("You avoid your trap here.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 	
-	if (!is_safe_rspell(raf, ch)) 
-		{
+	if (!is_safe_rspell(raf, ch)) {
 		act("Shocking waves in this room shock you!",
 			ch, NULL, NULL, TO_CHAR);
 		damage(ch, ch, dice(raf->level, 4) + 12,
-			TYPE_HIT, DAM_TRAP_ROOM, TRUE);
+			TYPE_UNDEFINED, DAM_TRAP_ROOM, DAMF_SHOW | DAMF_HIT);
 		show_owner(ch, raf);
 		affect_remove_room(room , raf);
-		}
+	}
 }
 
-EVENT_FUN(event_enter_thieftrap)
+REVENT_FUN(event_enter_thieftrap)
 {
 	if (raf->owner == ch) {
 		act("You avoid your trap here.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 	
-	if (!is_safe_rspell(raf, ch)) 
-		{
+	if (!is_safe_rspell(raf, ch)) {
 		damage(ch, ch, dice(raf->level, 5) + 12,
-			TYPE_HIT, DAM_TRAP_ROOM, TRUE);
+			TYPE_UNDEFINED, DAM_TRAP_ROOM, DAMF_SHOW | DAMF_HIT);
 		show_owner(ch, raf);
 		affect_remove_room(room , raf);
-		}
+	}
 }
 
-EVENT_FUN(event_enter_mist)
+REVENT_FUN(event_enter_mist)
 {
 	act("There is some mist flowing in the air.", ch, NULL, NULL, TO_CHAR);
 }
 
-EVENT_FUN(event_update_plague)
+REVENT_FUN(event_update_plague)
 {
 	if (raf->level < 1) raf->level = 2;
 	if (is_safe_rspell(raf, ch)) return;
-	spellfun_call("plague", raf->level - 1, raf->owner, ch);
+	spellfun_call("plague", NULL, raf->level - 1, raf->owner, ch);
 }
 
-EVENT_FUN(event_update_poison)
+REVENT_FUN(event_update_poison)
 {
 	if (raf->level < 1) raf->level = 2;
 	if (!is_safe_rspell(raf, ch))
-		spellfun_call("poison", raf->level - 1, raf->owner, ch);
+		spellfun_call("poison", NULL, raf->level - 1, raf->owner, ch);
 }
 
-EVENT_FUN(event_update_slow)
+REVENT_FUN(event_update_slow)
 {
 	if (raf->level < 1) raf->level = 2;
 	if (!is_safe_rspell(raf, ch))
-		spellfun_call("slow", raf->level - 1, raf->owner, ch);
+		spellfun_call("slow", NULL, raf->level - 1, raf->owner, ch);
 }
 
-EVENT_FUN(event_update_sleep)
+REVENT_FUN(event_update_sleep)
 {
 	if (raf->level < 1) raf->level = 2;
 	if (!is_safe_rspell(raf, ch))
-		spellfun_call("sleep", raf->level - 1, raf->owner, ch);
+		spellfun_call("sleep", NULL, raf->level - 1, raf->owner, ch);
 }
 
-EVENT_FUN(event_update_espirit)
+REVENT_FUN(event_update_espirit)
 {
 	AFFECT_DATA af;
 
@@ -157,11 +155,11 @@ EVENT_FUN(event_update_espirit)
 	if (!is_safe_rspell(raf, ch)
 	&& !IS_IMMORTAL(ch)
 	&& !saves_spell(raf->level + 2, ch, DAM_MENTAL)
-	&& !is_affected(ch, gsn_evil_spirit)
+	&& !is_affected(ch, "evil spirit")
 	&& number_bits(3) == 0) {
 		af.where	= TO_AFFECTS;
 		af.level	= raf->level;
-		af.type		= gsn_evil_spirit;
+		af.type		= "evil spirit";
 		af.duration	= number_range(1, af.level/30);
 		af.location	= APPLY_NONE;
 		af.modifier	= 0;
@@ -172,27 +170,27 @@ EVENT_FUN(event_update_espirit)
 	}
 }
 
-EVENT_FUN(event_leave_lshield)
+REVENT_FUN(event_leave_lshield)
 {
 	if (ch == raf->owner) affect_strip_room(room, raf->type);	
 }
 
-EVENT_FUN(event_enter_rlight)
+REVENT_FUN(event_enter_rlight)
 {
 	dofun("visible", ch, str_empty);
 }
 
-EVENT_FUN(event_update_rlight)
+REVENT_FUN(event_update_rlight)
 {
 	if (IS_AFFECTED(ch, AFF_BLIND))
-		spellfun_call("cure blindness", raf->level, ch, ch);
+		spellfun_call("cure blindness", NULL, raf->level, ch, ch);
 	if (IS_AFFECTED(ch, AFF_CURSE))
-		spellfun_call("remove curse", raf->level, ch, ch);
+		spellfun_call("remove curse", NULL, raf->level, ch, ch);
 	if (IS_AFFECTED(ch, AFF_POISON))
-		spellfun_call("cure poison", raf->level, ch, ch);
+		spellfun_call("cure poison", NULL, raf->level, ch, ch);
 	if (IS_AFFECTED(ch, AFF_PLAGUE))
-		spellfun_call("cure disease", raf->level, ch, ch);
-	spellfun_call("cure critical", raf->level, ch, ch);
+		spellfun_call("cure disease", NULL, raf->level, ch, ch);
+	spellfun_call("cure critical", NULL, raf->level, ch, ch);
 
 	char_puts("A warm feeling fills your body.\n", ch);
 }

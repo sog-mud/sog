@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186 1999-09-23 09:35:54 fjoe Exp $
+ * $Id: act_wiz.c,v 1.187 1999-10-06 09:55:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1085,59 +1085,58 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 	case ITEM_SCROLL: 
 	case ITEM_POTION:
 	case ITEM_PILL:
-		buf_printf(output, "Level %d spells of:", obj->value[0]);
+		buf_printf(output, "Level %d spells of:", INT_VAL(obj->value[0]));
 
 		for (i = 1; i < 5; i++)
-			if (obj->value[i] >= 0) 
-				buf_printf(output, " '%s'",
-					   skill_name(obj->value[i]));
+			if (!IS_NULLSTR(obj->value[i].s)) 
+				buf_printf(output, " '%s'", obj->value[i].s);
 		buf_add(output, ".\n");
 		break;
 
 	case ITEM_WAND: 
 	case ITEM_STAFF: 
 		buf_printf(output, "Has %d(%d) charges of level %d",
-			   obj->value[1], obj->value[2], obj->value[0]);
+			   INT_VAL(obj->value[1]), INT_VAL(obj->value[2]), INT_VAL(obj->value[0]));
 	  
-		if (obj->value[3] >= 0) 
-			buf_printf(output, " '%s'",
-				   skill_name(obj->value[3]));
+		if (!IS_NULLSTR(obj->value[3].s))
+			buf_printf(output, " '%s'", obj->value[3].s);
 		buf_add(output, ".\n");
 		break;
 
 	case ITEM_DRINK_CON:
 		buf_printf(output, "It holds %s-colored %s.\n",
-			   liq_table[obj->value[2]].liq_color,
-			   liq_table[obj->value[2]].liq_name);
+			   liq_table[INT_VAL(obj->value[2])].liq_color,
+			   liq_table[INT_VAL(obj->value[2])].liq_name);
 		break;
 	  
 	case ITEM_WEAPON:
 		buf_printf(output, "%s\n",
-			   flag_string(weapon_class, obj->value[0]));
+			   flag_string(weapon_class, INT_VAL(obj->value[0])));
 		buf_printf(output,"Damage is %dd%d (average %d)\n",
-			   obj->value[1],obj->value[2],
-			   (1 + obj->value[2]) * obj->value[1] / 2);
+			   INT_VAL(obj->value[1]), INT_VAL(obj->value[2]),
+			   (1 + INT_VAL(obj->value[2])) * INT_VAL(obj->value[1]) / 2);
 		buf_printf(output, "Damage noun is %s.\n",
-			   attack_table[obj->value[3]].noun);
+			   damtype_noun(obj->value[3].s));
 		    
-		if (obj->value[4])  /* weapon flags */
+		if (INT_VAL(obj->value[4]))  /* weapon flags */
 		        buf_printf(output,"Weapons flags: %s\n",
-				   flag_string(weapon_type2, obj->value[4]));
+				   flag_string(weapon_type2, INT_VAL(obj->value[4])));
 		break;
 
 	case ITEM_ARMOR:
 		buf_printf(output, 
 		    "Armor class is %d pierce, %d bash, %d slash, and %d vs. magic\n",
-		        obj->value[0], obj->value[1], obj->value[2], obj->value[3]);
+		        INT_VAL(obj->value[0]), INT_VAL(obj->value[1]), INT_VAL(obj->value[2]),
+			INT_VAL(obj->value[3]));
 		break;
 
 	case ITEM_CONTAINER:
 	        buf_printf(output,"Capacity: %d#  Maximum weight: %d#  flags: %s\n",
-	        	   obj->value[0], obj->value[3],
-			   flag_string(cont_flags, obj->value[1]));
-	        if (obj->value[4] != 100)
+	        	   INT_VAL(obj->value[0]), INT_VAL(obj->value[3]),
+			   flag_string(cont_flags, INT_VAL(obj->value[1])));
+	        if (INT_VAL(obj->value[4]) != 100)
 	        	buf_printf(output,"Weight multiplier: %d%%\n",
-				   obj->value[4]);
+				   INT_VAL(obj->value[4]));
 		break;
 	}
 
@@ -1284,7 +1283,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		buf_printf(output, "Damage: %dd%d  Message:  %s\n",
 			   NPC(victim)->dam.dice_number,
 			   NPC(victim)->dam.dice_type,
-			   attack_table[victim->dam_type].noun);
+			   damtype_noun(victim->damtype));
 	}
 
 	buf_printf(output, "Fighting: %s Deaths: %d Carry number: %d  Carry weight: %ld\n",
@@ -1357,14 +1356,14 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 
 	if (IS_NPC(victim) && victim->pMobIndex->spec_fun != 0)
 		buf_printf(output, "Mobile has special procedure %s.\n",
-			   spec_name(victim->pMobIndex->spec_fun));
+			   mob_spec_name(victim->pMobIndex->spec_fun));
 
 	for (paf = victim->affected; paf != NULL; paf = paf->next) {
-	    buf_printf(output, "Spell: '{c%s{x' ", skill_name(paf->type));
+	    buf_printf(output, "Spell: '{c%s{x' ", paf->type);
 	    buf_printf(output, "modifies '{c%s{x' by {c%d{x for {c%d{x hours ",
-		(paf->where != TO_SKILLS) ?
-		    flag_string(apply_flags, paf->location) :
-		    skill_name(-(paf->location)),
+		paf->where == TO_SKILLS ?
+		    STR_VAL(paf->location) :
+		    SFLAGS_VAL(apply_flags, paf->location),
 		paf->modifier,
 		paf->duration);
 		switch (paf->where) {
@@ -2130,11 +2129,11 @@ void do_purge(CHAR_DATA *ch, const char *argument)
 static void
 restore_char(CHAR_DATA *ch, CHAR_DATA *vch)
 {
-	affect_strip(vch, gsn_plague);
-	affect_strip(vch, gsn_poison);
-	affect_strip(vch, gsn_blindness);
-	affect_strip(vch, gsn_sleep);
-	affect_strip(vch, gsn_curse);
+	affect_strip(vch, "plague");
+	affect_strip(vch, "poison");
+	affect_strip(vch, "blindness");
+	affect_strip(vch, "sleep");
+	affect_strip(vch, "curse");
 	        
 	vch->hit 	= vch->max_hit;
 	vch->mana	= vch->max_mana;
@@ -2370,7 +2369,7 @@ void do_peace(CHAR_DATA *ch, const char *argument)
 			AFFECT_DATA af;
 
 			af.where = TO_AFFECTS;
-			af.type = gsn_reserved;
+			af.type = "calm";
 			af.level = MAX_LEVEL;
 			af.duration = 15;
 			af.location = APPLY_NONE;
@@ -2450,6 +2449,21 @@ void do_set(CHAR_DATA *ch, const char *argument)
 	do_set(ch, str_empty);
 }
 
+typedef struct _sset_t _sset_t;
+struct _sset_t {
+	CHAR_DATA *victim;
+	int	val;
+};
+
+static void *
+sset_cb(void *p, void *d)
+{
+	skill_t *sk = (skill_t*) p;
+	_sset_t *_s = (_sset_t*) d;
+	set_skill(_s->victim, sk->name, _s->val);
+	return NULL;
+}
+
 void do_sset(CHAR_DATA *ch, const char *argument)
 {
 	char arg1 [MAX_INPUT_LENGTH];
@@ -2457,8 +2471,6 @@ void do_sset(CHAR_DATA *ch, const char *argument)
 	char arg3 [MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	int value;
-	int sn;
-	bool fAll;
 
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	argument = one_argument(argument, arg2, sizeof(arg2));
@@ -2482,13 +2494,6 @@ void do_sset(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	fAll = !str_cmp(arg2, "all");
-	sn   = 0;
-	if (!fAll && (sn = sn_lookup(arg2)) < 0) {
-		char_puts("No such skill or spell.\n", ch);
-		return;
-	}
-
 	/*
 	 * Snarf the value.
 	 */
@@ -2503,13 +2508,23 @@ void do_sset(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (fAll) {
-		for (sn = 0; sn < skills.nused; sn++) 
-			set_skill(victim, sn, value);
-	} else
-		set_skill(victim, sn, value);
+	if (!str_cmp(arg2, "all")) {
+		_sset_t _s = { victim, value };
+		hash_foreach(&skills, sset_cb, &_s);
+		char_puts("Ok.\n", ch);
+	} else {
+		skill_t *sk;
+
+		if ((sk = skill_search(arg2)) == NULL) {
+			char_puts("No such skill or spell.\n", ch);
+			return;
+		}
+
+		set_skill(victim, sk->name, value);
+		char_printf(ch, "do_sset: '%s': %d%%\n",
+			    sk->name, value);
+	}
 	update_skills(victim);
-	char_puts("Ok.\n", ch);
 }
 
 void do_string(CHAR_DATA *ch, const char *argument)
@@ -3340,9 +3355,9 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		}
 
 		victim->class = cl;
+		spec_update(victim);
 		PC(victim)->exp = exp_for_level(victim, victim->level);
 		PC(victim)->exp_tl = 0;
-		update_skills(victim);
 		return;
 	}
 
@@ -3608,7 +3623,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 
 		victim->race = race;
 		SET_ORG_RACE(victim, race);
-		update_skills(victim);
+		spec_update(victim);
 		PC(victim)->exp = exp_for_level(victim, victim->level);
 		PC(victim)->exp_tl = 0;
 		return;
@@ -3656,7 +3671,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 				clan_save(clan);
 			}
 
-			update_skills(victim);
+			spec_update(victim);
 		}
 
 		char_puts("Ok.\n", ch);
@@ -3779,7 +3794,7 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 	argument = first_arg(argument, old_name, sizeof(old_name), FALSE); 
 		   first_arg(argument, new_name, sizeof(new_name), FALSE);
 		
-	if (!old_name[0]) {
+	if (IS_NULLSTR(old_name) || IS_NULLSTR(new_name)) {
 		do_help(ch, "'WIZ ITITLE'");
 		return;
 	}
@@ -3806,18 +3821,13 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 		return;
 	}
 
-	if (!new_name[0]) {
-		char_puts("Rename to what new name?\n",ch);
-		return;
-	}
-		
 	if (!pc_name_ok(new_name)) {
 		char_puts("The new name is illegal.\n",ch);
 		return;
 	}
 
 /* delete old pfile */
-	if (str_cmp(new_name, old_name)) {
+	if (str_cmp(new_name, victim->name)) {
 		DESCRIPTOR_DATA *d;
 		OBJ_DATA *obj;
 
@@ -3846,21 +3856,21 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 		if (victim->clan && (clan = clan_lookup(victim->clan))) {
 			bool touched = FALSE;
 
-			if (name_delete(&clan->member_list, old_name,
+			if (name_delete(&clan->member_list, victim->name,
 					NULL, NULL)) {
 				touched = TRUE;
 				name_add(&clan->member_list, new_name,
 					 NULL, NULL);
 			}
 
-			if (name_delete(&clan->leader_list, old_name,
+			if (name_delete(&clan->leader_list, victim->name,
 					NULL, NULL)) {
 				touched = TRUE;
 				name_add(&clan->leader_list, new_name,
 					 NULL, NULL);
 			}
 
-			if (name_delete(&clan->second_list, old_name,
+			if (name_delete(&clan->second_list, victim->name,
 					NULL, NULL)) {
 				touched = TRUE;
 				name_add(&clan->second_list, new_name,
@@ -3873,7 +3883,7 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 
 		/* change object owners */
 		for (obj = object_list; obj; obj = obj->next)
-			if (!str_cmp(mlstr_mval(&obj->owner), old_name)) {
+			if (!str_cmp(mlstr_mval(&obj->owner), victim->name)) {
 				mlstr_destroy(&obj->owner);
 				mlstr_init(&obj->owner, new_name);
 			}
@@ -3976,7 +3986,7 @@ void do_affrooms(CHAR_DATA *ch, const char *argument)
 				    "for {c%d{x hours.\n",
 				    count,
 				    room->vnum,
-				    skill_name(raf->type),
+				    raf->type,
 				    mlstr_mval(&raf->owner->short_descr),
 				    raf->level,
 				    raf->duration);
@@ -4195,7 +4205,7 @@ void do_qtarget(CHAR_DATA *ch, const char *argument)
 	}
 
 	af.where	= TO_AFFECTS;
-	af.type		= gsn_qtarget;
+	af.type		= "qtarget";
 	af.level	= low;
 	af.duration	= -1;
 	af.modifier	= high;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_magic.c,v 1.2 1999-07-02 12:54:58 fjoe Exp $
+ * $Id: init_magic.c,v 1.3 1999-10-06 09:56:20 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,40 +31,47 @@
 
 #include "typedef.h"
 #include "varr.h"
+#include "hash.h"
 #include "skills.h"
 #include "log.h"
 
 #include "module.h"
 
+static void *load_cb(void *p, void *d);
+static void *unload_cb(void *p, void *d);
+
 int _module_load(module_t* m)
 {
-	int sn;
-
-	for (sn = 0; sn < skills.nused; sn++) {
-		skill_t *sk = SKILL(sn);
-
-		if (sk->skill_type != ST_SPELL)
-			continue;
-
-		sk->fun = dlsym(m->dlh, sk->fun_name);
-		if (sk->fun == NULL) 
-			wizlog("_module_load(spellfun): %s", dlerror());
-	}
-
+	hash_foreach(&skills, load_cb, m);
 	return 0;
 }
 
 int _module_unload(module_t *m)
 {
-	int sn;
-
-	for (sn = 0; sn < skills.nused; sn++) {
-		skill_t *sk = SKILL(sn);
-
-		if (sk->skill_type != ST_SPELL)
-			continue;
-
-		sk->fun = NULL;
-	}
+	hash_foreach(&skills, unload_cb, NULL);
 	return 0;
+}
+
+static void *
+load_cb(void *p, void *d)
+{
+	skill_t *sk = (skill_t*) p;
+	module_t *m = (module_t*) d;
+
+	if (sk->skill_type == ST_SPELL) {
+		sk->fun = dlsym(m->dlh, sk->fun_name);
+		if (sk->fun == NULL) 
+			wizlog("_module_load(spellfun): %s", dlerror());
+	}
+	return NULL;
+}
+
+static void *
+unload_cb(void *p, void *d)
+{
+	skill_t *sk = (skill_t*) p;
+
+	if (sk->skill_type == ST_SPELL)
+		sk->fun = NULL;
+	return NULL;
 }

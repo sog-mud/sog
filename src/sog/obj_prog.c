@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.66 1999-09-08 10:40:11 fjoe Exp $
+ * $Id: obj_prog.c,v 1.67 1999-10-06 09:56:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -337,13 +337,13 @@ int wear_prog_bracer(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	AFFECT_DATA af;
 
-	if (!is_affected(ch, gsn_haste))
+	if (!is_affected(ch, "haste"))
 	{
 	  char_puts("As you slide your arms into these bracers, they mold to your skin.\n", ch);
 	  char_puts("Your hands and arms feel incredibly light.\n", ch);
 
 	  af.where = TO_AFFECTS;
-	  af.type = gsn_haste;
+	  af.type = "haste";
 	  af.duration = -2;
 	  af.level = LEVEL(ch);
 	  af.bitvector = AFF_HASTE;
@@ -356,9 +356,9 @@ int wear_prog_bracer(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 int remove_prog_bracer(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
-	if (is_affected(ch, gsn_haste))
+	if (is_affected(ch, "haste"))
 	{
-	  affect_strip(ch, gsn_haste);
+	  affect_strip(ch, "haste");
 	  char_puts("Your hands and arms feel heavy again.\n", ch);
 	}
 	return 0;
@@ -396,7 +396,7 @@ int speech_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		char_puts("Acid sprays from the blade of Excalibur.\n", ch);
 		act("Acid sprays from the blade of Excalibur.",
 		    ch, NULL, NULL, TO_ROOM);
-		spellfun_call("acid blast", LEVEL(ch), ch, ch->fighting);
+		spellfun_call("acid blast", NULL, LEVEL(ch), ch, ch->fighting);
 		WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
 	}
 	return 0;
@@ -404,11 +404,10 @@ int speech_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	
 bool sac_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
-	act("The gods are infuriated!",ch,NULL,NULL,TO_CHAR);
-	act("The gods are infuriated!",ch,NULL,NULL,TO_ROOM);
-	damage(ch,ch,
-		 (ch->hit - 1) > 1000? 1000 : (ch->hit - 1),
-		 TYPE_HIT,DAM_HOLY, TRUE);
+	act("The gods are infuriated!",ch,NULL,NULL,TO_ALL);
+	damage(ch, ch,
+		(ch->hit - 1) > 1000? 1000 : (ch->hit - 1),
+		 TYPE_UNDEFINED, DAM_HOLY, DAMF_SHOW | DAMF_HIT);
 	ch->gold = 0;
 	return TRUE; 
 }
@@ -420,7 +419,7 @@ int fight_prog_ranger_staff(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	&&   number_percent() < 10) {
 		char_puts("Your ranger's staff glows blue!\n",ch);
 		act("$n's ranger's staff glows blue!", ch, NULL, NULL, TO_ROOM);
-		obj_cast_spell(gsn_cure_critical, LEVEL(ch), ch, ch);
+		obj_cast_spell("cure critical", LEVEL(ch), ch, ch);
 	}
 	return 0;
 }
@@ -454,14 +453,14 @@ int get_prog_spec_weapon(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		if (IS_AFFECTED(ch, AFF_POISON) && (dice(1,5)==1))  {
 			char_puts("Your weapon glows blue.", ch);
 			act("$n's weapon glows blue.", ch, NULL, NULL, TO_ROOM);
-			spellfun_call("cure poison", 30, ch, ch);
+			spellfun_call("cure poison", NULL, 30, ch, ch);
 			return 0;
 		}
 
 		if (IS_AFFECTED(ch, AFF_CURSE) && (dice(1,5)==1))  {
 			char_puts("Your weapon glows blue.", ch);
 			act("$n's weapon glows blue.", ch, NULL, NULL, TO_ROOM);
-			spellfun_call("remove curse", 30, ch, ch);
+			spellfun_call("remove curse", NULL, 30, ch, ch);
 			return 0;
 		}
 		char_puts("Your weapon's humming gets lauder.\n", ch);
@@ -475,11 +474,11 @@ int get_prog_spec_weapon(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 	switch(dice(1, 10)) {
 	case 1:
-		spellfun_call("curse", LEVEL(ch) < 10 ? 1 : LEVEL(ch)-9,
+		spellfun_call("curse", NULL, LEVEL(ch) < 10 ? 1 : LEVEL(ch)-9,
 			       ch, ch);
 		break;
 	case 2:
-		spellfun_call("poison", LEVEL(ch) < 10 ? 1 : LEVEL(ch)-9,
+		spellfun_call("poison", NULL, LEVEL(ch) < 10 ? 1 : LEVEL(ch)-9,
 			       ch, ch);
 		break;
 	}
@@ -493,7 +492,7 @@ int get_prog_quest_obj(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 			act("$p glows blue.", ch, obj, NULL, TO_ROOM);
 			act_puts("$p glows blue.", ch, obj, NULL, TO_CHAR,
 				 POS_DEAD);
-			spellfun_call("cure poison", 30, ch, ch);
+			spellfun_call("cure poison", NULL, 30, ch, ch);
 			return 0;
 		}
 
@@ -508,11 +507,11 @@ int get_prog_quest_obj(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 	switch(dice(1, 10))  {
 	case 1:
-		spellfun_call("curse", LEVEL(ch) < 10 ? 1 : LEVEL(ch)-9,
+		spellfun_call("curse", NULL, LEVEL(ch) < 10 ? 1 : LEVEL(ch)-9,
 			       ch, ch);
 		break;
 	case 2:
-		spellfun_call("poison", LEVEL(ch) < 10 ? 1 : LEVEL(ch)-9,
+		spellfun_call("poison", NULL,LEVEL(ch) < 10 ? 1 : LEVEL(ch)-9,
 			       ch, ch);
 		break;
 	}
@@ -525,11 +524,11 @@ int speech_prog_kassandra(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 	if (!str_cmp(speech, "kassandra") && (get_eq_char(ch, WEAR_HOLD) == obj)
 	       && !IS_NPC(ch))
-	obj_cast_spell(gsn_kassandra, LEVEL(ch), ch, ch);
+	obj_cast_spell("kassandra", LEVEL(ch), ch, ch);
 
 	else if (!str_cmp(speech, "sebat") && (get_eq_char(ch,WEAR_HOLD) == obj)
 	       && !IS_NPC(ch))
-	obj_cast_spell(gsn_sebat, LEVEL(ch), ch, ch);
+	obj_cast_spell("sebat", LEVEL(ch), ch, ch);
 
 	else if (!str_cmp(speech, "matandra") && (get_eq_char(ch,WEAR_HOLD) == obj)
 		   && (ch->fighting) && !IS_NPC(ch))
@@ -540,7 +539,7 @@ int speech_prog_kassandra(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		  ch,NULL,ch->fighting,TO_VICT);
 	  act("A blast of energy bursts from $n's hand toward $N!",
 		  ch,NULL,ch->fighting,TO_NOTVICT);
-	  obj_cast_spell(gsn_matandra,LEVEL(ch),ch,ch->fighting);
+	  obj_cast_spell("matandra",LEVEL(ch),ch,ch->fighting);
 	}
 	return 0;
 }
@@ -556,14 +555,14 @@ int fight_prog_chaos_blade(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		act("The chaotic blade trembles violently!",
 		    ch, NULL, NULL, TO_ROOM);
 		char_puts("Your chaotic blade trembles violently!\n", ch);
-		obj_cast_spell(gsn_mirror, LEVEL(ch), ch, ch); 
+		obj_cast_spell("mirror", LEVEL(ch), ch, ch); 
 		WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
 		break;
 
 	case 1:
 		act("The chaotic blade shakes a bit.", ch, NULL, NULL, TO_ROOM);
 		char_puts("Your chaotic blade shakes a bit.\n", ch);
-		obj_cast_spell(gsn_garble, LEVEL(ch), ch, ch->fighting);
+		obj_cast_spell("garble", LEVEL(ch), ch, ch->fighting);
 		WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
 		break;
 
@@ -571,7 +570,7 @@ int fight_prog_chaos_blade(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		act("The chaotic blade shivers uncontrollably!",
 		    ch, NULL, NULL, TO_ROOM);
 		char_puts("Your chaotic blade shivers uncontrollably!\n", ch);
-		obj_cast_spell(gsn_confuse, LEVEL(ch), ch, ch->fighting);
+		obj_cast_spell("confuse", LEVEL(ch), ch, ch->fighting);
 		WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
 		break;
 	}
@@ -595,12 +594,12 @@ int fight_prog_tattoo_atum_ra(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	case 0:
 	case 1:
 		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
-		spellfun_call("cure serious", LEVEL(ch), ch, ch);
+		spellfun_call("cure serious", NULL, LEVEL(ch), ch, ch);
 		break;
 	case 2:
 		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
 		dofun("yell", ch, "Ever dance with good....");
-		spellfun_call("holy word", LEVEL(ch), ch, NULL);
+		spellfun_call("holy word", NULL, LEVEL(ch), ch, NULL);
 		break;
 	}
 	return 0;
@@ -617,14 +616,14 @@ int fight_prog_tattoo_zeus(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	case 1:
 	case 2:
 		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
-		spellfun_call("cure critical", LEVEL(ch), ch, ch);
+		spellfun_call("cure critical", NULL, LEVEL(ch), ch, ch);
 		break;
 	case 3:
 		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
 		if (IS_AFFECTED(ch, AFF_PLAGUE))
-			spellfun_call("cure disease", MAX_LEVEL, ch, ch);
+			spellfun_call("cure disease", NULL, MAX_LEVEL, ch, ch);
   		if (IS_AFFECTED(ch, AFF_POISON))
-  			spellfun_call("cure poison", MAX_LEVEL, ch, ch);
+  			spellfun_call("cure poison", NULL, MAX_LEVEL, ch, ch);
 		break;
 	}
 	return 0;
@@ -638,11 +637,11 @@ int fight_prog_tattoo_siebele(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	switch(number_bits(6)) {
 	case 0:
 		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
-		spellfun_call("cure serious", LEVEL(ch), ch, ch);
+		spellfun_call("cure serious", NULL, LEVEL(ch), ch, ch);
 		break;
 	case 1:
 		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
-		spellfun_call("bluefire", LEVEL(ch), ch, ch->fighting);
+		spellfun_call("bluefire", NULL, LEVEL(ch), ch, ch->fighting);
 		break;
 	}
 	return 0;
@@ -656,11 +655,11 @@ int fight_prog_tattoo_ahuramazda(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	switch(number_bits(6)) {
 	case 0:
 		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
-		spellfun_call("cure serious", LEVEL(ch), ch, ch); 
+		spellfun_call("cure serious", NULL, LEVEL(ch), ch, ch); 
 		break;
 	case 1:
 		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
-		spellfun_call("dispel evil", LEVEL(ch), ch, ch->fighting);
+		spellfun_call("dispel evil", NULL, LEVEL(ch), ch, ch->fighting);
 		break;
 	}
 	return 0;
@@ -675,12 +674,12 @@ int fight_prog_tattoo_shamash(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	case 0:
 	case 1:
 		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
-		spellfun_call("cure serious", LEVEL(ch), ch, ch);
+		spellfun_call("cure serious", NULL, LEVEL(ch), ch, ch);
 		break;
 	case 2:
 		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
 		dofun("yell", ch, "And justice for all!....");
-		spellfun_call("screa", LEVEL(ch), ch, ch->fighting);
+		spellfun_call("screa", NULL, LEVEL(ch), ch, ch->fighting);
 		break;
 	}
 	return 0;
@@ -694,15 +693,15 @@ int fight_prog_tattoo_ehrumen(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	switch(number_bits(6)) {
 	case 0:
 		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
-		spellfun_call("cure light", LEVEL(ch), ch, ch);
+		spellfun_call("cure light", NULL, LEVEL(ch), ch, ch);
 		break;
 	case 1:
 		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
-		spellfun_call("cure serious", LEVEL(ch), ch, ch);
+		spellfun_call("cure serious", NULL, LEVEL(ch), ch, ch);
 		break;
 	case 2:
 		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
-		spellfun_call("demonfire", LEVEL(ch), ch, ch->fighting);
+		spellfun_call("demonfire", NULL, LEVEL(ch), ch, ch->fighting);
 		break;
 	}
 	return 0;
@@ -718,15 +717,15 @@ int fight_prog_tattoo_venus(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	case 1:
 	case 2:
 		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
-		spellfun_call("cure light", LEVEL(ch), ch, ch);
+		spellfun_call("cure light", NULL, LEVEL(ch), ch, ch);
 		break;
 	case 3:
 		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
-		spellfun_call("plague", LEVEL(ch), ch, ch->fighting);
+		spellfun_call("plague", NULL, LEVEL(ch), ch, ch->fighting);
 		break;
 	case 4:
 		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
-		spellfun_call("bless", LEVEL(ch), NULL, ch);
+		spellfun_call("bless", NULL, LEVEL(ch), NULL, ch);
 		break;
 	}
 	return 0;
@@ -740,11 +739,11 @@ int fight_prog_tattoo_seth(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	switch(number_bits(5)) {
 	case 0:
 		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
-		spellfun_call("dragon strength", LEVEL(ch), ch, ch);
+		spellfun_call("dragon strength", NULL, LEVEL(ch), ch, ch);
 		break;
 	case 1:
 		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
-		spellfun_call("dragon breath", LEVEL(ch), ch, ch->fighting);
+		spellfun_call("dragon breath", NULL, LEVEL(ch), ch, ch->fighting);
 		break;
 	}
 	return 0;
@@ -759,11 +758,11 @@ int fight_prog_tattoo_odin(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	switch(number_bits(5)) {
 	case 0:
 		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
-		spellfun_call("cure critical", LEVEL(ch), ch, ch);
+		spellfun_call("cure critical", NULL, LEVEL(ch), ch, ch);
 		break;
 	case 1:
 		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
-		spellfun_call("faerie fire", LEVEL(ch), ch, ch->fighting);
+		spellfun_call("faerie fire", NULL, LEVEL(ch), ch, ch->fighting);
 		break;
 	}
 	return 0;
@@ -777,11 +776,11 @@ int fight_prog_tattoo_phobos(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	switch(number_bits(6)) {
 	case 0:
 		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
-		spellfun_call("cure serious", LEVEL(ch), ch, ch);
+		spellfun_call("cure serious", NULL, LEVEL(ch), ch, ch);
 		break;
 	case 1:
 		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
-		spellfun_call("colour spray", LEVEL(ch), ch, ch->fighting);
+		spellfun_call("colour spray", NULL, LEVEL(ch), ch, ch->fighting);
 		break;
 	}
 	return 0;
@@ -795,20 +794,20 @@ int fight_prog_tattoo_teshub(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	switch(number_bits(6)) {
 	case 0:
 		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
-		spellfun_call("blindness", LEVEL(ch), ch, ch->fighting);
+		spellfun_call("blindness", NULL, LEVEL(ch), ch, ch->fighting);
 		char_puts("You send out a cloud of confusion!\n", ch);
 		break;
 	case 1:
 		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
-		spellfun_call("poison", LEVEL(ch), ch, ch->fighting);
+		spellfun_call("poison", NULL, LEVEL(ch), ch, ch->fighting);
 		char_puts("Some of your insanity rubs off on your opponent.\n", ch);
 		break;
 	case 2:
-		spellfun_call("haste", LEVEL(ch), ch, ch);
+		spellfun_call("haste", NULL, LEVEL(ch), ch, ch);
 		char_puts("You suddenly feel more hyperactive!\n", ch);
 		break;
 	case 3:
-		spellfun_call("shield", LEVEL(ch), ch, ch);
+		spellfun_call("shield", NULL, LEVEL(ch), ch, ch);
 		char_puts("You feel even more paranoid!\n", ch);
 		break;
 	}
@@ -826,14 +825,14 @@ int fight_prog_tattoo_ares(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		switch(number_bits(4)) {
 		case 0:
 			if (IS_AFFECTED(ch,AFF_BERSERK)
-			||  is_affected(ch,gsn_berserk)
-			||  is_affected(ch,gsn_frenzy)) {
+			||  is_affected(ch, "berserk")
+			||  is_affected(ch, "frenzy")) {
 				char_puts("You get a little madder.\n",ch);
 				return 0;
 			}
 
 			af.where = TO_AFFECTS;
-			af.type = gsn_berserk;
+			af.type = "berserk";
 			af.level = LEVEL(ch);
 			af.duration = LEVEL(ch) / 3;
 			af.modifier = LEVEL(ch) / 5;
@@ -892,19 +891,19 @@ int fight_prog_tattoo_hera(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	switch(number_bits(5)) {
 	case 0:
 		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
-		spellfun_call("plague" , LEVEL(ch), ch, ch->fighting);
+		spellfun_call("plague" , NULL, LEVEL(ch), ch, ch->fighting);
 		break;
 	case 1:
 		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
-		spellfun_call("poison", LEVEL(ch), ch, ch->fighting);
+		spellfun_call("poison", NULL, LEVEL(ch), ch, ch->fighting);
 		/* FALLTHRU */
 	case 2:
 		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
-		spellfun_call("weaken", LEVEL(ch), ch, ch->fighting);
+		spellfun_call("weaken", NULL, LEVEL(ch), ch, ch->fighting);
 		/* FALLTHRU */
 	case 3:
 		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
-		spellfun_call("slow", LEVEL(ch), ch, ch->fighting);
+		spellfun_call("slow", NULL, LEVEL(ch), ch, ch->fighting);
 		break;
 	}
 	return 0;
@@ -920,11 +919,11 @@ int fight_prog_tattoo_deimos(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	case 0:
 	case 1:
 		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
-		spellfun_call("cure serious", LEVEL(ch), ch, ch);
+		spellfun_call("cure serious", NULL, LEVEL(ch), ch, ch);
 		break;
 	case 2:
 		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
-		spellfun_call("web", LEVEL(ch), ch, ch->fighting);
+		spellfun_call("web", NULL, LEVEL(ch), ch, ch->fighting);
 		break;
 	}
 	return 0;
@@ -937,7 +936,7 @@ int fight_prog_tattoo_enki(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	case 0:
 		act_puts("The tattoo on your shoulder glows {Cblue{x.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-		spellfun_call("cure critical", LEVEL(ch), ch, ch);
+		spellfun_call("cure critical", NULL, LEVEL(ch), ch, ch);
 		break;
 	case 1:
 	case 2:
@@ -945,13 +944,13 @@ int fight_prog_tattoo_enki(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 
 		if (IS_EVIL(ch->fighting) && !IS_EVIL(ch)) {
-			spellfun_call("dispel evil", LEVEL(ch) * 12 / 10,
+			spellfun_call("dispel evil", NULL, LEVEL(ch) * 12 / 10,
 				      ch, ch->fighting);
 		} else if (IS_GOOD(ch->fighting) && !IS_GOOD(ch)) {
-			spellfun_call("dispel good", LEVEL(ch) * 12 / 10,
+			spellfun_call("dispel good", NULL, LEVEL(ch) * 12 / 10,
 				      ch, ch->fighting);
 		} else {
-			spellfun_call("lightning bolt", LEVEL(ch) * 12 / 10,
+			spellfun_call("lightning bolt", NULL, LEVEL(ch) * 12 / 10,
 				      ch, ch->fighting);
 		}
 		break;
@@ -968,11 +967,11 @@ int fight_prog_tattoo_eros(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	case 0:
 	case 1:
 		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
-		spellfun_call("heal", LEVEL(ch), ch, ch);
+		spellfun_call("heal", NULL, LEVEL(ch), ch, ch);
 		break;
 	case 2:
 		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
-		spellfun_call("group heal", LEVEL(ch), ch, ch);
+		spellfun_call("group heal", NULL, LEVEL(ch), ch, ch);
 		break;
 	}
 	return 0;
@@ -1004,7 +1003,7 @@ int fight_prog_golden_weapon(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		  act("Your $p glows bright blue!\n",ch, obj, NULL, TO_CHAR);
 		  act("$n's $p glows bright blue!",ch,obj,NULL,TO_ROOM);
 		  
-		  obj_cast_spell(gsn_cure_critical,LEVEL(ch),ch,ch);
+		  obj_cast_spell("cure critical", LEVEL(ch), ch, ch);
 		 return 0;
 		}
 	  else if (number_percent() > 92)
@@ -1012,7 +1011,7 @@ int fight_prog_golden_weapon(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		  act("Your $p glows bright blue!\n",ch, obj, NULL, TO_CHAR);
 		  act("$n's $p glows bright blue!",ch,obj,NULL,TO_ROOM);
 		  
-		  obj_cast_spell(gsn_cure_serious,LEVEL(ch),ch,ch);
+		  obj_cast_spell("cure serious", LEVEL(ch), ch, ch);
 		}
 	}
 	return 0;
@@ -1038,7 +1037,7 @@ int fight_prog_snake(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 			ch->fighting, TO_VICT);
 		act("One of the snakes from $n's whip strikes at $N!", ch, NULL, 
 			ch->fighting, TO_NOTVICT);
-		obj_cast_spell(gsn_poison, LEVEL(ch), ch, ch->fighting);
+		obj_cast_spell("poison", LEVEL(ch), ch, ch->fighting);
 		break;
 	  case 1:
 		act("One of the snake heads on your whip bites $N!", ch, NULL,
@@ -1047,7 +1046,7 @@ int fight_prog_snake(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 			ch->fighting, TO_VICT);
 		act("One of the snakes from $n's whip strikes at $N!", ch, NULL,
 			ch->fighting, TO_NOTVICT);
-		obj_cast_spell(gsn_weaken, LEVEL(ch), ch, ch->fighting);
+		obj_cast_spell("weaken", LEVEL(ch), ch, ch->fighting);
 		break;
 	  }
 	}
@@ -1066,7 +1065,7 @@ int fight_prog_shockwave(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		ch, NULL, ch->fighting, TO_VICT);
 	  act("A bolt of lightning shoots out from $n's bolt, arcing towards $N!",
 		ch, NULL, ch->fighting, TO_NOTVICT);
-	  obj_cast_spell(gsn_lightning_bolt, LEVEL(ch), ch, ch->fighting);
+	  obj_cast_spell("lightning bolt", LEVEL(ch), ch, ch->fighting);
 	  break;
 	}
 	return 0;
@@ -1153,7 +1152,7 @@ int fight_prog_firegauntlets(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		act("Your gauntlets burns $N's face!", ch, NULL, ch->fighting, TO_CHAR);
 		act("$n's gauntlets burns $N's face!", ch, NULL, ch->fighting, TO_NOTVICT);
 		act("$N's gauntlets burns your face!", ch->fighting, NULL, ch, TO_CHAR);
-		damage(ch, ch->fighting, dam/2, gsn_burning_hands, DAM_FIRE, TRUE);
+		damage(ch, ch->fighting, dam/2, "burning hands", DAM_FIRE, TRUE);
 		if (ch == NULL || ch->fighting == NULL)
 			return 0;
 		fire_effect(ch->fighting, obj->level/2, dam/2, TARGET_CHAR);
@@ -1187,7 +1186,7 @@ int fight_prog_armbands(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		act("Your armbands burns $N's face!", ch, NULL, ch->fighting, TO_CHAR);
 		act("$n's armbands burns $N's face!", ch, NULL, ch->fighting, TO_NOTVICT);
 		act("$N's armbands burns your face!", ch->fighting, NULL, ch, TO_CHAR);
-		damage(ch, ch->fighting, dam, gsn_burning_hands, DAM_FIRE, TRUE);
+		damage(ch, ch->fighting, dam, "burning hands", DAM_FIRE, TRUE);
 		if (ch == NULL || ch->fighting == NULL)
 		 return 0;
 		fire_effect(ch->fighting, obj->level/2, dam, TARGET_CHAR);
@@ -1223,7 +1222,7 @@ int fight_prog_demonfireshield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		act("Your shield burns $N's face!", ch, NULL, ch->fighting, TO_CHAR);
 		act("$n's shield burns $N's face!", ch, NULL, ch->fighting, TO_NOTVICT);
 		act("$N's shield burns your face!", ch->fighting, NULL, ch, TO_CHAR);
-		damage(ch, ch->fighting, dam, gsn_demonfire, DAM_FIRE, TRUE);
+		damage(ch, ch->fighting, dam, "demonfire", DAM_FIRE, TRUE);
 		if (ch == NULL || ch->fighting == NULL)
 		 return 0;
 		fire_effect(ch->fighting, obj->level,dam, TARGET_CHAR);
@@ -1279,13 +1278,13 @@ int wear_prog_wind_boots(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	AFFECT_DATA af;
 
-	if (!is_affected(ch, gsn_fly))
+	if (!is_affected(ch, "fly"))
 	{
 	  char_puts("As you wear wind boots on your feet, they hold you up.\n", ch);
 	  char_puts("You start to fly.\n", ch);
 
 	  af.where = TO_AFFECTS;
-	  af.type = gsn_fly;
+	  af.type = "fly";
 	  af.duration = -2;
 	  af.level = LEVEL(ch);
 	  af.bitvector = AFF_FLYING;
@@ -1298,9 +1297,9 @@ int wear_prog_wind_boots(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 int remove_prog_wind_boots(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
-	if (is_affected(ch, gsn_fly))
+	if (is_affected(ch, "fly"))
 	{
-	  affect_strip(ch, gsn_fly);
+	  affect_strip(ch, "fly");
 	  char_puts("You fall down to the ground.\n", ch);
 	  char_puts("Ouch!.\n", ch);
 	}
@@ -1311,13 +1310,13 @@ int wear_prog_boots_flying(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	AFFECT_DATA af;
 
-	if (!is_affected(ch, gsn_fly))
+	if (!is_affected(ch, "fly"))
 	{
 	  char_puts("As you wear boots of flying on your feet, they hold you up.\n", ch);
 	  char_puts("You start to fly.\n", ch);
 
 	  af.where = TO_AFFECTS;
-	  af.type = gsn_fly;
+	  af.type = "fly";
 	  af.duration = -2;
 	  af.level = LEVEL(ch);
 	  af.bitvector = AFF_FLYING;
@@ -1330,9 +1329,9 @@ int wear_prog_boots_flying(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 int remove_prog_boots_flying(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
-	if (is_affected(ch, gsn_fly))
+	if (is_affected(ch, "fly"))
 	{
-	  affect_strip(ch, gsn_fly);
+	  affect_strip(ch, "fly");
 	  char_puts("You fall down to the ground.\n", ch);
 	  char_puts("You start to walk again instead of flying!.\n", ch);
 	}
@@ -1343,13 +1342,13 @@ int wear_prog_arm_hercules(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	AFFECT_DATA af;
 
-	if (!is_affected(ch, gsn_giant_strength))
+	if (!is_affected(ch, "giant strength"))
 	{
 	  char_puts("As you wear your arms these plates, You feel your self getting stronger.\n", ch);
 	  char_puts("Your muscles seems incredibly huge.\n", ch);
 
 	  af.where = TO_AFFECTS;
-	  af.type = gsn_giant_strength;
+	  af.type = "giant strength";
 	  af.duration = -2;
 	  af.level = LEVEL(ch);
 	  af.bitvector = 0;
@@ -1362,9 +1361,9 @@ int wear_prog_arm_hercules(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 int remove_prog_arm_hercules(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
-	if (is_affected(ch, gsn_giant_strength))
+	if (is_affected(ch, "giant strength"))
 	{
-	  affect_strip(ch, gsn_giant_strength);
+	  affect_strip(ch, "giant strength");
 	  char_puts("Your muscles regain its original value.\n", ch);
 	}
 	return 0;
@@ -1374,13 +1373,13 @@ int wear_prog_girdle_giant(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	AFFECT_DATA af;
 
-	if (!is_affected(ch, gsn_giant_strength))
+	if (!is_affected(ch, "giant strength"))
 	{
 	  char_puts("As you wear this girdle, You feel your self getting stronger.\n", ch);
 	  char_puts("Your muscles seems incredibly huge.\n", ch);
 
 	  af.where = TO_AFFECTS;
-	  af.type = gsn_giant_strength;
+	  af.type = "giant strength";
 	  af.duration = -2;
 	  af.level = LEVEL(ch);
 	  af.bitvector = 0;
@@ -1393,9 +1392,9 @@ int wear_prog_girdle_giant(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 int remove_prog_girdle_giant(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
-	if (is_affected(ch, gsn_giant_strength))
+	if (is_affected(ch, "giant strength"))
 	{
-	  affect_strip(ch, gsn_giant_strength);
+	  affect_strip(ch, "giant strength");
 	  char_puts("Your muscles regain its original value.\n", ch);
 	}
 	return 0;
@@ -1405,13 +1404,13 @@ int wear_prog_breastplate_strength(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg
 {
 	AFFECT_DATA af;
 
-	if (!is_affected(ch, gsn_giant_strength))
+	if (!is_affected(ch, "giant strength"))
 	{
 	  char_puts("As you wear breastplate of strength, You feel yourself getting stronger.\n", ch);
 	  char_puts("Your muscles seems incredibly huge.\n", ch);
 
 	  af.where = TO_AFFECTS;
-	  af.type = gsn_giant_strength;
+	  af.type = "giant strength";
 	  af.duration = -2;
 	  af.level = LEVEL(ch);
 	  af.bitvector = 0;
@@ -1424,8 +1423,8 @@ int wear_prog_breastplate_strength(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg
 
 int remove_prog_breastplate_strength(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
-	if (is_affected(ch, gsn_giant_strength)) {
-	  affect_strip(ch, gsn_giant_strength);
+	if (is_affected(ch, "giant strength")) {
+	  affect_strip(ch, "giant strength");
 	  char_puts("Your muscles regain its original value.\n", ch);
 	}
 	return 0;
@@ -1448,29 +1447,39 @@ int fight_prog_rose_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	char_puts("The leaves of your shield grows suddenly.\n",ch);
 	char_puts("The leaves of shield surrounds you!.\n",ch->fighting);
 	act("$n's shield of rose grows suddenly.",ch,NULL,NULL,TO_ROOM);
-	obj_cast_spell(gsn_slow,LEVEL(ch),ch,ch->fighting);
+	obj_cast_spell("slow",LEVEL(ch),ch,ch->fighting);
 	return 0;
+}
+
+static bool
+lion_claw_hit(OBJ_DATA *obj, CHAR_DATA *ch, int loc)
+{
+	if (obj == get_eq_char(ch, loc))
+		return FALSE;
+
+	char_puts("The nails of your claw appears from its fingers.\n",ch);
+	act_puts("The nails of $n's claw appears for an instant.",
+		 ch, NULL, NULL, TO_ROOM, POS_DEAD);
+	one_hit(ch, ch->fighting, TYPE_UNDEFINED, loc);
+	one_hit(ch, ch->fighting, TYPE_UNDEFINED, loc);
+	one_hit(ch, ch->fighting, TYPE_UNDEFINED, loc);
+	one_hit(ch, ch->fighting, TYPE_UNDEFINED, loc);
+	char_puts("The nails of your claw disappears.\n",ch);
+	act_puts("The nails of $n's claw disappears suddenly.",
+		 ch, NULL, NULL, TO_ROOM, POS_DEAD);
+	return TRUE;
 }
 
 int fight_prog_lion_claw(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
-	if (number_percent() < 90) return 0;
+	bool foo;
 
-	if ((obj == get_eq_char(ch,WEAR_WIELD)) || 
-		(obj == get_eq_char(ch,WEAR_SECOND_WIELD)))
-{
-	char_puts("The nails of your claw appears from its fingers.\n",ch);
-	act_puts("The nails of $n's claw appears for an instant.",
-			ch,NULL,NULL,TO_ROOM,POS_DEAD);
-	one_hit(ch, ch->fighting, TYPE_HIT, WEAR_WIELD);
-	one_hit(ch, ch->fighting, TYPE_HIT, WEAR_WIELD);
-	one_hit(ch, ch->fighting, TYPE_HIT, WEAR_WIELD);
-	one_hit(ch, ch->fighting, TYPE_HIT, WEAR_WIELD);
-	char_puts("The nails of your claw disappears.\n",ch);
-	act_puts("the nails of $n's claw disappears suddenly.",
-		ch,NULL,NULL,TO_ROOM,POS_DEAD);
-}
-return 0;
+	if (number_percent() < 90)
+		return 0;
+
+	foo = lion_claw_hit(obj, ch, WEAR_WIELD) ||	/* shut up gcc */
+	      lion_claw_hit(obj, ch, WEAR_SECOND_WIELD);
+	return 0;
 }
 
 int speech_prog_ring_ra(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
@@ -1483,7 +1492,7 @@ int speech_prog_ring_ra(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	{
 	  char_puts("An electrical arc sprays from the ring.\n",ch);
 	  act("An electrical arc sprays from the ring.",ch,NULL,NULL,TO_ROOM);
-	  obj_cast_spell(gsn_lightning_breath,LEVEL(ch),ch,ch->fighting);
+	  obj_cast_spell("lightning breath",LEVEL(ch),ch,ch->fighting);
 	  WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
 	}
 	return 0;
@@ -1589,12 +1598,12 @@ int wear_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	AFFECT_DATA af;
 
 	if (strstr(mlstr_mval(&obj->ed->description), "cold") != NULL)  {
-	if (!is_affected(ch, gsn_fire_shield))
+	if (!is_affected(ch, "fire shield"))
 	{
 	  char_puts("As you wear shield, you become resistive to cold.\n", ch);
 
 	  af.where = TO_RESIST;
-	  af.type = gsn_fire_shield;
+	  af.type = "fire shield";
 	  af.duration = -2;
 	  af.level = LEVEL(ch);
 	  af.bitvector = RES_COLD;
@@ -1605,12 +1614,12 @@ int wear_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	}
 	else
 	{
-	if (!is_affected(ch, gsn_fire_shield))
+	if (!is_affected(ch, "fire shield"))
 	{
 	  char_puts("As you wear shield, you become resistive to fire.\n", ch);
 
 	  af.where = TO_RESIST;
-	  af.type = gsn_fire_shield;
+	  af.type = "fire shield";
 	  af.duration = -2;
 	  af.level = LEVEL(ch);
 	  af.bitvector = RES_FIRE;
@@ -1624,8 +1633,8 @@ int wear_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 int remove_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
-	if (is_affected(ch, gsn_fire_shield)) {
-		affect_strip(ch, gsn_fire_shield);
+	if (is_affected(ch, "fire shield")) {
+		affect_strip(ch, "fire shield");
 		if (strstr(mlstr_mval(&obj->ed->description), "cold") != NULL)  
 			char_puts("You have become normal to cold attacks.\n", ch);
 		else
@@ -1696,8 +1705,7 @@ int fight_prog_swordbreaker(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
   OBJ_DATA *wield;
   victim = ch->fighting;
   if((wield = get_eq_char(victim, WEAR_WIELD)) == NULL) return 0 ;
-        if (
-            (wield->value[0] == WEAPON_SWORD)
+        if (WEAPON_IS(wield, WEAPON_SWORD)
         &&  (get_eq_char(ch,WEAR_WIELD) == obj
         ||   get_eq_char(ch,WEAR_SECOND_WIELD) == obj)
         &&   number_percent() < 10) {
@@ -1707,7 +1715,7 @@ int fight_prog_swordbreaker(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
                     ch, NULL, victim, TO_VICT);
                 act("$n {Wcleaved{x $N's sword into two.",
                     ch, NULL, victim, TO_NOTVICT);
-                check_improve(ch, gsn_weapon_cleave, TRUE, 1);
+                check_improve(ch, "weapon cleave", TRUE, 1);
                 extract_obj(get_eq_char(victim, WEAR_WIELD), 0);
         }
         return 0;

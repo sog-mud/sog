@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_cmd.c,v 1.1 1999-06-28 09:04:21 fjoe Exp $
+ * $Id: db_cmd.c,v 1.2 1999-10-06 09:56:15 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -54,7 +54,7 @@ DBLOAD_FUN(load_cmd)
 			    fread_fword(cmd_classes, fp));
 			break;
 		case 'D':
-			SKEY("dofun", cmd->dofun_name);
+			SKEY("dofun", cmd->dofun_name, fread_string(fp));
 			break;
 		case 'E':
 			if (!str_cmp(word, "end")) {
@@ -81,7 +81,7 @@ DBLOAD_FUN(load_cmd)
 			    fread_fword(level_table, fp));
 			break;
 		case 'N':
-			SKEY("name", cmd->name);
+			SKEY("name", cmd->name, fread_string(fp));
 			break;
 		}
 

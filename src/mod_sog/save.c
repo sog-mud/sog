@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.126 1999-10-05 10:09:24 fjoe Exp $
+ * $Id: save.c,v 1.127 1999-10-06 09:56:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -72,7 +72,6 @@ int minv, maxv, del;
 void fwrite_char (CHAR_DATA * ch, FILE * fp, int flags);
 void fwrite_obj (CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest);
 void fwrite_pet (CHAR_DATA * pet, FILE * fp, int flags);
-void fwrite_affect(AFFECT_DATA *paf, FILE *fp);
 void fread_char (CHAR_DATA * ch, FILE * fp, int flags);
 void fread_pet  (CHAR_DATA * ch, FILE * fp, int flags);
 void fread_obj  (CHAR_DATA * ch, FILE * fp, int flags);
@@ -181,6 +180,30 @@ void char_save(CHAR_DATA *ch, int flags)
 	d2rename(PLAYER_PATH, TMP_FILE, PLAYER_PATH, name);
 }
 
+static void *
+pc_skill_save_cb(void *p, void *d)
+{
+	pc_skill_t *pc_sk = (pc_skill_t *) p;
+
+	if (pc_sk->percent == 0)
+		return NULL;
+
+	fprintf((FILE *) d, "Sk %d '%s'\n", pc_sk->percent, pc_sk->sn);
+	return NULL;
+}
+
+static void *
+spn_save_cb(void *p, void *d)
+{
+	const char *spn = *(const char **) p;
+
+	if (IS_NULLSTR(spn))
+		return NULL;
+
+	fprintf((FILE *) d, "Spec '%s'\n", spn);
+	return NULL;
+}
+
 /*
  * Write the char.
  */
@@ -196,9 +219,8 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 	mlstr_fwrite(fp, "ShD", &ch->short_descr);
 	fprintf(fp, "Ethos %s\n", flag_string(ethos_table, ch->ethos));
 
-	if (ch->clan) {
-		fwrite_string(fp, "Clan", clan_name(ch->clan));
-	}
+	if (ch->clan) 
+		fprintf(fp, "ClanW '%s'\n", clan_name(ch->clan));
 
 	fwrite_string(fp, "Desc", mlstr_mval(&ch->description));
 
@@ -284,18 +306,18 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 		}
 
 		if (ch->clan)
-			fprintf(fp, "ClanStatus %d\n", PC(ch)->clan_status);
+			fprintf(fp, "ClanStatus %d\n", pc->clan_status);
 		else if (pc->petition)
-			fwrite_string(fp, "Peti",
-				      clan_name(PC(ch)->petition));
+			fprintf(fp, "PetiW '%s'\n",
+				      clan_name(pc->petition));
 
 		fprintf(fp, "Relig %d\n", pc->religion);
 		if (pc->practice != 0)
 			fprintf(fp, "Prac %d\n", pc->practice);
 		if (pc->train != 0)
 			fprintf(fp, "Trai %d\n", pc->train);
-		fprintf(fp, "Exp %d\n", PC(ch)->exp);
-		fprintf(fp, "ExpTL %d\n", PC(ch)->exp_tl);
+		fprintf(fp, "Exp %d\n", pc->exp);
+		fprintf(fp, "ExpTL %d\n", pc->exp_tl);
 		fwrite_string(fp, "Hometown", hometown_name(pc->hometown));
 		fprintf(fp, "LogO %ld\n",
 			IS_SET(flags, SAVE_F_PSCAN) ?
@@ -353,15 +375,8 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 		/* write pc_killed */
 		fprintf(fp, "PC_Killed %d\n", pc->pc_killed);
 
-		for (i = 0; i < pc->learned.nused; i++) {
-			pcskill_t *ps = VARR_GET(&pc->learned, i);
-
-			if (ps->percent == 0)
-				continue;
-
-			fprintf(fp, "Sk %d '%s'\n",
-				ps->percent, skill_name(ps->sn));
-		}
+		varr_foreach(&pc->specs, spn_save_cb, fp);
+		varr_foreach(&pc->learned, pc_skill_save_cb, fp);
 
 		if (pc->questpoints != 0)
 			fprintf(fp, "QuestPnts %d\n", pc->questpoints);
@@ -381,6 +396,7 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 		&&  IS_SET(paf->bitvector, AFF_CHARM))
 			continue;
 
+		fprintf(fp, "Affc ");
 		fwrite_affect(paf, fp);
 	}
 
@@ -397,7 +413,7 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp, int flags)
 	fprintf(fp, "Vnum %d\n", pet->pMobIndex->vnum);
 	fwrite_string(fp, "Name", pet->name);
 	if (pet->clan)
-		fwrite_string(fp, "Clan", clan_name(pet->clan));
+		fprintf(fp, "ClanW '%s'\n", clan_name(pet->clan));
 	if (mlstr_cmp(&pet->short_descr, &pet->pMobIndex->short_descr) != 0)
 		mlstr_fwrite(fp, "ShD", &pet->short_descr);
 	if (mlstr_cmp(&pet->long_descr, &pet->pMobIndex->long_descr) != 0)
@@ -439,8 +455,10 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp, int flags)
 		pet->mod_stat[STAT_WIS], pet->mod_stat[STAT_DEX],
 		pet->mod_stat[STAT_CON], pet->mod_stat[STAT_CHA]);
 
-	for (paf = pet->affected; paf != NULL; paf = paf->next)
+	for (paf = pet->affected; paf != NULL; paf = paf->next) {
+		fprintf(fp, "Affc ");
 		fwrite_affect(paf, fp);
+	}
 
 	fprintf(fp, "End\n\n");
 }
@@ -515,44 +533,20 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 	if (obj->timer != 0)
 		fprintf(fp, "Time %d\n", obj->timer);
 	fprintf(fp, "Cost %d\n", obj->cost);
-	if (obj->value[0] != obj->pObjIndex->value[0]
-	    || obj->value[1] != obj->pObjIndex->value[1]
-	    || obj->value[2] != obj->pObjIndex->value[2]
-	    || obj->value[3] != obj->pObjIndex->value[3]
-	    || obj->value[4] != obj->pObjIndex->value[4])
-		fprintf(fp, "Val  %d %d %d %d %d\n",
-		  obj->value[0], obj->value[1], obj->value[2], obj->value[3],
-			obj->value[4]);
 
-	switch (obj->pObjIndex->item_type) {
-	case ITEM_POTION:
-	case ITEM_SCROLL:
-		if (obj->value[1] > 0) {
-			fprintf(fp, "Spell 1 '%s'\n",
-				skill_name(obj->value[1]));
-		}
-		if (obj->value[2] > 0) {
-			fprintf(fp, "Spell 2 '%s'\n",
-				skill_name(obj->value[2]));
-		}
-		if (obj->value[3] > 0) {
-			fprintf(fp, "Spell 3 '%s'\n",
-				skill_name(obj->value[3]));
-		}
-		break;
-
-	case ITEM_PILL:
-	case ITEM_STAFF:
-	case ITEM_WAND:
-		if (obj->value[3] > 0) {
-			fprintf(fp, "Spell 3 '%s'\n",
-				skill_name(obj->value[3]));
-		}
-		break;
+	if (INT_VAL(obj->value[0]) != INT_VAL(obj->pObjIndex->value[0])
+	||  INT_VAL(obj->value[1]) != INT_VAL(obj->pObjIndex->value[1])
+	||  INT_VAL(obj->value[2]) != INT_VAL(obj->pObjIndex->value[2])
+	||  INT_VAL(obj->value[3]) != INT_VAL(obj->pObjIndex->value[3])
+	||  INT_VAL(obj->value[4]) != INT_VAL(obj->pObjIndex->value[4])) {
+		fprintf(fp, "Values ");
+		fwrite_objval(obj->pObjIndex->item_type, obj->value, fp);
 	}
 
-	for (paf = obj->affected; paf != NULL; paf = paf->next)
+	for (paf = obj->affected; paf != NULL; paf = paf->next) {
+		fprintf(fp, "Affc ");
 		fwrite_affect(paf, fp);
+	}
 
 	for (ed = obj->ed; ed != NULL; ed = ed->next) {
 		if (IS_NULLSTR(ed->keyword))
@@ -815,7 +809,7 @@ CHAR_DATA *char_load(const char *name, int flags)
 	if (!IS_NPC(ch))
 		ch->size = r->race_pcdata->size;
 
-	ch->dam_type = 17;	/* punch */
+	ch->damtype = str_dup("punch");
 	ch->affected_by = ch->affected_by | r->aff;
 	ch->imm_flags = ch->imm_flags | r->imm;
 	ch->res_flags = ch->res_flags | r->res;
@@ -898,50 +892,9 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 				fMatch = TRUE;
 				break;
 			}
-			if (!str_cmp(word, "AffD")) {
-				AFFECT_DATA *paf = aff_new();
-				const char *skname = fread_word(fp);
-				int sn = sn_lookup(skname);
-				if (sn < 0)
-					log("fread_char: %s: %s: unknown skill", ch->name, skname);
-
-				paf->type = sn;
-				paf->level = fread_number(fp);
-				paf->duration = fread_number(fp);
-				paf->modifier = fread_number(fp);
-				paf->location = fread_number(fp);
-				paf->bitvector = fread_flags(fp);
-
-				if (sn < 0)
-					aff_free(paf);
-				else 
-					SLIST_ADD(AFFECT_DATA,
-						  ch->affected, paf);
-
-				fMatch = TRUE;
-				break;
-			}
 			if (!str_cmp(word, "Affc")) {
-				AFFECT_DATA *paf = aff_new();
-				const char *skname = fread_word(fp);
-				int sn = sn_lookup(skname);
-				if (sn < 0)
-					log("fread_char: %s: %s: unknown skill", ch->name, skname);
-
-				paf->type = sn;
-				paf->where = fread_number(fp);
-				paf->level = fread_number(fp);
-				paf->duration = fread_number(fp);
-				paf->modifier = fread_number(fp);
-				paf->location = fread_number(fp);
-				paf->bitvector = fread_flags(fp);
-
-				if (sn < 0)
-					aff_free(paf);
-				else 
-					SLIST_ADD(AFFECT_DATA,
-						  ch->affected, paf);
-
+				AFFECT_DATA *paf = fread_affect(fp);
+				SLIST_ADD(AFFECT_DATA, ch->affected, paf);
 				fMatch = TRUE;
 				break;
 			}
@@ -962,12 +915,12 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 			break;
 
 		case 'B':
-			SKEY("Bamfin", PC(ch)->bamfin);
+			SKEY("Bamfin", PC(ch)->bamfin, fread_string(fp));
 			KEY("Banks", PC(ch)->bank_s, fread_number(fp));
 			KEY("Bankg", PC(ch)->bank_g, fread_number(fp));
-			SKEY("Bamfout", PC(ch)->bamfout);
-			SKEY("Bin", PC(ch)->bamfin);
-			SKEY("Bout", PC(ch)->bamfout);
+			SKEY("Bamfout", PC(ch)->bamfout, fread_string(fp));
+			SKEY("Bin", PC(ch)->bamfin, fread_string(fp));
+			SKEY("Bout", PC(ch)->bamfout, fread_string(fp));
 			break;
 
 		case 'C':
@@ -980,6 +933,7 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 				break;
 			}
 			KEY("Cla", ch->class, fread_number(fp));
+			KEY("ClanW", ch->clan, cln_lookup(fread_word(fp)));
 			KEY("Clan", ch->clan, fread_clan(fp));
 			KEY("ClanStatus", PC(ch)->clan_status,
 			    fread_number(fp));
@@ -1058,6 +1012,8 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 				if (PC(ch)->dvdata->pagelen < MIN_PAGELEN-2)
 					PC(ch)->dvdata->pagelen = MAX_PAGELEN-2;
 
+				spec_update(ch);
+
 				/* XXX update clan lists */
 				if (!ch->clan
 				||  (clan = clan_lookup(ch->clan)) == NULL)
@@ -1084,12 +1040,12 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 			KEY("Ethos", ch->ethos, fread_fword(ethos_table, fp));
 			break;
 		case 'F':
-			SKEY("FormName", PC(ch)->form_name);
+			SKEY("FormName", PC(ch)->form_name, fread_string(fp));
 			break;
 
 		case 'G':
 			KEY("Gold", ch->gold, fread_number(fp));
-			SKEY("Granted", PC(ch)->granted);
+			SKEY("Granted", PC(ch)->granted, fread_string(fp));
 			if (!str_cmp(word, "Group") || !str_cmp(word, "Gr")) {
 				fread_word(fp);
 				fMatch = TRUE;
@@ -1154,7 +1110,7 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 			break;
 
 		case 'N':
-			SKEY("Name", ch->name);
+			SKEY("Name", ch->name, fread_string(fp));
 			KEY("Note", PC(ch)->last_note, fread_number(fp));
 			if (!str_cmp(word, "Not")) {
 				PC(ch)->last_note = fread_number(fp);
@@ -1178,10 +1134,12 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 			}
 			break;
 		case 'P':
+			KEY("PetiW", PC(ch)->petition,
+			    cln_lookup(fread_word(fp)));
 			KEY("Peti", PC(ch)->petition, fread_clan(fp));
 			KEY("PLev", PC(ch)->plevels, fread_number(fp));
-			SKEY("Password", PC(ch)->pwd);
-			SKEY("Pass", PC(ch)->pwd);
+			SKEY("Password", PC(ch)->pwd, fread_string(fp));
+			SKEY("Pass", PC(ch)->pwd, fread_string(fp));
 			KEY("PC_Killed", PC(ch)->pc_killed, fread_number(fp));
 			KEY("Played", PC(ch)->played, fread_number(fp));
 			KEY("Plyd", PC(ch)->played, fread_number(fp));
@@ -1191,8 +1149,8 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 			KEY("Pos", ch->position, fread_number(fp));
 			KEY("Practice", PC(ch)->practice, fread_number(fp));
 			KEY("Prac", PC(ch)->practice, fread_number(fp));
-			SKEY("Prompt", PC(ch)->dvdata->prompt);
-			SKEY("Prom", PC(ch)->dvdata->prompt);
+			SKEY("Prompt", PC(ch)->dvdata->prompt, fread_string(fp));
+			SKEY("Prom", PC(ch)->dvdata->prompt, fread_string(fp));
 			break;
 
 		case 'Q':
@@ -1237,15 +1195,17 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 			MLSKEY("ShD", ch->short_descr);
 			KEY("Sec", PC(ch)->security, fread_number(fp));
 			KEY("Silv", ch->silver, fread_number(fp));
-
+			if (!str_cmp(word, "Spec")) {
+				const char **pspn = varr_enew(&PC(ch)->specs);
+				*pspn = fread_name(fp, &specs, "fread_char");
+				fMatch = TRUE;
+			}
 			if (!str_cmp(word, "Skill") || !str_cmp(word, "Sk")) {
 				int value = fread_number(fp);
-				char *skname = fread_word(fp);
-				int sn = sn_lookup(skname);
-				if (sn < 0)
-					log("fread_char: %s: %s: unknown skill", ch->name, skname);
-				else
-					set_skill(ch, sn, value);
+				const char *sn = fread_name(fp, &skills,
+							    "fread_char");
+				set_skill(ch, sn, value);
+				free_string(sn);
 				fMatch = TRUE;
 			}
 			break;
@@ -1255,7 +1215,7 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 			KEY("TSex", PC(ch)->true_sex, fread_number(fp));
 			KEY("Trai", PC(ch)->train, fread_number(fp));
 			KEY("Trust", PC(ch)->trust, fread_flags(fp));
-			SKEY("Twitlist", PC(ch)->twitlist);
+			SKEY("Twitlist", PC(ch)->twitlist, fread_string(fp));
 			if (!str_cmp(word, "Title") || !str_cmp(word, "Titl")) {
 				const char *p = fread_string(fp);
 				set_title(ch, p);
@@ -1278,7 +1238,7 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 			KEY("Wimpy", ch->wimpy, fread_number(fp));
 			KEY("Wimp", ch->wimpy, fread_number(fp));
 			KEY("Wizn", PC(ch)->wiznet, fread_flags(fp));
-			SKEY("WantedBy", PC(ch)->wanted_by);
+			SKEY("WantedBy", PC(ch)->wanted_by, fread_string(fp));
 			break;
 		}
 
@@ -1338,50 +1298,9 @@ fread_pet(CHAR_DATA * ch, FILE * fp, int flags)
 				fMatch = TRUE;
 				break;
 			}
-			if (!str_cmp(word, "AffD")) {
-				AFFECT_DATA *paf = aff_new();
-				const char *skname = fread_word(fp);
-				int sn = sn_lookup(skname);
-				if (sn < 0)
-					log("fread_pet: %s: %s: unknown skill", ch->name, skname);
-
-				paf->type = sn;
-				paf->level = fread_number(fp);
-				paf->duration = fread_number(fp);
-				paf->modifier = fread_number(fp);
-				paf->location = fread_number(fp);
-				paf->bitvector = fread_flags(fp);
-
-				if (sn < 0)
-					aff_free(paf);
-				else
-					SLIST_ADD(AFFECT_DATA,
-						  pet->affected, paf);
-
-				fMatch = TRUE;
-				break;
-			}
 			if (!str_cmp(word, "Affc")) {
-				AFFECT_DATA *paf = aff_new();
-				const char *skname = fread_word(fp);
-				int sn = sn_lookup(skname);
-				if (sn < 0)
-					log("fread_pet: %s: %s: unknown skill", ch->name, skname);
-
-				paf->type = sn;
-				paf->where = fread_number(fp);
-				paf->level = fread_number(fp);
-				paf->duration = fread_number(fp);
-				paf->modifier = fread_number(fp);
-				paf->location = fread_number(fp);
-				paf->bitvector = fread_flags(fp);
-
-				if (sn < 0)
-					aff_free(paf);
-				else 
-					SLIST_ADD(AFFECT_DATA,
-						  pet->affected, paf);
-
+				AFFECT_DATA *paf = fread_affect(fp);
+				SLIST_ADD(AFFECT_DATA, pet->affected, paf);
 				fMatch = TRUE;
 				break;
 			}
@@ -1402,6 +1321,7 @@ fread_pet(CHAR_DATA * ch, FILE * fp, int flags)
 			break;
 
 		case 'C':
+			KEY("ClanW", pet->clan, cln_lookup(fread_word(fp)));
 			KEY("Clan", pet->clan, fread_clan(fp));
 			KEY("Comm", pet->comm, fread_flags(fp));
 			break;
@@ -1463,7 +1383,7 @@ fread_pet(CHAR_DATA * ch, FILE * fp, int flags)
 			break;
 
 		case 'N':
-			SKEY("Name", pet->name);
+			SKEY("Name", pet->name, fread_string(fp));
 			break;
 
 		case 'P':
@@ -1552,50 +1472,9 @@ fread_obj(CHAR_DATA * ch, FILE * fp, int flags)
 			break;
 
 		case 'A':
-			if (!str_cmp(word, "AffD")) {
-				AFFECT_DATA *paf = aff_new();
-				const char *skname = fread_word(fp);
-				int sn = sn_lookup(skname);
-				if (sn < 0)
-					log("fread_obj: %s: %s: unknown skill", ch->name, skname);
-
-				paf->type = sn;
-				paf->level = fread_number(fp);
-				paf->duration = fread_number(fp);
-				paf->modifier = fread_number(fp);
-				paf->location = fread_number(fp);
-				paf->bitvector = fread_flags(fp);
-
-				if (sn < 0)
-					aff_free(paf);
-				else 
-					SLIST_ADD(AFFECT_DATA,
-						  obj->affected, paf);
-
-				fMatch = TRUE;
-				break;
-			}
 			if (!str_cmp(word, "Affc")) {
-				AFFECT_DATA *paf = aff_new();
-				const char *skname = fread_word(fp);
-				int sn = sn_lookup(skname);
-				if (sn < 0)
-					log("fread_obj: %s: %s: unknown skill", ch->name, skname);
-
-				paf->type = sn;
-				paf->where = fread_number(fp);
-				paf->level = fread_number(fp);
-				paf->duration = fread_number(fp);
-				paf->modifier = fread_number(fp);
-				paf->location = fread_number(fp);
-				paf->bitvector = fread_flags(fp);
-
-				if (sn < 0)
-					aff_free(paf);
-				else 
-					SLIST_ADD(AFFECT_DATA,
-						  obj->affected, paf);
-
+				AFFECT_DATA *paf = fread_affect(fp);
+				SLIST_ADD(AFFECT_DATA, obj->affected, paf);
 				fMatch = TRUE;
 				break;
 			}
@@ -1666,7 +1545,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp, int flags)
 			break;
 
 		case 'N':
-			SKEY("Name", obj->name);
+			SKEY("Name", obj->name, fread_string(fp));
 
 			if (!str_cmp(word, "Nest")) {
 				iNest = fread_number(fp);
@@ -1695,16 +1574,13 @@ fread_obj(CHAR_DATA * ch, FILE * fp, int flags)
 
 			if (!str_cmp(word, "Spell")) {
 				int iValue = fread_number(fp);
-				const char *skname = fread_word(fp);
-				int sn = sn_lookup(skname);
+				const char *sn = fread_name(fp, &skills, "fread_obj");
 
-				if (iValue < 0 || iValue > 3)
+				if (iValue < 0 || iValue > 3) {
 					log("fread_obj: %s: %d: bad iValue", ch->name, iValue);
-				else if (sn < 0)
-					log("fread_obj: %s: %s: unknown skill", ch->name, skname);
-				else
-					obj->value[iValue] = sn;
-
+					free_string(sn);
+				} else
+					STR_VAL_ASSIGN(obj->value[iValue], sn);
 				fMatch = TRUE;
 				break;
 			}
@@ -1716,22 +1592,50 @@ fread_obj(CHAR_DATA * ch, FILE * fp, int flags)
 			break;
 
 		case 'V':
-			if (!str_cmp(word, "Values") || !str_cmp(word, "Vals")) {
-				obj->value[0] = fread_number(fp);
-				obj->value[1] = fread_number(fp);
-				obj->value[2] = fread_number(fp);
-				obj->value[3] = fread_number(fp);
-				if (obj->pObjIndex->item_type == ITEM_WEAPON && obj->value[0] == 0)
+			if (!str_cmp(word, "Values")) {
+				fread_objval(obj->pObjIndex->item_type,
+					     obj->value, fp);
+				if (obj->pObjIndex->item_type == ITEM_WEAPON
+				&&  INT_VAL(obj->value[0]) == 0)
 					obj->value[0] = obj->pObjIndex->value[0];
 				fMatch = TRUE;
 				break;
 			}
 			if (!str_cmp(word, "Val")) {
-				obj->value[0] = fread_number(fp);
-				obj->value[1] = fread_number(fp);
-				obj->value[2] = fread_number(fp);
-				obj->value[3] = fread_number(fp);
-				obj->value[4] = fread_number(fp);
+				switch(obj->pObjIndex->item_type) {
+				default:
+					obj->value[0] = fread_number(fp);
+					obj->value[1] = fread_number(fp);
+					obj->value[2] = fread_number(fp);
+					obj->value[3] = fread_number(fp);
+					obj->value[4] = fread_number(fp);
+					break;
+				case ITEM_PILL:
+				case ITEM_POTION:
+				case ITEM_SCROLL:
+					obj->value[0] = fread_number(fp);
+							fread_number(fp);
+							fread_number(fp);
+							fread_number(fp);
+							fread_number(fp);
+					break;
+				case ITEM_WEAPON:
+					obj->value[0] = fread_number(fp);
+					obj->value[1] = fread_number(fp);
+					obj->value[2] = fread_number(fp);
+					STR_VAL_ASSIGN(obj->value[3],
+						damtype_slot_lookup(fread_number(fp)));
+					obj->value[4] = fread_number(fp);
+					break;
+				case ITEM_STAFF:
+				case ITEM_WAND:
+					obj->value[0] = fread_number(fp);
+					obj->value[1] = fread_number(fp);
+					obj->value[2] = fread_number(fp);
+							fread_number(fp);
+					obj->value[4] = fread_number(fp);
+					break;
+				}
 				fMatch = TRUE;
 				break;
 			}
@@ -1761,19 +1665,5 @@ fread_obj(CHAR_DATA * ch, FILE * fp, int flags)
 			fread_to_eol(fp);
 		}
 	}
-}
-
-void fwrite_affect(AFFECT_DATA *paf, FILE *fp)
-{
-	skill_t *sk;
-
-	if (paf->type == gsn_doppelganger
-	||  (sk = skill_lookup(paf->type)) == NULL)
-		return;
-
-	fprintf(fp, "Affc '%s' %3d %3d %3d %3d %3d %s\n",
-		sk->name,
-		paf->where, paf->level, paf->duration, paf->modifier,
-		paf->location, format_flags(paf->bitvector));
 }
 

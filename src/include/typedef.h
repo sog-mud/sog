@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.30 1999-09-08 10:40:04 fjoe Exp $
+ * $Id: typedef.h,v 1.31 1999-10-06 09:56:00 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -76,16 +76,8 @@ typedef struct clan_t			clan_t;
 typedef struct pcrace_t			pcrace_t;
 typedef struct rclass_t			rclass_t;
 
-typedef struct skill_t			skill_t;
-typedef struct cskill_t			cskill_t;
-typedef struct rskill_t			rskill_t;
-typedef struct clskill_t		clskill_t;
-typedef struct pcskill_t		pcskill_t;
-
 typedef struct rspell_t			rspell_t;
 
-typedef struct where_t			where_t;
-typedef struct namedp_t			namedp_t;
 typedef struct lang_t			lang_t;
 typedef struct cmd_t			cmd_t;
 typedef struct pose_t			pose_t;
@@ -100,27 +92,40 @@ typedef struct hometown_t		hometown_t;
 typedef struct note_t			note_t;
 
 union vo_t {
-	int			vnum;
-	ROOM_INDEX_DATA *	r;
-	OBJ_INDEX_DATA *	o;
-	MOB_INDEX_DATA *	m;
+	int vnum;
+	int i;
+	const char *s;
+	ROOM_INDEX_DATA *r;
+	OBJ_INDEX_DATA *o;
+	MOB_INDEX_DATA *m;
 };
+
+#define INT_VAL(v)		((v).i)
+#define STR_VAL(v)		(IS_NULLSTR((v).s) ? str_empty: (v).s)
+#define FLAGS_VAL(v)		(format_flags(INT_VAL(v)))
+#define SFLAGS_VAL(t, v)	(flag_string((t), INT_VAL(v)))
+#define STR_VAL_ASSIGN(v, str)			\
+	do {					\
+		free_string((v).s);		\
+		(v).s = (str);			\
+	} while(0);
 
 typedef void	DO_FUN		(CHAR_DATA *ch, const char *argument);
 typedef bool	SPEC_FUN	(CHAR_DATA *ch);
-typedef void	SPELL_FUN	(int sn, int level, CHAR_DATA *ch, void *vo);
+typedef void	SPELL_FUN	(const char *sn, int level,
+				 CHAR_DATA *ch, void *vo);
 typedef int	OPROG_FUN	(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg);
-typedef void	EVENT_FUN	(ROOM_INDEX_DATA *room, CHAR_DATA *ch,
+typedef void	REVENT_FUN	(ROOM_INDEX_DATA *room, CHAR_DATA *ch,
 				 ROOM_AFFECT_DATA *raf);
 #define args(a) a
 #define DECLARE_SPEC_FUN(fun) 	SPEC_FUN  fun
 #define DECLARE_DO_FUN(fun) 	DO_FUN fun
 #define DECLARE_OPROG_FUN(fun)	OPROG_FUN fun
-#define DECLARE_EVENT_FUN(fun)	EVENT_FUN fun
+#define DECLARE_REVENT_FUN(fun)	REVENT_FUN fun
 
 #define SPEC_FUN(fun)	bool	fun(CHAR_DATA *ch)
 #define OPROG_FUN(fun)	int	fun(OBJ_DATA *obj, CHAR_DATA *ch, void *arg);
-#define EVENT_FUN(fun)	void	fun(ROOM_INDEX_DATA *room, CHAR_DATA *ch, ROOM_AFFECT_DATA *raf)
+#define REVENT_FUN(fun)	void	fun(ROOM_INDEX_DATA *room, CHAR_DATA *ch, ROOM_AFFECT_DATA *raf)
 
 /* WIN32 Microsoft specific definitions */
 #if defined (WIN32)

@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.17 1999-09-08 10:40:07 fjoe Exp $
+ * $Id: effects.c,v 1.18 1999-10-06 09:56:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -146,10 +146,13 @@ void acid_effect(void *vo, int level, int dam, int target)
 
 	    for ( paf = obj->affected; paf != NULL; paf = paf->next)
             {
-                if ( paf->location == APPLY_AC)
+		if (paf->where == TO_SKILLS)
+			continue;
+
+                if (INT_VAL(paf->location) == APPLY_AC)
                 {
                     af_found = TRUE;
-                    paf->type = -1;
+                    paf->type = TYPE_UNDEFINED;
                     paf->modifier += 1;
                     paf->level = UMAX(paf->level,level);
 		    break;
@@ -161,7 +164,7 @@ void acid_effect(void *vo, int level, int dam, int target)
             {
 		paf = aff_new();
  
-                paf->type       = -1;
+                paf->type       = TYPE_UNDEFINED;
                 paf->level      = level;
                 paf->duration   = -1;
                 paf->location   = APPLY_AC;
@@ -232,7 +235,7 @@ void cold_effect(void *vo, int level, int dam, int target)
             act("$n turns blue and shivers.",victim,NULL,NULL,TO_ROOM);
 	    act("A chill sinks deep into your bones.",victim,NULL,NULL,TO_CHAR);
             af.where     = TO_AFFECTS;
-            af.type      = sn_lookup("chill touch");
+            af.type      = "chill touch";
             af.level     = level;
             af.duration  = 6;
             af.location  = APPLY_STR;
@@ -338,7 +341,7 @@ void fire_effect(void *vo, int level, int dam, int target)
 		victim,NULL,NULL,TO_CHAR);
 	 
             af.where        = TO_AFFECTS;
-            af.type         = sn_lookup("fire breath");
+            af.type         = "fire breath";
             af.level        = level;
             af.duration     = number_range(0,level/10);
             af.location     = APPLY_HITROLL;
@@ -486,7 +489,7 @@ void poison_effect(void *vo,int level, int dam, int target)
             act("$n looks very ill.",victim,NULL,NULL,TO_ROOM);
 
             af.where     = TO_AFFECTS;
-            af.type      = gsn_poison;
+            af.type      = "poison";
             af.level     = level;
             af.duration  = level / 2;
             af.location  = APPLY_STR;
@@ -530,7 +533,7 @@ void poison_effect(void *vo,int level, int dam, int target)
 	    case ITEM_FOOD:
 		break;
 	    case ITEM_DRINK_CON:
-		if (obj->value[0] == obj->value[1])
+		if (INT_VAL(obj->value[0]) == INT_VAL(obj->value[1]))
 		    return;
 		break;
 	}
@@ -663,7 +666,7 @@ void sand_effect(void *vo, int level, int dam, int target)
 		victim,NULL,NULL,TO_CHAR);
 	 
             af.where        = TO_AFFECTS;
-            af.type         = sn_lookup("sand storm");
+            af.type         = "sand storm";
             af.level        = level;
             af.duration     = number_range(0,level/10);
             af.location     = APPLY_HITROLL;
@@ -757,10 +760,13 @@ void sand_effect(void *vo, int level, int dam, int target)
 
 	    for ( paf = obj->affected; paf != NULL; paf = paf->next)
             {
-                if ( paf->location == APPLY_AC)
+		if (paf->where == TO_SKILLS)
+			continue;
+
+                if (INT_VAL(paf->location) == APPLY_AC)
                 {
                     af_found = TRUE;
-                    paf->type = -1;
+                    paf->type = TYPE_UNDEFINED;
                     paf->modifier += 1;
                     paf->level = UMAX(paf->level,level);
 		    break;
@@ -772,7 +778,7 @@ void sand_effect(void *vo, int level, int dam, int target)
             {
 		paf = aff_new();
  
-                paf->type       = -1;
+                paf->type       = TYPE_UNDEFINED;
                 paf->level      = level;
                 paf->duration   = level;
                 paf->location   = APPLY_AC;
@@ -841,7 +847,7 @@ void scream_effect(void *vo, int level, int dam, int target)
             act("You can't hear a thing!",victim,NULL,NULL,TO_CHAR);
 	 
             af.where        = TO_AFFECTS;
-            af.type         = gsn_scream;
+            af.type         = "scream";
             af.level        = level;
             af.duration     = 0;
             af.location     = APPLY_NONE;

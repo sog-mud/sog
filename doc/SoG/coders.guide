@@ -83,59 +83,194 @@ varr
 	varr is variable size array. varr should never be allocated
 	dynamically.
 
-
 	typedef struct varr varr;
 	struct varr {
-		size_t nsize;           /* size of elem */
-		size_t nstep;           /* allocation step */
+		size_t nsize;			/* size of elem */
+		size_t nstep;			/* allocation step */
 
 		void *p;
 
-		size_t nused;           /* elems used */
-		size_t nalloc;          /* elems allocated */
+		size_t nused;			/* elems used */
+		size_t nalloc;  	        /* elems allocated */
+
+		varr_e_init_t e_init;		/* init elem */
+		varr_e_destroy_t e_destroy;	/* destroy elem */
 	};
 
 
-	void
-	varr_init(varr *v, size_t nsize, size_t nstep);
+void
+varr_init(varr *v, size_t nsize, size_t nstep);
 
-		`varr_init' initializes `nsize' and `nstep' fields of `v'.
-		all the functions expect that `nsize' and 
-
-
-	void
-	varr_destroy(varr *v);
-
-		`varr_destroy' frees all the memory allocated for `v'.
+	`varr_init' initializes `nsize' and `nstep' fields of `v'.
+	all the functions expect that `nsize' and 
 
 
-	varr_get(v, i);
+void
+varr_destroy(varr *v);
 
-		`varr_get' is a macro which returns the pointer to
+	`varr_destroy' frees all the memory allocated for `v'.
+
+
+varr_get(v, i);
+
+	`varr_get' is a macro which returns the pointer to
 	i'th element of `v' or NULL such element does not exist
 	(`i' is out of bounds).
 
 
-	VARR_GET(v, i)
+VARR_GET(v, i)
 
-		`VARR_GET' is a macro which returns the pointer to
+	`VARR_GET' is a macro which returns the pointer to
 	i'th element of `v' without any bounds checking. `VARR_GET'
 	never returns NULL and should be used only if it is known that
 	`i' is not out of bounds. e.g.: within iteration
 
-		for (i = 0; i < v.nused; i++) {
-			foo_t* fp = (foo_t*) VARR_GET(&v, i);
-			/* do something */
-		}
+	for (i = 0; i < v.nused; i++) {
+		foo_t* fp = (foo_t*) VARR_GET(&v, i);
+		/* do something */
+	}
 
 
-	void *
-	varr_touch(varr *v, size_t i);
+void *
+varr_touch(varr *v, size_t i);
 
-		`varr_touch' returns the pointer to i'th element of `v'.
+	`varr_touch' returns the pointer to i'th element of `v'.
 	if the number of elems currently allocated for `v' is less than
 	`i' then `v' will be extended accordingly.
 
+
+			PART X-1. TEXT OUTPUT.
+			----------------------
+
+	Please note that proper translation can be made only if you
+	are using act-like functions (functions that accept act-style format)
+	for printing messages. printf-like functions should not be used at
+	all for generating output text. `act' already has all the needed
+	formatting capabilities (and if it does not -- you should implement
+	them in `act'). In Rom 2.4 single-line messages without any
+	formatting (like "Sun light disturbs you.\n") were printed
+	via `send_to_char'. In SoG `act' should be used everywhere.
+
+
+void
+send_to_char(const char *txt, CHAR_DATA *ch);
+
+	`send_to_char' prints `txt' to `ch'. The only translation
+	made within `send_to_char' is color codes ({x) expansion.
+	Normally `send_to_char' should not be used at all. It is intended
+	only for compatibility purposes and internal use. 
+
+
+void
+char_puts(const char *txt, CHAR_DATA *ch);
+
+	`char_puts' prints `txt' to `ch' via `send_to_char'.
+	`txt' is translated via msgdb. Normally `char_puts' should not
+	be used at all except for printing "Huh?\n" and "Ok.\n" messages.
+
+
+void
+char_printf(CHAR_DATA *ch, const char *format, ...);
+
+	`char_printf' is printf-like function. `format' is
+	translated via msgdb. The result is printed to `ch' via
+	`send_to_char'.
+
+	`char_printf' was implemented in the early versions of SoG and
+	exists only because a lot of code (OLC) uses `char_printf'.
+	The use of `char_printf' should be limited to those modules
+	where it was decided to not to do translation (OLC, wiz-functions).
+
+
+void
+page_to_char(const char *txt, CHAR_DATA *ch);
+
+	`page_to_char' prints `txt' to `ch' via `send_to_char'
+	with pager. No `txt' translation/conversion is made within
+	`page_to_char'. Usually `page_to_char' is used with buffers
+	(buffer_t). E.g.:
+
+	buffer_t *buf = buf_new(-1);
+	buf_add(buf, ...);
+	...
+	...
+	page_to_char(buf_string(buf), ch);
+	buf_free(buf);
+
+
+act-like functions
+------------------
+
+void    act_puts3(const char *format, CHAR_DATA *ch,
+		  const void *arg1, const void *arg2, const void *arg3,
+		  int act_flags, int min_pos);
+#define act(format, ch, arg1, arg2, type) \
+		act_puts((format), (ch), (arg1), (arg2), (type), POS_RESTING)
+#define act_puts(format, ch, arg1, arg2, type, min_pos)		\
+		act_puts3((format), (ch), (arg1), (arg2), NULL,	\
+			  (type), (min_pos))
+
+/* the following 5 act target flags are exclusive */
+#define TO_ROOM		(A)
+#define TO_NOTVICT	(B)
+#define TO_VICT		(C)
+#define TO_CHAR		(D)
+#define TO_ALL		(E)
+
+#define ACT_TOBUF	(F)	/* append to replay buffer if link-dead */
+#define ACT_NOTRIG	(G)	/* do not pull act triggers */
+#define ACT_NOTWIT	(H)	/* do not perform twit list checking */
+#define ACT_NOTRANS	(I)	/* do not perform $t, $T, $u and $U transl. */
+#define ACT_NODEAF	(J)	/* skip is_affected(to, gsn_deafen) chars   */
+#define ACT_STRANS	(K)	/* do $t and $T slang translation (from ch) */
+#define ACT_NOMORTAL	(L)	/* skip mortals */
+#define ACT_VERBOSE	(M)	/* skip if (!IS_SET(ch->comm, COMM_VERBOSE)) */
+#define ACT_NOLF	(N)	/* do not append lf */
+#define ACT_NOUCASE	(O)	/* do not uppercase first letter */
+#define ACT_FORMSH	(P)	/* call format_short for short descrs */
+#define ACT_NOFIXSH	(Q)	/* do not fix char/obj short descrs */
+#define ACT_NOFIXTEXT	(R)	/* do not call fix_short for text args */
+#define ACT_SPEECH(ch)	(ACT_NODEAF | ACT_STRANS | ACT_NOFIXTEXT |	\
+		  	 (!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM) ?	\
+				ACT_NOTRANS : 0))
+
+/*
+ * ->to must not be NULL for all char/obj formatting or if ACT_STRANS is set
+ * other formatting functions use opt->to_lang/opt->to_sex instead
+ */
+
+typedef struct actopt_t {
+	int to_lang;
+	int to_sex;
+	int act_flags;
+} actopt_t;
+
+void	act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
+		const void *arg1, const void *arg2, const void *arg3,
+		actopt_t *opt, char *buf, size_t buf_len);
+/*
+ * formatting stuff
+ */
+
+const char *fix_short	(const char *short_descr);
+const char *format_short(mlstring *mshort, const char *name,
+			 CHAR_DATA *to, int act_flags);
+const char *format_long	(mlstring *desc, CHAR_DATA *to);
+
+#define PERS(ch, looker) PERS2(ch, looker, 0)
+const char* PERS2(CHAR_DATA *ch, CHAR_DATA *looker, int act_flags);
+
+
+/*
+ * misc comm act-like functions
+ */
+const char *	act_speech(CHAR_DATA *ch, CHAR_DATA *vch,
+			   const char *text, const void *arg);
+
+void	act_yell(CHAR_DATA *ch, const char *text, const void *arg,
+		 const char *format);
+void	act_clan(CHAR_DATA *ch, const char *text, const void *arg);
+void	act_say(CHAR_DATA *ch, const char *text, const void *arg);
 
 			PART X. MODULES
 			---------------

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234 1999-09-25 12:10:44 avn Exp $
+ * $Id: merc.h,v 1.235 1999-10-06 09:55:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -68,11 +68,12 @@
 #include "const.h"
 
 /* basic types */
-#include "namedp.h"
 #include "buffer.h"
 #include "str.h"
+#include "namelist.h"
 #include "mlstring.h"
 #include "varr.h"
+#include "hash.h"
 #include "flag.h"
 #include "cmd.h"
 
@@ -80,7 +81,6 @@
 #include "comm.h"
 #include "comm_act.h"
 #include "memalloc.h"
-#include "gsn.h"
 #include "msg.h"
 #include "hometown.h"
 
@@ -90,11 +90,14 @@
 #include "lookup.h"
 
 #include "race.h"
+#include "affect.h"
+#include "raffect.h"
 #include "class.h"
 #include "clan.h"
+#include "spec.h"
 #include "skills.h"
-#include "raffect.h"
 #include "religion.h"
+#include "damtype.h"
 
 /*
  * configuration parameters
@@ -338,66 +341,11 @@ struct wiznet_type
 	int 		level;
 };
 
-struct attack_type
-{
-	char *	name;			/* name */
-	char *	noun;			/* message */
-	int 	damage; 		/* damage class */
-};
-
 struct spec_type
 {
 	char *		name;			/* special function name */
 	SPEC_FUN *	function;		/* the function */
 };
-
-/*-------------------------------------------------------------------
- * affects stuff
- */
-struct affect_data
-{
-	AFFECT_DATA *	next;
-	flag32_t	where;
-	int		type;
-	int		level;
-	int		duration;
-	int		location;
-	int		modifier;
-	flag64_t 	bitvector;
-};
-
-struct room_affect_data
-{
-	ROOM_AFFECT_DATA *	next;
-	flag32_t		where;
-	int			type;
-	int			level;
-	CHAR_DATA *		owner;
-	int			duration;
-	int			location;
-	int			modifier;
-	flag32_t		bitvector;
-	flag32_t		events;
-};
-
-/* where definitions */
-#define TO_AFFECTS	0
-#define TO_OBJECT	1
-#define TO_IMMUNE	2
-#define TO_RESIST	3
-#define TO_VULN 	4
-#define TO_WEAPON	5
-#define TO_SKILLS	6
-
-struct where_t
-{
-	flag32_t	where;
-	flag_t *	table;
-	const char *	format;
-};
-
-where_t *where_lookup(flag32_t where);
-
 /***************************************************************************
  *									   *
  *		     VALUES OF INTEREST TO AREA BUILDERS		   *
@@ -481,32 +429,6 @@ where_t *where_lookup(flag32_t where);
 #define ACT_SAGE		(hh)		/* sage (Otho etc.)	*/
 #define ACT_REPAIRMAN		(ii)
 #define ACT_FAMILIAR		(jj)		/* familiar 		*/
-
-/* damage classes */
-#define DAM_NONE		0
-#define DAM_BASH		1
-#define DAM_PIERCE		2
-#define DAM_SLASH		3
-#define DAM_FIRE		4
-#define DAM_COLD		5
-#define DAM_LIGHTNING		6
-#define DAM_ACID		7
-#define DAM_POISON		8
-#define DAM_NEGATIVE		9
-#define DAM_HOLY		10
-#define DAM_ENERGY		11
-#define DAM_MENTAL		12
-#define DAM_DISEASE		13
-#define DAM_DROWNING		14
-#define DAM_LIGHT		15
-#define DAM_OTHER		16
-#define DAM_HARM		17
-#define DAM_CHARM		18
-#define DAM_SOUND		19
-#define DAM_THIRST		20
-#define DAM_HUNGER		21
-#define DAM_LIGHT_V		22
-#define DAM_TRAP_ROOM		23
 
 /* OFF bits for mobiles *OFF  */
 #define OFF_AREA_ATTACK 	(A)
@@ -889,6 +811,8 @@ where_t *where_lookup(flag32_t where);
 #define WEAPON_LANCE		11
 #define	WEAPON_STAFF		12
 
+#define WEAPON_IS(obj, wclass)	(INT_VAL(obj->value[0]) == (wclass))
+
 /* weapon types */
 #define WEAPON_FLAMING		(A)
 #define WEAPON_FROST		(B)
@@ -1193,7 +1117,7 @@ enum {
 			REMOVE_BIT(PC(ch)->plr_flags, PLR_PUMPED);	\
 	}
 
-#define IS_VAMPIRE(ch)	(get_skill(ch, gsn_vampire) == 100)
+#define IS_VAMPIRE(ch)	(get_skill(ch, "vampire") == 100)
 
 /* RT comm flags -- may be used on both mobs and chars */
 #define COMM_QUIET		(A)
@@ -1288,7 +1212,7 @@ struct mob_index_data
 	int 			mana[3];
 	int			damage[3];
 	int			ac[4];
-	int			dam_type;
+	const char *		damtype;
 	flag64_t		act;
 	flag32_t		off_flags;
 	flag32_t		imm_flags;
@@ -1325,19 +1249,19 @@ void 		char_free	(CHAR_DATA *ch);
 #define SAVE_F_REBOOT	(C)
 #define SAVE_F_PSCAN	(D)
 
-/*
- * if d == NULL then fake decriptor is created and data is read into it
- * char should be destroyed with char_nuke if it was created by
- * char_load(..., NULL, ...);
- * this behavior is implemented for load/unload operations with
- * pfiles without inserting them into char_list
- */
 CHAR_DATA *	char_load	(const char *name, int flags);
 void		char_save	(CHAR_DATA *ch, int flags);
 void		char_nuke	(CHAR_DATA *ch);
-void		move_pfile	(const char *name, int minvnum, int maxvnum,
-				 int delta);
+void		move_pfile	(const char *name,
+				 int minvnum, int maxvnum, int delta);
 void		move_pfiles	(int minvnum, int maxvnum, int delta);
+
+void	objval_init	(flag32_t item_type, vo_t *v);
+void	objval_cpy	(flag32_t item_type, vo_t *dst, vo_t *src);
+void	objval_destroy	(flag32_t item_type, vo_t *v);
+
+void	fwrite_objval	(flag32_t item_type, vo_t *v, FILE *fp);
+void	fread_objval	(flag32_t item_type, vo_t *v, FILE *fp);
 
 /*
  * Common data for both PC and NPC.
@@ -1403,7 +1327,7 @@ struct char_data
 	int			alignment;
 	int			hitroll;
 	int			damroll;
-	int			dam_type;
+	const char *		damtype;
 	int			armor[4];
 	int			wimpy;
 
@@ -1471,7 +1395,8 @@ struct pc_data
 	flag32_t		plr_flags;
 	flag32_t		wiznet; /* wiz stuff */
 	int			condition	[MAX_COND];
-	varr			learned;
+	varr			learned;	/* pc_skill_t */
+	varr			specs;		/* spec names */
 	int			points;
 	int 			security;	/* OLC */ /* Builder security */
 	int			bank_s;
@@ -1528,14 +1453,16 @@ struct pc_data
 /*
  * PC learned skill
  */
-struct pcskill_t {
-	int sn;		/* skill number. leave this field first		*/
-			/* in order sn_vlookup to work properly		*/
-	int percent;	/* skill percentage				*/
+typedef struct pc_skill_t pc_skill_t;
+struct pc_skill_t {
+	const char *sn;	/* skill name				*/
+	int percent;	/* skill percentage			*/
 };
 
-#define pcskill_lookup(ch, sn) \
-	((pcskill_t*) varr_bsearch(&PC(ch)->learned, &sn, cmpint))
+#define pc_skill_lookup(ch, sn) \
+	((pc_skill_t*) varr_bsearch(&PC(ch)->learned, &sn, cmpstr))
+
+void pc_skill_init(pc_skill_t *);
 
 /*
  * Liquids.
@@ -1598,7 +1525,7 @@ struct obj_index_data
 	int			count;
 	int			weight;
 	uint 			cost;
-	int 			value[5];
+	vo_t 			value[5];
 	int 			limit;
 	OPROG_FUN **		oprogs;
 	int			clan;
@@ -1632,7 +1559,7 @@ struct obj_data
 	int			condition;
 	const char *		material;
 	int			timer;
-	int 			value	[5];
+	vo_t 			value[5];
 	int 			progtypes;
 	mlstring		owner;
 	altar_t *		altar;
@@ -1743,7 +1670,7 @@ struct room_index_data
 	ROOM_HISTORY_DATA * 	history;
 	ROOM_AFFECT_DATA *	affected;
 	flag32_t		affected_by;
-	flag32_t		events;
+	flag32_t		revents;
 };
 
 /*
@@ -1792,9 +1719,7 @@ struct mpcode
  * Must be non-overlapping with spell/skill types,
  * but may be arbitrary beyond that.
  */
-#define TYPE_UNDEFINED		     -1
-#define TYPE_HIT		     1000
-#define TYPE_HUNGER		     999
+#define TYPE_UNDEFINED		     str_empty
 
 /*
  *  Target types.
@@ -1880,7 +1805,8 @@ void SET_ORG_RACE(CHAR_DATA *ch, int race);
 #define COINS_WEIGHT(gold, silver) ((silver) / 10 + (gold) * 2 / 5)
 #define get_carry_weight(ch)	((ch)->carry_weight +			\
 				 COINS_WEIGHT((ch)->silver, (ch)->gold))
-#define MONEY_WEIGHT(obj)	COINS_WEIGHT(obj->value[0], obj->value[1])
+#define MONEY_WEIGHT(obj)	COINS_WEIGHT(INT_VAL(obj->value[0]),	\
+					     INT_VAL(obj->value[1]))
 
 #define HAS_TRIGGER(ch,trig)	(IS_SET((ch)->pMobIndex->mptrig_types, (trig)))
 #define IS_SWITCHED( ch )       (ch->desc && ch->desc->original)
@@ -1910,9 +1836,9 @@ void SET_ORG_RACE(CHAR_DATA *ch, int race);
  */
 #define CAN_WEAR(obj, part)	(IS_SET((obj)->wear_flags,  (part)))
 #define IS_OBJ_STAT(obj, stat)	(IS_SET((obj)->extra_flags, (stat)))
-#define IS_WEAPON_STAT(obj,stat)(IS_SET((obj)->value[4],(stat)))
+#define IS_WEAPON_STAT(obj,stat)(IS_SET(INT_VAL((obj)->value[4]), (stat)))
 #define WEIGHT_MULT(obj)	((obj)->pObjIndex->item_type == ITEM_CONTAINER ? \
-	(obj)->value[4] : 100)
+	INT_VAL((obj)->value[4]) : 100)
 
 /*
  * Description macros.
@@ -1930,7 +1856,6 @@ extern	const	struct dex_app_type	dex_app 	[26];
 extern	const	struct con_app_type	con_app 	[26];
 
 extern	const	struct wiznet_type	wiznet_table	[];
-extern	const	struct attack_type	attack_table	[];
 extern	const	struct spec_type	spec_table	[];
 extern	const	struct liq_type		liq_table	[];
 
@@ -1992,12 +1917,9 @@ void	scream_effect	(void *vo, int level, int dam, int target);
 
 /* handler.c */
 const char *get_stat_alias(CHAR_DATA *ch, int stat);
-AFFECT_DATA	*affect_find (AFFECT_DATA *paf, int sn);
-void	affect_check	(CHAR_DATA *ch, int where, flag64_t vector);
 int	count_users	(OBJ_DATA *obj);
 void	deduct_cost	(CHAR_DATA *ch, uint cost);
-void	affect_enchant	(OBJ_DATA *obj);
-int	check_immune	(CHAR_DATA *ch, int dam_type);
+int	check_immune	(CHAR_DATA *ch, int dam_class);
 bool	check_material	(OBJ_DATA *obj, char *material);
 int	check_exit	(const char *arg);
 bool	is_metal	(OBJ_DATA *obj);
@@ -2011,32 +1933,7 @@ int	can_carry_n	(CHAR_DATA *ch);
 int	can_carry_w	(CHAR_DATA *ch);
 int	age_to_num	(int);
 
-bool	is_name 	(const char *str, const char *namelist);
-bool	is_name_raw	(const char *str, const char *namelist,
-			 int (*cmpfun)(const char*, const char*));
-bool	name_add	(const char **namelist, const char *name,
-			 CHAR_DATA *ch, const char *editor_name);
-bool	name_delete	(const char **namelist, const char *name,
-			 CHAR_DATA *ch, const char *editor_name);
-bool	name_toggle	(const char **namelist, const char *name,
-			 CHAR_DATA *ch, const char *editor_name);
-
 bool	pc_name_ok	(const char *name);
-void	affect_to_char	(CHAR_DATA *ch, AFFECT_DATA *paf);
-void	affect_to_obj	(OBJ_DATA *obj, AFFECT_DATA *paf);
-void	affect_remove	(CHAR_DATA *ch, AFFECT_DATA *paf);
-void	affect_remove_obj (OBJ_DATA *obj, AFFECT_DATA *paf);
-void	affect_strip	(CHAR_DATA *ch, int sn);
-void	affect_bit_strip(CHAR_DATA *ch, int where, flag64_t bits);
-bool	is_affected	(CHAR_DATA *ch, int sn);
-bool	is_bit_affected	(CHAR_DATA *ch, int where, flag64_t bits);
-int	has_obj_affect	(CHAR_DATA *ch, int vector);
-void	affect_to_room	(ROOM_INDEX_DATA *room, ROOM_AFFECT_DATA *paf);
-void	affect_remove_room	(ROOM_INDEX_DATA *room, ROOM_AFFECT_DATA *paf);
-void	affect_strip_room	(ROOM_INDEX_DATA *ch, int sn);
-bool	is_affected_room	(ROOM_INDEX_DATA *ch, int sn);
-void	affect_join_room	(ROOM_INDEX_DATA *ch, ROOM_AFFECT_DATA *paf);
-void	affect_join	(CHAR_DATA *ch, AFFECT_DATA *paf);
 void	char_from_room	(CHAR_DATA *ch);
 void	char_to_room	(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex);
 void	obj_to_char	(OBJ_DATA *obj, CHAR_DATA *ch);
@@ -2096,7 +1993,7 @@ bool	can_see_room	(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex);
 bool	can_drop_obj	(CHAR_DATA *ch, OBJ_DATA *obj);
 void	room_record	(const char *name, ROOM_INDEX_DATA *room,int door);
 bool	is_safe_rspell	(ROOM_AFFECT_DATA *raf, CHAR_DATA *victim);
-EVENT_FUN*	get_event_fun	(int sn, int event);
+REVENT_FUN*	get_event_fun	(int sn, int event);
 int	count_charmed	(CHAR_DATA *ch);
 
 /*
@@ -2120,17 +2017,10 @@ void	look_at(CHAR_DATA *ch, ROOM_INDEX_DATA *room);
 
 void	recall(CHAR_DATA *ch, ROOM_INDEX_DATA *room);
 
-/* format_obj_affects flags */
-#define FOA_F_NODURATION	(A)	/* do not show duration		*/
-#define FOA_F_NOAFFECTS		(B)	/* do not show bit affects	*/
-
-void format_obj(BUFFER *output, OBJ_DATA *obj);
-void format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags);
-
 int	get_wear_level(CHAR_DATA *ch, OBJ_DATA *obj);
 
-bool	saves_spell	(int level, CHAR_DATA *victim, int dam_type);
-bool	check_dispel	(int dis_level, CHAR_DATA *victim, int sn);
+bool	saves_spell	(int level, CHAR_DATA *victim, int dam_class);
+bool	check_dispel	(int dis_level, CHAR_DATA *victim, const char *sn);
 bool	saves_dispel	(int dis_level, int spell_level, int duration);
 
 extern const char *target_name;
@@ -2138,9 +2028,9 @@ extern const char *target_name;
 bool	spellbane	(CHAR_DATA *bch, CHAR_DATA *ch,
 			 int bane_chance, int bane_damage);
 bool	check_trust	(CHAR_DATA *ch, CHAR_DATA *victim);
-void	obj_cast_spell	(int sn, int level, CHAR_DATA *ch, void *vo);
-void	spellfun_call	(const char *name, int level, CHAR_DATA *ch, void *vo);
-void	spellfun_call2	(const char *name, int sn, int level, CHAR_DATA *ch, void *vo);
+void	obj_cast_spell	(const char *sn, int level, CHAR_DATA *ch, void *vo);
+void	spellfun_call	(const char *sn_fun,
+			 const char *sn, int level, CHAR_DATA *ch, void *vo);
 
 bool remove_obj (CHAR_DATA * ch, int iWear, bool fReplace);
 void wear_obj   (CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace);
@@ -2168,9 +2058,8 @@ const char *	first_arg	(const char *argument, char *arg_first, size_t,
 void		delete_player	(CHAR_DATA *victim, char* msg);
 
 /* special.c */
-SPEC_FUN *	spec_lookup	(const char *name);
-char *	spec_name	(SPEC_FUN *function);
-
+SPEC_FUN *	mob_spec_lookup	(const char *name);
+char *		mob_spec_name(SPEC_FUN *function);
 
 RESET_DATA *	reset_new	(void);
 void		reset_free	(RESET_DATA *pReset);
@@ -2349,7 +2238,6 @@ void	track_update	(void);
 void	obj_update	(void);
 void	clan_item_update(void);
 void	weather_update	(void);
-
 
 #endif
 

@@ -1,5 +1,5 @@
 /*
- * $Id: lookup.c,v 1.17 1999-06-24 16:33:15 fjoe Exp $
+ * $Id: lookup.c,v 1.18 1999-10-06 09:56:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -75,37 +75,6 @@ void show_liq_types(BUFFER *output)
 	col = 0;
 	for (liq = 0; liq_table[liq].liq_name; liq++) {
 		buf_printf(output, "%-19.18s", liq_table[liq].liq_name);
-		if (++col % 4 == 0)
-			buf_add(output, "\n");
-	}
- 
-	if (col % 4)
-		buf_add(output, "\n");
-}
-
-int attack_lookup(const char *name)
-{
-	int att;
-
-	for (att = 0; attack_table[att].name; att++) {
-		if (LOWER(name[0]) == LOWER(attack_table[att].name[0])
-		&&  !str_prefix(name, attack_table[att].name))
-			return att;
-	}
-
-	if (fBootDb)
-		db_error("attack_lookup", "%s: Unknown attack name", name);
-	return -1;
-}
-
-void show_attack_types(BUFFER *output)
-{
-	int  att;
-	int  col;
- 
-	col = 0;
-	for (att = 0; attack_table[att].name; att++) {
-		buf_printf(output, "%-19.18s", attack_table[att].name);
 		if (++col % 4 == 0)
 			buf_add(output, "\n");
 	}

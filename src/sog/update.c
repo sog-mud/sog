@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157 1999-09-30 00:23:29 avn Exp $
+ * $Id: update.c,v 1.158 1999-10-06 09:56:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -68,9 +68,7 @@ void	aggr_update	(void);
 void 	clan_item_update(void);
 int	potion_cure_level	(OBJ_DATA *potion);
 int	potion_arm_level	(OBJ_DATA *potion);
-bool	potion_cure_blind	(OBJ_DATA *potion);
-bool	potion_cure_poison	(OBJ_DATA *potion);
-bool	potion_cure_disease	(OBJ_DATA *potion);
+bool	is_potion		(OBJ_DATA *potion, const char *sn);
 
 /* below done by chronos */
 void    quest_update    args((void));
@@ -107,6 +105,7 @@ void advance_level(CHAR_DATA *ch)
 	}
 
 	set_title(ch, title_lookup(ch));
+	update_skills(ch);
 
 	if (PC(ch)->plevels > 0) {
 		PC(ch)->plevels--;
@@ -270,16 +269,16 @@ int hit_gain(CHAR_DATA *ch)
 			       (7 * ch->level) / 4); 
 		gain = (gain * cl->hp_rate) / 100;
  		number = number_percent();
-		if (number < get_skill(ch, gsn_fast_healing)) {
+		if (number < get_skill(ch, "fast healing")) {
 			gain += number * gain / 100;
 			if (ch->hit < ch->max_hit)
-				check_improve(ch, gsn_fast_healing, TRUE, 8);
+				check_improve(ch, "fast healing", TRUE, 8);
 		}
 
-		if (number < get_skill(ch, gsn_trance)) {
+		if (number < get_skill(ch, "trance")) {
 			gain += number * gain / 150;
 			if (ch->hit < ch->max_hit)
-				check_improve(ch, gsn_trance, TRUE, 8);
+				check_improve(ch, "trance", TRUE, 8);
 		}
 
 		switch (ch->position) {
@@ -299,7 +298,7 @@ int hit_gain(CHAR_DATA *ch)
 	gain = gain * ch->in_room->heal_rate / 100;
 	
 	if (ch->on != NULL && ch->on->pObjIndex->item_type == ITEM_FURNITURE)
-		gain = gain * ch->on->value[3] / 100;
+		gain = gain * INT_VAL(ch->on->value[3]) / 100;
 
 	if (IS_AFFECTED(ch, AFF_POISON))
 		gain /= 4;
@@ -345,16 +344,16 @@ int mana_gain(CHAR_DATA *ch)
 		       (2 * get_curr_stat(ch, STAT_INT)) + ch->level;
 		gain = (gain * cl->mana_rate) / 100;
 		number = number_percent();
-		if (number < get_skill(ch, gsn_meditation)) {
+		if (number < get_skill(ch, "meditation")) {
 			gain += number * gain / 100;
 			if (ch->mana < ch->max_mana)
-				check_improve(ch, gsn_meditation, TRUE, 8);
+				check_improve(ch, "meditation", TRUE, 8);
 		}
 
-		if (number < get_skill(ch, gsn_trance)) {
+		if (number < get_skill(ch, "trance")) {
 			gain += number * gain / 100;
 			if (ch->mana < ch->max_mana)
-				check_improve(ch, gsn_trance, TRUE, 8);
+				check_improve(ch, "trance", TRUE, 8);
 		}
 
 		if (!IS_SET(cl->class_flags, CLASS_MAGIC))
@@ -375,7 +374,7 @@ int mana_gain(CHAR_DATA *ch)
 	gain = gain * ch->in_room->mana_rate / 100;
 
 	if (ch->on != NULL && ch->on->pObjIndex->item_type == ITEM_FURNITURE)
-		gain = gain * ch->on->value[4] / 100;
+		gain = gain * INT_VAL(ch->on->value[4]) / 100;
 
 	if (IS_AFFECTED(ch, AFF_POISON))
 		gain /= 4;
@@ -395,7 +394,7 @@ int mana_gain(CHAR_DATA *ch)
 		gain = (gain * 11) / 10;
 	if (IS_HARA_KIRI(ch))
 		gain *= 3;
-	if (is_affected(ch, gsn_lich))
+	if (is_affected(ch, "lich"))
 		gain -= 2*ch->level;
 
 	return UMIN(gain, ch->max_mana - ch->mana);
@@ -431,7 +430,7 @@ int move_gain(CHAR_DATA *ch)
 	gain = gain * ch->in_room->heal_rate/100;
 
 	if (ch->on != NULL && ch->on->pObjIndex->item_type == ITEM_FURNITURE)
-		gain = gain * ch->on->value[3] / 100;
+		gain = gain * INT_VAL(ch->on->value[3]) / 100;
 
 	if (IS_AFFECTED(ch, AFF_POISON))
 		gain /= 4;
@@ -515,8 +514,8 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 			damage_hunger = ch->max_hit * number_range(2, 4) / 100;
 			if (!damage_hunger)
 				damage_hunger = 1;
-			damage(ch, ch, damage_hunger, TYPE_HUNGER, DAM_HUNGER,
-			       TRUE);
+			damage(ch, ch, damage_hunger, TYPE_UNDEFINED,
+			       DAM_HUNGER, DAMF_SHOW | DAMF_HUNGER);
 			if (ch->position == POS_SLEEPING) 
 				return;       
 			break;
@@ -527,8 +526,8 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 			damage_hunger = ch->max_hit * number_range(2, 4) / 100;
 			if (!damage_hunger)
 				damage_hunger = 1;
-			damage(ch, ch, damage_hunger, TYPE_HUNGER, DAM_THIRST,
-			       TRUE);
+			damage(ch, ch, damage_hunger, TYPE_UNDEFINED,
+				DAM_THIRST, DAMF_SHOW | DAMF_HUNGER);
 			if (ch->position == POS_SLEEPING) 
 				return;       
 			break;
@@ -567,8 +566,8 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 			damage_hunger = ch->max_hit * number_range(2, 4) / 100;
 			if (!damage_hunger)
 				damage_hunger = 1;
-			damage(ch, ch, damage_hunger, TYPE_HUNGER, DAM_THIRST,
-			       TRUE);
+			damage(ch, ch, damage_hunger, TYPE_UNDEFINED,
+				DAM_THIRST, DAMF_SHOW | DAMF_HUNGER);
 			if (ch->position == POS_SLEEPING) 
 				return;       		
 			break;
@@ -762,19 +761,19 @@ void mobile_update(void)
 				}
 
 				if (IS_AFFECTED(ch, AFF_POISON)
-				&&  potion_cure_poison(obj)) {
+				&&  is_potion(obj, "cure poison")) {
 					quaff_obj(ch, obj);
 					continue;
 				}
 
 				if (IS_AFFECTED(ch, AFF_PLAGUE)
-				&&  potion_cure_disease(obj)) {
+				&&  is_potion(obj, "cure disease")) {
 					quaff_obj(ch, obj);
 					continue;
 				}
 
 				if (IS_AFFECTED(ch, AFF_BLIND)
-				&&  potion_cure_blind(obj)) {
+				&&  is_potion(obj, "cure blindness")) {
 					quaff_obj(ch, obj);
 					continue;
 				}
@@ -863,13 +862,13 @@ int i;
   cl = 0;
   for (i=1;i<5;i++)
   {
-	if (sn_lookup("cure critical") == potion->value[i])
+	if (SKILL_IS(potion->value[i].s, "cure critical"))
 	  cl += 3;
-	if (sn_lookup("cure light") == potion->value[i])
+	if (SKILL_IS(potion->value[i].s, "cure light"))
 	  cl += 1;
-	if (sn_lookup("cure serious") == potion->value[i])
+	if (SKILL_IS(potion->value[i].s, "cure serious"))
 	  cl += 2;
-	if (sn_lookup("heal") == potion->value[i])
+	if (SKILL_IS(potion->value[i].s, "heal"))
 	  cl += 4;
   }
   return(cl);
@@ -881,49 +880,28 @@ int i;
   al = 0;
   for (i=1;i<5;i++)
   {
-	if (sn_lookup("armor") == potion->value[i])
+	if (SKILL_IS(potion->value[i].s, "armor"))
 	  al += 1;
-	if (sn_lookup("shield") == potion->value[i])
+	if (SKILL_IS(potion->value[i].s, "shield"))
 	  al += 1;
-	if (sn_lookup("stone skin") == potion->value[i])
+	if (SKILL_IS(potion->value[i].s, "stone skin"))
 	  al += 2;
-	if (sn_lookup("sanctuary") == potion->value[i])
+	if (SKILL_IS(potion->value[i].s, "sanctuary"))
 	  al += 4;
-	if (sn_lookup("protection") == potion->value[i])
+	if (SKILL_IS(potion->value[i].s, "protection"))
 	  al += 3;
   }
   return(al);
 }
 
-bool potion_cure_blind(OBJ_DATA *potion)
+bool is_potion(OBJ_DATA *potion, const char *sn)
 {
-int i;
-  for (i=0;i<5;i++)
-  {
-	if (sn_lookup("cure blindness") == potion->value[i])
-	  return(TRUE);
-  }
-  return(FALSE);
-}
-bool potion_cure_poison(OBJ_DATA *potion)
-{
-int i;
-  for (i=0;i<5;i++)
-  {
-	if (sn_lookup("cure poison") == potion->value[i])
-	  return(TRUE);
-  }
-  return(FALSE);
-}
-bool potion_cure_disease(OBJ_DATA *potion)
-{
-int i;
-  for (i=0;i<5;i++)
-  {
-	if (sn_lookup("cure disease") == potion->value[i])
-	  return(TRUE);
-  }
-  return(FALSE);
+	int i;
+	for (i = 0; i < 5; i++) {
+		if (SKILL_IS(potion->value[i].s, sn))
+			return TRUE;
+	}
+	return FALSE;
 }
 
 /*
@@ -1071,13 +1049,13 @@ void char_update(void)
 			continue;
 
 		/* reset path find */
-		if (!IS_NPC(ch) && (chance = get_skill(ch, gsn_path_find))) {
+		if (!IS_NPC(ch) && (chance = get_skill(ch, "path find"))) {
 			if (number_percent() < chance) {
 				ch->endur += chance / 2;
-				check_improve(ch, gsn_path_find, TRUE, 8);
+				check_improve(ch, "path find", TRUE, 8);
 			}
 			else
-				check_improve(ch, gsn_path_find, FALSE, 16);
+				check_improve(ch, "path find", FALSE, 16);
 		}
 		
 		if (!ch->fighting) {
@@ -1086,8 +1064,8 @@ void char_update(void)
 			affect_check(ch, TO_AFFECTS, -1);
 
 			/* Remove caltrops effect after fight off */
-			if (is_affected(ch, gsn_caltrops))
-				affect_strip(ch, gsn_caltrops);
+			if (is_affected(ch, "caltrops"))
+				affect_strip(ch, "caltrops");
 
 			if (!MOUNTED(ch)) {
 				if (!IS_AFFECTED(ch, AFF_HIDE) 
@@ -1107,16 +1085,16 @@ void char_update(void)
 		}
 
 		/* Remove vampire effect when morning. */
-		if (is_affected(ch, gsn_vampire)
+		if (is_affected(ch, "vampire")
 		&&  (weather_info.sunlight == SUN_LIGHT ||
 		     weather_info.sunlight == SUN_RISE))
 			dofun("human", ch, str_empty);
 
-		if (!IS_NPC(ch) && is_affected(ch, gsn_thumbling)) {
+		if (!IS_NPC(ch) && is_affected(ch, "thumbling")) {
 			if (dice(5, 6) > get_curr_stat(ch, STAT_DEX)) {
 				act("You failed to reach the true source of tennis ball power.", ch, NULL, NULL, TO_CHAR);
 				act("$n falls to the ground flat on $s face.", ch, NULL, NULL, TO_ROOM);
-				affect_strip(ch, gsn_thumbling);
+				affect_strip(ch, "thumbling");
 			}
 		}
 
@@ -1174,8 +1152,8 @@ void char_update(void)
 
 			if ((obj = get_eq_char(ch, WEAR_LIGHT))
 			&&  obj->pObjIndex->item_type == ITEM_LIGHT
-			&&  obj->value[2] > 0) {
-				if (--obj->value[2] == 0) {
+			&&  INT_VAL(obj->value[2]) > 0) {
+				if (--INT_VAL(obj->value[2]) == 0) {
 					if (ch->in_room->light > 0)
 						--ch->in_room->light;
 					act("$p goes out.",
@@ -1183,8 +1161,7 @@ void char_update(void)
 					act("$p flickers and goes out.",
 					    ch, obj, NULL, TO_CHAR);
 					extract_obj(obj, 0);
-				}
-				else if (obj->value[2] <= 5)
+				} else if (INT_VAL(obj->value[2]) <= 5)
 					act("$p flickers.",
 					    ch, obj, NULL, TO_CHAR);
 			}
@@ -1247,7 +1224,7 @@ void char_update(void)
 				 * this code will be replaced
 				 * with aff_remove callbacks
 				 */
-				if (paf->type == gsn_bone_dragon) {
+				if (SKILL_IS(paf->type, "bone dragon")) {
 					hatchout_dragon(ch, paf);
 
 					if (IS_EXTRACTED(ch))
@@ -1267,7 +1244,7 @@ void char_update(void)
 		 *   as it may be lethal damage (on NPC).
 		 */
 
-		if (is_affected(ch, gsn_witch_curse)) {
+		if (is_affected(ch, "witch curse")) {
 			AFFECT_DATA *af, witch;
 	
 			if (ch->in_room == NULL)
@@ -1278,7 +1255,7 @@ void char_update(void)
 			char_puts("The witch curse makes you feeling your life slipping away.\n", ch);
 	
 			for (af = ch->affected; af!= NULL; af = af->next)
-				if (af->type == gsn_witch_curse)
+				if (SKILL_IS(af->type, "witch curse"))
 					break;
 
 			if (af == NULL)
@@ -1321,8 +1298,8 @@ void char_update(void)
 			    ch, NULL, NULL, TO_ROOM);
 			char_puts("You writhe in agony from the plague.\n", ch);
 			for (af = ch->affected; af != NULL; af = af->next)
-				if (af->type == gsn_plague)
-				break;
+				if (SKILL_IS(af->type, "plague"))
+					break;
 	    
 			if (af == NULL) {
 				REMOVE_BIT(ch->affected_by, AFF_PLAGUE);
@@ -1333,7 +1310,7 @@ void char_update(void)
 				continue;
 	    
 			plague.where 	 = TO_AFFECTS;
-			plague.type 	 = gsn_plague;
+			plague.type 	 = "plague";
 			plague.level 	 = af->level - 1; 
 			plague.duration	 = number_range(1,2 * plague.level);
 			plague.location	 = APPLY_STR;
@@ -1357,22 +1334,22 @@ void char_update(void)
 			dam = UMIN(ch->level, af->level/5 + 1);
 			ch->mana -= dam;
 			ch->move -= dam;
-			damage(ch, ch, dam, gsn_plague, DAM_DISEASE,FALSE);
+			damage(ch, ch, dam, "plague", DAM_DISEASE,FALSE);
 			if (number_range(1, 100) < 70)
 				damage(ch, ch, UMAX(ch->max_hit/20, 50), 
-				       gsn_plague, DAM_DISEASE, TRUE);
+				       "plague", DAM_DISEASE, TRUE);
 		}
 		else if (IS_AFFECTED(ch, AFF_POISON) && ch != NULL
 		     &&  !IS_AFFECTED(ch, AFF_SLOW)) {
 			AFFECT_DATA *poison;
 
-			poison = affect_find(ch->affected, gsn_poison);
+			poison = affect_find(ch->affected, "poison");
 
 			if (poison != NULL) {
 				act("$n shivers and suffers.",
 				    ch, NULL, NULL, TO_ROOM); 
 				char_puts("You shiver and suffer.\n", ch);
-				damage(ch, ch, poison->level/10 + 1, gsn_poison,
+				damage(ch, ch, poison->level/10 + 1, "poison",
 				       DAM_POISON, TRUE);
 			}
 		}
@@ -1415,12 +1392,14 @@ void water_float_update(void)
 						obj->water_float - 1 : -1;
 
 		if (obj->pObjIndex->item_type == ITEM_DRINK_CON) {
-			obj->value[1] = URANGE(1, obj->value[1]+8,
-					       obj->value[0]);
+			INT_VAL(obj->value[1]) =
+				URANGE(1, INT_VAL(obj->value[1]) + 8,
+				       INT_VAL(obj->value[0]));
 			if ((ch = obj->in_room->people))
 				act("$p makes bubbles on the water.", ch, obj,
 				    NULL, TO_ALL);
-			obj->water_float = obj->value[0]-obj->value[1];
+			obj->water_float = INT_VAL(obj->value[0]) -
+					   INT_VAL(obj->value[1]);
 			obj->value[2] = 0;
 		}
 		if (obj->water_float == 0) {
@@ -1852,7 +1831,7 @@ void aggr_update(void)
 
 			if (!is_safe_nomessage(ch, victim)) {
 				victim = check_guard(victim, ch); 
-				if (get_skill(ch, gsn_backstab))
+				if (get_skill(ch, "backstab"))
 					dofun("backstab", ch, victim->name);
 				else
 					multi_hit(ch, victim, TYPE_UNDEFINED);
@@ -1967,8 +1946,8 @@ void light_update(void)
 			continue;	
 
 		if (dam_light != 2
-		&&  number_percent() < get_skill(ch, gsn_light_resistance)) {
-			check_improve(ch, gsn_light_resistance, TRUE, 32);
+		&&  number_percent() < get_skill(ch, "light resistance")) {
+			check_improve(ch, "light resistance", TRUE, 32);
 			continue;
 		}
 
@@ -1978,7 +1957,8 @@ void light_update(void)
 			char_puts("Sun light disturbs you.\n",ch);
 
 		dam_light = 1 + (ch->max_hit * 4)/ 100;
-		damage(ch, ch, dam_light, TYPE_HUNGER, DAM_LIGHT_V, TRUE);
+		damage(ch, ch, dam_light, TYPE_UNDEFINED, DAM_LIGHT_V,
+			DAMF_SHOW | DAMF_HUNGER);
 
 		if (ch->position == POS_STUNNED)
 			update_pos(ch);
@@ -2025,7 +2005,7 @@ void room_affect_update(void)
 
 		for (vch = room->people; vch; vch = vch_next) {
 			vch_next = vch->next_in_room;
-			check_room_affects(vch, room, EVENT_UPDATE);
+			check_room_affects(vch, room, REVENT_UPDATE);
 		}
 	}
 }

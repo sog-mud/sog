@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271 1999-09-25 12:10:42 avn Exp $
+ * $Id: act_info.c,v 1.272 1999-10-06 09:55:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -489,28 +489,28 @@ static void do_look_in(CHAR_DATA* ch, const char *argument)
 		break;
 
 	case ITEM_DRINK_CON:
-		if (obj->value[1] == 0) {
+		if (INT_VAL(obj->value[1]) == 0) {
 			char_puts("It is empty.\n", ch);
 			break;
 		}
 
 		act_puts3("It's $ufilled with a $U liquid.",
 			  ch,
-			  obj->value[1] < 0 ?
+			  INT_VAL(obj->value[1]) < 0 ?
 				"" :
-			  obj->value[1] < obj->value[0] / 4 ?
+			  INT_VAL(obj->value[1]) < INT_VAL(obj->value[0]) / 4 ?
 				"less than half-" :
-			  obj->value[1] < 3 * obj->value[0] / 4 ?
+			  INT_VAL(obj->value[1]) < 3 * INT_VAL(obj->value[0]) / 4 ?
 			 	"about half-" :
 			 	"more than half-",
-			  obj, liq_table[obj->value[2]].liq_color,
+			  obj, liq_table[INT_VAL(obj->value[2])].liq_color,
 			  TO_CHAR, POS_DEAD);
 		break;
 
 	case ITEM_CONTAINER:
 	case ITEM_CORPSE_NPC:
 	case ITEM_CORPSE_PC:
-		if (IS_SET(obj->value[1], CONT_CLOSED) 
+		if (IS_SET(INT_VAL(obj->value[1]), CONT_CLOSED) 
 		&&  (!ch->clan ||
 		     clan_lookup(ch->clan)->altar_ptr != obj)) {
 			act("It is closed.", ch, obj, NULL, TO_CHAR);
@@ -627,16 +627,16 @@ void do_look(CHAR_DATA *ch, const char *argument)
 		show_char_to_char_1(victim, ch);
 
 		/* Love potion */
-		if (is_affected(ch, gsn_love_potion) && (victim != ch)) {
+		if (is_affected(ch, "love potion") && (victim != ch)) {
 			AFFECT_DATA af;
 
-			affect_strip(ch, gsn_love_potion);
+			affect_strip(ch, "love potion");
 
 			add_follower(ch, victim);
 			set_leader(ch, victim);
 
 			af.where = TO_AFFECTS;
-			af.type = gsn_charm_person;
+			af.type = "charm person";
 			af.level = ch->level;
 			af.duration =  number_fuzzy(victim->level / 4);
 			af.bitvector = AFF_CHARM;
@@ -813,26 +813,24 @@ void do_examine(CHAR_DATA *ch, const char *argument)
 	case ITEM_MONEY: {
 		const char *msg;
 
-		if (obj->value[0] == 0) {
-			if (obj->value[1] == 0)
+		if (INT_VAL(obj->value[0]) == 0) {
+			if (INT_VAL(obj->value[1]) == 0)
 				msg = "Odd...there's no coins in the pile.";
-			else if (obj->value[1] == 1)
+			else if (INT_VAL(obj->value[1]) == 1)
 				msg = "Wow. One gold coin.";
 			else
 				msg = "There are $J $qJ{gold coins} in this pile.";
-		}
-		else if (obj->value[1] == 0) {
-			if (obj->value[0] == 1)
+		} else if (INT_VAL(obj->value[1]) == 0) {
+			if (INT_VAL(obj->value[0]) == 1)
 				msg = "Wow. One silver coin.";
 			else
 				msg = "There are $j $qj{silver coins} in the pile.";
-		}
-		else {
+		} else {
 			msg = "There are $J gold and $j $qj{silver coins} in the pile."; 
 		}
 		act_puts3(msg, ch,
-			  (const void*) obj->value[0], NULL,
-			  (const void*) obj->value[1],
+			  (const void*) INT_VAL(obj->value[0]), NULL,
+			  (const void*) INT_VAL(obj->value[1]),
 			  TO_CHAR, POS_DEAD);
 		break;
 	}
@@ -879,9 +877,9 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 
 				if (IS_IMMORTAL(ch))
 					show_closed = TRUE;
-				else if ((chance = get_skill(ch, gsn_perception))){
+				else if ((chance = get_skill(ch, "perception"))){
 					if (number_percent() < chance) {
-						check_improve(ch, gsn_perception, TRUE, 5);
+						check_improve(ch, "perception", TRUE, 5);
 						show_closed = TRUE;
 					}
 				}
@@ -1055,7 +1053,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 
 	const char *clan_names = str_empty;
 	const char *race_names = str_empty;
-	const char *class_names = str_empty;
+	const char *clanames = str_empty;
 	char *p;
 
 	/*
@@ -1118,7 +1116,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 		if (!IS_IMMORTAL(ch)) continue;
 
 		if ((i = cn_lookup(arg)) >= 0) {
-			name_add(&class_names, CLASS(i)->name, NULL, NULL);
+			name_add(&clanames, CLASS(i)->name, NULL, NULL);
 			SET_BIT(flags, WHO_F_RCLASS);
 			continue;
 		}
@@ -1176,7 +1174,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 		if (!wch || !can_see(ch, wch))
 			continue;
 
-		if (is_affected(wch, gsn_vampire)
+		if (is_affected(wch, "vampire")
 		&&  !IS_IMMORTAL(ch) && ch != wch)
 			continue;
 
@@ -1209,7 +1207,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 
 		if (IS_SET(flags, WHO_F_RCLASS)) {
 			if ((class = class_lookup(wch->class)) == NULL
-			||  !is_name(class->name, class_names))
+			||  !is_name(class->name, clanames))
 				continue;
 		}
 
@@ -1224,7 +1222,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 
 bail_out:
 	free_string(clan_names);
-	free_string(class_names);
+	free_string(clanames);
 	free_string(race_names);
 }
 
@@ -1249,7 +1247,7 @@ void do_whois(CHAR_DATA *ch, const char *argument)
 				continue;
 
 		if (d->connected != CON_PLAYING
-		||  (is_affected(d->character, gsn_vampire) &&
+		||  (is_affected(d->character, "vampire") &&
 		     !IS_IMMORTAL(ch) && (ch != d->character)))
 			continue;
 
@@ -1367,13 +1365,17 @@ void do_compare(CHAR_DATA *ch, const char *argument)
 			break;
 
 		case ITEM_ARMOR:
-			value1 = obj1->value[0]+obj1->value[1]+obj1->value[2];
-			value2 = obj2->value[0]+obj2->value[1]+obj2->value[2];
+			value1 = INT_VAL(obj1->value[0]) +
+				 INT_VAL(obj1->value[1]) +
+				 INT_VAL(obj1->value[2]);
+			value2 = INT_VAL(obj2->value[0]) +
+				 INT_VAL(obj2->value[1]) +
+				 INT_VAL(obj2->value[2]);
 			break;
 
 		case ITEM_WEAPON:
-			value1 = (1 + obj1->value[2]) * obj1->value[1];
-			value2 = (1 + obj2->value[2]) * obj2->value[1];
+			value1 = (1 + INT_VAL(obj1->value[2])) * INT_VAL(obj1->value[1]);
+			value2 = (1 + INT_VAL(obj2->value[2])) * INT_VAL(obj2->value[1]);
 			break;
 		}
 	}
@@ -1429,7 +1431,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 				CHAR_DATA *doppel;
 				found = TRUE;
 
-				if (is_affected(victim, gsn_doppelganger)
+				if (is_affected(victim, "doppelganger")
 				&&  (IS_NPC(ch) || !IS_SET(PC(ch)->plr_flags, PLR_HOLYLIGHT)))
 					doppel = victim->doppel;
 				else
@@ -1816,7 +1818,7 @@ void do_request(CHAR_DATA *ch, const char *argument)
 	AFFECT_DATA af;
 	int carry_w, carry_n;
 
-	if (is_affected(ch, gsn_reserved)) {
+	if (is_affected(ch, "reserved")) {
 		char_puts("Wait for a while to request again.\n", ch);
 		return;
 	}
@@ -1923,7 +1925,7 @@ void do_request(CHAR_DATA *ch, const char *argument)
 	    TO_CHAR);
 	char_puts("and for the goodness you have seen in the world.\n",ch);
 
-	af.type = gsn_reserved;
+	af.type = "reserved";
 	af.where = TO_AFFECTS;
 	af.level = ch->level;
 	af.duration = ch->level / 10;
@@ -2016,10 +2018,8 @@ void do_detect_hidden(CHAR_DATA *ch, const char *argument)
 {
 	AFFECT_DATA	af;
 	int		chance;
-	int		sn;
 
-	if ((sn = sn_lookup("detect hide")) < 0
-	||  (chance = get_skill(ch, sn)) == 0) {
+	if ((chance = get_skill(ch, "detect hide")) == 0) {
 		char_puts("Huh?\n", ch);
 		return;
 	}
@@ -2032,12 +2032,12 @@ void do_detect_hidden(CHAR_DATA *ch, const char *argument)
 	if (number_percent() > chance) {
 		char_puts("You peer intently at the shadows "
 			     "but they are unrevealing.\n", ch);
-		check_improve(ch, sn, FALSE, 1);
+		check_improve(ch, "detect hide", FALSE, 1);
 		return;
 	}
 
 	af.where     = TO_AFFECTS;
-	af.type      = sn;
+	af.type      = "detect hide";
 	af.level     = LEVEL(ch);
 	af.duration  = LEVEL(ch);
 	af.location  = APPLY_NONE;
@@ -2045,17 +2045,15 @@ void do_detect_hidden(CHAR_DATA *ch, const char *argument)
 	af.bitvector = AFF_DETECT_HIDDEN;
 	affect_to_char(ch, &af);
 	char_puts("Your awareness improves.\n", ch);
-	check_improve(ch, sn, TRUE, 1);
+	check_improve(ch, "detect hide", TRUE, 1);
 }
 
 void do_awareness(CHAR_DATA *ch, const char *argument)
 {
 	AFFECT_DATA	af;
 	int		chance;
-	int		sn;
 
-	if ((sn = sn_lookup("awareness")) < 0
-	||  (chance = get_skill(ch, sn)) == 0) {
+	if ((chance = get_skill(ch, "awareness")) == 0) {
 		char_puts("Huh?\n", ch);
 		return;
 	}
@@ -2068,12 +2066,12 @@ void do_awareness(CHAR_DATA *ch, const char *argument)
 	if (number_percent() > chance) {
 		char_puts("You peer intently at the shadows "
 			     "but they are unrevealing.\n", ch);
-		check_improve(ch, sn, FALSE, 1);
+		check_improve(ch, "awareness", FALSE, 1);
 		return;
 	}
 
 	af.where     = TO_AFFECTS;
-	af.type      = sn;
+	af.type      = "awareness";
 	af.level     = LEVEL(ch);
 	af.duration  = LEVEL(ch);
 	af.location  = APPLY_NONE;
@@ -2085,7 +2083,7 @@ void do_awareness(CHAR_DATA *ch, const char *argument)
 	affect_to_char(ch, &af);
 
 	char_puts("Your awareness improves.\n", ch);
-	check_improve(ch, sn, TRUE, 1);
+	check_improve(ch, "awareness", TRUE, 1);
 }
 
 void do_bear_call(CHAR_DATA *ch, const char *argument)
@@ -2096,11 +2094,9 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 	AFFECT_DATA	af;
 	int		i;
 	int		chance;
-	int		sn;
 	int		mana;
 
-	if ((sn = sn_lookup("bear call")) < 0
-	||  (chance = get_skill(ch, sn)) == 0) {
+	if ((chance = get_skill(ch, "bear call")) == 0) {
 		char_puts("Huh?\n", ch);
 		return;
 	}
@@ -2108,7 +2104,7 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 	char_puts("You call for bears help you.\n",ch);
 	act("$n shouts a bear call.",ch,NULL,NULL,TO_ROOM);
 
-	if (is_affected(ch, sn)) {
+	if (is_affected(ch, "bear call")) {
 		char_puts("You cannot summon the strength to handle "
 			     "more bears right now.\n", ch);
 		return;
@@ -2143,7 +2139,7 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	mana = SKILL(sn)->min_mana;
+	mana = skill_mana(ch, "bear call");
 	if (ch->mana < mana) {
 		char_puts("You don't have enough mana "
 			     "to shout a bear call.\n", ch);
@@ -2153,11 +2149,11 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 
 	if (number_percent() > chance) {
 		char_puts("No bears listen you.\n", ch);
-		check_improve(ch, sn, FALSE, 1);
+		check_improve(ch, "bear call", FALSE, 1);
 		return;
 	}
 
-	check_improve(ch, sn, TRUE, 1);
+	check_improve(ch, "bear call", TRUE, 1);
 	bear = create_mob(get_mob_index(MOB_VNUM_BEAR));
 
 	for (i=0;i < MAX_STATS; i++)
@@ -2187,9 +2183,9 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 	act("Two bears come to $n's rescue!", ch, NULL, NULL, TO_ROOM);
 
 	af.where	= TO_AFFECTS;
-	af.type 	= sn;
+	af.type 	= "bear call";
 	af.level	= ch->level;
-	af.duration	= SKILL(sn)->beats;
+	af.duration	= skill_beats("bear call");
 	af.bitvector	= 0;
 	af.modifier	= 0;
 	af.location	= APPLY_NONE;
@@ -2233,7 +2229,7 @@ void do_identify(CHAR_DATA *ch, const char *argument)
 	}
 
 	act("$n gives a wise look at $p.", rch, obj, 0, TO_ROOM);
-	spellfun_call("identify", 0, ch, obj);
+	spellfun_call("identify", NULL, 0, ch, obj);
 }
 
 static void format_stat(char *buf, size_t len, CHAR_DATA *ch, int stat)
@@ -2724,14 +2720,13 @@ void do_raffects(CHAR_DATA *ch, const char *argument)
 
 	char_puts("The room is affected by the following spells:\n", ch);
 	for (paf = ch->in_room->affected; paf != NULL; paf = paf->next) {
-		if (paf_last != NULL && paf->type == paf_last->type)
+		if (paf_last != NULL && paf->type == paf_last->type) {
 			if (ch->level >= 20)
 				char_puts("                      ", ch);
 			else
 				continue;
-		else
-			char_printf(ch, "Spell: {c%-15s{x",
-				    skill_name(paf->type));
+		} else
+			char_printf(ch, "Spell: {c%-15s{x", paf->type);
 
 		if (ch->level >= 20) {
 			char_printf(ch, ": modifies {c%s{x by {c%d{x ",
@@ -2756,11 +2751,9 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 	AFFECT_DATA	af;
 	int		i;
 	int		chance;
-	int		sn;
 	int		mana;
 
-	if ((sn = sn_lookup("lion call")) < 0
-	||  (chance = get_skill(ch, sn)) == 0) {
+	if ((chance = get_skill(ch, "lion call")) == 0) {
 		char_puts("Huh?\n", ch);
 		return;
 	}
@@ -2768,7 +2761,7 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 	char_puts("You call for lions help you.\n",ch);
 	act("$n shouts a lion call.",ch,NULL,NULL,TO_ROOM);
 
-	if (is_affected(ch, sn)) {
+	if (is_affected(ch, "lion call")) {
 		char_puts("You cannot summon the strength to handle "
 			     "more lions right now.\n", ch);
 		return;
@@ -2802,7 +2795,7 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	mana = SKILL(sn)->min_mana;
+	mana = skill_mana(ch, "lion call");
 	if (ch->mana < mana) {
 		char_puts("You don't have enough mana "
 			     "to shout a lion call.\n", ch);
@@ -2811,12 +2804,12 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 	ch->mana -= mana;
 
 	if (number_percent() > chance) {
-		check_improve(ch, sn, FALSE, 1);
+		check_improve(ch, "lion call", FALSE, 1);
 		char_puts("No lions hear you.\n", ch);
 		return;
 	}
 
-	check_improve(ch, sn, TRUE, 1);
+	check_improve(ch, "lion call", TRUE, 1);
 	lion = create_mob(get_mob_index(MOB_VNUM_LION));
 
 	for (i=0;i < MAX_STATS; i++)
@@ -2846,9 +2839,9 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 	act("Two lions come to $n's rescue!",ch,NULL,NULL,TO_ROOM);
 
 	af.where	= TO_AFFECTS;
-	af.type 	= sn;
+	af.type 	= "lion call";
 	af.level	= ch->level;
-	af.duration	= SKILL(sn)->beats;
+	af.duration	= skill_beats("lion call");
 	af.bitvector	= 0;
 	af.modifier	= 0;
 	af.location	= APPLY_NONE;
@@ -2862,14 +2855,10 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 void do_practice(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA	*mob;
-	int		sn;
 	skill_t	*sk;
-	pcskill_t	*ps;
-	class_t	*cl;
-	cskill_t	*cs;
-	int		adept;
+	pc_skill_t	*pc_sk;
+	spec_skill_t	spec_sk;
 	bool		found;
-	int		rating;
 	char		arg[MAX_STRING_LENGTH];
 	PC_DATA	*	pc;
 
@@ -2886,15 +2875,14 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 		output = buf_new(-1);
 
 		for (i = 0; i < pc->learned.nused; i++) {
-			ps = VARR_GET(&pc->learned, i);
+			pc_sk = VARR_GET(&pc->learned, i);
 
-			if (ps->percent == 0
-			||  (sk = skill_lookup(ps->sn)) == NULL
-			||  skill_level(ch, ps->sn) > ch->level)
+			if (pc_sk->percent == 0
+			||  skill_level(ch, pc_sk->sn) > ch->level)
 				continue;
 
 			buf_printf(output, "%-19s %3d%%  ",
-				   sk->name, ps->percent);
+				   pc_sk->sn, pc_sk->percent);
 			if (++col % 3 == 0)
 				buf_add(output, "\n");
 		}
@@ -2910,32 +2898,27 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((cl = CLASS(ch->class)) == NULL) {
-		log("do_practice: %s: class %d: unknown",
-			   ch->name, ch->class);
-		return;
-	}
-
 	if (pc->practice <= 0) {
 		char_puts("You have no practice sessions left.\n", ch);
 		return;
 	}
 
 	one_argument(argument, arg, sizeof(arg));
-	ps = (pcskill_t*) skill_vlookup(&pc->learned, arg);
-	if (!ps || get_skill(ch, sn = ps->sn) == 0) {
+	pc_sk = (pc_skill_t*) skill_vsearch(&pc->learned, arg);
+	if (pc_sk == NULL
+	||  (sk = skill_lookup(pc_sk->sn)) == NULL
+	||  get_skill(ch, pc_sk->sn) == 0) {
 		char_puts("You can't practice that.\n", ch);
 		return;
 	}
 
-	if (sn == gsn_vampire) {
+	if (SKILL_IS(pc_sk->sn, "vampire")) {
 		char_puts("You can't practice that, only available "
 			  "at questor.\n", ch);
 		return;
 	}
 
 	found = FALSE;
-	sk = SKILL(sn);
 	for (mob = ch->in_room->people; mob != NULL; mob = mob->next_in_room) {
 		if (!IS_NPC(mob) || !IS_SET(mob->pMobIndex->act, ACT_PRACTICE))
 			continue;
@@ -2969,8 +2952,9 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	adept = cl->skill_adept;
-	if (ps->percent >= adept) {
+	spec_sk.sn = pc_sk->sn;
+	spec_stats(ch, &spec_sk);
+	if (pc_sk->percent >= spec_sk.adept) {
 		char_printf(ch, "You are already learned at %s.\n",
 			    sk->name);
 		return;
@@ -2978,19 +2962,120 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 
 	pc->practice--;
 
-	cs = cskill_lookup(cl, sn);
-	rating = cs ? UMAX(cs->rating, 1) : 1;
-	ps->percent += int_app[get_curr_stat(ch, STAT_INT)].learn / rating;
-
-	if (ps->percent < adept) {
+	pc_sk->percent += int_app[get_curr_stat(ch, STAT_INT)].learn /
+							spec_sk.rating;
+	if (pc_sk->percent < spec_sk.adept) {
 		act("You practice $T.", ch, NULL, sk->name, TO_CHAR);
 		act("$n practices $T.", ch, NULL, sk->name, TO_ROOM);
-	}
-	else {
-		ps->percent = adept;
+	} else {
+		pc_sk->percent = spec_sk.adept;
 		act("You are now learned at $T.", ch, NULL, sk->name, TO_CHAR);
 		act("$n is now learned at $T.", ch, NULL, sk->name, TO_ROOM);
 	}
+}
+
+void do_learn(CHAR_DATA *ch, const char *argument)
+{
+	char arg[MAX_INPUT_LENGTH];
+	CHAR_DATA *practicer;
+	pc_skill_t *pc_sk;
+	spec_skill_t spec_sk;
+	skill_t *sk;
+	PC_DATA *pc;
+
+	if (IS_NPC(ch))
+		return;
+
+	if (!IS_AWAKE(ch)) {
+		char_puts("In your dreams, or what?\n", ch);
+		return;
+	}	
+
+	if (argument[0] == '\0') {
+		char_puts("Syntax: learn <skill | spell> <player>\n", ch);
+		return;
+	}
+
+	pc = PC(ch);
+
+	if (pc->practice <= 0) {
+		char_puts("You have no practice sessions left.\n", ch);
+		return;
+	}
+
+	argument = one_argument(argument, arg, sizeof(arg));
+	pc_sk = (pc_skill_t*) skill_vsearch(&pc->learned, arg);
+	if (pc_sk == NULL
+	||  (sk = skill_lookup(pc_sk->sn)) == NULL
+	||  get_skill(ch, pc_sk->sn) == 0) {
+		char_puts("You can't learn that.\n", ch);
+		return;
+	}
+
+	if (SKILL_IS(pc_sk->sn, "vampire")) {
+		char_puts("You can't practice that, only available "
+			  "at questor.\n", ch);
+		return;
+	}	
+
+	argument = one_argument(argument, arg, sizeof(arg));
+		
+	if ((practicer = get_char_room(ch,arg)) == NULL) {
+		char_puts("Your hero is not here.\n", ch);
+		return;
+	}
+			
+	if (IS_NPC(practicer) || practicer->level != LEVEL_HERO) {
+		char_puts("You must find a hero, not an ordinary one.\n",
+			  ch);
+		return;
+	}
+
+	if (!IS_SET(PC(practicer)->plr_flags, PLR_PRACTICER)) {
+		char_puts("Your hero doesn't want to teach you anything.\n",ch);
+		return;
+	}
+
+	spec_sk.sn = pc_sk->sn;
+	spec_stats(practicer, &spec_sk);
+	if (get_skill(practicer, pc_sk->sn) < spec_sk.max) {
+		char_puts("Your hero doesn't know that skill enough to teach you.\n",ch);
+		return;
+	}
+
+	spec_stats(ch, &spec_sk);
+	if (pc_sk->percent >= spec_sk.adept) {
+		char_printf(ch, "You are already learned at %s.\n", sk->name);
+		return;
+	}
+
+	pc->practice--;
+
+	pc_sk->percent += int_app[get_curr_stat(ch, STAT_INT)].learn /
+						spec_sk.rating;
+
+	act("You teach $T.", practicer, NULL, sk->name, TO_CHAR);
+	act("$n teaches $T.", practicer, NULL, sk->name, TO_ROOM);
+	REMOVE_BIT(PC(practicer)->plr_flags, PLR_PRACTICER);
+
+	if (pc_sk->percent < spec_sk.adept) {
+		act("You learn $T.", ch, NULL, sk->name, TO_CHAR);
+		act("$n learn $T.", ch, NULL, sk->name, TO_ROOM);
+	} else {
+		pc_sk->percent = spec_sk.adept;
+		act("You are now learned at $T.", ch, NULL, sk->name, TO_CHAR);
+		act("$n is now learned at $T.", ch, NULL, sk->name, TO_ROOM);
+	}
+}
+
+void do_teach(CHAR_DATA *ch, const char *argument)
+{
+	if (IS_NPC(ch) || ch->level != LEVEL_HERO) {
+		char_puts("You must be a hero.\n",ch);
+		return;
+	}
+	SET_BIT(PC(ch)->plr_flags, PLR_PRACTICER);
+	char_puts("Now, you can teach youngsters your 100% skills.\n",ch);
 }
 
 /* used to converter of prac and train */
@@ -3077,26 +3162,26 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 	}
 	
 	for (i = 0; i < PC(ch)->learned.nused; i++) {
-		pcskill_t *ps = VARR_GET(&PC(ch)->learned, i);
+		pc_skill_t *pc_sk = VARR_GET(&PC(ch)->learned, i);
 		skill_t *sk;
 
-		if (ps->percent == 0
-		||  (sk = skill_lookup(ps->sn)) == NULL
+		if (pc_sk->percent == 0
+		||  (sk = skill_lookup(pc_sk->sn)) == NULL
 		||  sk->skill_type != ST_SPELL)
 			continue;
 
 		found = TRUE;
-		lev = skill_level(ch, ps->sn);
+		lev = skill_level(ch, pc_sk->sn);
 
 		if (lev > (IS_IMMORTAL(ch) ? LEVEL_IMMORTAL : LEVEL_HERO))
 			continue;
 
 		if (ch->level < lev)
 			snprintf(buf, sizeof(buf), "%-19s n/a       ",
-				 sk->name);
+				 pc_sk->sn);
 		else
 			snprintf(buf, sizeof(buf), "%-19s %4d mana  ",
-				 sk->name, mana_cost(ch, ps->sn));
+				 pc_sk->sn, skill_mana(ch, pc_sk->sn));
 			
 		if (spell_list[lev][0] == '\0')
 			snprintf(spell_list[lev], sizeof(spell_list[lev]),
@@ -3147,16 +3232,16 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 	}
 	
 	for (i = 0; i < PC(ch)->learned.nused; i++) {
-		pcskill_t *ps = VARR_GET(&PC(ch)->learned, i);
+		pc_skill_t *pc_sk = VARR_GET(&PC(ch)->learned, i);
 		skill_t *sk;
 
-		if (ps->percent == 0
-		||  (sk = skill_lookup(ps->sn)) == NULL
+		if (pc_sk->percent == 0
+		||  (sk = skill_lookup(pc_sk->sn)) == NULL
 		||  sk->skill_type != ST_SKILL)
 			continue;
 
 		found = TRUE;
-		lev = skill_level(ch, ps->sn);
+		lev = skill_level(ch, pc_sk->sn);
 
 		if (lev > (IS_IMMORTAL(ch) ? LEVEL_IMMORTAL : LEVEL_HERO))
 			continue;
@@ -3164,7 +3249,7 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 		snprintf(buf, sizeof(buf),
 			 ch->level < lev ?
 				"%-19s n/a      " : "%-19s %3d%%      ",
-			 sk->name, ps->percent);
+			 pc_sk->sn, pc_sk->percent);
 
 		if (skill_list[lev][0] == '\0')
 			snprintf(skill_list[lev], sizeof(skill_list[lev]),
@@ -3194,12 +3279,35 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 	buf_free(output);
 }
 
+typedef struct _glist_t _glist_t;
+struct _glist_t {
+	CHAR_DATA *ch;
+	flag64_t group;
+	int col;
+};
+
+static void *
+glist_cb(void *p, void *d)
+{
+	skill_t *sk = (skill_t*) p;
+	_glist_t *_g = (_glist_t*) d;
+
+	if (_g->group == sk->group) {
+		char_printf(_g->ch, "%c%-18s",
+			pc_skill_lookup(_g->ch, sk->name) ?  '*' : ' ',
+			sk->name);
+		if (_g->col)
+			char_puts("\n", _g->ch);
+		_g->col = 1 - _g->col;
+	}
+
+	return NULL;
+}
+
 void do_glist(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
-	int col = 0;
-	flag64_t group = GROUP_NONE;
-	int sn;
+	_glist_t _g = { ch, GROUP_NONE, 0 };
 
 	one_argument(argument, arg, sizeof(arg));
 	
@@ -3215,34 +3323,23 @@ void do_glist(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (str_prefix(arg, "none")
-	&&  (group = flag_value(skill_groups, arg)) == 0) {
+	&&  (_g.group = flag_value(skill_groups, arg)) == 0) {
 		char_puts("That is not a valid group.\n", ch);
 		do_glist(ch, str_empty);
 		return;
 	}
 
 	char_printf(ch, "Now listing group '%s':\n",
-		    flag_string(skill_groups, group));
-
-	for (sn = 0; sn < skills.nused; sn++) {
-		skill_t *sk = VARR_GET(&skills, sn);
-		if (group == sk->group) {
-			char_printf(ch, "%c%-18s",
-				    pcskill_lookup(ch, sn) ? '*' : ' ',
-				    sk->name);
-			if (col)
-				char_puts("\n", ch);
-			col = 1 - col;
-		}
-	}
-
-	if (col)
+		    flag_string(skill_groups, _g.group));
+	hash_foreach(&skills, glist_cb, &_g);
+	if (_g.col)
 		char_puts("\n", ch);
 }
 
 void do_slook(CHAR_DATA *ch, const char *argument)
 {
-	int sn = -1;
+	pc_skill_t *pc_sk = NULL;
+	skill_t *sk;
 	char arg[MAX_INPUT_LENGTH];
 
 	one_argument(argument, arg, sizeof(arg));
@@ -3251,152 +3348,37 @@ void do_slook(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-/* search in known skills first */
-	if (!IS_NPC(ch)) {
-		pcskill_t *ps;
-		ps = (pcskill_t*) skill_vlookup(&PC(ch)->learned, arg);
-		if (ps)
-			sn = ps->sn;
-	}
+	if (!IS_NPC(ch))
+		pc_sk = (pc_skill_t*) skill_vsearch(&PC(ch)->learned, arg);
 
-/* search in all skills */
-	if (sn < 0)
-		sn = sn_lookup(arg);
+	if (pc_sk == NULL)
+		sk = skill_search(arg);
+	else
+		sk = skill_lookup(pc_sk->sn);
 
-	if (sn < 0) { 
-		char_puts("That is not a spell or skill.\n",ch);
+	if (sk == NULL) {
+		char_puts("That is not a spell or skill.\n", ch);
 		return; 
 	}
 
 	char_printf(ch, "Skill '%s' in group '%s'.\n",
-		    SKILL(sn)->name,
-		    flag_string(skill_groups, SKILL(sn)->group));
-}
-
-void do_learn(CHAR_DATA *ch, const char *argument)
-{
-	char arg[MAX_INPUT_LENGTH];
-	int sn;
-	CHAR_DATA *practicer;
-	int adept;
-	class_t *cl;
-	cskill_t *cs;
-	pcskill_t *ps;
-	skill_t *sk;
-	int rating;
-	PC_DATA *pc;
-
-	if (IS_NPC(ch) || (cl = class_lookup(ch->class)) == NULL)
-		return;
-
-	if (!IS_AWAKE(ch)) {
-		char_puts("In your dreams, or what?\n", ch);
-		return;
-	}	
-
-	if (argument[0] == '\0') {
-		char_puts("Syntax: learn <skill | spell> <player>\n", ch);
-		return;
-	}
-
-	pc = PC(ch);
-
-	if (pc->practice <= 0) {
-		char_puts("You have no practice sessions left.\n", ch);
-		return;
-	}
-
-	argument = one_argument(argument, arg, sizeof(arg));
-	ps = (pcskill_t*) skill_vlookup(&pc->learned, arg);
-	if (!ps || get_skill(ch, sn = ps->sn) == 0) {
-		char_puts("You can't learn that.\n", ch);
-		return;
-	}
-
-	if (sn == gsn_vampire) {
-		char_puts("You can't practice that, only available "
-			  "at questor.\n", ch);
-		return;
-	}	
-
-	argument = one_argument(argument, arg, sizeof(arg));
-		
-	if ((practicer = get_char_room(ch,arg)) == NULL) {
-		char_puts("Your hero is not here.\n", ch);
-		return;
-	}
-			
-	if (IS_NPC(practicer) || practicer->level != LEVEL_HERO) {
-		char_puts("You must find a hero, not an ordinary one.\n",
-			  ch);
-		return;
-	}
-
-	if (!IS_SET(PC(practicer)->plr_flags, PLR_PRACTICER)) {
-		char_puts("Your hero doesn't want to teach you anything.\n",ch);
-		return;
-	}
-
-	if (get_skill(practicer, sn) < 100) {
-		char_puts("Your hero doesn't know that skill enough to teach you.\n",ch);
-		return;
-	}
-
-	sk = SKILL(sn);
-	adept = cl->skill_adept;
-
-	if (ps->percent >= adept) {
-		char_printf(ch, "You are already learned at %s.\n",
-			    sk->name);
-		return;
-	}
-
-	pc->practice--;
-
-	cs = cskill_lookup(cl, sn);
-	rating = cs ? UMAX(cs->rating, 1) : 1;
-	ps->percent += int_app[get_curr_stat(ch, STAT_INT)].learn / rating;
-
-	act("You teach $T.", practicer, NULL, sk->name, TO_CHAR);
-	act("$n teaches $T.", practicer, NULL, sk->name, TO_ROOM);
-	REMOVE_BIT(PC(practicer)->plr_flags, PLR_PRACTICER);
-
-	if (ps->percent < adept) {
-		act("You learn $T.", ch, NULL, sk->name, TO_CHAR);
-		act("$n learn $T.", ch, NULL, sk->name, TO_ROOM);
-	}
-	else {
-		ps->percent = adept;
-		act("You are now learned at $T.", ch, NULL, sk->name, TO_CHAR);
-		act("$n is now learned at $T.", ch, NULL, sk->name, TO_ROOM);
-	}
-}
-
-void do_teach(CHAR_DATA *ch, const char *argument)
-{
-	if (IS_NPC(ch) || ch->level != LEVEL_HERO) {
-		char_puts("You must be a hero.\n",ch);
-		return;
-	}
-	SET_BIT(PC(ch)->plr_flags, PLR_PRACTICER);
-	char_puts("Now, you can teach youngsters your 100% skills.\n",ch);
+		    sk->name,
+		    flag_string(skill_groups, sk->group));
 }
 
 void do_camp(CHAR_DATA *ch, const char *argument)
 {
 	AFFECT_DATA af;
 	ROOM_AFFECT_DATA raf;
-	int sn;
 	int chance;
 	int mana;
 
-	if ((sn = sn_lookup("camp")) < 0
-	||  (chance = get_skill(ch, sn)) == 0) {
+	if ((chance = get_skill(ch, "camp")) == 0) {
 		char_puts("Huh?\n", ch);
 		return;
 	}
 
-	if (is_affected(ch, sn)) {
+	if (is_affected(ch, "camp")) {
 		char_puts("You don't have enough power to handle more "
 			     "camp areas.\n", ch);
 		return;
@@ -3413,7 +3395,7 @@ void do_camp(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	mana = SKILL(sn)->min_mana;
+	mana = skill_mana(ch, "camp");
 	if (ch->mana < mana) {
 		char_puts("You don't have enough mana to make a camp.\n",
 			     ch);
@@ -3423,18 +3405,18 @@ void do_camp(CHAR_DATA *ch, const char *argument)
 
 	if (number_percent() > chance) {
 		char_puts("You failed to make your camp.\n", ch);
-		check_improve(ch, sn, FALSE, 4);
+		check_improve(ch, "camp", FALSE, 4);
 		return;
 	}
 
-	check_improve(ch, sn, TRUE, 4);
-	WAIT_STATE(ch, SKILL(sn)->beats);
+	check_improve(ch, "camp", TRUE, 4);
+	WAIT_STATE(ch, skill_beats("camp"));
 
 	char_puts("You succeeded to make your camp.\n", ch);
 	act("$n succeeded to make $s camp.", ch, NULL, NULL, TO_ROOM);
 
 	af.where	= TO_AFFECTS;
-	af.type 	= sn;
+	af.type 	= "camp";
 	af.level	= ch->level;
 	af.duration	= 12;
 	af.bitvector	= 0;
@@ -3443,14 +3425,14 @@ void do_camp(CHAR_DATA *ch, const char *argument)
 	affect_to_char(ch, &af);
 
 	raf.where	= TO_ROOM_CONST;
-	raf.type	= sn;
+	raf.type	= "camp";
 	raf.level	= ch->level;
 	raf.duration	= ch->level / 20;
 	raf.bitvector	= 0;
 	raf.modifier	= 2 * LEVEL(ch);
 	raf.location	= APPLY_ROOM_HEAL;
 	raf.owner	= ch;
-	raf.events	= 0;
+	raf.revents	= 0;
 	affect_to_room(ch->in_room, &raf);
 
 	raf.modifier	= LEVEL(ch);
@@ -3496,16 +3478,16 @@ void do_demand(CHAR_DATA *ch, const char *argument)
 	chance += (get_curr_stat(ch,STAT_CHA) - 15) * 10;
 	chance += LEVEL(ch) - LEVEL(victim);
 
-	chance = (get_skill(ch, gsn_demand))*chance/100;
+	chance = (get_skill(ch, "demand")) * chance / 100;
 
 	if (number_percent() > chance) {
 		do_say(victim, "I'm not about to give you anything!");
-		check_improve(ch, gsn_demand, FALSE, 1);
+		check_improve(ch, "demand", FALSE, 1);
 		do_murder(victim, ch->name);
 		return;
 	}
 
-	check_improve(ch, gsn_demand, TRUE, 1);
+	check_improve(ch, "demand", TRUE, 1);
 
 	if (((obj = get_obj_carry(victim , arg1)) == NULL
 	&&   (obj = get_obj_wear(victim, arg1)) == NULL)
@@ -3560,13 +3542,11 @@ void do_control(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	int chance;
-	int sn;
 	race_t *r;
 
 	argument = one_argument(argument, arg, sizeof(arg));
 
-	if ((sn = sn_lookup("control animal")) < 0
-	||  (chance = get_skill(ch, sn)) == 0) {
+	if ((chance = get_skill(ch, "control animal")) == 0) {
 		char_puts("Huh?\n", ch);
 		return;
 	}
@@ -3593,7 +3573,7 @@ void do_control(CHAR_DATA *ch, const char *argument)
 	if (is_safe(ch, victim))
 		return;
 
-	WAIT_STATE(ch, SKILL(sn)->beats);
+	WAIT_STATE(ch, skill_beats("control animal"));
 
 	chance += (get_curr_stat(ch,STAT_CHA) - 20) * 5;
 	chance += (ch->level - victim->level) * 3;
@@ -3606,13 +3586,13 @@ void do_control(CHAR_DATA *ch, const char *argument)
 	||  ch->level < (victim->level + 2)
 	||  IS_SET(victim->imm_flags,IMM_CHARM)
 	||  (IS_NPC(victim) && victim->pMobIndex->pShop != NULL)) {
-		check_improve(ch, sn, FALSE, 2);
-		do_say(victim,"I'm not about to follow you!");
+		check_improve(ch, "control animal", FALSE, 2);
+		do_say(victim, "I'm not about to follow you!");
 		do_murder(victim, ch->name);
 		return;
 	}
 
-	check_improve(ch, sn, TRUE, 2);
+	check_improve(ch, "control animal", TRUE, 2);
 
 	if (victim->master)
 		stop_follower(victim);
@@ -3635,14 +3615,12 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 	int chance;
 	int color_chance = 100;
 	int vnum = -1;
-	int sn;
-	int color = -1;
+	const char *color = NULL;
 
 	if (IS_NPC(ch))
 		return;
 
-	if ((sn = sn_lookup("make arrow")) < 0
-	||  (chance = get_skill(ch, sn)) == 0) {
+	if ((chance = get_skill(ch, "make arrow")) == 0) {
 		char_puts("You don't know how to make arrows.\n", ch);
 		return;
 	}
@@ -3654,26 +3632,26 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	mana = SKILL(sn)->min_mana;
-	wait = SKILL(sn)->beats;
+	mana = skill_mana(ch, "make arrow");
+	wait = skill_beats("make arrow");
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0')
 		vnum = OBJ_VNUM_WOODEN_ARROW;
 	else if (!str_prefix(arg, "green")) {
-		color = sn_lookup("green arrow");
+		color = "green arrow";
 		vnum = OBJ_VNUM_GREEN_ARROW;
 	}
 	else if (!str_prefix(arg, "red")) {
-		color = sn_lookup("red arrow");
+		color = "red arrow";
 		vnum = OBJ_VNUM_RED_ARROW;
 	}
 	else if (!str_prefix(arg, "white")) {
-		color = sn_lookup("white arrow");
+		color = "white arrow";
 		vnum = OBJ_VNUM_WHITE_ARROW;
 	}
 	else if (!str_prefix(arg, "blue")) {
-		color = sn_lookup("blue arrow");
+		color = "blue arrow";
 		vnum = OBJ_VNUM_BLUE_ARROW;
 	}
 
@@ -3683,10 +3661,10 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (color > 0) {
+	if (color != NULL) {
 		color_chance = get_skill(ch, color);
-		mana += SKILL(color)->min_mana;
-		wait += SKILL(color)->beats;
+		mana += skill_mana(ch, color);
+		wait += skill_beats(color);
 	}
 
 	if (ch->mana < mana) {
@@ -3705,14 +3683,14 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 		if (number_percent() > chance * color_chance / 100) {
 			char_puts("You failed to make the arrow, "
 				  "and broke it.\n", ch);
-			check_improve(ch, sn, FALSE, 3);
-			if (color > 0)
+			check_improve(ch, "make arrow", FALSE, 3);
+			if (color != NULL)
 				check_improve(ch, color, FALSE, 3);
 			continue;
 		}
 
-		check_improve(ch, sn, TRUE, 3);
-		if (color > 0)
+		check_improve(ch, "make arrow", TRUE, 3);
+		if (color != NULL)
 			check_improve(ch, color, TRUE, 3);
 
 		arrow = create_obj(pObjIndex, 0);
@@ -3721,7 +3699,7 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 		arrow->value[2] = 4 + LEVEL(ch) / 10;
 
 		af.where	 = TO_OBJECT;
-		af.type		 = sn;
+		af.type		 = "make arrow";
 		af.level	 = ch->level;
 		af.duration	 = -1;
 		af.location	 = APPLY_HITROLL;
@@ -3729,13 +3707,7 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 		af.bitvector 	 = 0;
 		affect_to_obj(arrow, &af);
 
-		af.where	= TO_OBJECT;
-		af.type		= sn;
-		af.level	= ch->level;
-		af.duration	= -1;
 		af.location	= APPLY_DAMROLL;
-		af.modifier	= LEVEL(ch) / 10;
-		af.bitvector	= 0;
 		affect_to_obj(arrow, &af);
 
 		obj_to_char(arrow, ch);
@@ -3749,14 +3721,12 @@ void do_make_bow(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *	bow;
 	AFFECT_DATA	af;
 	int		mana;
-	int		sn;
 	int		chance;
 
 	if (IS_NPC(ch))
 		return;
 
-	if ((sn = sn_lookup("make bow")) < 0
-	||  (chance = get_skill(ch, sn)) == 0) {
+	if ((chance = get_skill(ch, "make bow")) == 0) {
 		char_puts("You don't know how to make bows.\n", ch);
 		return;
 	}
@@ -3768,22 +3738,22 @@ void do_make_bow(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	mana = SKILL(sn)->min_mana;
+	mana = skill_mana(ch, "make bow");
 	if (ch->mana < mana) {
 		char_puts("You don't have enough energy to make a bow.\n",
 			     ch);
 		return;
 	}
 	ch->mana -= mana;
-	WAIT_STATE(ch, SKILL(sn)->beats);
+	WAIT_STATE(ch, skill_beats("make bow"));
 
 	if (number_percent() > chance) {
 		char_puts("You failed to make the bow, and broke it.\n",
 			     ch);
-		check_improve(ch, sn, FALSE, 1);
+		check_improve(ch, "make bow", FALSE, 1);
 		return;
 	}
-	check_improve(ch, sn, TRUE, 1);
+	check_improve(ch, "make bow", TRUE, 1);
 
 	bow = create_obj(get_obj_index(OBJ_VNUM_RANGER_BOW), 0);
 	bow->level = ch->level;
@@ -3791,7 +3761,7 @@ void do_make_bow(CHAR_DATA *ch, const char *argument)
 	bow->value[2] = 4 + ch->level / 15;
 
 	af.where	= TO_OBJECT;
-	af.type		= sn;
+	af.type		= "make bow";
 	af.level	= ch->level;
 	af.duration	= -1;
 	af.location	= APPLY_HITROLL;
@@ -3799,13 +3769,7 @@ void do_make_bow(CHAR_DATA *ch, const char *argument)
 	af.bitvector 	= 0;
 	affect_to_obj(bow, &af);
 
-	af.where	= TO_OBJECT;
-	af.type		= sn;
-	af.level	= ch->level;
-	af.duration	= -1;
 	af.location	= APPLY_DAMROLL;
-	af.modifier	= LEVEL(ch) / 10;
-	af.bitvector 	= 0;
 	affect_to_obj(bow, &af);
 
 	obj_to_char(bow, ch);
@@ -3834,17 +3798,15 @@ void do_make(CHAR_DATA *ch, const char *argument)
 void do_homepoint(CHAR_DATA *ch, const char *argument)
 {
         AFFECT_DATA af;
-        int sn;
         int chance;
         char arg[MAX_INPUT_LENGTH];
 
-        if ((sn = sn_lookup("homepoint")) < 0
-        ||  (chance = get_skill(ch, sn)) == 0) {
+        if ((chance = get_skill(ch, "homepoint")) == 0) {
                 char_puts("Huh?\n", ch);
                 return;
         }
 
-        if (is_affected(ch, sn)) {
+        if (is_affected(ch, "homepoint")) {
                 char_puts("You fatigue for searching new home.\n", ch) ;
                 return;
         }
@@ -3870,18 +3832,18 @@ void do_homepoint(CHAR_DATA *ch, const char *argument)
 
         if (number_percent() > chance) {
                 char_puts("You failed to make your homepoint.\n", ch);
-                check_improve(ch, sn, FALSE, 4);
+                check_improve(ch, "homepoint", FALSE, 4);
                 return;
         }
 
-        check_improve(ch, sn, TRUE, 4);
-        WAIT_STATE(ch, SKILL(sn)->beats);
+        check_improve(ch, "homepoint", TRUE, 4);
+        WAIT_STATE(ch, skill_beats("homepoint"));
 
         char_puts("You succeeded to make your homepoint.\n", ch);
         act("$n succeeded to make $s homepoint. ", ch, NULL, NULL, TO_ROOM);
 
         af.where        = TO_AFFECTS;
-        af.type         = sn;
+        af.type         = "homepoint";
         af.level        = ch->level;
         af.duration     = 100;
         af.bitvector    = 0;
@@ -4112,7 +4074,7 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	const void *arg = NULL;
 	const void *arg3 = NULL;
 
-	if (is_affected(victim, gsn_doppelganger)
+	if (is_affected(victim, "doppelganger")
 	&&  (IS_NPC(ch) || !IS_SET(PC(ch)->plr_flags, PLR_HOLYLIGHT)))
 		victim = victim->doppel;
 
@@ -4238,9 +4200,9 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		}
 	
 		arg = victim->on;
-		if (IS_SET(victim->on->value[2], SLEEP_AT))
+		if (IS_SET(INT_VAL(victim->on->value[2]), SLEEP_AT))
 			msg = "$N {xis sleeping at $p.";
-		else if (IS_SET(victim->on->value[2], SLEEP_ON))
+		else if (IS_SET(INT_VAL(victim->on->value[2]), SLEEP_ON))
 			msg = "$N {xis sleeping on $p.";
 		else
 			msg = "$N {xis sleeping in $p.";
@@ -4253,9 +4215,9 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		}
 
 		arg = victim->on;
-		if (IS_SET(victim->on->value[2], REST_AT))
+		if (IS_SET(INT_VAL(victim->on->value[2]), REST_AT))
 			msg = "$N {xis resting at $p.";
-		else if (IS_SET(victim->on->value[2], REST_ON))
+		else if (IS_SET(INT_VAL(victim->on->value[2]), REST_ON))
 			msg = "$N {xis resting on $p.";
 		else
 			msg = "$N {xis resting in $p.";
@@ -4268,9 +4230,9 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		}
 	
 		arg = victim->on;
-		if (IS_SET(victim->on->value[2], SIT_AT))
+		if (IS_SET(INT_VAL(victim->on->value[2]), SIT_AT))
 			msg = "$N {xis sitting at $p.";
-		else if (IS_SET(victim->on->value[2], SIT_ON))
+		else if (IS_SET(INT_VAL(victim->on->value[2]), SIT_ON))
 			msg = "$N {xis sitting on $p.";
 		else
 			msg = "$N {xis sitting in $p.";
@@ -4294,9 +4256,9 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		}
 	
 		arg = victim->on;
-		if (IS_SET(victim->on->value[2],STAND_AT))
+		if (IS_SET(INT_VAL(victim->on->value[2]), STAND_AT))
 			msg = "$N {xis standing at $p.";
-		else if (IS_SET(victim->on->value[2],STAND_ON))
+		else if (IS_SET(INT_VAL(victim->on->value[2]), STAND_ON))
 			msg = "$N {xis standing on $p.";
 		else
 			msg = "$N {xis standing in $p.";
@@ -4372,10 +4334,10 @@ static void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	CHAR_DATA *mirror = victim;
 	char buf[MAX_STRING_LENGTH];
 
-	if (is_affected(victim, gsn_doppelganger)) {
+	if (is_affected(victim, "doppelganger")) {
 		if (IS_NPC(ch) || !IS_SET(PC(ch)->plr_flags, PLR_HOLYLIGHT)) {
 			doppel = victim->doppel;
-			if (is_affected(victim, gsn_mirror))
+			if (is_affected(victim, "mirror"))
 				mirror = victim->doppel;
 		}
 	}
@@ -4479,9 +4441,9 @@ static void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	if (victim != ch
 	&&  (!IS_IMMORTAL(victim) || IS_IMMORTAL(ch))
 	&&  !IS_NPC(ch)
-	&&  number_percent() < get_skill(ch, gsn_peek)) {
+	&&  number_percent() < get_skill(ch, "peek")) {
 		char_puts("\nYou peek at the inventory:\n", ch);
-		check_improve(ch, gsn_peek, TRUE, 4);
+		check_improve(ch, "peek", TRUE, 4);
 		show_list_to_char(mirror->carrying, ch, TRUE, TRUE);
 	}
 }

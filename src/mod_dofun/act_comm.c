@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187 1999-09-11 12:49:46 fjoe Exp $
+ * $Id: act_comm.c,v 1.188 1999-10-06 09:55:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -286,12 +286,12 @@ void do_gtell(CHAR_DATA *ch, const char *argument)
 			break;
 
 		i++;
-		if (is_same_group(gch, ch) && !is_affected(gch, gsn_deafen))
+		if (is_same_group(gch, ch) && !is_affected(gch, "deafen"))
 			act_puts("$n tells the group '{G$t{x'",
 				 ch, argument, gch, flags, POS_DEAD);
 	}
 
-	if (i > 1 && !is_affected(ch, gsn_deafen))
+	if (i > 1 && !is_affected(ch, "deafen"))
 		act_puts("You tell your group '{G$t{x'",
 			 ch, argument, NULL,
 			 TO_CHAR | ACT_SPEECH(ch), POS_DEAD);
@@ -954,16 +954,14 @@ void do_group(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((HAS_SKILL(ch, gsn_ruler_badge) && HAS_SKILL(victim, gsn_disperse))
-	||  (HAS_SKILL(ch, gsn_disperse) && HAS_SKILL(victim, gsn_ruler_badge))
-	||  (HAS_SKILL(ch, gsn_evil_spirit) && HAS_SKILL(victim, gsn_riding))
-	||  (HAS_SKILL(ch, gsn_riding) && HAS_SKILL(victim, gsn_evil_spirit))
-	||  (HAS_SKILL(ch, gsn_mastering_spell) &&
-	     HAS_SKILL(victim, gsn_spellbane))
-	||  (HAS_SKILL(ch, gsn_spellbane) &&
-	     HAS_SKILL(victim, gsn_mastering_spell))) {
-		act_puts("You hate $n's cabal, how can you join $n's group?", ch, NULL, victim, TO_VICT, POS_SLEEPING);
-		act_puts("You hate $N's cabal, how can you want $N to join your group", ch, NULL, victim, TO_CHAR, POS_SLEEPING);
+	if ((HAS_SKILL(ch, "ruler badge") && HAS_SKILL(victim, "disperse"))
+	||  (HAS_SKILL(ch, "disperse") && HAS_SKILL(victim, "ruler badge"))
+	||  (HAS_SKILL(ch, "evil spirit") && HAS_SKILL(victim, "riding"))
+	||  (HAS_SKILL(ch, "riding") && HAS_SKILL(victim, "evil spirit"))
+	||  (HAS_SKILL(ch, "mastering spell") && HAS_SKILL(victim, "spellbane"))
+	||  (HAS_SKILL(ch, "spellbane") && HAS_SKILL(victim, "mastering spell"))) {
+		act_puts("You hate $n's clan, how can you join $n's group?", ch, NULL, victim, TO_VICT, POS_SLEEPING);
+		act_puts("You hate $N's clan, how can you want $N to join your group", ch, NULL, victim, TO_CHAR, POS_SLEEPING);
 		return;
 	}
 
@@ -1205,7 +1203,7 @@ void do_judge(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 
-	if (!HAS_SKILL(ch, gsn_ruler_badge)) {
+	if (!HAS_SKILL(ch, "ruler badge")) {
 		char_puts("Huh?\n", ch);
 		return;
 	}
@@ -1313,10 +1311,8 @@ void do_wanted(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
-	int sn_wanted;
 
-	if ((sn_wanted = sn_lookup("wanted")) < 0
-	||  get_skill(ch, sn_wanted) == 0) {
+	if (get_skill(ch, "wanted") == 0) {
 		char_puts("Huh?\n", ch);
 		return;
 	}
@@ -1507,7 +1503,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 			victim->clan = cln;
 			vpc->clan_status = CLAN_COMMONER;
 			vpc->petition = CLAN_NONE;
-			update_skills(victim);
+			spec_update(victim);
 
 			name_add(&clan->member_list, victim->name, NULL, NULL);
 			clan_save(clan);
@@ -1543,7 +1539,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 
 			victim->clan = CLAN_NONE;
 			REMOVE_BIT(vpc->trust, TRUST_CLAN);
-			update_skills(victim);
+			spec_update(victim);
 
 			act("They are not a member of $t anymore.",
 			    ch, clan->name, NULL, TO_CHAR);

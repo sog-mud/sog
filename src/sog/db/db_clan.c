@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_clan.c,v 1.20 1999-06-29 04:09:19 fjoe Exp $
+ * $Id: db_clan.c,v 1.21 1999-10-06 09:56:15 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -76,7 +76,6 @@ DBLOAD_FUN(load_clan)
 					clan_free(clan);
 					clans.nused--;
 				}
-				varr_qsort(&clan->skills, cmpint);
 				if (dfexist(PLISTS_PATH, clan->file_name)) {
 					db_set_arg(&db_plists, "PLISTS", clan);
 					db_load_file(&db_plists,
@@ -97,19 +96,14 @@ DBLOAD_FUN(load_clan)
 			KEY("Mark", clan->mark_vnum, fread_number(fp));
 			break;
 		case 'N':
-			SKEY("Name", clan->name);
+			SKEY("Name", clan->name, fread_string(fp));
 			break;
 		case 'R':
 			KEY("Recall", clan->recall_vnum, fread_number(fp));
 			break;
 		case 'S':
-			if (!str_cmp(word, "Skill")) {
-				clskill_t *clsk = varr_enew(&clan->skills);
-				clsk->sn = sn_lookup(fread_word(fp));	
-				clsk->level = fread_number(fp);
-				clsk->percent = fread_number(fp);
-				fMatch = TRUE;
-			}
+			SKEY("SkillSpec", clan->skill_spec,
+			     fread_name(fp, &specs, "load_clan"));
 		}
 
 		if (!fMatch) 
@@ -131,13 +125,13 @@ DBLOAD_FUN(load_plists)
 				return;
 			break;
 		case 'L':
-			SKEY("Leaders", clan->leader_list);
+			SKEY("Leaders", clan->leader_list, fread_string(fp));
 			break;
 		case 'M':
-			SKEY("Members", clan->member_list);
+			SKEY("Members", clan->member_list, fread_string(fp));
 			break;
 		case 'S':
-			SKEY("Seconds", clan->second_list);
+			SKEY("Seconds", clan->second_list, fread_string(fp));
 			break;
 		}
 

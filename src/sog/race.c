@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.5 1999-09-08 10:40:12 fjoe Exp $
+ * $Id: race.c,v 1.6 1999-10-06 09:56:09 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -41,12 +41,9 @@ race_t *race_new(void)
 pcrace_t *pcrace_new(void)
 {
 	pcrace_t *pcr;
-
 	pcr = calloc(1, sizeof(*pcr));
-
-	varr_init(&pcr->skills, sizeof(rskill_t), 2);
+	pcr->skill_spec = str_empty;
 	varr_init(&pcr->classes, sizeof(rclass_t), 4);
-
 	return pcr;
 }
 
@@ -67,7 +64,7 @@ void pcrace_free(pcrace_t *pcr)
 		free_string(rcl->name);
 	}
 	varr_destroy(&pcr->classes);
-	varr_destroy(&pcr->skills);
+	free_string(pcr->skill_spec);
 	free_string(pcr->bonus_skills);
 	free(pcr);
 }

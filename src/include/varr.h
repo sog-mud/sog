@@ -23,21 +23,27 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.h,v 1.6 1999-06-24 06:36:32 fjoe Exp $
+ * $Id: varr.h,v 1.7 1999-10-06 09:56:00 fjoe Exp $
  */
 
 #ifndef _VARR_H_
 #define _VARR_H_
 
+typedef void (*varr_e_init_t)(void *);
+typedef void (*varr_e_destroy_t)(void *);
+
 typedef struct varr varr;
 struct varr {
-	size_t nsize;		/* size of elem */
-	size_t nstep;		/* allocation step */
+	size_t nsize;			/* size of elem */
+	size_t nstep;			/* allocation step */
 
 	void *p;
 
-	size_t nused;		/* elems used */
-	size_t nalloc;		/* elems allocated */
+	size_t nused;			/* elems used */
+	size_t nalloc;			/* elems allocated */
+
+	varr_e_init_t e_init;		/* init elem */
+	varr_e_destroy_t e_destroy;	/* destroy elem */
 };
 
 void	varr_init	(varr*, size_t nsize, size_t nstep);
@@ -45,15 +51,18 @@ void	varr_destroy	(varr*);
 
 void *	varr_touch	(varr*, size_t i);
 void *	varr_insert	(varr*, size_t i);
-void	varr_del	(varr*, void*);
+void	varr_delete	(varr*, size_t i);
 
 void	varr_qsort	(varr*, int (*)(const void*, const void*));
 void *	varr_bsearch	(varr*, const void *e,
 			 int (*)(const void*, const void*));
 
+void *	varr_foreach	(varr*, void *(*)(void*, void*), void*);
+
 #define varr_enew(v)	(varr_touch((v), (v)->nused))
 #define VARR_GET(v, i)	((void*) (((char*) (v)->p) + (i)*(v)->nsize))
 #define varr_get(v, i)	((i) < 0 || (i) >= (v)->nused ? \
 			 NULL : VARR_GET((v), (i)))
+#define varr_index(v, q) ((((char*) q) - ((char*) (v)->p)) / (v)->nsize)
 
 #endif

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.89 1999-09-15 07:53:40 kostik Exp $
+ * $Id: tables.c,v 1.90 1999-10-06 09:56:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1304,76 +1304,82 @@ const struct wiznet_type wiznet_table[] =
 	{ NULL }
 };
 
-/* attack table */
-const 	struct attack_type	attack_table	[]		=
-{
-	{ "none",	"hit",			-1		}, /*  0 */
-	{ "slice",	"slice", 		DAM_SLASH	},	
-	{ "stab",	"stab",			DAM_PIERCE	},
-	{ "slash",	"slash",		DAM_SLASH	},
-	{ "whip",	"whip",			DAM_SLASH	},
-	{ "claw",	"claw",			DAM_SLASH	}, /*  5 */
-	{ "blast",	"blast",		DAM_BASH	},
-	{ "pound",	"pound",		DAM_BASH	},
-	{ "crush",	"crush",		DAM_BASH	},
-	{ "grep",	"grep",			DAM_SLASH	},
-	{ "bite",	"bite",			DAM_PIERCE	}, /* 10 */
-	{ "pierce",	"pierce",		DAM_PIERCE	},
-	{ "suction",	"suction",		DAM_BASH	},
-	{ "beating",	"beating",		DAM_BASH	},
-	{ "digestion",	"digestion",		DAM_ACID	},
-	{ "charge",	"charge",		DAM_BASH	}, /* 15 */
-	{ "slap",	"slap",			DAM_BASH	},
-	{ "punch",	"punch",		DAM_BASH	},
-	{ "wrath",	"wrath",		DAM_ENERGY	},
-	{ "magic",	"magic",		DAM_ENERGY	},
-	{ "divine",	"divine power",		DAM_HOLY	}, /* 20 */
-	{ "cleave",	"cleave",		DAM_SLASH	},
-	{ "scratch",	"scratch",		DAM_PIERCE	},
-	{ "peck",	"peck",			DAM_PIERCE	},
-	{ "peckb",	"peck",			DAM_BASH	},
-	{ "chop",	"chop",			DAM_SLASH	}, /* 25 */
-	{ "sting",	"sting",		DAM_PIERCE	},
-	{ "smash",	"smash",		DAM_BASH	},
-	{ "shbite",	"shocking bite",	DAM_LIGHTNING	},
-	{ "flbite",	"flaming bite",		DAM_FIRE	},
-	{ "frbite",	"freezing bite",	DAM_COLD	}, /* 30 */
-	{ "acbite",	"acidic bite",		DAM_ACID	},
-	{ "chomp",	"chomp",		DAM_PIERCE	},
-	{ "drain",	"life drain",		DAM_NEGATIVE	},
-	{ "thrust",	"thrust",		DAM_PIERCE	},
-	{ "slime",	"slime",		DAM_ACID	}, /* 35 */
-	{ "shock",	"shock",		DAM_LIGHTNING	},
-	{ "thwack",	"thwack",		DAM_BASH	},
-	{ "flame",	"flame",		DAM_FIRE	},
-	{ "chill",	"chill",		DAM_COLD	},
-	{ "kiss",	"kiss",			DAM_MENTAL	}, /* 40 */
-	{ NULL }
-};
-
 flag_t desc_con_table[] =
 {
 	{ "",			TABLE_INTVAL				},
 
-	{ "Playing",		CON_PLAYING,			FALSE	},
-	{ "Get name",		CON_GET_NAME,			FALSE	},
-	{ "Get old password",	CON_GET_OLD_PASSWORD,		FALSE	},
-	{ "Confirm new name",	CON_CONFIRM_NEW_NAME,		FALSE	},
-	{ "Get new password",	CON_GET_NEW_PASSWORD,		FALSE	},
-	{ "Confirm new pwd",	CON_CONFIRM_NEW_PASSWORD,	FALSE	},
-	{ "Get new race",	CON_GET_NEW_RACE,		FALSE	},
-	{ "Get new sex",	CON_GET_NEW_SEX,		FALSE	},
-	{ "Get new class",	CON_GET_NEW_CLASS,		FALSE	},
-	{ "Choose align",	CON_GET_ALIGNMENT,		FALSE	},
-	{ "Reading imotd",	CON_READ_IMOTD,			FALSE	},
-	{ "Reading motd",	CON_READ_MOTD,			FALSE	},
-	{ "Roll stats",		CON_ROLL_STATS,			FALSE	},
-	{ "Accept stats",	CON_ACCEPT_STATS,		FALSE	},
-	{ "Pick hometown",	CON_PICK_HOMETOWN,		FALSE	},
-	{ "Get ethos",		CON_GET_ETHOS,			FALSE	},
-	{ "Create done",	CON_CREATE_DONE,		FALSE	},
-	{ "Get codepage",	CON_GET_CODEPAGE,		FALSE	},
-	{ "Resolving",		CON_RESOLV,			FALSE	},
+	{ "playing",		CON_PLAYING,			FALSE	},
+	{ "get name",		CON_GET_NAME,			FALSE	},
+	{ "get old password",	CON_GET_OLD_PASSWORD,		FALSE	},
+	{ "confirm new name",	CON_CONFIRM_NEW_NAME,		FALSE	},
+	{ "get new password",	CON_GET_NEW_PASSWORD,		FALSE	},
+	{ "confirm new pwd",	CON_CONFIRM_NEW_PASSWORD,	FALSE	},
+	{ "get new race",	CON_GET_NEW_RACE,		FALSE	},
+	{ "get new sex",	CON_GET_NEW_SEX,		FALSE	},
+	{ "get new class",	CON_GET_NEW_CLASS,		FALSE	},
+	{ "choose align",	CON_GET_ALIGNMENT,		FALSE	},
+	{ "reading imotd",	CON_READ_IMOTD,			FALSE	},
+	{ "reading motd",	CON_READ_MOTD,			FALSE	},
+	{ "roll stats",		CON_ROLL_STATS,			FALSE	},
+	{ "accept stats",	CON_ACCEPT_STATS,		FALSE	},
+	{ "pick hometown",	CON_PICK_HOMETOWN,		FALSE	},
+	{ "get ethos",		CON_GET_ETHOS,			FALSE	},
+	{ "create done",	CON_CREATE_DONE,		FALSE	},
+	{ "get codepage",	CON_GET_CODEPAGE,		FALSE	},
+	{ "resolving",		CON_RESOLV,			FALSE	},
+	{ NULL }
+};
+
+flag_t rspell_events[] =
+{
+	{ "",			TABLE_BITVAL				},
+
+	{ "enter",		REVENT_ENTER,			TRUE	},
+	{ "leave",		REVENT_LEAVE,			TRUE	},
+	{ "update",		REVENT_UPDATE,			TRUE	},
+	{ NULL }
+};
+
+flag_t dam_classes[] =
+{
+	{ "",			TABLE_INTVAL				},
+
+	{ "none",		DAM_NONE,			TRUE	},
+	{ "bash",		DAM_BASH,			TRUE	},
+	{ "pierce",		DAM_PIERCE,			TRUE	},
+	{ "slash",		DAM_SLASH,			TRUE	},
+	{ "fire",		DAM_FIRE,			TRUE	},
+	{ "cold",		DAM_COLD,			TRUE	},
+	{ "lightning",		DAM_LIGHTNING,			TRUE	},
+	{ "acid",		DAM_ACID,			TRUE	},
+	{ "poison",		DAM_POISON,			TRUE	},
+	{ "negative",		DAM_NEGATIVE,			TRUE	},
+	{ "holy",		DAM_HOLY,			TRUE	},
+	{ "energy",		DAM_ENERGY,			TRUE	},
+	{ "mental",		DAM_MENTAL,			TRUE	},
+	{ "disease",		DAM_DISEASE,			TRUE	},
+	{ "drowning",		DAM_DROWNING,			TRUE	},
+	{ "light",		DAM_LIGHT,			TRUE	},
+	{ "other",		DAM_OTHER,			TRUE	},
+	{ "harm",		DAM_HARM,			TRUE	},
+	{ "charm",		DAM_CHARM,			TRUE	},
+	{ "sound",		DAM_SOUND,			TRUE	},
+	{ "thirst",		DAM_THIRST,			TRUE	},
+	{ "hunger",		DAM_HUNGER,			TRUE	},
+	{ "light_v",		DAM_LIGHT_V,			TRUE	},
+	{ "trap_room",		DAM_TRAP_ROOM,			TRUE	},
+
+	{ NULL }
+};
+
+flag_t spec_classes[] =
+{
+	{ "",			TABLE_INTVAL				},
+
+	{ "class",		SPEC_CLASS,			TRUE	},
+	{ "race",		SPEC_RACE,			TRUE	},
+	{ "clan",		SPEC_CLAN,			TRUE	},
+
 	{ NULL }
 };
 
@@ -1590,24 +1596,4 @@ const	struct	liq_type	liq_table	[]	=
     { "cordial",		"clear",	{ 100, 1,  5, 0,  2 }   },
     { NULL,			NULL,		{   0, 0,  0, 0,  0 }	}
 };
-
-where_t where_table[] =
-{
-	{ TO_AFFECTS,	affect_flags,	"'%s' affect"			},
-	{ TO_IMMUNE,	imm_flags,	"immunity to '%s'"		},
-	{ TO_RESIST,	res_flags,	"resistance to '%s'"		},
-	{ TO_VULN,	vuln_flags,	"vulnerability to '%s'"		},
-	{ TO_SKILLS,	sk_aff_flags,	"'%s' skill by %d with flags %s"},
-	{ -1 }
-};
-
-where_t *where_lookup(flag32_t where)
-{
-	where_t *wd;
-
-	for (wd = where_table; wd->where != -1; wd++)
-		if (wd->where == where)
-			return wd;
-	return NULL;
-}
 

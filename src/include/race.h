@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.h,v 1.11 1999-09-08 10:40:04 fjoe Exp $
+ * $Id: race.h,v 1.12 1999-10-06 09:56:00 fjoe Exp $
  */
 
 #ifndef _RACE_H_
@@ -55,7 +55,7 @@ struct pcrace_t
 	int 	points; 		/* cost in exp of the race	*/
 	varr	classes;		/* available classes		*/
 	const char *	bonus_skills;	/* bonus skills for the race	*/
-	varr 	skills;			/* race skills			*/
+	const char *	skill_spec;	/* skill spec for this race	*/
 	int	stats[MAX_STATS];	/* starting stats		*/
 	int	max_stats[MAX_STATS];	/* maximum stats		*/
 	flag32_t size;			/* aff bits for the race	*/
@@ -73,17 +73,10 @@ struct rclass_t {
 	int		mult;		/* exp multiplier */
 };
 
-struct rskill_t {
-	int	sn;
-	int	level;
-};
-
 extern varr races;
 
 #define RACE(i)		((race_t*) VARR_GET(&races, i))
 #define race_lookup(i)	((race_t*) varr_get(&races, i))
-#define rskill_lookup(race, sn) \
-	((rskill_t*) varr_bsearch(&race->race_pcdata->skills, &sn, cmpint))
 #define rclass_lookup(race, name) \
 	((rclass_t*) varr_bsearch(&race->race_pcdata->classes, &name, cmpstr))
 

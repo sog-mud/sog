@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.9 1999-09-08 10:40:17 fjoe Exp $
+ * $Id: db_race.c,v 1.10 1999-10-06 09:56:15 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -47,7 +47,8 @@ DBDATA db_races = { dbfun_races, init_race };
 
 DBINIT_FUN(init_race)
 {
-	db_set_arg(dbdata, "PCRACE", NULL);
+	if (DBDATA_VALID(dbdata))
+		db_set_arg(dbdata, "PCRACE", NULL);
 }
 
 DBLOAD_FUN(load_race)
@@ -89,7 +90,7 @@ DBLOAD_FUN(load_race)
 			    fread_fstring(imm_flags, fp));
 			break;
 		case 'N':
-			SKEY("Name", race->name);
+			SKEY("Name", race->name, fread_string(fp));
 			break;
 		case 'O':
 			KEY("Off", race->off,
@@ -133,7 +134,7 @@ DBLOAD_FUN(load_pcrace)
 
 		switch(UPPER(word[0])) {
 		case 'B':
-			SKEY("BonusSkills", pcr->bonus_skills);
+			SKEY("BonusSkills", pcr->bonus_skills, fread_string(fp));
 			break;
 
 		case 'C':
@@ -156,7 +157,6 @@ DBLOAD_FUN(load_pcrace)
 					r->race_pcdata = NULL;
 				}
 				varr_qsort(&pcr->classes, cmpstr);
-				varr_qsort(&pcr->skills, cmpint);
 				return;
 			}
 			break;
@@ -188,19 +188,13 @@ DBLOAD_FUN(load_pcrace)
 		case 'S':
 			KEY("Size", pcr->size, fread_fword(size_table, fp));
 			KEY("Slang", pcr->slang, fread_fword(slang_table, fp));
+			SKEY("SkillSpec", pcr->skill_spec,
+			     fread_name(fp, &specs, "load_pcrace"));
 			if (!str_cmp(word, "ShortName")) {
 				const char *p = fread_string(fp);
 				strnzcpy(pcr->who_name, sizeof(pcr->who_name),
 					 p);
 				free_string(p);
-				fMatch = TRUE;
-			}
-			if (!str_cmp(word, "Skill")) {
-				rskill_t *rsk;
-
-				rsk = varr_enew(&pcr->skills);
-				rsk->sn = sn_lookup(fread_word(fp));
-				rsk->level = fread_number(fp);
 				fMatch = TRUE;
 			}
 			if (!str_cmp(word, "Stats")) {

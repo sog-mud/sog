@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200 1999-09-25 12:10:44 avn Exp $
+ * $Id: comm.c,v 1.201 1999-10-06 09:56:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2006,7 +2006,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 		SET_ORG_RACE(ch, race);
 		ch->race = race;
-		for (i=0; i < MAX_STATS;i++)
+		for (i = 0; i < MAX_STATS;i++)
 			ch->mod_stat[i] = 0;
 
 		/* Add race stat modifiers 
@@ -2288,7 +2288,6 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	case CON_READ_MOTD:
 		char_puts("Welcome to Shades of Gray! Enjoy!\n\n", ch);
 
-		update_skills(ch);
 		ch->next	= char_list;
 		char_list	= ch;
 		if (!char_list_lastpc)
@@ -2351,6 +2350,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			PC(ch)->practice   += 5;
 			PC(ch)->death	= 0;
 
+			spec_update(ch);
 			set_title(ch, title_lookup(ch));
 
 			dofun("outfit", ch, str_empty);
@@ -2368,8 +2368,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 			dofun("help", ch, "NEWBIE INFO");
 			char_to_room(ch, get_room_index(ROOM_VNUM_SCHOOL));
-		}
-		else {
+		} else {
 			CHAR_DATA *pet;
 			ROOM_INDEX_DATA *to_room;
 

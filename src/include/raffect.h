@@ -23,38 +23,51 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: raffect.h,v 1.3 1999-07-30 05:18:20 avn Exp $
+ * $Id: raffect.h,v 1.4 1999-10-06 09:56:00 fjoe Exp $
  */
 
 #ifndef _RAFFECTS_H_
 #define _RAFFECTS_H_
 
-#include "merc.h"
+struct room_affect_data
+{
+	ROOM_AFFECT_DATA *	next;
+	flag32_t		where;
+	const char *		type;
+	int			level;
+	CHAR_DATA *		owner;
+	int			duration;
+	int			location;
+	int			modifier;
+	flag32_t		bitvector;
+	flag32_t		revents;
+};
+
 /*
  * EVENTs for room affects
  */
-#define EVENT_ENTER		(A)
-#define EVENT_LEAVE		(B)
-#define EVENT_UPDATE		(C)
+#define REVENT_ENTER		(A)
+#define REVENT_LEAVE		(B)
+#define REVENT_UPDATE		(C)
 
 struct rspell_t {
-	const char *	name;
+	const char *	sn;
 	const char *	enter_fun_name;
 	const char *	update_fun_name;
 	const char *	leave_fun_name;
-	EVENT_FUN *	enter_fun;
-	EVENT_FUN *	update_fun;
-	EVENT_FUN *	leave_fun;
-	int		sn;
-	flag32_t	events;
+	REVENT_FUN *	enter_fun;
+	REVENT_FUN *	update_fun;
+	REVENT_FUN *	leave_fun;
+	flag32_t	revents;
 };
 
-extern varr rspells;
+extern hash_t rspells;
 
-#define RSPELL(sn)		((rspell_t*) VARR_GET(&rspells, sn))
-#define rspell_lookup(sn)	((rspell_t*) varr_get(&rspells, sn))
+void rspell_init(rspell_t *sk);
+rspell_t *rspell_cpy(rspell_t *dst, const rspell_t *src);
+void rspell_destroy(rspell_t *sk);
 
-int		rsn_lookup	(int sn);
+#define rspell_lookup(sn)	((rspell_t*) hash_lookup(&rspells, sn))
 
 ROOM_AFFECT_DATA *raff_new		(void);
 void	 	raff_free		(ROOM_AFFECT_DATA *raf);
@@ -63,5 +76,12 @@ void		check_room_affects	(CHAR_DATA *ch, ROOM_INDEX_DATA *room,
 void		raffect_to_char		(ROOM_INDEX_DATA *room, CHAR_DATA *ch);
 void		raffect_back_char	(ROOM_INDEX_DATA *room, CHAR_DATA *ch);
 bool		is_safe_rspell		(ROOM_AFFECT_DATA *raf, CHAR_DATA *victim);
+
+void	affect_to_room	(ROOM_INDEX_DATA *room, ROOM_AFFECT_DATA *paf);
+void	affect_remove_room	(ROOM_INDEX_DATA *room, ROOM_AFFECT_DATA *paf);
+void	affect_strip_room	(ROOM_INDEX_DATA *ch, const char *sn);
+bool	is_affected_room	(ROOM_INDEX_DATA *ch, const char *sn);
+void	affect_join_room	(ROOM_INDEX_DATA *ch, ROOM_AFFECT_DATA *paf);
+void	affect_join	(CHAR_DATA *ch, AFFECT_DATA *paf);
 
 #endif

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.h,v 1.16 1999-09-08 10:40:04 fjoe Exp $
+ * $Id: skills.h,v 1.17 1999-10-06 09:56:00 fjoe Exp $
  */
 
 #ifndef _SKILLS_H_
@@ -41,13 +41,13 @@
 #define ST_SKILL	0
 #define ST_SPELL	1
 
+typedef struct skill_t skill_t;
 struct skill_t {
 	const char *	name;			/* skill name */
 	const char *	fun_name;		/* skill function name */
 	SPELL_FUN *	fun;			/* skill function */
 	flag32_t	target;			/* legal target */
-	flag32_t	minimum_position;	/* position for caster */
-	int *		pgsn;			/* pointer to gsn */
+	flag32_t	min_pos;		/* position for caster */
 	int		slot;			/* slot for #OBJOLD loading */
 	int		min_mana;		/* min mana used */
 	int		beats;			/* waiting time after use */
@@ -60,31 +60,45 @@ struct skill_t {
 	flag32_t	skill_type;		/* skill type */
 };
 
-extern varr skills;
+extern hash_t skills;
 
 #define HAS_SKILL(ch, sn)	(skill_level(ch, sn) < LEVEL_IMMORTAL)
+#define SKILL_IS(sn1, sn2)	(!str_cmp(sn1, sn2))
 
-#define SKILL(sn)		((skill_t*) VARR_GET(&skills, sn))
-#define skill_lookup(sn)	((skill_t*) varr_get(&skills, sn))
+void mob_skill_init(void);
 
-const char *	skill_name	(int sn);
-int		sn_lookup	(const char *name);
+void skill_init(skill_t *sk);
+skill_t *skill_cpy(skill_t *dst, const skill_t *src);
+void skill_destroy(skill_t *sk);
 
-/* lookup skill by name in skill list */
-void *		skill_vlookup	(varr *v, const char *name);
+/*
+ * misc skill lookup functions
+ */
 
-int		get_weapon_sn	(OBJ_DATA *obj);
-int		get_weapon_skill(CHAR_DATA *ch, int sn);
+/* fast skill lookup by precise name */
+#define skill_lookup(sn)	((skill_t*) hash_lookup(&skills, (sn)))
 
-int		get_skill	(CHAR_DATA *ch, int sn);
-void		set_skill	(CHAR_DATA *ch, int sn, int value);
-void		set_skill_raw	(CHAR_DATA *ch, int sn, int value, bool repl);
-int		skill_level	(CHAR_DATA *ch, int sn);
+/* lookup skill by prefix */
+skill_t	*	skill_search	(const char *sn);
 
-void		update_skills	(CHAR_DATA *ch);
+/* lookup skill by prefix in skill list */
+void *		skill_vsearch	(varr *v, const char *sn);
 
-int		mana_cost	(CHAR_DATA *ch, int sn);
-void		say_spell	(CHAR_DATA *ch, int sn);
+const char *	get_weapon_sn	(OBJ_DATA *obj);
+int		get_weapon_skill(CHAR_DATA *ch, const char *sn);
+
+int		skill_level	(CHAR_DATA *ch, const char *sn);
+int		skill_beats	(const char *sn);
+int		skill_mana	(CHAR_DATA *ch, const char *sn);
+
+const char *	skill_slot_lookup(int slot);
+
+int		get_skill	(CHAR_DATA *ch, const char *sn);
+void		set_skill	(CHAR_DATA *ch, const char *sn, int value);
+void		set_skill_raw	(CHAR_DATA *ch, const char *sn,
+				 int value, bool repl);
+
+void		say_spell	(CHAR_DATA *ch, const char *sn);
 
 /*
  * exp_to_level assumes !IS_NPC(ch)
@@ -92,7 +106,8 @@ void		say_spell	(CHAR_DATA *ch, int sn);
 int		base_exp	(CHAR_DATA *ch);
 int		exp_to_level	(CHAR_DATA *ch);
 int		exp_for_level	(CHAR_DATA *ch, int level);
-void		check_improve	(CHAR_DATA *ch, int sn, bool success, int mult);
+void		check_improve	(CHAR_DATA *ch, const char *sn,
+				 bool success, int mult);
 int		group_lookup	(const char *name);
 
 #endif

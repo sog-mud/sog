@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_rspells.c,v 1.1 1999-07-30 05:18:25 avn Exp $
+ * $Id: db_rspells.c,v 1.2 1999-10-06 09:56:15 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -34,19 +34,33 @@
 
 DECLARE_DBLOAD_FUN(load_rspell);
 
+DECLARE_DBINIT_FUN(init_rspells);
+
 DBFUN dbfun_rspells[] =
 {
 	{ "RSPELL",	load_rspell	},
 	{ NULL }
 };
 
-DBDATA db_rspells = { dbfun_rspells };
+DBDATA db_rspells = { dbfun_rspells, init_rspells };
+
+DBINIT_FUN(init_rspells)
+{
+	if (DBDATA_VALID(dbdata)) {
+		hash_init(&rspells, NAME_HASH_SIZE, sizeof(rspell_t),
+			  (varr_e_init_t) rspell_init,
+			  (varr_e_destroy_t) rspell_destroy);
+		rspells.k_hash = name_hash;
+		rspells.ke_cmp = name_struct_cmp;
+		rspells.e_cpy = (hash_e_cpy_t) rspell_cpy;
+	}
+}
 
 DBLOAD_FUN(load_rspell)
 {
-	rspell_t *rspell;
+	rspell_t rsp;
 
-	rspell = varr_enew(&rspells);
+	rspell_init(&rsp);
 
 	for (;;) {
 		char *word = feof(fp) ? "End" : fread_word(fp);
@@ -55,33 +69,45 @@ DBLOAD_FUN(load_rspell)
 		switch (UPPER(word[0])) {
 		case 'E':
 			if (!str_cmp(word, "End")) {
-				if (IS_NULLSTR(rspell->name)) {
+				if (IS_NULLSTR(rsp.sn)) {
 					db_error("load_rspell",
 						 "skill name undefined");
-					rspells.nused--;
-				}
-				if ((rspell->sn = sn_lookup(rspell->name)) == -1) {
+				} else if (!hash_insert(&rspells, rsp.sn, &rsp)) {
 					db_error("load_rspell",
-						 "no matching skill");
-					rspells.nused--;
+						 "duplicate rspell name");
 				}
+				rspell_destroy(&rsp);
 				return;
 			}
-			if (!str_cmp(word, "Enter")) rspell->events |= EVENT_ENTER;
-			KEY("Enter", rspell->enter_fun_name, str_dup(fread_word(fp)));
+
+			if (!str_cmp(word, "Event")) {
+				flag32_t event = fread_fword(rspell_events, fp);
+				const char *fun_name = str_dup(fread_word(fp));
+
+				rsp.revents |= event;
+				switch (event) {
+				case REVENT_ENTER:
+					free_string(rsp.enter_fun_name);
+					rsp.enter_fun_name = fun_name;
+					break;
+				case REVENT_UPDATE:
+					free_string(rsp.update_fun_name);
+					rsp.update_fun_name = fun_name;
+					break;
+				case REVENT_LEAVE:
+					free_string(rsp.leave_fun_name);
+					rsp.leave_fun_name = fun_name;
+					break;
+				}
+				fMatch = TRUE;
+			}
 			break;
-		case 'L':
-			if (!str_cmp(word, "Leave")) rspell->events |= EVENT_LEAVE;
-			KEY("Leave", rspell->leave_fun_name, str_dup(fread_word(fp)));
-			break;
-		case 'N':
-			SKEY("Name", rspell->name);
-			break;
-		case 'U':
-			if (!str_cmp(word, "Update")) rspell->events |= EVENT_UPDATE;
-			KEY("Update", rspell->update_fun_name, str_dup(fread_word(fp)));
+		case 'S':
+			SKEY("Skill", rsp.sn,
+			     fread_name(fp, &skills, "load_rspell"));
 			break;
 		}
+
 		if (!fMatch)
 			db_error("load_rspell", "%s: Unknown keyword", word);
 	}

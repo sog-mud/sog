@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.43 1999-07-21 04:19:18 avn Exp $
+ * $Id: olc_mob.c,v 1.44 1999-10-06 09:56:02 fjoe Exp $
  */
 
 #include "olc.h"
@@ -271,7 +271,7 @@ OLC_FUN(mobed_show)
 
 	buf_printf(buf, "Level:       [%2d]    Align: [%4d]      Hitroll: [%2d] Dam Type:    [%s]\n",
 		pMob->level,	pMob->alignment,
-		pMob->hitroll,	attack_table[pMob->dam_type].name);
+		pMob->hitroll,	pMob->damtype);
 
 	if (pMob->group)
 		buf_printf(buf, "Group:       [%5d]\n", pMob->group);
@@ -346,7 +346,7 @@ OLC_FUN(mobed_show)
 /* ROM values end */
 
 	if (pMob->spec_fun)
-		buf_printf(buf, "Spec fun:    [%s]\n",  spec_name(pMob->spec_fun));
+		buf_printf(buf, "Spec fun:    [%s]\n",  mob_spec_name(pMob->spec_fun));
 	if (pMob->practicer)
 		buf_printf(buf, "Practicer:   [%s]\n",
 			flag_string(skill_groups, pMob->practicer));
@@ -476,8 +476,8 @@ OLC_FUN(mobed_spec)
 		 return TRUE;
 	}
 
-	if (spec_lookup(argument)) {
-		pMob->spec_fun = spec_lookup(argument);
+	if (mob_spec_lookup(argument)) {
+		pMob->spec_fun = mob_spec_lookup(argument);
 		char_puts("Spec set.\n", ch);
 		return TRUE;
 	}
@@ -488,8 +488,8 @@ OLC_FUN(mobed_spec)
 
 OLC_FUN(mobed_damtype)
 {
+	damtype_t *d;
 	char arg[MAX_INPUT_LENGTH];
-	int dt;
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
 
@@ -502,18 +502,19 @@ OLC_FUN(mobed_damtype)
 
 	if (!str_cmp(arg, "?")) {
 		BUFFER *output = buf_new(-1);
-		show_attack_types(output);
+		hash_print_names(&damtypes, output);
 		page_to_char(buf_string(output), ch);
 		buf_free(output);
 		return FALSE;
 	}
 
-	if ((dt = attack_lookup(arg)) < 0) {
-		char_printf(ch, "MobEd: %s: unknown damtype.\n", arg);
+	if ((d = damtype_lookup(arg)) == NULL) {
+		char_printf(ch, "MobEd: %s: unknown damage class.\n", arg);
 		return FALSE;
 	}
 
-	pMob->dam_type = dt;
+	free_string(pMob->damtype);
+	pMob->damtype = str_qdup(d->dam_name);
 	char_puts("Damage type set.\n", ch);
 	return TRUE;
 }
@@ -1149,6 +1150,8 @@ OLC_FUN(mobed_clone)
 	pMob->name		= str_qdup(pFrom->name);
 	free_string(pMob->material);
 	pMob->material		= str_qdup(pFrom->material);
+	free_string(pMob->damtype);
+	pMob->damtype		= str_qdup(pFrom->damtype);
 	mlstr_cpy(&pMob->short_descr, &pFrom->short_descr);
 	mlstr_cpy(&pMob->long_descr, &pFrom->long_descr);
 	mlstr_cpy(&pMob->description, &pFrom->description);
@@ -1160,7 +1163,6 @@ OLC_FUN(mobed_clone)
 	pMob->alignment		= pFrom->alignment;
 	pMob->level		= pFrom->level;
 	pMob->hitroll		= pFrom->hitroll;
-	pMob->dam_type		= pFrom->dam_type;
 	pMob->off_flags		= pFrom->off_flags;
 	pMob->imm_flags		= pFrom->imm_flags;
 	pMob->res_flags		= pFrom->res_flags;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.4 1999-09-30 05:18:18 avn Exp $
+ * $Id: olc_class.c,v 1.5 1999-10-06 09:56:02 fjoe Exp $
  */
 
 #include "olc.h"
@@ -44,7 +44,6 @@ DECLARE_OLC_FUN(classed_whoname		);
 DECLARE_OLC_FUN(classed_titles		);
 DECLARE_OLC_FUN(classed_primary		);
 DECLARE_OLC_FUN(classed_weapon		);
-DECLARE_OLC_FUN(classed_adept		);
 DECLARE_OLC_FUN(classed_thac00		);
 DECLARE_OLC_FUN(classed_thac32		);
 DECLARE_OLC_FUN(classed_hprate		);
@@ -57,7 +56,7 @@ DECLARE_OLC_FUN(classed_ethos		);
 DECLARE_OLC_FUN(classed_sex		);
 DECLARE_OLC_FUN(classed_stats		);
 DECLARE_OLC_FUN(classed_poses		);
-DECLARE_OLC_FUN(classed_skills		);
+DECLARE_OLC_FUN(classed_skillspec	);
 DECLARE_OLC_FUN(classed_guilds		);
 
 DECLARE_OLC_FUN(olc_skill_update	);
@@ -80,7 +79,6 @@ olc_cmd_t olc_cmds_class[] =
 	{ "whoname",	classed_whoname,	validate_whoname	},
 	{ "primary",	classed_primary,	stat_names		},
 	{ "weapon",	classed_weapon					},
-	{ "adept",	classed_adept					},
 	{ "thac00",	classed_thac00					},
 	{ "thac32",	classed_thac32					},
 	{ "hprate",	classed_hprate					},
@@ -94,7 +92,7 @@ olc_cmd_t olc_cmds_class[] =
 	{ "stats",	classed_stats					},
 	{ "titles",	classed_titles					},
 	{ "poses",	classed_poses					},
-	{ "skills",	classed_skills					},
+	{ "skillspec",	classed_skillspec,	validate_skill_spec	},
 	{ "guilds",	classed_guilds					},
 
 	{ "update",	olc_skill_update				},
@@ -228,11 +226,10 @@ OLC_FUN(classed_show)
 	buf_printf(output, "Filename:       [%s]\n", class->file_name);
 	buf_printf(output, "Primary attr:   [%s]\n",
 		   flag_string(stat_names, class->attr_prime));
+	if (!IS_NULLSTR(class->skill_spec))
+		buf_printf(output, "SkillSpec:      [%s]\n", class->skill_spec);
 	if (class->weapon)
 		buf_printf(output, "School weapon:  [%d]\n", class->weapon);
-	if (class->skill_adept != 75)
-		buf_printf(output, "Skill adept     [%d%%]\n",
-			   class->skill_adept);
 	buf_printf(output, "THAC0 (level 0) [%d] THAC0 (level 32) [%d]\n",
 		   class->thac0_00, class->thac0_32);
 	buf_printf(output, "HP rate:        [%d%%] Mana rate:      [%d%%]\n",
@@ -277,9 +274,8 @@ OLC_FUN(classed_list)
 	BUFFER	*buffer;
 
 	buffer = buf_new(-1);
-	for (i = 0; i < classes.nused; i++) {
+	for (i = 0; i < classes.nused; i++)
 		buf_printf(buffer, "[%2d] %s\n", i, CLASS(i)->name);
-	}
 	page_to_char(buf_string(buffer), ch);
 	buf_free(buffer);
 	return FALSE;
@@ -301,19 +297,16 @@ OLC_FUN(classed_filename)
 
 OLC_FUN(classed_whoname)
 {
-	int i;
 	const char *str;
 	class_t *class;
 	EDIT_CLASS(ch, class);
 
 	str = str_dup(class->who_name);
 	if (olced_str(ch, argument, cmd, &str)) {
-		for (i = 0; i < strlen(str); i++)
-			class->who_name[i] = str[i];
-		class->who_name[i] = '\0';
+		strnzcpy(class->who_name, sizeof(class->who_name), str);
 		free_string(str);
 		return TRUE;
-		}
+	}
 	free_string(str);
 	return FALSE;
 }
@@ -388,19 +381,10 @@ OLC_FUN(classed_weapon		)
 	return olced_number(ch, argument, cmd, &class->weapon);
 }
 
-OLC_FUN(classed_adept		)
-{
-	class_t *class;
-	EDIT_CLASS(ch, class);
-
-	return olced_number(ch, argument, cmd, &class->skill_adept);
-}
-
 OLC_FUN(classed_thac00		)
 {
 	class_t *class;
 	EDIT_CLASS(ch, class);
-
 	return olced_number(ch, argument, cmd, &class->thac0_00);
 }
 
@@ -408,7 +392,6 @@ OLC_FUN(classed_thac32		)
 {
 	class_t *class;
 	EDIT_CLASS(ch, class);
-
 	return olced_number(ch, argument, cmd, &class->thac0_32);
 }
 
@@ -416,7 +399,6 @@ OLC_FUN(classed_hprate		)
 {
 	class_t *class;
 	EDIT_CLASS(ch, class);
-
 	return olced_number(ch, argument, cmd, &class->hp_rate);
 }
 
@@ -424,7 +406,6 @@ OLC_FUN(classed_manarate	)
 {
 	class_t *class;
 	EDIT_CLASS(ch, class);
-
 	return olced_number(ch, argument, cmd, &class->mana_rate);
 }
 
@@ -432,7 +413,6 @@ OLC_FUN(classed_points		)
 {
 	class_t *class;
 	EDIT_CLASS(ch, class);
-
 	return olced_number(ch, argument, cmd, &class->points);
 }
 
@@ -440,7 +420,6 @@ OLC_FUN(classed_deaths		)
 {
 	class_t *class;
 	EDIT_CLASS(ch, class);
-
 	return olced_number(ch, argument, cmd, &class->death_limit);
 }
 
@@ -448,7 +427,6 @@ OLC_FUN(classed_flags		)
 {
 	class_t *class;
 	EDIT_CLASS(ch, class);
-
 	return olced_flag32(ch, argument, cmd, &class->class_flags);
 }
 
@@ -480,7 +458,6 @@ OLC_FUN(classed_align		)
 {
 	class_t *class;
 	EDIT_CLASS(ch, class);
-
 	return olced_flag32(ch, argument, cmd, &class->restrict_align);
 }
 
@@ -488,7 +465,6 @@ OLC_FUN(classed_ethos		)
 {
 	class_t *class;
 	EDIT_CLASS(ch, class);
-
 	return olced_flag32(ch, argument, cmd, &class->restrict_ethos);
 }
 
@@ -500,7 +476,7 @@ OLC_FUN(classed_sex		)
 	if (!olced_flag32(ch, argument, cmd, &class->restrict_sex))
 		return FALSE;
 	if (class->restrict_sex != SEX_MALE
-	&& class->restrict_sex != SEX_FEMALE)
+	&&  class->restrict_sex != SEX_FEMALE)
 		class->restrict_sex = -1;
 	return TRUE;
 }
@@ -535,43 +511,50 @@ OLC_FUN(classed_poses)
 		buf_free(buffer);
 		return FALSE;
 	}
+
 	if (!str_prefix(arg, "delete")) {
 		argument = one_argument(argument, arg, sizeof(arg));
 		pose = varr_get(&class->poses, atoi(arg));
-		if (!pose) {
-			char_puts("ClassEd: pose: no such pose.\n", ch);
+		if (pose == NULL) {
+			char_printf(ch, "ClassEd: no such pose: %s\n", arg);
 			return FALSE;
 		}
+
 		pose->self = str_dup(str_empty);
 		pose->others = str_dup(str_empty);
 		varr_qsort(&class->poses, cmpstr);
 		char_puts("Pose deleted.\n", ch);
 		return TRUE;
 	}
+
 	if (!str_prefix(arg, "self")) {
 		argument = one_argument(argument, arg, sizeof(arg));
 		pose = varr_get(&class->poses, atoi(arg));
-		if (!pose) {
-			char_puts("ClassEd: pose: no such pose.\n", ch);
+		if (pose == NULL) {
+			char_printf(ch, "ClassEd: no such pose: %s\n", arg);
 			return FALSE;
 		}
+
 		free_string(pose->self);
 		pose->self = str_dup(argument);
 		char_puts("Ok.\n", ch);
 		return TRUE;
 	}
+
 	if (!str_prefix(arg, "others")) {
 		argument = one_argument(argument, arg, sizeof(arg));
 		pose = varr_get(&class->poses, atoi(arg));
-		if (!pose) {
-			char_puts("ClassEd: pose: no such pose.\n", ch);
+		if (pose == NULL) {
+			char_printf(ch, "ClassEd: no such pose: %s\n", arg);
 			return FALSE;
 		}
+
 		free_string(pose->others);
 		pose->others = str_dup(argument);
 		char_puts("Ok.\n", ch);
 		return TRUE;
 	}
+
 	if (!str_prefix(arg, "add")) {
 		pose = varr_enew(&class->poses);
 		pose->self = str_dup("#");
@@ -579,94 +562,22 @@ OLC_FUN(classed_poses)
 		char_puts("Pose added.\n", ch);
 		return TRUE;
 	}
+
 	if (!str_prefix(arg, "sort")) {
 		varr_qsort(&class->poses, cmpstr);
 		char_puts("Ok.\n", ch);
 		return TRUE;
 	}
+
 	dofun("help", ch, "'OLC CLASS POSES'");
 	return FALSE;
 }
 
-OLC_FUN(classed_skills)
+OLC_FUN(classed_skillspec)
 {
 	class_t *class;
-	cskill_t *csk;
-	skill_t *sk;
-	char arg[MAX_STRING_LENGTH];
-
 	EDIT_CLASS(ch, class);
-
-	argument = one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0' || !str_prefix(arg, "list")) {
-		int i;
-		BUFFER	*buffer;
-		bool st = FALSE;
-
-		buffer = buf_new(-1);
-		for (i = 0; i < class->skills.nused; i++) {
-			csk = VARR_GET(&class->skills, i);
-			if (csk->sn <= 0 || (sk = skill_lookup(csk->sn)) == NULL)
-				continue;
-			st = TRUE;
-			buf_printf(buffer, "Skill: %-16.15s (level %3d, "
-					   "rating %2d, modifier %3d)\n",
-				   sk->name, csk->level, csk->rating, csk->mod);
-		}
-		if (!st)
-			buf_add(buffer, "No skills have been defined"
-					" for this class.\n");
-		page_to_char(buf_string(buffer), ch);
-		buf_free(buffer);
-		return FALSE;
-	}
-	if (!str_prefix(arg, "add")) {
-		int sn;
-
-		argument = one_argument(argument, arg, sizeof(arg));
-		if ((sn = sn_lookup(arg)) == -1) {
-			char_printf(ch, "ClassEd: %s: no such skill.\n", arg);
-			return FALSE;
-		}
-		if ((csk = cskill_lookup(class, sn)) != NULL) {
-			char_printf(ch, "ClassEd: %s: already in list.\n",
-				    SKILL(sn)->name);
-			return FALSE;
-		}
-		csk = varr_enew(&class->skills);
-		csk->sn = sn;
-		argument = one_argument(argument, arg, sizeof(arg));
-		csk->level = atoi(arg);
-		if (!csk->level) csk->level = 1;
-		argument = one_argument(argument, arg, sizeof(arg));
-		csk->rating = atoi(arg);
-		if (!csk->rating) csk->rating = 1;
-		argument = one_argument(argument, arg, sizeof(arg));
-		csk->mod = atoi(arg);
-		varr_qsort(&class->skills, cmpint);
-		char_puts("Skill added.\n", ch);
-		return TRUE;
-	}
-	if (!str_prefix(arg, "delete")) {
-		int sn;
-
-		argument = one_argument(argument, arg, sizeof(arg));
-		if ((sn = sn_lookup(arg)) == -1) {
-			char_printf(ch, "ClassEd: %s: no such skill.\n", arg);
-			return FALSE;
-		}
-		if ((csk = cskill_lookup(class, sn)) == NULL) {
-			char_printf(ch, "ClassEd: %s: not in list.\n",
-				    SKILL(sn)->name);
-			return FALSE;
-		}
-		csk->sn = 0;
-		varr_qsort(&class->skills, cmpint);
-		char_puts("Skill deleted.\n", ch);
-		return TRUE;
-	}
-	dofun("help", ch, "'OLC CLASS SKILLS'");
-	return FALSE;
+	return olced_str(ch, argument, cmd, &class->skill_spec);
 }
 
 OLC_FUN(classed_guilds)
@@ -685,9 +596,10 @@ OLC_FUN(classed_guilds)
 		bool st = FALSE;
 
 		buffer = buf_new(-1);
-		for (i = 0; i < class->guild.nused; i++) {
-			vnum = *(int*)VARR_GET(&class->guild, i);
-			if (!vnum) continue;
+		for (i = 0; i < class->guilds.nused; i++) {
+			vnum = *(int*) VARR_GET(&class->guilds, i);
+			if (!vnum)
+				continue;
 			if ((room = get_room_index(vnum)) == NULL) {
 				buf_printf(buffer, "[%5d] Nonexistant.\n",
 					   vnum);
@@ -697,6 +609,7 @@ OLC_FUN(classed_guilds)
 			buf_printf(buffer, "[%5d] %-25.24s\n",
 				   vnum, mlstr_mval(&room->name));
 		}
+
 		if (!st)
 			buf_add(buffer, "No guild rooms have been defined"
 					" for this class.\n");
@@ -704,6 +617,7 @@ OLC_FUN(classed_guilds)
 		buf_free(buffer);
 		return FALSE;
 	}
+
 	if (!str_prefix(arg, "add")) {
 		int *pvnum;
 
@@ -713,31 +627,37 @@ OLC_FUN(classed_guilds)
 			char_printf(ch, "ClassEd: %d: no such room.\n", vnum);
 			return FALSE;
 		}
-		if (varr_bsearch(&class->guild, &vnum, cmpint) != NULL) {
+
+		if (varr_bsearch(&class->guilds, &vnum, cmpint)) {
 			char_printf(ch, "ClassEd: %d: already in list.\n",
 				    vnum);
 			return FALSE;
 		}
-		pvnum = varr_enew(&class->guild);
+
+		pvnum = varr_enew(&class->guilds);
 		*pvnum = vnum;
-		varr_qsort(&class->guild, cmpint);
+		varr_qsort(&class->guilds, cmpint);
 		char_puts("Guild added.\n", ch);
 		return TRUE;
 	}
+
 	if (!str_prefix(arg, "delete")) {
 		int *pvnum;
 
 		argument = one_argument(argument, arg, sizeof(arg));
 		vnum = atoi(arg);
-		if ((pvnum = (int *)varr_bsearch(&class->guild, &vnum, cmpint)) == NULL) {
-			char_puts("ClassEd: guild: not in list.\n", ch);
+		pvnum = varr_bsearch(&class->guilds, &vnum, cmpint);
+		if (pvnum == NULL) {
+			char_printf(ch, "ClassEd: %d: not in list.\n", vnum);
 			return FALSE;
 		}
+
 		*pvnum = 0;
-		varr_qsort(&class->guild, cmpint);
+		varr_qsort(&class->guilds, cmpint);
 		char_puts("Guild deleted.\n", ch);
 		return TRUE;
 	}
+
 	dofun("help", ch, "'OLC CLASS SKILLS'");
 	return FALSE;
 }
@@ -799,11 +719,12 @@ static void save_class(CHAR_DATA *ch, class_t *class)
 	fprintf(fp, "Name %s~\n", class->name);
 	fprintf(fp, "ShortName %s~\n", class->who_name);
 	fprintf(fp, "PrimeStat %s\n", flag_string(stat_names, class->attr_prime));
+	if (!IS_NULLSTR(class->skill_spec))
+		fprintf(fp, "SkillSpec '%s'\n", class->skill_spec);
 	fprintf(fp, "SchoolWeapon %d\n", class->weapon);
-	for (i = 0; i < class->guild.nused; i++)
-		if (*(int*)VARR_GET(&class->guild, i) != 0)
-			fprintf(fp, "GuildRoom %d\n", *(int*)VARR_GET(&class->guild, i));
-	fprintf(fp, "SkillAdept %d\n", class->skill_adept);
+	for (i = 0; i < class->guilds.nused; i++)
+		if (*(int*)VARR_GET(&class->guilds, i) != 0)
+			fprintf(fp, "GuildRoom %d\n", *(int*)VARR_GET(&class->guilds, i));
 	fprintf(fp, "Thac0_00 %d\n", class->thac0_00);
 	fprintf(fp, "Thac0_32 %d\n", class->thac0_32);
 	fprintf(fp, "HPRate %d\n", class->hp_rate);
@@ -829,15 +750,6 @@ static void save_class(CHAR_DATA *ch, class_t *class)
 			flag_string(ethos_table, class->restrict_ethos));
 	if (class->death_limit != -1)
 		fprintf(fp, "DeathLimit %d\n", class->death_limit);
-	for (i = 0; i < class->skills.nused; i++) {
-		cskill_t *csk = VARR_GET(&class->skills, i);
-		skill_t *sk;
-
-		if (!csk->sn) continue;
-		if ((sk = skill_lookup(csk->sn)) == NULL) continue;
-		fprintf(fp, "Skill '%s' %d %d %d\n", skill_name(csk->sn),
-			csk->level, csk->rating, csk->mod);
-	}
 	for (i = 0; i < MAX_LEVEL + 1; i++) {
 		fprintf(fp, "Title %d male %s~\n",
 			i, PROC_STR(class->titles[i][0]));

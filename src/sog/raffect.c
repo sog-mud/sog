@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: raffect.c,v 1.30 1999-09-25 11:29:35 fjoe Exp $
+ * $Id: raffect.c,v 1.31 1999-10-06 09:56:09 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -32,7 +32,40 @@
 #include "merc.h"
 #include "fight.h"
 
-varr rspells = { sizeof(rspell_t), 8 };
+hash_t rspells;
+
+void rspell_init(rspell_t *rsp)
+{
+	rsp->sn = str_empty;
+	rsp->enter_fun_name = str_empty;
+	rsp->update_fun_name = str_empty;
+	rsp->leave_fun_name = str_empty;
+	rsp->enter_fun = NULL;
+	rsp->update_fun = NULL;
+	rsp->leave_fun = NULL;
+	rsp->revents = 0;
+}
+
+rspell_t *rspell_cpy(rspell_t *dst, const rspell_t *src)
+{
+	dst->sn = str_qdup(src->sn);
+	dst->enter_fun_name = str_qdup(src->enter_fun_name);
+	dst->update_fun_name = str_qdup(src->update_fun_name);
+	dst->leave_fun_name = str_qdup(src->leave_fun_name);
+	dst->enter_fun = src->enter_fun;
+	dst->update_fun = src->update_fun;
+	dst->leave_fun = src->leave_fun;
+	dst->revents = src->revents;
+	return dst;
+}
+
+void rspell_destroy(rspell_t *rsp)
+{
+	free_string(rsp->sn);
+	free_string(rsp->enter_fun_name);
+	free_string(rsp->update_fun_name);
+	free_string(rsp->leave_fun_name);
+}
 
 /*
  * Update room affect events
@@ -42,9 +75,9 @@ void check_room_events(ROOM_INDEX_DATA *room)
 	ROOM_AFFECT_DATA *raf;
 
 	if (!room->affected) return;
-	room->events = 0;
+	room->revents = 0;
 	for (raf = room->affected; raf; raf = raf->next)
-		room->events |= raf->events;
+		room->revents |= raf->revents;
 }
 
 /*
@@ -238,14 +271,14 @@ void affect_remove_room(ROOM_INDEX_DATA *room, ROOM_AFFECT_DATA *paf)
 /*
  * Strip all affects of a given sn.
  */
-void affect_strip_room(ROOM_INDEX_DATA *room, int sn)
+void affect_strip_room(ROOM_INDEX_DATA *room, const char *sn)
 {
 	ROOM_AFFECT_DATA *paf;
 	ROOM_AFFECT_DATA *paf_next;
 
 	for (paf = room->affected; paf != NULL; paf = paf_next) {
 		paf_next = paf->next;
-		if (paf->type == sn)
+		if (SKILL_IS(paf->type, sn))
 			affect_remove_room(room, paf);
 	}
 }
@@ -253,12 +286,12 @@ void affect_strip_room(ROOM_INDEX_DATA *room, int sn)
 /*
  * Return true if a room is affected by a spell.
  */
-bool is_affected_room(ROOM_INDEX_DATA *room, int sn)
+bool is_affected_room(ROOM_INDEX_DATA *room, const char *sn)
 {
 	ROOM_AFFECT_DATA *paf;
 
 	for (paf = room->affected; paf != NULL; paf = paf->next) {
-		if (paf->type == sn)
+		if (SKILL_IS(paf->type, sn))
 			return TRUE;
 	}
 
@@ -305,20 +338,26 @@ bool is_safe_rspell(ROOM_AFFECT_DATA *raf, CHAR_DATA *victim)
   else return FALSE;
 }
 
-#define SAFE_RSPELL_CALL(fun) if (fun) (fun)(room, ch, raf); else return;
+#define SAFE_RSPELL_CALL(fun)				\
+	do {						\
+		if (fun)				\
+			(fun)(room, ch, raf);		\
+		else					\
+			continue;			\
+	} while(0);
 
 void check_room_affects(CHAR_DATA *ch, ROOM_INDEX_DATA *room, flag32_t event)
 {
 	ROOM_AFFECT_DATA *raf, *raf_next;
-	rspell_t *rsp;
-	int rsn;
 
-	if (!IS_SET(room->events, event)) return;
+	if (!IS_SET(room->revents, event))
+		return;
 
 	for (raf = room->affected; raf != NULL; raf = raf_next) {
+		rspell_t *rsp;
 		raf_next = raf->next;
 
-		if (!IS_SET(raf->events, event))
+		if (!IS_SET(raf->revents, event))
 			continue;
 
 		if (!raf->owner) {
@@ -326,38 +365,24 @@ void check_room_affects(CHAR_DATA *ch, ROOM_INDEX_DATA *room, flag32_t event)
 			continue;
 		}
 
-		rsn = rsn_lookup(raf->type);
-		if (rsn == -1) return;
-
-		rsp = RSPELL(rsn);
+		if ((rsp = rspell_lookup(raf->type)) == NULL)
+			continue;
 
 		switch (event) {
-			default:
-				log("[*****] BUG: no such event %d", event);
-				return;
-			case EVENT_ENTER:
-				SAFE_RSPELL_CALL(rsp->enter_fun);
-				break;
-			case EVENT_LEAVE:
-				SAFE_RSPELL_CALL(rsp->leave_fun);
-				break;
-			case EVENT_UPDATE:
-				SAFE_RSPELL_CALL(rsp->update_fun);
-				break;
+		default:
+			bug("check_room_affects: %d: no such event %d", event);
+			return;
+		case REVENT_ENTER:
+			SAFE_RSPELL_CALL(rsp->enter_fun);
+			break;
+		case REVENT_LEAVE:
+			SAFE_RSPELL_CALL(rsp->leave_fun);
+			break;
+		case REVENT_UPDATE:
+			SAFE_RSPELL_CALL(rsp->update_fun);
+			break;
 		}
 		if (IS_EXTRACTED(ch))
 			break;
 	}
-}
-	  
-int rsn_lookup(int sn)
-{
-	int i;
-	rspell_t *rsp;
-
-	for (i = 0; i < rspells.nused; i++) {
-		rsp = RSPELL(i);
-		if (rsp->sn == sn) return i;
-	}
-	return -1;
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.45 1999-10-05 10:09:17 fjoe Exp $
+ * $Id: const.h,v 1.46 1999-10-06 09:55:57 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -49,55 +49,8 @@
 #	define PATH_SEPARATOR '/'
 #endif
 
-#define PFILE_VERSION	9
+#define PFILE_VERSION	10
 
-/*
- * the following path/file name consts are defined in db.c
- */
-extern const char TMP_PATH	[];
-extern const char PLAYER_PATH	[];
-extern const char GODS_PATH	[];
-extern const char NOTES_PATH	[];
-extern const char ETC_PATH	[];
-extern const char CLASSES_PATH	[];
-extern const char CLANS_PATH	[];
-extern const char RACES_PATH	[];
-extern const char AREA_PATH	[];
-extern const char LANG_PATH	[];
-extern const char PLISTS_PATH	[];
-extern const char MODULES_PATH	[];
-
-extern const char TMP_FILE	[];
-extern const char NULL_FILE	[];
-
-extern const char HOMETOWNS_CONF[];
-extern const char SKILLS_CONF	[];
-extern const char RSPELLS_CONF	[];
-extern const char SOCIALS_CONF	[];
-extern const char SYSTEM_CONF	[];
-extern const char LANG_CONF	[];
-extern const char MSGDB_CONF	[];
-extern const char CMD_CONF	[];
-
-extern const char AREA_LIST	[];
-extern const char CLAN_LIST	[];
-extern const char CLASS_LIST	[];
-extern const char LANG_LIST	[];
-extern const char RACE_LIST	[];
-
-extern const char BUG_FILE	[];
-extern const char TYPO_FILE	[];
-extern const char NOTE_FILE	[];
-extern const char IDEA_FILE	[];
-extern const char PENALTY_FILE	[];
-extern const char NEWS_FILE	[];
-extern const char CHANGES_FILE	[];
-extern const char SHUTDOWN_FILE	[];
-extern const char EQCHECK_FILE	[];
-extern const char BAN_FILE	[];
-extern const char MAXON_FILE	[];
-extern const char AREASTAT_FILE	[];
-extern const char IMMLOG_FILE	[];
 /*
  * sex or gender
  */
@@ -201,6 +154,9 @@ enum {
 #define FIGHT_DELAY_TIME	(20 * PULSE_PER_SECOND)
 #define GHOST_DELAY_TIME	600
 #define MISSING_TARGET_DELAY	10
+
+extern const char BUG_FILE	[];
+extern const char TYPO_FILE	[];
 
 /*
  * Well known mob virtual numbers.
@@ -395,4 +351,5 @@ enum {
 #define jjj	((flag64_t) 1 << 61)
 #define kkk	((flag64_t) 1 << 62)
 #define lll	((flag64_t) 1 << 63)
+
 #endif

@@ -1,5 +1,5 @@
 /*
- * $Id: healer.c,v 1.32 1999-09-23 18:28:41 kostik Exp $
+ * $Id: healer.c,v 1.33 1999-10-06 09:55:54 fjoe Exp $
  */
 
 /*-
@@ -81,7 +81,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 {
     CHAR_DATA *mob;
     char arg[MAX_INPUT_LENGTH];
-    int cost, sn;
+    int cost;
     heal_t *h;
 
     /* check for healer */
@@ -118,7 +118,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
     }
     cost = get_heal_cost(h, mob, ch);
 
-    if (HAS_SKILL(ch, gsn_spellbane) && (h->price > 0)) {
+    if (HAS_SKILL(ch, "spellbane") && (h->price > 0)) {
 	char_puts("You are Battle Rager, not the filthy magician\n",ch);
 	return;
     }
@@ -130,7 +130,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 	return;
     }
 
-    WAIT_STATE(ch,PULSE_VIOLENCE);
+    WAIT_STATE(ch, PULSE_VIOLENCE);
 
     if (cost < 0) {
 	deduct_cost(ch, -cost);
@@ -138,12 +138,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 	return;
     }
 
-    sn = sn_lookup(h->spellname);
-    if (sn < 0 || SKILL(sn)->skill_type != ST_SPELL) {
-	bug("do_heal: invalid spell name in table");
-	return;
-    }
     deduct_cost(ch, cost);
-    say_spell(mob, sn);
-    spellfun_call(h->spellname, mob->level, mob, ch);
+    say_spell(mob, h->spellname);
+    spellfun_call(h->spellname, NULL, mob->level, mob, ch);
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.64 1999-09-09 03:40:14 fjoe Exp $
+ * $Id: recycle.c,v 1.65 1999-10-06 09:56:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -136,7 +136,7 @@ AFFECT_DATA *aff_dup(const AFFECT_DATA *paf)
 {
 	AFFECT_DATA *naf = aff_new();
 	naf->where	= paf->where;
-	naf->type	= paf->type;
+	naf->type	= str_dup(paf->type);
 	naf->level	= paf->level;
 	naf->duration	= paf->duration;
 	naf->location	= paf->location;
@@ -147,12 +147,14 @@ AFFECT_DATA *aff_dup(const AFFECT_DATA *paf)
 
 void aff_free(AFFECT_DATA *af)
 {
+	free_string(af->type);
 	free(af);
 	top_affect--;
 }
 
 void raff_free(ROOM_AFFECT_DATA *raf)
 {
+	free_string(raf->type);
 	free(raf);
 	top_raffect--;
 }
@@ -213,6 +215,8 @@ void free_obj(OBJ_DATA *obj)
 	free_string(obj->material);
 	obj->material = NULL;
 
+	objval_destroy(obj->pObjIndex->item_type, obj->value);
+
 	obj->next = free_obj_list;
 	free_obj_list = obj;
 
@@ -230,6 +234,12 @@ int pc_free_count;
 
 int npc_count;
 int pc_count;
+
+void pc_skill_init(pc_skill_t *pc_sk)
+{
+	pc_sk->sn = str_empty;
+	pc_sk->percent = 0;
+}
 
 CHAR_DATA *char_new(MOB_INDEX_DATA *pMobIndex)
 {
@@ -274,6 +284,7 @@ CHAR_DATA *char_new(MOB_INDEX_DATA *pMobIndex)
 	ch->move		= 100;
 	ch->max_move		= 100;
 	ch->position		= POS_STANDING;
+	ch->damtype		= str_empty;
 	for (i = 0; i < 4; i++)
 		ch->armor[i]	= 100;
 	for (i = 0; i < MAX_STATS; i ++)
@@ -286,7 +297,15 @@ CHAR_DATA *char_new(MOB_INDEX_DATA *pMobIndex)
 		pc->logon = current_time;
 		pc->version = PFILE_VERSION;
 		pc->buffer = buf_new(-1);
-		varr_init(&pc->learned, sizeof(pcskill_t), 8);
+
+		varr_init(&pc->learned, sizeof(pc_skill_t), 8);
+		pc->learned.e_init = (varr_e_init_t) pc_skill_init;
+		pc->learned.e_destroy = name_destroy;
+
+		varr_init(&pc->specs, sizeof(pc_skill_t), 2);
+		pc->specs.e_destroy = name_init;
+		pc->specs.e_destroy = name_destroy;
+
 		pc->pwd = str_empty;
 		pc->bamfin = str_empty;
 		pc->bamfout = str_empty;
@@ -331,7 +350,9 @@ void char_free(CHAR_DATA *ch)
 		free_list = &free_pc_list;
 
 		/* free pc stuff */
+		varr_destroy(&pc->specs);
 		varr_destroy(&pc->learned);
+
 		free_string(pc->pwd);
 		free_string(pc->bamfin);
 		free_string(pc->bamfout);
@@ -366,6 +387,9 @@ void char_free(CHAR_DATA *ch)
 
 	free_string(ch->material);
 	ch->material = NULL;
+
+	free_string(ch->damtype);
+	ch->damtype = NULL;
 
 	ch->next = *free_list;
 	*free_list = ch;
@@ -625,7 +649,9 @@ void free_obj_index(OBJ_INDEX_DATA *pObj)
 	}
 
 	ed_free(pObj->ed);
-    
+
+	objval_destroy(pObj->item_type, pObj->value);
+
 	top_obj_index--;
 	free(pObj);
 }
@@ -643,6 +669,7 @@ MOB_INDEX_DATA *new_mob_index(void)
 	pMob->size		= SIZE_MEDIUM;
 	pMob->start_pos		= POS_STANDING;
 	pMob->default_pos	= POS_STANDING;
+	pMob->damtype		= str_empty;
 
 	top_mob_index++;
 	return pMob;
@@ -655,6 +682,7 @@ void free_mob_index(MOB_INDEX_DATA *pMob)
 
 	free_string(pMob->name);
 	free_string(pMob->material);
+	free_string(pMob->damtype);
 	mlstr_destroy(&pMob->short_descr);
 	mlstr_destroy(&pMob->long_descr);
 	mlstr_destroy(&pMob->description);
@@ -706,4 +734,233 @@ void mpcode_free(MPCODE *mpcode)
 
 	top_mprog_index--;
 	free(mpcode);
+}
+
+void objval_init(flag32_t item_type, vo_t *v)
+{
+	int i;
+
+	switch (item_type) {
+	default:
+		for (i = 0; i < 5; i++)
+			v[i] = 0;
+		break;
+
+	case ITEM_WEAPON:
+	case ITEM_STAFF:
+	case ITEM_WAND:
+		v[0] = 0;
+		v[1] = 0;
+		v[2] = 0;
+		v[3].s = str_empty;
+		v[4] = 0;
+		break;
+
+	case ITEM_PILL:
+	case ITEM_POTION:
+	case ITEM_SCROLL:
+		v[0] = 0;
+		for (i = 1; i < 5; i++)
+			v[i].s = str_empty;
+		break;
+	}
+}
+
+void objval_cpy(flag32_t item_type, vo_t *dst, vo_t *src)
+{
+	int i;
+
+	switch (item_type) {
+	default:
+		for (i = 0; i < 5; i++)
+			dst[i] = src[i];
+		break;
+
+	case ITEM_WEAPON:
+	case ITEM_STAFF:
+	case ITEM_WAND:
+		dst[0] = src[0];
+		dst[1] = src[1];
+		dst[2] = src[2];
+		STR_VAL_ASSIGN(dst[3], str_qdup(src[3].s));
+		dst[4] = src[4];
+		break;
+
+	case ITEM_PILL:
+	case ITEM_POTION:
+	case ITEM_SCROLL:
+		dst[0] = src[0];
+		for (i = 1; i < 5; i++)
+			STR_VAL_ASSIGN(dst[i], str_qdup(src[i].s));
+		break;
+	}
+}
+
+void objval_destroy(flag32_t item_type, vo_t *v)
+{
+	int i;
+
+	switch (item_type) {
+	case ITEM_WEAPON:
+	case ITEM_STAFF:
+	case ITEM_WAND:
+		free_string(v[3].s);
+		break;
+
+	case ITEM_PILL:
+	case ITEM_POTION:
+	case ITEM_SCROLL:
+		for (i = 1; i < 5; i++)
+			free_string(v[i].s);
+		break;
+	}
+}
+
+void fwrite_objval(flag32_t item_type, vo_t *v, FILE *fp)
+{
+	/*
+	 *  Using format_flags to write most values gives a strange
+	 *  looking area file, consider making a case for each
+	 *  item type later.
+	 */
+
+	switch (item_type) {
+	default:
+		fprintf(fp, "%s %s %s %s %s\n",
+			FLAGS_VAL(v[0]),
+	    		FLAGS_VAL(v[1]),
+	    		FLAGS_VAL(v[2]),
+	    		FLAGS_VAL(v[3]),
+	    		FLAGS_VAL(v[4]));
+		break;
+
+	case ITEM_MONEY:
+	case ITEM_ARMOR:
+		fprintf(fp, "%d %d %d %d %d\n",
+			INT_VAL(v[0]),
+	    		INT_VAL(v[1]),
+	    		INT_VAL(v[2]),
+	    		INT_VAL(v[3]),
+	    		INT_VAL(v[4]));
+		break;
+
+        case ITEM_DRINK_CON:
+        case ITEM_FOUNTAIN:
+		fprintf(fp, "%d %d '%s' %d %d\n",
+			INT_VAL(v[0]),
+			INT_VAL(v[1]),
+			liq_table[INT_VAL(v[2])].liq_name,
+			INT_VAL(v[3]),
+			INT_VAL(v[4]));
+		break;
+
+        case ITEM_CONTAINER:
+		fprintf(fp, "%d %s %d %d %d\n",
+			INT_VAL(v[0]),
+			FLAGS_VAL(v[1]),
+			INT_VAL(v[2]),
+			INT_VAL(v[3]),
+			INT_VAL(v[4]));
+		break;
+
+        case ITEM_WEAPON:
+		fprintf(fp, "%s %d %d '%s' %s\n",
+			SFLAGS_VAL(weapon_class, v[0]),
+			INT_VAL(v[1]),
+			INT_VAL(v[2]),
+			STR_VAL(v[3]),
+			FLAGS_VAL(v[4]));
+		break;
+            
+        case ITEM_PILL:
+        case ITEM_POTION:
+        case ITEM_SCROLL:
+		/* no negative numbers */
+		fprintf(fp, "%d '%s' '%s' '%s' '%s'\n",
+			UMAX(0, INT_VAL(v[0])),
+			STR_VAL(v[1]),
+			STR_VAL(v[2]),
+			STR_VAL(v[3]),
+			STR_VAL(v[4]));
+		break;
+
+        case ITEM_STAFF:
+        case ITEM_WAND:
+		fprintf(fp, "%d %d %d '%s' %d\n",
+			INT_VAL(v[0]),
+			INT_VAL(v[1]),
+			INT_VAL(v[2]),
+			STR_VAL(v[3]),
+			INT_VAL(v[4]));
+		break;
+
+	case ITEM_PORTAL:
+		fprintf(fp, "%s %s %s %d %d\n",
+			FLAGS_VAL(v[0]),
+			FLAGS_VAL(v[1]),
+			FLAGS_VAL(v[2]),
+			INT_VAL(v[3]),
+			INT_VAL(v[4]));
+		break;
+
+	case ITEM_LIGHT:
+	case ITEM_TATTOO:
+	case ITEM_TREASURE:
+		fprintf(fp, "%s %s %d %s %s\n",
+			FLAGS_VAL(v[0]),
+			FLAGS_VAL(v[1]),
+			INT_VAL(v[2]),
+			FLAGS_VAL(v[3]),
+			FLAGS_VAL(v[4]));
+		break;
+	}
+}
+
+void fread_objval(flag32_t item_type, vo_t *v, FILE *fp)
+{
+	int i;
+
+	switch(item_type) {
+	default:
+		INT_VAL(v[0]) = fread_flags(fp);
+		INT_VAL(v[1]) = fread_flags(fp);
+		INT_VAL(v[2]) = fread_flags(fp);
+		INT_VAL(v[3]) = fread_flags(fp);
+		INT_VAL(v[4]) = fread_flags(fp);
+		break;
+
+	case ITEM_DRINK_CON:
+	case ITEM_FOUNTAIN:
+		INT_VAL(v[0]) = fread_number(fp);
+		INT_VAL(v[1]) = fread_number(fp);
+		INT_VAL(v[2]) = liq_lookup(fread_word(fp));
+		INT_VAL(v[3]) = fread_number(fp);
+		INT_VAL(v[4]) = fread_number(fp);
+		break;
+
+	case ITEM_WEAPON:
+		INT_VAL(v[0]) = flag_value(weapon_class, fread_word(fp));
+		INT_VAL(v[1]) = fread_number(fp);
+		INT_VAL(v[2]) = fread_number(fp);
+		STR_VAL_ASSIGN(v[3], fread_name(fp, &damtypes, "fread_obj_val"));
+		INT_VAL(v[4]) = fread_flags(fp);
+		break;
+
+	case ITEM_WAND:
+	case ITEM_STAFF:
+		INT_VAL(v[0]) = fread_number(fp);
+		INT_VAL(v[1]) = fread_number(fp);
+		INT_VAL(v[2]) = fread_number(fp);
+		STR_VAL_ASSIGN(v[3], fread_name(fp, &skills, "fread_obj_val"));
+		INT_VAL(v[4]) = fread_number(fp);
+		break;
+
+	case ITEM_PILL:
+	case ITEM_POTION:
+	case ITEM_SCROLL:
+		INT_VAL(v[0]) = fread_number(fp);
+		for (i = 1; i < 5; i++)
+			STR_VAL_ASSIGN(v[i], fread_name(fp, &skills, "fread_obj_val"));
+		break;
+	}
 }

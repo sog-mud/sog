@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.h,v 1.18 1999-07-31 03:35:27 avn Exp $
+ * $Id: class.h,v 1.19 1999-10-06 09:55:57 fjoe Exp $
  */
 
 #ifndef _CLASS_H_
@@ -32,21 +32,13 @@
 /*--------------------------------------------------------------------
  * class stuff
  */
-struct cskill_t {
-	int 	sn;		/* skill number */
-	int 	level;		/* level needed by class */
-	int 	rating;		/* how hard it is to learn */
-	int	mod;		/* damage or chance modifier (in %) */
-};
-
 struct class_t {
 	const char *	name;		/* full name */
 	const char *	file_name;
 	char		who_name[4];	/* three-letter name for 'who' */
 	int		attr_prime;	/* primary stat */
 	int		weapon;		/* school weapon vnum */
-	varr 		guild;		/* guild room list */
-	int		skill_adept;	/* max skill % */
+	varr 		guilds;		/* guild room list */
 	int		thac0_00;	/* thac0 for level 0 */
 	int		thac0_32;	/* thac0 for level 32 */
 	int		hp_rate;	/* hp rate (when gaining level) */
@@ -57,10 +49,10 @@ struct class_t {
 	flag32_t	restrict_align;		/* alignment restrictions */
 	flag32_t	restrict_sex;		/* sex restrictions */
 	flag32_t	restrict_ethos;		/* ethos restrictions */
-	varr		skills;			/* varr of class skills */
 	const char *	titles[MAX_LEVEL+1][2];	/* titles */
 	varr		poses;			/* varr of class poses */
 	int		death_limit;		/* death limit */
+	const char *	skill_spec;		/* skills spec for this class */
 };
 
 struct pose_t {
@@ -77,8 +69,6 @@ extern varr classes;
 
 #define CLASS(i)		((class_t*) VARR_GET(&classes, i))
 #define class_lookup(i)		((class_t*) varr_get(&classes, i))
-#define cskill_lookup(class, sn) \
-	((cskill_t*) varr_bsearch(&class->skills, &sn, cmpint))
 
 class_t *	class_new(void);
 void		class_free(class_t*);

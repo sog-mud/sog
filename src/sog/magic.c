@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.7 1999-09-11 12:50:02 fjoe Exp $
+ * $Id: magic.c,v 1.8 1999-10-06 09:56:07 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -41,18 +41,17 @@ const char *target_name;
 bool spellbane(CHAR_DATA *bch, CHAR_DATA *ch, int bane_chance, int bane_damage)
 {
 	if (IS_IMMORTAL(bch) || IS_IMMORTAL(ch)) bane_chance = 0;
-	if (HAS_SKILL(bch, gsn_spellbane)
+	if (HAS_SKILL(bch, "spellbane")
 	&&  number_percent() < bane_chance) {
 		if (ch == bch) {
 	        	act_puts("Your spellbane deflects the spell!",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			act("$n's spellbane deflects the spell!",
 			    ch, NULL, NULL, TO_ROOM);
-			damage(ch, ch, bane_damage, gsn_spellbane,
+			damage(ch, ch, bane_damage, "spellbane",
 			       DAM_NEGATIVE, TRUE);
-		}
-	        else {
-			check_improve(bch, gsn_spellbane, TRUE, 8);
+		} else {
+			check_improve(bch, "spellbane", TRUE, 8);
 			act_puts("$N deflects your spell!",
 				 ch, NULL, bch, TO_CHAR, POS_DEAD);
 			act("You deflect $n's spell!",
@@ -60,7 +59,7 @@ bool spellbane(CHAR_DATA *bch, CHAR_DATA *ch, int bane_chance, int bane_damage)
 			act("$N deflects $n's spell!",
 			    ch, NULL, bch, TO_NOTVICT);
 			if (!is_safe(bch, ch))
-				damage(bch, ch, bane_damage, gsn_spellbane,
+				damage(bch, ch, bane_damage, "spellbane",
 				       DAM_NEGATIVE, TRUE);
 	        }
 	        return TRUE;
@@ -89,7 +88,7 @@ bool check_trust(CHAR_DATA *ch, CHAR_DATA *victim)
 /*
  * Cast spells at targets using a magical object.
  */
-void obj_cast_spell(int sn, int level, CHAR_DATA *ch, void *vo)
+void obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	skill_t *spell;
 	CHAR_DATA *bch = NULL;
@@ -98,8 +97,7 @@ void obj_cast_spell(int sn, int level, CHAR_DATA *ch, void *vo)
 	int bane_damage = 0;
 	bool offensive = FALSE;
 
-	if (sn <= 0
-	||  (spell = skill_lookup(sn)) == NULL
+	if ((spell = skill_lookup(sn)) == NULL
 	||  spell->skill_type != ST_SPELL
 	||  spell->fun == NULL)
 		return;
@@ -127,7 +125,7 @@ void obj_cast_spell(int sn, int level, CHAR_DATA *ch, void *vo)
 
 		bch = vo;
 		bane_damage = 10*bch->level;
-		bane_chance = 2 * get_skill(vo, gsn_spellbane) / 3;
+		bane_chance = 2 * get_skill(vo, "spellbane") / 3;
 		break;
 
 	case TAR_CHAR_DEFENSIVE:
@@ -246,47 +244,29 @@ void obj_cast_spell(int sn, int level, CHAR_DATA *ch, void *vo)
 	}
 }
 
-void spellfun_call(const char *name, int level, CHAR_DATA *ch, void *vo)
+/*
+ * spellfun_call -- calls spellfun for spell `sn_fun' with
+ *		    args (sn, level, ch, vo)
+ *		    If `sn' is NULL it will be the same as `sn_fun'
+ */
+void spellfun_call(const char *sn_fun, const char *sn, int level,
+		   CHAR_DATA *ch, void *vo)
 {
-	int sn = sn_lookup(name);
 	skill_t *sk;
 
-	if (sn < 0) {
-		bug("spellfun_call: %s: unknown or reserved spell", name);
+	if ((sk = skill_lookup(sn_fun)) == NULL) {
+		bug("spellfun_call: %s (name): unknown or reserved spell",
+		    sn_fun);
 		return;
 	}
 
-	sk = SKILL(sn);
-	if (sk->skill_type != ST_SPELL) {
-		bug("spellfun_call: %s: not a spell", sk->name);
+	if (sn == NULL)
+		sn = sn_fun;
+	else if (skill_lookup(sn) == NULL) {
+		bug("spellfun_call: %s (sn): unknown or reserved spell", sn);
 		return;
 	}
 
-	if (sk->fun == NULL) {
-		bug("spellfun_call: %s: NULL skill function", sk->name);
-		return;
-	}
-
-	sk->fun(sn, level, ch, vo);
-}
-
-void spellfun_call2(const char *name, int sn, int level,
-		    CHAR_DATA *ch, void *vo)
-{
-	int osn = sn_lookup(name);
-	skill_t *sk;
-
-	if (osn <= 0) {
-		bug("spellfun_call2: %s: unknown or reserved spell", name);
-		return;
-	}
-
-	if (sn <= 0) {
-		bug("spellfun_call: %d: unknown or reserved spell", sn);
-		return;
-	}
-
-	sk = SKILL(osn);
 	if (sk->skill_type != ST_SPELL) {
 		bug("spellfun_call: %s: not a spell", sk->name);
 		return;

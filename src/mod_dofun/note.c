@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.4 1999-09-18 11:45:25 fjoe Exp $
+ * $Id: note.c,v 1.5 1999-10-06 09:55:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,6 +47,7 @@
 #include "merc.h"
 #include "note.h"
 #include "string_edit.h"
+#include "db.h"
 
 static int count_spool(CHAR_DATA *ch, note_t *spool);
 static void parse_note(CHAR_DATA *ch, const char *argument, int type);

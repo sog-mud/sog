@@ -15,7 +15,7 @@ Class 'warrior' 100
 Class 'anti-paladin' 100
 Class 'ranger' 100
 BonusSkills 'fast healing'~
-Skill 'trance' 1
+SkillSpec race_troll
 Stats 2 -2 -1 -2 3 0
 MaxStats 19 23 20 25 18 25
 Size large

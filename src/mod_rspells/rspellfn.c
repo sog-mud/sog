@@ -23,56 +23,70 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rspellfn.c,v 1.2 1999-09-25 11:29:31 fjoe Exp $
+ * $Id: rspellfn.c,v 1.3 1999-10-06 09:56:03 fjoe Exp $
  */
 
 #include <stdio.h>
 #include <dlfcn.h>
 
+#include "const.h"
 #include "typedef.h"
 #include "varr.h"
+#include "hash.h"
 #include "log.h"
 #include "raffect.h"
 
 #include "module.h"
 
+static void *load_cb(void *p, void *d);
+static void *unload_cb(void *p, void *d);
+
 int _module_load(module_t* m)
 {
-	int rsn;
-
-	for (rsn = 0; rsn < rspells.nused; rsn++) {
-		rspell_t *rsp = RSPELL(rsn);
-
-		if (IS_SET(rsp->events, EVENT_ENTER)) {
-			rsp->enter_fun = dlsym(m->dlh, rsp->enter_fun_name);
-			if (rsp->enter_fun == NULL) 
-				wizlog("_module_load(rspells): %s", dlerror());
-		}
-		if (IS_SET(rsp->events, EVENT_LEAVE)) {
-			rsp->leave_fun = dlsym(m->dlh, rsp->leave_fun_name);
-			if (rsp->leave_fun == NULL) 
-				wizlog("_module_load(rspells): %s", dlerror());
-		}
-		if (IS_SET(rsp->events, EVENT_UPDATE)) {
-			rsp->update_fun = dlsym(m->dlh, rsp->update_fun_name);
-			if (rsp->update_fun == NULL) 
-				wizlog("_module_load(rspells): %s", dlerror());
-		}
-	}
-
+	hash_foreach(&rspells, load_cb, m);
 	return 0;
 }
 
 int _module_unload(module_t *m)
 {
-	int rsn;
-
-	for (rsn = 0; rsn < rspells.nused; rsn++) {
-		rspell_t *rsp = RSPELL(rsn);
-
-		rsp->enter_fun = NULL;
-		rsp->leave_fun = NULL;
-		rsp->update_fun = NULL;
-	}
+	hash_foreach(&rspells, unload_cb, NULL);
 	return 0;
 }
+
+static void *
+load_cb(void *p, void *d)
+{
+	rspell_t *rsp = (rspell_t*) p;
+	module_t *m = (module_t *) d;
+
+	if (IS_SET(rsp->revents, REVENT_ENTER)) {
+		rsp->enter_fun = dlsym(m->dlh, rsp->enter_fun_name);
+		if (rsp->enter_fun == NULL) 
+			wizlog("_module_load(rspells): %s", dlerror());
+	}
+
+	if (IS_SET(rsp->revents, REVENT_LEAVE)) {
+		rsp->leave_fun = dlsym(m->dlh, rsp->leave_fun_name);
+		if (rsp->leave_fun == NULL) 
+			wizlog("_module_load(rspells): %s", dlerror());
+	}
+
+	if (IS_SET(rsp->revents, REVENT_UPDATE)) {
+		rsp->update_fun = dlsym(m->dlh, rsp->update_fun_name);
+		if (rsp->update_fun == NULL) 
+			wizlog("_module_load(rspells): %s", dlerror());
+	}
+
+	return NULL;
+}
+
+static void *
+unload_cb(void *p, void *d)
+{
+	rspell_t *rsp = (rspell_t*) p;
+	rsp->enter_fun = NULL;
+	rsp->leave_fun = NULL;
+	rsp->update_fun = NULL;
+	return NULL;
+}
+

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.9 1999-06-24 06:36:32 fjoe Exp $
+ * $Id: varr.c,v 1.10 1999-10-06 09:56:12 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -40,11 +40,23 @@ void varr_init(varr *v, size_t nsize, size_t nstep)
 {
 	v->nsize = nsize;
 	v->nstep = nstep;
+	v->e_init = NULL;
+	v->e_destroy = NULL;
+}
+
+static void *
+varr_destroy_cb(void *p, void *d)
+{
+	void (*e_destroy)(void *p) = (void (*)(void*)) d;
+	e_destroy(p);
+	return NULL;
 }
 
 void varr_destroy(varr *v)
 {
 	v->nalloc = v->nused = 0;
+	if (v->e_destroy)
+		varr_foreach(v, varr_destroy_cb, v->e_destroy);
 	free(v->p);
 }
 	
@@ -63,7 +75,13 @@ void *varr_touch(varr *v, size_t i)
 
 	p = VARR_GET(v, i);
 	if (i >= v->nused) {
-		memset(VARR_GET(v, v->nused), 0, v->nsize*(i+1 - v->nused));
+		int j;
+
+		for (j = v->nused; j < i+1; j++) {
+			memset(VARR_GET(v, j), 0, v->nsize);
+			if (v->e_init)
+				v->e_init(VARR_GET(v, j));
+		}
 		v->nused = i+1;
 	}
 	return p;
@@ -71,20 +89,25 @@ void *varr_touch(varr *v, size_t i)
 
 void *varr_insert(varr *v, size_t i)
 {
+	void *p = VARR_GET(v, i);
+
 	if (i >= v->nused)
 		return varr_touch(v, i);
 	varr_enew(v);
-	memmove(VARR_GET(v, i+1), VARR_GET(v, i), v->nsize*(v->nused-1 - i));
-	return memset(VARR_GET(v, i), 0, v->nsize);
+	memmove(VARR_GET(v, i+1), p, v->nsize*(v->nused-1 - i));
+	memset(p, 0, v->nsize);
+	if (v->e_init)
+		v->e_init(p);
+	return p;
 }
 
-void varr_del(varr *v, void *p)
+void varr_delete(varr *v, size_t i)
 {
-	size_t i = (((char*) p) - ((char*) v->p)) / v->nsize;
-
 	if (!v->nused || i >= v->nused || i >= --v->nused)
 		return;
 
+	if (v->e_destroy)
+		v->e_destroy(VARR_GET(v, i));
 	memmove(VARR_GET(v, i), VARR_GET(v, i+1), v->nsize*(v->nused - i));
 }
 
@@ -103,3 +126,15 @@ void *varr_bsearch(varr* v, const void *e,
 	return bsearch(e, v->p, v->nused, v->nsize, cmpfun);
 }
 
+void *varr_foreach(varr *v, void *(*cb)(void*, void*), void *d)
+{
+	int i;
+
+	for (i = 0; i < v->nused; i++) {
+		void *p;
+		if ((p = cb(VARR_GET(v, i), d)) != NULL)
+			return p;
+	}
+
+	return NULL;
+}

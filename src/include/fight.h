@@ -1,5 +1,5 @@
 /*
- * $Id: fight.h,v 1.13 1999-09-09 14:35:09 osya Exp $
+ * $Id: fight.h,v 1.14 1999-10-06 09:55:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,23 +45,24 @@
 
 void raw_kill(CHAR_DATA *ch, CHAR_DATA *victim);
 
-
 bool	is_safe 	(CHAR_DATA *ch, CHAR_DATA *victim);
 bool	is_safe_nomessage (CHAR_DATA *ch, CHAR_DATA *victim);
 bool	is_safe_spell	(CHAR_DATA *ch, CHAR_DATA *victim, bool area);
 void	violence_update (void);
-void	multi_hit	(CHAR_DATA *ch, CHAR_DATA *victim, int dt);
+void	multi_hit	(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt);
 bool	damage		(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
-			 int dt, int class, int dam_flags);
+			 const char *dt, int class, int dam_flags);
 void	update_pos	(CHAR_DATA *victim);
+void	set_fighting	(CHAR_DATA *ch, CHAR_DATA *victim);
 void	stop_fighting	(CHAR_DATA *ch, bool fBoth);
 bool	can_kill	(CHAR_DATA *ch, CHAR_DATA *victim);
 CHAR_DATA *  check_guard     (CHAR_DATA *ch, CHAR_DATA *mob);
-void	one_hit 	(CHAR_DATA *ch, CHAR_DATA *victim, int dt,
+void	one_hit 	(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt,
 			 bool secondary);
 bool	check_obj_dodge	(CHAR_DATA *ch, CHAR_DATA *victim,
 			 OBJ_DATA *obj, int bonus);
-int	get_dam_type	(CHAR_DATA *ch, OBJ_DATA *wield, int *dt);
+int	get_dam_class	(CHAR_DATA *ch, OBJ_DATA *wield, const char **dt,
+			 int *dam_flags);
 bool	backstab_ok	(CHAR_DATA *ch, CHAR_DATA *victim);
 void	backstab	(CHAR_DATA *ch, CHAR_DATA *victim, int chance);
 void	yell		(CHAR_DATA *victim, CHAR_DATA *ch, const char * argument);
@@ -69,5 +70,7 @@ void	yell		(CHAR_DATA *victim, CHAR_DATA *ch, const char * argument);
 #define DAMF_NONE	(0)
 #define DAMF_SHOW	(A)	/* show dam message */
 #define DAMF_SECOND	(B)	/* damage inflicted by second weapon */
+#define DAMF_HIT	(C)	/* damage by hit */
+#define DAMF_HUNGER	(D)	/* damage by hunger */
 
 #endif

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_socials.c,v 1.2 1999-03-08 13:56:07 fjoe Exp $
+ * $Id: db_socials.c,v 1.3 1999-10-06 09:56:15 fjoe Exp $
  */
 
 #include <limits.h>
@@ -69,23 +69,23 @@ DBLOAD_FUN(load_social)
 			}
 			break;
 		case 'F':
-			SKEY("found_char", soc->found_char);
-			SKEY("found_vict", soc->found_vict);
-			SKEY("found_notvict", soc->found_notvict);
+			SKEY("found_char", soc->found_char, fread_string(fp));
+			SKEY("found_vict", soc->found_vict, fread_string(fp));
+			SKEY("found_notvict", soc->found_notvict, fread_string(fp));
 			break;
 		case 'N':
 			KEY("name", soc->name, str_dup(fread_word(fp)));
-			SKEY("notfound_char", soc->notfound_char);
-			SKEY("noarg_char", soc->noarg_char);
-			SKEY("noarg_room", soc->noarg_room);
+			SKEY("notfound_char", soc->notfound_char, fread_string(fp));
+			SKEY("noarg_char", soc->noarg_char, fread_string(fp));
+			SKEY("noarg_room", soc->noarg_room, fread_string(fp));
 			break;
 		case 'M':
 			KEY("min_pos", soc->min_pos,
 			    fread_fword(position_table, fp));
 			break;
 		case 'S':
-			SKEY("self_char", soc->self_char);
-			SKEY("self_room", soc->self_room);
+			SKEY("self_char", soc->self_char, fread_string(fp));
+			SKEY("self_room", soc->self_room, fread_string(fp));
 			break;
 		}
 

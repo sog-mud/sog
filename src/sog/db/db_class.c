@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.20 1999-06-10 14:33:35 fjoe Exp $
+ * $Id: db_class.c,v 1.21 1999-10-06 09:56:15 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -48,7 +48,8 @@ DBDATA db_classes = { dbfun_classes, init_class };
 
 DBINIT_FUN(init_class)
 {
-	db_set_arg(dbdata, "POSE", NULL);
+	if (DBDATA_VALID(dbdata))
+		db_set_arg(dbdata, "POSE", NULL);
 }
 
 DBLOAD_FUN(load_class)
@@ -81,7 +82,7 @@ DBLOAD_FUN(load_class)
 					class_free(class);
 					classes.nused--;
 				}
-				varr_qsort(&class->skills, cmpint);
+				varr_qsort(&class->guilds, cmpint);
 				return;
 			}
 		case 'F':
@@ -91,7 +92,7 @@ DBLOAD_FUN(load_class)
 		case 'G':
 			if (!str_cmp(word, "GuildRoom")) {
 				int vnum = fread_number(fp);
-				int *pvnum = varr_enew(&class->guild);
+				int *pvnum = varr_enew(&class->guilds);
 				*pvnum = vnum;
 				fMatch = TRUE;
 			}
@@ -103,7 +104,7 @@ DBLOAD_FUN(load_class)
 			KEY("ManaRate", class->mana_rate, fread_number(fp));
 			break;
 		case 'N':
-			SKEY("Name", class->name);
+			SKEY("Name", class->name, fread_string(fp));
 			break;
 		case 'P':
 			KEY("PrimeStat", class->attr_prime,
@@ -118,25 +119,15 @@ DBLOAD_FUN(load_class)
 			    fread_fstring(ethos_table, fp));
 			break;
 		case 'S':
-			KEY("SkillAdept", class->skill_adept,
-			    fread_number(fp));
 			KEY("SchoolWeapon", class->weapon,
 			    fread_number(fp));
+			SKEY("SkillSpec", class->skill_spec,
+			     fread_name(fp, &specs, "load_class"));
 			if (!str_cmp(word, "ShortName")) {
 				const char *p = fread_string(fp);
 				strnzcpy(class->who_name,
 					 sizeof(class->who_name), p);
 				free_string(p);
-				fMatch = TRUE;
-			}
-			if (!str_cmp(word, "Skill")) {
-				cskill_t *csk;
-
-				csk = varr_enew(&class->skills);
-				csk->sn = sn_lookup(fread_word(fp));
-				csk->level = fread_number(fp);
-				csk->rating = fread_number(fp);
-				csk->mod = fread_number(fp);
 				fMatch = TRUE;
 			}
 			if (!str_cmp(word, "StatMod")) {
@@ -196,14 +187,14 @@ DBLOAD_FUN(load_pose)
 				return;
 			break;
 		case 'O':
-			SKEY("Others", pose->others);
+			SKEY("Others", pose->others, fread_string(fp));
 			break;
 		case 'S':
-			SKEY("Self", pose->self);
+			SKEY("Self", pose->self, fread_string(fp));
 			break;
 		}
 
 		if (!fMatch) 
-			db_error("load_info", "%s: Unknown keyword", word);
+			db_error("load_pose", "%s: Unknown keyword", word);
 	}
 }

@@ -11,8 +11,6 @@ End
 Shortname RedDr
 BonusSkills 'bash', 'breath', 'berserk'~
 Size huge~
-Skill 'bash' 1
-Skill 'breath' 1
-Skill 'berserk' 1
+SkillSpec race_red_dragon
 End
 #$

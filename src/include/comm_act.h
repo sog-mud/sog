@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.h,v 1.16 1999-09-15 10:57:45 fjoe Exp $
+ * $Id: comm_act.h,v 1.17 1999-10-06 09:55:57 fjoe Exp $
  */
 
 #ifndef _COMM_ACT_H_
@@ -40,7 +40,7 @@
 #define ACT_NOTRIG	(G)	/* do not pull act triggers */
 #define ACT_NOTWIT	(H)	/* do not perform twit list checking */
 #define ACT_NOTRANS	(I)	/* do not perform $t, $T, $u and $U transl. */
-#define ACT_NODEAF	(J)	/* skip is_affected(to, gsn_deafen) chars   */
+#define ACT_NODEAF	(J)	/* skip is_affected(to, "deafen") chars   */
 #define ACT_STRANS	(K)	/* do $t and $T slang translation (from ch) */
 #define ACT_NOMORTAL	(L)	/* skip mortals */
 #define ACT_VERBOSE	(M)	/* skip if (!IS_SET(to->comm, COMM_VERBOSE)) */

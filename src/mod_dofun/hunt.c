@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.26 1999-09-11 12:49:56 fjoe Exp $
+ * $Id: hunt.c,v 1.27 1999-10-06 09:55:54 fjoe Exp $
  */
 
 /* Kak zovut sobaku Gejtsa?
@@ -419,8 +419,6 @@ void do_hunt(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 	int direction,i;
 	bool fArea,ok;
-	int sn_hunt;
-	int sn_world_find;
 	int chance;
 	int chance2;
   
@@ -429,9 +427,7 @@ void do_hunt(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((sn_hunt = sn_lookup("hunt")) < 0
-	||  (sn_world_find = sn_lookup("world find")) < 0
-	||  (chance = get_skill(ch, sn_hunt)) == 0)
+	if ((chance = get_skill(ch, "hunt")) == 0)
 		return;
 
 	one_argument(argument, arg, sizeof(arg));
@@ -443,16 +439,16 @@ void do_hunt(CHAR_DATA *ch, const char *argument)
 
 	fArea = !IS_IMMORTAL(ch);
 
-	if ((chance2 = get_skill(ch, sn_world_find))) {
+	if ((chance2 = get_skill(ch, "world find"))) {
 		if (number_percent() < chance2) {
 			fArea = 0;
-			check_improve(ch, sn_world_find, FALSE, 1);
+			check_improve(ch, "world find", FALSE, 1);
 		}
 		else
-			check_improve(ch, sn_world_find, TRUE, 1);
+			check_improve(ch, "world find", TRUE, 1);
 	}
 
- 	WAIT_STATE(ch, SKILL(sn_hunt)->beats);
+ 	WAIT_STATE(ch, skill_beats("hunt"));
 
 	if (fArea)
 		victim = get_char_area(ch, arg);
@@ -523,8 +519,7 @@ void do_hunt(CHAR_DATA *ch, const char *argument)
 			}
 			while ((ch->in_room->exit[direction] == NULL) ||
 			       (ch->in_room->exit[direction]->to_room.r == NULL));
-		}
-		else {
+		} else {
 			log("Do hunt, player hunt, no exits from room!");
 			ch->hunting = NULL;
 			char_puts("Your room has not exits!!!!\n", ch);

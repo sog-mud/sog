@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.70 1999-09-08 10:40:04 fjoe Exp $
+ * $Id: olc.c,v 1.71 1999-10-06 09:56:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -769,6 +769,13 @@ VALIDATE_FUN(validate_room_vnum)
 		return FALSE;
 	}
 
+	return TRUE;
+}
+
+VALIDATE_FUN(validate_skill_spec)
+{
+	const char *spn = (const char *) arg;
+	NAME_CHECK(&specs, spn, OLCED(ch)->name); 
 	return TRUE;
 }
 

@@ -8,7 +8,6 @@ GuildRoom 5396
 GuildRoom 9618
 GuildRoom 9617
 GuildRoom 9648
-SkillAdept 75
 Thac0_00 18
 Thac0_32 -6
 HPRate 80
@@ -17,66 +16,7 @@ Flags magic noch~
 AddExp 300
 StatMod 1 2 0 0 0 5
 RestrictAlign evil~
-Skill 'animate dead' 42 1 0
-Skill 'armor' 13 1 0
-Skill 'blindness' 20 1 0
-Skill 'burning hands' 14 1 0
-Skill 'chain lightning' 33 1 0
-Skill 'attract other' 30 1 0
-Skill 'colour spray' 25 1 0
-Skill 'control weather' 24 1 0
-Skill 'create rose' 26 1 0
-Skill 'curse' 44 1 0
-Skill 'detect good' 13 1 0
-Skill 'detect invis' 23 1 0
-Skill 'detect poison' 31 1 0
-Skill 'dispel good' 32 1 0
-Skill 'dispel magic' 24 1 0
-Skill 'black shroud' 30 1 0
-Skill 'energy drain' 20 1 0
-Skill 'hunger weapon' 64 1 0
-Skill 'fly' 43 1 0
-Skill 'mist walk' 47 1 0
-Skill 'protection good' 27 1 0
-Skill 'shield' 20 1 0
-Skill 'slow' 28 1 0
-Skill 'stone skin' 60 1 0
-Skill 'vampiric blast' 38 1 0
-Skill 'weaken' 16 1 0
-Skill 'word of recall' 10 1 0
-Skill 'dagger' 1 1 0
-Skill 'spear' 8 1 0
-Skill 'sword' 1 1 0
-Skill 'whip' 1 1 0
-Skill 'bash' 11 1 0
-Skill 'bash door' 11 1 0
-Skill 'control animal' 43 1 0
-Skill 'dodge' 8 1 0
-Skill 'enhanced damage' 14 1 -10
-Skill 'hand to hand' 19 1 0
-Skill 'kick' 4 1 0
-Skill 'light resistance' 50 1 0
-Skill 'parry' 22 1 0
-Skill 'sense life' 13 1 0
-Skill 'shield cleave' 39 1 0
-Skill 'vampire' 10 1 0
-Skill 'vampiric bite' 10 1 0
-Skill 'vampiric touch' 15 1 0
-Skill 'weapon cleave' 44 1 0
-Skill 'second attack' 12 1 0
-Skill 'third attack' 32 1 0
-Skill 'fast healing' 9 1 0
-Skill 'haggle' 5 1 0
-Skill 'lore' 20 2 0
-Skill 'meditation' 6 1 0
-Skill 'quiet movement' 10 1 0
-Skill 'scrolls' 1 1 0
-Skill 'staves' 1 1 0
-Skill 'trance' 21 1 0
-Skill 'wands' 1 1 0
-Skill 'throwing weapons' 36 2 0
-Skill 'staff' 1 1 0
-Skill 'resurrection' 81 1 0
+SkillSpec class_vampire
 Title 0 male the Man~
 Title 0 female the Woman~
 Title 1 male the Apprentice of Magic~

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.16 1999-06-24 06:36:32 fjoe Exp $
+ * $Id: lang.c,v 1.17 1999-10-06 09:56:07 fjoe Exp $
  */
 
 #include <string.h>
@@ -262,7 +262,7 @@ rule_t *irule_insert(rulecl_t *rcl, size_t num, rule_t *r)
 void irule_del(rulecl_t *rcl, rule_t *r)
 {
 	rule_clear(r);
-	varr_del(&rcl->impl, r);
+	varr_delete(&rcl->impl, varr_index(&rcl->impl, r));
 }
 
 rule_t *irule_lookup(rulecl_t *rcl, const char *num)

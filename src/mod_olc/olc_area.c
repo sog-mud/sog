@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.49 1999-09-25 12:10:44 avn Exp $
+ * $Id: olc_area.c,v 1.50 1999-10-06 09:56:01 fjoe Exp $
  */
 
 #include "olc.h"
@@ -269,7 +269,7 @@ OLC_FUN(areaed_list)
     	}
 
 	if (output != NULL) {
-		send_to_char(buf_string(output), ch);
+		page_to_char(buf_string(output), ch);
 		buf_free(output);
 	}
 	else
@@ -685,21 +685,21 @@ static void move_obj(OBJ_INDEX_DATA *obj, AREA_DATA *pArea, int delta)
 
 	switch (obj->item_type) {
 	case ITEM_CONTAINER:
-		MOVE(obj->value[2]); /* container key */
+		MOVE(INT_VAL(obj->value[2])); /* container key */
 		if (touched) {
 			for (o = object_list; o; o = o->next)
 				if (o->pObjIndex == obj)
-					o->value[2] += delta;
+					INT_VAL(o->value[2]) += delta;
 		}
 		break;
 	case ITEM_PORTAL:
-		MOVE(obj->value[3]); /* portal exit */
-		MOVE(obj->value[4]); /* portal key */
+		MOVE(INT_VAL(obj->value[3])); /* portal exit */
+		MOVE(INT_VAL(obj->value[4])); /* portal key */
 		if (touched) {
 			for (o = object_list; o; o = o->next)
 				if (o->pObjIndex == obj) {
-					o->value[3] += delta;
-					o->value[4] += delta;
+					INT_VAL(o->value[3]) += delta;
+					INT_VAL(o->value[4]) += delta;
 				}
 		}
 		break;
@@ -844,7 +844,7 @@ static void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 	fprintf(fp, "%dd%d+%d ",pMobIndex->damage[DICE_NUMBER], 
 				pMobIndex->damage[DICE_TYPE], 
 				pMobIndex->damage[DICE_BONUS]);
-	fprintf(fp, "%s\n",	attack_table[pMobIndex->dam_type].name);
+	fprintf(fp, "%s\n",	pMobIndex->damtype);
 	fprintf(fp, "%d %d %d %d\n",
 				pMobIndex->ac[AC_PIERCE] / 10, 
 				pMobIndex->ac[AC_BASH]   / 10, 
@@ -952,108 +952,7 @@ static void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 	fprintf(fp, "%s ",	format_flags(pObjIndex->extra_flags &
 					     ~(ITEM_ENCHANTED | ITEM_OLDSTYLE)));
 	fprintf(fp, "%s\n",	format_flags(pObjIndex->wear_flags));
-
-	/*
-	 *  Using format_flags to write most values gives a strange
-	 *  looking area file, consider making a case for each
-	 *  item type later.
-	 */
-
-	switch (pObjIndex->item_type) {
-	default:
-		fprintf(fp, "%s %s %s %s %s\n",
-			format_flags(pObjIndex->value[0]),
-	    		format_flags(pObjIndex->value[1]),
-	    		format_flags(pObjIndex->value[2]),
-	    		format_flags(pObjIndex->value[3]),
-	    		format_flags(pObjIndex->value[4]));
-		break;
-
-	case ITEM_MONEY:
-	case ITEM_ARMOR:
-		fprintf(fp, "%d %d %d %d %d\n",
-			pObjIndex->value[0],
-	    		pObjIndex->value[1],
-	    		pObjIndex->value[2],
-	    		pObjIndex->value[3],
-	    		pObjIndex->value[4]);
-		break;
-
-        case ITEM_DRINK_CON:
-        case ITEM_FOUNTAIN:
-		fprintf(fp, "%d %d '%s' %d %d\n",
-			pObjIndex->value[0],
-			pObjIndex->value[1],
-			liq_table[pObjIndex->value[2]].liq_name,
-			pObjIndex->value[3],
-			pObjIndex->value[4]);
-		break;
-
-        case ITEM_CONTAINER:
-		fprintf(fp, "%d %s %d %d %d\n",
-			pObjIndex->value[0],
-			format_flags(pObjIndex->value[1]),
-			pObjIndex->value[2],
-			pObjIndex->value[3],
-			pObjIndex->value[4]);
-		break;
-
-        case ITEM_WEAPON:
-		fprintf(fp, "%s %d %d %s %s\n",
-			flag_string(weapon_class, pObjIndex->value[0]),
-			pObjIndex->value[1],
-			pObjIndex->value[2],
-			attack_table[pObjIndex->value[3]].name,
-			format_flags(pObjIndex->value[4]));
-		break;
-            
-        case ITEM_PILL:
-        case ITEM_POTION:
-        case ITEM_SCROLL:
-		/* no negative numbers */
-		fprintf(fp, "%d '%s' '%s' '%s' '%s'\n",
-			pObjIndex->value[0] > 0 ? pObjIndex->value[0] : 0,
-			pObjIndex->value[1] != -1 ?
-				skill_name(pObjIndex->value[1]) : str_empty,
-			pObjIndex->value[2] != -1 ?
-				skill_name(pObjIndex->value[2]) : str_empty,
-			pObjIndex->value[3] != -1 ?
-				skill_name(pObjIndex->value[3]) : str_empty,
-			pObjIndex->value[4] != -1 ?
-				skill_name(pObjIndex->value[4]) : str_empty);
-		break;
-
-        case ITEM_STAFF:
-        case ITEM_WAND:
-		fprintf(fp, "%d %d %d '%s' %d\n",
-			pObjIndex->value[0],
-			pObjIndex->value[1],
-			pObjIndex->value[2],
-			pObjIndex->value[3] != -1 ?
-				skill_name(pObjIndex->value[3]) : str_empty,
-			pObjIndex->value[4]);
-		break;
-
-	case ITEM_PORTAL:
-		fprintf(fp, "%s %s %s %d %d\n",
-			format_flags(pObjIndex->value[0]),
-			format_flags(pObjIndex->value[1]),
-			format_flags(pObjIndex->value[2]),
-			pObjIndex->value[3],
-			pObjIndex->value[4]);
-		break;
-
-	case ITEM_LIGHT:
-	case ITEM_TATTOO:
-	case ITEM_TREASURE:
-		fprintf(fp, "%s %s %d %s %s\n",
-			format_flags(pObjIndex->value[0]),
-			format_flags(pObjIndex->value[1]),
-			pObjIndex->value[2],
-			format_flags(pObjIndex->value[3]),
-			format_flags(pObjIndex->value[4]));
-		break;
-	}
+	fwrite_objval(pObjIndex->item_type, pObjIndex->value, fp);
 
 	     if (pObjIndex->condition > 90) letter = 'P';
 	else if (pObjIndex->condition > 75) letter = 'G';
@@ -1064,18 +963,17 @@ static void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 	else				    letter = 'R';
 
 	fprintf(fp, "%d %d %d %c\n",
-		pObjIndex->level,
-		pObjIndex->weight,
-		pObjIndex->cost,
-		letter);
+		pObjIndex->level, pObjIndex->weight, pObjIndex->cost, letter);
 
 	for (pAf = pObjIndex->affected; pAf; pAf = pAf->next) {
 		if (pAf->where == TO_SKILLS) {
 			fprintf(fp, "S '%s' %d %s\n",
-				skill_name(-pAf->location), pAf->modifier,
+				STR_VAL(pAf->location),
+				pAf->modifier,
 				format_flags(pAf->bitvector));
 		} else if (pAf->where == TO_OBJECT || !pAf->bitvector) {
-			fprintf(fp, "A\n%d %d\n", pAf->location, pAf->modifier);
+			fprintf(fp, "A\n%d %d\n",
+				INT_VAL(pAf->location), pAf->modifier);
 		} else {
 			int letter;
 
@@ -1100,7 +998,7 @@ static void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 			}
 		
 			fprintf(fp, "F %c %d %d %s\n",
-				letter, pAf->location, pAf->modifier,
+				letter, INT_VAL(pAf->location), pAf->modifier,
 				format_flags(pAf->bitvector));
 		}
 	}
@@ -1236,11 +1134,11 @@ static void save_special(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 #if defined(VERBOSE)
 	fprintf(fp, "M %d %s\t* %s\n",
 		pMobIndex->vnum,
-		spec_name(pMobIndex->spec_fun),
+		mob_spec_name(pMobIndex->spec_fun),
 		mlstr_mval(&pMobIndex->short_descr));
 #else
 	fprintf(fp, "M %d %s\n",
-		pMobIndex->vnum, spec_name(pMobIndex->spec_fun));
+		pMobIndex->vnum, mob_spec_name(pMobIndex->spec_fun));
 #endif
 }
 

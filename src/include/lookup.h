@@ -1,5 +1,5 @@
 /*
- * $Id: lookup.h,v 1.14 1999-02-15 18:19:40 fjoe Exp $
+ * $Id: lookup.h,v 1.15 1999-10-06 09:55:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,7 +49,6 @@ int	liq_lookup		(const char *name);
 void	show_liq_types		(BUFFER *output);
 
 int	attack_lookup		(const char *name);
-void	show_attack_types	(BUFFER *output);
 
 long	wiznet_lookup	(const char *name);
 

@@ -5,15 +5,7 @@ Item 95401
 Mark 95408
 Altar 95408
 Flags hidden~
-Skill 'mortal strike' 63 1
-Skill 'bandage' 23 1
-Skill 'clan recall' 10 1
-Skill 'bloodthirst' 15 1
-Skill 'spellbane' 10 1
-Skill 'resistance' 12 1
-Skill 'deathblow' 20 1
-Skill 'trophy' 23 1
-Skill 'truesight' 25 1
+SkillSpec clan_battleragers
 End
 
 #$

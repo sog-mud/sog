@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_hometown.c,v 1.2 1999-04-17 06:56:39 fjoe Exp $
+ * $Id: db_hometown.c,v 1.3 1999-10-06 09:56:15 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -56,7 +56,7 @@ DBLOAD_FUN(load_hometown)
 
 		switch (UPPER(word[0])) {
 		case 'A':
-			SKEY("Area", h->area);
+			SKEY("Area", h->area, fread_string(fp));
 			if (!str_cmp(word, "Altar")) {
 				fread_altar(h, fp);
 				fMatch = TRUE;
@@ -80,8 +80,8 @@ DBLOAD_FUN(load_hometown)
 				fread_recall(h, fp);
 				fMatch = TRUE;
 			}
-			SKEY("RestrictClass", h->restrict_class);
-			SKEY("RestrictRace", h->restrict_race);
+			SKEY("RestrictClass", h->restrict_class, fread_string(fp));
+			SKEY("RestrictRace", h->restrict_race, fread_string(fp));
 			KEY("RestrictAlign", h->restrict_align,
 			    fread_fstring(ralign_names, fp));
 			break;

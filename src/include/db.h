@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.48 1999-07-30 05:18:18 avn Exp $
+ * $Id: db.h,v 1.49 1999-10-06 09:55:58 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -86,14 +86,19 @@ typedef struct dbfun DBFUN;
 
 struct dbdata {
 	DBFUN *		fun_tab;	/* table of parsing functions	*/
-	DBINIT_FUN *	dbinit;		/* init function		*/
+	DBINIT_FUN *	dbinit;		/* init function (called before	*/
+					/* parsing each directive and	*/
+					/* before parsing)		*/
 	size_t		tab_sz;		/* table size			*/
 };
+
+#define DBDATA_VALID(dbdata) (!!(dbdata)->tab_sz)
 
 extern DBDATA db_areas;
 extern DBDATA db_clans;
 extern DBDATA db_classes;
 extern DBDATA db_cmd;
+extern DBDATA db_damtype;
 extern DBDATA db_hometowns;
 extern DBDATA db_langs;
 extern DBDATA db_msg;
@@ -101,6 +106,7 @@ extern DBDATA db_races;
 extern DBDATA db_skills;
 extern DBDATA db_rspells;
 extern DBDATA db_socials;
+extern DBDATA db_spec;
 extern DBDATA db_system;
 
 void db_load_file(DBDATA *, const char *path, const char *file);
@@ -135,7 +141,6 @@ void		fread_to_eol	(FILE *fp);
 char *		fread_word	(FILE *fp);
 flag64_t	fread_fword	(const flag_t *table, FILE *fp); 
 flag64_t	fread_fstring	(const flag_t *table, FILE *fp);
-void *		fread_namedp	(namedp_t *table, FILE *fp);
 int		fread_clan	(FILE *fp);
 
 extern char	filename	[PATH_MAX];
@@ -163,10 +168,10 @@ void		db_error	(const char* fn, const char* fmt, ...);
 			break;				\
 		}
 
-#define SKEY(string, field)				\
+#define SKEY(string, field, value)			\
 		if (!str_cmp(word, string)) {		\
 			free_string(field);		\
-			field = fread_string(fp);	\
+			field = value;			\
 			fMatch = TRUE;			\
 			break;				\
 		}
@@ -206,6 +211,55 @@ extern AREA_DATA *	area_first;
 extern AREA_DATA *	area_last;
 extern AREA_DATA *	area_current;
 extern SHOP_DATA *	shop_last;
+
+/*
+ * the following path/file name consts are defined in db.c
+ */
+extern const char TMP_PATH	[];
+extern const char PLAYER_PATH	[];
+extern const char GODS_PATH	[];
+extern const char NOTES_PATH	[];
+extern const char ETC_PATH	[];
+extern const char CLASSES_PATH	[];
+extern const char CLANS_PATH	[];
+extern const char RACES_PATH	[];
+extern const char AREA_PATH	[];
+extern const char LANG_PATH	[];
+extern const char PLISTS_PATH	[];
+extern const char MODULES_PATH	[];
+extern const char SPEC_PATH	[];
+
+extern const char TMP_FILE	[];
+extern const char NULL_FILE	[];
+
+extern const char HOMETOWNS_CONF[];
+extern const char SKILLS_CONF	[];
+extern const char RSPELLS_CONF	[];
+extern const char SOCIALS_CONF	[];
+extern const char SYSTEM_CONF	[];
+extern const char LANG_CONF	[];
+extern const char MSGDB_CONF	[];
+extern const char CMD_CONF	[];
+extern const char DAMTYPE_CONF	[];
+
+extern const char AREA_LIST	[];
+extern const char CLAN_LIST	[];
+extern const char CLASS_LIST	[];
+extern const char LANG_LIST	[];
+extern const char RACE_LIST	[];
+extern const char SPEC_LIST	[];
+
+extern const char NOTE_FILE	[];
+extern const char IDEA_FILE	[];
+extern const char PENALTY_FILE	[];
+extern const char NEWS_FILE	[];
+extern const char CHANGES_FILE	[];
+extern const char SHUTDOWN_FILE	[];
+extern const char EQCHECK_FILE	[];
+extern const char BAN_FILE	[];
+extern const char MAXON_FILE	[];
+extern const char AREASTAT_FILE	[];
+extern const char IMMLOG_FILE	[];
 
 #endif
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.8 1999-09-30 05:18:18 avn Exp $
+ * $Id: olc_race.c,v 1.9 1999-10-06 09:56:02 fjoe Exp $
  */
 
 #include "olc.h"
@@ -54,6 +54,7 @@ DECLARE_OLC_FUN(raceed_delpcdata	);
 
 DECLARE_OLC_FUN(raceed_whoname		);
 DECLARE_OLC_FUN(raceed_points		);
+DECLARE_OLC_FUN(raceed_skillspec	);
 DECLARE_OLC_FUN(raceed_bonusskill	);
 DECLARE_OLC_FUN(raceed_stats		);
 DECLARE_OLC_FUN(raceed_maxstats		);
@@ -67,9 +68,6 @@ DECLARE_OLC_FUN(raceed_ethos		);
 
 DECLARE_OLC_FUN(raceed_addclass		);
 DECLARE_OLC_FUN(raceed_delclass		);
-
-DECLARE_OLC_FUN(raceed_addskill		);
-DECLARE_OLC_FUN(raceed_delskill		);
 
 DECLARE_OLC_FUN(olc_skill_update	);
 
@@ -103,6 +101,7 @@ olc_cmd_t olc_cmds_race[] =
 
 	{ "whoname",	raceed_whoname,		validate_whoname	},
 	{ "points",	raceed_points,		validate_haspcdata	},
+	{ "skillspec",	raceed_skillspec,	validate_skill_spec	},
 	{ "bonusskill",	raceed_bonusskill,	validate_haspcdata	},
 	{ "stats",	raceed_stats,		validate_haspcdata	},
 	{ "maxstats",	raceed_maxstats,	validate_haspcdata	},
@@ -113,9 +112,6 @@ olc_cmd_t olc_cmds_race[] =
 	{ "slang",	raceed_slang,		slang_table		},
 	{ "align",	raceed_align,		ralign_names		},
 	{ "ethos",	raceed_ethos,		ethos_table		},
-
-	{ "addskill",	raceed_addskill					},
-	{ "delskill",	raceed_delskill					},
 
 	{ "addclass",	raceed_addclass					},
 	{ "delclass",	raceed_delclass					},
@@ -291,6 +287,9 @@ OLC_FUN(raceed_show)
 	if (race->race_pcdata->points)
 		buf_printf(output, "Extra exp:     [%d]\n",
 			   race->race_pcdata->points);
+	if (!IS_NULLSTR(race->race_pcdata->skill_spec))
+		buf_printf(output, "SkillSpec:     [%s]\n",
+			   race->race_pcdata->skill_spec);
 	if (race->race_pcdata->bonus_skills)
 		buf_printf(output, "Bonus skills:  [%s]\n",
 			   race->race_pcdata->bonus_skills);
@@ -342,16 +341,6 @@ OLC_FUN(raceed_show)
 			continue;
 		buf_printf(output, "Class '%s' (exp %d%%)\n",
 			   rc->name, rc->mult);
-	}
-	for (i = 0; i < race->race_pcdata->skills.nused; i++) {
-		rskill_t *rs = VARR_GET(&race->race_pcdata->skills, i);
-		skill_t *sk;
-
-		if (rs->sn <= 0
-		||  (sk = skill_lookup(rs->sn)) == NULL)
-			continue;
-		buf_printf(output, "Skill '%s' (level %d)\n",
-			   sk->name, rs->level);
 	}
 
 	page_to_char(buf_string(output), ch);
@@ -455,7 +444,6 @@ OLC_FUN(raceed_flags)
 
 OLC_FUN(raceed_addpcdata)
 {
-	int i;
 	const char *str;
 	race_t *race;
 	EDIT_RACE(ch, race);
@@ -466,12 +454,13 @@ OLC_FUN(raceed_addpcdata)
 	race->race_pcdata = pcrace_new();
 	str = str_dup(race->race_pcdata->who_name);
 	if (olced_str(ch, argument, cmd, &str)) {
-		for (i = 0; i < strlen(str); i++)
-			race->race_pcdata->who_name[i] = str[i];
-		race->race_pcdata->who_name[i] = '\0';
+		strnzcpy(race->race_pcdata->who_name,
+			 sizeof(race->race_pcdata->who_name), str);
+		free_string(str);
 		char_puts("PC race data created.\n", ch);
 		return TRUE;
 	}
+	free_string(str);
 	pcrace_free(race->race_pcdata);
 	race->race_pcdata = NULL;
 	return FALSE;
@@ -493,7 +482,6 @@ OLC_FUN(raceed_delpcdata)
 
 OLC_FUN(raceed_whoname)
 {
-	int i;
 	const char *str;
 	race_t *race;
 	EDIT_RACE(ch, race);
@@ -502,14 +490,13 @@ OLC_FUN(raceed_whoname)
 		char_puts("RaceEd: no PC race data.\n", ch);
 		return FALSE;
 	}
-	str = str_dup(race->race_pcdata->who_name);
+	str = str_qdup(race->race_pcdata->who_name);
 	if (olced_str(ch, argument, cmd, &str)) {
-		for (i = 0; i < strlen(str); i++)
-			race->race_pcdata->who_name[i] = str[i];
-		race->race_pcdata->who_name[i] = '\0';
+		strnzcpy(race->race_pcdata->who_name,
+			 sizeof(race->race_pcdata->who_name), str);
 		free_string(str);
 		return TRUE;
-		}
+	}
 	free_string(str);
 	return FALSE;
 }
@@ -518,22 +505,31 @@ OLC_FUN(raceed_points)
 {
 	race_t *race;
 	EDIT_RACE(ch, race);
-
 	return olced_number(ch, argument, cmd, &race->race_pcdata->points);
+}
+
+OLC_FUN(raceed_skillspec)
+{
+	race_t *race;
+	EDIT_RACE(ch, race);
+	if (race->race_pcdata == NULL) {
+		char_puts("RaceEd: No PCDATA for this race defined.\n", ch);
+		return FALSE;
+	}
+	return olced_str(ch, argument, cmd, &race->race_pcdata->skill_spec);
 }
 
 OLC_FUN(raceed_bonusskill)
 {
 	race_t *race;
-	int sn;
+	skill_t *sk;
 
 	EDIT_RACE(ch, race);
-	if ((sn = sn_lookup(argument)) <= 0) {
+	if ((sk = skill_lookup(argument)) == NULL) {
 		char_printf(ch, "RaceEd: %s: no such skill.\n", argument);
 		return FALSE;
 	}
-	return olced_name(ch, SKILL(sn)->name,
-			cmd, &race->race_pcdata->bonus_skills);
+	return olced_name(ch, sk->name, cmd, &race->race_pcdata->bonus_skills);
 }
 
 OLC_FUN(raceed_stats)
@@ -547,15 +543,19 @@ OLC_FUN(raceed_stats)
 	EDIT_RACE(ch, race);
 	for (i = 0; i < MAX_STATS; i++) {
 		argument = one_argument(argument, arg, sizeof(arg));
-		if (*arg == '\0') break;
+		if (*arg == '\0')
+			break;
 		val = strtol(arg, &endptr, 0);
-		if (*arg == '\0' || *endptr != '\0') break;
+		if (*arg == '\0' || *endptr != '\0')
+			break;
 		race->race_pcdata->stats[i] = val;
 		st = TRUE;
 	}
 	
-	if (!st) char_printf(ch, "Syntax: %s attr1 attr2 ...\n", cmd->name);
-		else char_puts("Ok.\n", ch);
+	if (!st)
+		char_printf(ch, "Syntax: %s attr1 attr2 ...\n", cmd->name);
+	else
+		char_puts("Ok.\n", ch);
 	return st;
 }
 
@@ -570,15 +570,19 @@ OLC_FUN(raceed_maxstats)
 	EDIT_RACE(ch, race);
 	for (i = 0; i < MAX_STATS; i++) {
 		argument = one_argument(argument, arg, sizeof(arg));
-		if (*arg == '\0') break;
+		if (*arg == '\0')
+			break;
 		val = strtol(arg, &endptr, 0);
-		if (*arg == '\0' || *endptr != '\0') break;
+		if (*arg == '\0' || *endptr != '\0')
+			break;
 		race->race_pcdata->max_stats[i] = val;
 		st = TRUE;
 	}
 	
-	if (!st) char_printf(ch, "Syntax: %s attr1 attr2 ...\n", cmd->name);
-		else char_puts("Ok.\n", ch);
+	if (!st)
+		char_printf(ch, "Syntax: %s attr1 attr2 ...\n", cmd->name);
+	else
+		char_puts("Ok.\n", ch);
 	return st;
 }
 
@@ -586,7 +590,6 @@ OLC_FUN(raceed_size)
 {
 	race_t *race;
 	EDIT_RACE(ch, race);
-
 	return olced_flag32(ch, argument, cmd, &race->race_pcdata->size);
 }
 
@@ -594,7 +597,6 @@ OLC_FUN(raceed_hpbonus)
 {
 	race_t *race;
 	EDIT_RACE(ch, race);
-
 	return olced_number(ch, argument, cmd, &race->race_pcdata->hp_bonus);
 }
 
@@ -602,7 +604,6 @@ OLC_FUN(raceed_manabonus)
 {
 	race_t *race;
 	EDIT_RACE(ch, race);
-
 	return olced_number(ch, argument, cmd, &race->race_pcdata->mana_bonus);
 }
 
@@ -610,7 +611,6 @@ OLC_FUN(raceed_pracbonus)
 {
 	race_t *race;
 	EDIT_RACE(ch, race);
-
 	return olced_number(ch, argument, cmd, &race->race_pcdata->prac_bonus);
 }
 
@@ -618,7 +618,6 @@ OLC_FUN(raceed_slang)
 {
 	race_t *race;
 	EDIT_RACE(ch, race);
-
 	return olced_flag32(ch, argument, cmd, &race->race_pcdata->slang);
 }
 
@@ -626,7 +625,6 @@ OLC_FUN(raceed_align)
 {
 	race_t *race;
 	EDIT_RACE(ch, race);
-
 	return olced_flag32(ch, argument, cmd, &race->race_pcdata->restrict_align);
 }
 
@@ -634,7 +632,6 @@ OLC_FUN(raceed_ethos)
 {
 	race_t *race;
 	EDIT_RACE(ch, race);
-
 	return olced_flag32(ch, argument, cmd, &race->race_pcdata->restrict_ethos);
 }
 
@@ -705,79 +702,12 @@ OLC_FUN(raceed_delclass)
 	return TRUE;
 }
 
-OLC_FUN(raceed_addskill)
-{
-	int sn;
-	rskill_t *rs;
-	char	arg1[MAX_STRING_LENGTH];
-	char	arg2[MAX_STRING_LENGTH];
-	race_t *race;
-	EDIT_RACE(ch, race);
-
-	argument = one_argument(argument, arg1, sizeof(arg1));
-	           one_argument(argument, arg2, sizeof(arg2));
-
-	if (arg1[0] == '\0' || arg2[0] == '\0') {
-		dofun("help", ch, "'OLC RACE SKILL'");
-		return FALSE;
-	}
-
-	if ((sn = sn_lookup(arg1)) <= 0) {
-		char_printf(ch, "RaceEd: %s: unknown skill.\n", arg1);
-		return FALSE;
-	}
-
-	if ((rs = rskill_lookup(race, sn))) {
-		char_printf(ch, "RaceEd: %s: already there.\n",
-			    SKILL(sn)->name);
-		return FALSE;
-	}
-
-	rs = varr_enew(&race->race_pcdata->skills);
-	rs->sn = sn;
-	rs->level = atoi(arg2);
-	varr_qsort(&race->race_pcdata->skills, cmpint);
-        char_puts("Ok.\n", ch);
-	return TRUE;
-}
-
-OLC_FUN(raceed_delskill)
-{
-	int sn;
-	char arg[MAX_STRING_LENGTH];
-	rskill_t *rs;
-	race_t *race;
-	EDIT_RACE(ch, race);
-
-	one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0') {
-		dofun("help", ch, "'OLC RACE SKILL'");
-		return FALSE;
-	}
-
-	if ((sn = sn_lookup(arg)) <= 0) {
-		char_printf(ch, "RaceEd: %s: unknown skill.\n", arg);
-		return FALSE;
-	}
-
-	if ((rs = rskill_lookup(race, sn)) == NULL) {
-		char_printf(ch, "RaceEd: %s: not found in race skill list.\n",
-			    arg);
-		return FALSE;
-	}
-	rs->sn = 0;
-	varr_qsort(&race->race_pcdata->skills, cmpint);
-        char_puts("Ok.\n", ch);
-	return TRUE;
-}
-
 OLC_FUN(olc_skill_update)
 {
 	CHAR_DATA *gch;
 
-	for (gch = char_list; gch && IS_NPC(gch); gch = gch->next) {
-		if (!IS_NPC(gch)) update_skills(gch);
-	}
+	for (gch = char_list; gch && !IS_NPC(gch); gch = gch->next)
+		spec_update(gch);
 	char_puts("Active players' skills updated.\n", ch);
 	return FALSE;
 }
@@ -902,19 +832,12 @@ static void save_race(CHAR_DATA *ch, race_t *race)
 		fprintf(fp, "Class '%s' %d\n",
 			rc->name, rc->mult);
 	}
+	if (!IS_NULLSTR(race->race_pcdata->skill_spec))
+		fprintf(fp, "SkillSpec '%s'\n",
+			race->race_pcdata->skill_spec);
 	if (!IS_NULLSTR(race->race_pcdata->bonus_skills))
 		fprintf(fp, "BonusSkills %s~\n",
 			race->race_pcdata->bonus_skills);
-	for (i = 0; i < race->race_pcdata->skills.nused; i++) {
-		rskill_t *rs = VARR_GET(&race->race_pcdata->skills, i);
-		skill_t *sk;
-
-		if (rs->sn <= 0
-		||  (sk = skill_lookup(rs->sn)) == NULL)
-			continue;
-		fprintf(fp, "Skill '%s' %d\n",
-			sk->name, rs->level);
-	}
 	for (i = 0, found = FALSE; i < MAX_STATS; i++)
 		if (race->race_pcdata->stats[i]) found = TRUE;
 	if (found) {

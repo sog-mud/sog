@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.50 1999-09-08 10:40:11 fjoe Exp $
+ * $Id: mob_prog.c,v 1.51 1999-10-06 09:56:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -669,15 +669,15 @@ int cmd_eval(int vnum, const char *line, int check,
 	    if (lval_char != NULL) 
 		lval = lval_char->gold + (lval_char->silver * 100); break;
 	case CHK_OBJVAL0:
-            if (lval_obj != NULL) lval = lval_obj->value[0]; break;
+            if (lval_obj != NULL) lval = INT_VAL(lval_obj->value[0]); break;
         case CHK_OBJVAL1:
-            if (lval_obj != NULL) lval = lval_obj->value[1]; break;
+            if (lval_obj != NULL) lval = INT_VAL(lval_obj->value[1]); break;
         case CHK_OBJVAL2: 
-            if (lval_obj != NULL) lval = lval_obj->value[2]; break;
+            if (lval_obj != NULL) lval = INT_VAL(lval_obj->value[2]); break;
         case CHK_OBJVAL3:
-            if (lval_obj != NULL) lval = lval_obj->value[3]; break;
+            if (lval_obj != NULL) lval = INT_VAL(lval_obj->value[3]); break;
 	case CHK_OBJVAL4:
-	    if (lval_obj != NULL) lval = lval_obj->value[4]; break;
+	    if (lval_obj != NULL) lval = INT_VAL(lval_obj->value[4]); break;
 	case CHK_GRPSIZE:
 	    if (lval_char != NULL) lval = count_people_room(lval_char, 4);
 	    break;

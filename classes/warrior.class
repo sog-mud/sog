@@ -7,57 +7,13 @@ GuildRoom 3022
 GuildRoom 3023
 GuildRoom 9633
 GuildRoom 9634
-SkillAdept 75
 Thac0_00 18
 Thac0_32 -10
 HPRate 100
 ManaRate 50
 AddExp 0
 StatMod 3 0 0 0 1 5
-Skill 'axe' 1 1 0
-Skill 'bow' 44 1 0
-Skill 'dagger' 1 1 0
-Skill 'flail' 1 1 0
-Skill 'mace' 1 1 0
-Skill 'polearm' 1 1 0
-Skill 'shield block' 1 1 0
-Skill 'spear' 1 1 0
-Skill 'sword' 1 1 0
-Skill 'whip' 1 1 0
-Skill 'staff' 1 1 0
-Skill 'second weapon' 23 1 0
-Skill 'area attack' 73 1 0
-Skill 'bash' 1 1 0
-Skill 'bash door' 1 1 0
-Skill 'berserk' 18 1 0
-Skill 'blind fighting' 13 1 0
-Skill 'concentrate' 59 1 0
-Skill 'counter' 28 1 0
-Skill 'dirt kicking' 8 1 0
-Skill 'disarm' 20 1 0
-Skill 'dodge' 13 1 40
-Skill 'enhanced damage' 3 1 0
-Skill 'hand to hand' 9 1 0
-Skill 'hand block' 15 1 0
-Skill 'kick' 5 1 0
-Skill 'parry' 1 1 40
-Skill 'rescue' 1 1 0
-Skill 'shield cleave' 26 1 0
-Skill 'smithing' 50 1 0
-Skill 'trip' 25 1 0
-Skill 'warcry' 31 1 0
-Skill 'weapon cleave' 29 1 0
-Skill 'second attack' 10 1 0
-Skill 'secondary attack' 57 1 0
-Skill 'third attack' 19 1 0
-Skill 'fourth attack' 30 1 0
-Skill 'fifth attack' 52 1 0
-Skill 'fast healing' 6 1 0
-Skill 'grip' 43 1 0
-Skill 'haggle' 14 2 0
-Skill 'lore' 21 2 0
-Skill 'meditation' 15 2 0
-Skill 'throwing weapons' 27 1 0
+SkillSpec class_warrior
 Title 0 male the Man~
 Title 0 female the Woman~
 Title 1 male the Swordpupil~

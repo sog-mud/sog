@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.74 1999-09-08 10:40:13 fjoe Exp $
+ * $Id: skills.c,v 1.75 1999-10-06 09:56:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,10 +46,11 @@
 #include <string.h>
 #include <stdlib.h>
 #include "merc.h"
+#include "db.h"
 
-varr skills = { sizeof(skill_t), 8 };
+hash_t skills;
 
-int	ch_skill_nok	(CHAR_DATA *ch , int sn);
+static int get_mob_skill(CHAR_DATA *ch, skill_t *sk);
 
 int base_exp(CHAR_DATA *ch)
 {
@@ -84,29 +85,28 @@ int exp_to_level(CHAR_DATA *ch)
 }
 
 /* checks for skill improvement */
-void check_improve(CHAR_DATA *ch, int sn, bool success, int multiplier)
+void check_improve(CHAR_DATA *ch, const char *sn, bool success, int multiplier)
 {
-	pcskill_t *ps;
-	class_t *cl;
-	cskill_t *cs;
+	pc_skill_t *pc_sk;
 	int chance;
-	int rating;
+	spec_skill_t spec_sk;
 
 	if (IS_NPC(ch)
-	||  (cl = class_lookup(ch->class)) == NULL
-	||  (ps = pcskill_lookup(ch, sn)) == NULL
-	||  ps->percent == 0 || ps->percent == 100
-	||  skill_level(ch, sn) > ch->level)
+	||  (pc_sk = pc_skill_lookup(ch, sn)) == NULL
+	||  pc_sk->percent <= 0)
 		return;
 
-	if ((cs = cskill_lookup(cl, sn)))
-		rating = cs->rating;
-	else
-		rating = 1;
+	spec_sk.sn = sn;
+	spec_stats(ch, &spec_sk);
+	if (spec_sk.level > ch->level
+	||  pc_sk->percent >= spec_sk.max)
+		return;
 
-	/* check to see if the character has a chance to learn */
-	chance = 10 * int_app[get_curr_stat(ch,STAT_INT)].learn;
-	chance /= (multiplier *	rating * 4);
+	/*
+	 * check to see if the character has a chance to learn
+	 */
+	chance = 10 * int_app[get_curr_stat(ch, STAT_INT)].learn;
+	chance /= (multiplier *	spec_sk.rating * 4);
 	chance += ch->level;
 
 	if (number_range(1, 1000) > chance)
@@ -115,34 +115,33 @@ void check_improve(CHAR_DATA *ch, int sn, bool success, int multiplier)
 /* now that the character has a CHANCE to learn, see if they really have */	
 
 	if (success) {
-		chance = URANGE(5, 100 - ps->percent, 95);
+		chance = URANGE(5, spec_sk.max - pc_sk->percent, 95);
 		if (number_percent() < chance) {
-			ps->percent++;
-			gain_exp(ch, 2 * rating);
-			if (ps->percent == 100) {
+			pc_sk->percent++;
+			gain_exp(ch, 2 * spec_sk.rating);
+			if (pc_sk->percent == spec_sk.max) {
 				act_puts("{gYou mastered {W$t{g!{x",
-					 ch, skill_name(sn), NULL,
+					 ch, sn, NULL,
 					 TO_CHAR, POS_DEAD);
 			} else {
 				act_puts("{gYou have become better at {W$t{g!{x",
-					 ch, skill_name(sn), NULL,
+					 ch, sn, NULL,
 					 TO_CHAR, POS_DEAD);
 			}
 		}
-	}
-	else {
-		chance = URANGE(5, ps->percent / 2, 30);
+	} else {
+		chance = URANGE(5, pc_sk->percent / 2, 30);
 		if (number_percent() < chance) {
-			if ((ps->percent += number_range(1, 3)) > 100)
-				ps->percent = 100;
-			gain_exp(ch, 2 * rating);
-			if (ps->percent == 100) {
+			pc_sk->percent += number_range(1, 3);
+			pc_sk->percent = UMIN(pc_sk->percent, spec_sk.max);
+			gain_exp(ch, 2 * spec_sk.rating);
+			if (pc_sk->percent == spec_sk.max) {
 				act_puts("{gYou learn from your mistakes and you manage to master {W$t{g!{x",
-					 ch, skill_name(sn), NULL,
+					 ch, sn, NULL,
 					 TO_CHAR, POS_DEAD);
 			} else {
 				act_puts("{gYou learn from your mistakes and your {W$t{g skill improves!{x",
-					 ch, skill_name(sn), NULL,
+					 ch, sn, NULL,
 					 TO_CHAR, POS_DEAD);
 			}
 
@@ -153,99 +152,33 @@ void check_improve(CHAR_DATA *ch, int sn, bool success, int multiplier)
 /*
  * simply adds sn to ch's known skills (if skill is not already known).
  */
-void set_skill_raw(CHAR_DATA *ch, int sn, int percent, bool replace)
+void set_skill_raw(CHAR_DATA *ch, const char *sn, int percent, bool replace)
 {
-	pcskill_t *ps;
+	pc_skill_t *pc_sk;
 
-	if (sn <= 0)
+	if (IS_NULLSTR(sn))
 		return;
 
-	if ((ps = pcskill_lookup(ch, sn))) {
-		if (replace || ps->percent < percent)
-			ps->percent = percent;
+	NAME_CHECK(&skills, sn, "set_skill_raw");
+
+	if ((pc_sk = pc_skill_lookup(ch, sn))) {
+		if (replace || pc_sk->percent < percent)
+			pc_sk->percent = percent;
 		return;
 	}
-	ps = varr_enew(&PC(ch)->learned);
-	ps->sn = sn;
-	ps->percent = percent;
-	varr_qsort(&PC(ch)->learned, cmpint);
+	pc_sk = varr_enew(&PC(ch)->learned);
+	pc_sk->sn = str_dup(sn);
+	pc_sk->percent = percent;
+	varr_qsort(&PC(ch)->learned, cmpstr);
 }
 
-/* use for adding/updating all skills available for that ch  */
-void update_skills(CHAR_DATA *ch)
-{
-	int i;
-	class_t *cl;
-	race_t *r;
-	clan_t *clan;
-	const char *p;
-
-/* NPCs do not have skills */
-	if (IS_NPC(ch)
-	||  (cl = class_lookup(ch->class)) == NULL
-	||  (r = race_lookup(ch->race)) == NULL
-	||  !r->race_pcdata)
-		return;
-
-/* add class skills */
-	for (i = 0; i < cl->skills.nused; i++) {
-		cskill_t *cs = VARR_GET(&cl->skills, i);
-		set_skill_raw(ch, cs->sn, 1, FALSE);
-	}
-
-/* add race skills */
-	for (i = 0; i < r->race_pcdata->skills.nused; i++) {
-		rskill_t *rs = VARR_GET(&r->race_pcdata->skills, i);
-		set_skill_raw(ch, rs->sn, 100, FALSE);
-	}
-
-	if ((p = r->race_pcdata->bonus_skills))
-		for (;;) {
-			int sn;
-			char name[MAX_STRING_LENGTH];
-
-			p = one_argument(p, name, sizeof(name));
-			if (name[0] == '\0')
-				break;
-		
-			sn = sn_lookup(name);
-			if (sn < 0)
-				continue;
-
-			set_skill_raw(ch, sn, 100, FALSE);
-		}
-
-/* add clan skills */
-	if ((clan = clan_lookup(ch->clan))) {
-		for (i = 0; i < clan->skills.nused; i++) {
-			clskill_t *cs = VARR_GET(&clan->skills, i);
-			set_skill_raw(ch, cs->sn, cs->percent, FALSE);
-		}
-	}
-
-/* remove not matched skills */
-	for (i = 0; i < PC(ch)->learned.nused; i++) {
-		pcskill_t *ps = VARR_GET(&PC(ch)->learned, i);
-		if (skill_level(ch, ps->sn) > LEVEL_HERO && !IS_IMMORTAL(ch))
-			ps->percent = 0;
-	}
-}
-
-void set_skill(CHAR_DATA *ch, int sn, int percent)
+void set_skill(CHAR_DATA *ch, const char *sn, int percent)
 {
 	set_skill_raw(ch, sn, percent, TRUE);
 }
 
-const char *skill_name(int sn)
-{
-	skill_t *sk = varr_get(&skills, sn);
-	if (sk)
-		return sk->name;
-	return "none";
-}
-
 /* for returning skill information */
-int get_skill(CHAR_DATA *ch, int sn)
+int get_skill(CHAR_DATA *ch, const char *sn)
 {
 	int skill;
 	skill_t *sk;
@@ -254,89 +187,20 @@ int get_skill(CHAR_DATA *ch, int sn)
 	int add = 0;
 	bool teach = FALSE;
 
-
 	if ((sk = skill_lookup(sn)) == NULL
 	||  (IS_SET(sk->skill_flags, SKILL_CLAN) && !clan_item_ok(ch->clan)))
 		return 0;
 
 	if (!IS_NPC(ch)) {
-		pcskill_t *ps;
+		pc_skill_t *pc_sk;
 
-		if ((ps = pcskill_lookup(ch, sn)) == NULL
+		if ((pc_sk = pc_skill_lookup(ch, sn)) == NULL
 		||  skill_level(ch, sn) > ch->level)
 			skill = 0;
 		else
-			skill = ps->percent;
-	}
-	else {
-		flag64_t act = ch->pMobIndex->act;
-		flag64_t off = ch->pMobIndex->off_flags;
-
-		/* mobiles */
-		if (sk->skill_type == ST_SPELL)
-			skill = 40 + 2 * ch->level;
-		else if (sn == gsn_track)
-			skill = 100;
-		else if ((sn == gsn_sneak || sn == gsn_hide || sn == gsn_pick)
-		     &&  IS_SET(act, ACT_THIEF))
-			skill = ch->level * 2 + 20;
-		else if (sn == gsn_backstab
-		     &&  (IS_SET(act, ACT_THIEF) ||
-			  IS_SET(off, OFF_BACKSTAB)))
-			skill = ch->level * 2 + 20;
-		else if (sn == gsn_dual_backstab
-		     &&  (IS_SET(act, ACT_THIEF) ||
-			  IS_SET(off, OFF_BACKSTAB)))
-			skill = ch->level + 20;
-		else if ((sn == gsn_dodge && IS_SET(off, OFF_DODGE)) ||
- 		         (sn == gsn_parry && IS_SET(off, OFF_PARRY)) ||
-			 (sn == gsn_dirt && IS_SET(off, OFF_DIRT_KICK)))
-			skill = ch->level * 2;
- 		else if (sn == gsn_shield_block)
-			skill = 10 + 2 * ch->level;
-		else if (sn == gsn_second_attack &&
-			 (IS_SET(act, ACT_WARRIOR | ACT_THIEF)))
-			skill = 10 + 3 * ch->level;
-		else if (sn == gsn_third_attack && IS_SET(act, ACT_WARRIOR))
-			skill = 4 * ch->level - 40;
-		else if (sn == gsn_fourth_attack && IS_SET(act, ACT_WARRIOR))
-			skill = 4 * ch->level - 60;
-		else if (sn == gsn_hand_to_hand)
-			skill = 40 + 2 * ch->level;
- 		else if (sn == gsn_trip && IS_SET(off, OFF_TRIP)) 
-			skill = 10 + 3 * ch->level;
- 		else if ((sn == gsn_bash || sn == gsn_bash_door) &&
-			 IS_SET(off, OFF_BASH))
-			skill = 10 + 3 * ch->level;
-		else if (sn == gsn_kick && IS_SET(off, OFF_KICK))
-			skill = 10 + 3 * ch->level;
-		else if ((sn == gsn_critical) && IS_SET(act, ACT_WARRIOR))
-			skill = ch->level;
-		else if (sn == gsn_disarm &&
-			 (IS_SET(off, OFF_DISARM) ||
-			  IS_SET(act, ACT_WARRIOR | ACT_THIEF)))
-			skill = 20 + 3 * ch->level;
-		else if (sn == gsn_grip &&
-			 (IS_SET(act, ACT_WARRIOR | ACT_THIEF)))
-			skill = ch->level;
-		else if ((sn == gsn_berserk || sn == gsn_tiger_power) &&
-			 IS_SET(off, OFF_BERSERK))
-			skill = 3 * ch->level;
-		else if (sn == gsn_kick)
-			skill = 10 + 3 * ch->level;
-		else if (sn == gsn_rescue)
-			skill = 40 + ch->level; 
-		else if (sn == gsn_sword || sn == gsn_dagger ||
-			 sn == gsn_spear || sn == gsn_mace ||
-			 sn == gsn_axe || sn == gsn_flail || sn == gsn_staff ||
-			 sn == gsn_whip || sn == gsn_polearm ||
-			 sn == gsn_bow || sn == gsn_arrow || sn == gsn_lance)
-			skill = 40 + 5 * ch->level / 2;
-		else if (sn == gsn_crush && IS_SET(off, OFF_CRUSH))
-			skill = 10 + 3 * ch->level;
-		else 
-			skill = 0;
-	}
+			skill = pc_sk->percent;
+	} else 
+		skill = get_mob_skill(ch, sk);
 
 	if (ch->daze > 0) {
 		if (sk->skill_type == ST_SPELL)
@@ -347,20 +211,6 @@ int get_skill(CHAR_DATA *ch, int sn)
 
 	if (!IS_NPC(ch) && PC(ch)->condition[COND_DRUNK]  > 10)
 		skill = 9 * skill / 10;
-	skill = URANGE(0, skill, 100);
-
-	/*
-	 * apply class/skill modifiers
-	 */
-	if (skill != 0 && !IS_NPC(ch)) {
-		class_t *cl;
-		cskill_t *csk;
-
-		if ((cl = class_lookup(ch->class)) != NULL
-		&&  (csk = cskill_lookup(cl, sn)) != NULL)
-			skill += csk->mod;
-		skill = UMAX(1, skill);
-	}
 
 	/*
 	 * apply skill affect modifiers
@@ -368,9 +218,9 @@ int get_skill(CHAR_DATA *ch, int sn)
 	for (paf = ch->affected; paf; paf = paf->next) {
 		if (paf->where != TO_SKILLS
 		||  (!IS_SET(paf->bitvector, SK_AFF_ALL) &&
-		     paf->location != -sn)
+		     SKILL_IS(paf->type, sn))
 		||  (IS_SET(paf->bitvector, SK_AFF_NOTCLAN &&
-		     IS_SET(skill_lookup(sn)->skill_flags, SKILL_CLAN))))
+		     IS_SET(sk->skill_flags, SKILL_CLAN))))
 			continue;
 
 		add += paf->modifier;
@@ -380,96 +230,76 @@ int get_skill(CHAR_DATA *ch, int sn)
 	return UMAX(0, skill ? (skill+add) : teach ? add : 0);
 }
 
-/*
- * Lookup a skill by name.
- */
-int sn_lookup(const char *name)
+static void *
+skill_search_cb(void *p, void *d)
 {
-	int sn;
-
-	if (IS_NULLSTR(name))
-		return -1;
-
-	for (sn = 0; sn < skills.nused; sn++)
-		if (!str_prefix(name, SKILL(sn)->name))
-			return sn;
-
-	return -1;
-}
-
-/*
- * Lookup skill in varr.
- * First field of structure assumed to be sn
- */
-void *skill_vlookup(varr *v, const char *name)
-{
-	int i;
-
-	if (IS_NULLSTR(name))
-		return NULL;
-
-	for (i = 0; i < v->nused; i++) {
-		skill_t *skill;
-		int *psn = (int*) VARR_GET(v, i);
-
-		if ((skill = skill_lookup(*psn))
-		&&  !str_prefix(name, skill->name))
-			return psn;
-	}
-
+	skill_t *sk = (skill_t*) p;
+	const char *psn = (const char *) d;
+	if (!str_prefix(psn, sk->name))
+		return p;
 	return NULL;
 }
 
-/* for returning weapon information */
-int get_weapon_sn(OBJ_DATA *wield)
+/*
+ * skill_search -- lookup skill by prefix
+ */
+skill_t *skill_search(const char *psn)
 {
-	int sn;
-
-	if (wield == NULL)
-		return gsn_hand_to_hand;
-
-	if (wield->pObjIndex->item_type != ITEM_WEAPON)
-		return 0;
-
-	switch (wield->value[0]) {
-	default :               sn = -1;		break;
-	case(WEAPON_SWORD):     sn = gsn_sword;		break;
-	case(WEAPON_DAGGER):    sn = gsn_dagger;	break;
-	case(WEAPON_SPEAR):     sn = gsn_spear;		break;
-	case(WEAPON_MACE):      sn = gsn_mace;		break;
-	case(WEAPON_AXE):       sn = gsn_axe;		break;
-	case(WEAPON_FLAIL):     sn = gsn_flail;		break;
-	case(WEAPON_WHIP):      sn = gsn_whip;		break;
-	case(WEAPON_POLEARM):   sn = gsn_polearm;	break;
-	case(WEAPON_BOW):	sn = gsn_bow;		break;
-	case(WEAPON_ARROW):	sn = gsn_arrow;		break;
-	case(WEAPON_LANCE):	sn = gsn_lance;		break;
-	case(WEAPON_STAFF):	sn = gsn_staff;		break;
-	}
-	return sn;
+	if (IS_NULLSTR(psn))
+		return NULL;
+	return hash_foreach(&skills, skill_search_cb, (void*) psn);
 }
 
-int get_weapon_skill(CHAR_DATA *ch, int sn)
+/*
+ * Lookup skill by prefix in varr.
+ * First field of structure assumed to be sn
+ */
+void *skill_vsearch(varr *v, const char *psn)
 {
-	 int sk;
+	if (IS_NULLSTR(psn))
+		return NULL;
+	return varr_foreach(v, skill_search_cb, (void*) psn);
+}
 
-/* -1 is exotic */
-	if (sn == -1)
-		sk = 3 * ch->level;
-	else if (!IS_NPC(ch))
-		sk = get_skill(ch, sn);
-	else if (sn == gsn_hand_to_hand)
-		sk = 40 + 2 * ch->level;
-	else 
-		sk = 40 + 5 * ch->level / 2;
+/* for returning weapon information */
+const char* get_weapon_sn(OBJ_DATA *wield)
+{
+	if (wield == NULL)
+		return "hand to hand";
 
-	return URANGE(0, sk, 100);
+	if (wield->pObjIndex->item_type != ITEM_WEAPON)
+		return NULL;
+
+	switch (INT_VAL(wield->value[0])) {
+	default :               return NULL;
+	case(WEAPON_SWORD):     return "sword";
+	case(WEAPON_DAGGER):    return "dagger";
+	case(WEAPON_SPEAR):     return "spear";
+	case(WEAPON_MACE):      return "mace";
+	case(WEAPON_AXE):       return "axe";
+	case(WEAPON_FLAIL):     return "flail";
+	case(WEAPON_WHIP):      return "whip";
+	case(WEAPON_POLEARM):   return "polearm";
+	case(WEAPON_BOW):	return "bow";
+	case(WEAPON_ARROW):	return "arrow";
+	case(WEAPON_LANCE):	return "lance";
+	case(WEAPON_STAFF):	return "staff";
+	}
+}
+
+int get_weapon_skill(CHAR_DATA *ch, const char *sn)
+{
+/* sn == NULL for exotic */
+	if (sn == NULL)
+		return 3 * ch->level;
+
+	return get_skill(ch, sn);
 } 
 
 /*
  * Utter mystical words for an sn.
  */
-void say_spell(CHAR_DATA *ch, int sn)
+void say_spell(CHAR_DATA *ch, const char *sn)
 {
 	char buf  [MAX_STRING_LENGTH];
 	CHAR_DATA *rch;
@@ -520,7 +350,7 @@ void say_spell(CHAR_DATA *ch, int sn)
 	};
 
 	buf[0]	= '\0';
-	for (pName = skill_name(sn); *pName != '\0'; pName += length) {
+	for (pName = sn; *pName != '\0'; pName += length) {
 		for (iSyl = 0; (length = strlen(syl_table[iSyl].old)); iSyl++) {
 			if (!str_prefix(syl_table[iSyl].old, pName)) {
 				strnzcat(buf, sizeof(buf), syl_table[iSyl].new);
@@ -535,70 +365,404 @@ void say_spell(CHAR_DATA *ch, int sn)
 		if (rch == ch)
 			continue;
 
-		skill = (get_skill(rch, gsn_spell_craft) * 9) / 10;
+		skill = get_skill(rch, "spell craft") * 9 / 10;
 		if (skill < number_percent()) {
 			act("$n utters the words, '$t'.", ch, buf, rch, TO_VICT);
-			check_improve(rch, gsn_spell_craft, FALSE, 5);
-		}
-		else  {
+			check_improve(rch, "spell craft", FALSE, 5);
+		} else  {
 			act("$n utters the words, '$t'.",
-			    ch, skill_name(sn), rch, TO_VICT);
-			check_improve(rch, gsn_spell_craft, TRUE, 5);
+			    ch, sn, rch, TO_VICT);
+			check_improve(rch, "spell craft", TRUE, 5);
 		}
 	}
-}
-
-/* find min level of the skill for char */
-int skill_level(CHAR_DATA *ch, int sn)
-{
-	int slevel = LEVEL_IMMORTAL;
-	skill_t *sk;
-	clan_t *clan;
-	clskill_t *clan_skill;
-	class_t *cl;
-	cskill_t *class_skill;
-	race_t *r;
-	rskill_t *race_skill;
-	AFFECT_DATA *paf;
-
-/* noone can use ill-defined skills */
-/* broken chars can't use any skills */
-	if (IS_NPC(ch)
-	||  (sk = skill_lookup(sn)) == NULL
-	||  (cl = class_lookup(ch->class)) == NULL
-	||  (r = race_lookup(ch->race)) == NULL
-	||  !r->race_pcdata)
-		return slevel;
-
-	if ((clan = clan_lookup(ch->clan))
-	&&  (clan_skill = clskill_lookup(clan, sn)))
-		slevel = UMIN(slevel, clan_skill->level);
-
-	if ((class_skill = cskill_lookup(cl, sn))) {
-		slevel = UMIN(slevel, class_skill->level);
-		if (is_name(sk->name, r->race_pcdata->bonus_skills))
-			slevel = UMIN(slevel, 1);
-	}
-
-	if ((race_skill = rskill_lookup(r, sn)))
-		slevel = UMIN(slevel, race_skill->level);
-
-	for (paf = ch->affected; paf; paf = paf->next)
-	    if (paf->where == TO_SKILLS && paf->location == -sn)
-		slevel = 1;
-	return slevel;
 }
 
 /*
- * assumes !IS_NPC(ch) && ch->level >= skill_level(ch, sn)
+ * skill_beats -- return skill beats
  */
-int mana_cost(CHAR_DATA *ch, int sn)
+int skill_beats(const char *sn)
 {
 	skill_t *sk;
 
-	if ((sk = skill_lookup(sn)) == NULL)
+	if ((sk = skill_lookup(sn)) == NULL) {
+#ifdef NAME_STRICT_CHECKS
+		bug("skill_beats: %s: unknown skill", sn);
+#endif
 		return 0;
+	}
 
-	return UMAX(sk->min_mana, 100 / (2 + ch->level - skill_level(ch, sn)));
+	return sk->beats;
+}
+/*
+ * skill_mana -- return mana cost based on min_mana and ch->level
+ */
+int skill_mana(CHAR_DATA *ch, const char *sn)
+{
+	skill_t *sk;
+
+	if ((sk = skill_lookup(sn)) == NULL) {
+#ifdef NAME_STRICT_CHECKS
+		bug("skill_mana: %s: unknown skill", sn);
+#endif
+		return 0;
+	}
+
+	if (IS_NPC(ch))
+		return sk->min_mana;
+
+	return UMAX(sk->min_mana, 100 / (2 + UMAX(ch->level - skill_level(ch, sn), 0)));
 }
 
+/*
+ * skill_level -- find min level of the skill for char
+ */
+int skill_level(CHAR_DATA *ch, const char *sn)
+{
+	spec_skill_t spec_sk;
+
+	if (IS_NPC(ch))
+		return ch->level;
+
+	spec_sk.sn = sn;
+	spec_stats(ch, &spec_sk);
+	return spec_sk.level;
+}
+
+static void *
+skill_slot_cb(void *p, void *d)
+{
+	skill_t *sk = (skill_t *) p;
+	int slot = *(int *) d;
+
+	if (sk->slot == slot)
+		return (void*) sk->name;
+	return NULL;
+}
+
+/*
+ * Lookup a skill by slot number.
+ * Used for object loading.
+ */
+const char *skill_slot_lookup(int slot)
+{
+	const char *sn;
+
+	if (slot <= 0)
+		return NULL;
+
+	sn = hash_foreach(&skills, skill_slot_cb, &slot);
+	if (IS_NULLSTR(sn))
+		db_error("skill_slot_lookup", "unknown slot %d", slot);
+	return str_qdup(sn);
+}
+
+void skill_init(skill_t *sk)
+{
+	sk->name = str_empty;
+	sk->fun_name = str_empty;
+	sk->fun = NULL;
+	sk->target = 0;
+	sk->min_pos = 0;
+	sk->slot = 0;
+	sk->min_mana = 0;
+	sk->beats = 0;
+	sk->noun_damage = str_empty;
+	sk->msg_off = str_empty;
+	sk->msg_obj = str_empty;
+	sk->skill_flags = 0;
+	sk->restrict_race = str_empty;
+	sk->group = 0;
+	sk->skill_type = 0;
+}
+
+skill_t *skill_cpy(skill_t *dst, const skill_t *src)
+{
+	dst->name = str_qdup(src->name);
+	dst->fun_name = str_qdup(src->fun_name);
+	dst->fun = src->fun;
+	dst->target = src->target;
+	dst->min_pos = src->min_pos;
+	dst->slot = src->slot;
+	dst->min_mana = src->min_mana;
+	dst->beats = src->beats;
+	dst->noun_damage = str_qdup(src->noun_damage);
+	dst->msg_off = str_qdup(src->msg_off);
+	dst->msg_obj = str_qdup(src->msg_obj);
+	dst->skill_flags = src->skill_flags;
+	dst->restrict_race = str_qdup(src->restrict_race);
+	dst->group = src->group;
+	dst->skill_type = src->skill_type;
+	return dst;
+}
+
+void skill_destroy(skill_t *sk)
+{
+	free_string(sk->name);
+	free_string(sk->fun_name);
+	free_string(sk->noun_damage);
+	free_string(sk->msg_off);
+	free_string(sk->msg_obj);
+	free_string(sk->restrict_race);
+}
+
+/*-----------------------------------------------------------------------------
+ * mob skills stuff
+ */
+
+typedef int MOB_SKILL(CHAR_DATA *);
+#define DECLARE_MOB_SKILL(fun) static MOB_SKILL fun;
+#define MOB_SKILL(fun) static int fun(CHAR_DATA *mob)
+
+typedef struct mob_skill_t mob_skill_t;
+struct mob_skill_t {
+	const char *sn;
+	MOB_SKILL *fun;
+};
+
+DECLARE_MOB_SKILL(mob_track);
+DECLARE_MOB_SKILL(mob_sneak);
+#define mob_hide mob_sneak
+#define mob_pick_lock mob_sneak
+DECLARE_MOB_SKILL(mob_backstab);
+DECLARE_MOB_SKILL(mob_dual_backstab);
+DECLARE_MOB_SKILL(mob_dodge);
+DECLARE_MOB_SKILL(mob_parry);
+DECLARE_MOB_SKILL(mob_dirt_kicking);
+DECLARE_MOB_SKILL(mob_shield_block);
+DECLARE_MOB_SKILL(mob_second_attack);
+DECLARE_MOB_SKILL(mob_third_attack);
+DECLARE_MOB_SKILL(mob_fourth_attack);
+DECLARE_MOB_SKILL(mob_hand_to_hand);
+DECLARE_MOB_SKILL(mob_trip);
+DECLARE_MOB_SKILL(mob_bash);
+DECLARE_MOB_SKILL(mob_kick);
+DECLARE_MOB_SKILL(mob_critical_strike);
+DECLARE_MOB_SKILL(mob_disarm);
+DECLARE_MOB_SKILL(mob_grip);
+DECLARE_MOB_SKILL(mob_berserk);
+#define mob_tiger_power mob_berserk
+DECLARE_MOB_SKILL(mob_rescue);
+DECLARE_MOB_SKILL(mob_crush);
+DECLARE_MOB_SKILL(mob_weapon);
+
+static size_t mob_skill_count;
+
+static mob_skill_t mob_skill_tab[] =
+{
+	{ "track",		mob_track		},
+	{ "sneak", 		mob_sneak		},
+	{ "hide",		mob_hide		},
+	{ "pick lock",		mob_pick_lock		},
+	{ "backstab",		mob_backstab		},
+	{ "dual backstab",	mob_dual_backstab	},
+	{ "dodge",		mob_dodge		},
+	{ "parry",		mob_parry		},
+	{ "dirt kicking",	mob_dirt_kicking	},
+	{ "shield block",	mob_shield_block	},
+	{ "second attack",	mob_second_attack	},
+	{ "third attack",	mob_third_attack	},
+	{ "fourth attack",	mob_fourth_attack	},
+	{ "hand to hand",	mob_hand_to_hand	},
+	{ "trip",		mob_trip		},
+	{ "bash",		mob_bash		},
+	{ "bash door",		mob_bash		},
+	{ "kick",		mob_kick		},
+	{ "critical strike",	mob_critical_strike	},
+	{ "disarm",		mob_disarm		},
+	{ "grip",		mob_grip		},
+	{ "berserk",		mob_berserk		},
+	{ "tiger power",	mob_tiger_power		},
+	{ "rescue",		mob_rescue		},
+	{ "crush",		mob_crush		},
+	{ "sword",		mob_weapon		},
+	{ "dagger",		mob_weapon		},
+	{ "spear",		mob_weapon		},
+	{ "mace",		mob_weapon		},
+	{ "axe",		mob_weapon		},
+	{ "flail",		mob_weapon		},
+	{ "staff",		mob_weapon		},
+	{ "whip",		mob_weapon		},
+	{ "polearm",		mob_weapon		},
+	{ "bow",		mob_weapon		},
+	{ "arrow",		mob_weapon		},
+	{ "lance",		mob_weapon		},
+
+	{ NULL }
+};
+
+void
+mob_skill_init(void)
+{
+	mob_skill_t *mob_skill;
+
+	for (mob_skill = mob_skill_tab; mob_skill->sn; mob_skill++) {
+		NAME_CHECK(&skills, mob_skill->sn, "mob_skill_init");
+		mob_skill_count++;
+	}
+	qsort(mob_skill_tab, mob_skill_count, sizeof(mob_skill_t), cmpstr);
+}
+
+static int
+get_mob_skill(CHAR_DATA *ch, skill_t *sk)
+{
+	mob_skill_t *mob_skill;
+
+	if (sk->skill_type == ST_SPELL)
+		return 40 + 2 * ch->level;
+
+	if (!mob_skill_count)
+		mob_skill_init();
+
+	mob_skill = bsearch(&sk->name, mob_skill_tab, mob_skill_count,
+			    sizeof(mob_skill_t), cmpstr);
+	if (mob_skill == NULL)
+		return 0;
+	return mob_skill->fun(ch);
+}
+
+MOB_SKILL(mob_track)
+{
+	return 100;
+}
+
+MOB_SKILL(mob_sneak)
+{
+	if (IS_SET(mob->pMobIndex->act, ACT_THIEF))
+		return mob->level * 2 + 20;
+	return 0;
+}
+
+MOB_SKILL(mob_backstab)
+{
+	if (IS_SET(mob->pMobIndex->act, ACT_THIEF)
+	||  IS_SET(mob->pMobIndex->off_flags, OFF_BACKSTAB))
+		return mob->level * 2 + 20;
+	return 0;
+}
+
+MOB_SKILL(mob_dual_backstab)
+{
+	if (IS_SET(mob->pMobIndex->act, ACT_THIEF)
+	||  IS_SET(mob->pMobIndex->off_flags, OFF_BACKSTAB))
+		return mob->level + 20;
+	return 0;
+}
+
+MOB_SKILL(mob_dodge)
+{
+	if (IS_SET(mob->pMobIndex->off_flags, OFF_DODGE))
+		return mob->level * 2;
+	return 0;
+}
+
+MOB_SKILL(mob_parry)
+{
+	if (IS_SET(mob->pMobIndex->off_flags, OFF_PARRY))
+		return mob->level * 2;
+	return 0;
+}
+
+MOB_SKILL(mob_dirt_kicking)
+{
+	if (IS_SET(mob->pMobIndex->off_flags, OFF_DIRT_KICK))
+		return mob->level * 2;
+	return 0;
+}
+
+MOB_SKILL(mob_shield_block)
+{
+	return 10 + 2 * mob->level;
+}
+
+MOB_SKILL(mob_second_attack)
+{
+	if (IS_SET(mob->pMobIndex->act, ACT_WARRIOR | ACT_THIEF))
+		return 10 + 3 * mob->level;
+	return 0;
+}
+
+MOB_SKILL(mob_third_attack)
+{
+	if (IS_SET(mob->pMobIndex->act, ACT_WARRIOR))
+		return 4 * mob->level - 40;
+	return 0;
+}
+
+MOB_SKILL(mob_fourth_attack)
+{
+	if (IS_SET(mob->pMobIndex->act, ACT_WARRIOR))
+		return 4 * mob->level - 60;
+	return 0;
+}
+
+MOB_SKILL(mob_hand_to_hand)
+{
+	return 40 + 2 * mob->level;
+}
+
+MOB_SKILL(mob_trip)
+{
+ 	if (IS_SET(mob->pMobIndex->off_flags, OFF_TRIP)) 
+		return 10 + 3 * mob->level;
+	return 0;
+}
+
+MOB_SKILL(mob_bash)
+{
+	if (IS_SET(mob->pMobIndex->off_flags, OFF_BASH))
+		return 10 + 3 * mob->level;
+	return 0;
+}
+
+MOB_SKILL(mob_kick)
+{
+	if (IS_SET(mob->pMobIndex->off_flags, OFF_KICK))
+		return 10 + 3 * mob->level;
+	return 0;
+}
+
+MOB_SKILL(mob_critical_strike)
+{
+	if (IS_SET(mob->pMobIndex->act, ACT_WARRIOR))
+		return mob->level;
+	return 0;
+}
+
+MOB_SKILL(mob_disarm)
+{
+	if (IS_SET(mob->pMobIndex->off_flags, OFF_DISARM)
+	||  IS_SET(mob->pMobIndex->act, ACT_WARRIOR | ACT_THIEF))
+		return 20 + 3 * mob->level;
+	return 0;
+}
+
+MOB_SKILL(mob_grip)
+{
+	if (IS_SET(mob->pMobIndex->act, ACT_WARRIOR | ACT_THIEF))
+		return mob->level;
+	return 0;
+}
+
+MOB_SKILL(mob_berserk)
+{
+	if (IS_SET(mob->pMobIndex->off_flags, OFF_BERSERK))
+		return 3 * mob->level;
+	return 0;
+}
+
+MOB_SKILL(mob_rescue)
+{
+	return 40 + mob->level; 
+}
+
+MOB_SKILL(mob_crush)
+{
+	if (IS_SET(mob->pMobIndex->off_flags, OFF_CRUSH))
+		return 10 + 3 * mob->level;
+	return 0;
+}
+
+MOB_SKILL(mob_weapon)
+{
+	return 40 + 5 * mob->level / 2;
+}

@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.45 1999-07-31 03:35:28 avn Exp $
+ * $Id: olc.h,v 1.46 1999-10-06 09:56:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -152,6 +152,7 @@ bool olced_vform_del	(CHAR_DATA *ch, const char *argument,
 
 DECLARE_VALIDATE_FUN(validate_filename);
 DECLARE_VALIDATE_FUN(validate_room_vnum);
+DECLARE_VALIDATE_FUN(validate_skill_spec);
 
 DECLARE_OLC_FUN(show_commands	);
 DECLARE_OLC_FUN(show_version	);

@@ -5,7 +5,6 @@ PrimeStat str
 SchoolWeapon 3702
 GuildRoom 3060
 GuildRoom 3061
-SkillAdept 75
 Thac0_00 18
 Thac0_32 -6
 HPRate 80
@@ -14,71 +13,7 @@ Flags magic~
 AddExp 300
 StatMod 2 1 0 1 1 5
 RestrictAlign evil~
-Skill 'black death' 64 1 0
-Skill 'blindness' 14 1 0
-Skill 'charm person' 38 1 0
-Skill 'chill touch' 6 1 0
-Skill 'cure light' 11 1 0
-Skill 'curse' 18 1 0
-Skill 'deadly venom' 58 1 0
-Skill 'deafen' 42 1 0
-Skill 'detect invis' 13 1 0
-Skill 'dispel good' 30 1 0
-Skill 'energy drain' 26 1 0
-Skill 'etheral fist' 50 1 0
-Skill 'fireball' 56 1 0
-Skill 'harm' 29 1 0
-Skill 'hurricane' 53 1 0
-Skill 'iceball' 58 1 0
-Skill 'invisibility' 9 1 0
-Skill 'know alignment' 5 1 0
-Skill 'lethargic mist' 62 1 0
-Skill 'lightning bolt' 13 1 0
-Skill 'magic missile' 1 1 0
-Skill 'mind wrack' 27 1 0
-Skill 'mind wrench' 40 1 0
-Skill 'mysterious dream' 35 1 0
-Skill 'plague' 46 1 0
-Skill 'poison' 15 1 0
-Skill 'protection good' 13 1 0
-Skill 'power word stun' 62 1 0
-Skill 'black shroud' 30 1 0
-Skill 'sleep' 25 1 0
-Skill 'summon' 50 1 0
-Skill 'teleport' 7 1 0
-Skill 'axe' 1 1 0
-Skill 'dagger' 1 1 0
-Skill 'flail' 1 1 0
-Skill 'mace' 1 1 0
-Skill 'polearm' 1 1 0
-Skill 'shield block' 1 1 -10
-Skill 'spear' 1 1 0
-Skill 'sword' 1 1 0
-Skill 'whip' 1 1 0
-Skill 'bash' 1 1 0
-Skill 'bash door' 1 1 0
-Skill 'demand' 35 1 0
-Skill 'crucify' 48 1 0
-Skill 'cleave' 55 1 0
-Skill 'dirt kicking' 3 1 0
-Skill 'disarm' 21 1 0
-Skill 'enhanced damage' 3 1 -5
-Skill 'hand to hand' 18 1 0
-Skill 'kick' 9 1 0
-Skill 'parry' 5 1 20
-Skill 'shield cleave' 29 1 0
-Skill 'improved maladiction' 30 1 0
-Skill 'trip' 10 1 0
-Skill 'weapon cleave' 34 1 0
-Skill 'second attack' 14 1 0
-Skill 'third attack' 26 1 0
-Skill 'fast healing' 7 1 0
-Skill 'haggle' 8 2 0
-Skill 'lore' 20 2 0
-Skill 'meditation' 15 1 0
-Skill 'scrolls' 1 2 0
-Skill 'wands' 1 2 0
-Skill 'throwing weapons' 35 2 0
+SkillSpec class_anti-paladin
 Title 0 male the Man~
 Title 0 female the Woman~
 Title 1 male the Scum~

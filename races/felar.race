@@ -19,7 +19,7 @@ Class 'ninja' 100
 Class 'ranger' 100
 Class 'warlock' 100
 BonusSkills 'hand to hand' 'tail'~
-Skill 'tail' 53
+SkillSpec race_felar
 Stats -1 -1 0 2 2 0
 MaxStats 17 17 20 23 23 25
 Size medium
