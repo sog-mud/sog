@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.19 1998-10-17 11:29:46 fjoe Exp $
+ * $Id: olc_mob.c,v 1.20 1998-10-21 05:01:25 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -224,6 +224,10 @@ OLC_FUN(mobed_show)
 {
 	char arg[MAX_INPUT_LENGTH];
 	MOB_INDEX_DATA	*pMob;
+	AREA_DATA	*pArea;
+	MPTRIG *mptrig;
+	BUFFER *buf;
+	CLAN_DATA *clan;
 
 	one_argument(argument, arg);
 	if (arg[0] == '\0') {
@@ -242,7 +246,148 @@ OLC_FUN(mobed_show)
 		}
 	}
 
-	return show_mob(ch, pMob);
+	buf = buf_new(0);
+
+	pArea = area_vnum_lookup(pMob->vnum);
+	buf_printf(buf, "Name:        [%s]\n\rArea:        [%5d] %s\n\r",
+		pMob->name, pArea->vnum, pArea->name);
+
+	buf_printf(buf, "Act:         [%s]\n\r",
+		flag_string(act_flags, pMob->act));
+
+	buf_printf(buf, "Vnum:        [%5d] Sex:   [%s]   Race: [%s]\n\r",
+		pMob->vnum,
+		flag_string(sex_table, pMob->sex),
+		race_table[pMob->race].name);
+
+	if (pMob->clan && (clan = clan_lookup(pMob->clan))) 
+		buf_printf(buf, "Clan:        [%s]\n\r", clan->name);
+
+	buf_printf(buf, "Level:       [%2d]    Align: [%4d]      Hitroll: [%2d] Dam Type:    [%s]\n\r",
+		pMob->level,	pMob->alignment,
+		pMob->hitroll,	attack_table[pMob->dam_type].name);
+
+	if (pMob->group)
+		buf_printf(buf, "Group:       [%5d]\n\r", pMob->group);
+
+	buf_printf(buf, "Hit dice:    [%2dd%-3d+%4d] ",
+			 pMob->hit[DICE_NUMBER],
+			 pMob->hit[DICE_TYPE],
+			 pMob->hit[DICE_BONUS]);
+
+	buf_printf(buf, "Damage dice: [%2dd%-3d+%4d] ",
+			 pMob->damage[DICE_NUMBER],
+			 pMob->damage[DICE_TYPE],
+			 pMob->damage[DICE_BONUS]);
+
+	buf_printf(buf, "Mana dice:   [%2dd%-3d+%4d]\n\r",
+			 pMob->mana[DICE_NUMBER],
+			 pMob->mana[DICE_TYPE],
+			 pMob->mana[DICE_BONUS]);
+
+/* ROM values end */
+
+	buf_printf(buf, "Affected by: [%s]\n\r",
+		flag_string(affect_flags, pMob->affected_by));
+
+/* ROM values: */
+
+	buf_printf(buf, "Armor:       [pierce: %d  bash: %d  slash: %d  magic: %d]\n\r",
+		pMob->ac[AC_PIERCE], pMob->ac[AC_BASH],
+		pMob->ac[AC_SLASH], pMob->ac[AC_EXOTIC]);
+
+	buf_printf(buf, "Form:        [%s]\n\r",
+		flag_string(form_flags, pMob->form));
+
+	buf_printf(buf, "Parts:       [%s]\n\r",
+		flag_string(part_flags, pMob->parts));
+
+	buf_printf(buf, "Imm:         [%s]\n\r",
+		flag_string(imm_flags, pMob->imm_flags));
+
+	buf_printf(buf, "Res:         [%s]\n\r",
+		flag_string(res_flags, pMob->res_flags));
+
+	buf_printf(buf, "Vuln:        [%s]\n\r",
+		flag_string(vuln_flags, pMob->vuln_flags));
+
+	buf_printf(buf, "Off:         [%s]\n\r",
+		flag_string(off_flags,  pMob->off_flags));
+
+	buf_printf(buf, "Size:        [%s]\n\r",
+		flag_string(size_table, pMob->size));
+
+	buf_printf(buf, "Material:    [%s]\n\r",
+		 pMob->material);
+
+	buf_printf(buf, "Start pos.   [%s]\n\r",
+		flag_string(position_table, pMob->start_pos));
+
+	buf_printf(buf, "Default pos  [%s]\n\r",
+		flag_string(position_table, pMob->default_pos));
+
+	buf_printf(buf, "Wealth:      [%5d]\n\r", pMob->wealth);
+
+/* ROM values end */
+
+	if (pMob->spec_fun)
+		buf_printf(buf, "Spec fun:    [%s]\n\r",  spec_name(pMob->spec_fun));
+	if (pMob->practicer)
+		buf_printf(buf, "Practicer:   [%s]\n\r",
+			flag_string(skill_groups, pMob->practicer));
+
+	mlstr_dump(buf, "Short descr: ", pMob->short_descr);
+	mlstr_dump(buf, "Long descr: ", pMob->long_descr);
+	mlstr_dump(buf, "Description: ", pMob->description);
+
+	if (pMob->pShop) {
+		SHOP_DATA *pShop;
+		int iTrade;
+
+		pShop = pMob->pShop;
+
+		buf_printf(buf, "Shop data for [%5d]:\n\r"
+				"  Markup for purchaser: %d%%\n\r"
+				"  Markdown for seller:  %d%%\n\r",
+			pShop->keeper, pShop->profit_buy, pShop->profit_sell);
+		buf_printf(buf, "  Hours: %d to %d.\n\r",
+			pShop->open_hour, pShop->close_hour);
+
+		for (iTrade = 0; iTrade < MAX_TRADE; iTrade++) {
+			if (pShop->buy_type[iTrade] != 0) {
+			if (iTrade == 0) {
+				buf_add(buf, "  Number Trades Type\n\r");
+				buf_add(buf, "  ------ -----------\n\r");
+			}
+			buf_printf(buf, "  [%4d] %s\n\r", iTrade,
+				flag_string(item_types, pShop->buy_type[iTrade]));
+			}
+		}
+	}
+
+	if (pMob->mptrig_list) {
+		int cnt = 0;
+
+		buf_printf(buf, "\n\rMOBPrograms for [%5d]:\n\r", pMob->vnum);
+
+		for (mptrig = pMob->mptrig_list; mptrig; mptrig = mptrig->next) {
+			if (cnt ==0) {
+				buf_add(buf, " Number Vnum Trigger Phrase [Flags]\n\r");
+				buf_add(buf, " ------ ---- ------- ----------------------------------------------------------\n\r");
+			}
+
+			buf_printf(buf, "[%5d] %4d %7s %s [%s]\n\r", cnt,
+			mptrig->vnum, flag_string(mptrig_types, mptrig->type),
+			mptrig->phrase,
+			flag_string(mptrig_flags, mptrig->flags));
+			cnt++;
+		}
+	}
+
+	page_to_char(buf_string(buf), ch);
+	buf_free(buf);
+
+	return FALSE;
 }
 
 OLC_FUN(mobed_list)
@@ -968,156 +1113,5 @@ static void show_spec_cmds(CHAR_DATA *ch)
 
 	char_puts(buf_string(output), ch);
 	buf_free(output);
-}
-
-bool show_mob(CHAR_DATA *ch, MOB_INDEX_DATA *pMob)
-{
-	AREA_DATA	*pArea;
-	MPTRIG *mptrig;
-	BUFFER *buf;
-	CLAN_DATA *clan;
-
-	buf = buf_new(0);
-
-	pArea = area_vnum_lookup(pMob->vnum);
-	buf_printf(buf, "Name:        [%s]\n\rArea:        [%5d] %s\n\r",
-		pMob->name, pArea->vnum, pArea->name);
-
-	buf_printf(buf, "Act:         [%s]\n\r",
-		flag_string(act_flags, pMob->act));
-
-	buf_printf(buf, "Vnum:        [%5d] Sex:   [%s]   Race: [%s]\n\r",
-		pMob->vnum,
-		flag_string(sex_table, pMob->sex),
-		race_table[pMob->race].name);
-
-	if (pMob->clan && (clan = clan_lookup(pMob->clan))) 
-		buf_printf(buf, "Clan:        [%s]\n\r", clan->name);
-
-	buf_printf(buf, "Level:       [%2d]    Align: [%4d]      Hitroll: [%2d] Dam Type:    [%s]\n\r",
-		pMob->level,	pMob->alignment,
-		pMob->hitroll,	attack_table[pMob->dam_type].name);
-
-	if (pMob->group)
-		buf_printf(buf, "Group:       [%5d]\n\r", pMob->group);
-
-	buf_printf(buf, "Hit dice:    [%2dd%-3d+%4d] ",
-			 pMob->hit[DICE_NUMBER],
-			 pMob->hit[DICE_TYPE],
-			 pMob->hit[DICE_BONUS]);
-
-	buf_printf(buf, "Damage dice: [%2dd%-3d+%4d] ",
-			 pMob->damage[DICE_NUMBER],
-			 pMob->damage[DICE_TYPE],
-			 pMob->damage[DICE_BONUS]);
-
-	buf_printf(buf, "Mana dice:   [%2dd%-3d+%4d]\n\r",
-			 pMob->mana[DICE_NUMBER],
-			 pMob->mana[DICE_TYPE],
-			 pMob->mana[DICE_BONUS]);
-
-/* ROM values end */
-
-	buf_printf(buf, "Affected by: [%s]\n\r",
-		flag_string(affect_flags, pMob->affected_by));
-
-/* ROM values: */
-
-	buf_printf(buf, "Armor:       [pierce: %d  bash: %d  slash: %d  magic: %d]\n\r",
-		pMob->ac[AC_PIERCE], pMob->ac[AC_BASH],
-		pMob->ac[AC_SLASH], pMob->ac[AC_EXOTIC]);
-
-	buf_printf(buf, "Form:        [%s]\n\r",
-		flag_string(form_flags, pMob->form));
-
-	buf_printf(buf, "Parts:       [%s]\n\r",
-		flag_string(part_flags, pMob->parts));
-
-	buf_printf(buf, "Imm:         [%s]\n\r",
-		flag_string(imm_flags, pMob->imm_flags));
-
-	buf_printf(buf, "Res:         [%s]\n\r",
-		flag_string(res_flags, pMob->res_flags));
-
-	buf_printf(buf, "Vuln:        [%s]\n\r",
-		flag_string(vuln_flags, pMob->vuln_flags));
-
-	buf_printf(buf, "Off:         [%s]\n\r",
-		flag_string(off_flags,  pMob->off_flags));
-
-	buf_printf(buf, "Size:        [%s]\n\r",
-		flag_string(size_table, pMob->size));
-
-	buf_printf(buf, "Material:    [%s]\n\r",
-		 pMob->material);
-
-	buf_printf(buf, "Start pos.   [%s]\n\r",
-		flag_string(position_table, pMob->start_pos));
-
-	buf_printf(buf, "Default pos  [%s]\n\r",
-		flag_string(position_table, pMob->default_pos));
-
-	buf_printf(buf, "Wealth:      [%5d]\n\r", pMob->wealth);
-
-/* ROM values end */
-
-	if (pMob->spec_fun)
-		buf_printf(buf, "Spec fun:    [%s]\n\r",  spec_name(pMob->spec_fun));
-	if (pMob->practicer)
-		buf_printf(buf, "Practicer:   [%s]\n\r",
-			flag_string(skill_groups, pMob->practicer));
-
-	mlstr_dump(buf, "Short descr: ", pMob->short_descr);
-	mlstr_dump(buf, "Long descr: ", pMob->long_descr);
-	mlstr_dump(buf, "Description: ", pMob->description);
-
-	if (pMob->pShop) {
-		SHOP_DATA *pShop;
-		int iTrade;
-
-		pShop = pMob->pShop;
-
-		buf_printf(buf, "Shop data for [%5d]:\n\r"
-				"  Markup for purchaser: %d%%\n\r"
-				"  Markdown for seller:  %d%%\n\r",
-			pShop->keeper, pShop->profit_buy, pShop->profit_sell);
-		buf_printf(buf, "  Hours: %d to %d.\n\r",
-			pShop->open_hour, pShop->close_hour);
-
-		for (iTrade = 0; iTrade < MAX_TRADE; iTrade++) {
-			if (pShop->buy_type[iTrade] != 0) {
-			if (iTrade == 0) {
-				buf_add(buf, "  Number Trades Type\n\r");
-				buf_add(buf, "  ------ -----------\n\r");
-			}
-			buf_printf(buf, "  [%4d] %s\n\r", iTrade,
-				flag_string(item_types, pShop->buy_type[iTrade]));
-			}
-		}
-	}
-
-	if (pMob->mptrig_list) {
-		int cnt = 0;
-
-		buf_printf(buf, "\n\rMOBPrograms for [%5d]:\n\r", pMob->vnum);
-
-		for (mptrig = pMob->mptrig_list; mptrig; mptrig = mptrig->next) {
-			if (cnt ==0) {
-				buf_add(buf, " Number Vnum Trigger Phrase [Flags]\n\r");
-				buf_add(buf, " ------ ---- ------- ----------------------------------------------------------\n\r");
-			}
-
-			buf_printf(buf, "[%5d] %4d %7s %s [%s]\n\r", cnt,
-			mptrig->vnum, flag_string(mptrig_types, mptrig->type),
-			mptrig->phrase,
-			flag_string(mptrig_flags, mptrig->flags));
-			cnt++;
-		}
-	}
-
-	page_to_char(buf_string(buf), ch);
-	buf_free(buf);
-
-	return FALSE;
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.15 1998-10-17 11:29:46 fjoe Exp $
+ * $Id: olc_obj.c,v 1.16 1998-10-21 05:01:25 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -207,6 +207,11 @@ OLC_FUN(objed_show)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_INDEX_DATA	*pObj;
+	AREA_DATA	*pArea;
+	AFFECT_DATA *paf;
+	int cnt;
+	BUFFER *output;
+	CLAN_DATA *clan;
 
 	one_argument(argument, arg);
 	if (arg[0] == '\0') {
@@ -226,7 +231,77 @@ OLC_FUN(objed_show)
 		}
 	}
 
-	return show_obj(ch, pObj);
+	pArea = area_vnum_lookup(pObj->vnum);
+
+	output = buf_new(0);
+	buf_printf(output, "Name:        [%s]\n\rArea:        [%5d] %s\n\r",
+		pObj->name, pArea->vnum, pArea->name);
+
+	buf_printf(output, "Vnum:        [%5d]\n\rType:        [%s]\n\r",
+		pObj->vnum,
+		flag_string(item_types, pObj->item_type));
+
+	if (pObj->clan && (clan = clan_lookup(pObj->clan))) 
+		buf_printf(output, "Clan      : [%s]\n\r", clan->name);
+
+	if (pObj->limit != -1)
+		buf_printf(output, "Limit:       [%5d]\n\r", pObj->limit);
+	else
+		buf_add(output, "Limit:       [none]\n\r");
+
+	buf_printf(output, "Level:       [%5d]\n\r", pObj->level);
+
+	buf_printf(output, "Wear flags:  [%s]\n\r",
+		flag_string(wear_flags, pObj->wear_flags));
+
+	buf_printf(output, "Extra flags: [%s]\n\r",
+		flag_string(extra_flags, pObj->extra_flags));
+
+	buf_printf(output, "Material:    [%s]\n\r",                /* ROM */
+		pObj->material);
+
+	buf_printf(output, "Condition:   [%5d]\n\r",               /* ROM */
+		pObj->condition);
+
+	buf_printf(output, "Weight:      [%5d]\n\rCost:        [%5d]\n\r",
+		pObj->weight, pObj->cost);
+
+	if (pObj->ed) {
+		ED_DATA *ed;
+
+		buf_add(output, "Ex desc kwd: ");
+
+		for (ed = pObj->ed; ed; ed = ed->next)
+			buf_printf(output, "[%s]", ed->keyword);
+
+		buf_add(output, "\n\r");
+	}
+
+	mlstr_dump(output, "Short desc: ", pObj->short_descr);
+	mlstr_dump(output, "Long desc: ", pObj->description);
+
+	for (cnt = 0, paf = pObj->affected; paf; paf = paf->next) {
+		WHERE_DATA *w = where_lookup(paf->where);
+
+		if (cnt == 0) {
+			buf_add(output, "Number      Affects Modifier Affects Bitvector\n\r");
+			buf_add(output, "------ ------------ -------- ------- -----------------------------------------\n\r");
+		}
+		buf_printf(output, "[%4d] %12.12s %8d %7.7s %s"
+				   "\n\r",
+			   cnt,
+			   flag_string(apply_flags, paf->location),
+			   paf->modifier,
+			   flag_string(apply_types, paf->where),
+			   w ? flag_string(w->table, paf->bitvector) : "none");
+		cnt++;
+	}
+
+	show_obj_values(output, pObj);
+	page_to_char(buf_string(output), ch);
+	buf_free(output);
+
+	return FALSE;
 }
 
 OLC_FUN(objed_list)
@@ -284,38 +359,77 @@ OLC_FUN(objed_list)
  */
 OLC_FUN(objed_addaffect)
 {
-	int value;
+	int location;
+	int modifier;
+	sflag_t where;
+	flag_t bitvector;
 	OBJ_INDEX_DATA *pObj;
 	AFFECT_DATA *pAf;
 	char loc[MAX_STRING_LENGTH];
 	char mod[MAX_STRING_LENGTH];
+	char wh[MAX_STRING_LENGTH];
 
 	EDIT_OBJ(ch, pObj);
 
 	argument = one_argument(argument, loc);
-	one_argument(argument, mod);
+	argument = one_argument(argument, mod);
+	argument = one_argument(argument, wh);
 
 	if (loc[0] == '\0' || mod[0] == '\0' || !is_number(mod)) {
-		char_puts("Syntax:  addaffect [location] [#xmod]\n\r", ch);
+		do_help(ch, "'OLC ADDAFFECT'");
 		return FALSE;
 	}
 
-	if ((value = flag_value(apply_flags, loc)) < 0) {
-		char_puts("Valid affects are:\n\r", ch);
-		show_flags(ch, apply_flags);
-		return FALSE;
+	if (!str_cmp(loc, "none")) {
+		location = APPLY_NONE;
+		modifier = 0;
+	}
+	else {
+		if ((location = flag_value(apply_flags, loc)) < 0) {
+			char_puts("Valid locations are:\n\r", ch);
+			show_flags(ch, apply_flags);
+			return FALSE;
+		}
+		modifier = atoi(mod);
 	}
 
-	pAf             =   new_affect();
-	pAf->location   =   value;
-	pAf->modifier   =   atoi(mod);
-	pAf->where	=   TO_OBJECT;
-	pAf->type       =   -1;
-	pAf->duration   =   -1;
-	pAf->bitvector  =   0;
-	pAf->level      =	pObj->level;
-	pAf->next       =   pObj->affected;
-	pObj->affected  =   pAf;
+	if (wh[0] == '\0') {
+		where = -1;
+		bitvector = 0;
+	}
+	else {
+		WHERE_DATA *w;
+
+		if ((where = flag_value(apply_types, wh)) < 0) {
+			char_puts("Valid bitaffect locations are:\n\r", ch);
+			show_flags(ch, apply_types);
+			return FALSE;
+		}
+
+		if ((w = where_lookup(where)) == NULL) {
+			char_printf(ch, "%s: not in where_table.\n\r",
+				    flag_string(apply_types, where));
+			return FALSE;
+		}
+
+		if ((bitvector = flag_value(w->table, argument)) == 0) {
+			char_printf(ch, "Valid '%s' bitaffect flags are:\n\r",
+				    flag_string(apply_types, where));
+			show_flags(ch, w->table);
+			return FALSE;
+		}
+	}
+
+	pAf             = new_affect();
+	pAf->location   = location;
+	pAf->modifier   = modifier;
+	pAf->where	= where;
+	pAf->type       = -1;
+	pAf->duration   = -1;
+	pAf->bitvector  = bitvector;
+	pAf->level      = pObj->level;
+	pAf->next       = pObj->affected;
+	pObj->affected  = pAf;
 
 	char_puts("Affect added.\n\r", ch);
 	return TRUE;
@@ -1204,77 +1318,3 @@ VALIDATE_FUN(validate_condition)
 	return TRUE;
 }
 
-bool show_obj(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj)
-{
-	AREA_DATA	*pArea;
-	AFFECT_DATA *paf;
-	int cnt;
-	BUFFER *output;
-	CLAN_DATA *clan;
-
-	pArea = area_vnum_lookup(pObj->vnum);
-
-	output = buf_new(0);
-	buf_printf(output, "Name:        [%s]\n\rArea:        [%5d] %s\n\r",
-		pObj->name, pArea->vnum, pArea->name);
-
-	buf_printf(output, "Vnum:        [%5d]\n\rType:        [%s]\n\r",
-		pObj->vnum,
-		flag_string(item_types, pObj->item_type));
-
-	if (pObj->clan && (clan = clan_lookup(pObj->clan))) 
-		buf_printf(output, "Clan      : [%s]\n\r", clan->name);
-
-	if (pObj->limit != -1)
-		buf_printf(output, "Limit:       [%5d]\n\r", pObj->limit);
-	else
-		buf_add(output, "Limit:       [none]\n\r");
-
-	buf_printf(output, "Level:       [%5d]\n\r", pObj->level);
-
-	buf_printf(output, "Wear flags:  [%s]\n\r",
-		flag_string(wear_flags, pObj->wear_flags));
-
-	buf_printf(output, "Extra flags: [%s]\n\r",
-		flag_string(extra_flags, pObj->extra_flags));
-
-	buf_printf(output, "Material:    [%s]\n\r",                /* ROM */
-		pObj->material);
-
-	buf_printf(output, "Condition:   [%5d]\n\r",               /* ROM */
-		pObj->condition);
-
-	buf_printf(output, "Weight:      [%5d]\n\rCost:        [%5d]\n\r",
-		pObj->weight, pObj->cost);
-
-	if (pObj->ed) {
-		ED_DATA *ed;
-
-		buf_add(output, "Ex desc kwd: ");
-
-		for (ed = pObj->ed; ed; ed = ed->next)
-			buf_printf(output, "[%s]", ed->keyword);
-
-		buf_add(output, "\n\r");
-	}
-
-	mlstr_dump(output, "Short desc: ", pObj->short_descr);
-	mlstr_dump(output, "Long desc: ", pObj->description);
-
-	for (cnt = 0, paf = pObj->affected; paf; paf = paf->next) {
-		if (cnt == 0) {
-			buf_add(output, "Number Modifier Affects\n\r");
-			buf_add(output, "------ -------- -------\n\r");
-		}
-		buf_printf(output, "[%4d] %-8d %s\n\r", cnt,
-			paf->modifier,
-			flag_string(apply_flags, paf->location));
-		cnt++;
-	}
-
-	show_obj_values(output, pObj);
-	page_to_char(buf_string(output), ch);
-	buf_free(output);
-
-	return FALSE;
-}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.21 1998-10-20 19:57:50 fjoe Exp $
+ * $Id: olc_room.c,v 1.22 1998-10-21 05:01:25 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -34,7 +34,7 @@
 #include "olc.h"
 #include "db/db.h"
 
-#define EDIT_ROOM(ch, room)	(room = ch->in_room)
+#define EDIT_ROOM(ch, room)	(room = (ROOM_INDEX_DATA*) ch->desc->pEdit)
 
 /*
  * Room Editor Prototypes
@@ -56,8 +56,6 @@ DECLARE_OLC_FUN(roomed_up		);
 DECLARE_OLC_FUN(roomed_down		);
 DECLARE_OLC_FUN(roomed_mreset		);
 DECLARE_OLC_FUN(roomed_oreset		);
-DECLARE_OLC_FUN(roomed_mshow		);
-DECLARE_OLC_FUN(roomed_oshow		);
 DECLARE_OLC_FUN(roomed_heal		);
 DECLARE_OLC_FUN(roomed_mana		);
 DECLARE_OLC_FUN(roomed_clan		);
@@ -93,8 +91,6 @@ OLC_CMD_DATA olc_cmds_room[] =
 /* New reset commands. */
 	{ "mreset",	roomed_mreset			},
 	{ "oreset",	roomed_oreset			},
-	{ "mshow",	roomed_mshow			},
-	{ "oshow",	roomed_oshow			},
 	{ "owner",	roomed_owner			},
 	{ "room",	roomed_room,	room_flags	},
 	{ "sector",	roomed_sector,	sector_types	},
@@ -506,44 +502,6 @@ OLC_FUN(roomed_mreset)
 		pReset->arg2);
 	act("$n has created $N!", ch, NULL, newmob, TO_ROOM);
 	return TRUE;
-}
-
-OLC_FUN(roomed_mshow)
-{
-	MOB_INDEX_DATA *pMob;
-	int value;
-
-	if (argument[0] == '\0' || !is_number(argument)) {
-		char_puts("Syntax: mshow vnum\n\r", ch);
-		return FALSE;
-	}
-
-	value = atoi(argument);
-	if (!(pMob = get_mob_index(value))) {
-		char_puts("RoomEd: vnum not found.\n\r", ch);
-		return FALSE;
-	}
-	show_mob(ch, pMob);
-	return FALSE; 
-}
-
-OLC_FUN(roomed_oshow)
-{
-	OBJ_INDEX_DATA *pObj;
-	int value;
-
-	if (argument[0] == '\0' || !is_number(argument)) {
-		char_puts("Syntax:  oshow <vnum>\n\r", ch);
-		return FALSE;
-	}
-
-	value = atoi(argument);
-	if (!(pObj = get_obj_index(value))) {
-		char_puts("RoomEd: That object does not exist.\n\r", ch);
-		return FALSE;
-	}
-	show_obj(ch, pObj);
-	return FALSE; 
 }
 
 struct wear_type

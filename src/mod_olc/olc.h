@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.23 1998-10-17 11:29:46 fjoe Exp $
+ * $Id: olc.h,v 1.24 1998-10-21 05:01:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -126,9 +126,6 @@ DECLARE_VALIDATE_FUN(validate_room_vnum);
 
 bool	show_commands	(CHAR_DATA *ch, const char *argument);
 bool	show_version	(CHAR_DATA *ch, const char *argument);
-
-bool	show_mob	(CHAR_DATA *ch, MOB_INDEX_DATA *pMob);
-bool	show_obj	(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj);
 
 AREA_DATA *get_edited_area(CHAR_DATA *ch);
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.19 1998-10-17 11:29:46 fjoe Exp $
+ * $Id: olc_area.c,v 1.20 1998-10-21 05:01:25 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -49,6 +49,7 @@ DECLARE_OLC_FUN(areaed_age		);
 DECLARE_OLC_FUN(areaed_reset		);
 DECLARE_OLC_FUN(areaed_security		);
 DECLARE_OLC_FUN(areaed_builders		);
+DECLARE_OLC_FUN(areaed_resetmsg		);
 DECLARE_OLC_FUN(areaed_minvnum		);
 DECLARE_OLC_FUN(areaed_maxvnum		);
 DECLARE_OLC_FUN(areaed_credits		);
@@ -72,6 +73,7 @@ OLC_CMD_DATA olc_cmds_area[] =
 	{ "age",	areaed_age				},
 	{ "area",	areaed_flags,	area_flags		},
 	{ "builders",	areaed_builders				},
+	{ "resetmsg",	areaed_resetmsg				},
 	{ "filename",	areaed_file,	validate_filename	},
 	{ "name",	areaed_name				},
 	{ "reset",	areaed_reset				},
@@ -275,6 +277,13 @@ OLC_FUN(areaed_maxlevel)
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
 	return olced_number(ch, argument, areaed_maxlevel, &pArea->max_level);
+}
+
+OLC_FUN(areaed_resetmsg)
+{
+	AREA_DATA *pArea;
+	EDIT_AREA(ch, pArea);
+	return olced_mlstr(ch, argument, areaed_resetmsg, &pArea->resetmsg);
 }
 
 OLC_FUN(areaed_builders)
