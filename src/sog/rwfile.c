@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.c,v 1.10 2000-02-10 14:08:52 fjoe Exp $
+ * $Id: rwfile.c,v 1.11 2000-02-20 10:36:41 avn Exp $
  */
 
 static char str_end[] = "End";
@@ -491,7 +491,7 @@ int64_t fread_flagsxx(rfile_t *fp, int low_end)
 
 	if (c == '|')
 		number += fread_flagsxx(fp, low_end);
-	else if (c != ' ')
+	else if (!isspace(c))
 		xungetc(fp);
 
 	if (negative)

@@ -1,5 +1,5 @@
 /*
- * $Id: auction.h,v 1.4 1999-06-24 16:33:08 fjoe Exp $
+ * $Id: auction.h,v 1.5 2000-02-20 10:39:37 avn Exp $
  */
 
 /***************************************************************************
@@ -55,8 +55,6 @@ struct auction_data
 	int	starting;
 	int 	bet;		/* last bet - or 0 if noone has bet anything */
 	int	going;		/* 1,2, sold */
-	int	pulse;		/* how many pulses (.25 sec) until another
-				 * call-out ? */
 };
 
 extern AUCTION_DATA auction;

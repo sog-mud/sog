@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest.h,v 1.6 1999-12-16 12:24:43 fjoe Exp $
+ * $Id: chquest.h,v 1.7 2000-02-20 10:39:37 avn Exp $
  */
 
 #ifndef _CHQUEST_H_
@@ -56,7 +56,6 @@ extern chquest_t *chquest_list;		/* global list of chquests	     */
 #define CHQUEST_F_NODELAY	(A)
 
 void chquest_start(int flags);
-void chquest_update(void);
 
 void chquest_add(OBJ_INDEX_DATA *obj_index);
 bool chquest_delete(CHAR_DATA *ch, OBJ_INDEX_DATA *obj_index);

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.259 2000-02-19 14:45:29 avn Exp $
+ * $Id: fight.c,v 1.260 2000-02-20 10:36:39 avn Exp $
  */
 
 /***************************************************************************
@@ -1467,7 +1467,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	/*
 	 * Wimp out?
 	 */
-	if (IS_NPC(victim) && dam > 0 && victim->wait < PULSE_VIOLENCE / 2) {
+	if (IS_NPC(victim) && dam > 0 && victim->wait < get_pulse("violence") / 2) {
 		flag_t act = victim->pMobIndex->act;
 		if ((IS_SET(act, ACT_WIMPY) && number_bits(2) == 0 &&
 		     victim->hit < victim->max_hit / 5)
@@ -1481,7 +1481,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	if (!IS_NPC(victim)
 	&&  victim->hit > 0
 	&&  (victim->hit <= victim->wimpy || IS_AFFECTED(victim, AFF_FEAR))
-	&&  victim->wait < PULSE_VIOLENCE / 2)
+	&&  victim->wait < get_pulse("violence") / 2)
 		dofun("flee", victim, str_empty);
 
 	tail_chain();
@@ -2940,7 +2940,7 @@ int critical_strike(CHAR_DATA *ch, CHAR_DATA *victim, int dam)
 		act("$n takes $N down with a weird judo move!", 
 		    ch, NULL, victim, TO_NOTVICT);
 		check_improve(ch, "critical strike", TRUE, 3);
-		WAIT_STATE(victim, 2 * PULSE_VIOLENCE);
+		WAIT_STATE(victim, 2 * get_pulse("violence"));
 		dam += (dam * number_range(2, 5)) / 5;
 		return dam;
 	} else if (diceroll > 75 && diceroll < 95) {   

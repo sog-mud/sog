@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.91 2000-02-19 14:45:30 avn Exp $
+ * $Id: db_area.c,v 1.92 2000-02-20 10:36:42 avn Exp $
  */
 
 /***************************************************************************
@@ -1159,7 +1159,7 @@ DBLOAD_FUN(load_mobiles)
 		paf->owner = NULL;
 		paf->duration = -1;
 		SLIST_ADD(AFFECT_DATA, pMobIndex->affected, paf);
-	    } if (letter == 'A') {
+	    } else if (letter == 'A') {
 		fread_word(fp);
 		if (!IS_TOKEN(fp, "det"))
 		    SET_BIT(pMobIndex->affected_by, fread_flags(fp));

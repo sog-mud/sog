@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.77 2000-02-19 14:45:29 avn Exp $
+ * $Id: obj_prog.c,v 1.78 2000-02-20 10:36:41 avn Exp $
  */
 
 /***************************************************************************
@@ -401,7 +401,7 @@ int speech_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		act("Acid sprays from the blade of Excalibur.",
 		    ch, NULL, NULL, TO_ROOM);
 		spellfun_call("acid blast", NULL, LEVEL(ch), ch, ch->fighting);
-		WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
+		WAIT_STATE(ch, 2 * get_pulse("violence"));
 	}
 	return 0;
 }
@@ -545,14 +545,14 @@ int fight_prog_chaos_blade(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		    ch, NULL, NULL, TO_ROOM);
 		char_puts("Your chaotic blade trembles violently!\n", ch);
 		obj_cast_spell("mirror", LEVEL(ch), ch, ch); 
-		WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
+		WAIT_STATE(ch, 2 * get_pulse("violence"));
 		break;
 
 	case 1:
 		act("The chaotic blade shakes a bit.", ch, NULL, NULL, TO_ROOM);
 		char_puts("Your chaotic blade shakes a bit.\n", ch);
 		obj_cast_spell("garble", LEVEL(ch), ch, ch->fighting);
-		WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
+		WAIT_STATE(ch, 2 * get_pulse("violence"));
 		break;
 
 	case 2:
@@ -560,7 +560,7 @@ int fight_prog_chaos_blade(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		    ch, NULL, NULL, TO_ROOM);
 		char_puts("Your chaotic blade shivers uncontrollably!\n", ch);
 		obj_cast_spell("confuse", LEVEL(ch), ch, ch->fighting);
-		WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
+		WAIT_STATE(ch, 2 * get_pulse("violence"));
 		break;
 	}
 	return 0;
@@ -1487,7 +1487,7 @@ int speech_prog_ring_ra(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	  char_puts("An electrical arc sprays from the ring.\n",ch);
 	  act("An electrical arc sprays from the ring.",ch,NULL,NULL,TO_ROOM);
 	  obj_cast_spell("lightning breath",LEVEL(ch),ch,ch->fighting);
-	  WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
+	  WAIT_STATE(ch, 2 * get_pulse("violence"));
 	}
 	return 0;
 }

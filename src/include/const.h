@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.55 1999-12-22 06:41:33 fjoe Exp $
+ * $Id: const.h,v 1.56 2000-02-20 10:39:37 avn Exp $
  */
 
 #ifndef _CONST_H_
@@ -160,27 +160,8 @@ enum {
 #define LEVEL_NEWBIE		5
 #define LEVEL_PK		10	/* min PK level */
 
-#undef ANATOLIA_MACHINE
-#if defined(ANATOLIA_MACHINE)
-#	define PULSE_PER_SCD		6  /* 6 for comm.c */
-#	define PULSE_PER_SECOND		4  /* for update.c */
-#	define PULSE_VIOLENCE		(2 *  PULSE_PER_SECOND)
-#else
-#	define PULSE_PER_SCD		4
-#	define PULSE_PER_SECOND		4
-#	define PULSE_VIOLENCE		(3 * PULSE_PER_SECOND)
-#endif
-
-#define PULSE_MOBILE		(4 * PULSE_PER_SECOND)
-#define PULSE_WATER_FLOAT	(4 * PULSE_PER_SECOND)
-#define PULSE_MUSIC		(6 * PULSE_PER_SECOND)
-#define PULSE_TRACK		(12 * PULSE_PER_SECOND)
-#define PULSE_TICK		(50 * PULSE_PER_SECOND) /* 36 saniye */
-
-/* room_affect_update (not room_update) */
-#define PULSE_RAFFECT		(3 * PULSE_MOBILE)
-#define PULSE_AREA		(110 * PULSE_PER_SECOND) /* 97 saniye */
-#define PULSE_AUCTION		(20 * PULSE_PER_SECOND) /* 20 seconds */
+#define PULSE_PER_SCD		4
+#define PULSE_PER_SECOND	4
 
 #define FIGHT_DELAY_TIME	(20 * PULSE_PER_SECOND)
 #define OFFENCE_DELAY_TIME	600

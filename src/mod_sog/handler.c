@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.238 2000-02-19 16:23:46 avn Exp $
+ * $Id: handler.c,v 1.239 2000-02-20 10:36:40 avn Exp $
  */
 
 /***************************************************************************
@@ -3041,7 +3041,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	
 	if (IS_AFFECTED(ch, AFF_WEB) 
 	|| (MOUNTED(ch) && IS_AFFECTED(ch->mount, AFF_WEB))) {
-		WAIT_STATE(ch, PULSE_VIOLENCE);
+		WAIT_STATE(ch, get_pulse("violence"));
 		if (number_percent() < str_app[IS_NPC(ch) ?
 			20 : get_curr_stat(ch,STAT_STR)].tohit * 5) {
 		 	affect_strip(ch, "web");
@@ -3651,7 +3651,7 @@ void quaff_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	act_puts("You quaff $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 
 	if (IS_PUMPED(ch) || ch->fighting != NULL)
-		WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
+		WAIT_STATE(ch, 2 * get_pulse("violence"));
 
 	obj_to_char(create_obj(get_obj_index(OBJ_VNUM_POTION_VIAL), 0), ch);
 
@@ -4354,4 +4354,234 @@ flag_t wiznet_lookup(const char *name)
 	}
 
 	return -1;
+}
+
+
+/*
+Following functions assume !IS_NPC(ch). 
+*/
+int max_hit_gain(CHAR_DATA *ch)
+{	
+	return (con_app[get_max_train(ch, STAT_CON)].hitp + 2) * 
+		class_lookup(ch->class)->hp_rate / 100;
+}
+
+int min_hit_gain(CHAR_DATA *ch)
+{	
+	return (con_app[get_curr_stat(ch, STAT_CON)].hitp - 3) * 
+		class_lookup(ch->class)->hp_rate / 100;
+}
+
+int max_mana_gain(CHAR_DATA *ch)
+{
+	return (get_max_train(ch, STAT_WIS) + get_max_train(ch, STAT_INT) + 5) *
+		class_lookup(ch->class)->mana_rate / 200;
+}
+
+int min_mana_gain(CHAR_DATA *ch)
+{
+	return (get_curr_stat(ch, STAT_WIS) + get_curr_stat(ch, STAT_INT) - 3) *
+		class_lookup(ch->class)->mana_rate / 200;
+}
+
+int min_move_gain(CHAR_DATA *ch)
+{
+	return UMAX(6, get_curr_stat(ch, STAT_DEX)/5 + get_curr_stat(ch, STAT_CON)/7);
+}
+
+int max_move_gain(CHAR_DATA *ch) 
+{
+	return UMAX(6, get_max_train(ch, STAT_DEX)/4+get_max_train(ch, STAT_CON)/6);
+}
+/*
+ * assumes !IS_NPC(ch)
+ */
+void advance_level(CHAR_DATA *ch)
+{
+	int add_hp;
+	int add_mana;
+	int add_move;
+	int add_prac=0;
+	class_t *cl;
+
+	if (IS_NPC(ch)) {
+		log(LOG_ERROR, "advance_level: a mob to advance");
+		return;
+	}
+
+	if ((cl = class_lookup(ch->class)) == NULL) {
+		log(LOG_INFO, "advance_level: %s: unknown class %s",
+		    ch->name, ch->class);
+		return;
+	}
+
+	add_hp = number_range(min_hit_gain(ch), max_hit_gain(ch));
+	add_mana = number_range(min_mana_gain(ch), max_mana_gain(ch));
+	add_move = number_range(min_move_gain(ch), max_move_gain(ch));
+
+	ch->max_hit += add_hp;
+	ch->max_mana += add_mana;
+	ch->max_move += add_move;
+
+	ch->perm_hit += add_hp;
+	ch->perm_mana += add_mana;
+	ch->perm_move += add_move;
+
+	if (PC(ch)->plevels > 0) {
+		PC(ch)->plevels--;
+	} else {
+		PC(ch)->train += ch->level % 5 ? 0 : 1;
+		add_prac = wis_app[get_curr_stat(ch,STAT_WIS)].practice;
+		PC(ch)->practice += add_prac;
+	}
+
+	char_printf(ch, "Your gain is {C%d{x hp, {C%d{x mana, {C%d{x mv {C%d{x prac.\n",
+			add_hp, add_mana, add_move, add_prac);
+}   
+
+void delevel(CHAR_DATA *ch)
+{
+	int lost_hitp;
+	int lost_mana;
+	int lost_move;
+	class_t *cl;
+
+	if (IS_NPC(ch)) {
+		log(LOG_ERROR, "delevel: a mob to delevel");
+		return;
+	}
+
+	if ((cl = class_lookup(ch->class)) == NULL) {
+		log(LOG_INFO, "delevel: %s: unknown class %s",
+		    ch->name, ch->class);
+		return;
+	}
+
+	update_skills(ch);
+
+	lost_hitp = max_hit_gain(ch);
+
+	lost_mana = max_mana_gain(ch);
+
+	lost_move = max_move_gain(ch);
+
+	ch->max_hit  -= lost_hitp;
+	ch->max_mana -= lost_mana;
+	ch->max_move -= lost_move;
+
+	ch->perm_hit  -= lost_hitp;
+	ch->perm_mana -= lost_mana;
+	ch->perm_move -= lost_move;
+
+	PC(ch)->plevels++;
+
+	char_printf(ch, "You loose {C%d{x hp, {C%d{x mana, {C%d{x mv.\n",
+			lost_hitp, lost_mana, lost_move);
+
+	if(ch->perm_hit <= 0) {
+		act("You've lost your life power.", ch, NULL, NULL, TO_CHAR);
+		delete_player(ch, "lack of HP");
+	} else if (ch->perm_mana <= 0) {
+		act("You've lost all your power.", ch, NULL, NULL, TO_CHAR);
+		delete_player(ch, "lack of mana");
+	} else if (ch->perm_move <= 0) {
+		act("You've lost all your ability to move.", ch, NULL, NULL, TO_CHAR);
+		delete_player(ch, "lack of move");
+	}
+}
+
+/*
+ * assumes !IS_NPC(victim)
+ */
+void advance(CHAR_DATA *victim, int level)
+{
+	int iLevel;
+	int tra;
+	int pra;
+
+	tra = PC(victim)->train;
+	pra = PC(victim)->practice;
+	PC(victim)->plevels = 0;
+
+	/*
+	 * Lower level:
+	 *   Reset to level 1.
+	 *   Then raise again.
+	 *   Currently, an imp can lower another imp.
+	 *   -- Swiftest
+	 */
+	if (level <= victim->level) {
+		int temp_prac;
+		int delta;
+
+		char_puts("**** OOOOHHHHHHHHHH  NNNNOOOO ****\n", victim);
+		temp_prac = PC(victim)->practice;
+		victim->level = 1;
+		PC(victim)->exp	= base_exp(victim);
+
+		delta = 20 - victim->perm_hit;
+		victim->perm_hit += delta;
+		victim->max_hit += delta;
+
+		delta = 100 - victim->perm_mana;
+		victim->perm_mana += delta;
+		victim->max_mana += delta;
+
+		delta = 100 - victim->perm_move;
+		victim->perm_move += delta;
+		victim->max_move += delta;
+
+		advance_level(victim);
+		PC(victim)->practice= temp_prac;
+	} else 
+		char_puts("**** OOOOHHHHHHHHHH  YYYYEEEESSS ****\n", victim);
+
+	for (iLevel = victim->level; iLevel < level; iLevel++) {
+		char_puts("{CYou raise a level!!{x ", victim);
+		PC(victim)->exp += exp_to_level(victim);
+		victim->level++;
+		advance_level(victim);
+	}
+
+	update_skills(victim);
+	PC(victim)->train	= tra;
+	PC(victim)->practice= pra;
+	char_save(victim, 0);
+}
+
+/*
+ * assumes !IS_NPC(ch)
+ */
+void gain_exp(CHAR_DATA *ch, int gain)
+{
+	if (ch->level >= LEVEL_HERO)
+		return;
+
+	if (IS_SET(PC(ch)->plr_flags, PLR_NOEXP) && gain > 0) {
+		char_puts("You can't gain exp without your spirit.\n", ch);
+		return;
+	}
+
+	PC(ch)->exp += gain;
+
+	while (ch->level < LEVEL_HERO && exp_to_level(ch) <= 0) {
+		class_t *cl;
+
+		char_puts("{CYou raise a level!!{x ", ch);
+		ch->level++;
+
+		if ((cl = class_lookup(ch->class)) != NULL
+		&&  cl->death_limit != 0
+		&&  ch->level == LEVEL_PK)
+			ch->wimpy = 0;
+
+		if (ch->level == LEVEL_HERO)
+	        	log(LOG_INFO, "%s made a hero level.", ch->name);
+
+		wiznet("$N has attained level $j!",
+			ch, (const void*) ch->level, WIZ_LEVELS, 0, 0);
+		advance_level(ch);
+		update_skills(ch);
+		char_save(ch, 0);
+	}
 }

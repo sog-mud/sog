@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.210 2000-02-19 14:45:30 avn Exp $
+ * $Id: db.c,v 1.211 2000-02-20 10:36:41 avn Exp $
  */
 
 /***************************************************************************
@@ -180,6 +180,7 @@ CHAR_DATA	*	top_affected_char = NULL;
 OBJ_DATA	*	top_affected_obj = NULL;
 
 int			reboot_counter = 1440;
+int			rebooter = 0;
 
 /*
  * Locals.
@@ -437,7 +438,7 @@ void boot_db(void)
 	 * Set time and weather.
 	 */
 
-	lhour	= (current_time - 650336715) / (PULSE_TICK / PULSE_PER_SCD);
+	lhour	= (current_time - 650336715) / (get_pulse("char") / PULSE_PER_SCD);
 	time_info.hour	= lhour  % 24;
 	lday		= lhour  / 24;
 	time_info.day	= lday   % 35;
@@ -500,7 +501,7 @@ void boot_db(void)
 	fix_exits();
 	scan_pfiles();
 
-	area_update();
+	update_one("area");
 	load_notes();
 	load_bans();
 	chquest_start(0);
@@ -625,98 +626,6 @@ void fix_exits(void)
 	for (iHash = 0; iHash < MAX_KEY_HASH; iHash++)
 		for (room = room_index_hash[iHash]; room; room = room->next)
 			fix_exits_room(room);
-}
-
-void print_resetmsg(AREA_DATA *pArea)
-{
-	DESCRIPTOR_DATA *d;
-	bool is_empty = mlstr_null(&pArea->resetmsg);
-	
-	for (d = descriptor_list; d != NULL; d = d->next) {
-		CHAR_DATA *ch;
-
-		if (d->connected != CON_PLAYING)
-			continue;
-
-		ch = d->original ? d->original : d->character;
-		if (IS_NPC(ch) || !IS_AWAKE(ch) || ch->in_room->area != pArea)
-			continue;
-
-		if (is_empty)
-			act_puts("You hear some squeaking sounds...",
-				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-		else
-			act_puts(mlstr_cval(&pArea->resetmsg, ch),
-				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-	}
-}
-
-/*
- * Repopulate areas periodically.
- */
-void area_update(void)
-{
-	AREA_DATA *pArea;
-
-	for (pArea = area_first; pArea != NULL; pArea = pArea->next) {
-		ROOM_INDEX_DATA *pRoomIndex;
-
-		if (++pArea->age < 3)
-			continue;
-
-		/*
-		 * Check age and reset.
-		 */
-		if ((pArea->empty || (pArea->nplayer != 0 && pArea->age < 15))
-		&&  pArea->age < 31
-		&&  !IS_SET(pArea->area_flags, AREA_UPDATE_ALWAYS))
-			continue;
-
-		/*
-		 * the rain devastates tracks on the ground
-		 */
-		if (weather_info.sky == SKY_RAINING)  {
-			int i;
-			DESCRIPTOR_DATA *d;
-			CHAR_DATA *ch;
-
-	 		for (d = descriptor_list; d; d = d->next)  {
-				if (d->connected != CON_PLAYING)
-					continue;
-
-				ch = d->original ?  d->original : d->character;
-				if (ch->in_room->area == pArea
-				&&  get_skill(ch, "track") > 50
-				&&  !IS_SET(ch->in_room->room_flags,
-					    ROOM_INDOORS)) {
-					act_puts("Rain devastates the tracks on the ground.",
-						 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-				}
-			}
-
-			for (i = pArea->min_vnum; i < pArea->max_vnum; i++) {
-				pRoomIndex = get_room_index(i);
-				if (pRoomIndex == NULL
-				||  IS_SET(pRoomIndex->room_flags,
-								ROOM_INDOORS))
-					continue;
-				if (number_percent() < 50)
-					room_record("erased", pRoomIndex, -1);
-			}
-		}
-
-		reset_area(pArea);
-		wiznet("$t has just been reset.",
-			NULL, pArea->name, WIZ_RESETS, 0, 0);
-
-		print_resetmsg(pArea);
-
-		pArea->age = number_range(0, 3);
-		if (IS_SET(pArea->area_flags, AREA_UPDATE_FREQUENTLY))
-			pArea->age = 15 - 2;
-		else if (pArea->nplayer == 0) 
-			pArea->empty = TRUE;
-	}
 }
 
 static void *

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.292 2000-02-19 14:13:46 avn Exp $
+ * $Id: merc.h,v 1.293 2000-02-20 10:39:37 avn Exp $
  */
 
 /***************************************************************************
@@ -102,6 +102,7 @@
 #include "liquid.h"
 #include "forms.h"
 #include "vo_iter.h"
+#include "update.h"
 
 /*
  * configuration parameters
@@ -2179,20 +2180,6 @@ void gain_exp		(CHAR_DATA *ch, int gain);
 void delevel		(CHAR_DATA *ch);
 
 bool (*olc_interpret)(DESCRIPTOR_DATA *d, const char *argument);
-
-void	gain_condition	(CHAR_DATA *ch, int iCond, int value);
-
-void	update_handler	(void);
-
-void	area_update	(void);
-void	room_update	(void);
-void	weather_update	(void);
-
-void *	obj_update_cb	(void *vo, va_list ap);
-void *	char_update_cb	(void *vo, va_list ap);
-void *	mobile_update_cb(void *vo, va_list ap);
-void *	track_update_cb(void *vo, va_list ap);
-void *	clan_item_update_cb(void *p, va_list ap);
 
 flag_t wiznet_lookup	(const char *name);
 

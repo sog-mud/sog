@@ -1,5 +1,5 @@
 /*
- * $Id: fight.h,v 1.20 2000-01-17 09:31:35 fjoe Exp $
+ * $Id: fight.h,v 1.21 2000-02-20 10:39:37 avn Exp $
  */
 
 /***************************************************************************
@@ -49,7 +49,6 @@ bool	is_safe 	(CHAR_DATA *ch, CHAR_DATA *victim);
 bool	is_safe_nomessage (CHAR_DATA *ch, CHAR_DATA *victim);
 bool	is_safe_spell	(CHAR_DATA *ch, CHAR_DATA *victim, bool area);
 bool	is_safe_rspell	(AFFECT_DATA *af, CHAR_DATA *victim);
-void	violence_update (void);
 void	multi_hit	(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt);
 bool	damage		(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 			 const char *dt, int class, int dam_flags);
@@ -65,8 +64,6 @@ bool	check_obj_dodge	(CHAR_DATA *ch, CHAR_DATA *victim,
 			 OBJ_DATA *obj, int bonus);
 int	get_dam_class	(CHAR_DATA *ch, OBJ_DATA *wield, const char **dt,
 			 int *dam_flags);
-bool	backstab_ok	(CHAR_DATA *ch, CHAR_DATA *victim);
-void	backstab	(CHAR_DATA *ch, CHAR_DATA *victim, int chance);
 void	yell		(CHAR_DATA *victim, CHAR_DATA *ch, const char * argument);
 
 void		dam_alias	(int dam, const char **pvs, const char **pvp);

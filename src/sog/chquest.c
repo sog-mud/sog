@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest.c,v 1.17 2000-02-10 14:08:44 fjoe Exp $
+ * $Id: chquest.c,v 1.18 2000-02-20 10:36:39 avn Exp $
  */
 
 /*
@@ -64,21 +64,6 @@ void chquest_start(int flags)
 			continue;
 
 		chquest_startq(q);
-	}
-}
-
-/*
- * chquest_update -- update and restart chquests (called every area tick)
- */
-void chquest_update(void)
-{
-	chquest_t *q;
-
-	for (q = chquest_list; q; q = q->next) {
-		if (!IS_WAITING(q))
-			continue;
-		if (!--q->delay)
-			chquest_startq(q);
 	}
 }
 
@@ -202,8 +187,8 @@ void chquest_stopq(chquest_t *q)
 
 /*
  * stop challenge quest if item is extracted. called from extract_obj
- * quest will be restarted automatically from chquest_update after
- * random delay (in area ticks)
+ * quest will be restarted automatically from chquest_update (mod_update) 
+ * after random delay
  */
 void chquest_extract(OBJ_DATA *obj)
 {

@@ -1,5 +1,5 @@
 /*
- * $Id: auction.c,v 1.48 1999-12-11 15:31:14 fjoe Exp $
+ * $Id: auction.c,v 1.49 2000-02-20 10:36:39 avn Exp $
  */
 
 #include <stdio.h>
@@ -204,65 +204,4 @@ void auction_give_obj(CHAR_DATA* victim)
 	}
 	auction.item = NULL;
 }
-
-void auction_update(void)
-{
-	if (auction.item == NULL)
-		return;
-
-	if (--auction.pulse > 0)
-		return;
-
-	auction.pulse = PULSE_AUCTION;
-	switch (++auction.going) { /* increase the going state */
-	case 1 : /* going once */
-	case 2 : /* going twice */
-	        if (auction.bet > 0) {
-			act_auction("$p: going $T for $J gold.",
-				    auction.item, 
-				    (auction.going == 1) ? "once" : "twice",
-				    (const void*) auction.bet,
-				    ACT_FORMSH, POS_RESTING);
-	        } else {
-	        	act_auction("$p: going $T, starting price $J gold.",
-				    auction.item, 
-				    (auction.going == 1) ? "once" : "twice",
-				    (const void*) auction.starting,
-				    ACT_FORMSH, POS_RESTING);
-		}
-	        break;
-
-	 case 3 : /* SOLD! */
-	        if (auction.bet > 0) {
-			int tax;
-			int pay;
-
-	        	act_auction("$p: sold to $N for $J gold.",
-				    auction.item, auction.buyer,
-				    (const void*) auction.bet,
-				    ACT_FORMSH, POS_RESTING);
-
-			auction_give_obj(auction.buyer);
-
-			pay = (auction.bet * 85) / 100;
-			tax = auction.bet - pay;
-
-			 /* give him the money */
-			act_puts3("The auctioneer pays you $j gold, "
-				  "charging an auction fee of $J gold.",
-				  auction.seller, (const void*) pay,
-				  NULL, (const void*) tax, TO_CHAR, POS_DEAD);
-			PC(auction.seller)->bank_g += pay;
-		} else {
-			/* not sold */
-	        	act_auction("No bets received for $p.",
-				    auction.item, NULL, NULL,
-				    ACT_FORMSH, POS_RESTING);
-			act_auction("Object has been removed from auction.",
-				    NULL, NULL, NULL,
-				    ACT_FORMSH, POS_RESTING);
-			auction_give_obj(auction.seller);
-	        }
-        }
-} 
 
