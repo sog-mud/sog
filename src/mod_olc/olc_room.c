@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.53 1999-06-29 18:28:39 avn Exp $
+ * $Id: olc_room.c,v 1.54 1999-07-01 07:44:53 fjoe Exp $
  */
 
 #include "olc.h"
@@ -142,6 +142,10 @@ OLC_FUN(roomed_create)
 	pRoom->next		= room_index_hash[iHash];
 	room_index_hash[iHash]	= pRoom;
 
+	char_from_room(ch);
+	char_to_room(ch, pRoom);
+	dofun("look", ch, str_empty);
+
 	ch->desc->pEdit		= (void *)pRoom;
 	OLCED(ch)		= olced_lookup(ED_ROOM);
 	TOUCH_AREA(pArea);
@@ -179,6 +183,12 @@ OLC_FUN(roomed_edit)
 		if (drop_out)
 			edit_done(ch->desc);
 	       	return FALSE;
+	}
+
+	if (ch->in_room != pRoom) {
+		char_from_room(ch);
+		char_to_room(ch, pRoom);
+		dofun("look", ch, str_empty);
 	}
 
 	ch->desc->pEdit = (void*) pRoom;

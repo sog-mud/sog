@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.c,v 1.6 1999-06-30 15:42:30 fjoe Exp $
+ * $Id: module.c,v 1.7 1999-07-01 07:44:54 fjoe Exp $
  */
 
 /*
@@ -34,6 +34,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <dlfcn.h>
+#include <time.h>
 
 #include "merc.h"
 #include "module.h"
@@ -95,6 +96,7 @@ int mod_load(module_t* m)
 		return -1;
 	}
 
+	time(&m->load_time);
 	wizlog("mod_load: loaded module `%s' (%s)", m->name, m->file_name);
 	return 0;
 }

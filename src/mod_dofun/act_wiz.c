@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.171 1999-06-30 20:11:09 fjoe Exp $
+ * $Id: act_wiz.c,v 1.172 1999-07-01 07:44:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4136,7 +4136,7 @@ void do_slay(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (victim->level >= ch->level) {
+	if (!IS_NPC(victim) && victim->level >= ch->level) {
 		char_puts("You failed.\n", ch);
 		return;
 	}

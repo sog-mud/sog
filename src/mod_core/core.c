@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: core.c,v 1.2 1999-06-28 09:19:23 fjoe Exp $
+ * $Id: core.c,v 1.3 1999-07-01 07:44:52 fjoe Exp $
  */
 
 #include <errno.h>
@@ -65,6 +65,11 @@ void do_modules(CHAR_DATA *ch, const char *argument)
 		module_t *m;
 
 		one_argument(argument, arg, sizeof(arg));
+		if (arg[0] == '\0') {
+			do_modules(ch, str_empty);
+			return;
+		}
+
 		if ((m = mod_lookup(arg)) == NULL) {
 			char_printf(ch, "%s: unknown module name.\n",
 				    arg);
@@ -77,7 +82,8 @@ void do_modules(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!str_prefix(arg, "list")) {
+	if (!str_prefix(arg, "list")
+	||  !str_prefix(arg, "status")) {
 		int i;
 
 		if (modules.nused == 0) {
@@ -87,7 +93,9 @@ void do_modules(CHAR_DATA *ch, const char *argument)
 
 		for (i = 0; i < modules.nused; i++) {
 			module_t *m = VARR_GET(&modules, i);
-			char_printf(ch, "Module: %s\n", m->name);
+			char_printf(ch, "Module: %s, Loaded: %s\n",
+				    m->name, m->load_time ?
+					strtime(m->load_time) : "never");
 		}
 		return;
 	}
