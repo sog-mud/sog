@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.185 1999-06-17 05:46:42 fjoe Exp $
+ * $Id: comm.c,v 1.186 1999-06-17 07:32:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1074,6 +1074,18 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 		else if ((unsigned)d->inbuf[i] >= ' ')
 			d->incomm[k++] =
 				d->codepage->from[(unsigned char) d->inbuf[i]];
+	}
+
+	/*
+	 * silly zmud3 workaround
+	 */
+	if (d->character
+	&&  IS_SET(d->character->comm, COMM_ZMUD3)
+	&&  k > 2
+	&&  d->incomm[0] == 'Ñ'
+	&&  d->incomm[1] == 'Ø') {
+		k -= 3;
+		memmove(d->incomm, d->incomm+3, k);
 	}
 
 	/*

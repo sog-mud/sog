@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.173 1999-06-17 05:46:36 fjoe Exp $
+ * $Id: act_comm.c,v 1.174 1999-06-17 07:32:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1839,6 +1839,12 @@ toggle_t toggle_table[] =
 	  comm_flags,	COMM_QUIET_EDITOR,
 	  "$t set.",
 	  "$t removed."
+	},
+
+	{ "zmud workaround",	"ZMUD workaround",
+	  comm_flags,	COMM_ZMUD3,
+	  "$t is on.",
+	  "$t is off."
 	},
 
 	{ NULL }
