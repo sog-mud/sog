@@ -11,23 +11,55 @@ End
 #HELPS
 -1 SOG 'SHADES OF GRAY' MUDDY~
 @eng {DShades of Gray{x is based on Anatolia MUD -- see {CHELP ANATOLIA{x.
+
                      Original idea, concept and coding:
-        fjoe                         [{cIluvatar{x] (fjoe@@iclub.nsu.ru)
+        fjoe                                    (fjoe@@iclub.nsu.ru)
         Constantin Svintsoff           [{cNergal{x] (kostik@@iclub.nsu.ru)
-        Alexander Morokhovets            [{cEros{x] (efdi@@iclub.nsu.ru)
         Alexey Neyman                  [{cArborn{x] (avn@@org.chem.msu.su)
 
-                     Web page design:
-        Denis Petrakov                         (den@@oapmg.sscc.ru)
+                        Web page design:
+        Denis Petrakov                          (den@@oapmg.sscc.ru)
+ 
+                        Message translation:
+        Alexander Morokhovets                   (efdi@@iclub.nsu.ru)
+        Tatyana Novikova               [{cArwen{x]  (tatyana@@iclub.nsu.ru)
+
+                        Area translation:
+        Rinat Hamidov                  [{cStark{x]  (rony@@dzs.nnn.tstu.ru)
+        Alexey Neyman                  [{cArborn{x] (avn@@org.chem.msu.su)
+        Viktor Gluhov                  [{cKami{x]   (mibus@@mail.ru)
+        Tatyana Novikova               [{cArwen{x]  (tatyana@@iclub.nsu.ru)
+        Andrey Petrov                  [{cAzrael{x] (m631pas@@ccphys.nsu.ru)
+        Igor Olekhnovitch              [{cAgrael{x]
+ 
+                        Help translation:
+        Alexey Neyman                  [{cArborn{x] (avn@@org.chem.msu.su)
+        Andrey Eliseev                 [{cRondor{x] (eliseev@@inorg.chem.msu.ru)
 @rus {DShades of Gray{x составлен на основе MUDа Anatolia -- смотри {CHELP ANATOLIA{x.
+
                  Первоначальная идея, концепция и кодирование:
-        fjoe                         [{cIluvatar{x] (fjoe@@iclub.nsu.ru{x)
+        fjoe                                    (fjoe@@iclub.nsu.ru{x)
         Константин Свинцов             [{cNergal{x] (kostik@@iclub.nsu.ru{x)
-        Александр Мороховец              [{cEros{x] (efdi@@iclub.nsu.ru{x)
         Алексей Нейман                 [{cArborn{x] (avn@@org.chem.msu.su{x)
  
-                             Дизайн Web-страницы:
+                      Дизайн Web-страницы:
         Денис Петраков                          (den@@oapmg.sscc.ru{x)
+
+                          Перевод сообщений:
+        Александр Мороховец                     (efdi@@iclub.nsu.ru)
+        Татьяна Новикова               [{cArwen{x]  (tatyana@@iclub.nsu.ru)
+ 
+                            Перевод арий:
+        Ринат Хамидов                  [{cStark{x]  (rony@@dzs.nnn.tstu.ru)
+        Алексей Нейман                 [{cArborn{x] (avn@@org.chem.msu.su)
+        Татьяна Новикова               [{cArwen{x]  (tatyana@@iclub.nsu.ru)
+        Виктор Глухов                  [{cKami{x]   (mibus@@mail.ru)
+        Андрей Петров                  [{cAzrael{x] (m631pas@@ccphys.nsu.ru)
+        Игорь Олехнович                [{cAgrael{x]
+ 
+                          Перевод помощи:
+        Алексей Нейман                 [{cArborn{x] (avn@@org.chem.msu.su)
+        Андрей Елисеев                 [{cRondor{x] (eliseev@@inorg.chem.msu.su)
 ~
 -1 DIKU~
 @eng .                    Original game idea, concept, and design:
@@ -3899,7 +3931,7 @@ See also: ROLEPLAYING GROUP ALIGNMENT
  
 ~
 0 ALIGNMENT~
-In the interest of attracting the right caliber of followers, the
+@eng In the interest of attracting the right caliber of followers, the
 immortals of Shades of Gray have outlined the following alignments.
 See where you think you fit in.
 
@@ -3957,6 +3989,59 @@ Chaotic Evil:  The bane of all that is good and organized.  Laws and
 	       into obedience.  
 
 Each god may accept a follower based on these outlines.
+@rus  Заинтересованные в правильной и органичной структуре мира, имморталы SoG
+ охарактеризовали имеющееся разделение мировоззрений (alignment/ethos).
+ Прочти это прежде чем выбрать свой путь.
+
+ Lawful Good:   Устойчивая общественная структура, с продуманными законами
+                и хорошо организованным управлением, сделает жизнь многих
+                людей благополучней. В стремлении к лучшей жизни, законы
+                должны издаваться и исполнятся. Когда каждый уважает закон,
+                и готов помочь любому нуждающемуся, общество процветает.
+
+Lawful Neutral: Та же вера в крепкое общество с четким эффективным управлением,
+                хотя и неважно, будет ли это тирания или демократия. Создание
+                такого общества и работа во благо его приностит пользу,
+                оправдывающую некоторые моральные издержки.
+
+Lawful Evil:    Использование общества и его законов для личного процветания.
+                Структура и организация возвышает четко соблюдающего правила
+                отношений слуги и хозяина. Общество и закон - инструмент в
+                руках достойного. Закон выполняется в страхе перед наказанием.
+
+Neutral Good:   Важен баланс, и дела закона и хаоса не увеличат жажду доброго
+                в мире. Вселенная огромна, и в ней множество существ с различ-
+                ными устремлениями, гонка за "своей" правдой не принесет
+                желанного равновесия. Дело добра не может поддерживаться ни
+                организацией общества, ни уходом от существующего общественного
+                порядка. Социальная структура - не самоцель, а результат
+                развития.
+
+True Neutral:   Это редкая позиция, осуждаемая большинством. Долг - следить
+                за балансом всех сил (добро, зло, закон и хаос) оставаясь ней-
+                тральным. Союз случаен, возможно прийдется перейти к против-
+                нику, если одна из сил доведет почти до полного истребления
+                другую.
+
+Neutral Evil:   Первоочередное дело - собственное усиление. Любая возможность
+                интересна если она приносит выгоду. Известны лишь понятия "Мне,
+                Мое или Я". Ни сомнений, ни совести.
+
+Chaotic Good:   Сильный характер, отмеченный добротой и благожелательностью.
+                Доброта и справедливость важны, но закон и устав зачастую не
+                эффективны в борьбе за них. Это дело высшего закона, чувства
+                добра, морали и оно не нуждается в одобрении обществом.
+
+Chaotic Neutral:  Никаких ограничений в поступках быть не может. Понятия Добра
+                и Зла неуместны в делах. Почти все ненадежно, за исключением
+                того, что полагаться надо только на самого себя, если хочешь
+                не только выжить, но и жить хорошо. Судьба и звон монет, вот
+                что ведет по жизни.
+
+Chaotic Evil:   Препятствие на пути всего доброго и упорядоченного. Законы и
+                правительство - инструмент для слабых и не способных оградить
+                себя. Сила - это право на все, слабые уничтожаются. Лидерство
+                основано на силе, на способности вождя заставить подчинятся.
 ~
 0 RULES~
 These are the rules of the Shades of Gray. Disobeying is grounds
@@ -5605,7 +5690,7 @@ Thanks to ...
                    `::             |  \    Russ Taylor. ANATOLIA 2.1 by 1997
                     :::.           |   )    Serdar BULUT, Ibrahim CANPUNAR,
          ,,:,:,::.   ::'`   .-:~~:-._\  (     Murat BICER, Devrim Baris ACAR.
-       ..'      `:.: ::   :'       .|   \,/  SoG code by fjoe, kostik and efdi.
+       ..'      `:.: ::   :'       .|   \,/  SoG code by fjoe, kostik and avn.
       .:        .:``:::  :       .: |   /`\                 _
       .:    ..''     :::.'    :':    \         ___         (_)         ___
        : .''         .:: : : '       `\  /====~~   ~~=====\       /=====~~   ~~====

@@ -6,7 +6,7 @@ Credits Kromt~
 Security 0
 LevelRange 20 30
 ResetMessage @eng Reseting@rus Reseting~
-Flags noquest~
+Flags closed noquest~
 End
 
 #MOBILES
