@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.dist,v 1.11 1999-05-20 07:28:40 fjoe Exp $
+# $Id: Makefile.dist,v 1.12 1999-05-21 22:54:26 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
@@ -45,13 +45,13 @@ COMM_OFILES = ban.o charset.o comm.o comm_act.o\
 	      comm_colors.o comm_info.o resolver.o
 
 DB_CFILES = db/db.c db/db_area.c db/db_clan.c db/db_class.c db/db_hometown.c\
-	    db/db_lang.c db/db_race.c db/db_skills.c db/db_socials.c\
-	    db/db_system.c\
+	    db/db_lang.c db/db_msg.c db/db_race.c db/db_skills.c\
+	    db/db_socials.c db/db_system.c\
 	    db/cmd.c db/gsn.c db/hometown.c db/lang.c db/msg.c db/spellfn.c\
 	    db/socials.c
 DB_OFILES = db.o db_area.o db_clan.o db_class.o db_hometown.o\
-	    db_lang.o db_race.o db_skills.o db_socials.o\
-	    db_system.o\
+	    db_lang.o db_msg.o db_race.o db_skills.o\
+	    db_socials.o db_system.o\
 	    cmd.o gsn.o hometown.o lang.o msg.o spellfn.o\
 	    socials.o
 
