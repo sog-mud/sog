@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.64 2004-02-20 14:30:39 fjoe Exp $
+ * $Id: updfun.c,v 1.65 2004-02-24 10:41:06 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -294,13 +294,15 @@ UPDATE_FOREACH_FUN(mobile_update_foreach, vo)
 	if (IS_EXTRACTED(ch))
 		return FALSE;
 
-	if (ch->desc
+	if (ch->desc != NULL
 	&&  bust_prompt
 	&&  !ch->desc->pString
 	&&  !ch->desc->showstr_point
 	&&  !IS_SET(ch->comm, COMM_NOBUST)
-	&&  IS_SET(ch->comm, COMM_PROMPT))
+	&&  IS_SET(ch->comm, COMM_PROMPT)) {
+		ch->desc->incomm_from_qbuf = TRUE;
 		send_to_char(str_empty, ch);
+	}
 
 	/*
 	 * that's all for PCs and charmed mobiles
@@ -721,14 +723,16 @@ UPDATE_FOREACH_FUN(char_update_foreach, vo)
 		else
 			ch->move = ch->max_move;
 
-		if (ch->desc
+		if (ch->desc != NULL
 		&&  (old_hit != ch->hit || old_mana != ch->mana ||
 		     old_move != ch->move)
 		&&  !ch->desc->pString
 		&&  !ch->desc->showstr_point
 		&&  !IS_SET(ch->comm, COMM_NOBUST)
-		&&  IS_SET(ch->comm, COMM_PROMPT))
+		&&  IS_SET(ch->comm, COMM_PROMPT)) {
+			ch->desc->incomm_from_qbuf = TRUE;
 			send_to_char(str_empty, ch);
+		}
 	}
 
 	if (ch->position == POS_STUNNED)
