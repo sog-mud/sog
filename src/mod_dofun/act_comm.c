@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.33 1998-05-28 20:54:39 efdi Exp $
+ * $Id: act_comm.c,v 1.34 1998-06-02 16:52:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -102,7 +102,7 @@ void do_music(CHAR_DATA *ch, char *argument)
 		   return;
 		*/
 		if (IS_SET(ch->comm, COMM_NOMUSIC)) {
-			REMOVE_BIT(ch->comm, COMM_NOGOSSIP);
+			REMOVE_BIT(ch->comm, COMM_NOMUSIC);
 			send_to_char("You will now hear music.\n\r", ch);
 			return;
 		} else {
@@ -115,8 +115,8 @@ void do_music(CHAR_DATA *ch, char *argument)
 	strcpy(buf,argument);
 
 	if (!is_affected(ch, gsn_deafen))
-		act_puts("You music '{Y$T{x'",
-		       ch, NULL, buf, TO_CHAR,POS_DEAD);
+		act_puts("You music '{W$T{x'",
+		       ch, NULL, buf, TO_CHAR, POS_DEAD);
 
 	for (d = descriptor_list; d != NULL; d = d->next) {
 		CHAR_DATA *victim;
@@ -125,7 +125,7 @@ void do_music(CHAR_DATA *ch, char *argument)
 
 		if (d->connected == CON_PLAYING && d->character != ch) {
 			strcpy(trans, translate(ch,d->character,buf));
-			act_puts("{W$n{x music '{Y$t{x'",
+			act_puts("$n music '{W$t{x'",
 		        	 ch, trans, d->character, TO_VICT, POS_DEAD);
 		}
 	}
@@ -168,7 +168,7 @@ void do_gossip(CHAR_DATA *ch, char *argument)
 
 		if (d->connected == CON_PLAYING && d->character != ch) {
 			strcpy(trans, translate(ch,d->character,buf));
-			act_puts("{W$n{x gossips '{Y$t{x'",
+			act_puts("$n gossips '{Y$t{x'",
 		        	 ch, trans, d->character, TO_VICT, POS_DEAD);
 		}
 	}
@@ -624,16 +624,14 @@ void do_yell(CHAR_DATA *ch, char *argument)
 
 void do_emote(CHAR_DATA *ch, char *argument)
 {
-char buf[MAX_INPUT_LENGTH];
+	char buf[MAX_INPUT_LENGTH];
 
-	if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOEMOTE))
-	{
+	if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOEMOTE)) {
 		send_to_char("You can't show your emotions.\n\r", ch);
 		return;
 	}
 	
-	if (argument[0] == '\0')
-	{
+	if (argument[0] == '\0') {
 		send_to_char("Emote what?\n\r", ch);
 		return;
 	}
@@ -656,14 +654,12 @@ void do_pmote(CHAR_DATA *ch, char *argument)
 	char last[MAX_INPUT_LENGTH], temp[MAX_STRING_LENGTH];
 	int matches = 0;
 
-	if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOEMOTE))
-	{
+	if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOEMOTE)) {
 		send_to_char("You can't show your emotions.\n\r", ch);
 		return;
 	}
 	
-	if (argument[0] == '\0')
-	{
+	if (argument[0] == '\0') {
 		send_to_char("Emote what?\n\r", ch);
 		return;
 	}

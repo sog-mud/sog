@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.57 1998-06-02 15:56:00 fjoe Exp $
+ * $Id: act_info.c,v 1.58 1998-06-02 16:52:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -375,7 +375,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	if (victim->position == victim->start_pos
 	&&  victim->long_descr[0] != '\0') {
-		char_printf(ch, "%s{Y%s{x", buf, victim->long_descr);
+		char_printf(ch, "%s{g%s{x", buf, victim->long_descr);
 		return;
 	}
 
@@ -386,19 +386,11 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		strcat(buf, "} ");
 	}
 
-	if (is_affected(victim,gsn_doppelganger)
+	if (is_affected(victim, gsn_doppelganger)
 	&&  victim->doppel->long_descr[0] != '\0') {
 		char_printf(ch, "%s%s", buf, victim->doppel->long_descr);
 		return;
 	}
-
-/*
-	if (victim->long_descr[0] != '\0' &&
-	    !is_affected(victim,gsn_doppelganger)) {
-		char_printf(ch, "%s%s", buf, victim->long_descr);
-		return;
-	}
-*/
 
 	if (is_affected(victim, gsn_doppelganger)) {
 		strcat(buf, PERS(victim->doppel, ch));

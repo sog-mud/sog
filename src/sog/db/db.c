@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.12 1998-05-28 20:54:40 efdi Exp $
+ * $Id: db.c,v 1.13 1998-06-02 16:52:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4063,7 +4063,7 @@ dump_to_scr(buf2);
 
 					for (i = 0;i < RATE_TABLE_SIZE; ++i)
 						if (rate_table[i].pc_killed 
-							<= killed)
+							< killed)
 						    minnum = i;
 
 					if (minnum >= 0) {
