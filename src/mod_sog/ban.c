@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.30 1999-02-25 14:27:23 fjoe Exp $
+ * $Id: ban.c,v 1.31 1999-04-15 10:28:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -55,25 +55,24 @@
 #include "ban.h"
 #include "db/db.h"
 
-BAN_DATA *	new_ban	(void);
-void		free_ban(BAN_DATA *ban);
+ban_t*	new_ban	(void);
+void	free_ban(ban_t *ban);
 
-struct ban_data
+struct ban_t
 {
-	BAN_DATA *	next;
-	bool		valid;
+	ban_t*		next;
 	flag32_t	ban_flags;
 	int		level;
-	const char *	name;
+	const char*	name;
 };
 
-BAN_DATA *ban_list;
-BAN_DATA *ban_free;
+ban_t *ban_list;
+ban_t *ban_free;
 
-BAN_DATA *new_ban(void)
+ban_t *new_ban(void)
 {
-    static BAN_DATA ban_zero;
-    BAN_DATA *ban;
+    static ban_t ban_zero;
+    ban_t *ban;
 
     if (ban_free == NULL)
 	ban = alloc_perm(sizeof(*ban));
@@ -84,18 +83,13 @@ BAN_DATA *new_ban(void)
     }
 
     *ban = ban_zero;
-    VALIDATE(ban);
     ban->name = str_empty;
     return ban;
 }
 
-void free_ban(BAN_DATA *ban)
+void free_ban(ban_t *ban)
 {
-    if (!IS_VALID(ban))
-	return;
-
     free_string(ban->name);
-    INVALIDATE(ban);
 
     ban->next = ban_free;
     ban_free = ban;
@@ -103,7 +97,7 @@ void free_ban(BAN_DATA *ban)
 
 void save_bans(void)
 {
-    BAN_DATA *pban;
+    ban_t *pban;
     FILE *fp;
     bool found = FALSE;
 
@@ -131,7 +125,7 @@ void save_bans(void)
 void load_bans(void)
 {
     FILE *fp;
-    BAN_DATA *ban_last;
+    ban_t *ban_last;
  
 	if (!dfexist(ETC_PATH, BAN_FILE))
 		return;
@@ -142,7 +136,7 @@ void load_bans(void)
     ban_last = NULL;
     for (; ;)
     {
-        BAN_DATA *pban;
+        ban_t *pban;
         if (feof(fp))
         {
             fclose(fp);
@@ -166,7 +160,7 @@ void load_bans(void)
 
 bool check_ban(const char *site, int type)
 {
-    BAN_DATA *pban;
+    ban_t *pban;
     char host[MAX_STRING_LENGTH];
 
     strnzcpy(host, sizeof(host), capitalize(site));
@@ -200,7 +194,7 @@ void ban_site(CHAR_DATA *ch, const char *argument, bool fPerm)
     char arg1[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH];
     char *name;
     BUFFER *buffer;
-    BAN_DATA *pban, *prev;
+    ban_t *pban, *prev;
     bool prefix = FALSE,suffix = FALSE;
     int type;
 
@@ -334,8 +328,8 @@ void do_permban(CHAR_DATA *ch, const char *argument)
 void do_allow(CHAR_DATA *ch, const char *argument)                        
 {
     char arg[MAX_INPUT_LENGTH];
-    BAN_DATA *prev;
-    BAN_DATA *curr;
+    ban_t *prev;
+    ban_t *curr;
 
     one_argument(argument, arg, sizeof(arg));
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.158 1999-04-15 09:14:11 fjoe Exp $
+ * $Id: act_comm.c,v 1.159 1999-04-15 10:28:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -782,13 +782,18 @@ void do_rent(CHAR_DATA *ch, const char *argument)
 void do_qui(CHAR_DATA *ch, const char *argument)
 {
 	char_puts("If you want to QUIT, you have to spell it out.\n", ch);
-	return;
 }
 
 void do_quit(CHAR_DATA *ch, const char *argument)
 {
+	if (ch->pnote) {
+		act_puts("You have an unfinished $t in progress.",
+			 ch, flag_string(note_types, ch->pnote->type), NULL,
+			 TO_CHAR, POS_DEAD);
+		return;
+	}
+
 	quit_char(ch, 0);
-	return;
 }
 
 void quit_char(CHAR_DATA *ch, int flags)

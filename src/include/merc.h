@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.175 1999-04-15 09:14:16 fjoe Exp $
+ * $Id: merc.h,v 1.176 1999-04-15 10:28:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -68,6 +68,28 @@ enum {
 	ANUM_EVIL,
 
 	MAX_ANUM
+};
+
+/* note types */
+#define NOTE_NOTE	0
+#define NOTE_IDEA	1
+#define NOTE_PENALTY	2
+#define NOTE_NEWS	3
+#define NOTE_CHANGES	4
+
+/*
+ * Data structure for notes.
+ */
+struct note_t
+{
+	note_t *	next;
+	const char *	sender;
+	const char *	date;
+	const char *	to_list;
+	const char *	subject;
+	const char *	text;
+	time_t		date_stamp;
+	flag32_t	type;
 };
 
 /* align restrictions */
@@ -1275,7 +1297,7 @@ struct char_data
 	MOB_INDEX_DATA *	pIndexData;
 	DESCRIPTOR_DATA *	desc;
 	AFFECT_DATA *		affected;
-	NOTE_DATA * 		pnote;
+	note_t * 		pnote;
 	OBJ_DATA *		carrying;
 	OBJ_DATA *		on;
 	ROOM_INDEX_DATA *	in_room;

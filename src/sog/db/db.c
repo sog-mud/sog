@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.126 1999-04-15 09:14:18 fjoe Exp $
+ * $Id: db.c,v 1.127 1999-04-15 10:28:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -100,12 +100,10 @@ extern  DESCRIPTOR_DATA *descriptor_free;
 SHOP_DATA *		shop_first;
 SHOP_DATA *		shop_last;
 
-NOTE_DATA *		note_free;
-
 CHAR_DATA *		char_list;
 CHAR_DATA *		char_list_lastpc;
 KILL_DATA		kill_table	[MAX_LEVEL];
-NOTE_DATA *		note_list;
+
 OBJ_DATA *		object_list;
 TIME_INFO_DATA		time_info;
 WEATHER_DATA		weather_info;

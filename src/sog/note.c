@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.50 1999-02-25 14:27:22 fjoe Exp $
+ * $Id: note.c,v 1.51 1999-04-15 10:28:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,50 +51,27 @@
 #include "merc.h"
 #include "db/db.h"
 
-/*
- * Data structure for notes.
- */
-
-#define NOTE_NOTE	0
-#define NOTE_IDEA	1
-#define NOTE_PENALTY	2
-#define NOTE_NEWS	3
-#define NOTE_CHANGES	4
-
-struct note_data
-{
-	NOTE_DATA *	next;
-	bool		valid;
-	int		type;
-	const char *	sender;
-	const char *	date;
-	const char *	to_list;
-	const char *	subject;
-	const char *	text;
-	time_t		date_stamp;
-};
-
 /* local procedures */
-NOTE_DATA *	new_note	(void);
-void		free_note	(NOTE_DATA *note);
+note_t *	new_note	(void);
+void		free_note	(note_t *note);
 
-void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time);
+void load_thread(char *name, note_t **list, int type, time_t free_time);
 void parse_note(CHAR_DATA *ch, const char *argument, int type);
-bool hide_note(CHAR_DATA *ch, NOTE_DATA *pnote);
-void fwrite_note(FILE *fp, NOTE_DATA *pnote);
+bool hide_note(CHAR_DATA *ch, note_t *pnote);
+void fwrite_note(FILE *fp, note_t *pnote);
 
-NOTE_DATA *note_list;
-NOTE_DATA *idea_list;
-NOTE_DATA *penalty_list;
-NOTE_DATA *news_list;
-NOTE_DATA *changes_list;
+note_t *note_list;
+note_t *idea_list;
+note_t *penalty_list;
+note_t *news_list;
+note_t *changes_list;
 
 /* stuff for recyling notes */
-NOTE_DATA *note_free;
+note_t *note_free;
 
-NOTE_DATA *new_note()
+note_t *new_note()
 {
-    NOTE_DATA *note;
+    note_t *note;
 
     if (note_free == NULL)
 	note = alloc_perm(sizeof(*note));
@@ -103,30 +80,25 @@ NOTE_DATA *new_note()
 	note = note_free;
 	note_free = note_free->next;
     }
-    VALIDATE(note);
     return note;
 }
 
-void free_note(NOTE_DATA *note)
+void free_note(note_t *note)
 {
-    if (!IS_VALID(note))
-	return;
-
     free_string(note->text  );
     free_string(note->subject);
     free_string(note->to_list);
     free_string(note->date  );
     free_string(note->sender);
-    INVALIDATE(note);
 
     note->next = note_free;
     note_free   = note;
 }
 
-int count_spool(CHAR_DATA *ch, NOTE_DATA *spool)
+int count_spool(CHAR_DATA *ch, note_t *spool)
 {
     int count = 0;
-    NOTE_DATA *pnote;
+    note_t *pnote;
 
     for (pnote = spool; pnote != NULL; pnote = pnote->next)
 	if (!hide_note(ch,pnote))
@@ -207,7 +179,7 @@ void save_notes(int type)
 {
 	FILE *fp;
 	char *name;
-	NOTE_DATA *pnote;
+	note_t *pnote;
 
 	switch (type) {
 	default:
@@ -251,10 +223,10 @@ void load_notes(void)
 	load_thread(CHANGES_FILE, &changes_list,NOTE_CHANGES, 0);
 }
 
-void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time)
+void load_thread(char *name, note_t **list, int type, time_t free_time)
 {
     FILE *fp;
-    NOTE_DATA *pnotelast;
+    note_t *pnotelast;
     const char *p;
  
 	if (!dfexist(NOTES_PATH, name))
@@ -266,7 +238,7 @@ void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time)
     pnotelast = NULL;
     for (; ;)
     {
-	NOTE_DATA *pnote;
+	note_t *pnote;
 	char letter;
 	 
 	do
@@ -326,12 +298,12 @@ void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time)
 	db_error("load_notes", "%s: bad keyword '%s'", name, p);
 }
 
-void append_note(NOTE_DATA *pnote)
+void append_note(note_t *pnote)
 {
 	FILE *fp;
 	char *name;
-	NOTE_DATA **list;
-	NOTE_DATA *last;
+	note_t **list;
+	note_t *last;
 
 	switch(pnote->type) {
 	default:
@@ -371,7 +343,7 @@ void append_note(NOTE_DATA *pnote)
         fclose(fp);
 }
 
-bool is_note_to(CHAR_DATA *ch, NOTE_DATA *pnote)
+bool is_note_to(CHAR_DATA *ch, note_t *pnote)
 {
 	CLAN_DATA *clan;
 
@@ -404,12 +376,13 @@ bool is_note_to(CHAR_DATA *ch, NOTE_DATA *pnote)
  */
 bool note_attach(CHAR_DATA *ch, int type)
 {
-	NOTE_DATA *pnote;
+	note_t *pnote;
 
 	if (ch->pnote) {
 		if (ch->pnote->type != type) {
-			char_puts("You already have a different note "
-				  "in progress.\n", ch);
+			act_puts("You have an unfinished $t in progress.",
+				 ch, flag_string(note_types, ch->pnote->type),
+				 NULL, TO_CHAR, POS_DEAD);
 			return FALSE;
 		}
 
@@ -428,12 +401,12 @@ bool note_attach(CHAR_DATA *ch, int type)
 	return TRUE;
 }
 
-void note_remove(CHAR_DATA *ch, NOTE_DATA *pnote, bool delete)
+void note_remove(CHAR_DATA *ch, note_t *pnote, bool delete)
 {
     char to_new[MAX_INPUT_LENGTH];
     char to_one[MAX_INPUT_LENGTH];
-    NOTE_DATA *prev;
-    NOTE_DATA **list;
+    note_t *prev;
+    note_t **list;
     const char *to_list;
 
     if (!delete)
@@ -510,7 +483,7 @@ void note_remove(CHAR_DATA *ch, NOTE_DATA *pnote, bool delete)
     return;
 }
 
-bool hide_note(CHAR_DATA *ch, NOTE_DATA *pnote)
+bool hide_note(CHAR_DATA *ch, note_t *pnote)
 {
     time_t last_read;
 
@@ -550,7 +523,7 @@ bool hide_note(CHAR_DATA *ch, NOTE_DATA *pnote)
     return FALSE;
 }
 
-void update_read(CHAR_DATA *ch, NOTE_DATA *pnote)
+void update_read(CHAR_DATA *ch, note_t *pnote)
 {
     time_t stamp;
 
@@ -581,7 +554,7 @@ void update_read(CHAR_DATA *ch, NOTE_DATA *pnote)
     }
 }
 
-void print_note(BUFFER *buf, NOTE_DATA *pnote, int vnum)
+void print_note(BUFFER *buf, note_t *pnote, int vnum)
 {
 	buf_printf(buf, "{x[%3d] From: %s, {x%s\n"
 			"{x      To  : %s\n"
@@ -593,7 +566,7 @@ void print_note(BUFFER *buf, NOTE_DATA *pnote, int vnum)
 		   pnote->text);
 }
 
-const char * quote_note(NOTE_DATA *pnote)
+const char * quote_note(note_t *pnote)
 {
 	const char *p;
 	char *q;
@@ -630,8 +603,8 @@ const char * quote_note(NOTE_DATA *pnote)
 void parse_note(CHAR_DATA *ch, const char *argument, int type)
 {
 	char arg[MAX_INPUT_LENGTH];
-	NOTE_DATA *pnote;
-	NOTE_DATA **list;
+	note_t *pnote;
+	note_t **list;
 	char *list_name;
 	int vnum;
 	int anum;
@@ -915,7 +888,8 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		return;
 	}
 
-	if (!str_prefix(arg, "quote")) {
+	if (!str_prefix(arg, "quote")
+	||  !str_prefix(arg, "reply")) {
 		char buf[MAX_INPUT_LENGTH];
 
 		argument = one_argument(argument, buf, sizeof(buf));
@@ -1040,7 +1014,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 	char_puts("You can't do that.\n", ch);
 }
 
-void fwrite_note(FILE *fp, NOTE_DATA *pnote)
+void fwrite_note(FILE *fp, note_t *pnote)
 {
 	fprintf(fp, "Sender  %s~\n", fix_string(pnote->sender));
 	fprintf(fp, "Date    %s~\n", fix_string(pnote->date));

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: tables.h,v 1.9 1999-03-10 17:23:32 fjoe Exp $
+ * $Id: tables.h,v 1.10 1999-04-15 10:28:19 fjoe Exp $
  */
 
 #ifndef _TABLES_H_
@@ -81,6 +81,7 @@ extern FLAG	ralign_names[];
 extern FLAG	align_names[];
 extern FLAG	rulecl_names[];
 extern FLAG	rulecl_flags[];
+extern FLAG	note_types[];
 
 #endif
 

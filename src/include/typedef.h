@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.19 1999-04-15 06:51:06 fjoe Exp $
+ * $Id: typedef.h,v 1.20 1999-04-15 10:28:19 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -47,7 +47,6 @@ typedef unsigned int			uint;
 
 typedef struct affect_data		AFFECT_DATA;
 typedef struct area_data		AREA_DATA;
-typedef struct ban_data			BAN_DATA;
 typedef struct buf_data			BUFFER;
 typedef struct char_data		CHAR_DATA;
 typedef struct descriptor_data	 	DESCRIPTOR_DATA;
@@ -56,7 +55,6 @@ typedef struct ed_data			ED_DATA;
 typedef struct help_data		HELP_DATA;
 typedef struct kill_data		KILL_DATA;
 typedef struct mob_index_data		MOB_INDEX_DATA;
-typedef struct note_data		NOTE_DATA;
 typedef struct obj_data			OBJ_DATA;
 typedef struct obj_index_data		OBJ_INDEX_DATA;
 typedef struct pc_data 			PC_DATA;
@@ -92,6 +90,8 @@ typedef struct rule_t			rule_t;
 typedef union vo_t			vo_t;
 typedef struct altar_t			altar_t;
 typedef struct hometown_t		hometown_t;
+typedef struct note_t			note_t;
+typedef struct ban_t			ban_t;
 
 union vo_t {
 	int			vnum;

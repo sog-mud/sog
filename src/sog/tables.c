@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.52 1999-03-19 07:33:21 fjoe Exp $
+ * $Id: tables.c,v 1.53 1999-04-15 10:28:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1135,6 +1135,19 @@ FLAG rulecl_flags[] =
 
 	{ "expl_changed",	RULES_EXPL_CHANGED		},
 	{ "impl_changed",	RULES_IMPL_CHANGED		},
+
+	{ NULL }
+};
+
+FLAG note_types[] =
+{
+	{ "",			TABLE_INTVAL,			},
+
+	{ "note",		NOTE_NOTE			},
+	{ "idea",		NOTE_IDEA			},
+	{ "penalty",		NOTE_PENALTY			},
+	{ "news",		NOTE_NEWS			},
+	{ "change",		NOTE_CHANGES			},
 
 	{ NULL }
 };
