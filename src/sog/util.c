@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.c,v 1.22.2.2 2000-04-10 15:27:18 fjoe Exp $
+ * $Id: util.c,v 1.22.2.3 2003-06-19 08:02:41 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -118,8 +118,8 @@ size_t cstrlen(const char *cstr)
 		return 0;
 
 	res = strlen(cstr);
-	while ((cstr = strchr(cstr, '{')) != NULL) {
-		if (*(cstr+1) == '{')
+	while ((cstr = strchr(cstr, '{')) != NULL && *(cstr + 1) != '\0') {
+		if (*(cstr + 1) == '{')
 			res--;
 		else
 			res -= 2;
@@ -135,7 +135,7 @@ const char *cstrfirst(const char *cstr)
 		return NULL;
 
 	for (; *cstr == '{'; cstr++)
-		if (*(cstr+1))
+		if (*(cstr + 1) != '\0')
 			cstr++;
 	return cstr;
 }
