@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.270 1999-09-11 12:49:47 fjoe Exp $
+ * $Id: act_info.c,v 1.271 1999-09-25 12:10:42 avn Exp $
  */
 
 /***************************************************************************
@@ -1998,7 +1998,7 @@ void do_hometown(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (PC(ch)->bank_g < amount) {
+	if (pc->bank_g < amount) {
 		act_puts("You don't have enough money in bank "
 			 "to change hometowns!",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
@@ -2006,6 +2006,7 @@ void do_hometown(CHAR_DATA *ch, const char *argument)
 	}
 
 	pc->hometown = htn;
+	pc->bank_g -= amount;
 	act_puts("Now your hometown is $t.",
 		 ch, hometown_name(pc->hometown),
 		 NULL, TO_CHAR, POS_DEAD);

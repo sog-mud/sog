@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.48 1999-09-08 10:40:05 fjoe Exp $
+ * $Id: olc_area.c,v 1.49 1999-09-25 12:10:44 avn Exp $
  */
 
 #include "olc.h"
@@ -462,7 +462,7 @@ VALIDATE_FUN(validate_move)
 {
 	int i;
 	int new_min = *(int*) arg;
-	int delta;
+	int delta, oldmin, oldmax;
 	bool touched;
 	AREA_DATA *pArea;
 	MPCODE *mpc;
@@ -479,6 +479,9 @@ VALIDATE_FUN(validate_move)
 			  "in order to perform area vnum move.\n", ch);
 		return FALSE;
 	}
+
+	oldmin = pArea->min_vnum;
+	oldmax = pArea->max_vnum;
 
 /* check new region */
 	delta = new_min - pArea->min_vnum;
@@ -624,6 +627,9 @@ VALIDATE_FUN(validate_move)
 		if (IS_SET(pArea->area_flags, AREA_CHANGED))
 			char_printf(ch, "[%3d] %s (%s)\n",
 				    pArea->vnum, pArea->name, pArea->file_name);
+
+	move_pfiles(oldmin, oldmax, delta);
+
 	return TRUE;
 }
 
@@ -723,6 +729,10 @@ static void move_room(ROOM_INDEX_DATA *room, AREA_DATA *pArea, int delta)
 
 		if (IN_RANGE(pExit->to_room.r->vnum, pArea->min_vnum+delta,
 			     pArea->max_vnum+delta))
+			touched = TRUE;
+
+		if (IN_RANGE(pExit->to_room.r->vnum, pArea->min_vnum,
+			     pArea->max_vnum))
 			touched = TRUE;
 	}
 

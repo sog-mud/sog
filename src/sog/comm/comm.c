@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.199 1999-09-08 10:40:14 fjoe Exp $
+ * $Id: comm.c,v 1.200 1999-09-25 12:10:44 avn Exp $
  */
 
 /***************************************************************************
@@ -1680,7 +1680,7 @@ static void print_hometown(CHAR_DATA *ch)
 	}
 
 	char_puts("\n", ch);
-	dofun("help", ch, "HOMETOWN");
+	dofun("help", ch, "'CREATECHAR HOMETOWN'");
 	hometown_print_avail(ch);
 	char_puts("? ", ch);
 	ch->desc->connected = CON_PICK_HOMETOWN;

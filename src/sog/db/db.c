@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.168 1999-09-08 10:40:16 fjoe Exp $
+ * $Id: db.c,v 1.169 1999-09-25 12:10:45 avn Exp $
  */
 
 /***************************************************************************
@@ -1989,6 +1989,35 @@ void scan_pfiles()
 
 	log("scan_pfiles: end (eqcheck is %s)",
 		   dfexist(TMP_PATH, EQCHECK_FILE) ? "active" : "inactive");
+}
+
+void move_pfiles(int minvnum, int maxvnum, int delta)
+{
+	struct dirent *dp;
+	DIR *dirp;
+
+	if ((dirp = opendir(PLAYER_PATH)) == NULL) {
+		bug("move_pfiles : unable to open player directory.",
+		    0);
+		exit(1);
+	}
+	for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp)) {
+
+#if defined (LINUX) || defined (WIN32)
+		if (strlen(dp->d_name) < 3)
+			continue;
+#else
+		if (dp->d_namlen < 3 || dp->d_type != DT_REG)
+			continue;
+#endif
+
+		if (strchr(dp->d_name, '.'))
+			continue;
+
+		move_pfile(dp->d_name, minvnum, maxvnum, delta);
+	}
+	closedir(dirp);
+
 }
 
 #define NBUF 5

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.233 1999-09-25 11:29:25 fjoe Exp $
+ * $Id: merc.h,v 1.234 1999-09-25 12:10:44 avn Exp $
  */
 
 /***************************************************************************
@@ -1317,6 +1317,7 @@ void 		char_free	(CHAR_DATA *ch);
 
 /* char_load flags */
 #define LOAD_F_NOCREATE	(A)
+#define LOAD_F_MOVE	(B)
 
 /* char_save flags (these are mutually exclusive) */
 #define SAVE_F_NONE	(A)
@@ -1334,6 +1335,9 @@ void 		char_free	(CHAR_DATA *ch);
 CHAR_DATA *	char_load	(const char *name, int flags);
 void		char_save	(CHAR_DATA *ch, int flags);
 void		char_nuke	(CHAR_DATA *ch);
+void		move_pfile	(const char *name, int minvnum, int maxvnum,
+				 int delta);
+void		move_pfiles	(int minvnum, int maxvnum, int delta);
 
 /*
  * Common data for both PC and NPC.

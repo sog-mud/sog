@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.124 1999-09-08 10:40:12 fjoe Exp $
+ * $Id: save.c,v 1.125 1999-09-25 12:10:44 avn Exp $
  */
 
 /***************************************************************************
@@ -62,15 +62,35 @@
 static OBJ_DATA *rgObjNest[MAX_NEST];
 
 /*
+ * global vars for areaed_move()
+ */
+int minv, maxv, del;
+
+/*
  * Local functions.
  */
 void fwrite_char (CHAR_DATA * ch, FILE * fp, int flags);
 void fwrite_obj (CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest);
 void fwrite_pet (CHAR_DATA * pet, FILE * fp, int flags);
 void fwrite_affect(AFFECT_DATA *paf, FILE *fp);
-void fread_char (CHAR_DATA * ch, FILE * fp);
-void fread_pet  (CHAR_DATA * ch, FILE * fp);
-void fread_obj  (CHAR_DATA * ch, FILE * fp);
+void fread_char (CHAR_DATA * ch, FILE * fp, int flags);
+void fread_pet  (CHAR_DATA * ch, FILE * fp, int flags);
+void fread_obj  (CHAR_DATA * ch, FILE * fp, int flags);
+
+/*
+ * move_pfile - shifts vnum in range minvnum..maxvnum by delta)
+ */
+#define IN_RANGE(i, l, u)	((l) <= (i) && (i) <= (u))
+#define MOVE(i)		if (IN_RANGE(i, minv, maxv)) i += del
+
+void move_pfile(const char *name, int minvnum, int maxvnum, int delta)
+{
+	CHAR_DATA *ch;
+	minv = minvnum; maxv = maxvnum; del = delta;
+	ch = char_load(name, LOAD_F_MOVE);
+	char_save(ch, SAVE_F_PSCAN);
+	char_nuke(ch);
+}
 
 /*
  * delete_player -- delete player, update clan lists if necessary
@@ -768,13 +788,13 @@ CHAR_DATA *char_load(const char *name, int flags)
 		}
 		word = fread_word(fp);
 		if (!str_cmp(word, "PLAYER"))
-			fread_char(ch, fp);
+			fread_char(ch, fp, flags);
 		else if (!str_cmp(word, "OBJECT"))
-			fread_obj(ch, fp);
+			fread_obj(ch, fp, flags);
 		else if (!str_cmp(word, "O"))
-			fread_obj(ch, fp);
+			fread_obj(ch, fp, flags);
 		else if (!str_cmp(word, "PET"))
-			fread_pet(ch, fp);
+			fread_pet(ch, fp, flags);
 		else if (!str_cmp(word, "END"))
 			break;
 		else {
@@ -819,7 +839,7 @@ CHAR_DATA *char_load(const char *name, int flags)
  * Read in a char.
  */
 void 
-fread_char(CHAR_DATA * ch, FILE * fp)
+fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 {
 	char           *word = "End";
 	bool            fMatch;
@@ -1089,8 +1109,15 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			KEY("Home", PC(ch)->hometown, fread_number(fp));
 			KEY("Haskilled", PC(ch)->has_killed,
 			    fread_number(fp));
-			KEY("Homepoint", PC(ch)->homepoint,
-			    get_room_index(fread_number(fp)));
+			if (!str_cmp(word, "Homepoint")) {
+				int room = fread_number(fp);
+
+				if (IS_SET(flags, LOAD_F_MOVE))
+					MOVE(room);
+				PC(ch)->homepoint = get_room_index(room);
+				fMatch = TRUE;
+				break;
+			}
 
 			if (!str_cmp(word, "HpManaMove") || !str_cmp(word, "HMV")) {
 				ch->hit = fread_number(fp);
@@ -1183,7 +1210,11 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 				break;
 			}
 			if (!str_cmp(word, "Room")) {
-				ch->in_room = get_room_index(fread_number(fp));
+				int room = fread_number(fp);
+
+				if (IS_SET(flags, LOAD_F_MOVE))
+					MOVE(room);
+				ch->in_room = get_room_index(room);
 				if (ch->in_room == NULL)
 					ch->in_room = get_room_index(ROOM_VNUM_LIMBO);
 				fMatch = TRUE;
@@ -1255,7 +1286,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 
 /* load a pet from the forgotten reaches */
 void 
-fread_pet(CHAR_DATA * ch, FILE * fp)
+fread_pet(CHAR_DATA * ch, FILE * fp, int flags)
 {
 	char           *word;
 	CHAR_DATA      *pet;
@@ -1266,6 +1297,9 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 	if (!str_cmp(word, "Vnum")) {
 		int             vnum;
 		vnum = fread_number(fp);
+		if (IS_SET(flags, LOAD_F_MOVE))
+			MOVE(vnum);
+		
 		if (get_mob_index(vnum) == NULL) {
 			log("fread_pet: %s: %d: bad vnum",
 				   ch->name, vnum);
@@ -1459,7 +1493,7 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 extern	OBJ_DATA	*obj_free;
 
 void 
-fread_obj(CHAR_DATA * ch, FILE * fp)
+fread_obj(CHAR_DATA * ch, FILE * fp, int flags)
 {
 	OBJ_DATA       *obj;
 	char           *word;
@@ -1480,6 +1514,9 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 		first = FALSE;	/* fp will be in right place */
 
 		vnum = fread_number(fp);
+		if (IS_SET(flags, LOAD_F_MOVE))
+			MOVE(vnum);
+
 		if (get_obj_index(vnum) == NULL)
 			log("fread_obj: %s: %d: bad vnum",
 				   ch->name, vnum);
