@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.50.2.4 2000-03-28 04:58:14 osya Exp $
+ * $Id: mob_prog.c,v 1.50.2.5 2000-03-28 10:35:31 osya Exp $
  */
 
 /***************************************************************************
@@ -121,6 +121,7 @@ enum {
 	CHK_INPK,
 	CHK_ISSPECTAR,
 	CHK_CHARHERE,
+	CHK_ISWANTED,
 };
 
 /*
@@ -212,6 +213,7 @@ const char * fn_keyword[] =
     "inpk",		/* if inpk $a $n   - check includes in PK range */
     "isspectar",	/* if isspectar $n - is $n mob's spec target */ 
     "ischarhere",	/* if ischarhere $a - is $a stands here*/ 
+    "iswanted",		/* if iswanted $n - is char $n wanted */ 
 
     "\n"		/* Table terminator */
 };
@@ -575,6 +577,8 @@ int cmd_eval(int vnum, const char *line, int check,
 		return (lval_char != NULL && NPC(mob)->target == lval_char);
 	case CHK_CHARHERE:
 		return ((bool) (get_char_room(mob, lval_char->name) != NULL));;
+	case CHK_ISWANTED:
+		return IS_WANTED(lval_char);
 	default:;
      }
 

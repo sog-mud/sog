@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.9 2000-03-28 04:58:09 osya Exp $
+ * $Id: spellfun2.c,v 1.139.2.10 2000-03-28 10:35:18 osya Exp $
  */
 
 /***************************************************************************
@@ -1292,6 +1292,7 @@ void spell_stalker(int sn, int level, CHAR_DATA *ch, void *vo)
 	
 	NPC(stalker)->target = victim;
 	stalker->clan   = ch->clan;
+	NPC(stalker)->timer = level;
 	char_puts("An invisible stalker arrives to stalk you!\n",victim);
 	act("An invisible stalker arrives to stalk $n!",victim,NULL,NULL,TO_ROOM);
 	char_puts("An invisible stalker has been sent.\n", ch);
@@ -1529,6 +1530,7 @@ void spell_shadowlife(int sn, int level, CHAR_DATA *ch, void *vo)
 	shadow->gold = 0;
 
 	NPC(shadow)->target = victim;
+	NPC(shadow)->timer = 240;
 	
 	af.where	= TO_AFFECTS;
 	af.type         = sn;

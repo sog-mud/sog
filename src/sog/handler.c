@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.14 2000-03-25 11:07:07 avn Exp $
+ * $Id: handler.c,v 1.182.2.15 2000-03-28 10:35:28 osya Exp $
  */
 
 /***************************************************************************
@@ -3681,7 +3681,6 @@ void quit_char(CHAR_DATA *ch, int flags)
 	drop_objs(ch, ch->carrying);
 
 	for (vch = char_list; vch; vch = vch_next) {
-		NPC_DATA *vnpc;
 
 		vch_next = vch->next;
 		if (is_affected(vch, gsn_doppelganger)
@@ -3697,29 +3696,11 @@ void quit_char(CHAR_DATA *ch, int flags)
 		if (!IS_NPC(vch))
 			continue;
 
-		vnpc = NPC(vch);
-		if (vnpc->hunter == ch)
-			vnpc->hunter = NULL;
+		if (NPC(vch)->hunter == ch)
+			NPC(vch)->hunter = NULL;
 
-		if (vnpc->target == ch) {
-			if (vch->pMobIndex->vnum == MOB_VNUM_SHADOW) {
-				act("$n slowly fades away.",
-				    vch, NULL, NULL, TO_ROOM);
-				extract_char(vch, 0);
-				continue;
-			}
-
-			if (vch->pMobIndex->vnum == MOB_VNUM_STALKER) {
-				act_clan(vch, "$i has left the realm, I have to leave too.", ch);
-				act("$n slowly fades away.",
-				    vch, NULL, NULL, TO_ROOM);
-				extract_char(vch, 0);
-				continue;
-			}
-		}
-
-		if (vnpc->last_fought == ch)
-			vnpc->last_fought = NULL;
+		if (NPC(vch)->last_fought == ch)
+			NPC(vch)->last_fought = NULL;
 	}
 
 	if (!IS_NPC(ch)) {
