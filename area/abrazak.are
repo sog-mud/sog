@@ -72,20 +72,6 @@ A
 20 -50
 A
 19 100
-#15111
-way~
-@eng Waybottle@rus {WСоковыжималка{w~
-@eng Waybottle lies here...@rus {wСтранная {Wсоковыжималка{w жужжит здесь...{w~
-Из прямой кишки сумашедщего КАБАНА~
-drink BGHIJKMRYZ APQ
--1 2147483647 'orange juice' 0 0
-1 0 1 P
-A
-17 -20
-A
-20 -5
-A
-6 -5
 #15112
 aenis~
 {W'{CAenis + Leo{W' ring{w~
@@ -98,14 +84,6 @@ A
 17 -5
 A
 20 -5
-#15113
-no name~
-~
-~
-unknown~
-pill 0 0
-0 'reserved' 'reserved' 'reserved' 'reserved'
-0 0 0 P
 #0
 
 
@@ -148,6 +126,7 @@ O 15000 0	* strange pill
 O 15100 1	* a dwarven golden ring
 O 15111 1	* Waybottle
 O 15112 1	* {W'{CAenis + Leo{W' ring{w
+O 15113 1	* {W0==][ {YHeliacal Fire {W>>{w
 S
 
 
