@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.172 1999-03-19 18:55:23 fjoe Exp $
+ * $Id: merc.h,v 1.173 1999-03-22 09:52:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2113,7 +2113,9 @@ void		help_show	(CHAR_DATA *ch, BUFFER *output,
 				 const char *keyword);
 void		help_free	(HELP_DATA*);
 
+void		boot_db_system	(void);
 void		boot_db		(void);
+
 CHAR_DATA *	create_mob	(MOB_INDEX_DATA *pMobIndex);
 CHAR_DATA *	create_mob_of	(MOB_INDEX_DATA *pMobIndex, mlstring *owner);
 void		clone_mob	(CHAR_DATA *parent, CHAR_DATA *clone);

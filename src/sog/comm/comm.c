@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.165 1999-03-19 18:55:28 fjoe Exp $
+ * $Id: comm.c,v 1.166 1999-03-22 09:52:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -308,7 +308,7 @@ int main(int argc, char **argv)
 	resolver_init();
 #endif
 
-	boot_db();
+	boot_db_system();
 
 	if (argc > 1) {
 		/*
@@ -349,6 +349,8 @@ int main(int argc, char **argv)
 		exit(1);
 	}
 	check_info = (!!info_sockets.nused);
+
+	boot_db();
 
 	open_sockets(&control_sockets, "ready to rock on port %d");
 	open_sockets(&info_sockets, "info service started on port %d");

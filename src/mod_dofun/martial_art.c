@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.75 1999-03-18 12:36:58 kostik Exp $
+ * $Id: martial_art.c,v 1.76 1999-03-22 09:52:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2997,7 +2997,7 @@ void do_bandage(CHAR_DATA *ch, const char *argument)
 		AFFECT_DATA af;
 
 		char_puts("You place your bandage to your shoulder!\n", ch);
-		act("$n places a bandage to $s shulder.",
+		act("$n places a bandage to $s shoulder.",
 		    ch, NULL, NULL, TO_ROOM);
 		check_improve(ch, gsn_bandage, TRUE, 2);
 

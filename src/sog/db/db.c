@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.122 1999-03-19 18:55:32 fjoe Exp $
+ * $Id: db.c,v 1.123 1999-03-22 09:52:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -280,6 +280,12 @@ void db_load_list(DBDATA *dbdata, const char *path, const char *file)
 	fclose(fp);
 }
 
+void boot_db_system(void)
+{
+	fBootDb = TRUE;
+	db_load_file(&db_system, ETC_PATH, SYSTEM_CONF);
+}
+
 /*
  * Big mama top level function.
  */
@@ -332,9 +338,6 @@ void boot_db(void)
 	/* reboot counter */
 	reboot_counter = 1440;	/* 24 hours */
 
-	fBootDb = TRUE;
-
-	db_load_file(&db_system, ETC_PATH, SYSTEM_CONF);
 	db_load_list(&db_langs, LANG_PATH, LANG_LIST);
 	load_msgdb();
 	db_load_file(&db_socials, ETC_PATH, SOCIALS_CONF);

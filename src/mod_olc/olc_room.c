@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.43 1999-03-10 17:23:35 fjoe Exp $
+ * $Id: olc_room.c,v 1.44 1999-03-22 09:52:26 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -824,7 +824,7 @@ OLC_FUN(roomed_clone)
 	mlstr_free(room->name);
 	room->name = mlstr_dup(proto->name);
 
-	mlstr_free(room->name);
+	mlstr_free(room->description);
 	room->description = mlstr_dup(proto->description);
 
 	if (fAll) {

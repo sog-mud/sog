@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.5 1999-03-11 11:58:09 fjoe Exp $
+ * $Id: olc_rule.c,v 1.6 1999-03-22 09:52:27 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -70,6 +70,8 @@ DECLARE_OLC_FUN(ruleed_add	);
 DECLARE_OLC_FUN(ruleed_del	);
 DECLARE_OLC_FUN(ruleed_delete	);
 
+DECLARE_OLC_FUN(eruleed_name	);
+DECLARE_OLC_FUN(iruleed_name	);
 DECLARE_OLC_FUN(eruleed_list	);
 
 olc_cmd_t olc_cmds_expl[] =
@@ -80,7 +82,7 @@ olc_cmd_t olc_cmds_expl[] =
 	{ "show",		ruleed_show,	&rops_expl	},
 	{ "list",		ruleed_list,	&rops_expl	},
 
-	{ "name",		ruleed_name,	&rops_expl	},
+	{ "name",		eruleed_name			},
 	{ "base",		ruleed_base			},
 	{ "add",		ruleed_add			},
 	{ "del",		ruleed_del			},
@@ -99,7 +101,7 @@ olc_cmd_t olc_cmds_impl[] =
 	{ "show",		ruleed_show,	&rops_impl	},
 	{ "list",		ruleed_list,	&rops_impl	},
 
-	{ "name",		ruleed_name,	&rops_impl	},
+	{ "name",		iruleed_name			},
 	{ "arg",		ruleed_arg			},
 	{ "add",		ruleed_add			},
 	{ "del",		ruleed_del			},
@@ -357,13 +359,12 @@ OLC_FUN(ruleed_list)
 	return FALSE;
 }
 
-OLC_FUN(ruleed_name)
+OLC_FUN(eruleed_name)
 {
 	rule_t *r;
 	rule_t *r2;
 	rule_t rnew;
 	rulecl_t *rcl;
-	ruleops_t *rops;
 
 	if (argument[0] == '\0') {
 		do_help(ch, "'OLC RULE'");
@@ -371,12 +372,8 @@ OLC_FUN(ruleed_name)
 	}
 
 	EDIT_RULE(ch, r);
-	EDIT_ROPS(ch, rops);
-	if (rops->id == ED_IMPL)
-		return olced_str(ch, argument, cmd, &r->name);
-
 	EDIT_RCL(ch, rcl);
-	if (olced_busy(ch, rops->id, NULL, rcl))
+	if (olced_busy(ch, ED_EXPL, NULL, rcl))
 		return FALSE;
 
 	if ((r2 = erule_lookup(rcl, argument)) && r2 != r) {
@@ -384,11 +381,18 @@ OLC_FUN(ruleed_name)
 		return FALSE;
 	}
 
-	rops->rule_del(rcl, r);
+	erule_del(rcl, r);
 	rule_init(&rnew);
 	rnew.name = str_dup(argument);
 	ch->desc->pEdit = erule_add(rcl, &rnew);
 	return TRUE;
+}
+
+OLC_FUN(iruleed_name)
+{
+	rule_t *r;
+	EDIT_RULE(ch, r);
+	return olced_str(ch, argument, cmd, &r->name);
 }
 
 OLC_FUN(ruleed_base)
