@@ -246,6 +246,12 @@ char *strings_rus[MSG_MAX_NUM] = {
 /* MOVE_N_IS_ALREADY_AWAKE */	"$N уже бодрствует.",
 /* MOVE_YOU_CANT_WAKE_M */	"Ты не можешь разбудить $M!",
 /* MOVE_N_WAKES_YOU */		"$n будит тебя.",
+/* MOVE_YOU_CANT_SNEAK_MOUNTED */"Ты не можешь красться верхом.\n\r",
+/* MOVE_YOU_ATTEMPT_TO_MOVE_SILENTLY */"Ты пытаешься двигаться бесшумно.\n\r",
+/* MOVE_YOU_CANT_HIDE_MOUNTED */"Ты не можешь прятаться верхом.\n\r",
+/* MOVE_YOU_CANT_HIDE_RIDDEN */	"Ты не можешь прятаться оседланным.\n\r",
+/* MOVE_YOU_CANNOT_HIDE_GLOWING */"Ты не можешь спрятаться пока светишься.\n\r",
+/* MOVE_YOU_ATTEMPT_TO_HIDE */	"Ты пытаешься спрятаться.\n\r",
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yсерьезно ранено{x.",

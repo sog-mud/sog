@@ -246,6 +246,12 @@ char *strings_engl[MSG_MAX_NUM] =  {
 /* MOVE_N_IS_ALREADY_AWAKE */	"$N is already awake.",
 /* MOVE_YOU_CANT_WAKE_M */	"You can't wake $M!",
 /* MOVE_N_WAKES_YOU */		"$n wakes you.",
+/* MOVE_YOU_CANT_SNEAK_MOUNTED */"You can't sneak while mounted.\n\r",
+/* MOVE_YOU_ATTEMPT_TO_MOVE_SILENTLY */"You attempt to move silently.\n\r",
+/* MOVE_YOU_CANT_HIDE_MOUNTED */"You can't hide while mounted.\n\r",
+/* MOVE_YOU_CANT_HIDE_RIDDEN */	"You can't hide while being ridden.\n\r",
+/* MOVE_YOU_CANNOT_HIDE_GLOWING */"You cannot hide while glowing.\n\r",
+/* MOVE_YOU_ATTEMPT_TO_HIDE */	"You attempt to hide.\n\r",
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yis gushing blood{x.",

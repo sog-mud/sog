@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.20 1998-04-29 03:39:31 efdi Exp $
+ * $Id: act_move.c,v 1.21 1998-04-29 03:53:57 efdi Exp $
  */
 
 /***************************************************************************
@@ -1777,11 +1777,11 @@ void do_sneak( CHAR_DATA *ch, char *argument )
 
     if (MOUNTED(ch)) 
     {
-        send_to_char("You can't sneak while mounted.\n\r", ch);
+        send_to_char(msg(MOVE_YOU_CANT_SNEAK_MOUNTED, ch), ch);
         return;
     }
 
-    send_to_char( "You attempt to move silently.\n\r", ch );
+    send_to_char(msg(MOVE_YOU_ATTEMPT_TO_MOVE_SILENTLY, ch), ch );
     affect_strip( ch, gsn_sneak );
 
     if (IS_AFFECTED(ch,AFF_SNEAK))
@@ -1813,25 +1813,25 @@ int forest;
 
     if (MOUNTED(ch)) 
     {
-        send_to_char("You can't hide while mounted.\n\r", ch);
+        send_to_char(msg(MOVE_YOU_CANT_HIDE_MOUNTED, ch), ch);
         return;
     }
 
     if (RIDDEN(ch)) 
     {
-        send_to_char("You can't hide while being ridden.\n\r", ch);
+        send_to_char(msg(MOVE_YOU_CANT_HIDE_RIDDEN, ch), ch);
         return;
     }
 
     if ( IS_AFFECTED( ch, AFF_FAERIE_FIRE )  )  {
-      send_to_char( "You can not hide while glowing.\n\r", ch );
+      send_to_char(msg(MOVE_YOU_CANNOT_HIDE_GLOWING, ch), ch);
       return;
     }
     forest = 0;
     forest += ch->in_room->sector_type == SECT_FOREST?60:0;
     forest += ch->in_room->sector_type == SECT_FIELD?60:0;
 
-    send_to_char( "You attempt to hide.\n\r", ch );
+    send_to_char(msg(MOVE_YOU_ATTEMPT_TO_HIDE, ch), ch);
 
     if ( number_percent( ) < get_skill(ch,gsn_hide)-forest)
     {
