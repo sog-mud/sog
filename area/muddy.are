@@ -267,15 +267,12 @@ _____,*-'   `==
   the rules is no excuse.
 * Important commands: help, commands, news, notes.
 * Read all helps. So many things are changed relatively before.
-* Read helps of WHATSNEW(ROM2ANATOLIA), FROM20TO21 and ALIGNORCLAN.
 * Added multi-language support command. See '{Clanguage{x' command.
 * Added short mode for flags. See '{Clong{x' command.
 * {CGossip{x and {Cmusic{x channels added.
 * Use '{Cbug{x' command or mail to mud@iclub.nsu.ru for bug reports
   and suggestions.
 * '{Crating{x' command added.
-
-[Hit Return to continue]
 ~ 
  
 92 IMOTD~
@@ -288,11 +285,9 @@ be found by typing 'help laws' or 'help commandments'.
 * Asking for promotion is grounds for instant deletion.
 * Type 'help jobs' to get some idea of what you should be doing.
 * Remember you can RENAME players with unwanted nick names.
-
-[Hit Return to continue]
 ~
 
-0 JOBS~
+92 JOBS~
 This is a partial list of what a god of any given level should be doing. It is
 not complete yet.
 
@@ -482,98 +477,6 @@ and no recall rooms cannot be solar flighted to, and no recall rooms
 cannot be solar flighted out of.  Finally, any god or hero is also immune
 to solar flight, as well as in player who has no summon set. And ofcourse
 you need the sun light to cast this spell effectively.
-~
--1 WHATSNEW ROM2ANATOLIA~
-.
-* ROM BUGs are fixed.
-* PlayerKilling and Stealing is permitted for all levels, within
-  restrictions of course.
-* 7 Clans are implemented with special skills and spells.
-* If one clan is raided and its item is taken and put to anothers clan
-  shrine, the raided clan cannot use their clan powers.
-* New 8 classes are added with full features.
-* New 14 races are added with full features.
-* Clan only, race only, alignment only spells and skills implemented.
-* Some channels are removed (gossip,auction).
-* New auction channel introduced.
-* Over 200 new skills and spells are introduced.
-* New practicing type is introduced.
-* Damagable and repairable equipments are introduced.
-* Bank is implemented.
-* Color code is inserted.
-* Mobiles started to track last foughts.
-* Spells castable to room (room affects, do_raffect command) are implemented.
-* Good players can request objects from good mobs.
-* Anti-Paladins can demand objects from any mob (chance of attacking).
-* Automatic rebooting system is implemented.
-* New areas are added.
-* Objects and Mobile progs are implemented.
-* Ice melts in hot areas.
-* New score command is introduced.( One can use old one with nscore command)
-* In who command, one can restrict the clans, races or PKs.
-* Players can pray the gods by pray channel.
-* Automaticaly generated quest is introduced.
-* Hero players can teach their 100% skills or spells to other players.
-* Tailed mobile can now attack with their tails.
-* When you look a mob, you can see its race.
-* Hometowns and ethos are implemented.
-* Religions and their related tattos are implemented
-* Special quest kassandra (please read the referred books in melancholy).
-
-~
--1 FROM20TO21~
-.
-* Reported bugs are fixed.
-* Track has been rearranged.
-* Players become able to shoot arrows, throwing spears with full features:
-	poisoning, shocking, burning, frosting arrows and spears
-	stuck in arrows and spears.
-* Shot arrows or thrown spears may be stuck in the target mobiles.
-* Riding skill is given to knights.
-* In groups shalafi vs battle, chaos vs ruler, invader vs knight is prevented
-* Spellbane become permanent with no cost of mana.
-* Blade barrier, aid, desert fist,gate spells are given to clerics.
-* Chance of damaging an object reduced.
-* Tracking mobiles become able to open door.
-* Golems autorescue their masters.
-* If created golem kills master's quest mob, it is ok as well.
-* Area flags introduced.
-* Next questtimes has been rearranged.
-* Quest code reconstructed. 
-* Vampire became immune to negative attacks.
-* Immunity to negative spell is given to necromancer.
-* Spell craft adjustment done.
-* Lance skill is given to knights for mount.
-* Secondary attack given to warrior class.(Second attack for dual)
-* Making arrow (blue,red,white,green) skills given to Ranger.
-* Dishonoring is now optional for Samurais.
-* Chance of tattoos has been increased.
-* Is_same_group is reorganized.
-* Leadership spell is given to rulers( immunity to charm).
-* Evil spirit spell is given to invaders.
-* Mortal strike skill is given to battleragers.
-* Now offensive spells are castable to other rooms, as well:
-	cast 'acid blast' n.fido
-	cast 'acid blast' e.2.fido
-* Mobiles starts to remember the players that once fight with them, untill
-  they are killed, or anatolia is rebooted.
-* Races of mobiles is now a header of mobiles description.
-* PC's can speak either common language or their mothertongue.
-* Only magical lights now can damage vampires.
-* Track skill is now only for rangers.
-* Shout and yell channels cannot be ON/OFF.
-* Spell craft rearranged.
-
-~
-
--1 ALIGNORCLAN~
-.
-
-	- Alignment or Clan for Roleplaying?
-	- Actually it depends on the implementor of the MUD. According
-to Chronos, alignment comes first and according to Asena, clan comes
-first. 
-
 ~
 -1 AFFECTS AFFECT RAFFECT RAFFECTS~
 Affect command is used to show all the spells affecting your character. At
