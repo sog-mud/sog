@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.29 2002-11-28 21:54:44 fjoe Exp $
+ * $Id: comm.c,v 1.200.2.30 2002-11-30 19:47:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -393,15 +393,15 @@ bool outbuf_adjust(outbuf_t *o, size_t len)
 		return TRUE;
 
 	if ((newsize = o->size) == 0)
-		newsize = 1024;
+		newsize = 2048;
 
 	while (newsize < len) {
+		newsize <<= 1;
+
 		if (newsize > 32768) {
 			log("outbuf_adjust: buffer overflow, closing");
 			return FALSE;
 		}
-
-		newsize <<= 1;
 	}
 
 	if ((newbuf = realloc(o->buf, newsize)) == NULL) {
@@ -612,7 +612,7 @@ void game_loop_unix(void)
 		fd_set in_set;
 		fd_set out_set;
 		fd_set exc_set;
-		DESCRIPTOR_DATA *d, *d_next;
+		DESCRIPTOR_DATA *d;
 		INFO_DESC *id;
 		INFO_DESC *id_next;
 		int maxdesc;
@@ -676,8 +676,8 @@ void game_loop_unix(void)
 		/*
 		 * Kick out the freaky folks.
 		 */
-		for (d = descriptor_list; d; d = d_next) {
-			d_next = d->next;
+		for (d = descriptor_list; d; d = descriptor_next) {
+			descriptor_next = d->next;
 			if (FD_ISSET(d->descriptor, &exc_set)) {
 				FD_CLR(d->descriptor, &in_set );
 				FD_CLR(d->descriptor, &out_set);
@@ -740,8 +740,8 @@ void game_loop_unix(void)
 		/*
 		 * Output.
 		 */
-		for (d = descriptor_list; d != NULL; d = d_next) {
-			d_next = d->next;
+		for (d = descriptor_list; d != NULL; d = descriptor_next) {
+			descriptor_next = d->next;
 
 			if ((d->fcommand || !outbuf_empty(d) || d->out_compress)
 			&&  FD_ISSET(d->descriptor, &out_set)) {
@@ -939,6 +939,15 @@ void close_descriptor(DESCRIPTOR_DATA *dclose, int save_flags)
 {
 	DESCRIPTOR_DATA *d;
 
+	/*
+	 * flush buffer before saving:
+	 * if we are closing descriptor due to outbuf overflow
+	 * flush is needed because char_save etc. will try to output
+	 * something to the buffer and this will lead to endless loop
+	 */
+	if (!outbuf_empty(dclose))
+		process_output(dclose, FALSE);
+
 	if (dclose->character != NULL) {
 		CHAR_DATA *ch = dclose->original ? dclose->original : dclose->character;
 		if (!IS_SET(save_flags, SAVE_F_NONE))
@@ -951,10 +960,13 @@ void close_descriptor(DESCRIPTOR_DATA *dclose, int save_flags)
 			dclose->character->desc = NULL;
 		} else
 			char_nuke(ch);
-	}
 
-	if (!outbuf_empty(dclose))
-		process_output(dclose, FALSE);
+		/*
+		 * flush buffer once again so player can see 'Saving.' message
+		 */
+		if (!outbuf_empty(dclose))
+			process_output(dclose, FALSE);
+	}
 
 	if (dclose->snoop_by != NULL) {
 		write_to_buffer(dclose->snoop_by,
