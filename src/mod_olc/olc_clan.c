@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.54 2001-09-14 10:01:08 fjoe Exp $
+ * $Id: olc_clan.c,v 1.55 2001-09-15 17:12:46 fjoe Exp $
  */
 
 #include "olc.h"
@@ -255,7 +255,7 @@ OLC_FUN(claned_plist)
 	char arg2[MAX_INPUT_LENGTH];
 	clan_t *clan;
 	EDIT_CLAN(ch, clan);
-	
+
 	if (PC(ch)->security < SECURITY_CLAN_PLIST) {
 		act_char("ClanEd: Insufficient security.", ch);
 		return FALSE;

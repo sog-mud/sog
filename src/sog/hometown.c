@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hometown.c,v 1.22 2001-09-13 16:22:22 fjoe Exp $
+ * $Id: hometown.c,v 1.23 2001-09-15 17:12:53 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -34,7 +34,7 @@ static hometown_t *	get_hometown	(int htn);
 
 varr hometowns;
 
-varrdata_t v_hometowns = {
+varr_info_t c_info_hometowns = {
 	&varr_ops, NULL, NULL,
 
 	sizeof(hometown_t), 4

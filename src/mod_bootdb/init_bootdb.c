@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_bootdb.c,v 1.11 2001-09-13 16:22:00 fjoe Exp $
+ * $Id: init_bootdb.c,v 1.12 2001-09-15 17:12:37 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -157,7 +157,7 @@ load_hints(void)
 {
 	rfile_t *fp;
 
-	c_init(&hints, &v_hints);
+	c_init(&hints, &c_info_hints);
 
 	line_number = 0;
 	snprintf(bootdb_filename, sizeof(bootdb_filename), "%s%c%s",

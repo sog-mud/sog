@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.326 2001-09-12 19:43:07 fjoe Exp $
+ * $Id: handler.c,v 1.327 2001-09-15 17:12:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1455,7 +1455,8 @@ equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 	}
 
 	if (pull_obj_trigger(TRIG_OBJ_WEAR, obj, ch, NULL) > 0
-	||  obj->carried_by != ch)
+	||  obj->carried_by != ch
+	||  obj->wear_loc != WEAR_NONE)
 		return NULL;
 
 	obj->wear_loc = iWear;
@@ -4056,7 +4057,7 @@ get_obj_here(CHAR_DATA *ch, const char *argument)
 }
 
 OBJ_DATA *
-get_obj_room(CHAR_DATA *ch, const char *argument)
+get_obj_here_all(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj;
 	CHAR_DATA *vch;
@@ -4071,6 +4072,9 @@ get_obj_room(CHAR_DATA *ch, const char *argument)
 		return obj;
 
 	for (vch = ch->in_room->people; vch; vch = vch->next_in_room) {
+		if (!can_see(ch, vch))
+			continue;
+
 		/*
 		 * search in the vch's inventory
 		 */
@@ -4089,6 +4093,20 @@ get_obj_room(CHAR_DATA *ch, const char *argument)
 	}
 
 	return NULL;
+}
+
+OBJ_DATA *
+get_obj_room(CHAR_DATA *ch, ROOM_INDEX_DATA *room, const char *argument)
+{
+	char arg[MAX_INPUT_LENGTH];
+	uint number;
+
+	number = number_argument(argument, arg, sizeof(arg));
+	if (!number || arg[0] == '\0')
+		return NULL;
+
+	return get_obj_list_raw(
+	    ch, arg, &number, room->contents, GETOBJ_F_ANY);
 }
 
 /*

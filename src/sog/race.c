@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.33 2001-09-13 16:22:23 fjoe Exp $
+ * $Id: race.c,v 1.34 2001-09-15 17:12:54 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -74,7 +74,7 @@ avltree_info_t c_info_races =
 	MT_PVOID, sizeof(race_t), ke_cmp_str
 };
 
-static varrdata_t v_classes =
+static varr_info_t c_info_rclasses =
 {
 	&varr_ops,
 
@@ -91,7 +91,7 @@ pcrace_new(void)
 	pcr = calloc(1, sizeof(*pcr));
 	pcr->skill_spec = str_empty;
 	pcr->hunger_rate = 100;
-	c_init(&pcr->classes, &v_classes);
+	c_init(&pcr->classes, &c_info_rclasses);
 	pcr->refcnt = 1;
 	return pcr;
 }

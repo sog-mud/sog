@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.147 2001-09-14 10:01:07 fjoe Exp $
+ * $Id: olc.c,v 1.148 2001-09-15 17:12:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -187,7 +187,7 @@ _olc_interpret(DESCRIPTOR_DATA *d, const char *argument)
 	}
 
 	if (bsearch(&p, skip_commands, NSKIP_COMMANDS,
-		    sizeof(*skip_commands), cmpstr) != NULL) 
+		    sizeof(*skip_commands), cmpstr) != NULL)
 		return FALSE;
 
 	if (!str_cmp(command, "done")) {
@@ -285,7 +285,7 @@ OLC_FUN(olced_strkey)
 	olced_strkey_t *o;
 	const char **pold_key;
 
-	one_argument(argument, arg, sizeof(arg));
+	first_arg(argument, arg, sizeof(arg), FALSE);
 	if (IS_NULLSTR(arg)) {
 		act_puts("Syntax: $t <string>",
 			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
@@ -335,15 +335,13 @@ bool
 _olced_mlstrkey(CHAR_DATA *ch, const char *langname, const char *argument,
 		olc_cmd_t *cmd)
 {
-	char arg[MAX_INPUT_LENGTH];
 	olced_strkey_t *o;
 	mlstring *ml;
 
 	lang_t *lang;
 	const char **pp;
 
-	one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0') {
+	if (IS_NULLSTR(argument)) {
 		act_puts("Syntax: $t <lang> <string>",
 			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
@@ -358,7 +356,7 @@ _olced_mlstrkey(CHAR_DATA *ch, const char *langname, const char *argument,
 		return FALSE;
 	}
 
-	if (cmd->validator && !cmd->validator(ch, arg))
+	if (cmd->validator && !cmd->validator(ch, argument))
 		return FALSE;
 
 	ml = (mlstring *) ch->desc->pEdit;
@@ -370,7 +368,7 @@ _olced_mlstrkey(CHAR_DATA *ch, const char *langname, const char *argument,
 		/*
 		 * gonna change key
 		 */
-		if (!str_cmp(old_key, arg)) {
+		if (!str_cmp(old_key, argument)) {
 			/*
 			 * key remain unchanged
 			 */
@@ -378,22 +376,23 @@ _olced_mlstrkey(CHAR_DATA *ch, const char *langname, const char *argument,
 			return TRUE;
 		}
 
-		if (c_lookup(o->c, arg) != NULL) {
+		if (c_lookup(o->c, argument) != NULL) {
 			act_puts("$t: $T: duplicate name.",
-				 ch, OLCED(ch)->name, arg,
+				 ch, OLCED(ch)->name, argument,
 				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			return FALSE;
 		}
 
-		c_move(o->c, old_key, arg);
+		c_move(o->c, old_key, argument);
 
 		if (o->path) {
 			const char *old_file;
 
 			old_file = strkey_filename(old_key, o->ext);
 			if (dfexist(o->path, old_file)) {
-				d2rename(o->path, old_file,
-					 o->path, strkey_filename(arg, o->ext));
+				d2rename(
+				    o->path, old_file,
+				    o->path, strkey_filename(argument, o->ext));
 			}
 		}
 	}
@@ -403,7 +402,7 @@ _olced_mlstrkey(CHAR_DATA *ch, const char *langname, const char *argument,
 	 */
 	pp = mlstr_convert(ml, lang);
 	free_string(*pp);
-	*pp = str_dup(arg);
+	*pp = str_dup(argument);
 
 	act_char("Ok.", ch);
 	return TRUE;

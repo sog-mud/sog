@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: vo_iter.h,v 1.1 2000-01-04 19:27:56 fjoe Exp $
+ * $Id: vo_iter.h,v 1.2 2001-09-15 17:12:34 fjoe Exp $
  */
 
 #ifndef _VO_ITER_H_
@@ -35,11 +35,11 @@
 
 typedef void *(*vo_foreach_cb_t)(void *, va_list);
 
-typedef struct vo_iter_t {
+struct vo_iter_t {
 	void *(*first)(void *);
 	void *(*next)(void *);
 	int mem_type;
-} vo_iter_t;
+};
 
 /*
  * vo_foreach iterators
@@ -53,5 +53,10 @@ extern vo_iter_t iter_obj_char;
 extern vo_iter_t iter_obj_obj;
 
 void *	vo_foreach(void *cont, vo_iter_t *iter, vo_foreach_cb_t cb, ...);
+
+void *	vo_foreach_init(void *cont, vo_iter_t *iter, int *pftag);
+void	vo_foreach_destroy(void *cont, vo_iter_t *iter, int ftag, bool untag);
+bool	vo_foreach_cond(void *cont, vo_iter_t *iter, int ftag,
+			void **pvo, void **pvo_next);
 
 #endif

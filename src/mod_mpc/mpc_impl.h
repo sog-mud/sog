@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_impl.h,v 1.24 2001-09-13 16:22:08 fjoe Exp $
+ * $Id: mpc_impl.h,v 1.25 2001-09-15 17:12:43 fjoe Exp $
  */
 
 #ifndef _MPC_IMPL_H_
@@ -43,6 +43,7 @@ enum symtype_t {
 	SYM_FUNC,		/**< functions */
 	SYM_VAR,		/**< variables */
 	SYM_LABEL,		/**< labels */
+	SYM_ITER,		/**< iterator data */
 };
 typedef enum symtype_t symtype_t;
 
@@ -66,6 +67,28 @@ struct sym_t {
 	} s;
 };
 typedef struct sym_t sym_t;
+
+typedef struct iter_t iter_t;
+
+struct iterdata_t {
+	iter_t *iter;
+	int block;
+	vo_t vo;
+	vo_t vo_next;
+	int ftag;
+};
+typedef struct iterdata_t iterdata_t;
+
+struct iter_t {
+	dynafun_data_t d;			/* init data */
+	dynafun_t init;				/* init */
+	void	(*destroy)(iterdata_t *);	/* destroy */
+	bool	(*cond)(iterdata_t *, vo_t *);	/* loop condition */
+	void	(*next)(iterdata_t *, vo_t *);	/* get next */
+	vo_iter_t *vo_iter;
+};
+
+iter_t *mpc_iter_lookup(const char *name);
 
 extern avltree_t glob_syms;		/* (sym_t) */
 extern avltree_info_t c_info_syms;
@@ -117,11 +140,12 @@ struct mpcode_t {
 	int curr_continue_addr;	/**< current 'continue' info		*/
 
 	/* runtime data */
+	int retval;		/**< program return value		*/
 	int ip;			/**< program instruction pointer	*/
 	varr code;		/**< (void *) program code		*/
 
 	varr jumptabs;		/**< (varr) 'switch' jump tables	*/
-	varr iterdata;		/**< (iterdata_t) 'foreach' iter data	*/
+	varr iters;		/**< (iterdata_t) iterators	*/
 
 	jmp_buf jmpbuf;		/**< jmp buf				*/
 	varr data;		/**< data stack				*/
@@ -231,7 +255,6 @@ void	c_declare_assign(mpcode_t *mpc);/* declare variable and assign */
 					/* initial value */
 void	c_cleanup_syms(mpcode_t *mpc);	/* cleanup symbols */
 void	c_return(mpcode_t *mpc);	/* return expr */
-void	c_return_0(mpcode_t *mpc);	/* return */
 
 /*--------------------------------------------------------------------
  * binary operations

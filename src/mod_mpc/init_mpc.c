@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.32 2001-09-13 16:22:06 fjoe Exp $
+ * $Id: init_mpc.c,v 1.33 2001-09-15 17:12:42 fjoe Exp $
  */
 
 #include <dlfcn.h>
@@ -41,7 +41,6 @@
 
 #include "mpc_impl.h"
 #include "mpc_const.h"
-#include "mpc_iter.h"
 
 #if !defined(MPC)
 #define MODULE_INIT MOD_MPC
@@ -80,7 +79,7 @@ static dynafun_data_t core_dynafun_tab[] = {
 #if !defined(MPC)
 avltree_t mpcodes;
 
-static varrdata_t v_swjumps = {
+static varr_info_t c_info_swjumps = {
 	&varr_ops, NULL, NULL,
 
 	sizeof(swjump_t), 4
@@ -89,7 +88,7 @@ static varrdata_t v_swjumps = {
 static void
 jumptab_init(varr *v)
 {
-	c_init(v, &v_swjumps);
+	c_init(v, &c_info_swjumps);
 }
 
 static void
@@ -98,13 +97,13 @@ jumptab_destroy(varr *v)
 	c_destroy(v);
 }
 
-static varrdata_t v_ints = {
+static varr_info_t c_info_ints = {
 	&varr_ops, NULL, NULL,
 
 	sizeof(int), 8
 };
 
-static varrdata_t v_jumptabs = {
+static varr_info_t c_info_jumptabs = {
 	&varr_ops,
 
 	(e_init_t) jumptab_init,
@@ -113,13 +112,13 @@ static varrdata_t v_jumptabs = {
 	sizeof(varr), 4
 };
 
-static varrdata_t v_iterdata = {
+static varr_info_t c_info_iters = {
 	&varr_ops, NULL, NULL,
 
 	sizeof(iterdata_t), 4
 };
 
-static varrdata_t v_vos = {
+static varr_info_t c_info_vos = {
 	&varr_ops, NULL, NULL,
 
 	sizeof(vo_t), 4
@@ -144,21 +143,22 @@ mpcode_init(mpcode_t *mpc)
 	c_init(&mpc->strings, &c_info_strings);
 	c_init(&mpc->syms, &c_info_syms);
 
-	c_init(&mpc->cstack, &v_ints);
-	c_init(&mpc->args, &v_ints);
+	c_init(&mpc->cstack, &c_info_ints);
+	c_init(&mpc->args, &c_info_ints);
 	mpc->curr_block = 0;
 
 	mpc->curr_jumptab = -1;
 	mpc->curr_break_addr = INVALID_ADDR;
 	mpc->curr_continue_addr = INVALID_ADDR;
 
+	mpc->retval = 0;
 	mpc->ip = 0;
-	c_init(&mpc->code, &v_ints);
+	c_init(&mpc->code, &c_info_ints);
 
-	c_init(&mpc->jumptabs, &v_jumptabs);
-	c_init(&mpc->iterdata, &v_iterdata);
+	c_init(&mpc->jumptabs, &c_info_jumptabs);
+	c_init(&mpc->iters, &c_info_iters);
 
-	c_init(&mpc->data, &v_vos);
+	c_init(&mpc->data, &c_info_vos);
 }
 
 static void
@@ -175,7 +175,7 @@ mpcode_destroy(mpcode_t *mpc)
 	c_destroy(&mpc->code);
 
 	c_destroy(&mpc->jumptabs);
-	c_destroy(&mpc->iterdata);
+	c_destroy(&mpc->iters);
 
 	c_destroy(&mpc->data);
 }
@@ -216,9 +216,6 @@ MODINIT_FUN(_module_load, m)
 		log(LOG_INFO, "_module_load(mod_mpc): %s", dlerror());
 		return -1;
 	}
-
-	if (iter_init(m) < 0)
-		return -1;
 
 	if (mpc_init() < 0)
 		return -1;
@@ -336,6 +333,7 @@ const char *mpc_dynafuns[] = {
 	"real_char_level",
 	"room_sector",
 	"sand_effect",
+	"say_spell",
 	"scream_effect",
 	"set_char_gold",
 	"set_char_hit",

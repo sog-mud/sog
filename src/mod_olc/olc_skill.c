@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.28 2001-09-14 10:01:11 fjoe Exp $
+ * $Id: olc_skill.c,v 1.29 2001-09-15 17:12:49 fjoe Exp $
  */
 
 #include "olc.h"
@@ -96,24 +96,22 @@ olc_cmd_t olc_cmds_skill[] =
 OLC_FUN(skilled_create)
 {
 	skill_t *sk;
-	char arg[MAX_INPUT_LENGTH];
 
 	if (PC(ch)->security < SECURITY_SKILL) {
 		act_char("SkillEd: Insufficient security for creating skills.", ch);
 		return FALSE;
 	}
 
-	one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0')
+	if (IS_NULLSTR(argument))
 		OLC_ERROR("'OLC CREATE'");
 
-	if ((sk = c_insert(&skills, arg)) == NULL) {
+	if ((sk = c_insert(&skills, argument)) == NULL) {
 		act_puts("SkillEd: $t: already exists.",
-			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+			 ch, argument, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
-	mlstr_init2(&sk->sk_name.ml, arg);
+	mlstr_init2(&sk->sk_name.ml, argument);
 	OLCED(ch)	= olced_lookup(ED_SKILL);
 	ch->desc->pEdit = sk;
 	act_char("Skill created.", ch);
@@ -124,20 +122,18 @@ OLC_FUN(skilled_create)
 OLC_FUN(skilled_edit)
 {
 	skill_t *sk;
-	char arg[MAX_INPUT_LENGTH];
 
 	if (PC(ch)->security < SECURITY_SKILL) {
 		act_char("SkillEd: Insufficient security.", ch);
 		return FALSE;
 	}
 
-	one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0')
+	if (IS_NULLSTR(argument))
 		OLC_ERROR("'OLC EDIT'");
 
-	if (!(sk = skill_search(arg))) {
+	if (!(sk = skill_search(argument))) {
 		act_puts("SkillEd: $t: No such skill.",
-			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+			 ch, argument, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
@@ -235,18 +231,16 @@ OLC_FUN(skilled_show)
 {
 	skill_t *sk;
 	BUFFER *buf;
-	char arg[MAX_INPUT_LENGTH];
 
-	one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0') {
+	if (IS_NULLSTR(argument)) {
 		if (IS_EDIT(ch, ED_SKILL))
 			EDIT_SKILL(ch, sk);
 		else
 			OLC_ERROR("'OLC ASHOW'");
 	} else {
-		if (!(sk = skill_search(arg))) {
+		if (!(sk = skill_search(argument))) {
 			act_puts("SkillEd: $t: no such skill.",
-				 ch, arg, NULL,
+				 ch, argument, NULL,
 				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 		}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: vo_iter.c,v 1.8 2001-08-26 16:15:44 fjoe Exp $
+ * $Id: vo_iter.c,v 1.9 2001-09-15 17:12:55 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -147,7 +147,30 @@ vo_foreach(void *cont, vo_iter_t *iter, vo_foreach_cb_t cb, ...)
 	void *vo, *vo_next;
 	va_list ap;
 	int ftag;
-	static int cnt;
+
+	if ((vo = vo_foreach_init(cont, iter, &ftag)) == 0)
+		return NULL;
+
+	va_start(ap, cb);
+	while (vo_foreach_cond(cont, iter, ftag, &vo, &vo_next)) {
+		if ((rv = cb(vo, ap)) != NULL)
+			break;
+
+		vo = vo_next;
+	}
+	va_end(ap);
+
+	vo_foreach_destroy(cont, iter, ftag, rv != NULL);
+
+	return rv;
+}
+
+static int cnt;
+
+void *
+vo_foreach_init(void *cont, vo_iter_t *iter, int *pftag)
+{
+	void *vo;
 
 	if (cnt < 0 || cnt > 7) {
 		log(LOG_BUG, "vo_foreach: cnt overflow (%d)", cnt);
@@ -169,47 +192,60 @@ vo_foreach(void *cont, vo_iter_t *iter, vo_foreach_cb_t cb, ...)
 	/*
 	 * mark all the objects in list
 	 */
-	ftag = (1 << cnt++);
+	*pftag = (1 << cnt++);
 	for (; vo != NULL; vo = iter->next(vo))
-		mem_tag(vo, ftag);
+		mem_tag(vo, *pftag);
 
-	va_start(ap, cb);
+	return iter->first(cont);
+}
 
-restart:
-	for (vo = iter->first(cont); vo != NULL; vo = vo_next) {
-		vo_next = iter->next(vo);
-
-		/*
-		 * skip untagged (already processed) objects
-		 */
-		if (!mem_tagged(vo, ftag))
-			continue;
-
-		/*
-		 * extracted object encountered -- just restart
-		 */
-		if (!mem_is(vo, iter->mem_type)) {
-			log(LOG_INFO, "vo_foreach: restarting (mt %d)\n", iter->mem_type);
-			goto restart;
-		}
-
-		/*
-		 * untag and process an object
-		 */
-		mem_untag(vo, ftag);
-		if ((rv = cb(vo, ap)) != NULL)
-			break;
-	}
-
+void
+vo_foreach_destroy(void *cont, vo_iter_t *iter, int ftag, bool untag)
+{
 	/*
 	 * untag objects that were not processed
 	 */
-	if (rv != NULL) {
+	if (untag) {
+		void *vo;
+
 		for (vo = iter->first(cont); vo != NULL; vo = iter->next(vo))
 			mem_untag(vo, ftag);
 	}
 
-	va_end(ap);
 	cnt--;
-	return rv;
+}
+
+bool
+vo_foreach_cond(void *cont, vo_iter_t *iter, int ftag,
+		void **pvo, void **pvo_next)
+{
+	while (*pvo != NULL) {
+		/*
+		 * skip untagged (already processed) objects
+		 */
+		if (!mem_tagged(*pvo, ftag)) {
+			*pvo = iter->next(*pvo);
+			continue;
+		}
+
+		/*
+		 * extracted object encountered -- restart
+		 */
+		if (!mem_is(*pvo, iter->mem_type)) {
+			log(LOG_INFO, "vo_foreach: restarting (mt %d)\n",
+			    iter->mem_type);
+			*pvo = iter->first(cont);
+			continue;
+		}
+
+		/*
+		 * untag object
+		 */
+		mem_untag(*pvo, ftag);
+
+		*pvo_next = iter->next(*pvo);
+		return TRUE;
+	}
+
+	return FALSE;
 }

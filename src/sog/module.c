@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.c,v 1.30 2001-09-13 16:22:22 fjoe Exp $
+ * $Id: module.c,v 1.31 2001-09-15 17:12:54 fjoe Exp $
  */
 
 /*
@@ -63,7 +63,7 @@ static module_t *modset_search	(varr *v, const char *name);
 static int	modset_elem_cmp	(const void *, const void *);
 static int	module_cmp	(const void *p, const void *q);
 
-static varrdata_t v_modset = {
+static varr_info_t c_info_modset = {
 	&varr_ops, NULL, NULL,
 
 	sizeof(module_t*), 4
@@ -77,7 +77,7 @@ mod_reload(module_t* m, time_t curr_time)
 {
 	varr v;
 
-	c_init(&v, &v_modset);
+	c_init(&v, &c_info_modset);
 
 	if (modset_add(&v, m, curr_time) < 0) {
 		c_destroy(&v);
@@ -123,7 +123,7 @@ mod_lookup(const char *name)
 	return c_foreach(&modules, mod_lookup_cb, name);
 }
 
-static varrdata_t v_modules = {
+static varr_info_t c_info_modules = {
 	&varr_ops, NULL, NULL,
 
 	sizeof(module_t), 2
@@ -136,7 +136,7 @@ boot_modules()
 	FILE *fp;
 	char buf[MAX_INPUT_LENGTH];
 
-	c_init(&modules, &v_modules);
+	c_init(&modules, &c_info_modules);
 
 	/*
 	 * read modules

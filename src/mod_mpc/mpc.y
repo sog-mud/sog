@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.39 2001-09-14 17:11:22 fjoe Exp $
+ * $Id: mpc.y,v 1.40 2001-09-15 17:12:42 fjoe Exp $
  */
 
 /*
@@ -65,7 +65,6 @@
 
 #include "mpc_impl.h"
 #include "mpc_const.h"
-#include "mpc_iter.h"
 
 #define YYPARSE_PARAM mpc
 #define YYPARSE_PARAM_TYPE mpcode_t *
@@ -366,7 +365,7 @@ stmt:	';'
 		/*
 		 * pop calculated value from stack
 		 */
-		code2(mpc, c_pop, (void *) $1);
+		code(mpc, c_pop);
 	}
 	| label
 	| if | switch | case_label | default | break | foreach | continue
@@ -457,7 +456,7 @@ switch:	L_SWITCH {
 		code(mpc, c_stop);
 	} stmt {
 		int addr;
-		int next_break_addr;
+		int next_jmp_addr;
 		varr *jumptab;
 
 		/*
@@ -473,8 +472,8 @@ switch:	L_SWITCH {
 		 * and emit address to jump
 		 */
 		for (; mpc->curr_break_addr != DELIMITER_ADDR;
-		     mpc->curr_break_addr = next_break_addr) {
-			next_break_addr = CODE(mpc->curr_break_addr)[0];
+		     mpc->curr_break_addr = next_jmp_addr) {
+			next_jmp_addr = CODE(mpc->curr_break_addr)[0];
 			CODE(mpc->curr_break_addr)[0] = c_size(&mpc->code);
 		}
 
@@ -582,8 +581,8 @@ foreach: L_FOREACH {
 		code2(mpc, (void *) INVALID_ADDR, (void *) INVALID_ADDR);
 	 } '(' L_IDENT ',' L_ITER '(' expr_list ')' ')' {
 		int i;
-		sym_t *sym;
 		iterdata_t *id;
+		sym_t *sym;
 		int addr;
 
 		SYM_LOOKUP(sym, $4, SYM_VAR);
@@ -591,25 +590,25 @@ foreach: L_FOREACH {
 		/*
 		 * check number of arguments
 		 */
-		if ($6->init.nargs != $8) {
+		if ($6->d.nargs != $8) {
 			compile_error(mpc,
 			    "%s: invalid number of arguments %d (%d expected)",
-			    $6->init.name, $8, $6->init.nargs);
+			    $6->d.name, $8, $6->d.nargs);
 			YYERROR;
 		}
 
 		/*
 		 * check argument types
 		 */
-		for (i = 0; i < $6->init.nargs; i++) {
+		for (i = 0; i < $6->d.nargs; i++) {
 			int got_type = argtype_get(mpc, $8, i);
-			if (got_type != $6->init.argtype[i].type_tag) {
+			if (got_type != $6->d.argtype[i].type_tag) {
 				compile_error(mpc,
 				    "%s: invalid arg[%d] type '%s' (type '%s' (%d) expected)",
-				    $6->init.name, i+1,
+				    $6->d.name, i+1,
 				    flag_string(mpc_types, got_type),
-				    flag_string(mpc_types, $6->init.argtype[i].type_tag),
-				    $6->init.argtype[i].type_tag);
+				    flag_string(mpc_types, $6->d.argtype[i].type_tag),
+				    $6->d.argtype[i].type_tag);
 				YYERROR;
 			}
 		}
@@ -626,18 +625,21 @@ foreach: L_FOREACH {
 		mpc->curr_continue_addr = DELIMITER_ADDR;
 		mpc->curr_break_addr = DELIMITER_ADDR;
 
-		id = (iterdata_t *) varr_enew(&mpc->iterdata);
+		id = varr_enew(&mpc->iters);
 		id->iter = $6;
+		id->ftag = 0;
+		id->block = ++mpc->curr_block;
+
 		code2(mpc, c_cleanup_syms, (void *) (mpc->curr_block + 1));
 		code(mpc, c_foreach_next);
-		code3(mpc, (void *) INVALID_ADDR, sym->name, id);
+		code3(mpc, (void *) INVALID_ADDR, id, sym->name);
 
 		/* body addr */
 		CODE(addr)[1] = c_size(&mpc->code);
 	} stmt {
 		int addr;
 		int body_addr;
-		int next_continue_addr;
+		int next_jmp_addr;
 
 		/* emit `continue' */
 		code(mpc, c_jmp);
@@ -647,12 +649,22 @@ foreach: L_FOREACH {
 		POP_ADDR(body_addr);
 
 		/*
+		 * traverse linked list of break addresses
+		 * and emit address to jump
+		 */
+		for (; mpc->curr_break_addr != DELIMITER_ADDR;
+		     mpc->curr_break_addr = next_jmp_addr) {
+			next_jmp_addr = CODE(mpc->curr_break_addr)[0];
+			CODE(mpc->curr_break_addr)[0] = c_size(&mpc->code);
+		}
+
+		/*
 		 * traverse linked list of continue addresses
 		 * and emit address to jump
 		 */
 		for (; mpc->curr_continue_addr != DELIMITER_ADDR;
-		     mpc->curr_continue_addr = next_continue_addr) {
-			next_continue_addr = CODE(mpc->curr_continue_addr)[0];
+		     mpc->curr_continue_addr = next_jmp_addr) {
+			next_jmp_addr = CODE(mpc->curr_continue_addr)[0];
 			CODE(mpc->curr_continue_addr)[0] = body_addr;
 		}
 
@@ -664,7 +676,7 @@ foreach: L_FOREACH {
 		CODE(addr)[0] = c_size(&mpc->code);
 		CODE(body_addr)[3] = c_size(&mpc->code);
 
-		code2(mpc, c_cleanup_syms, (void *) (mpc->curr_block + 1));
+		code2(mpc, c_cleanup_syms, (void *) mpc->curr_block--);
 	}
 	;
 
@@ -699,7 +711,7 @@ return:	L_RETURN comma_expr ';' {
 			YYERROR;
 		}
 
-		code3(mpc, c_pop, (void *) $2, c_return);
+		code(mpc, c_return);
 	}
 	;
 
@@ -999,7 +1011,7 @@ expr:	L_IDENT assign expr %prec '=' {
 	;
 
 comma_expr: expr	{ $$ = $1; }
-	| comma_expr	{ code2(mpc, c_pop, (void *) $1);
+	| comma_expr	{ code(mpc, c_pop);
 	} ',' expr	{ $$ = $4; }
 	;
 
@@ -1034,7 +1046,7 @@ struct codeinfo_t {
 typedef struct codeinfo_t codeinfo_t;
 
 struct codeinfo_t codetab[] = {
-	{ c_pop,		"pop",			1 },
+	{ c_pop,		"pop",			0 },
 	{ c_push_const,		"push_const",		1 },
 	{ c_push_var,		"push_var",		1 },
 	{ c_push_retval,	"push_retval",		3 },
@@ -1195,10 +1207,10 @@ mpcode_dump(mpcode_t *mpc)
 				" (next: 0x%08x, body: 0x%08x)",
 				CODE(ip)[1], CODE(ip)[2]);
 		} else if (p == c_foreach_next) {
-			fprintf(stderr, " (next: 0x%08x, %s, iter: %s)",
+			fprintf(stderr, " (next: 0x%08x, iter: %s, var: %s)",
 				CODE(ip)[1],
-				(const char *) CODE(ip)[2],
-				((iterdata_t *) CODE(ip)[3])->iter->init.name);
+				((iterdata_t *) CODE(ip)[2])->iter->d.name,
+				(const char *) CODE(ip)[3]);
 		} else if (p == c_declare || p == c_declare_assign) {
 			fprintf(stderr, " (%d %s, block: %d)",
 				CODE(ip)[2],
@@ -1237,8 +1249,8 @@ sym_lookup(mpcode_t *mpc, const char *name)
 	return (sym_t *) c_lookup(&mpc->syms, name);
 }
 
-static void *
-find_block_cb(void *p, va_list ap)
+static
+FOREACH_CB_FUN(find_var_cb, p, ap)
 {
 	sym_t *sym = (sym_t *) p;
 	int block = va_arg(ap, int);
@@ -1249,13 +1261,27 @@ find_block_cb(void *p, va_list ap)
 	return NULL;
 }
 
+static
+FOREACH_CB_FUN(iter_destroy_cb, p, ap)
+{
+	iterdata_t *id = (iterdata_t *) p;
+	int block = va_arg(ap, int);
+
+	if (id->block >= block && id->ftag) {
+		id->iter->destroy(id);
+		id->ftag = 0;
+	}
+
+	return NULL;
+}
+
 void
 cleanup_syms(mpcode_t *mpc, int block)
 {
 	for (; ;) {
 		sym_t *sym;
 
-		sym = (sym_t *) c_foreach(&mpc->syms, find_block_cb, block);
+		sym = (sym_t *) c_foreach(&mpc->syms, find_var_cb, block);
 		if (sym == NULL)
 			break;
 
@@ -1263,8 +1289,11 @@ cleanup_syms(mpcode_t *mpc, int block)
 			log(LOG_INFO, "%s: %s (%d)",
 			    __FUNCTION__, sym->name, sym->s.var.block);
 		}
+
 		c_delete(&mpc->syms, sym->name);
 	}
+
+	c_foreach(&mpc->iters, iter_destroy_cb, block);
 }
 
 void
@@ -1403,14 +1432,11 @@ _mprog_compile(mprog_t *mp)
 	c_erase(&mpc->code);
 
 	c_erase(&mpc->jumptabs);
-	c_erase(&mpc->iterdata);
+	c_erase(&mpc->iters);
 
 	mpc->curr_jumptab = -1;
 	mpc->curr_break_addr = INVALID_ADDR;
 	mpc->curr_continue_addr = INVALID_ADDR;
-
-	if (var_add(mpc, "$_", MT_INT) < 0)
-		return MPC_ERR_COMPILE;
 
 	switch (mpc->mp->type) {
 	case MP_T_MOB:
@@ -1448,6 +1474,12 @@ _mprog_compile(mprog_t *mp)
 	||  !IS_NULLSTR(buf_string(mpc->mp->errbuf)))
 		return MPC_ERR_COMPILE;
 
+	if (c_size(&mpc->code) == 0
+	||  *(void**) VARR_GET(&mpc->code, c_size(&mpc->code) - 1) != c_return) {
+		compile_error(mpc, "missing return");
+		return MPC_ERR_COMPILE;
+	}
+
 	if (IS_SET(mpc->mp->flags, MP_F_TRACE))
 		mpcode_dump(mpc);
 
@@ -1471,7 +1503,6 @@ _mprog_compile(mprog_t *mp)
 int
 _mprog_execute(mprog_t *mp, void *arg1, void *arg2, void *arg3, void *arg4)
 {
-	sym_t *sym;
 	mpcode_t *mpc;
 	int rv;
 
@@ -1520,30 +1551,14 @@ _mprog_execute(mprog_t *mp, void *arg1, void *arg2, void *arg3, void *arg4)
 		break;
 	}
 
+	mpc->curr_block = 0;
+
 	if ((rv = setjmp(mpc->jmpbuf)) == 0)
 		execute(mpc, 0);
 	else if (rv < 0)
 		goto err;
 
-	if ((sym = (sym_t *) c_lookup(&mpc->syms, "$_")) == NULL) {
-		fprintf(stderr, "Runtime error: %s: %s: symbol not found\n",
-			__FUNCTION__, "$_");
-		execerr(MPC_ERR_RUNTIME);
-	}
-
-	if (sym->type != SYM_VAR) {
-		fprintf(stderr, "Runtime error: %s: not a %d (got symtype %d)\n",
-			sym->name, SYM_VAR, sym->type);
-		execerr(MPC_ERR_RUNTIME);
-	}
-
-	if (sym->s.var.data.i < 0) {
-		fprintf(stderr, "Error: %s: %s: return value < 0",
-			__FUNCTION__, mpc->name);
-		execerr(MPC_ERR_RUNTIME);
-	}
-
-	rv = sym->s.var.data.i;
+	rv = mpc->retval;
 
 err:
 	cleanup_syms(mpc, 0);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.c,v 1.4 2001-09-13 16:22:24 fjoe Exp $
+ * $Id: sog.c,v 1.5 2001-09-15 17:12:55 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -56,19 +56,13 @@ static void	log_area_popularity(void);
 static void	gettimeofday(struct timeval *tp, void *tzp);
 #endif
 
-static varrdata_t v_control_sockets = {
+static varr_info_t c_info_sockets = {
 	&varr_ops, NULL, NULL,
 
 	sizeof(int), 2
 };
 
-static varrdata_t v_info_sockets = {
-	&varr_ops, NULL, NULL,
-
-	sizeof(int), 2
-};
-
-static varrdata_t v_info_trusted = {
+static varr_info_t c_info_trusted = {
 	&varr_ops, NULL, NULL,
 
 	sizeof(struct in_addr), 2
@@ -115,9 +109,9 @@ main(int argc, char **argv)
 	resolver_init();
 #endif
 
-	c_init(&control_sockets, &v_control_sockets);
-	c_init(&info_sockets, &v_info_sockets);
-	c_init(&info_trusted, &v_info_trusted);
+	c_init(&control_sockets, &c_info_sockets);
+	c_init(&info_sockets, &c_info_sockets);
+	c_init(&info_trusted, &c_info_trusted);
 
 	opterr = 0;
 	while ((ch = getopt(argc, argv, "p:i:")) != -1) { // notrans

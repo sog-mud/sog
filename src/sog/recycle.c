@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.135 2001-09-13 16:22:24 fjoe Exp $
+ * $Id: recycle.c,v 1.136 2001-09-15 17:12:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -394,7 +394,7 @@ saff_destroy(saff_t *sa)
 	free_string(sa->type);
 }
 
-static varrdata_t v_sk_affected =
+static varr_info_t c_info_sk_affected =
 {
 	&varr_ops,
 
@@ -411,7 +411,7 @@ pc_skill_init(pc_skill_t *pc_sk)
 	pc_sk->percent = 0;
 }
 
-static varrdata_t v_learned =
+static varr_info_t c_info_learned =
 {
 	&varr_ops,
 
@@ -421,7 +421,7 @@ static varrdata_t v_learned =
 	sizeof(pc_skill_t), 8
 };
 
-static varrdata_t v_specs =
+static varr_info_t c_info_pcspecs =
 {
 	&varr_ops,
 
@@ -492,7 +492,7 @@ char_new(MOB_INDEX_DATA *pMobIndex)
 	ch->luck		= 50;
 	ch->luck_mod		= 0;
 
-	c_init(&ch->sk_affected, &v_sk_affected);
+	c_init(&ch->sk_affected, &c_info_sk_affected);
 
 	if (pMobIndex) {
 		ch->pMobIndex = pMobIndex;
@@ -505,8 +505,8 @@ char_new(MOB_INDEX_DATA *pMobIndex)
 		pc->version = PFILE_VERSION;
 		pc->buffer = buf_new(0);
 
-		c_init(&pc->learned, &v_learned);
-		c_init(&pc->specs, &v_specs);
+		c_init(&pc->learned, &c_info_learned);
+		c_init(&pc->specs, &c_info_pcspecs);
 
 		pc->pwd = str_empty;
 		pc->bamfin = str_empty;
@@ -1079,7 +1079,7 @@ evf_destroy(evf_t *evf)
 	free_string(evf->fun_name);
 }
 
-static varrdata_t v_evf =
+static varr_info_t c_info_evf =
 {
 	&varr_ops,
 
@@ -1107,7 +1107,7 @@ skill_init(skill_t *sk)
 	sk->restrict_race = str_empty;
 	sk->group = 0;
 	sk->skill_type = 0;
-	c_init(&sk->events, &v_evf);
+	c_init(&sk->events, &c_info_evf);
 }
 
 static void
@@ -1179,7 +1179,7 @@ spec_skill_init(spec_skill_t *spec_sk)
 	spec_sk->max = 100;
 }
 
-static varrdata_t v_spec_skills =
+static varr_info_t c_info_spec_skills =
 {
 	&varr_ops,
 
@@ -1195,7 +1195,7 @@ spec_init(spec_t *spec)
 	spec->spec_name = str_empty;
 	spec->spec_class = 0;
 
-	c_init(&spec->spec_skills, &v_spec_skills);
+	c_init(&spec->spec_skills, &c_info_spec_skills);
 	trig_init(&spec->mp_trig);
 	spec->mp_trig.trig_type = TRIG_SPEC;
 }
@@ -1345,7 +1345,7 @@ social_destroy(social_t *soc)
 	mlstr_destroy(&soc->notfound_char);
 }
 
-varrdata_t v_socials =
+varr_info_t c_info_socials =
 {
 	&varr_ops,
 
@@ -1373,7 +1373,7 @@ hint_destroy(hint_t *t)
 	mlstr_destroy(&t->phrase);
 }
 
-varrdata_t v_hints =
+varr_info_t c_info_hints =
 {
 	&varr_ops,
 

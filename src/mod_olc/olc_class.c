@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.35 2001-09-14 10:01:08 fjoe Exp $
+ * $Id: olc_class.c,v 1.36 2001-09-15 17:12:47 fjoe Exp $
  */
 
 #include "olc.h"
@@ -361,13 +361,15 @@ OLC_FUN(classed_stats)
 
 	for (i = 0; i < MAX_STAT; i++) {
 		argument = one_argument(argument, arg, sizeof(arg));
-		if (*arg == '\0') break;
+		if (*arg == '\0')
+			break;
 		val = strtol(arg, &endptr, 0);
-		if (*arg == '\0' || *endptr != '\0') break;
+		if (*arg == '\0' || *endptr != '\0')
+			break;
 		class->mod_stat[i] = val;
 		st = TRUE;
 	}
-	
+
 	if (!st) {
 		act_puts("Syntax: $t <attr1> <attr2> ...",
 			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.h,v 1.19 2001-09-13 16:21:50 fjoe Exp $
+ * $Id: cmd.h,v 1.20 2001-09-15 17:12:31 fjoe Exp $
  */
 
 #ifndef _CMD_H_
@@ -63,7 +63,7 @@ struct cmd_t
 };
 
 extern varr commands;
-extern varrdata_t v_commands;
+extern varr_info_t c_info_commands;
 
 #define cmd_lookup(name)	((cmd_t *) c_strkey_lookup(&commands, (name)))
 #define cmd_search(name)	((cmd_t *) c_strkey_search(&commands, (name)))

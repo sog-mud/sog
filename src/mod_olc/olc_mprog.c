@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mprog.c,v 1.9 2001-09-14 10:01:09 fjoe Exp $
+ * $Id: olc_mprog.c,v 1.10 2001-09-15 17:12:48 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -162,7 +162,7 @@ OLC_FUN(mped_show)
 
 	if (!IS_NULLSTR(mp->text)) {
 		buf_append(output, "Code:\n");
-		buf_append(output, mp->text);
+		buf_append(output, strdump(mp->text, DL_NONE));
 	}
 
 	page_to_char(buf_string(output), ch);

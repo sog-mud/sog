@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.59 2001-09-14 10:08:50 fjoe Exp $
+ * $Id: olc_msg.c,v 1.60 2001-09-15 17:12:49 fjoe Exp $
  */
 
 #include "olc.h"
@@ -80,7 +80,7 @@ OLC_FUN(msged_create)
 		return FALSE;
 	}
 
-	if (argument[0] == '\0')
+	if (IS_NULLSTR(argument))
 		OLC_ERROR("'OLC CREATE'");
 
 	arg = atomsg(argument);
@@ -115,7 +115,7 @@ OLC_FUN(msged_edit)
 		return FALSE;
 	}
 
-	if (argument[0] == '\0')
+	if (IS_NULLSTR(argument))
 		OLC_ERROR("'OLC EDIT'");
 
 	if ((mlp = msg_search(atomsg(argument))) == NULL) {
@@ -170,7 +170,7 @@ OLC_FUN(msged_show)
 	BUFFER *output;
 	mlstring *mlp;
 
-	if (argument[0] == '\0') {
+	if (IS_NULLSTR(argument)) {
 		if (IS_EDIT(ch, ED_MSG))
 			EDIT_MSG(ch, mlp);
 		else
@@ -213,9 +213,9 @@ OLC_FUN(msged_list)
 	int num = 0;
 	BUFFER *output;
 
-	if (argument[0] == '\0')
+	if (IS_NULLSTR(argument))
 		OLC_ERROR("'OLC ALIST'");
-	
+
 	argument = atomsg(argument);
 	output = buf_new(0);
 	c_foreach(&msgdb, msged_list_cb, atomsg(argument), &num, output);
@@ -231,8 +231,6 @@ OLC_FUN(msged_msg)
 {
 	char arg[MAX_INPUT_LENGTH];
 	argument = one_argument(argument, arg, sizeof(arg));
-	if (argument[0] == '.')
-		argument++;
 	return _olced_mlstrkey(ch, arg, atomsg(argument), cmd);
 }
 
@@ -291,7 +289,8 @@ msg_search(const char *argument)
 	return c_foreach(&msgdb, msg_search_cb, &num, name);
 }
 
-static const char *atomsg(const char *argument)
+static const char *
+atomsg(const char *argument)
 {
 	static char buf[MAX_STRING_LENGTH];
 	const char *i;

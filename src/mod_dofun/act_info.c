@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.405 2001-09-13 17:54:12 fjoe Exp $
+ * $Id: act_info.c,v 1.406 2001-09-15 17:12:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4319,7 +4319,7 @@ DO_FUN(do_commands, ch, argument)
 	size_t i;
 	varr v;
 
-	c_init(&v, &v_commands);
+	c_init(&v, &c_info_commands);
 	c_foreach(&commands, copy_cname_cb, &v);
 	varr_qsort(&v, cmpstr);
 
@@ -4355,7 +4355,7 @@ DO_FUN(do_wizhelp, ch, argument)
 		return;
 	}
 
-	c_init(&v, &v_commands);
+	c_init(&v, &c_info_commands);
 	c_foreach(&commands, copy_cname_cb, &v);
 	varr_qsort(&v, cmpstr);
 

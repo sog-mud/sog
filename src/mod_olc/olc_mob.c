@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.86 2001-09-13 16:22:13 fjoe Exp $
+ * $Id: olc_mob.c,v 1.87 2001-09-15 17:12:48 fjoe Exp $
  */
 
 #include "olc.h"
@@ -533,8 +533,7 @@ OLC_FUN(mobed_shop)
 
 	EDIT_MOB(ch, pMob);
 
-	if (command[0] == '\0')
-	{
+	if (command[0] == '\0') {
 		act_char("Syntax:  shop hours [#xopening] [#xclosing]", ch);
 		act_char("         shop profit [#xbuying%] [#xselling%]", ch);
 		act_char("         shop type [#x0-4] [item type]", ch);
@@ -543,18 +542,14 @@ OLC_FUN(mobed_shop)
 		return FALSE;
 	}
 
-
-	if (!str_cmp(command, "hours"))
-	{
+	if (!str_cmp(command, "hours")) {
 		if (arg1[0] == '\0' || !is_number(arg1)
-		|| argument[0] == '\0' || !is_number(argument))
-		{
+		|| argument[0] == '\0' || !is_number(argument)) {
 			act_char("Syntax:  shop hours [#xopening] [#xclosing]", ch);
 			return FALSE;
 		}
 
-		if (!pMob->pShop)
-		{
+		if (!pMob->pShop) {
 			act_char("MobEd:  Debes crear un shop primero (shop assign).", ch);
 			return FALSE;
 		}
@@ -567,17 +562,14 @@ OLC_FUN(mobed_shop)
 	}
 
 
-	if (!str_cmp(command, "profit"))
-	{
+	if (!str_cmp(command, "profit")) {
 		if (arg1[0] == '\0' || !is_number(arg1)
-		|| argument[0] == '\0' || !is_number(argument))
-		{
+		|| argument[0] == '\0' || !is_number(argument)) {
 			act_char("Syntax:  shop profit [#xbuying%] [#xselling%]", ch);
 			return FALSE;
 		}
 
-		if (!pMob->pShop)
-		{
+		if (!pMob->pShop) {
 			act_char("MobEd:  Debes crear un shop primero (shop assign).", ch);
 			return FALSE;
 		}
@@ -634,17 +626,15 @@ OLC_FUN(mobed_shop)
 
 	/* shop assign && shop delete by Phoenix */
 
-	if (!str_prefix(command, "assign"))
-	{
-		if (pMob->pShop)
-		{
-		 	act_char("Mob already has a shop assigned to it.", ch);
-		 	return FALSE;
+	if (!str_prefix(command, "assign")) {
+		if (pMob->pShop) {
+			act_char("Mob already has a shop assigned to it.", ch);
+			return FALSE;
 		}
 
 		pMob->pShop		= new_shop();
 		if (!shop_first)
-		 	shop_first	= pMob->pShop;
+			shop_first	= pMob->pShop;
 		if (shop_last)
 			shop_last->next	= pMob->pShop;
 		shop_last		= pMob->pShop;
@@ -655,39 +645,30 @@ OLC_FUN(mobed_shop)
 		return TRUE;
 	}
 
-	if (!str_prefix(command, "remove"))
-	{
+	if (!str_prefix(command, "remove")) {
 		SHOP_DATA *pShop;
 
 		pShop		= pMob->pShop;
 		pMob->pShop	= NULL;
 
-		if (pShop == shop_first)
-		{
-			if (!pShop->next)
-			{
-			shop_first = NULL;
-			shop_last = NULL;
-			}
-			else
-			shop_first = pShop->next;
-		}
-		else
-		{
+		if (pShop == shop_first) {
+			if (!pShop->next) {
+				shop_first = NULL;
+				shop_last = NULL;
+			} else
+				shop_first = pShop->next;
+		} else {
 			SHOP_DATA *ipShop;
 
-			for (ipShop = shop_first; ipShop; ipShop = ipShop->next)
-			{
-			if (ipShop->next == pShop)
-			{
-				if (!pShop->next)
-				{
+			for (ipShop = shop_first; ipShop; ipShop = ipShop->next) {
+				if (ipShop->next != pShop)
+					continue;
+
+				if (!pShop->next) {
 					shop_last = ipShop;
 					shop_last->next = NULL;
-				}
-				else
+				} else
 					ipShop->next = pShop->next;
-			}
 			}
 		}
 
@@ -756,48 +737,46 @@ OLC_FUN(mobed_ac)
 	char arg[MAX_INPUT_LENGTH];
 	int pierce, bash, slash, exotic;
 
-	do   /* So that I can use break and send the syntax in one place */
-	{
-		if (argument[0] == '\0')  break;
+	do {  /* So that I can use break and send the syntax in one place */
+		if (argument[0] == '\0')
+			break;
 
 		EDIT_MOB(ch, pMob);
 		argument = one_argument(argument, arg, sizeof(arg));
 
-		if (!is_number(arg))  break;
+		if (!is_number(arg))
+			break;
 		pierce = atoi(arg);
 		argument = one_argument(argument, arg, sizeof(arg));
 
-		if (arg[0] != '\0')
-		{
-			if (!is_number(arg))  break;
+		if (arg[0] != '\0') {
+			if (!is_number(arg))
+				break;
 			bash = atoi(arg);
 			argument = one_argument(argument, arg, sizeof(arg));
-		}
-		else
+		} else
 			bash = pMob->ac[AC_BASH];
 
-		if (arg[0] != '\0')
-		{
-			if (!is_number(arg))  break;
+		if (arg[0] != '\0') {
+			if (!is_number(arg))
+				break;
 			slash = atoi(arg);
 			argument = one_argument(argument, arg, sizeof(arg));
-		}
-		else
+		} else
 			slash = pMob->ac[AC_SLASH];
 
-		if (arg[0] != '\0')
-		{
-			if (!is_number(arg))  break;
+		if (arg[0] != '\0') {
+			if (!is_number(arg))
+				break;
 			exotic = atoi(arg);
-		}
-		else
+		} else
 			exotic = pMob->ac[AC_EXOTIC];
 
 		pMob->ac[AC_PIERCE] = pierce;
 		pMob->ac[AC_BASH]   = bash;
 		pMob->ac[AC_SLASH]  = slash;
 		pMob->ac[AC_EXOTIC] = exotic;
-		
+
 		act_char("Ac set.", ch);
 		return TRUE;
 	} while (FALSE);    /* Just do it once.. */
@@ -954,24 +933,23 @@ OLC_FUN(mobed_group)
 	int temp;
 	BUFFER *buffer;
 	bool found = FALSE;
-	
+
 	EDIT_MOB(ch, pMob);
-	
+
 	if (argument[0] == '\0') {
 		act_char("Syntax: group [number]", ch);
 		act_char("        group show [number]", ch);
 		return FALSE;
 	}
-	
-	if (is_number(argument))
-	{
+
+	if (is_number(argument)) {
 		pMob->group = atoi(argument);
 		act_char("Group set.", ch);
 		return TRUE;
 	}
-	
+
 	argument = one_argument(argument, arg, sizeof(arg));
-	
+
 	if (!strcmp(arg, "show") && is_number(argument)) {
 		if (atoi(argument) == 0) {
 			act_char("Are you crazy?", ch);

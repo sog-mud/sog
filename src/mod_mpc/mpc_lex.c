@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_lex.c,v 1.20 2001-09-13 16:22:09 fjoe Exp $
+ * $Id: mpc_lex.c,v 1.21 2001-09-15 17:12:44 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -41,7 +41,6 @@
 #include <mprog.h>
 
 #include "mpc_impl.h"
-#include "mpc_iter.h"
 #include "mpc.h"
 
 /*--------------------------------------------------------------------
@@ -394,7 +393,7 @@ mpc_lex(mpcode_t *mpc)
 				return L_TYPE;
 			}
 
-			if ((iter = iter_lookup(yytext)) != NULL) {
+			if ((iter = mpc_iter_lookup(yytext)) != NULL) {
 				mpc_lval.iter = iter;
 				return L_ITER;
 			}

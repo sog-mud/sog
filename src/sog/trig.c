@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.18 2001-09-13 19:59:43 fjoe Exp $
+ * $Id: trig.c,v 1.19 2001-09-15 17:12:55 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -86,7 +86,7 @@ trig_fwrite(const char *pre, trig_t *trig, FILE *fp)
 		trig->trig_prog, trig->trig_arg);
 }
 
-static varrdata_t v_trigs = {
+static varr_info_t c_info_trigs = {
 	&varr_ops,
 
 	(e_init_t) trig_init,
@@ -98,7 +98,7 @@ static varrdata_t v_trigs = {
 void
 trig_init_list(varr *v)
 {
-	c_init(v, &v_trigs);
+	c_init(v, &c_info_trigs);
 }
 
 void

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_cmd.c,v 1.24 2001-09-13 17:54:14 fjoe Exp $
+ * $Id: olc_cmd.c,v 1.25 2001-09-15 17:12:47 fjoe Exp $
  */
 
 #include "olc.h"
@@ -179,8 +179,7 @@ OLC_FUN(cmded_show)
 			EDIT_CMD(ch, cmnd);
 		else
 			OLC_ERROR("'OLC ASHOW'");
-	}
-	else {
+	} else {
 		if (!(cmnd = cmd_search(arg))) {
 			act_puts("CmdEd: $t: No such command.",
 				 ch, arg, NULL,

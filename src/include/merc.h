@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.367 2001-09-13 18:56:54 fjoe Exp $
+ * $Id: merc.h,v 1.368 2001-09-15 17:12:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2238,7 +2238,7 @@ struct social_t
 typedef struct social_t social_t;
 
 extern varr socials;
-extern varrdata_t v_socials;
+extern varr_info_t c_info_socials;
 
 #define social_lookup(name)	((social_t *) c_strkey_lookup(&socials, (name)))
 #define social_search(name)	((social_t *) c_strkey_search(&socials, (name)))
@@ -2271,7 +2271,7 @@ typedef struct {
 } hint_t;
 
 extern varr hints;
-extern varrdata_t v_hints;
+extern varr_info_t c_info_hints;
 
 /*----------------------------------------------------------------------
  * rating stuff

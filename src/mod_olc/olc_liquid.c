@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_liquid.c,v 1.22 2001-09-14 10:01:09 fjoe Exp $
+ * $Id: olc_liquid.c,v 1.23 2001-09-15 17:12:47 fjoe Exp $
  */
 
 #include "olc.h"
@@ -75,24 +75,22 @@ static void *liquid_save_cb(void *p, va_list ap);
 OLC_FUN(liqed_create)
 {
 	liquid_t *lq;
-	char arg[MAX_INPUT_LENGTH];
 
 	if (PC(ch)->security < SECURITY_MATERIAL) {
 		act_char("LiqEd: Insufficient security for creating liquids.", ch);
 		return FALSE;
 	}
 
-	one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0')
+	if (IS_NULLSTR(argument))
 		OLC_ERROR("'OLC CREATE'");
 
-	if ((lq = c_insert(&liquids, arg)) == NULL) {
+	if ((lq = c_insert(&liquids, argument)) == NULL) {
 		act_puts("LiqEd: $t: already exists.",
-			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+			 ch, argument, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
-	mlstr_init2(&lq->lq_name.ml, arg);
+	mlstr_init2(&lq->lq_name.ml, argument);
 	OLCED(ch)	= olced_lookup(ED_LIQUID);
 	ch->desc->pEdit = lq;
 	act_char("Liquid created.", ch);
@@ -103,20 +101,18 @@ OLC_FUN(liqed_create)
 OLC_FUN(liqed_edit)
 {
 	liquid_t *lq;
-	char arg[MAX_INPUT_LENGTH];
 
 	if (PC(ch)->security < SECURITY_MATERIAL) {
 		act_char("LiqEd: Insufficient security.", ch);
 		return FALSE;
 	}
 
-	one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0')
+	if (IS_NULLSTR(argument))
 		OLC_ERROR("'OLC EDIT'");
 
-	if (!(lq = liquid_search(arg))) {
+	if (!(lq = liquid_search(argument))) {
 		act_puts("LiqEd: $t: No such liquid.",
-			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+			 ch, argument, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
@@ -178,19 +174,17 @@ OLC_FUN(liqed_show)
 	liquid_t *lq;
 	int i;
 	BUFFER *buf;
-	char arg[MAX_INPUT_LENGTH];
 
-	one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0') {
+	if (IS_NULLSTR(argument)) {
 		if (IS_EDIT(ch, ED_LIQUID))
 			EDIT_LIQ(ch, lq);
 		else
 			OLC_ERROR("'OLC ASHOW'");
-	} else if ((lq = liquid_search(arg)) == NULL) {
-			act_puts("LiqEd: $t: no such liquid.",
-				 ch, arg, NULL,
-				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
-			return FALSE;
+	} else if ((lq = liquid_search(argument)) == NULL) {
+		act_puts("LiqEd: $t: no such liquid.",
+			 ch, argument, NULL,
+			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
+		return FALSE;
 	}
 
 	buf = buf_new(0);

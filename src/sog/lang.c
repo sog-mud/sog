@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.38 2001-09-13 17:54:15 fjoe Exp $
+ * $Id: lang.c,v 1.39 2001-09-15 17:12:54 fjoe Exp $
  */
 
 #include <string.h>
@@ -176,7 +176,7 @@ cmprule(const void *p1, const void *p2)
 	return -str_cmp(((const rule_t*) p1)->name, ((const rule_t*) p2)->name);
 }
 
-static varrdata_t v_forms =
+static varr_info_t c_info_vforms =
 {
 	&varr_ops,
 
@@ -191,7 +191,7 @@ rule_init(rule_t *r)
 {
 	r->name = NULL;
 	r->arg = 0;
-	c_init(&r->forms, &v_forms);
+	c_init(&r->forms, &c_info_vforms);
 }
 
 void
@@ -323,7 +323,7 @@ erule_lookup(rulecl_t *rcl, const char *name)
  * rulecl_t functions
  */
 
-static varrdata_t v_rule =
+static varr_info_t c_info_rules =
 {
 	&varr_ops,
 
@@ -343,8 +343,8 @@ rulecl_init(lang_t *l, size_t rulecl)
 	rcl->file_expl = str_empty;
 	rcl->file_impl = str_empty;
 	for (i = 0; i < MAX_RULE_HASH; i++)
-		c_init(rcl->expl+i, &v_rule);
-	c_init(&rcl->impl, &v_rule);
+		c_init(rcl->expl+i, &c_info_rules);
+	c_init(&rcl->impl, &c_info_rules);
 	rcl->rcl_flags = 0;
 }
 
@@ -367,7 +367,7 @@ lang_init(lang_t *l)
 		rulecl_init(l, i);
 }
 
-varrdata_t v_langs =
+varr_info_t c_info_langs =
 {
 	&varr_ops,
 

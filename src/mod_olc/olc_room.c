@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.95 2001-09-07 19:34:40 fjoe Exp $
+ * $Id: olc_room.c,v 1.96 2001-09-15 17:12:49 fjoe Exp $
  */
 
 #include "olc.h"
@@ -675,7 +675,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 	if (!str_cmp(command, "delete")) {
 		ROOM_INDEX_DATA *pToRoom;
 		int rev;                                     /* ROM OLC */
-		
+
 		if (!pRoom->exit[door]) {
 			act_char("RoomEd: Cannot delete a null exit.", ch);
 			return FALSE;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.301 2001-09-14 18:12:05 fjoe Exp $
+ * $Id: act_wiz.c,v 1.302 2001-09-15 17:12:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2769,7 +2769,7 @@ DO_FUN(do_string, ch, argument)
 	if (!str_prefix(type, "object")) {
 		/* string an obj */
 
-		if ((obj = get_obj_room(ch, arg1)) == NULL) {
+		if ((obj = get_obj_here_all(ch, arg1)) == NULL) {
 			act_char("Nothing like that in heaven or earth.", ch);
 			return;
 		}

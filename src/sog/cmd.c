@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.c,v 1.23 2001-09-13 16:22:20 fjoe Exp $
+ * $Id: cmd.c,v 1.24 2001-09-15 17:12:53 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -59,7 +59,7 @@ cmd_destroy(cmd_t *cmd)
 	free_string(cmd->dofun_name);
 }
 
-varrdata_t v_commands =
+varr_info_t c_info_commands =
 {
 	&varr_ops,
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.h,v 1.30 2001-09-13 17:54:10 fjoe Exp $
+ * $Id: varr.h,v 1.31 2001-09-15 17:12:33 fjoe Exp $
  */
 
 #ifndef _VARR_H_
@@ -31,7 +31,7 @@
 
 extern c_ops_t varr_ops;
 
-typedef struct varrdata_t {
+typedef struct varr_info_t {
 	c_ops_t *ops;			/**< container ops		*/
 
 	e_init_t e_init;		/**< init elem			*/
@@ -39,11 +39,11 @@ typedef struct varrdata_t {
 
 	size_t nsize;			/**< size of elem		*/
 	size_t nstep;			/**< allocation step		*/
-} varrdata_t;
+} varr_info_t;
 
 typedef struct varr varr;
 struct varr {
-	varrdata_t *v_data;
+	varr_info_t *v_data;
 
 	void *p;
 

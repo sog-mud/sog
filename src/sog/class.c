@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.36 2001-09-13 16:22:20 fjoe Exp $
+ * $Id: class.c,v 1.37 2001-09-15 17:12:53 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -32,7 +32,7 @@
 
 avltree_t classes;
 
-static varrdata_t v_guilds = {
+static varr_info_t c_info_guilds = {
 	&varr_ops, NULL, NULL,
 
 	sizeof(int), 4
@@ -52,7 +52,7 @@ pose_destroy(pose_t *p)
 	free_string(p->others);
 }
 
-static varrdata_t v_poses =
+static varr_info_t c_info_poses =
 {
 	&varr_ops,
 
@@ -84,8 +84,8 @@ class_init(class_t *cl)
 	cl->luck_bonus = 0;
 	cl->skill_spec = str_empty;
 
-	c_init(&cl->guilds, &v_guilds);
-	c_init(&cl->poses, &v_poses);
+	c_init(&cl->guilds, &c_info_guilds);
+	c_init(&cl->poses, &c_info_poses);
 	for (i = 0; i < MAX_STAT; i++)
 		cl->mod_stat[i] = 0;
 }

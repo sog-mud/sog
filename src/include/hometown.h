@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hometown.h,v 1.10 2001-09-04 19:32:39 fjoe Exp $
+ * $Id: hometown.h,v 1.11 2001-09-15 17:12:32 fjoe Exp $
  */
 
 #ifndef _HOMETOWN_H_
@@ -46,7 +46,7 @@ struct hometown_t {
 };
 
 extern varr hometowns;
-extern varrdata_t v_hometowns;
+extern varr_info_t c_info_hometowns;
 
 int		htn_lookup	(const char *name);
 const char *	hometown_name	(int htn);
