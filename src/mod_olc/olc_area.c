@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.14 1998-10-09 13:43:14 fjoe Exp $
+ * $Id: olc_area.c,v 1.15 1998-10-14 11:05:24 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -149,15 +149,17 @@ OLC_FUN(areaed_show)
 	EDIT_AREA(ch, pArea);
 	char_printf(ch, "Name:     [%5d] %s\n\r", pArea->vnum, pArea->name);
 	char_printf(ch, "File:     %s\n\r", pArea->file_name);
-	char_printf(ch, "Vnums:    [%d-%d]\n\r", pArea->min_vnum, pArea->max_vnum);
-	char_printf(ch, "Levels:   [%d-%d]\n\r", pArea->min_level, pArea->max_level);
+	char_printf(ch, "Vnums:    [%d-%d]\n\r",
+		    pArea->min_vnum, pArea->max_vnum);
+	char_printf(ch, "Levels:   [%d-%d]\n\r",
+		    pArea->min_level, pArea->max_level);
 	char_printf(ch, "Age:      [%d]\n\r",	pArea->age);
 	char_printf(ch, "Players:  [%d]\n\r", pArea->nplayer);
 	char_printf(ch, "Security: [%d]\n\r", pArea->security);
 	if (!IS_NULLSTR(pArea->builders))
 		char_printf(ch, "Builders: [%s]\n\r", pArea->builders);
 	if (!IS_NULLSTR(pArea->credits))
-		char_printf(ch, "Credits : [%s]\n\r", pArea->credits);
+		char_printf(ch, "Credits:  [%s]\n\r", pArea->credits);
 	char_printf(ch, "Flags:    [%s]\n\r",
 			flag_string(area_flags, pArea->flags));
 	return FALSE;

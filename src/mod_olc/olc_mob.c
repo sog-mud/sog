@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.15 1998-10-13 12:38:26 fjoe Exp $
+ * $Id: olc_mob.c,v 1.16 1998-10-14 11:05:25 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -791,27 +791,25 @@ OLC_FUN(mobed_trigadd)
 	MPTRIG *mptrig;
 	MPCODE *mpcode;
 	char trigger[MAX_STRING_LENGTH];
-	char phrase[MAX_STRING_LENGTH];
 	char num[MAX_STRING_LENGTH];
 
 	EDIT_MOB(ch, pMob);
-	argument=one_argument(argument, num);
-	argument=one_argument(argument, trigger);
-	argument=one_argument(argument, phrase);
+	argument = one_argument(argument, num);
+	argument = one_argument(argument, trigger);
 
 	if (!str_cmp(num, "?")) {
 		show_flags(ch, mptrig_types);
 		return FALSE;
 	}
 
-	if (!is_number(num) || trigger[0] =='\0' || phrase[0] =='\0') {
+	if (!is_number(num) || trigger[0] =='\0' || argument[0] =='\0') {
 		 char_puts("Syntax: trigadd [vnum] [trigger] [phrase]\n\r",ch);
 		 return FALSE;
 	}
 
 	if ((value = flag_value(mptrig_types, trigger)) < 0) {
 		char_puts("Invalid trigger type.\n\r"
-			     "Use 'trigadd ?' for list of triggers.\n\r", ch);
+			  "Use 'trigadd ?' for list of triggers.\n\r", ch);
 		return FALSE;
 	}
 
@@ -820,7 +818,7 @@ OLC_FUN(mobed_trigadd)
 		 return FALSE;
 	}
 
-	mptrig = mptrig_new(value, phrase, atoi(num));
+	mptrig = mptrig_new(value, argument, atoi(num));
 	mptrig_add(pMob, mptrig);
 	char_puts("Trigger added.\n\r",ch);
 	return TRUE;

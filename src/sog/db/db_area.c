@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.12 1998-10-12 04:57:15 fjoe Exp $
+ * $Id: db_area.c,v 1.13 1998-10-14 11:05:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -119,7 +119,6 @@ DBLOAD_FUN(load_area)
 
 	pArea->security		= 9;
 	pArea->vnum		= top_area;
-	pArea->builders		= str_dup("None");
 
 	pArea->name		= fread_string(fp);
 	fread_letter(fp);			/* '{' */
@@ -171,7 +170,6 @@ DBLOAD_FUN(load_areadata)
 	pArea->file_name	= get_filename(filename);
 	pArea->vnum		= top_area;
 	pArea->name		= str_dup("New Area");
-	pArea->builders		= str_dup(str_empty);
 	pArea->security		= 9;                    /* 9 -- Hugin */
 	pArea->min_vnum		= 0;
 	pArea->max_vnum		= 0;
