@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.19 1998-05-04 02:51:01 efdi Exp $
+ * $Id: act_info.c,v 1.20 1998-05-04 09:34:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -98,6 +98,31 @@ int	const	where_name	[] =
 	EQ_STUCK_IN,
 };
 
+static int show_order[] = {
+	WEAR_LIGHT,
+	WEAR_FINGER_L,
+	WEAR_FINGER_R,
+	WEAR_NECK_1,
+	WEAR_NECK_2,
+	WEAR_BODY,
+	WEAR_HEAD,
+	WEAR_LEGS,
+	WEAR_FEET,
+	WEAR_HANDS,
+	WEAR_ARMS,
+	WEAR_SHIELD,
+	WEAR_ABOUT,
+	WEAR_WAIST,
+	WEAR_WRIST_L,
+	WEAR_WRIST_R,
+	WEAR_WIELD,
+	WEAR_SECOND_WIELD,
+	WEAR_HOLD,
+	WEAR_FLOAT,
+	WEAR_TATTOO,
+	-1
+};
+
 /* for do_count */
 int max_on = 0;
 
@@ -113,55 +138,43 @@ void	show_char_to_char_1	args((CHAR_DATA *victim, CHAR_DATA *ch));
 void	show_char_to_char	args((CHAR_DATA *list, CHAR_DATA *ch));
 bool	check_blind		args((CHAR_DATA *ch));
 
+#define is_empty(s) ((s) == NULL || (s)[0] == '\0')
+#define strend(s) (strchr(s, '\0'))
 
 char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 {
 	static char buf[MAX_STRING_LENGTH];
-	static char buf_con[100];
 
 	buf[0] = '\0';
-	buf_con[0] = '\0';
-
-	if (obj->pIndexData->vnum > 5)	/* money, gold, etc */
-		sprintf(buf_con," [{g%s{x]", get_cond_alias(obj, ch));
-
-	if ((fShort && (obj->short_descr == NULL || obj->short_descr[0] == '\0'))
-	||  (obj->description == NULL || obj->description[0] == '\0'))
+	if ((fShort && is_empty(obj->short_descr))
+	||  is_empty(obj->description))
 		return buf;
 
 	if (IS_OBJ_STAT(obj, ITEM_INVIS))
-		strcat(buf, "{x(Invis) ");
+		strcat(buf, "{D(Invis){x ");
 	if (CAN_DETECT(ch, DETECT_EVIL) && IS_OBJ_STAT(obj, ITEM_EVIL))
 		strcat(buf, "{R(Red Aura){x ");
 	if (CAN_DETECT(ch, DETECT_GOOD) && IS_OBJ_STAT(obj,ITEM_BLESS))
 		strcat(buf,"{b(Blue Aura){x ");
 	if (CAN_DETECT(ch, DETECT_MAGIC) && IS_OBJ_STAT(obj, ITEM_MAGIC))
-		strcat(buf, "(Magical) ");
+		strcat(buf, "{x(Magical) ");
 	if (IS_OBJ_STAT(obj, ITEM_GLOW))
 		strcat(buf, "{W(Glowing){x ");
 	if (IS_OBJ_STAT(obj, ITEM_HUM))
-		strcat(buf, "(Humming) ");
+		strcat(buf, "{x(Humming) ");
 
 	if (fShort) {
-		if (obj->short_descr != NULL) {
-			strcat(buf, obj->short_descr);
-			strcat(buf, buf_con);
-		}
+		strcat(buf, obj->short_descr);
+		if (obj->pIndexData->vnum > 5)	/* not money, gold, etc */
+			sprintf(strend(buf), " [{g%s{x]",
+				get_cond_alias(obj, ch));
 		return buf;
 	}
 
-	if (obj->description == NULL)
-		return buf;
-
-	if (obj->in_room == NULL) {
-		strcat(buf, obj->description);
-		return buf;
-	}
-
-	if (IS_WATER(obj->in_room)) {
+	if (obj->in_room != NULL && IS_WATER(obj->in_room)) {
 		char* p;
 
-		p = strchr(buf, '\0');
+		p = strend(buf);
 		strcat(buf, obj->short_descr);
 		p[0] = UPPER(p[0]);
 		switch(dice(1,3)) {
@@ -295,7 +308,7 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch,
 
 void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 {
-	char buf[MAX_STRING_LENGTH],message[MAX_STRING_LENGTH];
+	char buf[MAX_STRING_LENGTH];
 	int msgnum;
 
 	buf[0] = '\0';
@@ -306,15 +319,14 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	if (!IS_NPC(ch) && IS_NPC(victim)
 	&&  ch->pcdata->questmob > 0
 /*	  &&  victim->pIndexData->vnum == ch->pcdata->questmob*/
-	&&  victim->pIndexData->hunter_name == ch->name
-	)     /*changed by Indra*/
-      strcat(buf, "{R[TARGET]{x ");
+	&&  victim->pIndexData->hunter_name == ch->name) /*changed by Indra*/
+		strcat(buf, "{R[TARGET]{x ");
 /*
 	sprintf(message,"(%s) ",race_table[RACE(victim)].name);
 	message[1] = UPPER(message[1]);
 	strcat(buf,message);
 */
-	if (RIDDEN(victim))			strcat(buf, "(Ridden) "    );
+	if (RIDDEN(victim))			 strcat(buf, "(Ridden) "    );
 	if (IS_AFFECTED(victim, AFF_INVISIBLE) ) strcat(buf, "(Invis) "     );
 	if (IS_AFFECTED(victim,AFF_IMP_INVIS)  ) strcat(buf, "(Improved) "  );
 	if (victim->invis_level >= LEVEL_HERO  ) strcat(buf, "(Wizi) "	    );
@@ -329,8 +341,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	if (IS_EVIL(victim)
 	&&   CAN_DETECT(ch, DETECT_EVIL)   ) strcat(buf, "{R(Red Aura){x "  );
 
-	if (IS_GOOD(victim)
-	&&  CAN_DETECT(ch, DETECT_GOOD))
+	if (IS_GOOD(victim) && CAN_DETECT(ch, DETECT_GOOD))
 		strcat(buf, "{Y(Golden Aura){x ");
 
 	if (IS_AFFECTED(victim, AFF_SANCTUARY))
@@ -406,8 +417,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		else
 			msgnum = INFO_SLEEPING_IN;
 
-		sprintf(message, msg(msgnum, ch), victim->on->short_descr);
-		strcat(buf, message);
+		sprintf(strend(buf), msg(msgnum, ch), victim->on->short_descr);
 		break;
 
 	case POS_RESTING:
@@ -422,8 +432,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			msgnum = INFO_RESTING_ON;
 		else
 			msgnum = INFO_RESTING_IN;
-		sprintf(message, msg(msgnum, ch), victim->on->short_descr);
-		strcat(buf,message);
+		sprintf(strend(buf), msg(msgnum, ch), victim->on->short_descr);
 		break;
 
 	case POS_SITTING:
@@ -438,17 +447,14 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			msgnum = INFO_SITTING_ON;
 		else
 			msgnum = INFO_SITTING_IN;
-		sprintf(message, msg(msgnum, ch), victim->on->short_descr);
-		strcat(buf,message);
+		sprintf(strend(buf), msg(msgnum, ch), victim->on->short_descr);
 		break;
 
 	case POS_STANDING:
 		if (victim->on == NULL) {
-			if (MOUNTED(victim)) {
-				sprintf(message, " is here, riding %s.",
+			if (MOUNTED(victim))
+				sprintf(strend(buf), " is here, riding %s.",
 					PERS(MOUNTED(victim),ch));
-				strcat(buf, message);
-			}
 			else
 				strcat(buf, msg(INFO_IS_HERE, ch));
 			break;
@@ -460,8 +466,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			msgnum = INFO_STANDING_ON;
 		else
 			msgnum = INFO_STANDING;
-		sprintf(message, msg(msgnum, ch), victim->on->short_descr);
-		strcat(buf,message);
+		sprintf(strend(buf), msg(msgnum, ch), victim->on->short_descr);
 		break;
 
 	case POS_FIGHTING:
@@ -487,12 +492,12 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 
 void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 {
-	char buf[MAX_STRING_LENGTH];
 	OBJ_DATA *obj;
-	int iWear;
+	int i;
 	int percent;
 	bool found;
 	CHAR_DATA *vict;
+	int msgnum;
 
 	vict = is_affected(victim, gsn_doppelganger) ? victim->doppel : victim;
 
@@ -523,35 +528,35 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	else
 		percent = -1;
 
-	sprintf(buf,"(%s) %s ", race_table[RACE(vict)].name, PERS(vict, ch));
 	if (percent >= 100)
-		strcat(buf, msg(INFO_IS_IN_PERFECT_HEALTH, ch));
+		msgnum = INFO_IS_IN_PERFECT_HEALTH;
 	else if (percent >= 90)
-		strcat(buf, msg(INFO_HAS_A_FEW_SCRATCHES, ch));
+		msgnum = INFO_HAS_A_FEW_SCRATCHES;
 	else if (percent >= 75)
-		strcat(buf, msg(INFO_HAS_SOME_SMALL_BUT_DISGUSTING_CUTS, ch));
+		msgnum = INFO_HAS_SOME_SMALL_BUT_DISGUSTING_CUTS;
 	else if (percent >= 50)
-		strcat(buf, msg(INFO_IS_COVERED_WITH_BLEEDING_WOUNDS, ch));
+		msgnum = INFO_IS_COVERED_WITH_BLEEDING_WOUNDS;
 	else if (percent >= 30)
-		strcat(buf, msg(INFO_IS_GUSHING_BLOOD, ch));
+		msgnum = INFO_IS_GUSHING_BLOOD;
 	else if (percent >= 15)
-		strcat(buf, msg(INFO_IS_WRITHING_IN_AGONY, ch));
+		msgnum = INFO_IS_WRITHING_IN_AGONY;
 	else if (percent >= 0)
-		strcat(buf, msg(INFO_IS_CONVULSING_ON_THE_GROUND, ch));
+		msgnum = INFO_IS_CONVULSING_ON_THE_GROUND;
 	else
-		strcat(buf, msg(INFO_IS_NEARLY_DEAD, ch));
-	strcat(buf, "\n\r");
+		msgnum = INFO_IS_NEARLY_DEAD;
 
 	/* vampire ... */
 	if (percent < 90 && ch->class == CLASS_VAMPIRE && ch->level > 10)
 		gain_condition(ch, COND_BLOODLUST,-1);
 
-	send_to_char(buf, ch);
+	char_printf(ch, "(%s) %s %s\n\r",
+		    race_table[RACE(vict)].name, PERS(vict, ch),
+		    msg(msgnum, ch));
 
 	found = FALSE;
-	for (iWear = 0; iWear < WEAR_HOLD; iWear++) {
+	for (i = 0; show_order[i] != -1; i++) {
 		if ((obj = get_eq_char(is_affected(victim,gsn_mirror) ?
-				       vict : victim, iWear)) != NULL
+				       vict : victim, show_order[i])) != NULL
 		&&  !can_see_obj(ch, obj)) {
 
 			if (!found) {
@@ -563,54 +568,15 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 
 			act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING,
 				   INFO_S_S,
-				   msg(where_name[iWear], ch),
+				   msg(where_name[show_order[i]], ch),
 				   format_obj_to_char(obj, ch, TRUE));
 		}
 	}
 
-	iWear = WEAR_SECOND_WIELD;
-	if ((obj = get_eq_char(is_affected(victim,gsn_mirror) ?
-			       vict : victim, iWear)) != NULL
-	&&  !can_see_obj(ch, obj)) {
-
-		if (!found) {
-			send_to_char("\n\r", ch);
-			act(msg(INFO_IS_USING, ch), ch, NULL, victim,
-			    TO_CHAR);
-			found = TRUE;
-		}
-
-		act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING,
-			   INFO_S_S,
-			   msg(where_name[iWear], ch),
-			   format_obj_to_char(obj, ch, TRUE));
-	}
-
-	for (iWear = WEAR_HOLD; iWear < WEAR_SECOND_WIELD; iWear++) {
-		if ((obj = get_eq_char(is_affected(victim,gsn_mirror) ?
-				       vict : victim, iWear)) != NULL
-		&&  !can_see_obj(ch, obj)) {
-
-			if (!found) {
-				send_to_char("\n\r", ch);
-				act(msg(INFO_IS_USING, ch), ch, NULL, victim,
-				    TO_CHAR);
-				found = TRUE;
-			}
-
-			act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING,
-				   INFO_S_S,
-				   msg(where_name[iWear], ch),
-				   format_obj_to_char(obj, ch, TRUE));
-		}
-	}
-
-	iWear = WEAR_STUCK_IN;
 	for (obj = is_affected(victim,gsn_mirror) ?
 	     vict->carrying : victim->carrying;
 	     obj != NULL; obj = obj->next_content) {
-		if (obj->wear_loc != iWear
-		||  !can_see_obj(ch, obj))
+		if (obj->wear_loc != WEAR_STUCK_IN || !can_see_obj(ch, obj))
 			continue;
 
 		if (!found) {
@@ -619,7 +585,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 			found = TRUE;
 		}
 		act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING, INFO_S_S,
-			   msg(where_name[iWear], ch),
+			   msg(where_name[WEAR_STUCK_IN], ch),
 			   format_obj_to_char(obj, ch, TRUE));
 	}
 
@@ -1082,6 +1048,48 @@ void do_nosummon(CHAR_DATA *ch, char *argument)
 }
 
 
+void do_look_in(CHAR_DATA* ch, char* arg)
+{
+	OBJ_DATA *obj;
+
+	if ((obj = get_obj_here(ch, arg)) == NULL) {
+		send_to_char("You do not see that here.\n\r", ch);
+		return;
+	}
+
+	switch (obj->item_type) {
+	default:
+		send_to_char("That is not a container.\n\r", ch);
+		break;
+
+	case ITEM_DRINK_CON:
+		if (obj->value[1] <= 0) {
+			send_to_char("It is empty.\n\r", ch);
+			break;
+		}
+
+		char_printf(ch, "It's %sfilled with a %s liquid.\n\r",
+			    obj->value[1] < obj->value[0] / 4 ?
+			    "less than half-" :
+			    obj->value[1] < 3 * obj->value[0] / 4 ?
+			    "about half-" : "more than half-",
+			    liq_table[obj->value[2]].liq_color);
+		break;
+
+	case ITEM_CONTAINER:
+	case ITEM_CORPSE_NPC:
+	case ITEM_CORPSE_PC:
+		if (IS_SET(obj->value[1], CONT_CLOSED)) {
+			send_to_char("It is closed.\n\r", ch);
+			break;
+		}
+
+		act("$p holds:", ch, obj, NULL, TO_CHAR);
+		show_list_to_char(obj->contains, ch, TRUE, TRUE);
+		break;
+	}
+}
+
 void do_look(CHAR_DATA *ch, char *argument)
 {
 	char arg1 [MAX_INPUT_LENGTH];
@@ -1150,51 +1158,14 @@ void do_look(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	if (!str_cmp(arg1, "i")
-	||  !str_cmp(arg1, "in")
-	||  !str_cmp(arg1,"on")) {
+	if (!str_cmp(arg1, "i") || !str_cmp(arg1, "in") || !str_cmp(arg1,"on")) {
 		/* 'look in' */
 		if (arg2[0] == '\0') {
 			send_to_char("Look in what?\n\r", ch);
 			return;
 		}
 
-		if ((obj = get_obj_here(ch, arg2)) == NULL) {
-			send_to_char("You do not see that here.\n\r", ch);
-			return;
-		}
-
-		switch (obj->item_type) {
-		default:
-			send_to_char("That is not a container.\n\r", ch);
-			break;
-
-		case ITEM_DRINK_CON:
-			if (obj->value[1] <= 0) {
-				send_to_char("It is empty.\n\r", ch);
-				break;
-			}
-
-			char_printf(ch, "It's %sfilled with a %s liquid.\n\r",
-				    obj->value[1] < obj->value[0] / 4 ?
-				    "less than half-" :
-				    obj->value[1] < 3 * obj->value[0] / 4 ?
-				    "about half-" : "more than half-",
-				    liq_table[obj->value[2]].liq_color);
-			break;
-
-		case ITEM_CONTAINER:
-		case ITEM_CORPSE_NPC:
-		case ITEM_CORPSE_PC:
-			if (IS_SET(obj->value[1], CONT_CLOSED)) {
-				send_to_char("It is closed.\n\r", ch);
-				break;
-			}
-
-			act("$p holds:", ch, obj, NULL, TO_CHAR);
-			show_list_to_char(obj->contains, ch, TRUE, TRUE);
-			break;
-		}
+		do_look_in(ch, arg2);
 		return;
 	}
 
@@ -1355,11 +1326,27 @@ void do_read(CHAR_DATA *ch, char *argument)
 
 void do_examine(CHAR_DATA *ch, char *argument)
 {
-	char buf[MAX_STRING_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
 
 	one_argument(argument, arg);
+
+	if (ch->desc == NULL)
+		return;
+
+	if (ch->position < POS_SLEEPING) {
+		send_to_char("You can't see anything but stars!\n\r", ch);
+		return;
+	}
+
+	if (ch->position == POS_SLEEPING) {
+		send_to_char("You can't see anything, you're sleeping!\n\r",
+			     ch);
+		return;
+	}
+
+	if (!check_blind(ch))
+		return;
 
 	if (arg[0] == '\0') {
 		send_to_char("Examine what?\n\r", ch);
@@ -1403,8 +1390,7 @@ void do_examine(CHAR_DATA *ch, char *argument)
 		case ITEM_CONTAINER:
 		case ITEM_CORPSE_NPC:
 		case ITEM_CORPSE_PC:
-			sprintf(buf,"in %s",argument);
-			do_look(ch, buf);
+			do_look_in(ch, argument);
 		}
 	}
 
@@ -1456,7 +1442,7 @@ void do_exits(CHAR_DATA *ch, char *argument)
 					room_dark(pexit->u1.to_room) ?
 					"Too dark to tell" :
 					pexit->u1.to_room->name);
-				p = strchr(buf, '\0');
+				p = strend(buf);
 				if (IS_IMMORTAL(ch))
 					sprintf(p, " (room %d)\n\r",
 						pexit->u1.to_room->vnum);
@@ -1481,7 +1467,7 @@ void do_exits(CHAR_DATA *ch, char *argument)
 					capitalize(dir_name[door]),
 					pexit->keyword);
 
-				p = strchr(buf, '\0');
+				p = strend(buf);
 				if (IS_IMMORTAL(ch))
 					sprintf(p, " (room %d)\n\r",
 						pexit->u1.to_room->vnum);
@@ -1648,7 +1634,6 @@ void do_help(CHAR_DATA *ch, char *argument)
 
 static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
 {
-	char buf[MAX_STRING_LENGTH];
 	char const *class;
 	char* pk;
 	char* cabal;
@@ -1702,24 +1687,22 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
 	sprintf(level, "%2d", wch->level);
 	trusted = IS_TRUSTED(ch, LEVEL_IMMORTAL) || ch == wch ||
 		  wch->level >= LEVEL_HERO;
-	sprintf(buf, "[{C%s{x %s {Y%s{x] %s[{C%s{x] %s%s%s\n\r",
+	sprintf(strend(output), "[{C%s{x %s {Y%s{x] %s[{C%s{x] %s%s%s\n\r",
 		trusted ? level
 			: (get_curr_stat(wch, STAT_CHA) < 18) ? level : "  ",
 		RACE(wch) < MAX_PC_RACE ? pc_race_table[RACE(wch)].who_name
-					: "	",
+					: "     ",
 		class,
 		pk,
 		cabal,
 		act,
 		/* IS_IMMORTAL(wch) ? "Chronos" : */ wch->name,
 		title);
-	strcat(output, buf);
 }
 
 
 void do_who(CHAR_DATA *ch, char *argument)
 {
-	char buf[MAX_STRING_LENGTH];
 	char output[4 * MAX_STRING_LENGTH];
 	DESCRIPTOR_DATA *d;
 	int iClass;
@@ -1968,9 +1951,9 @@ void do_who(CHAR_DATA *ch, char *argument)
 		count += (d->connected == CON_PLAYING);
 
 	max_on = UMAX(count, max_on);
-	sprintf(buf, "\n\rPlayers found: %d. Most so far today: %d.\n\r",
+	sprintf(strend(output),
+		"\n\rPlayers found: %d. Most so far today: %d.\n\r",
 		nMatch, max_on);
-	strcat(output, buf);
 	page_to_char(output, ch);
 	return;
 }
@@ -2055,16 +2038,16 @@ void do_inventory(CHAR_DATA *ch, char *argument)
 void do_equipment(CHAR_DATA *ch, char *argument)
 {
 	OBJ_DATA *obj;
-	int iWear;
+	int i;
 	bool found;
 
 	send_to_char(msg(INFO_YOU_ARE_USING, ch), ch);
 	found = FALSE;
-	for (iWear = 0; iWear < WEAR_HOLD; iWear++) {
-		if ((obj = get_eq_char(ch, iWear)) == NULL)
+	for (i = 0; show_order[i] >= 0; i++) {
+		if ((obj = get_eq_char(ch, show_order[i])) == NULL)
 			continue;
 
-		send_to_char(msg(where_name[iWear], ch), ch);
+		send_to_char(msg(where_name[show_order[i]], ch), ch);
 		if (can_see_obj(ch, obj))
 			char_printf(ch, "%s\n\r",
 				    format_obj_to_char(obj, ch, TRUE));
@@ -2073,36 +2056,11 @@ void do_equipment(CHAR_DATA *ch, char *argument)
 		found = TRUE;
 	}
 
-	iWear = WEAR_SECOND_WIELD;
-	if ((obj = get_eq_char(ch, iWear)) != NULL) {
-		send_to_char(msg(where_name[iWear], ch), ch);
-		if (can_see_obj(ch, obj))
-			char_printf(ch, "%s\n\r",
-				    format_obj_to_char(obj, ch, TRUE));
-		else
-			send_to_char("something.\n\r", ch);
-		found = TRUE;
-	}
-
-	for (iWear = WEAR_HOLD; iWear < WEAR_SECOND_WIELD; iWear++) {
-		if ((obj = get_eq_char(ch, iWear)) == NULL)
-			continue;
-
-		send_to_char(msg(where_name[iWear], ch), ch);
-		if (can_see_obj(ch, obj))
-			char_printf(ch, "%s\n\r",
-				    format_obj_to_char(obj, ch, TRUE));
-		else
-			send_to_char("something.\n\r", ch);
-		found = TRUE;
-	}
-
-	iWear = WEAR_STUCK_IN;
 	for(obj = ch->carrying; obj != NULL; obj = obj->next_content) {
-		if (obj->wear_loc != iWear)
+		if (obj->wear_loc != WEAR_STUCK_IN)
 			continue;
 
-		send_to_char(msg(where_name[iWear], ch), ch);
+		send_to_char(msg(where_name[WEAR_STUCK_IN], ch), ch);
 		if (can_see_obj(ch, obj))
 			char_printf(ch, "%s\n\r",
 				    format_obj_to_char(obj, ch, TRUE));
@@ -2215,7 +2173,6 @@ void do_credits(CHAR_DATA *ch, char *argument)
 
 void do_where(CHAR_DATA *ch, char *argument)
 {
-	char pkbuf[100];
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	DESCRIPTOR_DATA *d;
@@ -2235,8 +2192,6 @@ void do_where(CHAR_DATA *ch, char *argument)
 	if (!str_cmp(arg,"pk"))
 		fPKonly = TRUE;
 
-	sprintf(pkbuf,"{r%s{x", "(PK) ");
-
 	if (arg[0] == '\0' || fPKonly) {
 		send_to_char("Players near you:\n\r", ch);
 		found = FALSE;
@@ -2250,7 +2205,8 @@ void do_where(CHAR_DATA *ch, char *argument)
 			&&   can_see(ch, victim)) {
 				found = TRUE;
 				char_printf(ch, "%s%-28s %s\n\r",
-		(is_safe_nomessage(ch, (is_affected(victim,gsn_doppelganger) && victim->doppel) ? victim->doppel : victim) || IS_NPC(victim)) ?  "  " :  pkbuf,
+		(is_safe_nomessage(ch, (is_affected(victim,gsn_doppelganger) && victim->doppel) ? victim->doppel : victim) || IS_NPC(victim)) ?  " " :
+		"{r(PK){x ",
 		(is_affected(victim,gsn_doppelganger) && !IS_SET(ch->act,PLR_HOLYLIGHT)) ?  victim->doppel->name : victim->name,
 		victim->in_room->name);
 			}
@@ -2481,7 +2437,6 @@ void do_report(CHAR_DATA *ch, char *argument)
 void do_practice(CHAR_DATA *ch, char *argument)
 {
 	char buf2[20000];
-	char buf[MAX_STRING_LENGTH];
 	int sn;
 	CHAR_DATA *mob;
 	int adept;
@@ -2503,9 +2458,8 @@ void do_practice(CHAR_DATA *ch, char *argument)
 			&&  skill_table[sn].cabal != CABAL_NONE))
 				continue;
 
-			sprintf(buf, "%-18s %3d%%  ",
+			sprintf(strend(buf2), "%-18s %3d%%  ",
 				skill_table[sn].name, ch->pcdata->learned[sn]);
-			strcat(buf2, buf);
 			if (++col % 3 == 0)
 				strcat(buf2, "\n\r");
 		}
@@ -2513,9 +2467,8 @@ void do_practice(CHAR_DATA *ch, char *argument)
 		if (col % 3 != 0)
 			strcat(buf2, "\n\r");
 
-		sprintf(buf, "You have %d practice sessions left.\n\r",
+		sprintf(strend(buf2), "You have %d practice sessions left.\n\r",
 			ch->practice);
-		strcat(buf2, buf);
 
 		if (IS_IMMORTAL(ch))
 			page_to_char(buf2, ch);
@@ -3446,7 +3399,7 @@ void do_oscore(CHAR_DATA *ch, char *argument)
 
 	if (!IS_NPC(ch))
 		char_printf(ch,
-			"Quest Points: {g%d{x.	"
+			"Quest Points: {g%d{x.  "
 			"Next Quest Time: {g%d{x.\n\r",
 			ch->pcdata->questpoints, ch->pcdata->nextquest);
 
@@ -3821,7 +3774,7 @@ void do_pracnew(CHAR_DATA *ch, char *argument)
 			&&   skill_table[sn].cabal != CABAL_NONE))
 				continue;
 
-			sprintf(strchr(buf2, '\0'), "%-18s %3d%%  ",
+			sprintf(strend(buf2), "%-18s %3d%%  ",
 				skill_table[sn].name, ch->pcdata->learned[sn]);
 			if (++col % 3 == 0)
 				strcat(buf2, "\n\r");
@@ -3830,7 +3783,7 @@ void do_pracnew(CHAR_DATA *ch, char *argument)
 		if (col % 3 != 0)
 			strcat(buf2, "\n\r");
 
-		sprintf(strchr(buf2, '\0'),
+		sprintf(strend(buf2),
 			"You have %d practice sessions left.\n\r",
 			ch->practice);
 
