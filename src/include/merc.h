@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.297 2000-03-29 14:50:09 kostik Exp $
+ * $Id: merc.h,v 1.298 2000-03-31 13:00:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1004,7 +1004,6 @@ enum {
 #define PLR_AUTOSAC		(F)
 #define PLR_AUTOGOLD		(G)
 #define PLR_AUTOSPLIT		(H)
-#define PLR_NOTITLE		(K)
 #define PLR_NOEXP		(L)
 #define PLR_AUTOLOOK		(M)
 #define PLR_HOLYLIGHT		(N)
