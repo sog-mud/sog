@@ -2,7 +2,7 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.5 1998-04-17 11:27:05 efdi Exp $
+ * $Id: resource.h,v 1.6 1998-04-17 12:58:56 efdi Exp $
  */
 
 char* msg(int resnum, int lang);
@@ -98,6 +98,11 @@ enum {
 	INFO_COND_AVERAGE,
 	INFO_COND_POOR,
 	INFO_COND_FRAGILE,
+
+	UPDATE_WEATHER_DAY_BEGUN,
+	UPDATE_WEATHER_SUN_IN_THE_EAST,
+	UPDATE_WEATHER_SUN_IN_THE_WEST,
+	UPDATE_WEATHER_NIGHT_BEGUN,
 };
 
 #endif

@@ -1,5 +1,5 @@
 /*
- * $Id: resource.c,v 1.5 1998-04-17 11:27:05 efdi Exp $
+ * $Id: resource.c,v 1.6 1998-04-17 12:58:56 efdi Exp $
  */
 
 #include "resource.h"
@@ -96,6 +96,11 @@ char *strings_engl[] =  {
 /* INFO_COND_AVERAGE */		"average",
 /* INFO_COND_POOR */		"poor",
 /* INFO_COND_FRAGILE */		"fragile",
+
+/* UPDATE_WEATHER_DAY_BEGUN */		"The day has begun.\n\r",
+/* UPDATE_WEATHER_SUN_IN_THE_EAST */	"The sun rises in the east.\n\r",
+/* UPDATE_WEATHER_SUN_IN_THE_WEST */	"The sun slowly disappears in the west.\n\r",
+/* UPDATE_WEATHER_NIGHT_BEGUN */	"The night has begun.\n\r",
 };
 
 char *strings_rus[] = {
@@ -188,6 +193,11 @@ char *strings_rus[] = {
 /* INFO_COND_AVERAGE */		"среднее",
 /* INFO_COND_POOR */		"плохое",
 /* INFO_COND_FRAGILE */		"совсем плохое",
+
+/* UPDATE_WEATHER_DAY_BEGUN */		"Начался новый день.\n\r",
+/* UPDATE_WEATHER_SUN_IN_THE_EAST */	"На востоке показался краешек восходящего солнца.\n\r",
+/* UPDATE_WEATHER_SUN_IN_THE_WEST */	"Солнце медленно опускается за горизонт.\n\r",
+/* UPDATE_WEATHER_NIGHT_BEGUN */	"Сумерки сгустились и началась ночь.\n\r",
 };
 
 char *msg(int resnum, int lang)

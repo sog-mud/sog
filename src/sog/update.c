@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.3 1998-04-17 12:27:09 efdi Exp $
+ * $Id: update.c,v 1.4 1998-04-17 12:58:56 efdi Exp $
  */
 
 /***************************************************************************
@@ -53,6 +53,7 @@
 #include "db.h"
 #include "comm.h"
 #include "act_info.h"
+#include "resource.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_human		);
@@ -125,7 +126,7 @@ void advance_level( CHAR_DATA *ch )
 
 	p = title_table[ch->class][ch->level-1][ch->sex == SEX_FEMALE ? 1 : 0];
 	if (strstr(ch->pcdata->title, p) || CANT_CHANGE_TITLE(ch))
-		set_title(ch, " the %s", p);
+		set_title(ch, "the %s", p);
 
 	add_hp = (con_app[get_curr_stat(ch,STAT_CON)].hitp +
 		  number_range(1,5)) - 3;
@@ -834,31 +835,34 @@ void weather_update( void )
 	char buf[MAX_STRING_LENGTH];
 	DESCRIPTOR_DATA *d;
 	int diff;
+	++time_info.hour;
 
 
-
+	for ( d = descriptor_list; d != NULL; d = d->next )
+	{
+	CHAR_DATA *ch=d->character;
 	buf[0] = '\0';
 
-	switch ( ++time_info.hour )
+	switch ( time_info.hour )
 	{
 	case  5:
 	weather_info.sunlight = SUN_LIGHT;
-	strcat( buf, "The day has begun.\n\r" );
+	strcat( buf, msg(UPDATE_WEATHER_DAY_BEGUN, ch->i_lang));
 	break;
 
 	case  6:
 	weather_info.sunlight = SUN_RISE;
-	strcat( buf, "The sun rises in the east.\n\r" );
+	strcat( buf, msg(UPDATE_WEATHER_SUN_IN_THE_EAST, ch->i_lang));
 	break;
 
 	case 19:
 	weather_info.sunlight = SUN_SET;
-	strcat( buf, "The sun slowly disappears in the west.\n\r" );
+	strcat( buf, msg(UPDATE_WEATHER_SUN_IN_THE_WEST, ch->i_lang));
 	break;
 
 	case 20:
 	weather_info.sunlight = SUN_DARK;
-	strcat( buf, "The night has begun.\n\r" );
+	strcat( buf, msg(UPDATE_WEATHER_NIGHT_BEGUN, ch->i_lang));
 	break;
 
 	case 24:
@@ -953,8 +957,6 @@ void weather_update( void )
 	}
 
 	if ( buf[0] != '\0' )
-	{
-	for ( d = descriptor_list; d != NULL; d = d->next )
 	{
 	    if ( d->connected == CON_PLAYING
 	    &&   IS_OUTSIDE(d->character)
