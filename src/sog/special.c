@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.54.2.8 2001-09-23 18:57:44 fjoe Exp $
+ * $Id: special.c,v 1.54.2.9 2001-12-01 15:01:27 tatyana Exp $
  */
 
 /***************************************************************************
@@ -716,7 +716,8 @@ bool spec_janitor(CHAR_DATA *ch)
 	for (trash = ch->in_room->contents; trash != NULL; trash = trash_next) {
 		trash_next = trash->next_content;
 		if (!IS_SET(trash->wear_flags, ITEM_TAKE)
-		||  !can_loot(ch, trash))
+		||  !can_loot(ch, trash)
+		||  trash->pObjIndex->item_type == ITEM_CORPSE_PC)
 			continue;
 		if (trash->pObjIndex->item_type == ITEM_DRINK_CON
 		||  trash->pObjIndex->item_type == ITEM_TRASH

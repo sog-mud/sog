@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.66.2.12 2001-11-28 23:20:13 tatyana Exp $
+ * $Id: obj_prog.c,v 1.66.2.13 2001-12-01 15:01:26 tatyana Exp $
  */
 
 /***************************************************************************
@@ -154,6 +154,9 @@ DECLARE_OPROG(get_prog_quest_reward);
 DECLARE_OPROG(fight_prog_swordbreaker);
 
 DECLARE_OPROG(fight_prog_wasp_hive);
+DECLARE_OPROG(wear_prog_amulet_strangulation);
+DECLARE_OPROG(wear_prog_rainbow_amulet);
+DECLARE_OPROG(fight_prog_rainbow_amulet);
 
 char* optype_table[] = {
 	"wear_prog",
@@ -256,6 +259,9 @@ OPROG_DATA oprog_table[] = {
 	{ "wear_prog_quest_weapon", wear_prog_quest_weapon },
 	{ "get_prog_quest_reward", get_prog_quest_reward },
 	{ "fight_prog_wasp_hive", fight_prog_wasp_hive },
+	{ "wear_prog_amulet_strangulation", wear_prog_amulet_strangulation },
+	{ "wear_prog_rainbow_amulet", wear_prog_rainbow_amulet },
+	{ "fight_prog_rainbow_amulet", fight_prog_rainbow_amulet },
 	{ NULL }
 };
 
@@ -395,10 +401,16 @@ int speech_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	char *speech = (char*) arg;
 
-	if (!str_cmp(speech, "sword of acid")      
-	&&  (ch->fighting)
-	&&  ((get_eq_char(ch, WEAR_WIELD) == obj) || 
+	if (!str_cmp(speech, "sword of acid")
+	&&  ch->fighting
+	&&  ((get_eq_char(ch, WEAR_WIELD) == obj) ||
 	     (get_eq_char(ch,WEAR_SECOND_WIELD) == obj))) {
+		if (IS_SET(ch->in_room->room_flags, ROOM_NOMAGIC)) {
+			act("You can't use power of $p here.",
+			    ch, obj, NULL, TO_CHAR);
+			return 0;
+		}
+
 		char_puts("Acid sprays from the blade of Excalibur.\n", ch);
 		act("Acid sprays from the blade of Excalibur.",
 		    ch, NULL, NULL, TO_ROOM);
@@ -551,7 +563,7 @@ int speech_prog_kassandra(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	}
 	return 0;
 }
-	  
+
 int fight_prog_chaos_blade(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	if (get_eq_char(ch, WEAR_WIELD) != obj
@@ -1560,6 +1572,11 @@ int speech_prog_ring_ra(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	     get_eq_char(ch, WEAR_FINGER_R) != obj))
 		return 0;
 
+	if (IS_SET(ch->in_room->room_flags, ROOM_NOMAGIC)) {
+		act("You can't use power of $p here.", ch, obj, NULL, TO_CHAR);
+		return 0;
+	}
+
 	char_puts("An electrical arc sprays from the ring.\n", ch);
 	act("An electrical arc sprays from the ring.", ch, NULL, NULL, TO_ROOM);
 	obj_cast_spell(gsn_lightning_breath, LEVEL(ch), ch, ch->fighting);
@@ -1797,10 +1814,10 @@ int fight_prog_wasp_hive(OBJ_DATA *hive, CHAR_DATA *ch, const void *arg)
 	int dam;
 
 	if (get_eq_char(ch, WEAR_HOLD) != hive)
-		return 1;
+		return 0;
 
 	if (number_percent() > 25)
-		return 1;
+		return 0;
 
 	victim = ch->fighting;
 
@@ -1821,3 +1838,63 @@ int fight_prog_wasp_hive(OBJ_DATA *hive, CHAR_DATA *ch, const void *arg)
 	spellfun_call("poison", LEVEL(ch) - number_bits(2), ch, victim);
 	return 0;
 }
+
+int
+wear_prog_amulet_strangulation(OBJ_DATA *amulet, CHAR_DATA *ch, const void *arg)
+{
+	if (IS_IMMORTAL(ch)
+	||  IS_NPC(ch))
+		return 0;
+
+	act("As you wear this strange amulet you begin to choke.",
+	    ch, NULL, NULL, TO_CHAR);
+	act("$p strangles you!", ch, amulet, NULL, TO_CHAR);
+	raw_kill(ch, ch);
+	return 0;
+}
+
+int
+wear_prog_rainbow_amulet(OBJ_DATA *amulet, CHAR_DATA *ch, const void *arg)
+{
+	act("You feel as energy holding in $p fills your body.",
+	    ch, amulet, NULL, TO_CHAR);
+	return 0;
+}
+
+int
+fight_prog_rainbow_amulet(OBJ_DATA *amulet, CHAR_DATA *ch, const void *arg)
+{
+	CHAR_DATA *victim;
+	int dam;
+	int level;
+
+	if (get_eq_char(ch, WEAR_NECK_1) != amulet
+	&&  get_eq_char(ch, WEAR_NECK_2) != amulet)
+		return 0;
+
+	victim = ch->fighting;
+	level = LEVEL(ch);
+	if (number_percent() < 10) {
+		act("Ray of different colors appears from your $p and "
+		    "strikes $N!", ch, amulet, victim, TO_CHAR);
+		act("Ray of different colors appears from $n's $p and "
+		    "strikes you!", ch, amulet, victim, TO_VICT);
+		act("Ray of different colors appears from $n's $p and "
+		    "strikes $N!", ch, amulet, victim, TO_NOTVICT);
+
+		dam = dice(level, 7);
+		damage(ch, victim, dam, NULL, DAM_LIGHT, DAMF_NONE);
+		spellfun_call("blindness", level - URANGE(3, level / 10, 8),
+			      ch, victim);
+		return 0;
+	} else if (number_percent() > 90) {
+		act("Aura of different colors surrounds you.",
+		    ch, NULL, NULL, TO_CHAR);
+		act("Aura of different colors sourronds $n.",
+		    ch, NULL, NULL, TO_ROOM);
+		spellfun_call("heal", level, ch, ch);
+		return 0;
+	}
+	return 0;
+}
+
