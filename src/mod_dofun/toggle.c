@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: toggle.c,v 1.1.2.1 2002-11-23 18:54:05 fjoe Exp $
+ * $Id: toggle.c,v 1.1.2.2 2002-12-19 19:42:53 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -70,9 +70,10 @@ toggle(CHAR_DATA *ch, const char *argument, toggle_t *tbl)
 			TOGGLE_BIT(*(flag32_t *) bits, t->bit);
 	}
 
-	act_char((wide ? IS_SET(*bits, t->bit) :
-			 IS_SET(*(flag32_t *) bits, t->bit)) ?
-	    t->msg_on : t->msg_off, ch);
+	act_puts((wide ?
+	    IS_SET(*bits, t->bit) : IS_SET(*(flag32_t *) bits, t->bit)) ?
+		t->msg_on : t->msg_off,
+	    ch, t->desc, NULL, TO_CHAR, POS_DEAD);
 }
 
 void
