@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.123.2.3 2000-04-06 06:29:32 fjoe Exp $
+ * $Id: act_quest.c,v 1.123.2.4 2000-04-10 11:18:58 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -66,6 +66,7 @@ static void quest_request(CHAR_DATA *ch, char *arg);
 static void quest_complete(CHAR_DATA *ch, char *arg);
 static void quest_trouble(CHAR_DATA *ch, char *arg);
 static void quest_chquest(CHAR_DATA *ch, char *arg);
+static void quest_cancel_cmd(CHAR_DATA *ch, char *arg);
 
 static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 			    int item_vnum, int count_max);
@@ -137,6 +138,7 @@ qcmd_t qcmd_table[] = {
 	{ "complete",	quest_complete,	POS_RESTING,	0		},
 	{ "trouble",	quest_trouble,	POS_RESTING,	0		},
 	{ "items",	quest_chquest,	POS_RESTING,	0		},
+	{ "cancel",	quest_cancel_cmd,POS_RESTING,	0		},
 	{ NULL}
 };
 
@@ -868,6 +870,40 @@ static void quest_chquest(CHAR_DATA *ch, char *arg)
 		    ch, NULL, NULL, TO_CHAR);
 		return;
 	}
+}
+
+static void
+quest_cancel_cmd(CHAR_DATA *ch, char *arg)
+{
+	CHAR_DATA *questor;
+
+	if ((questor = questor_lookup(ch)) == NULL)
+		return;
+
+	act_puts("You ask $N to cancel your current quest.",
+		 ch, NULL, questor, TO_CHAR, POS_DEAD);
+	act("$n asks $N to cancel $s current quest.",
+	    ch, NULL, questor, TO_ROOM);
+
+	if (!IS_ON_QUEST(ch)) {
+		QUESTOR_TELLS_YOU(questor, ch);
+		act_puts("    You have to REQUEST a quest first, $N.",
+			 questor, NULL, ch, TO_VICT, POS_DEAD);
+		return;
+	}
+
+	if (PC(ch)->questgiver != questor->pMobIndex->vnum) {
+		QUESTOR_TELLS_YOU(questor, ch);
+		act_puts("    I never sent you on a quest! Perhaps you're "
+			 "thinking of someone else.",
+			 questor, NULL, ch, TO_VICT, POS_DEAD);
+		return;
+	}
+
+	quest_cancel(ch);
+	PC(ch)->questtime = -number_range(12, 15);
+	act_puts("Your current quest has been cancelled.",
+		 ch, NULL, questor, TO_CHAR, POS_DEAD);
 }
 
 /*

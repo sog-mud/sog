@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.126.2.7 2000-03-29 21:48:13 avn Exp $
+ * $Id: save.c,v 1.126.2.8 2000-04-10 11:19:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -344,11 +344,8 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 
 		if (pc->questpoints != 0)
 			fprintf(fp, "QuestPnts %d\n", pc->questpoints);
-		if (pc->questtime != 0)
-			fprintf(fp, "QuestTime %d\n",
-				IS_SET(flags, SAVE_F_REBOOT) ?
-					-abs(pc->questtime) :
-					 pc->questtime);
+		if (pc->questtime != 0 && !IS_SET(flags, SAVE_F_REBOOT))
+			fprintf(fp, "QuestTime %d\n", number_range(12, 15));
 		fprintf(fp, "Haskilled %d\n", pc->has_killed);
 		fprintf(fp, "Antkilled %d\n", pc->anti_killed);
 		fwrite_string(fp, "Twitlist", pc->twitlist);
