@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest.c,v 1.13 1999-06-28 09:04:17 fjoe Exp $
+ * $Id: chquest.c,v 1.14 1999-06-28 09:19:23 fjoe Exp $
  */
 
 /*
@@ -46,6 +46,8 @@
 #include "merc.h"
 #include "chquest.h"
 #include "auction.h"
+
+#define CHQUEST_DEBUG 0
 
 chquest_t *chquest_list;
 
@@ -87,8 +89,10 @@ void chquest_add(OBJ_INDEX_DATA *obj_index)
 	if ((q = chquest_lookup(obj_index)) != NULL)
 		return;
 
+#if CHQUEST_DEBUG
 	log("chquest_add: added '%s' (vnum %d)",
 		   mlstr_mval(&obj_index->short_descr), obj_index->vnum);
+#endif
 
 	q = calloc(1, sizeof(*q));
 	q->obj_index = obj_index;
@@ -128,8 +132,10 @@ bool chquest_delete(CHAR_DATA *ch, OBJ_INDEX_DATA *obj_index)
 	chquest_stopq(q);
 	free(q);
 
+#if CHQUEST_DEBUG
 	log("chquest_delete: deleted '%s' (vnum %d)",
 		   mlstr_mval(&obj_index->short_descr), obj_index->vnum);
+#endif
 	return TRUE;
 }
 
@@ -163,8 +169,10 @@ void chquest_startq(chquest_t *q)
 {
 	ROOM_INDEX_DATA *room;
 
+#if CHQUEST_DEBUG
 	log("chquest_startq: started chquest for '%s' (vnum %d)",
 	   	   mlstr_mval(&q->obj_index->short_descr), q->obj_index->vnum);
+#endif
 
 	SET_RUNNING(q);
 	q->obj = create_obj(q->obj_index, 0);
@@ -182,8 +190,11 @@ void chquest_stopq(chquest_t *q)
 	if (IS_STOPPED(q))
 		return;
 
+#if CHQUEST_DEBUG
 	log("chquest_stopq: stopped quest for '%s' (vnum %d)",
 		   mlstr_mval(&q->obj_index->short_descr), q->obj_index->vnum);
+#endif
+
 	if (IS_RUNNING(q))
 		extract_obj(q->obj, XO_F_NOCHQUEST);
 	SET_STOPPED(q);
@@ -201,8 +212,10 @@ void chquest_extract(OBJ_DATA *obj)
 	if ((q = chquest_lookup_obj(obj)) == NULL)
 		return;
 
+#if CHQUEST_DEBUG
 	log("chquest_extract: finished quest for '%s' (vnum %d)",
 		   mlstr_mval(&q->obj_index->short_descr), q->obj_index->vnum);
+#endif
 	SET_WAITING(q, number_range(15, 20));
 }
 

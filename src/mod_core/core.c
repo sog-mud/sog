@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: core.c,v 1.1 1999-06-28 09:04:10 fjoe Exp $
+ * $Id: core.c,v 1.2 1999-06-28 09:19:23 fjoe Exp $
  */
 
 #include <errno.h>
@@ -46,8 +46,8 @@ int _module_load(module_t *m)
 
 int _module_unload(module_t *m)
 {
-	cmd_foreach(CC_CORE, m, cmd_unload);
-	return 0;
+	wizlog("_module_unload: core dofuns module could not be unloaded");
+	return -1;
 }
 
 void do_modules(CHAR_DATA *ch, const char *argument)
