@@ -24,11 +24,11 @@
 # OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 # SUCH DAMAGE.
 #
-# $Id: who.cgi,v 1.1 1998-11-26 10:48:37 fjoe Exp $
+# $Id: who.cgi,v 1.2 1998-11-26 10:50:58 fjoe Exp $
 #
 
 $netcat = "/usr/local/bin/nc";
-$port = 10000;
+$port = 4001;
 
 print << "EOF";
 Content-type: text/HTML
