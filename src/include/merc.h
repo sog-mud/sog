@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.56 1998-07-22 22:21:18 efdi Exp $
+ * $Id: merc.h,v 1.57 1998-07-23 12:11:22 efdi Exp $
  */
 
 /***************************************************************************
@@ -199,6 +199,8 @@ struct clan_type
 	int	 	obj_vnum;
 	int	 	room_vnum;
 	OBJ_DATA *	obj_ptr;
+	int		string_prays;	/* string "prays for transportation" */
+	int		string_vanishes;/* string "$n vanishes" */
 };
 
 struct color_type

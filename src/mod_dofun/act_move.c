@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.68 1998-07-20 02:50:01 efdi Exp $
+ * $Id: act_move.c,v 1.69 1998-07-23 12:11:22 efdi Exp $
  */
 
 /***************************************************************************
@@ -2981,7 +2981,8 @@ void do_crecall(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	act_nprintf(ch, 0, 0, TO_ROOM, POS_RESTING, PRAYS_UPPER_LORD);
+	act_nprintf(ch, 0, 0, TO_ROOM, POS_RESTING,
+		    clan_table[ch->clan].string_prays);
 	
 	if ((location = get_room_index(point))== NULL) {
 		char_nputs(YOU_ARE_COMPLETELY_LOST, ch);
@@ -3004,7 +3005,8 @@ void do_crecall(CHAR_DATA *ch, const char *argument)
 	}
 
 	ch->move /= 2;
-	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, N_DISAPPEARS);
+	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+		    clan_table[ch->clan].string_vanishes);
 	char_from_room(ch);
 	char_to_room(ch, location);
 	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
