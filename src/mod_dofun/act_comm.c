@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.273 2002-12-11 13:31:27 fjoe Exp $
+ * $Id: act_comm.c,v 1.274 2002-12-11 13:59:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -331,12 +331,6 @@ DO_FUN(do_tell, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
-	&&  !IS_IMMORTAL(ch)) {
-		act_char("You are in silent room, you can't tell.", ch);
-		return;
-	}
-
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0' || argument[0] == '\0') {
 		act_char("Tell whom what?", ch);
@@ -353,13 +347,6 @@ DO_FUN(do_reply, ch, argument)
 		return;
 	}
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
-	&&  !IS_IMMORTAL(ch)
-	&&  PC(ch)->reply != NULL
-	&&  !IS_IMMORTAL(PC(ch)->reply)) {
-		act_char("You are in silent room, you can't tell.", ch);
-		return;
-	}
 	tell_char(ch, PC(ch)->reply, argument);
 }
 
@@ -2475,12 +2462,5 @@ DO_FUN(do_retell, ch, argument)
 		return;
 	}
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
-	&&  !IS_IMMORTAL(ch)
-	&&  PC(ch)->retell != NULL
-	&&  !IS_IMMORTAL(PC(ch)->retell)) {
-		act_char("You are in silent room, you can't tell.", ch);
-		return;
-	}
 	tell_char(ch, PC(ch)->retell, argument);
 }

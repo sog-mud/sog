@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.97 2002-11-28 21:40:28 fjoe Exp $
+ * $Id: act.c,v 1.98 2002-12-11 13:59:45 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -1309,19 +1309,24 @@ tell_char(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 		return;
 	}
 
-	if (IS_SET(victim->in_room->room_flags, ROOM_SILENT)
-	&&  !IS_IMMORTAL(victim)
-	&&  !IS_IMMORTAL(ch)) {
-		act_puts("$E is in silent room.", ch, 0, victim,
-			 TO_CHAR, POS_DEAD);
-		return;
-	}
+	if (!IS_IMMORTAL(ch)
+	&&  !IS_IMMORTAL(victim)) {
+		if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)) {
+			act_char("You are in silent room, you can't tell.", ch);
+			return;
+		}
 
-	if (IS_SET(victim->comm, (COMM_QUIET | COMM_DEAF))
-	&&  !IS_IMMORTAL(ch) && !IS_IMMORTAL(victim)) {
-		act_puts("$E is not receiving tells.", ch, 0, victim,
-			 TO_CHAR, POS_DEAD);
-		return;
+		if (IS_SET(victim->in_room->room_flags, ROOM_SILENT)) {
+			act_puts("$E is in silent room.", ch, 0, victim,
+				 TO_CHAR, POS_DEAD);
+			return;
+		}
+
+		if (IS_SET(victim->comm, COMM_QUIET | COMM_DEAF)) {
+			act_puts("$E is not receiving tells.", ch, 0, victim,
+				 TO_CHAR, POS_DEAD);
+			return;
+		}
 	}
 
 	msg = garble(ch, msg);
