@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.148 1999-06-05 06:58:41 kostik Exp $
+ * $Id: db.c,v 1.149 1999-06-05 07:03:13 kostik Exp $
  */
 
 /***************************************************************************
@@ -1701,6 +1701,9 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 	int iAreaHalf;
 	int maxArea = 0;
 	BUFFER *output;
+
+	char_puts("Command disabled. \n", ch);
+	return;
 
 	if (argument[0] != '\0') {
 		char_puts("No argument is used with this command.\n",ch);
