@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.125 2000-10-22 17:53:43 fjoe Exp $
+ * $Id: olc.c,v 1.126 2000-10-29 19:49:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -820,7 +820,7 @@ bool olced_flag(CHAR_DATA *ch, const char *argument,
 		flag_t marked = 0;
 
 		/*
-		 * Accept mulhintle flags.
+		 * Accept multiple flags.
 		 */
 		for (;;) {
 			char word[MAX_INPUT_LENGTH];
@@ -847,6 +847,9 @@ bool olced_flag(CHAR_DATA *ch, const char *argument,
 			}
 			SET_BIT(marked, f->bit);
 		}
+
+		if (cmd->validator && !cmd->validator(ch, &marked))
+			return FALSE;
 	
 		if (marked) {
 			flag_t fset = ~(*pflag) & marked;
@@ -888,6 +891,10 @@ bool olced_flag(CHAR_DATA *ch, const char *argument,
 				  TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			return FALSE;
 		}
+
+		if (cmd->validator && !cmd->validator(ch, &f->bit))
+			return FALSE;
+	
 		*pflag = f->bit;
 		act_puts3("$t: $T: '$U': Ok.",
 			  ch, OLCED(ch)->name, cmd->name, f->name,
