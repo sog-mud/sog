@@ -90,6 +90,7 @@ main(int argc, char *argv[])
 	}
 
 	printf("%d elems (%d times)\n", nelem, niter);
+	setbuf(stdout, NULL);
 
 	/*
 	 * search in varr
