@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.201 1999-12-18 11:01:42 fjoe Exp $
+ * $Id: db.c,v 1.202 1999-12-19 00:21:38 avn Exp $
  */
 
 /***************************************************************************
@@ -144,7 +144,7 @@ const char MATERIALS_CONF	[] = "materials.conf";	/* materials */
 const char LIQUIDS_CONF		[] = "liquids.conf";	/* liquids */
 const char FORMS_CONF		[] = "forms.conf";	/* shapeforms */
 const char CC_EXPR_CONF		[] = "cc_expr.conf";	/* cc_exprs */
-const char GLOB_GMLSTR_FILE	[] = "glob_gmlstr";	/* global gmlstrs */
+const char GLOB_GMLSTR_FILE	[] = "gmlstr.conf";	/* global gmlstrs */
 
 const char AREA_LIST		[] = "area.lst";	/* list of areas */
 const char LANG_LIST		[] = "lang.lst";	/* list of languages */
