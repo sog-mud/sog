@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.128 2000-01-17 09:43:59 fjoe Exp $
+ * $Id: tables.c,v 1.129 2000-01-18 13:25:51 kostik Exp $
  */
 
 /***************************************************************************
@@ -848,6 +848,7 @@ flaginfo_t weapon_type2[] =
 	{ "holy",		WEAPON_HOLY,		TRUE	},
 	{ "katana",		WEAPON_KATANA,		TRUE	},
 	{ "throwing",		WEAPON_THROW,		TRUE	},
+	{ "nooffhand",		WEAPON_NO_OFFHAND,	TRUE	},
 
 	{ NULL }
 };

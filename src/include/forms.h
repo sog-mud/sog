@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: forms.h,v 1.3 1999-12-18 11:01:39 fjoe Exp $
+ * $Id: forms.h,v 1.4 2000-01-18 13:25:41 kostik Exp $
  */
 
 #ifndef _FORMS_H_
@@ -44,7 +44,6 @@ struct form_index_t
 	const char * 	damtype;
 	int 		damage[3];
 	int		hitroll;
-	int		damroll;
 	int		num_attacks;	/* Number of attacks		*/
 	const char *	skill_spec;	/* Skill spec for this form	*/
 	int		stats[MAX_STAT];

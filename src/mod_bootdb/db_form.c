@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_form.c,v 1.4 1999-12-20 08:31:25 fjoe Exp $
+ * $Id: db_form.c,v 1.5 2000-01-18 13:25:51 kostik Exp $
  */
 
 #include <stdio.h>
@@ -88,7 +88,6 @@ DBLOAD_FUN(load_form)
 				fMatch = TRUE;
 				break;
 			}
-			KEY("Damroll", f.damroll, fread_number(fp));
 			MLSKEY("Description", f.description);
 			break;
 		case 'F':

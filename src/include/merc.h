@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.287 2000-01-13 14:46:35 kostik Exp $
+ * $Id: merc.h,v 1.288 2000-01-18 13:25:42 kostik Exp $
  */
 
 /***************************************************************************
@@ -770,6 +770,7 @@ struct spec_type
 #define WEAPON_HOLY		(I)
 #define WEAPON_KATANA		(J)
 #define WEAPON_THROW		(K)
+#define WEAPON_NO_OFFHAND	(L)
 
 /* gate flags */
 #define GATE_NORMAL_EXIT	(A)

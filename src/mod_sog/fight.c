@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.254 2000-01-17 11:17:41 fjoe Exp $
+ * $Id: fight.c,v 1.255 2000-01-18 13:25:49 kostik Exp $
  */
 
 /***************************************************************************
@@ -726,8 +726,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 			}
 		} else if (ch->shapeform) {
 			dam = dice(ch->shapeform->index->damage[DICE_NUMBER],
-				ch->shapeform->index->damage[DICE_TYPE]) + 
-				ch->shapeform->index->damage[DICE_BONUS];
+				ch->shapeform->index->damage[DICE_TYPE]); 
 		} else {
 			dam = number_range(1 + 4 * sk / 100,
 					   2 * LEVEL(ch) / 3 * sk / 100);
@@ -1069,7 +1068,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 			act("You twist your dagger in $N's wound.",
 				ch, NULL, victim, TO_CHAR);
 			act("$n twists $s dagger in your wound.",
-				ch, NULL, victim, TO_ROOM);
+				ch, NULL, victim, TO_VICT);
 			one_hit(ch, victim, "twist", loc);
 			check_improve(ch, "twist", TRUE, 6);
 		}

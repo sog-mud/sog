@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.170 2000-01-17 09:32:06 fjoe Exp $
+ * $Id: spellfun2.c,v 1.171 2000-01-18 13:25:51 kostik Exp $
  */
 
 /***************************************************************************
@@ -5671,7 +5671,7 @@ void spell_phantasmal_force(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			}
 			act_puts3("Your illusionary $W $u $N!", 
 				  ch, vp_dam_alias(dam_total), victim, 
-				  "troop of golbins", TO_CHAR, POS_DEAD);
+				  "troop of goblins", TO_CHAR, POS_DEAD);
 			damage(ch, victim, dam_total, NULL, DAM_MENTAL, 
 				DAMF_NOREDUCE);
 			return;

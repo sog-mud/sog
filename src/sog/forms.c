@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: forms.c,v 1.4 1999-12-20 08:31:21 fjoe Exp $
+ * $Id: forms.c,v 1.5 2000-01-18 13:25:50 kostik Exp $
  */
 
 #include <stdio.h>
@@ -45,7 +45,6 @@ void form_init(form_index_t *f)
 	f->damage[DICE_NUMBER]	= 0;
 	f->damage[DICE_BONUS]	= 1;
 	f->hitroll		= 0;
-	f->damroll		= 0;
 	f->num_attacks		= 0;
 	f->flags		= 0;
 	f->skill_spec	= str_empty;
@@ -64,7 +63,6 @@ form_index_t* form_cpy(form_index_t *dst, const form_index_t *src)
 	mlstr_cpy(&dst->long_desc, &src->long_desc);
 	dst->damtype		= str_qdup(src->damtype);
 	dst->hitroll		= src->hitroll;
-	dst->damroll		= src->damroll;
 	dst->num_attacks	= src->num_attacks;
 	dst->skill_spec		= str_qdup(src->skill_spec);
 	dst->flags		= src->flags;
@@ -103,7 +101,7 @@ bool shapeshift(CHAR_DATA* ch, const char* shapeform)
 	form = (form_t*) calloc(1, sizeof(form_t));
 
 	form->index = form_index;
-	form->damroll = form_index->damroll;
+	form->damroll = form_index->damage[DICE_BONUS];
 	form->hitroll = form_index->hitroll;
 
 	for (i = 0; i < MAX_RESIST; i++) 

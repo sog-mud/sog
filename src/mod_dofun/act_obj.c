@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.200 2000-01-14 11:45:28 fjoe Exp $
+ * $Id: act_obj.c,v 1.201 2000-01-18 13:25:34 kostik Exp $
  */
 
 /***************************************************************************
@@ -2957,8 +2957,8 @@ void do_second_wield(CHAR_DATA * ch, const char *argument)
 		char_puts("You cannot use a secondary weapon while using a shield or holding an item.\n", ch);
 		return;
 	}
-	if (IS_WEAPON_STAT(obj, WEAPON_TWO_HANDS)) {
-		char_puts("You can't dual wield two-handed weapon!\n", ch);
+	if (IS_WEAPON_STAT(obj, WEAPON_TWO_HANDS|WEAPON_NO_OFFHAND)) {
+		char_puts("You can't dual wield this weapon!\n", ch);
 		return;
 	}
 	if ((wield = get_eq_char(ch, WEAR_WIELD)) == NULL) {
@@ -3543,6 +3543,8 @@ static void sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 
 	ch->silver += silver;
 
+	act("$n sacrifices $p to gods.", ch, obj, NULL, TO_ROOM);
+
 	if (!IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_AUTOSPLIT)) {
 		/* AUTOSPLIT code */
 		members = 0;
@@ -3554,7 +3556,6 @@ static void sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 		if (members > 1 && silver > 1)
 			dofun("split", ch, "%d", silver);
 	}
-	act("$n sacrifices $p to gods.", ch, obj, NULL, TO_ROOM);
 
 	if (oprog_call(OPROG_SAC, obj, ch, NULL))
 		return;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.228 2000-01-17 09:30:59 fjoe Exp $
+ * $Id: act_move.c,v 1.229 2000-01-18 13:25:33 kostik Exp $
  */
 
 /***************************************************************************
@@ -3075,7 +3075,8 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 	success = send_arrow(ch, victim, arrow, direction, chance,
 			     dice(INT(wield->value[1]),
 				  INT(wield->value[2])));
-	check_improve(ch, "bow", TRUE, 1);
+	if (success)
+		check_improve(ch, "bow", TRUE, 1);
 	yell(victim, ch, "Help! $lu{$i} is trying to shoot me!");
 }
 
