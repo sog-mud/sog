@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.278 2002-10-10 13:32:49 kostik Exp $
+ * $Id: act_obj.c,v 1.279 2002-10-31 11:00:47 tatyana Exp $
  */
 
 /***************************************************************************
@@ -92,6 +92,7 @@ DECLARE_DO_FUN(do_smithing);
 DECLARE_DO_FUN(do_outfit);
 DECLARE_DO_FUN(do_keep);
 DECLARE_DO_FUN(do_unkeep);
+DECLARE_DO_FUN(do_sharpen_weapon);
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_split);
@@ -3972,3 +3973,137 @@ DO_FUN(do_unkeep, ch, argument)
 	REMOVE_OBJ_STAT(obj, ITEM_KEEP);
 	act("You unkeep $p.", ch, obj, NULL, TO_CHAR);
 }
+
+#define OBJ_VNUM_SHARPSTONE		34484
+DO_FUN(do_sharpen_weapon, ch, argument)
+{
+	AFFECT_DATA *paf;
+	int chance;		// success chance
+	int survive = 80;	// base chance to survive weapon if failed
+	OBJ_DATA *weapon, *stone;
+	int mana;
+	int pk_range;
+
+	if ((chance = get_skill(ch, "sharpen weapon")) == 0) {
+		act("Huh?", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if (argument[0] == '\0') {
+		act("What do you like to sharpen?", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if ((weapon = get_obj_carry(ch, ch, argument)) == NULL) {
+		act("No such object.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if (weapon->pObjIndex->item_type != ITEM_WEAPON) {
+		act("That isn't a weapon.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if (weapon->wear_loc != -1) {
+		act("The weapon must be carried.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if (IS_WEAPON_STAT(weapon, WEAPON_SHARP)) {
+		act("$p is already sharp.", ch, weapon, NULL, TO_CHAR);
+		return;
+	}
+
+	if (!WEAPON_IS(weapon, WEAPON_DAGGER)
+	&&  !WEAPON_IS(weapon, WEAPON_SWORD)
+	&&  !WEAPON_IS(weapon, WEAPON_AXE)) {
+		act("You can sharpen only daggers, swords, axes.",
+		    ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	stone = get_eq_char(ch, WEAR_HOLD);
+	if (stone == NULL
+	||  stone->pObjIndex->vnum != OBJ_VNUM_SHARPSTONE) {
+		act("You need a sharpstone to do it.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	mana = skill_mana(ch, "sharpen weapon");
+	if (ch->mana < mana) {
+		act("You have not enought energy to sharpen $p.",
+		    ch, weapon, NULL, TO_CHAR);
+		return;
+	}
+
+	WAIT_STATE(ch, skill_beats("sharpen weapon"));
+	ch->mana -= mana;
+	chance = chance * 3 / 5;
+
+	pk_range = UMAX(4, ch->level / 10 + 2);
+	if (weapon->level > LEVEL(ch) + pk_range) {
+		chance = (chance / 10) * LEVEL(ch) / weapon->level;
+		survive /= 2;
+	}
+
+	if (weapon->level < LEVEL(ch))
+		chance = chance * LEVEL(ch) / weapon->level;
+
+	if (IS_WEAPON_STAT(weapon, WEAPON_VORPAL))
+		chance = chance * 3 / 4;
+
+	if (IS_WEAPON_STAT(weapon, WEAPON_VAMPIRIC))
+		chance = chance * 3 / 4;
+
+	if (IS_WEAPON_STAT(weapon, WEAPON_HOLY))
+		chance = chance * 3 / 4;
+
+	if (number_percent() < chance) {
+
+		paf = aff_new(TO_WEAPON, "sharpen weapon");
+		paf->level	= ch->level;
+		if (number_bits(4) == 1)
+			paf->duration = -1;
+		else
+			paf->duration	= ch->level / 5;
+		paf->bitvector	= WEAPON_SHARP;
+		affect_to_obj(weapon, paf);
+		aff_free(paf);
+
+		act("You successfully sharpen $p!", ch, weapon, NULL, TO_CHAR);
+		if (number_percent() < 75)
+			act("You survive your sharpstone.",
+			    ch, NULL, NULL, TO_CHAR);
+		else {
+			act("Your sharpstone is gone!",
+			    ch, NULL, NULL, TO_CHAR);
+			extract_obj(stone, 0);
+		}
+	} else {
+		if (number_percent() < survive) {
+			if (number_bits(2) == 0) {
+				AFFECT_DATA *paf_next;
+
+				act("You harm $p's edge! Oops.",
+				    ch, weapon, NULL, TO_CHAR);
+				/* remove all affects */
+				for (paf = weapon->affected; paf != NULL; paf = paf_next) {
+					paf_next = paf->next;
+					aff_free(paf);
+				}
+				weapon->affected = NULL;
+				return;
+			} else {
+				act("You did not harm your blade. Wooh...",
+				    ch, NULL, NULL, TO_CHAR);
+				return;
+			}
+		} else {
+			act("You broke your $p! Oops.",
+			    ch, weapon, NULL, TO_CHAR);
+			extract_obj(weapon, 0);
+			return;
+		}
+	}
+}
+
