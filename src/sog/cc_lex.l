@@ -15,6 +15,11 @@ alnum	[a-zA-Z0-9]
 #include "str.h"
 
 #define yylval cc_yylval
+#define yyerror cc_yyerror
+#define yyparse cc_yyparse
+#define yylval cc_yylval
+#define yy_scan_string cc_yy_scan_string
+#define yy_delete_buffer cc_yy_delete_buffer
 
 #include "y.tab.h"
 #include "cc_lex.h"
@@ -29,14 +34,14 @@ static char *s;
 #define COPYOUT(c)					\
 	do {						\
 		if (s - buf > sizeof(buf) - 1)		\
-			cc_yyerror("string too long");	\
+			yyerror("string too long");	\
 		*s++ = (c);				\
 	} while (0);
 
 #define YY_NO_UNPUT
 
-extern int cc_yyparse();
-extern void cc_yyerror(const char *);
+extern int yyparse();
+extern void yyerror(const char *);
 
 %}
 
@@ -51,7 +56,7 @@ extern void cc_yyerror(const char *);
 <X_STRING>\\\"			{ COPYOUT('\"'); }
 <X_STRING>\"			{ COPYOUT('\0');
 				  BEGIN 0;
-				  cc_yylval.s = str_dup(buf);
+				  yylval.s = str_dup(buf);
 				  return STRING;
 				}
 <X_STRING>.			{ *s++ = *yytext; }
@@ -59,13 +64,13 @@ extern void cc_yyerror(const char *);
 "&&"				return AND;
 "||"				return OR;
 
-{alpha}{alnum}*			{ cc_yylval.s = str_dup(yytext);
+{alpha}{alnum}*			{ yylval.s = str_dup(yytext);
 				  return FUN;
 				}
 
 [!()]				return *yytext;
 [ \t\n]				;
-.				cc_yyerror("unknown character");
+.				yyerror("unknown character");
 
 %%
 
@@ -80,10 +85,10 @@ expr_check_cb(void *p, va_list ap)
 	cc_ctx.rcl = va_arg(ap, cc_eclass_t *);
 	cc_ctx.ap = va_arg(ap, va_list);
 
-	yy_buf = cc_yy_scan_string(e->expr);
+	yy_buf = yy_scan_string(e->expr);
 
 	if (!setjmp(cc_jmpbuf)) {
-		cc_yyparse();
+		yyparse();
 		if (cc_ctx.val)
 			rv = (void *) e->mfun;
 		else
@@ -92,7 +97,7 @@ expr_check_cb(void *p, va_list ap)
 		rv = NULL;
 	}
 
-	cc_yy_delete_buffer(yy_buf);
+	yy_delete_buffer(yy_buf);
 
 	return rv;
 }
@@ -109,7 +114,7 @@ cc_fun_call(ctx_t *ctx, const char *en, const char *arg)
 		snprintf(buf, sizeof(buf),
 			 "cc_fun_call: %s: unknown efun in ruleclass '%s'\n",
 			 en, ctx->rcl->name);
-		cc_yyerror(buf);
+		yyerror(buf);
 	}
 
 	if (efun->fun == NULL)

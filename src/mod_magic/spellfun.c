@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.202 1999-12-22 08:29:16 fjoe Exp $
+ * $Id: spellfun.c,v 1.203 1999-12-23 12:00:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3318,11 +3318,10 @@ void spell_summon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		||  saves_spell(level, victim, DAM_OTHER)
 		||  IS_SET(victim->pMobIndex->act, ACT_AGGRESSIVE)
 		||  IS_SET(ch->in_room->room_flags, ROOM_NOMOB)
-		||  IS_SET(ch->pMobIndex->act, ACT_IMMSUMMON)
+		||  IS_SET(victim->pMobIndex->act, ACT_IMMSUMMON)
 		||  NPC(victim)->hunter)
 			failed = TRUE;
-	}
-	else {
+	} else {
 		if (victim->level >= LEVEL_HERO
 		||  ((!in_PK(ch, victim) ||
 		      ch->in_room->area != victim->in_room->area) &&
