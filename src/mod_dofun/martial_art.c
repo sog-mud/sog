@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.167 2000-10-07 20:41:05 fjoe Exp $
+ * $Id: martial_art.c,v 1.168 2000-10-10 15:45:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1975,11 +1975,6 @@ void do_ambush(CHAR_DATA *ch, const char *argument)
 
 	if (victim == ch) {
 		act_char("How can you ambush yourself?", ch);
-		return;
-	}
-
-	if (!HAS_INVIS(ch, ID_CAMOUFLAGE)) {
-		act_char("But you are not camouflaged!", ch);
 		return;
 	}
 
