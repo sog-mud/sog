@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.30 1998-12-23 16:11:21 fjoe Exp $
+ * $Id: olc_room.c,v 1.31 1998-12-28 14:27:18 kostik Exp $
  */
 
 #include <stdio.h>
@@ -534,6 +534,7 @@ const struct wear_type wear_table[] =
 	{ WEAR_TATTOO,		ITEM_WEAR_TATTOO	},
 	{ WEAR_SECOND_WIELD,	ITEM_WIELD		},
 	{ WEAR_STUCK_IN,	ITEM_WIELD		},
+	{ WEAR_CLANMARK,	ITEM_WEAR_CLANMARK	},
 	{ MAX_WEAR }
 };
 
