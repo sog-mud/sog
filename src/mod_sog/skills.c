@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.13 1998-08-06 13:50:12 fjoe Exp $
+ * $Id: skills.c,v 1.14 1998-08-06 16:46:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -351,15 +351,13 @@ void group_add(CHAR_DATA *ch)
 	int sn;
 
 	if (IS_NPC(ch)) /* NPCs do not have skills */
-			return;
-
-	 for (sn = 0;  sn < MAX_SKILL; sn++)
-		  if (skill_table[sn].clan == 0 && SKILL_RACE_OK(ch,sn)
-					&& ch->pcdata->learned[sn] < 1
-		      && skill_table[sn].skill_level[ch->class] < LEVEL_IMMORTAL)
-		    ch->pcdata->learned[sn] = 1;
 		return;
 
+	for (sn = 0;  sn < MAX_SKILL; sn++)
+		if (skill_table[sn].clan == 0 && SKILL_RACE_OK(ch, sn)
+		&& ch->pcdata->learned[sn] < 1
+		&& skill_table[sn].skill_level[ch->class] < LEVEL_IMMORTAL)
+			ch->pcdata->learned[sn] = 1;
 }
 
 

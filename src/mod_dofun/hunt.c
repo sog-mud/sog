@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.4 1998-08-03 00:22:30 efdi Exp $
+ * $Id: hunt.c,v 1.5 1998-08-06 16:46:14 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -610,12 +610,19 @@ void hunt_victim(CHAR_DATA *ch)
 	bool		found;
 	CHAR_DATA	*tmp;
 
+	if (ch->hunting->in_room == NULL) {
+		ch->hunting = NULL;
+		return;
+	}
+
 	/*
 	 * Make sure the victim still exists.
 	 */
-	for(found = FALSE, tmp = char_list; tmp && !found; tmp = tmp->next)
-		if (ch->hunting == tmp)
+	for(found = FALSE, tmp = char_list; tmp; tmp = tmp->next)
+		if (ch->hunting == tmp) {
 			found = TRUE;
+			break;
+		}
 
 	if(!found || !can_see(ch, ch->hunting)) {
 		if (get_char_area(ch, ch->hunting->name) != NULL) {
@@ -671,7 +678,7 @@ void hunt_victim(CHAR_DATA *ch)
 	hunt_victim_attack(ch);
 }
 
-#ifdef 0
+#if 0
 void hunt_victim_old(CHAR_DATA *ch)
 {
   int		dir,i;

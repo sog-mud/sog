@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.52 1998-08-06 13:50:12 fjoe Exp $
+ * $Id: update.c,v 1.53 1998-08-06 16:46:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1096,7 +1096,8 @@ void char_update(void)
 
 			/* check to see if we need to go home */
 			if (IS_NPC(ch) && ch->zone != NULL 
-			&& ch->zone != ch->in_room->area && ch->desc == NULL 
+			&&  ch->in_room != NULL
+			&&  ch->zone != ch->in_room->area && ch->desc == NULL 
 			&&  ch->fighting == NULL
 /* && ch->progtypes==0 */
 			&& !IS_AFFECTED(ch,AFF_CHARM) && ch->last_fought == NULL
@@ -1137,31 +1138,26 @@ void char_update(void)
 		if (ch->position == POS_STUNNED)
 			update_pos(ch);
 
-		if (!IS_NPC(ch) && ch->level < LEVEL_IMMORTAL) {
+		if (!IS_NPC(ch) && ch->level < LEVEL_IMMORTAL
+		&&  ch->in_room != NULL) {
 			OBJ_DATA *obj;
 
 			if ((obj = get_eq_char(ch, WEAR_LIGHT)) != NULL
 			&& obj->item_type == ITEM_LIGHT && obj->value[2] > 0) {
-				if (--obj->value[2] == 0 
-				&& ch->in_room != NULL) {
+				if (--obj->value[2] == 0) {
 					--ch->in_room->light;
 					act_nprintf(ch, obj, NULL, TO_ROOM,
 						POS_RESTING, N_GOES_OUT);
 					act_nprintf(ch, obj, NULL, TO_CHAR,
 						POS_RESTING, N_FLICKERS_OUT);
 					extract_obj(obj);
-				} else if (obj->value[2] <= 5 
-				&& ch->in_room != NULL)
+				} else if (obj->value[2] <= 5)
 					act_nprintf(ch, obj, NULL, TO_CHAR, 
 						POS_RESTING, P_FLICKERS);
 			}
 
-			if (IS_IMMORTAL(ch))
-				ch->timer = 0;
-
 			if (++ch->timer >= 12) {
-				if (ch->was_in_room == NULL 
-				&& ch->in_room != NULL) {
+				if (ch->was_in_room == NULL) {
 					ch->was_in_room = ch->in_room;
 					if (ch->fighting != NULL)
 						stop_fighting(ch, TRUE);
