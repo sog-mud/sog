@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.164.2.9 2003-09-11 13:41:22 matrim Exp $
+ * $Id: interp.c,v 1.164.2.10 2004-02-22 15:50:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -96,7 +96,8 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	cmd_t *cmd = NULL;
 	social_t *soc = NULL;
 	int min_pos;
-	flag64_t cmd_flags;
+	int cmd_level;
+	flag64_t cmd_flg;
 	int cmd_log;
 	int i;
 	bool found = FALSE;
@@ -158,19 +159,6 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		&&  get_skill(vch, sn) == 0)
 			continue;
 
-		/*
-		 * Implement freeze command.
-		 */
-		if (!IS_NPC(ch)
-		&&  IS_SET(PC(ch)->plr_flags, PLR_FREEZE)
-		&&  !IS_SET(cmd->cmd_flags, CMD_FROZEN_OK))
-			continue;
-
-		if (IS_SET(cmd->cmd_flags, CMD_DISABLED)) {
-			char_puts("Sorry, this command is temporarily disabled.\n", ch);
-			return;
-		}
-
 		if (cmd->min_level >= LEVEL_IMMORTAL) {
 			if (IS_NPC(vch))
 				continue;
@@ -178,31 +166,8 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 			if (vch->level < LEVEL_IMP
 			&&  !is_name(cmd->name, PC(vch)->granted))
 				continue;
-		}
-		else if (cmd->min_level > ch->level)
+		} else if (cmd->min_level > ch->level)
 			continue;
-
-		if (is_order) {
-			if (IS_SET(cmd->cmd_flags, CMD_NOORDER)
-			||  cmd->min_level >= LEVEL_IMMORTAL)
-				return;
-		}
-		else {
-			if (IS_AFFECTED(ch, AFF_CHARM)
-			&&  !IS_SET(cmd->cmd_flags, CMD_CHARMED_OK)
-			&&  cmd->min_level < LEVEL_IMMORTAL 
-			&&  !IS_IMMORTAL(ch)) {
-				char_puts("First ask your beloved master!\n",
-					  ch);
-				return;
-			}
-		}
-
-		if (IS_AFFECTED(ch, AFF_STUN) 
-		&&  !(cmd->cmd_flags & CMD_KEEP_HIDE)) {
-			char_puts("You are STUNNED to do that.\n", ch);
-			return;
-		}
 
 		found = TRUE;
 		break;
@@ -226,8 +191,9 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		}
 
 		if (!IS_NPC(ch)
-		&& imc_command_hook(ch, command, argument))
+		&&  imc_command_hook(ch, command, argument))
 			return;
+
 		/*
 		 * Look for command in socials table.
 		 */
@@ -242,14 +208,54 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		}
 
 		min_pos = soc->min_pos;
-		cmd_flags = 0;
+		/* socials are harmless unless ch is charmed */
+		cmd_flg = IS_AFFECTED(ch, AFF_CHARM) ? 0 : CMD_HARMLESS;
 		cmd_log = LOG_NORMAL;
-	}
-	else {
+		cmd_level = 0;
+	} else {
 		min_pos = cmd->min_pos;
-		cmd_flags = cmd->cmd_flags;
+		cmd_flg = cmd->cmd_flags;
 		cmd_log = cmd->cmd_log;
+		cmd_level = cmd->min_level;
 	}
+
+	/*
+	 * Implement freeze command.
+	 */
+	if (!IS_NPC(ch)
+	&&  IS_SET(PC(ch)->plr_flags, PLR_FREEZE)
+	&&  !IS_SET(cmd_flg, CMD_FROZEN_OK)) {
+		act_char("You're totally frozen!", ch);
+		return;
+	}
+
+	if (IS_SET(cmd_flg, CMD_DISABLED)) {
+		char_puts("Sorry, this command is temporarily disabled.\n", ch);
+		return;
+	}
+
+	if (is_order) {
+		if (IS_SET(cmd_flg, CMD_NOORDER)
+		||  cmd_level >= LEVEL_IMMORTAL)
+			return;
+	} else {
+		if (IS_AFFECTED(ch, AFF_CHARM)
+		&&  !IS_SET(cmd_flg, CMD_HARMLESS)
+		&&  cmd_level < LEVEL_IMMORTAL
+		&&  !IS_IMMORTAL(ch)) {
+			char_puts("First ask your beloved master!\n", ch);
+			return;
+		}
+	}
+
+	if (IS_AFFECTED(ch, AFF_STUN)
+	&&  !IS_SET(cmd_flg, CMD_HARMLESS)) {
+		char_puts("You are STUNNED to do that.\n", ch);
+		return;
+	}
+
+	if (!IS_NPC(ch) && ch->wait > 0 && !IS_SET(cmd_flg, CMD_HARMLESS))
+		return;
 
 	/*
 	 * Log
@@ -264,7 +270,9 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	if (!IS_NPC(ch)) {
 		/* Come out of hiding for most commands */
 		if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE)
-		&&  !IS_SET(cmd_flags, CMD_KEEP_HIDE)) {
+		&&  (!IS_SET(cmd_flg, CMD_HARMLESS | CMD_KEEP_HIDE) ||
+		     IS_SET(cmd_flg, CMD_STRIP_HIDE))
+		&&  cmd_level < LEVEL_IMMORTAL) {
 			REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE);
 			act_puts("You step out of shadows.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);

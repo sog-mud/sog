@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.h,v 1.7.2.4 2002-12-11 17:32:27 tatyana Exp $
+ * $Id: cmd.h,v 1.7.2.5 2004-02-22 15:50:26 fjoe Exp $
  */
 
 #ifndef _CMD_H_
@@ -39,13 +39,16 @@
 /*
  * cmd flags
  */
-#define	CMD_KEEP_HIDE	(A)
-#define CMD_NOORDER	(B)
-#define CMD_CHARMED_OK	(C)
-#define CMD_HIDDEN	(D)
-#define CMD_DISABLED	(E)
-#define CMD_FROZEN_OK	(F)
-#define CMD_CLAN	(G)
+#define	CMD_KEEP_HIDE		(A)	/* doesn't strip hidden state */
+#define CMD_NOORDER		(B)	/* can't be ordered */
+#define CMD_HARMLESS		(C)	/* ok when charmed or wait > 0 */
+					/* + doesn't strip hidden state */
+#define CMD_HIDDEN		(D)	/* is not show in commands list */
+#define CMD_DISABLED		(E)	/* disabled */
+#define CMD_FROZEN_OK		(F)	/* ok when frozen */
+#define CMD_CLAN		(G)
+#define CMD_STRIP_HIDE		(H)	/* always strip hidden state */
+
 
 /*
  * cmd classes
