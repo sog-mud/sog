@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_magic.c,v 1.9 1999-11-19 13:05:27 fjoe Exp $
+ * $Id: act_magic.c,v 1.10 1999-11-19 13:11:47 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -106,8 +106,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((spell->skill_type != ST_SPELL &&
-	     spell->skill_type != ST_PRAYER)
+	if (spell->skill_type != ST_SPELL
 	||  spell->fun == NULL) {
 		char_puts("That's not a spell.\n", ch);
 		return;
