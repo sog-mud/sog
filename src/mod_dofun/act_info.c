@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.317 1999-12-22 08:28:52 fjoe Exp $
+ * $Id: act_info.c,v 1.318 1999-12-22 08:49:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -155,7 +155,8 @@ void do_scroll(CHAR_DATA *ch, const char *argument)
 
 #define SHOW_SOCIAL(prephrase, phrase)					\
 	if (!mlstr_null(&(phrase))) {					\
-		act(prephrase, ch, NULL, NULL, TO_CHAR | ACT_NOLF);	\
+		act("$t\n    ", ch, (prephrase), NULL,			\
+		    TO_CHAR | ACT_NOLF);				\
 		act_mlputs(&(phrase), ch, NULL, mob,			\
 			   TO_CHAR, POS_RESTING);			\
 	}
@@ -179,21 +180,21 @@ void do_socials(CHAR_DATA *ch, const char *argument)
 	}
 
 	do {
-		mob_index = get_mob_index(number_range(1, top_mob_index));
+		mob_index = get_mob_index(number_range(1, top_vnum_mob));
 	} while (mob_index == NULL);
 	mob = create_mob(mob_index);
 
-	SHOW_SOCIAL("Having used with no argument specified, you see:\n    ",
+	SHOW_SOCIAL("Having used with no argument specified, you see:",
 		    soc->noarg_char);
-	SHOW_SOCIAL("And others see:\n    ", soc->noarg_room);
-	SHOW_SOCIAL("Having targeted yourself, you see:\n    ", soc->self_char);
-	SHOW_SOCIAL("And others see:\n    ", soc->self_room);
-	SHOW_SOCIAL("If your target is missing, you will see:\n    ",
+	SHOW_SOCIAL("And others see:", soc->noarg_room);
+	SHOW_SOCIAL("Having targeted yourself, you see:", soc->self_char);
+	SHOW_SOCIAL("And others see:", soc->self_room);
+	SHOW_SOCIAL("If your target is missing, you will see:",
 		    soc->notfound_char);
-	SHOW_SOCIAL("Having targeted it to another character, you see:\n    ",
+	SHOW_SOCIAL("Having targeted it to another character, you see:",
 		    soc->found_char);
-	SHOW_SOCIAL("Your victim see:\n    ", soc->found_vict);
-	SHOW_SOCIAL("And others see:\n    ", soc->found_notvict);
+	SHOW_SOCIAL("Your victim see:", soc->found_vict);
+	SHOW_SOCIAL("And others see:", soc->found_notvict);
 
 	extract_char(mob, 0);
 }
