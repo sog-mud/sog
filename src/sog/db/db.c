@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.40 1998-07-11 22:09:11 fjoe Exp $
+ * $Id: db.c,v 1.41 1998-07-12 06:51:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3955,12 +3955,14 @@ void str_printf(char** pstr,...)
 	va_list ap;
 	char buf[MAX_STRING_LENGTH];
 
+	if (*pstr == NULL)
+		return;
+
 	va_start(ap, pstr);
 	vsnprintf(buf, sizeof(buf), *pstr, ap);
 	va_end(ap);
 
-	if (*pstr != NULL)
-        	free_string(*pstr);
+        free_string(*pstr);
         *pstr = str_dup(buf);
 }
 

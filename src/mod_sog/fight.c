@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.49 1998-07-11 22:09:11 fjoe Exp $
+ * $Id: fight.c,v 1.50 1998-07-12 06:51:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2070,8 +2070,8 @@ void death_cry_org(CHAR_DATA *ch, int part)
 		obj		= create_object(get_obj_index(vnum), 0);
 		obj->timer	= number_range(4, 7);
 
-		str_printf(&obj->short_descr, obj->short_descr, name);
-		str_printf(&obj->description, obj->description, name);
+		str_printf(&obj->short_descr, name);
+		str_printf(&obj->description, name);
 
 		obj->from = str_dup(name);
 
