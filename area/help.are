@@ -1483,10 +1483,10 @@ Syntax: cast blindness <victim>
 This spell renders the target character blind.
 ~
 0 'ACID BLAST' 'ACID ARROW' 'CAUSTIC FONT' 'SULFURUS SPRAY' 'QUANTUM SPIKE'
-'BURNING HANDS' 'ACETUM PRIMUS' 'SONIC RESONANCE' 'HAND OF UNDEAD'
-'ETHERAL FIST' 'COLOUR SPRAY' 'FIREBALL' 'LIGHTNING BOLT' 'MAGIC MISSILE'
-'SHOCKING GRASP' 'ICEBALL' 'MIND WRENCH' 'MIND WRACK'
-~
+'BURNING HANDS' 'ACETUM PRIMUS' 'SONIC RESONANCE' 'HAND OF UNDEAD'
+'ETHERAL FIST' 'COLOUR SPRAY' 'FIREBALL' 'LIGHTNING BOLT' 'MAGIC MISSILE'
+'SHOCKING GRASP' 'ICEBALL' 'MIND WRENCH' 'MIND WRACK'
+~
 Syntax: cast 'acid blast'     <victim>
 Syntax: cast 'burning hands'  <victim>
 Syntax: cast 'color spray'   <victim>
@@ -2301,7 +2301,7 @@ chance for an instant kill.
 
 ~
 0 'QUIET MOVEMENT' HERBS TAME BUTCHER BARKSKIN 'BARK SKIN' 'BEAR CALL'
-  'RANGER STAFF'~
+  'RANGER STAFF'~
 Syntax: HERBS <victim> or HERBS
         TAME <victim>
         BUTCHER <corpse>
