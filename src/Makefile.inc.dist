@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.inc.dist,v 1.2 1999-06-22 14:03:31 fjoe Exp $
+# $Id: Makefile.inc.dist,v 1.3 1999-06-22 14:29:41 fjoe Exp $
 #
 
 CC		= gcc
@@ -12,6 +12,7 @@ SO_CFLAGS	= -fpic
 SO_LFLAGS	= -shared
 LIBS		=
 INSTALL_PATH	= ..
+MAKE		= make
 
 #
 # for FreeBSD
@@ -21,10 +22,11 @@ INSTALL_PATH	= ..
 #
 # for Linux
 #CFLAGS	+= -DLINUX 
-#LIBS	+= -lcrypt
-#SO_LFLAGS += -ldl -rdynamic
+#LIBS	+= -lcrypt -ldl
+#SO_LFLAGS += -rdynamic
 #COMPAT_CFILES = compat/fnmatch.c
 #COMPAT_OFILES = fnmatch.o
+#MAKE = pmake
 
 #
 # for SunOS 5 (Solaris)

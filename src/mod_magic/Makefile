@@ -1,3 +1,7 @@
+#
+# $Id: Makefile,v 1.3 1999-06-22 14:29:46 fjoe Exp $
+#
+
 .include "../Makefile.inc"
 
 CFLAGS += $(SO_CFLAGS)

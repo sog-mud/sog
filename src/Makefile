@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.49 1999-06-22 12:37:13 fjoe Exp $
+# $Id: Makefile,v 1.50 1999-06-22 14:29:41 fjoe Exp $
 #
 
 .include "Makefile.inc"
@@ -52,9 +52,11 @@ OFILES = act_comm.o act_info.o act_move.o act_obj.o act_wiz.o auction.o\
 	 $(COMM_OFILES) $(DB_OFILES) $(OLC_OFILES) $(COMPAT_OFILES)
 
 all: sog
-.for i in $(SUBDIR)
-	@(cd $i; make all)
-.endfor
+	@for i in $(SUBDIR); do \
+		(echo "===> $${i}"; \
+		cd ${.CURDIR}/$${i}; \
+		${MAKE} ${.TARGET}); \
+	done
 
 sog: $(OFILES)
 	rm -f sog
@@ -66,24 +68,30 @@ sog: $(OFILES)
 depend:
 	rm -f .depend
 	mkdep $(CFLAGS) $(CFILES)
-.for i in $(SUBDIR)
-	@(cd $i; make depend)
-.endfor
+	@for i in $(SUBDIR); do \
+		(echo "===> $${i}"; \
+		cd ${.CURDIR}/$${i}; \
+		${MAKE} ${.TARGET}); \
+	done
 
 clean:
 	rm -f *.o *.core sog
-.for i in $(SUBDIR)
-	@(cd $i; make clean)
-.endfor
+	@for i in $(SUBDIR); do \
+		(echo "===> $${i}"; \
+		cd ${.CURDIR}/$${i}; \
+		${MAKE} ${.TARGET}); \
+	done
 
 ctags:
-	ctags -dtw $(CFILES) *.h comm/*.h compat/*.h db/*.h olc/*.h
+	ctags -dtw $(CFILES) *.h comm/*.h compat/*.h db/*.h olc/*.h spellfun/*.c
 
 gtags:
 	gtags -co .
 
 install: sog
 	install -c -m 770 sog $(INSTALL_PATH)/bin
-.for i in $(SUBDIR)
-	@(cd $i; make install)
-.endfor
+	@for i in $(SUBDIR); do \
+		(echo "===> $${i}"; \
+		cd ${.CURDIR}/$${i}; \
+		${MAKE} ${.TARGET}); \
+	done
