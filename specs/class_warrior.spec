@@ -3,6 +3,11 @@ Name class_warrior~
 Class class
 End
 
+#R spclass_limit
+order allow_deny
+allow weapon 3~
+end
+
 #SKILL
 Skill 'whip'
 Level 1

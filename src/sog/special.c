@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.59 1999-10-25 08:23:38 fjoe Exp $
+ * $Id: special.c,v 1.60 1999-11-27 11:19:13 kostik Exp $
  */
 
 /***************************************************************************
@@ -956,21 +956,17 @@ bool spec_guard(CHAR_DATA *ch)
 {
 	CHAR_DATA *victim, *v_next;
 	CHAR_DATA *ech;
-	int max_evil; 
+	int worst = 0;
  
-	if (!IS_AWAKE(ch) || ch->fighting != NULL)
+	if (!IS_AWAKE(ch))
 		return FALSE;
 	
-	max_evil = 300; 
 	ech      = NULL;
 	
 	for (victim = ch->in_room->people; victim != NULL; victim = v_next) {
 		v_next = victim->next_in_room;
 	
-		if (IS_NPC(victim))
-			continue;
-
-		if (number_percent() < 2 && !IS_IMMORTAL(victim)) {
+		if (!IS_NPC(victim) && number_percent() < 2 && !IS_IMMORTAL(victim)) {
 			dofun("say", ch, "Do I know you?");
  			if (str_cmp(ch->in_room->area->name,
 				    hometown_name(PC(victim)->hometown)))
@@ -987,14 +983,20 @@ bool spec_guard(CHAR_DATA *ch)
 			break;
 	
 		if (victim->fighting != NULL
-		&&  victim->fighting != ch
-		&&  victim->alignment < max_evil) {
-			if (IS_EVIL(victim)) {
-				max_evil = -350; 
-				ech      = victim;
+		&&  victim->fighting != ch) {
+			int bad = (IS_NPC(victim) && 
+			    IS_SET(victim->pMobIndex->act, ACT_AGGRESSIVE)) +
+			    (!IS_NPC(victim) && victim->ethos==ETHOS_CHAOTIC)
+			    + (!IS_NPC(victim) && victim->ethos!=ETHOS_LAWFUL)
+			    + IS_NPC(victim);
+			bad *= 2;
+
+			bad += IS_EVIL(victim) + !IS_GOOD(victim);
+
+			if (worst < bad) {
+				worst = bad;
+				ech   = victim;
 			}
-			else
-				ech = victim;
 		}
 	}
 	
