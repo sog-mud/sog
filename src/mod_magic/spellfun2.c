@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.169 2000-01-13 14:46:38 kostik Exp $
+ * $Id: spellfun2.c,v 1.170 2000-01-17 09:32:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -5616,65 +5616,6 @@ void spell_misleading(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		ch, NULL, NULL, TO_CHAR);
 }
 
-const char* get_dam_alias (int dam) 
-{
-	if (dam == 0)
-		return "misses";
-	else if (dam <= 4)
-		return "{cscratches{x";
-	else if (dam <= 8)
-		return "{cgrazes{x";
-	else if (dam <= 12)
-		return "{chits{x";
-	else if (dam <= 16)
-		return "{cinjures{x";
-	else if (dam <= 20)
-		return "{cwounds{x";
-	else if (dam <= 24)
-		return "{cmauls{x";
-	else if (dam <= 28)
-		return "{cdecimates{x";
-	else if (dam <= 32)
-		return "{cdevastates{x";
-	else if (dam <= 36)
-		return "{cmaims{x";
-	else if (dam <= 42)
-		return "{MMUTILATES{x";
-	else if (dam <= 52)
-		return "{MDISEMBOWELS{x";
-	else if (dam <= 65)
-		return "{MDISMEMBERS{x";
-	else if (dam <= 80)
-		return "{MMASSACRES{x";
-	else if (dam <= 100)
-		return "{MMANGLES{x";
-	else if (dam <= 130)
-		return "{y*** DEMOLISHES ***{x";
-	else if (dam <= 175)
-		return "{y*** DEVASTATES ***{x";
-	else if (dam <= 250)
-		return "{y=== OBLITERATES ==={x";
-	else if (dam <= 325)
-		return "{y=== ATOMIZES ==={x";
-	else if (dam <= 400)
-		return "{R>>> ANNIHILATES <<<{x";
-	else if (dam <= 500)
-		return "{R>>> ERADICATES <<<{x";
-	else if (dam <= 650)
-		return "{R-==> ELECTRONIZES <==-{x";
-	 else if (dam <= 800)
-		return "{R-==> SKELETONIZES <==-{x";
-	 else if (dam <= 1000)
-		return "{R### NUKES ###{x";
-	 else if (dam <= 1250)
-		return "{R### TERMINATES ###{x";
-	 else if (dam <= 1500)
-		return "{R[*] TEARS UP [*]{x";
-	 else
-		return "{*{R[*] POWER HITS [*]{x";
-	
-}
-
 void spell_phantasmal_force(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
@@ -5708,63 +5649,61 @@ void spell_phantasmal_force(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			for (i = 0; i < count; i++) {
 				dam = dice(2, 2);
 				dam_total += dam;
-				act_puts3("Bee bite $u you!", 
-					ch, get_dam_alias(dam), victim, 
-					NULL, TO_VICT, POS_DEAD);
+				act_puts3("$W $u you!", 
+					  ch, vp_dam_alias(dam), victim, 
+					  "bee bite", TO_VICT, POS_DEAD);
 			}
-			act_puts3("Your illusionary swarm $u $N!", 
-				ch, get_dam_alias(dam_total), victim, 
-				NULL, TO_CHAR, POS_DEAD);
+			act_puts3("Your illusionary $W $u $N!", 
+				  ch, vp_dam_alias(dam_total), victim, 
+				  "bee swarm", TO_CHAR, POS_DEAD);
 			damage(ch, victim, dam_total, NULL, DAM_MENTAL, 
 				DAMF_NOREDUCE);
 			return;
 		case 2:
-			act("Group of goblins jumps out their ambush toward "
-				"you!", ch, NULL, victim, TO_VICT);
+			act("Group of goblins jumps out their ambush towards you!", ch, NULL, victim, TO_VICT);
 			count = number_range(2, 5);
 			for (i = 0; i < count; i++) {
 				dam = dice(level, 4);
 				dam_total += dam;
-				act_puts3("Goblin's punch $u you!", 
-					ch, get_dam_alias(dam), victim, 
-					NULL, TO_VICT, POS_DEAD);
+				act_puts3("$W $u you!", 
+					  ch, vp_dam_alias(dam), victim, 
+					  "goblin's punch", TO_VICT, POS_DEAD);
 			}
-			act_puts3("Your illusionary troop of goblins $u $N!", 
-				ch, get_dam_alias(dam_total), victim, 
-				NULL, TO_CHAR, POS_DEAD);
+			act_puts3("Your illusionary $W $u $N!", 
+				  ch, vp_dam_alias(dam_total), victim, 
+				  "troop of golbins", TO_CHAR, POS_DEAD);
 			damage(ch, victim, dam_total, NULL, DAM_MENTAL, 
 				DAMF_NOREDUCE);
 			return;
 		case 1:
 			act("Large troll has arrived.",
-				ch, NULL, victim, TO_VICT);
+			    ch, NULL, victim, TO_VICT);
 			count = number_range(2, 4);
 			for (i = 0; i < count; i++) {
 				dam = dice(level, 6);
 				dam_total += dam;
-				act_puts3("Troll's smash $u you!", 
-					ch, get_dam_alias(dam), victim, 
-					NULL, TO_VICT, POS_DEAD);
+				act_puts3("$W $u you!", 
+					  ch, vp_dam_alias(dam), victim, 
+					  "troll's smash", TO_VICT, POS_DEAD);
 			}
-			act_puts3("Your illusionary troll $u $N!", 
-				ch, get_dam_alias(dam_total), victim, 
-				NULL, TO_CHAR, POS_DEAD);
+			act_puts3("Your illusionary $W $u $N!", 
+				  ch, vp_dam_alias(dam_total), victim, 
+				  "troll", TO_CHAR, POS_DEAD);
 			damage(ch, victim, dam_total, NULL, DAM_MENTAL, 
 				DAMF_NOREDUCE);
 			return;
 		case 0:
 		default:
 			act("$n turns into dragon and breathes fire at you!",
-				ch, NULL, victim, TO_VICT);
+			    ch, NULL, victim, TO_VICT);
 			dam = dice(level, 15);
-			act_puts3("$n's fire breath $u you!", 
-				ch, get_dam_alias(dam), victim, 
-				NULL, TO_VICT, POS_DEAD);
-			act("$N believes you turn yourself into dragon and 
-				breathe fire at $M", ch, NULL, victim, TO_CHAR);
-			act_puts3("Your illusionary fire breath $u $N!", 
-				ch, get_dam_alias(dam), victim, 
-				NULL, TO_CHAR, POS_DEAD);
+			act_puts3("$n's $W $u you!", 
+				  ch, vp_dam_alias(dam), victim, 
+				  "fire breath", TO_VICT, POS_DEAD);
+			act("$N believes you turn yourself into dragon and breathe fire at $M", ch, NULL, victim, TO_CHAR);
+			act_puts3("Your illusionary $W $u $N!", 
+				  ch, vp_dam_alias(dam), victim, 
+				  "fire breath", TO_CHAR, POS_DEAD);
 			damage(ch, victim, dam_total, NULL, DAM_MENTAL, 
 				DAMF_NOREDUCE);
 			fire_effect((void *)victim, level, 0);
@@ -5776,25 +5715,25 @@ void spell_phantasmal_force(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			act("$n conjures a large ball of fire!",
 				ch, NULL, victim, TO_VICT);
 			dam = dice(level, 12);
-			act_puts3("$n's fireball $u you!", 
-				ch, get_dam_alias(dam), victim, 
-			NULL, TO_VICT, POS_DEAD);
-			act_puts3("Your illusionary fireball $u $N!", 
-				ch, get_dam_alias(dam), victim, 
-				NULL, TO_CHAR, POS_DEAD);
+			act_puts3("$n's $W $u you!", 
+				  ch, vp_dam_alias(dam), victim, 
+				  "fireball", TO_VICT, POS_DEAD);
+			act_puts3("Your illusionary $W $u $N!", 
+				  ch, vp_dam_alias(dam), victim, 
+				  "fireball", TO_CHAR, POS_DEAD);
 			damage(ch, victim, dam_total, NULL, DAM_MENTAL, 
 				DAMF_NOREDUCE);
 			return;
 		case 2:
-			act("The earth trembles  beneath your feet.",
+			act("The earth trembles beneath your feet.",
 				ch, NULL, victim, TO_VICT);
 			dam = dice(level, 15);
-			act_puts3("The earthquake $u you!", 
-				ch, get_dam_alias(dam), victim, 
-			NULL, TO_VICT, POS_DEAD);
-			act_puts3("Your illusionary earthquake $u $N!", 
-				ch, get_dam_alias(dam), victim, 
-				NULL, TO_CHAR, POS_DEAD);
+			act_puts3("$W $u you!", 
+				  ch, vp_dam_alias(dam), victim, 
+				  "earthquake", TO_VICT, POS_DEAD);
+			act_puts3("Your illusionary $W $u $N!", 
+				  ch, vp_dam_alias(dam), victim, 
+				  "earthquake", TO_CHAR, POS_DEAD);
 			damage(ch, victim, dam_total, NULL, DAM_MENTAL, 
 				DAMF_NOREDUCE);
 			return;
@@ -5806,28 +5745,25 @@ void spell_phantasmal_force(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			for (i = 0; i < count; i++) {
 				dam = dice(level, 9);
 				dam_total += dam;
-				act_puts3("Demon prince $u you!", 
-					ch, get_dam_alias(dam), victim, 
-					NULL, TO_VICT, POS_DEAD);
+				act_puts3("$W $u you!", 
+					  ch, vp_dam_alias(dam), victim, 
+					  "demon prince", TO_VICT, POS_DEAD);
 			}
-			act_puts3("Illusionary demon prince $u $N!", 
-				ch, get_dam_alias(dam_total), victim, 
-				NULL, TO_CHAR, POS_DEAD);
+			act_puts3("Illusionary $W $u $N!", 
+				  ch, vp_dam_alias(dam_total), victim, 
+				  "demon prince", TO_CHAR, POS_DEAD);
 			damage(ch, victim, dam_total, NULL, DAM_MENTAL, 
-				DAMF_NOREDUCE);
+			       DAMF_NOREDUCE);
 			return;
 
 		case 0:
 			act("A large rock falls on you from the sky.",
-				ch, NULL, victim, TO_VICT);
+			    ch, NULL, victim, TO_VICT);
 			act("You are squeezed by the rock.",
-				ch, NULL, victim, TO_VICT);
+			    ch, NULL, victim, TO_VICT);
 			char_puts("You have been KILLED!\n", victim);
-			act("$N believes $E is squeezed by the large rock "
-				"fallen from the sky and dies.",
-				ch, NULL, victim, TO_CHAR);
-			act("$n makes $N believe that large rock from the sky "
-				"squeezes $M.", ch, NULL, victim, TO_NOTVICT);
+			act("$N believes $E is squeezed by the large rock fallen from the sky and dies.", ch, NULL, victim, TO_CHAR);
+			act("$n makes $N believe that large rock from the sky squeezes $M.", ch, NULL, victim, TO_NOTVICT);
 			raw_kill(ch, victim);
 		default:
 			return;
