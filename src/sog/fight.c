@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.4 2000-03-21 13:52:51 fjoe Exp $
+ * $Id: fight.c,v 1.202.2.5 2000-03-22 06:16:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1458,7 +1458,8 @@ is_safe_raw(CHAR_DATA *ch, CHAR_DATA *victim)
 	 * this check must be done first to avoid
 	 * suicyco muttafuckas who recite 'leather-bound book' (#5743)
 	 * without any target specified
-	 * extracted NPCs are safe too
+	 * frozen PCs are safe
+	 * extracted NPCs are safe
 	 */
 	if (!IS_NPC(victim)) {
 		int clan;
@@ -1467,6 +1468,10 @@ is_safe_raw(CHAR_DATA *ch, CHAR_DATA *victim)
 		if (ch != victim
 		&&  !IS_NPC(ch)
 		&&  IS_SET(PC(ch)->plr_flags, PLR_GHOST))
+			return TRUE;
+
+		/* frozen characters are safe */
+		if (IS_SET(PC(victim)->plr_flags, PLR_FREEZE))
 			return TRUE;
 
 		/* clan defenders can attack anyone in their clan */
@@ -1479,8 +1484,7 @@ is_safe_raw(CHAR_DATA *ch, CHAR_DATA *victim)
 		/* otherwise ghosts are safe */
 		if (IS_SET(PC(victim)->plr_flags, PLR_GHOST))
 			return TRUE;
-	}
-	else if (IS_EXTRACTED(victim))
+	} else if (IS_EXTRACTED(victim))
 		return TRUE;
 
 	if (victim->fighting == ch
