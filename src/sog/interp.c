@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.164.2.14 2004-02-24 11:25:22 fjoe Exp $
+ * $Id: interp.c,v 1.164.2.15 2004-03-21 20:42:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -221,6 +221,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 
 	if (ch->desc != NULL) {
 		if (!IS_SET(cmd_flg, CMD_HARMLESS)
+		&&  cmd_level < LEVEL_IMMORTAL
 		&&  !IS_NPC(ch)
 		&&  (ch->wait > 0 || !ch->desc->incomm_synced)) {
 			append_to_qbuf(ch->desc, save_argument);

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.49 2004-02-24 11:25:21 fjoe Exp $
+ * $Id: merc.h,v 1.234.2.50 2004-03-21 20:42:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1923,8 +1923,7 @@ int trust_level(CHAR_DATA *ch);
 
 #define IS_OUTSIDE(ch)	(!IS_SET((ch)->in_room->room_flags, ROOM_INDOORS))
 
-#define WAIT_STATE(ch, npulse)	((ch)->wait = IS_IMMORTAL(ch) ?	\
-				 1 : UMAX((ch)->wait, (npulse)))
+#define WAIT_STATE(ch, npulse)	((ch)->wait = UMAX((ch)->wait, (npulse)))
 #define RESET_WAIT_STATE(ch)	((ch)->wait = 1)
 #define DAZE_STATE(ch, npulse)	((ch)->daze = UMAX((ch)->daze, (npulse)))
 
