@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.16 1998-05-19 12:12:10 efdi Exp $
+# $Id: english.lang,v 1.17 1998-05-20 11:01:30 efdi Exp $
 #
 
 INFO_NOTHING		"Nothing.\n\r"
@@ -401,7 +401,7 @@ QUEST_COME_BACK_LATER	"Come back later."
 QUEST_DONT_HAVE_QUESTS	"I'm sorry, but i don't have any quests for you at this time."
 QUEST_TRY_AGAIN_LATER	"Try again later."
 QUEST_RUNES_MOST_HEINOUS	"Rune's most heinous criminal, {W%s{G, has escaped from the dungeon."
-QUEST_HAS_MURDERED     "Since the escape ,{W%s{G has murdered {W%d{x civilians!"
+QUEST_HAS_MURDERED     "Since the escape ,{W%s{G has murdered {W%d{G civilians!"
 QUEST_THE_PENALTY_IS	"The penalty for this crime is death, and you are to deliver the sentence!"
 QUEST_ENEMY_OF_MINE	"An enemy of mine, {W%s{G, is making vile threats against the crown."
 QUEST_ELEMINATE_THREAT	"This threat must be eleminated!"
