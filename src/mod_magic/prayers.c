@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.73 2004-03-03 19:01:05 tatyana Exp $
+ * $Id: prayers.c,v 1.74 2004-03-04 11:39:23 tatyana Exp $
  */
 
 /***************************************************************************
@@ -171,6 +171,9 @@ hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
 
 static bool
 can_cast_sanctuary(CHAR_DATA *ch, CHAR_DATA *victim);
+
+static bool
+can_cast_wards(CHAR_DATA *ch, CHAR_DATA *victim);
 
 SPELL_FUN(prayer_detect_good, sn, level, ch, vo)
 {
@@ -3483,108 +3486,108 @@ SPELL_FUN(prayer_blast_of_wind, sn, level, ch, vo)
  */
 SPELL_FUN(prayer_air_ward, sn, level, ch, vo)
 {
-	if (!is_sn_affected(ch, sn)) {
-		AFFECT_DATA *paf;
+	AFFECT_DATA *paf;
 
-		paf = aff_new(TO_RESISTS, sn);
-		paf->duration	= level / 10;
-		paf->level	= level;
-		INT(paf->location)= DAM_AIR;
-		paf->modifier	= 95;
-		affect_to_char(ch, paf);
-		aff_free(paf);
+	if (!can_cast_wards(ch, ch))
+		return;
 
-		paf = aff_new(TO_RESISTS, sn);
-		paf->duration	= level / 10;
-		paf->level	= level;
-		INT(paf->location)= DAM_COLD;
-		paf->modifier	= 95;
-		affect_to_char(ch, paf);
-		aff_free(paf);
+	paf = aff_new(TO_RESISTS, sn);
+	paf->duration	= level / 10;
+	paf->level	= level;
+	INT(paf->location)= DAM_AIR;
+	paf->modifier	= 95;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
-		act("Your god grant you protection against air and cold.",
-		    ch, NULL, NULL, TO_CHAR);
-	} else
-		act_char("Power of your god is already with you.", ch);
+	paf = aff_new(TO_RESISTS, sn);
+	paf->duration	= level / 10;
+	paf->level	= level;
+	INT(paf->location)= DAM_COLD;
+	paf->modifier	= 95;
+	affect_to_char(ch, paf);
+	aff_free(paf);
+
+	act("Your god grant you protection against air and cold.",
+	    ch, NULL, NULL, TO_CHAR);
 }
 /* Domain: water
  * grants resistance against DAM_WATER, DAM_COLD, DAM_ACID
  */
 SPELL_FUN(prayer_water_ward, sn, level, ch, vo)
 {
-	if (!is_sn_affected(ch, sn)) {
-		AFFECT_DATA *paf;
+	AFFECT_DATA *paf;
 
-		paf = aff_new(TO_RESISTS, sn);
-		paf->duration	= level / 10;
-		paf->level	= level;
-		INT(paf->location)= DAM_WATER;
-		paf->modifier	= 95;
-		affect_to_char(ch, paf);
-		aff_free(paf);
+	if (!can_cast_wards(ch, ch))
+		return;
 
-		paf = aff_new(TO_RESISTS, sn);
-		paf->duration	= level / 10;
-		paf->level	= level;
-		INT(paf->location)= DAM_COLD;
-		paf->modifier	= 95;
-		affect_to_char(ch, paf);
-		aff_free(paf);
+	paf = aff_new(TO_RESISTS, sn);
+	paf->duration	= level / 10;
+	paf->level	= level;
+	INT(paf->location)= DAM_WATER;
+	paf->modifier	= 95;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
-		paf = aff_new(TO_RESISTS, sn);
-		paf->duration	= level / 10;
-		paf->level	= level;
-		INT(paf->location)= DAM_ACID;
-		paf->modifier	= 95;
-		affect_to_char(ch, paf);
-		aff_free(paf);
+	paf = aff_new(TO_RESISTS, sn);
+	paf->duration	= level / 10;
+	paf->level	= level;
+	INT(paf->location)= DAM_COLD;
+	paf->modifier	= 95;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
-		act("Your god grant you protection against cold, "
-		    "acid and water.", ch, NULL, NULL, TO_CHAR);
-	} else
-		act_char("Power of your god is already with you.", ch);
+	paf = aff_new(TO_RESISTS, sn);
+	paf->duration	= level / 10;
+	paf->level	= level;
+	INT(paf->location)= DAM_ACID;
+	paf->modifier	= 95;
+	affect_to_char(ch, paf);
+	aff_free(paf);
+
+	act("Your god grant you protection against cold, "
+	    "acid and water.", ch, NULL, NULL, TO_CHAR);
 }
 /* Domain: earth
  * grants resistance against DAM_EARTH
  */
 SPELL_FUN(prayer_earth_ward, sn, level, ch, vo)
 {
-	if (!is_sn_affected(ch, sn)) {
-		AFFECT_DATA *paf;
+	AFFECT_DATA *paf;
 
-		paf = aff_new(TO_RESISTS, sn);
-		paf->duration	= level / 10;
-		paf->level	= level;
-		INT(paf->location)= DAM_EARTH;
-		paf->modifier	= 95;
-		affect_to_char(ch, paf);
-		aff_free(paf);
+	if (!can_cast_wards(ch, ch))
+		return;
 
-		act("Your god grant you protection against earth.",
-		    ch, NULL, NULL, TO_CHAR);
-	} else
-		act_char("Power of your god is already with you.", ch);
+	paf = aff_new(TO_RESISTS, sn);
+	paf->duration	= level / 10;
+	paf->level	= level;
+	INT(paf->location)= DAM_EARTH;
+	paf->modifier	= 95;
+	affect_to_char(ch, paf);
+	aff_free(paf);
+
+	act("Your god grant you protection against earth.",
+	    ch, NULL, NULL, TO_CHAR);
 }
 /* Domain: fire
  * grants resistance against DAM_FIRE
  */
 SPELL_FUN(prayer_fire_ward, sn, level, ch, vo)
 {
-	if (!is_sn_affected(ch, sn)) {
-		AFFECT_DATA *paf;
+	AFFECT_DATA *paf;
 
-		paf = aff_new(TO_RESISTS, sn);
-		paf->duration	= level / 10;
-		paf->level	= level;
-		INT(paf->location)= DAM_FIRE;
-		paf->modifier	= 95;
-		affect_to_char(ch, paf);
-		aff_free(paf);
+	if (!can_cast_wards(ch, ch))
+		return;
 
-		act("Your god grant you protection against fire.",
-		    ch, NULL, NULL, TO_CHAR);
-	} else
-		act_char("Power of your god is already with you.", ch);
+	paf = aff_new(TO_RESISTS, sn);
+	paf->duration	= level / 10;
+	paf->level	= level;
+	INT(paf->location)= DAM_FIRE;
+	paf->modifier	= 95;
+	affect_to_char(ch, paf);
+	aff_free(paf);
+
+	act("Your god grant you protection against fire.",
+	    ch, NULL, NULL, TO_CHAR);
 }
 /* Domain: death
  * Grants protection from damage, strip when paf->modifier became >= 0
@@ -3869,24 +3872,26 @@ SPELL_FUN(prayer_ice_sphere, sn, level, ch, vo)
 	act("Water freezes around $n forming sparkling ice sphere.",
 	    ch, NULL, NULL, TO_ROOM);
 }
+
 SPELL_FUN(prayer_cloak_of_death, sn, level, ch, vo)
 {
-	if (!is_sn_affected(ch, sn)) {
-		AFFECT_DATA *paf;
+	AFFECT_DATA *paf;
 
-		paf = aff_new(TO_RESISTS, sn);
-		paf->duration	= level / 10;
-		paf->level	= level;
-		INT(paf->location)= DAM_NEGATIVE;
-		paf->modifier	= 95;
-		affect_to_char(ch, paf);
-		aff_free(paf);
+	if (!can_cast_wards(ch, ch))
+		return;
 
-		act("Your god grant you protection against negative.",
-		    ch, NULL, NULL, TO_CHAR);
-	} else
-		act_char("Power of your god is already with you.", ch);
+	paf = aff_new(TO_RESISTS, sn);
+	paf->duration	= level / 10;
+	paf->level	= level;
+	INT(paf->location)= DAM_NEGATIVE;
+	paf->modifier	= 95;
+	affect_to_char(ch, paf);
+	aff_free(paf);
+
+	act("Your god grant you protection against negative.",
+	    ch, NULL, NULL, TO_CHAR);
 }
+
 SPELL_FUN(prayer_water_walk, sn, level, ch, vo)
 {
 	if (!is_sn_affected(ch, sn)) {
@@ -4048,3 +4053,36 @@ SPELL_FUN(prayer_water_elemental, sn, level, ch, vo)
 	char_to_room(elemental, ch->in_room);
 }
 
+static struct mutually_exclusive_spells mx_wards[] = {
+	{ "air ward", "You are already protected by air ward.",
+		"$N is already protected by air ward."},
+	{ "water ward", "You are already protected by water ward.",
+		"$N is already protected by water ward."},
+	{ "fire ward", "You are already protected by fire ward.",
+		"$N is already protected by fire ward."},
+	{ "earth ward", "You are already protected by earth ward",
+		"$N is already protected by earth ward."},
+	{ "cloak of death", "Black cloak already surrounds you.",
+		"Black cloak already surrounds $N."},
+	{ NULL, NULL, NULL }
+};
+
+static bool
+can_cast_wards(CHAR_DATA *ch, CHAR_DATA *victim)
+{
+	struct mutually_exclusive_spells *p = mx_wards;
+
+	for (; p->sn; p++) {
+		if (is_sn_affected(victim, p->sn)) {
+			if (ch == victim)
+				act_char(p->self_cast_msg, ch);
+			else {
+				act(p->other_cast_msg, ch, NULL, victim,
+				    TO_CHAR);
+			}
+			return FALSE;
+		}
+	}
+
+	return TRUE;
+}
