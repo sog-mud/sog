@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.292 2003-10-10 16:14:26 fjoe Exp $
+ * $Id: act_obj.c,v 1.293 2004-02-09 20:25:58 sg Exp $
  */
 
 /***************************************************************************
@@ -1822,7 +1822,7 @@ DO_FUN(do_steal, ch, argument)
 	if (is_safe(ch, victim))
 		return;
 
-	chance = get_skill(ch, "steal") - (LEVEL(ch) - LEVEL(victim)) * 3;
+	chance = get_skill(ch, "steal") + (LEVEL(ch) - LEVEL(victim)) * 3;
 	percent = number_percent() +
 		  (IS_AWAKE(victim) ? 10 : -50) +
 		  (!can_see(victim, ch) ? -10 : 0);
