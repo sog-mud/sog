@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.60 1999-10-21 12:51:57 fjoe Exp $
+ * $Id: olc_obj.c,v 1.61 1999-10-21 13:53:41 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -1114,6 +1114,7 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 	int val;
 	skill_t *sk;
 	damtype_t *d;
+	liquid_t *liq;
 
 	switch (pObj->item_type) {
 	default:
@@ -1149,7 +1150,7 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 			break;
 		case 3:
 			if (!str_cmp(argument, "none")) {
-				STR_VAL_ASSIGN(pObj->value[3], str_dup(str_empty));
+				STR_VAL_ASSIGN(pObj->value[3], str_empty);
 				break;
 			}
 			if (!str_cmp(argument, "?") 
@@ -1177,7 +1178,7 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 		case 4:
 			if (!str_cmp(argument, "none")) {
 				STR_VAL_ASSIGN(pObj->value[value_num],
-					str_dup(str_empty));
+					       str_empty);
 				break;
 			}
 			if (!str_cmp(argument, "?")
@@ -1378,14 +1379,15 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 			buf_add(output, "CURRENT AMOUNT OF LIQUID HOURS SET.\n\n");
 			INT_VAL(pObj->value[1]) = atoi(argument);
 			break;
-		case 2:
+		case 2: 
 			if (!str_cmp(argument, "?")
-			|| liquid_search(argument) == NULL) {
+			||  (liq = liquid_search(argument)) == NULL) {
 				strkey_printall(&liquids, output);
 				return 2;
 			}
+
 			buf_add(output, "LIQUID TYPE SET.\n\n");
-			STR_VAL_ASSIGN(pObj->value[2], liquid_lookup(argument)->name);
+			STR_VAL_ASSIGN(pObj->value[2], str_qdup(liq->name));
 			break;
 		case 3:
 			buf_add(output, "POISON VALUE TOGGLED.\n\n");
@@ -1406,14 +1408,14 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 			buf_add(output, "CURRENT AMOUNT OF LIQUID HOURS SET.\n\n");
 			INT_VAL(pObj->value[1]) = atoi(argument);
 			break;
-		case 2:
+		case 2: 
 			if (!str_cmp(argument, "?")
-			|| liquid_search(argument) == NULL) {
+			||  (liq = liquid_search(argument)) == NULL) {
 				strkey_printall(&liquids, output);
 				return 2;
 			}
 			buf_add(output, "LIQUID TYPE SET.\n\n");
-			STR_VAL_ASSIGN(pObj->value[2], liquid_lookup(argument)->name);
+			STR_VAL_ASSIGN(pObj->value[2], str_qdup(liq->name));
 			break;
 		}
 		break;

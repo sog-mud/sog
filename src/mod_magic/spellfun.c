@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.186 1999-10-20 05:49:54 avn Exp $
+ * $Id: spellfun.c,v 1.187 1999-10-21 13:53:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -750,7 +750,7 @@ void spell_create_water(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		     INT_VAL(obj->value[0]) - INT_VAL(obj->value[1]));
 
 	if (water > 0) {
-		STR_VAL_ASSIGN(obj->value[2], "water");
+		STR_VAL_ASSIGN(obj->value[2], str_dup("water"));
 		INT_VAL(obj->value[1]) += water;
 
 		if (!is_name("water", obj->name)) {

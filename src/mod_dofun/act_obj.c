@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.171 1999-10-21 12:51:46 fjoe Exp $
+ * $Id: act_obj.c,v 1.172 1999-10-21 13:53:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -921,7 +921,7 @@ void do_fill(CHAR_DATA * ch, const char *argument)
 		   ch, obj, fountain, lq->name, TO_CHAR, POS_DEAD);
 	act_puts3("$n fills $p with $U from $P.",
 		   ch, obj, fountain, lq->name, TO_ROOM, POS_RESTING);
-	STR_VAL_ASSIGN(obj->value[2], STR_VAL(fountain->value[2]));
+	STR_VAL_ASSIGN(obj->value[2], str_qdup(fountain->value[2].s));
 	INT_VAL(obj->value[1]) = INT_VAL(obj->value[0]);
 
 }
