@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.44 1999-07-20 06:26:54 avn Exp $
+ * $Id: olc.h,v 1.45 1999-07-31 03:35:28 avn Exp $
  */
 
 /***************************************************************************
@@ -81,6 +81,7 @@ extern const char ED_SOCIAL	[];
 extern const char ED_CMD	[];
 extern const char ED_SKILL	[];
 extern const char ED_RACE	[];
+extern const char ED_CLASS	[];
 
 struct olc_cmd_t
 {
@@ -108,6 +109,7 @@ extern olc_cmd_t	olc_cmds_soc[];
 extern olc_cmd_t	olc_cmds_cmd[];
 extern olc_cmd_t	olc_cmds_skill[];
 extern olc_cmd_t	olc_cmds_race[];
+extern olc_cmd_t	olc_cmds_class[];
 
 bool olced_obj_busy(CHAR_DATA *ch);
 bool olced_busy(CHAR_DATA *ch, const char *id, void *edit, void *edit2);
@@ -160,6 +162,7 @@ bool	touch_area	(AREA_DATA*);
 bool	touch_vnum	(int vnum);
 bool	touch_clan	(clan_t *clan);
 bool	touch_race	(race_t *clan);
+bool	touch_class	(class_t *clan);
 
 void		edit_done	(DESCRIPTOR_DATA *d);
 olced_t *	olced_lookup	(const char * id);
@@ -176,6 +179,7 @@ void		olc_printf	(CHAR_DATA *ch, const char *format, ...);
 #define SECURITY_AREA_CREATE	9
 #define SECURITY_MSGDB		3
 #define SECURITY_RACE		4
+#define SECURITY_CLASS		9
 
 #endif
 

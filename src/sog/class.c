@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.14 1999-06-24 06:36:32 fjoe Exp $
+ * $Id: class.c,v 1.15 1999-07-31 03:35:28 avn Exp $
  */
 
 #include <stdio.h>
@@ -40,6 +40,9 @@ class_t *class_new(void)
 	varr_init(&class->skills, sizeof(cskill_t), 8);
 	varr_init(&class->poses, sizeof(pose_t), 4);
 	varr_init(&class->guild, sizeof(int), 4);
+	class->skill_adept = 75;
+	class->hp_rate = 100;
+	class->mana_rate = 100;
 	class->restrict_sex = -1;
 	class->death_limit = -1;
 

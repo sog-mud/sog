@@ -1,11 +1,11 @@
 #
-# $Id: Makefile.rules,v 1.6 1999-07-22 09:10:51 avn Exp $
+# $Id: Makefile.rules,v 1.7 1999-07-31 03:35:27 avn Exp $
 #
 
 #
 # core version
 #
-ABI_VERSION = 3
+ABI_VERSION = 4
 
 #
 # common rules

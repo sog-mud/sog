@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.4 1999-07-21 04:19:18 avn Exp $
+ * $Id: olc_race.c,v 1.5 1999-07-31 03:35:28 avn Exp $
  */
 
 #include "olc.h"
@@ -70,6 +70,8 @@ DECLARE_OLC_FUN(raceed_delclass		);
 
 DECLARE_OLC_FUN(raceed_addskill		);
 DECLARE_OLC_FUN(raceed_delskill		);
+
+DECLARE_OLC_FUN(olc_skill_update	);
 
 static DECLARE_VALIDATE_FUN(validate_name);
 static DECLARE_VALIDATE_FUN(validate_whoname);
@@ -118,6 +120,7 @@ olc_cmd_t olc_cmds_race[] =
 	{ "addclass",	raceed_addclass					},
 	{ "delclass",	raceed_delclass					},
 
+	{ "update",	olc_skill_update				},
 	{ "commands",	show_commands					},
 	{ NULL }
 };
@@ -499,7 +502,7 @@ OLC_FUN(raceed_whoname)
 		char_puts("RaceEd: no PC race data.\n", ch);
 		return FALSE;
 	}
-	str = strdup(race->pcdata->who_name);
+	str = str_dup(race->pcdata->who_name);
 	if (olced_str(ch, argument, cmd, &str)) {
 		for (i = 0; i < strlen(str); i++)
 			race->pcdata->who_name[i] = str[i];
@@ -675,6 +678,8 @@ OLC_FUN(raceed_delclass)
 	char arg[MAX_STRING_LENGTH];
 	rclass_t *rc;
 	race_t *race;
+	int cn;
+
 	EDIT_RACE(ch, race);
 
 	one_argument(argument, arg, sizeof(arg));
@@ -683,9 +688,14 @@ OLC_FUN(raceed_delclass)
 		return FALSE;
 	}
 
-	if ((rc = rclass_lookup(race, arg)) == NULL) {
+	if ((cn = cn_lookup(arg)) < 0) {
+		char_printf(ch, "RaceEd: %s: unknown class.\n", arg);
+		return FALSE;
+	}
+
+	if ((rc = rclass_lookup(race, CLASS(cn)->name)) == NULL) {
 		char_printf(ch, "RaceEd: %s: not found in race class list.\n",
-			    arg);
+			    CLASS(cn)->name);
 		return FALSE;
 	}
 	rc->name = str_dup(str_empty);
@@ -758,6 +768,17 @@ OLC_FUN(raceed_delskill)
 	varr_qsort(&race->pcdata->skills, cmpint);
         char_puts("Ok.\n", ch);
 	return TRUE;
+}
+
+OLC_FUN(olc_skill_update)
+{
+	CHAR_DATA *gch;
+
+	for (gch = char_list; gch; gch = gch->next) {
+		if (!IS_NPC(gch)) update_skills(gch);
+	}
+	char_puts("Active players' skills updated.\n", ch);
+	return FALSE;
 }
 
 bool touch_race(race_t *race)
