@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.200 2000-02-29 17:14:58 avn Exp $
+ * $Id: act_comm.c,v 1.201 2000-03-21 08:54:01 osya Exp $
  */
 
 /***************************************************************************
@@ -1388,7 +1388,7 @@ void do_wanted(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((victim = get_char_world(ch, arg)) == NULL) {
+	if ((victim = get_char_area(ch, arg)) == NULL) {
 		char_puts("They aren't here.\n", ch);
 		return;
 	}
