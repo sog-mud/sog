@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.241 2000-06-21 10:46:15 fjoe Exp $
+ * $Id: act_move.c,v 1.242 2000-08-21 07:42:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2337,7 +2337,7 @@ void do_push(CHAR_DATA *ch, const char *argument)
 
 	if (victim->position == POS_FIGHTING
 	||  (IS_NPC(victim) && IS_SET(victim->pMobIndex->act, ACT_NOTRACK))
-	||  (!IS_NPC(ch) && percent > get_skill(ch, "push"))
+	||  percent > get_skill(ch, "push")
 	||  pexit == NULL
 	||  pexit->to_room.r == NULL
 	||  pexit->to_room.r->area != ch->in_room->area) {
@@ -2995,7 +2995,7 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 	int chance, direction;
 	int range = (LEVEL(ch) / 10) + 1;
 	
-	if (IS_NPC(ch) || (chance = get_skill(ch, "bow")) == 0) {
+	if ((chance = get_skill(ch, "bow")) == 0) {
 		char_puts("You don't know how to shoot.\n",ch);
 		return;
 	}
@@ -3480,7 +3480,7 @@ void do_thumbling(CHAR_DATA *ch, const char *argument)
 	bool attack;
 	AFFECT_DATA af;
 
-	if (IS_NPC(ch) || (chance = get_skill(ch, "thumbling")) == 0) {
+	if ((chance = get_skill(ch, "thumbling")) == 0) {
 		char_puts("You don't know how to do that.\n", ch);
 		return;
 	}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.12 2000-08-04 14:12:48 cs Exp $
+ * $Id: updfun.c,v 1.13 2000-08-21 07:43:51 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -530,7 +530,7 @@ char_update_cb(void *vo, va_list ap)
 		return NULL;
 
 	/* reset path find */
-	if (!IS_NPC(ch) && (chance = get_skill(ch, "path find"))) {
+	if ((chance = get_skill(ch, "path find")) != 0) {
 		if (number_percent() < chance) {
 			ch->endur += chance / 2;
 			check_improve(ch, "path find", TRUE, 8);

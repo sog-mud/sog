@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.249 2000-08-10 06:56:56 fjoe Exp $
+ * $Id: act_wiz.c,v 1.250 2000-08-21 07:42:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4629,4 +4629,24 @@ void do_mpstat(CHAR_DATA *ch, const char *argument)
 			mptrig->vnum,
 			mptrig->phrase);
 	}
+}
+
+extern int max_rnd_cnt;
+extern int rnd_cnt;
+
+void
+do_maxrnd(CHAR_DATA *ch, const char *argument)
+{
+	char arg[MAX_INPUT_LENGTH];
+
+	one_argument(argument, arg, sizeof(arg));
+	if (is_number(arg)) {
+		max_rnd_cnt = atoi(arg);
+		rnd_cnt = 0;
+	} else if (arg[0] != '\0') {
+		char_puts("Syntax: maxrnd <max_rnd_cnt>\n", ch);
+		return;
+	}
+
+	char_printf(ch, "Current max_rnd_cnt = %d\n", max_rnd_cnt);
 }
