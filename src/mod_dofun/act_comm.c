@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.178 1999-06-23 04:41:33 fjoe Exp $
+ * $Id: act_comm.c,v 1.179 1999-06-23 04:50:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -373,13 +373,15 @@ void do_gtell(CHAR_DATA *ch, const char *argument)
 	if (i > 1 && !is_affected(ch, gsn_deafen))
 		act_puts("You tell your group '{G$t{x'",
 			 ch, argument, NULL,
-			 TO_CHAR | ACT_NOFIXSH | ACT_NOTRANS, POS_DEAD);
+			 TO_CHAR | ACT_SPEECH(ch), POS_DEAD);
 	else
 		char_puts("Quit talking to yourself. You are all alone.\n", ch);
 }
 
 void do_emote(CHAR_DATA *ch, const char *argument)
 {
+	int flags;
+
 	if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOEMOTE)) {
 		char_puts("You can't show your emotions.\n", ch);
 		return;
@@ -391,10 +393,13 @@ void do_emote(CHAR_DATA *ch, const char *argument)
 	}
 	
 	argument = garble(ch, argument);
-	act("$n $T", ch, NULL, argument,
-	    TO_ROOM | ACT_TOBUF | ACT_NOTRIG | ACT_NOTWIT |
-	    (!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM) ? ACT_NOTRANS : 0));
-	act("$n $T", ch, NULL, argument, TO_CHAR | ACT_NOTRIG | ACT_NOTRANS);
+
+	flags = ACT_NOTRIG | 
+		(!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM) ? ACT_NOTRANS : 0);
+	act("$n $T", ch, NULL, argument, TO_CHAR | flags);
+
+	flags |= ACT_TOBUF | ACT_NOTWIT;
+	act("$n $T", ch, NULL, argument, TO_ROOM | flags);
 }
 
 void do_pmote(CHAR_DATA *ch, const char *argument)
@@ -416,11 +421,12 @@ void do_pmote(CHAR_DATA *ch, const char *argument)
 	}
 	
 	argument = garble(ch, argument);
-	act("$n $t", ch, argument, NULL, TO_CHAR | ACT_NOTRIG | ACT_NOTRANS);
 
-	flags = TO_CHAR | ACT_TOBUF | ACT_NOTWIT | ACT_NOTRIG |
+	flags = TO_CHAR | ACT_NOTRIG | ACT_NOFIXSH |
 		(!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM) ? ACT_NOTRANS : 0);
+	act("$n $t", ch, argument, NULL, flags);
 
+	flags |= ACT_TOBUF | ACT_NOTWIT;
 	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
 		if (vch->desc == NULL || vch == ch)
 			continue;
