@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.c,v 1.8 2001-08-26 09:17:16 fjoe Exp $
+ * $Id: mpc_dynafun.c,v 1.9 2001-08-28 09:33:55 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -112,6 +112,12 @@ void
 mob_interpret(CHAR_DATA *ch, const char *argument)
 {
 	interpret(ch, argument, FALSE);
+}
+
+bool
+is_immortal(CHAR_DATA *ch)
+{
+	return IS_IMMORTAL(ch);
 }
 
 #else /* !defined(MPC) */
