@@ -181,7 +181,7 @@ EIKU
 stand stand male 2
 0 0 medium unknown
 m mob_fight mob_fight_cast_cleric 100~
-m mob_greet mob_greet_gargamel 30~
+m mob_greet mob_greet_gargamel all~
 m mob_random mob_random_kill_smurf 100~
 m mob_tell mob_tell_gargamel smurf~
 #112

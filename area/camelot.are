@@ -126,7 +126,7 @@ B 0 0 0 AB 0 0
 EFNU
 stand stand male 1000
 0 0 medium unknown
-m mob_greet mob_greet_black_knight 100~
+m mob_greet mob_greet_black_knight all~
 #17308
 gareth knight гарет рыцарь~
 @eng Sir Gareth@rus ~~Сэр~~ ~~Гарет~~~

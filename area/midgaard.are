@@ -47,7 +47,7 @@ stand stand male 500
 r charm 100
 r weapon 33
 r magic 33
-m mob_greet mob_greet_baker 100~
+m mob_greet mob_greet_baker all~
 #3002
 grocer бакалейщик~
 @eng the grocer@rus бакалейщик~
@@ -82,7 +82,7 @@ stand stand male 25000
 r charm 100
 r weapon 33
 r magic 33
-m mob_greet mob_greet_repair_equipment 1~
+m mob_greet mob_greet_repair_equipment all~
 #3004
 armourer armorer~
 the armourer~
@@ -100,7 +100,7 @@ stand stand male 25000
 r charm 100
 r weapon 33
 r magic 33
-m mob_greet mob_greet_armourer 100~
+m mob_greet mob_greet_armourer all~
 #3005
 thief вор~
 @eng the thief@rus вор~
@@ -225,7 +225,7 @@ r mental 100
 r charm 100
 r weapon 33
 r magic 33
-m mob_greet mob_greet_questor 10~
+m mob_greet mob_greet_questor all~
 #3012
 healer лекарь~
 @eng the healer@rus ~~лекарь~~~
@@ -654,7 +654,7 @@ stand stand female 0
 r magic -50
 m mob_bribe mob_bribe_beggar_nocoppers 1000~
 m mob_bribe mob_bribe_beggar_thank 1~
-m mob_greet mob_greet_beggar 100~
+m mob_greet mob_greet_beggar all~
 #3066
 cat кот~
 @eng an alley cat@rus ~~уличный~~ ~~кот~~~
@@ -736,7 +736,7 @@ r charm 100
 r weapon 33
 r magic 33
 m mob_fight mob_fight_cast_mage 100~
-m mob_greet mob_greet_apothecary_shopkeeper 100~
+m mob_greet mob_greet_apothecary_shopkeeper all~
 #3071
 cityguard guard стражник~
 @eng the cityguard@rus стражник~

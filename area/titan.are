@@ -120,7 +120,7 @@ r acid -50
 r holy 33
 r weapon 100
 r magic 100
-m mob_greet mob_greet_repair_equipment 1~
+m mob_greet mob_greet_repair_equipment all~
 #18007
 shop shopkeeper pet girl~
 the young pet-shop girl~
@@ -204,7 +204,7 @@ r poison 100
 r holy 33
 r charm 100
 r weapon 100
-m mob_greet mob_greet_repair_equipment 1~
+m mob_greet mob_greet_repair_equipment all~
 #18011
 magic library shopkeeper~
 the librarian~

@@ -10,7 +10,7 @@ End
 
 #MOBILES
 #35469
-oak tree ancient wise mob_greet_wise_oak~
+oak tree ancient wise~
 an ancient oak~
 An ancient oak leaned its branches over the trail.~
 Centures ago this giant spreading oak was a small sprout with several
@@ -32,7 +32,7 @@ r bash 100
 r weapon 100
 r magic 100
 m mob_death mob_death_tree 100~
-m mob_greet mob_greet_wise_oak 30~
+m mob_greet mob_greet_wise_oak all~
 m mob_kill mob_kill_wise_oak 100~
 m mob_tell mob_tell_wise_oak_leaf leaf~
 m mob_tell mob_tell_wise_oak_any ~
@@ -100,7 +100,7 @@ m mob_death mob_death_demonic_imp 100~
 m mob_fight mob_fight_demonic_imp 20~
 m mob_give mob_give_emerald_imp 35468~
 m mob_give mob_give_any_imp all~
-m mob_greet mob_greet_demonic_imp 100~
+m mob_greet mob_greet_demonic_imp all~
 m mob_tell mob_tell_imp_sapling sapling~
 #35473
 pixie water sprite~
@@ -137,7 +137,7 @@ r magic 33
 m mob_death mob_death_sprite_wings 100~
 m mob_give mob_give_sprite_leaf 35469~
 m mob_give mob_give_sprite_any all~
-m mob_greet mob_greet_sprite 100~
+m mob_greet mob_greet_sprite all~
 #35475
 guard invisible~
 an invisible guard~
@@ -193,7 +193,7 @@ F for D
 r charm 100
 m mob_death mob_death_tree_guardian 100~
 m mob_death mob_death_tree 100~
-m mob_greet mob_greet_guardian_tree 100~
+m mob_greet mob_greet_guardian_tree all~
 #0
 
 #OBJECTS

@@ -273,7 +273,7 @@ r weapon -50
 m mob_fight mob_fight_cast_mage 100~
 m mob_give mob_give_keeper 90~
 m mob_give mob_give_keeper_all all~
-m mob_greet mob_greet_keeper 100~
+m mob_greet mob_greet_keeper all~
 #2413
 Fireflash Повелитель Драконов~
 @eng Fireflash@rus ~~Повелитель~~ Драконов~
@@ -292,7 +292,7 @@ r weapon -50
 m mob_fight mob_fight_breath_any 100~
 m mob_give mob_give_fireflash 91~
 m mob_give mob_give_fireflash_all all~
-m mob_greet mob_greet_fireflash 100~
+m mob_greet mob_greet_fireflash all~
 #2414
 Pixie Сильф~
 @eng A Pixie@rus сильф~

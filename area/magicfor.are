@@ -478,7 +478,7 @@ r negative 33
 r holy -50
 r wood -50
 m mob_fight mob_fight_cast_mage 100~
-m mob_greet mob_greet_violet_witch 100~
+m mob_greet mob_greet_violet_witch all~
 #1820
 warlock red колдун красный~
 @eng the red warlock@rus ~~красный~~ ~~колдун~~~
@@ -646,7 +646,7 @@ r negative 33
 r holy -50
 r wood -50
 m mob_fight mob_fight_cast_mage 100~
-m mob_greet mob_greet_violet_warlock 100~
+m mob_greet mob_greet_violet_warlock all~
 #1827
 shopkeeper ranger продавец егерь торговец~
 @eng the ranger shopkeeper@rus ~~егерский~~ ~~торговец~~~

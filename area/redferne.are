@@ -42,7 +42,7 @@ stand stand male 1499
 r weapon -50
 m mob_fight mob_fight_breath_any 100~
 m mob_give mob_give_paladin_solamnia 2438~
-m mob_greet mob_greet_paladin_solamnia 100~
+m mob_greet mob_greet_paladin_solamnia all~
 #0
 
 #OBJECTS
