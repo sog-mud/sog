@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.19 2000-01-17 09:43:46 fjoe Exp $
+ * $Id: olc_class.c,v 1.20 2000-01-19 06:57:42 fjoe Exp $
  */
 
 #include "olc.h"
@@ -597,7 +597,8 @@ static VALIDATE_FUN(validate_whoname)
 
 	if ((cl2 = hash_foreach(&classes, whoname_cb, arg)) != NULL
 	&&  cl2 != cl) {
-		char_printf(ch, "ClassEd: %s: duplicate class whoname.\n", arg);
+		char_printf(ch, "ClassEd: %s: duplicate class whoname.\n",
+			    (const char *) arg);
 		return FALSE;
 	}
 

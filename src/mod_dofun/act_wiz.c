@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.226 2000-01-19 06:51:43 fjoe Exp $
+ * $Id: act_wiz.c,v 1.227 2000-01-19 06:57:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1249,7 +1249,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 			   victim->damtype);
 	}
 
-	buf_printf(output, "Fighting: %s Deaths: %d Carry number: %d  Carry weight: %ld\n",
+	buf_printf(output, "Fighting: %s Deaths: %d Carry number: %d  Carry weight: %d\n",
 		   victim->fighting ? victim->fighting->name : "(none)" ,
 		   IS_NPC(victim) ? 0 : PC(victim)->death,
 		   victim->carry_number, get_carry_weight(victim) / 10);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_cmd.c,v 1.8 1999-12-21 01:32:43 avn Exp $
+ * $Id: olc_cmd.c,v 1.9 2000-01-19 06:57:42 fjoe Exp $
  */
 
 #include "olc.h"
@@ -360,15 +360,13 @@ static VALIDATE_FUN(validate_cmd_name)
 	EDIT_CMD(ch, cmnd);
 
 	if (strpbrk(name, " \t")) {
-		char_printf(ch,
-			    "CmdEd: %s: illegal character in command name.\n",
-			    arg);
+		char_printf(ch, "CmdEd: %s: illegal character in command name.\n", name);
 		return FALSE;
 	}
 
 	if ((cmnd2 = cmd_lookup(name))
 	&&  cmnd2 != cmnd) {
-		char_printf(ch, "CmdEd: %s: duplicate command name.\n", arg);
+		char_printf(ch, "CmdEd: %s: duplicate command name.\n", name);
 		return FALSE;
 	}
 
