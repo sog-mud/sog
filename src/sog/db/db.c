@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.36 1998-07-09 14:02:24 fjoe Exp $
+ * $Id: db.c,v 1.37 1998-07-09 15:29:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1113,8 +1113,8 @@ void load_old_obj(FILE *fp)
 				paf->location	= fread_number(fp);
 				paf->modifier	= fread_number(fp);
 				paf->bitvector	= 0;
-				paf->next	= pObjIndex->affected;
-				pObjIndex->affected = paf;
+				SLIST_ADD(AFFECT_DATA,
+					  pObjIndex->affected, paf);
 				top_affect++;
 			}
 
@@ -1124,8 +1124,8 @@ void load_old_obj(FILE *fp)
 				ed		= alloc_perm(sizeof(*ed));
 				ed->keyword	= fread_string(fp);
 				ed->description	= fread_string(fp);
-				ed->next	= pObjIndex->extra_descr;
-				pObjIndex->extra_descr = ed;
+				SLIST_ADD(EXTRA_DESCR_DATA,
+					  pObjIndex->extra_descr, ed);
 				top_ed++;
 			}
 
@@ -1466,8 +1466,8 @@ void load_rooms(FILE *fp)
 				ed		= alloc_perm(sizeof(*ed));
 				ed->keyword	= fread_string(fp);
 				ed->description	= fread_string(fp);
-				ed->next	= pRoomIndex->extra_descr;
-				pRoomIndex->extra_descr	= ed;
+				SLIST_ADD(EXTRA_DESCR_DATA,
+					  pRoomIndex->extra_descr, ed);
 				top_ed++;
 			}
 

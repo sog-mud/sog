@@ -1,5 +1,5 @@
 /*
- * $Id: db2.c,v 1.13 1998-07-06 07:32:55 fjoe Exp $
+ * $Id: db2.c,v 1.14 1998-07-09 15:29:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -386,17 +386,7 @@ void load_mobiles(FILE *fp)
 		pMprog->trig_type   = trigger;
 		pMprog->vnum        = fread_number(fp);
 		pMprog->trig_phrase = fread_string(fp);
-
-		pMprog->next        = NULL;
-		if (pMobIndex->mprogs == NULL)
-		    pMobIndex->mprogs = pMprog;
-		else {
-		    MPROG_LIST *p;
-
-		    for (p = pMobIndex->mprogs; p->next != NULL; p = p->next)
-			;
-		    p->next = pMprog;
-		}
+		SLIST_ADD(MPROG_LIST, pMobIndex->mprogs, pMprog);
 	     }
 	     else
 	     {
@@ -565,8 +555,7 @@ void load_objects(FILE *fp)
                 paf->location           = fread_number(fp);
                 paf->modifier           = fread_number(fp);
                 paf->bitvector          = 0;
-                paf->next               = pObjIndex->affected;
-                pObjIndex->affected     = paf;
+		SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
                 top_affect++;
             }
 
@@ -605,8 +594,7 @@ void load_objects(FILE *fp)
                 paf->location           = fread_number(fp);
                 paf->modifier           = fread_number(fp);
                 paf->bitvector          = fread_flags(fp);
-                paf->next               = pObjIndex->affected;
-                pObjIndex->affected     = paf;
+		SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
                 top_affect++;
             }
  
@@ -617,8 +605,7 @@ void load_objects(FILE *fp)
                 ed                      = alloc_perm(sizeof(*ed));
                 ed->keyword             = fread_string(fp);
                 ed->description         = fread_string(fp);
-                ed->next                = pObjIndex->extra_descr;
-                pObjIndex->extra_descr  = ed;
+		SLIST_ADD(EXTRA_DESCR_DATA, pObjIndex->extra_descr, ed);
                 top_ed++;
             }
  

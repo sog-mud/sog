@@ -2,7 +2,7 @@
 #define _DB_H_
 
 /*
- * $Id: db.h,v 1.11 1998-07-03 15:18:41 fjoe Exp $
+ * $Id: db.h,v 1.12 1998-07-09 15:29:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -125,6 +125,20 @@ extern void vnum_check( int vnum );                    /* OLC */
 void convert_mobile(MOB_INDEX_DATA *pMobIndex);            /* OLC ROM */
 void convert_objects(void);                                /* OLC ROM */
 void convert_object(OBJ_INDEX_DATA *pObjIndex);            /* OLC ROM */
+
+#define SLIST_ADD(type, list, item)					\
+	{								\
+		if ((list) == NULL)					\
+			(list) = (item);				\
+		else {							\
+			type *p;					\
+									\
+			for (p = (list); p->next != NULL; p = p->next)	\
+				;					\
+			p->next = (item);				\
+		}							\
+		(item)->next = NULL;					\
+	}
 
 #endif
 
