@@ -710,11 +710,13 @@ spellfun
 
 Table for an OLC commands
 =========================
-	{ subcommand name, subcommand function, argument1 }
+	{ subcommand name, subcommand function, validator, argument }
 
-	`argument' is pointer to flag table if OLC subcommand sets flags,
-	pointer to validator function for this structure field if needed,
-	or NULL otherwise.
+	`validator' is a pointer to function that checks whether entered data
+	are appropriate or not. See below for details.
+
+	`argument' contains additional information needed by OLC subcommand
+	(e.g. pointer to flag table for flag setting commands).
 
 	Every OLC table should contain first six entries, in given order:
 	fooed_create, fooed_edit, fooed_save, fooed_touch, fooed_show,
