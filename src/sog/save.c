@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.105 1999-02-23 22:26:11 fjoe Exp $
+ * $Id: save.c,v 1.106 1999-03-02 09:37:39 kostik Exp $
  */
 
 /***************************************************************************
@@ -280,6 +280,8 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 			pcdata->last_changes);
 
 		fprintf(fp, "Dead %d\n", pcdata->death);
+		if (pcdata->homepoint)
+			fprintf(fp, "Homepoint %d\n", pcdata->homepoint);
 
 		if (pcdata->bank_s)
 			fprintf(fp, "Banks %d\n", pcdata->bank_s);
@@ -907,6 +909,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			KEY("Hit", ch->hitroll, fread_number(fp));
 			KEY("Home", ch->hometown, fread_number(fp));
 			KEY("Haskilled", ch->pcdata->has_killed, fread_number(fp));
+			KEY("Homepoint", ch->pcdata->homepoint, fread_number(fp));
 
 			if (!str_cmp(word, "HpManaMove") || !str_cmp(word, "HMV")) {
 				ch->hit = fread_number(fp);

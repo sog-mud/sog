@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.211 1999-02-26 13:26:47 fjoe Exp $
+ * $Id: act_info.c,v 1.212 1999-03-02 09:37:37 kostik Exp $
  */
 
 /***************************************************************************
@@ -3957,3 +3957,75 @@ void do_make(CHAR_DATA *ch, const char *argument)
 		do_make(ch, str_empty);
 }
 
+/*Added by Osya*/
+void do_homepoint(CHAR_DATA *ch, const char *argument)
+{
+        AFFECT_DATA af;
+        int sn;
+        int chance;
+        char arg[MAX_INPUT_LENGTH];
+
+        if ((sn = sn_lookup("homepoint")) < 0
+        ||  (chance = get_skill(ch, sn)) == 0) {
+                char_puts("Huh?\n", ch);
+                return;
+        }
+
+        if (is_affected(ch, sn)) {
+                char_puts("You fatigue for searshing new home.\n", ch) ;
+                return;
+        }
+
+        if (IS_SET(ch->in_room->room_flags, ROOM_SAFE | ROOM_PEACE |
+                                            ROOM_PRIVATE | ROOM_SOLITARY)
+        ||  (ch->in_room->sector_type != SECT_FIELD
+        &&   ch->in_room->sector_type != SECT_FOREST
+        &&   ch->in_room->sector_type != SECT_MOUNTAIN
+        &&   ch->in_room->sector_type != SECT_HILLS)) {
+                char_puts("You are cannot set home here.\n",
+                             ch);
+                return;
+        }
+
+        if (ch->mana < ch->max_mana) {
+                char_puts("You don't have strength to make a new home.\n",
+                             ch);
+                return;
+        }
+
+        ch->mana = 0 ;
+
+        if (number_percent() > chance) {
+                char_puts("You failed to make your homepoint.\n", ch);
+                check_improve(ch, sn, FALSE, 4);
+                return;
+        }
+
+        check_improve(ch, sn, TRUE, 4);
+        WAIT_STATE(ch, SKILL(sn)->beats);
+
+
+        char_puts("You succeeded to make your homepoint.\n", ch);
+        act("$n succeeded to make $s homepoint. ", ch, NULL, NULL, TO_ROOM);
+
+        af.where        = TO_AFFECTS;
+        af.type         = sn;
+        af.level        = ch->level;
+        af.duration     = 100;
+        af.bitvector    = 0;
+        af.modifier     = 0;
+        af.location     = APPLY_NONE;
+        affect_to_char(ch, &af);
+        argument = one_argument(argument, arg, sizeof(arg));
+	if(arg[0]=='\0' || !str_prefix(arg, "here")) {
+		ch->pcdata->homepoint = ch->in_room->vnum;
+		return;
+	}
+        if(!str_prefix(arg, "motherland")) 
+		ch->pcdata->homepoint = 0;
+        else 
+		ch->pcdata->homepoint = ch->in_room->vnum ; 
+
+
+}
+/*end*/

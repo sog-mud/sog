@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.163 1999-02-26 13:26:57 fjoe Exp $
+ * $Id: merc.h,v 1.164 1999-03-02 09:37:39 kostik Exp $
  */
 
 /***************************************************************************
@@ -1397,6 +1397,7 @@ struct pc_data
 	int			petition;
 
 	int			plevels;	/* penalty levels */
+	int 			homepoint;
 };
 
 /*

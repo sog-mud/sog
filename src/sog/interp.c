@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.126 1999-02-24 08:42:43 kostik Exp $
+ * $Id: interp.c,v 1.127 1999-03-02 09:37:38 kostik Exp $
  */
 
 /***************************************************************************
@@ -263,7 +263,8 @@ CMD_DATA cmd_table[] =
     { "hara",           do_hara,        POS_STANDING,    0,  LOG_NORMAL	},
 
     { "hide",		do_hide,	POS_RESTING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },
-    { "hometown",	do_hometown,	POS_STANDING,	0,	LOG_NORMAL },
+    { "hometown",	do_hometown,	POS_STANDING,	 0,  LOG_NORMAL },
+    { "homepoint",	do_homepoint,	POS_STANDING,	 0,  LOG_NORMAL },
     { "human",          do_human,       POS_STANDING,    0,  LOG_NORMAL	},
     { "hunt",           do_hunt,        POS_STANDING,    0,  LOG_NORMAL	},
     { "leave", 		do_enter, 	POS_STANDING,	 0,  LOG_NORMAL	},

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.h,v 1.39 1999-02-24 08:42:43 kostik Exp $
+ * $Id: interp.h,v 1.40 1999-03-02 09:37:39 kostik Exp $
  */
 
 /***************************************************************************
@@ -172,6 +172,7 @@ DECLARE_DO_FUN(do_herbs		);
 DECLARE_DO_FUN(do_hide		);
 DECLARE_DO_FUN(do_holylight	);
 DECLARE_DO_FUN(do_hometown	);
+DECLARE_DO_FUN(do_homepoint	);
 DECLARE_DO_FUN(do_human		);
 DECLARE_DO_FUN(do_hunt		);
 DECLARE_DO_FUN(do_idea		);
