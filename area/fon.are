@@ -18,7 +18,7 @@ animals and forest from hunters,woodcutters and destroers.
 He nods you and say:"Welcome to the Forest of Nowhere brave adventurer."
 ~
 human~
-AC D 500 0
+AW D 500 0
 11 0 2d8+120 1d1+99 1d5+1 'slash'
 1 1 1 2
 0 0 0 0
@@ -34,10 +34,10 @@ animals and forest from hunters,woodcutters and destroers.
 He nods you and say:"Welcome to the Forest of Nowhere brave adventurer."
 ~
 human~
-AC D 500 0
+AW D 500 0
 13 0 2d7+90 1d1+99 1d5+1 'slash'
 1 1 1 2
-FK 0 0 0
+K 0 0 0
 stand stand male 50
 0 ABCDF tiny unknown
 #22453
@@ -66,7 +66,7 @@ A heap of seaweed lies here.~
 plant~
 pill 0 A
 20 'water breathing' '' '' ''
-10 10 500 P
+10 1 500 P
 G none
 #22452
 staff green~
@@ -85,9 +85,9 @@ G none
 #22453
 spring water~
 a magical spring~
-A spring is here , filled by cold water~
+A spring is here,filled by cold water.~
 quartz~
-fountain BGOR 0
+fountain GOR 0
 0 0 'water' 135138384 0
 0 0 0 P
 G female
@@ -107,7 +107,7 @@ friendly.
 ~
 E
 sign~
-               Welcome to the Forest of Nowhere!
+Welcome to the Forest of Nowhere!
 In our friendly forest you can find a rest,food and drink.
 And in our forest you can't find aggressive creatures.
 But beware a deep tunnel under forest.
@@ -120,8 +120,8 @@ wooden training staff~
 The small wooden staff catch your eye.~
 wood~
 weapon 0 AN
-staff 10 2 'smash' F
-5 20 0 P
+staff 10 2 'smash' DF
+5 8 0 P
 A
 17 -6
 A
@@ -137,10 +137,10 @@ G none
 mace wood training~
 wooden training mace~
 The small wooden mace catch your eye.~
-unknown~
+wood~
 weapon 0 AN
 mace 9 2 'smash' 0
-5 0 0 P
+5 3 0 P
 A
 13 8
 A
@@ -155,7 +155,7 @@ The small wooden flail catch your eye.~
 wood~
 weapon 0 AN
 flail 9 2 'thwack' 0
-5 0 0 P
+5 2 0 P
 A
 13 15
 G none
@@ -166,7 +166,7 @@ The small leather whip catch your eye.~
 leather~
 weapon 0 AN
 whip 9 2 'sting' 0
-5 0 0 P
+5 3 0 P
 A
 12 20
 A
@@ -178,8 +178,8 @@ wooden training polearm~
 The small wooden polearm catch your eye.~
 wood~
 weapon 0 AN
-polearm 10 2 'cleave' 0
-5 0 0 P
+polearm 10 2 'cleave' DF
+5 8 0 P
 A
 17 -5
 A
@@ -188,31 +188,105 @@ A
 18 3
 G none
 #22460
-~
-~
-~
-unknown~
+wooden training sword~
+wooden training sword~
+The small wooden sword catch your eye.~
+wood~
 weapon 0 AN
-exotic 9 2 '' 0
-5 0 0 P
+sword 9 2 'slash' 0
+5 3 0 P
+A
+17 -5
+A
+19 3
 G none
 #22461
-~
-~
-~
-unknown~
+wooden trainig dagger~
+wooden training dagger~
+The small wooden dagger catch your eye.~
+wood~
 weapon 0 AN
-exotic 9 2 '' 0
-5 0 0 P
+dagger 9 2 'pierce' D
+5 2 0 P
+A
+18 1
+A
+19 1
 G none
 #22462
-~
-~
-~
-unknown~
-weapon 0 AN
-exotic 9 2 '' 0
-5 0 0 P
+mushroom food cooked~
+cooked mushroom~
+A large fried mushroom lies here , waiting to be eaten.~
+flesh~
+food 0 AO
+BCDE ADE 0 0 0
+1 1 2 P
+G none
+#22463
+necklace strenght power~
+Necklace of Power~
+A small copper necklace lies in dust.~
+copper~
+armor A AC
+3 2 4 5 0
+5 1 0 P
+A
+1 1
+G none
+#22464
+necklace intelligence smart~
+Necklace of Smart~
+A small copper necklace lies in dust.~
+copper~
+armor A AC
+3 2 4 5 0
+5 1 0 P
+A
+3 1
+G none
+#22465
+necklace wisdom~
+Necklace of Wisdom~
+A small copper necklace lies in dust.~
+copper~
+armor A AC
+3 2 4 5 0
+5 1 0 P
+A
+4 2
+G none
+#22466
+necklace speed~
+Necklace of Speed~
+A small copper necklace lies in dust.~
+copper~
+armor A AC
+3 2 4 5 0
+5 1 0 P
+A
+2 1
+G none
+#22467
+necklace life~
+Necklace of Life~
+A small copper necklace lies in dust.~
+copper~
+armor A AC
+3 2 4 5 0
+5 1 0 P
+A
+5 1
+G none
+#22468
+necklace beauty~
+Necklace of Beauty~
+A small copper necklace lies in dust.~
+copper~
+armor A AC
+3 2 4 5 0
+5 1 0 P
+A
+6 1
 G none
 #0
 
@@ -251,6 +325,10 @@ D2
 ~
 ~
 Z 0 22453
+D3
+~
+~
+Z 0 22456
 S
 #22453
 Camp-In-The-Forest~
@@ -278,27 +356,177 @@ D2
 ~
 ~
 Z 0 22452
+D3
+~
+~
+Z 0 22455
+S
+#22455
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.And nearly you can see a hole leading down.
+~
+0 0 forest
+D1
+~
+~
+Z 0 22454
+D2
+~
+~
+Z 0 22456
+D3
+~
+~
+Z 0 22457
+S
+#22456
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.And nearly you can see a hole leading down.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22455
+D1
+~
+~
+Z 0 22452
+D3
+~
+~
+Z 0 22458
+S
+#22457
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.And nearly you can see a hole leading down.
+~
+0 0 forest
+D1
+~
+~
+Z 0 22455
+D2
+~
+~
+Z 0 22458
+D3
+~
+~
+Z 0 22459
+S
+#22458
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.And nearly you can see a hole leading down.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22457
+D1
+~
+~
+Z 0 22456
+D3
+~
+~
+Z 0 22460
+S
+#22459
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.And nearly you can see a hole leading down.
+~
+0 0 forest
+D1
+~
+~
+Z 0 22457
+D2
+~
+~
+Z 0 22460
+S
+#22460
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.And nearly you can see a hole leading down.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22459
+D1
+~
+~
+Z 0 22458
 S
 #0
 
 #RESETS
 O 0 22454 0 22451	* a small sign (Entrance into Forest)
-M 0 22451 5 22452 1	* tiny guard (In the Forest of Nowhere)
+M 0 22451 8 22452 1	* tiny guard (In the Forest of Nowhere)
 E 0 22456 0 16		*	wooden training mace: wielded
-M 0 22452 5 22452 1	* tiny guard (In the Forest of Nowhere)
-E 0 22457 0 16		*	wooden training flail: wielded
+M 0 22452 8 22452 1	* tiny guard (In the Forest of Nowhere)
+E 0 22467 0 3		*	Necklace of Life: around the neck (1)
 M 0 22453 1 22453 1	* Bullroarer the Hobbit (Camp-In-The-Forest)
 G 0 22451 0		*	a seaweed
 G 0 22452 0		*	green staff
+G 0 22462 0		*	cooked mushroom
 O 0 22453 0 22453	* a magical spring (Camp-In-The-Forest)
-M 0 22451 5 22454 1	* tiny guard (In the Forest of Nowhere)
+M 0 22451 8 22454 1	* tiny guard (In the Forest of Nowhere)
 E 0 22455 0 16		*	wooden training staff: wielded
-M 0 22452 5 22454 1	* tiny guard (In the Forest of Nowhere)
+M 0 22452 8 22454 1	* tiny guard (In the Forest of Nowhere)
+E 0 22466 0 3		*	Necklace of Speed: around the neck (1)
+M 0 22451 1 22455 1	* tiny guard (In the Forest of Nowhere)
+E 0 22460 0 16		*	wooden training sword: wielded
+M 0 22452 8 22455 1	* tiny guard (In the Forest of Nowhere)
+E 0 22463 0 3		*	Necklace of Power: around the neck (1)
+M 0 22451 8 22456 1	* tiny guard (In the Forest of Nowhere)
+E 0 22461 0 16		*	wooden training dagger: wielded
+M 0 22452 8 22456 1	* tiny guard (In the Forest of Nowhere)
+E 0 22464 0 3		*	Necklace of Smart: around the neck (1)
+M 0 22451 8 22457 1	* tiny guard (In the Forest of Nowhere)
+E 0 22457 0 16		*	wooden training flail: wielded
+M 0 22452 8 22457 1	* tiny guard (In the Forest of Nowhere)
+E 0 22467 0 3		*	Necklace of Life: around the neck (1)
+M 0 22451 8 22458 1	* tiny guard (In the Forest of Nowhere)
 E 0 22458 0 16		*	leather training whip: wielded
+M 0 22452 8 22458 1	* tiny guard (In the Forest of Nowhere)
+E 0 22468 0 3		*	Necklace of Beauty: around the neck (1)
+M 0 22451 8 22459 1	* tiny guard (In the Forest of Nowhere)
+E 0 22459 0 16		*	wooden training polearm: wielded
+M 0 22452 8 22459 1	* tiny guard (In the Forest of Nowhere)
+M 0 22451 8 22460 1	* tiny guard (In the Forest of Nowhere)
+M 0 22452 8 22460 1	* tiny guard (In the Forest of Nowhere)
 S
 
 #SHOPS
-22453 4 26 0 0 0 120 70 0 23
+22453 4 26 19 0 0 120 70 0 23
 0
 
 #$

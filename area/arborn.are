@@ -986,6 +986,15 @@ wand 0 0
 0 0 0 '' 0
 0 0 0 P
 G none
+#36179
+statue man stoned~
+@eng stoned man@rus ~~окаменевший~~ ~~человек~~~
+@eng A stoned man is here.@rus Человек, превращенный в камень, стоит тут.~
+unknown~
+furniture 0 0
+0 0 0 0 0
+0 0 0 P
+G male
 #36195
 bag сумка~
 {Cstrangely light bag{x~

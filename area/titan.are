@@ -1838,7 +1838,7 @@ a Leather Bound Book on Titan Lore~
 A large leather book is here.~
 leather~
 wand A AO
-50 20 20 'sleep' 0
+30 10 10 'sleep' 0
 25 80 10620 P
 G none
 #18050
@@ -2055,7 +2055,7 @@ a Wand of Pixie Magic~
 A long wand is here on the ground.~
 wood~
 wand A AO
-50 15 15 'faerie fire' 0
+30 15 15 'faerie fire' 0
 25 200 12204 P
 G none
 #18071
@@ -2073,7 +2073,7 @@ a Wand of Drow Magic~
 A long wand is here on the ground, glowing dark black.~
 wood~
 wand A AO
-50 16 16 'curse' 0
+30 16 16 'curse' 0
 25 20 13490 P
 G none
 #18073

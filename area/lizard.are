@@ -14,7 +14,7 @@ The Lizard King stands here.
 ~
 ~
 lizard~
-A DEF 0 0
+ABTe DEF 0 0
 65 0 50d10+8250 10d10+1000 11d5+35 'divine'
 -35 -35 -35 -35
 ACEFHKMR 0 0 0
@@ -53,7 +53,7 @@ The grand lizard stands here.
 ~
 ~
 lizard~
-A D 0 0
+AT D 0 0
 55 0 50d10+6000 10d1+1000 10d5+28 'scratch'
 -25 -25 -25 -10
 FKM 0 0 0
@@ -118,7 +118,7 @@ The lizard priest is praying here
 ~
 ~
 lizard~
-A DH 0 0
+ABQ DH 0 0
 60 0 50d10+7000 10d10+1000 8d6+28 'divine'
 -30 -30 -30 -20
 0 0 0 0
@@ -131,7 +131,7 @@ The lizard monk is here or maybe not.
 ~
 ~
 lizard~
-A 0 0 0
+AT 0 0 0
 50 0 50d10+4500 10d10+1000 5d8+25 'punch'
 -20 -20 -20 -10
 FHIKM 0 D 0
@@ -144,7 +144,7 @@ The figure in mist of gods flying here
 ~
 ~
 human~
-A BDFHNT 0 0
+AQ BDFHNT 0 0
 65 0 5d10+9000 10d10+1000 10d5+35 'divine'
 -35 -35 -35 -35
 0 0 0 0
@@ -158,7 +158,7 @@ The lizard try to break the earth here.
 ~
 ~
 lizard~
-A 0 0 0
+AB 0 0 0
 45 0 25d10+3000 1d1+100 8d4+18 'scratch'
 -16 -16 -16 -8
 HM 0 0 0
@@ -171,7 +171,7 @@ The huge man help everyone to die stands here.
 ~
 ~
 human~
-A 0 0 0
+AT 0 0 0
 60 0 50d10+8000 1d1+100 11d5+33 'shbite'
 -30 -30 -30 -15
 CHIJN 0 D 0
@@ -210,7 +210,7 @@ Man ready to fight with you.
 ~
 ~
 human~
-A 0 0 0
+AT 0 0 0
 55 0 50d10+6000 10d1+1000 10d5+28 'scratch'
 -25 -25 -25 -10
 0 0 0 0
@@ -223,7 +223,7 @@ Strong lizard look at someone else , not you.
 ~
 ~
 lizard~
-A D 0 0
+AT D 0 0
 55 0 50d10+6000 10d1+1000 10d5+28 'scratch'
 -25 -25 -25 -10
 FKM 0 0 0
@@ -236,7 +236,7 @@ Large lizard is protecting the palace.
 ~
 ~
 lizard~
-A D 0 0
+AGT D 0 0
 55 0 50d10+6000 10d1+1000 10d5+28 'scratch'
 -25 -25 -25 -10
 FKMRT 0 0 0
@@ -248,13 +248,14 @@ bodyguard~
 Strong man ready to die for the king.
 ~
 ~
-human~
-A DFH 0 0
+lizard~
+AT DF 0 0
 60 0 50d10+8000 1d1+100 11d5+33 'punch'
 -30 -30 -30 -15
-CHIJNT 0 D 0
+R 0 0 0
 stand stand none 10000
 0 0 large unknown
+F vul I
 #22120
 shaman~
 shaman~
@@ -262,7 +263,7 @@ Strange figure slowly dancing around you.
 ~
 ~
 human~
-A DFHNOV 0 0
+AQ DFHNOV 0 0
 60 0 50d10+8000 1d1+100 11d5+33 'punch'
 -30 -30 -30 -15
 CHIJN 0 DHI 0
@@ -275,7 +276,7 @@ Strong man stands here.
 ~
 ~
 human~
-A u 0 0
+AT u 0 0
 45 0 25d10+3000 1d1+100 8d4+18 'punch'
 -16 -16 -16 -8
 CHIJ 0 0 0
@@ -291,7 +292,7 @@ lizard~
 A DFH 0 0
 60 0 50d10+8000 1d1+100 11d5+33 'punch'
 -30 -30 -30 -15
-0 0 0 0
+0 U 0 0
 stand stand none 10000
 0 0 large unknown
 #22123
@@ -510,21 +511,21 @@ Horrible man jump form the shadows.
 ~
 ~
 human~
-A F 0 0
+ABFS F 0 0
 50 0 50d10+4500 1d1+100 5d8+22 'bite'
 -20 -20 -20 -10
 BFHIJKN 0 0 0
-stand stand none 0
+stand stand none 100000
 0 0 medium unknown
 #22140
-~
+bandit~
 bandit~
 figure from shadow try to cleave you.
 ~
 ~
 human~
-A 0 0 0
-55 0 50d10+6000 10d1+1000 10d5+28 'scratch'
+ABFS 0 0 0
+55 0 50d10+6000 10d1+1000 10d5+28 'punch'
 -25 -25 -25 -10
 CHIJN 0 0 0
 stand stand none 0
@@ -550,7 +551,7 @@ figure in black silently attack you.
 ~
 ~
 human~
-A 0 0 0
+ABFS 0 0 0
 60 0 50d10+8000 1d1+100 11d5+33 'shbite'
 -30 -30 -30 -15
 CHIJN 0 D 0
@@ -1758,6 +1759,472 @@ A
 18 3
 A
 6 -2
+G none
+#22176
+sun glasses~
+sun-glasses~
+Small sun-glasses lays here.~
+glass~
+armor 0 AE
+12 12 15 5 0
+35 10 1000 P
+A
+17 -5
+A
+19 2
+A
+18 2
+A
+14 100
+A
+13 20
+G none
+#22177
+shorts~
+shorts~
+White shorts lays in dust.~
+cotton~
+armor 0 AF
+12 12 15 5 0
+35 10 1000 P
+A
+17 -6
+A
+19 2
+A
+18 2
+A
+13 20
+G none
+#22178
+short~
+t-short~
+White long t-short lays in dust.~
+cotton~
+armor 0 AD
+12 12 15 5 0
+35 10 1000 P
+A
+17 -8
+A
+19 2
+A
+18 2
+A
+13 20
+G none
+#22179
+sneakers~
+sneakers~
+White sport slippers are laying here.~
+rubber~
+armor 0 AG
+12 12 15 5 0
+35 10 1000 P
+A
+14 200
+A
+17 -6
+A
+19 2
+A
+18 2
+A
+13 20
+G none
+#22180
+canon camera~
+canon~
+Big camera named 'Canon' lays here.~
+unknown~
+wand 0 AO
+30 12 12 'colour spray' 0
+35 100 10000 P
+G none
+#22181
+miniskirt~
+miniskirt~
+White miniskirt lays in dust.~
+cotton~
+armor 0 AF
+12 12 15 5 0
+35 10 1000 P
+A
+6 2
+A
+13 10
+A
+19 2
+A
+18 2
+G none
+#22182
+camera polaroid~
+polaroid~
+Camera named 'Polaroid' lays here.~
+unknown~
+wand 0 AO
+25 12 12 'colour spray' 0
+30 100 10000 P
+G none
+#22183
+chocolate~
+~
+~
+chocolate~
+food 0 A
+CFG CEFGHI 0 0 0
+5 5 5 P
+G none
+#22184
+cookery book~
+cookery book~
+Huge book with very appetizing picture on it lays here.~
+unknown~
+staff 0 AO
+50 30 30 'create food' 0
+10 100 50 P
+G none
+#22185
+jungle call~
+jungle call~
+Wand named 'Jungle Call' lays here.~
+unknown~
+staff 0 AO
+50 30 30 'create spring' 0
+10 100 50 P
+G none
+#22186
+clear dagger~
+clear dagger~
+Dagger with clear handle lays here.~
+steel~
+weapon A AN
+dagger 5 7 'pierce' D
+20 50 2000 P
+G none
+#22187
+white dagger~
+white dagger~
+Dagger with white handle lays here.~
+steel~
+weapon 0 AN
+dagger 5 7 'pierce' 0
+20 50 2000 P
+A
+12 30
+A
+1 1
+G none
+#22188
+red dagger~
+red dagger~
+Dagger with red handle lays here.~
+steel~
+weapon 0 AN
+dagger 5 7 'pierce' 0
+20 50 2000 P
+A
+19 5
+A
+18 5
+G none
+#22189
+yellow dagger~
+yellow dagger~
+Dagger with yellow handle lays here.~
+steel~
+weapon 0 AN
+dagger 5 7 'pierce' 0
+20 50 2000 P
+A
+13 20
+G none
+#22190
+black dagger~
+black dagger~
+Dagger with black handle lays here.~
+steel~
+weapon 0 AN
+dagger 5 7 'pierce' EH
+20 50 2000 P
+A
+19 4
+A
+18 4
+G none
+#22191
+tail clear~
+clear tail~
+Clear lizard tail lays here.~
+snakeskin~
+armor 0 AF
+10 10 10 5 0
+20 300 9000 P
+A
+12 75
+A
+4 1
+A
+3 1
+G none
+#22192
+tail white~
+white tail~
+White lizard tail lays here.~
+snakeskin~
+armor 0 AF
+10 10 10 5 0
+20 300 9000 P
+A
+13 25
+A
+6 1
+A
+5 1
+G none
+#22193
+tail red~
+red tail~
+Red lizard tail lays here.~
+snakeskin~
+armor 0 AF
+10 10 10 5 0
+20 300 9000 P
+A
+18 5
+A
+2 1
+A
+1 1
+G none
+#22194
+tail yellow~
+yellow tail~
+Yellow lizard tail lays here.~
+snakeskin~
+armor 0 AF
+10 10 10 5 0
+20 300 9000 P
+A
+17 -10
+A
+9 -1
+A
+6 1
+A
+5 1
+A
+4 1
+A
+3 1
+A
+2 1
+A
+1 1
+G none
+#22195
+tail black~
+black tail~
+Black lizard tail lays here.~
+snakeskin~
+armor 0 AF
+10 10 10 5 0
+20 300 9000 P
+A
+19 3
+A
+6 -1
+A
+5 -1
+A
+4 -1
+A
+3 -1
+A
+2 -1
+A
+1 -1
+G none
+#22196
+herb clear~
+clear herb~
+Some clear herbs lays here.~
+moss~
+pill 0 A
+40 'cancellation' 'cancellation' 'cancellation' 'cancellation'
+20 10 3000 P
+G none
+#22197
+herb white~
+white herb~
+Some white herbs lays here.~
+moss~
+pill 0 A
+40 'cure poison' 'cure poison' 'cure disease' 'cure disease'
+20 10 3000 P
+G none
+#22198
+herb red~
+red herb~
+Some red herbs lays here.~
+moss~
+pill 0 A
+20 'giant strength' 'haste' 'haste' ''
+20 10 3000 P
+G none
+#22199
+herb yellow~
+yellow herb~
+Some yellow herbs lays here.~
+moss~
+pill 0 A
+20 'shield' 'armor' '' ''
+20 10 3000 P
+G none
+#22200
+herb black~
+black herb~
+Some black herbs lays here.~
+moss~
+pill 0 A
+50 'slow' 'slow' 'slow' 'slow'
+20 10 3000 P
+G none
+#22201
+potion clear~
+clear potion~
+Clear potion lays here.~
+glass~
+potion AB AO
+40 'dispel magic' 'dispel magic' 'dispel magic' 'dispel magic'
+20 50 9000 P
+G none
+#22202
+potion white~
+white potion~
+White potion lays here.~
+glass~
+potion AB AO
+40 'cure blindness' 'cure blindness' 'cure blindness' 'cure blindness'
+20 50 9000 P
+G none
+#22203
+potion red~
+red potion~
+Red potion lays here.~
+glass~
+potion AB AO
+20 'bless' 'frenzy' '' ''
+20 50 9000 P
+G none
+#22204
+potion yellow~
+yellow potion~
+Yellow potion lays here.~
+glass~
+potion AB AO
+50 'word of recall' 'refresh' 'refresh' 'refresh'
+20 50 9000 P
+G none
+#22205
+potion black~
+black potion~
+Black potion lays here.~
+glass~
+potion AB AO
+20 'teleport' 'teleport' 'teleport' 'teleport'
+20 50 9000 P
+G none
+#22206
+wand clear~
+clear wand~
+The clear wand lays here.~
+bone~
+wand AB AO
+20 10 10 'mass invis' 0
+20 100 10000 P
+G none
+#22207
+wand white~
+white wand~
+The white wand lays here.~
+bone~
+wand AB AO
+20 10 10 'curse' 0
+20 100 10000 P
+G none
+#22208
+wand red~
+red wand~
+The red wand lays here.~
+bone~
+wand AB AO
+20 10 10 'blindness' 0
+20 100 10000 P
+G none
+#22209
+wand yellow~
+yellow wand~
+The yellow wand lays here.~
+bone~
+wand AB AO
+20 10 10 'slow' 0
+20 100 10000 P
+G none
+#22210
+wand black~
+black wand~
+The black wand lays here.~
+bone~
+wand AB AO
+20 10 10 'chill touch' 0
+20 100 10000 P
+G none
+#22211
+fountain~
+fountain~
+The fountain with clear liquid.~
+marble~
+fountain OR 0
+0 0 'water' 135139728 0
+0 0 0 P
+G none
+#22212
+fountain~
+fountain~
+The fountain with milky liquid.~
+marble~
+fountain OR 0
+0 0 'milk' 135139728 0
+0 0 0 P
+G none
+#22213
+fountain~
+fountain~
+The fountain with clear red liquid.~
+marble~
+fountain OR 0
+0 0 'red wine' 135139728 0
+0 0 0 P
+G none
+#22214
+fountain~
+fountain~
+The fountain with clear yellow liquid.~
+marble~
+fountain OR 0
+0 0 'mead' 135139728 0
+0 0 0 P
+G none
+#22215
+fountain~
+fountain~
+The fountain with green liquid.~
+marble~
+fountain OR 0
+0 0 'blood' 135139728 0
+0 0 0 P
 G none
 #0
 
@@ -4699,6 +5166,13 @@ D2
 Z 0 22179
 S
 #0
+
+#RESETS
+M 0 22101 1 22135 1	* lizard kiing (Throne of the lizard king)
+E 0 22101 0 16		*	Lizard King Sceptre: wielded
+M 0 22112 1 22138 1	* knocker (Temple Square)
+E 0 22127 0 16		*	huge bone: wielded
+S
 
 #OLIMITS
 O 22101 1	* Lizard King Sceptre

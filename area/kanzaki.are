@@ -5,6 +5,7 @@ VNUMs 47000 47999
 Credits Lothar~
 Security 9
 LevelRange 20 50
+ResetMessage @eng The ground suddenly trembles, then all goes quiet.@rus Земля под твоими ногами внезапно вздрагивает.~
 Flags closed~
 End
 
@@ -55,7 +56,7 @@ before you and quacking loudly at everyone.
 ~
 song bird~
 AGHe 0 0 0
-10 10 6d10+100 1d1+0 2d5+5 'peckb'
+10 10 10d10+100 1d1+0 2d5+5 'peckb'
 4 4 4 7
 IJ 0 0 C
 stand stand female 0
@@ -92,7 +93,7 @@ if it's venomous or not.
 ~
 snake~
 AGW FPQV 0 0
-20 25 10d15+350 0d0+0 5d5+20 'bite'
+20 25 20d20+350 0d0+0 4d5+10 'bite'
 -4 -4 -4 -4
 FHM 0 0 0
 stand stand female 0
@@ -104,11 +105,11 @@ grasshopper кузнечик~
 @rus Крохотный кузнечик притаился в траве.
 ~
 @eng Very small and fragile, it jumps away as you approach.
-@rus Очень маленький и хрупкий, он прыгает в сторону
-как только ты подходишь.
+@rus Очень маленький и хрупкий, он сигает в сторону едва
+ты подходишь ближе.
 ~
 unique~
-AHe T 500 0
+ABHe T 500 0
 5 5 6d6+50 0d0+0 4d4+8 'scratch'
 2 2 2 2
 F 0 0 HI
@@ -122,12 +123,12 @@ small bird птичка маленькая~
 ~
 @eng It probably got tired from flying and singing
 and decided to catch some bug for a meal.
-@rus Наверное, она устала щебетать и решила подкрепится
+@rus Наверное, она устала щебетать и решила подкрепиться
 каким-нибудь неудачливым червячком.
 ~
 song bird~
 AH 0 0 0
-10 10 10d10+200 0d0+0 5d5+15 'peck'
+10 10 10d10+200 0d0+0 4d3+10 'peck'
 -2 -2 -2 -2
 0 0 0 0
 stand stand female 0
@@ -138,12 +139,10 @@ stand stand female 0
 @eng A young apprentice is performing complex motions here.
 @rus Молодой человек отрабатывает здесь различные упражнения.
 ~
-@eng He follows every instruction given by his teacher,
-performing various motions some of which imitate combat
-moves.
-@rus Сосредоточенно смотря перед собой, он совершает
-сложные движения, некоторые из которых имитируют
-боевые приемы.
+@eng He follows every instruction given by his teacher, performing
+various motions some of which imitate combat moves.
+@rus Сосредоточенно глядя перед собой, он совершает сложные
+движения, некоторые из которых имитируют боевые приемы.
 ~
 human~
 ABG bz 700 0
@@ -157,7 +156,7 @@ F for HM
 teacher учитель пожилой человек man наставник~
 @eng the old teacher@rus ~~пожилой~~ ~~наставник~~~
 @eng An old man is here, watching his apprentice.
-@rus Пожилой человек стоит здесь, наблюдая за своим учеником.
+@rus Пожилой мужчина стоит здесь, наблюдая за своим учеником.
 ~
 @eng His hair is grey and face is wrinkled, but he managed
 to save the amazing grace of movements and love for life,
@@ -169,11 +168,106 @@ as if there weren't all those years behind him.
 ~
 human~
 ABGT DFPbz 1000 0
-32 30 10d50+538 0d0+0 9d6+35 'punch'
+32 30 9d60+719 0d0+0 9d6+35 'punch'
 -12 -12 -12 -10
-AFHKN 0 BDHILPQ 0
+AFHKNQX 0 BDHILPQ 0
 stand stand male 1000
 0 ABCDF medium unknown
+F for HM
+#47107
+deer олень young молодой~
+@eng a young deer@rus ~~молодой~~ ~~олень~~~
+@eng A young deer is here, feeding on the grass.
+@rus Молодой олень стоит здесь, пощипывая траву.
+~
+@eng Its body is covered with short brown, velvet-like fur, and
+not very long, but strikingly beautiful horns and regal
+bearing deserve your excitement.
+As a branch crunches under your feet, the deer lifts its head
+up and examines you attentively for a while.. and you sense
+such ingenuous and human curiosity in its gaze.
+@rus Тело его покрыто бархатистой коричневой шерстью, а не очень
+длинные, но удивительно красивые рога и прямо-таки королев-
+ская осанка вызывают невольное восхищение.
+Услышав хруст ветки под твоими ногами, он поднимает голову
+и некоторое время изучает тебя.. и его взгляд кажется тебе
+вполне человеческим.
+~
+unique~
+ABGWZ cst 0 0
+27 25 10d50+500 0d0+0 6d5+25 'charge'
+-9 -9 -9 -7
+FHIJO 0 BEIP 0
+stand stand male 0
+AV ACDFW large unknown
+#47108
+макака обезьяна лохматая ape shaggy~
+@eng a shaggy ape@rus ~~лохматая~~ ~~макака~~~
+@eng A shaggy ape murmurs something to itself discontentedly.
+@rus Лохматая обезьяна что-то недовольно бурчит себе под нос.
+~
+@eng This 'thing' is all covered with thick grey wool, except
+its face and the opposite body part.. Black eyes gleam
+angrily in your direction, while arms search the ground
+for something to throw at you.
+@rus Это чудо с ног до головы покрыто густой серой шерстью (кроме
+морды и противоположного ей места). Черные глаза сердито поб-
+лескивают в твоем направлении, а лапы шарят по земле в поисках
+чего-нибудь, чем можно в тебя запустить.
+~
+unique~
+ABCH V 0 0
+24 30 4d100+400 0d0+0 7d7+40 'slap'
+-5 -5 -5 -5
+FHIJNU 0 BLPQ H
+stand stand none 0
+AHV ABCDEF medium unknown
+#47109
+demon~
+@eng Demon~
+~
+~
+human~
+A 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 ''
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+#47110
+dragon~
+Dragon~
+~
+~
+human~
+A 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 ''
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+#47111
+saki саки хозяин owner~
+@eng Saki@rus Саки~
+@eng The owner of this pub smiles and offers you his drinks.
+@rus Хозяин забегаловки улыбается тебе, предлагая присесть.
+~
+@eng He had already lived enough and now found himself
+a business that lets him beguile days, talking to
+visitors and supplying them with drinks.
+@rus Он уже порядочно пожил на свете и теперь, на старости
+лет, нашел себе спокойное занятие - держать эту забе-
+галовку и коротать время, болтая с посетителями.
+~
+human~
+ABe 0 250 0
+25 15 5d100+1500 0d0+0 5d5+15 'punch'
+-10 -10 -10 -10
+FHIN AB CD 0
+stand stand male 5000
+0 ABCDEF medium unknown
 F for HM
 #0
 
@@ -357,6 +451,19 @@ fountain Y 0
 0 0 'ale' 0 0
 0 1 1 P
 G none
+#47013
+staff посох тысячи душ thousand souls~
+@eng the Staff of Thousand Souls@rus ~~Посох~~ Тысячи Душ~
+@eng A staff made from long bone lies on the ground@rus Посох, сделанный из длинной кости, лежит на земле.~
+bone~
+weapon BC AN
+staff 8 8 'drain' CEFH
+46 0 0 P
+A
+19 30
+A
+18 45
+G male
 #47018
 garland~
 @eng a garland@rus гирлянда~
@@ -929,9 +1036,74 @@ pile feathers кучка перьев~
 @eng a small pile of feathers@rus ~~кучка~~ ~~перьев~~~
 @eng A pile of dirty feathers is lying on the ground.@rus Кучка грязных перьев валяется на земле.~
 unknown~
-trash Va A
+trash QVa A
 0 0 0 0 0
 0 2 0 P
+G female
+#47133
+hat шляпа соломенная straw~
+@eng a straw hat@rus ~~соломенная~~ ~~шляпа~~~
+@eng A wide straw hat lies on the ground.@rus Широкополая соломенная шляпа валяется на земле.~
+straw~
+armor 0 AE
+0 9 9 5 0
+25 3 250 P
+A
+9 10
+A
+8 1
+A
+6 1
+A
+24 -7
+A
+18 4
+A
+12 25
+A
+4 2
+G female
+#47134
+бамбуковый шест bamboo pole~
+@eng a long bamboo pole@rus ~~длинный~~ ~~бамбуковый~~ ~~шест~~~
+@eng A long and sturdy bamboo pole lies on the grass.@rus Длинный и крепкий шест из бамбука лежит на траве.~
+bamboo~
+weapon 0 AN
+staff 6 7 'beating' F
+25 7 400 P
+A
+2 2
+A
+19 3
+A
+18 5
+A
+17 -20
+G male
+#47135
+рубашка shirt выцветшая worn поношенная~
+@eng a worn shirt@rus ~~выцветшая~~ ~~рубашка~~~
+@eng A worn but clean shirt of cotton lies here.@rus Поношенная и выцветшая, но тем не менее чистая рубашка лежит здесь.~
+cotton~
+clothing 0 AD
+0 0 0 0 0
+20 4 250 P
+A
+5 1
+G female
+#47136
+hide woolly ape шерсть шкура обезьянья~
+@eng a woolly hide of the ape@rus ~~обезьянья~~ ~~шкура~~~
+@eng A woolly hide lies on the ground.@rus Покрытая густой шерстью шкура(hide) лежит на земле.~
+fur~
+armor Q AK
+9 9 9 9 0
+24 7 0 P
+A
+23 -7
+A
+13 25
+F R 0 0 I
 G female
 #47217
 river water~
@@ -2711,10 +2883,10 @@ smiling at you warmly - or was it just your imagination ?
 ~
 0 ASX inside
 D0
-@eng A barely noticable door is set in the stone wall.
+@eng A barely noticeable door is set in the wall.
 @rus Неприметная дверь сливается по цвету с каменной стеной.
 ~
-door~
+secret~
 ABZ 0 47172
 D1
 @eng Wooden door appears very strong. A not so small keyhole
@@ -3847,9 +4019,16 @@ M 0 47000 1 47001 1	* The statue (The terrace)
 E 0 47004 0 16		*	Sword of Enforcement: wielded
 O 0 47005 0 47002	* {YThe sun{x (Аbove the clouds)
 O 0 47100 0 47100	* {xWooden tablet (Dusty road)
+M 0 47100 2 47104 1	* a duck (Road to the village)
+G 0 47132 0		*	a small pile of feathers
+M 0 47101 4 47104 2	* a small duck (Road to the village)
 O 0 47120 0 47106	* sign (Village pub)
 O 0 47121 0 47106	* bench (Village pub)
 O 0 47122 0 47106	* Table (Village pub)
+M 0 47111 1 47106 1	* Saki (Village pub)
+M 0 47100 2 47108 1	* a duck (The village road)
+G 0 47132 0		*	a small pile of feathers
+M 0 47101 4 47108 2	* a small duck (The village road)
 O 0 47101 0 47110	* Well (By the well)
 O 0 47123 0 47112	* plant (A small field behind the house)
 P 0 47124 0 47123 1	* plant: some fruits
@@ -3861,6 +4040,18 @@ O 0 47126 0 47126	* table (Temple guards' barracks)
 O 0 47102 0 47128	* Temple gates (The temple courtyard)
 O 0 47109 0 47129	* a huge anvil (The forge)
 O 0 47110 0 47129	* Barrel of water (The forge)
+M 0 47103 5 47139 1	* a grasshopper (The meadows)
+M 0 47103 5 47141 1	* a grasshopper (The meadows)
+M 0 47104 3 47141 1	* a bird (The meadows)
+G 0 47132 0		*	a small pile of feathers
+M 0 47104 3 47143 1	* a bird (The meadows)
+G 0 47132 0		*	a small pile of feathers
+M 0 47102 2 47145 1	* a small snake (Bamboo grove)
+G 0 47129 0		*	a dead snake
+M 0 47103 5 47151 1	* a grasshopper (The meadows)
+M 0 47107 1 47153 1	* a young deer (Medium density forest)
+M 0 47102 2 47154 1	* a small snake (The meadows)
+G 0 47129 0		*	a dead snake
 O 0 47127 0 47175	* {gbodhi tree{x (The sacred garden)
 O 0 47103 0 47188	* Mouth of a cave (The mountain)
 O 0 47104 0 47197	* Crevasse (Deeper into the cave)
@@ -3875,13 +4066,31 @@ O 0 47117 0 47209	* Vase with flowers (Miyu's room)
 P 0 47118 0 47117 1	* Vase with flowers: A bouquet of flowers
 O 0 47119 0 47210	* chest (Saburo Kanzaki's room)
 M 0 47105 1 47212 1	* apprentice (A small opening)
-M 0 47105 1 47212 1	* apprentice (A small opening)
 E 0 47130 0 13		*	a worn belt: around the waist
 E 0 47131 0 7		*	short pants: on the legs
+M 0 47106 1 47212 1	* the old teacher (A small opening)
+E 0 47133 0 6		*	a straw hat: over the head
+E 0 47134 0 16		*	a long bamboo pole: wielded
+E 0 47135 0 5		*	a worn shirt: on the body
+E 0 47131 0 7		*	short pants: on the legs
+E 0 47130 0 13		*	a worn belt: around the waist
 O 0 47128 0 47213	* a pool of hot water (By the hot spring)
+M 0 47108 3 47213 3	* a shaggy ape (By the hot spring)
+E 0 47136 0 12		*	a woolly hide of the ape: about the shoulders
+M 0 47108 3 47213 3	* a shaggy ape (By the hot spring)
+E 0 47136 0 12		*	a woolly hide of the ape: about the shoulders
+M 0 47108 3 47213 3	* a shaggy ape (By the hot spring)
+E 0 47136 0 12		*	a woolly hide of the ape: about the shoulders
 O 0 47107 0 47215	* River (Shore of the river)
 O 0 47217 0 47216	* River (Shore of the river)
 O 0 47108 0 47218	* Cave mouth (In the river)
+S
+
+#OLIMITS
+O 47013 1	* the Staff of Thousand Souls
+O 47133 7	* a straw hat
+O 47134 5	* a long bamboo pole
+O 47136 5	* a woolly hide of the ape
 S
 
 #MOBPROGS

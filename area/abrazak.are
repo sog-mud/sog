@@ -20,7 +20,7 @@ dragon~
 ABGOVXac H 0 0
 1000 0 5d5000+5000 1d1+666 5d300+1 'none'
 6 6 66 66
-0 ABDFGIJLMOPQRTXYZ 0 0
+YZ ABDFGIJLMOPQRTXYZ 0 0
 stand stand male 2147483647
 CIK 0 huge unknown
 M random 15000 2~
@@ -429,6 +429,25 @@ furniture RYa AP
 AC EIJKN HK CFG CFG
 0 0 0 P
 G none
+#15031
+fff~
+~
+~
+unknown~
+trash 0 0
+0 0 0 0 0
+0 0 0 P
+E
+foo aaa bbb~
+@rus ssss
+s
+s
+ 
+s
+s
+s
+~
+G none
 #15035
 bottle champagne~
 @eng {ga bottle of champagne{x@rus {gбутылка шампанского{x~
@@ -586,8 +605,9 @@ G none
 ~
 0 0 forest
 D2
+@rus rklqewjrlkqwejrklqwejrkljr;kqwej
 ~
-~
+fff xxx~
 Z 0 34400
 S
 #15001

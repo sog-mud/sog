@@ -82,7 +82,7 @@ End
 
 #SKILL
 Skill 'smithing'
-Level 38
+Level 32
 Rating 1
 Min 1
 Adept 75
@@ -289,7 +289,7 @@ End
 
 #SKILL
 Skill 'concentrate'
-Level 40
+Level 30
 Rating 1
 Min 1
 Adept 75
@@ -298,7 +298,7 @@ End
 
 #SKILL
 Skill 'bow'
-Level 44
+Level 34
 Rating 1
 Min 1
 Adept 75

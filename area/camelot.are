@@ -11,7 +11,7 @@ End
 knight reknown рыцарь познания~
 @eng The knight of reknown@rus ~~Рыцарь~~ Познания~
 @eng A knight of reknown slaps you with his gauntlet and challenges you!
-@rus Рыцарь Познания бросает тебе свою перчатку и вызывает на честный бой!
+@rus Рыцарь Познания (reknown) бросает тебе свою перчатку и вызывает на честный бой!
 ~
 @eng The knight of reknown is mounted on a warhorse, uses a lance, and you can 
 see his morningstar on his horse. His colors fly from a banner carried by 
@@ -31,7 +31,7 @@ stand stand male 1000
 squire оруженосец~
 @eng The squire@rus оруженосец~
 @eng A squire is here on an errand for his lord.
-@rus Оруженосец полон готовности служить своему хозяину.
+@rus Оруженосец (squire) полон готовности служить своему хозяину.
 ~
 @eng A squire stands here on a mission for his lord. He is dressed in rags, 
 smells bad, and looks like he is in a hurry.
@@ -46,11 +46,13 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17303
-knight quality~
-the knight of quality~
-A knight of quality looks down upon you from his mount.
+knight quality рыцарь достоинства~
+@eng the knight of quality@rus ~~Рыцарь~~ Достоинства~
+@eng A knight of quality looks down upon you from his mount.
+@rus Рыцарь Достоинства (quality) смотрит на тебя с высоты своего седла.
 ~
-The knight is in full plate mail on a barded horse and carries a lance.
+@eng The knight is in full plate mail on a barded horse and carries a lance.
+@rus Рыцарь в полном комплекте брони на боевой лошади вооружен рыцарским копьем.
 ~
 human~
 A JN 750 0
@@ -60,13 +62,17 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17304
-arthur king~
-King Arthur~
-King Arthur sits upon his throne awaiting the return of the grail.
+arthur king король артур~
+@eng King Arthur@rus ~~Король~~ ~~Артур~~~
+@eng King Arthur sits upon his throne awaiting the return of the grail.
+@rus Король Артур (Arthur) сидит на троне, ожидая возвращения Святого Грааля.
 ~
-King Arthur is a black bearded barrel chested man. He is in full plate 
+@eng King Arthur is a black bearded barrel chested man. He is in full plate 
 armor emblazoned with the sign of a gold dragon. He carries Excalibur 
 in a strange looking sheath.
+@rus Король Артур - чернобородый человек мощного телосложения. Он закован в полную
+броню, украшенную изображением золотого дракона. В странно выглядящих ножнах
+он хранит знаменитый меч Экскалибур. Одолеть его не в силах никто.
 ~
 human~
 AB DH 1000 0
@@ -76,12 +82,15 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17305
-benlad knight green~
-Sir Benlad de Haudtesert (the green knight)~
-Sir Benlad slaps you with his gauntlet and challenges you!
+benlad knight green зеленый рыцарь бенлад~
+@eng Sir Benlad de Haudtesert (the green knight)@rus ~~Сэр~~ ~~Бенлад~~~
+@eng Sir Benlad slaps you with his gauntlet and challenges you!
+@rus Сэр Бенлад (Benlad), Зеленый Рыцарь, бросает тебе перчатку и вызывает на поединок!
 ~
-Sir Benlad is clad in his renowned green armor, rumored to be impervious 
+@eng Sir Benlad is clad in his renowned green armor, rumored to be impervious 
 to normal weaponry. He bears a huge battle axe.
+@rus Сэр Бенлад одет в свою знаменитую зеленую броню, по слухам неподвластную
+обычному оружию. Он вооружен огромным боевым топором.
 ~
 human~
 AF HJ 250 0
@@ -91,13 +100,16 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17306
-galahad knight~
-Sir Galahad~
-Sir Galahad, paragon of chivalry, bastard of Lancelot & Elane, stands here.
+galahad knight галахад рыцарь~
+@eng Sir Galahad@rus ~~Сэр~~ ~~Галахад~~~
+@eng Sir Galahad, paragon of chivalry, bastard of Lancelot & Elane, stands here.
+@rus Сэр Галахад (Galahad), образец галантности, плод любви Ланселота и Эланы, стоит тут.
 ~
-Sir Galahad is dressed in his white armor and carries a two handed sword
+@eng Sir Galahad is dressed in his white armor and carries a two handed sword
 (it was Sir Galahad who completed the quest for the grail in the Arthurian 
 saga)
+@rus Сэр Галахад одет в белую броню и вооружен двуручным мечом. (Именно сэр Галахад
+будет тем самым рыцарем, который вернет Святой Грааль)
 ~
 human~
 AB CDFN 1000 0
@@ -107,12 +119,15 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17307
-black knight~
-the black knight~
-A knight dressed in black armor.
+black knight черный рыцарь~
+@eng the black knight@rus Рыцарь, одетый в черную броню.~
+@eng A knight dressed in black armor.
+@rus Рыцарь в черной (black) броне стоит перед тобой.
 ~
-The black knight has black armor and a visored helm. He stands resting on 
+@eng The black knight has black armor and a visored helm. He stands resting on 
 a two handed sword.
+@rus Черный рыцарь одет в черную броню и шлем с прорезью. Он стоит, опершись
+на двуручный меч.
 ~
 human~
 AB DF 0 0
@@ -123,13 +138,16 @@ stand stand male 1000
 0 0 medium unknown
 M greet 17301 100~
 #17308
-gareth knight~
-Sir Gareth~
-A knight with armor of many colors stands here.
+gareth knight гарет рыцарь~
+@eng Sir Gareth@rus ~~Сэр~~ ~~Гарет~~~
+@eng A knight with armor of many colors stands here.
+@rus Рыцарь (knight) в многоцветной броне стоит здесь.
 ~
-Sir Gareth, son of Lot, aka Beaumains proudly wears his armor and shield 
+@eng Sir Gareth, son of Lot, aka Beaumains proudly wears his armor and shield 
 of many colors. He anxiously awaits an opportunity to help a damsel in 
 distress.
+@rus Сэр Гарет, сын Лота, известного как Бьюмэн, одет в многоцветную броню и
+такой же щит.  Он с тревогой ждет возможности помочь даме сердца в беде.  
 ~
 human~
 AB N 750 0
@@ -139,12 +157,15 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17309
-garlon knight~
-Sir Garlon~
-Sir Garlon, the invisible knight, is waiting here.
+garlon knight гарлон рыцарь~
+@eng Sir Garlon@rus ~~Сэр~~ ~~Гарлон~~~
+@eng Sir Garlon, the invisible knight, is waiting here.
+@rus Сэр Гарлон (Garlon), невидимый рыцарь, ожидает здесь.
 ~
-Sir Garlon (the vile villian) is hiding here. He was given his invisibility 
+@eng Sir Garlon (the vile villian) is hiding here. He was given his invisibility 
 power by the witch of the fens for the furtherment of evil.
+@rus Сэр Гарлон, мерзкий злодей, скрывается здесь. Он получил свою невидимость
+от ведьмы из болот, для того, чтобы творить зло. 
 ~
 human~
 ABF BDJP -1000 0
@@ -154,12 +175,15 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17310
-gawaine knight~
-Sir Gawaine~
-Sir Gawaine, the strong, is on a mission of vengeance!
+gawaine knight гавэйн рыцарь~
+@eng Sir Gawaine@rus ~~Сэр~~ ~~Гавэйн~~~
+@eng Sir Gawaine, the strong, is on a mission of vengeance!
+@rus Сэр Гавэйн (Gawaine), сильный, ищет мести.
 ~
-Sir Gawaine, the red headed cousin of Arthur, is mounted, fully armored and 
+@eng Sir Gawaine, the red headed cousin of Arthur, is mounted, fully armored and 
 bears his longsword Galantine.
+@rus Сэр Гавэйн, рыжеволосый кузен короля Артура, верхом на лошади,
+полностью бронирован и вооружен длинным мечом под названием Галантин.
 ~
 human~
 AB 0 0 0
@@ -169,13 +193,17 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17311
-lamorak knight~
-Sir Lamorak~
-Sir Lamorak hefts his bastard sword as he considers you.
+lamorak knight ламорак рыцарь~
+@eng Sir Lamorak@rus ~~Сэр~~ ~~Ламорак~~~
+@eng Sir Lamorak hefts his bastard sword as he considers you.
+@rus Сэр Ламорак (Lamorak) достает из ножен свой широкий меч, завидя тебя.
 ~
-Sir Lamorak, son of King Pellinore, lover of Queen Morgawse, vanquisher of 
+@eng Sir Lamorak, son of King Pellinore, lover of Queen Morgawse, vanquisher of 
 the twelve of Morgan le Fey, and enemy of Sir Gawaine is fully armored and 
 mounted.
+@rus Сэр Ламорак, сын короля Пеллинора, любовник королевы Моргаузы,
+победитель двенадцати Морганы ле Фей и враг Сэра Гавэйна,
+верхом и в полной броне.
 ~
 human~
 AB J 0 0
@@ -185,12 +213,15 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17312
-lancelot knight~
-Sir Lancelot du Lake~
-Sir Lancelot, champion of the Round Table, smiles at you.
+lancelot knight ланселот озерный рыцарь~
+@eng Sir Lancelot du Lake@rus ~~Сэр~~ ~~Ланселот~~~
+@eng Sir Lancelot, champion of the Round Table, smiles at you.
+@rus Сэр Ланселот (Lancelot) Озерный, чемпион Круглого Стола, улыбается тебе.
 ~
-Sir Lancelot is mounted upon a white charger and is wearing polished steel 
+@eng Sir Lancelot is mounted upon a white charger and is wearing polished steel 
 armor. His visor is up, and his lance raised in salute to you.
+@rus Сэр Ланселот сидит верхом на белом рысаке и носит полированную стальную
+броню. Его забрало откинуто, и его копье салютует тебе.
 ~
 human~
 ABJK DFHN 1000 0
@@ -200,13 +231,18 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17313
-merlin mage~
-Merlin~
-The mighty Merlin is here grumbling over a book.
+merlin mage мерлин маг~
+@eng Merlin@rus Мерлин~
+@eng The mighty Merlin is here grumbling over a book.
+@rus Великий Мерлин (Merlin) склонился над книгой.
 ~
-Merlin, the son of a sorceress and a demon, seer of Camelot, is garbed in 
+@eng Merlin, the son of a sorceress and a demon, seer of Camelot, is garbed in 
 an earthy colored robe and bears a twisted staff. His flowing white beard 
 offsets his rosy cheeks and sparkling blue eyes.
+@rus Мерлин, сын волшебницы и демона, магический покровитель Камелота,
+кутается в земляного цвета робу и сжимает искривленный посох.  Его
+окладистая белая борода обрамляет не по-стариковски молодое лицо с
+искрящимися голубыми глазами.  
 ~
 human~
 ABCH CDEHJNT 750 0
@@ -216,13 +252,17 @@ EFHNU C D 0
 stand stand male 1000
 0 0 medium unknown
 #17314
-morgan mage~
-Morgan Le Fey~
-A beautiful woman with an inviting smile beckons to you!
+morgan mage моргана фей маг волшебница~
+@eng Morgan Le Fey@rus ~~Моргана~~ ле Фей~
+@eng A beautiful woman with an inviting smile beckons to you!
+@rus Прекрасная женщина с приветственной улыбкой встречает тебя!
 ~
-Morgan le Fey, evil enchantress, scourge of Camelot, snarls as you have 
+@eng Morgan le Fey, evil enchantress, scourge of Camelot, snarls as you have 
 seen through her disguise. She is wearing silk robes which do little to 
 hide her ugly and hateful, twisted body.
+@rus Моргана ле Фей, злая волшебница, бич и гроза Камелота, рычит от
+злости, поскольку ты разгадываешь ее злую натуру за магией. Она одета
+в шелковую черную робу, которая едва скрывает уродливое скрюченное тело.
 ~
 human~
 ACFH 0 -1000 0
@@ -232,13 +272,17 @@ EFNU 0 0 0
 stand stand female 1000
 0 0 medium unknown
 #17315
-pellinore king~
-King Pellinore~
-King Pellinore is here searching for the Questing Beast.
+pellinore king король пеллинор~
+@eng King Pellinore@rus ~~Король~~ ~~Пеллинор~~~
+@eng King Pellinore is here searching for the Questing Beast.
+@rus Король Пеллинор (Pellinore) ищет Квестовое Чудище.
 ~
-King Pellinore tells you that his family has been searching for the Questing
+@eng King Pellinore tells you that his family has been searching for the Questing
 Beast for generations and asks if you have seen it. Pelinore is just past 
 middle age, though he is still a stout fighter.
+@rus Король Пеллинор рассказывает тебе, что он и вся его семья ищет Квестовое
+Чудище уже многие поколения, и спрашивает тебя, не видел ли ты его.
+Пеллинор уже вступил в пожилой возраст, но остается мощным воином.
 ~
 human~
 A F 0 0
@@ -248,15 +292,24 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17316
-beast questing~
-the Questing Beast~
-A long necked, lion pawed, spotted, creature is here knawing on a femur.
+beast questing квестовое чудище~
+@eng the Questing Beast@rus ~~Квестовое~~ ~~Чудище~~~
+@eng A long necked, lion pawed, spotted, creature is here knawing on a femur.
+@rus Ты встречаешь чудище (beast) с длинным телом, когтями льва, сидящее на задних лапах.
 ~
-The Questing Beast *** NUKES *** you!
+@eng The Questing Beast *** NUKES *** you!
 The Questing Beast === OBLITERATES *** you!
 The Questing Beast dodges your attack.
 You sure are BLEEDING!
 The Questing Beast is in perfect health.
+@rus Чудище калечит тебя когтями!
+Чудище ОБЕЗОРУЖИВАЕТ тебЯ - твое оружие вылетает из рук!
+Чудище РАЗРЫВАЕТ ТЕБЯ НА ЧАСТИ!
+Чудище калечит тебя когтями!
+Чудище уклоняется от твоей атаки.
+Чудище уклоняется от твоей атаки.
+ 
+Ты истекаешь КРОВЬЮ!
 ~
 human~
 ABFH DFJPQ -1000 0
@@ -266,13 +319,16 @@ FMU J HIJK FI
 stand stand none 1000
 Zc LPQUVX huge unknown
 #17317
-tristram~
-Sir Tristram of Lyoness~
-Sir Tristram smirks at you.
+tristram тристрам рыцарь~
+@eng Sir Tristram of Lyoness@rus ~~Сэр~~ ~~Тристрам~~~
+@eng Sir Tristram smirks at you.
+@rus Сэр Тристрам (Tristram) усмехается тебе.
 ~
-Sir Tristram, suitor of Isolade, is considered by many to be second only to
+@eng Sir Tristram, suitor of Isolade, is considered by many to be second only to
 Lancelot in skill of arms. He wears plate mail and carries a two handed 
 sword.
+@rus Сэр Тристрам, защитник Изольды, победил многих и уступил только сэру Ланселоту
+в искусстве сражения. Он одет в броню и вооружен двуручным мечом.
 ~
 human~
 AB 0 0 0
@@ -282,12 +338,15 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17318
-mordred~
-Mordred~
-An boy in golden armor gives you an elfin laugh and strikes with his spear!
+mordred мордред~
+@eng Mordred@rus Мордред~
+@eng An boy in golden armor gives you an elfin laugh and strikes with his spear!
+@rus Мальчик в золотом панцире смеется волшебным смехом и делает выпад копьем!
 ~
-Mordred, bastard son of Lancelot and Gwenivere, wears his enchanted golden 
+@eng Mordred, bastard son of Lancelot and Gwenivere, wears his enchanted golden 
 armor and his unholy spear.
+@rus Мордред, внебрачный сын Ланселота и Гвениверы, одет в магическую золотую
+броню и вооружен заговоренным копьем.  
 ~
 human~
 AFH JPu -1000 0
@@ -297,12 +356,15 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17319
-charmed knight reknown~
-Charmed knight of reknown~
-A charmed knight of reknown woodenly attacks you!
+charmed knight reknown завороженный рыцарь познания~
+@eng Charmed knight of reknown@rus ~~завороженный~~ ~~Рыцарь~~ Познания~
+@eng A charmed knight of reknown woodenly attacks you!
+@rus Завороженный Рыцарь Познания (reknown) недолго думая атакует тебя!
 ~
-The knight is in rusty armor and bears a knotched sword. He has a disheveled 
+@eng The knight is in rusty armor and bears a knotched sword. He has a disheveled 
 look to him and his eyes stare vacantly at you!
+@rus Рыцарь в проржавевшей броне, вооруженный старым мечом. Он имеет растрепанный
+вид, и его безумный взгляд смотрит сквозь тебя.
 ~
 human~
 AF JK -500 0
@@ -312,12 +374,16 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17320
-charmed knight quality~
-Charmed knight of quality~
-A charmed knight of quality woodenly attacks you!
+charmed knight quality завороженный рыцарь достоинства~
+@eng Charmed knight of quality@rus ~~завороженный~~ ~~Рыцарь~~ Достоинства~
+@eng A charmed knight of quality woodenly attacks you!
+@rus Завороженный Рыцарь Достоинства (quality) внезапно атакует тебя!
 ~
-A charmed knight of quality stands here in his rusted armor. His eyes are 
+@eng A charmed knight of quality stands here in his rusted armor. His eyes are 
 vacant, his sword is knotched, and he is unkempt.
+@rus Завороженный Рыцарь Достоинства стоит здесь в ржавой броне. Его взгляд
+блуждает вокруг, меч покрыт зазубринами, вид рыцаря несколько... гм...
+поношенный.
 ~
 human~
 AFH JK -750 0
@@ -327,13 +393,17 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17321
-lady waiting~
-a lady in waiting~
-A lady in waiting bats her eyes at you!
+lady waiting ожидающая леди~
+@eng a lady in waiting@rus Леди в ожидании~
+@eng A lady in waiting bats her eyes at you!
+@rus Ожидающая леди (lady) поднимает на тебя глаза!
 ~
-The lady in waiting snuggles up closer to you, pressing you for the details 
+@eng The lady in waiting snuggles up closer to you, pressing you for the details 
 of your last campaign. She is clad in a long gown and garlands of flowers 
 are in her hair.
+@rus Ожидающая леди подходит блище к тебе и расспрашивает о подробностях
+твоих последних приключений. Она одета в длинное красивое платье, а в
+ее волосы вплетены гирлянды цветов.
 ~
 human~
 A S 500 0
@@ -343,11 +413,14 @@ EFNU 0 0 0
 stand stand female 1000
 0 0 medium unknown
 #17322
-queen gwenivere~
-Queen Gwenivere~
-A raven haired queen winks at you from behind her fan.
+queen gwenivere королева гвенивера~
+@eng Queen Gwenivere@rus ~~Королева~~ ~~Гвенивера~~~
+@eng A raven haired queen winks at you from behind her fan.
+@rus Черноволосая королева (queen) подмигивает тебе из-за своего веера.
 ~
-Gwenivere tells you a sorry tale about her forbidden love with Lancelot.
+@eng Gwenivere tells you a sorry tale about her forbidden love with Lancelot.
+@rus Гвенивера рассказывает тебе печальную историю о ее несчастной любви
+к Ланселоту.
 ~
 human~
 ABC 0 0 0
@@ -357,11 +430,14 @@ EFNU 0 0 0
 stand stand female 1000
 0 0 medium unknown
 #17323
-squire charmed~
-Charmed Squire~
-A charmed squire stands here woodenly
+squire charmed завороженный оруженосец~
+@eng Charmed Squire@rus ~~завороженный~~ ~~оруженосец~~~
+@eng A charmed squire stands here woodenly
+@rus Завороженный оруженосец (squire) стоит здесь.
 ~
-The charmed squire is wearing various leather garmets in a state of disarray.
+@eng The charmed squire is wearing various leather garmets in a state of disarray.
+@rus Завороженный оруженосец одет в множество кожаных обносков и находится
+в состоянии растерянности.
 ~
 human~
 ACH JKP -250 0
@@ -371,13 +447,17 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17324
-barant king apres knight~
-Barant Les Apres (King of the Hundred Knights)~
-A knight in a flowing white cape and swings a spiked ball here.
+barant king apres knight рыцарь барант король~
+@eng Barant Les Apres (King of the Hundred Knights)@rus ~~Барант~~ лес Апрес~
+@eng A knight in a flowing white cape and swings a spiked ball here.
+@rus Рыцарь (knight) в белом плаще вооружен тяжелым кистенем.
 ~
-Barant Les Apres, King of the Hundred Knights stands here. Barant wears a 
+@eng Barant Les Apres, King of the Hundred Knights stands here. Barant wears a 
 white cape and carries a spiked ball and chain. He hefts his weapon and 
 grins at you.
+@rus Барант лес Апрес, Король сотен рыцарей, стоит здесь.  Барант одет в белый
+плащ и держит в руке тяжеленный рыцарский кистень.  Поигрывая кистенем, он
+усмехается тебе.  
 ~
 human~
 A 0 750 0
@@ -387,13 +467,17 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17325
-dagonet jester fool~
-Dagonet (Arthur's Court Jester)~
-A fool in motley cavorts here!
+dagonet jester fool шут дагонет~
+@eng Dagonet (Arthur's Court Jester)@rus Дагонет~
+@eng A fool in motley cavorts here!
+@rus Шут (jester) в шутовском наряде прикалывается над всеми.
 ~
-Dagonet, the court jester of Arthur, is a master of his craft. He dances 
+@eng Dagonet, the court jester of Arthur, is a master of his craft. He dances 
 on his hands while juggling a set of knives. You get the impression that 
 he could handle himself well in a fight.
+@rus Дагонет, Шут его величества короля Артура,- мастер своего дела. Он танцует
+на руках и швыряет в цель пачку ножей. У тебя такое чувство, что и в бою 
+он весьма неплох.
 ~
 human~
 ABH 0 1000 0
@@ -403,12 +487,15 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17326
-turquine knight~
-Turquine~
-A knight with a wolf helm cackles with glee!
+turquine knight туркуин рыцарь~
+@eng Turquine@rus Туркуин~
+@eng A knight with a wolf helm cackles with glee!
+@rus Рыцарь (knight) в волчьем шлеме кричит и ликует!
 ~
-Turquine is dressed in scale mail and a wolf helm. He is a slender whip 
+@eng Turquine is dressed in scale mail and a wolf helm. He is a slender whip 
 of a man, and his eyes dart left and right.
+@rus Туркуин одет в кольчугу и Волчий Шлем. Это стройный человек, его глаза
+бегают по сторонам.
 ~
 human~
 ABCH P -500 0
@@ -418,13 +505,17 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17327
-perimones knight~
-Perimones (the Red Knight)~
-A knight dressed red shimmering armor faces you!
+perimones knight перимон рыцарь~
+@eng Perimones (the Red Knight)@rus Перимон~
+@eng A knight dressed red shimmering armor faces you!
+@rus Рыцарь (knight) в красной броне вырастает перед тобой!
 ~
-Perimones, the red knight, has a red beard and mustache. He is a short 
+@eng Perimones, the red knight, has a red beard and mustache. He is a short 
 stocky man. His ruby armor is shimmering in the sunlight, and he wears 
 the silken red favor of Galenvine on his sleeve.
+@rus Перимон, Рыжий Рыцарь, не случайно называется так. У него рыжая борода
+и усы. Это невысокий плотный человек. Его красного цвета броня блестит
+на солнце, а на его наруч повязан платок леди Гэленвайн.
 ~
 human~
 AB N 500 0
@@ -434,13 +525,16 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17328
-damsel lady woman distress~
-A damsel in distress~
-A damsel in distress is here, screaming for help!
+damsel lady woman distress женщина леди отчаяни~
+@eng A damsel in distress@rus ~~Леди~~ в отчаянии~
+@eng A damsel in distress is here, screaming for help!
+@rus Леди (lady) в отчаянии просит о помощи!
 ~
-The damsel in distress has been badly roughed up by the ruffians. She is 
+@eng The damsel in distress has been badly roughed up by the ruffians. She is 
 tied with here hands behind her back. Her coartly gowns are soiled and 
 tattered.
+@rus Леди в отчаянии была схвачена злодеями. Ее руки связаны за спиной,
+она вся в грязи, а ее платье изодрано в клочья.
 ~
 human~
 AB J 200 0
@@ -450,13 +544,17 @@ EFNU 0 0 0
 stand stand female 1000
 0 0 medium unknown
 #17329
-nobleman~
-A nobleman~
-A nobleman stands here in all his finery.
+nobleman вельможа~
+@eng A nobleman@rus вельможа~
+@eng A nobleman stands here in all his finery.
+@rus Вельможа (nobleman) стоит здесь во всей своей пышности.
 ~
-The nobleman wears the finest cotton and wool clothing available. Riches 
+@eng The nobleman wears the finest cotton and wool clothing available. Riches 
 adorn him in the form of chains, and a rather heavy looking purse. He 
 seems intent on going somewhere.
+@rus Вельможа одет в лучшие одежды из шелка и шерсти.  Он так и пышет
+богатством, которое выглядит как пара толстых золотых цепей и довольно
+толстого кошелька.  
 ~
 human~
 AH 0 0 0
@@ -466,11 +564,13 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17330
-serf~
-A serf~
-A dirty serf shuffles along here.
+serf мужик~
+@eng A serf@rus мужик~
+@eng A dirty serf shuffles along here.
+@rus Грязный мужик (serf) тыняется тут.
 ~
-The serf is in rags, smells, and you actually think you can see lice on him.
+@eng The serf is in rags, smells, and you actually think you can see lice on him.
+@rus Мужик в лохмотьях, грязен, на нем можно даже заметить вшей. Фу!
 ~
 human~
 ACH 0 0 0
@@ -480,11 +580,13 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17331
-merchant~
-A merchant~
-A brightly clothed merchant hawks his goods to you!
+merchant торговец~
+@eng A merchant@rus торговец~
+@eng A brightly clothed merchant hawks his goods to you!
+@rus Ярко одетый торговец (merchant) предлагает тебе свои товары.
 ~
-The merchant wears a bright tunic to draw attention and signify his wares.
+@eng The merchant wears a bright tunic to draw attention and signify his wares.
+@rus Торговец специально оделся как можно ярче, чтобы привлечь внимание к товару.
 ~
 human~
 ACH 0 0 0
@@ -494,12 +596,15 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17332
-monk~
-A monk~
-A monk is here in his mumbling in Latin here.
+monk монах~
+@eng A monk@rus монах~
+@eng A monk is here in his mumbling in Latin here.
+@rus Тут стоит монах (monk), бормоча что-то на латыни.
 ~
-The monk has a brown robe with a hood on it. He has tied it off with a 
+@eng The monk has a brown robe with a hood on it. He has tied it off with a 
 piece of rope. The top of his head is shaved in the Fransician fashion.
+@rus Монах одет в коричневую рясу, перевязанную куском веревки. Верх его
+головы обрит согласно обряду Францисканского ордена.
 ~
 human~
 A 0 0 0
@@ -509,11 +614,13 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17333
-troubadour~
-A troubadour~
-A troubadour is here, strumming a merry tune.
+troubadour трубадур~
+@eng A troubadour@rus трубадур~
+@eng A troubadour is here, strumming a merry tune.
+@rus Трубадур (troubadour) играет веселую мелодию.
 ~
-The troubadour is playing on a mandolin, and is dressed in festival colors.
+@eng The troubadour is playing on a mandolin, and is dressed in festival colors.
+@rus Трубадур играет на мандолине и празднично одет.
 ~
 human~
 ABC 0 100 0
@@ -523,12 +630,14 @@ EFNU 0 0 0
 stand stand female 1000
 0 0 medium unknown
 #17334
-bard~
-A bard~
-A bard is here, singing a sweet ballad.
+bard бард~
+@eng A bard@rus бард~
+@eng A bard is here, singing a sweet ballad.
+@rus Бард (bard) поет здесь любовную балладу.
 ~
-The bard is dressed in silk leggings, a leather vest, and bright orange 
+@eng The bard is dressed in silk leggings, a leather vest, and bright orange 
 shirt.
+@rus Бард одет в шелковые штаны, кожаную куртку и ярко-оранжевую рубашку.
 ~
 human~
 ABC 0 100 0
@@ -538,11 +647,13 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17335
-entertainer~
-An entertainer~
-An entertainer is here, leaping with great acrobatic prowess!
+entertainer актер~
+@eng An entertainer@rus актер~
+@eng An entertainer is here, leaping with great acrobatic prowess!
+@rus Актер показывает умопомрачительные акробатические номера.
 ~
-The entertainer is doing handsprings and backflips in a dizzying progression.
+@eng The entertainer is doing handsprings and backflips in a dizzying progression.
+@rus Актер (entertainer) показывает умопомрачительные акробатические номера.
 ~
 human~
 ABC 0 100 0
@@ -552,11 +663,13 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17336
-servant~
-A servant~
-A servant is rushing by
+servant слуга~
+@eng A servant@rus слуга~
+@eng A servant is rushing by
+@rus Слуга спешит куда-то.
 ~
-The servant has a plate of hot food that looks delicious.
+@eng The servant has a plate of hot food that looks delicious.
+@rus Слуга (servant) несет поднос с деликатесными кушаньями.
 ~
 human~
 AC JP 0 0
@@ -566,11 +679,12 @@ EFNU 0 0 0
 stand stand female 1000
 0 0 medium unknown
 #17337
-demon~
-A towering, black scaled demon~
-A towering, black scaled demon has come to eat your soul!
+demon демон~
+@eng A towering, black scaled demon@rus ~~демон~~ ~~Аиграм~~~
+@eng A towering, black scaled demon has come to eat your soul!
+@rus Огромный чешуйчатый черный демон (demon) стоит здесь. Ты зря сюда пришел!..
 ~
-The demon stands 20' tall, has two heads, black scales, a mouthfull of 
+@eng The demon stands 20' tall, has two heads, black scales, a mouthfull of 
 sharp teeth, 4 arms with long razorlike claws, and two muscular legs 
 with cloven hooves. The heads are batlike, and the black eyes seem to 
 vacantly stare at you. As it breathes the ground you stand on rumbles, 
@@ -579,6 +693,15 @@ laughing at you in all your visions. Merlin has bound this demon here
 to use its power in the fabrication of magic items, however his hold 
 has slipped a few times, enabling the demon to give out a few artifacts 
 to encourage the downfall of Camelot (Morgana, Pict leader).
+@rus Этот ужасный двуглавый демон ростом около 8 метров, весь покрыт черной
+чешуей, его страшная широкая пасть усеяна острыми зубами, четыре мощные лапы
+с когтями, острыми, как лезвия, и две мощные ноги, на которые опирается вся
+эта ужасная громадина.  Его головы напоминают морды летучих мышей, а черные
+глаза неотрывно следят за твоими движениями.  Мерлин вызвал этого неземного
+демона, чтобы использовать его магическую мощь для создания волшебных
+предметов, однако несколько раз он терял контроль над монстром, и это
+создание зла успело навредить Камелоту, создав таких злобных людей, как
+Моргана.  
 ~
 unique~
 ABKe CDEFJKu -1000 0
@@ -588,12 +711,15 @@ EFNU 0 HIJK F
 stand stand none 1000
 AHMVZc ABCDEFGHIJKLPQUVX medium unknown
 #17338
-jack iron~
-Iron Jack~
-Iron Jack, the armorer of Camelot is here.
+jack iron железный джек~
+@eng Iron Jack@rus ~~Железный~~ ~~Джек~~~
+@eng Iron Jack, the armorer of Camelot is here.
+@rus Железный Джек (Jack), оружейник Камелота, стоит здесь.
 ~
-Iron Jack wears his smith apron, leather leggings, and has corded muscular 
+@eng Iron Jack wears his smith apron, leather leggings, and has corded muscular 
 arms.
+@rus Железный Джек стоит в своем кузнечном кожаном переднике и кожаных штанах,
+тебе хорошо виден его могучий торс.
 ~
 human~
 ABSTe 0 500 0
@@ -603,11 +729,13 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17339
-stirrup stablemaster~
-Stirrup~
-Stirrup, the stable master of Camelot is here.
+stirrup stablemaster стиррап конюх~
+@eng Stirrup@rus Стиррап~
+@eng Stirrup, the stable master of Camelot is here.
+@rus Здесь стоит Стиррап, главный конюх Камелота.
 ~
-Stirrup is a short man, wearing a leather jerkin, and smells of the barn.
+@eng Stirrup is a short man, wearing a leather jerkin, and smells of the barn.
+@rus Стиррап (Stirrup) невысок, одет в кожаную куртку и штаны, от него пахнет навозом.
 ~
 human~
 ABe 0 400 0
@@ -617,12 +745,14 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17340
-horse riding~
-A riding horse~
-A riding horse is here.
+horse riding лошадь~
+@eng A riding horse@rus лошадь~
+@eng A riding horse is here.
+@rus Здесь гарцует лошадь (horse).
 ~
-The riding horse is saddled with light tack, and has long slender limbs 
+@eng The riding horse is saddled with light tack, and has long slender limbs 
 for speed.
+@rus Красивая породистая лошадь под дорогим легким седлом.
 ~
 human~
 AI 0 0 0
@@ -632,11 +762,13 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17341
-warhorse medium~
-A medium warhorse~
-A medium warhorse is tethered here.
+warhorse medium боевая лошадь~
+@eng A medium warhorse@rus ~~боевая~~ ~~лошадь~~~
+@eng A medium warhorse is tethered here.
+@rus Здесь привязана боевая лошадь (horse).
 ~
-The medium warhorse is has heavy tack and leather barding.
+@eng The medium warhorse is has heavy tack and leather barding.
+@rus Боевая лошадь в кожаной броне и под тяжелым седлом.
 ~
 human~
 AI 0 0 0
@@ -646,11 +778,13 @@ EFNU 0 0 0
 stand stand female 1000
 0 0 medium unknown
 #17342
-warhorse heavy~
-A heavy warhorse~
-A heavy warhorse paws the ground and snorts in preparation for battle!
+warhorse heavy боевая лошадь тяжелая~
+@eng A heavy warhorse@rus ~~тяжелая~~ ~~боевая~~ ~~лошадь~~~
+@eng A heavy warhorse paws the ground and snorts in preparation for battle!
+@rus Тяжелая боевая лошадь (horse) стоит в полном броневом облачении.
 ~
-The heavy warhorse has full chain barding and stands 17 hands.
+@eng The heavy warhorse has full chain barding and stands 17 hands.
+@rus Тяжелая боевая лошадь стоит в полном броневом облачении.
 ~
 human~
 AI 0 0 0
@@ -660,12 +794,15 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17343
-raider saxon~
-A Saxon raider~
-A Saxon raider is here, ready to take your head as a trophy
+raider saxon саксонский рейдер~
+@eng A Saxon raider@rus ~~саксонский~~ ~~рейдер~~~
+@eng A Saxon raider is here, ready to take your head as a trophy
+@rus Саксонский рейдер (raider) готов заполучить твою голову в качестве трофея.
 ~
-The Saxon raider carries his sax, *yes really it is an actual weapon name*, 
+@eng The Saxon raider carries his sax, *yes really it is an actual weapon name*, 
 and is dressed in various hides.
+@rus Саксонский рейдер вооружен своим саксом (да-да, именно так называется его
+оружие) и одет во что попало.
 ~
 human~
 ABCF Q -200 0
@@ -675,27 +812,32 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17344
-slave~
-A slave~
-A slave is here, cringing from battle.
+slave раб~
+@eng A slave@rus раб~
+@eng A slave is here, cringing from battle.
+@rus Мимо бежит раб (slave), спасаясь от битвы.
 ~
-The slave is dirty and unkempt, but she retains a vestage of her former 
+@eng The slave is dirty and unkempt, but she retains a vestage of her former 
 station and bearing.
+@rus Раб грязен и напуган, на нем можно угадать остатки боевого облачения.
 ~
 human~
 ACX Q 0 0
 5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
 EFNU 0 0 0
-stand stand female 1000
+stand stand male 1000
 0 0 medium unknown
 #17345
-chief saxon render~
-A Saxon chief~
-A Saxon chief is here, leading his raiders into battle!
+chief saxon render саксонский начальник~
+@eng A Saxon chief@rus ~~саксонский~~ ~~начальник~~~
+@eng A Saxon chief is here, leading his raiders into battle!
+@rus Саксонский начальник (chief) зовет своих воинов на битву!
 ~
-The Saxon chief, Render (you know his name because of the general grunting), 
+@eng The Saxon chief, Render (you know his name because of the general grunting), 
 is decked in the spoils of war. All and all you think he has lice.
+@rus Саксонский начальник хорошо разбирается в военных трофеях. Да он просто
+вшивый мужик, если приглядеться!
 ~
 human~
 ABCF DFQ -500 0
@@ -705,11 +847,13 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17346
-guard border northern~
-A northern border guard~
-A northern border guard is here, stoically holding the line against intruders.
+guard border northern гвардеец~
+@eng A northern border guard@rus ~~гвардеец~~ северных границ~
+@eng A northern border guard is here, stoically holding the line against intruders.
+@rus Гвардеец северных границ стоически охраняет Камелот от захватчиков.
 ~
-The border guard wears chain armor and is equipped with a standard sword.
+@eng The border guard wears chain armor and is equipped with a standard sword.
+@rus Гвардеец (guard) северных границ одет в кольчугу и вооружен стандартным мечом.
 ~
 human~
 AB FN 300 0
@@ -719,12 +863,14 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17347
-commander outpost~
-The northern outpost commander~
-The northern outpost commander is here, safe in the respect of his men.
+commander outpost командир поста~
+@eng The northern outpost commander@rus ~~командир~~ северного поста~
+@eng The northern outpost commander is here, safe in the respect of his men.
+@rus Командир (commander) северного поста спокоен за своих людей.
 ~
-The outpost commander is a hardened, grizzled veteran with the cunning that 
+@eng The outpost commander is a hardened, grizzled veteran with the cunning that 
 comes from a life of leading men in endless battle.
+@rus Командир северного поста  - это закаленный в боях ветеран с большим опытом.
 ~
 human~
 ABK DFN 500 0
@@ -734,13 +880,16 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17348
-clansman scot~
-A Scot clansman~
-A Scot clansman is here, ready to seize your women and whiskey!
+clansman scot член клана шотландец~
+@eng A Scot clansman@rus шотландец~
+@eng A Scot clansman is here, ready to seize your women and whiskey!
+@rus Член шотландского (Scot) клана готов отобрать у тебя женщин и виски!
 ~
-The Scot clansman is wearing a kilt, leather sandles, and has a long swath 
+@eng The Scot clansman is wearing a kilt, leather sandles, and has a long swath 
 of cloth wrapped around his shoulders. He carries a beautiful claymore which 
 is about 4' long.
+@rus Член шотландского клана одет в кильт, кожаные сандали, и длинный 
+матерчатый плащ. Он вооружен неплохим четырехфутовым клэймором.
 ~
 human~
 ABC 0 0 0
@@ -750,14 +899,19 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17349
-chief clan scot~
-The Scot clan chief~
-The Scot clan chief is here, seizing his clansman's women and whiskey!
+chief clan scot глава клана~
+@eng The Scot clan chief@rus ~~глава~~ шотландского клана~
+@eng The Scot clan chief is here, seizing his clansman's women and whiskey!
+@rus Этот шотландец (Scot) готов отобрать все, что уже у кого-то отобрали члены его клана!
 ~
-The Scot clan chief towers over you. He looks like he could toss a tree end 
+@eng The Scot clan chief towers over you. He looks like he could toss a tree end 
 over end and have it land pointing away from him. He looks like he could 
 heave a sheaf with a fork more than 20' in the air. He looks like he could 
 down a barrel of ale and still have his whiskey. He looks...
+@rus Глава шотландского клана стоит возле тебя. Кажется, что он настолько силен, 
+что может бросаться бревнами. Кажется, что он может подбросить овцу
+на 10 метров вверх. Кажется, что он может выпить бочонок пива и дальше 
+пить виски. Кажется...
 ~
 human~
 ABCJ 0 -100 0
@@ -767,11 +921,13 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17350
-serf busy~
-A busy serf~
-A busy serf is here, tilling the fields for harvest.
+serf busy занятый мужик~
+@eng A busy serf@rus ~~занятый~~ ~~мужик~~~
+@eng A busy serf is here, tilling the fields for harvest.
+@rus Мужик (serf) занят уборкой урожая.
 ~
-The serf has a farm tool and a rag to cover himself.
+@eng The serf has a farm tool and a rag to cover himself.
+@rus Мужик держит в руках мотыгу и одет в лохмотья.
 ~
 human~
 ABC 0 0 0
@@ -781,13 +937,17 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17351
-raider angle~
-An Angle raider~
-An Angle raider is here, burning huts and raping women!
+raider angle морской разбойник~
+@eng An Angle raider@rus ~~морской~~ ~~разбойник~~~
+@eng An Angle raider is here, burning huts and raping women!
+@rus Морской разбойник (raider) сжигает хижины и ловит женщин!
 ~
-The Angle raider is tall, blond haired, and wears a horned helmet. He 
+@eng The Angle raider is tall, blond haired, and wears a horned helmet. He 
 carries a shield and his Angle, an angled swordlike blade. He is in partial 
 leather armor.
+@rus Морской разбойник худой, блондинистый и носит на голове рогатый шлем.
+Он держит щит и вооружен энглом - необычным изогнутым мечом, одет в
+кожаную броню.
 ~
 human~
 ABCF 0 -200 0
@@ -797,12 +957,15 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17352
-chief angle~
-The Angle chief~
-The Angle chief is here, leading the massacre!
+chief angle атаман разбойников~
+@eng The Angle chief@rus ~~атаман~~ разбойников~
+@eng The Angle chief is here, leading the massacre!
+@rus Атаман (chief) командует разбойным нападением!
 ~
-The Angle chief is a giant of a man, covered in blood, and laughing with 
+@eng The Angle chief is a giant of a man, covered in blood, and laughing with 
 a deep boom at each kill.
+@rus Атаман  - здоровый мужик, заляпанный кровью, он безумно хохочет при виде 
+каждой новой жертвы.
 ~
 human~
 ABF F -700 0
@@ -812,11 +975,13 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17353
-calvary unit~
-The calvary unit~
-A calvary unit is here, flanking the enemy lines.
+calvary unit взвод кавалерии~
+@eng The calvary unit@rus ~~взвод~~ кавалерии~
+@eng A cavlary unit is here, flanking the enemy lines.
+@rus Кавалерия (unit) обходит вражеские линии.
 ~
-The calvary unit consists of about 30 mounted knights on medium warhorses.
+@eng The calvary unit consists of about 30 mounted knights on medium warhorses.
+@rus Взвод кавалеристов на тяжелых боевых лошадях.
 ~
 unique~
 AB 0 200 0
@@ -826,11 +991,13 @@ C 0 0 0
 stand stand none 1000
 AHMV ABCDEFGHIJK huge unknown
 #17354
-infantry unit~
-The infantry unit~
-An infantry unit is here, fighting the Pict hoards.
+infantry unit взвод пехоты~
+@eng The infantry unit@rus ~~взвод~~ пехоты~
+@eng An infantry unit is here, fighting the Pict hoards.
+@rus Взвод (unit) пехоты сражается здесь с ордами Пиктов.
 ~
-The infantry unit has about 50 squires and serfs armed with polearms.
+@eng The infantry unit has about 50 squires and serfs armed with polearms.
+@rus Взвод пехоты насчитывает около 50 солдат, вооруженных алебардами.
 ~
 unique~
 AB 0 0 0
@@ -840,12 +1007,14 @@ CO 0 0 0
 stand stand none 1000
 AHMV ABCDEFGHIJK huge unknown
 #17355
-hoard pict picts~
-The pict hoard~
-A hoard of Picts is here, fighting the troops of Camelot.
+hoard pict picts орда пиктов~
+@eng The pict hoard@rus ~~орда~~ пиктов~
+@eng A hoard of Picts is here, fighting the troops of Camelot.
+@rus Орда (hoard) пиктов сражается с войсками Камелота.
 ~
-The hoard of Picts consists of about 500 poorly armed and armored foot 
+@eng The hoard of Picts consists of about 500 poorly armed and armored foot 
 soldiers.
+@rus Орда пиктов насчитывает около 500 слабовооруженных пеших солдат.
 ~
 human~
 AB 0 -100 0
@@ -855,12 +1024,14 @@ CO 0 0 0
 stand stand none 1000
 0 0 giant unknown
 #17356
-leader pict~
-The Pict leader~
-The Pict leader is here, retreating from battle.
+leader pict лидер пиктов~
+@eng The Pict leader@rus ~~лидер~~ пиктов~
+@eng The Pict leader is here, retreating from battle.
+@rus Лидер (leader) пиктов уносит ноги из битвы.
 ~
-The Pict leader is covered in blue dye, giving him a fearsome demonic 
+@eng The Pict leader is covered in blue dye, giving him a fearsome demonic 
 appearance which is further augmented by his reindeer horned helmet.
+@rus Лидер пиктов решил пораньше покинуть поле боя, чтобы остаться в живых.
 ~
 human~
 AB 0 -400 0
@@ -870,12 +1041,15 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17357
-persante knight~
-Persante of Inde (the blue knight)~
-Persante of Inde is here, marshalling the troops of Camelot.
+persante knight персант рыцарь~
+@eng Persante of Inde (the blue knight)@rus ~~Синий~~ ~~Рыцарь~~~
+@eng Persante of Inde is here, marshalling the troops of Camelot.
+@rus Персант (Persante) Индийский командует войсками Камелота.
 ~
-Persante is called the blue knight because of his brilliant blue armor. 
+@eng Persante is called the blue knight because of his brilliant blue armor. 
 He is mounted on a fine charger, and is waving his blue pennant.
+@rus Персанта Индийского зовут Синим Рыцарем за его ярко-синие доспехи.
+Он сидит верхом на хорошем скакуне и держит в руках синий стяг.
 ~
 human~
 A H 400 0
@@ -885,12 +1059,15 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17358
-dodinas knight~
-Dodinas le Savage~
-Dodinas le Savage is here, holding the center of the line!
+dodinas knight додинас рыцарь~
+@eng Dodinas le Savage@rus ~~Додинас~~ ле Сэвэж~
+@eng Dodinas le Savage is here, holding the center of the line!
+@rus Додинас (Dodinas) ле Сэвэж удерживает центральные линии!
 ~
-Dodinas is a whirlwind of weapons and martial skill, felling all who
+@eng Dodinas is a whirlwind of weapons and martial skill, felling all who
 approach. He is mounted atop his famed steed Rue.
+@rus Додинас  - мастер оружия и рукопашного боя, он справится с любым
+нападающим. Он верхом на своем знаменитом коне по имени Руэ.
 ~
 human~
 A 0 100 0
@@ -900,12 +1077,14 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17359
-lionel knight~
-Lionel~
-Lionel is here, unhorsed, and fighting for his life!
+lionel knight лайонел рыцарь~
+@eng Lionel@rus Лайонел~
+@eng Lionel is here, unhorsed, and fighting for his life!
+@rus Лайонел (Lionel) сражается за свою жизнь, потеряв коня.
 ~
-Lionel is covered in blood, and is walking as if stunned. It looks like he 
+@eng Lionel is covered in blood, and is walking as if stunned. It looks like he 
 is going to fall.
+@rus Лайонел весь в крови, и еле стоит на ногах. Кажется, что он скоро упадет.
 ~
 human~
 A 0 300 0
@@ -915,12 +1094,15 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17360
-gaheris knight~
-Gaheris~
-Gaheris (Gawaine's brother) is here putting down the raiders.
+gaheris knight гахерис рыцарь~
+@eng Gaheris@rus Гахерис~
+@eng Gaheris (Gawaine's brother) is here putting down the raiders.
+@rus Гахерис (Gaheris), брат Гавэйна, повергает разбойников один за другим.
 ~
-Gaheris has long red hair, and a gray stallion. He is extremely angry with 
+@eng Gaheris has long red hair, and a gray stallion. He is extremely angry with 
 the Angles and is cutting his way to the chief.
+@rus Гахерис ненавидит разбойников и прокладывает себе путь сквозь поле
+боя, чтобы добраться до главаря.
 ~
 human~
 AB 0 500 0
@@ -930,12 +1112,14 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17361
-commander outpost southern~
-The southern outpost commander~
-The southern outpost commander is here, safe in the respect of his men.
+commander outpost southern командир поста~
+@eng The southern outpost commander@rus ~~командир~~ южного поста~
+@eng The southern outpost commander is here, safe in the respect of his men.
+@rus Командир южного поста спокоен за своих людей.
 ~
-The outpost commander is a hardened, grizzled veteran with the cunning that 
+@eng The outpost commander is a hardened, grizzled veteran with the cunning that 
 comes from a life of leading men in endless battle.
+@rus Командир (commander) южного поста  - это закаленный в боях ветеран с большим опытом.
 ~
 human~
 ABK DFN 500 0
@@ -945,11 +1129,13 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17362
-guard border southern~
-A southern border guard~
-A southern border guard is here, stoically holding the line against intruders.
+guard border southern гвардеец~
+@eng A southern border guard@rus ~~гвардеец~~ южных границ~
+@eng A southern border guard is here, stoically holding the line against intruders.
+@rus Гвардеец южных границ стоически охраняет Камелот от захватчиков.
 ~
-The border guard wears chain armor and is equipped with a standard sword.
+@eng The border guard wears chain armor and is equipped with a standard sword.
+@rus Гвардеец (guard) южных границ одет в кольчугу и вооружен стандартным мечом.
 ~
 human~
 AB FN 300 0
@@ -959,27 +1145,76 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17363
-slave~
-A slave~
-A slave is here, cringing from battle.
+slave раб~
+@eng A slave@rus раб~
+@eng A slave is here, cringing from battle.
+@rus Раб (slave) бежит с битвы.
 ~
-The slave is dirty and unkempt, but she retains a vestage of her former 
+@eng The slave is dirty and unkept, but he retains a vestage of her former 
 station and bearing.
+@rus Раб грязен и напуган, на нем видны остатки военного обмундирования.
 ~
 human~
 ACX Q 0 0
 5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
 EFNU 0 0 0
-stand stand female 1000
+stand stand male 1000
 0 0 medium unknown
+#17364
+beautiful woman женщина прекрасная~
+@eng beautiful woman@rus ~~прекрасная~~ ~~женщина~~~
+@eng Strikingly beatiful woman trembles in fromt of you.
+@rus Прекрасная женщина (woman) дрожит перед тобой.
+~
+@eng She wears a fine cotton dress and looks at you with fright and frustration.
+@rus Прекрасная женщина в роскошном платье смотрит на тебя с недоумением и испугом.
+~
+human~
+AH DFHN 1000 0
+18 0 10d10+450 10d10+200 4d5+2 'punch'
+0 0 0 0
+0 0 0 0
+stand stand female 1200
+0 0 medium unknown
+#17365
+knight mighty рыцарь мощный~
+@eng mighty knight@rus ~~мощный~~ ~~рыцарь~~~
+@eng Mighty knight attacks you!
+@rus Мощный рыцарь (knight) атакует тебя!
+~
+@eng Stout knight in a light armor, he wields heavy two-handed sword.
+@rus Мощный рыцарь в легкой броне, вооруженный двуручным мечом.
+~
+human~
+AGTY N 400 0
+30 8 50d10+1400 5d5+100 9d4+12 'slash'
+0 0 0 0
+CEFKO 0 HI 0
+stand stand male 2000
+0 0 medium unknown
+#17366
+ghost small привидение маленькое~
+@eng small ghost@rus ~~маленькое~~ ~~привидение~~~
+@eng You almost miss a small ghost.
+@rus Еле заметное маленькое привидение (ghost).
+~
+~
+ghost~
+AGUY BDFJQZe 0 0
+1 0 5d5+1 1d1+10 1d1+1 ''
+0 0 0 0
+0 ABCDHNP 0 0
+stand stand none 0
+0 0 medium unknown
+F imm M
 #0
 
 #OBJECTS
 #17301
-dagger squire~
-a squire's dagger~
-A leather hilted dagger lies here.~
+dagger squire кинжал~
+@eng a squire's dagger@rus ~~кинжал~~ оруженосца~
+@eng A leather hilted dagger lies here.@rus Дешевый кинжал валяется здесь.~
 iron~
 weapon 0 AN
 dagger 5 5 'pierce' 0
@@ -990,9 +1225,9 @@ A
 19 2
 G none
 #17302
-mace knight knight's~
-a knight's mace~
-A clublike weapon with a spiked balled head lies here.~
+mace knight knight's шестопер~
+@eng a knight's mace@rus ~~рыцарский~~ ~~шестопер~~~
+@eng A clublike weapon with a spiked balled head lies here.@rus Здесь лежит железный шестопер.~
 iron~
 weapon 0 AN
 mace 5 6 'crush' 0
@@ -1003,9 +1238,9 @@ A
 19 3
 G none
 #17303
-lance knight knight's~
-a knight's lance~
-An 18' pole is sunk into the ground here.~
+lance knight knight's копье~
+@eng a knight's lance@rus ~~рыцарское~~ ~~копье~~~
+@eng An 18' pole is sunk into the ground here.@rus На земле лежит четырехметровое копье.~
 iron~
 weapon 0 AN
 lance 5 6 'stab' 0
@@ -1020,9 +1255,9 @@ This pole looks alot like a lance.
 ~
 G none
 #17304
-armor green~
-a suit of green armor~
-A fine suit of green armor bearing the crest of Hautdesert glistens here!~
+armor green броня зеленая~
+@eng a suit of green armor@rus ~~зеленая~~ ~~рыцарская~~ ~~броня~~~
+@eng A fine suit of green armor bearing the crest of Hautdesert glistens here!@rus Мифриловая броня рыцаря Хаутдесерта, зеленого цвета и отличного качества.~
 mithril~
 armor GK AD
 9 9 9 9 0
@@ -1039,9 +1274,9 @@ The crest has a stag on a verdant field
 ~
 G none
 #17305
-axe benlad benlad's~
-benlad's axe~
-A two headed axe with the Hautdesert crest lies here.~
+axe benlad benlad's топор бенлад~
+@eng benlad's axe@rus ~~топор~~ Бенлада~
+@eng A two headed axe with the Hautdesert crest lies here.@rus Тяжеленный двуручный топор рыцаря Хаутдесерта.~
 iron~
 weapon GK AN
 axe 5 7 'slash' 0
@@ -1058,9 +1293,9 @@ The crest has a stag on a verdant field
 ~
 G none
 #17306
-bracer white~
-a white bracer~
-A humming, blinding white bracer lies here!~
+bracer white белый браслет~
+@eng a white bracer@rus ~~белый~~ ~~браслет~~~
+@eng A humming, blinding white bracer lies here!@rus Ослепительно белый браслет лежит здесь.~
 adamantite~
 armor ABGK AM
 11 11 11 11 0
@@ -1079,18 +1314,18 @@ A
 13 20
 G none
 #17307
-grail holy~
-the holy grail~
-A beat-up, dirty, wooden cup lies here.~
+grail holy грааль~
+@eng the holy grail@rus ~~Святой~~ ~~Грааль~~~
+@eng A beat-up, dirty, wooden cup lies here.@rus Простой деревянный сосуд валяется в пыли.~
 wood~
 potion GKL AO
 40 'heal' 'heal' 'heal' ''
 40 1 2500 P
 G none
 #17308
-cloak many orkney~
-a many colored cloak~
-A cloak of many colors and the crest of Orkney lies here.~
+cloak many orkney плащ многоцветный~
+@eng a many colored cloak@rus ~~многоцветный~~ ~~плащ~~~
+@eng A cloak of many colors and the crest of Orkney lies here.@rus Кто-то забыл здесь многоцветный плащ с Оркнейским крестом.~
 leather~
 armor GK AK
 9 9 9 9 0
@@ -1101,9 +1336,9 @@ A
 13 20
 G none
 #17309
-shield~
-a shield of many colors~
-A rainbow of colors is reflected from the shield which lies here!~
+shield щит многоцветный~
+@eng a shield of many colors@rus ~~многоцветный~~ ~~щит~~~
+@eng A rainbow of colors is reflected from the shield which lies here!@rus Все цвета радуги играют на этом щите.~
 silver~
 armor GK AJ
 9 9 9 9 0
@@ -1112,9 +1347,9 @@ A
 19 4
 G none
 #17310
-sword excalibur~
-excalibur~
-A beautiful dragon hilted sword lies here!~
+sword excalibur меч экскалибур~
+@eng excalibur@rus ~~меч~~ "Экскалибур"~
+@eng A beautiful dragon hilted sword lies here!@rus Здесь лежит прекрасный меч с драконом на гарде.~
 adamantite~
 weapon BKL AN
 sword 5 8 'slice' D
@@ -1139,9 +1374,9 @@ gradually fade leaving you with only a lingering warm feeling.
 ~
 G none
 #17311
-scabbard arthur arthur's golden~
-arthur's scabbard~
-A beautiful golden scabbard lies here!~
+scabbard arthur arthur's golden ножны артура~
+@eng arthur's scabbard@rus ~~ножны~~ короля Артура~
+@eng A beautiful golden scabbard lies here!@rus Прекрасные ножны с золотой инкрустацией лежат на земле.~
 gold~
 container CIKL AL
 30 0 -1 15 75
@@ -1156,9 +1391,9 @@ A
 24 -5
 G none
 #17312
-armband armbands garlon garlon's~
-garlon's invisible armbands~
-A set of armbands of black iron lie here.~
+armband armbands garlon garlon's наручи гарлон~
+@eng garlon's invisible armbands@rus ~~невидимые~~ ~~наручи~~ Гарлона~
+@eng A set of armbands of black iron lie here.@rus Здесь валяются наручи из черного железа.~
 iron~
 armor FGJ AI
 8 8 8 0 0
@@ -1169,18 +1404,18 @@ A
 5 2
 G none
 #17313
-helm horned gawaine gawaine's~
-gawaine's horned helm~
-A burnished steel helm with oxen horns lies here.~
+helm horned gawaine gawaine's шлем гавэйн рогатый~
+@eng gawaine's horned helm@rus ~~рогатый~~ ~~шлем~~ Гавэйна~
+@eng A burnished steel helm with oxen horns lies here.@rus Шлем черненой стали с рогами лежит тут.~
 iron~
 armor C AE
 9 9 9 9 0
 34 3 2500 P
 G none
 #17314
-spurs silver lamorak lamorak's~
-lamorak's spurs~
-A set of silver spurs lies here.~
+spurs silver lamorak lamorak's шпоры ламорак~
+@eng lamorak's spurs@rus ~~шпоры~~ сэра Ламорака~
+@eng A set of silver spurs lies here.@rus Набор серебряных шпор в пыли.~
 silver~
 armor 0 AG
 9 9 9 0 0
@@ -1191,9 +1426,9 @@ A
 19 2
 G none
 #17315
-gauntlets bravery~
-gauntlets of bravery~
-A glowing pair of burnished chain mesh gauntlets lies here.~
+gauntlets bravery перчатки храбрости~
+@eng gauntlets of bravery@rus ~~перчатки~~ Храбрости~
+@eng A glowing pair of burnished chain mesh gauntlets lies here.@rus Кольчужные перчатки из черненой стали лежат тут.~
 iron~
 armor GIKL AH
 11 11 11 11 0
@@ -1204,9 +1439,9 @@ A
 19 5
 G none
 #17316
-ring incubus crest gold~
-the Incubus crest ring~
-A ring of twisted red gold bearing the likeness of an Incubus lies here.~
+ring incubus crest gold кольцо инкуб~
+@eng the Incubus crest ring@rus ~~кольцо~~ инкуба~
+@eng A ring of twisted red gold bearing the likeness of an Incubus lies here.@rus Кольцо из червонного золота с изображением инкубуса.~
 gold~
 armor CMQ AB
 11 11 11 6 0
@@ -1219,9 +1454,9 @@ A
 4 1
 G none
 #17317
-staff merlin merlin's~
-merlin's staff~
-A staff of two intertwined vines lies here in a circle of power!~
+staff merlin merlin's посох мерлин~
+@eng merlin's staff@rus ~~посох~~ Мерлина~
+@eng A staff of two intertwined vines lies here in a circle of power!@rus Здесь лежит изогнутый посох со светящейся аурой.~
 wood~
 staff ABCGH AO
 45 5 5 'dispel magic' 0
@@ -1238,9 +1473,9 @@ show
 ~
 G none
 #17318
-greaves blackened steel~
-a pair of blackened steel greaves~
-A pair of blackened steel greaves lies here. There is an inscription on them.~
+greaves blackened steel поножи черные~
+@eng a pair of blackened steel greaves@rus ~~черные~~ ~~поножи~~~
+@eng A pair of blackened steel greaves lies here. There is an inscription on them.@rus На земле лежат черные поножи.~
 iron~
 armor CHM AF
 7 7 7 0 0
@@ -1257,9 +1492,9 @@ as I have promised Morgana in exchange for the favor of Eveline"
 ~
 G none
 #17319
-wand rod~
-a marble rod with a white hot tip~
-A marble rod with a white hot tip is smouldering here.~
+wand rod жезл мраморный~
+@eng a marble rod with a white hot tip@rus ~~мраморный~~ ~~жезл~~~
+@eng A marble rod with a white hot tip is smouldering here.@rus Мраморная палочка с раскаленным добела наконечником лежит на земле.~
 stone~
 wand ACGHJ AO
 23 20 20 'charm person' 0
@@ -1273,9 +1508,9 @@ red eyes bore into your head. As the vison fades you hear the message '
 ~
 G none
 #17320
-pack backpack trailpack leather pellinore pellinore's~
-pellinore's trailpack~
-A backpack made of fine leather sits here. You see lettering on its corner.~
+pack backpack trailpack leather pellinore pellinore's мешок пеллинор рюкзак~
+@eng pellinore's trailpack@rus ~~дорожный~~ ~~мешок~~ Пеллинора~
+@eng A backpack made of fine leather sits here. You see lettering on its corner.@rus Рюкзак из прочной кожи лежит на земле. Ты видишь на нем букву "P".~
 leather~
 container GH AD
 500 0 17321 250 75
@@ -1291,27 +1526,27 @@ the letter P). May you succeed in your quest!     - Merlin".
 ~
 G none
 #17321
-key p letter~
-a key with the letter "P" on it~
-A key with the letter "P" on it is here.~
+key p letter ключ р~
+@eng a key with the letter "P" on it@rus ~~ключ~~ с буквой "Р"~
+@eng A key with the letter "P" on it is here.@rus Ключ с буквой "Р" лежит здесь.~
 brass~
 key 0 AO
 0 0 0 0 0
 27 1 270 P
 G none
 #17322
-rations trail~
-some trail rations~
-Some trail rations (nuts, dried fuits, dried meats) are here.~
+rations trail рацион дорожный~
+@eng some trail rations@rus ~~дорожный~~ ~~рацион~~~
+@eng Some trail rations (nuts, dried fuits, dried meats) are here.@rus Дорожный рацион (мясо, сушеные фрукты).~
 flesh~
 food 0 A
 EF EF 0 0 0
 27 4 270 P
 G none
 #17323
-flask wine~
-a flask of a nice red wine~
-A flask of nice, cold Pinot Noir wine is here, just waiting to be tasted.~
+flask wine флакон вина~
+@eng a flask of a nice red wine@rus ~~флакон~~ красного вина~
+@eng A flask of nice, cold Pinot Noir wine is here, just waiting to be tasted.@rus Флакон красного вина "Пино Нуа" стоит на земле.~
 glass~
 drink 0 A
 10 10 'red wine' 0 0
@@ -1322,57 +1557,65 @@ The wine is a beautiful deep red in color, and it goes well with all food.
 ~
 G none
 #17324
-bones bone pile~
-a pile of bones~
-A pile of bones lies here.~
+bones bone pile куча костей~
+@eng a pile of bones@rus ~~куча~~ костей~
+@eng A pile of bones lies here.@rus В углу лежит куча костей.~
 stone~
 trash 0 A
 0 0 0 0 0
 22 10 1 P
 G none
 #17325
-skull human~
-a human skull~
-A human skull lies here.~
-stone~
+skull human череп~
+@eng a human skull@rus ~~человеческий~~ ~~череп~~~
+@eng A human skull lies here.@rus Симпатичная человеческая черепушка лежит тут.~
+bone~
 trash 0 A
 0 0 0 0 0
 22 3 220 P
 G none
 #17326
-rock black small~
-a small black rock~
-A small black rock lies here.~
+rock black small камешек камень черный~
+@eng a small black rock@rus ~~маленький~~ ~~черный~~ ~~камешек~~~
+@eng A small black rock lies here.@rus Маленький черный камешек лежит тут.~
 stone~
 pill 0 A
 40 '' '' '' ''
 22 1 1200 P
 E
-rock black small~
-You look at the rock. On the rock are carved strange rune symbols that you 
+rock black small камешек камень черный~
+@eng You look at the rock. On the rock are carved strange rune symbols that you 
 don't understand. The rock has blood on it.
+@rus Ты смотришь на камешек. На нем начертаны непонятные руны. Стоит вглядеться 
+повнимательней.
 ~
 E
-rune~
-Persistant, huh? Well yes it seems like that mage buddy of yours once was 
+rune руны руна~
+@eng Persistant, huh? Well yes it seems like that mage buddy of yours once was 
 talking about rune wafers that could be eaten and have magical effects 
 happen. This looks like one of those.
+@rus Все понятно, правда?  Помните, тот маг с прибабахом рассказывал тебе о
+таких штучках, и насчет того, что если уж на чем-то маленьком и начертаны
+магические символы, значит это надо есть - и будет магический эффект. 
+Оп-па, а камни разве едят??  Гм...  Может, этот камешек спасет тебе жизнь
+однажды?  
 ~
 G none
 #17327
-letter love~
-a love letter~
-A love letter addressed to Tristram is rolled and sealed with a wax emblem.~
+letter love любовное письмо~
+@eng a love letter@rus ~~любовное~~ ~~письмо~~~
+@eng A love letter addressed to Tristram is rolled and sealed with a wax emblem.@rus Письмо, адресованное Тристану с сургучной печатью лежит здесь.~
 paper~
 scroll G AO
 40 'pass door' 'invisibility' 'fly' ''
 36 1 800 P
 E
-seal~
-The seal bears the crest of the house of King Mark.~
+seal печать~
+@eng The seal bears the crest of the house of King Mark.@rus Печать дома короля Марка.
+~
 E
-letter~
-You break the seal and look at the letter. The letter reads:
+letter письмо~
+@eng You break the seal and look at the letter. The letter reads:
 
 My beloved Tristram. How much do I long for your gentle presence alongside 
 me! My father seethes at the very thought of you. Beware! He seeks to do you 
@@ -1383,12 +1626,22 @@ for I shall burst!
 Forever and totally in your thrall,
 
 Isolde
+@rus Ты ломаешь печать и читаешь письмо:
+ 
+Мой любимый Тристрам! Как же больно мне осознавать то, что ты не
+рядом со мной! Мой отец очень сердит на тебя. Берегись, он собирается
+сделать тебе нечто нехорошее. Я попросила Мерлина, и он сделал мне
+это письмо, которое поможет тебе прилететь ко мне незамеченным никем,
+а сам ты будешь все видеть. Я буду жить только надеждой увидеть тебя!
+ 
+Навсегда и навеки в твоей власти,
+Изольда.
 ~
 G none
 #17328
-armor golden~
-a suit of golden armor~
-A suit of golden armor shines here.~
+armor golden броня золотая~
+@eng a suit of golden armor@rus ~~золотая~~ ~~броня~~~
+@eng A suit of golden armor shines here.@rus Золотая броня валяется здесь. Вот времена!~
 gold~
 armor EJL AD
 9 9 9 9 0
@@ -1399,8 +1652,8 @@ A
 17 -12
 G none
 #17329
-spear unholy~
-a spear glowing in an unholy dark light~
+spear unholy копье бесовское~
+@eng a spear glowing in an unholy dark light@rus ~~бесовское~~ ~~копье~~~
 A spear is here, glowing with an unholy dark light.~
 adamantite~
 weapon ACEG AN
@@ -1415,34 +1668,39 @@ A
 A
 14 15
 E
-unholy spear light~
-You look at the unholy light surrounding the spear. Your vision darkens. 
+unholy spear light свет копье бесовское~
+@eng You look at the unholy light surrounding the spear. Your vision darkens. 
 Out of the darkness red glowing eyes laugh and dance at you. A rage slowly 
 fills you, you want to kill. Rend. Tear. Rape. Murder - ahhahahahah!
+@rus Ты смотришь на дьявольский черный свет, исходящий из копья. Твое
+зрение затуманивается. Из темноты на тебя смотрит кровавый глаз, он
+приближается! Чувство злобы и ненависти наполняет тебя, ты хочешь 
+убивать. Резать. Истязать. Разрывать! Мучить!! Выкалывать глаза!!! 
+Хааххаахха...
 ~
 G none
 #17330
-favor silken~
-a silken favor~
-A silken favor is here. Maybe it belongs to your lady?~
+favor silken платок шелковый~
+@eng a silken favor@rus ~~шелковый~~ ~~платок~~~
+@eng A silken favor is here. Maybe it belongs to your lady?@rus Здесь лежит шелковый платок. Это не Ваша леди забыла его?~
 cloth~
 trash 0 AO
 0 0 0 0 0
 9 1 90 P
 G none
 #17331
-necklace~
-an emerald necklace~
-An exquisite emerald necklace with intricate gold settings has been left here!~
+necklace ожерелье~
+@eng an emerald necklace@rus ~~изумрудное~~ ~~ожерелье~~~
+@eng An exquisite emerald necklace with intricate gold settings has been left here!@rus Красивое изумрудное ожерелье с золотыми вставками оставлено здесь.~
 gold~
 treasure 0 AC
 0 0 0 0 0
 12 2 1500 P
 G none
 #17332
-ball chain~
-a massive spiked ball and chain~
-A massive spiked iron ball attached to a iron handle by a 3' chain is here.~
+ball chain шестопер рыцарский~
+@eng a massive spiked ball and chain@rus ~~рыцарский~~ ~~шестопер~~~
+@eng A massive spiked iron ball attached to a iron handle by a 3' chain is here.@rus Массивный шипастый стальной цилиндр с цепью и рукояткой брошен здесь.~
 iron~
 weapon 0 AN
 flail 5 7 'crush' 0
@@ -1451,9 +1709,9 @@ A
 19 4
 G none
 #17333
-motley fool fools~
-fool's motley~
-Some fool has left his motley here.~
+motley fool fools колпак шут~
+@eng fool's motley@rus ~~шутовской~~ ~~колпак~~~
+@eng Some fool has left his motley here.@rus Какой-то шут забыл здесь колпак.~
 cloth~
 armor 0 AE
 1 1 1 0 0
@@ -1462,9 +1720,9 @@ A
 3 -1
 G none
 #17334
-helm wolf helmet шлем волчий~
-@eng a wolf helm@rus волчий шлем~
-@eng A helm with the semblance of a wolf is here.@rus Шлем в виде волка (helm) сдесь.~
+helm wolf helmet шлем волчий волка~
+@eng a wolf helm@rus ~~волчий~~ ~~шлем~~~
+@eng A helm with the semblance of a wolf is here.@rus Шлем с головой волка забыт кем-то.~
 iron~
 armor G AE
 9 9 9 9 0
@@ -1475,9 +1733,9 @@ A
 19 3
 G male
 #17335
-armor shimmering red~
-a suit of shimmering red armor~
-A suit of shimmering red armor glistens in the sunlight.~
+armor shimmering red броня красная сверкающая~
+@eng a suit of shimmering red armor@rus ~~красная~~ ~~броня~~~
+@eng A suit of shimmering red armor glistens in the sunlight.@rus Полированная броня красного цвета сверкает на солнце.~
 mithril~
 armor AG AD
 9 9 9 4 0
@@ -1486,45 +1744,45 @@ A
 17 -10
 G none
 #17336
-key rusty~
-a rusty key~
-A key is here, lying in the dirt, rusting.~
+key rusty ключ ржавый~
+@eng a rusty key@rus ~~ржавый~~ ~~ключ~~~
+@eng A key is here, lying in the dirt, rusting.@rus Ржавый ключ валяется в грязи.~
 iron~
 key 0 A
 0 0 0 0 0
 38 1 10 P
 G none
 #17337
-reward~
-the reward~
-A deed of payment for the rescue of a damsel in distress is here.~
+reward награда~
+@eng the reward@rus награда~
+@eng A deed of payment for the rescue of a damsel in distress is here.@rus Награда за спасение бедной женщины находится здесь.~
 paper~
 treasure 0 A
 0 0 0 0 0
 8 1 2000 P
 G none
 #17338
-key room~
-a room key~
-A brass key made depicting a young girl is here.~
+key room ключ комнаты~
+@eng a room key@rus ~~ключ~~ от комнаты~
+@eng A brass key made depicting a young girl is here.@rus Бронзовый ключ в форме женского бюста лежит тут.~
 brass~
 key 0 A
 0 0 0 0 0
 0 1 1 P
 G none
 #17339
-purse heavy~
-a rather heavy looking purse~
-A rather heavy looking purse is here.~
+purse heavy кошелек~
+@eng a rather heavy looking purse@rus ~~тяжелый~~ ~~кошелек~~~
+@eng A rather heavy looking purse is here.@rus Кто-то обронил тяжелый кошелек.~
 leather~
 money 0 A
 1000 0 0 0 0
 0 1 2 P
 G none
 #17340
-cloak lice infested~
-a lice infested cloak~
-A lice infested cloak made of the skin of some animal is here.~
+cloak lice infested плащ вшивый~
+@eng a lice infested cloak@rus ~~вшивый~~ ~~плащ~~~
+@eng A lice infested cloak made of the skin of some animal is here.@rus На земле валяется плащ, на нем можно заметить вшей. Фу!~
 leather~
 armor 0 AK
 8 8 8 0 0
@@ -1535,9 +1793,9 @@ A
 5 -1
 G none
 #17341
-sword broad steel commander commander's~
-a commander's steel broad sword~
-A commanders steel broad sword catches your eye.~
+sword broad steel commander commander's меч стальной широкий командир~
+@eng a commander's steel broad sword@rus ~~широкий~~ ~~меч~~ командира~
+@eng A commanders steel broad sword catches your eye.@rus Стальной широкий меч командира оставлен здесь.~
 iron~
 weapon 0 AN
 sword 5 6 'slash' 0
@@ -1548,27 +1806,27 @@ A
 19 3
 G none
 #17342
-skin whiskey~
-a skin of whiskey~
-A skin smelling of whiskey is here, on the ground.~
+skin whiskey бурдюк виски~
+@eng a skin of whiskey@rus ~~бурдюк~~ виски~
+@eng A skin smelling of whiskey is here, on the ground.@rus Кожаный бурдюк лежит здесь. От него пахнет выпивкой.~
 leather~
 drink 0 A
 50 50 'whisky' 0 0
 28 10 400 P
 G none
 #17343
-ship dragon~
-a dragon ship~
-A dragon ship is beached here- where are those Angle raiders?~
+ship dragon корабль дракон~
+@eng a dragon ship@rus ~~корабль~~ со статуей дракона~
+@eng A dragon ship is beached here- where are those Angle raiders?@rus Деревянный корабль со статуей дракона стоит на рейде - не на нем ли приплыли разбойники?~
 wood~
 furniture OT 0
 BD EGIJOP L BCEH BCEH
 29 -15536 290 P
 G none
 #17344
-angle~
-an angle~
-An angle is here. A raider must be nearby.~
+angle энгл меч~
+@eng an angle@rus энгл~
+@eng An angle is here. A raider must be nearby.@rus Энгл валяется на земле. Разбойники недалеко!~
 iron~
 weapon 0 AN
 sword 5 7 'slash' 0
@@ -1579,9 +1837,9 @@ A
 19 4
 G none
 #17345
-rod command~
-a rod of command~
-A rod of black, runed metal swallows light here.~
+rod command жезл командования~
+@eng a rod of command@rus ~~жезл~~ Командования~
+@eng A rod of black, runed metal swallows light here.@rus Жезл из черненого узорчатого металла лежит на земле.~
 iron~
 staff CJL AO
 40 24 24 'charm person' 0
@@ -1601,9 +1859,9 @@ you become mine..."
 ~
 G none
 #17346
-banner war persante blue~
-the blue war banner of Persante of Inde~
-The blue war banner of Persante of Inde lies here. Persante has fallen!~
+banner war persante blue стяг синий персант~
+@eng the blue war banner of Persante of Inde@rus ~~синий~~ ~~стяг~~ Персанта Индийского~
+@eng The blue war banner of Persante of Inde lies here. Persante has fallen!@rus синий стяг Персанта Индийского лежит на земле. Персант повержен!~
 wood~
 light AK AO
 0 0 999 0 0
@@ -1624,9 +1882,9 @@ The banner depicts a Griffon on a pale blue sky
 ~
 G none
 #17347
-lifecutter~
-lifecutter~
-A blue black crusader hilt sword is stuck in the ground~
+lifecutter меч душегуб~
+@eng lifecutter@rus ~~меч~~ "Душегуб"~
+@eng A blue black crusader hilt sword is stuck in the ground@rus Сине-черный меч крестоносца оставлен тут.~
 adamantite~
 weapon C AN
 sword 5 7 'slash' C
@@ -1645,9 +1903,9 @@ slay evil!
 ~
 G none
 #17348
-armor plate full~
-a suit of full plate armor~
-A suit of full plate armor gleams on the ground.~
+armor plate full броня полный комплект стальной~
+@eng a suit of full plate armor@rus ~~полный~~ ~~комплект~~ стальной брони~
+@eng A suit of full plate armor gleams on the ground.@rus Полный комплект стальной брони оставлен на земле.~
 iron~
 armor 0 AD
 11 13 12 0 0
@@ -1656,9 +1914,9 @@ A
 17 -8
 G none
 #17349
-axe~
-an enormous axe~
-An enormous axe is resting here.~
+axe топор огромный~
+@eng an enormous axe@rus ~~огромный~~ ~~топор~~ Гахериса~
+@eng An enormous axe is resting here.@rus Да, вот это топор так топор! Тяжелый и мощный.~
 iron~
 weapon 0 AN
 axe 9 4 'chop' F
@@ -1671,9 +1929,9 @@ The axe handle has the name 'Gaheris' inscibed on it.
 ~
 G none
 #17350
-hat top black Lok Lok's~
-lok's black top hat~
-Lok's black top hat is here- maybe you should give it to him- nah.~
+hat top black Lok Lok's шляпа лока~
+@eng lok's black top hat@rus ~~шляпа~~ Лока~
+@eng Lok's black top hat is here- maybe you should give it to him- nah.@rus Тут валяется шляпа Лока - может, ты отдашь ее ему? :)~
 unknown~
 armor 0 AE
 3 3 3 0 0
@@ -1702,6 +1960,15 @@ E
 hat~
 Inscribed in the hatband is the message 'I belong to Lok'
 ~
+G none
+#17351
+plate blue синяя броня~
+@eng blue armor of Persante of Inde@rus ~~синяя~~ ~~броня~~ Персанта Индийского~
+@eng Blue armor shines in the sun.@rus Синяя броня, сверкая на солнце бело-голубыми бликами, лежит здесь.~
+steel~
+armor 0 0
+0 0 0 0 0
+0 0 0 P
 G none
 #0
 

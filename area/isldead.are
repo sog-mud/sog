@@ -317,6 +317,22 @@ ABCFGT DFTmu -1000 0
 AFGK ABHLMQ FGKO EI
 stand stand male 20000
 ABV ABCDEFGHQW huge unknown
+#22318
+gothmog balrog demon~
+Gothmog, the High Captain of Balrogs~
+A huge winged fire demon looks at you.
+~
+A massive form, cloaked in flame. Gothmog stares balefully at you with eyes
+that smoulder red. The dungeon floor where he stands is scorched by the heat of
+his body.
+~
+unique~
+ACT DFPTUVbcm -1000 0
+65 60 100d10+15000 100d5+3000 20d7+50 'flbite'
+-65 -65 -65 -65
+ACEFGIKMOP ABEFHLMPQU JKST I
+stand stand male 30000
+ABV ABCDEFPU gargantuan unknown
 #22399
 as~
 as~
@@ -713,7 +729,7 @@ the Greate Axe named "Barukkheled"~
 A some huge humming axe lies here.~
 iron~
 weapon RTY AN
-axe 15 4 'cleave' EFG
+axe 15 4 'frbite' EF
 45 100 100000 P
 A
 26 1
@@ -721,6 +737,87 @@ A
 19 5
 A
 18 5
+G none
+#22327
+whip flame~
+a Flame Whip~
+A fire weapon lies here.~
+flame~
+weapon ACSTU AN
+whip 10 7 'flbite' A
+46 100 100000 P
+G none
+#22328
+stone~
+a huge stone~
+A huge stone that's carved by strange runes lies here.~
+stone~
+trash 0 0
+0 0 0 0 0
+0 0 0 P
+E
+stone~
+My name is Maggot. I and some of my friend decide to explore this dungeon.
+And now all of them are killed by guards of it. I'll die soon. If you 
+read this you should know that this Dungeon is ancient fortress of Evil.
+It wasn't destroyed but mortal guards died only undead creatures and
+demons survived. They will eliminate everyone who try to steal theirs 
+tresures or come to them. DON'T EN........
+~
+G none
+#22329
+corpse~
+a corpse~
+A half-decayed corpse lies here.~
+unknown~
+trash 0 0
+0 0 0 0 0
+0 0 0 P
+E
+corpse~
+A half-decaed corpse is dressed in a rusty iron armor.
+You see a words on it. "For Maggot from Bulroarer.".
+~
+G none
+#22330
+sign~
+~
+You see some words carved on the wall.~
+unknown~
+trash 0 0
+0 0 0 0 0
+0 0 0 P
+E
+word~
+A lot of treasures in the Dungeon but it is guarded by strong creatures.
+If you don't feel strong enough or you are alone it should be better
+to keep them their. Only storng adventurer with good staff is able to 
+get them.
+~
+G none
+#22331
+parchment~
+a parchment~
+A parchment.~
+unknown~
+trash 0 0
+0 0 0 0 0
+0 0 0 P
+E
+parchment~
+This is small, badly bloodstained piece of parchment.  The only message
+in it reads: "If you find this, you will know that I have been defeated.
+Take great care always here, or they will overtake you too."
+~
+G none
+#22332
+key~
+the key of the beast~
+~
+unknown~
+trash 0 0
+0 0 0 0 0
+0 0 0 P
 G none
 #22399
 battleaxe dagger sword~
@@ -807,7 +904,7 @@ You stand in the big decorated crypt.  Ancient murals and paintings
 showing scenes of battle cover the walls.  You notice an open coffin here.
 Strange, but this coffin appears to be empty.  A door leads to the east.
 ~
-0 ADNX inside
+0 ADX inside
 D2
 ~
 ~
@@ -1772,6 +1869,15 @@ A metal plaque with some inscripitions written by ancient runes is
 hanging on the bar.
 ~
 0 ANX inside
+E
+plaque~
+--------------------
+|                  |
+|      Omarax      |
+| the Eye Tyrant   |
+|                  |
+--------------------
+~
 D0
 ~
 ~
@@ -1789,6 +1895,15 @@ A metal plaque with some inscripitions written by ancient runes is
 hanging on the bar.
 ~
 0 ANX inside
+E
+plaque~
+-------------------
+|                 |
+|     Tselakus    |
+| the Dreadlord   |
+|                 |
+-------------------
+~
 D0
 ~
 ~
@@ -2101,6 +2216,15 @@ A metal plaque with some inscripitions written by ancient runes is
 hanging on the bar.
 ~
 0 ANX inside
+E
+plaque~
+--------------------
+|                  |
+|        Muar      |
+|     the Balrog.  |
+|                  |
+--------------------
+~
 D1
 ~
 ~
@@ -2353,6 +2477,7 @@ M 22312 spec_cast_undead	* Hoarmurath of Dir
 M 22313 spec_cast_undead	* Khamul the Easterling
 M 22314 spec_cast_undead	* Murazor, the Witch-King of Angmar
 M 22315 spec_cast_beholder	* Omarax the Eye tyrant
+M 22318 spec_guard	* Gothmog, the High Captain of Balrogs
 S
 
 #RESETS
@@ -2402,8 +2527,11 @@ D 0 22386 2 1	* An island in the underworld sea: door to the south: closed
 D 0 22387 2 1	* An island in the underworld sea: door to the south: closed
 D 0 22388 0 1	* A Cage: door to the north: closed
 D 0 22389 0 1	* A Cage: door to the north: closed
-M 0 22300 1 22302 1	* the Manticore (The Entrance to the Dungeon)
+O 0 22328 0 22301	* a huge stone (The Isle of the Lost Souls)
+O 0 22329 0 22301	* a corpse (The Isle of the Lost Souls)
 E 0 22300 0 17		*	key of the crypts: held in the hands
+O 0 22330 0 22302	*  (The Entrance to the Dungeon)
+O 0 22331 0 22302	* a parchment (The Entrance to the Dungeon)
 M 0 22303 12 22303 1	* the Shade (A Crypt)
 E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
 E 0 22310 0 3		*	a midnight cloak: around the neck (1)
@@ -2475,6 +2603,7 @@ E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
 E 0 22310 0 3		*	a midnight cloak: around the neck (1)
 E 0 22311 0 17		*	the key of ringwraiths: held in the hands
 E 0 22308 0 15		*	a bracer of defence: on the right wrist
+O 0 22330 0 22322	*  (The Hall of the Crypts)
 M 0 22303 12 22323 1	* the Shade (A Crypt)
 E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
 E 0 22310 0 3		*	a midnight cloak: around the neck (1)
@@ -2503,10 +2632,12 @@ M 0 22306 1 22354 1	* Adunaphel the Quiet (The southern hallway)
 M 0 22315 1 22357 1	* Omarax the Eye tyrant (A Cage)
 E 0 22323 0 17		*	the key of the beast: held in the hands
 O 0 22322 0 22357	* the chest of the beast (A Cage)
-M 0 22316 1 22358 1	* Tselakus, the Dreadlord (A Cage)
 E 0 22324 0 17		*	the key of the beast: held in the hands
 O 0 22325 0 22358	* the chest of the beast (A Cage)
 P 0 22326 0 22325 1	* the chest of the beast: the Greate Axe named "Barukkheled"
+O 0 22326 0 22358	* the Greate Axe named "Barukkheled" (A Cage)
+M 0 22318 1 22373 1	* Gothmog, the High Captain of Balrogs (The Entrance to the Hall of Gorrors)
+E 0 22327 0 16		*	a Flame Whip: wielded
 M 0 22317 1 22377 1	* Muar, the Balrog (A Cage)
 S
 
@@ -2515,6 +2646,7 @@ O 22316 8	* the Wheel of Pa-Ra-Voz
 O 22318 4	* the Axel of Pa-Ra-Voz
 O 22321 10	* the Shield of Deflection
 O 22326 1	* the Greate Axe named "Barukkheled"
+O 22327 1	* a Flame Whip
 O 22399 0	* battlaxe 
 S
 

@@ -95,7 +95,7 @@ End
 
 #SKILL
 Skill 'push'
-Level 40
+Level 35
 Rating 1
 Min 1
 Adept 75
@@ -113,7 +113,7 @@ End
 
 #SKILL
 Skill 'perception'
-Level 38
+Level 32
 Rating 1
 Min 1
 Adept 75
