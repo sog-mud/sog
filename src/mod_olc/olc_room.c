@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.102 2001-11-15 22:21:24 avn Exp $
+ * $Id: olc_room.c,v 1.103 2001-11-15 23:02:14 avn Exp $
  */
 
 #include "olc.h"
@@ -982,7 +982,7 @@ display_resets(CHAR_DATA *ch)
 
 			if ((mob = get_mob_index(last_mob->arg1)) == NULL) {
 				buf_printf(buf, BUF_END, "<bad mob %d>\n",
-					   r->arg1);
+					   last_mob->arg1);
 				break;
 			}
 
