@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.106 1999-02-16 20:26:04 fjoe Exp $
+ * $Id: db.c,v 1.107 1999-02-17 18:58:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -94,15 +94,8 @@ extern	int	_filbuf		(FILE *);
 
 #endif
 
-
 /* externals for counting purposes */
 extern  DESCRIPTOR_DATA *descriptor_free;
-
-#if defined (WIN32)
-	const char PATH_SEPARATOR = (char) '\\';
-#else
-	const char PATH_SEPARATOR = (char) '/';
-#endif
 
 /*
  * Globals.

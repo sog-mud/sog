@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.199 1999-02-17 07:53:15 fjoe Exp $
+ * $Id: act_info.c,v 1.200 1999-02-17 18:57:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -127,22 +127,29 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 
 	if (IS_SET(ch->comm, COMM_LONG)) {
 		if (IS_OBJ_STAT(obj, ITEM_INVIS))
-			strcat(buf, GETMSG("({yInvis{x) ", ch->lang));
+			strnzcat(buf, GETMSG("({yInvis{x) ", ch->lang),
+				 sizeof(buf));
 		if (IS_OBJ_STAT(obj, ITEM_DARK))
-			strcat(buf, GETMSG("({DDark{x) ", ch->lang));
+			strnzcat(buf, GETMSG("({DDark{x) ", ch->lang),
+				 sizeof(buf));
 		if (IS_AFFECTED(ch, AFF_DETECT_EVIL)
 		&&  IS_OBJ_STAT(obj, ITEM_EVIL))
-			strcat(buf, GETMSG("({RRed Aura{x) ", ch->lang));
+			strnzcat(buf, GETMSG("({RRed Aura{x) ", ch->lang),
+				 sizeof(buf));
 		if (IS_AFFECTED(ch, AFF_DETECT_GOOD)
 		&&  IS_OBJ_STAT(obj, ITEM_BLESS))
-			strcat(buf, GETMSG("({BBlue Aura{x) ", ch->lang));
+			strnzcat(buf, GETMSG("({BBlue Aura{x) ", ch->lang),
+				 sizeof(buf));
 		if (IS_AFFECTED(ch, AFF_DETECT_MAGIC)
 		&&  IS_OBJ_STAT(obj, ITEM_MAGIC))
-			strcat(buf, GETMSG("({MMagical{x) ", ch->lang));
+			strnzcat(buf, GETMSG("({MMagical{x) ", ch->lang),
+				 sizeof(buf));
 		if (IS_OBJ_STAT(obj, ITEM_GLOW))
-			strcat(buf, GETMSG("({WGlowing{x) ", ch->lang));
+			strnzcat(buf, GETMSG("({WGlowing{x) ", ch->lang),
+				 sizeof(buf));
 		if (IS_OBJ_STAT(obj, ITEM_HUM))
-			strcat(buf, GETMSG("({YHumming{x) ", ch->lang));
+			strnzcat(buf, GETMSG("({YHumming{x) ", ch->lang),
+				 sizeof(buf));
 	}
 	else {
 		static char FLAGS[] = "{x[{y.{D.{R.{B.{M.{W.{Y.{x] ";
@@ -162,12 +169,15 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 	}
 
 	if (fShort) {
-		strcat(buf, mlstr_cval(obj->short_descr, ch));
+		strnzcat(buf, mlstr_cval(obj->short_descr, ch), sizeof(buf));
 		if (obj->pIndexData->vnum > 5 /* not money, gold, etc */
 		&&  (obj->condition < COND_EXCELLENT ||
-		     !IS_SET(ch->comm, COMM_NOVERBOSE)))
-			sprintf(strend(buf), " [{g%s{x]",
-				GETMSG(get_cond_alias(obj), ch->lang));
+		     !IS_SET(ch->comm, COMM_NOVERBOSE))) {
+			char buf2[MAX_STRING_LENGTH];
+			snprintf(buf2, sizeof(buf2), " [{g%s{x]",
+				 GETMSG(get_cond_alias(obj), ch->lang));
+			strnzcat(buf, buf2, sizeof(buf));
+		}
 		return buf;
 	}
 
@@ -175,22 +185,25 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 		char* p;
 
 		p = strend(buf);
-		strcat(buf, mlstr_cval(obj->short_descr, ch));
+		strnzcat(buf, mlstr_cval(obj->short_descr, ch), sizeof(buf));
 		p[0] = UPPER(p[0]);
 		switch(dice(1,3)) {
 		case 1:
-			strcat(buf, " is floating gently on the water.");
+			strnzcat(buf, " is floating gently on the water.",
+				 sizeof(buf));
 			break;
 		case 2:
-			strcat(buf, " is making it's way on the water.");
+			strnzcat(buf, " is making it's way on the water.",
+				 sizeof(buf));
 			break;
 		case 3:
-			strcat(buf, " is getting wet by the water.");
+			strnzcat(buf, " is getting wet by the water.",
+				 sizeof(buf));
 			break;
 		}
 	}
 	else
-		strcat(buf, mlstr_cval(obj->description, ch));
+		strnzcat(buf, mlstr_cval(obj->description, ch), sizeof(buf));
 	return buf;
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.28 1999-02-17 07:53:24 fjoe Exp $
+ * $Id: mlstring.c,v 1.29 1999-02-17 18:58:04 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -391,7 +391,7 @@ bool mlstr_editnl(mlstring **mlp, const char *argument)
 
 	p = mlstr_convert(mlp, lang);
 	free_string(*p);
-	*p = str_add(argument, "\n", NULL);
+	*p = str_printf("%s\n", argument);
 	return TRUE;
 }
 

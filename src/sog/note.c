@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.44 1999-02-17 07:53:25 fjoe Exp $
+ * $Id: note.c,v 1.45 1999-02-17 18:58:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -259,6 +259,7 @@ void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time)
 {
     FILE *fp;
     NOTE_DATA *pnotelast;
+    const char *p;
  
     if ((fp = dfopen(NOTES_PATH, name, "r")) == NULL)
 	return;
@@ -283,27 +284,27 @@ void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time)
  
         pnote           = alloc_perm(sizeof(*pnote));
  
-        if (str_cmp(fread_word(fp), "sender"))
+        if (str_cmp(p = fread_word(fp), "sender"))
             break;
         pnote->sender   = fread_string(fp);
  
-        if (str_cmp(fread_word(fp), "date"))
+        if (str_cmp(p = fread_word(fp), "date"))
             break;
         pnote->date     = fread_string(fp);
  
-        if (str_cmp(fread_word(fp), "stamp"))
+        if (str_cmp(p = fread_word(fp), "stamp"))
             break;
         pnote->date_stamp = fread_number(fp);
  
-        if (str_cmp(fread_word(fp), "to"))
+        if (str_cmp(p = fread_word(fp), "to"))
             break;
         pnote->to_list  = fread_string(fp);
  
-        if (str_cmp(fread_word(fp), "subject"))
+        if (str_cmp(p = fread_word(fp), "subject"))
             break;
         pnote->subject  = fread_string(fp);
  
-        if (str_cmp(fread_word(fp), "text"))
+        if (str_cmp(p = fread_word(fp), "text"))
             break;
         pnote->text     = fread_string(fp);
  
@@ -316,16 +317,14 @@ void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time)
 	pnote->type = type;
  
         if (*list == NULL)
-            *list           = pnote;
+            *list = pnote;
         else
-            pnotelast->next     = pnote;
+            pnotelast->next = pnote;
  
-        pnotelast       = pnote;
+        pnotelast = pnote;
     }
  
-	strnzcpy(filename, NOTES_PATH, sizeof(filename));
-	strnzcat(filename, name, sizeof(filename));
-	db_error("load_notes", "bad keyword");
+	db_error("load_notes", "%s: bad keyword '%s'", name, p);
 }
 
 void append_note(NOTE_DATA *pnote)
@@ -452,8 +451,8 @@ void note_remove(CHAR_DATA *ch, NOTE_DATA *pnote, bool delete)
     	    to_list	= one_argument(to_list, to_one, sizeof(to_one));
     	    if (to_one[0] != '\0' && str_cmp(ch->name, to_one))
 	    {
-	        strcat(to_new, " ");
-	        strcat(to_new, to_one);
+	        strnzcat(to_new, " ", sizeof(to_new));
+	        strnzcat(to_new, to_one, sizeof(to_new));
 	    }
         }
         /* Just a simple recipient removal? */

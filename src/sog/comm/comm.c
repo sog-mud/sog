@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.140 1999-02-17 07:53:27 fjoe Exp $
+ * $Id: comm.c,v 1.141 1999-02-17 18:58:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1854,18 +1854,18 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	    {
 	     if (iClass < 7)
 	      {
-	      	strcat(buf, CLASS(iClass)->name);
-	      	strcat(buf, " ");
+	      	strnzcat(buf, CLASS(iClass)->name, sizeof(buf));
+	      	strnzcat(buf, " ", sizeof(buf));
 	      }
 	     else
 	      {
-	      	strcat(buf1, CLASS(iClass)->name);
-	      	strcat(buf1, " ");
+	      	strnzcat(buf1, CLASS(iClass)->name, sizeof(buf1));
+	      	strnzcat(buf1, " ", sizeof(buf1));
 	      }
 	    }
 	}
-	strcat(buf, "\n\r");
-	strcat(buf1, "]:\n\r");
+	strnzcat(buf, "\n\r", sizeof(buf));
+	strnzcat(buf1, "]:\n\r", sizeof(buf));
 	write_to_buffer(d, buf, 0);
 	write_to_buffer(d, buf1, 0);
 	        write_to_buffer(d,

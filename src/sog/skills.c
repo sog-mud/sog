@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.52 1999-02-17 07:53:26 fjoe Exp $
+ * $Id: skills.c,v 1.53 1999-02-17 18:58:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -864,7 +864,7 @@ void say_spell(CHAR_DATA *ch, int sn)
 	for (pName = skill_name(sn); *pName != '\0'; pName += length) {
 		for (iSyl = 0; (length = strlen(syl_table[iSyl].old)); iSyl++) {
 			if (!str_prefix(syl_table[iSyl].old, pName)) {
-				strcat(buf, syl_table[iSyl].new);
+				strnzcat(buf, syl_table[iSyl].new, sizeof(buf));
 				break;
 			}
 		}

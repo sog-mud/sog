@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.35 1999-02-15 18:19:43 fjoe Exp $
+ * $Id: db.h,v 1.36 1999-02-17 18:58:06 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -66,14 +66,6 @@
 *	By using this code, you have agreed to follow the terms of the	   *
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
-
-/* WIN32 specific stuff */
-#if defined (WIN32)
-#	include <stdlib.h>
-#	define PATH_MAX	_MAX_PATH
-#endif
-
-extern const char PATH_SEPARATOR;
 
 typedef struct dbdata DBDATA;
 

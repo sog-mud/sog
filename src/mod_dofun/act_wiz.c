@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.119 1999-02-17 07:53:18 fjoe Exp $
+ * $Id: act_wiz.c,v 1.120 1999-02-17 18:58:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,6 +49,7 @@
 #include <unistd.h>
 #endif
 #include <limits.h>
+
 #include "merc.h"
 #include "hometown.h"
 #include "interp.h"
@@ -436,7 +437,7 @@ void do_smote(CHAR_DATA *ch, const char *argument)
 
 		for (; *letter != '\0'; letter++) {
 			if (*letter == '\'' && matches == strlen(vch->name)) {
-				strcat(temp,"r");
+				strnzcat(temp, "r", sizeof(temp));
 				continue;
 			}
 
@@ -452,18 +453,18 @@ void do_smote(CHAR_DATA *ch, const char *argument)
 				matches++;
 				name++;
 				if (matches == strlen(vch->name)) {
-					strcat(temp, "you");
+					strnzcat(temp, "you", sizeof(temp));
 					last[0] = '\0';
 					name = vch->name;
 					continue;
 				}
-				strncat(last, letter, 1);
+				strnzncat(last, letter, sizeof(last), 1);
 				continue;
 			}
 
 			matches = 0;
-			strcat(temp, last);
-			strncat(temp, letter, 1);
+			strnzcat(temp, last, sizeof(temp));
+			strnzncat(temp, letter, sizeof(temp), 1);
 			last[0] = '\0';
 			name = vch->name;
 		}

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.113 1999-02-17 07:53:20 fjoe Exp $
+ * $Id: handler.c,v 1.114 1999-02-17 18:58:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2817,7 +2817,7 @@ void add_mind(CHAR_DATA *ch, const char *str)
 
 	if (!is_name(str, ch->in_mind)) {
 		const char *p = ch->in_mind;
-		ch->in_mind = str_add(ch->in_mind, " ", str, NULL);
+		ch->in_mind = str_printf("%s %s", ch->in_mind, str);
 		free_string(p);
 	}
 }

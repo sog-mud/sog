@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.119 1999-02-17 07:53:21 fjoe Exp $
+ * $Id: spellfun.c,v 1.120 1999-02-17 18:58:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1481,8 +1481,6 @@ void spell_create_spring(int sn,int level,CHAR_DATA *ch,void *vo, int target)
 	return;
 }
 
-
-
 void spell_create_water(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
@@ -1507,7 +1505,7 @@ void spell_create_water(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 		if (!is_name("water", obj->name)) {
 			const char *p = obj->name;
-			obj->name = str_add(obj->name, " water", NULL);
+			obj->name = str_printf("%s %s", obj->name, "water");
 			free_string(p);
 		}
 

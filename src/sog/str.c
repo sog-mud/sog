@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.c,v 1.8 1999-02-16 16:41:36 fjoe Exp $
+ * $Id: str.c,v 1.9 1999-02-17 18:58:04 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -86,36 +86,6 @@ const char *str_qdup(const char *p)
 	str_count++;
 	s = (str *)(p - sizeof(str));
 	s->ref++;
-	return p;
-}
-
-const char *str_add(const char *pstr,...)
-{
-	va_list ap;
-	size_t len;
-	const char *p;
-	char *str_new;
-
-	/* calculate length of sum */
-	va_start(ap, pstr);
-	len = strlen(pstr);
-	while ((p = va_arg(ap, char*)) != NULL)
-		len += strlen(p);
-	va_end(ap);
-
-	if (!len)
-		return str_empty;
-
-	/* cat them */
-	str_new = malloc(len + 1);
-	strcpy(str_new, pstr);
-	va_start(ap, pstr);
-	while ((p = va_arg(ap, char*)) != NULL)
-		strcat(str_new, p);
-	va_end(ap);
-
-	p = str_dup(str_new);
-	free(str_new);
 	return p;
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.141 1999-02-17 07:53:17 fjoe Exp $
+ * $Id: act_move.c,v 1.142 1999-02-17 18:58:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3267,41 +3267,42 @@ DO_FUN(do_shoot)
 	check_improve(ch, gsn_bow, TRUE, 1);
 }
 
-
 char *find_way(CHAR_DATA *ch,ROOM_INDEX_DATA *rstart, ROOM_INDEX_DATA *rend) 
 {
- int direction;
- static char buf[1024];
- EXIT_DATA *pExit;
- char buf2[2];
+	int direction;
+	static char buf[1024];
+	EXIT_DATA *pExit;
+	char buf2[2];
 
- snprintf(buf, sizeof(buf), "Bul: ");
- while (1)
- {
- if ((rend == rstart))
-		 return buf;
-  if ((direction = find_path(rstart->vnum,rend->vnum,ch,-40000,0)) == -1)
-		{
-		 strcat(buf," BUGGY");
-		 return buf;
+	snprintf(buf, sizeof(buf), "Bul: ");
+	while (1) {
+		if ((rend == rstart))
+			return buf;
+
+		if ((direction = find_path(rstart->vnum, rend->vnum,
+					   ch, -40000, 0)) == -1) {
+			strnzcat(buf," BUGGY", sizeof(buf));
+			return buf;
 		}
-  if (direction < 0 || direction > 5)
-		{
-		 strcat(buf," VERY BUGGY");
-		 return buf;
+
+		if (direction < 0 || direction > 5) {
+			strnzcat(buf," VERY BUGGY", sizeof(buf));
+			return buf;
 		}
-   buf2[0] = dir_name[direction][0];
-   buf2[1] = '\0';
-   strcat(buf,buf2);
-   /* find target room */
-   pExit = rstart->exit[ direction ];
-   if (!pExit)  
-		{
-		 strcat(buf," VERY VERY BUGGY");
-		 return buf;
+
+		buf2[0] = dir_name[direction][0];
+		buf2[1] = '\0';
+		strnzcat(buf, buf2, sizeof(buf));
+
+		/* find target room */
+		pExit = rstart->exit[ direction ];
+		if (!pExit)  {
+			strnzcat(buf, " VERY VERY BUGGY", sizeof(buf));
+			return buf;
 		}
-   else rstart = pExit->u1.to_room;
- }
+		else
+			rstart = pExit->u1.to_room;
+	}
 }	
 
 void do_human(CHAR_DATA *ch, const char *argument)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.c,v 1.17 1999-02-15 12:51:04 fjoe Exp $
+ * $Id: util.c,v 1.18 1999-02-17 18:58:04 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -32,23 +32,19 @@
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
-#if	!defined (WIN32)
+#if !defined (WIN32)
 #include <unistd.h>
 #endif
+
 #include "merc.h"
 
 #ifdef SUNOS
 #	include "compat/compat.h"
 #endif
 
-#if defined (WIN32)
-const char path_sep [] = "\\";
+#if defined(WIN32)
 #define unlink	_unlink
-#else
-const char path_sep [] = "/";
 #endif
-
-extern const char PATH_SEPARATOR;
 
 void doprintf(DO_FUN *fn, CHAR_DATA* ch, const char* fmt, ...)
 {
@@ -63,48 +59,43 @@ void doprintf(DO_FUN *fn, CHAR_DATA* ch, const char* fmt, ...)
 
 FILE *dfopen(const char *dir, const char *file, const char *mode)
 {
-	const char *name = str_add(dir, path_sep, file, NULL);
-	FILE *fp = fopen(name, mode);
-	free_string(name);
-	return fp;
+	char name[PATH_MAX];
+	snprintf(name, sizeof(name), "%s%c%s", dir, PATH_SEPARATOR, file);
+	return fopen(name, mode);
 }
 
 int dunlink(const char *dir, const char *file)
 {
-	int res;
-	const char *name = str_add(dir, path_sep, file, NULL);
-	res = unlink(name);
-	free_string(name);
-	return res;
+	char name[PATH_MAX];
+	snprintf(name, sizeof(name), "%s%c%s", dir, PATH_SEPARATOR, file);
+	return unlink(name);
 }
 
 int d2rename(const char *dir1, const char *file1,
 	     const char *dir2, const char *file2)
 {
 	int res;
-	const char *name1 = str_add(dir1, path_sep, file1, NULL);
-	const char *name2 = str_add(dir2, path_sep, file2, NULL);
+	char name1[PATH_MAX];
+	char name2[PATH_MAX];
+	snprintf(name1, sizeof(name1), "%s%c%s", dir1, PATH_SEPARATOR, file1);
+	snprintf(name2, sizeof(name2), "%s%c%s", dir2, PATH_SEPARATOR, file2);
 #if defined (WIN32)
-	res = unlink (name2);
-	if (res==-1)
-		log_printf ("d2rename: can't delete file %s", name2);
+	res = unlink(name2);
+	if (res == -1)
+		log_printf("d2rename: can't delete file %s", name2);
 #endif
 	res = rename(name1, name2);
-	if (res!=0)
-		log_printf ("d2rename: error renaming %s -> %s", name1, name2);
-	free_string(name1);
-	free_string(name2);
+	if (res < 0)
+		log_printf("d2rename: error renaming %s -> %s", name1, name2);
 	return res;
 }
 
 bool dfexist(const char *dir, const char *file)
 {
 	struct stat sb;
-	int res;
-	const char *name = str_add(dir, path_sep, file, NULL);
-	res = stat(name, &sb);
-	free_string(name);
-	return (res >= 0);
+	char name[PATH_MAX];
+	snprintf(name, sizeof(name), "%s%c%s", dir, PATH_SEPARATOR, file);
+	return (stat(name, &sb) >= 0);
 }
 
 const char *get_filename(const char *name)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.20 1999-02-15 18:19:38 fjoe Exp $
+ * $Id: const.h,v 1.21 1999-02-17 18:58:01 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -40,6 +40,14 @@
  *   so players can go ahead and telnet to all the other descriptors.
  * Then we close it whenever we need to open a file (e.g. a save file).
  */
+
+#if defined (WIN32)
+#	include <stdlib.h>
+#	define PATH_MAX	_MAX_PATH
+#	define PATH_SEPARATOR '\\'
+#else
+#	define PATH_SEPARATOR '/'
+#endif
 
 #define TMP_PATH	"tmp"
 #define PLAYER_PATH	"player"

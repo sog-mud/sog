@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.119 1999-02-17 07:53:21 fjoe Exp $
+ * $Id: interp.c,v 1.120 1999-02-17 18:58:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -997,12 +997,9 @@ void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 	if (!str_prefix(ch->pcdata->alias[alias],argument))
 	{
 	    point = one_argument(argument, name, sizeof(name));
-	    if (!strcmp(ch->pcdata->alias[alias],name))
-	    {
-		buf[0] = '\0';
-		strcat(buf,ch->pcdata->alias_sub[alias]);
-		strcat(buf," ");
-		strcat(buf,point);
+	    if (!strcmp(ch->pcdata->alias[alias],name)) {
+		snprintf(buf, sizeof(buf), "%s %s",
+			 ch->pcdata->alias_sub[alias], point);
 		break;
 	    }
 	    if (strlen(buf) > MAX_INPUT_LENGTH)
