@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.82 1998-10-13 07:38:48 fjoe Exp $
+ * $Id: act_obj.c,v 1.83 1998-10-13 08:45:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -815,7 +815,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 	}
 
 	if (IS_SET(obj->pIndexData->extra_flags, ITEM_QUEST)
-	&&  (!IS_IMMORTAL(ch) || !IS_IMMORTAL(victim))) {
+	&&  !IS_IMMORTAL(ch) && !IS_IMMORTAL(victim)) {
 		act_puts("Even you are not that silly to give $p to $N.",
 			 ch, obj, victim, TO_CHAR, POS_DEAD);
 		return;

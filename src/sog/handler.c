@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.71 1998-10-13 07:38:49 fjoe Exp $
+ * $Id: handler.c,v 1.72 1998-10-13 08:45:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3239,8 +3239,13 @@ void show_affects(CHAR_DATA *ch, BUFFER *output)
 			    ch->lang));
 	for (paf = ch->affected; paf; paf = paf->next) {
 		show_loc_affect(ch, output, paf, &paf_last);
+		if (ch->level < 20)
+			continue;
 		show_bit_affect(output, paf, &paf_last, TO_AFFECTS);
 	}
+
+	if (ch->level < 20)
+		return;
 
 	for (obj = ch->carrying; obj; obj = obj->next_content)
 		if (obj->wear_loc != WEAR_NONE) {
