@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.20 1998-05-26 12:34:47 efdi Exp $
+ * $Id: merc.h,v 1.21 1998-05-27 08:47:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -243,7 +243,7 @@ typedef void OPROG_FUN_AREA args((OBJ_DATA *obj));
 #define MAX_ALIAS		   20
 #define MAX_CLASS		   13
 #define MAX_PC_RACE		   19	/* 18 */
-#define MAX_CABAL		    9
+#define MAX_CLAN		    9
 #define MAX_RELIGION		   18
 #define MAX_LEVEL		   100
 #define LEVEL_HERO		   (MAX_LEVEL - 9)
@@ -288,20 +288,20 @@ typedef void OPROG_FUN_AREA args((OBJ_DATA *obj));
 #define HERO			LEVEL_HERO
 
 
-#define CABAL_NONE	0
-#define CABAL_RULER	1
-#define CABAL_INVADER	2
-#define CABAL_CHAOS	3
-#define CABAL_SHALAFI	4
-#define CABAL_BATTLE	5
-#define CABAL_KNIGHT	6
-#define CABAL_LIONS	7
-#define CABAL_HUNTER	8
+#define CLAN_NONE	0
+#define CLAN_RULER	1
+#define CLAN_INVADER	2
+#define CLAN_CHAOS	3
+#define CLAN_SHALAFI	4
+#define CLAN_BATTLE	5
+#define CLAN_KNIGHT	6
+#define CLAN_LIONS	7
+#define CLAN_HUNTER	8
 
 /*
  * Cabal structure
  */
-struct cabal_type
+struct clan_type
 {
   char *long_name;
   char *short_name;
@@ -902,7 +902,7 @@ struct	kill_data
 #define GROUP_FIGHTMASTER	19
 #define GROUP_SUDDENDEATH	20
 #define GROUP_MEDITATION	21
-#define GROUP_CABAL		22
+#define GROUP_CLAN		22
 #define GROUP_DEFENSIVE 	23
 #define GROUP_WIZARD		24
 
@@ -929,7 +929,7 @@ struct	kill_data
 #define GFLAG_FIGHTMASTER	(S)
 #define GFLAG_SUDDENDEATH	(T)
 #define GFLAG_MEDITATION	(U)
-#define GFLAG_CABAL		(V)
+#define GFLAG_CLAN		(V)
 #define GFLAG_DEFENSIVE 	(W)
 #define GFLAG_WIZARD		(X)
 
@@ -2000,7 +2000,7 @@ struct	char_data
     sh_int		sex;
     sh_int		class;
     sh_int		race;
-    sh_int		cabal;
+    sh_int		clan;
     sh_int		hometown;
     sh_int		ethos;
     sh_int		level;
@@ -2371,7 +2371,7 @@ struct	skill_type
     char *	noun_damage;		/* Damage message		*/
     char *	msg_off;		/* Wear off message		*/
     char *	msg_obj;		/* Wear off message for obects	*/
-    sh_int	cabal;			/* Cabal spells 		*/
+    sh_int	clan;			/* Cabal spells 		*/
     long	race;			/* Race spells			*/
     sh_int	align;			/* alignment of spells		*/
     sh_int	group;			/* skill group for practicing	*/
@@ -2576,7 +2576,7 @@ extern sh_int  gsn_camp;
 extern sh_int  gsn_push;
 extern sh_int  gsn_tail;
 extern sh_int  gsn_power_stun;
-extern sh_int  gsn_cabal_recall;
+extern sh_int  gsn_clan_recall;
 extern sh_int  gsn_escape;
 extern sh_int  gsn_lay_hands;
 extern sh_int  gsn_grip;
@@ -2702,10 +2702,16 @@ extern sh_int  gsn_judge;
 	(obj)->value[4] : 100)
 
 /* skill defines */
-#define CLEVEL_OK(ch,skill)	(ch->level >= skill_table[skill].skill_level[ch->class] )
-#define RACE_OK(ch,skill)	IS_SET(skill_table[skill].race,(1 << (ORG_RACE(ch) - 1) ))
-#define CABAL_OK(ch,skill)	(skill_table[skill].cabal == CABAL_NONE || skill_table[skill].cabal == ch->cabal )
-#define ALIGN_OK(ch,skill)	(skill_table[skill].align == -1 || skill_table[skill].align == ch->alignment )
+#define SKILL_LEVEL_OK(ch,sn)	(ch->level >= skill_table[sn].skill_level[ch->class] )
+#define SKILL_RACE_OK(ch,sn)	IS_SET(skill_table[sn].race,(1 << (ORG_RACE(ch) - 1) ))
+#define SKILL_CLAN_OK(ch,sn)	(skill_table[sn].clan == CLAN_NONE || skill_table[sn].clan == ch->clan)
+#define SKILL_ALIGN_OK(ch,sn)	(skill_table[sn].align == ALIGN_NONE || skill_table[sn].align == ch->alignment)
+
+#define SKILL_OK(ch, sn)	(((SKILL_LEVEL_OK(ch, sn) && \
+				   SKILL_RACE_OK(ch, sn)) || \
+				  skill_is_native(ch, sn)) && \
+				 SKILL_CLAN_OK(ch, sn) && \
+				 SKILL_ALIGN_OK(ch, sn))
 
 /*
  * Description macros.
@@ -2753,7 +2759,7 @@ extern	const	struct	wiznet_type	wiznet_table	[];
 extern	const	struct	attack_type	attack_table	[];
 extern	const	struct	race_type	race_table	[];
 extern	const	struct	pc_race_type	pc_race_table	[MAX_PC_RACE];
-extern		struct	cabal_type	cabal_table	[];
+extern		struct	clan_type	clan_table	[];
 extern	const	struct	color_type	color_table	[];
 extern	const	struct	religion_type	religion_table	[];
 extern	const	struct	spec_type	spec_table	[];
@@ -2966,7 +2972,7 @@ void	affect_enchant	args( (OBJ_DATA *obj) );
 int	check_immune	args( (CHAR_DATA *ch, int dam_type) );
 bool	check_material	args( (OBJ_DATA *obj, char *material ) );
 bool	is_metal	args( (OBJ_DATA *obj ) );
-bool	cabal_ok	args( ( CHAR_DATA *ch, sh_int sn ) );
+bool	clan_ok	args( ( CHAR_DATA *ch, sh_int sn ) );
 int	liq_lookup	args( ( const char *name) );
 int	material_lookup args( ( const char *name) );
 int	weapon_lookup	args( ( const char *name) );
@@ -2978,7 +2984,7 @@ int	attack_lookup	args( ( const char *name) );
 int	race_lookup	args( ( const char *name) );
 long	wiznet_lookup	args( ( const char *name) );
 int	class_lookup	args( ( const char *name) );
-int	cabal_lookup	args( ( const char *argument) );
+int	clan_lookup	args( ( const char *argument) );
 bool	is_old_mob	args ( (CHAR_DATA *ch) );
 int	get_skill	args( ( CHAR_DATA *ch, int sn ) );
 int	get_weapon_sn	args( ( CHAR_DATA *ch ) );
@@ -3068,8 +3074,8 @@ char *	comm_bit_name	args( ( int comm_flags ) );
 char *	cont_bit_name	args( ( int cont_flags) );
 char *	flag_room_name	args( ( int vector) );
 void	room_record	args( ( char *name, ROOM_INDEX_DATA *room,sh_int door) );
-int	ch_skill_nok	args( ( CHAR_DATA *ch , int skill ) );
-int	ch_skill_nok_nomessage	args( ( CHAR_DATA *ch , int skill ) );
+int	ch_skill_nok	args( (CHAR_DATA *ch , int sn));
+int	skill_is_native	args( (CHAR_DATA *ch , int sn));
 int	affect_check_obj	args( (CHAR_DATA *ch, int vector) );
 bool	is_safe_rspell	args( ( int level, CHAR_DATA *victim) );
 int	count_charmed	args( ( CHAR_DATA *ch ) );

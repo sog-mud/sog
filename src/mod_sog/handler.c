@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.9 1998-05-26 12:34:46 efdi Exp $
+ * $Id: handler.c,v 1.10 1998-05-27 08:47:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -223,20 +223,20 @@ int weapon_lookup (const char *name)
     return -1;
 }
 
-bool cabal_ok(CHAR_DATA *ch, sh_int sn) 
+bool clan_ok(CHAR_DATA *ch, sh_int sn) 
 {
   int i;
 
-  if (IS_NPC(ch) || skill_table[sn].cabal == CABAL_NONE ||
-      cabal_table[ch->cabal].obj_ptr == NULL ||
-      cabal_table[ch->cabal].obj_ptr->in_room == NULL ||
-      cabal_table[ch->cabal].obj_ptr->in_room->vnum ==
-        cabal_table[ch->cabal].room_vnum)
+  if (IS_NPC(ch) || skill_table[sn].clan == CLAN_NONE ||
+      clan_table[ch->clan].obj_ptr == NULL ||
+      clan_table[ch->clan].obj_ptr->in_room == NULL ||
+      clan_table[ch->clan].obj_ptr->in_room->vnum ==
+        clan_table[ch->clan].room_vnum)
     return TRUE;
 
-  for (i=1;i < MAX_CABAL; i++)
-    if (cabal_table[ch->cabal].obj_ptr->in_room->vnum ==
-          cabal_table[i].room_vnum) {
+  for (i=1;i < MAX_CLAN; i++)
+    if (clan_table[ch->clan].obj_ptr->in_room->vnum ==
+          clan_table[i].room_vnum) {
       send_to_char("You cannot find the Cabal Power within you.\n\r",ch);
       return FALSE;
     }
@@ -554,7 +554,7 @@ int get_skill(CHAR_DATA *ch, int sn)
 
     else if (!IS_NPC(ch))
     {
-	if (ch->level < skill_table[sn].skill_level[ch->class])
+	if (!SKILL_OK(ch, sn))
 	    skill = 0;
 	else
 	    skill = ch->pcdata->learned[sn];
@@ -2260,10 +2260,10 @@ void extract_obj_1(OBJ_DATA *obj, bool count)
     else if (obj->in_obj != NULL)
 	obj_from_obj(obj);
 
-    for (i=1;i < MAX_CABAL;i++)
-      if (obj->pIndexData->vnum == cabal_table[i].obj_vnum) {
+    for (i=1;i < MAX_CLAN;i++)
+      if (obj->pIndexData->vnum == clan_table[i].obj_vnum) {
         obj->pIndexData->count--;
-        cabal_table[i].obj_ptr = NULL;
+        clan_table[i].obj_ptr = NULL;
       }
 
     for (obj_content = obj->contains; obj_content; obj_content = obj_next)
@@ -3539,15 +3539,15 @@ char *off_bit_name(int off_flags)
     return (buf[0] != '\0') ? buf+1 : "none";
 }
 
-int cabal_lookup (const char *argument)
+int clan_lookup (const char *argument)
 {
-   int cabal;
+   int clan;
  
-   for (cabal = 0; cabal < MAX_CABAL; cabal++)
+   for (clan = 0; clan < MAX_CLAN; clan++)
    {
-        if (LOWER(argument[0]) == LOWER(cabal_table[cabal].short_name[0])
-        &&  !str_prefix(argument,cabal_table[cabal].short_name))
-            return cabal;
+        if (LOWER(argument[0]) == LOWER(clan_table[clan].short_name[0])
+        &&  !str_prefix(argument,clan_table[clan].short_name))
+            return clan;
    }
  
    return -1;
@@ -3584,21 +3584,33 @@ bool isn_dark_safe(CHAR_DATA *ch)
 }
 
 
-int ch_skill_nok_nomessage(CHAR_DATA *ch , int skill)
-{
- if (!IS_NPC(ch) && CLEVEL_OK(ch,skill) && RACE_OK(ch,skill) && 
-	CABAL_OK(ch,skill) && ALIGN_OK(ch,skill)) return 0; 
- return 1;
-}
-
 int ch_skill_nok(CHAR_DATA *ch, int skill)
 {
- if (ch_skill_nok_nomessage(ch,skill))
-	{
-	 send_to_char("Huh?\n\r",ch);
-	 return 1;
+	if (IS_NPC(ch) || !SKILL_OK(ch, skill)) {
+		send_to_char("Huh?\n\r",ch);
+		return 1;
 	}
- return 0;
+	return 0;
+}
+
+int skill_is_native(CHAR_DATA* ch, int sn)
+{
+	int i;
+
+	if (IS_NPC(ch))
+		return 0;
+
+	for (i = 0; i < 5; i++) {
+		int csn;
+
+		csn = skill_lookup(pc_race_table[ch->pcdata->race].skills[i]);
+		if (csn < 0)
+			break;
+		if (csn == sn)
+			return 1;
+	}
+
+	return 0;
 }
 
 /* room affects by chronos */

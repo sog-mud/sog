@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.4 1998-04-29 11:01:26 fjoe Exp $
+ * $Id: recycle.c,v 1.5 1998-05-27 08:47:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -315,7 +315,7 @@ CHAR_DATA *new_char (void)
     ch->max_move                = 100;
 
     ch->ethos			= 0;
-    ch->cabal			= 0;
+    ch->clan			= 0;
     ch->hometown		= 0;
     ch->guarded_by		= NULL;
     ch->guarding		= NULL;

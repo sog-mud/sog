@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.6 1998-05-21 22:13:47 efdi Exp $
+ * $Id: special.c,v 1.7 1998-05-27 08:47:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -107,7 +107,7 @@ DECLARE_SPEC_FUN(	spec_nasty		);
 DECLARE_SPEC_FUN(	spec_troll_member	);
 DECLARE_SPEC_FUN(	spec_ogre_member	);
 DECLARE_SPEC_FUN(	spec_patrolman		);
-DECLARE_SPEC_FUN(      spec_cast_cabal        );
+DECLARE_SPEC_FUN(      spec_cast_clan        );
 DECLARE_SPEC_FUN(      spec_special_guard     );
 DECLARE_SPEC_FUN(      spec_stalker           );
 DECLARE_SPEC_FUN(      spec_questmaster       );
@@ -143,7 +143,7 @@ const   struct  spec_type    spec_table[] =
     {	"spec_troll_member",		spec_troll_member	},
     {	"spec_ogre_member",		spec_ogre_member	},
     {	"spec_patrolman",		spec_patrolman		},
-    {	"spec_cast_cabal",		spec_cast_cabal		},
+    {	"spec_cast_clan",		spec_cast_clan		},
     {	"spec_stalker",			spec_stalker		},
     {	"spec_special_guard",		spec_special_guard	},
     {   "spec_questmaster",             spec_questmaster        },  
@@ -828,7 +828,7 @@ bool spec_fido(CHAR_DATA *ch)
 	if (corpse->item_type != ITEM_CORPSE_NPC)
 	    continue;
 
-	act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
+	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
 			SPECIAL_SAVAGELY_DEVOURS_CORPSE);
 	for (obj = corpse->contains; obj; obj = obj_next)
 	{
@@ -861,7 +861,7 @@ bool spec_janitor(CHAR_DATA *ch)
 	||   trash->item_type == ITEM_TRASH
 	||   trash->cost < 10)
 	{
-	    act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
+	    act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
 			SPECIAL_PICKS_SOME_TRASH);
 	    obj_from_room(trash);
 	    obj_to_char(trash, ch);
@@ -994,9 +994,9 @@ bool spec_poison(CHAR_DATA *ch)
     ||   number_percent() > 2 * ch->level)
 	return FALSE;
 
-    act_printf(ch, NULL, victim, TO_CHAR, POS_DEAD, SPECIAL_YOU_BITE_N);
-    act_printf(ch, NULL, victim, TO_NOTVICT, POS_RESTING, SPECIAL_N_BITES_N);
-    act_printf(ch, NULL, victim, TO_VICT, POS_DEAD, SPECIAL_N_BITES_YOU);
+    act_nprintf(ch, NULL, victim, TO_CHAR, POS_DEAD, SPECIAL_YOU_BITE_N);
+    act_nprintf(ch, NULL, victim, TO_NOTVICT, POS_RESTING, SPECIAL_N_BITES_N);
+    act_nprintf(ch, NULL, victim, TO_VICT, POS_DEAD, SPECIAL_N_BITES_YOU);
     spell_poison(gsn_poison, ch->level, ch, victim,TARGET_CHAR);
     return TRUE;
 }
@@ -1047,7 +1047,7 @@ bool spec_thief(CHAR_DATA *ch)
 }
 
 
-bool spec_cast_cabal(CHAR_DATA *ch)
+bool spec_cast_clan(CHAR_DATA *ch)
 {
     CHAR_DATA *victim;
     CHAR_DATA *v_next;
@@ -1130,14 +1130,14 @@ bool spec_guard(CHAR_DATA *ch)
 	
 	if (IS_SET(ch->in_room->area->area_flag,AREA_HOMETOWN) 
 		&& number_percent() < 2 && !IS_IMMORTAL(victim)) {
-	  act_printf(ch, NULL, victim, TO_ROOM, POS_RESTING, 
+	  act_nprintf(ch, NULL, victim, TO_ROOM, POS_RESTING, 
 			SPECIAL_DO_I_KNOW_YOU);
  	  if (str_cmp(ch->in_room->area->name,
 		hometown_table[victim->hometown].name))
-		act_printf(ch, NULL, victim, TO_ROOM, POS_RESTING, 
+		act_nprintf(ch, NULL, victim, TO_ROOM, POS_RESTING, 
 				SPECIAL_DONT_REMEMBER_YOU);
 	  else {
-		act_printf(ch, NULL, victim, TO_ROOM, POS_RESTING, 
+		act_nprintf(ch, NULL, victim, TO_ROOM, POS_RESTING, 
 				SPECIAL_OK_MY_DEAR);
 		 interpret(ch, "smile",FALSE);
 	   }
@@ -1230,7 +1230,7 @@ bool spec_stalker(CHAR_DATA *ch)
 
   if (ch->status == 10)
     {
-      ch->cabal = CABAL_RULER;
+      ch->clan = CLAN_RULER;
       do_cb(ch, "I have killed my victim, now I can leave the realms.");
       extract_char(ch, TRUE);
       return TRUE;
@@ -1238,7 +1238,7 @@ bool spec_stalker(CHAR_DATA *ch)
 
   if (victim == NULL)
     {
-      ch->cabal = CABAL_RULER;
+      ch->clan = CLAN_RULER;
       do_cb(ch, "To their shame, my victim has cowardly left the game. I must leave also.");
       extract_char(ch, TRUE);
       return TRUE;
@@ -1277,7 +1277,7 @@ get_room_index(hometown_table[victim->hometown].recall[1]))
     	}
        else 
     	{
-      	  ch->cabal = CABAL_RULER;
+      	  ch->clan = CLAN_RULER;
       	  sprintf(buf, "To my shame I have lost track of %s.  I must leave.",
 	      victim->name);
       	  do_cb(ch, buf);

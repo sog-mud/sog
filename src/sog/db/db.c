@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.10 1998-05-18 14:00:12 efdi Exp $
+ * $Id: db.c,v 1.11 1998-05-27 08:47:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -281,7 +281,7 @@ sh_int  gsn_camp;
 sh_int  gsn_push;
 sh_int  gsn_tail;
 sh_int	gsn_power_stun;
-sh_int	gsn_cabal_recall;
+sh_int	gsn_clan_recall;
 sh_int	gsn_escape;
 sh_int	gsn_lay_hands;
 sh_int	gsn_grip;
@@ -1544,7 +1544,7 @@ void reset_area(AREA_DATA *pArea)
 		MOB_INDEX_DATA *pMobIndex;
 		OBJ_INDEX_DATA *pObjIndex;
 		OBJ_INDEX_DATA *pObjToIndex;
-		OBJ_INDEX_DATA *cabal_item;
+		OBJ_INDEX_DATA *clan_item;
 		EXIT_DATA *pexit;
 		OBJ_DATA *obj;
 		OBJ_DATA *obj_to;
@@ -1634,33 +1634,33 @@ void reset_area(AREA_DATA *pArea)
 		    switch(pObjIndex->vnum)
 		    {
 			case OBJ_VNUM_RULER_STAND:
-			  ci_vnum = cabal_table[CABAL_RULER].obj_vnum;
+			  ci_vnum = clan_table[CLAN_RULER].obj_vnum;
 			  break;
 			case OBJ_VNUM_INVADER_SKULL:
-			  ci_vnum = cabal_table[CABAL_INVADER].obj_vnum;
+			  ci_vnum = clan_table[CLAN_INVADER].obj_vnum;
 			  break;
 			case OBJ_VNUM_SHALAFI_ALTAR:
-			  ci_vnum = cabal_table[CABAL_SHALAFI].obj_vnum;
+			  ci_vnum = clan_table[CLAN_SHALAFI].obj_vnum;
 			  break;
 			case OBJ_VNUM_CHAOS_ALTAR:
-			  ci_vnum = cabal_table[CABAL_CHAOS].obj_vnum;
+			  ci_vnum = clan_table[CLAN_CHAOS].obj_vnum;
 			  break;
 			case OBJ_VNUM_KNIGHT_ALTAR:
-			  ci_vnum = cabal_table[CABAL_KNIGHT].obj_vnum;
+			  ci_vnum = clan_table[CLAN_KNIGHT].obj_vnum;
 			  break;
 			case OBJ_VNUM_LIONS_ALTAR:
-			  ci_vnum = cabal_table[CABAL_LIONS].obj_vnum;
+			  ci_vnum = clan_table[CLAN_LIONS].obj_vnum;
 			  break;
 			case OBJ_VNUM_BATTLE_THRONE:
-			  ci_vnum = cabal_table[CABAL_BATTLE].obj_vnum;
+			  ci_vnum = clan_table[CLAN_BATTLE].obj_vnum;
 			  break;
 			case OBJ_VNUM_HUNTER_ALTAR:
-			  ci_vnum = cabal_table[CABAL_HUNTER].obj_vnum;
+			  ci_vnum = clan_table[CLAN_HUNTER].obj_vnum;
 			  break;
 		    }
 
-		    cabal_item = get_obj_index(ci_vnum);
-		    if (ci_vnum &&  cabal_item->count > 0)
+		    clan_item = get_obj_index(ci_vnum);
+		    if (ci_vnum &&  clan_item->count > 0)
 		     { 
 			last = FALSE;
 			break;
@@ -2275,11 +2275,11 @@ OBJ_DATA *create_object_org(OBJ_INDEX_DATA *pObjIndex, int level, bool Count)
 	obj->in_room	= NULL;
 	obj->enchanted	= FALSE;
 
-	for (i=1;i < MAX_CABAL;i++)
-	  if (pObjIndex->vnum == cabal_table[i].obj_vnum)  {
+	for (i=1;i < MAX_CLAN;i++)
+	  if (pObjIndex->vnum == clan_table[i].obj_vnum)  {
 		if (count_obj_list(pObjIndex, object_list) > 0)
 		  return(NULL);
-		cabal_table[i].obj_ptr = obj;
+		clan_table[i].obj_ptr = obj;
 	  }
 	if ((obj->pIndexData->limit != -1)  &&
 		 (obj->pIndexData->count >= obj->pIndexData->limit))

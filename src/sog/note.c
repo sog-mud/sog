@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.5 1998-05-11 19:28:55 fjoe Exp $
+ * $Id: note.c,v 1.6 1998-05-27 08:47:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -365,7 +365,7 @@ bool is_note_to( CHAR_DATA *ch, NOTE_DATA *pnote )
     if ( is_name( ch->name, pnote->to_list ) )
 	return TRUE;
 
-    if ( is_name( cabal_table[ch->cabal].short_name, pnote->to_list ) )
+    if ( is_name( clan_table[ch->clan].short_name, pnote->to_list ) )
 	return TRUE;
 
     return FALSE;
@@ -857,7 +857,7 @@ void parse_note( CHAR_DATA *ch, char *argument, int type )
 		!(IS_IMMORTAL(ch) || IS_SET(ch->act,PLR_CANINDUCT)) )
 	{
             send_to_char(
-	"Only immortals and cabal leaders can send notes to all.\n\r",ch);
+	"Only immortals and clan leaders can send notes to all.\n\r",ch);
             return;
 	}
 */

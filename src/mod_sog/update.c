@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.20 1998-05-24 20:40:06 efdi Exp $
+ * $Id: update.c,v 1.21 1998-05-27 08:47:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -988,7 +988,7 @@ void char_update(void)
 	ch_next = ch->next;
 
 	/* reset hunters path find */
-	if (!IS_NPC(ch) && ch->cabal == CABAL_HUNTER)
+	if (!IS_NPC(ch) && ch->clan == CLAN_HUNTER)
 	{
 	 if (number_percent() < get_skill(ch,gsn_path_find))
 	  {
@@ -1001,7 +1001,7 @@ void char_update(void)
 	   }
 	}
 
-	if (!IS_NPC(ch) && ch->cabal == CABAL_BATTLE)
+	if (!IS_NPC(ch) && ch->clan == CLAN_BATTLE)
 	{
 	 if (!is_affected(ch,gsn_spellbane)) do_spellbane(ch,"");
 	}
@@ -2228,8 +2228,7 @@ void track_update(void)
 			continue;
 
 		if (ch->last_fought != NULL
-		&&  ch->in_room != ch->last_fought->in_room
-		&&  !IS_SET(ch->act, ACT_SENTINEL)) {
+		&&  ch->in_room != ch->last_fought->in_room) {
 			do_track(ch, ch->last_fought->name);
 			continue;
 		}

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.14 1998-05-24 15:41:46 efdi Exp $
+ * $Id: interp.c,v 1.15 1998-05-27 08:47:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -118,8 +118,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "kill",		do_kill,	POS_FIGHTING,	 0,  LOG_NORMAL, 1,0},
     { "look",		do_look,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "order",		do_order,	POS_RESTING,	 0,  LOG_NORMAL, 1,0},
-    { "practice",       do_pracnew,	POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
-    { "pracnew",        do_practice,	POS_SLEEPING,    ML, LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "practice",       do_practice,	POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
     { "rest",		do_rest,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
     { "repair",		do_repair,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
     { "second",		do_second_wield,POS_RESTING,	 0,  LOG_NORMAL, 1,0},
@@ -437,7 +436,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "wizinvis",	do_invis,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "vnum",		do_vnum,	POS_DEAD,	L4,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "zecho",		do_zecho,	POS_DEAD,	L4,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "cabal_scan",	do_cabal_scan,	POS_STANDING,    60,  LOG_NEVER, 0, CMD_KEEP_HIDE|CMD_GHOST },
+    { "clan_scan",	do_clan_scan,	POS_STANDING,    60,  LOG_NEVER, 0, CMD_KEEP_HIDE|CMD_GHOST },
     { "clone",		do_clone,	POS_DEAD,	L5,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "wiznet",		do_wiznet,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "immtalk",	do_immtalk,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },

@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.8 1998-05-20 21:21:48 efdi Exp $
+ * $Id: mob_prog.c,v 1.9 1998-05-27 08:47:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -346,9 +346,9 @@ void greet_prog_shalafi(CHAR_DATA *mob,CHAR_DATA *ch)
   if ( IS_NPC(ch) )
     return;
 
-  mob->cabal = CABAL_SHALAFI;
+  mob->clan = CLAN_SHALAFI;
  
-  if (ch->cabal == CABAL_SHALAFI) {
+  if (ch->clan == CLAN_SHALAFI) {
     do_say(mob, "Greetings, wise one.");
     return;
   }
@@ -373,9 +373,9 @@ void greet_prog_invader(CHAR_DATA *mob,CHAR_DATA *ch)
 {
   if ( IS_NPC(ch) )
     return;
-  mob->cabal = CABAL_INVADER;
+  mob->clan = CLAN_INVADER;
  
-  if (ch->cabal == CABAL_INVADER) {
+  if (ch->clan == CLAN_INVADER) {
     do_say(mob, "Greetings, dark one.");
     return;
   }
@@ -402,9 +402,9 @@ void greet_prog_ruler_pre(CHAR_DATA *mob,CHAR_DATA *ch)
 
   if ( IS_NPC(ch) )
     return;
-  mob->cabal = CABAL_RULER;
+  mob->clan = CLAN_RULER;
   
-  if (ch->cabal == CABAL_RULER) {
+  if (ch->clan == CLAN_RULER) {
     sprintf(buf,"bow %s",ch->name);
     interpret(mob,buf, FALSE);
     return;
@@ -427,9 +427,9 @@ void greet_prog_ruler(CHAR_DATA *mob,CHAR_DATA *ch)
   if ( IS_NPC(ch) )
     return;
 
-  mob->cabal = CABAL_RULER;
+  mob->clan = CLAN_RULER;
   
-  if (ch->cabal == CABAL_RULER) {
+  if (ch->clan == CLAN_RULER) {
     sprintf(buf,"bow %s",ch->name);
     interpret(mob,buf, FALSE);
     return;
@@ -455,9 +455,9 @@ void greet_prog_chaos(CHAR_DATA *mob,CHAR_DATA *ch)
 {
   if ( IS_NPC(ch) )
     return;
-  mob->cabal = CABAL_CHAOS; 
+  mob->clan = CLAN_CHAOS; 
  
-  if (ch->cabal == CABAL_CHAOS) {
+  if (ch->clan == CLAN_CHAOS) {
     do_say(mob, "Greetings, chaotic one.");
     return;
   }
@@ -482,9 +482,9 @@ void greet_prog_battle(CHAR_DATA *mob, CHAR_DATA *ch)
 {
   if ( IS_NPC(ch))
     return;
-  mob->cabal = CABAL_BATTLE;
+  mob->clan = CLAN_BATTLE;
  
-  if (ch->cabal == CABAL_BATTLE) {
+  if (ch->clan == CLAN_BATTLE) {
     do_say(mob, "Welcome, great warrior.");
     return;
   }
@@ -658,7 +658,7 @@ bool death_prog_stalker(CHAR_DATA *mob)
 {
   char buf[100];
 
-  mob->cabal = CABAL_RULER;
+  mob->clan = CLAN_RULER;
   sprintf(buf, "I have failed trying to kill %s, I gasp my last breath.",
 	  mob->last_fought->name);
   do_cb(mob, buf);
@@ -674,9 +674,9 @@ void greet_prog_knight(CHAR_DATA *mob, CHAR_DATA *ch)
   if ( IS_NPC(ch))
     return;
 
-  mob->cabal = CABAL_KNIGHT;
+  mob->clan = CLAN_KNIGHT;
  
-  if (ch->cabal == CABAL_KNIGHT) {
+  if (ch->clan == CLAN_KNIGHT) {
     do_say(mob, "Welcome, honorable one.");
     return;
   }
@@ -840,9 +840,9 @@ void greet_prog_lions(CHAR_DATA *mob, CHAR_DATA *ch)
   if ( IS_NPC(ch))
     return;
 
-  mob->cabal = CABAL_LIONS;
+  mob->clan = CLAN_LIONS;
  
-  if (ch->cabal == CABAL_LIONS ) 
+  if (ch->clan == CLAN_LIONS ) 
   {
     do_say(mob, "Welcome, my Lions.");
     return;
@@ -872,9 +872,9 @@ void greet_prog_hunter_old(CHAR_DATA *mob, CHAR_DATA *ch)
   if ( IS_NPC(ch))
     return;
 
-  mob->cabal = CABAL_HUNTER;
+  mob->clan = CLAN_HUNTER;
  
-  if (ch->cabal == CABAL_HUNTER ) 
+  if (ch->clan == CLAN_HUNTER ) 
   {
     do_say(mob, "Welcome, my dear hunter.");
     return;
@@ -905,9 +905,9 @@ void greet_prog_hunter(CHAR_DATA *mob, CHAR_DATA *ch)
   if ( IS_NPC(ch))
     return;
 
-  mob->cabal = CABAL_HUNTER;
+  mob->clan = CLAN_HUNTER;
  
-  if (ch->cabal == CABAL_HUNTER ) 
+  if (ch->clan == CLAN_HUNTER ) 
   {
     char buf[MAX_STRING_LENGTH];
     OBJ_DATA *eyed;
@@ -950,7 +950,7 @@ void greet_prog_hunter(CHAR_DATA *mob, CHAR_DATA *ch)
 	do_say( mob , "I gave you the hunter's sword to you.");
 	sprintf( buf , "give eyed %s" , ch->name);
 	interpret( mob , buf , FALSE);
-	do_say( mob , "Remember that if you lose that, you can want it from cabal cleric!");
+	do_say( mob , "Remember that if you lose that, you can want it from clan cleric!");
 	do_say( mob , "Simple say to him that 'trouble'");
     return;
   }
@@ -1234,7 +1234,7 @@ void area_prog_janitor(CHAR_DATA *mob)
     do_say(mob,"Litterbugs");
     if (number_percent() < 20 )
      {
-      act_printf(mob, NULL, NULL, TO_ROOM, POS_RESTING, 
+      act_nprintf(mob, NULL, NULL, TO_ROOM, POS_RESTING, 
 			MOB_PROGS_I_DO_NOT_GET_PAID_ENOUGH);
       if (number_percent() < 20 )
       	do_say(mob,"All I do each day is cleanup other people's messes.");
@@ -1279,7 +1279,7 @@ void speech_prog_hunter_cleric(CHAR_DATA *mob, CHAR_DATA *ch, char *speech)
 
     if (str_cmp(speech,"trouble"))	return;
  
-    if (ch->cabal != CABAL_HUNTER)
+    if (ch->clan != CLAN_HUNTER)
     {
      do_say(mob,"You must try hard!");
      return;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_quest.c,v 1.21 1998-05-26 12:34:47 efdi Exp $
+ * $Id: act_quest.c,v 1.22 1998-05-27 08:47:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -199,9 +199,9 @@ void do_quest(CHAR_DATA *ch, char *argument)
 	ch->pcdata->questgiver = questman->pIndexData->vnum;
 
 	if (!strcmp(arg1, "list")) {
-		act_printf(ch, NULL, questman, TO_ROOM, POS_RESTING, 
+		act_nprintf(ch, NULL, questman, TO_ROOM, POS_RESTING, 
 				QUEST_N_ASKS_LIST);
-		act_printf(ch, NULL, questman, TO_CHAR, POS_DEAD, 
+		act_nprintf(ch, NULL, questman, TO_CHAR, POS_DEAD, 
 				QUEST_YOU_ASK_LIST);
 		bufvampire[0] = '\0';
 		if (ch->class == CLASS_VAMPIRE)
@@ -286,9 +286,9 @@ void do_quest(CHAR_DATA *ch, char *argument)
 			if (ch->pcdata->questpoints >= 500) {
 				ch->pcdata->questpoints -= 500;
 				ch->practice += 60;
-				act_printf(ch, NULL, questman, TO_ROOM,
+				act_nprintf(ch, NULL, questman, TO_ROOM,
 					    POS_RESTING, QUEST_N_GIVES_PRACS);
-				act_printf(ch, NULL, questman, TO_CHAR, 
+				act_nprintf(ch, NULL, questman, TO_CHAR, 
 					    POS_DEAD, QUEST_N_GIVES_YOU_PRACS);
 				return;
 			} else {
@@ -308,11 +308,11 @@ void do_quest(CHAR_DATA *ch, char *argument)
 				ch->pcdata->questpoints -= 50;
 				sn = skill_lookup("vampire");
 				ch->pcdata->learned[sn] = 100;
-				act_printf(ch, NULL, questman, TO_ROOM, 
+				act_nprintf(ch, NULL, questman, TO_ROOM, 
 					   POS_RESTING, QUEST_N_GIVES_SECRET);
-				act_printf(ch, NULL, questman, TO_CHAR, 
+				act_nprintf(ch, NULL, questman, TO_CHAR, 
 					   POS_DEAD, QUEST_N_GIVES_YOU_SECRET);
-				act_printf(ch, NULL, questman, TO_ALL, POS_DEAD,
+				act_nprintf(ch, NULL, questman, TO_ALL, POS_DEAD,
 					    UPDATE_WEATHER_LIGHTNING_FLASHES);
 				return;
 			} else {
@@ -402,9 +402,9 @@ void do_quest(CHAR_DATA *ch, char *argument)
 
 				obj_to_char(tattoo, ch);
 				equip_char(ch, tattoo, WEAR_TATTOO);
-				act_printf(ch, tattoo, questman, TO_ROOM, 
+				act_nprintf(ch, tattoo, questman, TO_ROOM, 
 						POS_RESTING, QUEST_N_TATTOOS_N);
-				act_printf(ch, tattoo, questman, TO_CHAR, 
+				act_nprintf(ch, tattoo, questman, TO_CHAR, 
 						POS_DEAD, QUEST_N_TATTOOS_YOU);
 				return;
 			} else {
@@ -417,9 +417,9 @@ void do_quest(CHAR_DATA *ch, char *argument)
 			if (ch->pcdata->questpoints >= 500) {
 				ch->pcdata->questpoints -= 500;
 				ch->gold += 350000;
-				act_printf(ch, NULL, questman, TO_ROOM, 
+				act_nprintf(ch, NULL, questman, TO_ROOM, 
 					POS_RESTING, QUEST_N_GIVES_GOLD);
-				act_printf(ch, NULL, questman, TO_CHAR, 
+				act_nprintf(ch, NULL, questman, TO_CHAR, 
 					POS_DEAD, QUEST_N_GIVES_YOU_GOLD);
 				return;
 			} else {
@@ -445,17 +445,17 @@ void do_quest(CHAR_DATA *ch, char *argument)
 				free_string(obj->short_descr);
 				obj->short_descr = str_dup(buf);
 			}
-			act_printf(ch, obj, questman, TO_ROOM, POS_RESTING, 
+			act_nprintf(ch, obj, questman, TO_ROOM, POS_RESTING, 
 					QUEST_GIVES_P_TO_N);
-			act_printf(ch, obj, questman, TO_CHAR, POS_DEAD, 
+			act_nprintf(ch, obj, questman, TO_CHAR, POS_DEAD, 
 					QUEST_GIVES_YOU_P);
 			obj_to_char(obj, ch);
 		}
 		return;
 	} else if (!strcmp(arg1, "request")) {
-		act_printf(ch, NULL, questman, TO_ROOM, POS_RESTING, 
+		act_nprintf(ch, NULL, questman, TO_ROOM, POS_RESTING, 
 				QUEST_N_ASKS_FOR_QUEST);
-		act_printf(ch, NULL, questman, TO_CHAR, POS_DEAD, 
+		act_nprintf(ch, NULL, questman, TO_CHAR, POS_DEAD, 
 				QUEST_YOU_ASK_FOR_QUEST);
 		if (IS_QUESTOR(ch)) {
 	    		sprintf(buf, msg(QUEST_YOU_ALREADY_ON_QUEST, ch));
@@ -487,9 +487,9 @@ void do_quest(CHAR_DATA *ch, char *argument)
 		}
 		return;
 	} else if (!strcmp(arg1, "complete")) {
-			act_printf(ch, NULL, questman, TO_ROOM, POS_RESTING, 
+			act_nprintf(ch, NULL, questman, TO_ROOM, POS_RESTING, 
 					QUEST_INFORMS_COMPLETE);
-			act_printf(ch, NULL, questman, TO_CHAR, POS_DEAD, 
+			act_nprintf(ch, NULL, questman, TO_CHAR, POS_DEAD, 
 					QUEST_YOU_INFORM_COMPLETE);
 			if (ch->pcdata->questgiver != questman->pIndexData->vnum) {
 				sprintf(buf, vmsg(QUEST_NEVER_QUEST, ch, questman));
@@ -549,9 +549,9 @@ void do_quest(CHAR_DATA *ch, char *argument)
 					reward=number_range(350,20 * ch->level);
 					pointreward = number_range(15,40);
 
-					act_printf(ch, obj, questman, TO_CHAR, 
+					act_nprintf(ch, obj, questman, TO_CHAR, 
 						POS_DEAD, QUEST_YOU_HAND_P);
-					act_printf(ch, obj, questman, TO_ROOM, 
+					act_nprintf(ch, obj, questman, TO_ROOM, 
 						POS_RESTING, QUEST_N_HANDS_P);
 
 					sprintf(buf, 
@@ -671,9 +671,9 @@ void do_quest(CHAR_DATA *ch, char *argument)
 			ch->name);
 		free_string(obj->short_descr);
 		obj->short_descr = str_dup(buf);
-		act_printf(ch, obj, questman, TO_ROOM, POS_RESTING, 
+		act_nprintf(ch, obj, questman, TO_ROOM, POS_RESTING, 
 				QUEST_GIVES_P_TO_N);
-		act_printf(ch, obj, questman, TO_CHAR, POS_DEAD, 
+		act_nprintf(ch, obj, questman, TO_CHAR, POS_DEAD, 
 				QUEST_GIVES_YOU_P);
 		obj_to_char(obj, ch);
 		sprintf(buf, msg(QUEST_THIS_IS_THE_I_S, ch), trouble_n,

@@ -1,5 +1,5 @@
 /*
- * $Id: healer.c,v 1.3 1998-04-26 17:08:06 efdi Exp $
+ * $Id: healer.c,v 1.4 1998-05-27 08:47:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -65,9 +65,9 @@ void do_heal(CHAR_DATA *ch, char *argument)
     {
         if ( IS_NPC(mob) && IS_SET(mob->act, ACT_IS_HEALER))
 	 {
-	  if (ch->cabal && is_name("cabal",mob->name))
+	  if (ch->clan && is_name("clan",mob->name))
 		{
-    		 if (is_name(cabal_table[ch->cabal].short_name,mob->name) )
+    		 if (is_name(clan_table[ch->clan].short_name,mob->name) )
 		 	break;
 		 else continue;
 		}
@@ -81,7 +81,7 @@ void do_heal(CHAR_DATA *ch, char *argument)
         return;
     }
 
-    if ( ch->cabal == CABAL_BATTLE )
+    if ( ch->clan == CLAN_BATTLE )
     {
         send_to_char( "You are BattleRager, not a filthy magician.\n\r",ch );
         return;
@@ -250,10 +250,10 @@ void heal_battle(CHAR_DATA *mob, CHAR_DATA *ch )
 {
     int sn;
 
-    if (is_name(cabal_table[ch->cabal].short_name,mob->name) )
+    if (is_name(clan_table[ch->clan].short_name,mob->name) )
 	return;
 
-    if (IS_NPC(ch) || ch->cabal != CABAL_BATTLE)
+    if (IS_NPC(ch) || ch->clan != CLAN_BATTLE)
        {
 	do_say(mob,"I won't help you.");
 	return;

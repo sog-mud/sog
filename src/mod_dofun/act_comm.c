@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.26 1998-05-24 21:19:23 efdi Exp $
+ * $Id: act_comm.c,v 1.27 1998-05-27 08:47:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -408,13 +408,13 @@ void do_say(CHAR_DATA *ch, char *argument, ...)
 	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
 		if (!is_affected(vch, gsn_deafen)) {
 		 strcpy(trans, translate(ch, vch, buf));
-			act_printf(ch, trans, vch, TO_VICT, POS_RESTING, 
+			act_nprintf(ch, trans, vch, TO_VICT, POS_RESTING, 
 					COMM_N_SAYS);
 		}
 	}
 
 	if (!is_affected(ch, gsn_deafen))
-		act_printf(ch, NULL, buf, TO_CHAR, POS_RESTING, COMM_YOU_SAY);
+		act_nprintf(ch, NULL, buf, TO_CHAR, POS_RESTING, COMM_YOU_SAY);
 
 	for (room_char = ch->in_room->people; room_char != NULL;
 		 room_char = room_char->next_in_room)
@@ -532,9 +532,9 @@ void do_tell_raw(CHAR_DATA *ch, char *msg, CHAR_DATA *victim)
 	}
 
 	if (!is_affected(ch, gsn_deafen))
-		act_printf(ch, buf, victim, TO_CHAR, 
+		act_nprintf(ch, buf, victim, TO_CHAR, 
 				POS_SLEEPING, COMM_YOU_TELL);
-	act_printf(ch, buf, victim, TO_VICT, POS_SLEEPING, COMM_TELLS_YOU);
+	act_nprintf(ch, buf, victim, TO_VICT, POS_SLEEPING, COMM_TELLS_YOU);
 
 	victim->reply = ch;
 
@@ -1059,7 +1059,7 @@ void do_quit_org(CHAR_DATA *ch, char *argument, bool Count)
 	}
 
 	if (!IS_IMMORTAL(ch) && 
-	ch->cabal != CABAL_INVADER && is_affected(ch, gsn_evil_spirit))
+	ch->clan != CLAN_INVADER && is_affected(ch, gsn_evil_spirit))
 	{
 	send_to_char("Evil spirits in you prevents you from leaving.\n\r", ch);
 	return;
@@ -1412,7 +1412,7 @@ void do_order(CHAR_DATA *ch, char *argument)
 		found = TRUE;
 		if (!proper_order(och, argument))
 		continue;
-		act_printf(ch, NULL, och, TO_VICT, POS_RESTING,
+		act_nprintf(ch, NULL, och, TO_VICT, POS_RESTING,
 			       COMM_ORDERS_YOU_TO, argument);
 		interpret(och, argument, TRUE);
 	}
@@ -1615,16 +1615,16 @@ act_puts("$N is too pure for your group!", ch, NULL, victim,
 		 return;
 	}
 
-	if ((ch->cabal == CABAL_RULER  && victim->cabal == CABAL_CHAOS) ||
-	(ch->cabal == CABAL_CHAOS  && victim->cabal == CABAL_RULER) ||
-	(ch->cabal == CABAL_KNIGHT  && victim->cabal == CABAL_INVADER) ||
-	(ch->cabal == CABAL_INVADER  && victim->cabal == CABAL_KNIGHT) ||
-	(ch->cabal == CABAL_SHALAFI  && victim->cabal == CABAL_BATTLE) ||
-	(ch->cabal == CABAL_BATTLE  && victim->cabal == CABAL_SHALAFI))
+	if ((ch->clan == CLAN_RULER  && victim->clan == CLAN_CHAOS) ||
+	(ch->clan == CLAN_CHAOS  && victim->clan == CLAN_RULER) ||
+	(ch->clan == CLAN_KNIGHT  && victim->clan == CLAN_INVADER) ||
+	(ch->clan == CLAN_INVADER  && victim->clan == CLAN_KNIGHT) ||
+	(ch->clan == CLAN_SHALAFI  && victim->clan == CLAN_BATTLE) ||
+	(ch->clan == CLAN_BATTLE  && victim->clan == CLAN_SHALAFI))
 	{
-act_puts("You hate $n's cabal, how can you join $n's group?!", ch,
+act_puts("You hate $n's clan, how can you join $n's group?!", ch,
 		NULL, victim,TO_VICT,POS_SLEEPING);
-act_puts("You hate $N's cabal, how can you want $N to join your group?!",
+act_puts("You hate $N's clan, how can you want $N to join your group?!",
 		ch, NULL, victim, TO_CHAR,POS_SLEEPING);
 		 return;
 	}
@@ -1838,12 +1838,12 @@ void do_cb(CHAR_DATA *ch, char *argument)
 	char buf[MAX_STRING_LENGTH];
 	char buf2[MAX_INPUT_LENGTH];
 
-	if (!(ch->cabal)) {
+	if (!(ch->clan)) {
 	send_to_char("You are not in a Cabal.\n\r",ch);
 	return;
 		 }
 
-	sprintf(buf, "[%s] $n: {C$t{x",cabal_table[ch->cabal].short_name);
+	sprintf(buf, "[%s] $n: {C$t{x",clan_table[ch->clan].short_name);
 
 	if (is_affected(ch,gsn_garble))
 		 garble(buf2,argument);
@@ -1854,7 +1854,7 @@ void do_cb(CHAR_DATA *ch, char *argument)
 		act_puts(buf, ch, argument, NULL, TO_CHAR,POS_DEAD);
 	for (d = descriptor_list; d != NULL; d = d->next) {
 	if (d->connected == CON_PLAYING && 
-		 (d->character->cabal == ch->cabal) &&
+		 (d->character->clan == ch->clan) &&
 /*             !IS_SET(d->character->comm,COMM_NOCB) &&   */
 		 !is_affected(d->character, gsn_deafen))
 		act_puts(buf, ch,buf2,d->character,TO_VICT,POS_DEAD);
@@ -1980,12 +1980,12 @@ void do_judge(CHAR_DATA *ch, char *argument)
 
 	one_argument(argument, arg);
 
-	if (ch->cabal != CABAL_RULER) {
+	if (ch->clan != CLAN_RULER) {
 		send_to_char("Huh?\n\r", ch);
 		return;
 	}
 
-	if (!cabal_ok(ch,gsn_judge)) return;
+	if (!clan_ok(ch,gsn_judge)) return;
 
 	if (arg[0] == '\0') {
 		send_to_char("Judge whom?\n\r", ch);

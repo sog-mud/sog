@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.4 1998-05-07 07:05:04 fjoe Exp $
+ * $Id: obj_prog.c,v 1.5 1998-05-27 08:47:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -59,9 +59,9 @@ DECLARE_OPROG_FUN_DEATH(death_prog_excalibur 	);
 DECLARE_OPROG_FUN_SPEECH(speech_prog_excalibur);
 DECLARE_OPROG_FUN_SAC(sac_prog_excalibur 	);
 
-DECLARE_OPROG_FUN_SAC(sac_prog_cabal_item 	);
-DECLARE_OPROG_FUN_GET(get_prog_cabal_item 	);
-DECLARE_OPROG_FUN_GIVE(give_prog_cabal_item 	);
+DECLARE_OPROG_FUN_SAC(sac_prog_clan_item 	);
+DECLARE_OPROG_FUN_GET(get_prog_clan_item 	);
+DECLARE_OPROG_FUN_GIVE(give_prog_clan_item 	);
 
 DECLARE_OPROG_FUN_FIGHT(fight_prog_sub_weapon);
 DECLARE_OPROG_FUN_SPEECH(speech_prog_kassandra);
@@ -254,8 +254,8 @@ void oprog_set(OBJ_INDEX_DATA *objindex,const char *progtype, const char *name)
 	 }
 	if (!str_cmp(progtype, "get_prog"))
 	 {
-	   if (!str_cmp(name,"get_prog_cabal_item"))
-		 objindex->oprogs->get_prog = get_prog_cabal_item;
+	   if (!str_cmp(name,"get_prog_clan_item"))
+		 objindex->oprogs->get_prog = get_prog_clan_item;
 	   else if (!str_cmp(name, "get_prog_heart"))
 		 objindex->oprogs->get_prog = get_prog_heart;
 	   else if (!str_cmp(name, "get_prog_coconut"))
@@ -300,8 +300,8 @@ void oprog_set(OBJ_INDEX_DATA *objindex,const char *progtype, const char *name)
 	 {
 	   if (!str_cmp(name, "sac_prog_excalibur"))
 		 objindex->oprogs->sac_prog = sac_prog_excalibur;
-	   else if (!str_cmp(name, "sac_prog_cabal_item"))
-		 objindex->oprogs->sac_prog = sac_prog_cabal_item;
+	   else if (!str_cmp(name, "sac_prog_clan_item"))
+		 objindex->oprogs->sac_prog = sac_prog_clan_item;
 	   else
 		 {
 		   bug("Load_oprogs: 'O': Function not found for vnum %d",
@@ -326,8 +326,8 @@ void oprog_set(OBJ_INDEX_DATA *objindex,const char *progtype, const char *name)
 	 }
 	if (!str_cmp(progtype, "give_prog"))
 	 {
-	   if (!str_cmp(name, "give_prog_cabal_item"))
-	     objindex->oprogs->give_prog = give_prog_cabal_item;
+	   if (!str_cmp(name, "give_prog_clan_item"))
+	     objindex->oprogs->give_prog = give_prog_clan_item;
 	   else
 	     {
 	       bug("Load_oprogs: 'O': Function not found for vnum %d",
@@ -672,7 +672,7 @@ void get_prog_quest_obj(OBJ_DATA *obj, CHAR_DATA *ch)
 	
 }
 
-void get_prog_cabal_item(OBJ_DATA *obj, CHAR_DATA *ch) 
+void get_prog_clan_item(OBJ_DATA *obj, CHAR_DATA *ch) 
 {
 	if (IS_NPC(ch))
 	{
@@ -692,14 +692,14 @@ void get_prog_cabal_item(OBJ_DATA *obj, CHAR_DATA *ch)
 	  for (d = descriptor_list; d; d = d->next)
 	    {
 	      if (d->connected == CON_PLAYING && 
-		     cabal_table[d->character->cabal].obj_ptr == obj)
+		     clan_table[d->character->clan].obj_ptr == obj)
 	 	  act_puts("You feel a shudder in your Cabal Power!",
 			   d->character,NULL,NULL,TO_CHAR,POS_DEAD);
 		}
 	}
 }
 
-bool sac_prog_cabal_item(OBJ_DATA *obj, CHAR_DATA *ch)
+bool sac_prog_clan_item(OBJ_DATA *obj, CHAR_DATA *ch)
 {
 	OBJ_DATA *container;
 	OBJ_DATA *item;
@@ -711,43 +711,43 @@ bool sac_prog_cabal_item(OBJ_DATA *obj, CHAR_DATA *ch)
 	damage(ch,ch,ch->hit -10,TYPE_HIT,DAM_HOLY, TRUE); 
 	ch->gold = 0;
 
-	for(i=0;i<MAX_CABAL;i++)
-	if (cabal_table[i].obj_ptr == obj) break;
-	if (i < MAX_CABAL)  {
-	if (obj->pIndexData->vnum == cabal_table[CABAL_RULER].obj_vnum)
+	for(i=0;i<MAX_CLAN;i++)
+	if (clan_table[i].obj_ptr == obj) break;
+	if (i < MAX_CLAN)  {
+	if (obj->pIndexData->vnum == clan_table[CLAN_RULER].obj_vnum)
 	  container = create_object(get_obj_index(OBJ_VNUM_RULER_STAND),100);
-	else if (obj->pIndexData->vnum == cabal_table[CABAL_INVADER].obj_vnum)
+	else if (obj->pIndexData->vnum == clan_table[CLAN_INVADER].obj_vnum)
 	  container = create_object(get_obj_index(OBJ_VNUM_INVADER_SKULL),100);
-	else if (obj->pIndexData->vnum == cabal_table[CABAL_BATTLE].obj_vnum)
+	else if (obj->pIndexData->vnum == clan_table[CLAN_BATTLE].obj_vnum)
 	  container = create_object(get_obj_index(OBJ_VNUM_BATTLE_THRONE),100);
-	else if (obj->pIndexData->vnum == cabal_table[CABAL_KNIGHT].obj_vnum)
+	else if (obj->pIndexData->vnum == clan_table[CLAN_KNIGHT].obj_vnum)
 	  container = create_object(get_obj_index(OBJ_VNUM_KNIGHT_ALTAR), 100);
-	else if (obj->pIndexData->vnum == cabal_table[CABAL_CHAOS].obj_vnum)
+	else if (obj->pIndexData->vnum == clan_table[CLAN_CHAOS].obj_vnum)
 	  container = create_object(get_obj_index(OBJ_VNUM_CHAOS_ALTAR), 100);
-	else if (obj->pIndexData->vnum == cabal_table[CABAL_LIONS].obj_vnum)
+	else if (obj->pIndexData->vnum == clan_table[CLAN_LIONS].obj_vnum)
 	  container = create_object(get_obj_index(OBJ_VNUM_LIONS_ALTAR), 100);
-	else if (obj->pIndexData->vnum == cabal_table[CABAL_HUNTER].obj_vnum)
+	else if (obj->pIndexData->vnum == clan_table[CLAN_HUNTER].obj_vnum)
 	  container = create_object(get_obj_index(OBJ_VNUM_HUNTER_ALTAR), 100);
 	else
 	  container = create_object(get_obj_index(OBJ_VNUM_SHALAFI_ALTAR),100);
 
-	item = create_object(get_obj_index(cabal_table[i].obj_vnum), 100);
+	item = create_object(get_obj_index(clan_table[i].obj_vnum), 100);
 	obj_to_obj(item, container);
-	obj_to_room(container, get_room_index(cabal_table[i].room_vnum));
+	obj_to_room(container, get_room_index(clan_table[i].room_vnum));
 	sprintf(buf, "You see %s forming again slowly.\n\r", 
 		container->short_descr);
-	if (get_room_index(cabal_table[i].room_vnum)->people != NULL)  {
-		act(buf, get_room_index(cabal_table[i].room_vnum)->people,NULL,NULL, TO_CHAR);
-		act(buf, get_room_index(cabal_table[i].room_vnum)->people,NULL,NULL, TO_ROOM);
+	if (get_room_index(clan_table[i].room_vnum)->people != NULL)  {
+		act(buf, get_room_index(clan_table[i].room_vnum)->people,NULL,NULL, TO_CHAR);
+		act(buf, get_room_index(clan_table[i].room_vnum)->people,NULL,NULL, TO_ROOM);
 	}
 	}
 	else
-	bug("oprog: Sac_cabal_item: Was not the cabal's item.", 0);
+	bug("oprog: Sac_clan_item: Was not the clan's item.", 0);
 
 	return FALSE; 
 } 
 
-void give_prog_cabal_item(OBJ_DATA *obj, CHAR_DATA *ch, CHAR_DATA *mob)
+void give_prog_clan_item(OBJ_DATA *obj, CHAR_DATA *ch, CHAR_DATA *mob)
 {
 	if (IS_NPC(mob))
 

@@ -1,5 +1,5 @@
 /*
- * $Id: const.c,v 1.7 1998-05-20 21:18:53 efdi Exp $
+ * $Id: const.c,v 1.8 1998-05-27 08:47:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3099,7 +3099,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0},
 	0,			TAR_IGNORE,		POS_STANDING,
 	&gsn_reserved,			SLOT( 0),	 0,	 0,
-	"",			"",		"", CABAL_NONE , 
+	"",			"",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -3108,7 +3108,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_acetum_primus,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,		SLOT(654),	20,	12,
-	"acetum primus",	"!acetum primus!", "", CABAL_NONE , 
+	"acetum primus",	"!acetum primus!", "", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_COMBAT
     },
 
@@ -3117,7 +3117,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_acid_arrow,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,		SLOT(644),	20,	12,
-	"acid arrow",		"!Acid Arrow!", "", CABAL_NONE , 
+	"acid arrow",		"!Acid Arrow!", "", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_COMBAT
     },
 
@@ -3126,7 +3126,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_acid_blast,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	&gsn_acid_blast,	SLOT(70),	40,	12,
-	"acid blast",		"!Acid Blast!", "", CABAL_NONE , 
+	"acid blast",		"!Acid Blast!", "", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_COMBAT
     },
 
@@ -3135,7 +3135,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 3,  2,  1,  1, 1, 1, 2, 1, 1, 1,1,1,1},
         spell_acute_vision,        TAR_CHAR_SELF,          POS_STANDING,
         NULL,                    SLOT(514),        10,       0,
-	"",         "Your vision seems duller.", "",	CABAL_NONE , 
+	"",         "Your vision seems duller.", "",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -3145,7 +3145,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_adamantite_golem,	TAR_IGNORE,	POS_STANDING,
 	NULL,		SLOT(665),	500,		72,
 	"",	"You gained enough mana to make more golems now.","",
-	CABAL_NONE , 	RACE_NONE, ALIGN_NONE, GROUP_NONE
+	CLAN_NONE , 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -3154,7 +3154,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         spell_aid,        TAR_CHAR_DEFENSIVE,          POS_FIGHTING,
 	NULL,		SLOT(680),	100,		12,
 	"",	"You can aid more people.",	"", 
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_HEALING
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_HEALING
     },
 
     {
@@ -3162,7 +3162,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_amnesia,      TAR_CHAR_OFFENSIVE,       POS_STANDING,
 	NULL,       SLOT(538),        100,       12,
-	"", "!amnesia!", "",	CABAL_NONE , RACE_NONE,ALIGN_NONE, GROUP_NONE
+	"", "!amnesia!", "",	CLAN_NONE , RACE_NONE,ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -3170,7 +3170,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_animate_dead,	TAR_OBJ_CHAR_OFF,	POS_STANDING,
 	NULL,		SLOT(581),	50,	12,
-	"",	"You gain energy to animate new deads.", "", CABAL_NONE , 
+	"",	"You gain energy to animate new deads.", "", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -3179,7 +3179,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_armor,		TAR_CHAR_DEFENSIVE,	POS_STANDING,
 	NULL,			SLOT( 1),	 5,	12,
-	"",			"You feel less armored.",	"", CABAL_NONE ,
+	"",			"You feel less armored.",	"", CLAN_NONE ,
 	RACE_NONE, ALIGN_NONE, GROUP_PROTECTIVE
     },
 
@@ -3188,7 +3188,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_assist,        TAR_CHAR_DEFENSIVE,          POS_FIGHTING,
         NULL,             SLOT(670),        100,       12,
-	"", "You can assist more, now.", "",	CABAL_NONE , 
+	"", "You can assist more, now.", "",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_HEALING
     },
 
@@ -3197,7 +3197,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_astral_walk,	TAR_IGNORE,	POS_FIGHTING,
 	NULL,			SLOT(622),	80,	12,
-	"",			"!Astral Walk!",	"",CABAL_NONE , 
+	"",			"!Astral Walk!",	"",CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_TRANSPORTATION
     },
 
@@ -3206,7 +3206,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_bark_skin,        TAR_CHAR_SELF,          POS_STANDING,
         NULL,             SLOT(515),        40,       0,
-	"", "The bark on your skin flakes off.", "",	CABAL_NONE , 
+	"", "The bark on your skin flakes off.", "",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -3216,7 +3216,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_black_death,	TAR_IGNORE,	POS_STANDING,
 	&gsn_black_death,	SLOT(677),	200,	24,
 	"",		"!black death!",	"", 
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_MALADICTIONS
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_MALADICTIONS
     },
 
     {
@@ -3224,7 +3224,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_blade_barrier,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,			SLOT(679),	50,	12,
-	"blade barrier",	"!Blade Barrier!",	"",CABAL_NONE , 
+	"blade barrier",	"!Blade Barrier!",	"",CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_ATTACK
     },
 
@@ -3234,7 +3234,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_bless,		TAR_OBJ_CHAR_DEF,	POS_STANDING,
 	&gsn_bless,		SLOT( 3),	 5,	12,
 	"",			"You feel less righteous.", 
-	"$p's holy aura fades.", CABAL_NONE , 
+	"$p's holy aura fades.", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_BENEDICTIONS
     },
 
@@ -3243,7 +3243,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_bless_weapon,	TAR_OBJ_INV,		POS_STANDING,
 	NULL,			SLOT(637),	100,	24,
-	"",			"!Bless Weapon!",	"", CABAL_NONE , 
+	"",			"!Bless Weapon!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_ENCHANTMENT
     },
 
@@ -3252,7 +3252,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_blindness,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	&gsn_blindness,		SLOT( 4),	 5,	12,
-	"",			"You can see again.",	"", CABAL_NONE , 
+	"",			"You can see again.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_MALADICTIONS
     },
 
@@ -3261,7 +3261,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_bluefire,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	&gsn_bluefire,			SLOT(660),	20,	12,
-	"torments",		"!Bluefire!",		"", CABAL_NONE , 
+	"torments",		"!Bluefire!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_ATTACK
     },
 
@@ -3270,7 +3270,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_burning_hands,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	&gsn_burning_hands,	SLOT( 5),	15,	12,
-	"burning hands",	"!Burning Hands!", 	"", CABAL_NONE , 
+	"burning hands",	"!Burning Hands!", 	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_COMBAT
     },
 
@@ -3279,7 +3279,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_call_lightning,	TAR_IGNORE,		POS_FIGHTING,
 	NULL,			SLOT( 6),	15,	12,
-	"lightning bolt",	"!Call Lightning!",	"", CABAL_NONE , 
+	"lightning bolt",	"!Call Lightning!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_WEATHER
     },
 
@@ -3287,7 +3287,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_calm,		TAR_IGNORE,		POS_FIGHTING,
 	NULL,			SLOT(509),	30,	12,
-	"",			"You have lost your peace of mind.",	"", CABAL_NONE , 
+	"",			"You have lost your peace of mind.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_BENEDICTIONS
     },
 
@@ -3296,7 +3296,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_cancellation,	TAR_CHAR_DEFENSIVE,	POS_FIGHTING,
 	NULL,			SLOT(507),	20,	12,
-	"",			"!cancellation!",	"", CABAL_NONE , 
+	"",			"!cancellation!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_PROTECTIVE
     },
 
@@ -3305,7 +3305,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1,1, 1,1,1,1},
 	spell_cause_critical,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,			SLOT(63),	20,	12,
-	"spell",		"!Cause Critical!",	"", CABAL_NONE , 
+	"spell",		"!Cause Critical!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_HARMFUL
     },
 
@@ -3314,7 +3314,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_cause_light,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,			SLOT(62),	15,	12,
-	"spell",		"!Cause Light!",	"", CABAL_NONE , 
+	"spell",		"!Cause Light!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_HARMFUL
     },
 
@@ -3323,7 +3323,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_cause_serious,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,			SLOT(64),	17,	12,
-	"spell",		"!Cause Serious!",	"", CABAL_NONE , 
+	"spell",		"!Cause Serious!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_HARMFUL
     },
 
@@ -3332,7 +3332,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_caustic_font,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,		SLOT(653),	20,	12,
-	"caustic font",	"!caustic font!", "", CABAL_NONE , 
+	"caustic font",	"!caustic font!", "", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_COMBAT
     },
 
@@ -3341,7 +3341,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_chain_lightning,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,			SLOT(500),	25,	12,
-	"lightning",		"!Chain Lightning!",	"", CABAL_NONE , 
+	"lightning",		"!Chain Lightning!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_COMBAT
     }, 
 
@@ -3350,7 +3350,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_control_undead,   TAR_CHAR_OFFENSIVE,          POS_STANDING,
         NULL,             SLOT(669),        20,       12,
-	"", "You feel more self confident.", "",	CABAL_NONE , 
+	"", "You feel more self confident.", "",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -3360,7 +3360,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_mind_light,	TAR_IGNORE,		POS_STANDING,
 	NULL,		SLOT(82),	200,	24,
 	"",	"You can booster more rooms now.",	"", 
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -3368,7 +3368,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_charm_person,	TAR_CHAR_OFFENSIVE,	POS_STANDING,
 	&gsn_charm_person,	SLOT( 7),	 5,	12,
-	"",			"You feel more self-confident.",	"", CABAL_NONE , 
+	"",			"You feel more self-confident.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_BEGUILING
     },
 
@@ -3377,7 +3377,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_attract_other,	TAR_CHAR_OFFENSIVE,	POS_STANDING,
 	NULL,		SLOT(580),	5,	12,
-	"",	"You feel your master leaves you.",	"", CABAL_NONE , 
+	"",	"You feel your master leaves you.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_BEGUILING
     },
 
@@ -3386,7 +3386,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_chill_touch,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	&gsn_chill_touch,		SLOT( 8),	15,	12,
-	"chilling touch",	"You feel less cold.",	"", CABAL_NONE , 
+	"chilling touch",	"You feel less cold.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_COMBAT
     },
 
@@ -3395,7 +3395,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_colour_spray,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,			SLOT(10),	15,	12,
-	"colour spray",		"!Colour Spray!",	"", CABAL_NONE , 
+	"colour spray",		"!Colour Spray!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_COMBAT
     },
 
@@ -3404,7 +3404,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_continual_light,	TAR_IGNORE,		POS_STANDING,
 	NULL,			SLOT(57),	 7,	12,
-	"",			"!Continual Light!",	"", CABAL_NONE , 
+	"",			"!Continual Light!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_CREATION
     },
 
@@ -3413,7 +3413,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_control_weather,	TAR_IGNORE,		POS_STANDING,
 	NULL,			SLOT(11),	25,	12,
-	"",			"!Control Weather!",	"", CABAL_NONE , 	
+	"",			"!Control Weather!",	"", CLAN_NONE , 	
 	RACE_NONE, ALIGN_NONE, GROUP_WEATHER
     },
 
@@ -3422,7 +3422,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_corruption,    TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
         NULL,             SLOT(671),        0,       0,
-	"corruption", "You feel yourself healthy again.", "",CABAL_NONE, 
+	"corruption", "You feel yourself healthy again.", "",CLAN_NONE, 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -3431,7 +3431,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_create_food,	TAR_IGNORE,		POS_STANDING,
 	NULL,			SLOT(12),	 5,	12,
-	"",			"!Create Food!",	"", CABAL_NONE , 
+	"",			"!Create Food!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_CREATION
     },
 
@@ -3440,7 +3440,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_create_rose,	TAR_IGNORE,		POS_STANDING,
 	NULL,			SLOT(511),	30, 	12,
-	"",			"!Create Rose!",	"", CABAL_NONE , 
+	"",			"!Create Rose!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_CREATION
     },  
 
@@ -3449,7 +3449,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_create_spring,	TAR_IGNORE,		POS_STANDING,
 	NULL,			SLOT(80),	20,	12,
-	"",			"!Create Spring!",	"", CABAL_NONE , 
+	"",			"!Create Spring!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_CREATION
     },
 
@@ -3458,7 +3458,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_create_water,	TAR_OBJ_INV,		POS_STANDING,
 	NULL,			SLOT(13),	 5,	12,
-	"",			"!Create Water!",	"", CABAL_NONE , 
+	"",			"!Create Water!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_CREATION
     },
 
@@ -3467,7 +3467,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_cure_blindness,	TAR_CHAR_DEFENSIVE,	POS_FIGHTING,
 	NULL,			SLOT(14),	 5,	12,
-	"",			"!Cure Blindness!",	"", CABAL_NONE , 
+	"",			"!Cure Blindness!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_CURATIVE
     },
 
@@ -3476,7 +3476,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_cure_critical,	TAR_CHAR_DEFENSIVE,	POS_FIGHTING,
 	&gsn_cure_critical,	SLOT(15),	20,	12,
-	"",			"!Cure Critical!",	"", CABAL_NONE , 
+	"",			"!Cure Critical!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_HEALING
     },
 
@@ -3485,7 +3485,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_cure_disease,	TAR_CHAR_DEFENSIVE,	POS_STANDING,
 	NULL,			SLOT(501),	20,	12,
-	"",			"!Cure Disease!",	"", CABAL_NONE , 
+	"",			"!Cure Disease!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_CURATIVE
     },
 
@@ -3494,7 +3494,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_cure_light,	TAR_CHAR_DEFENSIVE,	POS_FIGHTING,
 	&gsn_cure_light,	SLOT(16),	10,	12,
-	"",			"!Cure Light!",		"", CABAL_NONE , 
+	"",			"!Cure Light!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_HEALING
     },
 
@@ -3503,7 +3503,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_cure_poison,	TAR_CHAR_DEFENSIVE,	POS_STANDING,
 	&gsn_cure_poison,		SLOT(43),	 5,	12,
-	"",			"!Cure Poison!",	"", CABAL_NONE , 
+	"",			"!Cure Poison!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_CURATIVE
     },
 
@@ -3512,7 +3512,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_cure_serious,	TAR_CHAR_DEFENSIVE,	POS_FIGHTING,
 	&gsn_cure_serious,	SLOT(61),	15,	12,
-	"",			"!Cure Serious!",	"", CABAL_NONE , 
+	"",			"!Cure Serious!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_HEALING
     },
 
@@ -3522,7 +3522,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_curse,		TAR_OBJ_CHAR_OFF,	POS_FIGHTING,
 	&gsn_curse,		SLOT(17),	20,	12,
 	"curse",		"The curse wears off.", 
-	"$p is no longer impure.", CABAL_NONE , RACE_NONE, 
+	"$p is no longer impure.", CLAN_NONE , RACE_NONE, 
 	ALIGN_NONE, GROUP_MALADICTIONS
     },
 
@@ -3532,7 +3532,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_cursed_lands,	TAR_IGNORE,	POS_STANDING,
 	&gsn_cursed_lands,	SLOT(675),	200,	24,
 	"",		"!cursed lands!",	"", 
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_MALADICTIONS
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_MALADICTIONS
     },
 
     {
@@ -3541,7 +3541,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_deadly_venom,	TAR_IGNORE,	POS_STANDING,
 	&gsn_deadly_venom,		SLOT(674),	200,	24,
 	"",		"!deadly venom!",	"", 
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_MALADICTIONS
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_MALADICTIONS
     },
 
     {
@@ -3549,7 +3549,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_deafen,      TAR_CHAR_OFFENSIVE,   POS_FIGHTING,
         &gsn_deafen,       SLOT(570),        40,       12,
-	"deafen", "The ringing in your ears finally stops.", "", CABAL_NONE , 
+	"deafen", "The ringing in your ears finally stops.", "", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -3558,7 +3558,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_demonfire,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	&gsn_demonfire,			SLOT(505),	20,	12,
-	"torments",		"!Demonfire!",		"", CABAL_NONE , 
+	"torments",		"!Demonfire!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_ATTACK
     },	
 
@@ -3567,7 +3567,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_desert_fist, 	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,		SLOT(681),	50,	12,
-	"desert fist",	"!desert fist!", "", CABAL_NONE , 
+	"desert fist",	"!desert fist!", "", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE,GROUP_NONE
     },
 
@@ -3576,7 +3576,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_detect_evil,	TAR_CHAR_SELF,		POS_STANDING,
 	NULL,			SLOT(18),	 5,	12,
-	"",			"The red in your vision disappears.",	"", CABAL_NONE , 
+	"",			"The red in your vision disappears.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_DETECTION
     },
 
@@ -3585,8 +3585,17 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_detect_good,      TAR_CHAR_SELF,          POS_STANDING,
         NULL,                   SLOT(513),        5,     12,
-	"",                     "The gold in your vision disappears.",	"", CABAL_NONE , 
+	"",                     "The gold in your vision disappears.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_DETECTION
+    },
+
+    {
+	"detect hidden",	{ 93, 93, 93, 93, 93, 93, 93, 93 ,93,93,93,93,93},
+	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
+	spell_detect_hidden,	TAR_CHAR_SELF,		POS_STANDING,
+	NULL,		SLOT(44),	 5,	12,
+	"",			"You feel less aware of your surroundings.",	
+	"", CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_DETECTION
     },
 
     {
@@ -3595,7 +3604,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_null,		TAR_CHAR_SELF,		POS_STANDING,
 	&gsn_detect_hidden,	SLOT(0),	 5,	12,
 	"",			"You feel less aware of your surroundings.",	
-	"", CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_DETECTION
+	"", CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_DETECTION
     },
 
     {
@@ -3604,7 +3613,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_detect_invis,	TAR_CHAR_SELF,		POS_STANDING,
 	NULL,			SLOT(19),	 5,	12,
 	"",			"You no longer see invisible objects.",
-	"", CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_DETECTION
+	"", CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_DETECTION
     },
 
     {
@@ -3612,7 +3621,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_detect_magic,	TAR_CHAR_SELF,		POS_STANDING,
 	NULL,			SLOT(20),	 5,	12,
-	"",			"The detect magic wears off.",	"", CABAL_NONE , 
+	"",			"The detect magic wears off.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_DETECTION
     },
 
@@ -3621,7 +3630,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_detect_poison,	TAR_OBJ_INV,		POS_STANDING,
 	NULL,			SLOT(21),	 5,	12,
-	"",			"!Detect Poison!",	"", CABAL_NONE , 
+	"",			"!Detect Poison!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_DETECTION
     },
 
@@ -3631,7 +3640,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_detect_undead,	TAR_CHAR_SELF,		POS_STANDING,
 	NULL,		SLOT(594),	5,	12,
 	"",		"You can't detect undeads anymore.", "", 
-	CABAL_NONE, 	RACE_NONE, ALIGN_NONE, GROUP_DETECTION
+	CLAN_NONE, 	RACE_NONE, ALIGN_NONE, GROUP_DETECTION
     },
 
     {
@@ -3639,7 +3648,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1},
         spell_disintegrate,      TAR_CHAR_OFFENSIVE,   POS_STANDING,
         NULL,                    SLOT(574),    100,       0,
-	"thin light ray", "!disintegrate!", "",	CABAL_NONE , 
+	"thin light ray", "!disintegrate!", "",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -3649,7 +3658,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_null,	TAR_CHAR_SELF,		POS_STANDING,
 	NULL,		SLOT(621),	200,	24,
 	"",	"!621!",	"", 
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -3657,7 +3666,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_dispel_evil,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,			SLOT(22),	15,	12,
-	"dispel evil",		"!Dispel Evil!",	"", CABAL_NONE , 
+	"dispel evil",		"!Dispel Evil!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_ATTACK
     },
 
@@ -3666,7 +3675,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_dispel_good,      TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
         NULL,                   SLOT(512),      15,     12,
-	"dispel good",          "!Dispel Good!",	"", CABAL_NONE , 
+	"dispel good",          "!Dispel Good!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_ATTACK
     },
 
@@ -3675,7 +3684,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_dispel_magic,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,			SLOT(59),	15,	12,
-	"",			"!Dispel Magic!",	"", CABAL_NONE , 
+	"",			"!Dispel Magic!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_PROTECTIVE
     },
 
@@ -3684,7 +3693,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_disruption,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,		SLOT(648),	20,	12,
-	"disruption",	"!disruption!", "", CABAL_NONE , 
+	"disruption",	"!disruption!", "", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_COMBAT
     },
 
@@ -3693,7 +3702,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{1,1,1,1,1,1,1,1,1, 1,1,1,1},
         spell_dragon_breath,  TAR_CHAR_OFFENSIVE, POS_FIGHTING,
         &gsn_dragon_breath,  SLOT(563),   75,   12,
-	"blast of fire", "!dragon breath!", "",	CABAL_NONE , 
+	"blast of fire", "!dragon breath!", "",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -3703,7 +3712,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_dragon_skin,	TAR_CHAR_SELF,		POS_STANDING,
 	NULL,			SLOT(612),	50,	24,
 	"",	"Your skin becomes softer.",	"", 
-	CABAL_NONE , RACE_TOP, ALIGN_NONE, GROUP_PROTECTIVE
+	CLAN_NONE , RACE_TOP, ALIGN_NONE, GROUP_PROTECTIVE
     },
 
     {
@@ -3711,7 +3720,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{1,1,1,1,1,1,1,1, 1, 1,1,1,1},
         spell_dragon_strength, TAR_CHAR_SELF, POS_FIGHTING,
         &gsn_dragon_strength, SLOT(562),    75,    12,
-	"", "You feel the strength of the dragon leave you.", "",	CABAL_NONE , 
+	"", "You feel the strength of the dragon leave you.", "",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -3721,7 +3730,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_dragons_breath,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,			SLOT(576),	200,	24,
 	"dragon breath",	"Your get healtier again.",
-	"", CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_DRACONIAN
+	"", CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_DRACONIAN
     },
 
     {
@@ -3729,7 +3738,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_earthquake,	TAR_IGNORE,		POS_FIGHTING,
 	NULL,			SLOT(23),	15,	12,
-	"earthquake",		"!Earthquake!",		"", CABAL_NONE , 
+	"earthquake",		"!Earthquake!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_ATTACK
     },
 
@@ -3738,7 +3747,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_enchant_armor,	TAR_OBJ_INV,		POS_STANDING,
 	NULL,			SLOT(510),	100,	24,
-	"",			"!Enchant Armor!",	"", CABAL_NONE , 
+	"",			"!Enchant Armor!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_ENCHANTMENT
     },
 
@@ -3747,7 +3756,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_enchant_weapon,	TAR_OBJ_INV,		POS_STANDING,
 	NULL,			SLOT(24),	100,	24,
-	"",			"!Enchant Weapon!",	"", CABAL_NONE , 
+	"",			"!Enchant Weapon!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_ENCHANTMENT
     },
 
@@ -3756,7 +3765,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_energy_drain,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,			SLOT(25),	35,	12,
-	"energy drain",		"!Energy Drain!",	"", CABAL_NONE , 
+	"energy drain",		"!Energy Drain!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_MALADICTIONS
     },
 
@@ -3765,7 +3774,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1},
 	spell_enhanced_armor, 	TAR_CHAR_DEFENSIVE,	POS_FIGHTING,
 	&gsn_enhanced_armor,	SLOT(583),	20,	12,
-	"",	"You feel yourself unprotected.", "", CABAL_NONE , 
+	"",	"You feel yourself unprotected.", "", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_PROTECTIVE
     },
 
@@ -3774,7 +3783,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_etheral_fist,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,		SLOT(645),	20,	12,
-	"etheral fist",		"!Etheral Fist!", "", CABAL_NONE , 
+	"etheral fist",		"!Etheral Fist!", "", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_COMBAT
     },
 
@@ -3784,7 +3793,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_faerie_fire,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	&gsn_faerie_fire,		SLOT(72),	 5,	12,
 	"faerie fire",		"The pink aura around you fades away.",
-	"", CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_WEATHER
+	"", CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_WEATHER
     },
 
     {
@@ -3792,7 +3801,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_faerie_fog,	TAR_IGNORE,		POS_STANDING,
 	NULL,			SLOT(73),	12,	12,
-	"faerie fog",		"!Faerie Fog!",		"", CABAL_NONE , 
+	"faerie fog",		"!Faerie Fog!",		"", CLAN_NONE , 
 	RACE_NONE,ALIGN_NONE, GROUP_WEATHER
     },
 
@@ -3801,7 +3810,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_farsight,		TAR_IGNORE,		POS_STANDING,
 	NULL,			SLOT(521),	20,	12,
-	"farsight",		"!Farsight!",		"", CABAL_NONE , 
+	"farsight",		"!Farsight!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_DETECTION
     },	
 
@@ -3810,7 +3819,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_fear,	TAR_CHAR_OFFENSIVE,	POS_STANDING,
 	&gsn_fear,	SLOT(598),	50,	12,
-	"",		"You feel more brave.",	"", CABAL_NONE , 
+	"",		"You feel more brave.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_ILLUSION
     },
 
@@ -3819,7 +3828,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_fireball,		TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,			SLOT(26),	25,	12,
-	"fireball",		"!Fireball!",		"", CABAL_NONE , 
+	"fireball",		"!Fireball!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_COMBAT
     },
   
@@ -3828,7 +3837,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_fireproof,	TAR_OBJ_INV,		POS_STANDING,
 	NULL,			SLOT(523),	10,	12,
-	"",			"",	"$p's protective aura fades.", CABAL_NONE , 
+	"",			"",	"$p's protective aura fades.", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_ENCHANTMENT
     },
 
@@ -3838,7 +3847,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_fire_shield,	TAR_IGNORE,	POS_STANDING,
 	&gsn_fire_shield,		SLOT(601),	200,	24,
 	"",			"!fire shield!",
-	"", CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	"", CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -3846,7 +3855,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_flamestrike,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,			SLOT(65),	20,	12,
-	"flamestrike",		"!Flamestrike!",		"", CABAL_NONE , 
+	"flamestrike",		"!Flamestrike!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_ATTACK	
     },
 
@@ -3855,7 +3864,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_fly,		TAR_CHAR_DEFENSIVE,	POS_STANDING,
 	&gsn_fly,			SLOT(56),	10,	18,
-	"",			"You slowly float to the ground.",	"", CABAL_NONE , 
+	"",			"You slowly float to the ground.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_TRANSPORTATION
     },
 
@@ -3864,7 +3873,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_floating_disc,	TAR_IGNORE,		POS_STANDING,
 	NULL,			SLOT(522),	40,	24,
-	"",			"!Floating disc!",	"", CABAL_NONE , 
+	"",			"!Floating disc!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -3873,7 +3882,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_frenzy,           TAR_CHAR_DEFENSIVE,     POS_STANDING,
         NULL,                   SLOT(504),      30,     24,
-	"",                     "Your rage ebbs.",	"", CABAL_NONE , 
+	"",                     "Your rage ebbs.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_BENEDICTIONS
     },
 
@@ -3882,7 +3891,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_galvanic_whip,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,		SLOT(655),	20,	12,
-	"galvanic whip",	"!galvanic whip!", "", CABAL_NONE , 
+	"galvanic whip",	"!galvanic whip!", "", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_COMBAT
     },
 
@@ -3891,7 +3900,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_gate,		TAR_IGNORE,		POS_FIGHTING,
 	NULL,			SLOT(83),	80,	12,
-	"",			"!Gate!",		"", CABAL_NONE , 
+	"",			"!Gate!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_TRANSPORTATION
     },
 
@@ -3900,7 +3909,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_giant_strength,	TAR_CHAR_DEFENSIVE,	POS_STANDING,
 	&gsn_giant_strength,		SLOT(39),	20,	12,
-	"",			"You feel weaker.",	"", CABAL_NONE , 
+	"",			"You feel weaker.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_ENHANCEMENT
     },
 
@@ -3909,7 +3918,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_group_defense,		TAR_IGNORE,		POS_STANDING,
 	NULL,		SLOT(586),	100,	36,
-	"",			"You feel less protected.",	"", CABAL_NONE , 
+	"",			"You feel less protected.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_BENEDICTIONS
     },
 
@@ -3918,7 +3927,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_group_healing,	TAR_CHAR_DEFENSIVE, POS_FIGHTING,
 	NULL,			SLOT(642),	500,	24,
-	"",			"!Group Heal!",		"", CABAL_NONE , 
+	"",			"!Group Heal!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_HEALING
     },
   
@@ -3928,7 +3937,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_hallucination,	TAR_CHAR_SELF,	POS_STANDING,
 	NULL,		SLOT(606),	200,	12,
 	"",			"You are again defenseless to magic.",
-	"", CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_ILLUSION
+	"", CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_ILLUSION
     },
 
     {
@@ -3936,7 +3945,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_hand_of_undead,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,		SLOT(647),	20,	24,
-	"hand of undead",	"!hand of undead!", "", CABAL_NONE , 
+	"hand of undead",	"!hand of undead!", "", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_COMBAT
     },
 
@@ -3945,7 +3954,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_harm,		TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,			SLOT(27),	35,	12,
-	"harm spell",		"!Harm!",	"", 	CABAL_NONE , 
+	"harm spell",		"!Harm!",	"", 	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_HARMFUL
     },
   
@@ -3954,7 +3963,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_haste,		TAR_CHAR_DEFENSIVE,	POS_FIGHTING,
 	&gsn_haste,		SLOT(502),	30,	12,
-	"",			"You feel yourself slow down.",	"", CABAL_NONE , 
+	"",			"You feel yourself slow down.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_ENHANCEMENT
     },
 
@@ -3963,7 +3972,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_heal,		TAR_CHAR_DEFENSIVE,	POS_FIGHTING,
 	NULL,			SLOT(28),	50,	12,
-	"",			"!Heal!",		"", CABAL_NONE , 
+	"",			"!Heal!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_HEALING
     },
   
@@ -3973,7 +3982,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_healing_light,	TAR_IGNORE,	POS_STANDING,
 	NULL,			SLOT(613),	200,	24,
 	"",			"You can light more rooms now.",	"", 
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_BENEDICTIONS
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_BENEDICTIONS
     },
 
     {
@@ -3981,7 +3990,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_heat_metal,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,			SLOT(516), 	25,	18,
-	"spell",		"!Heat Metal!",		"", CABAL_NONE , 
+	"spell",		"!Heat Metal!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -3990,7 +3999,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_helical_flow,		TAR_IGNORE,	POS_FIGHTING,
 	NULL,			SLOT(661),	80,	12,
-	"",			"!Helical Flow!",	"",CABAL_NONE , 
+	"",			"!Helical Flow!",	"",CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_TRANSPORTATION
     },
     
@@ -3999,7 +4008,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_hellfire,      TAR_CHAR_OFFENSIVE,          POS_FIGHTING,
         NULL,       SLOT(520),        20,       12,
-	"hellfire", "!hellfire!", "",	CABAL_NONE , 
+	"hellfire", "!hellfire!", "",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_ATTACK
     },
 
@@ -4009,7 +4018,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_null,	TAR_CHAR_SELF,		POS_STANDING,
 	NULL,		SLOT(617),	400,	24,
 	"holy shield",	"!617!",	"", 
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -4017,7 +4026,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_holy_word,	TAR_IGNORE,	POS_FIGHTING,
 	NULL,			SLOT(506), 	200,	24,
-	"divine wrath",		"!Holy Word!",		"", CABAL_NONE , 
+	"divine wrath",		"!Holy Word!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_BENEDICTIONS
     },
 
@@ -4026,7 +4035,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_hurricane,	TAR_IGNORE,	POS_FIGHTING,
 	NULL,		SLOT(672),	200,	24,
-	"helical flow",	"!Hurricane!",	"", CABAL_NONE , 
+	"helical flow",	"!Hurricane!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -4035,7 +4044,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_iceball,     TAR_IGNORE,     POS_FIGHTING,
         NULL,                   SLOT(513),        25,       12,
-	"iceball",         "!Iceball!", "",	CABAL_NONE , 
+	"iceball",         "!Iceball!", "",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_COMBAT
     },
 
@@ -4044,7 +4053,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_identify,		TAR_OBJ_INV,		POS_STANDING,
 	NULL,			SLOT(53),	12,	24,
-	"",			"!Identify!",		"", CABAL_NONE , 
+	"",			"!Identify!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_DETECTION
     },
 
@@ -4054,7 +4063,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_improved_detection,	TAR_CHAR_SELF,		POS_STANDING,
 	NULL,		SLOT(626),	 20,	12,
 	"",			"You feel less aware of your surroundings.",	
-	"", CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_DETECTION
+	"", CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_DETECTION
     },
 
     {
@@ -4063,7 +4072,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_improved_invis,		TAR_CHAR_DEFENSIVE,	POS_STANDING,
 	&gsn_imp_invis,		SLOT(627),	 20,	12,
 	"",			"You are no longer invisible.",		
-	"$p fades into view.", CABAL_NONE , RACE_NONE,ALIGN_NONE, GROUP_ILLUSION
+	"$p fades into view.", CLAN_NONE , RACE_NONE,ALIGN_NONE, GROUP_ILLUSION
     },
 
     {
@@ -4071,7 +4080,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_infravision,	TAR_CHAR_DEFENSIVE,	POS_STANDING,
 	NULL,			SLOT(77),	 5,	18,
-	"",			"You no longer see in the dark.",	"", CABAL_NONE , 
+	"",			"You no longer see in the dark.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_ENHANCEMENT
     },
 
@@ -4081,7 +4090,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_insanity,		TAR_CHAR_OFFENSIVE,	POS_STANDING,
 	NULL,		SLOT(616),	100,	24,
 	"",	"Now you feel yourself calm down.",	"", 
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -4089,7 +4098,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_inspire,		TAR_IGNORE,		POS_STANDING,
 	NULL,		SLOT(587),	75,	24,
-	"",			"You feel less inspired",	"", CABAL_NONE , 
+	"",			"You feel less inspired",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_BENEDICTIONS
     },
 
@@ -4099,7 +4108,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_invis,		TAR_OBJ_CHAR_DEF,	POS_STANDING,
 	&gsn_invis,		SLOT(29),	 5,	12,
 	"",			"You are no longer invisible.",		
-	"$p fades into view.", CABAL_NONE , RACE_NONE,ALIGN_NONE, GROUP_ILLUSION
+	"$p fades into view.", CLAN_NONE , RACE_NONE,ALIGN_NONE, GROUP_ILLUSION
     },
 
     {
@@ -4108,7 +4117,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_iron_golem,	TAR_IGNORE,		POS_STANDING,
 	NULL,		SLOT(664),	400,		60,
 	"",	"You gained enough mana to make more golems now.","",
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -4117,7 +4126,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_knock,	TAR_IGNORE,	POS_STANDING,
 	NULL,		SLOT(603),	20,	24,
 	"",			"!knock!",
-	"", CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	"", CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -4125,7 +4134,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_know_alignment,	TAR_CHAR_DEFENSIVE,	POS_FIGHTING,
 	NULL,			SLOT(58),	 9,	12,
-	"",			"!Know Alignment!",	"", CABAL_NONE , 
+	"",			"!Know Alignment!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_DETECTION
     },
 
@@ -4135,7 +4144,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_lesser_golem,	TAR_IGNORE,		POS_STANDING,
 	NULL,		SLOT(662),	200,		32,
 	"",	"You gained enough mana to make more golems now.","",
-	CABAL_NONE , 	RACE_NONE, ALIGN_NONE, GROUP_NONE
+	CLAN_NONE , 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -4144,7 +4153,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_lethargic_mist,	TAR_IGNORE,	POS_STANDING,
 	&gsn_lethargic_mist,	SLOT(676),	200,	24,
 	"",		"!lethargic mist!",	"", 
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_MALADICTIONS
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_MALADICTIONS
     },
 
     {
@@ -4152,7 +4161,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_lightning_bolt,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	&gsn_lightning_bolt,		SLOT(30),	15,	12,
-	"lightning bolt",	"!Lightning Bolt!",	"", CABAL_NONE , 
+	"lightning bolt",	"!Lightning Bolt!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_COMBAT
     },
 
@@ -4162,7 +4171,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_lightning_shield,	TAR_IGNORE,	POS_STANDING,
 	NULL,		SLOT(614),	150,	24,
 	"lightning shield",	"Now you can shield your room again.",	"", 
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -4170,7 +4179,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_link,		TAR_CHAR_DEFENSIVE,		POS_STANDING,
 	NULL,		SLOT(588),	125,	18,
-	"",			"!link!",	"", CABAL_NONE , 
+	"",			"!link!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_MEDITATION
     },
 
@@ -4180,7 +4189,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_lion_help,	TAR_IGNORE,		POS_STANDING,
 	NULL,		SLOT(595),	100,	12,
 	"",	"Once again, you may send a slayer lion.",	"",
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -4188,7 +4197,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_locate_object,	TAR_IGNORE,		POS_STANDING,
 	NULL,			SLOT(31),	20,	18,
-	"",			"!Locate Object!",	"", CABAL_NONE , 
+	"",			"!Locate Object!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_DETECTION
     },
 
@@ -4197,7 +4206,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_love_potion, TAR_CHAR_SELF,       POS_STANDING,
         &gsn_love_potion,  SLOT(666),        10,       0,
-	"", "You feel less dreamy-eyed.", "",	CABAL_NONE , 
+	"", "You feel less dreamy-eyed.", "",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -4206,7 +4215,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_magic_jar,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,		SLOT(596),	20,	12,
-	"",			"!magic jar!",	"", CABAL_NONE , 
+	"",			"!magic jar!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_BEGUILING
     },
 
@@ -4215,7 +4224,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_magic_missile,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	&gsn_magic_missile,		SLOT(32),	15,	12,
-	"magic missile",	"!Magic Missile!",	"", CABAL_NONE , 
+	"magic missile",	"!Magic Missile!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_COMBAT
     },
 
@@ -4225,7 +4234,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_magic_resistance,	TAR_CHAR_SELF,	POS_STANDING,
 	NULL,		SLOT(605),	200,	24,
 	"",			"You are again defenseless to magic.",
-	"", CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_PROTECTIVE
+	"", CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_PROTECTIVE
     },
 
     {
@@ -4233,7 +4242,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_magnetic_trust,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,		SLOT(656),	20,	12,
-	"magnetic trust",	"!magnetic trust!", "", CABAL_NONE , 
+	"magnetic trust",	"!magnetic trust!", "", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_COMBAT
     },
 
@@ -4242,7 +4251,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_mass_healing,	TAR_IGNORE,		POS_STANDING,
 	NULL,			SLOT(508),	100,	36,
-	"",			"!Mass Healing!",	"", CABAL_NONE , 
+	"",			"!Mass Healing!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_HEALING
     },
 
@@ -4251,7 +4260,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_mass_invis,	TAR_IGNORE,		POS_STANDING,
 	&gsn_mass_invis,	SLOT(69),	20,	24,
-	"",			"You are no longer invisible.",		"", CABAL_NONE , 
+	"",			"You are no longer invisible.",		"", CLAN_NONE , 
 	RACE_NONE,ALIGN_NONE, GROUP_ILLUSION
     },
 
@@ -4261,7 +4270,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_mass_sanctuary,	TAR_IGNORE,		POS_STANDING,
 	NULL,		SLOT(589),	200,	24,
 	"",			"The white aura around your body fades.",
-	"", CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_PROTECTIVE
+	"", CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_PROTECTIVE
     },
 
     {
@@ -4269,7 +4278,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_master_heal,	TAR_CHAR_DEFENSIVE,POS_FIGHTING,
 	NULL,			SLOT(641),	300,	12,
-	"",			"!Master Heal!",	"",CABAL_NONE , 
+	"",			"!Master Heal!",	"",CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_HEALING
     },
   
@@ -4279,7 +4288,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_meld_into_stone,	TAR_CHAR_SELF,		POS_STANDING,
 	NULL,			SLOT(584),	12,	18,
 	"",	"The stones on your skin crumble into dust.",	"",
-	CABAL_NONE , RACE_ROCKSEER, ALIGN_NONE, GROUP_PROTECTIVE
+	CLAN_NONE , RACE_ROCKSEER, ALIGN_NONE, GROUP_PROTECTIVE
     },
 
     {
@@ -4287,7 +4296,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_mend,		TAR_OBJ_INV,		POS_STANDING,
 	&gsn_mend,		SLOT(590),	150,	24,
-	"",			"!mend!",	"", CABAL_NONE , 
+	"",			"!mend!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_ENCHANTMENT
     },
 
@@ -4296,7 +4305,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_mind_wrack,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,		SLOT(650),	20,	12,
-	"mind wrack",	"!mind wrack!", "", CABAL_NONE , 
+	"mind wrack",	"!mind wrack!", "", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_COMBAT
     },
 
@@ -4305,7 +4314,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_mind_wrench,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,		SLOT(651),	20,	12,
-	"mind wrench",	"!mind wrench!", "", CABAL_NONE , 
+	"mind wrench",	"!mind wrench!", "", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_COMBAT
     },
 
@@ -4314,7 +4323,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_mist_walk,	TAR_IGNORE,	POS_FIGHTING,
 	NULL,			SLOT(658),	80,	12,
-	"",			"!Mist Walk!",		"", CABAL_NONE , 
+	"",			"!Mist Walk!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_TRANSPORTATION
     },
 
@@ -4324,7 +4333,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_mysterious_dream,	TAR_IGNORE,	POS_STANDING,
 	&gsn_mysterious_dream,	SLOT(678),	200,	24,
 	"",		"!mysterous dream!",	"", 
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_BEGUILING
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_BEGUILING
     },
 
     {
@@ -4332,7 +4341,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_nexus,            TAR_IGNORE,             POS_STANDING,
         NULL,                   SLOT(520),       150,   36,
-	"",                     "!Nexus!",		"", CABAL_NONE , 
+	"",                     "!Nexus!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_TRANSPORTATION
     },
 
@@ -4341,7 +4350,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_pass_door,	TAR_CHAR_SELF,		POS_STANDING,
 	NULL,			SLOT(74),	20,	12,
-	"",			"You feel solid again.",	"", CABAL_NONE , 
+	"",			"You feel solid again.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_TRANSPORTATION
     },
 
@@ -4350,7 +4359,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_plague,		TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	&gsn_plague,		SLOT(503),	20,	12,
-	"sickness",		"Your sores vanish.",	"", CABAL_NONE , 
+	"sickness",		"Your sores vanish.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_MALADICTIONS
     },
 
@@ -4360,7 +4369,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_poison,		TAR_OBJ_CHAR_OFF,	POS_FIGHTING,
 	&gsn_poison,		SLOT(33),	10,	12,
 	"poison",		"You feel less sick.",	
-	"The poison on $p dries up.", CABAL_NONE , 
+	"The poison on $p dries up.", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_MALADICTIONS
     },
 
@@ -4370,7 +4379,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_polymorph,	TAR_IGNORE,	POS_STANDING,
 	NULL,			SLOT(639),	250,	24,
 	"",			"You return to your own race.","", 
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_BENEDICTIONS
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_BENEDICTIONS
     },
 
     {
@@ -4378,7 +4387,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_portal,           TAR_IGNORE,             POS_STANDING,
         NULL,                   SLOT(519),       100,     24,
-	"",                     "!Portal!",		"", CABAL_NONE , 
+	"",                     "!Portal!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_TRANSPORTATION
     },
 
@@ -4388,7 +4397,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_protection_cold,	TAR_CHAR_SELF,	POS_STANDING,
 	&gsn_protection_cold,		SLOT(600),	5,	12,
 	"",			"You feel less protected",
-	"", CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_PROTECTIVE
+	"", CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_PROTECTIVE
     },
 
     {
@@ -4396,7 +4405,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_protection_evil,	TAR_CHAR_SELF,		POS_STANDING,
 	NULL,			SLOT(34), 	5,	12,
-	"",			"You feel less protected.",	"", CABAL_NONE , 
+	"",			"You feel less protected.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_PROTECTIVE
     },
 
@@ -4405,7 +4414,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_protection_good,	TAR_CHAR_SELF,		POS_STANDING,
 	NULL,			SLOT(666), 	5,	12,
-	"",			"You feel less protected.",	"", CABAL_NONE , 
+	"",			"You feel less protected.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_PROTECTIVE
     },
 
@@ -4415,7 +4424,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_protection_heat,	TAR_CHAR_SELF,	POS_STANDING,
 	&gsn_protection_heat,		SLOT(599),	5,	12,
 	"",			"You feel less protected",
-	"", CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_PROTECTIVE
+	"", CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_PROTECTIVE
     },
 
     {
@@ -4424,7 +4433,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_protection_negative,	TAR_CHAR_SELF,	POS_STANDING,
 	NULL,		SLOT(636),	20,	12,
 	"",		"You feel less protected from your own attacks.",
-	"", CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_PROTECTIVE
+	"", CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_PROTECTIVE
     },
 
     {
@@ -4432,7 +4441,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_protective_shield,      TAR_CHAR_SELF,   POS_STANDING,
         &gsn_protective_shield,       SLOT(572),        70,       12,
-	"", "Your shield fades away.", "", CABAL_NONE , 
+	"", "Your shield fades away.", "", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_PROTECTIVE
     },
 
@@ -4442,7 +4451,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_power_kill,	TAR_CHAR_OFFENSIVE,	POS_STANDING,
 	NULL,		SLOT(604),	200,	0,
 	"powerful word",		"You gain back your durability.",
-	"", CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	"", CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -4451,7 +4460,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_power_stun,	TAR_CHAR_OFFENSIVE,	POS_STANDING,
 	&gsn_power_stun,		SLOT(625),	200,	24,
 	"",	"You can move now.",	"", 
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -4459,7 +4468,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_quantum_spike,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,		SLOT(657),	20,	12,
-	"quantum spike",	"!quantum spike!", "", CABAL_NONE , 
+	"quantum spike",	"!quantum spike!", "", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_COMBAT
     },
 
@@ -4468,7 +4477,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_ranger_staff,      TAR_IGNORE,          POS_FIGHTING,
         NULL,             SLOT(519),        75,       0,
-	"", "!ranger staff!", "", CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	"", "!ranger staff!", "", CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -4476,7 +4485,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_ray_of_truth,     TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
         &gsn_ray_of_truth,      SLOT(518),      20,     12,
-	"ray of truth",         "!Ray of Truth!",	"", CABAL_NONE , 
+	"ray of truth",         "!Ray of Truth!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_BENEDICTIONS
     },
 
@@ -4485,7 +4494,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_recharge,		TAR_OBJ_INV,		POS_STANDING,
 	NULL,			SLOT(517),	60,	24,
-	"",			"!Recharge!",		"", CABAL_NONE , 
+	"",			"!Recharge!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_ENCHANTMENT
     },
 
@@ -4494,7 +4503,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_refresh,		TAR_CHAR_DEFENSIVE,	POS_STANDING,
 	NULL,			SLOT(81),	12,	18,
-	"refresh",		"!Refresh!",		"", CABAL_NONE , 
+	"refresh",		"!Refresh!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_HEALING
     },
 
@@ -4503,7 +4512,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,        TAR_IGNORE,          POS_STANDING,
         NULL,             SLOT(668),        0,       0,
-	"", "!!", "",	CABAL_NONE , 
+	"", "!!", "",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -4512,7 +4521,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_remove_curse,	TAR_OBJ_CHAR_DEF,	POS_STANDING,
 	&gsn_remove_curse,	SLOT(35),	 5,	12,
-	"",			"!Remove Curse!",	"", CABAL_NONE , 
+	"",			"!Remove Curse!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_CURATIVE
     },
 
@@ -4521,7 +4530,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_remove_fear, 	TAR_CHAR_DEFENSIVE,	POS_STANDING,
 	NULL,		SLOT(582),	5,	12,
-	"",	"!Remove Fear!", "", CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	"",	"!Remove Fear!", "", CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -4530,7 +4539,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         spell_remove_tattoo, TAR_CHAR_DEFENSIVE,       POS_STANDING,
         NULL,       SLOT(552),        10,       0,
 	"", 	"!remove tattoo!", 	"",	
-        CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
+        CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -4539,7 +4548,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_resilience,	TAR_CHAR_DEFENSIVE, POS_STANDING,
 	NULL,			SLOT( 638),	 50,	12,
 	"",	"You feel less armored to draining attacks.", "", 
-	CABAL_NONE ,RACE_NONE, ALIGN_NONE, GROUP_PROTECTIVE
+	CLAN_NONE ,RACE_NONE, ALIGN_NONE, GROUP_PROTECTIVE
     },
 
     {
@@ -4548,16 +4557,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_restoring_light,	TAR_CHAR_DEFENSIVE,	POS_STANDING,
 	NULL,			SLOT(643),	50,	24,
 	"",			"!restoring light!","", 
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_BENEDICTIONS
-    },
-
-    {
-	"sanctify lands",    { 93, 41, 93, 93,53, 93, 93, 93 ,93,93,93,93,93},
-	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
-	spell_sanctify_lands,	TAR_IGNORE,	POS_STANDING,
-	NULL,			SLOT(673),	200,	24,
-	"",		"!sanctify lands!",	"", 
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_BENEDICTIONS
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_BENEDICTIONS
     },
 
     {
@@ -4566,7 +4566,16 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_sanctuary,	TAR_CHAR_DEFENSIVE,	POS_STANDING,
 	&gsn_sanctuary,		SLOT(36),	75,	12,
 	"",			"The white aura around your body fades.",
-	"", CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_PROTECTIVE
+	"", CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_PROTECTIVE
+    },
+
+    {
+	"sanctify lands",    { 93, 41, 93, 93,53, 93, 93, 93 ,93,93,93,93,93},
+	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
+	spell_sanctify_lands,	TAR_IGNORE,	POS_STANDING,
+	NULL,			SLOT(673),	200,	24,
+	"",		"!sanctify lands!",	"", 
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_BENEDICTIONS
     },
 
     {
@@ -4574,7 +4583,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_sand_storm,	TAR_IGNORE,	POS_FIGHTING,
 	&gsn_sand_storm,		SLOT(577),	200,	24,
-	"storm of sand",	"The sands melts in your eyes.","", CABAL_NONE , 
+	"storm of sand",	"The sands melts in your eyes.","", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -4583,7 +4592,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_scream,	TAR_IGNORE,	POS_FIGHTING,
 	&gsn_scream,		SLOT(578),	200,	24,
-	"scream",	"You can hear again.",	"", CABAL_NONE , 
+	"scream",	"You can hear again.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -4592,7 +4601,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_severity_force,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,		SLOT(622),	20,	12,
-	"severity force",		"!severity force!", "", CABAL_NONE , 
+	"severity force",		"!severity force!", "", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -4602,7 +4611,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_shield,		TAR_CHAR_DEFENSIVE,	POS_STANDING,
 	&gsn_shield,		SLOT(67),	12,	18,
 	"",	"Your force shield shimmers then fades away.", 	"", 
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_PROTECTIVE
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_PROTECTIVE
     },
 
     {
@@ -4611,7 +4620,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_shielding,	TAR_CHAR_OFFENSIVE,	POS_STANDING,
 	&gsn_shielding,		SLOT(591),	250,	12,
 	"",			"You feel the glow of the True source in the distance",	
-	"", CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	"", CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -4619,7 +4628,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_shocking_grasp,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,			SLOT(53),	15,	12,
-	"shocking grasp",	"!Shocking Grasp!",	"", CABAL_NONE , 
+	"shocking grasp",	"!Shocking Grasp!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_COMBAT
     },
 
@@ -4629,7 +4638,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_shocking_trap,	TAR_IGNORE,	POS_STANDING,
 	NULL,		SLOT(615),	150,	24,
 	"shocking trap",	"Now you can trap more rooms with shocks.","", 
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -4637,7 +4646,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_sleep,		TAR_CHAR_OFFENSIVE,	POS_STANDING,
 	&gsn_sleep,		SLOT(38),	15,	12,
-	"",			"You feel less tired.",	"", CABAL_NONE , 
+	"",			"You feel less tired.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_BEGUILING
     },
 
@@ -4646,7 +4655,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_slow,             TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
         &gsn_slow,                   SLOT(515),      30,     12,
-	"",                     "You feel yourself speed up.",	"", CABAL_NONE , 
+	"",                     "You feel yourself speed up.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_MALADICTIONS
     },
 
@@ -4655,7 +4664,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_solar_flight,	TAR_IGNORE,	POS_FIGHTING,
 	NULL,			SLOT(659),	80,	12,
-	"",			"!Solar Flight!",	"",CABAL_NONE , 
+	"",			"!Solar Flight!",	"",CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_TRANSPORTATION
     },
 
@@ -4664,7 +4673,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_sonic_resonance,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,		SLOT(649),	20,	12,
-	"sonic resonance",	"!sonic resonance!", "", CABAL_NONE , 
+	"sonic resonance",	"!sonic resonance!", "", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_COMBAT
     },
 
@@ -4673,7 +4682,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_spectral_furor,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,		SLOT(646),	20,	12,
-	"spectral furor",	"!spectral furor!", "", CABAL_NONE , 
+	"spectral furor",	"!spectral furor!", "", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_COMBAT
     },
 
@@ -4683,7 +4692,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_stone_golem,	TAR_IGNORE,		POS_STANDING,
 	NULL,		SLOT(663),	300,		48,
 	"",	"You gained enough mana to make more golems now.","",
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -4691,7 +4700,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_stone_skin,	TAR_CHAR_SELF,		POS_STANDING,
 	NULL,			SLOT(66),	12,	18,
-	"",			"Your skin feels soft again.",	"", CABAL_NONE , 
+	"",			"Your skin feels soft again.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_PROTECTIVE
     },
 
@@ -4700,7 +4709,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_sulfurus_spray,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,		SLOT(652),	20,	12,
-	"sulfurus spray",	"!sulfurus spray!", "", CABAL_NONE , 
+	"sulfurus spray",	"!sulfurus spray!", "", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_COMBAT
     },
 
@@ -4709,7 +4718,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_summon,		TAR_IGNORE,		POS_STANDING,
 	NULL,			SLOT(40),	50,	12,
-	"",			"!Summon!",		"", CABAL_NONE , 
+	"",			"!Summon!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_TRANSPORTATION
     },
 
@@ -4719,7 +4728,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_summon_shadow,	TAR_CHAR_SELF,		POS_STANDING,
 	NULL,		SLOT(620),	200,	24,
 	"",	"You can summon more shadows, now.",	"", 
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -4727,7 +4736,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_super_heal,	TAR_CHAR_DEFENSIVE,POS_FIGHTING,
 	NULL,			SLOT(640),	100,	12,
-	"",			"!Super Heal!",		"", CABAL_NONE , 
+	"",			"!Super Heal!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_HEALING
     },
   
@@ -4736,7 +4745,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{1,1,1,1,1,1,1,1,1, 1,1,1,1},
         spell_tattoo, TAR_CHAR_DEFENSIVE,       POS_STANDING,
         NULL,       SLOT(551),        10,       0,
-	"", "!tattoo!", "",CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	"", "!tattoo!", "",CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -4744,7 +4753,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_teleport,		TAR_CHAR_SELF,		POS_FIGHTING,
 	&gsn_teleport,	 		SLOT( 2),	35,	12,
-	"",			"!Teleport!",		"", CABAL_NONE , 
+	"",			"!Teleport!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_TRANSPORTATION
     },
 
@@ -4753,7 +4762,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_turn,	TAR_IGNORE,	POS_FIGHTING,
 	NULL,		SLOT(597),	50,	12,
-	"",	"You can handle turn spell again.",	"", CABAL_NONE , 
+	"",	"You can handle turn spell again.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -4762,7 +4771,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_vam_blast,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,		SLOT(611),	20,	12,
-	"vampiric blast",	"!Vampiric Blast!", "",CABAL_NONE , 
+	"vampiric blast",	"!Vampiric Blast!", "",CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -4771,7 +4780,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_ventriloquate,	TAR_IGNORE,		POS_STANDING,
 	NULL,			SLOT(41),	 5,	12,
-	"",			"!Ventriloquate!",	"", CABAL_NONE , 
+	"",			"!Ventriloquate!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_ILLUSION
     },
 
@@ -4781,7 +4790,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_web,		TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	&gsn_web,		SLOT(592),	50,	12,
 	"",		"The webs around you dissolve.",
-	"", CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_ATTACK
+	"", CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_ATTACK
     },
 
     {
@@ -4790,7 +4799,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_witch_curse,	TAR_CHAR_OFFENSIVE,	POS_STANDING,
 	&gsn_witch_curse,		SLOT(602),	150,	24,
 	"",			"You gain back your durability.",
-	"", CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	"", CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -4798,7 +4807,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_wrath, TAR_CHAR_OFFENSIVE,       POS_FIGHTING,
 	&gsn_wrath,       SLOT(553),        20,       12,
-	"heavenly wrath", "The curse wears off.", "",	CABAL_NONE , 
+	"heavenly wrath", "The curse wears off.", "",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_BENEDICTIONS
     },
 
@@ -4807,7 +4816,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_weaken,		TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	&gsn_weaken,		SLOT(68),	20,	12,
-	"spell",		"You feel stronger.",	"", CABAL_NONE , 
+	"spell",		"You feel stronger.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_MALADICTIONS
     },
 
@@ -4816,7 +4825,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_word_of_recall,	TAR_CHAR_SELF,		POS_RESTING,
 	NULL,			SLOT(42),	 5,	12,
-	"",			"!Word of Recall!",	"", CABAL_NONE , 
+	"",			"!Word of Recall!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_TRANSPORTATION
     },
 
@@ -4829,7 +4838,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_acid_breath,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	&gsn_acid_breath,		SLOT(200),	100,	24,
-	"blast of acid",	"!Acid Breath!",	"", CABAL_NONE , 
+	"blast of acid",	"!Acid Breath!",	"", CLAN_NONE , 
 	RACE_TOP, ALIGN_NONE, GROUP_DRACONIAN
     },
 
@@ -4838,7 +4847,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,		SLOT(629),	200,	24,
-	"cloud of blistering desert heat","The smoke leaves your eyes.",	"", CABAL_NONE , 
+	"cloud of blistering desert heat","The smoke leaves your eyes.",	"", CLAN_NONE , 
 	RACE_TOP, ALIGN_NONE, GROUP_DRACONIAN
     },
 
@@ -4847,7 +4856,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_fire_breath,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	&gsn_fire_breath,		SLOT(201),	200,	24,
-	"blast of flame",	"The smoke leaves your eyes.",	"", CABAL_NONE , 
+	"blast of flame",	"The smoke leaves your eyes.",	"", CLAN_NONE , 
 	RACE_TOP, ALIGN_NONE, GROUP_DRACONIAN
     },
 
@@ -4856,7 +4865,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_frost_breath,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	&gsn_frost_breath,		SLOT(202),	125,	24,
-	"blast of frost",	"!Frost Breath!",	"", CABAL_NONE , 
+	"blast of frost",	"!Frost Breath!",	"", CLAN_NONE , 
 	RACE_TOP, ALIGN_NONE, GROUP_DRACONIAN
     },
 
@@ -4865,7 +4874,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_gas_breath,	TAR_IGNORE,		POS_FIGHTING,
 	&gsn_gas_breath,	SLOT(203),	175,	24,
-	"blast of gas",		"!Gas Breath!",		"", CABAL_NONE , 
+	"blast of gas",		"!Gas Breath!",		"", CLAN_NONE , 
 	RACE_TOP, ALIGN_NONE, GROUP_DRACONIAN
     },
 
@@ -4874,7 +4883,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_lightning_breath,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	&gsn_lightning_breath,		SLOT(204),	150,	24,
-	"blast of lightning",	"!Lightning Breath!",	"", CABAL_NONE , 
+	"blast of lightning",	"!Lightning Breath!",	"", CLAN_NONE , 
 	RACE_TOP, ALIGN_NONE, GROUP_DRACONIAN
     },
 
@@ -4883,7 +4892,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,		SLOT(632),	200,	24,
-	"stroke of lightning",	"!lightning stroke!",	"", CABAL_NONE , 
+	"stroke of lightning",	"!lightning stroke!",	"", CLAN_NONE , 
 	RACE_TOP, ALIGN_NONE, GROUP_DRACONIAN
     },
 
@@ -4892,7 +4901,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,	TAR_CHAR_DEFENSIVE,	POS_STANDING,
 	NULL,		SLOT( 630),	 20,	12,
-	"",		"You feel less armored against magic.",	"", CABAL_NONE,
+	"",		"You feel less armored against magic.",	"", CLAN_NONE,
 	RACE_TOP, ALIGN_NONE, GROUP_PROTECTIVE
     },
 
@@ -4901,7 +4910,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,	TAR_IGNORE,	POS_FIGHTING,
 	NULL,		SLOT(631),	200,	24,
-	"gas of paralyzation",	"You feel you can move again.",	"", CABAL_NONE , 
+	"gas of paralyzation",	"You feel you can move again.",	"", CLAN_NONE , 
 	RACE_TOP, ALIGN_NONE, GROUP_DRACONIAN
     },
 
@@ -4910,7 +4919,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,		SLOT(633),	200,	24,
-	"repulsion",	"!repulsion!",	"", CABAL_NONE , 
+	"repulsion",	"!repulsion!",	"", CLAN_NONE , 
 	RACE_TOP, ALIGN_NONE, GROUP_DRACONIAN
     },
 
@@ -4919,7 +4928,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,	TAR_IGNORE,	POS_FIGHTING,
 	NULL,		SLOT(628),	200,	24,
-	"sleep gas",	"You feel drained.",	"", CABAL_NONE , 
+	"sleep gas",	"You feel drained.",	"", CLAN_NONE , 
 	RACE_TOP, ALIGN_NONE, GROUP_DRACONIAN
     },
 
@@ -4928,7 +4937,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,	TAR_CHAR_OFFENSIVE,	POS_FIGHTING,
 	NULL,		SLOT(634),	200,	24,
-	"slow gas",	"You can move faster now.",	"", CABAL_NONE , 
+	"slow gas",	"You can move faster now.",	"", CLAN_NONE , 
 	RACE_TOP, ALIGN_NONE, GROUP_DRACONIAN
     },
 
@@ -4941,7 +4950,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1,1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_FIGHTING,
         &gsn_crush,            	SLOT( 0),       0,      18,
-	"crush",                 "!crush!",		"", CABAL_NONE , 
+	"crush",                 "!crush!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_FIGHTMASTER
     },
 
@@ -4950,7 +4959,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_general_purpose,  TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
         NULL,                   SLOT(401),      0,      12,
-	"general purpose ammo", "!General Purpose Ammo!",	"", CABAL_NONE , 
+	"general purpose ammo", "!General Purpose Ammo!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
  
@@ -4959,7 +4968,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_high_explosive,   TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
         NULL,                   SLOT(402),      0,      12,
-	"high explosive ammo",  "!High Explosive Ammo!",	"", CABAL_NONE , 
+	"high explosive ammo",  "!High Explosive Ammo!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -4968,7 +4977,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1,1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_FIGHTING,
         &gsn_tail,            	SLOT( 0),       0,      18,
-	"tail",                 "!Tail!",		"", CABAL_NONE , 
+	"tail",                 "!Tail!",		"", CLAN_NONE , 
 	RACE_TOP, ALIGN_NONE, GROUP_FIGHTMASTER
     },
 
@@ -4980,7 +4989,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_null,	TAR_IGNORE,	POS_STANDING,
 	&gsn_arrow,	SLOT(0),	0,	0,
 	"arrow",	"!arrow!",	"", 
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_WEAPONSMASTER
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_WEAPONSMASTER
     },
 
     {
@@ -4988,7 +4997,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 2, 2, 1, 1,1,1,1,1,1, 1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_FIGHTING,
         &gsn_axe,            	SLOT( 0),       0,      0,
-	"",                     "!Axe!",		"", CABAL_NONE , 
+	"",                     "!Axe!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_WEAPONSMASTER
     },
 
@@ -4998,7 +5007,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_null,	TAR_IGNORE,	POS_STANDING,
 	&gsn_bow,		SLOT(0),	0,	12,
 	"bow",		"!bow!",	"", 
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_WEAPONSMASTER
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_WEAPONSMASTER
     },
 
     {
@@ -5006,7 +5015,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 2, 2, 1, 1,1,1,1,1,1,1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_FIGHTING,
         &gsn_dagger,            SLOT( 0),       0,      0,
-	"",                     "!Dagger!",		"", CABAL_NONE , 
+	"",                     "!Dagger!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_WEAPONSMASTER
     },
  
@@ -5015,7 +5024,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 2, 2, 1, 1,1,1,1,1,1,1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_FIGHTING,
         &gsn_flail,            	SLOT( 0),       0,      0,
-	"",                     "!Flail!",		"", CABAL_NONE , 
+	"",                     "!Flail!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_WEAPONSMASTER
     },
 
@@ -5025,7 +5034,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_null,	TAR_IGNORE,	POS_STANDING,
 	&gsn_lance,	SLOT(0),	0,	0,
 	"lance",	"!lance!",	"", 
-	CABAL_KNIGHT , RACE_NONE, ALIGN_NONE, GROUP_CABAL
+	CLAN_KNIGHT , RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -5033,7 +5042,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 2, 2, 1, 1,1,1,1,1,1,1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_FIGHTING,
         &gsn_mace,            	SLOT( 0),       0,      0,
-	"",                     "!Mace!",		"", CABAL_NONE , 
+	"",                     "!Mace!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_WEAPONSMASTER
     },
 
@@ -5042,7 +5051,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 2, 2, 1, 1,1,1,1,1,1,1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_FIGHTING,
         &gsn_polearm,           SLOT( 0),       0,      0,
-	"",                     "!Polearm!",		"", CABAL_NONE , 
+	"",                     "!Polearm!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_WEAPONSMASTER
     },
     
@@ -5051,7 +5060,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 2, 1, 1, 1,1,1,1,1,1,1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_FIGHTING,
 	&gsn_shield_block,	SLOT(0),	0,	0,
-	"",			"!Shield!",		"", CABAL_NONE , 
+	"",			"!Shield!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_DEFENSIVE
     },
  
@@ -5060,7 +5069,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 2, 2, 1, 1,1,1,1,1,1,1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_FIGHTING,
         &gsn_spear,            	SLOT( 0),       0,      12,
-	"spear",                     "!Spear!",		"", CABAL_NONE , 
+	"spear",                     "!Spear!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_WEAPONSMASTER
     },
 
@@ -5069,7 +5078,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 2, 2, 1, 1,1,1,1,1,1,1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_FIGHTING,
         &gsn_sword,            	SLOT( 0),       0,      0,
-	"",                     "!sword!",		"", CABAL_NONE , 
+	"",                     "!sword!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_WEAPONSMASTER
     },
 
@@ -5078,7 +5087,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 2, 2, 1, 1,1,1,1,1,1,1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_FIGHTING,
         &gsn_whip,            	SLOT( 0),       0,      0,
-	"",                     "!Whip!",	"", CABAL_NONE , 
+	"",                     "!Whip!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_WEAPONSMASTER
     },
 
@@ -5087,7 +5096,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 2, 2, 1, 1,1,1,1,1,1,1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_FIGHTING,
         &gsn_second_weapon,            	SLOT( 0),       0,      0,
-	"",	"!second weapon!",	"",	CABAL_NONE , 
+	"",	"!second weapon!",	"",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_WEAPONSMASTER
     },
 
@@ -5096,7 +5105,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,        TAR_CHAR_OFFENSIVE,          POS_STANDING,
         &gsn_ambush,                    SLOT(0),        0,       12,
-	"surprise attack", "!Ambush!", "",	CABAL_NONE , 
+	"surprise attack", "!Ambush!", "",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5105,7 +5114,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{1,1,1,1,1,1,1,1,1,1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_FIGHTING,
         &gsn_area_attack,     SLOT(0),        0,      0,
-	"",         "!Area Attack!", 	"",	CABAL_NONE, 
+	"",         "!Area Attack!", 	"",	CLAN_NONE, 
 	RACE_NONE, ALIGN_NONE, GROUP_FIGHTMASTER
     },
 
@@ -5114,7 +5123,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,      TAR_IGNORE,          POS_STANDING,
         &gsn_assassinate,       SLOT(0),        0,       18,
-	"assassination attempt", "!assassinate!", "",	CABAL_NONE , 
+	"assassination attempt", "!assassinate!", "",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5123,7 +5132,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1,1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_STANDING,
         &gsn_backstab,          SLOT( 0),        0,     12,
-	"backstab",             "!Backstab!",		"", CABAL_NONE , 
+	"backstab",             "!Backstab!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5132,7 +5141,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1,1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_FIGHTING,
         &gsn_bash,            	SLOT( 0),       0,      18,
-	"bash",                 "!Bash!",		"", CABAL_NONE , 
+	"bash",                 "!Bash!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_FIGHTMASTER
     },
 
@@ -5141,7 +5150,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1,1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_FIGHTING,
         &gsn_bash_door,        	SLOT( 0),       0,      18,
-	"bash",                 "!Bash Door!",		"", CABAL_NONE , 
+	"bash",                 "!Bash Door!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_FIGHTMASTER
     },
 
@@ -5150,7 +5159,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,		TAR_IGNORE,          POS_FIGHTING,
         &gsn_bear_call,		SLOT(518),	50,       0,
-	"", "You feel you can handle more bears now.", "",	CABAL_NONE , 
+	"", "You feel you can handle more bears now.", "",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5159,7 +5168,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1,1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_FIGHTING,
         &gsn_berserk,        	SLOT( 0),       0,      24,
-	"",                     "You feel your pulse slow down.",	"", CABAL_NONE , 
+	"",                     "You feel your pulse slow down.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5168,7 +5177,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_CHAR_OFFENSIVE,   POS_STANDING,
 	&gsn_blackjack,		SLOT(0),    0,       8,
-	"blackjack",		"Your head feels better.","", CABAL_NONE , 
+	"blackjack",		"Your head feels better.","", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5177,7 +5186,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_STANDING,
 	&gsn_blind_fighting,		SLOT(0),	0,	0,
-	"",			"!blind fighting!",	"", CABAL_NONE , 
+	"",			"!blind fighting!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_FIGHTMASTER
     },
 
@@ -5186,7 +5195,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,   		TAR_IGNORE,             POS_FIGHTING,
         &gsn_blindness_dust,    SLOT(0),        20,       18,
-	"",                     "!blindness dust!", "",	 CABAL_NONE , 
+	"",                     "!blindness dust!", "",	 CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
  
@@ -5195,7 +5204,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_FIGHTING,
         &gsn_blink,             SLOT( 0),        0,     0,
-	"",                     "!Blink!",		"", CABAL_NONE , 
+	"",                     "!Blink!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5204,7 +5213,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,        TAR_IGNORE,          POS_STANDING,
         &gsn_butcher,             SLOT(0),        0,       0,
-	"", "!butcher!", "",	CABAL_NONE , 
+	"", "!butcher!", "",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5213,7 +5222,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,      TAR_IGNORE,          POS_FIGHTING,
         &gsn_caltraps,       SLOT(0),        0,       18,
-	"caltraps", "Your feet feel less sore.", "",	CABAL_NONE , 
+	"caltraps", "Your feet feel less sore.", "",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5222,7 +5231,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,        TAR_IGNORE,           POS_STANDING,
         &gsn_camouflage,         SLOT(0),        0,       24,
-	"",         "!Camouflage!", "",	CABAL_NONE , 
+	"",         "!Camouflage!", "",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5231,7 +5240,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_STANDING,
 	&gsn_move_camf,			SLOT(0),	0,	12,
-	"",		"!move camouflaged!",	"", CABAL_LIONS , 
+	"",		"!move camouflaged!",	"", CLAN_LIONS , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5240,7 +5249,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1,1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_STANDING,
         &gsn_camp,            	SLOT( 0),       0,      24,
-	"camp",          "You can handle more camps now.","", CABAL_NONE , 
+	"camp",          "You can handle more camps now.","", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5249,7 +5258,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,        TAR_CHAR_OFFENSIVE,          POS_FIGHTING,
         &gsn_circle,             SLOT(0),        0,       18,
-	"circle stab", "!Circle!", "",		CABAL_NONE , 
+	"circle stab", "!Circle!", "",		CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5258,7 +5267,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,	TAR_CHAR_OFFENSIVE,	POS_STANDING,
 	&gsn_control_animal,	SLOT( 0),	 5,	12,
-	"",			"You feel more self-confident.",	"", CABAL_NONE , 
+	"",			"You feel more self-confident.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_BEGUILING
     },
 
@@ -5267,7 +5276,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,     TAR_CHAR_OFFENSIVE,     POS_STANDING,
         &gsn_cleave,         SLOT(0),        0,       24,
-	"cleave",         "!Cleave!", "",	CABAL_NONE , 
+	"cleave",         "!Cleave!", "",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5276,7 +5285,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_FIGHTING,
         &gsn_concentrate,        SLOT( 0),        0,     18,
-	"",      "You can concentrate on new fights.",	"",CABAL_NONE , 
+	"",      "You can concentrate on new fights.",	"",CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_FIGHTMASTER
     },
  
@@ -5285,7 +5294,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,        TAR_IGNORE,           POS_STANDING,
         &gsn_counter,         SLOT(0),        0,       0,
-	"",         "!Counter!", "",		CABAL_NONE , 
+	"",         "!Counter!", "",		CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_FIGHTMASTER
     },
 
@@ -5294,17 +5303,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_STANDING,
 	&gsn_critical,			SLOT(0),	0,	18,
-	"",			"!critical strike!",	"", CABAL_NONE , 
+	"",			"!critical strike!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
-    },
-
-    {
-	"detect hidden",	{ 93, 93, 93, 93, 93, 93, 93, 93 ,93,93,93,93,93},
-	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
-	spell_detect_hidden,	TAR_CHAR_SELF,		POS_STANDING,
-	NULL,		SLOT(44),	 5,	12,
-	"",			"You feel less aware of your surroundings.",	
-	"", CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_DETECTION
     },
 
     {
@@ -5312,7 +5312,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_CHAR_SELF,		POS_STANDING,
 	&gsn_detect_sneak,		SLOT(0),	20,	18,
-	"",			"!detect sneak!",	"", CABAL_NONE , 
+	"",			"!detect sneak!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_DETECTION
     },
 
@@ -5321,7 +5321,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_FIGHTING,
 	&gsn_dirt,		SLOT( 0),	0,	12,
-	"kicked dirt",		"You rub the dirt out of your eyes.",	"", CABAL_NONE , 
+	"kicked dirt",		"You rub the dirt out of your eyes.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5330,7 +5330,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_FIGHTING,
         &gsn_disarm,            SLOT( 0),        0,     18,
-	"",                     "!Disarm!",		"", CABAL_NONE , 
+	"",                     "!Disarm!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_WEAPONSMASTER
     },
  
@@ -5339,7 +5339,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_FIGHTING,
         &gsn_dodge,             SLOT( 0),        0,     0,
-	"",                     "!Dodge!",		"", CABAL_NONE , 
+	"",                     "!Dodge!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_DEFENSIVE
     },
  
@@ -5348,7 +5348,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,             TAR_CHAR_OFFENSIVE,           POS_STANDING,
         &gsn_dual_backstab,       SLOT(0),        0,       0,
-	"second backstab",      "!dual backstab!", "",		CABAL_NONE , 
+	"second backstab",      "!dual backstab!", "",		CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5357,7 +5357,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_OBJ_INV,		POS_STANDING,
 	&gsn_enchant_sword,	SLOT(0),	100,	24,
-	"",	"!Enchant sword!",	"", CABAL_NONE , RACE_NONE, 
+	"",	"!Enchant sword!",	"", CLAN_NONE , RACE_NONE, 
 	ALIGN_NONE, GROUP_NONE
     },
 
@@ -5366,7 +5366,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,        TAR_CHAR_SELF,          POS_FIGHTING,
         &gsn_endure,             SLOT(0),        0,       24,
-	"", "You feel susceptible to magic again.", "",	CABAL_NONE , 
+	"", "You feel susceptible to magic again.", "",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5375,7 +5375,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  2,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_FIGHTING,
         &gsn_enhanced_damage,   SLOT( 0),        0,     0,
-	"",                     "!Enhanced Damage!",	"", CABAL_NONE , 
+	"",                     "!Enhanced Damage!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_FIGHTMASTER
     },
 
@@ -5384,7 +5384,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_entangle,      TAR_CHAR_OFFENSIVE,   POS_FIGHTING,
         &gsn_entangle,       SLOT(568),        40,       12,
-	"entanglement", "You feel less entangled.", "",	CABAL_NONE , 
+	"entanglement", "You feel less entangled.", "",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5393,7 +5393,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,	  	POS_RESTING,
 	&gsn_envenom,		SLOT(0),	0,	12,
-	"",			"!Envenom!",		"", CABAL_NONE , 
+	"",			"!Envenom!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5402,7 +5402,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_STANDING,
 	&gsn_escape,		SLOT( 0),	0,	24,
-	"",	"!escape!","", CABAL_NONE , 
+	"",	"!escape!","", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5411,7 +5411,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,      TAR_CHAR_OFFENSIVE,          POS_FIGHTING,
         &gsn_explode,       SLOT(0),        100,       24,
-	"flame", "The smoke leaves your eyes.", "",	CABAL_NONE , 
+	"flame", "The smoke leaves your eyes.", "",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5420,7 +5420,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 2,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_FIGHTING,
 	&gsn_hand_to_hand,	SLOT( 0),	0,	0,
-	"",			"!Hand to Hand!",	"", CABAL_NONE , 
+	"",			"!Hand to Hand!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_FIGHTMASTER
     },
 
@@ -5429,7 +5429,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null, 	TAR_IGNORE,	POS_FIGHTING,
 	&gsn_hara_kiri,		SLOT(0),	50,	12,
-	"",	"You feel you gain your life again.", "", CABAL_NONE , 
+	"",	"You feel you gain your life again.", "", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5438,7 +5438,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,        TAR_CHAR_DEFENSIVE,          POS_STANDING,
         &gsn_herbs,             SLOT(0),        0,       30,
-	"", "The herbs look more plentiful here.", "",	CABAL_NONE , 
+	"", "The herbs look more plentiful here.", "",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5447,7 +5447,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,             TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
         &gsn_kick,              SLOT( 0),        0,     12,
-	"kick",                 "!Kick!",		"", CABAL_NONE , 
+	"kick",                 "!Kick!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_FIGHTMASTER
     },
 
@@ -5456,7 +5456,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  2,  2, 1, 1, 1, 1,1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_SLEEPING,
 	&gsn_light_res,		SLOT( 0),	0,	0,
-	"",			"Light Resistance","", CABAL_NONE , 
+	"",			"Light Resistance","", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5466,7 +5466,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_null, 	TAR_CHAR_DEFENSIVE,	POS_FIGHTING,
 	&gsn_lion_call,		SLOT(0),	50,	12,
 	"",		"!lion call!", 		"", 
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -5474,7 +5474,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_STANDING,
 	&gsn_make_arrow,	SLOT(0),	 50,	24,
-	"",		"!make arrow!",		"", CABAL_NONE , 
+	"",		"!make arrow!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5483,7 +5483,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_STANDING,
 	&gsn_make_bow,		SLOT(0),	 200,	24,
-	"",		"!make bow!",		"", CABAL_NONE , 
+	"",		"!make bow!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5493,7 +5493,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_null,	TAR_CHAR_SELF,		POS_STANDING,
 	&gsn_mental_attack,		SLOT(0),	200,	24,
 	"",	"!mental attack!",	"", 
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -5501,7 +5501,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,        TAR_CHAR_OFFENSIVE,          POS_FIGHTING,
         &gsn_nerve,             SLOT(0),        0,       18,
-	"", "Your nerves feel better.", "",	CABAL_NONE , 
+	"", "Your nerves feel better.", "",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5510,7 +5510,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_FIGHTING,
         &gsn_parry,             SLOT( 0),        0,     0,
-	"",                     "!Parry!",		"", CABAL_NONE , 
+	"",                     "!Parry!",		"", CLAN_NONE , 
 	RACE_NONE,ALIGN_NONE, GROUP_DEFENSIVE
     },
 
@@ -5519,7 +5519,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,        TAR_IGNORE,          POS_STANDING,
         &gsn_perception,             SLOT(0),        0,       0,
-	"", "!perception!", "",	CABAL_NONE , 
+	"", "!perception!", "",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5528,7 +5528,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1,1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_STANDING,
         &gsn_push,            	SLOT( 0),       0,      18,
-	"push",          "!push!","", CABAL_NONE , 
+	"push",          "!push!","", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5537,7 +5537,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_FIGHTING,
         &gsn_rescue,            SLOT( 0),        0,     12,
-	"",                     "!Rescue!",		"", CABAL_NONE , 
+	"",                     "!Rescue!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_DEFENSIVE
     },
 
@@ -5547,7 +5547,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_null,	TAR_CHAR_SELF,		POS_STANDING,
 	&gsn_sense_life,	SLOT(623),	20,	12,
 	"",	"You lost the power to sense life.",	"", 
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -5556,7 +5556,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_null,	TAR_CHAR_SELF,		POS_STANDING,
 	&gsn_settraps,		SLOT(0),	200,	24,
 	"trap",	"You can set more traps now.",	"", 
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -5565,7 +5565,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_null,	TAR_CHAR_SELF,		POS_STANDING,
 	&gsn_shield_cleave,		SLOT(0),	200,	24,
 	"",	"!shield cleave!",	"", 
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -5573,7 +5573,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_STANDING,
 	&gsn_smithing,			SLOT(0),	10,	18,
-	"",			"!smithing!",	"", CABAL_NONE , 
+	"",			"!smithing!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5582,7 +5582,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 2, 2, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_FIGHTING,
 	&gsn_spell_craft,	SLOT(0),    0,       0,
-	"spell craft",		"!spell craft!","", CABAL_NONE , 
+	"spell craft",		"!spell craft!","", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5591,7 +5591,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,      TAR_CHAR_OFFENSIVE,          POS_STANDING,
         &gsn_strangle,       SLOT(0),        0,       8,
-	"strangulation", "Your neck feels better.", "",	CABAL_NONE , 
+	"strangulation", "Your neck feels better.", "",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5600,7 +5600,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_STANDING,
 	&gsn_swimming,		SLOT(0),	0,	0,
-	"",			"!swimming!",	"", CABAL_NONE , 
+	"",			"!swimming!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5609,7 +5609,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,             TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
         &gsn_target,              SLOT( 0),        0,     12,
-	"target",                 "!Kick!",		"", CABAL_NONE , 
+	"target",                 "!Kick!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5618,7 +5618,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,      TAR_CHAR_OFFENSIVE,       POS_FIGHTING,
         &gsn_throw,       SLOT(0),        0,       18,
-	"throw", "!throw!", "",	CABAL_NONE , RACE_NONE,ALIGN_NONE, GROUP_NONE
+	"throw", "!throw!", "",	CLAN_NONE , RACE_NONE,ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -5626,7 +5626,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null, 	TAR_IGNORE,	POS_FIGHTING,
 	&gsn_tiger_power,	SLOT(0),	0,	12,
-	"",	"You feel your tigers escaped.", "", CABAL_NONE , 
+	"",	"You feel your tigers escaped.", "", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5635,7 +5635,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,      TAR_IGNORE,       POS_STANDING,
         &gsn_track,       SLOT(0),        0,       12,
-	"", "!track!", "",CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	"", "!track!", "",CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -5643,7 +5643,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_FIGHTING,
 	&gsn_trip,		SLOT( 0),	0,	12,
-	"trip",			"!Trip!",		"", CABAL_NONE , 
+	"trip",			"!Trip!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_FIGHTMASTER
     },
 
@@ -5652,7 +5652,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,	TAR_IGNORE,		POS_STANDING,
 	&gsn_vampire,		SLOT(0),	100,	12,
-	"",	"Now you are familer to other creatures.",	"", CABAL_NONE , 
+	"",	"Now you are familer to other creatures.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5661,7 +5661,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1,1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_STANDING,
         &gsn_vampiric_bite,          SLOT( 0),        0,     12,
-	"vampiric bite",             "!vampiric bite!",	"", CABAL_NONE , 
+	"vampiric bite",             "!vampiric bite!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5670,7 +5670,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,      TAR_CHAR_OFFENSIVE,          POS_STANDING,
 	&gsn_vampiric_touch,       SLOT(0),        0,       8,
-	"vampiric touch", "You wake up from nightmares.", "",	CABAL_NONE , 
+	"vampiric touch", "You wake up from nightmares.", "",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5679,7 +5679,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,      TAR_CHAR_SELF,          POS_FIGHTING,
         &gsn_vanish,       SLOT(521),        25,       18,
-	"", "!vanish!", "", 	CABAL_NONE , RACE_NONE,ALIGN_NONE, GROUP_NONE
+	"", "!vanish!", "", 	CLAN_NONE , RACE_NONE,ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -5687,7 +5687,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,      TAR_IGNORE,       POS_FIGHTING,
         &gsn_warcry,       SLOT(0),        30,       12,
-	"", "Your warcry has worn off.", "",	CABAL_NONE , 
+	"", "Your warcry has worn off.", "",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5697,7 +5697,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_null,	TAR_CHAR_SELF,		POS_STANDING,
 	&gsn_weapon_cleave,	SLOT(0),	200,	24,
 	"",	"!weapon cleave!",	"", 
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -5705,7 +5705,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 2,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_FIGHTING,
         &gsn_second_attack,     SLOT( 0),        0,     0,
-	"",                     "!Second Attack!",	"", CABAL_NONE , 
+	"",                     "!Second Attack!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_FIGHTMASTER
     },
 
@@ -5715,7 +5715,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_null,	TAR_CHAR_SELF,		POS_STANDING,
 	&gsn_secondary_attack,	SLOT(0),	200,	24,
 	"",	"!secondary attack!",	"", 
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -5723,7 +5723,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_FIGHTING,
         &gsn_third_attack,      SLOT( 0),        0,     0,
-	"",                     "!Third Attack!",	"", CABAL_NONE , 
+	"",                     "!Third Attack!",	"", CLAN_NONE , 
 	RACE_NONE,ALIGN_NONE, GROUP_FIGHTMASTER
     },
 
@@ -5732,7 +5732,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{1,1,1,1,1,1,1,1,1,1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_FIGHTING,
         &gsn_fourth_attack,     SLOT(0),        0,      0,
-	"",                     "!Fourth Attack!", 	"",	CABAL_NONE , 
+	"",                     "!Fourth Attack!", 	"",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_FIGHTMASTER
     },
 
@@ -5741,7 +5741,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{1,1,1,1,1,1,1,1,1,1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_FIGHTING,
         &gsn_fifth_attack,     SLOT(0),        0,      0,
-	"",          "!Fifth Attack!", 	"",	CABAL_NONE, 
+	"",          "!Fifth Attack!", 	"",	CLAN_NONE, 
 	RACE_NONE, ALIGN_NONE, GROUP_FIGHTMASTER
     },
 
@@ -5752,7 +5752,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_STANDING,
 	&gsn_blue_arrow,	SLOT(0),	 50,	12,
-	"",		"!blue arrow!",	"", CABAL_NONE , 
+	"",		"!blue arrow!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5761,7 +5761,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_SLEEPING,
 	&gsn_fast_healing,	SLOT( 0),	0,	0,
-	"",			"!Fast Healing!",	"", CABAL_NONE , 
+	"",			"!Fast Healing!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_MEDITATION
     },
 
@@ -5770,7 +5770,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_STANDING,
 	&gsn_green_arrow,	SLOT(0),	 50,	12,
-	"",		"!green arrow!",	"", CABAL_NONE , 
+	"",		"!green arrow!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5779,7 +5779,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_FIGHTING,
         &gsn_grip,            SLOT( 0),        0,     18,
-	"",                     "!Grip!",		"", CABAL_NONE , 
+	"",                     "!Grip!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_WEAPONSMASTER
     },
  
@@ -5788,7 +5788,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 2,  2,  1,  2, 2, 2, 1, 2, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_RESTING,
 	&gsn_haggle,		SLOT( 0),	0,	0,
-	"",			"!Haggle!",		"", CABAL_NONE , 
+	"",			"!Haggle!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5797,7 +5797,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_RESTING,
 	&gsn_hide,		SLOT( 0),	 0,	18,
-	"",			"!Hide!",		"", CABAL_NONE , 
+	"",			"!Hide!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5807,7 +5807,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_null,		TAR_OBJ_INV,		POS_STANDING,
 	&gsn_katana,		SLOT(0),	100,	24,
 	"",		"You can now make another katana.",	"",
-	CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -5815,7 +5815,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_FIGHTING,
 	&gsn_lay_hands,		SLOT( 0),	0,	12,
-	"",	"You may heal more innocents now.",	"",CABAL_NONE , 
+	"",	"You may heal more innocents now.",	"",CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5824,7 +5824,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 2,  2,  2,  2, 2, 2, 2, 2, 2, 2,2,2,2},
 	spell_null,		TAR_IGNORE,		POS_RESTING,
 	&gsn_lore,		SLOT( 0),	0,	36,
-	"",			"!Lore!",		"", CABAL_NONE , 
+	"",			"!Lore!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5833,7 +5833,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 2,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_FIGHTING,
 	&gsn_master_hand,	SLOT( 0),	0,	0,
-	"",			"!Master Hand!",	"", CABAL_NONE , 
+	"",			"!Master Hand!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_FIGHTMASTER
     },
 
@@ -5842,7 +5842,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 2, 2, 1, 1,1,1,1,1,1,1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_FIGHTING,
         &gsn_master_sword,           SLOT( 0),       0,      0,
-	"",                     "!master sword!",	"", CABAL_NONE , 
+	"",                     "!master sword!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_WEAPONSMASTER
     },
 
@@ -5851,7 +5851,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  2,  2, 1, 1, 1, 1,1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_SLEEPING,
 	&gsn_meditation,	SLOT( 0),	0,	0,
-	"",			"Meditation",		"", CABAL_NONE , 
+	"",			"Meditation",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_MEDITATION
     },
 
@@ -5860,7 +5860,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_STANDING,
 	&gsn_peek,		SLOT( 0),	 0,	 0,
-	"",			"!Peek!",		"", CABAL_NONE , 
+	"",			"!Peek!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5869,7 +5869,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_STANDING,
 	&gsn_pick_lock,		SLOT( 0),	 0,	12,
-	"",			"!Pick!",		"", CABAL_NONE , 
+	"",			"!Pick!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5878,7 +5878,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,     	TAR_IGNORE,            POS_FIGHTING,
         &gsn_poison_smoke,      SLOT(0),        20, 	18,
-	"",                     "!poison smoke!", "",	CABAL_NONE , 
+	"",                     "!poison smoke!", "",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5887,7 +5887,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,        TAR_IGNORE,          POS_STANDING,
         &gsn_quiet_movement,             SLOT(0),        0,       0,
-	"", "!quiet movement!", "",	CABAL_NONE , 
+	"", "!quiet movement!", "",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5897,7 +5897,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_STANDING,
 	&gsn_recall,		SLOT( 0),	0,	24,
-	"",			"!Recall!",		"", CABAL_NONE , 
+	"",			"!Recall!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 */
@@ -5907,7 +5907,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_STANDING,
 	&gsn_red_arrow,	SLOT(0),	 50,	12,
-	"",		"!red arrow!",	"", CABAL_NONE , 
+	"",		"!red arrow!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5916,7 +5916,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_STANDING,
 	&gsn_sneak,		SLOT( 0),	 0,	12,
-	"",			"You no longer feel stealthy.",	"", CABAL_NONE , 
+	"",			"You no longer feel stealthy.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5925,7 +5925,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_STANDING,
 	&gsn_steal,		SLOT( 0),	 0,	12,
-	"",			"!Steal!",		"", CABAL_NONE , 
+	"",			"!Steal!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5934,7 +5934,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  2,  2, 2, 2, 2, 2, 2, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_STANDING,
 	&gsn_scrolls,		SLOT( 0),	0,	12,
-	"",			"!Scrolls!",		"", CABAL_NONE , 
+	"",			"!Scrolls!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_WIZARD
     },
 
@@ -5943,7 +5943,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  2,  2, 2, 2, 2, 2, 2, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_STANDING,
 	&gsn_staves,		SLOT( 0),	0,	12,
-	"",			"!Staves!",		"", CABAL_NONE , 
+	"",			"!Staves!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_WIZARD
     },
     
@@ -5952,7 +5952,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,        TAR_CHAR_DEFENSIVE,          POS_FIGHTING,
         &gsn_tame,             SLOT(0),        0,       24,
-	"", "!tame!", "",CABAL_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	"", "!tame!", "",CLAN_NONE , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -5960,7 +5960,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,      TAR_IGNORE,   POS_SLEEPING,
         &gsn_trance,       SLOT(0),        0,       0,
-	"", "", "",	CABAL_NONE , RACE_NONE,ALIGN_NONE, GROUP_MEDITATION
+	"", "", "",	CLAN_NONE , RACE_NONE,ALIGN_NONE, GROUP_MEDITATION
     },
 
     {
@@ -5968,7 +5968,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_STANDING,
 	&gsn_white_arrow,	SLOT(0),	 50,	12,
-	"",		"!white arrow!",	"", CABAL_NONE , 
+	"",		"!white arrow!",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -5977,11 +5977,11 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  2,  2, 2, 2, 2, 2, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_STANDING,
 	&gsn_wands,		SLOT( 0),	0,	12,
-	"",			"!Wands!",		"", CABAL_NONE , 
+	"",			"!Wands!",		"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_WIZARD
     },
 
-/* cabals */
+/* clans */
 
     {
 	"mortal strike",	{ 63,63,63,63,63,63,63,63,63,63,63,63,63},
@@ -5989,7 +5989,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_null,	TAR_CHAR_SELF,		POS_STANDING,
 	&gsn_mortal_strike,		SLOT(0),	200,	24,
 	"mortal strike",	"!mortal strike!",	"", 
-	CABAL_BATTLE , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	CLAN_BATTLE , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -5998,7 +5998,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_disgrace,	TAR_CHAR_OFFENSIVE,		POS_STANDING,
 	NULL,		SLOT(619),	500,	12,
 	"",	"You feel yourself getting prouder.",	"", 
-	CABAL_CHAOS , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	CLAN_CHAOS , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -6007,7 +6007,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_evil_spirit,	TAR_IGNORE,		POS_STANDING,
 	&gsn_evil_spirit,		SLOT(618),	1000,	36,
 	"evil spirit",	"Your body regains its full spirit.",	"", 
-	CABAL_INVADER , RACE_NONE, ALIGN_NONE, GROUP_NONE
+	CLAN_INVADER , RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
     {
@@ -6015,7 +6015,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_ruler_aura,    TAR_CHAR_SELF,          POS_STANDING,
         NULL,             SLOT(667),        20,       12,
-	"", "Your ruler aura fades.", 	"",	CABAL_RULER , 
+	"", "Your ruler aura fades.", 	"",	CLAN_RULER , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -6024,17 +6024,17 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{1,1,1,1,1,1,1,1,1,1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_STANDING,
         &gsn_bandage,     SLOT(0),        0,      0,
-	"",        "You feel less healthy.", 	"",	CABAL_BATTLE, 
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+	"",        "You feel less healthy.", 	"",	CLAN_BATTLE, 
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
-	"cabal recall",		{ 10,10,10,10,10,10,10,10,10,10,10,10,10},
+	"clan recall",		{ 10,10,10,10,10,10,10,10,10,10,10,10,10},
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_STANDING,
-	&gsn_cabal_recall,		SLOT( 0),	0,	24,
-	"",	"You may pray for transportation again.","", CABAL_BATTLE , 
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+	&gsn_clan_recall,		SLOT( 0),	0,	24,
+	"",	"You may pray for transportation again.","", CLAN_BATTLE , 
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6042,8 +6042,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_DEAD,
         &gsn_wanted,                   SLOT(0),        0,       0,
-        "",                     "!Wanted!", "",		CABAL_RULER,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "",                     "!Wanted!", "",		CLAN_RULER,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6051,8 +6051,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,             TAR_IGNORE,             POS_DEAD,
         &gsn_judge,              SLOT(0),        0,       0,
-        "",                     "!Judge!", "",		CABAL_RULER,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "",                     "!Judge!", "",		CLAN_RULER,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6060,8 +6060,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,      TAR_CHAR_SELF,       POS_FIGHTING,
         &gsn_bloodthirst,       SLOT(0),        0,       12,
-        "", "Your bloody rage fades away.", "",	CABAL_BATTLE,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "", "Your bloody rage fades away.", "",	CLAN_BATTLE,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6069,8 +6069,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,      TAR_CHAR_SELF,       POS_STANDING,
         &gsn_spellbane,       SLOT(0),        0,       12,
-        "spellbane", "You feel less resistant to magic.", "",	CABAL_BATTLE,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "spellbane", "You feel less resistant to magic.", "",	CLAN_BATTLE,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6078,8 +6078,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,      TAR_CHAR_SELF,       POS_FIGHTING,
         &gsn_resistance,       SLOT(0),        0,       24,
-        "", "You feel less tough.", "",	CABAL_BATTLE,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "", "You feel less tough.", "",	CLAN_BATTLE,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6087,8 +6087,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,      TAR_IGNORE,       POS_STANDING,
         &gsn_deathblow,       SLOT(0),        0,       0,
-        "", "!deathblow!", "",	CABAL_BATTLE,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "", "!deathblow!", "",	CLAN_BATTLE,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6096,8 +6096,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_transform,      TAR_CHAR_SELF,       POS_STANDING,
         NULL,       SLOT(522),        100,       24,
-        "", "You feel less healthy.", "",	CABAL_SHALAFI,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "", "You feel less healthy.", "",	CLAN_SHALAFI,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6105,8 +6105,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_mental_knife,      TAR_CHAR_OFFENSIVE,       POS_FIGHTING,
         NULL,       SLOT(524),        35,       12,
-        "mental knife", "Your mental pain dissipates.", "",CABAL_SHALAFI,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "mental knife", "Your mental pain dissipates.", "",CLAN_SHALAFI,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6114,8 +6114,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_demon_summon,      TAR_CHAR_SELF,       POS_FIGHTING,
         &gsn_demon_summon,       SLOT(525),        100,       12,
-        "", "You feel your summoning power return.", "", CABAL_SHALAFI,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "", "You feel your summoning power return.", "", CLAN_SHALAFI,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6123,8 +6123,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_scourge,      TAR_IGNORE,       POS_FIGHTING,
         NULL,       SLOT(526),        50,       18,
-        "Scourge of the Violet Spider", "!scourge!", "",CABAL_SHALAFI,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "Scourge of the Violet Spider", "!scourge!", "",CLAN_SHALAFI,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6132,8 +6132,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_manacles,      TAR_CHAR_OFFENSIVE,       POS_FIGHTING,
         NULL,       SLOT(528),        75,       12,
-        "", "Your shackles dissolve.", "", 	CABAL_RULER,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "", "Your shackles dissolve.", "", 	CLAN_RULER,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6141,8 +6141,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_shield_ruler,      TAR_IGNORE,       POS_FIGHTING,
         NULL,       SLOT(529),        60,       12,
-        "", "!shield!", "",	CABAL_RULER,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "", "!shield!", "",	CLAN_RULER,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6150,8 +6150,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,      TAR_IGNORE,       POS_STANDING,
         &gsn_guard,       SLOT(0),        0,       12,
-        "", "", "",	CABAL_KNIGHT,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "", "", "",	CLAN_KNIGHT,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6159,8 +6159,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_guard_call,      TAR_IGNORE,       POS_FIGHTING,
 	&gsn_guard_call,       SLOT(530),        75,       12,
-        "", 	"!guard call!", 	"",	CABAL_RULER,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "", 	"!guard call!", 	"",	CLAN_RULER,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6168,8 +6168,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_nightwalker,      TAR_IGNORE,       POS_FIGHTING,
 	&gsn_nightwalker,       SLOT(531),        75,       12,
-        "", "You feel your summoning power return.", "",CABAL_INVADER,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "", "You feel your summoning power return.", "",CLAN_INVADER,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6177,8 +6177,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_eyes,      TAR_IGNORE,       POS_FIGHTING,
 	NULL,       SLOT(532),        75,       12,
-        "", "!eyes of intrigue!", "",	CABAL_INVADER,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "", "!eyes of intrigue!", "",	CLAN_INVADER,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6186,8 +6186,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,      TAR_IGNORE,       POS_STANDING,
         &gsn_fade,       SLOT(0),        0,       24,
-        "", "!fade!", "",	CABAL_INVADER,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "", "!fade!", "",	CLAN_INVADER,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6195,8 +6195,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_shadow_cloak,      TAR_CHAR_DEFENSIVE,       POS_STANDING,
 	NULL,       SLOT(533),        10,       12,
-        "", "The shadows no longer protect you.", "",	CABAL_INVADER,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "", "The shadows no longer protect you.", "",	CLAN_INVADER,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6204,8 +6204,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_nightfall,      TAR_IGNORE,       POS_STANDING,
 	NULL,       SLOT(534),        50,       12,
-        "", "You are now able to control lights.", "",	CABAL_INVADER,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "", "You are now able to control lights.", "",	CLAN_INVADER,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6213,8 +6213,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_garble,      TAR_CHAR_DEFENSIVE,       POS_FIGHTING,
 	&gsn_garble,       SLOT(535),        30,       12,
-        "", "Your tongue untwists.", "",	CABAL_CHAOS,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "", "Your tongue untwists.", "",	CLAN_CHAOS,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6222,8 +6222,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_mirror,      TAR_CHAR_DEFENSIVE,       POS_STANDING,
 	&gsn_mirror,       SLOT(536),        40,       12,
-	"", "You fade away.", "",	CABAL_CHAOS,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+	"", "You fade away.", "",	CLAN_CHAOS,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6231,8 +6231,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_confuse,      TAR_CHAR_OFFENSIVE,       POS_FIGHTING,
 	&gsn_confuse,       SLOT(537),        20,       12,
-	"", "You feel less confused.", "",	CABAL_CHAOS,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+	"", "You feel less confused.", "",	CLAN_CHAOS,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6240,8 +6240,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_doppelganger,      TAR_CHAR_DEFENSIVE,       POS_STANDING,
 	&gsn_doppelganger,       SLOT(527),        75,       12,
-	"", "You return to your native form.", "",	CABAL_CHAOS,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+	"", "You return to your native form.", "",	CLAN_CHAOS,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6249,8 +6249,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_chaos_blade,      TAR_IGNORE,       POS_STANDING,
         &gsn_chaos_blade,       SLOT(550),        60,       12,
-        "", "!chaos blade!", "",	CABAL_CHAOS,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "", "!chaos blade!", "",	CLAN_CHAOS,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
    {
@@ -6259,7 +6259,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         spell_stalker,      TAR_IGNORE,       POS_STANDING,
         &gsn_stalker,       SLOT(554),        100,       12,
         "", "You feel up to summoning another stalker.", "",
-	CABAL_RULER, 	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+	CLAN_RULER, 	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6267,8 +6267,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_randomizer,      TAR_IGNORE,       POS_STANDING,
         &gsn_randomizer,       SLOT(555),        200,       24,
-        "", "You feel your randomness regenerating.", "", CABAL_CHAOS,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "", "You feel your randomness regenerating.", "", CLAN_CHAOS,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6276,8 +6276,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_tesseract,      TAR_IGNORE,       POS_STANDING,
         &gsn_tesseract,       SLOT(556),        150,       12,
-        "", "!tesseract!", "",	CABAL_SHALAFI,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "", "!tesseract!", "",	CLAN_SHALAFI,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6285,8 +6285,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,      TAR_IGNORE,       POS_STANDING,
         &gsn_trophy,       SLOT(0),        30,       12,
-        "", "You feel up to making another trophy.", "",	CABAL_BATTLE,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "", "You feel up to making another trophy.", "",	CLAN_BATTLE,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6294,8 +6294,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,      TAR_IGNORE,       POS_STANDING,
         &gsn_truesight,       SLOT(0),        50,       12,
-        "", "Your eyes see less truly.", "",	CABAL_BATTLE,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "", "Your eyes see less truly.", "",	CLAN_BATTLE,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6304,7 +6304,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         spell_brew,      TAR_OBJ_INV,       POS_STANDING,
         &gsn_brew,       SLOT(557),        25,       12,
         "", "You feel like you can start brewing again.", "",
-	CABAL_SHALAFI,	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+	CLAN_SHALAFI,	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6312,8 +6312,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_shadowlife,      TAR_CHAR_OFFENSIVE,       POS_STANDING,
         &gsn_shadowlife,       SLOT(558),        80,       12,
-        "", "Your feel more shadowy.", "",	CABAL_INVADER,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "", "Your feel more shadowy.", "",	CLAN_INVADER,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6321,8 +6321,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_ruler_badge,      TAR_CHAR_SELF,   POS_STANDING,
         &gsn_ruler_badge,       SLOT(560),        50,       12,
-        "", "!ruler badge!", "",	CABAL_RULER,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "", "!ruler badge!", "",	CLAN_RULER,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6330,8 +6330,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_remove_badge,      TAR_CHAR_SELF,   POS_STANDING,
         &gsn_remove_badge,       SLOT(561),        100,       12,
-        "", "!remove badge!", "",	CABAL_RULER,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "", "!remove badge!", "",	CLAN_RULER,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6339,8 +6339,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_golden_aura,      TAR_IGNORE,   POS_STANDING,
         NULL,       SLOT(564),        25,       12,
-        "", "You feel the golden aura dissipate.", "",	CABAL_KNIGHT,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "", "You feel the golden aura dissipate.", "",	CLAN_KNIGHT,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6348,8 +6348,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_dragonplate,      TAR_IGNORE,   POS_STANDING,
         NULL,       SLOT(565),        60,       12,
-        "", "", "",	CABAL_KNIGHT,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "", "", "",	CLAN_KNIGHT,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6357,8 +6357,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_squire,      TAR_IGNORE,   POS_STANDING,
         &gsn_squire,       SLOT(566),        100,       12,
-        "", "You feel up to worrying about a new squire.", "",	CABAL_KNIGHT,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "", "You feel up to worrying about a new squire.", "",	CLAN_KNIGHT,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6366,7 +6366,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_dragonsword,      TAR_IGNORE,   POS_STANDING,
         &gsn_dragonsword,       SLOT(567),        70,       12,
-	"", "", "",	CABAL_KNIGHT,	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+	"", "", "",	CLAN_KNIGHT,	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6374,8 +6374,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_holy_armor,      TAR_CHAR_SELF,   POS_RESTING,
         &gsn_knight,       SLOT(569),        20,       12,
-        "", "You are less protected from harm.", "",	CABAL_KNIGHT,	
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "", "You are less protected from harm.", "",	CLAN_KNIGHT,	
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
 
@@ -6384,8 +6384,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_disperse,      TAR_IGNORE,   	POS_STANDING,
         &gsn_disperse,       SLOT(573),        100,       24,
-        "", "You feel up to doing more dispersing.", "",CABAL_CHAOS,
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+        "", "You feel up to doing more dispersing.", "",CLAN_CHAOS,
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6393,7 +6393,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,      TAR_IGNORE,       POS_STANDING,
         &gsn_hunt,       SLOT(0),        0,       6,
-	"", "!hunt!", "",	CABAL_HUNTER , RACE_NONE, ALIGN_NONE, GROUP_CABAL
+	"", "!hunt!", "",	CLAN_HUNTER , RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6401,8 +6401,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_find_object,	TAR_IGNORE,		POS_STANDING,
 	NULL,			SLOT(585),	20,	18,
-	"",			"!Find Object!",	"", CABAL_HUNTER , 
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+	"",			"!Find Object!",	"", CLAN_HUNTER , 
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     { 
@@ -6410,8 +6410,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_SLEEPING,
 	&gsn_path_find,		SLOT( 0),	0,	0,
-	"",			"!endur!",	"", CABAL_HUNTER , 
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+	"",			"!endur!",	"", CLAN_HUNTER , 
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6419,7 +6419,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_STANDING,
 	&gsn_riding,			SLOT(0),	0,	6,
-	"",			"!riding!",	"", CABAL_KNIGHT , 
+	"",			"!riding!",	"", CLAN_KNIGHT , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -6428,8 +6428,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_wolf,	TAR_IGNORE,		POS_STANDING,
 	NULL,		SLOT(593),	100,	12,
-	"",	"You feel you can handle more wolfs now.",	"", CABAL_HUNTER , 
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+	"",	"You feel you can handle more wolfs now.",	"", CLAN_HUNTER , 
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6437,8 +6437,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 2, 1, 1, 1,1,1,1,1,1,1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_FIGHTING,
 	&gsn_armor_use,	SLOT(0),	0,	0,
-	"",			"!Armor Use!",		"", CABAL_HUNTER , 
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+	"",			"!Armor Use!",		"", CLAN_HUNTER , 
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     { 
@@ -6446,8 +6446,8 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_SLEEPING,
 	&gsn_world_find,	SLOT( 0),	0,	0,
-	"",			"!world find!",	"", CABAL_HUNTER , 
-	RACE_NONE, ALIGN_NONE, GROUP_CABAL
+	"",			"!world find!",	"", CLAN_HUNTER , 
+	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6456,7 +6456,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_take_revenge,	TAR_IGNORE,		POS_STANDING,
 	NULL,		SLOT(624),	50,		12,
 	"",	"!take revenge!",	"", 
-	CABAL_HUNTER , RACE_NONE, ALIGN_NONE, GROUP_CABAL
+	CLAN_HUNTER , RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
     {
@@ -6465,7 +6465,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_null,		TAR_IGNORE,		POS_FIGHTING,
 	&gsn_mastering_spell,	SLOT(0),    0,       0,
 	"mastering spell",		"!mastering spell!","",
-	CABAL_SHALAFI, RACE_NONE, ALIGN_NONE, GROUP_CABAL
+	CLAN_SHALAFI, RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 
 /* object spells */
@@ -6475,7 +6475,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_terangreal,	TAR_CHAR_OFFENSIVE,	POS_STANDING,
 	&gsn_terangreal,	SLOT(607),	 5,	12,
-	"terangreal",		"You are awake again.",	"", CABAL_NONE , 
+	"terangreal",		"You are awake again.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -6484,7 +6484,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_kassandra,	TAR_CHAR_SELF,		POS_STANDING,
 	&gsn_kassandra,	SLOT(608),	 5,	12,
-	"",		"You can heal yourself again.",	"", CABAL_NONE , 
+	"",		"You can heal yourself again.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -6493,7 +6493,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_sebat,		TAR_CHAR_SELF,		POS_STANDING,
 	&gsn_sebat,		SLOT(609),	 5,	12,
-	"",			"You can protect yourself again.",	"", CABAL_NONE , 
+	"",			"You can protect yourself again.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
@@ -6502,7 +6502,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_matandra,	TAR_CHAR_OFFENSIVE,	POS_STANDING,
 	&gsn_matandra,		SLOT(610),	 5,	12,
-	"holy word",	"You can use kassandra again.",	"", CABAL_NONE , 
+	"holy word",	"You can use kassandra again.",	"", CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     }
 

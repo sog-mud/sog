@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.6 1998-05-09 12:20:17 fjoe Exp $
+ * $Id: spellfun2.c,v 1.7 1998-05-27 08:47:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -579,9 +579,9 @@ void spell_mana_transfer(int sn, int level, CHAR_DATA *ch, void *vo, int target)
       return;
     }
 
-  if (ch->cabal != victim->cabal)
+  if (ch->clan != victim->clan)
     {
-      send_to_char("You may only cast this spell on fellow cabal members.\n\r",ch);
+      send_to_char("You may only cast this spell on fellow clan members.\n\r",ch);
       return;
     }
 
@@ -1078,9 +1078,9 @@ void spell_shadow_cloak(int sn, int level, CHAR_DATA *ch, void *vo, int target)
     CHAR_DATA *victim = (CHAR_DATA *) vo;
     AFFECT_DATA af;
 
-    if (ch->cabal != victim->cabal)
+    if (ch->clan != victim->clan)
       {
-	send_to_char("You may only use this spell on fellow cabal members.\n\r",ch);
+	send_to_char("You may only use this spell on fellow clan members.\n\r",ch);
 	return;
       }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.9 1998-05-11 19:23:34 fjoe Exp $
+ * $Id: spellfun.c,v 1.10 1998-05-27 08:47:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -78,13 +78,15 @@ int skill_lookup(const char *name)
 {
 	int sn;
 
-	for (sn = 0; sn < MAX_SKILL; sn++)
-	{
+	if (name == NULL)
+		return -1;
+
+	for (sn = 0; sn < MAX_SKILL; sn++) {
 		if (skill_table[sn].name == NULL)
-		    break;
+			break;
 		if (LOWER(name[0]) == LOWER(skill_table[sn].name[0])
-		&&   !str_prefix(name, skill_table[sn].name))
-		    return sn;
+		&&  !str_prefix(name, skill_table[sn].name))
+			return sn;
 	}
 
 	return -1;
@@ -93,26 +95,21 @@ int skill_lookup(const char *name)
 int find_spell(CHAR_DATA *ch, const char *name)
 {
 	/* finds a spell the character can cast if possible */
-	int sn, found = -1;
+	int sn;
 
 	if (IS_NPC(ch))
 		return skill_lookup(name);
 
-	for (sn = 0; sn < MAX_SKILL; sn++)
-	{
+	for (sn = 0; sn < MAX_SKILL; sn++) {
 		if (skill_table[sn].name == NULL)
-		    break;
+			break;
 		if (LOWER(name[0]) == LOWER(skill_table[sn].name[0])
-		&&  !str_prefix(name,skill_table[sn].name))
-		{
-		    if (found == -1)
-			found = sn;
-		    if (ch->level >= skill_table[sn].skill_level[ch->class]
-		    &&  ch->pcdata->learned[sn] > 0)
-			    return sn;
-		}
+		&&  !str_prefix(name, skill_table[sn].name)
+		&&  SKILL_OK(ch, sn)
+		&&  ch->pcdata->learned[sn] > 0)
+			return sn;
 	}
-	return found;
+	return -1;
 }
 
 
@@ -351,6 +348,7 @@ void do_cast(CHAR_DATA *ch, char *argument)
 	int sn;
 	int target;
 	int cast_far = 0, door, range;
+	int spell_level;
 
 	/*
 	 * Switched NPC's can cast spells, but others can't.
@@ -379,21 +377,18 @@ void do_cast(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	if (ch->cabal == CABAL_BATTLE && !IS_IMMORTAL(ch)) 
-	{
-	  send_to_char("You are a BattleRager, not a filthy magician!\n\r",ch);
-	  return;
+	if (ch->clan == CLAN_BATTLE && !IS_IMMORTAL(ch)) {
+		send_to_char("You are a BattleRager, not a filthy magician!\n\r",ch);
+		return;
 	}
 
-	if ( (sn = find_spell(ch,arg1)) < 0 
-	      || ch_skill_nok_nomessage(ch,sn))
-	{
+	if ((sn = find_spell(ch, arg1)) < 0) {
 		send_to_char("You don't know any spells of that name.\n\r", ch);
 		return;
 	}
 
 	if (ch->class == CLASS_VAMPIRE
-		&& !IS_VAMPIRE(ch) && skill_table[sn].cabal == CABAL_NONE)
+		&& !IS_VAMPIRE(ch) && skill_table[sn].clan == CLAN_NONE)
 	{
 	  send_to_char("You must transform to vampire before casting!\n\r",ch);
 	  return;
@@ -411,8 +406,8 @@ void do_cast(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	if (!cabal_ok(ch,sn))
-	  return;
+	if (!clan_ok(ch, sn))
+		return;
 
 	if (IS_SET(ch->in_room->room_flags,ROOM_NO_MAGIC))
 	{
@@ -421,12 +416,13 @@ void do_cast(CHAR_DATA *ch, char *argument)
 	    return;
 	}
 
-	if (ch->level + 2 == skill_table[sn].skill_level[ch->class])
+	spell_level = skill_is_native(ch, sn) ? 1 : skill_table[sn].skill_level[ch->class];
+	if (ch->level + 2 == spell_level)
 		mana = 50;
 	else
 		mana = UMAX(
 		    skill_table[sn].min_mana,
-		    100 / (2 + ch->level - skill_table[sn].skill_level[ch->class]));
+		    100 / (2 + ch->level - spell_level));
 
 	/*
 	 * Locate targets.
@@ -716,9 +712,9 @@ void do_cast(CHAR_DATA *ch, char *argument)
 		  check_improve(ch, gsn_spell_craft, FALSE, 1);
 		 }
 
-		if (ch->cabal == CABAL_SHALAFI &&
+		if (ch->clan == CLAN_SHALAFI &&
 		    ch->level > skill_table[gsn_mastering_spell].skill_level[ch->class]
-		    && cabal_ok(ch,gsn_mastering_spell))
+		    && clan_ok(ch,gsn_mastering_spell))
 		 {
 		  if (number_percent() < get_skill(ch,gsn_mastering_spell))
 			{

@@ -1,5 +1,5 @@
 /*
- * $Id: act_hera.c,v 1.13 1998-05-21 10:29:41 efdi Exp $
+ * $Id: act_hera.c,v 1.14 1998-05-27 08:47:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,7 @@
 ***************************************************************************/
 
 /*
- * $Id: act_hera.c,v 1.13 1998-05-21 10:29:41 efdi Exp $
+ * $Id: act_hera.c,v 1.14 1998-05-27 08:47:18 fjoe Exp $
  */
 #include <sys/types.h>
 #include <sys/time.h>
@@ -151,7 +151,7 @@ void do_enter( CHAR_DATA *ch, char *argument)
             return;
         }
 
-	act_printf(ch, portal, NULL, TO_ROOM, POS_RESTING,
+	act_nprintf(ch, portal, NULL, TO_ROOM, POS_RESTING,
 		   MOUNTED(ch) ? HERA_STEPS_INTO_RIDING_ON :
 				 HERA_STEPS_INTO,
 		   MOUNTED(ch) ? MOUNTED(ch)->short_descr : NULL);
@@ -250,12 +250,12 @@ void do_enter( CHAR_DATA *ch, char *argument)
 
 void do_settraps( CHAR_DATA *ch, char *argument )
 {
-    if ( !IS_NPC(ch)
-    &&   ch->level < skill_table[gsn_settraps].skill_level[ch->class] )
-      {
-	send_to_char("You don't know how to set traps.\n\r",ch);
-	return;
-      }
+	int chance;
+
+	if ((chance = get_skill(ch, gsn_settraps)) == 0) {
+		send_to_char("You don't know how to set traps.\n\r",ch);
+		return;
+	}
 
     if (!ch->in_room)	return;
 
@@ -267,9 +267,7 @@ void do_settraps( CHAR_DATA *ch, char *argument )
 
     WAIT_STATE( ch, skill_table[gsn_settraps].beats );
 
-    if  (  IS_NPC(ch)
-    ||   number_percent( ) <  ( get_skill(ch,gsn_settraps) * 0.7 ) )
-    {
+	if (IS_NPC(ch) || number_percent() <  chance * 7 / 10) {
       AFFECT_DATA af,af2;
 
       check_improve(ch,gsn_settraps,TRUE,1);
@@ -768,16 +766,15 @@ int find_path( int in_room_vnum, int out_room_vnum, CHAR_DATA *ch,
 
 void do_hunt( CHAR_DATA *ch, char *argument )
 {
-  char arg[MAX_STRING_LENGTH];
-  CHAR_DATA *victim;
-  int direction,i;
-  bool fArea,ok;
+	char arg[MAX_STRING_LENGTH];
+	CHAR_DATA *victim;
+	int direction,i;
+	bool fArea,ok;
   
+	if (ch_skill_nok(ch,gsn_hunt))
+		return;
 
-    if ( ch_skill_nok(ch,gsn_hunt) )
-	return;
-
-    if (!cabal_ok(ch,gsn_hunt)) return;
+	if (!clan_ok(ch,gsn_hunt)) return;
 
     if ( !IS_NPC(ch)
     &&   ch->level < skill_table[gsn_hunt].skill_level[ch->class] )
@@ -897,7 +894,7 @@ else {
    * Display the results of the search.
    */
   }
-	act_printf(ch, NULL, victim, TO_CHAR, POS_RESTING,
+	act_nprintf(ch, NULL, victim, TO_CHAR, POS_RESTING,
 		   HERA_IS_FROM_HERE, dir_name[direction]);
   return;
 }

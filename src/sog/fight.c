@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.15 1998-05-26 12:34:46 efdi Exp $
+ * $Id: fight.c,v 1.16 1998-05-27 08:47:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1027,7 +1027,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt ,bool secondary)
 		  {
 		    act("You deliver a blow of deadly force!",ch,NULL,NULL,TO_CHAR);
 		    act("$n delivers a blow of deadly force!",ch,NULL,NULL,TO_ROOM);
-		    if (cabal_ok(ch,gsn_deathblow)) {
+		    if (clan_ok(ch,gsn_deathblow)) {
 		      dam *= ((float)ch->level) / 20;
 		      check_improve(ch,gsn_deathblow,TRUE,1);
 		    }
@@ -2745,11 +2745,10 @@ void do_kill(CHAR_DATA *ch, char *argument)
 
 	WAIT_STATE(ch, 1 * PULSE_VIOLENCE);
 
-	if (!ch_skill_nok_nomessage(ch,gsn_mortal_strike)
-		&& (wield = get_eq_char(ch,WEAR_WIELD)) != NULL
-		&& wield->level > (victim->level - 5)
-		&& cabal_ok(ch,gsn_mortal_strike))
-	 {
+	if (SKILL_OK(ch, gsn_mortal_strike)
+	&&  (wield = get_eq_char(ch,WEAR_WIELD)) != NULL
+	&&  wield->level > (victim->level - 5)
+	&&  clan_ok(ch,gsn_mortal_strike)) {
 	  int chance = 1 + get_skill(ch,gsn_mortal_strike) / 30;
 	  chance += (ch->level - victim->level) / 2;
 	  if (number_percent() < chance)
@@ -2835,10 +2834,10 @@ void do_murder(CHAR_DATA *ch, char *argument)
 		do_yell(victim, buf);
 	}
 
-	if (!ch_skill_nok_nomessage(ch,gsn_mortal_strike)
+	if (SKILL_OK(ch, gsn_mortal_strike)
 	&&  (wield = get_eq_char(ch,WEAR_WIELD)) != NULL
 	&&  wield->level > (victim->level - 5)
-	&&  cabal_ok(ch,gsn_mortal_strike)) {
+	&&  clan_ok(ch,gsn_mortal_strike)) {
 		int chance = 1 + get_skill(ch,gsn_mortal_strike) / 30;
 		chance += (ch->level - victim->level) / 2;
 		if (number_percent() < chance) {
@@ -3003,10 +3002,10 @@ bool check_obj_dodge(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj, int bonus)
 	chance -= (bonus - 90);
 	chance /= 2;
 	if (number_percent() >= chance &&
-		 (IS_NPC(victim) || victim->cabal != CABAL_BATTLE))
+		 (IS_NPC(victim) || victim->clan != CLAN_BATTLE))
 		return FALSE;
 
-	if (!IS_NPC(victim) && victim->cabal == CABAL_BATTLE
+	if (!IS_NPC(victim) && victim->clan == CLAN_BATTLE
 		  && IS_SET(victim->act,PLR_CANINDUCT))
 	{
 	 act("You catch $p that had been shot to you.",ch,obj,victim,TO_VICT);

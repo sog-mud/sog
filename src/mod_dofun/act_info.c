@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.53 1998-05-27 01:57:33 efdi Exp $
+ * $Id: act_info.c,v 1.54 1998-05-27 08:47:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -591,7 +591,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 				found = TRUE;
 			}
 
-			act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING,
+			act_nprintf(ch, NULL, NULL, TO_CHAR, POS_RESTING,
 				   INFO_S_S,
 				   msg(EQ_USED_AS_LIGHT + show_order[i], ch),
 				   format_obj_to_char(obj, ch, TRUE));
@@ -609,7 +609,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 			act(msg(INFO_IS_USING, ch), ch, NULL, victim, TO_CHAR);
 			found = TRUE;
 		}
-		act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING, INFO_S_S,
+		act_nprintf(ch, NULL, NULL, TO_CHAR, POS_RESTING, INFO_S_S,
 			   msg(EQ_STUCK_IN, ch),
 			   format_obj_to_char(obj, ch, TRUE));
 	}
@@ -1584,7 +1584,7 @@ void do_time(CHAR_DATA *ch, char *argument)
 		    day, suf, month_name[time_info.month]);
 
 	if (!IS_SET(ch->in_room->room_flags,ROOM_INDOORS) || IS_IMMORTAL(ch))
-		act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING,
+		act_nprintf(ch, NULL, NULL, TO_CHAR, POS_RESTING,
 			   INFO_ITS_S,
 			   (time_info.hour>=5 && time_info.hour<9) ?
 						msg(INFO_TIME_DAWN, ch) :
@@ -1682,7 +1682,7 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
 	char const *race;
 	char const *class;
 	char *pk;
-/*	char *cabal; */
+/*	char *clan; */
 	char *act;
 	char *title;
 	char level[100];
@@ -1711,13 +1711,13 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
 	else 
 		race = "     ";
 /*
-	if ((wch->cabal && ch->cabal ==  wch->cabal)
+	if ((wch->clan && ch->clan ==  wch->clan)
 	||  IS_IMMORTAL(ch)
-	||  (IS_SET(wch->act, PLR_CANINDUCT) && wch->cabal == 1)
-	||  wch->cabal == CABAL_HUNTER)
-		cabal = cabal_table[wch->cabal].short_name;
+	||  (IS_SET(wch->act, PLR_CANINDUCT) && wch->clan == 1)
+	||  wch->clan == CLAN_HUNTER)
+		clan = clan_table[wch->clan].short_name;
 	else
-		cabal = EMPTY_STRING;
+		clan = EMPTY_STRING;
 */
 
 	if (!((ch==wch && ch->level<PK_MIN_LEVEL) || is_safe_nomessage(ch,wch)))
@@ -1822,8 +1822,8 @@ void do_who(CHAR_DATA *ch, char *argument)
 		}
 
 		if (!str_cmp(arg,"ruler")) {
-			if (ch->cabal != CABAL_RULER && !IS_IMMORTAL(ch)) {
-				send_to_char("You are not in that cabal!\n\r",
+			if (ch->clan != CLAN_RULER && !IS_IMMORTAL(ch)) {
+				send_to_char("You are not in that clan!\n\r",
 					     ch);
 				return;
 			}
@@ -1834,8 +1834,8 @@ void do_who(CHAR_DATA *ch, char *argument)
 		}
 
 		if (!str_cmp(arg,"shalafi")) {
-			if (ch->cabal != CABAL_SHALAFI && !IS_IMMORTAL(ch)) {
-				send_to_char("You are not in that cabal!\n\r",
+			if (ch->clan != CLAN_SHALAFI && !IS_IMMORTAL(ch)) {
+				send_to_char("You are not in that clan!\n\r",
 					     ch);
 				return;
 			}
@@ -1846,8 +1846,8 @@ void do_who(CHAR_DATA *ch, char *argument)
 			}
 
 		if (!str_cmp(arg,"battle")) {
-			if (ch->cabal != CABAL_BATTLE && !IS_IMMORTAL(ch)) {
-				send_to_char("You are not in that cabal!\n\r",
+			if (ch->clan != CLAN_BATTLE && !IS_IMMORTAL(ch)) {
+				send_to_char("You are not in that clan!\n\r",
 					     ch);
 				return;
 			}
@@ -1858,8 +1858,8 @@ void do_who(CHAR_DATA *ch, char *argument)
 		}
 
 		if (!str_cmp(arg,"invader")) {
-			if (ch->cabal != CABAL_INVADER && !IS_IMMORTAL(ch)) {
-				send_to_char("You are not in that cabal!\n\r",
+			if (ch->clan != CLAN_INVADER && !IS_IMMORTAL(ch)) {
+				send_to_char("You are not in that clan!\n\r",
 					     ch);
 				return;
 			}
@@ -1869,8 +1869,8 @@ void do_who(CHAR_DATA *ch, char *argument)
 			break;
 		}
 		if (!str_cmp(arg,"chaos")) {
-			if (ch->cabal != CABAL_CHAOS && !IS_IMMORTAL(ch)) {
-				send_to_char("You are not in that cabal!\n\r",
+			if (ch->clan != CLAN_CHAOS && !IS_IMMORTAL(ch)) {
+				send_to_char("You are not in that clan!\n\r",
 					     ch);
 				return;
 			}
@@ -1881,8 +1881,8 @@ void do_who(CHAR_DATA *ch, char *argument)
 		}
 
 		if (!str_cmp(arg,"knight")) {
-			if (ch->cabal != CABAL_KNIGHT && !IS_IMMORTAL(ch)) {
-				send_to_char("You are not in that cabal!\n\r",
+			if (ch->clan != CLAN_KNIGHT && !IS_IMMORTAL(ch)) {
+				send_to_char("You are not in that clan!\n\r",
 					     ch);
 				return;
 			}
@@ -1893,8 +1893,8 @@ void do_who(CHAR_DATA *ch, char *argument)
 		}
 
 		if (!str_cmp(arg,"lions")) {
-			if (ch->cabal != CABAL_LIONS && !IS_IMMORTAL(ch)) {
-				send_to_char("You are not in that cabal!\n\r",
+			if (ch->clan != CLAN_LIONS && !IS_IMMORTAL(ch)) {
+				send_to_char("You are not in that clan!\n\r",
 					     ch);
 				return;
 			}
@@ -1985,13 +1985,13 @@ void do_who(CHAR_DATA *ch, char *argument)
 		||  (fRaceRestrict && !rgfRace[RACE(wch)])
 		||  (fPKRestrict && is_safe_nomessage(ch,wch))
 		||  (fTattoo && (vnum == get_eq_char(wch,WEAR_TATTOO)->pIndexData->vnum))
-		||  (fRulerRestrict && wch->cabal != CABAL_RULER)
-		||  (fChaosRestrict && wch->cabal != CABAL_CHAOS)
-		||  (fBattleRestrict && wch->cabal != CABAL_BATTLE)
-		||  (fInvaderRestrict && wch->cabal != CABAL_INVADER)
-		||  (fShalafiRestrict && wch->cabal != CABAL_SHALAFI)
-		||  (fKnightRestrict && wch->cabal != CABAL_KNIGHT)
-		||  (fLionsRestrict && wch->cabal != CABAL_LIONS))
+		||  (fRulerRestrict && wch->clan != CLAN_RULER)
+		||  (fChaosRestrict && wch->clan != CLAN_CHAOS)
+		||  (fBattleRestrict && wch->clan != CLAN_BATTLE)
+		||  (fInvaderRestrict && wch->clan != CLAN_INVADER)
+		||  (fShalafiRestrict && wch->clan != CLAN_SHALAFI)
+		||  (fKnightRestrict && wch->clan != CLAN_KNIGHT)
+		||  (fLionsRestrict && wch->clan != CLAN_LIONS))
 			continue;
 
 		nMatch++;
@@ -2479,120 +2479,10 @@ void do_description(CHAR_DATA *ch, char *argument)
 
 void do_report(CHAR_DATA *ch, char *argument)
 {
-	do_say(ch, "I have %d/%d hp %d/%d mana %d/%d mv",
+	do_say(ch, "I have {c%d/%d{x hp {c%d/%d{x mana {c%d/%d{x mv",
 	       ch->hit, ch->max_hit,
 	       ch->mana, ch->max_mana,
 	       ch->move, ch->max_move);
-}
-
-
-void do_practice(CHAR_DATA *ch, char *argument)
-{
-	char buf2[20000];
-	int sn;
-	CHAR_DATA *mob;
-	int adept;
-
-
-	if (IS_NPC(ch))
-		return;
-
-	if (argument[0] == '\0') {
-		int col = 0;
-
-		buf2[0] = '\0';
-		for (sn = 0; sn < MAX_SKILL; sn++) {
-			if (skill_table[sn].name == NULL)
-				break;
-			if (ch->level < skill_table[sn].skill_level[ch->class]
-			||  !RACE_OK(ch,sn)
-			||  (skill_table[sn].cabal != ch->cabal
-			&&  skill_table[sn].cabal != CABAL_NONE))
-				continue;
-
-			sprintf(strend(buf2), "%-18s %3d%%  ",
-				skill_table[sn].name, ch->pcdata->learned[sn]);
-			if (++col % 3 == 0)
-				strcat(buf2, "\n\r");
-		}
-
-		if (col % 3 != 0)
-			strcat(buf2, "\n\r");
-
-		sprintf(strend(buf2), "You have %d practice sessions left.\n\r",
-			ch->practice);
-
-		if (IS_IMMORTAL(ch))
-			page_to_char(buf2, ch);
-		else
-			send_to_char(buf2, ch);
-		return;
-	}
-
-	if (!IS_AWAKE(ch)) {
-		send_to_char("In your dreams, or what?\n\r", ch);
-		return;
-	}
-
-	for (mob = ch->in_room->people; mob != NULL; mob = mob->next_in_room) {
-		if (IS_NPC(mob) && IS_SET(mob->act, ACT_PRACTICE))
-			break;
-	}
-
-	if (mob == NULL) {
-		send_to_char("You can't do that here.\n\r", ch);
-		return;
-	}
-
-	if (ch->practice <= 0) {
-		send_to_char("You have no practice sessions left.\n\r", ch);
-		return;
-	}
-
-	if ((sn = find_spell(ch,argument)) < 0
-	|| (!IS_NPC(ch)
-	&&   (ch->level < skill_table[sn].skill_level[ch->class]
-	|| !RACE_OK(ch,sn)
-	|| (skill_table[sn].cabal != ch->cabal
-	&& skill_table[sn].cabal != CABAL_NONE)))) {
-		send_to_char("You can't practice that.\n\r", ch);
-		return;
-	}
-
-	if (!str_cmp("vampire", skill_table[sn].name)) {
-		send_to_char("You can't practice that, only available at "
-			     "questor.\n\r",ch);
-		return;
-	}
-
-	adept = IS_NPC(ch) ? 100 : class_table[ch->class].skill_adept;
-
-	if (ch->pcdata->learned[sn] >= adept) {
-		char_printf(ch, "You are already learned at %s.\n\r",
-			    skill_table[sn].name);
-		return;
-	}
-
-	if (!ch->pcdata->learned[sn])
-		ch->pcdata->learned[sn] = 1;
-	ch->practice--;
-	ch->pcdata->learned[sn] +=
-		int_app[get_curr_stat(ch,STAT_INT)].learn /
-		UMAX(skill_table[sn].rating[ch->class],1);
-
-	if (ch->pcdata->learned[sn] < adept) {
-		act("You practice $T.",
-		    ch, NULL, skill_table[sn].name, TO_CHAR);
-		act("$n practices $T.",
-		    ch, NULL, skill_table[sn].name, TO_ROOM);
-	}
-	else {
-		ch->pcdata->learned[sn] = adept;
-		act("You are now learned at $T.",
-		    ch, NULL, skill_table[sn].name, TO_CHAR);
-		act("$n is now learned at $T.",
-		    ch, NULL, skill_table[sn].name, TO_ROOM);
-	}
 }
 
 
@@ -3628,7 +3518,7 @@ void do_affects(CHAR_DATA *ch, char *argument)
 			else
 				continue;
 		else
-			char_printf(ch, "Spell: {Y%-15s{x",
+			char_printf(ch, "Spell: {c%-15s{x",
 				    skill_table[paf->type].name);
 
 		if (ch->level >= 20) {
@@ -3792,17 +3682,17 @@ void do_raffects(CHAR_DATA *ch, char *argument)
 			else
 				continue;
 		else
-			char_printf(ch, "Spell: %-15s",
+			char_printf(ch, "Spell: {c%-15s{x",
 				    skill_table[paf->type].name);
 
 		if (ch->level >= 20) {
-			char_printf(ch, ": modifies %s by %d ",
+			char_printf(ch, ": modifies {c%s{x by {c%d{x ",
 				    raffect_loc_name(paf->location),
 				    paf->modifier);
 			if (paf->duration == -1 || paf->duration == -2)
 				char_puts("permanently", ch);
 			else
-				char_printf(ch, "for %d hours", paf->duration);
+				char_printf(ch, "for {c%d{x hours", paf->duration);
 		}
 		send_to_char("\n\r", ch);
 		paf_last = paf;
@@ -3813,7 +3703,7 @@ void do_raffects(CHAR_DATA *ch, char *argument)
 
 
 /* new practice */
-void do_pracnew(CHAR_DATA *ch, char *argument)
+void do_practice(CHAR_DATA *ch, char *argument)
 {
 	char buf2[20000];
 	int sn;
@@ -3830,10 +3720,7 @@ void do_pracnew(CHAR_DATA *ch, char *argument)
 		for (sn = 0; sn < MAX_SKILL; sn++) {
 			if (skill_table[sn].name == NULL)
 				break;
-			if (ch->level < skill_table[sn].skill_level[ch->class]
-			||  !RACE_OK(ch,sn)
-			||  (skill_table[sn].cabal != ch->cabal
-			&&   skill_table[sn].cabal != CABAL_NONE))
+			if (!SKILL_OK(ch, sn))
 				continue;
 
 			sprintf(strend(buf2), "%-18s %3d%%  ",
@@ -3863,19 +3750,14 @@ void do_pracnew(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	if ((sn = find_spell(ch,argument)) < 0
-	|| (!IS_NPC(ch)
-	&&   (ch->level < skill_table[sn].skill_level[ch->class]
-	|| !RACE_OK(ch,sn)
-	|| (skill_table[sn].cabal != ch->cabal
-	&&  skill_table[sn].cabal != CABAL_NONE)))) {
+	if ((sn = find_spell(ch, argument)) < 0) {
 		send_to_char("You can't practice that.\n\r", ch);
 		return;
 	}
 
-	if (!str_cmp("vampire", skill_table[sn].name)) {
+	if (sn == gsn_vampire) {
 		send_to_char("You can't practice that, only available "
-			     "at questor.\n\r",ch);
+			     "at questor.\n\r", ch);
 		return;
 	}
 
@@ -3883,8 +3765,8 @@ void do_pracnew(CHAR_DATA *ch, char *argument)
 		if (!IS_NPC(mob) || !IS_SET(mob->act, ACT_PRACTICE))
 			continue;
 
-		if (skill_table[sn].cabal != CABAL_NONE) {
-			if (ch->cabal == mob->cabal)
+		if (skill_table[sn].clan != CLAN_NONE) {
+			if (ch->clan == mob->clan)
 				break;
 			continue;
 		}
@@ -3905,8 +3787,6 @@ void do_pracnew(CHAR_DATA *ch, char *argument)
 			       "USE glist, slook for more info.\n\r", ch);
 		  return;
 	}
-
-	log_printf("pracnew: %s (%d)\n", mob->name, mob->pIndexData->practicer);
 
 	adept = IS_NPC(ch) ? 100 : class_table[ch->class].skill_adept;
 
@@ -4192,7 +4072,7 @@ void do_make_arrow(CHAR_DATA *ch, char *argument)
 	if (IS_NPC(ch))
 		return;
 
-	if (ch_skill_nok_nomessage(ch,gsn_make_arrow)) {
+	if (!SKILL_OK(ch, gsn_make_arrow)) {
 		send_to_char("You don't know how to make arrows.\n\r", ch);
 		return;
 	}
@@ -4325,7 +4205,7 @@ void do_make_bow(CHAR_DATA *ch, char *argument)
 	if (IS_NPC(ch))
 		return;
 
-	if (ch_skill_nok_nomessage(ch,gsn_make_bow)) {
+	if (!SKILL_OK(ch, gsn_make_bow)) {
 		send_to_char("You don't know how to make bows.\n\r", ch);
 		return;
 	}

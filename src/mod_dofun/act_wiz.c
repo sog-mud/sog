@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.12 1998-05-26 12:34:45 efdi Exp $
+ * $Id: act_wiz.c,v 1.13 1998-05-27 08:47:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -91,23 +91,23 @@ bool write_to_descriptor  args((int desc, char *txt, int length));
 void reboot_anatolia(void);
 
 
-void do_cabal_scan(CHAR_DATA *ch, char *argument)
+void do_clan_scan(CHAR_DATA *ch, char *argument)
 {
 int i;
 char buf[160];
 
-  for(i=1;i<MAX_CABAL;i++)
+  for(i=1;i<MAX_CLAN;i++)
   {
     sprintf(buf, "  Cabal: %s, room %d, item %d, ptr: %s ", 
-	cabal_table[i].short_name, 
-        cabal_table[i].room_vnum, 
-        cabal_table[i].obj_vnum,
-	cabal_table[i].obj_ptr!=NULL?cabal_table[i].obj_ptr->short_descr:"(NULL)");
+	clan_table[i].short_name, 
+        clan_table[i].room_vnum, 
+        clan_table[i].obj_vnum,
+	clan_table[i].obj_ptr!=NULL?clan_table[i].obj_ptr->short_descr:"(NULL)");
     send_to_char(buf, ch);
-    if (cabal_table[i].obj_ptr!=NULL)
+    if (clan_table[i].obj_ptr!=NULL)
     {
-	sprintf(buf, "now_in_room: %s", cabal_table[i].obj_ptr->in_room!=NULL?
- 	cabal_table[i].obj_ptr->in_room->name:"(NULL)");
+	sprintf(buf, "now_in_room: %s", clan_table[i].obj_ptr->in_room!=NULL?
+ 	clan_table[i].obj_ptr->in_room->name:"(NULL)");
     }
     strcat(buf, "\n\r");
     send_to_char(buf, ch);
@@ -3560,9 +3560,9 @@ void do_sset(CHAR_DATA *ch, char *argument)
 	for (sn = 0; sn < MAX_SKILL; sn++)
 	{
 	    if ((skill_table[sn].name != NULL) 
-		&& ((victim->cabal == skill_table[sn].cabal) 
-		|| (skill_table[sn].cabal == CABAL_NONE)) 
-		&& (RACE_OK(victim,sn)) 
+		&& ((victim->clan == skill_table[sn].clan) 
+		|| (skill_table[sn].clan == CLAN_NONE)) 
+		&& (SKILL_RACE_OK(victim,sn)) 
 		)
 		victim->pcdata->learned[sn]	= value;
 	}
@@ -4855,7 +4855,7 @@ void do_mset(CHAR_DATA *ch, char *argument)
 	for (sn = 0; sn < MAX_SKILL; sn++)
 	{
 	    if ((skill_table[sn].name != NULL) 
-		&& !RACE_OK(victim,sn)	)
+		&& !SKILL_RACE_OK(victim,sn)	)
 		victim->pcdata->learned[sn]	= 0;
 
 	    if ((skill_table[sn].name != NULL) 
@@ -4882,18 +4882,18 @@ void do_induct(CHAR_DATA *ch, char *argument)
   char arg1[MAX_INPUT_LENGTH];
   char *arg2;
   char buf[MAX_STRING_LENGTH];
-  char *cabal;
+  char *clan;
   CHAR_DATA *victim;
   int sn;
-  int i, prev_cabal=0;
+  int i, prev_clan=0;
 
-  cabal = NULL; 
+  clan = NULL; 
   argument = one_argument(argument, arg1);
   arg2 = argument;
 
   if (arg1[0] == '\0'|| *arg2 == '\0')
     {
-      send_to_char("Usage: induct <player> <cabal>\n\r", ch);
+      send_to_char("Usage: induct <player> <clan>\n\r", ch);
       return;
     }
   
@@ -4906,29 +4906,29 @@ void do_induct(CHAR_DATA *ch, char *argument)
 
   if (IS_NPC(victim))
     {
-      act("$N is not smart enough to join a cabal.",ch,NULL,victim,TO_CHAR);
+      act("$N is not smart enough to join a clan.",ch,NULL,victim,TO_CHAR);
       return;
     }
   
   if (CANT_CHANGE_TITLE(victim))
    {
-     act("$N has tried to join a cabal, but failed.",ch,NULL,victim,TO_CHAR);
+     act("$N has tried to join a clan, but failed.",ch,NULL,victim,TO_CHAR);
      return;
    }
 
-  if ((i = cabal_lookup(arg2)) == -1)
+  if ((i = clan_lookup(arg2)) == -1)
 	{
-      send_to_char("I've never heard of that cabal.\n\r",ch);
+      send_to_char("I've never heard of that clan.\n\r",ch);
       return;
 	}
 
-  if (victim->class == 3  && i == CABAL_SHALAFI)
+  if (victim->class == 3  && i == CLAN_SHALAFI)
   {
     act("But $N is a filthy warrior!",ch,NULL,victim,TO_CHAR);
     return;
   }
 
-  if (i == CABAL_RULER && get_curr_stat(victim,STAT_INT) < 20)
+  if (i == CLAN_RULER && get_curr_stat(victim,STAT_INT) < 20)
   {
    act("$N is not clever enough to become a Ruler!",ch,NULL,victim,TO_CHAR);
    return;
@@ -4936,64 +4936,64 @@ void do_induct(CHAR_DATA *ch, char *argument)
 
   if (IS_TRUSTED(ch,LEVEL_IMMORTAL) ||  
 	(IS_SET(ch->act,PLR_CANINDUCT) && 
-	      ((i==CABAL_NONE && (ch->cabal == victim->cabal))
+	      ((i==CLAN_NONE && (ch->clan == victim->clan))
 	       || 
-	       (i!=CABAL_NONE && ch->cabal==i && victim->cabal==CABAL_NONE))))
+	       (i!=CLAN_NONE && ch->clan==i && victim->clan==CLAN_NONE))))
 	    {
-	      prev_cabal = victim->cabal;
-	      victim->cabal = i;
+	      prev_clan = victim->clan;
+	      victim->clan = i;
 	      REMOVE_BIT(victim->act,PLR_CANINDUCT);
-	      cabal = cabal_table[i].long_name;
+	      clan = clan_table[i].long_name;
 	    }
   else {
 	    send_to_char("You do not have that power.\n\r",ch);
 	    return;
 	}
 
-  /* set cabal skills to 70, remove other cabal skills */
+  /* set clan skills to 70, remove other clan skills */
   for (sn = 0; sn < MAX_SKILL; sn++)
     {
-      if ((victim->cabal) && (skill_table[sn].cabal == victim->cabal))
+      if ((victim->clan) && (skill_table[sn].clan == victim->clan))
 	victim->pcdata->learned[sn] = 70;
-      else if (skill_table[sn].cabal != CABAL_NONE &&
-	       victim->cabal != skill_table[sn].cabal)
+      else if (skill_table[sn].clan != CLAN_NONE &&
+	       victim->clan != skill_table[sn].clan)
 	victim->pcdata->learned[sn] = 0;
     }
 
 
-  sprintf(buf, "$n has been inducted into %s.", cabal);
+  sprintf(buf, "$n has been inducted into %s.", clan);
   act(buf,victim, NULL, NULL, TO_NOTVICT);
-  sprintf(buf, "You have been inducted into %s.", cabal);
+  sprintf(buf, "You have been inducted into %s.", clan);
   act(buf, victim, NULL, NULL, TO_CHAR);
   if (ch->in_room != victim->in_room)
     {
       sprintf(buf, "%s has been inducted into %s.\n\r",
-	      IS_NPC(victim) ? victim->short_descr : victim->name, cabal);
+	      IS_NPC(victim) ? victim->short_descr : victim->name, clan);
       send_to_char(buf, ch);
     }
-  if (victim->cabal == CABAL_NONE && prev_cabal != CABAL_NONE)
+  if (victim->clan == CLAN_NONE && prev_clan != CLAN_NONE)
     {
      	char name[100];
 	
- 	switch(prev_cabal)
+ 	switch(prev_clan)
 	{
 	 default: 
 	  return;
-	 case CABAL_BATTLE:
+	 case CLAN_BATTLE:
 	  sprintf(name,"The LOVER OF MAGIC.");
 	  break;
-	 case CABAL_SHALAFI:
+	 case CLAN_SHALAFI:
 	  sprintf(name,"The HATER OF MAGIC.");
 	  break;
-	 case CABAL_KNIGHT:
+	 case CLAN_KNIGHT:
 	  sprintf(name,"The UNHONOURABLE FIGHTER.");
 	  break;
-	 case CABAL_INVADER:
-	 case CABAL_CHAOS:
-	 case CABAL_LIONS:
-	 case CABAL_HUNTER:
-	 case CABAL_RULER:
-	  sprintf(name,"NO MORE CABALS.");
+	 case CLAN_INVADER:
+	 case CLAN_CHAOS:
+	 case CLAN_LIONS:
+	 case CLAN_HUNTER:
+	 case CLAN_RULER:
+	  sprintf(name,"NO MORE CLANS.");
 	  break;
 	}
 	set_title(victim, name);
@@ -5211,9 +5211,9 @@ void do_rename (CHAR_DATA* ch, char* argument)
 	}
 	
 /*
-	if (victim->cabal)
+	if (victim->clan)
 	{
-	 send_to_char ("This player is member of a cabal, remove him from there first.\n\r",ch);
+	 send_to_char ("This player is member of a clan, remove him from there first.\n\r",ch);
 	 return;
 	}
 */

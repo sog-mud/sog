@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.42 1998-05-27 01:48:37 efdi Exp $
+ * $Id: act_move.c,v 1.43 1998-05-27 08:47:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -115,12 +115,12 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 		 affect_strip(ch,gsn_web);
 		 REMOVE_BIT(ch->detection,ADET_WEB);
 		 send_to_char(msg(MOVE_WHEN_YOU_ATTEMPT_YOU_BREAK_WEBS, ch), ch);
-		 act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_BREAKS_THE_WEBS);
+		 act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_BREAKS_THE_WEBS);
 		}
 		else 
 		{
 		 send_to_char(msg(MOVE_YOU_ATTEMPT_WEBS_HOLD_YOU, ch), ch);
-		 act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_STRUGGLES_VAINLY_AGAINST_WEBS);
+		 act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_STRUGGLES_VAINLY_AGAINST_WEBS);
 		 return; 
 		}
 	}
@@ -136,24 +136,25 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	{
 		REMOVE_BIT(ch->affected_by, AFF_HIDE);
 		send_to_char(msg(MOVE_YOU_STEP_OUT_SHADOWS, ch), ch);
-		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_STEPS_OUT_OF_SHADOWS);
+		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_STEPS_OUT_OF_SHADOWS);
 	}
-	if (IS_AFFECTED(ch, AFF_CAMOUFLAGE))  
-	{
-		if (ch->level < skill_table[gsn_move_camf].skill_level[ch->class])
-		     {
-		      REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
-		      send_to_char(msg(MOVE_YOU_STEP_OUT_COVER, ch), ch);
-		      act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_STEPS_OUT_COVER);
-		     }	    
-		else if (number_percent() < get_skill(ch,gsn_move_camf))
-		           check_improve(ch,gsn_move_camf,TRUE,5);
+	if (IS_AFFECTED(ch, AFF_CAMOUFLAGE))  {
+		int chance;
+
+		if (IS_NPC(ch)
+		||  (chance = get_skill(ch, gsn_move_camf)) == 0) {
+			REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
+			send_to_char(msg(MOVE_YOU_STEP_OUT_COVER, ch), ch);
+			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_STEPS_OUT_COVER);
+		}	    
+		else if (number_percent() < chance)
+			check_improve(ch,gsn_move_camf,TRUE,5);
 		else {
-		      REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
-		      send_to_char(msg(MOVE_YOU_STEP_OUT_COVER, ch), ch);
-		      act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_STEPS_OUT_COVER);
-		      check_improve(ch,gsn_move_camf,FALSE,5);
-		     }	    
+			REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
+			send_to_char(msg(MOVE_YOU_STEP_OUT_COVER, ch), ch);
+			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_STEPS_OUT_COVER);
+			check_improve(ch, gsn_move_camf, FALSE, 5);
+		}	    
 	}
 
 	in_room = ch->in_room;
@@ -185,11 +186,11 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 		&&   !IS_TRUSTED(ch,ANGEL))
 	{
 		if (IS_AFFECTED(ch, AFF_PASS_DOOR) && IS_SET(pexit->exit_info, EX_NOPASS))  {
-  	  act_printf(ch, NULL, pexit->keyword, TO_CHAR, POS_RESTING, MOVE_YOU_FAILED_TO_PASS);
-		  act_printf(ch, NULL, pexit->keyword, TO_ROOM, POS_RESTING, MOVE_N_TRIES_TO_PASS_FAILED);
+  	  act_nprintf(ch, NULL, pexit->keyword, TO_CHAR, POS_RESTING, MOVE_YOU_FAILED_TO_PASS);
+		  act_nprintf(ch, NULL, pexit->keyword, TO_ROOM, POS_RESTING, MOVE_N_TRIES_TO_PASS_FAILED);
 		}
 		else
-		  act_printf(ch, NULL, pexit->keyword, TO_CHAR, POS_RESTING, MOVE_THE_D_IS_CLOSED);
+		  act_nprintf(ch, NULL, pexit->keyword, TO_CHAR, POS_RESTING, MOVE_THE_D_IS_CLOSED);
 		  return;
 	}
 
@@ -338,20 +339,20 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 		      number_percent() < get_skill(ch,gsn_quiet_movement))
 		    {
 		    if (MOUNTED(ch))
-			act_printf(ch, NULL, dir_name[door], TO_ROOM, POS_RESTING, 
+			act_nprintf(ch, NULL, dir_name[door], TO_ROOM, POS_RESTING, 
 				MOVE_LEAVES_RIDING_ON, MOUNTED(ch)->short_descr);
 		      else
-			act_printf(ch, NULL, dir_name[door], TO_ROOM, POS_RESTING, 
+			act_nprintf(ch, NULL, dir_name[door], TO_ROOM, POS_RESTING, 
 				MOVE_LEAVES);
 		      check_improve(ch,gsn_quiet_movement,TRUE,1);
 		    }
 		else 
 		  {
 		     if (MOUNTED(ch))
-			act_printf(ch, NULL, dir_name[door], TO_ROOM, POS_RESTING, 
+			act_nprintf(ch, NULL, dir_name[door], TO_ROOM, POS_RESTING, 
 				MOVE_LEAVES_T_RIDING_ON, MOUNTED(ch)->short_descr);
   	   else
-			act_printf(ch, NULL, dir_name[door], TO_ROOM, POS_RESTING, 
+			act_nprintf(ch, NULL, dir_name[door], TO_ROOM, POS_RESTING, 
 				MOVE_LEAVES_T);
 		  }
 	 }
@@ -363,7 +364,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	 {
 		REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
 		send_to_char(msg(MOVE_YOU_STEP_OUT_COVER, ch), ch);
-		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_STEPS_OUT_COVER);
+		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_STEPS_OUT_COVER);
 	 }	    
 
 	mount = MOUNTED(ch);
@@ -379,8 +380,8 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	&&   ch->invis_level < LEVEL_HERO)
 		{
 		if (mount)
-		     act_printf(ch, NULL, mount,TO_ROOM, POS_RESTING, MOVE_ARRIVED_RIDING);
-		else act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_ARRIVED);
+		     act_nprintf(ch, NULL, mount,TO_ROOM, POS_RESTING, MOVE_ARRIVED_RIDING);
+		else act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_ARRIVED);
 		}
 
 	do_look(ch, "auto");
@@ -443,12 +444,12 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 		    if (IS_SET(ch->in_room->room_flags,ROOM_LAW)
 		    &&  (IS_NPC(fch) && IS_SET(fch->act,ACT_AGGRESSIVE)))
 		    {
-			act_printf(ch,NULL,fch,TO_CHAR, POS_DEAD, MOVE_YOU_CANT_BRING_N_CITY);
-			act_printf(fch,NULL,NULL,TO_CHAR, POS_RESTING, MOVE_YOU_ARENT_ALLOWED_CITY);
+			act_nprintf(ch,NULL,fch,TO_CHAR, POS_DEAD, MOVE_YOU_CANT_BRING_N_CITY);
+			act_nprintf(fch,NULL,NULL,TO_CHAR, POS_RESTING, MOVE_YOU_ARENT_ALLOWED_CITY);
 			continue;
 		    }
 
-		    act_printf(fch, NULL, ch, TO_CHAR, POS_DEAD, MOVE_YOU_FOLLOW_N);
+		    act_nprintf(fch, NULL, ch, TO_CHAR, POS_DEAD, MOVE_YOU_FOLLOW_N);
 		    move_char(fch, door, TRUE);
 		}
 	}
@@ -528,7 +529,7 @@ int find_exit(CHAR_DATA *ch, char *arg)
 	else if (!str_cmp(arg, "d") || !str_cmp(arg, "down" )) door = 5;
 	else
 	{
-		act_printf(ch, NULL, arg, TO_CHAR, POS_DEAD, MOVE_I_SEE_NO_EXIT_T_HERE);
+		act_nprintf(ch, NULL, arg, TO_CHAR, POS_DEAD, MOVE_I_SEE_NO_EXIT_T_HERE);
 		return -1;
 	}
 
@@ -557,13 +558,13 @@ int find_door(CHAR_DATA *ch, char *arg)
 		    &&   is_name(arg, pexit->keyword))
 			return door;
 		}
-		act_printf(ch, NULL, arg, TO_CHAR, POS_DEAD, MOVE_I_SEE_NO_T_HERE);
+		act_nprintf(ch, NULL, arg, TO_CHAR, POS_DEAD, MOVE_I_SEE_NO_T_HERE);
 		return -1;
 	}
 
 	if ((pexit = ch->in_room->exit[door]) == NULL)
 	{
-		act_printf(ch, NULL, arg, TO_CHAR, POS_DEAD, MOVE_I_SEE_NO_DOOR_T_HERE);
+		act_nprintf(ch, NULL, arg, TO_CHAR, POS_DEAD, MOVE_I_SEE_NO_DOOR_T_HERE);
 		return -1;
 	}
 
@@ -587,7 +588,7 @@ void do_scan2(CHAR_DATA *ch, char *argument)
 	EXIT_DATA *pExit;
 	sh_int door;
 
-	act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
+	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
 			MOVE_N_LOOKS_ALL_AROUND);
 	send_to_char(msg(MOVE_LOOKING_AROUND_YOU_SEE, ch), ch);
 	send_to_char(msg(MOVE_SCAN_HERE, ch), ch);
@@ -663,8 +664,8 @@ void do_open(CHAR_DATA *ch, char *argument)
 		    }
 
 		    REMOVE_BIT(obj->value[1], EX_CLOSED);
-		    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_OPEN_P);
-		    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_OPENS_P);
+		    act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_OPEN_P);
+		    act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_OPENS_P);
 		    return;
  	}
 
@@ -679,8 +680,8 @@ void do_open(CHAR_DATA *ch, char *argument)
 		    { send_to_char(msg(MOVE_ITS_LOCKED, ch), ch); return; }
 
 		REMOVE_BIT(obj->value[1], CONT_CLOSED);
-		act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_OPEN_P);
-		act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_OPENS_P);
+		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_OPEN_P);
+		act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_OPENS_P);
 		return;
 	}
 	if ((door = find_door(ch, arg)) >= 0)
@@ -697,7 +698,7 @@ void do_open(CHAR_DATA *ch, char *argument)
 		    { send_to_char(msg(MOVE_ITS_LOCKED, ch), ch); return; }
 
 		REMOVE_BIT(pexit->exit_info, EX_CLOSED);
-		act_printf(ch, NULL, pexit->keyword, TO_ROOM, POS_RESTING, MOVE_N_OPENS_THE_D);
+		act_nprintf(ch, NULL, pexit->keyword, TO_ROOM, POS_RESTING, MOVE_N_OPENS_THE_D);
 		send_to_char(msg(MOVE_OK, ch), ch);
 
 		/* open the other side */
@@ -709,7 +710,7 @@ void do_open(CHAR_DATA *ch, char *argument)
 
 		    REMOVE_BIT(pexit_rev->exit_info, EX_CLOSED);
 		    for (rch = to_room->people; rch != NULL; rch = rch->next_in_room)
-			act_printf(rch, NULL, pexit_rev->keyword, TO_CHAR, POS_RESTING, MOVE_THE_D_OPENS);
+			act_nprintf(rch, NULL, pexit_rev->keyword, TO_CHAR, POS_RESTING, MOVE_THE_D_OPENS);
 		}
 		return;
 	}
@@ -754,8 +755,8 @@ void do_close(CHAR_DATA *ch, char *argument)
 		    }
 
 		    SET_BIT(obj->value[1],EX_CLOSED);
-		    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_CLOSE_P);
-		    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_CLOSES_P);
+		    act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_CLOSE_P);
+		    act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_CLOSES_P);
 		    return;
 		}
 
@@ -768,8 +769,8 @@ void do_close(CHAR_DATA *ch, char *argument)
 		    { send_to_char(msg(MOVE_YOU_CANT_DO_THAT, ch), ch); return; }
 
 		SET_BIT(obj->value[1], CONT_CLOSED);
-		act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_CLOSE_P);
-		act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_CLOSES_P);
+		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_CLOSE_P);
+		act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_CLOSES_P);
 		return;
 	}
 
@@ -785,7 +786,7 @@ void do_close(CHAR_DATA *ch, char *argument)
 		    { send_to_char(msg(MOVE_ITS_ALREADY_CLOSED, ch), ch); return; }
 
 		SET_BIT(pexit->exit_info, EX_CLOSED);
-		act_printf(ch, NULL, pexit->keyword, TO_ROOM, POS_RESTING, MOVE_N_CLOSES_THE_D);
+		act_nprintf(ch, NULL, pexit->keyword, TO_ROOM, POS_RESTING, MOVE_N_CLOSES_THE_D);
 		send_to_char(msg(MOVE_OK, ch), ch);
 
 		/* close the other side */
@@ -797,7 +798,7 @@ void do_close(CHAR_DATA *ch, char *argument)
 
 		    SET_BIT(pexit_rev->exit_info, EX_CLOSED);
 		    for (rch = to_room->people; rch != NULL; rch = rch->next_in_room)
-			act_printf(rch, NULL, pexit_rev->keyword, TO_CHAR, POS_RESTING, MOVE_THE_D_CLOSES);
+			act_nprintf(rch, NULL, pexit_rev->keyword, TO_CHAR, POS_RESTING, MOVE_THE_D_CLOSES);
 		}
 		return;
 	}
@@ -892,8 +893,8 @@ void do_lock(CHAR_DATA *ch, char *argument)
 		    }
 
 		    SET_BIT(obj->value[1],EX_LOCKED);
-		    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_LOCK_P);
-		    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_LOCKS_P);
+		    act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_LOCK_P);
+		    act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_LOCKS_P);
 		    return;
 		}
 
@@ -910,8 +911,8 @@ void do_lock(CHAR_DATA *ch, char *argument)
 		    { send_to_char(msg(MOVE_ITS_ALREADY_LOCKED, ch), ch); return; }
 
 		SET_BIT(obj->value[1], CONT_LOCKED);
-		act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_LOCK_P);
-		act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_LOCKS_P);
+		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_LOCK_P);
+		act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_LOCKS_P);
 		return;
 	}
 
@@ -935,7 +936,7 @@ void do_lock(CHAR_DATA *ch, char *argument)
 
 		SET_BIT(pexit->exit_info, EX_LOCKED);
 		send_to_char(msg(MOVE_CLICK, ch), ch);
-		act_printf(ch, NULL, pexit->keyword, TO_ROOM, POS_RESTING, MOVE_N_LOCKS_THE_D);
+		act_nprintf(ch, NULL, pexit->keyword, TO_ROOM, POS_RESTING, MOVE_N_LOCKS_THE_D);
 
 		/* lock the other side */
 		if ((to_room   = pexit->u1.to_room           ) != NULL
@@ -944,7 +945,7 @@ void do_lock(CHAR_DATA *ch, char *argument)
 		{
 		    SET_BIT(pexit_rev->exit_info, EX_LOCKED);
 		    for (rch = to_room->people; rch != NULL; rch = rch->next_in_room)
-			act_printf(rch, NULL, pexit_rev->keyword, TO_CHAR, POS_RESTING, MOVE_THE_D_CLICKS);
+			act_nprintf(rch, NULL, pexit_rev->keyword, TO_CHAR, POS_RESTING, MOVE_THE_D_CLICKS);
 
 		}
 		  return;
@@ -1006,8 +1007,8 @@ void do_unlock(CHAR_DATA *ch, char *argument)
 		    }
 
 		    REMOVE_BIT(obj->value[1],EX_LOCKED);
-		    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_UNLOCK_P);
-		    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_UNLOCKS_P);
+		    act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_UNLOCK_P);
+		    act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_UNLOCKS_P);
 		    return;
 		}
 
@@ -1024,8 +1025,8 @@ void do_unlock(CHAR_DATA *ch, char *argument)
 		    { send_to_char(msg(MOVE_ITS_ALREADY_UNLOCKED, ch), ch); return; }
 
 		REMOVE_BIT(obj->value[1], CONT_LOCKED);
-		act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_UNLOCK_P);
-		act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_UNLOCKS_P);
+		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_UNLOCK_P);
+		act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_UNLOCKS_P);
 		return;
 	}
 
@@ -1050,7 +1051,7 @@ void do_unlock(CHAR_DATA *ch, char *argument)
 
 		REMOVE_BIT(pexit->exit_info, EX_LOCKED);
 		send_to_char(msg(MOVE_CLICK, ch), ch);
-		act_printf(ch, NULL, pexit->keyword, TO_ROOM, POS_RESTING, MOVE_N_UNLOCKS_THE_D);
+		act_nprintf(ch, NULL, pexit->keyword, TO_ROOM, POS_RESTING, MOVE_N_UNLOCKS_THE_D);
 
 		/* unlock the other side */
 		if ((to_room   = pexit->u1.to_room           ) != NULL
@@ -1059,7 +1060,7 @@ void do_unlock(CHAR_DATA *ch, char *argument)
 		{
 		    REMOVE_BIT(pexit_rev->exit_info, EX_LOCKED);
 		    for (rch = to_room->people; rch != NULL; rch = rch->next_in_room)
-			act_printf(rch, NULL, pexit_rev->keyword, TO_CHAR, POS_RESTING, MOVE_THE_D_CLICKS);
+			act_nprintf(rch, NULL, pexit_rev->keyword, TO_CHAR, POS_RESTING, MOVE_THE_D_CLICKS);
 		}
 		  return;
 	}
@@ -1096,7 +1097,7 @@ void do_pick(CHAR_DATA *ch, char *argument)
 	{
 		if (IS_NPC(gch) && IS_AWAKE(gch) && ch->level + 5 < gch->level)
 		{
-		    act_printf(ch, NULL, gch, TO_CHAR, POS_RESTING, MOVE_N_IS_STANDING_TOO_CLOSE_TO_LOCK);
+		    act_nprintf(ch, NULL, gch, TO_CHAR, POS_RESTING, MOVE_N_IS_STANDING_TOO_CLOSE_TO_LOCK);
 		    return;
 		}
 	}
@@ -1138,8 +1139,8 @@ void do_pick(CHAR_DATA *ch, char *argument)
 		    }
 
 		    REMOVE_BIT(obj->value[1],EX_LOCKED);
-		    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_PICK_THE_LOCK_ON_P);
-		    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_PICKS_THE_LOCK_ON_P);
+		    act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_PICK_THE_LOCK_ON_P);
+		    act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_PICKS_THE_LOCK_ON_P);
 		    check_improve(ch,gsn_pick_lock,TRUE,2);
 		    return;
 		}
@@ -1158,8 +1159,8 @@ void do_pick(CHAR_DATA *ch, char *argument)
 		    { send_to_char(msg(MOVE_YOU_FAILED, ch), ch); return; }
 
 		REMOVE_BIT(obj->value[1], CONT_LOCKED);
-		  act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_PICK_THE_LOCK_ON_P);
-		  act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_PICKS_THE_LOCK_ON_P);
+		  act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_PICK_THE_LOCK_ON_P);
+		  act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_PICKS_THE_LOCK_ON_P);
 		check_improve(ch,gsn_pick_lock,TRUE,2);
 		return;
 	}
@@ -1183,7 +1184,7 @@ void do_pick(CHAR_DATA *ch, char *argument)
 
 		REMOVE_BIT(pexit->exit_info, EX_LOCKED);
 		send_to_char(msg(MOVE_CLICK, ch), ch);
-		act_printf(ch, NULL, pexit->keyword, TO_ROOM, POS_RESTING, MOVE_N_PICKS_THE_D);
+		act_nprintf(ch, NULL, pexit->keyword, TO_ROOM, POS_RESTING, MOVE_N_PICKS_THE_D);
 		check_improve(ch,gsn_pick_lock,TRUE,2);
 
 		/* pick the other side */
@@ -1228,7 +1229,7 @@ void do_stand(CHAR_DATA *ch, char *argument)
 		}
 		if (ch->on != obj && count_users(obj) >= obj->value[0])
 		{
-		    act_printf(ch, obj, NULL, TO_ROOM, POS_DEAD, MOVE_THERES_NO_ROOM_TO_STAND_ON);
+		    act_nprintf(ch, obj, NULL, TO_ROOM, POS_DEAD, MOVE_THERES_NO_ROOM_TO_STAND_ON);
 		    return;
 		}
 	}
@@ -1241,29 +1242,29 @@ void do_stand(CHAR_DATA *ch, char *argument)
 		if (obj == NULL)
 		{
 		    send_to_char(msg(MOVE_YOU_WAKE_AND_STAND_UP, ch), ch);
-		    act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
+		    act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
 				MOVE_N_WAKES_AND_STANDS_UP);
 		    ch->on = NULL;
 		}
 		else if (IS_SET(obj->value[2],STAND_AT))
 		{
-		   act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, 
+		   act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, 
 				MOVE_YOU_WAKE_AND_STAND_AT);
-		   act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, 
+		   act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, 
 				MOVE_N_WAKES_AND_STANDS_AT);
 		}
 		else if (IS_SET(obj->value[2],STAND_ON))
 		{
-		   act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, 
+		   act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, 
 				MOVE_YOU_WAKE_AND_STAND_ON);
-		   act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, 
+		   act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, 
 				MOVE_N_WAKES_AND_STANDS_ON);
 		}
 		else 
 		{
-		   act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, 
+		   act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, 
 				MOVE_YOU_WAKE_AND_STAND_IN);
-		   act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, 
+		   act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, 
 				MOVE_N_WAKES_AND_STANDS_IN);
 		}
 
@@ -1281,23 +1282,23 @@ void do_stand(CHAR_DATA *ch, char *argument)
 		if (obj == NULL)
 		{
 		    send_to_char(msg(MOVE_YOU_STAND_UP, ch), ch);
-		    act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_STANDS_UP);
+		    act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_STANDS_UP);
 		    ch->on = NULL;
 		}
 		else if (IS_SET(obj->value[2],STAND_AT))
 		{
-		    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_STAND_AT);
-		    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_STANDS_AT);
+		    act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_STAND_AT);
+		    act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_STANDS_AT);
 		}
 		else if (IS_SET(obj->value[2],STAND_ON))
 		{
-		    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_STAND_ON);
-		    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_STANDS_ON);
+		    act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_STAND_ON);
+		    act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_STANDS_ON);
 		}
 		else
 		{
-		    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_STAND_IN);
-		    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_STANDS_IN);
+		    act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_STAND_IN);
+		    act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_STANDS_IN);
 		}
 		ch->position = POS_STANDING;
 		break;
@@ -1366,7 +1367,7 @@ void do_rest(CHAR_DATA *ch, char *argument)
 
 		  if (obj != NULL && ch->on != obj && count_users(obj) >= obj->value[0])
 		  {
-		    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, 
+		    act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, 
 				MOVE_THERES_NO_MORE_ROOM_ON);
 		    return;
 		}
@@ -1380,28 +1381,28 @@ void do_rest(CHAR_DATA *ch, char *argument)
 		if (obj == NULL)
 		{
 		    send_to_char(msg(MOVE_YOU_WAKE_AND_REST, ch), ch);
-		    act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
+		    act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
 				MOVE_N_WAKES_AND_RESTS);
 		}
 		else if (IS_SET(obj->value[2],REST_AT))
 		{
-		    act_printf(ch, obj, NULL, TO_CHAR, POS_SLEEPING,
+		    act_nprintf(ch, obj, NULL, TO_CHAR, POS_SLEEPING,
 				MOVE_YOU_WAKE_UP_AND_REST_AT);
-		    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+		    act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
 				MOVE_N_WAKES_UP_AND_RESTS_AT);
 		}
 		  else if (IS_SET(obj->value[2],REST_ON))
 		  {
-		    act_printf(ch, obj, NULL, TO_CHAR, POS_SLEEPING,
+		    act_nprintf(ch, obj, NULL, TO_CHAR, POS_SLEEPING,
 				MOVE_YOU_WAKE_UP_AND_REST_ON);
-		    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+		    act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
 				MOVE_N_WAKES_UP_AND_RESTS_ON);
 		  }
 		  else
 		  {
-		    act_printf(ch, obj, NULL, TO_CHAR, POS_SLEEPING,
+		    act_nprintf(ch, obj, NULL, TO_CHAR, POS_SLEEPING,
 				MOVE_YOU_WAKE_UP_AND_REST_IN);
-		    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+		    act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
 				MOVE_N_WAKES_UP_AND_RESTS_IN);
 		  }
 		ch->position = POS_RESTING;
@@ -1415,28 +1416,28 @@ void do_rest(CHAR_DATA *ch, char *argument)
 		if (obj == NULL)
 		{
 		    send_to_char(msg(MOVE_YOU_REST, ch), ch);
-		    act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+		    act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 				MOVE_N_SITS_DOWN_AND_RESTS);
 		}
 		  else if (IS_SET(obj->value[2],REST_AT))
 		  {
-		    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+		    act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
 				MOVE_YOU_SIT_DOWN_AT_AND_REST);
-		    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+		    act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
 				MOVE_N_SITS_DOWN_AT_AND_RESTS);
 		  }
 		  else if (IS_SET(obj->value[2],REST_ON))
 		  {
-		    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+		    act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
 				MOVE_YOU_SIT_DOWN_ON_AND_REST);
-		    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+		    act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
 				MOVE_N_SITS_DOWN_ON_AND_RESTS);
 		  }
 		  else
 		  {
-		    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+		    act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
 				MOVE_YOU_SIT_DOWN_IN_AND_REST);
-		    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+		    act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
 				MOVE_N_SITS_DOWN_IN_AND_RESTS);
 		  }
 		ch->position = POS_RESTING;
@@ -1446,22 +1447,22 @@ void do_rest(CHAR_DATA *ch, char *argument)
 		if (obj == NULL)
 		{
 		    send_to_char(msg(MOVE_YOU_REST, ch), ch);
-		    act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_RESTS);
+		    act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_RESTS);
 		}
 		  else if (IS_SET(obj->value[2],REST_AT))
 		  {
-		    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_REST_AT);
-		    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_RESTS_AT);
+		    act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_REST_AT);
+		    act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_RESTS_AT);
 		  }
 		  else if (IS_SET(obj->value[2],REST_ON))
 		  {
-		    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_REST_ON);
-		    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_RESTS_ON);
+		    act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_REST_ON);
+		    act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_RESTS_ON);
 		  }
 		  else
 		  {
-		    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_REST_IN);
-		    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_RESTS_IN);
+		    act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_REST_IN);
+		    act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_RESTS_IN);
 		}
 		ch->position = POS_RESTING;
 
@@ -1527,7 +1528,7 @@ void do_sit (CHAR_DATA *ch, char *argument)
 
 		if (obj != NULL && ch->on != obj && count_users(obj) >= obj->value[0])
 		{
-		    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+		    act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
 				MOVE_THERES_NO_MORE_ROOM_ON);
 		    return;
 		}
@@ -1540,28 +1541,28 @@ void do_sit (CHAR_DATA *ch, char *argument)
 		      if (obj == NULL)
 		      {
 		      	send_to_char(msg(MOVE_YOU_WAKE_AND_SIT_UP,  ch), ch);
-		      	act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+		      	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 					MOVE_N_WAKES_AND_SITS_UP);
 		      }
 		      else if (IS_SET(obj->value[2],SIT_AT))
 		      {
-		      	act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+		      	act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
 					MOVE_YOU_WAKE_AND_SIT_AT);
-		      	act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+		      	act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
 					MOVE_N_WAKES_AND_SITS_AT);
 		      }
 		      else if (IS_SET(obj->value[2],SIT_ON))
 		      {
-		      	act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+		      	act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
 					MOVE_YOU_WAKE_AND_SIT_ON);
-		      	act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+		      	act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
 					MOVE_N_WAKES_AND_SITS_ON);
 		      }
 		      else
 		      {
-		      	act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+		      	act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
 					MOVE_YOU_WAKE_AND_SIT_IN);
-		      	act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+		      	act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
 					MOVE_N_WAKES_AND_SITS_IN);
 		      }
 
@@ -1572,17 +1573,17 @@ void do_sit (CHAR_DATA *ch, char *argument)
 			send_to_char(msg(MOVE_YOU_STOP_RESTING, ch), ch);
 		    else if (IS_SET(obj->value[2],SIT_AT))
 		    {
-			act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
 					MOVE_YOU_SIT_AT);
-			act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+			act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
 					MOVE_N_SITS_AT);
 		    }
 
 		    else if (IS_SET(obj->value[2],SIT_ON))
 		    {
-			act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
 					MOVE_YOU_SIT_ON);
-			act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+			act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
 					MOVE_N_SITS_ON);
 		    }
 		    ch->position = POS_SITTING;
@@ -1594,28 +1595,28 @@ void do_sit (CHAR_DATA *ch, char *argument)
 		    if (obj == NULL)
 		    {
 			send_to_char(msg(MOVE_YOU_SIT_DOWN,  ch), ch);
-		        act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+		        act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 					MOVE_N_SITS_DOWN_ON_THE_GROUND);
 		    }
 		    else if (IS_SET(obj->value[2],SIT_AT))
 		    {
-			act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
 					MOVE_YOU_SIT_DOWN_AT);
-			act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+			act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
 					MOVE_N_SITS_DOWN_AT);
 		    }
 		    else if (IS_SET(obj->value[2],SIT_ON))
 		    {
-			act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
 					MOVE_YOU_SIT_ON);
-			act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+			act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
 					MOVE_N_SITS_ON);
 		    }
 		    else
 		    {
-			act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
 					MOVE_YOU_SIT_DOWN_IN);
-			act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+			act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
 					MOVE_N_SITS_DOWN_IN);
 		    }
 		    ch->position = POS_SITTING;
@@ -1657,7 +1658,7 @@ void do_sleep(CHAR_DATA *ch, char *argument)
 		if (argument[0] == '\0' && ch->on == NULL)
 		{
 		    send_to_char(msg(MOVE_YOU_GO_TO_SLEEP, ch), ch);
-		    act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+		    act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 					MOVE_N_GOES_TO_SLEEP);
 		    ch->position = POS_SLEEPING;
 		}
@@ -1684,7 +1685,7 @@ void do_sleep(CHAR_DATA *ch, char *argument)
 
 		    if (ch->on != obj && count_users(obj) >= obj->value[0])
 		    {
-			act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
 					MOVE_THERES_NO_ROOM_ON_P_FOR_YOU);
 			return;
 		    }
@@ -1692,23 +1693,23 @@ void do_sleep(CHAR_DATA *ch, char *argument)
 		    ch->on = obj;
 		    if (IS_SET(obj->value[2],SLEEP_AT))
 		    {
-			act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
 					MOVE_YOU_GO_TO_SLEEP_AT);
-			act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+			act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
 					MOVE_N_GOES_TO_SLEEP_AT);
 		    }
 		    else if (IS_SET(obj->value[2],SLEEP_ON))
 		    {
-			act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
 					MOVE_YOU_GO_TO_SLEEP_ON);
-			act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+			act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
 					MOVE_N_GOES_TO_SLEEP_ON);
 		    }
 		    else
 		    {
-			act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
 					MOVE_YOU_GO_TO_SLEEP_IN);
-			act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+			act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
 					MOVE_N_GOES_TO_SLEEP_IN);
 		    }
 		    ch->position = POS_SLEEPING;
@@ -1740,16 +1741,16 @@ void do_wake(CHAR_DATA *ch, char *argument)
 		{ send_to_char(msg(MOVE_THEY_ARENT_HERE,  ch), ch); return; }
 
 	if (IS_AWAKE(victim)) { 
-		act_printf(ch, NULL, victim, TO_CHAR, POS_DEAD,
+		act_nprintf(ch, NULL, victim, TO_CHAR, POS_DEAD,
 				MOVE_N_IS_ALREADY_AWAKE); return; 
 	}
 
 	if (IS_AFFECTED(victim, AFF_SLEEP)) { 
-		act_printf(ch, NULL, victim, TO_CHAR, POS_DEAD, MOVE_YOU_CANT_WAKE_M);  
+		act_nprintf(ch, NULL, victim, TO_CHAR, POS_DEAD, MOVE_YOU_CANT_WAKE_M);  
 		return; 
 	}
 
-	act_printf(ch, NULL, victim, TO_VICT, POS_SLEEPING, MOVE_N_WAKES_YOU);
+	act_nprintf(ch, NULL, victim, TO_VICT, POS_SLEEPING, MOVE_N_WAKES_YOU);
 	do_stand(victim,"");
 	return;
 }
@@ -1831,6 +1832,7 @@ void do_hide(CHAR_DATA *ch, char *argument)
 
 void do_camouflage(CHAR_DATA *ch, char *argument)
 {
+	int chance;
 
 	if (MOUNTED(ch)) 
 	{
@@ -1843,12 +1845,11 @@ void do_camouflage(CHAR_DATA *ch, char *argument)
 		  return;
 	}
 
-	if (IS_NPC(ch) || 
-		   ch->level < skill_table[gsn_camouflage].skill_level[ch->class])
-		{
+	if (IS_NPC(ch)
+	||  (chance = get_skill(ch, gsn_camouflage)) == 0) {
 		send_to_char(msg(MOVE_YOU_DONT_KNOW_CAMOUFLAGE, ch), ch);
 		return;
-		}
+	}
 
 	if (IS_AFFECTED(ch, AFF_FAERIE_FIRE))  {
 		send_to_char(msg(MOVE_YOU_CANT_CAMOUFLAGE_GLOWING, ch), ch);
@@ -1860,7 +1861,7 @@ void do_camouflage(CHAR_DATA *ch, char *argument)
 		ch->in_room->sector_type != SECT_MOUNTAIN)
 		{
 		send_to_char(msg(MOVE_THERES_NO_COVER_HERE, ch), ch);
-		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 				MOVE_N_TRIES_TO_CAMOUFLAGE);
 		return;
 		}
@@ -1871,14 +1872,12 @@ void do_camouflage(CHAR_DATA *ch, char *argument)
 		REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
 
 
-	if (IS_NPC(ch) || 
-		number_percent() < get_skill(ch,gsn_camouflage))
-	{
+	if (IS_NPC(ch) || number_percent() < chance) {
 		SET_BIT(ch->affected_by, AFF_CAMOUFLAGE);
-		check_improve(ch,gsn_camouflage,TRUE,1);
+		check_improve(ch, gsn_camouflage, TRUE, 1);
 	}
 	else
-		check_improve(ch,gsn_camouflage,FALSE,1);
+		check_improve(ch, gsn_camouflage, FALSE, 1);
 
 	return;
 }
@@ -1891,19 +1890,19 @@ void do_visible(CHAR_DATA *ch, char *argument)
 	if (IS_SET(ch->affected_by, AFF_HIDE)) {
 		send_to_char(msg(MOVE_YOU_STEP_OUT_SHADOWS, ch), ch);
 		REMOVE_BIT(ch->affected_by, AFF_HIDE);
-		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 				MOVE_N_STEPS_OUT_OF_SHADOWS);
 	}
 	if (IS_SET(ch->affected_by, AFF_FADE)) {
 		send_to_char(msg(MOVE_YOU_STEP_OUT_SHADOWS, ch), ch);
 		REMOVE_BIT(ch->affected_by, AFF_FADE);
-		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 				MOVE_N_STEPS_OUT_OF_SHADOWS);
 	}
 	if (IS_SET(ch->affected_by, AFF_CAMOUFLAGE)) {
 		send_to_char(msg(MOVE_YOU_STEP_OUT_COVER, ch), ch);
 		REMOVE_BIT(ch->affected_by,AFF_CAMOUFLAGE);
-		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 				MOVE_N_STEPS_OUT_COVER);
 	}
 	if (IS_SET(ch->affected_by, AFF_INVISIBLE)) {
@@ -1911,7 +1910,7 @@ void do_visible(CHAR_DATA *ch, char *argument)
 		affect_strip(ch, gsn_invis);
 		affect_strip(ch, gsn_mass_invis);
 		REMOVE_BIT(ch->affected_by, AFF_INVISIBLE);
-		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 				MOVE_N_FADES_INTO_EXIST);
 	}
 	if (IS_SET(ch->affected_by, AFF_IMP_INVIS)) {
@@ -1919,7 +1918,7 @@ void do_visible(CHAR_DATA *ch, char *argument)
 		affect_strip(ch, gsn_invis);
 		affect_strip(ch, gsn_imp_invis);
 		REMOVE_BIT(ch->affected_by, AFF_IMP_INVIS);
-		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 				MOVE_N_FADES_INTO_EXIST);
 	}
 	if (IS_SET(ch->affected_by, AFF_SNEAK) 
@@ -1973,7 +1972,7 @@ void do_recall(CHAR_DATA *ch, char *argument)
 		point =	hometown_table[number_range(0, 4)].recall[number_range(0,2)];
 		}
 
-	act_printf(ch, 0, 0, TO_ROOM, POS_RESTING,
+	act_nprintf(ch, 0, 0, TO_ROOM, POS_RESTING,
 			MOVE_N_PRAYS_FOR_TRANSPORTATION);
 	
 	if ((location = get_room_index(point))== NULL)
@@ -2020,11 +2019,11 @@ void do_recall(CHAR_DATA *ch, char *argument)
 #endif
 
 	ch->move /= 2;
-	act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 				MOVE_N_DISAPPEARS);
 	char_from_room(ch);
 	char_to_room(ch, location);
-	act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 				MOVE_N_APPEARS_IN_THE_ROOM);
 	do_look(ch, "auto");
 	
@@ -2183,9 +2182,9 @@ void do_train(CHAR_DATA *ch, char *argument)
 		  ch->pcdata->perm_hit += 10;
 		  ch->max_hit += 10;
 		  ch->hit +=10;
-		  act_printf(ch, NULL, NULL, TO_CHAR, POS_DEAD,
+		  act_nprintf(ch, NULL, NULL, TO_CHAR, POS_DEAD,
 				MOVE_YOUR_DURABILITY_INCREASES);
-		  act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+		  act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 				MOVE_N_DURABILITY_INCREASES);
 		  return;
 	}
@@ -2202,16 +2201,16 @@ void do_train(CHAR_DATA *ch, char *argument)
 		  ch->pcdata->perm_mana += 10;
 		  ch->max_mana += 10;
 		  ch->mana += 10;
-		  act_printf(ch, NULL, NULL, TO_CHAR, POS_DEAD,
+		  act_nprintf(ch, NULL, NULL, TO_CHAR, POS_DEAD,
 				MOVE_YOUR_POWER_INCREASES);
-		  act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+		  act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 				MOVE_N_POWER_INCREASES);
 		  return;
 	}
 
 	if (ch->perm_stat[stat]  >= get_max_train2(ch,stat))
 	{
-		act_printf(ch, NULL, pOutput, TO_CHAR, POS_DEAD, MOVE_YOUR_T_IS_MAX);
+		act_nprintf(ch, NULL, pOutput, TO_CHAR, POS_DEAD, MOVE_YOUR_T_IS_MAX);
 		return;
 	}
 
@@ -2224,8 +2223,8 @@ void do_train(CHAR_DATA *ch, char *argument)
 	ch->train		-= cost;
   
 	ch->perm_stat[stat]		+= 1;
-	act_printf(ch, NULL, pOutput, TO_CHAR, POS_DEAD, MOVE_YOUR_T_INCREASES);
-	act_printf(ch, NULL, pOutput, TO_ROOM, POS_RESTING, MOVE_N_T_INCREASES);
+	act_nprintf(ch, NULL, pOutput, TO_CHAR, POS_DEAD, MOVE_YOUR_T_INCREASES);
+	act_nprintf(ch, NULL, pOutput, TO_ROOM, POS_RESTING, MOVE_N_T_INCREASES);
 	return;
 }
 
@@ -2245,8 +2244,8 @@ void do_track(CHAR_DATA *ch, char *argument)
 	return;
   }
 
-  WAIT_STATE(ch,skill_table[gsn_track].beats);
-  act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_CHECKS_TRACKS);
+  WAIT_STATE(ch, skill_table[gsn_track].beats);
+  act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_CHECKS_TRACKS);
 
   if (IS_NPC(ch) || number_percent() < get_skill(ch,gsn_track))
 	{
@@ -2286,38 +2285,35 @@ void do_track(CHAR_DATA *ch, char *argument)
 void do_vampire(CHAR_DATA *ch, char *argument)
 {
 	AFFECT_DATA af;
-	int level,duration;
+	int level, duration;
+	int chance;
  
-	if (is_affected(ch, gsn_vampire))
-	{
-	 send_to_char(msg(MOVE_YOU_CANT_BE_MORE_VAMPIRE, ch), ch);
-	 return;
+	if (is_affected(ch, gsn_vampire)) {
+		send_to_char(msg(MOVE_YOU_CANT_BE_MORE_VAMPIRE, ch), ch);
+		return;
 	}
 
-	if (!IS_NPC(ch)
-	&&   ch->level < skill_table[gsn_vampire].skill_level[ch->class])
-	{
+	if ((chance = get_skill(ch, gsn_vampire)) == 0) {
 		send_to_char(msg(MOVE_YOU_SHOW_MORE_UGGLY, ch), ch);
 		return;
 	}
 
-	if (get_skill(ch,gsn_vampire) < 100)
-		{
-		 send_to_char(msg(MOVE_GO_AND_ASK_QUESTOR, ch), ch);
-		 return;
-		}
-	if (is_affected(ch,gsn_vampire))
-		{
-		 send_to_char(msg(MOVE_GO_KILL_PLAYER, ch), ch);
-		 return;
-		}
+	if (chance < 100) {
+		send_to_char(msg(MOVE_GO_AND_ASK_QUESTOR, ch), ch);
+		return;
+	}
+
+	if (is_affected(ch, gsn_vampire)) {
+		send_to_char(msg(MOVE_GO_KILL_PLAYER, ch), ch);
+		return;
+	}
 
 
 	if (weather_info.sunlight == SUN_LIGHT 
-		||   weather_info.sunlight == SUN_RISE) 
-		{
-		 send_to_char(msg(MOVE_WAIT_NIGHT, ch), ch);
-		}
+	||  weather_info.sunlight == SUN_RISE) {
+		send_to_char(msg(MOVE_WAIT_NIGHT, ch), ch);
+		return;
+	}
 
 	level = ch->level;
 	duration = level / 10 ;
@@ -2383,9 +2379,9 @@ void do_vampire(CHAR_DATA *ch, char *argument)
 	af.bitvector = PLR_VAMPIRE;
 	affect_to_char(ch, &af);
 
-   send_to_char(msg(MOVE_FEEL_GREATER, ch), ch);
-   act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_CANNOT_RECOGNIZE);
-   return;
+	send_to_char(msg(MOVE_FEEL_GREATER, ch), ch);
+	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_CANNOT_RECOGNIZE);
+	return;
 }
 
 void do_vbite(CHAR_DATA *ch, char *argument)
@@ -2393,36 +2389,31 @@ void do_vbite(CHAR_DATA *ch, char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	char buf[MAX_STRING_LENGTH];
+	int chance;
 
 	one_argument(argument, arg);
 
-	if (!IS_NPC(ch)
-	&&   ch->level < skill_table[gsn_vampiric_bite].skill_level[ch->class])
-		{
+	if ((chance = get_skill(ch, gsn_vampiric_bite)) == 0) {
 		send_to_char(msg(MOVE_DONT_KNOW_BITE, ch), ch);
 		return;
-		}
+	}
 
-	if (!IS_VAMPIRE(ch))
-		{
-		 send_to_char(msg(MOVE_MUST_TRANSFORM_VAMP, ch), ch);
-		 return;
-		}
+	if (!IS_VAMPIRE(ch)) {
+		send_to_char(msg(MOVE_MUST_TRANSFORM_VAMP, ch), ch);
+		return;
+	}
 
-	if (arg[0] == '\0')
-	{
+	if (arg[0] == '\0') {
 		send_to_char(msg(MOVE_BITE_WHOM, ch), ch);
 		return;
 	}
 
-	if ((victim = get_char_room(ch, arg)) == NULL)
-	{
+	if ((victim = get_char_room(ch, arg)) == NULL) {
 		send_to_char(msg(MOVE_THEY_ARENT_HERE, ch), ch);
 		return;
 	}
 
-	if (victim->position != POS_SLEEPING)
-	{
+	if (victim->position != POS_SLEEPING) {
 		send_to_char(msg(MOVE_THEY_MUST_BE_SLEEPING, ch), ch);
 		return;
 	}
@@ -2431,8 +2422,7 @@ void do_vbite(CHAR_DATA *ch, char *argument)
 		return;
 		
 
-	if (victim == ch)
-	{
+	if (victim == ch) {
 		send_to_char(msg(MOVE_HOW_CAN_YOU_SNEAK_YOU, ch), ch);
 		return;
 	}
@@ -2440,8 +2430,7 @@ void do_vbite(CHAR_DATA *ch, char *argument)
 	if (is_safe(ch, victim))
 		return;
 
-	if (victim->fighting != NULL)
-	{
+	if (victim->fighting != NULL) {
 		send_to_char(msg(MOVE_CANT_BITE_FIGHTING_PERS, ch), ch);
 		return;
 	}
@@ -2449,33 +2438,30 @@ void do_vbite(CHAR_DATA *ch, char *argument)
 
 	WAIT_STATE(ch, skill_table[gsn_vampiric_bite].beats);
 
-	if (victim->hit < (0.8 * victim->max_hit) &&
-		 (IS_AWAKE(victim)))
-	{
-		act_printf(ch, NULL, victim, TO_CHAR, POS_DEAD, MOVE_DOESNT_WORTH_UP);
+	if (victim->hit < (8 * victim->max_hit / 10) && (IS_AWAKE(victim))) {
+		act_nprintf(ch, NULL, victim, TO_CHAR, POS_DEAD,
+			   MOVE_DOESNT_WORTH_UP);
 		return;
 	}
 
-	if (current_time-victim->last_fight_time<300 && IS_AWAKE(victim))
-	{
-		act_printf(ch, NULL, victim, TO_CHAR, POS_DEAD,MOVE_DOESNT_WORTH_TO_DO);
+	if (current_time-victim->last_fight_time<300 && IS_AWAKE(victim)) {
+		act_nprintf(ch, NULL, victim, TO_CHAR, POS_DEAD,
+			   MOVE_DOESNT_WORTH_TO_DO);
 		return;       
 	}
 
 	if (!IS_AWAKE(victim)
-	&& ( IS_NPC(ch)
-	||   number_percent() < 
-		((get_skill(ch,gsn_vampiric_bite) * 0.7) +
-		(2 * (ch->level - victim->level)) )))
-	{
+	&& (IS_NPC(ch)
+	||  number_percent() < ((chance * 7 / 10) +
+		(2 * (ch->level - victim->level)) ))) {
 		check_improve(ch,gsn_vampiric_bite,TRUE,1);
 		one_hit(ch, victim, gsn_vampiric_bite,FALSE);
 	}
-	else
-	{
+	else {
 		check_improve(ch,gsn_vampiric_bite,FALSE,1);
 		damage(ch, victim, 0, gsn_vampiric_bite,DAM_NONE, TRUE);
 	}
+
 	/* Player shouts if he doesn't die */
 	if (!(IS_NPC(victim)) && !(IS_NPC(ch)) 
 		&& victim->position == POS_FIGHTING)
@@ -2532,7 +2518,7 @@ void do_bash_door(CHAR_DATA *ch, char *argument)
     {
 	if ( IS_NPC(gch) && IS_AWAKE(gch) && ch->level + 5 < gch->level )
 	{
-	    act_printf(ch, NULL, gch, TO_CHAR, POS_DEAD, 
+	    act_nprintf(ch, NULL, gch, TO_CHAR, POS_DEAD, 
 			MOVE_N_TOO_CLOSE_TO_DOOR);
 	    return;
 	}
@@ -2568,9 +2554,9 @@ void do_bash_door(CHAR_DATA *ch, char *argument)
 	if (IS_AFFECTED(ch,AFF_FLYING))
 		chance -= 10;
 
-    act_printf(ch, NULL, pexit->keyword, TO_CHAR, POS_DEAD, 
+    act_nprintf(ch, NULL, pexit->keyword, TO_CHAR, POS_DEAD, 
 			MOVE_YOU_SLAM_TRY_BREAK);
-    act_printf(ch, NULL, pexit->keyword, TO_ROOM, POS_RESTING,
+    act_nprintf(ch, NULL, pexit->keyword, TO_ROOM, POS_RESTING,
 			MOVE_N_SLAMS_TRY_BREAK);
 
 	chance += (get_skill(ch,gsn_bash) - 90);
@@ -2586,7 +2572,7 @@ void do_bash_door(CHAR_DATA *ch, char *argument)
 
 		REMOVE_BIT(pexit->exit_info, EX_LOCKED);
 		REMOVE_BIT(pexit->exit_info, EX_CLOSED);
-		act_printf(ch, NULL, pexit->keyword, TO_ROOM, POS_RESTING, 
+		act_nprintf(ch, NULL, pexit->keyword, TO_ROOM, POS_RESTING, 
 				MOVE_N_BASHES_AND_BREAK);
 		send_to_char(msg(MOVE_YOU_SUCCESSED_TO_OPEN_DOOR, ch), ch);
 
@@ -2600,7 +2586,7 @@ void do_bash_door(CHAR_DATA *ch, char *argument)
 		    REMOVE_BIT(pexit_rev->exit_info, EX_CLOSED);
 		    REMOVE_BIT(pexit_rev->exit_info, EX_LOCKED);
 		    for (rch = to_room->people; rch != NULL; rch = rch->next_in_room)
-			act_printf(rch, NULL, pexit_rev->keyword, TO_CHAR,
+			act_nprintf(rch, NULL, pexit_rev->keyword, TO_CHAR,
 				POS_DEAD, MOVE_THE_D_OPENS);
 		}
 
@@ -2611,7 +2597,7 @@ void do_bash_door(CHAR_DATA *ch, char *argument)
 	else
 	{
 		send_to_char(msg(MOVE_YOU_FALL_ON_FACE, ch), ch);
-		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 				MOVE_N_FALLS_ON_FACE);
 		check_improve(ch,gsn_bash,FALSE,1);
 		ch->position = POS_RESTING;
@@ -2713,7 +2699,7 @@ void do_vanish(CHAR_DATA *ch, char *argument)
 	}
 
   
-  act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_THROWS_GLOBE);
+  act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_THROWS_GLOBE);
 
   check_improve(ch,gsn_vanish,TRUE,1);
 
@@ -2723,11 +2709,11 @@ void do_vanish(CHAR_DATA *ch, char *argument)
 	return;
   }
 
-  act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_IS_GONE);
+  act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_IS_GONE);
 
   char_from_room(ch);
   char_to_room(ch, pRoomIndex);
-  act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_APPEARS_FROM_NOWHERE);
+  act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_APPEARS_FROM_NOWHERE);
   do_look(ch, "auto");
   stop_fighting(ch,TRUE);
   return;
@@ -2769,7 +2755,7 @@ void do_fade(CHAR_DATA *ch, char *argument)
 		  return;
 	}
 
-	if (!cabal_ok(ch,gsn_fade)) return;
+	if (!clan_ok(ch,gsn_fade)) return;
 	send_to_char(msg(MOVE_YOU_ATTEMPT_TO_FADE, ch), ch);
 
 	SET_BIT(ch->affected_by, AFF_FADE);
@@ -2823,11 +2809,11 @@ void do_vtouch(CHAR_DATA *ch, char *argument)
 
 	if (IS_NPC(ch) || 
 	    number_percent() < 0.85 * get_skill(ch,gsn_vampiric_touch)) {
-		act_printf(ch, NULL, victim, TO_CHAR, POS_DEAD, 
+		act_nprintf(ch, NULL, victim, TO_CHAR, POS_DEAD, 
 				MOVE_YOU_TOUCH_NS_NECK);
-		act_printf(ch, NULL, victim, TO_VICT, POS_RESTING, 
+		act_nprintf(ch, NULL, victim, TO_VICT, POS_RESTING, 
 				MOVE_N_TOUCHES_YOUR_NECK);
-		act_printf(ch, NULL, victim, TO_NOTVICT, POS_RESTING,
+		act_nprintf(ch, NULL, victim, TO_NOTVICT, POS_RESTING,
 				MOVE_N_TOUCHES_NS_NECK);
 		check_improve(ch,gsn_vampiric_touch,TRUE,1);
 		
@@ -2980,16 +2966,16 @@ if ((door = find_exit(ch, arg2)) >= 0)
 	if (CAN_DETECT(ch,ADET_WEB))
 	{
 		send_to_char(msg(MOVE_YOU_WEBBED_WANT_WHAT, ch), ch);
-		act_printf(ch, NULL, victim, TO_ROOM, POS_RESTING, 
+		act_nprintf(ch, NULL, victim, TO_ROOM, POS_RESTING, 
 				MOVE_N_TRIES_PUSH_WEBBED);
 		return; 
 	}
 
 	if (CAN_DETECT(victim,ADET_WEB))
 	{
-		act_printf(ch, NULL, victim, TO_CHAR, POS_DEAD, 
+		act_nprintf(ch, NULL, victim, TO_CHAR, POS_DEAD, 
 				MOVE_PUSH_VICT_WEBBED);
-		act_printf(ch, NULL, victim, TO_ROOM, POS_RESTING,
+		act_nprintf(ch, NULL, victim, TO_ROOM, POS_RESTING,
 				MOVE_N_PUSHES_VICT_WEBBED);
 		return; 
 	}
@@ -3012,10 +2998,10 @@ if ((door = find_exit(ch, arg2)) >= 0)
 		if (!IS_AFFECTED(victim, AFF_SLEEP)) {
 		   victim->position = victim->position == POS_SLEEPING ? 
 					POS_STANDING : victim->position;
-		   act_printf(ch, NULL, victim, TO_VICT, POS_RESTING,
+		   act_nprintf(ch, NULL, victim, TO_VICT, POS_RESTING,
 				MOVE_N_TRIED_PUSH_YOU);
 		}
-		act_printf(ch, NULL, victim, TO_NOTVICT, POS_RESTING, 
+		act_nprintf(ch, NULL, victim, TO_NOTVICT, POS_RESTING, 
 				MOVE_N_TRIED_PUSH_N);
 
 		sprintf(buf, msg(MOVE_KEEP_HANDS_OUT, ch), ch->name);
@@ -3035,11 +3021,11 @@ if ((door = find_exit(ch, arg2)) >= 0)
 	}
 
 
-	act_printf(ch, NULL, victim, TO_CHAR, POS_SLEEPING,
+	act_nprintf(ch, NULL, victim, TO_CHAR, POS_SLEEPING,
 		       COMM_YOU_PUSH, dir_name[door]);
-	act_printf(ch, NULL, victim, TO_VICT, POS_SLEEPING,
+	act_nprintf(ch, NULL, victim, TO_VICT, POS_SLEEPING,
 		       COMM_PUSHES_YOU, dir_name[door]);
-	act_printf(ch, NULL, victim, TO_NOTVICT, POS_SLEEPING,
+	act_nprintf(ch, NULL, victim, TO_NOTVICT, POS_SLEEPING,
 		       COMM_PUSHES_N_TO, dir_name[door]);
 	move_char(victim, door, FALSE);
 
@@ -3056,13 +3042,13 @@ void do_crecall(CHAR_DATA *ch, char *argument)
 	int point = ROOM_VNUM_BATTLE;
 	AFFECT_DATA af;
 
-	if (ch_skill_nok(ch,gsn_cabal_recall))
+	if (ch_skill_nok(ch,gsn_clan_recall))
 		return;
 
-	if (!cabal_ok(ch,gsn_cabal_recall))
+	if (!clan_ok(ch,gsn_clan_recall))
 		return;
 
-	if (is_affected(ch, gsn_cabal_recall)) {
+	if (is_affected(ch, gsn_clan_recall)) {
 		send_to_char(msg(MOVE_CANT_PRAY_NOW, ch), ch);
 	}
 
@@ -3076,7 +3062,7 @@ void do_crecall(CHAR_DATA *ch, char *argument)
 		point =	ROOM_VNUM_BATTLE;
 	}
 
-	act_printf(ch, 0, 0, TO_ROOM, POS_RESTING, MOVE_PRAYS_UPPER_LORD);
+	act_nprintf(ch, 0, 0, TO_ROOM, POS_RESTING, MOVE_PRAYS_UPPER_LORD);
 	
 	if ((location = get_room_index(point))== NULL) {
 		send_to_char(msg(MOVE_YOU_ARE_COMPLETELY_LOST, ch), ch);
@@ -3105,10 +3091,10 @@ void do_crecall(CHAR_DATA *ch, char *argument)
 
 	ch->move /= 2;
 	ch->mana /= 10;
-	act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_DISAPPEARS);
+	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_DISAPPEARS);
 	char_from_room(ch);
 	char_to_room(ch, location);
-	act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
+	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
 			MOVE_N_APPEARS_IN_THE_ROOM);
 	do_look(ch, "auto");
 	
@@ -3118,7 +3104,7 @@ void do_crecall(CHAR_DATA *ch, char *argument)
 		do_look(ch->pet, "auto");
 	}
 
-	af.type      = gsn_cabal_recall;
+	af.type      = gsn_clan_recall;
 	af.level     = ch->level;
 	af.duration  = ch->level / 6 + 15;
 	af.location  = APPLY_NONE;
@@ -3198,7 +3184,7 @@ void do_escape(CHAR_DATA *ch, char *argument)
 			continue;
 
 		ch->in_room = was_in;
-		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 				MOVE_N_ESCAPED);
 		ch->in_room = now_in;
 
@@ -3284,11 +3270,11 @@ int mount_success (CHAR_DATA *ch, CHAR_DATA *mount, int canattack)
   } else {
 	check_improve(ch, gsn_riding, FALSE, 1);
 	if (success >= 10 && MOUNTED(ch) == mount) {
-		act_printf(ch, NULL, mount, TO_CHAR, POS_DEAD, 
+		act_nprintf(ch, NULL, mount, TO_CHAR, POS_DEAD, 
 				MOVE_YOU_FALL_OFF_N);
-		act_printf(ch, NULL, mount, TO_ROOM, POS_RESTING, 
+		act_nprintf(ch, NULL, mount, TO_ROOM, POS_RESTING, 
 				MOVE_N_FALLS_OFF_N);
-		act_printf(ch, NULL, mount, TO_VICT, POS_SLEEPING, 
+		act_nprintf(ch, NULL, mount, TO_VICT, POS_SLEEPING, 
 				MOVE_N_FALLS_OFF_YOU);
 
 		ch->riding = FALSE;
@@ -3302,18 +3288,18 @@ int mount_success (CHAR_DATA *ch, CHAR_DATA *mount, int canattack)
 		
 	}
 	if (success >= 40 && canattack) {
-		act_printf(ch, NULL, mount, TO_CHAR, POS_DEAD,
+		act_nprintf(ch, NULL, mount, TO_CHAR, POS_DEAD,
 				MOVE_N_DOESNT_LIKE_YOU);
-		act_printf(ch, NULL, mount, TO_ROOM, POS_RESTING,
+		act_nprintf(ch, NULL, mount, TO_ROOM, POS_RESTING,
 				MOVE_N_DOESNT_LIKE_N);
-		act_printf(ch, NULL, mount, TO_VICT, POS_SLEEPING,
+		act_nprintf(ch, NULL, mount, TO_VICT, POS_SLEEPING,
 				MOVE_YOU_DONT_LIKE_N);
 
-		act_printf(ch, NULL, mount, TO_CHAR, POS_DEAD, 
+		act_nprintf(ch, NULL, mount, TO_CHAR, POS_DEAD, 
 				MOVE_N_SNARLS_YOU);
-		act_printf(ch, NULL, mount, TO_ROOM, POS_RESTING,
+		act_nprintf(ch, NULL, mount, TO_ROOM, POS_RESTING,
 				MOVE_N_SNARLS_N);
-		act_printf(ch, NULL, mount, TO_VICT, POS_SLEEPING,
+		act_nprintf(ch, NULL, mount, TO_VICT, POS_SLEEPING,
 				MOVE_YOU_SNARL_N);  
 
 		damage(mount, ch, number_range(1, mount->level), gsn_kick,DAM_BASH,TRUE);
@@ -3349,7 +3335,7 @@ void do_mount(CHAR_DATA *ch, char *argument)
 	return;
   }
  
-  if (ch_skill_nok_nomessage(ch,gsn_riding)) {
+  if (!SKILL_OK(ch,gsn_riding)) {
 	send_to_char(msg(MOVE_DONT_KNOW_RIDE, ch), ch);
 	return;
   } 
@@ -3390,9 +3376,9 @@ void do_mount(CHAR_DATA *ch, char *argument)
 	return; 
   }
 
-  act_printf(ch, NULL, mount, TO_CHAR, POS_DEAD, MOVE_YOU_HOP_ON_N);
-  act_printf(ch, NULL, mount, TO_NOTVICT, POS_RESTING, MOVE_N_HOPS_ON_N);
-  act_printf(ch, NULL, mount, TO_VICT, POS_SLEEPING, MOVE_N_HOPS_ON_YOU);
+  act_nprintf(ch, NULL, mount, TO_CHAR, POS_DEAD, MOVE_YOU_HOP_ON_N);
+  act_nprintf(ch, NULL, mount, TO_NOTVICT, POS_RESTING, MOVE_N_HOPS_ON_N);
+  act_nprintf(ch, NULL, mount, TO_VICT, POS_SLEEPING, MOVE_N_HOPS_ON_YOU);
  
   ch->mount = mount;
   ch->riding = TRUE;
@@ -3416,10 +3402,10 @@ void do_dismount(CHAR_DATA *ch, char *argument)
   if(MOUNTED(ch)) {
 	mount = MOUNTED(ch);
 
-	act_printf(ch, NULL, mount, TO_CHAR, POS_DEAD, MOVE_YOU_DISMOUNT_N);
-	act_printf(ch, NULL, mount, TO_NOTVICT, POS_RESTING, 
+	act_nprintf(ch, NULL, mount, TO_CHAR, POS_DEAD, MOVE_YOU_DISMOUNT_N);
+	act_nprintf(ch, NULL, mount, TO_NOTVICT, POS_RESTING, 
 				MOVE_N_DISMOUNTS_N);
-	act_printf(ch, NULL, mount, TO_VICT, POS_SLEEPING, 
+	act_nprintf(ch, NULL, mount, TO_VICT, POS_SLEEPING, 
 				MOVE_N_DISMOUNTS_YOU);
 
 	ch->riding = FALSE;
@@ -3596,7 +3582,7 @@ void do_shoot(CHAR_DATA *ch, char *argument)
 	
    if (IS_NPC(ch)) return; /* Mobs can't use bows */
 
-   if (ch_skill_nok_nomessage(ch,gsn_bow))
+   if (!SKILL_OK(ch,gsn_bow))
 		{
 		  send_to_char("You don't know how to shoot.\n\r",ch);
 		  return;
@@ -3766,7 +3752,7 @@ void do_throw_spear(CHAR_DATA *ch, char *argument)
 	
    if (IS_NPC(ch)) return; /* Mobs can't shoot spears */
 
-   if (ch_skill_nok_nomessage(ch,gsn_spear))
+   if (!SKILL_OK(ch,gsn_spear))
 		{
 		  send_to_char("You don't know how to throw a spear.\n\r",ch);
 		  return;

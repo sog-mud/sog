@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.32 1998-05-26 12:34:46 efdi Exp $
+ * $Id: comm.c,v 1.33 1998-05-27 08:47:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1503,6 +1503,19 @@ int hometown_check( CHAR_DATA *ch );
 int hometown_ok( CHAR_DATA *ch, int home );
 int ethos_check( CHAR_DATA *ch );
 
+/* add skills */
+void add_race_skills(CHAR_DATA* ch, int race)
+{
+	int i;
+	for (i = 0; i < 5; i++) {
+		sh_int sn = skill_lookup(pc_race_table[race].skills[i]);
+
+		if (sn < 0)
+			break;
+		ch->pcdata->learned[sn] = 100;
+	}
+}
+
 /*
  * Deal with sockets that haven't logged in yet.
  */
@@ -1923,9 +1936,8 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
             	write_to_buffer(d,race_table[race].name,0);
 		write_to_buffer(d,") ",0);
             }
-            write_to_buffer(d,"\n\r",0);
-            write_to_buffer(d,
-		"What is your race? (help for more information) ",0);
+            write_to_buffer(d, "\n\r", 0);
+            write_to_buffer(d, "What is your race? (help for more information) ",0);
 	    break;
 	}
 
@@ -1953,18 +1965,10 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 	ch->form	= race_table[race].form;
 	ch->parts	= race_table[race].parts;
 
-	/* add skills */
-	for (i = 0; i < 5; i++)
-	{
-	    if (pc_race_table[race].skills[i] == NULL)
-	 	break;
-	    ch->pcdata->learned[skill_lookup(pc_race_table[race].skills[i])]
-	      = 100;
-	}
+	add_race_skills(ch, race);
+
 	/* add cost */
-
 	ch->pcdata->points = pc_race_table[race].points;
-
 	ch->size = pc_race_table[race].size;
 
         write_to_buffer( d, "What is your sex (M/F)? ", 0 );
@@ -2326,7 +2330,8 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 	    if (ch->hometown == 4)
       obj_to_char(create_object(get_obj_index(OBJ_VNUM_MAP_OLD),0),ch);
 
- 	    ch->pcdata->learned[get_weapon_sn(ch)]= 40;
+		if (!skill_is_native(ch, get_weapon_sn(ch)))
+ 	    		ch->pcdata->learned[get_weapon_sn(ch)] = 40;
 
 	    char_to_room( ch, get_room_index( ROOM_VNUM_SCHOOL ) );
 	    send_to_char("\n\r",ch);
@@ -2619,15 +2624,15 @@ void stop_idling( CHAR_DATA *ch )
     return;
 }
 
-void char_printf (CHAR_DATA* ch, const char* format, ...)
+void char_printf(CHAR_DATA* ch, const char* format, ...)
 {
 	char buf[MAX_STRING_LENGTH];
 	va_list ap;
 
 	va_start(ap, format);
-	vsprintf(buf, format, ap);
-	char_puts(buf, ch);
+	vsnprintf(buf, sizeof(buf), format, ap);
 	va_end(ap);
+	char_puts(buf, ch);
 }
 
 void char_nprintf(CHAR_DATA* ch, int msgid, ...)
@@ -2636,9 +2641,9 @@ void char_nprintf(CHAR_DATA* ch, int msgid, ...)
 	va_list ap;
 
 	va_start(ap, msgid);
-	vsprintf(buf, msg(msgid, ch), ap);
-	char_puts(buf, ch);
+	vsnprintf(buf, sizeof(buf), msg(msgid, ch), ap);
 	va_end(ap);
+	char_puts(buf, ch);
 }
 
 /*
@@ -2777,31 +2782,27 @@ void fix_sex(CHAR_DATA *ch)
     	ch->sex = IS_NPC(ch) ? 0 : ch->pcdata->true_sex;
 }
 
-/*
- * The colour version of the act( ) function, -Lope (taken from Rot)
- */
-void act_puts(const char *format, CHAR_DATA *ch, const void *arg1, 
-	      const void *arg2, int type, int min_pos)
+void act_nprintf(CHAR_DATA *ch, const void *arg1, 
+	      const void *arg2, int type, int min_pos, int msgid, ...)
 {
     static char * const he_she  [] = { "it",  "he",  "she" };
     static char * const him_her [] = { "it",  "him", "her" };
     static char * const his_her [] = { "its", "his", "her" };
  
-    CHAR_DATA 		*to;
-    CHAR_DATA 		*vch = ( CHAR_DATA * ) arg2;
-    OBJ_DATA 		*obj1 = ( OBJ_DATA  * ) arg1;
-    OBJ_DATA 		*obj2 = ( OBJ_DATA  * ) arg2;
-    const 	char 	*str;
-    char 		*i;
-    char 		*point;
-    char 		*i2;
-    char 		fixed[ MAX_STRING_LENGTH ];
-    char 		buf[ MAX_STRING_LENGTH   ];
-    char 		fname[ MAX_INPUT_LENGTH  ];
-    bool		fColour = FALSE;
-
-    if( !format || !*format )
-        return;
+    CHAR_DATA	*to;
+    CHAR_DATA 	*vch = ( CHAR_DATA * ) arg2;
+    OBJ_DATA 	*obj1 = ( OBJ_DATA  * ) arg1;
+    OBJ_DATA 	*obj2 = ( OBJ_DATA  * ) arg2;
+    char 	strfoo[ MAX_STRING_LENGTH ];
+    char	*str = strfoo;
+    char 	*i;
+    char 	*point;
+    char 	*i2;
+    char 	fixed[ MAX_STRING_LENGTH ];
+    char 	buf[ MAX_STRING_LENGTH   ];
+    char 	fname[ MAX_INPUT_LENGTH  ];
+    bool	fColour = FALSE;
+    va_list 	ap;
 
     if( !ch || !ch->in_room )
 	return;
@@ -2821,6 +2822,8 @@ void act_puts(const char *format, CHAR_DATA *ch, const void *arg1,
         to = vch->in_room->people;
     }
  
+    va_start(ap, msgid);
+
     for( ; to ; to = to->next_in_room )
     {
         if ( !to->desc || to->position < min_pos )
@@ -2836,7 +2839,18 @@ void act_puts(const char *format, CHAR_DATA *ch, const void *arg1,
             continue;
  
         point   = buf;
-        str     = format;
+	
+	if(!vch)
+		vch = ch;
+	
+        vsprintf(str, vmsg(msgid, to, vch), ap);
+	
+	/* *** FIX IT *** */
+	if(!strstr(str, "$N") && vch) {
+		vch = ch;
+        	vsprintf(str, vmsg(msgid, to, vch), ap);
+	}
+	/******************/
         while( *str )
         {
             if( *str != '$' && *str != '{' )
@@ -3036,11 +3050,13 @@ void act_puts(const char *format, CHAR_DATA *ch, const void *arg1,
 	if( to->desc )
 	    write_to_buffer( to->desc, buf, point - buf );
     }
+    va_end(ap);
     return;
 }
 
 void act_printf(CHAR_DATA *ch, const void *arg1, 
-	      const void *arg2, int type, int min_pos, int msgid, ...)
+		const void *arg2, int type, int min_pos,
+		const char* format, ...)
 {
     static char * const he_she  [] = { "it",  "he",  "she" };
     static char * const him_her [] = { "it",  "him", "her" };
@@ -3079,7 +3095,7 @@ void act_printf(CHAR_DATA *ch, const void *arg1,
         to = vch->in_room->people;
     }
  
-    va_start(ap, msgid);
+    va_start(ap, format);
 
     for( ; to ; to = to->next_in_room )
     {
@@ -3097,17 +3113,8 @@ void act_printf(CHAR_DATA *ch, const void *arg1,
  
         point   = buf;
 	
-	if(!vch)
-		vch = ch;
+        vsprintf(str, format, ap);
 	
-        vsprintf(str, vmsg(msgid, to, vch), ap);
-	
-	/* *** FIX IT *** */
-	if(!strstr(str, "$N") && vch) {
-		vch = ch;
-        	vsprintf(str, vmsg(msgid, to, vch), ap);
-	}
-	/******************/
         while( *str )
         {
             if( *str != '$' && *str != '{' )
