@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.2 1998-04-14 08:54:33 fjoe Exp $
+ * $Id: quest.c,v 1.3 1998-04-21 13:02:49 efdi Exp $
  */
 
 /***************************************************************************
@@ -65,6 +65,7 @@
 #include "recycle.h"
 #include "db.h"
 #include "comm.h"
+#include "resource.h"
 
 void do_tell_quest( CHAR_DATA *ch, CHAR_DATA *victim, char *argument);
 extern	MOB_INDEX_DATA	*mob_index_hash	[MAX_KEY_HASH];
@@ -1004,10 +1005,7 @@ void quest_update(void)
 
 void do_tell_quest( CHAR_DATA *ch, CHAR_DATA *victim, char *argument )
 {
-char buf[MAX_STRING_LENGTH];
-
-	sprintf(buf,"%s tells you %s\n\r",victim->name,argument);
-        send_to_char( buf, ch );
+	char_printf(ch, msg(QUEST_QUESTOR_TELLS_YOU, ch->i_lang),victim->name,argument);
         return;
 }
 

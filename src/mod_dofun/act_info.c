@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.10 1998-04-21 11:48:10 fjoe Exp $
+ * $Id: act_info.c,v 1.11 1998-04-21 13:02:48 efdi Exp $
  */
 
 /***************************************************************************
@@ -1863,7 +1863,7 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
 	sprintf(level, "%2d", wch->level);
 	trusted = IS_TRUSTED(ch, LEVEL_IMMORTAL) || ch == wch ||
 		  wch->level >= LEVEL_HERO;
-	sprintf(buf, "[{C%s{x %s {Y%s{x] %s%s%s%s %s\n\r",
+	sprintf(buf, "[{C%s{x %s {Y%s{x] %s[{C%s{x] %s%s %s\n\r",
 		trusted ? level
 			: (get_curr_stat(wch, STAT_CHA) < 18) ? level : "  ",
 		RACE(wch) < MAX_PC_RACE ? pc_race_table[RACE(wch)].who_name 
@@ -2208,7 +2208,7 @@ void do_count ( CHAR_DATA *ch, char *argument )
 
 void do_inventory( CHAR_DATA *ch, char *argument )
 {
-	send_to_char( "You are carrying:\n\r", ch );
+	send_to_char( msg(INFO_YOU_ARE_CARRYING, ch->i_lang), ch );
 	show_list_to_char( ch->carrying, ch, TRUE, TRUE );
 	return;
 }

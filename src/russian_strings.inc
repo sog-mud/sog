@@ -115,5 +115,7 @@ char *strings_rus[] = {
 /* MOVE_ARRIVED_F */		"$n пришла.",
 /* MOVE_ARRIVED_RIDING_M */	"$n пришёл, верхом на $N.",
 /* MOVE_ARRIVED_RIDING_F */	"$n пришла, верхом на $N.",
+
+/* QUEST_QUESTOR_TELLS_YOU */	"%s говорит тебе '{G%s{x'\n\r",
 };
 

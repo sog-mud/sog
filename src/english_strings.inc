@@ -116,5 +116,6 @@ char *strings_engl[] =  {
 /* MOVE_ARRIVED_RIDING_M */	"$n has arrived, riding $N.",
 /* MOVE_ARRIVED_RIDING_F */	"$n has arrived, riding $N.",
 
+/* QUEST_QUESTOR_TELLS_YOU */	"%s tells you '{G%s{x'\n\r",
 };
 

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.10 1998-04-19 10:14:14 fjoe Exp $
+ * $Id: comm.c,v 1.11 1998-04-21 13:02:49 efdi Exp $
  */
 
 /***************************************************************************
@@ -3268,7 +3268,8 @@ void act_puts(const char *format, CHAR_DATA *ch, const void *arg1,
  */
 static char CLEAR[]		= "[0m";	/* Resets Color        */
 static char BLINK[]		= "[5m";	/* Blink                */
-static char C_BLACK[]		= "[0;30m";	/* Normal Colors       */
+						/* Normal Colors       */
+/* static char C_BLACK[]	= "[0;30m";	-- Not used */	
 static char C_RED[]		= "[0;31m";
 static char C_GREEN[]		= "[0;32m";
 static char C_YELLOW[]		= "[0;33m";

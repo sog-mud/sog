@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.6 1998-04-19 10:14:15 fjoe Exp $
+ * $Id: update.c,v 1.7 1998-04-21 13:02:50 efdi Exp $
  */
 
 /***************************************************************************
@@ -872,6 +872,7 @@ void weather_update( void )
 	for ( d = descriptor_list; d != NULL; d = d->next )
 	{
 	CHAR_DATA *ch=d->character;
+	*buf = '\0';
 	switch ( time_info.hour )
 	{
 	case  5:

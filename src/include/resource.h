@@ -2,7 +2,7 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.9 1998-04-18 05:51:50 efdi Exp $
+ * $Id: resource.h,v 1.10 1998-04-21 13:02:50 efdi Exp $
  */
 
 char* msg(int resnum, int lang);
@@ -126,6 +126,7 @@ enum {
 	MOVE_ARRIVED_RIDING_M,
 	MOVE_ARRIVED_RIDING_F,
 
+	QUEST_QUESTOR_TELLS_YOU,
 };
 
 #endif
