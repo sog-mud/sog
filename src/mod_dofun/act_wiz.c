@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.235 2000-03-30 21:41:03 avn Exp $
+ * $Id: act_wiz.c,v 1.236 2000-03-31 13:20:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3729,9 +3729,19 @@ void do_title(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 	bool loaded = TRUE;
 
+	if (IS_NPC(ch))
+		return;
+
+	if (!IS_IMMORTAL(ch)
+	&&  (clan_lookup(ch->clan) == NULL ||
+	     PC(ch)->clan_status != CLAN_LEADER)) {
+		char_puts("Huh?\n", ch);
+		return;
+	}
+	    
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (argument[0] == '\0') {
-		do_help(ch, "'WIZ ITITLE'");
+		do_help(ch, "'TITLE'");
 		return;
 	}
 
@@ -3746,8 +3756,13 @@ void do_title(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_SET(PC(victim)->plr_flags, PLR_NOTITLE)) {
-		act("You can't change $N's title.\n", ch, NULL, victim, TO_CHAR);
+	if (IS_IMMORTAL(victim)) {
+		if (!IS_TRUSTED(ch, trust_level(victim))) {
+			char_puts("You failed.\n", ch);
+			goto cleanup;
+		}
+	} else if (!IS_IMMORTAL(ch) && !IS_CLAN(ch->clan, victim->clan)) {
+		char_puts("You failed.\n", ch);
 		goto cleanup;
 	}
 
@@ -3899,44 +3914,6 @@ cleanup:
 		char_save(victim, 0);
 } 
 
-void do_notitle(CHAR_DATA *ch, const char *argument)
-{
-	char arg[MAX_INPUT_LENGTH];
-	CHAR_DATA *victim;
-	bool loaded = FALSE;
-
-	if (argument[0] == '\0') {
-		do_help(ch, "'WIZ NOTITLE'");
-		return;
-	}
-
-	argument = one_argument(argument, arg, sizeof(arg));
-
-	if ((victim = get_char_world(ch, arg)) == NULL) {
-		if ((victim = char_load(arg, LOAD_F_NOCREATE)) == NULL) {
-			char_puts("They aren't here.\n", ch);
-			return;
-		}
-		loaded = TRUE;
-	} else if (IS_NPC(victim)) {
-		char_puts("Not on NPC's.\n", ch);
-		return;
-	}
-	 
-	TOGGLE_BIT(PC(victim)->plr_flags, PLR_NOTITLE);
-	if (!IS_SET(PC(victim)->plr_flags, PLR_NOTITLE))
-	 	char_puts("You can change your title again.\n", victim);
-	else 
-		char_puts("You won't be able to change your title anymore.\n",
-			  victim);
-	char_puts("Ok.\n", ch);
-
-	if (loaded) {
-		char_save(victim, SAVE_F_PSCAN);
-		char_nuke(victim);
-	}
-}
-   
 void do_wizpass(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -4742,3 +4719,4 @@ void do_settick(CHAR_DATA *ch, const char *argument)
 	}
 
 }
+
