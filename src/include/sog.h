@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.48 2004-02-09 21:16:51 fjoe Exp $
+ * $Id: sog.h,v 1.49 2004-02-11 16:11:55 fjoe Exp $
  */
 
 #ifndef _SOG_H_
@@ -627,7 +627,8 @@ DECLARE_FUN2(bool, spec_add,
 DECLARE_FUN2(bool, spec_del,
 	     ARG(CHAR_DATA), ch, ARG(cchar_t), spn)
 DECLARE_FUN3(bool, spec_replace,
-	     ARG(CHAR_DATA), ch, ARG(cchar_t), spn_rm, ARG(cchar_t), spn_add)
+	     ARG(CHAR_DATA), ch,
+	     NULLABLE_ARG(cchar_t), spn_rm, NULLABLE_ARG(cchar_t), spn_add)
 
 /*--- act.c */
 
