@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.133 1999-02-11 17:16:53 fjoe Exp $
+ * $Id: act_move.c,v 1.134 1999-02-11 17:38:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3155,8 +3155,16 @@ DO_FUN(do_shoot)
 	}
 
 	if (ch->fighting) {
-		char_puts("You cannot concentrate on shooting arrows.\n", ch);
-		return;
+		CHAR_DATA *vch;
+
+		for (vch = ch->in_room->people; vch; vch = vch->next_in_room)
+			if (vch->fighting == ch)
+				break;
+		if (vch) {
+			char_puts("You cannot concentrate "
+				  "on shooting arrows.\n", ch);
+			return;
+		}
 	}
 
 	direction = find_exit(ch, arg1);

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.106 1999-02-09 10:19:11 fjoe Exp $
+ * $Id: interp.c,v 1.107 1999-02-11 17:38:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -461,7 +461,7 @@ CMD_DATA cmd_table[] =
     { "push",		do_push,	POS_STANDING,	 0,  LOG_NORMAL	},
     { "demand",         do_demand,      POS_STANDING,    0,  LOG_NORMAL	},
     { "bandage",        do_bandage,     POS_FIGHTING,    0,  LOG_NORMAL	},
-    { "shoot",          do_shoot,       POS_STANDING,    0,  LOG_NORMAL	},
+    { "shoot",          do_shoot,       POS_FIGHTING,    0,  LOG_NORMAL	},
 
     { "find",		do_find,	POS_DEAD,	ML,  LOG_ALWAYS	},
     { "score",		do_score,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
