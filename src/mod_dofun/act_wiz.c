@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.61 1998-09-20 17:00:59 fjoe Exp $
+ * $Id: act_wiz.c,v 1.62 1998-09-22 18:07:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -378,12 +378,12 @@ void do_nochannels(CHAR_DATA *ch, const char *argument)
 	}
 	
 	if ((victim = get_char_world(ch, arg)) == NULL) {
-	    char_nputs(MSG_THEY_ARENT_HERE, ch);
+	    char_puts("They aren't here.\n\r", ch);
 	    return;
 	}
 	
 	if (get_trust(victim) >= get_trust(ch)) {
-	    char_nputs(MSG_YOU_FAILED, ch);
+	    char_puts("You failed.\n\r", ch);
 	    return;
 	}
 	
@@ -542,7 +542,7 @@ void do_deny(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((victim = get_char_world(ch, arg)) == NULL) {
-		char_nputs(MSG_THEY_ARENT_HERE, ch);
+		char_puts("They aren't here.\n\r", ch);
 		return;
 	}
 
@@ -552,7 +552,7 @@ void do_deny(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (get_trust(victim) >= get_trust(ch)) {
-		char_nputs(MSG_YOU_FAILED, ch);
+		char_puts("You failed.\n\r", ch);
 		return;
 	}
 
@@ -560,7 +560,7 @@ void do_deny(CHAR_DATA *ch, const char *argument)
 	char_puts("You are denied access!\n\r", victim);
 	wiznet_printf(ch,NULL,WIZ_PENALTIES,WIZ_SECURE,0,
 			"$N denies access to %s",victim->name);
-	char_nputs(MSG_OK, ch);
+	char_puts("Ok.\n\r", ch);
 	save_char_obj(victim, FALSE);
 	stop_fighting(victim, TRUE);
 	do_quit(victim, "");
@@ -587,14 +587,14 @@ void do_disconnect(CHAR_DATA *ch, const char *argument)
 		for (d = descriptor_list; d != NULL; d = d->next) {
 		        if (d->descriptor == desc) {
 		        	close_socket(d);
-	        		char_nputs(MSG_OK, ch);
+	        		char_puts("Ok.\n\r", ch);
 	        		return;
 	        	}
 		}
 	}
 
 	if ((victim = get_char_world(ch, arg)) == NULL) {
-		char_nputs(MSG_THEY_ARENT_HERE, ch);
+		char_puts("They aren't here.\n\r", ch);
 		return;
 	}
 
@@ -606,7 +606,7 @@ void do_disconnect(CHAR_DATA *ch, const char *argument)
 	for (d = descriptor_list; d != NULL; d = d->next)
 		if (d == victim->desc) {
 			close_socket(d);
-			char_nputs(MSG_OK, ch);
+			char_puts("Ok.\n\r", ch);
 			return;
 		}
 
@@ -685,7 +685,7 @@ void do_pecho(CHAR_DATA *ch, const char *argument)
 	}
 	 
 	if  ((victim = get_char_world(ch, arg)) == NULL) {
-		char_nputs(MSG_THEY_ARENT_HERE, ch);
+		char_puts("They aren't here.\n\r", ch);
 		return;
 	}
 
@@ -760,7 +760,7 @@ void do_transfer(CHAR_DATA *ch, const char *argument)
 		location = ch->in_room;
 
 	if ((victim = get_char_world(ch, arg1)) == NULL) {
-		char_nputs(MSG_THEY_ARENT_HERE, ch);
+		char_puts("They aren't here.\n\r", ch);
 		return;
 	}
 
@@ -778,7 +778,7 @@ void do_transfer(CHAR_DATA *ch, const char *argument)
 	if (ch != victim)
 		act("$n has transferred you.", ch, NULL, victim, TO_VICT);
 	do_look(victim, "auto");
-	char_nputs(MSG_OK, ch);
+	char_puts("Ok.\n\r", ch);
 }
 
 
@@ -1254,7 +1254,7 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 					 oprog_name_lookup(obj->pIndexData->oprogs[i]));
 	}
 	buf_printf(output,"Damage condition : %d (%s)\n\r", obj->condition,
-				get_cond_alias(obj, ch));	
+				get_cond_alias(obj));
 
 	send_to_char(buf_string(output), ch);
 	buf_free(output);
@@ -1770,7 +1770,7 @@ void do_snoop(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((victim = get_char_world(ch, arg)) == NULL) {
-		char_nputs(MSG_THEY_ARENT_HERE, ch);
+		char_puts("They aren't here.\n\r", ch);
 		return;
 	}
 
@@ -1804,7 +1804,7 @@ void do_snoop(CHAR_DATA *ch, const char *argument)
 
 	if (get_trust(victim) >= get_trust(ch) 
 	||   IS_SET(victim->comm, COMM_SNOOP_PROOF)) {
-		char_nputs(MSG_YOU_FAILED, ch);
+		char_puts("You failed.\n\r", ch);
 		return;
 	}
 
@@ -1820,7 +1820,7 @@ void do_snoop(CHAR_DATA *ch, const char *argument)
 		      "$N starts snooping on %s",
 		      (IS_NPC(ch) ?
 			  mlstr_mval(victim->short_descr) : victim->name));
-	char_nputs(MSG_OK, ch);
+	char_puts("Ok.\n\r", ch);
 }
 
 
@@ -1846,12 +1846,12 @@ void do_switch(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((victim = get_char_world(ch, arg)) == NULL) {
-		char_nputs(MSG_THEY_ARENT_HERE, ch);
+		char_puts("They aren't here.\n\r", ch);
 		return;
 	}
 
 	if (victim == ch) {
-		char_nputs(MSG_OK, ch);
+		char_puts("Ok.\n\r", ch);
 		return;
 	}
 
@@ -1885,7 +1885,7 @@ void do_switch(CHAR_DATA *ch, const char *argument)
 		victim->prompt = str_dup(ch->prompt);
 	victim->comm = ch->comm;
 	victim->lines = ch->lines;
-	char_nputs(MSG_OK, victim);
+	char_puts("Ok.\n\r", victim);
 	return;
 }
 
@@ -2101,7 +2101,7 @@ void do_mload(CHAR_DATA *ch, const char *argument)
 	act("$n has created $N!", ch, NULL, victim, TO_ROOM);
 	wiznet_printf(ch, NULL, WIZ_LOAD, WIZ_SECURE, get_trust(ch),
 		      "$N loads %s.", mlstr_mval(victim->short_descr));
-	char_nputs(MSG_OK, ch);
+	char_puts("Ok.\n\r", ch);
 }
 
 
@@ -2146,7 +2146,7 @@ void do_oload(CHAR_DATA *ch, const char *argument)
 		obj_to_room(obj, ch->in_room);
 	act("$n has created $p!", ch, obj, NULL, TO_ROOM);
 	wiznet("$N loads $p.", ch, obj, WIZ_LOAD, WIZ_SECURE, get_trust(ch));
-	char_nputs(MSG_OK, ch);
+	char_puts("Ok.\n\r", ch);
 	return;
 }
 
@@ -2178,12 +2178,12 @@ void do_purge(CHAR_DATA *ch, const char *argument)
 		}
 
 		act("$n purges the room!", ch, NULL, NULL, TO_ROOM);
-		char_nputs(MSG_OK, ch);
+		char_puts("Ok.\n\r", ch);
 		return;
 	}
 
 	if ((victim = get_char_world(ch, arg)) == NULL) {
-		char_nputs(MSG_THEY_ARENT_HERE, ch);
+		char_puts("They aren't here.\n\r", ch);
 		return;
 	}
 
@@ -2310,7 +2310,7 @@ void do_restore(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((victim = get_char_world(ch, arg)) == NULL) {
-		char_nputs(MSG_THEY_ARENT_HERE, ch);
+		char_puts("They aren't here.\n\r", ch);
 		return;
 	}
 
@@ -2327,7 +2327,7 @@ void do_restore(CHAR_DATA *ch, const char *argument)
 	wiznet_printf(ch,NULL,WIZ_RESTORE,WIZ_SECURE,get_trust(ch),
 			"$N restored %s",
 	      IS_NPC(victim) ? mlstr_mval(victim->short_descr) : victim->name);
-	char_nputs(MSG_OK, ch);
+	char_puts("Ok.\n\r", ch);
 }
 
 		
@@ -2344,7 +2344,7 @@ void do_freeze(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((victim = get_char_world(ch, arg)) == NULL) {
-		char_nputs(MSG_THEY_ARENT_HERE, ch);
+		char_puts("They aren't here.\n\r", ch);
 		return;
 	}
 
@@ -2354,7 +2354,7 @@ void do_freeze(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (get_trust(victim) >= get_trust(ch)) {
-		char_nputs(MSG_YOU_FAILED, ch);
+		char_puts("You failed.\n\r", ch);
 		return;
 	}
 
@@ -2400,7 +2400,7 @@ void do_log(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((victim = get_char_world(ch, arg)) == NULL) {
-		char_nputs(MSG_THEY_ARENT_HERE, ch);
+		char_puts("They aren't here.\n\r", ch);
 		return;
 	}
 
@@ -2436,13 +2436,13 @@ void do_noemote(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((victim = get_char_world(ch, arg)) == NULL) {
-		char_nputs(MSG_THEY_ARENT_HERE, ch);
+		char_puts("They aren't here.\n\r", ch);
 		return;
 	}
 
 
 	if (get_trust(victim) >= get_trust(ch)) {
-		char_nputs(MSG_YOU_FAILED, ch);
+		char_puts("You failed.\n\r", ch);
 		return;
 	}
 
@@ -2474,7 +2474,7 @@ void do_noshout(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((victim = get_char_world(ch, arg)) == NULL) {
-		char_nputs(MSG_THEY_ARENT_HERE, ch);
+		char_puts("They aren't here.\n\r", ch);
 		return;
 	}
 
@@ -2484,7 +2484,7 @@ void do_noshout(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (get_trust(victim) >= get_trust(ch)) {
-		char_nputs(MSG_YOU_FAILED, ch);
+		char_puts("You failed.\n\r", ch);
 		return;
 	}
 
@@ -2518,12 +2518,12 @@ void do_notell(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((victim = get_char_world(ch, arg)) == NULL) {
-		char_nputs(MSG_THEY_ARENT_HERE, ch);
+		char_puts("They aren't here.\n\r", ch);
 		return;
 	}
 
 	if (get_trust(victim) >= get_trust(ch)) {
-		char_nputs(MSG_YOU_FAILED, ch);
+		char_puts("You failed.\n\r", ch);
 		return;
 	}
 
@@ -2555,7 +2555,7 @@ void do_peace(CHAR_DATA *ch, const char *argument)
 		    REMOVE_BIT(rch->act,ACT_AGGRESSIVE);
 	}
 
-	char_nputs(MSG_OK, ch);
+	char_puts("Ok.\n\r", ch);
 	return;
 }
 
@@ -2656,7 +2656,7 @@ void do_sset(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((victim = get_char_world(ch, arg1)) == NULL) {
-		char_nputs(MSG_THEY_ARENT_HERE, ch);
+		char_puts("They aren't here.\n\r", ch);
 		return;
 	}
 
@@ -2691,7 +2691,7 @@ void do_sset(CHAR_DATA *ch, const char *argument)
 			set_skill(victim, sn, 100);
 	else
 		set_skill(victim, sn, value);
-	char_nputs(MSG_OK, ch);
+	char_puts("Ok.\n\r", ch);
 }
 
 
@@ -2722,7 +2722,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 	
 	if (!str_prefix(type, "character") || !str_prefix(type, "mobile")) {
 		if ((victim = get_char_world(ch, arg1)) == NULL) {
-			char_nputs(MSG_THEY_ARENT_HERE, ch);
+			char_puts("They aren't here.\n\r", ch);
 			return;
 		}
 
@@ -3150,7 +3150,7 @@ void do_force(CHAR_DATA *ch, const char *argument)
 		interpret(victim, argument);
 	}
 
-	char_nputs(MSG_OK, ch);
+	char_puts("Ok.\n\r", ch);
 	return;
 }
 
@@ -3435,7 +3435,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((victim = get_char_world(ch, arg1)) == NULL) {
-		char_nputs(MSG_THEY_ARENT_HERE, ch);
+		char_puts("They aren't here.\n\r", ch);
 		return;
 	}
 
@@ -3474,7 +3474,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		}
 
 		qtrouble_set(victim, value, val2+1);
-		char_nputs(MSG_OK, ch);
+		char_puts("Ok.\n\r", ch);
 		return;
 	}
 
@@ -3906,7 +3906,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 		victim->act &= ~PLR_GHOST;
-		char_nputs(MSG_OK, ch);
+		char_puts("Ok.\n\r", ch);
 		return;
 	}
 
@@ -3924,7 +3924,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		}
 
 		victim->clan = cn;
-		char_nputs(MSG_OK, ch);
+		char_puts("Ok.\n\r", ch);
 		return;
 	}
 	/*
@@ -4071,7 +4071,7 @@ void do_ititle(CHAR_DATA *ch, const char *argument)
 	}
 
 	set_title(victim, argument);
-	char_nputs(MSG_OK, ch);
+	char_puts("Ok.\n\r", ch);
 }
 
 /*
@@ -4192,12 +4192,12 @@ void do_notitle(CHAR_DATA *ch, const char *argument)
 	if (IS_SET(victim->act, PLR_NOTITLE)) {
 	 	REMOVE_BIT(victim->act,PLR_NOTITLE);
 	 	char_puts("You can change your title again.\n\r",victim);
-	 	char_nputs(MSG_OK, ch);
+	 	char_puts("Ok.\n\r", ch);
 	}
 	else {		       
 		SET_BIT(victim->act,PLR_NOTITLE);
 		char_puts("You won't be able to change your title anymore.\n\r",victim);
-	 	char_nputs(MSG_OK, ch);
+	 	char_puts("Ok.\n\r", ch);
 	}
 }
 	   

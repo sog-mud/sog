@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.11 1998-09-20 17:01:00 fjoe Exp $
+ * $Id: hunt.c,v 1.12 1998-09-22 18:07:15 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -557,8 +557,8 @@ void do_hunt(CHAR_DATA *ch, const char *argument)
 	/*
 	 * Display the results of the search.
 	 */
-	act_nprintf(ch, NULL, victim, TO_CHAR, POS_RESTING,
-		    MSG_HERA_IS_FROM_HERE, dir_name[direction]);
+	act_puts("$N is $t from here.",
+		 ch, dir_name[direction], victim, TO_CHAR, POS_DEAD);
 }
 
 void hunt_victim_attack(CHAR_DATA* ch)

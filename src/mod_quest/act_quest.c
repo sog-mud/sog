@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.70 1998-09-20 17:01:02 fjoe Exp $
+ * $Id: act_quest.c,v 1.71 1998-09-22 18:07:17 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -165,7 +165,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 	for (qcmd = qcmd_table; qcmd->name != NULL; qcmd++)
 		if (str_prefix(cmd, qcmd->name) == 0) {
 			if (ch->position < qcmd->min_position) {
-				char_nputs(MSG_IN_YOUR_DREAMS, ch);
+				char_puts("In your dreams, or what?\n\r", ch);
 				return;
 			}
 			if (!IS_SET(qcmd->extra, CMD_KEEP_HIDE)
@@ -179,8 +179,8 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 		
-	char_nputs(MSG_COMMANDS, ch);
-	char_nputs(MSG_TYPE_HELP_QUEST, ch);
+	char_puts("QUEST COMMANDS: points info time request complete list buy trouble.\n\r", ch);
+	char_puts("For more information, type: help quests.\n\r", ch);
 }
 
 void quest_handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
@@ -192,14 +192,14 @@ void quest_handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (victim->hunter != NULL)
 		if (victim->hunter == ch) {
 			char_nputs(MSG_ALMOST_COMPLETE_QUEST, ch);
-			char_nputs(MSG_RETURN_TO_QUESTER, ch);
+			char_puts("Return to questmaster before your time runs out!\n\r", ch);
 			ch->pcdata->questmob = -1;
 		}
 		else {
 			char_nputs(MSG_YOU_COMPLETED_SOMEONES_QUEST, ch);
 
 			ch = victim->hunter;
-			char_nputs(MSG_SOMEONE_COMPLETED_YOUR_QUEST, ch);
+			char_puts("Someone has completed you quest.\n\r", ch);
 			quest_cancel(ch);
 			ch->pcdata->questtime = -number_range(5, 10);
 		}
@@ -244,16 +244,16 @@ void quest_update(void)
 			continue;
 		if (ch->pcdata->questtime < 0) {
 			if (++ch->pcdata->questtime == 0) {
-				char_nputs(MSG_YOU_MAY_NOW_QUEST_AGAIN, ch);
+				char_puts("{*You may now quest again.\n\r", ch);
 				return;
 			}
 		} else if (IS_ON_QUEST(ch)) {
 			if (--ch->pcdata->questtime == 0) {
-				char_nputs(MSG_RUN_OUT_TIME, ch);
+				char_puts("You have run out of time for your quest!\n\r", ch);
 				quest_cancel(ch);
 				ch->pcdata->questtime = -number_range(5, 10);
 			} else if (ch->pcdata->questtime < 6) {
-				char_nputs(MSG_BETTER_HURRY, ch);
+				char_puts("Better hurry, you're almost out of time for your quest!\n\r", ch);
 				return;
 			}
 		}
@@ -285,7 +285,7 @@ static void quest_tell(CHAR_DATA *ch, CHAR_DATA *questor, const char *fmt, ...)
 	char buf[MAX_STRING_LENGTH];
 
 	va_start(ap, fmt);
-	vsnprintf(buf, sizeof(buf), fmt, ap);
+	vsnprintf(buf, sizeof(buf), MSG(fmt, ch->lang), ap);
 	va_end(ap);
 
 	do_tell_raw(questor, ch, buf);
@@ -306,12 +306,12 @@ static CHAR_DATA* questor_lookup(CHAR_DATA *ch)
 	}
 
 	if (questor == NULL) {
-		char_nputs(MSG_YOU_CANT_DO_THAT_HERE, ch);
+		char_puts("You can't do that here.\n\r", ch);
 		return NULL;
 	}
 
 	if (questor->fighting != NULL) {
-		char_nputs(MSG_WAIT_FIGHT_STOPS, ch);
+		char_puts("Wait until the fighting stops.\n\r", ch);
 		return NULL;
 	}
 
@@ -335,18 +335,19 @@ QTROUBLE_DATA *qtrouble_lookup(CHAR_DATA *ch, int vnum)
 
 static void quest_points(CHAR_DATA *ch, char* arg)
 {
-	char_nprintf(ch, MSG_YOU_HAVE_D_QP, ch->pcdata->questpoints);
+	char_printf(ch, "You have {W%d{x quest points.\n\r",
+		    ch->pcdata->questpoints);
 }
 
 static void quest_info(CHAR_DATA *ch, char* arg)
 {
 	if (!IS_ON_QUEST(ch)) {
-		char_nputs(MSG_ARENT_ON_QUEST, ch);
+		char_puts("You aren't currently on a quest.\n\r", ch);
 		return;
 	}
 
 	if (ch->pcdata->questmob == -1) {
-		char_nputs(MSG_IS_ALMOST_COMPLETE, ch);
+		char_puts("Your quest is ALMOST complete!\n\rGet back to questor before your time runs out!\n\r", ch);
 		return;
 	}
 
@@ -355,14 +356,15 @@ static void quest_info(CHAR_DATA *ch, char* arg)
 
 		qinfoobj = get_obj_index(ch->pcdata->questobj);
 		if (qinfoobj != NULL) {
-			char_nprintf(ch, MSG_RECOVER_FABLED, qinfoobj->name);
+			char_printf(ch, "You are on a quest to recover the fabled {W%s{x!\n\r",
+				    qinfoobj->name);
 			if (ch->pcdata->questroom)
-				char_nprintf(ch, MSG_INFO_LOCATION,
-					ch->pcdata->questroom->area->name, 
-					mlstr_mval(ch->pcdata->questroom->name));
+				char_printf(ch, "That location is in general area of {W%s{x for {W%s{x.\n\r",
+					    ch->pcdata->questroom->area->name, 
+					    mlstr_mval(ch->pcdata->questroom->name));
 		}
 		else 
-			char_nputs(MSG_ARENT_ON_QUEST, ch);
+			char_puts("You aren't currently on a quest.\n\r", ch);
 		return;
 	}
 
@@ -371,14 +373,14 @@ static void quest_info(CHAR_DATA *ch, char* arg)
 
 		questinfo = get_mob_index(ch->pcdata->questmob);
 		if (questinfo != NULL) {
-			char_nprintf(ch, MSG_SLAY_DREADED,
-				     mlstr_mval(questinfo->short_descr));
+			char_printf(ch, "You are on a quest to slay the dreaded {W%s{x!\n\r",
+				    mlstr_mval(questinfo->short_descr));
 			if (ch->pcdata->questroom)
-				char_nprintf(ch, MSG_INFO_LOCATION,
-					ch->pcdata->questroom->area->name, 
-					mlstr_mval(ch->pcdata->questroom->name));
+				char_printf(ch, "That location is in general area of {W%s{x for {W%s{x.\n\r",
+					    ch->pcdata->questroom->area->name, 
+					    mlstr_mval(ch->pcdata->questroom->name));
 		} else 
-			char_nputs(MSG_ARENT_ON_QUEST, ch);
+			char_puts("You aren't currently on a quest.\n\r", ch);
 		return;
 	}
 }
@@ -386,16 +388,16 @@ static void quest_info(CHAR_DATA *ch, char* arg)
 static void quest_time(CHAR_DATA *ch, char* arg)
 {
 	if (!IS_ON_QUEST(ch)) {
-		char_nputs(MSG_ARENT_ON_QUEST, ch);
+		char_puts("You aren't currently on a quest.\n\r", ch);
 		if (ch->pcdata->questtime < -1)
-			char_nprintf(ch, MSG_D_MIN_REMAINING,
-				     -ch->pcdata->questtime);
+			char_printf(ch, "There are {W%d{x minutes remaining until you can go on another quest.\n\r",
+				    -ch->pcdata->questtime);
 	    	else if (ch->pcdata->questtime == -1)
-			char_nputs(MSG_LESS_MINUTE, ch);
+			char_puts("There is less than a minute remaining until you can go on another quest.\n\r", ch);
 	}
 	else
-		char_nprintf(ch, MSG_LEFT_FOR_QUEST, ch->pcdata->questtime);
-	return;
+		char_printf(ch, "Time left for current quest: {W%d{x.\n\r",
+			    ch->pcdata->questtime);
 }
 
 static void quest_list(CHAR_DATA *ch, char *arg)
@@ -406,11 +408,11 @@ static void quest_list(CHAR_DATA *ch, char *arg)
 	if ((questor = questor_lookup(ch)) == NULL)
 		return;
 
-	act_nprintf(ch, NULL, questor, TO_ROOM, POS_RESTING, MSG_N_ASKS_LIST);
-	act_nprintf(ch, NULL, questor, TO_CHAR, POS_DEAD, 
-		    MSG_YOU_ASK_LIST);
+	act("$n asks $N for list of quest items.", ch, NULL, questor, TO_ROOM);
+	act_puts("You ask $N for list of quest items.",
+		 ch, NULL, questor, TO_CHAR, POS_DEAD);
 
-	char_nputs(MSG_ITEMS_AVAIL_PURCHASE, ch);
+	char_puts("Current Quest Items available for Purchase:\n\r", ch);
 	for (qitem = qitem_table; qitem->name; qitem++) {
 		if (qitem->class != CLASS_NONE
 		&&  qitem->class != ch->class)
@@ -422,7 +424,7 @@ static void quest_list(CHAR_DATA *ch, char *arg)
 		char_printf(ch, "%5dqp...........%s\n\r",
 			    qitem->price, qitem->name);
 	}
-	char_nputs(MSG_TYPE_BUY, ch);
+	char_puts("To buy an item, type 'QUEST BUY <item>'.\n\r", ch);
 }
 
 static void quest_buy(CHAR_DATA *ch, char *arg)
@@ -434,7 +436,7 @@ static void quest_buy(CHAR_DATA *ch, char *arg)
 		return;
 
 	if (arg[0] == '\0') {
-		char_nputs(MSG_TYPE_BUY, ch);
+		char_puts("To buy an item, type 'QUEST BUY <item>'.\n\r", ch);
 		return;
 	}
 
@@ -464,7 +466,7 @@ static void quest_buy(CHAR_DATA *ch, char *arg)
 			return;
 		}
 
-	quest_tell(ch, questor, msg(MSG_NOT_HAVE_ITEM, ch), ch->name);
+	quest_tell(ch, questor, "I do not have that item, {W%s{z.", ch->name);
 }
 
 #define MAX_QMOB_COUNT 512
@@ -480,19 +482,19 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 	if ((questor = questor_lookup(ch)) == NULL)
 		return;
 
-	act_nprintf(ch, NULL, questor, TO_ROOM, POS_RESTING, 
-				MSG_N_ASKS_FOR_QUEST);
-	act_nprintf(ch, NULL, questor, TO_CHAR, POS_DEAD, 
-				MSG_YOU_ASK_FOR_QUEST);
+	act("$n asks $N for a quest.", ch, NULL, questor, TO_ROOM);
+	act_puts("You ask $N for a quest.",
+		 ch, NULL, questor, TO_CHAR, POS_DEAD);
+
 	if (IS_ON_QUEST(ch)) {
-    		quest_tell(ch, questor, msg(MSG_YOU_ALREADY_ON_QUEST, ch));
+    		quest_tell(ch, questor, "But you are already on a quest!");
     		return;
 	} 
 
 	if (ch->pcdata->questtime < 0) {
 		quest_tell(ch, questor,
 			   msg(MSG_BRAVE_BUT_LET_SOMEONE_ELSE, ch), ch->name);
-		quest_tell(ch, questor, msg(MSG_COME_BACK_LATER, ch));
+		quest_tell(ch, questor, "Come back later.");
 		return;
 	}
 
@@ -532,8 +534,8 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 	}
 
 	if (mob_count == 0) {
-		quest_tell(ch, questor, msg(MSG_DONT_HAVE_QUESTS, ch));
-		quest_tell(ch, questor, msg(MSG_TRY_AGAIN_LATER, ch));
+		quest_tell(ch, questor, "I'm sorry, but i don't have any quests for you at this time.");
+		quest_tell(ch, questor, "Try again later.");
 		ch->pcdata->questtime = -5;
 		return;
 	}
@@ -566,17 +568,17 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		obj_to_room(eyed, victim->in_room);
 		ch->pcdata->questobj = eyed->pIndexData->vnum;
 
-		quest_tell(ch, questor, msg(MSG_VILE_PILFERERS, ch),
+		quest_tell(ch, questor, "Vile pilferers have stolen {W%s{z from the royal treasury!",
 			   mlstr_mval(eyed->short_descr));
-		quest_tell(ch, questor, msg(MSG_MY_COURT_WIZARDESS, ch));
-		quest_tell(ch, questor, msg(MSG_LOCATION_IS_IN_AREA, ch),
+		quest_tell(ch, questor, "My court wizardess, with her magic mirror, has pinpointed its location.");
+		quest_tell(ch, questor, "That location is in general area of {W%s{z for {W%s{z.",
 			   victim->in_room->area->name,
 			   mlstr_mval(victim->in_room->name));
 	}
 	else {	/* Quest to kill a mob */
 		if (IS_GOOD(ch)) {
 			quest_tell(ch, questor,
-				   msg(MSG_RUNES_MOST_HEINOUS, ch),
+				   "Rune's most heinous criminal, {W%s{z, has escaped from the dungeon.",
 				   mlstr_mval(victim->short_descr));
 			quest_tell(ch, questor,
 				   vmsg(MSG_HAS_MURDERED, ch, victim),
@@ -585,13 +587,12 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 			quest_tell(ch, questor, msg(MSG_THE_PENALTY_IS, ch));
 		}
 		else {
-			quest_tell(ch, questor, msg(MSG_ENEMY_OF_MINE, ch),
+			quest_tell(ch, questor, "An enemy of mine, {W%s{z, is making vile threats against the crown.",
 				   mlstr_mval(victim->short_descr));
-			quest_tell(ch, questor,
-				   msg(MSG_ELIMINATE_THREAT, ch));
+			quest_tell(ch, questor, "This threat must be eliminated!");
 		}
 
-		quest_tell(ch, questor, msg(MSG_SEEK_S_OUT, ch),
+		quest_tell(ch, questor, "Seek {W%s{z out in general area of {W%s{z in vicinity of {W%s{z!",
 			   mlstr_mval(victim->short_descr),
 			   victim->in_room->area->name,
 			   mlstr_mval(victim->in_room->name));
@@ -602,9 +603,9 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 
 	ch->pcdata->questgiver = questor->pIndexData->vnum;
 	ch->pcdata->questtime = number_range(10, 20) + ch->level/10;
-	quest_tell(ch, questor, msg(MSG_YOU_HAVE_D_MINUTES, ch), 
+	quest_tell(ch, questor, "You have {W%d{z minutes to complete this quest.", 
 			ch->pcdata->questtime);
-	quest_tell(ch, questor, msg(MSG_MAY_THE_GODS_GO, ch));
+	quest_tell(ch, questor, "May the gods go with you!");
 }
 
 static void quest_complete(CHAR_DATA *ch, char *arg)
@@ -621,13 +622,13 @@ static void quest_complete(CHAR_DATA *ch, char *arg)
 	if ((questor = questor_lookup(ch)) == NULL)
 		return;
 
-	act_nprintf(ch, NULL, questor, TO_ROOM, POS_RESTING, 
-					MSG_INFORMS_COMPLETE);
-	act_nprintf(ch, NULL, questor, TO_CHAR, POS_DEAD, 
-					MSG_YOU_INFORM_COMPLETE);
+	act("$n informs $N $e has completed $s quest.",
+	    ch, NULL, questor, TO_ROOM);
+	act_puts("You inform $N you have completed your quest.",
+		 ch, NULL, questor, TO_CHAR, POS_DEAD);
 
 	if (!IS_ON_QUEST(ch)) {
-		quest_tell(ch, questor, msg(MSG_HAVE_TO_REQUEST, ch),
+		quest_tell(ch, questor, "You have to REQUEST a quest first, {W%s{z.",
 			   ch->name); 
 		return;
 	}
@@ -645,10 +646,10 @@ static void quest_complete(CHAR_DATA *ch, char *arg)
 			&&  obj->pIndexData->vnum == ch->pcdata->questobj
 			&&  strstr(mlstr_mval(obj->ed->description),
 							ch->name) != NULL) {
-				act_nprintf(ch, obj, questor, TO_CHAR, 
-					POS_DEAD, MSG_YOU_HAND_P);
-				act_nprintf(ch, obj, questor, TO_ROOM, 
-					POS_RESTING, MSG_N_HANDS_P);
+				act_puts("You hand {W$p{x to $N.",
+					 ch, obj, questor, TO_CHAR, POS_DEAD);
+				act("$n hands {W$p{x to $N.",
+				    ch, obj, questor, TO_ROOM);
 				extract_obj(obj);
 
 				if (chance(15))
@@ -677,13 +678,13 @@ static void quest_complete(CHAR_DATA *ch, char *arg)
 	ch->gold += gold_reward;
 	ch->pcdata->questpoints += qp_reward;
 
-	quest_tell(ch, questor, msg(MSG_GRATS_COMPLETE, ch));
-	quest_tell(ch, questor, msg(MSG_AS_A_REWARD, ch),
+	quest_tell(ch, questor, "Congratulations on completing your quest!");
+	quest_tell(ch, questor, "As a reward, I am giving you %d quest points, and %d gold.",
 		   qp_reward, gold_reward);
 
 	if (prac_reward) {
 		ch->practice += prac_reward;
-		quest_tell(ch, questor, msg(MSG_GAIN_PRACS, ch), prac_reward);
+		quest_tell(ch, questor, "You gain %d practices!\n\r", prac_reward);
 	}
 
 	quest_cancel(ch);
@@ -699,7 +700,7 @@ static void quest_trouble(CHAR_DATA *ch, char *arg)
 		return;
 
 	if (arg[0] == '\0') {
-		char_nputs(MSG_TYPE_TROUBLE, ch);
+		char_puts("To correct a quest award's trouble, type: 'quest trouble <award>'.\n\r", ch);
 		return;
 	}
 
@@ -713,7 +714,7 @@ static void quest_trouble(CHAR_DATA *ch, char *arg)
 		}
 	}
 
-	quest_tell(ch, questor, msg(MSG_HAVENT_BOUGHT, ch), ch->name);
+	quest_tell(ch, questor, "Sorry, {W%s{z, but you haven't bought that quest award, yet.\n\r", ch->name);
 }
 
 /*
@@ -734,13 +735,13 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 	if (count_max) {
 		if (qt == NULL) {
 			/* ch has never bought this item, but requested it */
-			quest_tell(ch, questor, msg(MSG_HAVENT_BOUGHT, ch),
+			quest_tell(ch, questor, "Sorry, {W%s{z, but you haven't bought that quest award, yet.\n\r",
 				   ch->name);
 			return FALSE;
 		}
 		else if (qt->count > count_max) {
 			/* ch requested this item too many times */
-			quest_tell(ch, questor, msg(MSG_ITEM_BEYOND, ch));
+			quest_tell(ch, questor, "This item is beyond the trouble option.");
 			return FALSE;
 		}
 	}
@@ -760,9 +761,9 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 		}
 
 		quest_tell(ch, questor,
-			   msg(MSG_THIS_IS_THE_NTH_TIME, ch), qt->count);
+			   "This is the %i time that I am giving that award back.", qt->count);
 		if (qt->count == count_max) 
-			quest_tell(ch, questor, msg(MSG_WONT_GIVE_AGAIN, ch));
+			quest_tell(ch, questor, "And I won't give you that again, with trouble option.\n\r");
 	}
 
 	if (qt == NULL) {
@@ -790,9 +791,8 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 			ch->name);
 	obj_to_char(obj, ch);
 
-	act_nprintf(ch, obj, questor, TO_ROOM, POS_RESTING, 
-		    MSG_GIVES_P_TO_N);
-	act_nprintf(ch, obj, questor, TO_CHAR, POS_DEAD, MSG_GIVES_YOU_P);
+	act("$N gives {W$p{x to $n.", ch, obj, questor, TO_ROOM);
+	act_puts("$N gives you {W$p{x.", ch, obj, questor, TO_CHAR, POS_DEAD);
 
 	return TRUE;
 }
@@ -800,8 +800,7 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 static bool buy_gold(CHAR_DATA *ch, CHAR_DATA *questor)
 {
 	ch->pcdata->bank_g += 350000;
-	act_nprintf(ch, NULL, questor, TO_ROOM, POS_RESTING,
-						MSG_N_GIVES_GOLD);
+	act("$N gives 350,000 gold pieces to $n.", ch, NULL, questor, TO_ROOM);
 	act_nprintf(ch, NULL, questor, TO_CHAR, POS_DEAD,
 						MSG_N_GIVES_YOU_GOLD);
 	return TRUE;
@@ -810,10 +809,9 @@ static bool buy_gold(CHAR_DATA *ch, CHAR_DATA *questor)
 static bool buy_prac(CHAR_DATA *ch, CHAR_DATA *questor)
 {
 	ch->practice += 60;
-	act_nprintf(ch, NULL, questor, TO_ROOM, POS_RESTING,
-					MSG_N_GIVES_PRACS);
-	act_nprintf(ch, NULL, questor, TO_CHAR, POS_DEAD,
-					MSG_N_GIVES_YOU_PRACS);
+	act("$N gives 60 practices to $n.", ch, NULL, questor, TO_ROOM);
+	act_puts("$N gives you 60 practices.",
+		 ch, NULL, questor, TO_CHAR, POS_DEAD);
 	return TRUE;
 }
 
@@ -822,13 +820,13 @@ static bool buy_tattoo(CHAR_DATA *ch, CHAR_DATA *questor)
 	OBJ_DATA *tattoo;
 
 	if (ch->religion == NULL) {
-		char_nputs(MSG_NO_RELIGION, ch);
+		char_puts("You don't have a religion to have a tattoo.\n\r", ch);
 		return FALSE;
 	}
 
 	tattoo = get_eq_char(ch, WEAR_TATTOO);
 	if (tattoo != NULL) {
-		char_nputs(MSG_ALREADY_TATTOOED, ch);
+		char_puts("But you have already your tattoo!\n\r", ch);
 		return FALSE;
 	}
 
@@ -837,10 +835,9 @@ static bool buy_tattoo(CHAR_DATA *ch, CHAR_DATA *questor)
 
 	obj_to_char(tattoo, ch);
 	equip_char(ch, tattoo, WEAR_TATTOO);
-	act_nprintf(ch, tattoo, questor, TO_ROOM, POS_RESTING,
-						MSG_N_TATTOOS_N);
-	act_nprintf(ch, tattoo, questor, TO_CHAR, POS_DEAD,
-						MSG_N_TATTOOS_YOU);
+	act("$N tattoos $n with {W$p{x!", ch, tattoo, questor, TO_ROOM);
+	act_puts("$N tattoos you with {W$p{x!",
+		 ch, tattoo, questor, TO_CHAR, POS_DEAD);
 	return TRUE;
 }
 
@@ -861,7 +858,7 @@ static bool buy_katana(CHAR_DATA *ch, CHAR_DATA *questor)
 	OBJ_DATA *katana;
 
 	if ((katana = get_obj_list(ch, "katana", ch->carrying)) == NULL) {
-		quest_tell(ch, questor, msg(MSG_DONT_HAVE_KATANA, ch),
+		quest_tell(ch, questor, "Sorry, {W%s{z, but you don't have your katana with you.",
 			   ch->name);
 		return FALSE;
 	}
@@ -874,19 +871,17 @@ static bool buy_katana(CHAR_DATA *ch, CHAR_DATA *questor)
 	af.bitvector	= WEAPON_KATANA;
 	af.location	= APPLY_NONE;
 	affect_to_obj(katana, &af);
-	quest_tell(ch, questor, msg(MSG_AS_YOU_WIELD_IT, ch));
+	quest_tell(ch, questor, "As you wield it, you will feel that its power will increase continuosly.");
 	return TRUE;
 }
 
 static bool buy_vampire(CHAR_DATA *ch, CHAR_DATA *questor)
 {
 	set_skill(ch, gsn_vampire, 100);
-	act_nprintf(ch, NULL, questor, TO_ROOM, POS_RESTING,
-					MSG_N_GIVES_SECRET);
-	act_nprintf(ch, NULL, questor, TO_CHAR, POS_DEAD,
-					MSG_N_GIVES_YOU_SECRET);
-	act_nprintf(ch, NULL, questor, TO_ALL, POS_DEAD,
-		    MSG_WEATHER_LIGHTNING_FLASHES);
+	act("$N gives secret of undead to $n.", ch, NULL, questor, TO_ROOM);
+	act_puts("$N gives you SECRET of undead.",
+		 ch, NULL, questor, TO_CHAR, POS_DEAD);
+	act("Lightning flashes in the sky.\n\r", ch, NULL, NULL, TO_ALL);
 	return TRUE;
 }
 

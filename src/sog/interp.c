@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.68 1998-09-20 17:01:00 fjoe Exp $
+ * $Id: interp.c,v 1.69 1998-09-22 18:07:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -520,7 +520,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	 * Implement freeze command.
 	 */
 	if (!IS_NPC(ch) && IS_SET(ch->act, PLR_FREEZE)) {
-		char_nputs(MSG_FROZEN, ch);
+		char_puts("You're totally frozen!\n\r", ch);
 		return;
 	}
 
@@ -582,13 +582,13 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
        		 */
 		if (!is_order && IS_AFFECTED(ch,AFF_CHARM)
 		&&  cmd_table[cmd].do_fun != do_return) {
-			char_nputs(MSG_ASK_MASTER, ch);
+			char_puts("First ask to your beloved master!\n\r", ch);
 			return;
 		}
 
 		if (IS_AFFECTED(ch,AFF_STUN) 
 		&& !(cmd_table[cmd].extra & CMD_KEEP_HIDE)) {
-			char_nputs(MSG_TOO_STUNNED, ch);
+			char_puts("You are STUNNED to do that.\n\r", ch);
 			return;
 		}
 
@@ -605,9 +605,9 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		&& (cmd_table[cmd].position == POS_FIGHTING)) {
 			affect_strip(ch, gsn_improved_invis);
 			REMOVE_BIT(ch->affected_by, AFF_IMP);
-			char_nputs(MSG_YOU_FADE_INTO_EXIST, ch);
-			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
-				    MSG_N_FADES_INTO_EXIST);
+			char_puts("You fade into existence.", ch);
+			act("$n fades into existence.",
+			    ch, NULL, NULL, TO_ROOM);
 		}
 
 #if 0
@@ -650,7 +650,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		 * Look for command in socials table.
 		 */
 		if (!check_social(ch, command, argument)) {
-			char_nputs(MSG_HUH, ch);
+			char_puts("Huh?\n\r", ch);
 			return;
 		} else
 			return;
@@ -662,20 +662,20 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	if (ch->position < cmd_table[cmd].position) {
 		switch(ch->position) {
 			case POS_DEAD:
-				char_nputs(MSG_YOU_ARE_DEAD, ch);
+				char_puts("Lie still; You are DEAD.\n\r", ch);
 				break;
 
 			case POS_MORTAL:
 			case POS_INCAP:
-				char_nputs(MSG_HURT_FAR_TOO_BAD, ch);
+				char_puts("You are hurt far too bad for that.\n\r", ch);
 				break;
 
 			case POS_STUNNED:
-				char_nputs(MSG_YOU_TOO_STUNNED, ch);
+				char_puts("You are too stunned to do that.\n\r", ch);
 				break;
 
 			case POS_SLEEPING:
-				char_nputs(MSG_IN_YOUR_DREAMS, ch);
+				char_puts("In your dreams, or what?\n\r", ch);
 				break;
 
 			case POS_RESTING:
@@ -687,7 +687,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 				break;
 
 			case POS_FIGHTING:
-				char_nputs(MSG_NO_WAY_FIGHT, ch);
+				char_puts("No way!  You are still fighting!\n\r", ch);
 				break;
 
 		}
@@ -723,22 +723,22 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 		return FALSE;
 
 	if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOEMOTE)) {
-		char_nputs(MSG_ANTI_SOCIAL, ch);
+		char_puts("You are anti-social!\n\r", ch);
 		return TRUE;
 	}
 
 	switch (ch->position) {
 		case POS_DEAD:
-			char_nputs(MSG_YOU_ARE_DEAD, ch);
+			char_puts("Lie still; You are DEAD.\n\r", ch);
 			return TRUE;
 
 		case POS_INCAP:
 		case POS_MORTAL:
-			char_nputs(MSG_HURT_FAR_TOO_BAD, ch);
+			char_puts("You are hurt far too bad for that.\n\r", ch);
 			return TRUE;
 
 		case POS_STUNNED:
-			char_nputs(MSG_YOU_TOO_STUNNED, ch);
+			char_puts("You are too stunned to do that.\n\r", ch);
 			return TRUE;
 
 		case POS_SLEEPING:
@@ -748,7 +748,7 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 		 */
 			if (!str_cmp(social_table[cmd].name, "snore"))
 				break;
-			char_nputs(MSG_IN_YOUR_DREAMS, ch);
+			char_puts("In your dreams, or what?\n\r", ch);
 			return TRUE;
 	}
 
@@ -763,8 +763,8 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 	&& (cmd_table[cmd].position == POS_FIGHTING)) {
 		affect_strip(ch, gsn_improved_invis);
 		REMOVE_BIT(ch->affected_by, AFF_IMP);
-		char_nputs(MSG_YOU_FADE_INTO_EXIST, ch);
-		act_nputs(MSG_N_FADES_INTO_EXIST, ch, NULL, NULL, TO_ROOM,
+		char_puts("You fade into existence.\n\r", ch);
+		act_puts("$n fades into existence.\n\r", ch, NULL, NULL, TO_ROOM,
 			  POS_RESTING);
 	}
 
@@ -780,7 +780,7 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 
 	if ((victim = get_char_room(ch, arg)) == NULL
 	&&  ((victim = get_char_world(ch, arg)) == NULL || IS_NPC(victim))) {
-		char_nputs(MSG_THEY_ARENT_HERE, ch);
+		char_puts("They aren't here.\n\r", ch);
 		return TRUE;
 	}
 
@@ -993,7 +993,7 @@ void do_wizhelp(CHAR_DATA *ch, const char *argument)
 
 void do_reture(CHAR_DATA *ch, const char *argument)
 {
-  char_nputs(MSG_OK, ch);
+  char_puts("Ok.\n\r", ch);
   return;
 }
 

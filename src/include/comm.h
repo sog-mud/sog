@@ -1,5 +1,5 @@
 /*
- * $Id: comm.h,v 1.15 1998-09-20 17:01:21 fjoe Exp $
+ * $Id: comm.h,v 1.16 1998-09-22 18:07:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -66,6 +66,7 @@ void	page_to_char( const char *txt, CHAR_DATA *ch);
 #define TO_BUF		(F)
 #define NO_TRIGGER	(G)
 #define CHECK_TWIT	(H)
+#define TRANSLATE_TEXT	(I)
 
 #define act(format, ch, arg1, arg2, type) \
 		act_printf(ch, arg1, arg2, type, POS_RESTING, format)

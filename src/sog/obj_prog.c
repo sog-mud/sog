@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.29 1998-09-20 17:01:02 fjoe Exp $
+ * $Id: obj_prog.c,v 1.30 1998-09-22 18:07:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -595,11 +595,11 @@ int fight_prog_tattoo_apollon(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	switch(number_bits(6)) {
 	case 0:
 	case 1:
-		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
+		char_puts("The tattoo on your shoulder glows {Cblue{x.\n\r", ch);
 		obj_cast_spell(gsn_cure_serious, ch->level, ch, ch, obj);
 		break;
 	case 2:
-		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
+		char_puts("The tattoo on your shoulder glows {Rred{x.\n\r", ch);
 		do_yell(ch, "Ever dance with good....");
 		obj_cast_spell(sn_lookup("holy word"), ch->level, ch,
 			       NULL, obj);
@@ -618,12 +618,12 @@ int fight_prog_tattoo_zeus(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	case 0:
 	case 1:
 	case 2:
-		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
+		char_puts("The tattoo on your shoulder glows {Cblue{x.\n\r", ch);
 		obj_cast_spell(gsn_cure_critical,
 			       ch->level, ch, ch, obj);
 		break;
 	case 3:
-		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
+		char_puts("The tattoo on your shoulder glows {Cblue{x.\n\r", ch);
 		if (IS_AFFECTED(ch, AFF_PLAGUE))
 			obj_cast_spell(sn_lookup("cure disease"),
 				       MAX_LEVEL, ch, ch, obj);
@@ -642,11 +642,11 @@ int fight_prog_tattoo_siebele(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 
 	switch(number_bits(6)) {
 	case 0:
-		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
+		char_puts("The tattoo on your shoulder glows {Cblue{x.\n\r", ch);
 		obj_cast_spell(gsn_cure_serious, ch->level, ch, ch, obj);
 		break;
 	case 1:
-		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
+		char_puts("The tattoo on your shoulder glows {Rred{x.\n\r", ch);
 		obj_cast_spell(gsn_bluefire,
 			       ch->level, ch, ch->fighting, obj);
 		break;
@@ -661,11 +661,11 @@ int fight_prog_tattoo_ahrumazda(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 
 	switch(number_bits(6)) {
 	case 0:
-		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
+		char_puts("The tattoo on your shoulder glows {Cblue{x.\n\r", ch);
 		obj_cast_spell(gsn_cure_serious, ch->level, ch, ch, obj); 
 		break;
 	case 1:
-		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
+		char_puts("The tattoo on your shoulder glows {Rred{x.\n\r", ch);
 		obj_cast_spell(gsn_demonfire, ch->level, ch, ch->fighting, obj);
 		break;
 	}
@@ -680,11 +680,11 @@ int fight_prog_tattoo_hephaestus(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	switch(number_bits(6)) {
 	case 0:
 	case 1:
-		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
+		char_puts("The tattoo on your shoulder glows {Cblue{x.\n\r", ch);
 		obj_cast_spell(gsn_cure_serious, ch->level, ch, ch, obj);
 		break;
 	case 2:
-		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
+		char_puts("The tattoo on your shoulder glows {Rred{x.\n\r", ch);
 		do_yell(ch,"And justice for all!....");
 		obj_cast_spell(gsn_scream, ch->level, ch, ch->fighting, obj);
 		break;
@@ -699,16 +699,16 @@ int fight_prog_tattoo_ehrumen(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 
 	switch(number_bits(6)) {
 	case 0:
-		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
+		char_puts("The tattoo on your shoulder glows {Cblue{x.\n\r", ch);
 		obj_cast_spell(gsn_cure_light,
 			       ch->level, ch, ch->fighting, obj);
 		break;
 	case 1:
-		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
+		char_puts("The tattoo on your shoulder glows {Cblue{x.\n\r", ch);
 		obj_cast_spell(gsn_cure_serious, ch->level, ch, ch, obj);
 		break;
 	case 2:
-		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
+		char_puts("The tattoo on your shoulder glows {Rred{x.\n\r", ch);
 		obj_cast_spell(gsn_dispel_evil,
 			       ch->level, ch, ch->fighting, obj);
 		break;
@@ -725,17 +725,17 @@ int fight_prog_tattoo_venus(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	case 0:
 	case 1:
 	case 2:
-		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
+		char_puts("The tattoo on your shoulder glows {Cblue{x.\n\r", ch);
 		act_puts("The tattoo on your shoulder glows blue.",
 			 ch,NULL,NULL,TO_CHAR,POS_DEAD);
 		obj_cast_spell(gsn_cure_light, ch->level, ch, ch, obj);
 		break;
 	case 3:
-		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
+		char_puts("The tattoo on your shoulder glows {Rred{x.\n\r", ch);
 		obj_cast_spell(gsn_plague, ch->level, ch, ch->fighting, obj);
 		break;
 	case 4:
-		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
+		char_puts("The tattoo on your shoulder glows {Cblue{x.\n\r", ch);
 		obj_cast_spell(gsn_bless, ch->level, ch, ch, obj);
 		break;
 	}
@@ -749,11 +749,11 @@ int fight_prog_tattoo_ares(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 
 	switch(number_bits(5)) {
 	case 0:
-		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
+		char_puts("The tattoo on your shoulder glows {Cblue{x.\n\r", ch);
 		obj_cast_spell(gsn_dragon_strength, ch->level, ch, ch, obj);
 		break;
 	case 1:
-		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
+		char_puts("The tattoo on your shoulder glows {Rred{x.\n\r", ch);
 		obj_cast_spell(gsn_dragon_breath,
 			       ch->level, ch, ch->fighting, obj);
 		break;
@@ -769,11 +769,11 @@ int fight_prog_tattoo_odin(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 
 	switch(number_bits(5)) {
 	case 0:
-		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
+		char_puts("The tattoo on your shoulder glows {Cblue{x.\n\r", ch);
 		obj_cast_spell(gsn_cure_critical, ch->level, ch, ch, obj);
 		break;
 	case 1:
-		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
+		char_puts("The tattoo on your shoulder glows {Rred{x.\n\r", ch);
 		obj_cast_spell(gsn_faerie_fire,
 			       ch->level, ch, ch->fighting, obj);
 		break;
@@ -788,11 +788,11 @@ int fight_prog_tattoo_phobos(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 
 	switch(number_bits(6)) {
 	case 0:
-		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
+		char_puts("The tattoo on your shoulder glows {Cblue{x.\n\r", ch);
 		obj_cast_spell(gsn_cure_serious, ch->level, ch, ch, obj);
 		break;
 	case 1:
-		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
+		char_puts("The tattoo on your shoulder glows {Rred{x.\n\r", ch);
 		obj_cast_spell(sn_lookup("colour spray"),
 			       ch->level, ch, ch->fighting, obj);
 		break;
@@ -807,12 +807,12 @@ int fight_prog_tattoo_mars(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 
 	switch(number_bits(7)) {
 	case 0:
-		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
+		char_puts("The tattoo on your shoulder glows {Rred{x.\n\r", ch);
 		obj_cast_spell(gsn_blindness, ch->level, ch, ch->fighting, obj);
 		char_puts("You send out a cloud of confusion!\n\r", ch);
 		break;
 	case 1:
-		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
+		char_puts("The tattoo on your shoulder glows {Rred{x.\n\r", ch);
 		obj_cast_spell(gsn_poison, ch->level, ch, ch->fighting, obj);
 		char_puts("Some of your insanity rubs off on your opponent.\n\r", ch);
 		break;
@@ -903,19 +903,19 @@ int fight_prog_tattoo_hera(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 
 	switch(number_bits(5)) {
 	case 0:
-		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
+		char_puts("The tattoo on your shoulder glows {Rred{x.\n\r", ch);
 		obj_cast_spell(gsn_plague, ch->level, ch, ch->fighting, obj);
 		break;
 	case 1:
-		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
+		char_puts("The tattoo on your shoulder glows {Rred{x.\n\r", ch);
 		obj_cast_spell(gsn_poison, ch->level, ch, ch->fighting, obj);
 		/* FALLTHRU */
 	case 2:
-		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
+		char_puts("The tattoo on your shoulder glows {Rred{x.\n\r", ch);
 		obj_cast_spell(gsn_weaken, ch->level, ch, ch->fighting, obj);
 		/* FALLTHRU */
 	case 3:
-		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
+		char_puts("The tattoo on your shoulder glows {Rred{x.\n\r", ch);
 		obj_cast_spell(gsn_slow, ch->level, ch, ch->fighting, obj);
 		break;
 	}
@@ -931,11 +931,11 @@ int fight_prog_tattoo_deimos(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	switch(number_bits(6)) {
 	case 0:
 	case 1:
-		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
+		char_puts("The tattoo on your shoulder glows {Cblue{x.\n\r", ch);
 		obj_cast_spell(gsn_cure_serious, ch->level, ch, ch, obj);
 		break;
 	case 2:
-		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
+		char_puts("The tattoo on your shoulder glows {Rred{x.\n\r", ch);
 		obj_cast_spell(gsn_web, ch->level, ch, ch->fighting,
 			       obj);
 		break;
@@ -952,11 +952,11 @@ int fight_prog_tattoo_eros(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	switch(number_bits(4)) {
 	case 0:
 	case 1:
-		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
+		char_puts("The tattoo on your shoulder glows {Cblue{x.\n\r", ch);
 		obj_cast_spell(sn_lookup("heal"), ch->level, ch, ch, obj);
 		break;
 	case 2:
-		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
+		char_puts("The tattoo on your shoulder glows {Cblue{x.\n\r", ch);
 		obj_cast_spell(sn_lookup("group heal"),
 			       ch->level, ch, ch, obj);
 		break;

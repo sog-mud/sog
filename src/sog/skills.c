@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.25 1998-09-20 17:01:02 fjoe Exp $
+ * $Id: skills.c,v 1.26 1998-09-22 18:07:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -857,13 +857,12 @@ void say_spell(CHAR_DATA *ch, int sn)
 
 		skill = (get_skill(rch, gsn_spell_craft) * 9) / 10;
 		if (skill < number_percent()) {
-			act_nprintf(ch, NULL, rch, TO_VICT, POS_RESTING,
-				    MSG_N_UTTERS_THE_WORDS, buf);
+			act("$n utters the words, '$t'.", ch, buf, rch, TO_VICT);
 			check_improve(rch, gsn_spell_craft, FALSE, 5);
 		}
 		else  {
-			act_nprintf(ch, NULL, rch, TO_VICT, POS_RESTING,
-				    MSG_N_UTTERS_THE_WORDS, skill_name(sn));
+			act("$n utters the words, '$t'.",
+			    ch, skill_name(sn), rch, TO_VICT);
 			check_improve(rch, gsn_spell_craft, TRUE, 5);
 		}
 	}

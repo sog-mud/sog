@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: help.c,v 1.4 1998-09-17 15:51:19 fjoe Exp $
+ * $Id: help.c,v 1.5 1998-09-22 18:07:15 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -120,7 +120,9 @@ void help_show(CHAR_DATA *ch, BUFFER *output, const char *keyword)
 	}
 
 	if (pFirst == NULL) {
-		buf_printf(output, msg(MSG_NO_HELP_ON_WORD, ch), keyword);
+		buf_printf(output,
+			   MSG("%s: no help on that word.\n\r", ch->lang),
+			   keyword);
 		return;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: raffect.c,v 1.10 1998-09-20 17:01:02 fjoe Exp $
+ * $Id: raffect.c,v 1.11 1998-09-22 18:07:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -458,19 +458,17 @@ void do_raffects(CHAR_DATA *ch, const char *argument)
 			else
 				continue;
 		else
-			char_printf(ch, "%s {c%-15s{x", msg(MSG_AFF_SPELL, ch),
+			char_printf(ch, "Spell: {c%-15s{x",
 				    skill_name(paf->type));
 
 		if (ch->level >= 20) {
-			char_printf(ch, ": %s {c%s{x %s {c%d{x ",
-				    msg(MSG_AFF_MODIFIES, ch),
+			char_printf(ch, ": modifies {c%s{x by {c%d{x ",
 				    flag_string(rapply_flags, paf->location),
-				    msg(MSG_AFF_BY, ch),
 				    paf->modifier);
 			if (paf->duration == -1 || paf->duration == -2)
-				char_nputs(MSG_AFF_PERMANENTLY, ch);
+				char_puts("permanently.", ch);
 			else
-				char_printf(ch, msg(MSG_AFF_FOR_D_HOURS, ch),
+				char_printf(ch, MSG("for {c%d{x hours.", ch->lang),
 					    paf->duration);
 		}
 		char_puts("\n\r", ch);

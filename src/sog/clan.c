@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.14 1998-09-19 10:38:58 fjoe Exp $
+ * $Id: clan.c,v 1.15 1998-09-22 18:07:15 fjoe Exp $
  */
 
 #include <sys/syslimits.h>
@@ -140,7 +140,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 			victim->pcdata->petition = CLAN_NONE;
 			victim->pcdata->clan_status = CLAN_COMMON;
 			update_skills(victim);
-			char_nputs(MSG_OK, ch);
+			char_puts("Ok.\n\r", ch);
 			char_puts("Greet new member!\n\r", ch);
 			char_printf(victim, "Your petition to %s has been "
 				    "accepted.\n\r",
@@ -161,7 +161,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 			victim->clan = CLAN_NONE;
 			victim->pcdata->petition = CLAN_NONE;
 			update_skills(victim);
-			char_nputs(MSG_OK, ch);
+			char_puts("Ok.\n\r", ch);
 			char_printf(ch, "They are not a member of %s "
 					"anymore.\n\r", clan->name);
 			char_printf(ch, "You are not a member of %s "
@@ -205,7 +205,7 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 
 	if (IS_NPC(ch)
 	||  (!IS_IMMORTAL(ch) && ch->pcdata->clan_status != CLAN_LEADER)) {
-		char_nputs(MSG_HUH, ch);
+		char_puts("Huh?\n\r", ch);
 		return;
 	}
 
@@ -223,7 +223,7 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 
 	victim = get_char_world(ch, arg1);
 	if (!victim || IS_NPC(victim)) {
-		char_nputs(MSG_THEY_ARENT_HERE, ch);
+		char_puts("They aren't here.\n\r", ch);
 		return;
 	}
 
@@ -241,7 +241,7 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 
 	if (!str_prefix(arg2, "leader") && IS_IMMORTAL(ch)) {
 		victim->pcdata->clan_status = CLAN_LEADER;
-		char_nputs(MSG_OK, ch);
+		char_puts("Ok.\n\r", ch);
 		char_puts("They are now leader in their clan.\n\r", ch);
 		char_puts("You are now leader in your clan.\n\r", victim);
 		return;
@@ -304,7 +304,7 @@ void do_clanlist(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (ch->clan == CLAN_NONE || ch->pcdata->clan_status == CLAN_COMMON) {
-		char_nputs(MSG_HUH, ch);
+		char_puts("Huh?\n\r", ch);
 		return;
 	}
 

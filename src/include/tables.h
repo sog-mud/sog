@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: tables.h,v 1.2 1998-09-17 15:51:23 fjoe Exp $
+ * $Id: tables.h,v 1.3 1998-09-22 18:07:18 fjoe Exp $
  */
 
 #ifndef _TABLES_H_
@@ -61,6 +61,7 @@ extern FLAG	weapon_type2[];
 extern FLAG	res_flags[];
 extern FLAG	vuln_flags[];
 extern FLAG	position_table[];
+extern FLAG	position_names[];
 extern FLAG	portal_flags[];
 extern FLAG	furniture_flags[];
 extern FLAG	apply_types[];

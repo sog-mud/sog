@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: msg.c,v 1.1 1998-09-20 17:01:27 fjoe Exp $
+ * $Id: msg.c,v 1.2 1998-09-22 18:07:26 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -51,7 +51,7 @@ void load_msgdb()
 	fp = dfopen(ETC_PATH, MSG_FILE, "r");
 	if (fp == NULL) {
 		perror(MSG_FILE);
-		return;
+		exit(1);
 	}
 
 	while (1) {
@@ -59,7 +59,7 @@ void load_msgdb()
 
 		if (mlstr_null(ml)) {
 			db_error("msgdb_load", "no '$' found");
-			return;
+			exit(1);
 		}
 
 		if (!strcmp(mlstr_mval(ml), "$")) {

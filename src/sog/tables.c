@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.4 1998-09-17 11:07:12 fjoe Exp $
+ * $Id: tables.c,v 1.5 1998-09-22 18:07:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -554,27 +554,29 @@ FLAG rapply_flags[] =
  */
 FLAG wear_loc_strings[] =
 {
-	{ "in the inventory",		WEAR_NONE,	TRUE	},
-	{ "as a light",			WEAR_LIGHT,	TRUE	},
-	{ "on the left finger",		WEAR_FINGER_L,	TRUE	},
-	{ "on the right finger",	WEAR_FINGER_R,	TRUE	},
-	{ "around the neck (1)",	WEAR_NECK_1,	TRUE	},
-	{ "around the neck (2)",	WEAR_NECK_2,	TRUE	},
-	{ "on the body",		WEAR_BODY,	TRUE	},
-	{ "over the head",		WEAR_HEAD,	TRUE	},
-	{ "on the legs",		WEAR_LEGS,	TRUE	},
-	{ "on the feet",		WEAR_FEET,	TRUE	},
-	{ "on the hands",		WEAR_HANDS,	TRUE	},
-	{ "on the arms",		WEAR_ARMS,	TRUE	},
-	{ "as a shield",		WEAR_SHIELD,	TRUE	},
-	{ "about the shoulders",	WEAR_ABOUT,	TRUE	},
-	{ "around the waist",		WEAR_WAIST,	TRUE	},
-	{ "on the left wrist",		WEAR_WRIST_L,	TRUE	},
-	{ "on the right wrist",		WEAR_WRIST_R,	TRUE	},
-	{ "wielded",			WEAR_WIELD,	TRUE	},
-	{ "held in the hands",		WEAR_HOLD,	TRUE	},
-	{ "floating nearby",		WEAR_FLOAT,	TRUE	},
-	{ "tattooed",			WEAR_TATTOO,	TRUE	},
+	{ "in the inventory",		WEAR_NONE,		TRUE	},
+	{ "as a light",			WEAR_LIGHT,		TRUE	},
+	{ "on the left finger",		WEAR_FINGER_L,		TRUE	},
+	{ "on the right finger",	WEAR_FINGER_R,		TRUE	},
+	{ "around the neck (1)",	WEAR_NECK_1,		TRUE	},
+	{ "around the neck (2)",	WEAR_NECK_2,		TRUE	},
+	{ "on the body",		WEAR_BODY,		TRUE	},
+	{ "over the head",		WEAR_HEAD,		TRUE	},
+	{ "on the legs",		WEAR_LEGS,		TRUE	},
+	{ "on the feet",		WEAR_FEET,		TRUE	},
+	{ "on the hands",		WEAR_HANDS,		TRUE	},
+	{ "on the arms",		WEAR_ARMS,		TRUE	},
+	{ "as a shield",		WEAR_SHIELD,		TRUE	},
+	{ "about the shoulders",	WEAR_ABOUT,		TRUE	},
+	{ "around the waist",		WEAR_WAIST,		TRUE	},
+	{ "on the left wrist",		WEAR_WRIST_L,		TRUE	},
+	{ "on the right wrist",		WEAR_WRIST_R,		TRUE	},
+	{ "wielded",			WEAR_WIELD,		TRUE	},
+	{ "held in the hands",		WEAR_HOLD,		TRUE	},
+	{ "floating nearby",		WEAR_FLOAT,		TRUE	},
+	{ "scratched tattoo",		WEAR_TATTOO,		TRUE	},
+	{ "second wielded",		WEAR_SECOND_WIELD,	TRUE	},
+	{ "stuck in",			WEAR_STUCK_IN,		TRUE	},
 	{ NULL }
 };
 
@@ -727,6 +729,20 @@ FLAG position_table[] =
 	{ "sit",		POS_SITTING,		TRUE	},
 	{ "fight",		POS_FIGHTING,		FALSE	},
 	{ "stand",		POS_STANDING,		TRUE	},
+	{ NULL }
+};
+
+FLAG position_names[] =
+{
+	{ "DEAD",		POS_DEAD	},
+	{ "mortally wounded",	POS_MORTAL	},
+	{ "incapacitated",	POS_INCAP	},
+	{ "stunned",		POS_STUNNED	},
+	{ "sleeping",		POS_SLEEPING	},
+	{ "resting",		POS_RESTING	},
+	{ "sitting",		POS_SITTING	},
+	{ "fighting",		POS_FIGHTING	},
+	{ "standing",		POS_STANDING	},
 	{ NULL }
 };
 

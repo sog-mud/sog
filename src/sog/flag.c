@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.13 1998-09-19 11:13:24 fjoe Exp $
+ * $Id: flag.c,v 1.14 1998-09-22 18:07:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -77,6 +77,7 @@ const struct flag_stat_type flag_stat_table[] =
 	{ weapon_type2,		FALSE	},
 	{ size_table,		TRUE	},
 	{ position_table,	TRUE	},
+	{ position_names,	TRUE	},
 	{ ac_type,		TRUE	},
 	{ cont_flags,		FALSE	},
 	{ skill_groups,		FALSE	},

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: resource.c,v 1.36 1998-09-20 17:01:27 fjoe Exp $
+ * $Id: resource.c,v 1.37 1998-09-22 18:07:26 fjoe Exp $
  */
 
 #include <limits.h>
@@ -107,17 +107,17 @@ void do_lang(CHAR_DATA *ch, const char *argument)
 				   ch->name, ch->lang);
 			ch->lang = 0;
 		}
-		char_nprintf(ch, MSG_INTERFACE_LANGUAGE_IS, lang_table[ch->lang]);
+		char_printf(ch, "Interface language is '%s'.\n\r", lang_table[ch->lang]);
 		return;
 	}
 
 	lang = lang_lookup(arg);
 	if (lang < 0) {
-		char_nputs(MSG_LANG_USAGE_PRE, ch);
+		char_puts("Usage: lang [ ", ch);
 		for (lang = 0; lang < nlang; lang++)
 			char_printf(ch, "%s%s",
 				    lang == 0 ? "" : " | ", lang_table[lang]);
-		char_nputs(MSG_LANG_USAGE_POST, ch);
+		char_puts(" ]\\n\\r", ch);
 		return;
 	}
 
@@ -167,6 +167,29 @@ static void msgid_add(char* name, int msgid);
 static msgid_lookup(char* name);
 static msgid_cmp(const void*, const void*);
 static char* msgid_name_lookup(int msgid);
+
+char *fix_msg(char* p)
+{
+	static char buf[MAX_STRING_LENGTH];
+	char a[] = "\n\r\a";
+	char b[] = "nra";
+	int i;
+
+	for (i = 0; i < sizeof(buf)-2 && *p; i++, p++) {
+		char *q;
+		char c;
+
+		if ((q = strchr(a, *p))) {
+			buf[i++] = '\\';
+			c = b[q-a];
+		}
+		else
+			c = *p;
+		buf[i] = c;
+	}
+	buf[i] = '\0';
+	return buf;
+}
 
 void load_lang(void)
 {
@@ -263,11 +286,11 @@ void load_lang(void)
 		load_langfile(i, buf2);
 	}
 
+	fclose(f);
+
 	for (i = 0; i < nmsgid; i++)
 		free_string(msgid_table[i].name);
 	free(msgid_table);
-
-	fclose(f);
 }
 
 static

@@ -1,6 +1,1414 @@
 @eng You sure are BLEEDING!
 @rus Ты истекаешь КРОВЬЮ!
 ~
+@eng You feel better!
+@rus Тебе лучше!
+~
 @eng Don't you want a quest?@rus Не хочешь ли получить задание?~
+@eng You have no unread messages.
+@rus А новостей на сегодня больше нет...
+~
 @eng $n tells you '{G$t{x'@rus $n говорит тебе: "{G$t{x"~
+@eng Nothing.
+@rus Ничего.
+~
+@eng <used as light>     $t@rus <освещает>             $t~
+@eng <worn on finger>    $t@rus <надето на палец>      $t~
+@eng <worn around neck>  $t@rus <надето на шею>        $t~
+@eng <worn on torso>     $t@rus <надето на тело>       $t~
+@eng <worn on head>      $t@rus <надето на голову>     $t~
+@eng <worn on legs>      $t@rus <надето на ноги>       $t~
+@eng <worn on feet>      $t@rus <надето на ступни>     $t~
+@eng <worn on hands>     $t@rus <надето на руки>       $t~
+@eng <worn on arms>      $t@rus <надето на плечи>      $t~
+@eng <worn as shield>    $t@rus <щит>                  $t~
+@eng <worn about body>   $t@rus <накинуто сверху>      $t~
+@eng <worn about waist>  $t@rus <на талии>             $t~
+@eng <worn about wrist>  $t@rus <обхватывает запястья> $t~
+@eng <wielded>           $t@rus <вооружение>           $t~
+@eng <held>              $t@rus <зажато в руке>        $t~
+@eng <floating nearby>   $t@rus <кружится поблизости>  $t~
+@eng <scratched tattoo>  $t@rus <татуировка>           $t~
+@eng <dual wielded>      $t@rus <второе оружие>        $t~
+@eng <stuck in>          $t@rus <воткнуто>             $t~
+@eng  is sleeping at %s.@rus  спит около %s.~
+@eng  is sleeping on %s.@rus  спит на %s.~
+@eng  is sleeping in %s.@rus  спит в %s.~
+@eng  is sleeping here.@rus  спит здесь.~
+@eng  is resting at %s.@rus  отдыхает около %s.~
+@eng  is resting on %s.@rus  отдыхает на %s.~
+@eng  is resting in %s.@rus  отдыхает в %s.~
+@eng  is resting here.@rus  отдыхает здесь.~
+@eng  is sitting at %s.@rus  сидит около %s.~
+@eng  is sitting on %s.@rus  сидит на %s.~
+@eng  is sitting in %s.@rus  сидит в %s.~
+@eng  is sitting here.@rus  сидит здесь.~
+@eng  is standing at %s.@rus  стоит около %s.~
+@eng  is standing on %s.@rus  стоит на %s.~
+@eng  is standing in %s.@rus  стоит в %s.~
+@eng  is standing here.@rus  стоит здесь.~
+@eng  is here, fighting with @rus  здесь, сражается с ~
+@eng  is here. @rus  здесь. ~
+@eng {Cis in perfect health{x.@rus {Cв отличном состоянии{x.~
+@eng {bhas a few scratches{x.@rus {bимеет несколько царапин{x.~
+@eng {Bhas some small but disgusting cuts{x.@rus {Bимеет несколько маленьких ран и синяков{x.~
+@eng {Gis covered with bleeding wounds{x.@rus {Gимеет довольно много ран{x.~
+@eng {Yis gushing blood{x.@rus {Yистекает кровью{x.~
+@eng {Mis writhing in agony{x.@rus {Mбьется в агонии{x.~
+@eng {Ris convulsing on the ground{x.@rus {Rв ужасном состоянии{x.~
+@eng {Ris nearly dead{x.@rus {Rпочти труп{x.~
+@eng You are %s.
+@rus Ты %s
+~
+@eng You are carrying:
+@rus Ты несешь:
+~
+@eng You are using:
+@rus Ты используешь:
+~
+@eng $N is using:@rus $N использует:~
+@eng 
+You peek at the inventory:
+@rus 
+Ты всматриваешься в снаряжение:
+~
+@eng Interface language is '%s'.
+@rus Текущий язык: '%s'.
+~
+@eng Usage: lang [ @rus Использование: lang [ ~
+@eng  ]
+@rus  ]
+~
+@eng excellent@rus идеальное~
+@eng good@rus хорошее~
+@eng fine@rus нормальное~
+@eng average@rus среднее~
+@eng poor@rus плохое~
+@eng fragile@rus совсем плохое~
+@eng The day has begun.
+@rus Начинается новый день.
+~
+@eng The sun rises in the east.
+@rus Восток озарился светом восходящего солнца.
+~
+@eng The sun slowly disappears in the west.
+@rus Солнце медленно опустилось за горизонт.
+~
+@eng The night has begun.
+@rus Сгустились сумерки и наступила ночь.
+~
+@eng The sky is getting cloudy.
+@rus Небо затянулось тучами.
+~
+@eng It starts to rain.
+@rus Начинается дождь.
+~
+@eng The clouds disappear.
+@rus Небо прояснилось.
+~
+@eng Lightning flashes in the sky.
+@rus Молния озарила небо.
+~
+@eng The rain stopped.
+@rus Дождь прекратился.
+~
+@eng The lightning has stopped.
+@rus Гроза кончилась.
+~
+@eng You have {W%d{z minutes to complete this quest.@rus У тебя есть {W%d{z мин. на выполнение этого задания.~
+@eng May the gods go with you!@rus И пусть боги помогут тебе!~
+@eng $n orders you to '%s', you do.@rus $n приказывает тебе '%s', ты подчиняешься.~
+@eng You push $N to %s.@rus Ты выталкиваешь $N на %s.~
+@eng $n pushes you to %s.@rus $n выталкивает тебя на %s.~
+@eng $n pushes $N to %s.@rus $n выталкивает $N на %s.~
+@eng $N is $t from here.@rus $N находится на $t отсюда.~
+@eng It's %s.@rus Сейчас %s.~
+@eng dawn@rus рассветает~
+@eng morning@rus утро~
+@eng mid-day@rus день~
+@eng evening@rus вечер~
+@eng night@rus ночь~
+@eng Alas, you cannot go that way.
+@rus Увы, ты не можешь идти туда.
+~
+@eng The $d is closed.@rus $d закрыто.~
+@eng What? And leave your beloved master?
+@rus Что? Ты уйдешь от своего любимого хозяина?
+~
+@eng That room is private right now.
+@rus Это частная комната.
+~
+@eng Your mount subbornly refuses to go that way.
+@rus Твое животное упорно отказывается идти в эту сторону.
+~
+@eng You aren't allowed in there.
+@rus Тебе туда нельзя.
+~
+@eng You mount can't fly.
+@rus Твое животное не умеет летать.
+~
+@eng You can't fly.
+@rus Ты не умеешь летать.
+~
+@eng You can't take your mount there.
+@rus Ты не можешь взять свое животное туда с собой.
+~
+@eng You need a boat to go there.
+@rus Туда нужно плыть на лодке.
+~
+@eng You can't bring $N into the city.@rus Ты не можешь внести $N в этот город.~
+@eng You aren't allowed in the city.@rus Тебе не разрешено входить в этот город.~
+@eng You follow $N.@rus Ты следуешь за $N.~
+@eng I see no exit $T here.@rus Я не вижу здесь выходов на $T.~
+@eng I see no $T here.@rus Я не вижу здесь $T.~
+@eng I see no door $T here.@rus Я не вижу здесь дверей на $T.~
+@eng You can't do that.
+@rus Ты не можешь этого сделать.
+~
+@eng $n looks all around.@rus $n осматривается вокруг.~
+@eng Looking around you see:
+@rus Вокруг себя ты видишь:
+~
+@eng Open what?
+@rus Открыть что?
+~
+@eng It's already open.
+@rus Тут уже открыто.
+~
+@eng It's locked.
+@rus Тут закрыто.
+~
+@eng You open $p.@rus Ты открываешь $p.~
+@eng $n opens $p.@rus $n открывает $p.~
+@eng That's not a container.
+@rus Это не контейнер.
+~
+@eng $n opens the $d.@rus $n открывает $d.~
+@eng Ok.
+@rus О'Кей.
+~
+@eng The $d opens.@rus $d открывается.~
+@eng Close what?
+@rus Закрыть что?
+~
+@eng It's already closed.
+@rus Тут уже закрыто.
+~
+@eng You close $p.@rus Ты закрываешь $p.~
+@eng $n closes $p.@rus $n закрывает $p.~
+@eng $n closes the $d.@rus $n закрывает $d.~
+@eng The $d closes.@rus $d закрывается.~
+@eng Lock what?
+@rus Замкнуть что?
+~
+@eng It's not closed.
+@rus Тут не закрыто.
+~
+@eng It can't be locked.
+@rus Это нельзя замкнуть.
+~
+@eng You lack the key.
+@rus У тебя нет ключа.
+~
+@eng It's already locked.
+@rus Тут уже замкнуто.
+~
+@eng You lock $p.@rus Ты замыкаешь $p.~
+@eng $n locks $p.@rus $n замыкает $p.~
+@eng *Click*
+@rus *Щелк*
+~
+@eng $n locks the $d.@rus $n замыкает $d.~
+@eng The $d clicks.@rus $d щелкает.~
+@eng Unlock what?
+@rus Разомкнуть что?
+~
+@eng It can't be unlocked.
+@rus Это нельзя разомкнуть.
+~
+@eng It's already unlocked.
+@rus Здесь уже разомкнуто.
+~
+@eng You unlock $p.@rus Ты размыкаешь $p.~
+@eng $n unlocks $p.@rus $n размыкает $p.~
+@eng $n unlocks the $d.@rus $n размыкает $d.~
+@eng Pick what?
+@rus Взломать что?
+~
+@eng You can't pick while mounted.
+@rus Ты не можешь взламывать верхом.
+~
+@eng $N is standing too close to lock.@rus $N стоит слишком близко к замку.~
+@eng You failed.
+@rus Не получилось.
+~
+@eng You pick the lock on $p.@rus Ты взламываешь замок в $p.~
+@eng $n picks the lock on $p.@rus $n взламывает замок в $p.~
+@eng It can't be picked.
+@rus Это нельзя взломать.
+~
+@eng $n picks the $d.@rus $n взламывает $d.~
+@eng Maybe you should finish fighting first?
+@rus Может для начала перестанешь драться?
+~
+@eng You don't see that here.
+@rus Ты не видишь этого тут.
+~
+@eng You can't seem to find a place to stand.
+@rus Ты даже не представляешь куда здесь можно встать.
+~
+@eng There's no room to stand on $p.@rus На $p больше нет места, чтобы встать.~
+@eng You can't wake up!
+@rus Ты не можешь проснуться!
+~
+@eng You wake and stand up.
+@rus Ты просыпаешься и встаешь.
+~
+@eng $n wakes and stands up.@rus $n просыпатся и встает.~
+@eng You wake and stand at $p.@rus Ты просыпаешься и встаешь около $p.~
+@eng $n wakes and stands at $p.@rus $n просыпается и встает около $p.~
+@eng You wake and stand on $p.@rus Ты просыпаешься и встаешь на $p.~
+@eng $n wakes and stands on $p.@rus $n просыпается и встает на $p.~
+@eng You wake and stand in $p.@rus Ты просыпаешься и встаешь в $p.~
+@eng $n wakes and stands in $p.@rus $n просыпается и встает в $p.~
+@eng You feel your blood heats your body.
+@rus Ты чувствуешь как кровь обжигает твое тело.
+~
+@eng You stand up.
+@rus Ты встаешь.
+~
+@eng $n stands up.@rus $n встает.~
+@eng You stand at $p.@rus Ты встаешь около $p.~
+@eng $n stands at $p.@rus $n встает около $p.~
+@eng You stand on $p.@rus Ты встаешь на $p.~
+@eng $n stands on $p.@rus $n встает на $p.~
+@eng You stand in $p.@rus Ты встаешь в $p.~
+@eng $n stands in $p.@rus $n встает в $p.~
+@eng You are already standing.
+@rus Ты уже стоишь.
+~
+@eng You are already fighting!
+@rus Ты уже сражаешься!
+~
+@eng You can't rest while mounted.
+@rus Ты не можешь отдыхать верхом.
+~
+@eng You can't rest while being ridden.
+@rus Ты не можешь отдыхать оседланным.
+~
+@eng You are already sleeping.
+@rus Ты уже спишь.
+~
+@eng You can't rest on that.
+@rus Ты не можешь на этом отдыхать.
+~
+@eng There's no more room on $p.@rus На $p больше нет места.~
+@eng You wake up and start resting.
+@rus Ты просыпаешься и садишься отдыхать.
+~
+@eng $n wakes up and starts resting.@rus $n просыпается и садится отдыхать.~
+@eng You wake up and rest at $p.@rus Ты просыпаешься и садишься отдыхать около $p.~
+@eng $n wakes up and rests at $p.@rus $n просыпается и садится отдыхать около $p.~
+@eng You wake up and rest on $p.@rus Ты просыпаешься и садишься отдыхать на $p.~
+@eng $n wakes up and rests on $p.@rus $n просыпается и садится отдыхать на $p.~
+@eng You wake up and rest in $p.@rus Ты просыпаешься и садишься отдыхать в $p.~
+@eng $n wakes up and rests in $p.@rus $n просыпается и садится отдыхать в $p.~
+@eng You are already resting.
+@rus Ты уже отдыхаешь.
+~
+@eng You rest.
+@rus Ты садишься отдыхать.
+~
+@eng $n sits down and rests.@rus $n садится отдыхать.~
+@eng You sit down at $p and rest.@rus Ты садишься отдыхать около $p.~
+@eng $n sits down at $p and rests.@rus $n садится отдыхать около $p.~
+@eng You sit down on $p and rest.@rus Ты садишься отдыхать на $p.~
+@eng $n sits down on $p and rests.@rus $n садится отдыхать на $p.~
+@eng You sit down in $p and rest.@rus Ты садишься отдыхать в $p.~
+@eng $n sits down in $p and rests.@rus $n садится отдыхать в $p.~
+@eng $n rests.@rus $n садится отдыхать.~
+@eng You rest at $p.@rus Ты садишься отдыхать около $p.~
+@eng $n rests at $p.@rus $n садится отдыхать около $p.~
+@eng You rest on $p.@rus Ты садишься отдыхать на $p.~
+@eng $n rests on $p.@rus $n садится отдыхать на $p.~
+@eng You rest in $p.@rus Ты садишься отдыхать в $p.~
+@eng $n rests in $p.@rus $n садится отдыхать в $p.~
+@eng You can't sit while mounted.
+@rus Ты не можешь сесть верхом.
+~
+@eng You can't sit while being ridden.
+@rus Ты не можешь сесть оседланным.
+~
+@eng You can't sit on that.
+@rus Ты не можешь сесть на это.
+~
+@eng You wake and sit up.
+@rus Ты просыпаешься и садишься.
+~
+@eng $n wakes and sits up.@rus $n просыпается и садится.~
+@eng You wake and sit at $p.@rus Ты просыпаешься и садишься около $p.~
+@eng $n wakes and sits at $p.@rus $n просыпается и садится около $p.~
+@eng You wake and sit on $p.@rus Ты просыпаешься и садишься на $p.~
+@eng $n wakes and sits on $p.@rus $n просыпается и садится на $p.~
+@eng You wake and sit in $p.@rus Ты просыпаешься и садишься в $p.~
+@eng $n wakes and sits in $p.@rus $n просыпается и садится в $p.~
+@eng You stop resting.
+@rus Ты прекращаешь отдыхать.
+~
+@eng You sit at $p@rus Ты садишься около $p~
+@eng $n sits at $p.@rus $n садится около $p.~
+@eng You sit on $p.@rus Ты садишься на $p.~
+@eng $n sits on $p.@rus $n садится на $p.~
+@eng You sit in $p.@rus Ты садишься на $p.~
+@eng $n sits in $p.@rus $n садится на $p.~
+@eng You are already sitting down.
+@rus Ты уже сидишь.
+~
+@eng You sit down.
+@rus Ты садишься.
+~
+@eng $n sits down on the ground.@rus $n садится на землю.~
+@eng You sit down at $p.@rus Ты садишься около $p.~
+@eng $n sits down at $p.@rus $n садится около $p.~
+@eng You sit down in $p.@rus Ты садишься в $p.~
+@eng $n sits down in $p.@rus $n садится в $p.~
+@eng You can't sleep while mounted.
+@rus Ты не можешь спать верхом.
+~
+@eng You can't sleep while being ridden.
+@rus Ты не можешь спать оседланным.
+~
+@eng You go to sleep.
+@rus Ты засыпаешь.
+~
+@eng $n goes to sleep.@rus $n засыпает.~
+@eng You can't sleep on that.
+@rus Ты не можешь на этом спать.
+~
+@eng There's no room on $p for you.@rus На $p больше нет места.~
+@eng You go to sleep at $p.@rus Ты засыпаешь около $p.~
+@eng $n goes to sleep at $p.@rus $n засыпает около $p.~
+@eng You go to sleep on $p.@rus Ты засыпаешь на $p.~
+@eng $n goes to sleep on $p.@rus $n засыпает на $p.~
+@eng You go to sleep in $p.@rus Ты засыпаешь в $p.~
+@eng $n goes to sleep in $p.@rus $n засыпает в $p.~
+@eng You are asleep yourself!
+@rus Но ты же сам спишь!
+~
+@eng They aren't here.
+@rus Тут нет таких.
+~
+@eng $N is already awake.@rus $N уже бодрствует.~
+@eng $n wakes you.@rus $n будит тебя.~
+@eng You can't sneak while mounted.
+@rus Ты не можешь красться верхом.
+~
+@eng You attempt to move silently.
+@rus Ты пытаешься двигаться бесшумно.
+~
+@eng You can't hide while mounted.
+@rus Ты не можешь прятаться верхом.
+~
+@eng You can't hide while being ridden.
+@rus Ты не можешь прятаться оседланным.
+~
+@eng You cannot hide while glowing.
+@rus Ты не можешь спрятаться пока светишься.
+~
+@eng You attempt to hide.
+@rus Ты пытаешься спрятаться.
+~
+@eng You can't camouflage while mounted.
+@rus Ты не можешь маскироваться верхом.
+~
+@eng You can't camouflage while being ridden.
+@rus Ты не можешь маскироваться оседланным.
+~
+@eng You don't know how to camouflage yourself.
+@rus Ты не умеешь маскироваться.
+~
+@eng You can't camouflage yourself while glowing.
+@rus Ты не можешь замаскироваться пока светишься.
+~
+@eng There's no cover here.
+@rus Здесь нет прикрытия.
+~
+@eng $n tries to camouflage $mself against the lone leaf on the ground.@rus $n пытается замаскироваться под одинокий лист на дороге.~
+@eng You attempt to camouflage yourself.
+@rus Ты пытаешься замаскироваться.
+~
+@eng You fade into existence.
+@rus Ты становишься видимым.
+~
+@eng $n fades into existence.@rus Здесь появился $n.~
+@eng You trample around loudly again.
+@rus Теперь ты опять топаешь как слон.
+~
+@eng Only players can recall.
+@rus Только игроки могут делать реколл.
+~
+@eng Recall is for only levels below 10.
+@rus Реколл только для тех, кто меньше 10 левела.
+~
+@eng $n prays for transportation!@rus $n молит о возвращении домой!~
+@eng You are completely lost.
+@rus Ты окончательно потерялся.
+~
+@eng The gods have forsaken you.
+@rus Боги покинули тебя.
+~
+@eng You are still fighting!
+@rus Ты сражаешься!
+~
+@eng You recall from combat! You lose %d exps.
+@rus Боги вернули тебя домой из битвы! Ты теряешь %d очков опыта.
+~
+@eng $n disappears.@rus $n исчезает.~
+@eng $n appears in the room.@rus Здесь появляется $n.~
+@eng You can't do that here.
+@rus Ты не можешь делать этого здесь.
+~
+@eng You have %d training sessions.
+@rus У тебя есть %d сессий тренировки.
+~
+@eng You can train:@rus Ты можешь тренировать:~
+@eng You don't have enough training sessions.
+@rus У тебя не достаточно сессий практики.
+~
+@eng Your durability increases!@rus Твоя стойкость увеличивается!~
+@eng $n's durability increases!@rus Стойкость $n увеличивается!~
+@eng Your power increases!@rus Твоя энергия увеличивается!~
+@eng $n's power increases!@rus Энергия $n увеличивается!~
+@eng Your $T is already at maximum.@rus Ты больше не можешь развивать $T.~
+@eng Your $T increases!@rus Твое $T увеличивается!~
+@eng $n's $T increases!@rus $T $n увеличивается!~
+@eng There are no train tracks here.
+@rus Здесь нет следов для тренировки.
+~
+@eng $n checks the ground for tracks.@rus $n внимательно рассматривает следы на земле.~
+@eng %s's tracks lead %s.
+@rus Следы %s ведут на %s.
+~
+@eng You don't see any tracks.
+@rus Здесь нет следов.
+~
+@eng But you are already vampire. Kill them! Kill them!
+@rus Ты не можешь стать еще большим вампиром чем сейчас!
+~
+@eng You try to show yourself even more ugly.
+@rus Ты пытаешься выглядеть еще более ужасно.
+~
+@eng Go and ask the questor. He'll help you.
+@rus Иди к квестору и попроси у него помощи.
+~
+@eng You should wait for the evening or night to transform to a vampire.
+@rus Тебе нужно подождать вечера или ночи, чтобы стать вампиром.
+~
+@eng You feel yourself getting greater and greater.
+@rus Ты чуствуешь, как становишься все больше и БОЛЬШЕ.
+~
+@eng You cannot recognize $n anymore.@rus $n стал неузнаваем.~
+@eng You don't know how to bite creatures.
+@rus Ты не умеешь кусаться.
+~
+@eng You must transform vampire before biting.
+@rus Сначала стань вампиром, а потом кусайся.
+~
+@eng Bite whom?
+@rus Укусить кого?
+~
+@eng They must be sleeping.
+@rus Они должны спать.
+~
+@eng How can you sneak upon yourself?
+@rus Ты не можешь подкрасться к себе сзади.
+~
+@eng You can't bite a fighting person.
+@rus Ты не можешь кусать сражающего.
+~
+@eng $N is hurt and suspicious ... doesn't worth up.@rus $N is hurt and suspicious ... doesn't worth up.~
+@eng $N is hurt and suspicious ... doesn't worth to do.@rus $N is hurt and suspicious ... doesn't worth to do.~
+@eng Help, an ugly creature tried to bite me!@rus Помогите, ужасное чудовище попыталось укусить меня!~
+@eng Bashing? What's that?
+@rus Bash? А это чего?
+~
+@eng {Rmortally wounded{x@rus {Rумираешь{x~
+@eng {Rincapacitated{x@rus {Rпри смерти{x~
+@eng {csleeping{x@rus {cспишь{x~
+@eng {cresting{x@rus {cотдыхаешь{x~
+@eng {csitting{x@rus {cсидишь{x~
+@eng {Rfighting{x@rus {Rсражаешься{x~
+@eng {cstanding{x@rus {cстоишь{x~
+@eng $n leaves.@rus $n удаляется.~
+@eng $n leaves, riding on %s.@rus $n удаляется верхом на %s.~
+@eng $n leaves $t.@rus $n удаляется на $t.~
+@eng $n leaves $t, riding on $N.@rus $n удаляется на $t верхом на $N.~
+@eng $n steps into $p, riding on $N@rus $n въезжает в $p верхом на $N~
+@eng $n steps into $p@rus $n входит в $p~
+@eng $n struggles vainly against the webs which hold $m in place.@rus $n безуспешно пытается вырватся из держащей его паутины.~
+@eng You can't bash doors while mounted.
+@rus Ты не можешь выбивать двери верхом.
+~
+@eng You can't bash doors while being ridden.
+@rus Ты не можешь выбивать двери оседланным.
+~
+@eng Bash wich door or direction?
+@rus Какую дверь выбить?
+~
+@eng Wait until the fight finishes.
+@rus Подожди пока не кончится бой.
+~
+@eng $N is standing too close to door.@rus $N стоит слишком близко к двери.~
+@eng Just try to open it.
+@rus Попробуй просто открыть.
+~
+@eng A mystical shield protects exit.
+@rus Мистический щит защищает этот проход.
+~
+@eng You slam into $d, and try to break $d!@rus Ты с разбегу ударяешься в $d!~
+@eng $n slams into $d, and tries to break it!@rus $n с разбегу ударяется в $d!~
+@eng The tattoo on your shoulder glows {Cblue{x.
+@rus Татуировка на твоем плече вспыхивает {Cголубым{x.
+~
+@eng The tattoo on your shoulder glows {Rred{x.
+@rus Татуировка на твоем плече вспыхивает {Rкрасным{x.
+~
+@eng $n bashes the $d and breaks the lock.@rus $n ударяется с разбегу в $d и выбивает замок.~
+@eng Huh?
+@rus Ась?
+~
+@eng Your current blink status: %s.
+@rus Твое текущее состояние blink: %s.
+~
+@eng Now, your current blink status is ON.
+@rus Теперь твое состояние blink - ON.
+~
+@eng Now, your current blink status is OFF.
+@rus Теперь твое состояние blink - OFF.
+~
+@eng What's that? Is %s a status?
+@rus А это чего? Разве %s - состояние?
+~
+@eng You don't have enough power.
+@rus Ты не достотачно силен для этого.
+~
+@eng You can't fade while mounted.
+@rus Ты не можешь поблекнуть верхом.
+~
+@eng You can't fade while being ridden.
+@rus Ты не можешь поблекнуть оседланным.
+~
+@eng You attempt to fade.
+@rus Ты пытаешься поблекнуть.
+~
+@eng You lack the skill to draining touch.
+@rus Тебе не достает мастерства иссушающего касания.
+~
+@eng Let it be.
+@rus Пусть живет.
+~
+@eng You don't want to drain your master.
+@rus Ты не хочешь усыплять своего хозяина.
+~
+@eng Even you are not so stupid.
+@rus Даже ты не настолько глуп.
+~
+@eng $N deadly touches your neck and puts you to nightmares.@rus $N касается твоей шеи и отправляет тебя в мир кошмаров.~
+@eng You are already flying.
+@rus Ты уже летишь.
+~
+@eng You start to fly.
+@rus Ты взлетаешь.
+~
+@eng To fly find potion or wings.
+@rus Чтобы летать найди зелье или крылья.
+~
+@eng You slowly touch the ground.
+@rus Ты плавно опускаешься на землю.
+~
+@eng You are already on the ground.
+@rus Ты уже на замле.
+~
+@eng Type fly with 'up' or 'down'.
+@rus Набери fly с 'up' или 'down'.
+~
+@eng Your gain is {C%d{x hp, {C%d{x mana, {C%d{x mv {C%d{x prac.
+@rus Ты получаешь {C%d{x hp, {C%d{x mana, {C%d{x mv {C%d{x prac.
+~
+@eng You tell $N '{G$t{x'@rus Ты говоришь $N: "{G$t{x"~
+@eng Your message didn't get through.
+@rus Твои слова не дошли.
+~
+@eng $n asks $N for a quest.@rus $n просит задание у $N.~
+@eng Sorry, {W%s{z, but you are not a %s.@rus Очень жаль, {W%s{z, но ты не %s.~
+@eng You ask $N for a quest.@rus Ты просишь задание у $N.~
+@eng But you are already on a quest!@rus У тебя уже есть задание!~
+@eng Come back later.@rus Приходи попозже~
+@eng I'm sorry, but i don't have any quests for you at this time.@rus Мне очень жаль, но у меня нет сейчас заданий для тебя.~
+@eng Try again later.@rus Попробуй попозже.~
+@eng Rune's most heinous criminal, {W%s{z, has escaped from the dungeon.@rus Самый ужасный преступник, {W%s{z, убежал из подземелья.~
+@eng An enemy of mine, {W%s{z, is making vile threats against the crown.@rus Мой враг, {W%s{z, подло угрожает короне.~
+@eng This threat must be eliminated!@rus Эти угрозы нужно прекратить!~
+@eng Seek {W%s{z out in general area of {W%s{z in vicinity of {W%s{z!@rus Ищи {W%s{z где-то в {W%s{z в окрестности {W%s{z!~
+@eng That location is in general area of {W%s{z for {W%s{z.@rus Это находится где-то в {W%s{z возле {W%s{z.~
+@eng Vile pilferers have stolen {W%s{z from the royal treasury!@rus Подлые жулики украли {W%s{z из королевской сокровищницы!~
+@eng My court wizardess, with her magic mirror, has pinpointed its location.@rus При помощи магического зеркала моя королевская волшебница нашла местоположение этой вещи.~
+@eng Your quest is ALMOST complete!
+Get back to questor before your time runs out!
+@rus Ты ПОЧТИ выполнил свое задание!
+Вернись к тому, кто тебе его дал пока не вышло отведенное время!
+~
+@eng You are on a quest to recover the fabled {W%s{x!
+@rus У тебя задание найти {W%s{x!
+~
+@eng You aren't currently on a quest.
+@rus У тебя сейчас нет задания.
+~
+@eng You are on a quest to slay the dreaded {W%s{x!
+@rus У тебя задание наказать ужасного {W%s{x!
+~
+@eng You have {W%d{x quest points.
+@rus У тебя {W%d{x quest points.
+~
+@eng There are {W%d{x minutes remaining until you can go on another quest.
+@rus Осталось {W%d{x мин. до того, как ты сможешь получить новое задание.
+~
+@eng There is less than a minute remaining until you can go on another quest.
+@rus Осталось меньше минуты до того, как ты сможешь получить новое задание.
+~
+@eng Time left for current quest: {W%d{x.
+@rus У тебя осталось {W%d{x мин. на выполнение текущего задания.
+~
+@eng Wait until the fighting stops.
+@rus Подожди пока не закончится битва.
+~
+@eng $n asks $N for list of quest items.@rus $n просит у $N список квестовых вещей.~
+@eng You ask $N for list of quest items.@rus Ты просишь у $N список квестовых вещей.~
+@eng To buy an item, type 'QUEST BUY <item>'.
+@rus Чтобы купить что-нибудь, набери 'QUEST BUY <item>'.
+~
+@eng This item is beyond the trouble option.@rus Я не могу помочь тебе с твоими неприятностями.~
+@eng $N gives 60 practices to $n.@rus $N дает 60 практик $n.~
+@eng $N gives you 60 practices.@rus $N дает тебе 60 практик.~
+@eng $N gives secret of undead to $n.@rus $N дает секрет бессмертия $n.~
+@eng $N gives you SECRET of undead.@rus $N дает тебе секрет бессмертия.~
+@eng Sorry, {W%s{z, but you don't have your katana with you.@rus Очень жаль, {W%s{z, но у тебя нет с собой твоей катаны.~
+@eng As you wield it, you will feel that its power will increase continuosly.@rus Взяв катану в руку, ты почувствуешь, как ее мощь постоянно растет.~
+@eng You don't have a religion to have a tattoo.
+@rus Чтобы получить татуировку, тебе нужно поверить в какого-нибудь бога.
+~
+@eng But you have already your tattoo!
+@rus На тебе уже есть татуировка!
+~
+@eng $N tattoos $n with {W$p{x!@rus $N татуирует на плече $n {W$p{x!~
+@eng $N tattoos you with {W$p{x!@rus $N татуирует у тебя на плече {W$p{x!~
+@eng $N gives 350,000 gold pieces to $n.@rus $N дает 350,000 gold $n.~
+@eng I do not have that item, {W%s{z.@rus У меня этого нет, {W%s{z.~
+@eng $N gives {W$p{x to $n.@rus $N дает {W$p{x $n.~
+@eng $N gives you {W$p{x.@rus $N дает тебе {W$p{x.~
+@eng $n informs $N $e has completed $s quest.@rus $n уведомляет $N о выполнении задания.~
+@eng You inform $N you have completed your quest.@rus Ты уведомляешь $N о выполнении задания.~
+@eng Congratulations on completing your quest!@rus Поздравляю с выполнением задания!~
+@eng As a reward, I am giving you %d quest points, and %d gold.@rus В награду я даю тебе %d quest points и %d gold.~
+@eng You gain %d practices!
+@rus Ты получаешь %d практик!
+~
+@eng You hand {W$p{x to $N.@rus Ты вручаешь {W$p{x $N.~
+@eng $n hands {W$p{x to $N.@rus $n вручает {W$p{x $N.~
+@eng You have to REQUEST a quest first, {W%s{z.@rus Сначала нужно попросить задание, {W%s{z.~
+@eng To correct a quest award's trouble, type: 'quest trouble <award>'.
+@rus Чтобы восстановить потерянный предмет, набери: 'quest trouble <award>'.
+~
+@eng Sorry, {W%s{z, but you haven't bought that quest award, yet.
+@rus Очень жаль, {W%s{z, но у тебя не было этой вещи.
+~
+@eng This is the %i time that I am giving that award back.@rus Это %i раз, когда я возвращаю тебе эту вещь.~
+@eng And I won't give you that again, with trouble option.
+@rus И больше я этого делать не буду.
+~
+@eng QUEST COMMANDS: points info time request complete list buy trouble.
+@rus QUEST COMMANDS: points info time request complete list buy trouble.
+~
+@eng For more information, type: help quests.
+@rus Для получения дополнительной информации набери: help quests.
+~
+@eng {*You may now quest again.
+@rus {*Теперь ты снова можешь получить задание.
+~
+@eng You have run out of time for your quest!
+@rus У тебя вышло время, отведенное на задание!
+~
+@eng Better hurry, you're almost out of time for your quest!
+@rus Лучше поторопись, время, отведенное на задание, почти вышло!
+~
+@eng Current Quest Items available for Purchase:
+@rus Ты можешь приобрести:
+~
+@eng Someone has completed you quest.
+@rus Кто-то выполнил твое задание.
+~
+@eng Return to questmaster before your time runs out!
+@rus Вернись к тому, кто его тебе дал до того, как истечет отведенное время!
+~
+@eng Consider killing whom?
+@rus Сравниться с кем?
+~
+@eng Don't even think about it.
+@rus Даже не думай об этом.
+~
+@eng You can kill $N naked and weaponless.@rus Ты можешь убить $N раздетый и без оружия.~
+@eng $N is no match for you.@rus $N не соперник тебе.~
+@eng $N looks like an easy kill.@rus Ты, похоже, легко убьешь $N.~
+@eng The perfect match!@rus Прекрасный поединок!~
+@eng $N says '{GDo you feel lucky, punk?{x'.@rus $N говорит тебе '{GЧувствуешь удачу, шпана?{x'.~
+@eng $N laughs at you mercilessly.@rus $N смеется над твоей беспомощностью.~
+@eng Death will thank you for your gift.@rus Ты станешь приятным подарком СМЕРТИ.~
+@eng $N grins evilly with you.@rus Вы с $N зло ухмыляетесь друг другу.~
+@eng $N greets you warmly.@rus $N тепло приветствует тебя.~
+@eng $N smiles at you, hoping you will turn from your evil path.@rus $N улыбается тебе, и надеется, что ты свернешь с пути зла.~
+@eng $N grins evilly at you.@rus $N зло ухмыляется тебе.~
+@eng $N grins evilly.@rus $N зло ухмыляется.~
+@eng $N smiles happily.@rus $N улыбается.~
+@eng $N looks just as disinterested as you.@rus $N так же не заинтересован тобой, как и ты им.~
+@eng $N looks very disinterested.@rus $N не заинтересован тобой.~
+@eng {Chere{x:
+@rus {Cздесь{x:
+~
+@eng 	You see closed door.
+@rus 	Ты видишь закрытую дверь.
+~
+@eng Push whom to what direction?
+@rus Толкнуть кого и куда?
+~
+@eng You can't push while mounted.
+@rus Ты не можешь толкаться верхом.
+~
+@eng You can't push while being ridden.
+@rus Ты не можешь толкаться оседланный.
+~
+@eng You are too dazed to push anyone.
+@rus Ты слишком удивлен, чтобы толкаться.
+~
+@eng That's pointless.
+@rus Это бессмысленно.
+~
+@eng Direction is closed.
+@rus Там закрыто.
+~
+@eng Direction is locked.
+@rus Там закрыто.
+~
+@eng You're webbed, and want to do WHAT?!?
+@rus Ты застрял в паутине, и ты еще ЧТО-ТО хочешь сделать?!?
+~
+@eng $n stupidly tries to push $N while webbed.@rus $n, как дурак, пытается толкнуть $N, болтаясь в паутине.~
+@eng Oops.
+@rus Ой.
+~
+@eng Keep your hands out of me, %s!@rus Убери руки, {W%s{x!~
+@eng $n savagely devours a corpse.@rus $n жадно пожирает труп.~
+@eng $n picks up some trash.@rus $n подбирает мусор.~
+@eng You bite $N!@rus Ты кусаешь $N!~
+@eng $n bites $N!@rus $n кусает $N!~
+@eng $n bites you!@rus $n кусает тебя!~
+@eng I don't remember you. Go away!@rus Я тебя не знаю. Убирайся отсюда!~
+@eng $n says '{G$t{x'@rus $n произносит '{G$t{x'~
+@eng You say '{G$T{x'@rus Ты произносишь '{G$T{x'~
+@eng That location is in general area of {W%s{x for {W%s{x.
+@rus Это находится где-то в {W%s{x возле {W%s{x.
+~
+@eng $n prays upper lord for transportation!@rus $n молит всевышнего о переносе!~
+@eng You aren't fighting anyone.
+@rus Ты ни с кем не сражаешься.
+~
+@eng Escape to what direction?
+@rus Убежать куда?
+~
+@eng You can't escape while mounted.
+@rus Ты не можешь убегать верхом.
+~
+@eng You can't escape while being ridden.
+@rus Ты не можешь убегать оседланным.
+~
+@eng Try flee. It may fit better to you.
+@rus Попробуй flee. Может быть это подойдет тебе лучше.
+~
+@eng Something prevents you to escape that direction.
+@rus Что-то не дает тебе убежать в том направлении.
+~
+@eng You lose %d exps.
+@rus Ты теряешь %d очков опыта.
+~
+@eng Wrong direction.
+@rus Неправильное направление.
+~
+@eng PANIC! You couldn't escape!
+@rus КОШМАР! Тебе некуда бежать!
+~
+@eng You lack the skill to heal others with touching.
+@rus Ты не умеешь лечить других прикосновением.
+~
+@eng You can't concentrate enough.
+@rus Ты не можешь достаточно сконцентрироваться.
+~
+@eng A warm feeling fills your body.
+@rus Ты чувствуешь разливающееся внутри тебя тепло.
+~
+@eng You are already a human.
+@rus Ты и так уже человек.
+~
+@eng You return to your original size.
+@rus Ты становишься своего нормального размера.
+~
+@eng Mount what?
+@rus Оседлать кого?
+~
+@eng You don't know how to ride!
+@rus Ты не умеешь ездить верхом!
+~
+@eng You can't ride that.
+@rus На этом нельзя ездить верхом.
+~
+@eng That beast is too powerful for you to ride.@rus Этот зверь слишком сильный для того, чтобы ездить на нем верхом.~
+@eng %s belongs to %s, not you.
+@rus %s принадлежит %s, а не тебе.
+~
+@eng Your mount must be standing.
+@rus Твое животное должно стоять.
+~
+@eng This beast is already ridden.
+@rus Этот зверь уже оседлан.
+~
+@eng You are already riding.
+@rus Ты уже верхом.
+~
+@eng You hop on $N's back.@rus Ты вскакиваешь на спину $N.~
+@eng $n hops on $N's back.@rus $n вскакивает на спину $N.~
+@eng $n hops on your back!@rus $n вскакивает тебе на спину!~
+@eng You dismount from $N.@rus Ты спешиваешься с $N.~
+@eng $n dismounts from $N.@rus $n спешивается с $N.~
+@eng $n dismounts from you.@rus $n спешивается с тебя.~
+@eng You aren't mounted.
+@rus Ты сейчас не верхом.
+~
+@eng Due to your being under the influence, riding seems a bit harder...
+@rus Так как ты под влиянием не будем говорить чего, оседлать кого-то будет несколько сложнее...
+~
+@eng $N doesn't like the way you've been treating $M.@rus $N не понравилось твое поведение.~
+@eng $N doesn't like the way $n has been treating $M.@rus $N не понравилось поведение $n.~
+@eng You don't like the way $n has been treating you.@rus Тебе не понравилось поведение $n.~
+@eng YOU!@rus ТОБОЙ!~
+@eng {*{W*****{R rEBOOT IN {W%d{R MIN. {W*****{x
+@rus {*{W*****{R ПЕРЕЗАГРУЗКА ЧЕРЕЗ {W%d{R МИН. {W*****{x
+~
+@eng {*{W*****{R AUTOMAGIC rEBOOT IN {W%d{R MIN. {W*****{x
+@rus {*{W*****{R АВТОМАТИЧЕСКАЯ ПЕРЕЗАГРУЗКА ЧЕРЕЗ {W%d{R МИН. {W*****{x
+~
+@eng $p strikes you!@rus $p ударяет тебя!~
+@eng Your $p strikes $N!@rus Твой $p ударяет $N!~
+@eng $n's $p strikes $N!@rus $p $n ударяет $N!~
+@eng {r[{RTARGET{r]{x @rus {r[{RЦЕЛЬ{r]{x ~
+@eng ({yInvis{x) @rus ({yНевидимо{x) ~
+@eng ({DHidden{x) @rus ({DСкрыто{x) ~
+@eng ({mCharmed{x) @rus ({mОчарованно{x) ~
+@eng ({cTranslucent{x) @rus ({cПрозрачно{x) ~
+@eng ({MPink Aura{x) @rus ({MРозовая Аура{x) ~
+@eng ({DUndead{x) @rus ({DВосставший{x) ~
+@eng ({GRidden{x) @rus ({GОседланный{x) ~
+@eng ({bImproved{x) @rus ({bУл. Невидимость{x) ~
+@eng ({RRed Aura{x) @rus ({RКрасная Аура{x) ~
+@eng ({YGolden Aura{x) @rus ({YЗолотая Аура{x) ~
+@eng ({WWhite Aura{x) @rus ({WБелая Аура{x) ~
+@eng ({BBlue Aura{x) @rus ({BГолубая Аура{x) ~
+@eng ({yFade{x) @rus ({yБлекло{x) ~
+@eng ({RWanted{x) @rus ({RРазыскивается{x) ~
+@eng ({gCamf{x) @rus ({gЗамаскированно{x) ~
+@eng  is mortally wounded.@rus  умирает.~
+@eng  is incapacitated.@rus  при смерти.~
+@eng %s is riding %s.
+@rus %s верхом на %s.
+~
+@eng $N is being ridden by $t.@rus $N оседланный $t.~
+@eng ({DDark{x) @rus ({DТемное{x) ~
+@eng ({MMagical{x) @rus ({MМагическое{x) ~
+@eng ({WGlowing{x) @rus ({WПылающее{x) ~
+@eng ({YHumming{x) @rus ({YГудящее{x) ~
+@eng You see {Rglowing red eyes{x watching YOU!
+@rus Ты видишь {Rпылающие красные глаза{x, смотрящие на ТЕБЯ!
+~
+@eng You feel %d more life %s in the room.
+@rus Ты чувствуешь, что в комнате есть еще %d живых существ.
+~
+@eng You can't see a thing!
+@rus Ты ничего не видишь!
+~
+@eng  is here, riding %s.@rus  здесь, верхом на %s.~
+@eng That is not a container.
+@rus Это не контейнер.
+~
+@eng It is empty.
+@rus Тут пусто.
+~
+@eng It's %sfilled with a %s liquid.
+@rus Оно %s наполнено %s жидкостью.
+~
+@eng less than half-@rus меньше, чем наполовину~
+@eng about half-@rus примерно наполовину~
+@eng more than half-@rus больше, чем наполовину~
+@eng It is closed.
+@rus Тут закрыто.
+~
+@eng $p holds:@rus $p содержит:~
+@eng You can't see anything but stars!
+@rus Все, что ты видишь - звезды.
+~
+@eng You can't see anything, you're sleeping!
+@rus Ты сейчас спишь.
+~
+@eng It is pitch black ...
+@rus Не видно не зги...
+~
+@eng Look in what?
+@rus Заглянуть во что?
+~
+@eng You see nothing special about it.
+@rus Ты не видишь ничего особенного в этом.
+~
+@eng You only see one %s here.
+@rus Ты видишь только одно %s.
+~
+@eng You only see %d of those here.
+@rus Ты здесь видишь только %d таких вещей.
+~
+@eng Nothing special there.
+@rus Ничего особенного.
+~
+@eng The $d is open.@rus $d открыто.~
+@eng Examine what?
+@rus Прверить что?
+~
+@eng Odd...there's no coins in the pile.
+@rus Странно... в этой куче не ни одной монеты.
+~
+@eng Wow. One gold coin.
+@rus Ух ты. Целый золотой.
+~
+@eng There are %d gold coins in the pile.
+@rus В этой куче %d золтых монет.
+~
+@eng Wow. One silver coin.
+@rus Ух ты. Целый серебрянный.
+~
+@eng There are %d silver coins in the pile.
+@rus В этой куче %d серебрянных монет.
+~
+@eng There are %d gold and %d silver coins in the pile.
+@rus В этой куче %d золотых и %d серебрянных монет.
+~
+@eng {C[Exits:@rus {C[Выходы:~
+@eng Obvious exits from room %d:
+@rus Видимые выходы из комнаты %d:
+~
+@eng Obvious exits:
+@rus Видимые выходы:
+~
+@eng Too dark to tell@rus Слишком темно, для того чтобы что-то сказать.~
+@eng  (room %d)
+@rus  (комната %d)
+~
+@eng  none@rus  нет~
+@eng None.
+@rus Нет.
+~
+@eng You have %d gold, %d silver@rus У тебя %d золотых (gold), %d серебрянных (silver) монет~
+@eng , and %d experience (%d exp to level)@rus , и %d очков опыта (%d до следующего левела)~
+@eng non-goods@rus non-goods~
+@eng non-evils@rus non-evils~
+@eng non-neutrals@rus non-neutrals~
+@eng goods@rus goods~
+@eng evils@rus evils~
+@eng neutrals@rus neutrals~
+@eng %s: no help on that word.
+@rus %s: Нет подсказки на это слово.
+~
+@eng 
+Players found: %d. Most so far today: %d.
+@rus 
+Сейчас играет %d игроков. Максимум на сегодня: %d.
+~
+@eng No one of that name is playing.
+@rus Сейчас нет игрока с таким именем.
+~
+@eng There are %d characters on, @rus Сейчас играют %d игроков, ~
+@eng the most so far today@rus это максимум на сегодня~
+@eng the most on today was %d@rus масксимум на сегодня было %d~
+@eng something@rus что-то~
+@eng Compare what to what?
+@rus Сравнить что с чем?
+~
+@eng You do not have that item.
+@rus У тебя этого нет.
+~
+@eng You aren't wearing anything comparable.
+@rus Тебе не с чем это сравнить.
+~
+@eng You compare $p to itself.  It looks about the same.@rus Ты сравниваешь $p с ним самим. Естественно, выглядят похожими.~
+@eng You can't compare $p and $P.@rus $p и $P не сравнимы.~
+@eng $p and $P look about the same.@rus $p и $P очень похожи.~
+@eng $p looks better than $P.@rus $p выглядит лучше $P.~
+@eng $p looks worse than $P.@rus $p выглядит хуже $P.~
+@eng It's too dark to see.
+@rus Вокруг слишком темно.
+~
+@eng Players near you:
+@rus Игроки недалеко от тебя:
+~
+@eng You didn't find any $T.@rus Ты не находишь $T.~
+@eng You can't change your title.
+@rus Ты не можешь менять свой title.
+~
+@eng Change your title to what?
+@rus На что ты хочешь поменять свой title?
+~
+@eng No lines left to remove.
+@rus Больше нечего удалять.
+~
+@eng Your description is:
+%s
+Use 'desc edit' to edit your description.
+@rus Твое описание:
+%s
+Используй команду 'desc edit', чтобы поменять свое описание.
+~
+@eng $n says '{GI have {c%d/%d{z hp {c%d/%d{z mana {c%d/%d{z mv.{x'@rus $n произносит '{GУ меня {c%d/%d{z hp {c%d/%d{z mana {c%d/%d{z mv.{x'~
+@eng You say '{GI have {c%d/%d{z hp {c%d/%d{z mana {c%d/%d{z mv.{x'@rus Ты произносишь '{GУ меня {c%d/%d{z hp {c%d/%d{z mana {c%d/%d{z mv.{x'~
+@eng You scan %s.
+@rus Ты пристально вглядываешься на %s.
+~
+@eng $n scans %s.@rus $n пристально вглядывается на %s.~
+@eng You're totally frozen!
+@rus Ты заморожен!
+~
+@eng First ask to your beloved master!
+@rus Сначала спроси у своегое любимого хозяина!
+~
+@eng You are STUNNED to do that.
+@rus Ты оглушен и не можешь этого сделать.
+~
+@eng Lie still; you are DEAD.
+@rus Лежи спокойно; Ты ТРУП.
+~
+@eng You are hurt far too bad for that.
+@rus Тебе слишком больно делать это.
+~
+@eng You are too stunned to do that.
+@rus Ты лежишь оглушенный и не можешь этого сделать.
+~
+@eng In your dreams, or what?
+@rus Ты собираешься сделать это во сне?
+~
+@eng No way!  You are still fighting!
+@rus Нельзя!  Ты сражаешься!
+~
+@eng You are not affected by any spells.
+@rus Ты не находишься под действием никаких заклинаний.
+~
+@eng You are affected by the following spells:
+@rus Ты сейчас под действием следующих заклинаний:
+~
+@eng Spell: {c%-15s{x@rus Заклинание: {c%-15s{x~
+@eng : modifies {c%s{x by {c%d{x @rus : изменяет {c%s{x на {c%d{x ~
+@eng permanently.@rus постоянно.~
+@eng for {c%d{x hours.@rus на {c%d{x часов.~
+@eng You are anti-social!
+@rus Ты анти-социален!
+~
+@eng You can't take that.
+@rus Ты не можешь это взять.
+~
+@eng $d: you can't carry that many items.@rus $d: ты не можешь унести так много вещей.~
+@eng $d: you can't carry that much weight.@rus $d: ты не можешь унести такую тяжесть.~
+@eng $N appears to be using $p.@rus $N использует $p.~
+@eng You get $p from $P.@rus Ты достаешь $p из $P.~
+@eng $n gets $p from $P.@rus $n достает $p из $P.~
+@eng You get $p.@rus Ты берешь $p.~
+@eng $n gets $p.@rus $n берет $p.~
+@eng Get what?
+@rus Взять что?
+~
+@eng I see nothing here.
+@rus Я ничего здесь не вижу.
+~
+@eng I see nothing like that in the $T.@rus В $T не видно ничего похожего.~
+@eng I see nothing in the $T.@rus В $T ничего нет.~
+@eng Put what in what?
+@rus Положить что во что?
+~
+@eng You can't fold it into itself.
+@rus Те не можешь положить вещь саму в себя.
+~
+@eng You can't let go of it.
+@rus Ты не можешь избавиться от этой вещи.
+~
+@eng You have a feeling that would be a bad idea.
+@rus У тебя создается впечатление, что это плохая идея.
+~
+@eng It won't fit.
+@rus Не входит.
+~
+@eng $n puts $p on $P.@rus $n кладет $p на $P.~
+@eng You put $p on $P.@rus Ты кладешь $p он $P.~
+@eng $n puts $p in $P.@rus $n кладет $p в $P.~
+@eng You put $p in $P.@rus Ты кладешь $p в $P.~
+@eng Drop what?
+@rus Бросить что?
+~
+@eng You don't have that much silver.
+@rus У тебя нет столько серебра.
+~
+@eng You don't have that much gold.
+@rus У тебя нет столько золота.
+~
+@eng $n drops some coins.@rus $n бросает несколько монет.~
+@eng $n drops $p.@rus $n бросает $p.~
+@eng You drop $p.@rus Ты бросаешь $p.~
+@eng You begin to sneak again.
+@rus Ты начинаешь красться.
+~
+@eng You step back into the shadows.
+@rus Ты опять скрываешься в тени.
+~
+@eng $p goes out.@rus $p прогорел.~
+@eng $p flickers and goes out.@rus $p прогорел и погас.~
+@eng $p flickers.@rus $p гаснет.~
+@eng $n disappears into the void.@rus $n исчезает в никуда.~
+@eng You disappear into the void.
+@rus Ты исчезаешь в никуда.
+~
+@eng The witch curse makes $n feel $s life slipping away.
+@rus Ведьмовское проклятие вытягивает жизнь из $n.
+~
+@eng The witch curse makes you feeling your life slipping away.
+@rus Ведьмовское проклятие вытягивает из тебя жизнь.
+~
+@eng $n writhes in agony as plague sores erupt from $s skin.@rus $n мучается от разрывающихся на теле язв.~
+@eng You writhe in agony from the plague.
+@rus Твое тело покрыто болезненными язвами. Ты мучаешься от чумы.
+~
+@eng You feel hot and feverish.
+@rus Тебя лихорадит и бросает в жар.
+~
+@eng $n shivers and suffers.@rus $n дрожит и испытывает боль.~
+@eng You shiver and suffer.
+@rus Тебя лихорадит.
+~
+@eng Wear, wield, or hold what?
+@rus Надеть, вооружиться или взять в руку что?
+~
+@eng You must be level %d to use this object.
+@rus Тебе нужно быть не меньше %d левела, чтобы использовать эту вещь.
+~
+@eng $n lights $p and holds it.@rus $n берет $p и зажигает его.~
+@eng You light $p and hold it.@rus Ты берешь $p и зажигаешь его.~
+@eng $n wears $p on $s left finger.@rus $n надевает $p на палец левой руки.~
+@eng You wear $p on your left finger.@rus Ты надеваешь $p на палец левой руки.~
+@eng $n wears $p on $s right finger.@rus $n надевает $p на палец правой руки.~
+@eng You wear $p on your right finger.@rus Ты надеваешь $p на палец правой руки.~
+@eng You already wear two rings.
+@rus На тебе уже надето два кольца.
+~
+@eng $n wears $p around $s neck.@rus $n надевает $p на шею.~
+@eng You wear $p around your neck.@rus Ты надеваешь $p на шею.~
+@eng You already wear two neck items.
+@rus У тебя на шею уже надеты две вещи.
+~
+@eng $n wears $p on $s torso.@rus $n надевает $p.~
+@eng You wear $p on your torso.@rus Ты надеваешь $p.~
+@eng $n wears $p on $s head.@rus $n надевает $p на голову.~
+@eng You wear $p on your head.@rus Ты надеваешь $p на голову.~
+@eng $n wears $p on $s legs.@rus $n надевает $p на ноги.~
+@eng You wear $p on your legs.@rus Ты надеваешь $p на ноги.~
+@eng $n wears $p on $s feet.@rus $n обувается в $p.~
+@eng You wear $p on your feet.@rus Ты обуваешься в $p.~
+@eng $n wears $p on $s hands.@rus $n надевает $p на руки.~
+@eng You wear $p on your hands.@rus Ты надеваешь $p на руки.~
+@eng $n wears $p on $s arms.@rus $n надевает $p на плечи.~
+@eng You wear $p on your arms.@rus Ты надеваешь $p на плечи.~
+@eng $n wears $p about $s waist.@rus $n надевает $p на талию.~
+@eng You wear $p about your waist.@rus Ты надеваешь $p на талию.~
+@eng $n wears $p around $s left wrist.@rus $n надевает $p на левое запястье.~
+@eng You wear $p around your left wrist.@rus Ты надеваешь $p на левое запястье.~
+@eng $n wears $p around $s right wrist.@rus $n надевает $p на правое запястье.~
+@eng You wear $p around your right wrist.@rus Ты надеваешь $p на правое запястье.~
+@eng You already wear two wrist items.
+@rus У тебя уже на оба запястья надеты вещи.
+~
+@eng You can't use a shield while using a second weapon.
+@rus Ты не можешь использовать щит, держа в руках два оружия.
+~
+@eng Your hands are tied up with your weapon!
+@rus Ты слишком слаб чтобы держать такое тяжелое оружие и щит!
+~
+@eng $n wears $p as a shield.@rus $n берет $p как щит.~
+@eng You wear $p as a shield.@rus Ты берешь $p как щит.~
+@eng It is too heavy for you to wield.
+@rus Ты не можешь сражаться таким тяжелым оружием.
+~
+@eng You need two hands free for that weapon.
+@rus Тебе нужны две свободные руки, чтобы использовать это оружие.
+~
+@eng $n wields $p.@rus $n вооружается $p.~
+@eng You wield $p.@rus Ты вооружаешься $p.~
+@eng $p feels like a part of you!@rus $p выглядит частью тебя!~
+@eng You feel quite confident with $p.@rus Ты чувствуешь себя уверенно с $p.~
+@eng You are skilled with $p.@rus Ты хорошо владеешь $p.~
+@eng Your skill with $p is adequate.@rus Ты достаточно хорошо владеешь $p.~
+@eng $p feels a little clumsy in your hands.@rus В твоих руках $p смотрится довольно неуклюже.~
+@eng You fumble and almost drop $p.@rus Ты обращаешься с $p очень неуклюже и чудом удерживаешь его в руках.~
+@eng You don't even know which end is up on $p.@rus Ты даже не знаешь с какой стороны нужно браться за $p.~
+@eng $n holds $p in $s hand.@rus $n берет $p в руку.~
+@eng You hold $p in your hand.@rus Ты берешь $p в руку.~
+@eng $n releases $p to float next to $m.@rus $n выпускает $p, чтобы тот летал вокруг.~
+@eng You release $p and it floats next to you.@rus Ты выпускаешь $p, и он начинает летать вокруг тебя.~
+@eng $n now uses $p as tattoo of $s religion.@rus $n теперь использует $p, как татуировку своей религии.~
+@eng You now use $p as the tattoo of your religion.@rus Ты теперь используешь $p, как татуировку твоей религии.~
+@eng You can't wear, wield, or hold that.
+@rus Ты не можешь надеть, вооружиться или взять это в руку.
+~
+@eng Remove what?
+@rus Снять что?
+~
+@eng Gods appreciates your offer and may accept it later.
+@rus Боги оценили твой подарок, но примут его позже.
+~
+@eng You can't find it.
+@rus Ты не можешь найти этого.
+~
+@eng Gods wouldn't like that.
+@rus Боги это не одобрят.
+~
+@eng $p is not an acceptable sacrifice.@rus $p не может быть принесен в жертву.~
+@eng Gods give you one silver coin for your sacrifice.
+@rus Боги дают тебе одну серебрянную монету за твое жертвоприношение.
+~
+@eng Gods give you %d silver coins for your sacrifice.
+@rus Боги дают тебе %d серебрянных монет за твое жертвоприношение.
+~
+@eng $n sacrifices $p to gods.@rus $n приносит $p в жертву богам.~
+@eng Your sacrifice reveals $p.@rus На жертвенном костре осталось $p.~
+@eng $p is revealed by $n's sacrifice.@rus $p осталось на жертвенном костре $n.~
+@eng Your sacrifice reveals $p and $P.@rus На жертвенном костре остались $p и $P.~
+@eng $p and $P are revealed by $n's sacrifice.@rus На жертвенном костре $n остались $p и $P.~
+@eng As you sacrifice the corpse, @rus На жертвенном костре осталось лежать ~
+@eng As $n sacrifices the corpse, @rus На жертвенном костре $n осталось лежать ~
+@eng few things @rus несколько вещей.~
+@eng a bunch of objects @rus довольно много вещей.~
+@eng many things @rus много вещей.~
+@eng a lot of objects @rus очень много вещей.~
+@eng on it, @rus ~
+@eng scatter on the dirt.@rus ~
+@eng scatter over the water.@rus ~
+@eng scatter around.@rus ~
+@eng Quaff what?
+@rus Выпить что?
+~
+@eng You do not have that potion.
+@rus У тебя нет этого зелья.
+~
+@eng You can quaff only potions.
+@rus Это не зелье.
+~
+@eng This liquid is too powerful for you to drink.
+@rus Это зелье слишком мощно для тебя.
+~
+@eng $n quaffs $p.@rus $n пьет $p.~
+@eng You quaff $p.@rus Ты пьешь $p.~
+@eng You do not have that scroll.
+@rus У тебя нет этого свитка.
+~
+@eng You can recite only scrolls.
+@rus Это не свиток.
+~
+@eng This scroll is too complex for you to comprehend.
+@rus Этот свиток слишком сложен для твоего понимания.
+~
+@eng $n recites $p.@rus $n зачитывает $p.~
+@eng You recite $p.@rus Ты зачитываешь $p.~
+@eng $p strikes $n!@rus $p ударяет $n!~
+@eng You can't remove $p.@rus Ты не можешь снять $p.~
+@eng You must scratch it to remove $p.@rus $p нужно выцарапывать.~
+@eng You remove $p, in pain.@rus Мучаясь от боли ты вытаскиваешь $p.~
+@eng $n remove $p, in pain.@rus Мучаясь от боли $n вытаскивает $p.~
+@eng $n stops using $p.@rus $n снимает $p.~
+@eng You stop using $p.@rus Ты снимаешь $p.~
+@eng Eat what?
+@rus Что съесть?
+~
+@eng That's not edible.
+@rus Это не съедобно.
+~
+@eng You are too full to eat more.
+@rus Твой желудок полон. Ты не можешь проглотить ни кусочка.
+~
+@eng $n eats $p.@rus $n ест $p.~
+@eng You eat $p.@rus Ты ешь $p.~
+@eng You are no longer hungry.
+@rus Ты больше не испытываешь голода.
+~
+@eng You are full.
+@rus Твой желудок полон.
+~
+@eng $n chokes and gags.@rus $n мучается от удушья.~
+@eng You choke and gag.
+@rus Ты мучаешься от удушья.
+~
+@eng Drink what?
+@rus Что выпить?
+~
+@eng You fail to reach your mouth.  *Hic*
+@rus Ты не можешь дотянуться до рта. *Иик*
+~
+@eng You can't drink from that.
+@rus Ты не можешь пить отсюда.
+~
+@eng You're too full to drink more.
+@rus Твой желудок полон. Ты не можешь выпить ни капли.
+~
+@eng $n drinks $T from $p.@rus $n пьет $T из $p.~
+@eng You drink $T from $p.@rus Ты пьешь $T из $p.~
+@eng You feel drunk.
+@rus Ты пьянеешь.
+~
+@eng This unworthy container won't hold $p.@rus В этот дурацкий контейнер не влезает $p.~
+@eng $n utters the words, '$t'.@rus $n бормочет, '$t'.~
+@eng $n says '{GDamn me!{x'@rus $n произносит '{GДа чтоб я под землю провалился!{x'~
+@eng $n falls underground screaming 'AAAAAAAAAAARHHHHHH!'@rus $n с треском проваливается под землю!~
+@eng You reach for the True Source and feel something stopping you.
+@rus Ты чувстуешь, что кто-то не дает тебе добратся да Источника Силы.
+~
+@eng You can't get the right intonations.
+@rus Ты не можешь выдержать правильные интонации.
+~
+@eng Cast which what where?
+@rus Околдовать что, как?
+~
+@eng You don't know any spells of that name.
+@rus Ты не знаешь такого заклинания.
+~
+@eng You must transform to vampire before casting!
+@rus Тебе нужно стать вампиром, чтобы колдовать!
+~
+@eng That's not a spell.
+@rus Это не заклинание.
+~
+@eng Your spell fizzles out and fails.
+@rus Твое заклинание не произвело видимого эффекта.
+~
+@eng $n's spell fizzles out and fails.@rus Заклинание $n не произвело видимого эффекта.~
+@eng Your spellbane deflects the spell!@rus Проклятье на тебе отразило заклинание!~
+@eng $n's spellbane deflects the spell!@rus Проклятье на $n отразило заклинание!~
+@eng Cast the spell on whom?
+@rus Прочитать заклинание на кого?
+~
+@eng You can't cast this spell to $N at this distance.@rus Ты не можешь читать заклинания на $N на таком расстоянии.~
 $~

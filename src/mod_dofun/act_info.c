@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.132 1998-09-20 17:00:59 fjoe Exp $
+ * $Id: act_info.c,v 1.133 1998-09-22 18:07:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -138,19 +138,22 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 
 	if (IS_SET(ch->comm, COMM_LONG)) {
 		if (IS_OBJ_STAT(obj, ITEM_INVIS))
-			strcat(buf, msg(MSG_INVIS, ch));
+			strcat(buf, MSG("({yInvis{x) ", ch->lang));
 		if (IS_OBJ_STAT(obj, ITEM_DARK))
-			strcat(buf, msg(MSG_DARK, ch));
-		if (IS_AFFECTED(ch, AFF_DETECT_EVIL) && IS_OBJ_STAT(obj, ITEM_EVIL))
-			strcat(buf, msg(MSG_RED_AURA, ch));
-		if (IS_AFFECTED(ch, AFF_DETECT_GOOD) && IS_OBJ_STAT(obj,ITEM_BLESS))
-			strcat(buf, msg(MSG_BLUE_AURA, ch));
-		if (IS_AFFECTED(ch, AFF_DETECT_MAGIC) && IS_OBJ_STAT(obj,ITEM_MAGIC))
-			strcat(buf, msg(MSG_MAGICAL, ch));
+			strcat(buf, MSG("({DDark{x) ", ch->lang));
+		if (IS_AFFECTED(ch, AFF_DETECT_EVIL)
+		&&  IS_OBJ_STAT(obj, ITEM_EVIL))
+			strcat(buf, MSG("({RRed Aura{x) ", ch->lang));
+		if (IS_AFFECTED(ch, AFF_DETECT_GOOD)
+		&&  IS_OBJ_STAT(obj, ITEM_BLESS))
+			strcat(buf, MSG("({BBlue Aura{x) ", ch->lang));
+		if (IS_AFFECTED(ch, AFF_DETECT_MAGIC)
+		&&  IS_OBJ_STAT(obj, ITEM_MAGIC))
+			strcat(buf, MSG("({MMagical{x) ", ch->lang));
 		if (IS_OBJ_STAT(obj, ITEM_GLOW))
-			strcat(buf, msg(MSG_GLOWING, ch));
+			strcat(buf, MSG("({WGlowing{x) ", ch->lang));
 		if (IS_OBJ_STAT(obj, ITEM_HUM))
-			strcat(buf, msg(MSG_HUMMING, ch));
+			strcat(buf, MSG("({YHumming{x) ", ch->lang));
 	}
 	else {
 		static char FLAGS[] = "{x[{y.{D.{R.{B.{M.{W.{Y.{x] ";
@@ -173,7 +176,7 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 		strcat(buf, obj_name(obj, ch));
 		if (obj->pIndexData->vnum > 5)	/* not money, gold, etc */
 			sprintf(strend(buf), " [{g%s{x]",
-				get_cond_alias(obj, ch));
+				MSG(get_cond_alias(obj), ch->lang));
 		return buf;
 	}
 
@@ -292,7 +295,7 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch,
 	if (fShowNothing && nShow == 0) {
 		if (IS_NPC(ch) || IS_SET(ch->comm, COMM_COMBINE))
 			char_puts("     ", ch);
-		char_nputs(MSG_NOTHING, ch);
+		char_puts("Nothing.\n\r", ch);
 	}
 
 	page_to_char(buf_string(output),ch);
@@ -316,11 +319,11 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	if (IS_NPC(victim)) {
 		if (!IS_NPC(ch) && ch->pcdata->questmob > 0
 		&&  victim->hunter == ch)
-			buf_add(output, msg(MSG_TARGET, ch));
+			buf_add(output, MSG("{r[{RTARGET{r]{x ", ch->lang));
 	}
 	else {
 		if (IS_SET(victim->act, PLR_WANTED))
-			buf_add(output, msg(MSG_WANTED, ch));
+			buf_add(output, MSG("({RWanted{x) ", ch->lang));
 
 		if (IS_SET(victim->comm, COMM_AFK))
 			buf_add(output, "{c[AFK]{x ");
@@ -328,32 +331,32 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	if (IS_SET(ch->comm, COMM_LONG)) {
 		if (IS_AFFECTED(victim, AFF_INVISIBLE))
-			buf_add(output, msg(MSG_INVIS, ch));
+			buf_add(output, MSG("({yInvis{x) ", ch->lang));
 		if (IS_AFFECTED(victim, AFF_HIDE)) 
-			buf_add(output, msg(MSG_HIDDEN, ch));
+			buf_add(output, MSG("({DHidden{x) ", ch->lang));
 		if (IS_AFFECTED(victim, AFF_CHARM)) 
-			buf_add(output, msg(MSG_CHARMED, ch));
+			buf_add(output, MSG("({mCharmed{x) ", ch->lang));
 		if (IS_AFFECTED(victim, AFF_PASS_DOOR)) 
-			buf_add(output, msg(MSG_TRANSLUCENT, ch));
+			buf_add(output, MSG("({cTranslucent{x) ", ch->lang));
 		if (IS_AFFECTED(victim, AFF_FAERIE_FIRE)) 
-			buf_add(output, msg(MSG_PINK_AURA, ch));
+			buf_add(output, MSG("({MPink Aura{x) ", ch->lang));
 		if (IS_NPC(victim) && IS_SET(victim->act,ACT_UNDEAD)
 		&&  IS_AFFECTED(ch, AFF_DETECT_UNDEAD))
-			buf_add(output, msg(MSG_UNDEAD, ch));
+			buf_add(output, MSG("({DUndead{x) ", ch->lang));
 		if (RIDDEN(victim))
-			buf_add(output, msg(MSG_RIDDEN, ch));
+			buf_add(output, MSG("({GRidden{x) ", ch->lang));
 		if (IS_AFFECTED(victim,AFF_IMP))
-			buf_add(output, msg(MSG_IMPROVED, ch));
+			buf_add(output, MSG("({bImproved{x) ", ch->lang));
 		if (IS_EVIL(victim) && IS_AFFECTED(ch, AFF_DETECT_EVIL))
-			buf_add(output, msg(MSG_RED_AURA, ch));
+			buf_add(output, MSG("({RRed Aura{x) ", ch->lang));
 		if (IS_GOOD(victim) && IS_AFFECTED(ch, AFF_DETECT_GOOD))
-			buf_add(output, msg(MSG_GOLDEN_AURA, ch));
+			buf_add(output, MSG("({YGolden Aura{x) ", ch->lang));
 		if (IS_AFFECTED(victim, AFF_SANCTUARY))
-			buf_add(output, msg(MSG_WHITE_AURA, ch));
+			buf_add(output, MSG("({WWhite Aura{x) ", ch->lang));
 		if (IS_AFFECTED(victim, AFF_FADE)) 
-			buf_add(output, msg(MSG_FADE, ch));
+			buf_add(output, MSG("({yFade{x) ", ch->lang));
 		if (IS_AFFECTED(victim, AFF_CAMOUFLAGE)) 
-			buf_add(output, msg(MSG_CAMF, ch));
+			buf_add(output, MSG("({gCamf{x) ", ch->lang));
 	}
 	else {
 		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{g.{x] ";
@@ -395,7 +398,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		buf_printf(output, "{g%s{x", p);
 	}
 	else {
-		int msgnum;
+		char *msg;
 
 		if (IS_IMMORTAL(victim))
 			buf_add(output, "{W");
@@ -413,11 +416,11 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			break;
 	
 		case POS_MORTAL:
-			buf_add(output, vmsg(MSG_IS_MORTALLY_WOUNDED, ch, victim));
+			buf_add(output, MSG(" is mortally wounded.", victim->lang));
 			break;
 	
 		case POS_INCAP:
-			buf_add(output, vmsg(MSG_IS_INCAPACITATED, ch, victim));
+			buf_add(output, MSG(" is incapacitated.", victim->lang));
 			break;
 	
 		case POS_STUNNED:
@@ -426,79 +429,81 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	
 		case POS_SLEEPING:
 			if (victim->on == NULL) {
-				buf_add(output, msg(MSG_SLEEPING, ch));
+				buf_add(output, MSG(" is sleeping here.", ch->lang));
 				break;
 			}
 	
 			if (IS_SET(victim->on->value[2], SLEEP_AT))
-				msgnum = MSG_SLEEPING_AT;
+				msg = " is sleeping at %s.";
 			else if (IS_SET(victim->on->value[2], SLEEP_ON))
-				msgnum = MSG_SLEEPING_ON;
+				msg = " is sleeping on %s.";
 			else
-				msgnum = MSG_SLEEPING_IN;
+				msg = " is sleeping in %s.";
 	
-			buf_printf(output, msg(msgnum, ch),
-				mlstr_cval(victim->on->short_descr, ch));
+			buf_printf(output, MSG(msg, ch->lang),
+				   mlstr_cval(victim->on->short_descr, ch));
 			break;
 	
 		case POS_RESTING:
 			if (victim->on == NULL) {
-				buf_add(output, msg(MSG_RESTING, ch));
+				buf_add(output, MSG(" is resting here.", ch->lang));
 				break;
 			}
 	
 			if (IS_SET(victim->on->value[2], REST_AT))
-				msgnum = MSG_RESTING_AT;
+				msg = " is resting at %s.";
 			else if (IS_SET(victim->on->value[2], REST_ON))
-				msgnum = MSG_RESTING_ON;
+				msg = " is resting on %s.";
 			else
-				msgnum = MSG_RESTING_IN;
-			buf_printf(output, msg(msgnum, ch),
+				msg = " is resting in %s.";
+			buf_printf(output, MSG(msg, ch->lang),
 				mlstr_cval(victim->on->short_descr, ch));
 			break;
 	
 		case POS_SITTING:
 			if (victim->on == NULL) {
-				buf_add(output, msg(MSG_SITTING, ch));
+				buf_add(output, MSG(" is sitting here.", ch->lang));
 				break;
 			}
 	
 			if (IS_SET(victim->on->value[2], SIT_AT))
-				msgnum = MSG_SITTING_AT;
+				msg = " is sitting at %s.";
 			else if (IS_SET(victim->on->value[2], SIT_ON))
-				msgnum = MSG_SITTING_ON;
+				msg = " is sitting on %s.";
 			else
-				msgnum = MSG_SITTING_IN;
-			buf_printf(output, msg(msgnum, ch),
+				msg = " is sitting in %s.";
+			buf_printf(output, MSG(msg, ch->lang),
 				mlstr_cval(victim->on->short_descr, ch));
 			break;
 	
 		case POS_STANDING:
 			if (victim->on == NULL) {
 				if (MOUNTED(victim))
-					buf_printf(output, msg(MSG_HERE_RIDING, ch),
+					buf_printf(output,
+						MSG(" is here, riding %s.", ch->lang),
 						PERS(MOUNTED(victim),ch));
 				else
-					buf_add(output, msg(MSG_IS_HERE, ch));
+					buf_add(output,
+						MSG(" is here. ", ch->lang));
 				break;
 			}
 	
 			if (IS_SET(victim->on->value[2],STAND_AT))
-				msgnum = MSG_STANDING_AT;
+				msg = " is standing at %s.";
 			else if (IS_SET(victim->on->value[2],STAND_ON))
-				msgnum = MSG_STANDING_ON;
+				msg = " is standing on %s.";
 			else
-				msgnum = MSG_STANDING;
-			buf_printf(output, msg(msgnum, ch),
+				msg = " is standing here.";
+			buf_printf(output, MSG(msg, ch->lang),
 				mlstr_cval(victim->on->short_descr, ch));
 			break;
 	
 		case POS_FIGHTING:
-			buf_add(output, msg(MSG_FIGHTING, ch));
+			buf_add(output, MSG(" is here, fighting with ", ch->lang));
 			if (victim->fighting == NULL)
 				buf_add(output, "thin air??");
 			else if (victim->fighting == ch)
-				buf_add(output, msg(MSG_FIGHTING_YOU, ch));
+				buf_add(output, MSG(" YOU!", ch->lang));
 			else if (victim->in_room == victim->fighting->in_room)
 				buf_printf(output, "%s.",
 					   PERS(victim->fighting, ch));
@@ -514,13 +519,49 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	buf_free(output);
 }
 
+char* wear_loc_names[] =
+{
+	"<used as light>     ",
+	"<worn on finger>    ",
+	"<worn on finger>    ",
+	"<worn around neck>  ",
+	"<worn around neck>  ",
+	"<worn on torso>     ",
+	"<worn on head>      ",
+	"<worn on legs>      ",
+	"<worn on feet>      ",
+	"<worn on hands>     ",
+	"<worn on arms>      ",
+	"<worn as shield>    ",
+	"<worn about body>   ",
+	"<worn about waist>  ",
+	"<worn about wrist>  ",
+	"<worn about wrist>  ",
+	"<wielded>           ",
+	"<held>              ",
+	"<floating nearby>   ",
+	"<scratched tattoo>  ",
+	"<dual wielded>      ",
+	"<stuck in>          ",
+};
+
+void show_obj_to_char(CHAR_DATA *ch, OBJ_DATA *obj, sflag_t wear_loc)
+{
+	char buf[MAX_STRING_LENGTH];
+	bool can_see = can_see_obj(ch, obj);
+
+	snprintf(buf, sizeof(buf), "%s%s", wear_loc_names[wear_loc], "$t");
+	act(buf, ch, can_see ?  format_obj_to_char(obj, ch, TRUE) : "something",
+	    NULL, TO_CHAR | (can_see ? 0 : TRANSLATE_TEXT));
+}
+
 void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 {
 	OBJ_DATA *obj;
 	int i;
 	int percent;
 	bool found;
-	int msgnum;
+	char *msg;
 	char *desc;
 
 	if (can_see(victim, ch)) {
@@ -547,11 +588,11 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 				MSG_SEE_NOTHING_SPECIAL);
 
 	if (MOUNTED(victim))
-		char_printf(ch, msg(MSG_IS_RIDING_S, ch),
+		char_printf(ch, "%s is riding %s.\n\r",
 			    PERS(victim,ch), PERS(MOUNTED(victim),ch));
 	if (RIDDEN(victim))
-		char_printf(ch, vmsg(MSG_IS_RIDDEN_BY_S, ch, victim),
-			    PERS(victim,ch), PERS(RIDDEN(victim),ch));
+		act("$N is being ridden by $t.",
+		    ch, PERS(RIDDEN(victim), ch), victim, TO_CHAR);
 
 	if (victim->max_hit > 0)
 		percent = (100 * victim->hit) / victim->max_hit;
@@ -559,21 +600,21 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		percent = -1;
 
 	if (percent >= 100)
-		msgnum = MSG_IS_IN_PERFECT_HEALTH;
+		msg = "{Cis in perfect health{x.";
 	else if (percent >= 90)
-		msgnum = MSG_HAS_A_FEW_SCRATCHES;
+		msg = "{bhas a few scratches{x.";
 	else if (percent >= 75)
-		msgnum = MSG_HAS_SOME_SMALL_BUT_DISGUSTING_CUTS;
+		msg = "{Bhas some small but disgusting cuts{x.";
 	else if (percent >= 50)
-		msgnum = MSG_IS_COVERED_WITH_BLEEDING_WOUNDS;
+		msg = "{Gis covered with bleeding wounds{x.";
 	else if (percent >= 30)
-		msgnum = MSG_IS_GUSHING_BLOOD;
+		msg = "{Yis gushing blood{x.";
 	else if (percent >= 15)
-		msgnum = MSG_IS_WRITHING_IN_AGONY;
+		msg = "{Mis writhing in agony{x.";
 	else if (percent >= 0)
-		msgnum = MSG_IS_CONVULSING_ON_THE_GROUND;
+		msg = "{Ris convulsing on the ground{x.";
 	else
-		msgnum = MSG_IS_NEARLY_DEAD;
+		msg = "{Ris nearly dead{x.";
 
 	/* vampire ... */
 	if (percent < 90 && ch->class == CLASS_VAMPIRE && ch->level > 10)
@@ -589,45 +630,37 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		    IS_IMMORTAL(victim) ? "{W" : "",
 		    PERS(victim, ch),
 		    IS_IMMORTAL(victim) ? "{x" : "",
-		    vmsg(msgnum, ch, victim));
+		    MSG(msg, ch->lang));
 
 	found = FALSE;
-	for (i = 0; show_order[i] != -1; i++) {
-		if ((obj = get_eq_char(victim, show_order[i])) != NULL
+	for (i = 0; show_order[i] != -1; i++)
+		if ((obj = get_eq_char(victim, show_order[i]))
 		&&  can_see_obj(ch, obj)) {
-
 			if (!found) {
 				char_puts("\n\r", ch);
-				act(msg(MSG_IS_USING, ch), ch, NULL, victim,
-				    TO_CHAR);
+				act("$N is using:", ch, NULL, victim, TO_CHAR);
 				found = TRUE;
 			}
 
-			act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING,
-				   "%s%s",
-				   msg(MSG_EQ_USED_AS_LIGHT + show_order[i], ch),
-				   format_obj_to_char(obj, ch, TRUE));
+			show_obj_to_char(ch, obj, show_order[i]);
 		}
-	}
 
-	for (obj = victim->carrying; obj != NULL; obj = obj->next_content) {
-		if (obj->wear_loc != WEAR_STUCK_IN || !can_see_obj(ch, obj))
-			continue;
+	for (obj = victim->carrying; obj; obj = obj->next_content)
+		if (obj->wear_loc == WEAR_STUCK_IN
+		&&  can_see_obj(ch, obj)) {
+			if (!found) {
+				char_puts("\n\r", ch);
+				act("$N is using:", ch, NULL, victim, TO_CHAR);
+				found = TRUE;
+			}
 
-		if (!found) {
-			char_puts("\n\r", ch);
-			act(msg(MSG_IS_USING, ch), ch, NULL, victim, TO_CHAR);
-			found = TRUE;
+			show_obj_to_char(ch, obj, WEAR_STUCK_IN);
 		}
-		act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING, "%s%s",
-			   msg(MSG_EQ_STUCK_IN, ch),
-			   format_obj_to_char(obj, ch, TRUE));
-	}
 
 	if (victim != ch
 	&&  !IS_NPC(ch)
 	&&  number_percent() < get_skill(ch, gsn_peek)) {
-		char_nputs(MSG_YOU_PEEK_AT_THE_INVENTORY, ch);
+		char_puts("\n\rYou peek at the inventory:\n\r", ch);
 		check_improve(ch, gsn_peek, TRUE, 4);
 		show_list_to_char(victim->carrying, ch, TRUE, TRUE);
 	}
@@ -648,7 +681,8 @@ void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 		if (can_see(ch, rch))
 			show_char_to_char_0(rch, ch);
 		else if (room_is_dark(ch) && IS_AFFECTED(rch, AFF_INFRARED)) {
-			char_nputs(MSG_GLOWING_RED_EYES, ch);
+			char_puts("You see {rglowing red eyes{x watching YOU!\n\r",
+				  ch);
 			if (!IS_IMMORTAL(rch))
 				life_count++;
 		}
@@ -656,10 +690,9 @@ void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 			life_count++;
 	}
 
-	if (life_count && IS_AFFECTED(ch,AFF_DETECT_LIFE))
-		char_printf(ch, msg(MSG_FEEL_MORE_LIVES, ch),
+	if (life_count && IS_AFFECTED(ch, AFF_DETECT_LIFE))
+		char_printf(ch, "You feel %d more life %s in the room.\n\r",
 			    life_count, (life_count == 1) ? "form" : "forms");
-	return;
 }
 
 bool check_blind_raw(CHAR_DATA *ch)
@@ -678,7 +711,7 @@ bool check_blind(CHAR_DATA *ch)
 	bool can_see = check_blind_raw(ch);
 
 	if (!can_see)
-		char_nputs(MSG_CANT_SEE_THING, ch);
+		char_puts("You can't see a thing!\n\r", ch);
 
 	return can_see;
 }
@@ -1070,26 +1103,27 @@ void do_look_in(CHAR_DATA* ch, const char *argument)
 	OBJ_DATA *obj;
 
 	if ((obj = get_obj_here(ch, argument)) == NULL) {
-		char_nputs(MSG_YOU_DONT_SEE_THAT, ch);
+		char_puts("You don't see that here.\n\r", ch);
 		return;
 	}
 
 	switch (obj->item_type) {
 	default:
-		char_nputs(MSG_THATS_NOT_CONTAINER, ch);
+		char_puts("That is not a container.\n\r", ch);
 		break;
 
 	case ITEM_DRINK_CON:
 		if (obj->value[1] <= 0) {
-			char_nputs(MSG_IT_IS_EMPTY, ch);
+			char_puts("It is empty.\n\r", ch);
 			break;
 		}
 
-		char_printf(ch, msg(MSG_ITS_FILLED_S, ch),
+		char_printf(ch, "It's %sfilled with a %s liquid.\n\r",
 			    obj->value[1] < obj->value[0] / 4 ?
-			    msg(MSG_LESS_THAN_HALF, ch) :
+			    MSG("less than half-", ch->lang) :
 			    obj->value[1] < 3 * obj->value[0] / 4 ?
-			    msg(MSG_ABOUT_HALF,ch):msg(MSG_MORE_THAN_HALF,ch),
+			    MSG("about half-", ch->lang) :
+			    MSG("more than half-", ch->lang),
 			    liq_table[obj->value[2]].liq_color);
 		break;
 
@@ -1097,11 +1131,11 @@ void do_look_in(CHAR_DATA* ch, const char *argument)
 	case ITEM_CORPSE_NPC:
 	case ITEM_CORPSE_PC:
 		if (IS_SET(obj->value[1], CONT_CLOSED)) {
-			char_nputs(MSG_IT_IS_CLOSED, ch);
+			char_puts("It is closed.\n\r", ch);
 			break;
 		}
 
-		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MSG_P_HOLDS);
+		act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, "$p holds:");
 		show_list_to_char(obj->contains, ch, TRUE, TRUE);
 		break;
 	}
@@ -1123,12 +1157,12 @@ void do_look(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (ch->position < POS_SLEEPING) {
-		char_nputs(MSG_CANT_SEE_BUT_STARS, ch);
+		char_puts("You can't see anything but stars!\n\r", ch);
 		return;
 	}
 
 	if (ch->position == POS_SLEEPING) {
-		char_nputs(MSG_CANT_SEE_SLEEPING, ch);
+		char_puts("You can't see anything, you're sleeping!\n\r", ch);
 		return;
 	}
 
@@ -1173,7 +1207,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 			do_exits(ch, "auto");
 		}
 	    } else 
-		char_nputs(MSG_PITCH_BLACK, ch);
+		char_puts("It is pitch black ...\n\r", ch);
 
 		show_list_to_char(ch->in_room->contents, ch, FALSE, FALSE);
 		show_char_to_char(ch->in_room->people, ch);
@@ -1185,7 +1219,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 	||  !str_cmp(arg1,"on")) {
 		/* 'look in' */
 		if (arg2[0] == '\0') {
-			char_nputs(MSG_LOOK_IN_WHAT, ch);
+			char_puts("Look in what?\n\r", ch);
 			return;
 		}
 
@@ -1251,7 +1285,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 
 			if (is_name(arg3, obj->name))
 				if (++count == number) {
-					char_nputs(MSG_NOTHING_SPECIAL_IT, ch);
+					char_puts("You see nothing special about it.\n\r", ch);
 					return;
 				}
 		}
@@ -1293,9 +1327,9 @@ void do_look(CHAR_DATA *ch, const char *argument)
 
 	if (count > 0 && count != number) {
 		if (count == 1)
-			char_nprintf(ch, MSG_ONLY_SEE_ONE_S, arg3);
+			char_printf(ch, "You only see one %s here.\n\r", arg3);
 		else
-			char_nprintf(ch, MSG_ONLY_SEE_D_THOSE, count);
+			char_printf(ch, "You only see %d of those here.\n\r", count);
 		return;
 	}
 
@@ -1306,31 +1340,31 @@ void do_look(CHAR_DATA *ch, const char *argument)
 	else if (!str_cmp(arg1, "u") || !str_cmp(arg1, "up" )) door = 4;
 	else if (!str_cmp(arg1, "d") || !str_cmp(arg1, "down")) door = 5;
 	else {
-		char_nputs(MSG_YOU_DONT_SEE_THAT, ch);
+		char_puts("You don't see that here.\n\r", ch);
 		return;
 	}
 
 	/* 'look direction' */
 	if ((pexit = ch->in_room->exit[door]) == NULL) {
-		char_nputs(MSG_NOTHING_SPECIAL_THERE, ch);
+		char_puts("Nothing special there.\n\r", ch);
 		return;
 	}
 
 	if (!IS_NULLSTR(mlstr_mval(pexit->description)))
 		char_mlputs(pexit->description, ch);
 	else
-		char_nputs(MSG_NOTHING_SPECIAL_THERE, ch);
+		char_puts("Nothing special there.\n\r", ch);
 
 	if (pexit->keyword    != NULL
 	&&  pexit->keyword[0] != '\0'
 	&&  pexit->keyword[0] != ' ') {
 		if (IS_SET(pexit->exit_info, EX_CLOSED)) {
-			act_nprintf(ch, NULL, pexit->keyword, TO_CHAR,
-					POS_DEAD, MSG_THE_D_IS_CLOSED);
+			act_printf(ch, NULL, pexit->keyword, TO_CHAR,
+				   POS_DEAD, "The $d is closed.");
 		}
 		else if (IS_SET(pexit->exit_info, EX_ISDOOR))
-			act_nprintf(ch, NULL, pexit->keyword, TO_CHAR,
-					POS_DEAD, MSG_THE_D_IS_OPEN);
+			act_printf(ch, NULL, pexit->keyword, TO_CHAR,
+				   POS_DEAD, "The $d is open.");
 	}
 }
 
@@ -1345,12 +1379,12 @@ void do_examine(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (ch->position < POS_SLEEPING) {
-		char_nputs(MSG_CANT_SEE_BUT_STARS, ch);
+		char_puts("You can't see anything but stars!\n\r", ch);
 		return;
 	}
 
 	if (ch->position == POS_SLEEPING) {
-		char_nputs(MSG_CANT_SEE_SLEEPING, ch);
+		char_puts("You can't see anything, you're sleeping!\n\r", ch);
 		return;
 	}
 
@@ -1358,7 +1392,7 @@ void do_examine(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (arg[0] == '\0') {
-		char_nputs(MSG_EXA_WHAT, ch);
+		char_puts("Examine what?\n\r", ch);
 		return;
 	}
 
@@ -1369,22 +1403,22 @@ void do_examine(CHAR_DATA *ch, const char *argument)
 		case ITEM_MONEY:
 			if (obj->value[0] == 0) {
 				if (obj->value[1] == 0)
-					char_nputs(MSG_NO_COINS_PILE, ch);
+					char_puts("Odd...there's no coins in the pile.\n\r", ch);
 				else if (obj->value[1] == 1)
-					char_nputs(MSG_ONE_GOLD_COIN, ch);
+					char_puts("Wow. One gold coin.\n\r", ch);
 				else
-					char_nprintf(ch, MSG_D_GOLD_COINS,
+					char_printf(ch, "There are %d gold coins in the pile.\n\r",
 						     obj->value[1]);
 			}
 			else if (obj->value[1] == 0) {
 				if (obj->value[0] == 1)
-					char_nputs(MSG_ONE_SILVER_COIN, ch);
+					char_puts("Wow. One silver coin.\n\r", ch);
 				else
-					char_nprintf(ch, MSG_D_SILVER_COINS,
+					char_printf(ch, "There are %d silver coins in the pile.\n\r",
 						     obj->value[0]);
 			}
 			else
-				char_nprintf(ch, MSG_D_SILVER_AND_D_GOLD, 
+				char_printf(ch, "There are %d gold and %d silver coins in the pile.\n\r", 
 					    obj->value[1], obj->value[0]);
 			break;
 
@@ -1414,11 +1448,12 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (fAuto)
-		char_nputs(MSG_EXITS, ch);
+		char_puts("{C[Exits:", ch);
 	else if (IS_IMMORTAL(ch))
-		char_nprintf(ch, MSG_MSG_OBVIOUS_EXITS_IMM, ch->in_room->vnum);
+		char_printf(ch, "Obvious exits from room %d:\n\r",
+			    ch->in_room->vnum);
 	else
-		char_nputs(MSG_OBVIOUS_EXITS, ch);
+		char_puts("Obvious exits:\n\r", ch);
 
 	found = FALSE;
 	for (door = 0; door <= 5; door++) {
@@ -1433,14 +1468,13 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 				char_printf(ch, "{C%-5s{x - %s",
 					    capitalize(dir_name[door]),
 					    room_dark(pexit->u1.to_room) ?
-					    msg(MSG_TOO_DARK_TO_TELL, ch) :
+					    MSG("Too dark to tell", ch->lang) :
 					    mlstr_cval(pexit->u1.to_room->name,
 							ch));
 				if (IS_IMMORTAL(ch))
-					char_nprintf(ch, MSG_ROOM_D,
-						     pexit->u1.to_room->vnum);
-				else
-					char_puts("\n\r", ch);
+					char_printf(ch, " (room %d)",
+						    pexit->u1.to_room->vnum);
+				char_puts("\n\r", ch);
 			}
 		}
 
@@ -1460,8 +1494,8 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 					    pexit->keyword);
 
 				if (IS_IMMORTAL(ch))
-					char_nprintf(ch, MSG_ROOM_D,
-						     pexit->u1.to_room->vnum);
+					char_printf(ch, " (room %d)\n\r",
+						    pexit->u1.to_room->vnum);
 				else
 					char_puts("\n\r", ch);
 			}
@@ -1469,7 +1503,7 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!found)
-		char_nputs(fAuto ? MSG_NONE : MSG_NONE_DOT, ch);
+		char_puts(fAuto ? " none" : "None.\n\r", ch);
 
 	if (fAuto)
 		char_puts("]{x\n\r", ch);
@@ -1477,23 +1511,22 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 
 void do_worth(CHAR_DATA *ch, const char *argument)
 {
-	char_printf(ch, msg(MSG_HAVE_D_GOLD_D_SILVER, ch),
-		    ch->gold, ch->silver);
+	char_printf(ch, "You have %d gold, %d silver", ch->gold, ch->silver);
 	if (!IS_NPC(ch) && ch->level < LEVEL_HERO)
-		char_printf(ch, msg(MSG_AND_D_EXP, ch),
+		char_printf(ch, ", and %d experience (%d exp to level)",
 			    ch->exp, exp_to_level(ch));
 	char_puts(".\n\r", ch);
 
 	if (!IS_NPC(ch))
 		char_printf(ch, msg(MSG_HAVE_KILLED, ch),
 			    ch->pcdata->has_killed,
-			    IS_GOOD(ch) ? msg(MSG_NON_GOODS, ch) :
-			    IS_EVIL(ch) ? msg(MSG_NON_EVILS, ch) : 
-					  msg(MSG_NON_NEUTRALS, ch),
+			    IS_GOOD(ch) ? MSG("non-goods", ch->lang) :
+			    IS_EVIL(ch) ? MSG("non-evils", ch->lang) : 
+					  MSG("non-neutrals", ch->lang),
 			    ch->pcdata->anti_killed,
-			    IS_GOOD(ch) ? msg(MSG_GOODS, ch) :
-			    IS_EVIL(ch) ? msg(MSG_EVILS, ch) : 
-					  msg(MSG_NEUTRALS, ch));
+			    IS_GOOD(ch) ? MSG("goods", ch->lang) :
+			    IS_EVIL(ch) ? MSG("evils", ch->lang) : 
+					  MSG("neutrals", ch->lang));
 }
 
 char *	const	day_name	[] =
@@ -1532,17 +1565,17 @@ void do_time(CHAR_DATA *ch, const char *argument)
 		    day, suf, month_name[time_info.month]);
 
 	if (!IS_SET(ch->in_room->room_flags,ROOM_INDOORS) || IS_IMMORTAL(ch))
-		act_nprintf(ch, NULL, NULL, TO_CHAR, POS_RESTING,
-			   MSG_ITS_S,
+		act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING,
+			   "It's %s.",
 			   (time_info.hour>=5 && time_info.hour<9) ?
-						msg(MSG_TIME_DAWN, ch) :
+						MSG("dawn", ch->lang) :
 			   (time_info.hour>=9 && time_info.hour<12) ?
-						msg(MSG_TIME_MORNING, ch) :
+						MSG("morning", ch->lang) :
 			   (time_info.hour>=12 && time_info.hour<18) ?
-						msg(MSG_TIME_MID_DAY, ch) :
+						MSG("mid-day", ch->lang) :
 			   (time_info.hour>=18 && time_info.hour<21) ?
-						msg(MSG_TIME_EVENING, ch) :
-			   msg(MSG_TIME_NIGHT, ch));
+						MSG("evening", ch->lang) :
+			   MSG("night", ch->lang));
 
 	if (!IS_IMMORTAL(ch))
 		return;
@@ -1652,7 +1685,7 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 		buf_add(output, "{r[{RPK{r]{x ");
 
 	if (IS_SET(wch->act, PLR_WANTED))
-		buf_add(output, "{R(MSG_WANTED){x ");
+		buf_add(output, "{R(WANTED){x ");
 
 	if (IS_IMMORTAL(wch))
 		buf_printf(output, "{W%s{x", wch->name);
@@ -1815,7 +1848,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 		count += (d->connected == CON_PLAYING);
 
 	max_on = UMAX(count, max_on);
-	buf_printf(output, msg(MSG_PLAYERS_FOUND, ch), nMatch, max_on);
+	buf_printf(output, MSG("\n\rPlayers found: %d. Most so far today: %d.\n\r", ch->lang), nMatch, max_on);
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 }
@@ -1857,7 +1890,7 @@ void do_whois(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (output == NULL) {
-		char_nputs(MSG_NO_ONE_THAT_NAME, ch);
+		char_puts("No one of that name is playing.\n\r", ch);
 		return;
 	}
 
@@ -1878,17 +1911,17 @@ void do_count(CHAR_DATA *ch, const char *argument)
 
 	max_on = UMAX(count,max_on);
 
-	char_printf(ch, msg(MSG_D_CHARS_ON, ch), count);
+	char_printf(ch, "There are %d characters on, ", count);
 	if (max_on == count)
-		char_nputs(MSG_MOST_SO_FAR_TODAY, ch);
+		char_puts("the most so far today", ch);
 	else
-		char_printf(ch, msg(MSG_MOST_TODAY_WAS, ch), max_on);
+		char_printf(ch, "the most on today was %d", max_on);
 	char_puts(".\n\r", ch);
 }
 
 void do_inventory(CHAR_DATA *ch, const char *argument)
 {
-	char_nputs(MSG_YOU_ARE_CARRYING, ch);
+	char_puts("You are carrying:\n\r", ch);
 	show_list_to_char(ch->carrying, ch, TRUE, TRUE);
 }
 
@@ -1898,18 +1931,13 @@ void do_equipment(CHAR_DATA *ch, const char *argument)
 	int i;
 	bool found;
 
-	char_nputs(MSG_YOU_ARE_USING, ch);
+	char_puts("You are using:\n\r", ch);
 	found = FALSE;
 	for (i = 0; show_order[i] >= 0; i++) {
 		if ((obj = get_eq_char(ch, show_order[i])) == NULL)
 			continue;
 
-		char_nputs(MSG_EQ_USED_AS_LIGHT + show_order[i], ch);
-		if (can_see_obj(ch, obj))
-			char_printf(ch, "%s\n\r",
-				    format_obj_to_char(obj, ch, TRUE));
-		else
-			char_nputs(MSG_SOMETHING, ch);
+		show_obj_to_char(ch, obj, show_order[i]);
 		found = TRUE;
 	}
 
@@ -1917,17 +1945,12 @@ void do_equipment(CHAR_DATA *ch, const char *argument)
 		if (obj->wear_loc != WEAR_STUCK_IN)
 			continue;
 
-		char_nputs(MSG_EQ_STUCK_IN, ch);
-		if (can_see_obj(ch, obj))
-			char_printf(ch, "%s\n\r",
-				    format_obj_to_char(obj, ch, TRUE));
-		else
-			char_nputs(MSG_SOMETHING, ch);
+		show_obj_to_char(ch, obj, WEAR_STUCK_IN);
 		found = TRUE;
 	}
 
 	if (!found)
-		char_nputs(MSG_NOTHING, ch);
+		char_puts("Nothing.\n\r", ch);
 }
 
 void do_compare(CHAR_DATA *ch, const char *argument)
@@ -1943,12 +1966,12 @@ void do_compare(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 	if (arg1[0] == '\0') {
-		char_nputs(MSG_COMPARE_WHAT, ch);
+		char_puts("Compare what to what?\n\r", ch);
 		return;
 	}
 
 	if ((obj1 = get_obj_carry(ch, arg1)) == NULL) {
-		char_nputs(MSG_DONT_HAVE_ITEM, ch);
+		char_puts("You do not have that item.\n\r", ch);
 		return;
 	}
 
@@ -1962,12 +1985,12 @@ void do_compare(CHAR_DATA *ch, const char *argument)
 				break;
 
 		if (obj2 == NULL) {
-			char_nputs(MSG_ARENT_WEAR_COMPARABLE, ch);
+			char_puts("You aren't wearing anything comparable.\n\r", ch);
 			return;
 		}
 	}
 	else if ((obj2 = get_obj_carry(ch,arg2)) == NULL) {
-		char_nputs(MSG_DONT_HAVE_ITEM, ch);
+		char_puts("You do not have that item.\n\r", ch);
 		return;
 	}
 
@@ -1976,13 +1999,13 @@ void do_compare(CHAR_DATA *ch, const char *argument)
 	value2	= 0;
 
 	if (obj1 == obj2)
-		cmsg = msg(MSG_COMPARE_P_TO_ITSELF, ch);
+		cmsg = "You compare $p to itself.  It looks about the same.";
 	else if (obj1->item_type != obj2->item_type)
-		cmsg = msg(MSG_CANT_COMPARE_P_P, ch);
+		cmsg = "You can't compare $p and $P.";
 	else {
 		switch (obj1->item_type) {
 		default:
-			cmsg = msg(MSG_CANT_COMPARE_P_P, ch);
+			cmsg = "You can't compare $p and $P.";
 			break;
 
 		case ITEM_ARMOR:
@@ -2006,11 +2029,11 @@ void do_compare(CHAR_DATA *ch, const char *argument)
 
 	if (cmsg == NULL)
 		if (value1 == value2)
-			cmsg = msg(MSG_P_P_LOOKS_SAME, ch);
+			cmsg = "$p and $P look about the same.";
 		else if (value1  > value2)
-			cmsg = msg(MSG_P_LOOKS_BETTER_P, ch);
+			cmsg = "$p looks better than $P.";
 		else
-			cmsg = msg(MSG_P_LOOKS_WORSE_P, ch);
+			cmsg = "$p looks worse than $P.";
 
 	act(cmsg, ch, obj1, obj2, TO_CHAR);
 }
@@ -2034,7 +2057,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (room_is_dark(ch) && !IS_SET(ch->act, PLR_HOLYLIGHT)) {
-		char_nputs(MSG_TOO_DARK_SEE, ch);
+		char_puts("It's too dark to see.\n\r", ch);
 		return;
 	}
 
@@ -2042,7 +2065,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 		fPKonly = TRUE;
 
 	if (arg[0] == '\0' || fPKonly) {
-		char_nputs(MSG_PLAYERS_NEAR_YOU, ch);
+		char_puts("Players near you:\n\r", ch);
 		found = FALSE;
 		for (d = descriptor_list; d; d = d->next) {
 			if (d->connected == CON_PLAYING
@@ -2062,7 +2085,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 			}
 		}
 		if (!found)
-			char_nputs(MSG_NONE_DOT, ch);
+			char_puts("None.\n\r", ch);
 	}
 	else {
 		found = FALSE;
@@ -2080,8 +2103,8 @@ void do_where(CHAR_DATA *ch, const char *argument)
 			}
 		}
 		if (!found)
-			act_nprintf(ch, NULL, arg, TO_CHAR, POS_DEAD,
-					MSG_DIDNT_FIND_ANY);
+			act_printf(ch, NULL, arg, TO_CHAR, POS_DEAD,
+				   "You didn't find any $T.");
 	}
 }
 
@@ -2096,46 +2119,46 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		char_nputs(MSG_CONSIDER_WHOM, ch);
+		char_puts("Consider killing whom?\n\r", ch);
 		return;
 	}
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
-		char_nputs(MSG_THEY_ARENT_HERE, ch);
+		char_puts("They aren't here.\n\r", ch);
 		return;
 	}
 
 	if (!in_PK(ch, victim)) {
-		char_nputs(MSG_DONT_EVEN_THINK, ch);
+		char_puts("Don't even think about it.\n\r", ch);
 		return;
 	}
 
 	diff = victim->level - ch->level;
 
-	     if (diff <= -10) cmsg = msg(MSG_CAN_KILL_NAKED, ch);
-	else if (diff <=  -5) cmsg = msg(MSG_IS_NOT_MATCH_FOR_YOU, ch);
-	else if (diff <=  -2) cmsg = msg(MSG_LOOKS_EASY_KILL, ch);
-	else if (diff <=   1) cmsg = msg(MSG_PERFECT_MATCH, ch);
-	else if (diff <=   4) cmsg = msg(MSG_FEEL_LUCKY_PUNK, ch);
-	else if (diff <=   9) cmsg = msg(MSG_LAUGHS_AT_YOU_MERCILESSLY, ch);
-	else		      cmsg = msg(MSG_DEATH_WILL_THANK_YOU, ch);
+	     if (diff <= -10) cmsg = "You can kill $N naked and weaponless.";
+	else if (diff <=  -5) cmsg = "$N is no match for you.";
+	else if (diff <=  -2) cmsg = "$N looks like an easy kill.";
+	else if (diff <=   1) cmsg = "The perfect match!";
+	else if (diff <=   4) cmsg = "$N says '{GDo you feel lucky, punk?{x'.";
+	else if (diff <=   9) cmsg = "$N laughs at you mercilessly.";
+	else		      cmsg = "Death will thank you for your gift.";
 
 	if (IS_EVIL(ch) && IS_EVIL(victim))
-		align = msg(MSG_GRINS_EVILLY_WITH, ch);
+		align = "$N grins evilly with you.";
 	else if (IS_GOOD(victim) && IS_GOOD(ch))
-		align = msg(MSG_GREETS_YOU_WARMLY, ch);
+		align = "$N greets you warmly.";
 	else if (IS_GOOD(victim) && IS_EVIL(ch))
-		align = msg(MSG_HOPE_YOU_WILL_TURN, ch);
+		align = "$N smiles at you, hoping you will turn from your evil path.";
 	else if (IS_EVIL(victim) && IS_GOOD(ch))
-		align = msg(MSG_GRINS_EVILLY_AT, ch);
+		align = "$N grins evilly at you.";
 	else if (IS_NEUTRAL(ch) && IS_EVIL(victim))
-		align = msg(MSG_GRINS_EVILLY, ch);
+		align = "$N grins evilly.";
 	else if (IS_NEUTRAL(ch) && IS_GOOD(victim))
-		align = msg(MSG_SMILES_HAPPILY, ch);
+		align = "$N smiles happily.";
 	else if (IS_NEUTRAL(ch) && IS_NEUTRAL(victim))
-		align = msg(MSG_LOOKS_AS_YOU, ch);
+		align = "$N looks just as disinterested as you.";
 	else
-		align = msg(MSG_LOOKS_VERY_DISINTERESTED, ch);
+		align = "$N looks very disinterested.";
 
 	act(cmsg, ch, NULL, victim, TO_CHAR);
 	act(align, ch, NULL, victim, TO_CHAR);
@@ -2168,12 +2191,12 @@ void do_title(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (CANT_CHANGE_TITLE(ch)) {
-		char_nputs(MSG_CANT_CHANGE_TITLE, ch);
+		char_puts("You can't change your title.\n\r", ch);
 		return;
 	}
 
 	if (argument[0] == '\0') {
-		char_nputs(MSG_CHANGE_TITLE_TO_WHAT, ch);
+		char_puts("Change your title to what?\n\r", ch);
 		return;
 	}
 
@@ -2183,7 +2206,7 @@ void do_title(CHAR_DATA *ch, const char *argument)
 	}
 		
 	set_title(ch, argument);
-	char_nputs(MSG_OK, ch);
+	char_puts("Ok.\n\r", ch);
 }
 
 void do_description(CHAR_DATA *ch, const char *argument)
@@ -2197,19 +2220,24 @@ void do_description(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	char_nprintf(ch, MSG_YOUR_DESC_IS, mlstr_mval(ch->description));
+	char_printf(ch, "Your description is:\n\r"
+			 "%s\n\r"
+			 "Use 'desc edit' to edit your description.\n\r",
+		    mlstr_mval(ch->description));
 }
 
 void do_report(CHAR_DATA *ch, const char *argument)
 {
-	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MSG_REPORT_I_HAVE,
-	       ch->hit, ch->max_hit,
-	       ch->mana, ch->max_mana,
-	       ch->move, ch->max_move);
-	act_nprintf(ch, NULL, NULL, TO_CHAR, POS_DEAD, MSG_REPORT_I_HAVE_TO_CH,
-	       ch->hit, ch->max_hit,
-	       ch->mana, ch->max_mana,
-	       ch->move, ch->max_move);
+	act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+		   "$n says '{GI have {c%d/%d{z hp {c%d/%d{z mana {c%d/%d{z mv.{x'",
+		   ch->hit, ch->max_hit,
+		   ch->mana, ch->max_mana,
+		   ch->move, ch->max_move);
+	act_printf(ch, NULL, NULL, TO_CHAR, POS_DEAD,
+		   "You say '{GI have {c%d/%d{z hp {c%d/%d{z mana {c%d/%d{z mv.{x'",
+		   ch->hit, ch->max_hit,
+		   ch->mana, ch->max_mana,
+		   ch->move, ch->max_move);
 }
 
 /*
@@ -2293,7 +2321,7 @@ void do_password(CHAR_DATA *ch, const char *argument)
 	free_string(ch->pcdata->pwd);
 	ch->pcdata->pwd = str_dup(pwdnew);
 	save_char_obj(ch, FALSE);
-	char_nputs(MSG_OK, ch);
+	char_puts("Ok.\n\r", ch);
 	return;
 }
 
@@ -2351,12 +2379,12 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 		dir2 = "down";
 		break;
 	default:
-		char_nputs(MSG_WRONG_DIRECTION, ch);
+		char_puts("Wrong direction.\n\r", ch);
 		return;
 	}
 
-	char_printf(ch, msg(MSG_YOU_SCAN_S, ch), dir2);
-	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MSG_N_SCANS_S, dir2);
+	char_printf(ch, "You scan %s.\n\r",  dir2);
+	act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, "$n scans %s.", dir2);
 
 	if (!check_blind(ch))
 		return;
@@ -2374,7 +2402,7 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 
 		if (IS_SET(exit->exit_info,EX_CLOSED)
 		&&  can_see_room(ch,exit->u1.to_room)) {
-			char_nputs(MSG_SCAN_DOOR_CLOSED, ch);
+			char_puts("	You see closed door.\n\r", ch);
 			return;
 		}
 		for (numpeople = 0, person = to_room->people; person != NULL;
@@ -2597,7 +2625,7 @@ void do_detect_hidden(CHAR_DATA *ch, const char *argument)
 
 	if ((sn = sn_lookup("detect hide")) < 0
 	||  (chance = get_skill(ch, sn)) == 0) {
-		char_nputs(MSG_HUH, ch);
+		char_puts("Huh?\n\r", ch);
 		return;
 	}
 
@@ -2636,7 +2664,7 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 
 	if ((sn = sn_lookup("bear call")) < 0
 	||  (chance = get_skill(ch, sn)) == 0) {
-		char_nputs(MSG_HUH, ch);
+		char_puts("Huh?\n\r", ch);
 		return;
 	}
 
@@ -2837,8 +2865,8 @@ void do_score(CHAR_DATA *ch, const char *argument)
 
 	buf_printf(output, "     {G| {RAlign:  {x%-11s  {C|                |{x %-7s %-19s {G|{x\n\r",
 		IS_GOOD(ch) ? "good" : IS_EVIL(ch) ? "evil" : "neutral",
-		msg(MSG_YOU_ARE, ch),
-		msg(MSG_POS_NAME_DEAD + ch->position, ch));
+		MSG("You are", ch->lang),
+		MSG(flag_string(position_names, ch->position), ch->lang));
 
 	buf_add(output, "     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x{x\n\r");
 
@@ -2960,7 +2988,7 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 	buf_printf(output,
 		"%s {W%s{x%s, level {c%d{x, {c%d{x years old "
 		"(%d hours).\n\r",
-		msg(MSG_YOU_ARE, ch),
+		MSG("You are", ch->lang),
 		ch->name,
 		IS_NPC(ch) ? "" : ch->pcdata->title, ch->level, get_age(ch),
 		(ch->played + (int) (current_time - ch->logon)) / 3600);
@@ -3073,9 +3101,8 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 			buf_add(output, "You are {cghost{x.\n\r");
 	}
 
-	buf_printf(output, "%s %s.\n\r",
-		msg(MSG_YOU_ARE, ch),
-		msg(MSG_POS_NAME_DEAD + ch->position, ch));
+	buf_printf(output, "You are %s.\n\r",
+		   MSG(flag_string(position_names, ch->position), ch->lang));
 
 	if ((ch->position == POS_SLEEPING || ch->position == POS_RESTING ||
 	     ch->position == POS_FIGHTING || ch->position == POS_STANDING)
@@ -3208,11 +3235,11 @@ void show_affects(CHAR_DATA *ch, BUFFER *output)
 	AFFECT_DATA *paf, *paf_last = NULL;
 
 	if (ch->affected == NULL) {
-		buf_add(output, msg(MSG_NOT_AFFECTED_SPELLS, ch));
+		buf_add(output, MSG("You are not affected by any spells.\n\r", ch->lang));
 		return;
 	}
 
-	buf_add(output, msg(MSG_YOU_ARE_AFFECTED, ch));
+	buf_add(output, MSG("You are affected by the following spells:\n\r", ch->lang));
 	for (paf = ch->affected; paf != NULL; paf = paf->next) {
 		if (paf_last != NULL && paf->type == paf_last->type)
 			if (ch->level >= 20)
@@ -3220,20 +3247,17 @@ void show_affects(CHAR_DATA *ch, BUFFER *output)
 			else
 				continue;
 		else
-			buf_printf(output, "%s {c%-15s{x",
-				   msg(MSG_AFF_SPELL, ch),
+			buf_printf(output, "Spell: {c%-15s{x",
 				   skill_name(paf->type));
 
 		if (ch->level >= 20) {
-			buf_printf(output, ": %s {c%s{x %s {c%d{x ",
-				   msg(MSG_AFF_MODIFIES, ch),
+			buf_printf(output, ": modifies {c%s{x by {c%d{x ",
 				   flag_string(apply_flags, paf->location),
-				   msg(MSG_AFF_BY, ch),
 				   paf->modifier);
 			if (paf->duration == -1 || paf->duration == -2)
-				buf_add(output, msg(MSG_AFF_PERMANENTLY, ch));
+				buf_add(output, MSG("permanently.", ch->lang));
 			else
-				buf_printf(output, msg(MSG_AFF_FOR_D_HOURS, ch),
+				buf_printf(output, MSG("for {c%d{x hours.", ch->lang),
 					   paf->duration);
 		}
 		buf_add(output, "\n\r");
@@ -3264,7 +3288,7 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 
 	if ((sn = sn_lookup("lion call")) < 0
 	||  (chance = get_skill(ch, sn)) == 0) {
-		char_nputs(MSG_HUH, ch);
+		char_puts("Huh?\n\r", ch);
 		return;
 	}
 
@@ -3363,19 +3387,19 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 }
 
 /* object condition aliases */
-char *get_cond_alias(OBJ_DATA *obj, CHAR_DATA *ch)
+char *get_cond_alias(OBJ_DATA *obj)
 {
 	char *stat;
 	int istat;
 
 	istat = obj->condition;
 
-	if	(istat >  99) stat = msg(MSG_COND_EXCELLENT, ch);
-	else if (istat >= 80) stat = msg(MSG_COND_GOOD, ch);
-	else if (istat >= 60) stat = msg(MSG_COND_FINE, ch);
-	else if (istat >= 40) stat = msg(MSG_COND_AVERAGE, ch);
-	else if (istat >= 20) stat = msg(MSG_COND_POOR, ch);
-	else			stat = msg(MSG_COND_FRAGILE, ch);
+	if	(istat >  99)	stat = "excellent";
+	else if (istat >= 80)	stat = "good";
+	else if (istat >= 60)	stat = "fine";
+	else if (istat >= 40)	stat = "average";
+	else if (istat >= 20)	stat = "poor";
+	else			stat = "fragile";
 
 	return stat;
 }
@@ -3522,7 +3546,7 @@ void do_camp(CHAR_DATA *ch, const char *argument)
 
 	if ((sn = sn_lookup("camp")) < 0
 	||  (chance = get_skill(ch, sn)) == 0) {
-		char_nputs(MSG_HUH, ch);
+		char_puts("Huh?\n\r", ch);
 		return;
 	}
 
@@ -3602,7 +3626,7 @@ void do_demand(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (ch->class != CLASS_ANTI_PALADIN) {
-		char_nputs(MSG_YOU_CANT_DO_THAT, ch);
+		char_puts("You can't do that.\n\r", ch);
 		return;
 	}
 
@@ -3612,7 +3636,7 @@ void do_demand(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((victim = get_char_room(ch, arg2)) == NULL) {
-		char_nputs(MSG_THEY_ARENT_HERE, ch);
+		char_puts("They aren't here.\n\r", ch);
 		return;
 	}
 
@@ -3690,7 +3714,7 @@ void do_control(CHAR_DATA *ch, const char *argument)
 
 	if ((sn = sn_lookup("control animal")) < 0
 	||  (chance = get_skill(ch, sn)) == 0) {
-		char_nputs(MSG_HUH, ch);
+		char_puts("Huh?\n\r", ch);
 		return;
 	}
 
@@ -3700,7 +3724,7 @@ void do_control(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
-		char_nputs(MSG_THEY_ARENT_HERE, ch);
+		char_puts("They aren't here.\n\r", ch);
 		return;
 	}
 

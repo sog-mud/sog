@@ -1,5 +1,5 @@
 /*
- * $Id: auction_impl.c,v 1.14 1998-09-20 17:01:00 fjoe Exp $
+ * $Id: auction_impl.c,v 1.15 1998-09-22 18:07:15 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -386,7 +386,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 			}
 		}
 
-	        /* the actual bet is MSG_OK! */
+	        /* the actual bet is "Ok.\n\r"! */
 
 	        /* return the gold to the last buyer, if one exists */
 	        if (auction.buyer != NULL)

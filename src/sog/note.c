@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.24 1998-09-20 17:01:02 fjoe Exp $
+ * $Id: note.c,v 1.25 1998-09-22 18:07:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -725,7 +725,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (is_note_to(ch, pnote) && vnum++ == anum) {
 				note_remove(ch, pnote, FALSE);
-				char_nputs(MSG_OK, ch);
+				char_puts("Ok.\n\r", ch);
 				return;
 			}
 		}
@@ -745,7 +745,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (is_note_to(ch, pnote) && vnum++ == anum) {
 				note_remove(ch, pnote, TRUE);
-				char_nputs(MSG_OK, ch);
+				char_puts("Ok.\n\r", ch);
 				return;
 			}
 		}
@@ -806,7 +806,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 
 		free_string(ch->pnote->subject);
 		ch->pnote->subject = str_dup(argument);
-		char_nputs(MSG_OK, ch);
+		char_puts("Ok.\n\r", ch);
 		return;
 	}
 
@@ -819,7 +819,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		}
 		free_string(ch->pnote->to_list);
 		ch->pnote->to_list = str_dup(argument);
-		char_nputs(MSG_OK, ch);
+		char_puts("Ok.\n\r", ch);
 		return;
 	}
 
@@ -829,7 +829,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 			ch->pnote = NULL;
 		}
 
-		char_nputs(MSG_OK, ch);
+		char_puts("Ok.\n\r", ch);
 		return;
 	}
 
@@ -908,6 +908,6 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		return;
 	}
 
-	char_nputs(MSG_YOU_CANT_DO_THAT, ch);
+	char_puts("You can't do that.\n\r", ch);
 }
 

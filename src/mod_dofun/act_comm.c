@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.83 1998-09-20 17:00:59 fjoe Exp $
+ * $Id: act_comm.c,v 1.84 1998-09-22 18:07:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -398,13 +398,13 @@ void do_say(CHAR_DATA *ch, const char *argument)
 	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
 		if (!is_affected(vch, gsn_deafen)) {
 			strcpy(trans, translate(ch, vch, buf));
-			act_nputs(MSG_N_SAYS, ch, trans, vch,
+			act_puts("$n says '{G$t{x'", ch, trans, vch,
 				  TO_VICT | TO_BUF | CHECK_TWIT, POS_RESTING);
 		}
 	}
 
 	if (!is_affected(ch, gsn_deafen))
-		act_nputs(MSG_YOU_SAY, ch, NULL, buf, TO_CHAR, POS_RESTING);
+		act_puts("You say '{G$T{x'", ch, NULL, buf, TO_CHAR, POS_RESTING);
 
 	if (!IS_NPC(ch)) {
  		CHAR_DATA *mob, *mob_next;
@@ -483,13 +483,13 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 	char buf[MAX_STRING_LENGTH];
 
 	if (IS_SET(ch->comm, COMM_NOTELL)) {
-		char_nputs(MSG_YOUR_MESSAGE_DIDNT_GET_THROUGH, ch);
+		char_puts("Your message didn't get through.\n\r", ch);
 		return;
 	}
 
 	if (victim == NULL 
 	|| (IS_NPC(victim) && victim->in_room != ch->in_room)) {
-		char_nputs(MSG_THEY_ARENT_HERE, ch);
+		char_puts("They aren't here.\n\r", ch);
 		return;
 	}
 
@@ -506,7 +506,7 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 	}
 
 	if (!is_affected(ch, gsn_deafen))
-		act_nputs(MSG_YOU_TELL, ch, buf, victim, TO_CHAR, POS_SLEEPING);
+		act_puts("You tell $N '{G$t{x'", ch, buf, victim, TO_CHAR, POS_SLEEPING);
 	act_puts("$n tells you '{G$t{x'",
 		 ch, buf, victim, TO_VICT | TO_BUF | CHECK_TWIT, POS_SLEEPING);
 
@@ -1134,7 +1134,7 @@ void do_follow(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
-		char_nputs(MSG_THEY_ARENT_HERE, ch);
+		char_puts("They aren't here.\n\r", ch);
 		return;
 	}
 
@@ -1286,7 +1286,7 @@ void do_order(CHAR_DATA *ch, const char *argument)
 	} else {
 		fAll   = FALSE;
 		if ((victim = get_char_room(ch, arg)) == NULL) {
-			char_nputs(MSG_THEY_ARENT_HERE, ch);
+			char_puts("They aren't here.\n\r", ch);
 			return;
 		}
 
@@ -1312,15 +1312,15 @@ void do_order(CHAR_DATA *ch, const char *argument)
 			found = TRUE;
 			if (!proper_order(och, argument))
 				continue;
-			act_nprintf(ch, NULL, och, TO_VICT, POS_RESTING,
-				       MSG_ORDERS_YOU_TO, argument);
+			act_printf(ch, NULL, och, TO_VICT, POS_RESTING,
+				   "$n orders you to '%s', you do.", argument);
 			interpret_raw(och, argument, TRUE);
 		}
 	}
 
 	if (found) {
 		WAIT_STATE(ch,PULSE_VIOLENCE);
-		char_nputs(MSG_OK, ch);
+		char_puts("Ok.\n\r", ch);
 	}
 	else
 		char_puts("You have no followers here.\n\r", ch);
@@ -1854,7 +1854,7 @@ DO_FUN(do_twit)
 	char arg[MAX_STRING_LENGTH];
 
 	if (IS_NPC(ch)) {
-		char_nputs(MSG_HUH, ch);
+		char_puts("Huh?\n\r", ch);
 		return;
 	}
 

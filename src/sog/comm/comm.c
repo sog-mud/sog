@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.98 1998-09-20 17:01:21 fjoe Exp $
+ * $Id: comm.c,v 1.99 1998-09-22 18:07:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -921,15 +921,13 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 		;
 }
 
-
 /*
  * Low level output function.
  */
-
 void battle_prompt(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	int percent;
-	int msgid;
+	char* msg;
 	char buf[MAX_STRING_LENGTH];
  
         if (victim->max_hit > 0)
@@ -938,28 +936,27 @@ void battle_prompt(CHAR_DATA *ch, CHAR_DATA *victim)
 		percent = -1;
   
         if (percent >= 100)
-		msgid = MSG_IS_IN_PERFECT_HEALTH;
+		msg = "{Cis in perfect health{x.";
         else if (percent >= 90)
-		msgid = MSG_HAS_A_FEW_SCRATCHES;
+		msg = "{bhas a few scratches{x.";
         else if (percent >= 75)
-		msgid = MSG_HAS_SOME_SMALL_BUT_DISGUSTING_CUTS;
+		msg = "{Bhas some small but disgusting cuts{x.";
         else if (percent >= 50)
-		msgid = MSG_IS_COVERED_WITH_BLEEDING_WOUNDS;
+		msg = "{Gis covered with bleeding wounds{x.";
         else if (percent >= 30)
-		msgid = MSG_IS_GUSHING_BLOOD;
+		msg = "{Yis gushing blood{x.";
         else if (percent >= 15)
-		msgid = MSG_IS_WRITHING_IN_AGONY;
+		msg = "{Mis writhing in agony{x.";
         else if (percent >= 0)
-		msgid = MSG_IS_CONVULSING_ON_THE_GROUND;
+		msg = "{Ris convulsing on the ground{x.";
         else
-		msgid = MSG_IS_NEARLY_DEAD;
+		msg = "{Ris nearly dead{x.";
 
-	snprintf(buf, sizeof(buf), "%s %s \n\r", 
-		 PERS(victim, ch), vmsg(msgid, ch, victim));
+	snprintf(buf, sizeof(buf), "%s %s\n\r", 
+		 PERS(victim, ch), MSG(msg, ch->lang));
 	buf[0] = UPPER(buf[0]);
 	send_to_char(buf, ch);
 }
-
 
 /*
  * Some specials added by KIO 
@@ -1029,12 +1026,6 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 	}
 }
 
-/*
- * Bust a prompt (player settable prompt)
- * coded by Morgenes for Aldara Mud
- * bust
- */
-
 void percent_hp(CHAR_DATA *ch, char buf[MAX_STRING_LENGTH])
 {
 	if (ch->hit >= 0)
@@ -1044,6 +1035,11 @@ void percent_hp(CHAR_DATA *ch, char buf[MAX_STRING_LENGTH])
 		strnzcpy(buf, "BAD!", sizeof(buf));
 }
 
+/*
+ * Bust a prompt (player settable prompt)
+ * coded by Morgenes for Aldara Mud
+ * bust
+ */
 void bust_a_prompt(CHAR_DATA *ch)
 {
 	char buf[MAX_STRING_LENGTH];
@@ -1240,7 +1236,6 @@ void bust_a_prompt(CHAR_DATA *ch)
 	if (ch->prefix[0] != '\0')
 		write_to_buffer(ch->desc,ch->prefix,0);
 }
-
 
 /*
  * Append onto an output buffer.
@@ -2586,7 +2581,7 @@ void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 	char 		fname	[MAX_INPUT_LENGTH];
 	char *		point = buf;
 	char *		s = str;
-	char *		i;
+	const char *	i;
 
 /* twitlist handling */
 	if (IS_SET(flags, CHECK_TWIT)
@@ -2616,11 +2611,13 @@ void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 			break;
 	
 		case 't': 
-			i = (char *) arg1;                            
+			i = IS_SET(flags, TRANSLATE_TEXT) ?
+				MSG(arg1, to->lang) : (char*) arg1;
 			break;
 	
 		case 'T': 
-			i = (char *) arg2;                            
+			i = IS_SET(flags, TRANSLATE_TEXT) ?
+				MSG(arg2, to->lang) : (char*) arg2;
 			break;
 	
 		case 'n':

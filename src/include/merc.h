@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.81 1998-09-20 17:01:01 fjoe Exp $
+ * $Id: merc.h,v 1.82 1998-09-22 18:07:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2211,7 +2211,7 @@ void 		do_tell_raw	(CHAR_DATA *ch, CHAR_DATA *victim,
 
 /* act_info.c */
 void	set_title(CHAR_DATA *ch, const char *title);
-char	*get_cond_alias(OBJ_DATA *obj, CHAR_DATA *ch);
+char	*get_cond_alias(OBJ_DATA *obj);
 void	do_date(CHAR_DATA* ch, const char *argument);
 bool	check_blind_raw(CHAR_DATA *ch);
 

@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.30 1998-09-17 15:51:21 fjoe Exp $
+ * $Id: mob_prog.c,v 1.31 1998-09-22 18:07:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -78,8 +78,8 @@ enum {
 	CHK_ISDELAY,
 	CHK_ISVISIBLE,
 	CHK_ISGHOST,
-	CHK_HASMSG_TARGET,
-	CHK_ISMSG_TARGET,
+	CHK_HASTARGET,
+	CHK_ISTARGET,
 	CHK_EXISTS,
 	CHK_AFFECTED,
 	CHK_ACT,
@@ -155,7 +155,7 @@ const char * fn_keyword[] =
     "isimmort",		/* if isimmort $n	- is $n immortal */
     "ischarm",		/* if ischarm $n	- is $n charmed */
     "isfollow",		/* if isfollow $n	- is $n following someone */
-    "isactive",		/* if isactive $n	- is $n's position > MSG_SLEEPING */
+    "isactive",		/* if isactive $n	- is $n's position > " is sleeping here." */
     "isdelay",		/* if isdelay $i	- does $i have mobprog pending */
     "isvisible",	/* if isvisible $n	- can mob see $n */
     "isghost",		/* if isghost $n	- is $n ghost */
@@ -537,10 +537,10 @@ int cmd_eval(int vnum, const char *line, int check,
 		case 'p':
 	    	    return(lval_obj != NULL && can_see_obj(mob, lval_obj));
 	    }
-	case CHK_HASMSG_TARGET:
+	case CHK_HASTARGET:
 	    return(lval_char != NULL && lval_char->mprog_target != NULL
 		&&  lval_char->in_room == lval_char->mprog_target->in_room);
-	case CHK_ISMSG_TARGET:
+	case CHK_ISTARGET:
 	    return(lval_char != NULL && mob->mprog_target == lval_char);
 	case CHK_ISGHOST:
 		return (lval_char && IS_SET(lval_char->act, PLR_GHOST));

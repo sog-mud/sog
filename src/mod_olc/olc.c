@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.21 1998-09-20 17:01:44 fjoe Exp $
+ * $Id: olc.c,v 1.22 1998-09-22 18:07:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -190,7 +190,7 @@ bool olced_number(CHAR_DATA *ch, const char *argument, OLC_FUN* fun, int *pInt)
 		return FALSE;
 
 	*pInt = val;
-	char_nputs(MSG_OK, ch);
+	char_puts("Ok.\n\r", ch);
 	return TRUE;
 }
 
@@ -212,7 +212,7 @@ bool olced_str(CHAR_DATA *ch, const char *argument, OLC_FUN *fun, char **pStr)
 
 	free_string(*pStr);
 	*pStr = str_dup(argument);
-	char_nputs(MSG_OK, ch);
+	char_puts("Ok.\n\r", ch);
 	return TRUE;
 }
 
@@ -245,7 +245,7 @@ bool olced_mlstr(CHAR_DATA *ch, const char *argument,
 		char_printf(ch, "Syntax: %s lang string\n\r", cmd->name);
 		return FALSE;
 	}
-	char_nputs(MSG_OK, ch);
+	char_puts("Ok.\n\r", ch);
 	return TRUE;
 }
 
@@ -261,7 +261,7 @@ bool olced_mlstrnl(CHAR_DATA *ch, const char *argument,
 		char_printf(ch, "Syntax: %s lang string\n\r", cmd->name);
 		return FALSE;
 	}
-	char_nputs(MSG_OK, ch);
+	char_puts("Ok.\n\r", ch);
 	return TRUE;
 }
 

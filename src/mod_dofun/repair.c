@@ -1,5 +1,5 @@
 /*
- * $Id: repair.c,v 1.8 1998-09-20 17:01:02 fjoe Exp $
+ * $Id: repair.c,v 1.9 1998-09-22 18:07:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -619,7 +619,7 @@ void do_smithing(CHAR_DATA *ch, const char *argument)
 
 	if ((sn = sn_lookup("smithing")) < 0
 	||  (chance = get_skill(ch, sn)) == 0) {
-		char_nputs(MSG_HUH, ch);
+		char_puts("Huh?\n\r", ch);
 		return;
 	}
 

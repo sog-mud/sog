@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.25 1998-09-17 15:51:23 fjoe Exp $
+ * $Id: special.c,v 1.26 1998-09-22 18:07:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -696,8 +696,6 @@ bool spec_cast_seneschal(CHAR_DATA *ch)
 	return TRUE;
 }
 
-
-
 bool spec_cast_undead(CHAR_DATA *ch)
 {
 	CHAR_DATA *victim;
@@ -749,7 +747,6 @@ bool spec_cast_undead(CHAR_DATA *ch)
 	return TRUE;
 }
 
-
 bool spec_executioner(CHAR_DATA *ch)
 {
 	CHAR_DATA *victim;
@@ -780,8 +777,6 @@ bool spec_executioner(CHAR_DATA *ch)
 	return TRUE;
 }
 
-			
-
 bool spec_fido(CHAR_DATA *ch)
 {
 	OBJ_DATA *corpse;
@@ -798,8 +793,7 @@ bool spec_fido(CHAR_DATA *ch)
 	if (corpse->item_type != ITEM_CORPSE_NPC)
 	    continue;
 
-	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
-			MSG_SAVAGELY_DEVOURS_CORPSE);
+	act("$n savagely devours a corpse.", ch, NULL, NULL, TO_ROOM);
 	for (obj = corpse->contains; obj; obj = obj_next)
 	{
 	    obj_next = obj->next_content;
@@ -813,7 +807,6 @@ bool spec_fido(CHAR_DATA *ch)
 	return FALSE;
 }
 
-
 bool spec_janitor(CHAR_DATA *ch)
 {
 	OBJ_DATA *trash;
@@ -822,27 +815,23 @@ bool spec_janitor(CHAR_DATA *ch)
 	if (!IS_AWAKE(ch))
 	return FALSE;
 
-	for (trash = ch->in_room->contents; trash != NULL; trash = trash_next)
-	{
-	trash_next = trash->next_content;
-	if (!IS_SET(trash->wear_flags, ITEM_TAKE) || !can_loot(ch,trash))
-	    continue;
-	if (trash->item_type == ITEM_DRINK_CON
-	||   trash->item_type == ITEM_TRASH
-	||   trash->cost < 10)
-	{
-	    act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
-			MSG_PICKS_SOME_TRASH);
-	    obj_from_room(trash);
-	    obj_to_char(trash, ch);
-	    return TRUE;
-	}
+	for (trash = ch->in_room->contents; trash != NULL; trash = trash_next) {
+		trash_next = trash->next_content;
+		if (!IS_SET(trash->wear_flags, ITEM_TAKE)
+		||  !can_loot(ch, trash))
+			continue;
+		if (trash->item_type == ITEM_DRINK_CON
+		||  trash->item_type == ITEM_TRASH
+		||  trash->cost < 10) {
+			act("$n picks up some trash.", ch, NULL, NULL, TO_ROOM);
+			obj_from_room(trash);
+			obj_to_char(trash, ch);
+			return TRUE;
+		}
 	}
 
 	return FALSE;
 }
-
-
 
 bool spec_mayor(CHAR_DATA *ch)
 {
@@ -953,8 +942,6 @@ bool spec_mayor(CHAR_DATA *ch)
 	return FALSE;
 }
 
-
-
 bool spec_poison(CHAR_DATA *ch)
 {
 	CHAR_DATA *victim;
@@ -964,13 +951,12 @@ bool spec_poison(CHAR_DATA *ch)
 	||   number_percent() > 2 * ch->level)
 	return FALSE;
 
-	act_nprintf(ch, NULL, victim, TO_CHAR, POS_DEAD, MSG_YOU_BITE_N);
-	act_nprintf(ch, NULL, victim, TO_NOTVICT, POS_RESTING, MSG_N_BITES_N);
-	act_nprintf(ch, NULL, victim, TO_VICT, POS_DEAD, MSG_N_BITES_YOU);
+	act_puts("You bite $N!", ch, NULL, victim, TO_CHAR, POS_DEAD);
+	act("$n bites $N!", ch, NULL, victim, TO_NOTVICT);
+	act_puts("$n bites you!", ch, NULL, victim, TO_VICT, POS_DEAD);
 	spell_poison(gsn_poison, ch->level, ch, victim,TARGET_CHAR);
 	return TRUE;
 }
-
 
 bool spec_thief(CHAR_DATA *ch)
 {
@@ -1102,9 +1088,9 @@ bool spec_guard(CHAR_DATA *ch)
 			do_say(ch, vmsg(MSG_DO_I_KNOW_YOU, ch, victim));
  			if (str_cmp(ch->in_room->area->name,
 				    hometown_table[victim->hometown].name))
-				do_say(ch, msg(MSG_DONT_REMEMBER_YOU, ch));
+				do_say(ch, "I don't remember you. Go away!");
 			else {
-				do_say(ch, msg(MSG_OK_MY_DEAR, ch));
+				do_say(ch, vmsg(MSG_OK_MY_DEAR, victim, ch));
 				interpret(ch, "smile");
 			}
 		}

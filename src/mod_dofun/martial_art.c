@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.37 1998-09-19 11:13:24 fjoe Exp $
+ * $Id: martial_art.c,v 1.38 1998-09-22 18:07:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1071,7 +1071,7 @@ void do_nerve(CHAR_DATA *ch, const char *argument)
 	one_argument(argument,arg);
 
 	if ((chance = get_skill(ch, gsn_nerve)) == 0) {
-		char_nputs(MSG_HUH, ch);
+		char_puts("Huh?\n\r", ch);
 		return;
 	}
 	if (ch->fighting == NULL) {
@@ -1170,7 +1170,7 @@ void do_tame(CHAR_DATA *ch, const char *argument)
 	int chance;
 
 	if ((chance = get_skill(ch, gsn_tame)) == 0) {
-		char_nputs(MSG_HUH, ch);
+		char_puts("Huh?\n\r", ch);
 		return;
 	}
 
@@ -1563,7 +1563,7 @@ void do_blackjack(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((chance = get_skill(ch, gsn_blackjack)) == 0) {
-		char_nputs(MSG_HUH, ch);
+		char_puts("Huh?\n\r", ch);
 		return;
 	}
 
@@ -1701,7 +1701,7 @@ void do_spellbane(CHAR_DATA *ch, const char *argument)
 	int chance;
 
 	if ((chance = get_skill(ch, gsn_spellbane)) == 0) {
-		char_nputs(MSG_HUH, ch);
+		char_puts("Huh?\n\r", ch);
 		return;
 	}
 
@@ -1734,7 +1734,7 @@ void do_resistance(CHAR_DATA *ch, const char *argument)
 	int mana;
 
 	if ((chance = get_skill(ch, gsn_resistance)) == 0) {
-		char_nputs(MSG_HUH, ch);
+		char_puts("Huh?\n\r", ch);
 		return;
 	}
 
@@ -1792,7 +1792,7 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 	int mana;
 	
 	if ((chance = get_skill(ch, gsn_trophy)) == 0) {
-		char_nputs(MSG_HUH, ch);
+		char_puts("Huh?\n\r", ch);
 		return;
 	}
 	
@@ -1920,7 +1920,7 @@ void do_truesight(CHAR_DATA *ch, const char *argument)
 	int chance;
 
 	if ((chance = get_skill(ch, gsn_truesight)) == 0) {
-		char_nputs(MSG_HUH, ch);
+		char_puts("Huh?\n\r", ch);
 		return;
 	}
 
@@ -1975,7 +1975,7 @@ void do_warcry(CHAR_DATA *ch, const char *argument)
 	int mana;
 	
 	if ((chance = get_skill(ch, gsn_warcry)) == 0) {
-		char_nputs(MSG_HUH, ch);
+		char_puts("Huh?\n\r", ch);
 		return;
 	}
 	
@@ -2026,7 +2026,7 @@ void do_guard(CHAR_DATA *ch, const char *argument)
 	int chance;
 	
 	if ((chance = get_skill(ch, gsn_guard)) == 0) {
-		char_nputs(MSG_HUH, ch);
+		char_puts("Huh?\n\r", ch);
 		return;
 	}
 
@@ -2279,7 +2279,7 @@ void do_tiger(CHAR_DATA *ch, const char *argument)
 	int mana;
 
 	if ((chance = get_skill(ch, gsn_tiger_power)) == 0) {
-		char_nputs(MSG_HUH, ch);
+		char_puts("Huh?\n\r", ch);
 		return;
 	}
 	act("$n calls the power of 10 tigers!.", ch, NULL, NULL, TO_ROOM);
@@ -2686,7 +2686,7 @@ void do_tail(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg);
  
 	if ((chance = get_skill(ch, gsn_tail)) == 0) {
-		char_nputs(MSG_HUH, ch);
+		char_puts("Huh?\n\r", ch);
 		return;
 	}
  
@@ -2878,7 +2878,7 @@ void do_bandage(CHAR_DATA *ch, const char *argument)
 	int chance;
 
 	if ((chance = get_skill(ch,gsn_bandage)) == 0) {
-		char_nputs(MSG_HUH, ch);
+		char_puts("Huh?\n\r", ch);
 		return;
 	}
 
@@ -2929,7 +2929,7 @@ void do_katana(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg);
 	
 	if ((chance = get_skill(ch, gsn_katana)) == 0) {
-		char_nputs(MSG_HUH, ch);
+		char_puts("Huh?\n\r", ch);
 		return;
 	}
 	
@@ -3121,7 +3121,7 @@ void do_sense(CHAR_DATA *ch, const char *argument)
 	int mana;
 
 	if ((chance = get_skill(ch, gsn_sense_life)) == 0) {
-		char_nputs(MSG_HUH, ch);
+		char_puts("Huh?\n\r", ch);
 		return;
 	}
 
@@ -3172,7 +3172,7 @@ void do_poison_smoke(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *vch_next;
 
 	if ((chance = get_skill(ch, gsn_poison_smoke)) == 0) {
-		char_nputs(MSG_HUH, ch);
+		char_puts("Huh?\n\r", ch);
 		return;
 	}
 
@@ -3215,7 +3215,7 @@ void do_blindness_dust(CHAR_DATA *ch, const char *argument)
 	int mana;
 
 	if ((chance = get_skill(ch, gsn_blindness_dust)) == 0) {
-		char_nputs(MSG_HUH, ch);
+		char_puts("Huh?\n\r", ch);
 		return;
 	}
 
