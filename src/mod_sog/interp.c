@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.168 1999-12-15 20:12:26 avn Exp $
+ * $Id: interp.c,v 1.169 1999-12-20 19:38:00 avn Exp $
  */
 
 /***************************************************************************
@@ -214,7 +214,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		/*
 		 * Look for command in socials table.
 		 */
-		if ((soc = social_lookup(command)) == NULL) {
+		if ((soc = social_search(command)) == NULL) {
 			char_puts("Huh?\n", ch);
 			return;
 		}
