@@ -676,7 +676,7 @@ Get back to questor before your time runs out!
 @eng You wear $p about your waist.@rus Ты надеваешь $p на талию.~
 @eng $N is using:@rus $N использует:~
 @eng There's no room on $p for you.@rus На $p больше нет места.~
-@eng You say '{G$T{x'@rus Ты произносишь: "{G$T{x"~
+@eng You say '{G$t{x'@rus Ты произносишь: "{G$t{x"~
 @eng $n tries to camouflage $mself against the lone leaf on the ground.@rus $n пытается замаскироваться под одинокий лист на дороге.~
 @eng As $n sacrifices the corpse, @rus На жертвенном костре $n осталось лежать ~
 @eng They must be sleeping.
