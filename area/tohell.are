@@ -299,8 +299,8 @@ A decaying pile of bones lies on the ground.
 Stringy bits of flesh blow gently in the breeze. The bones rattle as you walk
 by them.
 ~
-human~
-AB J -700 0
+undead~
+ABO 0 -700 0
 37 0 10d10+1500 18d9+100 3d10+12 none
 -12 -12 -12 5
 EFNU 0 0 E
@@ -1385,7 +1385,7 @@ an unholy symbol~
 A sinister-looking symbol of evil lies here smoldering.~
 unknown~
 wand 0 AO
-53 10 10 'cure poison' 0
+53 10 10 'black shroud' 0
 12 20 5300 P
 G none
 #10426
@@ -4872,5 +4872,9 @@ S
 10451 0 0 0 0 0 110 75 0 23
 10454 2 3 4 10 0 225 15 0 23
 0
+
+#OLIMITS
+O 10425 1	* an unholy symbol
+S
 
 #$

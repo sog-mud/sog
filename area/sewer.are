@@ -736,8 +736,8 @@ orb dragonorb~
 the Red DragonOrb~
 A large reddish sphere is in the center of the room.~
 emerald~
-staff GJ AO
-13 10 10 'sanctuary' 0
+staff GJP AO
+13 2 2 'sanctuary' 0
 21 50 18600 P
 A
 4 2

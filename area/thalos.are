@@ -255,7 +255,7 @@ a black potion~
 A jet black potion sits upright waiting to be taken.~
 glass~
 potion FG A
-16 'blindness' 'sanctuary' 'giant strength' ''
+16 'blindness' 'black shroud' 'giant strength' ''
 11 50 880 P
 G none
 #5211
@@ -2270,6 +2270,8 @@ S
 
 #OLIMITS
 O 5208 1	* a sturdy iron shield
+O 5210 10	* a black potion
+O 5211 2	* an orange potion
 S
 
 #PRACTICERS

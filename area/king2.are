@@ -31,11 +31,11 @@ You hear a frightening wail, and see a horrible Ghost approaching.
 ~
 The Ghost is almost translucent, and looks really SCARY!
 ~
-modron~
-ACFHR BDFITU -900 0
+ghost~
+ACFHR BDFIU -900 0
 30 0 6d12+778 299d1+1 5d4+7 wrath
 -9 -9 -9 1
-GK A 0 D
+K A 0 D
 stand stand either 0
 0 0 small unknown
 #15203

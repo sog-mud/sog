@@ -2923,6 +2923,10 @@ M 0 21035 1 21061 1	* the Knave of Hearts (The Witness Box)
 G 0 21059 0		*	the Queen's tarts
 S
 
+#OLIMITS
+O 21025 5	* a pigeon egg
+S
+
 #MOBPROGS
 #21000
 emote raises her eyebrows quizzically.

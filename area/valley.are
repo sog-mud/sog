@@ -2325,4 +2325,8 @@ O 0 7823 0 7882	* a scroll (The Storage Room)
 M 0 7812 1 7882 1	* the guardian daemon (The Storage Room)
 S
 
+#OLIMITS
+O 7810 1	* a potion
+S
+
 #$

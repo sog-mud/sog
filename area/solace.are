@@ -182,7 +182,7 @@ The ghost of Jander is as he was in life. A rather large man with flaming
 red hair. His clothes seems dirty and tattered. His bushy beard obscures
 his stone face.
 ~
-human~
+ghost~
 AB 0 900 0
 15 0 3d9+208 5d5+100 2d6+3 magic
 -2 -2 -2 6
@@ -197,7 +197,7 @@ a ghost of a waiter is here waiting to serve you.
 This is the ghost of a long dead waiter. Probably one of the many that 
 Jander killed for spilling a drink or something.
 ~
-human~
+ghost~
 AB 0 900 0
 15 0 3d9+208 5d5+100 2d6+3 magic
 -2 -2 -2 6
@@ -212,7 +212,7 @@ a ghost of a barkeeper is here waiting an eternity to take your order.
 This is probably another of Jander's victims. Probably got caught with
 his hand in the cash or something.
 ~
-human~
+ghost~
 ABe 0 900 0
 13 0 2d10+170 5d5+100 2d5+3 magic
 -1 -1 -1 6
@@ -551,7 +551,7 @@ a ghost of a gambler is floating here looking for something to bet on.
 ~
 Even in death this sad spirit is looking to gamble.
 ~
-human~
+ghost~
 AB 0 -200 0
 10 0 2d7+121 5d5+100 2d4+2 charge
 1 1 1 7
@@ -955,7 +955,7 @@ bracer~
 a obsidian bracer~
 You see a obsidian bracer here.~
 copper~
-armor 0 BM
+armor 0 AM
 9 9 9 0 0
 30 9 300 P
 G none
@@ -4971,5 +4971,9 @@ S
 10226 15 0 0 0 0 125 75 4 20
 10227 0 0 0 0 0 105 15 0 23
 0
+
+#OLIMITS
+O 10225 3	* black hilted sword called, "Shieldbreaker"
+S
 
 #$

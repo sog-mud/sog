@@ -1533,7 +1533,7 @@ night's blood~
 A drop of the blood of the Queen of night.~
 unknown~
 potion G AO
-80 'pass door' 'sanctuary' '' ''
+80 'pass door' 'black shroud' '' ''
 82 3 3000 P
 G none
 #12050
@@ -6259,6 +6259,10 @@ M 0 12046 1 12157 1	* A CuSidhe (Under the Hill)
 M 0 12047 1 12157 1	* A BoSidhe (Under the Hill)
 M 0 12048 1 12157 1	* A CatSidhe (Under the Hill)
 M 0 12049 1 12157 1	* A BranSidhe (Under the Hill)
+S
+
+#OLIMITS
+O 12049 1	* night's blood
 S
 
 #$

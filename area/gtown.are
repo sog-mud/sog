@@ -69,8 +69,8 @@ The spirit of some former minion of this place, this foul Undead creature
 will do its best you meet the same fate as all previous intruders in this
 fell domain- DEATH.
 ~
-undead~
-AFGO T -1000 0
+ghost~
+AFG 0 -1000 0
 48 0 25d10+3750 10d10+110 6d6+18 pound
 -18 -18 -18 2
 EFNU 0 0 X
@@ -293,11 +293,11 @@ the Undead to this town, destroying it, before losing control of them. He
 has fled here, in the hopes that they won't find him before he finds a way
 to escape his terrible mistake.
 ~
-undead~
+lich~
 ABGHO 0 -400 0
 50 0 50d10+4250 10d10+1000 5d8+19 pound
 -20 -20 -20 2
-EFNQ 0 0 0
+ENQ 0 0 0
 stand stand none 1297
 0 0 medium unknown
 #8118
@@ -325,11 +325,11 @@ Little is known of this mysterious stranger who came here and took control
 after the weak Xantharus lost control of his creations. He is a powerful,
 diabolically evil mage, and will not hesitate to destroy you.
 ~
-human~
+lich~
 ABFGHO CDEFu -1000 0
 60 0 50d10+6750 10d10+1000 8d6+28 pierce
 -30 -30 -30 0
-EFNQ 0 0 0
+ENQ 0 0 0
 stand stand none 1374
 0 0 medium unknown
 #8120
@@ -3125,6 +3125,7 @@ S
 
 #OLIMITS
 O 8100 1	* the Rod of Orcus
+O 8110 1	* a Power Gem
 O 8113 1	* a Suit of Dark Armor
 S
 

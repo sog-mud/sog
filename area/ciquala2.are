@@ -15,11 +15,11 @@ The Guardian Lich steps out of the shadows and attacks!
 The Guardian lich looks like a decaying corpse, with small glowing points of
 light for eyes.
 ~
-human~
-ABCF BJQT -1000 0
+lich~
+ABCFO BJQT -1000 0
 43 0 25d10+2750 329d1+100 8d4+15 slash
 -15 -15 -15 5
-BCDEH AB T K
+BCDE A T K
 stand stand male 1200
 0 0 medium unknown
 #13401
@@ -216,11 +216,11 @@ A blackened creature stands here, ready to cause you excruciating pain.
 ~
 You'd better not look to close, he may charm you.
 ~
-human~
-ABF Ju -1000 0
+lich~
+ABFO Ju -1000 0
 51 0 50d10+4800 409d1+100 5d8+20 pierce
 -22 -22 -22 2
-B AB 0 K
+B A 0 K
 stand stand male 1607
 0 0 medium unknown
 #13414
@@ -246,11 +246,11 @@ the oldest of all the undead.
 Ciquala still looks majestic after all these thousands of years.  But you can
 see the menace in her eye as she looks at you, and prepares her first spell.
 ~
-human~
-ABF DFJTu -1000 0
+lich~
+ABFO DFJTu -1000 0
 62 0 50d15+10000 519d1+100 6d9+29 pierce
 -35 -35 -35 -1
-BCDEH AB T K
+BCDE A T K
 stand stand female 2143
 0 0 medium unknown
 #13416
@@ -261,11 +261,11 @@ The Lich wonders what you are doing in its crypt.
 The Lich looks like a decaying corpse, with small glowing points of
 light for eyes.
 ~
-human~
-ABCF BDJ -1000 0
+lich~
+ABCFO BDJ -1000 0
 47 0 25d10+3500 369d1+100 6d6+17 slash
 -17 -17 -17 1
-B AB 0 K
+B A 0 K
 stand stand male 1393
 0 0 medium unknown
 #13417
@@ -345,7 +345,7 @@ ciquala's staff~
 A black staff lies on the ground.~
 wood~
 staff GHJM AO
-40 20 20 'cure critical' 0
+40 20 20 'black shroud' 0
 54 20 22100 P
 A
 19 6
@@ -441,7 +441,7 @@ a vial with milky liquid~
 A vial with milky liquid sits on the shelf.~
 glas~
 potion 0 A
-30 'heal' 'pass door' 'teleport' 'sanctuary'
+30 'heal' 'pass door' 'teleport' 'black shroud'
 20 20 4400 P
 G none
 #13414
@@ -1045,6 +1045,14 @@ M 0 13416 4 13419 2	* Lich (The hidden crypt of Ciquala)
 M 0 13416 4 13419 2	* Lich (The hidden crypt of Ciquala)
 M 0 13417 4 13419 2	* vampire (The hidden crypt of Ciquala)
 M 0 13417 4 13419 2	* vampire (The hidden crypt of Ciquala)
+S
+
+#OLIMITS
+O 13400 5	* Ciquala's sword
+O 13402 1	* ciquala's staff
+O 13407 3	* a blue potion
+O 13408 1	* an emerald vial
+O 13413 1	* a vial with milky liquid
 S
 
 #HELPS

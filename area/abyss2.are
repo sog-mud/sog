@@ -21,11 +21,11 @@ An aura of cold and darkness radiates from it, which makes it an ominous and
 fearsome sight. Despite the wasted, rotten flesh it is garbed in the rich 
 clothes of nobility.
 ~
-human~
-ABCF DJu -1000 0
+lich~
+ABCFO DJu -1000 0
 47 0 25d10+3500 469d1+1 6d6+17 punch
 -17 -17 -17 3
-CDIKLN AB E CK
+CDIKLN A E CK
 stand stand male 1265
 0 0 medium unknown
 #25001
@@ -243,8 +243,8 @@ This creature is the result of a powerful mage animating the dead remains
 of a once mighty warrior. Its eyes are fixed coldly upon you, unsheathing
 its sword, he charges for battle.
 ~
-human~
-ABCF Ju -1000 0
+undead~
+ABCFO u -1000 0
 38 0 10d10+1600 379d1+1 4d8+13 punch
 -13 -13 -13 5
 BCEGK AB D H

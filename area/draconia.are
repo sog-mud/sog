@@ -47,8 +47,8 @@ The lord of this crypt is here.
 ~
 He doesn't look happy to see you.
 ~
-human~
-ABCF T -1000 0
+undead~
+ABCFO T -1000 0
 27 0 5d10+650 13d9+100 5d4+7 none
 -8 -8 -8 6
 EFNU 0 0 0

@@ -373,7 +373,7 @@ a frothing black potion~
 You see a frothing black potion. ~
 glass~
 potion BG AO
-15 'heal' 'curse' 'heal' 'remove curse'
+15 'cure critical' 'curse' 'cure critical' 'remove curse'
 10 20 10000 G
 E
 frothing black potion~

@@ -1256,7 +1256,7 @@ the Royal Staff~
 King Loranhir's golden staff lies here.~
 wood~
 staff L AO
-45 10 10 'heal' 0
+30 10 10 'heal' 0
 30 10 1000 P
 A
 5 1
@@ -1345,7 +1345,7 @@ a pill of mana and life restoration~
 A glittering silver pill lies here.~
 silver~
 pill H A
-30 'heal' 'refresh' 'teleport' ''
+15 'heal' 'refresh' 'teleport' ''
 15 3 0 P
 G none
 #19018
@@ -3213,11 +3213,11 @@ Z -1 3500
 S
 #19002
 The Path~
-The row of trees comes to an end here; the fields to either side of the rising
-path slope downward and away.  The path continues its rise to the north,
-climbing higher and higher until it intersects the largest mountain in the 
-range, nestled between a smaller mountain to the right and a deep ridge to the
-left.
+The row of trees comes to an end here; the fields to either side of the
+rising path slope downward and away.  The path continues its rise to the
+north, climbing higher and higher until it intersects the largest mountain
+in the range, nestled between a smaller mountain to the right and a deep
+ridge to the left.  
 ~
 0 0 hills
 D1
@@ -7076,6 +7076,7 @@ S
 0
 
 #OLIMITS
+O 19011 2	* a silver harp
 O 19033 1	* a unicorn's golden horn
 O 19062 1	* a sea-blue robe
 O 19110 1	* an eclipse sword

@@ -550,11 +550,11 @@ A tournamen mage is here, perfecting her spells.
 A tournament anti-paladin utters the words 'Algetharb'! She is far to busy 
 perfecting her spells to speak with you. Maybe later.
 ~
-giant~
-ABR CDEFJu -1000 0
+zombie~
+ABOR CDEFJu -1000 0
 38 0 10d10+1900 1d1+200 5d6+12 pierce
 -12 -12 -12 4
-CDEFIKN ABL N K
+CDEFIKN A N K
 stand stand female 1088
 0 0 large unknown
 #18037
@@ -1057,6 +1057,7 @@ ABJKTVb DFJ -100 0
 BEFHJKN AB B Z
 stand stand male 713
 0 0 large unknown
+I 92
 #18070
 anti-paladin guildguard~
 the guildguard~
@@ -1635,7 +1636,7 @@ a Magical Potion of The Holy Touch.~
 A potion lies here in the dirt.~
 glass~
 potion AB A
-50 'bless' 'protection evil' 'haste' 'shield'
+20 'bless' 'protection evil' 'armor' 'shield'
 20 100 25000 P
 G none
 #18031
@@ -1644,7 +1645,7 @@ a Magical Potion of Deadly Combat.~
 A potion lies here in the dirt.~
 glass~
 potion AB A
-50 'frenzy' 'stone skin' 'giant strength' 'armor'
+20 'frenzy' 'stone skin' 'giant strength' 'armor'
 20 100 19000 P
 G none
 #18032
@@ -1653,7 +1654,7 @@ a Magical Potion to Cure Battle Wounds~
 A potion lies here in the dirt.~
 glass~
 potion AB A
-40 'cure serious' 'cure critical' 'heal' ''
+40 'cure serious' 'cure light' 'cure light' ''
 20 50 10500 P
 G none
 #18033
@@ -2230,7 +2231,7 @@ a Magical Potion of Cure Sickness.~
 A potion lies here in the dirt.~
 glass~
 potion AB A
-90 'remove curse' 'cure blindness' 'cure poison' 'cure disease'
+50 'remove curse' 'cure blindness' 'cure poison' 'cure disease'
 20 50 50333 P
 G none
 #18100

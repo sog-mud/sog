@@ -2599,3 +2599,223 @@ hi, there!
 happy mudding,
 {WTyan{x
 ~
+Sender  Marewell~
+Date    Thu Apr  6 07:08:36 2000~
+Stamp   954990516
+To      all~
+Subject mobs death~
+Text
+Hi.
+Теперь в момент смерти моба часть его экипировки будет разрушаться.
+Вероятность этого будет зависеть от разницы уровней моба и убийцы.
+ 
+{WMarewell{x.
+~
+Sender  Tyan~
+Date    Thu Apr  6 11:11:37 2000~
+Stamp   955005097
+To      all~
+Subject mobs death~
+Text
+On Thu Apr  6 07:08:36 2000 Marewell {xwrote to all:
+{x
+> Теперь в момент смерти моба часть его экипировки будет разрушаться.
+> Вероятность этого будет зависеть от разницы уровней моба и убийцы.
+ 
+разрушается только armor и weapon.
+разрушение происходит только при убийстве игроком моба
+ 
+{WTyan{x
+~
+Sender  Rakot~
+Date    Thu Apr  6 15:54:52 2000~
+Stamp   955022092
+To      all~
+Subject New LIMITED~
+Text
+Hello !
+Меч, известный вам как black hilted sword called, "Shieldbreaker" становится лимитным.
+limited by 3
+Good luck !
+Rakot the CREATOR
+~
+Sender  Rakot~
+Date    Thu Apr  6 16:42:21 2000~
+Stamp   955024941
+To      all~
+Subject NEW LIMITED. Version 2~
+Text
+Hello one time :)
+limited by 5 воодится на ciquala's sword (55 левел), а также на stiletto shadow shadow's edge (87 левел)
+Good luck !
+Rakot the CREATOR
+~
+Sender  Tyan~
+Date    Mon Apr 10 13:30:44 2000~
+Stamp   955359044
+To      all~
+Subject quest cancel~
+Text
+hi, there!
+ 
+quest cancel implemented
+ 
+happy mudding,
+{WTyan{x
+~
+Sender  Tyan~
+Date    Mon Apr 10 16:42:05 2000~
+Stamp   955370525
+To      all~
+Subject some minor changes~
+Text
+hi, there!
+ 
+после ребута произойдут следующие изменения:
+- скилла 'secondary attack' не станет. атака вторым оружием
+будет проходить с некоторой вероятностью после каждой
+атаки первым.
+- вероятность прохождения второй, третьей, четвертой и пятой
+атаки будет больше при наличии аффекта haste
+- проблемки с оружием, остающимся в offhand после того как по какой-то
+причине (кроме disarm) не остается primary оружия должны исчезнуть
+- нельзя будет есть и пить в бою ("нельзя" будет происходить без
+задержек), есть пиллы в бою можно будет по-прежнему
+со старыми задержками.
+ 
+happy mudding, 
+{WTyan{x
+~
+Sender  Tyan~
+Date    Wed Apr 12 17:36:13 2000~
+Stamp   955546573
+To      all~
+Subject eq destruction~
+Text
+hi, there!
+ 
+совсем забыл сказать: eq больше при смерти не разрушается.
+ 
+{WTyan{x
+~
+Sender  Tyan~
+Date    Wed Apr 12 18:34:26 2000~
+Stamp   955550066
+To      all~
+Subject pills~
+Text
+hi, there!
+ 
+есть пиллы большего левела теперь нельзя
+ 
+{WTyan{x
+~
+Sender  Marewell~
+Date    Mon Apr 17 18:40:04 2000~
+Stamp   955982404
+To      all~
+Subject Some changes~
+Text
+Hi. Накопилась куча изменений, о которых вам стоило бы узнать.
+
+1. в summon теперь правильно проверяются saves vs spell.
+2. witch curse работает теперь иначе - оно не действует на мобов уровнем
+   выше ведьмы.
+   witch curse теперь не убивает - а только уменьшает максимальное кол-во
+   жизни до нуля. При нуле hp жертва естественно лежит оглушенная.
+3. 'power word kill', 'death wave', 'death ripple' могут теперь кастовать
+   только undeads.
+   'power word kill' не убивает undeads.
+   'death ripple', 'death wave' не наносят damage undead'ам. В свою очередь
+   undeads в зоне поражения этих заклинаний не начинают бой с некромантом.
+4. В 'weapon cleave' несколько увеличен chance для cleaver'а за счет
+   усиления влияния на вероятность силы cleaver'a.
+ 
+{WMarewell{x.
+~
+Sender  Marewell~
+Date    Mon Apr 17 20:18:39 2000~
+Stamp   955988319
+To      all~
+Subject some objects limited now.~
+Text
+Hi.
+staff of guarding - limit by 2.
+ancient tome - limit by 1.
+ 
+{WMarewell{x.
+~
+Sender  Marewell~
+Date    Tue Apr 18 16:08:05 2000~
+Stamp   956059685
+To      all~
+Subject New limits.~
+Text
+Hi.
+troll stone - limit by 1
+harp silver (in Mirrors Realm) - limit by 2
+Power Gem - limit by 1
+
+{WMarewell{x.
+~
+Sender  Marewell~
+Date    Wed Apr 19 16:02:42 2000~
+Stamp   956145762
+To      all~
+Subject last changes~
+Text
+Hi.
+Раса существа теперь отображается в long desc (видна в look без параметров)
+
+Многочисленные изменения в объектах - pills, wands, staffs, scrolls,
+potions. Некоторые объекты теперь больше не появляются (mage pills,
+battle pills & etc. в festival town). На многих уменьшен уровень,
+поставлено ограничение на количество (limit), изменены заклинания.
+На некоторых вещах подобного рода появился bsh - там где это посчитали 
+логичным. Количество вещей с bsh приблизительно соответствует количетву
+вещей с sanctuary.
+Стали редкими вещи с heal. не осталось вещей с bless выше 30го уровня.
+Все вещи (или почти все) с black shroud и sanctuary - лимитные.
+ 
+sanctuary больше НЕ ставится на evils.
+То есть теперь black shroud ставится только на evils.
+sanctuary ставится только на neutrals и на good.
+ 
+Сломать (weapon cleave) топор или двуручный меч стало тяжелей.
+ 
+{WMarewell{x
+~
+Sender  Marewell~
+Date    Wed Apr 19 16:17:58 2000~
+Stamp   956146678
+To      all~
+Subject 'cure critical'~
+Text
+Hi.
+У ниньзи больше нету *subj*'a.
+{WMarewell{x.
+~
+Sender  Marewell~
+Date    Thu Apr 20 11:55:23 2000~
+Stamp   956217323
+To      all~
+Subject toggle race~
+Text
+Hi.
+После ребута появится новый toggle флаг - 'race'.
+Его назначение - управление выводом расы в long desc (при look).
+ 
+{WMarewell{x.
+~
+Sender  Marewell~
+Date    Sat Apr 22 13:51:28 2000~
+Stamp   956397088
+To      all~
+Subject chaos blade~
+Text
+Hi.
+Тип Chaos blade выбирается теперь случайным образом из следующего списка:
+exotic, mace, polearm, sword, dagger.
+ 
+{WMarewell{x.
+~

@@ -519,7 +519,7 @@ ambrosia~
 A vial of ambrosia lies here.~
 glass~
 potion FGK A
-30 'dispel evil' 'heal' '' ''
+30 'dispel evil' 'cure critical' '' ''
 11 10 1130 P
 G none
 #910
@@ -1683,8 +1683,10 @@ S
 
 #OLIMITS
 O 901 1	* the Thunder Bolt
+O 905 2	* an ivory staff
 O 908 2	* flaming gauntlets
 O 923 1	* the Sword of the Sun
+O 926 10	* nectar
 S
 
 #OMPROGS

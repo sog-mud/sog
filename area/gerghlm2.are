@@ -847,8 +847,8 @@ Death is here waiting for you.
 It is strong, impertubable looking creature. It notice that you look at its, 
 and it says: 'Have a nice day'. Hm?... Death is your only way, probably...
 ~
-human~
-ABGIT CDF 100 0
+undead~
+ABGIOT 0 100 0
 60 0 50d10+9500 599d1+1 8d6+28 slap
 -30 -30 -30 0
 A 0 0 C
@@ -917,8 +917,8 @@ a bunch of red herbs~
 A bunch of strengthening herbs is growing here.~
 food~
 pill 0 A
-2 'giant strength' 'refresh' 'haste' ''
-1 15 855 P
+2 'giant strength' 'refresh' 'refresh' 'refresh'
+1 15 500 P
 G none
 #7508
 healing herb green bunch~

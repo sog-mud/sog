@@ -465,11 +465,11 @@ A tall, cowled figure stands here, radiating an aura of power.
 Fierce red eyes flash eerily from within the dark cowl.  One arm raises, and
 you notice that the fingers are clawed and bloody..
 ~
-human~
-ABCFGR DFGJO -800 0
+lich~
+ABCFGOR DFGO -800 0
 64 0 50d10+8000 1d10+2000 9d6+0 claw
 -30 -32 -31 -30
-FG M I HNY
+G M I HY
 stand stand either 0
 0 0 medium unknown
 #11629
@@ -2276,7 +2276,7 @@ a bubbling indigo potion~
 A deep indigo potion bubbles here.~
 crystal~
 potion A AO
-80 'detect magic' 'heal' 'bless' ''
+80 'detect magic' 'cure critical' 'bless' ''
 70 10 1000 P
 G none
 #11620
@@ -7449,6 +7449,7 @@ S
 0
 
 #OLIMITS
+O 11676 5	* Shadow's Edge
 O 11680 2	* bracers of energy
 O 11693 2	* musical bracers
 O 11708 2	* dark crimson armbands

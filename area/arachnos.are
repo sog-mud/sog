@@ -100,13 +100,13 @@ The ethereal spider strides here, traveling to different worlds.
 ~
 She winks in and out.
 ~
-human~
-ACG 0 1000 0
+undead~
+ACGO 0 1000 0
 10 0 2d7+121 5d9+100 2d4+2 none
 1 1 1 8
 EFNU 0 0 0
 stand stand female 62
-0 0 medium unknown
+D 0 medium unknown
 #6308
 slave human~
 the slave of Arachnos~

@@ -3928,6 +3928,10 @@ S
 5746 1 8 12 13 18 180 80 0 23
 0
 
+#OLIMITS
+O 5811 5	* a book
+S
+
 #HELPS
 -1 firetop~
 Debugged to standard Merc 2.x by Jason Huang (god@@sure.net)

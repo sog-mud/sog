@@ -820,7 +820,7 @@ a foul potion~
 A foul potion rolls around here.~
 copper~
 potion ABG A
-10 'invisibility' 'heal' 'fly' ''
+10 'invisibility' 'cure critical' 'fly' ''
 5 2 50 P
 G none
 #24125

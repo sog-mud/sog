@@ -203,8 +203,8 @@ The evil necromancer makes undead soldiers from corpses.
 Though he seems absorbed in his work, you'd bet he'd take the time out
 to kill you to get a fresh corpse!
 ~
-human~
-ABF J -888 0
+undead~
+ABFO 0 -888 0
 15 0 3d9+208 7d9+100 2d6+3 none
 -2 -2 -2 7
 EFNU 0 0 0
@@ -1792,6 +1792,7 @@ S
 
 #OLIMITS
 O 2005 1	* the sword Excalibur
+O 2008 1	* a flask of holy water
 S
 
 #OMPROGS

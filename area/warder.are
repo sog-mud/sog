@@ -34,6 +34,15 @@ furniture 0 0
 0 0 0 0 0
 0 0 0 P
 G none
+#96001
+skin шкура dragonskin~
+dragonskin~
+The skin of ancient blue dragon lays here.~
+unknown~
+armor 0 K
+0 0 0 0 0
+0 0 0 P
+G none
 #96002
 spring~
 @eng Realy strange spring here.~

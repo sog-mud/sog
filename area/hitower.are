@@ -707,11 +707,11 @@ an imposing figure.  A dark cowl shrouds most of his face, but two blazing
 embers which serve as eyes can be seen through the shadow.
 The Necromancer shrieks some obscenities and orders his minions to attack.
 ~
-human~
-ABCFGHR DJ -950 0
+lich~
+ABCFGHOR D -950 0
 25 0 5d10+500 25d9+100 4d4+6 none
 -6 -6 -6 2
-FU 0 0 0
+U 0 0 0
 stand stand male 584
 0 0 medium unknown
 #1350
@@ -1205,7 +1205,7 @@ a red and white staff~
 A red and white staff is leaning against the wall here~
 ivory~
 staff 0 AO
-20 3 3 'heal' 0
+15 3 3 'heal' 0
 15 80 5600 P
 G none
 #1327

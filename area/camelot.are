@@ -4272,6 +4272,11 @@ S
 17339 0 0 0 0 0 100 100 0 23
 0
 
+#OLIMITS
+O 17307 1	* the holy grail
+O 17317 1	* merlin's staff
+S
+
 #MOBPROGS
 #17301
 if isghost $n

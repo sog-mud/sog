@@ -166,8 +166,8 @@ A necromancer dressed in flowing dark robes
 You turn your gaze on a necromancer who seems to have power flowing
 through every one of her movements.  Her visage is gaunt and strained, it
 seems as if at every moment she is concentrating on a spell of some sort. ~
-human~
-AB DJ -150 0
+undead~
+ABO 0 -150 0
 43 0 25d10+2500 5d5+1000 3d12+15 punch
 -15 -15 -15 2
 EIK 0 0 0
@@ -2110,7 +2110,7 @@ Slime of the enforcing eye~
 Brown putrid slime~
 glass~
 potion G A
-23 'detect invis' 'heal' 'detect magic' ''
+23 'detect invis' 'cure critical' 'detect magic' ''
 10 1 1000 P
 G none
 #16004
@@ -2134,7 +2134,7 @@ G none
 #16006
 gnome mace~
 Glinting gnome mace~
-A dull greyish mace of gnomish design~
+A dull greyish mace of gnomish design.~
 wood~
 weapon I AN
 mace 4 5 pound 0
@@ -2808,7 +2808,7 @@ moss red мох красный~
 @eng Some red moss lies on the ground@rus Немного красного мха (moss) лежит на земле.~
 food~
 pill I A
-12 'cure critical' 'cure critical' 'giant strength' ''
+12 'cure light' 'cure light' 'giant strength' ''
 5 2 100 P
 G male
 #16058
@@ -2818,7 +2818,7 @@ root dirty грязный корень~
 food~
 pill I A
 15 'armor' 'shield' 'stone skin' ''
-5 1 100 P
+10 1 1000 P
 G male
 #16059
 scroll reveal~
@@ -3222,7 +3222,7 @@ Gem of gate~
 A large black gem lies on the ground~
 wood~
 wand BEG AO
-35 5 5 'bless' 0
+20 5 5 'bless' 0
 25 3 100 P
 G none
 #16088
@@ -6406,7 +6406,7 @@ The screams of the city do not penetrate into this section.  On the ground
 lie holy symbols of Farside, RoX's playground.
 
 East and west the street continues, north is the slave's square and south is
-the entrance to Shadow's Shadow (a tavern)
+the entrance to Shadow's Shadow (a tavern).
 ~
 0 ADN city
 E
@@ -7826,13 +7826,12 @@ Z -1 16180
 S
 #16180
 Azurite Street~
-This is azurite street, a gemstone street.  Once long ago it is said that this
-entire cavern was filled with veins of gems and precious metals.  It was
-first mined by the duergar who lost it to the drow.  Much later a mighty
-wizard came to the area and created a huge cavern from the many tunnels. 
-Where the mighty veins once were now only roads exist. 
-
-North and south azurite street stretches onwards
+This is azurite street, a gemstone street.  Once long ago it is said
+that this entire cavern was filled with veins of gems and precious 
+metals. It was wizard came to the area and created a huge cavern from
+the many tunnels. Where the mighty veins once were now only roads exist.
+ 
+North and south azurite street stretches onwards.
 ~
 0 ADN city
 D0

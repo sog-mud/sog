@@ -257,7 +257,7 @@ staff necromancy посох rod~
 @eng Rod made of bone hums casts darkness arounf it.@rus Костяной посох (rod), кажется, поглощает весь свет.~
 bone~
 staff CGJMZh AO
-70 100 100 'mana drain' 0
+70 10 10 'black shroud' 0
 40 20 0 P
 F I 20 -15 M
 F A 19 20 n
@@ -268,6 +268,50 @@ S 'mana drain' 100 A
 S 'control undead' 50 A
 S 'bone dragon' 80 A
 G male
+#34453
+staff healing посох~
+@eng Staff of Healing@rus ~~Посох~~ лекаря~
+@eng Unsightly wooden staff lies here.@rus Невзрачный деревянных посох (staff) предстал твоему взору.~
+wood~
+staff h AO
+100 5 5 'heal' 0
+1 1 10000 P
+S 'cure light' 100 A
+S 'cure serious' 100 A
+S 'cure critical' 100 A
+S 'heal' 100 A
+G male
+#34454
+aura sanctity аура святости свет~
+@eng Aura of Sanctity@rus ~~Аура~~ Святости~
+@eng Aura of Santity is shining.@rus Сияющий белый свет (aura) искрится и переливается прямо перед тобой.~
+unknown~
+armor G AQ
+-50 -50 -50 -50 0
+1 0 0 P
+S 'sanctuary' 100 A
+A
+20 -10
+F I 0 0 M
+G female
+#34455
+aura darkness аура~
+~
+~
+unknown~
+trash 0 0
+0 0 0 0 0
+0 0 0 P
+G none
+#34456
+cloud darkness облако~
+~
+~
+unknown~
+trash 0 0
+0 0 0 0 0
+0 0 0 P
+G none
 #0
 
 #ROOMS

@@ -15,13 +15,13 @@ An undead, skeletal knight guards this room.
 Death Knights are a powerful enemy.  Turned undead by powerful
 necromancy, they were the most renown knights of their day.  
 ~
-human~
-AFGO c -750 0
+undead~
+AFG c -750 0
 40 0 15d10+1850 45d10+950 4d8+15 magic
 -12 -12 -12 0
-CDEIKU LPQ IJ HN
+CDEIKU P IJ H
 stand stand none 800
-I 0 medium unknown
+0 0 medium unknown
 #29351
 torturer inquisitor ~
 The Inquisitor~
@@ -81,11 +81,11 @@ abilities to grant him life after death.  The result of his work stands
 before you, a rotting representation of what the wizard used to be.  Myzelak
 now spends his time searching for ways to end all life in StormFront.  
 ~
-human~
-ABKQR Ju -1000 0
+lich~
+ABKOQR Ju -1000 0
 75 0 50d10+11000 45d10+1950 9d11+45 magic
 -45 -45 -45 -14
-FIJN 0 CDHIJ N
+IJN 0 IJ 0
 stand stand none 800
 0 0 medium unknown
 #29355
@@ -97,8 +97,8 @@ Myzelak's Dracolich mount towers above you.  Fiery red lights gleam in
 its hollow eye sockets as it growls at you.  The undead dragon is monstrous,
 perhaps you should run now, before you're dead.  ;> 
 ~
-dragon~
-ABOT 0 -1000 0
+dracolich~
+ABT 0 -1000 0
 60 0 50d10+6750 45d10+1950 8d6+28 magic
 -30 -30 -30 -10
 CDFMO 0 IJK KN
@@ -114,11 +114,11 @@ in runes and carries a large black shield that can only be a dragon's scale.
 He looks very much like the Death Knights you encountered earlier except he
 is much larger and appears to be more powerful as well.  
 ~
-giant~
-ABOT 0 -900 0
+undead~
+ABT 0 -900 0
 70 0 50d10+9750 45d10+2950 8d10+40 magic
 -40 -40 -40 -10
-CDFIKO 0 C HN
+CDFIKO 0 C H
 stand stand none 800
 0 0 large unknown
 #0

@@ -20,13 +20,13 @@ he waits for release.
 всего, что здесь произошло. Его душа заперта здесь и он ждет 
 освобождения.
 ~
-human~
-AB DJu -1000 0
+undead~
+ABO u -1000 0
 25 0 5d10+550 12d9+100 2d10+7 none
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand male 708
-0 0 medium unknown
+D 0 medium unknown
 #2301
 treant tree дерево~
 @eng the Old Treant@rus старое Дерево~
@@ -443,11 +443,11 @@ Darkoth, the minotaur anti-paladin, stands here grinning wickedly.
 Darkoth is a living incarnation of evil. He radiates a dark aura, and a cold
 chill runs down your spine. He is the master of the Mahn-Tor anti-paladins.
 ~
-human~
-ABF DJu -1000 0
+lich~
+ABFO DJu -1000 0
 33 0 6d12+853 15d9+100 4d6+10 none
 -9 -9 -9 6
-EFNU 0 0 0
+ENU 0 0 0
 stand stand male 1417
 0 0 medium unknown
 #2327
@@ -1583,7 +1583,7 @@ a misty potion~
 A small misty potion rests here.~
 glass~
 potion AGN A
-20 'heal' '' '' ''
+20 'cure critical' '' '' ''
 11 30 800 P
 G none
 #2385

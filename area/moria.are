@@ -3117,4 +3117,8 @@ M 0 4150 2 4170 1	* the blue bat (In the water)
 M 0 4153 2 4170 1	* the white bat (In the water)
 S
 
+#OLIMITS
+O 4050 2	* a purple potion
+S
+
 #$

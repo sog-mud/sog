@@ -735,7 +735,7 @@ a first aid kit~
 A white wooden box with a red cross is here.~
 wood~
 staff G AO
-40 10 10 'heal' 0
+10 10 10 'heal' 0
 10 50 12000 P
 E
 box~

@@ -441,7 +441,7 @@ a pink potion~
 A potion in a pink clay pot stands here.~
 clay~
 potion P A
-25 'heal' 'remove curse' '' ''
+25 'cure critical' 'remove curse' '' ''
 13 60 1220 P
 G none
 #5020

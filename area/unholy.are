@@ -63,11 +63,11 @@ The abbey employs several necromancers to create their legions of undead,
 with which they one day intend to conquer the kingdom of Malathar. They are
 horrid, twisted, decrepit old men, who have incredible magical powers.
 ~
-human~
-ABGH DFJ -800 0
+lich~
+ABGHO DFJ -800 0
 62 0 50d10+7250 5d5+5000 6d9+32 punch
 -32 -32 -32 -4
-FIJQ 0 0 0
+IJQ 0 0 0
 stand stand male 0
 0 0 medium unknown
 #30804
@@ -111,8 +111,8 @@ The monks frequently summon devils to aid them in their evil schemes, and
 their favorite is the bone devil, who only demands seven virgins rather than
 the many scores other devils demand.
 ~
-human~
-ABG DFJN -1000 0
+undead~
+ABGO N -1000 0
 66 0 50d10+8500 5d5+5000 7d9+36 none
 -36 -36 -36 -5
 EFHIJKNQ 0 0 0
@@ -222,7 +222,7 @@ from the cavern entrance. It will not attack, but it will move to defend
 itself.
 ~
 golem~
-ABG N 0 0
+ABGO N 0 0
 62 0 50d10+7250 5d5+5000 6d9+32 none
 -32 -32 -32 -4
 EFNU 0 0 0

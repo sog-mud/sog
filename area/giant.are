@@ -52,7 +52,7 @@ giant~
 ABFGT DFGOu -1000 0
 60 -1 1d1+5000 1d1+100 10d10+25 crush
 -20 -20 -20 -5
-AFIJKNRVX 0 0 0
+AFIJKNRVX B 0 0
 stand stand male 200
 0 0 giant unknown
 #13003
@@ -2210,7 +2210,6 @@ E 0 13006 0 16		*	the huge broadsword of Destruction: wielded
 E 0 13022 0 9		*	some bloody gloves of elven skin: on the hands
 G 0 13023 0		*	Skin of the Giant Lord
 E 0 13024 0 3		*	fine fur cloak: around the neck (1)
-O 0 13020 0 13043	* vast treasure of gold (The Treasure Room)
 M 0 13003 1 13044 1	* Shannon, the Battle Mistress (Battle Grounds)
 E 0 13007 0 1		*	a small spiked ring: on the left finger
 E 0 13008 0 5		*	a suit of spiked adamantite platemail: on the body

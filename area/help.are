@@ -460,7 +460,7 @@ Shades of Gray, you must choose a name accordingly explained below:
    -- Vulgar or sexually suggestive names.  (No examples needed)
    -- Nouns which are names of animals.  (Horse, Doll)
    -- Strings of random characters.  (Asdfg, Qwdldkf)
-   -- Titles which imply rank or privelege.   (Lord, Sir,...)
+   -- Titles which imply rank or privilege.   (Lord, Sir,...)
    -- Scientific phrases, words. (Proof, Logic, Electrics...)
    -- Object names. (Necklace, Staff, Sword etc)
    -- Compound names. (FarmerJoe, Maryjane etc.)
@@ -1906,7 +1906,7 @@ their groups:
  {ccombat{x         >>> {gCombat Magician{x          (Elemental Can. ) 
  {ccurative{x       >>> {gGrand Knight of Paladins{x (Redfernes' R.  )
  {cdefensive{x      >>> {gHeimdall{x                 (Valhalla       )
- {cdraconian{x      >>> {gEnforcers{x                   (Elemental Can. )
+ {cdraconian{x      >>> {gRulers{x                   (Elemental Can. )
  {cenchantment{x    >>> {gMaster Enchanter{x         (High Tower     ) 
  {cenhancement{x    >>> {gHealer{x                   (Valley of Titan)
  {cfightmaster{x    >>> {gHeimdall{x                 (Valhalla       )
@@ -1918,7 +1918,7 @@ their groups:
  {ctransportation{x >>> {gGrand Mistress of Magic{x  (High Tower     )
  {cweaponsmaster{x  >>> {gSamurai{x                  (New Thalos     )
  {cwizard{x         >>> {gWizard{x                   (Midgaard       )
- {cnecromancy{x     >>> {gMyzelak{x                  (Lich Tower      )
+ {cnecromancy{x     >>> {gMyzelak{x                  (Lich Tower     )
  
 If you SLOOK the spell or skill and find it in group `{cnone{x', `{cweather{x',
 `{ccreation{x', `{charmful{x', `{cprotective{x' or `{cdetection{x', then you
@@ -1950,7 +1950,7 @@ PRACTICE с аргументом тренирует тебя во владении указанным умением или закли-
  {ccombat{x         >>> {gCombat Magician{x          (Elemental Can. )
  {ccurative{x       >>> {gGrand Knight of Paladins{x (Redfernes' R.  )
  {cdefensive{x      >>> {gHeimdall{x                 (Valhalla       )
- {cdraconian{x      >>> {gEnforcers{x                   (Elemental Can. )
+ {cdraconian{x      >>> {gRulers{x                   (Elemental Can. )
  {cenchantment{x    >>> {gMaster Enchanter{x         (High Tower     )
  {cenhancement{x    >>> {gHealer{x                   (Valley of Titan)
  {cfightmaster{x    >>> {gHeimdall{x                 (Valhalla       )
@@ -1962,12 +1962,12 @@ PRACTICE с аргументом тренирует тебя во владении указанным умением или закли-
  {ctransportation{x >>> {gGrand Mistress of Magic{x  (High Tower     )
  {cweaponsmaster{x  >>> {gSamurai{x                  (New Thalos     )
  {cwizard{x         >>> {gWizard{x                   (Midgaard       )
- {cnecromancy{x     >>> {gMyzelak{x                  (Lich Tower      )
+ {cnecromancy{x     >>> {gMyzelak{x                  (Lich Tower     )
  
 Используй команду SLOOK для определения группы. Если умение или заклинание
 принадлежит одной из групп '{cnone{x', '{cweather{x', '{ccreation{x', '{charmful{x',
-'{cprotective{x' или '{cdetection{x', то ты можешь практиковать его в своей
-гильдии.
+'{cprotective{x' или '{cdetection{x', то ты можешь практиковать его {gв своей
+гильдии{x.
  
 Смотри также {CHELP SLOOK, HELP LEARN{x
 ~
@@ -3403,7 +3403,7 @@ FIRE BREATH и FROST BREATH могут портить вещи, ACID BREATH может разрушить
 броню.
 ~
 -1 'RACE HELP' RACE RACES 'RACE HELP'~
-The culturally diverse realm of Shades of Gray is home to 18 different
+@eng The culturally diverse realm of Shades of Gray is home to 18 different
 races.  Following  is  a  brief description  of  each main race to assist you
 in the character creation process:
 
@@ -3435,6 +3435,44 @@ P.S.	: Remember that some races have their specific spells, i.e rockseers
 	  to read helps of each races.
 
 See also:  CLASS, WORLD
+@rus Богатый культурами мир Shades of Gray является родиной 18 различных рас.
+Ниже приведено краткое описание каждой основной расы, чтобы помочь вам
+в создании персонажа:
+
+Human:     Люди - типичная средняя раса, не обладающая как преимуществами,
+           так и недостатками.
+Elves:     Эльфы - хрупкие и стройные существа, но тем не менее они ловки и
+           проворны. Умны. Сейчас можно встретить три типа существ с
+           эльфийской кровью: светлые, темные и полукровки. Выбор этой расы
+           увеличивает начальный exp, необходимый для перехода на следующий
+           уровень, на 500exp для эльфов и на 250exp для полукровок.
+Dwarf:     Карлики как правило крепко телосложены и сильны, обладают
+           инфразрением (infravision). Встречаются три расы карликов:
+           Dwarf, Duergar и Svirfnebli. 250exp дополнительно.
+Gnome:     Гномы - высокий интеллект, но слабы физически. "Cтоимость"-
+           300exp.
+Arial:     Ариалы очень подвижная и умная раса, умеют летать.
+           250exp дополнительно.
+Giant:     Великаны - большие и сильные, с крепким телосложением. В данный
+           момент их четыре вида: Storm, Cloud, Fire и Frost.
+Felar:     Они не так сильны, зато ловки и обладают способностью видеть
+           в темноте - infravision. 250exp.
+Rockseer:  Роксиры - недостаток силы компенсируется ловкостью и высоким
+           интеллектом. Могут проходить сквозь любые двери. Они нейтральны
+           к добру или злу. 500exp на начальном уровне дополнительно.
+Githyanki: Это человекоподобные существа, довольно высоким интеллектом.
+           Могут быть бойцом и/или колдовать. 250exp дополнительно.
+Satyr:     Сатиры - раса полулудей, полукозлов. Весьма проворны, но не
+           сильны. Они хорошие следопыты и воры. Дополнительных 250exp.
+Troll:     Неуклюжие громадины с низким интеллектом, обладают огромным
+           здоровьем и живучестью. Быстро регенерируют полученные повреждения
+           400exp к требуемому для перехода с первого на второй уровень.
+
+P.S.      Помните, что у некоторых рас есть специфичные умения, например
+          у роксиров - 'meld into stone'. Для более подробной информации
+          читайте справку по каждой расе в отдельности.
+P.P.S.    Exp требуемый для перехода с уровня на уровень растет - подробней
+          в справке по EXPERIENCE.
 ~
 -2 'RACETABLE'~
 Shades Of Gray is the home for the following races:
@@ -4120,8 +4158,8 @@ are the entirety of Midgaard, New Thalos, Valley of Titans and  New Ofcol.
    player kill and will result in a WANTED flag on the caster.
 
 6. Garbling Ruler members is against the law, as well as any other offensive
-act against them, including: dispersal, mob summoning, setting traps,
-stealing equipment and inventory.
+   act against them, including: dispersal, mob summoning, setting traps,
+   stealing equipment and inventory.
 
 7. Criminals are outlaw. You can attack criminal in protected area.
 
@@ -4643,7 +4681,7 @@ Be warned that every reboot your limited items have a chance to come back into
 game.
 ~
 -1 DAMAGE~
-Here are the types of the damages, from small to...
+@eng Here are the types of the damages, from small to...
                                 scratch
                                  graze
                                   hit
@@ -4670,6 +4708,32 @@ Here are the types of the damages, from small to...
                              ### TERMINATE ###
                               [*] TEAR UP [*]
                              [*] POWER HIT [*]
+@rus                               {cцарапаешь{x
+                              {cзадеваешь{x
+                           {cбольно задеваешь{x
+                             {cлегко ранишь{x
+                               {cранишь{x
+                             {cсильно ранишь{x
+                             {cтяжело ранишь{x
+                              {cопустошаешь{x
+                               {cкалечишь{x
+                               {MУРОДУЕШЬ{x
+                               {MКАЛЕЧИТ{x
+                              {MРАСЧЛЕНЯЕТ{x
+                               {MУРОДУЕШЬ{x
+                              {MОПУСТОШАЕШЬ{x
+                      {y*** РАЗРЫВАЕШЬ НА ЧАСТИ ***{x
+                          {y*** ОПУСТОШАЕШЬ ***{x
+                          {y=== УНИЧТОЖАЕШЬ ==={x
+                          {y=== РАЗДРОБЛЯЕШЬ ==={x
+                          {R>>> АННИГИЛИРУЕШЬ <<<{x
+                           {R>>> ОПУСТОШАЕШЬ <<<{x
+                          {R-==> ИСПЕПЕЛЯЕШЬ <==-{x
+                     {R-==> РАЗДИРАЕШЬ НА ЧАСТИ <==-{x
+                      {R### РАЗНОСИШЬ НА ЧАСТИ ###{X
+                          {R### УНИЧТОЖАЕШЬ ###{x
+                      {R[*] РАЗРЫВАЕШЬ В КЛОЧЬЯ [*]{x
+                   {R[*] БЬЕШЬ С НЕОПИСУЕМОЙ СИЛОЙ [*]{x
 ~
 0 RUSSIAN~
 This help is only for players who use russian codepages.
@@ -4683,6 +4747,7 @@ koi8-r:
        То же самое, но с большой буквой 'ъ'.
 
 На данный момент список правильно работающих установок notelnet/noiac таков:
+Zmud 4.62   -- notelnet off, noiac on
 ZMud 3.62a  -- notelnet on, noiac on
 tt++ 1.5pl6 -- notelnet on, noiac on
 tf 4.0g3    -- notelnet off, noiac off
@@ -5288,6 +5353,8 @@ bers of the Order will track him down, until that renegade dies.
 
 Лидером ордена стала одна из самых прекрасных ведьм сего мира --
 ==================== Лилит {DTentatrice{x =====================
+ 
+В настоящее время предводительницей Посвященных является Алона.
 ~
 0 'CLAN INVADER' INVADER~
 @rus {RВласть{x. Природа власти...

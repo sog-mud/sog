@@ -101,13 +101,13 @@ This disgusting, withered humanoid creature greedily devours a decayed
 corpse in earnest, but drops it upon noticing the fresh meat that just
 walked into the room.
 ~
-unique~
+ghoul~
 AFGO DFJT -1000 0
 33 10 100d3+1200 0d0+300 5d6+10 chill
 -2 -2 -2 -2
-CEFKN A BM HNSY
+CEFKN A M HNSY
 stand stand none 200
-ABCDIc ABCDEFPU medium unknown
+BCDc PU medium unknown
 #4606
 mastiff hound~
 the hell hound~
@@ -158,13 +158,13 @@ A huge skeletal form raises from shadows.
 ~
 Horrible skeletal form look at you and green evilly.
 ~
-unique~
-ABFGT DFJZu -1000 0
+dracolich~
+ABFGOT DFZu -1000 0
 60 20 10d100+3500 1d1+400 7d8+40 claw
 -30 -30 -30 -30
-EFKN AB 0 0
+EFKN A 0 0
 stand stand none 4933
-BCDI 0 medium unknown
+BCD 0 medium unknown
 #4611
 priest vampire~
 the dark priest vampire~

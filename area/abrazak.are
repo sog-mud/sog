@@ -1,5 +1,6 @@
 #AREADATA
 Name Heaven~
+Builders shamash~
 VNUMs 15000 15199
 Credits abrazak~
 Security 7
@@ -170,7 +171,7 @@ strange pill~
 Someone has left a strange pill here.~
 unknown~
 pill ABG AOQ
-66 'detect invis' 'detect hidden' 'acute vision' 'improved detect'
+20 'detect invis' 'detect hidden' 'acute vision' 'improved detect'
 1 1 100000 P
 G none
 #15001
@@ -254,7 +255,7 @@ Anti-invader's pill~
 Someone has left an anti-invader's pill here.~
 energy~
 pill ABOT A
-45 'detect fade' 'protection evil' 'bless' 'sanctuary'
+15 'detect fade' 'protection evil' 'bless' 'cure critical'
 0 1 10000 P
 G none
 #15009
@@ -480,6 +481,15 @@ furniture RYa AP
 AC EIJKN HK CFG CFG
 0 0 0 P
 G none
+#15031
+fountain фонтан~
+@eng vodka fountain@rus ~~фонтан~~ с водкой~
+@eng Fountain with a strong smell of alcohol springs forth here.@rus Фонтан, от которого сильно пахнет спиртом.~
+marble~
+fountain 0 0
+10000 10000 'vodka' 0 0
+0 100000 0 P
+G male
 #15032
 nut орех~
 @eng the gold nut@rus ~~золотой~~ ~~орех~~~
@@ -669,6 +679,19 @@ brass~
 container Yb AE
 1000 0 0 1000 10
 0 0 0 P
+G none
+#15197
+pit яма~
+@eng the large donation pit@rus большая яма для жертвоприношений~
+@eng {RL{Go{Bo{Rk {Gi{Bn{Rt{Go {Bm{Re{W!{x@rus {RЗ{Gа{Bг{Rл{Gя{Bн{Rи {Gв {Bм{Rе{Gн{Bя{W!{x~
+~
+container g 0
+10000 0 0 1000 100
+0 0 0 P
+E
+pit~
+This is where you put money and items to help Doz expand this shrine, 
+~
 G none
 #15198
 harp арфа~
@@ -987,6 +1010,27 @@ mob goto 34400
 
 #HELPS
 0 'CLAN HUNTER' HUNTER~
+@eng From the ancient times, greed, jealousy, envy of humans
+(and other creatures as well) forces them to kill each other.
+However not everyone could afford to buy a sword, dagger,
+axe and so on. And few were skilled with this weapons enough
+to deal with their enemies at they own. But there always were
+strong skilled people able to bury any unresolvable problem
+under the layer of fresh ground... for a reasonable price,
+of course. Nobody of those people (called mercenaries or
+bounty hunters) observed any laws, as well as any rules of war.
+Once the wisest of mercenaries decided to create their own
+guild in order to earn even more gold. Being an outlaws in
+all times, ninja and rangers formed the majority of this new clan.
+Despite their independent nature, hunters of the clan were
+high disciplined. Hunter, who dared to contradict with clan
+leader or dishonored himself by neglecting his job became
+condemned by the clan forever. Any creature (mobile or
+player) can be pin-pointed as a [TARGET]. If the clan came
+to an agreement about the fee the best clan assassins
+started their hunt. But sometimes the victim proved to be
+a good friend of the clan (or offered more money), so the hunters
+turned against too greedy client.
 @rus Всегда, с образования мира, существовала нужда в  
 устранении конкурентов и противников. Однако далеко
 не каждый мог позволить себе тратиться на меч, да и

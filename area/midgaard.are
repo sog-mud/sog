@@ -1946,7 +1946,7 @@ a potion of healing~
 A potion of healing is here.~
 glass~
 potion G AO
-20 'heal' '' '' ''
+20 'cure critical' '' '' ''
 11 10 800 P
 G none
 #3081

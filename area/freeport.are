@@ -534,7 +534,7 @@ a blue lizard tongue~
 A blue lizard tongue is here.~
 flesh~
 pill 0 A
-30 'sanctuary' '' '' ''
+10 'sanctuary' '' '' ''
 8 1 450 P
 G none
 #29203
@@ -637,7 +637,7 @@ a holy wafer~
 A holy wafer is here.~
 flesh~
 pill G A
-50 'bless' '' '' ''
+20 'bless' '' '' ''
 5 1 50 P
 G none
 #29214
@@ -2673,5 +2673,9 @@ S
 29219 9 2 3 4 28 140 60 17 23
 29227 17 19 0 0 0 110 90 0 23
 0
+
+#OLIMITS
+O 29234 1	* the troll stone
+S
 
 #$

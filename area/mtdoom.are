@@ -35,8 +35,8 @@ crush him (and definitely them) with little effort. Krothgar tolerates their
 presence in honor of the alliance he has forged with the dark powers to
 facilitate the conquest of Anon.
 ~
-human~
-ABG DJu -1000 0
+undead~
+ABGO u -1000 0
 56 0 50d10+5750 5d5+5000 10d4+24 punch
 -26 -26 -26 -2
 BCEGK AB D H
@@ -677,8 +677,8 @@ A bloodthirsty ghoul slavers uncontrollably.
 ~
 This hideous undead wants to feast on your flesh!
 ~
-unique~
-AFG J -1000 0
+ghoul~
+AFGO J -1000 0
 46 0 25d10+3250 5d5+1000 6d6+16 drain
 -16 -16 -16 2
 EFK 0 0 0
@@ -709,11 +709,11 @@ Buried within is the old lord of the Fortress, who was imprisoned in here
 by the forces of Good ages ago. And now you have woken him up. Way to go
 slick.
 ~
-human~
-ABG CDEFJNTu -1000 0
+lich~
+ABGO CDEFJNTu -1000 0
 60 0 50d10+6750 5d5+5000 8d6+28 punch
 -30 -30 -30 -3
-CEFIKQ 0 0 0
+CEIKQ 0 0 0
 stand stand none 1000
 0 0 medium unknown
 #14745
@@ -1122,7 +1122,7 @@ a bronze brazier~
 A bronze brazier is here.~
 bronze~
 staff G AO
-53 1 1 'summon' 0
+53 1 1 'black shroud' 0
 40 4 3000 P
 G none
 #14729
@@ -1226,7 +1226,7 @@ a bowl~
 A bowl is here.~
 unknown~
 staff G AO
-53 1 1 'summon' 0
+53 1 1 'black shroud' 0
 45 5 0 P
 G none
 #14739
@@ -3964,6 +3964,12 @@ E 0 14725 0 16		*	a dragon tooth: wielded
 E 0 14726 0 9		*	dragon claws: on the hands
 E 0 14727 0 12		*	a dragon hide: about the shoulders
 M 0 14707 4 14806 1	* a destrier (Stables)
+S
+
+#OLIMITS
+O 14711 1	* a vial of magic dust
+O 14728 5	* a bronze brazier
+O 14738 5	* a bowl
 S
 
 #$

@@ -46,8 +46,8 @@ A ghoul is here staring at you hungrily.
 The ghoul no longer resembles the adventurer he once was.  Nonetheless
 he looks like he hasn't forgot his fighting skills.
 ~
-human~
-AF DJ -500 0
+ghoul~
+AFO DJ -500 0
 6 0 2d7+71 3d9+100 1d7+1 none
 4 4 4 9
 EFNU 0 0 0
@@ -214,8 +214,8 @@ softly into the air:
     anyone that can hear. The peace of the grave
     calls me but I am blocked from its quiet.
 ~
-human~
-ABR DFJ 350 0
+ghost~
+ABR 0 350 0
 20 0 3d9+308 20d9+100 3d4+4 none
 -4 -4 -4 3
 FU 0 0 0
@@ -268,8 +268,8 @@ she took a nasty fall.  Her one damaged eye hangs on its own.  She smiles
 insanely at you thru a broken jaw and missing teeth.  One hand of hers is
 resting on the shoulder of the etcher ... her husband.
 ~
-human~
-AB JQ 1000 0
+ghost~
+AB Q 1000 0
 7 0 2d6+85 3d9+100 1d8+1 none
 4 4 4 9
 EFNU 0 0 0

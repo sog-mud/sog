@@ -1276,7 +1276,7 @@ a gizzard~
 A raw gizzard is on the ground, being consumed by ants.~
 food~
 pill 0 A
-35 'heal' '' '' ''
+25 'heal' '' '' ''
 25 2 0 P
 G none
 #17046

@@ -16,11 +16,11 @@ A shadow of its formal self, the ghost appears as it did in life, with
 the shape of a human body but an astral look to it.  It is a soul which can
 not rest until destroyed and sent into the heavens.  
 ~
-human~
-AG BJTU -200 0
+ghost~
+AG BJU -200 0
 25 0 5d10+550 1d50+100 2d10+7 wrath
 -7 -7 -7 0
-EFU 0 D N
+EFU 0 0 0
 stand stand none 0
 I 0 medium unknown
 #22003
@@ -60,13 +60,13 @@ A disgusting undead creature that resembles a zombie, though much more
 ferocious.  It carries around an old arm bone that it chews on constantly,
 tearing the last remnants of flesh from it for food.  
 ~
-human~
+ghoul~
 AGO J -950 0
 36 0 5d25+1400 36d10+100 3d10+11 claw
 -12 -12 -12 3
 CDHK 0 0 N
 stand stand none 454
-I 0 medium unknown
+0 0 medium unknown
 #22006
 demon lemure lowest~
 a lemure~
@@ -123,13 +123,13 @@ Much like a normal ghoul but about two feet taller, the ghoul lord is a
 monstrous sight.  His long snake-like tongue licks scaly lips as it looks at
 you.  
 ~
-human~
+ghoul~
 ABO J -1000 0
 42 0 5d50+2250 42d10+4400 3d12+14 blast
 -14 -14 -14 0
 CDEFHK 0 0 NZ
 stand stand male 727
-I 0 large unknown
+0 0 large unknown
 #22010
 dragon deep black~
 A Deep Dragon~
@@ -355,7 +355,7 @@ a vial of holy water~
 A glowing vial of holy water has been left here~
 glass~
 potion I AO
-35 'bless' 'heal' '' ''
+20 'bless' 'cure critical' '' ''
 30 1 600 P
 G none
 #22011

@@ -1504,12 +1504,12 @@ A
 14 500
 G none
 #97
-chaos blade~
-a chaos blade~
-A shiny gold dagger is on the ground.~
+chaos weapon~
+@eng a chaos weapon@rus ~~оружие~~ хаоса~
+@eng A shiny gold weapon is on the ground.@rus Блестящая железяка валяется на на земле.~
 gold~
 weapon AIPTW AN
-dagger 8 1 pierce D
+dagger 8 1 pierce 0
 20 200 0 P
 A
 6 2
@@ -1725,7 +1725,7 @@ O 94 get_prog get_prog_quest_reward	* `the %s Girth of %s'
 O 95 get_prog get_prog_quest_reward	* `the %s Ring of %s'
 O 96 wear_prog wear_prog_quest_weapon	* `the %s Weapon of %s'
 O 96 get_prog get_prog_quest_reward	* `the %s Weapon of %s'
-O 97 fight_prog fight_prog_chaos_blade	* `a chaos blade'
+O 97 fight_prog fight_prog_chaos_blade	* `a chaos weapon'
 O 98 wear_prog wear_prog_katana_sword	* `a katana sword'
 O 99 death_prog death_prog_golden_weapon	* `a golden lance'
 S

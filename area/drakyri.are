@@ -215,13 +215,13 @@ A transparent form hovers here, writhing and moaning.  It seems
 to be trapped in one place by some kind of magic which apparently
 holds despite the form's continuous lashing.
 ~
-unique~
-ABGR BIJTUZ 0 0
+ghost~
+ABGR BIJUZ 0 0
 87 0 100d12+16000 1d50+10000 12d11+57 magic
 -57 -57 -57 -20
-DFG 0 D MNO
+DF 0 0 MO
 stand stand none 0
-HL 0 medium unknown
+L 0 medium unknown
 #11813
 glyph warding~
 a glyph of warding~
@@ -595,8 +595,8 @@ spell.  As you continue your scrutiny, thin lips draw back in a
 blood-freezing snarl, and a trail of very real blood drips from
 the gleaming white fangs!
 ~
-human~
-ABFGR DGJOZ -955 0
+zombie~
+ABFGOR DGJOZ -955 0
 80 0 100d12+12500 1d100+8500 9d11+50 claw
 -50 -52 -51 -20
 FG 0 M N
@@ -1206,13 +1206,13 @@ As you gaze at it, the form seems to sharpen and come into focus.
 It appears to be the spirit of a drakyri, long dead and set to
 guard here.
 ~
-unique~
-ABGQ BDFTUZ 0 0
+ghost~
+ABGQ BDFUZ 0 0
 89 0 100d10+17000 1d100+6000 13d10+59 magic
 -55 -57 -56 -20
-FG 0 MN HIJ
+F 0 MN HIJ
 stand stand none 0
-DHL 0 medium unknown
+DL 0 medium unknown
 #11874
 drakyri laerkai flame mage~
 The Flame~
@@ -1254,7 +1254,7 @@ A sinister knight clad in black stands here.
 The drakyri emanates an aura of pure evil power.  Noting your gaze,
 she smiles a cruel not-smile and flexes wickedly sharp taloned hands.
 ~
-elf~
+dark-elf~
 ACGT DOTu -1000 0
 92 5 100d12+20000 1d50+7000 15d10+62 none
 -60 -61 -61 -30
@@ -2060,7 +2060,7 @@ a deep indigo pill~
 A deep indigo pill lies here.~
 food~
 pill 0 A
-65 'protection evil' 'bless' '' ''
+25 'protection evil' 'bless' '' ''
 55 10 850 P
 G none
 #11837
@@ -3133,7 +3133,7 @@ an energy pill~
 A greenish pill is here, humming with energy.~
 food~
 pill B A
-65 'haste' 'enhanced armor' '' ''
+20 'free action' 'enhanced armor' '' ''
 55 10 500 P
 G none
 #11899
@@ -3142,7 +3142,7 @@ a warp pill~
 A mysterious looking pill lies here.~
 food~
 pill B A
-65 'teleport' 'teleport' 'heal' 'invisibility'
+30 'teleport' 'teleport' 'heal' 'invisibility'
 55 10 300 P
 G none
 #0
@@ -6055,6 +6055,8 @@ S
 0
 
 #OLIMITS
+O 11822 2	* a staff of guarding
+O 11831 1	* an ancient tome
 O 11832 5	* an ornate mask
 O 11838 2	* a pair of taloned gloves
 O 11845 4	* a dark  ->*<-  necklace
