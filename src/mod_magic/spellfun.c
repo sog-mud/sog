@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.7 1998-05-08 18:00:52 fjoe Exp $
+ * $Id: spellfun.c,v 1.8 1998-05-09 12:20:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4962,28 +4962,25 @@ void spell_word_of_recall(int sn, int level, CHAR_DATA *ch,void *vo,int target)
 	ROOM_INDEX_DATA *location;
 	int to_room_vnum;
 
-	if ((ch->class == 9) && (ch->fighting) && (victim == NULL))
-		{
-		 send_to_char("Your honour doesn't let you recall!.\n\r",ch);
-		 return;
-		}
+	if ((ch->class == CLASS_SAMURAI)
+	&&  (ch->fighting) && (victim == NULL)) {
+		send_to_char("Your honour doesn't let you recall!.\n\r",ch);
+		return;
+	}
 
-	if (victim != NULL)
-		{
-		 if  ((victim->fighting) && (victim->class == 9))
-		 {
-		 send_to_char("You can't cast this spell to a honourable fighting Samurai!.\n\r",ch);
-		 return;
-		 }
+	if (victim != NULL) {
+		if  ((victim->fighting) && (victim->class == CLASS_SAMURAI)) {
+			send_to_char("You can't cast this spell to a honourable fighting Samurai!.\n\r", ch);
+			return;
 		}
+	}
 
 	if (IS_NPC(victim))
-	  return;
-   to_room_vnum = 
-hometown_table[victim->hometown].recall[IS_GOOD(victim)?0:IS_NEUTRAL(victim)?1:IS_EVIL(victim)?2:1];
+		return;
 
-	if ((location = get_room_index(to_room_vnum)) == NULL)
-	{
+	to_room_vnum = hometown_table[victim->hometown].recall[IS_GOOD(victim)?0:IS_NEUTRAL(victim)?1:IS_EVIL(victim)?2:1];
+
+	if ((location = get_room_index(to_room_vnum)) == NULL) {
 		send_to_char("You are completely lost.\n\r",victim);
 		return;
 	}

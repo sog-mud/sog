@@ -1,5 +1,5 @@
 /*
- * $Id: resource.c,v 1.12 1998-05-05 18:08:15 fjoe Exp $
+ * $Id: resource.c,v 1.13 1998-05-09 12:20:18 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -371,7 +371,7 @@ lang_load(int langnum, char* fname)
 			undefined = 1;
 		else
 			fprintf(stderr, "'%s': '%s'\n",
-				name_lookup(i), m->p);
+				(char*)name_lookup(i), m->p);
 
 		if (undefined) {
 			fprintf(stderr, "%s: %s undefined\n",

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.30 1998-05-08 20:35:34 fjoe Exp $
+ * $Id: act_info.c,v 1.31 1998-05-09 12:20:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1603,6 +1603,13 @@ void do_time(CHAR_DATA *ch, char *argument)
 			"The system time is %s.\n\r",
 			str_boot_time, (char*) ctime(&current_time));
 	return;
+}
+
+
+void do_date(CHAR_DATA *ch, char *argument)
+{
+	time_t t = time(NULL);
+	char_puts(ctime(&t), ch);
 }
 
 
@@ -3250,8 +3257,8 @@ void do_score(CHAR_DATA *ch, char *argument)
 		IS_NPC(ch) ? "mobile" : ch->ethos == 1 ? "lawful" :
 	ch->ethos == 2 ? "neutral" : ch->ethos == 3 ? "chaotic" : "none",
 		ch->perm_stat[STAT_CHA], get_curr_stat(ch,STAT_CHA),
-		ch->class == 9 ? "Death" : "Wimpy" ,
-		ch->class == 9 ? ch->pcdata->death : ch->wimpy);
+		ch->class == CLASS_SAMURAI ? "Death" : "Wimpy" ,
+		ch->class == CLASS_SAMURAI ? ch->pcdata->death : ch->wimpy);
 
 	char_printf(ch, "     {G| {RAlign:  {x%-11s  {C|                |{x %-7s %-19s {G|{x\n\r",
 		IS_GOOD(ch) ? "good" : IS_EVIL(ch) ? "evil" : "neutral",

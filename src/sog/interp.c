@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.11 1998-05-06 04:33:24 fjoe Exp $
+ * $Id: interp.c,v 1.12 1998-05-09 12:20:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,6 +50,7 @@
 #include "interp.h"
 #include "act_wiz.h"
 #include "act_comm.h"
+#include "act_info.h"
 #include "db.h"
 #include "comm.h"
 
@@ -147,6 +148,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "concentrate",	do_concentrate,	POS_STANDING,	 0,  LOG_NORMAL, 1, 0 },
     { "count",		do_count,	POS_SLEEPING,	HE,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "credits",	do_credits,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
+    { "date",		do_date,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "deposit",	do_deposit,	POS_STANDING,	 0,  LOG_NORMAL, 1,0},
     { "equipment",	do_equipment,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "escape",		do_escape,	POS_FIGHTING,	 0,  LOG_NORMAL,1,0 },

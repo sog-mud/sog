@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.7 1998-05-08 18:00:51 fjoe Exp $
+ * $Id: fight.c,v 1.8 1998-05-09 12:20:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1414,7 +1414,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 			   || IS_SET(victim->act,PLR_WANTED)))
 		      {
 			victim->pcdata->death++;
-			if (victim->class == 9)
+			if (victim->class == CLASS_SAMURAI)
 			 {
 			  if ((victim->pcdata->death % 3) == 2)
 				{
@@ -2877,15 +2877,13 @@ void do_flee(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	if ((ch->class == 9) && (ch->level >=10))
-		{
+	if ((ch->class == CLASS_SAMURAI) && (ch->level >= 10)) {
 		 send_to_char("Your honour doesn't let you flee, try dishonoring yourself.\n\r", ch);
 		 return;
-		}
+	}
 
 	was_in = ch->in_room;
-	for (attempt = 0; attempt < 6; attempt++)
-	{
+	for (attempt = 0; attempt < 6; attempt++) {
 		EXIT_DATA *pexit;
 		int door;
 
@@ -2911,9 +2909,7 @@ void do_flee(CHAR_DATA *ch, char *argument)
 		if (!IS_NPC(ch))
 		{
 		    send_to_char("You flee from combat!  You lose 10 exps.\n\r", ch);
-		    if ((ch->class == 9) && (ch->level >=10))
-				gain_exp(ch,(-1 * ch->level));
-		    else  gain_exp(ch, -10);
+		    gain_exp(ch, -10);
 		}
 		else
 		  ch->last_fought = NULL;
