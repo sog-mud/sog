@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: core.c,v 1.4 1999-07-02 12:54:58 fjoe Exp $
+ * $Id: core.c,v 1.5 1999-07-19 13:25:15 avn Exp $
  */
 
 #include <errno.h>
@@ -112,7 +112,7 @@ void do_shutdown(CHAR_DATA *ch, const char *argument)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		dofun("help", ch, "SHUTDOWN");
+		dofun("help", ch, "'WIZ SHUTDOWN'");
 		return;
 	}
 
@@ -172,10 +172,7 @@ void do_reboot(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg, sizeof(arg));    
 
 	if (arg[0] == '\0') {
-		char_puts("Usage: reboot now\n"
-			  "Usage: reboot <ticks to reboot>\n"
-			  "Usage: reboot cancel\n"
-			  "Usage: reboot status\n", ch);
+		dofun("help", ch, "'WIZ REBOOT'");
 		return;
 	}
 

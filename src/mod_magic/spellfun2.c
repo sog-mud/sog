@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.123 1999-07-08 05:11:29 kostik Exp $
+ * $Id: spellfun2.c,v 1.124 1999-07-19 13:25:18 avn Exp $
  */
 
 /***************************************************************************
@@ -1098,7 +1098,7 @@ void spell_amnesia(int sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 
 	for (i = 0; i < ch->pcdata->learned.nused; i++) {
-		pcskill_t *ps = VARR_GET(&ch->pcdata->learned, i);
+		pcskill_t *ps = VARR_GET(&victim->pcdata->learned, i);
 		ps->percent /= 2;
 	}
 
@@ -1657,57 +1657,7 @@ void spell_remove_badge(int sn, int level, CHAR_DATA *ch, void *vo)
 	}
 	return;
 }
-void spell_shield_ruler(int sn, int level,CHAR_DATA* ch,void *vo)
-{
-	int shield_vnum;
-	OBJ_DATA *shield;
-	AFFECT_DATA af;
 
-	if (level >= 71) shield_vnum = OBJ_VNUM_RULER_SHIELD4;
-	else if (level >= 51) shield_vnum = OBJ_VNUM_RULER_SHIELD3;
-	else if (level >= 31) shield_vnum = OBJ_VNUM_RULER_SHIELD2;
-	else shield_vnum = OBJ_VNUM_RULER_SHIELD1;
-
-	shield = create_obj(get_obj_index(shield_vnum), 0);
-	shield->level = ch->level;
-	shield->timer = level;
-	shield->cost  = 0;
-	obj_to_char(shield, ch);
-
-	af.where        = TO_OBJECT;
-	af.type         = sn;
-	af.level        = level;
-	af.duration     = -1;
-	af.modifier     = level/8;
-	af.bitvector    = 0;
-	af.location     = APPLY_HITROLL;
-
-	affect_to_obj(shield,&af);
-
-	af.location     = APPLY_DAMROLL;
-	affect_to_obj(shield,&af);
-
-	af.where        = TO_OBJECT;
-	af.type         = sn;
-	af.level        = level;
-	af.duration     = -1;
-	af.modifier     = -level/2;
-	af.bitvector    = 0;
-	af.location     = APPLY_AC;
-	affect_to_obj(shield,&af);
-
-	af.where        = TO_OBJECT;
-	af.type         = sn;
-	af.level        = level;
-	af.duration     = -1;
-	af.modifier     = UMAX(1,level/30);
-	af.bitvector    = 0;
-	af.location     = APPLY_CHA;
-	affect_to_obj(shield,&af);
-
-	act("You create $p!",ch,shield,NULL,TO_CHAR);
-	act("$n creates $p!",ch,shield,NULL,TO_ROOM);
-}
 void spell_dragon_strength(int sn, int level, CHAR_DATA *ch, void *vo)
 {
 	AFFECT_DATA af;
@@ -3291,8 +3241,7 @@ void spell_lion_help(int sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	if (is_safe_nomessage(ch, victim)) {
-		char_puts("God protects your victim.\n", ch);
+	if (is_safe(ch, victim)) {
 		return;
 	}	
 

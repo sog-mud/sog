@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.165 1999-06-30 15:42:32 fjoe Exp $
+ * $Id: db.c,v 1.166 1999-07-19 13:25:17 avn Exp $
  */
 
 /***************************************************************************
@@ -813,9 +813,6 @@ void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 		    if ((pObjIndex->limit != -1             ) &&
 		         (pObjIndex->count >= pObjIndex->limit)) {
 		        last = FALSE;
-		        log("room_reset: room %d: obj %d: "
-				   "[P] OBJ limit reached",
-				   pRoom->vnum, pObjIndex->vnum);
 		        break;
 		      }
 	    if (IS_SET(pObjIndex->extra_flags, ITEM_CLAN)) {
