@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: healer.c,v 1.32.2.2 2000-01-11 08:21:38 fjoe Exp $
+ * $Id: healer.c,v 1.32.2.3 2000-11-30 08:38:11 avn Exp $
  */
 
 #include <sys/types.h>
@@ -97,9 +97,12 @@ void do_heal(CHAR_DATA *ch, const char *argument)
     if (arg[0] == '\0') {
         /* display price list */
 	act("$N offers the following spells.",ch,NULL,mob,TO_CHAR);
-	for (h = heal_table; h->keyword; h++)
+	for (h = heal_table; h->keyword; h++) {
+	    if (HAS_SKILL(ch, gsn_spellbane) && h->price > 0)
+		continue;
 	    char_printf(ch, "%-10.9s : %-20.19s : %3d gold\n",
 		h->keyword, h->name, get_heal_cost(h, mob, ch)/100);
+	}
 	char_puts(" Type heal <type> to be healed.\n",ch);
 	return;
     }
@@ -129,8 +132,8 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 
     WAIT_STATE(ch,PULSE_VIOLENCE);
 
-    if (cost < 0) {
-	deduct_cost(ch, -cost);
+    if (h->price < 0) {
+	deduct_cost(ch, cost);
 	dofun(h->spellname, mob, ch->name);
 	return;
     }
