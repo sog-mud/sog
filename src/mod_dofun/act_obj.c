@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.74 1998-10-06 13:18:24 fjoe Exp $
+ * $Id: act_obj.c,v 1.75 1998-10-06 19:08:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1870,10 +1870,6 @@ void do_quaff(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA       *obj;
 	one_argument(argument, arg);
 
-	if (ch->clan == CLAN_BATTLE && !IS_IMMORTAL(ch)) {
-		char_puts("You are a BattleRager, not a filthy magician!\n\r", ch);
-		return;
-	}
 	if (arg[0] == '\0') {
 		char_puts("Quaff what?\n\r", ch);
 		return;
@@ -2463,7 +2459,7 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 	if (IS_SET(pet->act, ACT_RIDEABLE)
-	    && ch->clan == CLAN_KNIGHT && !MOUNTED(ch)) {
+	&&  get_skill(ch, gsn_riding) && !MOUNTED(ch)) {
 		cost = 10 * pet->level * pet->level;
 
 		if ((ch->silver + 100 * ch->gold) < cost) {

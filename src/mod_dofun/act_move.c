@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.99 1998-10-06 13:49:33 fjoe Exp $
+ * $Id: act_move.c,v 1.100 1998-10-06 19:08:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2838,10 +2838,8 @@ int mount_success(CHAR_DATA *ch, CHAR_DATA *mount, int canattack)
 	int	percent;
 	int	success;
 	int	chance;
-	int	sn;
 
-	if ((sn = sn_lookup("riding")) < 0
-	||  (chance = get_skill(ch, sn)) == 0)
+	if ((chance = get_skill(ch, gsn_riding)) == 0)
 		return FALSE;
 
 	percent = number_percent() + (ch->level < mount->level ? 
@@ -2859,11 +2857,11 @@ int mount_success(CHAR_DATA *ch, CHAR_DATA *mount, int canattack)
 	success = percent - chance;
 
 	if (success <= 0) { /* Success */
-		check_improve(ch, sn, TRUE, 1);
+		check_improve(ch, gsn_riding, TRUE, 1);
 		return TRUE;
 	}
 
-	check_improve(ch, sn, FALSE, 1);
+	check_improve(ch, gsn_riding, FALSE, 1);
 	if (success >= 10 && MOUNTED(ch) == mount) {
 		act_nprintf(ch, NULL, mount, TO_CHAR, POS_DEAD, 
 				MSG_YOU_FALL_OFF_N);

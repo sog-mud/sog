@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.34 1998-10-06 13:18:29 fjoe Exp $
+ * $Id: obj_prog.c,v 1.35 1998-10-06 19:09:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -706,7 +706,7 @@ int fight_prog_tattoo_ehrumen(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 		break;
 	case 2:
 		char_puts("The tattoo on your shoulder glows {Rred{x.\n\r", ch);
-		obj_cast_spell(gsn_dispel_evil,
+		obj_cast_spell(sn_lookup("dispel evil"),
 			       ch->level, ch, ch->fighting, obj);
 		break;
 	}
@@ -945,30 +945,30 @@ int fight_prog_tattoo_prometheus(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	if (get_eq_char(ch, WEAR_TATTOO) == obj)
 	switch(number_bits(4)) {
 	case 0:
-		act_puts("The tattoo on your shoulder glows blue.",
+		act_puts("The tattoo on your shoulder glows {Cblue{x.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		obj_cast_spell(gsn_cure_critical, ch->level, ch, ch, obj);
 		break;
 	case 1:
 	case 2:
-		act_puts("The tattoo on your shoulder glows red.",
+		act_puts("The tattoo on your shoulder glows {Rred{x.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 
 		if (IS_EVIL(ch->fighting))
-			spell_dispel_evil(gsn_dispel_evil, ch->level * 12 / 10,
-					  ch, ch->fighting,TARGET_CHAR);
+			obj_cast_spell(sn_lookup("dispel evil"),
+				       ch->level * 12 / 10,
+			               ch, ch->fighting, obj);
 		else if (IS_GOOD(ch->fighting))
-			spell_dispel_good(gsn_dispel_good, ch->level * 12 / 10,
-					  ch, ch->fighting,TARGET_CHAR);
+			obj_cast_spell(sn_lookup("dispel good"), ch->level * 12 / 10,
+				       ch, ch->fighting, obj);
 		else 
-			spell_lightning_bolt(sn_lookup("lightning bolt"),
-					     ch->level * 12 / 10, ch,
-					     ch->fighting, TARGET_CHAR);
+			obj_cast_spell(sn_lookup("lightning bolt"),
+				       ch->level * 12 / 10,
+				       ch, ch->fighting, obj);
 		break;
 	}
 	return 0;
 }
-
 
 int fight_prog_tattoo_eros(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.137 1998-10-06 13:18:23 fjoe Exp $
+ * $Id: act_info.c,v 1.138 1998-10-06 19:08:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2383,10 +2383,10 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 	if (!check_blind(ch))
 		return;
 
-	range = 1 + (ch->level)/10;
+	range = 1 + ch->level/10;
 
 	in_room = ch->in_room;
-	for (i=1; i <= range; i++) {
+	for (i = 1; i <= range; i++) {
 		exit = in_room->exit[door];
 		if (!exit)
 			return;

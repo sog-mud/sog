@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.40 1998-10-06 13:18:28 fjoe Exp $
+ * $Id: martial_art.c,v 1.41 1998-10-06 19:09:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -472,7 +472,7 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		affect_to_char(victim, &af);
 	}
 	else {
-		damage(ch,victim, 0, gsn_dirt, DAM_NONE, TRUE);
+		damage(ch, victim, 0, gsn_dirt, DAM_NONE, TRUE);
 		check_improve(ch, gsn_dirt, FALSE, 2);
 		WAIT_STATE(ch, SKILL(gsn_dirt)->beats);
 	}
@@ -503,7 +503,7 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 			return;
  		}
 	}
-	else if ((victim = get_char_room(ch,arg)) == NULL) {
+	else if ((victim = get_char_room(ch, arg)) == NULL) {
 		char_puts("They aren't here.\n\r",ch);
 		return;
 	}

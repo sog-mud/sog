@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.30 1998-10-06 13:18:23 fjoe Exp $
+# $Id: Makefile,v 1.31 1998-10-06 19:08:55 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
@@ -87,7 +87,7 @@ clean:
 	rm -f *.o *.core muddy
 
 ctags:
-	ctags -dtw *.c *.h
+	ctags -dtw $(CFILES) *.h
 
 install: muddy
 	install -c -m 554 muddy $(INSTALL_PATH)/bin

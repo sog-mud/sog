@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.69 1998-10-06 13:18:25 fjoe Exp $
+ * $Id: act_wiz.c,v 1.70 1998-10-06 19:08:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3013,6 +3013,7 @@ void do_sockets(CHAR_DATA *ch, const char *argument)
 			d->host
 			);
 		}
+
 	if (count == 0) {
 		char_puts("No one by that name is connected.\n\r",ch);
 		return;

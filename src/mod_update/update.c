@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.68 1998-10-06 13:49:34 fjoe Exp $
+ * $Id: update.c,v 1.69 1998-10-06 19:09:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -410,8 +410,6 @@ int move_gain(CHAR_DATA *ch)
 	return UMIN(gain, ch->max_move - ch->move);
 }
 
-
-
 void gain_condition(CHAR_DATA *ch, int iCond, int value)
 {
 	int condition;
@@ -419,7 +417,7 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 	int fdone;
 	CHAR_DATA *vch,*vch_next;
 
-	if (value == 0 || ch->desc == NULL || ch->level >= LEVEL_IMMORTAL)
+	if (value == 0 || IS_NPC(ch) || ch->level >= LEVEL_IMMORTAL)
 		return;
 
 	condition = ch->pcdata->condition[iCond];
@@ -532,7 +530,6 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 		}
 	}
 }
-
 
 /*
  * Mob autonomous action.

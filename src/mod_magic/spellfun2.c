@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.44 1998-10-06 13:18:27 fjoe Exp $
+ * $Id: spellfun2.c,v 1.45 1998-10-06 19:09:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -276,45 +276,6 @@ void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	return;
 }
 
-void spell_poison_smoke(int sn, int level, CHAR_DATA *ch, void *vo, int target)
-{
-	CHAR_DATA *vch;
-	CHAR_DATA *vch_next;
-
-	char_puts("A cloud of poison smoke fills the room.\n\r",ch);
-	act("A cloud of poison smoke fills the room.",ch,NULL,NULL,TO_ROOM);
-
-	for (vch = ch->in_room->people; vch; vch = vch_next) {
-		vch_next = vch->next_in_room;
-
-		if (is_safe_spell(ch, vch, TRUE))
-			continue;
-
-		spell_poison(gsn_poison, ch->level, ch, vch, TARGET_CHAR);
-		if (vch != ch)
-			multi_hit(vch,ch,TYPE_UNDEFINED);
-	}
-}
-
-void spell_blindness_dust(int sn, int level, CHAR_DATA *ch, void *vo, int target)
-{
-	CHAR_DATA *vch;
-	CHAR_DATA *vch_next;
-
-	char_puts("A cloud of dust fills in the room.\n\r",ch);
-	act("A cloud of dust fills the room.",ch,NULL,NULL,TO_ROOM);
-
-	for (vch = ch->in_room->people; vch; vch = vch_next) {
-		vch_next = vch->next_in_room;
-
-		if (is_safe_spell(ch, vch, TRUE))
-			continue;
-
-		spell_blindness(gsn_blindness, ch->level, ch, vch, TARGET_CHAR);
-		multi_hit(vch, ch, TYPE_UNDEFINED);
-	}
-}
-
 void spell_bark_skin(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
@@ -338,75 +299,6 @@ void spell_bark_skin(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	affect_to_char(victim, &af);
 	act("$n's skin becomes covered in bark.", victim, NULL, NULL, TO_ROOM);
 	char_puts("Your skin becomes covered in bark.\n\r", victim);
-}
-
-void spell_bear_call(int sn, int level, CHAR_DATA *ch, void *vo, int target)
-{
-	CHAR_DATA *gch;
-	CHAR_DATA *bear;
-	CHAR_DATA *bear2;
-	AFFECT_DATA af;
-	int i;
-	
-	char_puts("You call for bears help you.\n\r",ch);
-	act("$n shouts a bear call.",ch,NULL,NULL,TO_ROOM);
-
-	if (is_affected(ch, sn))
-	{
-	  char_puts("You cannot summon the strength to handle more bears right now.\n\r", ch);
-	  return;
-	}
-	for (gch = char_list; gch != NULL; gch = gch->next)
-	{
-	  if (IS_NPC(gch) && IS_AFFECTED(gch,AFF_CHARM) && gch->master == ch &&
-	  gch->pIndexData->vnum == MOB_VNUM_BEAR)
-	{
-	  char_puts("What's wrong with the bear you've got?",ch);
-	  return;
-	}
-	}
-
-	bear = create_mob(get_mob_index(MOB_VNUM_BEAR));
-
-	for (i=0;i < MAX_STATS; i++)
-	{
-	  bear->perm_stat[i] = UMIN(25,2 * ch->perm_stat[i]);
-	}
-
-	bear->max_hit = IS_NPC(ch)? ch->max_hit : ch->pcdata->perm_hit;
-	bear->hit = bear->max_hit;
-	bear->max_mana = IS_NPC(ch)? ch->max_mana : ch->pcdata->perm_mana;
-	bear->mana = bear->max_mana;
-	bear->alignment = ch->alignment;
-	bear->level = UMIN(70,1 * ch->level);
-	for (i=0; i < 3; i++)
-	bear->armor[i] = interpolate(bear->level,100,-100);
-	bear->armor[3] = interpolate(bear->level,100,0);
-	bear->sex = ch->sex;
-	bear->gold = 0;
-	
-	bear2 = create_mob(bear->pIndexData);
-	clone_mob(bear,bear2);
-	
-	SET_BIT(bear->affected_by, AFF_CHARM);
-	SET_BIT(bear2->affected_by, AFF_CHARM);
-	bear->master = bear2->master = ch;
-	bear->leader = bear2->leader = ch;
-
-	char_to_room(bear,ch->in_room);
-	char_to_room(bear2,ch->in_room);
-	char_puts("Two bears come to your rescue!\n\r",ch);
-	act("Two bears come to $n's rescue!",ch,NULL,NULL,TO_ROOM);
-
-	af.where		= TO_AFFECTS;
-	af.type               = sn;
-	af.level              = level; 
-	af.duration           = 24;
-	af.bitvector          = 0;
-	af.modifier           = 0;
-	af.location           = APPLY_NONE;
-	affect_to_char(ch, &af);  
-
 }
 
 void spell_ranger_staff(int sn, int level, CHAR_DATA *ch, void *vo, int target)
@@ -445,46 +337,6 @@ void spell_ranger_staff(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	staff->level = ch->level;
 	
 	obj_to_char(staff,ch);
-}
-
-void spell_vanish(int sn, int level, CHAR_DATA *ch, void *vo, int target)
-{
-	ROOM_INDEX_DATA *pRoomIndex;
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
-
-	if (victim->in_room == NULL
-	  ||   IS_SET(victim->in_room->room_flags, ROOM_NORECALL))
-	{
-	  char_puts("You failed.\n\r", ch);
-	  return;
-	}
-
-	for (; ;)
-	{
-	  pRoomIndex = get_room_index(number_range(0, 65535));
-	  if (pRoomIndex != NULL)
-	if (can_see_room(victim,pRoomIndex) && !room_is_private(pRoomIndex)
-	    && victim->in_room->area == pRoomIndex->area)
-	    
-	  break;
-	}
-
-	
-	act("$n throws down a small globe.", ch, NULL, NULL, TO_ROOM);
-
-	if (!IS_NPC(ch) && ch->fighting != NULL && number_bits(1) == 1) {
-	char_puts("You failed.\n\r",ch);
-	return;
-	}
-
-	act("$n is gone!",victim,NULL,NULL,TO_ROOM);
-
-	char_from_room(victim);
-	char_to_room(victim, pRoomIndex);
-	act("$n appears from nowhere.", victim, NULL, NULL, TO_ROOM);
-	do_look(victim, "auto");
-	stop_fighting(victim,TRUE);
-	return;
 }
 
 void spell_transform(int sn, int level, CHAR_DATA *ch, void *vo, int target)

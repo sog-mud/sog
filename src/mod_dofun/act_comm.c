@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.91 1998-10-06 13:18:23 fjoe Exp $
+ * $Id: act_comm.c,v 1.92 1998-10-06 19:08:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1028,7 +1028,8 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 	}
 
 	if (!IS_IMMORTAL(ch)
-	&&  ch->clan != CLAN_INVADER && is_affected(ch, gsn_evil_spirit)) {
+	&&  !get_skill(ch, gsn_evil_spirit)
+	&&  is_affected(ch, gsn_evil_spirit)) {
 		char_puts("Evil spirits in you prevents you from leaving.\n\r", ch);
 		return;
 	}

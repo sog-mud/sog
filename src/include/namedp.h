@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: namedp.h,v 1.2 1998-09-17 15:51:21 fjoe Exp $
+ * $Id: namedp.h,v 1.3 1998-10-06 19:09:01 fjoe Exp $
  */
 
 #ifndef _NAMEDP_H_
@@ -34,12 +34,13 @@
  */
 
 struct namedp {
-	char *	name;
-	void *	p;
-	bool	touched;
+	const char *	name;
+	void *		p;
+	bool		touched;
 };
 
 NAMEDP *	namedp_lookup	(NAMEDP *table, const char *name);
-char *		namedp_name	(NAMEDP *table, void *p);
+const char *	namedp_name	(const NAMEDP *table, void *p);
+void		namedp_check	(const NAMEDP *table);
 
 #endif

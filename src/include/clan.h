@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.h,v 1.5 1998-10-06 13:18:25 fjoe Exp $
+ * $Id: clan.h,v 1.6 1998-10-06 19:08:59 fjoe Exp $
  */
 
 #ifndef _CLAN_H_
@@ -34,15 +34,6 @@
  */
 
 #define CLAN_NONE 	 0
-#define CLAN_RULER	 1
-#define CLAN_INVADER	 2
-#define CLAN_CHAOS	 3
-#define CLAN_SHALAFI	 4
-#define CLAN_BATTLE	 5
-#define CLAN_KNIGHT	 6
-#define CLAN_LIONS	 7
-#define CLAN_HUNTER	 8
-#define CLAN_CONFEDERACY 9
 
 /* Clan status */
 #define CLAN_LEADER	2

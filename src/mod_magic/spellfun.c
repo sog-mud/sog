@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.59 1998-10-06 13:49:33 fjoe Exp $
+ * $Id: spellfun.c,v 1.60 1998-10-06 19:09:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -57,6 +57,8 @@
  */
 int allowed_other(CHAR_DATA *ch, int sn)
 {
+	if (IS_SET(SKILL(sn)->flags, SKILL_RANGE))
+		return ch->level / 20 + 1;
 	return 0;
 }
 
@@ -185,7 +187,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			}
 		}
 		else {
-			if ((range = allowed_other(ch,sn)) > 0) {
+			if ((range = allowed_other(ch, sn)) > 0) {
 				if (!(victim = get_char_spell(ch, target_name,
 							      &door, range))) {
 					char_puts("They aren't here.\n\r", ch);
@@ -4188,24 +4190,25 @@ void spell_teleport(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	do_look(victim, "auto");
 }
 
-void spell_bamf(int sn, int level, CHAR_DATA *ch, void *vo,int target)
+void spell_bamf(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	ROOM_INDEX_DATA* pRoomIndex;
+	AREA_DATA *pArea;
 
 	if (victim->in_room == NULL || saves_spell(level, victim, DAM_OTHER)) {
 		send_to_char("You failed.\n\r",ch);
 		return;
 	}
 
+	pArea = victim->in_room->area;
 	for (;;) {
-		pRoomIndex = get_room_index(number_range(0, 65535));
-		if (pRoomIndex!=NULL
+		pRoomIndex = get_room_index(number_range(pArea->min_vnum,
+							 pArea->max_vnum));
+		if (pRoomIndex
 		&&  can_see_room(victim, pRoomIndex) 
 		&&  !room_is_private(pRoomIndex)
-		&&  !IS_SET(pRoomIndex->room_flags, ROOM_SOLITARY)
-		&&  !IS_SET(pRoomIndex->room_flags, ROOM_SAFE)
-		&&  victim->in_room->area==pRoomIndex->area)
+		&&  !IS_SET(pRoomIndex->room_flags, ROOM_SAFE))
 			break;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.76 1998-10-06 13:18:25 fjoe Exp $
+ * $Id: fight.c,v 1.77 1998-10-06 19:08:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -742,10 +742,14 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 			}
 		}
 		else {
+#if 0
 			int d;
+#endif
 
 			dam = number_range(1 + 4 * sk / 100,
 					   2 * ch->level / 3 * sk / 100);
+#if 0
+/* we do not have 'master hand' skill */
 			if ((sk2 = get_skill(ch, gsn_master_hand))
 			&&  (d = number_percent()) <= sk2) {
 				check_improve(ch, gsn_master_hand, TRUE, 6);
@@ -766,6 +770,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 						      TRUE, 6);
 				}
 			}
+#endif
 		}
 	}
 
@@ -2666,19 +2671,18 @@ bool check_obj_dodge(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj, int bonus)
 	if (IS_NPC(victim))
 		 chance  = UMIN(30, victim->level);
 	else {
-		  chance  = get_skill(victim,gsn_dodge) / 2;
-		  /* chance for high dex. */
-		  chance += 2 * (get_curr_stat(victim,STAT_DEX) - 20);
-		 if (victim->class == CLASS_WARRIOR || victim->class == CLASS_SAMURAI)
-		    chance *= 1.2;
+		chance  = get_skill(victim,gsn_dodge) / 2;
+		/* chance for high dex. */
+		chance += 2 * (get_curr_stat(victim,STAT_DEX) - 20);
+		if (victim->class == CLASS_WARRIOR || victim->class == CLASS_SAMURAI)
+			chance *= 1.2;
 		if (victim->class == CLASS_THIEF || victim->class ==CLASS_NINJA)
-		    chance *= 1.1;
-		 }
+			chance *= 1.1;
+	}
 
 	chance -= (bonus - 90);
 	chance /= 2;
-	if (number_percent() >= chance &&
-		 (IS_NPC(victim) || victim->clan != CLAN_BATTLE))
+	if (number_percent() >= chance && IS_NPC(victim))
 		return FALSE;
 
 	act("You dodge $p that had been shot to you.",ch,obj,victim,TO_VICT);
