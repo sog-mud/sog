@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.27 1998-06-22 09:03:16 efdi Exp $
+ * $Id: act_wiz.c,v 1.28 1998-06-24 00:14:58 efdi Exp $
  */
 
 /***************************************************************************
@@ -4884,33 +4884,28 @@ void do_smite(CHAR_DATA *ch, char *argument)
 {
 	CHAR_DATA *victim;
 
-	if (argument[0] == '\0')
-	{
+	if (argument[0] == '\0') {
 	  send_to_char("You are so frustrated you smite yourself!  OWW!\n\r", 
 			ch);
 	  return;
 	}
 
-	if ((victim = get_char_world(ch, argument)) == NULL)
-	{
+	if ((victim = get_char_world(ch, argument)) == NULL) {
 	  send_to_char("You'll have to smite them some other day.\n\r", ch);
 	  return;
 	}
 
-	if (IS_NPC(victim))
-	{
+	if (IS_NPC(victim)) {
 	  send_to_char("That poor mob never did anything to you.\n\r", ch);
 	  return;
 	}
 
-	if (victim->trust > ch->trust)
-	{
+	if (get_trust(victim) > get_trust(ch)) {
 	  send_to_char("How dare you!\n\r", ch);
 	  return;
 	}
 
-	if (victim->position < POS_SLEEPING)
-	{
+	if (victim->position < POS_SLEEPING) {
 	  send_to_char("Take pity on the poor thing.\n\r", ch);
 	  return;
 	}
@@ -4925,22 +4920,23 @@ void do_smite(CHAR_DATA *ch, char *argument)
 
 void do_popularity(CHAR_DATA *ch, char *argument)
 {
-char buf[4 * MAX_STRING_LENGTH];
-char buf2[MAX_STRING_LENGTH];
-AREA_DATA *area;
-extern AREA_DATA *area_first;
-int i;
+	char buf[4 * MAX_STRING_LENGTH];
+	char buf2[MAX_STRING_LENGTH];
+	AREA_DATA *area;
+	extern AREA_DATA *area_first;
+	int i;
 
 	sprintf(buf,"Area popularity statistics (in char * ticks)\n\r");
 
 	for (area = area_first,i=0; area != NULL; area = area->next,i++) {
-	  if (area->count >= 5000000)
-	    sprintf(buf2,"%-20s overflow       ",area->name);
-	  else
-	    sprintf(buf2,"%-20s %-8lu       ",area->name,area->count);
-	  if (i % 2 == 0) 
-		strcat(buf, "\n\r");
-	  strcat(buf, buf2);
+		if (area->count >= 5000000)
+			sprintf(buf2,"%-20s overflow       ", area->name);
+		else
+			sprintf(buf2,"%-20s %-8lu       ", area->name,
+				area->count);
+		if (i % 2 == 0) 
+			strcat(buf, "\n\r");
+		strcat(buf, buf2);
 	}
 	strcat(buf, "\n\r\n\r");
 	page_to_char(buf, ch);
@@ -5014,14 +5010,12 @@ void do_rename (CHAR_DATA* ch, char* argument)
 			return;
 		}
 		
-		if (IS_NPC(victim))
-		{   
+		if (IS_NPC(victim)) {   
 			send_to_char ("You cannot use Rename on NPCs.\n\r",ch);
 			return;
 		}
 
-		if ((victim != ch) && (get_trust (victim) >= get_trust (ch)))
-		{
+		if ((victim != ch) && (get_trust (victim) >= get_trust (ch))) {
 			send_to_char ("You failed.\n\r",ch);
 			return;
 		}

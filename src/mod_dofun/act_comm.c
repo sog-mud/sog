@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.49 1998-06-20 21:26:34 fjoe Exp $
+ * $Id: act_comm.c,v 1.50 1998-06-24 00:14:57 efdi Exp $
  */
 
 /***************************************************************************
@@ -1145,17 +1145,14 @@ void do_save(CHAR_DATA *ch, char *argument)
 	if (IS_NPC(ch))
 	return;
 
-	if (ch->level < 2)
-	{
-		 send_to_char("You must be at least level 2 for saving.\n\r", ch);
+	if (ch->level < 2) {
+		send_to_char("You must be at least level 2 for saving.\n\r",ch);
 		return;
 	}
 	save_char_obj(ch);
 	WAIT_STATE(ch, PULSE_VIOLENCE);
 	return;
 }
-
-
 
 void do_follow(CHAR_DATA *ch, char *argument)
 {
@@ -1165,46 +1162,40 @@ void do_follow(CHAR_DATA *ch, char *argument)
 
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0')
-	{
-	send_to_char("Follow whom?\n\r", ch);
-	return;
-	}
-
-	if ((victim = get_char_room(ch, arg)) == NULL)
-	{
-	send_to_char("They aren't here.\n\r", ch);
-	return;
-	}
-
-	if (IS_AFFECTED(ch, AFF_CHARM) && ch->master != NULL)
-	{
-	act("But you'd rather follow $N!", ch, NULL, ch->master, TO_CHAR);
-	return;
-	}
-
-	if (victim == ch)
-	{
-	if (ch->master == NULL)
-	{
-		send_to_char("You already follow yourself.\n\r", ch);
+	if (arg[0] == '\0') {
+		send_to_char("Follow whom?\n\r", ch);
 		return;
 	}
-	stop_follower(ch);
-	return;
+
+	if ((victim = get_char_room(ch, arg)) == NULL) {
+		char_n_puts(THEY_ARENT_HERE, ch);
+		return;
 	}
 
-	if (!IS_NPC(victim) && IS_SET(victim->act,PLR_NOFOLLOW) && !IS_IMMORTAL(ch))
-	{
-	act("$N doesn't seem to want any followers.\n\r",
-		     ch,NULL,victim, TO_CHAR);
+	if (IS_AFFECTED(ch, AFF_CHARM) && ch->master != NULL) {
+		act("But you'd rather follow $N!", ch, NULL,ch->master,TO_CHAR);
 		return;
+	}
+
+	if (victim == ch) {
+		if (ch->master == NULL) {
+			send_to_char("You already follow yourself.\n\r", ch);
+			return;
+		}
+		stop_follower(ch);
+		return;
+	}
+
+	if (!IS_NPC(victim) && IS_SET(victim->act,PLR_NOFOLLOW) && !IS_IMMORTAL(ch)) {
+		act("$N doesn't seem to want any followers.\n\r",
+		    ch, NULL, victim, TO_CHAR);
+			return;
 	}
 
 	REMOVE_BIT(ch->act,PLR_NOFOLLOW);
 	
 	if (ch->master != NULL)
-	stop_follower(ch);
+		stop_follower(ch);
 
 	add_follower(ch, victim);
 }
@@ -1308,77 +1299,64 @@ void do_order(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, arg);
 	one_argument(argument,arg2);
 
-	if (!str_cmp(arg2,"delete"))
-	{
+	if (!str_cmp(arg2,"delete")) {
 		send_to_char("That will NOT be done.\n\r",ch);
 		return;
 	}
 
-	if (arg[0] == '\0' || argument[0] == '\0')
-	{
-	send_to_char("Order whom to do what?\n\r", ch);
-	return;
-	}
-
-	if (IS_AFFECTED(ch, AFF_CHARM))
-	{
-	send_to_char("You feel like taking, not giving, orders.\n\r", ch);
-	return;
-	}
-
-	if (!str_cmp(arg, "all"))
-	{
-	fAll   = TRUE;
-	victim = NULL;
-	}
-	else
-	{
-	fAll   = FALSE;
-	if ((victim = get_char_room(ch, arg)) == NULL)
-	{
-		send_to_char("They aren't here.\n\r", ch);
+	if (arg[0] == '\0' || argument[0] == '\0') {
+		send_to_char("Order whom to do what?\n\r", ch);
 		return;
 	}
 
-	if (victim == ch)
-	{
-		send_to_char("Aye aye, right away!\n\r", ch);
+	if (IS_AFFECTED(ch, AFF_CHARM)) {
+		char_puts("You feel like taking, not giving, orders.\n\r", ch);
 		return;
 	}
 
-	if (!IS_AFFECTED(victim, AFF_CHARM) || victim->master != ch 
-	||  (IS_IMMORTAL(victim) && victim->trust >= ch->trust))
-	{
-		send_to_char("Do it yourself!\n\r", ch);
-		return;
-	}
+	if (!str_cmp(arg, "all")) {
+		fAll   = TRUE;
+		victim = NULL;
+	} else {
+		fAll   = FALSE;
+		if ((victim = get_char_room(ch, arg)) == NULL) {
+			char_nputs(THEY_ARENT_HERE, ch);
+			return;
+		}
+
+		if (victim == ch) {
+			send_to_char("Aye aye, right away!\n\r", ch);
+			return;
+		}
+
+		if (!IS_AFFECTED(victim, AFF_CHARM) || victim->master != ch 
+		||(IS_IMMORTAL(victim) && get_trust(victim) >= get_trust(ch))) {
+			send_to_char("Do it yourself!\n\r", ch);
+			return;
+		}
 	}
 
 	found = FALSE;
-	for (och = ch->in_room->people; och != NULL; och = och_next)
-	{
-	och_next = och->next_in_room;
+	for (och = ch->in_room->people; och != NULL; och = och_next) {
+		och_next = och->next_in_room;
 
-	if (IS_AFFECTED(och, AFF_CHARM)
-	&&   och->master == ch
-	&& (fAll || och == victim))
-	{
-		found = TRUE;
-		if (!proper_order(och, argument))
-		continue;
-		act_nprintf(ch, NULL, och, TO_VICT, POS_RESTING,
-			       COMM_ORDERS_YOU_TO, argument);
-		interpret(och, argument, TRUE);
-	}
+		if (IS_AFFECTED(och, AFF_CHARM)
+		&&   och->master == ch
+		&& (fAll || och == victim)) {
+			found = TRUE;
+			if (!proper_order(och, argument))
+				continue;
+			act_nprintf(ch, NULL, och, TO_VICT, POS_RESTING,
+				       COMM_ORDERS_YOU_TO, argument);
+			interpret(och, argument, TRUE);
+		}
 	}
 
-	if (found)
-	{
-	WAIT_STATE(ch,PULSE_VIOLENCE);
-	send_to_char("Ok.\n\r", ch);
-	}
-	else
-	send_to_char("You have no followers here.\n\r", ch);
+	if (found) {
+		WAIT_STATE(ch,PULSE_VIOLENCE);
+		char_nputs(OK, ch);
+	} else
+		send_to_char("You have no followers here.\n\r", ch);
 	return;
 }
 
@@ -1389,7 +1367,8 @@ bool proper_order(CHAR_DATA *ch, char *argument)
 	int trust, cmd_num;
 	DO_FUN *cmd;
 
-	if (!IS_NPC(ch))     return TRUE;
+	if (!IS_NPC(ch))
+		return TRUE;
 
 	one_argument(argument, command);
 	found = FALSE;
@@ -1397,51 +1376,52 @@ bool proper_order(CHAR_DATA *ch, char *argument)
 	trust = get_trust(ch);
 
 	for (cmd_num = 0; cmd_table[cmd_num].name[0] != '\0'; cmd_num++)
-	{
-		 if (command[0] == cmd_table[cmd_num].name[0]
-		&&   !str_prefix(command, cmd_table[cmd_num].name)
-		&&   cmd_table[cmd_num].level <= trust)
-		 {
-		    found = TRUE;
-		    break;
-		 }
-	}
-	if (!found) return TRUE;
+		if (command[0] == cmd_table[cmd_num].name[0]
+		&& !str_prefix(command, cmd_table[cmd_num].name)
+		&& cmd_table[cmd_num].level <= trust) {
+			found = TRUE;
+			break;
+		}
+
+	if (!found)
+		return TRUE;
+
 	cmd = cmd_table[cmd_num].do_fun;
 
 	if (((cmd == do_bash) || (cmd == do_dirt) || (cmd == do_kick)
 	|| (cmd == do_murder) || (cmd == do_trip)) 
 	&& ch->fighting == NULL) 
-	return FALSE;
+		return FALSE;
 
-	if ((cmd == do_assassinate) || (cmd == do_ambush) || (cmd == do_blackjack) 
-	|| (cmd == do_cleave) || (cmd == do_kill) || (cmd == do_murder) 
-	|| (cmd == do_recall) || (cmd == do_strangle) || (cmd == do_vtouch))
-	return FALSE;
+	if ((cmd == do_assassinate) || (cmd == do_ambush)
+	|| (cmd == do_blackjack) || (cmd == do_cleave) || (cmd == do_kill)
+	|| (cmd == do_murder) || (cmd == do_recall) || (cmd == do_strangle)
+	|| (cmd == do_vtouch))
+		return FALSE;
 
-	if (cmd == do_close || cmd == do_lock || cmd == do_open ||  
-		  cmd == do_unlock )  
-	{
-	if (race_table[RACE(ch)].pc_race) return TRUE;
-	if (RACE(ch) != 34  &&		/* doll */
-		 RACE(ch) != 37  &&		/* goblin */
-		 RACE(ch) != 38  &&		/* hobgoblin */
-		 RACE(ch) != 39  &&		/* kobolt */
-		 RACE(ch) != 40  &&		/* lizard */
-		 RACE(ch) != 41  &&		/* modron */
-		 RACE(ch) != 42 )		/* orc */
-		 return FALSE;
-	else 
-		 return TRUE;
+	if (cmd == do_close || cmd == do_lock || cmd == do_open
+	||  cmd == do_unlock )  {
+		if (race_table[RACE(ch)].pc_race)
+			return TRUE;
+		if (RACE(ch) != 34	/* doll */
+		&&  RACE(ch) != 37	/* goblin */
+		&&  RACE(ch) != 38	/* hobgoblin */
+		&&  RACE(ch) != 39	/* kobolt */
+		&&  RACE(ch) != 40	/* lizard */
+		&&  RACE(ch) != 41	/* modron */
+		&&  RACE(ch) != 42)	/* orc */
+			return FALSE;
+		else 
+			return TRUE;
 	}
 
 	if ((cmd == do_backstab) || (cmd == do_hide) || (cmd == do_pick) 
-	|| (cmd == do_sneak))
-		{
-		  if (IS_SET(ch->act, ACT_THIEF))
-		return TRUE;
-		  else return FALSE;
-		}
+	|| (cmd == do_sneak)) {
+		if (IS_SET(ch->act, ACT_THIEF))
+			return TRUE;
+		else
+			return FALSE;
+	}
 
 	return TRUE;
 }
@@ -1450,7 +1430,8 @@ bool proper_order(CHAR_DATA *ch, char *argument)
 CHAR_DATA* leader_lookup(CHAR_DATA* ch)
 {
 	CHAR_DATA* res;
-	for (res = ch; res->leader != NULL; res = res->leader);
+	for (res = ch; res->leader != NULL; res = res->leader)
+		;
 	return res;
 }
 
