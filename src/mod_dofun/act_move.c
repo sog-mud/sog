@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.24 1998-04-29 05:29:11 efdi Exp $
+ * $Id: act_move.c,v 1.25 1998-04-29 06:30:07 efdi Exp $
  */
 
 /***************************************************************************
@@ -2082,7 +2082,7 @@ void do_train( CHAR_DATA *ch, char *argument )
 
     if ( mob == NULL )
     {
-	send_to_char( "You can't do that here.\n\r", ch );
+	send_to_char(msg(MOVE_YOU_CANT_DO_THAT_HERE, ch), ch);
 	return;
     }
 

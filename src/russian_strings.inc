@@ -235,6 +235,7 @@ char *strings_rus[MSG_MAX_NUM] = {
 /* MOVE_YOU_GO_TO_SLEEP */	"Ты засыпаешь.\n\r",
 /* MOVE_N_GOES_TO_SLEEP */	"$n засыпает.\n\r",
 /* MOVE_YOU_CANT_SLEEP_ON_THAT */"Ты не можешь на этом спать.\n\r",
+/* MOVE_THERES_NO_ROOM_ON_P_FOR_YOU */"There's no room on $p for you.",
 /* MOVE_YOU_GO_TO_SLEEP_AT*/	"Ты засыпаешь у $p.",
 /* MOVE_N_GOES_TO_SLEEP_AT */	"$n засыпает у $p.",
 /* MOVE_YOU_GO_TO_SLEEP_ON */	"Ты засыпаешь на $p.",
@@ -264,7 +265,6 @@ char *strings_rus[MSG_MAX_NUM] = {
 /* MOVE_YOU_TRAMPLE_AROUND_LOUDLY */"Теперь ты опять топаешь как слон.\n\r",
 /* MOVE_ONLY_PLAYERS_RECALL */	"Только игроки могут делать реколл.\n\r",
 /* MOVE_RECALL_FOR_BELOW_10 */	"Реколл только для тех, кто меньше 10 левела.\n\r",
-/* MOVE_TOO_PUMPED_TO_PRAY */	"Ты слишком возбужден для того чтобы молиться.\n\r",
 /* MOVE_N_PRAYS_FOR_TRANSPORTATION */"$n молит о возвращении домой!",
 /* MOVE_YOU_ARE_COMPLETELY_LOST */"Ты окончательно потерялся.\n\r",
 /* MOVE_GODS_FORSAKEN_YOU  */	"Боги покинули тебя.\n\r",
@@ -367,5 +367,8 @@ char *strings_rus[MSG_MAX_NUM] = {
 /* MOVE_N_TRIES_TO_PASS_FAILED */"$n попыталось пройти через $d, но не смогло",
 /* MOVE_N_TRIES_TO_PASS_FAILED_M */"$n попытался пройти через $d, но не смог",
 /* MOVE_N_TRIES_TO_PASS_FAILED_F */"$n попыталась пройти через $d, но не смогла",
+/* MOVE_TOO_PUMPED_TO_PRAY */	"Ты слишком возбуждено для того чтобы молиться.\n\r",
+/* MOVE_TOO_PUMPED_TO_PRAY_M */	"Ты слишком возбужден для того чтобы молиться.\n\r",
+/* MOVE_TOO_PUMPED_TO_PRAY_F */	"Ты слишком возбуждена для того чтобы молиться.\n\r",
 };
 

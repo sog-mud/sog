@@ -182,7 +182,7 @@ char *strings_engl[MSG_MAX_NUM] =  {
 /* MOVE_YOU_CANT_REST_RIDDEN */	"You can't rest while being ridden.\n\r",
 /* MOVE_YOU_ARE_ALREADY_SLEEPING */"You are already sleeping.\n\r",
 /* MOVE_YOU_CANT_REST_ON_THAT */"You can't rest on that.\n\r",
-/* MOVE_THERES_NO_MORE_ROOM_ON n*/"There's no more room on $p.",
+/* MOVE_THERES_NO_MORE_ROOM_ON */"There's no more room on $p.",
 /* MOVE_YOU_WAKE_AND_REST */	"You wake up and start resting.\n\r",
 /* MOVE_N_WAKES_AND_RESTS */	"$n wakes up and starts resting.",
 /* MOVE_YOU_WAKE_UP_AND_REST_AT */"You wake up and rest at $p.",
@@ -235,6 +235,7 @@ char *strings_engl[MSG_MAX_NUM] =  {
 /* MOVE_YOU_GO_TO_SLEEP */	"You go to sleep.\n\r",
 /* MOVE_N_GOES_TO_SLEEP */	"$n goes to sleep.\n\r",
 /* MOVE_YOU_CANT_SLEEP_ON_THAT */"You can't sleep on that.\n\r",
+/* MOVE_THERES_NO_ROOM_ON_P_FOR_YOU */"There's no room on $p for you.",
 /* MOVE_YOU_GO_TO_SLEEP_AT*/	"You go to sleep at $p.",
 /* MOVE_N_GOES_TO_SLEEP_AT */	"$n goes to sleep at $p.",
 /* MOVE_YOU_GO_TO_SLEEP_ON */	"You go to sleep on $p.",
@@ -264,7 +265,6 @@ char *strings_engl[MSG_MAX_NUM] =  {
 /* MOVE_YOU_TRAMPLE_AROUND_LOUDLY */"You trample around loudly again.\n\r",
 /* MOVE_ONLY_PLAYERS_RECALL */	"Only players can recall.\n\r",
 /* MOVE_RECALL_FOR_BELOW_10 */	"Recall is for only levels below 10.\n\r",
-/* MOVE_TOO_PUMPED_TO_PRAY */	"You are too pumped to pray now.\n\r",
 /* MOVE_N_PRAYS_FOR_TRANSPORTATION */"$n prays for transportation!",
 /* MOVE_YOU_ARE_COMPLETELY_LOST */"You are completely lost.\n\r",
 /* MOVE_GODS_FORSAKEN_YOU  */	"The gods have forsaken you.\n\r",
@@ -272,6 +272,7 @@ char *strings_engl[MSG_MAX_NUM] =  {
 /* MOVE_RECALL_FROM_COMBAT */	"You recall from combat! You lose %d exps.\n\r",
 /* MOVE_N_DISAPPEARS */		"$n disappears.",
 /* MOVE_N_APPEARS_IN_THE_ROOM */"$n appears in the room.",
+/* MOVE_YOU_CANT_DO_THAT_HERE */"You can't do that here.\n\r",
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yis gushing blood{x.",
@@ -367,5 +368,8 @@ char *strings_engl[MSG_MAX_NUM] =  {
 /* MOVE_N_TRIES_TO_PASS_FAILED */"$n tries to pass through the $d, but $e failes",
 /* MOVE_N_TRIES_TO_PASS_FAILED_M */"$n tries to pass through the $d, but $e failes",
 /* MOVE_N_TRIES_TO_PASS_FAILED_F */"$n tries to pass through the $d, but $e failes",
+/* MOVE_TOO_PUMPED_TO_PRAY */	"You are too pumped to pray now.\n\r",
+/* MOVE_TOO_PUMPED_TO_PRAY_M */	"You are too pumped to pray now.\n\r",
+/* MOVE_TOO_PUMPED_TO_PRAY_F */	"You are too pumped to pray now.\n\r",
 };
 
