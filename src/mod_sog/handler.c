@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.153 1999-05-24 17:22:05 avn Exp $
+ * $Id: handler.c,v 1.154 1999-05-25 14:36:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1614,9 +1614,11 @@ void extract_obj(OBJ_DATA *obj, int flags)
 	if (IS_SET(obj->pIndexData->extra_flags, ITEM_CLAN))
 		return;
 
-	if (!IS_SET(flags, XO_F_NOCHQUEST)
-	&&  IS_SET(obj->pIndexData->extra_flags, ITEM_CHQUEST))
-		chquest_extract(obj);
+	if (IS_SET(obj->pIndexData->extra_flags, ITEM_CHQUEST)) {
+		if (!IS_SET(flags, XO_F_NOCHQUEST))
+			chquest_extract(obj);
+		flags |= XO_F_NORECURSE;
+	}
 
 	for (obj_content = obj->contains; obj_content; obj_content = obj_next) {
 		obj_next = obj_content->next_content;
