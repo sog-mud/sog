@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.68 2002-01-19 11:25:45 fjoe Exp $
+ * $Id: mlstring.c,v 1.69 2002-01-23 08:40:44 avn Exp $
  */
 
 #include <stdio.h>
@@ -482,7 +482,7 @@ mlstr_addnl(mlstring *mlp)
 		if (*p == NULL
 		||  (len = strlen(*p)) == 0
 		||  (*p)[len-1] == '\n')
-			return NULL;
+			return FALSE;
 
 		snprintf(buf, sizeof(buf), "%s\n", *p);
 		free_string(*p);
