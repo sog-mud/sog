@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.22 1999-12-21 17:44:34 avn Exp $
+ * $Id: olc_social.c,v 1.23 1999-12-29 06:33:27 fjoe Exp $
  */
 
 /* I never wanted to be
@@ -142,7 +142,7 @@ OLC_FUN(soced_edit)
 	if (arg[0] == '\0')
 		OLC_ERROR("'OLC EDIT'");
 
-	if ((soc = social_lookup(arg)) == NULL) {
+	if ((soc = social_search(arg)) == NULL) {
 		char_printf(ch, "SocEd: %s: No such social.\n", arg);
 		return FALSE;
 	}
