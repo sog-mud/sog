@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.239 2000-06-08 18:09:15 fjoe Exp $
+ * $Id: act_move.c,v 1.240 2000-06-13 09:56:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1227,10 +1227,8 @@ void do_hide(CHAR_DATA *ch, const char *argument)
 
 	char_puts("You attempt to hide.\n", ch);
 
-	if ((chance = get_skill(ch, "hide")) == 0) {
-		char_puts("Huh?\n", ch);
+	if ((chance = get_skill(ch, "hide")) == 0)
 		return;
-	}
 
 	sector = ch->in_room->sector_type;
 	if (sector == SECT_FOREST
