@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.20 1998-06-14 08:57:55 efdi Exp $
+ * $Id: act_obj.c,v 1.21 1998-06-14 11:14:37 efdi Exp $
  */
 
 /***************************************************************************
@@ -2471,7 +2471,7 @@ void do_zap(CHAR_DATA *ch, char *argument)
 	}
 	  }
 
-	if (is_safe(ch, victim))
+	if (vivtim && is_safe(ch, victim))
 		return;
 
 	  WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
