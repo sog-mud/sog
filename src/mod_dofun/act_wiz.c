@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.41 2004-02-19 20:44:18 fjoe Exp $
+ * $Id: act_wiz.c,v 1.186.2.42 2004-02-19 21:33:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2886,8 +2886,8 @@ void do_string(CHAR_DATA *ch, const char *argument)
 
 			argument = one_argument(argument, arg3, sizeof(arg3));
 			if (argument == NULL) {
-				char_puts("Syntax: oset <object> ed <keyword> "
-					  "lang\n", ch);
+				char_puts("Syntax: oset <object> ed <keyword> <lang>\n", ch);
+				char_puts("Syntax: oset <object> ed <keyword> reset\n", ch);
 				return;
 			}
 

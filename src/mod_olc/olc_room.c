@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.57.2.12 2001-11-24 14:36:03 avn Exp $
+ * $Id: olc_room.c,v 1.57.2.13 2004-02-19 21:33:55 fjoe Exp $
  */
 
 #include "olc.h"
@@ -764,8 +764,8 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		}
 
 		if (!mlstr_append(ch, &pRoom->exit[door]->description, arg)) {
-			char_printf(ch, "Syntax: %s desc lang\n",
-				    cmd->name);
+			char_printf(ch, "Syntax: %s desc <lang>\n", cmd->name);
+			char_printf(ch, "Syntax: %s desc reset\n", cmd->name);
 			return FALSE;
 		}
 		return TRUE;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.70.2.9 2003-09-30 01:25:15 fjoe Exp $
+ * $Id: olc.c,v 1.70.2.10 2004-02-19 21:33:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -345,7 +345,8 @@ bool olced_mlstr(CHAR_DATA *ch, const char *argument,
 		 olc_cmd_t *cmd, mlstring *mlp)
 {
 	if (!mlstr_edit(mlp, argument)) {
-		char_printf(ch, "Syntax: %s lang string\n", cmd->name);
+		char_printf(ch, "Syntax: %s <lang> <string>\n", cmd->name);
+		char_printf(ch, "Syntax: %s reset\n", cmd->name);
 		return FALSE;
 	}
 	char_puts("Ok.\n", ch);
@@ -356,7 +357,8 @@ bool olced_mlstrnl(CHAR_DATA *ch, const char *argument,
 		   olc_cmd_t *cmd, mlstring *mlp)
 {
 	if (!mlstr_editnl(mlp, argument)) {
-		char_printf(ch, "Syntax: %s lang string\n", cmd->name);
+		char_printf(ch, "Syntax: %s <lang> <string>\n", cmd->name);
+		char_printf(ch, "Syntax: %s reset\n", cmd->name);
 		return FALSE;
 	}
 	char_puts("Ok.\n", ch);
@@ -367,7 +369,8 @@ bool olced_mlstr_text(CHAR_DATA *ch, const char *argument,
 		      olc_cmd_t *cmd, mlstring *mlp)
 {
 	if (!mlstr_append(ch, mlp, argument)) {
-		char_printf(ch, "Syntax: %s lang\n", cmd->name);
+		char_printf(ch, "Syntax: %s <lang>\n", cmd->name);
+		char_printf(ch, "Syntax: %s reset\n", cmd->name);
 		return FALSE;
 	}
 	return FALSE;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.42.2.4 2003-03-06 09:55:19 avn Exp $
+ * $Id: mlstring.c,v 1.42.2.5 2004-02-19 21:33:56 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -318,8 +318,16 @@ bool mlstr_append(CHAR_DATA *ch, mlstring *mlp, const char *arg)
 {
 	int lang;
 
-	lang = lang_lookup(arg);
-	if (lang < 0 && str_cmp(arg, "all"))
+	if (!str_cmp(arg, "reset")) {
+		mlstr_convert(mlp, -1);
+		return TRUE;
+	}
+
+	if (!str_cmp(arg, "all")) {
+		if (mlstr_nlang(mlp) > 0)
+			return FALSE;
+		lang = -1;
+	} else if ((lang = lang_lookup(arg)) < 0)
 		return FALSE;
 
 	string_append(ch, mlstr_convert(mlp, lang));
@@ -350,8 +358,16 @@ bool mlstr_edit(mlstring *mlp, const char *argument)
 	const char **p;
 
 	argument = one_argument(argument, arg, sizeof(arg));
-	lang = lang_lookup(arg);
-	if (lang < 0 && str_cmp(arg, "all"))
+	if (!str_cmp(arg, "reset")) {
+		mlstr_convert(mlp, -1);
+		return TRUE;
+	}
+
+	if (!str_cmp(arg, "all")) {
+		if (mlstr_nlang(mlp) > 0)
+			return FALSE;
+		lang = -1;
+	} else if ((lang = lang_lookup(arg)) < 0)
 		return FALSE;
 
 	p = mlstr_convert(mlp, lang);
@@ -370,8 +386,16 @@ bool mlstr_editnl(mlstring *mlp, const char *argument)
 	const char **p;
 
 	argument = one_argument(argument, arg, sizeof(arg));
-	lang = lang_lookup(arg);
-	if (lang < 0 && str_cmp(arg, "all"))
+	if (!str_cmp(arg, "reset")) {
+		mlstr_convert(mlp, -1);
+		return TRUE;
+	}
+
+	if (!str_cmp(arg, "all")) {
+		if (mlstr_nlang(mlp) > 0)
+			return FALSE;
+		lang = -1;
+	} else if ((lang = lang_lookup(arg)) < 0)
 		return FALSE;
 
 	p = mlstr_convert(mlp, lang);
