@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.229 1999-12-04 13:39:11 kostik Exp $
+ * $Id: fight.c,v 1.230 1999-12-08 18:41:51 avn Exp $
  */
 
 /***************************************************************************
@@ -1305,12 +1305,16 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 
 	if (IS_EXTRACTED(victim))
 		return FALSE;
+	if (!victim->in_room || !ch->in_room)
+		return FALSE;
 
 	if (victim != ch) {
 		/*
 		 * Certain attacks are forbidden.
 		 * Most other attacks are returned.
 		 */
+
+#if 0
 		if (victim->position > POS_STUNNED) {
 			if (victim->fighting == NULL) {
 				set_fighting(victim, ch);
@@ -1326,6 +1330,17 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 		if (victim->position > POS_STUNNED) {
 			if (ch->fighting == NULL)
 				set_fighting(ch, victim);
+#endif
+
+		if (victim->position > POS_STUNNED && victim->fighting == NULL) {
+			if (victim->in_room == ch->in_room) {
+				set_fighting(victim, ch);
+				if (IS_NPC(victim) &&  HAS_TRIGGER(victim, TRIG_KILL))
+					mp_percent_trigger(victim, ch, NULL, NULL, TRIG_KILL);
+				if (IS_EXTRACTED(ch) || IS_EXTRACTED(victim))
+					return FALSE;
+			}
+			 
 
 			/*
 			 * If victim is charmed, ch might attack
