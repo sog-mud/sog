@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.1 2000-02-20 10:27:25 avn Exp $
+ * $Id: updfun.c,v 1.2 2000-02-22 20:24:48 fjoe Exp $
  */
 
 #include <sys/types.h>
