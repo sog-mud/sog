@@ -56,7 +56,7 @@ elf valley эльфийка долинная~
 @eng This elf is almost as tall as you are, but much slimmer and more agile.
 She glares at you, then quickly disappears before you see more of her.
 @rus Эльфийка почти так же высока, как ты. но гораздо более грациозна и 
-изящна. Она вглянула на тебя и быстро исчезла, не дав себя рассмотреть
+изящна. Она взглянула на тебя и быстро исчезла, не дав себя рассмотреть
 как следует.
 ~
 elf~
@@ -266,7 +266,7 @@ g @eng none@rus female~
 #7800
 chainmail elven chain mail эльфийская кольчуга shirt рубаха~
 @eng elven chainmail@rus ~~эльфийская~~ ~~кольчуга~~~
-@eng A shiny metallic shirt is on the floor.@rus Блестящая металическая рубаха (shirt) лежит здесь.~
+@eng A shiny metallic shirt is on the floor.@rus Блестящая металлическая рубаха (shirt) лежит здесь.~
 iron~
 armor 0 0 AD
 4 4 4 2 0
@@ -754,7 +754,7 @@ S
 #7809
 @eng The Valley of the Elves@rus Долина эльфов~
 @eng You are in the Valley of the Elves.  The valley continues in all directions.
-@rus Ты находишься в благословенной долине эльфов. Она простивается повсюду, 
+@rus Ты находишься в благословенной долине эльфов. Она простирается повсюду, 
 куда ни кинь взгляд.
 ~
 0 0 field
@@ -827,7 +827,7 @@ S
 #7811
 @eng The Valley of the Elves@rus Долина эльфов~
 @eng You are in the Valley of the Elves.  The valley continues in all directions.
-@rus Ты находишься в благословенной долине эльфов. Она простивается повсюду, 
+@rus Ты находишься в благословенной долине эльфов. Она простирается повсюду, 
 куда ни кинь взгляд.
 ~
 0 0 field
@@ -925,7 +925,7 @@ S
 #7814
 @eng The Valley of the Elves@rus Долина эльфов~
 @eng You are in the Valley of the Elves.  The valley continues in all directions.
-@rus Ты находишься в благословенной долине эльфов. Она простивается повсюду, 
+@rus Ты находишься в благословенной долине эльфов. Она простирается повсюду, 
 куда ни кинь взгляд.
 ~
 0 0 field
@@ -961,7 +961,7 @@ S
 #7815
 @eng The Valley of the Elves@rus Долина эльфов~
 @eng You are in the Valley of the Elves.  The valley continues in all directions.
-@rus Ты находишься в благословенной долине эльфов. Она простивается повсюду, 
+@rus Ты находишься в благословенной долине эльфов. Она простирается повсюду, 
 куда ни кинь взгляд.
 ~
 0 0 field
@@ -997,7 +997,7 @@ S
 #7816
 @eng The Valley of the Elves@rus Долина эльфов~
 @eng You are in the Valley of the Elves.  The valley continues in all directions.
-@rus Ты находишься в благословенной долине эльфов. Она простивается повсюду, 
+@rus Ты находишься в благословенной долине эльфов. Она простирается повсюду, 
 куда ни кинь взгляд.
 ~
 0 0 field
@@ -1095,7 +1095,7 @@ S
 #7819
 @eng The Valley of the Elves@rus Долина эльфов~
 @eng You are in the Valley of the Elves.  The valley continues in all directions.
-@rus Ты находишься в благословенной долине эльфов. Она простивается повсюду, 
+@rus Ты находишься в благословенной долине эльфов. Она простирается повсюду, 
 куда ни кинь взгляд.
 ~
 0 0 field
@@ -1131,7 +1131,7 @@ S
 #7820
 @eng The Valley of the Elves@rus Долина эльфов~
 @eng You are in the Valley of the Elves.  The valley continues in all directions.
-@rus Ты находишься в благословенной долине эльфов. Она простивается повсюду, 
+@rus Ты находишься в благословенной долине эльфов. Она простирается повсюду, 
 куда ни кинь взгляд.
 ~
 0 0 field
@@ -1167,7 +1167,7 @@ S
 #7821
 @eng The Valley of the Elves@rus Долина эльфов~
 @eng You are in the Valley of the Elves.  The valley continues in all directions.
-@rus Ты находишься в благословенной долине эльфов. Она простивается повсюду, 
+@rus Ты находишься в благословенной долине эльфов. Она простирается повсюду, 
 куда ни кинь взгляд.
 ~
 0 0 field
@@ -2180,7 +2180,7 @@ smaller valley with a building in the center of it.  To the north-west, you
 can see a very small valley with a shack in it's center.  A rope ladder
 leads down into a trail.
 @rus Ты ступаешь по веревочному мосту, покачивающемся под тобой. Вниз свисает
-лесница, сделанная из того же материала, что и мост, по которой можно спу-
+лестница, сделанная из того же материала, что и мост, по которой можно спу-
 ститься в долину. Отсюда на нее открывается великолепный вид. Можно разгля-
 деть малейшие детали. Видно, что основная часть долины, находится на юге. 
 Но зато на северо-востоке и на северо-западе, в небольших долинках, ответ-
@@ -2498,7 +2498,7 @@ around you make this trail quite narrow.  To the west, you can see an even
 smaller valley, with looks like a small shack in the center of it.  
 @rus Здесь тропа делает поворот. Холмы подходят совсем близко, и потому
 тропинка в этом месте очень узкая. На западе видна долина еще меньшая,
-чем та, из которой ты $gn{пришел}. В ее центре ты видишь недольшую хижину.
+чем та, из которой ты $gn{пришел}. В ее центре ты видишь небольшую хижину.
 ~
 0 0 field
 D2
@@ -2811,7 +2811,7 @@ burners, and the whole room spells of herbs and dead animal flesh.  A furnace
 to the side casts a bright light in this room.  The whole room radiates with
 a magical aura.
 @rus Это комната используется для проведения занятий по магии и различных
-экспирементов. Над горелками булькают снадобья, а комнату наполняют за-
+эксперимент. Над горелками булькают снадобья, а комнату наполняют за-
 пахи трав и шкур мертвых животных. Печь с одной из сторон комнаты осве-
 щает все вокруг ярким светом. А саму комнату окружает магическая аура.
 ~

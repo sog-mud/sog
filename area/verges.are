@@ -12,15 +12,15 @@ End
 #MOBILES
 #34101
 Ranger~
-@eng Novice ranger@rus ~~Новичок~~ ~~рэйнджер~~~
-@eng A ranger here cries on pain@rus Рэйнджер здесь и громко вопит.~
+@eng Novice ranger@rus ~~Новичок~~ ~~рейнджер~~~
+@eng A ranger here cries on pain@rus Рейнджер здесь и громко вопит.~
 @eng . 
 You see a man who polished his bow. He had a hazel eyes, straight brown hair and an average complexion. Green elven boots on his legs. Suddenly ranger cries on pain. You don't understand what is it. Ranger lift his arm and you see a big splinter in his finger. He take off a splinter and his face turn green as well as his clothes. Ranger smiles happily.
 @rus Вы видите странного человека, который полирует свой лук.
 У него карие глаза и каштановые волосы.
-На ногах у него зеленые эльфийские сапоги. Внезапно, он громко вскрикивает. Вы не можете поняять,что же с ним.
+На ногах у него зеленые эльфийские сапоги. Внезапно, он громко вскрикивает. Вы не можете понять,что же с ним.
 Он поднимает правую руку и вы видите огромную занозу у него в пальце.
-Он выдергивает занозу и его лицо становитьсяя зеленым, также как и его сапоги. счастливаяя улыбка застывает на его лице.
+Он выдергивает занозу и его лицо становиться зеленым, также как и его сапоги. счастливая улыбка застывает на его лице.
 ~
 half-elf~
 L 0 0 0 0 0 0
@@ -41,8 +41,8 @@ novice warrior~
  
 he knocked on his shield by his sword. suddenly he droped shield and shield hit him on his left foot. He mutter some exorcism and you see a tears in his eyes. But he smile at you.
 @rus Молодой человек одетый в зеленую крепкую кожаную броню стоит и стучит своим мечом по щиту.
-Внезапно он роняяет щит и тот падаеи ему на левую ногу.
-Он бормочет какой-то экзорцизм и ты видишь слеза на его глазах, но он улыбаетсяя тебе.
+Внезапно он роняет щит и тот падает ему на левую ногу.
+Он бормочет какой-то экзорцизм и ты видишь слеза на его глазах, но он улыбается тебе.
 ~
 human~
 0 0 0 0 0 -900 0
@@ -72,7 +72,7 @@ You see a small dragon wich crying and call his mother
 Dragon scratches your boot, close eyes and purring. @@
  
 @rus Вы видите маленького дракона, который зовет свою маму.
-Он сребет ваш ботинок закрывает глаза и начинает храпеть.
+Он скребет ваш ботинок закрывает глаза и начинает храпеть.
 ~
 dragon~
 0 0 0 0 0 0 0
@@ -148,7 +148,7 @@ r mental 30
 #34107
 novice paladin~
 @eng Novice paladin@rus ~~Новичок~~-~~Паладин~~~
-@eng Novice paladin points you and curses@rus Новичок-Паладин проклинает тебяя~
+@eng Novice paladin points you and curses@rus Новичок-Паладин проклинает тебя~
 @eng You looked on thin man with book in his hand. And you say : 'Hay, wanna eating'. 'Of course'- sad the man. You and novice paladin sits and eat some pizza. But after the dinner paladin sad : 'You don't clean my shoes',and curse you. You are thinking : 'how need eat that soil shoes.
 ~
 half-elf~
