@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.172 1999-07-01 04:00:44 kostik Exp $
+ * $Id: handler.c,v 1.173 1999-07-05 18:18:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3599,9 +3599,14 @@ static void drop_objs(CHAR_DATA *ch, OBJ_DATA *obj_list)
 			continue;
 		}
 
-		for (cn = 0; cn < clans.nused; cn++)
-			if (obj == CLAN(cn)->obj_ptr) 
-				obj_to_room(obj, get_room_index(CLAN(cn)->altar_vnum));
+		for (cn = 0; cn < clans.nused; cn++) {
+			if (obj == CLAN(cn)->obj_ptr) {
+				obj_to_room(obj,
+					get_room_index(CLAN(cn)->altar_vnum));
+				continue;
+			}
+		}
+		extract_obj(obj, 0);
 	}
 }
 

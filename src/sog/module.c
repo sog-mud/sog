@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.c,v 1.8 1999-07-02 12:54:58 fjoe Exp $
+ * $Id: module.c,v 1.9 1999-07-05 18:18:33 fjoe Exp $
  */
 
 /*
@@ -70,13 +70,13 @@ int mod_load(module_t* m)
 
 	/*
 	 * call on-load callback.
-	 * note that m->dlh is be set before
+	 * note that m->dlh should be set before
 	 */
 	m->dlh = dlh;
 
 	if ((callback = dlsym(m->dlh, "_module_load")) != NULL
 	&&  callback(m) < 0) {
-		dlclose(dlh);
+		dlclose(m->dlh);
 		m->dlh = NULL;
 		return -1;
 	}
