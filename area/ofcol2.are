@@ -257,11 +257,11 @@ A young horse is here, grazing.
 The horse whinnies at you, then runs around you a few times, then just goes
 back to grazing.
 ~
-human~
+horse~
 AFHI 0 0 0
-6 0 2d7+71 3d9+100 1d7+1 none
+6 0 2d7+71 3d9+100 1d7+1 charge
 4 4 4 9
-EFNU 0 0 0
+ENU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #616
