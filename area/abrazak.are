@@ -250,7 +250,7 @@ beer barrel~
 @eng a BIG barrel of beer for Mabutu@rus ~~БОЛЬШОЙ~~ ~~бочонок~~ пива для старого негра~
 @eng Mabutu has left here his BIG barrel of beer.@rus Старый негр оставил здесь БОЛЬШОЙ бочонок (barrel) с пивом.~
 unknown~
-drink AIYa AOP
+drink AIRYa AO
 -1 100 'beer' 0 0
 0 0 0 P
 G male
@@ -312,7 +312,7 @@ scythe~
 @eng {DScythe{x@rus {DКоса{x~
 {DScythe{x~
 unknown~
-weapon RYa ANP
+weapon RYa AN
 dagger 10000 10000 pierce ABCDEGHI
 99 0 0 P
 A
@@ -325,7 +325,7 @@ horn~
 @eng {DHorns{x@rus {DРога{x~
 {DHorns{x~
 unknown~
-armor 0 AEP
+armor R AE
 -1000 -1000 -1000 -1000 0
 99 0 0 P
 G none
@@ -334,7 +334,7 @@ rose~
 @eng {DBlack Rose{x@rus {DЧерная роза{x~
 {DBlack Rose{x~
 unknown~
-trash 0 AOP
+trash R AO
 0 0 0 0 0
 99 0 0 P
 G none
@@ -343,7 +343,7 @@ hoof~
 @eng {DHooves{x@rus {DКопыта{x~
 {DHoofs{x~
 unknown~
-armor 0 AGP
+armor R AG
 0 0 0 0 0
 0 0 0 P
 G none
@@ -423,7 +423,7 @@ box~
 {Dящик ворсинского пива{x~
 {DЯщик темного Ворсинского пива дожидается своего хозяина здесь.{x~
 дерево~
-container RYa AOP
+container RYa AO
 20 0 0 100 0
 1 0 0 P
 G none
@@ -432,7 +432,7 @@ bottle~
 {Dбутылка холодного Ворсинского пива{x~
 {DБутылка холодного Ворсинского пива лежит здесь.{x~
 стекло~
-drink CRYa AOP
+drink CRYa AO
 20 20 'beer' 0 0
 1 0 0 P
 G none
@@ -456,7 +456,7 @@ ring кольцо~
 @eng {Yt{Wh{Ye {Ww{Ye{Wd{Yd{Wi{Yn{Wg {Yr{Wi{Yn{Wg{x@rus ~~{Yо{Wб{Yр{Wу{Yч{Wа{Yл{Wь{Yн{Wо{Yе {Wк{Yо{Wл{Yь{Wц{Yо{x~~~
 @eng The wedding ring is lying here.@rus Обручальное колечко (ring) блестит в лучах солнца.~
 gold~
-jewelry AR ABP
+jewelry AR AB
 0 0 0 0 0
 1 0 0 P
 A
@@ -549,7 +549,7 @@ tron~
 {Gмаленькая удобная кроватка{x~
 {GМаленькая удобная кроватка для ведьмочки Faire стоит тут.{x~
 unknown~
-furniture RYa AP
+furniture RYa A
 5 10000 HK 100 100
 0 0 0 P
 G none
@@ -602,7 +602,7 @@ bottle champagne~
 @eng {ga bottle of champagne{x@rus {g~~бутылка~~ шампанского{x~
 @eng Bottle of champagne is here.@rus Бутылка шампанского оставлена кем-то здесь.~
 стекло~
-drink RYa AOP
+drink RYa AO
 -1 2147483647 'champagne' 0 0
 0 0 0 P
 G none
@@ -611,7 +611,7 @@ chocolate sweet~
 @eng {ychocolate sweet{x@rus {yшоколадная конфета{x~
 @eng Chocolate sweet is here.@rus Шоколадная конфета валяется тут.~
 шоколад~
-pill GRYa AOP
+pill GRYa AO
 30 'haste' 'frenzy' 'enchant armor' 'black shroud'
 0 0 0 P
 G none
@@ -620,7 +620,7 @@ box~
 @eng {ra box of chocolate sweets{x@rus {rкоробка шоколадных конфет{x~
 @eng Box of chocolate sweets is here.@rus Коробка шоколадных конфет лежит тут.~
 картон~
-container RYa AOP
+container RYa AO
 100 0 0 0 0
 0 0 0 P
 G none
@@ -629,7 +629,7 @@ ring кольцо~
 @eng {Yt{Wh{Ye {Ww{Ye{Wd{Yd{Wi{Yn{Wg {Yr{Wi{Yn{Wg{x@rus {YО{Wб{Yр{Wу{Yч{Wа{Yл{Wь{Yн{Wо{Yе Кольцо{W Багиры{x~
 @eng The wedding ring is lying here.@rus Чье-то {YО{Wб{Yр{Wу{Yч{Wа{Yл{Wь{Yн{Wо{Yе Кольцо{x (ring) лежит здесь и ждет свою {Wхозяйку{x.~
 gold~
-jewelry AR ABP
+jewelry AR AB
 0 0 0 0 0
 1 0 0 P
 A
@@ -653,7 +653,7 @@ ring кольцо~
 @eng {Yt{Wh{Ye {Ww{Ye{Wd{Yd{Wi{Yn{Wg {Yr{Wi{Yn{Wg{x@rus {YО{Wб{Yр{Wу{Yч{Wа{Yл{Wь{Yн{Wо{Yе Кольцо{W Гарсена{x~
 @eng The wedding ring is lying here.@rus Чье-то {YО{Wб{Yр{Wу{Yч{Wа{Yл{Wь{Yн{Wо{Yе Кольцо{x (ring) лежит здесь и ждет своего {Wхозяина{x.~
 gold~
-jewelry AR ABP
+jewelry AR AB
 0 0 0 0 0
 1 0 0 P
 A
@@ -677,7 +677,7 @@ chair~
 ancient chair~
 The ancient chair is here.~
 unknown~
-furniture FRTYa AP
+furniture FRTYa A
 1 100000 H 150 150
 0 0 0 P
 G none
@@ -686,7 +686,7 @@ chair~
 ancient chair~
 The ancient chair is here.~
 unknown~
-furniture FRTYa AP
+furniture FRTYa A
 1 10000000 H 500 500
 0 0 0 P
 G none
@@ -695,7 +695,7 @@ gabagaba ring~
 gabagaba ring~
 Gabagaba ring is here.~
 unknown~
-armor IRTYa ABP
+armor IRTYa AB
 -20 -20 -20 -20 0
 0 0 0 P
 A
@@ -716,7 +716,7 @@ splinter~
 splinter "p"~
 splinter "n" is here.~
 unknown~
-trash TYa AP
+trash RTYa A
 0 0 0 0 0
 0 0 0 P
 G none
@@ -725,7 +725,7 @@ splinter~
 splinter "i"~
 splinter "i" is here.~
 unknown~
-trash TYa AP
+trash RTYa A
 0 0 0 0 0
 0 0 0 P
 G none
@@ -734,7 +734,7 @@ splinter~
 splinter "r"~
 splinter "l" is here.~
 unknown~
-trash TYa AP
+trash RTYa A
 0 0 0 0 0
 0 0 0 P
 G none
@@ -743,7 +743,7 @@ splinter~
 splinter "a"~
 splinter "b" is here.~
 unknown~
-trash TYa AP
+trash RTYa A
 0 0 0 0 0
 0 0 0 P
 G none
@@ -752,7 +752,7 @@ splinter~
 splinter "t"~
 splinter "o" is here.~
 unknown~
-trash TYa AP
+trash RTYa A
 0 0 0 0 0
 0 0 0 P
 G none
@@ -761,7 +761,7 @@ splinter~
 splinter "e"~
 splinter "g" is here.~
 unknown~
-trash TYa AP
+trash RTYa A
 0 0 0 0 0
 0 0 0 P
 G none
@@ -770,7 +770,7 @@ eye~
 eye~
 eye~
 unknown~
-staff EFGHMPRTYa AOP
+staff EFGHMPRTYa AO
 0 0 0 'reserved' 0
 10 10 0 P
 G none
@@ -879,7 +879,7 @@ ring кольцо~
 @eng {Yt{Wh{Ye {Ww{Ye{Wd{Yd{Wi{Yn{Wg {Yr{Wi{Yn{Wg{x@rus ~~{YО{Wб{Yр{Wу{Yч{Wа{Yл{Wь{Yн{Wо{Yе {Wк{Yо{Wл{Yь{Wц{Yо{x~~ {CМикаэлы{x~
 @eng The wedding ring is lying here.@rus Чье-то {Yо{Wб{Yр{Wу{Yч{Wа{Yл{Wь{Yн{Wо{Yе {Wк{Yо{Wл{Yь{Wц{Yо {x(ring) лежит здесь и ждет свою {Cхозяйку{x.~
 gold~
-jewelry AHR ABP
+jewelry AHR AB
 0 0 0 0 0
 1 0 0 P
 A
@@ -903,7 +903,7 @@ ring кольцо~
 @eng {Yt{Wh{Ye {Ww{Ye{Wd{Yd{Wi{Yn{Wg {Yr{Wi{Yn{Wg{x@rus ~~{YО{Wб{Yр{Wу{Yч{Wа{Yл{Wь{Yн{Wо{Yе {Wк{Yо{Wл{Yь{Wц{Yо{x~~ {CФлагара{x~
 @eng The wedding ring is lying here.@rus Чье-то {Yо{Wб{Yр{Wу{Yч{Wа{Yл{Wь{Yн{Wо{Yе {Wк{Yо{Wл{Yь{Wц{Yо{x (ring) лежит здесь и ждет своего {Cхозяина{x.~
 gold~
-jewelry AR ABP
+jewelry AR AB
 0 0 0 0 0
 1 0 0 P
 A

@@ -835,7 +835,7 @@ two handed sword~
 a two-handed sword~
 A two-handed sword lies here.~
 steel~
-weapon BEJ ANP
+weapon BEJR AN
 sword 6 10 crush F
 56 10 4000 P
 A
@@ -987,7 +987,7 @@ morning star~
 a huge morning star~
 A huge morning star is buried in the ground here.~
 wood steel~
-weapon BEJ ANP
+weapon BEJR AN
 flail 5 10 crush 0
 50 15 3000 P
 A

@@ -57,7 +57,7 @@ book stand bookstand~
 @eng the bookstand@rus книжный шкаф~
 @eng The bookstand is standing against the east wall of room.@rus Книжный шкаф (bookstand) стоит у восточной стены.~
 ivory~
-container ORY P
+container ORY 0
 10 ABCD 95102 15 100
 60 1 20 P
 G none
@@ -75,7 +75,7 @@ paper rolled roll свиток~
 @eng a rolled paper@rus ~~бумажный~~ ~~свиток~~~
 @eng A rolled paper is left on the ground.@rus Свиток бумаги (paper) забыт на земле.~
 paper~
-key ORYf AOP
+key ORYf AO
 0 0 0 0 0
 0 4 0 P
 E

@@ -58,7 +58,7 @@ key marble black ключ~
 @eng a black marble key@rus ~~черный~~ ~~мраморный~~ ~~ключ~~~
 @eng A black marble key is on the ground.@rus Черный мраморный ключ (marble) лежит на земле.~
 marble~
-key ORYf AOP
+key ORYf AO
 0 0 0 0 0
 0 4 0 P
 G none
@@ -67,7 +67,7 @@ altar~
 @eng the altar@rus алтарь~
 @eng There is a huge black altar in the middle of the room.@rus Огромный черный алтарь (altar) находится в центре комнаты.~
 gold~
-container ORY P
+container ORY 0
 10 ABCD 95500 15 100
 60 1 20 P
 G male
@@ -103,7 +103,7 @@ sofa софа~
 @eng sofa@rus софа~
 @eng A cloud becames a form of sofa under your look.@rus Облако приняло форму роскошного дивана (sofa) под твоим взглядом.~
 unknown~
-furniture RT P
+furniture RT 0
 10 0 EHK 200 200
 0 0 0 P
 E

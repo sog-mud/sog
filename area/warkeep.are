@@ -489,7 +489,7 @@ spiked club~
 a spiked club~
 A spiked club lies here.~
 copper~
-weapon J ANP
+weapon JR AN
 mace 5 6 crush 0
 25 20 250 P
 A
@@ -571,7 +571,7 @@ staff~
 a wooden staff~
 A wooden staff with a bronze head lies here.~
 copper~
-weapon 0 ANP
+weapon R AN
 staff 5 5 pound 0
 21 9 210 P
 A
@@ -693,7 +693,7 @@ pick~
 a pick~
 A pick rests here.~
 copper~
-weapon 0 ANP
+weapon R AN
 axe 4 4 stab 0
 12 10 120 P
 G none
@@ -702,7 +702,7 @@ shovel~
 a shovel~
 A shovel rests here.~
 copper~
-weapon 0 ANP
+weapon R AN
 exotic 4 4 pound 0
 12 10 120 P
 G none

@@ -80,7 +80,7 @@ platinum golden altar container~
 @eng the golden sign@rus золотой знак~
 @eng On the altar you see the sign of hunters with platinum carvings.@rus На алтаре (altar) выгравирован знак охотников.~
 golden~
-container CEORY P
+container CEORY 0
 10 ABCD 95702 15 100
 60 1 20 P
 G none
@@ -98,7 +98,7 @@ bone gray кость~
 @eng a gray bone@rus ~~серая~~ ~~кость~~~
 @eng An ancient animal's bone is left on the floor here.@rus Древняя кость (bone) лежит на полу.~
 bone~
-key CEORYf AOP
+key CEORYf AO
 0 0 0 0 0
 0 4 0 P
 G none

@@ -66,7 +66,7 @@ branch~
 @eng Very comforable branch is here~
 ~
 wood~
-furniture IY P
+furniture IRY 0
 10 1000000 EHKN 250 250
 0 1000000 0 P
 G none
@@ -75,7 +75,7 @@ broken branch~
 @eng you see broken branch here~
 ~
 wood~
-key ORYf AOP
+key ORYf AO
 0 0 0 0 0
 0 4 0 P
 G none
@@ -84,7 +84,7 @@ hollow of the oak~
 @eng You see small hollow here.~
 ~
 wood~
-container ORY P
+container ORY 0
 10 ABCD 96005 15 100
 0 0 0 P
 G none
@@ -142,7 +142,7 @@ bed inflatable~
 a large inflatable bed~
 You see large inflatable bed here waiting for one pair.~
 wood~
-furniture IY AP
+furniture IRY A
 10000 2147483647 EHKN 200 200
 0 1 0 P
 E

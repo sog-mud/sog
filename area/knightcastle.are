@@ -174,7 +174,7 @@ key golden ключ~
 @eng a golden key@rus ~~золотой~~ ~~ключ~~~
 @eng A golden key is left on the floor.@rus Золотой ключ (key) оставлен на полу.~
 gold~
-key RYf AOP
+key RYf AO
 0 0 0 0 0
 0 4 0 P
 G male
@@ -183,7 +183,7 @@ altar алтарь~
 @eng the altar@rus ~~алтарь~~~
 @eng There is a huge golden altar in the middle of the room.@rus Большой алтарь (altar), сделанный из золота, стоит в середине святилища.~
 gold~
-container RY P
+container RY 0
 10 ABCD 95200 15 100
 60 1 20 P
 G male

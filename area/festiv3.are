@@ -2222,7 +2222,7 @@ bureau конторка~
 @eng bureau@rus конторка~
 @eng A bureau stands at the south wall.@rus Конторка (bureau) стоит у южной стены.~
 hardwood~
-container 0 OP
+container R O
 100 ABCD 36378 10 100
 0 10 0 P
 G female
@@ -2294,7 +2294,7 @@ book shelf полка~
 @eng bookshelf@rus {y~~книжная~~ ~~полка~~{x~
 @eng A bookshelf hangs on the wall.@rus Книжная полка (bookshelf) висит на стене.~
 wood~
-container ATY OP
+container ARTY O
 100 E -1 100 100
 0 10000 0 P
 G female
@@ -2820,7 +2820,7 @@ mirror wall зеркало~
 @eng mirror@rus {cзеркало{x~
 @eng A long wide mirror stands by the wall.@rus Высокое и широкое зеркало (mirror) стоит у стены (wall).~
 glass~
-portal GRY P
+portal GRY 0
 0 EMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz A 36357 0
 0 10000 0 P
 G none

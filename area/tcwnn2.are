@@ -569,7 +569,7 @@ crossbow~
 a crossbow~
 A finely-crafted crossbow lies here.~
 copper~
-weapon 0 AP
+weapon R A
 bow 5 11 pierce 0
 48 10 480 P
 A

@@ -500,7 +500,7 @@ corpse труп~
 @eng the corpse of %s@rus ~~труп~~ %s~
 @eng The corpse of %s is lying here.@rus Ты видишь труп (corpse) %s.~
 flesh~
-pc_corpse OR AP
+pc_corpse OR A
 0 0 0 A 0
 0 1000 0 D
 G male
@@ -706,7 +706,7 @@ sword hero~
 the %s Sword of %s~
 An enormous, huge SWORD lies here, filling the room with its power.~
 energy~
-weapon AIOYc ANP
+weapon AIORYc AN
 sword 10 4 slash D
 21 100 100000 G
 G male
@@ -715,7 +715,7 @@ dagger hero~
 the %s Dagger of %s~
 An enormous, huge DAGGER lies here, filling the room with its power.~
 energy~
-weapon AIOYc ANP
+weapon AIORYc AN
 dagger 10 4 pierce D
 21 100 100000 G
 A
@@ -742,7 +742,7 @@ mace hero~
 the %s Mace of %s~
 An enormous, huge MACE lies here, filling the room with its power.~
 energy~
-weapon AIOYc ANP
+weapon AIORYc AN
 mace 10 4 pound D
 21 100 100000 G
 A
@@ -824,7 +824,7 @@ song hero~
 the %s Song of %s~
 You hear the Song of Real Hero filling the room with its power.~
 energy~
-container IORYac APQ
+container IORYac AQ
 150 0 0 600 5
 120 5 10000 P
 A
@@ -1002,7 +1002,7 @@ rug коврик~
 @eng a small magic rug@rus ~~магический~~ ~~коврик~~~
 @eng A small magic rug lies here.@rus Небольшой магический коврик (rug).~
 unknown~
-furniture RYa AP
+furniture RYa A
 1 10000 HK 200 200
 10 10 0 P
 G male
@@ -1341,7 +1341,7 @@ quest kio~
 quest staff of kio~
 A quest obj flying in the air.~
 energy~
-treasure ATYf AP
+treasure ARTYf A
 0 0 -1 0 0
 0 0 0 P
 E
@@ -1354,7 +1354,7 @@ quest conrad~
 quest staff of conrad~
 A quest obj flying in the air.~
 energy~
-treasure ATYf AP
+treasure ARTYf A
 0 0 -1 0 0
 0 0 0 P
 E
@@ -1367,7 +1367,7 @@ quest powerman~
 quest staff of powerman~
 A quest obj flying in the air.~
 energy~
-treasure ATYf AP
+treasure ARTYf A
 0 0 -1 0 0
 0 0 0 P
 E
@@ -1380,7 +1380,7 @@ quest mandrake~
 quest staff of mandrake~
 A quest obj flying in the air.~
 energy~
-treasure ATYf AP
+treasure ARTYf A
 0 0 -1 0 0
 0 0 0 P
 E
@@ -1468,7 +1468,7 @@ girth hero~
 the %s Girth of %s~
 An enormous, huge GIRTH lies here, filling the room with its power.~
 energy~
-armor AIOYc ALP
+armor AIORYc AL
 12 12 12 9 2
 120 30 100000 G
 A
@@ -1498,7 +1498,7 @@ ring hero~
 the %s Ring of %s~
 An enormous, RING lies here, filling the room with its power.~
 energy~
-weapon AIOYc ABP
+weapon AIORYc AB
 exotic 0 0 none 0
 120 30 100000 G
 A
@@ -1521,7 +1521,7 @@ weapon hero~
 the %s Weapon of %s~
 An enormous, huge WEAPON lies here, filling the room with its power.~
 energy~
-weapon AIOYc ANP
+weapon AIORYc AN
 exotic 10 4 slash D
 21 100 100000 G
 A

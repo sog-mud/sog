@@ -137,7 +137,7 @@ altar skull~
 the skull~
 @eng On the altar you see the skull with dark bones.@rus Алтарь, похожий на череп из темной кости (skull) стоит в центре.~
 bone~
-container CERY P
+container CERY 0
 10 ABCD 95602 15 100
 60 2 20 P
 G none
@@ -155,7 +155,7 @@ jaw~
 @eng darkish jaw of a skull@rus ~~челюсть~~~
 @eng A dark jaw of a skull.@rus Челюсть (jaw) лежит в углу.~
 bone~
-key CEORYf AOP
+key CEORYf AO
 0 0 0 0 0
 0 2 0 P
 G female
@@ -191,7 +191,7 @@ shadow~
 @eng shadow@rus ~~тень~~~
 @eng Powerful shadow concentrates around the altar.@rus Истекающая силой тень (shadow) сгустилась вокруг алтаря.~
 shadow~
-furniture CER P
+furniture CER 0
 13 0 IL 200 200
 0 0 0 P
 G female
@@ -200,7 +200,7 @@ fountain blood~
 @eng bloody fountain@rus ~~фонтан~~~
 @eng Stream of rancid {rblood{x splash all over you.@rus Поток прогорклой {rкрови{x окатил тебя с головы до ног.~
 stone~
-fountain BJ P
+fountain BJR 0
 0 0 'blood' 0 0
 0 0 0 P
 G male
