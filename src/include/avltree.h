@@ -23,11 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: avltree.h,v 1.3 2001-09-13 16:21:48 fjoe Exp $
+ * $Id: avltree.h,v 1.4 2001-12-10 22:18:11 fjoe Exp $
  */
 
-#ifndef _AVL_TREE_H_
-#define _AVL_TREE_H_
+#ifndef _AVLTREE_H_
+#define _AVLTREE_H_
 
 extern c_ops_t avltree_ops;
 
@@ -58,4 +58,4 @@ struct avltree_t {
 	int count;		/**< number of elems			*/
 };
 
-#endif /* _AVL_TREE_H_ */
+#endif /* _AVLTREE_H_ */
