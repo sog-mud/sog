@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.7 1999-12-15 21:25:29 avn Exp $
+ * $Id: olc_skill.c,v 1.8 1999-12-15 21:40:40 avn Exp $
  */
 
 #include "olc.h"
@@ -89,7 +89,7 @@ OLC_FUN(skilled_create)
 	skill_t *s;
 
 	if (PC(ch)->security < SECURITY_SKILL) {
-		char_puts("SkillEd: Insufficient security for creating liquids.\n", ch);
+		char_puts("SkillEd: Insufficient security for creating skills.\n", ch);
 		return FALSE;
 	}
 
@@ -131,7 +131,7 @@ OLC_FUN(skilled_edit)
 		OLC_ERROR("'OLC EDIT'");
 
 	if (!(sk = skill_search(argument))) {
-		char_printf(ch, "LiqEd: %s: No such liquid.\n", argument);
+		char_printf(ch, "SkillEd: %s: No such skill.\n", argument);
 		return FALSE;
 	}
 
