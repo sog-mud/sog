@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.22 1998-07-21 14:10:16 efdi Exp $
+ * $Id: mob_prog.c,v 1.23 1998-08-07 07:48:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1117,22 +1117,26 @@ bail_out:
  * A general purpose string trigger. Matches argument to a string trigger
  * phrase.
  */
-void mp_act_trigger(
-	const char *argument, CHAR_DATA *mob, CHAR_DATA *ch, 
-	const void *arg1, const void *arg2, int type)
+void mp_act_trigger(const char *argument, CHAR_DATA *mob, CHAR_DATA *ch, 
+		    const void *arg1, const void *arg2, int type)
 {
-    MPROG_LIST *prg;
+	MPROG_LIST *prg;
+	char *lowered;
+	char *p;
 
-    for (prg = mob->pIndexData->mprogs; prg != NULL; prg = prg->next)
-    {
-    	if (prg->trig_type == type 
-	&&  strstr(argument, prg->trig_phrase) != NULL)
-        {
-	    program_flow(prg->vnum, prg->code, mob, ch, arg1, arg2);
-	    break;
+	lowered = str_dup(argument);
+	for (p = lowered; *p; p++)
+		*p = LOWER(*p);
+
+	for (prg = mob->pIndexData->mprogs; prg != NULL; prg = prg->next) {
+ 		if (prg->trig_type == type 
+		&&  strstr(IS_SET(prg->flags, TRIG_CASEDEP) ?
+		    argument : lowered, prg->trig_phrase) != NULL) {
+			program_flow(prg->vnum, prg->code, mob, ch, arg1, arg2);
+			break;
+		}
 	}
-    }
-    return;
+	free_string(lowered);
 }
 
 /*

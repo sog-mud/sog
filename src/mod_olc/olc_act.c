@@ -1,5 +1,5 @@
 /*
- * $Id: olc_act.c,v 1.11 1998-07-25 15:02:40 fjoe Exp $
+ * $Id: olc_act.c,v 1.12 1998-08-07 07:48:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3431,13 +3431,14 @@ MEDIT(medit_show)
 
 		for (cnt=0, list=pMob->mprogs; list; list=list->next) {
 			if (cnt ==0) {
-				buf_add(buf, " Number Vnum Trigger Phrase\n\r");
-				buf_add(buf, " ------ ---- ------- ------\n\r");
+				buf_add(buf, " Number Vnum Trigger Phrase Flags\n\r");
+				buf_add(buf, " ------ ---- ------- ------ ---------------------------------------------------\n\r");
 			}
 
-			buf_printf(buf, "[%5d] %4d %7s %s\n\r", cnt,
+			buf_printf(buf, "[%5d] %4d %7s %s [%s]\n\r", cnt,
 			list->vnum,mprog_type_to_name(list->trig_type),
-			list->trig_phrase);
+			list->trig_phrase,
+			flag_string(trig_flags, list->flags));
 			cnt++;
 		}
 	}
@@ -4521,10 +4522,10 @@ MEDIT (medit_mpadd)
 	list->vnum            = atoi(num);
 	list->trig_type       = value;
 	list->trig_phrase     = str_dup(phrase);
+	mprog_check_case(list);
 	list->code            = code->code;
-	SET_BIT(pMob->mprog_flags,value);
-	list->next            = pMob->mprogs;
-	pMob->mprogs          = list;
+	SET_BIT(pMob->mprog_flags, value);
+	SLIST_ADD(MPROG_LIST, pMob->mprogs, list);
 
 	send_to_char("Mprog Added.\n\r",ch);
 	return TRUE;

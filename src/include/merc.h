@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.63 1998-08-06 13:50:12 fjoe Exp $
+ * $Id: merc.h,v 1.64 1998-08-07 07:48:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2212,10 +2212,14 @@ struct	room_index_data
 #define TRIG_DELAY	(O)
 #define TRIG_SURR	(P)
 
+/* trigger flags */
+#define TRIG_CASEDEP	(A)
+
 struct mprog_list
 {
 	int		trig_type;
 	char *		trig_phrase;
+	int		flags;
 	int		vnum;
 	char *  	code;
 	MPROG_LIST * 	next;
@@ -2530,8 +2534,13 @@ extern int gsn_thumbling;
 #define UMIN(a, b)		((a) < (b) ? (a) : (b))
 #define UMAX(a, b)		((a) > (b) ? (a) : (b))
 #define URANGE(a, b, c) 	((b) < (a) ? (a) : ((b) > (c) ? (c) : (b)))
-#define LOWER(c)		((c) >= 'A' && (c) <= 'Z' ? (c)+'a'-'A' : (c))
-#define UPPER(c)		((c) >= 'a' && (c) <= 'z' ? (c)+'A'-'a' : (c))
+
+#include <ctype.h>
+#define ISLOWER(c)		(islower(c))
+#define ISUPPER(c)		(isupper(c))
+#define LOWER(c)		(tolower(c))
+#define UPPER(c)		(toupper(c))
+
 #define IS_SET(flag, bit)	((flag) & (bit))
 #define SET_BIT(var, bit)	((var) |= (bit))
 #define REMOVE_BIT(var, bit)	((var) &= ~(bit))

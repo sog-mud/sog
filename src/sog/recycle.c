@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.14 1998-08-05 06:43:53 fjoe Exp $
+ * $Id: recycle.c,v 1.15 1998-08-07 07:48:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -590,7 +590,6 @@ MPROG_LIST *mprog_free;
  
 MPROG_LIST *new_mprog(void)
 {
-	static MPROG_LIST mp_zero;
 	MPROG_LIST *mp;
 
 	if (mprog_free == NULL)
@@ -600,14 +599,27 @@ MPROG_LIST *new_mprog(void)
 		mprog_free=mprog_free->next;
 	}
 
-	*mp = mp_zero;
-	mp->vnum             = 0;
-	mp->trig_type        = 0;
-	mp->code             = str_dup("");
+	mp->trig_type	= 0;
+	mp->trig_phrase	= NULL;
+	mp->flags	= 0;
+	mp->vnum	= 0;
+	mp->code	= str_dup("");
 	VALIDATE(mp);
 	return mp;
 }
 
+
+void mprog_check_case(MPROG_LIST *mp)
+{
+	char *p;
+
+	for (p = mp->trig_phrase; *p; p++)
+		if (ISUPPER(*p)) {
+			SET_BIT(mp->flags, TRIG_CASEDEP);
+			return;
+		}
+	REMOVE_BIT(mp->flags, TRIG_CASEDEP);
+}
 
 void free_mprog(MPROG_LIST *mp)
 {

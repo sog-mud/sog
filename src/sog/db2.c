@@ -1,5 +1,5 @@
 /*
- * $Id: db2.c,v 1.18 1998-07-25 15:02:38 fjoe Exp $
+ * $Id: db2.c,v 1.19 1998-08-07 07:48:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -56,6 +56,7 @@
 #include "tables.h"
 #include "mlstring.h"
 #include "recycle.h"
+#include "olc.h"		/* for mprog_check_case */
 
 extern void xungetc(int, FILE *stream);
 
@@ -377,6 +378,7 @@ void load_mobiles(FILE *fp)
 		pMprog->trig_type   = trigger;
 		pMprog->vnum        = fread_number(fp);
 		pMprog->trig_phrase = fread_string(fp);
+		mprog_check_case(pMprog);
 		SLIST_ADD(MPROG_LIST, pMobIndex->mprogs, pMprog);
 	     }
 	     else

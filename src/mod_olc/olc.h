@@ -2,7 +2,7 @@
 #define _OLC_H_
 
 /*
- * $Id: olc.h,v 1.5 1998-07-14 07:47:49 fjoe Exp $
+ * $Id: olc.h,v 1.6 1998-08-07 07:48:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -307,6 +307,7 @@ void		show_damlist		(CHAR_DATA *ch);
 
 char *		mprog_type_to_name	(int type);
 MPROG_LIST      *new_mprog              (void);
+void		mprog_check_case	(MPROG_LIST *mp);
 void            free_mprog              (MPROG_LIST *mp);
 MPROG_CODE	*new_mpcode		(void);
 void		free_mpcode		(MPROG_CODE *pMcode);
