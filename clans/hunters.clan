@@ -1,10 +1,10 @@
 #CLAN
 Name Hunters~
+SkillSpec 'clan_hunters'
 Item 95701
 Mark 95703
 Altar 95703
 Flags hidden~
-SkillSpec clan_hunters
 End
 
 #$
