@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.38 1998-05-19 00:51:17 efdi Exp $
+ * $Id: act_info.c,v 1.39 1998-05-19 00:54:04 efdi Exp $
  */
 
 /***************************************************************************
@@ -3260,7 +3260,7 @@ void do_score(CHAR_DATA *ch, char *argument)
 		ch->class == CLASS_SAMURAI ? "Death" : "Wimpy" ,
 		ch->class == CLASS_SAMURAI ? ch->pcdata->death : ch->wimpy);
 
-	char_printf(ch, "     {G| {RAlign:  {x%-11s  {C|                |{x %s %s {G|{x\n\r",
+	char_printf(ch, "     {G| {RAlign:  {x%-11s  {C|                |{x %-7s %-19s {G|{x\n\r",
 		IS_GOOD(ch) ? "good" : IS_EVIL(ch) ? "evil" : "neutral",
 		msg(INFO_YOU_ARE, ch),
 		msg(INFO_POS_NAME_DEAD + ch->position, ch));
