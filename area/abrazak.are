@@ -27,6 +27,19 @@ CIK 0 huge unknown
 M RANDOM 15000 2~
 M RANDOM 15000 1~
 M BRIBE 15000 1~
+#15010
+devil~
+{DDevil{x~
+{DDevil{x
+~
+~
+pig~
+AGRTe ACDEFGHQRSVYZac -1000 0
+150 1000 1d1+10000 1d1+10000 1d1+100 shbite
+-100 -100 -100 -100
+0 ABCEFGHIJKLMNOPQRTXYZ 0 0
+stand stand male 0
+0 0 small unknown
 #0
 
 
@@ -45,9 +58,9 @@ food~
 Food~
 food~
 unknown~
-food 0 A
-HJKMPTUX 0 0 0 0
-0 0 0 P
+pill AG A
+300 'create food' 'create food' 'create food' 'create food'
+0 0 100 P
 #15010
 eng kosa~
 {DScythe{x~
@@ -64,6 +77,22 @@ unknown~
 armor 0 AEP
 DEKLMNOPQRSTUVWXYZabcdef DEKLMNOPQRSTUVWXYZabcdef DEKLMNOPQRSTUVWXYZabcdef DEKLMNOPQRSTUVWXYZabcdef 0
 99 0 0 P
+#15012
+rose~
+{DBlack Rose{x~
+{DBlack Rose{x~
+unknown~
+trash 0 AOP
+0 0 0 0 0
+99 0 0 P
+#15013
+hoof~
+{DHoofs{x~
+{DHoofs{x~
+unknown~
+armor 0 AGP
+0 0 0 0 0
+0 0 0 P
 #15100
 cheburator~
 @eng a dwarven golden ring@rus ~
@@ -128,7 +157,7 @@ S
 @eng {DThe room of Death{x@rus {DКомната Смерти{x~
 @eng @rus  
 ~
-0 C 0
+0 CNX 0
 S
 #15100
 ~
@@ -159,6 +188,8 @@ S
 #OLIMITS
 O 15010 0	* {DScythe{x
 O 15011 0	* {DHorns{x
+O 15012 0	* {DBlack Rose{x
+O 15013 0	* {DHoofs{x
 O 15100 1	* a dwarven golden ring
 O 15112 1	* {W'{CAenis + Leo{W' ring{w
 S
@@ -175,6 +206,7 @@ mob vforce 50 mob goto 11740
 mob vforce 50 mob cast 'teleport'
 endif
 mob vforce 50 mob oload 15000
+mob vforce 50 mob oload 15001
 mob vforce 50 say I'm very sorry but I must go to other places.....
 mob vforce 50 wave
 mob vforce 50 mob goto 15000

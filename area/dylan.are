@@ -1,8 +1,14 @@
-#AREA
-dylan.are~
-Dylan's Area~
-{15 25} Dylan   Dylan's Area~
-9100 9199
+#AREADATA
+Name Dylan's Area~
+Builders None~
+VNUMs 9100 9199
+Credits Dylan~
+Security 9
+LevelRange 15 25
+End
+
+
+
 #MOBILES
 #9101
 oldstyle harpy~
@@ -19,7 +25,7 @@ ACF DFP -500 0
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand female 1525
-0 0 medium 0
+0 0 medium unknown
 #9102
 oldstyle harpy leader~
 the screaming harpy leader~
@@ -36,7 +42,7 @@ ABCF DFP -750 0
 -6 -6 -6 6
 EFNU 0 0 0
 stand stand female 2125
-0 0 medium 0
+0 0 medium unknown
 #9103
 oldstyle air elemental~
 the ghostly air elemental~
@@ -51,7 +57,7 @@ ACF DFPQ 0 0
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand none 50
-0 0 medium 0
+0 0 medium unknown
 #9104
 oldstyle mysterious efreeti~
 the mysterious efreeti~
@@ -66,7 +72,7 @@ AC DHP -100 0
 -8 -8 -8 6
 EFNU 0 0 0
 stand stand none 2500
-0 0 medium 0
+0 0 medium unknown
 #9105
 oldstyle roc~
 the gigantic roc~
@@ -80,7 +86,7 @@ AG 0 50 0
 -6 -6 -6 6
 EFNU 0 0 0
 stand stand female 0
-0 0 medium 0
+0 0 medium unknown
 #9106
 oldstyle roc~
 the gigantic roc~
@@ -95,7 +101,7 @@ AG 0 50 0
 -8 -8 -8 6
 EFNU 0 0 0
 stand stand male 2000
-0 0 medium 0
+0 0 medium unknown
 #9107
 oldstyle wicked witch~
 the ugly, wicked witch~
@@ -111,8 +117,11 @@ ABCF DH -600 0
 -10 -10 -10 5
 EFNU 0 0 0
 stand stand female 3000
-0 0 medium 0
+0 0 medium unknown
 #0
+
+
+
 #OBJECTS
 #9101
 winged boots~
@@ -120,7 +129,7 @@ a pair of winged boots~
 A pair of winged boots flutters about~
 leather~
 armor G AG
-3 3 3 0 0
+AB AB AB 0 0
 13 100 2800 P
 A
 20 1
@@ -134,7 +143,7 @@ A carved bronze bracer~
 A carved bronze bracer lies here.~
 bronze~
 armor 0 AM
-3 6 6 2 0
+AB BC BC B 0
 10 200 820 P
 #9103
 ornate brooch~
@@ -166,6 +175,8 @@ scroll AH AO
 12 50 1330 P
 #0
 
+
+
 #ROOMS
 #9101
 A fluffy white cloud.~
@@ -187,6 +198,10 @@ Intersection on a Pebbled Path.
 ~
 ~
 0 -1 11600
+D2
+~
+~
+0 0 21000
 D4
 There is another cloud above you.  If you jump you might make it...
 ~
@@ -891,7 +906,7 @@ D0
 Eerie looking house.
 ~
 door~
-1 -1 9139
+0 -1 9139
 D5
 ~
 ~
@@ -939,6 +954,11 @@ On shelves lie jars of strange creatures you have never seen before, or
 hope to again.  A picture of a familiar temple hangs on the east wall.
 ~
 0 ACDN 0
+E
+picture~
+The picture is in on the east wall.  It is very complex in detail, and you
+almost see people walking around the temple in the picture.
+~
 D1
 ~
 picture~
@@ -947,11 +967,6 @@ D5
 ~
 ~
 0 -1 9140
-E
-picture~
-The picture is in on the east wall.  It is very complex in detail, and you
-almost see people walking around the temple in the picture.
-~
 S
 #9142
 Suspicious little raincloud.~
@@ -1740,63 +1755,93 @@ You've fallen, and you can't get up!!!
 0 C 2
 S
 #0
-#RESETS
-M 0 9101  35 9102  2	* the screaming, filthy harpy
-M 0 9101  35 9102  2	* the screaming, filthy harpy
-M 0 9101  35 9105  2	* the screaming, filthy harpy
-M 0 9101  35 9105  2	* the screaming, filthy harpy
-M 0 9101  35 9127  3	* the screaming, filthy harpy
-M 0 9101  35 9127  3	* the screaming, filthy harpy
-M 0 9101  35 9127  3	* the screaming, filthy harpy
-M 0 9101  35 9108  3	* the screaming, filthy harpy
-M 0 9101  35 9108  3	* the screaming, filthy harpy
-M 0 9101  35 9108  3	* the screaming, filthy harpy
-M 0 9101  35 9112  2	* the screaming, filthy harpy
-M 0 9101  35 9112  2	* the screaming, filthy harpy
-M 0 9101  35 9117  1	* the screaming, filthy harpy
-M 0 9101  35 9119  3	* the screaming, filthy harpy
-M 0 9101  35 9119  3	* the screaming, filthy harpy
-M 0 9101  35 9119  3	* the screaming, filthy harpy
-M 0 9101  35 9121  1	* the screaming, filthy harpy
-M 0 9101  35 9122  2	* the screaming, filthy harpy
-M 0 9101  35 9122  2	* the screaming, filthy harpy
-M 0 9101  35 9129  1	* the screaming, filthy harpy
-M 0 9101  35 9131  1	* the screaming, filthy harpy
-M 0 9101  35 9133  1	* the screaming, filthy harpy
-M 0 9101  35 9135  1	* the screaming, filthy harpy
-M 0 9101  35 9144  1	* the screaming, filthy harpy
-M 0 9101  35 9145  1	* the screaming, filthy harpy
-M 0 9101  35 9146  1	* the screaming, filthy harpy
-M 0 9101  35 9147  1	* the screaming, filthy harpy
-M 0 9101  35 9149  1	* the screaming, filthy harpy
-M 0 9101  35 9150  1	* the screaming, filthy harpy
-M 0 9101  35 9151  1	* the screaming, filthy harpy
-M 0 9101  35 9152  1	* the screaming, filthy harpy
-M 0 9101  35 9158  2	* the screaming, filthy harpy
-M 0 9101  35 9158  2	* the screaming, filthy harpy
-M 0 9101  35 9162  2	* the screaming, filthy harpy
-M 0 9101  35 9162  2	* the screaming, filthy harpy
-M 0 9102   2 9123  1	* the screaming harpy leader
-G 1 9104  10     	*   magenta potion
-M 0 9102   2 9124  1	* the screaming harpy leader
-G 1 9105   1     	*   an ancient illustrated parchment
-M 0 9103   5 9148  1	* the ghostly air elemental
-M 0 9103   5 9109  1	* the ghostly air elemental
-M 0 9103   5 9137  1	* the ghostly air elemental
-M 0 9103   5 9163  1	* the ghostly air elemental
-M 0 9103   5 9177  1	* the ghostly air elemental
-M 0 9104   2 9182  1	* the mysterious efreeti
-G 1 9102   9     	*   A carved bronze bracer
-M 0 9104   2 9187  1	* the mysterious efreeti
-G 1 9103  20     	*   an ornate brooch
-M 0 9105   1 9156  1	* the gigantic roc
-M 0 9106   1 9153  1	* the gigantic roc
-M 0 9107   1 9141  1	* the ugly, wicked witch
-D 0 9141   1    1	* Witches Tower east
+
+
+
+#SPECIALS
+M 9107 spec_cast_undead	* the ugly, wicked witch
 S
+
+
+
+#RESETS
+D 0 9141 1 1	* Witches Tower: door to the east: closed
+M 0 9101 35 9102 2	* the screaming, filthy harpy (A fluffy white cloud.)
+M 0 9101 35 9102 2	* the screaming, filthy harpy (A fluffy white cloud.)
+M 0 9101 35 9105 2	* the screaming, filthy harpy (A fluffy white cloud.)
+M 0 9101 35 9105 2	* the screaming, filthy harpy (A fluffy white cloud.)
+M 0 9101 35 9108 3	* the screaming, filthy harpy (A fluffy white cloud.)
+M 0 9101 35 9108 3	* the screaming, filthy harpy (A fluffy white cloud.)
+M 0 9101 35 9108 3	* the screaming, filthy harpy (A fluffy white cloud.)
+M 0 9103 5 9109 1	* the ghostly air elemental (A fluffy white cloud.)
+M 0 9101 35 9112 2	* the screaming, filthy harpy (Narrow rocky trail.)
+M 0 9101 35 9112 2	* the screaming, filthy harpy (Narrow rocky trail.)
+M 0 9101 35 9117 1	* the screaming, filthy harpy (Steep mountainside.)
+M 0 9101 35 9119 3	* the screaming, filthy harpy (Treacherous Cliff.)
+M 0 9101 35 9119 3	* the screaming, filthy harpy (Treacherous Cliff.)
+M 0 9101 35 9119 3	* the screaming, filthy harpy (Treacherous Cliff.)
+M 0 9101 35 9121 1	* the screaming, filthy harpy (Dank, dark, smelly hole.)
+M 0 9101 35 9122 2	* the screaming, filthy harpy (Large, sturdy ledge.)
+M 0 9101 35 9122 2	* the screaming, filthy harpy (Large, sturdy ledge.)
+M 0 9102 2 9123 1	* the screaming harpy leader (Absolutely disgusting lair.)
+G 0 9104 0		*	magenta potion
+M 0 9102 2 9124 1	* the screaming harpy leader (Absolutely disgusting lair.)
+G 0 9105 0		*	an ancient illustrated parchment
+M 0 9101 35 9127 3	* the screaming, filthy harpy (A fluffy white cloud.)
+M 0 9101 35 9127 3	* the screaming, filthy harpy (A fluffy white cloud.)
+M 0 9101 35 9127 3	* the screaming, filthy harpy (A fluffy white cloud.)
+M 0 9101 35 9129 1	* the screaming, filthy harpy (Sleepy little cloud.)
+M 0 9101 35 9131 1	* the screaming, filthy harpy (Happy little cloud.)
+M 0 9101 35 9133 1	* the screaming, filthy harpy (Sneezing little cloud.)
+M 0 9101 35 9135 1	* the screaming, filthy harpy (Doc-like little cloud.)
+M 0 9103 5 9137 1	* the ghostly air elemental (Cold, damp cloud.)
+M 0 9107 1 9141 1	* the ugly, wicked witch (Witches Tower)
+M 0 9101 35 9144 1	* the screaming, filthy harpy (Raging hurricane.)
+M 0 9101 35 9145 1	* the screaming, filthy harpy (Raging hurricane.)
+M 0 9101 35 9146 1	* the screaming, filthy harpy (Raging hurricane.)
+M 0 9101 35 9147 1	* the screaming, filthy harpy (Raging hurricane.)
+M 0 9103 5 9148 1	* the ghostly air elemental (Raging hurricane.)
+M 0 9101 35 9149 1	* the screaming, filthy harpy (Raging hurricane.)
+M 0 9101 35 9150 1	* the screaming, filthy harpy (Raging hurricane.)
+M 0 9101 35 9151 1	* the screaming, filthy harpy (Raging hurricane.)
+M 0 9101 35 9152 1	* the screaming, filthy harpy (Raging hurricane.)
+M 0 9106 1 9153 1	* the gigantic roc (Calm cloud.)
+M 0 9105 1 9156 1	* the gigantic roc (Roc's Nest.)
+M 0 9101 35 9158 2	* the screaming, filthy harpy (Dark hidden cloud.)
+M 0 9101 35 9158 2	* the screaming, filthy harpy (Dark hidden cloud.)
+M 0 9101 35 9162 2	* the screaming, filthy harpy (Croquet game)
+M 0 9101 35 9162 2	* the screaming, filthy harpy (Croquet game)
+M 0 9103 5 9163 1	* the ghostly air elemental (Huge, gorgeous fountain.)
+M 0 9103 5 9177 1	* the ghostly air elemental (Foyer.)
+M 0 9104 2 9182 1	* the mysterious efreeti (Western tower.)
+G 0 9102 0		*	A carved bronze bracer
+M 0 9104 2 9187 1	* the mysterious efreeti (Eastern tower.)
+G 0 9103 0		*	an ornate brooch
+S
+
+
+
 #SHOPS
 0
-#SPECIALS
-M 9107 spec_cast_undead    	* the ugly, wicked witch
+
+
+
+#OLIMITS
 S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
+
 #$

@@ -21,7 +21,7 @@ a strange being clad in dozens of different types of armor with no regard for
 fashion. Small wonder she is both amazed and afraid of you!
 ~
 human~
-ABGHT HN 400 0
+AGHT HN 400 0
 45 0 10d136+786 45d10+100 5d15+26 pierce
 -18 -18 -18 -4
 EFNU 0 0 0
@@ -41,13 +41,13 @@ don't talk. Or do they? He was certainly very well dressed for a rabbit, or
 for anyone for that matter. Perhaps you'd fancy acquiring some of his
 accoutrements? After all, how hard could he be to slay?
 ~
-white dragon~
-AGHT HNP 400 0
+rabbit~
+AGHT HJNPT 400 0
 40 0 10d108+648 40d10+100 5d14+20 pierce
 -15 -15 -15 -2
-EFNR 0 0 0
+ENR 0 BEI F
 stand stand male 0
-0 0 medium unknown
+HM BGI medium unknown
 M GREET 21003 100~
 #21002
 mouse~
@@ -58,14 +58,14 @@ The mouse is swimming, with some difficulty, to the edge of this pool of
 water. He looks startled upon seeing you approach, and cautiously demands
 to know whether you are a cat.
 ~
-human~
+rabbit~
 AGHT J 400 0
 37 0 10d92+578 37d10+100 5d12+23 pound
 -13 -13 -13 -1
-EFNU 0 0 0
+ENU 0 0 0
 stand stand male 0
-0 0 medium unknown
-F par GHIJK
+HM B medium unknown
+M GREET 21004 100~
 #21003
 duck~
 a duck~
@@ -74,14 +74,14 @@ A duck waddles about, looking very confused.
 Like you, this creature found itself suddenly submerged in a pool of Alice's
 tears. Although being a duck, it isn't half as worried.
 ~
-human~
-AGHTX 0 400 0
+water fowl~
+AGHT 0 400 0
 36 0 10d87+555 36d10+100 5d12+21 pierce
 -12 -12 -12 -1
 EFNU 0 0 0
 stand stand female 0
-0 0 medium unknown
-F par GHIJK
+HMV B medium unknown
+M GREET 21005 100~
 #21004
 dodo~
 a dodo~
@@ -92,13 +92,15 @@ consist of everyone gathering about in a circular shape ("the exact shape doesn'
 matter") and running about until they are quite dry.
 ~
 human~
-ABGTX N 400 0
+ABGT N 400 0
 36 0 10d87+555 36d10+100 5d12+21 pierce
 -12 -12 -12 -1
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 F par GHIJK
+M ACT 21007 looks at you.~
+M GREET 21006 100~
 #21005
 lory~
 a lory~
@@ -108,13 +110,16 @@ The lory is feeling rather sulky, as it feels that as the oldest present
 (though it will NOT reveal its age) it knows best and should be in charge.
 ~
 human~
-AGHTX T 400 0
+AGHT T 400 0
 36 0 10d87+555 36d10+100 5d12+21 slash
 -12 -12 -12 -1
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 F par GHIJK
+M ACT 21010 looks at you.~
+M GREET 21009 100~
+M ACT 21008 tells you~
 #21006
 eaglet~
 an eaglet~
@@ -124,13 +129,14 @@ The eaglet is growing impatient with the talk- all the long words he doesn't
 know the meaning of, and doubtless nor do any of the others present.
 ~
 human~
-ABGTX T 400 0
+ABGT T 400 0
 36 0 10d87+555 36d10+100 5d12+21 pierce
 -12 -12 -12 -1
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 F par GHIJK
+M GREET 21011 100~
 #21007
 magpie~
 an elderly magpie~
@@ -140,13 +146,14 @@ This magpie is quite frail and is concerned the chill from being wet will
 cause her to become ill.
 ~
 human~
-ABGHTX T 400 0
+ABGHT T 400 0
 35 0 10d82+534 35d10+100 5d12+18 slash
 -11 -11 -11 0
 EFNU 0 0 0
 stand stand female 0
 0 0 medium unknown
 F par GHIJK
+M GREET 21012 100~
 #21008
 owl~
 an owl~
@@ -156,13 +163,14 @@ This owl is quite young and not very wise as yet, so it is deferring to the
 wisdom of the older birds and engaging in the decidedly silly caucus race.
 ~
 human~
-ABGTX T 400 0
+ABGT T 400 0
 35 0 10d82+534 35d10+100 5d12+18 pound
 -11 -11 -11 0
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 F par GHIJK
+M GREET 21013 100~
 #21009
 old crab~
 an old crab~
@@ -171,7 +179,7 @@ An old crab is lecturing her daughter about losing her temper.
 This elderly crab is enough to try the patience of an oyster!
 ~
 human~
-ABGTX N 400 0
+ABGT N 400 0
 36 0 10d87+555 36d10+100 5d12+21 pound
 -12 -12 -12 -1
 EFNU 0 0 0
@@ -186,7 +194,7 @@ A young crab is telling her mother to hold her tongue.
 This youthful crustacean is sick of her mother's constant lecturing.
 ~
 human~
-ABGHTX N 400 0
+ABGHT N 400 0
 35 0 10d82+534 35d10+100 5d12+18 pierce
 -11 -11 -11 0
 EFNU 0 0 0
@@ -201,14 +209,13 @@ Bill the lizard is standing here, waiting to be lowered down the chimney.
 He doesn't look as if he is too keen to be doing this, but he's been given
 no choice.
 ~
-human~
+lizard~
 ABGHT 0 400 0
 36 0 10d87+555 36d10+100 5d12+21 pound
 -12 -12 -12 -1
 EFNU 0 0 0
 stand stand male 0
-0 0 medium unknown
-F par GHIJK
+HMV B medium unknown
 #21012
 guinea pig~
 a guinea pig~
@@ -217,14 +224,13 @@ A guinea pig stands here holding a length of rope.
 He and his fellow are preparing to lower poor Bill down the chimney to see
 what it is inside that is causing such a clamour.
 ~
-human~
+pig~
 ABGHT 0 400 0
 36 0 10d87+555 36d10+100 5d12+21 pound
 -12 -12 -12 -1
 EFNU 0 0 0
 stand stand male 0
-0 0 medium unknown
-F par GHIJK
+HM B medium unknown
 #21013
 puppy~
 a puppy dog~
@@ -233,14 +239,13 @@ A puppy dog looks at you with large round eyes.
 This little pup has been abandoned here. He looks like he'd LOVE to have
 someone to play with.
 ~
-human~
+dog~
 ABGHT J 400 0
 36 0 10d87+555 36d10+100 5d12+21 pound
 -12 -12 -12 -1
 EFNU 0 0 0
 stand stand male 0
-0 0 medium unknown
-F par GHIJK
+HM B medium unknown
 #21014
 caterpillar~
 the caterpillar~
@@ -2683,6 +2688,41 @@ curtsey
 #21003
 say I'm late! Oh dear!
 emote looks at his watch.
+~
+#21004
+growl
+say Cats! Nasty, low, vulgar things!
+~
+#21005
+say QUACK!
+~
+#21006
+say The best thing to get us dry would be a Caucus race!
+emote marks out a race course, in a sort of circle.
+MOB ECHOAT $n Dodo tells you'{GThe size doesn't matter.{x '
+~
+#21007
+emote is running about furiously!
+say Run then!
+~
+#21008
+MOB ECHOAT $n a lory tells you '{GI'm not telling you how old I am!{x'
+~
+#21009
+MOB ECHOAT $n a lory tells you '{GI am older than you, and must know better.{x'
+~
+#21010
+say Don't stare, youngster!
+~
+#21011
+say Speak English!
+emote stretches its wings and shakes them, soaking everyone!
+~
+#21012
+say I really must be getting home. The night air doesn't suit my throat.
+~
+#21013
+emote runs about in circles.
 ~
 #0
 
