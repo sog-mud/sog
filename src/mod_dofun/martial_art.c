@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.151 2000-01-13 14:46:34 kostik Exp $
+ * $Id: martial_art.c,v 1.152 2000-01-17 06:42:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -100,8 +100,8 @@ check_close_contact(CHAR_DATA *ch, CHAR_DATA *victim)
 					WEAR_SECOND_WIELD);
 			chance /= 3;
 		}
+		check_improve(victim, "close contact", TRUE, 2);
 		return TRUE;
-		check_improve(victim, "close combat", TRUE, 2);
 	}
 	return FALSE;
 }
