@@ -494,6 +494,14 @@ Form 3 -ли~
 End
 
 #RULE
+Name услышал~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name погас~
 BaseLen 5
 Form 1 -ла~
@@ -1240,6 +1248,14 @@ Form 3 -лись~
 End
 
 #RULE
+Name обречен~
+BaseLen 7
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
 Name им~
 Form 1 ей~
 Form 3 ими~
@@ -1837,6 +1853,14 @@ Name его~
 Form 1 ее~
 Form 2 его~
 Form 3 их~
+End
+
+#RULE
+Name спросил~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
 End
 
 #RULE
