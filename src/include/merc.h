@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.359 2001-09-07 15:40:02 fjoe Exp $
+ * $Id: merc.h,v 1.360 2001-09-07 19:34:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -176,7 +176,7 @@ enum {
 #define PULSE_PER_SECOND	4
 
 #define FIGHT_DELAY_TIME	(20 * PULSE_PER_SECOND)
-#define OFFENCE_DELAY_TIME	600
+#define OFFENCE_DELAY_TIME	300
 #define GHOST_DELAY_TIME	600
 #define MISSING_TARGET_DELAY	10
 
@@ -1192,7 +1192,7 @@ enum {
 	{								\
 		(ch)->last_fight_time = current_time;			\
 		if (!IS_NPC(ch))					\
-			SET_BIT(PC(ch)->plr_flags, PLR_PUMPED);	\
+			SET_BIT(PC(ch)->plr_flags, PLR_PUMPED);		\
 	}
 
 #define RESET_FIGHT_TIME(ch)						\
@@ -1479,7 +1479,7 @@ struct pc_data
 	time_t			last_penalty;
 	time_t			last_news;
 	time_t			last_changes;
-	time_t			last_offence;
+	time_t			last_offence_time;
 	flag_t			trust;
 	flag_t			plr_flags;
 	flag_t			www_show_flags;

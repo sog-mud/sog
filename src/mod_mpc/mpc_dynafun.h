@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.h,v 1.6 2001-09-07 15:40:19 fjoe Exp $
+ * $Id: mpc_dynafun.h,v 1.7 2001-09-07 19:34:38 fjoe Exp $
  */
 
 #ifndef _MPC_DYNAFUN_H_
@@ -41,26 +41,18 @@ DECLARE_FUN4(int, has_sp,
 DECLARE_FUN4(int, spclass_count,
 	     ARG(CHAR_DATA), ch, ARG(cchar_t), spn,
 	     ARG(cchar_t), spn_add, ARG(cchar_t), spn_rm)
-DECLARE_PROC2(mob_interpret,
-	      ARG(CHAR_DATA), ch, ARG(cchar_t), argument)
 DECLARE_FUN1(bool, is_immortal,
 	     ARG(CHAR_DATA), ch)
 DECLARE_FUN1(int, char_sex,
 	     ARG(CHAR_DATA), ch)
-DECLARE_FUN2(OBJ_DATA, load_obj,
-	     ARG(CHAR_DATA), ch, ARG(int), vnum)
 DECLARE_FUN1(bool, is_ghost,
 	     ARG(CHAR_DATA), ch)
-DECLARE_PROC1(purge_obj,
-	      ARG(OBJ_DATA), obj)
 DECLARE_FUN1(bool, is_good,
 	     ARG(CHAR_DATA), ch)
 DECLARE_FUN1(bool, is_neutral,
 	     ARG(CHAR_DATA), ch)
 DECLARE_FUN1(bool, is_evil,
 	     ARG(CHAR_DATA), ch)
-DECLARE_FUN2(bool, transfer_group,
-	     ARG(CHAR_DATA), ch, ARG(ROOM_INDEX_DATA), room)
 DECLARE_FUN1(ROOM_INDEX_DATA, char_room,
 	     ARG(CHAR_DATA), ch)
 DECLARE_FUN1(int, char_level,
@@ -77,18 +69,12 @@ DECLARE_FUN2(bool, is_owner,
 	     ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj)
 DECLARE_FUN2(bool, is_class,
 	     ARG(CHAR_DATA), ch, ARG(cchar_t), cl)
-DECLARE_PROC8(affect_char,
-	      ARG(CHAR_DATA), ch, ARG(int), where, ARG(cchar_t), sn,
-	      ARG(int), level, ARG(int), duration,
-	      ARG(int), loc, ARG(int), mod, ARG(int), bits)
 DECLARE_FUN1(int, obj_level,
 	     ARG(OBJ_DATA), obj)
 DECLARE_FUN1(int, room_sector,
 	     ARG(ROOM_INDEX_DATA), room)
 DECLARE_FUN1(int, char_max_hit,
 	     ARG(CHAR_DATA), ch)
-DECLARE_PROC2(set_char_hit,
-	      ARG(CHAR_DATA), ch, ARG(int), hit)
 DECLARE_FUN1(int, obj_timer,
 	     ARG(OBJ_DATA), obj)
 DECLARE_PROC2(set_obj_timer,
@@ -101,6 +87,10 @@ DECLARE_PROC2(wait_state,
 	      ARG(CHAR_DATA), ch, ARG(int), ws)
 DECLARE_FUN2(bool, is_affected,
 	     ARG(CHAR_DATA), ch, ARG(int), aff)
+DECLARE_FUN1(int, char_hit,
+	     ARG(CHAR_DATA), ch)
+DECLARE_FUN1(int, obj_wear_loc,
+	     ARG(OBJ_DATA), obj)
 
 __MODULE_END_DECL
 

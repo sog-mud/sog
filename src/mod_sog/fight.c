@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.325 2001-09-07 15:40:22 fjoe Exp $
+ * $Id: fight.c,v 1.326 2001-09-07 19:34:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1785,9 +1785,8 @@ is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 		REMOVE_BIT(PC(ch)->plr_flags, PLR_GHOST);
 	}
 
-	if ((victim != ch) && !IS_NPC(victim) && !IS_NPC(ch)) {
-		PC(ch)->last_offence = current_time;
-	}
+	if (victim != ch && !IS_NPC(victim) && !IS_NPC(ch))
+		PC(ch)->last_offence_time = current_time;
 
 	return safe;
 }
@@ -2606,7 +2605,6 @@ make_corpse(CHAR_DATA *ch)
 
 	for (obj = ch->carrying; obj != NULL; obj = obj_next) {
 		obj_next = obj->next_content;
-		obj_from_char(obj);
 		if (obj->item_type == ITEM_POTION)
 			obj->timer = number_range(500, 1000);
 		if (obj->item_type == ITEM_SCROLL)

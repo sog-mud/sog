@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.249 2001-09-07 15:40:05 fjoe Exp $
+ * $Id: act_comm.c,v 1.250 2001-09-07 19:34:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1492,10 +1492,8 @@ DO_FUN(do_mark, ch, argument)
 		return;
 	}
 
-	if ((mark = get_eq_char(ch, WEAR_CLANMARK)) != NULL) {
-		obj_from_char(mark);
+	if ((mark = get_eq_char(ch, WEAR_CLANMARK)) != NULL)
 		extract_obj(mark, 0);
-	}
 
 	if ((mark = create_obj(clan->mark_vnum, 0)) != NULL) {
 		obj_to_char(mark, ch);
@@ -1612,10 +1610,8 @@ DO_FUN(do_petition, ch, argument)
 			if (!loaded)
 				act("Your petition to $t has been accepted.",
 				    victim, clan->name, NULL, TO_CHAR);
-			if ((mark = get_eq_char(victim, WEAR_CLANMARK)) != NULL) {
-				obj_from_char(mark);
+			if ((mark = get_eq_char(victim, WEAR_CLANMARK)) != NULL)
 				extract_obj(mark, 0);
-			}
 
 			if (clan->mark_vnum != 0
 			&&  (mark = create_obj(clan->mark_vnum, 0)) != NULL) {
@@ -1654,7 +1650,6 @@ DO_FUN(do_petition, ch, argument)
 			}
 
 			if ((mark = get_eq_char(victim, WEAR_CLANMARK))) {
-				obj_from_char(mark);
 				extract_obj(mark, 0);
 				mark = create_obj(OBJ_VNUM_RENEGADE_MARK, 0);
 				if (mark != NULL) {

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.260 2001-09-07 15:40:07 fjoe Exp $
+ * $Id: act_obj.c,v 1.261 2001-09-07 19:34:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1839,7 +1839,6 @@ DO_FUN(do_steal, ch, argument)
 	}
 
 	if (!IS_OBJ_STAT(obj, ITEM_INVENTORY)) {
-		obj_from_char(obj);
 		obj_to_char(obj, ch);
 		act_char("You got it!", ch);
 		check_improve(ch, "steal", TRUE, 2);
@@ -2083,7 +2082,6 @@ DO_FUN(do_buy, ch, argument)
 		} else {
 			t_obj = obj;
 			obj = obj->next_content;
-			obj_from_char(t_obj);
 		}
 
 		if (t_obj->timer > 0 && !IS_OBJ_STAT(t_obj, ITEM_HAD_TIMER))
@@ -2266,7 +2264,6 @@ DO_FUN(do_sell, ch, argument)
 	||  OBJ_IS(obj, OBJ_SELL_EXTRACT))
 		extract_obj(obj, 0);
 	else {
-		obj_from_char(obj);
 		if (obj->timer)
 			SET_OBJ_STAT(obj, ITEM_HAD_TIMER);
 		else
@@ -2717,11 +2714,8 @@ DO_FUN(do_butcher, ch, argument)
 		return;
 	}
 
-	obj_from_room(obj);
-
 	for (tmp_obj = obj->contains; tmp_obj != NULL; tmp_obj = tmp_next) {
 		tmp_next = tmp_obj->next_content;
-		obj_from_obj(tmp_obj);
 		obj_to_room(tmp_obj, ch->in_room);
 	}
 
@@ -2751,6 +2745,7 @@ DO_FUN(do_butcher, ch, argument)
 
 		check_improve(ch, "butcher", FALSE, 1);
 	}
+
 	extract_obj(obj, 0);
 }
 
@@ -2808,10 +2803,8 @@ DO_FUN(do_crucify, ch, argument)
 		return;
 	}
 
-	obj_from_room(obj);
 	for (obj2 = obj->contains; obj2; obj2 = next) {
 		next = obj2->next_content;
-		obj_from_obj(obj2);
 		obj_to_room(obj2, ch->in_room);
 	}
 
@@ -3610,7 +3603,6 @@ sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 		     obj_content = obj_next) {
 			obj_next = obj_content->next_content;
 			two_objs[iScatter < 1 ? 0 : 1] = obj_content;
-			obj_from_obj(obj_content);
 			obj_to_room(obj_content, ch->in_room);
 			iScatter++;
 		}
@@ -3731,7 +3723,6 @@ static bool put_obj(CHAR_DATA *ch, OBJ_DATA *container,
 		return FALSE;
 	}
 
-	obj_from_char(obj);
 	obj_to_obj(obj, container);
 
 	if (IS_SET(INT(container->value[1]), CONT_PUT_ON)) {
@@ -3747,9 +3738,9 @@ static bool put_obj(CHAR_DATA *ch, OBJ_DATA *container,
 	return TRUE;
 }
 
-static void drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
+static void
+drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 {
-	obj_from_char(obj);
 	obj_to_room(obj, ch->in_room);
 
 	act("$n drops $p.", ch, obj, NULL,

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.22 2001-09-07 15:40:02 fjoe Exp $
+ * $Id: sog.h,v 1.23 2001-09-07 19:34:26 fjoe Exp $
  */
 
 #ifndef _SOG_H_
@@ -38,23 +38,16 @@ __MODULE_START_DECL
 /*--- handler.c */
 DECLARE_PROC2(char_to_room,
 	      ARG(CHAR_DATA), ch, ARG(ROOM_INDEX_DATA), pRoomIndex)
-DECLARE_PROC1(char_from_room,
-	      ARG(CHAR_DATA), ch)
 
-DECLARE_PROC2(obj_to_char,
-	      ARG(OBJ_DATA), obj, ARG(CHAR_DATA), ch)
 DECLARE_PROC1(obj_from_char,
 	      ARG(OBJ_DATA), obj)
 
+DECLARE_PROC2(obj_to_char,
+	      ARG(OBJ_DATA), obj, ARG(CHAR_DATA), ch)
 DECLARE_PROC2(obj_to_room,
 	      ARG(OBJ_DATA), obj, ARG(ROOM_INDEX_DATA), pRoomIndex)
-DECLARE_PROC1(obj_from_room,
-	      ARG(OBJ_DATA), obj)
-
 DECLARE_PROC2(obj_to_obj,
 	      ARG(OBJ_DATA), obj, ARG(OBJ_DATA), obj_to)
-DECLARE_PROC1(obj_from_obj,
-	      ARG(OBJ_DATA), obj)
 
 
 /* extract obj flags */
@@ -486,8 +479,8 @@ DECLARE_PROC3(format_obj_affects,
 #define DAMF_TRAP_ROOM	(H)	/* room trap damage */
 
 DECLARE_PROC4(one_hit,
-	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(cchar_t), dt,
-	      ARG(bool), secondary)
+	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim,
+	      NULLABLE_ARG(cchar_t), dt, ARG(bool), secondary)
 DECLARE_PROC2(handle_death,
 	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim)
 DECLARE_PROC3(multi_hit,
@@ -495,7 +488,8 @@ DECLARE_PROC3(multi_hit,
 	      NULLABLE_ARG(cchar_t), dt)
 DECLARE_FUN6(bool, damage,
 	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(int), dam,
-	     ARG(cchar_t), dt, ARG(int), class, ARG(int), dam_flags)
+	     NULLABLE_ARG(cchar_t), dt, ARG(int), dam_class,
+	     ARG(int), dam_flags)
 DECLARE_PROC1(update_pos,
 	      ARG(CHAR_DATA), victim)
 DECLARE_PROC2(set_fighting,
@@ -799,6 +793,22 @@ DECLARE_PROC1(bust_a_prompt,
 	      ARG(DESCRIPTOR_DATA), d)
 DECLARE_PROC2(close_descriptor,
 	      ARG(DESCRIPTOR_DATA), dclose, ARG(int), save_flags)
+
+/*--- mpc_helpers.c */
+DECLARE_PROC2(mob_interpret,
+	      ARG(CHAR_DATA), ch, ARG(cchar_t), argument)
+DECLARE_FUN2(OBJ_DATA, load_obj,
+	     ARG(CHAR_DATA), ch, ARG(int), vnum)
+DECLARE_PROC1(purge_obj,
+	      ARG(OBJ_DATA), obj)
+DECLARE_FUN2(bool, transfer_group,
+	     ARG(CHAR_DATA), ch, ARG(ROOM_INDEX_DATA), room)
+DECLARE_PROC8(affect_char,
+	      ARG(CHAR_DATA), ch, ARG(int), where, ARG(cchar_t), sn,
+	      ARG(int), level, ARG(int), duration,
+	      ARG(int), loc, ARG(int), mod, ARG(int), bits)
+DECLARE_PROC2(set_char_hit,
+	      ARG(CHAR_DATA), ch, ARG(int), hit)
 
 __MODULE_END_DECL
 

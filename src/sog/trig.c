@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.12 2001-09-07 15:40:29 fjoe Exp $
+ * $Id: trig.c,v 1.13 2001-09-07 19:34:48 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -379,6 +379,7 @@ pull_trigger_list(int trig_type, varr *v, int mp_type,
 	trig_t *trig;
 	int rv = MPC_ERR_NOTFOUND;
 	size_t i;
+	bool seen_good = FALSE;
 
 	trig = varr_bsearch_lower(v, &trig_type, cmpint);
 	if (trig == NULL)
@@ -392,8 +393,13 @@ pull_trigger_list(int trig_type, varr *v, int mp_type,
 
 		rv = pull_one_trigger(trig, mp_type, arg1, arg2, arg3);
 		if (rv > 0)
-			break;
+			return rv;
+		else if (rv == 0 && !seen_good)
+			seen_good = TRUE;
 	}
+
+	if (seen_good)
+		return 0;
 
 	return rv;
 }

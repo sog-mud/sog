@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.266 2001-09-07 15:59:45 fjoe Exp $
+ * $Id: spellfun.c,v 1.267 2001-09-07 19:34:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1435,9 +1435,9 @@ static inline void
 gate(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	teleport_char(ch, NULL, victim->in_room,
-		      "$N steps through a gate and vanishes.",
+		      "$n steps through a gate and vanishes.",
 		      "You step through a gate and vanish.",
-		      "$N has arrived through a gate.");
+		      "$n has arrived through a gate.");
 }
 
 SPELL_FUN(spell_gate, sn, level, ch, vo)
@@ -2212,9 +2212,9 @@ SPELL_FUN(spell_summon, sn, level, ch, vo)
 	}
 
 	teleport_char(victim, ch, ch->in_room,
-		      "$N disappears suddenly.",
-		      "$n has summoned you!",
-		      "$N arrives suddenly.");
+		      "$n disappears suddenly.",
+		      "$N has summoned you!",
+		      "$n arrives suddenly.");
 }
 
 SPELL_FUN(spell_teleport, sn, level, ch, vo)
@@ -2231,9 +2231,9 @@ SPELL_FUN(spell_teleport, sn, level, ch, vo)
 	}
 
 	teleport_char(victim, ch, get_random_room(victim, NULL),
-		      "$N vanishes!",
+		      "$n vanishes!",
 		      "You have been teleported.",
-		      "$N slowly fades into existence.");
+		      "$n slowly fades into existence.");
 }
 
 SPELL_FUN(spell_bamf, sn, level, ch, vo)
@@ -2249,9 +2249,9 @@ SPELL_FUN(spell_bamf, sn, level, ch, vo)
 
 	teleport_char(victim, ch,
 		      get_random_room(victim, victim->in_room->area),
-		      "$N vanishes!",
+		      "$n vanishes!",
 		      "You have been teleported.",
-		      "$N slowly fades into existence.");
+		      "$n slowly fades into existence.");
 }
 
 SPELL_FUN(spell_ventriloquate, sn, level, ch, vo)
@@ -2808,9 +2808,9 @@ static inline void
 astral_walk(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	teleport_char(ch, victim, victim->in_room,
-		      "$N disappears in a flash of light!",
-		      "You travel via astral planes and go to $n.",
-		      "$N appears in a flash of light!");
+		      "$n disappears in a flash of light!",
+		      "You travel via astral planes and go to $N.",
+		      "$n appears in a flash of light!");
 }
 
 /* travel via astral plains */
@@ -2853,9 +2853,9 @@ SPELL_FUN(spell_mist_walk, sn, level, ch, vo)
 	}
 
 	teleport_char(ch, NULL, victim->in_room,
-		      "$N dissolves into a cloud of glowing mist, then vanishes!",
+		      "$n dissolves into a cloud of glowing mist, then vanishes!",
 		      "You dissolve into a cloud of glowing mist, then flow to your target.",
-		      "A cloud of glowing mist engulfs you, then withdraws to unveil $N!");
+		      "A cloud of glowing mist engulfs you, then withdraws to unveil $n!");
 }
 
 /* travel via astral plains */
@@ -2873,9 +2873,9 @@ SPELL_FUN(spell_helical_flow, sn, level, ch, vo)
 	}
 
 	teleport_char(ch, NULL, victim->in_room,
-		      "$N coils into an ascending column of colour, vanishing into thin air.",
+		      "$n coils into an ascending column of colour, vanishing into thin air.",
 		      "You coil into an ascending column of colour, vanishing into thin air.",
-		      "A coil of colours descends from above, revealing $N as it dissipates.");
+		      "A coil of colours descends from above, revealing $n as it dissipates.");
 }
 
 SPELL_FUN(spell_corruption, sn, level, ch, vo)
@@ -4124,10 +4124,10 @@ tesseract_other(CHAR_DATA *ch, CHAR_DATA *victim, ROOM_INDEX_DATA *to_room)
 {
 	teleport_char(victim, ch, to_room,
 		      NULL,
-		      "$n utters some strange words and, "
+		      "$N utters some strange words and, "
 		      "with a sickening lurch, you feel time\n"
 		      "and space shift around you.",
-		      "$N arrives suddenly.");
+		      "$n arrives suddenly.");
 }
 
 SPELL_FUN(spell_tesseract, sn, level, ch, vo)
@@ -4161,7 +4161,7 @@ SPELL_FUN(spell_tesseract, sn, level, ch, vo)
 		      "As you utter the words, time and space seem to blur.\n"
 		      "You feel as though space and time are shifting\n"
 		      "all around you while you remain motionless.",
-		      "$N arrives suddenly.");
+		      "$n arrives suddenly.");
 
 	if (pet)
 		tesseract_other(ch, pet, victim->in_room);
@@ -4390,7 +4390,6 @@ SPELL_FUN(spell_ruler_badge, sn, level, ch, vo)
 
 		if (badge->pObjIndex->vnum == OBJ_VNUM_RULER_BADGE) {
 			act("Your $p vanishes.", ch, badge, NULL, TO_CHAR);
-			obj_from_char(badge);
 			extract_obj(badge, 0);
 		}
 	}
@@ -4439,7 +4438,6 @@ SPELL_FUN(spell_remove_badge, sn, level, ch, vo)
 		if (badge->pObjIndex->vnum == OBJ_VNUM_RULER_BADGE) {
 			act("Your $p vanishes.",ch, badge, NULL, TO_CHAR);
 			act("$n's $p vanishes.", ch, badge, NULL, TO_ROOM);
-			obj_from_char(badge);
 			extract_obj(badge, 0);
 			continue;
 		}
@@ -5077,9 +5075,9 @@ SPELL_FUN(spell_disperse, sn, level, ch, vo)
 		}
 
 		teleport_char(vch, NULL, get_random_room(vch, NULL),
-			      "$N vanishes!",
+			      "$n vanishes!",
 			      "The world spins around you!",
-			      "$N slowly fades into existence.");
+			      "$n slowly fades into existence.");
 	}
 
 	paf = aff_new(TO_AFFECTS, sn);
@@ -5338,7 +5336,6 @@ SPELL_FUN(spell_animate_dead, sn, level, ch, vo)
 			    ch, obj, NULL, TO_ROOM);
 			for (obj2 = obj->contains; obj2; obj2 = next) {
 				next = obj2->next_content;
-				obj_from_obj(obj2);
 				obj_to_room(obj2, ch->in_room);
 			}
 			extract_obj(obj, 0);
@@ -5389,7 +5386,6 @@ SPELL_FUN(spell_animate_dead, sn, level, ch, vo)
 
 		for (obj2 = obj->contains; obj2; obj2 = next) {
 			next = obj2->next_content;
-			obj_from_obj(obj2);
 			obj_to_char(obj2, undead);
 		}
 
@@ -7191,7 +7187,6 @@ SPELL_FUN(spell_mirror, sn, level, ch, vo)
 
 		char_to_room(gch, victim->in_room);
 		if (new_mirrors == order) {
-			char_from_room(victim);
 			char_to_room(victim, gch->in_room);
 			if (IS_EXTRACTED(victim))
 				break;
@@ -7540,9 +7535,9 @@ SPELL_FUN(spell_find_familiar, sn, level, ch, vo)
 
 	if (!new) {
 		teleport_char(familiar, ch, ch->in_room,
-			"$N disappears suddenly.",
-			"$n has summoned you!",
-			"$N arrives suddenly.");
+			"$n disappears suddenly.",
+			"$N has summoned you!",
+			"$n arrives suddenly.");
 	} else {
 		char_to_room(familiar, ch->in_room);
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_c.c,v 1.22 2001-09-04 19:32:54 fjoe Exp $
+ * $Id: mpc_c.c,v 1.23 2001-09-07 19:34:37 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -202,6 +202,9 @@ c_push_retval(mpcode_t *mpc)
 
 		switch (d->argtype[i].type_tag) {
 		case MT_INT:
+		case MT_UINT:
+		case MT_SIZE_T:
+		case MT_BOOL:
 		case MT_PVOID:
 		case MT_PCVOID:
 			break;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.41 2001-09-07 15:40:26 fjoe Exp $
+ * $Id: updfun.c,v 1.42 2001-09-07 19:34:46 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -683,14 +683,12 @@ FOREACH_CB_FUN(char_update_cb, vo, ap)
 				act_puts("You disappear into the void.",
 					 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 				char_save(ch, 0);
-				char_from_room(ch);
 				char_to_room(ch, to_room);
 				if (pc->pet) {
 					act("$n disappears into the void.",
 					    pc->pet, NULL, NULL, TO_ROOM);
 					act_puts("You disappear into the void.",
 						 pc->pet, NULL, NULL, TO_CHAR, POS_DEAD);
-					char_from_room(pc->pet);
 					char_to_room(pc->pet, to_room);
 				}
 				if (IS_EXTRACTED(ch))
@@ -1749,7 +1747,6 @@ contents_to_obj(OBJ_DATA *obj, OBJ_DATA *to_obj)
 
 	for (; obj; obj = obj_next) {
 		obj_next = obj->next_content;
-		obj_from_obj(obj);
 		obj_to_obj(obj, to_obj);
 	}
 }
@@ -1771,7 +1768,6 @@ save_corpse_contents(OBJ_DATA *corpse)
 	if (corpse->carried_by) {
 		for (obj = corpse->contains; obj; obj = obj_next) {
 			obj_next = obj->next_content;
-			obj_from_obj(obj);
 			obj_to_char(obj, corpse->carried_by);
 		}
 		return;
@@ -1792,7 +1788,6 @@ save_corpse_contents(OBJ_DATA *corpse)
 	if (!pit) {
 		for (obj = corpse->contains; obj != NULL; obj = obj_next) {
 			obj_next = obj->next_content;
-			obj_from_obj(obj);
 			obj_to_room(obj, altar->room);
 		}
 		return;
@@ -1936,13 +1931,6 @@ FOREACH_CB_FUN(clan_item_update_cb, p, ap)
 	if (obj->in_room
 	&&  hash_foreach(&clans, put_back_cb, obj) != NULL)
 		return NULL;
-
-	if (clan->obj_ptr->in_obj)
-		obj_from_obj(clan->obj_ptr);
-	if (clan->obj_ptr->carried_by)
-		obj_from_char(clan->obj_ptr);
-	if (clan->obj_ptr->in_room)
-		obj_from_room(clan->obj_ptr);
 
 	obj_to_obj(clan->obj_ptr, clan->altar_ptr);
 	return NULL;

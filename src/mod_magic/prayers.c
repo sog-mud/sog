@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.18 2001-09-07 15:40:14 fjoe Exp $
+ * $Id: prayers.c,v 1.19 2001-09-07 19:34:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1589,9 +1589,9 @@ SPELL_FUN(prayer_solar_flight, sn, level, ch, vo)
 	}
 
 	teleport_char(ch, NULL, victim->in_room,
-		      "$N disappears in a blinding flash of light!",
+		      "$n disappears in a blinding flash of light!",
 		      "You dissolve in a blinding flash of light!",
-		      "$N appears in a blinding flash of light!");
+		      "$n appears in a blinding flash of light!");
 }
 
 SPELL_FUN(prayer_black_death, sn, level, ch, vo)
@@ -1801,7 +1801,6 @@ SPELL_FUN(prayer_heat_metal, sn, level, ch, vo)
 					act("You yelp and drop $p before it burns you.",
 					    victim, obj_lose, NULL, TO_CHAR);
 					dam += number_range(1,obj_lose->level) / 6;
-					obj_from_char(obj_lose);
 					obj_to_room(obj_lose, victim->in_room);
 				} else { /* cannot drop */
 					act("Your skin is seared by $p!",
@@ -1822,7 +1821,6 @@ SPELL_FUN(prayer_heat_metal, sn, level, ch, vo)
 				act("You remove and drop $p before it burns you.",
 				    victim, obj_lose, NULL, TO_CHAR);
 				dam += number_range(1,obj_lose->level) / 3;
-				obj_from_char(obj_lose);
 				obj_to_room(obj_lose, victim->in_room);
 			} else { /* stuck on the body! ouch! */
 				act("Your skin is seared by $p!",
@@ -1843,7 +1841,6 @@ SPELL_FUN(prayer_heat_metal, sn, level, ch, vo)
 					act("You yelp and drop $p before it burns you.",
 					    victim, obj_lose, NULL, TO_CHAR);
 					dam += number_range(1, obj_lose->level) / 6;
-					obj_from_char(obj_lose);
 					obj_to_room(obj_lose, victim->in_room);
 				} else { /* cannot drop */
 					act("Your skin is seared by $p!",
@@ -1858,7 +1855,6 @@ SPELL_FUN(prayer_heat_metal, sn, level, ch, vo)
 				    victim, obj_lose, NULL, TO_ROOM);
 				act_char("You throw your red-hot weapon to the ground!", victim);
 				dam += 1;
-				obj_from_char(obj_lose);
 				obj_to_room(obj_lose, victim->in_room);
 			} else { /* YOWCH! */
 				act_char("Your weapon sears your flesh!", victim);

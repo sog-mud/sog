@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.25 2001-09-07 15:40:17 fjoe Exp $
+ * $Id: init_mpc.c,v 1.26 2001-09-07 19:34:37 fjoe Exp $
  */
 
 #include <dlfcn.h>
@@ -54,16 +54,18 @@ DECLARE_MODINIT_FUN(_module_unload);
 #endif
 
 static dynafun_data_t core_dynafun_tab[] = {
+	DECLARE_FUN2(int, dice,
+		     ARG(int), number, ARG(int), size)
 	DECLARE_PROC3(dofun,
 		      ARG(cchar_t), name, ARG(CHAR_DATA), ch,
 		      ARG(cchar_t), argument)
+	DECLARE_FUN1(ROOM_INDEX_DATA, get_room_index,
+		     ARG(int), vnum)
 	DECLARE_FUN1(int, number_bits,
 		     ARG(int), width)
 	DECLARE_FUN0(int, number_percent)
 	DECLARE_FUN2(int, number_range,
 		     ARG(int), from, ARG(int), to)
-	DECLARE_FUN1(ROOM_INDEX_DATA, get_room_index,
-		     ARG(int), vnum)
 #if defined(MPC)
 	{ "print",		MT_VOID, 1,
 	  { { MT_INT } }						},
@@ -163,6 +165,7 @@ const char *mpc_dynafuns[] = {
 	"cast_char",
 	"cast_obj",
 	"char_fighting",
+	"char_hit",
 	"char_level",
 	"char_max_hit",
 	"char_room",
@@ -172,6 +175,7 @@ const char *mpc_dynafuns[] = {
 	"cold_effect",
 	"create_obj",
 	"damage",
+	"dice",
 	"dofun",
 	"fire_effect",
 	"get_char_area",
@@ -213,6 +217,9 @@ const char *mpc_dynafuns[] = {
 	"obj_level",
 	"obj_timer",
 	"obj_to_char",
+	"obj_to_obj",
+	"obj_to_room",
+	"obj_wear_loc",
 	"one_hit",
 	"open_door",
 	"open_obj",

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.400 2001-09-07 15:40:06 fjoe Exp $
+ * $Id: act_info.c,v 1.401 2001-09-07 19:34:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1925,7 +1925,6 @@ DO_FUN(do_request, ch, argument)
 		return;
 	}
 
-	obj_from_char(obj);
 	obj_to_char(obj, ch);
 	act("$n requests $p from $N.", ch, obj, victim, TO_NOTVICT);
 	act("You request $p from $N.",	 ch, obj, victim, TO_CHAR);
@@ -3672,7 +3671,6 @@ DO_FUN(do_demand, ch, argument)
 		return;
 	}
 
-	obj_from_char(obj);
 	obj_to_char(obj, ch);
 	act("$n demands $p from $N.", ch, obj, victim, TO_NOTVICT);
 	act("You demand $p from $N.",	ch, obj, victim, TO_CHAR  );

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_spec.c,v 1.25 2001-08-25 04:49:54 fjoe Exp $
+ * $Id: act_spec.c,v 1.26 2001-09-07 19:34:31 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -87,13 +87,11 @@ DO_FUN(do_read, ch, argument)
 		act("$p glows with strange red light, then disappears.",
 			ch, book, NULL, TO_CHAR);
 
-		obj_from_char(book);
 		extract_obj(book, 0);
 		bad_effect(ch, eff);
 	} else {
 		act(STR(book->value[4]), ch, NULL, NULL, TO_CHAR);
 		act("$p disappears suddenly.", ch, book, NULL, TO_CHAR);
-		obj_from_char(book);
 		extract_obj(book, 0);
 	}
 }

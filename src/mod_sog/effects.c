@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.42 2001-08-20 16:47:40 fjoe Exp $
+ * $Id: effects.c,v 1.43 2001-09-07 19:34:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -735,7 +735,7 @@ toast_obj(OBJ_DATA *obj, effect_cb cb, int level, int dam)
 		/* dump contents */
 		for (t_obj = obj->contains; t_obj != NULL; t_obj = n_obj) {
 			n_obj = t_obj->next_content;
-			obj_from_obj(t_obj);
+
 			if (obj->in_room != NULL)
 				obj_to_room(t_obj, obj->in_room);
 			else if (obj->carried_by != NULL) {

@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.32 2001-09-07 15:40:17 fjoe Exp $
+ * $Id: mpc.y,v 1.33 2001-09-07 19:34:37 fjoe Exp $
  */
 
 /*
@@ -811,21 +811,17 @@ expr:	L_IDENT assign expr %prec '=' {
 				continue;
 			}
 
-			if (got_type != d->argtype[i].type_tag) {
-				compile_error(mpc,
-				    "%s: invalid arg[%d] type '%s' (type '%s' (%d) expected)",
-				    $1, i+1,
-				    flag_string(mpc_types, got_type),
-				    flag_string(mpc_types, d->argtype[i].type_tag),
-				    d->argtype[i].type_tag);
-				YYERROR;
-			}
-
-			code(mpc, (void *) d->argtype[i].type_tag);
+			compile_error(mpc,
+			    "%s: invalid arg[%d] type '%s' (type '%s' (%d) expected)",
+			    $1, i+1,
+			    flag_string(mpc_types, got_type),
+			    flag_string(mpc_types, d->argtype[i].type_tag),
+			    d->argtype[i].type_tag);
+			YYERROR;
 		}
 
 		$$ = d->rv_tag;
-		if ($$ == MT_BOOL)
+		if (IS_INT_TYPE($$))
 			$$ = MT_INT;
 
 		/*

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.296 2001-09-07 15:40:09 fjoe Exp $
+ * $Id: act_wiz.c,v 1.297 2001-09-07 19:34:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -708,7 +708,7 @@ DO_FUN(do_pecho, ch, argument)
 		do_help(ch, "'WIZ PECHO'");
 		return;
 	}
-	 
+
 	if  ((victim = get_char_world(ch, arg)) == NULL) {
 		act_char("They aren't here.", ch);
 		return;
@@ -795,15 +795,13 @@ DO_FUN(do_transfer, ch, argument)
 		act("$n has transferred you.", ch, NULL, victim, TO_VICT);
 	act_char("Ok.", ch);
 
-	char_from_room(victim);
-	act("$N arrives from a puff of smoke.",
-	    location->people, NULL, victim, TO_ALL);
-
 	char_to_room(victim, location);
-	if (IS_EXTRACTED(victim))
-		return;
+	if (!IS_EXTRACTED(victim)) {
+		act("$n arrives from a puff of smoke.",
+		    victim, NULL, NULL, TO_ROOM);
 
-	do_look(victim, "auto");
+		do_look(victim, "auto");
+	}
 }
 
 DO_FUN(do_at, ch, argument)
@@ -827,7 +825,6 @@ DO_FUN(do_at, ch, argument)
 
 	original = ch->in_room;
 	on = ch->on;
-	char_from_room(ch);
 
 	char_to_room(ch, location);
 	if (IS_EXTRACTED(ch))
@@ -839,7 +836,6 @@ DO_FUN(do_at, ch, argument)
 	if (IS_EXTRACTED(ch))
 		return;
 
-	char_from_room(ch);
 	char_to_room(ch, original);
 	if (IS_EXTRACTED(ch))
 		return;
@@ -902,7 +898,6 @@ DO_FUN(do_goto, ch, argument)
 	}
 
 	pet = GET_PET(ch);
-	char_from_room(ch);
 	char_to_room(ch, location);
 
 	for (rch = location->people; rch; rch = rch->next_in_room) {
@@ -924,7 +919,6 @@ DO_FUN(do_goto, ch, argument)
 	if (pet && !IS_AFFECTED(pet, AFF_SLEEP)) {
 		if (pet->position != POS_STANDING)
 			do_stand(pet, str_empty);
-		char_from_room(pet);
 		char_to_room(pet, location);
 	}
 }
@@ -1501,9 +1495,16 @@ DO_FUN(do_mstat, ch, argument)
 
 	buf_printf(output, BUF_END,
 		   "Last fight time: [%s] %s\n",		// notrans
-		   victim->last_fight_time != 1 ?
+		   victim->last_fight_time != -1 ?
 		   strtime(victim->last_fight_time) : "NONE",	// notrans
 		   IS_PUMPED(victim) ? "(adrenalin is gushing)" : str_empty); // notrans
+	if (!IS_NPC(victim)) {
+		buf_printf(output, BUF_END,
+		    "Last offence time: [%s]\n",		// notrans
+		    PC(victim)->last_offence_time != -1 ?
+			strtime(PC(victim)->last_offence_time) :
+			"NONE");				// notrans
+	}
 
 	buf_printf(output, BUF_END, "Wait state: %d\n", ch->wait); // notrans
 	if (IS_NPC(victim)) {
@@ -3472,10 +3473,8 @@ DO_FUN(do_mset, ch, argument)
 				victim->clan = str_qdup(cl->name);
 		}
 
-		if ((mark = get_eq_char(victim, WEAR_CLANMARK)) != NULL) {
-			obj_from_char(mark);
+		if ((mark = get_eq_char(victim, WEAR_CLANMARK)) != NULL)
 			extract_obj(mark, 0);
-		}
 
 		if (IS_NPC(victim)) {
 			act_char("Ok.", ch);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.c,v 1.13 2001-09-07 15:40:18 fjoe Exp $
+ * $Id: mpc_dynafun.c,v 1.14 2001-09-07 19:34:38 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,8 +31,6 @@
 #if !defined(MPC)
 
 #include <merc.h>
-
-#include <sog.h>
 
 #include "mpc_dynafun.h"
 
@@ -102,12 +100,6 @@ spclass_count(CHAR_DATA *ch, const char *spclass_name,
 	return count;
 }
 
-void
-mob_interpret(CHAR_DATA *ch, const char *argument)
-{
-	interpret(ch, argument, FALSE);
-}
-
 bool
 is_immortal(CHAR_DATA *ch)
 {
@@ -120,28 +112,10 @@ char_sex(CHAR_DATA *ch)
 	return flag_value(sex_table, mlstr_mval(&ch->gender));
 }
 
-OBJ_DATA *
-load_obj(CHAR_DATA *ch, int vnum)
-{
-	OBJ_DATA *obj;
-
-	if ((obj = create_obj(vnum, 0)) == NULL)
-		return NULL;
-
-	obj_to_char(obj, ch);
-	return obj;
-}
-
 bool
 is_ghost(CHAR_DATA *ch)
 {
 	return !IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_GHOST);
-}
-
-void
-purge_obj(OBJ_DATA *obj)
-{
-	extract_obj(obj, 0);
 }
 
 bool
@@ -160,24 +134,6 @@ bool
 is_evil(CHAR_DATA *ch)
 {
 	return IS_EVIL(ch);
-}
-
-bool
-transfer_group(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
-{
-	CHAR_DATA *victim, *victim_next;
-	bool found = FALSE;
-
-	for (victim = ch->in_room->people; victim != NULL; victim = victim_next) {
-		victim_next = victim->next_in_room;
-
-		if (is_same_group(ch, victim)
-		&&  transfer_char(victim, room)
-		&&  !found)
-			found = TRUE;
-	}
-
-	return found;
 }
 
 ROOM_INDEX_DATA *
@@ -231,28 +187,6 @@ is_class(CHAR_DATA *ch, const char *cl)
 	return IS_CLASS(ch->class, cl);
 }
 
-void
-affect_char(CHAR_DATA *ch, int where, const char *sn,
-	    int level, int duration, int loc, int mod, int bits)
-{
-	AFFECT_DATA *paf;
-
-	if (!IS_APPLY_WHERE(where))
-		return;
-
-	paf = aff_new(where, sn);
-
-	paf->level = level;
-	paf->duration = duration;
-
-	INT(paf->location) = loc;
-	paf->modifier = mod;
-	paf->bitvector = bits;
-
-	affect_to_char(ch, paf);
-	aff_free(paf);
-}
-
 int
 obj_level(OBJ_DATA *obj)
 {
@@ -269,13 +203,6 @@ int
 char_max_hit(CHAR_DATA *ch)
 {
 	return ch->max_hit;
-}
-
-void
-set_char_hit(CHAR_DATA *ch, int hit)
-{
-	ch->hit = hit;
-	update_pos(ch);
 }
 
 int
@@ -312,6 +239,18 @@ bool
 is_affected(CHAR_DATA *ch, int aff)
 {
 	return IS_AFFECTED(ch, aff);
+}
+
+int
+char_hit(CHAR_DATA *ch)
+{
+	return ch->hit;
+}
+
+int
+obj_wear_loc(OBJ_DATA *obj)
+{
+	return obj->wear_loc;
 }
 
 #else /* !defined(MPC) */

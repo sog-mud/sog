@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.66 2001-09-07 15:40:22 fjoe Exp $
+ * $Id: affects.c,v 1.67 2001-09-07 19:34:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -265,7 +265,6 @@ affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 		    depth++;
 		    act("You drop $p.", ch, wield, NULL, TO_CHAR);
 		    act("$n drops $p.", ch, wield, NULL, TO_ROOM);
-		    obj_from_char(wield);
 		    obj_to_room(wield, ch->in_room);
 		    depth--;
 		}

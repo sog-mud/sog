@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.322 2001-09-07 15:40:23 fjoe Exp $
+ * $Id: handler.c,v 1.323 2001-09-07 19:34:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -80,6 +80,12 @@ static bool has_boat(CHAR_DATA *ch);
 static bool has_key(CHAR_DATA *ch, int key);
 static bool has_key_ground(CHAR_DATA *ch, int key);
 
+static void char_from_room(CHAR_DATA *ch);
+
+static void obj_from_xxx(OBJ_DATA *obj);
+static void obj_from_room(OBJ_DATA *obj);
+static void obj_from_obj(OBJ_DATA *obj);
+
 /*
  * Move a char into a room.
  */
@@ -92,13 +98,16 @@ char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 	if (pRoomIndex == NULL) {
 		ROOM_INDEX_DATA *room;
 
-		log(LOG_BUG, "char_to_room: NULL");
+		log(LOG_BUG, "%s: NULL", __FUNCTION__);
 
 		if ((room = get_room_index(ROOM_VNUM_TEMPLE)) != NULL)
 			char_to_room(ch, room);
 
 		return;
 	}
+
+	if (ch->in_room != NULL)
+		char_from_room(ch);
 
 	ch->in_room		= pRoomIndex;
 	ch->next_in_room	= pRoomIndex->people;
@@ -135,80 +144,6 @@ char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 }
 
 /*
- * Move a char out of a room.
- */
-void
-char_from_room(CHAR_DATA *ch)
-{
-	OBJ_DATA *obj;
-	CHAR_DATA *prev = NULL;
-	CHAR_DATA *vch;
-
-	if (ch->in_room == NULL) {
-		log(LOG_BUG, "char_from_room: NULL");
-		return;
-	}
-
-	if (ch->in_room->affected)
-		  check_events(ch, ch->in_room->affected, EVENT_ROOM_LEAVE);
-
-	if (!IS_NPC(ch))
-		--ch->in_room->area->nplayer;
-
-	if ((obj = get_eq_char(ch, WEAR_LIGHT)) != NULL
-	&&   obj->item_type == ITEM_LIGHT
-	&&   INT(obj->value[2]) != 0
-	&&   ch->in_room->light > 0)
-		--ch->in_room->light;
-
-	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
-		if (vch == ch)
-			break;
-		prev = vch;
-	}
-
-	if (vch == NULL)
-		log(LOG_BUG, "char_from_room: ch not found");
-	else if (prev == NULL)
-		ch->in_room->people = ch->next_in_room;
-	else
-		prev->next_in_room = ch->next_in_room;
-
-	ch->in_room = NULL;
-	ch->next_in_room = NULL;
-	ch->on = NULL;  /* sanity check! */
-
-	if (ch->mount != NULL) {
-		ch->mount->riding = FALSE;
-		ch->riding = FALSE;
-	}
-}
-
-/*
- * Give an obj to a char.
- */
-void
-obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch)
-{
-	obj->next_content	= ch->carrying;
-	ch->carrying		= obj;
-	obj->carried_by		= ch;
-	obj->in_room		= NULL;
-	obj->in_obj		= NULL;
-
-	if (obj->last_owner && !IS_NPC(ch) && obj->last_owner != ch) {
-		name_add(&PC(obj->last_owner)->enemy_list, ch->name, NULL,NULL);
-		PC(ch)->last_offence = current_time;
-	}
-
-	if (!IS_NPC(ch)) {
-		obj->last_owner		= ch;
-	}
-	ch->carry_number	+= get_obj_number(obj);
-	ch->carry_weight	+= get_obj_weight(obj);
-}
-
-/*
  * Take an obj from its character.
  */
 void
@@ -217,8 +152,8 @@ obj_from_char(OBJ_DATA *obj)
 	CHAR_DATA *ch;
 
 	if ((ch = obj->carried_by) == NULL) {
-		log(LOG_BUG, "obj_from_char: null ch (obj->name  = '%s')",
-		    obj->pObjIndex->name);
+		log(LOG_BUG, "%s: null ch (obj->name  = '%s')",
+		    __FUNCTION__, obj->pObjIndex->name);
 		return;
 	}
 
@@ -236,7 +171,7 @@ obj_from_char(OBJ_DATA *obj)
 		}
 
 		if (prev == NULL)
-			log(LOG_BUG, "obj_from_char: obj not in list");
+			log(LOG_BUG, "%s: obj not in list", __FUNCTION__);
 		else
 			prev->next_content = obj->next_content;
 	}
@@ -248,11 +183,39 @@ obj_from_char(OBJ_DATA *obj)
 }
 
 /*
+ * Give an obj to a char.
+ */
+void
+obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch)
+{
+	obj_from_xxx(obj);
+
+	obj->next_content	= ch->carrying;
+	ch->carrying		= obj;
+	obj->carried_by		= ch;
+	obj->in_room		= NULL;
+	obj->in_obj		= NULL;
+
+	if (obj->last_owner && !IS_NPC(ch) && obj->last_owner != ch) {
+		name_add(&PC(obj->last_owner)->enemy_list, ch->name, NULL,NULL);
+		PC(ch)->last_offence_time = current_time;
+	}
+
+	if (!IS_NPC(ch)) {
+		obj->last_owner		= ch;
+	}
+	ch->carry_number	+= get_obj_number(obj);
+	ch->carry_weight	+= get_obj_weight(obj);
+}
+
+/*
  * Move an obj into a room.
  */
 void
 obj_to_room(OBJ_DATA *obj, ROOM_INDEX_DATA *pRoomIndex)
 {
+	obj_from_xxx(obj);
+
 	obj->next_content	= pRoomIndex->contents;
 	pRoomIndex->contents	= obj;
 	obj->in_room		= pRoomIndex;
@@ -261,47 +224,6 @@ obj_to_room(OBJ_DATA *obj, ROOM_INDEX_DATA *pRoomIndex)
 
 	if (IS_WATER(pRoomIndex))
 		obj->water_float = floating_time(obj);
-}
-
-/*
- * Move an obj out of a room.
- */
-void
-obj_from_room(OBJ_DATA *obj)
-{
-	ROOM_INDEX_DATA *in_room;
-	CHAR_DATA *ch;
-
-	if ((in_room = obj->in_room) == NULL) {
-		log(LOG_INFO, "obj_from_room: NULL obj->in_room (vnum %d)",
-			   obj->pObjIndex->vnum);
-		return;
-	}
-
-	for (ch = in_room->people; ch != NULL; ch = ch->next_in_room) {
-		if (ch->on == obj)
-			ch->on = NULL;
-	}
-
-	if (obj == in_room->contents)
-		in_room->contents = obj->next_content;
-	else {
-		OBJ_DATA *prev;
-
-		for (prev = in_room->contents; prev; prev = prev->next_content) {
-			if (prev->next_content == obj)
-				break;
-		}
-
-		if (prev == NULL)
-			log(LOG_BUG, "obj_from_room: obj not found");
-		else
-			prev->next_content = obj->next_content;
-	}
-
-	obj->in_room      = NULL;
-	obj->next_content = NULL;
-	return;
 }
 
 /*
@@ -316,6 +238,8 @@ obj_to_obj(OBJ_DATA *obj, OBJ_DATA *obj_to)
 		return;
 	}
 
+	obj_from_xxx(obj);
+
 	obj->next_content	= obj_to->contains;
 	obj_to->contains	= obj;
 	obj->in_obj		= obj_to;
@@ -325,51 +249,11 @@ obj_to_obj(OBJ_DATA *obj, OBJ_DATA *obj_to)
 		obj->cost = 0;
 
 	for (; obj_to != NULL; obj_to = obj_to->in_obj) {
-		if (obj_to->carried_by != NULL)
-		{
+		if (obj_to->carried_by != NULL) {
 /*	    obj_to->carried_by->carry_number += get_obj_number(obj); */
 		    obj_to->carried_by->carry_weight += get_obj_weight(obj)
 			* WEIGHT_MULT(obj_to) / 100;
 		}
-	}
-}
-
-/*
- * Move an object out of an object.
- */
-void
-obj_from_obj(OBJ_DATA *obj)
-{
-	OBJ_DATA *obj_from;
-
-	if ((obj_from = obj->in_obj) == NULL) {
-		log(LOG_BUG, "obj_from_obj: null obj_from");
-		return;
-	}
-
-	if (obj == obj_from->contains)
-		obj_from->contains = obj->next_content;
-	else {
-		OBJ_DATA *prev;
-
-		for (prev = obj_from->contains; prev; prev = prev->next_content) {
-			if (prev->next_content == obj)
-				break;
-		}
-
-		if (prev == NULL)
-			log(LOG_BUG, "obj_from_obj: obj not found");
-		else
-			prev->next_content = obj->next_content;
-	}
-
-	obj->next_content = NULL;
-	obj->in_obj       = NULL;
-
-	for (; obj_from != NULL; obj_from = obj_from->in_obj) {
-		if (obj_from->carried_by != NULL)
-/*	    obj_from->carried_by->carry_number -= get_obj_number(obj); */
-			obj_from->carried_by->carry_weight -= get_obj_weight(obj) * WEIGHT_MULT(obj_from) / 100;
 	}
 }
 
@@ -743,7 +627,6 @@ extract_char(CHAR_DATA *ch, int flags)
 	mem_untag(ch, -1);
 
 	if (IS_SET(flags, XC_F_INCOMPLETE)) {
-		char_from_room(ch);
 		char_to_room(ch, get_altar(ch)->room);
 		return;
 	}
@@ -895,8 +778,9 @@ quit_char(CHAR_DATA *ch, int flags)
 			return;
 		}
 
-		if (current_time - PC(ch)->last_offence < OFFENCE_DELAY_TIME
-		&& !IS_IMMORTAL(ch)) {
+		if (PC(ch)->last_offence_time != -1
+		&&  current_time - PC(ch)->last_offence_time < OFFENCE_DELAY_TIME
+		&&  !IS_IMMORTAL(ch)) {
 			act_char("You cannot quit yet.", ch);
 			return;
 		}
@@ -1184,7 +1068,6 @@ extract_obj(OBJ_DATA *obj, int flags)
 			continue;
 		}
 
-		obj_from_obj(obj_content);
 		if (obj->in_room)
 			obj_to_room(obj_content, obj->in_room);
 		else if (obj->carried_by)
@@ -1195,12 +1078,7 @@ extract_obj(OBJ_DATA *obj, int flags)
 			extract_obj(obj_content, 0);
 	}
 
-	if (obj->in_room)
-		obj_from_room(obj);
-	else if (obj->carried_by)
-		obj_from_char(obj);
-	else if (obj->in_obj)
-		obj_from_obj(obj);
+	obj_from_xxx(obj);
 
 	if (obj->pObjIndex->vnum == OBJ_VNUM_MAGIC_JAR) {
 		 CHAR_DATA *wch;
@@ -1578,7 +1456,6 @@ equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 		 */
 		act("You are zapped by $p and drop it.", ch, obj, NULL, TO_CHAR);
 		act("$n is zapped by $p and drops it.",  ch, obj, NULL, TO_ROOM);
-		obj_from_char(obj);
 		obj_to_room(obj, ch->in_room);
 		return NULL;
 	}
@@ -2092,29 +1969,28 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 	 * - move all the followers and pull all the triggers
 	 */
 	mount = MOUNTED(ch);
-	char_from_room(ch);
 
 	if (!HAS_INVIS(ch, ID_SNEAK) && ch->invis_level < LEVEL_HERO)
-		act_flags = TO_ALL;
+		act_flags = TO_ROOM;
 	else
-		act_flags = TO_ALL | ACT_NOMORTAL;
-
-	if (!IS_SET(flags, MC_F_CHARGE)) {
-		act(mount ? "$i has arrived, riding $N." : "$i has arrived.",
-		    to_room->people, ch, mount, act_flags);
-	}
+		act_flags = TO_ROOM | ACT_NOMORTAL;
 
 	char_to_room(ch, to_room);
-
 	if (mount) {
-		char_from_room(mount);
 		char_to_room(mount, to_room);
 		ch->riding = TRUE;
 		mount->riding = TRUE;
 	}
 
-	if (!IS_EXTRACTED(ch))
+	if (!IS_EXTRACTED(ch)) {
 		dofun("look", ch, "auto");
+
+		if (!IS_SET(flags, MC_F_CHARGE)) {
+			act(mount ? "$n has arrived, riding $N." :
+				    "$n has arrived.",
+			    ch, NULL, mount, act_flags);
+		}
+	}
 
 	if (in_room == to_room) /* no circular follows */
 		return TRUE;
@@ -2848,15 +2724,11 @@ get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container,
 			    ch, obj, container,
 			    TO_ROOM | (HAS_INVIS(ch, ID_SNEAK) ? ACT_NOMORTAL : 0));
 		}
-
-		obj_from_obj(obj);
 	} else {
 		act_puts("You get $p.", ch, obj, container, TO_CHAR, POS_DEAD);
 		act(msg_others == NULL ? "$n gets $p." : msg_others,
 		    ch, obj, container,
 		    TO_ROOM | (HAS_INVIS(ch, ID_SNEAK) ? ACT_NOMORTAL : 0));
-
-		obj_from_room(obj);
 	}
 
 	if (obj->item_type == ITEM_MONEY) {
@@ -3378,7 +3250,6 @@ give_obj(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 
 	obj->last_owner = NULL;
 
-	obj_from_char(obj);
 	obj_to_char(obj, victim);
 	act("$n gives $p to $N.", ch, obj, victim, TO_NOTVICT | ACT_NOTRIG);
 	act("$n gives you $p.", ch, obj, victim, TO_VICT | ACT_NOTRIG);
@@ -4020,7 +3891,6 @@ transfer_char(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
 	if (room_is_private(room))
 		return FALSE;
 
-	char_from_room(ch);
 	char_to_room(ch, room);
 	if (!IS_EXTRACTED(ch))
 		dofun("look", ch, "auto");
@@ -4694,27 +4564,23 @@ void
 teleport_char(CHAR_DATA *ch, CHAR_DATA *vch, ROOM_INDEX_DATA *to_room,
 	      const char *msg_out, const char *msg_travel, const char *msg_in)
 {
-	ROOM_INDEX_DATA *was_in = ch->in_room;
-
+	act(msg_out, ch, NULL, NULL, TO_ROOM);
 	if (ch != vch)
-		act_puts(msg_travel, vch, NULL, ch, TO_VICT, POS_DEAD);
-
-	char_from_room(ch);
-
-	act(msg_out, was_in->people, NULL, ch, TO_ALL);
-	act(msg_in, to_room->people, NULL, ch, TO_ALL);
+		act_puts(msg_travel, ch, NULL, vch, TO_CHAR, POS_DEAD);
 
 	char_to_room(ch, to_room);
 
-	if (!IS_EXTRACTED(ch))
+	if (!IS_EXTRACTED(ch)) {
+		act(msg_in, ch, NULL, NULL, TO_ROOM);
 		dofun("look", ch, "auto");
+	}
 }
 
 void
 recall(CHAR_DATA *ch, ROOM_INDEX_DATA *location)
 {
 	teleport_char(ch, NULL, location,
-		      "$N disappears.", NULL, "$N appears in the room.");
+		      "$n disappears.", NULL, "$n appears in the room.");
 }
 
 bool
@@ -6291,11 +6157,8 @@ drop_objs(CHAR_DATA *ch, OBJ_DATA *obj_list)
 
 		obj->last_owner = NULL;
 
-		if (obj->carried_by)
-			obj_from_char(obj);
-		else if (obj->in_obj)
-			obj_from_obj(obj);
-		else {
+		if (obj->carried_by == NULL
+		&&  obj->in_obj == NULL) {
 			extract_obj(obj, 0);
 			continue;
 		}
@@ -6360,4 +6223,145 @@ has_key_ground(CHAR_DATA *ch, int key)
 	}
 
 	return FALSE;
+}
+
+/*
+ * Move a char out of a room.
+ */
+static void
+char_from_room(CHAR_DATA *ch)
+{
+	OBJ_DATA *obj;
+	CHAR_DATA *prev = NULL;
+	CHAR_DATA *vch;
+
+	if (ch->in_room == NULL) {
+		log(LOG_BUG, "%s: NULL", __FUNCTION__);
+		return;
+	}
+
+	if (ch->in_room->affected)
+		  check_events(ch, ch->in_room->affected, EVENT_ROOM_LEAVE);
+
+	if (!IS_NPC(ch))
+		--ch->in_room->area->nplayer;
+
+	if ((obj = get_eq_char(ch, WEAR_LIGHT)) != NULL
+	&&   obj->item_type == ITEM_LIGHT
+	&&   INT(obj->value[2]) != 0
+	&&   ch->in_room->light > 0)
+		--ch->in_room->light;
+
+	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
+		if (vch == ch)
+			break;
+		prev = vch;
+	}
+
+	if (vch == NULL)
+		log(LOG_BUG, "%s: ch not found", __FUNCTION__);
+	else if (prev == NULL)
+		ch->in_room->people = ch->next_in_room;
+	else
+		prev->next_in_room = ch->next_in_room;
+
+	ch->in_room = NULL;
+	ch->next_in_room = NULL;
+	ch->on = NULL;  /* sanity check! */
+
+	if (ch->mount != NULL) {
+		ch->mount->riding = FALSE;
+		ch->riding = FALSE;
+	}
+}
+
+static void
+obj_from_xxx(OBJ_DATA *obj)
+{
+	if (obj->in_room)
+		obj_from_room(obj);
+	else if (obj->carried_by)
+		obj_from_char(obj);
+	else if (obj->in_obj)
+		obj_from_obj(obj);
+}
+
+/*
+ * Move an obj out of a room.
+ */
+static void
+obj_from_room(OBJ_DATA *obj)
+{
+	ROOM_INDEX_DATA *in_room;
+	CHAR_DATA *ch;
+
+	if ((in_room = obj->in_room) == NULL) {
+		log(LOG_INFO, "%s: NULL obj->in_room (vnum %d)",
+		    __FUNCTION__, obj->pObjIndex->vnum);
+		return;
+	}
+
+	for (ch = in_room->people; ch != NULL; ch = ch->next_in_room) {
+		if (ch->on == obj)
+			ch->on = NULL;
+	}
+
+	if (obj == in_room->contents)
+		in_room->contents = obj->next_content;
+	else {
+		OBJ_DATA *prev;
+
+		for (prev = in_room->contents; prev; prev = prev->next_content) {
+			if (prev->next_content == obj)
+				break;
+		}
+
+		if (prev == NULL)
+			log(LOG_BUG, "%s: obj not found", __FUNCTION__);
+		else
+			prev->next_content = obj->next_content;
+	}
+
+	obj->in_room      = NULL;
+	obj->next_content = NULL;
+	return;
+}
+
+/*
+ * Move an object out of an object.
+ */
+static void
+obj_from_obj(OBJ_DATA *obj)
+{
+	OBJ_DATA *obj_from;
+
+	if ((obj_from = obj->in_obj) == NULL) {
+		log(LOG_BUG, "%s: null obj_from", __FUNCTION__);
+		return;
+	}
+
+	if (obj == obj_from->contains)
+		obj_from->contains = obj->next_content;
+	else {
+		OBJ_DATA *prev;
+
+		for (prev = obj_from->contains; prev; prev = prev->next_content) {
+			if (prev->next_content == obj)
+				break;
+		}
+
+		if (prev == NULL)
+			log(LOG_BUG, "%s: obj not found", __FUNCTION__);
+		else
+			prev->next_content = obj->next_content;
+	}
+
+	obj->next_content = NULL;
+	obj->in_obj       = NULL;
+
+	for (; obj_from != NULL; obj_from = obj_from->in_obj) {
+		if (obj_from->carried_by != NULL)
+/*	    obj_from->carried_by->carry_number -= get_obj_number(obj); */
+			obj_from->carried_by->carry_weight -= get_obj_weight(obj) * WEIGHT_MULT(obj_from) / 100;
+	}
 }

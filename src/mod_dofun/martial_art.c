@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.197 2001-09-07 15:40:10 fjoe Exp $
+ * $Id: martial_art.c,v 1.198 2001-09-07 19:34:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -682,7 +682,6 @@ gash_drop(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 			ch, item, victim, TO_VICT);
 		act("$N drops $S $p, unable to hold it!",
 			ch, item, victim, TO_NOTVICT);
-		obj_from_char(item);
 
 		if (IS_OBJ_STAT(item, ITEM_NODROP)
 		||  IS_OBJ_STAT(item, ITEM_INVENTORY))
@@ -1133,7 +1132,6 @@ disarm(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 	act_puts("You disarm $N!", ch,NULL, victim, TO_CHAR, POS_FIGHTING);
 	act_puts("$n disarms $N!", ch, NULL, victim, TO_NOTVICT, POS_FIGHTING);
 
-	obj_from_char(obj);
 	if (IS_OBJ_STAT(obj, ITEM_NODROP) || IS_OBJ_STAT(obj,ITEM_INVENTORY))
 		obj_to_char(obj, victim);
 	else {
@@ -2376,7 +2374,6 @@ DO_FUN(do_strip, ch, argument)
 		act_puts("$n disarms $N!",
 			ch, NULL, victim, TO_NOTVICT, POS_FIGHTING);
 
-		obj_from_char(vwield);
 		if (IS_OBJ_STAT(vwield, ITEM_NODROP))
 			obj_to_char(vwield, victim);
 		else

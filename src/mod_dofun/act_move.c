@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.277 2001-09-07 15:40:07 fjoe Exp $
+ * $Id: act_move.c,v 1.278 2001-09-07 19:34:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1611,7 +1611,7 @@ DO_FUN(do_vanish, ch, argument)
 
 	stop_fighting(ch, TRUE);
 	teleport_char(ch, NULL, get_random_room(ch, ch->in_room->area),
-		      "$N is gone!", NULL, "$N appears from nowhere.");
+		      "$n is gone!", NULL, "$n appears from nowhere.");
 }
 
 DO_FUN(do_kidnap, ch, argument)
@@ -1696,9 +1696,9 @@ DO_FUN(do_kidnap, ch, argument)
 		act("$n grabs $N and takes $m away.",
 			ch, NULL, victim, TO_NOTVICT);
 		teleport_char(ch, NULL, to_room,
-			"$N disappears.", NULL, "$N appears from nowhere.");
+			"$n disappears.", NULL, "$n appears from nowhere.");
 		teleport_char(victim, NULL, to_room,
-			"$N disappears.", NULL, "$N appears from nowhere.");
+			"$n disappears.", NULL, "$n appears from nowhere.");
 		check_improve(ch, "kidnap", TRUE, 1);
 		yell(victim, ch, "Help! $lu{$N} just kidnapped me!");
 		multi_hit(victim, ch, NULL);
@@ -2674,11 +2674,6 @@ DO_FUN(do_shoot, ch, argument)
 	act("$n shoots $p to $T.",
 	    ch, arrow, dir_name[direction], TO_ROOM);
 
-	if (arrow->carried_by)
-		obj_from_char(arrow);
-	else if (arrow->in_obj)
-		obj_from_obj(arrow);
-
 	success = send_arrow(ch, victim, arrow, direction, chance,
 			     dice(INT(wield->value[1]),
 				  INT(wield->value[2])));
@@ -2783,7 +2778,6 @@ DO_FUN(do_throw_weapon, ch, argument)
 	sn = get_weapon_sn(obj);
 	if ((chance2 = get_weapon_skill(ch, sn)) == 0) {
 		act_char("Damn. It has just fallen from your hand!", ch);
-		obj_from_char(obj);
 		if (IS_OBJ_STAT(obj, ITEM_NODROP)
 		|| IS_OBJ_STAT(obj, ITEM_INVENTORY))
 			obj_to_char(obj, ch);
@@ -2815,7 +2809,6 @@ DO_FUN(do_throw_weapon, ch, argument)
 	act("$n throws $p to $T.",
 	    ch, obj, dir_name[direction], TO_ROOM);
 
-	obj_from_char(obj);
 	success = send_arrow(ch,victim,obj,direction,chance,
 			dice(INT(obj->value[1]),INT(obj->value[2])));
 	check_improve(ch, "throw weapon", TRUE, 1);
@@ -2919,37 +2912,32 @@ DO_FUN(do_enter, ch, argument)
 	    ch, portal, NULL, TO_CHAR);
 
 	mount = MOUNTED(ch);
-	char_from_room(ch);
 
 	if (IS_SET(INT(portal->value[2]), GATE_GOWITH)) {
 		/* take the gate along */
-		obj_from_room(portal);
 		obj_to_room(portal, location);
 	}
 
-	if (IS_SET(INT(portal->value[2]), GATE_NORMAL_EXIT)) {
-		act_puts3(mount ? "$i has arrived, riding $I." :
-				  "$i has arrived.",
-			  location->people, ch, portal, mount,
-			  TO_ROOM, POS_RESTING);
-	} else {
-		act_puts3(mount ? "$i has arrived through $P, riding $I." :
-				  "$i has arrived through $P.",
-			  location->people, ch, portal, mount,
-			  TO_ROOM, POS_RESTING);
-	}
-
 	char_to_room(ch, location);
-
 	if (mount) {
-		char_from_room(mount);
 		char_to_room(mount, location);
 		ch->riding = TRUE;
 		mount->riding = TRUE;
 	}
 
-	if (!IS_EXTRACTED(ch))
+	if (!IS_EXTRACTED(ch)) {
+		if (IS_SET(INT(portal->value[2]), GATE_NORMAL_EXIT)) {
+			act(mount ? "$n has arrived, riding $N." :
+				    "$n has arrived.",
+			    ch, NULL, mount, TO_ROOM);
+		} else {
+			act(mount ? "$n has arrived through $p, riding $N." :
+				    "$n has arrived through $p.",
+			    ch, portal, mount, TO_ROOM);
+		}
 		do_look(ch, "auto");
+	}
+
 
 	/* charges */
 	if (INT(portal->value[0]) > 0) {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.c,v 1.4 2001-08-20 16:47:40 fjoe Exp $
+ * $Id: comm.c,v 1.5 2001-09-07 19:34:42 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -1187,13 +1187,11 @@ stop_idling(DESCRIPTOR_DATA *d)
 	pc->idle_timer = 0;
 	pc->was_in_vnum = 0;
 
-	char_from_room(ch);
 	act("$N has returned from the void.",
 	    to_room->people, NULL, ch, TO_ALL);
 	char_to_room(ch, to_room);
 
 	if (pc->pet) {
-		char_from_room(pc->pet);
 		act("$N has returned from the void.",
 		    to_room->people, NULL, pc->pet, TO_ALL);
 		char_to_room(pc->pet, to_room);

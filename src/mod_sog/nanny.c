@@ -1,5 +1,5 @@
 /*
- * $Id: nanny.c,v 1.3 2001-08-28 16:37:39 avn Exp $
+ * $Id: nanny.c,v 1.4 2001-09-07 19:34:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -773,12 +773,14 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 			pet = GET_PET(ch);
 			act("$N has entered the game.",
 			    to_room->people, NULL, ch, TO_ALL);
+			ch->in_room = NULL;
 			char_to_room(ch, to_room);
 
 			if (pet) {
 				adjust_hmv(pet, percent);
 				act("$N has entered the game.",
 				    to_room->people, NULL, pet, TO_ROOM);
+				pet->in_room = NULL;
 				char_to_room(pet, to_room);
 			}
 		}
