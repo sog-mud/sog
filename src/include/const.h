@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.14 1998-11-18 05:20:39 fjoe Exp $
+ * $Id: const.h,v 1.15 1998-12-07 04:12:13 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -112,7 +112,7 @@
 #define MAX_MSG_HASH		128
 #define MAX_STRING_HASH		16384
 
-#define MAX_STRING_LENGTH	(4096+512)
+#define MAX_STRING_LENGTH	8192
 #define MAX_INPUT_LENGTH	1024
 
 #define MAX_PROMPT_LENGTH	60
