@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.332 2001-09-17 18:42:29 fjoe Exp $
+ * $Id: handler.c,v 1.333 2001-09-19 08:38:53 kostik Exp $
  */
 
 /***************************************************************************
@@ -6297,15 +6297,18 @@ format_hmv(int hp, int mana, int move)
 static int
 max_hit_gain(CHAR_DATA *ch, class_t *cl)
 {
-	return (con_app[get_max_train(ch, STAT_CON)].hitp + 2) *
+	int gain = (con_app[get_max_train(ch, STAT_CON)].hitp + 2) *
 		cl->hp_rate / 100;
+	return UMAX(3, gain);
 }
 
 static int
 min_hit_gain(CHAR_DATA *ch, class_t *cl)
 {
-	return (con_app[get_curr_stat(ch, STAT_CON)].hitp - 3) *
+	int gain = (con_app[get_curr_stat(ch, STAT_CON)].hitp - 3) *
 		cl->hp_rate / 100;
+
+	return UMAX(1, gain);
 }
 
 static int

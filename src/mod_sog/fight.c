@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.331 2001-09-16 12:04:30 fjoe Exp $
+ * $Id: fight.c,v 1.332 2001-09-19 08:38:52 kostik Exp $
  */
 
 /***************************************************************************
@@ -2939,7 +2939,7 @@ xp_compute(CHAR_DATA *gch, xpc_t *xpc)
 	/* more exp at the low levels - NO! */
 
 	/* randomize the rewards */
-	xp = xp * xpc->multiplier / UMIN(1, xpc->divisor);
+	xp = xp * xpc->multiplier / UMAX(1, xpc->divisor);
 	xp = number_range(xp * 3/4, xp * 5/4);
 
 	/* adjust for grouping */
