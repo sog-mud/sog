@@ -10,6 +10,7 @@
 
 extern "C" {
 #include <merc.h>
+#include <mprog.h>
 
 #include "olc.h"
 }
@@ -35,6 +36,9 @@ void dump_help_data(Connection *con, AREA_DATA *pArea);
 void dump_affect_data(Connection * con, AFFECT_DATA *aff, int id,
 		      const char *type);
 void dump_object_vo(Connection *con, OBJ_INDEX_DATA *pObj);
+void dump_triggers(Connection *con, varr *v, int id, const char *tp);
+void dump_resets(Connection *con, ROOM_INDEX_DATA *pRoom);
+
 void insertShop(Connection *con, SHOP_DATA *shop);
 void insertExd(Connection *con, int id, ED_DATA *exd, const char *tbl_name,
 	       const char *id_column);
@@ -42,6 +46,14 @@ void insertBitvector(Connection *con, int affect_id, AFFECT_DATA *aff,
 		     const char *type);
 int insertExit(Connection *con, EXIT_DATA *pExit);
 void insertPracticer(Connection *con, MOB_INDEX_DATA *pMob);
+
+
+static void setInt(PreparedStatement *pstmt, int idx, int num);
+static void setString(PreparedStatement *pstmt, int idx, const char *str);
+static void setGmlStr(Connection *con, PreparedStatement *pstmt,
+		      int idx, gmlstr_t *gml);
+static void setMlString(Connection *con, PreparedStatement *pstmt,
+			int idx, mlstring *ml);
 
 extern "C" bool
 dump_world(void)
@@ -111,6 +123,12 @@ dump_world(void)
 	/* affects flags */
 	dump_flag_table(con, affect_where_types,
 	    "affect_where_conf", "where_name", "where_value");
+	/* skills grous */
+	dump_flag_table(con, skill_groups,
+	    "skills_groups", "group_name", "group_id");
+	/* trig types */
+	dump_flag_table(con, mptrig_types,
+	    "mptrig_types", "mptrig_name", "mptrig_value");
 
 	try {
 		dump_area_data(con);
@@ -194,7 +212,7 @@ setMlString(Connection *con, PreparedStatement *pstmt, int idx, mlstring *ml)
 	pstmt->setInt(idx, id);
 }
 
-void
+static void
 setGmlStr(Connection *con, PreparedStatement *pstmt, int idx, gmlstr_t *gml)
 {
 	int gmlstr_id;
@@ -353,6 +371,63 @@ insertPracticer(Connection *con, MOB_INDEX_DATA *pMob)
 	}
 	delete pstmt;
 }
+
+void
+dump_resets(Connection *con, ROOM_INDEX_DATA *pRoom)
+{
+	RESET_DATA *r;
+
+	PreparedStatement *pstmt = con->prepareStatement
+	    ("insert into reset_list (room_vnum, command, arg0, arg1, arg2, arg3, arg4) values (?, ?, ?, ?, ?, ?, ?)");
+
+	for (r = pRoom->reset_first; r != NULL; r = r->next) {
+		pstmt->setInt(1, pRoom->vnum);
+		pstmt->setString(2, (const char *) &r->command);
+		pstmt->setInt(3, r->arg0);
+		pstmt->setInt(4, r->arg1);
+		pstmt->setInt(5, r->arg2);
+		pstmt->setInt(6, r->arg3);
+		pstmt->setInt(7, r->arg4);
+
+		pstmt->executeUpdate();
+	}
+	delete pstmt;
+}
+
+void
+dump_triggers(Connection *con, varr *v, int id, const char *tp)
+{
+	trig_t *trig;
+	mprog_t *mp;
+	const char *trig_prog;
+
+	PreparedStatement *pstmt = con->prepareStatement
+	    ("insert into triggers_list (vnum, vnum_type, trig_type, trig_prog, trig_arg, trig_text) values (?, ?, ?, ?, ?, ?)");
+
+	C_FOREACH (trig_t *, trig, v) {
+		trig_prog = trig->trig_prog;
+		if (trig_prog[0] == '@')
+			trig_prog = "@";
+
+		setInt(pstmt, 1, id);
+		setString(pstmt, 2, tp);
+		setInt(pstmt, 3, trig->trig_type);
+		setString(pstmt, 4, trig_prog);
+		setString(pstmt, 5, trig->trig_arg);
+		if (trig_prog[0] == '@') {
+			mp = mprog_lookup(trig->trig_prog);
+			if (mp == NULL) {
+				printlog(LOG_ERROR, "%s: %s: mprog not found",
+				    __FUNCTION__, trig->trig_prog);
+				pstmt->setNull(6, SQL_VARCHAR);
+			} else
+				setString(pstmt, 6, mp->text);
+		}
+		pstmt->executeUpdate();
+	}
+	delete pstmt;
+}
+
 void
 dump_exit_data(Connection *con, ROOM_INDEX_DATA *pRoom)
 {
@@ -775,6 +850,9 @@ dump_mobile_data(Connection *con, AREA_DATA *pArea)
 			}
 			if (&pMob->practicer != NULL)
 				insertPracticer(con, pMob);
+			if (&pMob->mp_trigs != NULL)
+				dump_triggers(con, &pMob->mp_trigs,
+					      pMob->vnum, "mob");
 		}
 	}
 	cout << " Done.." << endl;
@@ -847,13 +925,19 @@ dump_object_data(Connection *con, AREA_DATA *pArea)
 				dump_affect_data(con, pObj->affected,
 				    pObj->vnum, "obj");
 			}
+
+			if (&pObj->mp_trigs != NULL) {
+				dump_triggers(con, &pObj->mp_trigs,
+					      pObj->vnum, "obj");
+			}
 		}
 	}
 	delete pstmt;
 	cout << " Done.. " << endl;
 }
 
-void dump_room_data(Connection *con, AREA_DATA *pArea)
+void
+dump_room_data(Connection *con, AREA_DATA *pArea)
 {
 	ROOM_INDEX_DATA *pRoom;
 	int vnum;
@@ -890,7 +974,13 @@ void dump_room_data(Connection *con, AREA_DATA *pArea)
 				dump_affect_data(con, pRoom->affected,
 				    pRoom->vnum, "room");
 			}
+			if (&pRoom->mp_trigs != NULL) {
+				dump_triggers(con, &pRoom->mp_trigs,
+					      pRoom->vnum, "room");
+			}
 			dump_exit_data(con, pRoom);
+			if (pRoom->reset_first != NULL)
+				dump_resets(con, pRoom);
 		}
 	}
 	delete pstmt;
@@ -917,5 +1007,3 @@ dump_help_data (Connection *con, AREA_DATA *pArea)
 	delete pstmt;
 	cout << " Done.. " << endl;
 }
-
-

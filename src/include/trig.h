@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.h,v 1.22 2004-02-21 18:58:45 fjoe Exp $
+ * $Id: trig.h,v 1.23 2004-06-29 19:07:15 tatyana Exp $
  */
 
 #ifndef _TRIG_H_
@@ -81,8 +81,8 @@
 #define TRIG_ROOM_GREET		202		/* arg: dir (or "all")	*/
 #define TRIG_ROOM_DOPEN		203		/* arg: dir (or name)	*/
 #define TRIG_ROOM_DCLOSE	204		/* arg: dir (or name)	*/
-#define TRIG_ROOM_DLOCK		204		/* arg: dir (or name)	*/
-#define TRIG_ROOM_DUNLOCK	204		/* arg: dir (or name)	*/
+#define TRIG_ROOM_DLOCK		205		/* arg: dir (or name)	*/
+#define TRIG_ROOM_DUNLOCK	206		/* arg: dir (or name)	*/
 
 /* spec triggers */
 #define TRIG_SPEC		300
