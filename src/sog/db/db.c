@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.169.2.30 2003-09-30 02:13:54 fjoe Exp $
+ * $Id: db.c,v 1.169.2.31 2004-02-22 21:55:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -445,6 +445,7 @@ void boot_db(void)
 	chquest_start(0);
 
 	msgq_init(&msgq_immtalk, MSGQ_LEN_CHAN);
+	init_iterators();
 }
 
 /*

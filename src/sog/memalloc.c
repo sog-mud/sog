@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: memalloc.c,v 1.3.2.2 2003-09-30 01:25:25 fjoe Exp $
+ * $Id: memalloc.c,v 1.3.2.3 2004-02-22 21:55:27 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -45,6 +45,7 @@ void * mem_alloc2(int mem_type, size_t mem_len, size_t mem_prealloc)
 	m->mem_type = mem_type;
 	m->mem_sign = MEM_VALID;
 	m->mem_prealloc = mem_prealloc;
+	m->mem_tags = 0;
 
 	return ((void*) (p + mem_prealloc + sizeof(memchunk_t)));
 }
@@ -94,4 +95,38 @@ void mem_invalidate(const void *p)
 		return;
 	m = GET_CHUNK(p);
 	m->mem_sign = MEM_INVALID;
+}
+
+bool
+mem_tagged(const void *p, int f)
+{
+	memchunk_t *m;
+
+	if (p == NULL)
+		return FALSE;
+
+	m = GET_CHUNK(p);
+	return IS_SET(m->mem_tags, f);
+}
+
+void
+mem_tag(const void *p, int f)
+{
+	memchunk_t *m;
+
+	if (p == NULL)
+		return;
+	m = GET_CHUNK(p);
+	SET_BIT(m->mem_tags, f);
+}
+
+void
+mem_untag(const void *p, int f)
+{
+	memchunk_t *m;
+
+	if (p == NULL)
+		return;
+	m = GET_CHUNK(p);
+	REMOVE_BIT(m->mem_tags, f);
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.79 2004-02-21 20:12:06 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.80 2004-02-22 21:55:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4178,14 +4178,12 @@ bool has_boat(CHAR_DATA *ch)
 bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 {
 	CHAR_DATA *fch;
-	CHAR_DATA *fch_next;
 	CHAR_DATA *mount;
 	ROOM_INDEX_DATA *in_room;
 	ROOM_INDEX_DATA *to_room;
 	EXIT_DATA *pexit;
 	bool room_has_pc;
 	OBJ_DATA *obj;
-	OBJ_DATA *obj_next;
 	int act_flags;
 
 	if (RIDDEN(ch) && !IS_NPC(ch->mount)) 
@@ -4562,9 +4560,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	/*
 	 * move all the followers
 	 */
-	for (fch = in_room->people; fch; fch = fch_next) {
-		fch_next = fch->next_in_room;
-
+	foreach (fch, char_in_room(in_room)) {
 		if (fch->master != ch || fch->position != POS_STANDING
 		||  !can_see_room(fch, to_room))
 			continue;
@@ -4581,14 +4577,13 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 
 		act_puts("You follow $N.", fch, NULL, ch, TO_CHAR, POS_DEAD);
 		move_char(fch, door, TRUE);
-	}
+	} end_foreach(fch);
 
 	if (IS_EXTRACTED(ch))
 		return TRUE;
 
 	room_has_pc = FALSE;
-	for (fch = to_room->people; fch != NULL; fch = fch_next) {
-		fch_next = fch->next_in_room;
+	for (fch = to_room->people; fch != NULL; fch = fch->next_in_room) {
 		if (!IS_NPC(fch)) {
 			room_has_pc = TRUE;
 			break;
@@ -4604,28 +4599,23 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	 * if someone is following the char, these triggers get activated
 	 * for the followers before the char, but it's safer this way...
 	 */
-	for (fch = to_room->people; fch; fch = fch_next) {
-		fch_next = fch->next_in_room;
-
+	foreach (fch, char_in_room(to_room)) {
 		/* greet progs for items carried by people in room */
-		for (obj = fch->carrying; obj; obj = obj_next) {
-			obj_next = obj->next_content;
+		foreach (obj, obj_of_char(fch))
 			oprog_call(OPROG_GREET, obj, ch, NULL);
-		}
-	}
+		end_foreach(obj);
+	} end_foreach(fch);
 
-	for (obj = ch->in_room->contents; obj != NULL; obj = obj_next) {
-		obj_next = obj->next_content;
+	foreach (obj, obj_in_room(ch->in_room))
 		oprog_call(OPROG_GREET, obj, ch, NULL);
-	}
+	end_foreach(obj);
 
 	if (!IS_NPC(ch))
     		mp_greet_trigger(ch);
 
-	for (obj = ch->carrying; obj; obj = obj_next) {
-		obj_next = obj->next_content;
+	foreach (obj, obj_of_char(ch))
 		oprog_call(OPROG_ENTRY, obj, NULL, NULL);
-	}
+	end_foreach(obj);
 
 	if (IS_NPC(ch) && HAS_TRIGGER(ch, TRIG_ENTRY))
 		mp_percent_trigger(ch, NULL, NULL, NULL, TRIG_ENTRY);

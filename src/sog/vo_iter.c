@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: vo_iter.c,v 1.12 2003-09-30 00:31:39 fjoe Exp $
+ * $Id: vo_iter.c,v 1.12.2.1 2004-02-22 21:55:27 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -189,7 +189,7 @@ iter_new(vo_iter_class_t *cl, void *cont)
 	vo_iter_t *i;
 
 	if (free_iter_list == NULL) {
-		printlog(LOG_ERROR, "iter_new: free_iter_list is empty");
+		printlog("iter_new: free_iter_list is empty");
 		return NULL;
 	}
 	i = free_iter_list;
@@ -230,17 +230,17 @@ iter_init(vo_iter_t *i)
 		return NULL;	/* short circuit */
 
 	if (!mem_is(vo, i->cl->mem_type)) {
-		printlog(LOG_BUG, "iter_init: bad mt (expect %d)", i->cl->mem_type);
+		printlog("iter_init: bad mt (expect %d)", i->cl->mem_type);
 		return NULL;
 	}
 
 	if (i->mtag < 0) {
 		if (cnt < 0) {
-			printlog(LOG_BUG, "iter_init: cnt underflow (%d)", cnt);
+			printlog("iter_init: cnt underflow (%d)", cnt);
 			abort();
 			return NULL;
 		} else if (cnt > 7) {
-			printlog(LOG_BUG, "iter_init: cnt overflow (%d)", cnt);
+			printlog("iter_init: cnt overflow (%d)", cnt);
 			return NULL;
 		}
 		i->mtag = (1 << cnt++);
@@ -274,7 +274,7 @@ iter_cond(vo_iter_t *i, void *vo)
 		 * extracted object encountered -- restart
 		 */
 		if (!mem_is(vo, i->cl->mem_type)) {
-			printlog(LOG_INFO, "vo_foreach: restarting (mt %d)\n",
+			printlog("vo_foreach: restarting (mt %d)\n",
 			    i->cl->mem_type);
 			vo = iter_first(i);
 			continue;

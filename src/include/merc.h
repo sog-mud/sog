@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.46 2004-02-22 20:33:06 fjoe Exp $
+ * $Id: merc.h,v 1.234.2.47 2004-02-22 21:55:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -96,6 +96,7 @@
 #include "raffect.h"
 #include "religion.h"
 #include "msgq.h"
+#include "vo_iter.h"
 
 /*
  * configuration parameters

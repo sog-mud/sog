@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.30.2.4 2003-09-11 13:41:18 matrim Exp $
+ * $Id: typedef.h,v 1.30.2.5 2004-02-22 21:55:25 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -70,6 +70,8 @@ typedef struct mpcode			MPCODE;
 typedef struct qtrouble_t		qtrouble_t;
 typedef struct flag_t			flag_t; 
 typedef struct imcchar_data		IMC_CHARDATA;
+typedef struct vo_iter_class_t		vo_iter_class_t;
+typedef struct vo_iter_t		vo_iter_t;
 
 typedef struct class_t			class_t;
 typedef struct race_t			race_t;
@@ -105,6 +107,7 @@ union vo_t {
 	ROOM_INDEX_DATA *	r;
 	OBJ_INDEX_DATA *	o;
 	MOB_INDEX_DATA *	m;
+	void *			p;
 };
 
 typedef void	DO_FUN		(CHAR_DATA *ch, const char *argument);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: vo_iter.h,v 1.4 2003-04-24 12:41:49 fjoe Exp $
+ * $Id: vo_iter.h,v 1.4.2.1 2004-02-22 21:55:25 fjoe Exp $
  */
 
 #ifndef _VO_ITER_H_
@@ -47,10 +47,6 @@ struct vo_iter_t {
 
 	union {
 		vo_iter_t *next;
-		struct {
-			mpc_iter_t *iter;
-			int block;
-		} mpc;
 	} u;
 };
 
