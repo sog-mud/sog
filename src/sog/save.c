@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.176 2001-01-23 21:47:00 fjoe Exp $
+ * $Id: save.c,v 1.177 2001-06-20 09:54:27 avn Exp $
  */
 
 /***************************************************************************
@@ -100,7 +100,7 @@ void move_pfile(const char *name, int minvnum, int maxvnum, int delta)
  *		    low con or high number of deaths. this msg is logged
  *		    victim is assumed to be !IS_NPC
  */
-void delete_player(CHAR_DATA *victim, char* msg)
+void delete_player(CHAR_DATA *victim, const char* msg)
 {
 	bool touched;
 	AREA_DATA *pArea;

@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.inc,v 1.15 2001-06-19 21:26:17 avn Exp $
+# $Id: Makefile.inc,v 1.16 2001-06-20 09:54:23 avn Exp $
 #
 
 #
@@ -14,13 +14,13 @@ CC=		gcc
 INCLUDES=	-I../include -I..
 
 COPTS=		${INCLUDES}
-CFLAGS=		-Wall -O -pipe
+CFLAGS=		-O -pipe -Wall
 .ifdef EXTRA_CHECKS
-CFLAGS+= -W -Wall -Wbad-function-cast -Wcast-align \
+CFLAGS+= -W -Wbad-function-cast -Wcast-align \
 	-Wcast-qual -Wchar-subscripts -Wconversion -Winline \
 	-Wmissing-prototypes -Wnested-externs -Wpointer-arith \
 	-Wredundant-decls -Wshadow -Wstrict-prototypes -Wwrite-strings
-#CFLAGS+= -Werror
+CFLAGS+= -Werror
 .endif
 LDFLAGS=	-export-dynamic
 

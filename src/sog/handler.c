@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.284 2001-05-09 13:15:42 kostik Exp $
+ * $Id: handler.c,v 1.285 2001-06-20 09:54:26 avn Exp $
  */
 
 /***************************************************************************
@@ -2919,7 +2919,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	move_char_org(ch, door, follow, FALSE);
 }
 
-bool inline has_boat(CHAR_DATA *ch)
+inline bool has_boat(CHAR_DATA *ch)
 {
 	OBJ_DATA *obj;
 	bool found;

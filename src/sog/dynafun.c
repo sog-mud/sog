@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun.c,v 1.8 2001-06-16 18:40:11 fjoe Exp $
+ * $Id: dynafun.c,v 1.9 2001-06-20 09:54:26 avn Exp $
  */
 
 #include <stdlib.h>
@@ -225,7 +225,7 @@ dynafun_build_args(const char *name, dynafun_args_t *args, int nargs, va_list ap
 	}
 
 	for (i = 0; i < nargs; i++) {
-		void *arg;
+		const void *arg;
 
 		switch (d->argtype[i]) {
 		case MT_PVOID:
@@ -236,19 +236,19 @@ dynafun_build_args(const char *name, dynafun_args_t *args, int nargs, va_list ap
 
 		case MT_VA_LIST:
 			*(va_list *) args_ap = va_arg(ap, va_list);
-			arg = (void *) va_arg(args_ap, va_list);
+			arg = (const void *) va_arg(args_ap, va_list);
 			continue;
 			/* NOTREACHED */
 
 		case MT_INT:
 			*(int *) args_ap = va_arg(ap, int);
-			arg = (void *) va_arg(args_ap, int);
+			arg = (const void *) va_arg(args_ap, int);
 			continue;
 			/* NOTREACHED */
 
 		case MT_STR:
 			*(cchar_t *) args_ap = va_arg(ap, cchar_t);
-			arg = (void *) va_arg(args_ap, cchar_t);
+			arg = (const void *) va_arg(args_ap, cchar_t);
 			continue;
 			/* NOTREACHED */
 
@@ -274,7 +274,7 @@ dynafun_build_args(const char *name, dynafun_args_t *args, int nargs, va_list ap
 			return NULL;
 		}
 
-		*(void **) args_ap = arg;
+		*(const void **) args_ap = arg;
 		arg = va_arg(args_ap, void *);
 	}
 
@@ -305,7 +305,7 @@ dynafun_register(dynafun_data_t *d, void *arg)
 }
 
 static void
-dynafun_unregister(dynafun_data_t *d, void *arg)
+dynafun_unregister(dynafun_data_t *d, void *arg __attribute__((unused)))
 {
 	hash_delete(&dynafuns, d->name);
 }

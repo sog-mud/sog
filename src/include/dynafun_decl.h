@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun_decl.h,v 1.7 2000-10-04 20:28:43 fjoe Exp $
+ * $Id: dynafun_decl.h,v 1.8 2001-06-20 09:54:25 avn Exp $
  */
 
 /* no #ifdef _XXX_H_/#define _XXX_H_/#endif */
@@ -318,17 +318,21 @@
 
 #	undef DECLARE_FUN0
 #	define DECLARE_FUN0(ret, name)					\
+		__tag_t(ret) name(void);				\
 		extern inline __tag_t(ret)				\
 		name(void)						\
 		{							\
 			__tag_t(ret) rv;				\
-			rv = (__tag_t(ret)) dynafun_call(__tag(ret),	\
+			void *v;					\
+			v = dynafun_call(__tag(ret),			\
 				#name, 0);				\
+			rv = (__tag_t(ret)) v;				\
 			return rv;					\
 		}
 
 #	undef DECLARE_PROC0
 #	define DECLARE_PROC0(name)					\
+		void name(void);					\
 		extern inline void					\
 		name(void)						\
 		{							\
@@ -337,17 +341,21 @@
 
 #	undef DECLARE_FUN1
 #	define DECLARE_FUN1(ret, name, a1, n1)				\
+		__tag_t(ret) name(__tag_t(a1));				\
 		extern inline __tag_t(ret)				\
 		name(__tag_t(a1) n1)					\
 		{							\
 			__tag_t(ret) rv;				\
-			rv = (__tag_t(ret)) dynafun_call(__tag(ret),	\
+			void *v;					\
+			v = dynafun_call(__tag(ret),			\
 				#name, 1, n1);				\
+			rv = (__tag_t(ret)) v;				\
 			return rv;					\
 		}
 
 #	undef DECLARE_PROC1
 #	define DECLARE_PROC1(name, a1, n1)				\
+		void name(__tag_t(a1));					\
 		extern inline void					\
 		name(__tag_t(a1) n1)					\
 		{							\
@@ -356,17 +364,21 @@
 
 #	undef DECLARE_FUN2
 #	define DECLARE_FUN2(ret, name, a1, n1, a2, n2)			\
+		__tag_t(ret) name(__tag_t(a1), __tag_t(a2));		\
 		extern inline __tag_t(ret)				\
 		name(__tag_t(a1) n1, __tag_t(a2) n2)			\
 		{							\
 			__tag_t(ret) rv;				\
-			rv = (__tag_t(ret)) dynafun_call(__tag(ret),	\
+			void *v;					\
+			v = dynafun_call(__tag(ret),			\
 				#name, 2, n1, n2);			\
+			rv = (__tag_t(ret)) v;				\
 			return rv;					\
 		}
 
 #	undef DECLARE_PROC2
 #	define DECLARE_PROC2(name, a1, n1, a2, n2)			\
+		void name(__tag_t(a1), __tag_t(a2));			\
 		extern inline void					\
 		name(__tag_t(a1) n1, __tag_t(a2) n2)			\
 		{							\
@@ -375,17 +387,21 @@
 
 #	undef DECLARE_FUN3
 #	define DECLARE_FUN3(ret, name, a1, n1, a2, n2, a3, n3)		\
+		__tag_t(ret) name(__tag_t(a1), __tag_t(a2), __tag_t(a3));\
 		extern inline __tag_t(ret)				\
 		name(__tag_t(a1) n1, __tag_t(a2) n2, __tag_t(a3) n3)	\
 		{							\
 			__tag_t(ret) rv;				\
-			rv = (__tag_t(ret)) dynafun_call(__tag(ret),	\
+			void *v;					\
+			v = dynafun_call(__tag(ret),			\
 				#name, 3, n1, n2, n3);			\
+			rv = (__tag_t(ret)) v;				\
 			return rv;					\
 		}
 
 #	undef DECLARE_PROC3
 #	define DECLARE_PROC3(name, a1, n1, a2, n2, a3, n3)		\
+		void name(__tag_t(a1), __tag_t(a2), __tag_t(a3));	\
 		extern inline void					\
 		name(__tag_t(a1) n1, __tag_t(a2) n2, __tag_t(a3) n3)	\
 		{							\
@@ -395,18 +411,24 @@
 #	undef DECLARE_FUN4
 #	define DECLARE_FUN4(ret, name, a1, n1, a2, n2, a3, n3,		\
 				       a4, n4)				\
+		__tag_t(ret) name(__tag_t(a1), __tag_t(a2), __tag_t(a3),\
+				  __tag_t(a4));				\
 		extern inline __tag_t(ret)				\
 		name(__tag_t(a1) n1, __tag_t(a2) n2, __tag_t(a3) n3,	\
 		     __tag_t(a4) n4)					\
 		{							\
 			__tag_t(ret) rv;				\
-			rv = (__tag_t(ret)) dynafun_call(__tag(ret),	\
+			void *v;					\
+			v = dynafun_call(__tag(ret),			\
 				#name, 4, n1, n2, n3, n4);		\
+			rv = (__tag_t(ret)) v;				\
 			return rv;					\
 		}
 
 #	undef DECLARE_PROC4
 #	define DECLARE_PROC4(name, a1, n1, a2, n2, a3, n3, a4, n4)	\
+		void name(__tag_t(a1), __tag_t(a2), __tag_t(a3),	\
+			  __tag_t(a4));					\
 		extern inline void					\
 		name(__tag_t(a1) n1, __tag_t(a2) n2, __tag_t(a3) n3,	\
 		     __tag_t(a4) n4)					\
@@ -417,19 +439,25 @@
 #	undef DECLARE_FUN5
 #	define DECLARE_FUN5(ret, name, a1, n1, a2, n2, a3, n3,		\
 				       a4, n4, a5, n5)			\
+		__tag_t(ret) name(__tag_t(a1), __tag_t(a2), __tag_t(a3),\
+				  __tag_t(a4), __tag_t(a5));		\
 		extern inline __tag_t(ret)				\
 		name(__tag_t(a1) n1, __tag_t(a2) n2, __tag_t(a3) n3,	\
 		     __tag_t(a4) n4, __tag_t(a5) n5)			\
 		{							\
 			__tag_t(ret) rv;				\
-			rv = (__tag_t(ret)) dynafun_call(__tag(ret),	\
+			void *v;					\
+			v = dynafun_call(__tag(ret),			\
 				#name, 5, n1, n2, n3, n4, n5);		\
+			rv = (__tag_t(ret)) v;				\
 			return rv;					\
 		}
 
 #	undef DECLARE_PROC5
 #	define DECLARE_PROC5(name, a1, n1, a2, n2, a3, n3, a4, n4,	\
 				   a5, n5)				\
+		void name(__tag_t(a1), __tag_t(a2), __tag_t(a3),	\
+			  __tag_t(a4), __tag_t(a5));			\
 		extern inline void					\
 		name(__tag_t(a1) n1, __tag_t(a2) n2, __tag_t(a3) n3,	\
 		     __tag_t(a4) n4, __tag_t(a5) n5)			\
@@ -440,19 +468,25 @@
 #	undef DECLARE_FUN6
 #	define DECLARE_FUN6(ret, name, a1, n1, a2, n2, a3, n3,		\
 				       a4, n4, a5, n5, a6, n6)		\
+		__tag_t(ret) name(__tag_t(a1), __tag_t(a2), __tag_t(a3),\
+				  __tag_t(a4), __tag_t(a5), __tag_t(a6));\
 		extern inline __tag_t(ret)				\
 		name(__tag_t(a1) n1, __tag_t(a2) n2, __tag_t(a3) n3,	\
 		     __tag_t(a4) n4, __tag_t(a5) n5, __tag_t(a6) n6)	\
 		{							\
 			__tag_t(ret) rv;				\
-			rv = (__tag_t(ret)) dynafun_call(__tag(ret),	\
+			void *v;					\
+			v = dynafun_call(__tag(ret),			\
 				#name, 6, n1, n2, n3, n4, n5, n6);	\
+			rv = (__tag_t(ret)) v;				\
 			return rv;					\
 		}
 
 #	undef DECLARE_PROC6
 #	define DECLARE_PROC6(name, a1, n1, a2, n2, a3, n3, a4, n4,	\
 				   a5, n5, a6, n6)			\
+		void name(__tag_t(a1), __tag_t(a2), __tag_t(a3),	\
+			  __tag_t(a4), __tag_t(a5), __tag_t(a6));	\
 		extern inline void					\
 		name(__tag_t(a1) n1, __tag_t(a2) n2, __tag_t(a3) n3,	\
 		     __tag_t(a4) n4, __tag_t(a5) n5, __tag_t(a6) n6)	\

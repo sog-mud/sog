@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.325 2001-06-20 06:37:38 avn Exp $
+ * $Id: merc.h,v 1.326 2001-06-20 09:54:25 avn Exp $
  */
 
 /***************************************************************************
@@ -2150,7 +2150,7 @@ void	yell		(CHAR_DATA *victim, CHAR_DATA *ch, const char * argument);
 /*
  * victim is assumed to be !IS_NPC
  */
-void		delete_player	(CHAR_DATA *victim, char* msg);
+void		delete_player	(CHAR_DATA *victim, const char* msg);
 
 /* special.c */
 SPEC_FUN *	mob_spec_lookup	(const char *name);

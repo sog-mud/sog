@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: damtype.c,v 1.11 2001-01-23 21:47:00 fjoe Exp $
+ * $Id: damtype.c,v 1.12 2001-06-20 09:54:26 avn Exp $
  */
 
 #include <string.h>
@@ -57,7 +57,7 @@ void damtype_destroy(damtype_t *d)
 	gmlstr_destroy(&d->dam_noun);
 }
 
-static void *
+static const void *
 damtype_slot_cb(void *p, va_list ap)
 {
 	damtype_t *d = (damtype_t *) p;
@@ -65,7 +65,7 @@ damtype_slot_cb(void *p, va_list ap)
 	int slot = va_arg(ap, int);
 
 	if (d->dam_slot == slot)
-		return (void*) d->dam_name;
+		return (const void*) d->dam_name;
 	return NULL;
 }
 
@@ -80,7 +80,7 @@ const char *damtype_slot_lookup(int slot)
 	if (slot < 0)
 		return NULL;
 
-	dn = hash_foreach(&damtypes, damtype_slot_cb, slot);
+	dn = hash_foreach(&damtypes, (foreach_cb_t)damtype_slot_cb, slot);
 	if (IS_NULLSTR(dn))
 		log(LOG_ERROR, "damtype_slot_lookup: unknown slot %d", slot);
 	return str_qdup(dn);
