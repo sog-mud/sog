@@ -2,7 +2,7 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.49 1998-05-21 22:13:47 efdi Exp $
+ * $Id: resource.h,v 1.50 1998-05-24 16:12:33 efdi Exp $
  */
 
 #define msg(msgid, ch) vmsg(msgid, ch, ch)
@@ -510,6 +510,7 @@ enum {
 	SPECIAL_DO_I_KNOW_YOU,
 	SPECIAL_DONT_REMEMBER_YOU,
 	SPECIAL_OK_MY_DEAR,
+	UPDATE_CALMING_DOWN,
 };
 
 #endif
