@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.367 2004-02-27 16:55:56 tatyana Exp $
+ * $Id: fight.c,v 1.368 2004-03-01 18:55:57 tatyana Exp $
  */
 
 /***************************************************************************
@@ -610,6 +610,18 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 		ch->hit  = UMIN(ch->hit, ch->max_hit);
 		update_pos(ch);
 		act_char("Your health increases as you suck your victim's blood.", ch);
+	}
+
+	if (is_sn_affected(victim, "death ward")) {
+		int ward_dam = dam * victim->level / 80;
+
+		if (ward_dam > 0) {
+			act("{D$n is immolated by black fire!{x",
+			    ch, NULL, victim, TO_ROOM | ACT_VERBOSE);
+			act("{DYou are immolated by black fire!{x",
+			    ch, NULL, victim, TO_CHAR |ACT_VERBOSE);
+			damage(victim, ch, ward_dam, "death ward", DAM_F_SHOW);
+		}
 	}
 
 	if (is_sn_affected(victim, "fire sphere")) {
@@ -3409,6 +3421,28 @@ damage2(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 	/*
 	 * Damage modifiers.
 	 */
+
+	if (is_sn_affected(victim, "death ward")) {
+		AFFECT_DATA *paf;
+		int ward_dam = dam * victim->level / 80;
+
+		dam -= ward_dam;
+
+		paf = affect_find(victim->affected, "death ward");
+		paf->modifier += ward_dam;
+
+		if (paf->modifier >= 0) {
+			skill_t *sk;
+
+			if ((sk = skill_lookup(paf->type)) != NULL
+			&&  !mlstr_null(&sk->msg_off)) {
+				act_mlputs(&sk->msg_off, victim, NULL, NULL,
+					   TO_CHAR, POS_DEAD);
+			}
+			affect_remove(victim, paf);
+		}
+	}
+
 	if (IS_AFFECTED(victim, AFF_SANCTUARY)
 	&&  (!IS_SKILL(dt, "cleave") || number_percent() > 50))
 		dam /= 2;

@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.62 2004-02-28 14:20:15 tatyana Exp $
+ * $Id: prayers.c,v 1.63 2004-03-01 18:55:57 tatyana Exp $
  */
 
 /***************************************************************************
@@ -153,6 +153,7 @@ DECLARE_SPELL_FUN(prayer_water_ward);
 DECLARE_SPELL_FUN(prayer_air_ward);
 DECLARE_SPELL_FUN(prayer_earth_ward);
 DECLARE_SPELL_FUN(prayer_fire_ward);
+DECLARE_SPELL_FUN(prayer_death_ward);
 
 static void
 hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
@@ -2653,6 +2654,8 @@ static struct mutually_exclusive_spells mx_sancs[] = {
 		"Obscuring mist around $N already protects $gN{him} well enough." },
 	{ "fire sphere",	"But hot fire sphere protects you well enough.",
 		"Hot fire sphere around $N protects $gN{him} well enough."},
+	{ "death ward",		"Death ward already protects you.",
+		"Death ward already protects $N."},
 	{ NULL,	NULL, NULL }
 };
 
@@ -3554,4 +3557,22 @@ SPELL_FUN(prayer_fire_ward, sn, level, ch, vo)
 		    ch, NULL, NULL, TO_CHAR);
 	} else
 		act_char("Power of your god is already with you.", ch);
+}
+
+SPELL_FUN(prayer_death_ward, sn, level, ch, vo)
+{
+	AFFECT_DATA *paf;
+
+	if (!can_cast_sanctuary(ch, ch))
+		return;
+
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->duration	= -1;
+	paf->level	= level;
+	INT(paf->location)= APPLY_VDAMAGE;
+	paf->modifier	= - level * 10 + 100;
+	affect_to_char(ch, paf);
+	aff_free(paf);
+
+	act("Your god grant you protection!", ch, NULL, NULL, TO_CHAR);
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.92 2004-02-21 20:03:46 fjoe Exp $
+ * $Id: affects.c,v 1.93 2004-03-01 18:55:57 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1109,6 +1109,7 @@ affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 	case APPLY_GOLD:
 	case APPLY_EXP:
 	case APPLY_SEX:
+	case APPLY_VDAMAGE:
 		break;
 
 	case APPLY_STR:		ch->mod_stat[STAT_STR]	+= mod; break;

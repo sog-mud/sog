@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.206 2004-02-22 14:45:17 fjoe Exp $
+ * $Id: tables.c,v 1.207 2004-03-01 18:55:58 tatyana Exp $
  */
 
 /***************************************************************************
@@ -654,6 +654,7 @@ flaginfo_t apply_flags[] =
 	{ "luck",		APPLY_LUCK,		TRUE	},
 	{ "form_hitroll",	APPLY_FORM_HITROLL,	TRUE	},
 	{ "form_damroll",	APPLY_FORM_DAMROLL,	TRUE	},
+	{ "vdamage",		APPLY_VDAMAGE,		TRUE	},
 
 	{ NULL, 0, FALSE }
 };

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.421 2004-02-24 11:07:10 fjoe Exp $
+ * $Id: merc.h,v 1.422 2004-03-01 18:55:56 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1076,6 +1076,7 @@ enum {
 #define APPLY_LUCK		29
 #define APPLY_FORM_HITROLL	30
 #define APPLY_FORM_DAMROLL	31
+#define APPLY_VDAMAGE		32
 
 /*
  * Skillaffects flags
