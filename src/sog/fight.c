@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.60 2002-03-06 11:11:25 tatyana Exp $
+ * $Id: fight.c,v 1.202.2.61 2002-09-17 19:10:06 tatyana Exp $
  */
 
 /***************************************************************************
@@ -674,7 +674,6 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 	int sn, sk, sk2;
 	int dam_type;
 	bool counter;
-	bool result;
 	int sercount;
 	int dam_flags;
 
@@ -1035,11 +1034,13 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 		dam = 1;
 
 	if (counter) {
-		result = damage(ch, ch, 2*dam, dt, dam_type, DAMF_SHOW);
+		damage(ch, ch, 2*dam, dt, dam_type, DAMF_SHOW);
 		multi_hit(victim, ch, TYPE_UNDEFINED);
+		return;
 	}
-	else
-		result = damage(ch, victim, dam, dt, dam_type, dam_flags);
+
+	if (!damage(ch, victim, dam, dt, dam_type, dam_flags))
+		return;
 
 	/* vampiric bite gives hp to ch from victim */
 	if (dt == gsn_vampiric_bite) {
@@ -1057,12 +1058,12 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 		act("$n is burned by $N's fire sphere.", ch, NULL, victim, TO_ROOM);
 		act("$N's fire sphere sears your flesh.", ch, NULL, victim, TO_CHAR);
 		fire_effect((void *) victim, ch->level/2, dam/4, TARGET_CHAR);
-		
+
 		damage(victim, ch, dam/4, gsn_fire_sphere, DAM_FIRE, DAMF_SHOW);
 	}
-	
+
 	/* but do we have a funky weapon? */
-	if (result && wield != NULL && ch->fighting == victim) {
+	if (wield != NULL && ch->fighting == victim) {
 		int dam;
 
 		if (IS_WEAPON_STAT(wield, WEAPON_VORPAL)) {
