@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest_impl.c,v 1.5 2001-08-02 18:20:13 fjoe Exp $
+ * $Id: chquest_impl.c,v 1.6 2001-08-05 16:36:54 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -87,8 +87,11 @@ chquest_startq(chquest_t *q)
 	    mlstr_mval(&q->obj_index->short_descr), q->obj_index->vnum);
 #endif
 
+	/*
+	 * create_obj can't return NULL because q->obj_index is not NULL
+	 */
 	SET_RUNNING(q);
-	q->obj = create_obj(q->obj_index, 0);
+	q->obj = create_obj(q->obj_index->vnum, 0);
 	q->obj->timer = number_range(100, 150);
 
 	do {

@@ -23,13 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_glob_gmlstr.c,v 1.1 2001-08-02 18:21:31 fjoe Exp $
+ * $Id: db_glob_gmlstr.c,v 1.2 2001-08-05 16:36:27 fjoe Exp $
  */
 
 #include <stdio.h>
 
 #include <merc.h>
-#include <bootdb.h>
+#include <db.h>
 #include <rwfile.h>
 
 DECLARE_DBLOAD_FUN(load_glob_gmlstr);
@@ -41,18 +41,6 @@ DBFUN dbfun_glob_gmlstr[] = {
 };
 
 DBDATA db_glob_gmlstr = { dbfun_glob_gmlstr, init_glob_gmlstr, 0 };
-
-static hashdata_t h_glob_gmlstr =
-{
-	sizeof(gmlstr_t), 1,
-	(e_init_t) gmlstr_init,
-	(e_destroy_t) gmlstr_destroy,
-	(e_cpy_t) gmlstr_cpy,
-
-	STRKEY_HASH_SIZE,
-	k_hash_str,
-	ke_cmp_mlstr
-};
 
 DBINIT_FUN(init_glob_gmlstr)
 {

@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.12 2001-07-31 18:14:54 fjoe Exp $
+ * $Id: prayers.c,v 1.13 2001-08-05 16:36:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -649,7 +649,10 @@ prayer_create_spring(const char *sn, int level,CHAR_DATA *ch,void *vo)
 {
 	OBJ_DATA *spring;
 
-	spring = create_obj(get_obj_index(OBJ_VNUM_SPRING), 0);
+	spring = create_obj(OBJ_VNUM_SPRING, 0);
+	if (spring == NULL)
+		return;
+
 	spring->timer = level;
 	obj_to_room(spring, ch->in_room);
 	act("$p flows from the ground.", ch, spring, NULL, TO_ROOM);
@@ -663,7 +666,10 @@ prayer_create_food(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	OBJ_DATA *mushroom;
 
-	mushroom = create_obj(get_obj_index(OBJ_VNUM_MUSHROOM), 0);
+	mushroom = create_obj(OBJ_VNUM_MUSHROOM, 0);
+	if (mushroom == NULL)
+		return;
+
 	INT(mushroom->value[0]) = level / 2;
 	INT(mushroom->value[1]) = level;
 	mushroom->level = level;
@@ -1267,7 +1273,10 @@ prayer_holy_hammer(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	OBJ_DATA *hammer;
 	AFFECT_DATA *paf;
 
-	hammer = create_obj(get_obj_index(OBJ_VNUM_HOLY_HAMMER), 0);
+	hammer = create_obj(OBJ_VNUM_HOLY_HAMMER, 0);
+	if (hammer == NULL)
+		return;
+
 	hammer->level = ch->level;
 	hammer->timer = level * 3;
 	INT(hammer->value[2]) = (level / 10) + 1;

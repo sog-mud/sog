@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: log.h,v 1.9 2001-07-08 17:18:44 fjoe Exp $
+ * $Id: log.h,v 1.10 2001-08-05 16:36:21 fjoe Exp $
  */
 
 #ifndef _LOG_H_
@@ -40,6 +40,20 @@ enum {
 
 void	log(int llevel,
 	    const char *fmt, ...) __attribute__((format(printf, 2, 3)));
+
+/*
+ * char logger
+ */
+typedef void (*char_logger_t)(CHAR_DATA *ch,
+			      const char *alias, const char *msg);
+
+/**
+ * Set new char logger
+ *
+ * @return old char logger
+ */
+char_logger_t	char_logger_set(char_logger_t);
+
 void	log_setchar(CHAR_DATA *ch);
 void	log_unsetchar(void);
 

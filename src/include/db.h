@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1998 SoG Development Team
+ * Copyright (c) 2001 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,53 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.84 2001-08-02 18:19:52 fjoe Exp $
+ * $Id: db.h,v 1.85 2001-08-05 16:36:19 fjoe Exp $
  */
 
-#ifndef _DB_H_
-#define _DB_H_
-
-/***************************************************************************
- *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
- *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
- *	 Serdar BULUT {Chronos}		bulut@rorqual.cc.metu.edu.tr       *
- *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *
- *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *
- *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *
- *     By using this code, you have agreed to follow the terms of the      *
- *     ANATOLIA license, in the file Anatolia/anatolia.licence             *
- ***************************************************************************/
-
-/***************************************************************************
- *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,	   *
- *  Michael Seifert, Hans Henrik St{rfeldt, Tom Madsen, and Katja Nyboe.   *
- *									   *
- *  Merc Diku Mud improvments copyright (C) 1992, 1993 by Michael	   *
- *  Chastain, Michael Quan, and Mitchell Tse.				   *
- *									   *
- *  In order to use any part of this Merc Diku Mud, you must comply with   *
- *  both the original Diku license in 'license.doc' as well the Merc	   *
- *  license in 'license.txt'.  In particular, you may not remove either of *
- *  these copyright notices.						   *
- *									   *
- *  Much time and thought has gone into this software and you are	   *
- *  benefitting.  We hope that you share your changes too.  What goes	   *
- *  around, comes around.						   *
- ***************************************************************************/
-
-/***************************************************************************
-*	ROM 2.4 is copyright 1993-1995 Russ Taylor			   *
-*	ROM has been brought to you by the ROM consortium		   *
-*	    Russ Taylor (rtaylor@pacinfo.com)				   *
-*	    Gabrielle Taylor (gtaylor@pacinfo.com)			   *
-*	    Brian Moore (rom@rom.efn.org)				   *
-*	By using this code, you have agreed to follow the terms of the	   *
-*	ROM license, in the file Rom24/doc/rom.license			   *
-***************************************************************************/
-
-#include <rfile.h>
-
-#define MAX_KEY_HASH		1024
+#ifndef _BOOTDB_H_
+#define _BOOTDB_H_
 
 typedef struct dbdata DBDATA;
 
@@ -99,11 +57,20 @@ struct dbdata {
 
 #define DBDATA_VALID(dbdata) (!!(dbdata)->tab_sz)
 
+void db_load_file(DBDATA *, const char *path, const char *file);
+void db_load_dir(DBDATA *dbdata, const char *path, const char *ext);
+void db_load_list(DBDATA *dbdata, const char *path, const char *file);
+void db_set_arg(DBDATA *, const char* name, void *arg);
+
+extern char bootdb_filename[PATH_MAX];
+extern int bootdb_errors;
+
 extern DBDATA db_areas;
 extern DBDATA db_clans;
 extern DBDATA db_classes;
 extern DBDATA db_cmd;
 extern DBDATA db_damtype;
+extern DBDATA db_glob_gmlstr;
 extern DBDATA db_hometowns;
 extern DBDATA db_langs;
 extern DBDATA db_liquids;
@@ -116,155 +83,4 @@ extern DBDATA db_spec;
 extern DBDATA db_system;
 extern DBDATA db_forms;
 
-void dbdata_init(DBDATA *dbdata);
-DBFUN *dbfun_lookup(DBDATA *dbdata, const char *name);
-void db_load_file(DBDATA *, const char *path, const char *file);
-void db_parse_file(DBDATA *dbdata, const char *path, const char *file);
-void db_load_dir(DBDATA *dbdata, const char *path, const char *ext);
-void db_load_list(DBDATA *dbdata, const char *path, const char *file);
-void db_set_arg(DBDATA *, const char* name, void *arg);
-
-/*
- * changed flags
- */
-#define CF_MSGDB	(A)
-#define CF_SOCIAL	(B)
-#define CF_CMD		(C)
-#define CF_SKILL	(D)
-#define CF_MATERIAL	(E)
-#define CF_LIQUID	(F)
-#define CF_DAMT		(G)
-#define CF_HINT		(H)
-
-extern int changed_flags;
-
-extern hash_t glob_gmlstr;	/* gmlstr_t globals */
-#define	glob_lookup(gn)	((gmlstr_t *) strkey_lookup(&glob_gmlstr, (gn)))
-
-extern hash_t msgdb;		/* msgdb */
-#define msg_lookup(m)	((mlstring *) strkey_lookup(&msgdb, (m)))
-#if !defined(MPC)
-const char *GETMSG	(const char *txt, size_t lang);
-#else
-#define	GETMSG(txt, lang)	(txt)
-#endif
-
-typedef struct {
-	mlstring	phrase;
-	flag_t		hint_level;
-} hint_t;
-
-extern varr hints;
-
-void	vnum_check	(AREA_DATA *area, int vnum);
-
-const char *	fix_word	(const char *s);
-char *		fix_string	(const char *s);
-
-void		fwrite_string	(FILE *fp, const char *name, const char *str);
-void		fwrite_word	(FILE *fp, const char *name, const char *w);
-void		fwrite_number	(FILE *fp, const char *name, int num);
-
-extern char	filename	[PATH_MAX];
-
-#define SLIST_ADD(type, list, item)					\
-	{								\
-		if ((list) == NULL)					\
-			(list) = (item);				\
-		else {							\
-			type *p;					\
-									\
-			for (p = (list); p->next != NULL; p = p->next)	\
-				;					\
-			p->next = (item);				\
-		}							\
-		(item)->next = NULL;					\
-	}
-
-extern MOB_INDEX_DATA *	mob_index_hash	[MAX_KEY_HASH];
-extern OBJ_INDEX_DATA *	obj_index_hash	[MAX_KEY_HASH];
-extern ROOM_INDEX_DATA *room_index_hash [MAX_KEY_HASH];
-extern int		top_mob_index;
-extern int		top_obj_index;
-extern int		top_vnum_mob;
-extern int		top_vnum_obj;
-extern int		top_vnum_room;
-extern int		top_affect;
-extern int		top_ed;
-extern int		top_area;
-extern int		top_exit;
-extern int		top_help;
-extern int		top_reset;
-extern int		top_room;
-extern int		top_mprog_index;
-extern int		top_shop;
-extern int		social_count;
-extern int		str_count;
-extern int		str_real_count;
-extern int		top_player;
-extern int		rebooter;
-extern AREA_DATA *	area_first;
-extern AREA_DATA *	area_last;
-extern AREA_DATA *	area_current;
-extern SHOP_DATA *	shop_last;
-
-/*
- * the following path/file name consts are defined in db.c
- */
-extern const char TMP_PATH	[];
-extern const char PLAYER_PATH	[];
-extern const char GODS_PATH	[];
-extern const char NOTES_PATH	[];
-extern const char ETC_PATH	[];
-extern const char AREA_PATH	[];
-extern const char LANG_PATH	[];
-extern const char MODULES_PATH	[];
-extern const char MPC_PATH	[];
-
-extern const char CLASSES_PATH	[];
-extern const char CLANS_PATH	[];
-extern const char PLISTS_PATH	[];
-extern const char RACES_PATH	[];
-extern const char SPEC_PATH	[];
-
-extern const char CLASS_EXT	[];
-extern const char CLAN_EXT	[];
-extern const char RACE_EXT	[];
-extern const char SPEC_EXT	[];
-extern const char MPC_EXT	[];
-
-extern const char TMP_FILE	[];
-extern const char NULL_FILE	[];
-
-extern const char HOMETOWNS_CONF[];
-extern const char SKILLS_CONF	[];
-extern const char SOCIALS_CONF	[];
-extern const char SYSTEM_CONF	[];
-extern const char LANG_CONF	[];
-extern const char CMD_CONF	[];
-extern const char DAMTYPE_CONF	[];
-extern const char MATERIALS_CONF[];
-extern const char LIQUIDS_CONF	[];
-extern const char CC_EXPR_CONF	[];
-extern const char UHANDLERS_CONF[];
-
-extern const char MSGDB_FILE	[];
-extern const char HINTS_FILE	[];
-
-extern const char AREA_LIST	[];
-extern const char LANG_LIST	[];
-
-extern const char NOTE_FILE	[];
-extern const char IDEA_FILE	[];
-extern const char PENALTY_FILE	[];
-extern const char NEWS_FILE	[];
-extern const char CHANGES_FILE	[];
-extern const char SHUTDOWN_FILE	[];
-extern const char EQCHECK_FILE	[];
-extern const char EQCHECK_SAVE_ALL_FILE [];
-extern const char BAN_FILE	[];
-extern const char MAXON_FILE	[];
-extern const char AREASTAT_FILE	[];
-extern const char IMMLOG_FILE	[];
-
-#endif
+#endif /* _BOOTDB_H_ */

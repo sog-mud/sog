@@ -23,21 +23,29 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.c,v 1.18 2001-07-31 14:56:23 fjoe Exp $
+ * $Id: cmd.c,v 1.19 2001-08-05 16:36:56 fjoe Exp $
  */
 
 #include <stdarg.h>
 #include <stdio.h>
 #include <dlfcn.h>
 
-#include "typedef.h"
-#include "str.h"
-#include "varr.h"
-#include "cmd.h"
-#include "log.h"
-#include "module.h"
+#include <typedef.h>
+#include <str.h>
+#include <varr.h>
+#include <cmd.h>
+#include <log.h>
+#include <module.h>
 
 varr commands;
+
+varrdata_t v_commands =
+{
+	sizeof(cmd_t), 16,
+	(e_init_t) cmd_init,
+	(e_destroy_t) cmd_destroy,
+	(e_cpy_t) cmd_cpy
+};
 
 void
 cmd_init(cmd_t *cmd)

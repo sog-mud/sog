@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.h,v 1.14 2001-07-08 17:18:41 fjoe Exp $
+ * $Id: cmd.h,v 1.15 2001-08-05 16:36:18 fjoe Exp $
  */
 
 #ifndef _CMD_H_
@@ -61,6 +61,9 @@ struct cmd_t
 	DO_FUN *	do_fun;
 };
 
+extern varr commands;
+extern varrdata_t v_commands;
+
 void	cmd_init	(cmd_t *cmd);
 void	cmd_destroy	(cmd_t *cmd);
 cmd_t *	cmd_cpy		(cmd_t *dst, cmd_t *src);
@@ -72,7 +75,5 @@ void *	cmd_load_cb	(void *p, va_list ap);
 void *	cmd_unload_cb	(void *p, va_list ap);
 
 void	dofun		(const char *name, CHAR_DATA *ch, const char *fmt, ...);
-
-extern varr commands;
 
 #endif

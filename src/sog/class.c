@@ -23,18 +23,30 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.32 2001-07-29 09:43:17 fjoe Exp $
+ * $Id: class.c,v 1.33 2001-08-05 16:36:56 fjoe Exp $
  */
 
 #include <stdio.h>
 
-#include "merc.h"
+#include <merc.h>
 
 hash_t classes;
 
 static void	pose_init(pose_t *p);
 static pose_t *	pose_cpy(pose_t *dst, const pose_t *src);
 static void	pose_destroy(pose_t *p);
+
+hashdata_t h_classes =
+{
+	sizeof(class_t), 1,
+	(e_init_t) class_init,
+	(e_destroy_t) class_destroy,
+	(e_cpy_t) class_cpy,
+
+	STRKEY_HASH_SIZE,
+	k_hash_str,
+	ke_cmp_str
+};
 
 static varrdata_t v_guilds = { sizeof(int), 4, NULL, NULL, NULL };
 

@@ -23,17 +23,17 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dofun.c,v 1.9 2000-06-07 08:55:32 fjoe Exp $
+ * $Id: dofun.c,v 1.10 2001-08-05 16:36:37 fjoe Exp $
  */
 
 #include <stdarg.h>
 #include <stdio.h>
 
-#include "typedef.h"
-#include "varr.h"
+#include <typedef.h>
+#include <varr.h>
 
-#include "module.h"
-#include "cmd.h"
+#include <module.h>
+#include <cmd.h>
 
 int
 _module_load(module_t *m)

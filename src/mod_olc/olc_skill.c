@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.22 2001-06-22 07:13:47 avn Exp $
+ * $Id: olc_skill.c,v 1.23 2001-08-05 16:36:52 fjoe Exp $
  */
 
 #include "olc.h"
@@ -41,7 +41,6 @@ DECLARE_OLC_FUN(skilled_gender		);
 DECLARE_OLC_FUN(skilled_funname		);
 DECLARE_OLC_FUN(skilled_target		);
 DECLARE_OLC_FUN(skilled_minpos		);
-DECLARE_OLC_FUN(skilled_slot		);
 DECLARE_OLC_FUN(skilled_minmana		);
 DECLARE_OLC_FUN(skilled_beats		);
 DECLARE_OLC_FUN(skilled_noun		);
@@ -73,7 +72,6 @@ olc_cmd_t olc_cmds_skill[] =
 	{ "funname",	skilled_funname, validate_funname		},
 	{ "target",	skilled_target, NULL,	skill_targets		},
 	{ "minpos",	skilled_minpos, NULL,	position_table		},
-	{ "slot",	skilled_slot					},
 	{ "minmana",	skilled_minmana					},
 	{ "beats",	skilled_beats					},
 	{ "noun",	skilled_noun					},
@@ -188,8 +186,6 @@ static void *skill_save_cb(void *p, va_list ap)
 		fprintf(fp, "MinMana %d\n", sk->min_mana);
 	mlstr_fwrite(fp, "NounDamage", &sk->noun_damage.ml);
 	mlstr_fwrite(fp, "NounGender", &sk->noun_damage.gender);
-	if (sk->slot)
-		fprintf(fp, "Slot %d\n", sk->slot);
 	if (!IS_NULLSTR(sk->fun_name))
 		fprintf(fp, "SpellFun %s\n", sk->fun_name);
 	mlstr_fwrite(fp, "WearOff", &sk->msg_off);
@@ -276,8 +272,6 @@ OLC_FUN(skilled_show)
 		buf_printf(buf, BUF_END, "MinMana    [%d]\n", sk->min_mana);
 	mlstr_dump(buf, "NounDamage ", &sk->noun_damage.ml, DUMP_LEVEL(ch));
 	mlstr_dump(buf, "NounGender ", &sk->noun_damage.gender, DL_NONE);
-	if (sk->slot)
-		buf_printf(buf, BUF_END, "Slot       [%d]\n", sk->slot);
 	buf_printf(buf, BUF_END, "Rank       [%d]\n", sk->rank);
 
 	if (!IS_NULLSTR(sk->fun_name))
@@ -333,14 +327,6 @@ OLC_FUN(skilled_minpos)
 
 	EDIT_SKILL(ch, sk);
 	return olced_flag(ch, argument, cmd, &sk->min_pos);
-}
-
-OLC_FUN(skilled_slot)
-{
-	skill_t *sk;
-
-	EDIT_SKILL(ch, sk);
-	return olced_number(ch, argument, cmd, &sk->slot);
 }
 
 OLC_FUN(skilled_minmana)

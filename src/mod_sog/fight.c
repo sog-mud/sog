@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.313 2001-08-03 12:21:02 fjoe Exp $
+ * $Id: fight.c,v 1.314 2001-08-05 16:36:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2539,37 +2539,48 @@ make_corpse(CHAR_DATA *ch)
 
 	if (IS_NPC(ch)) {
 		if (!IS_SET(ch->form, FORM_INSTANT_DECAY)) {
-			corpse	= create_obj_of(get_obj_index(OBJ_VNUM_CORPSE_NPC),
-			    (ch->shapeform) ?
-			        (&ch->shapeform->index->short_desc) :
-				(&ch->short_descr));
-			corpse->timer	= number_range(3, 6);
+			corpse	= create_obj_of(OBJ_VNUM_CORPSE_NPC,
+			    ch->shapeform != NULL ?
+			        &ch->shapeform->index->short_desc :
+				&ch->short_descr);
+			if (corpse != NULL)
+				corpse->timer = number_range(3, 6);
 		}
 
 		if (ch->gold > 0 || ch->silver > 0) {
-			OBJ_DATA *money = create_money(ch->gold, ch->silver);
-			if (corpse != NULL)
-				obj_to_obj(money, corpse);
-			else
-				obj_to_room(money, ch->in_room);
+			OBJ_DATA *money;
+
+			if ((money = create_money(ch->gold, ch->silver)) != NULL) {
+				if (corpse != NULL)
+					obj_to_obj(money, corpse);
+				else
+					obj_to_room(money, ch->in_room);
+			}
 		}
 	} else {
-		if (ch->shapeform)
-			corpse	= create_obj_of(
-				get_obj_index(OBJ_VNUM_CORPSE_PC),
-				&ch->shapeform->index->short_desc);
-		else
-			corpse	= create_obj_of(
-				get_obj_index(OBJ_VNUM_CORPSE_PC),
-				&ch->short_descr);
+		corpse	= create_obj_of(
+		    OBJ_VNUM_CORPSE_PC,
+		    ch->shapeform != NULL ?
+		        &ch->shapeform->index->short_desc :
+			&ch->short_descr);
 
-		corpse->timer= number_range(25, 40);
-		corpse->altar = get_altar(ch);
-		if (corpse->altar == NULL)
-			raise(SIGBUS);
+		if (corpse != NULL) {
+			corpse->timer= number_range(25, 40);
+			corpse->altar = get_altar(ch);
+			if (corpse->altar == NULL)
+				abort();
+		}
 
-		if (ch->gold > 0 || ch->silver > 0)
-			obj_to_obj(create_money(ch->gold, ch->silver), corpse);
+		if (ch->gold > 0 || ch->silver > 0) {
+			OBJ_DATA *money;
+
+			if ((money = create_money(ch->gold, ch->silver)) != NULL) {
+				if (corpse != NULL)
+					obj_to_obj(money, corpse);
+				else
+					obj_to_room(money, ch->in_room);
+			}
+		}
 	}
 
 	if (corpse != NULL) {
@@ -2606,7 +2617,7 @@ make_corpse(CHAR_DATA *ch)
 			obj_to_room(obj, ch->in_room);
 	}
 
-	if (corpse)
+	if (corpse != NULL)
 		obj_to_room(corpse, ch->in_room);
 	return corpse;
 }
@@ -2621,6 +2632,7 @@ death_cry(CHAR_DATA *ch)
 	char *msg;
 	int door;
 	int vnum;
+	OBJ_DATA *obj;
 
 	vnum = 0;
 	msg = "You hear $n's death cry.";
@@ -2676,10 +2688,7 @@ death_cry(CHAR_DATA *ch)
 
 	act(msg, ch, NULL, NULL, TO_ROOM);
 
-	if (vnum) {
-		OBJ_DATA *obj;
-
-		obj = create_obj_of(get_obj_index(vnum), &ch->short_descr);
+	if (vnum && (obj = create_obj_of(vnum, &ch->short_descr)) != NULL) {
 		obj->level = ch->level;
 		mlstr_cpy(&obj->owner, &ch->short_descr);
 		obj->timer = number_range(4, 7);

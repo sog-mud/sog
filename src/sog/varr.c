@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.27 2001-06-24 10:50:54 avn Exp $
+ * $Id: varr.c,v 1.28 2001-08-05 16:37:04 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -31,10 +31,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "typedef.h"
-#include "varr.h"
-#include "buffer.h"
-#include "str.h"
+#include <typedef.h>
+#include <varr.h>
+#include <buffer.h>
+#include <str.h>
 
 /*
  * Variable size array implementation

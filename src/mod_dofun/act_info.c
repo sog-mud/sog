@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.387 2001-08-03 12:21:00 fjoe Exp $
+ * $Id: act_info.c,v 1.388 2001-08-05 16:36:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -189,7 +189,11 @@ do_socials(CHAR_DATA *ch, const char *argument)
 		mob_index = get_mob_index(number_range(1, top_vnum_mob));
 		// XXX should skip mobs with act triggers :)
 	} while (mob_index == NULL);
-	mob = create_mob(mob_index, 0);
+
+	/*
+	 * create_mob can't return NULL here
+	 */
+	mob = create_mob(mob_index->vnum, 0);
 
 	show_social(ch, mob,
 	   "Having used with no argument specified, you see:",
@@ -2131,7 +2135,9 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 	}
 
 	check_improve(ch, "bear call", TRUE, 1);
-	bear = create_mob(get_mob_index(MOB_VNUM_BEAR), 0);
+	bear = create_mob(MOB_VNUM_BEAR, 0);
+	if (bear == NULL)
+		return;
 
 	for (i = 0; i < MAX_STAT; i++)
 		bear->perm_stat[i] = UMIN(25, 2 * ch->perm_stat[i]);
@@ -2847,7 +2853,9 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 	}
 
 	check_improve(ch, "lion call", TRUE, 1);
-	lion = create_mob(get_mob_index(MOB_VNUM_LION), 0);
+	lion = create_mob(MOB_VNUM_LION, 0);
+	if (lion == NULL)
+		return;
 
 	for (i = 0; i < MAX_STAT; i++)
 		lion->perm_stat[i] = UMIN(25,2 * ch->perm_stat[i]);
@@ -3714,7 +3722,6 @@ void do_control(CHAR_DATA *ch, const char *argument)
 void do_make_arrow(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *arrow;
-	OBJ_INDEX_DATA *pObjIndex;
 	int count, mana, wait;
 	char arg[MAX_INPUT_LENGTH];
 	int chance;
@@ -3777,7 +3784,6 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, wait);
 
 	act("$n starts to make arrows!", ch, NULL, NULL, TO_ROOM);
-	pObjIndex = get_obj_index(vnum);
 	for (count = 0; count < LEVEL(ch) / 5; count++) {
 		AFFECT_DATA *paf;
 
@@ -3793,7 +3799,8 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 		if (color != NULL)
 			check_improve(ch, color, TRUE, 3);
 
-		arrow = create_obj(pObjIndex, 0);
+		if ((arrow = create_obj(vnum, 0)) == NULL)
+			return;
 		arrow->level = ch->level;
 		INT(arrow->value[1]) = 4 + LEVEL(ch) / 10;
 		INT(arrow->value[2]) = 4 + LEVEL(ch) / 10;
@@ -3854,7 +3861,8 @@ void do_make_bow(CHAR_DATA *ch, const char *argument)
 	}
 	check_improve(ch, "make bow", TRUE, 1);
 
-	bow = create_obj(get_obj_index(OBJ_VNUM_RANGER_BOW), 0);
+	if ((bow = create_obj(OBJ_VNUM_RANGER_BOW, 0)) == NULL)
+		return;
 	bow->level = ch->level;
 	INT(bow->value[1]) = 4 + ch->level / 15;
 	INT(bow->value[2]) = 4 + ch->level / 15;

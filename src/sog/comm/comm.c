@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.249 2001-08-03 11:27:53 fjoe Exp $
+ * $Id: comm.c,v 1.250 2001-08-05 16:37:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -93,9 +93,9 @@
 #include <module.h>
 #include <colors.h>
 
-#include "handler.h"
-#include "quest.h"
-#include "update.h"
+#include <handler.h>
+#include <quest.h>
+#include <update.h>
 
 #include "charset.h"
 #include "comm_info.h"
@@ -243,6 +243,7 @@ main(int argc, char **argv)
 	struct timeval now_time;
 	int ch;
 	int check_info;
+	module_t *m;
 
 #if defined WIN32
 	WORD	wVersionRequested = MAKEWORD(1, 1);
@@ -309,6 +310,14 @@ main(int argc, char **argv)
 	 * load modules and call boot callbacks
 	 */
 	boot_modules();
+
+	/*
+	 * unload bootdb module (it is not needed anymore)
+	 */
+	if ((m = mod_lookup("bootdb")) == NULL)
+		log(LOG_BUG, "bootdb: no such module");
+	else if (mod_unload(m) < 0)
+		log(LOG_BUG, "bootdb: module can't be unloaded");
 
 	/*
 	 * load notes and bans
@@ -597,7 +606,7 @@ void game_loop_unix(void)
 	DESCRIPTOR_DATA *d_next;
 	static struct timeval null_time;
 	struct timeval last_time;
- 
+
 	gettimeofday(&last_time, NULL);
 	current_time = (time_t) last_time.tv_sec;
 
@@ -647,7 +656,7 @@ void game_loop_unix(void)
 		if (select(maxdesc+1,
 			   &in_set, &out_set, &exc_set, &null_time) < 0) {
 			log(LOG_INFO, "game_loop: select: %s", strerror(errno));
-			exit(1);
+			continue;
 		}
 
 #if !defined (WIN32)
@@ -669,7 +678,7 @@ void game_loop_unix(void)
 		 * Kick out the freaky folks.
 		 */
 		for (d = descriptor_list; d; d = d_next) {
-			d_next = d->next;   
+			d_next = d->next;
 			if (FD_ISSET(d->descriptor, &exc_set)) {
 				FD_CLR(d->descriptor, &in_set );
 				FD_CLR(d->descriptor, &out_set);
@@ -715,7 +724,7 @@ void game_loop_unix(void)
 				else if (d->pString)
 					string_add(d->character, d->incomm);
 				else if (d->connected == CON_PLAYING)
-			    		substitute_alias(d, d->incomm);
+					substitute_alias(d, d->incomm);
 				else
 					nanny(d, d->incomm);
 
@@ -774,7 +783,7 @@ void game_loop_unix(void)
 		stall_time.tv_sec  = secDelta;
 		if (select(0, NULL, NULL, NULL, &stall_time) < 0) {
 		    log(LOG_INFO, "game_loop: select: stall: %s", strerror(errno));
-		    exit(1);
+		    continue;
 		}
 	    }
 	}
@@ -1791,7 +1800,8 @@ adjust_hmv(CHAR_DATA *ch, int percent)
 /*
  * Deal with sockets that haven't logged in yet.
  */
-void nanny(DESCRIPTOR_DATA *d, const char *argument)
+void
+nanny(DESCRIPTOR_DATA *d, const char *argument)
 {
 	DESCRIPTOR_DATA *d_old, *d_next;
 	char arg[MAX_INPUT_LENGTH];
@@ -1936,7 +1946,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 				return;
 			}
 		}
-	     
+
 		if (check_reconnect(d, FALSE))
 			REMOVE_BIT(PC(ch)->plr_flags, PLR_NEW);
 		else if (wizlock && !IS_HERO(ch)) {
@@ -1948,13 +1958,13 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		if (!IS_SET(PC(ch)->plr_flags, PLR_NEW)) {
 			/* Old player */
 			write_to_descriptor(d->descriptor, echo_off_str, 0);
- 			act_puts("Password: ",
+			act_puts("Password: ",
 				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 			d->connected = CON_GET_OLD_PASSWORD;
 			return;
 		} else {
 			/* New player */
- 			if (newlock) {
+			if (newlock) {
 				act_char("The game is newlocked.", ch);
 				close_descriptor(d, SAVE_F_NONE);
 				return;
@@ -1962,8 +1972,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 			if (check_ban(d, BCL_NEWBIES))
 				return;
- 	    
- 			dofun("help", ch, "NAME");
+
+			dofun("help", ch, "NAME");
 			act_puts("Do you accept? ",
 				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 			d->connected = CON_CONFIRM_NEW_NAME;
@@ -2001,7 +2011,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			/* FALLTHRU */
 
 		case 'n' : case 'N':
-	 		write_to_buffer(d, "Name: ", 0);
+			write_to_buffer(d, "Name: ", 0);
 			if (d->character != NULL) {
 				char_nuke(d->character);
 				d->character = NULL;
@@ -2082,8 +2092,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			argument = one_argument(argument, arg, sizeof(arg));
 			send_to_char("\n", ch);
 			if (argument[0] == '\0')
-	  			dofun("help", ch, "RACETABLE");
-			else 
+				dofun("help", ch, "RACETABLE");
+			else
 				dofun("help", ch, argument);
 			act_puts("What is your race ('help <race>' for more information)? ",
 				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
@@ -2123,7 +2133,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		d->connected = CON_GET_NEW_SEX;
 		break;
 
-	case CON_GET_NEW_SEX: 
+	case CON_GET_NEW_SEX:
 		switch (argument[0]) {
 		case 'm': case 'M':
 			mlstr_init2(&ch->gender, flag_string(gender_table, SEX_MALE));
@@ -2132,12 +2142,12 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			mlstr_init2(&ch->gender, flag_string(gender_table, SEX_FEMALE));
 			break;
 		default:
-	    		act_char("That's not a sex.", ch);
+			act_char("That's not a sex.", ch);
 			act_puts("What IS your sex? ",
 				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 			return;
 		}
-	
+
 		dofun("help", ch, "'CLASS HELP'");
 
 		act_char("The following classes are available:", ch);
@@ -2202,14 +2212,14 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 	case CON_GET_ALIGNMENT:
 		switch(argument[0]) {
-		case 'g' : case 'G' : 
-			ch->alignment = 1000; 
+		case 'g': case 'G':
+			ch->alignment = 1000;
 			break;
-		case 'n' : case 'N' : 
-			ch->alignment = 0;	
+		case 'n': case 'N':
+			ch->alignment = 0;
 			break;
-		case 'e' : case 'E' : 
-			ch->alignment = -1000; 
+		case 'e': case 'E':
+			ch->alignment = -1000;
 			break;
 		default:
 			act_char("That's not a valid alignment.", ch);
@@ -2224,7 +2234,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 		print_hometown(ch);
 		break;
-	
+
 	case CON_PICK_HOMETOWN: {
 		int htn;
 
@@ -2245,23 +2255,23 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		d->connected = CON_GET_ETHOS;
 		break;
 	}
-	
+
 	  case CON_GET_ETHOS:
 		if (!ch->endur) {
 			switch(argument[0]) {
-			case 'H': case 'h': case '?': 
+			case 'H': case 'h': case '?':
 				dofun("help", ch, "ALIGNMENT");
 				return;
 				/* NOTREACHED */
 
-			case 'L': case 'l': 
-				ch->ethos = ETHOS_LAWFUL; 
+			case 'L': case 'l':
+				ch->ethos = ETHOS_LAWFUL;
 				break;
-			case 'N': case 'n': 
-				ch->ethos = ETHOS_NEUTRAL; 
+			case 'N': case 'n':
+				ch->ethos = ETHOS_NEUTRAL;
 				break;
-			case 'C': case 'c': 
-				ch->ethos = ETHOS_CHAOTIC; 
+			case 'C': case 'c':
+				ch->ethos = ETHOS_CHAOTIC;
 				break;
 			default:
 				send_to_char("\n", ch);
@@ -2405,8 +2415,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		}
 
 		if (ch->level == 0) {
-			OBJ_DATA *wield;
 			OBJ_INDEX_DATA *map;
+			OBJ_DATA *obj;
 
 			ch->level = 1;
 			PC(ch)->exp = 0;
@@ -2418,16 +2428,19 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 			dofun("outfit", ch, str_empty);
 
-			obj_to_char(create_obj(get_obj_index(OBJ_VNUM_MAP), 0), ch);
-			obj_to_char(create_obj(get_obj_index(OBJ_VNUM_NMAP1), 0), ch);
-			obj_to_char(create_obj(get_obj_index(OBJ_VNUM_NMAP2), 0), ch);
+			if ((obj = create_obj(OBJ_VNUM_MAP, 0)) != NULL)
+				obj_to_char(obj, ch);
+			if ((obj = create_obj(OBJ_VNUM_NMAP1, 0)) != NULL)
+				obj_to_char(obj, ch);
+			if ((obj = create_obj(OBJ_VNUM_NMAP2, 0)) != NULL)
+				obj_to_char(obj, ch);
 
-			if ((map = get_map(ch)) != NULL)
-				obj_to_char(create_obj(map, 0), ch);
+			if ((map = get_map(ch)) != NULL
+			&&  (obj = create_obj(map->vnum, 0)) != NULL)
+				obj_to_char(obj, ch);
 
-			if ((wield = get_eq_char(ch, WEAR_WIELD)))
-				_set_skill(ch, get_weapon_sn(wield),
-					      40, FALSE);
+			if ((obj = get_eq_char(ch, WEAR_WIELD)))
+				_set_skill(ch, get_weapon_sn(obj), 40, FALSE);
 
 			dofun("help", ch, "NEWBIE INFO");
 			char_to_room(ch, get_room_index(ROOM_VNUM_SCHOOL));
@@ -2452,7 +2465,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			      !IS_CLAN(ch->in_room->area->clan, ch->clan))))
 				ch->in_room = NULL;
 
-			if (ch->in_room) 
+			if (ch->in_room)
 				to_room = ch->in_room;
 			else if (IS_IMMORTAL(ch))
 				to_room = get_room_index(ROOM_VNUM_CHAT);

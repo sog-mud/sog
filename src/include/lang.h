@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.h,v 1.23 2001-08-02 18:19:52 fjoe Exp $
+ * $Id: lang.h,v 1.24 2001-08-05 16:36:20 fjoe Exp $
  */
 
 #ifndef _LANG_H_
@@ -114,13 +114,16 @@ struct lang_t {
 #define LANG_CHANGED		(Z)
 
 extern varr	langs;
+extern varrdata_t v_langs;
 
 void	lang_init(lang_t *);
 
 lang_t	*lang_lookup(const char*);
 lang_t	*lang_nlookup(const char*, size_t len);
 
-extern hash_t msgdb;		/* msgdb */
+extern hash_t msgdb;
+extern hashdata_t h_msgdb;
+
 #define msg_lookup(m)	((mlstring *) strkey_lookup(&msgdb, (m)))
 
 #if !defined(MPC)

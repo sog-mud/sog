@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.inc,v 1.21 2001-06-25 16:50:48 fjoe Exp $
+# $Id: Makefile.inc,v 1.22 2001-08-05 16:36:14 fjoe Exp $
 #
 
 #
@@ -16,9 +16,8 @@ INCLUDES=	-I../include -I..
 COPTS=		${INCLUDES}
 CFLAGS=		-O -pipe -Wall
 .ifdef EXTRA_CHECKS || !defined(MODULE)
-CFLAGS+= -W -Wbad-function-cast -Wcast-align\
-	-Wcast-qual -Wchar-subscripts -Wconversion -Winline\
-	-Wmissing-prototypes -Wnested-externs -Wpointer-arith\
+CFLAGS+= -W -Wbad-function-cast -Wcast-align -Wcast-qual -Wchar-subscriptsi\
+	-Winline -Wmissing-prototypes -Wnested-externs -Wpointer-arith\
 	-Wredundant-decls -Wshadow -Wstrict-prototypes -Wwrite-strings
 #CFLAGS+= -Werror
 .endif
@@ -35,11 +34,6 @@ MOD_LDFLAGS=	-shared
 #
 # SoG root
 INSTDIR=	../..
-
-#
-# do not add deps on system includes
-MKDEP_CPP_OPTS=	-MM
-MKDEPCMD=	MKDEP_CPP_OPTS=${MKDEP_CPP_OPTS} mkdep
 
 .if !defined(MODULE)
 

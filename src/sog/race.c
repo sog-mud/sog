@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.28 2001-07-31 14:56:25 fjoe Exp $
+ * $Id: race.c,v 1.29 2001-08-05 16:37:01 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -32,6 +32,18 @@
 #include <merc.h>
 
 hash_t races;
+
+hashdata_t h_races =
+{
+	sizeof(race_t), 1,
+	(e_init_t) race_init,
+	(e_destroy_t) race_destroy,
+	(e_cpy_t) race_cpy,
+
+	STRKEY_HASH_SIZE,
+	k_hash_str,
+	ke_cmp_str
+};
 
 void
 race_init(race_t *r)

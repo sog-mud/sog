@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_lex.c,v 1.9 2001-07-31 18:14:58 fjoe Exp $
+ * $Id: mpc_lex.c,v 1.10 2001-08-05 16:36:49 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -37,6 +37,7 @@
 #include <hash.h>
 #include <memalloc.h>
 #include <dynafun.h>
+#include <flag.h>
 
 #include "mpc_impl.h"
 #include "mpc_iter.h"
@@ -166,35 +167,18 @@ keyword_lookup(const char *keyword)
 	return bsearch(&keyword, ktab, KTAB_SIZE, sizeof(keyword_t), cmpstr);
 }
 
-struct type_t {
-	const char *name;
-	int type_tag;
-};
-
-typedef struct type_t type_t;
-
-static type_t ttab[] = {
-	{ "int",	MT_INT },
-	{ "string",	MT_STR },
-	{ "mob",	MT_CHAR },
-	{ "obj",	MT_OBJ },
-	{ "room",	MT_ROOM }
-};
-
-#define TTAB_SIZE (sizeof(ttab) / sizeof(type_t))
-
-static type_t *
-type_lookup(const char *typename)
+struct flaginfo_t mpc_types[] =
 {
-	static bool ttab_initialized;
+	{ "",		TABLE_INTVAL,		FALSE	},
 
-	if (!ttab_initialized) {
-		qsort(ttab, TTAB_SIZE, sizeof(type_t), cmpstr);
-		ttab_initialized = TRUE;
-	}
+	{ "int",	MT_INT,			FALSE	},
+	{ "string",	MT_STR,			FALSE	},
+	{ "mob",	MT_CHAR,		FALSE	},
+	{ "obj",	MT_OBJ,			FALSE	},
+	{ "room",	MT_ROOM,		FALSE	},
 
-	return bsearch(&typename, ttab, TTAB_SIZE, sizeof(type_t), cmpstr);
-}
+	{ NULL, 0, FALSE }
+};
 
 int
 mpc_lex(prog_t *prog)
@@ -206,8 +190,8 @@ mpc_lex(prog_t *prog)
 		bool is_hex;
 		char *yyp;
 		keyword_t *k;
-		type_t *t;
 		iter_t *iter;
+		int type_tag;
 
 		switch ((ch = mpc_getc(prog))) {
 		case EOF:
@@ -406,8 +390,8 @@ mpc_lex(prog_t *prog)
 			if ((k = keyword_lookup(yytext)) != NULL)
 				return k->lexval;
 
-			if ((t = type_lookup(yytext)) != NULL) {
-				mpc_lval.type_tag = t->type_tag;
+			if ((type_tag = flag_svalue(mpc_types, yytext)) >= 0) {
+				mpc_lval.type_tag = type_tag;
 				return L_TYPE;
 			}
 

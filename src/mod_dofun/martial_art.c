@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.187 2001-08-02 18:38:40 fjoe Exp $
+ * $Id: martial_art.c,v 1.188 2001-08-05 16:36:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -42,7 +42,8 @@
 
 #include <sys/types.h>
 #include <stdio.h>
-#include "merc.h"
+
+#include <merc.h>
 
 #include <handler.h>
 #include <magic.h>
@@ -3272,13 +3273,12 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 		affect_to_char(ch, paf);
 		aff_free(paf);
 
-		if (trophy_vnum != 0) {
+		if (trophy_vnum != 0
+		&&  (trophy = create_obj_of(trophy_vnum, &part->owner)) != NULL) {
 			AFFECT_DATA *paf;
 
 			level = UMIN(part->level + 5, MAX_LEVEL);
 
-			trophy = create_obj_of(get_obj_index(trophy_vnum),
-					       &part->owner);
 			trophy->level	= ch->level;
 			trophy->timer	= ch->level * 2;
 			trophy->cost	= 0;
@@ -4275,16 +4275,18 @@ void do_katana(CHAR_DATA *ch, const char *argument)
 	if (number_percent() < chance) {
 		AFFECT_DATA *paf;
 
-		paf = aff_new(TO_AFFECTS, "katana");
-		paf->level	= ch->level;
-		paf->duration	= ch->level;
-		affect_to_char(ch, paf);
-
-		katana = create_obj(get_obj_index(OBJ_VNUM_KATANA_SWORD), 0);
+		katana = create_obj(OBJ_VNUM_KATANA_SWORD, 0);
+		if (katana == NULL)
+			return;
 		katana->level = ch->level;
 		mlstr_cpy(&katana->owner, &ch->short_descr);
 		katana->cost  = 0;
 		ch->mana -= mana;
+
+		paf = aff_new(TO_AFFECTS, "katana");
+		paf->level	= ch->level;
+		paf->duration	= ch->level;
+		affect_to_char(ch, paf);
 
 		paf->where	= TO_OBJECT;
 		paf->level	= ch->level;
@@ -4305,7 +4307,7 @@ void do_katana(CHAR_DATA *ch, const char *argument)
 
 		act("You make a katana from $p!",ch,part,NULL,TO_CHAR);
 		act("$n makes a katana from $p!",ch,part,NULL,TO_ROOM);
-		
+
 		extract_obj(part, 0);
 		return;
 	} else {

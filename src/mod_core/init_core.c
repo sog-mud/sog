@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_core.c,v 1.2 2001-07-31 14:55:59 fjoe Exp $
+ * $Id: init_core.c,v 1.3 2001-08-05 16:36:32 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -38,7 +38,7 @@
 
 #include <module.h>
 #define MODULE_INIT MOD_CORE
-#include "core.h"
+#include <core.h>
 
 int
 _module_load(module_t *m)

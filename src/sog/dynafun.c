@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun.c,v 1.11 2001-08-03 11:27:50 fjoe Exp $
+ * $Id: dynafun.c,v 1.12 2001-08-05 16:36:57 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -39,6 +39,8 @@
 #include <strkey_hash.h>
 #include <dynafun.h>
 #include <module.h>
+#include <flag.h>
+#include <tables.h>
 
 /*
  * dynafun_build_args is highly arch-dependent
@@ -231,6 +233,14 @@ dynafun_build_args(const char *name, dynafun_args_t *args, int nargs, va_list ap
 
 		switch (d->argtype[i].type_tag) {
 		case MT_PVOID:
+		case MT_PCVOID:
+		case MT_ACTOPT:
+		case MT_PCCHAR:
+		case MT_PCHAR:
+		case MT_GMLSTR:
+		case MT_MLSTRING:
+		case MT_PINT:
+		case MT_SPEC_SKILL:
 			*(void **) args_ap = va_arg(ap, void *);
 			arg = va_arg(args_ap, void *);
 			continue;
@@ -254,6 +264,12 @@ dynafun_build_args(const char *name, dynafun_args_t *args, int nargs, va_list ap
 			continue;
 			/* NOTREACHED */
 
+		case MT_BOOL:
+			*(bool *) args_ap = va_arg(ap, bool);
+			arg = (const void *) va_arg(args_ap, bool);
+			continue;
+			/* NOTREACHED */
+
 		case MT_STR:
 			*(const char **) args_ap = va_arg(ap, const char *);
 			arg = (const void *) va_arg(args_ap, const char *);
@@ -272,7 +288,8 @@ dynafun_build_args(const char *name, dynafun_args_t *args, int nargs, va_list ap
 
 		default:
 			va_end(ap);
-			log(LOG_BUG, "dynafun_call: %s: %d: invalid type in arg list", d->name, d->argtype[i].type_tag);
+			log(LOG_BUG, "dynafun_call: %s: invalid type %d in arg list",
+			    d->name, d->argtype[i].type_tag);
 			return NULL;
 		}
 
@@ -285,7 +302,10 @@ dynafun_build_args(const char *name, dynafun_args_t *args, int nargs, va_list ap
 			}
 		} else if (!mem_is(arg, d->argtype[i].type_tag)) {
 			va_end(ap);
-			log(LOG_BUG, "dynafun_call: %s: arg[%d] type is not %d", d->name, i+1, d->argtype[i].type_tag);
+			log(LOG_BUG, "dynafun_call: %s: invalid arg[%d] type '%s' ('%s expected)",
+			    d->name, i+1,
+			    flag_string(mt_types, mem_type(arg)),
+			    flag_string(mt_types, d->argtype[i].type_tag));
 			return NULL;
 		}
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_bootdb.c,v 1.1 2001-08-02 18:21:31 fjoe Exp $
+ * $Id: init_bootdb.c,v 1.2 2001-08-05 16:36:31 fjoe Exp $
  */
 
 #include <errno.h>
@@ -31,7 +31,7 @@
 #include <string.h>
 
 #include <merc.h>
-#include <bootdb.h>
+#include <db.h>
 #include <lang.h>
 #include <rwfile.h>
 
@@ -43,6 +43,8 @@ static void fix_exits(void);
 int
 _module_load(module_t *m)
 {
+	bootdb_errors = 0;
+
 	db_load_file(&db_system, ETC_PATH, SYSTEM_CONF);
 
 	db_load_list(&db_langs, LANG_PATH, LANG_LIST);
@@ -67,6 +69,11 @@ _module_load(module_t *m)
 
 	load_hints();
 
+	if (bootdb_errors != 0) {
+		log(LOG_ERROR, "%d errors found", bootdb_errors);
+		exit(1);
+	}
+
 	fix_resets();
 	fix_exits();
 
@@ -83,18 +90,6 @@ _module_unload(module_t *m)
 /*--------------------------------------------------------------------
  * local functions
  */
-
-static hashdata_t h_msgdb =
-{
-	sizeof(mlstring), 1,
-	(e_init_t) mlstr_init,
-	(e_destroy_t) mlstr_destroy,
-	(e_cpy_t) mlstr_cpy,
-
-	STRKEY_HASH_SIZE,
-	k_hash_csstr,
-	ke_cmp_csmlstr
-};
 
 static void
 load_msgdb(void)
@@ -133,14 +128,6 @@ load_msgdb(void)
 	log(LOG_INFO, "load_msgdb: %d msgs loaded", msgcnt);
 	rfile_close(fp);
 }
-
-static varrdata_t v_hints =
-{
-	sizeof(hint_t), 4,
-	(e_init_t) hint_init,
-	(e_destroy_t) hint_destroy,
-	NULL
-};
 
 static void
 load_hints(void)

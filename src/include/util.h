@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.h,v 1.23 2001-08-03 11:27:30 fjoe Exp $
+ * $Id: util.h,v 1.24 2001-08-05 16:36:23 fjoe Exp $
  */
 
 #ifndef _UTIL_H_
@@ -56,6 +56,12 @@ const char *	cstrfirst	(const char *cstr);
 char *		capitalize	(const char *str);
 char *		format_flags	(flag_t flags);
 const char *	strdump		(const char *argument, int dump_level);
+
+uint	number_argument (const char *argument, char *arg, size_t len);
+uint	mult_argument	(const char *argument, char *arg, size_t len);
+const char *	one_argument	(const char *argument, char *arg_first, size_t);
+const char *	first_arg	(const char *argument, char *arg_first, size_t,
+				 bool fCase);
 
 bool		is_number	(const char *argument);
 

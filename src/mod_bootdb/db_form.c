@@ -23,14 +23,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_form.c,v 1.13 2001-08-02 18:19:57 fjoe Exp $
+ * $Id: db_form.c,v 1.14 2001-08-05 16:36:27 fjoe Exp $
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 
 #include <merc.h>
-#include <bootdb.h>
+#include <db.h>
 #include <rwfile.h>
 
 DECLARE_DBLOAD_FUN(load_form);
@@ -44,18 +44,6 @@ DBFUN dbfun_forms[] =
 };
 
 DBDATA db_forms = { dbfun_forms, init_form, 0 };
-
-static hashdata_t h_forms =
-{
-	sizeof(form_index_t), 1,
-	(e_init_t) form_init,
-	(e_destroy_t) form_destroy,
-	(e_cpy_t) form_cpy,
-
-	STRKEY_HASH_SIZE,
-	k_hash_str,
-	ke_cmp_str
-};
 
 DBINIT_FUN(init_form)
 {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.31 2001-08-02 18:19:57 fjoe Exp $
+ * $Id: db_lang.c,v 1.32 2001-08-05 16:36:28 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -32,7 +32,7 @@
 
 #include <merc.h>
 #include <lang.h>
-#include <bootdb.h>
+#include <db.h>
 #include <rwfile.h>
 
 DECLARE_DBLOAD_FUN(load_lang);
@@ -80,14 +80,6 @@ fread_lang(rfile_t *fp)
 /*----------------------------------------------------------------------------
  * lang loader
  */
-
-static varrdata_t v_langs =
-{
-	sizeof(lang_t), 2,
-	(e_init_t) lang_init,
-	NULL,
-	NULL
-};
 
 DBINIT_FUN(init_lang)
 {

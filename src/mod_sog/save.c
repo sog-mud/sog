@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.186 2001-08-03 12:21:04 fjoe Exp $
+ * $Id: save.c,v 1.187 2001-08-05 16:36:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,7 +49,7 @@
 #include <dirent.h>
 
 #include <merc.h>
-#include <bootdb.h>
+#include <db.h>
 #include <rwfile.h>
 
 #include <handler.h>
@@ -263,7 +263,7 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 			fprintf(fp, "Trai %d\n", pc->train);
 		fprintf(fp, "Exp %d\n", pc->exp);
 		fwrite_string(fp, "Hometown", hometown_name(pc->hometown));
-		fprintf(fp, "LogO %ld\n",
+		fprintf(fp, "LogO %d\n",
 			IS_SET(flags, SAVE_F_PSCAN) ?
 				pc->logoff : current_time);
 		if (pc->wiznet)
@@ -277,7 +277,7 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 			fprintf(fp, "PLev %d\n", pc->plevels);
 		fprintf(fp, "Plyd %d\n",
 			pc->played + (int) (current_time - pc->logon));
-		fprintf(fp, "Not %ld %ld %ld %ld %ld\n",
+		fprintf(fp, "Not %d %d %d %d %d\n",
 			pc->last_note, pc->last_idea,
 			pc->last_penalty, pc->last_news,
 			pc->last_changes);
@@ -879,14 +879,12 @@ fread_pet(CHAR_DATA *ch, rfile_t *fp, int flags)
 	/* first entry had BETTER be the vnum or we barf */
 	fread_keyword(fp);
 	if (IS_TOKEN(fp, "Vnum")) {
-		MOB_INDEX_DATA *pMobIndex;
 		int vnum = fread_number(fp);
 
 		if (IS_SET(flags, LOAD_F_MOVE))
 			MOVE(vnum);
 
-		if ((pMobIndex = get_mob_index(vnum)) != NULL)
-			pet = create_mob(pMobIndex, CM_F_NOLIST);
+		pet = create_mob(vnum, CM_F_NOLIST);
 	}
 
 	if (pet == NULL) {
@@ -1030,16 +1028,13 @@ fread_obj(CHAR_DATA *ch, CHAR_DATA *obj_to, rfile_t *fp, int flags)
 
 	fread_keyword(fp);
 	if (IS_TOKEN(fp, "Vnum")) {
-		OBJ_INDEX_DATA *pObjIndex;
 		int vnum;
 
 		vnum = fread_number(fp);
 		if (IS_SET(flags, LOAD_F_MOVE))
 			MOVE(vnum);
 
-		if ((pObjIndex = get_obj_index(vnum)) != NULL)
-			obj = create_obj(pObjIndex, CO_F_NOCOUNT);
-		else {
+		if ((obj = create_obj(vnum, CO_F_NOCOUNT)) == NULL) {
 			log(LOG_INFO, "fread_obj: %s: vnum %d: no such object",
 			    ch->name, vnum);
 			fread_to_end(fp);
@@ -1260,8 +1255,9 @@ move_pfiles(int minvnum, int maxvnum, int delta)
 
 	if ((dirp = opendir(PLAYER_PATH)) == NULL) {
 		log(LOG_ERROR, "move_pfiles: unable to open player directory");
-		exit(1);
+		return;
 	}
+
 	for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp)) {
 
 #if defined (LINUX) || defined (WIN32)

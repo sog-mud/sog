@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.120 2001-08-03 12:21:10 fjoe Exp $
+ * $Id: recycle.c,v 1.121 2001-08-05 16:37:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -65,8 +65,6 @@ int		reboot_counter = 1440;
 int		rebooter = 0;
 
 int		changed_flags;		/* changed object flags for OLC */
-
-hash_t		glob_gmlstr;
 
 int		top_vnum_room;
 int		top_vnum_mob;
@@ -977,6 +975,18 @@ get_mob_index(int vnum)
 
 hash_t skills;
 
+hashdata_t h_skills =
+{
+	sizeof(skill_t), 1,
+	(e_init_t) skill_init,
+	(e_destroy_t) skill_destroy,
+	(e_cpy_t) skill_cpy,
+
+	STRKEY_HASH_SIZE,
+	k_hash_str,
+	ke_cmp_mlstr
+};
+
 static void	evf_init	(evf_t *);
 static void	evf_destroy	(evf_t *);
 static evf_t *	evf_cpy		(evf_t *, evf_t *);
@@ -997,7 +1007,6 @@ skill_init(skill_t *sk)
 	sk->fun = NULL;
 	sk->target = 0;
 	sk->min_pos = 0;
-	sk->slot = 0;
 	sk->min_mana = 0;
 	sk->rank = 0;
 	sk->beats = 0;
@@ -1019,7 +1028,6 @@ skill_cpy(skill_t *dst, const skill_t *src)
 	dst->fun = src->fun;
 	dst->target = src->target;
 	dst->min_pos = src->min_pos;
-	dst->slot = src->slot;
 	dst->min_mana = src->min_mana;
 	dst->rank = src->rank;
 	dst->beats = src->beats;
@@ -1105,6 +1113,18 @@ evf_cpy(evf_t *dst, evf_t *src)
 
 hash_t specs;
 
+hashdata_t h_specs =
+{
+	sizeof(spec_t), 1,
+	(e_init_t) spec_init,
+	(e_destroy_t) spec_destroy,
+	(e_cpy_t) spec_cpy,
+
+	STRKEY_HASH_SIZE,
+	k_hash_str,
+	ke_cmp_str
+};
+
 static void		spec_skill_init(spec_skill_t *spec_sk);
 static spec_skill_t *	spec_skill_cpy(spec_skill_t *, const spec_skill_t *);
 
@@ -1173,6 +1193,18 @@ spec_skill_cpy(spec_skill_t *dst, const spec_skill_t *src)
 
 hash_t forms;
 
+hashdata_t h_forms =
+{
+	sizeof(form_index_t), 1,
+	(e_init_t) form_init,
+	(e_destroy_t) form_destroy,
+	(e_cpy_t) form_cpy,
+
+	STRKEY_HASH_SIZE,
+	k_hash_str,
+	ke_cmp_str
+};
+
 void
 form_init(form_index_t *f)
 {
@@ -1236,6 +1268,18 @@ form_destroy(form_index_t *f)
 
 hash_t liquids;
 
+hashdata_t h_liquids =
+{
+	sizeof(liquid_t), 1,
+	(e_init_t) liquid_init,
+	(e_destroy_t) liquid_destroy,
+	(e_cpy_t) liquid_cpy,
+
+	STRKEY_HASH_SIZE,
+	k_hash_str,
+	ke_cmp_mlstr
+};
+
 void
 liquid_init(liquid_t *lq)
 {
@@ -1273,6 +1317,14 @@ liquid_destroy(liquid_t *lq)
  */
 
 varr socials;
+
+varrdata_t v_socials =
+{
+	sizeof(social_t), 8,
+	(e_init_t) social_init,
+	(e_destroy_t) social_destroy,
+	NULL
+};
 
 void
 social_init(social_t *soc)
@@ -1317,6 +1369,14 @@ social_destroy(social_t *soc)
 
 varr hints;
 
+varrdata_t v_hints =
+{
+	sizeof(hint_t), 4,
+	(e_init_t) hint_init,
+	(e_destroy_t) hint_destroy,
+	NULL
+};
+
 void
 hint_init(hint_t *t)
 {
@@ -1334,6 +1394,18 @@ hint_destroy(hint_t *t)
  */
 
 hash_t clans;
+
+hashdata_t h_clans =
+{
+	sizeof(clan_t), 1,
+	(e_init_t) clan_init,
+	(e_destroy_t) clan_destroy,
+	(e_cpy_t) clan_cpy,
+
+	STRKEY_HASH_SIZE,
+	k_hash_str,
+	ke_cmp_str
+};
 
 void
 clan_init(clan_t *clan)
@@ -1379,3 +1451,21 @@ clan_destroy(clan_t *clan)
 	free_string(clan->member_list);
 	free_string(clan->second_list);
 }
+
+/*--------------------------------------------------------------------
+ * glob_gmlstr
+ */
+
+hash_t		glob_gmlstr;
+
+hashdata_t h_glob_gmlstr =
+{
+	sizeof(gmlstr_t), 1,
+	(e_init_t) gmlstr_init,
+	(e_destroy_t) gmlstr_destroy,
+	(e_cpy_t) gmlstr_cpy,
+
+	STRKEY_HASH_SIZE,
+	k_hash_str,
+	ke_cmp_mlstr
+};

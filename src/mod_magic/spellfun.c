@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.250 2001-08-03 12:21:06 fjoe Exp $
+ * $Id: spellfun.c,v 1.251 2001-08-05 16:36:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -472,7 +472,9 @@ spell_continual_light(const char *sn, int level,CHAR_DATA *ch,void *vo)
 		return;
 	}
 
-	light = create_obj(get_obj_index(OBJ_VNUM_LIGHT_BALL), 0);
+	if ((light = create_obj(OBJ_VNUM_LIGHT_BALL, 0)) == NULL)
+		return;
+
 	obj_to_room(light, ch->in_room);
 	act("$n twiddles $s thumbs and $p appears.", ch, light, NULL, TO_ROOM);
 	act("You twiddle your thumbs and $p appears.", ch, light, NULL, TO_CHAR);
@@ -483,7 +485,10 @@ spell_continual_light(const char *sn, int level,CHAR_DATA *ch,void *vo)
 void
 spell_create_rose(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	OBJ_DATA *rose = create_obj(get_obj_index(OBJ_VNUM_ROSE), 0);
+	OBJ_DATA *rose = create_obj(OBJ_VNUM_ROSE, 0);
+	if (rose == NULL)
+		return;
+
 	act("$n has created $p.", ch, rose, NULL, TO_ROOM);
 	act("You create $p.", ch, rose, NULL, TO_CHAR);
 	obj_to_char(rose, ch);
@@ -1211,7 +1216,10 @@ spell_floating_disc(const char *sn, int level,CHAR_DATA *ch,void *vo)
 		return;
 	}
 
-	disc = create_obj(get_obj_index(OBJ_VNUM_DISC), 0);
+	disc = create_obj(OBJ_VNUM_DISC, 0);
+	if (disc == NULL)
+		return;
+
 	INT(disc->value[0]) = level * 10; /* 10 pounds per level capacity */
 	INT(disc->value[3]) = level * 5; /* 5 pounds per level max per item */
 	disc->timer	= level / 2 - number_range(0, level / 4);
@@ -2952,26 +2960,28 @@ spell_portal(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	stone = get_eq_char(ch,WEAR_HOLD);
+	stone = get_eq_char(ch, WEAR_HOLD);
 	if (!IS_IMMORTAL(ch)
-	&&  (stone == NULL || stone->item_type != ITEM_WARP_STONE))
-	{
-	act_char("You lack the proper component for this spell.", ch);
-	return;
+	&&  (stone == NULL || stone->item_type != ITEM_WARP_STONE)) {
+		act_char("You lack the proper component for this spell.", ch);
+		return;
 	}
 
-	if (stone != NULL && stone->item_type == ITEM_WARP_STONE)
-	{
-		act("You draw upon the power of $p.",ch,stone,NULL,TO_CHAR);
-		act("It flares brightly and vanishes!",ch,stone,NULL,TO_CHAR);
+	if (stone != NULL && stone->item_type == ITEM_WARP_STONE) {
+		act("You draw upon the power of $p.", ch, stone, NULL, TO_CHAR);
+		act("It flares brightly and vanishes!",
+		    ch, stone, NULL, TO_CHAR);
 		extract_obj(stone, 0);
 	}
 
-	portal = create_obj(get_obj_index(OBJ_VNUM_PORTAL),0);
+	portal = create_obj(OBJ_VNUM_PORTAL, 0);
+	if (portal == NULL)
+		return;
+
 	portal->timer = 2 + level / 25;
 	INT(portal->value[3]) = victim->in_room->vnum;
 
-	obj_to_room(portal,ch->in_room);
+	obj_to_room(portal, ch->in_room);
 
 	act("$p rises up from the ground.", ch, portal, NULL, TO_ROOM);
 	act("$p rises up before you.", ch, portal, NULL, TO_CHAR);
@@ -3005,13 +3015,17 @@ spell_nexus(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	if (stone != NULL && stone->item_type == ITEM_WARP_STONE) {
-		act("You draw upon the power of $p.",ch,stone,NULL,TO_CHAR);
-		act("It flares brightly and vanishes!",ch,stone,NULL,TO_CHAR);
+		act("You draw upon the power of $p.", ch, stone, NULL, TO_CHAR);
+		act("It flares brightly and vanishes!",
+		    ch, stone, NULL, TO_CHAR);
 		extract_obj(stone, 0);
 	}
 
 	/* portal one */
-	portal = create_obj(get_obj_index(OBJ_VNUM_PORTAL),0);
+	portal = create_obj(OBJ_VNUM_PORTAL, 0);
+	if (portal == NULL)
+		return;
+
 	portal->timer = 1 + level / 10;
 	INT(portal->value[3]) = to_room->vnum;
 
@@ -3025,15 +3039,19 @@ spell_nexus(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 
 	/* portal two */
-	portal = create_obj(get_obj_index(OBJ_VNUM_PORTAL),0);
+	portal = create_obj(OBJ_VNUM_PORTAL, 0);
+	if (portal == NULL)
+		return;
 	portal->timer = 1 + level/10;
 	INT(portal->value[3]) = from_room->vnum;
 
-	obj_to_room(portal,to_room);
+	obj_to_room(portal, to_room);
 
 	if (to_room->people != NULL) {
-		act("$p rises up from the ground.",to_room->people,portal,NULL,TO_ROOM);
-		act("$p rises up from the ground.",to_room->people,portal,NULL,TO_CHAR);
+		act("$p rises up from the ground.",
+		    to_room->people, portal, NULL, TO_ROOM);
+		act("$p rises up from the ground.",
+		    to_room->people, portal, NULL, TO_CHAR);
 	}
 }
 
@@ -3168,7 +3186,10 @@ spell_ranger_staff(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	OBJ_DATA *staff;
 	AFFECT_DATA *paf;
 
-	staff = create_obj(get_obj_index(OBJ_VNUM_RANGER_STAFF), 0);
+	staff = create_obj(OBJ_VNUM_RANGER_STAFF, 0);
+	if (staff == NULL)
+		return;
+
 	staff->level = ch->level;
 	INT(staff->value[1]) = 5 + level / 14;
 	INT(staff->value[2]) = 4 + level / 15;
@@ -3306,11 +3327,12 @@ spell_demon_summon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		}
 	}
 
-	demon = create_mob(get_mob_index(MOB_VNUM_DEMON), 0);
+	demon = create_mob(MOB_VNUM_DEMON, 0);
+	if (demon == NULL)
+		return;
 
-	for (i = 0; i < MAX_STAT; i++) {
+	for (i = 0; i < MAX_STAT; i++)
 		demon->perm_stat[i] = ch->perm_stat[i];
-	}
 
 	SET_HIT(demon, URANGE(ch->perm_hit, ch->hit, 30000));
 	SET_MANA(demon, ch->perm_mana);
@@ -3442,7 +3464,10 @@ spell_shield_of_ruler(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	else
 		shield_vnum = OBJ_VNUM_RULER_SHIELD1;
 
-	shield = create_obj(get_obj_index(shield_vnum), 0);
+	shield = create_obj(shield_vnum, 0);
+	if (shield == NULL)
+		return;
+
 	shield->level = ch->level;
 	shield->timer = level;
 	shield->cost  = 0;
@@ -3499,7 +3524,9 @@ spell_guard_call(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		}
 	}
 
-	guard = create_mob(get_mob_index(MOB_VNUM_SPECIAL_GUARD), 0);
+	guard = create_mob(MOB_VNUM_SPECIAL_GUARD, 0);
+	if (guard == NULL)
+		return;
 
 	for (i = 0; i < MAX_STAT; i++)
 		guard->perm_stat[i] = ch->perm_stat[i];
@@ -3571,7 +3598,9 @@ spell_nightwalker(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		}
 	}
 
-	walker = create_mob(get_mob_index(MOB_VNUM_NIGHTWALKER), 0);
+	walker = create_mob(MOB_VNUM_NIGHTWALKER, 0);
+	if (walker == NULL)
+		return;
 
 	for (i = 0; i < MAX_STAT; i++)
 		walker->perm_stat[i] = ch->perm_stat[i];
@@ -3910,7 +3939,10 @@ spell_chaos_blade(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	OBJ_DATA *blade;
 	AFFECT_DATA *paf;
 
-	blade = create_obj(get_obj_index(OBJ_VNUM_CHAOS_BLADE), 0);
+	blade = create_obj(OBJ_VNUM_CHAOS_BLADE, 0);
+	if (blade == NULL)
+		return;
+
 	blade->level = level;
 	blade->timer = level * 2;
 	INT(blade->value[2]) = (level / 10) + 3;
@@ -3956,7 +3988,9 @@ spell_stalker(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act_char("You attempt to summon a stalker.", ch);
 	act("$n attempts to summon a stalker.",ch,NULL,NULL,TO_ROOM);
 
-	stalker = create_mob(get_mob_index(MOB_VNUM_STALKER), 0);
+	stalker = create_mob(MOB_VNUM_STALKER, 0);
+	if (stalker == NULL)
+		return;
 
 	paf = aff_new(TO_AFFECTS, sn);
 	paf->level	= level;
@@ -4085,11 +4119,14 @@ spell_brew(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	if (obj->item_type == ITEM_TRASH)
-		potion = create_obj(get_obj_index(OBJ_VNUM_POTION_SILVER), 0);
+		potion = create_obj(OBJ_VNUM_POTION_SILVER, 0);
 	else if (obj->item_type == ITEM_TREASURE)
-		potion = create_obj(get_obj_index(OBJ_VNUM_POTION_GOLDEN), 0);
+		potion = create_obj(OBJ_VNUM_POTION_GOLDEN, 0);
 	else
-		potion = create_obj(get_obj_index(OBJ_VNUM_POTION_SWIRLING), 0);
+		potion = create_obj(OBJ_VNUM_POTION_SWIRLING, 0);
+	if (potion == NULL)
+		return;
+
 	potion->label = str_qdup(vial->label);
 	potion->level = ch->level;
 	INT(potion->value[0]) = level;
@@ -4216,8 +4253,9 @@ spell_shadowlife(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act("$n gives life to $N's shadow!", ch, NULL, victim, TO_NOTVICT);
 	act("$n gives life to your shadow!", ch, NULL, victim, TO_VICT);
 
-	shadow = create_mob_of(get_mob_index(MOB_VNUM_SHADOW),
-			       &victim->short_descr);
+	shadow = create_mob_of(MOB_VNUM_SHADOW, &victim->short_descr);
+	if (shadow == NULL)
+		return;
 
 	for (i = 0; i < MAX_STAT; i++)
 		shadow->perm_stat[i] = ch->perm_stat[i];
@@ -4272,7 +4310,10 @@ spell_ruler_badge(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		}
 	}
 
-	badge = create_obj(get_obj_index(OBJ_VNUM_RULER_BADGE), 0);
+	badge = create_obj(OBJ_VNUM_RULER_BADGE, 0);
+	if (badge == NULL)
+		return;
+
 	badge->level = ch->level;
 
 	paf = aff_new(TO_OBJECT, sn);
@@ -4645,7 +4686,10 @@ spell_dragon_plate(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	OBJ_DATA *plate;
 	AFFECT_DATA *paf;
 
-	plate = create_obj(get_obj_index(OBJ_VNUM_PLATE), 0);
+	plate = create_obj(OBJ_VNUM_PLATE, 0);
+	if (plate == NULL)
+		return;
+
 	plate->level = ch->level;
 	plate->timer = 2 * level;
 	plate->cost  = 0;
@@ -4696,7 +4740,9 @@ spell_squire(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		}
 	}
 
-	squire = create_mob(get_mob_index(MOB_VNUM_SQUIRE), 0);
+	squire = create_mob(MOB_VNUM_SQUIRE, 0);
+	if (squire == NULL)
+		return;
 
 	for (i=0;i < MAX_STAT; i++)
 		squire->perm_stat[i] = ch->perm_stat[i];
@@ -4758,7 +4804,10 @@ spell_dragon_weapon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	sword = create_obj(get_obj_index(sword_vnum), 0);
+	sword = create_obj(sword_vnum, 0);
+	if (sword == NULL)
+		return;
+
 	sword->level = ch->level;
 	sword->timer = level * 2;
 	sword->cost  = 0;
@@ -5242,7 +5291,9 @@ spell_animate_dead(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			return;
 		}
 
-		undead_idx = get_mob_index(MOB_VNUM_UNDEAD);
+		if ((undead_idx = get_mob_index(MOB_VNUM_UNDEAD)) == NULL)
+			return;
+
 		mlstr_init2(&ml, NULL);
 		mlstr_cpy(&ml, &obj->owner);
 
@@ -5251,7 +5302,10 @@ spell_animate_dead(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		 */
 		mlstr_foreach(&ml, cb_strip, &undead_idx->short_descr);
 
-		undead = create_mob_of(undead_idx, &ml);
+		/*
+		 * create_mob_of can't return NULL here
+		 */
+		undead = create_mob_of(MOB_VNUM_UNDEAD, &ml);
 		mlstr_destroy(&ml);
 
 		for (i = 0; i < MAX_STAT; i++)
@@ -5335,7 +5389,9 @@ spell_bone_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	coc = create_mob(get_mob_index(MOB_VNUM_COCOON), 0);
+	coc = create_mob(MOB_VNUM_COCOON, 0);
+	if (coc == NULL)
+		return;
 
 	for (i = 0; i < MAX_STAT; i++)
 		coc->perm_stat[i] = 5;
@@ -5613,8 +5669,12 @@ spell_power_word_kill(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 spell_eyed_sword(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	OBJ_DATA *eyed = create_obj_of(get_obj_index(OBJ_VNUM_EYED_SWORD),
-				       &ch->short_descr);
+	OBJ_DATA *eyed;
+
+	eyed = create_obj_of(OBJ_VNUM_EYED_SWORD, &ch->short_descr);
+	if (eyed == NULL)
+		return;
+
 	eyed->level = ch->level;
 	mlstr_cpy(&eyed->owner, &ch->short_descr);
 	eyed->ed = ed_new2(eyed->pObjIndex->ed, ch->name);
@@ -5683,7 +5743,9 @@ spell_lion_help(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	lion = create_mob(get_mob_index(MOB_VNUM_HUNTER), 0);
+	lion = create_mob(MOB_VNUM_HUNTER, 0);
+	if (lion == NULL)
+		return;
 
 	for (i = 0; i < MAX_STAT; i++)
 		lion->perm_stat[i] = UMIN(25,2 * ch->perm_stat[i]);
@@ -5756,8 +5818,10 @@ spell_magic_jar(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	fire	= create_obj_of(get_obj_index(OBJ_VNUM_MAGIC_JAR),
-				&victim->short_descr);
+	fire = create_obj_of(OBJ_VNUM_MAGIC_JAR, &victim->short_descr);
+	if (fire == NULL)
+		return;
+
 	fire->label = str_qdup(vial->label);
 	fire->level = ch->level;
 	mlstr_cpy(&fire->owner, &victim->short_descr);
@@ -5906,7 +5970,6 @@ spell_protection_cold(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 spell_fire_shield(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	OBJ_INDEX_DATA *pObjIndex;
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *fire;
 
@@ -5916,8 +5979,10 @@ spell_fire_shield(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	pObjIndex = get_obj_index(OBJ_VNUM_FIRE_SHIELD);
-	fire = create_obj(pObjIndex, 0);
+	fire = create_obj(OBJ_VNUM_FIRE_SHIELD, 0);
+	if (fire == NULL)
+		return;
+
 	fire->level = ch->level;
 	label_add(fire, arg);
 
@@ -6112,7 +6177,9 @@ spell_wolf(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		}
 	}
 
-	demon = create_mob(get_mob_index(MOB_VNUM_WOLF), 0);
+	demon = create_mob(MOB_VNUM_WOLF, 0);
+	if (demon == NULL)
+		return;
 
 	for (i = 0; i < MAX_STAT; i++)
 		demon->perm_stat[i] = ch->perm_stat[i];
@@ -6334,7 +6401,9 @@ spell_flesh_golem(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		}
 	}
 
-	golem = create_mob(get_mob_index(MOB_VNUM_FLESH_GOLEM), 0);
+	golem = create_mob(MOB_VNUM_FLESH_GOLEM, 0);
+	if (golem == NULL)
+		return;
 
 	for (i = 0; i < MAX_STAT; i ++)
 		golem->perm_stat[i] = UMIN(25, 15 + level/10);
@@ -6397,7 +6466,9 @@ spell_stone_golem(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		}
 	}
 
-	golem = create_mob(get_mob_index(MOB_VNUM_STONE_GOLEM), 0);
+	golem = create_mob(MOB_VNUM_STONE_GOLEM, 0);
+	if (golem == NULL)
+		return;
 
 	for (i = 0; i < MAX_STAT; i ++)
 		golem->perm_stat[i] = UMIN(25,15 + level/10);
@@ -6458,7 +6529,9 @@ spell_iron_golem(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		}
 	}
 
-	golem = create_mob(get_mob_index(MOB_VNUM_IRON_GOLEM), 0);
+	golem = create_mob(MOB_VNUM_IRON_GOLEM, 0);
+	if (golem == NULL)
+		return;
 
 	for (i = 0; i < MAX_STAT; i ++)
 		golem->perm_stat[i] = UMIN(25, 15 + level/10);
@@ -6519,7 +6592,9 @@ spell_adamantite_golem(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		}
 	}
 
-	golem = create_mob(get_mob_index(MOB_VNUM_ADAMANTITE_GOLEM), 0);
+	golem = create_mob(MOB_VNUM_ADAMANTITE_GOLEM, 0);
+	if (golem == NULL)
+		return;
 
 	for (i = 0; i < MAX_STAT; i++)
 		golem->perm_stat[i] = UMIN(25, 15 + level/10);
@@ -6965,7 +7040,9 @@ spell_summon_shadow(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		}
 	}
 
-	shadow = create_mob(get_mob_index(MOB_VNUM_SUM_SHADOW), 0);
+	shadow = create_mob(MOB_VNUM_SUM_SHADOW, 0);
+	if (shadow == NULL)
+		return;
 
 	for (i = 0; i < MAX_STAT; i++)
 		shadow->perm_stat[i] = ch->perm_stat[i];
@@ -7062,7 +7139,10 @@ spell_mirror(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	order = number_range(0, level/5 - mirrors);
 
 	for (new_mirrors = 0; mirrors + new_mirrors < level/5; new_mirrors++) {
-		gch = create_mob(get_mob_index(MOB_VNUM_MIRROR_IMAGE), 0);
+		gch = create_mob(MOB_VNUM_MIRROR_IMAGE, 0);
+		if (gch == NULL)
+			break;
+
 		free_string(gch->name);
 		gch->name = str_qdup(victim->name);
 		mlstr_cpy(&gch->short_descr, &victim->short_descr);
@@ -7386,9 +7466,9 @@ spell_find_familiar(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	else
 		vnum = MOB_VNUM_BLACK_CROW;
 
-	for(gch=npc_list; gch; gch=gch->next) {
+	for (gch = npc_list; gch; gch = gch->next) {
 		if (IS_SET(gch->pMobIndex->act, ACT_FAMILIAR)
-		&& gch->master == ch) {
+		&&  gch->master == ch) {
 			familiar = gch;
 			new = FALSE;
 			break;
@@ -7396,7 +7476,9 @@ spell_find_familiar(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	if (!familiar) {
-		familiar = create_mob(get_mob_index(vnum), 0);
+		familiar = create_mob(vnum, 0);
+		if (familiar == NULL)
+			return;
 
 		switch(vnum) {
 		case MOB_VNUM_BLACK_CAT:
@@ -7405,7 +7487,8 @@ spell_find_familiar(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			familiar->perm_stat[STAT_DEX] = 24;
 			familiar->perm_stat[STAT_WIS] = 12;
 			familiar->perm_stat[STAT_CON] = 14;
-			familiar->perm_stat[STAT_CHA] = get_curr_stat(ch, STAT_CHA)-1;
+			familiar->perm_stat[STAT_CHA] =
+			    get_curr_stat(ch, STAT_CHA)-1;
 			break;
 		case MOB_VNUM_BLACK_CROW:
 			familiar->perm_stat[STAT_STR] = 13;
@@ -7413,9 +7496,11 @@ spell_find_familiar(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			familiar->perm_stat[STAT_DEX] = 14;
 			familiar->perm_stat[STAT_WIS] = 24;
 			familiar->perm_stat[STAT_CON] = 13;
-			familiar->perm_stat[STAT_CHA] = get_curr_stat(ch, STAT_CHA)-4;
+			familiar->perm_stat[STAT_CHA] =
+			    get_curr_stat(ch, STAT_CHA)-4;
 			break;
 		}
+
 		/* Randomize stats a bit */
 		for (i = 0; i < MAX_STAT; i++)
 			familiar->perm_stat[i] += number_range(-1, 1);
@@ -7559,7 +7644,10 @@ spell_simulacrum(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	illusion = create_mob(victim->pMobIndex, 0);
+	/*
+	 * create_mob can't return NULL here
+	 */
+	illusion = create_mob(victim->pMobIndex->vnum, 0);
 	hitp = victim->hit;
 	hitp /= 2;
 

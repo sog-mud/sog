@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.304 2001-08-03 12:21:03 fjoe Exp $
+ * $Id: handler.c,v 1.305 2001-08-05 16:36:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -374,16 +374,17 @@ obj_from_obj(OBJ_DATA *obj)
  * Create an instance of a mobile.
  */
 CHAR_DATA *
-create_mob(MOB_INDEX_DATA *pMobIndex, int flags)
+create_mob(int vnum, int flags)
 {
 	CHAR_DATA *mob;
 	int i;
 	race_t *r;
 	AFFECT_DATA *paf;
+	MOB_INDEX_DATA *pMobIndex;
 
-	if (pMobIndex == NULL) {
-		log(LOG_BUG, "create_mob: NULL pMobIndex.");
-		exit(1);
+	if ((pMobIndex = get_mob_index(vnum)) == NULL) {
+		log(LOG_BUG, "create_mob: vnum %d: no such mob", vnum);
+		return NULL;
 	}
 
 	mob = char_new(pMobIndex);
@@ -593,13 +594,15 @@ MLSTR_FOREACH_FUN(cb_xxx_of, lang, p, ap)
 }
 
 CHAR_DATA *
-create_mob_of(MOB_INDEX_DATA *pMobIndex, mlstring *owner)
+create_mob_of(int vnum, mlstring *owner)
 {
-	CHAR_DATA *mob = create_mob(pMobIndex, 0);
+	CHAR_DATA *mob;
 
-	mlstr_foreach(&mob->short_descr, cb_xxx_of, owner);
-	mlstr_foreach(&mob->long_descr, cb_xxx_of, owner);
-	mlstr_foreach(&mob->description, cb_xxx_of, owner);
+	if ((mob = create_mob(vnum, 0)) != NULL) {
+		mlstr_foreach(&mob->short_descr, cb_xxx_of, owner);
+		mlstr_foreach(&mob->long_descr, cb_xxx_of, owner);
+		mlstr_foreach(&mob->description, cb_xxx_of, owner);
+	}
 
 	return mob;
 }
@@ -612,7 +615,10 @@ clone_mob(CHAR_DATA *parent)
 	AFFECT_DATA *paf, *paf_next;
 	CHAR_DATA *clone;
 
-	clone = create_mob(parent->pMobIndex, 0);
+	/*
+	 * create_mob can't return NULL because parent->pMobIndex is not NULL
+	 */
+	clone = create_mob(parent->pMobIndex->vnum, 0);
 
 	/* start fixing values */
 	free_string(clone->name);
@@ -1037,14 +1043,15 @@ quit_char(CHAR_DATA *ch, int flags)
  * Create an instance of an object.
  */
 OBJ_DATA *
-create_obj(OBJ_INDEX_DATA *pObjIndex, int flags)
+create_obj(int vnum, int flags)
 {
 	OBJ_DATA *obj;
+	OBJ_INDEX_DATA *pObjIndex;
 	int i;
 
-	if (pObjIndex == NULL) {
-		log(LOG_BUG, "create_obj: NULL pObjIndex");
-		exit(1);
+	if ((pObjIndex = get_obj_index(vnum)) == NULL) {
+		log(LOG_BUG, "create_obj: vnum %d: no such object", vnum);
+		return NULL;
 	}
 
 	obj = new_obj();
@@ -1091,12 +1098,14 @@ create_obj(OBJ_INDEX_DATA *pObjIndex, int flags)
 }
 
 OBJ_DATA *
-create_obj_of(OBJ_INDEX_DATA *pObjIndex, mlstring *owner)
+create_obj_of(int vnum, mlstring *owner)
 {
-	OBJ_DATA *obj = create_obj(pObjIndex, 0);
+	OBJ_DATA *obj;
 
-	mlstr_foreach(&obj->short_descr, cb_xxx_of, owner);
-	mlstr_foreach(&obj->description, cb_xxx_of, owner);
+	if ((obj = create_obj(vnum, 0)) != NULL) {
+		mlstr_foreach(&obj->short_descr, cb_xxx_of, owner);
+		mlstr_foreach(&obj->description, cb_xxx_of, owner);
+	}
 
 	return obj;
 }
@@ -1109,7 +1118,10 @@ clone_obj(OBJ_DATA *parent)
 	ED_DATA *ed, *ed2;
 	OBJ_DATA *clone;
 
-	clone = create_obj(parent->pObjIndex, 0);
+	/*
+	 * create_obj can't return NULL becase parent->pObjIndex is not NULL
+	 */
+	clone = create_obj(parent->pObjIndex->vnum, 0);
 
 	/* start copying the object */
 	free_string(clone->label);
@@ -2726,9 +2738,10 @@ quaff_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	if (IS_PUMPED(ch) || ch->fighting != NULL)
 		WAIT_STATE(ch, 2 * get_pulse("violence"));
 
-	vial = create_obj(get_obj_index(OBJ_VNUM_POTION_VIAL), 0);
-	vial->label = str_qdup(obj->label);
-	obj_to_char(vial, ch);
+	if ((vial = create_obj(OBJ_VNUM_POTION_VIAL, 0)) != NULL) {
+		vial->label = str_qdup(obj->label);
+		obj_to_char(vial, ch);
+	}
 
 	obj_cast_spell(obj->value[1].s, INT(obj->value[0]), ch, ch);
 
@@ -4369,9 +4382,9 @@ static MLSTR_FOREACH_FUN(money_descr_cb, lang, p, ap)
 /*
  * Create a 'money' obj.
  */
-OBJ_DATA *create_money(int gold, int silver)
+OBJ_DATA *
+create_money(int gold, int silver)
 {
-	OBJ_INDEX_DATA *pObjIndex;
 	OBJ_DATA *obj;
 
 	if (gold < 0 || silver < 0 || (gold == 0 && silver == 0)) {
@@ -4382,34 +4395,37 @@ OBJ_DATA *create_money(int gold, int silver)
 	}
 
 	if (gold == 0 && silver == 1)
-		obj = create_obj(get_obj_index(OBJ_VNUM_SILVER_ONE), 0);
+		obj = create_obj(OBJ_VNUM_SILVER_ONE, 0);
 	else if (gold == 1 && silver == 0)
-		obj = create_obj(get_obj_index(OBJ_VNUM_GOLD_ONE), 0);
+		obj = create_obj(OBJ_VNUM_GOLD_ONE, 0);
 	else if (silver == 0) {
-		pObjIndex = get_obj_index(OBJ_VNUM_GOLD_SOME);
-		obj = create_obj(pObjIndex, 0);
-		mlstr_foreach(&obj->short_descr, money_descr_cb,
-			      gold, "gold coins", -1, NULL);
-		INT(obj->value[1]) = gold;
-		obj->cost	= 100*gold;
-		obj->weight	= gold/5;
+		if ((obj = create_obj(OBJ_VNUM_GOLD_SOME, 0)) != NULL) {
+			mlstr_foreach(
+			    &obj->short_descr, money_descr_cb,
+			    gold, "gold coins", -1, NULL);
+			INT(obj->value[1]) = gold;
+			obj->cost	= 100*gold;
+			obj->weight	= gold/5;
+		}
 	} else if (gold == 0) {
-		pObjIndex = get_obj_index(OBJ_VNUM_SILVER_SOME);
-		obj = create_obj(pObjIndex, 0);
-		mlstr_foreach(&obj->short_descr, money_descr_cb,
-			      silver, "silver coins", -1, NULL);
-		INT(obj->value[0]) = silver;
-		obj->cost	= silver;
-		obj->weight	= silver/20;
+		if ((obj = create_obj(OBJ_VNUM_SILVER_ONE, 0)) != NULL) {
+			mlstr_foreach(
+			    &obj->short_descr, money_descr_cb,
+			    silver, "silver coins", -1, NULL);
+			INT(obj->value[0]) = silver;
+			obj->cost	= silver;
+			obj->weight	= silver/20;
+		}
 	} else {
-		pObjIndex = get_obj_index(OBJ_VNUM_COINS);
-		obj = create_obj(pObjIndex, 0);
-		mlstr_foreach(&obj->short_descr, money_descr_cb,
-			      silver, "silver coins", gold, "gold coins");
-		INT(obj->value[0]) = silver;
-		INT(obj->value[1]) = gold;
-		obj->cost	= 100*gold + silver;
-		obj->weight	= gold/5 + silver/20;
+		if ((obj = create_obj(OBJ_VNUM_COINS, 0)) != NULL) {
+			mlstr_foreach(
+			    &obj->short_descr, money_descr_cb,
+			    silver, "silver coins", gold, "gold coins");
+			INT(obj->value[0]) = silver;
+			INT(obj->value[1]) = gold;
+			obj->cost	= 100*gold + silver;
+			obj->weight	= gold/5 + silver/20;
+		}
 	}
 
 	return obj;
@@ -4937,11 +4953,10 @@ find_char(CHAR_DATA *ch, const char *argument, int door, int range)
  * 'n' - number
  */
 CHAR_DATA *
-get_char_spell(CHAR_DATA *ch, const char *argument, void *arg, int range)
+get_char_spell(CHAR_DATA *ch, const char *argument, int *door, int range)
 {
 	char buf[MAX_INPUT_LENGTH];
 	char *p;
-	int *door = (int *) arg;
 
 	p = strchr(argument, '.');
 	if (!p) {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.c,v 1.23 2001-08-02 18:20:17 fjoe Exp $
+ * $Id: module.c,v 1.24 2001-08-05 16:37:00 fjoe Exp $
  */
 
 /*
@@ -55,6 +55,8 @@ static DECLARE_FOREACH_CB(mod_lookup_cb);
 static DECLARE_FOREACH_CB(boot_load_cb);
 static DECLARE_FOREACH_CB(boot_cb);
 
+static DECLARE_FOREACH_CB(checkdep_cb);
+
 static int	modset_add	(varr *v, module_t *m, time_t curr_time);
 static module_t *modset_search	(varr *v, const char *name);
 static int	modset_elem_cmp	(const void *, const void *);
@@ -68,7 +70,7 @@ static varrdata_t v_modset = {
 };
 
 int
-mod_load(module_t* m, time_t curr_time)
+mod_reload(module_t* m, time_t curr_time)
 {
 	varr v;
 
@@ -84,6 +86,23 @@ mod_load(module_t* m, time_t curr_time)
 	varr_foreach(&v, mod_load_cb);
 
 	varr_destroy(&v);
+	return 0;
+}
+
+int
+mod_unload(module_t *m)
+{
+	module_t *m_dep;
+
+	if ((m_dep = varr_foreach(&modules, checkdep_cb, m->name)) != NULL) {
+		log(LOG_ERROR, "modules `%s' (%s) can't be unloaded: module `%s' (%s) depends on it",
+		    m->name, m->file_name, m_dep->name, m_dep->file_name);
+		return -1;
+	}
+
+	dlclose(m->dlh);
+	m->dlh = NULL;
+	log(LOG_INFO, "module `%s' (%s) unloaded", m->name, m->file_name);
 	return 0;
 }
 
@@ -239,7 +258,7 @@ FOREACH_CB_FUN(mod_load_cb, arg, ap)
 	 * update `last_reload' time
 	 */
 	time(&m->last_reload);
-	log(LOG_INFO, "loaded module `%s' (%s)", m->name, m->file_name);
+	log(LOG_INFO, "module `%s' (%s) loaded", m->name, m->file_name);
 	return NULL;
 }
 
@@ -286,7 +305,7 @@ FOREACH_CB_FUN(boot_load_cb, p, ap)
 
 	time_t curr_time = va_arg(ap, time_t);
 
-	if (mod_load(m, curr_time) < 0)
+	if (mod_reload(m, curr_time) < 0)
 		exit(1);
 
 	return NULL;
@@ -382,6 +401,26 @@ FOREACH_CB_FUN(modset_search_cb, p, ap)
 	const char *name = va_arg(ap, const char *);
 
 	if (!str_cmp(name, m->name))
+		return m;
+
+	return NULL;
+}
+
+static
+FOREACH_CB_FUN(checkdep_cb, p, ap)
+{
+	module_t *m = (module_t *) p;
+
+	const char *name = va_arg(ap, const char *);
+
+	/*
+	 * skip self and not loaded modules
+	 */
+	if (m->dlh == NULL
+	||  !str_cmp(m->name, name))
+		return NULL;
+
+	if (is_name_strict(name, m->mod_deps))
 		return m;
 
 	return NULL;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_system.c,v 1.19 2001-08-02 18:20:00 fjoe Exp $
+ * $Id: db_system.c,v 1.20 2001-08-05 16:36:30 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -40,7 +40,7 @@
 
 #include <merc.h>
 #include <module.h>
-#include <bootdb.h>
+#include <db.h>
 #include <rwfile.h>
 
 DECLARE_DBLOAD_FUN(load_system);

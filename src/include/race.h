@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.h,v 1.33 2001-07-30 13:01:46 fjoe Exp $
+ * $Id: race.h,v 1.34 2001-08-05 16:36:23 fjoe Exp $
  */
 
 #ifndef _RACE_H_
@@ -81,6 +81,7 @@ struct rclass_t {
 };
 
 extern hash_t races;
+extern hashdata_t h_races;
 
 #define race_lookup(rn)	((race_t*) strkey_lookup(&races, (rn)))
 #define race_search(rn) ((race_t*) strkey_search(&races, (rn)))

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: reset.c,v 1.1 2001-07-31 14:56:12 fjoe Exp $
+ * $Id: reset.c,v 1.2 2001-08-05 16:36:43 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -138,7 +138,11 @@ reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 				break;
 			}
 
-			last_mob = create_mob(pMobIndex, 0);
+			/*
+			 * create_mob can't return NULL because
+			 * get_mob_index returned not NULL
+			 */
+			last_mob = create_mob(pMobIndex->vnum, 0);
 			NPC(last_mob)->zone = pRoom->area;
 			char_to_room(last_mob, pRoom);
 			if (IS_EXTRACTED(last_mob)) {
@@ -183,7 +187,11 @@ reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 				break;
 			}
 
-			last_obj = create_obj(pObjIndex, 0);
+			/*
+			 * create_obj can't fail here because get_obj_index
+			 * returned not NULL
+			 */
+			last_obj = create_obj(pObjIndex->vnum, 0);
 			if (pReset->command == 'G'
 			&&  last_mob->pMobIndex->pShop) /* Shop-keeper? */
 				SET_OBJ_STAT(last_obj, ITEM_INVENTORY);
@@ -223,7 +231,11 @@ reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 				break;
 			}
 
-			last_obj = create_obj(pObjIndex, 0);
+			/*
+			 * create_obj can't fail here because get_obj_index
+			 * returned not NULL
+			 */
+			last_obj = create_obj(pObjIndex->vnum, 0);
 			last_obj->cost = 0;
 			lobj = TRUE;
 			obj_to_room(last_obj, pRoom);
@@ -272,7 +284,11 @@ reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 				clan = hash_foreach(&clans, clan_item_cb,
 						    pObjIndex);
 				if (clan != NULL) {
-					obj = create_obj(pObjIndex, 0);
+					/*
+					 * create_obj can't fail here because
+					 * get_obj_index returned not NULL
+					 */
+					obj = create_obj(pObjIndex->vnum, 0);
 					clan->obj_ptr = obj;
 					clan->altar_ptr = obj;
 					obj_to_obj(obj, last_obj);
@@ -289,7 +305,11 @@ reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 				     pObjIndex->count >= pObjIndex->limit))
 					break;
 
-				obj = create_obj(pObjIndex, 0);
+				/*
+				 * create_obj can't fail here because
+				 * get_obj_index returned not NULL
+				 */
+				obj = create_obj(pObjIndex->vnum, 0);
 				obj_to_obj(obj, last_obj);
 				count++;
 			}

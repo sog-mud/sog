@@ -23,13 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_cmd.c,v 1.12 2001-08-02 18:19:56 fjoe Exp $
+ * $Id: db_cmd.c,v 1.13 2001-08-05 16:36:27 fjoe Exp $
  */
 
 #include <stdio.h>
 
 #include <merc.h>
-#include <bootdb.h>
+#include <db.h>
 #include <rwfile.h>
 
 DECLARE_DBLOAD_FUN(load_cmd);
@@ -43,14 +43,6 @@ DBFUN dbfun_cmd[] =
 };
 
 DBDATA db_cmd = { dbfun_cmd, init_cmds, 0 };
-
-static varrdata_t v_commands =
-{
-	sizeof(cmd_t), 16,
-	(e_init_t) cmd_init,
-	(e_destroy_t) cmd_destroy,
-	(e_cpy_t) cmd_cpy
-};
 
 DBINIT_FUN(init_cmds)
 {

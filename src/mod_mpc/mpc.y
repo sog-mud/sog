@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.20 2001-08-03 11:27:42 fjoe Exp $
+ * $Id: mpc.y,v 1.21 2001-08-05 16:36:48 fjoe Exp $
  */
 
 /*
@@ -58,6 +58,7 @@
 #include <strkey_hash.h>
 #include <log.h>
 #include <util.h>
+#include <flag.h>
 
 #if defined(MPC)
 #include <module.h>
@@ -180,8 +181,8 @@ code3(prog_t *prog,
 #define OP_INVALID_OPERAND(opname, type_tag)				\
 	do {								\
 		compile_error(prog,					\
-		    "invalid operand for '%s' (%d)",			\
-		    (opname), (type_tag));				\
+		    "invalid operand for '%s' (type '%s')",		\
+		    (opname), flag_string(mpc_types, (type_tag)));	\
 		YYERROR;						\
 	} while (0)
 
@@ -202,8 +203,10 @@ code3(prog_t *prog,
 	do {								\
 		if ((type_tag1) != (type_tag2)) {			\
 			compile_error(prog,				\
-			    "invalid operand types for '%s' (%d vs. %d)",\
-			    (opname), (type_tag1), (type_tag2));	\
+			    "invalid operand types for '%s' ('%s' and '%s')",\
+			    (opname),					\
+			    flag_string(mpc_types, (type_tag1)),	\
+			    flag_string(mpc_types, (type_tag2)));	\
 			YYERROR;					\
 		}							\
 	} while (0)
@@ -612,9 +615,10 @@ foreach: L_FOREACH {
 			int got_type = argtype_get(prog, $8, i);
 			if (got_type != $6->init.argtype[i].type_tag) {
 				compile_error(prog,
-				    "%s: invalid arg %d type %d (%d expected)",
-				    $6->init.name, i+1, got_type,
-				    $6->init.argtype[i].type_tag);
+				    "%s: invalid arg[%d] type '%s' ('%s' expected)",
+				    $6->init.name, i+1,
+				    flag_string(mpc_types, got_type),
+				    flag_string(mpc_types, $6->init.argtype[i].type_tag));
 				YYERROR;
 			}
 		}
@@ -752,8 +756,9 @@ expr:	L_IDENT assign expr %prec '=' {
 
 		SYM_LOOKUP(sym, $1, SYM_VAR);
 		if (sym->s.var.type_tag != $3) {
-			compile_error(prog, "type mismatch (%d vs. %d)",
-			    sym->s.var.type_tag, $3);
+			compile_error(prog, "type mismatch ('%s' vs. '%s')",
+			    flag_string(mpc_types, sym->s.var.type_tag),
+			    flag_string(mpc_types, $3));
 			YYERROR;
 		}
 
@@ -792,8 +797,10 @@ expr:	L_IDENT assign expr %prec '=' {
 			if (got_type != d->argtype[i].type_tag
 			&&  d->argtype[i].type_tag != MT_PVOID) {
 				compile_error(prog,
-				    "%s: invalid arg %d type %d (%d expected)",
-				    $1, i+1, got_type, d->argtype[i].type_tag);
+				    "%s: invalid arg[%d] type '%s' (%s expected)",
+				    $1, i+1,
+				    flag_string(mpc_types, got_type),
+				    flag_string(mpc_types, d->argtype[i].type_tag));
 				YYERROR;
 			}
 			code(prog, (void *) d->argtype[i].type_tag);

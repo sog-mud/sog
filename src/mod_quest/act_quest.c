@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.157 2001-08-02 18:38:42 fjoe Exp $
+ * $Id: act_quest.c,v 1.158 2001-08-05 16:36:53 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -129,7 +129,8 @@ qcmd_t qcmd_table[] = {
 /*
  * The main quest function
  */
-void do_quest(CHAR_DATA *ch, const char *argument)
+void
+do_quest(CHAR_DATA *ch, const char *argument)
 {
 	char cmd[MAX_INPUT_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
@@ -159,7 +160,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 	}
-		
+
 	act_puts("QUEST COMMANDS:",				// notrans
 		 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 	for (qcmd = qcmd_table; qcmd->name != NULL; qcmd++) {
@@ -170,8 +171,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 	act_char("For more information, type: help quests.", ch);
 }
 
-static inline
-void
+static inline void
 chquest_status(CHAR_DATA *ch)
 {
 	chquest_t *q;
@@ -223,7 +223,8 @@ chquest_status(CHAR_DATA *ch)
 	buf_free(buf);
 }
 
-void do_chquest(CHAR_DATA *ch, const char *argument)
+void
+do_chquest(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
@@ -310,7 +311,8 @@ void do_chquest(CHAR_DATA *ch, const char *argument)
  * local functions
  */
 
-static CHAR_DATA* questor_lookup(CHAR_DATA *ch)
+static CHAR_DATA *
+questor_lookup(CHAR_DATA *ch)
 {
 	CHAR_DATA *vch;
 	CHAR_DATA *questor = NULL;
@@ -349,14 +351,16 @@ static CHAR_DATA* questor_lookup(CHAR_DATA *ch)
  * quest do functions
  */
 
-static void quest_points(CHAR_DATA *ch, char* arg)
+static void
+quest_points(CHAR_DATA *ch, char *arg)
 {
 	act_puts("You have {W$j{x $qj{quest points}.",
 		 ch, (const void*) PC(ch)->questpoints, NULL,
 		 TO_CHAR, POS_DEAD);
 }
 
-static void quest_info(CHAR_DATA *ch, char* arg)
+static void
+quest_info(CHAR_DATA *ch, char *arg)
 {
 	if (!IS_ON_QUEST(ch)) {
 		act_char("You aren't currently on a quest.", ch);
@@ -370,59 +374,54 @@ static void quest_info(CHAR_DATA *ch, char* arg)
 	}
 
 	if (PC(ch)->questobj > 0) {
-		OBJ_INDEX_DATA *qinfoobj;
+		OBJ_DATA *obj;
+		ROOM_INDEX_DATA *qroom;
 
-		qinfoobj = get_obj_index(PC(ch)->questobj);
-		if (qinfoobj != NULL) {
-			OBJ_DATA *obj = create_obj(qinfoobj, 0);
-			ROOM_INDEX_DATA *qroom;
+		if ((obj = create_obj(PC(ch)->questobj, 0)) == NULL)
+			return;
 
+		act_puts(
+		    "You are on a quest to recover the fabled {W$p{x!",
+		    ch, obj, NULL, TO_CHAR | ACT_FORMSH, POS_DEAD);
+		extract_obj(obj, 0);
+
+		if (PC(ch)->qroom_vnum
+		&&  (qroom = get_room_index(PC(ch)->qroom_vnum))) {
 			act_puts(
-			    "You are on a quest to recover the fabled {W$p{x!",
-			    ch, obj, NULL, TO_CHAR | ACT_FORMSH, POS_DEAD);
-			extract_obj(obj, 0);
-
-			if (PC(ch)->qroom_vnum
-			&&  (qroom = get_room_index(PC(ch)->qroom_vnum))) {
-				act_puts(
-				    "That location is in general area of "
-				    "{W$T{x for {W$r{x.",
-				    ch, qroom, qroom->area->name,
-				    TO_CHAR, POS_DEAD);
-			}
-		} else
-			act_char("You aren't currently on a quest.", ch);
+			    "That location is in general area of "
+			    "{W$T{x for {W$r{x.",
+			    ch, qroom, qroom->area->name,
+			    TO_CHAR, POS_DEAD);
+		}
 		return;
 	}
 
 	if (PC(ch)->questmob > 0) {
-		MOB_INDEX_DATA *questinfo;
+		CHAR_DATA *mob;
+		ROOM_INDEX_DATA *qroom;
 
-		questinfo = get_mob_index(PC(ch)->questmob);
-		if (questinfo != NULL) {
-			CHAR_DATA *mob = create_mob(questinfo, 0);
-			ROOM_INDEX_DATA *qroom;
+		if ((mob = create_mob(PC(ch)->questmob, 0)) == NULL)
+			return;
 
+		act_puts(
+		    "You are on a quest to slay the dreaded {W$N{x!",
+		    ch, NULL, mob, TO_CHAR | ACT_FORMSH, POS_DEAD);
+		extract_char(mob, 0);
+
+		if (PC(ch)->qroom_vnum
+		&&  (qroom = get_room_index(PC(ch)->qroom_vnum))) {
 			act_puts(
-			    "You are on a quest to slay the dreaded {W$N{x!",
-			    ch, NULL, mob, TO_CHAR | ACT_FORMSH, POS_DEAD);
-			extract_char(mob, 0);
-
-			if (PC(ch)->qroom_vnum
-			&&  (qroom = get_room_index(PC(ch)->qroom_vnum))) {
-				act_puts(
-				    "That location is in general area of "
-				    "{W$T{x for {W$r{x.",
-				    ch, qroom, qroom->area->name,
-				    TO_CHAR, POS_DEAD);
-			}
-		} else
-			act_char("You aren't currently on a quest.", ch);
+			    "That location is in general area of "
+			    "{W$T{x for {W$r{x.",
+			    ch, qroom, qroom->area->name,
+			    TO_CHAR, POS_DEAD);
+		}
 		return;
 	}
 }
 
-static void quest_time(CHAR_DATA *ch, char* arg)
+static void
+quest_time(CHAR_DATA *ch, char* arg)
 {
 	if (!IS_ON_QUEST(ch)) {
 		act_char("You aren't currently on a quest.", ch);
@@ -443,7 +442,8 @@ static void quest_time(CHAR_DATA *ch, char* arg)
 	}
 }
 
-static void quest_list(CHAR_DATA *ch, char *arg)
+static void
+quest_list(CHAR_DATA *ch, char *arg)
 {
 	CHAR_DATA *questor;
 	qitem_t *qitem;
@@ -471,7 +471,8 @@ static void quest_list(CHAR_DATA *ch, char *arg)
 	act_char("To buy an item, type 'QUEST BUY <item>'.", ch);
 }
 
-static void quest_buy(CHAR_DATA *ch, char *arg)
+static void
+quest_buy(CHAR_DATA *ch, char *arg)
 {
 	CHAR_DATA *questor;
 	qitem_t *qitem;
@@ -518,7 +519,8 @@ static void quest_buy(CHAR_DATA *ch, char *arg)
 
 #define MAX_QMOB_COUNT 512
 
-static void quest_request(CHAR_DATA *ch, char *arg)
+static void
+quest_request(CHAR_DATA *ch, char *arg)
 {
 	int i;
 	CHAR_DATA *mobs[MAX_QMOB_COUNT];
@@ -537,8 +539,8 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 	if (IS_ON_QUEST(ch)) {
 		act_puts("    But you are already on a quest!",
 			 questor, NULL, ch, TO_VICT, POS_DEAD);
-    		return;
-	} 
+		return;
+	}
 
 	if (PC(ch)->questtime < 0) {
 		act_puts("    You're very brave, $N, but let someone else "
@@ -610,7 +612,10 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 			i = 1;
 
 		obj_vnum = number_range(QUEST_OBJ_FIRST, QUEST_OBJ_LAST);
-		eyed = create_obj(get_obj_index(obj_vnum), 0);
+		eyed = create_obj(obj_vnum, 0);
+		if (eyed == NULL)
+			return;
+
 		eyed->level = ch->level;
 		mlstr_cpy(&eyed->owner, &ch->short_descr);
 		eyed->ed = ed_new2(eyed->pObjIndex->ed, ch->name);
@@ -629,8 +634,7 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		act_puts3("    Look in the general area of {W$t{x for {W$R{x!",
 			  questor, victim->in_room->area->name, ch,
 			  victim->in_room, TO_VICT, POS_DEAD);
-	}
-	else {	/* Quest to kill a mob */
+	} else {	/* Quest to kill a mob */
 		if (IS_GOOD(ch)) {
 			act_puts("    Rune's most heinous criminal, {W$i{x,\n"
 				 "    has escaped from the dungeon.",
@@ -644,8 +648,7 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 			act_puts("    The penalty for this crime is death, "
 				 "and you are to deliver the sentence!",
 				 questor, victim, ch, TO_VICT, POS_DEAD);
-		}
-		else {
+		} else {
 			act_puts("    An enemy of mine, {W$i{x,\n"
 				 "    is making vile threats against the crown.",
 				 questor, victim, ch,
@@ -674,7 +677,8 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		 questor, NULL, ch, TO_VICT, POS_DEAD);
 }
 
-static void quest_complete(CHAR_DATA *ch, char *arg)
+static void
+quest_complete(CHAR_DATA *ch, char *arg)
 {
 	bool complete = FALSE;
 	CHAR_DATA *questor;
@@ -757,7 +761,8 @@ static void quest_complete(CHAR_DATA *ch, char *arg)
 	PC(ch)->questtime = -number_range(8, 12);
 }
 
-static void quest_trouble(CHAR_DATA *ch, char *arg)
+static void
+quest_trouble(CHAR_DATA *ch, char *arg)
 {
 	CHAR_DATA *questor;
 	qitem_t *qitem;
@@ -785,7 +790,8 @@ static void quest_trouble(CHAR_DATA *ch, char *arg)
 		 questor, NULL, ch, TO_VICT, POS_DEAD);
 }
 
-static void quest_chquest(CHAR_DATA *ch, char *arg)
+static void
+quest_chquest(CHAR_DATA *ch, char *arg)
 {
 	CHAR_DATA *questor;
 	bool found;
@@ -880,8 +886,8 @@ qtrouble_cb(void *vo, va_list ap)
 	return NULL;
 }
 
-static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
-			    int item_vnum, int count_max)
+static bool
+quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor, int item_vnum, int count_max)
 {
 	OBJ_DATA *reward;
 	qtrouble_t *qt;
@@ -929,7 +935,10 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 		}
 	}
 
-	reward = create_obj(pObjIndex, 0);
+	/*
+	 * create_obj can't return NULL because pObjIndex is not NULL
+	 */
+	reward = create_obj(pObjIndex->vnum, 0);
 
 	/* update quest trouble data */
 	if (qt && count_max) {
@@ -983,11 +992,12 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 	return TRUE;
 }
 
-static bool buy_gold(CHAR_DATA *ch, CHAR_DATA *questor)
+static
+bool buy_gold(CHAR_DATA *ch, CHAR_DATA *questor)
 {
 	PC(ch)->bank_g += 50000;
 	act("$N gives 50,000 gold pieces to $n.", ch, NULL, questor, TO_ROOM);
-	act("$N transfers 50,000 gold pieces to your bank account.",ch, NULL, questor, TO_CHAR);
+	act("$N transfers 50,000 gold pieces to your bank account.",
+	    ch, NULL, questor, TO_CHAR);
 	return TRUE;
 }
-

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: damtype.h,v 1.11 2001-07-08 17:18:42 fjoe Exp $
+ * $Id: damtype.h,v 1.12 2001-08-05 16:36:18 fjoe Exp $
  */
 
 #ifndef _DAMTYPE_H_
@@ -71,6 +71,7 @@ struct damtype_t {
 };
 
 extern hash_t damtypes;
+extern hashdata_t h_damtypes;
 
 void damtype_init(damtype_t *d);
 damtype_t *damtype_cpy(damtype_t *dst, const damtype_t *src);

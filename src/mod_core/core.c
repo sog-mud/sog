@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: core.c,v 1.24 2001-08-03 12:20:59 fjoe Exp $
+ * $Id: core.c,v 1.25 2001-08-05 16:36:32 fjoe Exp $
  */
 
 #include <errno.h>
@@ -37,7 +37,7 @@
 
 #include <handler.h>
 
-#include "core.h"
+#include <core.h>
 
 void
 do_modules(CHAR_DATA *ch, const char *argument)
@@ -68,13 +68,20 @@ do_modules(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
+		if (m->dlh == NULL) {
+			act_puts("$t: module was unloaded and can't be reloaded.",
+				 ch, arg, NULL,
+				 TO_CHAR | ACT_NOUCASE | ACT_NOTRANS, POS_DEAD);
+			return;
+		}
+
 		log(LOG_INFO, "do_modules: reloading module '%s'", m->name);
 		act_puts("Reloading module '$t'.",
 			 ch, m->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 
 		log_setchar(ch);
 		time(&curr_time);
-		if (!mod_load(m, curr_time))
+		if (!mod_reload(m, curr_time))
 			act_char("Ok.", ch);
 		log_unsetchar();
 		return;
@@ -98,8 +105,9 @@ do_modules(CHAR_DATA *ch, const char *argument)
 			buf_printf(buf, BUF_END, "%9s %4d [%24s] %s\n", // notrans
 				   m->name,
 				   m->mod_prio,
-				   m->last_reload ?
-					strtime(m->last_reload) : "never",
+				   m->dlh == NULL ? "module was unloaded" :
+				   m->last_reload ? strtime(m->last_reload) :
+						    "never",
 				   m->mod_deps);
 		}
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.33 2001-08-02 18:20:16 fjoe Exp $
+ * $Id: lang.c,v 1.34 2001-08-05 16:36:59 fjoe Exp $
  */
 
 #include <string.h>
@@ -146,6 +146,19 @@ word_form(const char *word, uint fnum, size_t lang, int rulecl)
 }
 
 hash_t msgdb;
+
+hashdata_t h_msgdb =
+{
+	sizeof(mlstring), 1,
+	(e_init_t) mlstr_init,
+	(e_destroy_t) mlstr_destroy,
+	(e_cpy_t) mlstr_cpy,
+
+	STRKEY_HASH_SIZE,
+	k_hash_csstr,
+	ke_cmp_csmlstr
+};
+
 
 const char *
 GETMSG(const char *msg, size_t lang)
@@ -351,6 +364,14 @@ rulecl_init(lang_t *l, size_t rulecl)
  * lang_t functions
  */
 varr langs;
+
+varrdata_t v_langs =
+{
+	sizeof(lang_t), 2,
+	(e_init_t) lang_init,
+	NULL,
+	NULL
+};
 
 void
 lang_init(lang_t *l)

@@ -23,21 +23,21 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: memalloc.c,v 1.10 2001-06-21 16:16:59 avn Exp $
+ * $Id: memalloc.c,v 1.11 2001-08-05 16:37:00 fjoe Exp $
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "typedef.h"
-#include "log.h"
-#include "memalloc.h"
+#include <typedef.h>
+#include <log.h>
+#include <memalloc.h>
 
 #define GET_CHUNK(p) ((memchunk_t*)					\
 		(((char*)(uintptr_t)(p)) - sizeof(memchunk_t)))
 
 void *
-mem_alloc2(int mem_type, size_t mem_len, size_t mem_prealloc)
+mem_alloc2(int type_tag, size_t mem_len, size_t mem_prealloc)
 {
 	char *p;
 	memchunk_t *m;
@@ -47,7 +47,7 @@ mem_alloc2(int mem_type, size_t mem_len, size_t mem_prealloc)
 		return NULL;
 
 	m = (memchunk_t*) (p + mem_prealloc);
-	m->mem_type = mem_type;
+	m->mem_type = type_tag;
 	m->mem_sign = MEM_VALID;
 	m->mem_prealloc = mem_prealloc;
 	m->mem_tags = 0;
@@ -72,16 +72,25 @@ mem_free(const void *p)
 	free(((char*) m) - m->mem_prealloc);
 }
 
-bool
-mem_is(const void *p, int mem_type)
+int
+mem_type(const void *p)
 {
 	memchunk_t *m;
 
 	if (p == NULL)
-		return FALSE;
+		return MT_NONE;
 
 	m = GET_CHUNK(p);
-	return (m->mem_sign == MEM_VALID && m->mem_type == mem_type);
+	if (m->mem_sign != MEM_VALID)
+		return MT_NONE;
+
+	return m->mem_type;
+}
+
+bool
+mem_is(const void *p, int type_tag)
+{
+	return mem_type(p) == type_tag;
 }
 
 void

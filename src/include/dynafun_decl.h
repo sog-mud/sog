@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun_decl.h,v 1.14 2001-08-03 12:20:54 fjoe Exp $
+ * $Id: dynafun_decl.h,v 1.15 2001-08-05 16:36:19 fjoe Exp $
  */
 
 /* no #ifdef _XXX_H_/#define _XXX_H_/#endif */
@@ -112,22 +112,22 @@
 
 /* (const void *) */
 #undef pcvoid_t_tag
-#define pcvoid_t_tag MT_PVOID
+#define pcvoid_t_tag MT_PCVOID
 #undef pcvoid_t_tag_t
 #define pcvoid_t_tag_t const void *
 
 #undef int_tag
 #define int_tag	MT_INT
 #undef int_tag_t
-#define int_tag_t	int
+#define int_tag_t int
 
 #undef actopt_t_tag
-#define actopt_t_tag MT_PVOID
+#define actopt_t_tag MT_ACTOPT
 #undef actopt_t_tag_t
 #define actopt_t_tag_t actopt_t *
 
 #undef bool_tag
-#define bool_tag MT_INT
+#define bool_tag MT_BOOL
 #undef bool_tag_t
 #define bool_tag_t bool
 
@@ -139,25 +139,30 @@
 
 /* (const char **) */
 #undef pcchar_t_tag
-#define pcchar_t_tag MT_PVOID
+#define pcchar_t_tag MT_PCCHAR
 #undef pcchar_t_tag_t
 #define pcchar_t_tag_t const char **
 
 /* (char *) */
 #undef pchar_t_tag
-#define pchar_t_tag MT_PVOID
+#define pchar_t_tag MT_PCHAR
 #undef pchar_t_tag_t
 #define pchar_t_tag_t char *
 
 #undef gmlstr_t_tag
-#define gmlstr_t_tag MT_PVOID
+#define gmlstr_t_tag MT_GMLSTR
 #undef gmlstr_t_tag_t
 #define gmlstr_t_tag_t gmlstr_t *
 
 #undef mlstring_tag
-#define mlstring_tag MT_PVOID
+#define mlstring_tag MT_MLSTRING
 #undef mlstring_tag_t
 #define mlstring_tag_t mlstring *
+
+#undef pint_t_tag
+#define pint_t_tag MT_PINT
+#undef pint_t_tag_t
+#define pint_t_tag_t int *
 
 #undef size_t_tag
 #define size_t_tag MT_SIZE_T
@@ -165,7 +170,7 @@
 #define size_t_tag_t size_t
 
 #undef spec_skill_t_tag
-#define spec_skill_t_tag MT_PVOID
+#define spec_skill_t_tag MT_SPEC_SKILL
 #undef spec_skill_t_tag_t
 #define spec_skill_t_tag_t spec_skill_t *
 

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.153 2001-07-08 20:16:35 fjoe Exp $
+ * $Id: tables.c,v 1.154 2001-08-05 16:37:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1466,6 +1466,37 @@ flaginfo_t olc_flags[] =
 
 	{ "raw_strings",	OLC_MODE_RAW,			TRUE	},
 	{ "brief_ashow",	OLC_MODE_TRANS,			TRUE	},
+
+	{ NULL, 0, FALSE }
+};
+
+flaginfo_t mt_types[] =
+{
+	{ "",			TABLE_INTVAL,			FALSE	},
+
+	{ "void",		MT_VOID,			FALSE	},
+	{ "void *",		MT_PVOID,			FALSE	},
+	{ "int",		MT_INT,				FALSE	},
+	{ "const char *",	MT_STR,				FALSE	},
+	{ "CHAR_DATA *",	MT_CHAR,			FALSE	},
+	{ "OBJ_DATA *",		MT_OBJ,				FALSE	},
+	{ "ROOM_INDEX_DATA *",	MT_ROOM,			FALSE	},
+	{ "AREA_DATA *",	MT_AREA,			FALSE	},
+	{ "AFFECT_DATA *",	MT_AFFECT,			FALSE	},
+	{ "BUFFER *",		MT_BUFFER,			FALSE	},
+	{ "OBJ_INDEX_DATA *",	MT_OBJ_INDEX,			FALSE	},
+	{ "MOB_INDEX_DATA *",	MT_MOB_INDEX,			FALSE	},
+	{ "va_list",		MT_VA_LIST,			FALSE	},
+	{ "size_t",		MT_SIZE_T,			FALSE	},
+	{ "bool",		MT_BOOL,			FALSE	},
+	{ "const void *",	MT_PCVOID,			FALSE	},
+	{ "actopt_t *",		MT_ACTOPT,			FALSE	},
+	{ "const char **",	MT_PCCHAR,			FALSE	},
+	{ "char *",		MT_PCHAR,			FALSE	},
+	{ "gmlstr_t *",		MT_GMLSTR,			FALSE	},
+	{ "mlstring *",		MT_MLSTRING,			FALSE	},
+	{ "int *",		MT_PINT,			FALSE	},
+	{ "spec_skill_t *",	MT_SPEC_SKILL,			FALSE	},
 
 	{ NULL, 0, FALSE }
 };

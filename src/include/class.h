@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.h,v 1.30 2001-07-08 17:18:41 fjoe Exp $
+ * $Id: class.h,v 1.31 2001-08-05 16:36:18 fjoe Exp $
  */
 
 #ifndef _CLASS_H_
@@ -66,15 +66,16 @@ struct pose_t {
 #define CLASS_CHANGED		(Z)	/* OLC internal flag */
 
 extern hash_t classes;
+extern hashdata_t h_classes;
+
+void	class_init	(class_t *cl);
+class_t *class_cpy	(class_t *dst, const class_t *src);
+void	class_destroy	(class_t *cl);
 
 #define class_lookup(cn)	((class_t*) strkey_lookup(&classes, (cn)))
 #define class_search(cn)	((class_t*) strkey_search(&classes, (cn)))
 
 #define IS_CLASS(cl1, cl2)	(!str_cmp((cl1), (cl2)))
-
-void	class_init	(class_t *cl);
-class_t *class_cpy	(class_t *dst, const class_t *src);
-void	class_destroy	(class_t *cl);
 
 const char *	class_who_name(CHAR_DATA *ch);
 bool		can_flee(CHAR_DATA *ch);

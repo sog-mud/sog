@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.247 2001-08-03 11:27:35 fjoe Exp $
+ * $Id: act_obj.c,v 1.248 2001-08-05 16:36:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -385,7 +385,9 @@ void do_drop(CHAR_DATA * ch, const char *argument)
 			}
 		}
 
-		obj = create_money(gold, silver);
+		if ((obj = create_money(gold, silver)) == NULL)
+			return;
+
 		obj_to_room(obj, ch->in_room);
 		act("$n drops some coins.", ch, NULL, NULL,
 		    TO_ROOM | (HAS_INVIS(ch, ID_SNEAK) ? ACT_NOMORTAL : 0));
@@ -1952,7 +1954,11 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 	}
 
 	deduct_cost(ch, cost);
-	pet = create_mob(pet->pMobIndex, 0);
+
+	/*
+	 * create_mob can't return NULL here
+	 */
+	pet = create_mob(pet->pMobIndex->vnum, 0);
 	pet->comm = COMM_NOTELL;
 	pet->chan = CHAN_NOSHOUT | CHAN_NOCHANNELS;
 
@@ -2088,9 +2094,13 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 	keeper->silver += cost * number - (cost * number / 100) * 100;
 
 	for (count = 0; count < number; count++) {
-		if (IS_OBJ_STAT(obj, ITEM_INVENTORY))
-			t_obj = create_obj(obj->pObjIndex, 0);
-		else {
+		if (IS_OBJ_STAT(obj, ITEM_INVENTORY)) {
+			/*
+			 * create_obj can't return NULL because
+			 * obj->pObjIndex is not NULL
+			 */
+			t_obj = create_obj(obj->pObjIndex->vnum, 0);
+		} else {
 			t_obj = obj;
 			obj = obj->next_content;
 			obj_from_char(t_obj);
@@ -2747,9 +2757,10 @@ void do_butcher(CHAR_DATA * ch, const char *argument)
 		check_improve(ch, "butcher", TRUE, 1);
 
 		for (i = 0; i < numsteaks; i++) {
-			steak = create_obj_of(get_obj_index(OBJ_VNUM_STEAK),
-					      &obj->short_descr);
-			obj_to_room(steak, ch->in_room);
+			steak = create_obj_of(
+			    OBJ_VNUM_STEAK, &obj->short_descr);
+			if (steak != NULL)
+				obj_to_room(steak, ch->in_room);
 		}
 	} else {
 		act("You fail and destroy $p.", ch, obj, NULL, TO_CHAR);
@@ -2832,8 +2843,10 @@ void do_crucify(CHAR_DATA *ch, const char *argument)
 	} else {
 		AFFECT_DATA *paf;
 
-		cross = create_obj_of(get_obj_index(OBJ_VNUM_CROSS),
-				      &obj->owner);
+		cross = create_obj_of(OBJ_VNUM_CROSS, &obj->owner);
+		if (cross == NULL)
+			return;
+
 		obj_to_room(cross, ch->in_room);
 		act("With a crunch of bone and splash of blood you nail "
 		    "$p to a sacrificial cross.", ch, obj, NULL, TO_CHAR);
@@ -3820,15 +3833,15 @@ void do_outfit(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((obj = get_eq_char(ch, WEAR_LIGHT)) == NULL
-	&&  (obj = create_obj(get_obj_index(OBJ_VNUM_SCHOOL_BANNER), 0))) {
+	&&  (obj = create_obj(OBJ_VNUM_SCHOOL_BANNER, 0))) {
 		obj->cost = 0;
 		obj->condition = 100;
 		obj_to_char(obj, ch);
 		equip_char(ch, obj, WEAR_LIGHT);
 	}
-	
+
 	if ((obj = get_eq_char(ch, WEAR_BODY)) == NULL
-	&&  (obj = create_obj(get_obj_index(OBJ_VNUM_SCHOOL_VEST), 0))) {
+	&&  (obj = create_obj(OBJ_VNUM_SCHOOL_VEST, 0))) {
 		obj->cost = 0;
 		obj->condition = 100;
 		obj_to_char(obj, ch);
@@ -3838,16 +3851,16 @@ void do_outfit(CHAR_DATA *ch, const char *argument)
 	/* do the weapon thing */
 	if (((obj = get_eq_char(ch, WEAR_WIELD)) == NULL)
 	&&  free_hands(ch)
-	&&  (obj = create_obj(get_obj_index(cl->weapon), 0))) {
+	&&  (obj = create_obj(cl->weapon, 0))) {
 		obj->cost = 0;
 		obj->condition = 100;
-	 	obj_to_char(obj, ch);
+		obj_to_char(obj, ch);
 		equip_char(ch, obj, WEAR_WIELD);
 	}
 
 	if (((obj = get_eq_char(ch, WEAR_SHIELD)) == NULL)
 	&&  free_hands(ch)
-	&&  (obj = create_obj(get_obj_index(OBJ_VNUM_SCHOOL_SHIELD), 0))) {
+	&&  (obj = create_obj(OBJ_VNUM_SCHOOL_SHIELD, 0))) {
 		obj->cost = 0;
 		obj->condition = 100;
 		obj_to_char(obj, ch);

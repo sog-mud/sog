@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_impl.h,v 1.13 2001-07-31 18:14:58 fjoe Exp $
+ * $Id: mpc_impl.h,v 1.14 2001-08-05 16:36:49 fjoe Exp $
  */
 
 #ifndef _MPC_IMPL_H_
@@ -75,6 +75,7 @@ sym_t *	sym_cpy(sym_t *dst, const sym_t *src);
 
 extern hash_t glob_syms;		/* (sym_t) */
 extern hashdata_t h_syms;
+extern flaginfo_t mpc_types[];
 
 /**
  * Switch jump table

@@ -1,15 +1,15 @@
-/* $Id: hashtest.c,v 1.4 2001-01-18 12:15:08 avn Exp $ */
+/* $Id: hashtest.c,v 1.5 2001-08-05 16:36:16 fjoe Exp $ */
 #include <sys/time.h>
 #include <stdarg.h>
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "typedef.h"
-#include "str.h"
-#include "buffer.h"
-#include "varr.h"
-#include "hash.h"
-#include "strkey_hash.h"
+#include <typedef.h>
+#include <str.h>
+#include <buffer.h>
+#include <varr.h>
+#include <hash.h>
+#include <strkey_hash.h>
 
 varr v;
 hash_t h;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: damtype.c,v 1.15 2001-08-02 18:20:16 fjoe Exp $
+ * $Id: damtype.c,v 1.16 2001-08-05 16:36:56 fjoe Exp $
  */
 
 #include <string.h>
@@ -33,6 +33,18 @@
 #include <merc.h>
 
 hash_t damtypes;
+
+hashdata_t h_damtypes =
+{
+	sizeof(damtype_t), 1,
+	(e_init_t) damtype_init,
+	(e_destroy_t) damtype_destroy,
+	(e_cpy_t) damtype_cpy,
+
+	STRKEY_HASH_SIZE,
+	k_hash_str,
+	ke_cmp_str
+};
 
 void
 damtype_init(damtype_t *d)

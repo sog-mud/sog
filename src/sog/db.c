@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.c,v 1.1 2001-08-02 18:21:31 fjoe Exp $
+ * $Id: db.c,v 1.2 2001-08-05 16:36:57 fjoe Exp $
  */
 
 #include <errno.h>
@@ -54,14 +54,15 @@
 #include <rwfile.h>
 #include <str.h>
 #include <util.h>
-#include <bootdb.h>
+#include <db.h>
 
 static void dbdata_init(DBDATA *dbdata);
 static DBFUN *dbfun_lookup(DBDATA *dbdata, const char *name);
 static void db_parse_file(DBDATA *dbdata, const char *path, const char *file);
 static void logger_db(const char *buf);
 
-char	bootdb_filename[PATH_MAX];
+char bootdb_filename[PATH_MAX];
+int bootdb_errors;
 
 void
 db_load_file(DBDATA *dbdata, const char *path, const char *file)
@@ -109,8 +110,11 @@ db_load_list(DBDATA *dbdata, const char *path, const char *file)
 {
 	rfile_t *fp;
 
-	if ((fp = rfile_open(path, file)) == NULL)
-		exit(1);
+	if ((fp = rfile_open(path, file)) == NULL) {
+		log(LOG_ERROR, "%s%c%s: %s",
+		    path, PATH_SEPARATOR, file, strerror(errno));
+		return;
+	}
 
 	if (!dbdata->tab_sz)
 		dbdata_init(dbdata);
@@ -221,6 +225,7 @@ logger_db(const char *buf)
 {
 	char buf2[MAX_STRING_LENGTH];
 
+	bootdb_errors++;
 	snprintf(buf2, sizeof(buf2), "%s: line %d: %s",		// notrans
 		 bootdb_filename, line_number, buf);
 	logger_default(buf2);

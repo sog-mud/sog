@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.183 2001-08-02 14:21:42 fjoe Exp $
+ * $Id: interp.c,v 1.184 2001-08-05 16:36:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -376,101 +376,6 @@ interpret_social(social_t *soc, CHAR_DATA *ch, const char *argument)
 				break;
 		}
 	}
-}
-
-static uint
-x_argument(const char *argument, int c, char *arg, size_t len)
-{
-	char *p;
-	char *q;
-	int number;
-
-	if (IS_NULLSTR(argument)) {
-		arg[0] = '\0';
-		return 0;
-	}
-
-	p = strchr(argument, c);
-	if (p == NULL) {
-		strnzcpy(arg, len, argument);
-		return 1;
-	}
-
-	number = strtoul(argument, &q, 0);
-	if (q == p)
-		argument = p+1;
-	else
-		number = 1;
-	strnzcpy(arg, len, argument);
-	return number;
-}
-
-/*
- * Given a string like 14.foo, return 14 and 'foo'
- */
-uint
-number_argument(const char *argument, char *arg, size_t len)
-{
-	return x_argument(argument, '.', arg, len);
-}
-
-/*
- * Given a string like 14*foo, return 14 and 'foo'
- */
-uint
-mult_argument(const char *argument, char *arg, size_t len)
-{
-	return x_argument(argument, '*', arg, len);
-}
-
-/*
- * Pick off one argument from a string and return the rest.
- * Understands quotes.
- */
-const char *
-one_argument(const char *argument, char *arg_first, size_t len)
-{
-	return first_arg(argument, arg_first, len, TRUE);
-}
-
-/*****************************************************************************
- Name:		first_arg
- Purpose:	Pick off one argument from a string and return the rest.
-		Understands quotes, if fCase then arg_first will be lowercased
- Called by:	string_add(string.c)
- ****************************************************************************/
-const char *
-first_arg(const char *argument, char *arg_first, size_t len, bool fCase)
-{
-	char *q;
-	char cEnd = '\0';
-
-	if (IS_NULLSTR(argument)) {
-		arg_first[0] = '\0';
-		return argument;
-	}
-
-/* skip leading spaces */
-	while (isspace(*argument))
-		argument++;
-
-/* check quotes */
-	if (*argument == '\'' || *argument == '"')
-		cEnd = *argument++;
-
-	for (q = arg_first; *argument && q + 1 < arg_first + len; argument++) {
-		if ((!cEnd && isspace(*argument)) || *argument == cEnd) {
-			argument++;
-			break;
-		}
-		*q++ = fCase ? LOWER(*argument) : *argument;
-	}
-	*q = '\0';
-
-	while (isspace(*argument))
-		argument++;
-
-	return argument;
 }
 
 /* does aliasing and other fun stuff */

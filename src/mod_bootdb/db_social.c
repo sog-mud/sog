@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_social.c,v 1.17 2001-08-02 18:19:59 fjoe Exp $
+ * $Id: db_social.c,v 1.18 2001-08-05 16:36:30 fjoe Exp $
  */
 
 #include <limits.h>
@@ -32,7 +32,7 @@
 #include <ctype.h>
 
 #include <merc.h>
-#include <bootdb.h>
+#include <db.h>
 #include <rwfile.h>
 
 DECLARE_DBLOAD_FUN(load_social);
@@ -46,14 +46,6 @@ DBFUN dbfun_socials[] =
 };
 
 DBDATA db_socials = { dbfun_socials, init_socials, 0 };
-
-static varrdata_t v_socials =
-{
-	sizeof(social_t), 8,
-	(e_init_t) social_init,
-	(e_destroy_t) social_destroy,
-	NULL
-};
 
 DBINIT_FUN(init_socials)
 {

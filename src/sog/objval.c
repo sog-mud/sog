@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: objval.c,v 1.12 2001-08-02 18:20:18 fjoe Exp $
+ * $Id: objval.c,v 1.13 2001-08-05 16:37:01 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -311,7 +311,7 @@ fread_objval(flag_t item_type, vo_t *v, rfile_t *fp)
 	case ITEM_FOUNTAIN:
 		INT(v[0]) = fread_number(fp);
 		INT(v[1]) = fread_number(fp);
-		STR_ASSIGN(v[2], fread_strkey(fp, &liquids, "fread_obj_val"));
+		STR_ASSIGN(v[2], fread_strkey(fp, &liquids, "fread_objval"));
 		INT(v[3]) = fread_number(fp);
 		INT(v[4]) = fread_number(fp);
 		break;
@@ -320,7 +320,7 @@ fread_objval(flag_t item_type, vo_t *v, rfile_t *fp)
 		INT(v[0]) = fread_fword(weapon_class, fp);
 		INT(v[1]) = fread_number(fp);
 		INT(v[2]) = fread_number(fp);
-		STR_ASSIGN(v[3], fread_strkey(fp, &damtypes, "fread_obj_val"));
+		STR_ASSIGN(v[3], fread_strkey(fp, &damtypes, "fread_objval"));
 		INT(v[4]) = fread_flags(fp);
 		break;
 
@@ -329,7 +329,7 @@ fread_objval(flag_t item_type, vo_t *v, rfile_t *fp)
 		INT(v[0]) = fread_number(fp);
 		INT(v[1]) = fread_number(fp);
 		INT(v[2]) = fread_number(fp);
-		STR_ASSIGN(v[3], fread_strkey(fp, &skills, "fread_obj_val"));
+		STR_ASSIGN(v[3], fread_strkey(fp, &skills, "fread_objval"));
 		INT(v[4]) = fread_number(fp);
 		break;
 
@@ -338,12 +338,12 @@ fread_objval(flag_t item_type, vo_t *v, rfile_t *fp)
 	case ITEM_SCROLL:
 		INT(v[0]) = fread_number(fp);
 		for (i = 1; i < 5; i++)
-			STR_ASSIGN(v[i], fread_strkey(fp, &skills, "fread_obj_val"));
+			STR_ASSIGN(v[i], fread_strkey(fp, &skills, "fread_objval"));
 		break;
 
 	case ITEM_BOOK:
 		INT(v[0]) = fread_fword(book_class, fp);
-		STR_ASSIGN(v[1], fread_strkey(fp, &specs, "fread_obj_val"));
+		STR_ASSIGN(v[1], fread_strkey(fp, &specs, "fread_objval"));
 		INT(v[2]) = fread_number(fp);
 		INT(v[3]) = fread_fword(fail_effects, fp);
 		STR_ASSIGN(v[4], fread_sword(fp));

@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.113 2001-08-02 18:19:55 fjoe Exp $
+ * $Id: db_area.c,v 1.114 2001-08-05 16:36:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,7 +44,7 @@
 #include <string.h>
 
 #include <merc.h>
-#include <bootdb.h>
+#include <db.h>
 #include <rwfile.h>
 
 DECLARE_DBLOAD_FUN(load_area);

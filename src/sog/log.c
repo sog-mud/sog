@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: log.c,v 1.32 2001-08-03 11:27:50 fjoe Exp $
+ * $Id: log.c,v 1.33 2001-08-05 16:36:59 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,9 +31,10 @@
 #include <stdarg.h>
 #include <time.h>
 
-#include <merc.h>
-
-#include "handler.h"
+#include <typedef.h>
+#include <log.h>
+#include <util.h>
+#include <str.h>
 
 #ifdef SUNOS
 #	include <compat/compat.h>
@@ -62,6 +63,7 @@ static logdata_t logtab[] = {
 #define NLOG (sizeof(logtab) / sizeof(logdata_t))
 
 static CHAR_DATA *log_char;
+static char_logger_t char_logger;
 
 /*
  * Writes a string to the log.
@@ -82,12 +84,16 @@ log(int llevel, const char *format, ...)
 		ld = logtab;
 	ld->logger(buf);
 
-#if !defined(MPC)
-	if (log_char) {
-		act_puts("$t: $T", log_char, ld->alias, buf,	// notrans
-			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
-	}
-#endif
+	if (log_char != NULL && char_logger != NULL)
+		char_logger(log_char, ld->alias, buf);
+}
+
+char_logger_t
+char_logger_set(char_logger_t logger)
+{
+	char_logger_t old_logger = char_logger;
+	char_logger = logger;
+	return old_logger;
 }
 
 void

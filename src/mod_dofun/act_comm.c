@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.240 2001-08-03 12:21:00 fjoe Exp $
+ * $Id: act_comm.c,v 1.241 2001-08-05 16:36:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1459,9 +1459,10 @@ void do_mark(CHAR_DATA *ch, const char *argument)
 		extract_obj(mark, 0);
 	}
 
-	mark = create_obj(get_obj_index(clan->mark_vnum), 0);
-	obj_to_char(mark, ch);
-	equip_char(ch, mark, WEAR_CLANMARK);
+	if ((mark = create_obj(clan->mark_vnum, 0)) != NULL) {
+		obj_to_char(mark, ch);
+		equip_char(ch, mark, WEAR_CLANMARK);
+	}
 }
 
 void do_petitio(CHAR_DATA *ch, const char *argument)
@@ -1582,11 +1583,12 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 				obj_from_char(mark);
 				extract_obj(mark, 0);
 			}
-			if (clan->mark_vnum) {
-				mark = create_obj(get_obj_index(clan->mark_vnum), 0);
+
+			if (clan->mark_vnum != 0
+			&&  (mark = create_obj(clan->mark_vnum, 0)) != NULL) {
 				obj_to_char(mark, victim);
 				equip_char(victim, mark, WEAR_CLANMARK);
-			};
+			}
 
 			goto cleanup;
 		}
@@ -1621,9 +1623,11 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 			if ((mark = get_eq_char(victim, WEAR_CLANMARK))) {
 				obj_from_char(mark);
 				extract_obj(mark, 0);
-				mark = create_obj(get_obj_index(OBJ_VNUM_RENEGADE_MARK), 0);
-				obj_to_char(mark, victim);
-				equip_char(victim, mark, WEAR_CLANMARK);
+				mark = create_obj(OBJ_VNUM_RENEGADE_MARK, 0);
+				if (mark != NULL) {
+					obj_to_char(mark, victim);
+					equip_char(victim, mark, WEAR_CLANMARK);
+				}
 			}
 
 			goto cleanup;

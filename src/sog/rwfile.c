@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.c,v 1.20 2001-08-02 18:20:19 fjoe Exp $
+ * $Id: rwfile.c,v 1.21 2001-08-05 16:37:03 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -430,8 +430,7 @@ fread_number(rfile_t *fp)
 
 	if (!isdigit(c)) {
 		log(LOG_ERROR, "fread_number: bad format");
-		log(LOG_INFO, "fread_number: bad format");
-		exit(1);
+		return 0;
 	}
 
 	while (isdigit(c)) {

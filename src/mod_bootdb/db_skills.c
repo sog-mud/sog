@@ -23,14 +23,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_skills.c,v 1.30 2001-08-02 18:19:59 fjoe Exp $
+ * $Id: db_skills.c,v 1.31 2001-08-05 16:36:29 fjoe Exp $
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 
 #include <merc.h>
-#include <bootdb.h>
+#include <db.h>
 #include <rwfile.h>
 
 DECLARE_DBLOAD_FUN(load_skill);
@@ -44,18 +44,6 @@ DBFUN dbfun_skills[] =
 };
 
 DBDATA db_skills = { dbfun_skills, init_skills, 0 };
-
-static hashdata_t h_skills =
-{
-	sizeof(skill_t), 1,
-	(e_init_t) skill_init,
-	(e_destroy_t) skill_destroy,
-	(e_cpy_t) skill_cpy,
-
-	STRKEY_HASH_SIZE,
-	k_hash_str,
-	ke_cmp_mlstr
-};
 
 DBINIT_FUN(init_skills)
 {
@@ -146,7 +134,6 @@ DBLOAD_FUN(load_skill)
 			}
 			break;
 		case 'S':
-			KEY("Slot", sk.slot, fread_number(fp));
 			KEY("SpellFun", sk.fun_name, fread_sword(fp));
 			break;
 		case 'T':
@@ -162,7 +149,7 @@ DBLOAD_FUN(load_skill)
 
 		if (!fMatch) {
 			log(LOG_ERROR, "load_skill: %s: Unknown keyword",
-				 rfile_tok(fp));
+			    rfile_tok(fp));
 			fread_to_eol(fp);
 		}
 	}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: resolver.c,v 1.15 2001-08-02 18:20:22 fjoe Exp $
+ * $Id: resolver.c,v 1.16 2001-08-05 16:37:08 fjoe Exp $
  */
 
 #if !defined (WIN32)
@@ -55,7 +55,8 @@ static void	resolver_loop(void);
 int	rpid;
 int	fildes[4];
 
-void resolver_init(void)
+void
+resolver_init(void)
 {
 	if (pipe(fildes) < 0 || pipe(fildes+2) < 0) {
 		log(LOG_INFO, "resolver_init: pipe: %s", strerror(errno));
@@ -102,7 +103,8 @@ void resolver_init(void)
 	fcntl(fileno(rfin), F_SETFL, O_NONBLOCK);
 }
 
-void resolver_done(void)
+void
+resolver_done(void)
 {
 	fclose(rfin);
 	fclose(rfout);
@@ -112,18 +114,22 @@ void resolver_done(void)
 
 /* local functions */
 
-static void cleanup(int s)
+static void
+cleanup(int s)
 {
 	resolver_done();
 	signal(s, SIG_DFL);
 	raise(s);
 }
 
-static void resolver_loop(void)
+static void
+resolver_loop(void)
 {
 	FILE *fin;
 	FILE *fout;
 	char buf[128];
+
+	setproctitle("resolver");
 
 	signal(SIGINT, SIG_IGN);
 	signal(SIGTRAP, SIG_IGN);

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.345 2001-08-03 12:20:55 fjoe Exp $
+ * $Id: merc.h,v 1.346 2001-08-05 16:36:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1913,11 +1913,6 @@ extern		int			reboot_counter;
 
 /* interp.c */
 void	interpret	(CHAR_DATA *ch, const char *argument, bool is_order);
-uint	number_argument (const char *argument, char *arg, size_t len);
-uint	mult_argument	(const char *argument, char *arg, size_t len);
-const char *	one_argument	(const char *argument, char *arg_first, size_t);
-const char *	first_arg	(const char *argument, char *arg_first, size_t,
-				 bool fCase);
 
 /* special.c */
 SPEC_FUN *	mob_spec_lookup	(const char *name);
@@ -2130,7 +2125,6 @@ struct skill_t {
 	SPELL_FUN *	fun;			/* skill function */
 	flag_t		target;			/* legal target */
 	flag_t		min_pos;		/* position for caster */
-	int		slot;			/* slot for #OBJOLD loading */
 	int		min_mana;		/* min mana used */
 	int		beats;			/* waiting time after use */
 	int		rank;			/* Shows rank of difficulty of
@@ -2152,6 +2146,7 @@ typedef struct evf_t {
 } evf_t;
 
 extern hash_t skills;
+extern hashdata_t h_skills;
 
 #define IS_SKILL(sn1, sn2)	(!str_cmp((sn1), (sn2)))
 
@@ -2198,6 +2193,7 @@ struct spec_t {
 };
 
 extern hash_t specs;
+extern hashdata_t h_specs;
 
 typedef struct spec_skill_t spec_skill_t;
 struct spec_skill_t {
@@ -2247,6 +2243,7 @@ struct social_t
 typedef struct social_t social_t;
 
 extern varr socials;
+extern varrdata_t v_socials;
 
 void	social_init	(social_t *soc);
 void	social_destroy	(social_t *soc);
@@ -2282,6 +2279,7 @@ typedef struct {
 } hint_t;
 
 extern varr hints;
+extern varrdata_t v_hints;
 
 void hint_init(hint_t *t);
 void hint_destroy(hint_t *t);
@@ -2303,7 +2301,9 @@ extern rating_t rating_table[RATING_TABLE_SIZE];
  * global mlstrings with gender
  */
 
-extern hash_t glob_gmlstr;	/* gmlstr_t globals */
+extern hash_t glob_gmlstr;
+extern hashdata_t h_glob_gmlstr;
+
 #define	glob_lookup(gn)	((gmlstr_t *) strkey_lookup(&glob_gmlstr, (gn)))
 
 /*

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.10 2001-08-03 12:20:55 fjoe Exp $
+ * $Id: sog.h,v 1.11 2001-08-05 16:36:20 fjoe Exp $
  */
 
 #ifndef _HANDLER_H_
@@ -70,9 +70,9 @@ DECLARE_PROC1(obj_from_obj,
 #define XC_F_INCOMPLETE	(B)	/* do not extract char from char_list	*/
 
 DECLARE_FUN2(CHAR_DATA, create_mob,
-	     ARG(MOB_INDEX_DATA), pMobIndex, ARG(int), flags)
+	     ARG(int), vnum, ARG(int), flags)
 DECLARE_FUN2(CHAR_DATA, create_mob_of,
-	     ARG(MOB_INDEX_DATA), pMobIndex, ARG(mlstring), owner)
+	     ARG(int), vnum, ARG(mlstring), owner)
 DECLARE_FUN1(CHAR_DATA, clone_mob,
 	     ARG(CHAR_DATA), parent)
 DECLARE_PROC2(extract_char,
@@ -84,9 +84,9 @@ DECLARE_PROC2(quit_char,
 #define CO_F_NOCOUNT	(A)	/* do not update obj count */
 
 DECLARE_FUN2(OBJ_DATA, create_obj,
-	     ARG(OBJ_INDEX_DATA), pObjIndex, ARG(int), flags)
+	     ARG(int), vnum, ARG(int), flags)
 DECLARE_FUN2(OBJ_DATA, create_obj_of,
-	     ARG(OBJ_INDEX_DATA), pObjIndex, ARG(mlstring), owner)
+	     ARG(int), vnum, ARG(mlstring), owner)
 DECLARE_FUN1(OBJ_DATA,	clone_obj,
 	     ARG(OBJ_DATA), parent)
 
@@ -325,7 +325,7 @@ DECLARE_FUN4(CHAR_DATA,	find_char,
 	     ARG(CHAR_DATA), ch, ARG(cchar_t), argument, ARG(int), door,
 	     ARG(int), range)
 DECLARE_FUN4(CHAR_DATA, get_char_spell,
-	     ARG(CHAR_DATA), ch, ARG(cchar_t), argument, ARG(pvoid_t), door,
+	     ARG(CHAR_DATA), ch, ARG(cchar_t), argument, ARG(pint_t), door,
 	     ARG(int), range)
 DECLARE_PROC1(hometown_print_avail,
 	      ARG(CHAR_DATA), ch)

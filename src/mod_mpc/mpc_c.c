@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_c.c,v 1.13 2001-07-31 18:14:57 fjoe Exp $
+ * $Id: mpc_c.c,v 1.14 2001-08-05 16:36:48 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -86,7 +86,8 @@ c_pop(prog_t *prog)
 		break;
 
 	default:
-		/* fprintf(stderr, "got: (type %d)\n", type_tag); */
+		/* fprintf(stderr, "got: (type '%s')\n",
+			flag_string(mpc_types, type_tag)); */
 		break;
 	}
 }

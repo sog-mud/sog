@@ -23,14 +23,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_liquid.c,v 1.15 2001-08-02 18:19:58 fjoe Exp $
+ * $Id: db_liquid.c,v 1.16 2001-08-05 16:36:28 fjoe Exp $
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 
 #include <merc.h>
-#include <bootdb.h>
+#include <db.h>
 #include <rwfile.h>
 
 DECLARE_DBLOAD_FUN(load_liquid);
@@ -44,18 +44,6 @@ DBFUN dbfun_liquids[] =
 };
 
 DBDATA db_liquids = { dbfun_liquids, init_liquids, 0 };
-
-static hashdata_t h_liquids =
-{
-	sizeof(liquid_t), 1,
-	(e_init_t) liquid_init,
-	(e_destroy_t) liquid_destroy,
-	(e_cpy_t) liquid_cpy,
-
-	STRKEY_HASH_SIZE,
-	k_hash_str,
-	ke_cmp_mlstr
-};
 
 DBINIT_FUN(init_liquids)
 {

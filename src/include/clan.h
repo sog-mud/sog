@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.h,v 1.26 2001-08-03 12:20:54 fjoe Exp $
+ * $Id: clan.h,v 1.27 2001-08-05 16:36:18 fjoe Exp $
  */
 
 #ifndef _CLAN_H_
@@ -64,11 +64,12 @@ struct clan_t
 #define CLAN_HIDDEN	(A)		/* clan will not appear in who */
 #define CLAN_CHANGED	(Z)
 
+extern hash_t clans;
+extern hashdata_t h_clans;
+
 void	clan_init(clan_t *);
 clan_t *clan_cpy(clan_t *dst, const clan_t *src);
 void	clan_destroy(clan_t *);
-
-extern hash_t clans;
 
 #define clan_lookup(cln)	((clan_t*) strkey_lookup(&clans, (cln)))
 #define clan_search(cln)	((clan_t*) strkey_search(&clans, (cln)))

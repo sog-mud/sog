@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.285 2001-08-03 12:39:54 fjoe Exp $
+ * $Id: act_wiz.c,v 1.286 2001-08-05 16:36:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2058,7 +2058,10 @@ void do_mload(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	victim = create_mob(pMobIndex, 0);
+	/*
+	 * create_mob can't return NULL because get_mob_index returned not NULL
+	 */
+	victim = create_mob(pMobIndex->vnum, 0);
 	act("$n has created $N!", ch, NULL, victim, TO_ROOM);
 	wiznet("$N loads $i.", ch, victim,
 	       WIZ_LOAD, WIZ_SECURE, trust_level(ch));
@@ -2088,7 +2091,10 @@ void do_oload(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	obj = create_obj(pObjIndex, 0);
+	/*
+	 * create_obj can't return NULL because get_obj_index returned not NULL
+	 */
+	obj = create_obj(pObjIndex->vnum, 0);
 	if (CAN_WEAR(obj, ITEM_TAKE))
 		obj_to_char(obj, ch);
 	else
@@ -2285,7 +2291,7 @@ void do_freeze(CHAR_DATA *ch, const char *argument)
 cleanup:
 	if (altered)
 		char_save(victim, loaded ? SAVE_F_PSCAN : 0);
-	if (loaded) 
+	if (loaded)
 		char_nuke(victim);
 }
 
@@ -3395,8 +3401,8 @@ do_mset(CHAR_DATA *ch, const char *argument)
 			update_skills(victim);
 		}
 
-		if (cl->mark_vnum
-		&&  (mark = create_obj(get_obj_index(cl->mark_vnum), 0))) {
+		if (cl->mark_vnum != 0
+		&&  (mark = create_obj(cl->mark_vnum, 0)) != NULL) {
 			obj_to_char(mark, victim);
 			equip_char(victim, mark, WEAR_CLANMARK);
 		}

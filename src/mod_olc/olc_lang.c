@@ -23,11 +23,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_lang.c,v 1.30 2001-06-24 10:50:45 avn Exp $
+ * $Id: olc_lang.c,v 1.31 2001-08-05 16:36:51 fjoe Exp $
  */
 
 #include "olc.h"
-#include "lang.h"
+
+#include <lang.h>
 
 #define EDIT_LANG(ch, l)	(l = (lang_t*) (ch->desc->pEdit))
 

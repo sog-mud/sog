@@ -23,12 +23,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.46 2001-07-29 20:14:53 fjoe Exp $
+ * $Id: olc_clan.c,v 1.47 2001-08-05 16:36:50 fjoe Exp $
  */
 
 #include "olc.h"
 
-#include "handler.h"
+#include <handler.h>
 
 #define EDIT_CLAN(ch, clan)	(clan = (clan_t*) ch->desc->pEdit)
 

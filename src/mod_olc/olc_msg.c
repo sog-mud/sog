@@ -23,11 +23,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.51 2001-06-23 17:17:17 fjoe Exp $
+ * $Id: olc_msg.c,v 1.52 2001-08-05 16:36:51 fjoe Exp $
  */
 
 #include "olc.h"
-#include "lang.h"
+
+#include <lang.h>
 
 #define EDIT_MSG(ch, mp)	(mp = (mlstring *) ch->desc->pEdit)
 

@@ -23,11 +23,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.33 2001-06-22 07:13:47 avn Exp $
+ * $Id: olc_rule.c,v 1.34 2001-08-05 16:36:52 fjoe Exp $
  */
 
 #include "olc.h"
-#include "lang.h"
+
+#include <lang.h>
 
 #define EDIT_RULE(ch, r)	(r = (rule_t*) ch->desc->pEdit)
 #define EDIT_RCL(ch, rcl)	(rcl = (rulecl_t*) ch->desc->pEdit2)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_sog.c,v 1.1 2001-07-29 20:14:46 fjoe Exp $
+ * $Id: init_sog.c,v 1.2 2001-08-05 16:36:43 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -33,21 +33,28 @@
 #include <memalloc.h>
 #include <varr.h>
 #include <hash.h>
+#include <log.h>
 
 #include <module.h>
 #define MODULE_INIT MOD_HANDLER
-#include "handler.h"
+#include <handler.h>
+
+#include "handler_impl.h"
+
+static char_logger_t old_logger;
 
 int
 _module_load(module_t *m)
 {
 	dynafun_tab_register(__mod_tab(MODULE), m);
+	old_logger = char_logger_set(act_char_logger);
 	return 0;
 }
 
 int
 _module_unload(module_t *m)
 {
+	char_logger_set(old_logger);
 	dynafun_tab_unregister(__mod_tab(MODULE));
 	return 0;
 }

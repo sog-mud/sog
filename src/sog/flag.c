@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.36 2001-07-29 09:43:18 fjoe Exp $
+ * $Id: flag.c,v 1.37 2001-08-05 16:36:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -26,8 +26,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include "merc.h"
-#include "util.h"
+
+#include <merc.h>
 
 /*
  * flag_lookup -- lookup flag by name in flag table

@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.66 2001-08-02 18:20:18 fjoe Exp $
+ * $Id: note.c,v 1.67 2001-08-05 16:37:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -137,7 +137,7 @@ void fwrite_note(FILE *fp, note_t *pnote)
 {
 	fprintf(fp, "Sender  %s~\n", fix_string(pnote->sender));
 	fprintf(fp, "Date    %s~\n", fix_string(pnote->date));
-	fprintf(fp, "Stamp   %ld\n", pnote->date_stamp);
+	fprintf(fp, "Stamp   %d\n", pnote->date_stamp);
 	fprintf(fp, "To      %s~\n", fix_string(pnote->to_list));
 	fprintf(fp, "Subject %s~\n", fix_string(pnote->subject));
 	fprintf(fp, "Text\n%s~\n",   fix_string(pnote->text));

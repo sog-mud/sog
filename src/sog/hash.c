@@ -23,18 +23,18 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hash.c,v 1.16 2001-06-21 16:16:58 avn Exp $
+ * $Id: hash.c,v 1.17 2001-08-05 16:36:58 fjoe Exp $
  */
 
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "typedef.h"
-#include "varr.h"
-#include "hash.h"
-#include "str.h"
-#include "strkey_hash.h"
+#include <typedef.h>
+#include <varr.h>
+#include <hash.h>
+#include <str.h>
+#include <strkey_hash.h>
 
 /*
  * hash_add flags

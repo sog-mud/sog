@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: memalloc.h,v 1.15 2001-08-03 11:27:27 fjoe Exp $
+ * $Id: memalloc.h,v 1.16 2001-08-05 16:36:22 fjoe Exp $
  */
 
 #ifndef _MEMALLOC_H_
@@ -47,6 +47,15 @@ enum {
 	/* only for dynafuns */
 	MT_VA_LIST,
 	MT_SIZE_T,
+	MT_BOOL,
+	MT_PCVOID,
+	MT_ACTOPT,
+	MT_PCCHAR,
+	MT_PCHAR,
+	MT_GMLSTR,
+	MT_MLSTRING,
+	MT_PINT,
+	MT_SPEC_SKILL,
 };
 
 #define MEM_VALID	0x5a	/* valid chunk signature	*/
@@ -59,11 +68,12 @@ typedef struct memchunk_t {
 	char		mem_tags;
 } memchunk_t;
 
-#define mem_alloc(mem_type, mem_len) mem_alloc2(mem_type, mem_len, 0)
-void *	mem_alloc2(int mem_type, size_t mem_len, size_t mem_prealloc);
+#define mem_alloc(type_tag, mem_len) mem_alloc2(type_tag, mem_len, 0)
+void *	mem_alloc2(int type_tag, size_t mem_len, size_t mem_prealloc);
 void	mem_free(const void *p);
 
-bool	mem_is(const void *p, int mem_type);
+int	mem_type(const void *p);
+bool	mem_is(const void *p, int type_tag);
 
 void	mem_validate(const void *p);
 void	mem_invalidate(const void *p);
