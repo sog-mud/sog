@@ -10,14 +10,14 @@ End
 #PCRACE
 Shortname Duerg~
 Points 250
+Class 'anti-paladin' 100
 Class 'cleric' 100
+Class 'necromancer' 100
 Class 'thief' 100
 Class 'warrior' 100
-Class 'anti-paladin' 100
-Class 'necromancer' 100
 BonusSkills 'berserk' 'pick lock'~
-Stats 2 -2 -1 1 1 0
-MaxStats 22 16 18 20 21 25
+Stats 2 -2 -1 1 1 0 
+MaxStats 22 16 18 20 21 25 
 Size medium
 HPBonus 25
 ManaBonus -10

@@ -12,11 +12,11 @@ End
 Shortname ClGia~
 Points 500
 Class 'cleric' 100
-Class 'warrior' 100
 Class 'ranger' 100
+Class 'warrior' 100
 BonusSkills 'bash' 'enhanced damage' 'sword'~
-Stats 5 -4 -3 -6 3 0
-MaxStats 25 16 17 16 22 25
+Stats 5 -4 -3 -6 3 0 
+MaxStats 25 16 17 16 22 25 
 Size huge
 HPBonus 20
 ManaBonus -20

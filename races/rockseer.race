@@ -10,17 +10,17 @@ End
 #PCRACE
 Shortname Rocks~
 Points 500
-Class 'witch' 100
 Class 'cleric' 100
-Class 'thief' 100
-Class 'warrior' 100
 Class 'ninja' 100
 Class 'ranger' 100
+Class 'thief' 100
 Class 'warlock' 100
+Class 'warrior' 100
+Class 'witch' 100
 BonusSkills 'wand'~
 Skill 'meld into stone' 20
-Stats -1 2 0 4 -2 0
-MaxStats 18 24 21 24 16 25
+Stats -1 2 0 4 -2 0 
+MaxStats 18 24 21 24 16 25 
 Size medium
 HPBonus -10
 ManaBonus 20

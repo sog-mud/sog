@@ -11,17 +11,17 @@ End
 #PCRACE
 Shortname Felar~
 Points 250
-Class 'thief' 100
-Class 'warrior' 100
-Class 'paladin' 100
 Class 'anti-paladin' 100
 Class 'ninja' 100
+Class 'paladin' 100
 Class 'ranger' 100
+Class 'thief' 100
 Class 'warlock' 100
+Class 'warrior' 100
 BonusSkills 'hand to hand' 'tail'~
 Skill 'tail' 53
-Stats -1 -1 0 2 2 0
-MaxStats 17 17 20 23 23 25
+Stats -1 -1 0 2 2 0 
+MaxStats 17 17 20 23 23 25 
 Size medium
 HPBonus 10
 ManaBonus -10

@@ -12,12 +12,12 @@ End
 Shortname StGia~
 Points 600
 Class 'cleric' 100
-Class 'warrior' 100
-Class 'ranger' 100
 Class 'paladin' 100
+Class 'ranger' 100
+Class 'warrior' 100
 BonusSkills 'bash' 'enhanced damage' 'sword'~
-Stats 5 -2 -2 -6 3 0
-MaxStats 24 17 17 17 21 25
+Stats 5 -2 -2 -6 3 0 
+MaxStats 24 17 17 17 21 25 
 Size huge
 HPBonus 20
 ManaBonus -20
