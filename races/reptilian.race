@@ -10,7 +10,7 @@ Resist cold -25
 Resist acid 25
 Resist disease 40
 Resist poison 40
-Damtype +claw
+Damtype '+claw'
 End
 
 #PCRACE

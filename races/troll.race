@@ -11,7 +11,7 @@ Resist fire -25
 Resist lightning -15
 Resist acid -40
 Resist charm 30
-Damtype +smash
+Damtype '+smash'
 End
 
 #PCRACE

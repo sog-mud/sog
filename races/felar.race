@@ -6,7 +6,7 @@ Form edible sentient biped mammal~
 Parts head legs heart brains guts feet ear eye tail claws fangs~
 Resist fire -35
 Resist cold 35
-Damtype +claw
+Damtype '+claw'
 End
 
 #PCRACE

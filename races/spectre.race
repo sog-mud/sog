@@ -8,7 +8,7 @@ Resist poison 100
 Resist charm 100
 Resist light -100
 Resist weapon 100
-Damtype +drain
+Damtype '+drain'
 End
 
 #$

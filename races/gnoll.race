@@ -4,7 +4,7 @@ Det invis hidden~
 Off disarm~
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
-Damtype +claw
+Damtype '+claw'
 End
 
 #PCRACE

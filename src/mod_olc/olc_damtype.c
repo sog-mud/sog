@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_damtype.c,v 1.15 2002-03-21 13:46:39 fjoe Exp $
+ * $Id: olc_damtype.c,v 1.16 2002-03-21 14:05:56 fjoe Exp $
  */
 
 /*
@@ -236,12 +236,6 @@ VALIDATE_FUN(validate_damname)
 
 	if (name[0] != '+') {
 		act_puts("DamtEd: $t: damtype name must start with '+'.",
-			 ch, name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
-		return FALSE;
-	}
-
-	if (strpbrk(name, "\t ")) {
-		act_puts("DamtEd: $t: damtype name can't contain spaces.",
 			 ch, name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}

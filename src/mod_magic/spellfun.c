@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.289 2002-03-21 13:30:36 fjoe Exp $
+ * $Id: spellfun.c,v 1.290 2002-03-21 14:05:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -5833,7 +5833,7 @@ SPELL_FUN(spell_power_word_kill, sn, level, ch, vo)
 	} else if (saves_mental || saves_nega) {
 		dam = dice(level , 20) ;
 		damage(ch, victim, dam,
-		       saves_nega ? "+pwk_mental" : sn,  DAM_F_SHOW);
+		       saves_nega ? "+pwk mental" : sn,  DAM_F_SHOW);
 	} else
 		raw_kill(ch, victim);
 }
