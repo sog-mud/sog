@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_skills.c,v 1.5 1998-10-02 04:48:41 fjoe Exp $
+ * $Id: db_skills.c,v 1.6 1998-10-30 06:56:55 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -92,6 +92,10 @@ DBLOAD_FUN(load_skill)
 			SKEY("NounDamage", skill->noun_damage);
 			break;
 
+		case 'O':
+			SKEY("ObjWearOff", skill->msg_obj);
+			break;
+
 		case 'S':
 			KEY("Slot", skill->slot, fread_number(fp));
 			KEY("SpellFun", skill->spell_fun,
@@ -105,9 +109,11 @@ DBLOAD_FUN(load_skill)
 			break;
 		case 'W':
 			SKEY("WearOff", skill->msg_off);
-			SKEY("ObjWearOff", skill->msg_obj);
 			break;
 		}
+
+		if (!fMatch) 
+			db_error("load_skill", "%s: Unknown keyword", word);
 	}
 }
 

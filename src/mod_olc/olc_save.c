@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.40 1998-10-24 09:45:08 fjoe Exp $
+ * $Id: olc_save.c,v 1.41 1998-10-30 06:56:59 fjoe Exp $
  */
 
 /**************************************************************************
@@ -104,20 +104,23 @@ void save_mobprogs(FILE *fp, AREA_DATA *pArea)
  ****************************************************************************/
 void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 {
-    int race = pMobIndex->race;
+    RACE_DATA *r = race_lookup(pMobIndex->race);
     MPTRIG *mptrig;
     flag_t temp;
+
+    if (r == NULL) {
+	log_printf("save_mobile: %d: unknown race", pMobIndex->race);
+	return;
+    }
 
     fprintf(fp, "#%d\n",	pMobIndex->vnum);
     fwrite_string(fp, NULL,	pMobIndex->name);
     mlstr_fwrite(fp, NULL,	pMobIndex->short_descr);
     mlstr_fwrite(fp, NULL,	pMobIndex->long_descr);
     mlstr_fwrite(fp, NULL,	pMobIndex->description);
-    fwrite_string(fp, NULL,	race_table[race].name);
-    fprintf(fp, "%s ",		format_flags(pMobIndex->act &
-					    ~race_table[pMobIndex->race].act));
-    fprintf(fp, "%s ",		format_flags(pMobIndex->affected_by &
-					    ~race_table[pMobIndex->race].aff));
+    fwrite_string(fp, NULL,	r->name);
+    fprintf(fp, "%s ",		format_flags(pMobIndex->act & ~r->act));
+    fprintf(fp, "%s ",		format_flags(pMobIndex->affected_by & ~r->aff));
     fprintf(fp, "%d %d\n",	pMobIndex->alignment , pMobIndex->group);
     fprintf(fp, "%d ",		pMobIndex->level);
     fprintf(fp, "%d ",		pMobIndex->hitroll);
@@ -136,50 +139,44 @@ void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 				pMobIndex->ac[AC_BASH]   / 10, 
 				pMobIndex->ac[AC_SLASH]  / 10, 
 				pMobIndex->ac[AC_EXOTIC] / 10);
-    fprintf(fp, "%s ",		format_flags(pMobIndex->off_flags &
-					    ~race_table[pMobIndex->race].off));
-    fprintf(fp, "%s ",		format_flags(pMobIndex->imm_flags &
-					    ~race_table[pMobIndex->race].imm));
-    fprintf(fp, "%s ",		format_flags(pMobIndex->res_flags &
-					    ~race_table[pMobIndex->race].res));
-    fprintf(fp, "%s\n",		format_flags(pMobIndex->vuln_flags &
-					    ~race_table[pMobIndex->race].vuln));
+    fprintf(fp, "%s ",		format_flags(pMobIndex->off_flags & ~r->off));
+    fprintf(fp, "%s ",		format_flags(pMobIndex->imm_flags & ~r->imm));
+    fprintf(fp, "%s ",		format_flags(pMobIndex->res_flags & ~r->res));
+    fprintf(fp, "%s\n",		format_flags(pMobIndex->vuln_flags & ~r->vuln));
     fprintf(fp, "%s %s %s %d\n",
 			flag_string(position_table, pMobIndex->start_pos),
 			flag_string(position_table, pMobIndex->default_pos),
 			flag_string(sex_table, pMobIndex->sex),
 			pMobIndex->wealth);
-    fprintf(fp, "%s ",		format_flags(pMobIndex->form &
-					    ~race_table[pMobIndex->race].form));
-    fprintf(fp, "%s ",		format_flags(pMobIndex->parts &
-					   ~race_table[pMobIndex->race].parts));
+    fprintf(fp, "%s ",		format_flags(pMobIndex->form & ~r->form));
+    fprintf(fp, "%s ",		format_flags(pMobIndex->parts & ~r->parts));
 
     fprintf(fp, "%s ",		size_table[pMobIndex->size].name);
     fprintf(fp, "%s\n",	IS_NULLSTR(pMobIndex->material) ? pMobIndex->material : "unknown");
 
 /* save diffs */
-    if ((temp = DIF(race_table[race].act,pMobIndex->act)))
+    if ((temp = DIF(r->act, pMobIndex->act)))
      	fprintf(fp, "F act %s\n", format_flags(temp));
 
-    if ((temp = DIF(race_table[race].aff,pMobIndex->affected_by)))
+    if ((temp = DIF(r->aff, pMobIndex->affected_by)))
      	fprintf(fp, "F aff %s\n", format_flags(temp));
 
-    if ((temp = DIF(race_table[race].off,pMobIndex->off_flags)))
+    if ((temp = DIF(r->off, pMobIndex->off_flags)))
      	fprintf(fp, "F off %s\n", format_flags(temp));
 
-    if ((temp = DIF(race_table[race].imm,pMobIndex->imm_flags)))
+    if ((temp = DIF(r->imm, pMobIndex->imm_flags)))
      	fprintf(fp, "F imm %s\n", format_flags(temp));
 
-    if ((temp = DIF(race_table[race].res,pMobIndex->res_flags)))
+    if ((temp = DIF(r->res, pMobIndex->res_flags)))
      	fprintf(fp, "F res %s\n", format_flags(temp));
 
-    if ((temp = DIF(race_table[race].vuln,pMobIndex->vuln_flags)))
+    if ((temp = DIF(r->vuln, pMobIndex->vuln_flags)))
      	fprintf(fp, "F vul %s\n", format_flags(temp));
 
-    if ((temp = DIF(race_table[race].form,pMobIndex->form)))
+    if ((temp = DIF(r->form, pMobIndex->form)))
      	fprintf(fp, "F for %s\n", format_flags(temp));
 
-    if ((temp = DIF(race_table[race].parts,pMobIndex->parts)))
+    if ((temp = DIF(r->parts, pMobIndex->parts)))
     	fprintf(fp, "F par %s\n", format_flags(temp));
 
     for (mptrig = pMobIndex->mptrig_list; mptrig; mptrig = mptrig->next)

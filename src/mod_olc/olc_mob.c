@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.22 1998-10-26 08:40:07 fjoe Exp $
+ * $Id: olc_mob.c,v 1.23 1998-10-30 06:56:59 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -260,7 +260,7 @@ OLC_FUN(mobed_show)
 	buf_printf(buf, "Vnum:        [%5d] Sex:   [%s]   Race: [%s]\n\r",
 		pMob->vnum,
 		flag_string(sex_table, pMob->sex),
-		race_table[pMob->race].name);
+		race_name(pMob->race));
 
 	if (pMob->clan && (clan = clan_lookup(pMob->clan))) 
 		buf_printf(buf, "Clan:        [%s]\n\r", clan->name);
@@ -873,18 +873,20 @@ OLC_FUN(mobed_race)
 	int race;
 
 	if (argument[0] != '\0'
-	&& (race = race_lookup(argument)) != 0) {
+	&& (race = rn_lookup(argument)) != 0) {
+		RACE_DATA *r;
 		EDIT_MOB(ch, pMob);
 
 		pMob->race = race;
-		pMob->act	  |= race_table[race].act;
-		pMob->affected_by |= race_table[race].aff;
-		pMob->off_flags   |= race_table[race].off;
-		pMob->imm_flags   |= race_table[race].imm;
-		pMob->res_flags   |= race_table[race].res;
-		pMob->vuln_flags  |= race_table[race].vuln;
-		pMob->form        |= race_table[race].form;
-		pMob->parts       |= race_table[race].parts;
+		r = RACE(race);
+		pMob->act	  |= r->act;
+		pMob->affected_by |= r->aff;
+		pMob->off_flags   |= r->off;
+		pMob->imm_flags   |= r->imm;
+		pMob->res_flags   |= r->res;
+		pMob->vuln_flags  |= r->vuln;
+		pMob->form        |= r->form;
+		pMob->parts       |= r->parts;
 
 		char_puts("Race set.\n\r", ch);
 		return TRUE;
@@ -893,10 +895,10 @@ OLC_FUN(mobed_race)
 	if (argument[0] == '?') {
 		char_puts("Available races are:", ch);
 
-		for (race = 0; race_table[race].name != NULL; race++) {
+		for (race = 0; race < races.nused; race++) {
 			if ((race % 3) == 0)
-			char_puts("\n\r", ch);
-			char_printf(ch, " %-15s", race_table[race].name);
+				char_puts("\n\r", ch);
+			char_printf(ch, " %-15s", RACE(race)->name);
 		}
 
 		char_puts("\n\r", ch);

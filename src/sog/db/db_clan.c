@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_clan.c,v 1.8 1998-10-08 13:31:07 fjoe Exp $
+ * $Id: db_clan.c,v 1.9 1998-10-30 06:56:55 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -88,6 +88,9 @@ DBLOAD_FUN(load_clan)
 			}
 			break;
 		}
+
+		if (!fMatch) 
+			db_error("load_clan", "%s: Unknown keyword", word);
 	}
 }
 

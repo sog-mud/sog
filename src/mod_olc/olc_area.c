@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.25 1998-10-29 07:25:29 fjoe Exp $
+ * $Id: olc_area.c,v 1.26 1998-10-30 06:56:58 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -170,6 +170,8 @@ OLC_FUN(areaed_show)
 		    pArea->min_vnum, pArea->max_vnum);
 	char_printf(ch, "Levels:   [%d-%d]\n\r",
 		    pArea->min_level, pArea->max_level);
+	if (pArea->clan)
+		char_printf(ch, "Clan:     [%s]\n\r", clan_name(pArea->clan));
 	char_printf(ch, "Age:      [%d]\n\r",	pArea->age);
 	char_printf(ch, "Players:  [%d]\n\r", pArea->nplayer);
 	char_printf(ch, "Security: [%d]\n\r", pArea->security);

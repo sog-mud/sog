@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.30 1998-10-20 19:57:48 fjoe Exp $
+ * $Id: db.h,v 1.31 1998-10-30 06:56:55 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -86,9 +86,11 @@ extern DBFUN db_load_clans[];
 extern DBFUN db_load_classes[];
 extern DBFUN db_load_langs[];
 extern DBFUN db_load_skills[];
+extern DBFUN db_load_races[];
 
 DECLARE_DBINIT_FUN(init_area);
 DECLARE_DBINIT_FUN(init_class);
+DECLARE_DBINIT_FUN(init_race);
 
 extern int fBootDb;
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.4 1998-10-08 13:31:07 fjoe Exp $
+ * $Id: db_lang.c,v 1.5 1998-10-30 06:56:55 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -94,6 +94,9 @@ DBLOAD_FUN(load_lang)
 			KEY("SlangOf", lang_curr->slang_of,
 			    lang_lookup(fread_word(fp)));
 		}
+
+		if (!fMatch) 
+			db_error("load_lang", "%s: Unknown keyword", word);
 	}
 }
 
@@ -178,6 +181,9 @@ DBLOAD_FUN(load_word)
 			SKEY("Name", w->name);
 			break;
 		}
+
+		if (!fMatch) 
+			db_error("load_word", "%s: Unknown keyword", word);
 	}
 }
 

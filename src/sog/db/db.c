@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.85 1998-10-28 21:41:26 fjoe Exp $
+ * $Id: db.c,v 1.86 1998-10-30 06:56:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -244,95 +244,6 @@ void db_load_list(const char *path, const char *file,
 	fclose(fp);
 }
 
-void fwrite_flags(FILE *fp, const char *name, FLAG *table, flag_t flags)
-{
-	if (flags)
-		fprintf(fp, "%s %s~\n", name, flag_string(table, flags));
-}
-
-void dump_pc_race(FILE *fp, const struct pc_race_type *r)
-{
-	int i;
-
-	fprintf(fp, "#PCRACE\n");
-	fwrite_string(fp, "WhoName", r->who_name);
-	if (r->points)
-		fprintf(fp, "Points %d\n", r->points);
-	for (i = 0; i < classes.nused; i++) {
-		if (r->class_mult[i] <= 0)
-			continue;
-		fprintf(fp, "Class '%s' %d\n", class_name(i), r->class_mult[i]);
-	}
-	
-	fprintf(fp, "Skills ");
-	for (i = 0; i < 5; i++)
-		if (!IS_NULLSTR(r->skills[i]))
-			fprintf(fp, "'%s' ", r->skills[i]);
-	fprintf(fp, "~\n");
-
-	fprintf(fp, "Stats");
-	for (i = 0; i < MAX_STATS; i++)
-		fprintf(fp, " %d", r->stats[i]);
-	fprintf(fp, "\n");
-
-	fprintf(fp, "MaxStats");
-	for (i = 0; i < MAX_STATS; i++)
-		fprintf(fp, " %d", r->max_stats[i]);
-	fprintf(fp, "\n");
-
-	fprintf(fp, "Size %s\n", flag_string(size_table, r->size));
-	if (r->hp_bonus)
-		fprintf(fp, "HPBonus %d\n", r->hp_bonus);
-	if (r->mana_bonus)
-		fprintf(fp, "ManaBonus %d\n", r->mana_bonus);
-	if (r->prac_bonus)
-		fprintf(fp, "PracBonus %d\n", r->prac_bonus);
-	if (r->align)
-		fprintf(fp, "RestrictAlign %s~\n",
-			flag_string(align_names, r->align));
-	if (r->slang)
-		fprintf(fp, "Slang %s\n", flag_string(slang_table, r->slang));
-	fprintf(fp, "\n");
-}
-
-void dump_race(FILE *list, int num)
-{
-	FILE *fp;
-	char buf[MAX_STRING_LENGTH];
-	const struct race_type *r = race_table+num;
-	char *p;
-
-	strnzcpy(buf, r->name, sizeof(buf));
-	for (p = buf; *p; p++)
-		if (isspace(*p))
-			*p = '_';
-	strnzcat(buf, ".race", sizeof(buf));
-
-	fp = fopen(buf, "w");
-	fprintf(list, "%s\n", buf);
-	if (fp == NULL)
-		return;
-
-	fprintf(fp, "#RACE\n");
-	fwrite_string(fp, "Name", r->name);
-	fwrite_flags(fp, "Act", act_flags, r->act);
-	fwrite_flags(fp, "Aff", affect_flags, r->aff);
-	fwrite_flags(fp, "Off", off_flags, r->off);
-	fwrite_flags(fp, "Imm", imm_flags, r->imm);
-	fwrite_flags(fp, "Res", res_flags, r->res);
-	fwrite_flags(fp, "Vuln", vuln_flags, r->vuln);
-	fwrite_flags(fp, "Form", form_flags, r->form);
-	fwrite_flags(fp, "Parts", part_flags, r->parts);
-	fprintf(fp, "\n");
-
-	if (r->pc_race)
-		dump_pc_race(fp, pc_race_table+num);
-
-	fprintf(fp, "#$\n");
-
-	fclose(fp);
-}
-
 /*
  * Big mama top level function.
  */
@@ -393,20 +304,8 @@ void boot_db(void)
 	db_load_file(ETC_PATH, SKILLS_CONF, db_load_skills, NULL);
 	namedp_check(gsn_table);
 	namedp_check(spellfn_table);
+	db_load_list(RACES_PATH, RACE_LIST, db_load_races, init_race);
 	db_load_list(CLASSES_PATH, CLASS_LIST, db_load_classes, init_class);
-#if 0
-	{
-		int i;
-		FILE *fp;
-
-		fp = fopen("race.lst", "w");
-		for (i = 0; race_table[i].name; i++)
-			dump_race(fp, i);
-		fprintf(fp, "$\n");
-		fclose(fp);
-		exit(1);
-	}
-#endif
 	db_load_list(CLANS_PATH, CLAN_LIST, db_load_clans, NULL);
 	db_load_list(AREA_PATH, AREA_LIST, db_load_areas, init_area);
 
@@ -2719,6 +2618,9 @@ void convert_object(OBJ_INDEX_DATA *pObjIndex)
     ++newobjs;
 }
 
+/*
+ * read flag word (not f-word :)
+ */
 flag_t fread_fword(const FLAG *table, FILE *fp)
 {
 	char *name = fread_word(fp);

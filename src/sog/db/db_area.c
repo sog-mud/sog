@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.16 1998-10-24 09:45:05 fjoe Exp $
+ * $Id: db_area.c,v 1.17 1998-10-30 06:56:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -358,13 +358,16 @@ DBLOAD_FUN(load_old_mob)
 		pMobIndex->sex			= fread_number(fp);
 
 		/* compute the race BS */
-		one_argument(pMobIndex->name,name);
+		one_argument(pMobIndex->name, name);
  
-		if (name[0] == '\0' || (race =  race_lookup(name)) == 0) {
+		if (name[0] == '\0' || (race =  rn_lookup(name)) == 0) {
+			RACE_DATA *r;
+
 			/* fill in with blanks */
-			pMobIndex->race = race_lookup("human");
+			pMobIndex->race = rn_lookup("human");
+			r = RACE(pMobIndex->race);
 			pMobIndex->affected_by = pMobIndex->affected_by |
-				race_table[pMobIndex->race].aff;
+						 r->aff;
 			pMobIndex->off_flags = OFF_DODGE | OFF_DISARM |
 				OFF_TRIP | ASSIST_VNUM;
 			pMobIndex->imm_flags = 0;
@@ -376,16 +379,18 @@ DBLOAD_FUN(load_old_mob)
 				PART_HEART | PART_BRAINS | PART_GUTS;
 		}
 		else {
+			RACE_DATA *r = RACE(race);
+
 			pMobIndex->race = race;
 			pMobIndex->affected_by = 
-				pMobIndex->affected_by | race_table[race].aff;
+				pMobIndex->affected_by | r->aff;
 			pMobIndex->off_flags = OFF_DODGE | OFF_DISARM |
-				OFF_TRIP | ASSIST_RACE | race_table[race].off;
-			pMobIndex->imm_flags = race_table[race].imm;
-			pMobIndex->res_flags = race_table[race].res;
-			pMobIndex->vuln_flags = race_table[race].vuln;
-			pMobIndex->form = race_table[race].form;
-			pMobIndex->parts = race_table[race].parts;
+				OFF_TRIP | ASSIST_RACE | r->off;
+			pMobIndex->imm_flags = r->imm;
+			pMobIndex->res_flags = r->res;
+			pMobIndex->vuln_flags = r->vuln;
+			pMobIndex->form = r->form;
+			pMobIndex->parts = r->parts;
 		}
 
 		if (letter != 'S') {
@@ -1065,8 +1070,8 @@ DBLOAD_FUN(load_mobiles)
     if (!area_current)
         db_error("load_mobiles", "no #AREA seen yet.");
 
-    for (; ;)
-    {
+    for (; ;) {
+	RACE_DATA *r;
         int vnum;
         char letter;
         int iHash;
@@ -1094,16 +1099,15 @@ DBLOAD_FUN(load_mobiles)
         pMobIndex->vnum                 = vnum;
 	pMobIndex->new_format		= TRUE;
 	newmobs++;
-        pMobIndex->name          = fread_string(fp);
+        pMobIndex->name			= fread_string(fp);
         pMobIndex->short_descr		= mlstr_fread(fp);
         pMobIndex->long_descr		= mlstr_fread(fp);
         pMobIndex->description		= mlstr_fread(fp);
-	pMobIndex->race		 	= race_lookup(fread_string(fp));
+	pMobIndex->race		 	= rn_lookup(fread_string(fp));
+	r = RACE(pMobIndex->race);
 
-        pMobIndex->act                  = fread_flags(fp) | ACT_NPC
-					| race_table[pMobIndex->race].act;
-        pMobIndex->affected_by          = fread_flags(fp)
-					| race_table[pMobIndex->race].aff;
+        pMobIndex->act                  = fread_flags(fp) | ACT_NPC | r->act;
+        pMobIndex->affected_by          = fread_flags(fp) | r->aff;
 
 	pMobIndex->practicer		= 0;
         pMobIndex->pShop                = NULL;
@@ -1143,14 +1147,10 @@ DBLOAD_FUN(load_mobiles)
 	pMobIndex->ac[AC_EXOTIC]	= fread_number(fp) * 10;
 
 	/* read flags and add in data from the race table */
-	pMobIndex->off_flags		= fread_flags(fp) 
-					| race_table[pMobIndex->race].off;
-	pMobIndex->imm_flags		= fread_flags(fp)
-					| race_table[pMobIndex->race].imm;
-	pMobIndex->res_flags		= fread_flags(fp)
-					| race_table[pMobIndex->race].res;
-	pMobIndex->vuln_flags		= fread_flags(fp)
-					| race_table[pMobIndex->race].vuln;
+	pMobIndex->off_flags		= fread_flags(fp) | r->off;
+	pMobIndex->imm_flags		= fread_flags(fp) | r->imm;
+	pMobIndex->res_flags		= fread_flags(fp) | r->res;
+	pMobIndex->vuln_flags		= fread_flags(fp) | r->vuln;
 
 	/* vital statistics */
 	pMobIndex->start_pos		= flag_value(position_table,
@@ -1161,10 +1161,8 @@ DBLOAD_FUN(load_mobiles)
 
 	pMobIndex->wealth		= fread_number(fp);
 
-	pMobIndex->form			= fread_flags(fp)
-					| race_table[pMobIndex->race].form;
-	pMobIndex->parts		= fread_flags(fp)
-					| race_table[pMobIndex->race].parts;
+	pMobIndex->form			= fread_flags(fp) | r->form;
+	pMobIndex->parts		= fread_flags(fp) | r->parts;
 	/* size */
 	CHECK_POS(pMobIndex->size, size_lookup(fread_word(fp)), "size");
 /*	pMobIndex->size			= size_lookup(fread_word(fp)); */

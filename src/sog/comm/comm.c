@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.117 1998-10-28 21:40:58 fjoe Exp $
+ * $Id: comm.c,v 1.118 1998-10-30 06:56:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -159,7 +159,6 @@ extern	int	malloc_verify	(void);
 #endif
 
 bool class_ok(CHAR_DATA *ch , int class);
-
 
 /*
  * Signal handling.
@@ -1387,6 +1386,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	int nextquest = 0;
 	struct sockaddr_in sock;
 	int size;
+	RACE_DATA *r;
 
 	while (isspace(*argument))
 		argument++;
@@ -1631,9 +1631,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		}
 
 		write_to_descriptor(d->descriptor, (char *) echo_on_str, 0);
-		snprintf(buf, sizeof(buf), "The Muddy MUD is home to %d different races with brief descriptions below:\n\r", MAX_PC_RACE - 1);
-		write_to_buffer(d, buf, 0);
-		do_help(ch,"RACETABLE");
+		write_to_buffer(d, "The Muddy MUD is home for the following races:\n\r", 0);
+		do_help(ch, "RACETABLE");
 		d->connected = CON_GET_NEW_RACE;
 		break;
 
@@ -1642,75 +1641,68 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 		if (!str_cmp(arg, "help")) {
 			argument = one_argument(argument, arg);
-	    if (argument[0] == '\0')
-	      {
-		sprintf(buf,
-"The Muddy MUD is home to %d different races with brief descriptions below:\n\r",
-			MAX_PC_RACE - 1);
-		write_to_buffer(d, buf, 0);
-	        	do_help(ch,"RACETABLE");
+			if (argument[0] == '\0') {
+				write_to_buffer(d, "The Muddy MUD Realms is the home for the following races:\n\r", 0);
+	  			do_help(ch,"RACETABLE");
+			}
+			else {
+				do_help(ch, argument);
+				write_to_buffer(d, "What is your race? ('help <race>' for more information) ",0);
+			}	
+			break;
+		}
+
+		race = rn_lookup(argument);
+		r = RACE(race);
+
+		if (race == 0 || !r->pcdata) {
+			write_to_buffer(d, "That is not a valid race.\n\r", 0);
+			write_to_buffer(d, "The following races are available:\n\r  ", 0);
+			for (race = 1; race < races.nused; race++) {
+				r = RACE(race);
+		        	if (!r->pcdata)
+	        	        	break;
+				if (race == 8 || race == 14)
+					write_to_buffer(d,"\n\r  ",0);
+				write_to_buffer(d,"(",0);
+				write_to_buffer(d, r->name, 0);
+				write_to_buffer(d,") ",0);
+	        	}
+			write_to_buffer(d, "\n\r", 0);
+			write_to_buffer(d, "What is your race? ('help <race>' for more information) ", 0);
+			break;
+		}
+
+		ORG_RACE(ch) = race;
+		ch->race = race;
+		for (i=0; i < MAX_STATS;i++)
+			ch->mod_stat[i] = 0;
+
+		/* Add race stat modifiers 
+		for (i = 0; i < MAX_STATS; i++)
+			ch->mod_stat[i] += r->pcdata->stats[i];	*/
+
+		/* Add race modifiers */
+		ch->max_hit += r->pcdata->hp_bonus;
+		ch->hit = ch->max_hit;
+		ch->max_mana += r->pcdata->mana_bonus;
+		ch->mana = ch->max_mana;
+		ch->practice = r->pcdata->prac_bonus;
+
+		ch->affected_by = ch->affected_by| r->aff;
+		ch->imm_flags	= ch->imm_flags| r->imm;
+		ch->res_flags	= ch->res_flags| r->res;
+		ch->vuln_flags	= ch->vuln_flags| r->vuln;
+		ch->form	= r->form;
+		ch->parts	= r->parts;
+
+		/* add cost */
+		ch->pcdata->points = r->pcdata->points;
+		ch->size = r->pcdata->size;
+
+		write_to_buffer(d, "What is your sex (M/F)? ", 0);
+		d->connected = CON_GET_NEW_SEX;
 		break;
-	      }
-	    else
-	      {
-		do_help(ch,argument);
-	            write_to_buffer(d,
-		"What is your race? ('help <race>' for more information) ",0);
-	      }	
-	    break;
-  	}
-
-	race = race_lookup(argument);
-
-	if (race == 0 || !race_table[race].pc_race)
-	{
-	    write_to_buffer(d,"That is not a valid race.\n\r",0);
-	        write_to_buffer(d,"The following races are available:\n\r  ",0);
-	        for (race = 1; race_table[race].name != NULL; race++) {
-	        	if (!race_table[race].pc_race)
-	                	break;
-			if (race == 8 || race == 14)
-			write_to_buffer(d,"\n\r  ",0);
-			write_to_buffer(d,"(",0);
-			write_to_buffer(d,race_table[race].name,0);
-			write_to_buffer(d,") ",0);
-	        }
-	        write_to_buffer(d, "\n\r", 0);
-	        write_to_buffer(d, "What is your race? ('help <race>' for more information) ",0);
-	    break;
-	}
-
-	ORG_RACE(ch) = race;
-	RACE(ch) = race;
-	for (i=0; i < MAX_STATS;i++)
-	      ch->mod_stat[i] = 0;
-
-	/* Add race stat modifiers 
-	for (i = 0; i < MAX_STATS; i++)
-	    ch->mod_stat[i] += pc_race_table[race].stats[i];	*/
-
-	/* Add race modifiers */
-	ch->max_hit += pc_race_table[race].hp_bonus;
-	ch->hit = ch->max_hit;
-	ch->max_mana += pc_race_table[race].mana_bonus;
-	ch->mana = ch->max_mana;
-	ch->practice = pc_race_table[race].prac_bonus;
-
-	ch->affected_by = ch->affected_by|race_table[race].aff;
-	ch->imm_flags	= ch->imm_flags|race_table[race].imm;
-	ch->res_flags	= ch->res_flags|race_table[race].res;
-	ch->vuln_flags	= ch->vuln_flags|race_table[race].vuln;
-	ch->form	= race_table[race].form;
-	ch->parts	= race_table[race].parts;
-
-	/* add cost */
-	ch->pcdata->points = pc_race_table[race].points;
-	ch->size = pc_race_table[race].size;
-
-	    write_to_buffer(d, "What is your sex (M/F)? ", 0);
-	    d->connected = CON_GET_NEW_SEX;
-	    break;
-	    
 
 	case CON_GET_NEW_SEX:
 	switch (argument[0])
@@ -1729,7 +1721,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	do_help(ch,"class help");
 
 	strcpy(buf, "Select a class:\n\r[ ");
-	sprintf(buf1,"             (Continuing:)  ");
+	sprintf(buf1,"(Continuing:) ");
 	for (iClass = 0; iClass < classes.nused; iClass++)
 	{
 	  if (class_ok(ch,iClass))
@@ -1746,8 +1738,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	      }
 	    }
 	}
-	strcat(buf, "\n\r ");
-	strcat(buf1, "]:\n\r ");
+	strcat(buf, "\n\r");
+	strcat(buf1, "]:\n\r");
 	write_to_buffer(d, buf, 0);
 	write_to_buffer(d, buf1, 0);
 	        write_to_buffer(d,
@@ -1784,35 +1776,31 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	    return;
 	  }
 
-	    ch->class = iClass;
+		ch->class = iClass;
+		ch->pcdata->points += CLASS(iClass)->points;
+		act("You are now $t.", ch, CLASS(iClass)->name, NULL, TO_CHAR);
 
-	ch->pcdata->points += CLASS(iClass)->points;
-	    act("You are now $t.", ch, CLASS(iClass)->name, NULL, TO_CHAR);
+		for (i = 0; i < MAX_STATS; i++)
+			ch->perm_stat[i] = number_range(10, get_max_train(ch, i));
 
-	for (i=0; i < MAX_STATS; i++)
-	  {
-	   ch->perm_stat[i] = number_range(10, 
-(20 + pc_race_table[ORG_RACE(ch)].stats[i] + CLASS(iClass)->stats[i]));
-	  ch->perm_stat[i] = UMIN(25, ch->perm_stat[i]);
-	  }
-
-sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
-	    get_stat_alias(ch, STAT_STR),
-	    get_stat_alias(ch, STAT_INT),
-	    get_stat_alias(ch, STAT_WIS),
-	    get_stat_alias(ch, STAT_DEX),
-	    get_stat_alias(ch, STAT_CON),
-	    get_stat_alias(ch, STAT_CHA));
+		snprintf(buf, sizeof(buf),
+			 "Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s  Cha:%s\n\rAccept (Y/N)? ",
+			 get_stat_alias(ch, STAT_STR),
+			 get_stat_alias(ch, STAT_INT),
+			 get_stat_alias(ch, STAT_WIS),
+			 get_stat_alias(ch, STAT_DEX),
+			 get_stat_alias(ch, STAT_CON),
+			 get_stat_alias(ch, STAT_CHA));
 
 
-	do_help(ch,"stats");
-	write_to_buffer(d,"\n\rNow rolling for your stats (10-20+).\n\r",0);
-	write_to_buffer(d,"You don't get many trains, so choose well.\n\r",0);
-	write_to_buffer(d, buf,0);
-	d->connected = CON_ACCEPT_STATS;
-	break;
+		do_help(ch, "stats");
+		write_to_buffer(d, "\n\rNow rolling for your stats (10-20+).\n\r", 0);
+		write_to_buffer(d, "You don't get many trains, so choose well.\n\r", 0);
+		write_to_buffer(d, buf, 0);
+		d->connected = CON_ACCEPT_STATS;
+		break;
 
-	  case CON_ACCEPT_STATS:
+	case CON_ACCEPT_STATS:
 	switch(argument[0])
 	  {
 	  case 'H': case 'h': case '?':
@@ -1836,34 +1824,30 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 	    }
 	    break;
 	    
-	  case 'n': case 'N':
+		case 'n': case 'N':
+			for (i = 0; i < MAX_STATS; i++)
+				ch->perm_stat[i] = number_range(10, get_max_train(ch, i));
 
-	for (i=0; i < MAX_STATS; i++)
-	  {
-	   ch->perm_stat[i] = number_range(10, 
-(20 + pc_race_table[ORG_RACE(ch)].stats[i] + CLASS(ch->class)->stats[i]));
-	  ch->perm_stat[i] = UMIN(25, ch->perm_stat[i]);
-	  }
+			snprintf(buf, sizeof(buf),
+				 "Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s  Cha:%s\n\rAccept (Y/N)? ",
+				 get_stat_alias(ch, STAT_STR),
+				 get_stat_alias(ch, STAT_INT),
+				 get_stat_alias(ch, STAT_WIS),
+				 get_stat_alias(ch, STAT_DEX),
+				 get_stat_alias(ch, STAT_CON),
+				 get_stat_alias(ch, STAT_CHA));
 
-sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
-	    get_stat_alias(ch, STAT_STR),
-	    get_stat_alias(ch, STAT_INT),
-	    get_stat_alias(ch, STAT_WIS),
-	    get_stat_alias(ch, STAT_DEX),
-	    get_stat_alias(ch, STAT_CON),
-	    get_stat_alias(ch, STAT_CHA));
+			write_to_buffer(d, buf,0);
+			d->connected = CON_ACCEPT_STATS;
+			break;
 
-	    write_to_buffer(d, buf,0);
-	    d->connected = CON_ACCEPT_STATS;
-	    break;
-
-	  default:
-	    write_to_buffer(d,"Please answer (Y/N)? ",0);
-	    break;
-	  }
-	break;
+		default:
+			write_to_buffer(d,"Please answer (Y/N)? ",0);
+			break;
+		}
+		break;
 	    
-	  case CON_GET_ALIGNMENT:
+	case CON_GET_ALIGNMENT:
 	switch(argument[0])
 	  {
 	  case 'g' : case 'G' : 
@@ -1995,14 +1979,13 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 	case CON_CREATE_DONE:
 		log_printf("%s@%s new player.", ch->name, d->host);
 		write_to_buffer(d, "\n\r", 2);
-	    do_help(ch, "motd");
-	    char_puts("[Press Enter to continue]", ch);
-	    d->connected = CON_READ_MOTD;
-	    return;
-	break;
+		do_help(ch, "motd");
+		char_puts("[Press Enter to continue]", ch);
+		d->connected = CON_READ_MOTD;
+		break;
 
 	case CON_GET_OLD_PASSWORD:
-	write_to_buffer(d, "\n\r", 2);
+		write_to_buffer(d, "\n\r", 2);
 
 	if (strcmp(crypt(argument, ch->pcdata->pwd), ch->pcdata->pwd)) {
 	    write_to_buffer(d, "Wrong password.\n\r", 0);
@@ -2082,14 +2065,17 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 	  char_puts("The gods frown upon your actions.\n\r",ch);
 	}
 
-	/* FALL THRU */
+		/* FALL THRU */
+
 	case CON_READ_IMOTD:
 		if (IS_HERO(ch))
-		    do_help(ch, "imotd");
+			do_help(ch, "imotd");
 		write_to_buffer(d,"\n\r",2);
 		do_help(ch, "motd");
 		d->connected = CON_READ_MOTD;
-	/* FALL THRU */
+
+		/* FALL THRU */
+
 	case CON_READ_MOTD:
 		update_skills(ch);
 		write_to_buffer(d, 
@@ -2127,63 +2113,56 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 			}
 		}
 
+		if (ch->level == 0) {
+			OBJ_DATA *wield;
 
+			ch->level	= 1;
+			ch->exp		= base_exp(ch);
+			ch->hit		= ch->max_hit;
+			ch->mana	= ch->max_mana;
+			ch->move	= ch->max_move;
+			ch->train	= 3;
+			ch->practice	+= 5;
+			ch->pcdata->death = 0;
 
-	if (ch->level == 0) {
-		OBJ_DATA *wield;
+			set_title(ch, title_lookup(ch));
 
-	    ch->level	= 1;
-	    ch->exp     = base_exp(ch);
-	    ch->hit	= ch->max_hit;
-	    ch->mana	= ch->max_mana;
-	    ch->move	= ch->max_move;
-	    ch->train	 = 3;
-	    ch->practice += 5;
-	    ch->pcdata->death = 0;
+			do_outfit(ch, str_empty);
 
-		set_title(ch, title_lookup(ch));
+			obj_to_char(create_obj(get_obj_index(OBJ_VNUM_MAP), 0), ch);
+			obj_to_char(create_obj(get_obj_index(OBJ_VNUM_NMAP1), 0), ch);
+			obj_to_char(create_obj(get_obj_index(OBJ_VNUM_NMAP2), 0), ch);
 
-	    do_outfit(ch, str_empty);
+			if (ch->hometown == 0 && IS_EVIL(ch))
+				obj_to_char(create_obj(get_obj_index(OBJ_VNUM_MAP_SM), 0), ch);
 
-	    obj_to_char(create_obj(get_obj_index(OBJ_VNUM_MAP),0),ch);
-	    obj_to_char(create_obj(get_obj_index(OBJ_VNUM_NMAP1),0),ch);
-	    obj_to_char(create_obj(get_obj_index(OBJ_VNUM_NMAP2),0),ch);
+			if (ch->hometown == 1)
+				obj_to_char(create_obj(get_obj_index(OBJ_VNUM_MAP_NT), 0), ch);
 
-	    if (ch->hometown == 0 && IS_EVIL(ch))
-	      obj_to_char(create_obj(get_obj_index(OBJ_VNUM_MAP_SM),0),ch);
+			if (ch->hometown == 3)
+				obj_to_char(create_obj(get_obj_index(OBJ_VNUM_MAP_OFCOL), 0), ch);
 
-	    if (ch->hometown == 1)
-	      obj_to_char(create_obj(get_obj_index(OBJ_VNUM_MAP_NT),0),ch);
+			if (ch->hometown == 2)
+				obj_to_char(create_obj(get_obj_index(OBJ_VNUM_MAP_TITAN), 0), ch);
 
-	    if (ch->hometown == 3)
-	  obj_to_char(create_obj(get_obj_index(OBJ_VNUM_MAP_OFCOL),0),ch);
+			if (ch->hometown == 4)
+				obj_to_char(create_obj(get_obj_index(OBJ_VNUM_MAP_OLD), 0), ch);
 
-	    if (ch->hometown == 2)
-	  obj_to_char(create_obj(get_obj_index(OBJ_VNUM_MAP_TITAN),0),ch);
+			if ((wield = get_eq_char(ch, WEAR_WIELD)))
+				set_skill_raw(ch, get_weapon_sn(wield),
+					      40, FALSE);
 
-	    if (ch->hometown == 4)
-	  obj_to_char(create_obj(get_obj_index(OBJ_VNUM_MAP_OLD),0),ch);
-
-		if ((wield = get_eq_char(ch, WEAR_WIELD)))
-			set_skill_raw(ch, get_weapon_sn(wield), 40, FALSE);
-
-	    char_to_room(ch, get_room_index(ROOM_VNUM_SCHOOL));
-	    char_puts("\n\r",ch);
-	    do_help(ch,"NEWBIE INFO");
-	    char_puts("\n\r",ch);
-	}
-	else if (ch->in_room != NULL)
-	{
-	    char_to_room(ch, ch->in_room);
-	}
-	else if (IS_IMMORTAL(ch))
-	{
-	    char_to_room(ch, get_room_index(ROOM_VNUM_CHAT));
-	}
-	else
-	{
-	    char_to_room(ch, get_room_index(ROOM_VNUM_TEMPLE));
-	}
+			char_to_room(ch, get_room_index(ROOM_VNUM_SCHOOL));
+			char_puts("\n\r",ch);
+			do_help(ch, "NEWBIE INFO");
+			char_puts("\n\r", ch);
+		}
+		else if (ch->in_room != NULL) 
+			char_to_room(ch, ch->in_room);
+		else if (IS_IMMORTAL(ch))
+			char_to_room(ch, get_room_index(ROOM_VNUM_CHAT));
+		else
+			char_to_room(ch, get_room_index(ROOM_VNUM_TEMPLE));
 
 		if (!IS_IMMORTAL(ch)) {
 			act("$n has entered the game.", ch, NULL,NULL, TO_ROOM);
@@ -2223,34 +2202,31 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 
 		wiznet("{W$N{x joins us.", ch, NULL, WIZ_LOGINS, 0, ch->level);
 
-	    for (i = 0; i < MAX_STATS; i++)
-	{
-	    if (ch->perm_stat[i] > 
-(20 + pc_race_table[ORG_RACE(ch)].stats[i] + CLASS(ch->class)->stats[i]))
-	  {
-	   ch->train += (ch->perm_stat[i] - 
-(20 + pc_race_table[ORG_RACE(ch)].stats[i] + CLASS(ch->class)->stats[i]));
-	   ch->perm_stat[i] = 
-	20 + pc_race_table[ORG_RACE(ch)].stats[i] + CLASS(ch->class)->stats[i];
-	  }
-	}
+		for (i = 0; i < MAX_STATS; i++) {
+			int max_stat = get_max_train(ch, i);
 
-	do_look(ch, "auto");
+			if (ch->perm_stat[i] > max_stat) {
+				ch->train += ch->perm_stat[i] - max_stat;
+				ch->perm_stat[i] = max_stat;
+			}
+		}
 
-	if (ch->gold > 6000 && !IS_IMMORTAL(ch)) {
-	    char_printf(ch, "You are taxed %d gold to pay for the Mayor's bar.\n\r",
-		(ch->gold - 6000) / 2);
-	    ch->gold -= (ch->gold - 6000) / 2;
-	}
+		do_look(ch, "auto");
+
+		if (ch->gold > 6000 && !IS_IMMORTAL(ch)) {
+			char_printf(ch, "You are taxed %d gold to pay for the Mayor's bar.\n\r", (ch->gold - 6000) / 2);
+			ch->gold -= (ch->gold - 6000) / 2;
+		}
 	
-	if (ch->pet != NULL) {
-	    char_to_room(ch->pet,ch->in_room);
-	    act("$n has entered the game.",ch->pet,NULL,NULL,TO_ROOM);
-	}
-	do_unread(ch, "login");  
+		if (ch->pet != NULL) {
+			char_to_room(ch->pet,ch->in_room);
+			act("$n has entered the game.",
+			    ch->pet, NULL, NULL, TO_ROOM);
+		}
 
-	break;
-    }
+		do_unread(ch, "login");  
+		break;
+	}
 }
 
 /*
@@ -2557,13 +2533,16 @@ char *translate(CHAR_DATA *ch, CHAR_DATA *victim, const char *i)
 {
 	static char trans[MAX_STRING_LENGTH];
 	char *o;
+	RACE_DATA *r;
 
 	if (*i == '\0'
 	||  (ch == NULL) || (victim == NULL)
 	||  IS_NPC(ch) || IS_NPC(victim)
 	||  IS_IMMORTAL(ch) || IS_IMMORTAL(victim)
 	||  ch->slang == SLANG_COMMON
-	||  ch->slang == pc_race_table[ORG_RACE(victim)].slang) {
+	||  ((r = race_lookup(ORG_RACE(victim))) &&
+	     r->pcdata &&
+	     ch->slang == r->pcdata->slang)) {
 		if (IS_IMMORTAL(victim))
 			snprintf(trans, sizeof(trans), "[%s] %s",
 				 flag_string(slang_table, ch->slang), i);
@@ -2574,7 +2553,8 @@ char *translate(CHAR_DATA *ch, CHAR_DATA *victim, const char *i)
 
 	snprintf(trans, sizeof(trans), "[%s] ",
 		 flag_string(slang_table, ch->slang));
-	for (o = strchr(trans, '\0'); *i && o-trans < sizeof(trans)-1; i++, o++) {
+	o = strchr(trans, '\0');
+	for (; *i && o-trans < sizeof(trans)-1; i++, o++) {
 		char *p = strchr(common, *i);
 		*o = p ? slang[p-common] : *i;
 	}
@@ -3112,40 +3092,53 @@ char *get_stat_alias(CHAR_DATA *ch, int where)
 
 }
 
-bool class_ok(CHAR_DATA *ch , int class)
+bool class_ok(CHAR_DATA *ch, int class)
 {
-	if (pc_race_table[ORG_RACE(ch)].class_mult[class] == -1
-	||  (ch->sex == SEX_FEMALE && class == CLASS_WARLOCK)
-	||  (ch->sex == SEX_FEMALE && class == CLASS_NECROMANCER)
-	||  (ch->sex == SEX_MALE && class == CLASS_WITCH)) 
-		return 0;
-	return 1;
+	RACE_DATA *r;
+	CLASS_DATA *cl;
+
+	if ((cl = class_lookup(class)) == NULL
+	||  (r = race_lookup(ORG_RACE(ch))) == NULL
+	||  !r->pcdata)
+		return FALSE;
+
+	if (race_class_lookup(r, cl->name) == NULL
+	||  (cl->restrict_sex >= 0 && cl->restrict_sex != ch->sex))
+		return FALSE;
+
+	return TRUE;
 }
 
 int align_restrict(CHAR_DATA *ch)
 {
 	DESCRIPTOR_DATA *d = ch->desc;
+	RACE_DATA *r;
 
-	if (IS_SET(pc_race_table[ORG_RACE(ch)].align,CR_GOOD)
-	||  IS_SET(CLASS(ch->class)->align,CR_GOOD)) {
+	if ((r = race_lookup(ORG_RACE(ch))) == NULL
+	||  !r->pcdata)
+		return CR_NONE;
+
+	if (r->pcdata->restrict_align == CR_GOOD
+	||  CLASS(ch->class)->restrict_align == CR_GOOD) {
 		write_to_buffer(d, "Your character has good tendencies.\n\r",0);
 		ch->alignment = 1000;
 		return CR_GOOD;
 	}
 
-	if (IS_SET(pc_race_table[ORG_RACE(ch)].align,CR_NEUTRAL)
-	||  IS_SET(CLASS(ch->class)->align,CR_NEUTRAL)) {
+	if (r->pcdata->restrict_align == CR_NEUTRAL
+	||  CLASS(ch->class)->restrict_align == CR_NEUTRAL) {
 		write_to_buffer(d, "Your character has neutral tendencies.\n\r",0);
 		ch->alignment = 0;
 		return CR_NEUTRAL;
 	}
 
-	if (IS_SET(pc_race_table[ORG_RACE(ch)].align,CR_EVIL)
-	||  IS_SET(CLASS(ch->class)->align,CR_EVIL)) {
+	if (r->pcdata->restrict_align == CR_EVIL
+	||  CLASS(ch->class)->restrict_align == CR_EVIL) {
 		write_to_buffer(d, "Your character has evil tendencies.\n\r",0);
 		ch->alignment = -1000;
 		return CR_EVIL;
 	}		
+
 	return CR_NONE;		
 }
 

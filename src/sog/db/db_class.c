@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.8 1998-10-08 13:31:07 fjoe Exp $
+ * $Id: db_class.c,v 1.9 1998-10-30 06:56:55 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -113,11 +113,17 @@ DBLOAD_FUN(load_class)
 			break;
 
 		case 'R':
-			KEY("RestrictAlign", class_curr->align,
-			    fread_fstring(align_names, fp));
+			KEY("RestrictAlign", class_curr->restrict_align,
+			    fread_fword(align_names, fp));
+			KEY("RestrictSex", class_curr->restrict_sex,
+			    fread_fword(sex_table, fp));
 			break;
 
 		case 'S':
+			KEY("SkillAdept", class_curr->skill_adept,
+			    fread_number(fp));
+			KEY("SchoolWeapon", class_curr->weapon,
+			    fread_number(fp));
 			if (!str_cmp(word, "ShortName")) {
 				const char *p = fread_string(fp);
 				strnzcpy(class_curr->who_name, p,
@@ -125,7 +131,6 @@ DBLOAD_FUN(load_class)
 				free_string(p);
 				fMatch = TRUE;
 			}
-			KEY("SchoolWeapon", class_curr->weapon, fread_number(fp));
 			if (!str_cmp(word, "Skill")) {
 				CLASS_SKILL *class_skill;
 
@@ -135,7 +140,6 @@ DBLOAD_FUN(load_class)
 				class_skill->rating = fread_number(fp);
 				fMatch = TRUE;
 			}
-			KEY("SkillAdept", class_curr->skill_adept, fread_number(fp));
 			if (!str_cmp(word, "StatMod")) {
 				for (i = 0; i < MAX_STATS; i++)
 					class_curr->stats[i] = fread_number(fp);
@@ -157,10 +161,15 @@ DBLOAD_FUN(load_class)
 				sex = fread_fword(sex_table, fp);
 				if (sex < 1 || sex > 2)
 					db_error("load_class", "invalid sex");
-				class_curr->titles[level][sex-1] = fread_string(fp);
+				class_curr->titles[level][sex-1] =
+							fread_string(fp);
+				fMatch = TRUE;
 			}
 			break;
 		}
+
+		if (!fMatch) 
+			db_error("load_class", "%s: Unknown keyword", word);
 	}
 }
 
