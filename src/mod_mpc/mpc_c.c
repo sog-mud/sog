@@ -23,12 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_c.c,v 1.33 2003-03-13 14:18:37 fjoe Exp $
+ * $Id: mpc_c.c,v 1.34 2003-03-13 18:49:08 avn Exp $
  */
 
 #include <assert.h>
 #include <stdio.h>
 #include <setjmp.h>
+#include <string.h>
 
 #include <merc.h>
 #include <mprog.h>
