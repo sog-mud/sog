@@ -1,5 +1,5 @@
 /*
- * $Id: act_quest.c,v 1.47 1998-07-11 20:55:14 fjoe Exp $
+ * $Id: act_quest.c,v 1.48 1998-07-11 22:09:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -327,7 +327,6 @@ void quest_update(void)
 			}
 		}
 	}
-	return;
 }
 
 
@@ -643,6 +642,7 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		str_printf(&eyed->description, ch->name);
 
 		eyed->extra_descr = new_extra_descr();
+		eyed->extra_descr->description = str_dup(eyed->pIndexData->extra_descr->description);
 		str_printf(&eyed->extra_descr->description, ch->name);
 		eyed->extra_descr->keyword =
 				str_dup(eyed->pIndexData->extra_descr->keyword);

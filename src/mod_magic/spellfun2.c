@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.22 1998-07-11 20:55:12 fjoe Exp $
+ * $Id: spellfun2.c,v 1.23 1998-07-11 22:09:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3269,6 +3269,8 @@ void spell_eyed_sword (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	str_printf(&eyed->description, ch->name);
 
 	eyed->extra_descr = new_extra_descr();
+	eyed->extra_descr->description = 
+			str_dup(eyed->pIndexData->extra_descr->description);
 	str_printf(&eyed->extra_descr->description, ch->name);
 	eyed->extra_descr->keyword = 
 			str_dup(eyed->pIndexData->extra_descr->keyword);
@@ -3440,6 +3442,8 @@ void spell_magic_jar(int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	str_printf(&fire->description, victim->name);
 
 	fire->extra_descr = new_extra_descr();
+	fire->extra_descr->description = 
+			str_dup(fire->pIndexData->extra_descr->description);
 	str_printf(&fire->extra_descr->description, victim->name);
 	fire->extra_descr->keyword = 
 			str_dup(fire->pIndexData->extra_descr->keyword);
@@ -3711,6 +3715,8 @@ void spell_fire_shield (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	str_printf(&fire->description, arg);
 
 	fire->extra_descr = new_extra_descr();
+	fire->extra_descr->description = 
+			str_dup(fire->pIndexData->extra_descr->description);
 	str_printf(&fire->extra_descr->description, arg);
 	fire->extra_descr->keyword = 
 			str_dup(fire->pIndexData->extra_descr->keyword);

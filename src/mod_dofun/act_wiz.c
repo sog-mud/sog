@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.36 1998-07-11 20:55:09 fjoe Exp $
+ * $Id: act_wiz.c,v 1.37 1998-07-11 22:09:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -97,7 +97,7 @@ extern int max_on;
  * Local functions.
  */
 bool write_to_descriptor  args((int desc, char *txt, int length));
-void reboot_anatolia(void);
+void reboot_muddy(void);
 extern int rebooter;
 
 
@@ -766,11 +766,9 @@ void do_deny(CHAR_DATA *ch, const char *argument)
 	wiznet_printf(ch,NULL,WIZ_PENALTIES,WIZ_SECURE,0,
 			"$N denies access to %s",victim->name);
 	char_puts("OK.\n\r", ch);
-	save_char_obj(victim);
+	save_char_obj(victim, FALSE);
 	stop_fighting(victim,TRUE);
 	do_quit(victim, "");
-
-	return;
 }
 
 
@@ -2710,7 +2708,7 @@ void do_purge(CHAR_DATA *ch, const char *argument)
 		act("$n disintegrates $N.",ch,0,victim,TO_NOTVICT);
 
 		if (victim->level > 1)
-		    save_char_obj(victim);
+		    save_char_obj(victim, FALSE);
 		d = victim->desc;
 		extract_char(victim, TRUE);
 		if (d != NULL)
@@ -2900,9 +2898,7 @@ void do_freeze(CHAR_DATA *ch, const char *argument)
 		wiznet(buf,ch,NULL,WIZ_PENALTIES,WIZ_SECURE,0);
 	}
 
-	save_char_obj(victim);
-
-	return;
+	save_char_obj(victim, FALSE);
 }
 
 
@@ -4070,8 +4066,7 @@ void do_advance(CHAR_DATA *ch, const char *argument)
 		advance_level(victim);
 	}
 	victim->trust = 0;
-	save_char_obj(victim);
-	return;
+	save_char_obj(victim, FALSE);
 }
 
 void do_mset(CHAR_DATA *ch, const char *argument)
@@ -4818,7 +4813,7 @@ void do_rename (CHAR_DATA* ch, const char *argument)
 		free_string (victim->name);
 		victim->name = str_dup (capitalize(new_name));
 		
-		save_char_obj (victim);
+		save_char_obj (victim, FALSE);
 		
 		unlink (strsave); 
 		char_puts ("Character renamed.\n\r",ch);
@@ -4947,7 +4942,7 @@ void do_reboot(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (is_name(arg, "now")) {
-		reboot_anatolia();
+		reboot_muddy();
 		return;
 	}
 
@@ -4979,7 +4974,7 @@ void do_reboot(CHAR_DATA *ch, const char *argument)
 }
 
 
-void reboot_anatolia(void)
+void reboot_muddy(void)
 {
 	extern bool merc_down;
 	DESCRIPTOR_DATA *d,*d_next;
@@ -4989,7 +4984,7 @@ void reboot_anatolia(void)
 		d_next = d->next;
 		write_to_buffer(d,"Muddy is going down for rebooting NOW!",0);
 		if (d->character != NULL)
-			save_char_obj(d->character);
+			save_char_obj(d->character, TRUE);
 		close_socket(d);
 	}
 	merc_down = TRUE;    

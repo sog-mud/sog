@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.59 1998-07-11 20:55:07 fjoe Exp $
+ * $Id: act_comm.c,v 1.60 1998-07-11 22:09:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1088,7 +1088,7 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 	/*
 	 * After extract_char the ch is no longer valid!
 	 */
-	save_char_obj(ch);
+	save_char_obj(ch, FALSE);
 	id = ch->id;
 	d = ch->desc;
 	if (Count)
@@ -1123,7 +1123,7 @@ void do_save(CHAR_DATA *ch, const char *argument)
 		send_to_char("You must be at least level 2 for saving.\n\r",ch);
 		return;
 	}
-	save_char_obj(ch);
+	save_char_obj(ch, FALSE);
 	WAIT_STATE(ch, PULSE_VIOLENCE);
 	return;
 }

@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.10 1998-07-10 10:39:38 fjoe Exp $
+# $Id: Makefile,v 1.11 1998-07-11 22:09:09 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
@@ -45,11 +45,11 @@ depend:
 clean:
 	rm -f *.o *.core muddy
 
-areainstall:
-	install -c -m 664 resource.h $(INSTALL_PATH)/area
+resinstall:
+	install -c -m 664 resource.h lang.lst *.lang $(INSTALL_PATH)/area
 
 bininstall:
 	install -c -m 554 muddy $(INSTALL_PATH)/area
 
-install: areainstall bininstall
+install: resinstall bininstall
 

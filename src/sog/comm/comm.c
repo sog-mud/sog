@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.67 1998-07-11 20:55:09 fjoe Exp $
+ * $Id: comm.c,v 1.68 1998-07-11 22:09:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -499,38 +499,12 @@ int init_socket(int port)
 	return fd;
 }
 
-void crash_chronos (int sig)
-{
- char buf[MAX_STRING_LENGTH];
- DESCRIPTOR_DATA *d;
- CHAR_DATA *ch;
-
- log("Core dumped.");
- sprintf(buf,"The core with signal %d",sig);
- bug(buf,0);
- for (d = descriptor_list; d != NULL; d = d_next)
-	{
-	    d_next	= d->next;
-	        ch = d->original ? d->original : d->character;
-	        if (IS_NPC(ch))  continue;
-	             save_char_obj (ch);	
-	    log_printf("%s is saved",ch->name);	
-	    write_to_descriptor(d->descriptor,"\007Rebooting By Server!!\007\n\r",0);
-	    write_to_descriptor(d->descriptor,"Saving.Remember that Rom has automatic saving now.\n\r",0);
-	    sprintf(buf,"%s last command %s",ch->name,ch->desc->inlast);    
-	    bug(buf,0);
-	}
-	sprintf(buf,"SUCCESSFUL HANDLING!"); 
-	bug(buf,0);	
- return;
-}
 
 void game_loop_unix(int control)
 {
 	static struct timeval null_time;
 	struct timeval last_time;
  
-/*     signal(SIGSEGV, crash_chronos);	 */
 	signal(SIGPIPE, SIG_IGN);
 	gettimeofday(&last_time, NULL);
 	current_time = (time_t) last_time.tv_sec;
@@ -588,7 +562,7 @@ void game_loop_unix(int control)
 		FD_CLR(d->descriptor, &in_set );
 		FD_CLR(d->descriptor, &out_set);
 		if (d->character && d->character->level > 1)
-		    save_char_obj(d->character);
+		    save_char_obj(d->character, FALSE);
 		d->outtop	= 0;
 		close_socket(d);
 	    }
@@ -609,7 +583,7 @@ void game_loop_unix(int control)
 		{
 		    FD_CLR(d->descriptor, &out_set);
 		    if (d->character != NULL && d->character->level > 1)
-			save_char_obj(d->character);
+			save_char_obj(d->character, FALSE);
 		    d->outtop	= 0;
 		    close_socket(d);
 		    continue;
@@ -659,7 +633,7 @@ void game_loop_unix(int control)
 	    &&   FD_ISSET(d->descriptor, &out_set)) {
 		if (!process_output(d, TRUE)) {
 		    if (d->character != NULL && d->character->level > 1)
-			save_char_obj(d->character);
+			save_char_obj(d->character, FALSE);
 		    d->outtop	= 0;
 		    close_socket(d);
 		}
@@ -2288,7 +2262,7 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 	  for (obj_count = 0; obj_count < MAX_STATS; obj_count++)
 	    ch->perm_stat[obj_count]--;
 
-	  save_char_obj(ch);
+	  save_char_obj(ch, FALSE);
 	  send_to_char("The gods frown upon your actions.\n\r",ch);
 	}
 

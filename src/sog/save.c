@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.35 1998-07-11 20:55:15 fjoe Exp $
+ * $Id: save.c,v 1.36 1998-07-11 22:09:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -83,7 +83,7 @@ static OBJ_DATA *rgObjNest[MAX_NEST];
 /*
  * Local functions.
  */
-void fwrite_char (CHAR_DATA * ch, FILE * fp);
+void fwrite_char (CHAR_DATA * ch, FILE * fp, bool reboot);
 void fwrite_obj (CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest);
 void fwrite_pet (CHAR_DATA * pet, FILE * fp);
 void fread_char (CHAR_DATA * ch, FILE * fp);
@@ -98,7 +98,7 @@ void fread_obj  (CHAR_DATA * ch, FILE * fp);
  *   some of the infrastructure is provided.
  */
 
-	void            save_char_obj(CHAR_DATA * ch)
+void save_char_obj(CHAR_DATA * ch, bool reboot)
 {
 	char            strsave[PATH_MAX];
 	FILE           *fp;
@@ -133,7 +133,7 @@ void fread_obj  (CHAR_DATA * ch, FILE * fp);
 		perror(strsave);
 	} else {
 		send_to_char("Saving.\n\r", ch);
-		fwrite_char(ch, fp);
+		fwrite_char(ch, fp, reboot);
 		if (ch->carrying != NULL)
 			fwrite_obj(ch, ch->carrying, fp, 0);
 		/* save the pets */
@@ -146,8 +146,6 @@ void fread_obj  (CHAR_DATA * ch, FILE * fp);
 	fpReserve = fopen(NULL_FILE, "r");
 	if (fpReserve == NULL)
 		bug("save_char_obj: Can't open null file.", 0);
-
-	return;
 }
 
 
@@ -156,7 +154,7 @@ void fread_obj  (CHAR_DATA * ch, FILE * fp);
  * Write the char.
  */
 void 
-fwrite_char(CHAR_DATA * ch, FILE * fp)
+fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 {
 	AFFECT_DATA    *paf;
 	int             sn, pos;
@@ -326,12 +324,14 @@ fwrite_char(CHAR_DATA * ch, FILE * fp)
 
 		if (ch->pcdata->questpoints != 0)
 			fprintf(fp, "QuestPnts %d\n", ch->pcdata->questpoints);
-		if (ch->pcdata->questtime != 0)
-			fprintf(fp, "QuestTime %d\n", ch->pcdata->questtime);
-		if (IS_ON_QUEST(ch)) {
-			fprintf(fp, "QuestMob %d\n", ch->pcdata->questmob);
-			fprintf(fp, "QuestObj %d\n", ch->pcdata->questobj);
-			fprintf(fp, "QuestGiv %d\n", ch->pcdata->questgiver);
+		if (!reboot) {
+			if (ch->pcdata->questtime != 0)
+				fprintf(fp, "QuestTime %d\n", ch->pcdata->questtime);
+			if (IS_ON_QUEST(ch)) {
+				fprintf(fp, "QuestMob %d\n", ch->pcdata->questmob);
+				fprintf(fp, "QuestObj %d\n", ch->pcdata->questobj);
+				fprintf(fp, "QuestGiv %d\n", ch->pcdata->questgiver);
+			}
 		}
 		fprintf(fp, "Haskilled %d\n", ch->pcdata->has_killed);
 		fprintf(fp, "Antkilled %d\n", ch->pcdata->anti_killed);

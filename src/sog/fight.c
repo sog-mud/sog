@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.48 1998-07-11 20:55:10 fjoe Exp $
+ * $Id: fight.c,v 1.49 1998-07-11 22:09:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2178,7 +2178,9 @@ void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 		obj_to_char(tattoo, victim);
 		equip_char(victim, tattoo, WEAR_TATTOO);
 	}
-	save_char_obj(victim);
+
+	if (victim->level > 1)
+		save_char_obj(victim, FALSE);
 
 	/*
 	 * Calm down the tracking mobiles

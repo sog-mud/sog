@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.26 1998-07-11 20:55:11 fjoe Exp $
+ * $Id: spellfun.c,v 1.27 1998-07-11 22:09:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1732,6 +1732,8 @@ void spell_create_rose(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	str_printf(&rose->short_descr, target_name);
 	str_printf(&rose->description, target_name);
 	rose->extra_descr = new_extra_descr();
+	rose->extra_descr->description =                            
+		str_dup(rose->pIndexData->extra_descr->description);
 	str_printf(&rose->extra_descr->description, target_name);
 	rose->extra_descr->keyword =                            
 		str_dup(rose->pIndexData->extra_descr->keyword);

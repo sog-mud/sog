@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.34 1998-07-11 20:55:11 fjoe Exp $
+ * $Id: handler.c,v 1.35 1998-07-11 22:09:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2654,7 +2654,7 @@ OBJ_DATA *create_money(int gold, int silver)
 	else
 	{
 		obj = create_object(get_obj_index(OBJ_VNUM_COINS), 0);
-		str_printf(&obj->short_descr, obj->short_descr, silver, gold);
+		str_printf(&obj->short_descr, silver, gold);
 		obj->value[0]		= silver;
 		obj->value[1]		= gold;
 		obj->cost		= 100 * gold + silver;
@@ -3205,15 +3205,21 @@ int count_charmed(CHAR_DATA *ch)
  */
 void add_mind(CHAR_DATA *ch, char *str)
 {
-		if (!IS_NPC(ch) || ch->in_room == NULL)
-			return;
+	if (!IS_NPC(ch) || ch->in_room == NULL)
+		return;
 
-		if (ch->in_mind == NULL)
-			/* remember a place to return */
-			str_printf(&ch->in_mind, "%d", ch->in_room->vnum);
+	if (ch->in_mind == NULL) {
+		/* remember a place to return */
+		char buf[MAX_STRING_LENGTH];
+		snprintf(buf, sizeof(buf), "%d", ch->in_room->vnum);
+		ch->in_mind = str_dup(buf);
+	}
 
-		if (!is_name(str, ch->in_mind))
-			str_printf(&ch->in_mind, "%s %s", ch->in_mind, str);
+	if (!is_name(str, ch->in_mind)) {
+		char *p = ch->in_mind;
+		ch->in_mind = str_add(ch->in_mind, " ", str, NULL);
+		free_string(p);
+	}
 }
 
 /*

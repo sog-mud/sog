@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.47 1998-07-11 20:55:13 fjoe Exp $
+ * $Id: merc.h,v 1.48 1998-07-11 22:09:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2967,7 +2967,7 @@ char* PERS(CHAR_DATA *ch, CHAR_DATA *looker);
 
 
 /* save.c */
-void	save_char_obj	(CHAR_DATA *ch);
+void	save_char_obj	(CHAR_DATA *ch, bool reboot);
 bool	load_char_obj	(DESCRIPTOR_DATA *d, const char *name);
 
 /* skills.c */

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.40 1998-07-11 20:55:16 fjoe Exp $
+ * $Id: update.c,v 1.41 1998-07-11 22:09:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -209,10 +209,8 @@ void gain_exp(CHAR_DATA *ch, int gain)
 		wiznet_printf(ch, NULL, WIZ_LEVELS, 0, 0,
 			      "$N has attained level %d!",(int)ch->level);
 		advance_level(ch);
-		save_char_obj(ch);
+		save_char_obj(ch, FALSE);
 	}
-
-	return;
 }
 
 
@@ -1154,7 +1152,7 @@ void char_update(void)
 						POS_RESTING, N_DISAPPEARS_VOID);
 					char_nputs(YOU_DISAPPEAR_VOID, ch);
 					if (ch->level > 1)
-						save_char_obj(ch);
+						save_char_obj(ch, FALSE);
 					if (ch->level < 10) {
   						char_from_room(ch);
 						char_to_room(ch, get_room_index(
@@ -1330,7 +1328,7 @@ void char_update(void)
 		for (ch = char_list; ch != NULL; ch = ch_next) {
 			ch_next = ch->next;
 			if (!IS_NPC(ch))
-				save_char_obj(ch);
+				save_char_obj(ch, FALSE);
 			if (ch == ch_quit || ch->timer > 20)
 				do_quit(ch, "");
 		}
@@ -2193,7 +2191,7 @@ void check_reboot(void)
 	case -1:
 		break;
 	case 0:
-		reboot_anatolia();
+		reboot_muddy();
 		return;
 	case 1:
 	case 2:

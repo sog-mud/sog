@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.39 1998-07-11 20:55:10 fjoe Exp $
+ * $Id: db.c,v 1.40 1998-07-11 22:09:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -628,7 +628,7 @@ void load_area(FILE *fp)
 	pArea->area_flags	= AREA_LOADING;
 	pArea->security		= 9;
 	pArea->vnum		= top_area;
-	pArea->builders		= strdup("None");
+	pArea->builders		= str_dup("None");
 
 	pArea->name		= fread_string(fp);
 	fread_letter(fp);			/* '{' */

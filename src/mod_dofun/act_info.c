@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.91 1998-07-11 20:55:07 fjoe Exp $
+ * $Id: act_info.c,v 1.92 1998-07-11 22:09:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2445,7 +2445,7 @@ void do_password(CHAR_DATA *ch, const char *argument)
 
 	free_string(ch->pcdata->pwd);
 	ch->pcdata->pwd = str_dup(pwdnew);
-	save_char_obj(ch);
+	save_char_obj(ch, FALSE);
 	send_to_char("Ok.\n\r", ch);
 	return;
 }

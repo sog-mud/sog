@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.17 1998-07-11 20:55:12 fjoe Exp $
+ * $Id: martial_art.c,v 1.18 1998-07-11 22:09:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3405,6 +3405,7 @@ void do_katana(CHAR_DATA *ch, const char *argument)
 		katana->value[2] = ch->level / 10;
 
 		katana->extra_descr = new_extra_descr();
+		katana->extra_descr->description = str_dup(katana->pIndexData->extra_descr->description);
 		str_printf(&katana->extra_descr->description, ch->name);
 		katana->extra_descr->keyword =
 			str_dup(katana->pIndexData->extra_descr->keyword);
