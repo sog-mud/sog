@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.92 1999-12-10 11:55:10 kostik Exp $
+ * $Id: skills.c,v 1.93 1999-12-10 11:58:42 kostik Exp $
  */
 
 /***************************************************************************
@@ -617,6 +617,7 @@ DECLARE_MOB_SKILL(mob_weapon);
 DECLARE_MOB_SKILL(mob_distance);
 DECLARE_MOB_SKILL(mob_deathblow);
 DECLARE_MOB_SKILL(mob_spellbane);
+DECLARE_MOB_SKILL(mob_dual_wield);
 
 static size_t mob_skill_count;
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.16 1999-12-10 11:30:11 kostik Exp $
+ * $Id: db_race.c,v 1.17 1999-12-10 12:03:03 kostik Exp $
  */
 
 #include <stdio.h>
@@ -128,7 +128,7 @@ DBLOAD_FUN(load_race)
 			break;
 		case 'R':
 			if (IS_TOKEN(fp, "Resist")) {
-				char *cres;
+				const char *cres;
 				int res;
 				fread_word(fp);
 				cres = rfile_tok(fp);

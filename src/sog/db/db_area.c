@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.71 1999-12-10 11:30:10 kostik Exp $
+ * $Id: db_area.c,v 1.72 1999-12-10 12:03:03 kostik Exp $
  */
 
 /***************************************************************************
@@ -1196,7 +1196,7 @@ DBLOAD_FUN(load_mobiles)
 	     } else if (letter == 'g') {
 		mlstr_fread(fp, &pMobIndex->gender);
 	     } else if (letter == 'r') {   /* Resists */
-		char *cres;
+		const char *cres;
 		int res;
 		fread_word(fp);
 		cres = rfile_tok(fp);
