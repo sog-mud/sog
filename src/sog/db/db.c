@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.161 1999-06-24 16:33:20 fjoe Exp $
+ * $Id: db.c,v 1.162 1999-06-24 20:35:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -196,7 +196,7 @@ int			obj_free_count;
 int			newmobs;
 int			newobjs;
 
-int			max_on;
+int			top_player;
 
 int	nAllocBuf;
 int	sAllocBuf;

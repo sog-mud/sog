@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest.c,v 1.11 1999-06-10 18:18:55 fjoe Exp $
+ * $Id: chquest.c,v 1.12 1999-06-24 20:35:04 fjoe Exp $
  */
 
 /*
@@ -47,8 +47,6 @@
 #include "chquest.h"
 #include "auction.h"
 
-DECLARE_DO_FUN(do_help);
-
 static void chquest_startq(chquest_t *q);
 static void chquest_stopq(chquest_t *q);
 static inline void chquest_status(CHAR_DATA *ch);
@@ -64,7 +62,7 @@ void do_chquest(CHAR_DATA *ch, const char *argument)
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		do_help(ch, "'WIZ CHQUEST'");
+		dofun("help", ch, "'WIZ CHQUEST'");
 		return;
 	}
 

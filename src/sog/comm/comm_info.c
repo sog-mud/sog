@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_info.c,v 1.7 1999-06-10 11:47:33 fjoe Exp $
+ * $Id: comm_info.c,v 1.8 1999-06-24 20:35:12 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -45,8 +45,7 @@
 #include "merc.h"
 #include "comm_info.h"
 #include "comm_colors.h"
-
-extern int	max_on;
+#include "db.h"
 
 INFO_DESC *	id_list;
 int		top_id;
@@ -147,7 +146,7 @@ void info_process_cmd(INFO_DESC *id)
 
 	output = buf_new(-1);
 
-	buf_printf(output, "%d\n", max_on);
+	buf_printf(output, "%d\n", top_player);
 	p = buf_string(output);
 #if !defined (WIN32)
 	write(id->fd, p, strlen(p));

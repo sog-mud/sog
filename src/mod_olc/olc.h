@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.41 1999-06-24 16:33:11 fjoe Exp $
+ * $Id: olc.h,v 1.42 1999-06-24 20:35:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -22,8 +22,6 @@
 
 #ifndef _OLC_H_
 #define _OLC_H_
-
-bool		run_olc_editor	(DESCRIPTOR_DATA *d);
 
 typedef	bool OLC_FUN(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd);
 typedef bool VALIDATE_FUN(CHAR_DATA *ch, const void *arg);
@@ -141,8 +139,6 @@ bool	touch_clan	(clan_t *clan);
 
 void		edit_done	(DESCRIPTOR_DATA *d);
 olced_t *	olced_lookup	(const char * id);
-void		roomed_edit_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoom,
-				 bool drop_out);
 
 #define	SECURITY_CLAN		5
 #define	SECURITY_CLAN_PLIST	9

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.142 1999-06-24 16:33:18 fjoe Exp $
+ * $Id: update.c,v 1.143 1999-06-24 20:35:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,6 +51,7 @@
 #include "fight.h"
 #include "chquest.h"
 #include "auction.h"
+#include "quest.h"
 
 void	back_home		(CHAR_DATA *ch);
 void	hatchout_dragon		(CHAR_DATA *ch, AFFECT_DATA *paf);
@@ -154,6 +155,58 @@ void advance_level(CHAR_DATA *ch)
 	char_printf(ch, "Your gain is {C%d{x hp, {C%d{x mana, {C%d{x mv {C%d{x prac.\n",
 			add_hp, add_mana, add_move, add_prac);
 }   
+
+void advance(CHAR_DATA *victim, int level)
+{
+	int iLevel;
+	int tra;
+	int pra;
+
+	tra = victim->train;
+	pra = victim->practice;
+	victim->pcdata->plevels = 0;
+
+	/*
+	 * Lower level:
+	 *   Reset to level 1.
+	 *   Then raise again.
+	 *   Currently, an imp can lower another imp.
+	 *   -- Swiftest
+	 */
+	if (level <= victim->level) {
+		int temp_prac;
+
+		char_puts("**** OOOOHHHHHHHHHH  NNNNOOOO ****\n", victim);
+		temp_prac = victim->practice;
+		victim->level		= 1;
+		victim->exp		= base_exp(victim);
+		victim->max_hit		= 10;
+		victim->max_mana	= 100;
+		victim->max_move	= 100;
+		victim->practice	= 0;
+		victim->hit		= victim->max_hit;
+		victim->mana		= victim->max_mana;
+		victim->move		= victim->max_move;
+		victim->pcdata->perm_hit	= victim->max_hit;
+		victim->pcdata->perm_mana	= victim->max_mana;
+		victim->pcdata->perm_move	= victim->max_move;
+		advance_level(victim);
+		victim->practice	= temp_prac;
+	}
+	else 
+		char_puts("**** OOOOHHHHHHHHHH  YYYYEEEESSS ****\n", victim);
+
+	for (iLevel = victim->level; iLevel < level; iLevel++) {
+		char_puts("{CYou raise a level!!{x ", victim);
+		victim->exp += exp_to_level(victim);
+		victim->level++;
+		advance_level(victim);
+	}
+	victim->exp_tl		= 0;
+	victim->train		= tra;
+	victim->practice	= pra;
+	save_char_obj(victim, 0);
+}
 
 void gain_exp(CHAR_DATA *ch, int gain)
 {
@@ -2049,7 +2102,7 @@ void track_update(void)
 			||  !is_name(vch->name,ch->in_mind))
 				continue;
 			act_yell(NULL, ch, "So we meet again, $I", vch);
-			do_murder(ch, vch->name);
+			dofun("murder", ch, vch->name);
 		}
 	}
 }
@@ -2145,30 +2198,5 @@ void hatchout_dragon(CHAR_DATA *coc, AFFECT_DATA *paf)
 	drag->master = drag->leader = ch;
 	char_to_room(drag, coc->in_room);
 	extract_char(coc, 0);
-}
-
-void quest_update(void)
-{
-	CHAR_DATA *ch, *ch_next;
-
-	for (ch = char_list; ch && !IS_NPC(ch); ch = ch_next) {
-		ch_next = ch->next;
-
-		if (ch->pcdata->questtime < 0) {
-			if (++ch->pcdata->questtime == 0) {
-				char_puts("{*You may now quest again.\n", ch);
-				return;
-			}
-		} else if (IS_ON_QUEST(ch)) {
-			if (--ch->pcdata->questtime == 0) {
-				char_puts("You have run out of time for your quest!\n", ch);
-				quest_cancel(ch);
-				ch->pcdata->questtime = -number_range(5, 10);
-			} else if (ch->pcdata->questtime < 6) {
-				char_puts("Better hurry, you're almost out of time for your quest!\n", ch);
-				return;
-			}
-		}
-	}
 }
 

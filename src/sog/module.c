@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.c,v 1.3 1999-06-24 08:05:01 fjoe Exp $
+ * $Id: module.c,v 1.4 1999-06-24 20:35:08 fjoe Exp $
  */
 
 /*
@@ -95,7 +95,7 @@ int mod_load(module_t* m)
 		return -1;
 	}
 
-	wizlog("mod_load: loaded module %s (%s)", m->name, m->file_name);
+	wizlog("mod_load: loaded module `%s' (%s)", m->name, m->file_name);
 	return 0;
 }
 

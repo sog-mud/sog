@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.190 1999-06-24 16:33:19 fjoe Exp $
+ * $Id: comm.c,v 1.191 1999-06-24 20:35:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -96,6 +96,7 @@
 #include "comm_info.h"
 #include "comm_colors.h"
 #include "lang.h"
+#include "db.h"
 
 DESCRIPTOR_DATA	*	new_descriptor	(void);
 void			free_descriptor	(DESCRIPTOR_DATA *d);
@@ -166,8 +167,6 @@ bool		    newlock;		/* Game is newlocked		*/
 char		    str_boot_time[26];
 time_t		    current_time;	/* time of this pulse */	
 int                 iNumPlayers = 0; /* The number of players on */
-
-extern int		max_on;
 
 int	init_socket		(int port);
 void	process_who		(int port);
@@ -669,7 +668,8 @@ void game_loop_unix(void)
 				else if (d->pString)
 					string_add(d->character, d->incomm);
 				else if (d->connected == CON_PLAYING) {
-					if (!run_olc_editor(d))
+					if (olc_interpret == NULL
+					||  !olc_interpret(d, d->incomm))
 			    			substitute_alias(d, d->incomm);
 				}
 				else
@@ -2269,22 +2269,21 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		d->connected	= CON_PLAYING;
 		{
 			int count;
-			FILE *max_on_file;
+			FILE *fp;
 			int tmp = 0;
 			count = 0;
 			for (d = descriptor_list; d != NULL; d = d->next)
 				if (d->connected == CON_PLAYING)
 			       		count++;
-			max_on = UMAX(count, max_on);
-			if ((max_on_file = dfopen(TMP_PATH, MAXON_FILE, "r"))) {
-				fscanf(max_on_file, "%d", &tmp);
-				fclose(max_on_file);
+			top_player = UMAX(count, top_player);
+			if ((fp = dfopen(TMP_PATH, MAXON_FILE, "r"))) {
+				fscanf(fp, "%d", &tmp);
+				fclose(fp);
 			}
-			if (tmp < max_on
-			&&  (max_on_file = dfopen(TMP_PATH, MAXON_FILE, "w"))) {
-				fprintf(max_on_file, "%d", max_on);
-				log("Global max_on changed.");
-				fclose(max_on_file);
+			if (tmp < top_player
+			&&  (fp = dfopen(TMP_PATH, MAXON_FILE, "w"))) {
+				fprintf(fp, "%d", top_player);
+				fclose(fp);
 			}
 		}
 

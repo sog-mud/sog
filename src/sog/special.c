@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.51 1999-06-24 16:33:17 fjoe Exp $
+ * $Id: special.c,v 1.52 1999-06-24 20:35:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -778,47 +778,50 @@ bool spec_mayor(CHAR_DATA *ch)
 		break;
 
 	case 'a':
-		do_say(ch, "Hello Honey!");
+		dofun("say", ch, "Hello Honey!");
 		break;
 
 	case 'b':
-		do_say(ch, "What a view!  I must do something about that dump!");
+		dofun("say", ch,
+		      "What a view!  I must do something about that dump!");
 		break;
 
 	case 'c':
-		do_say(ch,"Vandals!  Youngsters have no respect for anything!");
+		dofun("say",
+		      ch,"Vandals!  Youngsters have no respect for anything!");
 		break;
 
 	case 'd':
-		do_say(ch, "Good day, citizens!");
+		dofun("say", ch, "Good day, citizens!");
 		break;
 
 	case 'e':
-		do_say(ch,"I hereby declare the city of Midgaard open!");
+		dofun("say", ch, "I hereby declare the city of Midgaard open!");
 		break;
 
 	case 'E':
-		do_say(ch,"I hereby declare the city of Midgaard closed!");
+		dofun("say", ch,
+		      "I hereby declare the city of Midgaard closed!");
 		break;
 
 	case 'O':
-		do_unlock(ch, "gate");
-		do_open(ch, "gate");
-		interpret(ch, "emote unlocks the gate key from the gate.");
-		for(key = ch->in_room->contents; key; key = key->next_content)
+		for (key = ch->in_room->contents; key; key = key->next_content)
 			if (key->pIndexData->vnum == 3379)
 				break;
-			if (key)
-				SET_BIT(key->wear_flags, ITEM_TAKE);
-			do_get(ch, "gatekey");
+		if (key)
+			SET_BIT(key->wear_flags, ITEM_TAKE);
+		dofun("get", ch, "gatekey");
+		dofun("unlock", ch, "gate");
+		dofun("open", ch, "gate");
+		interpret(ch, "emote unlocks the gate key from the gate.");
 		break;
 
 	case 'C':
-		do_close(ch, "gate");
-		do_lock(ch, "gate");
-		do_drop(ch, "key");
+		dofun("close", ch, "gate");
+		dofun("lock", ch, "gate");
+		dofun("drop", ch, "key");
 		interpret(ch, "emote locks the gate key to the gate, with chain.");
-		for(key = ch->in_room->contents; key; key = key->next_content)
+		for (key = ch->in_room->contents; key; key = key->next_content)
 			if (key->pIndexData->vnum == 3379)
 				break;
 		if (key)
@@ -965,12 +968,14 @@ bool spec_guard(CHAR_DATA *ch)
 		v_next = victim->next_in_room;
 	
 		if (number_percent() < 2 && !IS_IMMORTAL(victim)) {
-			do_say(ch, "Do I know you?");
+			dofun("say", ch, "Do I know you?");
  			if (str_cmp(ch->in_room->area->name,
 				    hometown_name(victim->hometown)))
-				do_say(ch, "I don't remember you. Go away!");
+				dofun("say", ch,
+				      "I don't remember you. Go away!");
 			else {
-				do_say(ch, "Ok, my dear! I have just remembered.");
+				dofun("say", ch,
+				      "Ok, my dear! I have just remembered.");
 				interpret(ch, "smile");
 			}
 		}
@@ -1048,9 +1053,9 @@ bool spec_nasty(CHAR_DATA *ch)
 			if (!IS_NPC(victim)
 			&&  (victim->level > ch->level)
 			&&  (victim->level < ch->level + 10)) {
-				do_backstab(ch, victim->name);
+				dofun("backstab", ch, victim->name);
 				if (ch->position != POS_FIGHTING)
-					do_murder(ch, victim->name);
+					dofun("murder", ch, victim->name);
 				/* should steal some coins right away? :) */
 				return TRUE;
 			}
@@ -1076,7 +1081,7 @@ bool spec_nasty(CHAR_DATA *ch)
 		return TRUE;
  
 	case 1:
-		do_flee(ch, str_empty);
+		dofun("flee", ch, str_empty);
 		return TRUE;
  
 	default:
@@ -1144,7 +1149,7 @@ bool spec_assassinater(CHAR_DATA *ch)
 		return FALSE;
 	}
 
-	do_say(ch, msg);
+	dofun("say", ch, msg);
 	multi_hit(ch, victim, gsn_assassinate);
 	return TRUE;
 }
@@ -1202,70 +1207,71 @@ bool spec_captain(CHAR_DATA *ch)
 	break;
  
 	case 'a':
-		do_say(ch, "Greetings! Good Hunting to you!");
+		dofun("say", ch, "Greetings! Good Hunting to you!");
 		break;
  
 	case 'b':
-		do_say(ch, "Keep the streets clean please. Keep Solace tidy.");
+		dofun("say", ch,
+		      "Keep the streets clean please. Keep Solace tidy.");
 		break;
 
 	case 'c':
-		do_say(ch, "I must do something about all these doors.");
-		do_say(ch, "I will never get out of here.");
+		dofun("say", ch, "I must do something about all these doors.");
+		dofun("say", ch, "I will never get out of here.");
 		break;
  
 	case 'd':
-		do_say(ch, "Salutations Citizens of Solace!");
+		dofun("say", ch, "Salutations Citizens of Solace!");
 		break;
  
 	case 'y':
-		do_say(ch, "I hereby declare the city of Solace open!");
+		dofun("say", ch, "I hereby declare the city of Solace open!");
 		break;
  
 	case 'E':
-		do_say(ch, "I hereby declare the city of Solace closed!");
+		dofun("say", ch, "I hereby declare the city of Solace closed!");
 		break;
  
 	case 'O':
-		do_unlock(ch, "gate");
-		do_open(ch, "gate");
+		dofun("unlock", ch, "gate");
+		dofun("open", ch, "gate");
 		break;
  
 	case 'C':
-		do_close(ch, "gate");
-		do_lock(ch, "gate");
+		dofun("close", ch, "gate");
+		dofun("lock", ch, "gate");
 		break;
  
 	case 'n':
-		do_open(ch, "north");
+		dofun("open", ch, "north");
 		break;
 
 	case 'o':
-		do_close(ch, "south");
+		dofun("close", ch, "south");
 		break;
  
 	case 's':
-		do_open(ch, "south");
+		dofun("open", ch, "south");
 		break;
 
 	case 't':
-		do_close(ch, "north");
+		dofun("close", ch, "north");
 		break;
  
 	case 'e':
-		do_open(ch, "east");
+		dofun("open", ch, "east");
 		break;
  
 	case 'f':
-		do_close(ch, "west");
+		dofun("close", ch, "west");
 		break;
 
 	case 'w':
-		do_open(ch, "west");
+		dofun("open", ch, "west");
 		break;
 
 	case 'x':
-		do_close(ch, "east");
+		dofun("close", ch, "east");
 		break;
  
 	case '.' :
@@ -1293,7 +1299,7 @@ bool spec_headlamia(CHAR_DATA *ch)
 	
 	for (vch = ch->in_room->people; vch; vch = vch->next_in_room) {
 		if (IS_NPC(vch) && vch->pIndexData->vnum == 3143) {
-			do_kill(ch, vch->name);
+			dofun("kill", ch, vch->name);
 			break;
 		}
 	}

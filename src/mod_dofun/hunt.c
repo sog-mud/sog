@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.23 1999-06-24 16:33:15 fjoe Exp $
+ * $Id: hunt.c,v 1.24 1999-06-24 20:35:07 fjoe Exp $
  */
 
 /* Kak zovut sobaku Gejtsa?
@@ -579,12 +579,12 @@ void hunt_victim(CHAR_DATA *ch)
 	    		log("mob portal");
 	    		dofun("cast", ch, "portal %s", ch->hunting->name);
 	    		log("do_enter1");
-	    		do_enter(ch, "portal");
+	    		dofun("enter", ch, "portal");
 			hunt_victim_attack(ch);
 			log("done1");  
 		} 
 		else { 
-			do_say(ch, "Ahhhh!  My prey is gone!!");
+			dofun("say", ch, "Ahhhh!  My prey is gone!!");
 			ch->hunting = NULL;
 		}  
 		return;
@@ -600,7 +600,7 @@ void hunt_victim(CHAR_DATA *ch)
 			log("mob portal");
 			dofun("cast", ch, "portal %s", ch->hunting->name);
 			log("do_enter2");
-			do_enter(ch, "portal");
+			dofun("enter", ch, "portal");
 			hunt_victim_attack(ch);
 			log("done2"); 
 			}
@@ -614,7 +614,7 @@ void hunt_victim(CHAR_DATA *ch)
 
 	if (ch->in_room->exit[dir]
 	&&  IS_SET(ch->in_room->exit[dir]->exit_info, EX_CLOSED)) {
-		do_open(ch,(char *)dir_name[dir]);
+		dofun("open", ch, dir_name[dir]);
 		return;
 	}
 

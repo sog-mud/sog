@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.158 1999-06-24 16:33:15 fjoe Exp $
+ * $Id: interp.c,v 1.159 1999-06-24 20:35:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -48,8 +48,6 @@
 #include <ctype.h>
 
 #include "merc.h"
-#include "interp.h"
-#include "olc.h"
 #include "cmd.h"
 #include "socials.h"
 
@@ -89,11 +87,12 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 {
 	char command[MAX_INPUT_LENGTH];
 	const char *logline;
-	cmd_t *cmd;
-	bool found;
+	cmd_t *cmd = NULL;
 	social_t *soc = NULL;
 	int min_pos;
 	flag64_t cmd_flags;
+	int cmd_log;
+	int i;
 
 	/*
 	 * Strip leading spaces.
@@ -135,8 +134,9 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	/*
 	 * Look for command in command table.
 	 */
-	found = FALSE;
-	for (cmd = cmd_table; cmd->name; cmd++) {
+	for (i = 0; i < commands.nused; i++) {
+		cmd = VARR_GET(&commands, i);
+
 		if (str_prefix(command, cmd->name))
 			continue;
 
@@ -153,7 +153,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 			return;
 		}
 
-		if (cmd->level >= LEVEL_IMMORTAL) {
+		if (cmd->min_level >= LEVEL_IMMORTAL) {
 			if (IS_NPC(ch))
 				continue;
 
@@ -161,18 +161,18 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 			&&  !is_name(cmd->name, ch->pcdata->granted))
 				continue;
 		}
-		else if (cmd->level > ch->level)
+		else if (cmd->min_level > ch->level)
 			continue;
 
 		if (is_order) {
 			if (IS_SET(cmd->cmd_flags, CMD_NOORDER)
-			||  cmd->level >= LEVEL_IMMORTAL)
+			||  cmd->min_level >= LEVEL_IMMORTAL)
 				return;
 		}
 		else {
 			if (IS_AFFECTED(ch, AFF_CHARM)
 			&&  !IS_SET(cmd->cmd_flags, CMD_CHARMED_OK)
-			&&  cmd->level < LEVEL_IMMORTAL 
+			&&  cmd->min_level < LEVEL_IMMORTAL 
 			&&  !IS_IMMORTAL(ch)) {
 				char_puts("First ask your beloved master!\n",
 					  ch);
@@ -186,22 +186,12 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 			return;
 		}
 
-		found = TRUE;
 		break;
 	}
 
 	/*
-	 * Log and snoop.
+	 * snoop
 	 */
-	if (((!IS_NPC(ch) && IS_SET(ch->plr_flags, PLR_LOG)) ||
-	     fLogAll ||
-	     cmd->log == LOG_ALWAYS)
-	&&  cmd->log != LOG_NEVER
-	&&  logline[0] != '\0') {
-		log("Log %s: %s", ch->name, logline);
-		wiznet("Log $N: $t", ch, logline, WIZ_SECURE, 0, ch->level);
-	}
-
 	if (ch->desc && ch->desc->snoop_by) {
 		char buf[MAX_INPUT_LENGTH];
 
@@ -209,7 +199,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		write_to_snoop(ch->desc, buf, 0);
 	}
 
-	if (!found) {
+	if (cmd == NULL) {
 		if (!IS_NPC(ch)
 		&&  IS_SET(ch->plr_flags, PLR_FREEZE)) {
 			char_puts("You're totally frozen!\n", ch);
@@ -231,10 +221,24 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 
 		min_pos = soc->min_pos;
 		cmd_flags = 0;
+		cmd_log = LOG_NORMAL;
 	}
 	else {
-		min_pos = cmd->position;
+		min_pos = cmd->min_pos;
 		cmd_flags = cmd->cmd_flags;
+		cmd_log = cmd->cmd_log;
+	}
+
+	/*
+	 * Log
+	 */
+	if (((!IS_NPC(ch) && IS_SET(ch->plr_flags, PLR_LOG)) ||
+	     fLogAll ||
+	     cmd_log == LOG_ALWAYS)
+	&&  cmd_log != LOG_NEVER
+	&&  logline[0] != '\0') {
+		log("Log %s: %s", ch->name, logline);
+		wiznet("Log $N: $t", ch, logline, WIZ_SECURE, 0, ch->level);
 	}
 
 	if (!IS_NPC(ch)) {
@@ -263,39 +267,34 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	 */
 	if (ch->position < min_pos) {
 		switch(ch->position) {
-			case POS_DEAD:
-				char_puts("Lie still; You are DEAD.\n", ch);
-				break;
+		case POS_DEAD:
+			char_puts("Lie still; You are DEAD.\n", ch);
+			break;
 
-			case POS_MORTAL:
-			case POS_INCAP:
-				char_puts("You are hurt far too bad "
-					  "for that.\n", ch);
-				break;
+		case POS_MORTAL:
+		case POS_INCAP:
+			char_puts("You are hurt far too bad for that.\n", ch);
+			break;
 
-			case POS_STUNNED:
-				char_puts("You are too stunned to do that.\n",
-					  ch);
-				break;
+		case POS_STUNNED:
+			char_puts("You are too stunned to do that.\n", ch);
+			break;
 
-			case POS_SLEEPING:
-				char_puts("In your dreams, or what?\n", ch);
-				break;
+		case POS_SLEEPING:
+			char_puts("In your dreams, or what?\n", ch);
+			break;
 
-			case POS_RESTING:
-				char_puts("Nah... You feel too relaxed...\n",
-					  ch);
-				break;
+		case POS_RESTING:
+			char_puts("Nah... You feel too relaxed...\n", ch);
+			break;
 
-			case POS_SITTING:
-				char_puts("Better stand up first.\n", ch);
-				break;
+		case POS_SITTING:
+			char_puts("Better stand up first.\n", ch);
+			break;
 
-			case POS_FIGHTING:
-				char_puts("No way! You are still fighting!\n",
-					  ch);
-				break;
-
+		case POS_FIGHTING:
+			char_puts("No way! You are still fighting!\n", ch);
+			break;
 		}
 		return;
 	}
@@ -308,7 +307,10 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	/*
 	 * Dispatch the command.
 	 */
-	cmd->do_fun(ch, argument);
+	if (cmd->do_fun == NULL)
+		bug("interpret: %s: NULL do_fun", cmd->name);
+	else
+		cmd->do_fun(ch, argument);
 
 	tail_chain();
 }
@@ -488,59 +490,6 @@ const char *first_arg(const char *argument, char *arg_first, size_t len,
 
 	return argument;
 }
-
-/*
- * Contributed by Alander.
- */
-void do_commands(CHAR_DATA *ch, const char *argument)
-{
-	cmd_t *cmd;
-	int col;
- 
-	col = 0;
-	for (cmd = cmd_table; cmd->name; cmd++) {
-		if (cmd->level < LEVEL_HERO
-		&&  cmd->level <= ch->level 
-		&&  !IS_SET(cmd->cmd_flags, CMD_HIDDEN)) {
-			char_printf(ch, "%-12s", cmd->name);
-			if (++col % 6 == 0)
-				char_puts("\n", ch);
-		}
-	}
- 
-	if (col % 6 != 0)
-		char_puts("\n", ch);
-}
-
-void do_wizhelp(CHAR_DATA *ch, const char *argument)
-{
-	cmd_t *cmd;
-	int col;
- 
-	if (IS_NPC(ch)) {
-		char_puts("Huh?\n", ch);
-		return;
-	}
-
-	col = 0;
-	for (cmd = cmd_table; cmd->name; cmd++) {
-		if (cmd->level < LEVEL_IMMORTAL)
-			continue;
-
-		if (ch->level < IMPLEMENTOR
-		&&  !is_name(cmd->name, ch->pcdata->granted))
-			continue;
-
-		char_printf(ch, "%-12s", cmd->name);
-		if (++col % 6 == 0)
-			char_puts("\n", ch);
-	}
- 
-	if (col % 6 != 0)
-		char_puts("\n", ch);
-}
-
-/*********** alias.c **************/
 
 /* does aliasing and other fun stuff */
 void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.185 1999-06-24 16:33:03 fjoe Exp $
+ * $Id: act_move.c,v 1.186 1999-06-24 20:34:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1488,7 +1488,7 @@ void do_track(CHAR_DATA *ch, const char *argument)
 			if ((pexit = ch->in_room->exit[d]) != NULL
 			&&  IS_SET(pexit->exit_info, EX_ISDOOR)
 			&&  pexit->keyword != NULL)
-				doprintf("open", ch, "%s", door[d]);
+				dofun("open", ch, "%s", door[d]);
 			move_char(ch, rh->went, FALSE);
 			return;
 		}

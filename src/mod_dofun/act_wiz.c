@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.164 1999-06-24 16:33:06 fjoe Exp $
+ * $Id: act_wiz.c,v 1.165 1999-06-24 20:34:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -628,12 +628,13 @@ void do_transfer(CHAR_DATA *ch, const char *argument)
 
 	if (!str_cmp(arg1, "all")) {
 		for (d = descriptor_list; d != NULL; d = d->next)
-		    if (d->connected == CON_PLAYING
-		    &&   d->character != ch
-		    &&   d->character->in_room != NULL
-		    &&   can_see(ch, d->character))
-			doprintf("transfer", ch,
-				"%s %s", d->character->name, arg2);
+			if (d->connected == CON_PLAYING
+			&&  d->character != ch
+			&&  d->character->in_room != NULL
+			&&  can_see(ch, d->character)) {
+				dofun("transfer", ch,
+				      "%s %s", d->character->name, arg2);
+		}
 		return;
 	}
 
@@ -3183,58 +3184,6 @@ void do_prefixi(CHAR_DATA *ch, const char *argument)
 	char_printf(ch, "Prefix set to '%s'.\n", argument);
 }
 
-void advance(CHAR_DATA *victim, int level)
-{
-	int iLevel;
-	int tra;
-	int pra;
-
-	tra = victim->train;
-	pra = victim->practice;
-	victim->pcdata->plevels = 0;
-
-	/*
-	 * Lower level:
-	 *   Reset to level 1.
-	 *   Then raise again.
-	 *   Currently, an imp can lower another imp.
-	 *   -- Swiftest
-	 */
-	if (level <= victim->level) {
-		int temp_prac;
-
-		char_puts("**** OOOOHHHHHHHHHH  NNNNOOOO ****\n", victim);
-		temp_prac = victim->practice;
-		victim->level		= 1;
-		victim->exp		= base_exp(victim);
-		victim->max_hit		= 10;
-		victim->max_mana	= 100;
-		victim->max_move	= 100;
-		victim->practice	= 0;
-		victim->hit		= victim->max_hit;
-		victim->mana		= victim->max_mana;
-		victim->move		= victim->max_move;
-		victim->pcdata->perm_hit	= victim->max_hit;
-		victim->pcdata->perm_mana	= victim->max_mana;
-		victim->pcdata->perm_move	= victim->max_move;
-		advance_level(victim);
-		victim->practice	= temp_prac;
-	}
-	else 
-		char_puts("**** OOOOHHHHHHHHHH  YYYYEEEESSS ****\n", victim);
-
-	for (iLevel = victim->level; iLevel < level; iLevel++) {
-		char_puts("{CYou raise a level!!{x ", victim);
-		victim->exp += exp_to_level(victim);
-		victim->level++;
-		advance_level(victim);
-	}
-	victim->exp_tl		= 0;
-	victim->train		= tra;
-	victim->practice	= pra;
-	save_char_obj(victim, 0);
-}
-
 void do_advance(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
@@ -4386,8 +4335,8 @@ void do_grant(CHAR_DATA *ch, const char *argument)
 		for (i = 0; i < commands.nused; i++) {
 			cmd = VARR_GET(&commands, i);
 
-			if (cmd->level < LEVEL_HERO
-			||  cmd->level > lev)
+			if (cmd->min_level < LEVEL_HERO
+			||  cmd->min_level > lev)
 				continue;
 
 			name_add(&victim->pcdata->granted, cmd->name,
@@ -4405,7 +4354,7 @@ void do_grant(CHAR_DATA *ch, const char *argument)
 			continue;
 		}
 
-		if (cmd && cmd->level < LEVEL_IMMORTAL) {
+		if (cmd && cmd->min_level < LEVEL_IMMORTAL) {
 			char_printf(ch, "%s: not a wizard command.\n", arg2);
 			continue;
 		}

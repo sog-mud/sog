@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.185 1999-06-24 16:33:13 fjoe Exp $
+ * $Id: fight.c,v 1.186 1999-06-24 20:35:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3018,3 +3018,81 @@ void do_surrender(CHAR_DATA *ch, const char *argument)
 		multi_hit(mob, ch, TYPE_UNDEFINED);
 	}
 }
+
+/*  
+ * critical strike
+ */
+int critical_strike(CHAR_DATA *ch, CHAR_DATA *victim, int dam)
+{
+	int diceroll;
+	AFFECT_DATA baf;
+	int chance;
+
+	if (get_eq_char(ch, WEAR_WIELD) != NULL 
+	&&  get_eq_char(ch, WEAR_SECOND_WIELD) != NULL
+	&&  number_percent() > ((ch->hit * 100) / ch->max_hit)) 
+		return 0;
+
+	if ((chance = get_skill(ch, gsn_critical)) == 0)
+		return dam;
+	
+	diceroll = number_range(0, 100);
+	if (LEVEL(victim) > LEVEL(ch))
+		diceroll += (LEVEL(victim) - LEVEL(ch)) * 2;
+	else
+		diceroll -= (LEVEL(ch) - LEVEL(victim));
+ 
+	if (diceroll <= chance /2)  {  
+		check_improve(ch, gsn_critical, TRUE, 2);
+		dam += dam * diceroll/200;
+	}  
+
+	if (diceroll > chance / 13)
+		return dam;
+
+	diceroll = number_percent();
+	if (diceroll <= 75) {  
+		act_puts("You take $N down with a weird judo move!", 
+			 ch, NULL, victim, TO_CHAR, POS_DEAD);
+		act("$n takes you down with a weird judo move!", 
+		    ch, NULL, victim, TO_VICT);
+		act("$n takes $N down with a weird judo move!", 
+		    ch, NULL, victim, TO_NOTVICT);
+		check_improve(ch, gsn_critical, TRUE, 3);
+		WAIT_STATE(victim, 2 * PULSE_VIOLENCE);
+		dam += (dam * number_range(2, 5)) / 5;
+		return dam;
+	}   
+	else if (diceroll > 75 && diceroll < 95) {   
+		act_puts("You blind $N with your attack!",
+			 ch, NULL, victim, TO_CHAR, POS_DEAD);
+		act("You are blinded by $n's attack!",
+		    ch, NULL, victim, TO_VICT);
+		act("$N is blinded by $n's attack!",
+		    ch, NULL, victim, TO_NOTVICT);
+		check_improve(ch, gsn_critical, TRUE, 4);
+		if (!IS_AFFECTED(victim, AFF_BLIND)) {
+			baf.where = TO_AFFECTS;
+			baf.type = gsn_critical;
+			baf.level = ch->level; 
+			baf.location = APPLY_HITROLL; 
+			baf.modifier = -4;
+			baf.duration = number_range(1, 3); 
+			baf.bitvector = AFF_BLIND;
+			affect_to_char(victim, &baf);
+		}  
+		dam += dam * number_range(1, 2);			
+		return dam;
+	} 
+
+	act_puts("You cut out $N's {Rheart{x! I bet that hurt!",  
+		 ch, NULL, victim, TO_CHAR ,POS_RESTING);
+	act_puts("$n cuts out your {Rheart{x! OUCH!!",  
+		 ch, NULL, victim, TO_VICT ,POS_RESTING); 
+	act_puts("$n cuts out $N's {Rheart{x! I bet that hurt!",  
+		 ch, NULL, victim, TO_NOTVICT ,POS_RESTING); 
+	check_improve(ch, gsn_critical, TRUE, 5);
+	dam += dam * number_range(2, 5);			
+	return dam;
+}  
+

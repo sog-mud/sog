@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1998 fjoe <fjoe@iclub.nsu.ru>
+ * Copyright (c) 1999 fjoe <fjoe@iclub.nsu.ru>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,57 +23,10 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.h,v 1.5 1999-06-24 20:35:02 fjoe Exp $
+ * $Id: dofun.c,v 1.1 1999-06-24 20:35:00 fjoe Exp $
  */
 
-#ifndef _CMD_H_
-#define _CMD_H_
+#include "version.h"
 
-/*
- * Command logging types.
- */
-#define LOG_NORMAL	0
-#define LOG_ALWAYS	1
-#define LOG_NEVER	2
-
-/*
- * cmd flags
- */
-#define	CMD_KEEP_HIDE	(A)
-#define CMD_NOORDER	(B)
-#define CMD_CHARMED_OK	(C)
-#define CMD_HIDDEN	(D)
-#define CMD_DISABLED	(E)
-#define CMD_FROZEN_OK	(F)
-
-/*
- * cmd classes
- */
-enum {
-	CMD_ORDINARY,
-	CMD_CORE,
-	CMD_OLC
-};
-
-/*
- * Structure for a command in the command lookup table.
- */
-struct cmd_t
-{
-	char * const	name;
-	DO_FUN *	do_fun;
-	int		min_pos;
-	int		min_level;
-	int		cmd_log;
-	int		cmd_flags;
-	int		cmd_class;
-};
-
-cmd_t *	cmd_lookup(const char *name);
-
-void dofun(const char *name, CHAR_DATA *ch, const char *fmt, ...);
-
-extern varr commands;
-
-#endif
+int _abi_version = ABI_VERSION;
 

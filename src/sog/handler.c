@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.166 1999-06-24 16:33:14 fjoe Exp $
+ * $Id: handler.c,v 1.167 1999-06-24 20:35:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1221,10 +1221,8 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 				return;
 		}
 
-/*
-	if (ch->desc && OLCED(ch) && IS_EDIT(ch, ED_ROOM))
-		roomed_edit_room(ch, pRoomIndex, TRUE);
- */
+	if (ch->desc != NULL && IS_EDIT(ch, "room"))
+		dofun("aedit", ch, "room dropout");
 }
 
 /*
@@ -4633,6 +4631,57 @@ void quaff_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 }
 
 /*
+ * Remove an object.
+ */
+bool remove_obj(CHAR_DATA * ch, int iWear, bool fReplace)
+{
+	OBJ_DATA       *obj;
+	if ((obj = get_eq_char(ch, iWear)) == NULL)
+		return TRUE;
+
+	if (!fReplace)
+		return FALSE;
+
+	if (IS_SET(obj->extra_flags, ITEM_NOREMOVE)) {
+		act_puts("You can't remove $p.",
+			 ch, obj, NULL, TO_CHAR, POS_DEAD);
+		return FALSE;
+	}
+	if ((obj->pIndexData->item_type == ITEM_TATTOO) && (!IS_IMMORTAL(ch))) {
+		act_puts("You must scratch it to remove $p.",
+			 ch, obj, NULL, TO_CHAR, POS_DEAD);
+		return FALSE;
+	}
+	if (iWear == WEAR_STUCK_IN) {
+		unequip_char(ch, obj);
+
+		if (get_eq_char(ch, WEAR_STUCK_IN) == NULL) {
+			if (is_affected(ch, gsn_arrow))
+				affect_strip(ch, gsn_arrow);
+			if (is_affected(ch, gsn_spear))
+				affect_strip(ch, gsn_spear);
+		}
+		act_puts("You remove $p, in pain.",
+			 ch, obj, NULL, TO_CHAR, POS_DEAD);
+		act("$n removes $p, in pain.", ch, obj, NULL, TO_ROOM);
+		/*Osyas patch. Adding damage remove arrow/spear*/
+                damage(ch,ch, dice(obj->level,12),0,DAM_OTHER,DAMF_NONE);
+                WAIT_STATE(ch, 4);
+		return TRUE;
+	}
+	unequip_char(ch, obj);
+	act("$n stops using $p.", ch, obj, NULL, TO_ROOM);
+	act_puts("You stop using $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
+
+	if (iWear == WEAR_WIELD
+	    && (obj = get_eq_char(ch, WEAR_SECOND_WIELD)) != NULL) {
+		unequip_char(ch, obj);
+		equip_char(ch, obj, WEAR_WIELD);
+	}
+	return TRUE;
+}
+
+/*
  * Wear one object.
  * Optional replacement of existing objects.
  * Big repetitive code, ick.
@@ -5286,3 +5335,75 @@ void check_weapon_damage(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 	if (number_percent() < (chance / 2) && chance > 20)
 		damage_to_obj(ch, wield, destroy, chance / 4);
 }
+
+bool backstab_ok(CHAR_DATA *ch, CHAR_DATA *victim)
+{
+	if (victim->fighting) {
+		if (ch)
+			char_puts("You can't backstab a fighting person.\n",
+				  ch);
+		return FALSE;
+	}
+
+	if (victim->hit < 7 * victim->max_hit / 10) {
+		if (ch)
+			act("$N is hurt and suspicious... "
+			    "you couldn't sneak up.",
+			    ch, NULL, victim, TO_CHAR);
+		return FALSE;
+	}
+
+	return TRUE;
+}
+
+void backstab(CHAR_DATA *ch, CHAR_DATA *victim, int chance)
+{
+	if (!IS_AWAKE(victim)
+	||  number_percent() < chance) {
+		check_improve(ch, gsn_backstab, TRUE, 1);
+		if (number_percent() <
+				get_skill(ch, gsn_dual_backstab) * 8 / 10) {
+			check_improve(ch, gsn_dual_backstab, TRUE, 1);
+			one_hit(ch, victim, gsn_backstab, WEAR_WIELD);
+			one_hit(ch, victim, gsn_dual_backstab, WEAR_WIELD);
+		}
+		else {
+			check_improve(ch, gsn_dual_backstab, FALSE, 1);
+			one_hit(ch, victim, gsn_backstab,WEAR_WIELD);
+		}
+	}
+	else {
+		check_improve(ch, gsn_backstab, FALSE, 1);
+		damage(ch, victim, 0, gsn_backstab, DAM_NONE, TRUE);
+	}
+
+	yell(victim, ch, "Die, $I! You are backstabbing scum!");
+}
+
+CHAR_DATA *check_guard(CHAR_DATA *ch, CHAR_DATA *mob)
+{
+	int chance;
+
+	if (ch->guarded_by == NULL ||
+		get_char_room(ch,ch->guarded_by->name) == NULL)
+		return ch;
+	else {
+		chance = (get_skill(ch->guarded_by,gsn_guard) - 
+			(1.5 * (ch->level - mob->level)));
+		if (number_percent() < chance) {
+			act("$n jumps in front of $N!",
+			    ch->guarded_by, NULL, ch, TO_NOTVICT);
+			act("$n jumps in front of you!",
+			    ch->guarded_by, NULL, ch, TO_VICT);
+			act("You jump in front of $N!",
+			    ch->guarded_by, NULL, ch, TO_CHAR);
+			check_improve(ch->guarded_by, gsn_guard, TRUE, 3);
+			return ch->guarded_by;
+		}
+		else {
+			check_improve(ch->guarded_by, gsn_guard, FALSE, 3);
+			return ch;
+		}
+	}
+}
+

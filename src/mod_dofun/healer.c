@@ -1,5 +1,5 @@
 /*
- * $Id: healer.c,v 1.24 1999-06-24 16:33:15 fjoe Exp $
+ * $Id: healer.c,v 1.25 1999-06-24 20:35:07 fjoe Exp $
  */
 
 /*-
@@ -121,7 +121,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
     WAIT_STATE(ch,PULSE_VIOLENCE);
 
     if (!can_see(mob, ch)) {
-	do_say(mob, "I can't cast on those whom I don't see.");
+	dofun("say", mob, "I can't cast on those whom I don't see.");
 	return;
     }
 

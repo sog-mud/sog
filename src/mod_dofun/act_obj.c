@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.155 1999-06-24 16:33:05 fjoe Exp $
+ * $Id: act_obj.c,v 1.156 1999-06-24 20:34:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1214,57 +1214,6 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 
 	extract_obj(obj, 0);
 	return;
-}
-
-/*
- * Remove an object.
- */
-bool remove_obj(CHAR_DATA * ch, int iWear, bool fReplace)
-{
-	OBJ_DATA       *obj;
-	if ((obj = get_eq_char(ch, iWear)) == NULL)
-		return TRUE;
-
-	if (!fReplace)
-		return FALSE;
-
-	if (IS_SET(obj->extra_flags, ITEM_NOREMOVE)) {
-		act_puts("You can't remove $p.",
-			 ch, obj, NULL, TO_CHAR, POS_DEAD);
-		return FALSE;
-	}
-	if ((obj->pIndexData->item_type == ITEM_TATTOO) && (!IS_IMMORTAL(ch))) {
-		act_puts("You must scratch it to remove $p.",
-			 ch, obj, NULL, TO_CHAR, POS_DEAD);
-		return FALSE;
-	}
-	if (iWear == WEAR_STUCK_IN) {
-		unequip_char(ch, obj);
-
-		if (get_eq_char(ch, WEAR_STUCK_IN) == NULL) {
-			if (is_affected(ch, gsn_arrow))
-				affect_strip(ch, gsn_arrow);
-			if (is_affected(ch, gsn_spear))
-				affect_strip(ch, gsn_spear);
-		}
-		act_puts("You remove $p, in pain.",
-			 ch, obj, NULL, TO_CHAR, POS_DEAD);
-		act("$n removes $p, in pain.", ch, obj, NULL, TO_ROOM);
-		/*Osyas patch. Adding damage remove arrow/spear*/
-                damage(ch,ch, dice(obj->level,12),0,DAM_OTHER,DAMF_NONE);
-                WAIT_STATE(ch, 4);
-		return TRUE;
-	}
-	unequip_char(ch, obj);
-	act("$n stops using $p.", ch, obj, NULL, TO_ROOM);
-	act_puts("You stop using $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
-
-	if (iWear == WEAR_WIELD
-	    && (obj = get_eq_char(ch, WEAR_SECOND_WIELD)) != NULL) {
-		unequip_char(ch, obj);
-		equip_char(ch, obj, WEAR_WIELD);
-	}
-	return TRUE;
 }
 
 void do_wear(CHAR_DATA * ch, const char *argument)

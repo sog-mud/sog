@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.168 1999-06-22 12:37:23 fjoe Exp $
+ * $Id: spellfun.c,v 1.169 1999-06-24 20:35:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,9 +49,6 @@
 #include "update.h"
 #include "chquest.h"
 #include "fight.h"
-
-DECLARE_DO_FUN(do_look		);
-DECLARE_DO_FUN(do_stand		);
 
 void spell_acid_blast(int sn, int level, CHAR_DATA *ch, void *vo)
 {
@@ -2389,7 +2386,7 @@ void spell_gate(int sn, int level, CHAR_DATA *ch, void *vo)
 	gate(ch, victim);
 	if (pet && !IS_AFFECTED(pet, AFF_SLEEP)) {
 		if (ch->pet->position != POS_STANDING)
-			do_stand(pet, str_empty);
+			dofun("stand", pet, str_empty);
 		gate(pet, victim);
 	}
 }
@@ -3842,7 +3839,7 @@ void spell_word_of_recall(int sn, int level, CHAR_DATA *ch,void *vo)
 
 	if (pet && !IS_AFFECTED(pet, AFF_SLEEP)) {
 		if (pet->position != POS_STANDING)
-			do_stand(pet, str_empty);
+			dofun("stand", pet, str_empty);
 		recall(pet, location);
 	}
 }
@@ -4454,7 +4451,7 @@ void spell_astral_walk(int sn, int level, CHAR_DATA *ch, void *vo)
 	astral_walk(ch, victim);
 	if (pet && !IS_AFFECTED(pet, AFF_SLEEP)) {
 		if (pet->position != POS_STANDING)
-			do_stand(pet, str_empty);
+			dofun("stand", pet, str_empty);
 		astral_walk(ch, victim);
 	}
 }

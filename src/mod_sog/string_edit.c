@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.33 1999-06-24 16:33:18 fjoe Exp $
+ * $Id: string_edit.c,v 1.34 1999-06-24 20:35:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -80,10 +80,8 @@ void string_add_exit(CHAR_DATA *ch, bool save)
 	}
 	else {
 		free_string(d->backup);
-		if (OLCED(ch)) {
-			strnzcpy(d->incomm, sizeof(d->incomm), "touch");
-			run_olc_editor(d);
-		}
+		if (OLCED(ch) && olc_interpret)
+			olc_interpret(d, "touch");
 	}
 
 	d->pString = NULL;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.c,v 1.3 1999-06-24 16:33:13 fjoe Exp $
+ * $Id: cmd.c,v 1.4 1999-06-24 20:35:04 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -66,6 +66,9 @@ void dofun(const char *name, CHAR_DATA *ch, const char *fmt, ...)
 	vsnprintf(buf, sizeof(buf), fmt, ap);
 	va_end(ap);
 
-	cmd->do_fun(ch, buf);
+	if (cmd->do_fun == NULL)
+		bug("dofun: %s: NULL do_fun", cmd->name);
+	else
+		cmd->do_fun(ch, buf);
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.214 1999-06-24 16:33:09 fjoe Exp $
+ * $Id: merc.h,v 1.215 1999-06-24 20:35:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2271,6 +2271,11 @@ ROOM_INDEX_DATA *find_location(CHAR_DATA *ch, const char *argument);
 
 void substitute_alias(DESCRIPTOR_DATA *d, const char *argument);
 const char *get_cond_alias(OBJ_DATA *obj);
+
+void advance(CHAR_DATA *victim, int level);
+void advance_level(CHAR_DATA *ch);
+
+bool (*olc_interpret)(DESCRIPTOR_DATA *d, const char *argument);
 
 #endif
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.62 1999-06-24 16:33:10 fjoe Exp $
+ * $Id: olc.c,v 1.63 1999-06-24 20:35:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,6 +47,7 @@
 #include "merc.h"
 #include "olc.h"
 #include "lang.h"
+#include "version.h"
 
 /*
  * The version info.  Please use this info when reporting bugs.
@@ -102,18 +103,18 @@ static olc_cmd_t *	olc_cmd_lookup(olc_cmd_t *cmd_table, const char *name);
 
 static void do_olc(CHAR_DATA *ch, const char *argument, int fun);
 
-/* Executed from comm.c.  Minimizes compiling when changes are made. */
-bool run_olc_editor(DESCRIPTOR_DATA *d)
+int _abi_version = ABI_VERSION;
+
+bool _olc_interpret(DESCRIPTOR_DATA *d, const char *argument)
 {
 	char command[MAX_INPUT_LENGTH];
 	olc_cmd_t *cmd;
-	const char *argument;
-	olced_t *olced = d->olced;
+	olced_t *olced;
 
 	if ((olced = d->olced) == NULL)
 		return FALSE;
 
-	argument = one_argument(d->incomm, command, sizeof(command));
+	argument = one_argument(argument, command, sizeof(command));
 
 	if (command[0] == '\0') {
 		olced->cmd_table[FUN_SHOW].olc_fun(d->character, argument,

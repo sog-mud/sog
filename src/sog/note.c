@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.58 1999-06-24 01:13:49 avn Exp $
+ * $Id: note.c,v 1.59 1999-06-24 20:35:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,7 +49,7 @@
 #include <ctype.h>
 
 #include "merc.h"
-#include "db/db.h"
+#include "db.h"
 
 /* local procedures */
 note_t *	new_note	(void);

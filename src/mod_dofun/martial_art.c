@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.101 1999-06-22 12:37:18 fjoe Exp $
+ * $Id: martial_art.c,v 1.102 1999-06-24 20:35:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -611,50 +611,6 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 
 	if (attack)
 		yell(victim, ch, "Help! $I just tripped me!");
-}
-
-bool backstab_ok(CHAR_DATA *ch, CHAR_DATA *victim)
-{
-	if (victim->fighting) {
-		if (ch)
-			char_puts("You can't backstab a fighting person.\n",
-				  ch);
-		return FALSE;
-	}
-
-	if (victim->hit < 7 * victim->max_hit / 10) {
-		if (ch)
-			act("$N is hurt and suspicious... "
-			    "you couldn't sneak up.",
-			    ch, NULL, victim, TO_CHAR);
-		return FALSE;
-	}
-
-	return TRUE;
-}
-
-void backstab(CHAR_DATA *ch, CHAR_DATA *victim, int chance)
-{
-	if (!IS_AWAKE(victim)
-	||  number_percent() < chance) {
-		check_improve(ch, gsn_backstab, TRUE, 1);
-		if (number_percent() <
-				get_skill(ch, gsn_dual_backstab) * 8 / 10) {
-			check_improve(ch, gsn_dual_backstab, TRUE, 1);
-			one_hit(ch, victim, gsn_backstab, WEAR_WIELD);
-			one_hit(ch, victim, gsn_dual_backstab, WEAR_WIELD);
-		}
-		else {
-			check_improve(ch, gsn_dual_backstab, FALSE, 1);
-			one_hit(ch, victim, gsn_backstab,WEAR_WIELD);
-		}
-	}
-	else {
-		check_improve(ch, gsn_backstab, FALSE, 1);
-		damage(ch, victim, 0, gsn_backstab, DAM_NONE, TRUE);
-	}
-
-	yell(victim, ch, "Die, $I! You are backstabbing scum!");
 }
 
 void do_backstab(CHAR_DATA *ch, const char *argument)
@@ -2213,33 +2169,6 @@ void do_guard(CHAR_DATA *ch, const char *argument)
 	victim->guarded_by = ch;
 }
 
-CHAR_DATA *check_guard(CHAR_DATA *ch, CHAR_DATA *mob)
-{
-	int chance;
-
-	if (ch->guarded_by == NULL ||
-		get_char_room(ch,ch->guarded_by->name) == NULL)
-		return ch;
-	else {
-		chance = (get_skill(ch->guarded_by,gsn_guard) - 
-			(1.5 * (ch->level - mob->level)));
-		if (number_percent() < chance) {
-			act("$n jumps in front of $N!",
-			    ch->guarded_by, NULL, ch, TO_NOTVICT);
-			act("$n jumps in front of you!",
-			    ch->guarded_by, NULL, ch, TO_VICT);
-			act("You jump in front of $N!",
-			    ch->guarded_by, NULL, ch, TO_CHAR);
-			check_improve(ch->guarded_by, gsn_guard, TRUE, 3);
-			return ch->guarded_by;
-		}
-		else {
-			check_improve(ch->guarded_by, gsn_guard, FALSE, 3);
-			return ch;
-		}
-	}
-}
-
 void do_explode(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim = ch->fighting;
@@ -2545,83 +2474,6 @@ void do_hara(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, gsn_hara_kiri, FALSE, 2);
 	}
 }
-
-/*  
- * critical strike
- */
-int critical_strike(CHAR_DATA *ch, CHAR_DATA *victim, int dam)
-{
-	int diceroll;
-	AFFECT_DATA baf;
-	int chance;
-
-	if (get_eq_char(ch, WEAR_WIELD) != NULL 
-	&&  get_eq_char(ch, WEAR_SECOND_WIELD) != NULL
-	&&  number_percent() > ((ch->hit * 100) / ch->max_hit)) 
-		return 0;
-
-	if ((chance = get_skill(ch, gsn_critical)) == 0)
-		return dam;
-	
-	diceroll = number_range(0, 100);
-	if (LEVEL(victim) > LEVEL(ch))
-		diceroll += (LEVEL(victim) - LEVEL(ch)) * 2;
-	else
-		diceroll -= (LEVEL(ch) - LEVEL(victim));
- 
-	if (diceroll <= chance /2)  {  
-		check_improve(ch, gsn_critical, TRUE, 2);
-		dam += dam * diceroll/200;
-	}  
-
-	if (diceroll > chance / 13)
-		return dam;
-
-	diceroll = number_percent();
-	if (diceroll <= 75) {  
-		act_puts("You take $N down with a weird judo move!", 
-			 ch, NULL, victim, TO_CHAR, POS_DEAD);
-		act("$n takes you down with a weird judo move!", 
-		    ch, NULL, victim, TO_VICT);
-		act("$n takes $N down with a weird judo move!", 
-		    ch, NULL, victim, TO_NOTVICT);
-		check_improve(ch, gsn_critical, TRUE, 3);
-		WAIT_STATE(victim, 2 * PULSE_VIOLENCE);
-		dam += (dam * number_range(2, 5)) / 5;
-		return dam;
-	}   
-	else if (diceroll > 75 && diceroll < 95) {   
-		act_puts("You blind $N with your attack!",
-			 ch, NULL, victim, TO_CHAR, POS_DEAD);
-		act("You are blinded by $n's attack!",
-		    ch, NULL, victim, TO_VICT);
-		act("$N is blinded by $n's attack!",
-		    ch, NULL, victim, TO_NOTVICT);
-		check_improve(ch, gsn_critical, TRUE, 4);
-		if (!IS_AFFECTED(victim, AFF_BLIND)) {
-			baf.where = TO_AFFECTS;
-			baf.type = gsn_critical;
-			baf.level = ch->level; 
-			baf.location = APPLY_HITROLL; 
-			baf.modifier = -4;
-			baf.duration = number_range(1, 3); 
-			baf.bitvector = AFF_BLIND;
-			affect_to_char(victim, &baf);
-		}  
-		dam += dam * number_range(1, 2);			
-		return dam;
-	} 
-
-	act_puts("You cut out $N's {Rheart{x! I bet that hurt!",  
-		 ch, NULL, victim, TO_CHAR ,POS_RESTING);
-	act_puts("$n cuts out your {Rheart{x! OUCH!!",  
-		 ch, NULL, victim, TO_VICT ,POS_RESTING); 
-	act_puts("$n cuts out $N's {Rheart{x! I bet that hurt!",  
-		 ch, NULL, victim, TO_NOTVICT ,POS_RESTING); 
-	check_improve(ch, gsn_critical, TRUE, 5);
-	dam += dam * number_range(2, 5);			
-	return dam;
-}  
 
 void do_shield(CHAR_DATA *ch, const char *argument)
 {

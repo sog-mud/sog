@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.112 1999-06-24 16:33:07 fjoe Exp $
+ * $Id: quest.c,v 1.113 1999-06-24 20:35:01 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -179,58 +179,6 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 		
 	char_puts("QUEST COMMANDS: points info time request complete list buy trouble.\n", ch);
 	char_puts("For more information, type: help quests.\n", ch);
-}
-
-void quest_handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
-{
-	if (IS_NPC(ch)
-	&&  IS_SET(ch->pIndexData->act, ACT_SUMMONED)
-	&&  ch->master != NULL)
-		ch = ch->master;
-
-	if (victim->hunter)
-		if (victim->hunter == ch) {
-			act_puts("You have almost completed your QUEST!\n"
-				 "Return to questmaster before your time "
-				 "runs out!",
-				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-			ch->pcdata->questmob = -1;
-		}
-		else {
-			act_puts("You have completed someone's quest.",
-				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-
-			ch = victim->hunter;
-			act_puts("Someone has completed you quest.",
-				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-			quest_cancel(ch);
-			ch->pcdata->questtime = -number_range(5, 10);
-		}
-}
-
-void quest_cancel(CHAR_DATA *ch)
-{
-	CHAR_DATA *fch;
-
-	if (IS_NPC(ch)) {
-		bug("quest_cancel: called for NPC", 0);
-		return;
-	}
-
-	/*
-	 * remove mob->hunter
-	 */
-	for (fch = npc_list; fch; fch = fch->next)
-		if (fch->hunter == ch) {
-			fch->hunter = NULL;
-			break;
-		}
-
-	ch->pcdata->questtime = 0;
-	ch->pcdata->questgiver = 0;
-	ch->pcdata->questmob = 0;
-	ch->pcdata->questobj = 0;
-	ch->pcdata->questroom = NULL;
 }
 
 void qtrouble_set(CHAR_DATA *ch, int vnum, int count)

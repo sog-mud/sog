@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.62 1999-06-24 16:33:16 fjoe Exp $
+ * $Id: obj_prog.c,v 1.63 1999-06-24 20:35:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -599,7 +599,7 @@ int fight_prog_tattoo_atum_ra(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		break;
 	case 2:
 		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
-		do_yell(ch, "Ever dance with good....");
+		dofun("yell", ch, "Ever dance with good....");
 		spellfun_call("holy word", ch->level, ch, NULL);
 		break;
 	}
@@ -679,7 +679,7 @@ int fight_prog_tattoo_shamash(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		break;
 	case 2:
 		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
-		do_yell(ch,"And justice for all!....");
+		dofun("yell", ch, "And justice for all!....");
 		spellfun_call("screa", ch->level, ch, ch->fighting);
 		break;
 	}
@@ -864,20 +864,22 @@ int fight_prog_tattoo_ares(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	else {
 		switch(number_bits(4)) {
 		case 0:
-			do_yell(ch, "Cry Havoc and Let Loose the Dogs of War!");
+			dofun("yell", ch,
+			      "Cry Havoc and Let Loose the Dogs of War!");
 			break;
 		case 1:
-			do_yell(ch, "No Mercy!");
+			dofun("yell", ch, "No Mercy!");
 			break;
 		case 2:
-			do_yell(ch, "Los Valdar Cuebiyari!");
+			dofun("yell", ch, "Los Valdar Cuebiyari!");
 			break;
 		case 3:
-			do_yell(ch, "Carai an Caldazar! Carai an Ellisande! "
-				    "Al Ellisande!");
+			dofun("yell", ch,
+			      "Carai an Caldazar! Carai an Ellisande! "
+			      "Al Ellisande!");
 			break;
 		case 4:
-			do_yell(ch, "Siempre Vive el Riesgo!");
+			dofun("yell", ch, "Siempre Vive el Riesgo!");
 			break;
 		}
 	}
@@ -1543,7 +1545,7 @@ int fight_prog_tattoo_goktengri(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	case 1:
 	  act_puts("The tattoo on your shoulder glows white.",
 			   ch,NULL,NULL,TO_CHAR,POS_DEAD);
-	  do_say(ch,"My honour is my life.");
+	  dofun("say", ch, "My honour is my life.");
 	  one_hit(ch, ch->fighting, TYPE_UNDEFINED, WEAR_WIELD);
 	  break;
 	}

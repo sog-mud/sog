@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.118 1999-06-23 04:41:34 fjoe Exp $
+ * $Id: spellfun2.c,v 1.119 1999-06-24 20:35:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,16 +51,6 @@
 #include "quest.h"
 #include "rating.h"
 #include "fight.h"
-
-DECLARE_DO_FUN(do_scan2);
-/* command procedures needed */
-DECLARE_DO_FUN(do_look		);
-DECLARE_DO_FUN(do_yell		);
-DECLARE_DO_FUN(do_say		);
-DECLARE_DO_FUN(do_murder	);
-DECLARE_DO_FUN(do_kill		);
-DECLARE_DO_FUN(do_wear		);
-DECLARE_DO_FUN(do_flee		);
 
 ROOM_INDEX_DATA * check_place(CHAR_DATA *ch, const char *argument) 
 {
@@ -489,17 +479,15 @@ void spell_demon_summon(int sn, int level, CHAR_DATA *ch, void *vo)
 	if (IS_EXTRACTED(demon))
 		return;
 
-	if (number_percent() < 40)
-	{
-	  if (can_see(demon, ch))
-	    do_say(demon, "You dare disturb me??!!!");
-	  else
-	    do_say(demon, "Who dares disturb me??!!!");
-	  do_murder(demon, ch->name);
-	}
-	else {
-	SET_BIT(demon->affected_by, AFF_CHARM);
-	demon->master = demon->leader = ch;
+	if (number_percent() < 40) {
+		if (can_see(demon, ch))
+			dofun("say", demon, "You dare disturb me??!!!");
+		else
+			dofun("say", demon, "Who dares disturb me??!!!");
+		dofun("murder", demon, ch->name);
+	} else {
+		SET_BIT(demon->affected_by, AFF_CHARM);
+		demon->master = demon->leader = ch;
 	}
 }
 
@@ -679,19 +667,18 @@ void spell_guard_call(int sn, int level, CHAR_DATA *ch, void *vo)
 	AFFECT_DATA af;
 	int i;
 
-	if (is_affected(ch,sn))
-	{
-	  char_puts("You lack the power to call another two guards now.\n",ch);
-	  return;
+	if (is_affected(ch, sn)) {
+		char_puts("You lack the power to call another two guards now.\n",ch);
+		return;
 	}
 
-	do_yell(ch, "Guards! Guards!");
+	dofun("yell", ch, "Guards! Guards!");
 
 	for (gch = npc_list; gch; gch = gch->next) {
 		if (IS_AFFECTED(gch,AFF_CHARM)
 		&&  gch->master == ch
 		&&  gch->pIndexData->vnum == MOB_VNUM_SPECIAL_GUARD) {
-			do_say(gch, "What? I'm not good enough?");
+			dofun("say", gch, "What? I'm not good enough?");
 			return;
 		}
 	}
@@ -827,7 +814,7 @@ void spell_eyes_of_intrigue(int sn, int level, CHAR_DATA *ch, void *vo)
 	  }
 
 	if (ch->in_room == victim->in_room)
-		do_look(ch, str_empty);
+		dofun("look", ch, str_empty);
 	else
 		look_at(ch, victim->in_room);
 }
@@ -995,9 +982,9 @@ void spell_confuse(int sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	if (rch)
-		do_murder(victim, rch->name); 
+		dofun("murder", victim, rch->name); 
 	else
-		do_murder(victim, ch->name);
+		dofun("murder", victim, ch->name);
 }
 
 void spell_terangreal(int sn, int level, CHAR_DATA *ch, void *vo)
@@ -1567,7 +1554,7 @@ void spell_shadowlife(int sn, int level, CHAR_DATA *ch, void *vo)
 	affect_to_char(ch, &af);  
 
 	char_to_room(shadow, ch->in_room);
-	do_murder(shadow, victim->name);
+	dofun("murder", shadow, victim->name);
 }  
 
 void spell_ruler_badge(int sn, int level, CHAR_DATA *ch, void *vo)
@@ -2609,7 +2596,7 @@ void spell_animate_dead(int sn, int level, CHAR_DATA *ch, void *vo)
 		extract_obj(obj, 0);
 		char_to_room(undead, ch->in_room);
 		if (!IS_EXTRACTED(undead))
-			do_wear(undead, "all");
+			dofun("wear", undead, "all");
 		return;
 	}
 
@@ -3220,7 +3207,7 @@ void turn_spell(int sn, int level, CHAR_DATA *ch, void *vo)
 	dam = (dam * align * align) / 1000000;
 	damage(ch, victim, dam, sn, DAM_HOLY, TRUE);
 	if (!IS_EXTRACTED(victim))
-		do_flee(victim, str_empty);
+		dofun("flee", victim, str_empty);
 }
 
 void spell_turn(int sn, int level, CHAR_DATA *ch, void *vo)
@@ -4977,7 +4964,7 @@ void spell_farsight(int sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	if (ch->in_room == room)
-		do_look(ch, "auto");
+		dofun("look", ch, "auto");
 	else 
 		look_at(ch, room);
 }
