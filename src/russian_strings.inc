@@ -159,7 +159,7 @@ char *strings_rus[] = {
 /* MOVE_N_UNLOCKS_P */		"$n размыкает $p.",
 /* MOVE_N_UNLOCKS_THE_D */	"$n размыкает $d.",
 /* MOVE_PICK_WHAT */		"Взломать что?\n\r",
-/* MOVE_CANT_PICK_MOUNTED */	"Ты не можешь взламывать, будучи оседланным.\n\r",
+/* MOVE_CANT_PICK_MOUNTED */	"Ты не можешь взламывать верхом.\n\r",
 /* MOVE_N_IS_STANDING_TOO_CLOSE_TO_LOCK */"$N стоит слишком быстро к замку.",
 /* MOVE_YOU_FAILED */		"Не получилось.\n\r",
 /* MOVE_YOU_PICK_THE_LOCK_ON_P */"Ты взламываешь замок в $p.",
