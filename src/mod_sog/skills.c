@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.63 1999-05-18 14:15:26 fjoe Exp $
+ * $Id: skills.c,v 1.64 1999-05-18 15:04:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -740,7 +740,7 @@ int get_skill(CHAR_DATA *ch, int sn)
 		&&  (cl = class_lookup(ch->class)) != NULL
 		&&  (csk = cskill_lookup(cl, sn)) != NULL)
 			skill += csk->mod;
-		skill = UMIN(1, skill);
+		skill = UMAX(1, skill);
 	}
 
 	/*
