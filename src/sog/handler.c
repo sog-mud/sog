@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.22 1998-06-21 19:34:25 fjoe Exp $
+ * $Id: handler.c,v 1.23 1998-06-22 08:52:30 efdi Exp $
  */
 
 /***************************************************************************
@@ -2993,6 +2993,7 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 		return FALSE;
 
 	if (IS_AFFECTED(victim, AFF_SNEAK)
+	&&  !(IS_NPC(ch) && ch->pIndexData->pShop)
 	&&  !CAN_DETECT(ch,DETECT_HIDDEN)
 	&&  victim->fighting == NULL) {
 		int chance;
