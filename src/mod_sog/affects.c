@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.79 2002-11-30 16:23:13 kostik Exp $
+ * $Id: affects.c,v 1.80 2002-11-30 20:08:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -576,6 +576,30 @@ affect_bit_strip(CHAR_DATA *ch, int where, flag_t bits)
 	}
 }
 
+/*
+ * Add or enhance an affect.
+ */
+void
+affect_join(CHAR_DATA *ch, AFFECT_DATA *paf)
+{
+	AFFECT_DATA *paf_old;
+	bool found;
+
+	found = FALSE;
+	for (paf_old = ch->affected; paf_old != NULL; paf_old = paf_old->next) {
+		if (IS_SKILL(paf_old->type, paf->type)
+		&&  paf_old->where == paf->where) {
+			paf->level = (paf->level += paf_old->level) / 2;
+			paf->duration += paf_old->duration;
+			paf->modifier += paf_old->modifier;
+			affect_remove(ch, paf_old);
+			break;
+		}
+	}
+
+	affect_to_char(ch, paf);
+}
+
 bool
 is_sn_affected(CHAR_DATA *ch, const char *sn)
 {
@@ -619,28 +643,28 @@ has_obj_affect(CHAR_DATA *ch, flag_t vector)
 	return FALSE;
 }
 
-/*
- * Add or enhance an affect.
- */
-void
-affect_join(CHAR_DATA *ch, AFFECT_DATA *paf)
+int
+obj_magic_value(OBJ_DATA *obj)
 {
-	AFFECT_DATA *paf_old;
-	bool found;
+	int hi	= 0;
+	int lo	= 0;
 
-	found = FALSE;
-	for (paf_old = ch->affected; paf_old != NULL; paf_old = paf_old->next) {
-		if (IS_SKILL(paf_old->type, paf->type)
-		&&  paf_old->where == paf->where) {
-			paf->level = (paf->level += paf_old->level) / 2;
-			paf->duration += paf_old->duration;
-			paf->modifier += paf_old->modifier;
-			affect_remove(ch, paf_old);
-			break;
-		}
+	if (obj == NULL)
+		return 0;
+
+	hi +=	obj->level * 5 / MAX_LEVEL;
+	lo +=	obj->level;
+	lo +=	obj->pObjIndex->vnum;
+
+	calc_affect_bonus(obj->pObjIndex->affected, &hi, &lo);
+	calc_affect_bonus(obj->affected, &hi, &lo);
+
+	if (IS_OBJ_STAT(obj, ITEM_GLOW)) {
+		hi +=	1;
+		lo +=	23;
 	}
 
-	affect_to_char(ch, paf);
+	return (hi << (sizeof(int) * 4) ) + lo;
 }
 
 /*----------------------------------------------------------------------------
@@ -1168,28 +1192,4 @@ calc_affect_bonus(AFFECT_DATA *paf, int *hi, int *lo)
 			hi +=	paf->modifier / 3;
 		}
 	}
-}
-
-int
-obj_magic_value(OBJ_DATA *obj)
-{
-	int hi	= 0;
-	int lo	= 0;
-
-	if (obj == NULL)
-		return 0;
-
-	hi +=	obj->level * 5 / MAX_LEVEL;
-	lo +=	obj->level;
-	lo +=	obj->pObjIndex->vnum;
-
-	calc_affect_bonus(obj->pObjIndex->affected, &hi, &lo);
-	calc_affect_bonus(obj->affected, &hi, &lo);
-
-	if (IS_OBJ_STAT(obj, ITEM_GLOW)) {
-		hi +=	1;
-		lo +=	23;
-	}
-
-	return (hi << (sizeof(int) * 4) ) + lo;
 }
