@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.130 1999-02-12 18:14:34 fjoe Exp $
+ * $Id: fight.c,v 1.131 1999-02-12 18:30:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1460,8 +1460,13 @@ bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 	bool safe;
 	CHAR_DATA *mount;
 
+	if (IS_NPC(ch)
+	&&  IS_AFFECTED(ch, AFF_CHARM)
+	&&  ch->master)
+		return is_safe_nomessage(ch->master, victim);
+	
 	if (IS_NPC(victim)
-	&&  IS_SET(victim->affected_by, AFF_CHARM)
+	&&  IS_AFFECTED(victim, AFF_CHARM)
 	&&  victim->master)
 		return is_safe_nomessage(ch, victim->master);
 
