@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.44 2000-04-22 13:21:44 avn Exp $
+ * $Id: olc_msg.c,v 1.45 2000-10-07 10:58:02 fjoe Exp $
  */
 
 #include "olc.h"
@@ -173,7 +173,7 @@ msg_dump(BUFFER *buf, const char *name, const mlstring *mlp)
 	lang_t *l;
 
 	if (mlp == NULL || mlp->nlang == 0) {
-		buf_printf(buf, FORMAT, name, "all",
+		buf_printf(buf, BUF_END, FORMAT, name, "all",
 			   mlp == NULL ? "(null)" : msgtoa(mlp->u.str));
 		return;
 	}
@@ -182,7 +182,7 @@ msg_dump(BUFFER *buf, const char *name, const mlstring *mlp)
 		return;
 
 	l = VARR_GET(&langs, 0);
-	buf_printf(buf, FORMAT, name, l->name, msgtoa(mlp->u.lstr[0]));
+	buf_printf(buf, BUF_END, FORMAT, name, l->name, msgtoa(mlp->u.lstr[0]));
 
 	if (langs.nused < 1)
 		return;
@@ -194,7 +194,7 @@ msg_dump(BUFFER *buf, const char *name, const mlstring *mlp)
 
 	for (lang = 1; lang < mlp->nlang && lang < langs.nused; lang++) {
 		l = VARR_GET(&langs, lang);
-		buf_printf(buf, FORMAT,
+		buf_printf(buf, BUF_END, FORMAT,
 			   space, l->name, msgtoa(mlp->u.lstr[lang]));
 	}
 }
@@ -236,7 +236,7 @@ msged_list_cb(void *p, va_list ap)
 		return NULL;
 
 	if (strstr(name, arg)) 
-		buf_printf(output, "%2d. [%s]\n", ++(*pnum), msgtoa(name));
+		buf_printf(output, BUF_END, "%2d. [%s]\n", ++(*pnum), msgtoa(name));
 	return NULL;
 }
 
@@ -531,7 +531,7 @@ OLC_FUN(tiped_show)
 
 	output = buf_new(-1);
 
-	buf_printf(output,
+	buf_printf(output, BUF_END,
 		   "Mask:          [%s]\n",
 		   flag_string(comm_flags, tip->comm));
 
@@ -636,7 +636,7 @@ tip_list_cb(void *p, va_list ap)
 		return NULL;
 
 	if (arg[0] == '\0' || strstr(name, arg)) 
-		buf_printf(output, "[%9s] %s\n",
+		buf_printf(output, BUF_END, "[%9s] %s\n",
 			flag_string(comm_flags, tip->comm),
 			name);
 	return NULL;

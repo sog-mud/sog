@@ -12,7 +12,7 @@ update_print_cb(void *p, va_list ap)
 	uhandler_t *hdlr = (uhandler_t *) p;
 	BUFFER *buf = va_arg(ap, BUFFER *);
 
-	buf_printf(buf, "[%9s] [%9s] [%10s] %5d %5d %c%s\n",
+	buf_printf(buf, BUF_END, "[%9s] [%9s] [%10s] %5d %5d %c%s\n",
 		   hdlr->name,
 		   flag_string(module_names, hdlr->mod),
 		   hdlr->iter != NULL ?
@@ -50,8 +50,8 @@ void do_settick(CHAR_DATA *ch, const char *argument)
 		BUFFER *buf;
 
 		buf = buf_new(-1);
-		buf_add(buf, "    Name       Module     Iterator    Max   Cur     Function\n");
-		buf_add(buf, "----------- ----------- ------------ ----- ----- ---------------\n");
+		buf_append(buf, "    Name       Module     Iterator    Max   Cur     Function\n");
+		buf_append(buf, "----------- ----------- ------------ ----- ----- ---------------\n");
 		hash_foreach(&uhandlers, update_print_cb, buf);
 		page_to_char(buf_string(buf), ch);
 		buf_free(buf);

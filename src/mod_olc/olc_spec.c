@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_spec.c,v 1.5 1999-12-16 12:24:50 fjoe Exp $
+ * $Id: olc_spec.c,v 1.6 2000-10-07 10:58:03 fjoe Exp $
  */
 
 #include "olc.h"
@@ -168,16 +168,16 @@ OLC_FUN(speced_show)
 	}
 
 	output = buf_new(-1);
-	buf_printf(output, "Name:          [%s]\n", s->spec_name);
-	buf_printf(output, "Class:         [%s]   Flags: [%s]\n",
+	buf_printf(output, BUF_END, "Name:          [%s]\n", s->spec_name);
+	buf_printf(output, BUF_END, "Class:         [%s]   Flags: [%s]\n",
 			flag_string(spec_classes, s->spec_class),
 			flag_string(spec_flags, s->spec_flags));
 	print_cc_vexpr(&s->spec_deps, "Dependencies:", output);
 	if (s->spec_skills.nused == 0)
-		buf_printf(output, "No skills defined for this spec.\n");
+		buf_printf(output, BUF_END, "No skills defined for this spec.\n");
 	else {
-		buf_printf(output, "Num   Skill name          Level  Rate    Min    Adept   Max\n");
-		buf_printf(output, "--------------------------------------------------------------\n");
+		buf_printf(output, BUF_END, "Num   Skill name          Level  Rate    Min    Adept   Max\n");
+		buf_printf(output, BUF_END, "--------------------------------------------------------------\n");
 		varr_foreach(&s->spec_skills, show_spec_skill_cb, output, &s->spec_skills);
 	}
 	
@@ -356,7 +356,7 @@ show_spec_skill_cb(void *p, va_list ap)
 	varr *v = va_arg(ap, varr *);
 
 	if (!IS_NULLSTR(ssk->sn))
-		buf_printf(output, "(%3d) %-18.17s  [%3d]  [%3d]  [%3d%%]  [%3d%%]  [%3d%%]\n",
+		buf_printf(output, BUF_END, "(%3d) %-18.17s  [%3d]  [%3d]  [%3d%%]  [%3d%%]  [%3d%%]\n",
 			varr_index(v, p),
 			ssk->sn, ssk->level, ssk->rating,
 			ssk->min, ssk->adept, ssk->max);

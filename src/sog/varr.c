@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.22 2000-06-07 08:56:01 fjoe Exp $
+ * $Id: varr.c,v 1.23 2000-10-07 10:58:06 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -332,9 +332,9 @@ vstr_dump_cb(void *p, va_list ap)
 	BUFFER *buf = va_arg(ap, BUFFER *);
 	int *pcol = va_arg(ap, int *);
 
-	buf_printf(buf, "%-19.18s", *(const char**) p);
+	buf_printf(buf, BUF_END, "%-19.18s", *(const char**) p);
 	if (++(*pcol) % 4 == 0)
-		buf_add(buf, "\n");
+		buf_append(buf, "\n");
 	return NULL;
 }
 
@@ -344,6 +344,6 @@ vstr_dump(varr *v, BUFFER *buf)
 	int col = 0;
 	varr_foreach(v, vstr_dump_cb, buf, &col);
 	if (col % 4)
-		buf_add(buf, "\n");
+		buf_append(buf, "\n");
 }
 #endif

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_liquid.c,v 1.11 2000-04-03 08:54:08 fjoe Exp $
+ * $Id: olc_liquid.c,v 1.12 2000-10-07 10:58:02 fjoe Exp $
  */
 
 #include "olc.h"
@@ -196,12 +196,12 @@ OLC_FUN(liqed_show)
 	mlstr_dump(buf, "Gender: ", &lq->lq_name.gender);
 	mlstr_dump(buf, "Color:  ", &lq->lq_color);
 	if (lq->sip)
-		buf_printf(buf, "Sip:    [%d]\n", lq->sip);
+		buf_printf(buf, BUF_END, "Sip:    [%d]\n", lq->sip);
 
-	buf_add(buf, "Affects:\n");
+	buf_append(buf, "Affects:\n");
 	for (i = 0; i < MAX_COND; i++) {
 		if (lq->affect[i]) {
-			buf_printf(buf, "  %s by [%d]\n",
+			buf_printf(buf, BUF_END, "  %s by [%d]\n",
 				    flag_string(cond_table, i), lq->affect[i]);
 		}
 	}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: objval.c,v 1.4 2000-03-29 17:52:43 fjoe Exp $
+ * $Id: objval.c,v 1.5 2000-10-07 10:58:06 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -341,7 +341,7 @@ void objval_show(BUFFER *output, flag_t item_type, vo_t *v)
 {
 	switch(item_type) {
 	default:	/* No values. */
-		buf_add(output, "Obj has unknown item type.\n");
+		buf_append(output, "Obj has unknown item type.\n");
 		break;
 
 	case ITEM_TREASURE:
@@ -363,15 +363,15 @@ void objval_show(BUFFER *output, flag_t item_type, vo_t *v)
 		     
 	case ITEM_LIGHT:
 		if (INT(v[2]) < 0)
-			buf_printf(output, "[v2] Light:  Infinite[-1]\n");
+			buf_printf(output, BUF_END, "[v2] Light:  Infinite[-1]\n");
 		else
-			buf_printf(output, "[v2] Light:  [%d]\n",
+			buf_printf(output, BUF_END, "[v2] Light:  [%d]\n",
 				   INT(v[2]));
 		break;
 
 	case ITEM_WAND:
 	case ITEM_STAFF:
-		buf_printf(output,
+		buf_printf(output, BUF_END,
 			"[v0] Level:          [%d]\n"
 			"[v1] Charges Total:  [%d]\n"
 			"[v2] Charges Left:   [%d]\n"
@@ -383,7 +383,7 @@ void objval_show(BUFFER *output, flag_t item_type, vo_t *v)
 		break;
 
 	case ITEM_PORTAL:
-		buf_printf(output,
+		buf_printf(output, BUF_END,
 			    "[v0] Charges:        [%d]\n"
 			    "[v1] Exit Flags:     %s\n"
 			    "[v2] Portal Flags:   %s\n"
@@ -397,7 +397,7 @@ void objval_show(BUFFER *output, flag_t item_type, vo_t *v)
 		break;
 			
 	case ITEM_FURNITURE:          
-		buf_printf(output,
+		buf_printf(output, BUF_END,
 			    "[v0] Max people:      [%d]\n"
 			    "[v1] Max weight:      [%d]\n"
 			    "[v2] Furniture Flags: %s\n"
@@ -413,7 +413,7 @@ void objval_show(BUFFER *output, flag_t item_type, vo_t *v)
 	case ITEM_SCROLL:
 	case ITEM_POTION:
 	case ITEM_PILL:
-		buf_printf(output,
+		buf_printf(output, BUF_END,
 			"[v0] Level:  [%d]\n"
 			"[v1] Spell:  %s\n"
 			"[v2] Spell:  %s\n"
@@ -429,7 +429,7 @@ void objval_show(BUFFER *output, flag_t item_type, vo_t *v)
 /* ARMOR for ROM */
 
 	case ITEM_ARMOR:
-		buf_printf(output,
+		buf_printf(output, BUF_END,
 			"[v0] Ac pierce       [%d]\n"
 			"[v1] Ac bash         [%d]\n"
 			"[v2] Ac slash        [%d]\n"
@@ -444,20 +444,20 @@ void objval_show(BUFFER *output, flag_t item_type, vo_t *v)
 /* I had to split the output here, I have no idea why, but it helped -- Hugin */
 /* It somehow fixed a bug in showing scroll/pill/potions too ?! */
 	case ITEM_WEAPON:
-		buf_printf(output, "[v0] Weapon class:   %s\n",
+		buf_printf(output, BUF_END, "[v0] Weapon class:   %s\n",
 			   SFLAGS(weapon_class, v[0]));
-		buf_printf(output, "[v1] Number of dice: [%d]\n",
+		buf_printf(output, BUF_END, "[v1] Number of dice: [%d]\n",
 			   INT(v[1]));
-		buf_printf(output, "[v2] Type of dice:   [%d]\n",
+		buf_printf(output, BUF_END, "[v2] Type of dice:   [%d]\n",
 			   INT(v[2]));
-		buf_printf(output, "[v3] Type:           %s\n",
+		buf_printf(output, BUF_END, "[v3] Type:           %s\n",
 			   STR(v[3]));
-		buf_printf(output, "[v4] Special type:   %s\n",
+		buf_printf(output, BUF_END, "[v4] Special type:   %s\n",
 			   SFLAGS(weapon_type2,  v[4]));
 		break;
 
 	case ITEM_CONTAINER:
-		buf_printf(output,
+		buf_printf(output, BUF_END,
 			"[v0] Weight:     [%d kg]\n"
 			"[v1] Flags:      [%s]\n"
 			"[v2] Key:     %s [%d]\n"
@@ -475,7 +475,7 @@ void objval_show(BUFFER *output, flag_t item_type, vo_t *v)
 
 	case ITEM_DRINK_CON:
 	case ITEM_FOUNTAIN:
-		buf_printf(output,
+		buf_printf(output, BUF_END,
 			    "[v0] Liquid Total: [%d]\n"
 			    "[v1] Liquid Left:  [%d]\n"
 			    "[v2] Liquid:       %s\n"
@@ -487,7 +487,7 @@ void objval_show(BUFFER *output, flag_t item_type, vo_t *v)
 		break;
 
 	case ITEM_FOOD:
-		buf_printf(output,
+		buf_printf(output, BUF_END,
 			"[v0] Food hours: [%d]\n"
 			"[v1] Full hours: [%d]\n"
 			"[v3] Poisoned:   %s\n",
@@ -497,13 +497,13 @@ void objval_show(BUFFER *output, flag_t item_type, vo_t *v)
 		break;
 
 	case ITEM_MONEY:
-		buf_printf(output, "[v0] Silver: [%d]\n"
+		buf_printf(output, BUF_END, "[v0] Silver: [%d]\n"
 				   "[v1] Gold:   [%d]\n",
 			   INT(v[0]), INT(v[1]));
 		break;
 
 	case ITEM_BOOK:
-		buf_printf(output, 
+		buf_printf(output, BUF_END, 
 			"[v0] Book class 	%s\n"
 			"[v1] Spec		%s\n"
 			"[v2] Base chance 	[%d%%]\n"
@@ -543,7 +543,7 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 		default:
 			return 1;
 		case 2:
-			buf_add(output, "HOURS OF LIGHT SET.\n\n");
+			buf_append(output, "HOURS OF LIGHT SET.\n\n");
 			INT(v[2]) = atoi(argument);
 			break;
 		}
@@ -555,15 +555,15 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 		default:
 			return 1;
 		case 0:
-			buf_add(output, "SPELL LEVEL SET.\n\n");
+			buf_append(output, "SPELL LEVEL SET.\n\n");
 			INT(v[0]) = atoi(argument);
 			break;
 		case 1:
-			buf_add(output, "TOTAL NUMBER OF CHARGES SET.\n\n");
+			buf_append(output, "TOTAL NUMBER OF CHARGES SET.\n\n");
 			INT(v[1]) = atoi(argument);
 			break;
 		case 2:
-			buf_add(output, "CURRENT NUMBER OF CHARGES SET.\n\n");
+			buf_append(output, "CURRENT NUMBER OF CHARGES SET.\n\n");
 			INT(v[2]) = atoi(argument);
 			break;
 		case 3:
@@ -577,7 +577,7 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 				skills_dump(output, ST_PRAYER);
 				return 2;
 			}
-			buf_add(output, "SPELL TYPE SET.\n");
+			buf_append(output, "SPELL TYPE SET.\n");
 			STR_ASSIGN(v[3],
 				   str_qdup(gmlstr_mval(&sk->sk_name)));
 			break;
@@ -589,7 +589,7 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 	case ITEM_PILL:
 		switch (value_num) {
 		case 0:
-			buf_add(output, "SPELL LEVEL SET.\n\n");
+			buf_append(output, "SPELL LEVEL SET.\n\n");
 			INT(v[0]) = atoi(argument);
 			break;
 		case 1:
@@ -607,7 +607,7 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 				skills_dump(output, ST_PRAYER);
 				return 2;
 			}
-			buf_printf(output, "SPELL TYPE %d SET.\n\n", value_num);
+			buf_printf(output, BUF_END, "SPELL TYPE %d SET.\n\n", value_num);
 			STR_ASSIGN(v[value_num],
 				   str_qdup(gmlstr_mval(&sk->sk_name)));
 			break;
@@ -621,19 +621,19 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 		default:
 			return 1;
 		case 0:
-			buf_add(output, "AC PIERCE SET.\n\n");
+			buf_append(output, "AC PIERCE SET.\n\n");
 			INT(v[0]) = atoi(argument);
 			break;
 		case 1:
-			buf_add(output, "AC BASH SET.\n\n");
+			buf_append(output, "AC BASH SET.\n\n");
 			INT(v[1]) = atoi(argument);
 			break;
 		case 2:
-			buf_add(output, "AC SLASH SET.\n\n");
+			buf_append(output, "AC SLASH SET.\n\n");
 			INT(v[2]) = atoi(argument);
 			break;
 		case 3:
-			buf_add(output, "AC EXOTIC SET.\n\n");
+			buf_append(output, "AC EXOTIC SET.\n\n");
 			INT(v[3]) = atoi(argument);
 			break;
 		}
@@ -649,15 +649,15 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 				show_flags_buf(output, weapon_class);
 				return 2;
 			}
-			buf_add(output, "WEAPON CLASS SET.\n\n");
+			buf_append(output, "WEAPON CLASS SET.\n\n");
 			INT(v[0]) = val;
 			break;
 		case 1:
-			buf_add(output, "NUMBER OF DICE SET.\n\n");
+			buf_append(output, "NUMBER OF DICE SET.\n\n");
 			INT(v[1]) = atoi(argument);
 			break;
 		case 2:
-			buf_add(output, "TYPE OF DICE SET.\n\n");
+			buf_append(output, "TYPE OF DICE SET.\n\n");
 			INT(v[2]) = atoi(argument);
 			break;
 		case 3:
@@ -666,7 +666,7 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 				strkey_printall(&damtypes, output);
 				return 2;
 			}
-			buf_add(output, "WEAPON TYPE SET.\n\n");
+			buf_append(output, "WEAPON TYPE SET.\n\n");
 			STR_ASSIGN(v[3], str_qdup(d->dam_name));
 			break;
 		case 4:
@@ -675,7 +675,7 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 				show_flags_buf(output, weapon_type2);
 				return 2;
 			}
-			buf_add(output, "SPECIAL WEAPON TYPE TOGGLED.\n\n");
+			buf_append(output, "SPECIAL WEAPON TYPE TOGGLED.\n\n");
 			TOGGLE_BIT(INT(v[4]), val);
 			break;
 		}
@@ -686,7 +686,7 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 		default:
 			return 1;
 		case 0:
-			buf_add(output, "CHARGES SET.\n\n");
+			buf_append(output, "CHARGES SET.\n\n");
 			INT(v[0]) = atoi(argument);
 			break;
 		case 1:
@@ -695,7 +695,7 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 				show_flags_buf(output, exit_flags);
 				return 2;
 			}
-			buf_add(output, "EXIT FLAGS TOGGLED.\n\n");
+			buf_append(output, "EXIT FLAGS TOGGLED.\n\n");
 			TOGGLE_BIT(INT(v[1]), val);
 			break;
 		case 2:
@@ -704,15 +704,15 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 				show_flags_buf(output, portal_flags);
 				return 2;
 			}
-			buf_add(output, "PORTAL FLAGS TOGGLED.\n\n");
+			buf_append(output, "PORTAL FLAGS TOGGLED.\n\n");
 			TOGGLE_BIT(INT(v[2]), val);
 			break;
 		case 3:
-			buf_add(output, "EXIT VNUM SET.\n\n");
+			buf_append(output, "EXIT VNUM SET.\n\n");
 			INT(v[3]) = atoi(argument);
 			break;
 		case 4:
-			buf_add(output, "PORTAL KEY SET.\n\n");
+			buf_append(output, "PORTAL KEY SET.\n\n");
 			INT(v[4]) = atoi(argument);
 		}
 		break;
@@ -720,11 +720,11 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 	case ITEM_FURNITURE:
 		switch (value_num) {
 		case 0:
-			buf_add(output, "NUMBER OF PEOPLE SET.\n\n");
+			buf_append(output, "NUMBER OF PEOPLE SET.\n\n");
 			INT(v[0]) = atoi(argument);
 			break;
 		case 1:
-			buf_add(output, "MAX WEIGHT SET.\n\n");
+			buf_append(output, "MAX WEIGHT SET.\n\n");
 			INT(v[1]) = atoi(argument);
 			break;
 		case 2:
@@ -733,15 +733,15 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 				show_flags_buf(output, furniture_flags);
 				return 2;
 			}
-		        buf_add(output, "FURNITURE FLAGS TOGGLED.\n\n");
+		        buf_append(output, "FURNITURE FLAGS TOGGLED.\n\n");
 			TOGGLE_BIT(INT(v[2]), val);
 			break;
 		case 3:
-			buf_add(output, "HEAL BONUS SET.\n\n");
+			buf_append(output, "HEAL BONUS SET.\n\n");
 			INT(v[3]) = atoi(argument);
 			break;
 		case 4:
-			buf_add(output, "MANA BONUS SET.\n\n");
+			buf_append(output, "MANA BONUS SET.\n\n");
 			INT(v[4]) = atoi(argument);
 			break;
 		}
@@ -750,7 +750,7 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 	case ITEM_CONTAINER:
 		switch (value_num) {
 		case 0:
-			buf_add(output, "WEIGHT CAPACITY SET.\n\n");
+			buf_append(output, "WEIGHT CAPACITY SET.\n\n");
 			INT(v[0]) = atoi(argument);
 			break;
 		case 1:
@@ -759,30 +759,30 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 				show_flags_buf(output, cont_flags);
 				return 2;
 			}
-			buf_add(output, "CONTAINER TYPE SET.\n\n");
+			buf_append(output, "CONTAINER TYPE SET.\n\n");
 			TOGGLE_BIT(INT(v[1]), val);
 			break;
 		case 2:
 			if (atoi(argument) != 0) {
 				if (!get_obj_index(atoi(argument))) {
-					buf_add(output, "THERE IS NO SUCH ITEM.\n\n");
+					buf_append(output, "THERE IS NO SUCH ITEM.\n\n");
 					return 1;
 				}
 
 				if (get_obj_index(atoi(argument))->item_type != ITEM_KEY) {
-					buf_add(output, "THAT ITEM IS NOT A KEY.\n\n");
+					buf_append(output, "THAT ITEM IS NOT A KEY.\n\n");
 					return 1;
 				}
 			}
-			buf_add(output, "CONTAINER KEY SET.\n\n");
+			buf_append(output, "CONTAINER KEY SET.\n\n");
 			INT(v[2]) = atoi(argument);
 			break;
 		case 3:
-			buf_add(output, "CONTAINER MAX WEIGHT SET.\n");
+			buf_append(output, "CONTAINER MAX WEIGHT SET.\n");
 			INT(v[3]) = atoi(argument);
 			break;
 		case 4:
-			buf_add(output, "WEIGHT MULTIPLIER SET.\n\n");
+			buf_append(output, "WEIGHT MULTIPLIER SET.\n\n");
 			INT(v[4]) = atoi(argument);
 			break;
 		}
@@ -794,11 +794,11 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 		default:
 			return 1;
 		case 0:
-			buf_add(output, "MAXIMUM AMOUT OF LIQUID HOURS SET.\n\n");
+			buf_append(output, "MAXIMUM AMOUT OF LIQUID HOURS SET.\n\n");
 			INT(v[0]) = atoi(argument);
 			break;
 		case 1:
-			buf_add(output, "CURRENT AMOUNT OF LIQUID HOURS SET.\n\n");
+			buf_append(output, "CURRENT AMOUNT OF LIQUID HOURS SET.\n\n");
 			INT(v[1]) = atoi(argument);
 			break;
 		case 2: 
@@ -808,12 +808,12 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 				return 2;
 			}
 
-			buf_add(output, "LIQUID TYPE SET.\n\n");
+			buf_append(output, "LIQUID TYPE SET.\n\n");
 			STR_ASSIGN(v[2],
 				   str_qdup(gmlstr_mval(&liq->lq_name)));
 			break;
 		case 3:
-			buf_add(output, "POISON VALUE TOGGLED.\n\n");
+			buf_append(output, "POISON VALUE TOGGLED.\n\n");
 			INT(v[3]) = !INT(v[3]);
 			break;
 		}
@@ -824,15 +824,15 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 		default:
 			return 1;
 		case 0:
-			buf_add(output, "HOURS OF FOOD SET.\n\n");
+			buf_append(output, "HOURS OF FOOD SET.\n\n");
 			INT(v[0]) = atoi(argument);
 			break;
 		case 1:
-			buf_add(output, "HOURS OF FULL SET.\n\n");
+			buf_append(output, "HOURS OF FULL SET.\n\n");
 			INT(v[1]) = atoi(argument);
 			break;
 		case 3:
-			buf_add(output, "POISON VALUE TOGGLED.\n\n");
+			buf_append(output, "POISON VALUE TOGGLED.\n\n");
 			INT(v[3]) = !INT(v[3]);
 			break;
 		}
@@ -843,11 +843,11 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 		default:
 			return 1;
 		case 0:
-			buf_add(output, "SILVER AMOUNT SET.\n\n");
+			buf_append(output, "SILVER AMOUNT SET.\n\n");
 			INT(v[0]) = atoi(argument);
 			break;
 		case 1:
-			buf_add(output, "GOLD AMOUNT SET.\n\n");
+			buf_append(output, "GOLD AMOUNT SET.\n\n");
 			INT(v[1]) = atoi(argument);
 			break;
 		}
@@ -861,7 +861,7 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 				show_flags_buf(output, book_class);
 				return 2;
 			}
-			buf_add(output, "BOOK CLASS SET.\n\n");
+			buf_append(output, "BOOK CLASS SET.\n\n");
 			INT(v[0]) = val;
 			break;
 		case 1:
@@ -873,16 +873,16 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 
 			if (!str_cmp(argument, "?")
 			||  (spc = spec_lookup(argument)) == 0) {
-				buf_add(output, "No such spec.\n");	
+				buf_append(output, "No such spec.\n");	
 				return 2;
 			}
 
-			buf_add(output, "SPEC SET.\n\n");
+			buf_append(output, "SPEC SET.\n\n");
 			STR_ASSIGN(v[1], str_qdup(spc->spec_name));
 			break;
 
 		case 2:
-			buf_add(output, "BASE CHANCE SET.\n\n");
+			buf_append(output, "BASE CHANCE SET.\n\n");
 			INT(v[2]) = atoi(argument);
 			break;
 
@@ -892,13 +892,13 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 				show_flags_buf(output, fail_effects);
 				return 2;
 			}
-			buf_add(output, "FAIL EFFECT SET.\n\n");
+			buf_append(output, "FAIL EFFECT SET.\n\n");
 			INT(v[3]) = val;
 			break;
 
 		case 4:
 			STR_ASSIGN(v[4], str_dup(argument));
-			buf_add(output, "SUCCESS MESSAGE SET.\n\n");
+			buf_append(output, "SUCCESS MESSAGE SET.\n\n");
 			break;
 		}
 	}

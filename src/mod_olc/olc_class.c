@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.22 2000-08-04 14:12:47 cs Exp $
+ * $Id: olc_class.c,v 1.23 2000-10-07 10:58:02 fjoe Exp $
  */
 
 #include "olc.h"
@@ -199,49 +199,49 @@ OLC_FUN(classed_show)
 	}
 
 	output = buf_new(-1);
-	buf_printf(output, "Name:           [%3s] [%s]\n",
+	buf_printf(output, BUF_END, "Name:           [%3s] [%s]\n",
 		   class->who_name, class->name);
-	buf_printf(output, "Primary attr:   [%s]\n",
+	buf_printf(output, BUF_END, "Primary attr:   [%s]\n",
 		   flag_string(stat_names, class->attr_prime));
 	if (!IS_NULLSTR(class->skill_spec))
-		buf_printf(output, "SkillSpec:      [%s]\n", class->skill_spec);
+		buf_printf(output, BUF_END, "SkillSpec:      [%s]\n", class->skill_spec);
 	if (class->weapon)
-		buf_printf(output, "School weapon:  [%d]\n", class->weapon);
-	buf_printf(output, "THAC0 (level 0) [%d] THAC0 (level 32) [%d]\n",
+		buf_printf(output, BUF_END, "School weapon:  [%d]\n", class->weapon);
+	buf_printf(output, BUF_END, "THAC0 (level 0) [%d] THAC0 (level 32) [%d]\n",
 		   class->thac0_00, class->thac0_32);
-	buf_printf(output, "HP rate:        [%d%%] Mana rate:      [%d%%]\n",
+	buf_printf(output, BUF_END, "HP rate:        [%d%%] Mana rate:      [%d%%]\n",
 		   class->hp_rate, class->mana_rate);
 	if (class->class_flags)
-		buf_printf(output, "Class flags:    [%s]\n",
+		buf_printf(output, BUF_END, "Class flags:    [%s]\n",
 			   flag_string(class_flags, class->class_flags));
 	if (class->points)
-		buf_printf(output, "Exp points:     [%d]\n", class->points);
+		buf_printf(output, BUF_END, "Exp points:     [%d]\n", class->points);
 	
-	buf_printf(output, "Luck bonus:     [%d]\n", class->luck_bonus);
+	buf_printf(output, BUF_END, "Luck bonus:     [%d]\n", class->luck_bonus);
 	
 
 
 	for (i = 0, found = FALSE; i < MAX_STAT; i++)
 		if (class->mod_stat[i]) found = TRUE;
 	if (found) {
-		buf_add(output, "Stats mod:      [");
+		buf_append(output, "Stats mod:      [");
 		for (i = 0; i < MAX_STAT; i++)
-			buf_printf(output, "%s: %2d ",
+			buf_printf(output, BUF_END, "%s: %2d ",
 				   flag_string(stat_names, i),
 				   class->mod_stat[i]);
-		buf_add(output, "]\n");
+		buf_append(output, "]\n");
 	}
 	if (class->restrict_align)
-		buf_printf(output, "Align restrict: [%s]\n",
+		buf_printf(output, BUF_END, "Align restrict: [%s]\n",
 			   flag_string(ralign_names, class->restrict_align));
 	if (class->restrict_ethos)
-		buf_printf(output, "Ethos restrict: [%s]\n",
+		buf_printf(output, BUF_END, "Ethos restrict: [%s]\n",
 			   flag_string(ethos_table, class->restrict_ethos));
 	if (!IS_NULLSTR(class->restrict_sex))
-		buf_printf(output, "Sex restrict:   [%s]\n",
+		buf_printf(output, BUF_END, "Sex restrict:   [%s]\n",
 			   class->restrict_sex);
 	if (class->death_limit != -1)
-		buf_printf(output, "Death limit:    [%d]\n", class->death_limit);
+		buf_printf(output, BUF_END, "Death limit:    [%d]\n", class->death_limit);
 
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
@@ -420,11 +420,11 @@ OLC_FUN(classed_poses)
 			if (IS_NULLSTR(pose->self) && IS_NULLSTR(pose->others))
 				continue;
 			st = TRUE;
-			buf_printf(buffer, "[%3d] Self:   %s\n      Others: %s\n",
+			buf_printf(buffer, BUF_END, "[%3d] Self:   %s\n      Others: %s\n",
 				   i, pose->self, pose->others);
 		}
 		if (!st)
-			buf_add(buffer, "No poses have been defined"
+			buf_append(buffer, "No poses have been defined"
 					" for this class.\n");
 		page_to_char(buf_string(buffer), ch);
 		buf_free(buffer);
@@ -517,17 +517,17 @@ OLC_FUN(classed_guilds)
 			if (!vnum)
 				continue;
 			if ((room = get_room_index(vnum)) == NULL) {
-				buf_printf(buffer, "[%5d] Nonexistant.\n",
+				buf_printf(buffer, BUF_END, "[%5d] Nonexistant.\n",
 					   vnum);
 				continue;
 			}
 			st = TRUE;
-			buf_printf(buffer, "[%5d] %-25.24s\n",
+			buf_printf(buffer, BUF_END, "[%5d] %-25.24s\n",
 				   vnum, mlstr_mval(&room->name));
 		}
 
 		if (!st)
-			buf_add(buffer, "No guild rooms have been defined"
+			buf_append(buffer, "No guild rooms have been defined"
 					" for this class.\n");
 		page_to_char(buf_string(buffer), ch);
 		buf_free(buffer);

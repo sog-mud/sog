@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.15 2000-04-03 08:54:08 fjoe Exp $
+ * $Id: olc_skill.c,v 1.16 2000-10-07 10:58:03 fjoe Exp $
  */
 
 #include "olc.h"
@@ -225,7 +225,7 @@ event_show_cb(void *p, va_list ap)
 
 	BUFFER *buf = va_arg(ap, BUFFER *);
 
-	buf_printf(buf, "Event: [%s] %s\n",
+	buf_printf(buf, BUF_END, "Event: [%s] %s\n",
 		   flag_string(events_classes, ev->event),
 		   ev->fun_name);
 	return NULL;
@@ -251,26 +251,26 @@ OLC_FUN(skilled_show)
 	buf = buf_new(-1);
 	mlstr_dump(buf, "Name       ", &sk->sk_name.ml);
 	mlstr_dump(buf, "Gender:    ", &sk->sk_name.gender);
-	buf_printf(buf, "Type       [%s]     Group       [%s]\n",
+	buf_printf(buf, BUF_END, "Type       [%s]     Group       [%s]\n",
 			flag_string(skill_types, sk->skill_type),
 			flag_string(skill_groups, sk->group));
-	buf_printf(buf, "MinPos     [%s]     Target      [%s]\n",
+	buf_printf(buf, BUF_END, "MinPos     [%s]     Target      [%s]\n",
 			flag_string(position_table, sk->min_pos),
 			flag_string(skill_targets, sk->target));
 	if (sk->beats)
-		buf_printf(buf, "Beats      [%d]\n", sk->beats);
+		buf_printf(buf, BUF_END, "Beats      [%d]\n", sk->beats);
 	if (sk->skill_flags)
-		buf_printf(buf, "Flags      [%s]\n",
+		buf_printf(buf, BUF_END, "Flags      [%s]\n",
 				flag_string(skill_flags, sk->skill_flags));
 	if (sk->min_mana)
-		buf_printf(buf, "MinMana    [%d]\n", sk->min_mana);
+		buf_printf(buf, BUF_END, "MinMana    [%d]\n", sk->min_mana);
 	mlstr_dump(buf, "NounDamage ", &sk->noun_damage.ml);
 	mlstr_dump(buf, "NounGender ", &sk->noun_damage.gender);
 	if (sk->slot)
-		buf_printf(buf, "Slot       [%d]\n", sk->slot);
+		buf_printf(buf, BUF_END, "Slot       [%d]\n", sk->slot);
 
 	if (!IS_NULLSTR(sk->fun_name))
-		buf_printf(buf, "SpellFun   [%s]\n", sk->fun_name);
+		buf_printf(buf, BUF_END, "SpellFun   [%s]\n", sk->fun_name);
 
 	mlstr_dump(buf, "WearOff     ", &sk->msg_off);
 	mlstr_dump(buf, "ObjWearOff  ", &sk->msg_obj);

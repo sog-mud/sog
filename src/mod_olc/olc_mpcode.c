@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mpcode.c,v 1.28 1999-12-14 00:26:40 avn Exp $
+ * $Id: olc_mpcode.c,v 1.29 2000-10-07 10:58:02 fjoe Exp $
  */
 
 /* The following code is based on ILAB OLC by Jason Dinkel */
@@ -166,15 +166,15 @@ OLC_FUN(mped_list)
 			else
 				blah = ' ';
 
-			buf_printf(buffer, "[%3d] (%c) %5d\n", count, blah, mpcode->vnum);
+			buf_printf(buffer, BUF_END, "[%3d] (%c) %5d\n", count, blah, mpcode->vnum);
 			count++;
 		}
 
 	if (count == 1) {
 		if (fAll)
-			buf_add(buffer, "No mobprogs found.\n");
+			buf_append(buffer, "No mobprogs found.\n");
 		else
-			buf_add(buffer, "No mobprogs found in this area.\n");
+			buf_append(buffer, "No mobprogs found in this area.\n");
 	}
 
 	page_to_char(buf_string(buffer), ch);

@@ -1,5 +1,5 @@
 /*
- * $Id: buffer.h,v 1.11 2000-10-05 19:05:27 fjoe Exp $
+ * $Id: buffer.h,v 1.12 2000-10-07 10:57:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -43,16 +43,22 @@
 #ifndef _BUFFER_H_
 #define _BUFFER_H_
 
+#define BUF_START	1
+#define BUF_END		0
+
 BUFFER *	buf_new		(int lang);
 void		buf_free	(BUFFER *buffer);
+
 bool		buf_prepend	(BUFFER *buffer, const char *string);
-bool		buf_add		(BUFFER *buffer, const char *string);
-bool		buf_printf	(BUFFER *buffer, const char *format, ...)
-					__attribute__ ((format(printf, 2, 3)));
-bool		buf_act		(BUFFER *buffer, const char *format,
+bool		buf_append	(BUFFER *buffer, const char *string);
+bool		buf_printf	(BUFFER *buffer, int where,
+				 const char *format, ...)
+					__attribute__ ((format(printf, 3, 4)));
+bool		buf_act		(BUFFER *buffer, int where, const char *format,
 				 CHAR_DATA *ch, const void *arg1,
 				 const void *arg2, const void *arg3,
 				 int act_flags);
+
 void		buf_clear	(BUFFER *buffer);
 char *		buf_string	(BUFFER *buffer);
 

@@ -23,13 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.h,v 1.9 1999-12-22 05:51:26 fjoe Exp $
+ * $Id: rwfile.h,v 1.10 2000-10-07 10:57:59 fjoe Exp $
  */
 
 #ifndef _RFILE_H_
 #define _RFILE_H_
 
-#ifdef USE_MMAP
+#if !defined(NO_MMAP)
 
 struct rfile_t {
 	const u_char *	p;
@@ -50,7 +50,7 @@ bool		IS_TOKEN(rfile_t *fp, const char *k);
 const char *	rfile_tok(rfile_t *fp);
 #define		rfile_tokfl(fp)		(UPPER((fp)->tok[0]))
 
-#else /* USE_MMAP */
+#else /* !defined(NO_MMAP) */
 
 #define rfile_open(dir, file)	dfopen((dir), (file), "r")
 #define rfile_close(fp)		fclose(fp)
@@ -62,7 +62,7 @@ extern char _token[MAX_STRING_LENGTH];
 #define		rfile_tok(fp)		(_token)
 #define		rfile_tokfl(fp)		(UPPER(_token[0]))
 
-#endif /* USE_MMAP */
+#endif /* !defined(NO_MMAP) */
 
 extern int	line_number;
 

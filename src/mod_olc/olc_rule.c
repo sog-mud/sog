@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.27 2000-02-10 14:08:44 fjoe Exp $
+ * $Id: olc_rule.c,v 1.28 2000-10-07 10:58:03 fjoe Exp $
  */
 
 #include "olc.h"
@@ -377,7 +377,7 @@ OLC_FUN(ruleed_list)
 			output = buf_new(-1);
 			for (i = 0; i < rcl->impl.nused; i++) {
 				rule_t *r = VARR_GET(&rcl->impl, i);
-				buf_printf(output, "%3d. %s\n", i, r->name);
+				buf_printf(output, BUF_END, "%3d. %s\n", i, r->name);
 			}
 		}
 	}
@@ -394,7 +394,7 @@ OLC_FUN(ruleed_list)
 				if (!str_prefix(argument, r->name)) {
 					if (!output)
 						output = buf_new(-1);
-					buf_printf(output, "%s\n", r->name);
+					buf_printf(output, BUF_END, "%s\n", r->name);
 				}
 			}
 		}

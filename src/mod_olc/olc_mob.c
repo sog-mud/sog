@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.67 2000-10-05 19:05:32 fjoe Exp $
+ * $Id: olc_mob.c,v 1.68 2000-10-07 10:58:02 fjoe Exp $
  */
 
 #include "olc.h"
@@ -259,125 +259,125 @@ OLC_FUN(mobed_show)
 	buf = buf_new(-1);
 
 	pArea = area_vnum_lookup(pMob->vnum);
-	buf_printf(buf, "Name:        [%s]\nArea:        [%5d] %s\n",
+	buf_printf(buf, BUF_END, "Name:        [%s]\nArea:        [%5d] %s\n",
 		pMob->name, pArea->vnum, pArea->name);
 
-	buf_printf(buf, "Act:         [%s]\n",
+	buf_printf(buf, BUF_END, "Act:         [%s]\n",
 		flag_string(act_flags, pMob->act));
 
 	if (pMob->mob_flags) {
-		buf_printf(buf, "Mob:         [%s]\n",
+		buf_printf(buf, BUF_END, "Mob:         [%s]\n",
 			flag_string(mob_flags, pMob->mob_flags));
 	}
 
-	buf_printf(buf, "Vnum:        [%5d]    Race: [%s]\n",
+	buf_printf(buf, BUF_END, "Vnum:        [%5d]    Race: [%s]\n",
 		pMob->vnum,
 		pMob->race);
 
 	mlstr_dump(buf, "Gender:      ", &pMob->gender);
 
 	if (!IS_NULLSTR(pMob->clan))
-		buf_printf(buf, "Clan:        [%s]\n", pMob->clan);
+		buf_printf(buf, BUF_END, "Clan:        [%s]\n", pMob->clan);
 
-	buf_printf(buf, "Level:       [%2d]    Align: [%4d]      Hitroll: [%2d] Dam Type:    [%s]\n",
+	buf_printf(buf, BUF_END, "Level:       [%2d]    Align: [%4d]      Hitroll: [%2d] Dam Type:    [%s]\n",
 		pMob->level,	pMob->alignment,
 		pMob->hitroll,	pMob->damtype);
 
 	if (pMob->group)
-		buf_printf(buf, "Group:       [%5d]\n", pMob->group);
+		buf_printf(buf, BUF_END, "Group:       [%5d]\n", pMob->group);
 
-	buf_printf(buf, "Hit dice:    [%2dd%-3d+%4d] ",
+	buf_printf(buf, BUF_END, "Hit dice:    [%2dd%-3d+%4d] ",
 			 pMob->hit[DICE_NUMBER],
 			 pMob->hit[DICE_TYPE],
 			 pMob->hit[DICE_BONUS]);
 
-	buf_printf(buf, "Damage dice: [%2dd%-3d+%4d] ",
+	buf_printf(buf, BUF_END, "Damage dice: [%2dd%-3d+%4d] ",
 			 pMob->damage[DICE_NUMBER],
 			 pMob->damage[DICE_TYPE],
 			 pMob->damage[DICE_BONUS]);
 
-	buf_printf(buf, "Mana dice:   [%2dd%-3d+%4d]\n",
+	buf_printf(buf, BUF_END, "Mana dice:   [%2dd%-3d+%4d]\n",
 			 pMob->mana[DICE_NUMBER],
 			 pMob->mana[DICE_TYPE],
 			 pMob->mana[DICE_BONUS]);
 
 /* ROM values end */
 
-	buf_printf(buf, "Affected by: [%s]\n",
+	buf_printf(buf, BUF_END, "Affected by: [%s]\n",
 		flag_string(affect_flags, pMob->affected_by));
 
-	buf_printf(buf, "Invis:       [%s]\n",
+	buf_printf(buf, BUF_END, "Invis:       [%s]\n",
 		flag_string(id_flags, pMob->has_invis));
 
-	buf_printf(buf, "Detect:      [%s]\n",
+	buf_printf(buf, BUF_END, "Detect:      [%s]\n",
 		flag_string(id_flags, pMob->has_detect));
 
 /* ROM values: */
 
-	buf_printf(buf, "Armor:       [pierce: %d  bash: %d  slash: %d  magic: %d]\n",
+	buf_printf(buf, BUF_END, "Armor:       [pierce: %d  bash: %d  slash: %d  magic: %d]\n",
 		pMob->ac[AC_PIERCE], pMob->ac[AC_BASH],
 		pMob->ac[AC_SLASH], pMob->ac[AC_EXOTIC]);
 
-	buf_printf(buf, "Form:        [%s]\n",
+	buf_printf(buf, BUF_END, "Form:        [%s]\n",
 		flag_string(form_flags, pMob->form));
 
-	buf_printf(buf, "Parts:       [%s]\n",
+	buf_printf(buf, BUF_END, "Parts:       [%s]\n",
 		flag_string(part_flags, pMob->parts));
 
-	buf_printf(buf, "Off:         [%s]\n",
+	buf_printf(buf, BUF_END, "Off:         [%s]\n",
 		flag_string(off_flags,  pMob->off_flags));
 
-	buf_printf(buf, "Size:        [%s]\n",
+	buf_printf(buf, BUF_END, "Size:        [%s]\n",
 		flag_string(size_table, pMob->size));
 
-	buf_printf(buf, "Material:    [%s]\n",
+	buf_printf(buf, BUF_END, "Material:    [%s]\n",
 		 pMob->material);
 
-	buf_printf(buf, "Start pos:   [%s]\n",
+	buf_printf(buf, BUF_END, "Start pos:   [%s]\n",
 		flag_string(position_table, pMob->start_pos));
 
-	buf_printf(buf, "Default pos: [%s]\n",
+	buf_printf(buf, BUF_END, "Default pos: [%s]\n",
 		flag_string(position_table, pMob->default_pos));
 
-	buf_printf(buf, "Wealth:      [%5d]\n", pMob->wealth);
+	buf_printf(buf, BUF_END, "Wealth:      [%5d]\n", pMob->wealth);
 
 	if (pMob->invis_level)
-		buf_printf(buf, "Invis level: [%d]\n", pMob->invis_level);
+		buf_printf(buf, BUF_END, "Invis level: [%d]\n", pMob->invis_level);
 
 	if (pMob->incog_level)
-		buf_printf(buf, "Incog level: [%d]\n", pMob->incog_level);
+		buf_printf(buf, BUF_END, "Incog level: [%d]\n", pMob->incog_level);
 
 	if (pMob->fvnum)
-		buf_printf(buf, "Female vnum: [%d]\n", pMob->fvnum);
+		buf_printf(buf, BUF_END, "Female vnum: [%d]\n", pMob->fvnum);
 
 /* ROM values end */
 
 	if (pMob->spec_fun)
-		buf_printf(buf, "Spec fun:    [%s]\n",  mob_spec_name(pMob->spec_fun));
+		buf_printf(buf, BUF_END, "Spec fun:    [%s]\n",  mob_spec_name(pMob->spec_fun));
 	if (pMob->practicer)
-		buf_printf(buf, "Practicer:   [%s]\n",
+		buf_printf(buf, BUF_END, "Practicer:   [%s]\n",
 			flag_string(skill_groups, pMob->practicer));
 
 	mlstr_dump(buf, "Short descr: ", &pMob->short_descr);
 	mlstr_dump(buf, "Long descr: ", &pMob->long_descr);
 	mlstr_dump(buf, "Description: ", &pMob->description);
 
-	buf_add(buf, "Resist");
+	buf_append(buf, "Resist");
 
 	for (i = 0; i < MAX_RESIST; i++) {
 		if (strlen(flag_string(dam_classes, i)) > 7)
-			buf_printf(buf, "\t%s\t%d%%", 
+			buf_printf(buf, BUF_END, "\t%s\t%d%%", 
 				flag_string(dam_classes, i),
 				pMob->resists[i]);
 		else
-			buf_printf(buf, "\t%s\t\t%d%%", 
+			buf_printf(buf, BUF_END, "\t%s\t\t%d%%", 
 				flag_string(dam_classes, i),
 				pMob->resists[i]);
 			
 		if(!((i+1) % 3))
-			buf_add(buf, "\n");
+			buf_append(buf, "\n");
 	}
-	buf_add(buf, "\n");
+	buf_append(buf, "\n");
 
 	aff_dump_list(pMob->affected, buf);
 
@@ -387,21 +387,21 @@ OLC_FUN(mobed_show)
 
 		pShop = pMob->pShop;
 
-		buf_printf(buf, "Shop data for [%5d]:\n"
+		buf_printf(buf, BUF_END, "Shop data for [%5d]:\n"
 				"  Markup for purchaser: %d%%\n"
 				"  Markdown for seller:  %d%%\n",
 			pShop->keeper, pShop->profit_buy, pShop->profit_sell);
-		buf_printf(buf, "  Hours: %d to %d.\n",
+		buf_printf(buf, BUF_END, "  Hours: %d to %d.\n",
 			pShop->open_hour, pShop->close_hour);
 
 		for (iTrade = 0; iTrade < MAX_TRADE; iTrade++) {
 			if (pShop->buy_type[iTrade] <= 0)
 				continue;
 			if (iTrade == 0) {
-				buf_add(buf, "  Number Trades Type\n");
-				buf_add(buf, "  ------ -----------\n");
+				buf_append(buf, "  Number Trades Type\n");
+				buf_append(buf, "  ------ -----------\n");
 			}
-			buf_printf(buf, "  [%4d] %s\n", iTrade,
+			buf_printf(buf, BUF_END, "  [%4d] %s\n", iTrade,
 				flag_string(item_types, pShop->buy_type[iTrade]));
 		}
 	}
@@ -409,15 +409,15 @@ OLC_FUN(mobed_show)
 	if (pMob->mptrig_list) {
 		int cnt = 0;
 
-		buf_printf(buf, "\nMOBPrograms for [%5d]:\n", pMob->vnum);
+		buf_printf(buf, BUF_END, "\nMOBPrograms for [%5d]:\n", pMob->vnum);
 
 		for (mptrig = pMob->mptrig_list; mptrig; mptrig = mptrig->next) {
 			if (cnt ==0) {
-				buf_add(buf, " Number Vnum Trigger Phrase [Flags]\n");
-				buf_add(buf, " ------ ---- ------- ----------------------------------------------------------\n");
+				buf_append(buf, " Number Vnum Trigger Phrase [Flags]\n");
+				buf_append(buf, " ------ ---- ------- ----------------------------------------------------------\n");
 			}
 
-			buf_printf(buf, "[%5d] %4d %7s %s [%s]\n", cnt,
+			buf_printf(buf, BUF_END, "[%5d] %4d %7s %s [%s]\n", cnt,
 			mptrig->vnum, flag_string(mptrig_types, mptrig->type),
 			mptrig->phrase,
 			flag_string(mptrig_flags, mptrig->mptrig_flags));
@@ -456,11 +456,11 @@ OLC_FUN(mobed_list)
 		if ((pMobIndex = get_mob_index(vnum)) != NULL) {
 			if (fAll || is_name(arg, pMobIndex->name)) {
 				found = TRUE;
-				buf_printf(buffer, "[%5d] %-17.16s",
+				buf_printf(buffer, BUF_END, "[%5d] %-17.16s",
 					   pMobIndex->vnum,
 					   mlstr_mval(&pMobIndex->short_descr));
 				if (++col % 3 == 0)
-					buf_add(buffer, "\n");
+					buf_append(buffer, "\n");
 			}
 		}
 	}
@@ -469,7 +469,7 @@ OLC_FUN(mobed_list)
 		char_puts("MobEd: No mobiles in this area.\n", ch);
 	else {
 		if (col % 3 != 0)
-			buf_add(buffer, "\n");
+			buf_append(buffer, "\n");
 
 		page_to_char(buf_string(buffer), ch);
 	}
@@ -976,7 +976,7 @@ OLC_FUN(mobed_race)
 
 	if (argument[0] == '?') {
 		BUFFER *buf = buf_new(-1);
-		buf_add(buf, "Available races are:\n");
+		buf_append(buf, "Available races are:\n");
 		strkey_printall(&races, buf);
 		page_to_char(buf_string(buf), ch);
 		buf_free(buf);
@@ -1054,7 +1054,7 @@ OLC_FUN(mobed_group)
 			pMTemp = get_mob_index(temp);
 			if (pMTemp && (pMTemp->group == atoi(argument))) {
 				found = TRUE;
-				buf_printf(buffer, "[%5d] %s\n",
+				buf_printf(buffer, BUF_END, "[%5d] %s\n",
 					   pMTemp->vnum, pMTemp->name);
 			}
 		}
@@ -1370,12 +1370,8 @@ OLC_FUN(mobed_where)
 	}
 
 	if (buf != NULL) {
-		act_puts("Resets for mob vnum $j:",
-			 ch, (const void *) vnum, NULL, TO_CHAR, POS_DEAD);
-		/*
-		 * XXX page_to_char here
-		 */
-		send_to_char(buf_string(buf), ch);
+		buf_printf(buf, BUF_START, "Resets for mob vnum %d:", vnum);
+		page_to_char(buf_string(buf), ch);
 		buf_free(buf);
 		return FALSE;
 	}
@@ -1392,15 +1388,15 @@ static void show_spec_cmds(CHAR_DATA *ch)
 
 	output = buf_new(-1);
 	col = 0;
-	buf_add(output, "Preceed special functions with 'spec_'\n\n");
+	buf_append(output, "Preceed special functions with 'spec_'\n\n");
 	for (spec = 0; spec_table[spec].function != NULL; spec++) {
-		buf_printf(output, "%-19.18s", &spec_table[spec].name[5]);
+		buf_printf(output, BUF_END, "%-19.18s", &spec_table[spec].name[5]);
 		if (++col % 4 == 0)
-			buf_add(output, "\n");
+			buf_append(output, "\n");
 	}
  
 	if (col % 4 != 0)
-		buf_add(output, "\n");
+		buf_append(output, "\n");
 
 	send_to_char(buf_string(output), ch);
 	buf_free(output);

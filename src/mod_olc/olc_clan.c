@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.41 2000-03-30 21:00:53 avn Exp $
+ * $Id: olc_clan.c,v 1.42 2000-10-07 10:58:02 fjoe Exp $
  */
 
 #include "olc.h"
@@ -174,25 +174,25 @@ OLC_FUN(claned_show)
 	}
 
 	output = buf_new(-1);
-	buf_printf(output,
+	buf_printf(output, BUF_END,
 		   "Name:        [%s]\n",
 		   clan->name);
 	if (!IS_NULLSTR(clan->skill_spec))
-		buf_printf(output, "SkillSpec:   [%s]\n", clan->skill_spec);
+		buf_printf(output, BUF_END, "SkillSpec:   [%s]\n", clan->skill_spec);
 	if (clan->clan_flags)
-		buf_printf(output, "Flags:       [%s]\n",
+		buf_printf(output, BUF_END, "Flags:       [%s]\n",
 			   flag_string(clan_flags, clan->clan_flags));
 	if (clan->recall_vnum)
-		buf_printf(output, "Recall:      [%d]\n",
+		buf_printf(output, BUF_END, "Recall:      [%d]\n",
 			   clan->recall_vnum);
 	if (clan->obj_vnum)
-		buf_printf(output, "Item:        [%d]\n",
+		buf_printf(output, BUF_END, "Item:        [%d]\n",
 			   clan->obj_vnum);
 	if (clan->mark_vnum) 
-		buf_printf(output, "Mark:        [%d]\n",
+		buf_printf(output, BUF_END, "Mark:        [%d]\n",
 			   clan->mark_vnum);
 	if (clan->altar_vnum)
-		buf_printf(output, "Altar:       [%d]\n",
+		buf_printf(output, BUF_END, "Altar:       [%d]\n",
 			   clan->altar_vnum);
 
 	page_to_char(buf_string(output), ch);
@@ -204,7 +204,7 @@ OLC_FUN(claned_show)
 OLC_FUN(claned_list)
 {
 	BUFFER *out = buf_new(-1);
-	buf_add(out, "List of defined clans:\n");
+	buf_append(out, "List of defined clans:\n");
 	strkey_printall(&clans, out);
 	page_to_char(buf_string(out), ch);
 	buf_free(out);

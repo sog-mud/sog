@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.osdep.dist,v 1.8 2000-06-02 16:40:37 fjoe Exp $
+# $Id: Makefile.osdep.dist,v 1.9 2000-10-07 10:57:58 fjoe Exp $
 #
 
 #
@@ -10,12 +10,12 @@ BINGRP!=	id -gn
 
 #
 # for FreeBSD
-#CFLAGS+=	-DBSD44 -DUSE_MMAP
+#CFLAGS+=	-DBSD44
 #LDADD+=		-lcrypt
 
 #
 # for Linux
-#CFLAGS+=	-DLINUX -DUSE_MMAP
+#CFLAGS+=	-DLINUX
 #LDADD+=	-lcrypt -ldl
 #SO_LDFLAGS+=	-rdynamic
 #COMPAT_SRCS=	fnmatch.c

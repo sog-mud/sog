@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.262 2000-10-04 20:28:51 fjoe Exp $
+ * $Id: handler.c,v 1.263 2000-10-07 10:58:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1988,7 +1988,7 @@ void format_obj(BUFFER *output, OBJ_DATA *obj)
 	int i;
 	liquid_t *lq;
 
-	buf_printf(output,
+	buf_printf(output, BUF_END,
 		"Object '%s' is type %s, stat flags %s.\n"
 		"Weight is %d, value is %d, level is %d.\n",
 		obj->name,
@@ -1999,7 +1999,7 @@ void format_obj(BUFFER *output, OBJ_DATA *obj)
 		obj->level);
 
 	if (obj->pObjIndex->limit != -1)
-		buf_printf(output,
+		buf_printf(output, BUF_END,
 			   "This equipment has been LIMITED by number %d \n",
 			   obj->pObjIndex->limit);
 
@@ -2007,58 +2007,58 @@ void format_obj(BUFFER *output, OBJ_DATA *obj)
 	case ITEM_SCROLL:
 	case ITEM_POTION:
 	case ITEM_PILL:
-		buf_printf(output, "Level %d spells of:", INT(obj->value[0]));
+		buf_printf(output, BUF_END, "Level %d spells of:", INT(obj->value[0]));
 
 		for (i = 1; i < 5; i++) {
 			if (!IS_NULLSTR(obj->value[i].s))
-				buf_printf(output, " '%s'", obj->value[i].s);
+				buf_printf(output, BUF_END, " '%s'", obj->value[i].s);
 		}
 
-		buf_add(output, ".\n");
+		buf_append(output, ".\n");
 		break;
 
 	case ITEM_WAND: 
 	case ITEM_STAFF: 
-		buf_printf(output, "Has %d charges of level %d",
+		buf_printf(output, BUF_END, "Has %d charges of level %d",
 			   INT(obj->value[2]), INT(obj->value[0]));
 	  
 		if (!IS_NULLSTR(obj->value[3].s))
-			buf_printf(output, " '%s'", obj->value[3].s);
+			buf_printf(output, BUF_END, " '%s'", obj->value[3].s);
 
-		buf_add(output, ".\n");
+		buf_append(output, ".\n");
 		break;
 
 	case ITEM_DRINK_CON:
 		if ((lq = liquid_lookup(STR(obj->value[2]))) == NULL)
 			break;
-		buf_printf(output, "It holds %s-colored %s.\n",
+		buf_printf(output, BUF_END, "It holds %s-colored %s.\n",
 			   mlstr_mval(&lq->lq_color),
 			   gmlstr_mval(&lq->lq_name));
 		break;
 
 	case ITEM_CONTAINER:
-		buf_printf(output,
+		buf_printf(output, BUF_END,
 			   "Capacity: %d#  Maximum weight: %d#  flags: %s\n",
 			   INT(obj->value[0]), INT(obj->value[3]),
 			   SFLAGS(cont_flags, obj->value[1]));
 		if (INT(obj->value[4]) != 100)
-			buf_printf(output, "Weight multiplier: %d%%\n",
+			buf_printf(output, BUF_END, "Weight multiplier: %d%%\n",
 				   INT(obj->value[4]));
 		break;
 			
 	case ITEM_WEAPON:
-		buf_printf(output, "Weapon type is %s.\n",
+		buf_printf(output, BUF_END, "Weapon type is %s.\n",
 			   SFLAGS(weapon_class, obj->value[0]));
-		buf_printf(output, "Damage is %dd%d (average %d).\n",
+		buf_printf(output, BUF_END, "Damage is %dd%d (average %d).\n",
 			   INT(obj->value[1]), INT(obj->value[2]),
 			   (1 + INT(obj->value[2])) * INT(obj->value[1]) / 2);
 		if (INT(obj->value[4]))
-	        	buf_printf(output, "Weapons flags: %s\n",
+	        	buf_printf(output, BUF_END, "Weapons flags: %s\n",
 				   SFLAGS(weapon_type2, obj->value[4]));
 		break;
 
 	case ITEM_ARMOR:
-		buf_printf(output, "Armor class is %d pierce, "
+		buf_printf(output, BUF_END, "Armor class is %d pierce, "
 				   "%d bash, %d slash, and %d vs. magic.\n", 
 			   INT(obj->value[0]), INT(obj->value[1]),
 			   INT(obj->value[2]), INT(obj->value[3]));
@@ -2079,16 +2079,16 @@ void format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags)
 			|| paf->where == TO_FORMRESIST
 			|| INT(paf->location) != APPLY_NONE)
 		&&  paf->modifier) { 
-			buf_printf(output, w->loc_format,
+			buf_printf(output, BUF_END, w->loc_format,
 				paf->where != TO_RACE ?
 				SFLAGS(w->loc_table, paf->location) :
 				STR(paf->location),
 				paf->modifier);
 			if (!IS_SET(flags, FOA_F_NODURATION)
 			&&  paf->duration > -1)
-				buf_printf(output, " for %d hours",
+				buf_printf(output, BUF_END, " for %d hours",
 					   paf->duration);
-			buf_add(output, ".\n");
+			buf_append(output, ".\n");
 		}
 
 		if (IS_SET(flags, FOA_F_NOAFFECTS))
@@ -2096,13 +2096,13 @@ void format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags)
 
 		if (paf->bitvector
 		&& !IS_NULLSTR(w->bit_format)) {
-			buf_printf(output, w->bit_format,
+			buf_printf(output, BUF_END, w->bit_format,
 					flag_string(w->bit_table, paf->bitvector));
 			if (!IS_SET(flags, FOA_F_NODURATION)
 			&&  paf->duration > -1)
-				buf_printf(output, " for %d hours",
+				buf_printf(output, BUF_END, " for %d hours",
 					   paf->duration);
-			buf_add(output, ".\n");
+			buf_append(output, ".\n");
 		}
 	}
 }
@@ -2767,57 +2767,57 @@ void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 	||  !r->race_pcdata)
 		return;
 
-	buf_add(output, "{x");
+	buf_append(output, "{x");
 	if (ch) {
 		if (IS_IMMORTAL(ch)) {
-			buf_printf(output, "[%3d %5.5s %3.3s] ",
+			buf_printf(output, BUF_END, "[%3d %5.5s %3.3s] ",
 				   wch->level,
 				   r->race_pcdata->who_name,
 				   cl->who_name);
 		} else {
 			if (!IS_IMMORTAL(wch) && in_PK(ch, wch))
-				buf_add(output, "{r[{RPK{r]{x ");
+				buf_append(output, "{r[{RPK{r]{x ");
 			else
-				buf_add(output, "     ");
+				buf_append(output, "     ");
 		}
 	}
 
 	if (wch->level >= LEVEL_HERO) {
-		buf_add(output, "[{G");
+		buf_append(output, "[{G");
 		switch (wch->level) {
-		case LEVEL_IMP:		buf_add(output, "IMP"); break;
-		case LEVEL_CRE:		buf_add(output, "CRE"); break;
-		case LEVEL_DEI:		buf_add(output, "DEI"); break;
-		case LEVEL_GOD:		buf_add(output, "GOD"); break;
-		case LEVEL_AVA:		buf_add(output, "AVA"); break;
-		case LEVEL_HERO:	buf_add(output, "HERO"); break;
+		case LEVEL_IMP:		buf_append(output, "IMP"); break;
+		case LEVEL_CRE:		buf_append(output, "CRE"); break;
+		case LEVEL_DEI:		buf_append(output, "DEI"); break;
+		case LEVEL_GOD:		buf_append(output, "GOD"); break;
+		case LEVEL_AVA:		buf_append(output, "AVA"); break;
+		case LEVEL_HERO:	buf_append(output, "HERO"); break;
 		}
-		buf_add(output, "{x] ");
+		buf_append(output, "{x] ");
 	} 
 
 	if ((clan = clan_lookup(wch->clan)) != NULL
 	&&  (!IS_SET(clan->clan_flags, CLAN_HIDDEN) ||
 	     (ch && (IS_CLAN(wch->clan, ch->clan) || IS_IMMORTAL(ch)))))
-		buf_printf(output, "[{c%s{x] ", clan->name);
+		buf_printf(output, BUF_END, "[{c%s{x] ", clan->name);
 
 	if (IS_SET(wch->comm, COMM_AFK))
-		buf_add(output, "{c[AFK]{x ");
+		buf_append(output, "{c[AFK]{x ");
 
 	if (wch->invis_level)
-		buf_add(output, "[{WWizi{x] ");
+		buf_append(output, "[{WWizi{x] ");
 	if (wch->incog_level)
-		buf_add(output, "[{DIncog{x] ");
+		buf_append(output, "[{DIncog{x] ");
 
 	if (IS_WANTED(wch))
-		buf_add(output, "{R(WANTED){x ");
+		buf_append(output, "{R(WANTED){x ");
 
 	if (IS_IMMORTAL(wch))
-		buf_printf(output, "{W%s{x", wch->name);
+		buf_printf(output, BUF_END, "{W%s{x", wch->name);
 	else
-		buf_add(output, wch->name);
+		buf_append(output, wch->name);
 
-	buf_add(output, PC(wch)->title);
-	buf_add(output, "\n");
+	buf_append(output, PC(wch)->title);
+	buf_append(output, "\n");
 }
 
 static int movement_loss[MAX_SECT+1] =

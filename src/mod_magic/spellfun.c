@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.221 2000-10-04 20:28:48 fjoe Exp $
+ * $Id: spellfun.c,v 1.222 2000-10-07 10:58:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2676,15 +2676,15 @@ void spell_locate_object(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 		if (in_obj->carried_by != NULL
 		&&  can_see(ch, in_obj->carried_by)) {
-			buf_printf(buffer, "One is carried by %s\n",
+			buf_printf(buffer, BUF_END, "One is carried by %s\n",
 				   PERS(in_obj->carried_by, ch));
 		} else {
 			if (IS_IMMORTAL(ch) && in_obj->in_room != NULL) {
-				buf_printf(buffer, "One is in %s [Room %d]\n",
+				buf_printf(buffer, BUF_END, "One is in %s [Room %d]\n",
 					   mlstr_cval(&in_obj->in_room->name, ch),
 					   in_obj->in_room->vnum);
 			} else {
-				buf_printf(buffer, "One is in %s\n",
+				buf_printf(buffer, BUF_END, "One is in %s\n",
 					   in_obj->in_room == NULL ?
 					   "somewhere" :
 					   mlstr_cval(&in_obj->in_room->name, ch));
@@ -3904,15 +3904,15 @@ void spell_find_object(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 		if (in_obj->carried_by != NULL
 		&&  can_see(ch,in_obj->carried_by)) {
-			buf_printf(buffer, "One is carried by %s\n",
+			buf_printf(buffer, BUF_END, "One is carried by %s\n",
 				   PERS(in_obj->carried_by, ch));
 		} else {
 			if (IS_IMMORTAL(ch) && in_obj->in_room != NULL)
-				buf_printf(buffer, "One is in %s [Room %d]\n",
+				buf_printf(buffer, BUF_END, "One is in %s [Room %d]\n",
 					mlstr_cval(&in_obj->in_room->name, ch),
 					in_obj->in_room->vnum);
 			else
-				buf_printf(buffer, "One is in %s\n",
+				buf_printf(buffer, BUF_END, "One is in %s\n",
 					in_obj->in_room == NULL ?
 					"somewhere" :
 					mlstr_cval(&in_obj->in_room->name, ch));

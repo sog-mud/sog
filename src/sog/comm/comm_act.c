@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.62 2000-05-30 14:40:58 fjoe Exp $
+ * $Id: comm_act.c,v 1.63 2000-10-07 10:58:07 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -982,11 +982,11 @@ act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 	if (!IS_NPC(to)) {
 		if ((IS_SET(to->comm, COMM_AFK) || to->desc == NULL) &&
 		     IS_SET(act_flags, ACT_TOBUF))
-			buf_add(PC(to)->buffer, tmp);
+			buf_append(PC(to)->buffer, tmp);
 		else if (to->desc) {
 			if (IS_SET(to->comm, COMM_QUIET_EDITOR)
 			&&  to->desc->pString)
-				buf_add(PC(to)->buffer, tmp);
+				buf_append(PC(to)->buffer, tmp);
 			else
 				write_to_buffer(to->desc, tmp, 0);
 		}

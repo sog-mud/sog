@@ -1,5 +1,5 @@
 /*
- * $Id: affect.c,v 1.44 2000-08-04 14:12:48 cs Exp $
+ * $Id: affect.c,v 1.45 2000-10-07 10:58:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -951,17 +951,17 @@ void show_name(CHAR_DATA *ch, BUFFER *output,
 		if (ch && ch->level < 20)
 			return;
 		else
-			buf_add(output, "                           ");
+			buf_append(output, "                           ");
 	else
-		buf_printf(output, "%-9s: {c%-16s{x", aff_type, paf->type);
+		buf_printf(output, BUF_END, "%-9s: {c%-16s{x", aff_type, paf->type);
 }
 
 void show_duration(BUFFER *output, AFFECT_DATA *paf)
 {
 	if (paf->duration < 0)
-		buf_add(output, " permanently.\n");
+		buf_append(output, " permanently.\n");
 	else 
-		buf_act(output, " for {c$j{x $qj{hours}.", NULL,
+		buf_act(output, BUF_END, " for {c$j{x $qj{hours}.", NULL,
 			(const void*) paf->duration, NULL, NULL, ACT_NOUCASE);
 }
 
@@ -979,8 +979,8 @@ void show_loc_affect(CHAR_DATA *ch, BUFFER *output,
 
 	show_name(ch, output, paf, *ppaf);
 	if (!IS_NULLSTR(w->loc_format)) {
-		buf_add(output, ": ");
-		buf_printf(output, w->loc_format,
+		buf_append(output, ": ");
+		buf_printf(output, BUF_END, w->loc_format,
 				   w->loc_table ?
 					SFLAGS(w->loc_table, paf->location) :
 					STR(paf->location),
@@ -1000,8 +1000,8 @@ void show_bit_affect(BUFFER *output, AFFECT_DATA *paf, AFFECT_DATA **ppaf)
 
 	show_name(NULL, output, paf, *ppaf);
 	if (!IS_NULLSTR(w->bit_format)) {
-		buf_add(output, ": ");
-		buf_printf(output, w->bit_format,
+		buf_append(output, ": ");
+		buf_printf(output, BUF_END, w->bit_format,
 			flag_string(w->bit_table, paf->bitvector));
 		show_duration(output, paf);
 	}
@@ -1025,9 +1025,10 @@ void show_affects2(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output)
 	for (paf = vch->affected; paf; paf = paf->next) {
 		if (!found) {
 			if (ch == vch)
-				buf_add(output, "You are affected by the following spells:\n");
+				buf_append(output, "You are affected by the following spells:\n");
 			else {
-				buf_act(output, "$N is affected by the following spells:",
+				buf_act(output, BUF_END,
+					"$N is affected by the following spells:",
 					ch, NULL, vch, NULL, 0);
 			}
 		}
@@ -1037,7 +1038,7 @@ void show_affects2(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output)
 			show_name(ch, output, paf, paf_last);
 			if (paf_last && paf_last->type == paf->type)
 				continue;
-			buf_add(output, "\n");
+			buf_append(output, "\n");
 			paf_last = paf;
 			continue;
 		}
@@ -1047,9 +1048,10 @@ void show_affects2(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output)
 
 	if (!found) {
 		if (ch == vch)
-			buf_add(output, "You are not affected by any spells.\n");
+			buf_append(output, "You are not affected by any spells.\n");
 		else {
-			buf_act(output, "$N is not affected by any spells.",
+			buf_act(output, BUF_END,
+				"$N is not affected by any spells.",
 				ch, NULL, vch, NULL, 0);
 		}
 	}
@@ -1142,10 +1144,10 @@ aff_dump_list(AFFECT_DATA *paf, BUFFER *output)
 		where_t *w = where_lookup(paf->where);
 
 		if (cnt == 0) {
-			buf_add(output, "Number Skill          Affects Modifier Affects Bitvector\n");
-			buf_add(output, "------ --------- ------------ -------- ------- --------------------------------\n");
+			buf_append(output, "Number Skill          Affects Modifier Affects Bitvector\n");
+			buf_append(output, "------ --------- ------------ -------- ------- --------------------------------\n");
 		}
-		buf_printf(output, "[%4d] %9.9s %12.12s %8d %7.7s %s"
+		buf_printf(output, BUF_END, "[%4d] %9.9s %12.12s %8d %7.7s %s"
 				   "\n",
 			   cnt,
 			   paf->type,

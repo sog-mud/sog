@@ -1,5 +1,5 @@
 /*
- * $Id: buffer.c,v 1.24 2000-10-05 19:05:34 fjoe Exp $
+ * $Id: buffer.c,v 1.25 2000-10-07 10:58:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -76,7 +76,7 @@ int	sAllocBuf;
 BUFFER *free_list;
 
 static bool buf_resize(BUFFER *buffer, const char *string);
-static bool buf_cat(BUFFER *buffer, const char *string);
+static bool buf_copy(BUFFER *buffer, int where, const char *string);
 static int get_size (int val);
 
 BUFFER *buf_new(int lang)
@@ -115,43 +115,38 @@ void buf_free(BUFFER *buffer)
 	mem_invalidate(buffer);
 }
 
-bool buf_add(BUFFER *buffer, const char *string)
-{
-	if (IS_NULLSTR(string))
-		return TRUE;
-	return buf_cat(buffer, buffer->lang < 0 ?
-				string : GETMSG(string, buffer->lang));
-}
-
 bool buf_prepend(BUFFER *buffer, const char *string)
 {
 	if (IS_NULLSTR(string))
 		return TRUE;
 
-	string = buffer->lang < 0 ? string : GETMSG(string, buffer->lang);
-	if (!buf_resize(buffer, string))
-		return FALSE;
-
-	memmove(buffer->string + strlen(string), buffer->string,
-		strlen(buffer->string) + 1);
-	memcpy(buffer->string, string, strlen(string));
-	return TRUE;
+	return buf_copy(buffer, BUF_START, buffer->lang < 0 ?
+				string : GETMSG(string, buffer->lang));
 }
 
-bool buf_printf(BUFFER *buffer, const char *format, ...)
+bool buf_append(BUFFER *buffer, const char *string)
+{
+	if (IS_NULLSTR(string))
+		return TRUE;
+
+	return buf_copy(buffer, BUF_END, buffer->lang < 0 ?
+				string : GETMSG(string, buffer->lang));
+}
+
+bool buf_printf(BUFFER *buffer, int where, const char *format, ...)
 {
 	char buf[MAX_STRING_LENGTH];
 	va_list ap;
 
 	va_start(ap, format);
-	vsnprintf(buf, sizeof(buf), buffer->lang < 0 ?
-			format : GETMSG(format, buffer->lang), ap);
+	vsnprintf(buf, sizeof(buf),
+		  buffer->lang < 0 ? format : GETMSG(format, buffer->lang), ap);
 	va_end(ap);
 
-	return buf_cat(buffer, buf);
+	return buf_copy(buffer, where, buf);
 }
 
-bool buf_act(BUFFER *buffer, const char *format, CHAR_DATA *ch,
+bool buf_act(BUFFER *buffer, int where, const char *format, CHAR_DATA *ch,
 	     const void *arg1, const void *arg2, const void *arg3,
 	     int act_flags)
 {
@@ -162,7 +157,7 @@ bool buf_act(BUFFER *buffer, const char *format, CHAR_DATA *ch,
 	opt.act_flags = act_flags;
 
 	act_buf(format, ch, ch, arg1, arg2, arg3, &opt, tmp, sizeof(tmp));
-	return buf_cat(buffer, tmp);
+	return buf_copy(buffer, where, tmp);
 }
 
 void buf_clear(BUFFER *buffer)
@@ -181,7 +176,7 @@ char* buf_string(BUFFER *buffer)
  */
 
 /* buffer sizes */
-const int buf_size[BUF_LIST_MAX] =
+static const int buf_size[BUF_LIST_MAX] =
 {
 	16, 32, 64, 128, 256, 1024, 2048, 4096, 8192, 16384, 32768, 65536
 };
@@ -221,7 +216,7 @@ buf_resize(BUFFER *buffer, const char *string)
 		if (buffer->size == -1) { /* overflow */
 			buffer->size = oldsize;
 			mem_tag(buffer, BUF_OFLOW);
-			log(LOG_INFO, "buf_add: '%s': buffer overflow", string);
+			log(LOG_INFO, "buf_append: '%s': buffer overflow", string);
 			return FALSE;
 		}
 	}
@@ -233,7 +228,7 @@ buf_resize(BUFFER *buffer, const char *string)
 		if (p == NULL) {
 			buffer->size = oldsize;
 			mem_tag(buffer, BUF_OFLOW);
-			log(LOG_INFO, "buf_add: '%s': realloc failed", string);
+			log(LOG_INFO, "buf_append: '%s': realloc failed", string);
 			return FALSE;
 		}
 
@@ -245,11 +240,16 @@ buf_resize(BUFFER *buffer, const char *string)
 }
 
 static bool
-buf_cat(BUFFER *buffer, const char *string)
+buf_copy(BUFFER *buffer, int where, const char *string)
 {
 	if (!buf_resize(buffer, string))
 		return FALSE;
 
-	strcat(buffer->string, string);
+	if (where == BUF_START) {
+		memmove(buffer->string + strlen(string), buffer->string,
+			strlen(buffer->string) + 1);
+		memcpy(buffer->string, string, strlen(string));
+	} else
+		strcat(buffer->string, string);
 	return TRUE;
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: help.c,v 1.15 2000-01-04 04:14:07 avn Exp $
+ * $Id: help.c,v 1.16 2000-10-07 10:58:06 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -120,15 +120,15 @@ void help_show_raw(int level, int lang, BUFFER *output, const char *keyword)
 
 		/* found second matched help topic */
 		if (!topic_list) {
-			buf_add(output, "Available topics:\n");
-			buf_printf(output, "    o %s\n", pFirst->keyword);
+			buf_append(output, "Available topics:\n");
+			buf_printf(output, BUF_END, "    o %s\n", pFirst->keyword);
 			topic_list = TRUE;
 		}
-		buf_printf(output, "    o %s\n", pHelp->keyword);
+		buf_printf(output, BUF_END, "    o %s\n", pHelp->keyword);
 	}
 
 	if (pFirst == NULL) {
-		buf_printf(output, "%s: no help on that word.\n", keyword);
+		buf_printf(output, BUF_END, "%s: no help on that word.\n", keyword);
 		return;
 	}
 
@@ -137,7 +137,7 @@ void help_show_raw(int level, int lang, BUFFER *output, const char *keyword)
 
 		if (pFirst->level > -2
 		&&  str_cmp(pFirst->keyword, "imotd"))
-			buf_printf(output, "{C%s{x\n\n", pFirst->keyword);
+			buf_printf(output, BUF_END, "{C%s{x\n\n", pFirst->keyword);
 
 		text = mlstr_val(&pFirst->text, lang);
 
@@ -145,8 +145,8 @@ void help_show_raw(int level, int lang, BUFFER *output, const char *keyword)
 		 * Strip leading '.' to allow initial blanks.
 		 */
 		if (text) {
-			buf_add(output, text[0] == '.' ? text+1 : text);
-			buf_add(output, "\n");
+			buf_append(output, text[0] == '.' ? text+1 : text);
+			buf_append(output, "\n");
 		}
 	}
 }

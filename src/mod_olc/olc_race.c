@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.36 2000-08-04 14:12:47 cs Exp $
+ * $Id: olc_race.c,v 1.37 2000-10-07 10:58:02 fjoe Exp $
  */
 
 #include "olc.h"
@@ -225,126 +225,126 @@ OLC_FUN(raceed_show)
 	}
 
 	output = buf_new(-1);
-	buf_printf(output, "Name:          [%s]\n", r->name);
+	buf_printf(output, BUF_END, "Name:          [%s]\n", r->name);
 	if (r->act)
-		buf_printf(output, "Act flags:     [%s]\n",
+		buf_printf(output, BUF_END, "Act flags:     [%s]\n",
 			   flag_string(act_flags, r->act));
 	if (r->aff)
-		buf_printf(output, "Aff flags:     [%s]\n",
+		buf_printf(output, BUF_END, "Aff flags:     [%s]\n",
 			   flag_string(affect_flags, r->aff));
 	if (r->has_invis)
-		buf_printf(output, "Invis flags:   [%s]\n",
+		buf_printf(output, BUF_END, "Invis flags:   [%s]\n",
 			   flag_string(id_flags, r->has_invis));
 	if (r->has_detect)
-		buf_printf(output, "Detect flags:  [%s]\n",
+		buf_printf(output, BUF_END, "Detect flags:  [%s]\n",
 			   flag_string(id_flags, r->has_detect));
 	if (r->off)
-		buf_printf(output, "Off flags:     [%s]\n",
+		buf_printf(output, BUF_END, "Off flags:     [%s]\n",
 			   flag_string(off_flags, r->off));
 	if (r->form)
-		buf_printf(output, "Form:          [%s]\n",
+		buf_printf(output, BUF_END, "Form:          [%s]\n",
 			   flag_string(form_flags, r->form));
 	if (r->parts)
-		buf_printf(output, "Parts:         [%s]\n",
+		buf_printf(output, BUF_END, "Parts:         [%s]\n",
 			   flag_string(part_flags, r->parts));
 	if (r->race_flags)
-		buf_printf(output, "General flags: [%s]\n",
+		buf_printf(output, BUF_END, "General flags: [%s]\n",
 			   flag_string(race_flags, r->race_flags));
 	if (str_cmp(r->damtype, "punch"))
-		buf_printf(output, "Damage type:   [%s]\n", r->damtype);
+		buf_printf(output, BUF_END, "Damage type:   [%s]\n", r->damtype);
 	
-	buf_printf(output, "Luck bonus:	   [%d]\n", r->luck_bonus);		
+	buf_printf(output, BUF_END, "Luck bonus:	   [%d]\n", r->luck_bonus);		
 
 	for (i = 0, j = 0; i < MAX_RESIST; i++) {
 		if (r->resists[i]) {
 			if (!j)
-				buf_add(output, "Resists");
+				buf_append(output, "Resists");
 			if (strlen(flag_string(dam_classes, i)) > 7)
-				buf_printf(output, "\t%s\t%d%%",
+				buf_printf(output, BUF_END, "\t%s\t%d%%",
 					flag_string(dam_classes, i),
 					r->resists[i]);
 			else 
-				buf_printf(output, "\t%s\t\t%d%%",
+				buf_printf(output, BUF_END, "\t%s\t\t%d%%",
 					flag_string(dam_classes, i),
 					r->resists[i]);
 			if (!(++j % 3))
-				buf_add(output, "\n");
+				buf_append(output, "\n");
 		}
 	}
 	if (j)
-		buf_add(output, "\n");
+		buf_append(output, "\n");
 
 	aff_dump_list(r->affected, output);
 
 	if (!r->race_pcdata) {               
-		buf_add(output, "=== No PC race defined ===\n");
+		buf_append(output, "=== No PC race defined ===\n");
 		page_to_char(buf_string(output), ch);
 		buf_free(output);
 		return FALSE;
         }
 
-	buf_add(output, "=== PC race data ===\n");
+	buf_append(output, "=== PC race data ===\n");
 	if (r->race_pcdata->who_name)
-		buf_printf(output, "WHO name:      [%s]\n",
+		buf_printf(output, BUF_END, "WHO name:      [%s]\n",
 			   r->race_pcdata->who_name);
 	if (r->race_pcdata->points)
-		buf_printf(output, "Extra exp:     [%d]\n",
+		buf_printf(output, BUF_END, "Extra exp:     [%d]\n",
 			   r->race_pcdata->points);
 	if (!IS_NULLSTR(r->race_pcdata->skill_spec))
-		buf_printf(output, "SkillSpec:     [%s]\n",
+		buf_printf(output, BUF_END, "SkillSpec:     [%s]\n",
 			   r->race_pcdata->skill_spec);
 	if (r->race_pcdata->bonus_skills)
-		buf_printf(output, "Bonus skills:  [%s]\n",
+		buf_printf(output, BUF_END, "Bonus skills:  [%s]\n",
 			   r->race_pcdata->bonus_skills);
 	for (i = 0, found = FALSE; i < MAX_STAT; i++)
 		if (r->race_pcdata->mod_stat[i]) found = TRUE;
 	if (found) {
-		buf_add(output, "Stats mod:     [");
+		buf_append(output, "Stats mod:     [");
 		for (i = 0; i < MAX_STAT; i++)
-			buf_printf(output, "%s: %2d ",
+			buf_printf(output, BUF_END, "%s: %2d ",
 				   flag_string(stat_names, i),
 				   r->race_pcdata->mod_stat[i]);
-		buf_add(output, "]\n");
+		buf_append(output, "]\n");
 	}
 	for (i = 0, found = FALSE; i < MAX_STAT; i++)
 		if (r->race_pcdata->max_stat[i]) found = TRUE;
 	if (found) {
-		buf_add(output, "Max stats:     [");
+		buf_append(output, "Max stats:     [");
 		for (i = 0; i < MAX_STAT; i++)
-			buf_printf(output, "%s: %2d ",
+			buf_printf(output, BUF_END, "%s: %2d ",
 				   flag_string(stat_names, i),
 				   r->race_pcdata->max_stat[i]);
-		buf_add(output, "]\n");
+		buf_append(output, "]\n");
 	}
-	buf_printf(output, "Size:          [%s]\n",
+	buf_printf(output, BUF_END, "Size:          [%s]\n",
 		   flag_string(size_table, r->race_pcdata->size));
 	if (r->race_pcdata->hp_bonus)
-		buf_printf(output, "HP bonus:      [%d]\n",
+		buf_printf(output, BUF_END, "HP bonus:      [%d]\n",
 			   r->race_pcdata->hp_bonus);
 	if (r->race_pcdata->mana_bonus)
-		buf_printf(output, "Mana bonus:    [%d]\n",
+		buf_printf(output, BUF_END, "Mana bonus:    [%d]\n",
 			   r->race_pcdata->mana_bonus);
 	if (r->race_pcdata->prac_bonus)
-		buf_printf(output, "Prac bonus:    [%d]\n",
+		buf_printf(output, BUF_END, "Prac bonus:    [%d]\n",
 			   r->race_pcdata->prac_bonus);
-	buf_printf(output, "Spoken lang:   [%s]\n",
+	buf_printf(output, BUF_END, "Spoken lang:   [%s]\n",
 		   flag_string(slang_table, r->race_pcdata->slang));
 	if (r->race_pcdata->restrict_align)
-		buf_printf(output, "Align restrict:[%s]\n",
+		buf_printf(output, BUF_END, "Align restrict:[%s]\n",
 			   flag_string(ralign_names, r->race_pcdata->restrict_align));
 	if (r->race_pcdata->restrict_ethos)
-		buf_printf(output, "Ethos restrict:[%s]\n",
+		buf_printf(output, BUF_END, "Ethos restrict:[%s]\n",
 			   flag_string(ethos_table, r->race_pcdata->restrict_ethos));
        	for (i = 0; i < r->race_pcdata->classes.nused; i++) {
 		rclass_t *rc = VARR_GET(&r->race_pcdata->classes, i);
 
 		if (rc->name == NULL)
 			continue;
-		buf_printf(output, "Class '%s' (exp %d%%)",
+		buf_printf(output, BUF_END, "Class '%s' (exp %d%%)",
 			   rc->name, rc->mult);
 		if (class_lookup(rc->name) == NULL)
-			buf_add(output, " (UNDEF)");
-		buf_add(output, "\n");
+			buf_append(output, " (UNDEF)");
+		buf_append(output, "\n");
 	}
 
 	page_to_char(buf_string(output), ch);

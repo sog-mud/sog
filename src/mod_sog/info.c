@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: info.c,v 1.18 2000-04-20 12:17:28 fjoe Exp $
+ * $Id: info.c,v 1.19 2000-10-07 10:58:07 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -249,7 +249,7 @@ void	cmd_who(const char *argument)
 
 	output = buf_new(-1);
 
-	buf_printf(output, "%d\n", top_player);
+	buf_printf(output, BUF_END, "%d\n", top_player);
 
 	for (d = descriptor_list; d; d = d->next) {
 		CHAR_DATA *wch;
@@ -330,7 +330,7 @@ void	cmd_show(const char *argument)
 	buf[0] = '\0';
 
 	output = buf_new(-1);
-	buf_printf(output, "%s\n%s\n%s %s\n%d\n%s\n%s\n%s\n%s\n%d\n%d %d\n%d\n%s\n%s\n%d\n%s\n",
+	buf_printf(output, BUF_END, "%s\n%s\n%s %s\n%d\n%s\n%s\n%s\n%s\n%d\n%d %d\n%d\n%s\n%s\n%d\n%s\n",
 		IS_SET(PC(ch)->www_show_flags, WSHOW_RACE) ? PC(ch)->race : "Unknown",
 		IS_SET(PC(ch)->www_show_flags, WSHOW_CLASS) ? ch->class : "Unknown",
 		(IS_SET(PC(ch)->www_show_flags, WSHOW_CLAN) && !IS_NULLSTR(ch->clan)) ? ch->clan : "Unknown",

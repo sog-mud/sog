@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_help.c,v 1.42 1999-12-16 12:24:48 fjoe Exp $
+ * $Id: olc_help.c,v 1.43 2000-10-07 10:58:02 fjoe Exp $
  */
 
 #include "olc.h"
@@ -156,7 +156,7 @@ OLC_FUN(helped_show)
 	}
 
 	output = buf_new(-1);
-	buf_printf(output,
+	buf_printf(output, BUF_END,
 		   "Level:    [%s]\n"
 		   "Keywords: [%s]\n",
 		   flag_istring(level_table, pHelp->level),
@@ -186,18 +186,18 @@ OLC_FUN(helped_list)
 	output = buf_new(-1);
 
 	if (pArea) {
-		buf_printf(output, "Available help topics in area '%s' [%d]:\n",
+		buf_printf(output, BUF_END, "Available help topics in area '%s' [%d]:\n",
 			   pArea->name, pArea->vnum);
 		for (pHelp = pArea->help_first; pHelp;
 						pHelp = pHelp->next_in_area)
-			buf_printf(output, "    o %s\n", pHelp->keyword);
+			buf_printf(output, BUF_END, "    o %s\n", pHelp->keyword);
 	}
 	else {
-		buf_printf(output, "Available help topics on keyword '%s':\n",
+		buf_printf(output, BUF_END, "Available help topics on keyword '%s':\n",
 			   arg);
 		for (pHelp = help_first; pHelp; pHelp = pHelp->next)
 			if (is_name(arg, pHelp->keyword))
-				buf_printf(output, "    o %s\n",
+				buf_printf(output, BUF_END, "    o %s\n",
 					   pHelp->keyword);
 	}
 

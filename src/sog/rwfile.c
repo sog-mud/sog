@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.c,v 1.13 2000-04-16 09:21:55 fjoe Exp $
+ * $Id: rwfile.c,v 1.14 2000-10-07 10:58:06 fjoe Exp $
  */
 
 static char str_end[] = "End";
@@ -48,7 +48,7 @@ int line_number;
 #include "db.h"
 #include "util.h"
 
-#ifdef USE_MMAP
+#if !defined(NO_MMAP)
 
 #include <sys/types.h>
 #include <sys/mman.h>
@@ -247,7 +247,7 @@ fread_keyword(rfile_t *fp)
 		fread_word(fp);
 }
 
-#else /* USE_MMAP */
+#else /* !defined(NO_MMAP) */
 
 char _token[MAX_STRING_LENGTH];
 
@@ -320,7 +320,7 @@ fread_keyword(rfile_t *fp)
 		fread_word(fp);
 }
 
-#endif /* USE_MMAP */
+#endif /* !defined(NO_MMAP) */
 
 const char *
 fread_sword(rfile_t *fp)

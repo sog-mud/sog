@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.23 2000-02-10 14:08:59 fjoe Exp $
+ * $Id: db_lang.c,v 1.24 2000-10-07 10:58:07 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -69,7 +69,7 @@ static int
 fread_lang(rfile_t *fp)
 {
 	fread_word(fp);
-#ifdef USE_MMAP
+#if !defined(NO_MMAP)
 	return lang_nlookup(fp->tok, fp->tok_len);
 #else
 	return lang_lookup(rfile_tok(fp));

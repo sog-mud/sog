@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.11 2000-10-04 20:28:46 fjoe Exp $
+ * $Id: note.c,v 1.12 2000-10-07 10:58:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -167,7 +167,7 @@ static void update_read(CHAR_DATA *ch, note_t *pnote)
 
 static void note_show(BUFFER *buf, note_t *pnote, int vnum)
 {
-	buf_printf(buf, "{x[%3d] From: %s, {x%s\n"
+	buf_printf(buf, BUF_END, "{x[%3d] From: %s, {x%s\n"
 			"{x      To  : %s\n"
 			"{x      Subj: %s\n"
 			"{x%s\n{x",
@@ -570,7 +570,7 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 				&&  str_prefix(from, pnote->sender))
 					continue;
 
-				buf_printf(output, "[%3d%c] %s: %s\n{x",
+				buf_printf(output, BUF_END, "[%3d%c] %s: %s\n{x",
 					   vnum-1,
 					   hide_note(ch, pnote) ? ' ' : 'N', 
 					   pnote->sender, pnote->subject);
@@ -853,7 +853,7 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		}
 
 		output = buf_new(-1);
-		buf_printf(output, "{xFrom: %s\n"
+		buf_printf(output, BUF_END, "{xFrom: %s\n"
 				   "{xTo  : %s\n"
 				   "{xSubj: %s\n"
 				   "{x%s\n"

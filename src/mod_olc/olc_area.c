@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.82 2000-06-07 08:55:44 fjoe Exp $
+ * $Id: olc_area.c,v 1.83 2000-10-07 10:58:02 fjoe Exp $
  */
 
 #include "olc.h"
@@ -225,22 +225,22 @@ OLC_FUN(areaed_show)
 	}
 
 	buf = buf_new(-1);
-	buf_printf(buf, "Name:     [%5d] %s\n", pArea->vnum, pArea->name);
-	buf_printf(buf, "File:     %s\n", pArea->file_name);
-	buf_printf(buf, "Vnums:    [%d-%d]\n",
+	buf_printf(buf, BUF_END, "Name:     [%5d] %s\n", pArea->vnum, pArea->name);
+	buf_printf(buf, BUF_END, "File:     %s\n", pArea->file_name);
+	buf_printf(buf, BUF_END, "Vnums:    [%d-%d]\n",
 		    pArea->min_vnum, pArea->max_vnum);
-	buf_printf(buf, "Levels:   [%d-%d]\n",
+	buf_printf(buf, BUF_END, "Levels:   [%d-%d]\n",
 		    pArea->min_level, pArea->max_level);
 	if (pArea->clan)
-		buf_printf(buf, "Clan:     [%s]\n", pArea->clan);
-	buf_printf(buf, "Age:      [%d]\n",	pArea->age);
-	buf_printf(buf, "Players:  [%d]\n", pArea->nplayer);
-	buf_printf(buf, "Security: [%d]\n", pArea->security);
+		buf_printf(buf, BUF_END, "Clan:     [%s]\n", pArea->clan);
+	buf_printf(buf, BUF_END, "Age:      [%d]\n",	pArea->age);
+	buf_printf(buf, BUF_END, "Players:  [%d]\n", pArea->nplayer);
+	buf_printf(buf, BUF_END, "Security: [%d]\n", pArea->security);
 	if (!IS_NULLSTR(pArea->builders))
-		buf_printf(buf, "Builders: [%s]\n", pArea->builders);
-	buf_printf(buf, "Credits:  [%s]\n", pArea->credits);
+		buf_printf(buf, BUF_END, "Builders: [%s]\n", pArea->builders);
+	buf_printf(buf, BUF_END, "Credits:  [%s]\n", pArea->credits);
 	mlstr_dump(buf, "ResetMsg: ", &pArea->resetmsg);
-	buf_printf(buf, "Flags:    [%s]\n",
+	buf_printf(buf, BUF_END, "Flags:    [%s]\n",
 			flag_string(area_flags, pArea->area_flags));
 	page_to_char(buf_string(buf), ch);
 	buf_free(buf);
@@ -261,12 +261,12 @@ OLC_FUN(areaed_list)
 
 		if (output == NULL) {
 			output = buf_new(-1);
-    			buf_printf(output, "[%3s] [%-27s] (%-5s-%5s) [%-10s] %3s [%-10s]\n",
+    			buf_printf(output, BUF_END, "[%3s] [%-27s] (%-5s-%5s) [%-10s] %3s [%-10s]\n",
 				   "Num", "Area Name", "lvnum", "uvnum",
 				   "Filename", "Sec", "Builders");
 		}
 
-		buf_printf(output, "[%3d] %-29.29s (%-5d-%5d) %-12.12s [%d] [%-10.10s]\n",
+		buf_printf(output, BUF_END, "[%3d] %-29.29s (%-5d-%5d) %-12.12s [%d] [%-10.10s]\n",
 			   pArea->vnum, pArea->name,
 			   pArea->min_vnum, pArea->max_vnum,
 			   pArea->file_name, pArea->security, pArea->builders);

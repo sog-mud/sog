@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.218 2000-10-05 14:54:21 fjoe Exp $
+ * $Id: act_obj.c,v 1.219 2000-10-07 10:58:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2403,13 +2403,13 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 	int mana;
 
 	if ((percent = get_skill(ch, "lore")) < 10) {
-		buf_add(output, "The meaning of this object escapes you for the moment.\n");
+		buf_append(output, "The meaning of this object escapes you for the moment.\n");
 		return;
 	}
 
 	mana = skill_mana(ch, "lore");
 	if (ch->mana < mana) {
-		buf_add(output, "You don't have enough mana.\n");
+		buf_append(output, "You don't have enough mana.\n");
 		return;
 	}
 	ch->mana -= mana;
@@ -2419,22 +2419,22 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 	chance = number_percent();
 
 	if (percent < 20) {
-		buf_printf(output, "Object '%s'.\n", obj->name);
+		buf_printf(output, BUF_END, "Object '%s'.\n", obj->name);
 		check_improve(ch, "lore", TRUE, 8);
 		return;
 	} else if (percent < 40) {
-		buf_printf(output,
+		buf_printf(output, BUF_END,
 			    "Object '%s'.  Weight is %d, value is %d.\n",
 			    obj->name,
 		chance < 60 ? obj->weight : number_range(1, 2 * obj->weight),
 		     chance < 60 ? number_range(1, 2 * obj->cost) : obj->cost
 			);
 		if (str_cmp(obj->material, "oldstyle"))
-			buf_printf(output, "Material is %s.\n", obj->material);
+			buf_printf(output, BUF_END, "Material is %s.\n", obj->material);
 		check_improve(ch, "lore", TRUE, 7);
 		return;
 	} else if (percent < 60) {
-		buf_printf(output,
+		buf_printf(output, BUF_END,
 			    "Object '%s' has weight %d.\nValue is %d, level is %d.\nMaterial is %s.\n",
 			    obj->name,
 			    obj->weight,
@@ -2445,7 +2445,7 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 		check_improve(ch, "lore", TRUE, 6);
 		return;
 	} else if (percent < 80) {
-		buf_printf(output,
+		buf_printf(output, BUF_END,
 			    "Object '%s' is type %s, stat flags %s.\n"
 			    "Obj flags %s.\n"
 			    "Weight is %d, value is %d, level is %d.\n"
@@ -2462,7 +2462,7 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 		check_improve(ch, "lore", TRUE, 5);
 		return;
 	} else if (percent < 85) 
-		buf_printf(output,
+		buf_printf(output, BUF_END,
 			    "Object '%s' is type %s, extra flags %s.\n"
 			    "Obj flags %s.\n"
 			    "Weight is %d, value is %d, level is %d.\n"
@@ -2478,7 +2478,7 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 				obj->material : "unknown"
 			);
 	else {
-		buf_printf(output,
+		buf_printf(output, BUF_END,
 			    "Object '%s' is type %s, extra flags %s.\n"
 			    "Obj flags %s.\n"
 			    "Weight is %d, value is %d, level is %d.\n"
@@ -2526,16 +2526,16 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 			}
 		}
 
-		buf_printf(output, "Level %d spells of:", INT(v0));
+		buf_printf(output, BUF_END, "Level %d spells of:", INT(v0));
 		if (!IS_NULLSTR(v1.s))
-			buf_printf(output, " '%s'", v1.s);
+			buf_printf(output, BUF_END, " '%s'", v1.s);
 		if (!IS_NULLSTR(v2.s))
-			buf_printf(output, " '%s'", v2.s);
+			buf_printf(output, BUF_END, " '%s'", v2.s);
 		if (!IS_NULLSTR(v3.s))
-			buf_printf(output, " '%s'", v3.s);
+			buf_printf(output, BUF_END, " '%s'", v3.s);
 		if (!IS_NULLSTR(v4.s))
-			buf_printf(output, " '%s'", v4.s);
-		buf_add(output, ".\n");
+			buf_printf(output, BUF_END, " '%s'", v4.s);
+		buf_append(output, ".\n");
 		break;
 
 	case ITEM_WAND:
@@ -2561,12 +2561,12 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 			}
 		}
 
-		buf_printf(output, "Has %d(%d) charges of level %d '%s'.\n",
+		buf_printf(output, BUF_END, "Has %d(%d) charges of level %d '%s'.\n",
 			    INT(v1), INT(v2), INT(v0), v3.s);
 		break;
 
 	case ITEM_WEAPON:
-		buf_add(output, "Weapon type is ");
+		buf_append(output, "Weapon type is ");
 		if (percent < 85) {
 			INT(v0) = number_range(0, 8);
 			if (chance > 33) {
@@ -2582,9 +2582,9 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 			}
 		}
 
-		buf_printf(output, "%s.\n", flag_string(weapon_class, INT(v0)));
+		buf_printf(output, BUF_END, "%s.\n", flag_string(weapon_class, INT(v0)));
 
-		buf_printf(output, "Damage is %dd%d (average %d).\n",
+		buf_printf(output, BUF_END, "Damage is %dd%d (average %d).\n",
 			    INT(v1), INT(v2), (1 + INT(v2)) * INT(v1) / 2);
 		break;
 
@@ -2615,7 +2615,7 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 			}
 		}
 
-		buf_printf(output,
+		buf_printf(output, BUF_END,
 			    "Armor class is %d pierce, %d bash, %d slash, and %d vs. magic.\n",
 			    INT(v0), INT(v1), INT(v2), INT(v3));
 		break;

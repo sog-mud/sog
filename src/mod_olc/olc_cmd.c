@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_cmd.c,v 1.11 2000-06-01 17:57:49 fjoe Exp $
+ * $Id: olc_cmd.c,v 1.12 2000-10-07 10:58:02 fjoe Exp $
  */
 
 #include "olc.h"
@@ -185,24 +185,24 @@ OLC_FUN(cmded_show)
 
 	output = buf_new(-1);
 
-	buf_printf(output,
+	buf_printf(output, BUF_END,
 		   "[%3d]Name  [%s]\nDofun      [%s]\n",
 		   varr_index(&commands, cmnd),
 		   cmnd->name, cmnd->dofun_name);
-	buf_printf(output,
+	buf_printf(output, BUF_END,
 		   "Min_pos    [%s]\n",
 		   flag_string(position_table, cmnd->min_pos));
 	if (cmnd->min_level)
-		buf_printf(output, "Min_level  [%s]\n",
+		buf_printf(output, BUF_END, "Min_level  [%s]\n",
 			flag_istring(level_table, cmnd->min_level));
 	if (cmnd->cmd_log)
-		buf_printf(output, "Log        [%s]\n",
+		buf_printf(output, BUF_END, "Log        [%s]\n",
 			flag_string(cmd_logtypes, cmnd->cmd_log));
 	if (cmnd->cmd_log)
-		buf_printf(output, "Module     [%s]\n",
+		buf_printf(output, BUF_END, "Module     [%s]\n",
 			flag_string(module_names, cmnd->cmd_mod));
 	if (cmnd->cmd_flags)
-		buf_printf(output, "Flags      [%s]\n",
+		buf_printf(output, BUF_END, "Flags      [%s]\n",
 			flag_string(cmd_flags, cmnd->cmd_flags));
 
 	page_to_char(buf_string(output), ch);
@@ -227,13 +227,13 @@ OLC_FUN(cmded_list)
 		if (arg[0] && str_prefix(arg, cmnd->name))
 			continue;
 
-		buf_printf(output, "[%3d] %-12s", i, cmnd->name);
+		buf_printf(output, BUF_END, "[%3d] %-12s", i, cmnd->name);
 		if (++col % 4 == 0)
-			buf_add(output, "\n");
+			buf_append(output, "\n");
 	}
 
 	if (col % 4)
-		buf_add(output, "\n");
+		buf_append(output, "\n");
 
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
@@ -422,12 +422,12 @@ static void check_shadow(CHAR_DATA *ch, const char *name)
 		if (str_prefix(soc->name, name))
 			continue;
 		if (!found)
-			buf_add(output, "The following social(s) will be shadowed:\n");
+			buf_append(output, "The following social(s) will be shadowed:\n");
 		found = TRUE;
-		buf_printf(output, "  [%s]\n", soc->name);
+		buf_printf(output, BUF_END, "  [%s]\n", soc->name);
 	}
 	if (!found)
-		buf_add(output, "This name will not shadow anything.\n");
+		buf_append(output, "This name will not shadow anything.\n");
 	
 	page_to_char(buf_string(output), ch);
 	buf_free(output);

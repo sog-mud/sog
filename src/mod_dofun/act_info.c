@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.350 2000-10-05 19:05:29 fjoe Exp $
+ * $Id: act_info.c,v 1.351 2000-10-07 10:57:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1159,7 +1159,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 		do_who_raw(ch, wch, output);
 	}
 
-	buf_printf(output, "{x\nPlayers found: %d. Most so far today: %d.\n",
+	buf_printf(output, BUF_END, "{x\nPlayers found: %d. Most so far today: %d.\n",
 		   count, top_player);
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
@@ -1213,7 +1213,7 @@ void do_whois(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	buf_printf(output, "{x\nPlayers found: %d. Most so far today: %d.\n",
+	buf_printf(output, BUF_END, "{x\nPlayers found: %d. Most so far today: %d.\n",
 		   count, top_player);
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
@@ -2154,7 +2154,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 	bool _can_flee;
 
 	output = buf_new(GET_LANG(ch));
-	buf_add(output, "\n      {G/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/~~\\{x\n");
+	buf_append(output, "\n      {G/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/~~\\{x\n");
 
 	strnzcpy(title, sizeof(title),
 		 IS_NPC(ch) ? " Believer of Chronos." : PC(ch)->title);
@@ -2163,40 +2163,40 @@ void do_score(CHAR_DATA *ch, const char *argument)
 	delta = strlen(title) - cstrlen(title) + MAX_CHAR_NAME - strlen(name);
 	title[32+delta] = '\0';
 	snprintf(buf2, sizeof(buf2), "     {G|{x   %%s%%-%ds {Y%%3d years old   {G|____|{x\n", 33+delta);
-	buf_printf(output, buf2, name, title, get_age(ch));
+	buf_printf(output, BUF_END, buf2, name, title, get_age(ch));
 
-	buf_add(output, "     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x\n");
+	buf_append(output, "     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x\n");
 
 	format_stat(buf2, sizeof(buf2), ch, STAT_STR);
-	buf_printf(output, "     {G| {RLevel: {x%-3d (%+3d)    {C| {RStr: {x%-11.11s {C| {RAvatara   : {x%-10.10s {G|{x\n",
+	buf_printf(output, BUF_END, "     {G| {RLevel: {x%-3d (%+3d)    {C| {RStr: {x%-11.11s {C| {RAvatara   : {x%-10.10s {G|{x\n",
 		   ch->level,
 		   ch->add_level,
 		   buf2,
 		   "");
 
 	format_stat(buf2, sizeof(buf2), ch, STAT_INT);
-	buf_printf(output,
+	buf_printf(output, BUF_END,
 "     {G| {RRace : {x%-11.11s  {C| {RInt: {x%-11.11s {C| {RPractice  : {x%-3d        {G|{x\n",
 		ch->race,
 		buf2,
 		IS_NPC(ch) ? 0 : PC(ch)->practice);
 
 	format_stat(buf2, sizeof(buf2), ch, STAT_WIS);
-	buf_printf(output,
+	buf_printf(output, BUF_END,
 "     {G| {RSex  : {x%-11.11s  {C| {RWis: {x%-11.11s {C| {RTrain     : {x%-3d        {G|{x\n",
 		   mlstr_mval(&ch->gender),
 		   buf2,
 		   IS_NPC(ch) ? 0 : PC(ch)->train);
 
 	format_stat(buf2, sizeof(buf2), ch, STAT_DEX);
-	buf_printf(output,
+	buf_printf(output, BUF_END,
 "     {G| {RClass: {x%-12.12s {C| {RDex: {x%-11.11s {C| {RQuest Pnts: {x%-5d      {G|{x\n",
 		IS_NPC(ch) ? "mobile" : ch->class,
 		buf2,
 		IS_NPC(ch) ? 0 : PC(ch)->questpoints);
 
 	format_stat(buf2, sizeof(buf2), ch, STAT_CON);
-	buf_printf(output,
+	buf_printf(output, BUF_END,
 "     {G| {RAlign: {x%-12.12s {C| {RCon: {x%-11.11s {C| {R%-10.10s: {x%-3d        {G|{x\n",
 		flag_string(align_names, NALIGN(ch)),
 		buf2,
@@ -2204,7 +2204,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 		IS_NPC(ch) ? 0 : abs(PC(ch)->questtime));
 	_can_flee = can_flee(ch);
 	format_stat(buf2, sizeof(buf2), ch, STAT_CHA);
-	buf_printf(output,
+	buf_printf(output, BUF_END,
 "     {G| {REthos: {x%-12.12s {C| {RCha: {x%-11.11s {C| {R%s     : {x%-5d      {G|{x\n",
 		IS_NPC(ch) ? "mobile" : flag_string(ethos_table, ch->ethos),
 		buf2,
@@ -2214,25 +2214,25 @@ void do_score(CHAR_DATA *ch, const char *argument)
 	snprintf(buf2, sizeof(buf2), "%s %s.",
 		 GETMSG("You are", GET_LANG(ch)),
 		 GETMSG(flag_string(position_names, ch->position), GET_LANG(ch)));
-	buf_printf(output, "     {G| {RHome : {x%-31.31s {C|{x %-22.22s {G|{x\n",
+	buf_printf(output, BUF_END, "     {G| {RHome : {x%-31.31s {C|{x %-22.22s {G|{x\n",
 		IS_NPC(ch) ? "Midgaard" : hometown_name(PC(ch)->hometown),
 		buf2);
 
-	buf_add(output, "     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x{x\n");
+	buf_append(output, "     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x{x\n");
 
 	if (!IS_NPC(ch)) {
 		CHAR_DATA *vch;
 
 		if ((vch = PC(ch)->guarding) != NULL) {
 			ekle = 1;
-			buf_printf(output,
+			buf_printf(output, BUF_END,
 "     {G| {GYou are guarding: {x%-12.12s                                  {G|{x\n",
 				   vch->name);
 		}
 
 		if ((vch = PC(ch)->guarded_by) != NULL) {
 			ekle = 1;
-			buf_printf(output,
+			buf_printf(output, BUF_END,
 "     {G| {GYou are guarded by: {x%-12.12s                                {G|{x\n",
 				    vch->name);
 		}
@@ -2241,84 +2241,84 @@ void do_score(CHAR_DATA *ch, const char *argument)
 	if (!IS_NPC(ch)) {
 		if (PC(ch)->condition[COND_DRUNK] > 10) {
 			ekle = 1;
-			buf_printf(output,
+			buf_printf(output, BUF_END,
 "     {G| {GYou are drunk.                                                  {G|{x\n");
 		}
 
 		if (PC(ch)->condition[COND_THIRST] <= 0) {
 			ekle = 1;
-			buf_printf(output,
+			buf_printf(output, BUF_END,
 "     {G| {YYou are thirsty.                                                {G|{x\n");
 		}
 /*		if (PC(ch)->condition[COND_FULL]   ==	0) */
 		if (PC(ch)->condition[COND_HUNGER] <= 0) {
 			ekle = 1;
-			buf_printf(output,
+			buf_printf(output, BUF_END,
 "     {G| {YYou are hungry.                                                 {G|{x\n");
 		}
 
 		if (IS_SET(PC(ch)->plr_flags, PLR_GHOST)) {
 			ekle = 1;
-			buf_add(output,
+			buf_append(output,
 "     {G| {cYou are ghost.                                                  {G|{x\n");
 		}
 
 		if (PC(ch)->condition[COND_BLOODLUST] <= 0) {
 			ekle = 1;
-			buf_printf(output,
+			buf_printf(output, BUF_END,
 "     {G| {YYou are hungry for blood.                                       {G|{x\n");
 		}
 
 		if (PC(ch)->condition[COND_DESIRE] <=  0) {
 			ekle = 1;
-			buf_printf(output,
+			buf_printf(output, BUF_END,
 "     {G| {YYou are desiring your home.                                     {G|{x\n");
 		}
 	}
 
 	if (!IS_IMMORTAL(ch) && IS_PUMPED(ch)) {
 		ekle = 1;
-		buf_printf(output,
+		buf_printf(output, BUF_END,
 "     {G| {RYour adrenalin is gushing!                                      {G|{x\n");
 	}
 
 	if (ekle)
-		buf_add(output,
+		buf_append(output,
 "     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x\n");
 
-	buf_printf(output,
+	buf_printf(output, BUF_END,
 "     {G| {RItems Carried : {x%9d/%-9d {RArmor vs magic  : {x%5d     {G|{x\n",
 		ch->carry_number, can_carry_n(ch),
 		GET_AC(ch,AC_EXOTIC));
 
-	buf_printf(output,
+	buf_printf(output, BUF_END,
 "     {G| {RWeight Carried: {x%9d/%-9d {RArmor vs bash   : {x%5d     {G|{x\n",
 	get_carry_weight(ch), can_carry_w(ch), GET_AC(ch,AC_BASH));
 
-	buf_printf(output,
+	buf_printf(output, BUF_END,
 "     {G| {RGold          : {Y%9d           {RArmor vs pierce : {x%5d     {G|{x\n",
 		 ch->gold, GET_AC(ch,AC_PIERCE));
 
-	buf_printf(output,
+	buf_printf(output, BUF_END,
 "     {G| {RSilver        : {W%9d           {RArmor vs slash  : {x%5d     {G|{x\n",
 		 ch->silver, GET_AC(ch,AC_SLASH));
 
-	buf_printf(output,
+	buf_printf(output, BUF_END,
 "     {G| {RCurrent exp   : {x%9d           {RSaves vs Spell  : {x%5d     {G|{x\n",
 		GET_EXP(ch), ch->saving_throw);
 
-	buf_printf(output,
+	buf_printf(output, BUF_END,
 "     {G| {RExp to level  : {x%9d           {RHitP: {x%5d/%-5d           {G|{x\n",
 		IS_NPC(ch) ? 0 : exp_to_level(ch), ch->hit, ch->max_hit);
 
-	buf_printf(output,
+	buf_printf(output, BUF_END,
 "     {G| {RHitroll       : {x%9d           {RMana: {x%5d/%-5d           {G|{x\n",
 		   GET_HITROLL(ch),ch->mana, ch->max_mana);
-	buf_printf(output,
+	buf_printf(output, BUF_END,
 "     {G| {RDamroll       : {x%9d           {RMove: {x%5d/%-5d           {G|{x\n",
 		    GET_DAMROLL(ch), ch->move, ch->max_move);
-	buf_add(output, "  {G/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/   |{x\n");
-	buf_add(output, "  {G\\________________________________________________________________\\__/{x\n");
+	buf_append(output, "  {G/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/   |{x\n");
+	buf_append(output, "  {G\\________________________________________________________________\\__/{x\n");
 
 	if (IS_SET(ch->comm, COMM_SHOWAFF))
 		show_affects(ch, output);
@@ -2334,16 +2334,16 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 
 	output = buf_new(GET_LANG(ch));
 
-	buf_printf(output, "%s %s%s\n{x",
+	buf_printf(output, BUF_END, "%s %s%s\n{x",
 		GETMSG("You are", GET_LANG(ch)),
 		IS_NPC(ch) ? capitalize(mlstr_val(&ch->short_descr, GET_LANG(ch))) :
 			     ch->name,
 		IS_NPC(ch) ? " The Believer of Chronos." : PC(ch)->title);
 
-	buf_printf(output, "Level {c%d(%+d){x, {c%d{x years old (%d hours).\n",
+	buf_printf(output, BUF_END, "Level {c%d(%+d){x, {c%d{x years old (%d hours).\n",
 		ch->level, ch->add_level, get_age(ch), get_hours(ch));
 
-	buf_printf(output,
+	buf_printf(output, BUF_END,
 		"Race: {c%s{x  Sex: {c%s{x  Class: {c%s{x  "
 		"Hometown: {c%s{x\n",
 		ch->race,
@@ -2351,26 +2351,26 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 		IS_NPC(ch) ? "mobile" : ch->class,
 		IS_NPC(ch) ? "Midgaard" : hometown_name(PC(ch)->hometown));
 
-	buf_printf(output,
+	buf_printf(output, BUF_END,
 		"You have {c%d{x/{c%d{x hit, {c%d{x/{c%d{x mana, "
 		"{c%d{x/{c%d{x movement.\n",
 		ch->hit, ch->max_hit, ch->mana, ch->max_mana,
 		ch->move, ch->max_move);
 
 	if (!IS_NPC(ch)) {
-		buf_printf(output,
+		buf_printf(output, BUF_END,
 			"You have {c%d{x practices and "
 			"{c%d{x training sessions.\n",
 			PC(ch)->practice, PC(ch)->train);
 	}
 
-	buf_printf(output, "You are carrying {c%d{x/{c%d{x items "
+	buf_printf(output, BUF_END, "You are carrying {c%d{x/{c%d{x items "
 		"with weight {c%d{x/{c%d{x pounds.\n",
 		ch->carry_number, can_carry_n(ch),
 		get_carry_weight(ch), can_carry_w(ch));
 
 	if (ch->level > 20 || IS_NPC(ch))
-		buf_printf(output,
+		buf_printf(output, BUF_END,
 			"Str: {c%d{x({c%d{x)  Int: {c%d{x({c%d{x)  "
 			"Wis: {c%d{x({c%d{x)  Dex: {c%d{x({c%d{x)  "
 			"Con: {c%d{x({c%d{x)  Cha: {c%d{x({c%d{x)\n",
@@ -2381,7 +2381,7 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 			ch->perm_stat[STAT_CON], get_curr_stat(ch, STAT_CON),
 			ch->perm_stat[STAT_CHA], get_curr_stat(ch, STAT_CHA));
 	else
-		buf_printf(output,
+		buf_printf(output, BUF_END,
 			"Str: {c%-9s{x Wis: {c%-9s{x Con: {c%-9s{x\n"
 			"Int: {c%-9s{x Dex: {c%-9s{x Cha: {c%-11s{x\n",
 			get_stat_alias(ch, STAT_STR),
@@ -2400,17 +2400,17 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 		 ch->gold + ch->silver == 1 ? "coin" :
 		 ch->gold + ch->silver ? "coins" : str_empty);
 	if (ch->gold)
-		buf_printf(output, buf2, ch->gold, ch->silver);
+		buf_printf(output, BUF_END, buf2, ch->gold, ch->silver);
 	else
-		buf_printf(output, buf2, ch->silver);
+		buf_printf(output, BUF_END, buf2, ch->silver);
 
 	/* KIO shows exp to level */
 	if (!IS_NPC(ch) && ch->level < LEVEL_HERO)
-		buf_printf(output, "You need {c%d{x exp to level.\n",
+		buf_printf(output, BUF_END, "You need {c%d{x exp to level.\n",
 			exp_to_level(ch));
 
 	if (!IS_NPC(ch))
-		buf_printf(output,
+		buf_printf(output, BUF_END,
 			"Quest Points: {c%d{x.  "
 			"%s: {c%d{x.\n",
 			PC(ch)->questpoints, 
@@ -2419,64 +2419,64 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 			IS_NPC(ch) ? 0 : abs(PC(ch)->questtime));
 
 	if (can_flee(ch))
-		buf_printf(output, "Wimpy set to {c%d{x hit points.",
+		buf_printf(output, BUF_END, "Wimpy set to {c%d{x hit points.",
 			   ch->wimpy);
 	else
-		buf_printf(output, "Total {c%d{x deaths up to now.",
+		buf_printf(output, BUF_END, "Total {c%d{x deaths up to now.",
 			   PC(ch)->death);
 
 	if (!IS_NPC(ch)) {
 		CHAR_DATA *vch;
 
 		if ((vch = PC(ch)->guarding) != NULL) {
-			buf_printf(output, "  You are guarding: {W%s{x\n",
+			buf_printf(output, BUF_END, "  You are guarding: {W%s{x\n",
 			   	   vch->name);
 		}
 
 		if ((vch = PC(ch)->guarded_by) != NULL) {
-			buf_printf(output, "  You are guarded by: {W%s{x\n",
+			buf_printf(output, BUF_END, "  You are guarded by: {W%s{x\n",
 				   vch->name);
 		}
 	}
 
-	buf_add(output, "\n");
+	buf_append(output, "\n");
 
 	if (!IS_NPC(ch)) {
 		if (PC(ch)->condition[COND_DRUNK] > 10)
-			buf_add(output, "You are {cdrunk{x.\n");
+			buf_append(output, "You are {cdrunk{x.\n");
 
 		if (PC(ch)->condition[COND_THIRST] <= 0)
-			buf_add(output, "You are {rthirsty{x.\n");
+			buf_append(output, "You are {rthirsty{x.\n");
 
 /*		if (PC(ch)->condition[COND_FULL] == 0) */
 		if (PC(ch)->condition[COND_HUNGER] <= 0)
-			buf_add(output, "You are {rhungry{x.\n");
+			buf_append(output, "You are {rhungry{x.\n");
 		if (PC(ch)->condition[COND_BLOODLUST] <= 0)
-			buf_add(output, "You are {rhungry for {Rblood{x.\n");
+			buf_append(output, "You are {rhungry for {Rblood{x.\n");
 		if (PC(ch)->condition[COND_DESIRE] <= 0)
-			buf_add(output, "You are {rdesiring your home{x.\n");
+			buf_append(output, "You are {rdesiring your home{x.\n");
 		if (IS_SET(PC(ch)->plr_flags, PLR_GHOST))
-			buf_add(output, "You are {cghost{x.\n");
+			buf_append(output, "You are {cghost{x.\n");
 	}
 
-	buf_printf(output, "You are %s.\n",
+	buf_printf(output, BUF_END, "You are %s.\n",
 		   GETMSG(flag_string(position_names, ch->position),
 			  GET_LANG(ch)));
 
 	if ((ch->position == POS_SLEEPING || ch->position == POS_RESTING ||
 	     ch->position == POS_FIGHTING || ch->position == POS_STANDING)
 	&& !IS_IMMORTAL(ch) && IS_PUMPED(ch))
-		buf_add(output, "Your {radrenalin is gushing{x!\n");
+		buf_append(output, "Your {radrenalin is gushing{x!\n");
 
 	/* print AC values */
 	if (ch->level >= 25) {
-		buf_printf(output,
+		buf_printf(output, BUF_END,
 			   "Armor: pierce: {c%d{x  bash: {c%d{x  "
 			   "slash: {c%d{x  magic: {c%d{x\n",
 			   GET_AC(ch, AC_PIERCE), GET_AC(ch, AC_BASH),
 			   GET_AC(ch, AC_SLASH), GET_AC(ch, AC_EXOTIC));
 
-		buf_printf(output,
+		buf_printf(output, BUF_END,
 			   "Saves vs. spell: {c%d{x\n",
 			   ch->saving_throw);
 	}
@@ -2489,99 +2489,99 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 				"{cmagic{x"
 			};
 
-			buf_add(output, "You are ");
+			buf_append(output, "You are ");
 			if (GET_AC(ch,i) >= 101)
-				buf_printf(output,
+				buf_printf(output, BUF_END,
 					   "{chopelessly vulnerable{x to %s.\n",
 					   ac_name[i]);
 			else if (GET_AC(ch,i) >= 80)
-				buf_printf(output,
+				buf_printf(output, BUF_END,
 					   "{cdefenseless against{x %s.\n",
 					   ac_name[i]);
 			else if (GET_AC(ch,i) >= 60)
-				buf_printf(output, "{cbarely protected{x from %s.\n",
+				buf_printf(output, BUF_END, "{cbarely protected{x from %s.\n",
 					   ac_name[i]);
 			else if (GET_AC(ch,i) >= 40)
-				buf_printf(output, "{cslightly armored{x against %s.\n",
+				buf_printf(output, BUF_END, "{cslightly armored{x against %s.\n",
 					   ac_name[i]);
 			else if (GET_AC(ch,i) >= 20)
-				buf_printf(output, "{csomewhat armored{x against %s.\n",
+				buf_printf(output, BUF_END, "{csomewhat armored{x against %s.\n",
 					   ac_name[i]);
 			else if (GET_AC(ch,i) >= 0)
-				buf_printf(output, "{carmored{x against %s.\n",
+				buf_printf(output, BUF_END, "{carmored{x against %s.\n",
 					   ac_name[i]);
 			else if (GET_AC(ch,i) >= -20)
-				buf_printf(output, "{cwell-armored{x against %s.\n",
+				buf_printf(output, BUF_END, "{cwell-armored{x against %s.\n",
 					   ac_name[i]);
 			else if (GET_AC(ch,i) >= -40)
-				buf_printf(output, "{cvery well-armored{x against %s.\n",
+				buf_printf(output, BUF_END, "{cvery well-armored{x against %s.\n",
 					   ac_name[i]);
 			else if (GET_AC(ch,i) >= -60)
-				buf_printf(output, "{cheavily armored{x against %s.\n",
+				buf_printf(output, BUF_END, "{cheavily armored{x against %s.\n",
 					   ac_name[i]);
 			else if (GET_AC(ch,i) >= -80)
-				buf_printf(output, "{csuperbly armored{x against %s.\n",
+				buf_printf(output, BUF_END, "{csuperbly armored{x against %s.\n",
 					   ac_name[i]);
 			else if (GET_AC(ch,i) >= -100)
-				buf_printf(output, "{calmost invulnerable{x to %s.\n",
+				buf_printf(output, BUF_END, "{calmost invulnerable{x to %s.\n",
 					   ac_name[i]);
 			else
-				buf_printf(output, "{cdivinely armored{x against %s.\n",
+				buf_printf(output, BUF_END, "{cdivinely armored{x against %s.\n",
 					   ac_name[i]);
 		}
 	}
 
 	/* RT wizinvis and holy light */
 	if (IS_IMMORTAL(ch)) {
-		buf_printf(output, "Holy Light: {c%s{x",
+		buf_printf(output, BUF_END, "Holy Light: {c%s{x",
 			   IS_SET(PC(ch)->plr_flags, PLR_HOLYLIGHT) ?
 			   "on" : "off");
 
 		if (ch->invis_level)
-			buf_printf(output, "  Invisible: {clevel %d{x",
+			buf_printf(output, BUF_END, "  Invisible: {clevel %d{x",
 				ch->invis_level);
 
 		if (ch->incog_level)
-			buf_printf(output, "  Incognito: {clevel %d{x",
+			buf_printf(output, BUF_END, "  Incognito: {clevel %d{x",
 				ch->incog_level);
-		buf_add(output, "\n");
+		buf_append(output, "\n");
 	}
 
 	if (ch->level >= 20)
-		buf_printf(output, "Hitroll: {c%d{x  Damroll: {c%d{x.\n",
+		buf_printf(output, BUF_END, "Hitroll: {c%d{x  Damroll: {c%d{x.\n",
 			GET_HITROLL(ch), GET_DAMROLL(ch));
 
-	buf_add(output, "You are ");
+	buf_append(output, "You are ");
 	if (IS_GOOD(ch))
-		buf_add(output, "good.");
+		buf_append(output, "good.");
 	else if (IS_EVIL(ch))
-		buf_add(output, "evil.");
+		buf_append(output, "evil.");
 	else
-		buf_add(output, "neutral.");
+		buf_append(output, "neutral.");
 
 	switch (ch->ethos) {
 	case ETHOS_LAWFUL:
-		buf_add(output, "  You have a lawful ethos.\n");
+		buf_append(output, "  You have a lawful ethos.\n");
 		break;
 	case ETHOS_NEUTRAL:
-		buf_add(output, "  You have a neutral ethos.\n");
+		buf_append(output, "  You have a neutral ethos.\n");
 		break;
 	case ETHOS_CHAOTIC:
-		buf_add(output, "  You have a chaotic ethos.\n");
+		buf_append(output, "  You have a chaotic ethos.\n");
 		break;
 	default:
-		buf_add(output, "  You have no ethos");
+		buf_append(output, "  You have no ethos");
 		if (!IS_NPC(ch))
-			buf_add(output, ", report it to the gods!\n");
+			buf_append(output, ", report it to the gods!\n");
 		else
-			buf_add(output, ".\n");
+			buf_append(output, ".\n");
 	}
 
 /*
 	if (i <= RELIGION_NONE || i > MAX_RELIGION)
-		buf_add(output, "You don't believe any religion.\n");
+		buf_append(output, "You don't believe any religion.\n");
 	else
-		buf_printf(output,"Your religion is the way of %s.\n",
+		buf_printf(output, BUF_END,"Your religion is the way of %s.\n",
 			   religion_table[i].leader);
 */
 
@@ -2837,19 +2837,19 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 			||  pc_sk->percent >= spec_sk.adept)
 				continue;
 
-			buf_printf(output, "%-19s %3d%%  ",
+			buf_printf(output, BUF_END, "%-19s %3d%%  ",
 				   pc_sk->sn,
 				   UMAX(100 * pc_sk->percent / spec_sk.adept, 1));
 			if (++col % 3 == 0)
-				buf_add(output, "\n");
+				buf_append(output, "\n");
 		}
 
 		if (col % 3)
-			buf_add(output, "\n");
+			buf_append(output, "\n");
 		if (!col)
-			buf_add(output, "You have nothing to practice.\n");
+			buf_append(output, "You have nothing to practice.\n");
 
-		buf_printf(output, "You have %d practice sessions left.\n",
+		buf_printf(output, BUF_END, "You have %d practice sessions left.\n",
 			   pc->practice);
 
 		page_to_char(buf_string(output), ch);
@@ -3199,10 +3199,10 @@ static void list_spells(flag_t type, CHAR_DATA *ch, const char *argument)
 			
 		if (list[lev] == NULL) {
 			list[lev] = buf_new(-1);
-			buf_printf(list[lev],
+			buf_printf(list[lev], BUF_END,
 				   "\nLevel %2d: %s", lev, buf);
 		} else
-			buf_printf(list[lev], "\n          %s", buf);
+			buf_printf(list[lev], BUF_END, "\n          %s", buf);
 	}
 
 	/* return results */
@@ -3221,10 +3221,10 @@ static void list_spells(flag_t type, CHAR_DATA *ch, const char *argument)
 	output = buf_new(-1);
 	for (lev = 0; lev <= UMIN(ch->level, LEVEL_IMMORTAL); lev++)
 		if (list[lev] != NULL) {
-			buf_add(output, buf_string(list[lev]));
+			buf_append(output, buf_string(list[lev]));
 			buf_free(list[lev]);
 		}
-	buf_add(output, "\n");
+	buf_append(output, "\n");
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 }
@@ -3271,12 +3271,12 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 
 		if (skill_list[lev] == NULL) {
 			skill_list[lev] = buf_new(-1);
-			buf_printf(skill_list[lev],
+			buf_printf(skill_list[lev], BUF_END,
 				   "\nLevel %2d: %s", lev, buf);
 		} else {
 			if (++skill_columns[lev] % 2 == 0)
-				buf_add(skill_list[lev], "\n          ");
-			buf_add(skill_list[lev], buf);
+				buf_append(skill_list[lev], "\n          ");
+			buf_append(skill_list[lev], buf);
 		}
 	}
 	
@@ -3290,10 +3290,10 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 	output = buf_new(-1);
 	for (lev = 0; lev <= UMIN(ch->level, LEVEL_IMMORTAL); lev++)
 		if (skill_list[lev] != NULL) {
-			buf_add(output, buf_string(skill_list[lev]));
+			buf_append(output, buf_string(skill_list[lev]));
 			buf_free(skill_list[lev]);
 		}
-	buf_add(output, "\n");
+	buf_append(output, "\n");
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 }
@@ -4061,13 +4061,13 @@ static void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch,
 
 		if (IS_NPC(ch) || IS_SET(ch->comm, COMM_COMBINE)) {
 			if (prgnShow[iShow] != 1) 
-				buf_printf(output, "(%2d) ", prgnShow[iShow]);
+				buf_printf(output, BUF_END, "(%2d) ", prgnShow[iShow]);
 			else
-				buf_add(output,"     ");
+				buf_append(output,"     ");
 		}
 
-		buf_add(output, prgpstrShow[iShow]);
-		buf_add(output, "\n");
+		buf_append(output, prgpstrShow[iShow]);
+		buf_append(output, "\n");
 		free_string(prgpstrShow[iShow]);
 	}
 
@@ -4591,9 +4591,9 @@ show_clanlist(CHAR_DATA *ch, clan_t *clan,
 	CHAR_DATA *vch;
 
 	output = buf_new(-1);
-	buf_printf(output, "List of %s of %s:\n", name_list, clan->name);
-	buf_add(output, "Status   Level Race  Class   Ethos-align   Name\n");
-	buf_add(output, "-------- ----- ----- ----- --------------- -------------\n");
+	buf_printf(output, BUF_END, "List of %s of %s:\n", name_list, clan->name);
+	buf_append(output, "Status   Level Race  Class   Ethos-align   Name\n");
+	buf_append(output, "-------- ----- ----- ----- --------------- -------------\n");
 
 	list = first_arg(list, name, sizeof(name), FALSE);
 	for (; name[0]; list = first_arg(list, name, sizeof(name), FALSE)) {
@@ -4601,12 +4601,12 @@ show_clanlist(CHAR_DATA *ch, clan_t *clan,
 		race_t *r;
 
 		if ((vch = char_load(name, LOAD_F_NOCREATE)) == NULL) {
-			buf_printf(output, "[{RInvalid entry{x] %s (report this to immortals)\n", name);
+			buf_printf(output, BUF_END, "[{RInvalid entry{x] %s (report this to immortals)\n", name);
 			continue;
 		}
 
 		if (str_cmp(vch->clan, clan->name)) {
-			buf_printf(output, "[{RInvalid entry{x] %s (report this to immortals)\n", vch->name);
+			buf_printf(output, BUF_END, "[{RInvalid entry{x] %s (report this to immortals)\n", vch->name);
 			char_nuke(ch);
 			continue;
 		}
@@ -4614,7 +4614,7 @@ show_clanlist(CHAR_DATA *ch, clan_t *clan,
 		cnt++;
 		r = race_lookup(vch->race);
 		cl = class_lookup(vch->class);
-		buf_printf(output, "%-8s  %3d  %-5s  %-3s  %7s-%-7s %s\n",
+		buf_printf(output, BUF_END, "%-8s  %3d  %-5s  %-3s  %7s-%-7s %s\n",
 			flag_string(clan_status_table, PC(vch)->clan_status),
 			vch->level,
 			r && r->race_pcdata ? r->race_pcdata->who_name : "none",
@@ -4626,7 +4626,7 @@ show_clanlist(CHAR_DATA *ch, clan_t *clan,
 	}
 
 	if (!cnt)
-		buf_add(output, "None.\n");
+		buf_append(output, "None.\n");
 
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
@@ -4787,29 +4787,29 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 	 * pArea1 can't be NULL after SKIP_CLOSED because iArea < iAreaHalf
 	 */
 	output = buf_new(-1);
-	buf_add(output, "Current areas of Shades of Gray: \n");
+	buf_append(output, "Current areas of Shades of Gray: \n");
 	for (iArea = 0; iArea < iAreaHalf; iArea++) {
 		SKIP_CLOSED(pArea1);
 		SKIP_CLOSED(pArea2);
 
-		buf_printf(output,"{{%2d %3d} {B%-20.20s{x %8.8s ",
+		buf_printf(output, BUF_END,"{{%2d %3d} {B%-20.20s{x %8.8s ",
 			   pArea1->min_level, pArea1->max_level,
 			   pArea1->name,
 			   pArea1->credits);
 
 		if (pArea2 != NULL) 
-			buf_printf(output,"{{%2d %3d} {B%-20.20s{x %8.8s",
+			buf_printf(output, BUF_END,"{{%2d %3d} {B%-20.20s{x %8.8s",
 				pArea2->min_level, pArea2->max_level,
 				pArea2->name,
 				pArea2->credits);
-		buf_add(output, "\n");
+		buf_append(output, "\n");
 
 		pArea1 = pArea1->next;
 		if (pArea2 != NULL)
 			pArea2 = pArea2->next;
 	}
 
-	buf_printf(output, "\n%d areas total.\n", maxArea);
+	buf_printf(output, BUF_END, "\n%d areas total.\n", maxArea);
 	page_to_char(buf_string(output), ch);	
 	buf_free(output);
 }

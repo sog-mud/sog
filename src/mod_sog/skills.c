@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.112 2000-06-09 12:17:48 fjoe Exp $
+ * $Id: skills.c,v 1.113 2000-10-07 10:58:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -451,9 +451,9 @@ skills_dump_cb(void *p, va_list ap)
 	||  (skill_type >= 0 && sk->skill_type != skill_type))
 		return NULL;
 
-	buf_printf(output, "%-19.18s", sn);
+	buf_printf(output, BUF_END, "%-19.18s", sn);
 	if (++(*pcol) % 4 == 0)
-		buf_add(output, "\n");
+		buf_append(output, "\n");
 	return 0;
 }
 
@@ -463,7 +463,7 @@ skills_dump(BUFFER *output, int skill_type)
 	int col = 0;
 	hash_foreach(&skills, skills_dump_cb, output, skill_type, &col); 
 	if (col % 4)
-		buf_add(output, "\n");
+		buf_append(output, "\n");
 }
 
 /*

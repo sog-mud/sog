@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.80 2000-10-05 19:05:33 fjoe Exp $
+ * $Id: olc_room.c,v 1.81 2000-10-07 10:58:02 fjoe Exp $
  */
 
 #include "olc.h"
@@ -193,60 +193,60 @@ OLC_FUN(roomed_show)
 
 	output = buf_new(-1);
 	
-	buf_add(output, "Description:\n");
+	buf_append(output, "Description:\n");
 	mlstr_dump(output, str_empty, &pRoom->description);
 	mlstr_dump(output, "Name:       ", &pRoom->name);
-	buf_printf(output, "Area:       [%5d] %s\n",
+	buf_printf(output, BUF_END, "Area:       [%5d] %s\n",
 		   pRoom->area->vnum, pRoom->area->name);
-	buf_printf(output, "Vnum:       [%5d]\nSector:     [%s]\n",
+	buf_printf(output, BUF_END, "Vnum:       [%5d]\nSector:     [%s]\n",
 		   pRoom->vnum, flag_string(sector_types, pRoom->sector_type));
 
-	buf_printf(output, "Room flags: [%s]\n",
+	buf_printf(output, BUF_END, "Room flags: [%s]\n",
 		   flag_string(room_flags, pRoom->room_flags));
 
 	if (pRoom->heal_rate != 100 || pRoom->mana_rate != 100)
-		buf_printf(output, "Health rec: [%d]\nMana rec  : [%d]\n",
+		buf_printf(output, BUF_END, "Health rec: [%d]\nMana rec  : [%d]\n",
 			   pRoom->heal_rate, pRoom->mana_rate);
 
 	if (pRoom->ed) {
 		ED_DATA *ed;
 
-		buf_add(output, "Desc Kwds:  ");
+		buf_append(output, "Desc Kwds:  ");
 		for (ed = pRoom->ed; ed != NULL; ed = ed->next)
-			buf_printf(output, "[%s]", ed->keyword);
+			buf_printf(output, BUF_END, "[%s]", ed->keyword);
 		
-		buf_add(output, "\n");
+		buf_append(output, "\n");
 	}
 
-	buf_add(output, "Characters: [");
+	buf_append(output, "Characters: [");
 	fcnt = FALSE;
 	for (rch = pRoom->people; rch; rch = rch->next_in_room) {
 		one_argument(rch->name, buf, sizeof(buf));
-		buf_add(output, buf);
+		buf_append(output, buf);
 		if (rch->next_in_room != NULL)
-			buf_add(output, " ");
+			buf_append(output, " ");
 		fcnt = TRUE;
 	}
 
 	if (fcnt) 
-		buf_add(output, "]\n");
+		buf_append(output, "]\n");
 	else
-		buf_add(output, "none]\n");
+		buf_append(output, "none]\n");
 
-	buf_add(output, "Objects:    [");
+	buf_append(output, "Objects:    [");
 	fcnt = FALSE;
 	for (obj = pRoom->contents; obj; obj = obj->next_content) {
 		one_argument(obj->name, buf, sizeof(buf));
-		buf_add(output, buf);
+		buf_append(output, buf);
 		if (obj->next_content != NULL)
-			buf_add(output, " ");
+			buf_append(output, " ");
 		fcnt = TRUE;
 	}
 
 	if (fcnt)
-		buf_add(output, "]\n");
+		buf_append(output, "]\n");
 	else
-		buf_add(output, "none]\n");
+		buf_append(output, "none]\n");
 
 	for (door = 0; door < MAX_DIR; door++) {
 		EXIT_DATA *pexit;
@@ -257,7 +257,7 @@ OLC_FUN(roomed_show)
 			const char *state;
 			int i, length;
 
-			buf_printf(output, "-%-5s to [%5d] Key: [%5d] ",
+			buf_printf(output, BUF_END, "-%-5s to [%5d] Key: [%5d] ",
 				   dir_name[door],
 				   pexit->to_room.r ?
 						pexit->to_room.r->vnum : 0,
@@ -271,14 +271,14 @@ OLC_FUN(roomed_show)
 				 flag_string(exit_flags, pexit->rs_flags));
 			state = flag_string(exit_flags, pexit->exit_info);
 			if (pexit->size != SIZE_GARGANTUAN)
-				buf_printf(output, "Exit size: [%s]\n",
+				buf_printf(output, BUF_END, "Exit size: [%s]\n",
 					flag_string(size_table, pexit->size));
-			buf_add(output, " Exit flags: [");
+			buf_append(output, " Exit flags: [");
 			for (; ;) {
 				state = one_argument(state, word, sizeof(word));
 
 				if (word[0] == '\0') {
-					buf_add(output, "]\n");
+					buf_append(output, "]\n");
 					break;
 				}
 
@@ -287,12 +287,12 @@ OLC_FUN(roomed_show)
 					for (i = 0; i < length; i++)
 						word[i] = UPPER(word[i]);
 				}
-				buf_add(output, word);
-				buf_add(output, " ");
+				buf_append(output, word);
+				buf_append(output, " ");
 			}
 
 			if (!IS_NULLSTR(pexit->keyword)) {
-				buf_printf(output, "Kwds:   [%s]\n",
+				buf_printf(output, BUF_END, "Kwds:   [%s]\n",
 					   pexit->keyword);
 			}
 
@@ -330,10 +330,10 @@ OLC_FUN(roomed_list)
 	for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) {
 		if ((pRoomIndex = get_room_index(vnum))) {
 			found = TRUE;
-			buf_printf(buffer, "[%5d] %-17.16s",
+			buf_printf(buffer, BUF_END, "[%5d] %-17.16s",
 				vnum, mlstr_mval(&pRoomIndex->name));
 			if (++col % 3 == 0)
-				buf_add(buffer, "\n");
+				buf_append(buffer, "\n");
 		}
 	}
 
@@ -341,7 +341,7 @@ OLC_FUN(roomed_list)
 		char_puts("RoomEd: No rooms in this area.\n", ch);
 	else {
 		if (col % 3 != 0)
-			buf_add(buffer, "\n");
+			buf_append(buffer, "\n");
 
 		page_to_char(buf_string(buffer), ch);
 	}
@@ -676,7 +676,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 
 		output = buf_new(-1);
 		help_show(ch, output, "'OLC EXITS'");
-		buf_printf(output, "Valid exit flags are:\n");
+		buf_printf(output, BUF_END, "Valid exit flags are:\n");
 		show_flags_buf(output, exit_flags);
 		page_to_char(buf_string(output), ch);
 		buf_free(output);
@@ -848,7 +848,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 			BUFFER *output;
 
 			output = buf_new(-1);
-			buf_printf(output, "Valid size values are:\n");
+			buf_printf(output, BUF_END, "Valid size values are:\n");
 			show_flags_buf(output, size_table);
 			page_to_char(buf_string(output), ch);
 			buf_free(output);
@@ -880,20 +880,20 @@ void display_resets(CHAR_DATA *ch)
 		MOB_INDEX_DATA *mob;
 		ROOM_INDEX_DATA *room;
 
-		buf_printf(buf, "[%2d] ", ++rnum);
+		buf_printf(buf, BUF_END, "[%2d] ", ++rnum);
 		switch (r->command) {
 		default:
-			buf_printf(buf, "Bad reset command: %c.", r->command);
+			buf_printf(buf, BUF_END, "Bad reset command: %c.", r->command);
 			break;
 
 		case 'M':
 			if ((mob = get_mob_index(r->arg1)) == NULL) {
-				buf_printf(buf, "<bad mob %d>\n", r->arg1);
+				buf_printf(buf, BUF_END, "<bad mob %d>\n", r->arg1);
 				break;
 			}
 
 			last_mob = r;
-			buf_printf(buf, "%c[%5d] %-26.26s [%2d-%2d]\n",
+			buf_printf(buf, BUF_END, "%c[%5d] %-26.26s [%2d-%2d]\n",
 				   (room = get_room_index(in_room->vnum-1)) &&
 				   IS_SET(room->room_flags, ROOM_PET_SHOP) ?
 				   'P' : 'M',
@@ -903,39 +903,39 @@ void display_resets(CHAR_DATA *ch)
 
 		case 'O':
 			if ((obj = get_obj_index(r->arg1)) == NULL) {
-				buf_printf(buf, "<bad obj %d>\n", r->arg1);
+				buf_printf(buf, BUF_END, "<bad obj %d>\n", r->arg1);
 				break;
 			}
 
 			last_obj = r;
-			buf_printf(buf, "O[%5d:%3d%%] %-26.26s\n",
+			buf_printf(buf, BUF_END, "O[%5d:%3d%%] %-26.26s\n",
 				   r->arg1, 100 - r->arg0,
 				   mlstr_mval(&obj->short_descr));
 			break;
 
 		case 'P':
 			if (last_obj == NULL) {
-				buf_add(buf, "<no prev obj reset>\n");
+				buf_append(buf, "<no prev obj reset>\n");
 				break;
 			}
 
 			if ((obj = get_obj_index(r->arg1)) == NULL) {
-				buf_printf(buf, "<bad obj %d>\n", r->arg1);
+				buf_printf(buf, BUF_END, "<bad obj %d>\n", r->arg1);
 				break;
 			}
 
 			switch (last_obj->command) {
 			case 'E':
 			case 'G':
-				buf_add(buf, tab2);
+				buf_append(buf, tab2);
 				break;
 
 			case 'O':
-				buf_add(buf, tab);
+				buf_append(buf, tab);
 				break;
 			}
 
-			buf_printf(buf, "P[%5d:%3d%%] %-26.26s <inside> [%2d-%2d]\n",
+			buf_printf(buf, BUF_END, "P[%5d:%3d%%] %-26.26s <inside> [%2d-%2d]\n",
 				   r->arg1, 100 - r->arg0,
 				   mlstr_mval(&obj->short_descr),
 				   r->arg2, r->arg4);
@@ -944,17 +944,17 @@ void display_resets(CHAR_DATA *ch)
 		case 'G':
 		case 'E':
 			if (last_mob == NULL) {
-				buf_add(buf, "<no prev mob reset>\n");
+				buf_append(buf, "<no prev mob reset>\n");
 				break;
 			}
 
 			if ((obj = get_obj_index(r->arg1)) == NULL) {
-				buf_printf(buf, "<bad obj %d>\n", r->arg1);
+				buf_printf(buf, BUF_END, "<bad obj %d>\n", r->arg1);
 				break;
 			}
 
 			last_obj = r;
-			buf_printf(buf, "%s%c[%5d:%3d%%] %-26.26s <%s>\n",
+			buf_printf(buf, BUF_END, "%s%c[%5d:%3d%%] %-26.26s <%s>\n",
 				   tab, r->command,
 				   r->arg1, 100 - r->arg0,
 				   mlstr_mval(&obj->short_descr),
@@ -962,7 +962,7 @@ void display_resets(CHAR_DATA *ch)
 			break;
 
 		case 'R':
-			buf_printf(buf, "R[%5d] Randomized exits\n", r->arg1);
+			buf_printf(buf, BUF_END, "R[%5d] Randomized exits\n", r->arg1);
 			break;
 		}
 	}
@@ -1053,13 +1053,8 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		act_puts3("Resets for $t vnum $J:",
-			  ch, xxx, NULL, (const void *) vnum,
-			  TO_CHAR, POS_DEAD);
-		/*
-		 * XXX page_to_char here
-		 */
-		send_to_char(buf_string(buf), ch);
+		buf_printf(buf, BUF_START, "Resets for %s vnum %d:", xxx, vnum);
+		page_to_char(buf_string(buf), ch);
 		buf_free(buf);
 		return;
 	}

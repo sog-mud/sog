@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.53 2000-02-29 17:14:58 avn Exp $
+ * $Id: mlstring.c,v 1.54 2000-10-07 10:58:06 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -426,7 +426,7 @@ void mlstr_dump(BUFFER *buf, const char *name, const mlstring *mlp)
 	lang_t *l;
 
 	if (mlp == NULL || mlp->nlang == 0) {
-		buf_printf(buf, FORMAT, name, "all",
+		buf_printf(buf, BUF_END, FORMAT, name, "all",
 			   mlp == NULL ? "(null)" : mlp->u.str);
 		return;
 	}
@@ -435,7 +435,7 @@ void mlstr_dump(BUFFER *buf, const char *name, const mlstring *mlp)
 		return;
 
 	l = VARR_GET(&langs, 0);
-	buf_printf(buf, FORMAT, name, l->name, mlp->u.lstr[0]);
+	buf_printf(buf, BUF_END, FORMAT, name, l->name, mlp->u.lstr[0]);
 
 	if (langs.nused < 1)
 		return;
@@ -447,7 +447,7 @@ void mlstr_dump(BUFFER *buf, const char *name, const mlstring *mlp)
 
 	for (lang = 1; lang < mlp->nlang && lang < langs.nused; lang++) {
 		l = VARR_GET(&langs, lang);
-		buf_printf(buf, FORMAT,
+		buf_printf(buf, BUF_END, FORMAT,
 			   space, l->name, mlp->u.lstr[lang]);
 	}
 }

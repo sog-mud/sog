@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.25 2000-04-03 08:54:08 fjoe Exp $
+ * $Id: olc_social.c,v 1.26 2000-10-07 10:58:03 fjoe Exp $
  */
 
 /* I never wanted to be
@@ -206,10 +206,10 @@ OLC_FUN(soced_show)
 
 	output = buf_new(-1);
 
-	buf_printf(output,
+	buf_printf(output, BUF_END,
 		   "Name:          [%s]\n",
 		   soc->name);
-	buf_printf(output,
+	buf_printf(output, BUF_END,
 		   "Min_pos:       [%s]\n",
 		   flag_string(position_table, soc->min_pos));
 
@@ -245,14 +245,14 @@ OLC_FUN(soced_list)
 		if (arg[0] && str_prefix(arg, soc->name))
 			continue;
 
-		buf_printf(output, "[%1s%3d] %-12s",
+		buf_printf(output, BUF_END, "[%1s%3d] %-12s",
 			check_shadow(soc->name) ? "*" : " ", i,	soc->name);
 		if (++col % 4 == 0)
-			buf_add(output, "\n");
+			buf_append(output, "\n");
 	}
 
 	if (col % 4)
-		buf_add(output, "\n");
+		buf_append(output, "\n");
 
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
@@ -455,7 +455,7 @@ shadow_dump_cb(void *p, va_list ap)
 	BUFFER *output = va_arg(ap, BUFFER *);
 
 	if (!str_prefix(name, cmd->name))
-		buf_printf(output, "   [%s]\n", cmd->name);
+		buf_printf(output, BUF_END, "   [%s]\n", cmd->name);
 
 	return NULL;
 }
@@ -466,7 +466,7 @@ shadow_dump_cmds(BUFFER *output, const char *name)
 	if (!check_shadow(name))
 		return;
 
-	buf_add(output, "[*** SHADOWED BY FOLLOWING COMMANDS ***]\n");
+	buf_append(output, "[*** SHADOWED BY FOLLOWING COMMANDS ***]\n");
 	varr_foreach(&commands, shadow_dump_cb, name, output);
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.118 2000-10-05 19:05:31 fjoe Exp $
+ * $Id: olc.c,v 1.119 2000-10-07 10:58:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -488,7 +488,7 @@ bool olced_foreign_strkey(CHAR_DATA *ch, const char *argument,
 	h = cmd->arg1;
 	if (!str_cmp(argument, "?")) {
 		BUFFER *out = buf_new(-1);
-		buf_printf(out, "Valid %ss are:\n", cmd->name);
+		buf_printf(out, BUF_END, "Valid %ss are:\n", cmd->name);
 		strkey_printall(h, out);
 		page_to_char(buf_string(out), ch);
 		buf_free(out);
@@ -529,7 +529,7 @@ bool olced_foreign_mlstrkey(CHAR_DATA *ch, const char *argument,
 	h = cmd->arg1;
 	if (!str_cmp(argument, "?")) {
 		BUFFER *out = buf_new(-1);
-		buf_printf(out, "Valid %ss are:\n", cmd->name);
+		buf_printf(out, BUF_END, "Valid %ss are:\n", cmd->name);
 		mlstrkey_printall(h, out);
 		page_to_char(buf_string(out), ch);
 		buf_free(out);
@@ -728,7 +728,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 		}
 
 		output = buf_new(-1);
-		buf_printf(output, "Keyword:     [%s]\n", ed->keyword);
+		buf_printf(output, BUF_END, "Keyword:     [%s]\n", ed->keyword);
 		mlstr_dump(output, "Description: ", &ed->description);
 		page_to_char(buf_string(output), ch);
 		buf_free(output);
@@ -1093,7 +1093,7 @@ olced_addaffect(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 
 	if (arg[0] != '\0' && skill_lookup(arg) == NULL) {
 		BUFFER *output = buf_new(-1);
-		buf_add(output, "Valid types are spell/prayer names (listed below) and empty type (''):\n");
+		buf_append(output, "Valid types are spell/prayer names (listed below) and empty type (''):\n");
 		skills_dump(output, -1);
 		page_to_char(buf_string(output), ch);
 		buf_free(output);
@@ -1134,7 +1134,7 @@ olced_addaffect(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 
 		if ((sk = skill_lookup(arg2)) == NULL) {
 			BUFFER *output = buf_new(-1);
-			buf_add(output, "Valid skills are:\n");
+			buf_append(output, "Valid skills are:\n");
 			skills_dump(output, -1);
 			page_to_char(buf_string(output), ch);
 			buf_free(output);
@@ -1336,12 +1336,12 @@ OLC_FUN(show_commands)
 	for (cmd = OLCED(ch)->cmd_table+FUN_FIRST; cmd->name; cmd++) {
 		if (IS_NULLSTR(cmd->name))
 			continue;
-		buf_printf(output, "%-15.15s", cmd->name);
+		buf_printf(output, BUF_END, "%-15.15s", cmd->name);
 		if (++col % 5 == 0)
-			buf_add(output, "\n");
+			buf_append(output, "\n");
 	}
 	if (col % 5 != 0)
-		buf_add(output, "\n");
+		buf_append(output, "\n");
 
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
@@ -1480,7 +1480,7 @@ show_mob_resets(int vnum)
 				if (!buf)
 					buf = buf_new(-1);
 
-				buf_printf(buf, "        room %d, reset %d\n",
+				buf_printf(buf, BUF_END, "        room %d, reset %d\n",
 					   room->vnum, j);
 			}
 		}
@@ -1528,7 +1528,7 @@ show_obj_resets(int vnum)
 				if (!buf)
 					buf = buf_new(-1);
 
-				buf_printf(buf, "        room %d, reset %d\n",
+				buf_printf(buf, BUF_END, "        room %d, reset %d\n",
 					   room->vnum, j);
 			}
 		}

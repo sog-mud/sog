@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.84 2000-10-05 19:05:32 fjoe Exp $
+ * $Id: olc_obj.c,v 1.85 2000-10-07 10:58:02 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -228,11 +228,11 @@ OLC_FUN(objed_show)
 	pArea = area_vnum_lookup(pObj->vnum);
 
 	output = buf_new(-1);
-	buf_printf(output, "Name:        [%s]\n"
+	buf_printf(output, BUF_END, "Name:        [%s]\n"
 			   "Area:        [%5d] %s\n",
 		pObj->name, pArea->vnum, pArea->name);
 
-	buf_printf(output, "Vnum:        [%5d]\n"
+	buf_printf(output, BUF_END, "Vnum:        [%5d]\n"
 			   "Type:        [%s]\n",
 		pObj->vnum,
 		flag_string(item_types, pObj->item_type));
@@ -240,39 +240,39 @@ OLC_FUN(objed_show)
 	mlstr_dump(output, "Gender:      ", &pObj->gender);
 
 	if (pObj->limit != -1)
-		buf_printf(output, "Limit:       [%5d]\n", pObj->limit);
+		buf_printf(output, BUF_END, "Limit:       [%5d]\n", pObj->limit);
 	else
-		buf_add(output, "Limit:       [none]\n");
+		buf_append(output, "Limit:       [none]\n");
 
-	buf_printf(output, "Level:       [%5d]\n", pObj->level);
+	buf_printf(output, BUF_END, "Level:       [%5d]\n", pObj->level);
 
-	buf_printf(output, "Wear flags:  [%s]\n",
+	buf_printf(output, BUF_END, "Wear flags:  [%s]\n",
 		flag_string(wear_flags, pObj->wear_flags));
 
-	buf_printf(output, "Stat flags:  [%s]\n",
+	buf_printf(output, BUF_END, "Stat flags:  [%s]\n",
 		flag_string(stat_flags, pObj->stat_flags));
 
-	buf_printf(output, "Obj flags:   [%s]\n",
+	buf_printf(output, BUF_END, "Obj flags:   [%s]\n",
 		flag_string(obj_flags, pObj->obj_flags));
 
-	buf_printf(output, "Material:    [%s]\n",                /* ROM */
+	buf_printf(output, BUF_END, "Material:    [%s]\n",                /* ROM */
 		pObj->material);
 
-	buf_printf(output, "Condition:   [%5d]\n",               /* ROM */
+	buf_printf(output, BUF_END, "Condition:   [%5d]\n",               /* ROM */
 		pObj->condition);
 
-	buf_printf(output, "Weight:      [%5d]\nCost:        [%5d]\n",
+	buf_printf(output, BUF_END, "Weight:      [%5d]\nCost:        [%5d]\n",
 		pObj->weight, pObj->cost);
 
 	if (pObj->ed) {
 		ED_DATA *ed;
 
-		buf_add(output, "Ex desc kwd: ");
+		buf_append(output, "Ex desc kwd: ");
 
 		for (ed = pObj->ed; ed; ed = ed->next)
-			buf_printf(output, "[%s]", ed->keyword);
+			buf_printf(output, BUF_END, "[%s]", ed->keyword);
 
-		buf_add(output, "\n");
+		buf_append(output, "\n");
 	}
 
 	mlstr_dump(output, "Short desc: ", &pObj->short_descr);
@@ -313,11 +313,11 @@ OLC_FUN(objed_list)
 			if (fAll || is_name(arg, pObjIndex->name)
 			|| flag_value(item_types, arg) == pObjIndex->item_type) {
 				found = TRUE;
-				buf_printf(buffer, "[%5d] %-17.16s",
+				buf_printf(buffer, BUF_END, "[%5d] %-17.16s",
 					   pObjIndex->vnum,
 					   mlstr_mval(&pObjIndex->short_descr));
 				if (++col % 3 == 0)
-					buf_add(buffer, "\n");
+					buf_append(buffer, "\n");
 			}
 		}
 	}
@@ -326,7 +326,7 @@ OLC_FUN(objed_list)
 		char_puts("Object(s) not found in this area.\n", ch);
 	else {
 		if (col % 3 != 0)
-			buf_add(buffer, "\n");
+			buf_append(buffer, "\n");
 
 		page_to_char(buf_string(buffer), ch);
 	}
@@ -654,12 +654,8 @@ OLC_FUN(objed_where)
 	}
 
 	if (buf != NULL) {
-		act_puts("Resets for obj vnum $j:",
-			 ch, (const void *) vnum, NULL, TO_CHAR, POS_DEAD);
-		/*
-		 * XXX page_to_char here
-		 */
-		send_to_char(buf_string(buf), ch);
+		buf_printf(buf, BUF_START, "Resets for obj vnum %d:", vnum);
+		page_to_char(buf_string(buf), ch);
 		buf_free(buf);
 		return FALSE;
 	}

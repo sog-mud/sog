@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_expr.c,v 1.9 2000-06-06 08:39:56 fjoe Exp $
+ * $Id: cc_expr.c,v 1.10 2000-10-07 10:58:05 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -174,7 +174,7 @@ print_expr_cb(void *p, va_list ap)
 	BUFFER *buf = va_arg(ap, BUFFER *);
 	varr *v = va_arg(ap, varr *);
 
-	buf_printf(buf, "  %2d) [%s] Deny %s\n",
+	buf_printf(buf, BUF_END, "  %2d) [%s] Deny %s\n",
 		   varr_index(v, p), e->mfun, e->expr);
 	return NULL;
 }
@@ -185,7 +185,7 @@ print_cc_vexpr(varr *v, const char *pre, BUFFER *buf)
 	if (varr_isempty(v))
 		return;
 
-	buf_printf(buf, "%s\n", pre);
+	buf_printf(buf, BUF_END, "%s\n", pre);
 	varr_foreach(v, print_expr_cb, buf, v);
 }
 
