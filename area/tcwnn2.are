@@ -3083,7 +3083,57 @@ D5
 ~
 1 31224 31318
 S
-
+#31320
+The Artificer's Workshop~
+In here Clea, the beautiful Elven Artificer from Malathar, offers a 
+popular service, reharging magical staves and wands that have lost their 
+energies. Piles of such items can be seen, awaiting retrieval by their 
+owners. You feel quite comfortable in this simple yet pleasant workshop.
+~
+0 8 0
+D0
+~
+~
+0 -1 31009
+S
+#31321
+The Book Shoppe~
+This old shop is filled with old wooden shelves crammed with books, the
+furniture strained to breaking point by the many tomes stacked upon it. In
+front of these shelves an ancient man sits reading an ancient text. As you
+enter he welcomes you and offers to show you some of his stock- abridged
+versions of some of the greatest works of Anonian literature.
+~
+0 8 0
+D3
+~
+~
+1 0 31004
+S
+#31322
+The Locksmith~
+In this shop sits a small fat dwarf who is busy making locks and keys. He 
+will also purchase your keys if you don't want them, for a good price. 
+You marvel at all the strange technology about you.
+~
+0 8 0
+D1
+~
+~
+1 0 31004 
+S
+#31323
+Enhancing Shop~
+In this small shop you can enhance your statistics, with the aid of one 
+Thom, the enhancer. He stands ready to help you behind a massive oak desk.
+There are several degrees and diplomas affixed to the walls here.
+~
+0 8 0
+D0
+~
+~
+0 -1 31011
+S
 #0
 
 
@@ -3378,6 +3428,24 @@ O 1 31227 1 31312
 O 1 31228 1 31314
 O 1 31229 1 31316
 O 1 31230 1 31318
+*
+M 1 31058 1 31320 1 *     loads clea
+*
+M 1 31059 1 31321 1 *     loads xanafax
+G 1 31086 0 0
+G 1 31087 0 0
+G 1 31088 0 0
+G 1 31089 0 0
+G 1 31090 0 0
+*
+D 0 31321 3 1
+D 0 31322 1 1
+*
+M 1 31060 1 31322  1 *    loads dwart
+G 1 31001 0 0
+G 1 31085 0 0        *  KEY FOR PORTAL CHAMBERS
+*
+M 1 31061 1 31323 1 *     loads thom the enhancer
 *
 S
 
