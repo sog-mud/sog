@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.79 1998-08-03 15:09:01 fjoe Exp $
+ * $Id: comm.c,v 1.80 1998-08-04 13:40:40 efdi Exp $
  */
 
 /***************************************************************************
@@ -858,16 +858,15 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 
 	/* Hold horses if pending command already. */
 	if (d->incomm[0] != '\0')
-	return TRUE;
+		return TRUE;
 
 	/* Check for overflow. */
 	iOld = iStart = strlen(d->inbuf);
-	if (iStart >= sizeof(d->inbuf) - 10)
-	{
-	log_printf("%s input overflow!", d->host);
-	write_to_descriptor(d->descriptor,
-	    "\n\r*** PUT A LID ON IT!!! ***\n\r", 0);
-	return FALSE;
+	if (iStart >= sizeof(d->inbuf) - 10) {
+		log_printf("%s input overflow!", d->host);
+		write_to_descriptor(d->descriptor,
+				    "\n\r*** PUT A LID ON IT!!! ***\n\r", 0);
+		return FALSE;
 	}
 
 	for (; ;) {
@@ -1482,23 +1481,20 @@ bool write_to_descriptor(int desc, char *txt, int length)
 
 int search_sockets(DESCRIPTOR_DATA *inp)
 {
- DESCRIPTOR_DATA *d;
+	DESCRIPTOR_DATA *d;
 
- if (IS_IMMORTAL(inp->character))    return 0;
+	if (IS_IMMORTAL(inp->character))
+		return 0;
 
- for(d=descriptor_list; d!=NULL; d=d->next)
-	{
-	      if(strcmp(inp->host, d->host) == 0) 
-	  {
-	   if (d->character && inp->character)
-		{
-	         if (!strcmp(inp->character->name,d->character->name)) 
-		 	continue;
+	for(d = descriptor_list; d; d = d->next) {
+		if(!strcmp(inp->host, d->host)) {
+			if (d->character && inp->character
+			&&  !strcmp(inp->character->name, d->character->name)) 
+				continue;
+			return 1;
 		}
-	   return 1;
-	  }
-	    }
-  return 0;
+	}
+	return 0;
 }
   
 int align_restrict(CHAR_DATA *ch);

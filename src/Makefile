@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.15 1998-07-23 19:15:29 fjoe Exp $
+# $Id: Makefile,v 1.16 1998-08-04 13:40:40 efdi Exp $
 #
 CC		= gcc
 LD		= gcc
@@ -14,7 +14,7 @@ OFILES = act_comm.o act_info.o act_move.o act_obj.o act_wiz.o auction.o\
 	 mlstring.o mob_cmds.o mob_prog.o note.o obj_prog.o olc.o olc_act.o\
 	 olc_mpcode.o olc_save.o quest.o raffects.o rating.o recycle.o\
 	 repair.o resource.o save.o skills.o special.o string_edit.o\
-	 tables.o update.o util.o
+	 update.o util.o
 
 #
 # for SUNOS
