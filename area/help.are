@@ -402,6 +402,7 @@ note catchup    : markes all notes as read
 
 'note read' can accept number of note to read.
 'note list' has extended syntax: note list [from name] [to name]
+'note reply' is synonim for 'note quote'
 
 {cwriting notes{x:
 note to         : set the 'To:' line (player name, clan name, immortal or all)
@@ -3688,7 +3689,7 @@ Syntax: alist area [substr]
 Syntax: alist clan
 Syntax: alist help [keyword]
 Syntax: alist mpcode [all]
-Syntax: alist msgdb [substr]
+Syntax: alist msgdb substr
 Syntax: alist object <all | name | item_type>
 Syntax: alist mobile <all | name>
 Syntax: alist room
@@ -3739,6 +3740,7 @@ Syntax: create mpcode vnum
 Syntax: create help keyword
 Syntax: create clan name
 Syntax: create msg message
+Syntax: create social name
  
 ~
 0 'OLC EDIT'~
@@ -3750,6 +3752,7 @@ Syntax: edit mpcode vnum
 Syntax: edit help [num.]keyword
 Syntax: edit clan name
 Syntax: edit msg substr
+Syntax: edit social name
  
 ~
 0 'OLC ASHOW'~
@@ -3912,6 +3915,25 @@ To victim: dispel evil
        To you    : cure serious
 ~
 0 Shalafi~
+@eng   ... and the time has come when High council of mages decided that no  longer 
+disorder  shall  be tolerated.  Mages  slayed  each other, loosing  secrets of 
+ancient art of magic. Council summoned all powerful mages.
+  
+    And  there  were vampires,  warlocks and anti-paladins,  necromancers  and
+witches, clerics and paladins. Children of light and darkness, they laid aside
+their  quarrels  to save what can be saved  in the art  of magic  and  even to 
+invent new spells. No one  knows what had been  said there. Death would be the 
+lightest punishment to those who do not keep these secrets. Masters  of  their
+arts, they found a salvation. They had brought forth Diablo, god of death.  He
+lead them to forge an Order, which was named Shalafi. One of  the best witches
+in this realm, Lilit, Queen of Night, was promoted to lead the Order. 
+  
+No one  outside that Order  knows  what happens  there.  Few  can  undergo the 
+challenges to enter it and even less can withstand trials to stay there. Those
+who fail are never to be adopted in Shalafi. And shall a mage serve any  other
+cause except for the cause of magic, his life will be forfeit as well. All mem-
+bers of the Order will track him down, until that renegade dies.
+ 
 @rus И настал день, когда Посвященные черной и белой магии решили, что больше нельзя
 мириться со сложившейся ситуацией -- с тем, что маги убивают друг друга, с тем,
 что древнее искусство становиться все более доступным, с тем, что теряются

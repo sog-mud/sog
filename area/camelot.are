@@ -1200,7 +1200,7 @@ staff merlin merlin's~
 merlin's staff~
 A staff of two intertwined vines lies here in a circle of power!~
 wood~
-wand ABCGH AO
+staff ABCGH AO
 80 20 20 'dispel magic' 0
 40 10 5000 P
 A
