@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.159 1999-06-24 08:05:01 fjoe Exp $
+ * $Id: db.c,v 1.160 1999-06-24 08:11:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -404,8 +404,10 @@ void boot_db(void)
 	/*
 	 * load modules
 	 */
-	for (i = 0; i < modules.nused; i++)
-		mod_load(VARR_GET(&modules, i));
+	for (i = 0; i < modules.nused; i++) {
+		if (mod_load(VARR_GET(&modules, i)) < 0)
+			exit(1);
+	}
 
 	fBootDb = FALSE;
 
