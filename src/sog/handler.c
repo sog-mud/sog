@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.1 1999-11-10 09:52:45 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.2 1999-11-10 10:31:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -771,7 +771,10 @@ void affect_check(CHAR_DATA *ch, int where, flag64_t vector)
 {
 	OBJ_DATA *obj;
 
-	if (where == TO_OBJECT || where == TO_WEAPON || vector == 0)
+	if (where == TO_OBJECT
+	||  where == TO_WEAPON
+	||  where == TO_SKILLS
+	||  vector == 0)
 		return;
 
 	affect_check_list(ch, ch->affected, where, vector);
@@ -1351,26 +1354,9 @@ OBJ_DATA * equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 
 void strip_obj_affects(CHAR_DATA *ch, OBJ_DATA *obj, AFFECT_DATA *paf)
 {
-	AFFECT_DATA *lpaf_next = NULL;
-	AFFECT_DATA *lpaf = NULL;
-
 	for (; paf != NULL; paf = paf->next) {
-		if (paf->location == APPLY_SPELL_AFFECT
-		    || paf->where == TO_SKILLS) {
-		        for (lpaf = ch->affected; lpaf; lpaf = lpaf_next) {
-				lpaf_next = lpaf->next;
-				if ((lpaf->type == paf->type)
-				&&  (lpaf->level == paf->level)
-				&&  (lpaf->location == paf->location)) {
-					affect_remove(ch, lpaf);
-					lpaf_next = NULL;
-				}
-		        }
-		}
-		else {
-			affect_modify(ch, paf, FALSE);
-			affect_check(ch,paf->where,paf->bitvector);
-		}
+		affect_modify(ch, paf, FALSE);
+		affect_check(ch, paf->where, paf->bitvector);
 	}
 }
 
