@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.7 1998-10-07 08:37:32 fjoe Exp $
+ * $Id: olc_msg.c,v 1.8 1998-10-10 04:37:44 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -185,12 +185,12 @@ OLC_FUN(msged_msg)
 
 	argument = one_argument(argument, arg);
 	lang = lang_lookup(arg);
-	if (lang < 0 && str_cmp(arg, "all")) {
+	if (lang < 0) {
 		do_help(ch, "'OLC MSG'");
 		return FALSE;
 	}
 
-	if (lang <= 0) {
+	if (!lang) {
 		/* gonna change name */
 		mlstring **mlp2;
 
@@ -200,7 +200,7 @@ OLC_FUN(msged_msg)
 		}
 
 		mlp2 = msg_lookup(argument);
-		if (mlp2 && mlp2 != mlp) {
+		if (mlp2) {
 			char_puts("MsgEd: duplicate name.\n\r", ch);
 			return FALSE;
 		}
@@ -213,7 +213,7 @@ OLC_FUN(msged_msg)
 	free_string(*p);
 	*p = str_dup(atomsg(argument));
 
-	if (lang <= 0)
+	if (!lang)
 		ch->desc->pEdit = (void*) msg_add(ml);
 
 	return TRUE;
@@ -257,7 +257,7 @@ static mlstring **msg_search(const char *argument)
 		for (j = 0; j < v->nused; j++) {
 			mlstring **mlp = VARR_GET(v, j);
 
-			if (strstr(mlstr_mval(*mlp), argument) && !--num)
+			if (strstr(mlstr_mval(*mlp), name) && !--num)
 				return mlp;
 		}
 	}

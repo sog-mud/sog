@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.34 1998-10-09 13:43:15 fjoe Exp $
+ * $Id: olc_save.c,v 1.35 1998-10-10 04:37:44 fjoe Exp $
  */
 
 /**************************************************************************
@@ -1054,8 +1054,12 @@ void save_msgdb(CHAR_DATA *ch)
 		if (v == NULL)
 			continue;
 
-		for (j = 0; j < v->nused; j++)
-			mlstr_fwrite(fp, NULL, *(mlstring**) VARR_GET(v, j));
+		for (j = 0; j < v->nused; j++) {
+			mlstring **mlp = VARR_GET(v, j);
+			if (!mlstr_nlang(*mlp))
+				continue;
+			mlstr_fwrite(fp, NULL, *mlp);
+		}
 	}
 
 	fprintf(fp, "$~\n");
