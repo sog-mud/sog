@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.13 1998-07-13 10:27:18 efdi Exp $
+ * $Id: note.c,v 1.14 1998-07-13 11:20:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -837,8 +837,9 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 	/* Show new note message */
 	for (d = descriptor_list; d; d = d->next) {
 		CHAR_DATA *fch = d->character;
-		if (is_note_to(fch, ch->pnote)
+		if (fch != NULL
 		&&  fch != ch
+		&&  is_note_to(fch, ch->pnote)
 		&&  d->connected == CON_PLAYING)
 			char_puts("You have new note.\n\r", fch);
 	}
