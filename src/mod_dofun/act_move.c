@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.198 1999-09-09 14:35:04 osya Exp $
+ * $Id: act_move.c,v 1.199 1999-09-10 05:34:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1640,22 +1640,21 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 		(2 * (LEVEL(ch) - LEVEL(victim))) ))) {
 		check_improve(ch,gsn_vampiric_bite,TRUE,1);
 		one_hit(ch, victim, gsn_vampiric_bite, WEAR_WIELD);
-		if (LEVEL(victim) > LEVEL(ch) &&
-		    number_percent() < (get_skill(ch, gsn_resurrection) / 10 *
-                    (LEVEL(victim) - LEVEL(ch)))) {
-		        af.where         = TO_AFFECTS;
-		        af.type      = gsn_resurrection;
-		        af.level     = LEVEL(ch);
-		        af.duration  = number_fuzzy(4);
-		        af.location  = APPLY_NONE;
-		        af.modifier  = 0;
-		        af.bitvector = AFF_RESURRECTION;
-		        affect_join(ch, &af);
-		        char_puts("You gain power of undead!\n", ch);
-			check_improve(ch,gsn_resurrection,TRUE,1);
+		if (LEVEL(victim) > LEVEL(ch)
+		&&  number_percent() < (get_skill(ch, gsn_resurrection) / 10 *
+					(LEVEL(victim) - LEVEL(ch)))) {
+			af.where	= TO_AFFECTS;
+			af.type		= gsn_resurrection;
+			af.level	= LEVEL(ch);
+			af.duration	= number_fuzzy(4);
+			af.location	= APPLY_NONE;
+			af.modifier	= 0;
+			af.bitvector	= AFF_RESURRECTION;
+			affect_join(ch, &af);
+			char_puts("You gain power of undead!\n", ch);
+			check_improve(ch, gsn_resurrection, TRUE, 1);
 		} 
-	}
-	else {
+	} else {
 		check_improve(ch, gsn_vampiric_bite, FALSE, 1);
 		damage(ch, victim, 0, gsn_vampiric_bite, DAM_NONE, DAMF_SHOW);
 	}
@@ -2560,10 +2559,9 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 	ROOM_INDEX_DATA *dest_room;
 	AFFECT_DATA *paf;
 	int damroll = 0, hitroll = 0, sn;
-        int range_hit;
+	int range_hit = -1;
 	AFFECT_DATA af;
 	
-	range_hit = -1;
 	/* instant kill */
 	if (get_skill(ch, gsn_bow) > 90 
 	&&  !IS_NPC(victim)
@@ -2589,7 +2587,8 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 	}
 
 	sn = get_weapon_sn(arrow);
-	if (sn == -1) sn = gsn_throw_weapon;
+	if (sn == -1)
+		sn = gsn_throw_weapon;
 
 	for (paf = arrow->affected; paf != NULL; paf = paf->next) {
 		if (paf->location == APPLY_DAMROLL)
@@ -2603,8 +2602,8 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 		   + (get_curr_stat(ch,STAT_DEX) - 18)) * 2;
 	damroll *= 10;
 	while (1) {
-		range_hit += 1;
-                chance -= 10;
+		range_hit++;
+		chance -= 10;
 		if (victim->in_room == dest_room) {
 			if (number_percent() < chance) { 
 				if (check_obj_dodge(ch, victim, arrow, chance))
@@ -2612,7 +2611,9 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 				act("$p strikes you!",
 				    victim, arrow, NULL, TO_CHAR);
 				act_puts3("Your $p strikes $N on [$J] range!",
-					 ch, arrow, victim,(const void *) &range_hit, TO_CHAR, POS_DEAD);
+					  ch, arrow, victim,
+					  (const void *) range_hit,
+					  TO_CHAR, POS_DEAD);
 				if (ch->in_room == victim->in_room)
 					act("$n's $p strikes $N!",
 					    ch, arrow, victim, TO_NOTVICT);
