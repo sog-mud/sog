@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.59 2002-10-31 11:01:52 tatyana Exp $
+ * $Id: spellfun2.c,v 1.139.2.60 2002-12-03 16:57:40 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2370,6 +2370,11 @@ void spell_disperse(int sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
+	if (IS_SET(ch->in_room->room_flags, ROOM_BATTLE_ARENA)) {
+		act_char("You can't use this power on battle arena.", ch);
+		return;
+	}
+
 	for (vch = ch->in_room->people; vch; vch = vch_next) {
 		vch_next = vch->next_in_room;
 
@@ -3535,7 +3540,9 @@ void turn_spell(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	dam = (dam * align * align) / 1000000;
 	damage(ch, victim, dam, sn, DAM_HOLY, TRUE);
-	if (!IS_EXTRACTED(victim) && !IS_CLAN_GUARD(victim))
+	if (!IS_EXTRACTED(victim)
+	&&  !IS_CLAN_GUARD(victim)
+	&&  !IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA))
 		dofun("flee", victim, str_empty);
 }
 

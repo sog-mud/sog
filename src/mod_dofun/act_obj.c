@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.45 2002-11-23 15:36:25 fjoe Exp $
+ * $Id: act_obj.c,v 1.165.2.46 2002-12-03 16:57:30 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3943,7 +3943,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 
 			/* return money to the buyer */
 			if (auction.buyer != NULL) {
-				auction.buyer->gold += auction.bet;
+				PC(auction.buyer)->bank_g += auction.bet;
 				act_puts("Your money has been returned.",
 					 auction.buyer, NULL, NULL,
 					 TO_CHAR, POS_DEAD);
@@ -3986,10 +3986,11 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 
 		newbet = parsebet(auction.bet, argument);
 
-	        if (newbet > ch->gold) {
-	        	act_puts("You don't have that much money!",
+	        if (newbet > ch->gold
+		&&  newbet > PC(ch)->bank_g) {
+			act_puts("You don't have that much money!",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-	        	return;
+			return;
 	        }
 
 		if (auction.bet > 0) {
@@ -4013,9 +4014,13 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 
 	        /* return the gold to the last buyer, if one exists */
 	        if (auction.buyer != NULL)
-	        	auction.buyer->gold += auction.bet;
+			PC(auction.buyer)->bank_g += auction.bet;
 
-	        ch->gold -= newbet; /* substract the gold - important :) */
+		if (newbet > PC(ch)->bank_g)
+			ch->gold -= newbet;
+		else
+			PC(ch)->bank_g -= newbet;
+
 	        auction.buyer = ch;
 	        auction.bet   = newbet;
 	        auction.going = 0;

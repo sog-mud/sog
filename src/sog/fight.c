@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.62 2002-11-19 14:16:42 tatyana Exp $
+ * $Id: fight.c,v 1.202.2.63 2002-12-03 16:57:48 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1605,7 +1605,8 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 
 	if (!IS_NPC(victim)
 	&&  victim->hit > 0
-	&&  (victim->hit <= victim->wimpy || IS_AFFECTED(victim, AFF_DETECT_FEAR))
+	&&  (victim->hit <= victim->wimpy ||
+	     (IS_AFFECTED(victim, AFF_DETECT_FEAR) && !IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA)))
 	&&  victim->wait < PULSE_VIOLENCE / 2)
 		dofun("flee", victim, str_empty);
 

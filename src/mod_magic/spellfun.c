@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.44 2002-12-03 15:53:06 tatyana Exp $
+ * $Id: spellfun.c,v 1.181.2.45 2002-12-03 16:57:34 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3853,7 +3853,8 @@ void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo)
 	||  IS_SET(ch->in_room->room_flags, ROOM_SAFE | ROOM_NORECALL |
 					    ROOM_PEACE | ROOM_NOSUMMON)
 	||  IS_SET(victim->in_room->room_flags, ROOM_SAFE | ROOM_NORECALL |
-						ROOM_PEACE | ROOM_NOSUMMON)
+						ROOM_PEACE | ROOM_NOSUMMON |
+						ROOM_BATTLE_ARENA)
 	||  IS_SET(ch->in_room->area->area_flags, AREA_CLOSED)
 	||  IS_SET(victim->in_room->area->area_flags, AREA_CLOSED)
 	||  room_is_private(ch->in_room)
