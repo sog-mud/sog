@@ -1,10 +1,41 @@
 Some notes for coders
 ---------------------
 
-			INTRO. COMMON DECLARATIONS
-			--------------------------
+
+		INTRO. COMMON DECLARATIONS AND CONSIDERATIONS.
+		----------------------------------------------
 
 	Formatting style is fully described in 'man 9 style' (FreeBSD).
+
+
+	SoG-specific data types should be named as xxx_t.
+
+	E.g.:
+		typedef struct module_t module_t;
+
+
+	Data types initializing functions must be named as (for type `xxx')
+
+		xxx *xxx_new(...)
+
+	if xxx is allocated dynamically via `malloc'  or `varr_enew' and
+
+		void xxx_init(xxx*)
+
+	if xxx is not allocated dynamically.
+
+	Corresponding deinitializing functions should be named as
+	`xxx_free' (for data types allocated dynamically) and `xxx_destroy'
+	for data types allocated statically.
+
+	E.g.:
+
+		void mlstr_init(mlstring *ml, const char *mval);
+		void mlstr_destroy(mlstring *ml);
+
+		AFFECT_DATA *aff_new();
+		void aff_free(AFFECT_DATA*);
+
 
 			PART I. BASIC TYPES
 			-------------------
@@ -25,3 +56,29 @@ varr
 	varr_init(varr* v, size_t nsize, size_t nstep);
 
 		varr_init simply initializes `nsize' and `nstep' fields of `v'.
+
+
+			PART X. MODULES
+			---------------
+
+	All the dynamically loaded modules should have two functions:
+
+	int _module_load(module_t *m);
+	int _module_unload(module_t *m);
+
+	This functions should are called after `dlopen' and
+	before 'dlclose' correspondingly. This functions should return -1
+	on error (if so, module will not be considered loaded
+	and module will not be unloaded accordingly).
+
+	To ensure that modules and core module use the same ABI
+	(i.e: structures, types and functions definitions are the same) the
+	following scheme was implemented: file src/Makefile.rules
+	contains definition
+
+		ABI_VERSION=n
+
+	where `n' is considered as ABI_VERSION number. When ABI is changed
+	ABI_VERSION should be bumped (e.g.: increased by 1) and appropriate
+	modules should be rebuilt (don't forget to use `make depend'
+	to maintain proper dependancies for make).
