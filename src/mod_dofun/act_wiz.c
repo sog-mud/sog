@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.8 2000-03-27 08:47:19 fjoe Exp $
+ * $Id: act_wiz.c,v 1.186.2.9 2000-03-29 21:48:09 avn Exp $
  */
 
 /***************************************************************************
@@ -3816,6 +3816,8 @@ cleanup:
 			char_save(victim, SAVE_F_PSCAN);
 		char_nuke(victim);
 	}
+	else
+		dofun("save", victim, str_empty);
 }
 
 void do_smite(CHAR_DATA *ch, const char *argument)

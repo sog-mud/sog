@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.3 2000-03-21 09:14:32 osya Exp $
+ * $Id: act_comm.c,v 1.187.2.4 2000-03-29 21:48:06 avn Exp $
  */
 
 /***************************************************************************
@@ -1597,6 +1597,8 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 			char_save(victim, SAVE_F_PSCAN);
 			char_nuke(victim);
 		}
+		else
+			dofun("save", ch, str_empty);
 				
 		return;
 	}
@@ -1665,6 +1667,7 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 	clan_t *clan;
 	PC_DATA *vpc;
+	bool loaded = FALSE, changed = FALSE;
 
 	if (IS_NPC(ch)
 	||  (!IS_IMMORTAL(ch) && PC(ch)->clan_status != CLAN_LEADER)) {
@@ -1685,15 +1688,22 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	victim = get_char_world(ch, arg1);
-	if (!victim || IS_NPC(victim)) {
-		char_puts("They aren't here.\n", ch);
-		return;
+	if ((victim = get_char_world(ch, arg1)) == NULL) {
+		if ((victim = char_load(arg1, LOAD_F_NOCREATE)) == NULL) {
+			act("No such player.", ch, NULL, NULL, TO_CHAR);
+			return;
+		}
+		loaded = TRUE;
 	}
 
 	if (victim->clan == 0 || (clan = clan_lookup(victim->clan)) == NULL
 	||  (victim->clan != ch->clan && !IS_IMMORTAL(ch))) {
 		char_puts("They are not an a clan.\n", ch);
+		return;
+	}
+
+	if (IS_NPC(victim)) {
+		act("Not on mobiles.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
@@ -1720,7 +1730,7 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 		char_puts("Ok.\n", ch);
 		char_puts("They are now leader in their clan.\n", ch);
 		char_puts("You are now leader in your clan.\n", victim);
-		return;
+		changed = TRUE;
 	}
 
 	if (!str_prefix(arg2, "secondary")) {
@@ -1737,7 +1747,7 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 		vpc->clan_status = CLAN_SECOND;
 		char_puts("They are now second in the clan.\n", ch);
 		char_puts("You are now second in the clan.\n", victim);
-		return;
+		changed = TRUE;
 	}
 
 	if (!str_prefix(arg2, "commoner")) {
@@ -1753,10 +1763,17 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 		vpc->clan_status = CLAN_COMMONER;
 		char_puts("They are now commoner in the clan.\n", ch);
 		char_puts("You are now commoner in the clan.\n", victim);
-		return;
+		changed = TRUE;
 	}
 
-	do_promote(ch, str_empty);
+	if (changed && loaded) {
+		char_save(victim, SAVE_F_PSCAN);
+		char_nuke(victim);
+	}
+	else if (changed)
+		dofun("save", victim, str_empty);
+	else
+		do_promote(ch, str_empty);
 }
 
 /*-----------------------------------------------------------------------------

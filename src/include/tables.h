@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: tables.h,v 1.17.2.1 1999-12-16 12:39:52 fjoe Exp $
+ * $Id: tables.h,v 1.17.2.2 2000-03-29 21:48:05 avn Exp $
  */
 
 #ifndef _TABLES_H_
@@ -41,6 +41,7 @@ extern flag_t	form_flags[];
 extern flag_t	part_flags[];
 extern flag_t	comm_flags[];
 extern flag_t	clan_flags[];
+extern flag_t	clan_status_table[];
 extern flag_t	area_flags[];
 extern flag_t	sex_table[];
 extern flag_t	gender_table[];

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.89.2.1 2000-03-29 07:23:06 fjoe Exp $
+ * $Id: tables.c,v 1.89.2.2 2000-03-29 21:48:13 avn Exp $
  */
 
 /***************************************************************************
@@ -381,6 +381,17 @@ flag_t clan_flags[] =
 
 	{ "hidden",		CLAN_HIDDEN,		TRUE	},
 	{ "changed",		CLAN_CHANGED,		FALSE	},
+
+	{ NULL }
+};
+
+flag_t clan_status_table[] =
+{
+	{ "", 			TABLE_INTVAL			},
+
+	{ "leader",		CLAN_LEADER,		TRUE	},
+	{ "second",		CLAN_SECOND, 		TRUE	},
+	{ "commoner",		CLAN_COMMONER,		TRUE	},
 
 	{ NULL }
 };

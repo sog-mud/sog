@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.126.2.6 2000-03-25 17:54:49 avn Exp $
+ * $Id: save.c,v 1.126.2.7 2000-03-29 21:48:13 avn Exp $
  */
 
 /***************************************************************************
@@ -594,7 +594,8 @@ CHAR_DATA *char_load(const char *name, int flags)
 			fread_obj(ch, fp, flags);
 		else if (!str_cmp(word, "PET")) {
 			fread_pet(ch, fp, flags);
-			obj_to = GET_PET(ch);
+			if (GET_PET(ch))
+				obj_to = GET_PET(ch);
 		}
 		else if (!str_cmp(word, "END"))
 			break;

@@ -79,6 +79,21 @@ A Z 0 0
 FH B 0 S
 stand stand either 0
 G 0 small unknown
+#15004
+test~
+test~
+test
+~
+~
+human~
+A 0 0 0
+100 0 1d1+29999 0d0+0 1d1+0 none
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
 #15005
 kitten cat кошечка karapupa~
 @eng little furry kitten@rus ~~маленькая~~ ~~пушистая~~ ~~кошечка~~~
