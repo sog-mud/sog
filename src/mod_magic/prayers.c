@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.66 2004-03-03 09:40:14 tatyana Exp $
+ * $Id: prayers.c,v 1.67 2004-03-03 11:41:21 tatyana Exp $
  */
 
 /***************************************************************************
@@ -157,6 +157,7 @@ DECLARE_SPELL_FUN(prayer_death_ward);
 DECLARE_SPELL_FUN(prayer_spear_of_death);
 DECLARE_SPELL_FUN(prayer_sleep_of_grave);
 DECLARE_SPELL_FUN(prayer_wind_blow);
+DECLARE_SPELL_FUN(prayer_tornado);
 
 static void
 hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
@@ -3721,4 +3722,84 @@ SPELL_FUN(prayer_wind_blow, sn, level, ch, vo)
 		act("Wind is not strong enought to open $d.",
 		    ch, &pexit->short_descr, NULL, TO_ALL);
 	}
+}
+SPELL_FUN(prayer_tornado, sn, level, ch, vo)
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	ROOM_INDEX_DATA *target_room;
+	AFFECT_DATA *paf;
+
+	if (is_sn_affected(ch, sn)) {
+		act_char("You can't use this ability so soon again.", ch);
+		return;
+	}
+
+	if (victim == ch) {
+		act_char("It's too dangerous.", ch);
+		return;
+	}
+
+	if (IS_SET(ch->in_room->room_flags, ROOM_INDOORS)) {
+		act_char("You can't create tornado here.", ch);
+		return;
+	}
+
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->duration	= level / 15;
+	paf->level	= level;
+	affect_to_char(ch, paf);
+	aff_free(paf);
+
+	if (IS_SET(victim->in_room->room_flags, ROOM_NORECALL)
+	||  (!IS_NPC(ch) && victim->fighting != NULL)
+	||  (!IS_NPC(ch) && !in_PK(ch, victim))
+	||  (victim != ch &&
+	     saves_spell(level - 5, victim, DAM_OTHER))) {
+		act("Tornado picks up $N and drops $gN{him} right away.",
+		    ch, NULL, victim, TO_CHAR);
+		act("Tornado picks up $N and drops $gN{him} right away.",
+		    ch, NULL, victim, TO_NOTVICT);
+		act("Tornado picks up you and drops right away.",
+		    ch, NULL, victim, TO_VICT);
+		return;
+	}
+
+        /*
+         * can't teleport charmed creature if master
+         * !in_PK, the same for mounts
+         */
+        if (IS_NPC(victim)) {
+                CHAR_DATA *master = NULL;
+
+                if (IS_AFFECTED(victim, AFF_CHARM)
+                &&  victim->master != NULL)
+                        master = victim->master;
+                else if (victim->mount != NULL)
+                        master = victim->mount;
+
+                if (master != NULL
+                &&  (!in_PK(ch, master) ||
+                     (!IS_NPC(master) &&
+                      saves_spell(level - 5, master, DAM_OTHER)))) {
+			act("Tornado picks up $N and drops $gN{him} right "
+			    "away.", ch, NULL, victim, TO_CHAR);
+			act("Tornado picks up $N and drops $gN{him} right "
+			    "away.", ch, NULL, victim, TO_NOTVICT);
+			act("Tornado picks up you and drops right away.",
+			    ch, NULL, victim, TO_VICT);
+                        return;
+                }
+        }
+
+	for (;;) {
+		target_room = get_random_room(victim, NULL);
+		if (!IS_SET(target_room->room_flags, ROOM_INDOORS))
+			break;
+	}
+
+	teleport_char(victim, ch, target_room,
+		      "Tornado picks up $n and $gn{he} vanishes!",
+		      "Tornado picks up you!",
+		      "Tornado appears from nowhere and drops $n to the ground.");
+
 }
