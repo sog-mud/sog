@@ -225,7 +225,7 @@ Syntax: down
 
 Use these commands to walk in a particular direction.
 ~
--1 NAME~
+-2 NAME~
 NAME POLICY:
 In order to create a role-playing and adventure atmosphere throughout the
 realms of Muddy, you must choose a name accordingly explained below:
@@ -1580,10 +1580,10 @@ Syntax: cast blindness <victim>
 This spell renders the target character blind.
 ~
 
-0 'ACID BLAST''ACID ARROW''CAUSTIC FONT''SULFURUS SPRAY''QUANTUM SPIKE'
-'BURNING HANDS''ACETUM PRIMUS''SONIC RESONANCE''HAND OF UNDEAD''ETHERAL FIST'
-'COLOUR SPRAY''FIREBALL''LIGHTNING BOLT''MAGIC MISSILE''SHOCKING GRASP'
-'ICEBALL''MIND WRENCH''MIND WRACK'
+0 'ACID BLAST' 'ACID ARROW' 'CAUSTIC FONT' 'SULFURUS SPRAY' 'QUANTUM SPIKE'
+'BURNING HANDS' 'ACETUM PRIMUS' 'SONIC RESONANCE' 'HAND OF UNDEAD'
+'ETHERAL FIST' 'COLOUR SPRAY' 'FIREBALL' 'LIGHTNING BOLT' 'MAGIC MISSILE'
+'SHOCKING GRASP' 'ICEBALL' 'MIND WRENCH' 'MIND WRACK'
 ~
 Syntax: cast 'acid blast'     <victim>
 Syntax: cast 'burning hands'  <victim>
@@ -2100,7 +2100,7 @@ See also:  CLASS, WORLD
 
 ~
 
--1 'RACETABLE'~
+-2 'RACETABLE'~
 
 RACE       ACRONYM   GOOD_AT  BAD_AT   EXTRA    COMMENTS
 -----      -------   -------  ------   -----    -------------------
@@ -2320,7 +2320,7 @@ Hindered by their slow intellect and mobility, the troll society seems to
 have decided as a whole to rejoin the races of the realms, moving out of
 their sanctuaries in numbers reaching high into the thousands
 ~
--1 'CLASS' 'CLASSES' 'CLASS HELP'~
+-2 'CLASS' 'CLASSES' 'CLASS HELP'~
 
 Here are the classes and their extra cost per level.
 For more information, type "help <class>".
@@ -2683,7 +2683,8 @@ Remember to roleplay, not just kill anyone.
 Do not drop link to avoid getting pked.  This is a sure-fire way to get
 yourself killed, not by the attacker but by the immortals.
 
-See also: ROLEPLAYING GROUP ALIGNMENT~
+See also: ROLEPLAYING GROUP ALIGNMENT
+~
 
 0 ALIGNMENT~
 In the interest of attracting the right caliber of followers, the
@@ -3423,6 +3424,15 @@ Here are the types of the damages, from small to...
                      <*>!(*)!<*>> TEAR UP <<*)!(*)!<*>
                       <*) (*>= ! POWER HIT ! =<*) (*>
 
+~
+
+0 WIN1251~
+
+	This help is only for russian win1251 (MS Windows) codepage players.
+
+        Если от вас не приходит буква 'Я' маленькая, то попробуйте сказать
+{Cnotelnet{x. Для того, чтобы маленькая буква 'Я' транслировалась в большую,
+попробуйте {Cnoiac{x.
 ~
 
 0 $~

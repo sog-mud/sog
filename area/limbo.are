@@ -440,6 +440,92 @@ ebony~
 weapon A AN
 staff 0 0 pierce 0
 0 160 0 P 
+#30
+dummy object~
+a dummy object~
+Dummy object used for loading non-existent objects~
+~
+trash 0 0
+0 0 0 0 0
+0 0 0 P
+#31
+sword hero~
+the %s Sword of %s~
+An enormous, huge SWORD lies here, filling the room with its power.~
+platinum~
+weapon AGIOY ANP
+sword 10 4 slash D
+21 100 100000 G
+A
+1 2
+A
+2 2
+A
+4 2
+A
+6 1
+A
+19 25
+A
+18 25
+A
+12 200
+A
+13 200
+A
+14 500
+#32
+dagger hero~
+the %s Dagger of %s~
+An enormous, huge DAGGER lies here, filling the room with its power.~
+platinum~
+weapon AGIOY ANP
+dagger 10 4 pierce D
+21 100 100000 G
+A
+1 2
+A
+2 2
+A
+4 2
+A
+6 1
+A
+19 25
+A
+18 25
+A
+12 200
+A
+13 200
+A
+14 500
+#33
+mace hero~
+the %s Mace of %s~
+An enormous, huge MACE lies here, filling the room with its power.~
+platinum~
+weapon AGIOY ANP
+mace 10 4 pound D
+21 100 100000 G
+A
+1 2
+A
+2 2
+A
+4 2
+A
+6 1
+A
+19 25
+A
+18 25
+A
+12 200
+A
+13 200
+A
+14 500
 #42
 vial potion~
 a potion vial~
@@ -1000,7 +1086,13 @@ O 92 wear_prog wear_prog_fire_shield
 O 92 remove_prog remove_prog_fire_shield
 O 94 get_prog get_prog_quest_reward
 O 95 get_prog get_prog_quest_reward
+O 31 get_prog get_prog_quest_reward
+O 32 get_prog get_prog_quest_reward
+O 33 get_prog get_prog_quest_reward
 O 96 get_prog get_prog_quest_reward
+O 31 wear_prog wear_prog_quest_weapon
+O 32 wear_prog wear_prog_quest_weapon
+O 33 wear_prog wear_prog_quest_weapon
 O 96 wear_prog wear_prog_quest_weapon
 O 98 wear_prog wear_prog_katana_sword
 M 15 death_prog death_prog_stalker
