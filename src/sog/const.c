@@ -1,5 +1,5 @@
 /*
- * $Id: const.c,v 1.5 1998-04-29 11:01:23 fjoe Exp $
+ * $Id: const.c,v 1.6 1998-05-11 20:46:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -5824,6 +5824,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 
+/*
     {
 	"recall",		{  1,  1,  1,  1,1,1,1,1 ,1,1,1,1,1},
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
@@ -5832,6 +5833,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	"",			"!Recall!",		"", CABAL_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
+*/
 
     {
 	"red arrow",		{ 93, 93, 93,93,93,93,93,44,93,93,93,93,93 },

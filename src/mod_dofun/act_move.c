@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.33 1998-05-11 19:23:33 fjoe Exp $
+ * $Id: act_move.c,v 1.34 1998-05-11 20:46:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1961,10 +1961,12 @@ void do_visible(CHAR_DATA *ch, char *argument)
 
 void do_recall(CHAR_DATA *ch, char *argument)
 {
-	CHAR_DATA *victim;
 	ROOM_INDEX_DATA *location;
 	int point;
+#ifdef 0
+	CHAR_DATA *victim;
 	int lose,skill;
+#endif
  
 	if (IS_GOOD(ch))      
 		point = hometown_table[ch->hometown].recall[0];
@@ -2017,6 +2019,7 @@ void do_recall(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
+#ifdef 0
 	if ((victim = ch->fighting) != NULL)
 	{
 		send_to_char(msg(MOVE_YOU_ARE_STILL_FIGHTING, ch), ch);
@@ -2040,6 +2043,7 @@ void do_recall(CHAR_DATA *ch, char *argument)
 		char_printf(ch, msg(MOVE_RECALL_FROM_COMBAT, ch), lose);
 		stop_fighting(ch, TRUE); 
 	}
+#endif
 
 	ch->move /= 2;
 	act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
@@ -2050,12 +2054,11 @@ void do_recall(CHAR_DATA *ch, char *argument)
 				MOVE_N_APPEARS_IN_THE_ROOM);
 	do_look(ch, "auto");
 	
-	if (ch->pet != NULL)
-		{
- 	char_from_room(ch->pet);
+	if (ch->pet != NULL) {
+ 		char_from_room(ch->pet);
 		char_to_room(ch->pet, location);
 		do_look(ch->pet, "auto");
-		}
+	}
 
 	return;
 }
