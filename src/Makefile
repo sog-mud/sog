@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.60.2.4 2003-09-08 17:15:19 fjoe Exp $
+# $Id: Makefile,v 1.60.2.5 2004-02-22 16:48:21 fjoe Exp $
 #
 
 .include "${.CURDIR}/Makefile.modules"
@@ -31,8 +31,8 @@ gtags:
 #	egrep -v '^mod_olc/|^mod_mpc/|^sog/objval.c$$' |\
 #	egrep -v '^sog/special.c$$'
 
-checktrans: .PHONY
-	./checktrans.pl -u ${CHECKTRANS_FILES}
+#checktrans: .PHONY
+#	./checktrans.pl -u ${CHECKTRANS_FILES}
 
 .include "Makefile.osdep"
 .include <bsd.subdir.mk>
