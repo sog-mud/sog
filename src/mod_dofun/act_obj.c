@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.15 1998-06-03 20:44:07 fjoe Exp $
+ * $Id: act_obj.c,v 1.16 1998-06-06 02:19:29 efdi Exp $
  */
 
 /***************************************************************************
@@ -3276,7 +3276,6 @@ void do_list(CHAR_DATA *ch, char *argument)
 void do_sell(CHAR_DATA *ch, char *argument)
 {
 	  char buf[MAX_STRING_LENGTH];
-	  char buf2[MAX_STRING_LENGTH];
 	  char arg[MAX_INPUT_LENGTH];
 	  CHAR_DATA *keeper;
 	  OBJ_DATA *obj;
@@ -3341,13 +3340,15 @@ void do_sell(CHAR_DATA *ch, char *argument)
 	  silver = cost - (cost/100) * 100;
 	  gold   = cost/100;
  
-	  sprintf(buf2, "You sell $p for %s %s%spiece%s.",
-	    silver!=0?"%d silver":"",                         /* silvers  */
-	    (silver!=0 && gold != 0)?"and ":"",		/*   and    */
-	    gold!=0?"%d gold ":"",				/*  golds   */
-	    silver+gold>1?"s":"");				/* piece(s) */
-	  sprintf(buf, buf2, silver, gold);
-	         
+	  if (gold && silver)
+		sprintf(buf, "You sell $p for %d gold and %d silver pieces.",
+				gold, silver);
+	  else if (gold)
+		sprintf(buf, "You sell $p for %d gold pieces%s.",
+				gold, gold > 1 ? "s" : "");
+	  else if (silver)
+		sprintf(buf, "You sell $p for %d silver pieces%s.",
+				silver, silver > 1 ? "s" : "");
 	  act(buf, ch, obj, NULL, TO_CHAR);
 	  ch->gold     += gold;
 	  ch->silver 	 += silver;
