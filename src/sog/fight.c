@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.116 1998-12-29 16:43:31 fjoe Exp $
+ * $Id: fight.c,v 1.117 1999-01-03 13:54:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1442,20 +1442,19 @@ bool cant_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 
 bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 {
-	bool safe = cant_kill(ch, victim);
-	if (IS_NPC(victim) && IS_SET(victim->affected_by,AFF_CHARM)
-		&& victim->master!=NULL) return is_safe_nomessage(ch,victim->master);
-	if (safe || IS_NPC(ch))
-		return safe;
+	bool safe;
+	CHAR_DATA *mount;
 
-#if 0
-	if (victim != ch
-	&&  ch->fighting != victim
-	&&  (IS_SET(victim->affected_by, AFF_CHARM) || !IS_NPC(victim)))
-		doprintf(do_yell, victim,
-			 "Help! %s is attacking me!",
-			 PERS(ch, victim));
-#endif
+	if (IS_NPC(victim)
+	&&  IS_SET(victim->affected_by, AFF_CHARM)
+	&&  victim->master)
+		return is_safe_nomessage(ch, victim->master);
+
+	if ((mount = RIDDEN(victim)))
+		return is_safe_nomessage(ch, mount);
+
+	if ((safe = cant_kill(ch, victim)) || IS_NPC(ch))
+		return safe;
 
 	if (victim != ch && IS_SET(ch->plr_flags, PLR_GHOST)) {
 		char_puts("You return to your normal form.\n", ch);

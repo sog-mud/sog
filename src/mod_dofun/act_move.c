@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.128 1998-12-28 14:26:40 kostik Exp $
+ * $Id: act_move.c,v 1.129 1999-01-03 13:54:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2940,11 +2940,9 @@ void do_mount(CHAR_DATA *ch, const char *argument)
 
 void do_dismount(CHAR_DATA *ch, const char *argument)
 {
-	struct char_data *mount;
+	CHAR_DATA *mount;
 
-	if (MOUNTED(ch)) {
-		mount = MOUNTED(ch);
-
+	if ((mount = MOUNTED(ch))) {
 		act_puts("You dismount from $N.",
 			 ch, NULL, mount, TO_CHAR, POS_DEAD); 
 		act("$n dismounts from $N.", ch, NULL, mount, TO_NOTVICT);
