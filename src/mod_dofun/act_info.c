@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.40 2001-10-25 18:53:07 tatyana Exp $
+ * $Id: act_info.c,v 1.271.2.41 2001-12-05 16:50:10 avn Exp $
  */
 
 /***************************************************************************
@@ -4722,14 +4722,14 @@ show_clanlist(CHAR_DATA *ch, clan_t *clan,
 
 		r = race_lookup(vch->race);
 		cl = class_lookup(vch->class);
-		buf_printf(output, "%-8s  %3d  %-5s  %-3s  %7s-%-7s %s\n",
+		buf_printf(output, "%-8s  %3d  %-5s  %-3s  %7s-%-7s %s%s\n",
 			flag_string(clan_status_table, PC(vch)->clan_status),
 			vch->level,
 			r && r->race_pcdata ? r->race_pcdata->who_name : "none",
 			cl ? cl->who_name : "none",
 			flag_string(ethos_table, vch->ethos),
 			flag_string(align_names, NALIGN(vch)),
-			vch->name);
+			vch->name, PC(vch)->title);
 		char_nuke(vch);
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.26 2001-11-11 20:37:12 avn Exp $
+ * $Id: act_wiz.c,v 1.186.2.27 2001-12-05 16:50:12 avn Exp $
  */
 
 /***************************************************************************
@@ -4074,10 +4074,9 @@ void do_title(CHAR_DATA *ch, const char *argument)
 	char_puts("Ok.\n", ch);
 
 cleanup:
-	if (loaded) {
-		char_save(victim, SAVE_F_PSCAN);
+	char_save(victim, loaded ? SAVE_F_PSCAN : 0);
+	if (loaded)
 		char_nuke(victim);
-	}
 }
 
 /*
