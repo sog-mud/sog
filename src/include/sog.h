@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.50 2004-02-11 22:25:27 sg Exp $
+ * $Id: sog.h,v 1.51 2004-02-12 22:01:09 sg Exp $
  */
 
 #ifndef _SOG_H_
@@ -427,6 +427,8 @@ DECLARE_PROC2(affect_remove_obj,
 	      ARG(OBJ_DATA), obj, ARG(AFFECT_DATA), paf)
 DECLARE_PROC2(affect_strip,
 	      ARG(CHAR_DATA), ch, ARG(cchar_t), sn)
+DECLARE_PROC2(affect_strip_obj,
+	      ARG(OBJ_DATA), obj, ARG(cchar_t), sn)
 DECLARE_PROC3(affect_bit_strip,
 	      ARG(CHAR_DATA), ch, ARG(int), where, ARG(flag_t), bits)
 DECLARE_PROC2(affect_join,
@@ -434,6 +436,8 @@ DECLARE_PROC2(affect_join,
 
 DECLARE_FUN2(bool, is_sn_affected,
 	     ARG(CHAR_DATA), ch, ARG(cchar_t), sn)
+DECLARE_FUN2(bool, is_sn_affected_obj,
+	     ARG(OBJ_DATA), obj, ARG(cchar_t), sn)
 DECLARE_FUN3(AFFECT_DATA, is_bit_affected,
 	     ARG(CHAR_DATA), ch, ARG(int), where, ARG(flag_t), bits)
 DECLARE_FUN2(bool, has_obj_affect,

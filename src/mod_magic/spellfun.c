@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.316 2004-02-12 00:28:29 sg Exp $
+ * $Id: spellfun.c,v 1.317 2004-02-12 22:01:09 sg Exp $
  */
 
 /***************************************************************************
@@ -8092,7 +8092,7 @@ SPELL_FUN(spell_snake_rune, sn, level, ch, vo)
 
 	act("You try to write a rune on $p.", ch, obj, NULL, TO_CHAR);
 
-	if (affect_find(obj->affected, sn) != NULL) {
+	if (is_sn_affected_obj(obj, sn)) {
 		act("You write the runes on $p, but they fade away.",
 		    ch, obj, NULL, TO_CHAR);
 		return;

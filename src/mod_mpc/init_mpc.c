@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.56 2003-10-08 09:49:34 tatyana Exp $
+ * $Id: init_mpc.c,v 1.57 2004-02-12 22:01:10 sg Exp $
  */
 
 #include <dlfcn.h>
@@ -338,6 +338,7 @@ const char *mpc_dynafuns[] = {
 	"act_say",
 	"act_yell",
 	"affect_strip",
+	"affect_strip_obj",
 	"backstab_char",
 	"calc_spell_damage",
 	"can_backstab",
@@ -375,6 +376,7 @@ const char *mpc_dynafuns[] = {
 	"is_safe_nomessage",
 	"is_same_group",
 	"is_sn_affected",
+	"is_sn_affected_obj",
 	"lock_door",
 	"lock_obj",
 	"look_char",

@@ -1,5 +1,5 @@
 #
-# $Id: mprogs.txt,v 1.24 2004-02-12 20:17:23 sg Exp $
+# $Id: mprogs.txt,v 1.25 2004-02-12 22:01:08 sg Exp $
 #
 
 MPC code style
@@ -317,6 +317,9 @@ affect_char(Char ch, int where, string sn, int level, int duration,
 affect_strip(Char ch, string aff)
   снимается аффект aff с чара ch
 
+affect_strip_obj(Obj p, string aff)
+  снимается аффект aff с объекта p
+
 int calc_spell_damage(Char ch, int level, string sn);
   считается дамадж, который должен нанестись умением sn ("acid blast")
   уровня level чаром ch
@@ -516,6 +519,9 @@ bool is_same_group(Char first, Char second)
 
 bool is_sn_affected(Char ch, string sn)
   наложен ли на чара аффект sn (e.g. "berserk")
+
+bool is_sn_affected_obj(Obj p, string sn)
+  наложен ли на объект аффект sn (e.g. "snake rune")
 
 bool is_wanted(Char ch)
   является лм чар ch WANTED

@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.88 2004-02-11 23:13:05 fjoe Exp $
+ * $Id: affects.c,v 1.89 2004-02-12 22:01:10 sg Exp $
  */
 
 /***************************************************************************
@@ -362,6 +362,27 @@ affect_strip(CHAR_DATA *ch, const char *sn)
 }
 
 /*
+ * Strip all affects of a given sn from obj.
+ */
+void
+affect_strip_obj(OBJ_DATA *obj, const char *sn)
+{
+	AFFECT_DATA *paf;
+	AFFECT_DATA *paf_next;
+
+	STRKEY_CHECK(&skills, sn);
+
+	for (paf = obj->affected; paf; paf = paf_next) {
+		paf_next = paf->next;
+
+		if (!IS_SKILL(paf->type, sn))
+			continue;
+
+		affect_remove_obj(obj, paf);
+	}
+}
+
+/*
  * strip all affects which affect given bitvector
  */
 void
@@ -556,6 +577,15 @@ affect_strip_room(ROOM_INDEX_DATA *room, const char *sn)
 		if (IS_SKILL(paf->type, sn))
 			affect_remove_room(room, paf);
 	}
+}
+
+/*
+ * Return true if obj is affected by a spell.
+ */
+bool
+is_sn_affected_obj(OBJ_DATA *obj, const char *sn)
+{
+	return affect_find(obj->affected, sn) != NULL;
 }
 
 /*
