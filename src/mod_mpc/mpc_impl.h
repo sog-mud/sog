@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_impl.h,v 1.3 2001-06-18 17:11:52 fjoe Exp $
+ * $Id: mpc_impl.h,v 1.4 2001-06-18 18:21:26 fjoe Exp $
  */
 
 #ifndef _MPC_CODE_H_
@@ -146,7 +146,7 @@ c_push_const(prog_t *prog);
 /**
  * Push variable on data stack
  *
- * Expects next opcode to be 'sym_t *'.
+ * Expects next opcode to be variable name.
  */
 void
 c_push_var(prog_t *prog);
@@ -162,7 +162,7 @@ c_push_retval(prog_t *prog);
 /*--------------------------------------------------------------------
  * binary operations
  *
- * all of them pop two arguments from data stack and push the result back
+ * all of them pop two arguments from data stack and push the result back.
  */
 
 void	c_bop_lor(prog_t *prog);	/* || */
@@ -191,10 +191,30 @@ void	c_bop_ne_string(prog_t *prog);	/* == for strings (case-sensitive) */
 void	c_bop_eq_string(prog_t *prog);	/* != for strings (case-sensitive) */
 
 /*--------------------------------------------------------------------
+ * unary operations
+ *
+ * all of them pop one argument from data stack and push the result back.
+ */
+void	c_uop_not(prog_t *prog);	/* ! */
+void	c_uop_compl(prog_t *prog);	/* ~ */
+void	c_uop_minus(prog_t *prog);	/* - (unary) */
+
+/*--------------------------------------------------------------------
+ * incdec operations
+ *
+ * all of them expect next opcode to be variable name.
+ * push the result on data stack.
+ */
+void	c_postinc(prog_t *prog);	/* post ++ */
+void	c_postdec(prog_t *prog);	/* post -- */
+void	c_preinc(prog_t *prog);		/* pre ++ */
+void	c_predec(prog_t *prog);		/* pre -- */
+
+/*--------------------------------------------------------------------
  * assign operations
  *
- * all of them pop one argument from data stack and push the result back
- * next op is expected to be symbol
+ * all of them pop one argument from data stack and push the result back.
+ * next op is expected to be variable name.
  */
 
 void	c_assign(prog_t *prog);		/* = */

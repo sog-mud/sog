@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.4 2001-06-18 17:11:52 fjoe Exp $
+ * $Id: mpc.y,v 1.5 2001-06-18 18:21:26 fjoe Exp $
  */
 
 /*
@@ -172,38 +172,76 @@ alloc_string(prog_t *prog, const char *s)
 	return *p;
 }
 
-#define BOP_CHECK_TYPES(opname, op1, op2)				\
+#define SYM_LOOKUP(sym, ident, symtype)					\
 	do {								\
-		if (op1 != op2) {					\
+		/*							\
+		 * lookup symbol					\
+		 */							\
+		if ((sym = sym_lookup(prog, (ident))) == 0) {		\
+			free_string(ident);				\
 			compile_error(prog,				\
-			    "Invalid operand types for '%s' (%d vs. %d)",\
-			    opname, op1, op2);				\
+			    "%s: unknown identifier", (ident));		\
+			YYERROR;					\
+		}							\
+		free_string(ident);					\
+									\
+		if (sym->type != (symtype)) {				\
+			compile_error(prog,				\
+			    "%s: not a %d", (ident), (symtype));	\
 			YYERROR;					\
 		}							\
 	} while (0)
 
-#define OP_INVALID_OPERAND(opname, op)					\
+#define OP_INVALID_OPERAND(opname, type_tag)				\
 	do {								\
 		compile_error(prog,					\
 		    "Invalid operand for '%s' (%d)",			\
-		    (opname), (op));					\
+		    (opname), (type_tag));				\
 		YYERROR;						\
 	} while (0)
 
-#define INT_BOP(opname, c_bop_fun, op1, op2, rv)			\
+#define INT_OP(opname, type_tag, c_fun)					\
 	do {								\
-		BOP_CHECK_TYPES(opname, op1, op2);			\
-									\
-		switch (op1) {						\
+		switch (type_tag) {					\
 		case MT_INT:						\
-			code(prog, c_bop_fun);				\
+			code(prog, c_fun);				\
 			break;						\
 									\
 		default:						\
-			OP_INVALID_OPERAND(opname, op1);		\
+			OP_INVALID_OPERAND((opname), (type_tag));	\
+			/* NOTREACHED */				\
 		}							\
-									\
-		rv = MT_INT;						\
+	} while (0)
+
+#define BOP_CHECK_TYPES(opname, type_tag1, type_tag2)			\
+	do {								\
+		if ((type_tag1) != (type_tag2)) {			\
+			compile_error(prog,				\
+			    "Invalid operand types for '%s' (%d vs. %d)",\
+			    (opname), (type_tag1), (type_tag2));	\
+			YYERROR;					\
+		}							\
+	} while (0)
+
+#define INT_BOP(opname, c_bop_fun, type_tag1, type_tag2, rv)		\
+	do {								\
+		BOP_CHECK_TYPES((opname), (type_tag1), (type_tag2));	\
+		INT_OP((opname), (type_tag1), (c_bop_fun));		\
+		(rv) = MT_INT;						\
+	} while (0)
+
+#define INT_UOP(opname, c_uop_fun, type_tag, rv)			\
+	do {								\
+		INT_OP(opname, type_tag, c_uop_fun);			\
+		(rv) = MT_INT;						\
+	} while (0)
+
+#define INCDEC_UOP(opname, c_uop_fun, ident, rv)			\
+	do {								\
+		sym_t *sym;						\
+		SYM_LOOKUP(sym, (ident), SYM_VAR);			\
+		INT_UOP((opname), c_uop_fun, sym->s.var.type_tag, (rv));\
+		code(prog, sym->name);					\
 	} while (0)
 
 %}
@@ -317,23 +355,9 @@ stmt:	';'
 expr:	  L_IDENT assign expr %prec '=' {
 		sym_t *sym;
 
-		/*
-		 * lookup symbol
-		 */
-		if ((sym = sym_lookup(prog, $1)) == 0) {
-			free_string($1);
-			compile_error(prog, "%s: unknown identifier", $1);
-			YYERROR;
-		}
-		free_string($1);
-
-		if (sym->type != SYM_VAR) {
-			compile_error(prog, "%s: not a variable", $1);
-			YYERROR;
-		}
-
+		SYM_LOOKUP(sym, $1, SYM_VAR);
 		if (sym->s.var.type_tag != $3) {
-			compile_error(prog, "type mismatch (%d vs. %d",
+			compile_error(prog, "type mismatch (%d vs. %d)",
 			    sym->s.var.type_tag, $3);
 			YYERROR;
 		}
@@ -346,20 +370,7 @@ expr:	  L_IDENT assign expr %prec '=' {
 		sym_t *sym;
 		dynafun_data_t *d;
 
-		/*
-		 * lookup symbol
-		 */
-		if ((sym = sym_lookup(prog, $1)) == 0) {
-			free_string($1);
-			compile_error(prog, "%s: unknown identifier", $1);
-			YYERROR;
-		}
-		free_string($1);
-
-		if (sym->type != SYM_FUNC) {
-			compile_error(prog, "%s: not a function", $1);
-			YYERROR;
-		}
+		SYM_LOOKUP(sym, $1, SYM_FUNC);
 		if ((d = dynafun_data_lookup(sym->name)) == NULL) {
 			compile_error(prog, "%s: no such dynafun", sym->name);
 			YYERROR;
@@ -402,21 +413,7 @@ expr:	  L_IDENT assign expr %prec '=' {
 	| L_IDENT {
 		sym_t *sym;
 
-		/*
-		 * lookup symbol
-		 */
-		if ((sym = sym_lookup(prog, $1)) == 0) {
-			free_string($1);
-			compile_error(prog, "%s: unknown identifier", $1);
-			YYERROR;
-		}
-		free_string($1);
-
-		if (sym->type != SYM_VAR) {
-			compile_error(prog, "%s: not a variable", $1);
-			YYERROR;
-		}
-
+		SYM_LOOKUP(sym, $1, SYM_VAR);
 		code2(prog, c_push_var, sym->name);
 		$$ = sym->s.var.type_tag;
 	}
@@ -513,12 +510,27 @@ expr:	  L_IDENT assign expr %prec '=' {
 		INT_BOP("/", c_bop_div, $1, $3, $$);
 	}
 	| L_NOT expr {
-		/* XXX c_op_not */
+		INT_UOP("!", c_uop_not, $2, $$);
 	}
 	| '~' expr {
-		/* XXX c_op_compl */
+		INT_UOP("~", c_uop_compl, $2, $$);
 	}
 	| '(' expr ')'		{ $$ = $2; }
+	| '-' expr %prec L_NOT {
+		INT_UOP("-", c_uop_minus, $2, $$);
+	}
+	| L_IDENT L_INC			/* normal precedence here */ {
+		INCDEC_UOP("++", c_postinc, $1, $$);
+	}
+	| L_IDENT L_DEC			/* normal precedence here */ {
+		INCDEC_UOP("--", c_postdec, $1, $$);
+	}
+	| L_INC L_IDENT %prec L_NOT	/* note lower precedence here */ {
+		INCDEC_UOP("++", c_preinc, $2, $$);
+	}
+	| L_DEC L_IDENT %prec L_NOT	/* note lower precedence here */ {
+		INCDEC_UOP("--", c_predec, $2, $$);
+	}
 	;
 
 assign:	'='		{ $$ = c_assign; }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_c.c,v 1.3 2001-06-18 17:11:52 fjoe Exp $
+ * $Id: mpc_c.c,v 1.4 2001-06-18 18:21:26 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -263,6 +263,51 @@ c_bop_eq_string(prog_t *prog)
 	TRACE;
 	/* XXX */
 }
+
+/*--------------------------------------------------------------------
+ * unary operations
+ */
+
+#define INT_UOP(c_uop_fun, op)						\
+	void								\
+	c_uop_fun(prog_t *prog)						\
+	{								\
+		vo_t *v1;						\
+		vo_t v;							\
+									\
+		TRACE;							\
+									\
+		v1 = pop(prog);						\
+		v.i = op v1->i;						\
+		push(prog, v);						\
+	}
+
+INT_UOP(c_uop_not, !)
+INT_UOP(c_uop_compl, ~)
+INT_UOP(c_uop_minus, -)
+
+/*--------------------------------------------------------------------
+ * incdec operations
+ */
+
+#define INT_INCDEC(c_incdec_fun, preop, postop)				\
+	void								\
+	c_incdec_fun(prog_t *prog)					\
+	{								\
+		sym_t *sym;						\
+		vo_t v;							\
+									\
+		TRACE;							\
+									\
+		sym = sym_get(prog, SYM_VAR);				\
+		v.i = preop sym->s.var.data.i postop;			\
+		push(prog, v);						\
+	}
+
+INT_INCDEC(c_postinc, , ++)
+INT_INCDEC(c_postdec, , --)
+INT_INCDEC(c_preinc, ++, )
+INT_INCDEC(c_predec, --, )
 
 /*--------------------------------------------------------------------
  * assign operations
