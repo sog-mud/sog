@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.35 1998-05-27 20:38:23 fjoe Exp $
+ * $Id: comm.c,v 1.36 1998-05-28 17:46:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2658,18 +2658,18 @@ void char_puts(const char *txt, CHAR_DATA *ch)
 	if (txt == NULL || ch->desc == NULL)
 		return;
 
-	for(p = txt, q = buf; *p; p++, q++) {
-		if (*p == '{') {
-			if (*++p == '\0')
-				break;
+	for(p = txt, q = buf; *p; p++) {
+		if (*p == '{' && *(p+1)) {
+			p++;
 			if (IS_SET(ch->act, PLR_COLOR)) {
 				strcpy(q, color(*p, ch));
 				while (*q) q++;
+				continue;
 			}
-			if (*p != '{')
+			else if (*p != '{')
 				continue;
 		}
-		*q = *p;
+		*q++ = *p;
 	}			
 	*q = '\0';
 	write_to_buffer(ch->desc, buf, q - buf);
