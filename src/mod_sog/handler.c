@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.226 1999-12-22 08:29:09 fjoe Exp $
+ * $Id: handler.c,v 1.227 1999-12-23 04:43:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -885,7 +885,7 @@ CHAR_DATA *get_char_room_raw(CHAR_DATA *ch, const char *name, uint *number,
 		vch = (is_affected(rch, "doppelganger") &&
 		       (IS_NPC(ch) || !IS_SET(PC(ch)->plr_flags, PLR_HOLYLIGHT))) ?
 					rch->doppel : rch;
-		if (name[0] && !is_name(name, vch->name))
+		if ((!IS_IMMORTAL(ch) || name[0]) && !is_name(name, vch->name))
 			continue;
 
 		if (!--(*number))
