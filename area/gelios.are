@@ -56,7 +56,7 @@ sit sit male 0
 0 0 medium unknown
 M random 94103 7~
 #94105
-dragon~
+dragon appledragon~
 @eng Tiny beautiful dragon@rus Прекрасный дракон~
 @eng Beautiful dragon flying here.
 @rus {WПрекрасный дракон{x летает в воздухе.
@@ -71,8 +71,8 @@ stand stand none 0
 D X tiny unknown
 F for AHMV
 F par BCDEGHIJK
-M random 94104 2~
 M random 94105 1~
+M random 94104 3~
 #0
 
 #OBJECTS
@@ -292,10 +292,11 @@ endif
 #94104
 say Hi, stranger
 cast teleport
-mob load 94108
+mob oload 94108
 drop apple
 ~
 #94105
+say I must go home!
 mob goto 94100
 ~
 #0

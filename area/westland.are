@@ -123,7 +123,7 @@ human~
 ABT Vb -1000 0
 56 0 50d10+6000 10d10+3000 10d4+24 wrath
 -25 -25 -25 0
-BCDEFGHIKNV AH BL J
+BCDEFGHIKNUV AH BL J
 stand stand male 300
 0 0 large unknown
 #10007
@@ -1018,8 +1018,8 @@ furniture A 0
 0 0 0 0 0
 91 90 90 P
 E
-west land westland~
-****************************************************************
+west land westland sign вестландия знак~
+@eng ****************************************************************
 *^\^\        /^/^\^\^\^\      /^\^/^/^/^/^/^\^\^\^\^\^\^\^\^\  * 
 *^\      /^\^/^/^/^\^/^\   N      /^\^\^/^\^\^\^\^/^\^\^\^\    * 
 *     /^\^/^\^/^/^/^/^\    |         /^/^/^/^/^/^\^/^\^\^\^\^\ * 
@@ -1054,14 +1054,41 @@ west land westland~
 *^/^/^/^/^/^\^\^\^/^\   /^^\  /^/^/^/^\^/^\    /^\^\^\^\^\^\^\^* 
 **************************************************************** 
 
-Welcome to Westland. This is one of the two lands that are in
-this world. There is a great wizard named Darken Rahl who
-wishes to rule the two lands. D'Hara is the more powerful of the
-two lands. One reasons is, that several million years ago, the
-greatest wizards of all had created two lands. The Westlands was
-the only land that had no magic what-so-ever. He also divided the
-two lands with a magical Boundry. This boundry was created to
-stop all magic from  going into the other land.
+@rus ****************************************************************
+*^\^\        /^/^\^\^\^\      /^\^/^/^/^/^/^\^\^\^\^\^\^\^\^\  * 
+*^\      /^\^/^/^/^\^/^\   С      /^\^\^/^\^\^\^\^/^\^\^\^\    * 
+*     /^\^/^\^/^/^/^/^\    |         /^/^/^/^/^/^\^/^\^\^\^\^\ *
+*      /^\^\^\^\       З---|---В /^/^/^/^\^\^/^\^\^\^/^\       *
+* /^/^/^/^\^\^\^\^\^\      |        /^\^\^\^\^\^/^\^/^/^/^/^/^/*
+*^\^/^/^/^/^/^/^/^/^\      Ю           /^/^/^/^\^/^/^/^/^/^/^\ *
+*^/^/^\^\^/^\^/^/^\        /^/^\^\   /^/^/^\^\^/^\^/^/^/^/^\   *
+*^\^/^/^/^\^/^/^\                        /^/^/^/^\^/^/^\^/^/^/^*
+*^\^\^/^\^/^\          /^/^\^\        /^/^/^/^Г /^/^\^/^\^\^\^/*
+*^/^/^/^/^/^/^/^\                       /^/^/^\Р/^/^/^\^\^/^/^\*
+*^/^/^\^/^/^/^\ ***********************     /^/^А/^/^/^/^/^\^\ *
+*^/^/^/^/^\     * В Е С Т Л А Н Д И Я *     /^/^/Н /^\^/^/^\^\^*
+*^/^/^/^\^/^\   ***********************        /^\^И/^\^/^/^/^/*
+*^/^\^/^\         /^/^/^\^\            /^\   /^\^/^\Ц/^\^/^\^\^*
+*^/^/^\        /^/^/^/^/^\^\^\                 /^/^\^А/^\^\^\^/*
+*^/^\      /^/^/^\^\^/^/^\ = /^\^/^\^/^\^\   /^\^/^/^/^/^\^/^\^*
+*^\      /^/^/^/^\^/^/^/^\===/^/^/^\^/^\^/^\   /^\^\^\^/^\^\^\ *
+*^\^\           /^/^\^\^\ ==== /^\^\  ВЕРХНИЙ    /^/^/^/^/^\^\^*  
+*^\^\              /^/^\^\^\ =====   ОХОТНИЧИЙ ^\^\^\^/^/^\^\^\* 
+*/^\    ХАРТЛЕНД          ======/^\    *   ЛЕС   /^/^/^/^/^/^/^*
+*^/^/^\    *                /^\^/^\         /^/^/^/^/^/^\^\^/^\* 
+*^\^\   ТРАНТОВО ОЗЕРО /^\^\^\^\^/^  /^\      /^/^\^\^/^\^\    *
+*^/^\^/^\      *            /^\^/^/^ /^\^\ /^\^/^\^\^\^\^\^\^\^*
+*^/^\^/^\^/^\                  /^\^/^/^\     /^/^/^/^/^/^/^\   *
+*^\^/^\       /^\^\^\^/^\        /^\^\^\^\      /^/^\^/^\^/^\  *
+*^\^/^\         /^/^\^\        /^/^/^\      /^/^\^\^\^\^/^\^\  *
+*^/^/^/^\   ЮЖНОЕ ПРИСТАНИЩЕ  /^/^\^\         /^/^/^/^/^/^\^\^\*
+*^/^\^/^\^/^\     /^\    *           /^/^/^\    /^\    ^/^/^/^\* 
+*^/^/^/^\                                        /^\*ПРОХОД*/^\*
+*^/^/^\^/^\^\             /^\                       ###########*
+*^/^\^/^\^\^\^\^\                 /^/^\^\     /^\^/^/^\^/^\^/^\* 
+*^/^/^/^/^/^\^\^\^/^\   /^^\  /^/^/^/^\^/^\    /^\^\^\^\^\^\^\^*
+****************************************************************
+ 
 ~
 G none
 #10026
@@ -1150,14 +1177,18 @@ D'Hara.  This is Darken Rahl's home land.
 */^/^/^\=-=-=-=-=-/^\ =-=-= /^\^/^\^\^\^\^/^\^\^/^\^\^\^\^/^/^\*
 */^/^\^\^/^\^\^\-=-=-=-/^\^\^\^/^/^/^/^/^\^\^\^/^/^\^/^\^\^/^\^*
 ****************************************************************
+ 
+Д'Хара. Там, среди бескрайних равнин Азрита, находится Народный
+Дворец -- резиденция великого Магистра Рала.
+
 ~
 G none
 #0
 
 #ROOMS
 #10001
-@eng Path by a lake@rus Дорога к озеру~
-You are walking beside a beautiful lake that is crystal
+@eng Path by a lake@rus Тропинка вдоль озера~
+@eng You are walking beside a beautiful lake that is crystal
 clear. There is a fresh breeze in the air and the trees are
 rocking freely. You feel as though you are entering a new world
 but you're still in Muddy. The lake to your right is crystal
@@ -1167,6 +1198,12 @@ birds, and other animals. The trees are tall and lush, leaving
 not much room for the sun to enter into these sacred lands. The
 path continues to the north and, of course, where you came from,
 the south.
+@rus Тропинка идет вдоль озера с кристально чистой водой. Легкий свежий ветерок
+шумит в кронах деревьев и пытается унести твой плащ. По зеркальной глади
+озера разбегаются круги от важно проплывшего в камыши серого селезня. 
+Старые ивы устало склонили к воде свои ветки. Рядом с тобой раздается
+какой-то шорох -- еще одна белка что-то потащила в свою кладовку. Мир
+и спокойствие царит вокруг.
 ~
 0 0 forest
 D0
@@ -1181,14 +1218,18 @@ The long dusty trail.
 Z 0 18002
 S
 #10002
-A Clearing in the Woods.~
-As you come out of the forest you enter a clearing in the
+@eng A clearing in the woods@rus Просека в лесу~
+@eng As you come out of the forest you enter a clearing in the
 woods. This clearing isn't very big but it sure is good to see
 the sun again. There are two large signs nailed on a tree leading
 back into another forest. You wonder what the sign says and go to
-take a closer look. There are two exits here by the lake. One
-goes south to the path and the other goes north into the woods
-again.
+take a closer look.
+@rus Немного пройдя по лесу, ты вышел на просеку. Неширокая, но, надо
+полагать исправно выполняющая свои функции. А как приятно снова
+подставиться нежным согревающим лучам солнышка. Отовсюду доносится
+пение птиц, слышится шорох лесных зверушек. Все заняты своими делами: 
+заготовки на зиму, охота за завтраком или старание не стать этим самым
+завтраком.
 ~
 0 0 forest
 D0
@@ -1203,12 +1244,17 @@ Back to the woods.
 Z 0 10001
 S
 #10003
-Welcome to Westlands~
-Welcome! Here you are in the middle of a forest beside Trout
+@eng Welcome to Westlands@rus В Вестландии~
+@eng Welcome! Here you are in the middle of a forest beside Trout
 Lake. The road you are walking on goes to the north and back to
 the south if you wish to leave. There are fish jumping in the
 lake, people playing in the sand and picking flowers. This place
 sure is wonderful.
+@rus Вестландия. Мирный край работящих людей, занятых своими делами и не
+уделяющих слишком много внимания посторонним, если только последние
+не вмешиваются в их дела. Дорога огибает озеро и скрывается в тени
+вековых деревьев. На берегу озера виднеется фигура одинокого рыбака,
+а недалеко от него собирает цветы молодая девушка, возможно, его дочь.
 ~
 0 0 forest
 D0
@@ -1223,11 +1269,15 @@ Back to the clearing.
 Z 0 10002
 S
 #10004
-A Path Down The Road.~
-You are walking along side next to Trout Lake on a dusty old
+@eng A path down the road@rus Лесная дорога~
+@eng You are walking along side next to Trout Lake on a dusty old
 road. The trees here are very tall and large. The sun is out
 shining upon you and you start to feel hot. The road continues
 north and south.
+@rus Дорога минует озеро и снова углубляется в лес. По обеим ее сторонам 
+возвышаются огромные вековые деревья, отбрасывающие длинные тени.
+Солнце наконец-то вышло из-за скрывавшех его ранее тучек, и принялось
+весело играться с каплями расы на травке и листьях деревьев. 
 ~
 0 0 forest
 D0
@@ -1509,13 +1559,19 @@ Back to the path.
 Z 0 10015
 S
 #10017
-On the Island.~
-As you climb up on on the island you realize that the snakes don't follow
+@eng On the island@rus На островке~
+@eng As you climb up on on the island you realize that the snakes don't follow
 you on to dry land.  The hounds are still back on the other shore and will
 not enter the waters.  The hounds let out yelps of frustration.  The island
 doesn't have any trees or plants.  Looking to the east you see the new path
 to SouthHaven.  You wonder when you should attempt to cross the waters
 again.  The exits are to the east, and to the west.  
+@rus Выбравшись из воды на этот небольшой островок ты слегка обезопасил себя.
+Гончие сердца бегают по противоположному берегу, обращая на тебя свои
+страшные морды. Но ни одна из них не рискнула войти в воду. А мелкие
+змейки, которых ты видел сквозь толщу воды, по-видимому, не любят суши.
+Мда, однако, этот островок особо дружелюбным не назовешь. Ни одного дерева,
+никакой другой растительности -- один голый песок и ничего больше.
 ~
 0 0 hills
 D1
@@ -1530,12 +1586,18 @@ Back on the waters.
 Z 0 10016
 S
 #10018
-Over The Waters.~
-As you set out again through the swamp, you notice that the sun is coming
+@eng Over The Waters.@rus Снова в воде~
+@eng As you set out again through the swamp, you notice that the sun is coming
 out and the mist is clearing.  The snakes haven't bothered you yet and the
 hounds have returned back to their home, in the boundary.  The swamp gets
 shallower as you approach the land again and the sky goes clear.  The exits
 are east the shore or back west to the island.  
+@rus Брррр. Холодно, мокро, какие-то гадкие змеи и никак этого не миновать.
+Ведь по воздуху мы ходить еще не научились, а с острова выбраться как-то
+надо. Вот и приходиться снова лезть в воду. Но ничего, осталось еще
+чуть-чуть и можно будет перевести дух, выбравшись на чистый бережок. 
+Хотя при такой близости к Границе, неизвестно что может поджидать
+тебя за ближайшим деревом.
 ~
 0 0 swim
 D1
@@ -1550,12 +1612,18 @@ Back to the Island.
 Z 0 10017
 S
 #10019
-On The Shore Again.~
-Now that you have reached the shore you breath a sigh of
+@eng On the shore again@rus На берегу~
+@eng Now that you have reached the shore you breath a sigh of
 reliefe that the hounds have gone away. You look down to the
 south towards SouthHaven and you can hear the faint sounds of the
 city life. You continue your hike to SouthHaven. You may go back
 to the swamps (north) or continue south.
+@rus Приятно выбраться из воды и ступить на твердую землю. Светлый песочек,
+камушки... не то, что эта гадкая, мокрая вода. Окружающий озеро лес
+спускается к самому берегу. Легкий ветерок волнует кроны высоких стройных
+деревьев, растущих тут в изобилии. Но он же и студит твою мокрую одежду,
+а солнышко как на зло скрылось за облаками и пока не хочет выходить из-за
+них.
 ~
 0 0 forest
 D1
@@ -1570,13 +1638,18 @@ Back on the waters.
 Z 0 10018
 S
 #10020
-The Trail Through the Woods.~
-The woods seem to have come alive since you last saw them.
+@eng The trail through the woods@rus Тропа в лесу~
+@eng The woods seem to have come alive since you last saw them.
 The trees here are big and full of colorful leaves, the road is
 dry again and there are plants growing in the woods. The trip to
 South Haven isn't as bad as you thought. You can see the village
-up ahead. The exits are north to the shore or south to the
-village.
+up ahead.
+@rus Деревья, деревья, деревья. Кажется конца им не будет. Хвойные и лиственные,
+молодые и старые, высокие и не очень. Но никаких следов присутствия животных.
+Как будто повымерли все. Или ушли. Вероятно, это сказывается близость Границы
+ведь никому не хочется достаться на завтрак гару или на ужин гончей сердца.
+До Южного пристанища уже осталось совсем немного, кажется, за деревьями 
+уже просматриваются дома его жителей.
 ~
 0 0 forest
 D1
@@ -1591,12 +1664,17 @@ Back to the waters.
 Z 0 10019
 S
 #10021
-The Village Gates.~
-As you approach this village the giant gates open up to
+@eng The village gates@rus Южное Пристанище~
+@eng As you approach this village the giant gates open up to
 welcome you. The city is alive with action in the streets. There
 are children everywhere and people at the stores. The village
 road continues on south and offers you a place to rest for a cup
 of ale. You may go north to the forest or south into the village.
+@rus Южное Пристанище. Маленькая глухая деревушка, затерявшаяся в не менее
+глухой местности, вдали от городов и торговых троп, у самой Границы.
+Окованные железом ворота распахнуты, но готовы сомкнуться при первых
+же признаках орасности. Вся деревушка обнесена бревенчатым частоколом.
+Но разве дерево является преградой для бестелесных обитателей мира смерти.
 ~
 0 0 city
 D1
@@ -1611,14 +1689,18 @@ Back to the Forest.
 Z 0 10020
 S
 #10022
-The Road Along the Village.~
-As you walk down the street you notice a nice bar to the
-east. It looks quite welcoming and you sure are thirsty. There is
+@eng The road along the village@rus Дорога через деревню~
+@eng As you walk down the street you notice a nice bar to the
+north. It looks quite welcoming and you sure are thirsty. There is
 faint singing comming from the bar..drunken men you suppose. You
 hear some people talking about their weekends and what they want
 to do. There is a fresh cool breeze floating through the city.
-The exits are north to the gates, east to the bar, or south to
-the path to the Narrows.
+@rus Ты идешь по главной деревенской улице. По ее краям теснятся небольшие, 
+потрепанного вида домики. Из одного такого доносятся доносятся обрывки
+разговоров и просто пьяные выкрики. Похоже зтот замызганный бар --
+единственная достопримечательность этого селения. Но, если тебе надо
+разузнать последние сплетни и промочить горло чем-нибудь недорогим, 
+лучшего места не сыскать. 
 ~
 0 0 city
 D0
@@ -1638,13 +1720,19 @@ Back to the gates.
 Z 0 10021
 S
 #10023
-The Bar.~
-You enter a small smoke filled room just filled with people
+@eng The bar@rus Забегаловка~
+@eng You enter a small smoke filled room just filled with people
 all drinking and enjoying themselves. There is a bartender
 selling drinks and a lady on stage singing her favorite little
 number. The drunken men are big and strong but, are covered with
-ale stains on their shirts. The exit is back out to the west onto
-the road again.
+ale stains on their shirts. 
+@rus Маленькая прокуренная комната, до отказа заполненная народом. Среди 
+посетителей шустро мелькает голова бармена. Ему то выгодно, когда тут
+собирается пол деревни. В меню этого дешевого заведения значится 
+только эль, но кто знает чем еще приторговывает хозяин из-под прилавка.
+Да и разве можно эту засаленную рваную бумажку называть меню? 
+  Раздавшийся за спиной грохот, заставил тебя повернуть голову.  Ооо, 
+да это какой-то очень переусердвовавший клиент, свалился со стула.
 ~
 0 0 inside
 D2
@@ -1654,8 +1742,8 @@ Back to the road.
 Z 0 10022
 S
 #10024
-The Trail to The Narrows.~
-This is a long trail that leads up to the narrows where you
+@eng The trail to the narrows@rus Тропинка у Границы.~
+@eng This is a long trail that leads up to the narrows where you
 will need to cross into D'Hara. The path is wide and quite
 visable. There are little animals running around in the woods all
 about. You notice that the trees are thicker and a lot greener.
@@ -1663,30 +1751,41 @@ The humidity begins to rise and it starts to feel hotter. Your
 legs start to get tired when you see the Bone Woman's shack up
 ahead. It would be good to visit her. Her shack is about oh..
 twenty or so yards ahead and will take no time to reach it. You
-spot the Narrows up ahead. The exits are north to the village or
-south to the Bone Woman.
+spot the Narrows up ahead.
+@rus Совсем незаметная тропка вьется среди деревьев. Чувствуется, что люди
+ходят здесь очень редко. Да и что здесь искать, в такой близости от 
+Границы? Если только способ мучительно умереть. Тихо кругом. Лишь слышен
+шелест ветра в листве деревьев. И безлюдно. Кто же такая эта загадочная
+костяная женщина Эди, если она выбрала себе в место жительства столь
+странное место.
 ~
 0 0 forest
 D1
-The path to the Bone Womens.
+@eng The path to the Bone Womens.
+@rus Тропинка к дому Эди.
 ~
 ~
 Z 0 10025
 D3
-The path to the village.
+@eng The path to the village.
+@rus Дорога к деревне.
 ~
 ~
 Z 0 10022
 S
 #10025
-The Path to the Bone Woman's Shack.~
-You walk out into a clearing in the woods and notice that
+@eng The path to the Bone Woman's shack@rus Дорожка к дому Эди~
+@eng You walk out into a clearing in the woods and notice that
 the sky is starting to become over cast again. The woods look
 ready for rain and the trees have their leaves turned upwards.
 There is a shack to the west of you which must belong to the Bone
 Woman. The shack looks nice and cosy. It would be nice to stay and have
-a visit with the old Bone Woman. The exits are north to the
-forest, west to the bone Woman, and south to the Narrows.
+a visit with the old Bone Woman.
+@rus Тропинка вьется среди деревьев. Но что странно, все деревья какие-то
+засушенные, как будто последний дождь здесь шел год назад. За рощицей
+виднеется небольшое строение. Наверное это и есть жилище той женщины, 
+о которой тебе рассказал содержатель гостиницы. Возможно, она сможет
+помочь тебе преодолеть Границу. 
 ~
 0 0 forest
 D0
@@ -1739,12 +1838,14 @@ narrows. You should stay on guard and not fall asleep.
 ~
 0 0 desert
 D1
-The path through the narrows.
+@eng The path through the narrows.
+@rus Проход.
 ~
 ~
 Z 0 10028
 D3
-Back to the bone woman's for a cup of tea.
+@eng Back to the bone woman's for a cup of tea.
+@rus Дорожка к дому Эди.
 ~
 ~
 Z 0 10025
@@ -1755,79 +1856,106 @@ S
 is no sound which frightens you a little but then the fear
 passes. As you continue west you can see the center of the
 narrows approaching. Apparently they are the most dangerous part
-of the whole narrows. The exits are west to the center or east to
-the entrance of the narrows.
+of the whole narrows.
+@rus Страшное мрачное место. Но что еще можно было ожидать? Со всех сторон к тебе
+тянутся какие-то тени, окруженные зеленоватым мерцанием. Их голоса манят и
+зовут. Нельзя поддаться их зову или ты навечно сгинешь и станешь послушной
+марионеткой повелителя загробного мира. Еще не поздно повернуть назад, пока
+есть шанс выбраться живым из этого жуткого места.
 ~
 0 0 desert
 D1
-The center of the Narrows.
+@eng The center of the Narrows.
+@rus Проход.
 ~
 ~
 Z 0 10029
 D3
-Back to the enterance of the Narrows.
+@eng Back to the enterance of the Narrows.
+@rus Проход.
 ~
 ~
 Z 0 10027
 S
 #10029
-The Center of the Narrows.~
-You approach the center of the Narrows when you spot it. A
+@eng The center of the narrows@rus В центре прохода~
+@eng You approach the center of the Narrows when you spot it. A
 shadow person. They have a poisonous touch and are the
 undertakers of the dead. You try to get past it without making
 him attack. The sky is getting dark and you still have a little
 ways to go. The exits are in an east-west direction, west being
 the way you want to go.
+@rus Вот оно. Самое опасное место прохода "Золотые ворота". Cтены практически 
+смыкаются и тебе с трудом удается протискиваться вперед. Тени мертвых
+подбираются все ближе и ближе к тебе. Еще много много и ты ощутишь их холодное
+прикосновение. А чуть в стороне появились еще какие-то странные твари, 
+сплошь утыканые шипами.
 ~
 0 0 desert
 D1
-The path to the end of the Narrows.
+@eng The path to the end of the Narrows.
+@rus Проход.
 ~
 ~
 Z 0 10030
 D3
-The way you came.
+@eng The way you came.
+@rus Проход.
 ~
 ~
 Z 0 10028
 S
 #10030
-Near The End of the Narrows.~
-You are approaching the end of the narrows. You give a sigh
+@eng Near the end of the narrows@rus У выхода из теснины~
+@eng You are approaching the end of the narrows. You give a sigh
 of relief that you are almost out of this dreaded place. The sun
 is setting out ahead of you making it hard to see your way. The
 air starts to cool down as the sun sets in the west. You try to
-hurry your way out of the narrows before dark. The exits are of
-course; east and west.
+hurry your way out of the narrows before dark.
+@rus Самое опасное место, наконец-то, осталось позади. Тропинка, по которой ты
+идешь, снова стала шире, и уже не надо протискиваться в узкий проход меж
+скал. Но тени по-прежнему преследуют и зовут тебя. Где-то впереди виднеется
+выход из этого страшного места. Тусклое пятно солнечного света манит тебя, 
+и ты невольно ускоряешь шаг, чтобв побыстрее выбраться отсюда.
 ~
 0 0 desert
 D1
-The end of the narrows.
+@eng The end of the narrows.
+@rus Выход из прохода.
 ~
 ~
 Z 0 10031
 D3
-The way you came..of course.
+@eng The way you came..of course.
+@rus Проход.
 ~
 ~
 Z 0 10029
 S
 #10031
-@eng The end of the narrows~
-You have reached the end!!! Yay!..... Uh Oh!!! The sun has
+@eng The end of the narrows@rus Выход из прохода~
+@eng You have reached the end!!! Yay!..... Uh Oh!!! The sun has
 set and right before your eyes materializes The Spirit King. He
 is not going to let you pass. You must fend off this naughty
-beast and get to Darken Rahl. The exits are to the west and to
-the east.
+beast and get to Darken Rahl. 
+@rus Наконец-то! Снова над головой засияло ласковое солнышко и подул свежий
+ветерок. Какое блаженство снова очутиться под открытым небом после 
+многочасового пребывания в затхлой темноте прохода. Миру смерти не удалось
+восторжествовать над тобой. Теперь, когда теснина осталась позади, можно
+спокойно отдохнуть и набраться сил для дальнейших странствий. Ведь еще 
+чтобы достичь Народного Дворца предстоит пересечь поистине бескрайние 
+равнины Азрита.
 ~
 0 0 desert
 D1
-The Azrith Plains.
+@eng The Azrith Plains.
+@rus Равнины Азрита.
 ~
 ~
 Z 0 10032
 D3
-The Narrows.
+@eng The Narrows.
+@rus Проход.
 ~
 ~
 Z 0 10030
@@ -1849,12 +1977,14 @@ Rahl in his massive palace.
 ~
 0 0 field
 D0
-The Azrith Plains.
+@eng The Azrith Plains.
+@rus Дорога через равнины.
 ~
 ~
 Z 0 10033
 D3
-The Narrows end.
+@eng The Narrows end.
+@rus Теснина.
 ~
 ~
 Z 0 10031
@@ -1884,7 +2014,8 @@ D0
 ~
 Z 0 10034
 D2
-The path back where you came from.
+@eng The path back where you came from.
+@rus Равнины Азрита.
 ~
 ~
 Z 0 10032
@@ -1907,12 +2038,14 @@ sure would be nice. The exits are north and south.
 ~
 0 0 field
 D0
-To the BIG scary DRaGoN.
+@eng To the BIG scary DRaGoN.
+@rus Каньон.
 ~
 ~
 Z 0 10035
 D2
-Back through the boring old plains.
+@eng Back through the boring old plains.
+@rus Дорога через равнины.
 ~
 ~
 Z 0 10033
@@ -1935,12 +2068,14 @@ Rahl. The exits are North and South ass usual.
 ~
 0 0 field
 D0
-The entrance to the Peoples Palace.
+@eng The entrance to the Peoples Palace.
+@rus Дорога ко дворцу.
 ~
 ~
 Z 0 10036
 D2
-Back the way you came.
+@eng Back the way you came.
+@rus Равнины Азрита.
 ~
 ~
 Z 0 10034
@@ -1961,12 +2096,14 @@ DRaGoN.
 ~
 0 0 field
 D0
-The Palace.
+@eng The Palace.
+@rus Внутренние помещения дворца.
 ~
 ~
 Z 0 10038
 D2
-The big scary DRaGoN.
+@eng The big scary DRaGoN.
+@rus Каньон.
 ~
 ~
 Z 0 10035
@@ -1990,17 +2127,20 @@ filled with devoters.
 ~
 0 0 inside
 D0
-The longer hallway.
+@eng The longer hallway.
+@rus Конец коридора.
 ~
 ~
 Z 0 10041
 D1
-The devotion room.
+@eng The devotion room.
+@rus Многолюдная площадка для посвящений.
 ~
 ~
 Z 0 10039
 D2
-Back to the gates.
+@eng Back to the gates.
+@rus Выход из Народного Дворца.
 ~
 ~
 Z 0 10036
@@ -2021,12 +2161,14 @@ west.
 ~
 0 0 inside
 D0
-To the Mord-Sith room.
+@eng To the Mord-Sith room.
+@rus Комната Морд-Сит.
 ~
 ~
 Z 0 10040
 D3
-Back to the hallway.
+@eng Back to the hallway.
+@rus Длинный коридор.
 ~
 ~
 Z 0 10038
@@ -2069,18 +2211,20 @@ you. You may enter or go back to the Mord-Siths.
 ~
 0 0 inside
 D0
-The Garden of Life.
+@eng The Garden of Life.
+@rus Магический сад скрывается за массивными позолоченными дверями.
 ~
 ~
 Z 0 10042
 D2
-The long hallway.
+@eng The long hallway.
+@rus Длинный коридор.
 ~
 ~
 Z 0 10038
 S
 #10042
-@eng The garden of life@rus Сад жизни~
+@eng The Garden of Life@rus Сад Жизни~
 @eng This is a cavernous room filled with wonders sorts of
 magical plants. Leaded windows high overhead let in the light for
 the lush plants. Around the outside of the room are flowers set
@@ -2110,6 +2254,8 @@ sorcerer's sand, ringed with torches that burn with fluid flames.
 ~
 0 0 inside
 D2
+@eng The exit from the Garden of Life.
+@rus Дверь с позолоченной ручкой, ведущая во внутренние покои дворца.
 ~
 ~
 Z 0 10041
@@ -2169,7 +2315,7 @@ M 0 10026 4 10016 1	* a yellow snake (Over the Swamp Waters.)
 M 0 10026 4 10016 1	* a yellow snake (Over the Swamp Waters.)
 M 0 10026 4 10016 1	* a yellow snake (Over the Swamp Waters.)
 M 0 10026 4 10016 1	* a yellow snake (Over the Swamp Waters.)
-M 0 10014 2 10020 1	* a boundary warden (The Trail Through the Woods.)
+M 0 10014 2 10020 1	* a boundary warden (The trail through the woods)
 E 0 10001 0 16		*	a boundary warden's mace: wielded
 E 0 10006 0 9		*	boundary warden gloves: on the hands
 E 0 10007 0 8		*	boundary warden boots: on the feet
@@ -2181,32 +2327,29 @@ G 0 10020 0		*	a boundary warden's flail
 G 0 10021 0		*	a boundary warden's mace
 G 0 10022 0		*	a boundary warden's dagger
 G 0 10019 0		*	a boundary warden's sword
-M 0 10025 1 10022 1	* a little thief (The Road Along the Village.)
+M 0 10025 1 10022 1	* a little thief (The road along the village)
 G 0 10014 0		*	a dark robe
 E 0 10005 0 8		*	a pair of black boots: on the feet
-M 0 10028 1 10022 1	* a dopey little cat (The Road Along the Village.)
+M 0 10028 1 10022 1	* a dopey little cat (The road along the village)
 G 0 10017 0		*	a BIG cookie!
-M 0 10023 1 10023 1	* the bar tender (The Bar.)
+M 0 10023 1 10023 1	* the bar tender (The bar)
 G 0 10004 0		*	a jug of beer
 G 0 10016 0		*	a magical leather pouch
-M 0 10024 4 10023 1	* a drunken villager (The Bar.)
+M 0 10024 4 10023 1	* a drunken villager (The bar)
 G 0 10004 0		*	a jug of beer
-M 0 10024 4 10023 1	* a drunken villager (The Bar.)
-M 0 10024 4 10023 1	* a drunken villager (The Bar.)
-M 0 10024 4 10023 1	* a drunken villager (The Bar.)
-M 0 10006 4 10025 1	* a quad assassin (The Path to the Bone Woman's Shack.)
-M 0 10006 4 10025 1	* a quad assassin (The Path to the Bone Woman's Shack.)
-M 0 10006 4 10025 1	* a quad assassin (The Path to the Bone Woman's Shack.)
-M 0 10006 4 10025 1	* a quad assassin (The Path to the Bone Woman's Shack.)
+M 0 10024 4 10023 1	* a drunken villager (The bar)
+M 0 10024 4 10023 1	* a drunken villager (The bar)
+M 0 10024 4 10023 1	* a drunken villager (The bar)
+M 0 10006 4 10025 4	* a quad assassin (The path to the Bone Woman's shack)
 M 0 10017 1 10026 1	* The Bone Woman (The Bone Woman's shack)
 E 0 10002 0 4		*	the Bone Woman's necklace: around the neck (2)
 M 0 10018 3 10028 1	* a nasty gripper (The path through the narrows)
 G 0 10003 0		*	some grippers teeth
 M 0 10018 3 10028 1	* a nasty gripper (The path through the narrows)
-M 0 10018 3 10029 1	* a nasty gripper (The Center of the Narrows.)
-M 0 10019 2 10029 1	* the scary shadow thing (The Center of the Narrows.)
-M 0 10030 2 10029 1	* a devoter of Darken Rahl (The Center of the Narrows.)
-M 0 10019 2 10030 1	* the scary shadow thing (Near The End of the Narrows.)
+M 0 10018 3 10029 1	* a nasty gripper (The center of the narrows)
+M 0 10019 2 10029 1	* the scary shadow thing (The center of the narrows)
+M 0 10030 2 10029 1	* a devoter of Darken Rahl (The center of the narrows)
+M 0 10019 2 10030 1	* the scary shadow thing (Near the end of the narrows)
 M 0 10020 1 10031 1	* the spirit king (The end of the narrows)
 M 0 10022 4 10032 1	* an evil shadow person (The Azrith plains)
 M 0 10027 2 10032 1	* an underworld beast (The Azrith plains)
@@ -2222,7 +2365,7 @@ E 0 10023 0 16		*	a mord-sith agiel: wielded
 M 0 10029 1 10040 1	* Mord-Sith (The room of the Mord-Siths)
 E 0 10023 0 16		*	a mord-sith agiel: wielded
 M 0 10030 2 10041 1	* a devoter of Darken Rahl (The end of the hallway)
-M 0 10031 1 10042 1	* The Evil Darken Rahl (The garden of life)
+M 0 10031 1 10042 1	* The Evil Darken Rahl (The Garden of Life)
 E 0 10024 0 14		*	the bracer of power: on the left wrist
 S
 

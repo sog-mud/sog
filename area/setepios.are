@@ -46,13 +46,25 @@ Vasilius is hunting here
 What a smell ... I can't open my eyes ... Ouuh ... Damn this Troll !
 ~
 troll~
-BQRST 0 100 0
+ABQRST HV 100 0
 68 120 1d1+15000 1d1+30000 1d1+350 smash
 -30 -40 -10 -50
-ACEFHIJKO CU 0 0
+ACEFHIJKO BJKOPQU 0 0
 stand stand male 100000
 0 0 medium unknown
-F off D
+#38004
+muncar~
+Muncar~
+Muncar is here ... What's wrong with him ?
+~
+~
+centaur~
+0 DFHJTV 0 0
+30 100 1d1+10000 1d1+5000 1d1+90 divine
+50 50 30 10
+0 BU 0 0
+stand stand male 100000
+0 0 medium unknown
 #38102
 ded moroz~
 @eng {CFather Frost{x@rus {CДед Мороз{x~
@@ -369,10 +381,10 @@ A
 G none
 #38019
 blessed ring of life~
-{CBlessed Ring of Life{x~
+{RBlessed Ring of Life{x~
 Strange ring is here awaiting for its owhener~
 divine~
-armor IRa AB
+armor AIRa AB
 25 25 25 25 0
 68 1 100000 P
 A
@@ -387,6 +399,19 @@ A
 19 10
 A
 13 100
+G none
+#38020
+blessed belt of truth~
+{YBlessed Belt of Truth{x~
+Strange belt is glowing here~
+divine~
+armor AIRa AL
+25 25 25 25 0
+30 1 10000 P
+A
+5 5
+A
+19 5
 G none
 #38095
 {rБольшой пионерский БАРАБАН{w dark glass~
@@ -841,8 +866,8 @@ O 0 38003 0 38101	* fountain (Coridor)
 O 0 38002 0 38101	* armchair (Coridor)
 O 0 38001 0 38102	* big bed (Bedroom)
 M 0 38001 1 38102 1	* Bargan (Bedroom)
-O 0 38019 0 38102	* {CBlessed Ring of Life{x (Bedroom)
-M 0 38003 1 38102 1	* Vasilius i (Bedroom)
+O 0 38020 0 38102	* {YBlessed Belt of Truth{x (Bedroom)
+O 0 38020 0 38102	* {YBlessed Belt of Truth{x (Bedroom)
 O 0 38002 0 38103	* armchair (Cabinet)
 O 0 38004 0 38103	* table (Cabinet)
 O 0 38200 0 38200	* long wooden table (Budy's)
@@ -858,7 +883,8 @@ S
 #OLIMITS
 O 38017 1	* Blessed Shield of Gods
 O 38018 1	* {YBlessed {WHelm {xof Honor
-O 38019 1	* {CBlessed Ring of Life{x
+O 38019 1	* {RBlessed Ring of Life{x
+O 38020 1	* {YBlessed Belt of Truth{x
 S
 
 #MOBPROGS

@@ -52,6 +52,21 @@ stand stand none 0
 0 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
+#36103
+no name rancor~
+Rancor~
+Rancor, brother of Muncar stands here.
+~
+~
+human~
+A H 0 0
+40 0 1d1+12999 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
 #36104
 ruhabor son child~
 ~

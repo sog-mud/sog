@@ -216,8 +216,8 @@ stand stand male 0
 #OBJECTS
 #8000
 spitgun spit gun~
-@eng a spit gun@rus плевательный пистолет~
-@eng There is a spit gun laying here.@rus Плевательный пистолет (gun) лежит тут.~
+@eng a spit gun@rus плевалка~
+@eng There is a spit gun laying here.@rus Плевалка (gun) лежит тут.~
 steel~
 wand 0 AO
 20 10 10 'general purpose' 0
@@ -230,8 +230,8 @@ purpose ammunition.
 G none
 #8001
 knee pads~
-@eng a set of knee pads@rus наколенники (pads)~
-@eng There are some knee pads laying here.@rus Наколенники (pads) лежат тут.~
+@eng a set of knee pads@rus наколенники~
+@eng There are some knee pads laying here.@rus Наколенники (knee) лежат здесь.~
 steel~
 armor 0 AF
 4 4 4 0 0
@@ -257,8 +257,8 @@ Stooky glands are known for the restorative properties.
 G none
 #8003
 lawgiver~
-@eng a lawgiver@rus законник~
-@eng There is a lawgiver laying here.@rus законник (lawgiver) лежит тут.~
+@eng a lawgiver@rus законотворец~
+@eng There is a lawgiver laying here.@rus Законотворец (lawgiver) лежит здесь.~
 steel~
 wand 0 AO
 30 10 10 'high explosive' 0
@@ -336,8 +336,8 @@ and survival skills.
 G none
 #8008
 vacuum cleaner two-handed~
-a Hoover vacuum cleaner~
-A Hoover vacuum cleaner is here idling.~
+@eng a Hoover vacuum cleaner@rus пылесос "Хувер"~
+@eng A Hoover vacuum cleaner is here idling.@rus Пылесос "Хувер" (vacuum) валяется здесь.~
 unknown~
 weapon B AN
 exotic 4 5 suction F
@@ -350,7 +350,7 @@ cleaning pleasure.
 G none
 #8009
 knife~
-@eng a knife@rus Нож (knife)~
+@eng a knife@rus нож~
 @eng A knife is sitting here...contemplating life.@rus Нож (knife) лежит тут...созерцающий жизнь.~
 steel~
 weapon 0 AN
@@ -378,7 +378,7 @@ It looks like a noodle freshly made at the Olive Garden.
 G none
 #8011
 judge club~
-a Judge's club~
+@eng a Judge's club@rus дубина судьи~
 A Judge's club is resting here.~
 wood~
 weapon 0 AN
