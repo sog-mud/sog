@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.62 1999-05-14 20:09:07 avn Exp $
+ * $Id: skills.c,v 1.63 1999-05-18 14:15:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -55,7 +55,6 @@ DECLARE_DO_FUN(do_help		);
 DECLARE_DO_FUN(do_say		);
 
 int	ch_skill_nok	(CHAR_DATA *ch , int sn);
-int	get_skill_raw	(CHAR_DATA *ch , int sn);
 
 /* used to converter of prac and train */
 void do_gain(CHAR_DATA *ch, const char *argument)
@@ -625,34 +624,16 @@ const char *skill_name(int sn)
 	return "none";
 }
 
-int get_skill(CHAR_DATA *ch, int sn)
-{
-AFFECT_DATA *paf;
-int add, sk;
-bool teach;
-
-teach = FALSE;
-add = 0;
-for (paf = ch->affected; paf; paf = paf->next) 
-	if (paf->where == TO_SKILLS && 
-	    (paf->location == -sn
-	    || (IS_SET(paf->bitvector, SK_AFF_ALL)
-		&& sn != gsn_spellbane)
-	    || (IS_SET(paf->bitvector, SK_AFF_NOTCLAN)
-		&& !IS_SET(skill_lookup(sn)->flags, SKILL_CLAN)))) {
-		    add += paf->modifier;
-		    teach |= IS_SET(paf->bitvector, SK_AFF_TEACH);
-	}
-
-sk = get_skill_raw(ch, sn);
-return UMAX(0,(sk)?(sk+add):(teach)?(add):0);
-}
-
 /* for returning skill information */
-int get_skill_raw(CHAR_DATA *ch, int sn)
+int get_skill(CHAR_DATA *ch, int sn)
 {
 	int skill;
 	skill_t *sk;
+	AFFECT_DATA *paf;
+
+	int add = 0;
+	bool teach = FALSE;
+
 
 	if ((sk = skill_lookup(sn)) == NULL
 	||  (IS_SET(sk->flags, SKILL_CLAN) && !clan_item_ok(ch->clan)))
@@ -748,6 +729,9 @@ int get_skill_raw(CHAR_DATA *ch, int sn)
 		skill = 9 * skill / 10;
 	skill = URANGE(0, skill, 100);
 
+	/*
+	 * apply class/skill modifiers
+	 */
 	if (skill != 0 && !IS_NPC(ch)) {
 		class_t *cl;
 		cskill_t *csk;
@@ -756,9 +740,25 @@ int get_skill_raw(CHAR_DATA *ch, int sn)
 		&&  (cl = class_lookup(ch->class)) != NULL
 		&&  (csk = cskill_lookup(cl, sn)) != NULL)
 			skill += csk->mod;
+		skill = UMIN(1, skill);
 	}
 
-	return skill;
+	/*
+	 * apply skill affect modifiers
+	 */
+	for (paf = ch->affected; paf; paf = paf->next) {
+		if (paf->where != TO_SKILLS
+		||  (!IS_SET(paf->bitvector, SK_AFF_ALL) &&
+		     paf->location != -sn)
+		||  (IS_SET(paf->bitvector, SK_AFF_NOTCLAN &&
+		     IS_SET(skill_lookup(sn)->flags, SKILL_CLAN))))
+			continue;
+
+		add += paf->modifier;
+		teach |= IS_SET(paf->bitvector, SK_AFF_TEACH);
+	}
+
+	return UMAX(0, skill ? (skill+add) : teach ? add : 0);
 }
 
 /*

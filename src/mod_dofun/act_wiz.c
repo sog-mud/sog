@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.147 1999-05-17 21:10:22 avn Exp $
+ * $Id: act_wiz.c,v 1.148 1999-05-18 14:15:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3037,6 +3037,9 @@ void do_sockets(CHAR_DATA *ch, const char *argument)
 	output = buf_new(-1);
 
 	one_argument(argument, arg, sizeof(arg));
+	if (strchr(arg, '@') == NULL) 
+		strnzcat(arg, sizeof(arg), "*@*");
+
 	for (d = descriptor_list; d; d = d->next) {
 		char buf[MAX_STRING_LENGTH];
 		CHAR_DATA *vch = d->original ? d->original : d->character;
@@ -3048,7 +3051,7 @@ void do_sockets(CHAR_DATA *ch, const char *argument)
 			 vch ? vch->name : NULL,
 			 d->host);
 
-		if (arg[0] && fnmatch(arg, buf, FNM_CASEFOLD) != 0)
+		if (fnmatch(arg, buf, FNM_CASEFOLD) != 0)
 			continue;
 
 		count++;

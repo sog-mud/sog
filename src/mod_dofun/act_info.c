@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.230 1999-05-17 14:10:15 fjoe Exp $
+ * $Id: act_info.c,v 1.231 1999-05-18 14:15:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2240,49 +2240,6 @@ void do_password(CHAR_DATA *ch, const char *argument)
 	char_puts("Ok.\n", ch);
 }
 
-void scan_list(ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch, 
-		int depth, int door)
-{
-	CHAR_DATA *rch;
-
-	if (scan_room == NULL) 
-		return;
-
-	for (rch = scan_room->people; rch; rch = rch->next_in_room) {
-		if (rch == ch || !can_see(ch, rch))
-			continue;
-		char_printf(ch, "	%s.\n",
-			    format_short(rch->short_descr, rch->name, ch));
-	}
-}
-
-void do_scan2(CHAR_DATA *ch, const char *argument)
-{
-	EXIT_DATA *pExit;
-	int door;
-
-	act("$n looks all around.", ch, NULL, NULL, TO_ROOM);
-	if (!check_blind(ch))
-		return;
-
-	char_puts("Looking around you see:\n", ch);
-
-	char_puts("{Chere{x:\n", ch);
-	scan_list(ch->in_room, ch, 0, -1);
-	for (door = 0; door < 6; door++) {
-		if ((pExit = ch->in_room->exit[door]) == NULL
-		|| !pExit->to_room.r
-		|| !can_see_room(ch,pExit->to_room.r))
-			continue;
-		char_printf(ch, "{C%s{x:\n", dir_name[door]);
-		if (IS_SET(pExit->exit_info, EX_CLOSED)) {
-			char_puts("	You see closed door.\n", ch);
-			continue;
-		}
-		scan_list(pExit->to_room.r, ch, 1, door);
-	}
-}
-
 void do_scan(CHAR_DATA *ch, const char *argument)
 {
 	char dir[MAX_INPUT_LENGTH];
@@ -2296,11 +2253,6 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 	int numpeople;
 
 	one_argument(argument, dir, sizeof(dir));
-
-	if (dir[0] == '\0') {
-		do_scan2(ch, str_empty);
-		return;
-	}
 
 	switch (dir[0]) {
 	case 'N':
@@ -2327,6 +2279,9 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 	case 'd':
 		door = 5;
 		break;
+	case '\0':
+		act("Scan which direction?", ch, NULL, NULL, TO_CHAR);
+		return;
 	default:
 		char_puts("Wrong direction.\n", ch);
 		return;
@@ -3408,12 +3363,10 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 
 	one_argument(argument, arg, sizeof(arg));
 	ps = (pcskill_t*) skill_vlookup(&ch->pcdata->learned, arg);
-	if (!ps || ps->percent  <= 0) {
+	if (!ps || get_skill(ch, sn = ps->sn) == 0) {
 		char_puts("You can't practice that.\n", ch);
 		return;
 	}
-
-	sn = ps->sn;
 
 	if (sn == gsn_vampire) {
 		char_puts("You can't practice that, only available "
