@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.143 1999-05-20 19:59:01 fjoe Exp $
+ * $Id: handler.c,v 1.144 1999-05-21 13:04:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2929,43 +2929,6 @@ ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch, AREA_DATA *area)
 	return room;
 }
 
-const char *PERS2(CHAR_DATA *ch, CHAR_DATA *looker, flag32_t flags)
-{
-	if (is_affected(ch, gsn_doppelganger)
-	&&  (IS_NPC(looker) || !IS_SET(looker->plr_flags, PLR_HOLYLIGHT)))
-		ch = ch->doppel;
-
-	if (can_see(looker, ch)) {
-		if (IS_NPC(ch)) {
-			const char *descr;
-
-			if (IS_SET(flags, ACT_FORMSH)) {
-				return format_short(ch->short_descr, ch->name,
-						    looker);
-			}
-
-			descr = mlstr_cval(ch->short_descr, looker);
-			if (IS_SET(flags, ACT_FIXSH))
-				return fix_short(descr);
-
-			return descr;
-		}
-		else if (is_affected(ch, gsn_vampire) && !IS_IMMORTAL(looker)) {
-			return word_form(GETMSG("an ugly creature",
-						looker->lang),
-					 ch->sex, looker->lang, RULES_GENDER);
-		}
-		return ch->name;
-	}
-
-	if (IS_IMMORTAL(ch)) {
-		return word_form(GETMSG("an immortal", looker->lang), ch->sex,
-				 looker->lang, RULES_GENDER);
-	}
-
-	return "someone";
-}
-
 void format_obj(BUFFER *output, OBJ_DATA *obj)
 {
 	buf_printf(output,
@@ -3236,23 +3199,29 @@ void show_name(CHAR_DATA *ch, BUFFER *output,
 void show_duration(BUFFER *output, AFFECT_DATA *paf)
 {
 	if (paf->duration < 0)
-		buf_add(output, "permanently.");
-	else
-		buf_printf(output, "for {c%d{x hours.", paf->duration);
-	buf_add(output, "\n");
+		buf_add(output, "permanently.\n");
+	else {
+		actopt_t opt;
+		char buf[MAX_STRING_LENGTH];
+
+		opt.to_lang = buf_lang(output);
+		opt.act_flags = ACT_NOUCASE;
+
+		act_buf(GETMSG("for {c$j{x $qj{hours}.", opt.to_lang),
+			NULL, NULL,
+			(const void*) paf->duration, NULL, NULL,
+			&opt, buf, sizeof(buf));
+		buf_add(output, buf);
+	}
 }
 
 void show_loc_affect(CHAR_DATA *ch, BUFFER *output,
 		 AFFECT_DATA *paf, AFFECT_DATA **ppaf)
 {
-	if (ch->level < 20) {
-		show_name(ch, output, paf, *ppaf);
-		if (*ppaf && (*ppaf)->type == paf->type)
-			return;
-		buf_add(output, "\n");
-		*ppaf = paf;
+	if (paf->location == APPLY_NONE
+	&&  paf->where == TO_AFFECTS
+	&&  paf->bitvector)
 		return;
-	}
 
 	show_name(ch, output, paf, *ppaf);
 	if (paf->location > 0)
@@ -3299,9 +3268,15 @@ void show_affects(CHAR_DATA *ch, BUFFER *output)
 
 	buf_add(output, "You are affected by the following spells:\n");
 	for (paf = ch->affected; paf; paf = paf->next) {
-		show_loc_affect(ch, output, paf, &paf_last);
-		if (ch->level < 20)
+		if (ch->level < 20) {
+			show_name(ch, output, paf, paf_last);
+			if (paf_last && paf_last->type == paf->type)
+				continue;
+			buf_add(output, "\n");
+			paf_last = paf;
 			continue;
+		}
+		show_loc_affect(ch, output, paf, &paf_last);
 		show_bit_affect(output, paf, &paf_last, TO_AFFECTS);
 	}
 
@@ -3426,80 +3401,6 @@ const char *get_stat_alias(CHAR_DATA *ch, int stat)
 	else if (val >= 10)	i = 4;
 	else			i = 5;
 	return stat_aliases[stat][i];
-}
-
-/*****************************************************************************
- * some formatting stuff
- *
- */
-
-/*
- * smash '~'
- */
-const char *fix_short(const char *s)
-{
-	char *p;
-	static char buf[MAX_STRING_LENGTH];
-
-	if (!strchr(s, '~'))
-		return s;
-
-	for (p = buf; *s && p-buf < sizeof(buf)-1; s++) {
-		if (*s == '~')
-			continue;
-		*p++ = *s;
-	}
-
-	*p = '\0';
-	return buf;
-}
-
-const char *format_short(mlstring *mlshort, const char *name, CHAR_DATA *looker)
-{
-        static char buf[MAX_STRING_LENGTH];
-        const char *sshort;
-
-        sshort = fix_short(mlstr_cval(mlshort, looker));
-	strnzcpy(buf, sizeof(buf), sshort);
-
-        if (!IS_SET(looker->comm, COMM_NOENG)
-	&&  sshort != mlstr_mval(mlshort)) {
-		char buf2[MAX_STRING_LENGTH];
-        	char buf3[MAX_STRING_LENGTH];
-
-        	one_argument(name, buf3, sizeof(buf3));
-		snprintf(buf2, sizeof(buf2), " (%s)", buf3);
-		strnzcat(buf, sizeof(buf), buf2);
-	}
-
-        return buf;
-}
-
-/*
- * format description (long descr for mobs, description for objs)
- *
- * eng name expected to be in form " (foo)" and is stripped
- * if COMM_NOENG is set
- */
-const char *format_descr(mlstring *ml, CHAR_DATA *looker)
-{
-	const char *s;
-	const char *p, *q;
-	static char buf[MAX_STRING_LENGTH];
-
-	s = mlstr_cval(ml, looker);
-	if (IS_NULLSTR(s)
-	||  !IS_SET(looker->comm, COMM_NOENG)
-	||  (p = strchr(s, '(')) == NULL
-	||  (q = strchr(p+1, ')')) == NULL)
-		return s;
-
-	if (p != s && *(p-1) == ' ')
-		p--;
-
-	strnzncpy(buf, sizeof(buf), s, p-s);
-	strnzcat(buf, sizeof(buf), q+1);
-	return buf;
 }
 
 #ifdef WIN32

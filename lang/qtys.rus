@@ -17,6 +17,14 @@ Form 4 серебряные монеты~
 End
 
 #RULE
+Name часов~
+Form 1 час~
+Form 2 часа~
+Form 3 часа~
+Form 4 часа~
+End
+
+#RULE
 Name золотых монет~
 Form 1 золотая монета~
 Form 2 золотые монеты~

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.172 1999-05-20 19:59:01 fjoe Exp $
+ * $Id: fight.c,v 1.173 1999-05-21 13:04:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1016,8 +1016,8 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 				level = poison->level;
 
 			if (!saves_spell(level / 2,victim, DAM_POISON)) {
-				char_puts("You feel poison coursing "
-					  "through your veins.", victim);
+				act("You feel poison coursing through "
+				    "your veins.", victim, NULL, NULL, TO_CHAR);
 				act("$n is poisoned by the venom on $p.",
 				    victim, wield, NULL, TO_ROOM);
 

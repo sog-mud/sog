@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.h,v 1.5 1999-03-03 13:50:43 fjoe Exp $
+ * $Id: comm_act.h,v 1.6 1999-05-21 13:04:27 fjoe Exp $
  */
 
 #ifndef _COMM_ACT_H_
@@ -47,14 +47,43 @@
 #define ACT_NOLF	(N)	/* do not append lf */
 #define ACT_FORMSH	(O)	/* call format_short for short descrs */
 #define ACT_FIXSH	(P)	/* call fix_short (used only in PERS2) */
+#define ACT_NOUCASE	(Q)	/* do not uppercase first letter */
+
+/*
+ * formatting stuff
+ */
+
+const char *fix_short	(const char *short_descr);
+const char *format_short(mlstring *mshort, const char *name, CHAR_DATA *to);
+const char *format_descr(mlstring *desc, CHAR_DATA *to);
+
+#define PERS(ch, looker) PERS2(ch, looker, 0)
+const char* PERS2(CHAR_DATA *ch, CHAR_DATA *looker, int act_flags);
+
+/*
+ * act stuff
+ */
+
+typedef struct actopt_t {
+	int to_lang;
+	int to_sex;
+	int act_flags;
+} actopt_t;
 
 #define act(format, ch, arg1, arg2, type) \
 		act_puts((format), (ch), (arg1), (arg2), (type), POS_RESTING)
 #define act_puts(format, ch, arg1, arg2, type, min_pos)		\
 		act_puts3((format), (ch), (arg1), (arg2), NULL,	\
 			  (type), (min_pos))
+/*
+ * ->to must not be NULL for all char/obj formatting or if ACT_STRANS is set
+ * other formatting functions use opt->to_lang/opt->to_sex instead
+ */
+void	act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
+		const void *arg1, const void *arg2, const void *arg3,
+		actopt_t *opt, char *buf, size_t buf_len);
 void    act_puts3(const char *format, CHAR_DATA *ch,
 		  const void *arg1, const void *arg2, const void *arg3,
-		  int flags, int min_pos);
+		  int act_flags, int min_pos);
 
 #endif

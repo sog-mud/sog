@@ -189,6 +189,7 @@ Use 'desc edit' to edit your description.
 @eng $n buys $P.@rus $n покупает $c3{$P}.~
 @eng $N dodges your attack.@rus $N $gN{уклонился} от твоей атаки.~
 @eng {cwounds{x@rus {cранит{x~
+@eng for {c$j{x $qj{hours}.@rus на {c$j{x $qj{часов}.~
 @eng You are already riding.
 @rus Ты уже верхом.
 ~
@@ -202,7 +203,6 @@ Use 'desc edit' to edit your description.
 @eng The $d opens.@rus $d открывается.~
 @eng $n wears $p around $s right wrist.@rus $n надевает $p на правое запястье.~
 @eng $n pushes $N to %s.@rus $n выталкивает $N на %s.~
-@eng for {c%d{x hours.@rus на {c%d{x часов.~
 @eng Your $p strikes $N!@rus $gp{Твой} $p попадает в $c6{$N}!~
 @eng You recall from combat! You lose %d exps.
 @rus Боги вернули тебя домой из битвы! Ты теряешь %d очков опыта.
@@ -617,6 +617,7 @@ You peek at the inventory:
 @eng {bhas a few scratches{x.@rus {bимеет несколько царапин{x.~
 @eng coke@rus кока-кола~
 @eng You close $p.@rus Ты закрываешь $p.~
+@eng : adds '%s' affect @rus : добавляет '%s' ~
 @eng You are completely lost.
 @rus Ты окончательно потерялся.
 ~

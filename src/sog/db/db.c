@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.136 1999-05-20 20:11:37 fjoe Exp $
+ * $Id: db.c,v 1.137 1999-05-21 13:04:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2113,7 +2113,7 @@ void scan_pfiles()
 				   ch->name,
 				   mlstr_mval(obj->pIndexData->short_descr),
 				   obj->pIndexData->vnum);
-			extract_obj(obj, 0);
+			extract_obj(obj, XO_F_NORECURSE);
 		}
 
 		if (!IS_IMMORTAL(ch))

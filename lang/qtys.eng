@@ -9,6 +9,11 @@ Form 1 silver coin~
 End
 
 #RULE
+Name hours~
+Form 1 hour~
+End
+
+#RULE
 Name steaks~
 Form 1 steak~
 End

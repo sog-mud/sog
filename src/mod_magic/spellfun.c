@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.154 1999-05-20 19:59:02 fjoe Exp $
+ * $Id: spellfun.c,v 1.155 1999-05-21 13:04:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2942,7 +2942,7 @@ void spell_floating_disc(int sn, int level,CHAR_DATA *ch,void *vo, int target)
 	disc = create_obj(get_obj_index(OBJ_VNUM_DISC), 0);
 	disc->value[0]	= ch->level * 10; /* 10 pounds per level capacity */
 	disc->value[3]	= ch->level * 5; /* 5 pounds per level max per item */
-	disc->timer	= ch->level * 2 - number_range(0, level / 2); 
+	disc->timer	= ch->level / 2 - number_range(0, level / 4); 
 
 	af.where	= TO_AFFECTS;
 	af.type		= sn;

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.144 1999-05-20 19:59:02 fjoe Exp $
+ * $Id: interp.c,v 1.145 1999-05-21 13:04:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -106,13 +106,13 @@ cmd_t cmd_table[] =
     { "get",		do_get,		POS_RESTING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },
 
     { "goto",           do_goto,        POS_DEAD,       L8,  LOG_NORMAL, CMD_KEEP_HIDE },
+    { "glance",		do_glance,	POS_RESTING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "glist",          do_glist,       POS_DEAD,        0,  LOG_NEVER	},
     { "group",          do_group,       POS_SLEEPING,    0,  LOG_NORMAL, CMD_KEEP_HIDE },
     { "hit",		do_kill,	POS_FIGHTING,	 0,  LOG_NORMAL, CMD_HIDDEN },
     { "inventory",	do_inventory,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "kill",		do_kill,	POS_FIGHTING,	 0,  LOG_NORMAL	},
     { "look",		do_look,	POS_RESTING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
-    { "glance",		do_glance,	POS_RESTING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "order",		do_order,	POS_RESTING,	 0,  LOG_NORMAL	},
     { "practice",       do_practice,	POS_SLEEPING,    0,  LOG_NORMAL, CMD_KEEP_HIDE },
     { "rest",		do_rest,	POS_SLEEPING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },

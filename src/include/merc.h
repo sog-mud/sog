@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.189 1999-05-20 19:59:03 fjoe Exp $
+ * $Id: merc.h,v 1.190 1999-05-21 13:04:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2049,8 +2049,6 @@ uint	mult_argument	(const char *argument, char *arg, size_t len);
 const char *	one_argument	(const char *argument, char *arg_first, size_t);
 const char *	first_arg	(const char *argument, char *arg_first, size_t,
 				 bool fCase);
-#define PERS(ch, looker) PERS2(ch, looker, 0)
-const char* PERS2(CHAR_DATA *ch, CHAR_DATA *looker, flag32_t flags);
 
 /* save.c */
 #define SAVE_F_REBOOT	(A)
@@ -2203,9 +2201,6 @@ void 		do_tell_raw	(CHAR_DATA *ch, CHAR_DATA *victim,
 void	set_title	(CHAR_DATA *ch, const char *title);
 char	*get_cond_alias	(OBJ_DATA *obj);
 void	do_who_raw	(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output);
-const char *fix_short	(const char *short_descr);
-const char *format_short(mlstring *mshort, const char *name, CHAR_DATA *looker);
-const char *format_descr(mlstring *desc, CHAR_DATA *looker);
 
 /* act_move.h */
 void move_char(CHAR_DATA *ch, int door, bool follow);

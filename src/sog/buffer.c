@@ -1,5 +1,5 @@
 /*
- * $Id: buffer.c,v 1.10 1999-03-08 13:56:04 fjoe Exp $
+ * $Id: buffer.c,v 1.11 1999-05-21 13:04:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -116,6 +116,11 @@ void buf_free(BUFFER *buffer)
 
 	buffer->next	= free_list;
 	free_list	= buffer;
+}
+
+int buf_lang(BUFFER *buffer)
+{
+	return buffer->lang;
 }
 
 bool buf_add(BUFFER *buffer, const char *string)
