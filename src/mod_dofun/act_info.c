@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.226 1999-05-12 18:54:37 avn Exp $
+ * $Id: act_info.c,v 1.227 1999-05-14 11:10:57 mud Exp $
  */
 
 /***************************************************************************
@@ -3431,10 +3431,12 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 
 	one_argument(argument, arg, sizeof(arg));
 	ps = (pcskill_t*) skill_vlookup(&ch->pcdata->learned, arg);
-	if (!ps || get_skill(ch, sn = ps->sn) == 0) {
+	if (!ps || ps->percent  <= 0) {
 		char_puts("You can't practice that.\n", ch);
 		return;
 	}
+
+	sn = ps->sn;
 
 	if (sn == gsn_vampire) {
 		char_puts("You can't practice that, only available "
