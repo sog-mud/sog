@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.42 1999-02-11 19:08:49 fjoe Exp $
+ * $Id: note.c,v 1.43 1999-02-15 16:12:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -763,7 +763,8 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 				vnum++;
 
 				if (IS_SET(flags, CHECK_TO)
-				&&  !is_name(to, pnote->to_list))
+				&&  (!str_cmp("all", pnote->to_list) ||
+				     !is_name(to, pnote->to_list)))
 					continue;
 
 				if (IS_SET(flags, CHECK_FROM)
