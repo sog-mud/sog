@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.192 2000-07-27 09:30:09 fjoe Exp $
+ * $Id: spellfun2.c,v 1.193 2000-08-11 12:51:46 cs Exp $
  */
 
 /***************************************************************************
@@ -187,8 +187,8 @@ void spell_disintegrate(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	OBJ_DATA *tattoo, *clanmark; 
 	PC_DATA *vpc;
 	
-	if (saves_spell(level-2, victim, DAM_ENERGY)
-	||  number_bits(1) == 0
+	if (saves_spell(level+9, victim, DAM_ENERGY)
+	||  dice_wlb(1, 3, victim, NULL) == 1
 	||  IS_IMMORTAL(victim)
 	||  IS_CLAN_GUARD(victim)) {
 		dam = dice(level, 20) ;
@@ -3036,8 +3036,10 @@ void spell_power_word_kill(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act_puts("A stream of darkness from $N's finger surrounds you.", 
 		victim, NULL, ch, TO_CHAR, POS_RESTING);
 
-	saves_mental = saves_spell(level-5, victim, DAM_MENTAL);
-	saves_nega = saves_spell(level-5, victim, DAM_NEGATIVE);
+	saves_mental = saves_spell(level-dice_wlb(1, 10, victim, NULL), 
+		victim, DAM_MENTAL);
+	saves_nega = saves_spell(level-dice_wlb(1, 10, victim, NULL),
+		victim, DAM_NEGATIVE);
 
 	if ((saves_mental && saves_nega)
 	|| IS_IMMORTAL(victim)

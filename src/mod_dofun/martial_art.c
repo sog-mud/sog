@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.161 2000-06-21 10:34:29 fjoe Exp $
+ * $Id: martial_art.c,v 1.162 2000-08-11 12:51:45 cs Exp $
  */
 
 /***************************************************************************
@@ -418,7 +418,7 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 	}
 
 	was_in = ch->in_room;
-	for (attempt = 0; attempt < 4; attempt++) {
+	for (attempt = 0; attempt < dice_wlb(3, 2, ch, NULL); attempt++) {
 		EXIT_DATA *pexit;
 		int door;
 

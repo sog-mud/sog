@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.219 2000-06-09 11:59:07 fjoe Exp $
+ * $Id: spellfun.c,v 1.220 2000-08-11 12:51:46 cs Exp $
  */
 
 /***************************************************************************
@@ -159,14 +159,10 @@ void spell_bless(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.type		= sn;
 	af.level	= level;
 	af.duration	= (6 + level / 2);
-	INT(af.location)= APPLY_HITROLL;
+	INT(af.location)= APPLY_LUCK;
 	af.modifier	= level / 8;
 	af.bitvector	= 0;
 	af.owner	= NULL;
-	affect_to_char(victim, &af);
-
-	INT(af.location)= APPLY_SAVING_SPELL;
-	af.modifier	= 0 - level / 8;
 	affect_to_char(victim, &af);
 
 	char_puts("You feel righteous.\n", victim);

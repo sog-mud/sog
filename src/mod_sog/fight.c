@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.277 2000-06-08 19:43:53 fjoe Exp $
+ * $Id: fight.c,v 1.278 2000-08-11 12:51:46 cs Exp $
  */
 
 /***************************************************************************
@@ -276,14 +276,16 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 	 */
 	if (IS_NPC(ch) && wield == NULL) {
 		NPC_DATA *npc = NPC(ch);
-		dam = dice(npc->dam.dice_number, npc->dam.dice_type);
+		dam = dice_wlb(npc->dam.dice_number, npc->dam.dice_type,
+			ch, victim);
 		m = material_lookup(ch->material);
 	} else {
 		if (weapon_sn != NULL)
 			check_improve(ch, weapon_sn, TRUE, 5);
 		if (wield != NULL) {
 			m = material_lookup(wield->material);
-			dam = dice(INT(wield->value[1]), INT(wield->value[2])) * sk / 100;
+			dam = dice_wlb(INT(wield->value[1]), 
+			    INT(wield->value[2]), ch, victim) * sk / 100;
 
 /* no shield = more */
 			if (get_eq_char(ch, WEAR_SHIELD) == NULL)
@@ -306,8 +308,9 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 				dam += dam * 120 / 100;
 			}
 		} else if (ch->shapeform) {
-			dam = dice(ch->shapeform->index->damage[DICE_NUMBER],
-				ch->shapeform->index->damage[DICE_TYPE]); 
+			dam = dice_wlb(ch->shapeform->index->damage[DICE_NUMBER],
+				ch->shapeform->index->damage[DICE_TYPE],
+				ch, victim); 
 		} else {
 			OBJ_DATA *gaunt = get_eq_char(ch, WEAR_HANDS);
 			if (gaunt)
@@ -383,13 +386,13 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 	      !IS_SKILL(dt, "vampiric bite")))
 	&&  (sk2 = get_skill(victim, "counter")) != 0
 	&&  !IS_IMMORTAL(ch)) {
-		sercount = number_percent();
+		sercount = dice_wlb(1, 100, ch, NULL);
 
 		if (!IS_SET(dam_flags, DAMF_HIT)
 		&&  IS_SKILL(dt, "backstab"))
 			sercount += 40;
 
-		if (IS_PUMPED(ch))
+		if (IS_PUMPED(victim))
 			sercount += 10;
 
 		sercount *= 2;
@@ -429,7 +432,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 		else if (IS_SKILL(dt, "charge"))
 			dam = (LEVEL(ch)/12 + 1) * dam + LEVEL(ch);
 		else if (IS_SKILL(dt, "impale")) {
-			if (number_percent() < 
+			if (dice_wlb(1, 100, victim, ch) < 
 				URANGE(4, 5 + LEVEL(ch) - LEVEL(victim), 11)
 			&& !counter && !IS_IMMORTAL(victim)) {
 				act_puts("Your weapon ran through $N's chest!",
@@ -449,7 +452,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 				dam *= 2;
 			}
 		} else if (IS_SKILL(dt, "cleave") && wield != NULL) {
-			if (number_percent() <
+			if (dice_wlb(1, 100, victim, ch) <
 				(URANGE(4, 5 + LEVEL(ch) - LEVEL(victim), 10)
 				+ (WEAPON_IS(wield, WEAPON_AXE)) ? 2 : 0 +
 				(get_curr_stat(ch, STAT_STR) - 21) / 2)
@@ -472,7 +475,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 			} else
 				dam = (dam * 2 + ch->level);
 		} else if (IS_SKILL(dt, "assassinate")) {
-			if (number_percent() <=
+			if (dice_wlb(1, 100, victim, ch) <=
 				URANGE(10, 20+(LEVEL(ch) - LEVEL(victim))*2, 50)
 			&& !counter && !IS_IMMORTAL(victim)) {
 				act_puts("You {R+++ASSASSINATE+++{x $N!",
@@ -512,7 +515,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 	      !IS_SKILL(dt, "ambush") &&
 	      !IS_SKILL(dt, "vampiric bite") &&
 	      !IS_SKILL(dt, "knife")))) {
-		if (number_percent() <  (sk2/8)) {
+		if (dice_wlb(1, 100, victim, NULL) <  (sk2/8)) {
 			act("You deliver a blow of deadly force!",
 			    ch, NULL, NULL, TO_CHAR);
 			act("$n delivers a blow of deadly force!",
