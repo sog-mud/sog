@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.57 1999-09-08 10:40:06 fjoe Exp $
+ * $Id: olc_room.c,v 1.58 1999-10-07 18:04:38 fjoe Exp $
  */
 
 #include "olc.h"
@@ -99,56 +99,24 @@ olc_cmd_t olc_cmds_room[] =
 
 static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		       olc_cmd_t *cmd, int door);
+static ROOM_INDEX_DATA *roomed_create_room(CHAR_DATA *ch, const char *arg);
 
 OLC_FUN(roomed_create)
 {
-	AREA_DATA *pArea;
 	ROOM_INDEX_DATA *pRoom;
-	int value;
-	int iHash;
 	char arg[MAX_STRING_LENGTH];
 	
 	one_argument(argument, arg, sizeof(arg));
-	value = atoi(arg);
-	if (!value) {
-		dofun("help", ch, "'OLC CREATE'");
+	if ((pRoom = roomed_create_room(ch, arg)) == NULL)
 		return FALSE;
-	}
-
-	pArea = area_vnum_lookup(value);
-	if (!pArea) {
-		char_puts("RoomEd: Vnum is not assigned an area.\n", ch);
-		return FALSE;
-	}
-
-	if (!IS_BUILDER(ch, pArea)) {
-        	char_puts("RoomEd: Insufficient security.\n", ch);
-		return FALSE;
-	}
-
-	if (get_room_index(value)) {
-		char_puts("RoomEd: Vnum already exists.\n", ch);
-		return FALSE;
-	}
-
-	pRoom			= new_room_index();
-	pRoom->area		= pArea;
-	pRoom->vnum		= value;
-
-	if (value > top_vnum_room)
-		 top_vnum_room	= value;
-
-	iHash			= value % MAX_KEY_HASH;
-	pRoom->next		= room_index_hash[iHash];
-	room_index_hash[iHash]	= pRoom;
-
 	char_from_room(ch);
 	char_to_room(ch, pRoom);
+	if (IS_EXTRACTED(ch))
+		return FALSE;
 	dofun("look", ch, str_empty);
 
 	ch->desc->pEdit		= (void *)pRoom;
 	OLCED(ch)		= olced_lookup(ED_ROOM);
-	TOUCH_AREA(pArea);
 	char_puts("RoomEd: Room created.\n", ch);
 	return FALSE;
 }
@@ -983,16 +951,16 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 	}
 		 
 	if (!str_cmp(command, "dig")) {
-		char buf[MAX_STRING_LENGTH];
-		
+		char buf[MAX_INPUT_LENGTH];
+
 		if (arg[0] == '\0' || !is_number(arg)) {
 			char_printf(ch, "Syntax: %s dig <vnum>\n",
 				    cmd->name);
 			return FALSE;
 		}
 		
-		roomed_create(ch, arg, cmd);
-		ch->desc->pEdit = pRoom;
+		if (roomed_create_room(ch, arg) == NULL)
+			return FALSE;
 		snprintf(buf, sizeof(buf), "link %s", arg);
 		olced_exit(ch, buf, cmd, door);
 		return TRUE;
@@ -1514,3 +1482,47 @@ void do_resets(CHAR_DATA *ch, const char *argument)
     }
 }
 
+static ROOM_INDEX_DATA *
+roomed_create_room(CHAR_DATA *ch, const char *arg)
+{
+	AREA_DATA *pArea;
+	ROOM_INDEX_DATA *pRoom;
+	int value;
+	int iHash;
+
+	value = atoi(arg);
+	if (!value) {
+		dofun("help", ch, "'OLC CREATE'");
+		return NULL;
+	}
+
+	pArea = area_vnum_lookup(value);
+	if (!pArea) {
+		char_puts("RoomEd: Vnum is not assigned an area.\n", ch);
+		return NULL;
+	}
+
+	if (!IS_BUILDER(ch, pArea)) {
+        	char_puts("RoomEd: Insufficient security.\n", ch);
+		return NULL;
+	}
+
+	if (get_room_index(value)) {
+		char_puts("RoomEd: Vnum already exists.\n", ch);
+		return NULL;
+	}
+
+	pRoom			= new_room_index();
+	pRoom->area		= pArea;
+	pRoom->vnum		= value;
+
+	if (value > top_vnum_room)
+		 top_vnum_room	= value;
+
+	iHash			= value % MAX_KEY_HASH;
+	pRoom->next		= room_index_hash[iHash];
+	room_index_hash[iHash]	= pRoom;
+
+	TOUCH_AREA(pArea);
+	return pRoom;
+}
