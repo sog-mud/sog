@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: checktrans.pl,v 1.10 2001-03-11 21:58:29 fjoe Exp $
+# $Id: checktrans.pl,v 1.11 2001-07-16 18:38:24 fjoe Exp $
 #
 # Usage: checktrans.pl [-u] [-d] [-F] files...
 # Options:
@@ -11,6 +11,7 @@
 
 use strict;
 use Getopt::Std;
+#use File::stat;
 use vars qw/ $opt_u $opt_d $opt_F /;
 
 # path to msgdb
@@ -180,8 +181,10 @@ sub process_file
 				# space character
 				print STDERR "end of string: $linenum:$i\n" if $opt_d;
 				my $str = join '', @string;
-				push @{$file_strings{$str}}, $start_line
-				    if !exists $skip{$str};
+				if (!exists $skip{$str}) {
+					push @{$file_strings{$str}}, $start_line;
+					print STDERR "saved string: [$str]\n" if $opt_d;
+				}
 				$#string = -1;
 				$seen_eos = 0;
 			}
@@ -256,6 +259,8 @@ sub add_message
 	$msg =~ s/^\.//;
 	$msg =~ s/\r/\\r/g;
 	$msg =~ s/"/\\"/g;
+	$msg =~ s/@@/@/g;	# XXX too lazy
+	$msg =~ s/~~/~/g;	# XXX too lazy too
 	$msgdb{$msg} = {};
 
 	return 0;
@@ -280,14 +285,14 @@ while (<IN>) {
 			# we are still searching for '@rus '
 			# save old message
 			$search_rus = add_message($msg);
-			print STDERR "Found \@rus, saved message without translation: '$msg'\n" if $opt_d;
+			print STDERR "Found \@rus, saved message without translation: [$msg]\n" if $opt_d;
 		}
 
 		# save current message
 		if (s/(.*)\@rus .*/$1/) {
 			# found and stripped @rus
 			add_message($_);
-			print STDERR "Saved one-line message: '$_'\n" if $opt_d;
+			print STDERR "Saved one-line message: [$_]\n" if $opt_d;
 			next;
 		}
 
@@ -298,8 +303,9 @@ while (<IN>) {
 	} elsif ($search_rus) {
 		if (s/(.*)\@rus .*/$1/) {
 			# we are searching for '@rus ' and have found it
-			$search_rus = add_message($msg . $_);
-			print STDERR "Found \@rus, saved message: '$msg'\n" if $opt_d;
+			$msg = $msg . $_;
+			$search_rus = add_message($msg);
+			print STDERR "Found \@rus, saved message: [$msg]\n" if $opt_d;
 			next;
 		}
 		$msg = $msg . $_ . "\\n";
@@ -392,7 +398,7 @@ foreach my $i (@ARGV) {
 if (!$opt_F) {
 	print STDERR "Generating byfile statistics\n";
 	rename($byfile_filename, "${byfile_filename}.old")
-		if ( -f $byfile_filename );
+		if (-f $byfile_filename);
 	open(BYFILE, ">$byfile_filename");
 
 	my @files = sort { $a cmp $b } keys %byfile;
