@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.50.2.7 2003-09-30 01:25:26 fjoe Exp $
+ * $Id: mob_prog.c,v 1.50.2.8 2004-06-08 14:31:26 tatyana Exp $
  */
 
 /***************************************************************************
@@ -689,7 +689,7 @@ int cmd_eval(int vnum, const char *line, int check,
 	            if (lval_char != NULL) lval = lval_char->alignment; break;
 		case CHK_MONEY:  /* Money is converted to silver... */
 		    if (lval_char != NULL) 
-			lval = lval_char->gold + (lval_char->silver * 100); break;
+			lval = (lval_char->gold * 100) + lval_char->silver; break;
 		case CHK_OBJVAL0:
 	            if (lval_obj != NULL) lval = lval_obj->value[0]; break;
 	        case CHK_OBJVAL1:
