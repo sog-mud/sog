@@ -2473,18 +2473,18 @@ the gate~
 Z -1 1313
 S
 #1313
-@eng Inside the High Tower of Sorcerery@rus Внутри колдовской башни~
+@eng Inside the High Tower of Sorcery@rus Внутри колдовской башни~
 @eng You are inside the high tower of sorcery. The sight is truly amazing.
 From here, it is obvious that somehow, the tower is much larger on the
 inside than it is on the outside. Young mages walk about, completely
 oblivious to your presence.
   Exits lead north to the common room, west to the dinning room, east to
 a plain hallway and back south through the gate.
-@rus Ты находишься внутри колдовской башни. Вид дейсивительно ошеломляющий. От сюда
-становится видно, что почему-то башня внутри гораздо больше, чем она выглядит
-снаружи. Маги бродят здесь, абсолютно не замечая твоего присутсивия.
-  Выходы ведут на север в зал отдыха, на запад в столовую, на восток в прямой
-коридор и назад на юг, сквозь ворота.
+@rus Ты находишься внутри колдовской башни.  Вид дейсивительно ошеломляющий. 
+Отсюда становится видно, что почему-то башня внутри гораздо больше, чем она
+выглядит снаружи.  Маги бродят здесь, абсолютно не замечая твоего
+присутсивия.  Выходы ведут на север в зал отдыха, на запад в столовую, на
+восток в прямой коридор и назад на юг, сквозь ворота.  
 ~
 0 D inside
 D0
@@ -2521,12 +2521,11 @@ are taking a break from their rigorous studies. There are benches,
 tables and a small water fountain here, otherwise the room is quite
 unremarkable.
   Exits lead off in all directions.
-@rus Ты находишься в зале отдыха. В этой комнате отдыхают ученики магии в переменах
-между тяжелыми занятиями. Они беседуют здесь, играют в разнообразные игры и
-хвастают своими оценками. В комнате достаточно много мебели, в уголке
-разместился небольшой фонтан, тем не менее комната кажется вполне
-обыкновенной.
-  Выходы ведут во всех направлениях.
+@rus Ты находишься в зале отдыха.  В этой комнате отдыхают ученики магии в
+переменах между тяжелыми занятиями.  Они беседуют здесь, играют в
+разнообразные игры и хвастают своими оценками.  В комнате достаточно много
+мебели, в уголке разместился небольшой фонтан, тем не менее комната кажется
+вполне обыкновенной.  Выходы ведут во всех направлениях.  
 ~
 0 D inside
 D0
@@ -6303,7 +6302,7 @@ R 0 1309 4	* The Shadow Grove: randomize
 M 0 1300 6 1311 2	* a shadow guardian (A small clearing)
 M 0 1301 1 1311 1	* a lost adventurer (A small clearing)
 M 0 1303 1 1312 1	* the golem (Entrance to the High Tower)
-M 0 1304 7 1313 1	* a mage (Inside the High Tower of Sorcerery)
+M 0 1304 7 1313 1	* a mage (Inside the High Tower of Sorcery)
 M 0 1304 7 1314 1	* a mage (Common Room)
 M 0 1304 7 1314 1	* a mage (Common Room)
 M 0 1304 7 1315 1	* a mage (The Hallway)

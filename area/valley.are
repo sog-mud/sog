@@ -9,12 +9,15 @@ End
 
 #MOBILES
 #7800
-dog cooshee~
-a cooshee~
-A rather large dog is here, wandering the valley.~
-A beast is the size of the largest common dog.  It has a greenish coat with
+dog cooshee собака куши~
+@eng a cooshee@rus куши~
+@eng A rather large dog is here, wandering the valley.@rus Создание, очень напоминающее большую собаку (dog), бродит по долине.~
+@eng A beast is the size of the largest common dog.  It has a greenish coat with
 brown spots.  Its shape, along with its colors, make this cooshee almost
 undetectable as it moves.
+@rus Это существо размером с обыкновенную большую собаку. У нее зеленоватая
+шкура с коричневыми пятнами. Ее форма вкупе с раскраской, делает этого
+куши совсем незаметным.
 ~
 dog~
 GH 0 0 G 0 0 0
@@ -23,14 +26,19 @@ GH 0 0 G 0 0 0
 EFNR
 stand stand none 0
 0 0 medium unknown
+g @eng none@rus male~
 #7801
-elf valley~
-a valley elf~
-A valley elf wanders here, cautious of your intrusion.~
-This elf is almost as tall as you are, but much slimmer and agile.  You see
+elf valley эльф долинный~
+@eng a valley elf@rus ~~долинный~~ ~~эльф~~~
+@eng A valley elf wanders here, cautious of your intrusion.@rus Долинный эльф (elf) ходит вокруг, внимательно следя за твоими действиями.~
+@eng This elf is almost as tall as you are, but much slimmer and agile.  You see
 hatred in his eyes, and you try to avoid his stare.  His tense body looks ready
 to spring upon you, like a mountain lion stalking its prey.  He sees you
 noticing him, and quietly disappears.
+@rus Этот эльф почти так же высок, как и ты. Но гораздо изящнее и проворнее.
+В его глазах горит ненависть, и потому ты стараешься избегать его взгляда.
+Его тело напряжено, и он готов броситься на тебя, как лев бросается на свою
+жертву. Тут он замечает, что ты его рассматриваешь, и исчезает.
 ~
 elf~
 CFGH 0 0 0 0 0 0
@@ -42,11 +50,14 @@ stand stand male 0
 r negative 10
 r charm -33
 #7802
-elf valley~
-a valley elf~
-A female valley elf wanders here, skirting between the tall grasses.~
-This elf is almost as tall as you are, but much slimmer and more agile.
+elf valley эльфийка долинная~
+@eng a valley elf@rus ~~долинная~~ ~~эльфийка~~~
+@eng A female valley elf wanders here, skirting between the tall grasses.@rus Эльфийка (elf) бродит здесь, лавируя среди высокой травы.~
+@eng This elf is almost as tall as you are, but much slimmer and more agile.
 She glares at you, then quickly disappears before you see more of her.
+@rus Эльфийка почти так же высока, как ты. но гораздо более грациозна и 
+изящна. Она вглянула на тебя и быстро исчезла, не дав себя рассмотреть
+как следует.
 ~
 elf~
 CFGH 0 0 0 0 0 0
@@ -58,11 +69,13 @@ stand stand female 0
 r negative 10
 r charm -33
 #7803
-elf sentry valley~
-a valley elf sentry~
-A valley elf sentry stands here, then noticing you, attacks quickly!~
-This elf is almost as tall as you are, but much slimmer and more agile.
+elf sentry valley эльф часовой~
+@eng a valley elf sentry@rus часовой~
+@eng A valley elf sentry stands here, then noticing you, attacks quickly!@rus Эльф-часовой (elf) стоит здесь и, заметив тебя, немедленно атакует!~
+@eng This elf is almost as tall as you are, but much slimmer and more agile.
 He glares at your intrusion and attacks with menace.
+@rus Этот эльф почти так же высок, как и ты. Но гораздо изящнее и проворнее.
+Он заметил твое появление и тотчас атаковал.
 ~
 elf~
 BF 0 0 0 0 0 0
@@ -74,11 +87,13 @@ stand stand male 0
 r negative 10
 r charm -33
 #7804
-elf sentry valley~
-a valley elf sentry~
-A valley elf sentry stands here, then noticing you, attacks quickly!~
-This elf is almost as tall as you are, but much slimmer and more agile.
+elf sentry valley эльфийка часовая~
+@eng a valley elf sentry@rus часовая~
+@eng A valley elf sentry stands here, then noticing you, attacks quickly!@rus Эльфийка-часовая (elf) стоит здесь и, заметив тебя, немедленно атакует!~
+@eng This elf is almost as tall as you are, but much slimmer and more agile.
 She glares at your intrusion and attacks with menace.
+@rus Эта эльфийка почти так же высока, как и ты. Но гораздо изящнее и проворнее.
+Она заметила твое появление и тотчас атаковала.
 ~
 elf~
 BF 0 0 0 0 0 0
