@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.19 1998-05-21 10:16:38 efdi Exp $
+ * $Id: quest.c,v 1.20 1998-05-21 17:14:41 efdi Exp $
  */
 
 /***************************************************************************
@@ -496,7 +496,7 @@ void do_quest(CHAR_DATA *ch, char *argument)
 
 					level = ch->level;
 					reward = dice(level, 30);
-					reward=URANGE(300,reward,20*ch->level);
+					reward=URANGE(00,reward,20*ch->level);
 					pointreward = number_range(20, 40);
 
 					sprintf(buf, msg(QUEST_GRATS_COMPLETE, 
@@ -700,7 +700,7 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
     OBJ_DATA *eyed;
     char buf [MAX_STRING_LENGTH];
     int level_diff, i;
-    int mob_buf[300],mob_count;
+    int mob_buf[1000],mob_count;
     int found;
 
     room	=	alloc_perm(sizeof (*room));
@@ -721,7 +721,7 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 	continue;
      mob_buf[mob_count] = vsearch->vnum;
      mob_count++;
-     if (mob_count > 299) break;
+     if (mob_count > 999) break;
     }
 
     if (chance(40))
