@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.108 1999-01-25 07:26:51 kostik Exp $
+ * $Id: act_wiz.c,v 1.109 1999-02-09 14:28:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1289,8 +1289,8 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		victim->in_room == NULL    ?        0 : victim->in_room->vnum);
 
 	if (IS_NPC(victim))
-		buf_printf(output,"Count: %d  Killed: %d  ---  Status: %d\n",
-		    victim->pIndexData->count,victim->pIndexData->killed, victim->status);
+		buf_printf(output,"Count: %d  Killed: %d\n",
+			victim->pIndexData->count, victim->pIndexData->killed);
 
 	buf_printf(output, "Str: %d(%d)  Int: %d(%d)  Wis: %d(%d)  Dex: %d(%d)  Con: %d(%d) Cha: %d(%d)\n",
 		victim->perm_stat[STAT_STR],

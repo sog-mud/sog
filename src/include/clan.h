@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.h,v 1.9 1999-02-02 15:50:21 kostik Exp $
+ * $Id: clan.h,v 1.10 1999-02-09 14:28:14 fjoe Exp $
  */
 
 #ifndef _CLAN_H_
@@ -78,8 +78,10 @@ extern varr	clans;
 #define clan_lookup(cn)		((CLAN_DATA*) varr_get(&clans, cn))
 
 struct clan_skill {
-	int	sn;
-	int	level;
+	int	sn;		/* skill number. leave this field first	 */
+				/* in order sn_vlookup to work properly  */
+	int	level;		/* level at which skill become available */
+	int	percent;	/* initial percent			 */
 };
 
 #define clan_skill_lookup(clan, sn) \

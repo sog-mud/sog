@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.94 1999-02-09 09:33:58 kostik Exp $
+ * $Id: save.c,v 1.95 1999-02-09 14:28:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -658,7 +658,8 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 		case 'A':
 			KEY("Act", ch->plr_flags, fread_flags(fp) &
 					    ~(PLR_GHOST | PLR_CONFIRM_DELETE |
-					      PLR_NOEXP | PLR_NEW | PLR_PUMPED));
+					      PLR_NOEXP | PLR_NEW | PLR_PUMPED |
+					      PLR_PRACTICER));
 			KEY("AffectedBy", ch->affected_by, fread_flags(fp));
 			KEY("AfBy", ch->affected_by, fread_flags(fp) &
 						     ~AFF_CHARM);
@@ -841,12 +842,6 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 				ch->played = ch->pcdata->played;
 				if (ch->lines < SCROLL_MIN-2)
 					ch->lines = SCROLL_MAX-2;
-
-				if (IS_SET(ch->plr_flags, PLR_COLOR)) {
-					REMOVE_BIT(ch->plr_flags, PLR_COLOR);
-					SET_BIT(ch->comm, COMM_COLOR);
-				}
-
 				return;
 			}
 			KEY("Exp", ch->exp, fread_number(fp));

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.107 1999-02-09 09:33:57 kostik Exp $
+ * $Id: spellfun.c,v 1.108 1999-02-09 14:28:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -66,6 +66,26 @@ int allowed_other(CHAR_DATA *ch, int sn)
 }
 
 /*
+ * check if victim allow ch to cast SPELL_QUESTIONABLE spell
+ */
+bool check_trust(CHAR_DATA *ch, CHAR_DATA *victim)
+{
+	if (ch == victim)
+		return TRUE;
+
+	if (IS_NPC(victim))
+		return is_same_group(ch, victim);
+
+	if (IS_SET(victim->pcdata->trust, TRUST_ALL)) 
+		return TRUE;
+
+	return (IS_SET(victim->pcdata->trust, TRUST_GROUP) &&
+		is_same_group(ch, victim))
+	    || (ch->clan && IS_SET(victim->pcdata->trust, TRUST_CLAN) &&
+		ch->clan == victim->clan);
+}
+
+/*
  * The kludgy global is for spells who want more stuff from command line.
  */
 const char *target_name;
@@ -85,7 +105,6 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	int chance = 0;
 	SKILL_DATA *spell;
 	CLASS_DATA *cl;
-	PC_SKILL *ps; 
 	int bane_chance;
 
 	if ((cl = class_lookup(ch->class)) == NULL)
@@ -125,24 +144,20 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 		sn = sn_lookup(arg1);
-		chance = get_skill(ch, sn);
 	}
 	else {
-		if ((ps = skill_vlookup(&ch->pcdata->learned, arg1))
-		&&  skill_level(ch, sn = ps->sn) <= ch->level)
-			chance = ps->percent;
+		PC_SKILL *ps;
+		ps = (PC_SKILL*) skill_vlookup(&ch->pcdata->learned, arg1);
+		if (ps)
+			sn = ps->sn;
 	}
 
-	if (chance == 0) {
+	if ((chance = get_skill(ch, sn)) == 0) {
 		char_puts("You don't know any spells of that name.\n", ch);
 		return;
 	}
 	spell = SKILL(sn);
 	
-	if (IS_SET(spell->flags, SKILL_CLAN) && !clan_item_ok(ch->clan)) {
-		char_puts("Your clan item of power is lost, you cannot cast this spell.\n", ch);
-		return;
-	}
 	if (HAS_SKILL(ch, gsn_vampire)
 	&&  !is_affected(ch, gsn_vampire)
 	&&  !IS_SET(spell->flags, SKILL_CLAN)) {

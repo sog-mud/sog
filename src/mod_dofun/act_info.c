@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.186 1999-02-09 10:19:09 fjoe Exp $
+ * $Id: act_info.c,v 1.187 1999-02-09 14:28:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3396,10 +3396,8 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 	}
 
 	one_argument(argument, arg);
-
-	if ((ps = skill_vlookup(&ch->pcdata->learned, arg)) == NULL
-	||  ps->percent == 0
-	||  skill_level(ch, sn = ps->sn) > ch->level) {
+	ps = (PC_SKILL*) skill_vlookup(&ch->pcdata->learned, arg);
+	if (!ps || get_skill(ch, sn = ps->sn) == 0) {
 		char_puts("You can't practice that.\n", ch);
 		return;
 	}

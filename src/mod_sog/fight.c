@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.124 1999-02-09 09:33:56 kostik Exp $
+ * $Id: fight.c,v 1.125 1999-02-09 14:28:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1082,9 +1082,6 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	group_gain(ch, victim);
 
-	if (IS_NPC(ch) && ch->pIndexData->vnum == MOB_VNUM_STALKER)
-		ch->status = 10;
-
 	/*
 	 * Death trigger
 	 */
@@ -1497,21 +1494,6 @@ bool is_safe(CHAR_DATA *ch, CHAR_DATA *victim)
 		return TRUE;
 	}
 	return FALSE;
-}
-
-bool check_trust(CHAR_DATA *ch, CHAR_DATA *victim)
-{
-	if (IS_NPC(victim))
-		return is_same_group(ch, victim);
-
-	if (ch == victim) return TRUE;
-	if (IS_SET(victim->pcdata->trust, TRUST_ALL)) 
-		return TRUE;
-
-	return 	(IS_SET(victim->pcdata->trust, TRUST_GROUP) 
-		&& is_same_group(ch, victim))
-		|| (IS_SET(victim->pcdata->trust, TRUST_CLAN)
-		&& (ch->clan == victim->clan));
 }
 
 bool is_safe_spell(CHAR_DATA *ch, CHAR_DATA *victim, bool area)
@@ -2802,15 +2784,18 @@ void do_dishonor(CHAR_DATA *ch, const char *argument)
 	ROOM_INDEX_DATA *was_in;
 	ROOM_INDEX_DATA *now_in;
 	CHAR_DATA *gch;
-	int attempt,level = 0;
+	int attempt, level = 0;
+	int sn_dishonor;
+	int chance;
 
 	if (RIDDEN(ch)) {
 		char_puts("You should ask to your rider!\n", ch);
 		return;
 	}
 
-	if ((ch->class != CLASS_SAMURAI) || (ch->level <10)) {
-		char_puts("Which honor?.\n", ch);
+	if ((sn_dishonor = sn_lookup("dishonor")) < 0
+	||  !HAS_SKILL(ch, sn_dishonor)) {
+		char_puts("Which honor?\n", ch);
 		return;
 	}
 
@@ -2821,20 +2806,24 @@ void do_dishonor(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	for (gch = char_list; gch != NULL; gch = gch->next)
+	for (gch = char_list; gch; gch = gch->next)
 		  if (is_same_group(gch, ch->fighting) || gch->fighting == ch)
 			level += gch->level;
 
 	if ((ch->fighting->level - ch->level) < 5 && ch->level > (level / 3)) {
 		 char_puts("Your fighting doesn't worth "
-			      "to dishonor yourself.\n", ch);
+			   "to dishonor yourself.\n", ch);
 		 return;
 	}
 
 	was_in = ch->in_room;
+	chance = get_skill(ch, sn_dishonor);
 	for (attempt = 0; attempt < 6; attempt++) {
 		EXIT_DATA *pexit;
 		int door;
+
+		if (number_percent() >= chance)
+			continue;
 
 		door = number_door();
 		if ((pexit = was_in->exit[door]) == 0
@@ -2853,7 +2842,8 @@ void do_dishonor(CHAR_DATA *ch, const char *argument)
 			continue;
 
 		ch->in_room = was_in;
-		act("$n has dishonored $mself!", ch, NULL, NULL, TO_ROOM);
+		act("$n has dishonored $mself!",
+		    ch, NULL, NULL, TO_ROOM);
 		ch->in_room = now_in;
 
 		if (!IS_NPC(ch)) {
@@ -2872,11 +2862,12 @@ void do_dishonor(CHAR_DATA *ch, const char *argument)
 		if (MOUNTED(ch))
 			do_dismount(ch,str_empty);
 
+		check_improve(ch, sn_dishonor, TRUE, 1);
 		return;
 	}
 
 	char_puts("PANIC! You couldn't escape!\n", ch);
-	return;
+	check_improve(ch, sn_dishonor, FALSE, 1);
 }
 
 void do_surrender(CHAR_DATA *ch, const char *argument)

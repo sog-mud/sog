@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.138 1999-02-09 10:19:11 fjoe Exp $
+ * $Id: merc.h,v 1.139 1999-02-09 14:28:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1073,7 +1073,6 @@ enum {
 #define PLR_AUTOSAC		(F)
 #define PLR_AUTOGOLD		(G)
 #define PLR_AUTOSPLIT		(H)
-#define PLR_COLOR		(I)	/* obsolete, use COMM_COLOR instead */
 #define PLR_WANTED		(J)
 #define PLR_NOTITLE		(K)
 /* RT personal flags */
@@ -1086,21 +1085,22 @@ enum {
 #define PLR_NOCANCEL		(S)
 #define PLR_GHOST		(T)
 
-/* Trust stuff */
-#define TRUST_GROUP		(A)
-#define TRUST_CLAN		(B)
-#define TRUST_ALL		(C)
-
 /* penalty flags */
 #define PLR_PERMIT		(U)
 #define PLR_LOG 		(W)
 #define PLR_DENY		(X)
 #define PLR_FREEZE		(Y)
 #define PLR_PUMPED		(Z)	/* adrenalin is gushing */
+#define PLR_PRACTICER		(aa)
 #define PLR_CONFIRM_DELETE	(cc)
 #define PLR_HARA_KIRI		(dd)
 #define PLR_BLINK		(ee)
 #define PLR_NEW			(ff)
+
+/* Trust stuff */
+#define TRUST_GROUP		(A)
+#define TRUST_CLAN		(B)
+#define TRUST_ALL		(C) /* mutually exclusive with previous two */
 
 #define IS_HARA_KIRI(ch) (IS_SET((ch)->plr_flags, PLR_HARA_KIRI))
 #define IS_CLAN_GUARD(ch) (IS_NPC(ch) && IS_SET(ch->pIndexData->act, ACT_CLAN_GUARD))
@@ -1319,7 +1319,6 @@ struct char_data
 	sflag_t			start_pos;
 	sflag_t			default_pos;
 	int			mprog_delay;
-	int 			status;
 	bool			extracted;
 	const char *		in_mind;
 	int	 		religion;
@@ -1388,9 +1387,13 @@ struct pc_data
 	int			plevels;	/* penalty levels */
 };
 
+/*
+ * PC learned skill
+ */
 struct pc_skill {
-	int sn;
-	int percent;
+	int sn;		/* skill number. leave this field first		*/
+			/* in order sn_vlookup to work properly		*/
+	int percent;	/* skill percentage				*/
 };
 
 #define pc_skill_lookup(ch, sn) \

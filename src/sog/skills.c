@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.47 1999-02-03 07:01:49 kostik Exp $
+ * $Id: skills.c,v 1.48 1999-02-09 14:28:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -413,7 +413,7 @@ void update_skills(CHAR_DATA *ch)
 	if ((clan = clan_lookup(ch->clan))) {
 		for (i = 0; i < clan->skills.nused; i++) {
 			CLAN_SKILL *cs = VARR_GET(&clan->skills, i);
-			set_skill_raw(ch, cs->sn, 1, FALSE);
+			set_skill_raw(ch, cs->sn, cs->percent, FALSE);
 		}
 	}
 
@@ -487,13 +487,19 @@ void do_slook(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+/* search in known skills first */
 	if (!IS_NPC(ch)) {
 		PC_SKILL *ps;
-		if ((ps = skill_vlookup(&ch->pcdata->learned, arg)))
+		ps = (PC_SKILL*) skill_vlookup(&ch->pcdata->learned, arg);
+		if (ps)
 			sn = ps->sn;
 	}
 
-	if (sn < 0 && (sn = sn_lookup(arg)) < 0) { 
+/* search in all skills */
+	if (sn < 0)
+		sn = sn_lookup(arg);
+
+	if (sn < 0) { 
 		char_puts("That is not a spell or skill.\n",ch);
 		return; 
 	}
@@ -503,13 +509,11 @@ void do_slook(CHAR_DATA *ch, const char *argument)
 		    flag_string(skill_groups, SKILL(sn)->group));
 }
 
-#define PC_PRACTICER	123
-
 void do_learn(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	int sn;
-	CHAR_DATA *mob;
+	CHAR_DATA *practicer;
 	int adept;
 	CLASS_DATA *cl;
 	CLASS_SKILL *cs;
@@ -535,16 +539,12 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	argument = one_argument(argument,arg);
-
-	if ((ps = skill_vlookup(&ch->pcdata->learned, arg)) == NULL
-	||  ps->percent == 0
-	||  skill_level(ch, sn = ps->sn) > ch->level) {
+	argument = one_argument(argument, arg);
+	ps = (PC_SKILL*) skill_vlookup(&ch->pcdata->learned, arg);
+	if (!ps || get_skill(ch, sn = ps->sn) == 0) {
 		char_puts("You can't learn that.\n", ch);
 		return;
 	}
-
-	ps = pc_skill_lookup(ch, sn);
 
 	if (sn == gsn_vampire) {
 		char_puts("You can't practice that, only available "
@@ -554,23 +554,23 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 
 	argument = one_argument(argument,arg);
 		
-	if ((mob = get_char_room(ch,arg)) == NULL) {
+	if ((practicer = get_char_room(ch,arg)) == NULL) {
 		char_puts("Your hero is not here.\n", ch);
 		return;
 	}
 			
-	if (IS_NPC(mob) || mob->level != HERO) {
+	if (IS_NPC(practicer) || practicer->level != HERO) {
 		char_puts("You must find a hero, not an ordinary one.\n",
 			  ch);
 		return;
 	}
 
-	if (mob->status != PC_PRACTICER) {
+	if (!IS_SET(practicer->plr_flags, PLR_PRACTICER)) {
 		char_puts("Your hero doesn't want to teach you anything.\n",ch);
 		return;
 	}
 
-	if (get_skill(mob, sn) < 100) {
+	if (get_skill(practicer, sn) < 100) {
 		char_puts("Your hero doesn't know that skill enough to teach you.\n",ch);
 		return;
 	}
@@ -590,9 +590,9 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 	rating = cs ? UMAX(cs->rating, 1) : 1;
 	ps->percent += int_app[get_curr_stat(ch,STAT_INT)].learn / rating;
 
-	act("You teach $T.", mob, NULL, sk->name, TO_CHAR);
-	act("$n teaches $T.", mob, NULL, sk->name, TO_ROOM);
-	mob->status = 0;
+	act("You teach $T.", practicer, NULL, sk->name, TO_CHAR);
+	act("$n teaches $T.", practicer, NULL, sk->name, TO_ROOM);
+	REMOVE_BIT(practicer->plr_flags, PLR_PRACTICER);
 
 	if (ps->percent < adept) {
 		act("You learn $T.", ch, NULL, sk->name, TO_CHAR);
@@ -611,7 +611,7 @@ void do_teach(CHAR_DATA *ch, const char *argument)
 		char_puts("You must be a hero.\n",ch);
 		return;
 	}
-	ch->status = PC_PRACTICER;
+	SET_BIT(ch->plr_flags, PLR_PRACTICER);
 	char_puts("Now, you can teach youngsters your 100% skills.\n",ch);
 }
 
@@ -629,7 +629,8 @@ int get_skill(CHAR_DATA *ch, int sn)
 	int skill;
 	SKILL_DATA *sk;
 
-	if ((sk = skill_lookup(sn)) == NULL)
+	if ((sk = skill_lookup(sn)) == NULL
+	||  (IS_SET(sk->flags, SKILL_CLAN) && !clan_item_ok(ch->clan)))
 		return 0;
 
 	if (!IS_NPC(ch)) {
@@ -720,11 +721,8 @@ int get_skill(CHAR_DATA *ch, int sn)
 
 	if (!IS_NPC(ch) && ch->pcdata->condition[COND_DRUNK]  > 10)
 		skill = 9 * skill / 10;
-	if (IS_SET(sk->flags, SKILL_CLAN) && !clan_item_ok(ch->clan))
-		skill = 0;
 	return URANGE(0, skill, 100);
 }
-
 
 /*
  * Lookup a skill by name.
@@ -737,34 +735,33 @@ int sn_lookup(const char *name)
 		return -1;
 
 	for (sn = 0; sn < skills.nused; sn++)
-		if (LOWER(name[0]) == LOWER(SKILL(sn)->name[0])
-		&&  !str_prefix(name, SKILL(sn)->name))
+		if (!str_prefix(name, SKILL(sn)->name))
 			return sn;
 
 	return -1;
 }
 
-int char_sn_lookup(CHAR_DATA *ch, const char *name)
+/*
+ * Lookup skill in varr.
+ * First field of structure assumed to be sn
+ */
+void *skill_vlookup(varr *v, const char *name)
 {
 	int i;
 
-	if (IS_NULLSTR(name) || IS_NPC(ch))
-		return -1;
+	if (IS_NULLSTR(name))
+		return NULL;
 
-	for (i = 0; i < ch->pcdata->learned.nused; i++) {
-		PC_SKILL *ps = VARR_GET(&ch->pcdata->learned, i);
+	for (i = 0; i < v->nused; i++) {
 		SKILL_DATA *skill;
+		int *psn = (int*) VARR_GET(v, i);
 
-		if (ps->percent == 0
-		||  (skill = skill_lookup(ps->sn)) == NULL
-		||  skill_level(ch, ps->sn) > ch->level)
-			continue;
-
-		if (!str_prefix(name, skill->name))
-			return ps->sn;
+		if ((skill = skill_lookup(*psn))
+		&&  !str_prefix(name, skill->name))
+			return psn;
 	}
 
-	return -1;
+	return NULL;
 }
 
 /* for returning weapon information */
@@ -944,21 +941,3 @@ int mana_cost(CHAR_DATA *ch, int sn)
 	return UMAX(sk->min_mana, 100 / (2 + ch->level - skill_level(ch, sn)));
 }
 
-void *skill_vlookup(varr *v, const char *name)
-{
-	int i;
-
-	if (IS_NULLSTR(name))
-		return NULL;
-
-	for (i = 0; i < v->nused; i++) {
-		SKILL_DATA *skill;
-		int *psn = (int*) VARR_GET(v, i);
-
-		if ((skill = skill_lookup(*psn))
-		&&  !str_prefix(name, skill->name))
-			return psn;
-	}
-
-	return NULL;
-}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.27 1999-02-05 09:22:05 kostik Exp $
+ * $Id: clan.c,v 1.28 1999-02-09 14:28:14 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -184,6 +184,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 				return;
 			}
 			victim->clan = CLAN_NONE;
+			REMOVE_BIT(victim->pcdata->trust, TRUST_CLAN);
 			update_skills(victim);
 			char_printf(ch, "They are not a member of %s "
 					"anymore.\n", clan->name);

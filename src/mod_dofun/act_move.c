@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.130 1999-01-26 07:08:21 kostik Exp $
+ * $Id: act_move.c,v 1.131 1999-02-09 14:28:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1898,7 +1898,6 @@ void do_track(CHAR_DATA *ch, const char *argument)
 
 	if (number_percent() < chance) {
 		if (IS_NPC(ch)) {
-			ch->status = 0;
 			if (ch->last_fought != NULL
 			&&  !IS_SET(ch->pIndexData->act, ACT_NOTRACK))
 				add_mind(ch, ch->last_fought->name);
@@ -1921,10 +1920,6 @@ void do_track(CHAR_DATA *ch, const char *argument)
 	}
 
 	char_puts("You don't see any tracks.\n", ch);
-
-	if (IS_NPC(ch))
-		ch->status = 5; /* for stalker */
-
 	check_improve(ch, gsn_track, FALSE, 1);
 }
 

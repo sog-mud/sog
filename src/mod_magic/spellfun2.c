@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.71 1999-02-08 16:34:01 fjoe Exp $
+ * $Id: spellfun2.c,v 1.72 1999-02-09 14:28:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -92,7 +92,7 @@ ROOM_INDEX_DATA * check_place(CHAR_DATA *ch, const char *argument)
  return NULL;
 }
 	
-void spell_portal(int sn, int level, CHAR_DATA *ch, void *vo,int target)
+void spell_portal(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *portal, *stone;
@@ -2212,7 +2212,7 @@ void spell_acute_vision(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	return;
 }
 
-void spell_dragons_breath(int sn,int level,CHAR_DATA *ch, void *vo,int target) 
+void spell_dragons_breath(int sn,int level,CHAR_DATA *ch, void *vo, int target) 
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	CHAR_DATA *vch, *vch_next;
@@ -2356,7 +2356,7 @@ void spell_dragons_breath(int sn,int level,CHAR_DATA *ch, void *vo,int target)
 	}
 }
 
-void spell_sand_storm(int sn, int level, CHAR_DATA *ch, void *vo,int target)
+void spell_sand_storm(int sn, int level, CHAR_DATA *ch, void *vo, int target)
  {
 	CHAR_DATA *vch, *vch_next;
 	int dam,hp_dam,dice_dam;
@@ -2403,7 +2403,7 @@ void spell_sand_storm(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	}
 }
 
-void spell_scream(int sn, int level, CHAR_DATA *ch, void *vo,int target)
+void spell_scream(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *vch, *vch_next;
 	int dam=0,hp_dam,dice_dam;
@@ -2441,7 +2441,7 @@ void spell_scream(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	}
 }
 
-void spell_attract_other(int sn, int level, CHAR_DATA *ch, void *vo,int target)
+void spell_attract_other(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
@@ -2449,10 +2449,10 @@ void spell_attract_other(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		char_puts("You'd better try your chance on other sex!\n", ch);
 		return;
 	}
-	spell_charm_person(sn,level,ch,vo,target);
+	spell_charm_person(sn, level+2, ch, vo, target);
 }
 
-void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
+void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *victim;
 	CHAR_DATA *undead;
@@ -2689,7 +2689,7 @@ void spell_web(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 }
 
 
-void spell_group_defense(int sn, int level, CHAR_DATA *ch, void *vo ,int target) 
+void spell_group_defense(int sn, int level, CHAR_DATA *ch, void *vo , int target) 
 {
 	CHAR_DATA *gch;
 	AFFECT_DATA af;
@@ -2751,7 +2751,7 @@ void spell_group_defense(int sn, int level, CHAR_DATA *ch, void *vo ,int target)
 	}
 }
 
-void spell_inspire(int sn, int level, CHAR_DATA *ch, void *vo,int target) 
+void spell_inspire(int sn, int level, CHAR_DATA *ch, void *vo, int target) 
 {
 	CHAR_DATA *gch;
 	AFFECT_DATA af;
@@ -2792,7 +2792,7 @@ void spell_inspire(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	}
 }
 
-void spell_mass_sanctuary(int sn, int level, CHAR_DATA *ch, void *vo,int target) 
+void spell_mass_sanctuary(int sn, int level, CHAR_DATA *ch, void *vo, int target) 
 {
 	CHAR_DATA *gch;
 	AFFECT_DATA af;
@@ -2877,7 +2877,7 @@ void spell_mend(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	}
 }
 
-void spell_shielding(int sn, int level, CHAR_DATA *ch, void *vo ,int target)
+void spell_shielding(int sn, int level, CHAR_DATA *ch, void *vo , int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
@@ -3632,7 +3632,7 @@ void spell_dragon_skin(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 }
 	
 
-void spell_mind_light(int sn, int level, CHAR_DATA *ch, void *vo,int target)
+void spell_mind_light(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	AFFECT_DATA af,af2;
 
@@ -3716,7 +3716,7 @@ void spell_power_stun (int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 
 
-void spell_improved_invis(int sn, int level, CHAR_DATA *ch, void *vo,int target) 
+void spell_improved_invis(int sn, int level, CHAR_DATA *ch, void *vo, int target) 
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
@@ -3740,7 +3740,7 @@ void spell_improved_invis(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 
 
-void spell_improved_detect(int sn, int level, CHAR_DATA *ch, void *vo,int target) 
+void spell_improved_detect(int sn, int level, CHAR_DATA *ch, void *vo, int target) 
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
@@ -3768,7 +3768,7 @@ void spell_improved_detect(int sn, int level, CHAR_DATA *ch, void *vo,int target
 	return;
 }
 
-void spell_severity_force(int sn, int level, CHAR_DATA *ch, void *vo,int target
+void spell_severity_force(int sn, int level, CHAR_DATA *ch, void *vo, int target
 )
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
@@ -3843,7 +3843,7 @@ void spell_randomizer(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	return;
 }
 
-void spell_bless_weapon(int sn,int level,CHAR_DATA *ch, void *vo,int target)
+void spell_bless_weapon(int sn,int level,CHAR_DATA *ch, void *vo, int target)
 {
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	AFFECT_DATA af;
@@ -3918,7 +3918,7 @@ void spell_resilience(int sn, int level, CHAR_DATA *ch, void *vo, int target)
  return;
 }
 
-void spell_superior_heal(int sn, int level, CHAR_DATA *ch, void *vo,int target)
+void spell_superior_heal(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int bonus = 170 + level + dice(1,20);
@@ -3931,7 +3931,7 @@ void spell_superior_heal(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	return;
 }
 
-void spell_master_healing(int sn, int level, CHAR_DATA *ch, void *vo,int target)
+void spell_master_healing(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int bonus = 300 + level + dice(1,40);
@@ -3963,7 +3963,7 @@ void spell_group_heal(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	}
 }
 
-void spell_restoring_light(int sn, int level, CHAR_DATA *ch, void *vo,int target)
+void spell_restoring_light(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int nsn, mana_add;
@@ -4453,7 +4453,7 @@ void spell_black_death(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 }
 
-void spell_mysterious_dream(int sn, int level, CHAR_DATA *ch, void *vo,int target)
+void spell_mysterious_dream(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	AFFECT_DATA af;
 
@@ -4557,7 +4557,7 @@ void spell_plant_form(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 }
 
 
-void spell_blade_barrier(int sn,int level,CHAR_DATA *ch, void *vo,int target)
+void spell_blade_barrier(int sn,int level,CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
@@ -4721,7 +4721,7 @@ void spell_disgrace(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	else char_puts("You failed.\n",ch);
 }
 
-void spell_control_undead(int sn, int level, CHAR_DATA *ch, void *vo,int target)
+void spell_control_undead(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
@@ -4891,8 +4891,7 @@ void spell_farsight(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	}
 }
 
-
-void spell_remove_fear(int sn, int level, CHAR_DATA *ch, void *vo,int target)
+void spell_remove_fear(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
@@ -5058,73 +5057,58 @@ void spell_doppelganger(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	ch->doppel = victim;
 }
  
-
-
-/*Added by Osya*/
-void spell_hunger_weapon(int sn,int level,CHAR_DATA *ch, void *vo,int target)
+void spell_hunger_weapon(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
         OBJ_DATA *obj = (OBJ_DATA *) vo;
         AFFECT_DATA af;
-	int chance = get_skill(ch,sn) ;	
+	int chance;
 
-        if (obj->pIndexData->item_type != ITEM_WEAPON)
-        {
-        char_puts("That isn't a weapon.\n",ch);
-        return;
-        } ;
+        if (obj->pIndexData->item_type != ITEM_WEAPON) {
+        	char_puts("That's not a weapon.\n", ch);
+        	return;
+        } 
 
-        if (obj->wear_loc != -1)
-        {
-        char_puts("The item must be carried to be cursed.\n",ch);
-        return;
-        } ;
+        if (obj->wear_loc != WEAR_NONE) {
+        	char_puts("The item must be carried to be cursed.\n", ch);
+        	return;
+        } 
 
- 
+	if (IS_WEAPON_STAT(obj, WEAPON_HOLY)
+	||  IS_OBJ_STAT(obj, ITEM_BLESS)
+	||  IS_OBJ_STAT(obj, ITEM_ANTI_EVIL)) {
+		act("The gods are infuriated!", ch, NULL, NULL, TO_ALL);
+		damage(ch, ch, (ch->hit - 1) > 1000 ? 1000 : (ch->hit - 1),
+		       TYPE_HIT, DAM_HOLY, TRUE);
+		return;
+	} 
 
-        if (obj->pIndexData->item_type == ITEM_WEAPON)
-        {
-        if (IS_WEAPON_STAT(obj,WEAPON_HOLY)
-         ||  IS_OBJ_STAT(obj,ITEM_BLESS)
-         || IS_OBJ_STAT(obj, ITEM_ANTI_EVIL))
-         {
-	         act("The gods are infuriated!",ch,NULL,NULL,TO_CHAR);
-                 act("The gods are infuriated!",ch,NULL,NULL,TO_ROOM);
-                 damage(ch,ch,
-                 (ch->hit - 1) > 1000? 1000 : (ch->hit - 1),
-                 TYPE_HIT,DAM_HOLY, TRUE);
-                 return ;
-         } ;
-         if (IS_WEAPON_STAT(obj,WEAPON_FLAMING)) chance /=2;
-         if (IS_WEAPON_STAT(obj,WEAPON_FROST)) chance /=2;
-         if (IS_WEAPON_STAT(obj,WEAPON_SHARP)) chance /=2;
-         if (IS_WEAPON_STAT(obj,WEAPON_VORPAL)) chance /=2;
-         if (IS_WEAPON_STAT(obj,WEAPON_SHOCKING)) chance /=2;
-         } ;
+        if (IS_WEAPON_STAT(obj, WEAPON_VAMPIRIC)) {
+        	act("$p is already hungry for enemy life.",
+		    ch, obj, NULL, TO_CHAR);
+        	return;
+        }
+
+	chance = get_skill(ch, sn);	
+
+	if (IS_WEAPON_STAT(obj, WEAPON_FLAMING))	chance /= 2;
+	if (IS_WEAPON_STAT(obj, WEAPON_FROST))		chance /= 2;
+	if (IS_WEAPON_STAT(obj, WEAPON_SHARP))		chance /= 2;
+	if (IS_WEAPON_STAT(obj, WEAPON_VORPAL))		chance /= 2;
+	if (IS_WEAPON_STAT(obj, WEAPON_SHOCKING))	chance /= 2;
 	 
-        if (IS_WEAPON_STAT(obj,WEAPON_VAMPIRIC))
-        {
-        act("$p is already hungry for enemy life.",ch,obj,NULL,TO_CHAR);
-        return;
-        } ;
-        if (number_percent() < chance ) 
-        {    
-         af.where         = TO_WEAPON;
-         af.type 	  = sn;
-         af.level         = level / 2;
-         af.duration      = level/8;
-         af.location      = 0;
-         af.modifier      = 0;
-         af.bitvector = WEAPON_VAMPIRIC;
-         affect_to_obj(obj,&af);
-         SET_BIT(obj->extra_flags,(ITEM_ANTI_GOOD | ITEM_ANTI_NEUTRAL)) ;         
-         act("You transmit part of your hunger to $p.",ch,obj,NULL,TO_CHAR);
-         } 
-         else
-          {
- 	   act("You failed.",ch,obj,NULL,TO_ALL);
-          } ;
-
-  return ;
-
+        if (number_percent() < chance) {    
+		af.where	= TO_WEAPON;
+		af.type 	= sn;
+		af.level	= level / 2;
+		af.duration	= level/8;
+		af.location	= 0;
+		af.modifier	= 0;
+		af.bitvector	= WEAPON_VAMPIRIC;
+		affect_to_obj(obj, &af);
+		SET_BIT(obj->extra_flags, ITEM_ANTI_GOOD | ITEM_ANTI_NEUTRAL);
+		act("You transmit part of your hunger to $p.",
+		    ch, obj, NULL, TO_CHAR);
+	} 
+	else 
+		act("You failed.", ch, obj, NULL, TO_ALL);
 }
-/*end*/

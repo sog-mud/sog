@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.39 1999-02-09 10:19:11 fjoe Exp $
+ * $Id: tables.c,v 1.40 1999-02-09 14:28:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -114,7 +114,6 @@ FLAG plr_flags[] =
 	{ "autosac",		PLR_AUTOSAC,		FALSE	},
 	{ "autogold",		PLR_AUTOGOLD,		FALSE	},
 	{ "autosplit",		PLR_AUTOSPLIT,		FALSE	},
-	{ "color",		PLR_COLOR,		FALSE	},
 	{ "bought_pet",		PLR_BOUGHT_PET,		FALSE	},
 	{ "holylight",		PLR_HOLYLIGHT,		FALSE	},
 	{ "can_loot",		PLR_CANLOOT,		FALSE	},
