@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.174 1999-10-20 05:49:51 avn Exp $
+ * $Id: db.c,v 1.175 1999-10-20 11:10:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -231,6 +231,7 @@ char			filename[PATH_MAX];
 void    init_mm         (void);
  
 void	fix_exits	(void);
+void	fix_resets	(void);
 void    check_mob_progs	(void);
 
 void	reset_area	(AREA_DATA * pArea);
@@ -474,6 +475,7 @@ void boot_db(void)
 	 * Load up the songs, notes and ban files.
 	 */
 	fix_exits();
+	fix_resets();
 	check_mob_progs();
 	scan_pfiles();
 
@@ -589,6 +591,135 @@ void fix_exits(void)
 	for (iHash = 0; iHash < MAX_KEY_HASH; iHash++)
 		for (room = room_index_hash[iHash]; room; room = room->next)
 			fix_exits_room(room);
+}
+
+/*
+ * check room resets and adjust levels of ITEM_OLDSTYLE objs
+ */
+void fix_room_resets(ROOM_INDEX_DATA *pRoom)
+{
+	MOB_INDEX_DATA *pLastMob = NULL;
+	RESET_DATA *pReset;
+
+	for (pReset = pRoom->reset_first; pReset; pReset = pReset->next) {
+		OBJ_INDEX_DATA *pObj;
+		MOB_INDEX_DATA *pMob;
+		OBJ_INDEX_DATA *pObjTo;
+
+		switch (pReset->command) {
+		case 'M':
+			if ((pMob = get_mob_index(pReset->arg1)) == NULL) {
+				db_error("fix_room_resets", "%d (arg1): no such mob (area: %s, room: %d)", pReset->arg1, pRoom->area->name, pRoom->vnum);
+				exit(1);
+			}
+
+			pLastMob = pMob;
+			break;
+
+		case 'O':
+			if ((pObj = get_obj_index(pReset->arg1)) == NULL) {
+				db_error("fix_room_resets", "%d (arg1): no such obj (area: %s, room: %d)", pReset->arg1, pRoom->area->name, pRoom->vnum);
+				exit(1);
+			}
+
+			pObj->reset_num++;
+
+			if (IS_SET(pObj->extra_flags, ITEM_OLDSTYLE)) {
+				if (!pLastMob) {
+					db_error("fix_room_resets",
+						 "can't calculate obj level: "
+						 "no mob reset yet");
+					exit(1);
+				}
+				pObj->level = pObj->level < 1 ?
+					pLastMob->level :
+					UMIN(pLastMob->level, pObj->level);
+			}
+			break;
+
+		case 'P':
+			if ((pObj = get_obj_index(pReset->arg1)) == NULL) {
+				db_error("fix_room_resets", "%d (arg1): no such obj (area: %s, room: %d)", pReset->arg1, pRoom->area->name, pRoom->vnum);
+				exit(1);
+			}
+
+			if ((pObjTo = get_obj_index(pReset->arg3)) == NULL) {
+				db_error("fix_room_resets", "%d (arg3): no such obj (area: %s, room: %d)", pReset->arg1, pRoom->area->name, pRoom->vnum);
+				exit(1);
+			}
+
+			pObj->reset_num++;
+
+			if (IS_SET(pObj->extra_flags, ITEM_OLDSTYLE))
+				pObj->level = pObj->level < 1 ?
+					pObjTo->level :
+					UMIN(pObjTo->level, pObj->level);
+			break;
+
+		case 'G':
+		case 'E':
+			if ((pObj = get_obj_index(pReset->arg1)) == NULL) {
+				db_error("fix_room_resets", "%d (arg1): no such obj (area: %s, room: %d)", pReset->arg1, pRoom->area->name, pRoom->vnum);
+				exit(1);
+			}
+
+			pObj->reset_num++;
+
+			if (IS_SET(pObj->extra_flags, ITEM_OLDSTYLE)) {
+				if (!pLastMob) {
+					db_error("load_resets",
+						 "can't calculate obj level: "
+						 "no mob reset yet");
+					exit(1);
+				}
+				if (pLastMob->pShop) {
+					switch(pObj->item_type) {
+					default:
+						pObj->level =
+							UMAX(0, pObj->level);
+						break;
+					case ITEM_PILL:
+					case ITEM_POTION:
+						pObj->level =
+							UMAX(5, pObj->level);
+						break;
+					case ITEM_SCROLL:
+					case ITEM_ARMOR:
+					case ITEM_WEAPON:
+						pObj->level =
+							UMAX(10, pObj->level);
+						break;
+					case ITEM_WAND:
+					case ITEM_TREASURE:
+						pObj->level =
+							UMAX(15, pObj->level);
+						break;
+					case ITEM_STAFF:
+						pObj->level =
+							UMAX(20, pObj->level);
+						break;
+					}
+				} else
+					pObj->level = pObj->level < 1 ?
+						pLastMob->level :
+						UMIN(pObj->level,
+						     pLastMob->level);
+			}
+			break;
+		}
+	}
+}
+
+void fix_resets(void)
+{
+	int i;
+
+	for (i = 0; i < MAX_KEY_HASH; i++) {
+		ROOM_INDEX_DATA *pRoom;
+
+		for (pRoom = room_index_hash[i]; pRoom; pRoom = pRoom->next)
+			fix_room_resets(pRoom);
+	}
 }
 
 void print_resetmsg(AREA_DATA *pArea)
@@ -1519,36 +1650,6 @@ fix_word(const char *w)
 
 	snprintf(buf, sizeof(buf), "'%s'", w);
 	return buf;
-}
-
-const char *
-smash_spaces(const char *s)
-{
-	static char buf[2][MAX_STRING_LENGTH];
-	static int ind = 0;
-	char *p;
-
-	if (IS_NULLSTR(s))
-		return str_empty;
-
-	if (strpbrk(s, " \t") == NULL)
-		return s;
-
-	ind = (ind + 1) % 2;
-	for (p = buf[ind]; *s && p-buf[ind] < sizeof(buf[0])-1; p++, s++) {
-		switch (*s) {
-		case ' ':
-			*p = '_';
-			break;
-
-		default:
-			*p = *s;
-			break;
-		}
-	}
-
-	*p = '\0';
-	return buf[ind];
 }
 
 const char *fread_string(FILE *fp)

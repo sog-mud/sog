@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.76 1999-10-20 05:49:43 avn Exp $
+ * $Id: olc.c,v 1.77 1999-10-20 11:10:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -282,8 +282,8 @@ OLC_FUN(olced_strkey)
 	}
 
 	if (o->path) {
-		d2rename(o->path, smash_spaces(*(const char**) p),
-			 o->path, smash_spaces(*(const char**) q));
+		d2rename(o->path, name_filename(*(const char**) p),
+			 o->path, name_filename(*(const char**) q));
 	}
 
 	hash_delete(o->h, p);

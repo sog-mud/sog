@@ -23,9 +23,10 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hash.c,v 1.2 1999-10-17 08:55:48 fjoe Exp $
+ * $Id: hash.c,v 1.3 1999-10-20 11:10:44 fjoe Exp $
  */
 
+#include <ctype.h>
 #include <limits.h>
 #include <stdlib.h>
 #include <string.h>
@@ -231,6 +232,34 @@ name_search(hash_t *h, const char *name)
 	if (IS_NULLSTR(name))
 		return NULL;
 	return hash_foreach(h, name_search_cb, (void*) name);
+}
+
+char *
+name_filename(const char *name)
+{
+	static char buf[2][MAX_STRING_LENGTH];
+	static int ind = 0;
+	char *p;
+
+	if (IS_NULLSTR(name))
+		return str_empty;
+
+	ind = (ind + 1) % 2;
+	for (p = buf[ind]; *name && p-buf[ind] < sizeof(buf[0])-1; p++, name++) {
+		switch (*name) {
+		case ' ':
+		case '\t':
+			*p = '_';
+			break;
+
+		default:
+			*p = LOWER(*name);
+			break;
+		}
+	}
+
+	*p = '\0';
+	return buf[ind];
 }
 
 /*-------------------------------------------------------------------

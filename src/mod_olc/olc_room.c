@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.60 1999-10-17 08:55:46 fjoe Exp $
+ * $Id: olc_room.c,v 1.61 1999-10-20 11:10:40 fjoe Exp $
  */
 
 #include "olc.h"
@@ -434,7 +434,6 @@ OLC_FUN(roomed_mreset)
 {
 	ROOM_INDEX_DATA	*pRoom;
 	MOB_INDEX_DATA	*pMobIndex;
-	AREA_DATA	*pArea;
 	CHAR_DATA	*newmob;
 	char		arg [ MAX_INPUT_LENGTH ];
 	char		arg2 [ MAX_INPUT_LENGTH ];
@@ -453,12 +452,6 @@ OLC_FUN(roomed_mreset)
 
 	if (!(pMobIndex = get_mob_index(atoi(arg)))) {
 		char_puts("RoomEd: No mobile has that vnum.\n", ch);
-		return FALSE;
-	}
-
-	pArea = area_vnum_lookup(pMobIndex->vnum);
-	if (pArea != pRoom->area) {
-		char_puts("RoomEd: No such mobile in this area.\n", ch);
 		return FALSE;
 	}
 
@@ -562,7 +555,6 @@ OLC_FUN(roomed_oreset)
 {
 	ROOM_INDEX_DATA	*pRoom;
 	OBJ_INDEX_DATA	*pObjIndex;
-	AREA_DATA	*pArea;
 	OBJ_DATA	*newobj;
 	OBJ_DATA	*to_obj;
 	CHAR_DATA	*to_mob;
@@ -587,12 +579,6 @@ OLC_FUN(roomed_oreset)
 
 	if (!(pObjIndex = get_obj_index(atoi(arg1)))) {
 		char_puts("RoomEd: No object has that vnum.\n", ch);
-		return FALSE;
-	}
-
-	pArea = area_vnum_lookup(pObjIndex->vnum);
-	if (pArea != pRoom->area) {
-		char_puts("RoomEd: No such object in this area.\n", ch);
 		return FALSE;
 	}
 

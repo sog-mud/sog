@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.12 1999-10-19 19:22:56 avn Exp $
+ * $Id: olc_race.c,v 1.13 1999-10-20 11:10:39 fjoe Exp $
  */
 
 #include "olc.h"
@@ -789,7 +789,7 @@ save_race_cb(void *p, void *d)
 	if (!IS_SET(r->race_flags, RACE_CHANGED))
 		return NULL;
 
-	snprintf(buf, sizeof(buf), "%s.%s", smash_spaces(r->name), RACE_EXT);
+	snprintf(buf, sizeof(buf), "%s.%s", name_filename(r->name), RACE_EXT);
 	fp = olc_fopen(RACES_PATH, buf, sr->ch, SECURITY_RACE);
 	if (fp == NULL)
 		return NULL;

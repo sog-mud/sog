@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.7 1999-10-19 19:22:56 avn Exp $
+ * $Id: olc_class.c,v 1.8 1999-10-20 11:10:39 fjoe Exp $
  */
 
 #include "olc.h"
@@ -683,7 +683,7 @@ save_class_cb(void *p, void *d)
 	FILE *fp;
 	char buf[PATH_MAX];
 
-	snprintf(buf, sizeof(buf), "%s.%s", smash_spaces(cl->name), CLASS_EXT);
+	snprintf(buf, sizeof(buf), "%s.%s", name_filename(cl->name), CLASS_EXT);
 	if ((fp = olc_fopen(CLASSES_PATH, buf, sc->ch, -1)) == NULL)
 		return NULL;
 

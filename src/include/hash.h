@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hash.h,v 1.2 1999-10-17 08:55:43 fjoe Exp $
+ * $Id: hash.h,v 1.3 1999-10-20 11:10:38 fjoe Exp $
  */
 
 #ifndef _HASH_H_
@@ -77,6 +77,11 @@ const char *	fread_name(FILE *fp, hash_t *h, const char *id);
  */
 void *		name_search_cb(void *p, void *d);
 void *		name_search(hash_t *h, const char *name);
+
+/*
+ * generate filename based on `name'
+ */
+char *		name_filename(const char *name);
 
 #define NAME_STRICT_CHECKS
 #if defined(NAME_STRICT_CHECKS)

@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.62 1999-10-18 18:08:13 avn Exp $
+ * $Id: db_area.c,v 1.63 1999-10-20 11:10:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -589,13 +589,10 @@ DBLOAD_FUN(load_old_obj)
 }
 
 /*
- * Snarf a reset section. Adjust levels of ITEM_OLDSTYLE objects on the fly.
- * if loading an old-style area it's assumed that #SHOPS section
- * (if any) has already been parsed
+ * Snarf a reset section.
  */
 DBLOAD_FUN(load_resets)
 {
-	MOB_INDEX_DATA *pLastMob = NULL;
 	ROOM_INDEX_DATA *pLastRoom = NULL;
 
 	if (area_current == NULL) {
@@ -609,7 +606,6 @@ DBLOAD_FUN(load_resets)
 		ROOM_INDEX_DATA *pRoom;
 		EXIT_DATA *pexit = NULL;
 		char letter;
-		OBJ_INDEX_DATA *pObj;
 
 		if ((letter = fread_letter(fp)) == 'S')
 			break;
@@ -640,112 +636,23 @@ DBLOAD_FUN(load_resets)
 			return;
 
 		case 'M':
-			if ((pLastMob = get_mob_index(pReset->arg1)) == NULL
-			||  (pRoom = get_room_index(pReset->arg3)) == NULL)
-				break;
-
-			reset_add(pReset, pRoom, 0);
-			pLastRoom = pRoom;
-			break;
-
 		case 'O':
-			if ((pObj = get_obj_index(pReset->arg1)) == NULL
-			||  (pRoom = get_room_index(pReset->arg3)) == NULL)
+			if ((pRoom = get_room_index(pReset->arg3)) == NULL)
 				break;
 
-			pObj->reset_num++;
-			reset_add(pReset, pRoom, 0);
 			pLastRoom = pRoom;
-
-			if (IS_SET(pObj->extra_flags, ITEM_OLDSTYLE)) {
-				if (!pLastMob) {
-					db_error("load_resets",
-						 "can't calculate obj level: "
-						 "no mob reset yet");
-					return;
-				}
-				pObj->level = pObj->level < 1 ?
-					pLastMob->level :
-					UMIN(pLastMob->level, pObj->level);
-			}
+			reset_add(pReset, pRoom, 0);
 			break;
 
-		case 'P': {
-			OBJ_INDEX_DATA *pObjTo;
-
-			if ((pObj = get_obj_index(pReset->arg1)) == NULL
-			||  (pObjTo = get_obj_index(pReset->arg3)) == NULL)
-				break;
-
-			if (!pLastRoom) {
-				db_error("load_resets", "room undefined");
-				return;
-			}
-
-			reset_add(pReset, pLastRoom, 0);
-			pObj->reset_num++;
-
-			if (IS_SET(pObj->extra_flags, ITEM_OLDSTYLE))
-				pObj->level = pObj->level < 1 ?
-					pObjTo->level :
-					UMIN(pObjTo->level, pObj->level);
-			break;
-		}
-
+		case 'P':
 		case 'G':
 		case 'E':
-			if ((pObj = get_obj_index(pReset->arg1)) == NULL)
-				break;
-
 			if (!pLastRoom) {
 				db_error("load_resets", "room undefined");
 				return;
 			}
 
-			pObj->reset_num++;
 			reset_add(pReset, pLastRoom, 0);
-
-			if (IS_SET(pObj->extra_flags, ITEM_OLDSTYLE)) {
-				if (!pLastMob) {
-					db_error("load_resets",
-						 "can't calculate obj level: "
-						 "no mob reset yet");
-					return;
-				}
-				if (pLastMob->pShop) {
-					switch(pObj->item_type) {
-					default:
-						pObj->level =
-							UMAX(0, pObj->level);
-						break;
-					case ITEM_PILL:
-					case ITEM_POTION:
-						pObj->level =
-							UMAX(5, pObj->level);
-						break;
-					case ITEM_SCROLL:
-					case ITEM_ARMOR:
-					case ITEM_WEAPON:
-						pObj->level =
-							UMAX(10, pObj->level);
-						break;
-					case ITEM_WAND:
-					case ITEM_TREASURE:
-						pObj->level =
-							UMAX(15, pObj->level);
-						break;
-					case ITEM_STAFF:
-						pObj->level =
-							UMAX(20, pObj->level);
-						break;
-					}
-				}
-				else
-					pObj->level = pObj->level < 1 ?
-						pLastMob->level :
-						UMIN(pObj->level,
-						     pLastMob->level);
-			}
 			break;
 
 		case 'D':

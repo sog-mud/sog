@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.209 1999-10-19 14:44:56 kostik Exp $
+ * $Id: fight.c,v 1.210 1999-10-20 11:10:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2368,50 +2368,21 @@ int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 	PC_DATA *pc = PC(gch);
 	int xp;
 	int base_exp;
-	int level_range = victim->level - gch->level;
 	int neg_cha = 0, pos_cha = 0;
 	double diff;
 
-/* base exp */
-#if 0
-	switch (level_range) {
-	case -9:	base_exp =   1; 	break;
-	case -8:	base_exp =   2; 	break;
-	case -7:	base_exp =   5; 	break;
-	case -6:	base_exp =   9; 	break;
-	case -5:	base_exp =  11; 	break;
-	case -4:	base_exp =  22; 	break;
-	case -3:	base_exp =  33; 	break;
-	case -2:	base_exp =  43; 	break;
-	case -1:	base_exp =  60; 	break;
-	case  0:	base_exp =  74; 	break;
-	case  1:	base_exp =  84; 	break;
-	case  2:	base_exp =  99; 	break;
-	case  3:	base_exp = 121; 	break;
-	case  4:	base_exp = 143; 	break;
-	default:
-		if (level_range > 4)
-			base_exp = 140 + 20 * (level_range - 4);
-		else
-			base_exp = 0;
-	}
-#endif
-	base_exp = 125*(victim->level+2+(double)(gch->level-victim->level)/gch->level);
-	diff = (victim->level+gch->level)/2.0*gch->level;
+	base_exp = 125 * (victim->level + 2 +
+			  (double) (gch->level - victim->level) / gch->level);
+	diff = (victim->level + gch->level) / 2.0 * gch->level;
 	diff *= diff;
 	diff *= diff;
-	if (diff > 2) diff = 2;
+	if (diff > 2)
+		diff = 2;
 	base_exp *= diff;
 	
-/* calculate exp multiplier */
-#if 0
-	if (IS_NPC(victim) && IS_SET(victim->pMobIndex->act, ACT_NOALIGN))
-		xp = base_exp;
-	else
-#endif
 	if ((IS_EVIL(gch) && IS_GOOD(victim))
 	||  (IS_EVIL(victim) && IS_GOOD(gch)))
-		xp = base_exp * 8/5;
+		xp = base_exp * 8 / 5;
 	else if (IS_GOOD(gch) && IS_GOOD(victim))
 		xp = 0;
 	else if (!IS_NEUTRAL(gch) && IS_NEUTRAL(victim))
@@ -2437,10 +2408,6 @@ int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 		else
 			xp = xp * 125 / 100;
 	}
-
-#if 0
-	xp += (xp * (gch->max_hit - gch->hit)) / (gch->max_hit * 5);
-#endif
 
 	if (IS_GOOD(gch)) {
 		if (IS_GOOD(victim)) {

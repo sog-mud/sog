@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.53 1999-10-20 04:34:58 avn Exp $
+ * $Id: db.h,v 1.54 1999-10-20 11:10:37 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -130,7 +130,6 @@ void	reset_area      (AREA_DATA * pArea);
 void	reset_room	(ROOM_INDEX_DATA *pRoom, int flags);
 
 char *		fix_string	(const char *s);
-const char *	smash_spaces	(const char *s);
 
 const char *	fread_string	(FILE *fp);
 char		fread_letter	(FILE *fp);
