@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.80 1998-10-17 16:20:40 fjoe Exp $
+ * $Id: db.c,v 1.81 1998-10-20 19:57:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1500,9 +1500,7 @@ ROOM_INDEX_DATA *get_room_index(int vnum)
 
 int xgetc(FILE *fp)
 {
-	int c;
-
-	c = getc(fp);
+	int c = getc(fp);
 	if (c == '\n')
 		line_number++;
 	return c;
@@ -1513,6 +1511,102 @@ void xungetc(int c, FILE *fp)
 	if (c == '\n')
 		line_number--;
 	ungetc(c, fp);
+}
+
+/*
+ * smash '\r', dup '~'
+ */
+char *fix_string(const char *s)
+{
+	static char buf[MAX_STRING_LENGTH * 2];
+	char *p = buf;
+
+	if (IS_NULLSTR(s))
+		return str_empty;
+
+	for (p = buf; p-buf < sizeof(buf)-2 && *s; s++)
+		switch (*s) {
+		case '\r':
+			break;
+
+		case '~':
+			*p++ = *s;
+			/* FALLTHRU */
+
+		default:
+			*p++ = *s;
+			break;
+		}
+
+	*p = '\0';
+	return buf;
+}
+
+const char *fread_string(FILE *fp)
+{
+	char buf[MAX_STRING_LENGTH];
+	char *plast;
+	int c;
+
+	plast = buf;
+
+	/*
+	 * Skip blanks.
+	 * Read first char.
+	 */
+	do
+		c = xgetc(fp);
+	while (isspace(c));
+
+	for (;;) {
+		/*
+		 * Back off the char type lookup,
+		 *   it was too dirty for portability.
+		 *   -- Furey
+		 */
+
+		if (plast - buf >= sizeof(buf) - 1) {
+			bug("fread_string: line too long (truncated)", 0);
+			buf[sizeof(buf)-1] = '\0';
+			return str_dup(buf);
+		}
+
+		switch (c) {
+		default:
+			*plast++ = c;
+			break;
+ 
+		case EOF:
+			bug("Fread_string: EOF", 0);
+			return str_empty;
+ 
+		case '\n':
+			*plast++ = '\n';
+			*plast++ = '\r';
+			break;
+ 
+		case '\r':
+			break;
+ 
+		case '~':
+			if ((c = xgetc(fp)) == '~') {
+				*plast++ = c;
+				break;
+			}
+			xungetc(c, fp);
+			*plast = '\0';
+			return str_dup(buf);
+		}
+		c = xgetc(fp);
+	}
+}
+
+void fwrite_string(FILE *fp, const char *name, const char *str)
+{
+	if (IS_NULLSTR(name))
+		fprintf(fp, "%s~\n", fix_string(str));
+	else if (!IS_NULLSTR(str))
+		fprintf(fp, "%s %s~\n", name, fix_string(str));
 }
 
 /*
@@ -1631,68 +1725,6 @@ flag_t flag_convert(char letter)
 	}
 
 	return bitsum;
-}
-
-/*
- * Read and allocate space for a string from a file.
- */
-const char *fread_string(FILE *fp)
-{
-	char buf[MAX_STRING_LENGTH];
-	char *plast;
-	int c;
-
-	plast = buf;
-
-	/*
-	 * Skip blanks.
-	 * Read first char.
-	 */
-	do
-	{
-		c = xgetc(fp);
-	}
-	while (isspace(c));
-
-	if ((*plast++ = c) == '~')
-		return str_empty;
-
-	for (;;) {
-		/*
-		 * Back off the char type lookup,
-		 *   it was too dirty for portability.
-		 *   -- Furey
-		 */
-
-		if (plast - buf >= sizeof(buf) - 1) {
-			bug("fread_string: line too long (truncated)", 0);
-			buf[sizeof(buf)-1] = '\0';
-			return str_dup(buf);
-		}
-
-		switch (c = xgetc(fp)) {
-		default:
-			*plast++ = c;
-			break;
- 
-		case EOF:
-			bug("Fread_string: EOF", 0);
-			return str_empty;
-			break;
- 
-		case '\n':
-			*plast++ = '\n';
-			*plast++ = '\r';
-			break;
- 
-		case '\r':
-			break;
- 
-		case '~':
-			*plast++ = '\0';
-			return str_dup(buf);
-		}
-	}
 }
 
 /*
@@ -2341,29 +2373,6 @@ void db_error(const char* fn, const char* fmt,...)
 	}
 
 	log_printf("%s: %s", fn, buf);
-}
-
-/*****************************************************************************
- Name:		fix_string
- Purpose:	Returns a string without \r and ~.
- ****************************************************************************/
-char *fix_string(const char *str)
-{
-    static char strfix[MAX_STRING_LENGTH * 2];
-    int i;
-    int o;
-
-    if (str == NULL)
-        return '\0';
-
-    for (o = i = 0; str[i+o] != '\0'; i++)
-    {
-        if (str[i+o] == '\r' || str[i+o] == '~')
-            o++;
-        strfix[i] = str[i+o];
-    }
-    strfix[i] = '\0';
-    return strfix;
 }
 
 /*****************************************************************************

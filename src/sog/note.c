@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.31 1998-10-17 16:20:12 fjoe Exp $
+ * $Id: note.c,v 1.32 1998-10-20 19:57:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -78,6 +78,7 @@ struct note_data
 void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time);
 void parse_note(CHAR_DATA *ch, const char *argument, int type);
 bool hide_note(CHAR_DATA *ch, NOTE_DATA *pnote);
+void fwrite_note(FILE *fp, NOTE_DATA *pnote);
 
 NOTE_DATA *note_list;
 NOTE_DATA *idea_list;
@@ -191,71 +192,64 @@ void do_penalty(CHAR_DATA *ch,const char *argument)
 
 void do_news(CHAR_DATA *ch,const char *argument)
 {
-    parse_note(ch,argument,NOTE_NEWS);
+	parse_note(ch,argument,NOTE_NEWS);
 }
 
 void do_changes(CHAR_DATA *ch,const char *argument)
 {
-    parse_note(ch,argument,NOTE_CHANGES);
+	parse_note(ch,argument,NOTE_CHANGES);
 }
 
 void save_notes(int type)
 {
-    FILE *fp;
-    char *name;
-    NOTE_DATA *pnote;
+	FILE *fp;
+	char *name;
+	NOTE_DATA *pnote;
 
-    switch (type)
-    {
+	switch (type) {
 	default:
-	    return;
+		return;
 	case NOTE_NOTE:
-	    name = NOTE_FILE;
-	    pnote = note_list;
-	    break;
+		name = NOTE_FILE;
+		pnote = note_list;
+		break;
 	case NOTE_IDEA:
-	    name = IDEA_FILE;
-	    pnote = idea_list;
-	    break;
+		name = IDEA_FILE;
+		pnote = idea_list;
+		break;
 	case NOTE_PENALTY:
-	    name = PENALTY_FILE;
-	    pnote = penalty_list;
-	    break;
+		name = PENALTY_FILE;
+		pnote = penalty_list;
+		break;
 	case NOTE_NEWS:
-	    name = NEWS_FILE;
-	    pnote = news_list;
-	    break;
+		name = NEWS_FILE;
+		pnote = news_list;
+		break;
 	case NOTE_CHANGES:
-	    name = CHANGES_FILE;
-	    pnote = changes_list;
-	    break;
-    }
-
-    fclose(fpReserve);
-    if ((fp = dfopen(NOTES_PATH, name, "w")) == NULL)
-	perror(name);
-    else {
-	for (; pnote != NULL; pnote = pnote->next) {
-	    fprintf(fp, "Sender  %s~\n", pnote->sender);
-	    fprintf(fp, "Date    %s~\n", pnote->date);
-	    fprintf(fp, "Stamp   %ld\n", pnote->date_stamp);
-	    fprintf(fp, "To      %s~\n", pnote->to_list);
-	    fprintf(fp, "Subject %s~\n", pnote->subject);
-	    fprintf(fp, "Text\n%s~\n",   pnote->text);
+		name = CHANGES_FILE;
+		pnote = changes_list;
+		break;
 	}
+
+	fclose(fpReserve);
+	if ((fp = dfopen(NOTES_PATH, name, "w")) == NULL) {
+		perror(name);
+		return;
+	}
+
+	for (; pnote != NULL; pnote = pnote->next) 
+		fwrite_note(fp, pnote);
 	fclose(fp);
 	fpReserve = fopen(NULL_FILE, "r");
-   	return;
-    }
 }
 
 void load_notes(void)
 {
-    load_thread(NOTE_FILE,&note_list, NOTE_NOTE, 14*24*60*60);
-    load_thread(IDEA_FILE,&idea_list, NOTE_IDEA, 28*24*60*60);
-    load_thread(PENALTY_FILE,&penalty_list, NOTE_PENALTY, 0);
-    load_thread(NEWS_FILE,&news_list, NOTE_NEWS, 0);
-    load_thread(CHANGES_FILE,&changes_list,NOTE_CHANGES, 0);
+	load_thread(NOTE_FILE, &note_list, NOTE_NOTE, 14*24*60*60);
+	load_thread(IDEA_FILE, &idea_list, NOTE_IDEA, 28*24*60*60);
+	load_thread(PENALTY_FILE, &penalty_list, NOTE_PENALTY, 0);
+	load_thread(NEWS_FILE, &news_list, NOTE_NEWS, 0);
+	load_thread(CHANGES_FILE, &changes_list,NOTE_CHANGES, 0);
 }
 
 void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time)
@@ -333,57 +327,51 @@ void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time)
 
 void append_note(NOTE_DATA *pnote)
 {
-    FILE *fp;
-    char *name;
-    NOTE_DATA **list;
-    NOTE_DATA *last;
+	FILE *fp;
+	char *name;
+	NOTE_DATA **list;
+	NOTE_DATA *last;
 
-    switch(pnote->type)
-    {
+	switch(pnote->type) {
 	default:
-	    return;
+		return;
 	case NOTE_NOTE:
-	    name = NOTE_FILE;
-	    list = &note_list;
-	    break;
+		name = NOTE_FILE;
+		list = &note_list;
+		break;
 	case NOTE_IDEA:
-	    name = IDEA_FILE;
-	    list = &idea_list;
-	    break;
+		name = IDEA_FILE;
+		list = &idea_list;
+		break;
 	case NOTE_PENALTY:
-	    name = PENALTY_FILE;
-	    list = &penalty_list;
-	    break;
+		name = PENALTY_FILE;
+		list = &penalty_list;
+		break;
 	case NOTE_NEWS:
-	     name = NEWS_FILE;
-	     list = &news_list;
-	     break;
+		 name = NEWS_FILE;
+		 list = &news_list;
+		 break;
 	case NOTE_CHANGES:
-	     name = CHANGES_FILE;
-	     list = &changes_list;
-	     break;
-    }
+		 name = CHANGES_FILE;
+		 list = &changes_list;
+		 break;
+	}
 
-    if (*list == NULL)
-	*list = pnote;
-    else {
-	for (last = *list; last->next != NULL; last = last->next);
-	last->next = pnote;
-    }
+	if (*list == NULL)
+		*list = pnote;
+	else {
+		for (last = *list; last->next; last = last->next);
+			last->next = pnote;
+	}
 
-    fclose(fpReserve);
-    if ((fp = dfopen(NOTES_PATH, name, "a")) == NULL)
-        perror(name);
-    else {
-        fprintf(fp, "Sender  %s~\n", pnote->sender);
-        fprintf(fp, "Date    %s~\n", pnote->date);
-        fprintf(fp, "Stamp   %ld\n", pnote->date_stamp);
-        fprintf(fp, "To      %s~\n", pnote->to_list);
-        fprintf(fp, "Subject %s~\n", pnote->subject);
-        fprintf(fp, "Text\n%s~\n", pnote->text);
+	fclose(fpReserve);
+	if ((fp = dfopen(NOTES_PATH, name, "a")) == NULL) {
+        	perror(name);
+		return;
+	}
+	fwrite_note(fp, pnote);
         fclose(fp);
-    }
-    fpReserve = fopen(NULL_FILE, "r");
+	fpReserve = fopen(NULL_FILE, "r");
 }
 
 bool is_note_to(CHAR_DATA *ch, NOTE_DATA *pnote)
@@ -867,7 +855,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 			return;
 		}
 
-		if (!str_cmp(ch->pnote->to_list,str_empty)) {
+		if (IS_NULLSTR(ch->pnote->to_list)) {
 			char_puts("You need to provide a recipient "
 				  "(name, clan name, all, or immortal).\n\r",
 				  ch);
@@ -876,6 +864,11 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 
 		if (IS_NULLSTR(ch->pnote->subject)) {
 			char_puts("You need to provide a subject.\n\r", ch);
+			return;
+		}
+
+		if (IS_NULLSTR(ch->pnote->text)) {
+			char_puts("You need to provide a text.\n\r", ch);
 			return;
 		}
 
@@ -904,3 +897,12 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 	char_puts("You can't do that.\n\r", ch);
 }
 
+void fwrite_note(FILE *fp, NOTE_DATA *pnote)
+{
+	fwrite_string(fp, "Sender", pnote->sender);
+	fwrite_string(fp, "Date", pnote->date);
+	fprintf(fp, "Stamp %ld\n", pnote->date_stamp);
+	fwrite_string(fp, "To", pnote->to_list);
+	fwrite_string(fp, "Subject", pnote->subject);
+	fwrite_string(fp, "Text", pnote->text);
+}

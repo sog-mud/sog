@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.38 1998-10-16 13:25:27 fjoe Exp $
+ * $Id: olc_save.c,v 1.39 1998-10-20 19:57:50 fjoe Exp $
  */
 
 /**************************************************************************
@@ -89,7 +89,7 @@ void save_mobprogs(FILE *fp, AREA_DATA *pArea)
 				found = TRUE;
 			}
 			fprintf(fp, "#%d\n", i);
-			fprintf(fp, "%s~\n", fix_string(mpcode->code));
+			fwrite_string(fp, NULL, mpcode->code);
 		}
         }
 
@@ -109,11 +109,11 @@ void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
     flag_t temp;
 
     fprintf(fp, "#%d\n",	pMobIndex->vnum);
-    fprintf(fp, "%s~\n",	pMobIndex->name);
+    fwrite_string(fp, NULL,	pMobIndex->name);
     mlstr_fwrite(fp, NULL,	pMobIndex->short_descr);
     mlstr_fwrite(fp, NULL,	pMobIndex->long_descr);
     mlstr_fwrite(fp, NULL,	pMobIndex->description);
-    fprintf(fp, "%s~\n",	race_table[race].name);
+    fwrite_string(fp, NULL,	race_table[race].name);
     fprintf(fp, "%s ",		format_flags(pMobIndex->act &
 					    ~race_table[pMobIndex->race].act));
     fprintf(fp, "%s ",		format_flags(pMobIndex->affected_by &
@@ -130,7 +130,7 @@ void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
     fprintf(fp, "%dd%d+%d ",	pMobIndex->damage[DICE_NUMBER], 
 				pMobIndex->damage[DICE_TYPE], 
 				pMobIndex->damage[DICE_BONUS]);
-    fprintf(fp, "%s\n",	attack_table[pMobIndex->dam_type].name);
+    fprintf(fp, "%s\n",		attack_table[pMobIndex->dam_type].name);
     fprintf(fp, "%d %d %d %d\n",
 				pMobIndex->ac[AC_PIERCE] / 10, 
 				pMobIndex->ac[AC_BASH]   / 10, 
@@ -186,13 +186,12 @@ void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
     {
         fprintf(fp, "M %s %d %s~\n",
         flag_string(mptrig_types, mptrig->type), mptrig->vnum,
-                mptrig->phrase);
+                fix_string(mptrig->phrase));
     }
 
     if (pMobIndex->clan)
-		fprintf(fp, "C %s~\n", clan_name(pMobIndex->clan));
+		fwrite_string(fp, "C", clan_name(pMobIndex->clan));
 }
-
 
 /*****************************************************************************
  Name:		save_mobiles
@@ -219,10 +218,6 @@ void save_mobiles(FILE *fp, AREA_DATA *pArea)
 		fprintf(fp, "#0\n\n");
 }
 
-
-
-
-
 /*****************************************************************************
  Name:		save_object
  Purpose:	Save one object to file.
@@ -236,10 +231,10 @@ void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
     ED_DATA *pEd;
 
     fprintf(fp, "#%d\n",	pObjIndex->vnum);
-    fprintf(fp, "%s~\n",	pObjIndex->name);
+    fwrite_string(fp, NULL,	pObjIndex->name);
     mlstr_fwrite(fp, NULL,	pObjIndex->short_descr);
     mlstr_fwrite(fp, NULL,	pObjIndex->description);
-    fprintf(fp, "%s~\n",	pObjIndex->material);
+    fwrite_string(fp, NULL,	pObjIndex->material);
     fprintf(fp, "%s ",		flag_string(item_types, pObjIndex->item_type));
     fprintf(fp, "%s ",		format_flags(pObjIndex->extra_flags));
     fprintf(fp, "%s\n",		format_flags(pObjIndex->wear_flags));
@@ -393,17 +388,12 @@ void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 	}
     }
 
-    for (pEd = pObjIndex->ed; pEd; pEd = pEd->next) {
-        fprintf(fp, "E\n%s~\n", pEd->keyword);
-	mlstr_fwrite(fp, NULL, pEd->description);
-    }
+    for (pEd = pObjIndex->ed; pEd; pEd = pEd->next)
+		ed_fwrite(fp, pEd);
 
     if (pObjIndex->clan)
-	fprintf(fp, "C %s~\n", clan_name(pObjIndex->clan));
+		fwrite_string(fp, "C", clan_name(pObjIndex->clan));
 }
- 
-
-
 
 /*****************************************************************************
  Name:		save_objects
@@ -451,10 +441,8 @@ void save_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex)
         fprintf(fp, "%s\n",	flag_string(sector_types,
 					    pRoomIndex->sector_type));
 
-        for (pEd = pRoomIndex->ed; pEd; pEd = pEd->next) {
-        	fprintf(fp, "E\n%s~\n", pEd->keyword);
-		mlstr_fwrite(fp, NULL, pEd->description);
-	}
+        for (pEd = pRoomIndex->ed; pEd; pEd = pEd->next)
+		ed_fwrite(fp, pEd);
 
 	/* sort exits (to minimize diffs) */
 	for (max_door = 0, door = 0; door < MAX_DIR; door++)
@@ -499,7 +487,7 @@ void save_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex)
 		fprintf (fp, "O %s~\n" , pRoomIndex->owner);
 
 	if (pRoomIndex->clan)
-		fprintf(fp, "C %s~\n", clan_name(pRoomIndex->clan));
+		fwrite_string(fp, "C", clan_name(pRoomIndex->clan));
 
 	fprintf(fp, "S\n");
 }
@@ -565,8 +553,6 @@ void save_specials(FILE *fp, AREA_DATA *pArea)
 	if (found)
 		fprintf(fp, "S\n\n");
 }
-
-
 
 /*
  * This function is obsolete.  It it not needed but has been left here
@@ -700,7 +686,6 @@ void save_reset(FILE *fp, AREA_DATA *pArea,
 	}
 }
 
-
 /*****************************************************************************
  Name:		save_resets
  Purpose:	Saves the #RESETS section of an area file.
@@ -742,7 +727,6 @@ void save_resets(FILE *fp, AREA_DATA *pArea)
 	if (found)
 		fprintf(fp, "S\n\n");
 }
-
 
 void save_shop(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 {
@@ -787,7 +771,6 @@ void save_shops(FILE *fp, AREA_DATA *pArea)
 		fprintf(fp, "0\n\n");
 }
 
-
 void save_olimits(FILE *fp, AREA_DATA *pArea)
 {
 	int i;
@@ -809,7 +792,6 @@ void save_olimits(FILE *fp, AREA_DATA *pArea)
 		fprintf(fp, "S\n\n");
 }
 
-
 void save_omprog(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 {
 	int i;
@@ -822,7 +804,6 @@ void save_omprog(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 				oprog_name_lookup(pObjIndex->oprogs[i]),
 				mlstr_mval(pObjIndex->short_descr));
 }
-
 
 void save_omprogs(FILE *fp, AREA_DATA *pArea)
 {
@@ -867,7 +848,6 @@ void save_practicers(FILE *fp, AREA_DATA *pArea)
 		fprintf(fp, "S\n\n");
 }
 
-
 void save_helps(FILE *fp, AREA_DATA *pArea)
 {
 	HELP_DATA *pHelp = pArea->help_first;
@@ -878,7 +858,8 @@ void save_helps(FILE *fp, AREA_DATA *pArea)
 	fprintf(fp, "#HELPS\n");
 
 	for (; pHelp; pHelp = pHelp->next_in_area) {
-		fprintf(fp, "%d %s~\n", pHelp->level, pHelp->keyword);
+		fprintf(fp, "%d %s~\n",
+			pHelp->level, fix_string(pHelp->keyword));
 		mlstr_fwrite(fp, NULL, pHelp->text);
 	}
 
@@ -904,11 +885,9 @@ void save_area(AREA_DATA *pArea)
 
 	fprintf(fp, "#AREADATA\n");
 	fprintf(fp, "Name %s~\n",	pArea->name);
-	if (!IS_NULLSTR(pArea->builders) && str_cmp(pArea->builders, "None"))
-		fprintf(fp, "Builders %s~\n",	fix_string(pArea->builders));
+	fwrite_string(fp, "Builders", pArea->builders);
 	fprintf(fp, "VNUMs %d %d\n",	pArea->min_vnum, pArea->max_vnum);
-	if (!IS_NULLSTR(pArea->credits))
-		fprintf(fp, "Credits %s~\n",	pArea->credits);
+	fwrite_string(fp, "Credits", pArea->credits);
 	fprintf(fp, "Security %d\n",	pArea->security);
 	fprintf(fp, "LevelRange %d %d\n",
 		pArea->min_level, pArea->max_level);
@@ -957,13 +936,11 @@ void save_clan(CHAR_DATA *ch, CLAN_DATA *clan)
 		
 	fprintf(fp, "#CLAN\n");
 
-	fprintf(fp, "Name %s~\n", clan->name);
+	fwrite_string(fp, "Name", clan->name);
 	if (clan->recall_vnum)
 		fprintf(fp, "Recall %d\n", clan->recall_vnum);
-	if (!IS_NULLSTR(clan->msg_prays))
-		fprintf(fp, "MsgPrays %s~\n", clan->msg_prays);
-	if (!IS_NULLSTR(clan->msg_vanishes))
-		fprintf(fp, "MsgVanishes %s~\n", clan->msg_vanishes);
+	fwrite_string(fp, "MsgPrays", clan->msg_prays);
+	fwrite_string(fp, "MsgVanishes", clan->msg_vanishes);
 
 	REMOVE_BIT(clan->flags, CLAN_CHANGED);
 	if (clan->flags)

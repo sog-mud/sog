@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.20 1998-10-19 13:22:21 fjoe Exp $
+ * $Id: olc_room.c,v 1.21 1998-10-20 19:57:50 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -443,15 +443,9 @@ OLC_FUN(roomed_mana)
 
 OLC_FUN(roomed_clan)
 {
-	char_puts("This option temporarily disabled.\n\r", ch);
-	return FALSE;
-/*
 	ROOM_INDEX_DATA *pRoom;
 	EDIT_ROOM(ch, pRoom);
-	pRoom->clan = clan_lookup(argument);
-	char_puts ("Clan set.\n\r", ch);
-	return TRUE;
-*/
+	return olced_clan(ch, argument, roomed_clan, &pRoom->clan);
 }
 	  
 #define MAX_MOB	1		/* Default maximum number for resetting mobs */

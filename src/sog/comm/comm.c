@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.113 1998-10-17 16:20:24 fjoe Exp $
+ * $Id: comm.c,v 1.114 1998-10-20 19:57:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1350,7 +1350,6 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *ch;
 	char *pwdnew;
-	char *p;
 	int iClass,race,i;
 	int obj_count;
 	int obj_count2;
@@ -1586,13 +1585,6 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		}
 
 		pwdnew = crypt(argument, ch->name);
-		for (p = pwdnew; *p != '\0'; p++) {
-			if (*p == '~') {
-				write_to_buffer(d, "New password not acceptable, try again.\n\rPassword: ", 0);
-				return;
-			}
-		}
-
 		free_string(ch->pcdata->pwd);
 		ch->pcdata->pwd	= str_dup(pwdnew);
 		write_to_buffer(d, "Please retype password: ", 0);

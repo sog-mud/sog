@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.29 1998-10-09 13:43:07 fjoe Exp $
+ * $Id: db.h,v 1.30 1998-10-20 19:57:48 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -97,8 +97,6 @@ void	load_msgdb	(void);
 void	load_notes	(void);
 void	load_bans	(void);
 
-char *	fix_string	(const char *);
-
 int	xgetc	(FILE *fp);
 void	xungetc	(int c, FILE *fp);
 
@@ -110,10 +108,14 @@ void	convert_object	(OBJ_INDEX_DATA *pObjIndex);
 void	reset_area      (AREA_DATA * pArea);
 void	reset_room	(ROOM_INDEX_DATA *pRoom);
 
+char *		fix_string	(const char *s);
+
+const char *	fread_string	(FILE *fp);
+void		fwrite_string	(FILE *fp, const char *name, const char *str);
+
 char		fread_letter	(FILE *fp);
 int		fread_number	(FILE *fp);
 flag_t 		fread_flags	(FILE *fp);
-const char *	fread_string	(FILE *fp);
 void		fread_to_eol	(FILE *fp);
 char *		fread_word	(FILE *fp);
 flag_t		fread_fword	(const FLAG *table, FILE *fp); 

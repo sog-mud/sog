@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.31 1998-10-17 16:20:12 fjoe Exp $
+ * $Id: recycle.c,v 1.32 1998-10-20 19:57:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -89,6 +89,12 @@ void ed_fread(FILE *fp, ED_DATA **edp)
 	ed->keyword	= fread_string(fp);
 	ed->description	= mlstr_fread(fp);
 	SLIST_ADD(ED_DATA, *edp, ed);
+}
+
+void ed_fwrite(FILE *fp, ED_DATA *ed)
+{
+       	fprintf(fp, "E\n%s~\n", fix_string(ed->keyword));
+	mlstr_fwrite(fp, NULL, ed->description);
 }
 
 AFFECT_DATA *new_affect(void)

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.76 1998-10-17 16:49:41 fjoe Exp $
+ * $Id: save.c,v 1.77 1998-10-20 19:57:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -115,7 +115,9 @@ void save_char_obj(CHAR_DATA * ch, bool reboot)
 	if ((fp = dfopen(PLAYER_PATH, TMP_FILE, "w")) == NULL) {
 		bug("Save_char_obj: fopen", 0);
 		perror(TMP_FILE);
-	} else {
+		return;
+	}
+	else {
 		char_puts("Saving.\n\r", ch);
 		fwrite_char(ch, fp, reboot);
 		if (ch->carrying != NULL)
@@ -132,8 +134,6 @@ void save_char_obj(CHAR_DATA * ch, bool reboot)
 		bug("save_char_obj: Can't open null file.", 0);
 }
 
-
-
 /*
  * Write the char.
  */
@@ -145,7 +145,7 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 
 	fprintf(fp, "#%s\n", IS_NPC(ch) ? "MOB" : "PLAYER");
 
-	fprintf(fp, "Name %s~\n", ch->name);
+	fwrite_string(fp, "Name", ch->name);
 	fprintf(fp, "Id   %d\n", ch->id);
 	fprintf(fp, "LogO %ld\n", current_time);
 	fprintf(fp, "Vers %d\n", 6);
@@ -153,19 +153,16 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 	fprintf(fp, "Home %d\n", ch->hometown);
 
 	if (ch->clan) {
-		fprintf(fp, "Clan %s~\n", clan_name(ch->clan));
+		fwrite_string(fp, "Clan", clan_name(ch->clan));
 		if (!IS_NPC(ch))
 			fprintf(fp, "ClanStatus %d\n", ch->pcdata->clan_status);
 	}
 
-	if (!IS_NULLSTR(mlstr_mval(ch->description)))
-		fprintf(fp, "Desc %s~\n",
-			fix_string(mlstr_mval(ch->description)));
-	if (ch->prompt
-	&&  str_cmp(ch->prompt, DEFAULT_PROMPT)
+	fwrite_string(fp, "Desc", mlstr_mval(ch->description));
+	if (str_cmp(ch->prompt, DEFAULT_PROMPT)
 	&&  str_cmp(ch->prompt, OLD_DEFAULT_PROMPT))
-		fprintf(fp, "Prom %s~\n", ch->prompt);
-	fprintf(fp, "Race %s~\n", pc_race_table[ORG_RACE(ch)].name);
+		fwrite_string(fp, "Prom", ch->prompt);
+	fwrite_string(fp, "Race", pc_race_table[ORG_RACE(ch)].name);
 	fprintf(fp, "Sex  %d\n", ch->sex);
 	fprintf(fp, "Cla  %d\n", ch->class);
 	fprintf(fp, "Levl %d\n", ch->level);
@@ -253,23 +250,16 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 
 		fprintf(fp, "Dead %d\n", ch->pcdata->death);
 
-		if (ch->pcdata->bank_s > 0)
+		if (ch->pcdata->bank_s)
 			fprintf(fp, "Banks %d\n", ch->pcdata->bank_s);
-		else
-			fprintf(fp, "Banks %d\n", ch->pcdata->bank_s);
-		if (ch->pcdata->bank_g > 0)
+		if (ch->pcdata->bank_g)
 			fprintf(fp, "Bankg %d\n", ch->pcdata->bank_g);
-		else
-			fprintf(fp, "Bankg %d\n", ch->pcdata->bank_g);
-
 		if (ch->pcdata->security)
 			fprintf(fp, "Sec  %d\n", ch->pcdata->security);
-		fprintf(fp, "Pass %s~\n", ch->pcdata->pwd);
-		if (ch->pcdata->bamfin[0] != '\0')
-			fprintf(fp, "Bin  %s~\n", ch->pcdata->bamfin);
-		if (ch->pcdata->bamfout[0] != '\0')
-			fprintf(fp, "Bout %s~\n", ch->pcdata->bamfout);
-		fprintf(fp, "Titl %s~\n", ch->pcdata->title);
+		fwrite_string(fp, "Pass", ch->pcdata->pwd);
+		fwrite_string(fp, "Bin", ch->pcdata->bamfin);
+		fwrite_string(fp, "Bout", ch->pcdata->bamfout);
+		fwrite_string(fp, "Titl", ch->pcdata->title);
 		fprintf(fp, "Pnts %d\n", ch->pcdata->points);
 		fprintf(fp, "TSex %d\n", ch->pcdata->true_sex);
 		fprintf(fp, "LLev %d\n", ch->pcdata->last_level);
@@ -295,8 +285,9 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 			    || ch->pcdata->alias_sub[pos] == NULL)
 				break;
 
-			fprintf(fp, "Alias %s %s~\n", ch->pcdata->alias[pos],
-				ch->pcdata->alias_sub[pos]);
+			fprintf(fp, "Alias %s %s~\n",
+				ch->pcdata->alias[pos],
+				fix_string(ch->pcdata->alias_sub[pos]));
 		}
 
 		for (i = 0; i < ch->pcdata->learned.nused; i++) {
@@ -322,10 +313,8 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 		}
 		fprintf(fp, "Haskilled %d\n", ch->pcdata->has_killed);
 		fprintf(fp, "Antkilled %d\n", ch->pcdata->anti_killed);
-		if (!IS_NULLSTR(ch->pcdata->twitlist))
-			fprintf(fp, "Twitlist %s~\n", ch->pcdata->twitlist);
-		if (!IS_NULLSTR(ch->pcdata->granted))
-			fprintf(fp, "Grantlist %s~\n", ch->pcdata->granted);
+		fwrite_string(fp, "Twitlist", ch->pcdata->twitlist);
+		fwrite_string(fp, "Granted", ch->pcdata->granted);
 	}
 
 	for (paf = ch->affected; paf != NULL; paf = paf->next) {
@@ -347,11 +336,10 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp)
 	fprintf(fp, "#PET\n");
 
 	fprintf(fp, "Vnum %d\n", pet->pIndexData->vnum);
-
-	fprintf(fp, "Name %s~\n", pet->name);
+	fwrite_string(fp, "Name", pet->name);
 	fprintf(fp, "LogO %ld\n", current_time);
 	if (pet->clan)
-		fprintf(fp, "Clan %s~\n", clan_name(pet->clan));
+		fwrite_string(fp, "Clan", clan_name(pet->clan));
 	if (mlstr_cmp(pet->short_descr, pet->pIndexData->short_descr) != 0)
 		mlstr_fwrite(fp, "ShD", pet->short_descr);
 	if (mlstr_cmp(pet->long_descr, pet->pIndexData->long_descr) != 0)
@@ -359,17 +347,17 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp)
 	if (mlstr_cmp(pet->description, pet->pIndexData->description) != 0)
 		mlstr_fwrite(fp, "Desc", pet->short_descr);
 	if (RACE(pet) != pet->pIndexData->race)	/* serdar ORG_RACE */
-		fprintf(fp, "Race %s~\n", race_table[ORG_RACE(pet)].name);
+		fwrite_string(fp, "Race", race_table[ORG_RACE(pet)].name);
 	fprintf(fp, "Sex  %d\n", pet->sex);
 	if (pet->level != pet->pIndexData->level)
 		fprintf(fp, "Levl %d\n", pet->level);
 	fprintf(fp, "HMV  %d %d %d %d %d %d\n",
 		pet->hit, pet->max_hit, pet->mana, pet->max_mana, pet->move, pet->max_move);
-	if (pet->gold > 0)
+	if (pet->gold)
 		fprintf(fp, "Gold %d\n", pet->gold);
-	if (pet->silver > 0)
+	if (pet->silver)
 		fprintf(fp, "Silv %d\n", pet->silver);
-	if (pet->exp > 0)
+	if (pet->exp)
 		fprintf(fp, "Exp  %d\n", pet->exp);
 	if (pet->act != pet->pIndexData->act)
 		fprintf(fp, "Act  %s\n", format_flags(pet->act));
@@ -378,7 +366,7 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp)
 	if (pet->comm != 0)
 		fprintf(fp, "Comm %s\n", format_flags(pet->comm));
 	fprintf(fp, "Pos  %d\n", pet->position = POS_FIGHTING ? POS_STANDING : pet->position);
-	if (pet->saving_throw != 0)
+	if (pet->saving_throw)
 		fprintf(fp, "Save %d\n", pet->saving_throw);
 	if (pet->alignment != pet->pIndexData->alignment)
 		fprintf(fp, "Alig %d\n", pet->alignment);
@@ -448,7 +436,7 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 
 	if (obj->pIndexData->limit < 0) {
 		if (str_cmp(obj->name, obj->pIndexData->name))
-			fprintf(fp, "Name %s~\n", obj->name);
+			fwrite_string(fp, "Name", obj->name);
 		if (mlstr_cmp(obj->short_descr, obj->pIndexData->short_descr))
 			mlstr_fwrite(fp, "ShD", obj->short_descr);
 		if (mlstr_cmp(obj->description, obj->pIndexData->description))
@@ -504,7 +492,9 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 		fwrite_affect(paf, fp);
 
 	for (ed = obj->ed; ed != NULL; ed = ed->next) {
-		fprintf(fp, "ExDe %s~ ", ed->keyword);
+		if (IS_NULLSTR(ed->keyword))
+			continue;
+		fwrite_string(fp, "ExDe", ed->keyword);
 		mlstr_fwrite(fp, NULL, ed->description);
 	}
 
@@ -842,7 +832,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 
 		case 'G':
 			KEY("Gold", ch->gold, fread_number(fp));
-			SKEY("Grantlist", ch->pcdata->granted);
+			SKEY("Granted", ch->pcdata->granted);
 			if (!str_cmp(word, "Group") || !str_cmp(word, "Gr")) {
 				fread_word(fp);
 				fMatch = TRUE;

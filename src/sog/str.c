@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.c,v 1.1 1998-10-06 13:18:31 fjoe Exp $
+ * $Id: str.c,v 1.2 1998-10-20 19:57:42 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -412,3 +412,4 @@ static str *str_lookup(const char *p, int *hash)
 	return NULL;
 }
 #endif
+

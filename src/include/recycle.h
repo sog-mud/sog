@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.h,v 1.12 1998-09-17 15:51:22 fjoe Exp $
+ * $Id: recycle.h,v 1.13 1998-10-20 19:57:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -68,6 +68,7 @@ void	free_descriptor  (DESCRIPTOR_DATA *d);
 ED_DATA	*ed_new(void);
 ED_DATA *ed_new2(const ED_DATA *ed, const char* name);
 void	ed_fread(FILE *fp, ED_DATA **edp);
+void	ed_fwrite(FILE *fp, ED_DATA *ed);
 void	ed_free  (ED_DATA *ed);
 
 /* affect recycling */
