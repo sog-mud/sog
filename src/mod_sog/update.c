@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.163 1999-10-21 12:52:05 fjoe Exp $
+ * $Id: update.c,v 1.164 1999-10-23 10:20:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -510,7 +510,7 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 			damage_hunger = ch->max_hit * number_range(2, 4) / 100;
 			if (!damage_hunger)
 				damage_hunger = 1;
-			damage(ch, ch, damage_hunger, TYPE_UNDEFINED,
+			damage(ch, ch, damage_hunger, NULL,
 			       DAM_HUNGER, DAMF_SHOW | DAMF_HUNGER);
 			if (ch->position == POS_SLEEPING) 
 				return;       
@@ -522,7 +522,7 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 			damage_hunger = ch->max_hit * number_range(2, 4) / 100;
 			if (!damage_hunger)
 				damage_hunger = 1;
-			damage(ch, ch, damage_hunger, TYPE_UNDEFINED,
+			damage(ch, ch, damage_hunger, NULL,
 				DAM_THIRST, DAMF_SHOW | DAMF_HUNGER);
 			if (ch->position == POS_SLEEPING) 
 				return;       
@@ -562,7 +562,7 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 			damage_hunger = ch->max_hit * number_range(2, 4) / 100;
 			if (!damage_hunger)
 				damage_hunger = 1;
-			damage(ch, ch, damage_hunger, TYPE_UNDEFINED,
+			damage(ch, ch, damage_hunger, NULL,
 				DAM_THIRST, DAMF_SHOW | DAMF_HUNGER);
 			if (ch->position == POS_SLEEPING) 
 				return;       		
@@ -1232,9 +1232,9 @@ void char_update(void)
 
 		if (ch->position == POS_INCAP 
 		&&  number_range(0, 1) == 0)
-			damage(ch, ch, 1, TYPE_UNDEFINED, DAM_NONE, FALSE);
+			damage(ch, ch, 1, NULL, DAM_NONE, DAMF_NONE);
 		else if (ch->position == POS_MORTAL)
-			damage(ch, ch, 1, TYPE_UNDEFINED, DAM_NONE, FALSE);
+			damage(ch, ch, 1, NULL, DAM_NONE, DAMF_NONE);
 	} /* global for */
 
 	/*
@@ -1684,7 +1684,7 @@ void aggr_update(void)
 
 			if ((victim = npc->target) != NULL) {
 				if (victim == wch)
-					multi_hit(ch, wch, TYPE_UNDEFINED);
+					multi_hit(ch, wch, NULL);
 				continue;
 			}
 
@@ -1693,7 +1693,7 @@ void aggr_update(void)
 			&&  !IS_AFFECTED(ch, AFF_SCREAM | AFF_CALM)) {
 				act_yell(ch, "$i! Now you die!", wch, NULL);
 				wch = check_guard(wch, ch); 
-				multi_hit(ch, wch, TYPE_UNDEFINED);
+				multi_hit(ch, wch, NULL);
 				continue;
 			}
 
@@ -1734,7 +1734,7 @@ void aggr_update(void)
 				if (get_skill(ch, "backstab"))
 					dofun("backstab", ch, victim->name);
 				else
-					multi_hit(ch, victim, TYPE_UNDEFINED);
+					multi_hit(ch, victim, NULL);
 			}
 		}
 	}
@@ -1858,7 +1858,7 @@ void light_update(void)
 			char_puts("Sun light disturbs you.\n",ch);
 
 		dam_light = 1 + (ch->max_hit * 4)/ 100;
-		damage(ch, ch, dam_light, TYPE_UNDEFINED, DAM_LIGHT_V,
+		damage(ch, ch, dam_light, NULL, DAM_LIGHT_V,
 			DAMF_SHOW | DAMF_HUNGER);
 
 		if (ch->position == POS_STUNNED)

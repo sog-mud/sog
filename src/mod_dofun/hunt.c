@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.27 1999-10-06 09:55:54 fjoe Exp $
+ * $Id: hunt.c,v 1.28 1999-10-23 10:20:13 fjoe Exp $
  */
 
 /* Kak zovut sobaku Gejtsa?
@@ -546,7 +546,7 @@ void hunt_victim_attack(CHAR_DATA* ch)
 		    ch, NULL, ch->hunting, TO_VICT);
 		act("You glare at $N and say, '{GYe shall DIE!{x'.",
 		    ch, NULL, ch->hunting, TO_CHAR);
-		multi_hit(ch, ch->hunting, TYPE_UNDEFINED);
+		multi_hit(ch, ch->hunting, NULL);
 		ch->hunting = NULL;
 	}  
 }

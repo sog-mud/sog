@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.42 1999-09-11 12:50:02 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.43 1999-10-23 10:20:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -234,7 +234,7 @@ void do_mpkill(CHAR_DATA *ch, const char *argument)
 	return;
     }
 
-    multi_hit(ch, victim, TYPE_UNDEFINED);
+    multi_hit(ch, victim, NULL);
 }
 
 void do_mpattack(CHAR_DATA *ch, const char *argument)
@@ -250,7 +250,7 @@ void do_mpattack(CHAR_DATA *ch, const char *argument)
 	
 	if (victim == ch) return;
 	
-	multi_hit(ch, victim, TYPE_UNDEFINED);
+	multi_hit(ch, victim, NULL);
 }
 
 /*
@@ -275,7 +275,7 @@ void do_mpassist(CHAR_DATA *ch, const char *argument)
 	victim->fighting->in_room != ch->in_room)
 	return;
 
-    multi_hit(ch, victim->fighting, TYPE_UNDEFINED);
+    multi_hit(ch, victim->fighting, NULL);
 }
 
 
@@ -892,14 +892,14 @@ void do_mpdamage(CHAR_DATA *ch, const char *argument)
     		damage(victim, victim, 
 		    fKill ? 
 		    number_range(low,high) : UMIN(victim->hit,number_range(low,high)),
-	        TYPE_UNDEFINED, DAM_NONE, FALSE);
+	        NULL, DAM_NONE, DAMF_NONE);
 	}
     }
     else
     	damage(victim, victim, 
 	    fKill ? 
 	    number_range(low,high) : UMIN(victim->hit,number_range(low,high)),
-        TYPE_UNDEFINED, DAM_NONE, FALSE);
+        NULL, DAM_NONE, DAMF_NONE);
     return;
 }
 

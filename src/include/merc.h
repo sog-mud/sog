@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.242 1999-10-21 12:51:53 fjoe Exp $
+ * $Id: merc.h,v 1.243 1999-10-23 10:20:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1692,13 +1692,6 @@ struct mpcode
 };
 
 /*
- * Types of attacks.
- * Must be non-overlapping with spell/skill types,
- * but may be arbitrary beyond that.
- */
-#define TYPE_UNDEFINED		     str_empty
-
-/*
  *  Target types.
  */
 #define TAR_IGNORE		    0
@@ -1708,11 +1701,6 @@ struct mpcode
 #define TAR_OBJ_INV		    4
 #define TAR_OBJ_CHAR_DEF	    5
 #define TAR_OBJ_CHAR_OFF	    6
-
-#define TARGET_CHAR		    0
-#define TARGET_OBJ		    1
-#define TARGET_ROOM		    2
-#define TARGET_NONE		    3
 
 /*
  * Utility macros.
@@ -1872,13 +1860,13 @@ void	handle_death(CHAR_DATA *ch, CHAR_DATA *victim);
 ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch, AREA_DATA *area);
 
 /* effect.c */
-void	acid_effect	(void *vo, int level, int dam, int target);
-void	cold_effect	(void *vo, int level, int dam, int target);
-void	fire_effect	(void *vo, int level, int dam, int target);
-void	poison_effect	(void *vo, int level, int dam, int target);
-void	shock_effect	(void *vo, int level, int dam, int target);
-void	sand_effect	(void *vo, int level, int dam, int target);
-void	scream_effect	(void *vo, int level, int dam, int target);
+void	acid_effect	(void *vo, int level, int dam);
+void	cold_effect	(void *vo, int level, int dam);
+void	fire_effect	(void *vo, int level, int dam);
+void	poison_effect	(void *vo, int level, int dam);
+void	shock_effect	(void *vo, int level, int dam);
+void	sand_effect	(void *vo, int level, int dam);
+void	scream_effect	(void *vo, int level, int dam);
 
 /* handler.c */
 const char *get_stat_alias(CHAR_DATA *ch, int stat);

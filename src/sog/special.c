@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.57 1999-10-19 14:44:59 kostik Exp $
+ * $Id: special.c,v 1.58 1999-10-23 10:20:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -208,7 +208,7 @@ bool spec_troll_member(CHAR_DATA *ch)
 
 	if (message)
 		act(message,ch,NULL,victim,TO_ALL);
-	multi_hit(ch, victim, TYPE_UNDEFINED);
+	multi_hit(ch, victim, NULL);
 	return TRUE;
 }
 
@@ -265,7 +265,7 @@ bool spec_ogre_member(CHAR_DATA *ch)
  
 	if (message)
 		act(message, ch, NULL, victim, TO_ALL);
-	multi_hit(ch, victim, TYPE_UNDEFINED);
+	multi_hit(ch, victim, NULL);
 	return TRUE;
 }
 
@@ -341,7 +341,7 @@ bool spec_patrolman(CHAR_DATA *ch)
 	if (message)
 		act(message, ch, NULL, NULL, TO_ALL);
 
-	multi_hit(ch, victim, TYPE_UNDEFINED);
+	multi_hit(ch, victim, NULL);
 	return TRUE;
 }
 	
@@ -673,7 +673,7 @@ bool spec_executioner(CHAR_DATA *ch)
 	act_yell(ch,
 		 "$i is a CRIMINAL!  PROTECT THE INNOCENT!  MORE BLOOOOD!!!",
 		 victim, NULL);
-	multi_hit(ch, victim, TYPE_UNDEFINED);
+	multi_hit(ch, victim, NULL);
 	return TRUE;
 }
 
@@ -1002,14 +1002,14 @@ bool spec_guard(CHAR_DATA *ch)
 		act_yell(ch,
 			 "$i is a CRIMINAL!  PROTECT THE INNOCENT!!  BANZAI!!",
 			 victim, NULL);
-		multi_hit(ch, victim, TYPE_UNDEFINED);
+		multi_hit(ch, victim, NULL);
 		return TRUE;
 	}
 	
 	if (ech) {
 		act("$n screams 'PROTECT THE INNOCENT!!  BANZAI!!",
 		    ch, NULL, NULL, TO_ROOM);
-		multi_hit(ch, ech, TYPE_UNDEFINED);
+		multi_hit(ch, ech, NULL);
 		return TRUE;
 	}
 	
@@ -1035,7 +1035,7 @@ bool spec_special_guard(CHAR_DATA *ch)
 		act_yell(ch,
 			 "$i is a CRIMINAL!  PROTECT THE INNOCENT!!  BANZAI!!",
 			 victim, NULL);
-		multi_hit(ch, victim, TYPE_UNDEFINED);
+		multi_hit(ch, victim, NULL);
 		return TRUE;
 	}
 

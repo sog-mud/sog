@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.1 1999-10-12 13:56:16 avn Exp $
+ * $Id: eventfun.c,v 1.2 1999-10-23 10:20:14 fjoe Exp $
  */
 
 
@@ -73,14 +73,13 @@ EVENT_FUN(event_enter_lshield)
 	act("$N has entered the room.", af->owner, NULL, ch, TO_CHAR);
 	dofun("wake", af->owner, str_empty);
 
-	if (!is_safe_rspell(af, ch)) 
-		{
+	if (!is_safe_rspell(af, ch)) {
 		ROOM_INDEX_DATA *room = ch->in_room;
 
-		 damage(af->owner, ch, dice(af->level, 4) + 12,
-			af->type, DAM_LIGHTNING, TRUE);
-		 affect_remove_room(room , af);
-		}
+		damage(af->owner, ch, dice(af->level, 4) + 12,
+		       af->type, DAM_LIGHTNING, DAMF_SHOW);
+		affect_remove_room(room , af);
+	}
 }
 
 EVENT_FUN(event_enter_shocking)
@@ -96,7 +95,7 @@ EVENT_FUN(event_enter_shocking)
 		act("Shocking waves in this room shock you!",
 			ch, NULL, NULL, TO_CHAR);
 		damage(ch, ch, dice(af->level, 4) + 12,
-			TYPE_UNDEFINED, DAM_TRAP_ROOM, DAMF_SHOW | DAMF_HUNGER);
+		       NULL, DAM_TRAP_ROOM, DAMF_SHOW | DAMF_HUNGER);
 		show_owner(ch, af);
 		affect_remove_room(room , af);
 	}
@@ -113,7 +112,7 @@ EVENT_FUN(event_enter_thieftrap)
 		ROOM_INDEX_DATA *room = ch->in_room;
 
 		damage(ch, ch, dice(af->level, 5) + 12,
-			TYPE_UNDEFINED, DAM_TRAP_ROOM, DAMF_SHOW | DAMF_HUNGER);
+		       NULL, DAM_TRAP_ROOM, DAMF_SHOW | DAMF_HUNGER);
 		show_owner(ch, af);
 		affect_remove_room(room , af);
 	}
@@ -272,10 +271,10 @@ EVENT_FUN(event_updatechar_plague)
 	dam = UMIN(ch->level, af->level/5 + 1);
 	ch->mana -= dam;
 	ch->move -= dam;
-	damage(ch, ch, dam, "plague", DAM_DISEASE,FALSE);
+	damage(ch, ch, dam, "plague", DAM_DISEASE, DAMF_NONE);
 	if (number_range(1, 100) < 70)
 		damage(ch, ch, UMAX(ch->max_hit/20, 50), 
-		       "plague", DAM_DISEASE, TRUE);
+		       "plague", DAM_DISEASE, DAMF_SHOW);
 }
 
 EVENT_FUN(event_updatechar_poison)
@@ -284,7 +283,7 @@ EVENT_FUN(event_updatechar_poison)
 
 	act("$n shivers and suffers.", ch, NULL, NULL, TO_ROOM); 
 	char_puts("You shiver and suffer.\n", ch);
-	damage(ch, ch, af->level/10 + 1, "poison", DAM_POISON, TRUE);
+	damage(ch, ch, af->level/10 + 1, "poison", DAM_POISON, DAMF_SHOW);
 }
 
 EVENT_FUN(event_timeoutchar_bonedragon)

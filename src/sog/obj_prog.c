@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.68 1999-10-17 08:55:48 fjoe Exp $
+ * $Id: obj_prog.c,v 1.69 1999-10-23 10:20:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -406,8 +406,8 @@ bool sac_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	act("The gods are infuriated!",ch,NULL,NULL,TO_ALL);
 	damage(ch, ch,
-		(ch->hit - 1) > 1000? 1000 : (ch->hit - 1),
-		 TYPE_UNDEFINED, DAM_HOLY, DAMF_SHOW | DAMF_HIT);
+	       (ch->hit - 1) > 1000? 1000 : (ch->hit - 1),
+	       NULL, DAM_HOLY, DAMF_SHOW | DAMF_HIT);
 	ch->gold = 0;
 	return TRUE; 
 }
@@ -1149,10 +1149,11 @@ int fight_prog_firegauntlets(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		act("Your gauntlets burns $N's face!", ch, NULL, ch->fighting, TO_CHAR);
 		act("$n's gauntlets burns $N's face!", ch, NULL, ch->fighting, TO_NOTVICT);
 		act("$N's gauntlets burns your face!", ch->fighting, NULL, ch, TO_CHAR);
-		damage(ch, ch->fighting, dam/2, "burning hands", DAM_FIRE, TRUE);
+		damage(ch, ch->fighting, dam/2,
+		       "burning hands", DAM_FIRE, DAMF_SHOW);
 		if (ch == NULL || ch->fighting == NULL)
 			return 0;
-		fire_effect(ch->fighting, obj->level/2, dam/2, TARGET_CHAR);
+		fire_effect(ch->fighting, obj->level/2, dam/2);
 	}
 	return 0;
 }
@@ -1183,10 +1184,11 @@ int fight_prog_armbands(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		act("Your armbands burns $N's face!", ch, NULL, ch->fighting, TO_CHAR);
 		act("$n's armbands burns $N's face!", ch, NULL, ch->fighting, TO_NOTVICT);
 		act("$N's armbands burns your face!", ch->fighting, NULL, ch, TO_CHAR);
-		damage(ch, ch->fighting, dam, "burning hands", DAM_FIRE, TRUE);
+		damage(ch, ch->fighting, dam,
+		       "burning hands", DAM_FIRE, DAMF_SHOW);
 		if (ch == NULL || ch->fighting == NULL)
 		 return 0;
-		fire_effect(ch->fighting, obj->level/2, dam, TARGET_CHAR);
+		fire_effect(ch->fighting, obj->level/2, dam);
 	}
 	return 0;
 }
@@ -1219,10 +1221,10 @@ int fight_prog_demonfireshield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		act("Your shield burns $N's face!", ch, NULL, ch->fighting, TO_CHAR);
 		act("$n's shield burns $N's face!", ch, NULL, ch->fighting, TO_NOTVICT);
 		act("$N's shield burns your face!", ch->fighting, NULL, ch, TO_CHAR);
-		damage(ch, ch->fighting, dam, "demonfire", DAM_FIRE, TRUE);
+		damage(ch, ch->fighting, dam, "demonfire", DAM_FIRE, DAMF_SHOW);
 		if (ch == NULL || ch->fighting == NULL)
 		 return 0;
-		fire_effect(ch->fighting, obj->level,dam, TARGET_CHAR);
+		fire_effect(ch->fighting, obj->level,dam);
 	}
 	return 0;
 }
@@ -1457,10 +1459,10 @@ lion_claw_hit(OBJ_DATA *obj, CHAR_DATA *ch, int loc)
 	char_puts("The nails of your claw appears from its fingers.\n",ch);
 	act_puts("The nails of $n's claw appears for an instant.",
 		 ch, NULL, NULL, TO_ROOM, POS_DEAD);
-	one_hit(ch, ch->fighting, TYPE_UNDEFINED, loc);
-	one_hit(ch, ch->fighting, TYPE_UNDEFINED, loc);
-	one_hit(ch, ch->fighting, TYPE_UNDEFINED, loc);
-	one_hit(ch, ch->fighting, TYPE_UNDEFINED, loc);
+	one_hit(ch, ch->fighting, NULL, loc);
+	one_hit(ch, ch->fighting, NULL, loc);
+	one_hit(ch, ch->fighting, NULL, loc);
+	one_hit(ch, ch->fighting, NULL, loc);
 	char_puts("The nails of your claw disappears.\n",ch);
 	act_puts("The nails of $n's claw disappears suddenly.",
 		 ch, NULL, NULL, TO_ROOM, POS_DEAD);
@@ -1550,7 +1552,7 @@ int fight_prog_tattoo_goktengri(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	  act_puts("The tattoo on your shoulder glows white.",
 			   ch,NULL,NULL,TO_CHAR,POS_DEAD);
 	  dofun("say", ch, "My honour is my life.");
-	  one_hit(ch, ch->fighting, TYPE_UNDEFINED, WEAR_WIELD);
+	  one_hit(ch, ch->fighting, NULL, WEAR_WIELD);
 	  break;
 	}
 	return 0;

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.190 1999-10-21 12:52:01 fjoe Exp $
+ * $Id: handler.c,v 1.191 1999-10-23 10:20:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3806,8 +3806,8 @@ bool remove_obj(CHAR_DATA * ch, int iWear, bool fReplace)
 		act_puts("You remove $p, in pain.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		act("$n removes $p, in pain.", ch, obj, NULL, TO_ROOM);
-		/*Osyas patch. Adding damage remove arrow/spear*/
-                damage(ch,ch, dice(obj->level,12),0,DAM_OTHER,DAMF_NONE);
+                damage(ch, ch, dice(obj->level, 12),
+		       NULL, DAM_OTHER, DAMF_NONE);
                 WAIT_STATE(ch, 4);
 		return TRUE;
 	}

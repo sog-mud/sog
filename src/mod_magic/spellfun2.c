@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.143 1999-10-21 12:52:09 fjoe Exp $
+ * $Id: spellfun2.c,v 1.144 1999-10-23 10:20:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -189,7 +189,7 @@ void spell_disintegrate(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	||  IS_IMMORTAL(victim)
 	||  IS_CLAN_GUARD(victim)) {
 		dam = dice(level, 24) ;
-		damage(ch, victim, dam, sn, DAM_ENERGY, TRUE);
+		damage(ch, victim, dam, sn, DAM_ENERGY, DAMF_SHOW);
 		return;
 	}
 
@@ -368,12 +368,9 @@ void spell_mana_transfer(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	if (ch->hit < 50)
-	damage(ch,ch,50,sn,DAM_NONE, TRUE);
-	else {
-	victim->mana = UMIN(victim->max_mana, victim->mana + number_range(20,120));
-	damage(ch,ch,50,sn,DAM_NONE, TRUE);
-	}
+	if (ch->hit > 50)
+		victim->mana = UMIN(victim->max_mana, victim->mana + number_range(20,120));
+	damage(ch, ch, 50, sn, DAM_NONE, DAMF_SHOW);
 }
 	
 void spell_mental_knife(const char *sn, int level, CHAR_DATA *ch, void *vo)
@@ -388,9 +385,9 @@ void spell_mental_knife(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	dam = dice(level,11);
 	else dam = dice(level,14);
 
-	if (saves_spell(level,victim, DAM_MENTAL))
+	if (saves_spell(level, victim, DAM_MENTAL))
 	      dam /= 2;
-	damage(ch,victim,dam,sn,DAM_MENTAL, TRUE);
+	damage(ch, victim, dam, sn, DAM_MENTAL, DAMF_SHOW);
 	if (IS_EXTRACTED(victim))
 		return;
 
@@ -518,7 +515,7 @@ void spell_scourge(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 		if (saves_spell(level,vch, DAM_FIRE))
 			dam /= 2;
-		damage(ch, vch, dam, sn, DAM_FIRE, TRUE);
+		damage(ch, vch, dam, sn, DAM_FIRE, DAMF_SHOW);
 	}
 }
 
@@ -1077,7 +1074,7 @@ void spell_matandra(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	affect_to_char(ch, &af);
 	dam = dice(level, 7);
 	
-	damage(ch,victim,dam,sn,DAM_HOLY, TRUE);
+	damage(ch, victim, dam, sn, DAM_HOLY, DAMF_SHOW);
 }  
 	
 void spell_amnesia(const char *sn, int level, CHAR_DATA *ch, void *vo)  
@@ -1211,7 +1208,7 @@ void spell_wrath(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	if (saves_spell(level, victim, DAM_HOLY))
 		dam /= 2;
-	damage(ch, victim, dam, sn, DAM_HOLY, TRUE);
+	damage(ch, victim, dam, sn, DAM_HOLY, DAMF_SHOW);
 	if (IS_EXTRACTED(victim))
 		return;
 
@@ -1697,11 +1694,10 @@ void spell_dragon_breath(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	int dam;
 
 	dam = dice(level , 6);
-	if (!is_safe_spell(ch, victim, TRUE))
-	{
-	  if (saves_spell(level, victim, DAM_FIRE))
-	dam /= 2;
-	  damage(ch, victim, dam, sn, DAM_FIRE, TRUE);
+	if (!is_safe_spell(ch, victim, TRUE)) {
+		if (saves_spell(level, victim, DAM_FIRE))
+			dam /= 2;
+		damage(ch, victim, dam, sn, DAM_FIRE, DAMF_SHOW);
 	}
 }
 
@@ -2157,7 +2153,7 @@ void spell_entangle(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	if (saves_spell(level, victim, DAM_PIERCE))
 		dam /= 2;
 	
-	damage(ch, victim, dam, sn, DAM_PIERCE, TRUE);
+	damage(ch, victim, dam, sn, DAM_PIERCE, DAMF_SHOW);
 	if (IS_EXTRACTED(victim))
 		return;
 	
@@ -2410,7 +2406,7 @@ void spell_dragons_breath(const char *sn, int level, CHAR_DATA *ch,
 	
 	switch(dice(1, 5)) {
 	case 1:
-		fire_effect(victim->in_room, level, dam/2, TARGET_ROOM);
+		fire_effect(victim->in_room, level, dam/2);
 
 		for (vch = victim->in_room->people; vch; vch = vch_next) {
 			vch_next = vch->next_in_room;
@@ -2420,47 +2416,39 @@ void spell_dragons_breath(const char *sn, int level, CHAR_DATA *ch,
 		     (ch->fighting != vch || vch->fighting != ch)))
 			continue;
 
-	if (vch == victim) { /* full damage */
-	    if (saves_spell(level,vch,DAM_FIRE))
-	    {
-		fire_effect(vch,level/2,dam/4,TARGET_CHAR);
-		damage(ch,vch,dam/2,sn,DAM_FIRE,TRUE);
-	    }
-	    else
-	    {
-		fire_effect(vch,level,dam,TARGET_CHAR);
-		damage(ch,vch,dam,sn,DAM_FIRE,TRUE);
-	    }
-	}
-	else /* partial damage */
-	{
-	    if (saves_spell(level - 2,vch,DAM_FIRE))
-	    {
-		fire_effect(vch,level/4,dam/8,TARGET_CHAR);
-		damage(ch,vch,dam/4,sn,DAM_FIRE,TRUE);
-	    }
-	    else
-	    {
-		fire_effect(vch,level/2,dam/4,TARGET_CHAR);
-		damage(ch,vch,dam/2,sn,DAM_FIRE,TRUE);
-	    }
-	}
-	}
-	break;
+		if (vch == victim) { /* full damage */
+			if (saves_spell(level, vch, DAM_FIRE)) {
+				fire_effect(vch, level/2, dam/4);
+				damage(ch, vch, dam/2, sn, DAM_FIRE, DAMF_SHOW);
+			} else {
+				fire_effect(vch, level, dam);
+				damage(ch, vch, dam, sn, DAM_FIRE, DAMF_SHOW);
+			}
+		} else { /* partial damage */
+			if (saves_spell(level - 2, vch, DAM_FIRE)) {
+				fire_effect(vch, level/4, dam/8);
+				damage(ch, vch, dam/4, sn, DAM_FIRE, DAMF_SHOW);
+			} else {
+				fire_effect(vch, level/2, dam/4);
+				damage(ch, vch, dam/2, sn, DAM_FIRE, DAMF_SHOW);
+			}
+		}
+		}
+		break;
 
 	case 2:
 		if (saves_spell(level,victim,DAM_ACID)) {
-			acid_effect(victim, level/2, dam/4, TARGET_CHAR);
-			damage(ch, victim, dam/2, sn, DAM_ACID,TRUE);
+			acid_effect(victim, level/2, dam/4);
+			damage(ch, victim, dam/2, sn, DAM_ACID, DAMF_SHOW);
 		}
 		else {
-			acid_effect(victim, level, dam, TARGET_CHAR);
-			damage(ch, victim, dam, sn, DAM_ACID,TRUE);
+			acid_effect(victim, level, dam);
+			damage(ch, victim, dam, sn, DAM_ACID, DAMF_SHOW);
 		}
 		break;
 
 	case 3:
-		cold_effect(victim->in_room, level, dam/2, TARGET_ROOM); 
+		cold_effect(victim->in_room, level, dam/2); 
 
 		for (vch = victim->in_room->people; vch; vch = vch_next) {
 			vch_next = vch->next_in_room;
@@ -2474,32 +2462,32 @@ void spell_dragons_breath(const char *sn, int level, CHAR_DATA *ch,
 	{
 	    if (saves_spell(level,vch,DAM_COLD))
 	    {
-		cold_effect(vch,level/2,dam/4,TARGET_CHAR);
-		damage(ch,vch,dam/2,sn,DAM_COLD,TRUE);
+		cold_effect(vch,level/2,dam/4);
+		damage(ch,vch,dam/2,sn,DAM_COLD,DAMF_SHOW);
 	    }
 	    else
 	    {
-		cold_effect(vch,level,dam,TARGET_CHAR);
-		damage(ch,vch,dam,sn,DAM_COLD,TRUE);
+		cold_effect(vch,level,dam);
+		damage(ch,vch,dam,sn,DAM_COLD,DAMF_SHOW);
 	    }
 	}
 	else
 	{
 	    if (saves_spell(level - 2,vch,DAM_COLD))
 	    {
-		cold_effect(vch,level/4,dam/8,TARGET_CHAR);
-		damage(ch,vch,dam/4,sn,DAM_COLD,TRUE);
+		cold_effect(vch,level/4,dam/8);
+		damage(ch,vch,dam/4,sn,DAM_COLD,DAMF_SHOW);
 	    }
 	    else
 	    {
-		cold_effect(vch,level/2,dam/4,TARGET_CHAR);
-		damage(ch,vch,dam/2,sn,DAM_COLD,TRUE);
+		cold_effect(vch,level/2,dam/4);
+		damage(ch,vch,dam/2,sn,DAM_COLD,DAMF_SHOW);
 	    }
 	}
 	}
 	break;
 	case 4:
-		poison_effect(ch->in_room, level, dam, TARGET_ROOM);
+		poison_effect(ch->in_room, level, dam);
 
 	for (vch = ch->in_room->people; vch; vch = vch_next) {
 	vch_next = vch->next_in_room;
@@ -2511,24 +2499,24 @@ void spell_dragons_breath(const char *sn, int level, CHAR_DATA *ch,
 
 	if (saves_spell(level,vch,DAM_POISON))
 	{
-	    poison_effect(vch,level/2,dam/4,TARGET_CHAR);
-	    damage(ch,vch,dam/2,sn,DAM_POISON,TRUE);
+	    poison_effect(vch,level/2,dam/4);
+	    damage(ch,vch,dam/2,sn,DAM_POISON,DAMF_SHOW);
 	}
 	else
 	{
-	    poison_effect(vch,level,dam,TARGET_CHAR);
-	    damage(ch,vch,dam,sn,DAM_POISON,TRUE);
+	    poison_effect(vch,level,dam);
+	    damage(ch,vch,dam,sn,DAM_POISON,DAMF_SHOW);
 	}
 	}
 	break;
 	case 5:
 		if (saves_spell(level, victim, DAM_LIGHTNING)) {
-			shock_effect(victim, level/2, dam/4, TARGET_CHAR);
-			damage(ch, victim, dam/2, sn, DAM_LIGHTNING, TRUE);
+			shock_effect(victim, level/2, dam/4);
+			damage(ch, victim, dam/2, sn, DAM_LIGHTNING, DAMF_SHOW);
 		}
 		else {
-			shock_effect(victim, level, dam, TARGET_CHAR);
-			damage(ch, victim, dam, sn, DAM_LIGHTNING, TRUE); 
+			shock_effect(victim, level, dam);
+			damage(ch, victim, dam, sn, DAM_LIGHTNING, DAMF_SHOW); 
 		}
 		break;
 	}
@@ -2557,7 +2545,7 @@ void spell_sand_storm(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	dice_dam = dice(level,20);
 
 	dam = UMAX(hp_dam + dice_dam /10, dice_dam + hp_dam / 10);
-	sand_effect(ch->in_room,level,dam/2,TARGET_ROOM);
+	sand_effect(ch->in_room,level,dam/2);
 
 	for (vch = ch->in_room->people; vch != NULL; vch = vch_next)
 	{
@@ -2570,13 +2558,13 @@ void spell_sand_storm(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	    if (saves_spell(level,vch,DAM_COLD))
 	    {
-		sand_effect(vch,level/2,dam/4,TARGET_CHAR);
-		damage(ch,vch,dam/2,sn,DAM_COLD,TRUE);
+		sand_effect(vch,level/2,dam/4);
+		damage(ch,vch,dam/2,sn,DAM_COLD,DAMF_SHOW);
 	    }
 	    else
 	    {
-		sand_effect(vch,level,dam,TARGET_CHAR);
-		damage(ch,vch,dam,sn,DAM_COLD,TRUE);
+		sand_effect(vch,level,dam);
+		damage(ch,vch,dam,sn,DAM_COLD,DAMF_SHOW);
 	    }
 	}
 }
@@ -2595,7 +2583,7 @@ void spell_scream(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	dice_dam = dice(level,20);
 	dam = UMAX(hp_dam + dice_dam /10 , dice_dam + hp_dam /10);
 
-	scream_effect(ch->in_room,level,dam/2,TARGET_ROOM);
+	scream_effect(ch->in_room,level,dam/2);
 
 	for (vch = ch->in_room->people; vch != NULL; vch = vch_next)
 	{
@@ -2606,14 +2594,14 @@ void spell_scream(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	    if (saves_spell(level,vch,DAM_ENERGY))
 	    {
-		scream_effect(vch,level/2,dam/4,TARGET_CHAR);
-/*		damage(ch,vch,dam/2,sn,DAM_ENERGY,TRUE); */
+		scream_effect(vch,level/2,dam/4);
+/*		damage(ch,vch,dam/2,sn,DAM_ENERGY,DAMF_SHOW); */
 	     if (vch->fighting)  stop_fighting(vch , TRUE);
 	    }
 	    else
 	    {
-		scream_effect(vch,level,dam,TARGET_CHAR);
-/*		damage(ch,vch,dam,sn,DAM_ENERGY,TRUE); */
+		scream_effect(vch,level,dam);
+/*		damage(ch,vch,dam,sn,DAM_ENERGY,DAMF_SHOW); */
 	     if (vch->fighting)  stop_fighting(vch , TRUE);
 	    }
 	}
@@ -3183,7 +3171,7 @@ void spell_power_word_kill(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	||  IS_IMMORTAL(victim)
 	||  IS_CLAN_GUARD(victim)) {
 		dam = dice(level , 24) ;
-		damage(ch, victim , dam , sn, DAM_MENTAL, TRUE);
+		damage(ch, victim , dam , sn, DAM_MENTAL, DAMF_SHOW);
 		return;
 	}
 
@@ -3407,7 +3395,7 @@ void turn_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		align = -1000 + (align + 1000) / 3;
 
 	dam = (dam * align * align) / 1000000;
-	damage(ch, victim, dam, sn, DAM_HOLY, TRUE);
+	damage(ch, victim, dam, sn, DAM_HOLY, DAMF_SHOW);
 	if (!IS_EXTRACTED(victim))
 		dofun("flee", victim, str_empty);
 }
@@ -3613,7 +3601,7 @@ void spell_witch_curse(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	if (IS_IMMORTAL(victim)
 	||  IS_CLAN_GUARD(victim)) {
-		damage(ch, victim, dice(level, 8), sn, DAM_NEGATIVE, TRUE);
+		damage(ch, victim, dice(level, 8), sn, DAM_NEGATIVE, DAMF_SHOW);
 		return;
 	}
 
@@ -3816,8 +3804,8 @@ void spell_vampiric_blast(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	dam = dice(level, 12);
 	if (saves_spell(level, victim, DAM_ACID))
-	dam /= 2;
-	damage(ch, victim, dam, sn,DAM_ACID,TRUE);
+		dam /= 2;
+	damage(ch, victim, dam, sn, DAM_ACID, DAMF_SHOW);
 	return;
 }
 
@@ -3990,7 +3978,7 @@ void spell_severity_force(const char *sn, int level, CHAR_DATA *ch, void *vo
 	char_printf(ch,"You cracked the ground towards the %s.\n",victim->name);
 	act("$n cracked the ground towards you!.", ch, NULL, victim, TO_VICT);
 	dam = dice(level , 12);
-	damage(ch,victim,dam,sn,DAM_NONE,TRUE);
+	damage(ch, victim, dam, sn, DAM_NONE, DAMF_SHOW);
 }
 
 void spell_randomizer(const char *sn, int level, CHAR_DATA *ch, void *vo)
@@ -4848,14 +4836,14 @@ void spell_blade_barrier(const char *sn, int level,CHAR_DATA *ch, void *vo)
 
 	dam = dice(level,5);
 	if (saves_spell(level,victim,DAM_PIERCE))
-	dam /= 3;
-	damage(ch,victim,dam,sn,DAM_PIERCE,TRUE);
+		dam /= 3;
+	damage(ch, victim, dam, sn, DAM_PIERCE, DAMF_SHOW);
 
 	act("The blade barriers crash $n!",victim,NULL,NULL,TO_ROOM);
 	dam = dice(level,4);
 	if (saves_spell(level,victim,DAM_PIERCE))
 	dam /= 3;
-	damage(ch,victim,dam,sn,DAM_PIERCE,TRUE);
+	damage(ch,victim,dam,sn,DAM_PIERCE, DAMF_SHOW);
 	act("The blade barriers crash you!",victim,NULL,NULL,TO_CHAR);
 
 	if (number_percent() < 75) return;
@@ -4864,7 +4852,7 @@ void spell_blade_barrier(const char *sn, int level,CHAR_DATA *ch, void *vo)
 	dam = dice(level,2);
 	if (saves_spell(level,victim,DAM_PIERCE))
 	dam /= 3;
-	damage(ch,victim,dam,sn,DAM_PIERCE,TRUE);
+	damage(ch,victim,dam,sn,DAM_PIERCE,DAMF_SHOW);
 	act("The blade barriers crash you!",victim,NULL,NULL,TO_CHAR);
 
 	if (number_percent() < 50) return;
@@ -4873,7 +4861,7 @@ void spell_blade_barrier(const char *sn, int level,CHAR_DATA *ch, void *vo)
 	dam = dice(level,3);
 	if (saves_spell(level,victim,DAM_PIERCE))
 	dam /= 3;
-	damage(ch,victim,dam,sn,DAM_PIERCE,TRUE);
+	damage(ch,victim,dam,sn,DAM_PIERCE,DAMF_SHOW);
 	act("The blade barriers crash you!",victim,NULL,NULL,TO_CHAR);
 }
 
@@ -5233,8 +5221,8 @@ void spell_desert_fist(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act("An existing parcel of sand rises up and forms a fist and pummels you.",
 	    victim, NULL, NULL, TO_CHAR);
 	dam = dice(level, 14);
-	sand_effect(victim, level, dam, TARGET_CHAR);
-	damage(ch, victim, dam, sn, DAM_OTHER, TRUE);
+	sand_effect(victim, level, dam);
+	damage(ch, victim, dam, sn, DAM_OTHER, DAMF_SHOW);
 }
 
 void spell_mirror(const char *sn, int level, CHAR_DATA *ch, void *vo)	
@@ -5384,7 +5372,7 @@ void spell_hunger_weapon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	||  IS_OBJ_STAT(obj, ITEM_ANTI_EVIL)) {
 		act("The gods are infuriated!", ch, NULL, NULL, TO_ALL);
 		damage(ch, ch, (ch->hit - 1) > 1000 ? 1000 : (ch->hit - 1),
-		       TYPE_UNDEFINED, DAM_HOLY, DAMF_SHOW | DAMF_HIT);
+		       NULL, DAM_HOLY, DAMF_SHOW);
 		return;
 	} 
 
@@ -5697,11 +5685,9 @@ int damage_to_all_in_room(const char *sn, int level, CHAR_DATA *ch,
 
 
 		v_counter++;
-                if (saves_spell(level, vch, DAM_NEGATIVE)) {
-                	damage(ch, vch, dam/2, sn, DAM_NEGATIVE, TRUE);
-                } else {
-                	damage(ch, vch, dam, sn, DAM_NEGATIVE, TRUE);
-                }
+                if (saves_spell(level, vch, DAM_NEGATIVE))
+			dam /= 2;
+                damage(ch, vch, dam, sn, DAM_NEGATIVE, DAMF_SHOW);
 
 		if (door != -1 && IS_NPC(vch)) 
 	                path_to_track(ch, vch, door);

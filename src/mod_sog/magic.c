@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.10 1999-10-22 11:34:22 fjoe Exp $
+ * $Id: magic.c,v 1.11 1999-10-23 10:20:19 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -49,7 +49,7 @@ bool spellbane(CHAR_DATA *bch, CHAR_DATA *ch, int bane_chance, int bane_damage)
 			act("$n's spellbane deflects the spell!",
 			    ch, NULL, NULL, TO_ROOM);
 			damage(ch, ch, bane_damage, "spellbane",
-			       DAM_NEGATIVE, TRUE);
+			       DAM_NEGATIVE, DAMF_SHOW);
 		} else {
 			check_improve(bch, "spellbane", TRUE, 8);
 			act_puts("$N deflects your spell!",
@@ -60,7 +60,7 @@ bool spellbane(CHAR_DATA *bch, CHAR_DATA *ch, int bane_chance, int bane_damage)
 			    ch, NULL, bch, TO_NOTVICT);
 			if (!is_safe(bch, ch))
 				damage(bch, ch, bane_damage, "spellbane",
-				       DAM_NEGATIVE, TRUE);
+				       DAM_NEGATIVE, DAMF_SHOW);
 	        }
 	        return TRUE;
 	}
@@ -237,7 +237,7 @@ void obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 				yell(victim, ch, "Help! $lu{$i} is attacking me!");
 
 			if (victim == vch && victim->fighting == NULL) {
-				multi_hit(victim, ch, TYPE_UNDEFINED);
+				multi_hit(victim, ch, NULL);
 				break;
 			}
 		}

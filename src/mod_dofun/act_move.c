@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.205 1999-10-12 13:56:10 avn Exp $
+ * $Id: act_move.c,v 1.206 1999-10-23 10:20:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1922,7 +1922,7 @@ void do_kidnap(CHAR_DATA* ch, const char *argument)
 			"$N disappears.", NULL, "$N appears from nowhere.");
 		check_improve(ch, "kidnap", TRUE, 1);
 		yell(victim, ch, "Help! $lu{$i} just kidnapped me!");
-		multi_hit(victim, ch, TYPE_UNDEFINED);
+		multi_hit(victim, ch, NULL);
 	} else {
 		act("You grab $N, but $E escaped.", 
 			ch, NULL, victim, TO_CHAR);
@@ -1932,7 +1932,7 @@ void do_kidnap(CHAR_DATA* ch, const char *argument)
 			ch, NULL, victim, TO_NOTVICT);
 		yell(victim, ch, "Help! $lu{$i} tried to kidnap me!");
 		check_improve(ch, "kidnap", FALSE, 1);
-		multi_hit(victim, ch, TYPE_UNDEFINED);
+		multi_hit(victim, ch, NULL);
 	}
 }
 		
@@ -2207,7 +2207,7 @@ void do_push(CHAR_DATA *ch, const char *argument)
 				 ch, NULL);
 		if (!IS_NPC(ch) && IS_NPC(victim)) {
 			check_improve(ch, "push", FALSE, 2);
-			multi_hit(victim, ch, TYPE_UNDEFINED);
+			multi_hit(victim, ch, NULL);
 		}
 		return;
 	}
@@ -2641,20 +2641,20 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 		  	{
 		      	 act("$n is burned by $p.",victim,arrow,NULL,TO_ROOM);
 		      	 act("$p sears your flesh.",victim,arrow,NULL,TO_CHAR);
-		      	 fire_effect((void *) victim,arrow->level,dam,TARGET_CHAR);
+		      	 fire_effect(victim,arrow->level,dam);
 		        }
 		  	if (IS_WEAPON_STAT(arrow,WEAPON_FROST))
 		        {
 		            act("$p freezes $n.",victim,arrow,NULL,TO_ROOM);
 		            act("The cold touch of $p surrounds you with ice.",
 		                victim,arrow,NULL,TO_CHAR);
-		            cold_effect(victim,arrow->level,dam,TARGET_CHAR);
+		            cold_effect(victim,arrow->level,dam);
 		        }
 		        if (IS_WEAPON_STAT(arrow,WEAPON_SHOCKING))
 		        {
 		            act("$n is struck by lightning from $p.",victim,arrow,NULL,TO_ROOM);
 		            act("You are shocked by $p.",victim,arrow,NULL,TO_CHAR);
-		            shock_effect(victim,arrow->level,dam,TARGET_CHAR);
+		            shock_effect(victim,arrow->level,dam);
 		        }
 
 			if (dam > victim->max_hit / 10 
@@ -2803,9 +2803,8 @@ void do_charge(CHAR_DATA *ch, const char *argument)
 		WAIT_STATE(victim, beats * 2);
 		WAIT_STATE(ch, beats);
 		check_improve(ch, "charge", TRUE, 1);
-	}
-	else {
-		damage(ch, victim, 0, "charge", DAM_NONE, TRUE);
+	} else {
+		damage(ch, victim, 0, "charge", DAM_NONE, DAMF_SHOW);
 		check_improve(ch, "charge", FALSE, 1);
 		if (number_percent() > get_skill(ch, "riding")) {
 			if ((pexit=ch->in_room->exit[direction]) == NULL

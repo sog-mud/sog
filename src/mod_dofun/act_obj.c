@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.172 1999-10-21 13:53:40 fjoe Exp $
+ * $Id: act_obj.c,v 1.173 1999-10-23 10:20:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1666,7 +1666,7 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 
 		if (!IS_NPC(ch) && IS_NPC(victim)) {
 			check_improve(ch, "steal", FALSE, 2);
-			multi_hit(victim, ch, TYPE_UNDEFINED);
+			multi_hit(victim, ch, NULL);
 		}
 		return;
 	}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cast.c,v 1.7 1999-10-17 08:55:41 fjoe Exp $
+ * $Id: cast.c,v 1.8 1999-10-23 10:20:12 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -421,7 +421,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			vch_next = vch->next_in_room;
 			if (victim == vch && victim->fighting == NULL) {
 				if (victim->position != POS_SLEEPING)
-					multi_hit(victim, ch, TYPE_UNDEFINED);
+					multi_hit(victim, ch, NULL);
 				break;
 			}
 		}

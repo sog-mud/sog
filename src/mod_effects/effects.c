@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.20 1999-10-18 18:08:07 avn Exp $
+ * $Id: effects.c,v 1.21 1999-10-23 10:20:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,23 +47,21 @@
 #include <time.h>
 #include "merc.h"
 
-void acid_effect(void *vo, int level, int dam, int target)
+void acid_effect(void *vo, int level, int dam)
 {
-    if (target == TARGET_ROOM) /* nail objects on the floor */
-     {
+    if (mem_is(vo, MT_ROOM)) { /* nail objects on the floor */
 	ROOM_INDEX_DATA *room = (ROOM_INDEX_DATA *) vo;
 	OBJ_DATA *obj, *obj_next;
 
 	for (obj = room->contents; obj != NULL; obj = obj_next)
 	{
 	    obj_next = obj->next_content;
-	    acid_effect(obj,level,dam,TARGET_OBJ);
+	    acid_effect(obj,level,dam);
 	}
 	return;
     }
 
-    if (target == TARGET_CHAR)  /* do the effect on a victim */
-    {
+    if (mem_is(vo, MT_CHAR)) { /* do the effect on a victim */
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	OBJ_DATA *obj, *obj_next;
 	
@@ -71,13 +69,12 @@ void acid_effect(void *vo, int level, int dam, int target)
 	for (obj = victim->carrying; obj != NULL; obj = obj_next)
 	{
 	    obj_next = obj->next_content;
-	    acid_effect(obj,level,dam,TARGET_OBJ);
+	    acid_effect(obj,level,dam);
 	}
 	return;
     }
 
-    if (target == TARGET_OBJ) /* toast an object */
-    {
+    if (mem_is(vo, MT_OBJ)) { /* toast an object */
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	OBJ_DATA *t_obj,*n_obj;
 	int chance;
@@ -152,7 +149,7 @@ void acid_effect(void *vo, int level, int dam, int target)
                 if (INT_VAL(paf->location) == APPLY_AC)
                 {
                     af_found = TRUE;
-                    paf->type = TYPE_UNDEFINED;
+                    paf->type = NULL;
                     paf->modifier += 1;
                     paf->level = UMAX(paf->level,level);
 		    break;
@@ -164,7 +161,7 @@ void acid_effect(void *vo, int level, int dam, int target)
             {
 		paf = aff_new();
  
-                paf->type       = TYPE_UNDEFINED;
+                paf->type       = NULL;
                 paf->level      = level;
                 paf->duration   = -1;
                 paf->location   = APPLY_AC;
@@ -197,7 +194,7 @@ void acid_effect(void *vo, int level, int dam, int target)
 		    continue;
 		}
 
-		acid_effect(t_obj,level/2,dam/2,TARGET_OBJ);
+		acid_effect(t_obj,level/2,dam/2);
 	    }
  	}
 
@@ -206,24 +203,21 @@ void acid_effect(void *vo, int level, int dam, int target)
     }
 }
 
-
-void cold_effect(void *vo, int level, int dam, int target)
+void cold_effect(void *vo, int level, int dam)
 {
-    if (target == TARGET_ROOM) /* nail objects on the floor */
-    {
+    if (mem_is(vo, MT_ROOM)) { /* nail objects on the floor */
         ROOM_INDEX_DATA *room = (ROOM_INDEX_DATA *) vo;
         OBJ_DATA *obj, *obj_next;
  
         for (obj = room->contents; obj != NULL; obj = obj_next)
         {
             obj_next = obj->next_content;
-            cold_effect(obj,level,dam,TARGET_OBJ);
+            cold_effect(obj,level,dam);
         }
         return;
     }
 
-    if (target == TARGET_CHAR) /* whack a character */
-    {
+    if (mem_is(vo, MT_CHAR)) { /* whack a character */
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	OBJ_DATA *obj, *obj_next;
 	
@@ -252,13 +246,12 @@ void cold_effect(void *vo, int level, int dam, int target)
 	for (obj = victim->carrying; obj != NULL; obj = obj_next)
 	{
 	    obj_next = obj->next_content;
-	    cold_effect(obj,level,dam,TARGET_OBJ);
+	    cold_effect(obj,level,dam);
 	}
 	return;
    }
 
-   if (target == TARGET_OBJ) /* toast an object */
-   {
+   if (mem_is(vo, MT_OBJ)) { /* toast an object */
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	int chance;
 	char *msg;
@@ -311,23 +304,21 @@ void cold_effect(void *vo, int level, int dam, int target)
    
 
 
-void fire_effect(void *vo, int level, int dam, int target)
+void fire_effect(void *vo, int level, int dam)
 {
     
-    if (target == TARGET_ROOM)  /* nail objects on the floor */
-    {
+    if (mem_is(vo, MT_ROOM)) { /* nail objects on the floor */
 	ROOM_INDEX_DATA *room = (ROOM_INDEX_DATA *) vo;
 	OBJ_DATA *obj, *obj_next;
 	for (obj = room->contents; obj != NULL; obj = obj_next)
 	{
 	    obj_next = obj->next_content;
-	    fire_effect(obj,level,dam,TARGET_OBJ);
+	    fire_effect(obj,level,dam);
 	}
 	return;
     }
  
-    if (target == TARGET_CHAR)   /* do the effect on a victim */
-    {
+    if (mem_is(vo, MT_CHAR)) { /* do the effect on a victim */
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	OBJ_DATA *obj, *obj_next;
 
@@ -360,13 +351,12 @@ void fire_effect(void *vo, int level, int dam, int target)
 	{
 	    obj_next = obj->next_content;
 
-	    fire_effect(obj,level,dam,TARGET_OBJ);
+	    fire_effect(obj,level,dam);
         }
 	return;
     }
 
-    if (target == TARGET_OBJ)  /* toast an object */
-    {
+    if (mem_is(vo, MT_OBJ)) { /* toast an object */
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	OBJ_DATA *t_obj,*n_obj;
 	int chance;
@@ -442,7 +432,7 @@ void fire_effect(void *vo, int level, int dam, int target)
 				extract_obj(t_obj, 0);
 				continue;
 			}
-			fire_effect(t_obj,level/2,dam/2,TARGET_OBJ);
+			fire_effect(t_obj,level/2,dam/2);
 		}
 
 	extract_obj(obj, 0);
@@ -450,23 +440,21 @@ void fire_effect(void *vo, int level, int dam, int target)
     }
 }
 
-void poison_effect(void *vo,int level, int dam, int target)
+void poison_effect(void *vo,int level, int dam)
 {
-    if (target == TARGET_ROOM)  /* nail objects on the floor */
-    {
+    if (mem_is(vo, MT_ROOM)) {  /* nail objects on the floor */
         ROOM_INDEX_DATA *room = (ROOM_INDEX_DATA *) vo;
         OBJ_DATA *obj, *obj_next;
  
         for (obj = room->contents; obj != NULL; obj = obj_next)
         {
             obj_next = obj->next_content;
-            poison_effect(obj,level,dam,TARGET_OBJ);
+            poison_effect(obj,level,dam);
         }
         return;
     }
  
-    if (target == TARGET_CHAR)   /* do the effect on a victim */
-    {
+    if (mem_is(vo, MT_CHAR)) { /* do the effect on a victim */
         CHAR_DATA *victim = (CHAR_DATA *) vo;
         OBJ_DATA *obj, *obj_next;
 
@@ -494,16 +482,14 @@ void poison_effect(void *vo,int level, int dam, int target)
 	for (obj = victim->carrying; obj != NULL; obj = obj_next)
 	{
 	    obj_next = obj->next_content;
-	    poison_effect(obj,level,dam,TARGET_OBJ);
+	    poison_effect(obj,level,dam);
 	}
 	return;
     }
 
-    if (target == TARGET_OBJ)  /* do some poisoning */
-    {
+    if (mem_is(vo, MT_OBJ)) {/* do some poisoning */
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	int chance;
-	
 
 	if (IS_OBJ_STAT(obj,ITEM_BURN_PROOF)
   	||  IS_OBJ_STAT(obj,ITEM_BLESS)
@@ -541,23 +527,21 @@ void poison_effect(void *vo,int level, int dam, int target)
 }
 
 
-void shock_effect(void *vo,int level, int dam, int target)
+void shock_effect(void *vo,int level, int dam)
 {
-    if (target == TARGET_ROOM)
-    {
+    if (mem_is(vo, MT_ROOM)) {
 	ROOM_INDEX_DATA *room = (ROOM_INDEX_DATA *) vo;
 	OBJ_DATA *obj, *obj_next;
 
 	for (obj = room->contents; obj != NULL; obj = obj_next)
 	{
 	    obj_next = obj->next_content;
-	    shock_effect(obj,level,dam,TARGET_OBJ);
+	    shock_effect(obj,level,dam);
 	}
 	return;
     }
 
-    if (target == TARGET_CHAR)
-    {
+    if (mem_is(vo, MT_CHAR)) {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	OBJ_DATA *obj, *obj_next;
 
@@ -572,13 +556,12 @@ void shock_effect(void *vo,int level, int dam, int target)
 	for (obj = victim->carrying; obj != NULL; obj = obj_next)
 	{
 	    obj_next = obj->next_content;
-	    shock_effect(obj,level,dam,TARGET_OBJ);
+	    shock_effect(obj,level,dam);
 	}
 	return;
     }
 
-    if (target == TARGET_OBJ)
-    {
+    if (mem_is(vo, MT_OBJ)) {
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	int chance;
 	char *msg;
@@ -629,23 +612,21 @@ void shock_effect(void *vo,int level, int dam, int target)
     }
 }
 
-void sand_effect(void *vo, int level, int dam, int target)
+void sand_effect(void *vo, int level, int dam)
 {
-    if (target == TARGET_ROOM) /* nail objects on the floor */
-     {
+    if (mem_is(vo, MT_ROOM)) { /* nail objects on the floor */
 	ROOM_INDEX_DATA *room = (ROOM_INDEX_DATA *) vo;
 	OBJ_DATA *obj, *obj_next;
 
 	for (obj = room->contents; obj != NULL; obj = obj_next)
 	{
 	    obj_next = obj->next_content;
-	    sand_effect(obj,level,dam,TARGET_OBJ);
+	    sand_effect(obj,level,dam);
 	}
 	return;
     }
 
-    if (target == TARGET_CHAR)  /* do the effect on a victim */
-    {
+    if (mem_is(vo, MT_CHAR)) {  /* do the effect on a victim */
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	OBJ_DATA *obj, *obj_next;
 	
@@ -672,13 +653,12 @@ void sand_effect(void *vo, int level, int dam, int target)
 	for (obj = victim->carrying; obj != NULL; obj = obj_next)
 	{
 	    obj_next = obj->next_content;
-	    sand_effect(obj,level,dam,TARGET_OBJ);
+	    sand_effect(obj,level,dam);
 	}
 	return;
     }
 
-    if (target == TARGET_OBJ) /* toast an object */
-    {
+    if (mem_is(vo, MT_OBJ)) { /* toast an object */
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	OBJ_DATA *t_obj,*n_obj;
 	int chance;
@@ -758,7 +738,7 @@ void sand_effect(void *vo, int level, int dam, int target)
                 if (INT_VAL(paf->location) == APPLY_AC)
                 {
                     af_found = TRUE;
-                    paf->type = TYPE_UNDEFINED;
+                    paf->type = NULL;
                     paf->modifier += 1;
                     paf->level = UMAX(paf->level,level);
 		    break;
@@ -770,7 +750,7 @@ void sand_effect(void *vo, int level, int dam, int target)
             {
 		paf = aff_new();
  
-                paf->type       = TYPE_UNDEFINED;
+                paf->type       = NULL;
                 paf->level      = level;
                 paf->duration   = level;
                 paf->location   = APPLY_AC;
@@ -803,7 +783,7 @@ void sand_effect(void *vo, int level, int dam, int target)
 		    continue;
 		}
 
-		sand_effect(t_obj,level/2,dam/2,TARGET_OBJ);
+		sand_effect(t_obj,level/2,dam/2);
 	    }
  	}
 
@@ -812,23 +792,20 @@ void sand_effect(void *vo, int level, int dam, int target)
     }
 }
 
-void scream_effect(void *vo, int level, int dam, int target)
+void scream_effect(void *vo, int level, int dam)
 {
-    
-    if (target == TARGET_ROOM)  /* nail objects on the floor */
-    {
+    if (mem_is(vo, MT_ROOM)) { /* nail objects on the floor */
 	ROOM_INDEX_DATA *room = (ROOM_INDEX_DATA *) vo;
 	OBJ_DATA *obj, *obj_next;
 	for (obj = room->contents; obj != NULL; obj = obj_next)
 	{
 	    obj_next = obj->next_content;
-	    scream_effect(obj,level,dam,TARGET_OBJ);
+	    scream_effect(obj,level,dam);
 	}
 	return;
     }
  
-    if (target == TARGET_CHAR)   /* do the effect on a victim */
-    {
+    if (mem_is(vo, MT_CHAR)) { /* do the effect on a victim */
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	OBJ_DATA *obj, *obj_next;
 
@@ -866,13 +843,12 @@ void scream_effect(void *vo, int level, int dam, int target)
 	{
 	    obj_next = obj->next_content;
 
-	    scream_effect(obj,level,dam,TARGET_OBJ);
+	    scream_effect(obj,level,dam);
         }
 	return;
     }
 
-    if (target == TARGET_OBJ)  /* toast an object */
-    {
+    if (mem_is(vo, MT_OBJ)) {  /* toast an object */
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	OBJ_DATA *t_obj,*n_obj;
 	int chance;
@@ -947,7 +923,7 @@ void scream_effect(void *vo, int level, int dam, int target)
 		    extract_obj(t_obj, 0);
 		    continue;
 		}
-		scream_effect(t_obj,level/2,dam/2,TARGET_OBJ);
+		scream_effect(t_obj,level/2,dam/2);
             }
         }
  
