@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.c,v 1.4 1999-10-21 12:52:05 fjoe Exp $
+ * $Id: spec.c,v 1.5 1999-10-22 13:24:48 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -257,7 +257,7 @@ void spec_stats(CHAR_DATA *ch, spec_skill_t *spec_sk)
 	spec_sk->rating = 0;			/* will find min */
 	spec_sk->min = 0;			/* will find max */
 	spec_sk->adept = 0;			/* will find max */
-	spec_sk->max = 0;			/* will find max */
+	spec_sk->max = IS_IMMORTAL(ch) ? 1 : 0;	/* will find max */
 
 /* noone can use ill-defined skills */
 	if ((sk = skill_lookup(spec_sk->sn)) == NULL) {
