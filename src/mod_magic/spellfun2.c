@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.26 2000-10-29 13:32:58 cs Exp $
+ * $Id: spellfun2.c,v 1.139.2.27 2000-11-17 12:49:34 avn Exp $
  */
 
 /***************************************************************************
@@ -439,7 +439,7 @@ void spell_demon_summon(int sn, int level, CHAR_DATA *ch, void *vo)
 		}
 	}
 
-	demon = create_mob(get_mob_index(MOB_VNUM_DEMON));
+	demon = create_mob(get_mob_index(MOB_VNUM_DEMON), 0);
 
 	for (i = 0; i < MAX_STATS; i++) {
 		demon->perm_stat[i] = ch->perm_stat[i];
@@ -685,7 +685,7 @@ void spell_guard_call(int sn, int level, CHAR_DATA *ch, void *vo)
 		}
 	}
 
-	guard = create_mob(get_mob_index(MOB_VNUM_SPECIAL_GUARD));
+	guard = create_mob(get_mob_index(MOB_VNUM_SPECIAL_GUARD), 0);
 
 	for (i=0;i < MAX_STATS; i++)
 	guard->perm_stat[i] = ch->perm_stat[i];
@@ -707,7 +707,7 @@ void spell_guard_call(int sn, int level, CHAR_DATA *ch, void *vo)
 	NPC(guard)->dam.dice_type = number_range(level/4, level/3);
 	guard->damroll = number_range(level/10, level/8);
 
-	guard2 = create_mob(guard->pMobIndex);
+	guard2 = create_mob(guard->pMobIndex, 0);
 	clone_mob(guard,guard2);
 	
 	SET_BIT(guard->affected_by, AFF_CHARM);
@@ -759,7 +759,7 @@ void spell_nightwalker(int sn, int level, CHAR_DATA *ch, void *vo)
 		}
 	}
 
-	walker = create_mob(get_mob_index(MOB_VNUM_NIGHTWALKER));
+	walker = create_mob(get_mob_index(MOB_VNUM_NIGHTWALKER), 0);
 
 	for (i = 0; i < MAX_STATS; i++)
 		walker->perm_stat[i] = ch->perm_stat[i];
@@ -1221,7 +1221,7 @@ void spell_stalker(int sn, int level, CHAR_DATA *ch, void *vo)
 	char_puts("You attempt to summon a stalker.\n",ch);
 	act("$n attempts to summon a stalker.",ch,NULL,NULL,TO_ROOM);
 
-	stalker = create_mob(get_mob_index(MOB_VNUM_STALKER));
+	stalker = create_mob(get_mob_index(MOB_VNUM_STALKER), 0);
 
 	af.where	= TO_AFFECTS;
 	af.type		= sn;
@@ -1993,7 +1993,7 @@ void spell_squire(int sn, int level, CHAR_DATA *ch, void *vo)
 		}
 	}
 
-	squire = create_mob(get_mob_index(MOB_VNUM_SQUIRE));
+	squire = create_mob(get_mob_index(MOB_VNUM_SQUIRE), 0);
 
 	for (i=0;i < MAX_STATS; i++)
 		squire->perm_stat[i] = ch->perm_stat[i];
@@ -2767,7 +2767,7 @@ void spell_bone_dragon(int sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	coc = create_mob(get_mob_index(MOB_VNUM_COCOON));
+	coc = create_mob(get_mob_index(MOB_VNUM_COCOON), 0);
 
 	for (i = 0; i < MAX_STATS; i++)
 		coc->perm_stat[i] = 5;
@@ -3254,7 +3254,7 @@ void spell_lion_help(int sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	lion = create_mob(get_mob_index(MOB_VNUM_HUNTER));
+	lion = create_mob(get_mob_index(MOB_VNUM_HUNTER), 0);
 
 	for (i=0;i < MAX_STATS; i++)
 		lion->perm_stat[i] = UMIN(25,2 * ch->perm_stat[i]);
@@ -3748,7 +3748,7 @@ void spell_wolf(int sn, int level, CHAR_DATA *ch, void *vo)
 		}
 	}
 
-	demon = create_mob(get_mob_index(MOB_VNUM_WOLF));
+	demon = create_mob(get_mob_index(MOB_VNUM_WOLF), 0);
 
 	for (i=0;i < MAX_STATS; i++)
 	{
@@ -4205,7 +4205,7 @@ void spell_lesser_golem(int sn, int level, CHAR_DATA *ch, void *vo)
 		}
 	}
 
-	golem = create_mob(get_mob_index(MOB_VNUM_LESSER_GOLEM));
+	golem = create_mob(get_mob_index(MOB_VNUM_LESSER_GOLEM), 0);
 
 	for (i = 0; i < MAX_STATS; i ++)
 	   golem->perm_stat[i] = UMIN(25,15 + level/10);
@@ -4272,7 +4272,7 @@ void spell_stone_golem(int sn, int level, CHAR_DATA *ch, void *vo)
 		}
 	}
 
-	golem = create_mob(get_mob_index(MOB_VNUM_STONE_GOLEM));
+	golem = create_mob(get_mob_index(MOB_VNUM_STONE_GOLEM), 0);
 
 
 	for (i = 0; i < MAX_STATS; i ++)
@@ -4337,7 +4337,7 @@ void spell_iron_golem(int sn, int level, CHAR_DATA *ch, void *vo)
 		}
 	}
 
-	golem = create_mob(get_mob_index(MOB_VNUM_IRON_GOLEM));
+	golem = create_mob(get_mob_index(MOB_VNUM_IRON_GOLEM), 0);
 
 	for (i = 0; i < MAX_STATS; i ++)
 	   golem->perm_stat[i] = UMIN(25,15 + level/10);
@@ -4401,7 +4401,7 @@ void spell_adamantite_golem(int sn, int level, CHAR_DATA *ch, void *vo)
 		}
 	}
 
-	golem = create_mob(get_mob_index(MOB_VNUM_ADAMANTITE_GOLEM));
+	golem = create_mob(get_mob_index(MOB_VNUM_ADAMANTITE_GOLEM), 0);
 
 	for (i = 0; i < MAX_STATS; i ++)
 	   golem->perm_stat[i] = UMIN(25,15 + level/10);
@@ -5106,7 +5106,7 @@ void spell_summon_shadow(int sn, int level, CHAR_DATA *ch, void *vo)
 		}
 	}
 
-	shadow = create_mob(get_mob_index(MOB_VNUM_SUM_SHADOW));
+	shadow = create_mob(get_mob_index(MOB_VNUM_SUM_SHADOW), 0);
 
 	for (i=0;i < MAX_STATS; i++)
 	{
@@ -5237,7 +5237,7 @@ void spell_mirror(int sn, int level, CHAR_DATA *ch, void *vo)
 	order = number_range(0, level/5 - mirrors);
 
 	for (new_mirrors = 0; mirrors + new_mirrors < level/5; new_mirrors++) {
-		gch = create_mob(get_mob_index(MOB_VNUM_MIRROR_IMAGE));
+		gch = create_mob(get_mob_index(MOB_VNUM_MIRROR_IMAGE), 0);
 		free_string(gch->name);
 		gch->name = str_qdup(victim->name);
 		mlstr_cpy(&gch->short_descr, &victim->short_descr);
@@ -5572,7 +5572,7 @@ void spell_find_familiar(int sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	if (!familiar) {
-		familiar = create_mob(get_mob_index(vnum));
+		familiar = create_mob(get_mob_index(vnum), 0);
 
 		switch(vnum) {
 		case MOB_VNUM_BLACK_CAT:
@@ -5920,7 +5920,7 @@ void spell_crypt_thing(int sn, int level, CHAR_DATA *ch, void *vo)
                         return;
                 }
 
-	        undead = create_mob(get_mob_index(MOB_VNUM_CRYPT_THING));
+	        undead = create_mob(get_mob_index(MOB_VNUM_CRYPT_THING), 0);
 
 	        for (i = 0; i < MAX_STATS; i++)
 			undead->perm_stat[i] = UMIN(25, 15+obj->level/10);

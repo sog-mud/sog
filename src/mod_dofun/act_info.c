@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.26 2000-10-15 17:15:39 fjoe Exp $
+ * $Id: act_info.c,v 1.271.2.27 2000-11-17 12:49:31 avn Exp $
  */
 
 /***************************************************************************
@@ -2135,7 +2135,7 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 	}
 
 	check_improve(ch, sn, TRUE, 1);
-	bear = create_mob(get_mob_index(MOB_VNUM_BEAR));
+	bear = create_mob(get_mob_index(MOB_VNUM_BEAR), 0);
 
 	for (i=0;i < MAX_STATS; i++)
 		bear->perm_stat[i] = UMIN(25,2 * ch->perm_stat[i]);
@@ -2151,7 +2151,7 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 	bear->gold = 0;
 	bear->silver = 0;
 
-	bear2 = create_mob(bear->pMobIndex);
+	bear2 = create_mob(bear->pMobIndex, 0);
 	clone_mob(bear, bear2);
 
 	SET_BIT(bear->affected_by, AFF_CHARM);
@@ -2794,7 +2794,7 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 	}
 
 	check_improve(ch, sn, TRUE, 1);
-	lion = create_mob(get_mob_index(MOB_VNUM_LION));
+	lion = create_mob(get_mob_index(MOB_VNUM_LION), 0);
 
 	for (i=0;i < MAX_STATS; i++)
 		lion->perm_stat[i] = UMIN(25,2 * ch->perm_stat[i]);
@@ -2810,7 +2810,7 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 	lion->gold = 0;
 	lion->silver = 0;
 
-	lion2 = create_mob(lion->pMobIndex);
+	lion2 = create_mob(lion->pMobIndex, 0);
 	clone_mob(lion,lion2);
 
 	SET_BIT(lion->affected_by, AFF_CHARM);

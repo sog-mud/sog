@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.126.2.10 2000-11-16 12:04:38 avn Exp $
+ * $Id: save.c,v 1.126.2.11 2000-11-17 12:49:36 avn Exp $
  */
 
 /***************************************************************************
@@ -88,7 +88,7 @@ void move_pfile(const char *name, int minvnum, int maxvnum, int delta)
 {
 	CHAR_DATA *ch;
 	minv = minvnum; maxv = maxvnum; del = delta;
-	ch = char_load(name, LOAD_F_MOVE);
+	ch = char_load(name, LOAD_F_MOVE | LOAD_F_NOCREATE);
 	char_save(ch, SAVE_F_PSCAN);
 	char_nuke(ch);
 }
@@ -133,7 +133,7 @@ void char_nuke(CHAR_DATA *ch)
 	PC_DATA *pc = PC(ch);
 
 	if (pc->pet) {
-		extract_char(pc->pet, 0);
+		char_free(pc->pet); 
 		pc->pet = NULL;
 	}
 
@@ -949,7 +949,7 @@ fread_pet(CHAR_DATA * ch, FILE * fp, int flags)
 			MOVE(vnum);
 		
 		if ((pMobIndex = get_mob_index(vnum)) != NULL)
-			pet = create_mob(pMobIndex);
+				pet = create_mob(pMobIndex, CM_F_NOLIST);
 	}
 
 	if (pet == NULL) {

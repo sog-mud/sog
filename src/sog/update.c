@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.33 2000-11-16 12:04:38 avn Exp $
+ * $Id: update.c,v 1.157.2.34 2000-11-17 12:49:36 avn Exp $
  */
 
 /***************************************************************************
@@ -2303,7 +2303,7 @@ void hatchout_dragon(CHAR_DATA *coc, AFFECT_DATA *paf)
 	act("Cocoon explodes and nasty dracolich emerges!",
 	    coc, NULL, NULL, TO_ALL);
 
-	drag = create_mob(get_mob_index(MOB_VNUM_BONE_DRAGON));
+	drag = create_mob(get_mob_index(MOB_VNUM_BONE_DRAGON), 0);
 	for (i=0; i < MAX_STATS; i++)
 		drag->perm_stat[i] = UMIN(25, 15 + dlev / 10);
 	drag->perm_stat[STAT_STR] += 3;

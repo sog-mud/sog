@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.17 2000-11-16 12:04:37 avn Exp $
+ * $Id: act_obj.c,v 1.165.2.18 2000-11-17 12:49:32 avn Exp $
  */
 
 /***************************************************************************
@@ -1871,7 +1871,7 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 			return;
 		}
 		deduct_cost(ch, cost);
-		pet = create_mob(pet->pMobIndex);
+		pet = create_mob(pet->pMobIndex, 0);
 		pet->comm = COMM_NOTELL | COMM_NOSHOUT | COMM_NOCHANNELS;
 
 		char_to_room(pet, ch->in_room);
@@ -1907,7 +1907,7 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 		check_improve(ch, gsn_haggle, TRUE, 4);
 	}
 	deduct_cost(ch, cost);
-	pet = create_mob(pet->pMobIndex);
+	pet = create_mob(pet->pMobIndex, 0);
 	SET_BIT(pet->affected_by, AFF_CHARM);
 	pet->comm = COMM_NOTELL | COMM_NOSHOUT | COMM_NOCHANNELS;
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.21 2000-09-11 07:09:55 fjoe Exp $
+ * $Id: act_wiz.c,v 1.186.2.22 2000-11-17 12:49:33 avn Exp $
  */
 
 /***************************************************************************
@@ -2158,7 +2158,7 @@ void do_clone(CHAR_DATA *ch, const char *argument)
 		    return;
 		}
 
-		clone = create_mob(mob->pMobIndex);
+		clone = create_mob(mob->pMobIndex, 0);
 		clone_mob(mob, clone); 
 		
 		for (obj = mob->carrying; obj != NULL; obj = obj->next_content) {
@@ -2221,7 +2221,7 @@ void do_mload(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	victim = create_mob(pMobIndex);
+	victim = create_mob(pMobIndex, 0);
 	act("$n has created $N!", ch, NULL, victim, TO_ROOM);
 	wiznet("$N loads $i.", ch, victim,
 	       WIZ_LOAD, WIZ_SECURE, trust_level(ch));

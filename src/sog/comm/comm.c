@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.11 2000-07-25 12:02:47 fjoe Exp $
+ * $Id: comm.c,v 1.200.2.12 2000-11-17 12:49:36 avn Exp $
  */
 
 /***************************************************************************
@@ -1738,7 +1738,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 {
 	DESCRIPTOR_DATA *d_old, *d_next;
 	char arg[MAX_INPUT_LENGTH];
-	CHAR_DATA *ch;
+	CHAR_DATA *ch, *pet;
 	char *pwdnew;
 	int cl, race, i;
 	int nextquest = 0;
@@ -2326,6 +2326,11 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		char_list	= ch;
 		if (!char_list_lastpc)
 			char_list_lastpc = ch;
+		if ((pet = GET_PET(ch)) != NULL) {
+			/* we know char_list_lastpc isn't NULL */
+			pet->next = char_list_lastpc->next;
+			char_list_lastpc->next = pet;
+		}
 		d->connected	= CON_PLAYING;
 		{
 			int count;
