@@ -1,5 +1,5 @@
 /*
- * $Id: interp.h,v 1.44 1999-05-06 10:55:22 kostik Exp $
+ * $Id: interp.h,v 1.45 1999-05-12 18:54:42 avn Exp $
  */
 
 /***************************************************************************
@@ -148,6 +148,7 @@ DECLARE_DO_FUN(do_examine	);
 DECLARE_DO_FUN(do_exits		);
 DECLARE_DO_FUN(do_explode	);
 DECLARE_DO_FUN(do_fade		);
+DECLARE_DO_FUN(do_feed		);
 DECLARE_DO_FUN(do_fill		);
 DECLARE_DO_FUN(do_find		);
 DECLARE_DO_FUN(do_fly		);

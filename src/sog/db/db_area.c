@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.36 1999-04-17 06:56:38 fjoe Exp $
+ * $Id: db_area.c,v 1.37 1999-05-12 18:54:50 avn Exp $
  */
 
 /***************************************************************************
@@ -1492,6 +1492,9 @@ DBLOAD_FUN(load_objects)
 		case 'D':
 		    paf->where		= TO_AFFECTS;
 		    break;
+		case 'S':
+		    paf->where		= TO_SKILLS;
+		    break;
 		default:
 			db_error("load_objects",
 				 "vnum %d: '%c': bad where on flag.",
@@ -1501,7 +1504,9 @@ DBLOAD_FUN(load_objects)
                 paf->type               = -1;
                 paf->level              = pObjIndex->level;
                 paf->duration           = -1;
-                paf->location           = fread_number(fp);
+		if (paf->where != TO_SKILLS)
+                    paf->location	= fread_number(fp);
+		    else paf->location 	= -sn_lookup(fread_word(fp)); 
                 paf->modifier           = fread_number(fp);
                 paf->bitvector          = fread_flags(fp);
 		SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);

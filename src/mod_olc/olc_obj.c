@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.45 1999-04-16 15:52:24 fjoe Exp $
+ * $Id: olc_obj.c,v 1.46 1999-05-12 18:54:51 avn Exp $
  */
 
 #include <sys/types.h>
@@ -298,7 +298,9 @@ OLC_FUN(objed_show)
 		buf_printf(output, "[%4d] %12.12s %8d %7.7s %s"
 				   "\n",
 			   cnt,
-			   flag_string(apply_flags, paf->location),
+			   (paf->location > 0)? 
+			       flag_string(apply_flags, paf->location):
+			       skill_name(-(paf->location)),
 			   paf->modifier,
 			   flag_string(apply_types, paf->where),
 			   w ? flag_string(w->table, paf->bitvector) : "none");
@@ -485,8 +487,10 @@ OLC_FUN(objed_addaffect)
 		modifier = 0;
 	}
 	else {
-		if ((location = flag_value(apply_flags, loc)) < 0) {
-			char_puts("Valid locations are:\n", ch);
+		location = flag_value(apply_flags, loc);
+		if (location < 0)
+		    if ((location = 0 - sn_lookup(loc)) > 0) {
+			char_puts("Valid locations are skill names and:\n", ch);
 			show_flags(ch, apply_flags);
 			return FALSE;
 		}
@@ -523,6 +527,14 @@ OLC_FUN(objed_addaffect)
 			show_flags(ch, w->table);
 			return FALSE;
 		}
+
+		if (where == TO_SKILLS) modifier = atoi(mod);
+	}
+	if (where == -1 && location < 0) where = TO_SKILLS;
+	if (where != TO_SKILLS && location < 0) {
+		char_printf(ch, "'skill' bitaffect location will be used.\n");
+		where = TO_SKILLS;
+		bitvector = 0;
 	}
 
 	pAf             = aff_new();

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spellfn.c,v 1.13 1999-04-16 15:52:24 fjoe Exp $
+ * $Id: spellfn.c,v 1.14 1999-05-12 18:54:50 avn Exp $
  */
 
 #include <stdio.h>
@@ -81,6 +81,8 @@ namedp_t spellfn_table[] =
 	{ "spell_enchant_weapon",	spell_enchant_weapon		},
 	{ "spell_hunger_weapon",	spell_hunger_weapon		},
 	{ "spell_energy_drain",		spell_energy_drain		},
+	{ "spell_mana_drain",		spell_mana_drain		},
+	{ "spell_draining_touch",	spell_draining_touch		},
 	{ "spell_faerie_fire",		spell_faerie_fire		},
 	{ "spell_faerie_fog",		spell_faerie_fog		},
 	{ "spell_farsight",		spell_farsight			},
@@ -186,6 +188,7 @@ namedp_t spellfn_table[] =
 	{ "spell_scream",		spell_scream			},
 	{ "spell_attract_other",	spell_attract_other		},
 	{ "spell_animate_dead",		spell_animate_dead		},
+	{ "spell_bone_dragon",		spell_bone_dragon		},
 	{ "spell_enhanced_armor",	spell_enhanced_armor		},
 	{ "spell_meld_into_stone",	spell_meld_into_stone		},
 	{ "spell_find_object",		spell_find_object		},
@@ -258,6 +261,7 @@ namedp_t spellfn_table[] =
 	{ "spell_black_death",		spell_black_death		},
 	{ "spell_mysterious_dream",	spell_mysterious_dream		},
 	{ "spell_polymorph",		spell_polymorph			},
+	{ "spell_lich",			spell_lich			},
 	{ "spell_plant_form",		spell_plant_form		},
 	{ "spell_blade_barrier",	spell_blade_barrier		},
 	{ "spell_protection_negative",	spell_protection_negative	},

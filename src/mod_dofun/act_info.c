@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.225 1999-04-17 06:56:31 fjoe Exp $
+ * $Id: act_info.c,v 1.226 1999-05-12 18:54:37 avn Exp $
  */
 
 /***************************************************************************
@@ -1473,8 +1473,9 @@ void do_time(CHAR_DATA *ch, const char *argument)
 		return;
 
 	char_printf(ch, "\nSoG started up at %s\n"
-			"The system time is %s.\n",
-			str_boot_time, strtime(time(NULL)));
+			"The system time is %s.\n"
+			"Reboot in %d minutes\n",
+			str_boot_time, strtime(time(NULL)),reboot_counter);
 }
 
 DO_FUN(do_date)

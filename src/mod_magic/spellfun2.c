@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.98 1999-04-16 15:52:18 fjoe Exp $
+ * $Id: spellfun2.c,v 1.99 1999-05-12 18:54:45 avn Exp $
  */
 
 /***************************************************************************
@@ -2639,7 +2639,58 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo, int target)
 	return;
 }
 
+void spell_bone_dragon(int sn, int level, CHAR_DATA *ch, void *vo, int target)
+{
+CHAR_DATA *gch,*coc;
+AFFECT_DATA af;
+int i;
 
+	if (is_affected(ch,sn)) {
+	    act("You are still tired from growing previous one.",
+		ch, NULL, NULL, TO_CHAR);
+	    return;
+	}
+
+	for (gch = npc_list; gch; gch = gch->next)
+	    if (gch->master == ch
+	    && (gch->pIndexData->vnum == MOB_VNUM_COCOON
+		|| gch->pIndexData->vnum == MOB_VNUM_BONE_DRAGON)) {
+		    char_puts("You cannot control two or more dragons.\n", ch);
+		    return;
+	}
+
+	coc = create_mob(get_mob_index(MOB_VNUM_COCOON));
+
+	for (i=0; i<MAX_STATS; i++) coc->perm_stat[i]=5;
+	coc->max_hit = number_range (100*level, 200*level);
+	coc->hit = coc->max_hit;
+	coc->mana = coc->max_mana = 0;
+	coc->level = ch->level;
+	for (i=0; i<4; i++) coc->armor[i]=100-2*ch->level-number_range(0,50);
+	coc->gold = 0;
+	coc->timer = 0;
+	coc->damage[DICE_NUMBER] = number_range(1,level/20);
+	coc->damage[DICE_TYPE]   = number_range(1,level/10);
+	coc->damage[DICE_BONUS]  = number_range(1,level/3);
+	coc->master = ch;
+
+	af.where	= TO_AFFECTS;
+	af.type		= gsn_bone_dragon;
+	af.level	= 0;
+	af.duration	= level/3;
+	af.modifier	= 0;
+	af.bitvector	= 0;
+	af.location	= APPLY_NONE;
+	affect_to_char(coc,&af);
+
+	af.type		= sn;
+	af.duration	= 100;
+	affect_to_char(ch,&af);
+	char_to_room(coc,ch->in_room);
+
+	act("Half burrowed cocoon appears from the earth.\n",ch,NULL,NULL,TO_ALL);
+
+}
 
 void spell_enhanced_armor(int sn, int level, CHAR_DATA *ch, void *vo, int target) 
 {
@@ -4507,6 +4558,10 @@ void spell_polymorph(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		return;
 	}
 
+	if (IS_SET(r->flags, RACE_UNDEAD)) {
+		char_puts("You posess no necromantic powers to do this.\n",ch);
+		return;
+	}
 	af.where	= TO_AFFECTS;
 	af.type		= sn;
 	af.level	= level;
@@ -4518,6 +4573,55 @@ void spell_polymorph(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	act("$n polymorphes $mself to $t.", ch, r->name, NULL, TO_ROOM);
 	act("You polymorph yourself to $t.", ch, r->name, NULL, TO_CHAR);
+}
+
+void spell_lich(int sn, int level, CHAR_DATA *ch, void *vo, int target)
+{
+	AFFECT_DATA af;
+	int race;
+	race_t *r;
+	int lev=0;
+
+	if (is_affected(ch,sn)) {
+	    act("Your flesh is already dead.", ch, NULL, NULL, TO_CHAR);
+	    return;
+	}
+
+	if (target_name == NULL || target_name[0] == '\0') {
+	    char_puts("Usage: cast 'lich' <type>",ch);
+	    return;
+	}
+
+	race = rn_lookup(target_name);
+	r = RACE(race);
+	if (!r->pcdata || !IS_SET(r->flags, RACE_UNDEAD)) {
+	    char_puts("This is not an undead type.\n",ch);
+	    return;
+	}
+
+	if (!strcmp(r->name, "undead")) lev=45;
+	if (!strcmp(r->name, "zombie")) lev=63;
+	if (!strcmp(r->name, "lich"))   lev=81;
+
+	if (ch->level<lev) {
+	    char_puts("You lack the power to do it.\n",ch);
+	    return;
+	}
+
+	af.where	= TO_AFFECTS;
+	af.type		= gsn_lich;
+	af.level	= level;
+	af.duration	= level/10;
+	af.location	= APPLY_RACE;
+	af.modifier	= race;
+	af.bitvector	= 0;
+	affect_to_char(ch, &af);
+
+	act("$n deathens $mself, turning into $t.",
+	    ch, r->name, NULL, TO_ROOM);
+	act("You deathen yourself, turning into $t.",
+	    ch, r->name, NULL, TO_CHAR);
+
 }
 
 void spell_plant_form(int sn, int level, CHAR_DATA *ch, void *vo, int target)
@@ -4723,12 +4827,72 @@ void spell_disgrace(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 void spell_control_undead(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-
-	if  (!IS_NPC(victim) || !IS_SET(victim->pIndexData->act, ACT_UNDEAD)) {
-		act("$N doesn't seem to be an undead.",ch,NULL,victim,TO_CHAR);
-		return;
-	}
-	spell_charm_person(sn,level,ch,vo,target);
+ 	char buf[MAX_INPUT_LENGTH];
+ 	AFFECT_DATA af;
+ 	race_t *r;	
+ 
+ 	if (count_charmed(ch))
+ 	    return;
+ 
+ 	if (victim == ch) {
+ 	    char_puts("You like yourself even better!\n", ch);
+ 	    return;
+ 	}
+ 
+ 	r=RACE(victim->race);
+  
+ 	if  ((!IS_NPC(victim) || !IS_SET(victim->pIndexData->act, ACT_UNDEAD)) 
+             && (!IS_SET(r->flags, RACE_UNDEAD))) {
+  		act("$N doesn't seem to be an undead.",ch,NULL,victim,TO_CHAR);
+  		return;
+  	}
+ 
+ 	if (!IS_NPC(victim) && !IS_NPC(ch)) 
+ 		level += get_curr_stat(ch, STAT_CHA) -
+ 			 get_curr_stat(victim, STAT_CHA); 
+ 
+ 
+ 	if (IS_AFFECTED(victim, AFF_CHARM)
+ 	||  IS_AFFECTED(ch, AFF_CHARM)
+ 	||  saves_spell(level, victim, DAM_OTHER) 
+ 	||  (IS_NPC(victim) && victim->pIndexData->pShop != NULL)
+ 	||  (victim->in_room &&
+ 	     IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA)))
+ 		return;
+ 
+ 	if (is_safe(ch, victim))
+ 		return;
+ 
+ 	if (victim->master)
+ 		stop_follower(victim);
+ 	add_follower(victim, ch);
+ 
+ 	if (ch->leader == victim) 
+ 		ch->leader = NULL;
+ 
+ 	victim->leader = ch;
+ 
+ 	af.where	= TO_AFFECTS;
+ 	af.type		= sn;
+ 	af.level	= level;
+ 	af.duration	= number_fuzzy(level / 5);
+ 	af.location	= 0;
+ 	af.modifier	= 0;
+ 	af.bitvector	= AFF_CHARM;
+ 	affect_to_char(victim, &af);
+ 	act("Isn't $n just so nice?", ch, NULL, victim, TO_VICT);
+ 	act("$N looks at you with adoring eyes.",
+ 		    ch, NULL, victim, TO_CHAR);
+ 
+ 	if (IS_NPC(victim) && !IS_NPC(ch)) {
+ 		victim->last_fought=ch;
+ 		if (number_percent() < (4 + (victim->level - ch->level)) * 10)
+ 		 	add_mind(victim, ch->name);
+ 		else if (victim->in_mind == NULL) {
+ 			snprintf(buf, sizeof(buf), "%d", victim->in_room->vnum);
+ 			victim->in_mind = str_dup(buf);
+ 		}
+ 	}
 }
 
 void spell_assist(int sn, int level, CHAR_DATA *ch, void *vo, int target)

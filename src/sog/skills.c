@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.60 1999-04-17 16:14:59 fjoe Exp $
+ * $Id: skills.c,v 1.61 1999-05-12 18:54:48 avn Exp $
  */
 
 /***************************************************************************
@@ -56,6 +56,7 @@ DECLARE_DO_FUN(do_help		);
 DECLARE_DO_FUN(do_say		);
 
 int	ch_skill_nok	(CHAR_DATA *ch , int sn);
+int	get_skill_raw	(CHAR_DATA *ch , int sn);
 
 /* used to converter of prac and train */
 void do_gain(CHAR_DATA *ch, const char *argument)
@@ -625,8 +626,31 @@ const char *skill_name(int sn)
 	return "none";
 }
 
-/* for returning skill information */
 int get_skill(CHAR_DATA *ch, int sn)
+{
+AFFECT_DATA *paf;
+int add, sk;
+bool teach;
+
+teach = FALSE;
+add = 0;
+for (paf = ch->affected; paf; paf = paf->next) 
+	if (paf->where == TO_SKILLS && 
+	    (paf->location == -sn
+	    || (IS_SET(paf->bitvector, SK_AFF_ALL)
+		&& sn != gsn_spellbane)
+	    || (IS_SET(paf->bitvector, SK_AFF_NOTCLAN)
+		&& !IS_SET(skill_lookup(sn)->flags, SKILL_CLAN)))) {
+		    add += paf->modifier;
+		    teach |= IS_SET(paf->bitvector, SK_AFF_TEACH);
+	}
+
+sk = get_skill_raw(ch, sn);
+return UMAX(0,(sk)?(sk+add):(teach)?(add):0);
+}
+
+/* for returning skill information */
+int get_skill_raw(CHAR_DATA *ch, int sn)
 {
 	int skill;
 	skill_t *sk;
@@ -926,6 +950,7 @@ int skill_level(CHAR_DATA *ch, int sn)
 	cskill_t *class_skill;
 	race_t *r;
 	rskill_t *race_skill;
+	AFFECT_DATA *paf;
 
 /* noone can use ill-defined skills */
 /* broken chars can't use any skills */
@@ -949,6 +974,9 @@ int skill_level(CHAR_DATA *ch, int sn)
 	if ((race_skill = rskill_lookup(r, sn)))
 		slevel = UMIN(slevel, race_skill->level);
 
+	for (paf = ch->affected; paf; paf = paf->next)
+	    if (paf->where == TO_SKILLS && paf->location == -sn)
+		slevel = 1;
 	return slevel;
 }
 

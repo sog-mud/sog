@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.176 1999-04-17 10:12:47 fjoe Exp $
+ * $Id: comm.c,v 1.177 1999-05-12 18:54:49 avn Exp $
  */
 
 /***************************************************************************
@@ -1885,7 +1885,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		race = rn_lookup(argument);
 		r = RACE(race);
 
-		if (race == 0 || !r->pcdata) {
+		if (race == 0 || !r->pcdata || IS_SET(r->flags, RACE_UNDEAD)) {
 			write_to_buffer(d, "That is not a valid race.\n\r", 0);
 			write_to_buffer(d, "The following races are available:\n\r  ", 0);
 			for (race = 1; race < races.nused; race++) {

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.143 1999-05-06 10:55:22 kostik Exp $
+ * $Id: spellfun.c,v 1.144 1999-05-12 18:54:43 avn Exp $
  */
 
 /***************************************************************************
@@ -184,8 +184,8 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	else {
 		pcskill_t *ps;
 		ps = (pcskill_t*) skill_vlookup(&ch->pcdata->learned, arg1);
-		if (ps)
-			sn = ps->sn;
+		if (ps) sn = ps->sn;
+		    else sn = sn_lookup(arg1);
 	}
 
 	if ((chance = get_skill(ch, sn)) == 0) {
@@ -2756,12 +2756,11 @@ void spell_energy_drain(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		dam		 = dice(1, level);
 		ch->hit		+= dam;
 	}
-
 	if (number_percent() < 15) {
 		af.where 	= TO_AFFECTS;
 		af.type		= sn;
 		af.level	= level/2;
-		af.duration	= (6 + level/12);
+		af.duration	= 6+level/12;
 		af.location	= APPLY_LEVEL;
 		af.modifier	= -1;
 		af.bitvector	= 0;
@@ -2769,11 +2768,65 @@ void spell_energy_drain(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		affect_join(victim, &af);
 
 	}
-
-
 	char_puts("You feel your life slipping away!\n",victim);
 	char_puts("Wow....what a rush!\n",ch);
 	damage(ch, victim, dam, sn, DAM_NEGATIVE, TRUE);
+}
+
+void spell_mana_drain(int sn, int level,CHAR_DATA *ch, void *vo, int target)
+{
+	CHAR_DATA *victim=(CHAR_DATA *)vo;
+	int manadam;
+
+	act("$n spreads his arms towards $N...", ch, NULL, victim, TO_ROOM);
+	act("You spread your arms towards $N...", ch, NULL, victim, TO_CHAR);
+
+	if (saves_spell(level+number_range(1,20), victim, DAM_MENTAL)) {
+	    act("   ... but nothing happens.", ch, NULL, victim, TO_ROOM);
+	    act("   ... but nothing happens.", ch, NULL, victim, TO_CHAR);
+	    return;
+	}
+
+	act("Many glowing golden threads link $n's fingers to $N!",
+	    ch, NULL, victim, TO_ROOM);
+	act("Many glowing golden threads link your fingers to $N!",
+	    ch, NULL, victim, TO_CHAR);
+	manadam=dice(level,11);
+	if (saves_spell(level, victim, DAM_NEGATIVE)) manadam /=3;
+	manadam = UMIN(manadam, victim->mana);
+	victim->mana -= manadam;
+	ch->mana += manadam/2;
+
+}
+
+void spell_draining_touch(int sn, int level, CHAR_DATA *ch, void *vo, int target)
+{
+	CHAR_DATA *victim=(CHAR_DATA *)vo;
+	AFFECT_DATA af;
+	int dam, gdam;
+
+	gdam = dam = dice (level, 3)+10;
+	if (saves_spell(level, victim, DAM_NEGATIVE)) {dam /=3; gdam=0;};
+	damage(ch, victim, dam, sn, DAM_NEGATIVE, TRUE);
+	ch->hit += gdam;
+	act("$n touches $N with $s fingers.", ch, NULL, victim, TO_NOTVICT);
+	act("$n touches you with $s fingers.", ch, NULL, victim, TO_VICT);
+
+	if (JUST_KILLED(victim)) return;
+
+	if (!is_affected(victim,sn)
+	    && !saves_spell(level-5, victim, DAM_NEGATIVE)) {
+		af.where	= TO_AFFECTS;
+		af.type		= sn;
+		af.level	= level;
+		af.duration	= 1;
+		af.location	= APPLY_LEVEL;
+		af.modifier	= -1*level/15;
+		af.bitvector	= 0;
+		affect_to_char(victim, &af);
+
+		act("You feel drained!\n", victim, NULL, NULL, TO_ROOM);
+	}
 }
 
 void spell_hellfire(int sn, int level, CHAR_DATA *ch, void *vo, int target)

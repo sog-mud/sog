@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.h,v 1.17 1999-04-16 15:52:24 fjoe Exp $
+ * $Id: gsn.h,v 1.18 1999-05-12 18:54:50 avn Exp $
  */
 
 #ifndef _GSN_H_
@@ -208,6 +208,8 @@ extern int gsn_evil_spirit;
 extern int gsn_blindness_dust;
 extern int gsn_poison_smoke;
 extern int gsn_mastering_spell;
+extern int gsn_lich;
+extern int gsn_bone_dragon;
 
 /* new_gsns */
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.141 1999-04-19 14:09:10 fjoe Exp $
+ * $Id: act_wiz.c,v 1.142 1999-05-12 18:54:40 avn Exp $
  */
 
 /***************************************************************************
@@ -1449,16 +1449,38 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		buf_printf(output, "Mobile has special procedure %s.\n",
 			   spec_name(victim->spec_fun));
 
-	for (paf = victim->affected; paf != NULL; paf = paf->next)
-		buf_printf(output,
-		    "Spell: '{c%s{x' modifies {c%s{x by {c%d{x for {c%d{x hours with bits {c%s{x, level {c%d{x.\n",
-			skill_name(paf->type),
-		    flag_string(apply_flags, paf->location),
-		    paf->modifier,
-		    paf->duration,
-		    flag_string(affect_flags, paf->bitvector),
-		    paf->level
-		   );
+	for (paf = victim->affected; paf != NULL; paf = paf->next) {
+	    buf_printf(output, "Spell: '{c%s{x' ", skill_name(paf->type));
+	    buf_printf(output, "modifies '{c%s{x' by {c%d{x for {c%d{x hours ",
+		(paf->where != TO_SKILLS) ?
+		    flag_string(apply_flags, paf->location) :
+		    skill_name(-(paf->location)),
+		paf->modifier,
+		paf->duration);
+		switch (paf->where) {
+		    case TO_AFFECTS:
+			buf_printf(output, "adding '{c%s{x' affect, ",
+				flag_string(affect_flags, paf->bitvector));
+			break;
+		    case TO_IMMUNE:
+			buf_printf(output, "adding '{c%s{x' immunity, ",
+				flag_string(imm_flags, paf->bitvector));
+			break;
+		    case TO_RESIST:
+			buf_printf(output, "adding '{c%s{x' resistance, ",
+				flag_string(res_flags, paf->bitvector));
+			break;
+		    case TO_VULN:
+			buf_printf(output, "adding '{c%s{x' vulnerability, ",
+				flag_string(vuln_flags, paf->bitvector));
+			break;
+		    case TO_SKILLS:
+			buf_printf(output, "with flags '{c%s{x', ",
+				flag_string(sk_aff_flags, paf->bitvector));
+			break;
+		}
+	    buf_printf(output, "level {c%d{x.\n", paf->level);
+	}
 
 	if (!IS_NPC(victim)) {
 		qtrouble_t *qt;

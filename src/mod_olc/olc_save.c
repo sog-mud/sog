@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.66 1999-04-16 15:52:25 fjoe Exp $
+ * $Id: olc_save.c,v 1.67 1999-05-12 18:54:51 avn Exp $
  */
 
 /**************************************************************************
@@ -369,6 +369,9 @@ void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 			case TO_VULN:
 				fprintf(fp, "V ");
 				break;
+			case TO_SKILLS:
+				fprintf(fp, "S ");
+				break;
 			default:
 				log_printf("olc_save: vnum %d: "
 					   "invalid affect->where: %d",
@@ -376,7 +379,11 @@ void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 				break;
 		}
 		
-		fprintf(fp, "%d %d %s\n", pAf->location, pAf->modifier,
+		if (pAf->where != TO_SKILLS)
+			fprintf(fp, "%d %d %s\n", pAf->location, pAf->modifier,
+				format_flags(pAf->bitvector));
+		    else fprintf(fp, "'%s' %d %s\n",
+				skill_name(-(pAf->location)), pAf->modifier,
 				format_flags(pAf->bitvector));
 	}
     }

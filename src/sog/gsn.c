@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.18 1999-04-16 15:52:23 fjoe Exp $
+ * $Id: gsn.c,v 1.19 1999-05-12 18:54:50 avn Exp $
  */
 
 #include <stdio.h>
@@ -206,6 +206,8 @@ int gsn_evil_spirit;
 int gsn_blindness_dust;
 int gsn_poison_smoke;
 int gsn_mastering_spell;
+int gsn_lich;
+int gsn_bone_dragon;
 
 /* new_gsns */
 
@@ -415,6 +417,8 @@ namedp_t gsn_table[] =
 	{ "gsn_blindness_dust",		&gsn_blindness_dust		},
 	{ "gsn_poison_smoke",		&gsn_poison_smoke		},
 	{ "gsn_mastering_spell",	&gsn_mastering_spell		},
+	{ "gsn_lich",			&gsn_lich			},
+	{ "gsn_bone_dragon",		&gsn_bone_dragon		},
 	{ "gsn_axe",			&gsn_axe			},
 	{ "gsn_dagger",			&gsn_dagger			},
 	{ "gsn_flail",			&gsn_flail			},

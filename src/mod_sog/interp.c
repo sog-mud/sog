@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.134 1999-05-06 10:55:18 kostik Exp $
+ * $Id: interp.c,v 1.135 1999-05-12 18:54:42 avn Exp $
  */
 
 /***************************************************************************
@@ -292,6 +292,7 @@ cmd_t cmd_table[] =
     { "eat",		do_eat,		POS_RESTING,	 0,  LOG_NORMAL	},
     { "enchant",	do_enchant, 	POS_RESTING,     0,  LOG_NORMAL	},
     { "envenom",	do_envenom,	POS_RESTING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },
+    { "feed",		do_feed,	POS_RESTING,	 0,  LOG_NORMAL },
     { "fill",		do_fill,	POS_RESTING,	 0,  LOG_NORMAL	},
     { "fly",		do_fly,		POS_FIGHTING,	 0,  LOG_NORMAL	},
     { "give",		do_give,	POS_RESTING,	 0,  LOG_NORMAL	},

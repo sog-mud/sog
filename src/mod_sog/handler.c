@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.135 1999-04-19 14:09:13 fjoe Exp $
+ * $Id: handler.c,v 1.136 1999-05-12 18:54:41 avn Exp $
  */
 
 /***************************************************************************
@@ -65,6 +65,7 @@ DECLARE_DO_FUN(do_look		);
  */
 void	affect_modify	(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd);
 int	age_to_num	(int age);
+void	hatchout_dragon	(CHAR_DATA *ch, AFFECT_DATA *paf);
 
 /* friend stuff -- for NPC's mostly */
 bool is_friend(CHAR_DATA *ch, CHAR_DATA *victim)
@@ -800,6 +801,7 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 	OBJ_DATA *wield, *obj2;
 	int mod, i;
 
+	if (paf->where == TO_SKILLS) return;
 	mod = paf->modifier;
 	if (fAdd) {
 		switch (paf->where) {
@@ -1058,6 +1060,46 @@ void affect_to_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 }
 
 
+void hatchout_dragon(CHAR_DATA *coc, AFFECT_DATA *paf)
+{
+CHAR_DATA *ch,*drag;
+int i,dlev;
+
+	ch = coc->master;
+	if (coc->master == NULL) {
+	    log("Hatchout_dragon: no master set!");
+	    aff_free(paf);
+	    extract_char(coc,TRUE);
+	    return;
+	}
+	dlev=ch->level*2/3 + paf->level/14;
+	aff_free(paf);
+	act("Cocoon explodes and nasty dracolich emerges!",
+	    coc, NULL, NULL, TO_ALL);
+	drag = create_mob(get_mob_index(MOB_VNUM_BONE_DRAGON));
+	for (i=0; i<MAX_STATS; i++) drag->perm_stat[i] = UMIN(25,15+dlev/10);
+	drag->perm_stat[STAT_STR]+=3;
+	drag->perm_stat[STAT_DEX]+=1;
+	drag->perm_stat[STAT_CON]+=1;
+	drag->max_hit = UMIN(30000, number_range(100*dlev,200*dlev));
+	drag->hit = drag->max_hit;
+	drag->max_mana = dice(dlev,30);
+	drag->mana = drag->max_mana;
+	drag->level = dlev;
+	for (i=0; i<3; i++)
+	    drag->armor[i] = interpolate(dlev,100,-120);
+	drag->armor[3] = interpolate(dlev,100,-40);
+	drag->gold = 0;
+	drag->timer = 0;
+	drag->damage[DICE_NUMBER]=number_fuzzy(13);
+	drag->damage[DICE_TYPE]=number_fuzzy(9);
+	drag->damage[DICE_BONUS]=dlev/2+dice(3,11);
+	drag->master = drag->leader = ch;
+	char_to_room(drag,coc->in_room);
+	coc->master = NULL;
+	extract_char(coc,TRUE);
+
+}
 
 /*
  * Remove an affect from a char.
@@ -1093,7 +1135,8 @@ void affect_remove(CHAR_DATA *ch, AFFECT_DATA *paf)
 			return;
 		}
 	}
-
+	if (paf->type == gsn_bone_dragon && IS_NPC(ch)) {
+	    hatchout_dragon(ch,paf); return; }
 	aff_free(paf);
 	affect_check(ch, where, vector);
 }
@@ -1558,10 +1601,12 @@ OBJ_DATA * equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 
 	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
 		for (paf = obj->pIndexData->affected; paf; paf = paf->next)
-			if (paf->location != APPLY_SPELL_AFFECT)
+			if (paf->location != APPLY_SPELL_AFFECT
+			    && paf->where != TO_SKILLS)
 				affect_modify(ch, paf, TRUE);
 	for (paf = obj->affected; paf; paf = paf->next)
-		if (paf->location == APPLY_SPELL_AFFECT)
+		if (paf->location == APPLY_SPELL_AFFECT
+		    || paf->where == TO_SKILLS)
 			affect_to_char(ch, paf);
 		else
 			affect_modify(ch, paf, TRUE);
@@ -1581,12 +1626,13 @@ void strip_obj_affects(CHAR_DATA *ch, OBJ_DATA *obj, AFFECT_DATA *paf)
 	AFFECT_DATA *lpaf = NULL;
 
 	for (; paf != NULL; paf = paf->next) {
-		if (paf->location == APPLY_SPELL_AFFECT) {
-		        for (lpaf = ch->affected; lpaf != NULL; lpaf = lpaf_next) {
+		if (paf->location == APPLY_SPELL_AFFECT
+		    || paf->where == TO_SKILLS) {
+		        for (lpaf = ch->affected; lpaf; lpaf = lpaf_next) {
 				lpaf_next = lpaf->next;
 				if ((lpaf->type == paf->type)
 				&&  (lpaf->level == paf->level)
-				&&  (lpaf->location == APPLY_SPELL_AFFECT)) {
+				&&  (lpaf->location == paf->location)) {
 					affect_remove(ch, lpaf);
 					lpaf_next = NULL;
 				}
@@ -3241,7 +3287,9 @@ void format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags)
 	for (; paf; paf = paf->next) {
 		where_t *w;
 
-		if (paf->location != APPLY_NONE && paf->modifier) { 
+		if (paf->where != TO_SKILLS
+		    && paf->location != APPLY_NONE
+		    && paf->modifier) { 
 			buf_printf(output, "Affects %s by %d",
 				   flag_string(apply_flags, paf->location),
 				   paf->modifier);
@@ -3255,7 +3303,19 @@ void format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags)
 		if (IS_SET(flags, FOA_F_NOAFFECTS))
 			continue;
 
-		if ((w = where_lookup(paf->where)) && paf->bitvector) {
+		if (paf->where == TO_SKILLS) {
+			w = where_lookup(TO_SKILLS);
+			buf_add(output, "Affects ");
+			buf_printf(output, w->format,
+				skill_name(-(paf->location)),
+				paf->modifier,
+				flag_string(w->table, paf->bitvector));
+			buf_add(output, ".\n");
+		}
+
+		if (paf->where != TO_SKILLS
+		    && (w = where_lookup(paf->where))
+		    && paf->bitvector) {
 			buf_add(output, "Adds ");
 			buf_printf(output, w->format,
 				   flag_string(w->table, paf->bitvector));

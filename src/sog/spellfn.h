@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spellfn.h,v 1.13 1999-04-16 15:52:24 fjoe Exp $
+ * $Id: spellfn.h,v 1.14 1999-05-12 18:54:50 avn Exp $
  */
 
 #ifndef _SPELLFN_H_
@@ -82,6 +82,8 @@ DECLARE_SPELL_FUN(spell_enchant_armor);
 DECLARE_SPELL_FUN(spell_enchant_weapon);
 DECLARE_SPELL_FUN(spell_hunger_weapon);
 DECLARE_SPELL_FUN(spell_energy_drain);
+DECLARE_SPELL_FUN(spell_mana_drain);
+DECLARE_SPELL_FUN(spell_draining_touch);
 DECLARE_SPELL_FUN(spell_faerie_fire);
 DECLARE_SPELL_FUN(spell_faerie_fog);
 DECLARE_SPELL_FUN(spell_farsight);
@@ -187,6 +189,7 @@ DECLARE_SPELL_FUN(spell_sand_storm);
 DECLARE_SPELL_FUN(spell_scream);
 DECLARE_SPELL_FUN(spell_attract_other);
 DECLARE_SPELL_FUN(spell_animate_dead);
+DECLARE_SPELL_FUN(spell_bone_dragon);
 DECLARE_SPELL_FUN(spell_enhanced_armor);
 DECLARE_SPELL_FUN(spell_meld_into_stone);
 DECLARE_SPELL_FUN(spell_find_object);
@@ -259,6 +262,7 @@ DECLARE_SPELL_FUN(spell_lethargic_mist);
 DECLARE_SPELL_FUN(spell_black_death);
 DECLARE_SPELL_FUN(spell_mysterious_dream);
 DECLARE_SPELL_FUN(spell_polymorph);
+DECLARE_SPELL_FUN(spell_lich);
 DECLARE_SPELL_FUN(spell_plant_form);
 DECLARE_SPELL_FUN(spell_blade_barrier);
 DECLARE_SPELL_FUN(spell_protection_negative);

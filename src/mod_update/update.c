@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.122 1999-05-11 09:33:56 fjoe Exp $
+ * $Id: update.c,v 1.123 1999-05-12 18:54:49 avn Exp $
  */
 
 /***************************************************************************
@@ -356,6 +356,7 @@ int mana_gain(CHAR_DATA *ch)
 	gain = (gain * 11) / 10;
 	if (IS_HARA_KIRI(ch))
 	gain *= 3;
+	if (is_affected(ch, gsn_lich)) gain -=2*ch->level;
 
 	return UMIN(gain, ch->max_mana - ch->mana);
 }

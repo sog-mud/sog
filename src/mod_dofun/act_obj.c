@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.136 1999-04-17 06:56:32 fjoe Exp $
+ * $Id: act_obj.c,v 1.137 1999-05-12 18:54:39 avn Exp $
  */
 
 /***************************************************************************
@@ -58,6 +58,7 @@ DECLARE_DO_FUN(do_say		);
 DECLARE_DO_FUN(do_scan		);
 DECLARE_DO_FUN(do_mount		);
 DECLARE_DO_FUN(do_yell		);
+DECLARE_DO_FUN(do_emote		);
 
 /*
  * Local functions.
@@ -95,8 +96,7 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 	int             members;
 
 	if (!CAN_WEAR(obj, ITEM_TAKE)
-	||  ((obj->pIndexData->item_type == ITEM_CORPSE_PC ||
-	      obj->pIndexData->item_type == ITEM_CORPSE_NPC) &&
+	||  (obj->pIndexData->item_type == ITEM_CORPSE_PC &&
 	     (!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM)) &&
 	     !IS_IMMORTAL(ch) &&
 	     !IS_OWNER(ch, obj))) {
@@ -947,6 +947,114 @@ void do_envenom(CHAR_DATA * ch, const char *argument)
 		}
 	}
 	act("You can't poison $p.", ch, obj, NULL, TO_CHAR);
+}
+
+void do_feed(CHAR_DATA *ch, const char *argument)
+{
+CHAR_DATA *vch;
+OBJ_DATA *obj;
+AFFECT_DATA *paf;
+AFFECT_DATA af;
+int sn;
+
+	if ((sn = sn_lookup("bone dragon")) < 0) {
+	    char_puts("Huh?",ch);
+	    return;
+	}
+
+	if (is_affected(ch,gsn_bone_dragon)) {
+	    act("Your pet might get too fat and clumsy.", 
+		ch, NULL, NULL, TO_CHAR);
+	    return;
+	}
+
+	for (vch = ch->in_room->people; vch; vch = vch->next_in_room)
+	   if (vch->master == ch && IS_NPC(vch)
+	       && (vch->pIndexData->vnum == MOB_VNUM_COCOON
+		   || vch->pIndexData->vnum == MOB_VNUM_BONE_DRAGON)) break;
+
+	if (!vch) {
+	    act("Hmmm. Where did that dragon go?",ch,NULL,NULL,TO_ROOM);
+	    return;
+	}
+
+	for (obj = ch->carrying; obj; obj = obj->next_content)
+	    if (obj->pIndexData->item_type == ITEM_CORPSE_NPC
+	    || obj->pIndexData->item_type == ITEM_CORPSE_PC) break;
+
+	if (!obj) {
+	    act("Are you going to feed him with blueberries?",
+		ch,NULL,NULL,TO_CHAR);
+	    return;
+	}
+
+	if (vch->pIndexData->vnum == MOB_VNUM_BONE_DRAGON) {
+	    int what;
+
+	    if (vch->position < POS_RESTING) return;
+	    if (vch->position == POS_FIGHTING) {
+		do_say(vch, "Tasty. But let's finish that fight "
+		   "before meal!");
+		return;
+	    }
+	    what = number_percent();
+	    act("$n hungrily devours $P",vch,NULL,obj,TO_ROOM);
+	    af.type		= gsn_bone_dragon;
+	    af.level	= obj->level;
+	    af.modifier	= 0;
+	    af.location	= 0;
+	    if (what < 10) {
+		af.where	= TO_IMMUNE;
+		af.bitvector	= IMM_MENTAL; 
+		af.duration	= obj->level/5; 
+		do_emote(vch, "looks clever!"); }
+	    else if (what < 40) {
+		af.where	= TO_AFFECTS;
+		af.bitvector	= AFF_HASTE; 
+		af.duration	= obj->level/3; 
+		do_emote(vch, "looks filled with energy!"); }
+	    else if (what < 70) {
+		af.where	= TO_AFFECTS;
+		af.bitvector	= AFF_SLEEP;
+		af.duration	= obj->level/20; 
+		vch->position	= POS_SLEEPING;
+		do_emote(vch, "yawns and goes to sleep."); }
+	    else {
+		af.where	= TO_RESIST;
+		af.bitvector	= RES_MAGIC | RES_WEAPON;
+		af.duration	= 10; 
+		do_emote(vch, "flexes his muscles, looking tough.");}
+	    affect_to_char(vch, &af);
+
+	    af.where		= TO_AFFECTS;
+	    af.bitvector	= 0;
+	    af.location		= APPLY_NONE;
+	    af.duration		= 3;
+	    affect_to_char(ch, &af);
+	    extract_obj(obj, 0);
+	    return;
+
+	}
+
+	for (paf = vch->affected; paf; paf = paf->next)
+	    if (paf->type == gsn_bone_dragon) break;
+
+	if (!paf) bug("Feed: bone dragon w/o affect", 0);
+
+	paf->level += obj->level;
+	act("Cocoon opens, devours $P and then closes again.",
+	    vch, NULL,obj,TO_ROOM);
+
+	af.where	= TO_AFFECTS;
+	af.type		= gsn_bone_dragon;
+	af.level	= ch->level;
+	af.duration	= 2;
+	af.modifier	= 0;
+	af.bitvector	= 0;
+	af.location	= APPLY_NONE;
+	affect_to_char(ch, &af);
+	extract_obj(obj, 0);
+
 }
 
 void do_fill(CHAR_DATA * ch, const char *argument)

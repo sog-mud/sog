@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.181 1999-04-17 06:56:34 fjoe Exp $
+ * $Id: merc.h,v 1.182 1999-05-12 18:54:48 avn Exp $
  */
 
 /***************************************************************************
@@ -355,6 +355,7 @@ struct affect_data
 #define TO_RESIST	3
 #define TO_VULN 	4
 #define TO_WEAPON	5
+#define TO_SKILLS	6
 
 struct where_t
 {
@@ -408,6 +409,7 @@ where_t *where_lookup(flag32_t where);
 #define GROUP_CLAN		(V)
 #define GROUP_DEFENSIVE 	(W)
 #define GROUP_WIZARD		(X)
+#define GROUP_NECROMANCY	(Y)
 
 /*
  * area flags
@@ -932,6 +934,13 @@ enum {
 #define APPLY_SIZE		26
 #define APPLY_CLASS		27
 #define APPLY_RACE		28
+
+/*
+ * Skillaffects flags
+ */
+#define SK_AFF_TEACH		(A)	/* Teach skill */
+#define SK_AFF_ALL		(B)	/* Affect ALL skills */
+#define SK_AFF_NOTCLAN		(C)	/* Affect only normal skills */
 
 /*
  * Values for containers (value[1]).

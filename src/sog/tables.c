@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.57 1999-04-17 06:56:36 fjoe Exp $
+ * $Id: tables.c,v 1.58 1999-05-12 18:54:49 avn Exp $
  */
 
 /***************************************************************************
@@ -847,6 +847,17 @@ flag_t vuln_flags[] =
 	{ NULL }
 };
 
+flag_t sk_aff_flags[] =
+{
+	{ "",			TABLE_BITVAL			},
+
+	{ "teach",		SK_AFF_TEACH,		TRUE	},
+	{ "all",		SK_AFF_ALL,		TRUE	},
+	{ "notclan",		SK_AFF_NOTCLAN,		TRUE	},
+
+	{ NULL }
+};
+
 flag_t position_table[] =
 {
 	{ "",			TABLE_INTVAL			},
@@ -927,6 +938,7 @@ flag_t apply_types[] =
 	{ "immune",		TO_IMMUNE,		TRUE	},
 	{ "resist",		TO_RESIST,		TRUE	},
 	{ "vuln",		TO_VULN,		TRUE	},
+	{ "skill",		TO_SKILLS,		TRUE	},
 /*	{ "weapon",		TO_WEAPON,		TRUE	}, */
 
 	{ NULL }
@@ -979,6 +991,7 @@ flag_t skill_groups[] =
 	{ "clan",		GROUP_CLAN,		TRUE	},
 	{ "defensive",		GROUP_DEFENSIVE,	TRUE	},
 	{ "wizard",		GROUP_WIZARD,		TRUE	},
+	{ "necromancy",		GROUP_NECROMANCY,	TRUE	},
 
 	{ NULL }
 };
@@ -1453,10 +1466,11 @@ const	struct	liq_type	liq_table	[]	=
 
 where_t where_table[] =
 {
-	{ TO_AFFECTS,	affect_flags,	"'%s' affect"		},
-	{ TO_IMMUNE,	imm_flags,	"immunity to '%s'"	},
-	{ TO_RESIST,	res_flags,	"resistance to '%s'"	},
-	{ TO_VULN,	vuln_flags,	"vulnerability to '%s'"	},
+	{ TO_AFFECTS,	affect_flags,	"'%s' affect"			},
+	{ TO_IMMUNE,	imm_flags,	"immunity to '%s'"		},
+	{ TO_RESIST,	res_flags,	"resistance to '%s'"		},
+	{ TO_VULN,	vuln_flags,	"vulnerability to '%s'"		},
+	{ TO_SKILLS,	sk_aff_flags,	"'%s' skill by %d with flags %s"},
 	{ -1 }
 };
 

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.131 1999-04-16 15:52:22 fjoe Exp $
+ * $Id: db.c,v 1.132 1999-05-12 18:54:50 avn Exp $
  */
 
 /***************************************************************************
@@ -1220,8 +1220,11 @@ OBJ_DATA *create_obj(OBJ_INDEX_DATA *pObjIndex, int flags)
 	}
 	
 	for (paf = pObjIndex->affected; paf != NULL; paf = paf->next) 
-		if (paf->location == APPLY_SPELL_AFFECT)
+		if (paf->location == APPLY_SPELL_AFFECT
+		    || paf->where == TO_SKILLS) {
 			affect_to_obj(obj,paf);
+			SET_BIT(obj->extra_flags, ITEM_ENCHANTED);
+		}
 	
 	obj->next	= object_list;
 	object_list	= obj;
