@@ -4193,6 +4193,17 @@ Form 6 -я~
 End
 
 #RULE
+Name отличное~
+BaseLen 6
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ое~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ое~
+End
+
+#RULE
 Name Карманник~
 BaseLen 9
 Form 1 -а~
@@ -6784,6 +6795,17 @@ Form 6 -ую~
 End
 
 #RULE
+Name практик~
+BaseLen 7
+Form 1 -а~
+Form 2 -у~
+Form 3 -~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
+End
+
+#RULE
 Name ликер~
 BaseLen 5
 Form 1 -а~
@@ -6930,6 +6952,17 @@ Form 1 -а~
 Form 2 -у~
 Form 4 -ом~
 Form 5 -е~
+End
+
+#RULE
+Name практика~
+BaseLen 7
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
 End
 
 #RULE
@@ -7185,6 +7218,17 @@ End
 #RULE
 Name секретный~
 BaseLen 7
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
+Name розовый~
+BaseLen 5
 Form 1 -ого~
 Form 2 -ому~
 Form 3 -ый~

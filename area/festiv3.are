@@ -2970,7 +2970,7 @@ coins кучка~
 @eng A pile of coins lies here.@rus Кучка монет (coins) лежит здесь.~
 unknown~
 money A A
-5000 1000 0 0 0
+500 100 0 0 0
 1 0 0 P
 G plural
 #36436
