@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.115 1998-11-21 09:03:59 fjoe Exp $
+ * $Id: act_comm.c,v 1.116 1998-11-24 08:29:57 kostik Exp $
  */
 
 /***************************************************************************
@@ -60,7 +60,7 @@
 #include "obj_prog.h"
 #include "auction.h"
 #include "db/lang.h"
-
+#include "db/gsn.h"
 /* command procedures needed */
 DECLARE_DO_FUN(do_quit	);
 DECLARE_DO_FUN(do_quit_count);

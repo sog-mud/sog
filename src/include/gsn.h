@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.h,v 1.5 1998-11-14 09:01:22 fjoe Exp $
+ * $Id: gsn.h,v 1.6 1998-11-24 08:30:10 kostik Exp $
  */
 
 #ifndef _GSN_H_
@@ -59,6 +59,9 @@ extern int gsn_plague;
 extern int gsn_sleep;
 extern int gsn_sanctuary;
 extern int gsn_fly;
+extern int gsn_wanted;
+extern int gsn_judge;
+extern int gsn_shield_ruler;
 
 extern int gsn_fourth_attack;
 extern int gsn_dual_backstab;

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.91 1998-11-23 06:38:02 fjoe Exp $
+ * $Id: interp.c,v 1.92 1998-11-24 08:29:58 kostik Exp $
  */
 
 /***************************************************************************
@@ -184,8 +184,8 @@ CMD_DATA cmd_table[] =
     { "emote",		do_emote,	POS_RESTING,	 0,  LOG_NORMAL, CMD_CHARMED_OK },
     { "pmote",		do_pmote,	POS_RESTING,	 0,  LOG_NORMAL, CMD_CHARMED_OK },
     { ",",		do_emote,	POS_RESTING,	 0,  LOG_NORMAL, CMD_CHARMED_OK },
-    { "gtell",		do_gtell,	POS_DEAD,	 0,  LOG_NORMAL, CMD_CHARMED_OK },
-    { ";",		do_gtell,	POS_DEAD,	 0,  LOG_NORMAL, CMD_CHARMED_OK },
+    { "gtell",		do_gtell,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { ";",		do_gtell,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "notes",		do_note,	POS_SLEEPING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "petitio",	do_petitio,	POS_DEAD,	 0,  LOG_NORMAL, CMD_CHARMED_OK },
     { "petition",	do_petition,	POS_DEAD,	 0,  LOG_NORMAL, CMD_NOORDER },
@@ -205,7 +205,8 @@ CMD_DATA cmd_table[] =
     { "warcry",         do_warcry,      POS_FIGHTING,    0,  LOG_NORMAL	},
     { "unread",		do_unread,	POS_SLEEPING,    0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "yell",		do_yell,	POS_RESTING,	 0,  LOG_NORMAL, CMD_CHARMED_OK },
-
+    { "wanted",		do_wanted,	POS_RESTING,	 0,  LOG_ALWAYS, CMD_NOORDER},
+    { "judge",		do_judge,	POS_RESTING,	 0,  LOG_NORMAL, CMD_NOORDER|CMD_CHARMED_OK},
     /*
      * Configuration commands.
      */

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spellfn.h,v 1.6 1998-11-20 10:12:48 fjoe Exp $
+ * $Id: spellfn.h,v 1.7 1998-11-24 08:30:10 kostik Exp $
  */
 
 #ifndef _SPELLFN_H_
@@ -164,6 +164,7 @@ DECLARE_SPELL_FUN(spell_brew);
 DECLARE_SPELL_FUN(spell_shadowlife);
 DECLARE_SPELL_FUN(spell_ruler_badge);
 DECLARE_SPELL_FUN(spell_remove_badge);
+DECLARE_SPELL_FUN(spell_shield_ruler);
 DECLARE_SPELL_FUN(spell_dragon_strength);
 DECLARE_SPELL_FUN(spell_dragon_breath);
 DECLARE_SPELL_FUN(spell_golden_aura);
