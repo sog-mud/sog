@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.99 1998-12-04 06:50:24 kostik Exp $
+ * $Id: act_obj.c,v 1.100 1998-12-10 13:44:33 kostik Exp $
  */
 
 /***************************************************************************
@@ -1253,6 +1253,10 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 				char_puts("You are no longer hungry.\n", ch);
 			else if (ch->pcdata->condition[COND_FULL] > 60)
 				char_puts("You are full.\n", ch);
+			if (obj->pIndexData->vnum == OBJ_VNUM_TORN_HEART) {
+				ch->hit = UMIN(ch->max_hit, ch->hit+ch->level/10+number_range(1,5));
+				char_puts("You feel empowered by the blood of your foe.\n",ch);
+			};
 		}
 		if (obj->value[3] != 0) {
 			/* The food was poisoned! */
