@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.31 2003-02-27 16:55:31 tatyana Exp $
+ * $Id: comm.c,v 1.200.2.32 2003-03-06 10:01:42 avn Exp $
  */
 
 /***************************************************************************
@@ -2419,7 +2419,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		PC(ch)->ll_ip	= str_qdup(d->ip);
 		PC(ch)->ll_time	= current_time;
 
-		if (ch->clan != NULL
+		if (ch->clan != CLAN_NONE
 		&&  PC(ch)->clan_status == CLAN_INACTIVE)
 			act_char("You have inactive status in clan and can't use clan powers!\n",
 				  ch);
