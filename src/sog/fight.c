@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.117 1999-01-03 13:54:35 fjoe Exp $
+ * $Id: fight.c,v 1.118 1999-01-04 06:39:31 kostik Exp $
  */
 
 /***************************************************************************
@@ -861,7 +861,9 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 		dam = (ch->level/20 + 1) * dam + ch->level;
 	else if (dt == gsn_cleave && wield != NULL) {
 		if (number_percent() <
-				URANGE(4, 5+(ch->level-victim->level), 10)
+				(URANGE(4, 5+ch->level-victim->level, 10)
+				+ (wield->value[0]==WEAPON_AXE) ? 2:0 +
+				(get_curr_stat(ch,STAT_STR)-21)/2)
 		&&  !counter && !IS_IMMORTAL(victim)) {
 			act_puts("Your cleave chops $N IN HALF!",
 				 ch, NULL, victim, TO_CHAR, POS_RESTING);

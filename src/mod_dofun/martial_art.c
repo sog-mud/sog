@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.62 1998-12-25 06:56:37 kostik Exp $
+ * $Id: martial_art.c,v 1.63 1999-01-04 06:39:31 kostik Exp $
  */
 
 /***************************************************************************
@@ -754,6 +754,11 @@ void do_cleave(CHAR_DATA *ch, const char *argument)
 
 	if ((obj = get_eq_char(ch, WEAR_WIELD)) == NULL) {
 		char_puts("You need to wield a weapon to cleave.\n", ch);
+		return;
+	}
+
+	if ((obj->value[0] != WEAPON_AXE) || (obj->value[0] != WEAPON_SWORD)) {
+		char_puts("You must wield axe or sword to cleave.\n", ch);
 		return;
 	}
 
