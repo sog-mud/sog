@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.356 2000-10-15 17:19:29 fjoe Exp $
+ * $Id: act_info.c,v 1.357 2000-10-16 18:18:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1428,7 +1428,8 @@ void do_where(CHAR_DATA *ch, const char *argument)
 				act_puts("$f-28{$N} $t", ch,
 					 mlstr_mval(&victim->in_room->name),
 					 victim,
-					 TO_CHAR | ACT_NOTRANS, POS_DEAD);
+					 TO_CHAR | ACT_NOTRANS | ACT_FORMSH,
+					 POS_DEAD);
 			}
 		}
 		if (!found)
@@ -1444,7 +1445,8 @@ void do_where(CHAR_DATA *ch, const char *argument)
 				act_puts("$f-28{$N} $t", ch,
 					 mlstr_mval(&victim->in_room->name),
 					 victim,
-					 TO_CHAR | ACT_NOTRANS, POS_DEAD);
+					 TO_CHAR | ACT_NOTRANS | ACT_FORMSH,
+					 POS_DEAD);
 				break;
 			}
 		}
@@ -1638,7 +1640,8 @@ static void scan_list(ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch)
 	for (rch = scan_room->people; rch; rch = rch->next_in_room) {
 		if (rch == ch || !can_see(ch, rch))
 			continue;
-		act_puts("    $N.", ch, NULL, rch, TO_CHAR, POS_DEAD);
+		act_puts("    $N.", ch, NULL, rch,
+			 TO_CHAR | ACT_FORMSH, POS_DEAD);
 	}
 }
 
@@ -4518,10 +4521,11 @@ static void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	buf[0] = UPPER(buf[0]);
 	if (IS_IMMORTAL(victim))
 		send_to_char("{W", ch);
-	act_puts("$N", ch, NULL, victim, TO_CHAR | ACT_NOLF, POS_DEAD);
+	act_puts("$N", ch, NULL, victim,
+		 TO_CHAR | ACT_NOLF | ACT_FORMSH, POS_DEAD);
 	if (IS_IMMORTAL(victim))
 		send_to_char("{x", ch);
-	act_char(msg, ch);
+	act_puts(" $t", ch, msg, NULL, TO_CHAR, POS_DEAD);
 
 	found = FALSE;
 	for (i = 0; show_order[i] != -1; i++)

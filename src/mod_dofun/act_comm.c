@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.216 2000-10-15 17:19:29 fjoe Exp $
+ * $Id: act_comm.c,v 1.217 2000-10-16 18:18:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1279,7 +1279,7 @@ void do_judge(CHAR_DATA *ch, const char *argument)
 		  flag_string(ethos_table, victim->ethos),
 		  victim,
 		  flag_string(align_names, NALIGN(victim)),
-		  TO_CHAR | ACT_NOTRANS, POS_DEAD);
+		  TO_CHAR | ACT_NOTRANS | ACT_FORMSH, POS_DEAD);
 }
 
 void do_trust(CHAR_DATA *ch, const char *argument)
