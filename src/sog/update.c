@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.42 2002-01-04 10:56:38 tatyana Exp $
+ * $Id: update.c,v 1.157.2.43 2002-08-30 14:37:27 avn Exp $
  */
 
 /***************************************************************************
@@ -1323,15 +1323,6 @@ void char_update(void)
 				&&  ch->master) {
 					act("You feel it is time to feed your dragon!",
 					    ch->master, NULL, NULL, TO_CHAR);
-				}
-
-				if ((paf->type == gsn_charm_person ||
-				     paf->type == sn_lookup("attract other") ||
-				     paf->type == sn_lookup("control undead"))
-				&&  ch->master != NULL) {
-					ch->master = NULL;
-					ch->leader = NULL;
-					die_follower(ch);
 				}
 
 				if ((paf_next == NULL ||

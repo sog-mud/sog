@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.52 2002-08-24 14:57:21 tatyana Exp $
+ * $Id: handler.c,v 1.182.2.53 2002-08-30 14:37:24 avn Exp $
  */
 
 /***************************************************************************
@@ -880,6 +880,13 @@ void affect_remove(CHAR_DATA *ch, AFFECT_DATA *paf)
 			bug("Affect_remove: cannot find paf.", 0);
 			return;
 		}
+	}
+
+	if ((paf->type == gsn_charm_person ||
+	     paf->type == sn_lookup("attract other") ||
+	     paf->type == sn_lookup("control undead"))
+	&&   ch->master != NULL) {
+		stop_follower(ch);
 	}
 
 	aff_free(paf);
