@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.23 2002-01-05 16:22:00 matrim Exp $
+ * $Id: comm.c,v 1.200.2.24 2002-02-07 17:19:44 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1390,6 +1390,7 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 	bool found;
 	const char *dir_name[] = {"N","E","S","W","U","D"};
 	int door;
+	int chance = get_skill(ch, gsn_perception);
 
 	point = buf;
 	str = d->dvdata->prompt;
@@ -1428,7 +1429,8 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 				&&  can_see_room(ch, pexit->to_room.r)
 				&&  check_blind_raw(ch)
 				&&  (!IS_SET(pexit->exit_info, EX_CLOSED) ||
-				     IS_IMMORTAL(ch))) {
+				     IS_IMMORTAL(ch) ||
+				     (chance && number_percent() < chance))) {
 					found = TRUE;
 					strnzcat(buf2, sizeof(buf2),
 						 dir_name[door]);
