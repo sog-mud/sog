@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.107 1999-07-21 03:34:25 kostik Exp $
+ * $Id: martial_art.c,v 1.108 1999-08-23 15:13:35 kostik Exp $
  */
 
 /***************************************************************************
@@ -1241,6 +1241,20 @@ void do_kick(CHAR_DATA *ch, const char *argument)
 		kick_dam += ch->damroll / 2;
 		damage(ch, victim, kick_dam, gsn_kick, DAM_BASH, TRUE);
 		check_improve(ch, gsn_kick, TRUE, 1);
+                if((chance = get_skill(ch, sn_lookup("follow through"))) != 0){
+			chance += get_curr_stat(ch, STAT_DEX); 
+			while( number_percent() <= chance){
+                                act_puts("You follow through kick strikes $N.", ch,  NULL, victim, TO_CHAR, POS_FIGHTING);
+                                act_puts("$n's follow through kick strikes you.", ch,  NULL, victim, TO_VICT, POS_FIGHTING);
+                                act_puts("$n's follow through kick strikes $N.", ch,  NULL, victim, TO_NOTVICT, POS_FIGHTING);
+
+                                kick_dam /= 2;
+				kick_dam += number_range(1, LEVEL(ch))/2;
+                                damage(ch, victim, kick_dam, gsn_kick, DAM_BASH, TRUE);
+                                chance /= 5;
+                             }
+			check_improve(ch, sn_lookup("follow through"), TRUE, 6);
+		}
 	}
 	else {
 		damage(ch, victim, 0, gsn_kick, DAM_BASH, TRUE);
