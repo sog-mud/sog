@@ -1,0 +1,3 @@
+int i;
+int j = (i = number_range(1, 10)) < 5 ? 10 : 20;
+print2(i, j);
