@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.151 1998-10-23 09:22:22 fjoe Exp $
+ * $Id: act_info.c,v 1.152 1998-10-23 09:33:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -968,14 +968,19 @@ void do_prompt(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!strcmp(argument, "all"))
+	if (!str_prefix(argument, "show")) {
+		char_printf(ch, "Current prompt is '%s'.\n\r", ch->prompt);
+		return;
+	}
+
+	if (!str_cmp(argument, "all") || !str_cmp(argument, "default"))
 		prompt = str_dup(DEFAULT_PROMPT);
 	else
 		prompt = str_printf("%s ", argument);
 
 	free_string(ch->prompt);
 	ch->prompt = prompt;
-	char_printf(ch, "Prompt set to '%s'\n\r", ch->prompt);
+	char_printf(ch, "Prompt set to '%s'.\n\r", ch->prompt);
 }
 
 void do_combine(CHAR_DATA *ch, const char *argument)
