@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.123.2.8 2000-11-17 12:49:33 avn Exp $
+ * $Id: quest.c,v 1.123.2.9 2001-01-11 21:18:11 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -224,7 +224,7 @@ static inline void chquest_status(CHAR_DATA *ch)
 			obj = obj->in_obj;
 
 		if (obj->carried_by) {
-			act_puts3("        $r (vnum $J), carried by $N.",
+			act_puts3("         $r (vnum $J), carried by $N.",
 				  ch, obj->carried_by->in_room, obj->carried_by,
 				  (const void*) obj->carried_by->in_room->vnum,
 				  TO_CHAR, POS_DEAD);
