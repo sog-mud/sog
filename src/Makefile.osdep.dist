@@ -1,8 +1,10 @@
 #
-# $Id: Makefile.osdep.dist,v 1.1 1999-09-23 18:25:31 kostik Exp $
+# $Id: Makefile.osdep.dist,v 1.2 1999-09-25 12:30:12 fjoe Exp $
 #
 
+.if exists(${.CURDIR}/../Makefile.inc)
 .include "${.CURDIR}/../Makefile.inc"
+.endif
 
 #
 # for FreeBSD
