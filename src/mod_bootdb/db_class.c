@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.23 1999-10-21 12:52:09 fjoe Exp $
+ * $Id: db_class.c,v 1.24 1999-10-25 12:05:30 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -68,7 +68,7 @@ DBLOAD_FUN(load_class)
 	class_init(&class);
 
 	for (;;) {
-		char *word = feof(fp) ? "End" : fread_word(fp);
+		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
 		switch(UPPER(word[0])) {
@@ -171,7 +171,7 @@ DBLOAD_FUN(load_pose)
 
 	pose = varr_enew(&class->poses);
 	for (;;) {
-		char *word = feof(fp) ? "End" : fread_word(fp);
+		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
 		switch(UPPER(word[0])) {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_system.c,v 1.6 1999-09-11 13:09:12 fjoe Exp $
+ * $Id: db_system.c,v 1.7 1999-10-25 12:05:30 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -56,12 +56,12 @@ DBFUN dbfun_system[] =
 
 DBDATA db_system = { dbfun_system };
 
-static void fread_host(FILE *fp, varr *v);
+static void fread_host(rfile_t *fp, varr *v);
 
 DBLOAD_FUN(load_system)
 {
 	for (;;) {
-		char *word = feof(fp) ? "End" : fread_word(fp);
+		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
 		switch(UPPER(word[0])) {
@@ -100,7 +100,7 @@ DBLOAD_FUN(load_system)
 DBLOAD_FUN(load_info)
 {
 	for (;;) {
-		char *word = feof(fp) ? "End" : fread_word(fp);
+		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
 		switch(UPPER(word[0])) {
@@ -128,7 +128,7 @@ DBLOAD_FUN(load_info)
 	}
 }
 
-static void fread_host(FILE *fp, varr *v)
+static void fread_host(rfile_t *fp, varr *v)
 {
 	const char *s = fread_string(fp);
 	struct hostent *h = gethostbyname(s);

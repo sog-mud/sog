@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.129 1999-10-21 12:52:04 fjoe Exp $
+ * $Id: save.c,v 1.130 1999-10-25 12:05:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,6 +54,7 @@
 #include "merc.h"
 #include "quest.h"
 #include "db.h"
+#include "rfile.h"
 
 /*
  * Array of containers read for proper re-nesting of objects.
@@ -72,9 +73,9 @@ int minv, maxv, del;
 void fwrite_char (CHAR_DATA * ch, FILE * fp, int flags);
 void fwrite_obj (CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest);
 void fwrite_pet (CHAR_DATA * pet, FILE * fp, int flags);
-void fread_char (CHAR_DATA * ch, FILE * fp, int flags);
-void fread_pet  (CHAR_DATA * ch, FILE * fp, int flags);
-void fread_obj  (CHAR_DATA * ch, FILE * fp, int flags);
+void fread_char (CHAR_DATA * ch, rfile_t * fp, int flags);
+void fread_pet  (CHAR_DATA * ch, rfile_t * fp, int flags);
+void fread_obj  (CHAR_DATA * ch, rfile_t * fp, int flags);
 
 /*
  * move_pfile - shifts vnum in range minvnum..maxvnum by delta)
@@ -718,7 +719,7 @@ void reset_char(CHAR_DATA *ch)
 CHAR_DATA *char_load(const char *name, int flags)
 {
 	CHAR_DATA      *ch;
-	FILE           *fp = NULL;
+	rfile_t           *fp = NULL;
 	bool		found;
 
 	int             iNest;
@@ -734,7 +735,7 @@ CHAR_DATA *char_load(const char *name, int flags)
 	}
 
 	found = (dfexist(PLAYER_PATH, name) &&
-		 (fp = dfopen(PLAYER_PATH, name, "r")) != NULL);
+		 (fp = rfile_open(PLAYER_PATH, name)) != NULL);
 
 	if (!found && IS_SET(flags, LOAD_F_NOCREATE))
 		return NULL;
@@ -793,7 +794,7 @@ CHAR_DATA *char_load(const char *name, int flags)
 			break;
 		}
 	}
-	fclose(fp);
+	rfile_close(fp);
 
 	/* initialize race */
 	if (IS_NULLSTR(ORG_RACE(ch)))
@@ -829,7 +830,7 @@ CHAR_DATA *char_load(const char *name, int flags)
  * Read in a char.
  */
 void 
-fread_char(CHAR_DATA * ch, FILE * fp, int flags)
+fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 {
 	char           *word = "End";
 	bool            fMatch;
@@ -841,7 +842,7 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 	PC(ch)->bank_g = 0;
 
 	for (;;) {
-		word = feof(fp) ? "End" : fread_word(fp);
+		word = rfile_feof(fp) ? "End" : fread_word(fp);
 		fMatch = FALSE;
 
 		switch (UPPER(word[0])) {
@@ -1236,14 +1237,14 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 
 /* load a pet from the forgotten reaches */
 void 
-fread_pet(CHAR_DATA * ch, FILE * fp, int flags)
+fread_pet(CHAR_DATA * ch, rfile_t * fp, int flags)
 {
 	char           *word;
 	CHAR_DATA      *pet;
 	bool            fMatch;
 	int             percent;
 	/* first entry had BETTER be the vnum or we barf */
-	word = feof(fp) ? "END" : fread_word(fp);
+	word = rfile_feof(fp) ? "END" : fread_word(fp);
 	if (!str_cmp(word, "Vnum")) {
 		int             vnum;
 		vnum = fread_number(fp);
@@ -1262,7 +1263,7 @@ fread_pet(CHAR_DATA * ch, FILE * fp, int flags)
 	}
 
 	for (;;) {
-		word = feof(fp) ? "END" : fread_word(fp);
+		word = rfile_feof(fp) ? "END" : fread_word(fp);
 		fMatch = FALSE;
 
 		switch (UPPER(word[0])) {
@@ -1402,7 +1403,7 @@ fread_pet(CHAR_DATA * ch, FILE * fp, int flags)
 extern	OBJ_DATA	*obj_free;
 
 void 
-fread_obj(CHAR_DATA * ch, FILE * fp, int flags)
+fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 {
 	OBJ_DATA       *obj;
 	char           *word;
@@ -1417,7 +1418,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp, int flags)
 	obj = NULL;
 	first = TRUE;		/* used to counter fp offset */
 
-	word = feof(fp) ? "End" : fread_word(fp);
+	word = rfile_feof(fp) ? "End" : fread_word(fp);
 	if (!str_cmp(word, "Vnum")) {
 		int             vnum;
 		first = FALSE;	/* fp will be in right place */
@@ -1444,7 +1445,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp, int flags)
 		if (first)
 			first = FALSE;
 		else
-			word = feof(fp) ? "End" : fread_word(fp);
+			word = rfile_feof(fp) ? "End" : fread_word(fp);
 		fMatch = FALSE;
 
 		switch (UPPER(word[0])) {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.42 1999-07-02 05:41:05 fjoe Exp $
+ * $Id: mlstring.c,v 1.43 1999-10-25 12:05:22 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -72,7 +72,7 @@ void mlstr_clear(mlstring *mlp)
 	mlstr_init(mlp, NULL);
 }
 
-void mlstr_fread(FILE *fp, mlstring *mlp)
+void mlstr_fread(rfile_t *fp, mlstring *mlp)
 {
 	const char *p;
 	const char *s;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.17 1999-10-06 09:56:15 fjoe Exp $
+ * $Id: db_lang.c,v 1.18 1999-10-25 12:05:30 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -81,7 +81,7 @@ DBLOAD_FUN(load_lang)
 	db_set_arg(dbdata, "RULECLASS", lang);
 
 	for (;;) {
-		char *word = feof(fp) ? "End" : fread_word(fp);
+		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
 		switch (UPPER(*word)) {
@@ -124,7 +124,7 @@ DBLOAD_FUN(load_rulecl)
 		return;
 	}
 
-	word = feof(fp) ? "End" : fread_word(fp);
+	word = rfile_feof(fp) ? "End" : fread_word(fp);
 	if (!str_cmp(word, "Class"))
 		rcl = l->rules + fread_fword(rulecl_names, fp);
 	else {
@@ -133,7 +133,7 @@ DBLOAD_FUN(load_rulecl)
 	}
 
 	for (;;) {
-		char *word = feof(fp) ? "End" : fread_word(fp);
+		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
 		switch (UPPER(*word)) {
@@ -176,7 +176,7 @@ DBLOAD_FUN(load_rulecl)
 }
 
 static void
-load_rules(FILE *fp, rulecl_t *rcl, rule_t* (*add_rule)(rulecl_t*, rule_t*));
+load_rules(rfile_t *fp, rulecl_t *rcl, rule_t* (*add_rule)(rulecl_t*, rule_t*));
 
 DBLOAD_FUN(load_expl)
 {
@@ -189,13 +189,13 @@ DBLOAD_FUN(load_impl)
 }
 
 static void
-load_rules(FILE *fp, rulecl_t *rcl, rule_t* (*rule_add)(rulecl_t*, rule_t*))
+load_rules(rfile_t *fp, rulecl_t *rcl, rule_t* (*rule_add)(rulecl_t*, rule_t*))
 {
 	rule_t r;
 	rule_init(&r);
 
 	for (;;) {
-		char *word = feof(fp) ? "End" : fread_word(fp);
+		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
 		switch(UPPER(*word)) {

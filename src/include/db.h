@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.55 1999-10-21 12:51:53 fjoe Exp $
+ * $Id: db.h,v 1.56 1999-10-25 12:05:18 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -67,11 +67,13 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
+#include "rfile.h"
+
 typedef struct dbdata DBDATA;
 
-typedef void DBLOAD_FUN(DBDATA *dbdata, FILE *fp, void *arg);
+typedef void DBLOAD_FUN(DBDATA *dbdata, rfile_t *fp, void *arg);
 #define DECLARE_DBLOAD_FUN(fun) DBLOAD_FUN fun
-#define DBLOAD_FUN(fun) void fun(DBDATA *dbdata, FILE *fp, void *arg)
+#define DBLOAD_FUN(fun) void fun(DBDATA *dbdata, rfile_t *fp, void *arg)
 
 typedef void DBINIT_FUN(DBDATA *dbdata);
 #define DECLARE_DBINIT_FUN(fun) DBINIT_FUN fun
@@ -116,8 +118,8 @@ void db_set_arg(DBDATA *, const char* name, void *arg);
 
 extern int fBootDb;
 
-int	xgetc	(FILE *fp);
-void	xungetc	(int c, FILE *fp);
+int	xgetc	(rfile_t *fp);
+void	xungetc	(rfile_t *fp);
 
 void	vnum_check	(AREA_DATA *area, int vnum);
 
@@ -131,17 +133,17 @@ void	reset_room	(ROOM_INDEX_DATA *pRoom, int flags);
 
 char *		fix_string	(const char *s);
 
-const char *	fread_string	(FILE *fp);
-char		fread_letter	(FILE *fp);
-int		fread_number	(FILE *fp);
-flag64_t 	fread_flags	(FILE *fp);
-void		fread_to_eol	(FILE *fp);
-char *		fread_word	(FILE *fp);
-flag64_t	fread_fword	(const flag_t *table, FILE *fp); 
+const char *	fread_string	(rfile_t *fp);
+char		fread_letter	(rfile_t *fp);
+int		fread_number	(rfile_t *fp);
+flag64_t 	fread_flags	(rfile_t *fp);
+void		fread_to_eol	(rfile_t *fp);
+char *		fread_word	(rfile_t *fp);
+flag64_t	fread_fword	(const flag_t *table, rfile_t *fp); 
+flag64_t	fread_fstring	(const flag_t *table, rfile_t *fp);
+
 void		fwrite_ival	(FILE *fp, const flag_t *table,
 				 const char *name, int);
-flag64_t	fread_fstring	(const flag_t *table, FILE *fp);
-
 void		fwrite_string	(FILE *fp, const char *name, const char *str);
 void		fwrite_word	(FILE *fp, const char *name, const char *w);
 void		fwrite_number	(FILE *fp, const char *name, int num);

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.177 1999-10-21 13:07:09 fjoe Exp $
+ * $Id: db.c,v 1.178 1999-10-25 12:05:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -66,6 +66,7 @@
 #include "lang.h"
 #include "note.h"
 #include "ban.h"
+#include "rfile.h"
 
 #if defined(BSD44)
 #	include <fnmatch.h>
@@ -275,7 +276,7 @@ void db_parse_file(DBDATA *dbdata, const char *path, const char *file)
 {
 	char buf[PATH_MAX];
 	int linenum;
-	FILE *fp;
+	rfile_t *fp;
 
 	strnzcpy(buf, sizeof(buf), filename);
 	linenum = line_number;
@@ -283,7 +284,7 @@ void db_parse_file(DBDATA *dbdata, const char *path, const char *file)
 	snprintf(filename, sizeof(filename), "%s%c%s",
 		 path, PATH_SEPARATOR, file);
 
-	if ((fp = fopen(filename, "r")) == NULL) {
+	if ((fp = rfile_open(path, file)) == NULL) {
 		db_error("db_parse_file", strerror(errno));
 		strnzcpy(filename, sizeof(filename), buf);
 		line_number = linenum;
@@ -311,7 +312,7 @@ void db_parse_file(DBDATA *dbdata, const char *path, const char *file)
 			break;
 		}
 	}
-	fclose(fp);
+	rfile_close(fp);
 
 	strnzcpy(filename, sizeof(filename), buf);
 	line_number = linenum;
@@ -363,9 +364,9 @@ void db_load_dir(DBDATA *dbdata, const char *path, const char *ext)
 
 void db_load_list(DBDATA *dbdata, const char *path, const char *file)
 {
-	FILE *fp;
+	rfile_t *fp;
 
-	if ((fp = dfopen(path, file, "r")) == NULL)
+	if ((fp = rfile_open(path, file)) == NULL)
 		exit(1);
 
 	if (!dbdata->tab_sz)
@@ -379,7 +380,7 @@ void db_load_list(DBDATA *dbdata, const char *path, const char *file)
 			dbdata->dbinit(dbdata);
 		db_parse_file(dbdata, path, name);
 	}
-	fclose(fp);
+	rfile_close(fp);
 }
 
 void boot_db_system(void)
@@ -1605,21 +1606,6 @@ ROOM_INDEX_DATA *get_room_index(int vnum)
 	return NULL;
 }
 
-int xgetc(FILE *fp)
-{
-	int c = getc(fp);
-	if (c == '\n')
-		line_number++;
-	return c;
-}
-
-void xungetc(int c, FILE *fp)
-{
-	if (c == '\n')
-		line_number--;
-	ungetc(c, fp);
-}
-
 /*
  * smash '\r', dup '~'
  */
@@ -1665,21 +1651,91 @@ fix_word(const char *w)
 	return buf;
 }
 
-const char *fread_string(FILE *fp)
+#ifdef USE_MMAP
+
+int xgetc(rfile_t *fp)
 {
-	char buf[MAX_STRING_LENGTH];
-	char *plast;
 	int c;
 
-	plast = buf;
+	if (rfile_feof(fp))
+		return EOF;
 
-	/*
-	 * Skip blanks.
-	 * Read first char.
-	 */
-	do
+	c = fp->p[fp->pos++];
+	if (c == '\n')
+		line_number++;
+	return c;
+}
+
+void xungetc(rfile_t *fp)
+{
+	if (!fp->pos)
+		return;
+
+	fp->pos--;
+
+	if (!rfile_feof(fp)
+	&&  fp->p[fp->pos] == '\n')
+		line_number--;
+		
+}
+
+#else
+
+static int last_c;
+
+int xgetc(rfile_t *fp)
+{
+	int c = getc(fp);
+	if (c == '\n')
+		line_number++;
+	return last_c = c;
+}
+
+void xungetc(rfile_t *fp)
+{
+	if (last_c == '\n')
+		line_number--;
+	ungetc(last_c, fp);
+}
+
+#endif
+
+/*
+ * Read a letter from a file.
+ */
+char fread_letter(rfile_t *fp)
+{
+	char c;
+
+	do {
 		c = xgetc(fp);
-	while (isspace(c));
+	} while (isspace(c));
+	return c;
+}
+
+/*
+ * Read to end of line (for comments).
+ */
+void fread_to_eol(rfile_t *fp)
+{
+	char c;
+
+	do {
+		c = xgetc(fp);
+	} while (c != '\n' && c != '\r');
+
+	do {
+		c = xgetc(fp);
+	} while (c == '\n' || c == '\r');
+
+	xungetc(fp);
+}
+
+const char *fread_string(rfile_t *fp)
+{
+	char buf[MAX_STRING_LENGTH];
+	char *plast = buf;
+	int c = fread_letter(fp);
 
 	for (;;) {
 		/*
@@ -1711,7 +1767,7 @@ const char *fread_string(FILE *fp)
 				*plast++ = c;
 				break;
 			}
-			xungetc(c, fp);
+			xungetc(fp);
 			*plast = '\0';
 			return str_dup(buf);
 		}
@@ -1720,34 +1776,56 @@ const char *fread_string(FILE *fp)
 }
 
 /*
- * Read a letter from a file.
+ * Read one word (into static buffer).
  */
-char fread_letter(FILE *fp)
+char *fread_word(rfile_t *fp)
 {
-	char c;
+	static char word[MAX_INPUT_LENGTH];
+	char *pword;
+	char cEnd;
 
-	do {
-		c = xgetc(fp);
-	} while (isspace(c));
-	return c;
+	for (;;) {
+		cEnd = fread_letter(fp);
+
+		if (cEnd == '%') {
+			fread_to_eol(fp);
+			continue;
+		}
+
+		break;
+	}
+
+	if (cEnd == '\'' || cEnd == '"')
+		pword   = word;
+	else {
+		word[0] = cEnd;
+		pword   = word+1;
+		cEnd    = ' ';
+	}
+
+	for (; pword < word + MAX_INPUT_LENGTH; pword++) {
+		*pword = xgetc(fp);
+		if (cEnd == ' ' ? isspace(*pword) : *pword == cEnd) {
+			if (cEnd == ' ')
+				xungetc(fp);
+			*pword = '\0';
+			return word;
+		}
+	}
+
+	db_error("fread_word", "word too long");
+	return NULL;
 }
 
 /*
  * Read a number from a file.
  */
-int fread_number(FILE *fp)
+int fread_number(rfile_t *fp)
 {
-	int number;
-	bool sign;
-	char c;
+	int number = 0;
+	bool sign = FALSE;
+	char c = fread_letter(fp);
 
-	do
-		c = xgetc(fp);
-	while (isspace(c));
-
-	number = 0;
-
-	sign   = FALSE;
 	if (c == '+')
 		c = xgetc(fp);
 	else if (c == '-') {
@@ -1773,20 +1851,16 @@ int fread_number(FILE *fp)
 	if (c == '|')
 		number += fread_number(fp);
 	else
-		xungetc(c, fp);
+		xungetc(fp);
 
 	return number;
 }
 
-flag64_t fread_flags(FILE *fp)
+flag64_t fread_flags(rfile_t *fp)
 {
 	flag64_t number;
-	char c;
 	bool negative = FALSE;
-
-	do
-		c = xgetc(fp);
-	while (isspace(c));
+	char c = fread_letter(fp);
 
 	if (c == '-') {
 		negative = TRUE;
@@ -1810,12 +1884,55 @@ flag64_t fread_flags(FILE *fp)
 	if (c == '|')
 		number += fread_flags(fp);
 	else if (c != ' ')
-		xungetc(c, fp);
+		xungetc(fp);
 
 	if (negative)
 		return -number;
 
 	return number;
+}
+
+/*
+ * read flag word (not f-word :)
+ */
+flag64_t fread_fword(const flag_t *table, rfile_t *fp)
+{
+	char *name = fread_word(fp);
+
+	if (is_number(name))
+		return atoi(name);
+
+	return flag_value(table, name);
+}
+
+flag64_t fread_fstring(const flag_t *table, rfile_t *fp)
+{
+	const char *s = fread_string(fp);
+	flag64_t val;
+
+	if (is_number(s))
+		val = atoi(s);
+	else
+		val = flag_value(table, s);
+
+	free_string(s);
+	return val;
+}
+
+void fwrite_ival(FILE *fp, const flag_t *table, const char *name, int val)
+{
+	const flag_t *f;
+
+	if (!IS_NULLSTR(name))
+		fprintf(fp, "%s ", name);
+
+	if ((f = flag_ilookup(table, val)) != NULL)
+		fprintf(fp, "'%s'", f->name);
+	else
+		fprintf(fp, "%d", val);
+
+	if (!IS_NULLSTR(name))
+		fputc('\n', fp);
 }
 
 flag64_t flag_convert(char letter)
@@ -1835,70 +1952,6 @@ flag64_t flag_convert(char letter)
 	}
 
 	return bitsum;
-}
-
-/*
- * Read to end of line (for comments).
- */
-void fread_to_eol(FILE *fp)
-{
-	char c;
-
-	do {
-		c = xgetc(fp);
-	} while (c != '\n' && c != '\r');
-
-	do {
-		c = xgetc(fp);
-	} while (c == '\n' || c == '\r');
-
-	xungetc(c, fp);
-}
-
-/*
- * Read one word (into static buffer).
- */
-char *fread_word(FILE *fp)
-{
-	static char word[MAX_INPUT_LENGTH];
-	char *pword;
-	char cEnd;
-
-	for (;;) {
-		do {
-			cEnd = xgetc(fp);
-		} while (isspace(cEnd));
-
-		if (cEnd == '%') {
-			fread_to_eol(fp);
-			continue;
-		}
-
-		break;
-	}
-
-	if (cEnd == '\'' || cEnd == '"')
-		pword   = word;
-	else {
-		word[0] = cEnd;
-		pword   = word+1;
-		cEnd    = ' ';
-	}
-
-	for (; pword < word + MAX_INPUT_LENGTH; pword++)
-	{
-		*pword = xgetc(fp);
-		if (cEnd == ' ' ? isspace(*pword) : *pword == cEnd)
-		{
-		    if (cEnd == ' ')
-			xungetc(*pword, fp);
-		    *pword = '\0';
-		    return word;
-		}
-	}
-
-	db_error("fread_word", "word too long");
-	return NULL;
 }
 
 void fwrite_string(FILE *fp, const char *name, const char *str)
@@ -2403,48 +2456,5 @@ void convert_object(OBJ_INDEX_DATA *pObjIndex)
     REMOVE_BIT(pObjIndex->extra_flags, ITEM_OLDSTYLE);
     TOUCH_VNUM(pObjIndex->vnum);
     ++newobjs;
-}
-
-/*
- * read flag word (not f-word :)
- */
-flag64_t fread_fword(const flag_t *table, FILE *fp)
-{
-	char *name = fread_word(fp);
-
-	if (is_number(name))
-		return atoi(name);
-
-	return flag_value(table, name);
-}
-
-void fwrite_ival(FILE *fp, const flag_t *table, const char *name, int val)
-{
-	const flag_t *f;
-
-	if (!IS_NULLSTR(name))
-		fprintf(fp, "%s ", name);
-
-	if ((f = flag_ilookup(table, val)) != NULL)
-		fprintf(fp, "'%s'", f->name);
-	else
-		fprintf(fp, "%d", val);
-
-	if (!IS_NULLSTR(name))
-		fputc('\n', fp);
-}
-
-flag64_t fread_fstring(const flag_t *table, FILE *fp)
-{
-	const char *s = fread_string(fp);
-	flag64_t val;
-
-	if (is_number(s))
-		val = atoi(s);
-	else
-		val = flag_value(table, s);
-
-	free_string(s);
-	return val;
 }
 

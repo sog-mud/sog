@@ -23,76 +23,33 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: memalloc.c,v 1.4 1999-10-25 12:05:22 fjoe Exp $
+ * $Id: rwfile.h,v 1.1 1999-10-25 12:05:20 fjoe Exp $
  */
 
-#include <stdio.h>
-#include <stdlib.h>
+#ifndef _RFILE_H_
+#define _RFILE_H_
 
-#include "typedef.h"
-#include "log.h"
-#include "memalloc.h"
+#ifdef USE_MMAP
 
-void * mem_alloc2(int mem_type, size_t mem_len, size_t mem_prealloc)
-{
-	char *p;
-	memchunk_t *m;
+struct rfile_t {
+	unsigned char *	p;
+	off_t	len;
+	off_t	pos;
+	int	fd;
+};
 
-	p = malloc(mem_prealloc + sizeof(memchunk_t) + mem_len);
-	if (p == NULL)
-		return NULL;
+rfile_t *	rfile_open(const char *dir, const char *file);
+void		rfile_close(rfile_t *fp);
 
-	m = (memchunk_t*) (p + mem_prealloc);
-	m->mem_type = mem_type;
-	m->mem_sign = MEM_VALID;
-	m->mem_prealloc = mem_prealloc;
+#define		rfile_feof(fp)		((fp)->pos >= (fp)->len)
 
-	return ((void*) (p + mem_prealloc + sizeof(memchunk_t)));
-}
+#else
 
-void mem_free(const void *p)
-{
-	memchunk_t *m;
+#define rfile_open(dir, file)	dfopen((dir), (file), "r")
+#define rfile_close(fp)		fclose(fp)
+#define rfile_feof(fp)		feof(fp)
 
-	if (p == NULL)
-		return;
+#endif
 
-	m = GET_CHUNK(p);
-	if (m->mem_sign != MEM_VALID) {
-		log("mem_free: invalid pointer");
-		return;
-	}
+#endif
 
-	free(((char*) m) - m->mem_prealloc);
-}
-
-bool mem_is(const void *p, int mem_type)
-{
-	memchunk_t *m;
-
-	if (p == NULL)
-		return FALSE;
-
-	m = GET_CHUNK(p);
-	return (m->mem_sign == MEM_VALID && m->mem_type == mem_type);
-}
-
-void mem_validate(const void *p)
-{
-	memchunk_t *m;
-
-	if (p == NULL)
-		return;
-	m = GET_CHUNK(p);
-	m->mem_sign = MEM_VALID;
-}
-
-void mem_invalidate(const void *p)
-{
-	memchunk_t *m;
-
-	if (p == NULL)
-		return;
-	m = GET_CHUNK(p);
-	m->mem_sign = MEM_INVALID;
-}

@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.64 1999-10-21 12:52:08 fjoe Exp $
+ * $Id: db_area.c,v 1.65 1999-10-25 12:05:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -162,7 +162,7 @@ DBLOAD_FUN(load_areadata)
 	pArea->security		= 9;                    /* 9 -- Hugin */
  
 	for (; ;) {
-		word   = feof(fp) ? "End" : fread_word(fp);
+		word   = rfile_feof(fp) ? "End" : fread_word(fp);
 		fMatch = FALSE;
 
 		switch (UPPER(word[0])) {
@@ -513,9 +513,7 @@ DBLOAD_FUN(load_old_obj)
 		pObjIndex->oprogs	= NULL;
 
 		for (; ;) {
-			char letter;
-
-			letter = fread_letter(fp);
+			char letter = fread_letter(fp);
 
 			if (letter == 'A') {
 				AFFECT_DATA *paf;
@@ -530,12 +528,10 @@ DBLOAD_FUN(load_old_obj)
 				paf->bitvector	= 0;
 				SLIST_ADD(AFFECT_DATA,
 					  pObjIndex->affected, paf);
-			}
-
-			else if (letter == 'E') 
+			} else if (letter == 'E') 
 				ed_fread(fp, &pObjIndex->ed);
 			else {
-				xungetc(letter, fp);
+				xungetc(fp);
 				break;
 			}
 		}
@@ -1127,15 +1123,13 @@ DBLOAD_FUN(load_mobiles)
 
 		if (!str_prefix(word,"det"))
 		    SET_BIT(pMobIndex->affected_by, vector);
-	    }
-	    else if (letter == 'C') {
+	    } else if (letter == 'C') {
 		if (!IS_NULLSTR(pMobIndex->clan)) {
 		    db_error("load_mobiles", "duplicate clan.");
 		    return;
 		}
 		pMobIndex->clan = fread_strkey(fp, &clans, "load_mobiles");
-	    }
-	    else if (letter == 'W') 
+	    } else if (letter == 'W') 
 		pMobIndex->invis_level = fread_number(fp);
 	    else if (letter == 'I')
 		pMobIndex->incog_level = fread_number(fp);
@@ -1168,9 +1162,7 @@ DBLOAD_FUN(load_mobiles)
 		    db_error("flag remove", "flag not found.");
 		    return;
 		}
-	     }
-	     else if ( letter == 'M' )
-	     {
+	     } else if ( letter == 'M' ) {
 		MPTRIG *mptrig;
 		char *word;
 		int type;
@@ -1191,10 +1183,8 @@ DBLOAD_FUN(load_mobiles)
 		mptrig = mptrig_new(type, phrase, vnum);
 		mptrig_add(pMobIndex, mptrig);
 		free_string(phrase);
-	     }
-	     else
-	     {
-		xungetc(letter,fp);
+	     } else {
+		xungetc(fp);
 		break;
 	     }
 	}
@@ -1298,9 +1288,7 @@ DBLOAD_FUN(load_objects)
 	}
  
         for (; ;) {
-            char letter;
- 
-            letter = fread_letter(fp);
+            char letter = fread_letter(fp);
  
             if (letter == 'A') {
                 AFFECT_DATA *paf;
@@ -1362,13 +1350,10 @@ DBLOAD_FUN(load_objects)
                 paf->modifier           = fread_number(fp);
                 paf->bitvector          = fread_flags(fp);
 		SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
-            }
- 
-            else if (letter == 'E')
+            } else if (letter == 'E')
 		ed_fread(fp, &pObjIndex->ed);
-            else
-            {
-                xungetc(letter, fp);
+            else {
+                xungetc(fp);
                 break;
             }
         }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_hometown.c,v 1.3 1999-10-06 09:56:15 fjoe Exp $
+ * $Id: db_hometown.c,v 1.4 1999-10-25 12:05:30 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -41,9 +41,9 @@ DBFUN dbfun_hometowns[] =
 
 DBDATA db_hometowns = { dbfun_hometowns };
 
-static void fread_altar(hometown_t *h, FILE *fp);
-static void fread_recall(hometown_t *h, FILE *fp);
-static void fread_map(hometown_t *h, FILE *fp);
+static void fread_altar(hometown_t *h, rfile_t *fp);
+static void fread_recall(hometown_t *h, rfile_t *fp);
+static void fread_map(hometown_t *h, rfile_t *fp);
 static bool check_hometown(hometown_t *h);
 
 DBLOAD_FUN(load_hometown)
@@ -51,7 +51,7 @@ DBLOAD_FUN(load_hometown)
 	hometown_t *h = varr_enew(&hometowns);
 
 	for (;;) {
-		char *word = feof(fp) ? "End" : fread_word(fp);
+		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
 		switch (UPPER(word[0])) {
@@ -95,7 +95,7 @@ DBLOAD_FUN(load_hometown)
 /*----------------------------------------------------------------------------
  * static functions
  */
-static void fread_altar(hometown_t *h, FILE *fp)
+static void fread_altar(hometown_t *h, rfile_t *fp)
 {
 	const char *align = fread_word(fp);
 	int anum;
@@ -117,7 +117,7 @@ static void fread_altar(hometown_t *h, FILE *fp)
 	}
 }
 
-static void fread_recall(hometown_t *h, FILE *fp)
+static void fread_recall(hometown_t *h, rfile_t *fp)
 {
 	const char *align = fread_word(fp);
 	int anum;
@@ -134,7 +134,7 @@ static void fread_recall(hometown_t *h, FILE *fp)
 		h->recall[anum] = room;
 }
 
-static void fread_map(hometown_t *h, FILE *fp)
+static void fread_map(hometown_t *h, rfile_t *fp)
 {
 	const char *align = fread_word(fp);
 	int anum;

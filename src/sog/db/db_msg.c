@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_msg.c,v 1.5 1999-10-21 12:52:09 fjoe Exp $
+ * $Id: db_msg.c,v 1.6 1999-10-25 12:05:30 fjoe Exp $
  */
 
 #include <limits.h>
@@ -67,7 +67,7 @@ DBLOAD_FUN(load_msg)
 	m.gender = 0;
 
 	for (;;) {
-		char *word = feof(fp) ? "End" : fread_word(fp);
+		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
 		switch (UPPER(word[0])) {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_spec.c,v 1.3 1999-10-21 12:52:09 fjoe Exp $
+ * $Id: db_spec.c,v 1.4 1999-10-25 12:05:30 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -67,7 +67,7 @@ DBLOAD_FUN(load_spec)
 	spec_init(&sp);
 
 	for (;;) {
-		char *word = feof(fp) ? "End" : fread_word(fp);
+		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
 		switch (UPPER(word[0])) {
@@ -115,7 +115,7 @@ DBLOAD_FUN(load_spec_skill)
 
 	spec_sk = varr_enew(&spec->spec_skills);
 	for (;;) {
-		char *word = feof(fp) ? "End" : fread_word(fp);
+		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
 		switch(UPPER(word[0])) {

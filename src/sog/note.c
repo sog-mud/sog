@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.61 1999-06-28 09:04:18 fjoe Exp $
+ * $Id: note.c,v 1.62 1999-10-25 12:05:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,6 +47,7 @@
 #include "merc.h"
 #include "db.h"
 #include "note.h"
+#include "rfile.h"
 
 static void load_thread(const char *name, note_t **list,
 			int type, time_t free_time);
@@ -146,30 +147,27 @@ void fwrite_note(FILE *fp, note_t *pnote)
 static void load_thread(const char *name, note_t **list,
 			int type, time_t free_time)
 {
-	FILE *fp;
+	rfile_t *fp;
 	note_t *pnotelast;
 	const char *p;
  
 	if (!dfexist(NOTES_PATH, name))
 		return;
 
-	if ((fp = dfopen(NOTES_PATH, name, "r")) == NULL)
+	if ((fp = rfile_open(NOTES_PATH, name)) == NULL)
 		return;
 	 
 	pnotelast = NULL;
 	for (; ;) {
 		note_t *pnote;
-		char letter;
 	 
-		do {
-			letter = getc(fp);
-			if (feof(fp)) {
-				fclose(fp);
-				return;
-			}
-		} while (isspace(letter));
-		ungetc(letter, fp);
- 
+		fread_letter(fp);
+		if (rfile_feof(fp)) {
+			rfile_close(fp);
+			return;
+		}
+		xungetc(fp);
+			
 		pnote = new_note();
  
 		if (str_cmp(p = fread_word(fp), "sender"))

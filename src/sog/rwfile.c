@@ -23,76 +23,69 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: memalloc.c,v 1.4 1999-10-25 12:05:22 fjoe Exp $
+ * $Id: rwfile.c,v 1.1 1999-10-25 12:05:24 fjoe Exp $
  */
 
+#ifdef USE_MMAP
+
+#include <sys/types.h>
+#include <sys/mman.h>
+#include <sys/stat.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
 #include "typedef.h"
+#include "const.h"
+#include "rfile.h"
 #include "log.h"
-#include "memalloc.h"
 
-void * mem_alloc2(int mem_type, size_t mem_len, size_t mem_prealloc)
+rfile_t *rfile_open(const char *dir, const char *file)
 {
+	char name[PATH_MAX];
+	int fd;
+	struct stat s;
 	char *p;
-	memchunk_t *m;
+	rfile_t *fp;
 
-	p = malloc(mem_prealloc + sizeof(memchunk_t) + mem_len);
-	if (p == NULL)
+	snprintf(name, sizeof(name), "%s%c%s", dir, PATH_SEPARATOR, file);
+	if ((fd = open(name, O_RDONLY)) < 0) {
+		log("%s: %s", name, strerror(errno));
 		return NULL;
-
-	m = (memchunk_t*) (p + mem_prealloc);
-	m->mem_type = mem_type;
-	m->mem_sign = MEM_VALID;
-	m->mem_prealloc = mem_prealloc;
-
-	return ((void*) (p + mem_prealloc + sizeof(memchunk_t)));
-}
-
-void mem_free(const void *p)
-{
-	memchunk_t *m;
-
-	if (p == NULL)
-		return;
-
-	m = GET_CHUNK(p);
-	if (m->mem_sign != MEM_VALID) {
-		log("mem_free: invalid pointer");
-		return;
 	}
 
-	free(((char*) m) - m->mem_prealloc);
+	if (fstat(fd, &s) < 0) {
+		close(fd);
+		log("%s: %s", name, strerror(errno));
+		return NULL;
+	}
+
+	if ((p = mmap(NULL, s.st_size, PROT_READ, 0, fd, 0)) == MAP_FAILED) {
+		close(fd);
+		log("%s: %s", name, strerror(errno));
+		return NULL;
+	}
+
+	if (madvise(p, s.st_size, MADV_SEQUENTIAL) < 0)
+		log("%s: %s", name, strerror(errno));
+		
+	fp = malloc(sizeof(rfile_t));
+	fp->p = p;
+	fp->len = s.st_size;
+	fp->pos = 0;
+	fp->fd = fd;
+	return fp;
 }
 
-bool mem_is(const void *p, int mem_type)
+void rfile_close(rfile_t *fp)
 {
-	memchunk_t *m;
-
-	if (p == NULL)
-		return FALSE;
-
-	m = GET_CHUNK(p);
-	return (m->mem_sign == MEM_VALID && m->mem_type == mem_type);
+	munmap(fp->p, fp->len);
+	close(fp->fd);
+	free(fp);
 }
 
-void mem_validate(const void *p)
-{
-	memchunk_t *m;
-
-	if (p == NULL)
-		return;
-	m = GET_CHUNK(p);
-	m->mem_sign = MEM_VALID;
-}
-
-void mem_invalidate(const void *p)
-{
-	memchunk_t *m;
-
-	if (p == NULL)
-		return;
-	m = GET_CHUNK(p);
-	m->mem_sign = MEM_INVALID;
-}
+#endif

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.12 1999-10-21 12:52:09 fjoe Exp $
+ * $Id: db_race.c,v 1.13 1999-10-25 12:05:30 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -65,7 +65,7 @@ DBLOAD_FUN(load_race)
 	race_init(&r);
 
 	for (;;) {
-		char *word = feof(fp) ? "End" : fread_word(fp);
+		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
 		switch(UPPER(word[0])) {
@@ -134,7 +134,7 @@ DBLOAD_FUN(load_pcrace)
 
 	for (;;) {
 		int i;
-		char *word = feof(fp) ? "End" : fread_word(fp);
+		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
 		switch(UPPER(word[0])) {

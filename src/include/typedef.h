@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.32 1999-10-12 13:56:18 avn Exp $
+ * $Id: typedef.h,v 1.33 1999-10-25 12:05:21 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -88,6 +88,12 @@ typedef union vo_t			vo_t;
 typedef struct altar_t			altar_t;
 typedef struct hometown_t		hometown_t;
 typedef struct note_t			note_t;
+
+#ifdef USE_MMAP
+typedef struct rfile_t			rfile_t;
+#else
+typedef FILE				rfile_t;
+#endif
 
 union vo_t {
 	int vnum;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: strkey_hash.h,v 1.2 1999-10-21 14:06:57 fjoe Exp $
+ * $Id: strkey_hash.h,v 1.3 1999-10-25 12:05:21 fjoe Exp $
  */
 
 #ifndef _STRKEY_HASH_H_
@@ -49,7 +49,7 @@ void *		strkey_lookup(hash_t *h, const char *name);
 void *		strkey_search_cb(void *p, void *d);
 void *		strkey_search(hash_t *h, const char *name);
 
-const char *	fread_strkey(FILE *fp, hash_t *h, const char *id);
+const char *	fread_strkey(rfile_t *fp, hash_t *h, const char *id);
 void		strkey_printall(hash_t *h, BUFFER *buf);
 char *		strkey_filename(const char *name);
 

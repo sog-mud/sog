@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.243 1999-10-23 10:20:14 fjoe Exp $
+ * $Id: merc.h,v 1.244 1999-10-25 12:05:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1252,7 +1252,7 @@ void	objval_cpy	(flag32_t item_type, vo_t *dst, vo_t *src);
 void	objval_destroy	(flag32_t item_type, vo_t *v);
 
 void	fwrite_objval	(flag32_t item_type, vo_t *v, FILE *fp);
-void	fread_objval	(flag32_t item_type, vo_t *v, FILE *fp);
+void	fread_objval	(flag32_t item_type, vo_t *v, rfile_t *fp);
 
 /*
  * Common data for both PC and NPC.
@@ -2062,7 +2062,7 @@ void		mpcode_free		(MPCODE *mpcode);
 ED_DATA	*ed_new		(void);
 ED_DATA *ed_new2	(const ED_DATA *ed, const char* name);
 ED_DATA *ed_dup		(const ED_DATA *ed);
-void	ed_fread	(FILE *fp, ED_DATA **edp);
+void	ed_fread	(rfile_t *fp, ED_DATA **edp);
 void	ed_fwrite	(FILE *fp, ED_DATA *ed);
 void	ed_free		(ED_DATA *ed);
 

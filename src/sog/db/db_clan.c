@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_clan.c,v 1.22 1999-10-21 12:52:08 fjoe Exp $
+ * $Id: db_clan.c,v 1.23 1999-10-25 12:05:29 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -77,7 +77,7 @@ DBLOAD_FUN(load_clan)
 	clan_init(&clan);
 
 	for (;;) {
-		char *word = feof(fp) ? "End" : fread_word(fp);
+		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
 		switch (UPPER(word[0])) {
@@ -137,7 +137,7 @@ DBLOAD_FUN(load_plists)
 	clan_t *clan = arg;
 
 	for (;;) {
-		char *word = feof(fp) ? "End" : fread_word(fp);
+		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
 		switch (UPPER(word[0])) {

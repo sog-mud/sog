@@ -1,5 +1,5 @@
 /*
- * $Id: affect.c,v 1.5 1999-10-21 12:51:59 fjoe Exp $
+ * $Id: affect.c,v 1.6 1999-10-25 12:05:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -875,7 +875,7 @@ void fwrite_affect(AFFECT_DATA *paf, FILE *fp)
 	}
 }
 
-AFFECT_DATA *fread_affect(FILE *fp)
+AFFECT_DATA *fread_affect(rfile_t *fp)
 {
 	AFFECT_DATA *paf = aff_new();
 

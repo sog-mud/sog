@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.70 1999-10-21 13:32:36 fjoe Exp $
+ * $Id: recycle.c,v 1.71 1999-10-25 12:05:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -116,7 +116,7 @@ void ed_free(ED_DATA *ed)
 	}
 }
 
-void ed_fread(FILE *fp, ED_DATA **edp)
+void ed_fread(rfile_t *fp, ED_DATA **edp)
 {
 	ED_DATA *ed	= ed_new();
 	ed->keyword	= fread_string(fp);
@@ -951,7 +951,7 @@ void fwrite_objval(flag32_t item_type, vo_t *v, FILE *fp)
 	}
 }
 
-void fread_objval(flag32_t item_type, vo_t *v, FILE *fp)
+void fread_objval(flag32_t item_type, vo_t *v, rfile_t *fp)
 {
 	int i;
 

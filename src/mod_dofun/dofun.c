@@ -23,8 +23,10 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dofun.c,v 1.3 1999-07-02 12:54:58 fjoe Exp $
+ * $Id: dofun.c,v 1.4 1999-10-25 12:05:17 fjoe Exp $
  */
+
+#include <stdio.h>
 
 #include "typedef.h"
 #include "varr.h"

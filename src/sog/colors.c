@@ -23,9 +23,10 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: colors.c,v 1.5 1999-06-22 17:47:00 fjoe Exp $
+ * $Id: colors.c,v 1.6 1999-10-25 12:05:26 fjoe Exp $
  */
 
+#include <stdio.h>
 #include <string.h>
 
 #include "typedef.h"

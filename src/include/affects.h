@@ -1,5 +1,5 @@
 /*
- * $Id: affects.h,v 1.3 1999-10-18 18:08:03 avn Exp $
+ * $Id: affects.h,v 1.4 1999-10-25 12:05:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -111,6 +111,6 @@ void format_obj(BUFFER *output, OBJ_DATA *obj);
 void format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags);
 
 void fwrite_affect(AFFECT_DATA *paf, FILE *fp);
-AFFECT_DATA *fread_affect(FILE *fp);
+AFFECT_DATA *fread_affect(rfile_t *fp);
 
 #endif
