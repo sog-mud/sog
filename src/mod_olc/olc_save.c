@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.44 1998-12-01 10:55:11 fjoe Exp $
+ * $Id: olc_save.c,v 1.45 1998-12-22 18:00:47 fjoe Exp $
  */
 
 /**************************************************************************
@@ -235,7 +235,9 @@ void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
     mlstr_fwrite(fp, NULL,	pObjIndex->description);
     fwrite_string(fp, NULL,	pObjIndex->material);
     fprintf(fp, "%s ",		flag_string(item_types, pObjIndex->item_type));
-    fprintf(fp, "%s ",		format_flags(pObjIndex->extra_flags));
+    fprintf(fp, "%s ",		format_flags(pObjIndex->extra_flags &
+					     ~(ITEM_ENCHANTED |
+					       ITEM_OLDSTYLE)));
     fprintf(fp, "%s\n",		format_flags(pObjIndex->wear_flags));
 
 /*
