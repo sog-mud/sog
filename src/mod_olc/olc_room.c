@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.46 1999-04-16 15:52:24 fjoe Exp $
+ * $Id: olc_room.c,v 1.47 1999-05-15 13:01:31 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -785,7 +785,7 @@ OLC_FUN(roomed_reset)
 {
 	ROOM_INDEX_DATA *pRoom;
 	EDIT_ROOM(ch, pRoom);
-	reset_room(pRoom);
+	reset_room(pRoom, RESET_F_NOPCHECK);
 	char_puts("RoomEd: Room reset.\n", ch);
 	return FALSE;
 }

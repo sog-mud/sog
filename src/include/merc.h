@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.185 1999-05-15 10:32:42 fjoe Exp $
+ * $Id: merc.h,v 1.186 1999-05-15 13:01:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -418,6 +418,10 @@ where_t *where_lookup(flag32_t where);
 #define AREA_CLOSED		(B)	/* transportation does not work,
 					   no quests			*/
 #define AREA_NOQUEST		(C)	/* no quests in this area	*/
+#define AREA_UPDATE_ALWAYS	(D)	/* always update area (even if  */
+					/* there are players in it)	*/
+#define AREA_UPDATE_FREQUENTLY	(E)	/* update area more frequently	*/
+					/* (every 3 ticks)		*/   
 #define AREA_CHANGED		(Z)	/* area has been modified	*/
 
 

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.132 1999-05-12 18:54:50 avn Exp $
+ * $Id: db.c,v 1.133 1999-05-15 13:01:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -478,7 +478,7 @@ void print_resetmsg(AREA_DATA *pArea)
 		if (d->connected != CON_PLAYING)
 			continue;
 
-		ch = d->character;
+		ch = d->original ? d->original : d->character;
 		if (IS_NPC(ch) || !IS_AWAKE(ch) || ch->in_room->area != pArea)
 			continue;
 
@@ -499,77 +499,63 @@ void area_update(void)
 	AREA_DATA *pArea;
 
 	for (pArea = area_first; pArea != NULL; pArea = pArea->next) {
+		ROOM_INDEX_DATA *pRoomIndex;
+
 		if (++pArea->age < 3)
 			continue;
 
 		/*
 		 * Check age and reset.
-		 * Note: Mud School resets every 3 minutes (not 15).
 		 */
-		if ((!pArea->empty && (pArea->nplayer == 0 || pArea->age >= 15))
-		||  pArea->age >= 31) {
-			ROOM_INDEX_DATA *pRoomIndex;
+		if ((pArea->empty || (pArea->nplayer != 0 && pArea->age < 15))
+		&&  pArea->age < 31
+		&&  !IS_SET(pArea->flags, AREA_UPDATE_ALWAYS))
+			continue;
 
-			/*
-			 * the rain devastates tracks on the ground
-			 */
-			if (weather_info.sky == SKY_RAINING)  {
-				int i;
-				DESCRIPTOR_DATA *d;
-				CHAR_DATA *ch;
-	 			for (d = descriptor_list; d!=NULL; d=d->next)  {
-					if (d->connected != CON_PLAYING)
-						continue;
+		/*
+		 * the rain devastates tracks on the ground
+		 */
+		if (weather_info.sky == SKY_RAINING)  {
+			int i;
+			DESCRIPTOR_DATA *d;
+			CHAR_DATA *ch;
 
-					ch = (d->original != NULL) ?
-						d->original : d->character;
-					if (ch->in_room->area == pArea
-					&&  get_skill(ch, gsn_track) > 50
-					&& !IS_SET(ch->in_room->room_flags,
-								ROOM_INDOORS))
+	 		for (d = descriptor_list; d; d = d->next)  {
+				if (d->connected != CON_PLAYING)
+					continue;
+
+				ch = d->original ?  d->original : d->character;
+				if (ch->in_room->area == pArea
+				&&  get_skill(ch, gsn_track) > 50
+				&&  !IS_SET(ch->in_room->room_flags,
+					    ROOM_INDOORS)) {
 					act_puts("Rain devastates the tracks on the ground.",
 						 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 				}
-
-				for (i = pArea->min_vnum; i < pArea->max_vnum;
-									i++) {
-					pRoomIndex = get_room_index(i);
-					if (pRoomIndex == NULL
-					||  IS_SET(pRoomIndex->room_flags,
-								ROOM_INDOORS))
-						continue;
-					room_record("erased", pRoomIndex, -1);  
-					if (number_percent() < 50)
-						room_record("erased",
-							    pRoomIndex, -1);
-				}
 			}
 
-			reset_area(pArea);
-			wiznet("$t has just been reset.",
-				NULL, pArea->name, WIZ_RESETS, 0, 0);
-
-			print_resetmsg(pArea);
-
-			pArea->age = number_range(0, 3);
-			pRoomIndex = get_room_index(200);
-			if (pRoomIndex != NULL && pArea == pRoomIndex->area)
-				pArea->age = 15 - 2;
-			pRoomIndex = get_room_index(210);
-			if (pRoomIndex != NULL && pArea == pRoomIndex->area)
-				pArea->age = 15 - 2;
-			pRoomIndex = get_room_index(220);
-			if (pRoomIndex != NULL && pArea == pRoomIndex->area)
-				pArea->age = 15 - 2;
-			pRoomIndex = get_room_index(230);
-			if (pRoomIndex != NULL && pArea == pRoomIndex->area)
-				pArea->age = 15 - 2;
-			pRoomIndex = get_room_index(ROOM_VNUM_SCHOOL);
-			if (pRoomIndex != NULL && pArea == pRoomIndex->area)
-				pArea->age = 15 - 2;
-			else if (pArea->nplayer == 0) 
-				pArea->empty = TRUE;
+			for (i = pArea->min_vnum; i < pArea->max_vnum; i++) {
+				pRoomIndex = get_room_index(i);
+				if (pRoomIndex == NULL
+				||  IS_SET(pRoomIndex->room_flags,
+								ROOM_INDOORS))
+					continue;
+				if (number_percent() < 50)
+					room_record("erased", pRoomIndex, -1);
+			}
 		}
+
+		reset_area(pArea);
+		wiznet("$t has just been reset.",
+			NULL, pArea->name, WIZ_RESETS, 0, 0);
+
+		print_resetmsg(pArea);
+
+		pArea->age = number_range(0, 3);
+		if (IS_SET(pArea->flags, AREA_UPDATE_FREQUENTLY))
+			pArea->age = 15 - 2;
+		else if (pArea->nplayer == 0) 
+			pArea->empty = TRUE;
 	}
 }
 
@@ -577,7 +563,7 @@ void area_update(void)
  * OLC
  * Reset one room.  Called by reset_area and olc.
  */
-void reset_room(ROOM_INDEX_DATA *pRoom)
+void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 {
     RESET_DATA  *pReset;
     CHAR_DATA   *pMob;
@@ -690,9 +676,8 @@ void reset_room(ROOM_INDEX_DATA *pRoom)
                 continue;
             }
 
-            if (pRoom->area->nplayer > 0
-              || count_obj_list(pObjIndex, pRoom->contents) > 0)
-	    {
+            if ((pRoom->area->nplayer > 0 && !IS_SET(flags, RESET_F_NOPCHECK))
+            ||  count_obj_list(pObjIndex, pRoom->contents) > 0) {
 		last = FALSE;
 		break;
 	    }
@@ -736,7 +721,7 @@ void reset_room(ROOM_INDEX_DATA *pRoom)
             else
                 limit = pReset->arg2;
 
-            if (pRoom->area->nplayer > 0
+            if ((pRoom->area->nplayer > 0 && !IS_SET(flags, RESET_F_NOPCHECK))
               || (LastObj = get_obj_type(pObjToIndex)) == NULL
               || (LastObj->in_room == NULL && !last)
               || (pObjIndex->count >= limit && number_range(0,4) != 0) 
@@ -883,7 +868,7 @@ void reset_area(AREA_DATA *pArea)
 
 	for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++)
         	if ((pRoom = get_room_index(vnum)))
-			reset_room(pRoom);
+			reset_room(pRoom, 0);
 }
 
 static void obj_of_callback(int lang, const char **p, void *arg)

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.61 1999-05-15 10:32:43 fjoe Exp $
+ * $Id: tables.c,v 1.62 1999-05-15 13:01:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -248,6 +248,7 @@ flag_t imm_flags[] =
 	{ "slash",		IMM_SLASH,		TRUE	},
 	{ "fire",		IMM_FIRE,		TRUE	},
 	{ "cold",		IMM_COLD,		TRUE	},
+	{ "light",		IMM_LIGHT,		TRUE	},
 	{ "lightning",		IMM_LIGHTNING,		TRUE	},
 	{ "acid",		IMM_ACID,		TRUE	},
 	{ "poison",		IMM_POISON,		TRUE	},
@@ -257,7 +258,6 @@ flag_t imm_flags[] =
 	{ "mental",		IMM_MENTAL,		TRUE	},
 	{ "disease",		IMM_DISEASE,		TRUE	},
 	{ "drowning",		IMM_DROWNING,		TRUE	},
-	{ "light",		IMM_LIGHT,		TRUE	},
 	{ "sound",		IMM_SOUND,		TRUE	},
 	{ "wood",		IMM_WOOD,		TRUE	},
 	{ "silver",		IMM_SILVER,		TRUE	},
@@ -386,6 +386,8 @@ flag_t area_flags[] =
 
 	{ "closed",		AREA_CLOSED,		TRUE	},
 	{ "noquest",		AREA_NOQUEST,		TRUE	},
+	{ "update_always",	AREA_UPDATE_ALWAYS,	TRUE	},
+	{ "update_frequently",	AREA_UPDATE_FREQUENTLY,	TRUE	},
 	{ "changed",		AREA_CHANGED,		FALSE	},
 
 	{ NULL }
@@ -798,6 +800,7 @@ flag_t res_flags[] =
 	{ "slash",		RES_SLASH,		TRUE	},
 	{ "fire",		RES_FIRE,		TRUE	},
 	{ "cold",		RES_COLD,		TRUE	},
+	{ "light",		RES_LIGHT,		TRUE	},
 	{ "lightning",		RES_LIGHTNING,		TRUE	},
 	{ "acid",		RES_ACID,		TRUE	},
 	{ "poison",		RES_POISON,		TRUE	},
@@ -807,7 +810,6 @@ flag_t res_flags[] =
 	{ "mental",		RES_MENTAL,		TRUE	},
 	{ "disease",		RES_DISEASE,		TRUE	},
 	{ "drowning",		RES_DROWNING,		TRUE	},
-	{ "light",		RES_LIGHT,		TRUE	},
 	{ "sound",		RES_SOUND,		TRUE	},
 	{ "wood",		RES_WOOD,		TRUE	},
 	{ "silver",		RES_SILVER,		TRUE	},
@@ -829,6 +831,7 @@ flag_t vuln_flags[] =
 	{ "slash",		VULN_SLASH,		TRUE	},
 	{ "fire",		VULN_FIRE,		TRUE	},
 	{ "cold",		VULN_COLD,		TRUE	},
+	{ "light",		VULN_LIGHT,		TRUE	},
 	{ "lightning",		VULN_LIGHTNING,		TRUE	},
 	{ "acid",		VULN_ACID,		TRUE	},
 	{ "poison",		VULN_POISON,		TRUE	},
@@ -838,7 +841,6 @@ flag_t vuln_flags[] =
 	{ "mental",		VULN_MENTAL,		TRUE	},
 	{ "disease",		VULN_DISEASE,		TRUE	},
 	{ "drowning",		VULN_DROWNING,		TRUE	},
-	{ "light",		VULN_LIGHT,		TRUE	},
 	{ "sound",		VULN_SOUND,		TRUE	},
 	{ "wood",		VULN_WOOD,		TRUE	},
 	{ "silver",		VULN_SILVER,		TRUE	},
