@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.71 1998-09-24 14:07:40 fjoe Exp $
+ * $Id: interp.c,v 1.72 1998-09-28 09:44:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -188,7 +188,7 @@ const	struct	cmd_type	cmd_table	[] =
     { ";",		do_gtell,	POS_DEAD,	 0,  LOG_NORMAL, 0, CMD_GHOST },
     { "note",		do_note,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "petitio",	do_petitio,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "petition",	do_petition,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_GHOST },
+    { "petition",	do_petition,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_GHOST|CMD_NOORDER },
     { "pose",		do_pose,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "promote",	do_promote,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "pray",           do_pray,        POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
@@ -228,7 +228,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "compact",	do_compact,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "description",	do_description,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "delet",		do_delet,	POS_DEAD,	 0,  LOG_ALWAYS, 0, CMD_KEEP_HIDE|CMD_GHOST },
-    { "delete",		do_delete,	POS_STANDING,	 0,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
+    { "delete",		do_delete,	POS_STANDING,	 0,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST|CMD_NOORDER},
     { "identify",	do_identify,	POS_STANDING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "long",		do_long,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "nofollow",	do_nofollow,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
@@ -240,7 +240,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "tick",		do_tick,	POS_DEAD,	ML,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "password",	do_password,	POS_DEAD,	 0,  LOG_NEVER,  1, CMD_KEEP_HIDE|CMD_GHOST },
     { "prompt",		do_prompt,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "quest",          do_quest,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST},
+    { "quest",          do_quest,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST|CMD_NOORDER},
     { "qui",		do_qui,		POS_DEAD,	 0,  LOG_NORMAL, 0, CMD_KEEP_HIDE|CMD_GHOST },
     { "quit",		do_quit,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "quiet",		do_quiet,	POS_SLEEPING, 	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
@@ -254,7 +254,7 @@ const	struct	cmd_type	cmd_table	[] =
     /*
      * Mob command interpreter (placed here for faster scan...)
      */
-    { "mob",		do_mob,		POS_DEAD,	 0,  LOG_NEVER,  0, 0 },
+    { "mob",		do_mob,		POS_DEAD,	 0,  LOG_NEVER,  0, CMD_NOORDER },
 
     /*
      * Miscellaneous commands.
@@ -589,6 +589,9 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 			char_puts("First ask to your beloved master!\n\r", ch);
 			return;
 		}
+
+		if (is_order && IS_SET(cmd_table[cmd].extra, CMD_NOORDER))
+			return;
 
 		if (IS_AFFECTED(ch,AFF_STUN) 
 		&& !(cmd_table[cmd].extra & CMD_KEEP_HIDE)) {

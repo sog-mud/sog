@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.70 1998-09-24 14:07:39 fjoe Exp $
+ * $Id: act_obj.c,v 1.71 1998-09-28 09:44:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1247,7 +1247,7 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 		}
 	}
 	act("$n eats $p.", ch, obj, NULL, TO_ROOM);
-	act_puts("You eat $p", ch, obj, NULL, TO_CHAR, POS_DEAD);
+	act_puts("You eat $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 	if (ch->fighting != NULL)
 		WAIT_STATE(ch, 3 * PULSE_VIOLENCE);
 

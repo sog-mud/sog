@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.87 1998-09-24 14:07:38 fjoe Exp $
+ * $Id: act_comm.c,v 1.88 1998-09-28 09:44:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1270,11 +1270,6 @@ void do_order(CHAR_DATA *ch, const char *argument)
 
 	argument = one_argument(argument, arg);
 	one_argument(argument,arg2);
-
-	if (!str_cmp(arg2,"delete") || !str_cmp(arg2, "mob") || !strcmp(arg2,"petition")) {
-		char_puts("That will NOT be done.\n\r",ch);
-		return;
-	}
 
 	if (arg[0] == '\0' || argument[0] == '\0') {
 		char_puts("Order whom to do what?\n\r", ch);

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.59 1998-09-24 14:07:41 fjoe Exp $
+ * $Id: save.c,v 1.60 1998-09-28 09:44:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -468,8 +468,10 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 		fprintf(fp, "ExtF %d\n", obj->extra_flags);
 	if (obj->wear_flags != obj->pIndexData->wear_flags)
 		fprintf(fp, "WeaF %d\n", obj->wear_flags);
+/*
 	if (obj->item_type != obj->pIndexData->item_type)
 		fprintf(fp, "Ityp %d\n", obj->item_type);
+ */
 	if (obj->weight != obj->pIndexData->weight)
 		fprintf(fp, "Wt   %d\n", obj->weight);
 
@@ -1408,8 +1410,10 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'I':
+/*
 			KEY("ItemType", obj->item_type, fread_number(fp));
 			KEY("Ityp", obj->item_type, fread_number(fp));
+ */
 			break;
 
 		case 'L':
