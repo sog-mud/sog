@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spellfn.c,v 1.14 1999-05-12 18:54:50 avn Exp $
+ * $Id: spellfn.c,v 1.15 1999-05-17 19:58:36 avn Exp $
  */
 
 #include <stdio.h>
@@ -280,6 +280,7 @@ namedp_t spellfn_table[] =
 	{ "spell_detect_fade",		spell_detect_fade		},
 	{ "spell_shield_of_ruler",	spell_shield_of_ruler		},
 	{ "spell_benediction", 		spell_benediction		},
+	{ "spell_mana_restore",		spell_mana_restore		},
 	{ NULL }
 };
 
