@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.185 1999-09-18 11:45:22 fjoe Exp $
+ * $Id: act_wiz.c,v 1.186 1999-09-23 09:35:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1425,9 +1425,6 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		if (!IS_NULLSTR(PC(victim)->twitlist))
 			buf_printf(output, "Twitlist: [%s]\n",
 				   PC(victim)->twitlist);
-		if (!IS_NULLSTR(PC(victim)->granted))
-			buf_printf(output, "Granted: [%s]\n",
-				   PC(victim)->granted);
 	}
 
 	buf_printf(output, "Last fight time: [%s]\n",
