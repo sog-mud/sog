@@ -10,7 +10,7 @@ end
 
 #SKILL
 Skill 'improved invis'
-Level 35
+Level 25
 Rating 2
 Min 1
 Adept 75
@@ -19,7 +19,7 @@ End
 
 #SKILL 
 Skill 'blur'
-Level 30
+Level 20
 Rating 1
 Min 1
 Adept 75
@@ -105,6 +105,14 @@ End
 #SKILL
 Skill 'mass invis'
 Level 10
+Rating 1
+Adept 75
+Max 100
+End
+
+#SKILL
+Skill 'phantasmal force'
+Level 25
 Rating 1
 Adept 75
 Max 100
