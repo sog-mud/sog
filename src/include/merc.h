@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.246 1999-10-29 06:54:15 fjoe Exp $
+ * $Id: merc.h,v 1.247 1999-11-18 12:43:33 kostik Exp $
  */
 
 /***************************************************************************
@@ -1426,8 +1426,6 @@ struct pc_data
 	note_t * 		pnote;
 
 	int 			exp;	/* total exp */
-	int			exp_tl;	/* exp gained this level */
-
 	int			practice;
 	int			train;
 
@@ -2185,6 +2183,7 @@ const char *get_cond_alias(OBJ_DATA *obj);
  */
 void advance		(CHAR_DATA *ch, int level);
 void gain_exp		(CHAR_DATA *ch, int gain);
+void delevel		(CHAR_DATA *ch);
 
 bool (*olc_interpret)(DESCRIPTOR_DATA *d, const char *argument);
 

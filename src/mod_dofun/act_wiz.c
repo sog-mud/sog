@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.191 1999-10-21 12:51:48 fjoe Exp $
+ * $Id: act_wiz.c,v 1.192 1999-11-18 12:43:25 kostik Exp $
  */
 
 /***************************************************************************
@@ -3349,7 +3349,6 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		victim->class = str_qdup(cl->name);
 		spec_update(victim);
 		PC(victim)->exp = exp_for_level(victim, victim->level);
-		PC(victim)->exp_tl = 0;
 		return;
 	}
 
@@ -3616,7 +3615,6 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		SET_ORG_RACE(victim, r->name);
 		spec_update(victim);
 		PC(victim)->exp = exp_for_level(victim, victim->level);
-		PC(victim)->exp_tl = 0;
 		return;
 	}
 
