@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.42 1998-06-12 14:25:58 fjoe Exp $
+ * $Id: comm.c,v 1.43 1998-06-14 09:20:16 efdi Exp $
  */
 
 /***************************************************************************
@@ -1242,10 +1242,11 @@ void bust_a_prompt( CHAR_DATA *ch )
 		&&  (can_see_room(ch,pexit->u1.to_room)
 		||   (IS_AFFECTED(ch,AFF_INFRARED) 
 		&&    !IS_AFFECTED(ch,AFF_BLIND)))
-		&&  !IS_SET(pexit->exit_info,EX_CLOSED))
-		{
+		&&  (!IS_SET(pexit->exit_info,EX_CLOSED) || IS_IMMORTAL(ch))) {
 		    found = TRUE;
 		    strcat(doors,dir_name[door]);
+		    if (IS_SET(pexit->exit_info, EX_CLOSED))
+			strcat(doors, "*");
 		}
 	    }
 	    if (!found)
