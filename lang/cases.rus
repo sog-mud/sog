@@ -3689,6 +3689,15 @@ Form 6 -у~
 End
 
 #RULE
+Name отсутствие~
+BaseLen 9
+Form 1 -я~
+Form 2 -ю~
+Form 4 -ем~
+Form 5 -и~
+End
+
+#RULE
 Name огонь~
 BaseLen 2
 Form 1 -ня~
@@ -5527,6 +5536,15 @@ Form 6 -ое~
 End
 
 #RULE
+Name недостаток~
+BaseLen 8
+Form 1 -ка~
+Form 2 -ку~
+Form 4 -ком~
+Form 5 -ке~
+End
+
+#RULE
 Name короткохвостый~
 BaseLen 12
 Form 1 -ого~
@@ -6952,6 +6970,15 @@ Form 3 -у~
 Form 4 -ой~
 Form 5 -е~
 Form 6 -у~
+End
+
+#RULE
+Name невозможность~
+BaseLen 12
+Form 1 -и~
+Form 2 -и~
+Form 4 -ью~
+Form 5 -и~
 End
 
 #RULE

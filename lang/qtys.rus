@@ -1,4 +1,16 @@
 #RULE
+Name живых~
+BaseLen 5
+Form 1 живого~
+End
+
+#RULE
+Name существ~
+BaseLen 7
+Form 1 -а~
+End
+
+#RULE
 Name серебряных~
 Form 1 серебряный~
 End
@@ -68,6 +80,12 @@ End
 #RULE
 Name золотых~
 Form 1 золотой~
+End
+
+#RULE
+Name практических~
+BaseLen 12
+Form 1 практическое~
 End
 
 #RULE
@@ -196,6 +214,24 @@ Form 1 -а~
 Form 2 -и~
 Form 3 -и~
 Form 4 -и~
+End
+
+#RULE
+Name едениц~
+BaseLen 6
+Form 1 -у~
+Form 2 -ы~
+Form 3 -ы~
+Form 4 -ы~
+End
+
+#RULE
+Name занятий~
+BaseLen 7
+Form 1 занятие~
+Form 2 занятия~
+Form 3 занятия~
+Form 4 занятия~
 End
 
 #$
