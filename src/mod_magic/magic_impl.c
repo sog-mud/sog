@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic_impl.c,v 1.15 2002-01-30 04:57:02 tatyana Exp $
+ * $Id: magic_impl.c,v 1.16 2002-01-31 19:20:40 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -545,12 +545,13 @@ cast_spell(CHAR_DATA *ch, cpdata_t *cp, sptarget_t *spt)
 	}
 
 	if (number_percent() > cp->chance) {
-		if (cp->sk->skill_type == ST_SPELL)
+		if (cp->sk->skill_type == ST_SPELL) {
 			act("You try to cast '$T', but lost your concentration.",
-		 	    ch, NULL, sk->name, TO_CHAR);
-		else
+		 	    ch, NULL, cp->sn, TO_CHAR);
+		} else {
 			act("Your god doesn't hear your pray for '$T'.",
-			    ch, NULL, sk->name, TO_CHAR);
+			    ch, NULL, cp->sn, TO_CHAR);
+		}
 		check_improve(ch, cp->sn, FALSE, 1);
 		ch->mana -= cp->mana / 2;
 		if (cp->shadow)
