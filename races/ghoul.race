@@ -1,8 +1,9 @@
 #RACE
 Name ghoul~
+Aff slow~
 Imm disease~
 Res charm~
-Vuln magic~
+Vuln magic weapon~
 Form edible sentient undead biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
 End

@@ -368,8 +368,8 @@ This undead servant of the Warlock is far too busy engaging in its set tasks
 to pay any mind to you. It will, however, act to defend itself if assaulted,
 as will its many comrades.
 ~
-human~
-ABCG DNO 0 0
+undead~
+ABCGO NO 0 0
 12 0 2d10+150 119d1+1 2d5+3 pound
 0 0 0 8
 R 0 0 0
@@ -385,13 +385,14 @@ special abilities which make it more than a match for the average adventurer,
 including its long, sharp, poisoned fangs and claws, its resistance to 
 physical blows, and its nauseating stench.
 ~
-human~
+ghoul~
 ABCFGO DJNOu -1000 0
 14 0 2d10+190 139d1+1 1d12+3 slap
 -1 -1 -1 8
-IR AB 0 K
+IR AB 0 0
 stand stand male 100
 0 0 medium unknown
+F res B
 #5759
 zombie~
 a Zombie~
@@ -401,8 +402,8 @@ This poor fellow was once an eager young treasure-and-glory-seeker like
 yourself, who fell foul of the Warlock's minions, and has been damned to a
 perpetual undead existence.
 ~
-human~
-ABFG J 0 0
+zombie~
+ABFGO 0 0 0
 11 0 2d8+134 109d1+1 1d10+2 blast
 1 1 1 8
 R A 0 0
@@ -433,11 +434,11 @@ This dour old man is the chief ship-builder for the Warlock, and despite his
 unfortunate curse (Lycanthropy), he is not a bad guy, and will only attack if
 you initiate hostilities by attacking him or his dog.
 ~
-human~
-ABG HJNOR 0 0
+lich~
+ABGO HJNOR 0 0
 13 0 2d1+170 129d1+1 2d5+3 slice
 -1 -1 -1 8
-I AB 0 P
+I A 0 P
 stand stand male 50
 0 0 medium unknown
 #5762
@@ -448,13 +449,14 @@ Hidden among the corpses is a sadistic Ghoul!
 This decaying corpse-like undead slashes at you with its filthy fingernails,
 attempting to slay and devour you!
 ~
-human~
-ABFG DJNO -500 0
+ghoul~
+ABFGO DJNO -500 0
 13 0 2d10+170 129d1+1 2d5+3 blast
 -1 -1 -1 8
 I AB 0 0
 stand stand male 10
 0 0 medium unknown
+F res B
 #5763
 vampire~
 an evil Vampire~
@@ -464,13 +466,14 @@ Rising from its coffin like Bela Lugosi in Dracula, the Vampire floats
 towards you, attempting to make eye contact with you, so that it can charm
 you and then feat upon you at its leisure.
 ~
-human~
-ABCFGO DFJTu -1000 0
+undead~
+ABCFGO Tu -1000 0
 17 0 3d9+258 169d1+1 3d4+4 smash
 -3 -3 -3 7
-IR AB K 0
+IR 0 K 0
 stand stand male 200
 0 0 medium unknown
+F imm LQR
 #5764
 dwarf~
 a Dwarf~

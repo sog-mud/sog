@@ -555,7 +555,7 @@ AGH 0 900 0
 NU 0 0 C
 stand stand either 10
 0 0 medium unknown
-M random 3026 10~
+M random 3026 5~
 V 37000
 #3062
 fido dog собака зверюга~
@@ -10088,7 +10088,7 @@ if rand 90
 end
 endif
 ' Day in, day out. This is all I do in 24 hours a day.
-if rand 5
+if rand 1
 yell I want a vacation!
 endif
 endif
