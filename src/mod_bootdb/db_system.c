@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_system.c,v 1.18 2001-07-31 14:56:30 fjoe Exp $
+ * $Id: db_system.c,v 1.19 2001-08-02 18:20:00 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -38,16 +38,14 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "merc.h"
-#include "db.h"
-#include "module.h"
-#include "abi_version.h"
+#include <merc.h>
+#include <module.h>
+#include <bootdb.h>
+#include <rwfile.h>
 
 DECLARE_DBLOAD_FUN(load_system);
 DECLARE_DBLOAD_FUN(load_info);
 DECLARE_DBLOAD_FUN(load_module);
-
-DECLARE_DBINIT_FUN(init_system);
 
 DBFUN dbfun_system[] =
 {
@@ -56,29 +54,21 @@ DBFUN dbfun_system[] =
 	{ NULL, NULL, NULL }
 };
 
-DBDATA db_system = { dbfun_system, init_system, 0 };
+DBDATA db_system = { dbfun_system, NULL, 0 };
 
 static void fread_host(rfile_t *fp, varr *v);
-
-static varrdata_t v_control_sockets = { sizeof(int), 2, NULL, NULL, NULL };
-static varrdata_t v_info_sockets = { sizeof(int), 2, NULL, NULL, NULL };
-static varrdata_t v_info_trusted = { sizeof(struct in_addr), 2, NULL, NULL, NULL };
-static varrdata_t v_modules = { sizeof(module_t), 2, NULL, NULL, NULL };
-
-DBINIT_FUN(init_system)
-{
-	if (!DBDATA_VALID(dbdata)) {
-		varr_init(&control_sockets, &v_control_sockets);
-		varr_init(&info_sockets, &v_info_sockets);
-		varr_init(&info_trusted, &v_info_trusted);
-		varr_init(&modules, &v_modules);
-	}
-}
 
 DBLOAD_FUN(load_system)
 {
 	for (;;) {
 		bool fMatch = FALSE;
+		bool fListen;
+
+		/*
+		 * command line parameters override
+		 * configuration settings
+		 */
+		fListen = varr_isempty(&control_sockets);
 
 		fread_keyword(fp);
 		switch(rfile_tokfl(fp)) {
@@ -88,20 +78,14 @@ DBLOAD_FUN(load_system)
 			break;
 		case 'L':
 			if (IS_TOKEN(fp, "Listen")) {
-				int *p = varr_enew(&control_sockets);
-				*p = fread_number(fp);
-				fMatch = TRUE;
-			}
-			break;
-		case 'M':
-			if (IS_TOKEN(fp, "Module")) {
-				module_t *m = varr_enew(&modules);
-				m->mod_prio = fread_number(fp);
-				m->name = fread_string(fp);
-				m->mod_id = flag_value(module_names, m->name);
-				m->file_name = str_printf("%s%c%s.so.%d",
-					MODULES_PATH, PATH_SEPARATOR,
-					m->name, ABI_VERSION);
+				int port;
+
+				port = fread_number(fp);
+				if (fListen) {
+					int *p = varr_enew(&control_sockets);
+					*p = port;
+				}
+
 				fMatch = TRUE;
 			}
 			break;
@@ -123,6 +107,13 @@ DBLOAD_FUN(load_info)
 {
 	for (;;) {
 		bool fMatch = FALSE;
+		bool fListen;
+
+		/*
+		 * command line parameters override
+		 * configuration settings
+		 */
+		fListen = varr_isempty(&info_sockets);
 
 		fread_keyword(fp);
 		switch(rfile_tokfl(fp)) {
@@ -138,8 +129,14 @@ DBLOAD_FUN(load_info)
 			break;
 		case 'L':
 			if (IS_TOKEN(fp, "Listen")) {
-				int *p = varr_enew(&info_sockets);
-				*p = fread_number(fp);
+				int port;
+
+				port = fread_number(fp);
+				if (fListen) {
+					int *p = varr_enew(&info_sockets);
+					*p = port;
+				}
+
 				fMatch = TRUE;
 			}
 			break;
@@ -153,7 +150,8 @@ DBLOAD_FUN(load_info)
 	}
 }
 
-static void fread_host(rfile_t *fp, varr *v)
+static void
+fread_host(rfile_t *fp, varr *v)
 {
 	const char *s = fread_string(fp);
 	struct hostent *h = gethostbyname(s);

@@ -23,13 +23,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest_impl.c,v 1.4 2001-07-31 18:15:05 fjoe Exp $
+ * $Id: chquest_impl.c,v 1.5 2001-08-02 18:20:13 fjoe Exp $
  */
 
 #include <stdio.h>
 
 #include <merc.h>
-#include <db.h>
 
 #include <handler.h>
 

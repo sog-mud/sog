@@ -23,14 +23,15 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_damtype.c,v 1.14 2001-06-24 10:51:01 avn Exp $
+ * $Id: db_damtype.c,v 1.15 2001-08-02 18:19:56 fjoe Exp $
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "merc.h"
-#include "db.h"
+#include <merc.h>
+#include <bootdb.h>
+#include <rwfile.h>
 
 DECLARE_DBLOAD_FUN(load_damtype);
 
@@ -38,7 +39,7 @@ DECLARE_DBINIT_FUN(init_damtype);
 
 DBFUN dbfun_damtype[] =
 {
-	{ "DAMTYPE",	load_damtype, 	NULL	},		// notrans
+	{ "DAMTYPE",	load_damtype,	NULL	},		// notrans
 	{ NULL, NULL, NULL }
 };
 

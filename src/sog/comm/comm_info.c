@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_info.c,v 1.25 2001-07-31 18:15:20 fjoe Exp $
+ * $Id: comm_info.c,v 1.26 2001-08-02 18:20:22 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -47,7 +47,6 @@
 #endif
 
 #include <merc.h>
-#include <db.h>
 #include <lang.h>
 
 #include <handler.h>

@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.112 2001-07-31 14:56:30 fjoe Exp $
+ * $Id: db_area.c,v 1.113 2001-08-02 18:19:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,7 +44,8 @@
 #include <string.h>
 
 #include <merc.h>
-#include <db.h>
+#include <bootdb.h>
+#include <rwfile.h>
 
 DECLARE_DBLOAD_FUN(load_area);
 DECLARE_DBLOAD_FUN(load_areadata);
@@ -82,6 +83,8 @@ DBFUN dbfun_areas[] = {
 DBDATA db_areas = { dbfun_areas, init_area, 0 };
 
 AREA_DATA *		area_current;
+
+static void vnum_check(AREA_DATA *area, int vnum);
 
 #define ff	((int64_t) 1 << 31)
 
@@ -217,7 +220,7 @@ DBLOAD_FUN(load_area)
 	pArea = new_area();
 	free_string(fread_string(fp));		/* file name */
 	free_string(pArea->file_name);
-	pArea->file_name	= get_filename(filename);
+	pArea->file_name	= get_filename(bootdb_filename);
 
 	pArea->security		= 9;
 
@@ -227,7 +230,7 @@ DBLOAD_FUN(load_area)
 	pArea->min_level	= fread_number(fp);
 	pArea->max_level	= fread_number(fp);
 	fread_letter(fp);			/* '}' */
-	pArea->credits		= fread_sword(fp);	
+	pArea->credits		= fread_sword(fp);
 	free_string(fread_string(fp));
 	pArea->min_vnum		= fread_number(fp);
 	pArea->max_vnum		= fread_number(fp);
@@ -236,7 +239,7 @@ DBLOAD_FUN(load_area)
 
 	if (area_first == NULL)
 		area_first = pArea;
-	if (area_last != NULL) 
+	if (area_last != NULL)
 		area_last->next = pArea;
 
 	area_last	= pArea;
@@ -262,9 +265,9 @@ DBLOAD_FUN(load_areadata)
 	pArea->age		= 15;
 	pArea->empty		= FALSE;
 	free_string(pArea->file_name);
-	pArea->file_name	= get_filename(filename);
+	pArea->file_name	= get_filename(bootdb_filename);
 	pArea->security		= 9;                    /* 9 -- Hugin */
- 
+
 	for (; ;) {
 		bool fMatch = FALSE;
 
@@ -282,9 +285,9 @@ DBLOAD_FUN(load_areadata)
 			if (IS_TOKEN(fp, "End")) {
 				fMatch = TRUE;
 				if (area_first == NULL)
-			        	area_first = pArea;
+					area_first = pArea;
 				if (area_last  != NULL)
-			        	area_last->next = pArea;
+					area_last->next = pArea;
 				area_last	= pArea;
 				pArea->next	= NULL;
 				area_current	= pArea;
@@ -330,7 +333,8 @@ DBLOAD_FUN(load_areadata)
 	}
 }
 
-static MLSTR_FOREACH_FUN(cb_strip_nl, lang, p, ap)
+static
+MLSTR_FOREACH_FUN(cb_strip_nl, lang, p, ap)
 {
 	char buf[MAX_STRING_LENGTH];
 	size_t len, oldlen;
@@ -376,10 +380,10 @@ DBLOAD_FUN(load_helps)
 	for (; ;) {
 		level		= fread_fword(level_table, fp);
 		keyword		= fread_string(fp);
-	
+
 		if (keyword[0] == '$')
 			break;
-	
+
 		pHelp		= help_new();
 		pHelp->level	= level;
 		pHelp->keyword	= keyword;
@@ -535,7 +539,7 @@ DBLOAD_FUN(load_rooms)
 
 			if (letter == 'H') /* healing room */
 				pRoomIndex->heal_rate = fread_number(fp);
-		
+
 			else if (letter == 'M') /* mana room */
 				pRoomIndex->mana_rate = fread_number(fp);
 
@@ -543,16 +547,16 @@ DBLOAD_FUN(load_rooms)
 				EXIT_DATA *pexit;
 				int locks;
 				char c;
-	
+
 				door = fread_number(fp);
 				if (door < 0 || door > 5) {
 					log(LOG_ERROR, "load_rooms: vnum %d has bad door number.", vnum);
 					return;
 				}
-	
+
 				pexit			= new_exit();
                                 c = xgetc(fp);
-				if (c == ' ') 
+				if (c == ' ')
 					pexit->size = fread_fword(size_table, fp);
 				mlstr_fread(fp, &pexit->description);
 				if (mlstr_addnl(&pexit->description))
@@ -614,9 +618,9 @@ DBLOAD_FUN(load_rooms)
 					pexit->exit_info = locks;
 					pexit->rs_flags = locks;
 				}
-	
+
 				pRoomIndex->exit[door] = pexit;
-			} else if (letter == 'E') 
+			} else if (letter == 'E')
 				ed_fread(fp, &pRoomIndex->ed);
 			else if (letter == 'O') {
 				log(LOG_ERROR, "load rooms: owner present");
@@ -842,7 +846,6 @@ flag_subst_t v0_subst_act[] =
 #define V0_ACT_HEALER		(aa)
 #define V0_ACT_CLAN_GUARD	(ff)
 
-
 flag_subst_t v0_subst_mob[] =
 {
 	{ V0_ACT_CHANGER,	MOB_CHANGER			},
@@ -858,7 +861,7 @@ flag_subst_t v0_subst_mob[] =
 };
 
 #define V0_AFF_SCREAM			(hh)
-#define V0_AFF_BLOODTHIRST 		(ii)
+#define V0_AFF_BLOODTHIRST		(ii)
 #define V0_AFF_STUN			(jj)
 #define V0_AFF_WEAK_STUN		(kk)
 #define V0_AFF_DETECT_FEAR		(oo)
@@ -871,7 +874,7 @@ flag_subst_t v0_subst_aff[] =
 {
 	{ AFF_BLIND,		AFF_BLIND		},
 	{ AFF_SANCTUARY,	AFF_SANCTUARY		},
-	{ AFF_FAERIE_FIRE ,	AFF_FAERIE_FIRE 	},
+	{ AFF_FAERIE_FIRE ,	AFF_FAERIE_FIRE		},
 	{ AFF_CURSE,		AFF_CURSE		},
 	{ AFF_CORRUPTION,	AFF_CORRUPTION		},
 	{ AFF_POISON,		AFF_POISON		},
@@ -894,7 +897,7 @@ flag_subst_t v0_subst_aff[] =
 	{ V0_AFF_WEAK_STUN,	AFF_WEAK_STUN		},
 	{ V0_AFF_DETECT_FEAR,	AFF_FEAR		},
 	{ V0_AFF_DETECT_WEB,	AFF_WEB			},
-	{ V0_AFF_BLACK_SHROUD, 	AFF_BLACK_SHROUD	},
+	{ V0_AFF_BLACK_SHROUD,	AFF_BLACK_SHROUD	},
 	{ V0_AFF_QUESTTARGET,	AFF_QUESTTARGET		},
 	{ V0_AFF_TURNED,	AFF_TURNED		},
 
@@ -956,330 +959,352 @@ flag_subst_t v0_subst_detect[] =
  */
 DBLOAD_FUN(load_mobiles)
 {
-    MOB_INDEX_DATA *pMobIndex;
+	MOB_INDEX_DATA *pMobIndex;
 
-    if (!area_current) {
-        log(LOG_ERROR, "load_mobiles: no #AREA seen yet.");
-	return;
-    }
-
-    for (; ;) {
-	race_t *r;
-        int vnum;
-        char letter;
-        int iHash;
-	int i;
-	bool found_res = FALSE;
-	flag_t imm = 0;
-	flag_t res = 0;
-	flag_t vul = 0;
- 
-	flag_t res_r = 0;
-	flag_t imm_r = 0;
-	flag_t vul_r = 0;
- 
-        letter = fread_letter(fp);
-        if (letter != '#') {
-            log(LOG_ERROR, "load_mobiles: # not found.");
-	    return;
-	}
- 
-        vnum = fread_number(fp);
-        if (vnum == 0)
-            break;
- 
-        if (get_mob_index(vnum)) {
-        	log(LOG_ERROR, "load_mobiles: vnum %d duplicated.", vnum);
+	if (!area_current) {
+		log(LOG_ERROR, "load_mobiles: no #AREA seen yet.");
 		return;
 	}
- 
-        pMobIndex                       = new_mob_index();
 
-        pMobIndex->vnum                 = vnum;
-        pMobIndex->name			= fread_string(fp);
-        mlstr_fread(fp, &pMobIndex->short_descr);
-        mlstr_fread(fp, &pMobIndex->long_descr);
-	mlstr_stripnl(&pMobIndex->long_descr);
-        mlstr_fread(fp, &pMobIndex->description);
-	free_string(pMobIndex->race);
-	pMobIndex->race		 	= fread_string(fp);
-	STRKEY_CHECK(&races, pMobIndex->race, "load_mob");	// notrans
-	r = race_lookup(pMobIndex->race);
+	for (; ;) {
+		race_t *r;
+		int vnum;
+		char letter;
+		int iHash;
+		int i;
+		bool found_res = FALSE;
+		flag_t imm = 0;
+		flag_t res = 0;
+		flag_t vul = 0;
 
-	if (area_current->ver > 0) {
-        	pMobIndex->act		= fread_flags(fp);
-		pMobIndex->mob_flags	= fread_flags(fp);
-	} else {
-		int64_t f = fread_flags64(fp);
-		pMobIndex->act		= subst_flag(v0_subst_act, f);
-		pMobIndex->mob_flags	= subst_flag(v0_subst_mob, f);
-	}
-	pMobIndex->act |= (r ? r->act : 0);
+		flag_t res_r = 0;
+		flag_t imm_r = 0;
+		flag_t vul_r = 0;
 
-	if (area_current->ver > 0) {
-		pMobIndex->affected_by	= fread_flags(fp);
-		pMobIndex->has_invis	= fread_flags(fp);
-		pMobIndex->has_detect	= fread_flags(fp);
-	} else {
-		int64_t f = fread_flags64(fp);
-		pMobIndex->affected_by	= subst_flag(v0_subst_aff, f);
-		pMobIndex->has_invis	= subst_flag(v0_subst_invis, f);
-		pMobIndex->has_detect	= subst_flag(v0_subst_detect, f);
-	}
-
-        pMobIndex->affected_by |= (r ? r->aff : 0);
-	pMobIndex->has_invis |= (r ? r->has_invis : 0);
-	pMobIndex->has_detect |= (r ? r->has_detect : 0);
-
-	pMobIndex->practicer		= 0;
-        pMobIndex->pShop                = NULL;
-
-        pMobIndex->alignment            = fread_number(fp);
-        pMobIndex->group                = fread_number(fp);
-
-        pMobIndex->level                = fread_number(fp);
-        pMobIndex->hitroll              = fread_number(fp);
-
-	/* read hit dice */
-        pMobIndex->hit[DICE_NUMBER]     = fread_number(fp);
-        /* 'd'          */                fread_letter(fp);
-        pMobIndex->hit[DICE_TYPE]	= fread_number(fp);
-        /* '+'          */                fread_letter(fp);
-        pMobIndex->hit[DICE_BONUS]      = fread_number(fp);
-
-	/* read mana dice */
-	pMobIndex->mana[DICE_NUMBER]	= fread_number(fp);
-					  fread_letter(fp);
-	pMobIndex->mana[DICE_TYPE]	= fread_number(fp);
-					  fread_letter(fp);
-	pMobIndex->mana[DICE_BONUS]	= fread_number(fp);
-
-	/* read damage dice */
-	pMobIndex->damage[DICE_NUMBER]	= fread_number(fp);
-					  fread_letter(fp);
-	pMobIndex->damage[DICE_TYPE]	= fread_number(fp);
-					  fread_letter(fp);
-	pMobIndex->damage[DICE_BONUS]	= fread_number(fp);
-	pMobIndex->damtype		= fread_strkey(
-	    fp, &damtypes, "load_mobiles");			// notrans
-
-	/* read armor class */
-	pMobIndex->ac[AC_PIERCE]	= fread_number(fp) * 10;
-	pMobIndex->ac[AC_BASH]		= fread_number(fp) * 10;
-	pMobIndex->ac[AC_SLASH]		= fread_number(fp) * 10;
-	pMobIndex->ac[AC_EXOTIC]	= fread_number(fp) * 10;
-
-	/* read flags and add in data from the race table */
-	pMobIndex->off_flags		= fread_flags(fp) | (r ? r->off : 0);
-	if (area_current->ver == 0) {
-		imm = fread_flags(fp);
-		res = fread_flags(fp);
-		vul = fread_flags(fp);
-	}
-
-	/* vital statistics */
-	pMobIndex->start_pos		= fread_fword(position_table, fp);
-	pMobIndex->default_pos		= fread_fword(position_table, fp);
-
-	fread_word(fp);
-	mlstr_destroy(&pMobIndex->gender);
-	mlstr_init2(&pMobIndex->gender, rfile_tok(fp));
-
-	pMobIndex->wealth		= fread_number(fp);
-
-	pMobIndex->form			= fread_flags(fp) | (r ? r->form : 0);
-	if (area_current->ver <= 4
-	&&  IS_SET(pMobIndex->act, V4_ACT_UNDEAD)
-	&&  !IS_SET(pMobIndex->form, FORM_UNDEAD)) {
-		REMOVE_BIT(pMobIndex->act, V4_ACT_UNDEAD);
-		SET_BIT(pMobIndex->form, FORM_UNDEAD);
-	}
-
-	pMobIndex->parts		= fread_flags(fp) | (r ? r->parts : 0);
-	/* size */
-	pMobIndex->size			= fread_fword(size_table, fp);
-	free_string(pMobIndex->material);
-	pMobIndex->material		= fread_sword(fp);
-
-	/* Set mob resists to 0, race resists will be added in create_mob() */
-	for (i = 0; i < MAX_RESIST; i++) {
-		pMobIndex->resists[i] = 0;
-	}
-
-	for (; ;)
-        {
-            letter = fread_letter(fp);
-
-	    if (letter == 'a') {
-		AFFECT_DATA *paf = aff_fread(fp);
-		if (area_current->ver < 4
-		&&  paf->where != TO_SKILLS
-		&&  paf->where != TO_RACE
-		&&  INT(paf->location) >= 27) {
-			AFFECT_DATA *paf2 = aff_new(TO_RESIST, str_empty);
-			paf2->duration = -1;
-			paf2->level = pMobIndex->level;
-			INT(paf2->location) = damtbl[
-			    UMIN(INT(paf->location)-27, (int) DAMTBL_SZ-1)];
-			INT(paf->location) = APPLY_NONE;
-			paf2->modifier = paf->modifier;
-			paf->modifier = 0;
-			SLIST_ADD(AFFECT_DATA, pMobIndex->affected, paf2);
-		}
-		paf->level = pMobIndex->level;
-		paf->owner = NULL;
-		paf->duration = -1;
-		SLIST_ADD(AFFECT_DATA, pMobIndex->affected, paf);
-	    } else if (letter == 'A') {
-		fread_word(fp);
-		if (!IS_TOKEN(fp, "det"))
-		    SET_BIT(pMobIndex->affected_by, fread_flags(fp));
-	    } else if (letter == 'C') {
-		if (!IS_NULLSTR(pMobIndex->clan)) {
-		    log(LOG_ERROR, "load_mobiles: duplicate clan.");
-		    return;
-		}
-		pMobIndex->clan = fread_strkey(
-		    fp, &clans, "load_mobiles");		// notrans
-	    } else if (letter == 'W') 
-		pMobIndex->invis_level = fread_number(fp);
-	    else if (letter == 'I')
-		pMobIndex->incog_level = fread_number(fp);
-	    else if (letter == 'V') 
-		pMobIndex->fvnum = fread_number(fp);
-            else if (letter == 'F') {
-		fread_word(fp);
-		if (IS_TOKEN(fp, "act"))
-		    REMOVE_BIT(pMobIndex->act, fread_flags(fp));
-                else if (IS_TOKEN(fp, "aff"))
-		    REMOVE_BIT(pMobIndex->affected_by, fread_flags(fp));
-		else if (IS_TOKEN(fp, "inv"))
-			REMOVE_BIT(pMobIndex->has_invis, fread_flags(fp));
-		else if (IS_TOKEN(fp, "det"))
-			REMOVE_BIT(pMobIndex->has_detect, fread_flags(fp));
-		else if (IS_TOKEN(fp, "off"))
-		    REMOVE_BIT(pMobIndex->affected_by, fread_flags(fp));
-		else if (IS_TOKEN(fp, "imm"))
-		    imm_r = fread_flags(fp);
-		else if (IS_TOKEN(fp, "res"))
-		    res_r = fread_flags(fp);
-		else if (IS_TOKEN(fp, "vul"))
-		    vul_r = fread_flags(fp);
-		else if (IS_TOKEN(fp, "for"))
-		    REMOVE_BIT(pMobIndex->form, fread_flags(fp));
-		else if (IS_TOKEN(fp, "par"))
-		    REMOVE_BIT(pMobIndex->parts, fread_flags(fp));
-		else {
-		    log(LOG_ERROR, "flag remove: flag not found.");
-		    return;
-		}
-	     } else if ( letter == 'M' ) {
-		/* XXX */
-		int trig_vnum;
-		const char *phrase;
-#if 0
-		int type;
-
-		if ((type = fread_fword(mptrig_types, fp)) == 0) {
-			log(LOG_ERROR, "load_mobiles: vnum %d: invalid mob prog trigger",
-			    pMobIndex->vnum);
+		letter = fread_letter(fp);
+		if (letter != '#') {
+			log(LOG_ERROR, "load_mobiles: # not found.");
 			return;
 		}
+
+		vnum = fread_number(fp);
+		if (vnum == 0)
+			break;
+
+		if (get_mob_index(vnum)) {
+			log(LOG_ERROR,
+			    "load_mobiles: vnum %d duplicated.", vnum);
+			return;
+		}
+
+		pMobIndex                       = new_mob_index();
+
+		pMobIndex->vnum                 = vnum;
+		pMobIndex->name			= fread_string(fp);
+		mlstr_fread(fp, &pMobIndex->short_descr);
+		mlstr_fread(fp, &pMobIndex->long_descr);
+		mlstr_stripnl(&pMobIndex->long_descr);
+		mlstr_fread(fp, &pMobIndex->description);
+		free_string(pMobIndex->race);
+		pMobIndex->race			= fread_string(fp);
+		STRKEY_CHECK(&races, pMobIndex->race, "load_mob"); // notrans
+		r = race_lookup(pMobIndex->race);
+
+		if (area_current->ver > 0) {
+			pMobIndex->act = fread_flags(fp);
+			pMobIndex->mob_flags = fread_flags(fp);
+		} else {
+			int64_t f = fread_flags64(fp);
+			pMobIndex->act = subst_flag(v0_subst_act, f);
+			pMobIndex->mob_flags = subst_flag(v0_subst_mob, f);
+		}
+		pMobIndex->act |= (r ? r->act : 0);
+
+		if (area_current->ver > 0) {
+			pMobIndex->affected_by = fread_flags(fp);
+			pMobIndex->has_invis = fread_flags(fp);
+			pMobIndex->has_detect = fread_flags(fp);
+		} else {
+			int64_t f = fread_flags64(fp);
+			pMobIndex->affected_by = subst_flag(v0_subst_aff, f);
+			pMobIndex->has_invis = subst_flag(v0_subst_invis, f);
+			pMobIndex->has_detect = subst_flag(v0_subst_detect, f);
+		}
+
+		pMobIndex->affected_by |= (r ? r->aff : 0);
+		pMobIndex->has_invis |= (r ? r->has_invis : 0);
+		pMobIndex->has_detect |= (r ? r->has_detect : 0);
+
+		pMobIndex->practicer		= 0;
+		pMobIndex->pShop                = NULL;
+
+		pMobIndex->alignment            = fread_number(fp);
+		pMobIndex->group                = fread_number(fp);
+
+		pMobIndex->level                = fread_number(fp);
+		pMobIndex->hitroll              = fread_number(fp);
+
+		/* read hit dice */
+		pMobIndex->hit[DICE_NUMBER]     = fread_number(fp);
+		/* 'd'          */                fread_letter(fp);
+		pMobIndex->hit[DICE_TYPE]	= fread_number(fp);
+		/* '+'          */                fread_letter(fp);
+		pMobIndex->hit[DICE_BONUS]      = fread_number(fp);
+
+		/* read mana dice */
+		pMobIndex->mana[DICE_NUMBER]	= fread_number(fp);
+		fread_letter(fp);
+		pMobIndex->mana[DICE_TYPE]	= fread_number(fp);
+		fread_letter(fp);
+		pMobIndex->mana[DICE_BONUS]	= fread_number(fp);
+
+		/* read damage dice */
+		pMobIndex->damage[DICE_NUMBER]	= fread_number(fp);
+		fread_letter(fp);
+		pMobIndex->damage[DICE_TYPE]	= fread_number(fp);
+		fread_letter(fp);
+		pMobIndex->damage[DICE_BONUS]	= fread_number(fp);
+		pMobIndex->damtype	= fread_strkey(
+		    fp, &damtypes, "load_mobiles");		// notrans
+
+		/* read armor class */
+		pMobIndex->ac[AC_PIERCE]	= fread_number(fp) * 10;
+		pMobIndex->ac[AC_BASH]		= fread_number(fp) * 10;
+		pMobIndex->ac[AC_SLASH]		= fread_number(fp) * 10;
+		pMobIndex->ac[AC_EXOTIC]	= fread_number(fp) * 10;
+
+		/* read flags and add in data from the race table */
+		pMobIndex->off_flags		=
+		    fread_flags(fp) | (r ? r->off : 0);
+		if (area_current->ver == 0) {
+			imm = fread_flags(fp);
+			res = fread_flags(fp);
+			vul = fread_flags(fp);
+		}
+
+		/* vital statistics */
+		pMobIndex->start_pos	= fread_fword(position_table, fp);
+		pMobIndex->default_pos	= fread_fword(position_table, fp);
+
+		fread_word(fp);
+		mlstr_destroy(&pMobIndex->gender);
+		mlstr_init2(&pMobIndex->gender, rfile_tok(fp));
+
+		pMobIndex->wealth	= fread_number(fp);
+
+		pMobIndex->form		= fread_flags(fp) | (r ? r->form : 0);
+		if (area_current->ver <= 4
+		&&  IS_SET(pMobIndex->act, V4_ACT_UNDEAD)
+		&&  !IS_SET(pMobIndex->form, FORM_UNDEAD)) {
+			REMOVE_BIT(pMobIndex->act, V4_ACT_UNDEAD);
+			SET_BIT(pMobIndex->form, FORM_UNDEAD);
+		}
+
+		pMobIndex->parts	= fread_flags(fp) | (r ? r->parts : 0);
+		/* size */
+		pMobIndex->size		= fread_fword(size_table, fp);
+		free_string(pMobIndex->material);
+		pMobIndex->material	= fread_sword(fp);
+
+		/* Set mob resists to 0 */
+		/* race resists will be added in create_mob() */
+		for (i = 0; i < MAX_RESIST; i++)
+			pMobIndex->resists[i] = 0;
+
+		for (; ;) {
+			letter = fread_letter(fp);
+
+			if (letter == 'a') {
+				AFFECT_DATA *paf = aff_fread(fp);
+				if (area_current->ver < 4
+				&&  paf->where != TO_SKILLS
+				&&  paf->where != TO_RACE
+				&&  INT(paf->location) >= 27) {
+					AFFECT_DATA *paf2 = aff_new(
+					    TO_RESIST, str_empty);
+					paf2->duration = -1;
+					paf2->level = pMobIndex->level;
+					INT(paf2->location) = damtbl[
+					    UMIN(INT(paf->location)-27,
+						 (int) DAMTBL_SZ-1)];
+					INT(paf->location) = APPLY_NONE;
+					paf2->modifier = paf->modifier;
+					paf->modifier = 0;
+					SLIST_ADD(AFFECT_DATA,
+					    pMobIndex->affected, paf2);
+				}
+
+				paf->level = pMobIndex->level;
+				paf->owner = NULL;
+				paf->duration = -1;
+				SLIST_ADD(AFFECT_DATA,
+				     pMobIndex->affected, paf);
+			} else if (letter == 'A') {
+				fread_word(fp);
+				if (!IS_TOKEN(fp, "det")) {
+					SET_BIT(pMobIndex->affected_by,
+					    fread_flags(fp));
+				}
+			} else if (letter == 'C') {
+				if (!IS_NULLSTR(pMobIndex->clan)) {
+					log(LOG_ERROR,
+					    "load_mobiles: duplicate clan.");
+					return;
+				}
+				pMobIndex->clan = fread_strkey(
+				    fp, &clans, "load_mobiles"); // notrans
+			} else if (letter == 'W')
+				pMobIndex->invis_level = fread_number(fp);
+			else if (letter == 'I')
+				pMobIndex->incog_level = fread_number(fp);
+			else if (letter == 'V')
+				pMobIndex->fvnum = fread_number(fp);
+			else if (letter == 'F') {
+				fread_word(fp);
+				if (IS_TOKEN(fp, "act")) {
+					REMOVE_BIT(pMobIndex->act,
+					    fread_flags(fp));
+				} else if (IS_TOKEN(fp, "aff")) {
+					REMOVE_BIT(pMobIndex->affected_by,
+					    fread_flags(fp));
+				} else if (IS_TOKEN(fp, "inv")) {
+					REMOVE_BIT(pMobIndex->has_invis,
+					    fread_flags(fp));
+				} else if (IS_TOKEN(fp, "det")) {
+					REMOVE_BIT(pMobIndex->has_detect,
+					    fread_flags(fp));
+				} else if (IS_TOKEN(fp, "off")) {
+					REMOVE_BIT(pMobIndex->off_flags,
+					    fread_flags(fp));
+				} else if (IS_TOKEN(fp, "imm"))
+					imm_r = fread_flags(fp);
+				else if (IS_TOKEN(fp, "res"))
+					res_r = fread_flags(fp);
+				else if (IS_TOKEN(fp, "vul"))
+					vul_r = fread_flags(fp);
+				else if (IS_TOKEN(fp, "for")) {
+					REMOVE_BIT(pMobIndex->form,
+					    fread_flags(fp));
+				} else if (IS_TOKEN(fp, "par"))
+					REMOVE_BIT(pMobIndex->parts,
+					    fread_flags(fp));
+				else {
+					log(LOG_ERROR,
+					    "flag remove: flag not found.");
+					return;
+				}
+			} else if ( letter == 'M' ) {
+				/* XXX */
+				int trig_vnum;
+				const char *phrase;
+#if 0
+				int type;
+
+				if ((type = fread_fword(mptrig_types, fp)) == 0) {
+					log(LOG_ERROR, "load_mobiles: vnum %d: invalid mob prog trigger",
+					    pMobIndex->vnum);
+					return;
+				}
 #endif
-		fread_word(fp);			/* mptrig type */
-		trig_vnum = fread_number(fp);	/* mpcode vnum */
-		phrase = fread_string(fp);	/* mptrig phrase */
-		free_string(phrase);
-	     } else if (letter == 'g') {
-		mlstr_fread(fp, &pMobIndex->gender);
-	     } else if (letter == 'r') {   /* Resists */
-		int _res = fread_fword(dam_classes, fp);
-		if (_res < 0 || _res == DAM_NONE) {
-			log(LOG_ERROR, "load_mobiles: unknown resist name");
-			fread_number(fp);
+				fread_word(fp);
+				trig_vnum = fread_number(fp);
+				phrase = fread_string(fp);
+				free_string(phrase);
+			} else if (letter == 'g')
+				mlstr_fread(fp, &pMobIndex->gender);
+			else if (letter == 'r') {   /* Resists */
+				int _res = fread_fword(dam_classes, fp);
+				if (_res < 0 || _res == DAM_NONE) {
+					log(LOG_ERROR,
+					    "load_mobiles: unknown resist name");
+					fread_number(fp);
+				}
+				pMobIndex->resists[_res] = fread_number(fp);
+				found_res = TRUE;
+			} else {
+				xungetc(fp);
+				break;
+			}
 		}
-		pMobIndex->resists[_res] = fread_number(fp);
-		found_res = TRUE;
-	     } else {
-		xungetc(fp);
-		break;
-	     }
+
+		if (area_current->ver < 3)
+			for (i = 0; i < MAX_RESIST; i++) {
+				if (pMobIndex->resists[i] >= 100)
+					pMobIndex->resists[i] = MOB_IMMUNE;
+				else if (r)
+					pMobIndex->resists[i] -= r->resists[i];
+			}
+
+		if (IS_SET(pMobIndex->affected_by, AFF_SANCTUARY)
+		&&  IS_EVIL(pMobIndex)) {
+			TOUCH_VNUM(pMobIndex->vnum);
+			REMOVE_BIT(pMobIndex->affected_by, AFF_SANCTUARY);
+			SET_BIT(pMobIndex->affected_by, AFF_BLACK_SHROUD);
+		}
+
+		if (area_current->ver == 0
+		&&  !found_res && (imm | res | vul)) {
+			/* Calculate percent resistances for mobile */
+			int16_t rresists[MAX_RESIST];
+
+			if (IS_SET(imm, V0_RES_SUMMON)
+			&&  !IS_SET(imm_r, V0_RES_SUMMON))
+				SET_BIT(pMobIndex->act, ACT_IMMSUMMON);
+
+			if (IS_SET(imm, V0_RES_STEAL)
+			&&  !IS_SET(imm_r, V0_RES_STEAL))
+				SET_BIT(pMobIndex->act, ACT_IMMSTEAL);
+
+			set_percent_resistances(
+			    imm, res, vul, pMobIndex->resists);
+
+			for (i = 0; i < MAX_RESIST; i++) {
+				int max, min;
+				max = UMAX(r->resists[i], pMobIndex->resists[i]);
+				min = UMIN(r->resists[i], pMobIndex->resists[i]);
+				if ((max == 100) && (min < 0))
+					pMobIndex->resists[i] = 33;
+				else if (max == 100)
+					pMobIndex->resists[i] = 100;
+				else if ((max > 0) && (min < 0))
+					pMobIndex->resists[i] = 0;
+				else if (max > 0)
+					pMobIndex->resists[i] = max;
+				else if (min < 0)
+					pMobIndex->resists[i] = min;
+				else
+					pMobIndex->resists[i] = 0;
+			}
+
+			set_percent_resistances(imm_r, 0, 0, rresists);
+			for (i = 0; i < MAX_RESIST; i++) {
+				if ((rresists[i] == 100)
+				&& (pMobIndex->resists[i] == 100))
+					pMobIndex->resists[i] = 33;
+			}
+
+			set_percent_resistances(res_r, 0, 0, rresists);
+			for (i = 0; i < MAX_RESIST; i++) {
+				if ((rresists[i] == 100)
+				&& (pMobIndex->resists[i] < 100)
+				&& (pMobIndex->resists[i] > 0))
+					pMobIndex->resists[i] = 0;
+			}
+
+			set_percent_resistances(vul_r, 0, 0, rresists);
+			for (i = 0; i < MAX_RESIST; i++) {
+				if ((rresists[i] == 100)
+				&& (pMobIndex->resists[i] < 0))
+					pMobIndex->resists[i] = 0;
+			}
+		}
+
+		iHash                   = vnum % MAX_KEY_HASH;
+		pMobIndex->next         = mob_index_hash[iHash];
+		mob_index_hash[iHash]   = pMobIndex;
+		top_vnum_mob = top_vnum_mob < vnum ? vnum : top_vnum_mob;
+		vnum_check(area_current, vnum);
 	}
-
-	if (area_current->ver < 3)
-		for (i = 0; i < MAX_RESIST; i++) {
-			if (pMobIndex->resists[i] >= 100)
-				pMobIndex->resists[i] = MOB_IMMUNE;
-			else if (r)
-				pMobIndex->resists[i] -= r->resists[i];
-		}
-
-	if (IS_SET(pMobIndex->affected_by, AFF_SANCTUARY)
-	&&  IS_EVIL(pMobIndex)) {
-		TOUCH_VNUM(pMobIndex->vnum);
-		REMOVE_BIT(pMobIndex->affected_by, AFF_SANCTUARY);
-		SET_BIT(pMobIndex->affected_by, AFF_BLACK_SHROUD);
-	}
-
-	if (area_current->ver == 0
-	&&  !found_res && (imm | res | vul)) {
-	/* Calculate percent resistances for mobile */
-		int16_t rresists[MAX_RESIST];
-
-		if (IS_SET(imm, V0_RES_SUMMON) && !IS_SET(imm_r, V0_RES_SUMMON))
-			SET_BIT(pMobIndex->act, ACT_IMMSUMMON);
-
-		if (IS_SET(imm, V0_RES_STEAL) && !IS_SET(imm_r, V0_RES_STEAL))
-			SET_BIT(pMobIndex->act, ACT_IMMSTEAL);
-
-		set_percent_resistances(imm, res, vul, pMobIndex->resists);
-		for (i = 0; i < MAX_RESIST; i++) {
-			int max, min;
-			max = UMAX(r->resists[i], pMobIndex->resists[i]);
-			min = UMIN(r->resists[i], pMobIndex->resists[i]);
-			if ((max == 100) && (min < 0))
-				pMobIndex->resists[i] = 33;
-			else if (max == 100)
-				pMobIndex->resists[i] = 100;
-			else if ((max > 0) && (min < 0))
-				pMobIndex->resists[i] = 0;
-			else if (max > 0)
-				pMobIndex->resists[i] = max;
-			else if (min < 0)
-				pMobIndex->resists[i] = min;
-			else
-				pMobIndex->resists[i] = 0;
-		}
-
-		set_percent_resistances(imm_r, 0, 0, rresists);
-		for (i = 0; i < MAX_RESIST; i++) {
-			if ((rresists[i] == 100)
-			&& (pMobIndex->resists[i] == 100))
-				pMobIndex->resists[i] = 33;
-		}
-
-		set_percent_resistances(res_r, 0, 0, rresists);
-		for (i = 0; i < MAX_RESIST; i++) {
-			if ((rresists[i] == 100)
-			&& (pMobIndex->resists[i] < 100)
-			&& (pMobIndex->resists[i] > 0))
-				pMobIndex->resists[i] = 0;
-		}
-
-		set_percent_resistances(vul_r, 0, 0, rresists);
-		for (i = 0; i < MAX_RESIST; i++) {
-			if ((rresists[i] == 100)
-			&& (pMobIndex->resists[i] < 0))
-				pMobIndex->resists[i] = 0;
-		}
-	}
-
-        iHash                   = vnum % MAX_KEY_HASH;
-        pMobIndex->next         = mob_index_hash[iHash];
-        mob_index_hash[iHash]   = pMobIndex;
-        top_vnum_mob = top_vnum_mob < vnum ? vnum : top_vnum_mob;  /* OLC */
-        vnum_check(area_current, vnum);                            /* OLC */
-    }
 }
 
 flag_subst_t v0_subst_stat[] =
@@ -1699,3 +1724,21 @@ DBLOAD_FUN(load_objects)
 		vnum_check(area_current, vnum);
 	}
 }
+
+/*
+ * Sets vnum range for area using OLC protection features.
+ */
+static void
+vnum_check(AREA_DATA *area, int vnum)
+{
+	if (area->min_vnum == 0 || area->max_vnum == 0) {
+		log(LOG_INFO, "%s: min_vnum or max_vnum not assigned",
+			   area->file_name);
+	}
+
+	if (vnum < area->min_vnum || vnum > area->max_vnum) {
+		log(LOG_INFO, "%s: %d not in area vnum range",
+			   area->file_name, vnum);
+	}
+}
+

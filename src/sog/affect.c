@@ -23,14 +23,15 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: affect.c,v 1.58 2001-07-31 14:56:22 fjoe Exp $
+ * $Id: affect.c,v 1.59 2001-08-02 18:20:15 fjoe Exp $
  */
 
 #include <stdio.h>
 
 #include <merc.h>
-#include <rfile.h>
-#include <db.h>
+#include <rwfile.h>
+
+int top_affect;
 
 AFFECT_DATA *
 aff_new(int where, const char *sn)

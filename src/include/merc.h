@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.342 2001-08-02 14:21:30 fjoe Exp $
+ * $Id: merc.h,v 1.343 2001-08-02 18:19:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -161,6 +161,7 @@ enum {
 #define MAX_TRADE		5	/* number of trade types for shops */
 #define MAX_DIR			6	/* number of exits */
 #define MAX_ALIAS		50	/* number of aliases char can have */
+#define MAX_KEY_HASH		1024
 
 /*
  * level consts
@@ -1989,20 +1990,6 @@ MOB_INDEX_DATA *	get_mob_index	(int vnum);
 OBJ_INDEX_DATA *	get_obj_index	(int vnum);
 ROOM_INDEX_DATA *	get_room_index	(int vnum);
 
-int	number_fuzzy	(int number);
-int	number_range	(int from, int to);
-int	number_percent	(void);
-int	number_door	(void);
-int	number_bits	(int width);
-int	dice		(int number, int size);
-/* Dice with luck bonus */
-int	dice_wlb	(int number, int size, CHAR_DATA *ch, CHAR_DATA *victim);
-int	interpolate	(int level, int value_00, int value_32);
-char *	capitalize	(const char *str);
-char *	format_flags	(flag_t flags);
-
-#define chance(num) (number_range(1, 100) <= num)
-
 /*
  * Global Constants
  */
@@ -2029,8 +2016,6 @@ enum {
 #define DUMP_LEVEL(ch)	((ch)->desc &&					\
 			 IS_SET((ch)->desc->dvdata->olc_flags,		\
 				OLC_MODE_RAW) ? DL_COLOR : DL_NONE)
-
-const char *strdump	(const char *argument, int dump_level);
 
 /* rebooting flag */
 extern bool merc_down;
@@ -2288,5 +2273,152 @@ struct auction_data
 extern AUCTION_DATA auction;
 
 #define IS_AUCTIONED(obj) (auction.item == obj)
+
+/*----------------------------------------------------------------------
+ * hints stuff
+ */
+
+typedef struct {
+	mlstring	phrase;
+	flag_t		hint_level;
+} hint_t;
+
+extern varr hints;
+
+void hint_init(hint_t *t);
+void hint_destroy(hint_t *t);
+
+/*----------------------------------------------------------------------
+ * global mlstrings with gender
+ */
+
+extern hash_t glob_gmlstr;	/* gmlstr_t globals */
+#define	glob_lookup(gn)	((gmlstr_t *) strkey_lookup(&glob_gmlstr, (gn)))
+
+/*
+ * char_save flags (these are mutually exclusive)
+ * they are defined here because close_descriptor also uses these flags
+ */
+#define SAVE_F_NONE	(A)
+#define SAVE_F_NORMAL	(B)
+#define SAVE_F_REBOOT	(C)
+#define SAVE_F_PSCAN	(D)
+
+/*
+ * changed flags
+ */
+#define CF_MSGDB	(A)
+#define CF_SOCIAL	(B)
+#define CF_CMD		(C)
+#define CF_SKILL	(D)
+#define CF_MATERIAL	(E)
+#define CF_LIQUID	(F)
+#define CF_DAMT		(G)
+#define CF_HINT		(H)
+
+extern int changed_flags;
+
+#define SLIST_ADD(type, list, item)					\
+	{								\
+		if ((list) == NULL)					\
+			(list) = (item);				\
+		else {							\
+			type *p;					\
+									\
+			for (p = (list); p->next != NULL; p = p->next)	\
+				;					\
+			p->next = (item);				\
+		}							\
+		(item)->next = NULL;					\
+	}
+
+extern MOB_INDEX_DATA *	mob_index_hash	[MAX_KEY_HASH];
+extern OBJ_INDEX_DATA *	obj_index_hash	[MAX_KEY_HASH];
+extern ROOM_INDEX_DATA *room_index_hash [MAX_KEY_HASH];
+extern int		top_mob_index;
+extern int		top_obj_index;
+extern int		top_vnum_mob;
+extern int		top_vnum_obj;
+extern int		top_vnum_room;
+extern int		top_affect;
+extern int		top_ed;
+extern int		top_area;
+extern int		top_exit;
+extern int		top_help;
+extern int		top_reset;
+extern int		top_room;
+extern int		top_mprog_index;
+extern int		top_shop;
+extern int		social_count;
+extern int		str_count;
+extern int		str_real_count;
+extern int		top_player;
+extern int		rebooter;
+extern AREA_DATA *	area_first;
+extern AREA_DATA *	area_last;
+extern AREA_DATA *	area_current;
+extern SHOP_DATA *	shop_last;
+
+/*
+ * the following path/file name consts are defined in db.c
+ */
+extern const char TMP_PATH	[];
+extern const char PLAYER_PATH	[];
+extern const char GODS_PATH	[];
+extern const char NOTES_PATH	[];
+extern const char ETC_PATH	[];
+extern const char AREA_PATH	[];
+extern const char LANG_PATH	[];
+extern const char MODULES_PATH	[];
+extern const char MPC_PATH	[];
+
+extern const char CLASSES_PATH	[];
+extern const char CLANS_PATH	[];
+extern const char PLISTS_PATH	[];
+extern const char RACES_PATH	[];
+extern const char SPEC_PATH	[];
+
+extern const char CLASS_EXT	[];
+extern const char CLAN_EXT	[];
+extern const char RACE_EXT	[];
+extern const char SPEC_EXT	[];
+extern const char MPC_EXT	[];
+
+extern const char TMP_FILE	[];
+extern const char NULL_FILE	[];
+
+extern const char MODULES_CONF	[];
+extern const char HOMETOWNS_CONF[];
+extern const char SKILLS_CONF	[];
+extern const char SOCIALS_CONF	[];
+extern const char SYSTEM_CONF	[];
+extern const char LANG_CONF	[];
+extern const char CMD_CONF	[];
+extern const char DAMTYPE_CONF	[];
+extern const char MATERIALS_CONF[];
+extern const char LIQUIDS_CONF	[];
+extern const char CC_EXPR_CONF	[];
+extern const char UHANDLERS_CONF[];
+extern const char FORMS_CONF	[];
+
+extern const char MSGDB_FILE	[];
+extern const char HINTS_FILE	[];
+extern const char GLOB_GMLSTR_FILE[];
+
+extern const char AREA_LIST	[];
+extern const char LANG_LIST	[];
+
+extern const char NOTE_FILE	[];
+extern const char IDEA_FILE	[];
+extern const char PENALTY_FILE	[];
+extern const char NEWS_FILE	[];
+extern const char CHANGES_FILE	[];
+extern const char SHUTDOWN_FILE	[];
+extern const char EQCHECK_FILE	[];
+extern const char EQCHECK_SAVE_ALL_FILE [];
+extern const char BAN_FILE	[];
+extern const char MAXON_FILE	[];
+extern const char AREASTAT_FILE	[];
+extern const char IMMLOG_FILE	[];
 
 #endif

@@ -23,14 +23,15 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_spec.c,v 1.20 2001-07-04 19:21:25 fjoe Exp $
+ * $Id: db_spec.c,v 1.21 2001-08-02 18:19:59 fjoe Exp $
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "merc.h"
-#include "db.h"
+#include <merc.h>
+#include <bootdb.h>
+#include <rwfile.h>
 
 DECLARE_DBLOAD_FUN(load_spec);
 DECLARE_DBLOAD_FUN(load_spec_skill);

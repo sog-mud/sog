@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.155 2001-08-02 14:21:39 fjoe Exp $
+ * $Id: act_quest.c,v 1.156 2001-08-02 18:20:12 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -598,7 +598,7 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 	victim = mobs[number_range(0, mob_count-1)];
 	PC(ch)->qroom_vnum = victim->in_room->vnum;
 
-	if (chance(40)) { /* Quest to find an obj */
+	if (number_percent() < 40) { /* Quest to find an obj */
 		OBJ_DATA *eyed;
 		int obj_vnum;
 

@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.65 2001-07-29 09:43:23 fjoe Exp $
+ * $Id: note.c,v 1.66 2001-08-02 18:20:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,10 +44,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "merc.h"
-#include "db.h"
-#include "note.h"
-#include "rfile.h"
+#include <merc.h>
+#include <note.h>
+#include <rwfile.h>
 
 static void load_thread(const char *name, note_t **list,
 			int type, time_t free_time);

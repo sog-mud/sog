@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.118 2001-08-02 14:21:43 fjoe Exp $
+ * $Id: recycle.c,v 1.119 2001-08-02 18:20:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -48,9 +48,122 @@
 #include <stdlib.h>
 
 #include <merc.h>
-#include <db.h>
+#include <rwfile.h>
 
-ED_DATA *ed_new(void)
+flag_t		mud_options;
+
+TIME_INFO_DATA	time_info;
+WEATHER_DATA	weather_info;
+AUCTION_DATA	auction;
+
+ROOM_INDEX_DATA	*top_affected_room = NULL;
+CHAR_DATA	*top_affected_char = NULL;
+OBJ_DATA	*top_affected_obj = NULL;
+
+int		reboot_counter = 1440;
+int		rebooter = 0;
+
+int		changed_flags;		/* changed object flags for OLC */
+
+hash_t		glob_gmlstr;
+
+int		top_vnum_room;
+int		top_vnum_mob;
+int		top_vnum_obj;
+int		top_player;
+
+/*
+ * paths
+ */
+const char TMP_PATH		[] = "tmp";		// notrans
+const char PLAYER_PATH		[] = "player";		// notrans
+const char GODS_PATH		[] = "gods";		// notrans
+const char NOTES_PATH		[] = "notes";		// notrans
+const char ETC_PATH		[] = "etc";		// notrans
+const char AREA_PATH		[] = "area";		// notrans
+const char LANG_PATH		[] = "lang";		// notrans
+const char MODULES_PATH		[] = "modules";		// notrans
+const char MPC_PATH		[] = "mpc";		// notrans
+
+const char CLASSES_PATH		[] = "classes";		// notrans
+const char CLANS_PATH		[] = "clans";		// notrans
+const char RACES_PATH		[] = "races";		// notrans
+const char SPEC_PATH		[] = "specs";		// notrans
+
+const char RACE_EXT		[] = ".race";		// notrans
+const char CLASS_EXT		[] = ".class";		// notrans
+const char CLAN_EXT		[] = ".clan";		// notrans
+const char SPEC_EXT		[] = ".spec";		// notrans
+const char MPC_EXT		[] = ".mpc";		// notrans
+
+#if defined (WIN32)
+const char PLISTS_PATH		[] = "clans\\plists";	// notrans
+const char NULL_FILE		[] = "NUL";		// notrans
+#else
+const char PLISTS_PATH		[] = "clans/plists";	// notrans
+const char NULL_FILE		[] = "/dev/null";	// notrans
+#endif
+
+const char TMP_FILE		[] = "romtmp";		// notrans
+
+const char MODULES_CONF		[] = "modules.conf";	// notrans
+const char HOMETOWNS_CONF	[] = "hometowns.conf";	// notrans
+const char SKILLS_CONF		[] = "skills.conf";	// notrans
+const char SOCIALS_CONF		[] = "socials.conf";	// notrans
+const char SYSTEM_CONF		[] = "system.conf";	// notrans
+const char LANG_CONF		[] = "lang.conf";	// notrans
+const char CMD_CONF		[] = "cmd.conf";	// notrans
+const char DAMTYPE_CONF		[] = "damtype.conf";	// notrans
+const char MATERIALS_CONF	[] = "materials.conf";	// notrans
+const char LIQUIDS_CONF		[] = "liquids.conf";	// notrans
+const char FORMS_CONF		[] = "forms.conf";	// notrans
+const char CC_EXPR_CONF		[] = "cc_expr.conf";	// notrans
+const char UHANDLERS_CONF	[] = "uhandlers.conf";	// notrans
+
+const char GLOB_GMLSTR_FILE	[] = "glob_gmlstr";	// notrans
+const char MSGDB_FILE		[] = "msgdb";		// notrans
+const char HINTS_FILE		[] = "hints";		// notrans
+
+const char AREA_LIST		[] = "area.lst";	// notrans
+const char LANG_LIST		[] = "lang.lst";	// notrans
+
+const char NOTE_FILE		[] = "notes.not";	// notrans
+const char IDEA_FILE		[] = "ideas.not";	// notrans
+const char PENALTY_FILE		[] = "penal.not";	// notrans
+const char NEWS_FILE		[] = "news.not";	// notrans
+const char CHANGES_FILE		[] = "chang.not";	// notrans
+const char SHUTDOWN_FILE	[] = "shutdown";	// notrans
+const char EQCHECK_FILE		[] = "eqcheck";		// notrans
+const char EQCHECK_SAVE_ALL_FILE[] = "eqcheck_save_all";// notrans
+
+const char BAN_FILE		[] = "ban.txt";		// notrans
+const char MAXON_FILE		[] = "maxon.txt";	// notrans
+const char AREASTAT_FILE	[] = "areastat.txt";	// notrans
+const char IMMLOG_FILE		[] = "immortals.log";	// notrans
+
+const char *dir_name[] =
+{
+	"north", "east", "south", "west", "up", "down"
+};
+
+const char *from_dir_name[] =
+{
+	"the north", "the east", "the south", "the west", "the up", "the down"
+};
+
+const int rev_dir[] =
+{
+	2, 3, 0, 1, 5, 4
+};
+
+/*--------------------------------------------------------------------
+ * ED_DATA
+ */
+
+int top_ed;
+
+ED_DATA *
+ed_new(void)
 {
 	ED_DATA *ed;
 	ed = calloc(1, sizeof(*ed));
@@ -58,7 +171,8 @@ ED_DATA *ed_new(void)
 	return ed;
 }
 
-ED_DATA *ed_new2(const ED_DATA *ed, const char* name)
+ED_DATA *
+ed_new2(const ED_DATA *ed, const char* name)
 {
 	ED_DATA *ed2 = ed_new();
 	ed2->keyword = str_qdup(ed->keyword);
@@ -66,7 +180,23 @@ ED_DATA *ed_new2(const ED_DATA *ed, const char* name)
 	return ed2;
 }
 
-ED_DATA *ed_dup(const ED_DATA *ed)
+void
+ed_free(ED_DATA *ed)
+{
+	ED_DATA *ed_next;
+
+	for (; ed; ed = ed_next) {
+		ed_next = ed->next;
+
+		free_string(ed->keyword);
+		mlstr_destroy(&ed->description);
+		free(ed);
+		top_ed--;
+	}
+}
+
+ED_DATA *
+ed_dup(const ED_DATA *ed)
 {
 	ED_DATA *ned = NULL;
 	ED_DATA **ped = &ned;
@@ -81,21 +211,27 @@ ED_DATA *ed_dup(const ED_DATA *ed)
 	return ned;
 }
 
-void ed_free(ED_DATA *ed)
+/*
+ * Get an extra description from a list.
+ */
+ED_DATA *
+ed_lookup(const char *name, ED_DATA *ed)
 {
-	ED_DATA *ed_next;
+	int num;
+	char arg[MAX_INPUT_LENGTH];
 
-	for (; ed; ed = ed_next) {
-		ed_next = ed->next;
-
-		free_string(ed->keyword);
-		mlstr_destroy(&ed->description);
-		free(ed);
-		top_ed--;
+	num = number_argument(name, arg, sizeof(arg));
+	for (; ed != NULL; ed = ed->next) {
+		if (arg[0] && !is_name(arg, ed->keyword))
+			continue;
+		if (!--num)
+			return ed;
 	}
+	return NULL;
 }
 
-void ed_fread(rfile_t *fp, ED_DATA **edp)
+void
+ed_fread(rfile_t *fp, ED_DATA **edp)
 {
 	ED_DATA *ed	= ed_new();
 	ed->keyword	= fread_string(fp);
@@ -103,18 +239,25 @@ void ed_fread(rfile_t *fp, ED_DATA **edp)
 	SLIST_ADD(ED_DATA, *edp, ed);
 }
 
-void ed_fwrite(FILE *fp, ED_DATA *ed)
+void
+ed_fwrite(FILE *fp, ED_DATA *ed)
 {
 	fprintf(fp, "E\n%s~\n", fix_string(ed->keyword));
 	mlstr_fwrite(fp, NULL, &ed->description);
 }
 
-OBJ_DATA *free_obj_list;
+/*--------------------------------------------------------------------
+ * OBJ_DATA
+ */
+
+OBJ_DATA *object_list;
+static OBJ_DATA *free_obj_list;
 
 int obj_count;
 int obj_free_count;
 
-OBJ_DATA *new_obj(void)
+OBJ_DATA *
+new_obj(void)
 {
 	OBJ_DATA *obj;
 
@@ -133,7 +276,8 @@ OBJ_DATA *new_obj(void)
 	return obj;
 }
 
-void free_obj(OBJ_DATA *obj)
+void
+free_obj(OBJ_DATA *obj)
 {
 	if (!obj)
 		return;
@@ -168,13 +312,17 @@ void free_obj(OBJ_DATA *obj)
 	obj_free_count++;
 }
 
-/*
- * PC/NPC recycling
+/*--------------------------------------------------------------------
+ * CHAR_DATA
  */
-CHAR_DATA *free_npc_list;
+
+CHAR_DATA *char_list;
+CHAR_DATA *char_list_lastpc;
+
+static CHAR_DATA *free_npc_list;
 int npc_free_count;
 
-CHAR_DATA *free_pc_list;
+static CHAR_DATA *free_pc_list;
 int pc_free_count;
 
 int npc_count;
@@ -210,7 +358,8 @@ static varrdata_t v_specs =
 	NULL
 };
 
-CHAR_DATA *char_new(MOB_INDEX_DATA *pMobIndex)
+CHAR_DATA *
+char_new(MOB_INDEX_DATA *pMobIndex)
 {
 	CHAR_DATA *ch;
 	int i;
@@ -311,7 +460,8 @@ CHAR_DATA *char_new(MOB_INDEX_DATA *pMobIndex)
 	return ch;
 }
 
-void char_free(CHAR_DATA *ch)
+void
+char_free(CHAR_DATA *ch)
 {
 	CHAR_DATA **free_list;
 	int *free_count;
@@ -392,7 +542,14 @@ void char_free(CHAR_DATA *ch)
 	(*free_count)++;
 }
 
-RESET_DATA *reset_new(void)
+/*--------------------------------------------------------------------
+ * RESET_DATA
+ */
+
+int top_reset;
+
+RESET_DATA *
+reset_new(void)
 {
 	RESET_DATA *pReset;
 
@@ -403,7 +560,8 @@ RESET_DATA *reset_new(void)
 	return pReset;
 }
 
-void reset_free(RESET_DATA *pReset)
+void
+reset_free(RESET_DATA *pReset)
 {
 	if (!pReset)
 		return;
@@ -411,7 +569,88 @@ void reset_free(RESET_DATA *pReset)
 	free(pReset);
 }
 
-AREA_DATA *new_area(void)
+void
+reset_add(ROOM_INDEX_DATA *room, RESET_DATA *reset, RESET_DATA *after)
+{
+	RESET_DATA *r;
+
+	if (after == NULL) {
+		/*
+		 * add to the end
+		 */
+
+		reset->next = NULL;
+		if (room->reset_first == NULL)
+			room->reset_first = reset;
+		if (room->reset_last == NULL)
+			room->reset_last = reset;
+		else
+			room->reset_last = room->reset_last->next = reset;
+		return;
+	}
+
+	for (r = room->reset_first; r != NULL; r = r->next) {
+		if (r == after)
+			break;
+	}
+
+	if (r == NULL) {
+		log(LOG_BUG, "reset_add: `after' reset not found");
+		return;
+	}
+
+	reset->next = r->next;
+	r->next = reset;
+	if (reset->next == NULL)
+		room->reset_last = reset;
+}
+
+void
+reset_del(ROOM_INDEX_DATA *room, RESET_DATA *reset)
+{
+	RESET_DATA *r;
+	RESET_DATA *prev = NULL;
+
+	for (r = room->reset_first; r != NULL; r = r->next) {
+		if (r == reset)
+			break;
+		prev = r;
+	}
+
+	if (r == NULL)
+		return;
+
+	if (prev == NULL)
+		room->reset_first = r->next;
+	else
+		prev->next = r->next;
+	if (r->next == NULL)
+		room->reset_last = prev;
+}
+
+RESET_DATA *
+reset_lookup(ROOM_INDEX_DATA *room, int rnum)
+{
+	RESET_DATA *r;
+
+	for (r = room->reset_first; r != NULL; r = r->next) {
+		if (!--rnum)
+			break;
+	}
+
+	return r;
+}
+
+/*--------------------------------------------------------------------
+ * AREA_DATA
+ */
+
+int top_area;
+AREA_DATA *area_first;
+AREA_DATA *area_last;
+
+AREA_DATA *
+new_area(void)
 {
 	AREA_DATA *pArea;
 
@@ -428,12 +667,19 @@ AREA_DATA *new_area(void)
 	return pArea;
 }
 
-/*****************************************************************************
- Name:		area_lookup
- Purpose:	Returns pointer to area with given vnum.
- Called by:	do_aedit(olc.c).
- ****************************************************************************/
-AREA_DATA *area_lookup(int vnum)
+void
+free_area(AREA_DATA *pArea)
+{
+	free_string(pArea->name);
+	free_string(pArea->file_name);
+	free_string(pArea->builders);
+	free_string(pArea->credits);
+	top_area--;
+	mem_free(pArea);
+}
+
+AREA_DATA *
+area_lookup(int vnum)
 {
 	AREA_DATA *pArea;
 
@@ -444,7 +690,8 @@ AREA_DATA *area_lookup(int vnum)
 	return 0;
 }
 
-AREA_DATA *area_vnum_lookup(int vnum)
+AREA_DATA *
+area_vnum_lookup(int vnum)
 {
 	AREA_DATA *pArea;
 
@@ -457,17 +704,14 @@ AREA_DATA *area_vnum_lookup(int vnum)
 	return 0;
 }
 
-void free_area(AREA_DATA *pArea)
-{
-	free_string(pArea->name);
-	free_string(pArea->file_name);
-	free_string(pArea->builders);
-	free_string(pArea->credits);
-	top_area--;
-	mem_free(pArea);
-}
+/*--------------------------------------------------------------------
+ * EXIT_DATA
+ */
 
-EXIT_DATA *new_exit(void)
+int top_exit;
+
+EXIT_DATA *
+new_exit(void)
 {
 	EXIT_DATA *pExit;
 
@@ -480,7 +724,8 @@ EXIT_DATA *new_exit(void)
 	return pExit;
 }
 
-void free_exit(EXIT_DATA *pExit)
+void
+free_exit(EXIT_DATA *pExit)
 {
 	if (!pExit)
 		return;
@@ -492,7 +737,15 @@ void free_exit(EXIT_DATA *pExit)
 	free(pExit);
 }
 
-ROOM_INDEX_DATA *new_room_index(void)
+/*--------------------------------------------------------------------
+ * ROOM_INDEX_DATA
+ */
+
+int top_room;
+ROOM_INDEX_DATA *room_index_hash[MAX_KEY_HASH];
+
+ROOM_INDEX_DATA *
+new_room_index(void)
 {
 	ROOM_INDEX_DATA *pRoom;
 
@@ -505,7 +758,8 @@ ROOM_INDEX_DATA *new_room_index(void)
 	return pRoom;
 }
 
-void free_room_index(ROOM_INDEX_DATA *pRoom)
+void
+free_room_index(ROOM_INDEX_DATA *pRoom)
 {
 	int door;
 	RESET_DATA *pReset;
@@ -530,7 +784,36 @@ void free_room_index(ROOM_INDEX_DATA *pRoom)
 	mem_free(pRoom);
 }
 
-SHOP_DATA *new_shop(void)
+/*
+ * Translates mob virtual number to its room index struct.
+ * Hash table lookup.
+ */
+ROOM_INDEX_DATA *
+get_room_index(int vnum)
+{
+	ROOM_INDEX_DATA *pRoomIndex;
+
+	if (vnum <= 0)
+		return NULL;
+
+	for (pRoomIndex = room_index_hash[vnum % MAX_KEY_HASH];
+	     pRoomIndex; pRoomIndex = pRoomIndex->next)
+		if (pRoomIndex->vnum == vnum)
+			return pRoomIndex;
+
+	return NULL;
+}
+
+/*--------------------------------------------------------------------
+ * SHOP_DATA
+ */
+
+int top_shop;
+SHOP_DATA *shop_first;
+SHOP_DATA *shop_last;
+
+SHOP_DATA *
+new_shop(void)
 {
 	SHOP_DATA *pShop;
 
@@ -543,7 +826,8 @@ SHOP_DATA *new_shop(void)
 	return pShop;
 }
 
-void free_shop(SHOP_DATA *pShop)
+void
+free_shop(SHOP_DATA *pShop)
 {
 	if (!pShop)
 		return;
@@ -551,7 +835,15 @@ void free_shop(SHOP_DATA *pShop)
 	free(pShop);
 }
 
-OBJ_INDEX_DATA *new_obj_index(void)
+/*--------------------------------------------------------------------
+ * OBJ_INDEX_DATA
+ */
+
+int top_obj_index;
+OBJ_INDEX_DATA *obj_index_hash[MAX_KEY_HASH];
+
+OBJ_INDEX_DATA *
+new_obj_index(void)
 {
 	OBJ_INDEX_DATA *pObj;
 
@@ -569,7 +861,8 @@ OBJ_INDEX_DATA *new_obj_index(void)
 	return pObj;
 }
 
-void free_obj_index(OBJ_INDEX_DATA *pObj)
+void
+free_obj_index(OBJ_INDEX_DATA *pObj)
 {
 	if (!mem_is(pObj, MT_OBJ_INDEX))
 		return;
@@ -588,7 +881,35 @@ void free_obj_index(OBJ_INDEX_DATA *pObj)
 	mem_free(pObj);
 }
 
-MOB_INDEX_DATA *new_mob_index(void)
+/*
+ * Translates mob virtual number to its obj index struct.
+ * Hash table lookup.
+ */
+OBJ_INDEX_DATA *
+get_obj_index(int vnum)
+{
+	OBJ_INDEX_DATA *pObjIndex;
+
+	if (vnum <= 0)
+		return NULL;
+
+	for (pObjIndex = obj_index_hash[vnum % MAX_KEY_HASH];
+	     pObjIndex; pObjIndex = pObjIndex->next)
+		if (pObjIndex->vnum == vnum)
+			return pObjIndex;
+
+	return NULL;
+}
+
+/*--------------------------------------------------------------------
+ * MOB_INDEX_DATA
+ */
+
+int top_mob_index;
+MOB_INDEX_DATA *mob_index_hash[MAX_KEY_HASH];
+
+MOB_INDEX_DATA *
+new_mob_index(void)
 {
 	MOB_INDEX_DATA *pMob;
 
@@ -607,7 +928,8 @@ MOB_INDEX_DATA *new_mob_index(void)
 	return pMob;
 }
 
-void free_mob_index(MOB_INDEX_DATA *pMob)
+void
+free_mob_index(MOB_INDEX_DATA *pMob)
 {
 	if (!mem_is(pMob, MT_MOB_INDEX))
 		return;
@@ -626,6 +948,26 @@ void free_mob_index(MOB_INDEX_DATA *pMob)
 
 	top_mob_index--;
 	mem_free(pMob);
+}
+
+/*
+ * Translates mob virtual number to its mob index struct.
+ * Hash table lookup.
+ */
+MOB_INDEX_DATA *
+get_mob_index(int vnum)
+{
+	MOB_INDEX_DATA *pMobIndex;
+
+	if (vnum <= 0)
+		return NULL;
+
+	for (pMobIndex = mob_index_hash[vnum % MAX_KEY_HASH];
+	     pMobIndex; pMobIndex = pMobIndex->next)
+		if (pMobIndex->vnum == vnum)
+			return pMobIndex;
+
+	return NULL;
 }
 
 /*--------------------------------------------------------------------
@@ -969,7 +1311,19 @@ social_destroy(social_t *soc)
 }
 
 /*--------------------------------------------------------------------
- * AUCTION_DATA
+ * hint_t
  */
 
-AUCTION_DATA auction;
+varr hints;
+
+void
+hint_init(hint_t *t)
+{
+	mlstr_init(&t->phrase);
+}
+
+void
+hint_destroy(hint_t *t)
+{
+	mlstr_destroy(&t->phrase);
+}

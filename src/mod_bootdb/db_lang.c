@@ -23,16 +23,17 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.30 2001-06-24 10:51:01 avn Exp $
+ * $Id: db_lang.c,v 1.31 2001-08-02 18:19:57 fjoe Exp $
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-#include "merc.h"
-#include "db.h"
-#include "lang.h"
+#include <merc.h>
+#include <lang.h>
+#include <bootdb.h>
+#include <rwfile.h>
 
 DECLARE_DBLOAD_FUN(load_lang);
 DECLARE_DBLOAD_FUN(load_rulecl);
@@ -99,7 +100,7 @@ DBINIT_FUN(init_lang)
 DBLOAD_FUN(load_lang)
 {
 	lang_t *lang = varr_enew(&langs);
-	lang->file_name = get_filename(filename);
+	lang->file_name = get_filename(bootdb_filename);
 	db_set_arg(dbdata, "RULECLASS", lang);
 
 	for (;;) {
@@ -166,13 +167,12 @@ DBLOAD_FUN(load_rulecl)
 				const char *s;
 				char path[PATH_MAX];
 
-				s = strrchr(filename, PATH_SEPARATOR);
+				s = strrchr(bootdb_filename, PATH_SEPARATOR);
 				if (s) {
 					strnzncpy(path, sizeof(path),
-						  filename,
-						  (unsigned)(s - filename));
-				}
-				else
+					    bootdb_filename,
+					    (unsigned)(s - bootdb_filename));
+				} else
 					path[0] = '\0';
 
 				if (!IS_NULLSTR(rcl->file_expl)) {
@@ -264,4 +264,3 @@ load_rules(rfile_t *fp, rulecl_t *rcl, rule_t* (*rule_add)(rulecl_t*, rule_t*))
 		}
 	}
 }
-

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.267 2001-07-31 18:14:40 fjoe Exp $
+ * $Id: act_move.c,v 1.268 2001-08-02 18:20:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,7 +46,7 @@
 #include <string.h>
 
 #include <merc.h>
-#include <db.h>
+#include <lang.h>
 
 #include <handler.h>
 #include <magic.h>
@@ -2727,7 +2727,7 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 			damage(ch, victim, dam, sn,
 				damtype_class(arrow->value[3].s), DAMF_SHOW);
 			if (!IS_EXTRACTED(victim))
-				path_to_track(ch,victim,door);
+				path_to_track(ch, victim, door);
 		    }
 		    return TRUE;
 		  } else {
@@ -2880,12 +2880,12 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *wield;
-	OBJ_DATA *arrow; 
+	OBJ_DATA *arrow;
 	char arg1[512],arg2[512];
 	bool success;
 	int chance, direction;
 	int range = (LEVEL(ch) / 10) + 1;
-	
+
 	if ((chance = get_skill(ch, "bow")) == 0) {
 		act_char("You don't know how to shoot.", ch);
 		return;
@@ -2917,7 +2917,7 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 		act_char("Shoot which direction and whom?", ch);
 		return;
 	}
-		
+
 	if ((victim = find_char(ch, arg2, direction, range)) == NULL) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		act_char("They aren't there.", ch);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_update.c,v 1.9 2001-07-31 18:15:09 fjoe Exp $
+ * $Id: init_update.c,v 1.10 2001-08-02 18:20:14 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -32,7 +32,8 @@
 
 #include <merc.h>
 #include <module.h>
-#include <db.h>
+#include <bootdb.h>
+#include <rwfile.h>
 
 #include <update.h>
 #include "update_impl.h"

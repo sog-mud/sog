@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.32 2001-07-31 18:15:13 fjoe Exp $
+ * $Id: lang.c,v 1.33 2001-08-02 18:20:16 fjoe Exp $
  */
 
 #include <string.h>
@@ -33,7 +33,6 @@
 
 #include <merc.h>
 #include <lang.h>
-#include <db.h>
 
 static void str_init(const char **p);
 static void str_destroy(const char **p);
@@ -144,6 +143,18 @@ word_form(const char *word, uint fnum, size_t lang, int rulecl)
 	}
 
 	return word_form_lookup(l, l->rules + rulecl, word, fnum);
+}
+
+hash_t msgdb;
+
+const char *
+GETMSG(const char *msg, size_t lang)
+{
+	mlstring *ml;
+
+	if (lang == 0 || (ml = msg_lookup(msg)) == NULL)
+		return msg;
+	return mlstr_val(ml, lang);
 }
 
 /*----------------------------------------------------------------------------

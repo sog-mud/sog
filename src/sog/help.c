@@ -23,28 +23,28 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: help.c,v 1.21 2001-07-29 09:43:20 fjoe Exp $
+ * $Id: help.c,v 1.22 2001-08-02 18:20:16 fjoe Exp $
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-#include "typedef.h"
-#include "merc.h"
+#include <merc.h>
 
-HELP_DATA *		help_first;
-HELP_DATA *		help_last;
+int top_help;
+HELP_DATA *help_first;
+HELP_DATA *help_last;
 
-extern int top_help;
-
-HELP_DATA * help_new(void)
+HELP_DATA *
+help_new(void)
 {
 	top_help++;
 	return calloc(1, sizeof(HELP_DATA));
 }
 
-void help_add(AREA_DATA *pArea, HELP_DATA* pHelp)
+void
+help_add(AREA_DATA *pArea, HELP_DATA* pHelp)
 {
 /* insert into global help list */
 	if (help_first == NULL)
@@ -66,7 +66,8 @@ void help_add(AREA_DATA *pArea, HELP_DATA* pHelp)
 	pHelp->area		= pArea;
 }
 
-HELP_DATA *help_lookup(int num, const char *keyword)
+HELP_DATA *
+help_lookup(int num, const char *keyword)
 {
 	HELP_DATA *res;
 
@@ -79,12 +80,14 @@ HELP_DATA *help_lookup(int num, const char *keyword)
 	return NULL;
 }
 
-void help_show(CHAR_DATA *ch, BUFFER *output, const char *keyword)
+void
+help_show(CHAR_DATA *ch, BUFFER *output, const char *keyword)
 {
 	help_show_raw(ch->level, GET_LANG(ch), output, keyword);
 }
 
-void help_show_raw(int level, size_t lang, BUFFER *output, const char *keyword)
+void
+help_show_raw(int level, size_t lang, BUFFER *output, const char *keyword)
 {
 	HELP_DATA *pHelp;
 	HELP_DATA *pFirst = NULL;
@@ -151,7 +154,8 @@ void help_show_raw(int level, size_t lang, BUFFER *output, const char *keyword)
 	}
 }
 
-void help_free(HELP_DATA *pHelp)
+void
+help_free(HELP_DATA *pHelp)
 {
 	HELP_DATA *p;
 	HELP_DATA *prev;

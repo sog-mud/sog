@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: objval.c,v 1.11 2001-07-31 19:09:37 fjoe Exp $
+ * $Id: objval.c,v 1.12 2001-08-02 18:20:18 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -31,7 +31,7 @@
 #include <stdlib.h>
 
 #include <merc.h>
-#include <db.h>
+#include <rwfile.h>
 
 /*-
  *

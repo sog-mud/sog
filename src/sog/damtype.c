@@ -23,18 +23,19 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: damtype.c,v 1.14 2001-07-29 09:43:18 fjoe Exp $
+ * $Id: damtype.c,v 1.15 2001-08-02 18:20:16 fjoe Exp $
  */
 
 #include <string.h>
 #include <stdio.h>
 #include <limits.h>
-#include "merc.h"
-#include "db.h"
+
+#include <merc.h>
 
 hash_t damtypes;
 
-void damtype_init(damtype_t *d)
+void
+damtype_init(damtype_t *d)
 {
 	d->dam_name = str_empty;
 	gmlstr_init(&d->dam_noun);
@@ -42,7 +43,8 @@ void damtype_init(damtype_t *d)
 	d->dam_slot = -1;
 }
 
-damtype_t *damtype_cpy(damtype_t *dst, const damtype_t *src)
+damtype_t *
+damtype_cpy(damtype_t *dst, const damtype_t *src)
 {
 	dst->dam_name = str_qdup(src->dam_name);
 	gmlstr_cpy(&dst->dam_noun, &src->dam_noun);
@@ -51,13 +53,15 @@ damtype_t *damtype_cpy(damtype_t *dst, const damtype_t *src)
 	return dst;
 }
 
-void damtype_destroy(damtype_t *d)
+void
+damtype_destroy(damtype_t *d)
 {
 	free_string(d->dam_name);
 	gmlstr_destroy(&d->dam_noun);
 }
 
-static const FOREACH_CB_FUN(damtype_slot_cb, p, ap)
+static const
+FOREACH_CB_FUN(damtype_slot_cb, p, ap)
 {
 	damtype_t *d = (damtype_t *) p;
 
@@ -72,7 +76,8 @@ static const FOREACH_CB_FUN(damtype_slot_cb, p, ap)
  * Lookup a damtype by slot number.
  * Used for old object loading.
  */
-const char *damtype_slot_lookup(int slot)
+const char *
+damtype_slot_lookup(int slot)
 {
 	const char *dn;
 

@@ -23,13 +23,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.34 2001-07-30 13:02:12 fjoe Exp $
+ * $Id: db_race.c,v 1.35 2001-08-02 18:19:58 fjoe Exp $
  */
 
 #include <stdio.h>
 
-#include "merc.h"
-#include "db.h"
+#include <merc.h>
+#include <bootdb.h>
+#include <rwfile.h>
 
 DECLARE_DBLOAD_FUN(load_race);
 DECLARE_DBLOAD_FUN(load_pcrace);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.c,v 1.19 2001-07-29 09:43:24 fjoe Exp $
+ * $Id: rwfile.c,v 1.20 2001-08-02 18:20:19 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -33,16 +33,15 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include "typedef.h"
-#include "rfile.h"
-#include "log.h"
-#include "varr.h"
-#include "hash.h"
-#include "str.h"
-#include "mlstring.h"
-#include "flag.h"
-#include "db.h"
-#include "util.h"
+#include <typedef.h>
+#include <rwfile.h>
+#include <log.h>
+#include <varr.h>
+#include <hash.h>
+#include <str.h>
+#include <mlstring.h>
+#include <flag.h>
+#include <util.h>
 
 #if !defined(NO_MMAP)
 
@@ -542,4 +541,73 @@ fread_fstring(const flaginfo_t *table, rfile_t *fp)
 
 	free_string(s);
 	return val;
+}
+
+/*
+ * duplicate '~'
+ */
+char *
+fix_string(const char *s)
+{
+	static char buf[MAX_STRING_LENGTH * 2];
+	char *p = buf;
+
+	if (IS_NULLSTR(s))
+		return str_empty;
+
+	if (*s == '.' || isspace(*s))
+		*p++ = '.';
+
+	for (; *s && p < buf + sizeof(buf) - 2; s++) {
+		switch (*s) {
+		case '~':
+			*p++ = *s;
+			/* FALLTHRU */
+
+		default:
+			*p++ = *s;
+			break;
+		}
+	}
+
+	*p = '\0';
+	return buf;
+}
+
+const char *
+fix_word(const char *w)
+{
+	static char buf[MAX_STRING_LENGTH];
+
+	if (IS_NULLSTR(w))
+		return "''";					// notrans
+
+	if (strpbrk(w, " \t") == NULL)				// notrans
+		return w;
+
+	snprintf(buf, sizeof(buf), "'%s'", w);			// notrans
+	return buf;
+}
+
+void
+fwrite_string(FILE *fp, const char *name, const char *str)
+{
+	if (IS_NULLSTR(name))
+		fprintf(fp, "%s~\n", fix_string(str));
+	else if (!IS_NULLSTR(str))
+		fprintf(fp, "%s %s~\n", name, fix_string(str));
+}
+
+void
+fwrite_word(FILE *fp, const char *name, const char *w)
+{
+	if (!IS_NULLSTR(w))
+		fprintf(fp, "%s %s\n", name, fix_word(w));
+}
+
+void
+fwrite_number(FILE *fp, const char *name, int num)
+{
+	if (num)
+		fprintf(fp, "%s %d\n", name, num);
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.20 2001-07-29 20:14:40 fjoe Exp $
+ * $Id: note.c,v 1.21 2001-08-02 18:20:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,6 @@
 #include <merc.h>
 #include <note.h>
 #include <string_edit.h>
-#include <db.h>
 
 #include "handler.h"
 

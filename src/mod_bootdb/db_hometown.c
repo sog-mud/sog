@@ -23,13 +23,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_hometown.c,v 1.10 2001-06-24 10:51:01 avn Exp $
+ * $Id: db_hometown.c,v 1.11 2001-08-02 18:19:57 fjoe Exp $
  */
 
 #include <stdio.h>
 
-#include "merc.h"
-#include "db.h"
+#include <merc.h>
+#include <bootdb.h>
+#include <rwfile.h>
 
 DECLARE_DBLOAD_FUN(load_hometown);
 
@@ -108,7 +109,8 @@ DBLOAD_FUN(load_hometown)
 /*----------------------------------------------------------------------------
  * static functions
  */
-static void fread_altar(hometown_t *h, rfile_t *fp)
+static void
+fread_altar(hometown_t *h, rfile_t *fp)
 {
 	int anum;
 	int vnum;
@@ -144,7 +146,8 @@ static void fread_altar(hometown_t *h, rfile_t *fp)
 	}
 }
 
-static void fread_recall(hometown_t *h, rfile_t *fp)
+static void
+fread_recall(hometown_t *h, rfile_t *fp)
 {
 	int anum;
 	int vnum;
@@ -164,11 +167,12 @@ static void fread_recall(hometown_t *h, rfile_t *fp)
 
 		for (i = 0; i < MAX_ANUM; i++)
 			h->recall[i] = room;
-	} else 
+	} else
 		h->recall[anum] = room;
 }
 
-static void fread_map(hometown_t *h, rfile_t *fp)
+static void
+fread_map(hometown_t *h, rfile_t *fp)
 {
 	int anum;
 	int vnum;
@@ -189,11 +193,12 @@ static void fread_map(hometown_t *h, rfile_t *fp)
 
 		for (i = 0; i < MAX_ANUM; i++)
 			h->map[i] = obj;
-	} else 
+	} else
 		h->map[anum] = obj;
 }
 
-static bool check_hometown(hometown_t *h)
+static bool
+check_hometown(hometown_t *h)
 {
 	int i;
 
@@ -222,4 +227,3 @@ static bool check_hometown(hometown_t *h)
 
 	return TRUE;
 }
-

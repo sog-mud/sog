@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.302 2001-08-02 14:21:36 fjoe Exp $
+ * $Id: handler.c,v 1.303 2001-08-02 18:20:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,6 @@
 #include <time.h>
 
 #include <merc.h>
-#include <db.h>
 #include <lang.h>
 
 #include <magic.h>
@@ -77,7 +76,6 @@ static void strip_obj_affects(CHAR_DATA *ch, AFFECT_DATA *paf);
 static OBJ_DATA *get_stuck_eq(CHAR_DATA *ch, int wtype);
 #endif
 static bool has_boat(CHAR_DATA *ch);
-static int opposite_exit(int door);
 
 /*
  * Move a char into a room.
@@ -4667,11 +4665,7 @@ path_to_track(CHAR_DATA *ch, CHAR_DATA *victim, int door)
 		return;
 
 	NPC(victim)->last_fought = ch;
-
-	if ((opdoor = opposite_exit(door)) == -1) {
-		log(LOG_BUG, "In path_to_track wrong door: %d",door);
-		return;
-	}
+	opdoor = rev_dir[door];
 
 	temp = ch->in_room;
 	while (1) {
@@ -4825,12 +4819,7 @@ find_char(CHAR_DATA *ch, const char *argument, int door, int range)
 	if ((target = get_char_room_raw(ch, arg, &number, dest_room)))
 		return target;
 
-	if ((opdoor = opposite_exit(door)) == -1) {
-		log(LOG_BUG, "In find_char wrong door: %d", door);
-		act_char("You don't see that there.", ch);
-		return NULL;
-	}
-
+	opdoor = rev_dir[door];
 	while (range > 0) {
 		range--;
 
@@ -5011,22 +5000,4 @@ has_boat(CHAR_DATA *ch)
 		}
 
 	return found;
-}
-
-static int
-opposite_exit(int door)
-{
-	int opdoor;
-
-	switch (door) {
-	case 0: opdoor=2;	break;
-	case 1: opdoor=3;	break;
-	case 2: opdoor=0;	break;
-	case 3: opdoor=1;	break;
-	case 4: opdoor=5;	break;
-	case 5: opdoor=4;	break;
-	default: opdoor=-1;	break;
-	}
-
-	return opdoor;
 }

@@ -1,6 +1,6 @@
 #
-# $Id: Makefile.modules,v 1.6 2001-08-02 14:21:28 fjoe Exp $
+# $Id: Makefile.modules,v 1.7 2001-08-02 18:19:50 fjoe Exp $
 #
 
-MODULES=	mod_auction mod_core mod_dofun mod_events mod_handler\
-		mod_magic mod_mpc mod_olc mod_quest mod_update
+MODULES=	mod_auction mod_bootdb mod_core mod_dofun mod_events\
+		mod_handler mod_magic mod_mpc mod_olc mod_quest mod_update

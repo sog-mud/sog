@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: core.c,v 1.21 2001-07-31 14:55:59 fjoe Exp $
+ * $Id: core.c,v 1.22 2001-08-02 18:20:01 fjoe Exp $
  */
 
 #include <errno.h>
@@ -33,7 +33,6 @@
 #include <time.h>
 
 #include <merc.h>
-#include <db.h>
 #include <module.h>
 
 #include "core.h"

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.184 2001-08-02 14:21:37 fjoe Exp $
+ * $Id: save.c,v 1.185 2001-08-02 18:20:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,8 +49,8 @@
 #include <dirent.h>
 
 #include <merc.h>
-#include <db.h>
-#include <rfile.h>
+#include <bootdb.h>
+#include <rwfile.h>
 
 #include <handler.h>
 
@@ -508,11 +508,12 @@ char_load(const char *name, int flags)
 	int iNest;
 
 	name = capitalize(name);
-	snprintf(filename, sizeof(filename), "%s.gz", name);	// notrans
-	if (dfexist(PLAYER_PATH, filename)) {
+	snprintf(bootdb_filename, sizeof(bootdb_filename),
+	    "%s.gz", name);					// notrans
+	if (dfexist(PLAYER_PATH, bootdb_filename)) {
 		char buf[PATH_MAX];
 		snprintf(buf, sizeof(buf), "gzip -dfq %s%c%s",	// notrans
-			 PLAYER_PATH, PATH_SEPARATOR, filename);
+			 PLAYER_PATH, PATH_SEPARATOR, bootdb_filename);
 		system(buf);
 	}
 

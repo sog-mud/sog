@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.76 2001-06-25 16:51:22 fjoe Exp $
+ * $Id: olc.h,v 1.77 2001-08-02 18:20:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -28,8 +28,8 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include "merc.h"
-#include "db.h"
+#include <merc.h>
+#include <rwfile.h>
 
 typedef	bool OLC_FUN(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd);
 typedef bool VALIDATE_FUN(CHAR_DATA *ch, const void *arg);

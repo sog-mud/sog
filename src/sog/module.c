@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.c,v 1.22 2001-07-31 14:56:24 fjoe Exp $
+ * $Id: module.c,v 1.23 2001-08-02 18:20:17 fjoe Exp $
  */
 
 /*
@@ -39,9 +39,12 @@
 #include <dlfcn.h>
 #include <time.h>
 #include <unistd.h>
-#include "merc.h"
-#include "module.h"
-#include "log.h"
+
+#include <merc.h>
+#include <module.h>
+#include <log.h>
+#include <abi_version.h>
+#include <dynafun.h>
 
 varr modules;
 
@@ -90,12 +93,94 @@ mod_lookup(const char *name)
 	return varr_foreach(&modules, mod_lookup_cb, name);
 }
 
+static varrdata_t v_modules = { sizeof(module_t), 2, NULL, NULL, NULL };
+
 void
 boot_modules()
 {
 	time_t curr_time;
+	FILE *fp;
+	char buf[MAX_INPUT_LENGTH];
 
+	varr_init(&modules, &v_modules);
+
+	/*
+	 * read modules
+	 */
+	fp = dfopen(ETC_PATH, MODULES_CONF, "r");
+	if (fp == NULL) {
+		log(LOG_ERROR, "%s%c%s: %s",
+		    ETC_PATH, PATH_SEPARATOR, MODULES_CONF, strerror(errno));
+		exit(1);
+	}
+
+	while (fgets(buf, sizeof(buf), fp)) {
+		const char *p;
+		char arg[MAX_INPUT_LENGTH];
+		int mod_prio;
+		size_t len;
+		module_t *m;
+
+		/* strip trailing '\n' */
+		len = strlen(buf);
+		if (len == 0)
+			continue;
+		if (buf[len-1] != '\n') {
+			log(LOG_INFO, "%s%c%s: line too long",
+			    ETC_PATH, PATH_SEPARATOR, MODULES_CONF);
+			continue;
+		}
+
+		buf[len-1] = '\0';
+
+		/* read module prio, skip comments and empty lines */
+		p = first_arg(buf, arg, sizeof(arg), FALSE);
+		if (arg[0] == '#' || arg[0] == '\0')
+			continue;
+
+		if (!is_number(arg)) {
+			log(LOG_ERROR, "%s%c%s: priority expected",
+			    ETC_PATH, PATH_SEPARATOR, MODULES_CONF);
+			exit(1);
+		}
+
+		mod_prio = atoi(arg);
+
+		/* read module name */
+		p = first_arg(p, arg, sizeof(arg), FALSE);
+		if (arg[0] == '\0') {
+			log(LOG_ERROR, "%s%c%s: module name expected",
+			    ETC_PATH, PATH_SEPARATOR, MODULES_CONF);
+			exit(1);
+		}
+
+		if (p[0] != '\0') {
+			log(LOG_INFO, "%s%c%s: extra characters on line",
+			    ETC_PATH, PATH_SEPARATOR, MODULES_CONF);
+		}
+
+		/* add module */
+		m = varr_enew(&modules);
+		m->mod_prio = mod_prio;
+		m->name = str_dup(arg);
+		m->mod_id = flag_value(module_names, m->name);
+		if (m->mod_id < 0) {
+			log(LOG_ERROR, "%s%c%s: %s: unknown module",
+			    ETC_PATH, PATH_SEPARATOR, MODULES_CONF, m->name);
+		}
+		m->file_name = str_printf("%s%c%s.so.%d",
+		    MODULES_PATH, PATH_SEPARATOR, m->name, ABI_VERSION);
+
+		log(LOG_INFO, "module %s (%d)", m->name, m->mod_prio);
+	}
+
+	fclose(fp);
+
+	/*
+	 * load modules and call boot callbacks
+	 */
 	time(&curr_time);
+	init_dynafuns();
 
 	varr_qsort(&modules, module_cmp);
 	varr_foreach(&modules, boot_load_cb, curr_time);

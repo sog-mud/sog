@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.h,v 1.21 2000-04-16 09:21:36 fjoe Exp $
+ * $Id: util.h,v 1.22 2001-08-02 18:19:53 fjoe Exp $
  */
 
 #ifndef _UTIL_H_
@@ -51,9 +51,25 @@ const char *	get_filename(const char*);
 int cmpint(const void *p1, const void *p2);
 
 size_t		cstrlen		(const char* cstr);
-const char*	cstrfirst	(const char *cstr);
+const char *	cstrfirst	(const char *cstr);
+
+char *		capitalize	(const char *str);
+char *		format_flags	(flag_t flags);
+const char *	strdump		(const char *argument, int dump_level);
+
 bool		is_number	(const char *argument);
 
-char*		strtime		(time_t);
+char *		strtime		(time_t);
+
+int		interpolate	(int level, int value_00, int value_32);
+
+int		number_fuzzy	(int number);
+int		number_range	(int from, int to);
+int		number_percent	(void);
+int		number_door	(void);
+int		number_bits	(int width);
+int		dice		(int number, int size);
+int		dice_wlb	(int number, int size,
+				 CHAR_DATA *ch, CHAR_DATA *victim);
 
 #endif

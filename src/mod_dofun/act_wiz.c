@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.281 2001-07-31 18:14:41 fjoe Exp $
+ * $Id: act_wiz.c,v 1.282 2001-08-02 18:20:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -63,9 +63,9 @@
 
 #include <merc.h>
 #include <cmd.h>
-#include <db.h>
 #include <ban.h>
 #include <string_edit.h>
+#include <rwfile.h>
 
 #include <handler.h>
 #include <quest.h>

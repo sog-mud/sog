@@ -23,14 +23,15 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_form.c,v 1.12 2001-07-31 14:56:30 fjoe Exp $
+ * $Id: db_form.c,v 1.13 2001-08-02 18:19:57 fjoe Exp $
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 
 #include <merc.h>
-#include <db.h>
+#include <bootdb.h>
+#include <rwfile.h>
 
 DECLARE_DBLOAD_FUN(load_form);
 
@@ -80,7 +81,7 @@ DBLOAD_FUN(load_form)
 			KEY("Damtype", f.damtype, fread_strkey(
 			    fp, &damtypes, "load_form"));	// notrans
 			if (IS_TOKEN(fp, "Damage")) {
-				f.damage[DICE_NUMBER] 	= fread_number(fp);
+				f.damage[DICE_NUMBER]	= fread_number(fp);
 				fread_letter(fp);
 				f.damage[DICE_TYPE]	= fread_number(fp);
 				fread_letter(fp);

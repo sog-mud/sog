@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.384 2001-07-31 18:14:38 fjoe Exp $
+ * $Id: act_info.c,v 1.385 2001-08-02 18:20:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,9 +53,9 @@
 #include <ctype.h>
 
 #include <merc.h>
-#include <db.h>
 #include <rating.h>
 #include <string_edit.h>
+#include <lang.h>
 
 #include <handler.h>
 #include <magic.h>

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.7 2001-08-02 14:21:29 fjoe Exp $
+ * $Id: sog.h,v 1.8 2001-08-02 18:19:52 fjoe Exp $
  */
 
 #ifndef _HANDLER_H_
@@ -479,12 +479,6 @@ DECLARE_PROC4(focus_negative_energy,
 /* char_load flags */
 #define LOAD_F_NOCREATE	(A)
 #define LOAD_F_MOVE	(B)
-
-/* char_save flags (these are mutually exclusive) */
-#define SAVE_F_NONE	(A)
-#define SAVE_F_NORMAL	(B)
-#define SAVE_F_REBOOT	(C)
-#define SAVE_F_PSCAN	(D)
 
 DECLARE_FUN2(CHAR_DATA, char_load,
 	     ARG(cchar_t), name, ARG(int), flags)

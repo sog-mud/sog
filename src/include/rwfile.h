@@ -23,11 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.h,v 1.12 2001-07-08 20:16:31 fjoe Exp $
+ * $Id: rwfile.h,v 1.13 2001-08-02 18:19:53 fjoe Exp $
  */
 
-#ifndef _RFILE_H_
-#define _RFILE_H_
+#ifndef _RWFILE_H_
+#define _RWFILE_H_
 
 #if !defined(NO_MMAP)
 
@@ -89,6 +89,13 @@ void		fread_to_eol	(rfile_t *fp);
 flag_t		fread_fword	(const flaginfo_t *table, rfile_t *fp);
 flag_t		fread_fstring	(const flaginfo_t *table, rfile_t *fp);
 
+const char *	fix_word	(const char *s);
+char *		fix_string	(const char *s);
+
+void		fwrite_string	(FILE *fp, const char *name, const char *str);
+void		fwrite_word	(FILE *fp, const char *name, const char *w);
+void		fwrite_number	(FILE *fp, const char *name, int num);
+
 #define KEY(k, field, val)				\
 		if (IS_TOKEN(fp, (k))) {		\
 			(field) = (val);		\
@@ -111,4 +118,4 @@ flag_t		fread_fstring	(const flaginfo_t *table, rfile_t *fp);
 			break;				\
 		}
 
-#endif
+#endif /* _RWFILE_H_ */

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: strkey_hash.c,v 1.17 2001-06-24 10:50:53 avn Exp $
+ * $Id: strkey_hash.c,v 1.18 2001-08-02 18:20:19 fjoe Exp $
  */
 
 #include <limits.h>
@@ -40,8 +40,8 @@
 #include <buffer.h>
 #include <str.h>
 #include <mlstring.h>
-#include <db.h>
 #include <log.h>
+#include <rwfile.h>
 
 void
 strkey_init(void *p)

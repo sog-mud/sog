@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.83 2001-07-31 14:55:50 fjoe Exp $
+ * $Id: db.h,v 1.84 2001-08-02 18:19:52 fjoe Exp $
  */
 
 #ifndef _DB_H_

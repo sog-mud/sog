@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.247 2001-07-31 14:56:27 fjoe Exp $
+ * $Id: comm.c,v 1.248 2001-08-02 18:20:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -89,8 +89,9 @@
 #include <merc.h>
 #include <ban.h>
 #include <lang.h>
-#include <db.h>
 #include <string_edit.h>
+#include <note.h>
+#include <module.h>
 
 #include "handler.h"
 #include "quest.h"
@@ -154,7 +155,7 @@ void    gettimeofday    args( ( struct timeval *tp, void *tzp ) );
 
 char	echo_off_str	[] = { IAC, WILL, TELOPT_ECHO, '\0' };
 char	echo_on_str	[] = { IAC, WONT, TELOPT_ECHO, '\0' };
-char 	go_ahead_str	[] = { IAC, GA, '\0' };
+char	go_ahead_str	[] = { IAC, GA, '\0' };
 
 /*
  * Global variables.
@@ -186,9 +187,9 @@ static void	nanny		(DESCRIPTOR_DATA *d, const char *argument);
 static bool	process_output	(DESCRIPTOR_DATA *d, bool fPrompt);
 static void	read_from_buffer(DESCRIPTOR_DATA *d);
 static void	stop_idling	(DESCRIPTOR_DATA *d);
-static void 	log_area_popularity(void);
+static void	log_area_popularity(void);
 
-varr 	control_sockets;
+varr	control_sockets;
 varr	info_sockets;
 varr	info_trusted;
 
@@ -233,7 +234,12 @@ static void close_sockets(varr *v)
 	}
 }
 
-int main(int argc, char **argv)
+static varrdata_t v_control_sockets = { sizeof(int), 2, NULL, NULL, NULL };
+static varrdata_t v_info_sockets = { sizeof(int), 2, NULL, NULL, NULL };
+static varrdata_t v_info_trusted = { sizeof(struct in_addr), 2, NULL, NULL, NULL };
+
+int
+main(int argc, char **argv)
 {
 	struct timeval now_time;
 	int ch;
@@ -269,41 +275,47 @@ int main(int argc, char **argv)
 	resolver_init();
 #endif
 
-	boot_db_system();
+	varr_init(&control_sockets, &v_control_sockets);
+	varr_init(&info_sockets, &v_info_sockets);
+	varr_init(&info_trusted, &v_info_trusted);
 
-	if (argc > 1) {
-		/*
-		 * command line parameters override configuration settings
-		 */
-		control_sockets.nused = 0;
-		info_sockets.nused = 0;
+	opterr = 0;
+	while ((ch = getopt(argc, argv, "p:i:")) != -1) { // notrans
+		int *p;
 
-		opterr = 0;
-		while ((ch = getopt(argc, argv, "p:i:")) != -1) { // notrans
-			int *p;
-
-			switch (ch) {
-			case 'p':
-				if (!is_number(optarg))
-					usage(argv[0]);
-				p = varr_enew(&control_sockets);
-				*p = atoi(optarg);
-				break;
-
-			case 'i':
-				if (!is_number(optarg))
-					usage(argv[0]);
-				p = varr_enew(&info_sockets);
-				*p = atoi(optarg);
-				break;
-
-			default:
+		switch (ch) {
+		case 'p':
+			if (!is_number(optarg))
 				usage(argv[0]);
-			}
+			p = varr_enew(&control_sockets);
+			*p = atoi(optarg);
+			break;
+
+		case 'i':
+			if (!is_number(optarg))
+				usage(argv[0]);
+			p = varr_enew(&info_sockets);
+			*p = atoi(optarg);
+			break;
+
+		default:
+			usage(argv[0]);
 		}
-		argc -= optind;
-		argv += optind;
 	}
+
+	argc -= optind;
+	argv += optind;
+
+	/*
+	 * load modules and call boot callbacks
+	 */
+	boot_modules();
+
+	/*
+	 * load notes and bans
+	 */
+	load_notes();
+	load_bans();
 
 	if (!control_sockets.nused) {
 		log(LOG_INFO, "no control sockets defined");
@@ -311,20 +323,18 @@ int main(int argc, char **argv)
 	}
 	check_info = (!!info_sockets.nused);
 
-	boot_db();
-
 	open_sockets(&control_sockets,
 		     "ready to rock on port %d");		// notrans
 	open_sockets(&info_sockets,
 		     "info service started on port %d");	// notrans
 
 	if (!control_sockets.nused) {
-		log(LOG_INFO, "no control sockets could be opened.");
+		log(LOG_INFO, "no control sockets could be opened");
 		exit(1);
 	}
 
 	if (check_info && !info_sockets.nused) {
-		log(LOG_INFO, "no info service sockets could be opened.");
+		log(LOG_INFO, "no info service sockets could be opened");
 		exit(1);
 	}
 

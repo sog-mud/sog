@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: check_includes.sh,v 1.2 2001-07-31 14:55:49 fjoe Exp $
+# $Id: check_includes.sh,v 1.3 2001-08-02 18:19:51 fjoe Exp $
 #
 # show files in core (sog/ and mod_core/) that #include module headers
 #
@@ -13,3 +13,4 @@ check_includes()
 
 check_includes "dynafun_decl.h|core.h" mod_core/*.c
 check_includes "dynafun_decl.h" sog/*.c sog/**/*.c
+check_includes "dynafun_decl.h" mod_bootdb/*.c

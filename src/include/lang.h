@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.h,v 1.22 2001-06-24 10:50:38 avn Exp $
+ * $Id: lang.h,v 1.23 2001-08-02 18:19:52 fjoe Exp $
  */
 
 #ifndef _LANG_H_
@@ -119,5 +119,14 @@ void	lang_init(lang_t *);
 
 lang_t	*lang_lookup(const char*);
 lang_t	*lang_nlookup(const char*, size_t len);
+
+extern hash_t msgdb;		/* msgdb */
+#define msg_lookup(m)	((mlstring *) strkey_lookup(&msgdb, (m)))
+
+#if !defined(MPC)
+const char *GETMSG	(const char *txt, size_t lang);
+#else
+#define	GETMSG(txt, lang)	(txt)
+#endif
 
 #endif

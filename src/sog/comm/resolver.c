@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: resolver.c,v 1.14 2000-02-10 14:08:57 fjoe Exp $
+ * $Id: resolver.c,v 1.15 2001-08-02 18:20:22 fjoe Exp $
  */
 
 #if !defined (WIN32)
@@ -40,8 +40,10 @@
 #include <signal.h>
 #include <errno.h>
 #include <fcntl.h>
-#include "typedef.h"
-#include "log.h"
+
+#include <typedef.h>
+#include <log.h>
+
 #include "resolver.h"
 
 FILE *	rfin;

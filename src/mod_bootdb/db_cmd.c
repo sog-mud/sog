@@ -23,12 +23,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_cmd.c,v 1.11 2001-06-24 10:51:00 avn Exp $
+ * $Id: db_cmd.c,v 1.12 2001-08-02 18:19:56 fjoe Exp $
  */
 
 #include <stdio.h>
-#include "merc.h"
-#include "db.h"
+
+#include <merc.h>
+#include <bootdb.h>
+#include <rwfile.h>
 
 DECLARE_DBLOAD_FUN(load_cmd);
 

@@ -23,14 +23,15 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_skill.c,v 1.29 2001-07-08 16:36:16 fjoe Exp $
+ * $Id: db_skill.c,v 1.30 2001-08-02 18:19:59 fjoe Exp $
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "merc.h"
-#include "db.h"
+#include <merc.h>
+#include <bootdb.h>
+#include <rwfile.h>
 
 DECLARE_DBLOAD_FUN(load_skill);
 
@@ -166,4 +167,3 @@ DBLOAD_FUN(load_skill)
 		}
 	}
 }
-

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_social.c,v 1.16 2001-07-31 18:15:21 fjoe Exp $
+ * $Id: db_social.c,v 1.17 2001-08-02 18:19:59 fjoe Exp $
  */
 
 #include <limits.h>
@@ -32,7 +32,8 @@
 #include <ctype.h>
 
 #include <merc.h>
-#include <db.h>
+#include <bootdb.h>
+#include <rwfile.h>
 
 DECLARE_DBLOAD_FUN(load_social);
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.7 2001-07-31 18:14:56 fjoe Exp $
+ * $Id: init_mpc.c,v 1.8 2001-08-02 18:20:10 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -37,19 +37,10 @@
 #include <string.h>
 #include <limits.h>
 
-#include <typedef.h>
-#include <memalloc.h>
-#include <log.h>
-#include <varr.h>
-#include <hash.h>
+#include <merc.h>
 #include <dynafun.h>
 #include <module.h>
-#include <mlstring.h>
-#include <db.h>
-#include <util.h>
-#include <strkey_hash.h>
-#include <flag.h>
-#include <buffer.h>
+#include <rwfile.h>
 
 #include "mpc_impl.h"
 #include "mpc_const.h"
