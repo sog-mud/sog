@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_lex.c,v 1.2 2001-06-22 16:57:29 fjoe Exp $
+ * $Id: mpc_lex.c,v 1.3 2001-06-22 19:13:19 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -304,12 +304,12 @@ mpc_lex(prog_t *prog)
 		case '~':
 		case ',':
 		case ':':
+		case '?':
 			return ch;
 			/* NOTREACHED */
 
 		case '[':
 		case ']':
-		case '?':
 		case '.':
 			goto badch;		/* maybe later */
 			/* NOTREACHED */

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_c.c,v 1.7 2001-06-22 16:57:29 fjoe Exp $
+ * $Id: mpc_c.c,v 1.8 2001-06-22 19:13:19 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -196,26 +196,50 @@ c_jmp(prog_t *prog)
 }
 
 void
+c_quecolon(prog_t *prog)
+{
+	vo_t *v0;
+	int else_addr;
+	int next_addr;
+
+	TRACE;
+
+	else_addr = (int) code_get(prog);
+	next_addr = (int) code_get(prog);
+
+	v0 = pop(prog);
+	if (v0->i) {
+		execute(prog, prog->ip);
+		prog->ip = next_addr;
+	} else
+		prog->ip = else_addr;
+}
+
+void
 c_if(prog_t *prog)
 {
-	int then_addr;
 	int else_addr;
 	int next_addr;
 	vo_t *v;
 
 	TRACE;
 
-	then_addr = (int) code_get(prog);
 	else_addr = (int) code_get(prog);
 	next_addr = (int) code_get(prog);
 
-	execute(prog, prog->ip);
 	v = pop(prog);
-	if (v->i)
-		execute(prog, then_addr);
-	else if (else_addr != INVALID_ADDR)
-		execute(prog, else_addr);
-	prog->ip = next_addr;
+	if (v->i) {
+		/* execute then */
+		if (else_addr != INVALID_ADDR) {
+			/* 'if' with 'else' has 'stop' in 'then' part */
+			execute(prog, prog->ip);
+			prog->ip = next_addr;
+		}
+	} else if (else_addr != INVALID_ADDR) {
+		/* execute else */
+		prog->ip = else_addr;
+	} else
+		prog->ip = next_addr;
 }
 
 void
@@ -245,7 +269,6 @@ c_switch(prog_t *prog)
 	mpc_assert(prog, __FUNCTION__,
 	    default_jump != NULL, "invalid jumptab");
 
-	execute(prog, prog->ip);
 	v = pop(prog);
 
 	/*

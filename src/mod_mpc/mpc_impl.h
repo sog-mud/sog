@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_impl.h,v 1.6 2001-06-22 15:28:47 fjoe Exp $
+ * $Id: mpc_impl.h,v 1.7 2001-06-22 19:13:18 fjoe Exp $
  */
 
 #ifndef _MPC_CODE_H_
@@ -164,32 +164,28 @@ typedef void (*c_fun)(prog_t *prog);
 /**
  * Pop value from data stack
  */
-void
-c_pop(prog_t *prog);
+void	c_pop(prog_t *prog);
 
 /**
  * Push constant on data stack
  *
  * Expects next opcode to be const value to push.
  */
-void
-c_push_const(prog_t *prog);
+void	c_push_const(prog_t *prog);
 
 /**
  * Push variable on data stack
  *
  * Expects next opcode to be variable name.
  */
-void
-c_push_var(prog_t *prog);
+void	c_push_var(prog_t *prog);
 
 /**
  * Push function return value on data stack
  *
  * Expects next opcode to be 'func_t *'.
  */
-void
-c_push_retval(prog_t *prog);
+void	c_push_retval(prog_t *prog);
 
 #define c_stop 0
 #define INVALID_ADDR -1
@@ -197,6 +193,7 @@ c_push_retval(prog_t *prog);
 void	c_jmp(prog_t *prog);		/* jmp */
 void	c_if(prog_t *prog);		/* if */
 void	c_switch(prog_t *prog);		/* switch */
+void	c_quecolon(prog_t *prog);	/* ?: */
 
 /*--------------------------------------------------------------------
  * binary operations

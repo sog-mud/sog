@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.10 2001-06-22 18:00:17 fjoe Exp $
+ * $Id: mpc.y,v 1.11 2001-06-22 19:13:19 fjoe Exp $
  */
 
 /*
@@ -288,7 +288,7 @@ code3(prog_t *prog,
 %right L_NOT '~'
 %nonassoc L_INC L_DEC
 
-%type <type_tag> expr comma_expr cond L_TYPE
+%type <type_tag> expr comma_expr L_TYPE
 %type <number> expr_list expr_list_ne L_INT int_const
 %type <string> L_IDENT L_STRING
 %type <cfun> assign
@@ -364,47 +364,40 @@ stmt:	';'
 		/*
 		 * pop calculated value from stack
 		 */
-		code2(prog, c_pop, (const void *) $1);
+		code2(prog, c_pop, (void *) $1);
 	}
 	| if | switch | case_label | default | break
 	| '{' stmt_list '}'
 	;
 
-cond:	comma_expr	{ code(prog, c_stop); }
-	;
-
-statement: stmt { code(prog, c_stop); }
-	;
-
-if:	L_IF {
+if:	L_IF '(' comma_expr ')' {
 		code(prog, c_if);
+
+		/* else, next stmt */
 		PUSH_ADDR();
-		/* then, else, next stmt */
-		code(prog, (void *) INVALID_ADDR);
 		code2(prog, (void *) INVALID_ADDR, (void *) INVALID_ADDR);
-	} '(' cond ')' {
-		/* save then addr */
-		int addr;
-		PEEK_ADDR(addr);
-		CODE(addr)[0] = varr_size(&prog->code);
-	} statement optional_else {
+	} stmt optional_else {
 		/* save next stmt addr */
 		int addr;
+
 		POP_ADDR(addr);
-		CODE(addr)[2] = varr_size(&prog->code);
+		CODE(addr)[1] = varr_size(&prog->code);
 	}
 	;
 
 optional_else: /* empty */
 	| L_ELSE {
-		/* save else addr */
 		int addr;
+
+		code(prog, c_stop);
+
+		/* save else addr */
 		PEEK_ADDR(addr);
-		CODE(addr)[1] = varr_size(&prog->code);
-	} statement
+		CODE(addr)[0] = varr_size(&prog->code);
+	} stmt
 	;
 
-switch:	L_SWITCH {
+switch:	L_SWITCH '(' expr ')' {
 		varr *jumptab;
 		swjump_t *jump;
 		code(prog, c_switch);
@@ -427,12 +420,15 @@ switch:	L_SWITCH {
 		code(prog, (void *) prog->curr_jumptab);
 		code(prog, (void *) DELIMITER_ADDR);
 		prog->curr_break_addr = varr_size(&prog->code) - 1;
-	} '(' cond ')' statement {
+	} stmt {
 		int addr;
 		varr *jumptab;
 		/*
 		int next_break_addr;
 		*/
+
+		/* if last case/default does not have 'break' */
+		code(prog, c_stop);
 
 		/*
 		 * traverse linked list of break addresses
@@ -605,7 +601,7 @@ expr:	L_IDENT assign expr %prec '=' {
 		 * check argument types
 		 */
 		code2(prog, c_push_retval, sym->name);
-		code2(prog, (const void *) d->rv_tag, (const void *) d->nargs);
+		code2(prog, (void *) d->rv_tag, (void *) d->nargs);
 
 		for (i = 0; i < d->nargs; i++) {
 			int got_type = argtype_get(prog, $3, i);
@@ -615,7 +611,7 @@ expr:	L_IDENT assign expr %prec '=' {
 				    $1, i+1, got_type, d->argtype[i]);
 				YYERROR;
 			}
-			code(prog, (const void *) d->argtype[i]);
+			code(prog, (void *) d->argtype[i]);
 		}
 
 		$$ = d->rv_tag;
@@ -637,13 +633,42 @@ expr:	L_IDENT assign expr %prec '=' {
 		$$ = MT_STR;
 	}
 	| L_INT {
-		code2(prog, c_push_const, (const void *) $1);
+		code2(prog, c_push_const, (void *) $1);
 		$$ = MT_INT;
+	}
+	| expr '?' {
+		code(prog, c_quecolon);
+
+		PUSH_ADDR();
+		/* else_addr, next_addr */
+		code2(prog, (void *) INVALID_ADDR, (void *) INVALID_ADDR);
+	} expr {
+		int addr;
+
+		code(prog, c_stop);
+
+		/* else_addr */
+		PEEK_ADDR(addr);
+		CODE(addr)[0] = varr_size(&prog->code);
+	} ':' expr %prec '?' {
+		int addr;
+
+		POP_ADDR(addr);
+
+		if ($1 != $7) {
+			compile_error(prog,
+			    "different operand types for '?:' (%d and %d)",
+			    $1, $7);
+			YYERROR;
+		}
+
+		/* next_addr */
+		CODE(addr)[1] = varr_size(&prog->code);
 	}
 	| expr L_LOR {
 		INT_OP("||", $1, c_bop_lor);
 		PUSH_ADDR();
-		code(prog, (const void *) INVALID_ADDR);
+		code(prog, (void *) INVALID_ADDR);
 	} expr {
 		int addr;
 
@@ -658,7 +683,7 @@ expr:	L_IDENT assign expr %prec '=' {
 	| expr L_LAND {
 		INT_OP("&&", $1, c_bop_land);
 		PUSH_ADDR();
-		code(prog, (const void *) INVALID_ADDR);
+		code(prog, (void *) INVALID_ADDR);
 	} expr {
 		int addr;
 
@@ -774,7 +799,7 @@ expr:	L_IDENT assign expr %prec '=' {
 	;
 
 comma_expr: expr	{ $$ = $1; }
-	| comma_expr	{ code2(prog, c_pop, (const void *) $1);
+	| comma_expr	{ code2(prog, c_pop, (void *) $1);
 	} ',' expr	{ $$ = $4; }
 	;
 
@@ -815,8 +840,9 @@ struct codeinfo_t codetab[] = {
 	{ c_push_retval,	"c_push_retval",	3 },
 	{ c_stop,		"c_stop",		0 },
 	{ c_jmp,		"c_jmp",		1 },
-	{ c_if,			"c_if",			3 },
+	{ c_if,			"c_if",			2 },
 	{ c_switch,		"c_switch",		2 },
+	{ c_quecolon,		"c_quecolon",		2 },
 	{ c_bop_lor,		"c_bop_lor",		1 },
 	{ c_bop_land,		"c_bop_land",		1 },
 	{ c_bop_or,		"c_bop_or",		0 },
@@ -1105,6 +1131,12 @@ prog_dump(prog_t *prog)
 			jumptab = varr_get(&prog->jumptabs, jt_offset);
 			if (jumptab != NULL)
 				varr_foreach(jumptab, print_swjump_cb);
+		} else if (p == c_if || p == c_quecolon) {
+			int else_addr = CODE(ip)[1];
+			int next_addr = CODE(ip)[2];
+
+			fprintf(stderr, " 0x%08x 0x%08x",
+				else_addr, next_addr);
 		}
 
 		ip += ci->gobble;
