@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.52 1999-06-29 10:57:05 fjoe Exp $
+ * $Id: olc_obj.c,v 1.53 1999-07-01 06:18:33 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -885,6 +885,7 @@ OLC_FUN(objed_clone)
 		paf_next = paf->next;
 		aff_free(paf);
 	}
+	pObj->affected = NULL;
 
 	ppaf = &pObj->affected;
 	for (paf = pFrom->affected; paf; paf = paf->next) {
