@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.81 2004-04-08 11:50:55 kets Exp $
+ * $Id: prayers.c,v 1.82 2004-05-26 06:38:17 tatyana Exp $
  */
 
 /***************************************************************************
@@ -4299,7 +4299,7 @@ SPELL_FUN(prayer_rock_skin, sn, level, ch, vo)
 		act_char("Your skin are already protected by rocks.", ch);
 		return;
 	}
-	
+
 	paf = aff_new(TO_RESISTS, sn);
 	paf->level	= level;
 	paf->duration	= level / 10;
@@ -4451,11 +4451,11 @@ SPELL_FUN(prayer_hail_of_stones, sn, level, ch, vo)
 			    victim, NULL, mount, TO_NOTVICT);
 			act_puts("$n falls down from you.",
 				 victim, NULL, mount, TO_VICT, POS_SLEEPING);
-				 
+
 			victim->riding = FALSE;
 			mount->riding = FALSE;
 		}
-		
+
 		if (IS_AFFECTED(victim, AFF_FLYING)) {
 			REMOVE_BIT(victim->affected_by, AFF_FLYING);
 			act_char("You can't fly under such a hail and touch the ground.",
