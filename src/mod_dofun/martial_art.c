@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.87 1999-05-06 10:55:29 kostik Exp $
+ * $Id: martial_art.c,v 1.88 1999-05-11 09:33:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1819,39 +1819,7 @@ void do_bloodthirst(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, gsn_bloodthirst, FALSE, 2);
 	}
 }
-/* Spellbane - autoskill now */
-#if 0
-void do_spellbane(CHAR_DATA *ch, const char *argument)
-{
-	AFFECT_DATA af;
 
-	if (get_skill(ch, gsn_spellbane) == 0) {
-		char_puts("Huh?\n", ch);
-		return;
-	}
-
-	if (is_affected(ch, gsn_spellbane)) {
-		char_puts("You are already deflecting spells.\n", ch);
-		return;
-	}
-
-	WAIT_STATE(ch, SKILL(gsn_spellbane)->beats);
-
-	af.where	= TO_AFFECTS;
-	af.type 	= gsn_spellbane;
-	af.level 	= ch->level;
-	af.duration	= -1;
-	af.location	= APPLY_SAVING_SPELL;
-	af.modifier	= -LEVEL(ch)/4;
-	af.bitvector	= 0;
-
-	affect_to_char(ch, &af);
-
-	act("Your hatred of magic surrounds you.", ch, NULL, NULL, TO_CHAR);
-	act("$n fills the air with $s hatred of magic.",
-	    ch, NULL, NULL, TO_ROOM);
-}
-#endif
 void do_resistance(CHAR_DATA *ch, const char *argument)
 {
 	int chance;

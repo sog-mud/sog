@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.121 1999-05-06 10:55:30 kostik Exp $
+ * $Id: update.c,v 1.122 1999-05-11 09:33:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -561,20 +561,15 @@ void mobile_update(void)
 
 		ch_next = ch->next;
 
-		if (!ch->in_room)
+		if (ch->extracted) {
+			log_printf("mobile_update: extracted char");
 			continue;
+		}
 
 		if (ch->position == POS_FIGHTING)
 			SET_FIGHT_TIME(ch);
-/* permanent spellbane */
-		if (!IS_NPC(ch)) {
-#if 0
-			if (ch->level < LEVEL_IMMORTAL
-			&&  get_skill(ch, gsn_spellbane)
-			&&  !is_affected(ch, gsn_spellbane))
-				do_spellbane(ch, str_empty);
-#endif
 
+		if (!IS_NPC(ch)) {
 /* update ghost state */
 			if (ch->last_death_time != -1
 			&&  current_time - ch->last_death_time >=
