@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.12 1998-06-13 11:55:08 fjoe Exp $
+ * $Id: spellfun2.c,v 1.13 1998-06-16 18:43:19 efdi Exp $
  */
 
 /***************************************************************************
@@ -2940,121 +2940,106 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
 	CHAR_DATA *undead;
 	OBJ_DATA *obj,*obj2,*next;
 	AFFECT_DATA af;
-	char buf2[MAX_STRING_LENGTH];
-	char buf3[MAX_STRING_LENGTH];
-	char *argument;
-	char arg[MAX_STRING_LENGTH];
+	char *p;
 	int i;
 
 	/* deal with the object case first */
-	if (target == TARGET_OBJ)
-	{
-	obj = (OBJ_DATA *) vo;
+	if (target == TARGET_OBJ) {
+		obj = (OBJ_DATA *) vo;
 
-	  if (!(obj->item_type == ITEM_CORPSE_NPC ||  
-	      obj->item_type == ITEM_CORPSE_PC))
-	{
-	send_to_char("You can animate only corpses!\n\r",ch);
-	return;
-	}
-/*
-	 if (obj->item_type == ITEM_CORPSE_PC)     
-	{
-	send_to_char("The magic fails abruptly!\n\r",ch);
-	return;
-	}
-*/
-	if (is_affected(ch, sn))
-	{
-	  send_to_char("You cannot summon the strength to handle more undead bodies.\n\r", ch);
-	  return;
-	}
-
-	if (count_charmed(ch)) return;
-
-	if (ch->in_room != NULL && IS_SET(ch->in_room->room_flags, ROOM_NO_MOB))
-	{
-	 send_to_char("You can't animate deads here.\n\r", ch);
-	 return;
-	}
-
-	if (IS_SET(ch->in_room->room_flags, ROOM_SAFE)      ||
-	   IS_SET(ch->in_room->room_flags, ROOM_PRIVATE)   ||
-	   IS_SET(ch->in_room->room_flags, ROOM_SOLITARY)) {
-	send_to_char("You can't animate here.\n\r", ch);
-	return;
-	}
-	undead = create_mobile(get_mob_index(MOB_VNUM_UNDEAD));
-	char_to_room(undead,ch->in_room);
-	for (i=0;i < MAX_STATS; i++)
-	{
-	  undead->perm_stat[i] = UMIN(25,2 * ch->perm_stat[i]);
-	}
-
-	undead->max_hit = IS_NPC(ch)? ch->max_hit : ch->pcdata->perm_hit;
-	undead->hit = undead->max_hit;
-	undead->max_mana = IS_NPC(ch)? ch->max_mana : ch->pcdata->perm_mana;
-	undead->mana = undead->max_mana;
-	undead->alignment = ch->alignment;
-	undead->level = UMIN(100,(ch->level-2));
-
-	for (i=0; i < 3; i++)
-	undead->armor[i] = interpolate(undead->level,100,-100);
-	undead->armor[3] = interpolate(undead->level,50,-200);
-	undead->sex = ch->sex;
-	undead->gold = 0;
-	
-	SET_BIT(undead->act, ACT_UNDEAD);
-	SET_BIT(undead->affected_by, AFF_CHARM);
-	undead->master = ch;
-	undead->leader = ch;
-
-	str_printf(&undead->name, "%s body undead", obj->name);
-
-	strcpy(buf2, obj->short_descr);
-	argument = buf2;
-	buf3[0] = '\0';
-	while (argument[0] != '\0') {
-		argument = one_argument(argument, arg);
-		if (!(!str_cmp(arg,"The") || !str_cmp(arg,"undead") || !str_cmp(arg,"body") ||
-	!str_cmp(arg,"corpse") || !str_cmp(arg,"of")))
-	 {
-	  if (buf3[0] == '\0')   strcat(buf3,arg);
-	  else  {
-		 strcat(buf3," ");
-		 strcat(buf3,arg);
+		if (!(obj->item_type == ITEM_CORPSE_NPC 
+		|| obj->item_type == ITEM_CORPSE_PC)) {
+			send_to_char("You can animate only corpses!\n\r", ch);
+			return;
 		}
-	 }
-	}
 
-	str_printf(&undead->short_descr, "The undead body of %s", buf3);
-	str_printf(&undead->long_descr,
-		   "The undead body of %s slowly staggers around.\n\r", buf3);
+		if (is_affected(ch, sn)) {
+			send_to_char("You cannot summon the strength "
+				     "to handle more undead bodies.\n\r", ch);
+			return;
+		}
 
-	for(obj2 = obj->contains;obj2;obj2=next)
-	{
-	next = obj2->next_content;
-	obj_from_obj(obj2);
-	obj_to_char(obj2, undead);
-	}
-	interpret(undead,"wear all", TRUE);
+		if (count_charmed(ch)) 
+			return;
 
-	af.where	 = TO_AFFECTS;
-	af.type      = sn;
-	af.level	 = ch->level;
-	af.duration  = (ch->level / 10);
-	af.modifier  = 0;
-	af.bitvector = 0;
-	af.location  = APPLY_NONE;
-	affect_to_char(ch, &af);
+		if (ch->in_room != NULL 
+		&& IS_SET(ch->in_room->room_flags, ROOM_NO_MOB)) {
+			send_to_char("You can't animate deads here.\n\r", ch);
+			return;
+		}
 
-	send_to_char("With mystic power, you animate it!\n\r",ch);
-	act_printf(ch,NULL,NULL,TO_ROOM, POS_RESTING,
-		"With mystic power, %s animates %s!",ch->name,obj->name); 
-	act_printf(ch,NULL,NULL,TO_CHAR, POS_RESTING,
-		"%s looks at you and plans to make you pay for distrurbing its rest!",obj->short_descr); 
-	extract_obj (obj);
-	return;
+		if (IS_SET(ch->in_room->room_flags, ROOM_SAFE)
+		|| IS_SET(ch->in_room->room_flags, ROOM_PRIVATE)
+		|| IS_SET(ch->in_room->room_flags, ROOM_SOLITARY)) {
+			send_to_char("You can't animate here.\n\r", ch);
+			return;
+		}
+
+		undead = create_mobile(get_mob_index(MOB_VNUM_UNDEAD));
+		char_to_room(undead, ch->in_room);
+		for (i = 0; i < MAX_STATS; i++)
+			undead->perm_stat[i] = UMIN(25, 2 * ch->perm_stat[i]);
+
+		undead->max_hit = IS_NPC(ch) ? ch->max_hit 
+					     : ch->pcdata->perm_hit;
+		undead->hit = undead->max_hit;
+		undead->max_mana = IS_NPC(ch) ? ch->max_mana 
+					      : ch->pcdata->perm_mana;
+		undead->mana = undead->max_mana;
+		undead->alignment = ch->alignment;
+		undead->level = UMIN(100, (ch->level-2));
+
+		for (i = 0; i < 3; i++)
+			undead->armor[i] = interpolate(undead->level,100,-100);
+		undead->armor[3] = interpolate(undead->level, 50, -200);
+		undead->sex = ch->sex;
+		undead->gold = 0;
+	
+		SET_BIT(undead->act, ACT_UNDEAD);
+		SET_BIT(undead->affected_by, AFF_CHARM);
+		undead->master = ch;
+		undead->leader = ch;
+
+		str_printf(&undead->name, "%s body undead", obj->name);
+
+		p = obj->short_descr;
+		if (!str_prefix("The corpse of ", p))
+			p += strlen("The corpse of ");
+
+		if (!str_prefix("The undead body of ", p))
+			p += strlen("The undead body of ");
+
+		str_printf(&undead->short_descr, "The undead body of %s", p);
+		str_printf(&undead->long_descr,
+		   "The undead body of %s slowly staggers around.\n\r", p);
+
+		for (obj2 = obj->contains; obj2; obj2 = next) {
+			next = obj2->next_content;
+			obj_from_obj(obj2);
+			obj_to_char(obj2, undead);
+		}
+
+		interpret(undead, "wear all", TRUE);
+
+		af.where     = TO_AFFECTS;
+		af.type      = sn;
+		af.level     = ch->level;
+		af.duration  = (ch->level / 10);
+		af.modifier  = 0;
+		af.bitvector = 0;
+		af.location  = APPLY_NONE;
+		affect_to_char(ch, &af);
+
+		send_to_char("With mystic power, you animate it!\n\r",ch);
+		act_printf(ch,NULL,NULL,TO_ROOM, POS_RESTING,
+			   "With mystic power, %s animates %s!",
+			   ch->name, obj->name); 
+
+		act_printf(ch,NULL,NULL,TO_CHAR, POS_RESTING,
+		  	   "%s looks at you and plans to make you "
+			   "pay for distrurbing its rest!", obj->short_descr); 
+		extract_obj (obj);
+		return;
 	}
 
 	victim = (CHAR_DATA *) vo;
