@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.39 2002-10-24 07:59:26 tatyana Exp $
+ * $Id: spellfun.c,v 1.181.2.40 2002-10-24 08:44:37 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3046,7 +3046,7 @@ void spell_locate_object(int sn, int level, CHAR_DATA *ch, void *vo)
 			number++;
 		} else {
 			if (in_obj->in_room == NULL) {
-				if (IS_AUCTIONED(obj)) {
+				if (IS_AUCTIONED(in_obj)) {
 					buf_printf(buffer, "One is on auction "
 						   "right now.\n");
 					number++;
@@ -4317,33 +4317,46 @@ void spell_find_object(int sn, int level, CHAR_DATA *ch, void *vo)
 
 		if (buffer == NULL)
 			buffer = buf_new(-1);
-		number++;
 
 		for (in_obj = obj; in_obj->in_obj != NULL;
 						in_obj = in_obj->in_obj)
 			;
 
 		if (in_obj->carried_by != NULL
-		&&  can_see(ch,in_obj->carried_by)) {
+		&&  can_see(ch, in_obj->carried_by)) {
 			buf_printf(buffer, "One is carried by %s\n",
 				   PERS(in_obj->carried_by, ch));
+			number++;
 		} else {
-			if (IS_IMMORTAL(ch) && in_obj->in_room != NULL)
+			if (in_obj->in_room == NULL) {
+				if (IS_AUCTIONED(in_obj)) {
+					buf_printf(buffer, "One is on auction"
+						   " right now.\n");
+					number++;
+				}
+				if (is_on_black_market(in_obj)) {
+					buf_printf(buffer "One is on black "
+						   "market now.\n");
+					number++;
+				}
+				continue;
+			}
+
+			if (IS_IMMORTAL(ch)) {
 				buf_printf(buffer, "One is in %s [Room %d]\n",
 					mlstr_cval(&in_obj->in_room->name, ch),
 					in_obj->in_room->vnum);
-			else
+			} else {
 				buf_printf(buffer, "One is in %s\n",
-					in_obj->in_room == NULL ?
-					"somewhere" :
 					mlstr_cval(&in_obj->in_room->name, ch));
+			}
 		}
 
 		if (number >= max_found)
 			break;
 	}
 
-	if (buffer == NULL)
+	if (number == 0)
 		char_puts("Nothing like that in heaven or earth.\n", ch);
 	else {
 		page_to_char(buf_string(buffer),ch);
