@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.37 1999-04-16 15:52:16 fjoe Exp $
+ * $Id: clan.c,v 1.38 1999-04-20 05:18:36 kostik Exp $
  */
 
 #include <sys/time.h>
@@ -115,6 +115,28 @@ void clan_update_lists(clan_t *clan, CHAR_DATA *victim, bool memb)
 
 	if (memb)
 		name_delete(&clan->member_list, victim->name, NULL, NULL);
+}
+
+void do_mark(CHAR_DATA *ch, const char *argument)
+{
+	OBJ_DATA *mark;
+	clan_t *clan = NULL;
+
+	if ((ch->clan == 0) || ((clan=clan_lookup(ch->clan)) == NULL)) {
+		char_puts("You are not in clan.\n", ch);
+		return;
+	}
+	if (!clan->mark_vnum) {
+		char_puts ("Your clan do not have any mark.\n", ch);
+		return;
+	}
+	if (get_eq_char(ch, WEAR_CLANMARK)) {
+		char_puts ("You already have it.\n", ch);
+		return;
+	}
+	mark = create_obj(get_obj_index(clan->mark_vnum), 0);
+	obj_to_char (mark, ch);
+	equip_char (ch, mark, WEAR_CLANMARK);
 }
 
 void do_petition(CHAR_DATA *ch, const char *argument)

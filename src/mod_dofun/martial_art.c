@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.83 1999-04-16 15:52:19 fjoe Exp $
+ * $Id: martial_art.c,v 1.84 1999-04-20 05:18:38 kostik Exp $
  */
 
 /***************************************************************************
@@ -1164,12 +1164,19 @@ void do_nerve(CHAR_DATA *ch, const char *argument)
 		char_puts("Huh?\n", ch);
 		return;
 	}
-	if (ch->fighting == NULL) {
-		char_puts("You aren't fighting anyone.\n", ch);
-		return;
+	
+	if (arg[0] =='\0') {
+		victim = ch->fighting;
+		if (victim == NULL) {
+			char_puts("You aren't fighting anyone.\n", ch);
+			return;
+		}
+	}
+	else if ((victim=get_char_room(ch, arg)) == NULL) {
+			char_puts("They aren't here.\n", ch);
+			return;
 	}
 
-	victim = ch->fighting;
 
 	if (is_affected(ch,gsn_nerve)) {
 		char_puts("You cannot weaken that character any more.\n",

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.h,v 1.42 1999-04-16 15:52:17 fjoe Exp $
+ * $Id: interp.h,v 1.43 1999-04-20 05:18:38 kostik Exp $
  */
 
 /***************************************************************************
@@ -201,6 +201,7 @@ DECLARE_DO_FUN(do_look		);
 DECLARE_DO_FUN(do_look_in	);
 DECLARE_DO_FUN(do_lore		);
 DECLARE_DO_FUN(do_make		);
+DECLARE_DO_FUN(do_mark		);
 DECLARE_DO_FUN(do_memory	);
 DECLARE_DO_FUN(do_mfind		);
 DECLARE_DO_FUN(do_msgstat	);
