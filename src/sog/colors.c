@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: colors.c,v 1.1 1998-11-25 15:17:59 fjoe Exp $
+ * $Id: colors.c,v 1.2 1998-11-26 10:49:04 fjoe Exp $
  */
 
 #include <string.h>
@@ -55,6 +55,8 @@ enum {
 
 	COLOR_CLEAR,		/* special colors */
 	COLOR_BEEP,
+	COLOR_CR,
+	COLOR_LF,
 
 	COLOR_MAX
 };
@@ -91,7 +93,9 @@ FORMAT_DATA format_table[] =
 			str_empty,
 
 			str_empty,	/* special colors */
-			str_empty
+			str_empty,
+			str_empty,
+			"\n\r"
 		}
 	},
 
@@ -116,7 +120,9 @@ FORMAT_DATA format_table[] =
 			"\033[1;37m",
 
 			"\033[0m",
-			"\007"
+			"\007",
+			str_empty,
+			"\n\r",
 		}
 	},
 
@@ -131,7 +137,7 @@ FORMAT_DATA format_table[] =
 			"<FONT COLOR=#008080>",
 			"<FONT COLOR=#C0C0C0>",
 
-			"<FONT COLOR=#B0B0B0>",
+			"<FONT COLOR=#606060>",
 			"<FONT COLOR=#FF0000>",
 			"<FONT COLOR=#00FF00>",
 			"<FONT COLOR=#FFFF00>",
@@ -141,7 +147,9 @@ FORMAT_DATA format_table[] =
 			"<FONT COLOR=#FFFFFF>",
 
 			"<FONT COLOR=#C0C0C0>",
-			str_empty
+			str_empty,
+			str_empty,
+			"\n"
 		}
 	},
 
@@ -157,8 +165,11 @@ void parse_colors(const char *i, char *o, size_t len, int format)
 
 	reset_color = curr_color = COLOR_CLEAR;
 	for (p = o; *i && p - o < len - 1; i++) {
-		if (*i == '{' && *(i+1)) {
-			strnzcpy(p, color(*++i, format), len - 1 - (p - o));
+		if (*i == '\r'
+		||  *i == '\n'
+		||  (*i == '{' && *(i+1))) {
+			strnzcpy(p, color(*i == '{' ? *++i : *i, format),
+				 len - 1 - (p - o));
 			p = strchr(p, '\0');
 			continue;
 		}
@@ -248,7 +259,10 @@ static const char* color(char type, int format)
 	case '*':
 		color = COLOR_BEEP;
 		break;
-
+	case '\r':
+		return format_table[format].colors[COLOR_CR];
+	case '\n':
+		return format_table[format].colors[COLOR_LF];
 /* special cases */
 	case 'z':
 		return format_table[format].colors[curr_color = reset_color];

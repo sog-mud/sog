@@ -1,5 +1,5 @@
 /*
- * $Id: log.c,v 1.9 1998-11-25 15:17:45 fjoe Exp $
+ * $Id: log.c,v 1.10 1998-11-26 10:49:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,6 +47,7 @@
 #include "typedef.h"
 #include "const.h"
 #include "log.h"
+#include "util.h"
 
 #ifdef SUNOS
 #	include "compat/compat.h"

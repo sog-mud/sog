@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: info.c,v 1.1 1998-11-25 15:17:59 fjoe Exp $
+ * $Id: info.c,v 1.2 1998-11-26 10:49:04 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -131,7 +131,7 @@ void info_process_cmd(INFO_DESC *id)
 
 	output = buf_new(-1);
 
-	buf_printf(output, "%d\n\r", max_on);
+	buf_printf(output, "%d\n", max_on);
 	p = buf_string(output);
 	write(id->fd, p, strlen(p));
 
@@ -147,7 +147,6 @@ void info_process_cmd(INFO_DESC *id)
 			continue;
 
 		buf_clear(output);
-		buf_add(output, "{x");
 		do_who_raw(NULL, wch, output);
 		parse_colors(buf_string(output), buf, sizeof(buf), format);
 		write(id->fd, buf, strlen(buf));

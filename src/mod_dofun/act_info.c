@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.168 1998-11-25 15:17:42 fjoe Exp $
+ * $Id: act_info.c,v 1.169 1998-11-26 10:49:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1621,7 +1621,7 @@ void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 	||  !r->pcdata)
 		return;
 
-	buf_add(output, "[");
+	buf_add(output, "{x[");
 	if ((ch && (IS_IMMORTAL(ch) || ch == wch))
 	||  wch->level >= LEVEL_HERO || get_curr_stat(wch, STAT_CHA) < 18)
 		buf_printf(output, "%3d ", wch->level);
@@ -1683,7 +1683,7 @@ void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 
 	buf_add(output, wch->pcdata->title);
 
-	buf_add(output, "\n\r{x");
+	buf_add(output, "\n\r");
 }
 
 void do_who(CHAR_DATA *ch, const char *argument)
@@ -1840,7 +1840,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 		count += (d->connected == CON_PLAYING);
 
 	max_on = UMAX(count, max_on);
-	buf_printf(output, "\n\rPlayers found: %d. Most so far today: %d.\n\r",
+	buf_printf(output, "{x\nPlayers found: %d. Most so far today: %d.\n",
 		   nMatch, max_on);
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
@@ -1887,6 +1887,7 @@ void do_whois(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	buf_add(output, "{x");
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 }
