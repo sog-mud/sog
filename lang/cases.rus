@@ -841,6 +841,17 @@ Form 6 -у~
 End
 
 #RULE
+Name Кровавое~
+BaseLen 6
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ое~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ое~
+End
+
+#RULE
 Name тролль~
 BaseLen 5
 Form 1 -я~
@@ -1764,6 +1775,17 @@ Form 3 -ок~
 Form 4 -ком~
 Form 5 -ке~
 Form 6 -ка~
+End
+
+#RULE
+Name броня~
+BaseLen 4
+Form 1 -и~
+Form 2 -е~
+Form 3 -ю~
+Form 4 -ей~
+Form 5 -е~
+Form 6 -ю~
 End
 
 #RULE
@@ -3422,6 +3444,17 @@ Form 3 сида-охранника~
 Form 4 сидом-охранником~
 Form 5 сиде-охраннике~
 Form 6 сида-охранника~
+End
+
+#RULE
+Name сгусток~
+BaseLen 5
+Form 1 -ка~
+Form 2 -ку~
+Form 3 -ок~
+Form 4 -ком~
+Form 5 -ке~
+Form 6 -ка~
 End
 
 #RULE
@@ -5278,6 +5311,17 @@ Form 3 -ый~
 Form 4 -ым~
 Form 5 -ом~
 Form 6 -ого~
+End
+
+#RULE
+Name метагар~
+BaseLen 7
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
 End
 
 #RULE

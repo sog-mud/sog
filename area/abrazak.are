@@ -1,6 +1,6 @@
 #AREADATA
 Name Heaven~
-Builders shamash~
+Builders shamash sechanko~
 VNUMs 15000 15199
 Credits abrazak~
 Security 7
@@ -229,22 +229,22 @@ A
 G none
 #15004
 beer barrel~
-@eng a BIG barrel of beer for Mabutu@rus БОЛЬШОЙ бочонок пива для старого негра~
+@eng a BIG barrel of beer for Mabutu@rus ~~БОЛЬШОЙ~~ ~~бочонок~~ пива для старого негра~
 @eng Mabutu has left here his BIG barrel of beer.@rus Старый негр оставил здесь БОЛЬШОЙ бочонок (barrel) с пивом.~
 unknown~
-drink AGHIOTYZa AOP
+drink AGIYa AOP
 -1 100 'beer' 0 0
 0 0 0 P
-G none
+G male
 #15005
 fountain~
-@eng a fountain with milk@rus ~~фонтан~~ с молоком~
+@eng a fountain with milk@rus фонтан~
 @eng Fountain with milk is here.@rus Тут зачем-то еще и фонтан с молоком.~
 unknown~
 fountain O 0
 0 0 'milk' 0 0
 0 0 0 P
-G none
+G male
 #15006
 bed~
 @eng bed@rus нары~
@@ -431,6 +431,42 @@ A
 A
 18 2
 G none
+#15023
+ring кольцо~
+@eng {Yt{Wh{Ye {Ww{Ye{Wd{Yd{Wi{Yn{Wg {Yr{Wi{Yn{Wg{x@rus ~~{Yо{Wб{Yр{Wу{Yч{Wа{Yл{Wь{Yн{Wо{Yе {Wк{Yо{Wл{Yь{Wц{Yо{x~~~
+@eng The wedding ring is lying here.@rus Обручальное колечко (ring) блестит в лучах солнца.~
+gold~
+jewelry AR ABP
+0 0 0 0 0
+1 0 0 P
+A
+12 10
+A
+13 10
+A
+20 -1
+A
+19 1
+A
+18 1
+E
+ring кольцо~
+@eng This beautiful ring was created for sweety lowers.
+@rus Руны на кольце говорят о том, что оно было создано богами, чтобы
+объединить в вечный союз двух эльфов, о любви которых узнали даже
+на небесах.
+~
+G none
+#15024
+plate mail~
+@eng shing plate mail bearing the Sun disc@rus ~~сверкающая~~ ~~броня~~ с диском Солнца на груди~
+@eng Enormous plate mail shines on the ground.@rus Броня огромного размера лежит на земле.~
+unknown~
+armor A AD
+2000 2000 2000 2000 0
+110 5 1000000 P
+F I 8 5000 CD
+G female
 #15025
 sword darkness меч тьмы~
 @eng {DSword of Darkness{x@rus {D Меч ТЬМЫ {x~
@@ -667,6 +703,31 @@ staff EFHMPRTYa AOP
 0 0 0 'reserved' 0
 10 10 0 P
 G none
+#15051
+rondor sword~
+@eng Rondors sword@rus Меч Рондора~
+@eng Rondors sword@rus Меч Рондора~
+steel~
+weapon Hi AN
+dagger 100 100 pierce DEG
+99 100 10000000 P
+A
+8 1000
+F A 19 1000 V
+G male
+#15052
+carnage dagger~
+long slim dagger "{MCarnage{x"~
+Long and slim dagger glints in the grass.~
+steel~
+weapon H AN
+dagger 14 10 stab DE
+75 50 900000 P
+A
+18 20
+A
+19 20
+G male
 #15055
 knife sacrificers~
 @eng sacrificers knife of a dark gods@rus [освященный богами тьмы нож для жертвоприношений~
@@ -707,6 +768,16 @@ brass~
 container Yb AE
 1000 0 0 1000 10
 0 0 0 P
+G none
+#15190
+scarlet cloak~
+@eng {RScarlet Cloak {x@rus {RАлый Плащ {x~
+@eng {DRakot's Scarlet Cloak lies here...Attention! Be cautious! {x@rus {DПлащ Великого Ракота (scarlet cloak) лежит тут. Запрещено даже думать дотронуться до него! {x~
+gold~
+armor ABCGRTi AK
+500 500 500 500 0
+99 1 100000 P
+F I 8 4000 CD
 G none
 #15197
 pit яма~
@@ -951,10 +1022,6 @@ S
 15005 0 0 0 0 0 100 100 0 23
 15016 0 0 0 0 0 100 100 0 23
 0
-
-#OLIMITS
-O 15025 1	* {DSword of Darkness{x
-S
 
 #MOBPROGS
 #15000

@@ -326,6 +326,14 @@ Form 3 -ют~
 End
 
 #RULE
+Name выливает~
+BaseLen 6
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
 Name вспыхнул~
 BaseLen 7
 Form 1 -ла~
@@ -811,6 +819,14 @@ BaseLen 4
 Form 1 -ла~
 Form 2 -ло~
 Form 3 -ли~
+End
+
+#RULE
+Name переворачивает~
+BaseLen 12
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
 End
 
 #RULE

@@ -816,7 +816,7 @@ found on many other muds. The following options are usable:
 {cnote list{x       : show all notes (unread notes are marked with an N)
 {cnote read{x       : either by number, or read next to read unread notes
 {cnote remove{x     : removes a note that you wrote or are the target of
-{cnote catchup{x    : markes all notes as read
+{cnote catchup{x    : marks all notes as read
 
 'note read' can accept number of note to read.
 'note list' has extended syntax: note list [from name] [to name]
@@ -845,7 +845,6 @@ Four other note directories exist, these are {cideas{x, {cnews{x, {cchanges{x, a
 idea read 5 will read idea #5.  Posting to the news and changes boards is
 restricted. The 'unread' command can be used to show your unread notes on
 all the note spools.
- 
 @rus {wОбьявления в мире Серых Теней заменяют почту, распространенную в других мирах.
 Доступны следующие команды:
 
@@ -4118,6 +4117,8 @@ for deletion. For other matters, use common sense.
     to the socials/emotes, then don't do them.
 11. Cheating will not be tolerated. This includes accepting favors from
     gods and exploiting bugs.
+12. If you are level 20 and have not description you will be given
+    one warning. Then you will be punished.
   
   These are simple, clear rules.  If you violate them you WILL be
   punished.  Punishments may vary, depending on previous rules violations, 
@@ -6891,12 +6892,12 @@ TITLE changes character's title to given one.
 TITLE устанавливает титул указанного персонажа.
 ~
 0 WIZLIST~
-@eng {WDEITIES OF THIS WORLD{x
+{WDEITIES OF THIS WORLD{x
  
 {G                                    .\|/.
                                    . .{y|{G. .
                                   ..  {y|{G/. . .
-                        {Y Nergal{G  . \ .{y|{G//. ./ {YIluvatar{G
+                        {Y Nergal{G  . \ .{y|{G//. ./ {Y  Tyan{G
                         . _--. .\ . \ {y|{G/.._/. .__---_
                        . /.../\ .\_ {y |.|{G / . _/  \. .
                              . \. .\ {y|@@|{G/.: /. / .
@@ -6951,66 +6952,6 @@ TITLE устанавливает титул указанного персонажа.
                                    {y|@@@@@@@@@@@@|{G
                                    {y|@@@@@@@@@@@@|{G
                                    {y|@@@@@@@@@@@@|{x
-@rus {WБОГИ НАШЕГО МИРА
- 
-                                    {G.\|/.
-                                   . .{y|{G. .
-                                  ..  {y|{G/. . .
-                         {YNergal{G  . \ .{y|{G//. ./ {YIluvatar{G
-                        . _--. .\ . \ {y|{G/.._/. .__---_
-                       . /.../\ .\_  {y|.|{G / . _/  \. .
-                             . \. .\ {y|@@|{G/.: /. / .
-                             . .\_ .\{y|.|{G.._/._/.
-                                 . \.{y|@@{G/._/.
-                                   .\.{y@@{G./.
-                  {YDiablo            Arwen       Arborn{G
-               .____---__           {y|@@@@@@|{G      __----__..
-               ./../. /. \__ .      {y|@@@@@@|{G _ __/..\__.\.\.
-                 ./. .. _/. \__     {y|@@@@@@|{G/_/ .\:..\. .\.
-                  . .  ./. .. .\__ .{y|@@@@@@@@|{G
-                                  \ {y|@@@@@@@@|{G
-                                   \/{y@@@@@@@@|{G
-                                    {y|@@@@@@@@|{G              ____ .
-                                    {y|@@@@@@@@|{G      .._---_/. ..\.
-                                    {y|@@@@@@@@|{G ....__/.\+ .\..  .
-                  {YMarewell          {y|@@@@@@@@|{G. ._/..\ .\... .
-           .. . ____----____        {y|@@@@@@@@{G \/ ..  .  ..
-         .. /.--. ./\.. . / \___ .. {y|@@@@@@@@{G /
-          ./. . . .. . __/ .. ./\__.{y|@@@@@@@@|{G
-              .. / . ./..\.  . ..  \/{y@@@@@@@@|{G
-                                   {y|@@@@@@@@@@|                 {YEidu
-                                   {y|@@@@@@@@@@|{G    . . . ______------____ . .
-                                   {y|@@@@@@@@@@|{G ... ____/\__.. \_. ..\ ..\___ .
-                                   {y|@@@@@@@@@@|{G.___/ . .\__.. ./ \__. .. / ..\.
-          {YJullyRoger McLoud        {y|@@@@@@@@@@|{G/. .\. ... \. .. . .  .  . .
-       .. .___-----______. . .     {y|@@@@@@@@@@|{G     . .
-       . /. ./..__/ .. . \._._ . . {y|@@@@@@@@@@|{G
-      . /\ . . /.. .  . _/.. .\.__.{y|@@@@@@@@@@|{G
-       ...   ...     . /..  . . ..\/{y@@@@@@@@@@|{G
-                      ..          .{y|@@@@@@@@@@|               {YShamash
-                                   {y|@@@@@@@@@@|{G  ..  . _______--------______  . .
-                                   {y|@@@@@@@@@@|{G ..____/. . . .\ ... . \ . . \___
-                                   {y|@@@@@@@@@@|{G__/.. .\_.. .. .\__. ../\ . . \ .\ 
-                                   {y|@@@@@@@@@@{G/.. . . . \.      . .  ... .  . . /
-           {YRondor                  {y|@@@@@@@@@@|{G         .                    .. .
-   . .. ____---_____ ..  .. .      {y|@@@@@@@@@@|{G
-  . ___/. ..\.. ./..\_______ .  .. {y|@@@@@@@@@@|{G
- ._/\  \..  /. ./. ./.. .. .\_____.{y|@@@@@@@@@@|{G
- . . . /\. .. ./.  .\.     ./ . . \/{y@@@@@@@@@@|{G
-      . ..     .    .      ...   . {y|@@@@@@@@@@|{G
-                                   {y|@@@@@@@@@@|               {YVivien Maedhros
-                                   {y|@@@@@@@@@@|{G      . .  ..______------_____. ..
-                                   {y|@@@@@@@@@@|{G.. .. ______/. . . \_ ../ . ./\___
-                                   {y|@@@@@@@@@@|{G.____/. \.. \_. . ./ \__ .. .\ .\_
-                                   {y|@@@@@@@@@@{G\/.. .\. .. . . \ . . . .\ .  .. .
-                                   {y|@@@@@@@@@@@@|{G    ..       ...       . .
-                                   {y|@@@@@@@@@@@@|
-                                   |@@@@@@@@@@@@|
-                                   |@@@@@@@@@@@@|
-                                   |@@@@@@@@@@@@|
-                                   |@@@@@@@@@@@@|
-                                   |@@@@@@@@@@@@|
-                                   |@@@@@@@@@@@@|{x
 ~
 92 'WIZ PREFIX' PREFIX~
 @eng Syntax: {cprefix{x <command>

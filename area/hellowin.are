@@ -77,7 +77,7 @@ can't even move...  All you are able to is to await your fate lamblikely.
 ~
 dracolich~
 AOTe 0 -1000 0
-100 1000 10d3000+1 10d3000+1 10d400+1 drain
+100 1000 1d30000+0 10d3000+1 10d400+1 drain
 0 0 0 0
 D CD 0 0
 stand stand male 100
@@ -209,13 +209,13 @@ wand CF AO
 10 1 5000 P
 G none
 #34412
-wand жезл~
+undead control~
 @eng Wand of the Authority@rus ~~Жезл~~ Власти~
-@eng Wand of the Authority lies here filled with energy.@rus Жезл Власти, наполненный магической силой и энергией, ярко сверкает, лежа на земле у твоих ног.~
+@eng Wand of the Authority (control undead) lies here filled with energy.@rus Жезл Власти (undead control), наполненный магической силой и энергией, ярко сверкает, лежа на земле у твоих ног.~
 energy~
 wand AT AO
 150 1 1 'control undead' 0
-1 1 100 P
+110 1 100 P
 G male
 #34413
 vial life чаша~
@@ -295,14 +295,18 @@ A
 F I 0 0 M
 G female
 #34455
-aura darkness аура~
-~
-~
-unknown~
-trash 0 0
+darkness аура сгусток тьма aura~
+@eng aura of darkness@rus ~~сгусток~~ тьмы~
+@eng Aura of darkness is here.@rus Сгусток тьмы (darkness) поглощает весь свет в комнате.~
+darkness~
+treasure h AQ
 0 0 0 0 0
-0 0 0 P
-G none
+10 1 10000 P
+F I 0 0 N
+S 'black shroud' 100 A
+A
+20 -10
+G male
 #34456
 cloud darkness облако~
 ~
@@ -312,6 +316,32 @@ trash 0 0
 0 0 0 0 0
 0 0 0 P
 G none
+#34460
+shield щит metal~
+@eng metal shield@rus ~~щит~~ из неизвестного металла~
+@eng A shield of unknown metal rests here.@rus Щит (shield) из блестящего металла блестит в лучах солнца.~
+metal~
+armor 0 AJ
+25 25 25 20 0
+60 35 1000 P
+A
+19 10
+G none
+#34461
+sceptre скипетр~
+@eng knight's sceptre@rus ~~скипетр~~ Рыцаря~
+@eng Knight's sceptre is liying here.@rus Скипетр (sceptre) привлек твое внимание своим сиянием.~
+light~
+wand I AO
+60 50 50 'pass door' 0
+65 1 10000 P
+A
+18 15
+A
+19 15
+A
+20 -10
+G male
 #0
 
 #ROOMS
