@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.57.2.9 2001-11-16 05:50:52 avn Exp $
+ * $Id: olc_room.c,v 1.57.2.10 2001-11-23 08:12:29 avn Exp $
  */
 
 #include "olc.h"
@@ -1117,6 +1117,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 			obj_reset = reset_new();
 			obj_reset->command = 'P';
 			obj_reset->arg2    = is_number(arg5) ? atoi(arg5) : 1;
+			obj_reset->arg3    = obj_to->vnum;
 			obj_reset->arg4    = is_number(arg6) ? atoi(arg6) : 1;
 		} else if (!str_cmp(arg3, "room")) {
 			/*
