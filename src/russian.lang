@@ -1,5 +1,5 @@
 #
-# $Id: russian.lang,v 1.85 1998-07-13 18:44:22 efdi Exp $
+# $Id: russian.lang,v 1.86 1998-07-23 12:11:47 efdi Exp $
 #
 
 NOTHING  		"Ничего.\n\r",	
@@ -1021,3 +1021,21 @@ YOUR_THIRST_QUENCHED  sexdep  "Ты утолило свю жажду.\n\r"
 			      "Ты утолил свю жажду.\n\r"
 			      "Ты утолила свю жажду.\n\r"
 UNWORTHY_CANT_HOLD	"В этот дурацкий контейнер не влезает $p."
+N_UTTERS_THE_WORDS	"$n бормочет, '%s'."
+CONFEDERACY_PRAYS	"$n произносит '{GДа чтоб я под землю провалился!{x'"
+CONFEDERACY_VANISHES  "$n с треском проваливается под землю!"
+REACH_TRUE_SOURCE_STOP
+	"Ты чувстуешь, что кто-то не дает тебе добратся да Источника Силы.\n\r"
+CANT_GET_RIGHT_INTONATIONS  "Ты не можешь выдержать правильные интонации.\n\r"
+CAST_WHAT_WHERE		"Околдовать что, как?\n\r"
+DONT_KNOW_ANY_SPELLS_NAME	"Ты не знаешь такого заклинания.\n\r"
+MUST_TRANSFORM_VAMPIRE	"Тебе нужно стать вампиром, чтобы колдовать!\n\r"
+THATS_NOT_A_SPELL	"Это не заклинание.\n\r"
+YOUR_SPELL_FIZZLES_FAILS    "Твое заклинание не произвело видимого эффекта.\n\r"
+N_SPELL_FIZZLES_FAILS	"Заклинание $n не произвело видимого эффекта."
+YOUR_SPELLBANE_DEFLECTS	"Проклятье на тебе отразило заклинание!"
+NS_SPELLBANE_DEFLECTS	"Проклятье на $n отразило заклинание!"
+CAST_SPELL_ON_WHOM	"Прочитать заклинание на кого?\n\r"
+CANT_CAST_SPELL_ON_N_FAR
+		"Ты не можешь читать заклинания на $N на таком расстоянии."
+

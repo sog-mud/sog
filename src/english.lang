@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.65 1998-07-11 20:55:10 fjoe Exp $
+# $Id: english.lang,v 1.66 1998-07-23 12:11:47 efdi Exp $
 #
 
 NOTHING		"Nothing.\n\r"
@@ -840,3 +840,20 @@ YOU_DRINK_T_FROM_P	"You drink $T from $p."
 YOU_FEEL_DRUNK		"You feel drunk.\n\r"
 YOUR_THIRST_QUENCHED	"Your thirst is quenched.\n\r"
 UNWORTHY_CANT_HOLD	"This unworthy container won't hold $p."
+N_UTTERS_THE_WORDS	"$n utters the words, '%s'."
+CONFEDERACY_PRAYS	"$n says '{GDamn me!{x'"
+CONFEDERACY_VANISHES  "$n falls underground screaming 'AAAAAAAAAAARHHHHHH!'"
+REACH_TRUE_SOURCE_STOP
+	"You reach for the True Source and feel something stopping you.\n\r"
+CANT_GET_RIGHT_INTONATIONS	"You can't get the right intonations.\n\r"
+CAST_WHAT_WHERE		"Cast which what where?\n\r"
+DONT_KNOW_ANY_SPELLS_NAME	"You don't know any spells of that name.\n\r"
+MUST_TRANSFORM_VAMPIRE	"You must transform to vampire before casting!\n\r"
+THATS_NOT_A_SPELL	"That's not a spell.\n\r"
+YOUR_SPELL_FIZZLES_FAILS	"Your spell fizzles out and fails.\n\r"
+N_SPELL_FIZZLES_FAILS	"$n's spell fizzles out and fails."
+YOUR_SPELLBANE_DEFLECTS	"Your spellbane deflects the spell!"
+NS_SPELLBANE_DEFLECTS	"$n's spellbane deflects the spell!"
+CAST_SPELL_ON_WHOM	"Cast the spell on whom?\n\r"
+CANT_CAST_SPELL_ON_N_FAR "You can't cast this spell to $N at this distance."
+

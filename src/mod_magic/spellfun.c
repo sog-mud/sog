@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.34 1998-07-21 00:04:05 efdi Exp $
+ * $Id: spellfun.c,v 1.35 1998-07-23 12:11:47 efdi Exp $
  */
 
 /***************************************************************************
@@ -99,7 +99,6 @@ int find_spell(CHAR_DATA *ch, const char *name)
 void say_spell(CHAR_DATA *ch, int sn)
 {
 	char buf  [MAX_STRING_LENGTH];
-	char buf2 [MAX_STRING_LENGTH];
 	CHAR_DATA *rch;
 	char *pName;
 	int iSyl;
@@ -148,43 +147,33 @@ void say_spell(CHAR_DATA *ch, int sn)
 	};
 
 	buf[0]	= '\0';
-	for (pName = skill_table[sn].name; *pName != '\0'; pName += length)
-	{
-		for (iSyl = 0; (length = strlen(syl_table[iSyl].old)) != 0; iSyl++)
-		{
-		    if (!str_prefix(syl_table[iSyl].old, pName))
-		    {
-			strcat(buf, syl_table[iSyl].new);
-			break;
-		    }
+	for (pName = skill_table[sn].name; *pName != '\0'; pName += length) {
+		for (iSyl = 0; (length = strlen(syl_table[iSyl].old)) != 0;
+								iSyl++) {
+			if (!str_prefix(syl_table[iSyl].old, pName)) {
+				strcat(buf, syl_table[iSyl].new);
+				break;
+			}
 		}
-
 		if (length == 0)
-		    length = 1;
+			length = 1;
 	}
 
-	sprintf(buf2, "$n utters the words, '%s'.", buf);
-	sprintf(buf,  "$n utters the words, '%s'.", skill_table[sn].name);
-
-	for (rch = ch->in_room->people; rch; rch = rch->next_in_room)
-	{
-		if (rch != ch)  
-		{
-	     skill = (get_skill(rch,gsn_spell_craft) * 9) / 10;
-		 if (skill < number_percent())
-		  {
-		    act(buf2 , ch, NULL, rch, TO_VICT);
-		    check_improve(rch, gsn_spell_craft, TRUE, 5);
-		  }
-		 else  
-		  {
-		    act(buf, ch, NULL, rch, TO_VICT);
-		    check_improve(rch, gsn_spell_craft, TRUE, 5);
-		  }
+	for (rch = ch->in_room->people; rch; rch = rch->next_in_room) {
+		if (rch != ch)  {
+			skill = (get_skill(rch,gsn_spell_craft) * 9) / 10;
+			if (skill < number_percent()) {
+				act_nprintf(ch, NULL, rch, TO_VICT, POS_RESTING,
+					    N_UTTERS_THE_WORDS, buf);
+				check_improve(rch, gsn_spell_craft, TRUE, 5);
+			} else  {
+				act_nprintf(ch, NULL, rch, TO_VICT, POS_RESTING,
+					    N_UTTERS_THE_WORDS,
+					    skill_table[sn].name);
+				check_improve(rch, gsn_spell_craft, TRUE, 5);
+			}
 		}
 	}
-
-	return;
 }
 
 
@@ -203,11 +192,15 @@ bool saves_spell(int level, CHAR_DATA *victim, int dam_type)
 	if (IS_AFFECTED(victim,AFF_BERSERK))
 		save += victim->level / 5;
 
-	switch(check_immune(victim,dam_type))
-	{
-		case IS_IMMUNE:		return TRUE;
-		case IS_RESISTANT:	save += victim->level / 5;	break;
-		case IS_VULNERABLE:	save -= victim->level / 5;	break;
+	switch(check_immune(victim,dam_type)) {
+	case IS_IMMUNE:
+		return TRUE;
+	case IS_RESISTANT:
+		save += victim->level / 5;
+		break;
+	case IS_VULNERABLE:
+		save -= victim->level / 5;
+		break;
 	}
 
 	if (!IS_NPC(victim) && class_table[victim->class].fMana)
@@ -237,24 +230,18 @@ bool check_dispel(int dis_level, CHAR_DATA *victim, int sn)
 {
 	AFFECT_DATA *af;
 
-	if (is_affected(victim, sn))
-	{
-		for (af = victim->affected; af != NULL; af = af->next)
-	    {
-	        if (af->type == sn)
-	        {
-	            if (!saves_dispel(dis_level,af->level,af->duration))
-	            {
+	if (is_affected(victim, sn)) {
+	    for (af = victim->affected; af != NULL; af = af->next) {
+	        if (af->type == sn) {
+	            if (!saves_dispel(dis_level,af->level,af->duration)) {
 	                affect_strip(victim,sn);
-	    	    if (skill_table[sn].msg_off)
-	    	    {
+			if (skill_table[sn].msg_off) {
 	        		send_to_char(skill_table[sn].msg_off, victim);
 	        		send_to_char("\n\r", victim);
-	    	    }
-			    return TRUE;
 			}
-			else
-			    af->level--;
+			return TRUE;
+		    } else
+			af->level--;
 	        }
 	    }
 	}
@@ -275,10 +262,12 @@ int mana_cost (CHAR_DATA *ch, int min_mana, int level)
  */
 int allowed_other(CHAR_DATA *ch, int sn)
 {
- if (skill_table[sn].minimum_position == POS_STANDING
+	if (skill_table[sn].minimum_position == POS_STANDING
   	|| skill_table[sn].skill_level[ch->class] < 26
-		|| sn == find_spell(ch,"chain lightning")) return 0;
- else return skill_table[sn].skill_level[ch->class] / 10;
+	|| sn == find_spell(ch,"chain lightning"))
+		return 0;
+	else
+		return skill_table[sn].skill_level[ch->class] / 10;
 }
 
 /*
@@ -305,163 +294,154 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(ch) && ch->desc == NULL)
 		return;
 
-	 if (is_affected(ch, gsn_shielding))
-		{
-		 send_to_char("You reach for the True Source and feel something stopping you.\n\r",ch);
-		 return;
-		}
+	if (is_affected(ch, gsn_shielding)) {
+		char_nputs(REACH_TRUE_SOURCE_STOP, ch);
+		return;
+	}
 
-	 if (is_affected(ch, gsn_garble) || is_affected(ch, gsn_deafen))
-	 {
-	    send_to_char("You can't get the right intonations.\n\r", ch);
-	    return;
-	 }
+	if (is_affected(ch, gsn_garble) || is_affected(ch, gsn_deafen)) {
+		char_nputs(CANT_GET_RIGHT_INTONATIONS, ch);
+		return;
+	}
 
 	target_name = one_argument(argument, arg1);
 	one_argument(target_name, arg2);
 
-	if (arg1[0] == '\0')
-	{
-		send_to_char("Cast which what where?\n\r", ch);
+	if (arg1[0] == '\0') {
+		char_nputs(CAST_WHAT_WHERE, ch);
 		return;
 	}
 
 	if (ch->clan == CLAN_BATTLE && !IS_IMMORTAL(ch)) {
-		send_to_char("You are a BattleRager, not a filthy magician!\n\r",ch);
+		char_puts("You are a BattleRager, not a filthy magician!\n\r",
+			  ch);
 		return;
 	}
 
 	if ((sn = find_spell(ch, arg1)) < 0) {
-		send_to_char("You don't know any spells of that name.\n\r", ch);
+		char_nputs(DONT_KNOW_ANY_SPELLS_NAME, ch);
 		return;
 	}
 
 	if (ch->class == CLASS_VAMPIRE
-		&& !IS_VAMPIRE(ch) && skill_table[sn].clan == CLAN_NONE)
-	{
-	  send_to_char("You must transform to vampire before casting!\n\r",ch);
-	  return;
+	&& !IS_VAMPIRE(ch) && skill_table[sn].clan == CLAN_NONE) {
+		char_nputs(MUST_TRANSFORM_VAMPIRE, ch);
+		return;
 	}
 
-	if (skill_table[sn].spell_fun == spell_null)
-	{
-	    send_to_char("That's not a spell.\n\r",ch);
-	    return;
+	if (skill_table[sn].spell_fun == spell_null) {
+		char_nputs(THATS_NOT_A_SPELL, ch);
+		return;
 	}
 
-	if (ch->position < skill_table[sn].minimum_position)
-	{
-		send_to_char("You can't concentrate enough.\n\r", ch);
+	if (ch->position < skill_table[sn].minimum_position) {
+		char_nputs(CANT_CONCENTRATE_ENOUGH, ch);
 		return;
 	}
 
 	if (!clan_ok(ch, sn))
 		return;
 
-	if (IS_SET(ch->in_room->room_flags,ROOM_NO_MAGIC))
-	{
-	    send_to_char("Your spell fizzles out and fails.\n\r",ch);
-	    act("$n's spell fizzles out and fails.", ch, NULL, NULL, TO_ROOM);
-	    return;
+	if (IS_SET(ch->in_room->room_flags,ROOM_NO_MAGIC)) {
+		char_nputs(YOUR_SPELL_FIZZLES_FAILS, ch);
+		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+			    N_SPELL_FIZZLES_FAILS);
+		return;
 	}
 
-	spell_level = skill_is_native(ch, sn) ? 1 : skill_table[sn].skill_level[ch->class];
+	spell_level = skill_is_native(ch, sn) ? 1
+		      : skill_table[sn].skill_level[ch->class];
 	if (ch->level + 2 == spell_level)
 		mana = 50;
 	else
-		mana = UMAX(
-		    skill_table[sn].min_mana,
-		    100 / (2 + ch->level - spell_level));
+		mana = UMAX(skill_table[sn].min_mana,
+			    100 / (2 + ch->level - spell_level));
 
 	/*
 	 * Locate targets.
 	 */
-	victim	= NULL;
+	victim		= NULL;
 	obj		= NULL;
 	vo		= NULL;
-	target	= TARGET_NONE;
+	target		= TARGET_NONE;
 
-	switch (skill_table[sn].target)
-	{
+	switch (skill_table[sn].target) {
 	default:
 		bug("Do_cast: bad target for sn %d.", sn);
 		return;
 
 	case TAR_IGNORE:
-	    if (is_affected(ch,gsn_spellbane))
-	      {
-	        act("Your spellbane deflects the spell!",ch,NULL,NULL,TO_CHAR);
-	        act("$n's spellbane deflects the spell!",ch,NULL,NULL,TO_ROOM);
-	        damage(ch,ch,3 * ch->level,gsn_spellbane,DAM_NEGATIVE, TRUE);
-	        return;
-	      }
- 	break;
+		if (is_affected(ch,gsn_spellbane)) {
+			act_nprintf(ch, NULL, NULL, TO_CHAR, POS_DEAD,
+				    YOUR_SPELLBANE_DEFLECTS);
+			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+				    NS_SPELLBANE_DEFLECTS);
+			damage(ch, ch, 3 * ch->level, gsn_spellbane,
+			       DAM_NEGATIVE, TRUE);
+			return;
+		}
+		break;
 
 	case TAR_CHAR_OFFENSIVE:
 		if (arg2[0] == '\0')
-		{
-		    if ((victim = ch->fighting) == NULL)
-		    {
-			send_to_char("Cast the spell on whom?\n\r", ch);
-			return;
-		    }
-		}
-		else
-		{
-		    if ((range = allowed_other(ch,sn)) > 0)
-		    {
- 	     if ((victim=get_char_spell(ch,target_name,&door,range)) == NULL)
-		      return;
+			if ((victim = ch->fighting) == NULL) {
+				char_nputs(CAST_SPELL_ON_WHOM, ch);
+				return;
+			} else
+				if ((range = allowed_other(ch,sn)) > 0) {
+					if (!(victim = get_char_spell(ch,
+								target_name,
+								&door, range)))
+						return;
 
-		     if (IS_NPC(victim) && IS_SET(victim->act,ACT_NOTRACK)
-			 && victim->in_room != ch->in_room)
-		     {
-		      act("You can't cast this spell to $N at this distance.",
-				ch,NULL,victim,TO_CHAR);
-		      return;
-		     }
-		     cast_far = 1;
-		    }
-		    else if ((victim = get_char_room(ch, target_name)) == NULL)
-		    {
-			send_to_char("They aren't here.\n\r", ch);
-			return;
-		    }
-		}
+					if (IS_NPC(victim)
+					&&  IS_SET(victim->act, ACT_NOTRACK)
+					&&  victim->in_room != ch->in_room) {
+						act_nprintf(ch, NULL, victim,
+						    TO_CHAR, POS_DEAD,
+						    CANT_CAST_SPELL_ON_N_FAR);
+						return;
+					}
+					cast_far = 1;
+				} else if (!(victim = get_char_room(ch,
+							target_name)) == NULL) {
+					char_nputs(THEY_ARENT_HERE, ch);
+					return;
+				}
 
-		if (!IS_NPC(ch) && is_safe(ch,victim))
-			return;
-/*
-		if (IS_AFFECTED(ch, AFF_CHARM) && ch->master == victim)
-		{
-		    send_to_char("You can't do that on your own follower.\n\r",
-			ch);
-		    return;
-		}
-*/
-		vo = (void *) victim;
-		target = TARGET_CHAR;
-	    if (!IS_NPC(ch) && victim != ch &&
-	        ch->fighting != victim && victim->fighting != ch &&
-	        (IS_SET(victim->affected_by,AFF_CHARM) || !IS_NPC(victim)))
-	      {
-	        if (!can_see(victim, ch))
-	            do_yell(victim, "Help someone is attacking me!");
-	        else
-	             doprintf(do_yell, victim,"Die, %s, you sorcerous dog!",
-	                ch->name);
-	      }
-	    if (is_affected(victim,gsn_spellbane) && 
-	        (number_percent() < 2*victim->pcdata->learned[gsn_spellbane]/3) 
-			&& sn != slot_lookup(524))  
-	      {
-	        if (ch==victim)
-	          {
-	            act("Your spellbane deflects the spell!",ch,NULL,NULL,TO_CHAR);
-	            act("$n's spellbane deflects the spell!",ch,NULL,NULL,TO_ROOM);
-	            damage(ch,ch,3 * ch->level,gsn_spellbane,DAM_NEGATIVE,TRUE);
-	          }
-	        else {
+			if (!IS_NPC(ch) && is_safe(ch, victim))
+				return;
+
+			vo = (void *) victim;
+			target = TARGET_CHAR;
+			if (!IS_NPC(ch) && victim != ch
+			&&  ch->fighting != victim && victim->fighting != ch
+			&&  (IS_SET(victim->affected_by, AFF_CHARM)
+			     || !IS_NPC(victim))) {
+				if (!can_see(victim, ch))
+					do_yell(victim,
+					    "Help someone is attacking me!");
+				else
+					doprintf(do_yell, victim,
+						 "Die, %s, you sorcerous dog!",
+						 ch->name);
+			}
+
+			if (is_affected(victim, gsn_spellbane)
+			&&  (number_percent()
+				< 2*victim->pcdata->learned[gsn_spellbane]/3) 
+			&&  sn != slot_lookup(524))  {
+				if (ch == victim) {
+					act_nprintf(ch, NULL, NULL, TO_CHAR,
+						    POS_DEAD,
+						    YOUR_SPELLBANE_DEFLECTS);
+					act_nprintf(ch, NULL, NULL, TO_ROOM,
+						    POS_RESTING,
+						    NS_SPELLBANE_DEFLECTS);
+					damage(ch, ch, 3 * ch->level,
+					       gsn_spellbane,
+					       DAM_NEGATIVE, TRUE);
+			} else {
 	          act("$N deflects your spell!",ch,NULL,victim,TO_CHAR);
 	          act("You deflect $n's spell!",ch,NULL,victim,TO_VICT);
 	          act("$N deflects $n's spell!",ch,NULL,victim,TO_NOTVICT);
