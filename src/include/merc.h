@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.406 2003-09-29 23:11:21 fjoe Exp $
+ * $Id: merc.h,v 1.407 2003-10-10 14:28:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2561,6 +2561,7 @@ extern int		rebooter;
 extern AREA_DATA *	area_first;
 extern AREA_DATA *	area_last;
 extern SHOP_DATA *	shop_last;
+extern const char *	target_name;
 
 /*
  * the following path/file name consts are defined in db.c

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.308 2003-09-30 00:31:18 fjoe Exp $
+ * $Id: spellfun.c,v 1.309 2003-10-10 14:28:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,9 +49,6 @@
 
 #include <sog.h>
 #include <quest.h>
-
-#include <magic.h>
-#include "magic_impl.h"
 
 DECLARE_SPELL_FUN(generic_damage_spellfun);
 

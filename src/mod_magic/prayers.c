@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.51 2003-09-30 00:31:17 fjoe Exp $
+ * $Id: prayers.c,v 1.52 2003-10-10 14:28:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,9 +47,7 @@
 #include <sog.h>
 #include <quest.h>
 
-#include <magic.h>
 #include <update.h>
-#include "magic_impl.h"
 
 DECLARE_SPELL_FUN(prayer_detect_good);
 DECLARE_SPELL_FUN(prayer_detect_evil);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.45 2003-04-25 12:49:08 fjoe Exp $
+ * $Id: sog.h,v 1.46 2003-10-10 14:28:01 fjoe Exp $
  */
 
 #ifndef _SOG_H_
@@ -852,6 +852,34 @@ DECLARE_FUN1(bool, compressStart,
 	     ARG(DESCRIPTOR_DATA), desc)
 DECLARE_FUN1(bool, compressEnd,
 	     ARG(DESCRIPTOR_DATA), desc)
+
+/*--- magic.c */
+DECLARE_PROC4(obj_cast_spell,
+	      ARG(cchar_t), sn, ARG(int), level, ARG(CHAR_DATA), ch,
+	      ARG(pvoid_t), vo)
+DECLARE_PROC3(cast,
+	      ARG(cchar_t), sn, ARG(CHAR_DATA), ch, ARG(cchar_t), argument)
+DECLARE_PROC3(cast_char,
+	      ARG(cchar_t), sn, ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim)
+DECLARE_PROC3(cast_obj,
+	      ARG(cchar_t), sn, ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj)
+
+DECLARE_PROC5(spellfun,
+	      ARG(cchar_t), sn_fun, NULLABLE_ARG(cchar_t), sn, ARG(int), level,
+	      ARG(CHAR_DATA), ch, ARG(pvoid_t), vo)
+DECLARE_FUN3(bool, saves_spell,
+	     ARG(int), level, ARG(CHAR_DATA), victim, ARG(int), dam_class)
+DECLARE_FUN3(bool, check_dispel,
+	     ARG(int), dis_level, ARG(CHAR_DATA), victim, ARG(cchar_t), sn)
+DECLARE_PROC3(cast_spell_or_prayer,
+	      ARG(CHAR_DATA), ch, ARG(cchar_t), argument, ARG(int), skill_type)
+DECLARE_FUN2(bool, check_trust,
+	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim)
+DECLARE_FUN3(bool, saves_dispel,
+	     ARG(int), dis_level, ARG(int), spell_level, ARG(int), duration)
+DECLARE_FUN4(bool, spellbane,
+	     ARG(CHAR_DATA), bch, ARG(CHAR_DATA), ch,
+	     ARG(int), bane_chance, ARG(int), bane_damage)
 
 __MODULE_END_DECL
 

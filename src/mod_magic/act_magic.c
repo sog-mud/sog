@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_magic.c,v 1.42 2001-09-02 16:21:54 fjoe Exp $
+ * $Id: act_magic.c,v 1.43 2003-10-10 14:28:16 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -33,14 +33,8 @@
 
 #include <sog.h>
 
-#include <magic.h>
-#include "magic_impl.h"
-
 DECLARE_DO_FUN(do_cast);
 DECLARE_DO_FUN(do_pray);
-
-static void cast_spell_or_prayer(CHAR_DATA *ch, const char *argument,
-				 int skill_type);
 
 DO_FUN(do_cast, ch, argument)
 {
@@ -50,25 +44,4 @@ DO_FUN(do_cast, ch, argument)
 DO_FUN(do_pray, ch, argument)
 {
 	cast_spell_or_prayer(ch, argument, ST_PRAYER);
-}
-
-/*--------------------------------------------------------------------
- * local functions
- */
-static void
-cast_spell_or_prayer(CHAR_DATA *ch, const char *argument, int skill_type)
-{
-	cpdata_t cp;
-	sptarget_t spt;
-
-	if (!get_cpdata(ch, argument, skill_type, &cp))
-		return;
-
-	if (!casting_allowed(ch, &cp))
-		return;
-
-	if (!find_sptarget(ch, cp.sk, &spt))
-		return;
-
-	cast_spell(ch, &cp, &spt);
 }

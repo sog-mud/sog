@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.159 2003-09-30 00:31:38 fjoe Exp $
+ * $Id: recycle.c,v 1.160 2003-10-10 14:28:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -67,6 +67,11 @@ OBJ_DATA	*top_affected_obj = NULL;
 
 int		reboot_counter = 1440;
 int		rebooter = 0;
+
+/*
+ * The kludgy global is for spells who want more stuff from command line.
+ */
+const char	*target_name;
 
 int		changed_flags;		/* changed object flags for OLC */
 

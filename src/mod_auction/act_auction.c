@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_auction.c,v 1.11 2003-04-25 12:49:10 fjoe Exp $
+ * $Id: act_auction.c,v 1.12 2003-10-10 14:28:04 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -32,7 +32,6 @@
 #include <merc.h>
 
 #include <sog.h>
-#include <magic.h>
 #include <update.h>
 
 #include "auction_impl.h"

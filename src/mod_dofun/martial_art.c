@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.224 2003-09-30 00:31:11 fjoe Exp $
+ * $Id: martial_art.c,v 1.225 2003-10-10 14:28:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,7 +45,6 @@
 #include <merc.h>
 
 #include <sog.h>
-#include <magic.h>
 #include <update.h>
 
 DECLARE_DO_FUN(do_kill);

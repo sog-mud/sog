@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.361 2003-09-30 00:31:27 fjoe Exp $
+ * $Id: fight.c,v 1.362 2003-10-10 14:28:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,7 +53,6 @@
 
 #include <merc.h>
 
-#include <magic.h>
 #include <update.h>
 #include <quest.h>
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_magic.c,v 1.20 2003-09-30 00:31:17 fjoe Exp $
+ * $Id: init_magic.c,v 1.21 2003-10-10 14:28:16 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -33,7 +33,6 @@
 
 #include <module.h>
 #define MODULE_INIT MOD_MAGIC
-#include <magic.h>
 
 DECLARE_MODINIT_FUN(_module_load);
 DECLARE_MODINIT_FUN(_module_unload);
@@ -55,7 +54,6 @@ MODINIT_FUN(_module_load, m)
 			}
 		}
 	}
-	dynafun_tab_register(__mod_tab(MODULE), m);
 	return 0;
 }
 
@@ -64,7 +62,6 @@ MODINIT_FUN(_module_unload, m)
 	cmd_t *cmd;
 	skill_t *sk;
 
-	dynafun_tab_unregister(__mod_tab(MODULE));
 	C_FOREACH(sk, &skills) {
 		if (sk->skill_type == ST_SPELL
 		||  sk->skill_type == ST_PRAYER)
