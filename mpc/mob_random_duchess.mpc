@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_random_duchess.mpc,v 1.1 2001-08-28 17:33:57 fjoe Exp $
+ */
+
+dofun("say", $n, "You don't know much and that's fact!");

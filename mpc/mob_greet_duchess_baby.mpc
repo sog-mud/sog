@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_greet_duchess_baby.mpc,v 1.1 2001-08-28 17:33:56 fjoe Exp $
+ */
+
+dofun("emote", $n, "cries and sneezes a lot.");

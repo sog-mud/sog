@@ -1,0 +1,6 @@
+/*
+ * $Id: mob_exit_cook.mpc,v 1.1 2001-08-28 17:33:55 fjoe Exp $
+ */
+
+act("$n hurls a plate at you!", $n, NULL, $N, TO_VICT);
+act("$n hurls a plate at $N! *>CRASH<*", $n, NULL, $N, TO_NOTVICT);

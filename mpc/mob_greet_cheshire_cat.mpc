@@ -1,0 +1,6 @@
+/*
+ * $Id: mob_greet_cheshire_cat.mpc,v 1.1 2001-08-28 17:33:55 fjoe Exp $
+ */
+
+act("$n grins at you.", $n, NULL, $N, TO_VICT);
+act("$n grins at $N.", $n, NULL, $N, TO_NOTVICT);

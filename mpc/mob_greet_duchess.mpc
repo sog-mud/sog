@@ -1,0 +1,6 @@
+/*
+ * $Id: mob_greet_duchess.mpc,v 1.1 2001-08-28 17:33:56 fjoe Exp $
+ */
+
+dofun("yell", $n, "PIG!");
+dofun("emote", $n, "stares at the baby in her lap.");

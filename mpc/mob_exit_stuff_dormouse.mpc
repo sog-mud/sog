@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_exit_stuff_dormouse.mpc,v 1.1 2001-08-28 17:33:55 fjoe Exp $
+ */
+
+dofun("emote", $n, "begins to stuff the dormouse into a teapot.");

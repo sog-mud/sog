@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_greet_gardener_two.mpc,v 1.1 2001-08-28 17:33:56 fjoe Exp $
+ */
+
+dofun("say", $n, "Look out now, Five! Don't go splashing paint over me like that!");

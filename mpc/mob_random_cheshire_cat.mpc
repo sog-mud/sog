@@ -1,0 +1,6 @@
+/*
+ * $Id: mob_random_cheshire_cat.mpc,v 1.1 2001-08-28 17:33:57 fjoe Exp $
+ */
+
+dofun("say", $n, "In that direction lives the March Hare.");
+dofun("say", $n, "And in that direction lives the Mad Hatter.");
