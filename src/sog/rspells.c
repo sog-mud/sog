@@ -1,5 +1,5 @@
 /*
- * $Id: rspells.c,v 1.1 1999-05-22 16:49:47 avn Exp $
+ * $Id: rspells.c,v 1.2 1999-05-24 18:06:58 avn Exp $
  */
 
 /***************************************************************************
@@ -202,6 +202,7 @@ EVENT_FUN(event_update_espirit)
 	&& number_bits(3) == 0) {
 		af.where	= TO_AFFECTS;
 		af.level	= raf->level;
+		af.type		= gsn_evil_spirit;
 		af.duration	= number_range(1, af.level/30);
 		af.location	= APPLY_NONE;
 		af.modifier	= 0;
