@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_cmd.c,v 1.18 2002-11-21 09:33:52 fjoe Exp $
+ * $Id: db_cmd.c,v 1.19 2002-11-21 13:31:22 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -98,6 +98,10 @@ DBLOAD_FUN(load_cmd)
 
 		case 'N':
 			SKEY("name", cmd->name, fread_string(fp));
+			break;
+
+		case 'S':
+			SKEY("skill", cmd->sn, fread_string(fp));
 			break;
 		}
 

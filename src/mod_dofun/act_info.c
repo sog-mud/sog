@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.420 2002-11-21 09:33:57 fjoe Exp $
+ * $Id: act_info.c,v 1.421 2002-11-21 13:31:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4391,7 +4391,9 @@ show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 }
 
 #define CMD_ALLOWED(cmd, ch)						\
-	((cmd)->min_level < LEVEL_HERO && (cmd)->min_level <= (ch)->level)
+	((cmd)->min_level < LEVEL_HERO &&				\
+	 (cmd)->min_level <= (ch)->level &&				\
+	 (IS_NULLSTR((cmd)->sn) || get_skill((ch), (cmd)->sn) != 0))
 
 #define WIZCMD_ALLOWED(cmd, ch)						\
 	((cmd)->min_level >= LEVEL_IMMORTAL &&				\
@@ -4471,8 +4473,9 @@ DO_FUN(do_wizhelp, ch, argument)
 	cmd_t *cmd;
 	int col;
 	varr v;
+	CHAR_DATA *vch = GET_ORIGINAL(ch);
 
-	if (IS_NPC(ch)) {
+	if (IS_NPC(vch)) {
 		act_char("Huh?", ch);
 		return;
 	}
@@ -4491,7 +4494,7 @@ DO_FUN(do_wizhelp, ch, argument)
 
 	col = 0;
 	C_FOREACH(cmd, &v) {
-		if (!WIZCMD_ALLOWED(cmd, ch))
+		if (!WIZCMD_ALLOWED(cmd, vch))
 			continue;
 
 		act_puts("$f-12{$t}", ch, cmd->name, NULL,	// notrans

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.c,v 1.27 2002-11-21 09:46:41 fjoe Exp $
+ * $Id: cmd.c,v 1.28 2002-11-21 13:31:30 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -45,6 +45,7 @@ cmd_init(cmd_t *cmd)
 	cmd->name = str_empty;
 	cmd->aliases = str_empty;
 	cmd->dofun_name = str_empty;
+	cmd->sn = str_empty;
 	cmd->min_pos = 0;
 	cmd->min_level = 0;
 	cmd->cmd_log = LOG_NORMAL;
@@ -59,6 +60,7 @@ cmd_destroy(cmd_t *cmd)
 	free_string(cmd->name);
 	free_string(cmd->aliases);
 	free_string(cmd->dofun_name);
+	free_string(cmd->sn);
 }
 
 varr_info_t c_info_commands =

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_cmd.c,v 1.28 2002-11-21 09:40:54 fjoe Exp $
+ * $Id: olc_cmd.c,v 1.29 2002-11-21 13:31:27 fjoe Exp $
  */
 
 #include "olc.h"
@@ -41,6 +41,7 @@ DECLARE_OLC_FUN(cmded_list		);
 
 DECLARE_OLC_FUN(cmded_name		);
 DECLARE_OLC_FUN(cmded_aliases		);
+DECLARE_OLC_FUN(cmded_skill		);
 DECLARE_OLC_FUN(cmded_minpos		);
 DECLARE_OLC_FUN(cmded_minlevel		);
 DECLARE_OLC_FUN(cmded_dofun		);
@@ -64,6 +65,7 @@ olc_cmd_t olc_cmds_cmd[] =
 
 	{ "name",	cmded_name,	validate_cmd_name, NULL		},
 	{ "aliases",	cmded_aliases,	validate_cmd_alias, NULL	},
+	{ "skill",	cmded_skill,	NULL,		&skills		},
 	{ "minpos",	cmded_minpos,	NULL,		position_table	},
 	{ "minlevel",	cmded_minlevel, NULL,		level_table	},
 	{ "dofun",	cmded_dofun,	validate_funname, NULL		},
@@ -159,6 +161,7 @@ OLC_FUN(cmded_save)
 		fwrite_string(fp, "name", cmnd->name);
 		fwrite_string(fp, "aliases", cmnd->aliases);
 		fwrite_string(fp, "dofun", cmnd->dofun_name);
+		fwrite_string(fp, "skill", cmnd->sn);
 		fprintf(fp, "min_pos %s\n",
 			flag_string(position_table, cmnd->min_pos));
 		if (cmnd->min_level) {
@@ -229,21 +232,29 @@ OLC_FUN(cmded_show)
 		   cmnd->name,
 		   cmnd->aliases,
 		   cmnd->dofun_name);
+	if (!IS_NULLSTR(cmnd->sn)) {
+		buf_printf(output, BUF_END,
+		    "Skill      [%s]\n", cmnd->sn);
+	}
 	buf_printf(output, BUF_END,
 		   "Min pos    [%s]\n",
 		   flag_string(position_table, cmnd->min_pos));
-	if (cmnd->min_level)
+	if (cmnd->min_level) {
 		buf_printf(output, BUF_END, "Min level  [%s]\n",
 			flag_istring(level_table, cmnd->min_level));
-	if (cmnd->cmd_log)
+	}
+	if (cmnd->cmd_log) {
 		buf_printf(output, BUF_END, "Log        [%s]\n",
 			flag_string(cmd_logtypes, cmnd->cmd_log));
-	if (cmnd->cmd_log)
+	}
+	if (cmnd->cmd_log) {
 		buf_printf(output, BUF_END, "Module     [%s]\n",
 			flag_string(module_names, cmnd->cmd_mod));
-	if (cmnd->cmd_flags)
+	}
+	if (cmnd->cmd_flags) {
 		buf_printf(output, BUF_END, "Flags      [%s]\n",
 			flag_string(cmd_flags, cmnd->cmd_flags));
+	}
 
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
@@ -292,6 +303,13 @@ OLC_FUN(cmded_aliases)
 	cmd_t *cmnd;
 	EDIT_CMD(ch, cmnd);
 	return olced_name(ch, argument, cmd, &cmnd->aliases);
+}
+
+OLC_FUN(cmded_skill)
+{
+	cmd_t *cmnd;
+	EDIT_CMD(ch, cmnd);
+	return olced_foreign_strkey(ch, argument, cmd, &cmnd->sn);
 }
 
 OLC_FUN(cmded_dofun)

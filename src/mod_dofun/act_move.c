@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.287 2002-09-02 09:42:29 tatyana Exp $
+ * $Id: act_move.c,v 1.288 2002-11-21 13:31:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -850,14 +850,20 @@ DO_FUN(do_wake, ch, argument)
 	CHAR_DATA *victim;
 
 	one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0')
-		{ do_stand(ch, argument); return; }
+	if (arg[0] == '\0') {
+		do_stand(ch, argument);
+		return;
+	}
 
-	if (!IS_AWAKE(ch))
-		{ act_char("You are asleep yourself!", ch); return; }
+	if (!IS_AWAKE(ch)) {
+		act_char("You are asleep yourself!", ch);
+		return;
+	}
 
-	if ((victim = get_char_here(ch, arg)) == NULL)
-		{ act_char("They aren't here.", ch); return; }
+	if ((victim = get_char_here(ch, arg)) == NULL) {
+		act_char("They aren't here.", ch);
+		return;
+	}
 
 	if (IS_AWAKE(victim)) {
 		act_puts("$N is already awake.",
@@ -885,8 +891,8 @@ DO_FUN(do_sneak, ch, argument)
 	}
 
 	if (MOUNTED(ch)) {
-		  act_char("You can't sneak while mounted.", ch);
-		  return;
+		act_char("You can't sneak while mounted.", ch);
+		return;
 	}
 
 	if (HAS_INVIS(ch, ID_SNEAK)) {
@@ -1054,30 +1060,22 @@ DO_FUN(do_blend, ch, argument)
 DO_FUN(do_acute, ch, argument)
 {
 	AFFECT_DATA *paf;
-	int chance, mana;
+	int mana;
 
 	if (HAS_DETECT(ch, ID_CAMOUFLAGE)) {
 		act_char("Your vision is already acute.", ch);
 		return;
 	}
 
-	if (!(chance = get_skill(ch, "acute vision"))) {
-		act_char("Huh?", ch);
-		return;
-	}
-
 	mana = skill_mana(ch, "acute vision");
-
 	if (ch->mana < mana) {
 		act_char("You don't have enough mana.", ch);
 		return;
 	}
-
 	ch->mana -= mana;
-
 	WAIT_STATE(ch, skill_beats("acute vision"));
 
-	if (number_percent() > chance) {
+	if (number_percent() > get_skill(ch, "acute vision")) {
 		act_char("You failed to sharpen your vision.", ch);
 		check_improve(ch, "acute vision", FALSE, 3);
 		return;

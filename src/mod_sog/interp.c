@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.195 2002-11-21 09:34:13 fjoe Exp $
+ * $Id: interp.c,v 1.196 2002-11-21 13:31:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -167,6 +167,10 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 	C_FOREACH(cmd, &commands) {
 		if (!!str_prefix(command, cmd->name)
 		&&  !is_name(command, cmd->aliases))
+			continue;
+
+		if (!IS_NULLSTR(cmd->sn)
+		&&  get_skill(vch, cmd->sn) == 0)
 			continue;
 
 		/*
