@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.66.2.9 2001-05-21 18:53:59 fjoe Exp $
+ * $Id: obj_prog.c,v 1.66.2.10 2001-08-05 17:25:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,8 +45,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+
 #include "merc.h"
 #include "fight.h"
+#include "db.h"
 
 #define DECLARE_OPROG(f) OPROG_FUN f
 
@@ -300,16 +302,16 @@ void oprog_set(OBJ_INDEX_DATA *pObjIndex,const char *progtype, const char *name)
 
 	opindex = optype_lookup(progtype);
 	if (opindex == -1) {
-		log("oprog_set: vnum %d: unknown obj prog type `%s'",
+		db_error("oprog_set", "vnum %d: unknown obj prog type `%s'",
 			   pObjIndex->vnum, progtype);
-		exit(1);
+		return;
 	}
 
 	oprog = oprog_lookup(name);
 	if (oprog == NULL) {
-		log("oprog_set: vnum %d: unknown obj prog `%s'",
+		db_error("oprog_set", "vnum %d: unknown obj prog `%s'",
 			   pObjIndex->vnum, name);
-		exit(1);
+		return;
 	}
 
 	if (pObjIndex->oprogs == NULL)

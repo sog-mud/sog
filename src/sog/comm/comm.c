@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.14 2001-02-28 19:12:54 fjoe Exp $
+ * $Id: comm.c,v 1.200.2.15 2001-08-05 17:25:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -641,7 +641,7 @@ void game_loop_unix(void)
 		if (select(maxdesc+1,
 			   &in_set, &out_set, &exc_set, &null_time) < 0) {
 			log("game_loop: select: %s", strerror(errno));
-			exit(1);
+			goto sync;
 		}
 
 #if !defined (WIN32)
@@ -735,7 +735,7 @@ void game_loop_unix(void)
 					close_descriptor(d, SAVE_F_NORMAL);
 			}
 		}
-
+sync:
 	/*
 	 * Synchronize to a clock.
 	 * Sleep(last_time + 1/PULSE_PER_SCD - now).
@@ -768,7 +768,7 @@ void game_loop_unix(void)
 		stall_time.tv_sec  = secDelta;
 		if (select(0, NULL, NULL, NULL, &stall_time) < 0) {
 		    log("game_loop: select: stall: %s", strerror(errno));
-		    exit(1);
+		    continue;
 		}
 	    }
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.169.2.18 2001-02-11 21:21:33 fjoe Exp $
+ * $Id: db.c,v 1.169.2.19 2001-08-05 17:25:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -325,8 +325,11 @@ void db_load_list(DBDATA *dbdata, const char *path, const char *file)
 {
 	FILE *fp;
 
-	if ((fp = dfopen(path, file, "r")) == NULL)
+	if ((fp = dfopen(path, file, "r")) == NULL) {
+		log("%s%c%s: %s",
+		    path, PATH_SEPARATOR, file, strerror(errno));
 		exit(1);
+	}
 
 	if (!dbdata->tab_sz)
 		dbdata_init(dbdata);
@@ -977,7 +980,7 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex, int flags)
 
 	if (pMobIndex == NULL) {
 		bug("Create_mobile: NULL pMobIndex.", 0);
-		exit(1);
+		abort();
 	}
 
 	mob = char_new(pMobIndex);
@@ -1235,7 +1238,7 @@ OBJ_DATA *create_obj(OBJ_INDEX_DATA *pObjIndex, int flags)
 
 	if (pObjIndex == NULL) {
 		bug("Create_object: NULL pObjIndex.", 0);
-		exit(1);
+		abort();
 	}
 
 	obj = new_obj();
@@ -1559,10 +1562,13 @@ int fread_number(FILE *fp)
 	}
 
 	if (!isdigit(c)) {
-		if (fBootDb)
+		if (fBootDb) {
 			db_error("fread_number", "bad format");
+			/* NOTREACHED */
+		}
+
 		log("fread_number: bad format");
-		exit(1);
+		return 0;
 	}
 
 	while (isdigit(c)) {
@@ -2098,7 +2104,7 @@ void move_pfiles(int minvnum, int maxvnum, int delta)
 	if ((dirp = opendir(PLAYER_PATH)) == NULL) {
 		bug("move_pfiles : unable to open player directory.",
 		    0);
-		exit(1);
+		return;
 	}
 	for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp)) {
 
