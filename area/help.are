@@ -3264,13 +3264,13 @@ This spell makes victim aggressive for a while.
 @eng Syntax: {ccast 'healing light'{x
 Syntax: {ccast 'mind light'{x
  
-These spells increase hp/mana regeneration of all characters in the room you
-caster stands in.
+These spells increase hp (healing light) and mana (mind light) regeneration
+of all characters in the room caster uses it.
 @rus Синтаксис: {ccast 'healing light'{x
 Синтаксис: {ccast 'mind light'{x
  
-Эти заклинания ускоряют восстановление здоровья и маны в комнате, где стоит
-чародей.
+Эти заклинания ускоряют восстановление здоровья (healing light) и маны
+(mind light) в комнате, где были использованы.
 ~
 0 'LIGHTNING SHIELD' 'SHOCKING TRAP' SETTRAPS~
 @eng Syntax: {ccast 'lightning shield'{x
@@ -4422,34 +4422,37 @@ There are following religions available:
  
    {CGod      Ethos               To you          To enemy{x
 ----------------------------------------------------------------------
-{WAtum-ra     {gLawful Good{x         cure serious    holy word
+{WAtum-ra     {gLawful Good{x         cure critical   holy word
 {WZeus        {gNeutral Good{x        cure critical   ---
                                 cure disease    ---
                                 cure poison     ---
-{WAhuramazda  {gChaotic Good{x        cure serious    dispel evil
-{WOdin        {gLawful Neutral{x      cure critical   faerie fire
-{WSiebele     {gTrue Neutral{x        cure serious    blue fire
-{WTeshub      {gChaotic Neutral{x     haste           blind
-                                shield          poison
-{WDeimos      {gLawful Evil{x         cure serious    web
-{WPhobos      {gNeutral Evil{x        cure serious    color spray
-{WEhrumen     {gChaotic Evil{x        cure serious    demon fire
-                                cure light      ---
-{WShamash     {gAny{x                 cure serious    scream
-{WAres        {gAny{x                 berserk         ---
-{WGoktengri   {gAny{x                 additional attack
-{WHera        {gAny{x                 ---             poison
-                                ---             plague
+{WAhuramazda  {gChaotic Good{x        cure critical   ray of truth
+{WOdin        {gLawful Neutral      {xcure critical   faerie fire
+{WSiebele     {gTrue Neutral        {xcure critical   bluefire
+{WTeshub      {gChaotic Neutral     {xhaste           ---
+                                bless           ---
+                                shield          ---
+                                stone skin      ---
+                                cure critical   ---
+{WDeimos      {gLawful Evil         {x---             lightning breath
+{WPhobos      {gLawful Evil         {x---             acid breath
+{WEhrumen     {gChaotic Evil        {x---             demonfire
+{WShamash     {gAny                 {xcure critical   scream
+{WAres        {gAny                 {xberserk         ---
+{WGoktengri   {gAny                 {xadditional attack
+{WHera        {gAny                 {x---             poison
+                                ---             blindness
+                                ---             curse
+                                ---             energy drain
                                 ---             slow
                                 ---             weaken
-{WVenus       {gAny{x                 bless           plague
-                                cure light      ---
-{WEnki        {gAny{x                 cure critical   lightning bolt
-                                ---             dispel evil
-                                ---             dispel good
-{WSeth        {gAny{x                 dragon strength dragon breath
-{WEros        {gAny{x                 heal            ---
-                                group heal      ---
+{WVenus       {gAny                 {xbless           ---
+                                mana restore    ---
+                                cure critical   ---
+{WEnki        {gAny                 {xcure critical   flamestrike
+{WSeth        {gAny                 {xdragon strength dragon breath
+{WEros        {gAny                 {xheal            ---
+                                cure critical   ---
 @rus Синтаксис: {csay{x <имя бога>
  
 Найди храмовника в Мидгарде и скажи ему имя бога, которому ты поклоняешься.
@@ -4457,34 +4460,37 @@ There are following religions available:
  
 {C   Бог      Расположение        Тебе            Врагу{x
 ----------------------------------------------------------------------
-{WAtum-ra     {gLawful Good{x         cure serious    holy word
+{WAtum-ra     {gLawful Good{x         cure critical   holy word
 {WZeus        {gNeutral Good{x        cure critical   ---
                                 cure disease    ---
                                 cure poison     ---
-{WAhuramazda  {gChaotic Good{x        cure serious    dispel evil
+{WAhuramazda  {gChaotic Good{x        cure critical   ray of truth
 {WOdin        {gLawful Neutral      {xcure critical   faerie fire
-{WSiebele     {gTrue Neutral        {xcure serious    blue fire
-{WTeshub      {gChaotic Neutral     {xhaste           blind
-                                shield          poison
-{WDeimos      {gLawful Evil         {xcure serious    web
-{WPhobos      {gNeutral Evil        {xcure serious    color spray
-{WEhrumen     {gChaotic Evil        {xcure serious    demon fire
-                                cure light      ---
-{WShamash     {gAny                 {xcure serious    scream
+{WSiebele     {gTrue Neutral        {xcure critical   bluefire
+{WTeshub      {gChaotic Neutral     {xhaste           ---
+                                bless           ---
+                                shield          ---
+                                stone skin      ---
+                                cure critical   ---
+{WDeimos      {gLawful Evil         {x---             lightning breath
+{WPhobos      {gLawful Evil         {x---             acid breath
+{WEhrumen     {gChaotic Evil        {x---             demonfire
+{WShamash     {gAny                 {xcure critical   scream
 {WAres        {gAny                 {xberserk         ---
 {WGoktengri   {gAny                 {xдополнительная атака
 {WHera        {gAny                 {x---             poison
-                                ---             plague
+                                ---             blindness
+                                ---             curse
+                                ---             energy drain
                                 ---             slow
                                 ---             weaken
-{WVenus       {gAny                 {xbless           plague
-                                cure light      ---
-{WEnki        {gAny                 {xcure critical   lightning bolt
-                                ---             dispel evil
-                                ---             dispel good
+{WVenus       {gAny                 {xbless           ---
+                                mana restore    ---
+                                cure critical   ---
+{WEnki        {gAny                 {xcure critical   flamestrike
 {WSeth        {gAny                 {xdragon strength dragon breath
 {WEros        {gAny                 {xheal            ---
-                                group heal      ---
+                                cure critical   ---
 ~
 0 ZEUS~
 .

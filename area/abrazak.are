@@ -1,6 +1,7 @@
 #AREADATA
 Ver 5
 Name Heaven~
+Builders astonix~
 VNUMs 15000 15199
 Credits abrazak~
 Security 1
@@ -721,6 +722,11 @@ It seems like you can see forever!
 Никогда ты не забудешь этого божественного ощущения полета.
 ~
 0 CJNX inside
+S
+#15013
+@eng Hidden Workshop@rus Скрытая мастерская~
+~
+0 0 inside
 S
 #15015
 @eng In the forest@rus На лесной поляне~
