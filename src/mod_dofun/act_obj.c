@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.208 2000-04-16 09:21:40 fjoe Exp $
+ * $Id: act_obj.c,v 1.209 2000-04-17 07:12:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1205,6 +1205,13 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 	&&  ch->fighting != NULL) {
 		act_puts("You can't eat while fighting.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		return;
+	}
+
+	if (obj->pObjIndex->item_type == ITEM_PILL
+	&&  ch->level < obj->level) {
+		act_puts("$p is too powerful for you to eat.",
+			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
 

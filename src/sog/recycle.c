@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.100 2000-04-16 09:21:55 fjoe Exp $
+ * $Id: recycle.c,v 1.101 2000-04-17 07:13:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -293,6 +293,7 @@ CHAR_DATA *char_new(MOB_INDEX_DATA *pMobIndex)
 		pc->title = str_empty;
 		pc->twitlist = str_empty;
 		pc->granted = str_empty;
+		pc->form_name = str_empty;
 		pc->wanted_by = str_empty;
 		pc->dvdata = dvdata_new();
 		pc->condition[COND_FULL] = 48;
@@ -352,6 +353,7 @@ void char_free(CHAR_DATA *ch)
 		free_string(pc->title);
 		free_string(pc->twitlist);
 		free_string(pc->enemy_list);
+		free_string(pc->form_name);
 		free_string(pc->granted);
 		free_string(pc->wanted_by);
 		buf_free(pc->buffer);

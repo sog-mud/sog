@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.234 2000-03-25 13:17:36 avn Exp $
+ * $Id: act_move.c,v 1.235 2000-04-17 07:12:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1622,6 +1622,9 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	char_puts("You feel yourself getting greater and greater.\n", ch);
+	act("You cannot recognize $n anymore.", ch, NULL, NULL, TO_ROOM);
+
 	level = LEVEL(ch);
 	duration = level / 10 + 5;
 
@@ -1672,9 +1675,8 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 	af.bitvector = ID_SNEAK;
 	affect_to_char(ch, &af);
 
-	PC(ch)->form_name = "an ugly creature";
-	char_puts("You feel yourself getting greater and greater.\n", ch);
-	act("You cannot recognize $n anymore.", ch, NULL, NULL, TO_ROOM);
+	free_string(PC(ch)->form_name);
+	PC(ch)->form_name = str_dup("an ugly creature");
 }
 
 void do_vbite(CHAR_DATA *ch, const char *argument)
