@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.297 2001-06-26 17:29:47 fjoe Exp $
+ * $Id: fight.c,v 1.298 2001-06-28 08:20:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -995,8 +995,7 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 		 * Most other attacks are returned.
 		 */
 
-		if (victim->position > POS_STUNNED
-		&&  ch->in_room == victim->in_room) {
+		if (victim->position > POS_STUNNED) {
 			if (victim->fighting == NULL) {
 				set_fighting(victim, ch);
 #if 0
@@ -1007,13 +1006,10 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 							   NULL, TRIG_KILL);
 #endif
 			}
-			if (IS_NPC(victim) || PC(victim)->idle_timer <= 4)
-				victim->position = POS_FIGHTING;
 		}
 
 		if (victim->position > POS_STUNNED) {
-			if (ch->fighting == NULL
-			&&  ch->in_room == victim->in_room)
+			if (ch->fighting == NULL)
 				set_fighting(ch, victim);
 
 			/*
@@ -1363,9 +1359,11 @@ update_pos(CHAR_DATA *victim)
 void
 set_fighting(CHAR_DATA *ch, CHAR_DATA *victim)
 {
-	if (ch->fighting != NULL) {
-		log(LOG_BUG, "set_fighting: already fighting");
-		return;
+	if (ch->in_room == victim->in_room) {
+		if (ch->fighting != NULL) {
+			log(LOG_BUG, "set_fighting: already fighting");
+			return;
+		}
 	}
 
 	if (IS_AFFECTED(ch, AFF_SLEEP)) {
@@ -1373,9 +1371,13 @@ set_fighting(CHAR_DATA *ch, CHAR_DATA *victim)
 		affect_bit_strip(ch, TO_AFFECTS, AFF_SLEEP);
 	}
 
-	ch->fighting = victim;
 	ch->on = NULL;
-	ch->position = POS_FIGHTING;
+
+	if (ch->in_room == victim->in_room) {
+		ch->fighting = victim;
+		ch->position = POS_FIGHTING;
+	} else
+		ch->position = POS_STANDING;
 }
 
 static void
