@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.61 1998-07-06 07:32:54 fjoe Exp $
+ * $Id: comm.c,v 1.62 1998-07-07 10:31:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1335,9 +1335,13 @@ void bust_a_prompt(CHAR_DATA *ch)
 			break;
 
 		case 'X':
-			snprintf(buf2, sizeof(buf2), "%d",
-				 exp_to_level(ch,ch->pcdata->points));
-			i = buf2;
+			if (!IS_NPC(ch)) {
+				snprintf(buf2, sizeof(buf2), "%d",
+					 exp_to_level(ch,ch->pcdata->points));
+				i = buf2;
+			}
+			else
+				i = " ";
 			break;
 
 		case 'g':

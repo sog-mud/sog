@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.31 1998-07-03 15:18:41 fjoe Exp $
+ * $Id: handler.c,v 1.32 1998-07-07 10:31:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3451,7 +3451,6 @@ bool can_gate_to(CHAR_DATA *ch, CHAR_DATA *victim)
 	||  IS_SET(ch->in_room->room_flags, ROOM_NOSUMMON)
 	||  IS_SET(victim->in_room->room_flags, ROOM_NOSUMMON)
 	||  (IS_SET(ch->in_room->room_flags, ROOM_NO_MOB) && IS_NPC(victim))
-	||  saves_spell(ch->level, victim, DAM_OTHER)
 	||  (!IS_NPC(victim) && IS_IMMORTAL(victim))
 	||  (IS_NPC(victim) && is_safe_nomessage(ch, victim) &&
 	     IS_SET(victim->imm_flags, IMM_SUMMON))

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.21 1998-07-03 15:18:41 fjoe Exp $
+ * $Id: spellfun.c,v 1.22 1998-07-07 10:31:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3242,6 +3242,7 @@ void spell_gate(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 	if ((victim = get_char_world(ch, target_name)) == NULL
 	||  victim->level >= level + 3
+	||  saves_spell(ch->level, victim, DAM_OTHER)
 	||  !can_gate_to(ch, victim)) {
 		send_to_char("You failed.\n\r", ch);
 		return;
@@ -4723,6 +4724,7 @@ void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	||  (IS_NPC(victim) && IS_SET(victim->act, ACT_AGGRESSIVE))
 	||  victim->fighting != NULL
 	||  (IS_NPC(victim) && victim->pIndexData->pShop != NULL)
+	||  saves_spell(ch->level, victim, DAM_OTHER)
 	||  !can_gate_to(victim, ch) 
 	||  (victim->in_room->exit[0] == NULL &&
 	     victim->in_room->exit[1] == NULL &&
@@ -5511,6 +5513,7 @@ void spell_astral_walk(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 	if ((victim = get_char_world(ch, target_name)) == NULL
 	||  victim->level >= level + 3
+	||  saves_spell(ch->level, victim, DAM_OTHER)
 	||  !can_gate_to(ch, victim)) {
 		send_to_char("You failed.\n\r", ch);
 		return;
@@ -5550,6 +5553,7 @@ void spell_mist_walk(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	if ((victim = get_char_world(ch, target_name)) == NULL
 	||  !IS_VAMPIRE(ch)
 	||  victim->level >= level - 5
+	||  saves_spell(ch->level, victim, DAM_OTHER)
 	||  !can_gate_to(ch, victim)) {
 		send_to_char("You failed.\n\r", ch);
 		return;
@@ -5579,6 +5583,7 @@ void spell_solar_flight(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 	if ((victim = get_char_world(ch, target_name)) == NULL
 	||  victim->level >= level + 1
+	||  saves_spell(ch->level, victim, DAM_OTHER)
 	||  !can_gate_to(ch, victim)) {
 		send_to_char("You failed.\n\r", ch);
 		return;
@@ -5605,6 +5610,7 @@ void spell_helical_flow(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 	if ((victim = get_char_world(ch, target_name)) == NULL
 	||  victim->level >= level + 3
+	||  saves_spell(ch->level, victim, DAM_OTHER)
 	||  !can_gate_to(ch, victim)) {
 		send_to_char("You failed.\n\r", ch);
 		return;

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.19 1998-07-03 15:18:42 fjoe Exp $
+ * $Id: spellfun2.c,v 1.20 1998-07-07 10:31:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1584,6 +1584,7 @@ void spell_tesseract(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	bool gate_pet;
 
 	if ((victim = get_char_world(ch,target_name)) == NULL
+	||  saves_spell(ch->level, victim, DAM_OTHER)
 	||  !can_gate_to(ch, victim)) {
 		send_to_char("You failed.\n\r", ch);
 		return;

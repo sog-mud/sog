@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.15 1998-07-03 15:18:42 fjoe Exp $
+ * $Id: martial_art.c,v 1.16 1998-07-07 10:31:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -977,27 +977,22 @@ void do_rescue(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	if ((fch = victim->fighting) == NULL)
-	{
+	if ((fch = victim->fighting) == NULL) {
 		send_to_char("That person is not fighting right now.\n\r", ch);
 		return;
 	}
+
 	if (IS_NPC(ch) && ch->master != NULL && IS_NPC(victim))
 		return;
 
 	if (is_safe(ch, fch))
 		return;
 
-	if (ch->master != NULL)
-		{
-		if (is_safe(ch->master, fch)) return;
-		}
+	if (ch->master != NULL && is_safe(ch->master, fch))
+		return;
 
 	WAIT_STATE(ch, skill_table[gsn_rescue].beats);
-	if ((!IS_NPC(ch) 
-		 && number_percent() > get_skill(ch,gsn_rescue))
-		 || (victim->level > (ch->level + 30)))
-	{
+	if (number_percent() > get_skill(ch,gsn_rescue)) {
 		send_to_char("You fail the rescue.\n\r", ch);
 		check_improve(ch,gsn_rescue,FALSE,1);
 		return;
@@ -1013,7 +1008,6 @@ void do_rescue(CHAR_DATA *ch, char *argument)
 
 	set_fighting(ch, fch);
 	set_fighting(fch, ch);
-	return;
 }
 
 
