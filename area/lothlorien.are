@@ -23,6 +23,21 @@ stand stand male 0
 0 0 medium unknown
 #0
 
+#OBJECTS
+#95903
+quiver lothlorien's~
+@eng quiver of lothlorien's rangers@rus колчан лотлориенских лучников~
+@eng Fine quiver lies here.@rus Изящный колчан лежит у твоих ног.~
+leather~
+container KTY AK
+200 F 0 200 100
+36 0 10 P
+A
+13 75
+S 'refresh' 100 A
+G male
+#0
+
 #ROOMS
 #95900
 @eng Borders ambush@rus Пограничная засада~
@@ -251,5 +266,9 @@ D3
 Z 0 95907
 S
 #0
+
+#OLIMITS
+O 95903 1	* quiver of lothlorien's rangers
+S
 
 #$

@@ -1080,6 +1080,21 @@ A
 A
 13 10
 G none
+#38607
+cloak vivien red dragon gold~
+@eng {YGolden Leather Cloak{x@rus {YПлащ из кожи золотого Дракона.{x~
+Present for Vivien lies here.~
+Dragon's Leather~
+armor AIa AK
+32000 32000 32000 32000 0
+92 1 1 P
+A
+14 30000
+A
+12 30000
+A
+13 30000
+G female
 #0
 
 #ROOMS

@@ -3,6 +3,7 @@ Name anti-paladin~
 ShortName A-P~
 PrimeStat str
 SchoolWeapon 3702
+GuildRoom 3060
 GuildRoom 3061
 SkillAdept 75
 Thac0_00 18
@@ -27,9 +28,6 @@ Skill 'energy drain' 26 1 0
 Skill 'etheral fist' 50 1 0
 Skill 'fireball' 56 1 0
 Skill 'harm' 29 1 0
-Skill 'improved maladiction' 30 1 0
-Skill 'demand' 35 1 0
-Skill 'black shroud' 30 1 0
 Skill 'hurricane' 53 1 0
 Skill 'iceball' 58 1 0
 Skill 'invisibility' 9 1 0
@@ -44,9 +42,9 @@ Skill 'plague' 46 1 0
 Skill 'poison' 15 1 0
 Skill 'protection good' 13 1 0
 Skill 'power word stun' 62 1 0
+Skill 'black shroud' 30 1 0
 Skill 'sleep' 25 1 0
 Skill 'summon' 50 1 0
-Skill 'crucify' 48 1 0
 Skill 'teleport' 7 1 0
 Skill 'axe' 1 1 0
 Skill 'dagger' 1 1 0
@@ -59,6 +57,8 @@ Skill 'sword' 1 1 0
 Skill 'whip' 1 1 0
 Skill 'bash' 1 1 0
 Skill 'bash door' 1 1 0
+Skill 'demand' 35 1 0
+Skill 'crucify' 48 1 0
 Skill 'cleave' 55 1 0
 Skill 'dirt kicking' 3 1 0
 Skill 'disarm' 21 1 0
@@ -67,6 +67,7 @@ Skill 'hand to hand' 18 1 0
 Skill 'kick' 9 1 0
 Skill 'parry' 5 1 20
 Skill 'shield cleave' 29 1 0
+Skill 'improved maladiction' 30 1 0
 Skill 'trip' 10 1 0
 Skill 'weapon cleave' 34 1 0
 Skill 'second attack' 14 1 0

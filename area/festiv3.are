@@ -3137,6 +3137,26 @@ A
 A
 6 2
 G female
+#36439
+shackles foot iron band chain pair кандалы~
+@eng A pair of heavy iron foot shackles@rus Тяжелые железные кандалы~
+@eng A pair of heavy iron bands attached to a strong chain lies here.@rus Пара тяжелых железных обручей, соединенных крепкой цепью, лежит на замле.~
+iron~
+treasure CEHIPUY AG
+0 0 0 0 0
+90 300 10 P
+A
+18 50
+A
+17 100
+S 'settraps' 24 A
+S 'throwing weapons' 9 A
+S 'knife' 3 A
+A
+14 250
+A
+2 8
+G none
 #0
 
 #ROOMS
@@ -7053,6 +7073,7 @@ M 0 36353 10 36398 2	* small insect (Path to the Forest)
 O 0 36379 0 36399	* oak (Deep in the Dark Forest)
 P 0 36378 1 36379 1	* oak: bureau key
 O 0 36384 0 36399	* hole (Deep in the Dark Forest)
+O 0 36439 0 36399	* A pair of heavy iron foot shackles (Deep in the Dark Forest)
 M 0 36351 10 36402 2	* centipede (Wide Tunnel)
 M 0 36352 10 36403 2	* small snake (Wide Tunnel)
 M 0 36353 10 36406 2	* small insect (A rocky path around the lake)
@@ -7110,6 +7131,7 @@ O 36319 3	* illusory longsword
 O 36320 3	* silver arrow
 O 36330 3	* some moccasins
 O 36344 1	* Grand Prize
+O 36439 1	* A pair of heavy iron foot shackles
 S
 
 #MOBPROGS

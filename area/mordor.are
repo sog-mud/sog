@@ -62,7 +62,7 @@ moby~
 ~
 human~
 A 0 0 0
-200 -10000 1d1+0 0d0+0 0d0+0 none
+300 -10000 1d1+0 0d0+0 0d0+0 none
 0 0 0 0
 0 0 0 0
 stand stand none 0
@@ -365,13 +365,26 @@ D2
 Z 0 30005
 S
 #30008
-@eng Hill behind the Mountain~
+@eng West side of Hill~
 ~
 0 0 inside
 D2
 ~
 ~
 Z 0 30007
+D3
+~
+~
+Z 0 30009
+S
+#30009
+~
+~
+0 0 inside
+D1
+~
+~
+Z 0 30008
 S
 #0
 
