@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.60 1999-12-28 07:01:33 fjoe Exp $
+ * $Id: olc_mob.c,v 1.61 1999-12-29 07:09:28 fjoe Exp $
  */
 
 #include "olc.h"
@@ -937,9 +937,6 @@ OLC_FUN(mobed_race)
 		pMob->parts       = r->parts;
 		for (i = 0; i < MAX_RESIST; i++)
 			pMob->resists[i] = r->resists[i];
-
-		aff_free_list(pMob->affected);
-		pMob->affected = aff_dup_list(r->affected, pMob->level);
 
 		char_puts("Race set.\n", ch);
 		return TRUE;
