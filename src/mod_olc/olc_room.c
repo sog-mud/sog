@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.19 1998-10-17 11:29:46 fjoe Exp $
+ * $Id: olc_room.c,v 1.20 1998-10-19 13:22:21 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -560,26 +560,30 @@ struct wear_type
 
 const struct wear_type wear_table[] =
 {
-	{	WEAR_NONE,	ITEM_TAKE		},
-	{	WEAR_LIGHT,	ITEM_LIGHT		},
-	{	WEAR_FINGER_L,	ITEM_WEAR_FINGER	},
-	{	WEAR_FINGER_R,	ITEM_WEAR_FINGER	},
-	{	WEAR_NECK_1,	ITEM_WEAR_NECK		},
-	{	WEAR_NECK_2,	ITEM_WEAR_NECK		},
-	{	WEAR_BODY,	ITEM_WEAR_BODY		},
-	{	WEAR_HEAD,	ITEM_WEAR_HEAD		},
-	{	WEAR_LEGS,	ITEM_WEAR_LEGS		},
-	{	WEAR_FEET,	ITEM_WEAR_FEET		},
-	{	WEAR_HANDS,	ITEM_WEAR_HANDS		},
-	{	WEAR_ARMS,	ITEM_WEAR_ARMS		},
-	{	WEAR_SHIELD,	ITEM_WEAR_SHIELD	},
-	{	WEAR_ABOUT,	ITEM_WEAR_ABOUT		},
-	{	WEAR_WAIST,	ITEM_WEAR_WAIST		},
-	{	WEAR_WRIST_L,	ITEM_WEAR_WRIST		},
-	{	WEAR_WRIST_R,	ITEM_WEAR_WRIST		},
-	{	WEAR_WIELD,	ITEM_WIELD		},
-	{	WEAR_HOLD,	ITEM_HOLD		},
-	{	-1					}
+	{ WEAR_NONE,		ITEM_TAKE		},
+	{ WEAR_LIGHT,		ITEM_LIGHT		},
+	{ WEAR_FINGER_L,	ITEM_WEAR_FINGER	},
+	{ WEAR_FINGER_R,	ITEM_WEAR_FINGER	},
+	{ WEAR_NECK_1,		ITEM_WEAR_NECK		},
+	{ WEAR_NECK_2,		ITEM_WEAR_NECK		},
+	{ WEAR_BODY,		ITEM_WEAR_BODY		},
+	{ WEAR_HEAD,		ITEM_WEAR_HEAD		},
+	{ WEAR_LEGS,		ITEM_WEAR_LEGS		},
+	{ WEAR_FEET,		ITEM_WEAR_FEET		},
+	{ WEAR_HANDS,		ITEM_WEAR_HANDS		},
+	{ WEAR_ARMS,		ITEM_WEAR_ARMS		},
+	{ WEAR_SHIELD,		ITEM_WEAR_SHIELD	},
+	{ WEAR_ABOUT,		ITEM_WEAR_ABOUT		},
+	{ WEAR_WAIST,		ITEM_WEAR_WAIST		},
+	{ WEAR_WRIST_L,		ITEM_WEAR_WRIST		},
+	{ WEAR_WRIST_R,		ITEM_WEAR_WRIST		},
+	{ WEAR_WIELD,		ITEM_WIELD		},
+	{ WEAR_HOLD,		ITEM_HOLD		},
+	{ WEAR_FLOAT,		ITEM_WEAR_FLOAT		},
+	{ WEAR_TATTOO,		ITEM_WEAR_TATTOO	},
+	{ WEAR_SECOND_WIELD,	ITEM_WIELD		},
+	{ WEAR_STUCK_IN,	ITEM_WIELD		},
+	{ MAX_WEAR }
 };
 
 /*****************************************************************************
@@ -592,7 +596,7 @@ int wear_loc(int bits, int count)
 {
 	int flag;
  
-	for (flag = 0; wear_table[flag].wear_bit != -1; flag++) {
+	for (flag = 0; wear_table[flag].wear_loc != MAX_WEAR; flag++) {
 		 if (IS_SET(bits, wear_table[flag].wear_bit) && --count < 1)
 		     return wear_table[flag].wear_loc;
 	}
@@ -609,7 +613,7 @@ int wear_bit(int loc)
 {
 	int flag;
  
-	for (flag = 0; wear_table[flag].wear_loc != -1; flag++) {
+	for (flag = 0; wear_table[flag].wear_loc != MAX_WEAR; flag++) {
 		 if (loc == wear_table[flag].wear_loc)
 		     return wear_table[flag].wear_bit;
 	}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.10 1998-10-17 11:29:46 fjoe Exp $
+ * $Id: olc_msg.c,v 1.11 1998-10-19 13:22:21 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -150,7 +150,7 @@ OLC_FUN(msged_list)
 	BUFFER *output = NULL;
 
 	if (argument[0] == '\0') {
-		do_help(ch, "'OLC MSG LIST'");
+		do_help(ch, "'OLC ALIST'");
 		return FALSE;
 	}
 		
