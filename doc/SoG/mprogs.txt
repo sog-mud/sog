@@ -1,5 +1,5 @@
 #
-# $Id: mprogs.txt,v 1.3 2001-09-13 16:42:37 fjoe Exp $
+# $Id: mprogs.txt,v 1.4 2001-09-15 19:34:18 fjoe Exp $
 #
 
 MP functions:
@@ -64,6 +64,9 @@ int char_max_hit(char ch)
 int char_position(char ch)
   позиция ch (POS_RESTING, POS_FIGHTING etc.)
 
+int char_quest_time(char ch)
+  возвращает quest time для чара ch (-1 если ch npc)
+
 string char_race(char ch)
   возвращает расу чара ch
 
@@ -107,6 +110,9 @@ fire_effect(char ch, int num, int dam)
   вешает (пытается повесить) на чара fire_effect
   уровня num, наносится урон dam
 
+extract_obj(obj p)
+  уничтожает обьект p ($p для обьекта, для которого вызывается прога)
+
 char get_char_area(char ch, string arg)
   чаром ch в арии, где он находится, ищется чар с именем arg
   (arg может быть vnum'ом)
@@ -136,16 +142,16 @@ obj get_obj_carry(char ch, char victim, string arg)
 
 obj get_obj_here(char ch, string arg)
   чаром ch смотрится есть ли в комнате, где находится чар ch, объект
-  с именем arg (ищется на полу и у находящихся в комнате), arg может
-  быть vnum'ом
+  с именем arg (ищется на полу и у чара ch), arg может быть vnum'ом
 
 obj get_obj_obj(char ch, obj p, string arg)
   чаром ch смотрится есть ли в объекте p объект с именем arg, arg может
   быть vnum'ом
 
-obj get_obj_room(char ch, string arg)
-  чаром ch смотрится есть ли в комнате, где находится чар ch, объект
-  c именем arg (ищется только на полу), arg может быть vnum'ом
+obj get_obj_room(char ch, room r, string arg)
+  чаром ch смотрится есть ли в комнате r объект c именем arg
+  (ищется на полу)
+  в комнате), arg может быть vnum'ом
 
 obj get_obj_wear(char ch, char victim, string arg)
   чаром ch смотрится, одет ли на чаре victim объект с именем arg,
@@ -274,14 +280,14 @@ poison_effect(char ch, int num, int dam)
   вешает (пытается повесить) на чара poison_effect
   уровня num, наносится урон dam
 
-purge_obj(obj p)
-  уничтожает обьект p ($p для обьекта, для которого вызывается прога)
-
 int real_char_level(char ch)
   возвращает реальный (без +lev) уровень чара ch
 
 int room_sector(room r)
   возвращает сектор в комнате r.
+
+say_spell(char ch, string sn)
+  произносится заклинание sn (или возносится молитва)
 
 sand_effect(char ch, int num, int dam)
   вешает (пытается повесить) на чара sand_effect
@@ -363,6 +369,15 @@ echoat $N
 
 echoaround $N
 	act("...", $n, NULL, $N, TO_NOTVICT);	
+
+oload 2345
+	load_obj($n, 2345)
+
+purge $p
+	extract_obj($p, 0);
+
+slay $N
+	raw_kill($n, $N);
 
 ROM 2.4 specials:
 -----------------
