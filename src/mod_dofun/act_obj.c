@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.161 1999-07-02 12:24:22 fjoe Exp $
+ * $Id: act_obj.c,v 1.162 1999-07-20 06:26:54 avn Exp $
  */
 
 /***************************************************************************
@@ -750,8 +750,8 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 	AFFECT_DATA *paf;
 	AFFECT_DATA af;
 
-	if (get_skill(ch, gsn_bone_dragon) == 0) {
-		char_puts("Huh?", ch);
+	if (get_skill(ch, sn_lookup("bone dragon")) == 0) {
+		char_puts("Huh?\n", ch);
 		return;
 	}
 

@@ -1,4 +1,4 @@
-/*-
+/*-                        
  * Copyright (c) 1998 fjoe <fjoe@iclub.nsu.ru>
  * All rights reserved.
  *
@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.67 1999-07-02 12:54:58 fjoe Exp $
+ * $Id: olc.c,v 1.68 1999-07-20 06:26:54 avn Exp $
  */
 
 /***************************************************************************
@@ -85,6 +85,7 @@ const char ED_EXPL[]	= "explicit";
 const char ED_SOCIAL[]	= "socials";
 const char ED_CMD[]	= "cmds";
 const char ED_SKILL[]	= "skills";
+const char ED_RACE[]	= "race";
 
 olced_t olced_table[] = {
 	{ ED_AREA,	"AreaEd",	olc_cmds_area	},
@@ -99,6 +100,7 @@ olced_t olced_table[] = {
 	{ ED_IMPL,	"ImplRuleEd",	olc_cmds_impl	},
 	{ ED_EXPL,	"ExplRuleEd",	olc_cmds_expl	},
 	{ ED_SOCIAL,	"SocEd",	olc_cmds_soc	},
+	{ ED_RACE,	"RaceEd",	olc_cmds_race	},
 #if 0
 	{ ED_CMD,	"CmdEd",	olc_cmds_cmd	}, 
 	{ ED_SKILL,	"SkillEd",	olc_cmds_skill	},

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.81 1999-07-05 12:47:46 kostik Exp $
+ * $Id: tables.c,v 1.82 1999-07-20 06:26:54 avn Exp $
  */
 
 /***************************************************************************
@@ -1101,6 +1101,7 @@ flag_t race_flags[] =
 
 	{ "undead",		RACE_UNDEAD,		TRUE	},
 	{ "noch",		RACE_NOCH,		TRUE	},
+	{ "changed",		RACE_CHANGED,		FALSE	},
 
 	{ NULL }
 };

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.176 1999-07-12 04:56:25 kostik Exp $
+ * $Id: spellfun.c,v 1.177 1999-07-20 06:26:54 avn Exp $
  */
 
 /***************************************************************************
@@ -2168,7 +2168,7 @@ void spell_draining_touch(int sn, int level, CHAR_DATA *ch, void *vo)
 		af.bitvector	= 0;
 		affect_to_char(victim, &af);
 
-		act("You feel drained!", victim, NULL, NULL, TO_ROOM);
+		act("You feel drained!", victim, NULL, NULL, TO_VICT);
 	}
 }
 
