@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.10 1998-05-05 18:08:15 fjoe Exp $
+ * $Id: interp.c,v 1.11 1998-05-06 04:33:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -199,6 +199,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "delet",		do_delet,	POS_DEAD,	 0,  LOG_ALWAYS, 0, CMD_KEEP_HIDE|CMD_GHOST },
     { "delete",		do_delete,	POS_STANDING,	 0,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "identify",	do_identify,	POS_STANDING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
+    { "long",		do_long,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "nofollow",	do_nofollow,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "noloot",		do_noloot,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "nosummon",	do_nosummon,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },

@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.11 1998-05-05 01:18:44 fjoe Exp $
+ * $Id: merc.h,v 1.12 1998-05-06 04:33:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1462,7 +1462,7 @@ struct	kill_data
 #define ITEM_BURN_PROOF 	(Y)
 #define ITEM_NOUNCURSE		(Z)
 #define ITEM_NOSELL		(aa)
-
+#define ITEM_QUEST		(bb)
 
 /*
  * Wear flags.	 *WEAR*
@@ -1832,6 +1832,8 @@ struct	kill_data
 #define COMM_NOCHANNELS 	(W)
 #define COMM_SNOOP_PROOF	(Y)
 #define COMM_AFK		(Z)
+
+#define COMM_LONG		(aa)
 
 /* WIZnet flags */
 #define WIZ_ON			(A)

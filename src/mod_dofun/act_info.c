@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.22 1998-05-05 03:22:16 fjoe Exp $
+ * $Id: act_info.c,v 1.23 1998-05-06 04:33:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -63,7 +63,7 @@
 #include "interp.h"
 
 /* command procedures needed */
-DECLARE_DO_FUN( do_exits	);
+DECLARE_DO_FUN(do_exits		);
 DECLARE_DO_FUN(do_look		);
 DECLARE_DO_FUN(do_help		);
 DECLARE_DO_FUN(do_affects	);
@@ -71,32 +71,6 @@ DECLARE_DO_FUN(do_murder	);
 DECLARE_DO_FUN(do_scan2 	);
 
 char *get_stat_alias(CHAR_DATA *ch, int which);
-
-int	const	where_name	[] =
-{
-	EQ_USED_AS_LIGHT,
-	EQ_WORN_ON_FINGER_1,
-	EQ_WORN_ON_FINGER_2,
-	EQ_WORN_AROUND_NECK_1,
-	EQ_WORN_AROUND_NECK_2,
-	EQ_WORN_ON_TORSO,
-	EQ_WORN_ON_HEAD,
-	EQ_WORN_ON_LEGS,
-	EQ_WORN_ON_FEET,
-	EQ_WORN_ON_HANDS,
-	EQ_WORN_ON_ARMS,
-	EQ_WORN_AS_SHIELD,
-	EQ_WORN_ABOUT_BODY,
-	EQ_WORN_ABOUT_WAIST,
-	EQ_WORN_AROUND_WRIST_1,
-	EQ_WORN_AROUND_WRIST_2,
-	EQ_WIELDED,
-	EQ_HELD,
-	EQ_FLOATING_NEARBY,
-	EQ_SCRATCHED_TATTOO,
-	EQ_DUAL_WIELDED,
-	EQ_STUCK_IN,
-};
 
 static int show_order[] = {
 	WEAR_LIGHT,
@@ -150,18 +124,39 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 	||  is_empty(obj->description))
 		return buf;
 
-	if (IS_OBJ_STAT(obj, ITEM_INVIS))
-		strcat(buf, "{D(Invis){x ");
-	if (CAN_DETECT(ch, DETECT_EVIL) && IS_OBJ_STAT(obj, ITEM_EVIL))
-		strcat(buf, "{R(Red Aura){x ");
-	if (CAN_DETECT(ch, DETECT_GOOD) && IS_OBJ_STAT(obj,ITEM_BLESS))
-		strcat(buf,"{b(Blue Aura){x ");
-	if (CAN_DETECT(ch, DETECT_MAGIC) && IS_OBJ_STAT(obj, ITEM_MAGIC))
-		strcat(buf, "{x(Magical) ");
-	if (IS_OBJ_STAT(obj, ITEM_GLOW))
-		strcat(buf, "{W(Glowing){x ");
-	if (IS_OBJ_STAT(obj, ITEM_HUM))
-		strcat(buf, "{x(Humming) ");
+	if (IS_SET(ch->comm, COMM_LONG)) {
+		if (IS_OBJ_STAT(obj, ITEM_INVIS))
+			strcat(buf, "({yInvis{x) ");
+		if (IS_OBJ_STAT(obj, ITEM_DARK))
+			strcat(buf, "({DHidden{x) ");
+		if (CAN_DETECT(ch, DETECT_EVIL) && IS_OBJ_STAT(obj, ITEM_EVIL))
+			strcat(buf, "({RRed Aura{x) ");
+		if (CAN_DETECT(ch, DETECT_GOOD) && IS_OBJ_STAT(obj,ITEM_BLESS))
+			strcat(buf,"({BBlue Aura{x) ");
+		if (CAN_DETECT(ch, DETECT_MAGIC) && IS_OBJ_STAT(obj,ITEM_MAGIC))
+			strcat(buf, "({yMagical{x) ");
+		if (IS_OBJ_STAT(obj, ITEM_GLOW))
+			strcat(buf, "({YGlowing{x) ");
+		if (IS_OBJ_STAT(obj, ITEM_HUM))
+			strcat(buf, "({yHumming{x) ");
+		if (IS_OBJ_STAT(obj, ITEM_QUEST))
+			strcat(buf, "({GQuest{x) ");
+	}
+	else {
+		static char FLAGS[] = "{x[{y.{R.{B.{M.{Y.{W.{G.{x] ";
+		if (IS_OBJ_STAT(obj, ITEM_INVIS)	)   buf[5] = 'V';
+		if (CAN_DETECT(ch, DETECT_EVIL)
+		&& IS_OBJ_STAT(obj, ITEM_EVIL)		)   buf[8] = 'E';
+		if (CAN_DETECT(ch, DETECT_GOOD)
+		&&  IS_OBJ_STAT(obj,ITEM_BLESS)		)   buf[11] = 'B';
+		if (CAN_DETECT(ch, DETECT_MAGIC)
+		&& IS_OBJ_STAT(obj, ITEM_MAGIC)		)   buf[14] = 'M';
+		if (IS_OBJ_STAT(obj, ITEM_GLOW)		)   buf[17] = 'G';
+		if (IS_OBJ_STAT(obj, ITEM_HUM)		)   buf[20] = 'H';
+		if (IS_OBJ_STAT(obj, ITEM_QUEST)	)   buf[23] = 'Q';
+		if (strcmp(buf, FLAGS) == 0)
+			buf[0] = '\0';
+	}
 
 	if (fShort) {
 		strcat(buf, obj->short_descr);
@@ -313,42 +308,71 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	buf[0] = '\0';
 
-	/*
-	 * Quest staff
-	 */
-	if (!IS_NPC(ch) && IS_NPC(victim)
-	&&  ch->pcdata->questmob > 0
-/*	  &&  victim->pIndexData->vnum == ch->pcdata->questmob*/
-	&&  victim->pIndexData->hunter_name == ch->name) /*changed by Indra*/
+	if (!IS_NPC(ch) && IS_NPC(victim) && ch->pcdata->questmob > 0
+/*	  &&  victim->pIndexData->vnum == ch->pcdata->questmobi */
+	&&  victim->pIndexData->hunter_name == ch->name) /* changed by Indra */
 		strcat(buf, "{R[TARGET]{x ");
+
 /*
 	sprintf(message,"(%s) ",race_table[RACE(victim)].name);
 	message[1] = UPPER(message[1]);
 	strcat(buf,message);
 */
-	if (RIDDEN(victim))			 strcat(buf, "(Ridden) "    );
-	if (IS_AFFECTED(victim, AFF_INVISIBLE) ) strcat(buf, "(Invis) "     );
-	if (IS_AFFECTED(victim,AFF_IMP_INVIS)  ) strcat(buf, "(Improved) "  );
-	if (victim->invis_level >= LEVEL_HERO  ) strcat(buf, "(Wizi) "	    );
-	if (IS_AFFECTED(victim, AFF_HIDE)      ) strcat(buf, "(Hide) "	    );
-	if (IS_AFFECTED(victim, AFF_FADE)      ) strcat(buf, "(Fade) "	    );
-	if (IS_AFFECTED(victim, AFF_CAMOUFLAGE)) strcat(buf, "(Camf) "	    );
-	if (IS_AFFECTED(victim, AFF_CHARM)     ) strcat(buf, "(Charmed) "   );
-	if (IS_AFFECTED(victim, AFF_PASS_DOOR) ) strcat(buf, "(Translucent) ");
-	if (IS_AFFECTED(victim, AFF_FAERIE_FIRE)) strcat(buf, "{M(Pink Aura){x " );
-	if (IS_NPC(victim) && IS_SET(victim->act,ACT_UNDEAD)
-	&&   CAN_DETECT(ch, DETECT_UNDEAD)   ) strcat(buf, "(Undead) ");
-	if (IS_EVIL(victim)
-	&&   CAN_DETECT(ch, DETECT_EVIL)   ) strcat(buf, "{R(Red Aura){x "  );
 
-	if (IS_GOOD(victim) && CAN_DETECT(ch, DETECT_GOOD))
-		strcat(buf, "{Y(Golden Aura){x ");
+	if (IS_SET(ch->comm, COMM_LONG)) {
+		if (IS_AFFECTED(victim, AFF_INVISIBLE))
+			strcat(buf, "(Invis) ");
+		if (IS_AFFECTED(victim, AFF_HIDE)) strcat(buf, "(Hide) ");
+		if (IS_AFFECTED(victim, AFF_CHARM)) strcat(buf, "(Charmed) ");
+		if (IS_AFFECTED(victim, AFF_PASS_DOOR)) strcat(buf, "(Translucent) ");
+		if (IS_AFFECTED(victim, AFF_FAERIE_FIRE)) strcat(buf, "{M(Pink Aura){x ");
+		if (IS_NPC(victim) && IS_SET(victim->act,ACT_UNDEAD)
+		&&  CAN_DETECT(ch, DETECT_UNDEAD))
+			strcat(buf, "({DUndead{x) ");
+		if (RIDDEN(victim))
+			strcat(buf, "({yRidden{x) ");
+		if (IS_AFFECTED(victim,AFF_IMP_INVIS))
+			strcat(buf, "({bImproved{x) "  );
+		if (IS_EVIL(victim) && CAN_DETECT(ch, DETECT_EVIL))
+			strcat(buf, "({RRed Aura{x) ");
+		if (IS_GOOD(victim) && CAN_DETECT(ch, DETECT_GOOD))
+			strcat(buf, "({YGolden Aura{x) ");
+		if (IS_AFFECTED(victim, AFF_SANCTUARY))
+			strcat(buf, "({WWhite Aura{x) ");
+		if (!IS_NPC(victim) && IS_SET(victim->act, PLR_WANTED))
+			strcat(buf, "({RCRIMINAL{x) ");
+		if (IS_AFFECTED(victim, AFF_FADE)) strcat(buf, "(Fade) ");
+		if (IS_AFFECTED(victim, AFF_CAMOUFLAGE)) strcat(buf, "(Camf) ");
+	}
+	else {
+		static char FLAGS[] = "{x[{y.{D.{c.{b.{w.{D.{y.{B.{R.{Y.{W.{R.{x.{y.{x] ";
+		char* p = strend(buf);
+		strcpy(p, FLAGS); 
+		if (IS_AFFECTED(victim, AFF_INVISIBLE)  ) p[5] = 'V';
+		if (IS_AFFECTED(victim, AFF_HIDE)       ) p[8] = 'H';
+		if (IS_AFFECTED(victim, AFF_CHARM)      ) p[11] = 'C';
+		if (IS_AFFECTED(victim, AFF_PASS_DOOR)  ) p[14] = 'T';
+		if (IS_AFFECTED(victim, AFF_FAERIE_FIRE)) p[17] = 'P';
+		if (IS_NPC(victim)
+		&&  IS_SET(victim->act,ACT_UNDEAD)
+		&&  CAN_DETECT(ch, DETECT_UNDEAD)       ) p[20] = 'U';
+		if (RIDDEN(victim)			) p[23] = 'R';
+		if (IS_AFFECTED(victim, AFF_IMP_INVIS)  ) p[26] = 'I';
+		if (IS_EVIL(victim)
+		&& CAN_DETECT(ch, DETECT_EVIL)		) p[29] = 'E';
+		if (IS_GOOD(victim)
+		&&  CAN_DETECT(ch, DETECT_GOOD)		) p[32] = 'G';
+		if (IS_AFFECTED(victim, AFF_SANCTUARY)  ) p[35] = 'S';
+		if (!IS_NPC(victim)
+		&&  IS_SET(victim->act, PLR_WANTED)     ) p[38] = 'C';
+		if (IS_AFFECTED(victim, AFF_FADE)       ) p[41] = 'F';
+		if (IS_AFFECTED(victim, AFF_CAMOUFLAGE) ) p[44] = 'C';
+		if (strcmp(p, FLAGS) == 0)
+			p[0] = '\0';
+	}
 
-	if (IS_AFFECTED(victim, AFF_SANCTUARY))
-		strcat(buf, "{W(White Aura){x ");
-
-	if (!IS_NPC(victim) && IS_SET(victim->act, PLR_WANTED))
-		strcat(buf, "(CRIMINAL) ");
+	if (victim->invis_level >= LEVEL_HERO)
+		strcat(buf, "[{WWizi{x] ");
 
 	if (victim->position == victim->start_pos
 	&&  victim->long_descr[0] != '\0') {
@@ -568,7 +592,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 
 			act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING,
 				   INFO_S_S,
-				   msg(where_name[show_order[i]], ch),
+				   msg(EQ_USED_AS_LIGHT + show_order[i], ch),
 				   format_obj_to_char(obj, ch, TRUE));
 		}
 	}
@@ -585,7 +609,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 			found = TRUE;
 		}
 		act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING, INFO_S_S,
-			   msg(where_name[WEAR_STUCK_IN], ch),
+			   msg(EQ_STUCK_IN, ch),
 			   format_obj_to_char(obj, ch, TRUE));
 	}
 
@@ -763,6 +787,7 @@ void do_autolist(CHAR_DATA *ch, char *argument)
 	do_print_sw(ch, "autosac", IS_SET(ch->act,PLR_AUTOSAC));
 	do_print_sw(ch, "autosplit", IS_SET(ch->act,PLR_AUTOSPLIT));
 	do_print_sw(ch, "compact mode", IS_SET(ch->comm,COMM_COMPACT));
+	do_print_sw(ch, "long flags", IS_SET(ch->comm,COMM_LONG));
 	do_print_sw(ch, "prompt", IS_SET(ch->comm,COMM_PROMPT));
 	do_print_sw(ch, "compact mode", IS_SET(ch->comm,COMM_COMPACT));
 	do_print_sw(ch, "combine items", IS_SET(ch->comm,COMM_COMBINE));
@@ -915,6 +940,19 @@ void do_compact(CHAR_DATA *ch, char *argument)
 	else {
 		send_to_char("Compact mode set.\n\r",ch);
 		SET_BIT(ch->comm,COMM_COMPACT);
+	}
+}
+
+
+void do_long(CHAR_DATA *ch, char *argument)
+{
+	if (IS_SET(ch->comm,COMM_LONG)) {
+		send_to_char("Long flags mode removed.\n\r",ch);
+		REMOVE_BIT(ch->comm,COMM_LONG);
+	}
+	else {
+		send_to_char("Long flags mode set.\n\r",ch);
+		SET_BIT(ch->comm,COMM_LONG);
 	}
 }
 
@@ -2047,7 +2085,7 @@ void do_equipment(CHAR_DATA *ch, char *argument)
 		if ((obj = get_eq_char(ch, show_order[i])) == NULL)
 			continue;
 
-		send_to_char(msg(where_name[show_order[i]], ch), ch);
+		send_to_char(msg(EQ_USED_AS_LIGHT + show_order[i], ch), ch);
 		if (can_see_obj(ch, obj))
 			char_printf(ch, "%s\n\r",
 				    format_obj_to_char(obj, ch, TRUE));
@@ -2060,7 +2098,7 @@ void do_equipment(CHAR_DATA *ch, char *argument)
 		if (obj->wear_loc != WEAR_STUCK_IN)
 			continue;
 
-		send_to_char(msg(where_name[WEAR_STUCK_IN], ch), ch);
+		send_to_char(msg(EQ_STUCK_IN, ch), ch);
 		if (can_see_obj(ch, obj))
 			char_printf(ch, "%s\n\r",
 				    format_obj_to_char(obj, ch, TRUE));

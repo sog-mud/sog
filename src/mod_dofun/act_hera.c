@@ -1,5 +1,5 @@
 /*
- * $Id: act_hera.c,v 1.7 1998-05-05 03:22:15 fjoe Exp $
+ * $Id: act_hera.c,v 1.8 1998-05-06 04:33:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,7 @@
 ***************************************************************************/
 
 /*
- * $Id: act_hera.c,v 1.7 1998-05-05 03:22:15 fjoe Exp $
+ * $Id: act_hera.c,v 1.8 1998-05-06 04:33:22 fjoe Exp $
  */
 #include <sys/types.h>
 #include <sys/time.h>
@@ -154,7 +154,7 @@ void do_enter( CHAR_DATA *ch, char *argument)
 	act_printf(ch, portal, NULL, TO_ROOM, POS_RESTING,
 		   MOUNTED(ch) ? HERA_STEPS_INTO_RIDING_ON :
 				 HERA_STEPS_INTO,
-		   MOUNTED(ch)->short_descr);
+		   MOUNTED(ch) ? MOUNTED(ch)->short_descr : NULL);
 	
 	act(IS_SET(portal->value[2], GATE_NORMAL_EXIT) ?
 	    "You enter $p." :

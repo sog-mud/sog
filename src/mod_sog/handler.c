@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.5 1998-04-29 11:01:24 fjoe Exp $
+ * $Id: handler.c,v 1.6 1998-05-06 04:33:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3341,6 +3341,7 @@ char *comm_bit_name(int comm_flags)
     if (comm_flags & COMM_NOQUOTE	) strcat(buf, " no_quote");
     if (comm_flags & COMM_COMPACT	) strcat(buf, " compact");
     if (comm_flags & COMM_BRIEF		) strcat(buf, " brief");
+    if (comm_flags & COMM_LONG		) strcat(buf, " long");
     if (comm_flags & COMM_PROMPT	) strcat(buf, " prompt");
     if (comm_flags & COMM_COMBINE	) strcat(buf, " combine");
     if (comm_flags & COMM_NOEMOTE	) strcat(buf, " no_emote");

@@ -2,7 +2,7 @@
 #define _INTERP_H_
 
 /*
- * $Id: interp.h,v 1.3 1998-04-18 07:11:55 fjoe Exp $
+ * $Id: interp.h,v 1.4 1998-05-06 04:33:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -218,6 +218,7 @@ DECLARE_DO_FUN(	do_list		);
 DECLARE_DO_FUN( do_load		);
 DECLARE_DO_FUN(	do_lock		);
 DECLARE_DO_FUN(	do_log		);
+DECLARE_DO_FUN(	do_long		);
 DECLARE_DO_FUN(	do_look		);
 DECLARE_DO_FUN(	do_lore		);
 DECLARE_DO_FUN( do_make		);
