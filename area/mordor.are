@@ -641,7 +641,7 @@ M 0 30004 1 30014 1	* shaman (Hut of Orc Shaman)
 E 0 30009 0 17		*	shaman spellbook: held in the hands
 E 0 30010 0 0		*	black candle: as a light
 E 0 30011 0 13		*	shaman girdle: around the waist
-E 0 30012 0 3		*	bone necklace: around the neck (1)
+E 0 30012 0 3		*	bone necklace: around the neck
 M 0 30005 1 30015 1	* leader (Orc Leader's Hut)
 E 0 30013 0 16		*	heavy stone club: wielded
 S

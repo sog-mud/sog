@@ -1839,7 +1839,7 @@ E 0 15727 0 16		*	a steel sword: wielded
 E 0 15728 0 1		*	a magic ring: on the left finger
 E 0 15728 0 2		*	a magic ring: on the right finger
 E 0 15729 0 8		*	elven boots: on the feet
-E 0 15730 0 3		*	a green elven cloak: around the neck (1)
+E 0 15730 0 3		*	a green elven cloak: around the neck
 M 0 15712 1 15729 1	* a mimic (A Treasure Room)
 O 0 15723 0 15729	* a deep pit (A Treasure Room)
 O 0 15723 0 15729	* a deep pit (A Treasure Room)
@@ -1879,9 +1879,9 @@ M 0 15718 4 15740 1	* an ogre slave (The Mines)
 E 0 15731 0 16		*	a pick: wielded
 E 0 15742 0 7		*	a set of leg irons: on the legs
 M 0 15714 6 15741 1	* a savage war dog (The Dog Pits)
-E 0 15724 0 3		*	a spiked collar: around the neck (1)
+E 0 15724 0 3		*	a spiked collar: around the neck
 M 0 15714 6 15742 1	* a savage war dog (The Dog Pits)
-E 0 15724 0 3		*	a spiked collar: around the neck (1)
+E 0 15724 0 3		*	a spiked collar: around the neck
 S
 
 #HELPS

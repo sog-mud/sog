@@ -7,6 +7,7 @@ Credits kami kamimusubi~
 Security 1
 LevelRange 1 45
 ResetMessage @rus с тихим звоном мир содрогнулся~
+Flags closed~
 End
 
 #MOBILES
@@ -160,6 +161,46 @@ r poison 100
 r charm 95
 r harm -10
 r light -20
+#10607
+ice снежинка игла needle~
+@eng ice needle@rus ~~ледяная~~ ~~игла~~~
+@rus В вихре кружатся колючие снежинки.
+~
+~
+water elemental~
+FR 0 TV 0 J 0 0
+20 0 5d30+150 20d10+100 4d5+15 'pierce'
+5 5 5 3
+FUZ
+stand stand none 20
+0 0 small unknown
+g @eng none@rus female~
+F par AD
+r bash 100
+r fire -30
+r cold 100
+#10608
+fire огненный вихрь demon~
+@eng fire demon@rus ~~огненный~~ ~~демон~~~
+@rus Вихрь обжигающего пламени кружится вокруг тебя.
+~
+@rus Гигантский демон огня бушует и кружится
+в огненном вихре. Его движения напоминают
+странный танец, танец огненной смерти.
+Отдельные языки пламени срываются с его
+непрерывно изменяющегося тела и продолжают
+жить собственной жизнью, сплетаясь в огненный
+хоровод вокруг породившего их вихря.
+~
+fire elemental~
+F 0 HTVac 0 J 0 0
+50 0 105d10+4500 50d10+200 5d20+47 'flame'
+-20 -20 -20 -15
+AFHKZ
+stand stand none 3
+0 0 giant unknown
+g @eng none@rus male~
+r acid 40
 #0
 
 #OBJECTS
@@ -248,6 +289,15 @@ key U L A
 0 0 0 0 0
 0 5 5 P
 g @eng none@rus male~
+#10610
+light свет~
+@eng light@rus свет~
+@rus Столб света стоит посреди комнаты.~
+light~
+portal 0 0 0
+ABCDEFGHIJKLMNOPQRSTUVWXYZabcde ABCFG 0 5026 10810
+0 10000 0 P
+g @eng none@rus male~
 #10611
 ice heart~
 @eng heart of ice demon@rus ~~сердце~~ ледяного демона~
@@ -258,13 +308,13 @@ key AH 0 A
 0 300 0 P
 g @eng none@rus neutral~
 #10612
-wall~
+wall fire стена огонь~
 @eng wall@rus стена~
 @rus Огненная стена на востоке выглядит абсолютно непроходимой.~
 plasma~
-portal Y BCL 0
-CFG ABCFGI B 10899 10611
-0 20000 0 P
+portal 0 B 0
+CFG ABCFG A 10899 10611
+0 20000 1000000 P
 g @eng none@rus female~
 #10613
 void~
@@ -272,7 +322,7 @@ void~
 @rus В твоей голове настойчиво бьется мысль:"лишь в пустоте есть свобода!".~
 unknown~
 portal Y BCL 0
-ABCDEFGHIJKLMNOPQRSTUVWXYZabcde 0 B 10896 0
+BD 0 0 10896 0
 0 20000 0 P
 g @eng none@rus female~
 #10614
@@ -294,13 +344,42 @@ sword 2 33 'claw' BCDG
 45 250 1000000 P
 g @eng none@rus male~
 #10616
+heart of fire demon сердце~
+@eng heart of fire demon@rus ~~сердце~~ огненного демона~
+@rus Тугой вихрь сплетенный из огненных струй пылает перед тобой.~
+flame~
+pill AGU 0 A
+50 'heal' 'heal' 'refresh' 'mana restore'
+40 300 100000 P
+g @eng none@rus neutral~
+#10617
 плащь~
 ~
 ~
-unknown~
-trash 0 0 0
-0 0 0 0 0
-0 0 0 P
+flame~
+armor BGHMUY BEF AK
+20 20 20 18 0
+43 50 500000 P
+a '' to_affects 43 -1 -10 20 0
+a '' to_affects 43 -1 100 40 0
+a '' to_affects 43 -1 10 43 0
+a '' to_affects 43 -1 100 39 0
+a '' to_affects 43 -1 50 35 0
+a '' to_affects 43 -1 10 42 0
+a '' to_affects 43 -1 15 38 0
+a '' to_affects 43 -1 15 34 0
+a '' to_affects 43 -1 100 30 0
+a '' to_affects 43 -1 10 41 0
+a '' to_affects 43 -1 10 37 0
+a '' to_affects 43 -1 30 33 0
+a '' to_affects 43 -1 15 36 0
+a '' to_affects 43 -1 15 32 0
+a '' to_affects 43 -1 10 27 0
+a '' to_affects 43 -1 10 29 0
+a '' to_affects 43 -1 10 28 0
+a '' to_affects 43 -1 20 33 0
+a '' to_affects 43 -1 100 31 0
+g @eng none@rus male~
 #10810
 key ключ~
 @eng silver key@rus ~~серебрянный~~ ~~ключик~~~
@@ -3329,6 +3408,26 @@ D1
 ~
 ~
 Z 0 10722
+S
+#10749
+@eng In fire@rus Во всепожирающем пламени.~
+@rus Ты находишься в сердце огненного вихря.
+  Ревущие стены огня окружают тебя.
+  Гигантские языки пламени с ревом 
+  вырываются из  них и вновь ныряют 
+  обратно, что бы через мгновение 
+  вернуться в новом обличье. Удушающая 
+  жара мешает тебе сосредоточиться,
+  даже на самых простых мыслях.
+~
+0 NX desert
+D0
+~
+door прохлада~
+~
+~
+ABFZ 0 10897
+M -10 H -10
 S
 #10750
 @eng ice@rus ледяная бездна~
@@ -6690,6 +6789,12 @@ D1
 ~
 ~
 Z 0 10895
+D2
+~
+~
+~
+~
+ABFZ 0 10749
 D3
 ~
 ~
@@ -6741,6 +6846,7 @@ D 0 10700 5 1	* : door to the down: closed
 D 0 10709 4 1	* : door to the up: closed
 D 0 10714 4 1	* : door to the up: closed
 D 0 10720 4 1	* : door to the up: closed
+D 0 10749 0 1	* In fire: door to the north: closed
 D 0 10750 1 1	* ice: door to the east: closed
 D 0 10785 5 1	* : door to the down: closed
 D 0 10857 0 2	* k: door to the north: closed and locked
@@ -6777,6 +6883,7 @@ D 0 10893 5 1	* k: door to the down: closed
 D 0 10894 4 1	* k: door to the up: closed
 D 0 10895 1 1	* k: door to the east: closed
 D 0 10896 3 1	* k: door to the west: closed
+D 0 10897 2 1	* k: door to the south: closed
 D 0 10897 3 1	* k: door to the west: closed
 D 0 10897 4 2	* k: door to the up: closed and locked
 D 0 10898 5 2	* k: door to the down: closed and locked
@@ -6804,10 +6911,14 @@ O 0 10602 0 10686	* gun (Porthole)
 O 0 10602 0 10688	* gun (Porthole)
 O 0 10602 0 10689	* gun (Porthole)
 O 0 10602 0 10691	* gun (Porthole)
+M 0 10608 1 10749 1	* fire demon (In fire)
+G 0 10616 0		*	heart of fire demon
+E 0 10617 0 12		*	: about the shoulders
 M 0 10606 1 10750 1	* ice demon (ice)
 E 0 10615 0 16		*	right claw of ice demon: wielded
 E 0 10614 0 20		*	left claw of ice demon: second wielded
 G 0 10611 0		*	heart of ice demon
+M 0 10607 20 10750 20	* ice needle (ice)
 M 0 10603 1 10752 1	* gravity (In air)
 R 0 10792 1	* 1th: randomize
 R 0 10792 2	* 1th: randomize
@@ -7015,6 +7126,7 @@ M 0 10605 50 10872 5	*  (k)
 M 0 10605 50 10873 5	*  (k)
 M 0 10605 50 10874 5	*  (k)
 O 0 10612 0 10896	* wall (k)
+O 0 10610 0 10898	* light (k)
 O 0 10613 0 10899	* void (k)
 O 0 10810 0 10899	* silver key (k)
 S
@@ -7023,6 +7135,8 @@ S
 O 10602 50	* gun
 O 10614 1	* left claw of ice demon
 O 10615 1	* right claw of ice demon
+O 10616 2	* heart of fire demon
+O 10617 1	* 
 S
 
 #MOBPROGS

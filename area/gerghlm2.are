@@ -6220,8 +6220,8 @@ M 0 7532 15 7568 2	* a Gerighelm cityguard (Peter Ave)
 E 0 7524 0 1		*	Gerighelm guard ring: on the left finger
 E 0 7529 0 5		*	a Gerighelm vest: on the body
 E 0 7535 0 16		*	a Gerighelm sword: wielded
-E 0 7531 0 3		*	a Gerighelm cloak: around the neck (1)
-E 0 7531 0 4		*	a Gerighelm cloak: around the neck (2)
+E 0 7531 0 3		*	a Gerighelm cloak: around the neck
+E 0 7531 0 4		*	a Gerighelm cloak: on the face
 M 0 7592 1 7570 1	* a baker (The shop with lots of food)
 G 0 7500 0		*	an apple
 G 0 7501 0		*	an apple pie
@@ -6275,7 +6275,7 @@ E 0 7652 0 11		*	a defenders shield: as a shield
 E 0 7653 0 1		*	a defenders ring: on the left finger
 E 0 7654 0 5		*	a defenders vest: on the body
 E 0 7655 0 12		*	a defenders cape: about the shoulders
-E 0 7656 0 3		*	a defenders cloak: around the neck (1)
+E 0 7656 0 3		*	a defenders cloak: around the neck
 E 0 7657 0 9		*	a defenders gloves: on the hands
 E 0 7658 0 13		*	a defenders belt: around the waist
 E 0 7659 0 14		*	a defenders bracer: on the left wrist
@@ -6289,7 +6289,7 @@ E 0 7652 0 11		*	a defenders shield: as a shield
 E 0 7653 0 1		*	a defenders ring: on the left finger
 E 0 7654 0 5		*	a defenders vest: on the body
 E 0 7655 0 12		*	a defenders cape: about the shoulders
-E 0 7656 0 3		*	a defenders cloak: around the neck (1)
+E 0 7656 0 3		*	a defenders cloak: around the neck
 E 0 7657 0 9		*	a defenders gloves: on the hands
 E 0 7658 0 13		*	a defenders belt: around the waist
 E 0 7659 0 14		*	a defenders bracer: on the left wrist
@@ -6332,7 +6332,7 @@ E 0 7651 0 7		*	a defenders leggings: on the legs
 E 0 7652 0 11		*	a defenders shield: as a shield
 E 0 7653 0 1		*	a defenders ring: on the left finger
 E 0 7655 0 12		*	a defenders cape: about the shoulders
-E 0 7656 0 3		*	a defenders cloak: around the neck (1)
+E 0 7656 0 3		*	a defenders cloak: around the neck
 E 0 7657 0 9		*	a defenders gloves: on the hands
 E 0 7658 0 13		*	a defenders belt: around the waist
 E 0 7659 0 14		*	a defenders bracer: on the left wrist
@@ -6348,7 +6348,7 @@ E 0 7652 0 11		*	a defenders shield: as a shield
 E 0 7653 0 1		*	a defenders ring: on the left finger
 E 0 7654 0 5		*	a defenders vest: on the body
 E 0 7655 0 12		*	a defenders cape: about the shoulders
-E 0 7656 0 3		*	a defenders cloak: around the neck (1)
+E 0 7656 0 3		*	a defenders cloak: around the neck
 E 0 7657 0 9		*	a defenders gloves: on the hands
 E 0 7658 0 13		*	a defenders belt: around the waist
 E 0 7659 0 14		*	a defenders bracer: on the left wrist
@@ -6402,7 +6402,7 @@ E 0 7652 0 11		*	a defenders shield: as a shield
 E 0 7653 0 1		*	a defenders ring: on the left finger
 E 0 7654 0 5		*	a defenders vest: on the body
 E 0 7655 0 12		*	a defenders cape: about the shoulders
-E 0 7656 0 3		*	a defenders cloak: around the neck (1)
+E 0 7656 0 3		*	a defenders cloak: around the neck
 E 0 7657 0 9		*	a defenders gloves: on the hands
 E 0 7658 0 13		*	a defenders belt: around the waist
 E 0 7659 0 14		*	a defenders bracer: on the left wrist
@@ -6422,7 +6422,7 @@ E 0 7652 0 11		*	a defenders shield: as a shield
 E 0 7653 0 1		*	a defenders ring: on the left finger
 E 0 7654 0 5		*	a defenders vest: on the body
 E 0 7655 0 12		*	a defenders cape: about the shoulders
-E 0 7656 0 3		*	a defenders cloak: around the neck (1)
+E 0 7656 0 3		*	a defenders cloak: around the neck
 E 0 7657 0 9		*	a defenders gloves: on the hands
 E 0 7658 0 13		*	a defenders belt: around the waist
 E 0 7659 0 14		*	a defenders bracer: on the left wrist
@@ -6436,7 +6436,7 @@ E 0 7542 0 7		*	a pair of palace guard leggings: on the legs
 E 0 7543 0 11		*	a palace guard shield: as a shield
 E 0 7544 0 5		*	a palace guard vest: on the body
 E 0 7545 0 12		*	a palace guard cape: about the shoulders
-E 0 7546 0 3		*	a palace guard cloak: around the neck (1)
+E 0 7546 0 3		*	a palace guard cloak: around the neck
 E 0 7547 0 9		*	a pair of palace guard gloves: on the hands
 E 0 7548 0 13		*	a palace guard belt: around the waist
 E 0 7549 0 15		*	a palace guard bracer: on the right wrist
@@ -6452,7 +6452,7 @@ E 0 7652 0 11		*	a defenders shield: as a shield
 E 0 7653 0 1		*	a defenders ring: on the left finger
 E 0 7654 0 5		*	a defenders vest: on the body
 E 0 7655 0 12		*	a defenders cape: about the shoulders
-E 0 7656 0 3		*	a defenders cloak: around the neck (1)
+E 0 7656 0 3		*	a defenders cloak: around the neck
 E 0 7657 0 9		*	a defenders gloves: on the hands
 E 0 7658 0 13		*	a defenders belt: around the waist
 E 0 7659 0 14		*	a defenders bracer: on the left wrist
@@ -6469,7 +6469,7 @@ E 0 7542 0 7		*	a pair of palace guard leggings: on the legs
 E 0 7543 0 11		*	a palace guard shield: as a shield
 E 0 7544 0 5		*	a palace guard vest: on the body
 E 0 7545 0 12		*	a palace guard cape: about the shoulders
-E 0 7546 0 3		*	a palace guard cloak: around the neck (1)
+E 0 7546 0 3		*	a palace guard cloak: around the neck
 E 0 7547 0 9		*	a pair of palace guard gloves: on the hands
 E 0 7548 0 13		*	a palace guard belt: around the waist
 E 0 7549 0 15		*	a palace guard bracer: on the right wrist
@@ -6485,7 +6485,7 @@ E 0 7542 0 7		*	a pair of palace guard leggings: on the legs
 E 0 7543 0 11		*	a palace guard shield: as a shield
 E 0 7544 0 5		*	a palace guard vest: on the body
 E 0 7545 0 12		*	a palace guard cape: about the shoulders
-E 0 7546 0 3		*	a palace guard cloak: around the neck (1)
+E 0 7546 0 3		*	a palace guard cloak: around the neck
 E 0 7547 0 9		*	a pair of palace guard gloves: on the hands
 E 0 7548 0 13		*	a palace guard belt: around the waist
 E 0 7549 0 15		*	a palace guard bracer: on the right wrist
@@ -6518,7 +6518,7 @@ E 0 7542 0 7		*	a pair of palace guard leggings: on the legs
 E 0 7543 0 11		*	a palace guard shield: as a shield
 E 0 7544 0 5		*	a palace guard vest: on the body
 E 0 7545 0 12		*	a palace guard cape: about the shoulders
-E 0 7546 0 3		*	a palace guard cloak: around the neck (1)
+E 0 7546 0 3		*	a palace guard cloak: around the neck
 E 0 7547 0 9		*	a pair of palace guard gloves: on the hands
 E 0 7548 0 13		*	a palace guard belt: around the waist
 E 0 7549 0 15		*	a palace guard bracer: on the right wrist

@@ -168,7 +168,7 @@ You turn your gaze on a necromancer who seems to have power flowing
 through every one of her movements.  Her visage is gaunt and strained, it
 seems as if at every moment she is concentrating on a spell of some sort. ~
 dark-elf~
-B 0 0 0 AH -150 0
+B 0 0 0 A -150 0
 43 0 25d10+2500 5d5+1000 3d12+15 'punch'
 -15 -15 -15 2
 EIK
@@ -305,7 +305,7 @@ looks straight at you and you see glowing red eyes.  This figure is a
 githzerai!  You wonder how that happened.
 ~
 githzerai~
-G 0 0 0 ABH -850 0
+G 0 0 0 AB -850 0
 46 0 25d10+3250 5d5+1000 6d6+16 'pound'
 -16 -16 -16 2
 EF
@@ -322,7 +322,7 @@ leave him in peace.  He holds himself with confidence and you realise it
 would no easy matter to defeat him.
 ~
 githzerai~
-B 0 0 0 ABH -900 0
+B 0 0 0 AB -900 0
 48 0 25d10+3750 5d5+1000 6d6+18 'pound'
 -18 -18 -18 1
 EF
@@ -372,7 +372,7 @@ easily pick you up.  You figure he frequents the Gemstone since he just
 seems to fit in.
 ~
 duergar~
-G 0 0 0 HL -500 0
+G 0 0 0 L -500 0
 11 0 2d8+134 5d5+100 1d10+2 'punch'
 1 1 1 7
 EIK
@@ -386,7 +386,7 @@ A drow sits here quietly minding his own business
 The drow doesn't seem to be looking at anything at all.  His dark skin
 blends in with the murky lighting.  The drow looks quick and deadly. ~
 dark-elf~
-B 0 0 0 AH -600 0
+B 0 0 0 A -600 0
 13 0 2d10+170 5d5+100 2d5+3 'punch'
 -1 -1 -1 6
 EIK
@@ -787,7 +787,7 @@ A deep gnome sits here watching his back
 This deep gnome sits at the table watching for suckers to prey upon.  His
 skin is grey and his eyes are also grey.  He looks to be very dangerous. ~
 svirfnebli~
-B 0 0 0 H -750 0
+B 0 0 0 0 -750 0
 12 0 2d10+150 5d5+100 1d10+3 'punch'
 0 0 0 7
 EIK
@@ -820,7 +820,7 @@ you know his name is Limbeck, a hero down here.  He has reputedly killed
 a purple worm single handed.
 ~
 duergar~
-B 0 0 0 H -500 0
+B 0 0 0 0 -500 0
 33 0 10d10+1100 5d5+1000 6d4+10 'punch'
 -11 -11 -11 3
 EIK
@@ -836,7 +836,7 @@ walking through the inn.  He is one of the heroes of this city, and for that
 reason many people are after his life.
 ~
 svirfnebli~
-B 0 0 0 H -600 0
+B 0 0 0 0 -600 0
 30 0 6d12+853 5d5+1000 4d6+8 'pound'
 -9 -9 -9 3
 EIK
@@ -1059,7 +1059,7 @@ A drow adventurer sits with his party watching you.
 This adventurer's name is well known in this establishment, he goes by the
 name Prax.  He is an accomplished mage, and seems to breathe magic. ~
 dark-elf~
-B 0 0 0 AH -500 0
+B 0 0 0 A -500 0
 28 0 6d12+703 5d5+1000 2d12+8 'pound'
 -8 -8 -8 4
 EIK
@@ -1074,7 +1074,7 @@ This drow is a very strong warrior.  He has never been defeated in his
 entire career.  He goes by the name Thespan.
 ~
 dark-elf~
-BT 0 0 0 H -600 0
+BT 0 0 0 0 -600 0
 26 0 5d10+600 5d5+1000 3d7+7 'slash'
 -7 -7 -7 4
 EIJK
@@ -1088,7 +1088,7 @@ A drow thief sits at the table with his companions watching you
 This drow is not to be trusted, he has a well earned reputation of being
 able to steal anything off of anyone.  Maybe you should check your gold. ~
 dark-elf~
-BS 0 0 0 H -600 0
+BS 0 0 0 0 -600 0
 26 0 5d10+600 5d5+1000 3d7+7 'punch'
 -7 -7 -7 4
 EIKN
@@ -1104,7 +1104,7 @@ the threshold of becoming powerful, no easy feat in the Underdark.  She is
 clearly very intelligent and cunning.
 ~
 svirfnebli~
-BR 0 0 0 AH -600 0
+BR 0 0 0 A -600 0
 16 0 3d9+233 5d5+1000 2d6+4 'punch'
 -2 -2 -2 6
 EIK
@@ -1121,7 +1121,7 @@ they will be a force to be reckoned with.  Knowing this one of the city's
 beholder's has outfitted them and protects them.
 ~
 svirfnebli~
-BS 0 0 0 H -700 0
+BS 0 0 0 0 -700 0
 16 0 3d9+233 5d5+1000 2d6+4 'pound'
 -2 -2 -2 6
 EIKN
@@ -1139,7 +1139,7 @@ getting closer together, which would be a very bad thing for the surface
 races.
 ~
 duergar~
-BT 0 0 0 H -800 0
+BT 0 0 0 0 -800 0
 17 0 3d9+258 5d5+1000 3d4+4 'slash'
 -3 -3 -3 6
 EIK
@@ -1156,7 +1156,7 @@ group has reputedly found a way into the githzerai keep from the
 Underdark.
 ~
 dark-elf~
-BS 0 0 0 H -700 0
+BS 0 0 0 0 -700 0
 16 0 3d9+233 5d5+1000 2d6+4 'punch'
 -2 -2 -2 6
 EIKN
@@ -1172,7 +1172,7 @@ shop even while others have tried to take it from him.  He has a very
 profitable business going.
 ~
 dark-elf~
-BRe 0 0 0 AH 0 0
+BRe 0 0 0 A 0 0
 50 0 50d10+4250 5d5+5000 5d8+19 'magic'
 -20 -20 -20 0
 EIK
@@ -1189,7 +1189,7 @@ there would be a profitable trade in selling arms, especially drow arms to
 those who visit this unique city.
 ~
 dark-elf~
-BTe 0 0 0 AH 0 0
+BTe 0 0 0 A 0 0
 95 0 50d10+8250 10d10+1000 11d5+35 'pound'
 -33 -33 -33 -17
 CDEFIJK
@@ -1206,7 +1206,7 @@ obviously has been through a lot in his life.  He walks with a quiet
 confidence of one who has seen everything and knows nothing can best
 him. ~
 duergar~
-BTe 0 0 0 AH 0 0
+BTe 0 0 0 A 0 0
 65 0 50d10+8250 10d10+1000 11d5+35 'pound'
 -33 -33 -33 -17
 CDEFIJK
@@ -1240,7 +1240,7 @@ overlook, yet he seems to be very very powerful, not a person to mess
 with.
 ~
 svirfnebli~
-Be 0 0 0 AH 0 0
+Be 0 0 0 A 0 0
 49 0 50d10+4000 5d5+1000 4d10+18 'pound'
 -19 -19 -19 1
 EIK
@@ -1256,7 +1256,7 @@ the way he is acting you figure he is running from something.  He is
 dressed is dark grey clothing and stands a good five feet tall.
 ~
 svirfnebli~
-G 0 0 0 H -500 0
+G 0 0 0 0 -500 0
 17 0 3d9+258 5d5+1000 3d4+4 'punch'
 -3 -3 -3 6
 EIK
@@ -1272,7 +1272,7 @@ He has just been rather shaken up by his visit to the drow city and has
 come here to find comfort in the safe walls of this building.  He is dressed
 in different shades of grey and sports a nice looking necklace ~
 svirfnebli~
-G 0 0 0 H -500 0
+G 0 0 0 0 -500 0
 16 0 3d9+233 5d5+1000 2d6+4 'punch'
 -2 -2 -2 6
 EIK
@@ -1289,7 +1289,7 @@ figure in his homeland, but he fell out of favour and was sent here.  He
 does his duty with a fanatic pride.
 ~
 svirfnebli~
-B 0 0 0 H -700 0
+B 0 0 0 0 -700 0
 17 0 3d9+258 5d5+1000 3d4+4 'punch'
 -3 -3 -3 6
 EIK
@@ -1304,7 +1304,7 @@ This is one of the younger thieves of the guild.  He has considerable
 experience, like all the thieves in the Underdark.  Although he has plenty
 of experience his skills aren't refined like those of his superiors. ~
 dark-elf~
-0 0 0 B H -450 0
+0 0 0 B 0 -450 0
 16 0 3d9+233 5d5+1000 2d6+4 'pound'
 -2 -2 -2 6
 EIK
@@ -1320,7 +1320,7 @@ himself to the guild, by working the streets he is looking for that perfect
 steal or kill.
 ~
 dark-elf~
-H 0 0 B H -600 0
+H 0 0 B 0 -600 0
 17 0 3d9+258 5d5+1000 3d4+4 'punch'
 -3 -3 -3 6
 EIK
@@ -1336,7 +1336,7 @@ and knows who to pick on.  He is lean but covered in muscles, with many
 scars from countless fights.
 ~
 dark-elf~
-H 0 0 0 AH -600 0
+H 0 0 0 A -600 0
 18 0 3d9+283 5d5+1000 2d7+4 'punch'
 -3 -3 -3 6
 EIK
@@ -1352,7 +1352,7 @@ guild.  He only has to make his name even and bigger, and thus he is
 willing to take greater risks.
 ~
 dark-elf~
-HS 0 0 B AH -700 0
+HS 0 0 B A -700 0
 19 0 3d9+308 5d5+1000 2d7+5 'punch'
 -4 -4 -4 5
 EIKN
@@ -1384,7 +1384,7 @@ his ability to both kill and steal.  He lives in the guild where the head thief
 can watch him.
 ~
 dark-elf~
-BS 0 0 0 AH -500 0
+BS 0 0 0 A -500 0
 23 0 5d10+450 5d5+1000 3d6+6 'punch'
 -6 -6 -6 4
 EIKN
@@ -1431,7 +1431,7 @@ This is the thieve's guild main mage.  He is the only one who power
 anywhere near that of the head's.  Meliadus is dressed in a long flowing
 robe and lights the room with a rob shaped like a hand holding an orb. ~
 dark-elf~
-BR 0 J 0 ABHL -500 0
+BR 0 J 0 ABL -500 0
 40 0 15d10+1850 5d5+1000 4d8+13 'magic'
 -13 -13 -13 3
 EIK
@@ -1478,7 +1478,7 @@ street.  You can barely make out his form as he moves silently, looking for
 the opening.
 ~
 dark-elf~
-G 0 0 BG AH -999 0
+G 0 0 B A -999 0
 21 0 4d10+360 5d5+1000 4d4+5 'pound'
 -5 -5 -5 5
 EIKN
@@ -1688,7 +1688,7 @@ grotesque creatures, like the ones that Eurandus creates.  He is a powerful
 warrior and is rarely beaten in a fight.
 ~
 duergar~
-GT 0 0 0 H -800 0
+GT 0 0 0 0 -800 0
 46 0 25d10+3250 5d5+1000 6d6+16 'pound'
 -16 -16 -16 2
 EIK
@@ -1810,7 +1810,7 @@ politics of his homeland.  He is here to learn new destructive spells so he
 can become the most feared drow in the land
 ~
 dark-elf~
-BR 0 0 0 H -700 0
+BR 0 0 0 0 -700 0
 26 0 5d10+600 5d5+1000 3d7+7 'punch'
 -7 -7 -7 4
 EIK
@@ -1826,7 +1826,7 @@ all his enemies fear him.  Even though he is a gnome, he has strength that
 rivals that of an ogre.
 ~
 svirfnebli~
-BT 0 0 0 H -500 0
+BT 0 0 0 0 -500 0
 24 0 5d10+500 5d5+1000 2d10+6 'punch'
 -6 -6 -6 4
 EIK
@@ -1840,7 +1840,7 @@ A drow cleric sits cross legged on the ground
 Sifrim is one of the few powerful drow clerics.  He is dressed all in black
 and stares at your with glowing eyes.  A dangerous fellow by far. ~
 dark-elf~
-BQ 0 0 0 H -800 0
+BQ 0 0 0 0 -800 0
 25 0 5d10+550 5d5+1000 2d10+7 'punch'
 -7 -7 -7 4
 EIK
@@ -1855,7 +1855,7 @@ This is Wismarel, a duergar fighter.  Wismarel is here to find his fortune
 and hopes to find many powerful magical items.
 ~
 duergar~
-BT 0 0 0 H -500 0
+BT 0 0 0 0 -500 0
 26 0 5d10+600 5d5+1000 3d7+7 'punch'
 -7 -7 -7 4
 EIK
@@ -2941,7 +2941,7 @@ assassin's mask~
 An assassin's mask~
 A mask keep changing on the ground~
 cloth~
-armor CG 0 AE
+armor CG 0 AT
 9 9 7 5 0
 27 3 100 P
 a '' to_object 27 -1 1 1 0
@@ -17326,7 +17326,7 @@ M 16122 spec_cast_mage	* The demon summoner
 M 16123 spec_breath_fire	* The cambion
 M 16124 spec_breath_fire	* A noble cambion
 M 16125 spec_cast_mage	* Irmugar
-M 16126 spec_breath_acid	* The hezron
+M 16126 spec_breath_acid	* The hezrou
 S
 
 #RESETS
@@ -17651,7 +17651,7 @@ E 0 16001 0 5		*	Scale of the enforcer: on the body
 M 0 16081 16 16048 1	* The footpad (Diamond Street)
 E 0 16065 0 15		*	Thieve's patch: on the right wrist
 M 0 16084 5 16048 1	* The rogue (Diamond Street)
-E 0 16067 0 3		*	A gold chain: around the neck (1)
+E 0 16067 0 3		*	A gold chain: around the neck
 M 0 16002 24 16052 1	* The floating eye (Diamond Street)
 M 0 16128 6 16052 1	* The revenant (Diamond Street)
 M 0 16007 16 16056 1	* The svirfneblin (Diamond Street)
@@ -17749,7 +17749,7 @@ G 0 16039 0		*	A pair of manacles
 M 0 16009 18 16103 1	* The duergar (Sunrise before the cages)
 E 0 16008 0 6		*	Dark grey helm: over the head
 M 0 16084 5 16103 1	* The rogue (Sunrise before the cages)
-E 0 16067 0 3		*	A gold chain: around the neck (1)
+E 0 16067 0 3		*	A gold chain: around the neck
 M 0 16001 35 16105 1	* The enforcer eye (Sunrise)
 E 0 16001 0 5		*	Scale of the enforcer: on the body
 M 0 16092 6 16106 1	* The murderer (Sunrise)
@@ -17785,7 +17785,7 @@ E 0 16038 0 16		*	Slaver's Whip: wielded
 M 0 16127 4 16123 1	* An eye of fear and flame (Street of the Gods, Etaine)
 G 0 16090 0		*	A fire gem
 M 0 16084 5 16125 1	* The rogue (Sunset)
-E 0 16067 0 3		*	A gold chain: around the neck (1)
+E 0 16067 0 3		*	A gold chain: around the neck
 M 0 16091 6 16127 1	* The bravo (Azurite Street)
 E 0 16074 0 16		*	A blade of poison: wielded
 M 0 16007 16 16128 1	* The svirfneblin (Road of Shadows at Sunset)
@@ -17889,7 +17889,7 @@ E 0 16074 0 16		*	A blade of poison: wielded
 M 0 16093 6 16184 1	* The thug (Death's Lane)
 E 0 16075 0 10		*	Assassin's sleeves: on the arms
 M 0 16084 5 16185 1	* The rogue (Death's Lane)
-E 0 16067 0 3		*	A gold chain: around the neck (1)
+E 0 16067 0 3		*	A gold chain: around the neck
 M 0 16001 35 16186 1	* The enforcer eye (Death's Lane)
 M 0 16128 6 16187 1	* The revenant (Death's Lane)
 M 0 16093 6 16188 1	* The thug (Death's Lane)
@@ -17902,7 +17902,7 @@ E 0 16076 0 14		*	Skull tattoo: on the left wrist
 M 0 16001 35 16193 1	* The enforcer eye (Death's Lane)
 E 0 16001 0 5		*	Scale of the enforcer: on the body
 M 0 16084 5 16193 1	* The rogue (Death's Lane)
-E 0 16067 0 3		*	A gold chain: around the neck (1)
+E 0 16067 0 3		*	A gold chain: around the neck
 M 0 16091 6 16193 1	* The bravo (Death's Lane)
 E 0 16074 0 16		*	A blade of poison: wielded
 M 0 16128 6 16193 1	* The revenant (Death's Lane)
@@ -18132,7 +18132,7 @@ M 0 16065 1 16352 1	* The Bar Tender (The Dining Area)
 G 0 3002 0		*	a bottle of ale
 G 0 16094 0		*	not so rich merchant gold
 M 0 16066 1 16353 1	* Prax (Dining Area)
-E 0 16040 0 3		*	A mage cloak: around the neck (1)
+E 0 16040 0 3		*	A mage cloak: around the neck
 M 0 16067 1 16353 1	* Thespan (Dining Area)
 E 0 16041 0 16		*	A jagged long sword: wielded
 M 0 16068 1 16353 1	* Endolar (Dining Area)
@@ -18169,7 +18169,7 @@ E 0 16062 0 7		*	Svirfneblin leggings: on the legs
 M 0 16078 2 16365 1	* The svirfneblin (Svirfneblin Hallway)
 E 0 16062 0 7		*	Svirfneblin leggings: on the legs
 M 0 16079 1 16366 1	* The svirfneblin dignitary (Svirfneblin Chamber)
-E 0 16063 0 3		*	Necklace of nobility: around the neck (1)
+E 0 16063 0 3		*	Necklace of nobility: around the neck
 M 0 16080 1 16368 1	* The caretaker (Svirfneblin Chamber)
 E 0 16064 0 16		*	A broadsword named 'Vision': wielded
 M 0 16085 8 16370 1	* The sharper (Thieve's Guard Room)
@@ -18185,14 +18185,14 @@ M 0 16085 8 16376 1	* The sharper (Thieve's Guard Room)
 M 0 16085 8 16376 1	* The sharper (Thieve's Guard Room)
 E 0 16068 0 17		*	Lucky dice: held in the hands
 M 0 16086 3 16378 1	* The magsman (Hallway in the Thieve's Guild)
-E 0 16069 0 3		*	A dark cloak: around the neck (1)
+E 0 16069 0 3		*	A dark cloak: around the neck
 M 0 16090 1 16381 1	* The trainer (Training Room)
 M 0 16087 3 16383 1	* The master thief (Thieve's Council Chamber)
 E 0 16070 0 18		*	Golden earring: floating nearby
 M 0 16088 1 16385 1	* The head thief (Thieve's Council Chamber)
 E 0 16071 0 16		*	A jewelled dagger: wielded
 M 0 16086 3 16388 1	* The magsman (Personal Chamber)
-E 0 16069 0 3		*	A dark cloak: around the neck (1)
+E 0 16069 0 3		*	A dark cloak: around the neck
 M 0 16089 1 16390 1	* Meliadus (Mage Chamber)
 E 0 16072 0 0		*	A hand grasping an orb: as a light
 E 0 16073 0 12		*	A long flowing robe: about the shoulders
@@ -18201,7 +18201,7 @@ E 0 16070 0 18		*	Golden earring: floating nearby
 M 0 16087 3 16394 1	* The master thief (Private Room)
 E 0 16070 0 18		*	Golden earring: floating nearby
 M 0 16086 3 16396 1	* The magsman (Private Chamber)
-E 0 16069 0 3		*	A dark cloak: around the neck (1)
+E 0 16069 0 3		*	A dark cloak: around the neck
 M 0 16095 2 16400 1	* The assassin (Hallway in the Assassin's Guild)
 E 0 16077 0 16		*	A choke wire: wielded
 M 0 16095 2 16402 1	* The assassin (Chamber in the Assassin's Guild)
@@ -18288,7 +18288,7 @@ M 0 16122 3 16477 1	* The demon summoner (Western Summoning Chamber)
 E 0 16087 0 17		*	Gem of gate: held in the hands
 M 0 16125 1 16478 1	* Irmugar (Western Summoning Chamber)
 E 0 16089 0 11		*	Demon fire: as a shield
-M 0 16126 1 16478 1	* The hezron (Western Summoning Chamber)
+M 0 16126 1 16478 1	* The hezrou (Western Summoning Chamber)
 M 0 16121 3 16479 1	* A demon clan fighter (Hallway in the Demon Clan)
 E 0 16086 0 16		*	A demon blade: wielded
 M 0 16124 2 16480 1	* A noble cambion (Northern Summoning Room)

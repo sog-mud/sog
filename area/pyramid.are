@@ -652,7 +652,7 @@ golden mask~
 a golden mask~
 A beautiful, intricately detailed mask has been forgotten here.~
 gold~
-armor G 0 AE
+armor G 0 AT
 11 11 10 5 0
 33 100 5500 P
 a '' to_object 33 -1 -1 20 0

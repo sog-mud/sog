@@ -1920,7 +1920,7 @@ glasses sun очки~
 @eng some sun-glasses@rus {m~~солнечные~~ ~~очки~~ {z~
 @eng Some glasses waiting to be worn.@rus Солнечные очки (glasses) ждут, пока их кто-то подберет.~
 glass~
-armor 0 0 AE
+armor 0 0 AT
 2 2 2 0 0
 5 5 100 P
 a '' to_object 5 -1 2 18 0
@@ -2846,7 +2846,7 @@ mask clown маска~
 @eng clown mask@rus {M~~маска~~ клоуна {x~
 @eng A strange painted face looks at you from the grass.@rus Странное раскрашенное лицо (mask) смотрит на тебя из травы.~
 plastic~
-armor CEM 0 AE
+armor CEM 0 AT
 12 12 10 5 0
 25 10 1000 P
 a '' to_object 25 -1 2 2 0
@@ -7825,7 +7825,7 @@ E 0 36300 0 15		*	feathery bracer: on the right wrist
 E 0 36301 0 16		*	tomahawk: wielded
 E 0 36300 0 14		*	feathery bracer: on the left wrist
 M 0 36303 1 36361 1	* Tumbu-Yumbu (The edge of the Forest)
-E 0 36302 0 4		*	tooth necklace: around the neck (2)
+E 0 36302 0 4		*	tooth necklace: on the face
 E 0 36303 0 7		*	short palm skirt: on the legs
 E 0 36304 0 10		*	bracer of charisma: on the arms
 E 0 36306 0 12		*	leo skin: about the shoulders
@@ -7856,13 +7856,13 @@ G 0 36335 0		*	crumpled flask
 G 0 36409 0		*	barrel of ale
 M 0 36316 3 36370 1	* warrior on competition (Wasted Lawn)
 E 0 36350 0 2		*	tournament ring: on the right finger
-E 0 36351 0 4		*	tournament scarf: around the neck (2)
+E 0 36351 0 4		*	tournament scarf: on the face
 E 0 36354 0 7		*	tournament leg plates: on the legs
 E 0 36355 0 8		*	tournament plated boots: on the feet
 E 0 36362 0 16		*	tournament mace: wielded
 M 0 36316 2 36372 1	* warrior on competition (Wasted Lawn)
 E 0 36350 0 2		*	tournament ring: on the right finger
-E 0 36351 0 4		*	tournament scarf: around the neck (2)
+E 0 36351 0 4		*	tournament scarf: on the face
 E 0 36352 0 6		*	tournament helm: over the head
 E 0 36353 0 5		*	tournament breast plate: on the body
 E 0 36360 0 16		*	tournament sword: wielded
@@ -7871,7 +7871,7 @@ E 0 36338 0 17		*	a match box: held in the hands
 E 0 36342 0 5		*	festival suit: on the body
 M 0 36316 4 36374 1	* warrior on competition (Wasted Lawn)
 E 0 36350 0 2		*	tournament ring: on the right finger
-E 0 36351 0 4		*	tournament scarf: around the neck (2)
+E 0 36351 0 4		*	tournament scarf: on the face
 E 0 36357 0 11		*	tournament shield: as a shield
 E 0 36358 0 12		*	tournament cloak: about the shoulders
 E 0 36372 0 16		*	tournament axe: wielded
@@ -7880,7 +7880,7 @@ E 0 36337 0 17		*	a match: held in the hands
 E 0 36342 0 5		*	festival suit: on the body
 M 0 36316 4 36376 1	* warrior on competition (Wasted Lawn)
 E 0 36350 0 2		*	tournament ring: on the right finger
-E 0 36351 0 4		*	tournament scarf: around the neck (2)
+E 0 36351 0 4		*	tournament scarf: on the face
 E 0 36356 0 10		*	tournament arm plates: on the arms
 E 0 36359 0 9		*	tournament gauntlets: on the hands
 E 0 36366 0 16		*	tournament morningstar: wielded

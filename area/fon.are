@@ -896,9 +896,9 @@ steel~
 weapon AC 0 AN
 axe 8 4 'cleave' ADH
 27 350 15000 P
-a '' to_object 0 -1 2 30 0
-a '' to_object 0 -1 -5 18 0
-a '' to_object 0 -1 8 19 0
+a '' to_object 27 -1 2 30 0
+a '' to_object 27 -1 -5 18 0
+a '' to_object 27 -1 8 19 0
 g @rus none~
 #22492
 jewelled dagger~
@@ -4229,7 +4229,7 @@ O 0 22454 0 22451	* a small sign (Entrance into Forest)
 M 0 22451 8 22452 1	* tiny guard (In the Forest of Nowhere)
 E 0 22456 0 16		*	wooden training mace: wielded
 M 0 22452 8 22452 1	* tiny guard (In the Forest of Nowhere)
-E 0 22467 0 3		*	Necklace of Life: around the neck (1)
+E 0 22467 0 3		*	Necklace of Life: around the neck
 M 0 22453 1 22453 1	* Bullroarer the Hobbit (Camp-In-The-Forest)
 G 0 22451 0		*	a seaweed
 G 0 22452 0		*	green staff
@@ -4238,23 +4238,23 @@ O 0 22453 0 22453	* pool of water (Camp-In-The-Forest)
 M 0 22451 8 22454 1	* tiny guard (In the Forest of Nowhere)
 E 0 22455 0 16		*	wooden training staff: wielded
 M 0 22452 8 22454 1	* tiny guard (In the Forest of Nowhere)
-E 0 22466 0 3		*	Necklace of Speed: around the neck (1)
+E 0 22466 0 3		*	Necklace of Speed: around the neck
 M 0 22451 8 22455 1	* tiny guard (In the Forest of Nowhere)
 E 0 22460 0 16		*	wooden training sword: wielded
 M 0 22452 8 22455 1	* tiny guard (In the Forest of Nowhere)
-E 0 22463 0 3		*	Necklace of Power: around the neck (1)
+E 0 22463 0 3		*	Necklace of Power: around the neck
 M 0 22451 8 22456 1	* tiny guard (In the Forest of Nowhere)
 E 0 22461 0 16		*	wooden training dagger: wielded
 M 0 22452 8 22456 1	* tiny guard (In the Forest of Nowhere)
-E 0 22464 0 3		*	Necklace of Magi: around the neck (1)
+E 0 22464 0 3		*	Necklace of Magi: around the neck
 M 0 22451 8 22457 1	* tiny guard (In the Forest of Nowhere)
 E 0 22457 0 16		*	wooden training flail: wielded
 M 0 22452 8 22457 1	* tiny guard (In the Forest of Nowhere)
-E 0 22467 0 3		*	Necklace of Life: around the neck (1)
+E 0 22467 0 3		*	Necklace of Life: around the neck
 M 0 22451 8 22458 1	* tiny guard (In the Forest of Nowhere)
 E 0 22458 0 16		*	leather training whip: wielded
 M 0 22452 8 22458 1	* tiny guard (In the Forest of Nowhere)
-E 0 22468 0 3		*	Necklace of Beauty: around the neck (1)
+E 0 22468 0 3		*	Necklace of Beauty: around the neck
 M 0 22451 8 22459 1	* tiny guard (In the Forest of Nowhere)
 E 0 22471 0 1		*	ring of wildreness: on the left finger
 M 0 22452 8 22459 1	* tiny guard (In the Forest of Nowhere)

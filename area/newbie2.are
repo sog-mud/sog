@@ -1495,7 +1495,7 @@ D 0 18646 3 1	* A Bright Hallway: door to the west: closed
 M 0 18602 3 18600 1	* the newbie monster (The Entrance To The Newbie Zone)
 E 0 18602 0 5		*	a bright green newbie vest: on the body
 M 0 18603 1 18602 1	* the baby dragon (The Dirty Hallway)
-E 0 18607 0 3		*	a pet dragon collar: around the neck (1)
+E 0 18607 0 3		*	a pet dragon collar: around the neck
 E 0 18615 0 18		*	a baby dragon orb: floating nearby
 M 0 18606 4 18602 1	* the creepy crawler (The Dirty Hallway)
 M 0 18614 1 18604 1	* the lost newbie (A Narrow Passage)

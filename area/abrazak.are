@@ -25,10 +25,7 @@ YZ
 stand stand female 2147483647
 0 0 huge unknown
 g @eng female@rus male~
-M random 15000 2~
-M random 15000 1~
 M bribe 15000 1~
-M speech 15001 shadow~
 M speech 15002 demon~
 r bash 100
 r pierce 100

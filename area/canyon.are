@@ -2320,7 +2320,7 @@ M 0 9236 15 9207 15	* a little imp (Entrance to Elemental Canyon)
 M 0 9203 15 9208 15	* a tiny elemental (The Floor of the Canyon)
 M 0 9232 8 9208 8	* a rainbow warrior (The Floor of the Canyon)
 M 0 9204 1 9209 1	* the elemental guardian (Elemental Gateway)
-E 0 9211 0 3		*	an elemental amulet: around the neck (1)
+E 0 9211 0 3		*	an elemental amulet: around the neck
 E 0 9212 0 14		*	an elemental bracelet: on the left wrist
 M 0 9205 12 9209 12	* a small elemental (Elemental Gateway)
 M 0 9207 6 9209 6	* a large elemental (Elemental Gateway)
@@ -2421,7 +2421,7 @@ M 0 9215 15 9242 15	* a flame (The Burning Gardens)
 M 0 9220 8 9242 8	* a lava beast (The Burning Gardens)
 M 0 9209 1 9245 1	* the Fire Ruler (The Fire Chamber)
 E 0 9203 0 16		*	a fiery dagger: wielded
-E 0 9204 0 3		*	a flame red cape: around the neck (1)
+E 0 9204 0 3		*	a flame red cape: around the neck
 M 0 9215 15 9245 15	* a flame (The Fire Chamber)
 E 0 9215 0 17		*	elemental wand of fire: held in the hands
 M 0 9215 15 9245 15	* a flame (The Fire Chamber)

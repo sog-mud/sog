@@ -3146,7 +3146,7 @@ ice mask~
 ice mask~
 A mask of ice is here.~
 ice~
-armor A 0 AE
+armor A 0 AT
 12 13 12 10 0
 40 70 1100 P
 a '' unknown 40 -1 2 1 0
@@ -3483,7 +3483,7 @@ mask deception grey~
 mask of deception~
 A grey mask lies here, seeming to shift and change continuously.~
 shadow~
-armor BCF 0 AE
+armor BCF 0 AT
 12 12 12 10 0
 40 30 2000 P
 a '' unknown 40 -1 2 2 0
@@ -7866,14 +7866,14 @@ E 0 11631 0 6		*	a pair of rose tinted shades: over the head
 M 0 11646 1 11611 1	* a shadow of Reality (Inside the Gazebo)
 O 0 11600 0 11612	* Weird artwork (Strange Artwork)
 M 0 11614 5 11612 1	* a white rabbit (Strange Artwork)
-E 0 11642 0 3		*	a silver neckchain: around the neck (1)
+E 0 11642 0 3		*	a silver neckchain: around the neck
 M 0 11611 1 11614 1	* Babbling Sculptor (Hole)
 E 0 11638 0 16		*	a sculptor's chisel: wielded
 G 0 11639 0		*	a chip of polished bone
 O 0 11601 0 11616	* Mirror pool (Mirror Pool)
 M 0 11606 1 11616 1	* the Unicorn (Mirror Pool)
 E 0 11629 0 8		*	glowing silvery hooves: on the feet
-E 0 11630 0 3		*	A golden bell on a silver neckchain: around the neck (1)
+E 0 11630 0 3		*	A golden bell on a silver neckchain: around the neck
 M 0 11603 1 11617 1	* the teacher (Redwood Platform)
 G 0 11627 0		*	a scroll of enlightenment
 M 0 11604 1 11617 1	* the student (Redwood Platform)
@@ -7955,7 +7955,7 @@ M 0 11625 6 11656 1	* a silent stalker (Storage Closet)
 O 0 11605 0 11657	* a pine coffin (Narrow Crawlspace)
 M 0 11639 1 11657 1	* the vampire janitor (Narrow Crawlspace)
 E 0 11660 0 16		*	fang of the vampire: wielded
-E 0 11661 0 3		*	a tattered cloak: around the neck (1)
+E 0 11661 0 3		*	a tattered cloak: around the neck
 M 0 11631 3 11658 1	* the Wraith Knight (Onyx Hallway)
 E 0 11654 0 16		*	a deathblade: wielded
 E 0 11655 0 9		*	gauntlets of the night: on the hands
@@ -8003,7 +8003,7 @@ E 0 11672 0 16		*	a sliver of darkness: wielded
 M 0 11660 1 11679 1	* the grey ninja (Meeting Chamber)
 E 0 11673 0 6		*	mask of deception: over the head
 M 0 11661 1 11679 1	* the black ninja (Meeting Chamber)
-E 0 11674 0 3		*	cloak of shadows: around the neck (1)
+E 0 11674 0 3		*	cloak of shadows: around the neck
 M 0 11662 1 11679 1	* the white ninja  (Meeting Chamber)
 E 0 11675 0 0		*	an ice candle: as a light
 M 0 11663 1 11680 1	* the shadow serpent (Shadowy Lair)
@@ -8168,13 +8168,13 @@ E 0 11716 0 9		*	a pair of leather gloves with an indigo insignia: on the hands
 G 0 11704 0		*	a dark stone key
 E 0 11727 0 16		*	an adamantite stiletto: wielded
 M 0 11703 4 11734 1	* the Zdreni stalker (Dark Chamber)
-E 0 11715 0 3		*	a dark cloak embroidered with a smokey blue insignia: around the neck (1)
+E 0 11715 0 3		*	a dark cloak embroidered with a smokey blue insignia: around the neck
 E 0 11727 0 16		*	an adamantite stiletto: wielded
 M 0 11703 4 11735 1	* the Zdreni stalker (Dark Chamber)
-E 0 11715 0 3		*	a dark cloak embroidered with a smokey blue insignia: around the neck (1)
+E 0 11715 0 3		*	a dark cloak embroidered with a smokey blue insignia: around the neck
 E 0 11727 0 16		*	an adamantite stiletto: wielded
 M 0 11703 4 11736 1	* the Zdreni stalker (Quiet Corridor)
-E 0 11715 0 3		*	a dark cloak embroidered with a smokey blue insignia: around the neck (1)
+E 0 11715 0 3		*	a dark cloak embroidered with a smokey blue insignia: around the neck
 E 0 11727 0 16		*	an adamantite stiletto: wielded
 M 0 11701 2 11737 1	* the Zdreni blademaster (Quiet Corridor)
 G 0 11705 0		*	a black key
@@ -8199,7 +8199,7 @@ E 0 11725 0 16		*	an adamantite shortsword: wielded
 M 0 11725 1 11740 1	* a Zdreni avenger (Crimson Chamber)
 E 0 11708 0 10		*	dark crimson armbands: on the arms
 E 0 11710 0 16		*	a crimson hilted stiletto: wielded
-E 0 11709 0 4		*	Oath of Vengeance: around the neck (2)
+E 0 11709 0 4		*	Oath of Vengeance: on the face
 M 0 11697 2 11740 2	* a Zdreni avenger (Crimson Chamber)
 E 0 11708 0 10		*	dark crimson armbands: on the arms
 E 0 11710 0 16		*	a crimson hilted stiletto: wielded

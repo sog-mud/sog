@@ -306,7 +306,7 @@ mask spy маска шпиона~
 @eng a Spy Mask@rus ~~шпионская~~ ~~маска~~~
 @eng A strange mask is here radiating the unknown.@rus Здесь лежит странная, излучающая неизвестность, маска (mask).~
 iron~
-armor ABG C AE
+armor ABG C AT
 1 1 1 1 0
 45 50 8000 P
 a '' to_detects 45 -1 0 0 A
@@ -2548,7 +2548,7 @@ E 0 13005 0 1		*	the Ring of Glory: on the left finger
 E 0 13006 0 16		*	the huge broadsword of Destruction: wielded
 E 0 13022 0 9		*	some bloody gloves of elven skin: on the hands
 G 0 13023 0		*	Skin of the Giant Lord
-E 0 13024 0 3		*	fine fur cloak: around the neck (1)
+E 0 13024 0 3		*	fine fur cloak: around the neck
 O 0 13020 0 13043	* vast treasure of gold (The Treasure Room)
 M 0 13003 1 13044 1	* Shannon, the Battle Mistress (Battle Grounds)
 E 0 13007 0 1		*	a small spiked ring: on the left finger
@@ -2570,7 +2570,7 @@ E 0 13015 0 5		*	a suit of fine copper chainmail: on the body
 E 0 13016 0 6		*	a fine copper helmet: over the head
 E 0 13017 0 7		*	a set of fine copper leggings: on the legs
 E 0 13018 0 8		*	a pair of fine copper boots: on the feet
-E 0 13019 0 4		*	the Badge of Order: around the neck (2)
+E 0 13019 0 4		*	the Badge of Order: on the face
 E 0 13021 0 14		*	a fine copper bracelet: on the left wrist
 M 0 13006 1 13053 1	* the elven servant (The castle garden)
 M 0 13000 26 13055 1	* a giant guard (The castle dungeon)

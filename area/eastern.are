@@ -1681,7 +1681,7 @@ M 0 5012 3 5014 3	* The dark dwarf (Damp hallway)
 E 0 5000 0 16		*	a small mining pick: wielded
 M 0 5013 4 5021 4	* the myconoid (Fungus temple)
 M 0 5014 1 5021 1	* The myconoid shaman (Fungus temple)
-E 0 5003 0 3		*	the amulet: around the neck (1)
+E 0 5003 0 3		*	the amulet: around the neck
 M 0 5015 4 5024 1	* The dustdigger (The Sands of Sorrow)
 M 0 5000 3 5025 1	* The dervish (The Sands of Sorrow)
 E 0 3021 0 16		*	a small sword: wielded

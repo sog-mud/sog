@@ -192,7 +192,6 @@ BFGJT 0 0 0 0 -1000 0
 C
 stand stand male 800
 0 0 large unknown
-F off EK
 #0
 
 #OBJECTS
@@ -1150,7 +1149,7 @@ E 0 29350 0 16		*	an old black mace: wielded
 O 0 29369 0 29362	* an old wooden bookshelf (The Library)
 P 0 29366 1 29369 1	* an old wooden bookshelf: a blank piece of paper
 M 0 29353 1 29363 1	* A Major Demon (A Summoning Room)
-E 0 29356 0 3		*	the Amulet of the Night: around the neck (1)
+E 0 29356 0 3		*	the Amulet of the Night: around the neck
 M 0 29351 1 29364 1	* The Inquisitor (The Torture Chamber)
 E 0 29351 0 0		*	a Flaming Skull: as a light
 M 0 29352 1 29365 1	* A Minor Demon (A Summoning Room)

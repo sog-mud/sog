@@ -3010,7 +3010,7 @@ M 0 29231 1 29270 1	* Oglethorpe, 1st Master Merchant of Freeport (In The Secret
 G 0 29231 0		*	a very heavy purse
 M 0 29232 1 29270 1	* Lord Mourning (In The Secret Cave of the 6th Pirate Lord)
 E 0 29232 0 8		*	bladed boots: on the feet
-E 0 29233 0 3		*	a dimensional cape: around the neck (1)
+E 0 29233 0 3		*	a dimensional cape: around the neck
 E 0 29234 0 17		*	the troll stone: held in the hands
 M 0 29228 1 29272 1	* the scruffy pirate (In the Hidden Cavern)
 E 0 29229 0 12		*	an admiral's cape: about the shoulders

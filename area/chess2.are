@@ -3363,7 +3363,7 @@ E 0 4204 0 5		*	some Black Rook Armour: on the body
 M 0 4204 2 4202 1	* the Black Knight (A Black Square)
 E 0 4206 0 16		*	the Lance of the Black Knight: wielded
 E 0 4261 0 11		*	a Black Knight's Shield : as a shield
-E 0 4263 0 3		*	a Black Knight's Cloak: around the neck (1)
+E 0 4263 0 3		*	a Black Knight's Cloak: around the neck
 E 0 4265 0 6		*	a Black Knight's Helmet: over the head
 E 0 4267 0 7		*	a pair of Black Knight's Leggings: on the legs
 E 0 4269 0 8		*	a pair of Black Knight's Boots: on the feet
@@ -3385,7 +3385,7 @@ E 0 4208 0 17		*	the Staff of the Black Bishop: held in the hands
 M 0 4204 2 4207 1	* the Black Knight (A White Square)
 E 0 4206 0 16		*	the Lance of the Black Knight: wielded
 E 0 4261 0 11		*	a Black Knight's Shield : as a shield
-E 0 4263 0 3		*	a Black Knight's Cloak: around the neck (1)
+E 0 4263 0 3		*	a Black Knight's Cloak: around the neck
 E 0 4265 0 6		*	a Black Knight's Helmet: over the head
 E 0 4267 0 7		*	a pair of Black Knight's Leggings: on the legs
 E 0 4269 0 8		*	a pair of Black Knight's Boots: on the feet
@@ -3401,7 +3401,7 @@ M 0 4200 8 4209 1	* the Pawn of the Black Court (A Black Square)
 E 0 4200 0 5		*	some black pawn armour: on the body
 E 0 4202 0 16		*	a Black Pawn's Axe: wielded
 E 0 4232 0 11		*	a Black Pawn's Shield : as a shield
-E 0 4234 0 3		*	a Black Pawn's Cloak: around the neck (1)
+E 0 4234 0 3		*	a Black Pawn's Cloak: around the neck
 E 0 4236 0 6		*	a Black Pawn's Helmet: over the head
 E 0 4238 0 7		*	a pair of Black Pawn's Leggings: on the legs
 E 0 4240 0 8		*	a pair of Black Pawn's Boots: on the feet
@@ -3415,7 +3415,7 @@ M 0 4200 8 4210 1	* the Pawn of the Black Court (A White Square)
 E 0 4200 0 5		*	some black pawn armour: on the body
 E 0 4230 0 16		*	a Black Pawn's Crossbow: wielded
 E 0 4232 0 11		*	a Black Pawn's Shield : as a shield
-E 0 4234 0 3		*	a Black Pawn's Cloak: around the neck (1)
+E 0 4234 0 3		*	a Black Pawn's Cloak: around the neck
 E 0 4236 0 6		*	a Black Pawn's Helmet: over the head
 E 0 4238 0 7		*	a pair of Black Pawn's Leggings: on the legs
 E 0 4240 0 8		*	a pair of Black Pawn's Boots: on the feet
@@ -3429,7 +3429,7 @@ M 0 4200 8 4211 1	* the Pawn of the Black Court (A Black Square)
 E 0 4200 0 5		*	some black pawn armour: on the body
 E 0 4218 0 16		*	a Black Pawn's Flail: wielded
 E 0 4232 0 11		*	a Black Pawn's Shield : as a shield
-E 0 4234 0 3		*	a Black Pawn's Cloak: around the neck (1)
+E 0 4234 0 3		*	a Black Pawn's Cloak: around the neck
 E 0 4236 0 6		*	a Black Pawn's Helmet: over the head
 E 0 4238 0 7		*	a pair of Black Pawn's Leggings: on the legs
 E 0 4240 0 8		*	a pair of Black Pawn's Boots: on the feet
@@ -3443,7 +3443,7 @@ M 0 4200 8 4212 1	* the Pawn of the Black Court (A White Square)
 E 0 4200 0 5		*	some black pawn armour: on the body
 E 0 4226 0 16		*	a Black Pawn's Rapier: wielded
 E 0 4232 0 11		*	a Black Pawn's Shield : as a shield
-E 0 4234 0 3		*	a Black Pawn's Cloak: around the neck (1)
+E 0 4234 0 3		*	a Black Pawn's Cloak: around the neck
 E 0 4236 0 6		*	a Black Pawn's Helmet: over the head
 E 0 4238 0 7		*	a pair of Black Pawn's Leggings: on the legs
 E 0 4240 0 8		*	a pair of Black Pawn's Boots: on the feet
@@ -3457,7 +3457,7 @@ M 0 4200 8 4213 1	* the Pawn of the Black Court (A Black Square)
 E 0 4200 0 5		*	some black pawn armour: on the body
 E 0 4220 0 16		*	a Black Pawn's Whip: wielded
 E 0 4232 0 11		*	a Black Pawn's Shield : as a shield
-E 0 4234 0 3		*	a Black Pawn's Cloak: around the neck (1)
+E 0 4234 0 3		*	a Black Pawn's Cloak: around the neck
 E 0 4236 0 6		*	a Black Pawn's Helmet: over the head
 E 0 4238 0 7		*	a pair of Black Pawn's Leggings: on the legs
 E 0 4240 0 8		*	a pair of Black Pawn's Boots: on the feet
@@ -3471,7 +3471,7 @@ M 0 4200 8 4214 1	* the Pawn of the Black Court (A White Square)
 E 0 4200 0 5		*	some black pawn armour: on the body
 E 0 4228 0 16		*	a Black Pawn's Kris: wielded
 E 0 4232 0 11		*	a Black Pawn's Shield : as a shield
-E 0 4234 0 3		*	a Black Pawn's Cloak: around the neck (1)
+E 0 4234 0 3		*	a Black Pawn's Cloak: around the neck
 E 0 4236 0 6		*	a Black Pawn's Helmet: over the head
 E 0 4238 0 7		*	a pair of Black Pawn's Leggings: on the legs
 E 0 4240 0 8		*	a pair of Black Pawn's Boots: on the feet
@@ -3485,7 +3485,7 @@ M 0 4200 8 4215 1	* the Pawn of the Black Court (A Black Square)
 E 0 4200 0 5		*	some black pawn armour: on the body
 E 0 4222 0 16		*	a Black Pawn's Spear: wielded
 E 0 4232 0 11		*	a Black Pawn's Shield : as a shield
-E 0 4234 0 3		*	a Black Pawn's Cloak: around the neck (1)
+E 0 4234 0 3		*	a Black Pawn's Cloak: around the neck
 E 0 4236 0 6		*	a Black Pawn's Helmet: over the head
 E 0 4238 0 7		*	a pair of Black Pawn's Leggings: on the legs
 E 0 4240 0 8		*	a pair of Black Pawn's Boots: on the feet
@@ -3499,7 +3499,7 @@ M 0 4200 8 4216 1	* the Pawn of the Black Court (A White Square)
 E 0 4200 0 5		*	some black pawn armour: on the body
 E 0 4224 0 16		*	a Black Pawn's Halberd: wielded
 E 0 4232 0 11		*	a Black Pawn's Shield : as a shield
-E 0 4234 0 3		*	a Black Pawn's Cloak: around the neck (1)
+E 0 4234 0 3		*	a Black Pawn's Cloak: around the neck
 E 0 4236 0 6		*	a Black Pawn's Helmet: over the head
 E 0 4238 0 7		*	a pair of Black Pawn's Leggings: on the legs
 E 0 4240 0 8		*	a pair of Black Pawn's Boots: on the feet
@@ -3515,7 +3515,7 @@ M 0 4201 8 4249 1	* the Pawn of the White Court (A White Square)
 E 0 4201 0 5		*	some white pawn armour: on the body
 E 0 4203 0 16		*	a White Pawn's Axe: wielded
 E 0 4233 0 11		*	a White Pawn's Shield : as a shield
-E 0 4235 0 3		*	a White Pawn's Cloak: around the neck (1)
+E 0 4235 0 3		*	a White Pawn's Cloak: around the neck
 E 0 4237 0 6		*	a White Pawn's Helmet: over the head
 E 0 4239 0 7		*	a pair of White Pawn's Leggings: on the legs
 E 0 4241 0 8		*	a pair of White Pawn's Boots: on the feet
@@ -3529,7 +3529,7 @@ M 0 4201 8 4250 1	* the Pawn of the White Court (A Black Square)
 E 0 4201 0 5		*	some white pawn armour: on the body
 E 0 4231 0 16		*	a White Pawn's Crossbow: wielded
 E 0 4233 0 11		*	a White Pawn's Shield : as a shield
-E 0 4235 0 3		*	a White Pawn's Cloak: around the neck (1)
+E 0 4235 0 3		*	a White Pawn's Cloak: around the neck
 E 0 4237 0 6		*	a White Pawn's Helmet: over the head
 E 0 4239 0 7		*	a pair of White Pawn's Leggings: on the legs
 E 0 4241 0 8		*	a pair of White Pawn's Boots: on the feet
@@ -3543,7 +3543,7 @@ M 0 4201 8 4251 1	* the Pawn of the White Court (A White Square)
 E 0 4201 0 5		*	some white pawn armour: on the body
 E 0 4227 0 16		*	a White Pawn's Rapier: wielded
 E 0 4233 0 11		*	a White Pawn's Shield : as a shield
-E 0 4235 0 3		*	a White Pawn's Cloak: around the neck (1)
+E 0 4235 0 3		*	a White Pawn's Cloak: around the neck
 E 0 4237 0 6		*	a White Pawn's Helmet: over the head
 E 0 4239 0 7		*	a pair of White Pawn's Leggings: on the legs
 E 0 4241 0 8		*	a pair of White Pawn's Boots: on the feet
@@ -3557,7 +3557,7 @@ M 0 4201 8 4252 1	* the Pawn of the White Court (A Black Square)
 E 0 4201 0 5		*	some white pawn armour: on the body
 E 0 4219 0 16		*	a White Pawn's Flail: wielded
 E 0 4233 0 11		*	a White Pawn's Shield : as a shield
-E 0 4235 0 3		*	a White Pawn's Cloak: around the neck (1)
+E 0 4235 0 3		*	a White Pawn's Cloak: around the neck
 E 0 4237 0 6		*	a White Pawn's Helmet: over the head
 E 0 4239 0 7		*	a pair of White Pawn's Leggings: on the legs
 E 0 4241 0 8		*	a pair of White Pawn's Boots: on the feet
@@ -3571,7 +3571,7 @@ M 0 4201 8 4253 1	* the Pawn of the White Court (A White Square)
 E 0 4201 0 5		*	some white pawn armour: on the body
 E 0 4221 0 16		*	a White Pawn's Whip: wielded
 E 0 4233 0 11		*	a White Pawn's Shield : as a shield
-E 0 4235 0 3		*	a White Pawn's Cloak: around the neck (1)
+E 0 4235 0 3		*	a White Pawn's Cloak: around the neck
 E 0 4237 0 6		*	a White Pawn's Helmet: over the head
 E 0 4239 0 7		*	a pair of White Pawn's Leggings: on the legs
 E 0 4241 0 8		*	a pair of White Pawn's Boots: on the feet
@@ -3585,7 +3585,7 @@ M 0 4201 8 4254 1	* the Pawn of the White Court (A Black Square)
 E 0 4201 0 5		*	some white pawn armour: on the body
 E 0 4229 0 16		*	a White Pawn's Kris: wielded
 E 0 4233 0 11		*	a White Pawn's Shield : as a shield
-E 0 4235 0 3		*	a White Pawn's Cloak: around the neck (1)
+E 0 4235 0 3		*	a White Pawn's Cloak: around the neck
 E 0 4237 0 6		*	a White Pawn's Helmet: over the head
 E 0 4239 0 7		*	a pair of White Pawn's Leggings: on the legs
 E 0 4241 0 8		*	a pair of White Pawn's Boots: on the feet
@@ -3599,7 +3599,7 @@ M 0 4201 8 4255 1	* the Pawn of the White Court (A White Square)
 E 0 4201 0 5		*	some white pawn armour: on the body
 E 0 4223 0 16		*	a White Pawn's Spear: wielded
 E 0 4233 0 11		*	a White Pawn's Shield : as a shield
-E 0 4235 0 3		*	a White Pawn's Cloak: around the neck (1)
+E 0 4235 0 3		*	a White Pawn's Cloak: around the neck
 E 0 4237 0 6		*	a White Pawn's Helmet: over the head
 E 0 4239 0 7		*	a pair of White Pawn's Leggings: on the legs
 E 0 4241 0 8		*	a pair of White Pawn's Boots: on the feet
@@ -3613,7 +3613,7 @@ M 0 4201 8 4256 1	* the Pawn of the White Court (A Black Square)
 E 0 4201 0 5		*	some white pawn armour: on the body
 E 0 4225 0 16		*	a White Pawn's Halberd: wielded
 E 0 4233 0 11		*	a White Pawn's Shield : as a shield
-E 0 4235 0 3		*	a White Pawn's Cloak: around the neck (1)
+E 0 4235 0 3		*	a White Pawn's Cloak: around the neck
 E 0 4237 0 6		*	a White Pawn's Helmet: over the head
 E 0 4239 0 7		*	a pair of White Pawn's Leggings: on the legs
 E 0 4241 0 8		*	a pair of White Pawn's Boots: on the feet
@@ -3628,7 +3628,7 @@ E 0 4205 0 5		*	some White Rook Armour: on the body
 M 0 4205 2 4258 1	* the White Knight (A White Square)
 E 0 4207 0 16		*	the Lance of the White Knight: wielded
 E 0 4262 0 11		*	a White Knight's Shield : as a shield
-E 0 4264 0 3		*	a White Knight's Cloak: around the neck (1)
+E 0 4264 0 3		*	a White Knight's Cloak: around the neck
 E 0 4266 0 6		*	a White Knight's Helmet: over the head
 E 0 4268 0 7		*	a pair of White Knight's Leggings: on the legs
 E 0 4270 0 8		*	a pair of White Knight's Boots: on the feet
@@ -3650,7 +3650,7 @@ E 0 4209 0 17		*	the Staff of the White Bishop: held in the hands
 M 0 4205 2 4263 1	* the White Knight (A Black Square)
 E 0 4207 0 16		*	the Lance of the White Knight: wielded
 E 0 4262 0 11		*	a White Knight's Shield : as a shield
-E 0 4264 0 3		*	a White Knight's Cloak: around the neck (1)
+E 0 4264 0 3		*	a White Knight's Cloak: around the neck
 E 0 4266 0 6		*	a White Knight's Helmet: over the head
 E 0 4268 0 7		*	a pair of White Knight's Leggings: on the legs
 E 0 4270 0 8		*	a pair of White Knight's Boots: on the feet

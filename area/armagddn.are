@@ -6893,7 +6893,7 @@ M 0 14009 4 14076 1	* An army of heaven (Armageddon)
 M 0 14022 1 14078 1	* The word of God (Armageddon)
 E 0 14026 0 2		*	Hidden manna: on the right finger
 E 0 14027 0 17		*	A rod of iron: held in the hands
-E 0 14028 0 3		*	White raiment: around the neck (1)
+E 0 14028 0 3		*	White raiment: around the neck
 E 0 14029 0 11		*	A white stone: as a shield
 E 0 14030 0 16		*	The sharp, two-edged sword of the mouth: wielded
 M 0 14023 4 14079 1	* The sealed one (Armageddon)
@@ -6946,21 +6946,21 @@ E 0 14006 0 13		*	A golden girdle: around the waist
 E 0 14007 0 16		*	A golden sickle: wielded
 G 0 14008 0		*	The prayers of saints
 M 0 14024 4 14145 1	* The marked one (Gog)
-E 0 14020 0 3		*	The mark of the beast: around the neck (1)
+E 0 14020 0 3		*	The mark of the beast: around the neck
 M 0 14024 4 14149 1	* The marked one (Gog)
-E 0 14020 0 3		*	The mark of the beast: around the neck (1)
+E 0 14020 0 3		*	The mark of the beast: around the neck
 M 0 14008 4 14151 1	* The harvesting angel (Armageddon)
 E 0 14006 0 13		*	A golden girdle: around the waist
 E 0 14007 0 16		*	A golden sickle: wielded
 G 0 14008 0		*	The prayers of saints
 M 0 14032 2 14152 1	* The mighty man (The heavens)
 M 0 14030 1 14160 1	* The thief (Gog)
-E 0 14020 0 3		*	The mark of the beast: around the neck (1)
+E 0 14020 0 3		*	The mark of the beast: around the neck
 M 0 14020 1 14161 1	* The false prophet (Gog)
-E 0 14020 0 3		*	The mark of the beast: around the neck (1)
+E 0 14020 0 3		*	The mark of the beast: around the neck
 O 0 14035 0 14161	* A fountain of blood (Gog)
 M 0 14026 1 14162 1	* The idolator (Gog)
-E 0 14020 0 3		*	The mark of the beast: around the neck (1)
+E 0 14020 0 3		*	The mark of the beast: around the neck
 M 0 14009 4 14164 1	* An army of heaven (Armageddon)
 M 0 14023 4 14165 1	* The sealed one (Armageddon)
 E 0 14031 0 12		*	A white robe: about the shoulders
@@ -6970,12 +6970,12 @@ E 0 14006 0 13		*	A golden girdle: around the waist
 E 0 14007 0 16		*	A golden sickle: wielded
 G 0 14008 0		*	The prayers of saints
 M 0 14024 4 14173 1	* The marked one (Gog)
-E 0 14020 0 3		*	The mark of the beast: around the neck (1)
+E 0 14020 0 3		*	The mark of the beast: around the neck
 M 0 14025 3 14175 3	* The beast (The unholy shrine)
 M 0 14025 3 14175 3	* The beast (The unholy shrine)
 M 0 14025 3 14175 3	* The beast (The unholy shrine)
 M 0 14024 4 14177 1	* The marked one (Gog)
-E 0 14020 0 3		*	The mark of the beast: around the neck (1)
+E 0 14020 0 3		*	The mark of the beast: around the neck
 M 0 14014 1 14180 1	* The archangel Michael (The heavens)
 E 0 14019 0 16		*	The holy lance of archangel Michael: wielded
 M 0 14015 1 14180 1	* The dragon (The heavens)

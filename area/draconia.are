@@ -1782,10 +1782,10 @@ M 0 2203 1 2214 1	* a powerful mage (The Library)
 E 0 2223 0 12		*	a stone club: about the shoulders
 E 0 2250 0 17		*	a black staff: held in the hands
 G 0 2251 0		*	a cyan potion
-E 0 2261 0 3		*	a diamond brooch: around the neck (1)
+E 0 2261 0 3		*	a diamond brooch: around the neck
 M 0 2242 5 2214 1	* the draconian fool (The Library)
 M 0 2204 1 2214 1	* the holy Draconian (The Library)
-E 0 2220 0 3		*	a holy symbol: around the neck (1)
+E 0 2220 0 3		*	a holy symbol: around the neck
 E 0 2211 0 14		*	a platinum bracelet.: on the left wrist
 E 0 2210 0 13		*	a white silk belt: around the waist
 G 0 2270 0		*	a runed scroll
@@ -1827,7 +1827,7 @@ G 0 2299 0		*	a tarnished gold key
 M 0 2225 1 2230 1	* the Ancient Green Dragon (THE Lair)
 G 0 2241 0		*	a platinum key
 G 0 2285 0		*	a dragon tailed whip
-E 0 2261 0 3		*	a diamond brooch: around the neck (1)
+E 0 2261 0 3		*	a diamond brooch: around the neck
 M 0 2220 1 2231 1	* Tiamat (The End...)
 M 0 2240 8 2232 1	* a Draconian zombie (Stairwell)
 M 0 2240 8 2233 1	* a Draconian zombie (Wine cellar)

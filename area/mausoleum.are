@@ -1870,7 +1870,7 @@ E 0 4609 0 16		*	a guardian sword: wielded
 G 0 4608 0		*	a darkened shield
 M 0 4611 1 4615 1	* the dark priest vampire (The dark priest's coffin room.)
 E 0 4626 0 16		*	the flaming sceptre of Chaos: wielded
-E 0 4602 0 3		*	an unholy symbol of Lloth: around the neck (1)
+E 0 4602 0 3		*	an unholy symbol of Lloth: around the neck
 O 0 4625 0 4615	* a coffin (The dark priest's coffin room.)
 P 0 4611 0 4625 1	* a coffin: a staff of wrath
 M 0 4602 2 4616 2	* a young vampire (The dark priest's workroom.)

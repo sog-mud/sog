@@ -2633,7 +2633,7 @@ E 0 5205 0 7		*	a set of mithril leggings: on the legs
 E 0 5206 0 13		*	a mithril girth: around the waist
 M 0 5200 1 5250 1	* The mighty beholder (The Temple of Thalos)
 E 0 5208 0 11		*	a sturdy iron shield: as a shield
-E 0 5223 0 3		*	a dark green cloak: around the neck (1)
+E 0 5223 0 3		*	a dark green cloak: around the neck
 M 0 5208 8 5254 2	* The stone golem (The south-east watchtower)
 E 0 5221 0 16		*	a two-handed sword: wielded
 E 0 5201 0 6		*	a mithril helm: over the head

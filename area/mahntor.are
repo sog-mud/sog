@@ -4511,12 +4511,12 @@ M 0 2311 1 2350 1	* the Ogre Chieftain (The chieftain's room)
 E 0 2390 0 9		*	gauntlets of ogre power: on the hands
 E 0 2391 0 16		*	a massive club: wielded
 M 0 2312 3 2351 1	* the Plains Barbarian (The frigid wastelands)
-E 0 2392 0 4		*	a thick fur cape: around the neck (2)
+E 0 2392 0 4		*	a thick fur cape: on the face
 E 0 2393 0 5		*	a fur lined tunic: on the body
 E 0 2360 0 8		*	a pair of fur lined boots: on the feet
 M 0 2314 3 2352 1	* the Ice Worm (The frigid wastelands)
 M 0 2312 3 2354 1	* the Plains Barbarian (The frigid wastelands)
-E 0 2392 0 4		*	a thick fur cape: around the neck (2)
+E 0 2392 0 4		*	a thick fur cape: on the face
 E 0 2393 0 5		*	a fur lined tunic: on the body
 E 0 2360 0 8		*	a pair of fur lined boots: on the feet
 M 0 2314 3 2354 1	* the Ice Worm (The frigid wastelands)
@@ -4526,7 +4526,7 @@ M 0 2314 3 2356 1	* the Ice Worm (The frigid wastelands)
 M 0 2313 3 2357 1	* the White Yeti (The frigid wastelands)
 E 0 2361 0 12		*	the white pelt of a yeti: about the shoulders
 M 0 2312 3 2359 1	* the Plains Barbarian (The frigid wastelands)
-E 0 2392 0 4		*	a thick fur cape: around the neck (2)
+E 0 2392 0 4		*	a thick fur cape: on the face
 E 0 2393 0 5		*	a fur lined tunic: on the body
 E 0 2360 0 8		*	a pair of fur lined boots: on the feet
 M 0 2313 3 2359 1	* the White Yeti (The frigid wastelands)
@@ -4565,14 +4565,14 @@ E 0 2303 0 10		*	a pair of black minotaur vambraces: on the arms
 E 0 2304 0 16		*	the rod of weaponry: wielded
 M 0 2326 1 2373 1	* Darkoth (Darkoth's Dark Study)
 E 0 2305 0 12		*	a pitch black cloak: about the shoulders
-E 0 2306 0 4		*	a black plate neckguard: around the neck (2)
+E 0 2306 0 4		*	a black plate neckguard: on the face
 E 0 2307 0 9		*	a pair of spiked gauntlets: on the hands
 E 0 2308 0 11		*	the shadow shield: as a shield
 E 0 2309 0 16		*	a shortsword named "Nightbringer": wielded
 M 0 2327 1 2374 1	* Tyrgoth (Tyrgoth's Inner Sanctum)
 E 0 2310 0 6		*	a golden helm and visor: over the head
 E 0 2311 0 5		*	a gilded gold breast plate: on the body
-E 0 2312 0 4		*	a billowing white cape : around the neck (2)
+E 0 2312 0 4		*	a billowing white cape : on the face
 E 0 2313 0 11		*	a huge tower shield: as a shield
 E 0 2314 0 16		*	a huge mace named "Dawnbringer": wielded
 M 0 2317 3 2376 1	* the Minotaur Warrior (A small guard house)
@@ -4636,10 +4636,10 @@ P 0 2357 1 2382 1	* a multi-colored key ring: a green key
 P 0 2358 1 2382 1	* a multi-colored key ring: a grey key
 M 0 2329 1 2390 1	* Sumaron (Sumaron's Sanctum)
 E 0 2320 0 12		*	a heavy woolen robe: about the shoulders
-E 0 2321 0 3		*	a brooch of life: around the neck (1)
+E 0 2321 0 3		*	a brooch of life: around the neck
 E 0 2322 0 17		*	a manual of healing arts: held in the hands
 E 0 2323 0 16		*	a huge mithril mace: wielded
-E 0 2324 0 4		*	a golden holy symbol: around the neck (2)
+E 0 2324 0 4		*	a golden holy symbol: on the face
 M 0 2328 1 2391 1	* Amyrok (Amyrok's Arcane Study)
 E 0 2315 0 1		*	a pair of wire rimmed spectacles: on the left finger
 E 0 2316 0 2		*	a banded ring: on the right finger

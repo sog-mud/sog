@@ -1307,7 +1307,7 @@ mask~
 a Headsman's Black Face Mask~
 The Headsman's mask is here.~
 cloth~
-armor 0 0 AE
+armor 0 0 AT
 19 18 18 12 0
 58 75 0 P
 a '' to_object 58 -1 50 13 0
@@ -5677,7 +5677,7 @@ E 0 31033 0 16		*	an Ornate Longsword: wielded
 E 0 31034 0 5		*	an Ornate Breastplate: on the body
 E 0 31035 0 14		*	an Ornate Bracer: on the left wrist
 E 0 31035 0 15		*	an Ornate Bracer: on the right wrist
-E 0 31036 0 3		*	a black cloak with gold trim: around the neck (1)
+E 0 31036 0 3		*	a black cloak with gold trim: around the neck
 E 0 31037 0 6		*	an Ornate Helm: over the head
 E 0 31038 0 11		*	an Ornate Shield: as a shield
 E 0 31039 0 17		*	a Throwing Spear: held in the hands
@@ -5692,7 +5692,7 @@ E 0 31033 0 16		*	an Ornate Longsword: wielded
 E 0 31034 0 5		*	an Ornate Breastplate: on the body
 E 0 31035 0 14		*	an Ornate Bracer: on the left wrist
 E 0 31035 0 15		*	an Ornate Bracer: on the right wrist
-E 0 31036 0 3		*	a black cloak with gold trim: around the neck (1)
+E 0 31036 0 3		*	a black cloak with gold trim: around the neck
 E 0 31037 0 6		*	an Ornate Helm: over the head
 E 0 31038 0 11		*	an Ornate Shield: as a shield
 E 0 31039 0 17		*	a Throwing Spear: held in the hands
@@ -5701,7 +5701,7 @@ E 0 31033 0 16		*	an Ornate Longsword: wielded
 E 0 31034 0 5		*	an Ornate Breastplate: on the body
 E 0 31035 0 14		*	an Ornate Bracer: on the left wrist
 E 0 31035 0 15		*	an Ornate Bracer: on the right wrist
-E 0 31036 0 3		*	a black cloak with gold trim: around the neck (1)
+E 0 31036 0 3		*	a black cloak with gold trim: around the neck
 E 0 31037 0 6		*	an Ornate Helm: over the head
 E 0 31038 0 11		*	an Ornate Shield: as a shield
 E 0 31039 0 17		*	a Throwing Spear: held in the hands
@@ -5732,7 +5732,7 @@ E 0 31033 0 16		*	an Ornate Longsword: wielded
 E 0 31034 0 5		*	an Ornate Breastplate: on the body
 E 0 31035 0 14		*	an Ornate Bracer: on the left wrist
 E 0 31035 0 15		*	an Ornate Bracer: on the right wrist
-E 0 31036 0 3		*	a black cloak with gold trim: around the neck (1)
+E 0 31036 0 3		*	a black cloak with gold trim: around the neck
 E 0 31037 0 6		*	an Ornate Helm: over the head
 E 0 31038 0 11		*	an Ornate Shield: as a shield
 E 0 31039 0 17		*	a Throwing Spear: held in the hands
@@ -5756,7 +5756,7 @@ E 0 31033 0 16		*	an Ornate Longsword: wielded
 E 0 31034 0 5		*	an Ornate Breastplate: on the body
 E 0 31035 0 14		*	an Ornate Bracer: on the left wrist
 E 0 31035 0 15		*	an Ornate Bracer: on the right wrist
-E 0 31036 0 3		*	a black cloak with gold trim: around the neck (1)
+E 0 31036 0 3		*	a black cloak with gold trim: around the neck
 E 0 31037 0 6		*	an Ornate Helm: over the head
 E 0 31038 0 11		*	an Ornate Shield: as a shield
 E 0 31039 0 17		*	a Throwing Spear: held in the hands
@@ -5791,7 +5791,7 @@ E 0 31033 0 16		*	an Ornate Longsword: wielded
 E 0 31034 0 5		*	an Ornate Breastplate: on the body
 E 0 31035 0 14		*	an Ornate Bracer: on the left wrist
 E 0 31035 0 15		*	an Ornate Bracer: on the right wrist
-E 0 31036 0 3		*	a black cloak with gold trim: around the neck (1)
+E 0 31036 0 3		*	a black cloak with gold trim: around the neck
 E 0 31037 0 6		*	an Ornate Helm: over the head
 E 0 31038 0 11		*	an Ornate Shield: as a shield
 E 0 31039 0 17		*	a Throwing Spear: held in the hands

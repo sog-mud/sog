@@ -6093,7 +6093,7 @@ M 0 11884 7 11806 2	* a drakyri mage protector (Large clearing)
 E 0 11895 0 13		*	a drakyri girth: around the waist
 M 0 11884 7 11806 2	* a drakyri mage protector (Large clearing)
 M 0 11879 1 11807 1	* The Hand (Winding path)
-E 0 11890 0 3		*	laerkai life: around the neck (1)
+E 0 11890 0 3		*	laerkai life: around the neck
 M 0 11884 7 11807 1	* a drakyri mage protector (Winding path)
 E 0 11895 0 13		*	a drakyri girth: around the waist
 M 0 11885 5 11807 1	* a drakyri healer (Winding path)
@@ -6153,7 +6153,7 @@ E 0 11815 0 13		*	a ((+*+)) chain belt: around the waist
 M 0 11813 2 11826 1	* a glyph of warding (Granite storage room)
 G 0 11822 0		*	a staff of guarding
 M 0 11800 1 11827 1	* Lechandre (Magic Workroom)
-E 0 11809 0 3		*	a mithril ((+*+)) torque: around the neck (1)
+E 0 11809 0 3		*	a mithril ((+*+)) torque: around the neck
 E 0 11810 0 12		*	a shimmering blue robe: about the shoulders
 E 0 11811 0 0		*	a magic flame: as a light
 M 0 11811 4 11827 1	* a mage in training (Magic Workroom)
@@ -6207,13 +6207,13 @@ M 0 11814 1 11851 1	* Dosandre (Golden Bedchamber)
 E 0 11823 0 6		*	a gleaming ((-*-)) circlet: over the head
 E 0 11824 0 5		*	a set of ((-*-)) chain armor: on the body
 M 0 11832 1 11854 1	* the hellish guardian (Black Marble Entryway)
-E 0 11850 0 3		*	a black runed collar: around the neck (1)
+E 0 11850 0 3		*	a black runed collar: around the neck
 M 0 11833 1 11857 1	* a howling beast (Dark niche)
-E 0 11850 0 3		*	a black runed collar: around the neck (1)
+E 0 11850 0 3		*	a black runed collar: around the neck
 M 0 11834 1 11858 1	* a demonic figure (Dark niche)
-E 0 11850 0 3		*	a black runed collar: around the neck (1)
+E 0 11850 0 3		*	a black runed collar: around the neck
 M 0 11835 1 11859 1	* the necromancer (Dark niche)
-E 0 11850 0 3		*	a black runed collar: around the neck (1)
+E 0 11850 0 3		*	a black runed collar: around the neck
 G 0 11801 0		*	a black marble key
 M 0 11836 1 11860 1	* a mass of writhing tentacles (Forbidding Doorway)
 G 0 11802 0		*	a tentacled key
@@ -6225,7 +6225,7 @@ E 0 11851 0 10		*	demon's wings: on the arms
 M 0 11826 1 11862 1	* Dreyva (Black Marble Corridor)
 E 0 11841 0 7		*	some  ->*<-  legplates: on the legs
 M 0 11829 1 11864 1	* Sorina (Dark ash bedroom)
-E 0 11845 0 4		*	a dark  ->*<-  necklace: around the neck (2)
+E 0 11845 0 4		*	a dark  ->*<-  necklace: on the face
 E 0 11846 0 17		*	a humanoid skull: held in the hands
 M 0 11830 1 11865 1	* Loryn (Black oak bedroom)
 E 0 11847 0 8		*	a pair of  ->*<-  boots: on the feet
@@ -6245,7 +6245,7 @@ M 0 11849 1 11871 1	* the stalker (Alcove)
 M 0 11850 1 11872 1	* the hunter (Alcove)
 E 0 11867 0 16		*	a hunter's arrow: wielded
 M 0 11842 1 11874 1	* Gydeas (Plain stone room)
-E 0 11860 0 3		*	a shadowy -=+)> neckchain: around the neck (1)
+E 0 11860 0 3		*	a shadowy -=+)> neckchain: around the neck
 M 0 11841 1 11875 1	* Ryxis (Dark cavern)
 E 0 11859 0 15		*	a slim -=+)> bracer: on the right wrist
 M 0 11844 1 11876 1	* Nyxi (Chamber of the Panther)
@@ -6316,7 +6316,7 @@ M 0 11864 1 11894 1	* Nerael (White Gazebo)
 E 0 11878 0 18		*	a shimmering -(+)- sphere: floating nearby
 M 0 11872 1 11895 1	* the grey cat (Jade Corridor)
 M 0 11869 1 11896 1	* Dryna (Candlelit Bedroom)
-E 0 11883 0 4		*	a filligree -(+)- necklace: around the neck (2)
+E 0 11883 0 4		*	a filligree -(+)- necklace: on the face
 M 0 11868 1 11897 1	* Yllyra (Teak Panelled Bedroom)
 E 0 11882 0 9		*	some finely crafted -(+)- gloves: on the hands
 M 0 11870 1 11898 1	* Voryl (Booklined Bedroom)

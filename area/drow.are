@@ -466,10 +466,14 @@ D3
 Z 0 5106
 S
 #5104
-3rd House~
-You stand inside the 3rd house of the city; it is fairly well decorated
+@eng 3rd House@rus Третий дом~
+@eng You stand inside the 3rd house of the city; it is fairly well decorated
 by drow standards having a few statues, murals and such. A door leads to the
 south.
+@rus Первое, что бросилось в глаза, чтоило тебе войти в Третий Дом -
+это роскошное по здешним меркам убранство: несколько статуй стоят по
+обе стороны от тебя, а стены расписаны фресками. Дверь в южной стене
+ведет внутрь дома.
 ~
 0 AD inside
 D0
@@ -486,9 +490,12 @@ D2
 Z -1 5105
 S
 #5105
-Throne Room~
-The throne room of the 3rd house is about as decorated as the inner
+@eng Throne Room@rus Тронная зала~
+@eng The throne room of the 3rd house is about as decorated as the inner
 courtyard except with a blood covered altar in the center of the room.
+@rus Тронная зала Третьего Дома убрана ничуть не скромнее предыдущей
+и лишь покрытый кровью алтарь, стоящий в центре комнаты, свидетель-
+ствует об особой роли этого помещения.
 ~
 0 AD inside
 D0
@@ -499,9 +506,11 @@ D0
 Z -1 5104
 S
 #5106
-City street~
-You walk along a highly ornate city street going east-west. To the north
+@eng City street@rus Городская улица~
+@eng You walk along a highly ornate city street going east-west. To the north
 is a large building.
+@rus Улица тянется с востока на запад, а к северу от тебя находится
+большой дом.
 ~
 0 AD inside
 D0
@@ -524,9 +533,11 @@ D3
 Z 0 5107
 S
 #5107
-City street~
-You walk along a highly ornate city street leading north and east. To the
+@eng City street@rus Городская улица~
+@eng You walk along a highly ornate city street leading north and east. To the
 south is an extremely large house.
+@rus Здесь улица поворачивает на север, а к югу от тебя находится
+огромный дом.. наверное, самый большой в городе.
 ~
 0 AD inside
 D0
@@ -549,9 +560,11 @@ D2
 Z 0 5108
 S
 #5108
-2nd House~
-You stand inside the 2nd house of the city. The room is highly decorated
+@eng 2nd House@rus Второй дом~
+@eng You stand inside the 2nd house of the city. The room is highly decorated
 with statues of spiders and murals everywhere.
+@rus Войдя во Второй Дом, ты тут же замечаешь обилие пауков,
+изображенных на стенах и изваянных в камне.
 ~
 0 AD inside
 D0
@@ -568,9 +581,11 @@ D3
 Z -1 5109
 S
 #5109
-Throne Room~
-The throne room of the 2nd house is just a little more decorative than
+@eng Throne Room@rus Тронная зала~
+@eng The throne room of the 2nd house is just a little more decorative than
 the inner courtyard having an altar in the center of the room.
+@rus Тронная зала убрана еще роскошнее, чем внутренний дворик Второго
+дома, а в центре комнаты находится неизменный алтарь.
 ~
 0 AD inside
 D1
@@ -581,9 +596,11 @@ D1
 Z -1 5108
 S
 #5110
-Main Gate~
-You are at the entrance to the 1st house of the city. A large gate, almost
+@eng Main Gate@rus Главные ворота~
+@eng You are at the entrance to the 1st house of the city. A large gate, almost
 as big and elegant as the one at the entrance to the city, stands here.
+@rus Ты стоишь на входе в Первый Дом. Огромные ворота, ни размером,
+ни изяществом не уступающие городским, ведут внутрь.
 ~
 0 AD inside
 D0
@@ -599,18 +616,23 @@ D2
 ~
 Z 0 5107
 D3
-A large gate lies to the west.
+@eng A large gate lies to the west.
+@rus Огромные ворота ведут на запад, в дом.
 ~
 gate~
-the gate~
-~
+@eng the gate@rus ~~ворота~~~
+@rus plural~
 Z -1 5111
 S
 #5111
-1st House~
-You stand in the inner courtyard of the 1st and largest house in the city.
+@eng 1st House@rus Первый Дом~
+@eng You stand in the inner courtyard of the 1st and largest house in the city.
 The room is extremely large and decorative. Mural and paintings hang on the
 walls depicting some battles and a spider queen.
+@rus Ты стоишь во внутреннем дворике Первого дома, самого большого
+в городе. Убранство комнаты можно назвать лишь одним словом:
+роскошное. Стены расписаны фресками, изображающими паучью коро-
+леву и битвы, о которых ты никогда не $gn{слышал}.
 ~
 0 AD inside
 D1
@@ -627,9 +649,11 @@ D3
 Z 0 5112
 S
 #5112
-Throne Room~
-The throne room of the 1st house is in one word...awesome. It is so
+@eng Throne Room@rus Тронная зала~
+@eng The throne room of the 1st house is in one word...awesome. It is so
 horrifying it is almost beautiful.
+@rus Благоговейный трепет охватывает тебя, стоит лишь войти в эту
+комнату. Тронная зала столь же прекрасна, сколь и ужасающа.
 ~
 0 AD inside
 D0
@@ -646,9 +670,11 @@ D1
 Z -1 5111
 S
 #5113
-Main Chamber~
-This is the council chamber for the Matron Mother herself. A huge table
+@eng Main Chamber@rus Главная палата~
+@eng This is the council chamber for the Matron Mother herself. A huge table
 and chairs surrounding it sits in the center of the room.
+@rus Это зал совещаний хозяйки этого дома.. и города. Огромный стол
+стоит посреди комнаты, окруженный стульями.
 ~
 0 AD inside
 D2
@@ -659,8 +685,9 @@ D2
 Z -1 5112
 S
 #5114
-City street~
-You walk along a highly ornate city street leading north-south and east.
+@eng City street@rus Городская улица~
+@eng You walk along a highly ornate city street leading north-south and east.
+@rus Улица продолжается на север и восток.
 ~
 0 AD inside
 D0
@@ -683,9 +710,11 @@ D2
 Z 0 5110
 S
 #5115
-City street~
-You walk along a highly ornate city street leading south. A building is
+@eng City street@rus Городская улица~
+@eng You walk along a highly ornate city street leading south. A building is
 to the west.
+@rus Улица тянется с юга на север, а к западу от тебя находится
+какое-то здание.
 ~
 0 AD inside
 D2

@@ -3454,17 +3454,17 @@ E 0 25017 0 16		*	sword of Sharpness: wielded
 M 0 25036 2 25011 1	* the Gatekeeper (The Gate)
 E 0 25017 0 16		*	sword of Sharpness: wielded
 M 0 25014 3 25012 1	* the Death knight (Realm of the Dead)
-E 0 25001 0 3		*	a pile of blue silk: around the neck (1)
+E 0 25001 0 3		*	a pile of blue silk: around the neck
 E 0 25016 0 16		*	a Silver Trident: wielded
 M 0 25010 1 25015 1	* the kraken (On the Ocean of Despair)
 M 0 25011 1 25020 1	* the Treant (A Small Path in the Twisted Forest)
-E 0 25021 0 3		*	a Small Medallion: around the neck (1)
+E 0 25021 0 3		*	a Small Medallion: around the neck
 M 0 25030 5 25028 3	* A vrock (The Smouldering Trail)
 M 0 25008 5 25030 1	* an Efreet (The Flaming Gates)
-E 0 25023 0 3		*	a Bright Green Cape: around the neck (1)
+E 0 25023 0 3		*	a Bright Green Cape: around the neck
 E 0 25050 0 17		*	a Huge Runed Key: held in the hands
 M 0 25008 5 25031 1	* an Efreet (Inside the Flaming Gates)
-E 0 25023 0 3		*	a Bright Green Cape: around the neck (1)
+E 0 25023 0 3		*	a Bright Green Cape: around the neck
 E 0 25050 0 17		*	a Huge Runed Key: held in the hands
 M 0 25031 5 25032 3	* A hezrou (The Castle Courtyard)
 M 0 25032 5 25034 3	* A glabrezu (Inside a Small Stone Building)
@@ -3476,7 +3476,7 @@ G 0 25018 0		*	a Crystal Ring
 M 0 25007 2 25041 1	* a White Gold Manticore (The Castle Drawbridge)
 G 0 25018 0		*	a Crystal Ring
 M 0 25009 1 25046 1	* the Hydra (On the Spiral Staircase)
-E 0 25026 0 3		*	the Soul Amulet: around the neck (1)
+E 0 25026 0 3		*	the Soul Amulet: around the neck
 M 0 25016 1 25048 1	* a Shadow Demon (A Coridoor)
 M 0 25014 2 25050 1	* the Death knight (Castle Throne Room)
 E 0 25005 0 5		*	a Rune Covered Breast Plate: on the body

@@ -3017,7 +3017,7 @@ D 0 30889 1 1	* The Inner Sanctum: door to the east: closed
 D 0 30890 3 1	* The Quarters of the Abbot: door to the west: closed
 M 0 30812 1 30800 1	* an old elf (The Path to the Craggy Tor)
 M 0 30814 1 30802 1	* a wyvern (The Path to the Craggy Tor)
-E 0 30825 0 3		*	a bright green amulet: around the neck (1)
+E 0 30825 0 3		*	a bright green amulet: around the neck
 M 0 30811 1 30819 1	* a black dragon (The Roof of the Abbey)
 M 0 30813 1 30824 1	* a bone golem (The Bellows Golem)
 O 0 30824 0 30824	* a bellows (The Bellows Golem)
@@ -3096,12 +3096,12 @@ M 0 30805 2 30880 1	* a wight (A Cell)
 E 0 30808 0 16		*	an elven longsword: wielded
 E 0 30809 0 5		*	a suit of elven chainmail: on the body
 E 0 30810 0 11		*	a rune-covered shield: as a shield
-E 0 30811 0 3		*	a tattered cloak: around the neck (1)
+E 0 30811 0 3		*	a tattered cloak: around the neck
 M 0 30805 2 30881 1	* a wight (A Cell)
 E 0 30808 0 16		*	an elven longsword: wielded
 E 0 30809 0 5		*	a suit of elven chainmail: on the body
 E 0 30810 0 11		*	a rune-covered shield: as a shield
-E 0 30811 0 3		*	a tattered cloak: around the neck (1)
+E 0 30811 0 3		*	a tattered cloak: around the neck
 O 0 30853 0 30882	* a glowing blue portal (The Blue Portal)
 O 0 30854 0 30883	* a glowing blue portal (The Final Portal Chamber)
 O 0 30855 0 30883	* a glowing black portal (The Final Portal Chamber)

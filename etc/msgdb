@@ -993,6 +993,7 @@ Get back to questor before your time runs out!
 @eng $n wears $p on $s left finger.@rus $n $gn{надевает} $c3{$p} на палец левой руки.~
 @eng $n rests on $p.@rus $n $gn{садится} отдыхать на $c3{$p}.~
 @eng $n hops on $N's back.@rus $n $gn{вскакивает} на спину $c1{$N}.~
+@eng $n wears $p on $s face.@rus $n надевает $c3{$p} на лицо.~
 @eng You wear $p on your torso.@rus Ты надеваешь $c3{$p}.~
 @eng You can't camouflage while mounted.
 @rus Ты не можешь маскироваться верхом.
@@ -1318,6 +1319,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng $n wears $p on $s hands.@rus $n $gn{надевает} $c3{$p} на руки.~
 @eng $N smiles at you, hoping you will turn from your evil path.@rus $N $gN{улыбается} тебе и $gN{надеется}, что ты свернешь с пути зла.~
 @eng $n's $V is powerless against you.@rus $V $c1{$n} на тебя не действует.~
+@eng You wear $p on your face.@rus Ты надеваешь $c3{$p} на лицо.~
 @eng You couldn't knock $d!@rus У тебя не получилось отпереть $c3{$d}.~
 @eng It is pitch black...
 @rus Не видно не зги...
@@ -1342,6 +1344,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng $n disappears into the void.@rus $n $gn{исчезает} в никуда.~
 @eng You wear $p on your head.@rus Ты надеваешь $c3{$p} на голову.~
 @eng You go to sleep at $p.@rus Ты ложишься спать за $c3{$p}.~
+@eng <worn on face>      $t@rus <на лице>              $t~
 @eng You quaff $p.@rus Ты пьешь $c3{$p}.~
 @eng You lack the key.@rus Для этого нужен ключ.~
 @eng $n wears $p around $s left wrist.@rus $n $gn{надевает} $c3{$p} на левое запястье.~

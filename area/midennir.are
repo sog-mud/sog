@@ -1948,7 +1948,7 @@ M 0 3503 1 3576 1	* the Innkeeper (The Bar)
 M 0 3504 1 3577 1	* the bard (The Bard's Table)
 E 0 3505 0 16		*	a rune-covered knife: wielded
 M 0 3505 4 3583 2	* the dark horseman (On the Trail of the Horsemen)
-E 0 3503 0 3		*	a stained travelling cloak: around the neck (1)
+E 0 3503 0 3		*	a stained travelling cloak: around the neck
 E 0 3022 0 16		*	a long sword: wielded
 M 0 3505 4 3584 2	* the dark horseman (A Dead End Trail)
 E 0 3504 0 14		*	an enchanted leather bracer: on the left wrist

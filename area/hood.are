@@ -2152,14 +2152,14 @@ M 0 2101 25 2131 1	* a troll gang member (NO MAN'S LAND)
 E 0 2101 0 5		*	a Troll gang jacket: on the body
 M 0 2106 10 2131 1	* a patrolman (NO MAN'S LAND)
 E 0 2110 0 16		*	a patrol club: wielded
-E 0 2116 0 3		*	a police whistle: around the neck (1)
+E 0 2116 0 3		*	a police whistle: around the neck
 M 0 2105 10 2132 2	* a doll (NO MAN'S LAND)
 E 0 2107 0 8		*	spiked heeled boots: on the feet
 M 0 2106 10 2132 1	* a patrolman (NO MAN'S LAND)
 E 0 2110 0 16		*	a patrol club: wielded
 M 0 2106 10 2133 1	* a patrolman (NO MAN'S LAND)
 E 0 2110 0 16		*	a patrol club: wielded
-E 0 2116 0 3		*	a police whistle: around the neck (1)
+E 0 2116 0 3		*	a police whistle: around the neck
 M 0 2101 25 2134 1	* a troll gang member (NO MAN'S LAND)
 E 0 2101 0 5		*	a Troll gang jacket: on the body
 M 0 2106 10 2134 1	* a patrolman (NO MAN'S LAND)
@@ -2172,7 +2172,7 @@ M 0 2106 10 2135 1	* a patrolman (NO MAN'S LAND)
 E 0 2110 0 16		*	a patrol club: wielded
 M 0 2106 10 2136 1	* a patrolman (NO MAN'S LAND)
 E 0 2110 0 16		*	a patrol club: wielded
-E 0 2116 0 3		*	a police whistle: around the neck (1)
+E 0 2116 0 3		*	a police whistle: around the neck
 M 0 2102 25 2137 1	* an ogre gang member (NO MAN'S LAND)
 E 0 2102 0 5		*	an Ogre gang jacket: on the body
 M 0 2106 10 2137 1	* a patrolman (NO MAN'S LAND)
@@ -2183,10 +2183,10 @@ E 0 2103 0 16		*	a hefty length of chain: wielded
 E 0 2109 0 9		*	comfortable leather gloves: on the hands
 M 0 2106 10 2138 1	* a patrolman (NO MAN'S LAND)
 E 0 2110 0 16		*	a patrol club: wielded
-E 0 2116 0 3		*	a police whistle: around the neck (1)
+E 0 2116 0 3		*	a police whistle: around the neck
 M 0 2106 10 2139 1	* a patrolman (NO MAN'S LAND)
 E 0 2110 0 16		*	a patrol club: wielded
-E 0 2116 0 3		*	a police whistle: around the neck (1)
+E 0 2116 0 3		*	a police whistle: around the neck
 M 0 2102 25 2140 1	* an ogre gang member (NO MAN'S LAND)
 M 0 2106 10 2140 1	* a patrolman (NO MAN'S LAND)
 E 0 2110 0 16		*	a patrol club: wielded

@@ -4689,17 +4689,17 @@ O 0 22331 0 22302	* a parchment (The Entrance to the Dungeon)
 M 0 22300 1 22302 1	* the Manticore (The Entrance to the Dungeon)
 M 0 22303 12 22303 1	* the Shade (A Crypt)
 E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
-E 0 22310 0 3		*	a midnight cloak: around the neck (1)
+E 0 22310 0 3		*	a midnight cloak: around the neck
 E 0 22311 0 17		*	the key of ringwraiths: held in the hands
 E 0 22308 0 15		*	a bracer of defence: on the right wrist
 M 0 22303 12 22304 1	* the Shade (A Crypt)
 E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
-E 0 22310 0 3		*	a midnight cloak: around the neck (1)
+E 0 22310 0 3		*	a midnight cloak: around the neck
 E 0 22311 0 17		*	the key of ringwraiths: held in the hands
 E 0 22308 0 15		*	a bracer of defence: on the right wrist
 M 0 22303 12 22305 1	* the Shade (A Crypt)
 E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
-E 0 22310 0 3		*	a midnight cloak: around the neck (1)
+E 0 22310 0 3		*	a midnight cloak: around the neck
 E 0 22311 0 17		*	the key of ringwraiths: held in the hands
 E 0 22308 0 15		*	a bracer of defence: on the right wrist
 M 0 22304 1 22306 1	* Faegwath the Undead Sorceror (The Hall of Crypts)
@@ -4709,17 +4709,17 @@ E 0 22319 0 16		*	the staff of Death: wielded
 E 0 22320 0 17		*	a key of the Gorrors: held in the hands
 M 0 22303 12 22307 1	* the Shade (A Crypt)
 E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
-E 0 22310 0 3		*	a midnight cloak: around the neck (1)
+E 0 22310 0 3		*	a midnight cloak: around the neck
 E 0 22311 0 17		*	the key of ringwraiths: held in the hands
 E 0 22308 0 15		*	a bracer of defence: on the right wrist
 M 0 22303 12 22308 1	* the Shade (A Crypt)
 E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
-E 0 22310 0 3		*	a midnight cloak: around the neck (1)
+E 0 22310 0 3		*	a midnight cloak: around the neck
 E 0 22311 0 17		*	the key of ringwraiths: held in the hands
 E 0 22308 0 15		*	a bracer of defence: on the right wrist
 M 0 22303 12 22309 1	* the Shade (A Crypt)
 E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
-E 0 22310 0 3		*	a midnight cloak: around the neck (1)
+E 0 22310 0 3		*	a midnight cloak: around the neck
 E 0 22311 0 17		*	the key of ringwraiths: held in the hands
 E 0 22308 0 15		*	a bracer of defence: on the right wrist
 M 0 22302 1 22310 1	* Cantoras the Skeletal Lord (A Crypt)
@@ -4751,34 +4751,34 @@ P 0 22316 8 22315 1	* the tomb: the Wheel of Pa-Ra-Voz
 P 0 22317 100 22315 1	* the tomb: the Ankh of Death
 M 0 22303 12 22319 1	* the Shade (A Crypt)
 E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
-E 0 22310 0 3		*	a midnight cloak: around the neck (1)
+E 0 22310 0 3		*	a midnight cloak: around the neck
 E 0 22311 0 17		*	the key of ringwraiths: held in the hands
 E 0 22308 0 15		*	a bracer of defence: on the right wrist
 M 0 22303 12 22320 1	* the Shade (A Crypt)
 E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
-E 0 22310 0 3		*	a midnight cloak: around the neck (1)
+E 0 22310 0 3		*	a midnight cloak: around the neck
 E 0 22311 0 17		*	the key of ringwraiths: held in the hands
 E 0 22308 0 15		*	a bracer of defence: on the right wrist
 M 0 22303 12 22321 1	* the Shade (A Crypt)
 E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
-E 0 22310 0 3		*	a midnight cloak: around the neck (1)
+E 0 22310 0 3		*	a midnight cloak: around the neck
 E 0 22311 0 17		*	the key of ringwraiths: held in the hands
 E 0 22308 0 15		*	a bracer of defence: on the right wrist
 O 0 22330 0 22322	*  (The Hall of the Crypts)
 M 0 22303 12 22323 1	* the Shade (A Crypt)
 E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
-E 0 22310 0 3		*	a midnight cloak: around the neck (1)
+E 0 22310 0 3		*	a midnight cloak: around the neck
 E 0 22311 0 17		*	the key of ringwraiths: held in the hands
 E 0 22308 0 15		*	a bracer of defence: on the right wrist
 M 0 22303 12 22324 1	* the Shade (A Crypt)
 E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
-E 0 22310 0 3		*	a midnight cloak: around the neck (1)
+E 0 22310 0 3		*	a midnight cloak: around the neck
 E 0 22311 0 17		*	the key of ringwraiths: held in the hands
 E 0 22308 0 15		*	a bracer of defence: on the right wrist
 M 0 22303 12 22325 1	* the Shade (A Crypt)
 G 0 22308 0		*	a bracer of defence
 E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
-E 0 22310 0 3		*	a midnight cloak: around the neck (1)
+E 0 22310 0 3		*	a midnight cloak: around the neck
 E 0 22311 0 17		*	the key of ringwraiths: held in the hands
 E 0 22308 0 15		*	a bracer of defence: on the right wrist
 M 0 22312 1 22327 1	* Hoarmurath of Dir (The northern hallway)

@@ -5134,7 +5134,7 @@ E 0 10284 0 17		*	travellers spellbook: held in the hands
 M 0 10234 2 10278 1	* Thief (West end of Common Room)
 E 0 10283 0 16		*	travellers dagger: wielded
 E 0 10286 0 5		*	a travellers vest: on the body
-E 0 10287 0 3		*	a travellers cloak: around the neck (1)
+E 0 10287 0 3		*	a travellers cloak: around the neck
 M 0 10235 3 10278 1	* Warrior (West end of Common Room)
 E 0 10288 0 16		*	a travellers sword: wielded
 E 0 10289 0 5		*	a travellers scalemail: on the body
@@ -5150,7 +5150,7 @@ E 0 10284 0 17		*	travellers spellbook: held in the hands
 M 0 10234 3 10279 1	* Thief (East end of Common Room)
 E 0 10283 0 16		*	travellers dagger: wielded
 E 0 10286 0 5		*	a travellers vest: on the body
-E 0 10287 0 3		*	a travellers cloak: around the neck (1)
+E 0 10287 0 3		*	a travellers cloak: around the neck
 M 0 10235 3 10279 1	* Warrior (East end of Common Room)
 E 0 10288 0 16		*	a travellers sword: wielded
 E 0 10289 0 5		*	a travellers scalemail: on the body
@@ -5167,7 +5167,7 @@ E 0 10284 0 17		*	travellers spellbook: held in the hands
 M 0 10234 2 10280 1	* Thief (West end of Bar.)
 E 0 10283 0 16		*	travellers dagger: wielded
 E 0 10286 0 5		*	a travellers vest: on the body
-E 0 10287 0 3		*	a travellers cloak: around the neck (1)
+E 0 10287 0 3		*	a travellers cloak: around the neck
 M 0 10235 2 10280 1	* Warrior (West end of Bar.)
 E 0 10288 0 16		*	a travellers sword: wielded
 E 0 10289 0 5		*	a travellers scalemail: on the body
@@ -5184,7 +5184,7 @@ E 0 10284 0 17		*	travellers spellbook: held in the hands
 M 0 10234 2 10281 1	* Thief (Inn of the Last Home.)
 E 0 10283 0 16		*	travellers dagger: wielded
 E 0 10286 0 5		*	a travellers vest: on the body
-E 0 10287 0 3		*	a travellers cloak: around the neck (1)
+E 0 10287 0 3		*	a travellers cloak: around the neck
 M 0 10235 2 10281 1	* Warrior (Inn of the Last Home.)
 E 0 10288 0 16		*	a travellers sword: wielded
 E 0 10289 0 5		*	a travellers scalemail: on the body
@@ -5221,9 +5221,9 @@ E 0 10227 0 10		*	red scalemail sleeves: on the arms
 E 0 10228 0 7		*	red scalemail leggings: on the legs
 E 0 10229 0 9		*	red scalemail gauntlets: on the hands
 E 0 10230 0 8		*	red scalemail boots: on the feet
-E 0 10231 0 3		*	the red sergeant's cloak: around the neck (1)
+E 0 10231 0 3		*	the red sergeant's cloak: around the neck
 E 0 10232 0 13		*	the red scalemail girth: around the waist
-E 0 10209 0 4		*	the amulet of Solace: around the neck (2)
+E 0 10209 0 4		*	the amulet of Solace: on the face
 E 0 10233 0 11		*	the large red shield: as a shield
 E 0 10235 0 16		*	a red steel warhammer called, "Mage Masher": wielded
 E 0 10212 0 1		*	an Solace signet ring: on the left finger
@@ -5272,7 +5272,7 @@ E 0 10284 0 17		*	travellers spellbook: held in the hands
 M 0 10234 2 10291 1	* Thief (North End of Bar.)
 E 0 10283 0 16		*	travellers dagger: wielded
 E 0 10286 0 5		*	a travellers vest: on the body
-E 0 10287 0 3		*	a travellers cloak: around the neck (1)
+E 0 10287 0 3		*	a travellers cloak: around the neck
 M 0 10235 2 10291 1	* Warrior (North End of Bar.)
 E 0 10288 0 16		*	a travellers sword: wielded
 E 0 10289 0 5		*	a travellers scalemail: on the body
@@ -5291,9 +5291,9 @@ E 0 10202 0 10		*	obsidian sleeves: on the arms
 E 0 10203 0 7		*	obsidian leggings: on the legs
 E 0 10204 0 9		*	obsidian gauntlets: on the hands
 E 0 10205 0 8		*	obsidian boots: on the feet
-E 0 10206 0 3		*	obsidian cloak: around the neck (1)
+E 0 10206 0 3		*	obsidian cloak: around the neck
 E 0 10207 0 13		*	the obsidian girth: around the waist
-E 0 10209 0 4		*	the amulet of Solace: around the neck (2)
+E 0 10209 0 4		*	the amulet of Solace: on the face
 E 0 10208 0 11		*	the large obsidian shield: as a shield
 G 0 10210 0		*	a obsidian key
 E 0 10306 0 17		*	Key to the City of Solace: held in the hands
@@ -5347,9 +5347,9 @@ E 0 10217 0 10		*	steel sleeves: on the arms
 E 0 10218 0 7		*	steel leggings: on the legs
 E 0 10219 0 9		*	steel gauntlets: on the hands
 E 0 10220 0 8		*	steel boots: on the feet
-E 0 10221 0 3		*	the lieutenant's cloak: around the neck (1)
+E 0 10221 0 3		*	the lieutenant's cloak: around the neck
 E 0 10222 0 13		*	the steel girth: around the waist
-E 0 10209 0 4		*	the amulet of Solace: around the neck (2)
+E 0 10209 0 4		*	the amulet of Solace: on the face
 E 0 10223 0 11		*	the large steel shield: as a shield
 E 0 10225 0 16		*	black hilted sword called, "Shieldbreaker": wielded
 E 0 10212 0 1		*	an Solace signet ring: on the left finger

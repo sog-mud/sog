@@ -7385,9 +7385,9 @@ E 0 281 0 14		*	a bone bracelet: on the left wrist
 M 0 216 1 224 1	* Aude (The Cavern of the Witch Sisters)
 E 0 202 0 16		*	a Morning-Star named "VainGlory": wielded
 M 0 217 1 224 1	* Gertrude (The Cavern of the Witch Sisters)
-E 0 258 0 3		*	the skin of an elven princess: around the neck (1)
+E 0 258 0 3		*	the skin of an elven princess: around the neck
 M 0 218 1 224 1	* Hela (The Cavern of the Witch Sisters)
-E 0 203 0 3		*	a Graven Ikon of Saint Sebastian: around the neck (1)
+E 0 203 0 3		*	a Graven Ikon of Saint Sebastian: around the neck
 O 0 276 0 224	* Scrying Pool (The Cavern of the Witch Sisters)
 P 0 275 0 276 1	* Scrying Pool: Lancelot's Signet Ring
 M 0 286 1 225 1	* the Devil's Huntsman (The Witch Wood)
@@ -7544,7 +7544,7 @@ M 0 299 1 289 1	* priest (The Chapel of Saint Sebastian)
 O 0 3010 0 289	* the donation pit (The Chapel of Saint Sebastian)
 M 0 226 1 290 1	* a Knight (Outside the Wall of the Monastery)
 E 0 215 0 16		*	a Crusader's Sword: wielded
-E 0 216 0 3		*	a wooden cross: around the neck (1)
+E 0 216 0 3		*	a wooden cross: around the neck
 E 0 217 0 12		*	a white surcoat: about the shoulders
 E 0 218 0 5		*	a battle-worn mailed shirt: on the body
 E 0 219 0 7		*	a pair of light steel leggings: on the legs

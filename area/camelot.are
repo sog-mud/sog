@@ -5913,13 +5913,13 @@ O 0 17336 0 17375	* a rusty key (Merlin's Tower)
 M 0 17303 9 17376 1	* the knight of quality (The Round Table)
 E 0 17303 0 16		*	a knight's lance: wielded
 M 0 17322 1 17377 1	* Queen Gwenivere (Arthur's Chambers)
-E 0 17331 0 4		*	an emerald necklace: around the neck (2)
+E 0 17331 0 4		*	an emerald necklace: on the face
 O 0 17366 0 17377	* big chest (Arthur's Chambers)
 P 0 17368 1 17366 1	* big chest: sword named "Excalibur"
 M 0 17336 8 17378 1	* a servant (Noble's Chambers)
 O 0 17339 0 17380	* a rather heavy looking purse (Noble's Chambers)
 M 0 17337 1 17381 1	* Aigram the demon (The Pentagram)
-E 0 17352 0 3		*	devilish amulet of Demon: around the neck (1)
+E 0 17352 0 3		*	devilish amulet of Demon: around the neck
 E 0 17369 0 13		*	belt of power: around the waist
 G 0 17370 0		*	glowing stone
 M 0 17346 2 17388 1	* a northern border guard (An Outpost)

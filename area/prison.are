@@ -3124,7 +3124,7 @@ M 0 32011 1 32024 1	* Trixie the secretary (Warden's Office)
 E 0 32042 0 5		*	a push up bra: on the body
 O 0 32053 0 32024	* a trash can (Warden's Office)
 M 0 32010 1 32025 1	* Brad the Warden (Warden's chamber)
-E 0 32041 0 3		*	a pink cashmire scarf: around the neck (1)
+E 0 32041 0 3		*	a pink cashmire scarf: around the neck
 E 0 32040 0 8		*	a set of pink sequined high heels: on the feet
 G 0 32039 0		*	a pile of gold coins
 M 0 32002 10 32026 1	* the Prison Guard (A quiet hallway)
@@ -3357,8 +3357,8 @@ G 0 32039 0		*	a pile of gold coins
 M 0 32023 1 32088 1	* A huge Bronze Dragon (Flar's Gateway to Unknown)
 E 0 32007 0 1		*	a hatchling ember ring: on the left finger
 E 0 32007 0 2		*	a hatchling ember ring: on the right finger
-E 0 32010 0 3		*	a hatchling cloak: around the neck (1)
-E 0 32010 0 4		*	a hatchling cloak: around the neck (2)
+E 0 32010 0 3		*	a hatchling cloak: around the neck
+E 0 32010 0 4		*	a hatchling cloak: on the face
 E 0 32011 0 5		*	a hatchling shirt: on the body
 E 0 32012 0 6		*	a hatchling helmet: over the head
 E 0 32013 0 7		*	a set of hatchling leggings: on the legs

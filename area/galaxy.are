@@ -576,7 +576,7 @@ mask gemini~
 the Titanic Mask of Gemini~
 A mask of the Zodiac lies here.~
 titanium~
-armor AGHK 0 AE
+armor AGHK 0 AT
 2 2 2 0 0
 16 70 3600 P
 a '' to_object 16 -1 2 2 0
@@ -2243,7 +2243,7 @@ E 0 9302 0 10		*	the Titanic Arm plates of Hercules: on the arms
 M 0 9302 9 9333 1	* a beautiful star (Eastern Side of the Temple)
 M 0 9315 1 9342 1	* Aries (On a Hill)
 G 0 9324 0		*	a spring shoot
-E 0 9306 0 3		*	the Titanic Fleece of Aries: around the neck (1)
+E 0 9306 0 3		*	the Titanic Fleece of Aries: around the neck
 M 0 9316 1 9343 1	* Taurus (Inside a Spanish Bull-Ring)
 E 0 9307 0 8		*	the Titanic Hoof of Taurus: on the feet
 M 0 9317 1 9344 1	* Gemini (Inside a study)

@@ -1407,7 +1407,7 @@ glasses~
 glasses~
 Small glasses shine here.~
 unknown~
-armor AH 0 AE
+armor AH 0 AT
 15 15 15 15 0
 60 0 0 P
 a '' to_object 60 -1 50 13 0
@@ -1483,7 +1483,7 @@ assassin mask~
 ~
 ~
 cotton~
-armor H F AE
+armor H F AT
 20 20 20 10 0
 60 20 0 P
 a '' to_invis 60 -1 0 0 A
@@ -1535,7 +1535,7 @@ sun glasses~
 sun-glasses~
 Small sun-glasses lays here.~
 glass~
-armor 0 0 AE
+armor 0 0 AT
 12 12 15 5 0
 35 10 1000 P
 a '' to_object 35 -1 -5 17 0

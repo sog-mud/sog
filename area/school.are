@@ -3329,8 +3329,8 @@ M 0 3703 1 3715 1	* the wimpy monster (A Cage)
 E 0 3706 0 6		*	a sub issue helmet: over the head
 E 0 3711 0 12		*	a sub issue cape: about the shoulders
 M 0 3702 1 3716 1	* the monster (A Cage)
-E 0 3705 0 3		*	a sub issue cloak: around the neck (1)
-E 0 3705 0 4		*	a sub issue cloak: around the neck (2)
+E 0 3705 0 3		*	a sub issue cloak: around the neck
+E 0 3705 0 4		*	a sub issue cloak: on the face
 M 0 3717 1 3718 1	* the adept of Selene (The Store in Mud School)
 G 0 3138 0		*	a buffalo water skin
 G 0 3031 0		*	a hooded brass lantern

@@ -218,7 +218,7 @@ glasses очки~
 @eng a pair of glasses@rus очки~
 An odd pair of glasses has been left here.~
 glass~
-clothing A 0 AE
+clothing A 0 AT
 0 0 0 0 0
 3 20 270 P
 a '' to_object 3 -1 1 4 0
@@ -1034,7 +1034,7 @@ M 0 111 1 128 1	* Gargamel (Gargamel's Castle)
 E 0 106 0 17		*	a small wand: held in the hands
 M 0 112 1 128 1	* Azreal (Gargamel's Castle)
 M 0 109 1 129 1	* Smurfette (Smurfette's House)
-E 0 104 0 3		*	a small necklace: around the neck (1)
+E 0 104 0 3		*	a small necklace: around the neck
 G 0 107 0		*	a tiny key
 S
 

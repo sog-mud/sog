@@ -2754,7 +2754,7 @@ E 0 1514 0 16		*	a skiff: wielded
 M 0 1504 6 1519 1	* a gnome guard (A Small Hut)
 G 0 1500 0		*	a bloody key
 G 0 1506 0		*	a bloody potion
-E 0 1507 0 3		*	a bloody cloak: around the neck (1)
+E 0 1507 0 3		*	a bloody cloak: around the neck
 M 0 1508 2 1522 2	* a field mouse (The Field of Mice's Dreams)
 M 0 1508 2 1522 2	* a field mouse (The Field of Mice's Dreams)
 M 0 1507 1 1524 1	* a small troll (Darker Cave)
@@ -2798,7 +2798,7 @@ G 0 1516 0		*	a pile of coins
 O 0 1517 0 1557	* a pile of coins (The Altar)
 M 0 1505 1 1558 1	* the chief gnome (The Chief's House)
 E 0 1508 0 1		*	a bat ring: on the left finger
-E 0 1509 0 3		*	a bead necklace: around the neck (1)
+E 0 1509 0 3		*	a bead necklace: around the neck
 E 0 1510 0 16		*	an electrum sword: wielded
 M 0 1520 6 1563 2	* a hobgoblin miner (Mine Shaft)
 M 0 1520 6 1565 2	* a hobgoblin miner (Mine Shaft)

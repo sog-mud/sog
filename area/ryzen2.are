@@ -1642,7 +1642,7 @@ M 0 22012 1 22029 1	* a Holy Cleric (The Bottom of the Stairs)
 E 0 22002 0 7		*	leggings of speed: on the legs
 G 0 22010 0		*	a vial of holy water
 M 0 22011 1 22031 1	* an Undead Beast (A Dead End)
-E 0 22008 0 3		*	a bloody collar: around the neck (1)
+E 0 22008 0 3		*	a bloody collar: around the neck
 M 0 22005 5 22032 1	* a ghoul (A Pitch Black Tunnel)
 M 0 22002 10 22033 1	* A Wandering Ghost (A Pitch Black Tunnel)
 M 0 22005 5 22034 1	* a ghoul (A Pitch Black Tunnel)

@@ -2640,9 +2640,9 @@ E 0 10012 0 1		*	a boundary warden's ring: on the left finger
 E 0 10012 0 2		*	a boundary warden's ring: on the right finger
 E 0 10013 0 7		*	boundary warden leggins: on the legs
 M 0 10010 1 10008 1	* a heart hound (The edge of upper ven)
-E 0 10015 0 3		*	a heart hound collar: around the neck (1)
+E 0 10015 0 3		*	a heart hound collar: around the neck
 M 0 10010 1 10008 1	* a heart hound (The edge of upper ven)
-E 0 10015 0 3		*	a heart hound collar: around the neck (1)
+E 0 10015 0 3		*	a heart hound collar: around the neck
 M 0 10001 2 10009 1	* a long-tailed gar (The trail in the forest)
 M 0 10002 2 10009 1	* a long-tailed gar (The trail in the forest)
 M 0 10004 4 10009 1	* a blood fly (The trail in the forest)
@@ -2668,7 +2668,7 @@ M 0 10002 2 10015 1	* a long-tailed gar (The path at the swamp)
 M 0 10004 4 10015 1	* a blood fly (The path at the swamp)
 M 0 10010 4 10015 1	* a heart hound (The path at the swamp)
 M 0 10010 4 10015 1	* a heart hound (The path at the swamp)
-E 0 10015 0 3		*	a heart hound collar: around the neck (1)
+E 0 10015 0 3		*	a heart hound collar: around the neck
 M 0 10026 4 10016 1	* a yellow snake (Over the swamp waters)
 M 0 10026 4 10016 1	* a yellow snake (Over the swamp waters)
 M 0 10026 4 10016 1	* a yellow snake (Over the swamp waters)
@@ -2700,7 +2700,7 @@ M 0 10024 4 10023 1	* a drunken villager (The bar)
 M 0 10024 4 10023 1	* a drunken villager (The bar)
 M 0 10006 4 10025 4	* a quad assassin (The path to the Bone Woman's shack)
 M 0 10017 1 10026 1	* The Bone Woman (The Bone Woman's shack)
-E 0 10002 0 4		*	the Bone Woman's necklace: around the neck (2)
+E 0 10002 0 4		*	the Bone Woman's necklace: on the face
 M 0 10018 3 10028 1	* a nasty gripper (The path through the narrows)
 G 0 10003 0		*	some grippers teeth
 M 0 10018 3 10028 1	* a nasty gripper (The path through the narrows)

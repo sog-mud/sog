@@ -3043,7 +3043,7 @@ O 0 21044 0 21037	* a tea pot (A Mad Tea Party)
 O 0 21045 0 21037	* a tea cup (A Mad Tea Party)
 M 0 21022 1 21037 1	* the Mad Hatter (A Mad Tea Party)
 E 0 21034 0 6		*	a green top hat: over the head
-E 0 21040 0 3		*	a large polka dot bow tie: around the neck (1)
+E 0 21040 0 3		*	a large polka dot bow tie: around the neck
 E 0 21041 0 12		*	a green frock coat: about the shoulders
 E 0 21046 0 5		*	a checked shirt: on the body
 E 0 21047 0 7		*	some brown breeches: on the legs
@@ -3076,7 +3076,7 @@ E 0 21005 0 5		*	a red waistcoat: on the body
 E 0 21006 0 17		*	a pocket watch: held in the hands
 E 0 21007 0 9		*	a pair of tiny white kid-gloves: on the hands
 E 0 21008 0 11		*	a fan: as a shield
-E 0 21009 0 3		*	a neck scarf: around the neck (1)
+E 0 21009 0 3		*	a neck scarf: around the neck
 M 0 21030 4 21047 1	* a soldier (A Croquet Lawn)
 E 0 21052 0 16		*	a soldier's club: wielded
 M 0 21037 4 21048 1	* a hedgehog (A Croquet Lawn)

@@ -1720,7 +1720,7 @@ O 0 301 0 319	* a small dusk of black gyvel (Grassy plains)
 O 0 304 0 323	* wild flowers (The steep foothills)
 M 0 300 1 323 1	* Aruncus the Druid (The steep foothills)
 E 0 308 0 16		*	a druish staff: wielded
-E 0 307 0 3		*	a strange amulet: around the neck (1)
+E 0 307 0 3		*	a strange amulet: around the neck
 G 0 312 0		*	a scroll titled 'jhyfrdow'
 G 0 302 0		*	a small dusk of poison ivy
 M 0 309 10 324 4	* the cute rabbit (The steep foothills)

@@ -7644,7 +7644,7 @@ E 0 19052 0 8		*	a pair of white shoes: on the feet
 E 0 19055 0 17		*	a corsage: held in the hands
 M 0 19015 1 19067 1	* the groom (The Gazebo)
 E 0 19050 0 1		*	an engagement band: on the left finger
-E 0 19045 0 3		*	a black bow tie: around the neck (1)
+E 0 19045 0 3		*	a black bow tie: around the neck
 E 0 19046 0 5		*	a crisp white shirt: on the body
 E 0 19047 0 7		*	a pair of black dress pants: on the legs
 E 0 19049 0 8		*	a pair of black shoes: on the feet
@@ -7653,7 +7653,7 @@ E 0 19048 0 13		*	a cummerbund: around the waist
 M 0 19023 1 19067 1	* Brother Thomas (The Gazebo)
 E 0 19066 0 12		*	a white robe: about the shoulders
 M 0 19004 1 19068 1	* Caerlin (Center of the Street)
-E 0 19014 0 3		*	a bard's amulet: around the neck (1)
+E 0 19014 0 3		*	a bard's amulet: around the neck
 E 0 19061 0 12		*	a forest green robe: about the shoulders
 E 0 19011 0 17		*	a silver harp: held in the hands
 M 0 19006 2 19069 1	* the woman (The Street)
@@ -7786,7 +7786,7 @@ E 0 19015 0 16		*	a small steel knife: wielded
 G 0 19020 0		*	some coins
 M 0 19054 1 19117 1	* the wily little thief (hidden somewhere in the shadows) (The Travellers' Shop )
 M 0 19013 1 19119 1	* the Grey Mare (Path to the Dark Tower )
-E 0 19107 0 3		*	a set of red ribbons: around the neck (1)
+E 0 19107 0 3		*	a set of red ribbons: around the neck
 E 0 19106 0 16		*	a horn of bone: wielded
 M 0 19052 1 19121 1	* the lady of ill repute (The Gazebo )
 E 0 19117 0 5		*	a tight leather bodice: on the body
