@@ -10174,7 +10174,7 @@ The hallway continues
 ~
 0 -1 16286
 D1
-The hallway goes
+The hallway goes east
 ~
 ~
 0 -1 16283
@@ -10228,6 +10228,11 @@ door~
 E
 door~
 The door is ornate with a large tree that has been carved onto it~ 
+D3
+The hallway goes west
+~
+~
+0 -1 16281
 S
 #16284
 Washroom~
