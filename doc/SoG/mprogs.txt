@@ -1,5 +1,5 @@
 #
-# $Id: mprogs.txt,v 1.10 2001-11-14 15:15:10 tatyana Exp $
+# $Id: mprogs.txt,v 1.11 2001-12-10 20:04:14 tatyana Exp $
 #
 
 MPC code style
@@ -344,6 +344,15 @@ bool give_obj(char ch, char victim, obj p)
 
 handle_death(char ch, char victim)
   зовется функция handle_death чару ch для умершего чара victim
+
+bool has_detect(char ch, int f)
+  есть ли у чара детект f
+f может быть: ID_INVIS, ID_HIDDEN, ID_FADE, ID_IMP_INVIS, ID_BLEND,
+ID_CAMOUFLAGE, ID_INFRARED, ID_UNDEAD, ID_LIFE, ID_EVIL, ID_MAGIC, ID_CHARM,
+ID_TRUESEEN, ID_GOOD, ID_TREEFORM, ID_ALL_INVIS
+
+bool has_invis(char ch, int f)
+  есть ли на чаре невидимость f (значения см в has_detect)
 
 int has_sp(char ch, string spn, string spn_add, string spn_rm)
 
