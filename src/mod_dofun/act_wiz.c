@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.16 2000-04-03 16:03:23 fjoe Exp $
+ * $Id: act_wiz.c,v 1.186.2.17 2000-06-08 07:29:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2891,44 +2891,6 @@ void do_oset(CHAR_DATA *ch, const char *argument)
 
 	value = atoi(arg3);
 
-	/*
-	 * Set something.
-	 */
-	if (!str_cmp(arg2, "value0") || !str_cmp(arg2, "v0")) {
-		obj->value[0] = value;
-		return;
-	}
-
-	if (!str_cmp(arg2, "value1") || !str_cmp(arg2, "v1")) {
-		obj->value[1] = value;
-		return;
-	}
-
-	if (!str_cmp(arg2, "value2") || !str_cmp(arg2, "v2")) {
-		obj->value[2] = value;
-		return;
-	}
-
-	if (!str_cmp(arg2, "value3") || !str_cmp(arg2, "v3")) {
-		obj->value[3] = value;
-		return;
-	}
-
-	if (!str_cmp(arg2, "value4") || !str_cmp(arg2, "v4")) {
-		obj->value[4] = value;
-		return;
-	}
-
-	if (!str_prefix(arg2, "level")) {
-		obj->level = value;
-		return;
-	}
-		
-	if (!str_prefix(arg2, "cost")) {
-		obj->cost = value;
-		return;
-	}
-
 	if (!str_prefix(arg2, "timer")) {
 		obj->timer = value;
 		return;
@@ -2944,7 +2906,6 @@ void do_oset(CHAR_DATA *ch, const char *argument)
 	 * Generate usage message.
 	 */
 	do_oset(ch, str_empty);
-	return;
 }
 
 void do_rset(CHAR_DATA *ch, const char *argument)
