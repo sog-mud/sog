@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: word.c,v 1.1 1998-09-29 01:29:15 fjoe Exp $
+ * $Id: word.c,v 1.2 1998-10-02 04:48:41 fjoe Exp $
  */
 
 #include <sys/syslimits.h>
@@ -39,11 +39,12 @@
 
 const char* word_form_lookup(varr **hashp, const char *word, int num);
 
-WORD_DATA *word_new(void)
+WORD_DATA *word_new(LANG_DATA *l)
 {
 	WORD_DATA *w = calloc(1, sizeof(WORD_DATA));
 	w->base = str_empty;
 	w->f = varr_new(sizeof(char*), 4);
+	w->lang = l;
 	return w;
 }
 
@@ -92,23 +93,23 @@ void word_free(WORD_DATA *w)
 
 const char *word_gender(int lang, const char *word, int gender)
 {
-	LANG_DATA *l = varr_get(langs, lang);
+	LANG_DATA *l = varr_get(&langs, lang);
 
 	if (l == NULL)
 		return word;
 
-	return word_form_lookup(l->hash_gender, word,
+	return word_form_lookup(l->hash_genders, word,
 				(gender + SEX_MAX - 1) % SEX_MAX);
 }
 
 const char *word_case(int lang, const char *word, int num)
 {
-	LANG_DATA *l = varr_get(langs, lang);
+	LANG_DATA *l = varr_get(&langs, lang);
 
 	if (l == NULL)
 		return word;
 
-	return word_form_lookup(l->hash_case, word, num);
+	return word_form_lookup(l->hash_cases, word, num);
 }
 
 /* local functions */

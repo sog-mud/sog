@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.7 1998-10-01 06:39:20 fjoe Exp $
+ * $Id: db_area.c,v 1.8 1998-10-02 04:48:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,7 +45,7 @@
 
 #include "merc.h"
 #include "obj_prog.h"
-#include "db/db.h"
+#include "db.h"
 
 DECLARE_DBLOAD_FUN(load_area);
 DECLARE_DBLOAD_FUN(load_areadata);
@@ -1514,7 +1514,7 @@ static int slot_lookup(int slot)
 	if (slot <= 0)
 		return -1;
 
-	for (sn = 0; sn < skills->nused; sn++)
+	for (sn = 0; sn < skills.nused; sn++)
 		if (slot == SKILL(sn)->slot)
 			return sn;
 

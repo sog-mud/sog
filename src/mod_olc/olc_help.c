@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_help.c,v 1.16 1998-09-20 17:01:45 fjoe Exp $
+ * $Id: olc_help.c,v 1.17 1998-10-02 04:48:47 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -32,7 +32,7 @@
 
 #include "merc.h"
 #include "interp.h"
-#include "olc/olc.h"
+#include "olc.h"
 
 #define EDIT_HELP(ch, help)	(help = (HELP_DATA*) ch->desc->pEdit)
 

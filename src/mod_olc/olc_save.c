@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.29 1998-09-24 14:09:05 fjoe Exp $
+ * $Id: olc_save.c,v 1.30 1998-10-02 04:48:47 fjoe Exp $
  */
 
 /**************************************************************************
@@ -31,7 +31,7 @@
 #include "merc.h"
 #include "obj_prog.h"
 #include "interp.h"
-#include "olc/olc.h"
+#include "olc.h"
 
 #define DIF(a,b) (~((~a)|(b)))
 
@@ -975,8 +975,8 @@ void save_clan(CHAR_DATA *ch, CLAN_DATA *clan)
 		fprintf(fp, "Flags %s~\n",
 			flag_string(clan_flags, clan->flags));
 
-	for (i = 0; i < clan->skills->nused; i++) {
-		CLAN_SKILL *cs = VARR_GET(clan->skills, i);
+	for (i = 0; i < clan->skills.nused; i++) {
+		CLAN_SKILL *cs = VARR_GET(&clan->skills, i);
 
 		if (cs->sn > 0) 
 			fprintf(fp, "Skill '%s' %d\n",
@@ -1010,7 +1010,7 @@ void save_clans(CHAR_DATA *ch)
 
 	save_print(ch, "Saved clans:");
 
-	for (i = 0; i < clans->nused; i++) {
+	for (i = 0; i < clans.nused; i++) {
 		fprintf(fp, "%s\n", CLAN(i)->file_name);
 		if (IS_SET(CLAN(i)->flags, CLAN_CHANGED)) {
 			save_clan(ch, CLAN(i));

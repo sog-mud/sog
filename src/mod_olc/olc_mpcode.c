@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mpcode.c,v 1.15 1998-09-28 09:44:53 fjoe Exp $
+ * $Id: olc_mpcode.c,v 1.16 1998-10-02 04:48:47 fjoe Exp $
  */
 
 /* The following code is based on ILAB OLC by Jason Dinkel */
@@ -13,7 +13,7 @@
 #include <time.h>
 #include "merc.h"
 #include "interp.h"
-#include "olc/olc.h"
+#include "olc.h"
 
 #define EDIT_MPCODE(ch, mpcode)   (mpcode = (MPCODE*) ch->desc->pEdit)
 

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.69 1998-10-01 06:39:20 fjoe Exp $
+ * $Id: db.c,v 1.70 1998-10-02 04:48:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -55,7 +55,7 @@
 #include "merc.h"
 #include "rating.h"
 #include "update.h"
-#include "db/db.h"
+#include "db.h"
 
 #ifdef SUNOS
 #include "compat.h"
@@ -303,13 +303,11 @@ void boot_db(void)
 
 	fBootDb = TRUE;
 
-	db_load_file(ETC_PATH, LANG_CONF, db_load_langs, init_langs);
+	db_load_file(ETC_PATH, LANG_CONF, db_load_langs, NULL);
 	load_oldmsgdb();
 	load_msgdb();
-	db_load_file(ETC_PATH, SKILLS_CONF, db_load_skills, init_skills);
-	init_classes();
+	db_load_file(ETC_PATH, SKILLS_CONF, db_load_skills, NULL);
 	db_load_list(CLASSES_PATH, CLASS_LIST, db_load_classes, init_class);
-	init_clans();
 	db_load_list(CLANS_PATH, CLAN_LIST, db_load_clans, NULL);
 	db_load_list(AREA_PATH, AREA_LIST, db_load_areas, init_area);
 

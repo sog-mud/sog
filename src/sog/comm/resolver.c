@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: resolver.c,v 1.5 1998-09-29 01:06:54 fjoe Exp $
+ * $Id: resolver.c,v 1.6 1998-10-02 04:48:35 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -38,7 +38,7 @@
 #include <unistd.h>
 #include "typedef.h"
 #include "log.h"
-#include "comm/resolver.h"
+#include "resolver.h"
 
 FILE *	rfin;
 FILE *	rfout;

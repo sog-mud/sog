@@ -23,14 +23,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_skills.c,v 1.4 1998-09-19 10:39:07 fjoe Exp $
+ * $Id: db_skills.c,v 1.5 1998-10-02 04:48:41 fjoe Exp $
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 
 #include "merc.h"
-#include "db/db.h"
+#include "db.h"
 
 DECLARE_DBLOAD_FUN(load_skill);
 
@@ -40,16 +40,11 @@ DBFUN db_load_skills[] =
 	{ NULL }
 };
 
-DBINIT_FUN(init_skills)
-{
-	skills = varr_new(sizeof(SKILL_DATA), 8);
-}
-
 DBLOAD_FUN(load_skill)
 {
 	SKILL_DATA *skill;
 
-	skill = varr_enew(skills);
+	skill = varr_enew(&skills);
 
 	for (;;) {
 		char *word = feof(fp) ? "End" : fread_word(fp);
@@ -65,7 +60,7 @@ DBLOAD_FUN(load_skill)
 				if (IS_NULLSTR(skill->name)) {
 					db_error("load_skill",
 						 "skill name undefined");
-					skills->nused--;
+					skills.nused--;
 				}
 				return;
 			}
@@ -81,7 +76,7 @@ DBLOAD_FUN(load_skill)
 			    fread_fword(skill_groups, fp));
 			if (!str_cmp(word, "Gsn")) {
 				skill->pgsn = fread_namedp(gsn_table, fp);
-				*skill->pgsn = skills->nused - 1;
+				*skill->pgsn = skills.nused - 1;
 				fMatch = TRUE;
 			}
 			break;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.8 1998-09-20 17:01:45 fjoe Exp $
+ * $Id: olc_clan.c,v 1.9 1998-10-02 04:48:47 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,7 +31,7 @@
 
 #include "merc.h"
 #include "interp.h"
-#include "olc/olc.h"
+#include "olc.h"
 
 #define EDIT_CLAN(ch, clan)	(clan = (CLAN_DATA*) ch->desc->pEdit)
 
@@ -96,10 +96,9 @@ OLC_FUN(claned_create)
 		return FALSE;
 	}
 
-	clan			= varr_enew(clans);
+	clan			= clan_new();
 	clan->name		= str_dup(arg);
-	clan->skills		= varr_new(sizeof(CLAN_SKILL), 8);
-	clan->file_name		= str_printf("clan%02d.clan", clans->nused-1);
+	clan->file_name		= str_printf("clan%02d.clan", clans.nused-1);
 
 	ch->desc->pEdit		= (void *)clan;
 	ch->desc->editor	= ED_CLAN;
@@ -166,8 +165,8 @@ OLC_FUN(claned_show)
 	if (!mlstr_null(clan->msg_vanishes))
 		mlstr_dump(output, "MsgVanishes: ", clan->msg_vanishes);
 
-	for (i = 0; i < clan->skills->nused; i++) {
-		CLAN_SKILL *cs = VARR_GET(clan->skills, i);
+	for (i = 0; i < clan->skills.nused; i++) {
+		CLAN_SKILL *cs = VARR_GET(&clan->skills, i);
 		SKILL_DATA *skill;
 
 		if (cs->sn <= 0
@@ -273,10 +272,10 @@ OLC_FUN(claned_skill_add)
 		return FALSE;
 	}
 
-	clan_skill = varr_enew(clan->skills);
+	clan_skill = varr_enew(&clan->skills);
 	clan_skill->sn = sn;
 	clan_skill->level = atoi(arg2);
-	varr_qsort(clan->skills, cmpint);
+	varr_qsort(&clan->skills, cmpint);
 
 	return TRUE;
 }
@@ -289,13 +288,13 @@ OLC_FUN(claned_skill_del)
 	EDIT_CLAN(ch, clan);
 
 	one_argument(argument, arg);
-	if ((clan_skill = skill_vlookup(clan->skills, arg)) == NULL) {
+	if ((clan_skill = skill_vlookup(&clan->skills, arg)) == NULL) {
 		char_printf(ch, "CEdit: %s: not found in clan skill list.\n\r",
 			    arg);
 		return FALSE;
 	}
 	clan_skill->sn = 0;
-	varr_qsort(clan->skills, cmpint);
+	varr_qsort(&clan->skills, cmpint);
 	return TRUE;
 }
 
@@ -305,7 +304,7 @@ VALIDATE_FUN(validate_name)
 	CLAN_DATA *clan;
 	EDIT_CLAN(ch, clan);
 
-	for (i = 0; i < clans->nused; i++)
+	for (i = 0; i < clans.nused; i++)
 		if (CLAN(i) != clan
 		&&  !str_cmp(CLAN(i)->name, arg)) {
 			char_printf(ch, "CEdit: %s: duplicate clan name.\n\r",

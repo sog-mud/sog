@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.102 1998-10-01 06:39:06 fjoe Exp $
+ * $Id: comm.c,v 1.103 1998-10-02 04:48:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -84,9 +84,9 @@
 #include "update.h"
 #include "interp.h"
 #include "mob_prog.h"
-#include "comm/ban.h"
-#include "comm/charset.h"
-#include "comm/resolver.h"
+#include "ban.h"
+#include "charset.h"
+#include "resolver.h"
 #include "olc/olc.h"
 #include "db/db.h"
 #include "db/word.h"
@@ -1720,7 +1720,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 	strcpy(buf, "Select a class:\n\r[ ");
 	sprintf(buf1,"             (Continuing:)  ");
-	for (iClass = 0; iClass < classes->nused; iClass++)
+	for (iClass = 0; iClass < classes.nused; iClass++)
 	{
 	  if (class_ok(ch,iClass))
 	    {

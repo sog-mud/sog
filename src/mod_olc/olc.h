@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.18 1998-09-29 01:07:17 fjoe Exp $
+ * $Id: olc.h,v 1.19 1998-10-02 04:48:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -40,7 +40,8 @@ enum {
 	FUN_CREATE,
 	FUN_EDIT,
 	FUN_TOUCH,
-	FUN_SHOW
+	FUN_SHOW,
+	FUN_LIST,
 };
 
 #define FUN_FIRST FUN_TOUCH
@@ -65,6 +66,9 @@ extern const char ED_HELP	[];
 extern const char ED_CLAN	[];
 extern const char ED_MSG	[];
 extern const char ED_CLASS	[];
+extern const char ED_LANG	[];
+extern const char ED_GENDER	[];
+extern const char ED_CASE	[];
 
 /*
  * Interpreter Table Prototypes
@@ -78,16 +82,17 @@ extern OLC_CMD_DATA	olc_cmds_help[];
 extern OLC_CMD_DATA	olc_cmds_clan[];
 extern OLC_CMD_DATA	olc_cmds_msg[];
 extern OLC_CMD_DATA	olc_cmds_class[];
+extern OLC_CMD_DATA	olc_cmds_lang[];
+extern OLC_CMD_DATA	olc_cmds_word[];
 
 /*
  * Editor Commands.
  */
 DECLARE_DO_FUN(do_alist		);
-DECLARE_DO_FUN(do_clist		);
 DECLARE_DO_FUN(do_asave		);
-DECLARE_DO_FUN(do_resets	);
 DECLARE_DO_FUN(do_edit		);
 DECLARE_DO_FUN(do_create	);
+DECLARE_DO_FUN(do_resets	);
 
 /*
  * Generic data edit functions

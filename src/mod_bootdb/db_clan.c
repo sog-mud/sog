@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_clan.c,v 1.5 1998-10-01 06:39:21 fjoe Exp $
+ * $Id: db_clan.c,v 1.6 1998-10-02 04:48:41 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,7 +31,7 @@
 #include <string.h>
 
 #include "merc.h"
-#include "db/db.h"
+#include "db.h"
 
 DECLARE_DBLOAD_FUN(load_clan);
 
@@ -41,18 +41,12 @@ DBFUN db_load_clans[] =
 	{ NULL }
 };
 
-void init_clans(void)
-{
-	clans = varr_new(sizeof(CLAN_DATA), 4);
-}
-
 DBLOAD_FUN(load_clan)
 {
 	CLAN_DATA *	clan;
 	char *		p;
 
-	clan = varr_enew(clans);
-	clan->skills = varr_new(sizeof(CLAN_SKILL), 8);
+	clan = clan_new();
 	if ((p = strrchr(filename, '/')))
 		p++;
 	else
@@ -69,10 +63,10 @@ DBLOAD_FUN(load_clan)
 				if (IS_NULLSTR(clan->name)) {
 					db_error("load_clan",
 						 "clan name not defined");
-					varr_free(clan->skills);
-					clans->nused--;
+					clan_free(clan);
+					clans.nused--;
 				}
-				varr_qsort(clan->skills, cmpint);
+				varr_qsort(&clan->skills, cmpint);
 				return;
 			}
 			break;
@@ -93,7 +87,7 @@ DBLOAD_FUN(load_clan)
 			break;
 		case 'S':
 			if (!str_cmp(word, "Skill")) {
-				CLAN_SKILL *sk = varr_enew(clan->skills);
+				CLAN_SKILL *sk = varr_enew(&clan->skills);
 				sk->sn = sn_lookup(fread_word(fp));	
 				sk->level = fread_number(fp);
 				fMatch = TRUE;

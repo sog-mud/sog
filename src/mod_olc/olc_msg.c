@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.4 1998-09-29 09:40:38 fjoe Exp $
+ * $Id: olc_msg.c,v 1.5 1998-10-02 04:48:47 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -38,22 +38,21 @@
 
 DECLARE_OLC_FUN(msged_create		);
 DECLARE_OLC_FUN(msged_edit		);
-DECLARE_OLC_FUN(msged_touch		);
 DECLARE_OLC_FUN(msged_show		);
+DECLARE_OLC_FUN(msged_list		);
 
 DECLARE_OLC_FUN(msged_msg		);
-DECLARE_OLC_FUN(msged_list		);
 DECLARE_OLC_FUN(msged_del		);
 
 OLC_CMD_DATA olc_cmds_msg[] =
 {
 	{ "create",	msged_create	},
 	{ "edit",	msged_edit	},
-	{ "touch",	msged_touch	},
+	{ "touch",	NULL		},
 	{ "show",	msged_show	},
+	{ "list",	msged_list	},
 
 	{ "msg",	msged_msg	},
-	{ "list",	msged_list	},
 	{ "del",	msged_del	},
 
 	{ "commands",	show_commands	},
@@ -118,11 +117,6 @@ OLC_FUN(msged_edit)
 	return FALSE;
 }
 
-OLC_FUN(msged_touch)
-{
-	return FALSE;
-}
-
 OLC_FUN(msged_show)
 {
 	BUFFER *output;
@@ -135,6 +129,47 @@ OLC_FUN(msged_show)
 
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
+	return FALSE;
+}
+
+OLC_FUN(msged_list)
+{
+	int i;
+	BUFFER *output = NULL;
+
+	if (argument[0] == '\0') {
+		do_help(ch, "'OLC MSG'");
+		return FALSE;
+	}
+		
+	for (i = 0; i < MAX_MSG_HASH; i++) {
+		int j;
+		varr *v = msg_hash_table[i];
+
+		if (v == NULL)
+			continue;
+
+		for (j = 0; j < v->nused; j++) {
+			mlstring **mlp = VARR_GET(v, j);
+			char *name = mlstr_mval(*mlp);
+
+			if (strstr(name, argument)) {
+				if (output == NULL)
+					output = buf_new(0);
+				buf_add(output, name);
+				if (name[strlen(name)-1] != '\r')
+					buf_add(output, "\n\r");
+			}
+		}
+	}
+
+	if (output) {
+		page_to_char(buf_string(output), ch);
+		buf_free(output);
+	}
+	else
+		send_to_char("MsgEd: no messages found.\n\r", ch);
+
 	return FALSE;
 }
 
@@ -182,47 +217,6 @@ OLC_FUN(msged_msg)
 		ch->desc->pEdit = (void*) msg_add(ml);
 
 	return TRUE;
-}
-
-OLC_FUN(msged_list)
-{
-	int i;
-	BUFFER *output = NULL;
-
-	if (argument[0] == '\0') {
-		do_help(ch, "'OLC MSG'");
-		return FALSE;
-	}
-		
-	for (i = 0; i < MAX_MSG_HASH; i++) {
-		int j;
-		varr *v = msg_hash_table[i];
-
-		if (v == NULL)
-			continue;
-
-		for (j = 0; j < v->nused; j++) {
-			mlstring **mlp = VARR_GET(v, j);
-			char *name = mlstr_mval(*mlp);
-
-			if (strstr(name, argument)) {
-				if (output == NULL)
-					output = buf_new(0);
-				buf_add(output, name);
-				if (name[strlen(name)-1] != '\r')
-					buf_add(output, "\n\r");
-			}
-		}
-	}
-
-	if (output) {
-		page_to_char(buf_string(output), ch);
-		buf_free(output);
-	}
-	else
-		send_to_char("MsgEd: no messages found.\n\r", ch);
-
-	return FALSE;
 }
 
 OLC_FUN(msged_del)
@@ -341,7 +335,7 @@ static void msg_dump(BUFFER *buf, mlstring *ml)
 	}
 
 	for (lang = 0; lang < nlang; lang++) {
-		LANG_DATA *l = VARR_GET(langs, lang);
+		LANG_DATA *l = VARR_GET(&langs, lang);
 		buf_printf(buf, FORMAT, l->name, msgtoa(mlstr_val(ml, lang)));
 	}
 }

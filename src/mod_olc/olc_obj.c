@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.10 1998-09-24 14:09:05 fjoe Exp $
+ * $Id: olc_obj.c,v 1.11 1998-10-02 04:48:47 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -34,7 +34,7 @@
 #include <time.h>
 #include "merc.h"
 #include "interp.h"
-#include "olc/olc.h"
+#include "olc.h"
 
 #define EDIT_OBJ(ch, obj)	(obj = (OBJ_INDEX_DATA*) ch->desc->pEdit)
 
@@ -1037,7 +1037,7 @@ static void show_skill_cmds(CHAR_DATA *ch, int tar)
  
 	output = buf_new(0);
 	col = 0;
-	for (sn = 0; sn < skills->nused; sn++) {
+	for (sn = 0; sn < skills.nused; sn++) {
 		SKILL_DATA *sk = SKILL(sn);
 
 		if (!str_cmp(sk->name, "reserved") || sk->spell_fun == NULL)

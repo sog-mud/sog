@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.22 1998-09-22 18:07:28 fjoe Exp $
+ * $Id: olc.c,v 1.23 1998-10-02 04:48:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,7 +46,7 @@
 #include <time.h>
 #include "merc.h"
 #include "interp.h"
-#include "olc/olc.h"
+#include "olc.h"
 
 /*
  * The version info.  Please use this info when reporting bugs.
@@ -652,7 +652,7 @@ void do_clist(CHAR_DATA *ch, const char *argument)
 {
 	int i;
 
-	for (i = 0; i < clans->nused; i++)
+	for (i = 0; i < clans.nused; i++)
 		char_printf(ch, "[%d] %s\n\r", i, CLAN(i)->name);
 }
 

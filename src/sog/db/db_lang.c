@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.1 1998-09-29 01:29:15 fjoe Exp $
+ * $Id: db_lang.c,v 1.2 1998-10-02 04:48:41 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,11 +31,12 @@
 #include <string.h>
 
 #include "merc.h"
-#include "db/db.h"
-#include "db/lang.h"
-#include "db/word.h"
+#include "db.h"
+#include "lang.h"
+#include "word.h"
 
-varr *langs;
+varr 		langs = { sizeof(LANG_DATA), 2 };
+LANG_DATA *	lang_curr;
 
 DECLARE_DBLOAD_FUN(load_lang);
 
@@ -54,8 +55,8 @@ int lang_lookup(const char *name)
 	if (IS_NULLSTR(name))
 		return -1;
 
-	for (lang = 0; lang < langs->nused; lang++) {
-		LANG_DATA *l = VARR_GET(langs, lang);
+	for (lang = 0; lang < langs.nused; lang++) {
+		LANG_DATA *l = VARR_GET(&langs, lang);
 		if (str_cmp(l->name, name) == 0)
 			return lang;
 	}
@@ -64,16 +65,10 @@ int lang_lookup(const char *name)
 	return -1;
 }
 
-DBINIT_FUN(init_langs)
-{
-	langs = varr_new(sizeof(LANG_DATA), 2);
-}
-
 DBLOAD_FUN(load_lang)
 {
-	LANG_DATA *lang;
-
-	lang = varr_enew(langs);
+	lang_curr = varr_enew(&langs);
+	lang_curr->slang_of = -1;
 
 	for (;;) {
 		char *word = feof(fp) ? "End" : fread_word(fp);
@@ -81,37 +76,40 @@ DBLOAD_FUN(load_lang)
 
 		switch (UPPER(*word)) {
 		case 'C':
-			SKEY("CaseFile", lang->file_case);
+			SKEY("CasesFile", lang_curr->file_cases);
 			break;
 
 		case 'E':
 			if (!str_cmp(word, "End")) {
-				if (IS_NULLSTR(lang->name)) {
+				if (IS_NULLSTR(lang_curr->name)) {
 					db_error("load_lang",
 						 "lang name undefined");
-					langs->nused--;
+					langs.nused--;
 					return;
 				}
-				load_hash(lang->file_gender, lang->hash_gender);
-				load_hash(lang->file_case, lang->hash_case);
+				load_hash(lang_curr->file_genders,
+					  lang_curr->hash_genders);
+				load_hash(lang_curr->file_cases,
+					  lang_curr->hash_cases);
 				return;
 			}
 			break;
 
 		case 'F':
-			KEY("Flags", lang->flags, fread_fstring(lang_flags, fp));
+			KEY("Flags", lang_curr->flags,
+			    fread_fstring(lang_flags, fp));
 			break;
 
 		case 'G':
-			SKEY("GenderFile", lang->file_gender);
+			SKEY("GendersFile", lang_curr->file_genders);
 			break;
 
 		case 'N':
-			KEY("Name", lang->name, str_dup(fread_word(fp)));
+			KEY("Name", lang_curr->name, str_dup(fread_word(fp)));
 			break;
 
 		case 'S':
-			KEY("SlangOf", lang->slang_of,
+			KEY("SlangOf", lang_curr->slang_of,
 			    lang_lookup(fread_word(fp)));
 		}
 	}
@@ -157,7 +155,7 @@ DBLOAD_FUN(load_word)
 {
 	WORD_DATA *w;
 
-	w = word_new();
+	w = word_new(lang_curr);
 
 	for (;;) {
 		char *word = feof(fp) ? "End" : fread_word(fp);

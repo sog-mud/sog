@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: msg.c,v 1.7 1998-10-01 06:39:21 fjoe Exp $
+ * $Id: msg.c,v 1.8 1998-10-02 04:48:41 fjoe Exp $
  */
 
 #include <sys/syslimits.h>
@@ -32,8 +32,8 @@
 #include "const.h"
 #include "typedef.h"
 
-#include "db/db.h"
-#include "db/msg.h"
+#include "db.h"
+#include "msg.h"
 #include "mlstring.h"
 #include "util.h"
 #include "varr.h"

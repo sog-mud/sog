@@ -23,14 +23,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.5 1998-10-01 06:39:21 fjoe Exp $
+ * $Id: db_class.c,v 1.6 1998-10-02 04:48:41 fjoe Exp $
  */
 
 #include <stdio.h>
 #include <string.h>
 
 #include "merc.h"
-#include "db/db.h"
+#include "db.h"
 
 DECLARE_DBLOAD_FUN(load_class);
 DECLARE_DBLOAD_FUN(load_pose);
@@ -44,11 +44,6 @@ DBFUN db_load_classes[] =
 
 static CLASS_DATA *class_curr;
 
-void init_classes(void)
-{
-	classes = varr_new(sizeof(CLASS_DATA), 4);
-}
-
 DBINIT_FUN(init_class)
 {
 	class_curr = NULL;
@@ -59,15 +54,13 @@ DBLOAD_FUN(load_class)
 	int	i;
 	char *	p;
 
-	class_curr = varr_enew(classes);
+	class_curr = class_new();
 	if ((p = strrchr(filename, '/')))
 		p++;
 	else
 		p = filename;
 	class_curr->file_name = str_dup(p);
-	class_curr->skills = varr_new(sizeof(CLASS_SKILL), 8);
 	class_curr->guild = varr_new(sizeof(int), 4);
-	class_curr->poses = varr_new(sizeof(POSE_DATA), 4);
 
 	for (i = 0; i < MAX_LEVEL+1; i++)
 		class_curr->titles[i][0] = class_curr->titles[i][1] = str_empty;
@@ -86,10 +79,10 @@ DBLOAD_FUN(load_class)
 				if (IS_NULLSTR(class_curr->name)) {
 					db_error("load_class",
 						 "class name undefined");
-					varr_free(class_curr->skills);
-					classes->nused--;
+					class_free(class_curr);
+					classes.nused--;
 				}
-				varr_qsort(class_curr->skills, cmpint);
+				varr_qsort(&class_curr->skills, cmpint);
 				return;
 			}
 
@@ -142,7 +135,7 @@ DBLOAD_FUN(load_class)
 			if (!str_cmp(word, "Skill")) {
 				CLASS_SKILL *class_skill;
 
-				class_skill = varr_enew(class_curr->skills);
+				class_skill = varr_enew(&class_curr->skills);
 				class_skill->sn = sn_lookup(fread_word(fp));
 				class_skill->level = fread_number(fp);
 				class_skill->rating = fread_number(fp);
@@ -186,7 +179,7 @@ DBLOAD_FUN(load_pose)
 		return;
 	}
 
-	pose = varr_enew(class_curr->poses);
+	pose = varr_enew(&class_curr->poses);
 	pose->self = mlstr_fread(fp);
 	pose->others = mlstr_fread(fp);
 }
