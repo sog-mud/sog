@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.72 1998-07-14 07:47:42 fjoe Exp $
+ * $Id: comm.c,v 1.73 1998-07-14 08:29:21 efdi Exp $
  */
 
 /***************************************************************************
@@ -2584,8 +2584,6 @@ bool check_playing(DESCRIPTOR_DATA *d, char *name)
 	return FALSE;
 }
 
-
-
 void stop_idling(CHAR_DATA *ch)
 {
 	if (ch == NULL
@@ -2636,8 +2634,6 @@ void parse_colors(const char *i, CHAR_DATA *ch, char *o)
 	if (i == NULL)
 		return;
 	
-	reset_color = curr_color = CLEAR;
-
 	for (; *i; ++i) {
 		if (*i == '{') {
 			++i;
@@ -2662,6 +2658,7 @@ void char_puts(const char *txt, CHAR_DATA *ch)
 	if (txt == NULL || ch->desc == NULL)
 		return;
 
+	reset_color = curr_color = CLEAR;
 	parse_colors(txt, ch, buf);
 	write_to_buffer(ch->desc, buf, 0);
 }
@@ -2746,7 +2743,7 @@ static char * const his_her [] = { "its", "his", "her" };
  
 static
 void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
-	     const void *arg1, const void *arg2, char *_str)
+	     const void *arg1, const void *arg2, char *str)
 {
     CHAR_DATA 	*vch = (CHAR_DATA *) arg2;
     OBJ_DATA 	*obj1 = (OBJ_DATA  *) arg1;
@@ -2755,14 +2752,9 @@ void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
     char 	*i;
     char 	buf[MAX_STRING_LENGTH];
     char 	tmp[MAX_STRING_LENGTH];
-    char	*i2;
-    char 	tmp2[MAX_STRING_LENGTH];
-    char 	*str = tmp2;
     char 	fname[MAX_INPUT_LENGTH];
 
     point   = buf;
-
-    parse_colors(_str, to, str); 
 
     while(*str)
 	if (*str == '$') {
@@ -2841,9 +2833,7 @@ void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 		++str;
 
 		if(i) {
-			i2 = tmp;
-			parse_colors(i, to, i2); 
-			while((*point++ = *i2++));
+			while((*point++ = *i++));
 			point--;
 		}
 	} else
@@ -2852,6 +2842,10 @@ void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
     *point++	= '\n';
     *point++	= '\r';
     *point	= '\0';
+
+    reset_color = curr_color = CLEAR;
+    parse_colors(buf, to, tmp); 
+    strnzcpy(buf, tmp, MAX_STRING_LENGTH);
 
     if(to->desc)
     	write_to_buffer(to->desc, buf, 0);
