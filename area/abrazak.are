@@ -258,15 +258,6 @@ a '' to_object 0 -1 100 6 0
 a '' to_object 0 -1 100 3 0
 a '' to_object 0 -1 100 1 0
 g @rus none~
-#15004
-beer barrel~
-@eng a BIG barrel of beer for Mabutu@rus БОЛЬШОЙ бочонок пива для старого негра~
-@eng Mabutu has left here his BIG barrel of beer.@rus Старый негр оставил здесь БОЛЬШОЙ бочонок (barrel) с пивом.~
-unknown~
-drink AGHIY ABCEF AO
--1 100 'beer' 0 0
-0 0 0 P
-g @rus none~
 #15005
 fountain~
 @eng a fountain with milk@rus ~~фонтан~~ с молоком~

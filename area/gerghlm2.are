@@ -1,7 +1,7 @@
 #AREADATA
 Ver 4
 Name Greater Gerighelm~
-Builders tenobaal~
+Builders shogo~
 VNUMs 7500 7699
 Credits Zarchon~
 Security 9
@@ -10,26 +10,31 @@ End
 
 #MOBILES
 #7500
-squirrel little~
-a little squirrel~
-A little squirrel is here, munching happily on nuts.
+squirrel little белка белочка~
+@eng a little squirrel@rus ~~маленькая~~ ~~белочка~~~
+@eng A little squirrel is here, munching happily on nuts.
+@rus Маленькая веселая белочка (squirrel) грызет орешки.
 ~
-He is a Small squirrel, and he is SOO cute!
+@eng He is a Small squirrel, and he is SOO cute!
+@rus Ты смотришь на небольшую и очень милую белочку!
 ~
 dog~
 G 0 0 0 0 0 7500
 1 0 2d6+10 9d1+1 1d4+0 'bite'
 9 9 9 10
 EKN
-stand stand male 0
+stand stand female 0
 0 0 small unknown
 #7501
-chipmunk tiny~
-a tiny chipmunk~
-A tiny chipmunk is here, searching through rocks for a nut he has lost..
+chipmunk tiny бурундук крошка~
+@eng a tiny chipmunk@rus ~~крошка~~ ~~бурундук~~~
+@eng A tiny chipmunk is here, searching through rocks for a nut he has lost..
+@rus Крошка-бурундук (chipmunk) роется среди камней в поисках потерянного орешка..
 ~
-He is about 2 1/2 inches high, and weighs about 7 ounces.
+@eng He is about 2 1/2 inches high, and weighs about 7 ounces.
 He's got sharp teeth though....
+@rus Этот бурундучок высотой примерно 2,5 дюйма и весит около семи унций.
+Однако у него очень острые зубки...
 ~
 cat~
 G 0 0 0 0 0 7501
@@ -39,58 +44,67 @@ EKN
 stand stand male 0
 0 0 small unknown
 #7502
-snake green small~
-a small green snake~
-A small green snake is here, sliding through the grass.
+snake змейка green small зеленая~
+@eng a small green snake@rus ~~маленькая~~ ~~зеленая~~ ~~змейка~~~
+@eng A small green snake is here, sliding through the grass.
+@rus Небольшая зеленая змейка (snake) скользит в траве.
 ~
-His scales remind you of green mirrors.  There is something
+@eng His scales remind you of green mirrors.  There is something
 pretty about them though.
+@rus Ее чешуйки похожи на маленькие изумрудные зеркала. Они
+блестят и радуют глаз.
 ~
 snake~
 G 0 0 0 0 0 0
 1 0 2d6+10 9d1+1 1d4+0 'scratch'
 9 9 9 10
 EKN
-stand stand male 0
+stand stand female 0
 0 0 small unknown
 r cold 50
 r poison -33
 #7503
-swallow bird small~
-a swallow~
-A small bird is here, on closer examination, you see that it is a swallow.
+swallow ласточка bird small птичка птица~
+@eng a swallow@rus ласточка~
+@eng A small bird is here, on closer examination, you see that it is a swallow.
+@rus Ты видишь маленькую птичку (bird), очень похожую на ласточку.
 ~
-It's a swallow, what do you EXPECT to see???
+@eng It's a swallow, what do you EXPECT to see???
+@rus Это обычная ласточка... а что ты $gn{ОЖИДАЛ} увидеть???
 ~
 song bird~
 G 0 0 0 0 0 0
 1 0 2d6+10 9d1+1 1d4+0 'slap'
 9 9 9 10
 EKN
-stand stand male 0
+stand stand female 0
 0 0 tiny unknown
 #7504
-african swallow small bird~
-an African Swallow~
-An African Swallow is here....
+swallow small bird африканская птичка птица african ласточка~
+@eng an African Swallow@rus ~~Африканская~~ ~~Ласточка~~~
+@eng An African Swallow is here....
+@rus Ты видишь Африканскую Ласточку (Swallow)...
 ~
-An African Swallow is here.... Carrying a cocanut..... :)
+@eng An African Swallow is here.... Carrying a cocanut..... :)
+@rus Это Африканская Ласточка... Она несет кокосовый орех... :)
 ~
 song bird~
 G 0 0 0 0 0 0
 2 0 2d7+21 19d1+1 1d5+0 'scratch'
 8 8 8 10
 EKN
-stand stand male 0
+stand stand female 0
 0 0 small unknown
 #7505
-raccoon brown black~
-a brown and black raccoon~
-A brown and black raccoon is here, rummageing through the undergrowth.
+raccoon енот brown black черный коричневый~
+@eng a brown and black raccoon@rus ~~коричнево-черный~~ ~~енот~~~
+@eng A brown and black raccoon is here, rummageing through the undergrowth.
+@rus Коричнево-черный енот (raccoon) продирается через подлесок.
 ~
-He is very clean, must be from all those baths he gives his food...
+@eng He is very clean, must be from all those baths he gives his food...
+@rus Он выглядит очень чисто и опрятно...
 ~
-orc~
+cat~
 G 0 0 0 0 0 0
 2 0 2d7+21 19d1+1 1d5+0 'bite'
 8 8 8 10
@@ -106,13 +120,15 @@ r holy 15
 r disease -15
 r light 15
 #7506
-ground hog groundhog~
-a ground-hog~
-A ground-hog is here.  Digging holes.
+groundhog ground боров hog~
+@eng a ground-hog@rus боров~
+@eng A ground-hog is here.  Digging holes.
+@rus Огромный боров (hog) роет норы в земле.
 ~
-He is doing.. Well... Well, whatever ground-hogs DO, of course!
+@eng He is doing.. Well... Well, whatever ground-hogs DO, of course!
+@rus Он занимается тем, что... В общем тем, что делают все боровы!
 ~
-cat~
+pig~
 G 0 0 0 0 0 0
 2 0 2d7+21 19d1+1 1d5+0 'stab'
 8 8 8 10
@@ -120,43 +136,52 @@ EKN
 stand stand male 0
 0 0 medium unknown
 #7507
-field mouse fieldmouse small~
-a field mouse~
-A field mouse is here, being very small...
+mouse fieldmouse small полевка field мышь~
+@eng a field mouse@rus полевка~
+@eng A field mouse is here, being very small...
+@rus Ты видишь крошечную мышку-полевку (mouse).
 ~
-He's small, and it is hard to see him clearly...
+@eng He's small, and it is hard to see him clearly...
+@rus Она настолько мала, что ее очень сложно разглядеть подробно...
 ~
 elf~
 G 0 0 0 0 0 0
 1 0 2d6+10 9d1+1 1d4+0 'claw'
 9 9 9 10
 EKN
-stand stand male 10
+stand stand female 10
 0 0 tiny unknown
 r negative 10
 r charm -33
 #7508
-flying squirrel~
-a flying squirrel~
-A flying squirrel is here, glideing about.
+squirrel летучая летяга flying белка~
+@eng a flying squirrel@rus ~~белка~~-~~летяга~~~
+@eng A flying squirrel is here, glideing about.
+@rus Белка-летяга (squirell) скользит среди ветвей.
 ~
-He's small, furry, and brown.  Makes you wish you could step on him-except
+@eng He's small, furry, and brown.  Makes you wish you could step on him-except
 he's flying, and you're not.  We should fix this...
+@rus Она маленькая, пушистая и коричневая. Ее вид рождает в тебе желание
+наступить на нее. Но есть одна проблема - она летает, а ты - нет.
+У тебя так и чешутся руки исправить это...
 ~
 song bird~
 G 0 0 0 0 0 0
 2 0 2d7+21 19d1+1 1d5+0 'punch'
 8 8 8 10
 EKN
-stand stand male 0
+stand stand female 0
 0 0 small unknown
 #7509
-starryeyed starry eyed lover~
-a starry eyed lover~
-A starry eyed lover is here, taking his stroll through the park.
+lover влюбленный starryeyed юноша starry eyed~
+@eng a starry eyed lover@rus ~~влюбленный~~ ~~юноша~~~
+@eng A starry eyed lover is here, taking his stroll through the park.
+@rus Влюбленный юноша (lover) прогуливается по парку.
 ~
-He is tall, and very handsome.  You feel that the object of his affections
+@eng He is tall, and very handsome.  You feel that the object of his affections
 must be feeling very good.
+@rus Он высок и очень красив. Ты понимаешь, что объект его романтической
+привязанности должен быть очень счастлив.
 ~
 human~
 G 0 0 0 0 300 0
@@ -166,12 +191,14 @@ EKN
 stand stand male 350
 0 0 medium unknown
 #7510
-starryeyed starry eyed lover~
-a starry eyed lover~
-A starry eyed lover is here, smileing and talking to herself happily.
+lover влюбленная starryeyed девушка starry eyed~
+@eng a starry eyed lover@rus ~~влюбленная~~ ~~девушка~~~
+@eng A starry eyed lover is here, smileing and talking to herself happily.
+@rus Влюбленная девушка (lover) мечтательно улыбается и что-то шепчет про себя.
 ~
-She is young, beautiful, smart--- Kinda makes you jealous of the guy who
+@eng She is young, beautiful, smart--- Kinda makes you jealous of the guy who
 has nabbed her..
+@rus Она молода, прекрасна, умна. Похоже, ты начинаешь ее ревновать!
 ~
 human~
 G 0 0 0 0 300 0
@@ -181,11 +208,14 @@ EKN
 stand stand female 60
 0 0 medium unknown
 #7511
-herbalist helper young~
-a herbalists helper~
-A helper of the herbalist is here.
+helper young торговца травами herbalist помощник~
+@eng a herbalists helper@rus ~~помощник~~ торговца травами~
+@eng A helper of the herbalist is here.
+@rus Ты видишь молодого помощника торговца травами (helper).
 ~
-He is collecting herbs for use in his training, and his mentors work.
+@eng He is collecting herbs for use in his training, and his mentors work.
+@rus Он собирает различные травы для наставника и для своего дальнейшего
+обучения.
 ~
 human~
 G 0 0 0 0 0 0
@@ -195,114 +225,136 @@ EKN
 stand stand male 90
 0 0 medium unknown
 #7512
-water snake~
-water snake~
-A water snake is swimming (or is it sliding?) here.
+snake водяная water змейка~
+@eng water snake@rus ~~водяная~~ ~~змейка~~~
+@eng A water snake is swimming (or is it sliding?) here.
+@rus Водяная змейка (snake) плывет (или скользит?) по воде.
 ~
-He has green scales,  almost like his cousin in the Park.
+@eng He has green scales,  almost like his cousin in the Park.
+@rus Зеленые чешуйки делают эту змейку похожей на свою родственницу из Парка. 
 ~
 snake~
 G 0 0 0 0 0 0
 6 0 2d7+71 59d1+1 1d7+1 'whip'
 4 4 4 9
 EKN
-stand stand male 0
+stand stand female 0
 0 0 medium unknown
 r cold 50
 r poison -33
 #7513
-fish pointy teeth small~
-a small fish with pointy teeth~
-A small fish with pointy teeth is here,  swimming along peacefully.
+fish рыбка pointy teeth small маленькая~
+@eng a small fish with pointy teeth@rus ~~маленькая~~ ~~зубастая~~ ~~рыбка~~~
+@eng A small fish with pointy teeth is here,  swimming along peacefully.
+@rus Маленькая зубастая рыбка (fish) мирно плавает вокруг.
 ~
-He has many small sharp pointy teeth in his mouth.
+@eng He has many small sharp pointy teeth in his mouth.
+@rus У нее во рту много маленьких, но острых игловидных зубов.
 ~
 water fowl~
 G 0 0 0 0 0 0
 6 0 2d7+71 59d1+1 1d7+1 'smash'
 4 4 4 9
 EKN
-stand stand male 0
+stand stand female 0
 0 0 medium unknown
 #7514
-fish pointy medium teeth~
-a medium fish will pointy teeth~
-A medium fish with pointy teeth is here,  swimming along peacefully.
+fish рыбка pointy medium teeth небольшая~
+@eng a medium fish will pointy teeth@rus ~~небольшая~~ ~~зубастая~~ ~~рыбка~~~
+@eng A medium fish with pointy teeth is here,  swimming along peacefully.
+@rus Небольшая зубастая рыбка (fish) мирно проплывает около тебя.
 ~
-He has many medium sharp pointy teeth in his mouth.
+@eng He has many medium sharp pointy teeth in his mouth.
+@rus У нее во рту много небольших, но острых игловидных зубов.
 ~
 water fowl~
 G 0 0 0 H 0 0
 7 0 2d6+85 69d1+1 1d8+1 'smash'
 4 4 4 9
 EKN
-stand stand male 0
+stand stand female 0
 0 0 medium unknown
 #7515
-fish pointy teeth large~
-a large fish with pointy teeth~
-A LARGE fish with pointy teeth is here, swimming along peacefully.
+fish рыба pointy teeth large большая~
+@eng a large fish with pointy teeth@rus ~~большая~~ ~~зубастая~~ ~~рыбина~~~
+@eng A LARGE fish with pointy teeth is here, swimming along peacefully.
+@rus БОЛЬШАЯ зубастая рыбина (fish) мирно плывет куда-то.
 ~
-He has MANY, MANY,  sharp pointy teeth of the medium type....
+@eng He has MANY, MANY,  sharp pointy teeth of the medium type....
+@rus У нее МНОГО, ОЧЕНЬ МНОГО острых зубов... Она вызывает у тебя страх,
+а то, что вызывает страх, должно быть уничтожено, верно?
 ~
 water fowl~
 G 0 0 0 0 0 0
 8 0 2d7+96 79d1+1 1d7+2 'smash'
 3 3 3 9
 EKN
-stand stand male 0
+stand stand female 0
 0 0 medium unknown
 #7516
-goldfish small happy~
-a goldfish~
-A happy goldfish is here,  being happy.
+goldfish рыбка small happy золотая~
+@eng a goldfish@rus ~~золотая~~ ~~рыбка~~~
+@eng A happy goldfish is here,  being happy.
+@rus Маленькая золотая рыбка (goldfish) плавает со довольным видом.
 ~
-Aw, the little fella must have been dumped here, all alone, to care for
+@eng Aw, the little fella must have been dumped here, all alone, to care for
 himself.  You should help him...
+@rus Ах, эта маленькая подруга, должно быть, оставлена всеми в полном
+одиночестве. Ты просто $gn{обязан} помочь ей...
 ~
 water fowl~
 G 0 0 0 H 0 0
 5 0 2d6+60 49d1+1 1d6+1 'bite'
 5 5 5 9
 EKN
-stand stand male 0
+stand stand female 0
 0 0 medium unknown
 #7517
-guppy small happy~
-a guppy~
-A happy guppy is here, being, well you know, HAPPY!
+guppy гуппи small happy рыбка~
+@eng a guppy@rus ~~рыбка~~ гуппи~
+@eng A happy guppy is here, being, well you know, HAPPY!
+@rus Ты видишь маленькоую рыбку гуппи (guppy), счастливую до неприличия!
 ~
-He is almost as cute as the goldfish.  You should help him too.
+@eng He is almost as cute as the goldfish.  You should help him too.
+@rus Она почти так же мила, как и золотая рыбка. Ты $gn{должен} помочь
+и ей тоже.
 ~
 human~
 G 0 0 0 H 0 0
 5 0 2d6+60 49d1+1 1d6+1 'punch'
 5 5 5 9
 EKN
-stand stand male 134
+stand stand female 134
 0 0 medium unknown
 #7518
-fish teeth blunted~
-a fish with blunted teeth~
-A fish with BLUNTED teeth is here, gumming some weeds.
+fish рыба teeth blunted~
+@eng a fish with blunted teeth@rus ~~рыба~~ с тупыми зубами~
+@eng A fish with BLUNTED teeth is here, gumming some weeds.
+@rus Рыба с ТУПЫМИ зубами (fish) жует какие-то неаппетитные водоросли.
 ~
-This is getting silly, first small fish with pointy teeth, then medium ones,
+@eng This is getting silly, first small fish with pointy teeth, then medium ones,
 and the LARGE ones,  AND NOW!  BLUNTED TEETHED ONES!
 It's enough to make you sick....
+@rus Это уже начинает надоедать! Сначала маленькие рыбки с зубами-иголками,
+потом такие же, но побольше, потом БОЛЬШИЕ рыбы, и вот теперь еще РЫБЫ
+С ТУПЫМИ ЗУБАМИ! Этого достаточно, чтобы почувствовать себя плохо...
 ~
 water fowl~
 G 0 0 0 0 0 0
 6 0 2d7+71 59d1+1 1d7+1 'claw'
 4 4 4 9
 EKN
-stand stand male 0
+stand stand female 0
 0 0 medium unknown
 #7519
-bugbear ugly~
-a bugbear~
-An UGLY bugbear is here, plotting who knows what.
+bugbear бука ugly урод~
+@eng a bugbear@rus бука~
+@eng An UGLY bugbear is here, plotting who knows what.
+@rus Уродливый бука (bugbear) замышляет что-то отвратительное.
 ~
-He looks evil, and mean.  You wonder what he is planning to do down here..
+@eng He looks evil, and mean.  You wonder what he is planning to do down here..
+@rus На вид он очень злой и подлый. Интересно, какие грязные мыслишки
+копошатся у него в голове...
 ~
 bear~
 G 0 0 0 H -500 0
@@ -314,11 +366,13 @@ stand stand male 0
 r bash -33
 r cold -33
 #7520
-worm cleaner large~
-a cleaner worm~
-A LARGE Cleaner Worm is here!
+worm червь cleaner large уборщик~
+@eng a cleaner worm@rus ~~червь~~-~~уборщик~~~
+@eng A LARGE Cleaner Worm is here!
+@rus Ты видишь ОГРОМНОГО червя (worm), убирающего мусор.
 ~
-Now you know why these tunnels are so clean.
+@eng Now you know why these tunnels are so clean.
+@rus Теперь-то ты понимаешь, почему эти туннели выглядят так чисто.
 ~
 snake~
 FG 0 0 0 ABH 0 0
@@ -330,11 +384,13 @@ stand stand male 0
 r cold 50
 r poison -33
 #7521
-citizen man~
-a citizen of Gerighelm~
-A citizen of the fine city or Gerighelm is here, going to and from his errands
+citizen житель man~
+@eng a citizen of Gerighelm@rus ~~житель~~ Геригхельма~
+@eng A citizen of the fine city or Gerighelm is here, going to and from his errands
+@rus Житель славного города Геригхельма идет по своим делам.
 ~
-The citizen of Gerighelm looks happy, and contented.
+@eng The citizen of Gerighelm looks happy, and contented.
+@rus Житель Геригхельма (citizen) выглядит счастливым и довольным жизнью.
 ~
 human~
 G 0 0 0 0 0 7521
@@ -344,12 +400,15 @@ EKN
 stand stand male 120
 0 0 medium unknown
 #7522
-citizen woman~
-a citizen of Gerighelm~
-A citizen of the fine city of Gerighelm is here, haggling over prices in the
+citizen жительница woman~
+@eng a citizen of Gerighelm@rus ~~жительница~~ Геригхельма~
+@eng A citizen of the fine city of Gerighelm is here, haggling over prices in the
 market.
+@rus Жительница Геригхельма (citizen) оживленно торгуется с продавцами.
 ~
-She looks very worn from all this haggling.  But she is happy nonetheless.
+@eng She looks very worn from all this haggling.  But she is happy nonetheless.
+@rus Похоже что она уже порядком подустала от такой войны за каждую монетку.
+Тем не менее, она тоже счастлива, как и все в этом проклятом городе!
 ~
 human~
 0 0 0 0 M 0 7521
@@ -359,12 +418,15 @@ EKN
 stand stand female 140
 0 0 medium unknown
 #7523
-troubadour bard~
-a troubadour~
-A troubadour is here, singing for his supper.
+troubadour трубадур bard~
+@eng a troubadour@rus трубадур~
+@eng A troubadour is here, singing for his supper.
+@rus Трубадур (troubadour) пением зарабатывает себе на пропитание.
 ~
-His voice is clear and strong.  It makes you want to join in the song
+@eng His voice is clear and strong.  It makes you want to join in the song
 (and buy him dinner...)
+@rus У него чистый и сильный голос. Тебе так и хочется спеть вместе с ним
+(и угостить его обедом...)
 ~
 human~
 G 0 0 0 0 0 0
@@ -374,11 +436,13 @@ EKN
 stand stand male 200
 0 0 medium unknown
 #7524
-biddy old~
-an old biddy~
-An old biddy is here, cussing out the children...
+biddy старуха old~
+@eng an old biddy@rus старуха~
+@eng An old biddy is here, cussing out the children...
+@rus Дряхлая старуха (biddy) громко ругается на детей...
 ~
-She is wrinkled and bent.  She is also loud.....
+@eng She is wrinkled and bent.  She is also loud.....
+@rus Она сгорблена и покрыта морщинами. И еще она создает много шума...
 ~
 human~
 G 0 0 0 0 0 0
@@ -402,12 +466,15 @@ r harm -50
 r charm -50
 r sound -50
 #7525
-coot old~
-an old coot~
-An old coot is here, talking his face off.
+coot старик old~
+@eng an old coot@rus старик~
+@eng An old coot is here, talking his face off.
+@rus Старик (coot) болтает без перерыва.
 ~
-He is telling everyone in earshot how he defeated the red dragon and then
+@eng He is telling everyone in earshot how he defeated the red dragon and then
 stayed to play with the kings wife.....
+@rus Он громко рассказывает всем и каждому о том, как он победил красного
+дракона и потом остался, чтобы "поиграть" с королевой.
 ~
 human~
 G 0 0 0 0 0 7525
@@ -431,12 +498,15 @@ r harm -50
 r charm -50
 r sound -50
 #7526
-child little boy~
-a little boy~
-A little boy is here, playing with his marbles.
+child ребенок little boy мальчик~
+@eng a little boy@rus ~~маленький~~ ~~мальчик~~~
+@eng A little boy is here, playing with his marbles.
+@rus Маленький мальчик (child) играет со своими мраморными шариками.
 ~
-He has a nice bag of marbles.  Some are red, some are blue, some are green
+@eng He has a nice bag of marbles.  Some are red, some are blue, some are green
 with a curlycue.....
+@rus У него целый мешочек с разноцветными мраморными шариками. Некоторые красные,
+другие - синие, третьи зеленые...
 ~
 human~
 G 0 0 0 0 0 0
@@ -460,11 +530,13 @@ r harm -50
 r charm -50
 r sound -50
 #7527
-child little girl~
-a little girl~
-A little girl is here, talking to her doll.
+child ребенок little girl девочка~
+@eng a little girl@rus ~~маленькая~~ ~~девочка~~~
+@eng A little girl is here, talking to her doll.
+@rus Маленькая девочка (child) разговаривает со своей куклой.
 ~
-She is telling her doll The Facts Of Life....
+@eng She is telling her doll The Facts Of Life....
+@rus Она рассказывает своей кукле Сказку про Доброго Здреню.
 ~
 human~
 G 0 0 0 0 0 0
@@ -488,12 +560,15 @@ r harm -50
 r charm -50
 r sound -50
 #7528
-junior guard~
-a junior guard~
-A junior guard of Gerighelm is here, trying to look brave and in control.
+junior стражник guard молодой~
+@eng a junior guard@rus ~~молодой~~ ~~стражник~~~
+@eng A junior guard of Gerighelm is here, trying to look brave and in control.
+@rus Молодой стражник (guard) Геригхельма напускает на себя бывалый вид.
 ~
-Hmm.  This is the new idea that the duke of Gerighelm has. It keeps youth
+@eng Hmm.  This is the new idea that the duke of Gerighelm has. It keeps youth
 Off The Streets...
+@rus Хмм. Должно быть, это новая идея герцога Геригхельма. Ну что ж... По крайней
+мере молодежь теперь не болтается по улицам без дела...
 ~
 human~
 GT 0 0 0 0 1000 7528
@@ -517,11 +592,13 @@ r harm -50
 r charm -50
 r sound -50
 #7529
-young woman~
-a young woman~
-A young woman is here, flirting with passerbys.
+young девушка woman молодая~
+@eng a young woman@rus ~~молодая~~ ~~девушка~~~
+@eng A young woman is here, flirting with passerbys.
+@rus Красивая молодая девушка (woman) флиртует с прохожими.
 ~
-She is about 16. And VERY attractive.
+@eng She is about 16. And VERY attractive.
+@rus На вид ей около 16 лет. И она ОЧЕНЬ привлекательна.
 ~
 human~
 GT 0 0 0 0 1000 0
@@ -545,11 +622,13 @@ r harm -50
 r charm -50
 r sound -50
 #7530
-cityguard guard gerighelm~
-a Gerighelm cityguard~
-A Gerighelm cityguard is here, protecting the innocent.
+cityguard стражник guard gerighelm геригхельма~
+@eng a Gerighelm cityguard@rus ~~стражник~~ Геригхельма~
+@eng A Gerighelm cityguard is here, protecting the innocent.
+@rus Стражник Геригхельма (cityguard) готов вступиться за беззащитных.
 ~
-He is large and strong.  You are glad that he's a Good Guy....
+@eng He is large and strong.  You are glad that he's a Good Guy....
+@rus Он очень большой и сильный. И ты $gn{рад}, что он на стороне Добра...
 ~
 human~
 GT 0 0 0 0 1000 7530
@@ -573,11 +652,13 @@ r harm -50
 r charm -50
 r sound -50
 #7531
-cityguard guard gerighelm~
-a Gerighelm cityguard~
-A Gerighelm cityguard is here, protecting the innocent.
+cityguard стражник guard gerighelm геригхельма~
+@eng a Gerighelm cityguard@rus ~~стражник~~ Геригхельма~
+@eng A Gerighelm cityguard is here, protecting the innocent.
+@rus Стражник Геригхельма (cityguard) следит за соблюдением законов.
 ~
-He is large and strong.  You are glad that he's a Good Guy....
+@eng He is large and strong.  You are glad that he's a Good Guy....
+@rus Он очень большой и сильный. И ты $gn{рад}, что он на стороне Добра...
 ~
 human~
 GT 0 0 0 0 1000 7530
@@ -601,11 +682,13 @@ r harm -50
 r charm -50
 r sound -50
 #7532
-cityguard guard gerighelm~
-a Gerighelm cityguard~
-A Gerighelm cityguard is here, protecting the innocent.
+cityguard стражник guard gerighelm геригхельма~
+@eng a Gerighelm cityguard@rus ~~стражник~~ Геригхельма~
+@eng A Gerighelm cityguard is here, protecting the innocent.
+@rus Стражник Геригхельма (cityguard) помогает незаслуженно обиженным.
 ~
-He is large and strong.  You are glad that he's a Good Guy....
+@eng He is large and strong.  You are glad that he's a Good Guy....
+@rus Он очень большой и сильный. И ты $gn{рад}, что он на стороне Добра...
 ~
 human~
 GT 0 0 0 0 1000 7530
@@ -629,12 +712,15 @@ r harm -50
 r charm -50
 r sound -50
 #7533
-ale-conner ale conner~
-the ale-conner~
-The Ale-Conner is here, recovering from his inspections...
+ale-conner дегустатор ale conner~
+@eng the ale-conner@rus дегустатор~
+@eng The Ale-Conner is here, recovering from his inspections...
+@rus Дегустатор (ale-conner) отдыхает после тяжелого рабочего дня.
 ~
-His job is to inspect the wine, cider, and beer of the town.
+@eng His job is to inspect the wine, cider, and beer of the town.
 He does his job well.....
+@rus Его работа заключается в дегустации вина, сидра и пива в тавернах
+города. И он хорошо справляется со своей работой...
 ~
 human~
 G 0 0 0 0 0 0
@@ -658,11 +744,13 @@ r harm -50
 r charm -50
 r sound -50
 #7534
-defender gerighelm~
-a Defender of Gerighelm~
-A Defender of Gerighelm is here, on leave.
+defender защитник gerighelm геригхельма~
+@eng a Defender of Gerighelm@rus ~~защитник~~ Геригхельма~
+@eng A Defender of Gerighelm is here, on leave.
+@rus Защитник Геригхельма (defender) наслаждается заслуженным отдыхом.
 ~
-He is worn and tired (WHOA! Army training must be HARD!).
+@eng  He is worn and tired (WHOA! Army training must be HARD!).
+@rus Он выглядит очень утомленным. Армейские тренировки измотают любого...
 ~
 human~
 GT 0 0 0 0 1000 7534
@@ -686,11 +774,14 @@ r harm -50
 r charm -50
 r sound -50
 #7535
-defender gerighelm~
-a Defender of Gerighelm~
-A Defender of Gerighelm is here, on patrol.
+defender защитник gerighelm геригхельма~
+@eng a Defender of Gerighelm@rus ~~защитник~~ Геригхельма~
+@eng A Defender of Gerighelm is here, on patrol.
+@rus Защитник Геригхельма (defender) патрулирует улицы.
 ~
-He is worn, and tired.  But he still stays at his job!
+@eng He is worn, and tired.  But he still stays at his job!
+@rus Он выглядит очень утомленным. Но, тем не менее, он стойко несет
+свою службу!
 ~
 human~
 GT 0 0 0 0 1000 7534
@@ -714,11 +805,14 @@ r harm -50
 r charm -50
 r sound -50
 #7536
-palace guard~
-a palace guard~
-A palace guard is here, standing tall.
+palace стражник guard страж дворца~
+@eng a palace guard@rus ~~страж~~ дворца~
+@eng A palace guard is here, standing tall.
+@rus Высокий страж дворца (palace) стоит здесь.
 ~
-He looks happy with life-- As he is in the best position to enjoy it..
+@eng He looks happy with life-- As he is in the best position to enjoy it..
+@rus Похоже, он доволен жизнью - поскольку находится в наилучшем положении,
+чтобы наслаждаться ею...
 ~
 human~
 GT 0 0 0 0 1000 7536
@@ -742,11 +836,14 @@ r harm -50
 r charm -50
 r sound -50
 #7537
-palace guard~
-a palace guard~
-A palace guard is here, standing tall.
+palace стражник guard страж дворца~
+@eng a palace guard@rus ~~страж~~ дворца~
+@eng A palace guard is here, standing tall.
+@rus Высокий страж дворца (palace) охраняет покои герцога.
 ~
-He looks happy with life-- As he is in the best position to enjoy it..
+@eng He looks happy with life-- As he is in the best position to enjoy it..
+@rus Похоже, он доволен жизнью - поскольку находится в наилучшем положении,
+чтобы наслаждаться ею...
 ~
 human~
 GT 0 0 0 0 1000 7536
@@ -770,11 +867,14 @@ r harm -50
 r charm -50
 r sound -50
 #7538
-cook~
-the cook~
-The Cook is here, dreaming up new recipes.
+cook повар~
+@eng the cook@rus повар~
+@eng The Cook is here, dreaming up new recipes.
+@rus Повар (Cook) придумывает рецепты новых гурманских блюд.
 ~
-He looks like one of his creampuffs.  To bad he doesn't know how to diet...
+@eng He looks like one of his creampuffs.  To bad he doesn't know how to diet...
+@rus Он выглядит в точности как его кремовые пирожные. Видимо, он не знает, что
+такое диета...
 ~
 human~
 GT 0 0 0 H 1000 0
@@ -798,11 +898,13 @@ r harm -50
 r charm -50
 r sound -50
 #7539
-palace mage~
-the palace mage~
-The palace Mage is here, practicing his spells.
+palace маг mage придворный~
+@eng the palace mage@rus ~~придворный~~ ~~маг~~~
+@eng The palace Mage is here, practicing his spells.
+@rus Придворный Маг (Mage) практикует новые заклинания.
 ~
-He is the standard wizard:  Old, decrepit, exceedingly powerful...
+@eng He is the standard wizard:  Old, decrepit, exceedingly powerful...
+@rus Это типичный волшебник: старый, ветхий, чрезвычайно могущественный...
 ~
 human~
 GHR 0 0 A 0 1000 0
@@ -814,11 +916,14 @@ stand stand male 2000
 r bash -50
 r charm 999
 #7540
-palace priest~
-the palace priest~
-The Priest of this palace is here, praying devotedly to his God.
+palace священник priest придворный~
+@eng the palace priest@rus ~~придворный~~ ~~священник~~~
+@eng The Priest of this palace is here, praying devotedly to his God.
+@rus Придворный священник (priest) сосредоточенно молится своему Богу.
 ~
-He is the standard priest:  Old, fatherly looking, REAL powerful...
+@eng He is the standard priest:  Old, fatherly looking, REAL powerful...
+@rus Это типичный священник: старый, с отеческим взглядом, ДЕЙСТВИТЕЛЬНО
+могущественный...
 ~
 human~
 BGR 0 H A 0 1000 0
@@ -829,11 +934,13 @@ stand stand male 2000
 0 0 medium unknown
 r bash -50
 #7550
-head guard~
-the head of the guard~
-The head of the guard is here--GOD He's HUGE!
+head начальник guard стражи~
+@eng the head of the guard@rus ~~начальник~~ стражи~
+@eng The head of the guard is here--GOD He's HUGE!
+@rus Начальник стражи (head) тут - Бог мой! Он ОГРОМЕН!
 ~
-He's HUGE!!!!
+@eng He's HUGE!!!!
+@rus Он ОГРОМЕН! Просто ЗВЕРЮГА!
 ~
 human~
 GT 0 0 0 0 1000 7550
@@ -857,11 +964,13 @@ r harm -50
 r charm -50
 r sound -50
 #7551
-palace gardener~
-the palace gardener~
-The palace gardener is here, calmly uprooting some weeds.
+palace садовник gardener придворный~
+@eng the palace gardener@rus ~~придворный~~ ~~садовник~~~
+@eng The palace gardener is here, calmly uprooting some weeds.
+@rus Придворный садовник (gardener) неторопливо выпалывает сорняки.
 ~
-He is grabbing weeds like there is no tomorrow...
+@eng He is grabbing weeds like there is no tomorrow...
+@rus Он так старательно вырывает сорняки, как будто они его личные враги.
 ~
 human~
 GT 0 0 0 0 1000 0
@@ -885,11 +994,11 @@ r harm -50
 r charm -50
 r sound -50
 #7552
-bodyguard body guard~
-a bodyguard~
-A bodyguard is here, guarding the Duke.
+bodyguard телохранитель body guard~
+@eng a bodyguard@rus телохранитель~
+@eng A bodyguard is here, guarding the Duke.
+@rus Телохранитель (bodyguard) охраняет Герцога.
 ~
-He looks like he will give his life for his Duke.
 ~
 human~
 GT 0 0 0 0 1000 0
@@ -913,11 +1022,13 @@ r harm -50
 r charm -50
 r sound -50
 #7553
-bodyguard body guard~
-a bodyguard~
-A bodyguard is here, guarding his Duke.
+bodyguard телохранитель body guard~
+@eng a bodyguard@rus телохранитель~
+@eng A bodyguard is here, guarding his Duke.
+@rus Телохранитель (bodyguard) охраняет своего Герцога.
 ~
-He looks like he will give his life for his Duke.
+@eng He looks like he will give his life for his Duke.
+@rus Он готов без раздумий отдать жизнь за своего Герцога.
 ~
 human~
 GT 0 0 0 0 1000 0
@@ -941,11 +1052,13 @@ r harm -50
 r charm -50
 r sound -50
 #7554
-duke gerighelm~
-the Duke of Gerighelm~
-The Duke of Gerighelm is here, watching over his proud lands.
+duke герцог gerighelm геригхельма~
+@eng the Duke of Gerighelm@rus ~~Герцог~~ Геригхельма~
+@eng The Duke of Gerighelm is here, watching over his proud lands.
+@rus Герцог Геригхельма (Duke) наблюдает за жизнью в своей цветущей земле.
 ~
-He looks worn, but happy.
+@eng He looks worn, but happy.
+@rus Он выглядит немного устало, но, похоже, доволен своими поддаными.
 ~
 human~
 BGJRT 0 0 0 0 1000 7550
@@ -957,11 +1070,13 @@ stand stand male 4000
 r bash -50
 r charm 999
 #7555
-duchess gerighelm~
-the Duchess of Gerighelm~
-The Duchess of Gerighelm is here, pondering dinner parties and the like.
+duchess герцогиня gerighelm геригхельма~
+@eng the Duchess of Gerighelm@rus ~~Герцогиня~~ Геригхельма~
+@eng The Duchess of Gerighelm is here, pondering dinner parties and the like.
+@rus Графиня Геригхельма (Duchess) обдумывает детали предстоящего обеда.
 ~
-She is a VERY social person...
+@eng She is a VERY social person...
+@rus Графиня - ОЧЕНЬ общительная женщина...
 ~
 human~
 BGJR 0 0 0 0 1000 0
@@ -973,11 +1088,13 @@ stand stand female 2500
 r bash -50
 r charm 999
 #7590
-servant~
-a servant~
-A servant of the duke is here serving.
+servant слуга~
+@eng a servant@rus слуга~
+@eng A servant of the duke is here serving.
+@rus Слуга герцога (servant) выполняет свою работу.
 ~
-He looks at you and says, what are you doing here?
+@eng He looks at you and says, what are you doing here?
+@rus Посмотрев на тебя, он интересуется, а что ты, собственно, тут делаешь?
 ~
 human~
 G 0 0 0 0 1000 0
@@ -1001,11 +1118,14 @@ r harm -50
 r charm -50
 r sound -50
 #7591
-cutpurse~
-a cutpurse~
-A cutpurse is here, attempting to hide.
+cutpurse воришка~
+@eng a cutpurse@rus воришка~
+@eng A cutpurse is here, attempting to hide.
+@rus Мелкий воришка пытается спрятаться.
 ~
-Well, COUNT your money!
+@eng Well, COUNT your money!
+@rus Таак, кажется пришла пора ПЕРЕСЧИТАТЬ свои деньги...
+Надеюсь, ты помнишь, сколько их у тебя БЫЛО...
 ~
 human~
 CHS 0 0 BG 0 -100 0
@@ -1015,11 +1135,13 @@ EFJN
 stand stand either 200
 0 0 medium unknown
 #7592
-baker~
-a baker~
-The baker of Gerighelm is here, selling things.
+baker пекарь~
+@eng a baker@rus пекарь~
+@eng The baker of Gerighelm is here, selling things.
+@rus Пекарь Геригхельма (baker) продает свои вкусно пахнущие изделия.
 ~
-He looks like a friendly old man who likes to bake.
+@eng He looks like a friendly old man who likes to bake.
+@rus Это дружелюбный пожилой мужчина, любящий что-нибудь (или кого-нибудь) испечь.
 ~
 human~
 BJVe 0 0 0 0 900 0
@@ -1046,12 +1168,16 @@ r harm 999
 r charm 999
 r sound 999
 #7593
-blacksmith vendy~
-the blacksmith Vendy~
-The blacksmith Vendy is here, pounding on an anvil and selling things.
+blacksmith кузнец vendy~
+@eng the blacksmith Vendy@rus ~~кузнец~~ Vendy~
+@eng The blacksmith Vendy is here, pounding on an anvil and selling things.
+@rus Кузнец Vendy (blacksmith) отрывается от работы чтобы показать тебе свой товар.
 ~
-The way she is pounding her anvil makes you want to be on his good side.
+@eng The way she is pounding her anvil makes you want to be on his good side.
 The main reason, is that I doubt the anvil can take much more of her pounding.
+@rus Посмотрев, как она бьет молотом по своей наковальне, ты понимаешь, что лучше
+быть на ее стороне, а не на противоположной. Очень сомнительно, что наковальня
+выдержит еще сотню ее ударов.
 ~
 human~
 BJTVe 0 0 0 0 900 0
@@ -1078,11 +1204,13 @@ r harm 999
 r charm 999
 r sound 999
 #7594
-mage~
-the mage~
-The Mage is here, selling things.
+mage маг~
+@eng the mage@rus маг~
+@eng The Mage is here, selling things.
+@rus Маг (mage) продает различные магические вещи.
 ~
-He is a powerful old coot....
+@eng He is a powerful old coot....
+@rus Это могущественный старик... что еще ты хочешь узнать?
 ~
 human~
 BJVe 0 0 0 A 900 0
@@ -1110,10 +1238,12 @@ r charm 999
 r sound 999
 #7595
 pawn shop runner~
-the pawn shop owner~
-The Pawn Shop owner is here selling and buying things.
+@eng the pawn shop owner@rus Владелец ломбарда~
+@eng The Pawn Shop owner is here selling and buying things.
+@rus Владелец ломбарда (pawn) покупает и продает всякие вещи.
 ~
-He looks almost like the pawn...
+@eng He looks almost like the pawn...
+@rus Выглядит он как-то странно :)
 ~
 human~
 BJVe 0 0 0 0 900 0
@@ -1140,11 +1270,13 @@ r harm 999
 r charm 999
 r sound 999
 #7597
-merchant~
-the merchant~
-The merchant is here, selling his wares.
+merchant купец~
+@eng the merchant@rus купец~
+@eng The merchant is here, selling his wares.
+@rus Купец (merchant) продает свои товары.
 ~
-HE'S A MERCHANT!
+@eng HE'S A MERCHANT!
+@rus ЭТО ПРОСТО КУПЕЦ!
 ~
 human~
 JVe 0 0 0 0 900 0
@@ -1171,11 +1303,13 @@ r harm 999
 r charm 999
 r sound 999
 #7604
-herbalist~
-the herbalist~
-The Herbalist is here, selling herbs.
+herbalist торговей травами~
+@eng the herbalist@rus ~~торговец~~ травами~
+@eng The Herbalist is here, selling herbs.
+@rus Торговец травами (herbalist) продает травы на любой вкус.
 ~
-She looks like she is happy with her lot in life.
+@eng She looks like she is happy with her lot in life.
+@rus Она выглядит полностью довольной своей ролью в жизни.
 ~
 human~
 BJVe 0 0 0 0 900 0
@@ -1202,11 +1336,13 @@ r harm 999
 r charm 999
 r sound 999
 #7609
-animal man~
-the animal man~
-The Animal Man is here, selling pets.
+animal дрессировщик man~
+@eng the animal man@rus ~~дрессировщик~~ животных~
+@eng The Animal Man is here, selling pets.
+@rus Дрессировщик (animal) торгует животными.
 ~
-He is covered in his stock..
+@eng He is covered in his stock..
+@rus Он занят созерцанием своих животных..
 ~
 human~
 BJV 0 0 0 0 900 0
@@ -1230,11 +1366,13 @@ r harm 999
 r charm 999
 r sound 999
 #7610
-witch hag~
-the old witch~
-The old Witch is here, selling things.
+witch ведьма hag~
+@eng the old witch@rus ~~старая~~ ~~ведьма~~~
+@eng The old Witch is here, selling things.
+@rus Старая ведьма (witch) продает что-то.
 ~
-She is old, and ugly- very good witch material...
+@eng She is old, and ugly- very good witch material...
+@rus Она старая и уродливая - вот уж действительно ведьма!!!
 ~
 human~
 BJVe 0 0 0 A 900 7006
@@ -1261,11 +1399,13 @@ r harm 999
 r charm 999
 r sound 999
 #7698
-hawk~
-a hawk~
-A hawk is here, loyal to it's owner.
+hawk ястреб~
+@eng a hawk@rus ястреб~
+@eng A hawk is here, loyal to it's owner.
+@rus Верный своему хозяину ястреб (hawk) кружится над тобой.
 ~
-The hawk glares at you.
+@eng The hawk glares at you.
+@rus Ястреб впивается в тебя взглядом.
 ~
 human~
 GI 0 0 0 0 1000 0
@@ -1275,19 +1415,23 @@ EKN
 stand stand male 10
 0 0 medium unknown
 #7699
-death~
-the Death~
-Death is here waiting for you.
+death смерть~
+@eng the Death@rus Смерть~
+@eng Death is here waiting for you.
+@rus Смерть (Death) ждет тебя.
 ~
-It is strong, impertubable looking creature. It notice that you look at its, 
+@eng It is strong, impertubable looking creature. It notice that you look at its, 
 and it says: 'Have a nice day'. Hm?... Death is your only way, probably...
+@rus Это сильное, невозмутимо выглядящее существо. Вот оно перехватывает твой
+изумленный взгляд и произносит: 'Желаю удачи'. Хм?!?... Вероятно, смерть -
+твой единственный выход...
 ~
 human~
 BGT 0 0 0 ABK 100 0
 60 0 50d10+9500 599d1+1 8d6+28 'slap'
 -30 -30 -30 0
 A
-stand stand either 0
+stand stand female 0
 0 0 medium unknown
 r fire -50
 r cold -50
@@ -1307,108 +1451,108 @@ r sound -50
 
 #OBJECTS
 #7500
-apple~
-an apple~
-An apple is here.~
+apple яблоко~
+@eng an apple@rus яблоко~
+@eng An apple is here.@rus Большое сочное яблоко (apple) лежит здесь.~
 food~
 food 0 0 A
 CE CE 0 0 0
 1 1 2 P
 g @rus none~
 #7501
-apple pie~
-an apple pie~
-An apple pie is here.~
+apple пирог pie яблочный~
+@eng an apple pie@rus ~~яблочный~~ ~~пирог~~~
+@eng An apple pie is here.@rus Яблочный пирог (pie) лежит тут. Хм... на вид очень даже ничего!~
 food~
 food 0 0 A
 DF DF 0 0 0
 1 4 10 P
-g @rus none~
+g @rus male~
 #7502
-beet~
-a beet~
-A beet is growing here.~
+beet свекла~
+@eng a beet@rus свекла~
+@eng A beet is growing here.@rus Свекла (beet) растет здесь. Какая-то она странная...~
 food~
 food 0 0 A
 BEF BEF 0 A 0
 1 4 40 P
-g @rus none~
+g @rus female~
 #7503
-carrot~
-a carrot~
-A carrot is lieing here.~
+carrot морковь~
+@eng a carrot@rus морковь~
+@eng A carrot is lieing here.@rus Ты видишь аппетитную морковку (carrot). Вкусно и полезно для здоровья!~
 food~
 food 0 0 A
 CE CE 0 0 0
 1 4 10 P
-g @rus none~
+g @rus female~
 #7504
-beer bottle~
-a bottle of beer~
-A bottle of beer has been forgotten here.~
+beer бутылка bottle пиво~
+@eng a bottle of beer@rus ~~бутылка~~ пива~
+@eng A bottle of beer has been forgotten here.@rus Кто-то бросил тут недопитую бутылку пива (beer). Ну-ка, сколько там осталось?~
 glass~
 drink 0 0 A
 2 2 'beer' 0 0
 1 10 100 P
-g @rus none~
+g @rus female~
 #7505
-magic water pitcher~
-a magic water pitcher~
-A pitcher is here.~
+magic кувшин water pitcher волшебный вода~
+@eng a magic water pitcher@rus ~~волшебный~~ ~~кувшин~~~
+@eng A pitcher is here.@rus Кувшин (pitcher) лежит тут, переливаясь странными отттенками.~
 glass~
 drink 0 0 A
 25 25 'water' 0 0
 0 5 100 P
-g @rus none~
+g @rus male~
 #7507
-strengthening herbs red bunch~
-a bunch of red herbs~
-A bunch of strengthening herbs is growing here.~
+strengthening herbs трава red bunch кустик красная~
+@eng a bunch of red herbs@rus ~~кустик~~ красной травы~
+@eng A bunch of strengthening herbs is growing here.@rus Кустик красной травы (strengthening) растет неподалеку.~
 food~
 pill 0 0 A
 2 'giant strength' 'refresh' 'haste' ''
 1 15 855 P
-g @rus none~
+g @rus male~
 #7508
-healing herb green bunch~
-a bunch of green herbs~
-A bunch of healing herbs is growing here.~
+healing трава herb green bunch кустик зеленая~
+@eng a bunch of green herbs@rus ~~кустик~~ зеленой целебной травы~
+@eng A bunch of healing herbs is growing here.@rus Кустик зеленой целебной травы (healing) тянется к солнцу.~
 food~
 pill 0 0 A
 1 'cure critical' 'remove curse' 'cure poison' 'cure disease'
 1 20 437 P
-g @rus none~
+g @rus male~
 #7509
-strange herbs green bunch~
-a bunch of herbs~
-A bunch of strange herbs are growing here.~
+strange трава herbs green bunch зеленая странная кустик~
+@eng a bunch of herbs@rus ~~кустик~~ странной травы~
+@eng A bunch of strange herbs are growing here.@rus Ты замечаешь кустик странной травы (strange). Тебе так и хочется ее сжевать!~
 food~
 pill 0 0 A
 1 'detect hidden' 'detect invis' 'infravision' ''
 1 10 494 P
-g @rus none~
+g @rus male~
 #7511
-corpse guppy~
-corpse of a guppy~
-The corpse of a guppy is here.  Just sitting and being dead.~
+corpse труп guppy гуппи~
+@eng corpse of a guppy@rus ~~труп~~ гуппи~
+@eng The corpse of a guppy is here.  Just sitting and being dead.@rus Ты видишь труп рыбки гуппи (corpse). Ей уже кто-то помог...~
 food~
 food 0 0 A
 C C 0 0 0
 1 10 0 P
-g @rus none~
+g @rus male~
 #7512
-corpse goldfish~
-corpse of a goldfish~
-The corpse of a goldfish is here.  It has been dead for a while..~
+corpse труп goldfish~
+@eng corpse of a goldfish@rus ~~труп~~ золотой рыбки~
+@eng The corpse of a goldfish is here.  It has been dead for a while..@rus Гниющий труп золотой рыбки (corpse)... Не перевелись еще добрые люди!~
 food~
 food 0 0 A
 AC AC 0 0 0
 1 10 0 P
-g @rus none~
+g @rus male~
 #7513
-lute~
-a lute~
-A lute is lieing on the ground here.~
+lute лютня~
+@eng a lute@rus лютня~
+@eng A lute is lieing on the ground here.@rus На земле ты замечаешь слегка запылившуюся лютню (lute).~
 wood~
 wand G 0 AO
 20 10 10 'gas breath' 0
@@ -1416,16 +1560,18 @@ wand G 0 AO
 a '' to_object 9 -1 -100 14 0
 a '' to_object 9 -1 -10 5 0
 E
-lute~
-On the side it has words that say:
+lute лютня~
+@eng On the side it has words that say:
 
                                 Lute of power.
+@rus На боку нацарапаны слова:
+                               Лютня Могущества.
 ~
-g @rus none~
+g @rus female~
 #7514
-harp~
-a harp~
-A harp is lieing on the ground here.~
+harp арфа~
+@eng a harp@rus арфа~
+@eng A harp is lieing on the ground here.@rus Кто-то забыл тут прекрасную арфу (harp).~
 gold~
 wand G 0 AO
 35 10 10 'word of recall' 0
@@ -1433,114 +1579,123 @@ wand G 0 AO
 a '' to_object 9 -1 12 13 0
 a '' to_object 9 -1 -50 17 0
 E
-harp~
-On the side it says:
+harp арфа~
+@eng On the side it says:
                                 Harp of safety.
+@rus Присмотревшись, ты видишь такую надпись:
+                                Арфа безопасности.
 ~
-g @rus none~
+g @rus female~
 #7515
-umbrella~
-an umbrella~
-An umbrella is here, forgotten.~
+umbrella зонтик~
+@eng an umbrella@rus зонтик~
+@eng An umbrella is here, forgotten.@rus Почти новый зонтик (umbrella) лежит бесхозно.~
 wood~
 weapon CK 0 AN
 exotic 3 4 'bite' 0
 7 50 5000 P
-g @rus none~
+g @rus male~
 #7516
-stick~
-a stick~
-A stick is here, collecting dust.~
+stick палка~
+@eng a stick@rus палка~
+@eng A stick is here, collecting dust.@rus На земле пылится обычная палка (stick) - оружие пещерного человека.~
 wood~
 weapon 0 0 AN
 mace 2 5 'pound' 0
 4 50 300 P
-g @rus none~
+g @rus female~
 #7517
-bag marbles~
-a bag of marbles~
-A bag of marbles is lieing here.~
+bag мешочек marbles мрамор~
+@eng a bag of marbles@rus ~~мешочек~~ с мраморными шариками~
+@eng A bag of marbles is lieing here.@rus Кто-то потерял тут свой мешочек (bag) с разноцветными мраморными шариками.~
 marble~
 container 0 0 A
 100 0 0 100 100
 1 10 10 P
 E
-bag marbles~
-On the side is says:
+bag marbles мешочек~
+@eng On the side is says:
+
+                       Angel Enterprises Ltd.
+@rus Мистическая надпись на мешочке гласит:
 
                        Angel Enterprises Ltd.
 ~
-g @rus none~
+g @rus male~
 #7518
-doll~
-a doll~
-A doll is on the ground here.~
+doll кукла~
+@eng a doll@rus кукла~
+@eng A doll is on the ground here.@rus Кукла (doll) сиротливо лежит на земле. Она уже никогда не увидит свою хозяйку.~
 cloth~
 trash 0 0 AO
 0 0 0 0 0
 4 30 150 P
-g @rus none~
+g @rus female~
 #7519
-vest junior guard~
-a junior guard vest~
-A junior guard vest is here. forgotten.~
+vest кираса junior guard стражника~
+@eng a junior guard vest@rus ~~кираса~~ молодого стражника~
+@eng A junior guard vest is here. Forgotten.@rus Кираса молодого стражника (vest) лежит тут. А вот и труп стражника неподалеку...~
 leather~
 armor G 0 AD
 6 6 6 0 1
 14 60 2448 P
 a '' to_object 14 -1 -10 17 0
 E
-junior guard vest~
-On the side it says:
+junior жилет guard vest стражника~
+@eng On the side it says:
+                                Angel Enterprises Ltd.
+@rus Клеймо на подкладке жилета:
                                 Angel Enterprises Ltd.
 ~
-g @rus none~
+g @rus female~
 #7520
-shield junior guard~
-a junior guard shield~
-A junior guard shield is here.  Forgotten.~
+shield щит junior guard стражника~
+@eng a junior guard shield@rus ~~щит~~ молодого стражника~
+@eng A junior guard shield is here.  Forgotten.@rus Щит молодого стражника (shield) еще сохранил на себе пятна его крови.~
 leather~
 armor G 0 AJ
 6 6 6 0 1
 14 60 2400 P
 a '' to_object 14 -1 2 2 0
 E
-junior guard shield~
-On the side it says:
+junior щит guard shield стражника~
+@eng On the side it says:
+                                Angel Enterprises Ltd.
+@rus Клеймо с внутренней стороны:
                                 Angel Enterprises Ltd.
 ~
-g @rus none~
+g @rus male~
 #7521
-lantern junior guard~
-a junior guard lantern~
-A junior guard lantern is lieing here in the dust.~
+lantern фонарь junior guard стражника~
+@eng a junior guard lantern@rus ~~фонарь~~ молодого стражника~
+@eng A junior guard lantern is lieing here in the dust.@rus Фонарь молодого стражника (lantern) пылится без дела.~
 bronze~
 light 0 0 A
 0 0 -1 0 0
 0 20 10 P
-g @rus none~
+g @rus male~
 #7522
-cudgel junior guard~
-a junior guard cudgel~
-A junior guard cudgel is here, collection dust.~
+cudgel дубинка junior guard стражника~
+@eng a junior guard cudgel@rus ~~дубинка~~ молодого стражника~
+@eng A junior guard cudgel is here, collection dust.@rus Дубинка молодого стражника (cudgel) не смогла спасти жизнь своему хозяину.~
 iron~
 weapon 0 0 AN
 exotic 5 4 'crush' 0
 14 50 2560 P
-g @rus none~
+g @rus female~
 #7523
-sharp fingernail nail finger~
-a sharp fingernail~
-A sharp fingernail is in the dirt here.~
+sharp коготь fingernail nail finger острый~
+@eng a sharp fingernail@rus ~~острый~~ ~~коготь~~~
+@eng A sharp fingernail is in the dirt here.@rus Твой взгляд привлек чей-то острый коготь (fingernail).~
 iron~
 weapon 0 0 AN
 exotic 2 7 'stab' 0
 10 10 901 P
-g @rus none~
+g @rus male~
 #7524
-gerighelm guard ring~
-Gerighelm guard ring~
-A Gerighelm guards ring is here, forgotten.~
+gerighelm кольцо guard ring стражника геригхельма~
+@eng Gerighelm guard ring@rus ~~кольцо~~ стражника Геригхельма~
+@eng A Gerighelm guards ring is here, forgotten.@rus Ты замечаешь красивое бронзовое колечко (ring) на земле.~
 bronze~
 treasure 0 0 AB
 0 0 0 0 0
@@ -1548,63 +1703,63 @@ treasure 0 0 AB
 a '' to_object 15 -1 1 19 0
 g @rus none~
 #7525
-helmet guard gerighelm~
-a Gerighelm guard helmet~
-A Gerighelm guard helmet is here.~
+helmet шлем guard gerighelm стражника геригхельма~
+@eng a Gerighelm guard helmet@rus ~~шлем~~ стражника Геригхельма~
+@eng A Gerighelm guard helmet is here.@rus Здесь лежит шлем стражника Геригхельма (helmet).~
 bronze~
 armor 0 0 AE
 3 3 3 0 2
 17 20 10 P
-g @rus none~
+g @rus male~
 #7526
-sleeves guard gerighelm~
-a pair of Gerighelm guard sleeves~
-A set of Sleeves are here.~
+sleeves нарукавники guard gerighelm стражника геригхельма~
+@eng a pair of Gerighelm guard sleeves@rus ~~пара~~ нарукавников стражника Геригхельма~
+@eng A set of Sleeves are here.@rus Ты видишь пару бронзовых нарукавников (sleeves).~
 bronze~
 armor 0 0 AI
 6 6 6 0 2
 17 40 2295 P
-g @rus none~
+g @rus female~
 #7527
-leggings guard gerighelm~
-a pair of Gerighelm guard leggings~
-A set of leggings is here.~
+leggings наколенники guard gerighelm стражника геригхельма~
+@eng a pair of Gerighelm guard leggings@rus ~~пара~~ наколенников стражника Геригхельма~
+@eng A set of leggings is here.@rus Пара бронзовых наколенников (leggings) брошена на землю.~
 bronze~
 armor 0 0 AF
 6 6 6 0 2
 16 50 2448 P
-g @rus none~
+g @rus female~
 #7528
-shield guard gerighelm~
-a Gerighelm shield~
-A Gerighelm shield is here. getting buried in the dust.~
+shield щит guard gerighelm стражника геригхельма~
+@eng a Gerighelm shield@rus ~~щит~~ стражника Геригхельма~
+@eng A Gerighelm shield is here. getting buried in the dust.@rus Бронзовый щит (shield) пылится на земле.~
 bronze~
 armor 0 0 AJ
 6 6 6 0 2
 16 60 2400 P
-g @rus none~
+g @rus male~
 #7529
-vest guard gerighelm~
-a Gerighelm vest~
-a Gerighelm guard vest is here.~
+vest кираса guard gerighelm стражника геригхельма~
+@eng a Gerighelm vest@rus ~~кираса~~ стражника Геригхельма~
+@eng A Gerighelm guard vest is here.@rus Кто-то потерял тут кирасу геригхельмского стражника (vest).~
 bronze~
 armor 0 0 AD
 6 6 6 0 2
 16 70 2720 P
-g @rus none~
+g @rus female~
 #7530
-cape guard gerighelm~
-a Gerighelm guard cape~
-A Gerighelm guard's cape is here.~
+cape накидка guard gerighelm стражника геригхельма~
+@eng a Gerighelm guard cape@rus ~~накидка~~ стражника Геригхельма~
+@eng A Gerighelm guard's cape is here.@rus Накидка геригхельмского стражника (cape) ждет нового хозяина.~
 cloth~
 armor 0 0 AK
 6 6 6 0 2
 16 50 2560 P
-g @rus none~
+g @rus female~
 #7531
-cloak guard gerighelm~
-a Gerighelm cloak~
-A Gerighelm guard's cloak is here.~
+cloak плащ guard gerighelm стражника геригхельма~
+@eng a Gerighelm cloak@rus ~~плащ~~ стражника Геригхельма~
+@eng A Gerighelm guard's cloak is here.@rus Плащ геригхельмского стражника (cloak) брошен здесь.~
 cloth~
 armor G 0 AC
 6 6 6 0 2
@@ -1612,74 +1767,74 @@ armor G 0 AC
 a '' to_object 16 -1 3 1 0
 a '' to_object 16 -1 3 5 0
 a '' to_object 16 -1 -10 17 0
-g @rus none~
+g @rus male~
 #7532
-gloves guard gerighelm~
-a pair of Gerighelm gloves~
-A pair of Gerighelm gloves are here.~
+gloves рукавицы guard gerighelm стражника геригхельма~
+@eng a pair of Gerighelm gloves@rus ~~пара~~ геригхельмских рукавиц~
+@eng A pair of Gerighelm gloves are here.@rus Ты видишь пару удобных рукавиц из Геригхельма (gloves).~
 bronze~
 armor 0 0 AH
 6 6 6 0 2
 16 30 2448 P
-g @rus none~
+g @rus female~
 #7533
-belt guard gerighelm~
-a Gerighelm belt~
-A Gerighelm belt is lieing here.~
+belt пояс guard gerighelm стражника геригхельма~
+@eng a Gerighelm belt@rus ~~геригхельмский~~ ~~пояс~~~
+@eng A Gerighelm belt is lieing here.@rus Пояс стражника Геригхельма (belt) лежит на земле.~
 bronze~
 armor 0 0 AL
 6 6 6 0 2
 16 20 2400 P
-g @rus none~
+g @rus male~
 #7534
-bracer guard gerighelm~
-a Gerighelm bracer~
-A Gerighelm bracer is lying here.~
+bracer браслет guard gerighelm стражника геригхельма~
+@eng a Gerighelm bracer@rus ~~браслет~~ стражника Геригхельма~
+@eng A Gerighelm bracer is lying here.@rus Изящный бронзовый браслет (bracer) работы геригхельмский мастеров брошен тут.~
 bronze~
 armor 0 0 AM
 6 6 6 0 2
 16 20 2560 P
-g @rus none~
+g @rus male~
 #7535
-sword guard gerighelm~
-a Gerighelm sword~
-A sword with the colours of Gerighelm carved into the side is here.~
+sword меч guard gerighelm стражника Геригхельма~
+@eng a Gerighelm sword@rus ~~меч~~ стражника Геригхельма~
+@eng A sword with the colours of Gerighelm carved into the side is here.@rus Цвета Геригхельма нанесены на рукоятку этого меча (sword).~
 bronze~
 weapon 0 0 AN
 sword 5 4 'slash' 0
 15 80 2400 P
-g @rus none~
+g @rus male~
 #7536
-boots guard gerighelm~
-a pair of Gerighelm boots~
-A pair of Gerighelm boots are here.~
+boots ботинки guard gerighelm стражника Геригхельма~
+@eng a pair of Gerighelm boots@rus ~~пара~~ геригхельмских ботинок~
+@eng A pair of Gerighelm boots are here.@rus Чьи это ботинки (boots) валяются тут?.~
 bronze~
 armor 0 0 AG
 6 6 6 0 2
 16 50 3060 P
-g @rus none~
+g @rus female~
 #7537
-helm defenders~
-a defenders helm~
-the helm of one of Gerighelms defenders is here.~
+helm шлем defenders защитника~
+@eng a defenders helm@rus ~~шлем~~ защитника~
+@eng The helm of one of Gerighelms defenders is here.@rus Золотой шлем (helm) одного из защитников Геригхельма оставлен тут.~
 gold~
 armor 0 0 AE
 6 6 6 0 2
 20 40 3800 P
-g @rus none~
+g @rus male~
 #7538
-sword defenders~
-a defenders sword~
-The sword of one of Gerighelms defenders is here.~
+sword меч defenders защитника~
+@eng a defenders sword@rus ~~меч~~ защитника~
+@eng The sword of one of Gerighelms defenders is here.@rus Меч (sword) одного из защитников Геригхельма лежит на земле.~
 iron~
 weapon 0 0 AN
 sword 5 5 'slash' 0
 20 80 4400 P
-g @rus none~
+g @rus male~
 #7539
-ring palace guard~
-a palace guard ring~
-A ring that glows!~
+ring кольцо palace guard стража дворца~
+@eng a palace guard ring@rus ~~кольцо~~ стража дворца~
+@eng A ring that glows! @rus Кольцо дворцового стража (ring) ослепительно сияет!~
 brass~
 treasure A 0 AB
 0 0 0 0 0
@@ -1687,63 +1842,63 @@ treasure A 0 AB
 a '' to_object 22 -1 1 19 0
 g @rus none~
 #7540
-helmet palace guard~
-a palace guard helmet~
-A helmet that glows!~
+helmet шлем palace guard стража дворца~
+@eng a palace guard helmet@rus ~~шлем~~ стража дворца~
+@eng A helmet that glows!@rus Шлем дворцового стража (helmet) ослепительно сияет!~
 steel~
 armor A 0 AE
 7 7 7 0 2
 22 30 3780 P
-g @rus none~
+g @rus male~
 #7541
-sleeves palace guard~
-a pair of palace guard sleeves~
-Some sleeves that glow!~
+sleeves нарукавники palace guard стража дворца~
+@eng a pair of palace guard sleeves@rus ~~пара~~ нарукавников стража дворца~
+@eng Some sleeves that glow!@rus Нарукавники стража дворца (sleeves) ослепительно сияют!~
 steel~
 armor A 0 AI
 7 7 7 0 2
 22 50 5082 P
-g @rus none~
+g @rus female~
 #7542
-leggings palace guard~
-a pair of palace guard leggings~
-Some leggings that glow!~
+leggings наколенники palace guard стража дворца~
+@eng a pair of palace guard leggings@rus ~~пара~~ наколенников стража дворца~
+@eng Some leggings that glow!@rus Наколенники стража дворца (leggings) ослепительно сияют!~
 steel~
 armor A 0 AF
 7 7 7 0 2
 22 60 4851 P
-g @rus none~
+g @rus female~
 #7543
-shield palace guard~
-a palace guard shield~
-A shield that glows!~
+shield щит palace guard стража дворца~
+@eng a palace guard shield@rus ~~щит~~ стража дворца~
+@eng A shield that glows!@rus Щит стража дворца (shield) ослепительно сияет!~
 steel~
 armor A 0 AJ
 7 7 7 0 2
 22 50 5082 P
-g @rus none~
+g @rus male~
 #7544
-vest palace guard~
-a palace guard vest~
-A vest that glows!~
+vest кираса palace guard стража дворца~
+@eng a palace guard vest@rus ~~кираса~~ стража дворца~
+@eng A vest that glows!@rus Кираса стража дворца (vest) ослепительно сияет!~
 steel~
 armor A 0 AD
 7 7 7 0 2
 22 60 4840 P
-g @rus none~
+g @rus female~
 #7545
-cape palace guard~
-a palace guard cape~
-A cape that glows!~
+cape накидка palace guard стража дворца~
+@eng a palace guard cape@rus ~~накидка~~ стража дворца~
+@eng A cape that glows!@rus Накидка стража дворца (cape) ослепительно сияет!~
 steel~
 armor A 0 AK
 7 7 7 0 2
 22 40 4620 P
-g @rus none~
+g @rus female~
 #7546
-cloak palace guard~
-a palace guard cloak~
-a cloak that glows! And Humms too!!~
+cloak плащ palace guard стража дворца~
+@eng a palace guard cloak@rus ~~плащ~~ стража дворца~
+@eng a cloak that glows! And Humms too!!@rus Плащ стража дворца (cloak) ослепительно сияет! И еще он гудит!!!~
 steel~
 armor ABG 0 AC
 7 7 7 -1 2
@@ -1751,84 +1906,89 @@ armor ABG 0 AC
 a '' to_object 22 -1 2 5 0
 a '' to_object 22 -1 -10 17 0
 a '' to_object 22 -1 2 1 0
-g @rus none~
+g @rus male~
 #7547
-gloves palace guard~
-a pair of palace guard gloves~
-A pair of gloves that glow!~
+gloves рукавицы palace guard стража дворца~
+@eng a pair of palace guard gloves@rus ~~пара~~ рукавиц стража дворца~
+@eng A pair of gloves that glow!@rus Пара рукавиц стража дворца (gloves) ослепительно сияет!~
 steel~
 armor A 0 AH
 7 7 7 0 2
 22 40 4400 P
-g @rus none~
+g @rus female~
 #7548
-belt palace guard~
-a palace guard belt~
-A belt the glows!~
+belt пояс palace guard стража дворца~
+@eng a palace guard belt@rus ~~пояс~~ стража дворца~
+@eng A belt the glows!@rus Пояс стража дворца (belt) ослепительно сияет!~
 steel~
 armor A 0 AL
 7 7 7 0 2
 22 60 4620 P
-g @rus none~
+g @rus male~
 #7549
-bracer palace guard~
-a palace guard bracer~
-A bracer that glows!~
+bracer браслет palace guard стража дворца~
+@eng a palace guard bracer@rus ~~браслет~~ стража дворца~
+@eng A bracer that glows!@rus Браслет стража дворца (bracer) ослепительно сияет!~
 steel~
 armor A 0 AM
 7 7 7 0 2
 22 30 4410 P
-g @rus none~
+g @rus male~
 #7550
-sword palace guard~
-a palace guard's sword~
-A sword with many runes on the side is here.~
+sword меч palace guard стража дворца~
+@eng a palace guard's sword@rus ~~меч~~ стража дворца~
+@eng A sword with many runes on the side is here.@rus Ты видишь меч (sword) со множеством рун, выгравированных на клинке.~
 steel~
 weapon AB 0 AN
 sword 4 8 'slash' 0
 22 80 3780 P
 E
-sword palace guard runes~
-The runes say:
+sword меч palace guard runes руны стража дворца~
+@eng The runes say:
 
                                 Made in HEAVEN.....
 
 What does that mean?
+@rus Руны гласят:
+
+                              Сделано на НЕБЕ.....
+
+Что бы это значило?
 ~
-g @rus none~
+g @rus male~
 #7551
-cooks cook hat~
-the cooks hat~
-A hat is here.~
+cooks колпак cook hat повара~
+@eng the cooks hat@rus ~~колпак~~ повара~
+@eng A hat is here.@rus Ты видишь смешной белый колпак (hat)!~
 cloth~
 clothing H 0 AE
 0 0 0 0 0
 20 10 4200 P
-g @rus none~
+g @rus male~
 #7552
-silver staff~
-a silver staff~
-A staff made out of silver is here.~
+silver посох staff серебряный~
+@eng a silver staff@rus ~~серебряный~~ ~~посох~~~
+@eng A staff made out of silver is here.@rus Посох (staff), сделанный из серебра, лежит здесь.~
 wood~
 staff 0 0 AO
 40 20 20 'lightning bolt' 0
 20 40 4840 P
-g @rus none~
+g @rus male~
 #7553
-dagger stabbing~
-the dagger of stabbing~
-A dagger is here.~
+dagger кинжал stabbing пронзающий~
+@eng the dagger of stabbing@rus ~~пронзающий~~ ~~кинжал~~~
+@eng A dagger is here.@rus Ты замечаешь небольшой изящный кинжал (dagger).~
 silver~
 weapon G 0 AN
 dagger 5 6 'stab' 0
 20 40 4666 P
 a '' to_object 20 -1 3 2 0
 a '' to_object 20 -1 10 18 0
-g @rus none~
+g @rus male~
 #7554
-holy word holyword~
-a holyword~
-A holyword is here, hanging in midair.~
+holy слово word holyword святое~
+@eng a holyword@rus ~~святое~~ ~~слово~~~
+@eng A holyword is here, hanging in midair.@rus Святое слово (holy) повисло в воздухе.~
 crystal~
 weapon G 0 AN
 exotic 5 6 'blast' 0
@@ -1838,92 +1998,92 @@ a '' to_object 25 -1 10 19 0
 a '' to_object 25 -1 -2 5 0
 g @rus none~
 #7555
-mace~
-a mace~
-A mace is here.~
+mace булава~
+@eng a mace@rus булава~
+@eng A mace is here.@rus Деревянная булава (mace) уже потрескалась от бездействия.~
 wood~
 weapon AG 0 AN
 mace 2 4 'pound' 0
 6 10 870 P
 a '' to_object 6 -1 1 2 0
 a '' to_object 6 -1 3 1 0
-g @rus none~
+g @rus female~
 #7556
-sword thunder~
-the sword of thunder~
-A HUGE sword is here.~
+sword меч thunder грома~
+@eng the sword of thunder@rus ~~меч~~ грома~
+@eng A HUGE sword is here.@rus ОГРОМНЫЙ меч (sword) так и просится тебе в руку.~
 steel~
 weapon G 0 AN
 sword 5 6 'slash' 0
 21 80 5000 P
 a '' to_object 21 -1 5 1 0
 a '' to_object 21 -1 2 19 0
-g @rus none~
+g @rus male~
 #7557
-vest titans titan~
-the vest of the titans~
-A vest is here.~
+vest кираса titans titan титанов~
+@eng the vest of the titans@rus ~~кираса~~ титанов~
+@eng A vest is here.@rus Прочная кираса (vest) лежит на земле.~
 leather~
 armor G 0 AD
 7 7 7 0 3
 21 60 5520 P
 a '' to_object 21 -1 4 18 0
 a '' to_object 21 -1 3 1 0
-g @rus none~
+g @rus female~
 #7558
-hoe destruction~
-the hoe of destruction~
-A hoe of destruction is here.~
+hoe мотыга destruction разрушения~
+@eng the hoe of destruction@rus ~~мотыга~~ разрушения~
+@eng A hoe of destruction is here.@rus Устрашающего вида мотыга (hoe) лежит прямо на виду.~
 wood~
 weapon ABG 0 AN
 exotic 5 6 'blast' 0
 21 80 5175 P
 a '' to_object 21 -1 10 18 0
-g @rus none~
+g @rus female~
 #7559
-gardeners gloves~
-the gardeners gloves~
-Some gloves are here.~
+gardeners рукавицы gloves садовника~
+@eng the gardeners gloves@rus ~~пара~~ рукавиц садовника~
+@eng Some gloves are here.@rus Пара каких-то рукавиц (gloves) оставлена без присмотра.~
 cloth~
 armor G 0 AH
 3 3 3 0 1
 21 50 9 P
 a '' to_object 21 -1 2 2 0
 a '' to_object 21 -1 2 1 0
-g @rus none~
+g @rus female~
 #7560
-cutlass~
-a cutlass~
-A cutlass is here.~
+cutlass сабля абордажная~
+@eng a cutlass@rus ~~абордажная~~ ~~сабля~~~
+@eng A cutlass is here.@rus Проржавевшая насквозь сабля (cutlass) лежит у тебя под ногами.~
 steel~
 weapon 0 0 AN
 sword 5 6 'pierce' 0
 22 80 6000 P
-g @rus none~
+g @rus female~
 #7561
-uniform~
-a uniform~
-A uniform is here.~
+uniform униформа~
+@eng a uniform@rus униформа~
+@eng A uniform is here.@rus Ты видишь почти новую униформу (uniform).~
 cloth~
 armor G 0 AD
 8 8 8 0 3
 22 60 6000 P
 a '' to_object 22 -1 -15 17 0
-g @rus none~
+g @rus female~
 #7562
-saber~
-a saber~
-A saber is here.~
+saber сабля~
+@eng a saber@rus сабля~
+@eng A saber is here.@rus Какая-то сабля (saber) выкинута за ненадобностью.~
 steel~
 weapon G 0 AN
 sword 5 6 'slash' 0
 22 80 7000 P
 a '' to_object 22 -1 10 18 0
-g @rus none~
+g @rus female~
 #7563
-two-handed two handed~
-a two-handed sword~
-A two handed sword is here.~
+two-handed меч two handed sword двуручный~
+@eng a two-handed sword@rus ~~двуручный~~ ~~меч~~~
+@eng A two handed sword is here.@rus Двуручный меч (two-handed) с рунами на лезвии оставлен без присмотра.~
 steel~
 weapon G 0 AN
 sword 5 7 'slash' F
@@ -1933,32 +2093,32 @@ a '' to_object 28 -1 1 2 0
 a '' to_object 28 -1 2 4 0
 a '' to_object 28 -1 5 18 0
 a '' to_object 28 -1 5 19 0
-g @rus none~
+g @rus male~
 #7564
-dukes duke helm~
-the Dukes Helm~
-A helmet is here.~
+dukes шлем duke helm герцога~
+@eng the Dukes Helm@rus ~~Шлем~~ Герцога~
+@eng A helmet is here.@rus Похоже, кто-то оставил тут неплохой шлем (helm)!.~
 steel~
 armor G 0 AE
 9 9 9 0 3
 28 50 9920 P
 a '' to_object 28 -1 -25 17 0
-g @rus none~
+g @rus male~
 #7565
-duchesses tiara~
-the Duchesses Tiara~
-A Tiara is here.~
+duchesses диадема tiara герцогини~
+@eng the Duchesses Tiara@rus ~~Диадема~~ Герцогини~
+@eng A Tiara is here.@rus Алмазная диадема (tiara) хрустнула у тебя под ногой.~
 diamond~
 armor G 0 AE
 7 7 7 0 2
 22 10 6520 P
 a '' to_object 22 -1 5 20 0
 a '' to_object 22 -1 100 12 0
-g @rus none~
+g @rus female~
 #7566
-wedding ring~
-a wedding ring~
-A wedding ring is here.~
+wedding кольцо ring обручальное~
+@eng a wedding ring@rus ~~обручальное~~ ~~кольцо~~~
+@eng A wedding ring is here.@rus Золотое обручальное кольцо (wedding) почему-то находится не на месте...~
 gold~
 armor ABG 0 AB
 7 7 7 0 2
@@ -1967,9 +2127,9 @@ a '' to_object 22 -1 20 13 0
 a '' to_object 22 -1 4 20 0
 g @rus none~
 #7567
-wedding ring~
-a wedding ring~
-A wedding ring is here.~
+wedding кольцо ring обручальное колечко~
+@eng a wedding ring@rus ~~обручальное~~ ~~колечко~~~
+@eng A wedding ring is here.@rus Золотое обручальное колечко (wedding) почему-то находится не на месте...~
 gold~
 armor ABG 0 AB
 8 8 8 0 2
@@ -1978,87 +2138,90 @@ a '' to_object 28 -1 20 13 0
 a '' to_object 28 -1 4 20 0
 g @rus none~
 #7596
-strange herbs green bunch~
-a bunch of herbs~
-A bunch of strange, green herbs are growing here.~
+strange трава herbs green bunch зеленая странная кустик~
+@eng a bunch of herbs@rus ~~куст~~ странной травы~
+@eng A bunch of strange, green herbs are growing here.@rus Кустик странной зеленой травы (strange) будто парит над землей.~
 food~
 pill G 0 A
 1 'detect magic' 'fly' 'word of recall' 'pass door'
 1 1 469 P
-g @rus none~
+g @rus male~
 #7597
-magic bottle air~
-The Magic bottle of Air~
-A bottle is here,  collecting dust.~
+magic бутылка bottle air магическая воздуха~
+@eng The Magic bottle of Air@rus ~~Магическая~~ ~~бутылка~~ Воздуха~
+@eng A bottle is here,  collecting dust.@rus Магическая бутылка (bottle) пылится тут.~
 glass~
 boat A 0 A
 0 0 0 0 0
 3 1 300 P
 E
 bottle magic air~
-It has written on the side:
+@eng It has written on the side:
 
 Garunteed to provide fresh breathing air underwater, till it doesn't...
+@rus На боку надпись:
+
+Гарантированно обеспечит свободное дыхание под водой...
 ~
-g @rus none~
+g @rus female~
 #7600
-marbles marble green~
-a green marble~
-A green marble is here, all alone...~
+marbles шарик marble green мраморный зеленый~
+@eng a green marble@rus ~~зеленый~~ ~~мраморный~~ ~~шарик~~~
+@eng A green marble is here, all alone...@rus Зеленый мраморный шарик (green) одиноко лежит тут.~
 marble~
 wand A 0 AO
 20 1 1 'fireball' 0
 20 1 2560 P
-g @rus none~
+g @rus male~
 #7601
-marble marbles blue~
-a blue marble~
-A marble is here, it's blue.~
+marble шарик marbles blue мраморный синий~
+@eng a blue marble@rus ~~синий~~ ~~мраморный~~ ~~шарик~~~
+@eng A marble is here, it's blue.@rus Мраморный шарик (blue) синего цвета.~
 marble~
 wand A 0 AO
 20 1 1 'heal' 0
 20 1 2560 P
-g @rus none~
+g @rus male~
 #7602
-marble marbles yellow~
-a yellow marble~
-A yellow marble is here.~
+marble шарик marbles yellow мраморный желтый~
+@eng a yellow marble@rus ~~желтый~~ ~~мраморный~~ ~~шарик~~~
+@eng A yellow marble is here.@rus Желтый мраморный шарик (yellow) просит тебя подобрать его!~
 marble~
 wand A 0 AO
 49 1 1 'gas breath' 0
 20 1 2100 P
-g @rus none~
+g @rus male~
 #7650
-sleeves defenders~
-a defenders sleeves~
-A pair of sleeves are here, collecting dust.~
+sleeves нарукавники defenders защитника~
+@eng a defenders sleeves@rus ~~пара~~ нарукавников защитника~
+@eng A pair of sleeves are here, collecting dust.@rus Пара золотых нарукавников (sleeves) пылится тут.~
 gold~
 armor 0 0 AI
 6 6 6 0 2
 18 60 4000 P
-g @rus none~
+g @rus female~
 #7651
-leggings defenders~
-a defenders leggings~
-A pair of leggings are here, collecting dust.~
+leggings наколенники defenders защитника~
+@eng a defenders leggings@rus ~~пара~~ наколенников защитника~
+@eng A pair of leggings are here, collecting dust.@rus Пара серебряных наколенников (leggings) собирает всю пыль в округе.~
 silver~
 armor 0 0 AF
 6 6 6 0 2
 18 70 4180 P
-g @rus none~
+g @rus female~
 #7652
-shield defenders~
-a defenders shield~
-A shield is here, emblazoned with Gerighelms coat of arms.~
+shield щит defenders защитника~
+@eng a defenders shield@rus ~~щит~~ защитника~
+@eng A shield is here, emblazoned with Gerighelms coat of arms.@rus Щит с гербом Геригхельма (shield) лежит здесь.~
 silver~
 armor 0 0 AJ
 6 6 6 0 2
 18 80 3610 P
-g @rus none~
+g @rus male~
 #7653
-ring defender~
-a defenders ring~
-A ring is shining in the dust.~
+ring кольцо defender защитника~
+@eng a defenders ring@rus ~~кольцо~~ защитника~
+@eng A ring is shining in the dust.@rus Золотое кольцо (ring) ярко сверкает.~
 gold~
 armor G 0 AB
 0 0 0 0 0
@@ -2066,91 +2229,91 @@ armor G 0 AB
 a '' to_object 18 -1 20 13 0
 g @rus none~
 #7654
-vest defender~
-a defenders vest~
-A gold and silver vest is lieing on the side of the road.~
+vest кираса defender защитника~
+@eng a defenders vest@rus ~~кираса~~ защитника~
+@eng A gold and silver vest is lieing on the side of the road.@rus Серебряная с золотом кираса (vest) лежит около дороги.~
 silver~
 armor 0 0 AD
 5 5 5 -1 2
 18 60 3600 P
-g @rus none~
+g @rus male~
 #7655
-cape defender~
-a defenders cape~
-A cape is hanging by a tree branch.~
+cape накидка defender защитника~
+@eng a defenders cape@rus ~~накидка~~ защитника~
+@eng A cape is hanging by a tree branch.@rus Накидка (cape) болтается на ветке дерева.~
 gold~
 armor 0 0 AK
 6 6 6 0 2
 18 80 3800 P
-g @rus none~
+g @rus female~
 #7656
-cloak defender~
-a defenders cloak~
-A heap of gold and silver cloth is on the ground here.~
+cloak плащ defender защитника~
+@eng a defenders cloak@rus ~~плащ~~ защитника~
+@eng A heap of gold and silver cloth is on the ground here.@rus Кипа серебряной с золотом ткани (cloak) валяется на земле.~
 silver~
 armor 0 0 AC
 6 6 6 0 2
 18 60 3240 P
-g @rus none~
+g @rus female~
 #7657
-gloves defender~
-a defenders gloves~
-A pair of gloves are on the side of the road here.~
+gloves рукавицы defender защитника~
+@eng a defenders gloves@rus ~~пара~~ рукавиц защитника~
+@eng A pair of gloves are on the side of the road here.@rus Пара золотых рукавиц (gloves) лежит у дороги.~
 gold~
 armor 0 0 AH
 6 6 6 0 2
 18 70 4000 P
-g @rus none~
+g @rus female~
 #7658
-belt defender~
-a defenders belt~
-A gold belt is lieing here.~
+belt пояс defender защитника~
+@eng a defenders belt@rus ~~пояс~~ защитника~
+@eng A gold belt is lieing here.@rus Золотой пояс (belt) лежит без дела.~
 gold~
 armor 0 0 AL
 6 6 6 0 2
 18 70 3420 P
-g @rus none~
+g @rus male~
 #7659
-bracer defender~
-a defenders bracer~
-A silver bracer is lieing here.~
+bracer браслет defender защитника~
+@eng a defenders bracer@rus ~~браслет~~ защитника~
+@eng A silver bracer is lieing here.@rus Серебряный браслет (bracer) выглядит очень заманчиво.~
 silver~
 armor 0 0 AM
 6 6 6 0 2
 18 30 3800 P
-g @rus none~
+g @rus male~
 #7660
-boots defender~
-a defenders pair of boots~
-A pair of silver boots are here.~
+boots ботинки defender защитника~
+@eng a defenders pair of boots@rus ~~пара~~ ботинок защитника~
+@eng A pair of silver boots are here.@rus Пара серебряных ботинок (boots) неприкаянно лежит на пути.~
 silver~
 armor 0 0 AG
 6 6 6 0 2
 18 50 3420 P
-g @rus none~
+g @rus female~
 #7661
-boots palace guard~
-a palace guards boots~
-A pair of boots are here, glowing!!~
+boots ботинки palace guard стража дворца~
+@eng a palace guards boots@rus ~~пара~~ ботинок стража дворца~
+@eng A pair of boots are here, glowing!!@rus Пара ботинок (boots) ослепительно сверкает!~
 steel~
 armor A 0 AG
 3 3 3 0 2
 18 50 10 P
-g @rus none~
+g @rus female~
 #7699
-scythe~
-the Death's Scythe~
-Very dangerous evil scythe is here.~
+scythe коса~
+@eng the Death's Scythe@rus ~~Коса~~ Смерти~
+@eng Very dangerous evil scythe is here.@rus Очень опасная черная коса (scythe) лежит тут.~
 mithril~
 weapon G 0 AN
 polearm 10 8 'smash' DEF
 60 200 50000 P
-g @rus none~
+g @rus female~
 #0
 
 #ROOMS
 #7500
-@eng Entrance to the park.@rus Вход в парк~
+@eng Entrance to the park@rus Вход в парк~
 @eng This is the entrance to a small park. You see that it is full of animals,
 birds, and reptiles.  There are also people here, strolling around in the
 romantic setting.
@@ -2159,7 +2322,8 @@ romantic setting.
 ~
 0 0 forest
 D2
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
@@ -2167,7 +2331,7 @@ You see the park.
 Z -1 7501
 S
 #7501
-@eng Inside the park.@rus Внутри парка~
+@eng Inside the park@rus Внутри парка~
 @eng You are standing inside what looks like a park--probably because it is
 one...
 @rus Ты стоишь внутри того, что выглядит как парк - вероятно потому, что это он
@@ -2175,21 +2339,24 @@ one...
 ~
 0 0 forest
 D0
-You see the entrance to the park.
+@eng You see the entrance to the park.
+@rus Ты видишь вход в парк.
 ~
 ~
 ~
 ~
 Z -1 7500
 D1
-You see the park continue on.
+@eng You see the park continue on.
+@rus Продолжение парка.
 ~
 ~
 ~
 ~
 Z -1 7502
 D2
-You see the park continue on.
+@eng You see the park continue on.
+@rus Продолжение парка.
 ~
 ~
 ~
@@ -2197,7 +2364,7 @@ You see the park continue on.
 Z -1 7503
 S
 #7502
-@eng The Park.@rus Парк~
+@eng The Park@rus Парк~
 @eng You are in the park, it is green, and bright, but for some reason,
 someone placed a wall to the north, east, and south....
 @rus Ты в парке, здесь светло и много зелени, но по какой-то причине кто-то
@@ -2205,7 +2372,8 @@ someone placed a wall to the north, east, and south....
 ~
 0 0 forest
 D3
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
@@ -2213,22 +2381,24 @@ You see the park.
 Z -1 7501
 S
 #7503
-@eng The Park.@rus Парк~
+@eng The Park@rus Парк~
 @eng You are in the park.  The breeze flows around you like a current of
 refreshing water.
-@rus Ты в парке. Легкий ветерок, подобно потоку освежающей воды, струитсЯ
+@rus Ты в парке. Легкий ветерок, подобно потоку освежающей воды, струится
 вокруг тебя.
 ~
 0 0 forest
 D0
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
 ~
 Z -1 7501
 D2
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
@@ -2236,20 +2406,24 @@ You see the park.
 Z -1 7504
 S
 #7504
-The Park.~
-You are in the Park. You think that it is cool and refreshing to be here,
+@eng The Park@rus Парк~
+@eng You are in the Park. You think that it is cool and refreshing to be here,
 and that you should really come here more often.
+@rus Ты в Парке. И с восторгом думаешь о том, какой тут приятный освежающий воздух
+и о том, что тебе следует почаще приходить сюда.
 ~
 0 0 forest
 D0
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
 ~
 Z -1 7503
 D3
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
@@ -2257,26 +2431,30 @@ You see the park.
 Z -1 7505
 S
 #7505
-The Park.~
-You are in the Park.  This is a really nice place to be.
+@eng The Park@rus Парк~
+@eng You are in the Park.  This is a really nice place to be.
+@rus Ты в Парке. Это действительно приятное место.
 ~
 0 0 forest
 D1
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
 ~
 Z -1 7504
 D2
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
 ~
 Z -1 7510
 D3
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
@@ -2284,27 +2462,32 @@ You see the park.
 Z -1 7506
 S
 #7506
-The Park.~
-You are in the Park.  The cool breezes bring on memorys of when you were
+@eng The Park@rus Парк~
+@eng You are in the Park.  The cool breezes bring on memorys of when you were
 a small child.
+@rus Ты в Парке. Освежающий ветерок навевает на тебя воспоминания о счастливом
+детстве.
 ~
 0 0 forest
 D1
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
 ~
 Z -1 7505
 D2
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
 ~
 Z -1 7509
 D3
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
@@ -2312,21 +2495,26 @@ You see the park.
 Z -1 7507
 S
 #7507
-The Park.~
-You are in the Park.  here, at the edge of the park, you find several
+@eng The Park@rus Парк~
+@eng You are in the Park.  Here, at the edge of the park, you find several
 benches.  However, they are all occupied by the people who got here first.
 'Da*n' you think, as you see them all so full of grins.
+@rus Ты в Парке. Здесь, на опушке парка ты видишь несколько скамеек. Однако,
+они все уже заняты людьми, которые пришли сюда раньше тебя. Ты мысленно
+$gn{выругался}, посмотрев на их довольные улыбки.
 ~
 0 0 forest
 D1
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
 ~
 Z -1 7506
 D2
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
@@ -2334,26 +2522,30 @@ You see the park.
 Z -1 7508
 S
 #7508
-The Park.~
-You are in the Park.  You feel intoxicated by the night breeze.
+@eng The Park@rus Парк~
+@eng You are in the Park.  You feel intoxicated by the night breeze.
+@rus Ты в Парке. И ты опьянен ночным ветерком.
 ~
 0 0 forest
 D0
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
 ~
 Z -1 7507
 D1
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
 ~
 Z -1 7509
 D2
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
@@ -2361,33 +2553,38 @@ You see the park.
 Z -1 7518
 S
 #7509
-The Park.~
-You are in the Park.  Gods, this is beautiful!
+@eng The Park@rus Парк~
+@eng You are in the Park.  Gods, this is beautiful!
+@rus Ты в Парке. Боги, как тут прекрасно!
 ~
 0 0 forest
 D0
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
 ~
 Z -1 7506
 D1
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
 ~
 Z -1 7510
 D2
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
 ~
 Z -1 7511
 D3
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
@@ -2395,27 +2592,32 @@ You see the park.
 Z -1 7508
 S
 #7510
-The Park.~
-You are in the Park.  You think 'This is THE most BEAUTIFUL place I've
+@eng The Park@rus Парк~
+@eng You are in the Park.  You think 'This is THE most BEAUTIFUL place I've
 ever been to!'.
+@rus Ты в Парке. И тебе кажется, что это самое ПРЕКРАСНОЕ место из всех, где
+тебе доводилось бывать!
 ~
 0 0 forest
 D0
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
 ~
 Z -1 7505
 D2
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
 ~
 Z -1 7512
 D3
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
@@ -2423,27 +2625,31 @@ You see the park.
 Z -1 7509
 S
 #7511
-The trail in the Park.~
-You are in the Park.  You are on a small worn trail to a building to the
+@eng The trail in the Park@rus Тропинка в Парке~
+@eng You are in the Park.  You are on a small worn trail to a building to the
 east.
+@rus Ты в Парке. Узкая утоптанная тропинка ведет к зданию на востоке.
 ~
 0 0 forest
 D0
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
 ~
 Z -1 7509
 D1
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь тропинку.
 ~
 ~
 ~
 ~
 Z -1 7512
 D3
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
@@ -2451,27 +2657,32 @@ You see the park.
 Z -1 7518
 S
 #7512
-The trail in the Park.~
-You are in the Park.  The trail that you are on leads east toward that
+@eng The trail in the Park@rus Тропинка в Парке~
+@eng You are in the Park.  The trail that you are on leads east toward that
 building that your see there.
+@rus Ты в Парке. Тропинка, по которой ты идешь, ведет на восток к какому-то
+зданию.
 ~
 0 0 forest
 D0
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
 ~
 Z -1 7510
 D1
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь тропинку.
 ~
 ~
 ~
 ~
 Z -1 7513
 D3
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь тропинку.
 ~
 ~
 ~
@@ -2479,26 +2690,30 @@ You see the trail.
 Z -1 7511
 S
 #7513
-The split in the trail in the Park.~
-The trail goes east, and south here. There is a building to the east.
+@eng The split in the trail in the Park@rus Развилка на тропинке~
+@eng The trail goes east, and south here. There is a building to the east.
+@rus Тропинка идет на восток и юг отсюда. На востоке ты видишь здание.
 ~
 0 0 forest
 D1
-You see the caretakers house.
+@eng You see the caretakers house.
+@rus Дом Смотрителя.
 ~
 ~
 ~
 ~
 ABZ -1 7514
 D2
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь тропинку.
 ~
 ~
 ~
 ~
 Z -1 7515
 D3
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь тропинку.
 ~
 ~
 ~
@@ -2506,13 +2721,16 @@ You see the trail.
 Z -1 7512
 S
 #7514
-Care-Takers House.~
-You are in the home of the Caretaker of this Park.  You see shiny spades,
+@eng Care-Takers House@rus Дом Смотрителя~
+@eng You are in the home of the Caretaker of this Park.  You see shiny spades,
 hoes, and watering-cans that the Caretaker must like a lot.
+@rus Ты находишся в доме Смотрителя этого Парка. Ты видишь блестящие лопаты,
+мотыги, и лейки. Должно быть, Смотритель, хорошо заботится о своем инструменте.
 ~
 0 D inside
 D3
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь тропинку.
 ~
 ~
 ~
@@ -2520,20 +2738,24 @@ You see the trail.
 ABZ -1 7513
 S
 #7515
-The trail.~
-You are along a trail in the park that is going south at the moment.
+@eng The trail@rus Тропинка~
+@eng You are along a trail in the park that is going south at the moment.
 You wonder what could be at the end of it...
+@rus Ты идешь по тропинке в парке. Теперь она идет на юг. Ты гадаешь, куда она
+тебя приведет...
 ~
 0 0 forest
 D0
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь тропинку.
 ~
 ~
 ~
 ~
 Z -1 7513
 D2
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь тропинку.
 ~
 ~
 ~
@@ -2541,20 +2763,23 @@ You see the trail.
 Z -1 7516
 S
 #7516
-The trail.~
-You are along the trail in the park that is going somewhere.... You
+@eng The trail@rus Тропинка~
+@eng You are along the trail in the park that is going somewhere.... You
 wonder where....
+@rus Ты идешь по тропинке, которая ведет тебя куда-то... Интересно, куда?
 ~
 0 0 forest
 D0
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь тропинку.
 ~
 ~
 ~
 ~
 Z -1 7515
 D3
-You see the trail
+@eng You see the trail.
+@rus Ты видишь тропинку.
 ~
 ~
 ~
@@ -2562,13 +2787,16 @@ You see the trail
 Z -1 7517
 S
 #7517
-The end of the trail.~
-Ah, at last!  The end of the trail!  But um, there really isn't much to
+@eng The end of the trail@rus Конец тропинки~
+@eng Ah, at last!  The end of the trail!  But um, there really isn't much to
 see...  I'm sorry.
+@rus Ну наконец-то! Конец это чертовой тропинки! Однако, тут нет ничего, на что
+стоило бы посмотреть... Извини.
 ~
 0 0 forest
 D1
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь тропинку.
 ~
 ~
 ~
@@ -2576,27 +2804,32 @@ You see the trail.
 Z -1 7516
 S
 #7518
-The Park.~
-You are in the Park.  You feel that it is so peaceful here that you
+@eng The Park@rus Парк~
+@eng You are in the Park.  You feel that it is so peaceful here that you
 want to drop your gear and just rest a moment.
+@rus Ты в Парке. Все вокруг выглядит так мирно, что тебе хочется сбросить
+свои доспехи и  просто поваляться на травке.
 ~
 0 0 forest
 D0
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
 ~
 Z -1 7508
 D1
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
 ~
 Z -1 7511
 D2
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
@@ -2604,20 +2837,24 @@ You see the park.
 Z -1 7519
 S
 #7519
-The Entrance to the Garden in the Park.~
-You are in a large garden now.  It has violets, and other flowers that you
+@eng The Entrance to the Garden in the Park@rus Вход в Сад из Парка~
+@eng You are in a large garden now.  It has violets, and other flowers that you
 can't begin to name. (sorry that you slept through that class aren't you?).
+@rus Теперь ты в большом саду. В нем растут фиалки и другие цветы, которые
+ты затрудняешься назвать. Ведь ты $gn{любил} поспать на уроках биологии?
 ~
 0 0 city
 D0
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
 ~
 Z -1 7518
 D2
-You see the garden.
+@eng You see the garden.
+@rus Ты видишь сад.
 ~
 ~
 ~
@@ -2625,19 +2862,22 @@ You see the garden.
 Z -1 7520
 S
 #7520
-The Garden.~
-You are inside the garden now, and you see even MORE flowers!
+@eng The Garden@rus Сад~
+@eng You are inside the garden now, and you see even MORE flowers!
+@rus Ты теперь в саду, и ты видишь ЕЩЕ БОЛЬШЕ цветов!
 ~
 0 0 city
 D0
-You see the Entrance to the garden.
+@eng You see the Entrance to the garden.
+@rus Ты видишь Вход в сад.
 ~
 ~
 ~
 ~
 Z -1 7519
 D3
-You see the garden.
+@eng You see the garden.
+@rus Ты видишь сад.
 ~
 ~
 ~
@@ -2645,26 +2885,30 @@ You see the garden.
 Z -1 7521
 S
 #7521
-The Garden.~
-You are in the garden, there are many lovers here who are (Ahem) 'necking'.
+@eng The Garden@rus Сад~
+@eng You are in the garden, there are many lovers here who are (Ahem) 'necking'.
+@rus Ты находишься в саду и видишь множество влюбленных парочек.
 ~
 0 0 city
 D1
-You see the garden.
+@eng You see the garden.
+@rus Ты видишь сад.
 ~
 ~
 ~
 ~
 Z -1 7520
 D2
-You see the garden.
+@eng You see the garden.
+@rus Ты видишь сад.
 ~
 ~
 ~
 ~
 Z -1 7522
 D3
-You see the garden.
+@eng You see the garden.
+@rus Ты видишь сад.
 ~
 ~
 ~
@@ -2672,12 +2916,14 @@ You see the garden.
 Z -1 7523
 S
 #7522
-The Garden.~
-You are in the garden.  This section seems to be devoted to roses.
+@eng The Garden@rus Сад~
+@eng You are in the garden.  This section seems to be devoted to roses.
+@rus Ты в саду. Похоже на то, что этот участок сада отведен розам.
 ~
 0 0 city
 D0
-You see the garden.
+@eng You see the garden.
+@rus Ты видишь сад.
 ~
 ~
 ~
@@ -2685,12 +2931,15 @@ You see the garden.
 Z -1 7521
 S
 #7523
-The Garden.~
-You are in the section of the garden that is devoted to lilacs.
+@eng The Garden.@rus Сад~
+@eng You are in the section of the garden that is devoted to lilacs.
+@rus Ты в саду. Похоже на то, что этот участок сада отведен под различные
+сорта сирени.
 ~
 0 0 city
 D1
-You see the garden.
+@eng You see the garden.
+@rus Ты видишь сад.
 ~
 ~
 ~
@@ -2698,20 +2947,24 @@ You see the garden.
 Z -1 7521
 S
 #7524
-In the Sewers.~
-You are inside the dark, dank sewers of Gerighelm.  There is a faint
+@eng In the Sewers@rus В коллекторе~
+@eng You are inside the dark, dank sewers of Gerighelm. There is a faint
 scent of mud in the air.  To the north, there is a wall.....
+@rus Ты находишься в темном и сыром коллекторе Геригхельма. Воздух тут
+неуловимо пахнет грязью. На севере проход загораживает стена....
 ~
 0 A field
 D1
-You see the sewers.
+@eng You see the sewers.
+@rus Ты видишь коллектор.
 ~
 ~
 ~
 ~
 Z -1 7526
 D4
-You see the entrance to the sewers.
+@eng You see the entrance to the sewers.
+@rus Ты видишь вход в коллектор.
 ~
 ~
 ~
@@ -2719,33 +2972,39 @@ You see the entrance to the sewers.
 Z -1 7584
 S
 #7526
-The Sewers.~
-You are in the old sewer system of Gerighelm.  It is dark and hard to see.
+@eng The Sewers@rus Коллектор~
+@eng You are in the old sewer system of Gerighelm.  It is dark and hard to see.
+@rus Ты стоишь в старой системе коллекторов Геригхельма. Тут темно и ничего
+не видно.
 ~
 0 A field
 D0
-You see the sewers.
+@eng You see the sewers.
+@rus Ты видишь коллектор.
 ~
 ~
 ~
 ~
 Z -1 7528
 D1
-You see the sewers.
+@eng You see the sewers.
+@rus Ты видишь коллектор.
 ~
 ~
 ~
 ~
 Z -1 7533
 D2
-You see the sewers.
+@eng You see the sewers.
+@rus Ты видишь коллектор.
 ~
 ~
 ~
 ~
 Z -1 7527
 D3
-You see the sewers.
+@eng You see the sewers.
+@rus Ты видишь коллектор.
 ~
 ~
 ~
@@ -2753,12 +3012,14 @@ You see the sewers.
 Z -1 7524
 S
 #7527
-The Sewers.~
-Hmm, another dead end.
+@eng The Sewers@rus Коллектор~
+@eng Hmm, another dead end.
+@rus Хм... похоже, еще один тупик.
 ~
 0 A field
 D0
-You see the sewers.
+@eng You see the sewers.
+@rus Ты видишь коллектор.
 ~
 ~
 ~
@@ -2766,19 +3027,22 @@ You see the sewers.
 Z -1 7526
 S
 #7528
-The Sewers.~
-You are in a tunnel that leads north-south.  The walls here are moist.
+@eng The Sewers@rus Коллектор~
+@eng You are in a tunnel that leads north-south.  The walls here are moist.
+@rus Туннель коллектора идет с севера на юг. Стены туннеля явно сырые. 
 ~
 0 A field
 D0
-You see the sewers.
+@eng You see the sewers.
+@rus Ты видишь коллектор.
 ~
 ~
 ~
 ~
 Z -1 7529
 D2
-You see the sewers.
+@eng You see the sewers.
+@rus Ты видишь коллектор.
 ~
 ~
 ~
@@ -2786,19 +3050,22 @@ You see the sewers.
 Z -1 7526
 S
 #7529
-The Sewers.~
-You are in a tunnel that leads north-south.  The walls are moist here.
+@eng The Sewers@rus Коллектор~
+@eng You are in a tunnel that leads north-south.  The walls are moist here.
+@rus Туннель коллектора идет с севера на юг. Стены туннеля явно сырые. 
 ~
 0 A field
 D0
-You see the sewers.
+@eng You see the sewers.
+@rus Ты видишь коллектор.
 ~
 ~
 ~
 ~
 Z -1 7530
 D2
-You see the sewers.
+@eng You see the sewers.
+@rus Ты видишь коллектор.
 ~
 ~
 ~
@@ -2806,14 +3073,17 @@ You see the sewers.
 Z -1 7528
 S
 #7530
-The Sewers.~
-You are at one end of a tunnel that leads north-south.  I wonder where
+@eng The Sewers@rus Коллектор~
+@eng You are at one end of a tunnel that leads north-south.  I wonder where
 it goes.  Oh well, you can keep wondering, because there is a magic sign
 that says 'UNDER CONSTRUCTION' to the west......
+@rus Ты в одном из концов туннеля. Интересно, куда он ведет? А еще интереснее
+магический знак к западу от тебя с надписью 'Идет строительство'...
 ~
 0 A field
 D2
-You see the sewers.
+@eng You see the sewers.
+@rus Ты видишь коллектор.
 ~
 ~
 ~
@@ -2821,19 +3091,22 @@ You see the sewers.
 Z -1 7529
 S
 #7531
-The Sewers.~
-You are in one of the twisting tunnels that abound in these sewers.
+@eng The Sewers@rus Коллектор~
+@eng You are in one of the twisting tunnels that abound in these sewers.
+@rus Ты в одном из этих извивающихся туннелей, из которых состоит этот коллектор.
 ~
 0 AC field
 D1
-You see some VERY clean sewers.
+@eng You see some VERY clean sewers.
+@rus Ты видишь ОЧЕНЬ чистый  участок коллектора.
 ~
 ~
 ~
 ~
 Z -1 7554
 D2
-You see the sewers.
+@eng You see the sewers.
+@rus Ты видишь коллектор.
 ~
 ~
 ~
@@ -2841,19 +3114,22 @@ You see the sewers.
 Z -1 7532
 S
 #7532
-The Sewers.~
-You are in one of the twisting tunnels in this maze of messy water.
+@eng The Sewers@rus Коллектор~
+@eng You are in one of the twisting tunnels in this maze of messy water.
+@rus Ты в одном из извивающихся туннелей этого лабиринте грязной воды.
 ~
 0 A field
 D0
-You see the sewers.
+@eng You see the sewers.
+@rus Ты видишь коллектор.
 ~
 ~
 ~
 ~
 Z -1 7531
 D2
-You see the sewers.
+@eng You see the sewers.
+@rus Ты видишь коллектор.
 ~
 ~
 ~
@@ -2861,28 +3137,34 @@ You see the sewers.
 Z -1 7533
 S
 #7533
-The Sewers.~
-You are in the sewers.  Not a very nice area to be.
+@eng The Sewers@rus Коллектор~
+@eng You are in the sewers.  Not a very nice area to be.
 Especially because it doesn't exactly smell nice.
 ( You just realized it wasn't your breath...)
+@rus Ты стоишь в коллекторе.  Это не очень приятное место, однозначно.  В
+особенности из-за этого отвратительного запаха.  (До тебя только сейчас
+дошло, что это вовсе не твое зловонное дыхание...)  
 ~
 0 A field
 D0
-You see the sewers.
+@eng You see the sewers.
+@rus Ты видишь коллектор.
 ~
 ~
 ~
 ~
 Z -1 7532
 D1
-You see the sewers.
+@eng You see the sewers.
+@rus Ты видишь коллектор.
 ~
 ~
 ~
 ~
 Z -1 7534
 D3
-You see the sewers.
+@eng You see the sewers.
+@rus Ты видишь коллектор.
 ~
 ~
 ~
@@ -2890,27 +3172,32 @@ You see the sewers.
 Z -1 7526
 S
 #7534
-The Sewers.~
-The tunnel continues on, to the east, and west.  There is a tunnel to the
+@eng The Sewers@rus Коллектор~
+@eng The tunnel continues on, to the east, and west.  There is a tunnel to the
 south.
+@rus Этот туннель продолжается на восток и запад. На юг ответвляется еще один
+туннель.
 ~
 0 A field
 D1
-You see the sewers.
+@eng You see the sewers.
+@rus Ты видишь коллектор.
 ~
 ~
 ~
 ~
 Z -1 7540
 D2
-You see the tunnel.
+@eng You see the tunnel.
+@rus Ты видишь туннель.
 ~
 ~
 ~
 ~
 Z -1 7535
 D3
-you see the sewers.
+@eng You see the sewers.
+@rus Ты видишь коллектор.
 ~
 ~
 ~
@@ -2918,20 +3205,23 @@ you see the sewers.
 Z -1 7533
 S
 #7535
-The tunnel.~
-You are going down a tunnel that runs north-south.  To
+@eng The tunnel@rus Туннель~
+@eng You are going down a tunnel that runs north-south.  To
 the south there is a wet scent.
+@rus Туннель ведет с севера на юг. С юга тянет влажным воздухом.
 ~
 0 A city
 D0
-You see the sewers.
+@eng You see the sewers.
+@rus Ты видишь коллектор.
 ~
 ~
 ~
 ~
 Z -1 7534
 D2
-You see the tunnel.
+@eng You see the tunnel.
+@rus Ты видишь туннель.
 ~
 ~
 ~
@@ -2939,20 +3229,24 @@ You see the tunnel.
 Z -1 7536
 S
 #7536
-The tunnel.~
-You are going down a tunnel that leads north-south.  There is some water
+@eng The tunnel@rus Туннель~
+@eng You are going down a tunnel that leads north-south.  There is some water
 to the south.
+@rus Ты все еще спускаешься по туннелю, ведущему с севера на юг. На юге
+начинается затопленный участок.
 ~
 0 A field
 D0
-You see the tunnel.
+@eng You see the tunnel.
+@rus Ты видишь туннель.
 ~
 ~
 ~
 ~
 Z -1 7535
 D2
-You see the tunnel.
+@eng You see the tunnel.
+@rus Ты видишь туннель.
 ~
 ~
 ~
@@ -2960,20 +3254,24 @@ You see the tunnel.
 Z -1 7537
 S
 #7537
-The watery tunnel.~
-There is some water here, it is up to your waist.  It is calm enough
+@eng The watery tunnel@rus Затопленный туннель~
+@eng There is some water here, it is up to your waist.  It is calm enough
 to swim or wade though.
+@rus В этом участке туннеля воды тебе по пояс. Течение достаточно спокойное,
+чтобы можно было плыть или просто брести по воде.
 ~
 0 A swim
 D0
-You see the tunnel.
+@eng You see the tunnel.
+@rus Ты видишь туннель.
 ~
 ~
 ~
 ~
 Z -1 7536
 D2
-You see the tunnel.
+@eng You see the tunnel.
+@rus Ты видишь туннель.
 ~
 ~
 ~
@@ -2981,19 +3279,22 @@ You see the tunnel.
 Z -1 7538
 S
 #7538
-The watery tunnel.~
-The water gets deeper here, it is up to your chin.
+@eng The watery tunnel@rus Затопленный туннель~
+@eng The water gets deeper here, it is up to your chin.
+@rus Вода тут уже достигает твоего подбородка.
 ~
 0 A swim
 D0
-You see the tunnel.
+@eng You see the tunnel.
+@rus Ты видишь туннель.
 ~
 ~
 ~
 ~
 Z -1 7537
 D2
-You see the end of the tunnel.
+@eng You see the end of the tunnel.
+@rus Ты видишь конец туннеля.
 ~
 ~
 ~
@@ -3001,14 +3302,18 @@ You see the end of the tunnel.
 Z -1 7539
 S
 #7539
-The end of the watery tunnel.~
-The tunnel ends here, with all that water in the tunnel pouring out.
+@eng The end of the watery tunnel@rus Конец затопленного туннеля~
+@eng The tunnel ends here, with all that water in the tunnel pouring out.
 The water here is rough, it is all you can do to keep your head afloat.
 To the east and west, there a walls in the way of your movement. 
+@rus Туннель здесь кончается.  Где-то, видимо, есть отверстие для стока воды.
+Течение здесь такое бурное, что ты с трудом удерживаешься на плаву. Сте-
+ны на востоке и западе блокируют путь в этих направлениях.
 ~
 0 AC swim
 D0
-You see the tunnel.
+@eng You see the tunnel.
+@rus Ты видишь туннель.
 ~
 ~
 ~
@@ -3016,26 +3321,30 @@ You see the tunnel.
 Z -1 7538
 S
 #7540
-The Sewers.~
-You are in the sewers.  There is the familiar dank smell to everything...
+@eng The Sewers@rus Коллектор~
+@eng You are in the sewers.  There is the familiar dank smell to everything...
+@rus Ты в коллекторе Геригхельма. В воздухе чувствуется все тот же влажный запах.
 ~
 0 AC field
 D0
-You see the sewers.
+@eng You see the sewers.
+@rus Ты видишь коллектор.
 ~
 ~
 ~
 ~
 Z -1 7552
 D1
-You see the sewers.
+@eng You see the sewers.
+@rus Ты видишь коллектор.
 ~
 ~
 ~
 ~
 Z -1 7541
 D3
-You see the sewers.
+@eng You see the sewers.
+@rus Ты видишь коллектор.
 ~
 ~
 ~
@@ -3043,19 +3352,23 @@ You see the sewers.
 Z -1 7534
 S
 #7541
-The Sewers.~
-You are in the sewers, to the east, the tunnel ends.  So it seems.
+@eng The Sewers@rus Коллектор~
+@eng You are in the sewers, to the east, the tunnel ends.  So it seems.
+@rus Ты все еще в коллекторе. На востоке туннель кончается. По крайней мере,
+так тебе кажется.
 ~
 0 A field
 D1
-You see the sewers.
+@eng You see the sewers.
+@rus Ты видишь коллектор.
 ~
 ~
 ~
 ~
 Z -1 7542
 D3
-You see the sewers.
+@eng You see the sewers.
+@rus Ты видишь коллектор.
 ~
 ~
 ~
@@ -3063,21 +3376,26 @@ You see the sewers.
 Z -1 7540
 S
 #7542
-The Sewers.~
-You are at the end of one of the countless tunnels in these sewers.
+@eng The Sewers@rus Коллектор~
+@eng You are at the end of one of the countless tunnels in these sewers.
 To the east, there is a grate that seems to have a force field in between
 the holes in it.
+@rus Ты находишься в тупике,  где  кончается один из бесконечного множества этих
+туннелей. На востоке ты видишь решетку. Промежутки между прутьями заполнены
+каким-то силовым полем.
 ~
 0 A field
 D1
 You see the grate.
+@@rus Ты видишь решетку.
 ~
-grate~
-the grate~
+grate решетка~
+@eng the grate@rus решетка~
 ~
 Z -1 7543
 D3
-You see the sewers.
+@eng You see the sewers.
+@rus Ты видишь коллектор.
 ~
 ~
 ~
@@ -3085,41 +3403,48 @@ You see the sewers.
 Z -1 7541
 S
 #7543
-Underwater in the river.~
-You are swimming underwater in the river.  It looks so different from
+@eng Underwater in the river@rus Под поверхностью реки~
+@eng You are swimming underwater in the river.  It looks so different from
 down here.
+@rus Ты плывешь под водой в реке. Отсюда все предметы кажутся какими-то странными,
+во прикол!
 ~
 0 0 underwater
 D0
-You see the river.
+@eng You see the river.
+@rus Ты видишь реку.
 ~
 ~
 ~
 ~
 Z -1 7545
 D2
-You see the river.
+@eng You see the river.
+@rus Ты видишь реку.
 ~
 ~
 ~
 ~
 Z -1 7544
 D3
-You see the grate to the sewers.
+@eng You see the grate to the sewers.
+@rus Ты видишь решетку, закрывающую вход в коллектор.
 ~
-grate~
-the grate~
+grate решетка~
+@eng the grate@rus решетка~
 ~
 Z -1 7542
 S
 #7544
-Underwater.~
-You are underwater in the river.  There seems to be a force field
+@eng Underwater@rus Под водой~
+@eng You are underwater in the river.  There seems to be a force field
 to the south....
+@rus Ты все еще под водой. На юге чувствуется присутствие какого-то силового поля.
 ~
 0 0 underwater
 D0
-You see the river.
+@eng You see the river.
+@rus Ты видишь реку.
 ~
 ~
 ~
@@ -3127,19 +3452,22 @@ You see the river.
 Z -1 7543
 S
 #7545
-Underwater.~
-You are underwater in the river.
+@eng Underwater@rus Под водой~
+@eng You are underwater in the river.
+@rus Ты плывешь под водой в реке.
 ~
 0 0 underwater
 D0
-You see the river.
+@eng You see the river.
+@rus Ты видишь реку.
 ~
 ~
 ~
 ~
 Z -1 7546
 D2
-You see the river.
+@eng You see the river.
+@rus Ты видишь реку.
 ~
 ~
 ~
@@ -3147,19 +3475,22 @@ You see the river.
 Z -1 7543
 S
 #7546
-Underwater.~
-You are underwater in the river.
+@eng Underwater@rus Под водой~
+@eng You are underwater in the river.
+@rus Ты плывешь под водой в реке.
 ~
 0 0 underwater
 D0
-You see the river.
+@eng You see the river.
+@rus Ты видишь реку.
 ~
 ~
 ~
 ~
 Z -1 7547
 D2
-You see the river.
+@eng You see the river.
+@rus Ты видишь реку.
 ~
 ~
 ~
@@ -3167,22 +3498,27 @@ You see the river.
 Z -1 7545
 S
 #7547
-Underwater.~
-You are underwater in the river.  The water shallows out to the north.
+@eng Underwater@rus Под водой~
+@eng You are underwater in the river.  The water shallows out to the north.
 To the west there is a ledge that is just above the water, some of it
 is underwater.  As you look closer to the north, you see that there is a
 force field blocking your passage.
+@rus Ты плывешь под поверхностью реки.  К северу река мельчает.  На западе ты
+видишь полузатопленный выступ.  Внимательнее присмотревшись к реке на
+севере, ты замечаешь силовое поле, блокирующее тебе путь туда.
 ~
 0 0 underwater
 D2
-You see the river.
+@eng You see the river.
+@rus Ты видишь реку.
 ~
 ~
 ~
 ~
 Z -1 7546
 D3
-You see the half flooded sewers.
+@eng You see the half flooded sewers.
+@rus Ты видишь полузатопленный участок канализации.
 ~
 ~
 ~
@@ -3190,20 +3526,24 @@ You see the half flooded sewers.
 Z -1 7548
 S
 #7548
-Half Flooded Sewers.~
-You are up to your waist in river water.  To the west there are some VERY
+@eng Half Flooded Sewers@rus Полузатопленный участок канализации~
+@eng You are up to your waist in river water.  To the west there are some VERY
 clean sewers...
+@rus Ты стоишь по пояс в реке, которая размеренно катит свои волны мимо. На
+западе находится подозрительно чистый участок коллектора...
 ~
 0 C swim
 D1
-You see the river.
+@eng You see the river.
+@rus Ты видишь реку.
 ~
 ~
 ~
 ~
 Z -1 7547
 D3
-You see the clean sewers.
+@eng You see the clean sewers.
+@rus Ты видишь чистый участок коллектора.
 ~
 ~
 ~
@@ -3211,30 +3551,41 @@ You see the clean sewers.
 Z -1 7549
 S
 #7549
-Very clean Sewers.~
-You are standing at the start of a section of sewers that are VERY
+@eng Very clean Sewers@rus Очень чистый участок коллектора~
+@eng You are standing at the start of a section of sewers that are VERY
 clean...  There is a sign here.
+@rus Ты стоишь в начале очень чистого участка коллектора... Знак со смутно
+знакомыми тебе символами висит на стене. Надеюсь, ты умеешь читать?
 ~
 0 A inside
 E
-sign~
-The sign reads:
+sign знак~
+@eng The sign reads:
 
                              WARNING    WARNING
                          TESTING GROUNDS FOR MAGIC WORMS.
                              PROCEED AT OWN RISK.
 
 Gerighelm Sewer Service.
+@rus Надпись на знаке гласит:
+
+                  ВНИМАНИЕ!!!     ОПАСНОСТЬ!!!
+           ИСПЫТАТЕЛЬНЫЙ УЧАСТОК ДЛЯ МАГИЧЕСКИХ ЧЕРВЕЙ!
+                 ПРОХОДИ НА СВОЙ СТРАХ И РИСК!!
+
+Коммунальная Служба Геригхельма.
 ~
 D1
-You see the flooded ledge.
+@eng You see the flooded ledge.
+@rus Ты видишь полузатопленный выступ.
 ~
 ~
 ~
 ~
 Z -1 7548
 D2
-You see the clean sewers.
+@eng You see the clean sewers.
+@rus Ты видишь чистый участок коллектора.
 ~
 ~
 ~
@@ -3242,20 +3593,24 @@ You see the clean sewers.
 Z -1 7550
 S
 #7550
-Very clean Sewers.~
-You are in some VERY clean sewers.  You have been wondering what that
+@eng Very clean Sewers@rus Очень чистый участок коллектора~
+@eng You are in some VERY clean sewers.  You have been wondering what that
 sign meant by 'MAGIC WORMS'.......
+@rus Ты идешь по чистому участку коллектора. Интересно, что эти идиоты имели
+в виду под 'МАГИЧЕСКИМИ ЧЕРВЯМИ'......
 ~
 0 A city
 D0
-You see the clean sewers.
+@eng You see the clean sewers.
+@rus Ты видишь чистый участок коллектора.
 ~
 ~
 ~
 ~
 Z -1 7549
 D3
-You see the clean sewers.
+@eng You see the clean sewers.
+@rus Ты видишь чистый участок коллектора.
 ~
 ~
 ~
@@ -3263,19 +3618,22 @@ You see the clean sewers.
 Z -1 7551
 S
 #7551
-Very clean Sewers.~
-You are in the VERY clean sewers.
+@eng Very clean Sewers@rus Очень чистый участок канализации~
+@eng You are in the VERY clean sewers.
+@rus Ты идешь по чистому участку коллектора.
 ~
 0 A city
 D1
-You see the clean sewers.
+@eng You see the clean sewers.
+@rus Ты видишь чистый участок коллектора.
 ~
 ~
 ~
 ~
 Z -1 7550
 D2
-You see the clean sewers.
+@eng You see the clean sewers.
+@rus Ты видишь чистый участок коллектора.
 ~
 ~
 ~
@@ -3283,26 +3641,30 @@ You see the clean sewers.
 Z -1 7552
 S
 #7552
-Very clean Sewers.~
-You are in the VERY clean sewers.
+@eng Very clean Sewers@rus Очень чистый участок коллектора~
+@eng You are in the VERY clean sewers.
+@rus Ты идешь по чистому участку коллектора.
 ~
 0 A city
 D0
-You see the clean sewers.
+@eng You see the clean sewers.
+@rus Ты видишь чистый участок коллектора.
 ~
 ~
 ~
 ~
 Z -1 7551
 D2
-You see the sewers.
+@eng You see the sewers.
+@rus Ты видишь коллектор.
 ~
 ~
 ~
 ~
 Z -1 7540
 D3
-You see the clean sewers.
+@eng You see the clean sewers.
+@rus Ты видишь чистый участок коллектора.
 ~
 ~
 ~
@@ -3310,19 +3672,22 @@ You see the clean sewers.
 Z -1 7553
 S
 #7553
-Very clean Sewers.~
-You are in the VERY clean sewers.
+@eng Very clean Sewers@rus Очень чистый участок коллектора~
+@eng You are in the VERY clean sewers.
+@rus Ты идешь по чистому участку коллектора.
 ~
 0 A city
 D0
-You see the clean sewers.
+@eng You see the clean sewers.
+@rus Ты видишь чистый участок коллектора.
 ~
 ~
 ~
 ~
 Z -1 7554
 D1
-You see the clean sewers.
+@eng You see the clean sewers.
+@rus Ты видишь чистый участок коллектора.
 ~
 ~
 ~
@@ -3330,13 +3695,15 @@ You see the clean sewers.
 Z -1 7552
 S
 #7554
-Very clean Sewers.~
-You are in some EXTREEMLY clean sewers!  There is a sign here.
+@eng Very clean Sewers@rus Очень чистый участок коллектора~
+@eng You are in some EXTREEMLY clean sewers!  There is a sign here.
+@rus Ты стоишь в ОЧЕНЬ чистом участке коллектора! Знак с черепом и надписью
+на китайском прибит к потолку.
 ~
 0 A city
 E
-sign~
-The sign reads:
+sign знак~
+@eng The sign reads:
 
 
                                 WARNING    WARNING
@@ -3344,23 +3711,33 @@ The sign reads:
                                 PROCEED AT OWN RISK.
 
 Gerighelm Sewer Service.
+@rus Знак гласит:
+
+                  ВНИМАНИЕ!!!     ОПАСНОСТЬ!!!
+           ИСПЫТАТЕЛЬНЫЙ УЧАСТОК ДЛЯ МАГИЧЕСКИХ ЧЕРВЕЙ!
+                 ПРОХОДИ НА СВОЙ СТРАХ И РИСК!!
+
+Коммунальная Служба Геригхельма.
 ~
 D0
-You see the clean sewers.
+@eng You see the clean sewers.
+@rus Ты видишь чистый участок коллектора.
 ~
 ~
 ~
 ~
 Z -1 7555
 D2
-You see the clean sewers.
+@eng You see the clean sewers.
+@rus Ты видишь чистый участок коллектора.
 ~
 ~
 ~
 ~
 Z -1 7553
 D3
-You see the sewers.
+@eng You see the sewers.
+@rus Ты видишь коллектор.
 ~
 ~
 ~
@@ -3368,15 +3745,19 @@ You see the sewers.
 Z -1 7531
 S
 #7555
-Old library in the very clean Sewers.~
-You are in the VERY clean sewers.  There are some benches here, as well
-as some old books that are aged bye time..  You are afraid to touch them,
+@eng Old library in the very clean Sewers@rus Старая библиотека в чистом участке коллектора~
+@eng You are in the VERY clean sewers.  There are some benches here, as well
+as some old books that are aged by time..  You are afraid to touch them,
 unless they may crumble to dust with your touch.  One of the books is open.
+@rus Ты идешь по чистому участку коллектора.  Тут стоит несколько скамеек,  и 
+пылятся какие-то старые книги.  Идея  прикоснутся  к этим книгам тебе не 
+импонирует, так как они наверняка рассыпятся в пыль от малейшего ветерка.
+Одна из книг вроде бы открыта...
 ~
 0 AC field
 E
-book old~
-The page reads:
+book книга old старая~
+@eng The page reads:
 
 went off to find him.  The next day, the archangel Zarchon came to earth,
 and asked why the people were suffering.  He was told by the minstrel,
@@ -3394,9 +3775,29 @@ And Trollz said 'There shall be adventurers again. I command it.'
 And it was done, and there were such greats as uidsgfjkjskfauwehfjk
 
 The rest is garbled by time.
+@rus На этой странице ты разглядел следующее:
+
+пошли искать его. На следующий день архангел Заркон спустился на землю,
+чтобы узнать почему люди страдают. Менестрель сказал архангелу: "В этой
+земле не осталось героев и искателей приключений. Поэтому я несчастлив."
+
+И спросил архангел проходящего ребенка: "Почему ты так несчастлив?"
+Ребенок ответил: "Тут нет никого, кому бы я мог подражать. В старые дни
+здесь было много отважных воинов, священников, магов и разбойников.  Но
+не теперь...".
+
+И  сообщил  Заркон причину всех несчастий богу Тролзу и его помощникам,
+Тассу и Гарту. И сказал Тролз: "Здесь снова появятся искатели приключе-
+ний. Я так решил."
+
+И было сделано так, и появились такие великие герои как A-Thor, Rakot,
+Arwen...
+
+Остаток книги уничтожен временем.
 ~
 D2
-You see the clean sewers.
+@eng You see the clean sewers.
+@rus Ты видишь чистый участок канализации.
 ~
 ~
 ~
@@ -3404,26 +3805,30 @@ You see the clean sewers.
 Z -1 7554
 S
 #7556
-Junction in the dark Forest~
-You are at a junction in the Dark Forest.
+@eng Junction in the Dark Forest@rus Перекресток в Темном Лесу~
+@eng You are at a junction in the Dark Forest.
+@rus Ты набрел на перекресток тропинок в Темном Лесу.
 ~
 0 0 forest
 D2
-You see the dirt path.
+@eng You see the dirt path.
+@rus Ты видишь грязную дорогу.
 ~
 ~
 ~
 ~
 Z -1 7557
 D4
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь тропинку.
 ~
 ~
 ~
 ~
 Z -1 6003
 D5
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь тропинку.
 ~
 ~
 ~
@@ -3432,19 +3837,23 @@ Z -1 6002
 S
 #7557
 @eng Dirt path@rus Грязная дорога~
-You are on a dirt path that leads to a town. (you can tell this because
+@eng You are on a dirt path that leads to a town. (you can tell this because
 a passerby told you.), the path continues north and south.
+@rus Ты находишься на грязной дороге, которая ведет к городу (это тебе сообщили
+прохожие). Дорога идет отсюда на юг и на север.
 ~
 0 0 city
 D0
-You see the junction.
+@eng You see the junction.
+@rus Ты видишь пересечение.
 ~
 ~
 ~
 ~
 Z -1 7556
 D2
-You see the dirt path.
+@eng You see the dirt path.
+@rus Ты видишь грязную дорогу.
 ~
 ~
 ~
@@ -3459,14 +3868,16 @@ S
 ~
 0 0 city
 D0
-You see the dirt path.
+@eng You see the dirt path.
+@rus Ты видишь грязную дорогу.
 ~
 ~
 ~
 ~
 Z -1 7557
 D2
-You see the dirt path.
+@eng You see the dirt path.
+@rus Ты видишь грязную дорогу.
 ~
 ~
 ~
@@ -3480,14 +3891,16 @@ S
 ~
 0 0 city
 D0
-You see the dirt path.
+@eng You see the dirt path.
+@rus Ты видишь грязную дорогу.
 ~
 ~
 ~
 ~
 Z -1 7558
 D1
-You see the dirt path.
+@eng You see the dirt path.
+@rus Ты видишь грязную дорогу.
 ~
 ~
 ~
@@ -3501,14 +3914,16 @@ S
 ~
 0 C city
 D1
-You see the dirt path.
+@eng You see the dirt path.
+@rus Ты видишь грязную дорогу.
 ~
 ~
 ~
 ~
 Z -1 7561
 D3
-You see the dirt path.
+@eng You see the dirt path.
+@rus Ты видишь грязную дорогу.
 ~
 ~
 ~
@@ -3522,14 +3937,16 @@ S
 ~
 0 0 city
 D2
-You see the dirt path.
+@eng You see the dirt path.
+@rus Ты видишь грязную дорогу.
 ~
 ~
 ~
 ~
 Z -1 7562
 D3
-You see the dirt path.
+@eng You see the dirt path.
+@rus Ты видишь грязную дорогу.
 ~
 ~
 ~
@@ -3538,18 +3955,21 @@ Z -1 7560
 S
 #7562
 @eng Dirt Path@rus Грязная дорога~
-You are on the dirt path.  Up ahead, you see a LARGE city.
+@eng You are on the dirt path.  Up ahead, you see a LARGE city.
+@rus Ты стоишь на грязной дороге. Прямо перед собой ты видишь БОЛЬШОЙ город.
 ~
 0 0 city
 D0
-You see the dirt path.
+@eng You see the dirt path.
+@rus Ты видишь грязную дорогу.
 ~
 ~
 ~
 ~
 Z -1 7561
 D2
-You see the gate of Gerighelm.
+@eng You see the Gate of Gerighelm.
+@rus Ты видишь Ворота Геригхельма.
 ~
 ~
 ~
@@ -3557,16 +3977,18 @@ You see the gate of Gerighelm.
 Z -1 7563
 S
 #7563
-Gate of Gerighelm~
-You are standing inside the Gate of Gerighelm.  There is only one,
+@eng Gate of Gerighelm@rus Ворота Геригхельма~
+@eng You are standing inside the Gate of Gerighelm.  There is only one,
 because the town is surrounded by mountains.  Of course, there is a lot
 of traffic here.
      There is a small (Glowing) (Humming) tablet.
+@rus Ты находишься внутри Ворот Геригхельма. Они только одни, поскольку город
+окружен горами. Естественно, движение тут на редкость оживленное.
 ~
 0 0 city
 E
-small tablet~
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+small табличка tablet маленькая~
+@eng ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 +                                                                  +
 +            This area has been converted and adapted by           +
 +                         Targos and jaceks                        +
@@ -3577,16 +3999,30 @@ small tablet~
 +                             jaceks                               +
 +                                                          july'96 +
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+@rus ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++                                                                  +
++            Эта ария была отконвертирована и адаптирована         +
++                         Targos и jaceks                          +
++                                                                  +
++                                &                                 +
++                                                                  +
++         сбалансирована, отлажена, и значительно улучшена         +
++                             jaceks                               +
++                                                          июль'96 +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 ~
 D0
-You see the dirt path.
+@eng You see the dirt path.
+@rus Ты видишь грязную дорогу.
 ~
 ~
 ~
 ~
 Z -1 7562
 D2
-You see the West-Street of Gerighelm.
+@eng You see the West-Street of Gerighelm.
+@rus Ты видишь Западную Улицу Геригхельма.
 ~
 ~
 ~
@@ -3594,27 +4030,32 @@ You see the West-Street of Gerighelm.
 Z -1 7564
 S
 #7564
-West-Street of Gerighelm~
-This is the western most street of Gerighelm.  To the east, there is
+@eng West-Street of Gerighelm@rus Западная улица Геригхельма~
+@eng This is the western most street of Gerighelm.  To the east, there is
 a street with a sign proclaiming:  Peter Ave.
+@rus Это самая западная улица Геригхельма. На востоке располагается улица,
+обозначенная табличкой "Авеню Святого Петра".
 ~
 0 0 city
 D0
-You see the Gate of Gerighelm.
+@eng You see the Gate of Gerighelm.
+@rus Ты видишь Ворота Геригхельма.
 ~
 ~
 ~
 ~
 Z -1 7563
 D1
-You see Peter Ave.
+@eng You see Peter Ave.
+@rus Ты видишь Авеню Святого Петра.
 ~
 ~
 ~
 ~
 Z -1 7565
 D2
-You see West-Street.
+@eng You see West-Street.
+@rus Ты видишь Западную улицу.
 ~
 ~
 ~
@@ -3622,20 +4063,24 @@ You see West-Street.
 Z -1 7580
 S
 #7565
-Peter Ave~
-You are on Peter Ave.  To the south, you can see the park, but the entrance
+@eng Peter Ave@rus Авеню Святого Петра~
+@eng You are on Peter Ave.  To the south, you can see the park, but the entrance
 to the park is still to the east.
+@rus Ты стоишь на Авеню Святого Петра. На юге виден парк, но вход в него, похоже,
+находится еще дальше к востоку.
 ~
 0 0 city
 D1
-You see peter ave.
+@eng You see Peter ave.
+@rus Ты видишь Авеню Святого Петра.
 ~
 ~
 ~
 ~
 Z -1 7566
 D3
-You see west-street.
+@eng You see west-street.
+@rus Ты видишь Западную улицу.
 ~
 ~
 ~
@@ -3643,26 +4088,30 @@ You see west-street.
 Z -1 7564
 S
 #7566
-Peter Ave~
-You are on Peter Ave. The the south, you see the entrance to the park.
+@eng Peter Ave@rus Авеню Святого Петра~
+@eng You are on Peter Ave. To the south, you see the entrance to the park.
+@rus Ты стоишь на Авеню Святого Петра. На юге находится вход в парк.
 ~
 0 0 city
 D1
-You see peter ave.
+@eng You see Peter ave.
+@rus Ты видишь Авеню Святого Петра.
 ~
 ~
 ~
 ~
 Z -1 7567
 D2
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 ~
 ~
 Z -1 7500
 D3
-You see peter ave.
+@eng You see peter ave.
+@rus Ты видишь Авеню Святого Петра.
 ~
 ~
 ~
@@ -3670,19 +4119,22 @@ You see peter ave.
 Z -1 7565
 S
 #7567
-Peter Ave~
-You are on Peter ave. The the west, you see the entrance to the park.
+@eng Peter Ave@rus Авеню Святого Петра~
+@eng You are on Peter ave. The the west, you see the entrance to the park.
+@rus Ты стоишь на Авеню Святого Петра. На западе находится вход в парк.
 ~
 0 0 city
 D2
-You see peter ave.
+@eng You see Peter ave.
+@rus Ты видишь Авеню Святого Петра.
 ~
 ~
 ~
 ~
 Z -1 7568
 D3
-You see peter ave.
+@eng You see Peter ave.
+@rus Ты видишь Авеню Святого Петра.
 ~
 ~
 ~
@@ -3690,20 +4142,24 @@ You see peter ave.
 Z -1 7566
 S
 #7568
-Peter Ave~
-You are on Peter Ave.  To the west, you can see the park, but it's entrance
+@eng Peter Ave@rus Авеню Святого Петра~
+@eng You are on Peter Ave.  To the west, you can see the park, but it's entrance
 is not in sight.
+@rus Ты находишься на Авеню Святого Петра.  На западе ты видишь парк, но вход
+в него отсюда не виден.  
 ~
 0 0 city
 D0
-You see peter ave.
+@eng You see Peter ave.
+@rus Ты видишь Авеню Святого Петра.
 ~
 ~
 ~
 ~
 Z -1 7567
 D2
-You see merchant way.
+@eng You see merchant way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
@@ -3711,34 +4167,40 @@ You see merchant way.
 Z -1 7569
 S
 #7569
-Merchant Way~
-You are on the Merchant Way.  There are vendors selling everything that you
+@eng Merchant Way@rus Торговая Улица~
+@eng You are on the Merchant Way.  There are vendors selling everything that you
 could possibly need.
+@rus Ты находишься на Торговой Улице.  Тут продается все, что только может
+тебе пригодиться.
 ~
 0 0 city
 D0
-You see peter ave.
+@eng You see Peter ave.
+@rus Ты видишь Авеню Святого Петра.
 ~
 ~
 ~
 ~
 Z -1 7568
 D1
-You see merchant way.
+@eng You see merchant way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
 ~
 Z -1 7571
 D2
-You see the shop with lots of food..
+@eng You see the shop with lots of food...
+@rus Ты видишь продуктовую лавку...
 ~
 ~
 ~
 ~
 Z -1 7570
 D3
-You see merchant way.
+@eng You see merchant way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
@@ -3746,22 +4208,31 @@ You see merchant way.
 Z -1 7575
 S
 #7570
-The shop with lots of food~
-This shop has lots of food in it. Apples, pies, carrots, you name it.
+@eng The shop with lots of food@rus Продуктовая лавка~
+@eng This shop has lots of food in it. Apples, pies, carrots, you name it.
 There is a sign here.
+@rus В этой лавке продается много разнообразной еды. Яблоки, морковь, пироги...
+Кроме того, тут еще есть знак со странной надписью.
 ~
 0 D inside
 E
-sign~
-The sign reads:
+sign знак~
+@eng The sign reads:
 
       To buy an item, type: BUY <itemname>
       To see what is in our fine stock, type: LIST
       To see if we wish to purchase something from you, type: VALUE <item>
       If we are interested in the item, you can sell it to use with SELL <item>
+@rus Знак гласит:
+     
+   Чтобы купить вещь, напишите: BUY <имя вещи>
+   Чтобы посмотреть список продаваемых вещей, напишите: LIST
+   Чтобы узнать, почем мы купим у вас вещь, напишите: VALUE <вещь>
+   Если мы заинтересованы в покупке вещи, продайте ее командой SELL <вещь>
 ~
 D0
-You see merchant way.
+@eng You see merchant way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
@@ -3769,26 +4240,30 @@ You see merchant way.
 Z -1 7569
 S
 #7571
-Merchant Way~
-You are on the Merchant Way.  To the south, there is a weapon shop.
+@eng Merchant Way@rus Торговая улица~
+@eng You are on the Merchant Way.  To the south, there is a weapon shop.
+@rus Ты на Торговой Улице. На юге расположена оружейная лавка.
 ~
 0 0 city
 D1
-You see the end of merchant way.
+@eng You see the end of merchant way.
+@rus Ты видишь конец Торговой улицы.
 ~
 ~
 ~
 ~
 Z -1 7573
 D2
-You see the weapon shop.
+@eng You see the weapon shop.
+@rus Ты видищь оружейную лавку.
 ~
 ~
 ~
 ~
 Z -1 7572
 D3
-You see merchant way.
+@eng You see merchant way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
@@ -3796,23 +4271,32 @@ You see merchant way.
 Z -1 7569
 S
 #7572
-Weapon shop~
-You are in the weapon shop. There are many fine weapons here, but all of
+@eng Weapon shop@rus Оружейная лавка~
+@eng You are in the weapon shop. There are many fine weapons here, but all of
 them are safe and out of your reach.  There is a sign here.
+@rus Ты зашел в оружейную лавку. Здесь продается отличное оружие, но все оно
+находится вне твоей досягаемости. Сбоку ты видишь знак.
 ~
 0 D inside
 E
-sign~
-The sign reads:
+sign знак~
+@eng The sign reads:
 
 
 To see what we have for sale, type: LIST
 To see if we want to buy something from you, type: VALUE <item>
 To buy an item type: BUY <item>
 To sell an item, type: SELL <item>
+@rus Знак гласит:
+
+Чтобы посмотреть список продаваемых вещей, напишите: LIST
+Чтобы узнать, почем мы купим у вас вещь, напишите: VALUE <вещь>
+Чтобы купить вещь, напишите: BUY <вещь>
+Чтобы продать вещь, напишите: SELL <вещь>
 ~
 D0
-You see the merchant way.
+@eng You see the merchant way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
@@ -3820,20 +4304,23 @@ You see the merchant way.
 Z -1 7571
 S
 #7573
-End of Merchant Way~
-You are at the end of merchant way, yet there is still another store
+@eng End of Merchant Way@rus Конец Торговой Улицы~
+@eng You are at the end of merchant way, yet there is still another store
 south of here.
+@rus Торговая Улица здесь заканчивается. На юге расположена последная лавка.
 ~
 0 0 city
 D2
-You see the Herbalist shop.
+@eng You see the Herbalist shop.
+@rus Ты видишь лавку торговца травами.
 ~
 ~
 ~
 ~
 Z -1 7574
 D3
-You see merchant way.
+@eng You see merchant way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
@@ -3841,22 +4328,31 @@ You see merchant way.
 Z -1 7571
 S
 #7574
-Herbalist Shop~
-You are inside the Herbalist Shop.  There are many herbs here- Lord knows
+@eng Herbalist Shop@rus Лавка торговца травами~
+@eng You are inside the Herbalist Shop.  There are many herbs here- Lord knows
 WHAT some of them do... There is a sign here too, on the table.
+@rus Ты находишься в местной аптеке.  Здесь продается огромное количество
+разнообразных трав -- черт его знает, ЧТО делают некоторые из них... На
+столе располагается записка.  
 ~
 0 D inside
 E
-sign~
-The sign reads:
+sign знак записка~
+@eng The sign reads:
 
 To see what we have for sale, type: LIST
 To buy something, type: BUY <item>
 To value something, type: VALUE <item>
 To sell something, type: SELL <item>
+@rus Записка гласит:
+Чтобы посмотреть список продаваемых вещей, напишите: LIST
+Чтобы узнать, почем мы купим у вас вещь, напишите: VALUE <вещь>
+Чтобы купить вещь, напишите: BUY <вещь>
+Чтобы продать вещь, напишите: SELL <вещь>
 ~
 D0
-You see the end of merchant way.
+@eng You see the end of merchant way.
+@rus Ты видишь конец Торговой улицы.
 ~
 ~
 ~
@@ -3864,26 +4360,30 @@ You see the end of merchant way.
 Z -1 7573
 S
 #7575
-Merchant Way~
-You are on merchant way. To the south, there is another shop.
+@eng Merchant Way@rus Торговая улица~
+@eng You are on merchant way. To the south, there is another shop.
+@rus Ты на Торговой Улице. На юг располагается какая-то лавка.
 ~
 0 0 city
 D1
-You see the merchant way.
+@eng You see the merchant way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
 ~
 Z -1 7569
 D2
-You see the magic shop.
+@eng You see the magic shop.
+@rus Ты видишь магическую лавку.
 ~
 ~
 ~
 ~
 Z -1 7576
 D3
-You see the merchant way.
+@eng You see the merchant way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
@@ -3891,22 +4391,30 @@ You see the merchant way.
 Z -1 7577
 S
 #7576
-Magic Shop~
-You are inside the magic shop.  There are many many many magical things
+@eng Magic Shop@rus Магическая лавка~
+@eng You are inside the magic shop.  There are many many many magical things
 of unknown nature.  There is a sign here.
+@rus Ты находишся в лавке магии. Тут продается множество непонятных магических
+вещей. Знак с надписью привлекает твое внимание.
 ~
 0 D inside
 E
-sign~
-the sign reads:
+sign знак~
+@eng The sign reads:
 
-to see what we have for sale, type: LIST
+To see what we have for sale, type: LIST
 To see what we want to buy from you, type: VALUE <item>
 To sell an item, type: SELL <item>
 To buy an item, type: BUY <item>
+@rus Знак гласит:
+Чтобы посмотреть список продаваемых вещей, напишите: LIST
+Чтобы узнать, почем мы купим у вас вещь, напишите: VALUE <вещь>
+Чтобы купить вещь, напишите: BUY <вещь>
+Чтобы продать вещь, напишите: SELL <вещь>
 ~
 D0
-You see the merchant way.
+@eng You see the merchant way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
@@ -3914,27 +4422,32 @@ You see the merchant way.
 Z -1 7575
 S
 #7577
-Merchant Way~
-You are on the merchant way.  To the south, there is the local branch
+@eng Merchant Way@rus Торговая улица~
+@eng You are on the merchant way.  To the south, there is the local branch
 of the Pawn Shop.  And to the west, Merchant ave. ends.
+@rus Ты на Торговой Улице. На юге располагается местный ломбард. На западе
+Торговая Улица заканчивается.
 ~
 0 0 city
 D1
-You see the merchant way.
+@eng You see the merchant way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
 ~
 Z -1 7575
 D2
-You see the Pawn Shop.
+@eng You see the Pawn Shop.
+@rus Ты видишь ломбард.
 ~
 ~
 ~
 ~
 Z -1 7578
 D3
-You see West-Street
+@eng You see West-Street
+@rus Ты видишь Западную Улицу.
 ~
 ~
 ~
@@ -3942,13 +4455,15 @@ You see West-Street
 Z -1 7579
 S
 #7578
-The Pawn Shop~
-You are in the Pawn shop.  Unfourtuatly, there is no pawn here,
+@eng The Pawn Shop@rus Ломбард~
+@eng You are in the Pawn shop.  Unfourtuatly, there is no pawn here,
 just a hired merchant.
+@rus Ты находишься в ломбарде. Купец радостно потирает руки при виде тебя.
 ~
 0 D inside
 D0
-You see the merchant way.
+@eng You see the merchant way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
@@ -3956,26 +4471,30 @@ You see the merchant way.
 Z -1 7577
 S
 #7579
-West-Street~
-You are on West-Street.  To the east, the Merchant Way begins.
+@eng West-Street@rus Западная улица~
+@eng You are on West-Street.  To the east, the Merchant Way begins.
+@rus Ты на Западной Улице. На востоке начинается Торговая Улица.
 ~
 0 0 city
 D0
-You see West-Street.
+@eng You see West-Street.
+@rus Ты видишь Западную Улицу.
 ~
 ~
 ~
 ~
 Z -1 7580
 D1
-You see the Merchant Way.
+@eng You see the Merchant Way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
 ~
 Z -1 7577
 D2
-You see West-Street.
+@eng You see West-Street.
+@rus Ты видишь Западную Улицу.
 ~
 ~
 ~
@@ -3983,19 +4502,22 @@ You see West-Street.
 Z -1 7581
 S
 #7580
-West-Street~
-You are on the West-Street.  To the north, you approach the North Gate.
+@eng West-Street@rus Западная улица~
+@eng You are on the West-Street.  To the north, you approach the North Gate.
+@rus Ты на Западной улице. На севере возвышаются Северные Ворота.
 ~
 0 0 city
 D0
-You see the West-Street.
+@eng You see the West-Street.
+@rus Ты видишь Западную Улицу.
 ~
 ~
 ~
 ~
 Z -1 7564
 D2
-You see the West-Street.
+@eng You see the West-Street.
+@rus Ты видишь Западную Улицу.
 ~
 ~
 ~
@@ -4003,20 +4525,23 @@ You see the West-Street.
 Z -1 7579
 S
 #7581
-West-Street~
-You are on the West-Street.  To the south, Merchant way begins. As well as
+@eng West-Street@rus Западная улица~
+@eng You are on the West-Street.  To the south, Merchant way begins. As well as
 to the north.
+@rus Ты на Западной Улице. На юге и на севере начинается Торговая Улица.
 ~
 0 0 city
 D0
-You see West-Street.
+@eng You see West-Street.
+@rus Ты видишь Западную Улицу.
 ~
 ~
 ~
 ~
 Z -1 7579
 D2
-You see West-Street.
+@eng You see West-Street.
+@rus Ты видишь Западную Улицу.
 ~
 ~
 ~
@@ -4024,34 +4549,40 @@ You see West-Street.
 Z -1 7582
 S
 #7582
-West-Street~
-You are on West-Street. To the west, Mable Road begins, and to the east
+@eng West-Street@rus Западная улица~
+@eng You are on West-Street. To the west, Mable Road begins, and to the east
 Merchant way travels.
+@rus Ты на Западной Улице. На востоке идет Торговая Улица. На западе начинается
+Мраморная Дорога.
 ~
 0 0 city
 D0
-You see West-Street.
+@eng You see West-Street.
+@rus Ты видишь Западную Улицу.
 ~
 ~
 ~
 ~
 Z -1 7581
 D1
-You see the Merchant Way.
+@eng You see the Merchant Way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
 ~
 Z -1 7601
 D2
-You see West-Street.
+@eng You see West-Street.
+@rus Ты видишь Западную Улицу.
 ~
 ~
 ~
 ~
 Z -1 7589
 D3
-You see Mable road.
+@eng You see Mable road.
+@rus Ты видишь Дорогу Мэйбл.
 ~
 ~
 ~
@@ -4059,27 +4590,32 @@ You see Mable road.
 Z -1 7583
 S
 #7583
-Mable Road~
-You are on Mable road.  It was called this after the late Kings wife.
+@eng Mable Road@rus Дорога Мэйбл~
+@eng You are on Mable road.  It was called this after the late Kings wife.
 To the north, the Palace of the Duke grows to the horizon.
+@rus Ты на Дороге Мэйбл. Она была названа в честь жены последнего Короля. На юге
+высится громада Дворца Герцога.
 ~
 0 0 city
 D0
-You see the Dukes Palace.
+@eng You see the Dukes Palace.
+@rus Ты видишь Дворец Герцога.
 ~
 ~
 ~
 ~
 Z -1 7663
 D1
-You see West-Street.
+@eng You see West-Street.
+@rus Ты видишь Западную Улицу.
 ~
 ~
 ~
 ~
 Z -1 7582
 D3
-You see Mable road.
+@eng You see Mable road.
+@rus Ты видишь Дорогу Мэйбл.
 ~
 ~
 ~
@@ -4087,28 +4623,33 @@ You see Mable road.
 Z -1 7584
 S
 #7584
-Mable Road~
-You are on Mable road. To the north, the palace looms large, but the
+@eng Mable Road@rus Дорога Мэйбл~
+@eng You are on Mable road. To the north, the palace looms large, but the
 entrance to the palace is to the east.  There is a sewer pipe exposed in
 the side of the road.
+@rus Ты на Дороге Мэйбл. На севере высится дворец, но вход в него расположен к
+востоку отсюда. Сбоку от дороги виднеется труба коллектора.
 ~
 0 0 city
 D1
-You see Mable road.
+@eng You see Mable road.
+@rus Ты видишь Дорогу Мэйбл.
 ~
 ~
 ~
 ~
 Z -1 7583
 D2
-You see Mable road.
+@eng You see Mable road.
+@rus Ты видишь Дорогу Мэйбл.
 ~
 ~
 ~
 ~
 Z -1 7585
 D5
-You see the sewers.
+@eng You see the sewers.
+@rus Ты видишь коллектор.
 ~
 ~
 ~
@@ -4116,19 +4657,22 @@ You see the sewers.
 Z -1 7524
 S
 #7585
-Mable Road~
-You are on Mable road. To the north, the palace STILL looms big.
+@eng Mable Road@rus Дорога Мэйбл~
+@eng You are on Mable road. To the north, the palace STILL looms big.
+@rus Ты на дороге Мэйбл. На севере все еще тянется дворец.
 ~
 0 0 city
 D0
-You see Mable road.
+@eng You see Mable road.
+@rus Ты видишь Дорогу Мэйбл.
 ~
 ~
 ~
 ~
 Z -1 7584
 D2
-You see Mable road.
+@eng You see Mable road.
+@rus Ты видишь Дорогу Мэйбл.
 ~
 ~
 ~
@@ -4136,20 +4680,23 @@ You see Mable road.
 Z -1 7586
 S
 #7586
-Mable Road~
-You are on Mable road.  To the north, the palace looms majesticly on
+@eng Mable Road@rus Дорога Мэйбл~
+@eng You are on Mable road.  To the north, the palace looms majesticly on
 the horizon.
+@rus Ты на Дороге Мэйбл. На северном горизонте величественно высится дворец.
 ~
 0 0 city
 D0
-You see Mable road.
+@eng You see Mable road.
+@rus Ты видишь Дорогу Мэйбл.
 ~
 ~
 ~
 ~
 Z -1 7585
 D1
-You see Mable road.
+@eng You see Mable road.
+@rus Ты видишь Дорогу Мэйбл.
 ~
 ~
 ~
@@ -4157,20 +4704,24 @@ You see Mable road.
 Z -1 7587
 S
 #7587
-Mable Road~
-You are on Mable road.  To the southeast, you see the path leaving
+@eng Mable Road@rus Дорога Мэйбл~
+@eng You are on Mable road.  To the southeast, you see the path leaving
 Gerighelm.  Also, to the east, West-Street takes over.
+@rus Ты на Дороге Мэйбл. Идя по юго-восточной тропинке, ты покинешь Геригхельм. На
+востоке продолжается Западная Улица.
 ~
 0 0 city
 D1
-You see West-Street
+@eng You see West-Street
+@rus Ты видишь Западную Улицу.
 ~
 ~
 ~
 ~
 Z -1 7588
 D3
-You see Mable road.
+@eng You see Mable road.
+@rus Ты видишь Дорогу Мэйбл.
 ~
 ~
 ~
@@ -4178,26 +4729,30 @@ You see Mable road.
 Z -1 7586
 S
 #7588
-West-Street~
-You are on the West-Street.  To the south, a path leading out of town begins.
+@eng West-Street@rus Западная Улица~
+@eng You are on the West-Street.  To the south, a path leading out of town begins.
+@rus Ты на Западной Улице. На юге начинается дорога, ведущая тебя из города.
 ~
 0 0 city
 D0
-You see West-Street
+@eng You see West-Street.
+@rus Ты видишь Западную Улицу.
 ~
 ~
 ~
 ~
 Z -1 7589
 D2
-You see the path.
+@eng You see the path.
+@rus Ты видишь дорогу.
 ~
 ~
 ~
 ~
 Z -1 7598
 D3
-You see Mable road.
+@eng You see Mable road.
+@rus Ты видишь Дорогу Мэйбл.
 ~
 ~
 ~
@@ -4205,28 +4760,34 @@ You see Mable road.
 Z -1 7587
 S
 #7589
-West-Street~
-You are on West-Street.  To the north, there is an intersection of
+@eng West-Street@rus Западная Улица~
+@eng You are on West-Street.  To the north, there is an intersection of
 Merchant Way, West-street, and  Mable road.  And, to the east, Temple
 Street wends.
+@rus Ты на Западной Улице.  На севере находится перекресток, где встречаются
+Торговая Улица, Западная улица и Дорога Мэйбл.  На востоке начинается
+Храмовая Улица.  
 ~
 0 0 city
 D0
-You see West-street.
+@eng You see West-street.
+@rus Ты видишь Западную Улицу.
 ~
 ~
 ~
 ~
 Z -1 7582
 D1
-You see Temple Street.
+@eng You see Temple Street.
+@rus Ты видишь Храмовую Улицу.
 ~
 ~
 ~
 ~
 Z -1 7590
 D2
-You see West-Street.
+@eng You see West-Street.
+@rus Ты видишь Западную Улицу.
 ~
 ~
 ~
@@ -4234,27 +4795,31 @@ You see West-Street.
 Z -1 7588
 S
 #7590
-Temple Street~
-You are on Temple Street.  To the south, there is some construction work
+@eng Temple Street@rus Храмовая Улица~
+@eng You are on Temple Street.  To the south, there is some construction work
 going on.
+@rus Ты на Храмовой Улице. На юге полным ходом идут строительные работы.
 ~
 0 0 city
 D1
-You see Temple Street.
+@eng You see Temple Street.
+@rus Ты видишь Храмовую Улицу.
 ~
 ~
 ~
 ~
 Z -1 7592
 D2
-You see the contruction crew building a new temple
+@eng You see the contruction crew building a new temple.
+@rus Ты видишь бригаду строителей, строящих новый храм.
 ~
 ~
 ~
 ~
 Z -1 7591
 D3
-You see West-Street.
+@eng You see West-Street.
+@rus Ты видишь Западную Улицу.
 ~
 ~
 ~
@@ -4262,14 +4827,17 @@ You see West-Street.
 Z -1 7589
 S
 #7591
-Construction site~
-You are standing before a large construction site in which men are building a
+@eng Construction site@rus Стройка~
+@eng You are standing before a large construction site in which men are building a
 new temple.
 Who's it for?
+@rus Ты стоишь перед большой стройкой, на которой люди возводят новый храм.
+Интересно, храм чего?
 ~
 0 0 forest
 D0
-You see Temple Street.
+@eng You see Temple Street.
+@rus Ты видишь Храмовую Улицу.
 ~
 ~
 ~
@@ -4277,26 +4845,30 @@ You see Temple Street.
 Z -1 7590
 S
 #7592
-Temple Street~
-You are on Temple Street.  To the south is the Temple to Time.
+@eng Temple Street@rus Храмовая Улица~
+@eng You are on Temple Street.  To the south is the Temple to Time.
+@rus Ты на Храмовой Улице. На юге расположен Храм Времени.
 ~
 0 0 city
 D1
-You see Temple Street.
+@eng You see Temple Street.
+@rus Ты видишь Храмовую Улицу.
 ~
 ~
 ~
 ~
 Z -1 7594
 D2
-You see a temple.
+@eng You see a temple.
+@rus Ты видишь храм.
 ~
 ~
 ~
 ~
 Z -1 7593
 D3
-You see Temple Street.
+@eng You see Temple Street.
+@rus Ты видишь Храмовую Улицу.
 ~
 ~
 ~
@@ -4304,13 +4876,16 @@ You see Temple Street.
 Z -1 7590
 S
 #7593
-Temple to Time~
-You are standing inside the Temple to time. There are many clocks here, to say 
-the least.
+@eng Temple to Time@rus Храм Времени~
+@eng You are standing inside the Temple to time.  There are many clocks here,
+to say the least.  
+@rus Ты стоишь внутри Храма Времени. Здесь очень МНОГО различных часов, и это еще
+слабо сказано.
 ~
 0 0 city
 D0
-You see the Temple Street.
+@eng You see the Temple Street.
+@rus Ты видишь Храмовую Улицу.
 ~
 ~
 ~
@@ -4318,8 +4893,9 @@ You see the Temple Street.
 Z -1 7592
 S
 #7594
-Temple Street~
-You are on Temple street. to the south, you see the cathedral.
+@eng Temple Street@rus Храмовая Улица~
+@eng You are on Temple street. To the south, you see the cathedral.
+@rus Ты на Храмовой Улице. На юге виден собор.
 ~
 0 0 city
 D1
@@ -4329,15 +4905,18 @@ D1
 ~
 Z 0 7596
 D2
-You see an old, run down cathedral.  There are Gargoyles, vampires, and
+@eng You see an old, run down cathedral.  There are Gargoyles, vampires, and
 others.  They seem to be moving....
+@rus Ты видишь старый заброшенный собор. Там Горгульи, вампиры и прочая нечисть.
+Похоже что все это двигается....
 ~
 ~
 ~
 ~
 Z -1 7595
 D3
-You see Temple Street.
+@eng You see Temple Street.
+@rus Ты видишь Храмовую Улицу.
 ~
 ~
 ~
@@ -4345,24 +4924,29 @@ You see Temple Street.
 Z -1 7592
 S
 #7595
-Temple of Death~
-You are standing inside the temple of Death. It's kinda scary in here, how
+@eng Temple of Death@rus Храм Смерти~
+@eng You are standing inside the temple of Death. It's kinda scary in here, how
 about running away hmm?
+@rus Ты стоишь внутри Храма Смерти. Здесь довольно страшно, как насчет того, чтобы
+по-быстрому убежать отсюда, а?
 ~
 0 D inside
 E
-altar~
-It is a coffin.  It's kinda scary, maybe you should just run away now, hmm?
+altar алтарь~
+@eng It is a coffin.  It's kinda scary, maybe you should just run away now, hmm?
+@rus Это гроб. Он выглядит пугающе, может слинять отсюда, пока не поздно, а?
 ~
 D0
-You see Temple Street.
+@eng You see Temple Street.
+@rus Ты видишь Храмовую Улицу.
 ~
 ~
 ~
 ~
 Z -1 7594
 D2
-You see Sacrifice Room.
+@eng You see Sacrifice Room.
+@rus Ты видишь Комнату Жертвоприношений.
 ~
 ~
 ~
@@ -4370,20 +4954,23 @@ You see Sacrifice Room.
 Z -1 7699
 S
 #7596
-Temple Street~
-You are standing on Temple street.  To the south a Temple is leaking.
+@eng Temple Street@rus Храмовая Улица~
+@eng You are standing on Temple street.  To the south a Temple is leaking.
 Blood!
+@rus Ты стоишь на  Храмовой Улице. Из храма на юге течет... КРОВЬ!!!!
 ~
 0 0 city
 D2
-You see the Temple to War!
+@eng You see the Temple to War!
+@rus Ты видишь Храм Войны.
 ~
 ~
 ~
 ~
 Z -1 7597
 D3
-You see Temple Street.
+@eng You see Temple Street.
+@rus Ты видишь Храмовую Улицу.
 ~
 ~
 ~
@@ -4391,19 +4978,24 @@ You see Temple Street.
 Z -1 7594
 S
 #7597
-Temple to War!~
-There is blood dripping all over
-the place.  Some of it has been captured, and is sent streaming into veritable
-RIVERS of blood!  It's very artistic.  The altar contains: Blood, guts, a few
-sacrificial offerings (corpses, soon to be corpses, whatever).
+@eng Temple to War@rus Храм Войны~
+@eng There is blood dripping all over the place.  Some of it has been
+captured, and is sent streaming into veritable RIVERS of blood!  It's very
+artistic.  The altar contains: Blood, guts, a few sacrificial offerings
+(corpses, soon to be corpses, whatever).  
+@rus Кровь течет отовсюду. Часть ее собирается и направляется в целые РЕКИ крови!!
+Все это очень впечатляет!  Алтарь содержит:  Кровь, внутренности, и некоторые
+другие жертвоприношения (трупы, или по крайней мере то, что скоро ими станет).
 ~
 0 D inside
 E
-altar~
-On the altar you see: babes, men, women, and, of course, ducklings.
+altar алтарь~
+@eng On the altar you see: babes, men, women, and, of course, ducklings.
+@rus На алтаре ты видишь: младенцев, мужчин, женщин, и, конечно же, утят.
 ~
 D0
-You see the Temple Street.
+@eng You see the Temple Street.
+@rus Ты видишь Храмовую Улицу.
 ~
 ~
 ~
@@ -4411,19 +5003,22 @@ You see the Temple Street.
 Z -1 7596
 S
 #7598
-Path from Gerighelm~
-You are at the beginning of a path from Gerighelm.
+@eng Path from Gerighelm@rus Дорога из Геригхельма~
+@eng You are at the beginning of a path from Gerighelm.
+@rus Ты находишься в начале дороги из Геригхельма.
 ~
 0 0 field
 D0
-You see West-Street.
+@eng You see West-Street.
+@rus Ты видишь Западную Улицу.
 ~
 ~
 ~
 ~
 Z -1 7588
 D2
-You see the Dump.
+@eng You see the Dump.
+@rus Ты видишь Свалку.
 ~
 ~
 ~
@@ -4431,19 +5026,23 @@ You see the Dump.
 Z -1 7599
 S
 #7599
-The Dump~
-You are at the Dump.
+@eng The Dump@rus Свалка~
+@eng You are at the Dump.
+@rus Ты стоишь на Свалке. А что это торчит вон из той кучи мусора? Страсть как
+интересно!!!
 ~
 0 0 hills
 D0
-You see the path from Gerighelm.
+@eng You see the path from Gerighelm.
+@rus Ты видишь дорогу из Геригхельма.
 ~
 ~
 ~
 ~
 Z -1 7598
 D2
-You see The dump.
+@eng You see The Dump.
+@rus Ты видишь Свалку.
 ~
 ~
 ~
@@ -4451,12 +5050,13 @@ You see The dump.
 Z -1 7600
 S
 #7600
-The Dump~
-You are at the Dump.  Need I say more?
+@eng The Dump@rus Свалка~
+@eng You are at the Dump.  Need I say more?
+@rus Ты на свалке. И кто это выкидывает такую вкуснятину на помойку?!?
 ~
 0 0 hills
 D0
-You see the Dump.
+@eng You see the Dump.
 ~
 ~
 ~
@@ -4464,28 +5064,34 @@ You see the Dump.
 Z -1 7599
 S
 #7601
-Merchant Way~
-You are at the beginning of Merchant way.  To the north, there is a shop
+@eng Merchant Way@rus Торговая Улица~
+@eng You are at the beginning of Merchant way.  To the north, there is a shop
 that proclaims itself 'Ye Olde Pet Shope'.  Those look like healthy, handsome
 pets.
+@rus Ты находишься в начале Торговой Улицы. На севере расположен магазинчик с
+вывеской "Домашние животные Старины Билла".  Петы Старины Билла выглядят
+здоровыми и сильными.
 ~
 0 0 city
 D0
-You see the olde pet shope.
+@eng You see the olde pet shope.
+@rus Ты видишь магазин "Домашние животные Старины Билла".
 ~
 ~
 ~
 ~
 Z -1 7697
 D1
-You see the merchant way.
+@eng You see the merchant way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
 ~
 Z -1 7603
 D3
-You see West-Street.
+@eng You see West-Street.
+@rus Ты видишь Западную Улицу.
 ~
 ~
 ~
@@ -4493,13 +5099,17 @@ You see West-Street.
 Z -1 7582
 S
 #7602
-Ye Olde Pet Shope~
-You are standing inside the pet shop.  There are pets EVERYWHERE.
+@eng Ye Olde Pet Shope@rus Магазин "Домашние животные Старины Билла"~
+@eng You are standing inside the pet shop.  There are pets EVERYWHERE.
 There are dogs, cats, kittens, puppy's, wolves, you name it.
+@rus Ты находишься в магазине домашних животных.  И эта пакость тут просто
+ВЕЗДЕ!  Среди них ты видишь драных кошек, бездомных тощих собак,
+котят-сосунков, глупых щенков и даже волков!  
 ~
 0 DKM inside
 D2
-You see the merchant way.
+@eng You see the merchant way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
@@ -4507,27 +5117,31 @@ You see the merchant way.
 Z -1 7601
 S
 #7603
-Merchant Way~
-You are on the merchant way.  To the north, there is yet another shop.
+@eng Merchant Way@rus Торговая Улица~
+@eng You are on the merchant way.  To the north, there is yet another shop.
 This one is: Greghimles furniture store.
+@rus Ты на Торговой Улице. На севере находится Мебельный магазин Геригхельма.
 ~
 0 0 city
 D0
-You see Greghimles furniture store.
+@eng You see Greghimles furniture store.
+@rus Ты видишь Мебельный магазин Геригхельма.
 ~
 ~
 ~
 ~
 Z -1 7604
 D1
-You see merchant way.
+@eng You see merchant way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
 ~
 Z -1 7605
 D3
-You see the Merchant way.
+@eng You see the Merchant way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
@@ -4535,13 +5149,16 @@ You see the Merchant way.
 Z -1 7601
 S
 #7604
-Greghimles furniture store~
-You are inside Greghimles furniture store.  There are lamps, boxes, great
+@eng Greghimles furniture store@rus Мебельный магазин Геригхельма~
+@eng You are inside Greghimles furniture store.  There are lamps, boxes, great
 stuffed chairs, that sort of thing.
+@rus Ты стоишь внутри Мебельного магазина. Здесь стоят всяческие лампы, ящики,
+кресла и тому подобный хлам.
 ~
 0 D inside
 D2
-You see the Merchant way.
+@eng You see the Merchant way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
@@ -4549,35 +5166,41 @@ You see the Merchant way.
 Z -1 7603
 S
 #7605
-Merchant Way~
-You are on the Merchant way.  To the north, there is yet another store.
+@eng Merchant Way@rus Торговая Улица~
+@eng You are on the Merchant way.  To the north, there is yet another store.
 This one is:  Crazy Himshlick's portable fountains.  To the south, you see
 the Barracks.
+@rus Ты на Торговой Улице. На севере располагается магазин по вывеской "Переносные
+фонтаны Сумасшедшего Химшлика". На юге ты видишь Казармы.
 ~
 0 0 city
 D0
-You see Crazy Himshlick's portable fountains.
+@eng You see Crazy Himshlick's portable fountains.
+@rus Ты видишь магазин "Переносные фонтаны Сумасшедшего Химшлика".
 ~
 ~
 ~
 ~
 Z -1 7606
 D1
-You see the Merchant way.
+@eng You see the Merchant way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
 ~
 Z -1 7607
 D2
-You see the barracks.
+@eng You see the barracks.
+@rus Ты видишь Казармы.
 ~
 ~
 ~
 ~
 Z -1 7681
 D3
-You see the Merchant way.
+@eng You see the Merchant way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
@@ -4585,14 +5208,18 @@ You see the Merchant way.
 Z -1 7603
 S
 #7606
-Crazy Himshlick's portable fountains~
-You are inside a ramshakle building, probably just thrown together for this
+@eng Crazy Himshlick's portable fountains@rus Переносные фонтаны Сумасшедшего Химшлика~
+@eng You are inside a ramshakle building, probably just thrown together for this
 guys shop.  You see a sign advertising his 'low prices' and 'low interest
 rates'....
+@rus Ты стоишь внутри полуразвалившейся хибары, которая служит магазином этому
+сумасшедшему парню.  Развешенные повсюду таблички рекламируют его "низкие
+цены" и "мизерные проценты"...  
 ~
 0 0 city
 D2
-You see the Merchant way.
+@eng You see the Merchant way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
@@ -4600,27 +5227,31 @@ You see the Merchant way.
 Z -1 7605
 S
 #7607
-Merchant Way~
-You are on the Merchant way.  To the north, there is another shop.
+@eng Merchant Way@rus Торговая Улица~
+@eng You are on the Merchant way.  To the north, there is another shop.
 This one is:  Water bottles and beer.
+@rus Ты на Торговой Улице. На севере ты видишь пивнушку.
 ~
 0 0 city
 D0
-You see the Water bottles and beer.
+@eng You see the Water bottles and beer.
+@rus Ты видишь пивнушку.
 ~
 ~
 ~
 ~
 Z -1 7608
 D1
-You see the Merchant way.
+@eng You see the Merchant way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
 ~
 Z -1 7609
 D3
-You see the Merchant way.
+@eng You see the Merchant way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
@@ -4628,12 +5259,14 @@ You see the Merchant way.
 Z -1 7605
 S
 #7608
-Water bottles and Beer~
-You are inside a shop with a small bar.
+@eng Water bottles and Beer@rus Пивнушка~
+@eng You are inside a shop with a small bar.
+@rus Ты нахидишься в обычном притоне, где продают пиво.
 ~
 0 D inside
 D2
-You see the Merchant way.
+@eng You see the Merchant way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
@@ -4641,28 +5274,34 @@ You see the Merchant way.
 Z -1 7607
 S
 #7609
-Merchant Way~
-You are on the Merchant way.  To the north, there is yet another shop.
+@eng Merchant Way@rus Торговая Улица~
+@eng You are on the Merchant way.  To the north, there is yet another shop.
 The sign out front reads: potions and wands.  To the east, there is a river,
 but there is a bridge crossing it.
+@rus Ты на Торговой Улице. На севере находится магазин "Зелья и жезлы". На востоке
+течет река, через которую предусмотрительно перекинуты две доски - это, видимо,
+мост.
 ~
 0 0 city
 D0
-You see the Potions and Wands.
+@eng You see the Potions and Wands.
+@rus Ты видишь магазин "Зелья и жезлы".
 ~
 ~
 ~
 ~
 Z -1 7610
 D1
-You see the Bridge crossing the river.
+@eng You see the Bridge crossing the river.
+@rus Ты видишь мост через реку.
 ~
 ~
 ~
 ~
 Z -1 7611
 D3
-You see the Merchant way.
+@eng You see the Merchant way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
@@ -4670,13 +5309,16 @@ You see the Merchant way.
 Z -1 7607
 S
 #7610
-The Potions and Wands shop~
-This shop is tended by an old witch.  There are boiling pots and cauldrons
+@eng The Potions and Wands shop@rus Магазин "Зелья и жезлы"~
+@eng This shop is tended by an old witch.  There are boiling pots and cauldrons
 all over.
+@rus Владелица этого магазина - старая ужасная ведьма.  Весь магазин уставлен
+котлами и горшками с противно пахнущим варевом.  
 ~
 0 D inside
 D2
-You see the Merchant way.
+@eng You see the Merchant way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
@@ -4684,19 +5326,23 @@ You see the Merchant way.
 Z -1 7609
 S
 #7611
-Bridge over the river~
-You are on a bridge over the river.
+@eng Bridge over the river@rus Мост через реку~
+@eng You are on a bridge over the river.
+@rus Ты находишься на мосту через реку.  Если, конечно, эти две дощечки можно
+назвать мостом.  
 ~
 0 0 city
 D1
-You see the Merchant Way.
+@eng You see the Merchant Way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
 ~
 Z -1 7612
 D3
-You see the Merchant way.
+@eng You see the Merchant way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
@@ -4704,28 +5350,33 @@ You see the Merchant way.
 Z -1 7609
 S
 #7612
-Merchant Way~
-You are on Merchant way.  This part of Merchant way is much more crowded.
-the vendors have taken to wandering the streets, selling their stock as they
+@eng Merchant Way@rus Торговая Улица~
+@eng You are on Merchant way.  This part of Merchant way is much more crowded.
+The vendors have taken to wandering the streets, selling their stock as they
 go.
+@rus Ты находишься на Торговой Улице.  Эта ее часть гораздо более многолюдна. 
+Бродячие торговцы ходят по улицам и на ходу распродают свой товар.  
 ~
 0 0 field
 D1
-You see the crowded market.
+@eng You see the crowded market.
+@rus Ты видишь оживленный рынок.
 ~
 ~
 ~
 ~
 Z -1 7614
 D2
-You see the crowded market.
+@eng You see the crowded market.
+@rus Ты видишь оживленный рынок.
 ~
 ~
 ~
 ~
 Z -1 7613
 D3
-You see the bridge over the river.
+@eng You see the bridge over the river.
+@rus Ты видишь мост через реку.
 ~
 ~
 ~
@@ -4733,12 +5384,14 @@ You see the bridge over the river.
 Z -1 7611
 S
 #7613
-Crowded market~
-You wonder if you are going to get out of this crowded market.....
+@eng Crowded market@rus Оживленный рынок~
+@eng You wonder if you are going to get out of this crowded market.....
+@rus Ты думаешь, когда же наконец удастся уйти с этого чересчур оживленного рынка...
 ~
 0 0 hills
 D0
-You see Merchant way.
+@eng You see Merchant way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
@@ -4746,34 +5399,40 @@ You see Merchant way.
 Z -1 7612
 S
 #7614
-Crowded market~
-You think that you can get away from the crowd!  To the north, there
+@eng Crowded market@rus Оживленный рынок~
+@eng You think that you can get away from the crowd!  To the north, there
 is a long path the wends it's way into the distance.
+@rus Тебе кажется, что в конце концов ты можешь выбраться из этой проклятой толпы!
+На севере виднеется длинная дорога, уходящая вдаль.
 ~
 0 0 hills
 D0
-You see the long path.
+@eng You see the long path.
+@rus Ты видишь длинную дорогу.
 ~
 ~
 ~
 ~
 Z -1 7615
 D1
-You see the crowded market.
+@eng You see the crowded market.
+@rus Ты видишь оживленный рынок.
 ~
 ~
 ~
 ~
 Z -1 7640
 D2
-You see the crowded market.
+@eng You see the crowded market.
+@rus Ты видишь оживленный рынок.
 ~
 ~
 ~
 ~
 Z -1 7639
 D3
-You see the Merchant way.               
+@eng You see the Merchant way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
@@ -4781,20 +5440,24 @@ You see the Merchant way.
 Z -1 7612
 S
 #7615
-Long path~
-You are on the long path.  To the south, you see the crowded market.
+@eng Long path@rus Длинная дорога~
+@eng You are on the long path.  To the south, you see the crowded market.
 To the north, you see the path as peaceful as can be.
+@rus Ты на длинной дороге.  На юге ты видишь рынок, забитый народом.  На
+севере дорога так спокойна, как только это может быть.  
 ~
 0 0 field
 D0
-You see the long path.
+@eng You see the long path.
+@rus Ты видишь длинную дорогу.
 ~
 ~
 ~
 ~
 Z -1 7616
 D2
-You see the crowded market.
+@eng You see the crowded market.
+@rus Ты видишь оживленный рынок.
 ~
 ~
 ~
@@ -4802,19 +5465,22 @@ You see the crowded market.
 Z -1 7614
 S
 #7616
-Long path~
-You are on the long path. To the north and south is peace.
+@eng Long path@rus Длинная дорога~
+@eng You are on the long path. To the north and south is peace.
+@rus Ты на длинной дороге. На юге и на севере царит полное спокойствие.
 ~
 0 0 field
 D0
-You see the junction.
+@eng You see the junction.
+@rus Ты видишь перекресток.
 ~
 ~
 ~
 ~
 Z -1 7617
 D2
-You see the long path.
+@eng You see the long path.
+@rus Ты видишь длинную дорогу.
 ~
 ~
 ~
@@ -4822,27 +5488,31 @@ You see the long path.
 Z -1 7615
 S
 #7617
-Junction~
-You are at a junction on the long path.  To the east, there is a bunch of
+@eng Junction@rus Перекресток~
+@eng You are at a junction on the long path.  To the east, there is a bunch of
 homes.
+@rus Ты на перекрестке длинной дороги. На востоке стоит несколько домов.
 ~
 0 0 forest
 D0
-You see the long path.
+@eng You see the long path.
+@rus Ты видишь длинную дорогу.
 ~
 ~
 ~
 ~
 Z -1 7629
 D1
-You see the houses.
+@eng You see the houses.
+@rus Ты видишь дома.
 ~
 ~
 ~
 ~
 Z -1 7620
 D2
-You see the long path.
+@eng You see the long path.
+@rus Ты видишь длинную дорогу.
 ~
 ~
 ~
@@ -4850,20 +5520,23 @@ You see the long path.
 Z -1 7616
 S
 #7620
-Rurals~
-You are surrounded by people as they go about their errands from house to
+@eng Rurals@rus Сельская местность~
+@eng You are surrounded by people as they go about their errands from house to
 house.
+@rus Ты окружен людьми, которые неспешно перемещаются от дома к дому по своим делам.
 ~
 0 0 field
 D1
-You see the houses.
+@eng You see the houses.
+@rus Ты видишь дома.
 ~
 ~
 ~
 ~
 Z -1 7621
 D3
-You see the junction.
+@eng You see the junction.
+@rus Ты видишь перекресток.
 ~
 ~
 ~
@@ -4871,20 +5544,24 @@ You see the junction.
 Z -1 7617
 S
 #7621
-Rurals~
-Up ahead, you see a pair of paths, that lead up to the front doors
+@eng Rurals@rus Сельская местность~
+@eng Up ahead, you see a pair of paths, that lead up to the front doors
 of the houses.
+@rus Прямо перед собой ты видишь две тропинки, которые ведут прямиком к парадным
+дверям домов.
 ~
 0 0 city
 D1
-You see the paths.
+@eng You see the paths.
+@rus Ты видишь тропинки.
 ~
 ~
 ~
 ~
 Z -1 7622
 D3
-You see the path you came in on.
+@eng You see the path you came in on.
+@rus Ты видишь дорогу, по которой $gn{пришел} сюда.
 ~
 ~
 ~
@@ -4892,27 +5569,33 @@ You see the path you came in on.
 Z -1 7620
 S
 #7622
-Pair of paths~
-The paths are under you feet now.  You can choose which house to go to
+@eng Pair of paths@rus Пара тропинок~
+@eng The paths are under you feet now.  You can choose which house to go to
 first.
+@rus Тропинки теперь прямо у тебя под ногами. Ты можешь выбрать, к какому дому
+идти сначала.
 ~
 0 0 city
 D0
-You see the house.
+@eng You see the house.
+@rus Ты видишь дом.
 ~
-door~
+door дверь~
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 ~
 ~
 Z -1 7624
 D2
-You see the house.
+@eng You see the house.
+@rus Ты видишь дом.
 ~
-door~
+door дверь~
 ~
 ~
 Z -1 7623
 D3
-You see the path you came in on.
+@eng You see the path you came in on.
+@rus Ты видишь дорогу, по которой $gn{пришел} сюда.
 ~
 ~
 ~
@@ -4920,26 +5603,30 @@ You see the path you came in on.
 Z -1 7621
 S
 #7623
-House~
-You are inside a house. the house continues to the east and west.
+@eng House@rus Дом~
+@eng You are inside a house. The house continues to the east and west.
+@rus Ты стоишь внутри дома. Дом продолжается на восток и запад. 
 ~
 0 D inside
 D0
-You see the door.
+@eng You see the door.
+@rus Ты видишь дверь.
 ~
-door~
+door дверь~
 ~
 ~
 Z -1 7622
 D1
-You see the drawing room.
+@eng You see the drawing room.
+@rus Ты видишь гостиную.
 ~
 ~
 ~
 ~
 Z -1 7627
 D3
-You see the living room.
+@eng You see the living room.
+@rus Ты видишь спальню.
 ~
 ~
 ~
@@ -4947,26 +5634,30 @@ You see the living room.
 Z -1 7628
 S
 #7624
-House~
-You are inside a house.  The house continues to the west, and east.
+@eng House@rus Дом~
+@eng You are inside a house.  The house continues to the west, and east.
+@rus Ты внутри дома. Дом продолжается на запад и восток.
 ~
 0 D inside
 D1
-You see the dining room.
+@eng You see the dining room.
+@rus Ты видишь столовую.
 ~
 ~
 ~
 ~
 Z -1 7625
 D2
-You see the door.
+@eng You see the door.
+@rus Ты видишь дверь.
 ~
-door~
+door дверь~
 ~
 ~
 Z -1 7622
 D3
-You see the sitting room.
+@eng You see the sitting room.
+@rus Ты видишь общую комнату.
 ~
 ~
 ~
@@ -4974,12 +5665,14 @@ You see the sitting room.
 Z -1 7626
 S
 #7625
-Dining room~
-You are inside the dining room.
+@eng Dining room@rus Столовая~
+@eng You are inside the dining room.
+@rus Ты находишься в столовой.
 ~
 0 D inside
 D3
-You see the entrance to the house.
+@eng You see the entrance to the house.
+@rus Ты видишь вход в дом.
 ~
 ~
 ~
@@ -4987,12 +5680,14 @@ You see the entrance to the house.
 Z -1 7624
 S
 #7626
-Sitting room~
-You are inside the sitting room.
+@eng Sitting room@rus Общая комната~
+@eng You are inside the sitting room.
+@rus Ты стоишь в общей комнате.
 ~
 0 D inside
 D1
-You see the entrance to the house.
+@eng You see the entrance to the house.
+@rus Ты видишь вход в дом.
 ~
 ~
 ~
@@ -5000,12 +5695,14 @@ You see the entrance to the house.
 Z -1 7624
 S
 #7627
-Living room~
-You are inside the living room in the house.
+@eng Living room@rus Спальня~
+@eng You are inside the living room in the house.
+@rus Ты находишься в спальне этого дома.
 ~
 0 D inside
 D3
-You see the entrance to the house.
+@eng You see the entrance to the house.
+@rus Ты видишь вход в дом.
 ~
 ~
 ~
@@ -5013,12 +5710,14 @@ You see the entrance to the house.
 Z -1 7623
 S
 #7628
-Drawing room~
-You are inside the drawing room in the house.
+@eng Drawing room@rus Гостиная~
+@eng You are inside the drawing room in the house.
+@rus Ты находишься в гостиной.
 ~
 0 D inside
 D1
-You see the entrance to the house.
+@eng You see the entrance to the house.
+@rus Ты видишь вход в дом.
 ~
 ~
 ~
@@ -5026,19 +5725,22 @@ You see the entrance to the house.
 Z -1 7623
 S
 #7629
-Long path~
-You are on the long path.  To the north, you see that the path ends.
+@eng Long path@rus Длинная дорога~
+@eng You are on the long path.  To the north, you see that the path ends.
+@rus Ты на длинной дороге. На севере дорога кончается.
 ~
 0 0 field
 D0
-You see the end of the path.
+@eng You see the end of the path.
+@rus Ты видишь конец дороги.
 ~
 ~
 ~
 ~
 Z -1 7630
 D2
-You see the junction
+@eng You see the junction.
+@rus Ты видишь перекресток.
 ~
 ~
 ~
@@ -5046,14 +5748,18 @@ You see the junction
 Z -1 7617
 S
 #7630
-End of the path~
-You are at the end of the long path, there is a sign here that says:
+@eng End of the path@rus Конец дороги~
+@eng You are at the end of the long path, there is a sign here that says:
 'under construction'  with an arrow pointing north.. To the north, you see
 a building being coded.....
+@rus Ты в конце длинной дороги.  Тут расположен знак с надписью "Идет
+строительство".  На севере ты видишь здание, исходный код которого сейчас
+создается....  
 ~
 0 0 field
 D2
-You see the path.
+@eng You see the path.
+@rus Ты видишь дорогу.
 ~
 ~
 ~
@@ -5061,12 +5767,14 @@ You see the path.
 Z -1 7629
 S
 #7639
-Crowded market~
-Gods, this place is STUFFED with people!
+@eng Crowded market@rus Оживленный рынок~
+@eng Gods, this place is STUFFED with people!
+@rus Боги, это место просто НАБИТО людьми!!!
 ~
 0 0 field
 D0
-You see the crowded market.
+@eng You see the crowded market.
+@rus Ты видишь оживленный рынок.
 ~
 ~
 ~
@@ -5074,27 +5782,31 @@ You see the crowded market.
 Z -1 7614
 S
 #7640
-Crowded market~
-You are in the crowded market.  To the east, there is a bridge over the
+@eng Crowded market@rus Оживленный рынок~
+@eng You are in the crowded market.  To the east, there is a bridge over the
 river.
+@rus Ты находишься в многолюдной секции рынка. На восток виден мост через реку.
 ~
 0 0 field
 D1
-You see the bridge.
+@eng You see the bridge.
+@rus Ты видишь мост.
 ~
 ~
 ~
 ~
 Z -1 7647
 D2
-You see the crowded market.
+@eng You see the crowded market.
+@rus Ты видишь оживленный рынок.
 ~
 ~
 ~
 ~
 Z -1 7641
 D3
-You see the crowded market.
+@eng You see the crowded market.
+@rus Ты видишь оживленный рынок.
 ~
 ~
 ~
@@ -5102,21 +5814,25 @@ You see the crowded market.
 Z -1 7614
 S
 #7641
-Crowded market~
-You are in the crowded market.  The vendors here are getting on your
-nerves. it's always 'Come see my fresh fish!' or 'my jewelry is THE BEST!'
+@eng Crowded market@rus Оживленный рынок~
+@eng You are in the crowded market.  The vendors here are getting on your
+nerves. It's always 'Come see my fresh fish!' or 'my jewelry is THE BEST!'
 etc....
+@rus Ты идешь по оживленному рынку. Торговцы здесь начинают действовать тебе на
+нервы. У всех у них "самая свежая рыба" и "самые лучшие украшения"!
 ~
 0 0 field
 D0
-You see the crowded market.
+@eng You see the crowded market.
+@rus Ты видишь оживленный рынок.
 ~
 ~
 ~
 ~
 Z -1 7640
 D2
-You see the crowded market.
+@eng You see the crowded market.
+@rus Ты видишь оживленный рынок.
 ~
 ~
 ~
@@ -5124,20 +5840,24 @@ You see the crowded market.
 Z -1 7642
 S
 #7642
-Crowded market~
-You are in the crowded market.  How many people can there BE?! You ask
+@eng Crowded market@rus Оживленный рынок~
+@eng You are in the crowded market.  How many people can there BE?! You ask
 yourself.....
+@rus Ты идешь по многолюдному рынку. И спрашиваешь себя, сколько же людей здесь
+может поместиться?!?
 ~
-0 0 field
+0 0 forest
 D0
-You see the crowded market.
+@eng You see the crowded market.
+@rus Ты видишь оживленный рынок.
 ~
 ~
 ~
 ~
 Z -1 7641
 D3
-You see the crowded market.
+@eng You see the crowded market.
+@rus Ты видишь оживленный рынок.
 ~
 ~
 ~
@@ -5145,26 +5865,30 @@ You see the crowded market.
 Z -1 7643
 S
 #7643
-Crowded market~
-You are in the crowded market.  There are too many people here..
+@eng Crowded market@rus Оживленный рынок~
+@eng You are in the crowded market.  There are too many people here..
+@rus Ты идешь по многолюдному рынку. И здесь СЛИШКОМ много людей...
 ~
-0 0 field
+0 0 forest
 D0
-You see the crowded market.
+@eng You see the crowded market.
+@rus Ты видишь оживленный рынок.
 ~
 ~
 ~
 ~
 Z -1 7644
 D1
-You see the crowded market.
+@eng You see the crowded market.
+@rus Ты видишь оживленный рынок.
 ~
 ~
 ~
 ~
 Z -1 7642
 D3
-You see the crowded market.
+@eng You see the crowded market.
+@rus Ты видишь оживленный рынок.
 ~
 ~
 ~
@@ -5172,12 +5896,14 @@ You see the crowded market.
 Z -1 7645
 S
 #7644
-Crowded market~
-You are in the crowded market.  It's just so big...
+@eng Crowded market@rus Оживленный рынок~
+@eng You are in the crowded market.  It's just so big...
+@rus Ты идешь по оживленному рынку. И конца ему не видно...
 ~
 0 0 forest
 D2
-You see the crowded market.
+@eng You see the crowded market.
+@rus Ты видишь оживленный рынок.
 ~
 ~
 ~
@@ -5185,19 +5911,22 @@ You see the crowded market.
 Z -1 7643
 S
 #7645
-Crowded market~
-You are in the crowded market.  So many people, it's making you crazy!
+@eng Crowded market@rus Оживленный рынок~
+@eng You are in the crowded market.  So many people, it's making you crazy!
+@rus Ты идешь по оживленному рынку. Тут так много людей, это сводит тебя с ума!!!
 ~
-0 0 forest
+0 0 field
 D0
-You see the crowded market.
+@eng You see the crowded market.
+@rus Ты видишь оживленный рынок.
 ~
 ~
 ~
 ~
 Z -1 7646
 D1
-You see the crowded market.
+@eng You see the crowded market.
+@rus Ты видишь оживленный рынок.
 ~
 ~
 ~
@@ -5205,12 +5934,14 @@ You see the crowded market.
 Z -1 7643
 S
 #7646
-Crowded market~
-You are in the crowded market.  You start jabbering mindlessly....
+@eng Crowded market@rus Оживленный рынок~
+@eng You are in the crowded market.  You start jabbering mindlessly....
+@rus Ты идешь по многолюдному рынку. Ты начинаешь бормотать что-то бессмысленное...
 ~
-0 0 forest
+0 0 field
 D2
-You see the crowded market.
+@eng You see the crowded market.
+@rus Ты видишь оживленный рынок.
 ~
 ~
 ~
@@ -5218,22 +5949,28 @@ You see the crowded market.
 Z -1 7645
 S
 #7647
-On the bridge~
-You are on the bridge over the river.  The water here is beautiful.
+@eng On the bridge@rus На мосту~
+@eng You are on the bridge over the river.  The water here is beautiful.
 One of the reasons it's beautiful, is because it's made of some kind of magic
 mirror.  And, if thats not enough to convince you that it's beautiful, get
 this-  There are women walking over it..... >:)
+@rus Ты стоишь на мосту через реку. Вода здесь прекрасна. Одна из причин того, что
+она  прекрасна - это то, что она сделана из чего-то типа магического зеркала.
+Если и этого недостаточно, чтобы убедить тебя в ее необыкновенной красоте, то
+вот тебе еще - по ней ходят прелестные девушки...... 
 ~
 0 0 city
 D1
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
 ~
 Z -1 7648
 D3
-You see the crowded market.
+@eng You see the crowded market.
+@rus Ты видишь оживленный рынок.
 ~
 ~
 ~
@@ -5241,28 +5978,34 @@ You see the crowded market.
 Z -1 7640
 S
 #7648
-Market~
-You are in a market, but it's much less crowded than the last one.
+@eng Market@rus Рынок~
+@eng You are in a market, but it's much less crowded than the last one.
 The vendors are still in open air setups, but at least they are
 quieter about it...
+@rus Ты идешь по рынку.  Но он гораздо менее многолюден, чем предыдущий.  Торговцы
+тут все еще бродят по улице вокруг тебя, но по крайней мере они не кричат так
+громко...
 ~
 0 0 city
 D1
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
 ~
 Z -1 7650
 D2
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
 ~
 Z -1 7649
 D3
-You see the bridge.
+@eng You see the bridge.
+@rus Ты видишь мост.
 ~
 ~
 ~
@@ -5270,27 +6013,32 @@ You see the bridge.
 Z -1 7647
 S
 #7649
-The market~
-Yes, you think, this arrangement is much better than the crowded one.
+@eng The market@rus Рынок~
+@eng Yes, you think, this arrangement is much better than the crowded one.
 Vendors are quietly calling out their wares.
+@rus Да, ты с облегчением думаешь, что обстановка на этом рынке ЗНАЧИТЕЛЬНО лучше,
+чем на оживленном предыдущем. Торговцы тихо рекламируют свои товары.
 ~
 0 0 city
 D0
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
 ~
 Z -1 7648
 D1
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
 ~
 Z -1 7651
 D2
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
@@ -5298,26 +6046,30 @@ You see the market.
 Z -1 7662
 S
 #7650
-Market~
-You are in the market.  To the east, you can see the edge of the market.
+@eng Market@rus Рынок~
+@eng You are in the market.  To the east, you can see the edge of the market.
+@rus Ты на рынке. На востоке виден конец этого рынка.
 ~
 0 0 city
 D1
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
 ~
 Z -1 7652
 D2
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
 ~
 Z -1 7651
 D3
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
@@ -5325,33 +6077,38 @@ You see the market.
 Z -1 7648
 S
 #7651
-Market~
-You are in the middle of the market.  The vendors are selling EVERYTHING!
+@eng Market@rus Рынок~
+@eng You are in the middle of the market.  The vendors are selling EVERYTHING!
+@rus Ты стоишь прямо в центре рынка. Торговцы тут продают АБСОЛЮТНО ВСЕ!
 ~
 0 0 city
 D0
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
 ~
 Z -1 7650
 D1
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
 ~
 Z -1 7653
 D2
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
 ~
 Z -1 7660
 D3
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
@@ -5359,27 +6116,31 @@ You see the market.
 Z -1 7649
 S
 #7652
-Market~
-You are at one of the corners of the market.  To the east, a path out of
+@eng Market@rus Рынок~
+@eng You are at one of the corners of the market.  To the east, a path out of
 town begins.
+@rus Ты стоишь рядом с одним из углов рынка. Дорога ведет из города на восток.
 ~
 0 0 city
 D1
-You see the path out of town.
+@eng You see the path out of town.
+@rus Ты видишь дорогу из города.
 ~
 ~
 ~
 ~
 Z -1 7654
 D2
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
 ~
 Z -1 7653
 D3
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
@@ -5387,27 +6148,32 @@ You see the market.
 Z -1 7650
 S
 #7653
-Market~
-You are in the market.  There must be everything that man can sell or
+@eng Market@rus Рынок~
+@eng You are in the market.  There must be everything that man can sell or
 buy being traded here...
+@rus Ты идешь по рынку. Должно быть тут покупается и продается все, что только
+возможно...
 ~
 0 0 city
 D0
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
 ~
 Z -1 7652
 D2
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
 ~
 Z -1 7658
 D3
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
@@ -5415,31 +6181,43 @@ You see the market.
 Z -1 7651
 S
 #7654
-On the path~
-The path takes you near a large town.  On the west, there is a
+@eng On the path@rus На дороге~
+@eng The path takes you near a large town.  On the west, there is a
 small hole in the wall of the market, that you might crawl through.There is
 a sign here.
+@rus Дорога идет рядом с большим городом. На востоке видна небольшая дыра в стене,
+ограждающей рынок,  ты вполне можешь  проползти через  нее,  если  не боишься
+запачкать штанишки. Рядом на шесте укреплен знак.
 ~
 0 0 city
 E
-sign~
-The sign reads:
+sign знак~
+@eng The sign reads:
 
                                 Welcome to the fine city of
                                 Gerighelm.
                                 There are many fine adventures
                                 for all of you who go here,
                                 So give it a try!
+@rus Знак гласит:
+
+                                Добро пожаловать в славный город
+                                Геригхельм.
+                                Всех, кто заходит сюда,
+                                ждет много отличных приключений!
+                                Так попытай и ты счастья!
 ~
 D2
-You see the path.
+@eng You see the path.
+@rus Ты видишь дорогу.
 ~
 ~
 ~
 ~
 Z -1 7655
 D3
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
@@ -5447,21 +6225,25 @@ You see the market.
 Z -1 7652
 S
 #7655
-The path~
-The path travels by a market. To the west you see it, full of food,
+@eng The path@rus Дорога~
+@eng The path travels by a market. To the west you see it, full of food,
 clothing, and jewelry! You have another chance to go to the
 town to the north, and to the south.
+@rus Дорога идет мимо рынка. Ты можешь видеть его на востоке, полный еды, одежды,
+украшений! Ты можешь попасть в город, идя либо на север, либо на юг.
 ~
 0 0 field
 D0
-You see the path.
+@eng You see the path.
+@rus Ты видишь дорогу.
 ~
 ~
 ~
 ~
 Z -1 7654
 D2
-You see the path.
+@eng You see the path.
+@rus Ты видишь дорогу.
 ~
 ~
 ~
@@ -5469,28 +6251,37 @@ You see the path.
 Z -1 7656
 S
 #7656
-On the path~
-The path leads you to a small gate to a large town.  The gate is unguarded
+@eng On the path@rus На дороге~
+@eng The path leads you to a small gate to a large town.  The gate is unguarded
 and there is a sign here.
+@rus Дорога ведет тебя к небольшим воротам в большой город.  Ворота никем не
+охраняются и рядом с ними прикреплен знак.  
 ~
 0 0 city
 E
-sign~
-The sign reads:
+sign знак~
+@eng The sign reads:
                                 Welcome travelers!
                         This is the great city of Gerighelm.
                 Where many adventurers lost their lives, and gained fame
                                         and fortune.
+@rus Знак гласит:
+                     Добро пожаловать, любители приключений!
+                           Это великий город Геригхельм.
+             Много героев положили здесь свои жизни или же завоевали
+                                 славу и богатство.
 ~
 D0
-You see the path.
+@eng You see the path.
+@rus Ты видишь дорогу.
 ~
 ~
 ~
 ~
 Z -1 7655
 D3
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
@@ -5498,28 +6289,33 @@ You see the market.
 Z -1 7657
 S
 #7657
-Market~
-You are in the market.  To the east there is an old gate, but it's not
+@eng Market@rus Рынок~
+@eng You are in the market.  To the east there is an old gate, but it's not
 guarded.  These vendors, you just can't get over it-- they buy ANYTHING.
 If you can find the right one...
+@rus Ты идешь по рынку. На востоке виднеются старые неохраняемые ворота. Торговцы
+тут покупают АБСОЛЮТНО ВСЕ. Тебе необходимо лишь отыскать нужного...
 ~
 0 0 city
 D0
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
 ~
 Z -1 7658
 D1
-You see the path out of town.
+@eng You see the path out of town.
+@rus Ты видишь дорогу из города.
 ~
 ~
 ~
 ~
 Z -1 7656
 D3
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
@@ -5527,28 +6323,33 @@ You see the market.
 Z -1 7659
 S
 #7658
-Market~
-You are in the market.  To the east, you catch a faint glimmering of what
+@eng Market@rus Рынок~
+@eng You are in the market.  To the east, you catch a faint glimmering of what
 may be a path, but you are not sure.  You get back to marvelling over these
 vendors...
+@rus Ты идешь по рынку. Просвет на востоке вполне может быть выходом отсюда, но ты
+точно не уверен в этом. И ты продолжаешь удивляться этим торговцам.
 ~
 0 0 city
 D0
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
 ~
 Z -1 7653
 D2
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
 ~
 Z -1 7657
 D3
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
@@ -5556,26 +6357,30 @@ You see the market.
 Z -1 7660
 S
 #7659
-Market~
-You are in the market.  Gods, these vendors are cool!
+@eng Market@rus Рынок~
+@eng You are in the market.  Gods, these vendors are cool!
+@rus Ты идешь по рынку. Боги, эти торговцы - классные ребята!
 ~
 0 0 city
 D0
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
 ~
 Z -1 7660
 D1
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
 ~
 Z -1 7657
 D3
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
@@ -5583,33 +6388,38 @@ You see the market.
 Z -1 7661
 S
 #7660
-Market~
-You are in the market.  To you, this is the niftiest place to be,
+@eng Market@rus Рынок~
+@eng You are in the market.  To you, this is the niftiest place to be,
+@rus Ты идешь по рынку. Тебе кажется, что этот рынок - преотличнейшее место.
 ~
 0 0 city
 D0
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
 ~
 Z -1 7651
 D1
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
 ~
 Z -1 7658
 D2
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
 ~
 Z -1 7659
 D3
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
@@ -5617,19 +6427,22 @@ You see the market.
 Z -1 7662
 S
 #7661
-Market~
-You are in the market.  To the south and west, the market turns into a wall.
+@eng Market@rus Рынок~
+@eng You are in the market.  To the south and west, the market turns into a wall.
+@rus Ты идешь по рынку. На западе и на востоке рынок упирается в стены. 
 ~
 0 0 city
 D0
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
 ~
 Z -1 7662
 D1
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
@@ -5637,27 +6450,32 @@ You see the market.
 Z -1 7659
 S
 #7662
-Market~
-You are in the market.  To the west, you can see the river flowing into
+@eng Market@rus Рынок~
+@eng You are in the market.  To the west, you can see the river flowing into
 the underground sewers system.
+@rus Ты идешь по рынку. На западе ты видишь реку, уходящую под землю, в систему
+коллекторов.
 ~
 0 0 city
 D0
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
 ~
 Z -1 7649
 D1
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
 ~
 Z -1 7660
 D2
-You see the market.
+@eng You see the market.
+@rus Ты видишь рынок.
 ~
 ~
 ~
@@ -5665,23 +6483,29 @@ You see the market.
 Z -1 7661
 S
 #7663
-Entrance to the Knights Castle~
-You are standing beside the entrance to the Knights' castle.
+@eng Entrance to the Knights Castle@rus Вход в Замок Рыцарей~
+@eng You are standing beside the entrance to the Knights' castle.
 To the west, the palace stretches on, covered with silks, furs, and gold.
-To the south there is mable road
+To the south there is mable road.
+@rus ОСТОРОЖНО!!! Ты стоишь перед входом в ЗАМОК КЛАНА РЫЦАРЕЙ. На запад
+продолжается дворец, весь в шелке, мехах и золоте.  На юге проходит
+Дорога Мэйбл.
 ~
 0 D inside
 E
-silks silk~
-The silks are very fine, they must have been purchased from China or Japan.
+silks шелк silk шелка~
+@eng The silks are very fine, they must have been purchased from China or Japan.
+@rus Эти шелка очень высокого качества. Должно быть их приобрели в Китае или Японии.
 ~
 E
-furs fur~
-The furs are from beasts like:  bears, foxes, wolves, jabberwockies. etc.
+furs мех fur меха~
+@eng The furs are from beasts like:  bears, foxes, wolves, jabberwockies. etc.
+@rus Эти меха раньше служили шкурами медведям, лисам, волкам, крысооборотням и т.д.
 ~
 E
-gold~
-What do you expect? It's GOLD!
+gold золото~
+@eng What do you expect? It's GOLD!
+@rus Интересно, что ты $gn{ожидал} увидеть? это ЗОЛОТО!
 ~
 D0
 ~
@@ -5690,14 +6514,16 @@ D0
 ~
 Z 0 95200
 D2
-You see Mable road.
+@eng You see Mable road.
+@rus Ты видишь Дорогу Мэйбл.
 ~
 ~
 ~
 ~
 Z -1 7583
 D3
-You see the palace.
+@eng You see the palace.
+@rus Ты видишь дворец.
 ~
 ~
 ~
@@ -5705,19 +6531,22 @@ You see the palace.
 Z -1 7664
 S
 #7664
-The palace~
-You are inside the palace.  It's a very fine place to be you realize.
+@eng The palace@rus Дворец~
+@eng You are inside the palace.  It's a very fine place to be you realize.
+@rus Ты во дворце. И осознаешь, что это очень приятное место.
 ~
 0 D inside
 D1
-You see the entrance to the palace.
+@eng You see the entrance to the palace.
+@rus Ты видишь вход во дворец.
 ~
 ~
 ~
 ~
 Z -1 7663
 D3
-You see the palace.
+@eng You see the palace.
+@rus Ты видишь дворец. 
 ~
 ~
 ~
@@ -5725,28 +6554,33 @@ You see the palace.
 Z -1 7665
 S
 #7665
-Inside the Palace~
-You are inside the palace of Gerighelm.  To the north, you see a room
+@eng Inside the Palace@rus Во Дворце~
+@eng You are inside the palace of Gerighelm.  To the north, you see a room
 that is guarded by an old man.  To the east and west, the palace continues
 it's splendor.
+@rus Ты внутри Геригхельмского Дворца. На севере старый человек охраняет вход в
+какую-то комнату. На западе и востоке дворец продолжается.
 ~
 0 D inside
 D0
-You see the room guarded by the old man.
+@eng You see the room guarded by the old man.
+@rus Ты видишь комнату, охраняемую старым человеком.
 ~
 ~
 ~
 ~
 Z -1 7666
 D1
-You see the palace.
+@eng You see the palace.
+@rus Ты видишь дворец.
 ~
 ~
 ~
 ~
 Z -1 7664
 D3
-You see the palace.
+@eng You see the palace.
+@rus Ты видишь дворец.
 ~
 ~
 ~
@@ -5754,20 +6588,24 @@ You see the palace.
 Z -1 7668
 S
 #7666
-Treasury~
-You are standing just outside the treasury.  there is a huge iron door
+@eng Treasury@rus Сокровищница~
+@eng You are standing just outside the treasury.  There is a huge iron door
 to the east.  The old man says 'STOP'. He says 'You cannot enter here.'  'Go.'
+@rus Ты стоишь около сокровищницы. На востоке ты видишь огромную стальную дверь.
+Старый человек произносит "Стой. Тебе тут не место. Отвали." Это ли не наезд?
 ~
 0 D inside
 D1
-You see the huge iron door.
+@eng You see the huge iron door.
+@rus Ты видишь огромную стальную дверь.
 ~
-door huge iron~
+door дверь huge  огромная iron железо сталь~
 ~
 ~
 Z -1 7667
 D2
-You see the palace.
+@eng You see the palace.
+@rus Ты видишь дворец.
 ~
 ~
 ~
@@ -5775,35 +6613,42 @@ You see the palace.
 Z -1 7665
 S
 #7667
-Inside the Treasury~
-You see the final defenses of the Treasury.  Three bugbears!!!
+@eng Inside the Treasury@rus В Сокровищнице~
+@eng You see the final defenses of the Treasury.  Three bugbears!!!
 Aside from you certain doom, you see lots of gold, silver, and other such
 valuables...
+@rus Ты видишь последнюю защиту Сокровищницы. ТРИ ОГРОМНЫХ ЗЛОБНЫХ БУКИ!!! Немного
+в стороне ты видишь кучи золота, серебра и других ценностей...
 ~
 0 D inside
 D3
-You see the huge iron door
+@eng You see the huge iron door.
+@rus Ты видишь огромную стальную дверь.
 ~
-door huge iron~
+door дверь huge огромная iron сталь железо~
 ~
 ~
 Z -1 7666
 S
 #7668
-Inside the palace~
-You are inside the palace of Gerighelm.  here, the palace opens into
+@eng Inside the palace@rus Во Дворце~
+@eng You are inside the palace of Gerighelm.  Here, the palace opens into
 a large garden.  Complete with birds, chipmunks, and bugs OUCH <stupid fly>
+@rus Ты стоишь внутри Геригхельмского дворца. Здесь находится выход из дворца в
+большой сад. Сад заполнен птицами, бурундуками, жуками... ОЙ! <тупая муха>
 ~
 0 D inside
 D0
-You see the garden.
+@eng You see the garden.
+@rus Ты видищь сад.
 ~
 ~
 ~
 ~
 Z -1 7669
 D1
-You see the palace.
+@eng You see the palace.
+@rus Ты видишь дворец.
 ~
 ~
 ~
@@ -5811,27 +6656,32 @@ You see the palace.
 Z -1 7665
 S
 #7669
-Garden~
-You are in the palace garden.  You hope that the Gardener won't catch
+@eng Garden@rus Сад~
+@eng You are in the palace garden.  You hope that the Gardener won't catch
 you wandering about like this..
+@rus Ты гуляешь во дворцовом саду. Будем надеяться, что Бешеный Садовник не 
+поймает тебя за этим занятием...
 ~
 0 D inside
 D0
-You see the garden ending.
+@eng You see the garden ending.
+@rus Ты видишь конец сада.
 ~
 ~
 ~
 ~
 Z -1 7671
 D2
-You see the garden.
+@eng You see the garden.
+@rus Ты видищь сад.
 ~
 ~
 ~
 ~
 Z -1 7668
 D3
-You see the garden.
+@eng You see the garden.
+@rus Ты видищь сад.
 ~
 ~
 ~
@@ -5839,13 +6689,16 @@ You see the garden.
 Z -1 7670
 S
 #7670
-Garden~
-Here the garden is blocked by a wall to the north, west, and south.
+@eng Garden@rus Сад~
+@eng Here the garden is blocked by a wall to the north, west, and south.
 But the flowers are still as pretty though.
+@rus Сад в этом месте упирается в стены на севере, западе и юге.  Но цветы тут
+все так же прекрасны.  
 ~
 0 D inside
 D1
-You see the garden.
+@eng You see the garden.
+@rus Ты видищь сад.
 ~
 ~
 ~
@@ -5853,20 +6706,24 @@ You see the garden.
 Z -1 7669
 S
 #7671
-End of the garden~
-You are at the and of the garden.  To the north there is a GRAND hall.
+@eng End of the garden@rus Конец сада~
+@eng You are at the and of the garden.  To the north there is a GRAND hall.
 I wonder whats at the end of it?.
+@rus Ты стоишь в месте, где сад кончается. На севере ты видишь ОГРОМНЫЙ зал.
+Интересно, что же такое находится в коце этого зала?
 ~
 0 D inside
 D0
-You see the great hall.
+@eng You see the great hall.
+@rus Ты видишь главный зал.
 ~
 ~
 ~
 ~
 Z -1 7672
 D2
-You see the garden.
+@eng You see the garden.
+@rus Ты видишь сад.
 ~
 ~
 ~
@@ -5874,35 +6731,42 @@ You see the garden.
 Z -1 7669
 S
 #7672
-Great hall~
-You are in the great hall of the palace of Gerighelm. To the north, you 
+@eng Great hall@rus Главный зал~
+@eng You are in the great hall of the palace of Gerighelm. To the north, you 
 see what may be a throne room. To the east however, there seems to be an altar.
 And to the west, there is some servants quarters.
+@rus Ты находишься в главном зале Геригхельмского дворца.  На севере ты видишь
+нечто вроде тронной комнаты.  На востоке находится алтарь.  А на западе
+видны помещения для прислуги.  
 ~
 0 D inside
 D0
-You see the throne room.
+@eng You see the throne room.
+@rus Ты видишь тронную комнату.
 ~
 ~
 ~
 ~
 Z -1 7676
 D1
-You see the priests altar.
+@eng You see the priests altar.
+@rus Ты видишь алтарь священников.
 ~
 ~
 ~
 ~
 Z -1 7673
 D2
-You see the garden.
+@eng You see the garden.
+@rus Ты видищь сад.
 ~
 ~
 ~
 ~
 Z -1 7671
 D3
-You see the servants quarters.
+@eng You see the servants quarters.
+@rus Ты видишь казармы для слуг.
 ~
 ~
 ~
@@ -5910,12 +6774,15 @@ You see the servants quarters.
 Z -1 7674
 S
 #7673
-The Altar~
-What luck! It's the altar to your very own God! Better pray here and now!
+@eng The Altar@rus Алтарь~
+@eng What luck! It's the altar to your very own God! Better pray here and now!
+@rus Вот это удача привалила! Это же алтать твоего собственного Бога! Лучше молись
+здесь и сейчас!
 ~
 0 D inside
 D3
-You see the great hall.
+@eng You see the great hall.
+@rus Ты видишь Главный зал.
 ~
 ~
 ~
@@ -5923,22 +6790,28 @@ You see the great hall.
 Z -1 7672
 S
 #7674
-Servants Quarters~
-These are the servants quarters.  To the south, there are more of them.
-The quarters themselves are much like quarters indeed.  there are 4 beds to
-a room. and 4 boxes under each bed.  The boxes are locked, and pickproof,
+@eng Servants Quarters@rus Казармы для слуг~
+@eng These are the servants quarters.  To the south, there are more of them.
+The quarters themselves are much like quarters indeed.  There are 4 beds to
+a room. And 4 boxes under each bed.  The boxes are locked, and pickproof,
 so don't be getting any ideas...
+@rus Это помещения для прислуги. На юге расположено еще несколько подобных комнат.
+В этих бараках по 4 кровати на комнату. И 4 ящика под каждой кроватью. Ящики
+закрыты на замки,  против которых бесполезны отмычки,  поэтому не фантазируй
+особо на этот счет...
 ~
 0 D inside
 D1
-You see the Great hall.
+@eng You see the Great hall.
+@rus Ты видишь Главный зал.
 ~
 ~
 ~
 ~
 Z -1 7672
 D2
-You see the servants quarters.
+@eng You see the servants quarters.
+@rus Ты видишь казармы для слуг.
 ~
 ~
 ~
@@ -5946,13 +6819,16 @@ You see the servants quarters.
 Z -1 7675
 S
 #7675
-Servants Quarters~
-You are in some servants quarters.  They are much like the last one you
+@eng Servants Quarters@rus Казармы для слуг~
+@eng You are in some servants quarters.  They are much like the last one you
 saw, except there are only 3 beds and boxes.
+@rus Ты опять в бараках для прислуги. От предыдущих они отличаются только тем,
+что в них по три кровати на комнату и по три ящика.
 ~
 0 D inside
 D0
-You see the servants quarters.
+@eng You see the servants quarters.
+@rus Ты видишь казармы для слуг.
 ~
 ~
 ~
@@ -5960,29 +6836,35 @@ You see the servants quarters.
 Z -1 7674
 S
 #7676
-Throne Room~
-This is it! The Throne Room!  The Duke and Duchess are sitting in their
+@eng Throne Room@rus Тронный Зал~
+@eng This is it! The Throne Room!  The Duke and Duchess are sitting in their
 respective thrones, which are carved out of the finest ebony and ivory.
 The furs, gold, and silks are VERY VERY VERY resplendent here.  There is a
 staircase that leads upward, and a staircase that leads down.
+@rus Вот он! Тронный Зал! Герцог и Герцогиня сидят на своих тронах, вырезанных
+из лучшей слоновой кости. Меха, шелка и золото тут просто ВЕЛИКОЛЕПНЫ. Здесь
+находятся лестницы, ведущие вниз и вверх.
 ~
 0 D inside
 D2
-You see the great hall.
+@eng You see the great hall.
+@rus Ты видишь Главный Зал.
 ~
 ~
 ~
 ~
 Z -1 7672
 D4
-You see the Dukes bedrooms.
+@eng You see the Dukes bedrooms.
+@rus Ты видишь спальню Герцога.
 ~
 ~
 ~
 ~
 Z -1 7677
 D5
-You see the beer cellar.
+@eng You see the beer cellar.
+@rus Ты видишь пивной погреб.
 ~
 ~
 ~
@@ -5990,67 +6872,85 @@ You see the beer cellar.
 Z -1 7680
 S
 #7677
-Hallway~
-You are in a hall way that leads to two bedrooms.  The door to the north
+@eng Hallway@rus Коридор~
+@eng You are in a hall way that leads to two bedrooms.  The door to the north
 has some gold words on it that say 'Dukes room' and the words on the south
 door say 'Duchesses room'.  This is all so formal, you think.
+@rus Ты находишься в коридоре, который ведет к двум спальням. На севере
+расположена спальня Герцога, а на юге -- Герцогини. Тебе приходит в голову
+мысль о том, как все это формально.  
 ~
 0 D inside
 D0
-You see the door to the dukes room.
+@eng You see the door to the dukes room.
+@rus Ты видишь дверь в спальню Герцога.
 ~
-door dukes duke~
+door дверь dukes герцога duke герцог~
 ~
 ~
 Z -1 7679
 D2
-You see the door to the duchesses room.
+@eng You see the door to the duchesses room.
+@rus Ты видишь дверь в спальню Герцогини.
 ~
-door duchesses duchess~
+door дверь duchesses герцогини duchess герцогиня~
 ~
 ~
 Z -1 7678
 S
 #7678
-Duchesses room~
-This is the Duchesses room.  She must come here when she and her husband
+@eng Duchesses room@rus Спальня Герцогини~
+@eng This is the Duchesses room.  She must come here when she and her husband
 have a spat.  You know this because the room is relatively dusty compared
 with all the other rooms here.
+@rus Это спальня Герцогини. Должно быть, хозяйка приходит сюда только во время
+очередной ссоры с мужем. Это следует из того, что комната значительно более
+пыльная по сравнению с остальными.
 ~
 0 D inside
 D0
-You see the door of this room.
+@eng You see the door of this room.
+@rus Ты видишь дверь этой комнаты.
 ~
-door~
+door дверь~
 ~
 ~
 Z -1 7677
 S
 #7679
-Dukes room~
-This room is well used to say the least.  I'd say more, but it's not the
+@eng Dukes room@rus Спальня Герцога~
+@eng This room is well used to say the least.  I'd say more, but it's not the
 kinda thing to transmit over phone lines.  But I can tell you this:
 The Duke and his wife have, shall we say, _interesting_ habits >:)
+@rus Этой спальней очень часто пользуются,  чтобы не сказать сильнее.  Я бы сказал
+и больше, но это не телефонный разговор. Однако, я все же скажу: Герцог и его
+жена имеют, хмм...., _интересные_ привычки. 
 ~
 0 D inside
 D2
-You see the door to this room.
+@eng You see the door to this room.
+@rus Ты видишь дверь этой комнаты.
 ~
-door~
+door дверь~
 ~
 ~
 Z -1 7677
 S
 #7680
-Beer cellar~
-Yes, I know you were expecting a wine cellar, and one farther from the
+@eng Beer cellar@rus Пивной погреб~
+@eng Yes, I know you were expecting a wine cellar, and one farther from the
 Throne room, but the Duke designed it himself, and..-Well anyway:
 The room is your standard cellar, there are many empty racks here, and only
 2 bottle left. Hmmm...
+@rus Да, я знаю, что вы ожидали увидеть здесь _винный_ погреб, причем немного
+подальше от тронной комнаты, но Герцог сам спроектировал это помещение,
+и...  Ладно, в любом случае: Эта комната представляет собой стандартный
+погреб, здесь много пустых полок и осталось только две бутылки.  Хммм....  
 ~
 0 AD inside
 D4
-You see the Throne room.
+@eng You see the Throne room.
+@rus Ты видишь Тронный Зал.
 ~
 ~
 ~
@@ -6058,12 +6958,14 @@ You see the Throne room.
 Z -1 7676
 S
 #7681
-Barracks~
-You are in the barracks.  There are guards all around you, coming and going.
+@eng Barracks@rus Казармы~
+@eng You are in the barracks.  There are guards all around you, coming and going.
+@rus Ты стоишь в казарме. Стражники входят и выходят не переставая.
 ~
 0 D inside
 D0
-You see the Merchant way.
+@eng You see the Merchant way.
+@rus Ты видишь Торговую Улицу.
 ~
 ~
 ~
@@ -6071,9 +6973,12 @@ You see the Merchant way.
 Z -1 7605
 S
 #7697
-Ye Olde Pet Shope~
-You are standing inside the pet shop.  There are pets EVERYWHERE.
+@eng Ye Olde Pet Shope@rus Магазин "Домашние животные Старины Билла"~
+@eng You are standing inside the pet shop.  There are pets EVERYWHERE.
 There are dogs, cats, kittens, puppy's, wolves, you name it.
+@rus Ты находишься внутри магазина домашних животных (в просторечии петов).
+Все  помещение забито собаками,  кошками, щенками, котятами, волками и 
+прочей волосатой пакостью.
 ~
 0 DKM inside
 D2
@@ -6084,13 +6989,14 @@ D2
 Z 0 7601
 S
 #7698
-Pet Shop Warehouse~
+@eng Pet Shop Warehouse@rus Склад магазина домашних животных~
 ~
 0 CDK inside
 S
 #7699
-Sacrifice Room~
-Blood, blood, blood, guts, flesh, corpses....
+@eng Sacrifice Room@rus Комната Жертвоприношений~
+@eng Blood, blood, blood, guts, flesh, corpses....
+@rus Кровь, кровь, кровь, внутренности, плоть, трупы....
 ~
 0 CM inside
 S
@@ -6116,119 +7022,119 @@ M 7591 spec_thief	* a cutpurse
 S
 
 #RESETS
-M 0 7503 6 7502 1	* a swallow (The Park.)
-M 0 7506 4 7502 1	* a ground-hog (The Park.)
-M 0 7509 6 7502 1	* a starry eyed lover (The Park.)
-M 0 7510 6 7502 1	* a starry eyed lover (The Park.)
-M 0 7500 10 7503 1	* a little squirrel (The Park.)
-M 0 7503 6 7503 1	* a swallow (The Park.)
-M 0 7508 5 7503 1	* a flying squirrel (The Park.)
-M 0 7506 4 7504 1	* a ground-hog (The Park.)
-M 0 7508 5 7505 1	* a flying squirrel (The Park.)
-M 0 7502 4 7506 1	* a small green snake (The Park.)
-M 0 7505 3 7507 1	* a brown and black raccoon (The Park.)
-M 0 7500 10 7508 1	* a little squirrel (The Park.)
-M 0 7502 4 7508 1	* a small green snake (The Park.)
-M 0 7501 5 7509 1	* a tiny chipmunk (The Park.)
-M 0 7506 4 7509 1	* a ground-hog (The Park.)
-M 0 7507 10 7509 1	* a field mouse (The Park.)
-O 0 7509 0 7509	* a bunch of herbs (The Park.)
-M 0 7502 4 7510 1	* a small green snake (The Park.)
-M 0 7504 2 7510 1	* an African Swallow (The Park.)
-M 0 7509 6 7510 1	* a starry eyed lover (The Park.)
-M 0 7510 6 7510 1	* a starry eyed lover (The Park.)
-M 0 7501 5 7511 1	* a tiny chipmunk (The trail in the Park.)
-M 0 7505 3 7512 1	* a brown and black raccoon (The trail in the Park.)
-M 0 7500 10 7513 1	* a little squirrel (The split in the trail in the Park.)
-M 0 7505 3 7515 1	* a brown and black raccoon (The trail.)
-M 0 7511 6 7515 1	* a herbalists helper (The trail.)
+M 0 7503 6 7502 1	* a swallow (The Park)
+M 0 7506 4 7502 1	* a ground-hog (The Park)
+M 0 7509 6 7502 1	* a starry eyed lover (The Park)
+M 0 7510 6 7502 1	* a starry eyed lover (The Park)
+M 0 7500 10 7503 1	* a little squirrel (The Park)
+M 0 7503 6 7503 1	* a swallow (The Park)
+M 0 7508 5 7503 1	* a flying squirrel (The Park)
+M 0 7506 4 7504 1	* a ground-hog (The Park)
+M 0 7508 5 7505 1	* a flying squirrel (The Park)
+M 0 7502 4 7506 1	* a small green snake (The Park)
+M 0 7505 3 7507 1	* a brown and black raccoon (The Park)
+M 0 7500 10 7508 1	* a little squirrel (The Park)
+M 0 7502 4 7508 1	* a small green snake (The Park)
+M 0 7501 5 7509 1	* a tiny chipmunk (The Park)
+M 0 7506 4 7509 1	* a ground-hog (The Park)
+M 0 7507 10 7509 1	* a field mouse (The Park)
+O 0 7509 0 7509	* a bunch of herbs (The Park)
+M 0 7502 4 7510 1	* a small green snake (The Park)
+M 0 7504 2 7510 1	* an African Swallow (The Park)
+M 0 7509 6 7510 1	* a starry eyed lover (The Park)
+M 0 7510 6 7510 1	* a starry eyed lover (The Park)
+M 0 7501 5 7511 1	* a tiny chipmunk (The trail in the Park)
+M 0 7505 3 7512 1	* a brown and black raccoon (The trail in the Park)
+M 0 7500 10 7513 1	* a little squirrel (The split in the trail in the Park)
+M 0 7505 3 7515 1	* a brown and black raccoon (The trail)
+M 0 7511 6 7515 1	* a herbalists helper (The trail)
 G 0 7509 0		*	a herbalists helper: a bunch of herbs
-M 0 7500 10 7516 1	* a little squirrel (The trail.)
-M 0 7507 10 7516 1	* a field mouse (The trail.)
-O 0 7596 0 7516	* a bunch of herbs (The trail.)
-M 0 7507 10 7517 1	* a field mouse (The end of the trail.)
-M 0 7508 5 7517 1	* a flying squirrel (The end of the trail.)
-O 0 7509 0 7517	* a bunch of herbs (The end of the trail.)
-O 0 7596 0 7518	* a bunch of herbs (The Park.)
-M 0 7509 6 7519 1	* a starry eyed lover (The Entrance to the Garden in the Park.)
-M 0 7510 6 7519 1	* a starry eyed lover (The Entrance to the Garden in the Park.)
-M 0 7504 2 7520 1	* an African Swallow (The Garden.)
-M 0 7508 5 7520 1	* a flying squirrel (The Garden.)
-M 0 7500 10 7521 1	* a little squirrel (The Garden.)
-M 0 7503 6 7521 1	* a swallow (The Garden.)
-M 0 7503 6 7522 1	* a swallow (The Garden.)
-M 0 7506 4 7522 1	* a ground-hog (The Garden.)
-O 0 7507 0 7522	* a bunch of red herbs (The Garden.)
-O 0 7508 0 7522	* a bunch of green herbs (The Garden.)
-M 0 7509 6 7522 1	* a starry eyed lover (The Garden.)
-M 0 7510 6 7522 1	* a starry eyed lover (The Garden.)
+M 0 7500 10 7516 1	* a little squirrel (The trail)
+M 0 7507 10 7516 1	* a field mouse (The trail)
+O 0 7596 0 7516	* a bunch of herbs (The trail)
+M 0 7507 10 7517 1	* a field mouse (The end of the trail)
+M 0 7508 5 7517 1	* a flying squirrel (The end of the trail)
+O 0 7509 0 7517	* a bunch of herbs (The end of the trail)
+O 0 7596 0 7518	* a bunch of herbs (The Park)
+M 0 7509 6 7519 1	* a starry eyed lover (The Entrance to the Garden in the Park)
+M 0 7510 6 7519 1	* a starry eyed lover (The Entrance to the Garden in the Park)
+M 0 7504 2 7520 1	* an African Swallow (The Garden)
+M 0 7508 5 7520 1	* a flying squirrel (The Garden)
+M 0 7500 10 7521 1	* a little squirrel (The Garden)
+M 0 7503 6 7521 1	* a swallow (The Garden)
+M 0 7503 6 7522 1	* a swallow (The Garden)
+M 0 7506 4 7522 1	* a ground-hog (The Garden)
+O 0 7507 0 7522	* a bunch of red herbs (The Garden)
+O 0 7508 0 7522	* a bunch of green herbs (The Garden)
+M 0 7509 6 7522 1	* a starry eyed lover (The Garden)
+M 0 7510 6 7522 1	* a starry eyed lover (The Garden)
 O 0 7507 0 7523	* a bunch of red herbs (The Garden.)
 O 0 7508 0 7523	* a bunch of green herbs (The Garden.)
 M 0 7511 6 7523 1	* a herbalists helper (The Garden.)
 G 0 7596 0		*	a herbalists helper: a bunch of herbs
-M 0 7519 5 7531 1	* a bugbear (The Sewers.)
-M 0 7516 10 7535 1	* a goldfish (The tunnel.)
+M 0 7519 5 7531 1	* a bugbear (The Sewers)
+M 0 7516 10 7535 1	* a goldfish (The tunnel)
 G 0 7512 0		*	a goldfish: corpse of a goldfish
-M 0 7516 10 7535 1	* a goldfish (The tunnel.)
+M 0 7516 10 7535 1	* a goldfish (The tunnel)
 G 0 7512 0		*	a goldfish: corpse of a goldfish
-M 0 7516 10 7535 1	* a goldfish (The tunnel.)
+M 0 7516 10 7535 1	* a goldfish (The tunnel)
 G 0 7512 0		*	a goldfish: corpse of a goldfish
-M 0 7516 10 7535 1	* a goldfish (The tunnel.)
+M 0 7516 10 7535 1	* a goldfish (The tunnel)
 G 0 7512 0		*	a goldfish: corpse of a goldfish
-M 0 7516 10 7535 1	* a goldfish (The tunnel.)
+M 0 7516 10 7535 1	* a goldfish (The tunnel)
 G 0 7512 0		*	a goldfish: corpse of a goldfish
-M 0 7516 10 7535 1	* a goldfish (The tunnel.)
+M 0 7516 10 7535 1	* a goldfish (The tunnel)
 G 0 7512 0		*	a goldfish: corpse of a goldfish
-M 0 7516 10 7535 1	* a goldfish (The tunnel.)
+M 0 7516 10 7535 1	* a goldfish (The tunnel)
 G 0 7512 0		*	a goldfish: corpse of a goldfish
-M 0 7516 10 7535 1	* a goldfish (The tunnel.)
+M 0 7516 10 7535 1	* a goldfish (The tunnel)
 G 0 7512 0		*	a goldfish: corpse of a goldfish
-M 0 7516 10 7535 1	* a goldfish (The tunnel.)
+M 0 7516 10 7535 1	* a goldfish (The tunnel)
 G 0 7512 0		*	a goldfish: corpse of a goldfish
-M 0 7516 10 7535 1	* a goldfish (The tunnel.)
+M 0 7516 10 7535 1	* a goldfish (The tunnel)
 G 0 7512 0		*	a goldfish: corpse of a goldfish
-M 0 7517 10 7537 1	* a guppy (The watery tunnel.)
+M 0 7517 10 7537 1	* a guppy (The watery tunnel)
 G 0 7511 0		*	a guppy: corpse of a guppy
-M 0 7517 10 7537 1	* a guppy (The watery tunnel.)
+M 0 7517 10 7537 1	* a guppy (The watery tunnel)
 G 0 7511 0		*	a guppy: corpse of a guppy
-M 0 7517 10 7537 1	* a guppy (The watery tunnel.)
+M 0 7517 10 7537 1	* a guppy (The watery tunnel)
 G 0 7511 0		*	a guppy: corpse of a guppy
-M 0 7517 10 7537 1	* a guppy (The watery tunnel.)
+M 0 7517 10 7537 1	* a guppy (The watery tunnel)
 G 0 7511 0		*	a guppy: corpse of a guppy
-M 0 7517 10 7537 1	* a guppy (The watery tunnel.)
+M 0 7517 10 7537 1	* a guppy (The watery tunnel)
 G 0 7511 0		*	a guppy: corpse of a guppy
-M 0 7517 10 7537 1	* a guppy (The watery tunnel.)
+M 0 7517 10 7537 1	* a guppy (The watery tunnel)
 G 0 7511 0		*	a guppy: corpse of a guppy
-M 0 7517 10 7537 1	* a guppy (The watery tunnel.)
+M 0 7517 10 7537 1	* a guppy (The watery tunnel)
 G 0 7511 0		*	a guppy: corpse of a guppy
-M 0 7517 10 7537 1	* a guppy (The watery tunnel.)
+M 0 7517 10 7537 1	* a guppy (The watery tunnel)
 G 0 7511 0		*	a guppy: corpse of a guppy
-M 0 7517 10 7537 1	* a guppy (The watery tunnel.)
+M 0 7517 10 7537 1	* a guppy (The watery tunnel)
 G 0 7511 0		*	a guppy: corpse of a guppy
-M 0 7517 10 7537 1	* a guppy (The watery tunnel.)
+M 0 7517 10 7537 1	* a guppy (The watery tunnel)
 G 0 7511 0		*	a guppy: corpse of a guppy
-M 0 7519 5 7539 1	* a bugbear (The end of the watery tunnel.)
-M 0 7514 4 7541 1	* a medium fish will pointy teeth (The Sewers.)
-M 0 7514 4 7541 1	* a medium fish will pointy teeth (The Sewers.)
-M 0 7514 4 7541 1	* a medium fish will pointy teeth (The Sewers.)
-M 0 7514 4 7541 1	* a medium fish will pointy teeth (The Sewers.)
-M 0 7513 5 7543 1	* a small fish with pointy teeth (Underwater in the river.)
-M 0 7513 5 7543 1	* a small fish with pointy teeth (Underwater in the river.)
-M 0 7513 5 7543 1	* a small fish with pointy teeth (Underwater in the river.)
-M 0 7513 5 7543 1	* a small fish with pointy teeth (Underwater in the river.)
-M 0 7513 5 7543 1	* a small fish with pointy teeth (Underwater in the river.)
-M 0 7515 5 7544 1	* a large fish with pointy teeth (Underwater.)
-M 0 7515 5 7544 1	* a large fish with pointy teeth (Underwater.)
-M 0 7515 5 7544 1	* a large fish with pointy teeth (Underwater.)
-M 0 7515 5 7544 1	* a large fish with pointy teeth (Underwater.)
-M 0 7515 5 7544 1	* a large fish with pointy teeth (Underwater.)
-M 0 7518 3 7547 1	* a fish with blunted teeth (Underwater.)
-M 0 7520 6 7551 1	* a cleaner worm (Very clean Sewers.)
-M 0 7520 6 7551 1	* a cleaner worm (Very clean Sewers.)
-M 0 7520 6 7551 1	* a cleaner worm (Very clean Sewers.)
-M 0 7520 6 7551 1	* a cleaner worm (Very clean Sewers.)
-M 0 7520 6 7551 1	* a cleaner worm (Very clean Sewers.)
-M 0 7520 6 7551 1	* a cleaner worm (Very clean Sewers.)
+M 0 7519 5 7539 1	* a bugbear (The end of the watery tunnel)
+M 0 7514 4 7541 1	* a medium fish will pointy teeth (The Sewers)
+M 0 7514 4 7541 1	* a medium fish will pointy teeth (The Sewers)
+M 0 7514 4 7541 1	* a medium fish will pointy teeth (The Sewers)
+M 0 7514 4 7541 1	* a medium fish will pointy teeth (The Sewers)
+M 0 7513 5 7543 1	* a small fish with pointy teeth (Underwater in the river)
+M 0 7513 5 7543 1	* a small fish with pointy teeth (Underwater in the river)
+M 0 7513 5 7543 1	* a small fish with pointy teeth (Underwater in the river)
+M 0 7513 5 7543 1	* a small fish with pointy teeth (Underwater in the river)
+M 0 7513 5 7543 1	* a small fish with pointy teeth (Underwater in the river)
+M 0 7515 5 7544 1	* a large fish with pointy teeth (Underwater)
+M 0 7515 5 7544 1	* a large fish with pointy teeth (Underwater)
+M 0 7515 5 7544 1	* a large fish with pointy teeth (Underwater)
+M 0 7515 5 7544 1	* a large fish with pointy teeth (Underwater)
+M 0 7515 5 7544 1	* a large fish with pointy teeth (Underwater)
+M 0 7518 3 7547 1	* a fish with blunted teeth (Underwater)
+M 0 7520 6 7551 1	* a cleaner worm (Very clean Sewers)
+M 0 7520 6 7551 1	* a cleaner worm (Very clean Sewers)
+M 0 7520 6 7551 1	* a cleaner worm (Very clean Sewers)
+M 0 7520 6 7551 1	* a cleaner worm (Very clean Sewers)
+M 0 7520 6 7551 1	* a cleaner worm (Very clean Sewers)
+M 0 7520 6 7551 1	* a cleaner worm (Very clean Sewers)
 M 0 7523 30 7559 1	* a troubadour (Dirt Path)
 E 0 7514 0 17		*	a troubadour<held in the hands>: a harp
 M 0 7531 25 7564 2	* a Gerighelm cityguard (West-Street of Gerighelm)

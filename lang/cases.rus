@@ -962,6 +962,17 @@ Form 6 -ого~
 End
 
 #RULE
+Name рыбина~
+BaseLen 5
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name болотная~
 BaseLen 6
 Form 1 -ой~
@@ -3282,6 +3293,17 @@ Form 6 -у~
 End
 
 #RULE
+Name зубастая~
+BaseLen 6
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+Form 6 -ую~
+End
+
+#RULE
 Name учебная~
 BaseLen 5
 Form 1 -ой~
@@ -3690,6 +3712,17 @@ Form 3 -ую~
 Form 4 -ой~
 Form 5 -ой~
 Form 6 -ую~
+End
+
+#RULE
+Name рыбка~
+BaseLen 4
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
 End
 
 #RULE
@@ -4583,6 +4616,17 @@ Form 3 -шую~
 Form 4 -шей~
 Form 5 -шей~
 Form 6 -шую~
+End
+
+#RULE
+Name рыба~
+BaseLen 3
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
 End
 
 #RULE
@@ -11153,6 +11197,16 @@ Form 3 -а~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -а~
+End
+
+#RULE
+Name небольшая~
+BaseLen 7
+Form 1 -ей~
+Form 2 -ей~
+Form 3 -ую~
+Form 4 -ей~
+Form 5 -ую~
 End
 
 #RULE
