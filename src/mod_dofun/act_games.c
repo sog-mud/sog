@@ -31,7 +31,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_games.c,v 1.1.2.1 2004-06-10 09:20:16 tatyana Exp $
+ * $Id: act_games.c,v 1.1.2.2 2004-06-13 09:27:48 sg Exp $
  */
 
 #include <sys/types.h>
@@ -107,7 +107,7 @@ void do_stake(CHAR_DATA *ch, const char *argument)
 		}
 		if (ch->gold < stake) {
 			CROUPIER_SAYS(croupier, ch);
-			act("    You do not have enought money, $n!",
+			act("    You do not have enough money, $n!",
 			    ch, NULL, NULL, TO_ALL);
 			return;
 		}
