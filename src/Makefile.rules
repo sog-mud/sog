@@ -1,17 +1,21 @@
 #
-# $Id: Makefile.rules,v 1.7 1999-07-31 03:35:27 avn Exp $
+# $Id: Makefile.rules,v 1.8 1999-09-08 10:33:46 fjoe Exp $
 #
 
 #
 # core version
 #
-ABI_VERSION = 4
+ABI_VERSION = 5
 
 #
 # common rules
 #
 
 OFILES != for i in `echo $(CFILES) | sed 's/\.c/.o/g'`; do basename $${i}; done
+#OFILES = $(CFILES:.c=.o)
+
+MODULE_EXT=.so
+MODULE_NAME?=$(MODULE)$(MODULE_EXT).$(ABI_VERSION)
 
 all: $(MODULE_NAME)
 
@@ -21,8 +25,11 @@ $(MODULE_NAME): $(OFILES)
 depend:
 	mkdep $(CFLAGS) $(CFILES)
 
-clean:
-	rm -f $(MODULE_MASK) $(OFILES) .depend
+module_clean:
+	rm -f $(MODULE_NAME) $(MODULE)$(MODULE_EXT).*
+
+clean: module_clean
+	rm -f $(OFILES) .depend
 
 install: $(MODULE_NAME)
 	install $(INSTALL_FLAGS) $(MODULE_NAME) $(INSTALL_PATH)/$(INSTALL_DIR)
