@@ -333,7 +333,7 @@ silver~
 money 0 A
 1 0 0 0 0
 0 10 0 P
-G none
+G female
 #2
 gold gcash золотая золотой монета coin~
 @eng a gold coin@rus ~~золотая~~ ~~монета~~~
@@ -342,7 +342,7 @@ gold~
 money 0 A
 0 1 0 0 0
 0 10 0 P
-G none
+G female
 #3
 gold gcash coins золотые монеты золотой~
 @eng %d %s@rus %d ~~%s~~~
@@ -351,7 +351,7 @@ gold~
 money 0 A
 0 0 0 0 0
 0 10 0 P
-G none
+G plural
 #4
 coins silver gcash серебряные монеты серебряный~
 @eng %d %s@rus %d ~~%s~~~
@@ -360,47 +360,47 @@ silver~
 money 0 A
 0 0 0 0 0
 0 10 0 P
-G none
+G plural
 #5
-coins silver gold gcash~
+coins silver gold gcash золото серебро монеты~
 @eng %d %s and %d %s@rus %d ~~%s~~ и %d ~~%s~~~
 @eng A pile of coins.@rus Кучка монет (coins).~
 gold~
 money 0 A
 0 0 0 0 0
 0 10 0 P
-G none
+G plural
 #6
 arrow деревянная wooden стрела~
 @eng a wooden arrow@rus ~~деревянная~~ ~~стрела~~~
-@eng A wooden arrow lies on the ground.@rus Деревянная стрела лежит на земле.~
+@eng A wooden arrow lies on the ground.@rus Деревянная стрела (arrow) лежит на земле.~
 wood~
 weapon 0 AO
 arrow 1 1 pierce 0
 1 5 10 P
 G female
 #7
-wooden bow~
-a wooden bow~
-@eng A wooden bow lies on the ground.@rus Деревянный лук лежит на земле.~
+bow wooden лук деревянный~
+@eng a wooden bow@rus ~~деревянный~~ ~~лук~~~
+@eng A wooden bow lies on the ground.@rus Деревянный лук (bow) лежит на земле.~
 wood~
 weapon 0 AN
 bow 1 1 blast 0
 1 5 10 P
-G none
+G male
 #8
-cross~
+cross крест распятье~
 A cross of %s~
 Torn remains of %s are here on the cross.~
 flesh~
 trash CET 0
 0 0 0 0 0
 0 100 0 P
-G none
+G male
 #9
-elka christmas tree~
-@eng Christmas tree@rus Ёлка~
-@eng {gA christmas tree stands here.{x@rus {gНовогодняя ёлка стоит здесь, вся в украшениях.{x~
+elka christmas tree елка дерево~
+@eng Christmas tree@rus Елка~
+@eng {gA christmas tree stands here.{x@rus {gНовогодняя елка (elka) стоит здесь, вся в украшениях.{x~
 wood~
 container ABRSY 0
 1000000 0 0 100000 5
@@ -427,7 +427,7 @@ elka christmas tree~
            .         .   . {y  ### {W    .        .       .
     .. .. ..................{y#####{W................... ...... ...{x
 ~
-G none
+G female
 #10
 corpse труп~
 @eng the corpse of %s@rus ~~труп~~ %s~
@@ -436,7 +436,7 @@ flesh~
 npc_corpse 0 A
 0 0 0 A 0
 0 1000 0 D
-G none
+G male
 #11
 corpse труп~
 @eng the corpse of %s@rus ~~труп~~ %s~
@@ -445,7 +445,7 @@ flesh~
 pc_corpse O A
 0 0 0 A 0
 0 1000 0 D
-G none
+G male
 #12
 head голова~
 @eng the head of %s@rus ~~голова~~ %s~
@@ -454,7 +454,7 @@ meat~
 trash 0 A
 0 0 0 0 0
 0 50 0 D
-G none
+G female
 #13
 heart сердце~
 @eng the heart of %s@rus ~~сердце~~ %s~
@@ -472,7 +472,7 @@ meat~
 food 0 A
 CE CE 0 0 0
 0 50 0 D
-G none
+G female
 #15
 leg нога~
 @eng the leg of %s@rus ~~нога~~ %s~
@@ -481,7 +481,7 @@ meat~
 food 0 A
 CE CE 0 0 0
 0 50 0 D
-G none
+G female
 #16
 guts entrails внутренности кишки~
 @eng the guts of %s@rus ~~внутренности~~ %s~
@@ -490,7 +490,7 @@ meat~
 food 0 A
 AC AC 0 A 0
 0 20 0 D
-G none
+G plural
 #17
 brains brain мозги~
 @eng the brains of %s@rus ~~мозги~~ %s~
@@ -499,34 +499,43 @@ meat~
 food 0 A
 BD BD 0 0 0
 0 20 0 D
-G none
+G plural
+#18
+holy hammer молот~
+@eng Holy Hammer@rus ~~Священный~~ ~~Молот~~~
+@eng You see a large Holy Hammer.@rus Перед тобой огромный молот (hammer), излучающий божественную силу.~
+spirit~
+weapon AGIKL AN
+mace 9 0 divine I
+0 0 0 P
+G male
 #20
 mushroom грибок~
-@eng a Magic Mushroom@rus Волшебный Мухомор~
+@eng a Magic Mushroom@rus ~~Волшебный~~ ~~Мухомор~~~
 @eng A delicious magic mushroom is here.@rus Вкусный Волшебный Мухомор (mushroom) растет тут.~
 food~
 food 0 A
 D D 0 0 0
 0 10 0 P
-G none
+G male
 #21
 ball light~
-a bright ball of light~
+@eng a bright ball of light@rus ~~светящийся~~ ~~шар~~~
 @eng A bright ball of light shimmers in the air.@rus Ярко светящийся шар (ball) мерцает в воздухе.~
 energy~
 light A A
 0 0 -1 0 0
 0 0 0 P
-G none
+G male
 #22
-spring~
-a magical spring~
+spring источник~
+@eng a magical spring@rus ~~магический~~ ~~источник~~~
 @eng A magical spring flows from the ground here.@rus Магический источник (spring) бьет из-под земли.~
 water~
 fountain G 0
 100000 100000 'water' 0 0
 0 0 0 P
-G none
+G male
 #23
 disc disk floating black диск~
 @eng a floating disc@rus ~~летающий~~ ~~диск~~~
@@ -535,20 +544,20 @@ energy~
 container GMPUYZ AQ
 0 E 0 0 0
 0 0 0 P
-G none
+G male
 #25
-gate portal~
-a shimmering gate~
+gate portal ворота врата~
+@eng a shimmering gate@rus ~~мерцающие~~ ~~врата~~~
 @eng A shimmering black gate rises from the ground, leading to parts unknown.@rus Мерцающие черные врата (gate) ведут в неизвестность.~
 shadow~
 portal GOT 0
 0 0 0 0 0
 0 0 0 P
-G none
+G plural
 #26
-poncho~
-a poncho from the carcass of %s~
-@eng A poncho from the carcass of %s lies here.@rus Пончо, сделанное из трупа %s, лежит тут.~
+poncho пончо~
+@eng a poncho from the carcass of %s@rus ~~пончо~~ из трупа %s~
+@eng A poncho from the carcass of %s lies here.@rus Пончо (poncho), сделанное из трупа %s, лежит тут.~
 flesh~
 armor 0 AK
 0 0 0 0 0
@@ -566,20 +575,20 @@ meat~
 food 0 A
 ADE ADE 0 0 0
 0 20 0 P
-G none
+G male
 #28
-ranger staff~
-a ranger staff~
-@eng There is a Ranger's Staff here on the ground.@rus Лесник забыл свой посох (staff) тут.~
+ranger staff посох~
+@eng a ranger staff@rus ~~охотничий~~ ~~посох~~~
+@eng There is a Ranger's Staff here on the ground.@rus Охотник забыл свой посох (staff) тут.~
 ebony~
 weapon A AN
 spear 0 0 pierce 0
 0 160 0 P
-G none
+G male
 #30
 dummy object~
 a dummy object~
-Dummy object used for loading non-existent objects~
+Dummy object used for loading non-existent objects.~
 ~
 trash 0 0
 0 0 0 0 0
@@ -593,7 +602,7 @@ energy~
 weapon AGIOYc AP
 sword 10 4 slash D
 21 100 100000 G
-G none
+G male
 #32
 dagger hero~
 the %s Dagger of %s~
@@ -620,7 +629,7 @@ A
 13 200
 A
 14 500
-G none
+G male
 #33
 mace hero~
 the %s Mace of %s~
@@ -647,7 +656,7 @@ A
 13 200
 A
 14 500
-G none
+G male
 #34
 arrow green стрела зеленая~
 @eng a green arrow@rus ~~зеленая~~ ~~стрела~~~
@@ -712,9 +721,9 @@ A
 12 150
 A
 13 200
-G none
+G female
 #42
-vial potion~
+vial potion пузырек~
 @eng a potion vial@rus ~~пустой~~ ~~пузырек~~~
 @eng A vial of a potion is left here.@rus Пустой бутылек (vial) выброшен кем-то.~
 glass~
@@ -727,41 +736,41 @@ It's a glass vial used to hold magical potions. It looks fragile.
 ~
 G male
 #43
-potion silver~
-a silver potion~
+potion silver зелье~
+@eng a silver potion@rus ~~серебристое~~ ~~зелье~~~
 @eng A small silvery potion has carelessly been left here.@rus Маленькая бутылочка серебристой жидкости (potion) забыта тут.~
 glass~
 potion G AO
 1 'detect invis' '' '' ''
 0 10 0 P
-G none
+G female
 #44
 potion golden зелье золотое~
-@eng a golden potion@rus золотое зелье~
+@eng a golden potion@rus ~~золотое~~ ~~зелье~~~
 @eng A golden vial shines on the ground.@rus Золотистая (golden) бутылочка сверкает в грязи.~
 glass~
 potion G AO
 1 'frenzy' '' '' ''
 0 10 0 P
-G none
+G female
 #45
-potion swirling~
-a swirling potion~
+potion swirling зелье~
+@eng a swirling potion@rus ~~бурлящее~~ ~~зелье~~~
 @eng Some swirling liquid in a vial catches your attention.@rus Бурлящая (swirling) жидкость в бутылочке привлекает твое внимание.~
 glass~
 potion G AO
 1 'bless' '' '' ''
 0 10 0 P
-G none
+G female
 #50
-rug~
-a small magic rug~
+rug коврик~
+@eng a small magic rug@rus ~~магический~~ ~~коврик~~~
 @eng A small magic rug lies here.@rus Небольшой магический коврик (rug).~
 unknown~
 furniture RYa AP
 A EIJKN HK DGH DGH
 10 10 0 P
-G none
+G male
 #51
 tattoo atum ra~
 lawful good tattoo of atum-ra~
@@ -916,8 +925,8 @@ tattoo ATUY AR
 0 0 0 P
 G none
 #70
-badge~
-silver ruler badge~
+badge значок~
+@eng silver ruler badge@rus ~~серебряный~~ ~~значок~~ Рулера~
 @eng A silver bagde shines on the ground.@rus Серебряный значок (badge) с надписью "Ruler" блестит на земле.~
 silver~
 treasure MOTWZ A
@@ -925,27 +934,27 @@ treasure MOTWZ A
 50 4 0 P
 F
 A 0 0 F
-G none
+G male
 #71
 buckler ruler shield~
-Rulers' Buckler~
-@eng A buckler of a Ruler is on the ground.@rus Круглый щит с гербом клана Ruler лежит на земле.~
+@eng Rulers' Buckler@rus ~~круглый~~ ~~щит~~ Рулера~
+@eng A buckler of a Ruler is on the ground.@rus Круглый щит (shield) с гербом клана Ruler лежит на земле.~
 steel~
 armor GIRYZ AJ
 8 8 8 3 0
 0 200 10000 P
-G none
+G male
 #72
-great ruler shield~
-Rulers' Great Shield~
-@eng There is a Great Ruler Shield on the ground.@rus Большой щит с гербом клана Ruler лежит на земле.~
+great ruler shield щит~
+@eng Rulers' Great Shield@rus ~~большой~~ ~~щит~~ Рулера~
+@eng There is a Great Ruler Shield on the ground.@rus Большой щит (shield) с гербом клана Ruler лежит на земле.~
 steel~
 armor GIRYZ AJ
 20 20 20 10 0
 0 300 15000 P
-G none
+G male
 #73
-kite ruler shield~
+kite ruler shield щит~
 Rulers' Kite Shield~
 You see a large Kite Shield of Ruler on the ground.~
 steel~
@@ -960,32 +969,32 @@ A
 19 4
 G none
 #74
-tower ruler shield~
-Rulers' Tower Shield~
-@eng A very big shield with a symbol of Ruler covers the ground.@rus ОГРОМНЫЙ щит с гербом клана Ruler лежит на земле.~
+tower ruler shield щит~
+@eng Rulers' Tower Shield@rus ~~огромный~~ ~~щит~~ Рулера~
+@eng A very big shield with a symbol of Ruler covers the ground.@rus ОГРОМНЫЙ щит (shield) с гербом клана Ruler лежит на земле.~
 steel~
 armor GIRYZ AJ
 30 30 30 20 0
 0 240 20000 P
-G none
+G male
 #80
-golden dagger~
-a golden dagger~
+golden dagger кинжал~
+@eng a golden dagger@rus ~~золотистый~~ ~~кинжал~~~
 @eng There is a shiny golden dagger on the ground.@rus Блестящий золотистый кинжал (dagger) лежит на земле.~
 gold~
 weapon AIPTW AN
 dagger 10 1 pierce D
 20 80 0 P
-G none
+G male
 #81
-golden mace~
-a golden mace~
+golden mace булава~
+@eng a golden mace@rus ~~золотистая~~ ~~булава~~~
 @eng A shiny gold mace is on the ground.@rus Блестящая золотистая булава (mace) лежит на земле.~
 gold~
 weapon AIPTW AN
 mace 8 1 crush 0
 20 200 0 P
-G none
+G female
 #82
 golden dragonplate plate~
 Dragonplate~
