@@ -44,6 +44,8 @@ r bash 33
 r pierce -50
 r cold 33
 r charm 33
+m mob_greet mob_greet_white_rabbit 100~
+m mob_exit mob_exit_white_rabbit all~
 #21002
 mouse~
 a mouse~
@@ -59,6 +61,8 @@ GHT 0 0 0 H 400 0
 ENU
 stand stand male 0
 HM B medium unknown
+m mob_greet mob_greet_mouse 100~
+m mob_exit mob_exit_mouse all~
 #21003
 duck~
 a duck~
@@ -73,6 +77,8 @@ GHT 0 0 0 0 400 0
 EFNU
 stand stand female 0
 HMV B medium unknown
+m mob_greet mob_greet_duck 100~
+m mob_exit mob_exit_duck all~
 #21004
 dodo~
 a dodo~
@@ -88,6 +94,8 @@ BGT 0 N 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
+m mob_greet mob_greet_dodo 100~
+m mob_exit mob_exit_dodo all~
 #21005
 lory~
 a lory~
@@ -102,6 +110,8 @@ GHT 0 T 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
+m mob_greet mob_greet_lory 100~
+m mob_exit mob_exit_lory all~
 #21006
 eaglet~
 an eaglet~
@@ -116,6 +126,8 @@ BGT 0 T 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
+m mob_greet mob_greet_eaglet 100~
+m mob_exit mob_exit_eaglet all~
 #21007
 magpie~
 an elderly magpie~
@@ -130,6 +142,8 @@ BGHT 0 T 0 0 400 0
 EFNU
 stand stand female 0
 0 0 medium unknown
+m mob_greet mob_greet_magpie 100~
+m mob_exit mob_exit_magpie all~
 #21008
 owl~
 an owl~
@@ -144,6 +158,7 @@ BGT 0 T 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
+m mob_greet mob_greet_owl 100~
 #21009
 old crab~
 an old crab~
@@ -157,6 +172,7 @@ BGT 0 N 0 0 400 0
 EFNU
 stand stand female 0
 0 0 medium unknown
+m mob_greet mob_greet_old_crab 100~
 #21010
 young crab~
 a young crab~
@@ -170,6 +186,7 @@ BGHT 0 N 0 0 400 0
 EFNU
 stand stand female 0
 0 0 medium unknown
+m mob_greet mob_greet_young_crab 100~
 #21011
 bill lizard~
 Bill the lizard~
@@ -184,6 +201,9 @@ BGHT 0 0 0 0 400 0
 EFNU
 stand stand male 0
 HMV B medium unknown
+m mob_death mob_death_lizard_bill 100~
+m mob_greet mob_greet_lizard_bill 100~
+m mob_kill mob_kill_lizard_bill 100~
 #21012
 guinea pig~
 a guinea pig~
@@ -212,6 +232,8 @@ BGHT 0 0 0 H 400 0
 EFNU
 stand stand male 0
 HM B medium unknown
+m mob_greet mob_greet_puppy 100~
+m mob_exit mob_exit_puppy all~
 #21014
 caterpillar~
 the caterpillar~
@@ -226,6 +248,8 @@ BGHT 0 HN 0 H 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
+m mob_greet mob_greet_caterpillar 100~
+m mob_exit mob_exit_caterpillar all~
 #21015
 pigeon~
 a pigeon~
@@ -241,6 +265,8 @@ BFGT 0 T 0 0 400 0
 EFNU
 stand stand female 0
 0 0 medium unknown
+m mob_greet mob_greet_pigeon 100~
+m mob_exit mob_exit_pigeon all~
 #21016
 fish footman~
 a fish-footman~
@@ -471,6 +497,9 @@ GT 0 0 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
+m mob_greet mob_greet_diamond_courtier 100~
+m mob_exit mob_exit_diamond_courtier all~
+m mob_look mob_look_diamond_courtier 100~
 #21032
 child card hearts~
 a child of the Queen~
@@ -484,6 +513,7 @@ GHT 0 0 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
+m mob_greet mob_greet_child_of_queen 100~
 #21033
 king hearts~
 the King of Hearts~
@@ -499,6 +529,9 @@ GT 0 H 0 H 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
+m mob_greet mob_greet_king_of_hearts 100~
+m mob_exit mob_king_of_hearts all~
+m mob_look mob_king_of_hearts 100~
 #21034
 queen hearts~
 @eng the Queen of Hearts@rus ~~Червовая~~ ~~Королева~~~
@@ -514,6 +547,8 @@ GLQRSTY CH N 0 H -400 0
 EFNU
 stand stand female 0
 0 0 medium unknown
+m mob_greet mob_queen_of_hearts 100~
+m mob_exit mob_queen_of_hearts all~
 #21035
 knave hearts~
 the Knave of Hearts~
@@ -529,6 +564,7 @@ GHT 0 0 0 0 0 0
 EFNU
 stand stand male 0
 0 0 medium unknown
+m mob_greet mob_greet_knave_of_hearts 100~
 #21036
 flamingo~
 a flamingo~
@@ -543,6 +579,7 @@ GHT 0 0 0 0 0 0
 EFNU
 stand stand male 0
 0 0 medium unknown
+m mob_greet mob_greet_flamingo 100~
 #21037
 hedgehog~
 a hedgehog~
@@ -574,6 +611,8 @@ GT 0 HN 0 0 0 0
 EFNU
 stand stand male 0
 0 0 medium unknown
+m mob_greet mob_greet_executioner 100~
+m mob_exit mob_exit_executioner all~
 #21039
 mock turtle~
 the Mock Turtle~
@@ -590,6 +629,7 @@ BGT 0 H 0 0 500 0
 EFNU
 stand stand male 0
 0 0 medium unknown
+m mob_greet mob_greet_mock_turtle 100~
 #21040
 gryphon~
 a Gryphon~
@@ -606,6 +646,9 @@ BGT 0 HRT 0 H 500 0
 EFNU
 stand stand male 0
 0 0 medium unknown
+m mob_death mob_death_gryphon 100~
+m mob_greet mob_greet_gryphon 100~
+m mob_kill mob_kill_gryphon 100~
 #21041
 juror~
 a juror~
@@ -621,6 +664,7 @@ BGHT 0 0 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
+m mob_greet mob_greet_juror 100~
 #21042
 court officer~
 a court officer~
@@ -635,6 +679,7 @@ BGT 0 N 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
+m mob_greet mob_greet_court_officer 100~
 #0
 
 #OBJECTS
