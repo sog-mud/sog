@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.104 1999-05-22 13:37:30 fjoe Exp $
+ * $Id: quest.c,v 1.105 1999-05-23 17:28:49 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -312,6 +312,9 @@ static CHAR_DATA* questor_lookup(CHAR_DATA *ch)
 		char_puts("Wait until the fighting stops.\n", ch);
 		return NULL;
 	}
+
+	if (questor->position < POS_RESTING)
+		return NULL;
 
 	return questor;
 }
@@ -773,10 +776,10 @@ static void quest_chquest(CHAR_DATA *ch, char *arg)
 
 		if ((carried_by = chquest_carried_by(q->obj)))
 			act("- $p (carried by $N)",
-			    ch, q->obj, carried_by, TO_CHAR);
+			    ch, q->obj, carried_by, TO_CHAR | ACT_FORMSH);
 		else
 			act("- $p (somewhere)",
-			    ch, q->obj, NULL, TO_CHAR);
+			    ch, q->obj, NULL, TO_CHAR | ACT_FORMSH);
 	}
 
 	if (!found) {
