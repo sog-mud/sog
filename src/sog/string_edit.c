@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.35 1999-06-29 04:09:18 fjoe Exp $
+ * $Id: string_edit.c,v 1.35.2.1 2000-04-04 14:00:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -24,8 +24,6 @@
 #include "merc.h"
 #include "string_edit.h"
 
-const char *string_linedel(const char *, int);
-const char *string_lineadd(const char *, char *, int);
 char *numlines(const char *);
 
 /*****************************************************************************

@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.h,v 1.6 1999-06-29 04:09:17 fjoe Exp $
+ * $Id: string_edit.h,v 1.6.2.1 2000-04-04 14:00:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -22,5 +22,8 @@ const char *	string_replace	(const char * orig, char * old, char * new);
 void		string_add      (CHAR_DATA *ch, const char *argument);
 void		string_add_exit	(CHAR_DATA *ch, bool save);
 const char *	format_string   (const char *oldstring /*, bool fSpace */);
+
+const char *	string_linedel(const char *, int);
+const char *	string_lineadd(const char *, char *, int);
 
 #endif

@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.4 1999-09-18 11:45:25 fjoe Exp $
+ * $Id: note.c,v 1.4.2.1 2000-04-04 14:00:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -661,6 +661,72 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		if (!note_attach(ch, type))
 			return;
 		string_append(ch, &pc->pnote->text);
+		return;
+	}
+
+	if (!str_cmp(arg, "+")) {
+		const char *p;
+
+		if (!note_attach(ch, type))
+			return;
+
+		if (strlen(pc->pnote->text) + strlen(argument) >= MAX_STRING_LENGTH-4) {
+			char_puts("Note too long.\n", ch);
+			return;
+		}
+
+		p = str_printf("%s%s\n", pc->pnote->text, argument);
+		free_string(pc->pnote->text);
+		pc->pnote->text = p;
+		char_puts("Ok.\n", ch);
+		return;
+	}
+
+	if (!str_cmp(arg, "-")) {
+		int len;
+		bool found = FALSE;
+		char buf[MAX_STRING_LENGTH];
+
+		if (!note_attach(ch, type))
+			return;
+
+		if (IS_NULLSTR(pc->pnote->text)) {
+			char_puts("No lines left to remove.\n", ch);
+			return;
+		}
+
+		if (argument[0] != '\0') {
+			if (!is_number(argument)) {
+				char_puts("Remove which number?", ch);
+				return;
+			}
+			pc->pnote->text = string_linedel(pc->pnote->text,
+							 atoi(argument));
+			char_puts("Ok.\n", ch);
+			return;
+		}
+
+		strnzcpy(buf, sizeof(buf), pc->pnote->text);
+		for (len = strlen(buf); len > 0; len--) {
+			if (buf[len] != '\n')
+				continue;
+
+			if (!found) {	/* back it up */
+				if (len > 0)
+					len--;
+				found = TRUE;
+			} else {
+				buf[len + 1] = '\0';
+				free_string(pc->pnote->text);
+				pc->pnote->text = str_dup(buf);
+				char_puts("Ok.\n", ch);
+				return;
+			}
+		}
+
+		free_string(pc->pnote->text);
+		pc->pnote->text = str_empty;
+		char_puts("Ok.\n", ch);
 		return;
 	}
 
