@@ -631,9 +631,6 @@ Get back to questor before your time runs out!
 @eng The witch curse makes you feeling your life slipping away.
 @rus Ведьмовское проклятие вытягивает из тебя жизнь.
 ~
-@eng You trample around loudly again.
-@rus Теперь ты опять топаешь как слон.
-~
 @eng scatter over the water.~
 @eng $n puts $p on $P.@rus $n кладет $p на $P.~
 @eng ({bImproved{x) @rus ({bУл. Невидимость{x) ~
