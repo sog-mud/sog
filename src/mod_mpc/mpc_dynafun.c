@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.c,v 1.9 2001-08-28 09:33:55 fjoe Exp $
+ * $Id: mpc_dynafun.c,v 1.10 2001-09-02 16:21:59 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -118,6 +118,24 @@ bool
 is_immortal(CHAR_DATA *ch)
 {
 	return IS_IMMORTAL(ch);
+}
+
+int
+char_sex(CHAR_DATA *ch)
+{
+	return flag_value(sex_table, mlstr_mval(&ch->gender));
+}
+
+OBJ_DATA *
+load_obj(CHAR_DATA *ch, int vnum)
+{
+	OBJ_DATA *obj;
+
+	if ((obj = create_obj(vnum, 0)) == NULL)
+		return NULL;
+
+	obj_to_char(obj, ch);
+	return obj;
 }
 
 #else /* !defined(MPC) */

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.318 2001-09-01 19:08:32 fjoe Exp $
+ * $Id: handler.c,v 1.319 2001-09-02 16:22:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -56,6 +56,7 @@
 #include <sog.h>
 
 #include "comm.h"
+#include "handler_impl.h"
 
 static const char *	format_hmv	(int hp, int mana, int move);
 
@@ -1711,6 +1712,9 @@ FOREACH_CB_FUN(pull_mob_greet_cb, p, ap)
 
 	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
 
+	if (!can_see(vch, ch))
+		return NULL;
+
 	pull_mob_trigger(TRIG_MOB_GREET, vch, ch, NULL);
 	pull_mob_trigger(TRIG_MOB_GRALL, vch, ch, NULL);
 
@@ -1727,6 +1731,9 @@ FOREACH_CB_FUN(pull_mob_exit_cb, p, ap)
 
 	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
 	char *arg = va_arg(ap, char *);
+
+	if (!can_see(vch, ch))
+		return NULL;
 
 	if (pull_mob_trigger(TRIG_MOB_EXIT, vch, ch, arg) > 0
 	||  pull_mob_trigger(TRIG_MOB_EXALL, vch, ch, arg) > 0)
@@ -2402,7 +2409,7 @@ get_char_room_raw(CHAR_DATA *ch, const char *name,
  * Find a char in the room.
  */
 CHAR_DATA *
-get_char_room(CHAR_DATA *ch, const char *argument)
+get_char_here(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	uint number;
@@ -2412,6 +2419,19 @@ get_char_room(CHAR_DATA *ch, const char *argument)
 		return NULL;
 
 	return get_char_room_raw(ch, arg, &number, ch->in_room);
+}
+
+CHAR_DATA *
+get_char_room(CHAR_DATA *ch, ROOM_INDEX_DATA *room, const char *argument)
+{
+	char arg[MAX_INPUT_LENGTH];
+	uint number;
+
+	number = number_argument(argument, arg, sizeof(arg));
+	if (!number)
+		return NULL;
+
+	return get_char_room_raw(ch, arg, &number, room);
 }
 
 CHAR_DATA *
@@ -3365,7 +3385,8 @@ give_obj(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 	act("$n gives you $p.", ch, obj, victim, TO_VICT | ACT_NOTRIG);
 	act("You give $p to $N.", ch, obj, victim, TO_CHAR | ACT_NOTRIG);
 
-	pull_mob_trigger(TRIG_MOB_GIVE, victim, ch, obj);
+	if (can_see(victim, ch))
+		pull_mob_trigger(TRIG_MOB_GIVE, victim, ch, obj);
 #if 0
 	XXX MPC
 	oprog_call(OPROG_GIVE, obj, ch, victim);
@@ -3549,6 +3570,32 @@ look_char(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	if (can_see(victim, ch))
 		pull_mob_trigger(TRIG_MOB_LOOK, victim, ch, NULL);
+}
+
+bool
+transfer_char(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
+{
+	if (room_is_private(room))
+		return FALSE;
+
+	char_from_room(ch);
+	char_to_room(ch, room);
+	if (!IS_EXTRACTED(ch))
+		dofun("look", ch, "auto");
+	return TRUE;
+}
+
+void
+social_char(const char *socname, CHAR_DATA *ch, CHAR_DATA *victim)
+{
+	social_t *soc = social_lookup(socname);
+
+	if (soc == NULL) {
+		log(LOG_BUG, "%s: %s: unknown social", __FUNCTION__, socname);
+		return;
+	}
+
+	interpret_social_char(soc, ch, victim);
 }
 
 /*
@@ -4185,7 +4232,7 @@ find_door(CHAR_DATA *ch, const char *arg)
 }
 
 void
-transfer_char(CHAR_DATA *ch, CHAR_DATA *vch, ROOM_INDEX_DATA *to_room,
+teleport_char(CHAR_DATA *ch, CHAR_DATA *vch, ROOM_INDEX_DATA *to_room,
 	      const char *msg_out, const char *msg_travel, const char *msg_in)
 {
 	ROOM_INDEX_DATA *was_in = ch->in_room;
@@ -4207,7 +4254,7 @@ transfer_char(CHAR_DATA *ch, CHAR_DATA *vch, ROOM_INDEX_DATA *to_room,
 void
 recall(CHAR_DATA *ch, ROOM_INDEX_DATA *location)
 {
-	transfer_char(ch, NULL, location,
+	teleport_char(ch, NULL, location,
 		      "$N disappears.", NULL, "$N appears in the room.");
 }
 
@@ -5339,12 +5386,12 @@ get_char_spell(CHAR_DATA *ch, const char *argument, int *door, int range)
 	p = strchr(argument, '.');
 	if (!p) {
 		*door = -1;
-		return get_char_room(ch, argument);
+		return get_char_here(ch, argument);
 	}
 
 	strnzncpy(buf, sizeof(buf), argument, (size_t) (p-argument));
 	if ((*door = exit_lookup(buf)) < 0)
-		return get_char_room(ch, argument);
+		return get_char_here(ch, argument);
 
 	return find_char(ch, p+1, *door, range);
 }

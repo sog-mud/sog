@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.195 2001-09-01 19:08:25 fjoe Exp $
+ * $Id: martial_art.c,v 1.196 2001-09-02 16:21:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -316,7 +316,7 @@ DO_FUN(do_kill, ch, argument)
 
 	WAIT_STATE(ch, 1 * get_pulse("violence"));
 
-	if ((victim = get_char_room(ch, arg)) == NULL) {
+	if ((victim = get_char_here(ch, arg)) == NULL) {
 		act_char("They aren't here.", ch);
 		return;
 	}
@@ -392,7 +392,7 @@ DO_FUN(do_murder, ch, argument)
 	||  (IS_NPC(ch) && IS_SET(ch->pMobIndex->act, ACT_PET)))
 		return;
 
-	if ((victim = get_char_room(ch, arg)) == NULL) {
+	if ((victim = get_char_here(ch, arg)) == NULL) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		act_char("They aren't here.", ch);
 		return;
@@ -554,7 +554,7 @@ DO_FUN(do_pound, ch, argument)
 		}
 	}
 	else
-		victim = get_char_room(ch, arg);
+		victim = get_char_here(ch, arg);
 
 	if (!victim || victim->in_room != ch->in_room) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
@@ -728,7 +728,7 @@ DO_FUN(do_gash, ch, argument)
 			return;
 		}
 	} else {
-		victim = get_char_room(ch, arg);
+		victim = get_char_here(ch, arg);
 	}
 
 	if (!victim || victim->in_room != ch->in_room) {
@@ -882,7 +882,7 @@ DO_FUN(do_cut, ch, argument)
 		}
 	}
 	else
-		victim = get_char_room(ch, arg);
+		victim = get_char_here(ch, arg);
 
 	if (!victim || victim->in_room != ch->in_room) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
@@ -1003,7 +1003,7 @@ DO_FUN(do_whirl, ch, argument)
 		}
 	}
 	else
-		victim = get_char_room(ch, arg);
+		victim = get_char_here(ch, arg);
 
 	if (!victim || victim->in_room != ch->in_room) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
@@ -1309,7 +1309,7 @@ DO_FUN(do_bash, ch, argument)
 		}
 	}
 	else
-		victim = get_char_room(ch, arg);
+		victim = get_char_here(ch, arg);
 
 	if (!victim || victim->in_room != ch->in_room) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
@@ -1458,7 +1458,7 @@ DO_FUN(do_dirt, ch, argument)
 		}
 	}
 	else
-		victim = get_char_room(ch, arg);
+		victim = get_char_here(ch, arg);
 
 	if (!victim || victim->in_room != ch->in_room) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
@@ -1594,7 +1594,7 @@ DO_FUN(do_trip, ch, argument)
  		}
 	}
 	else
-		victim = get_char_room(ch, arg);
+		victim = get_char_here(ch, arg);
 
 	if (!victim || victim->in_room != ch->in_room) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
@@ -1731,7 +1731,7 @@ DO_FUN(do_backstab, ch, argument)
 
 	WAIT_STATE(ch, skill_beats("backstab"));
 
-	if ((victim = get_char_room(ch, arg)) == NULL) {
+	if ((victim = get_char_here(ch, arg)) == NULL) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		act_char("They aren't here.", ch);
 		return;
@@ -1803,7 +1803,7 @@ DO_FUN(do_knife, ch, argument)
 		return;
 	}
 
-	if ((victim = get_char_room(ch, arg)) == NULL) {
+	if ((victim = get_char_here(ch, arg)) == NULL) {
 		act_char("They aren't here.", ch);
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		return;
@@ -1860,7 +1860,7 @@ DO_FUN(do_cleave, ch, argument)
 		return;
 	}
 
-	if ((victim = get_char_room(ch, arg)) == NULL) {
+	if ((victim = get_char_here(ch, arg)) == NULL) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		act_char("They aren't here.", ch);
 		return;
@@ -1933,7 +1933,7 @@ DO_FUN(do_impale, ch, argument)
 		return;
 	}
 
-	if ((victim = get_char_room(ch, arg)) == NULL) {
+	if ((victim = get_char_here(ch, arg)) == NULL) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		act_char("They aren't here.", ch);
 		return;
@@ -2009,7 +2009,7 @@ DO_FUN(do_ambush, ch, argument)
 
 	WAIT_STATE(ch, skill_beats("ambush"));
 
-	if ((victim = get_char_room(ch, arg)) == NULL) {
+	if ((victim = get_char_here(ch, arg)) == NULL) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		act_char("They aren't here.", ch);
 		return;
@@ -2062,7 +2062,7 @@ DO_FUN(do_rescue, ch, argument)
 
 	WAIT_STATE(ch, skill_beats("rescue"));
 
-	if ((victim = get_char_room(ch, arg)) == NULL) {
+	if ((victim = get_char_here(ch, arg)) == NULL) {
 		act_char("They aren't here.", ch);
 		return;
 	}
@@ -2435,7 +2435,7 @@ DO_FUN(do_nerve, ch, argument)
 			act_char("You aren't fighting anyone.", ch);
 			return;
 		}
-	} else if ((victim = get_char_room(ch, arg)) == NULL) {
+	} else if ((victim = get_char_here(ch, arg)) == NULL) {
 		act_char("They aren't here.", ch);
 		return;
 	}
@@ -2547,7 +2547,7 @@ DO_FUN(do_tame, ch, argument)
 
 	WAIT_STATE(ch, skill_beats("tame"));
 
-	if ((victim = get_char_room(ch,arg)) == NULL) {
+	if ((victim = get_char_here(ch,arg)) == NULL) {
 		act_char("They're not here.", ch);
 		return;
 	}
@@ -2617,7 +2617,7 @@ DO_FUN(do_assassinate, ch, argument)
 		return;
 	}
 
-	if ((victim = get_char_room(ch, arg)) == NULL) {
+	if ((victim = get_char_here(ch, arg)) == NULL) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		act_char("They aren't here.", ch);
 		return;
@@ -2863,7 +2863,7 @@ DO_FUN(do_strangle, ch, argument)
 		return;
 	}
 
-	if ((victim = get_char_room(ch,argument)) == NULL) {
+	if ((victim = get_char_here(ch,argument)) == NULL) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		act_char("You do not see that person here.", ch);
 		return;
@@ -2942,7 +2942,7 @@ DO_FUN(do_headcrush, ch, argument)
 	}
 
 
-	if ((victim = get_char_room(ch,argument)) == NULL) {
+	if ((victim = get_char_here(ch,argument)) == NULL) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		act_char("You do not see that person here.", ch);
 		return;
@@ -3058,7 +3058,7 @@ DO_FUN(do_blackjack, ch, argument)
 		return;
 	}
 
-	if ((victim = get_char_room(ch,argument)) == NULL) {
+	if ((victim = get_char_here(ch,argument)) == NULL) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		act_char("You do not see that person here.", ch);
 		return;
@@ -3476,7 +3476,7 @@ DO_FUN(do_guard, ch, argument)
 		return;
 	}
 
-	if ((victim = get_char_room(ch, arg)) == NULL) {
+	if ((victim = get_char_here(ch, arg)) == NULL) {
 		act_char("They aren't here.", ch);
 		return;
 	}
@@ -3664,7 +3664,7 @@ DO_FUN(do_target, ch, argument)
 		return;
 	}
 
-	if ((victim = get_char_room(ch, argument)) == NULL) {
+	if ((victim = get_char_here(ch, argument)) == NULL) {
 		act_char("You don't see that item.", ch);
 		return;
 	}
@@ -4041,7 +4041,7 @@ DO_FUN(do_tail, ch, argument)
 		}
 	}
 	else
-		victim = get_char_room(ch, arg);
+		victim = get_char_here(ch, arg);
 
 	if (!victim || victim->in_room != ch->in_room) {
 		act_char("They aren't here.", ch);
@@ -4616,7 +4616,7 @@ DO_FUN(do_blindness_dust, ch, argument)
 		return;
 	}
 
-	if ((vch = get_char_room(ch, arg)) == NULL) {
+	if ((vch = get_char_here(ch, arg)) == NULL) {
 		act_char("They aren't here.", ch);
 		return;
 	}

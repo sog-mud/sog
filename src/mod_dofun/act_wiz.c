@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.293 2001-08-28 16:37:33 avn Exp $
+ * $Id: act_wiz.c,v 1.294 2001-09-02 16:21:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2066,13 +2066,13 @@ DO_FUN(do_clone, ch, argument)
 		}
 	} else if (!str_prefix(arg, "mobile") || !str_prefix(arg, "character")) {
 		obj = NULL;
-		mob = get_char_room(ch, rest);
+		mob = get_char_here(ch, rest);
 		if (mob == NULL) {
 		    act_char("You don't see that here.", ch);
 		    return;
 		}
 	} else { /* find both */
-		mob = get_char_room(ch, argument);
+		mob = get_char_here(ch, argument);
 		obj = get_obj_here(ch, argument);
 		if (mob == NULL && obj == NULL) {
 			act_char("You don't see that here.", ch);
@@ -2732,7 +2732,7 @@ DO_FUN(do_string, ch, argument)
 	}
 	
 	if (!str_prefix(type, "character") || !str_prefix(type, "mobile")) {
-		if ((victim = get_char_room(ch, arg1)) == NULL) {
+		if ((victim = get_char_here(ch, arg1)) == NULL) {
 			act_char("They aren't here.", ch);
 			return;
 		}
@@ -4392,7 +4392,7 @@ DO_FUN(do_qtarget, ch, argument)
 	low = atoi(arg);
 	argument = one_argument(argument, arg, sizeof(arg));
 	high = atoi(arg);
-	if ((vch = get_char_room(ch, argument)) == NULL) {
+	if ((vch = get_char_here(ch, argument)) == NULL) {
 		act_char("They are not here.", ch);
 		return;
 	}
@@ -4422,7 +4422,7 @@ DO_FUN(do_slay, ch, argument)
 		return;
 	}
 
-	if ((victim = get_char_room(ch, arg)) == NULL) {
+	if ((victim = get_char_here(ch, arg)) == NULL) {
 		act_char("They aren't here.", ch);
 		return;
 	}

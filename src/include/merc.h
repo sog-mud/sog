@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.356 2001-08-31 10:29:27 fjoe Exp $
+ * $Id: merc.h,v 1.357 2001-09-02 16:21:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -70,14 +70,12 @@
 /*
  * sex or gender
  */
-enum {
-	SEX_NEUTRAL,
-	SEX_MALE,
-	SEX_FEMALE,
-	SEX_EITHER,		/* used only for NPC, means random sex
-				   in create_mob */
-	SEX_PLURAL
-};
+#define SEX_NEUTRAL	0
+#define SEX_MALE	1
+#define SEX_FEMALE	2
+#define SEX_EITHER	3	/* used only for NPC, means random sex	*/
+				/* in create_mob			*/
+#define SEX_PLURAL	4
 
 /* align numbers */
 enum {

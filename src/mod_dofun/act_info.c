@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.398 2001-09-01 19:30:04 fjoe Exp $
+ * $Id: act_info.c,v 1.399 2001-09-02 16:21:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -631,7 +631,7 @@ DO_FUN(do_look, ch, argument)
 		return;
 	}
 
-	if ((victim = get_char_room(ch, arg1)) != NULL) {
+	if ((victim = get_char_here(ch, arg1)) != NULL) {
 		look_char(ch, victim);
 		return;
 	}
@@ -1524,7 +1524,7 @@ DO_FUN(do_consider, ch, argument)
 		return;
 	}
 
-	if ((victim = get_char_room(ch, arg)) == NULL) {
+	if ((victim = get_char_here(ch, arg)) == NULL) {
 		act_char("They aren't here.", ch);
 		return;
 	}
@@ -1850,7 +1850,7 @@ DO_FUN(do_request, ch, argument)
 		return;
 	}
 
-	if ((victim = get_char_room(ch, arg2)) == NULL) {
+	if ((victim = get_char_here(ch, arg2)) == NULL) {
 		act_char("They aren't here.", ch);
 		return;
 	}
@@ -3092,7 +3092,7 @@ DO_FUN(do_learn, ch, argument)
 
 	argument = one_argument(argument, arg, sizeof(arg));
 		
-	if ((practicer = get_char_room(ch,arg)) == NULL) {
+	if ((practicer = get_char_here(ch,arg)) == NULL) {
 		act_char("Your hero is not here.", ch);
 		return;
 	}
@@ -3589,7 +3589,7 @@ DO_FUN(do_demand, ch, argument)
 		return;
 	}
 
-	if ((victim = get_char_room(ch, arg2)) == NULL) {
+	if ((victim = get_char_here(ch, arg2)) == NULL) {
 		act_char("They aren't here.", ch);
 		return;
 	}
@@ -3702,7 +3702,7 @@ DO_FUN(do_control, ch, argument)
 		return;
 	}
 
-	if ((victim = get_char_room(ch, arg)) == NULL) {
+	if ((victim = get_char_here(ch, arg)) == NULL) {
 		act_char("They aren't here.", ch);
 		return;
 	}

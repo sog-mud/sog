@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.34 2001-09-01 19:08:27 fjoe Exp $
+ * $Id: magic.c,v 1.35 2001-09-02 16:21:55 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -35,7 +35,7 @@
 #include <magic.h>
 #include "magic_impl.h"
 
-static int get_cpdata_bysn(CHAR_DATA *ch, const char *sn, cpdata_t *cp);
+static bool get_cpdata_bysn(CHAR_DATA *ch, const char *sn, cpdata_t *cp);
 
 /*
  * Cast spells at targets using a magical object.
@@ -193,7 +193,10 @@ cast(const char *sn, CHAR_DATA *ch, const char *argument)
 	cpdata_t cp;
 	sptarget_t spt;
 
-	if (get_cpdata_bysn(ch, sn, &cp) < 0)
+	if (!get_cpdata_bysn(ch, sn, &cp))
+		return;
+
+	if (!casting_allowed(ch, &cp))
 		return;
 
 	sptarget_init(&spt);
@@ -228,7 +231,10 @@ cast_char(const char *sn, CHAR_DATA *ch, CHAR_DATA *victim)
 	cpdata_t cp;
 	sptarget_t spt;
 
-	if (get_cpdata_bysn(ch, sn, &cp) < 0)
+	if (!get_cpdata_bysn(ch, sn, &cp))
+		return;
+
+	if (!casting_allowed(ch, &cp))
 		return;
 
 	sptarget_init(&spt);
@@ -271,7 +277,10 @@ cast_obj(const char *sn, CHAR_DATA *ch, OBJ_DATA *obj)
 	cpdata_t cp;
 	sptarget_t spt;
 
-	if (get_cpdata_bysn(ch, sn, &cp) < 0)
+	if (!get_cpdata_bysn(ch, sn, &cp))
+		return;
+
+	if (!casting_allowed(ch, &cp))
 		return;
 
 	sptarget_init(&spt);
@@ -413,13 +422,15 @@ get_cpdata_bysn(CHAR_DATA *ch, const char *sn, cpdata_t *cp)
 	if ((cp->sk = skill_lookup(sn)) == NULL
 	||  (cp->chance = get_skill(ch, sn)) == 0) {
 		act_char("You don't know any spells or prayers of that name.", ch);
-		return -1;
+		return FALSE;
 	}
 
 	if (cp->sk->skill_type != ST_SPELL && cp->sk->skill_type != ST_PRAYER) {
 		act_char("That's not a spell or prayer.", ch);
-		return -1;
+		return FALSE;
 	}
 
-	return 0;
+	cp->mana = skill_mana(ch, sn);
+
+	return TRUE;
 }

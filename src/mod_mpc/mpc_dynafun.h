@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.h,v 1.2 2001-08-28 09:33:55 fjoe Exp $
+ * $Id: mpc_dynafun.h,v 1.3 2001-09-02 16:22:00 fjoe Exp $
  */
 
 #ifndef _MPC_DYNAFUN_H_
@@ -47,6 +47,10 @@ DECLARE_PROC2(mob_interpret,
 	      ARG(CHAR_DATA), ch, ARG(cchar_t), argument)
 DECLARE_FUN1(bool, is_immortal,
 	     ARG(CHAR_DATA), ch)
+DECLARE_FUN1(int, char_sex,
+	     ARG(CHAR_DATA), ch)
+DECLARE_FUN2(OBJ_DATA, load_obj,
+	     ARG(CHAR_DATA), ch, ARG(int), vnum)
 
 __MODULE_END_DECL
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.8 2001-08-31 10:29:37 fjoe Exp $
+ * $Id: trig.c,v 1.9 2001-09-02 16:22:04 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -276,7 +276,7 @@ pull_one_trigger(trig_t *trig, int mp_type,
 
 	if (trig->trig_type == TRIG_MOB_BRIBE) {
 		int silver_needed = atoi(trig->trig_arg);
-		int silver = atoi(arg3);
+		int silver = (int) arg3;
 
 		if (silver < silver_needed)
 			return MPC_ERR_COND_FAILED;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun.c,v 1.13 2001-08-13 18:24:00 fjoe Exp $
+ * $Id: dynafun.c,v 1.14 2001-09-02 16:22:04 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -166,6 +166,28 @@ dynafun_tab_unregister(dynafun_data_t *dtab)
 	dynafun_foreach(dtab, dynafun_unregister, NULL);
 }
 
+bool
+dynafun_check_arg(dynafun_data_t *d, int i, const void *arg)
+{
+	if (arg == NULL) {
+		if (!d->argtype[i].nullable) {
+			log(LOG_BUG, "%s: %s: arg[%d] type is not nullable",
+			    __FUNCTION__, d->name, i+1);
+			return FALSE;
+		}
+	} else if (d->argtype[i].type_tag != MT_STR
+	       &&  !mem_is(arg, d->argtype[i].type_tag)) {
+		log(LOG_BUG, "%s: %s: invalid arg[%d] type '%s' ('%s expected)",
+		    __FUNCTION__,
+		    d->name, i+1,
+		    flag_string(mt_types, mem_type(arg)),
+		    flag_string(mt_types, d->argtype[i].type_tag));
+		return FALSE;
+	}
+
+	return TRUE;
+}
+
 /*--------------------------------------------------------------------
  * static functions
  */
@@ -244,40 +266,30 @@ dynafun_build_args(const char *name, dynafun_args_t *args, int nargs, va_list ap
 		case MT_FLAGINFO:
 			*(void **) args_ap = va_arg(ap, void *);
 			arg = va_arg(args_ap, void *);
-			continue;
-			/* NOTREACHED */
+			break;
 
 		case MT_VA_LIST:
 			*(va_list *) args_ap = va_arg(ap, va_list);
 			arg = (const void *) va_arg(args_ap, va_list);
-			continue;
-			/* NOTREACHED */
+			break;
 
 		case MT_INT:
 		case MT_UINT:
 			*(int *) args_ap = va_arg(ap, int);
 			arg = (const void *) va_arg(args_ap, int);
-			continue;
-			/* NOTREACHED */
+			break;
 
 		case MT_SIZE_T:
 			*(size_t *) args_ap = va_arg(ap, size_t);
 			arg = (const void *) va_arg(args_ap, size_t);
-			continue;
-			/* NOTREACHED */
+			break;
 
 		case MT_BOOL:
 			*(bool *) args_ap = va_arg(ap, bool);
 			arg = (const void *) va_arg(args_ap, bool);
-			continue;
-			/* NOTREACHED */
+			break;
 
 		case MT_STR:
-			*(const char **) args_ap = va_arg(ap, const char *);
-			arg = (const void *) va_arg(args_ap, const char *);
-			continue;
-			/* NOTREACHED */
-
 		case MT_CHAR:
 		case MT_OBJ:
 		case MT_ROOM:
@@ -287,33 +299,26 @@ dynafun_build_args(const char *name, dynafun_args_t *args, int nargs, va_list ap
 		case MT_OBJ_INDEX:
 		case MT_MOB_INDEX:
 		case MT_DESCRIPTOR:
+			arg = va_arg(ap, void *);
+			*(const void **) args_ap = arg;
+			arg = va_arg(args_ap, void *);
+
+			if (!dynafun_check_arg(d, i, arg)) {
+				va_end(ap);
+				return NULL;
+			}
 			break;
 
 		default:
 			va_end(ap);
-			log(LOG_BUG, "dynafun_call: %s: invalid type %d in arg list",
-			    d->name, d->argtype[i].type_tag);
-			return NULL;
-		}
-
-		arg = va_arg(ap, void *);
-		if (arg == NULL) {
-			if (!d->argtype[i].nullable) {
-				va_end(ap);
-				log(LOG_BUG, "dynafun_call: %s: arg[%d] type is not nullable", d->name, i+1);
-				return NULL;
-			}
-		} else if (!mem_is(arg, d->argtype[i].type_tag)) {
-			va_end(ap);
-			log(LOG_BUG, "dynafun_call: %s: invalid arg[%d] type '%s' ('%s expected)",
+			log(LOG_BUG,
+			    "dynafun_call: %s: invalid arg[%d] type %s (%d)",
 			    d->name, i+1,
-			    flag_string(mt_types, mem_type(arg)),
-			    flag_string(mt_types, d->argtype[i].type_tag));
+			    flag_string(mt_types, d->argtype[i].type_tag),
+			    d->argtype[i].type_tag);
 			return NULL;
+			/* NOTREACHED */
 		}
-
-		*(const void **) args_ap = arg;
-		arg = va_arg(args_ap, void *);
 	}
 
 	return d;

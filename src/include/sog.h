@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.18 2001-09-01 19:08:22 fjoe Exp $
+ * $Id: sog.h,v 1.19 2001-09-02 16:21:46 fjoe Exp $
  */
 
 #ifndef _SOG_H_
@@ -149,8 +149,11 @@ DECLARE_FUN1(int, get_age,
 DECLARE_FUN3(int, get_resist,
 	     ARG(CHAR_DATA), ch, ARG(int), dam_class, ARG(bool), default_mod)
 
-DECLARE_FUN2(CHAR_DATA, get_char_room,
+DECLARE_FUN2(CHAR_DATA, get_char_here,
 	     ARG(CHAR_DATA), ch, ARG(cchar_t), argument)
+DECLARE_FUN3(CHAR_DATA, get_char_room,
+	     ARG(CHAR_DATA), ch, ARG(ROOM_INDEX_DATA), room,
+	     ARG(cchar_t), argument)
 DECLARE_FUN2(CHAR_DATA, get_char_area,
 	     ARG(CHAR_DATA), ch, ARG(cchar_t), argument)
 DECLARE_FUN2(CHAR_DATA, get_char_world,
@@ -189,6 +192,10 @@ DECLARE_FUN3(bool, give_obj,
 
 DECLARE_PROC2(look_char,
 	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim)
+DECLARE_FUN2(bool, transfer_char,
+	     ARG(CHAR_DATA), ch, ARG(ROOM_INDEX_DATA), room)
+DECLARE_PROC3(social_char,
+	      ARG(cchar_t), socname, ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim)
 
 DECLARE_FUN4(OBJ_DATA, get_obj_list,
 	     ARG(CHAR_DATA), ch, ARG(cchar_t), argument,
@@ -248,7 +255,7 @@ DECLARE_FUN2(int, find_door_nomessage,
 DECLARE_FUN2(int, find_door,
 	     ARG(CHAR_DATA), ch, ARG(cchar_t), arg)
 
-DECLARE_PROC6(transfer_char,
+DECLARE_PROC6(teleport_char,
 	      ARG(CHAR_DATA), ch,
 	      NULLABLE_ARG(CHAR_DATA), vch,
 	      ARG(ROOM_INDEX_DATA), to_room,
@@ -630,13 +637,13 @@ DECLARE_FUN4(cchar_t, PERS,
  * other formatting functions use opt->to_lang/opt->to_sex instead
  */
 DECLARE_PROC9(act_buf,
-	      ARG(cchar_t), format, NULLABLE_ARG(CHAR_DATA), ch,
+	      NULLABLE_ARG(cchar_t), format, NULLABLE_ARG(CHAR_DATA), ch,
 	      NULLABLE_ARG(CHAR_DATA), to,
 	      NULLABLE_ARG(pcvoid_t), arg1, NULLABLE_ARG(pcvoid_t), arg2,
 	      NULLABLE_ARG(pcvoid_t), arg3,
 	      ARG(actopt_t), opt, ARG(pchar_t), buf, ARG(size_t), buf_len)
 DECLARE_PROC7(act_puts3,
-	      ARG(cchar_t), format, NULLABLE_ARG(CHAR_DATA), ch,
+	      NULLABLE_ARG(cchar_t), format, NULLABLE_ARG(CHAR_DATA), ch,
 	      NULLABLE_ARG(pcvoid_t), arg1, NULLABLE_ARG(pcvoid_t), arg2,
 	      NULLABLE_ARG(pcvoid_t), arg3,
 	      ARG(int), act_flags, ARG(int), min_pos)
@@ -646,13 +653,13 @@ DECLARE_PROC7(act_mlputs3,
 	      NULLABLE_ARG(pcvoid_t), arg3,
 	      ARG(int), act_flags, ARG(int), min_pos)
 DECLARE_PROC5(act,
-	      ARG(cchar_t), format, NULLABLE_ARG(CHAR_DATA), ch,
+	      NULLABLE_ARG(cchar_t), format, NULLABLE_ARG(CHAR_DATA), ch,
 	      NULLABLE_ARG(pcvoid_t), arg1, NULLABLE_ARG(pcvoid_t), arg2,
 	      ARG(int), act_flags)
 DECLARE_PROC2(act_char,
-	      ARG(cchar_t), format, ARG(CHAR_DATA), ch)
+	      NULLABLE_ARG(cchar_t), format, ARG(CHAR_DATA), ch)
 DECLARE_PROC6(act_puts,
-	      ARG(cchar_t), format, NULLABLE_ARG(CHAR_DATA), ch,
+	      NULLABLE_ARG(cchar_t), format, NULLABLE_ARG(CHAR_DATA), ch,
 	      NULLABLE_ARG(pcvoid_t), arg1, NULLABLE_ARG(pcvoid_t), arg2,
 	      ARG(int), act_flags, ARG(int), min_pos)
 DECLARE_PROC6(act_mlputs,

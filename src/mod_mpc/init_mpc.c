@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.21 2001-09-01 19:08:30 fjoe Exp $
+ * $Id: init_mpc.c,v 1.22 2001-09-02 16:21:59 fjoe Exp $
  */
 
 #include <dlfcn.h>
@@ -151,14 +151,17 @@ const char *mpc_dynafuns[] = {
 #if !defined(MPC)
 	"act",
 	"act_char",
+	"act_say",
 	"act_yell",
 	"can_see",
 	"cast",
 	"cast_char",
 	"cast_obj",
+	"char_sex",
 	"create_obj",
 	"dofun",
 	"get_char_area",
+	"get_char_here",
 	"get_char_room",
 	"get_char_world",
 	"get_obj_carry",
@@ -168,15 +171,20 @@ const char *mpc_dynafuns[] = {
 	"get_obj_world",
 	"give_obj",
 	"has_sp",
+	"is_affected",
 	"is_immortal",
 	"level",
+	"load_obj",
 	"look_char",
 	"mob_interpret",
+	"multi_hit",
 	"number_bits",
 	"number_percent",
 	"number_range",
 	"obj_to_char",
+	"social_char",
 	"spclass_count",
+	"transfer_char",
 	"tell_char",
 #else
 	"nonexistent",

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_c.c,v 1.20 2001-09-01 19:08:31 fjoe Exp $
+ * $Id: mpc_c.c,v 1.21 2001-09-02 16:21:59 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -39,6 +39,7 @@
 #include <util.h>
 #include <flag.h>
 #include <mprog.h>
+#include <tables.h>
 
 #include "mpc_impl.h"
 #include "mpc_iter.h"
@@ -58,10 +59,10 @@ static void mpc_assert(mpcode_t *mpc, const char *ctx, int e,
 
 static void dumpvar(const char *ctx, mpcode_t *mpc, sym_t *sym);
 
-#define TRACE								\
+#define TRACE(a)							\
 	do {								\
 		if (IS_SET(mpc->mp->flags, MP_F_TRACE))			\
-			log(LOG_INFO, __FUNCTION__);			\
+			log a;						\
 	} while (0)
 
 void
@@ -71,7 +72,7 @@ c_pop(mpcode_t *mpc)
 	vo_t *v;
 	int type_tag;
 
-	TRACE;
+	TRACE((LOG_INFO, __FUNCTION__));
 
 	v = pop(mpc);
 	type_tag = CODE_GET(int, mpc);
@@ -94,7 +95,7 @@ c_push_const(mpcode_t *mpc)
 {
 	vo_t vo;
 
-	TRACE;
+	TRACE((LOG_INFO, __FUNCTION__));
 	vo.s = code_get(mpc);
 	push(mpc, vo);
 }
@@ -104,7 +105,7 @@ c_push_var(mpcode_t *mpc)
 {
 	sym_t *sym;
 
-	TRACE;
+	TRACE((LOG_INFO, __FUNCTION__));
 	sym = sym_get(mpc, SYM_VAR);
 	push(mpc, sym->s.var.data);
 
@@ -125,9 +126,11 @@ c_push_retval(mpcode_t *mpc)
 	dynafun_args_t dummy_args;
 	dynafun_data_t *d;
 
-	TRACE;
+	TRACE((LOG_INFO, __FUNCTION__));
 
 	sym = sym_get(mpc, SYM_FUNC);
+
+	TRACE((LOG_INFO, "%s: %s", __FUNCTION__, sym->name));
 
 	/*
 	 * get function info
@@ -173,17 +176,6 @@ c_push_retval(mpcode_t *mpc)
 	    d->rv_tag == rv_tag,
 	    "%s: rv type mismatch (want %d, got %d)",
 	    d->name, rv_tag, d->rv_tag);
-	for (i = 0; i < nargs; i++) {
-		if (d->argtype[i].type_tag == MT_PVOID
-		||  d->argtype[i].type_tag == MT_PCVOID
-		||  TYPE_IS(d->argtype[i].type_tag, argtype[i]))
-			continue;
-
-		mpc_assert(mpc, __FUNCTION__,
-		    argtype[i] == d->argtype[i].type_tag,
-		    "%s: invalid arg[%d] type (want %d, got %d)",
-		    d->name, i+1, argtype[i], d->argtype[i].type_tag);
-	}
 
 	/*
 	 * This code is highly non-portable (see dynafun.c/dynafun_build_args)
@@ -196,6 +188,41 @@ c_push_retval(mpcode_t *mpc)
 		args = (dynafun_args_t *) VARR_GET(
 		    &mpc->data, varr_size(&mpc->data) - nargs);
 		varr_size(&mpc->data) -= nargs;
+	}
+
+	for (i = 0; i < nargs; i++) {
+		if (d->argtype[i].type_tag != MT_PVOID
+		&&  d->argtype[i].type_tag != MT_PCVOID
+		&&  !TYPE_IS(d->argtype[i].type_tag, argtype[i])) {
+			mpc_assert(mpc, __FUNCTION__,
+			    argtype[i] == d->argtype[i].type_tag,
+			    "%s: invalid arg[%d] type (want %d, got %d)",
+			    d->name, i+1, argtype[i], d->argtype[i].type_tag);
+		}
+
+		switch (d->argtype[i].type_tag) {
+		case MT_INT:
+		case MT_PVOID:
+		case MT_PCVOID:
+			break;
+
+		case MT_STR:
+		case MT_CHAR:
+		case MT_OBJ:
+			mpc_assert(mpc, __FUNCTION__,
+			    dynafun_check_arg(d, i, ((void **) args)[i]),
+			    "dynafun_arg_check failed");
+			break;
+
+		default:
+			mpc_assert(mpc, __FUNCTION__,
+			    FALSE,
+			    "dynafun_call: %s: invalid arg[%d] type %s (%d)",
+			    d->name, i+1,
+			    flag_string(mt_types, d->argtype[i].type_tag),
+			    d->argtype[i].type_tag);
+			break;
+		}
 	}
 
 	if (rv_tag == MT_VOID) {
@@ -213,7 +240,7 @@ c_push_retval(mpcode_t *mpc)
 void
 c_jmp(mpcode_t *mpc)
 {
-	TRACE;
+	TRACE((LOG_INFO, __FUNCTION__));
 
 	mpc->ip = CODE_GET(int, mpc);
 }
@@ -224,7 +251,7 @@ c_jmp_addr(mpcode_t *mpc)
 	int addr;
 	int *jmp_addr;
 
-	TRACE;
+	TRACE((LOG_INFO, __FUNCTION__));
 
 	addr = CODE_GET(int, mpc);
 	jmp_addr = varr_get(&mpc->code, addr);
@@ -241,7 +268,7 @@ c_if(mpcode_t *mpc)
 	int else_addr;
 	vo_t *v;
 
-	TRACE;
+	TRACE((LOG_INFO, __FUNCTION__));
 
 	next_addr = CODE_GET(int, mpc);
 	then_addr = CODE_GET(int, mpc);
@@ -272,7 +299,7 @@ c_switch(mpcode_t *mpc)
 	swjump_t *jump;
 	swjump_t *default_jump;
 
-	TRACE;
+	TRACE((LOG_INFO, __FUNCTION__));
 
 	next_addr = CODE_GET(int, mpc);
 	jt_offset = CODE_GET(int, mpc);
@@ -309,7 +336,7 @@ c_quecolon(mpcode_t *mpc)
 	int next_addr;
 	int else_addr;
 
-	TRACE;
+	TRACE((LOG_INFO, __FUNCTION__));
 
 	next_addr = CODE_GET(int, mpc);
 	else_addr = CODE_GET(int, mpc);
@@ -333,7 +360,7 @@ c_foreach(mpcode_t *mpc)
 	vo_t v;
 	dynafun_args_t *args;
 
-	TRACE;
+	TRACE((LOG_INFO, __FUNCTION__));
 
 	next_addr = CODE_GET(int, mpc);
 	body_addr = CODE_GET(int, mpc);
@@ -367,8 +394,10 @@ c_foreach(mpcode_t *mpc)
 	    "data stack underflow");
 	args = (dynafun_args_t *) VARR_GET(
 	    &mpc->data, varr_size(&mpc->data) - (iter->init.nargs + 2));
-	iter->init.fun(*args);
 	varr_size(&mpc->data) -= iter->init.nargs + 2;
+
+	/* XXX check argtypes */
+	iter->init.fun(*args);
 
 	/* execute loop body */
 	if (iter->cond(&sym->s.var.data, id))
@@ -385,7 +414,7 @@ c_foreach_next(mpcode_t *mpc)
 	iter_t *iter;
 	int next_addr;
 
-	TRACE;
+	TRACE((LOG_INFO, __FUNCTION__));
 
 	next_addr = CODE_GET(int, mpc);
 	sym = sym_get(mpc, SYM_VAR);
@@ -404,7 +433,7 @@ c_declare(mpcode_t *mpc)
 	sym_t sym;
 	void *p;
 
-	TRACE;
+	TRACE((LOG_INFO, __FUNCTION__));
 
 	sym.name = str_dup(code_get(mpc));
 	sym.type = SYM_VAR;
@@ -438,14 +467,14 @@ c_declare_assign(mpcode_t *mpc)
 	sym_t *s;
 	vo_t *v;
 
-	TRACE;
+	TRACE((LOG_INFO, __FUNCTION__));
 
 	sym.name = str_dup(code_get(mpc));
 	sym.type = SYM_VAR;
 	sym.s.var.type_tag = CODE_GET(int, mpc);
 	sym.s.var.is_const = FALSE;
 	sym.s.var.block = CODE_GET(int, mpc);
-	log(LOG_INFO, "%s: block %d", __FUNCTION__, sym.s.var.block);
+	TRACE((LOG_INFO, "%s: block %d", __FUNCTION__, sym.s.var.block));
 
 	s = (sym_t *) hash_insert(&mpc->syms, sym.name, &sym);
 	if (s == NULL)
@@ -463,7 +492,7 @@ c_cleanup_syms(mpcode_t *mpc)
 {
 	int block;
 
-	TRACE;
+	TRACE((LOG_INFO, __FUNCTION__));
 
 	block = CODE_GET(int, mpc);
 	cleanup_syms(mpc, block);
@@ -472,7 +501,7 @@ c_cleanup_syms(mpcode_t *mpc)
 void
 c_return(mpcode_t *mpc)
 {
-	TRACE;
+	TRACE((LOG_INFO, __FUNCTION__));
 
 	mpc->ip = INVALID_ADDR;
 }
@@ -482,7 +511,7 @@ c_return_0(mpcode_t *mpc)
 {
 	sym_t *sym;
 
-	TRACE;
+	TRACE((LOG_INFO, __FUNCTION__));
 
 	sym = (sym_t *) hash_lookup(&mpc->syms, "$_");
 	mpc_assert(mpc, __FUNCTION__,
@@ -505,7 +534,7 @@ c_return_0(mpcode_t *mpc)
 	vo_t *v1, *v2;							\
 	vo_t v;								\
 									\
-	TRACE;								\
+	TRACE((LOG_INFO, __FUNCTION__));				\
 									\
 	v2 = pop(mpc);							\
 	v1 = pop(mpc)
@@ -617,7 +646,7 @@ c_bop_ne_string(mpcode_t *mpc)
 	vo_t *v2;
 	vo_t v;
 
-	TRACE;
+	TRACE((LOG_INFO, __FUNCTION__));
 
 	v2 = pop(mpc);
 	v1 = pop(mpc);
@@ -633,7 +662,7 @@ c_bop_eq_string(mpcode_t *mpc)
 	vo_t *v2;
 	vo_t v;
 
-	TRACE;
+	TRACE((LOG_INFO, __FUNCTION__));
 
 	v2 = pop(mpc);
 	v1 = pop(mpc);
@@ -648,12 +677,12 @@ c_bop_eq_string(mpcode_t *mpc)
 
 #define INT_UOP(c_uop_fun, op)						\
 	void								\
-	c_uop_fun(mpcode_t *mpc)						\
+	c_uop_fun(mpcode_t *mpc)					\
 	{								\
 		vo_t *v1;						\
 		vo_t v;							\
 									\
-		TRACE;							\
+		TRACE((LOG_INFO, __FUNCTION__));			\
 									\
 		v1 = pop(mpc);						\
 		v.i = op v1->i;						\
@@ -675,7 +704,7 @@ INT_UOP(c_uop_minus, -)
 		sym_t *sym;						\
 		vo_t v;							\
 									\
-		TRACE;							\
+		TRACE((LOG_INFO, __FUNCTION__));			\
 									\
 		sym = sym_get(mpc, SYM_VAR);				\
 		v.i = preop sym->s.var.data.i postop;			\
@@ -695,7 +724,7 @@ INT_INCDEC(c_predec, --, )
 	sym_t *sym;							\
 	vo_t *vo;							\
 									\
-	TRACE;								\
+	TRACE((LOG_INFO, __FUNCTION__));				\
 									\
 	sym = sym_get(mpc, SYM_VAR);					\
 	vo = pop(mpc)

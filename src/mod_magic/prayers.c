@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.16 2001-08-20 18:18:10 fjoe Exp $
+ * $Id: prayers.c,v 1.17 2001-09-02 16:21:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1588,7 +1588,7 @@ SPELL_FUN(prayer_solar_flight, sn, level, ch, vo)
 		return;
 	}
 
-	transfer_char(ch, NULL, victim->in_room,
+	teleport_char(ch, NULL, victim->in_room,
 		      "$N disappears in a blinding flash of light!",
 		      "You dissolve in a blinding flash of light!",
 		      "$N appears in a blinding flash of light!");

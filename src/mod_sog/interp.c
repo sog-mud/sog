@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.186 2001-08-20 16:47:43 fjoe Exp $
+ * $Id: interp.c,v 1.187 2001-09-02 16:22:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -385,26 +385,12 @@ substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 		interpret(d->character, argument, FALSE);
 }
 
-/*--------------------------------------------------------------------
- * local functions
- */
-
-static void
-interpret_social(social_t *soc, CHAR_DATA *ch, const char *argument)
+void
+interpret_social_char(social_t *soc, CHAR_DATA *ch, CHAR_DATA *victim)
 {
-	char arg[MAX_INPUT_LENGTH];
-	CHAR_DATA *victim;
 	ROOM_INDEX_DATA *victim_room;
 
-	one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0') {
-		act_mlputs(&soc->noarg_char, ch, NULL, NULL, TO_CHAR, POS_RESTING);
-		act_mlputs(&soc->noarg_room,
-		    ch, NULL, NULL, TO_ROOM | ACT_TOBUF | ACT_NOTWIT, POS_RESTING);
-		return;
-	}
-
-	if ((victim = get_char_world(ch, arg)) == NULL
+	if (victim == NULL
 	||  (IS_NPC(victim) && victim->in_room != ch->in_room)) {
 		act_mlputs(&soc->notfound_char, ch, NULL, NULL, TO_CHAR, POS_RESTING);
 		return;
@@ -454,4 +440,24 @@ interpret_social(social_t *soc, CHAR_DATA *ch, const char *argument)
 				break;
 		}
 	}
+}
+
+/*--------------------------------------------------------------------
+ * local functions
+ */
+
+static void
+interpret_social(social_t *soc, CHAR_DATA *ch, const char *argument)
+{
+	char arg[MAX_INPUT_LENGTH];
+
+	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0') {
+		act_mlputs(&soc->noarg_char, ch, NULL, NULL, TO_CHAR, POS_RESTING);
+		act_mlputs(&soc->noarg_room,
+		    ch, NULL, NULL, TO_ROOM | ACT_TOBUF | ACT_NOTWIT, POS_RESTING);
+		return;
+	}
+
+	interpret_social_char(soc, ch, get_char_world(ch, arg));
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun.h,v 1.9 2001-08-03 11:27:26 fjoe Exp $
+ * $Id: dynafun.h,v 1.10 2001-09-02 16:21:45 fjoe Exp $
  */
 
 #ifndef _DYNAFUN_H_
@@ -67,5 +67,7 @@ void	dynaproc_call(const char *name, int nargs, ...);
 
 void	dynafun_tab_register(dynafun_data_t *, module_t *m);
 void	dynafun_tab_unregister(dynafun_data_t *);
+
+bool	dynafun_check_arg(dynafun_data_t *, int i, const void *arg);
 
 #endif

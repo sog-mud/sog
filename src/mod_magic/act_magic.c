@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_magic.c,v 1.41 2001-09-01 19:08:27 fjoe Exp $
+ * $Id: act_magic.c,v 1.42 2001-09-02 16:21:54 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -39,29 +39,35 @@
 DECLARE_DO_FUN(do_cast);
 DECLARE_DO_FUN(do_pray);
 
+static void cast_spell_or_prayer(CHAR_DATA *ch, const char *argument,
+				 int skill_type);
+
 DO_FUN(do_cast, ch, argument)
 {
-	cpdata_t cp;
-	sptarget_t spt;
-
-	if (get_cpdata(ch, argument, ST_SPELL, &cp) < 0)
-		return;
-
-	if (find_sptarget(ch, cp.sk, &spt) < 0)
-		return;
-
-	cast_spell(ch, &cp, &spt);
+	cast_spell_or_prayer(ch, argument, ST_SPELL);
 }
 
 DO_FUN(do_pray, ch, argument)
 {
+	cast_spell_or_prayer(ch, argument, ST_PRAYER);
+}
+
+/*--------------------------------------------------------------------
+ * local functions
+ */
+static void
+cast_spell_or_prayer(CHAR_DATA *ch, const char *argument, int skill_type)
+{
 	cpdata_t cp;
 	sptarget_t spt;
 
-	if (get_cpdata(ch, argument, ST_PRAYER, &cp) < 0)
+	if (!get_cpdata(ch, argument, skill_type, &cp))
 		return;
 
-	if (find_sptarget(ch, cp.sk, &spt) < 0)
+	if (!casting_allowed(ch, &cp))
+		return;
+
+	if (!find_sptarget(ch, cp.sk, &spt))
 		return;
 
 	cast_spell(ch, &cp, &spt);

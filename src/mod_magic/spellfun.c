@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.262 2001-09-01 19:08:28 fjoe Exp $
+ * $Id: spellfun.c,v 1.263 2001-09-02 16:21:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1433,7 +1433,7 @@ SPELL_FUN(spell_fly, sn, level, ch, vo)
 static inline void
 gate(CHAR_DATA *ch, CHAR_DATA *victim)
 {
-	transfer_char(ch, NULL, victim->in_room,
+	teleport_char(ch, NULL, victim->in_room,
 		      "$N steps through a gate and vanishes.",
 		      "You step through a gate and vanish.",
 		      "$N has arrived through a gate.");
@@ -2210,7 +2210,7 @@ SPELL_FUN(spell_summon, sn, level, ch, vo)
 		NPC(victim)->in_mind = str_dup(buf);
 	}
 
-	transfer_char(victim, ch, ch->in_room,
+	teleport_char(victim, ch, ch->in_room,
 		      "$N disappears suddenly.",
 		      "$n has summoned you!",
 		      "$N arrives suddenly.");
@@ -2229,7 +2229,7 @@ SPELL_FUN(spell_teleport, sn, level, ch, vo)
 		return;
 	}
 
-	transfer_char(victim, ch, get_random_room(victim, NULL),
+	teleport_char(victim, ch, get_random_room(victim, NULL),
 		      "$N vanishes!",
 		      "You have been teleported.",
 		      "$N slowly fades into existence.");
@@ -2246,7 +2246,7 @@ SPELL_FUN(spell_bamf, sn, level, ch, vo)
 		return;
 	}
 
-	transfer_char(victim, ch,
+	teleport_char(victim, ch,
 		      get_random_room(victim, victim->in_room->area),
 		      "$N vanishes!",
 		      "You have been teleported.",
@@ -2806,7 +2806,7 @@ SPELL_FUN(spell_hand_of_undead, sn, level, ch, vo)
 static inline void
 astral_walk(CHAR_DATA *ch, CHAR_DATA *victim)
 {
-	transfer_char(ch, victim, victim->in_room,
+	teleport_char(ch, victim, victim->in_room,
 		      "$N disappears in a flash of light!",
 		      "You travel via astral planes and go to $n.",
 		      "$N appears in a flash of light!");
@@ -2851,7 +2851,7 @@ SPELL_FUN(spell_mist_walk, sn, level, ch, vo)
 		return;
 	}
 
-	transfer_char(ch, NULL, victim->in_room,
+	teleport_char(ch, NULL, victim->in_room,
 		      "$N dissolves into a cloud of glowing mist, then vanishes!",
 		      "You dissolve into a cloud of glowing mist, then flow to your target.",
 		      "A cloud of glowing mist engulfs you, then withdraws to unveil $N!");
@@ -2871,7 +2871,7 @@ SPELL_FUN(spell_helical_flow, sn, level, ch, vo)
 		return;
 	}
 
-	transfer_char(ch, NULL, victim->in_room,
+	teleport_char(ch, NULL, victim->in_room,
 		      "$N coils into an ascending column of colour, vanishing into thin air.",
 		      "You coil into an ascending column of colour, vanishing into thin air.",
 		      "A coil of colours descends from above, revealing $N as it dissipates.");
@@ -3024,7 +3024,7 @@ SPELL_FUN(spell_take_revenge, sn, level, ch, vo)
 	if (!found || room == NULL)
 		act_char("Unluckily your corpse is devoured.", ch);
 	else
-		transfer_char(ch, NULL, room, NULL, NULL, NULL);
+		teleport_char(ch, NULL, room, NULL, NULL, NULL);
 }
 
 static ROOM_INDEX_DATA *
@@ -4121,7 +4121,7 @@ SPELL_FUN(spell_stalker, sn, level, ch, vo)
 static inline void
 tesseract_other(CHAR_DATA *ch, CHAR_DATA *victim, ROOM_INDEX_DATA *to_room)
 {
-	transfer_char(victim, ch, to_room,
+	teleport_char(victim, ch, to_room,
 		      NULL,
 		      "$n utters some strange words and, "
 		      "with a sickening lurch, you feel time\n"
@@ -4155,7 +4155,7 @@ SPELL_FUN(spell_tesseract, sn, level, ch, vo)
 
 	act("With a sudden flash of light, $n and $s friends disappear!",
 		ch, NULL, NULL, TO_ROOM);
-	transfer_char(ch, NULL, victim->in_room,
+	teleport_char(ch, NULL, victim->in_room,
 		      NULL,
 		      "As you utter the words, time and space seem to blur.\n"
 		      "You feel as though space and time are shifting\n"
@@ -5075,7 +5075,7 @@ SPELL_FUN(spell_disperse, sn, level, ch, vo)
 				continue;
 		}
 
-		transfer_char(vch, NULL, get_random_room(vch, NULL),
+		teleport_char(vch, NULL, get_random_room(vch, NULL),
 			      "$N vanishes!",
 			      "The world spins around you!",
 			      "$N slowly fades into existence.");
@@ -7523,7 +7523,7 @@ SPELL_FUN(spell_find_familiar, sn, level, ch, vo)
 	familiar->master = familiar->leader = ch;
 
 	if (!new) {
-		transfer_char(familiar, ch, ch->in_room,
+		teleport_char(familiar, ch, ch->in_room,
 			"$N disappears suddenly.",
 			"$n has summoned you!",
 			"$N arrives suddenly.");

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.256 2001-09-01 19:08:25 fjoe Exp $
+ * $Id: act_obj.c,v 1.257 2001-09-02 16:21:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -529,7 +529,7 @@ DO_FUN(do_give, ch, argument)
 			return;
 		}
 
-		if ((victim = get_char_room(ch, arg)) == NULL) {
+		if ((victim = get_char_here(ch, arg)) == NULL) {
 			act_char("They aren't here.", ch);
 			return;
 		}
@@ -566,15 +566,9 @@ DO_FUN(do_give, ch, argument)
 			  (const void*) amount,
 			  TO_CHAR, POS_DEAD);
 
-#if 0
-		XXX
-		/*
-		 * Bribe trigger
-		 */
-		if (IS_NPC(victim) && HAS_TRIGGER(victim, TRIG_BRIBE))
-			mp_bribe_trigger(victim, ch,
-					 silver ? amount : amount * 100);
-#endif
+		pull_mob_trigger(
+		     TRIG_MOB_BRIBE, victim, ch,
+		     (void *) (silver ? amount : amount * 100));
 
 		if (IS_NPC(victim)
 		&&  MOB_IS(victim, MOB_CHANGER)) {
@@ -631,7 +625,7 @@ DO_FUN(do_give, ch, argument)
 		return;
 	}
 
-	if ((victim = get_char_room(ch, arg)) == NULL) {
+	if ((victim = get_char_here(ch, arg)) == NULL) {
 		act_char("They aren't here.", ch);
 		return;
 	}
@@ -974,7 +968,7 @@ DO_FUN(do_pour, ch, argument)
 		return;
 	}
 	if ((in = get_obj_here(ch, argument)) == NULL) {
-		vch = get_char_room(ch, argument);
+		vch = get_char_here(ch, argument);
 
 		if (vch == NULL) {
 			act_char("Pour into what?", ch);
@@ -1447,7 +1441,7 @@ DO_FUN(do_recite, ch, argument)
 
 	if (arg2[0] == '\0')
 		vo = ch;
-	else if ((vo = get_char_room(ch, arg2)) == NULL
+	else if ((vo = get_char_here(ch, arg2)) == NULL
 	&&       (vo = get_obj_here(ch, arg2)) == NULL) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		act_char("You can't find it.", ch);
@@ -1605,7 +1599,7 @@ DO_FUN(do_zap, ch, argument)
 			act_char("Zap whom or what?", ch);
 			return;
 		}
-	} else if ((vo = get_char_room(ch, arg)) == NULL
+	} else if ((vo = get_char_here(ch, arg)) == NULL
 	&&       (vo = get_obj_here(ch, arg)) == NULL) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		act_char("You can't find it.", ch);
@@ -1688,7 +1682,7 @@ DO_FUN(do_steal, ch, argument)
 
 	WAIT_STATE(ch, skill_beats("steal"));
 
-	if ((victim = get_char_room(ch, arg2)) == NULL) {
+	if ((victim = get_char_here(ch, arg2)) == NULL) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		act_char("They aren't here.", ch);
 		return;
@@ -1887,7 +1881,7 @@ DO_FUN(do_buy_pet, ch, argument)
 	}
 	in_room = ch->in_room;
 	ch->in_room = pRoomIndexNext;
-	pet = get_char_room(ch, arg);
+	pet = get_char_here(ch, arg);
 	ch->in_room = in_room;
 
 	if (!pet
@@ -2335,7 +2329,7 @@ DO_FUN(do_herbs, ch, argument)
 
 	if (arg[0] == '\0')
 		victim = ch;
-	else if ((victim = get_char_room(ch, arg)) == NULL) {
+	else if ((victim = get_char_here(ch, arg)) == NULL) {
 		act_char("They're not here.", ch);
 		return;
 	}

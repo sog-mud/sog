@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.245 2001-08-30 18:50:04 fjoe Exp $
+ * $Id: act_comm.c,v 1.246 2001-09-02 16:21:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -797,7 +797,7 @@ DO_FUN(do_follow, ch, argument)
 		return;
 	}
 
-	if ((victim = get_char_room(ch, arg)) == NULL) {
+	if ((victim = get_char_here(ch, arg)) == NULL) {
 		act_char("They aren't here.", ch);
 		return;
 	}
@@ -878,7 +878,7 @@ DO_FUN(do_order, ch, argument)
 		return;
 	}
 
-	if ((victim = get_char_room(ch, arg)) == NULL) {
+	if ((victim = get_char_here(ch, arg)) == NULL) {
 		act_char("They aren't here.", ch);
 		return;
 	}
@@ -944,7 +944,7 @@ DO_FUN(do_group, ch, argument)
 		return;
 	}
 
-	if ((victim = get_char_room(ch, arg)) == NULL) {
+	if ((victim = get_char_here(ch, arg)) == NULL) {
 		act_char("They aren't here.", ch);
 		return;
 	}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: handler_impl.h,v 1.2 2001-08-13 18:23:39 fjoe Exp $
+ * $Id: handler_impl.h,v 1.3 2001-09-02 16:22:02 fjoe Exp $
  */
 
 #ifndef _HANDLER_IMPL_H_
@@ -40,5 +40,6 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument);
 
 /*--- interp.c */
 void substitute_alias(DESCRIPTOR_DATA *d, const char *argument);
+void interpret_social_char(social_t *soc, CHAR_DATA *ch, CHAR_DATA *victim);
 
 #endif /* _HANDLER_IMPL_H_ */

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.322 2001-08-31 10:29:33 fjoe Exp $
+ * $Id: fight.c,v 1.323 2001-09-02 16:22:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1855,7 +1855,7 @@ check_guard(CHAR_DATA *ch, CHAR_DATA *mob)
 	CHAR_DATA *guarded_by = PC(ch)->guarded_by;
 
 	if (guarded_by == NULL
-	||  get_char_room(ch, guarded_by->name) == NULL)
+	||  get_char_here(ch, guarded_by->name) == NULL)
 		return ch;
 	else {
 		chance = get_skill(guarded_by, "guard") -

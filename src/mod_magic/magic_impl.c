@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic_impl.c,v 1.6 2001-09-01 19:08:27 fjoe Exp $
+ * $Id: magic_impl.c,v 1.7 2001-09-02 16:21:55 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -124,43 +124,23 @@ cpdata_init(cpdata_t *cp)
 	cp->shadow = FALSE;
 }
 
-int
+bool
 get_cpdata(CHAR_DATA *ch, const char *argument, int skill_type, cpdata_t *cp)
 {
 	char arg1[MAX_INPUT_LENGTH];
-	pc_skill_t *pc_sk = NULL;
 
 	cpdata_init(cp);
 
-	if (has_spec(ch, "clan_battleragers") && !IS_IMMORTAL(ch)) {
-		if (skill_type == ST_SPELL)
-			act_char("You are Battle Rager, not a filthy magician!", ch);
-		else
-			act_char("You are Battle Rager, you prefer not to use prayers.", ch);
-		return -1;
-	}
-
-	if (skill_type == ST_SPELL
-	&&  is_affected(ch, "shielding")) {
-		act_char("You reach for the True Source and feel something stopping you.", ch);
-		return -1;
-	}
-
-	if (is_affected(ch, "garble")
-	||  is_affected(ch, "deafen")
-	||  (ch->shapeform &&
-	     IS_SET(ch->shapeform->index->flags, FORM_NOCAST))){
-		act_char("You can't get the right intonations.", ch);
-		return -1;
-	}
-
+	/*
+	 * lookup spell/prayer
+	 */
 	target_name = one_argument(argument, arg1, sizeof(arg1));
 	if (arg1[0] == '\0') {
 		if (skill_type == ST_SPELL)
 			act_char("Cast which what where?", ch);
 		else
 			act_char("Pray for what?", ch);
-		return -1;
+		return FALSE;
 	}
 
 	if (skill_type == ST_SPELL
@@ -174,15 +154,17 @@ get_cpdata(CHAR_DATA *ch, const char *argument, int skill_type, cpdata_t *cp)
 		||  cp->sk->fun == NULL) {
 			act("You have never heard about such a spell.",
 				ch, NULL, NULL, TO_CHAR);
-			return -1;
+			return FALSE;
 		}
 		cp->sn = gmlstr_mval(&cp->sk->sk_name);
 		if (!IS_SET(cp->sk->skill_flags, SKILL_SHADOW)) {
 			act("You aren't able to imitate this spell.",
 				ch, NULL, NULL, TO_CHAR);
-			return -1;
+			return FALSE;
 		}
 	} else {
+		pc_skill_t *pc_sk = NULL;
+
 		if (IS_NPC(ch)) {
 			if (!str_cmp(arg1, "nowait")) {
 				target_name = one_argument(target_name,
@@ -190,9 +172,9 @@ get_cpdata(CHAR_DATA *ch, const char *argument, int skill_type, cpdata_t *cp)
 				if (ch->wait)
 					ch->wait = 0;
 			} else if (ch->wait)
-				return -1;
+				return FALSE;
 		} else
-			pc_sk = (pc_skill_t*) vstr_search(&PC(ch)->learned, arg1);
+			pc_sk = (pc_skill_t *) vstr_search(&PC(ch)->learned, arg1);
 
 		if (pc_sk != NULL)
 			cp->sk = skill_lookup(pc_sk->sn);
@@ -205,18 +187,8 @@ get_cpdata(CHAR_DATA *ch, const char *argument, int skill_type, cpdata_t *cp)
 				act_char("You don't know any spells of that name.", ch);
 			else
 				act_char("You don't know any prayers of that name.", ch);
-			return -1;
+			return FALSE;
 		}
-	}
-
-	if (skill_type == ST_SPELL
-	&&  IS_VAMPIRE(ch)
-	&&  !IS_IMMORTAL(ch)
-	&&  !is_affected(ch, "vampire")
-	&&  pc_sk != NULL
-	&&  !IS_SET(cp->sk->skill_flags, SKILL_CLAN)) {
-		act_char("You must transform to vampire before casting!", ch);
-		return -1;
 	}
 
 	if (cp->sk->skill_type != skill_type
@@ -225,32 +197,69 @@ get_cpdata(CHAR_DATA *ch, const char *argument, int skill_type, cpdata_t *cp)
 			act_char("That's not a spell.", ch);
 		else
 			act_char("That's not a prayer.", ch);
-		return -1;
+		return FALSE;
+	}
+
+	cp->mana = cp->shadow ? cp->sk->min_mana: skill_mana(ch, cp->sn);
+
+	return TRUE;
+}
+
+bool
+casting_allowed(CHAR_DATA *ch, cpdata_t *cp)
+{
+	if (has_spec(ch, "clan_battleragers") && !IS_IMMORTAL(ch)) {
+		if (cp->sk->skill_type == ST_SPELL)
+			act_char("You are Battle Rager, not a filthy magician!", ch);
+		else
+			act_char("You are Battle Rager, you prefer not to use prayers.", ch);
+		return FALSE;
+	}
+
+	if (cp->sk->skill_type == ST_SPELL
+	&&  is_affected(ch, "shielding")) {
+		act_char("You reach for the True Source and feel something stopping you.", ch);
+		return FALSE;
+	}
+
+	if (is_affected(ch, "garble")
+	||  is_affected(ch, "deafen")
+	||  (ch->shapeform != NULL &&
+	     IS_SET(ch->shapeform->index->flags, FORM_NOCAST))) {
+		act_char("You can't get the right intonations.", ch);
+		return FALSE;
+	}
+
+	if (cp->sk->skill_type == ST_SPELL
+	&&  IS_VAMPIRE(ch)
+	&&  !IS_IMMORTAL(ch)
+	&&  !is_affected(ch, "vampire")
+	&&  (IS_NPC(ch) || vstr_search(&PC(ch)->learned, cp->sn) != NULL)
+	&&  !IS_SET(cp->sk->skill_flags, SKILL_CLAN)) {
+		act_char("You must transform to vampire before casting!", ch);
+		return FALSE;
 	}
 
 	if (ch->position < cp->sk->min_pos) {
 		act_char("You can't concentrate enough.", ch);
-		return -1;
+		return FALSE;
 	}
 
-	if (skill_type == ST_SPELL
+	if (cp->sk->skill_type == ST_SPELL
 	&&  IS_SET(ch->in_room->room_flags, ROOM_NOMAGIC)) {
 		act_char("Your spell fizzles out and fails.", ch);
 		act("$n's spell fizzles out and fails.",
 		    ch, NULL, NULL, TO_ROOM);
-		return -1;
+		return FALSE;
 	}
 
-	if (!IS_NPC(ch)) {
-		cp->mana =
-		    cp->shadow ? cp->sk->min_mana: skill_mana(ch, cp->sn);
-		if (ch->mana < cp->mana) {
-			act_char("You don't have enough mana.", ch);
-			return -1;
-		}
+	if (!IS_NPC(ch)
+	&&  ch->mana < cp->mana) {
+		act_char("You don't have enough mana.", ch);
+		return FALSE;
 	}
 
-	return 0;
+	return TRUE;
 }
 
 void
@@ -265,7 +274,7 @@ sptarget_init(sptarget_t *spt)
 	spt->bane_chance = 100;
 }
 
-int
+bool
 find_sptarget(CHAR_DATA *ch, skill_t *sk, sptarget_t *spt)
 {
 	CHAR_DATA *victim;
@@ -278,7 +287,7 @@ find_sptarget(CHAR_DATA *ch, skill_t *sk, sptarget_t *spt)
 	default:
 		log(LOG_BUG, "find_sptarget: %s: bad target %d",
 		    gmlstr_mval(&sk->sk_name), sk->target);
-		return -1;
+		return FALSE;
 
 	case TAR_IGNORE:
 		spt->bch = ch;
@@ -291,14 +300,14 @@ find_sptarget(CHAR_DATA *ch, skill_t *sk, sptarget_t *spt)
 					act_char("Cast the spell on whom?", ch);
 				else
 					act_char("Use this prayer on whom?", ch);
-				return -1;
+				return FALSE;
 			}
 		} else if ((range = allowed_other(ch, sk)) > 0) {
 			if ((victim = get_char_spell(
 			     ch, target_name, &spt->door, range)) == NULL) {
 				act_char("They aren't here.", ch);
 				WAIT_STATE(ch, MISSING_TARGET_DELAY);
-				return -1;
+				return FALSE;
 			}
 
 			if (victim->in_room != ch->in_room) {
@@ -310,7 +319,7 @@ find_sptarget(CHAR_DATA *ch, skill_t *sk, sptarget_t *spt)
 							act_char("You can't cast this spell from private room right now.", ch);
 						else
 							act_char("You can't use this prayer from private room right now.", ch);
-						return -1;
+						return FALSE;
 					}
 
 					if (IS_SET(victim->pMobIndex->act,
@@ -320,14 +329,14 @@ find_sptarget(CHAR_DATA *ch, skill_t *sk, sptarget_t *spt)
 							act_puts("You can't cast this spell to $N at this distance.", ch, NULL, victim, TO_CHAR, POS_DEAD);
 						else
 							act_puts("You can't use this prayer to $N at this distance.", ch, NULL, victim, TO_CHAR, POS_DEAD);
-						return -1;
+						return FALSE;
 					}
 				}
 			}
-		} else if ((victim = get_char_room(ch, target_name)) == NULL) {
+		} else if ((victim = get_char_here(ch, target_name)) == NULL) {
 			act_char("They aren't here.", ch);
 			WAIT_STATE(ch, MISSING_TARGET_DELAY);
-			return -1;
+			return FALSE;
 		}
 
 		spt->vo = victim;
@@ -338,9 +347,9 @@ find_sptarget(CHAR_DATA *ch, skill_t *sk, sptarget_t *spt)
 	case TAR_CHAR_DEFENSIVE:
 		if (target_name[0] == '\0')
 			victim = ch;
-		else if ((victim = get_char_room(ch, target_name)) == NULL) {
+		else if ((victim = get_char_here(ch, target_name)) == NULL) {
 			act_char("They aren't here.", ch);
-			return -1;
+			return FALSE;
 		}
 
 		spt->vo = victim;
@@ -350,13 +359,13 @@ find_sptarget(CHAR_DATA *ch, skill_t *sk, sptarget_t *spt)
 	case TAR_CHAR_SELF:
 		if (target_name[0] == '\0')
 			victim = ch;
-		else if ((victim = get_char_room(ch, target_name)) == NULL
+		else if ((victim = get_char_here(ch, target_name)) == NULL
 		     ||  (!IS_NPC(ch) && victim != ch)) {
 			if (sk->skill_type == ST_SPELL)
 				act_char("You cannot cast this spell on another.", ch);
 			else
 				act_char("They should pray their gods themself.", ch);
-			return -1;
+			return FALSE;
 		}
 
 		spt->vo = victim;
@@ -369,12 +378,12 @@ find_sptarget(CHAR_DATA *ch, skill_t *sk, sptarget_t *spt)
 				act_char("What should the spell be cast upon?", ch);
 			else
 				act_char("Use this prayer on what?", ch);
-			return -1;
+			return FALSE;
 		}
 
 		if ((obj = get_obj_carry(ch, ch, target_name)) == NULL) {
 			act_char("You are not carrying that.", ch);
-			return -1;
+			return FALSE;
 		}
 
 		spt->vo = obj;
@@ -389,17 +398,17 @@ find_sptarget(CHAR_DATA *ch, skill_t *sk, sptarget_t *spt)
 					act_char("Cast the spell on whom or what?", ch);
 				else
 					act_char("Use this prayer on whom or what?", ch);
-				return -1;
+				return FALSE;
 			}
 			spt->vo = victim;
-		} else if ((victim = get_char_room(ch, target_name)) != NULL)
+		} else if ((victim = get_char_here(ch, target_name)) != NULL)
 			spt->vo = victim;
 		else if ((obj = get_obj_here(ch, target_name)) != NULL)
 			spt->vo = obj;
 		else {
 			WAIT_STATE(ch, sk->beats);
 			act_char("You don't see that here.", ch);
-			return -1;
+			return FALSE;
 		}
 		spt->bch = victim;
 		break;
@@ -408,19 +417,19 @@ find_sptarget(CHAR_DATA *ch, skill_t *sk, sptarget_t *spt)
 		if (target_name[0] == '\0') {
 			victim = ch;
 			spt->vo = victim;
-		} else if ((victim = get_char_room(ch, target_name)) != NULL)
+		} else if ((victim = get_char_here(ch, target_name)) != NULL)
 			spt->vo = victim;
 		else if ((obj = get_obj_carry(ch, ch, target_name)) != NULL)
 			spt->vo = obj;
 		else {
 			act_char("You don't see that here.", ch);
-			return -1;
+			return FALSE;
 		}
 		spt->bch = victim;
 		break;
 	}
 
-	return 0;
+	return TRUE;
 }
 
 void

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic_impl.h,v 1.3 2001-09-01 19:08:28 fjoe Exp $
+ * $Id: magic_impl.h,v 1.4 2001-09-02 16:21:55 fjoe Exp $
  */
 
 #ifndef _MAGIC_IMPL_H_
@@ -62,11 +62,13 @@ bool check_trust(CHAR_DATA *ch, CHAR_DATA *victim);
 bool spellbane(CHAR_DATA *bch, CHAR_DATA *ch, int bane_chance, int bane_damage);
 
 void cpdata_init(cpdata_t *cp);
-int get_cpdata(CHAR_DATA *ch, const char *argument,
+bool get_cpdata(CHAR_DATA *ch, const char *argument,
 	       int skill_type, cpdata_t *cp);
 
+bool casting_allowed(CHAR_DATA *ch, cpdata_t *cp);
+
 void sptarget_init(sptarget_t *spt);
-int find_sptarget(CHAR_DATA *ch, skill_t *sk, sptarget_t *spt);
+bool find_sptarget(CHAR_DATA *ch, skill_t *sk, sptarget_t *spt);
 
 void cast_spell(CHAR_DATA *ch, cpdata_t *cp, sptarget_t *spt);
 

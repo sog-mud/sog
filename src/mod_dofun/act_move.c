@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.274 2001-08-30 18:50:05 fjoe Exp $
+ * $Id: act_move.c,v 1.275 2001-09-02 16:21:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1187,7 +1187,7 @@ DO_FUN(do_wake, ch, argument)
 	if (!IS_AWAKE(ch))
 		{ act_char("You are asleep yourself!", ch); return; }
 
-	if ((victim = get_char_room(ch, arg)) == NULL)
+	if ((victim = get_char_here(ch, arg)) == NULL)
 		{ act_char("They aren't here.", ch); return; }
 
 	if (IS_AWAKE(victim)) { 
@@ -1697,7 +1697,7 @@ DO_FUN(do_vbite, ch, argument)
 		return;
 	}
 
-	if ((victim = get_char_room(ch, arg)) == NULL) {
+	if ((victim = get_char_here(ch, arg)) == NULL) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		act_char("They aren't here.", ch);
 		return;
@@ -1957,7 +1957,7 @@ DO_FUN(do_vanish, ch, argument)
 	}
 
 	stop_fighting(ch, TRUE);
-	transfer_char(ch, NULL, get_random_room(ch, ch->in_room->area),
+	teleport_char(ch, NULL, get_random_room(ch, ch->in_room->area),
 		      "$N is gone!", NULL, "$N appears from nowhere.");
 }
 
@@ -1991,7 +1991,7 @@ DO_FUN(do_kidnap, ch, argument)
 	if (!(ch->in_room))
 		return;
 
-	if ((victim = get_char_room(ch, arg)) == NULL) {
+	if ((victim = get_char_here(ch, arg)) == NULL) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		act_char("They aren't here.", ch);
 		return;
@@ -2042,9 +2042,9 @@ DO_FUN(do_kidnap, ch, argument)
 			ch, NULL, victim, TO_VICT);
 		act("$n grabs $N and takes $m away.",
 			ch, NULL, victim, TO_NOTVICT);
-		transfer_char(ch, NULL, to_room,
+		teleport_char(ch, NULL, to_room,
 			"$N disappears.", NULL, "$N appears from nowhere.");
-		transfer_char(victim, NULL, to_room,
+		teleport_char(victim, NULL, to_room,
 			"$N disappears.", NULL, "$N appears from nowhere.");
 		check_improve(ch, "kidnap", TRUE, 1);
 		yell(victim, ch, "Help! $lu{$N} just kidnapped me!");
@@ -2108,7 +2108,7 @@ DO_FUN(do_vtouch, ch, argument)
 		return;
 	}
 
-	if ((victim = get_char_room(ch,argument)) == NULL) {
+	if ((victim = get_char_here(ch,argument)) == NULL) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		act_char("They aren't here.", ch);
 		return;
@@ -2242,7 +2242,7 @@ DO_FUN(do_push, ch, argument)
 		return;
 	}
 
-	if ((victim = get_char_room(ch, arg1)) == NULL) {
+	if ((victim = get_char_here(ch, arg1)) == NULL) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		act_char("They aren't here.", ch);
 		return;
@@ -2514,7 +2514,7 @@ DO_FUN(do_layhands, ch, argument)
 
 	WAIT_STATE(ch, skill_beats("lay hands"));
 
-	if ((victim = get_char_room(ch,argument)) == NULL) {
+	if ((victim = get_char_here(ch,argument)) == NULL) {
 		act_char("They aren't here.", ch);
 		return;
 	}
@@ -2563,7 +2563,7 @@ DO_FUN(do_mount, ch, argument)
 			return;
 		}
 	}
-	else if ((mount = get_char_room(ch, arg)) == NULL) {
+	else if ((mount = get_char_here(ch, arg)) == NULL) {
 		act_char("You don't see that here.", ch);
 		return;
 	}
