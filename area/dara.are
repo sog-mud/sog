@@ -404,26 +404,8 @@ leather~
 armor AGJ 0 AG
 12 12 12 6 1
 45 15 14000 P
-f resists bash 16692 0
-f resists pierce 2058 0
-f resists slash 3391 0
-f resists fire 10278 0
-f resists cold 8 0
-f resists acid 16572 0
-f resists poison 2058 0
-f resists negative -4840 0
-f resists holy -16449 0
-f resists energy 6449 0
-f resists mental 2056 0
-f resists disease -4828 0
-f resists unknown -16449 0
-f resists light 16500 0
-f resists other 2058 0
-f resists harm 15 0
-f resists sound 12 0
-f resists wood 26612 0
-f resists silver 2055 0
-f affects move 50 0
+f object level 1 0
+f affects move 50 T
 f object dex 1 0
 #15404
 bone dagger~

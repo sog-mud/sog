@@ -1721,9 +1721,7 @@ mithril~
 armor IK 0 AE
 15 15 15 12 0
 35 15 20000 P
-f resists slash 3 0
-f resists bash 3 0
-f resists pierce 3 0
+f resists weapon 3 0
 f object saves -5 0
 E
 helm шлем~
@@ -1749,9 +1747,7 @@ mithril~
 armor IK 0 AD
 18 18 18 15 0
 35 150 25000 P
-f resists pierce 5 0
-f resists slash 5 0
-f resists bash 5 0
+f resists weapon 5 0
 f object saves -7 0
 f object con 1 0
 E
@@ -1780,9 +1776,7 @@ mithril~
 armor IK 0 AH
 15 15 15 12 0
 35 25 20000 P
-f resists pierce 3 0
-f resists slash 3 0
-f resists bash 3 0
+f resists weapon 3 0
 f object saves -4 0
 f object damroll 4 0
 E
@@ -1805,9 +1799,7 @@ mithril~
 armor IK 0 AG
 15 15 15 12 0
 35 20 20000 P
-f resists pierce 3 0
-f resists slash 3 0
-f resists bash 3 0
+f resists weapon 3 0
 f object move 30 0
 f object saves -5 0
 E
@@ -2277,9 +2269,7 @@ platinum~
 armor 0 0 AD
 120 120 120 120 0
 100 5000 0 P
-f resists pierce 15 0
-f resists slash 15 0
-f resists bash 15 0
+f resists weapon 15 0
 f affects hp 50 0
 #47302
 shield~

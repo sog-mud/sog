@@ -2733,9 +2733,7 @@ mithril~
 armor BI 0 AD
 20 20 20 15 0
 45 450 50000 P
-f resists pierce 5 0
-f resists slash 5 0
-f resists bash 5 0
+f resists weapon 5 0
 f object damroll 7 0
 f object mana 100 0
 f object str 3 0

@@ -857,9 +857,7 @@ ivory~
 armor GL 0 AM
 9 9 9 2 0
 31 16 13420 G
-f resists pierce 15 0
-f resists slash 15 0
-f resists bash 15 0
+f resists weapon 33 0
 f affects none 0 KT
 g @eng none@rus male~
 #25023

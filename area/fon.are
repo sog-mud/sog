@@ -837,9 +837,7 @@ armor U 0 AM
 25 10 10000 P
 f object damroll 2 0
 f resists negative 2 0
-f resists pierce 1 0
-f resists slash 1 0
-f resists bash 1 0
+f resists weapon 1 0
 f resists slash 1 0
 f object saves -5 0
 g @rus none~

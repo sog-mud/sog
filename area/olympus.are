@@ -420,9 +420,7 @@ skin~
 armor FG 0 AJ
 15 15 15 15 0
 45 100 8400 P
-f resists pierce 3 0
-f resists slash 3 0
-f resists bash 3 0
+f resists weapon 3 0
 g @rus female~
 #901
 thunderbolt hammer thunder bolt гром~

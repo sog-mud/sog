@@ -318,23 +318,8 @@ unknown~
 clothing GIY C AE
 0 0 0 0 0
 95 0 0 P
-f resists bash 100 0
-f resists pierce 100 0
-f resists slash 100 0
-f resists fire 100 0
-f resists cold 100 0
-f resists lightning 100 0
-f resists acid 100 0
-f resists holy 100 0
-f resists negative 100 0
-f resists energy 100 0
-f resists mental 100 0
-f resists sound 100 0
-f resists disease 100 0
-f resists poison 100 0
-f resists charm 100 0
-f resists harm 100 0
-f resists light 100 0
+f resists weapon 100 0
+f resists magic 100 0
 f object saves -10 0
 f detects saves -10 L
 f detects saves -10 K
