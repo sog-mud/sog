@@ -1015,10 +1015,6 @@ M 0 36101 4 36111 4	* TARGET (At the targets)
 M 0 36101 4 36111 4	* TARGET (At the targets)
 S
 
-#OLIMITS
-O 36117 1	* {Wlong sword named "{GRancor{W"{x
-S
-
 #MOBPROGS
 #36101
 mob oload 5025

@@ -62,6 +62,7 @@ Use 'desc edit' to edit your description.
 @eng Don't even think about it.
 @rus Даже не думай об этом.
 ~
+@eng $n is burned by $p.@rus $p обжигает $c6{$n}.~
 @eng {csitting{x@rus {cсидишь{x~
 @eng You drop $p.@rus Ты бросаешь $c3{$p}.~
 @eng Pick what?
@@ -88,6 +89,7 @@ Use 'desc edit' to edit your description.
 @eng As you wield it, you will feel that its power will increase continuosly.@rus Взяв катану в руку, ты почувствуешь, как ее мощь постоянно растет.~
 @eng thin air??@rus воздухом??~
 @eng You wake and sit in $p.@rus Ты просыпаешься и садишься в $c3{$p}.~
+@eng $p draws life from $n.@rus $p вытягивает жизнь из $c2{$n}.~
 @eng $p flickers and goes out.@rus $p прогорел и погас.~
 @eng The rain stopped.@rus Дождь прекратился.~
 @eng I see no door $T here.@rus Я не вижу здесь дверей на $T.~
@@ -214,6 +216,7 @@ Use 'desc edit' to edit your description.
 @eng You can't see anything, you're sleeping!
 @rus Ты сейчас спишь.
 ~
+@eng The cold touch of $p surrounds you with ice.@rus Холод $c2{$p} пробирает тебя до костей.~
 @eng Drink what?
 @rus Что выпить?
 ~
@@ -345,6 +348,7 @@ Use 'desc edit' to edit your description.
 @eng It can't be unlocked.
 @rus Это нельзя разомкнуть.
 ~
+@eng $n is struck by lightning from $p.@rus Молния из $c3{$p} попадает в $c6{$n}.~
 @eng someone@rus кто-то~
 @eng salt water@rus соленая вода~
 @eng You wear $p about your waist.@rus Ты надеваешь $p на талию.~
@@ -373,6 +377,7 @@ Use 'desc edit' to edit your description.
 @eng You don't see any tracks.
 @rus Здесь нет следов.
 ~
+@eng You are shocked by $p.@rus Ты оглушен молнией из $c6{$p}.~
 @eng %s is riding %s.
 @rus %s верхом на %s.
 ~
@@ -564,6 +569,7 @@ You peek at the inventory:
 @rus Осталось меньше минуты до того, как ты сможешь получить новое задание.
 ~
 @eng The $d is closed.@rus $d закрыто.~
+@eng $n is poisoned by the venom on $p.@rus $n отравлен ядом $c2{$p}.~
 @eng $N is being ridden by $t.@rus $N оседланный $t.~
 @eng $N deadly touches your neck and puts you to nightmares.@rus $N касается твоей шеи и отправляет тебя в мир кошмаров.~
 @eng $n goes to sleep in $p.@rus $n ложится спать в $c3{$p}.~
@@ -616,6 +622,7 @@ You peek at the inventory:
 @eng $N {xis resting here.@rus $N {xотдыхает здесь.~
 @eng {bhas a few scratches{x.@rus {bимеет несколько царапин{x.~
 @eng coke@rus кока-кола~
+@eng You feel poison coursing through your veins.@rus Ты чувствуешь как яд растекается по твоим жилам.~
 @eng You close $p.@rus Ты закрываешь $p.~
 @eng : adds '%s' affect @rus : добавляет '%s' ~
 @eng You are completely lost.
@@ -1087,6 +1094,7 @@ Get back to questor before your time runs out!
 @eng You have run out of time for your quest!
 @rus У тебя вышло время, отведенное на задание!
 ~
+@eng You feel $p drawing your life away.@rus Ты чувствуешь как $p вытягивает твои жизненные силы.~
 @eng You didn't find any $T.@rus Ты не находишь $T.~
 @eng Someone has completed you quest.
 @rus Кто-то выполнил твое задание.
@@ -1104,6 +1112,7 @@ Get back to questor before your time runs out!
 @eng It is closed.
 @rus Тут закрыто.
 ~
+@eng $p sears your flesh.@rus $p опаляет твою плоть.~
 @eng $d: you can't carry that much weight.@rus $d: ты не можешь унести такую тяжесть.~
 @eng You're webbed, and want to do WHAT?!?
 @rus Ты застрял в паутине, и ты еще ЧТО-ТО хочешь сделать?!?
@@ -1249,6 +1258,7 @@ Get back to questor before your time runs out!
 @rus Татуировка на твоем плече вспыхивает {Cголубым{x.
 ~
 @eng <worn on finger>    $t@rus <надето на палец>      $t~
+@eng $p freezes $n.@rus $p замораживает $c6{$n}.~
 @eng $N {xis sitting here.@rus $N {xсидит здесь.~
 @eng You only see %d of those here.
 @rus Ты здесь видишь только %d таких вещей.

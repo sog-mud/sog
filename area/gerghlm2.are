@@ -2768,7 +2768,7 @@ You see the trail.
 Z -1 6002
 S
 #7557
-@eng Dirt path@rus Грязаная дорога~
+@eng Dirt path@rus Грязная дорога~
 You are on a dirt path that leads to a town. (you can tell this because
 a passerby told you.), the path continues north and south.
 ~
@@ -2785,7 +2785,7 @@ You see the dirt path.
 Z -1 7558
 S
 #7558
-@eng Dirt Path@rus Грязаная дорога~
+@eng Dirt Path@rus Грязная дорога~
 @eng You are on a dirt path.
 @rus Вы стоите на грязной дороге.
 
@@ -2803,7 +2803,7 @@ You see the dirt path.
 Z -1 7559
 S
 #7559
-@eng Dirt Path@rus Грязаная дорога~
+@eng Dirt Path@rus Грязная дорога~
 @eng You are on the dirt path.
 @rus Вы стоите на грязной дороге.
 ~
@@ -2820,7 +2820,7 @@ You see the dirt path.
 Z -1 7560
 S
 #7560
-@eng Dirt Path@rus Грязаная дорога~
+@eng Dirt Path@rus Грязная дорога~
 @eng You are on the dirt path.
 @rus Вы стоите на грязной дороге.
 ~
@@ -2837,7 +2837,7 @@ You see the dirt path.
 Z -1 7559
 S
 #7561
-@eng Dirt Path@rus Грязаная дорога~
+@eng Dirt Path@rus Грязная дорога~
 @eng You are on the dirt path.
 @rus Вы стоите на грязной дороге.
 ~
@@ -2854,7 +2854,7 @@ You see the dirt path.
 Z -1 7560
 S
 #7562
-@eng Dirt Path@rus Грязаная дорога~
+@eng Dirt Path@rus Грязная дорога~
 You are on the dirt path.  Up ahead, you see a LARGE city.
 ~
 0 0 city

@@ -2370,13 +2370,6 @@ S
 40250 2 3 3 0 0 120 80 0 23
 0
 
-#OLIMITS
-O 40204 2	* spear
-O 40205 2	* short-bladed dagger
-O 40206 2	* carved mace
-O 40210 1	* vest of sneaking
-S
-
 #MOBPROGS
 #40200
 if isvisible $n

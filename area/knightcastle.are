@@ -81,23 +81,49 @@ It is saddled with light tack, and has long slender limbs for speed.
 ~
 horse~
 ABIWZ FHJV 1000 0
-52 20 50d10+5000 1d200+1600 6d7+20 wrath
+45 20 25d10+3000 1d200+1600 6d6+10 wrath
 -20 -20 -20 -10
 N AB 0 0
 stand stand male 5000
 0 0 medium unknown
 #95205
-great white horse mount~
-the great white horse~
-A great white horse is standing here.
+mount unicorn~
+the unicorn~
+A white unicorn is standing here.
 ~
 It is saddled with light tack, and has long slender limbs for speed.
 ~
 horse~
-ABIWZ FHJV 1000 0
-72 30 50d10+9000 1d200+1600 12d10+40 wrath
--20 -20 -20 -10
-N AB 0 0
+ABIWZ FHJPV 1000 0
+55 30 50d10+6000 1d200+1600 6d7+25 wrath
+-30 -30 -30 -20
+JN AB CLQ 0
+stand stand male 5000
+0 0 medium unknown
+#95206
+pegasus mount~
+the pegasus~
+A pegasus is flying here.
+~
+~
+horse~
+BIWZ BDFHJPTUV 1000 0
+70 30 100d10+9500 1d20+1600 6d10+30 wrath
+-40 -40 -40 -30
+N AB CLQ 0
+stand stand male 5000
+0 0 medium unknown
+#95207
+mount dragon golden~
+the golden dragon~
+A golden dragon is flying here.
+~
+~
+horse~
+BIWZ DFHJTUValt 1000 0
+85 50 100d12+16250 1d20+1600 6d15+50 wrath
+-50 -50 -50 -40
+DNO AB CHIJKLMNPQS 0
 stand stand male 5000
 0 0 medium unknown
 #0
@@ -423,6 +449,12 @@ Z 0 95214
 S
 #0
 
+#SPECIALS
+M 95205 spec_cast_mage	* the unicorn
+M 95206 spec_cast_cleric	* the pegasus
+M 95207 spec_breath_lightning	* the golden dragon
+S
+
 #RESETS
 D 0 95215 3 1	* Inner yard: door to the west: closed
 M 0 95201 1 95200 1	* the protector (The Enterance of Castle)
@@ -434,7 +466,9 @@ P 0 95202 1 95201 1	* the altar: Large medal of honor
 M 0 95202 1 95205 1	* the stable keeper (Stables)
 M 0 95203 1 95206 1	* the grey horse (Horse room)
 M 0 95204 1 95206 1	* the white horse (Horse room)
-M 0 95205 1 95206 1	* the great white horse (Horse room)
+M 0 95205 1 95206 1	* the unicorn (Horse room)
+M 0 95206 1 95206 1	* the pegasus (Horse room)
+M 0 95207 1 95206 1	* the golden dragon (Horse room)
 O 0 95205 0 95207	* fountain (Winter garden)
 O 0 95204 0 95207	* statue of King Arthur (Winter garden)
 M 0 95202 2 95213 1	* the stable keeper (Stables)
@@ -444,10 +478,6 @@ S
 #SHOPS
 95202 0 0 0 0 0 100 100 0 23
 0
-
-#OLIMITS
-O 95209 1	* {WHoly blessed Lance{x
-S
 
 #MOBPROGS
 #95200

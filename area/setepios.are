@@ -67,9 +67,9 @@ ACEFHIJKO BJKOPQU 0 0
 stand stand female 10000
 0 0 medium unknown
 #38004
-mavtar~
-Mavtar~
-Mavtar is here ! Get him !
+mavtar muvatar~
+Muvatar~
+Muvatar is hiding here.
 ~
 ~
 centaur~
@@ -882,19 +882,27 @@ F
 S 'heal' 45 A
 G none
 #38110
-ring of true hero~
-{Y***{C({W+{C){Y***{x Ring of Hero.~
+true hero healing ring~
+{W({R+{W){x ring oh healing.~
 Strange ring lies here.~
 divine~
 treasure AIRT AB
 0 0 0 0 0
-70 1 1000000 P
+45 1 1000000 P
+A
+3 -1
+A
+4 -3
+A
+6 -3
+A
+2 -3
+A
+1 -3
+A
+12 -500
 F
-S 'dirt kicking' 1 A
-F
-S 'kick' 1 A
-F
-S 'bash' 1 A
+S 'heal' 100 A
 G none
 #38200
 bartable~
@@ -1409,15 +1417,6 @@ S
 #SHOPS
 38001 0 0 0 0 0 1 1 1 23
 0
-
-#OLIMITS
-O 38024 2	* bone necklace
-O 38028 5	* Dragons Skull
-O 38109 0	* Book of Healing
-O 38110 1	* {Y***{C({W+{C){Y***{x Ring of Hero.
-O 38500 0	* the ebony kris
-O 38501 0	* Demon's skin
-S
 
 #MOBPROGS
 #38500

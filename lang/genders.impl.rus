@@ -19,4 +19,12 @@ Form 1 -ая~
 Form 2 -ое~
 End
 
+#RULE
+Name -лся~
+BaseLen -3
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
 #$

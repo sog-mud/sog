@@ -248,10 +248,6 @@ S
 35301 0 0 0 0 0 100 100 0 23
 0
 
-#OLIMITS
-O 35302 20	* A huge battleaxe
-S
-
 #MOBPROGS
 #35301
 if carries $n 35301

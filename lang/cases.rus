@@ -159,6 +159,17 @@ Form 5 -е~
 End
 
 #RULE
+Name Бородачка~
+BaseLen 8
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name улитка~
 BaseLen 5
 Form 1 -и~
@@ -1511,6 +1522,17 @@ Form 6 -ого~
 End
 
 #RULE
+Name Перчатка~
+BaseLen 7
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name брансид~
 BaseLen 7
 Form 1 -а~
@@ -1539,6 +1561,17 @@ Form 3 -ы~
 Form 4 -ами~
 Form 5 -ах~
 Form 6 -ы~
+End
+
+#RULE
+Name летающий~
+BaseLen 6
+Form 1 -его~
+Form 2 -ему~
+Form 3 -ий~
+Form 4 -им~
+Form 5 -ем~
+Form 6 -его~
 End
 
 #RULE
@@ -2144,6 +2177,15 @@ Form 3 -ый~
 Form 4 -ым~
 Form 5 -ом~
 Form 6 -ого~
+End
+
+#RULE
+Name диск~
+BaseLen 4
+Form 1 -а~
+Form 2 -у~
+Form 4 -ом~
+Form 5 -е~
 End
 
 #RULE

@@ -1876,3 +1876,79 @@ Trip слегка модифицирован.
  
 /abrazak, the sovereign of shadows.
 ~
+Sender  Diablo~
+Date    Thu May 20 19:36:56 1999~
+Stamp   927203816
+To      all~
+Subject horses~
+Text
+Hi!
+Кнайты теперь имеют больше разных лошадок.
+Diablo The God of {DDeath{x
+~
+Sender  abrazak~
+Date    Thu May 20 20:05:56 1999~
+Stamp   927205556
+To      all~
+Subject A little changes.~
+Text
+Hi, there!
+После следущего ребута 'charm person' не будет работать на спящих.
+У сталкеров не будет wizinvis
+ 
+ 
+/abrazak, the sovereign of shadows.
+~
+Sender  Iluvatar~
+Date    Fri May 21 03:19:15 1999~
+Stamp   927231555
+To      all~
+Subject limited eq и пр.~
+Text
+hi, there!
+ 
+начиная со след. ребута почти при каждой загрузке муда из pfile'ов
+игроков вырезаются limited eq (с вероятностью 6% на каждую
+вещь). при этом убраны ограничения по уровню вниз на limited eq.
+ 
+команды 'petition accept'/'petition reject' работают даже если
+игрок находится в offline.
+ 
+добавлена команда glance.
+команда prompt без параметров просто выдает prompt.
+floating disc показывается в аффектах
+ 
+{WIluvatar{x, Eru, the One
+~
+Sender  Iluvatar~
+Date    Fri May 21 03:21:10 1999~
+Stamp   927231670
+To      imm~
+Subject rating~
+Text
+hi, there!
+ 
+я тут заодно rating починил -- команда 'rating'.
+кста, диабла, надо бы во всез кланах флажок safe поставить
+сделаешь?
+ 
+{WIluvatar{x, Eru, the One
+ 
+PS а changes я думаю на русском писать можно. все равно из-за бугра
+уже никто не играет
+~
+Sender  Iluvatar~
+Date    Fri May 21 20:40:45 1999~
+Stamp   927294045
+To      all~
+Subject hp/mana gain под slow~
+Text
+hi, there!
+ 
+все-таки я решил вернуть назад изменения, касавшиеся hp/mana gain
+под slow (сделанные где-то в октябре прошлого года)
+теперь hp/mana gain под slow опять будет в два раза больше, чем
+без него
+ 
+{WIluvatar{x, Eru, the One
+~

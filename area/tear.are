@@ -367,23 +367,6 @@ armor 0 0
 0 0 0 0 0
 0 10 100 P
 G none
-#110003
-all Rod Of Rage~
-@eng Rod Of Rage@rus Жезл Гнева~
-@eng Rod Of Rage@rus Жезл Гнева (rod) лежит здесь.~
-silver~
-wand ABCGINTY AO
-0 0 0 'reserved' 0
-100 1 0 P
-A
-18 10000000
-A
-19 10000000
-A
-20 -10000
-A
-17 -10000
-G none
 #110004
 jukebox~
 Osyas djukaboks~
@@ -8305,7 +8288,6 @@ O 0 110160 0 110482	* wooden bed (Bedroom)
 S
 
 #OLIMITS
-O 110003 1	* Rod Of Rage
 O 110164 2	* Glowing silver diadem
 O 110165 1	* {WWhite dress with silver sewing{x
 O 110167 1	* Swordbreaker

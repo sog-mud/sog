@@ -528,8 +528,8 @@ fountain G 0
 0 0 0 P
 G none
 #23
-disc disk floating black~
-a floating disc~
+disc disk floating black диск~
+@eng a floating disc@rus ~~летающий~~ ~~диск~~~
 @eng A floating black disc hangs in the air.@rus Черный диск (disc) парит в воздухе.~
 energy~
 container GMPUYZ AQ

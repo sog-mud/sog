@@ -56,7 +56,7 @@ ogden огден~
 ~
 human~
 ABR 0 -1000 0
-1000000 0 0d0+0 0d0+0 0d0+0 none
+10000000 0 0d0+0 0d0+0 0d0+0 none
 0 0 0 0
 0 0 0 0
 stand stand none 0
@@ -519,18 +519,17 @@ trash 0 AO
 92 0 0 P
 G none
 #18784
-vervindl dagger flaming~
-{RVervindl{x~
-A flaming dagger lies here.~
-unknown~
-weapon AFIJLNac ANP
-dagger 11 12 thrust ADEH
-94 0 0 P
-F
-A 18 15 C
-F
-A 19 15 G
-C BattleRager~
+dagger stick sword-stick палка меч~
+@eng a sword-stick@rus ~~палка~~-меч~
+@eng A sword-stick lies on the grass here.@rus Палка-меч (sword-stick) лежит в траве.~
+steel~
+weapon 0 AN
+dagger 8 2 stab I
+106 8 100 G
+A
+19 190
+A
+18 190
 G none
 #18785
 bracer power~
@@ -1629,9 +1628,9 @@ G 0 15000 0		*	strange pill
 G 0 15008 0		*	Anti-invader's pill
 G 0 18705 0		*	pill
 M 0 18702 1 18707 1	* innkeeper Ogden (Tavern)
+E 0 18784 0 16		*	a sword-stick: wielded
 M 0 18701 1 18710 1	* Griswold (Forge)
 G 0 18717 0		*	rusty nail
-G 0 67 0		*	tattoo of eros, god of love
 G 0 18716 0		*	sword
 G 0 18714 0		*	axe
 G 0 18718 0		*	strong skin of fox
