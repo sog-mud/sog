@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.5 1998-05-17 05:00:25 efdi Exp $
+ * $Id: mob_prog.c,v 1.6 1998-05-17 05:03:50 efdi Exp $
  */
 
 /***************************************************************************
@@ -1233,9 +1233,9 @@ void area_prog_janitor(CHAR_DATA *mob)
     do_say(mob,"Litterbugs");
     if (number_percent() < 20 )
      {
-      do_say(mob,"All I do each day is cleanup other people's messes.");
+      do_say(mob,msg(MOB_PROGS_I_DO_NOT_GET_PAID_ENOUGH, mob));
       if (number_percent() < 20 )
-         do_say(mob,msg(MOB_PROGS_I_DO_NOT_GET_PAID_ENOUGH, mob));
+      	do_say(mob,"All I do each day is cleanup other people's messes.");
       else if (number_percent() < 20) 
 	   {
 	    do_say(mob,"Day in. Day out. This is all I do in 24 hours a day.");
