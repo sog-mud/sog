@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.3 1998-04-16 08:12:37 fjoe Exp $
+ * $Id: comm.c,v 1.4 1998-04-16 14:29:29 efdi Exp $
  */
 
 /***************************************************************************
@@ -83,6 +83,7 @@
 #include "act_wiz.h"
 #include "act_info.h"
 #include "db.h"
+#include "resource.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_help		);
@@ -1316,27 +1317,27 @@ bool process_output( DESCRIPTOR_DATA *d, bool fPrompt )
                 percent = -1;
   
             if (percent >= 100)
-                sprintf(wound,"is in perfect health.");
+                sprintf(wound, msg(INFO_IS_IN_PERFECT_HEALTH, ch->i_lang));
             else if (percent >= 90)
-                sprintf(wound,"has a few scratches.");
+                sprintf(wound, msg(INFO_HAS_A_FEW_SCRATCHES, ch->i_lang));
             else if (percent >= 75)
-                sprintf(wound,"has some small but disgusting cuts.");
+                sprintf(wound, msg(INFO_HAS_SOME_SMALL_BUT_DISGUSTING_CUTS, ch->i_lang));
             else if (percent >= 50)
-                sprintf(wound,"is covered with bleeding wounds.");
+                sprintf(wound, msg(INFO_IS_COVERED_WITH_BLEEDING_WOUNDS, ch->i_lang));
             else if (percent >= 30)
-                sprintf(wound,"is gushing blood.");
+                sprintf(wound, msg(INFO_IS_GUSHING_BLOOD, ch->i_lang));
             else if (percent >= 15)
-                sprintf(wound,"is writhing in agony.");
+                sprintf(wound, msg(INFO_IS_WRITHING_IN_AGONY, ch->i_lang));
             else if (percent >= 0)
-                sprintf(wound,"is convulsing on the ground.");
+                sprintf(wound, msg(INFO_IS_CONVULSING_ON_THE_GROUND, ch->i_lang));
             else
-                sprintf(wound,"is nearly dead.");
+                sprintf(wound, msg(INFO_IS_NEARLY_DEAD, ch->i_lang));
 
  
             sprintf(buf,"%s %s \n\r", 
 	            IS_NPC(victim) ? victim->short_descr : victim->name,wound);
 	    buf[0] = UPPER(buf[0]);
-            write_to_buffer( d, buf, 0);
+            act( buf, ch, NULL, NULL, TO_CHAR );
         }
 
 

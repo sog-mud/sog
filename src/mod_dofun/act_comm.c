@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.3 1998-04-14 11:36:15 efdi Exp $
+ * $Id: act_comm.c,v 1.4 1998-04-16 14:29:28 efdi Exp $
  */
 
 /***************************************************************************
@@ -1856,7 +1856,7 @@ char *translate(CHAR_DATA *ch, CHAR_DATA *victim, char *argument)
       || ch->language == pc_race_table[ORG_RACE(victim)].language)
    {
     if (IS_IMMORTAL(victim))
-	sprintf(trans,"{%s} %s",language_table[ch->language].name,argument);
+	sprintf(trans,"{{%s} %s",language_table[ch->language].name,argument);
     else strcpy(trans,argument);
     return trans;
    }
@@ -1868,7 +1868,7 @@ char *translate(CHAR_DATA *ch, CHAR_DATA *victim, char *argument)
     }
   buf[i] = '\0';
 
-  sprintf(trans,"{%s} %s",language_table[ch->language].name,buf);
+  sprintf(trans,"{{%s} %s",language_table[ch->language].name,buf);
   return trans;
 }
 

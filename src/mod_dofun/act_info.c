@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.5 1998-04-15 10:43:28 efdi Exp $
+ * $Id: act_info.c,v 1.6 1998-04-16 14:29:28 efdi Exp $
  */
 
 /***************************************************************************
@@ -101,16 +101,25 @@ int	const	where_name	[] =
 };
 
 
-char* pos_name[9] = {
-	"{rDEAD{x",
-	"{rmortally wounded{x",
-	"{rincapacitated{x",
-	"{rstunned{x",
-	"{gsleeping{x",
-	"{gresting{x",
-	"{gsitting{x",
-	"{rfighting{x",
-	"{gstanding{x"
+int const pos_name[18] = {
+	INFO_POS_NAME_DEAD_M,
+	INFO_POS_NAME_MORTALLY_WOUNDED_M,
+	INFO_POS_NAME_INCAPACITATED_M,
+	INFO_POS_NAME_STUNNED_M,
+	INFO_POS_NAME_SLEEPING_M,
+	INFO_POS_NAME_RESTING_M,
+	INFO_POS_NAME_SITTING_M,
+	INFO_POS_NAME_FIGHTING_M,
+	INFO_POS_NAME_STANDING_M,
+	INFO_POS_NAME_DEAD_F,
+	INFO_POS_NAME_MORTALLY_WOUNDED_F,
+	INFO_POS_NAME_INCAPACITATED_F,
+	INFO_POS_NAME_STUNNED_F,
+	INFO_POS_NAME_SLEEPING_F,
+	INFO_POS_NAME_RESTING_F,
+	INFO_POS_NAME_SITTING_F,
+	INFO_POS_NAME_FIGHTING_F,
+	INFO_POS_NAME_STANDING_F,
 };
 
 /* for do_count */
@@ -155,7 +164,7 @@ char *format_obj_to_char( OBJ_DATA *obj, CHAR_DATA *ch, bool fShort )
 	if (CAN_DETECT(ch, DETECT_GOOD) && IS_OBJ_STAT(obj,ITEM_BLESS))
 		strcat(buf,"{b(Blue Aura){x ");
 	if (CAN_DETECT(ch, DETECT_MAGIC) && IS_OBJ_STAT(obj, ITEM_MAGIC))
-		strcat(buf, "{x(Magical) ");
+		strcat(buf, "(Magical) ");
 	if (IS_OBJ_STAT(obj, ITEM_GLOW))
 		strcat(buf, "(Glowing) ");
 	if (IS_OBJ_STAT(obj, ITEM_HUM))
@@ -437,69 +446,69 @@ void show_char_to_char_0( CHAR_DATA *victim, CHAR_DATA *ch )
 	{
 	        if (IS_SET(victim->on->value[2],REST_AT))
 	        {
-	            sprintf(message," is resting at %s.",
+	            sprintf(message, msg(INFO_RESTING_AT, ch->i_lang),
 	                victim->on->short_descr);
 	            strcat(buf,message);
 	        }
 	        else if (IS_SET(victim->on->value[2],REST_ON))
 	        {
-	            sprintf(message," is resting on %s.",
+	            sprintf(message, msg(INFO_RESTING_ON, ch->i_lang),
 	                victim->on->short_descr);
 	            strcat(buf,message);
 	        }
 	        else 
 	        {
-	            sprintf(message, " is resting in %s.",
+	            sprintf(message, msg(INFO_RESTING_IN, ch->i_lang),
 	                victim->on->short_descr);
 	            strcat(buf,message);
 	        }
 	}
 	    else
-	    strcat( buf, " is resting here." );       
+	    strcat( buf, msg(INFO_RESTING, ch->i_lang));       
 	break;
 	case POS_SITTING:  
 	    if (victim->on != NULL)
 	    {
 	        if (IS_SET(victim->on->value[2],SIT_AT))
 	        {
-	            sprintf(message," is sitting at %s.",
+	            sprintf(message, msg(INFO_SITTING_AT, ch->i_lang),
 	                victim->on->short_descr);
 	            strcat(buf,message);
 	        }
 	        else if (IS_SET(victim->on->value[2],SIT_ON))
 	        {
-	            sprintf(message," is sitting on %s.",
+	            sprintf(message, msg(INFO_SITTING_ON, ch->i_lang),
 	                victim->on->short_descr);
 	            strcat(buf,message);
 	        }
 	        else
 	        {
-	            sprintf(message, " is sitting in %s.",
+	            sprintf(message, msg(INFO_SITTING_IN, ch->i_lang),
 	                victim->on->short_descr);
 	            strcat(buf,message);
 	        }
 	    }
 	    else
-	    strcat(buf, " is sitting here.");
+	    strcat(buf, msg(INFO_SITTING, ch->i_lang));
 	break;
 	case POS_STANDING: 
 	if (victim->on != NULL)
 	{
 	    if (IS_SET(victim->on->value[2],STAND_AT))
 	    {
-		sprintf(message," is standing at %s.",
+		sprintf(message, msg(INFO_STANDING_AT, ch->i_lang),
 		    victim->on->short_descr);
 		strcat(buf,message);
 	    }
 	    else if (IS_SET(victim->on->value[2],STAND_ON))
 	    {
-		sprintf(message," is standing on %s.",
+		sprintf(message, msg(INFO_STANDING_ON, ch->i_lang),
 		   victim->on->short_descr);
 		strcat(buf,message);
 	    }
 	    else
 	    {
-		sprintf(message," is standing in %s.",
+		sprintf(message, msg(INFO_STANDING, ch->i_lang),
 		    victim->on->short_descr);
 		strcat(buf,message);
 	    }
@@ -509,10 +518,10 @@ void show_char_to_char_0( CHAR_DATA *victim, CHAR_DATA *ch )
 	  sprintf(message," is here, riding %s.",PERS(MOUNTED(victim),ch));
 	  strcat(buf, message);
 	}
-	else  strcat( buf, " is here." );               
+	else  strcat( buf, msg(INFO_IS_HERE, ch->i_lang));               
 	break;
 	case POS_FIGHTING:
-	strcat( buf, " is here, fighting " );
+	strcat( buf, msg(INFO_FIGHTING, ch->i_lang));
 	if ( victim->fighting == NULL )
 	    strcat( buf, "thin air??" );
 	else if ( victim->fighting == ch )
@@ -586,23 +595,24 @@ void show_char_to_char_1( CHAR_DATA *victim, CHAR_DATA *ch )
 
 	sprintf( buf,"(%s) %s", race_table[RACE(vict)].name, PERS(vict, ch));
 
-	if (percent >= 100) 
-	strcat( buf, " is in perfect health.\n\r");
-	else if (percent >= 90) 
-	strcat( buf, " has a few scratches.\n\r");
-	else if (percent >= 75) 
-	strcat( buf," has some small but disgusting cuts.\n\r");
-	else if (percent >=  50) 
-	strcat( buf, " is covered with bleeding wounds.\n\r");
-	else if (percent >= 30)
-	strcat( buf, " is gushing blood.\n\r");
-	else if (percent >= 15)
-	strcat ( buf, " is writhing in agony.\n\r");
-	else if (percent >= 0 )
-	strcat (buf, " is convulsing on the ground.\n\r");
-	else
-	strcat(buf, " is nearly dead.\n\r");
-
+	strcat(buf, "  ");
+            if (percent >= 100)
+                sprintf(buf, msg(INFO_IS_IN_PERFECT_HEALTH, ch->i_lang));
+            else if (percent >= 90)
+                sprintf(buf, msg(INFO_HAS_A_FEW_SCRATCHES, ch->i_lang));
+            else if (percent >= 75)
+                sprintf(buf, msg(INFO_HAS_SOME_SMALL_BUT_DISGUSTING_CUTS, ch->i_lang));
+            else if (percent >= 50)
+                sprintf(buf, msg(INFO_IS_COVERED_WITH_BLEEDING_WOUNDS, ch->i_lang));
+            else if (percent >= 30)
+                sprintf(buf, msg(INFO_IS_GUSHING_BLOOD, ch->i_lang));
+            else if (percent >= 15)
+                sprintf(buf, msg(INFO_IS_WRITHING_IN_AGONY, ch->i_lang));
+            else if (percent >= 0)
+                sprintf(buf, msg(INFO_IS_CONVULSING_ON_THE_GROUND, ch->i_lang));
+            else
+                sprintf(buf, msg(INFO_IS_NEARLY_DEAD, ch->i_lang));
+	strcat(buf, "\n\r");
 	/* vampire ... */
 	if (percent < 90 && ch->class == CLASS_VAMPIRE && ch->level > 10)
 	gain_condition(ch,COND_BLOODLUST,-1);
@@ -1556,9 +1566,9 @@ void do_exits( CHAR_DATA *ch, char *argument )
 	if (fAuto)
 		sprintf(buf,"{C[Exits:");
 	else if (IS_IMMORTAL(ch))
-		sprintf(buf,"{CObvious exits from room %d:\n\r",ch->in_room->vnum);
+		sprintf(buf,"{CObvious exits from room %d:{x\n\r",ch->in_room->vnum);
 	else
-		sprintf(buf,"{CObvious exits:\n\r");
+		sprintf(buf,"{CObvious exits:{x\n\r");
 
 	found = FALSE;
 	for ( door = 0; door <= 5; door++ )
@@ -1576,7 +1586,7 @@ void do_exits( CHAR_DATA *ch, char *argument )
 	    }
 	    else
 	    {
-		sprintf( buf + strlen(buf), "%-5s - %s",
+		sprintf( buf + strlen(buf), "{C%-5s{x - %s",
 		    capitalize( dir_name[door] ),
 		    room_dark( pexit->u1.to_room )
 			?  "Too dark to tell"
@@ -3326,7 +3336,7 @@ void do_score( CHAR_DATA *ch, char *argument )
 		IS_NPC(ch) ? 0 : ch->pcdata->nextquest);
     send_to_char(buf, ch);
     sprintf( buf, 
-"     {G| {REthos:  {x%-11s  {C|  {RCha:  {x%2d(%2d)  {C| {R%s     :   {x%3d       {G|{x\n\r",
+"     {G| {REthos:  {x%-11s  {C|  {RCha:  {x%2d(%2d)  {C| {R%s     :   {x%4d       {G|{x\n\r",
 		IS_NPC(ch) ? "mobile" : ch->ethos == 1 ? "lawful" : 
 	ch->ethos == 2 ? "neutral" : ch->ethos == 3 ? "chaotic" : "none",
 		ch->perm_stat[STAT_CHA], get_curr_stat(ch,STAT_CHA),
@@ -3334,9 +3344,10 @@ void do_score( CHAR_DATA *ch, char *argument )
 		ch->class == 9 ? ch->pcdata->death : ch->wimpy);
 	send_to_char(buf, ch);
 
-	sprintf(buf, "     {G| {RAlign:  {x%-11s  {C|                |{x You are %-19s {G|{x\n\r",		
+	sprintf(buf, "     {G| {RAlign:  {x%-11s  {C|                |{x %-7s %-21s {G|{x\n\r",		
 		IS_GOOD(ch) ? "good" : IS_EVIL(ch) ? "evil" : "neutral",
-		pos_name[ch->position]);
+		msg(INFO_YOU_ARE, ch->i_lang ),
+		msg(pos_name[ch->sex == SEX_FEMALE ? ch->position+9 : ch->position], ch->i_lang));
 	send_to_char(buf, ch);
 
 	send_to_char("     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x{x\n\r", ch);
@@ -3604,7 +3615,8 @@ void do_oscore( CHAR_DATA *ch, char *argument )
 	if (!IS_NPC(ch) && ch->pcdata->condition[COND_DESIRE] <= 0)
 		send_to_char("You are {rdesiring your home{x.\n\r", ch);
 	
-	sprintf(buf, "You are %s.\n\r", pos_name[ch->position]);
+	sprintf(buf, "You are %s.\n\r", 
+		msg(pos_name[ch->sex == SEX_FEMALE ? ch->position+9 : ch->position], ch->i_lang));
 	send_to_char(buf, ch);
 	
 	if ((ch->position == POS_SLEEPING || ch->position == POS_RESTING ||
