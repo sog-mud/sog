@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.127 1999-11-27 08:57:12 fjoe Exp $
+ * $Id: martial_art.c,v 1.128 1999-11-27 15:15:27 kostik Exp $
  */
 
 /***************************************************************************
@@ -276,6 +276,65 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 	}
 
 	char_puts("PANIC! You couldn't escape!\n", ch);
+}
+
+void do_feint(CHAR_DATA *ch, const char *argument) 
+{
+	CHAR_DATA *victim;
+	int chance;
+	OBJ_DATA *weapon;
+
+	
+	if (!(chance = get_skill(ch, "feint"))) {
+		char_puts("Huh?\n", ch);
+		return;
+	}
+
+	if (!(weapon = get_eq_char(ch, WEAR_WIELD)) 
+	|| !WEAPON_IS(weapon, WEAPON_SWORD)) {
+		act("You need to wield a sword.", 
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if (!(victim = ch->fighting)) {
+		act("You aren't fighting anyone.", 
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	WAIT_STATE(ch, skill_beats("feint"));
+	
+	chance += get_curr_stat(ch, STAT_DEX);
+	chance -= get_curr_stat(victim, STAT_INT);
+
+	chance = chance * 2 / 3;
+
+	if (number_percent() < chance) {
+		switch(number_bits(1)) {
+		case 0:
+			act("You press at $N's defenses and manage to slip in " 
+				"another attack!", ch, NULL, victim, TO_CHAR);
+			act("$n maneuvers dextrously and you miss an incoming "
+				"attack!", ch, NULL, victim, TO_VICT);
+			multi_hit(ch, victim, NULL);
+			break;
+		case 1: 
+			act("You dazzle $N with your artful fencing.",
+				ch, NULL, victim, TO_CHAR);
+			act("You are unable to follow $n's maneuvers.",
+				ch, NULL, victim, TO_VICT);
+			SET_BIT(victim->affected_by, AFF_WEAK_STUN);
+			break;
+		}
+		check_improve(ch, "feint", 1, TRUE);
+	} else {
+		act("You fail to achieve anything with your fencing.",
+			ch, NULL, NULL, TO_CHAR);
+		act("$n tries to trick you with $s feint, but you ignore it.",
+			ch, NULL, NULL, TO_VICT);
+		check_improve(ch, "feint", 4, FALSE);
+	}
 }
 
 /*

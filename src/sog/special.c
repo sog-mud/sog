@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.60 1999-11-27 11:19:13 kostik Exp $
+ * $Id: special.c,v 1.61 1999-11-27 15:15:27 kostik Exp $
  */
 
 /***************************************************************************
@@ -958,7 +958,7 @@ bool spec_guard(CHAR_DATA *ch)
 	CHAR_DATA *ech;
 	int worst = 0;
  
-	if (!IS_AWAKE(ch))
+	if (!IS_AWAKE(ch) || ch->fighting)
 		return FALSE;
 	
 	ech      = NULL;
