@@ -1,5 +1,5 @@
 #AREADATA
-Ver 4
+Ver 5
 Name Firetop Mountain~
 VNUMs 5700 5899
 Credits Yaegar~
@@ -479,12 +479,12 @@ including its long, sharp, poisoned fangs and claws, its resistance to
 physical blows, and its nauseating stench.
 ~
 human~
-BCFGJO 0 JNO 0 AH -1000 0
+BCFGJ 0 JNO 0 AH -1000 0
 14 0 2d10+190 139d1+1 1d12+3 'slap'
 -1 -1 -1 8
 IR
 stand stand male 100
-0 0 medium unknown
+I 0 medium unknown
 r acid -50
 r charm 999
 #5759
@@ -558,12 +558,12 @@ towards you, attempting to make eye contact with you, so that it can charm
 you and then feat upon you at its leisure.
 ~
 human~
-BCFGJO 0 JT 0 ABH -1000 0
+BCFGJ 0 JT 0 ABH -1000 0
 17 0 3d9+258 169d1+1 3d4+4 'smash'
 -3 -3 -3 7
 IR
 stand stand male 200
-0 0 medium unknown
+I 0 medium unknown
 r acid 33
 r charm 999
 #5764

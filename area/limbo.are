@@ -1,5 +1,5 @@
 #AREADATA
-Ver 4
+Ver 5
 Name Limbo~
 VNUMs 1 99
 Credits Diku~
@@ -95,12 +95,12 @@ This is a Nightwalker summoned from the shadows. Bloody eyes seem glowing.
 This creature has a horible look.
 ~
 human~
-OTc 0 S 0 ABH -750 0
+Tc 0 S 0 ABH -750 0
 20 3 16d15+240 1d1+152 5d3+20 'punch'
 0 0 0 0
 EJ
 stand stand male 0
-0 0 medium unknown
+I 0 medium unknown
 r slash 999
 r negative 999
 r holy -50
@@ -360,12 +360,12 @@ A dark summoned shadow is here.~
 You see nothingness.
 ~
 lion~
-O 0 S 0 0 0 0
+0 0 S 0 0 0 0
 0 1 1d1+1 1d1+1 3d10+12 'claw'
 0 0 0 0
 N
 stand stand male 0
-0 0 medium unknown
+I 0 medium unknown
 r bash -33
 r pierce -33
 r slash -33

@@ -1,4 +1,5 @@
 #AREADATA
+Ver 5
 Name Atlantis~
 VNUMs 35000 35099
 Credits Jaromir~
@@ -10,397 +11,516 @@ End
 #35000
 fisherman man~
 the Fisherman~
-A Fisherman is fishing here.
-~
+A Fisherman is fishing here.~
 A Fisherman is here fighting with his fish and trying to catch more. His face
 is hidden by his cape but you can see his glowing eyes staring at you. He
 looks very dangerous, however you can't see if he's very strong.
 ~
 human~
-ABCHT JZ 0 0
-13 0 2d10+170 129d1+1 2d5+3 punch
+BCHT 0 0 0 H 0 0
+13 0 2d10+170 129d1+1 2d5+3 'punch'
 -1 -1 -1 8
-EFNU 0 0 0
+EFNU
 stand stand male 0
 0 0 medium unknown
 #35001
 fish~
 the Fish~
-A fish is swimming in the water.
-~
+A fish is swimming in the water.~
 This is a sweet little fish with one BIG mouth. His teeth are terribly strong,
 trained by shark-attacks. How you would love to see it fight.
 ~
 water fowl~
-AHT 0 300 0
-2 0 2d7+21 19d1+1 1d5+0 bite
+HT 0 0 0 0 300 0
+2 0 2d7+21 19d1+1 1d5+0 'bite'
 8 8 8 10
-DEFGHIJKN 0 CD 0
+DEFGHIJKN
 stand stand none 0
 0 0 medium unknown
+r bash 33
+r pierce 33
+r slash 33
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r poison 33
+r negative 33
+r holy 33
+r energy 33
+r mental 33
+r disease 33
+r light 33
+r harm 33
+r charm 33
+r sound 33
 #35002
 sea-horse horse~
 the Sea-horse~
-A sea-horse is playing here.
-~
+A sea-horse is playing here.~
 Ooooh, how sweeeeeet!!!.
 ~
 water fowl~
-ACT 0 1000 0
-4 0 2d7+46 39d1+1 1d5+1 grep
+CT 0 0 0 0 1000 0
+4 0 2d7+46 39d1+1 1d5+1 'grep'
 6 6 6 9
-DEFGHIJKN 0 CD 0
+DEFGHIJKN
 stand stand male 0
 0 0 medium unknown
+r bash 33
+r pierce 33
+r slash 33
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r poison 33
+r negative 33
+r holy 33
+r energy 33
+r mental 33
+r disease 33
+r light 33
+r harm 33
+r charm 33
+r sound 33
 #35003
 king neptune~
 King Neptune~
-Neptune, king of Atlantis.
-~
+Neptune, king of Atlantis.~
 King Neptune of Atlantis. The most powerful king of the sea. His strength is
 only equalled by the Dark Dragon of Deep Down. The sight of him makes everybody
 smile. Mess with him and you will not survive Atlantis. His magic sword
 Sharkbite is dangerously by his side.
 ~
 human~
-ABT DFHJNTUVZ 1000 0
-45 0 25d10+3000 449d1+1 8d4+16 acbite
+BT 0 HNTUV 0 ABH 1000 0
+45 0 25d10+3000 449d1+1 8d4+16 'acbite'
 -15 -15 -15 4
-DEFGHIJKN 0 CD 0
+DEFGHIJKN
 stand stand male 0
 0 0 giant unknown
+r bash 33
+r pierce 33
+r slash 33
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r poison 33
+r negative 33
+r holy 33
+r energy 33
+r mental 33
+r disease 33
+r light 33
+r harm 33
+r charm 33
+r sound 33
 #35004
 mermaid maid woman~
 the Mermaid~
-A mermaid is standing here, serving Neptune.
-~
+A mermaid is standing here, serving Neptune.~
 The powerful mermaid bodyguard of King Neptune. If anybody is a bother to King
 Neptune she will kill the enemy. King Neptune has chosen two very beautiful
 mermaids, nobody can take their eyes from them.
 ~
 water fowl~
-ABT 0 1000 0
-21 0 4d10+360 209d1+1 4d4+5 slap
+BT 0 0 0 0 1000 0
+21 0 4d10+360 209d1+1 4d4+5 'slap'
 -5 -5 -5 7
-DEFGHIJKN 0 0 0
+DEFGHIJKN
 stand stand female 0
 0 0 medium unknown
 #35005
 shell blue glittering~
 the Shell~
-A dirty blue glittering Shell is lying here.
-~
+A dirty blue glittering Shell is lying here.~
 This is, after close examination, a very UGLY shell, just wanting to get 
 killed. It's so VERY VERY weak that you could sacrifice it alive. Oh would 
 you love to kill the shell.
 ~
 human~
-ABFT 0 1000 0
-4 0 2d7+46 39d1+1 1d5+1 digestion
+BFT 0 0 0 0 1000 0
+4 0 2d7+46 39d1+1 1d5+1 'digestion'
 6 6 6 9
-DEFGHIJKN 0 0 0
+DEFGHIJKN
 stand stand none 0
 0 0 medium unknown
 #35006
 treasurer~
 the Treasurer~
-The Treasurer is standing here begging for money.
-~
+The Treasurer is standing here begging for money.~
 The treasurer looks very poor. His face is made of sadness for wanting more
 money. He has to take care of all of King Neptune his money. And believe me
 that IS a WHOLE LOT.
 ~
 human~
-ACHT 0 -500 0
-26 0 5d10+600 259d1+1 3d7+7 slice
+CHT 0 0 0 0 -500 0
+26 0 5d10+600 259d1+1 3d7+7 'slice'
 -7 -7 -7 6
-DEFGHIJKN 0 0 0
+DEFGHIJKN
 stand stand male 0
 0 0 medium unknown
 #35007
 jailer~
 the Jailer~
-The Jailer is sleeping here behind his desk.
-~
+The Jailer is sleeping here behind his desk.~
 The jailer is here laughing his guts out at the prisoners. He is trying to
 keep them as hungry as possible. He is always doing push-ups. That is why he
 looks so strong. Be careful he is a very tactical fighter.
 ~
 human~
-ABGT R 900 0
-26 0 5d10+600 259d1+1 3d7+7 grep
+BGT 0 R 0 0 900 0
+26 0 5d10+600 259d1+1 3d7+7 'grep'
 -7 -7 -7 6
-DEFGHIJKN 0 0 0
+DEFGHIJKN
 sleep sleep male 0
 0 0 medium unknown
 #35008
 guard~
 the General Guard~
-The General Guard is sitting here behind his desk.
-~
+The General Guard is sitting here behind his desk.~
 Watch out. This is BIG trouble. He is looking after the actions of all guards
 in Atlantis. If something goes wrong, which almost never happens, he will be
 there. Be careful he is a very tactical fighter.
 ~
 human~
-ABT H 1000 0
-33 0 10d10+1100 329d1+1 6d4+10 pierce
+BT 0 H 0 0 1000 0
+33 0 10d10+1100 329d1+1 6d4+10 'pierce'
 -11 -11 -11 5
-DEFGHIJKN 0 0 0
+DEFGHIJKN
 stand stand male 0
 0 0 medium unknown
 #35009
 atlantis guard~
 the Atlantis Guard~
-An Atlantis Guard is standing here.
-~
+An Atlantis Guard is standing here.~
 The faithful guard of Atlantis. He would never give up his Oath of Guardians.
 The second highest rank you can reach in Atlantis. If there is trouble he will
 attack no matter what.
 ~
 human~
-ACT 0 1000 35009
-21 -3 4d10+360 209d1+1 4d4+5 pound
+CJT 0 0 0 0 1000 35009
+21 -3 4d10+360 209d1+1 4d4+5 'pound'
 -5 -5 -5 7
-DEFGHIJKN AB 0 0
+DEFGHIJKN
 stand stand male 0
 0 0 medium unknown
+r charm 100
 #35010
 gtlantis uard~
 the Atlantis Guard~
-An Atlantis Guard stands here, guardian the Entrance of Atlantis.
-~
+An Atlantis Guard stands here, guardian the Entrance of Atlantis.~
 The faithful guard of Atlantis. He would never give up his Oath of Guardians.
 The second highest rank you can reach in Atlantis. If there is trouble he will
 attack no matter what.
 ~
 human~
-ABT 0 1000 35010
-20 -3 3d9+333 199d1+1 2d8+5 pound
+BJT 0 0 0 0 1000 35010
+20 -3 3d9+333 199d1+1 2d8+5 'pound'
 -4 -4 -4 7
-DEFGHIJKN AB 0 0
+DEFGHIJKN
 stand stand male 0
 0 0 medium unknown
+r charm 100
 #35011
 prisoner~
 the Prisoner~
-A Prisoner lying here on his bed.
-~
+A Prisoner lying here on his bed.~
 This used to be a very big man, but now he looks pale and you can count
 his bones. He's got bread and water in his hand and he guards it very well.
 He's here for insulting King Neptune.
 ~
 human~
-ABT I -1000 0
-20 0 3d9+333 199d1+1 2d8+5 grep
+BT 0 I 0 0 -1000 0
+20 0 3d9+333 199d1+1 2d8+5 'grep'
 -4 -4 -4 7
-DEFGHIJKN 0 CD 0
+DEFGHIJKN
 stand stand male 0
 0 0 medium unknown
+r bash 33
+r pierce 33
+r slash 33
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r poison 33
+r negative 33
+r holy 33
+r energy 33
+r mental 33
+r disease 33
+r light 33
+r harm 33
+r charm 33
+r sound 33
 #35012
 martinus~
 Martinus~
-Martinus the priest of Atlantis is standing here.
-~
+Martinus the priest of Atlantis is standing here.~
 This is a very wise man, he is older than anybody in Atlantis with the
 exception of Sage Marid. His whole life he has been gathering his knowledge.
 In his youth he was the student of Marid the sage. Be careful in attacking
 him, he can heal himself a lot faster then you can hurt him.
 ~
 human~
-ABT DH 1000 0
-39 0 15d10+1700 389d1+1 5d6+13 wrath
+BT 0 H 0 A 1000 0
+39 0 15d10+1700 389d1+1 5d6+13 'wrath'
 -13 -13 -13 4
-DEFGHIJKN 0 0 0
+DEFGHIJKN
 stand stand male 0
 0 0 medium unknown
 #35013
 dark dragon~
 the Dark Dragon~
-The giant Dark Dragon is standing here.
-~
+The giant Dark Dragon is standing here.~
 Dark Dragon is a dangerous monster, you should not mock at him if you want
 to live a little longer. He is as strong as the King of Atlantis, Neptune,
 but Dark Dragon abuses his strength. So don't challenge him.
 ~
 human~
-AT IM -1000 0
-19 0 3d9+308 189d1+1 2d7+5 acbite
+T 0 IM 0 0 -1000 0
+19 0 3d9+308 189d1+1 2d7+5 'acbite'
 -4 -4 -4 7
-DEFGHIJKN 0 CD 0
+DEFGHIJKN
 stand stand male 0
 0 0 medium unknown
+r bash 33
+r pierce 33
+r slash 33
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r poison 33
+r negative 33
+r holy 33
+r energy 33
+r mental 33
+r disease 33
+r light 33
+r harm 33
+r charm 33
+r sound 33
 #35014
 princess chelly~
 Princess Chelly~
-Princess Chelly is standing here.
-~
+Princess Chelly is standing here.~
 The daughter of King Neptune. She is very beautiful. You think the most
 beautiful girl you have ever seen in Atlantis. You would ask her to marry
 you but she doesn't want scum like you, as she says.
 ~
 human~
-AT H 1000 0
-33 0 10d10+1100 329d1+1 6d4+10 slap
+T 0 H 0 0 1000 0
+33 0 10d10+1100 329d1+1 6d4+10 'slap'
 -11 -11 -11 5
-DEFGHIJKN 0 0 0
+DEFGHIJKN
 stand stand male 0
 0 0 medium unknown
 #35015
 cook ed~
 Ed the Cook~
-Ed the cook, is cooking here something delicious.
-~
+Ed the cook, is cooking here something delicious.~
 Ed is a very talented cook, every diner he makes, is VERY delicious. He has
 been working for 20 years for King Neptune. Ed is a fat man who tastes every
 diner he makes.
 ~
 human~
-ABCT 0 500 0
-25 0 5d10+550 249d1+1 2d10+7 chomp
+BCT 0 0 0 0 500 0
+25 0 5d10+550 249d1+1 2d10+7 'chomp'
 -7 -7 -7 6
-DEFGHIJKN 0 0 0
+DEFGHIJKN
 stand stand male 0
 0 0 medium unknown
 #35016
 marid sage~
 Sage Marid~
-The Sage Marid is standing here behind his counter.
-~
+The Sage Marid is standing here behind his counter.~
 The sage is a small man with a long beard. His hands look very wrinkled.
 And his eyes are full of power. He looks very week and old but be aware
 of his knowledge of magic. The spells he knows are so devastating that
 he could destroy Atlantis with his own hand.
 ~
 human~
-ABT DEJ 1000 0
-35 0 10d10+11300 349d1+1 4d7+41 wrath
+BJT 0 0 0 AHL 1000 0
+35 0 10d10+11300 349d1+1 4d7+41 'wrath'
 -11 -11 -11 5
-DEFGHIJKN ABCD 0 0
+DEFGHIJKN
 stand stand male 0
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r poison 100
+r negative 100
+r holy 100
+r energy 100
+r mental 100
+r disease 100
+r light 100
+r harm 100
+r charm 100
+r sound 100
 #35017
 sophia~
 Sophia~
-Sophia is standing here trying to sell some food and some drinks.
-~
+Sophia is standing here trying to sell some food and some drinks.~
 If you want to talk, don't come here. She talks so fast that if you want to
 say anything you would have to wait forever because she keeps talking and
 talking.
 ~
 human~
-ABT 0 900 0
-20 0 3d9+11333 199d1+1 2d8+45 slap
+BJT 0 0 0 0 900 0
+20 0 3d9+11333 199d1+1 2d8+45 'slap'
 -4 -4 -4 7
-DEFGHIJKN ABCD 0 0
+DEFGHIJKN
 stand stand male 0
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r poison 100
+r negative 100
+r holy 100
+r energy 100
+r mental 100
+r disease 100
+r light 100
+r harm 100
+r charm 100
+r sound 100
 #35018
 bruce fishman~
 Bruce the Fishman~
-Bruce the Fishman is standing here.
-~
+Bruce the Fishman is standing here.~
 You can smell Bruce loves his job. He is wearing a very dirty apron. He is
 very fat because he eats a lot of fish. Bruce can handle a knife with
 enormous speed, he learned that from his job.
 ~
 human~
-ABT 0 900 0
-29 0 6d12+11778 289d1+1 2d12+48 chomp
+BJT 0 0 0 0 900 0
+29 0 6d12+11778 289d1+1 2d12+48 'chomp'
 -9 -9 -9 6
-DEFGHIJKN ABCD 0 0
+DEFGHIJKN
 stand stand male 0
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r poison 100
+r negative 100
+r holy 100
+r energy 100
+r mental 100
+r disease 100
+r light 100
+r harm 100
+r charm 100
+r sound 100
 #35019
 samuel woodcutter~
 Samuel the woodcutter~
-Samuel the woodcutter is cutting here some trees.
-~
+Samuel the woodcutter is cutting here some trees.~
 A very nice man, always ready to help you if you ask nicely. If he doesn't
 like you he gets angry very quickly. And if he does, you SHOULD be afraid.
 ~
 human~
-ABT 0 900 0
-30 0 6d12+853 299d1+1 4d6+8 slash
+BT 0 0 0 0 900 0
+30 0 6d12+853 299d1+1 4d6+8 'slash'
 -9 -9 -9 6
-DEFGHIJKN 0 0 0
+DEFGHIJKN
 stand stand male 0
 0 0 medium unknown
 #35020
 bat~
 the Bat~
-A bat is flying here.
-~
+A bat is flying here.~
 A bat like any other, YOU think.
 ~
 bat~
-ACFT K -1000 0
-5 0 2d6+60 49d1+1 1d6+1 bite
+CFJT 0 K 0 0 -1000 0
+5 0 2d6+60 49d1+1 1d6+1 'bite'
 5 5 5 9
-DEGIJKN AB 0 0
+DEGIJKN
 stand stand male 0
 0 0 medium unknown
+r light -50
+r charm 100
 #35021
 giant horrifying rat~
 the giant horrifying rat~
-A giant horrifying rat is running around.
-~
+A giant horrifying rat is running around.~
 Well this is a strange creature. You have seen rats before, but this is
 ridiculous. You don't recall him being THIS big.
 ~
 unique~
-A 0 -1000 0
-20 0 3d9+333 199d1+1 2d8+5 bite
+J 0 0 0 0 -1000 0
+20 0 3d9+333 199d1+1 2d8+5 'bite'
 -4 -4 -4 7
-0 AB 0 0
+0
 stand stand none 0
 0 0 medium unknown
+r charm 100
 #35022
 native atlantis~
 a native of Atlantis~
-A native of Atlantis is here, boring himself.
-~
+A native of Atlantis is here, boring himself.~
 This native acts like every native in Atlantis. Always busy enjoying the
 day. You didn't know it was possible never stop smiling, but this proves it.
 ~
 human~
-ACHT 0 0 0
-18 0 3d9+283 179d1+1 2d7+4 punch
+CHJT 0 0 0 0 0 0
+18 0 3d9+283 179d1+1 2d7+4 'punch'
 -3 -3 -3 7
-DEFGHIJKN AB 0 0
+DEFGHIJKN
 stand stand either 0
 0 0 medium unknown
+r charm 100
 #35023
 parrot~
 the parrot~
-The parrot of sage Marid is here, looking for something to steal.
-~
+The parrot of sage Marid is here, looking for something to steal.~
 You see a sweet parrot with a lot of colours. You think nobody would want
 him to be invisible, yet he is. Not to you though.
 ~
 song bird~
-ACHT B -1000 0
-10 0 2d7+121 99d1+1 2d4+2 claw
+CHJT 0 0 A 0 -1000 0
+10 0 2d7+121 99d1+1 2d4+2 'claw'
 1 1 1 8
-DEGIJKN AB 0 0
+DEGIJKN
 stand stand male 0
 0 0 medium unknown
+r charm 100
 #35024
 gardener~
 the gardener~
-The gardener is working here in the palace garden.
-~
+The gardener is working here in the palace garden.~
 This is a man who loves his work, he is all covered in mud and flowers.
 You think if he keeps eating those flowers, he should be very ill very
 soon, but somehow he doesn't.
 ~
 human~
-ABT 0 900 0
-25 0 5d10+550 249d1+1 2d10+7 pierce
+BJT 0 0 0 0 900 0
+25 0 5d10+550 249d1+1 2d10+7 'pierce'
 -7 -7 -7 6
-DEFGHIJKN AB 0 0
+DEFGHIJKN
 stand stand male 0
 0 0 medium unknown
+r charm 100
 #0
 
 #OBJECTS
@@ -409,443 +529,383 @@ metal key~
 a metal key~
 A metal key has been left here. It's just screaming 'TAKE ME'.~
 metal~
-key A A
+key A 0 A
 0 0 0 0 0
 4 2 40 P
 E
 key~
 Aaah... a key, come on, USE it.
 ~
-G none
 #35001
 sharkbite sword~
 sword Sharkbite~
 A sword everybody dreams of, is lying here.~
 bone~
-weapon ABGIK AN
-sword 5 10 frbite D
+weapon ABGIK 0 AN
+sword 5 10 'frbite' D
 42 200 14380 P
-A
-18 6
-A
-19 6
-A
-5 -2
+a '' to_object 42 -1 6 18 0
+a '' to_object 42 -1 6 19 0
+a '' to_object 42 -1 -2 5 0
 E
 sharkbite sword~
 This is the sword of King Neptune from Atlantis.
 ~
-G none
 #35002
 diamond jewel key~
 a key with a diamond jewel~
 A key with a diamond jewel has been left here.~
 diamond~
-key A A
+key A 0 A
 0 0 0 0 0
 26 2 260 P
 E
 key~
 Aaah... a key, come on, USE it.
 ~
-G none
 #35003
 black key~
 a black key~
 A black key has been left here.~
 stone~
-key 0 A
+key 0 0 A
 0 0 0 0 0
 26 2 260 P
 E
 key~
 Aaah... a key, come on, USE it.
 ~
-G none
 #35004
 shield seaweed~
 shield Seaweed~
 A shield named 'Seaweed' has been left here.~
 bone~
-armor FGK AJ
+armor FGK 0 AJ
 14 11 13 6 4
 42 317 11380 P
-A
-13 30
-A
-19 2
+a '' to_object 42 -1 30 13 0
+a '' to_object 42 -1 2 19 0
 E
 shield seaweed~
 Very strong shield named 'Seaweed'.
 ~
-G none
 #35005
 ice crown~
 the Ice Crown~
 A crown made of ice has been left here.~
 ice~
-armor AGHK AE
+armor AGHK 0 AE
 13 13 15 7 2
 42 110 10380 P
-A
-5 2
+a '' to_object 42 -1 2 5 0
 E
 crown~
 A crown made of ice, don't ask me why it doesn't melt.
 ~
-G none
 #35006
 pair leather shoes~
 leather shoes~
 A pair of leather shoes are lying here.~
 leather~
-armor GK AG
+armor GK 0 AG
 13 13 13 9 0
 42 127 11380 P
-A
-14 30
+a '' to_object 42 -1 30 14 0
 E
 shoes~
 A pair of all fit shoes made of white leather.
 ~
-G none
 #35007
 staff control lightning~
 staff of lightning~
 A staff to control lightning is lying here.~
 wood~
-staff AGK AO
+staff AGK 0 AO
 55 5 5 'call lightning' 0
 40 312 17380 P
 E
 staff lightning~
 One staff to control lightning.
 ~
-G none
 #35008
 ring wisdom~
 the Ring of Wisdom~
 The ring of wisdom has been left here.~
 iron~
-armor GK AB
+armor GK 0 AB
 11 11 11 3 0
 42 11 9380 P
-A
-4 2
+a '' to_object 42 -1 2 4 0
 E
 ring~
 One ring of wisdom.
 ~
-G none
 #35009
 pile coins~
 a pile of coins~
 A big pile of coins of King Neptune are lying here.~
 silver~
-money A A
+money A 0 A
 100 20 0 0 0
 24 6 240 P
 E
 pile coins~
 Oooh, you see a lot glittering coins.
 ~
-G none
 #35010
 black claw~
 a black claw~
 A very BIG black Claw is lying here.~
 bone~
-weapon CEJ AN
-exotic 5 5 slash 0
+weapon CEJ 0 AN
+exotic 5 5 'slash' 0
 19 250 3390 P
-A
-18 4
-A
-19 4
+a '' to_object 19 -1 4 18 0
+a '' to_object 19 -1 4 19 0
 E
 black claw~
 This claw is very BIG and it sure looks sharp!
 ~
-G none
 #35012
 sage potion~
 the sage Potion~
 A potion, made by the sage is lying here.~
 glass~
-potion 0 A
+potion 0 0 A
 30 'fly' 'refresh' 'giant strength' ''
 7 10 650 P
 E
 potion~
 The potion has a small label 'As a giant you will be, the enemy will flee.'.
 ~
-G none
 #35013
 green potion~
 a green potion~
 A green potion has been left here.~
 glass~
-potion 0 A
+potion 0 0 A
 20 'detect magic' 'detect poison' 'detect good' ''
 9 1 450 P
 E
 potion~
 Hmmmmmm, it looks very magic... try it!
 ~
-G none
 #35014
 unknown potion~
 unknown potion~
 A unknown potion has been left here.~
 glass~
-potion 0 A
+potion 0 0 A
 30 'cure light wounds' 'bless' 'armor' ''
 4 1 8000 P
 E
 potion~
 Well, you see somethings unknown.
 ~
-G none
 #35015
 dark brown potion~
 a dark brown potion~
 A dark brown potion is lying here.~
 glass~
-potion BH A
+potion BH 0 A
 20 'haste' 'refresh' 'armor' ''
 9 1 10000 P
 E
 potion~
 It looks like a delicious potion.
 ~
-G none
 #35016
 sandwich~
 a sandwich~
 A delicious looking sandwich has been left here.~
 food~
-food 0 A
+food 0 0 A
 BD 0 0 0 0
 7 1 8 P
-G none
 #35017
 sausage~
 a sausage~
 A delicious looking sausage is lying here.~
 food~
-food 0 A
+food 0 0 A
 ABCD ABCD 0 0 0
 11 5 11 P
-G none
 #35018
 beer~
 a bottle of beer~
 A bottle of beer has been left here, smell.~
 food~
-drink 0 A
+drink 0 0 A
 5 5 'beer' 0 0
 13 10 33 P
-G none
 #35019
 very big sharp samuel's axe~
 Samuel's axe~
 A very BIG and SHARP axe has been left here.~
 mithril~
-weapon A AN
-axe 5 8 slash D
+weapon A 0 AN
+axe 5 8 'slash' D
 28 310 5300 P
-A
-18 3
-A
-19 5
+a '' to_object 28 -1 3 18 0
+a '' to_object 28 -1 5 19 0
 E
 axe~
 It's the axe of Samuel from Atlantis.
 ~
-G none
 #35020
 spear~
 a spear~
 A SHARP spear is lying here.~
 steel~
-weapon A AN
-spear 5 5 pierce DK
+weapon A 0 AN
+spear 5 5 'pierce' DK
 20 130 4210 P
-A
-18 2
-A
-19 4
+a '' to_object 20 -1 2 18 0
+a '' to_object 20 -1 4 19 0
 E
 spear~
 Oooooh... don't touch it, it's so SHARP.
 ~
-G none
 #35021
 shell helmet~
 a shell helmet~
 A helmet like a very large shell has been left here.~
 shell~
-armor B AE
+armor B 0 AE
 8 7 8 3 3
 20 215 3240 P
-A
-13 10
-A
-17 -10
+a '' to_object 20 -1 10 13 0
+a '' to_object 20 -1 -10 17 0
 E
 helmet shell~
 This is strange, a helmet like a very large shell.
 ~
-G none
 #35022
 ring pearl~
 a ring with a pearl~
 A ring with an expensive pearl has been left here.~
 pearl~
-armor A AB
+armor A 0 AB
 7 6 7 4 1
 20 11 3250 P
-A
-13 1
-A
-24 1
+a '' to_object 20 -1 1 13 0
+a '' to_object 20 -1 1 24 0
 E
 ring pearl~
 This ring looks very expensive and is glittering like a diamond.
 ~
-G none
 #35023
 ivory shield~
 a ivory shield~
 An ivory shield is lying here.~
 ivory~
-armor AGY AJP
+armor AGY B AJ
 7 7 6 3 3
 20 310 4240 P
-A
-18 1
+a '' to_object 20 -1 1 18 0
 E
 ivory shield~
 This shield looks very strong. You are sure nothing can break it.
 ~
-G none
 #35024
 ball~
 a ball of light~
 A ball of light has been left here.~
 energy~
-light 0 A
+light 0 0 A
 0 0 -1 0 0
 20 124 3240 P
-G none
 #35025
 spear~
 a spear~
 A SHARP spear is lying here.~
 iron~
-weapon A AN
-spear 5 8 pierce DK
+weapon A 0 AN
+spear 5 8 'pierce' DK
 31 350 6330 P
-A
-18 3
-A
-19 6
+a '' to_object 31 -1 3 18 0
+a '' to_object 31 -1 6 19 0
 E
 spear~
 Oooooh... don't touch it, it's so SHARP.
 ~
-G none
 #35026
 necklace glittering pearls~
 a necklace~
 A nice necklace with glittering pearls has been left here.~
 pearl~
-armor A AC
+armor A 0 AC
 8 8 8 16 3
 31 80 6330 P
-A
-12 15
-G none
+a '' to_object 31 -1 15 12 0
 #35027
 fishing-rod~
 a fishing-rod~
 A fishing-rod has been left here.~
 wood~
-trash 0 AO
+trash 0 0 AO
 0 0 0 0 0
 13 300 2130 P
-G none
 #35028
 pocket knife~
 a pocket knife~
 A sharp looking pocket knife is lying here.~
 steel~
-weapon 0 AN
-dagger 5 5 slice 0
+weapon 0 0 AN
+dagger 5 5 'slice' 0
 18 132 3100 P
-A
-18 2
-A
-19 5
-G none
+a '' to_object 18 -1 2 18 0
+a '' to_object 18 -1 5 19 0
 #35029
 pitchfork~
 a pitchfork~
 A pitchfork is asking to be picked up.~
 steel~
-weapon 0 AN
-exotic 5 6 pierce 0
+weapon 0 0 AN
+exotic 5 6 'pierce' 0
 25 240 4250 P
-A
-18 2
-A
-19 4
-G none
+a '' to_object 25 -1 2 18 0
+a '' to_object 25 -1 4 19 0
 #35030
 fish~
 a fish~
 There is a cooked fish lying here.~
 food~
-food 0 A
+food 0 0 A
 BD BD 0 0 0
 0 5 11 P
-G none
 #35031
 red cape~
 a red cape~
 A red cape has been left here.~
 wool~
-armor 0 AC
+armor 0 0 AC
 7 5 5 1 3
 11 30 130 P
-G none
 #35040
 potion black~
 a black potion~
 A black potion bubbles while you watch.~
 glass~
-potion G AO
+potion G 0 AO
 20 'heal' 'heal' 'heal' ''
 20 50 3250 P
-G none
 #35041
 potion black~
 a black potion~
 A black potion bubbles while you watch.~
 glass~
-potion G AO
+potion G 0 AO
 20 'heal' 'heal' '' ''
 20 50 3250 P
-G none
 #35042
 potion black~
 a black potion~
 A black potion bubbles while you watch.~
 glass~
-potion G AO
+potion G 0 AO
 20 'heal' '' '' ''
 20 50 3250 P
-G none
 #0
 
 #ROOMS
@@ -863,9 +923,13 @@ If you are below level 5, please enter, we LOVE blood, YOUR blood!
 D3
 ~
 ~
+~
+~
 Z -1 9798
 D5
 Down is the sea..
+~
+~
 ~
 ~
 Z -1 35001
@@ -880,9 +944,13 @@ D0
 Still the sea.
 ~
 ~
+~
+~
 Z -1 35004
 D1
 Even more sea.
+~
+~
 ~
 ~
 Z -1 35003
@@ -890,9 +958,13 @@ D2
 Even more sea.
 ~
 ~
+~
+~
 Z -1 35007
 D3
 Even more sea.
+~
+~
 ~
 ~
 Z -1 35002
@@ -907,9 +979,13 @@ D0
 Even more sea.
 ~
 ~
+~
+~
 Z -1 35005
 D1
 Even more sea.
+~
+~
 ~
 ~
 Z -1 35001
@@ -917,9 +993,13 @@ D2
 Even more sea.
 ~
 ~
+~
+~
 Z -1 35008
 D3
 This is getting boring.
+~
+~
 ~
 ~
 Z -1 35003
@@ -934,9 +1014,13 @@ D0
 Even more sea.
 ~
 ~
+~
+~
 Z -1 35006
 D1
 Even more sea.
+~
+~
 ~
 ~
 Z -1 35002
@@ -944,9 +1028,13 @@ D2
 Even more sea.
 ~
 ~
+~
+~
 Z -1 35009
 D3
 Even more sea.
+~
+~
 ~
 ~
 Z -1 35001
@@ -970,9 +1058,13 @@ D0
 Even more sea.
 ~
 ~
+~
+~
 Z -1 35007
 D1
 Even more sea.
+~
+~
 ~
 ~
 Z -1 35006
@@ -980,9 +1072,13 @@ D2
 Even more sea.
 ~
 ~
+~
+~
 Z -1 35001
 D3
 Even more sea.
+~
+~
 ~
 ~
 Z -1 35005
@@ -997,9 +1093,13 @@ D0
 Even more sea.
 ~
 ~
+~
+~
 Z -1 35008
 D1
 Even more sea.
+~
+~
 ~
 ~
 Z -1 35004
@@ -1007,9 +1107,13 @@ D2
 Even more sea.
 ~
 ~
+~
+~
 Z -1 35002
 D3
 Even more sea.
+~
+~
 ~
 ~
 Z -1 35010
@@ -1024,9 +1128,13 @@ D0
 Even more sea.
 ~
 ~
+~
+~
 Z -1 35009
 D1
 You can't see a thing.
+~
+~
 ~
 ~
 Z -1 35010
@@ -1034,9 +1142,13 @@ D2
 Even more sea.
 ~
 ~
+~
+~
 Z -1 35003
 D3
 Even more sea.
+~
+~
 ~
 ~
 Z -1 35004
@@ -1051,9 +1163,13 @@ D0
 Even more sea.
 ~
 ~
+~
+~
 Z -1 35001
 D1
 Even more sea.
+~
+~
 ~
 ~
 Z -1 35009
@@ -1061,10 +1177,14 @@ D2
 Even more sea.
 ~
 ~
+~
+~
 Z -1 35004
 D3
 Even more sea.
 
+~
+~
 ~
 ~
 Z -1 35008
@@ -1079,9 +1199,13 @@ D0
 Even more sea.
 ~
 ~
+~
+~
 Z -1 35002
 D1
 Even more sea.
+~
+~
 ~
 ~
 Z -1 35007
@@ -1089,9 +1213,13 @@ D2
 Even more sea.
 ~
 ~
+~
+~
 Z -1 35005
 D3
 Even more sea.
+~
+~
 ~
 ~
 Z -1 35009
@@ -1106,9 +1234,13 @@ D0
 Even more sea.
 ~
 ~
+~
+~
 Z -1 35003
 D1
 Even more sea.
+~
+~
 ~
 ~
 Z -1 35008
@@ -1116,9 +1248,13 @@ D2
 Even more sea.
 ~
 ~
+~
+~
 Z -1 35006
 D3
 Even more sea.
+~
+~
 ~
 ~
 Z -1 35007
@@ -1132,6 +1268,8 @@ D5
 You can't see a thing.
 ~
 ~
+~
+~
 Z -1 35011
 S
 #35011
@@ -1143,6 +1281,8 @@ D5
 You can't see a thing.
 ~
 ~
+~
+~
 Z -1 35012
 S
 #35012
@@ -1152,6 +1292,8 @@ GOING DOWN!!!!!!
 0 N swim
 D5
 You can't see a thing.
+~
+~
 ~
 ~
 Z -1 35013
@@ -1171,6 +1313,8 @@ D0
 A locked door.
 ~
 door~
+the door~
+~
 ABCFZ 35000 35014
 S
 #35014
@@ -1192,6 +1336,8 @@ D0
 To the north you see the Atlantis Street.
 ~
 ~
+~
+~
 Z -1 35015
 S
 #35015
@@ -1205,9 +1351,13 @@ D0
 To the north you see Atlantis Square.
 ~
 ~
+~
+~
 Z -1 35016
 D1
 To the east you see the Pub.
+~
+~
 ~
 ~
 Z -1 35037
@@ -1215,9 +1365,13 @@ D2
 To the south you see the Entrance of Atlantis
 ~
 ~
+~
+~
 Z -1 35014
 D3
 To the east you see the Potions Shop.
+~
+~
 ~
 ~
 Z -1 35036
@@ -1241,9 +1395,13 @@ D0
 To the north you see Atlantis Street.
 ~
 ~
+~
+~
 Z -1 35017
 D1
 To the east you see Martinus Street.
+~
+~
 ~
 ~
 Z -1 35032
@@ -1251,9 +1409,13 @@ D2
 To the south you see Atlantis Street.
 ~
 ~
+~
+~
 Z -1 35015
 D3
 To the west you see Martinus Street.
+~
+~
 ~
 ~
 Z -1 35030
@@ -1268,14 +1430,20 @@ D0
 To the north you see the gate of Neptune's Palace.
 ~
 ~
+~
+~
 Z -1 35018
 D2
 To the south you see Atlantis Square.
 ~
 ~
+~
+~
 Z -1 35016
 D3
 To the west you see a House.
+~
+~
 ~
 ~
 Z -1 35039
@@ -1291,14 +1459,20 @@ D0
 To the north you see a garden.
 ~
 ~
+~
+~
 Z -1 35035
 D1
 To the east you see the Guards Office.
 ~
 ~
+~
+~
 Z -1 35029
 D2
 To the south you see Atlantis Street.
+~
+~
 ~
 ~
 Z -1 35017
@@ -1316,9 +1490,13 @@ D0
 To the north you see Neptunes Throne.
 ~
 ~
+~
+~
 Z -1 35020
 D1
 To the east you see the very same hall.
+~
+~
 ~
 ~
 Z -1 35022
@@ -1326,14 +1504,20 @@ D2
 To the south you see the garden.
 ~
 ~
+~
+~
 Z -1 35035
 D3
 To the west you see the kitchen of the palace.
 ~
 ~
+~
+~
 Z -1 35021
 D4
 Above you is the bedroom.
+~
+~
 ~
 ~
 Z -1 35026
@@ -1353,6 +1537,8 @@ D2
 To the south you see the hall.
 ~
 ~
+~
+~
 Z -1 35019
 S
 #35021
@@ -1365,6 +1551,8 @@ You think it is 'Paradise city' from... hmmm, you don't remember the group.
 0 D inside
 D1
 To the east you see the hall.
+~
+~
 ~
 ~
 Z -1 35019
@@ -1384,9 +1572,13 @@ D0
 To the north you see a heavy door.
 ~
 door~
+the door~
+~
 ABCFZ 35002 35023
 D1
 To the east you see the store room.
+~
+~
 ~
 ~
 Z -1 35025
@@ -1394,14 +1586,20 @@ D2
 To the south you see the dining room.
 ~
 ~
+~
+~
 Z -1 35024
 D3
 To the west you see the same hall.
 ~
 ~
+~
+~
 Z -1 35019
 D5
 Below you is the entrance of the jail.
+~
+~
 ~
 ~
 Z -1 35027
@@ -1417,6 +1615,8 @@ D2
 To the south you see the hall.
 ~
 ~
+~
+~
 Z -1 35022
 S
 #35024
@@ -1430,6 +1630,8 @@ D0
 To the north you see the hall.
 ~
 ~
+~
+~
 Z -1 35022
 S
 #35025
@@ -1441,6 +1643,8 @@ would not have found anything interesting.
 0 D inside
 D3
 To the west you see the hall.
+~
+~
 ~
 ~
 Z -1 35022
@@ -1460,6 +1664,8 @@ D5
 Below you, you see the hall.
 ~
 ~
+~
+~
 Z -1 35019
 S
 #35027
@@ -1474,9 +1680,13 @@ D3
 To the west you see a barred door.
 ~
 door~
+the door~
+~
 ABCFZ 35003 35028
 D4
 Above you, the hall.
+~
+~
 ~
 ~
 Z -1 35022
@@ -1498,6 +1708,8 @@ D1
 To the east you see the entrance of the jail.
 ~
 door~
+the door~
+~
 ABCFZ 35003 35027
 S
 #35029
@@ -1516,6 +1728,8 @@ D3
 To the east you see the gate of Neptunes palace.
 ~
 ~
+~
+~
 Z -1 35018
 S
 #35030
@@ -1529,9 +1743,13 @@ D0
 To the north you see a house.
 ~
 ~
+~
+~
 Z -1 35040
 D1
 You see the Atlantis Square.
+~
+~
 ~
 ~
 Z -1 35016
@@ -1539,9 +1757,13 @@ D2
 You see the Fish Store.
 ~
 ~
+~
+~
 Z -1 35038
 D3
 You see the Temple of Atlantis.
+~
+~
 ~
 ~
 Z -1 35031
@@ -1558,6 +1780,8 @@ D1
 You see the Martinus Street.
 ~
 ~
+~
+~
 Z -1 35030
 S
 #35032
@@ -1571,9 +1795,13 @@ D0
 You see the edge of the wood.
 ~
 ~
+~
+~
 Z -1 35042
 D1
 You see the a cemetery.
+~
+~
 ~
 ~
 Z -1 35033
@@ -1581,9 +1809,13 @@ D2
 To the south you see a house.
 ~
 ~
+~
+~
 Z -1 35041
 D3
 You see the Atlantis Square.
+~
+~
 ~
 ~
 Z -1 35016
@@ -1606,9 +1838,13 @@ D0
 You see the edge of the wood.
 ~
 ~
+~
+~
 Z -1 35043
 D3
 You see the Martinus Street.
+~
+~
 ~
 ~
 Z -1 35032
@@ -1616,6 +1852,8 @@ D5
 You can just see the tip of your nose.
 ~
 grave~
+the grave~
+~
 ABZ -1 35034
 S
 #35034
@@ -1627,6 +1865,8 @@ one exit, below you.
 0 ACD field
 D5
 You can't see a thing.
+~
+~
 ~
 ~
 Z -1 35044
@@ -1643,9 +1883,13 @@ D0
 You see the hall.
 ~
 ~
+~
+~
 Z -1 35019
 D2
 You see the gate of Neptunes palace.
+~
+~
 ~
 ~
 Z -1 35018
@@ -1661,6 +1905,8 @@ To the east you see the Atlantis Street.
 0 D city
 D1
 You see the Atlantis Street.
+~
+~
 ~
 ~
 Z -1 35015
@@ -1681,6 +1927,8 @@ D3
 You see the Atlantis Street.
 ~
 ~
+~
+~
 Z -1 35015
 S
 #35038
@@ -1699,6 +1947,8 @@ D0
 You see the Martinus Street.
 ~
 ~
+~
+~
 Z -1 35030
 S
 #35039
@@ -1710,6 +1960,8 @@ the bedroom, the kitchen and the living-room.
 0 D city
 D1
 You see the Atlantis Street.
+~
+~
 ~
 ~
 Z -1 35017
@@ -1725,6 +1977,8 @@ D2
 You see the Martinus Street.
 ~
 ~
+~
+~
 Z -1 35030
 S
 #35041
@@ -1736,6 +1990,8 @@ bedroom, the kitchen and the living-room together.
 0 D city
 D0
 You see the Martinus Street.
+~
+~
 ~
 ~
 Z -1 35032
@@ -1756,9 +2012,13 @@ D1
 You see the edge of the wood.
 ~
 ~
+~
+~
 Z -1 35043
 D2
 You see the Martinus Street.
+~
+~
 ~
 ~
 Z -1 35032
@@ -1774,9 +2034,13 @@ D2
 You see a cemetery.
 ~
 ~
+~
+~
 Z -1 35033
 D3
 You see the edge of the wood.
+~
+~
 ~
 ~
 Z -1 35042
@@ -1792,9 +2056,13 @@ D0
 You can't see a thing.
 ~
 ~
+~
+~
 Z -1 35048
 D2
 You can't see a thing.
+~
+~
 ~
 ~
 Z -1 35049
@@ -1802,9 +2070,13 @@ D3
 You can't see a thing.
 ~
 ~
+~
+~
 Z -1 35045
 D4
 You can't see a thing.
+~
+~
 ~
 ~
 Z -1 35034
@@ -1820,14 +2092,20 @@ D0
 You can't see a thing.
 ~
 ~
+~
+~
 Z -1 35046
 D1
 You can't see a thing.
 ~
 ~
+~
+~
 Z -1 35044
 D2
 You can't see a thing.
+~
+~
 ~
 ~
 Z -1 35050
@@ -1843,9 +2121,13 @@ D0
 You can't see a thing.
 ~
 ~
+~
+~
 Z -1 35047
 D1
 You can't see a thing.
+~
+~
 ~
 ~
 Z -1 35048
@@ -1853,9 +2135,13 @@ D2
 You can't see a thing.
 ~
 ~
+~
+~
 Z -1 35045
 D4
 You can't see a thing.
+~
+~
 ~
 ~
 Z -1 35028
@@ -1871,6 +2157,8 @@ D2
 You can't see a thing.
 ~
 ~
+~
+~
 Z -1 35046
 S
 #35048
@@ -1884,9 +2172,13 @@ D2
 You can't see a thing.
 ~
 ~
+~
+~
 Z -1 35044
 D3
 You can't see a thing.
+~
+~
 ~
 ~
 Z -1 35046
@@ -1902,9 +2194,13 @@ D0
 You can't see a thing.
 ~
 ~
+~
+~
 Z -1 35044
 D3
 You can't see a thing. 
+~
+~
 ~
 ~
 Z -1 35050
@@ -1920,14 +2216,20 @@ D0
 You can't see a thing.
 ~
 ~
+~
+~
 Z -1 35045
 D1
 You can't see a thing.
 ~
 ~
+~
+~
 Z -1 35049
 D4
 You can't see a thing.
+~
+~
 ~
 ~
 Z -1 35016
@@ -1948,14 +2250,9 @@ M 35023 spec_thief	* the parrot
 S
 
 #RESETS
-D 0 35013 0 2	* A Vortex: door to the north: closed and locked
-D 0 35022 0 2	* The Hall: door to the north: closed and locked
-D 0 35027 3 2	* Entrance to the Jail: door to the west: closed and locked
-D 0 35028 1 2	* The Cell: door to the east: closed and locked
-D 0 35033 5 1	* The Cemetery: door to the down: closed
 M 0 35000 1 35000 1	* the Fisherman (Beside the sea...)
-E 0 35027 0 17		*	a fishing-rod: held in the hands
-E 0 35031 0 6		*	a red cape: over the head
+E 0 35027 0 17		*	the Fisherman<held in the hands>: a fishing-rod
+E 0 35031 0 6		*	the Fisherman<over the head>: a red cape
 M 0 35001 5 35001 1	* the Fish (The sea)
 M 0 35001 5 35003 1	* the Fish (The sea)
 M 0 35001 5 35004 1	* the Fish (The sea)
@@ -1965,144 +2262,144 @@ M 0 35001 5 35006 1	* the Fish (The sea)
 M 0 35002 3 35008 1	* the Sea-horse (The sea)
 M 0 35001 5 35009 1	* the Fish (The sea)
 M 0 35005 1 35013 1	* the Shell (A Vortex)
-G 0 35000 0		*	a metal key
+G 0 35000 0		*	the Shell: a metal key
 M 0 35010 2 35014 2	* the Atlantis Guard (Entrance to Atlantis)
-E 0 35020 0 16		*	a spear: wielded
-E 0 35021 0 6		*	a shell helmet: over the head
-E 0 35023 0 11		*	a ivory shield: as a shield
-E 0 35024 0 0		*	a ball of light: as a light
-G 0 35040 0		*	a black potion
+E 0 35020 0 16		*	the Atlantis Guard<wielded>: a spear
+E 0 35021 0 6		*	the Atlantis Guard<over the head>: a shell helmet
+E 0 35023 0 11		*	the Atlantis Guard<as a shield>: a ivory shield
+E 0 35024 0 0		*	the Atlantis Guard<as a light>: a ball of light
+G 0 35040 0		*	the Atlantis Guard: a black potion
 M 0 35010 2 35014 2	* the Atlantis Guard (Entrance to Atlantis)
-E 0 35020 0 16		*	a spear: wielded
-E 0 35021 0 6		*	a shell helmet: over the head
-E 0 35023 0 11		*	a ivory shield: as a shield
-E 0 35024 0 0		*	a ball of light: as a light
-G 0 35041 0		*	a black potion
+E 0 35020 0 16		*	the Atlantis Guard<wielded>: a spear
+E 0 35021 0 6		*	the Atlantis Guard<over the head>: a shell helmet
+E 0 35023 0 11		*	the Atlantis Guard<as a shield>: a ivory shield
+E 0 35024 0 0		*	the Atlantis Guard<as a light>: a ball of light
+G 0 35041 0		*	the Atlantis Guard: a black potion
 M 0 35009 12 35015 2	* the Atlantis Guard (Atlantis Street)
-E 0 35020 0 16		*	a spear: wielded
-E 0 35021 0 6		*	a shell helmet: over the head
-E 0 35023 0 11		*	a ivory shield: as a shield
-E 0 35024 0 0		*	a ball of light: as a light
-G 0 35041 0		*	a black potion
+E 0 35020 0 16		*	the Atlantis Guard<wielded>: a spear
+E 0 35021 0 6		*	the Atlantis Guard<over the head>: a shell helmet
+E 0 35023 0 11		*	the Atlantis Guard<as a shield>: a ivory shield
+E 0 35024 0 0		*	the Atlantis Guard<as a light>: a ball of light
+G 0 35041 0		*	the Atlantis Guard: a black potion
 M 0 35009 12 35015 2	* the Atlantis Guard (Atlantis Street)
-E 0 35020 0 16		*	a spear: wielded
-E 0 35021 0 6		*	a shell helmet: over the head
-E 0 35023 0 11		*	a ivory shield: as a shield
-E 0 35024 0 0		*	a ball of light: as a light
-G 0 35040 0		*	a black potion
+E 0 35020 0 16		*	the Atlantis Guard<wielded>: a spear
+E 0 35021 0 6		*	the Atlantis Guard<over the head>: a shell helmet
+E 0 35023 0 11		*	the Atlantis Guard<as a shield>: a ivory shield
+E 0 35024 0 0		*	the Atlantis Guard<as a light>: a ball of light
+G 0 35040 0		*	the Atlantis Guard: a black potion
 M 0 35009 12 35016 2	* the Atlantis Guard (Atlantis Square)
-E 0 35020 0 16		*	a spear: wielded
-E 0 35022 0 1		*	a ring with a pearl: on the left finger
-E 0 35023 0 11		*	a ivory shield: as a shield
-E 0 35024 0 0		*	a ball of light: as a light
-G 0 35040 0		*	a black potion
+E 0 35020 0 16		*	the Atlantis Guard<wielded>: a spear
+E 0 35022 0 1		*	the Atlantis Guard<on the left finger>: a ring with a pearl
+E 0 35023 0 11		*	the Atlantis Guard<as a shield>: a ivory shield
+E 0 35024 0 0		*	the Atlantis Guard<as a light>: a ball of light
+G 0 35040 0		*	the Atlantis Guard: a black potion
 M 0 35009 12 35016 2	* the Atlantis Guard (Atlantis Square)
-E 0 35020 0 16		*	a spear: wielded
-E 0 35022 0 1		*	a ring with a pearl: on the left finger
-E 0 35023 0 11		*	a ivory shield: as a shield
-E 0 35024 0 0		*	a ball of light: as a light
-G 0 35041 0		*	a black potion
+E 0 35020 0 16		*	the Atlantis Guard<wielded>: a spear
+E 0 35022 0 1		*	the Atlantis Guard<on the left finger>: a ring with a pearl
+E 0 35023 0 11		*	the Atlantis Guard<as a shield>: a ivory shield
+E 0 35024 0 0		*	the Atlantis Guard<as a light>: a ball of light
+G 0 35041 0		*	the Atlantis Guard: a black potion
 M 0 35009 12 35018 2	* the Atlantis Guard (The Gate of Neptunes Palace)
-E 0 35020 0 16		*	a spear: wielded
-E 0 35021 0 6		*	a shell helmet: over the head
-E 0 35023 0 11		*	a ivory shield: as a shield
-E 0 35024 0 0		*	a ball of light: as a light
-G 0 35041 0		*	a black potion
+E 0 35020 0 16		*	the Atlantis Guard<wielded>: a spear
+E 0 35021 0 6		*	the Atlantis Guard<over the head>: a shell helmet
+E 0 35023 0 11		*	the Atlantis Guard<as a shield>: a ivory shield
+E 0 35024 0 0		*	the Atlantis Guard<as a light>: a ball of light
+G 0 35041 0		*	the Atlantis Guard: a black potion
 M 0 35009 12 35018 2	* the Atlantis Guard (The Gate of Neptunes Palace)
-E 0 35020 0 16		*	a spear: wielded
-E 0 35021 0 6		*	a shell helmet: over the head
-E 0 35023 0 11		*	a ivory shield: as a shield
-E 0 35024 0 0		*	a ball of light: as a light
-G 0 35042 0		*	a black potion
+E 0 35020 0 16		*	the Atlantis Guard<wielded>: a spear
+E 0 35021 0 6		*	the Atlantis Guard<over the head>: a shell helmet
+E 0 35023 0 11		*	the Atlantis Guard<as a shield>: a ivory shield
+E 0 35024 0 0		*	the Atlantis Guard<as a light>: a ball of light
+G 0 35042 0		*	the Atlantis Guard: a black potion
 M 0 35003 1 35020 1	* King Neptune (Neptunes Throne)
-E 0 35001 0 16		*	sword Sharkbite: wielded
-E 0 35004 0 11		*	shield Seaweed: as a shield
-E 0 35005 0 6		*	the Ice Crown: over the head
-E 0 35006 0 8		*	leather shoes: on the feet
-E 0 35007 0 17		*	staff of lightning: held in the hands
-E 0 35008 0 1		*	the Ring of Wisdom: on the left finger
+E 0 35001 0 16		*	King Neptune<wielded>: sword Sharkbite
+E 0 35004 0 11		*	King Neptune<as a shield>: shield Seaweed
+E 0 35005 0 6		*	King Neptune<over the head>: the Ice Crown
+E 0 35006 0 8		*	King Neptune<on the feet>: leather shoes
+E 0 35007 0 17		*	King Neptune<held in the hands>: staff of lightning
+E 0 35008 0 1		*	King Neptune<on the left finger>: the Ring of Wisdom
 M 0 35004 2 35020 2	* the Mermaid (Neptunes Throne)
-E 0 35020 0 16		*	a spear: wielded
+E 0 35020 0 16		*	the Mermaid<wielded>: a spear
 M 0 35004 2 35020 2	* the Mermaid (Neptunes Throne)
-E 0 35020 0 16		*	a spear: wielded
+E 0 35020 0 16		*	the Mermaid<wielded>: a spear
 M 0 35015 1 35021 1	* Ed the Cook (The Kitchen)
 M 0 35006 1 35022 1	* the Treasurer (The Hall)
-G 0 35002 0		*	a key with a diamond jewel
+G 0 35002 0		*	the Treasurer: a key with a diamond jewel
 O 0 35009 0 35023	* a pile of coins (The Treasure Room)
 M 0 35014 1 35026 1	* Princess Chelly (Neptunes Bedroom)
-E 0 35026 0 3		*	a necklace: around the neck (1)
+E 0 35026 0 3		*	Princess Chelly<around the neck>: a necklace
 M 0 35007 1 35027 1	* the Jailer (Entrance to the Jail)
-G 0 35003 0		*	a black key
+G 0 35003 0		*	the Jailer: a black key
 M 0 35011 1 35028 1	* the Prisoner (The Cell)
 M 0 35008 1 35029 1	* the General Guard (The Guard Office)
-E 0 35025 0 16		*	a spear: wielded
+E 0 35025 0 16		*	the General Guard<wielded>: a spear
 M 0 35009 12 35030 2	* the Atlantis Guard (Martinus Street)
-E 0 35020 0 16		*	a spear: wielded
-E 0 35022 0 1		*	a ring with a pearl: on the left finger
-E 0 35023 0 11		*	a ivory shield: as a shield
-E 0 35024 0 0		*	a ball of light: as a light
-G 0 35042 0		*	a black potion
+E 0 35020 0 16		*	the Atlantis Guard<wielded>: a spear
+E 0 35022 0 1		*	the Atlantis Guard<on the left finger>: a ring with a pearl
+E 0 35023 0 11		*	the Atlantis Guard<as a shield>: a ivory shield
+E 0 35024 0 0		*	the Atlantis Guard<as a light>: a ball of light
+G 0 35042 0		*	the Atlantis Guard: a black potion
 M 0 35009 12 35030 2	* the Atlantis Guard (Martinus Street)
-E 0 35020 0 16		*	a spear: wielded
-E 0 35022 0 1		*	a ring with a pearl: on the left finger
-E 0 35023 0 11		*	a ivory shield: as a shield
-E 0 35024 0 0		*	a ball of light: as a light
-G 0 35040 0		*	a black potion
+E 0 35020 0 16		*	the Atlantis Guard<wielded>: a spear
+E 0 35022 0 1		*	the Atlantis Guard<on the left finger>: a ring with a pearl
+E 0 35023 0 11		*	the Atlantis Guard<as a shield>: a ivory shield
+E 0 35024 0 0		*	the Atlantis Guard<as a light>: a ball of light
+G 0 35040 0		*	the Atlantis Guard: a black potion
 M 0 35012 1 35031 1	* Martinus (The Temple of Atlantis)
 M 0 35009 12 35032 2	* the Atlantis Guard (Martinus Street)
-E 0 35020 0 16		*	a spear: wielded
-E 0 35022 0 1		*	a ring with a pearl: on the left finger
-E 0 35023 0 11		*	a ivory shield: as a shield
-E 0 35024 0 0		*	a ball of light: as a light
-G 0 35040 0		*	a black potion
+E 0 35020 0 16		*	the Atlantis Guard<wielded>: a spear
+E 0 35022 0 1		*	the Atlantis Guard<on the left finger>: a ring with a pearl
+E 0 35023 0 11		*	the Atlantis Guard<as a shield>: a ivory shield
+E 0 35024 0 0		*	the Atlantis Guard<as a light>: a ball of light
+G 0 35040 0		*	the Atlantis Guard: a black potion
 M 0 35009 12 35032 2	* the Atlantis Guard (Martinus Street)
-E 0 35020 0 16		*	a spear: wielded
-E 0 35022 0 1		*	a ring with a pearl: on the left finger
-E 0 35023 0 11		*	a ivory shield: as a shield
-E 0 35024 0 0		*	a ball of light: as a light
-G 0 35041 0		*	a black potion
+E 0 35020 0 16		*	the Atlantis Guard<wielded>: a spear
+E 0 35022 0 1		*	the Atlantis Guard<on the left finger>: a ring with a pearl
+E 0 35023 0 11		*	the Atlantis Guard<as a shield>: a ivory shield
+E 0 35024 0 0		*	the Atlantis Guard<as a light>: a ball of light
+G 0 35041 0		*	the Atlantis Guard: a black potion
 M 0 35024 1 35035 1	* the gardener (The Palace Garden)
-E 0 35029 0 16		*	a pitchfork: wielded
+E 0 35029 0 16		*	the gardener<wielded>: a pitchfork
 M 0 35009 12 35036 2	* the Atlantis Guard (The Potions Shop)
-E 0 35020 0 16		*	a spear: wielded
-E 0 35022 0 1		*	a ring with a pearl: on the left finger
-E 0 35023 0 11		*	a ivory shield: as a shield
-E 0 35024 0 0		*	a ball of light: as a light
-G 0 35041 0		*	a black potion
+E 0 35020 0 16		*	the Atlantis Guard<wielded>: a spear
+E 0 35022 0 1		*	the Atlantis Guard<on the left finger>: a ring with a pearl
+E 0 35023 0 11		*	the Atlantis Guard<as a shield>: a ivory shield
+E 0 35024 0 0		*	the Atlantis Guard<as a light>: a ball of light
+G 0 35041 0		*	the Atlantis Guard: a black potion
 M 0 35009 12 35036 2	* the Atlantis Guard (The Potions Shop)
-E 0 35020 0 16		*	a spear: wielded
-E 0 35022 0 1		*	a ring with a pearl: on the left finger
-E 0 35023 0 11		*	a ivory shield: as a shield
-E 0 35024 0 0		*	a ball of light: as a light
-G 0 35042 0		*	a black potion
+E 0 35020 0 16		*	the Atlantis Guard<wielded>: a spear
+E 0 35022 0 1		*	the Atlantis Guard<on the left finger>: a ring with a pearl
+E 0 35023 0 11		*	the Atlantis Guard<as a shield>: a ivory shield
+E 0 35024 0 0		*	the Atlantis Guard<as a light>: a ball of light
+G 0 35042 0		*	the Atlantis Guard: a black potion
 M 0 35016 1 35036 1	* Sage Marid (The Potions Shop)
-G 0 35012 0		*	the sage Potion
-G 0 35013 0		*	a green potion
-G 0 35014 0		*	unknown potion
-G 0 35015 0		*	a dark brown potion
+G 0 35012 0		*	Sage Marid: the sage Potion
+G 0 35013 0		*	Sage Marid: a green potion
+G 0 35014 0		*	Sage Marid: unknown potion
+G 0 35015 0		*	Sage Marid: a dark brown potion
 M 0 35023 1 35036 1	* the parrot (The Potions Shop)
 M 0 35017 1 35037 1	* Sophia (The Pub)
-G 0 35016 0		*	a sandwich
-G 0 35017 0		*	a sausage
-G 0 35018 0		*	a bottle of beer
+G 0 35016 0		*	Sophia: a sandwich
+G 0 35017 0		*	Sophia: a sausage
+G 0 35018 0		*	Sophia: a bottle of beer
 M 0 35018 1 35038 1	* Bruce the Fishman (The Fish Store)
-E 0 35028 0 16		*	a pocket knife: wielded
-G 0 35030 0		*	a fish
+E 0 35028 0 16		*	Bruce the Fishman<wielded>: a pocket knife
+G 0 35030 0		*	Bruce the Fishman: a fish
 M 0 35022 3 35039 1	* a native of Atlantis (A House)
-E 0 35028 0 16		*	a pocket knife: wielded
+E 0 35028 0 16		*	a native of Atlantis<wielded>: a pocket knife
 M 0 35022 3 35040 1	* a native of Atlantis (A House)
-E 0 35028 0 16		*	a pocket knife: wielded
+E 0 35028 0 16		*	a native of Atlantis<wielded>: a pocket knife
 M 0 35022 3 35041 1	* a native of Atlantis (A House)
-E 0 35028 0 16		*	a pocket knife: wielded
+E 0 35028 0 16		*	a native of Atlantis<wielded>: a pocket knife
 M 0 35019 1 35043 1	* Samuel the woodcutter (The edge of the Wood)
-E 0 35019 0 16		*	Samuel's axe: wielded
+E 0 35019 0 16		*	Samuel the woodcutter<wielded>: Samuel's axe
 M 0 35020 3 35044 1	* the Bat (Deep Down)
 M 0 35021 3 35044 1	* the giant horrifying rat (Deep Down)
 M 0 35020 3 35045 1	* the Bat (Deep Down)
 M 0 35021 3 35046 1	* the giant horrifying rat (Deep Down)
 M 0 35020 3 35047 1	* the Bat (Deep Down)
 M 0 35013 1 35048 1	* the Dark Dragon (Deep Down)
-E 0 35010 0 16		*	a black claw: wielded
+E 0 35010 0 16		*	the Dark Dragon<wielded>: a black claw
 M 0 35021 3 35050 1	* the giant horrifying rat (Deep Down)
 S
 

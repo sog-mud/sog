@@ -1,5 +1,5 @@
 #AREADATA
-Ver 4
+Ver 5
 Name Ghost~
 VNUMs 8100 8199
 Credits Yaegar~
@@ -349,12 +349,12 @@ rat крыса giant~
 @rus Существо аж десяти футов ростом с горящими красными глазами.
 ~
 rat~
-CFGHO 0 0 B AB -1000 0
+CFGH 0 0 B AB -1000 0
 40 0 10d10+1850 10d10+100 4d8+13 'charge'
 -13 -13 -13 4
 EFNQ
 stand stand none 5000
-0 0 medium unknown
+I 0 medium unknown
 #8114
 spider паук giant~
 @eng a giant spider@rus ~~гигантский~~ ~~паук~~~
@@ -363,12 +363,12 @@ spider паук giant~
 @rus Мохнатое чудище 10-ти футов ростов. Ужас.
 ~
 insect~
-CFGHO 0 0 B 0 -1000 0
+CFGH 0 0 B 0 -1000 0
 45 0 25d10+3000 10d10+1000 8d4+16 'charge'
 -15 -15 -15 4
 EFNQ
 stand stand none 5000
-P 0 medium unknown
+IP 0 medium unknown
 r bash 50
 r poison -50
 #8115
@@ -381,12 +381,12 @@ corporeal undead avoid it...
 бестелесные создания обходят его стороной.
 ~
 lurker~
-BFGHO 0 T 0 0 0 0
+BFGH 0 T 0 0 0 0
 52 0 50d10+4750 10d10+1000 6d7+20 'pierce'
 -20 -20 -20 2
 EFNQ
 stand stand none 5000
-0 0 medium unknown
+I 0 medium unknown
 g @eng none@rus male~
 #8116
 succubus woman суккуб~
@@ -397,12 +397,12 @@ succubus woman суккуб~
 соки и поможет умереть. С ней нужно говорить только на языке грубой силы.
 ~
 tanar'ri~
-BGO 0 JT 0 0 -1000 0
+BG 0 JT 0 0 -1000 0
 50 0 50d10+4250 10d10+1000 5d8+19 'slash'
 -20 -20 -20 2
 EFNQ
 stand stand female 5000
-0 0 medium unknown
+I 0 medium unknown
 r fire -100
 r cold -50
 r lightning -100
@@ -422,12 +422,12 @@ to escape his terrible mistake.
 оплошность.
 ~
 human~
-BGHO 0 0 0 0 -400 0
+BGH 0 0 0 0 -400 0
 50 0 50d10+4250 10d10+1000 5d8+19 'pound'
 -20 -20 -20 2
 EFNQ
 stand stand none 5000
-0 0 medium unknown
+I 0 medium unknown
 g @eng none@rus male~
 #8118
 corpse rotting разлагающийся труп~
@@ -465,12 +465,12 @@ diabolically evil mage, and will not hesitate to destroy you.
 могучий, дьявольски жестокий маг. И он, не колеблясь, уничтожит тебя.
 ~
 human~
-BFGHO 0 J 0 ABKL -1000 0
+BFGH 0 J 0 ABKL -1000 0
 60 0 50d10+6750 10d10+1000 8d6+28 'pierce'
 -30 -30 -30 0
 EFNQ
 stand stand none 5300
-0 0 medium unknown
+I 0 medium unknown
 #8120
 mound холм shambling~
 @eng a shambling mound@rus ~~могильный~~ ~~холм~~~
@@ -480,12 +480,12 @@ mound холм shambling~
 двадцати футов в высоту напала на тебя.
 ~
 unique~
-FGO 0 N 0 H 0 0
+FG 0 N 0 H 0 0
 45 -1 50d10+3000 10d10+1000 8d4+16 'slash'
 -15 -14 -15 4
 EFNQ
 stand stand none 5200
-0 0 medium unknown
+I 0 medium unknown
 #8121
 kampflut кампфлут~
 @eng a kampflut@rus ~~кампфлут~~~
@@ -604,12 +604,12 @@ while you rest, and perhaps heal your wounds if you pay her enough...
 достаточно заплатишь.
 ~
 treant~
-BGO 0 N A 0 400 0
+BG 0 N A 0 400 0
 65 0 50d10+8250 10d10+1000 11d5+35 'pierce'
 -35 -35 -35 -5
 EFNQ
 stand stand none 5000
-0 0 medium unknown
+I 0 medium unknown
 r bash -50
 r pierce -50
 r slash -50
@@ -698,12 +698,12 @@ to his domination of all things Undead.
 призраков и рассказать об этом Оркусу.
 ~
 tanar'ri~
-CGHO 0 V B L -1000 0
+CGH 0 V B L -1000 0
 50 0 50d10+4250 10d10+1000 5d8+19 'pound'
 -40 -40 -40 2
 EFNQ
 stand stand none 5000
-0 0 medium unknown
+I 0 medium unknown
 g @eng none@rus male~
 r fire -100
 r cold -50
@@ -724,12 +724,12 @@ of the powers of the Prime Material Plane by avoiding combat.
 смотрит на тебя.
 ~
 unique~
-BGHO 0 JN A L -1000 0
+BGH 0 JN A L -1000 0
 65 0 50d10+8250 10d10+1000 11d5+35 'pierce'
 -35 -35 -35 -4
 EFNQ
 stand stand none 5000
-0 0 medium unknown
+I 0 medium unknown
 #8132
 weird ужас water~
 @eng a water weird@rus ~~водяной~~ ~~ужас~~~
@@ -738,12 +738,12 @@ weird ужас water~
 @rus Водяной змей, обитающий в колодце.
 ~
 snake~
-BFGO 0 N 0 0 0 0
+BFG 0 N 0 0 0 0
 51 0 50d10+4500 10d10+1000 5d8+20 'bite'
 -20 -20 -20 2
 EFNQ
 stand stand none 0
-0 0 medium unknown
+I 0 medium unknown
 r cold 50
 r poison -33
 #8133
@@ -754,12 +754,12 @@ spider giant паук~
 @rus Когда я говорил гигантский, я имел ввиду 10 футов высотой...
 ~
 insect~
-BCFGHO 0 0 B 0 -1000 0
+BCFGH 0 0 B 0 -1000 0
 48 0 50d10+3750 10d10+1000 6d6+18 'charge'
 -18 -18 -18 3
 EFNQ
 stand stand none 5000
-0 0 medium unknown
+I 0 medium unknown
 g @eng none@rus male~
 r bash 50
 r poison -50

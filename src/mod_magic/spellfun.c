@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.234 2001-03-16 12:41:28 cs Exp $
+ * $Id: spellfun.c,v 1.235 2001-04-03 14:44:34 cs Exp $
  */
 
 /***************************************************************************
@@ -1692,7 +1692,8 @@ void spell_plague(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	AFFECT_DATA af;
 
 	if (saves_spell(level, victim, DAM_DISEASE)
-	||  (IS_NPC(victim) && IS_SET(victim->pMobIndex->act, ACT_UNDEAD))) {
+	|| IS_SET(victim->form, FORM_CONSTRUCT)
+	|| IS_SET(victim->form, FORM_UNDEAD)) {
 		if (ch->in_room != victim->in_room)
 			return;
 
@@ -1707,7 +1708,7 @@ void spell_plague(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	af.where	= TO_AFFECTS;
-	af.type 	= sn;
+	af.type		= sn;
 	af.level	= level * 3/4;
 	af.duration	= (10 + level / 10);
 	INT(af.location)= APPLY_STR;
@@ -1782,7 +1783,7 @@ void spell_poison(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	victim = (CHAR_DATA *) vo;
 
-	if (saves_spell(level, victim,DAM_POISON))
+	if (saves_spell(level, victim, DAM_POISON))
 		return;
 
 	af.where     = TO_AFFECTS;
@@ -1924,7 +1925,8 @@ void spell_sleep(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	if (is_affected(victim, "free action"))
 		level -= 5;
 	if (IS_AFFECTED(victim, AFF_SLEEP)
-	||  (IS_NPC(victim) && IS_SET(victim->pMobIndex->act, ACT_UNDEAD))
+	||  IS_SET(victim->form, FORM_UNDEAD)
+	||  IS_SET(victim->form, FORM_CONSTRUCT)
 	||  saves_spell(level, victim, DAM_CHARM))
 		return;
 
@@ -2657,7 +2659,8 @@ void spell_quantum_spike(const char *sn, int level, CHAR_DATA *ch, void *vo)
 }
 
 /* negative */
-void spell_hand_of_undead(const char *sn, int level, CHAR_DATA *ch, void *vo)
+void
+spell_hand_of_undead(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
@@ -2667,7 +2670,7 @@ void spell_hand_of_undead(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	if (IS_NPC(victim) && IS_SET(victim->pMobIndex->act, ACT_UNDEAD)) {
+	if (IS_SET(victim->form, FORM_UNDEAD)) {
 		 act_char("Your victim is unaffected by hand of undead.", ch);
 		 return;
 	}
@@ -2773,7 +2776,7 @@ void spell_corruption(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	if (IS_IMMORTAL(victim)
 	||  saves_spell(level, victim, DAM_NEGATIVE)
-	||  (IS_NPC(victim) && IS_SET(victim->pMobIndex->act, ACT_UNDEAD))) {
+	||  IS_SET(victim->form, FORM_UNDEAD)) {
 		if (ch == victim) {
 			act_puts("You feel momentarily ill, but it passes.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
@@ -4464,11 +4467,11 @@ void spell_blue_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 
 	if (IS_AFFECTED(ch, AFF_TURNED)) {
-		act("Return to your natural form first.", 
+		act("Return to your natural form first.",
 			ch, NULL, NULL, TO_CHAR);
 		return;
 	}
-	
+
 	free_string(PC(ch)->form_name);
 	PC(ch)->form_name = str_dup("blue dragon");
 
@@ -4477,7 +4480,7 @@ void spell_blue_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	af.where	= TO_RACE;
 	af.type		= sn;
-	af.level 	= level;
+	af.level	= level;
 	af.duration	= level/10+8;
 	af.location.s	= "blue dragon";
 	af.modifier	= 0;
@@ -4510,11 +4513,11 @@ void spell_green_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 
 	if (IS_AFFECTED(ch, AFF_TURNED)) {
-		act("Return to your natural form first.", 
+		act("Return to your natural form first.",
 			ch, NULL, NULL, TO_CHAR);
 		return;
 	}
-	
+
 	free_string(PC(ch)->form_name);
 	PC(ch)->form_name = str_dup("green dragon");
 
@@ -5224,7 +5227,7 @@ cb_strip(int lang, const char **p, va_list ap)
 	return NULL;
 }
 
-#define MOB_VNUM_UNDEAD 		18
+#define MOB_VNUM_UNDEAD			18
 
 void spell_animate_dead(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
@@ -6993,68 +6996,67 @@ void spell_disgrace(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void spell_control_undead(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
- 	AFFECT_DATA af;
- 	race_t *r;	
- 
- 	if (count_charmed(ch))
- 		return;
- 
- 	if (victim == ch) {
- 		act_char("You like yourself even better!", ch);
- 		return;
- 	}
- 
- 	if ((r = race_lookup(victim->race)) == NULL)
+	AFFECT_DATA af;
+	race_t *r;
+
+	if (count_charmed(ch))
 		return;
-  
- 	if  ((!IS_NPC(victim) || !IS_SET(victim->pMobIndex->act, ACT_UNDEAD)) 
-             && (!IS_SET(r->form, FORM_UNDEAD))) {
-  		act("$N doesn't seem to be an undead.",ch,NULL,victim,TO_CHAR);
-  		return;
-  	}
- 
- 	if (!IS_NPC(victim) && !IS_NPC(ch)) 
- 		level += get_curr_stat(ch, STAT_CHA) -
- 			 get_curr_stat(victim, STAT_CHA); 
- 
- 
- 	if (IS_IMMORTAL(victim)
+
+	if (victim == ch) {
+		act_char("You like yourself even better!", ch);
+		return;
+	}
+
+	if ((r = race_lookup(victim->race)) == NULL)
+		return;
+
+	if  (!IS_SET(victim->form, FORM_UNDEAD)) {
+		act("$N doesn't seem to be an undead.",ch,NULL,victim,TO_CHAR);
+		return;
+	}
+
+	if (!IS_NPC(victim) && !IS_NPC(ch))
+		level += get_curr_stat(ch, STAT_CHA) -
+			 get_curr_stat(victim, STAT_CHA);
+
+
+	if (IS_IMMORTAL(victim)
 	||  IS_AFFECTED(victim, AFF_CHARM)
- 	||  IS_AFFECTED(ch, AFF_CHARM)
- 	||  saves_spell(level, victim, DAM_OTHER) 
- 	||  (IS_NPC(victim) && victim->pMobIndex->pShop != NULL)
- 	||  (victim->in_room &&
- 		IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA)))
- 			return;
- 
- 	if (is_safe(ch, victim))
- 		return;
- 
- 	add_follower(victim, ch);
+	||  IS_AFFECTED(ch, AFF_CHARM)
+	||  saves_spell(level, victim, DAM_OTHER)
+	||  (IS_NPC(victim) && victim->pMobIndex->pShop != NULL)
+	||  (victim->in_room &&
+		IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA)))
+			return;
+
+	if (is_safe(ch, victim))
+		return;
+
+	add_follower(victim, ch);
 	set_leader(victim, ch);
- 
- 	af.where	= TO_AFFECTS;
- 	af.type		= sn;
- 	af.level	= level;
- 	af.duration	= number_fuzzy(level / 5);
- 	INT(af.location)= 0;
- 	af.modifier	= 0;
- 	af.bitvector	= AFF_CHARM;
+
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= number_fuzzy(level / 5);
+	INT(af.location)= 0;
+	af.modifier	= 0;
+	af.bitvector	= AFF_CHARM;
 	af.owner	= NULL;
- 	affect_to_char(victim, &af);
- 	act("Isn't $n just so nice?", ch, NULL, victim, TO_VICT);
- 	act("$N looks at you with adoring eyes.",
- 		    ch, NULL, victim, TO_CHAR);
- 
- 	if (IS_NPC(victim) && !IS_NPC(ch)) {
- 		NPC(victim)->last_fought = ch;
- 		if (number_percent() < (4 + (LEVEL(victim) - LEVEL(ch))) * 10)
- 		 	add_mind(victim, ch->name);
- 		else if (NPC(victim)->in_mind == NULL) {
- 			NPC(victim)->in_mind =
+	affect_to_char(victim, &af);
+	act("Isn't $n just so nice?", ch, NULL, victim, TO_VICT);
+	act("$N looks at you with adoring eyes.",
+		    ch, NULL, victim, TO_CHAR);
+
+	if (IS_NPC(victim) && !IS_NPC(ch)) {
+		NPC(victim)->last_fought = ch;
+		if (number_percent() < (4 + (LEVEL(victim) - LEVEL(ch))) * 10)
+			add_mind(victim, ch->name);
+		else if (NPC(victim)->in_mind == NULL) {
+			NPC(victim)->in_mind =
 				str_printf("%d", victim->in_room->vnum);
- 		}
- 	}
+		}
+	}
 }
 
 void spell_assist(const char *sn, int level, CHAR_DATA *ch, void *vo)

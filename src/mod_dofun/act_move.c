@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.253 2001-03-16 12:41:27 cs Exp $
+ * $Id: act_move.c,v 1.254 2001-04-03 14:44:33 cs Exp $
  */
 
 /***************************************************************************
@@ -1602,7 +1602,7 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (weather_info.sunlight == SUN_LIGHT 
+	if (weather_info.sunlight == SUN_LIGHT
 	||  weather_info.sunlight == SUN_RISE) {
 		act_char("You should wait for the evening or night to transform to a vampire.", ch);
 		return;
@@ -1655,7 +1655,7 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 	af.modifier  = 0;
 	af.bitvector = ID_INFRARED;
 	affect_to_char(ch, &af);
-	
+
 /* sneak */
 	af.where = TO_INVIS;
 	af.bitvector = ID_SNEAK;

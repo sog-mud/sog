@@ -1,5 +1,5 @@
 #AREADATA
-Ver 4
+Ver 5
 Name Arcadia~
 VNUMs 12000 12199
 Credits Cernunn~
@@ -166,12 +166,12 @@ while the Puck may be harmfull the Morrigan is deadly.
 самое пугающие создание ночи, ее повелительница.
 ~
 unique~
-CFGOT 0 0 0 ABKL -1000 0
+CFGT 0 0 0 ABKL -1000 0
 42 0 5d2+1550 10d2+200 9d4+35 'pierce'
 -10 -10 -10 -10
 ABDHNY
 stand stand female 5050
-0 0 medium unknown
+I 0 medium unknown
 r poison 999
 r holy -50
 r disease 999

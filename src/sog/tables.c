@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.147 2000-10-22 17:53:47 fjoe Exp $
+ * $Id: tables.c,v 1.148 2001-04-03 14:44:36 cs Exp $
  */
 
 /***************************************************************************
@@ -102,7 +102,6 @@ flaginfo_t act_flags[] =
 	{ "pet",		ACT_PET,		TRUE	},
 	{ "imm_steal",		ACT_IMMSTEAL,		TRUE	},
 	{ "hunter",		ACT_HUNTER,		TRUE	},
-	{ "undead",		ACT_UNDEAD,		TRUE	},
 	{ "cleric",		ACT_CLERIC,		TRUE	},
 	{ "mage",		ACT_MAGE,		TRUE	},
 	{ "thief",		ACT_THIEF,		TRUE	},

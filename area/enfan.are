@@ -1,4 +1,5 @@
 #AREADATA
+Ver 5
 Name Ershteep City~
 VNUMs 11000 11099
 Credits Anon~
@@ -10,173 +11,163 @@ End
 #11001
 enfan blue~
 the blue enfan~
-There is an enfan here. It is dressed in a blue suit.
-~
+There is an enfan here. It is dressed in a blue suit.~
 A small child like being who struts about rather haughtily.
 ~
 human~
-AFGLW 0 -400 0
-9 0 2d6+110 89d1+1 1d8+2 slap
+FGLW 0 0 0 0 -400 0
+9 0 2d6+110 89d1+1 1d8+2 'slap'
 2 2 2 9
-0 0 0 0
+0
 stand stand none 30
 0 0 medium unknown
 #11002
 enfan grey~
 the grey enfan~
-There is an enfan here. It is dressed in a grey suit.
-~
+There is an enfan here. It is dressed in a grey suit.~
 A small child like being who struts about rather haughtily.
 ~
 human~
-AFGLW 0 -550 0
-6 0 2d7+71 59d1+1 1d7+1 chomp
+FGLW 0 0 0 0 -550 0
+6 0 2d7+71 59d1+1 1d7+1 'chomp'
 4 4 4 9
-0 0 0 0
+0
 stand stand none 30
 0 0 medium unknown
 #11003
 enfan green~
 the green enfan~
-There is an enfan here. It is dressed in a green suit.
-~
+There is an enfan here. It is dressed in a green suit.~
 A small child like being who struts about rather haughtily.
 ~
 human~
-AFGW 0 -700 0
-11 0 2d8+134 109d1+1 1d10+2 scratch
+FGW 0 0 0 0 -700 0
+11 0 2d8+134 109d1+1 1d10+2 'scratch'
 1 1 1 8
-0 0 0 0
+0
 stand stand none 30
 0 0 medium unknown
 #11004
 enfan purple~
 the purple enfan~
-There is an enfan here. It is dressed in a purple suit.
-~
+There is an enfan here. It is dressed in a purple suit.~
 A small child like being who struts about rather haughtily.
 ~
 human~
-AFGLW 0 -800 0
-12 0 2d10+150 119d1+1 1d10+3 bite
+FGLW 0 0 0 0 -800 0
+12 0 2d10+150 119d1+1 1d10+3 'bite'
 0 0 0 8
-0 0 0 0
+0
 stand stand none 30
 0 0 medium unknown
 #11005
 enfan yellow~
 the yellow enfan~
-There is an enfan here. It is dressed in a yellow suit.
-~
+There is an enfan here. It is dressed in a yellow suit.~
 A small child like being who struts about rather haughtily.
 ~
 human~
-AFGLUW 0 -900 0
-13 0 2d10+170 129d1+1 2d5+3 slap
+FGLUW 0 0 0 0 -900 0
+13 0 2d10+170 129d1+1 2d5+3 'slap'
 -1 -1 -1 8
-0 0 0 0
+0
 stand stand none 30
 0 0 medium unknown
 #11006
 enfan black~
 the black enfan~
 There is a positively evil enfan in front of you. He is dressed in black and
-carries a large weapon.
-~
+carries a large weapon.~
 A small child-like being who struts about rather haughtily.
 ~
 human~
-ABFLUW D -1000 0
-15 0 3d9+208 149d1+1 2d6+3 punch
+BFLUW 0 0 0 A -1000 0
+15 0 3d9+208 149d1+1 2d6+3 'punch'
 -2 -2 -2 2
-E 0 0 0
+E
 stand stand none 130
 0 0 medium unknown
 #11007
 dog guard~
 the guard dog~
-A guard dog sits here staring hungrily.
-~
+A guard dog sits here staring hungrily.~
 A large, ugly, evil dog.
 ~
 dog~
-ABF D -700 0
-10 0 2d7+121 99d1+1 2d4+2 scratch
+BF 0 0 0 A -700 0
+10 0 2d7+121 99d1+1 2d4+2 'scratch'
 1 1 1 8
-0 0 0 0
+0
 stand stand male 0
 0 0 medium unknown
 #11008
 rat~
 the rat~
-A large mutated rat stares at you with glowing eyes.
-~
+A large mutated rat stares at you with glowing eyes.~
 It is simply very ugly.
 ~
 rat~
-AF D 0 0
-13 -3 2d10+170 129d1+1 2d5+3 bite
+F 0 0 0 A 0 0
+13 -3 2d10+170 129d1+1 2d5+3 'bite'
 -1 -1 -1 8
-0 0 0 0
+0
 stand stand none 0
 0 0 medium unknown
 #11009
 enfan green~
 the green enfan~
-There is an enfan here. It is dressed in a green suit.
-~
+There is an enfan here. It is dressed in a green suit.~
 A small child like being who struts about rather haughtily.
 ~
 human~
-AFGW D -700 0
-7 0 2d6+85 69d1+1 1d8+1 slap
+FGW 0 0 0 A -700 0
+7 0 2d6+85 69d1+1 1d8+1 'slap'
 4 4 4 9
-0 0 0 0
+0
 stand stand none 0
 0 0 medium unknown
 #11010
 enfan purple~
 the purple enfan~
-There is an enfan here. It is dressed in a purple suit.
-~
+There is an enfan here. It is dressed in a purple suit.~
 A small child like being who struts about rather haughtily.
 ~
 human~
-AFGW D -800 0
-8 0 2d7+96 79d1+1 1d7+2 bite
+FGW 0 0 0 A -800 0
+8 0 2d7+96 79d1+1 1d7+2 'bite'
 3 3 3 9
-0 0 0 0
+0
 stand stand none 30
 0 0 medium unknown
 #11011
 enfan yellow~
 the yellow enfan~
-There is an enfan here. It is dressed in a yellow suit.
-~
+There is an enfan here. It is dressed in a yellow suit.~
 A small child like being who struts about rather haughtily.
 ~
 human~
-AFGLW D -900 0
-12 0 2d10+150 119d1+1 1d10+3 scratch
+FGLW 0 0 0 A -900 0
+12 0 2d10+150 119d1+1 1d10+3 'scratch'
 0 0 0 8
-0 0 0 0
+0
 stand stand none 30
 0 0 medium unknown
 #11012
 gargoyle~
 the gargoyle~
-A stone gargoyle stands before you blocking your way.
-~
+A stone gargoyle stands before you blocking your way.~
 Very, very ugly. Much like a stereo-typical mother-in-law,
 only a lot worse!
 ~
 wyvern~
-AFGW 0 -500 0
-8 0 2d7+96 79d1+1 1d7+2 bite
+FGW 0 0 0 0 -500 0
+8 0 2d7+96 79d1+1 1d7+2 'bite'
 3 3 3 9
-0 0 0 0
+0
 stand stand none 30
 0 0 medium unknown
+r poison -100
+r light 50
 #0
 
 #OBJECTS
@@ -185,161 +176,130 @@ key gold~
 a gold key~
 There is a gold key here~
 gold~
-key 0 A
+key 0 0 A
 0 0 0 0 0
 1 1 0 P
-G none
 #11002
 key old~
 an old key~
 There is a old key here~
 iron~
-key 0 A
+key 0 0 A
 0 0 0 0 0
 1 1 0 P
-G none
 #11003
 pair strange boots~
 a pair of strange boots~
 A pair of strange boots sit on the floor rather correctly~
 leather~
-armor G AG
+armor G 0 AG
 6 6 7 3 3
 13 120 330 P
-A
-1 1
-A
-5 1
-G none
+a '' to_object 13 -1 1 1 0
+a '' to_object 13 -1 1 5 0
 #11004
 claymore~
 galactic claymore~
 A galactic claymore sits heavily on the ground.~
-~
-weapon 0 AN
-sword 5 5 slash F
+unknown~
+weapon 0 0 AN
+sword 5 5 'slash' F
 13 200 1210 P
-A
-19 4
-A
-13 -10
-A
-4 -3
-G none
+a '' to_object 13 -1 4 19 0
+a '' to_object 13 -1 -10 13 0
+a '' to_object 13 -1 -3 4 0
 #11005
 metallic shield~
 a metallic shield~
 A metallic shield has been dropped here.~
 metal~
-armor 0 AJ
+armor 0 0 AJ
 7 7 7 3 4
 13 350 2210 P
-A
-1 1
-A
-24 2
-G none
+a '' to_object 13 -1 1 1 0
+a '' to_object 13 -1 2 24 0
 #11006
 black tunic~
 a black tunic~
 A black tunic lies in a crumpled heap on the floor~
 velvet~
-armor G AD
+armor G 0 AD
 5 5 5 5 3
 8 100 730 P
-A
-13 5
-G none
+a '' to_object 8 -1 5 13 0
 #11007
 high heels shoes~
 high heels~
 A pair of old high heels lie discarded in a corner~
 leather~
-armor G AG
+armor G 0 AG
 5 5 5 5 3
 8 120 459 P
-A
-11 20
-A
-9 -1
-G none
+a '' to_object 8 -1 20 11 0
+a '' to_object 8 -1 -1 9 0
 #11008
 opal ring~
 an opal ring~
 You see an opal ring here.~
 gold~
-treasure 0 AB
+treasure 0 0 AB
 0 0 0 0 0
 10 20 1210 P
-A
-9 2
-A
-13 15
-G none
+a '' to_object 10 -1 2 9 0
+a '' to_object 10 -1 15 13 0
 #11009
 opal bracelet~
 an opal bracelet~
 You see an opal bracelet here~
 gold~
-treasure 0 AM
+treasure 0 0 AM
 0 0 0 0 0
 10 20 1120 P
-A
-5 1
-A
-19 1
-G none
+a '' to_object 10 -1 1 5 0
+a '' to_object 10 -1 1 19 0
 #11010
 display case~
 a display case~
 There is a large display case here.~
 wood~
-container 0 0
+container 0 0 0
 1000 ABD 11011 1000 100
 0 0 0 P
-G none
 #11011
 key chain~
 key chain~
 A large chain of keys hangs on the wall~
 metal~
-key 0 A
+key 0 0 A
 0 0 0 0 0
 1 10 0 P
-G none
 #11012
 opal potion~
 an opal potion~
 An opal potion rests here~
 glass~
-potion 0 AO
+potion 0 0 AO
 15 'cure poison' 'heal' 'heal' ''
 10 10 2120 P
-A
-17 -5
-G none
+a '' to_object 10 -1 -5 17 0
 #11013
 sword long~
 a long sword~
 A long sword has been left here.~
 steel~
-weapon 0 AN
-sword 5 5 slash 0
+weapon 0 0 AN
+sword 5 5 'slash' 0
 12 300 1389 P
-G none
 #11014
 runed dagger~
 a runed dagger~
 A runed dagger, almost hideen from sight, lies here.~
 steel~
-weapon AJ AN
-dagger 5 4 stab 0
+weapon AJ 0 AN
+dagger 5 4 'stab' 0
 12 120 1675 P
-A
-18 1
-A
-19 1
-G none
+a '' to_object 12 -1 1 18 0
+a '' to_object 12 -1 1 19 0
 #0
 
 #ROOMS
@@ -365,9 +325,13 @@ D0
 More trail
 ~
 ~
+~
+~
 Z -1 11002
 D2
 Nearer the city, less dense forest.
+~
+~
 ~
 ~
 Z -1 307
@@ -383,9 +347,13 @@ D0
 More trail and a cottage
 ~
 ~
+~
+~
 Z -1 11003
 D2
 Nearer the city, less dense forest.
+~
+~
 ~
 ~
 Z -1 11001
@@ -407,9 +375,13 @@ D2
 A trail through the forest.
 ~
 ~
+~
+~
 Z -1 11002
 D3
 A trail through the forest.
+~
+~
 ~
 ~
 Z -1 11005
@@ -443,9 +415,13 @@ D0
 A fireplace
 ~
 fireplace lock grate~
+the fireplace~
+~
 ABCFZ 11001 11052
 D2
 A door back to the outside world!
+~
+~
 ~
 ~
 Z -1 11005
@@ -463,14 +439,20 @@ D0
 A cottage, the front door is open
 ~
 ~
+~
+~
 Z -1 11004
 D1
 More trail
 ~
 ~
+~
+~
 Z -1 11003
 D3
 More trail
+~
+~
 ~
 ~
 Z -1 11006
@@ -487,9 +469,13 @@ D0
 More trail
 ~
 ~
+~
+~
 Z -1 11007
 D1
 More trail
+~
+~
 ~
 ~
 Z -1 11005
@@ -507,9 +493,13 @@ D2
 More trail
 ~
 ~
+~
+~
 Z -1 11006
 D3
 More trail
+~
+~
 ~
 ~
 Z -1 11008
@@ -525,14 +515,20 @@ D0
 More road
 ~
 ~
+~
+~
 Z -1 11010
 D1
 More trail
 ~
 ~
+~
+~
 Z -1 11007
 D3
 A field
+~
+~
 ~
 ~
 Z -1 11009
@@ -551,6 +547,8 @@ D1
 The trail again
 ~
 ~
+~
+~
 Z -1 11008
 S
 #11010
@@ -564,9 +562,13 @@ D0
 A road
 ~
 ~
+~
+~
 Z -1 11011
 D2
 A road
+~
+~
 ~
 ~
 Z -1 11008
@@ -589,9 +591,13 @@ D0
 The city.
 ~
 ~
+~
+~
 Z -1 11014
 D2
 A road.
+~
+~
 ~
 ~
 Z -1 11010
@@ -611,11 +617,15 @@ D1
 A dimly lit passageway
 ~
 ~
+~
+~
 Z -1 11013
 D3
 A door
 ~
 door~
+the door~
+~
 ABCFZ 11002 11056
 S
 #11013
@@ -629,9 +639,13 @@ D1
 The city gates
 ~
 ~
+~
+~
 Z -1 11014
 D3
 An apparent dead end
+~
+~
 ~
 ~
 Z -1 11012
@@ -648,9 +662,13 @@ D0
 The city of Orshingal
 ~
 ~
+~
+~
 Z -1 11019
 D1
 A dim passage
+~
+~
 ~
 ~
 Z -1 11015
@@ -658,9 +676,13 @@ D2
 Ershteep Road
 ~
 ~
+~
+~
 Z -1 11011
 D3
 A dim passage
+~
+~
 ~
 ~
 Z -1 11013
@@ -675,9 +697,13 @@ D1
 A seemingly dead end
 ~
 ~
+~
+~
 Z -1 11016
 D3
 City gates
+~
+~
 ~
 ~
 Z -1 11014
@@ -697,9 +723,13 @@ D1
 A door
 ~
 door~
+the door~
+~
 ABCFZ 11002 11053
 D3
 A dimly lit passageway
+~
+~
 ~
 ~
 Z -1 11015
@@ -714,9 +744,13 @@ D0
 On a Road
 ~
 ~
+~
+~
 Z -1 11023
 D1
 On a Road
+~
+~
 ~
 ~
 Z -1 11018
@@ -731,14 +765,20 @@ D0
 An old building
 ~
 ~
+~
+~
 Z -1 11024
 D1
 A junction
 ~
 ~
+~
+~
 Z -1 11019
 D3
 Road
+~
+~
 ~
 ~
 Z -1 11017
@@ -755,9 +795,13 @@ D0
 Road
 ~
 ~
+~
+~
 Z -1 11025
 D1
 Road
+~
+~
 ~
 ~
 Z -1 11020
@@ -765,9 +809,13 @@ D2
 City gates
 ~
 ~
+~
+~
 Z -1 11014
 D3
 Road
+~
+~
 ~
 ~
 Z -1 11018
@@ -783,14 +831,20 @@ D0
 A temple
 ~
 ~
+~
+~
 Z -1 11026
 D1
 Road
 ~
 ~
+~
+~
 Z -1 11021
 D3
 A junction
+~
+~
 ~
 ~
 Z -1 11019
@@ -804,9 +858,13 @@ D0
 Road
 ~
 ~
+~
+~
 Z -1 11027
 D3
 Road
+~
+~
 ~
 ~
 Z -1 11020
@@ -821,9 +879,13 @@ D0
 Road
 ~
 ~
+~
+~
 Z -1 11029
 D1
 Road
+~
+~
 ~
 ~
 Z -1 11023
@@ -838,9 +900,13 @@ D2
 Road
 ~
 ~
+~
+~
 Z -1 11017
 D3
 Road
+~
+~
 ~
 ~
 Z -1 11022
@@ -856,9 +922,13 @@ D0
 A foyer
 ~
 ~
+~
+~
 Z -1 11031
 D2
 Road
+~
+~
 ~
 ~
 Z -1 11018
@@ -874,9 +944,13 @@ D0
 A square
 ~
 ~
+~
+~
 Z -1 11038
 D2
 A junction
+~
+~
 ~
 ~
 Z -1 11019
@@ -899,9 +973,13 @@ D0
 The main hall
 ~
 ~
+~
+~
 Z -1 11032
 D2
 An exit back to the street
+~
+~
 ~
 ~
 Z -1 11020
@@ -916,9 +994,13 @@ D1
 Road
 ~
 ~
+~
+~
 Z -1 11028
 D2
 Road
+~
+~
 ~
 ~
 Z -1 11021
@@ -933,9 +1015,13 @@ D0
 Road
 ~
 ~
+~
+~
 Z -1 11034
 D3
 Road
+~
+~
 ~
 ~
 Z -1 11027
@@ -950,14 +1036,20 @@ D0
 Road
 ~
 ~
+~
+~
 Z -1 11035
 D1
 An old building
 ~
 ~
+~
+~
 Z -1 11030
 D2
 Road
+~
+~
 ~
 ~
 Z -1 11022
@@ -978,9 +1070,13 @@ D1
 A foyer
 ~
 ~
+~
+~
 Z -1 11031
 D3
 An exit to the street
+~
+~
 ~
 ~
 Z -1 11029
@@ -995,14 +1091,20 @@ D0
 The Jewellery
 ~
 ~
+~
+~
 Z -1 11037
 D2
 The Armoury
 ~
 ~
+~
+~
 Z -1 11024
 D3
 The Weaponry
+~
+~
 ~
 ~
 Z -1 11030
@@ -1019,14 +1121,20 @@ D0
 A chapel
 ~
 ~
+~
+~
 Z -1 11039
 D1
 A large jarrah door
 ~
 door~
+the door~
+~
 ABFZ -1 11033
 D2
 A chapel
+~
+~
 ~
 ~
 Z -1 11026
@@ -1043,6 +1151,8 @@ D3
 A door
 ~
 door~
+the door~
+~
 ABFZ -1 11032
 S
 #11034
@@ -1059,9 +1169,13 @@ D0
 Road
 ~
 ~
+~
+~
 Z -1 11041
 D2
 Road
+~
+~
 ~
 ~
 Z -1 11028
@@ -1069,6 +1183,8 @@ D5
 The city wall and a grate
 ~
 grate~
+the grate~
+~
 ABFZ -1 11055
 S
 #11035
@@ -1082,9 +1198,13 @@ D1
 Road
 ~
 ~
+~
+~
 Z -1 11036
 D2
 Road
+~
+~
 ~
 ~
 Z -1 11029
@@ -1100,9 +1220,13 @@ D0
 Road
 ~
 ~
+~
+~
 Z -1 11042
 D3
 Road
+~
+~
 ~
 ~
 Z -1 11035
@@ -1118,9 +1242,13 @@ D1
 The City Square can be seen through the broken door.
 ~
 ~
+~
+~
 Z -1 11038
 D2
 A door to a small foyer
+~
+~
 ~
 ~
 Z -1 11031
@@ -1141,9 +1269,13 @@ D0
 Road
 ~
 ~
+~
+~
 Z -1 11044
 D1
 The temple
+~
+~
 ~
 ~
 Z -1 11039
@@ -1151,14 +1283,20 @@ D2
 Road
 ~
 ~
+~
+~
 Z -1 11025
 D3
 An old, broken down building
 ~
 ~
+~
+~
 Z -1 11037
 D4
 Up to the tree
+~
+~
 ~
 ~
 Z -1 11059
@@ -1174,9 +1312,13 @@ D2
 You see the main hall of the temple
 ~
 ~
+~
+~
 Z -1 11032
 D3
 A door back to the outside
+~
+~
 ~
 ~
 Z -1 11038
@@ -1192,9 +1334,13 @@ D0
 Road
 ~
 ~
+~
+~
 Z -1 11046
 D1
 Road
+~
+~
 ~
 ~
 Z -1 11041
@@ -1208,9 +1354,13 @@ D2
 Road
 ~
 ~
+~
+~
 Z -1 11034
 D3
 Road
+~
+~
 ~
 ~
 Z -1 11040
@@ -1225,9 +1375,13 @@ D0
 Road
 ~
 ~
+~
+~
 Z -1 11047
 D2
 Road
+~
+~
 ~
 ~
 Z -1 11036
@@ -1241,6 +1395,8 @@ Looks tidy eh?
 0 AD inside
 D0
 The door out!
+~
+~
 ~
 ~
 Z -1 11048
@@ -1257,9 +1413,13 @@ D0
 A junction
 ~
 ~
+~
+~
 Z -1 11049
 D2
 A square
+~
+~
 ~
 ~
 Z -1 11038
@@ -1275,6 +1435,8 @@ D0
 The door out!
 ~
 ~
+~
+~
 Z -1 11050
 S
 #11046
@@ -1287,9 +1449,13 @@ D0
 Road
 ~
 ~
+~
+~
 Z -1 11051
 D2
 Road
+~
+~
 ~
 ~
 Z -1 11040
@@ -1306,14 +1472,20 @@ D0
 Something outside the city beckons from that direction.
 ~
 ~
+~
+~
 Z -1 11060
 D1
 Road
 ~
 ~
+~
+~
 Z -1 11048
 D2
 Road
+~
+~
 ~
 ~
 Z -1 11042
@@ -1327,14 +1499,20 @@ D1
 Road
 ~
 ~
+~
+~
 Z -1 11049
 D2
 A small house
 ~
 ~
+~
+~
 Z -1 11043
 D3
 Road
+~
+~
 ~
 ~
 Z -1 11047
@@ -1349,14 +1527,20 @@ D1
 Road
 ~
 ~
+~
+~
 Z -1 11050
 D2
 A wide street
 ~
 ~
+~
+~
 Z -1 11044
 D3
 Road
+~
+~
 ~
 ~
 Z -1 11048
@@ -1370,14 +1554,20 @@ D1
 Road
 ~
 ~
+~
+~
 Z -1 11051
 D2
 A small house
 ~
 ~
+~
+~
 Z -1 11045
 D3
 Road
+~
+~
 ~
 ~
 Z -1 11049
@@ -1394,9 +1584,13 @@ D2
 Road
 ~
 ~
+~
+~
 Z -1 11046
 D3
 Road
+~
+~
 ~
 ~
 Z -1 11050
@@ -1411,6 +1605,8 @@ D2
 A grate
 ~
 grate door~
+the grate~
+~
 ABCFZ 11001 11004
 S
 #11053
@@ -1427,11 +1623,15 @@ D1
 More sewer
 ~
 ~
+~
+~
 Z -1 11054
 D3
 A door
 ~
 door sewer~
+the door~
+~
 ABCFZ 11002 11016
 S
 #11054
@@ -1443,9 +1643,13 @@ D0
 More sewer
 ~
 ~
+~
+~
 Z -1 11055
 D3
 More sewer
+~
+~
 ~
 ~
 Z -1 11053
@@ -1459,11 +1663,15 @@ D2
 More sewer
 ~
 ~
+~
+~
 Z -1 11054
 D4
 A city street
 ~
 grate ceiling~
+the grate~
+~
 ABFZ -1 11034
 S
 #11056
@@ -1480,9 +1688,13 @@ D1
 A door
 ~
 door sewer~
+the door~
+~
 ABCFZ 11002 11012
 D3
 More sewer
+~
+~
 ~
 ~
 Z -1 11057
@@ -1496,9 +1708,13 @@ D0
 More sewer
 ~
 ~
+~
+~
 Z -1 11058
 D1
 More sewer
+~
+~
 ~
 ~
 Z -1 11056
@@ -1510,6 +1726,8 @@ Apparently this is a dead end with the only exit being south.
 0 AD inside
 D2
 More sewer
+~
+~
 ~
 ~
 Z -1 11057
@@ -1524,6 +1742,8 @@ D5
 The square
 ~
 ~
+~
+~
 Z -1 11038
 S
 #11060
@@ -1535,6 +1755,8 @@ is in ruin, and a path leads through.
 ~
 0 0 hills
 D2
+~
+~
 ~
 ~
 Z -1 11047
@@ -1553,19 +1775,9 @@ M 11011 spec_assassinater	* the yellow enfan
 S
 
 #RESETS
-D 0 11004 0 2	* A deserted cottage: door to the north: closed and locked
-D 0 11012 3 2	* Dead end: door to the west: closed and locked
-D 0 11016 1 2	* Dead end: door to the east: closed and locked
-D 0 11032 1 1	* The Main Hall: door to the east: closed
-D 0 11033 3 1	* Cleric's Sanctum: door to the west: closed
-D 0 11034 5 1	* A street: door to the down: closed
-D 0 11052 2 2	* Fireplace: door to the south: closed and locked
-D 0 11053 3 2	* Sewer: door to the west: closed and locked
-D 0 11055 4 1	* Sewer: door to the up: closed
-D 0 11056 1 2	* Sewer: door to the east: closed and locked
 M 0 11003 5 11010 1	* the green enfan (Ershteep Road)
 M 0 11012 1 11011 1	* the gargoyle (Outside the city wall)
-G 0 11002 0		*	an old key
+G 0 11002 0		*	the gargoyle: an old key
 M 0 11001 10 11012 1	* the blue enfan (Dead end)
 M 0 11002 10 11014 2	* the grey enfan (City Gates)
 M 0 11002 10 11014 2	* the grey enfan (City Gates)
@@ -1574,17 +1786,17 @@ M 0 11001 10 11019 1	* the blue enfan (Inside the main gates)
 M 0 11004 4 11022 1	* the purple enfan (On a Road)
 M 0 11004 4 11023 1	* the purple enfan (On a Road)
 O 0 11010 0 11024	* a display case (Armoury)
-P 0 11006 99 11010 1	* a display case: a black tunic
-P 0 11007 99 11010 1	* a display case: high heels
+P 0 11006 99 0 1	* a display case: a black tunic
+P 0 11007 99 0 1	* a display case: high heels
 M 0 11001 10 11025 1	* the blue enfan (A wide street)
 M 0 11002 10 11027 1	* the grey enfan (On a Road)
 O 0 11010 0 11030	* a display case (Weaponary)
-P 0 11013 99 11010 1	* a display case: a long sword
-P 0 11013 99 11010 1	* a display case: a long sword
+P 0 11013 99 0 1	* a display case: a long sword
+P 0 11013 99 0 1	* a display case: a long sword
 M 0 11003 5 11030 1	* the green enfan (Weaponary)
 M 0 11011 3 11031 1	* the yellow enfan (A small foyer)
-E 0 11014 0 16		*	a runed dagger: wielded
-G 0 11011 0		*	key chain
+E 0 11014 0 16		*	the yellow enfan<wielded>: a runed dagger
+G 0 11011 0		*	the yellow enfan: key chain
 M 0 11002 10 11032 1	* the grey enfan (The Main Hall)
 M 0 11005 3 11032 1	* the yellow enfan (The Main Hall)
 M 0 11009 4 11033 2	* the green enfan (Cleric's Sanctum)
@@ -1592,12 +1804,12 @@ M 0 11009 4 11033 2	* the green enfan (Cleric's Sanctum)
 M 0 11010 2 11033 1	* the purple enfan (Cleric's Sanctum)
 M 0 11011 3 11033 1	* the yellow enfan (Cleric's Sanctum)
 M 0 11006 1 11033 1	* the black enfan (Cleric's Sanctum)
-E 0 11003 0 8		*	a pair of strange boots: on the feet
-E 0 11005 0 11		*	a metallic shield: as a shield
-E 0 11004 0 16		*	galactic claymore: wielded
-E 0 11009 0 15		*	an opal bracelet: on the right wrist
+E 0 11003 0 8		*	the black enfan<on the feet>: a pair of strange boots
+E 0 11005 0 11		*	the black enfan<as a shield>: a metallic shield
+E 0 11004 0 16		*	the black enfan<wielded>: galactic claymore
+E 0 11009 0 15		*	the black enfan<on the right wrist>: an opal bracelet
 O 0 11010 0 11037	* a display case (Jewelery)
-P 0 11009 99 11010 1	* a display case: an opal bracelet
+P 0 11009 99 0 1	* a display case: an opal bracelet
 M 0 11001 10 11038 2	* the blue enfan (The City Square)
 M 0 11001 10 11038 2	* the blue enfan (The City Square)
 M 0 11002 10 11039 1	* the grey enfan (North Chapel)
@@ -1609,7 +1821,7 @@ M 0 11009 4 11045 1	* the green enfan (Small House)
 M 0 11009 4 11045 1	* the green enfan (Small House)
 M 0 11010 2 11045 1	* the purple enfan (Small House)
 M 0 11011 3 11045 1	* the yellow enfan (Small House)
-G 0 11001 0		*	a gold key
+G 0 11001 0		*	the yellow enfan: a gold key
 M 0 11002 10 11046 1	* the grey enfan (On a Road)
 M 0 11002 10 11047 1	* the grey enfan (On a Road)
 M 0 11005 3 11047 1	* the yellow enfan (On a Road)
@@ -1618,8 +1830,8 @@ M 0 11001 10 11049 1	* the blue enfan (Road Junction)
 M 0 11003 5 11050 1	* the green enfan (On a Road)
 M 0 11001 10 11051 1	* the blue enfan (On a Road)
 M 0 11007 1 11052 1	* the guard dog (Fireplace)
-G 0 11008 0		*	an opal ring
-G 0 11012 0		*	an opal potion
+G 0 11008 0		*	the guard dog: an opal ring
+G 0 11012 0		*	the guard dog: an opal potion
 M 0 11008 2 11054 1	* the rat (Sewer)
 M 0 11008 2 11057 1	* the rat (Sewer)
 M 0 11003 5 11059 1	* the green enfan (By the tree)

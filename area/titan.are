@@ -1,5 +1,5 @@
 #AREADATA
-Ver 4
+Ver 5
 Name Valley of the Titans~
 VNUMs 18000 18199
 Credits Xavier~
@@ -1282,12 +1282,12 @@ Despite her size, she is one of the most rare and deadly creatures in all of
 Shades of Gray.  
 ~
 dragon~
-BIORV 0 HUV 0 AB 1000 0
+BIRV 0 HUV 0 AB 1000 0
 50 0 50d10+3000 1d1+499 5d6+14 'beating'
 -20 -20 -20 2
 CEFIOY
 stand stand female 0
-0 0 large unknown
+I 0 large unknown
 r bash -33
 r pierce 50
 r fire -33

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.87 2000-10-22 17:53:43 fjoe Exp $
+ * $Id: olc_area.c,v 1.88 2001-04-03 14:44:35 cs Exp $
  */
 
 #include "olc.h"
@@ -888,7 +888,7 @@ static void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 				pMobIndex->ac[AC_SLASH]  / 10, 
 				pMobIndex->ac[AC_EXOTIC] / 10);
 	fprintf(fp, "%s\n",	format_flags(pMobIndex->off_flags & ~r->off));
-	
+
 	p = mlstr_mval(&pMobIndex->gender);
 	if (IS_NULLSTR(p))
 		p = flag_string(gender_table, SEX_NEUTRAL);

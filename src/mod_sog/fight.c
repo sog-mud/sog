@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.292 2001-03-16 12:41:28 cs Exp $
+ * $Id: fight.c,v 1.293 2001-04-03 14:44:34 cs Exp $
  */
 
 /***************************************************************************
@@ -1250,6 +1250,72 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 }
 
 /*
+ * Focus positive energy. Damages undeads, have no effect on constructs,
+ * heals living creatures. Should be called from 'cure * wounds'-like spells
+ */
+
+void
+focus_positive_energy(CHAR_DATA *ch, CHAR_DATA *victim, const char *sn,
+    int amount)
+{
+	if (IS_SET(victim->form, FORM_CONSTRUCT)) {
+		if (ch == victim)
+			act_char("You are not affected", ch);
+		else
+			act("$N is not affected", ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	if (IS_SET(victim->form, FORM_UNDEAD)) {
+		if (saves_spell(LEVEL(ch), victim, DAM_HARM))
+			amount /= 2;
+		damage(ch, victim, amount, sn, DAM_HARM, DAMF_SHOW);
+		return;
+	}
+	victim->hit = UMIN(victim->hit + amount, victim->max_hit);
+	update_pos(victim);
+        act_char("You feel better!", victim);
+
+	if (ch != victim)
+		act_char("Ok.", ch);
+}
+
+
+/*
+ * Focus negative energy. Heals undeads, have no effect on constructs,
+ * damages living creatures. Should be called from 'inflict * wounds'-like
+ * spells
+ */
+
+void
+focus_negative_energy(CHAR_DATA *ch, CHAR_DATA *victim, const char * sn,
+    int amount)
+{
+	if (IS_SET(victim->form, FORM_CONSTRUCT)) {
+		if (ch == victim)
+			act_char("You are not affected", ch);
+		else
+			act("$N is not affected", ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	if (IS_SET(victim->form, FORM_UNDEAD)) {
+		victim->hit = UMIN(victim->hit + amount, victim->max_hit);
+		update_pos(victim);
+		act_char("You feel better!", victim);
+
+		if (ch != victim)
+			act_char("Ok.", ch);
+		return;
+	}
+
+	if (saves_spell(LEVEL(ch), victim, DAM_HARM))
+		amount /= 2;
+	damage(ch, victim, amount, sn, DAM_HARM, DAMF_SHOW);
+	victim->hit = UMIN(victim->hit + amount, victim->max_hit);
+}
+
+/*
  * Set position of a victim.
  */
 void
@@ -1508,7 +1574,7 @@ check_obj_dodge(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj, int bonus)
 		    ch, obj, victim, TO_VICT);
 		act("$p falls to the ground, making no damage to $N.",
 		    ch, obj, victim, TO_CHAR);
-		act("$p falls to the fround, making no damage to $n.",
+		act("$p falls to the ground, making no damage to $n.",
 		    victim, obj, ch, TO_NOTVICT);
 		obj_to_room(obj, victim->in_room);
 		return TRUE;

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 4
+Ver 5
 Name The City of Anon~
 VNUMs 31000 31199
 Credits Yaegar~
@@ -257,12 +257,12 @@ do NOT STEAL! We BORROW... Now with that out of the way, type PRAC to see
 what I can teach you, and PRAC skill to learn one of the skills shown."
 ~
 human~
-BCGO 0 HN 0 H 1000 0
+BCG 0 HN 0 H 1000 0
 10 0 2d7+121 5d5+100 2d4+2 'pound'
 1 1 1 7
 F
 stand stand male 1000
-0 0 medium unknown
+I 0 medium unknown
 #31015
 dryad waiter~
 a Dryad Waiter~
@@ -409,7 +409,7 @@ stand stand male 1000
 aod dealer~
 Aod the dealer~
 Aod the dealer stands in the shadows here.~
-.........................................................................
+........................................................................
 
 AOD apparently practices safe sex...
 ~

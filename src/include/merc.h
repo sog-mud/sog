@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.321 2001-03-16 12:41:26 cs Exp $
+ * $Id: merc.h,v 1.322 2001-04-03 14:44:32 cs Exp $
  */
 
 /***************************************************************************
@@ -147,7 +147,7 @@ enum {
 #include "vo_iter.h"
 
 #define PFILE_VERSION	12
-#define AREA_VERSION	4
+#define AREA_VERSION	5
 
 /*
  * Game parameters.
@@ -299,8 +299,8 @@ enum {
 
 typedef struct outbuf_t {
 	char *	buf;
-	uint 	size;
-	uint 	top;
+	uint	size;
+	uint	top;
 } outbuf_t;
 
 /*
@@ -328,10 +328,10 @@ struct dvdata_t {
 	int		refcnt;		/* reference count */
 
 	int		lang;		/* interface language	*/
-	int 		pagelen;	/* pager lines		*/
+	int		pagelen;	/* pager lines		*/
 	flag_t		olc_flags;	/* olc flags		*/
 
-	const char *	prompt;	
+	const char *	prompt;
 	const char *	prefix;
 
 	const char *	alias[MAX_ALIAS];
@@ -349,18 +349,18 @@ struct descriptor_data
 {
 	DESCRIPTOR_DATA *	next;
 	DESCRIPTOR_DATA *	snoop_by;
-	CHAR_DATA * 		character;
-	CHAR_DATA *	 	original;
+	CHAR_DATA *		character;
+	CHAR_DATA *		original;
 	const char *		host;
 	const char *		ip;
 	int			descriptor;
 	int			connected;
-	int 			wait_for_se;
+	int			wait_for_se;
 	bool			fcommand;
 	char			inbuf		[4 * MAX_INPUT_LENGTH];
 	char			incomm		[MAX_INPUT_LENGTH];
 	char			inlast		[MAX_INPUT_LENGTH];
-	int 			repeat;
+	int			repeat;
 	outbuf_t		out_buf;
 	outbuf_t		snoop_buf;
 	const char *		showstr_head;
@@ -369,8 +369,8 @@ struct descriptor_data
 
 /* OLC stuff */
 	olced_t	*		olced;
-	void *             	pEdit;		/* edited obj	*/
-	void *             	pEdit2;		/* edited obj 2	*/
+	void *			pEdit;		/* edited obj	*/
+	void *			pEdit2;		/* edited obj 2	*/
 
 /* string editor stuff */
 	const char **		pString;	/* edited string	*/
@@ -421,10 +421,10 @@ struct help_data
 	AREA_DATA *	area;
 
 	int		level;
-	const char * 	keyword;
+	const char *	keyword;
 	mlstring	text;
 };
-	
+
 /*
  * Shop types.
  */
@@ -432,7 +432,7 @@ struct help_data
 struct shop_data
 {
 	SHOP_DATA * next;		/* Next shop in list		*/
-	int	keeper; 		/* Vnum of shop keeper mob	*/
+	int	keeper;			/* Vnum of shop keeper mob	*/
 	int	buy_type [MAX_TRADE];	/* Item types shop will buy	*/
 	uint	profit_buy;		/* Cost multiplier for buying	*/
 	uint	profit_sell;		/* Cost multiplier for selling	*/
@@ -535,7 +535,6 @@ struct spec_type
 #define ACT_PET			(I)
 #define ACT_IMMSUMMON		(J)
 #define ACT_HUNTER		(L)
-#define ACT_UNDEAD		(O)
 #define ACT_CLERIC		(Q)
 #define ACT_MAGE		(R)
 #define ACT_THIEF		(S)
@@ -562,7 +561,7 @@ struct spec_type
 #define MOB_IS(mob, f)		(IS_SET((mob)->pMobIndex->mob_flags, (f)))
 
 /* OFF bits for mobiles *OFF  */
-#define OFF_AREA_ATTACK 	(A)
+#define OFF_AREA_ATTACK		(A)
 #define OFF_BACKSTAB		(B)
 #define OFF_BASH		(C)
 #define OFF_BERSERK		(D)
@@ -600,13 +599,13 @@ struct spec_type
 #define FORM_UNDEAD		(I)
 #define FORM_CONSTRUCT		(J)
 #define FORM_MIST		(K)
-#define FORM_INTANGIBLE 	(L)
+#define FORM_INTANGIBLE		(L)
 
 #define FORM_BIPED		(M)
 #define FORM_CENTAUR		(N)
 #define FORM_INSECT		(O)
 #define FORM_SPIDER		(P)
-#define FORM_CRUSTACEAN 	(Q)
+#define FORM_CRUSTACEAN		(Q)
 #define FORM_WORM		(R)
 #define FORM_BLOB		(S)
 
@@ -617,7 +616,7 @@ struct spec_type
 #define FORM_DRAGON		(Z)
 #define FORM_AMPHIBIAN		(aa)
 #define FORM_FISH		(bb)
-#define FORM_COLD_BLOOD 	(cc)
+#define FORM_COLD_BLOOD		(cc)
 
 /* body parts */
 #define PART_HEAD		(A)
@@ -1479,10 +1478,10 @@ struct npc_data {
 		int dice_number;
 		int dice_type;
 	} dam;
-	AREA_DATA * 	zone;
+	AREA_DATA *	zone;
 	CHAR_DATA *	target;
 	const char *	in_mind;
-	CHAR_DATA * 	last_fought;
+	CHAR_DATA *	last_fought;
 	CHAR_DATA *	hunter;		/* who quested to slay */
 };
 

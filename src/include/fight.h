@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: fight.h,v 1.28 2000-06-08 19:43:50 fjoe Exp $
+ * $Id: fight.h,v 1.29 2001-04-03 14:44:31 cs Exp $
  */
 
 #ifndef _FIGHT_H_
@@ -86,6 +86,12 @@ DECLARE_FUN2(CHAR_DATA, check_guard,
 	     CHAR_DATA, ch, CHAR_DATA, mob)
 DECLARE_FUN2(bool, in_PK,
 	     CHAR_DATA, ch, CHAR_DATA, victim)
+
+DECLARE_PROC4(focus_positive_energy, CHAR_DATA, ch, CHAR_DATA, victim,
+	     cchar_t, sn, int, amount)
+
+DECLARE_PROC4(focus_negative_energy, CHAR_DATA, ch, CHAR_DATA, victim,
+	     cchar_t, sn, int, amount)
 
 __MODULE_END_DECL
 

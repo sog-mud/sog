@@ -1,5 +1,5 @@
 #AREADATA
-Ver 4
+Ver 5
 Name Heaven~
 VNUMs 15000 15199
 Credits abrazak~
@@ -183,7 +183,7 @@ r light 999
 r harm 999
 r charm 999
 r sound 999
-a 'water breathing' unknown 80 -1 0 0 0
+a 'water breathing' to_affects 80 -1 0 0 0
 #15016
 старая сосна pine~
 @eng pine@rus ~~старая~~ ~~сосна~~~

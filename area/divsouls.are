@@ -1,5 +1,5 @@
 #AREADATA
-Ver 4
+Ver 5
 Name Divided Souls~
 VNUMs 11600 11799
 Credits Ydri~
@@ -815,12 +815,12 @@ All matter has disappeared in a square area in the center of the room.~
 Your guts wrench as you attempt to look at.. nothing at all.
 ~
 unique~
-GO 0 T A H 0 0
+G 0 T A H 0 0
 28 10 50d3+700 1d10+500 6d6+15 'drain'
 -15 -15 -15 -10
 F
 stand stand none 0
-DL 0 medium unknown
+DIL 0 medium unknown
 r bash 999
 r pierce 999
 r slash 999

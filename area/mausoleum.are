@@ -1,5 +1,5 @@
 #AREADATA
-Ver 4
+Ver 5
 Name Mausoleum~
 VNUMs 4600 4699
 Credits Khagghar~
@@ -83,7 +83,7 @@ FJ 0 U 0 ABH -1000 0
 -5 -5 -5 -5
 DEFIKNV
 stand stand female 10000
-ABCDHIKMc ABCDEFGHIJKV medium unknown
+BCDKc V medium unknown
 r fire 50
 r cold -50
 r lightning -50
@@ -138,7 +138,7 @@ BFJ 0 JUV 0 ABH -1000 0
 -25 -25 -25 -20
 AEFHIKV
 stand stand male 20000
-ABCDHIKMc ABCDEFGHIJKV medium unknown
+BCDKc V medium unknown
 r fire 50
 r cold -50
 r lightning -50
@@ -269,7 +269,7 @@ GJLQ 0 U 0 ABH -1000 0
 -20 -20 -20 -20
 AFIK
 stand stand none 5000
-CGI 0 medium unknown
+CG 0 medium unknown
 g @eng none@rus male~
 r fire 50
 r cold -50

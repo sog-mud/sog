@@ -1,5 +1,5 @@
 #AREADATA
-Ver 4
+Ver 5
 Name Festival Town~
 Builders kamimusubi~
 VNUMs 36300 36499
@@ -28,7 +28,6 @@ JT I 0 A AB 0 0
 DEHKO
 stand stand male 0
 D 0 medium unknown
-F act O
 M death 36301 100~
 M fight 36300 40~
 r bash -33

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 4
+Ver 5
 Name Blight~
 VNUMs 23000 24099
 Credits Stile~
@@ -222,12 +222,12 @@ behind to protect what he can of the lost kingdom.  You sense no great evil,
 or good, but a sense of purpose.
 ~
 unique~
-BCFGJOT A HNV 0 ABH 0 0
+BCFGJT A HNV 0 ABH 0 0
 60 5 50d10+10000 5d5+5000 8d6+28 'wrath'
 -40 -40 -40 -4
 ADEFGHKN
 stand stand male 1000
-C ABCDEFGHIJK medium unknown
+CI ABCDEFGHIJK medium unknown
 r bash 33
 r pierce 33
 r slash 33
@@ -255,12 +255,12 @@ behind to protect what he can of the lost kingdom.  You sense no great evil,
 or good, but a sense of purpose.
 ~
 unique~
-BCFGJOTV A HNV 0 ABH 0 0
+BCFGJTV A HNV 0 ABH 0 0
 60 5 50d10+10000 5d5+5000 8d6+28 'wrath'
 -40 -40 -40 -4
 ADEFGHKN
 stand stand male 1000
-C ABCDEFGHIJK medium unknown
+CI ABCDEFGHIJK medium unknown
 r bash 33
 r pierce 33
 r slash 33
@@ -289,12 +289,12 @@ they were, but then return to normal.  The spirit could not save these things
 in life.  It intends to try to do it in death.
 ~
 unique~
-CFGJOT A Ud AG ABH 0 0
+CFGJT A Ud AG ABH 0 0
 45 0 25d10+3000 5d5+1000 8d4+16 'magic'
 -15 -15 -15 2
 EFGHJKNU
 stand stand none 0
-C ABCDEFGHIJK medium unknown
+CI ABCDEFGHIJK medium unknown
 r poison 999
 r holy -50
 r disease 999
@@ -309,12 +309,12 @@ they were, but then return to normal.  The spirit could not save these things
 in life.  It intends to try to do it in death.
 ~
 unique~
-CFGJOT A NUd AG ABH 0 0
+CFGJT A NUd AG ABH 0 0
 45 0 25d10+3000 5d5+1000 8d4+16 'magic'
 -15 -15 -15 2
 EFGHJKNU
 stand stand none 1000
-C ABCDEFGHIJK medium unknown
+CI ABCDEFGHIJK medium unknown
 r poison 999
 r holy -50
 r disease 999

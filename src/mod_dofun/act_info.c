@@ -1,11 +1,11 @@
 /*
- * $Id: act_info.c,v 1.370 2001-03-09 21:36:44 fjoe Exp $
+ * $Id: act_info.c,v 1.371 2001-04-03 14:44:32 cs Exp $
  */
 
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
- *	 Serdar BULUT {Chronos} 	bulut@rorqual.cc.metu.edu.tr	   *
+ *	 Serdar BULUT {Chronos}		bulut@rorqual.cc.metu.edu.tr	   *
  *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *
  *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *
  *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *
@@ -4237,17 +4237,16 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	if (IS_SET(ch->comm, COMM_LONG)) {
 		if (HAS_INVIS(victim, ID_INVIS))
 			buf_append(output, "({yInvis{x) ");
-		if (HAS_INVIS(victim, ID_HIDDEN)) 
+		if (HAS_INVIS(victim, ID_HIDDEN))
 			buf_append(output, "({DHidden{x) ");
-		if (IS_AFFECTED(victim, AFF_CHARM) 
-		&& HAS_DETECT(ch, ID_CHARM)) 
+		if (IS_AFFECTED(victim, AFF_CHARM)
+		&& HAS_DETECT(ch, ID_CHARM))
 			buf_append(output, "({mCharmed{x) ");
-		if (IS_AFFECTED(victim, AFF_PASS_DOOR)) 
+		if (IS_AFFECTED(victim, AFF_PASS_DOOR))
 			buf_append(output, "({cTranslucent{x) ");
-		if (IS_AFFECTED(victim, AFF_FAERIE_FIRE)) 
+		if (IS_AFFECTED(victim, AFF_FAERIE_FIRE))
 			buf_append(output, "({MPink Aura{x) ");
-		if (IS_NPC(victim)
-		&&  IS_SET(victim->pMobIndex->act, ACT_UNDEAD)
+		if (IS_SET(victim->form, FORM_UNDEAD)
 		&&  HAS_DETECT(ch, ID_UNDEAD))
 			buf_append(output, "({DUndead{x) ");
 		if (RIDDEN(victim))
@@ -4284,8 +4283,7 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 				  && HAS_DETECT(ch, ID_CHARM));
 		FLAG_SET(14, 'T', IS_AFFECTED(victim, AFF_PASS_DOOR));
 		FLAG_SET(17, 'P', IS_AFFECTED(victim, AFF_FAERIE_FIRE));
-		FLAG_SET(20, 'U', IS_NPC(victim) &&
-				  IS_SET(victim->pMobIndex->act, ACT_UNDEAD) &&
+		FLAG_SET(20, 'U', IS_SET(victim->form, FORM_UNDEAD) &&
 				  HAS_DETECT(ch, ID_UNDEAD));
 		FLAG_SET(23, 'R', RIDDEN(victim));
 		FLAG_SET(26, 'I', HAS_INVIS(victim, ID_IMP_INVIS));

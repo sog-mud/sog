@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.103 2001-01-23 21:47:03 fjoe Exp $
+ * $Id: db_area.c,v 1.104 2001-04-03 14:44:36 cs Exp $
  */
 
 /***************************************************************************
@@ -850,6 +850,8 @@ DBLOAD_FUN(load_aflag)
 #define V0_ACT_IMMSTEAL		(kk)
 #define V0_ACT_IMMSUMMON	(ll)
 
+#define V4_ACT_UNDEAD		(O)
+
 flag_subst_t v0_subst_act[] =
 {
 	{ ACT_SENTINEL,		ACT_SENTINEL		},
@@ -859,7 +861,7 @@ flag_subst_t v0_subst_act[] =
 	{ ACT_WIMPY,		ACT_WIMPY		},
 	{ ACT_PET,		ACT_PET			},
 	{ ACT_HUNTER,		ACT_HUNTER		},
-	{ ACT_UNDEAD,		ACT_UNDEAD		},
+	{ V4_ACT_UNDEAD,	V4_ACT_UNDEAD		},
 	{ ACT_CLERIC,		ACT_CLERIC		},
 	{ ACT_MAGE,		ACT_MAGE		},
 	{ ACT_THIEF,		ACT_THIEF		},
@@ -887,6 +889,7 @@ flag_subst_t v0_subst_act[] =
 #define V0_ACT_SAGE		(hh)
 #define V0_ACT_HEALER		(aa)
 #define V0_ACT_CLAN_GUARD	(ff)
+
 
 flag_subst_t v0_subst_mob[] =
 {
@@ -1083,16 +1086,16 @@ DBLOAD_FUN(load_mobiles)
         pMobIndex->group                = fread_number(fp);
 
         pMobIndex->level                = fread_number(fp);
-        pMobIndex->hitroll              = fread_number(fp);  
+        pMobIndex->hitroll              = fread_number(fp);
 
 	/* read hit dice */
-        pMobIndex->hit[DICE_NUMBER]     = fread_number(fp);  
-        /* 'd'          */                fread_letter(fp); 
-        pMobIndex->hit[DICE_TYPE]   	= fread_number(fp);
-        /* '+'          */                fread_letter(fp);   
-        pMobIndex->hit[DICE_BONUS]      = fread_number(fp); 
+        pMobIndex->hit[DICE_NUMBER]     = fread_number(fp);
+        /* 'd'          */                fread_letter(fp);
+        pMobIndex->hit[DICE_TYPE]	= fread_number(fp);
+        /* '+'          */                fread_letter(fp);
+        pMobIndex->hit[DICE_BONUS]      = fread_number(fp);
 
- 	/* read mana dice */
+	/* read mana dice */
 	pMobIndex->mana[DICE_NUMBER]	= fread_number(fp);
 					  fread_letter(fp);
 	pMobIndex->mana[DICE_TYPE]	= fread_number(fp);
@@ -1121,7 +1124,7 @@ DBLOAD_FUN(load_mobiles)
 		res = fread_flags(fp);
 		vul = fread_flags(fp);
 	}
-	
+
 	/* vital statistics */
 	pMobIndex->start_pos		= fread_fword(position_table, fp);
 	pMobIndex->default_pos		= fread_fword(position_table, fp);
@@ -1133,12 +1136,19 @@ DBLOAD_FUN(load_mobiles)
 	pMobIndex->wealth		= fread_number(fp);
 
 	pMobIndex->form			= fread_flags(fp) | (r ? r->form : 0);
+	if (area_current->ver <= 4
+	&&  IS_SET(pMobIndex->act, V4_ACT_UNDEAD)
+	&&  !IS_SET(pMobIndex->form, FORM_UNDEAD)) {
+		REMOVE_BIT(pMobIndex->act, V4_ACT_UNDEAD);
+		SET_BIT(pMobIndex->form, FORM_UNDEAD);
+	}
+
 	pMobIndex->parts		= fread_flags(fp) | (r ? r->parts : 0);
 	/* size */
 	pMobIndex->size			= fread_fword(size_table, fp);
 	free_string(pMobIndex->material);
 	pMobIndex->material		= fread_sword(fp);
- 
+
 	/* Set mob resists to 0, race resists will be added in create_mob() */
 	for (i = 0; i < MAX_RESIST; i++) {
 		pMobIndex->resists[i] = 0;

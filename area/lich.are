@@ -1,5 +1,5 @@
 #AREADATA
-Ver 4
+Ver 5
 Name Lich Tower~
 VNUMs 29300 29399
 Credits Ryzen~
@@ -96,12 +96,12 @@ corrupt your soul.  Fear him mortal for you are about to die.
 захотел бы признаться. Дрожи, смертный - ибо смерть твоя близка!
 ~
 dragon~
-BOT 0 0 0 0 -1000 0
+BT 0 0 0 0 -1000 0
 40 25 5d80+1500 45d10+950 11d5+20 'magic'
 -18 -18 -18 -4
 ACFKM
 stand stand neutral 800
-Cc L large unknown
+CIc L large unknown
 r bash -33
 r pierce 50
 r slash 33

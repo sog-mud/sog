@@ -1,16 +1,16 @@
 /*
- * $Id: prayers.c,v 1.3 2001-03-16 12:41:28 cs Exp $
+ * $Id: prayers.c,v 1.4 2001-04-03 14:44:34 cs Exp $
  */
 
 /***************************************************************************
- *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *	
+ *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
  *	 Serdar BULUT {Chronos}		bulut@rorqual.cc.metu.edu.tr       *
- *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *	
- *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *	
- *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *	
+ *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *
+ *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *
+ *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *
  *     By using this code, you have agreed to follow the terms of the      *
- *     ANATOLIA license, in the file Anatolia/anatolia.licence             *	
+ *     ANATOLIA license, in the file Anatolia/anatolia.licence             *
  ***************************************************************************/
 
 /***************************************************************************
@@ -248,7 +248,7 @@ inspire_cb(void *vo, va_list ap)
 			return gch;
 		return NULL;
 	}
-			
+
 	if (is_affected(gch, "bless")) {
 		if (gch == ch)
 			act_char("You are already inspired.", ch);
@@ -281,7 +281,7 @@ inspire_cb(void *vo, va_list ap)
 }
 
 void
-prayer_inspire(const char *sn, int level, CHAR_DATA *ch, void *vo) 
+prayer_inspire(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	vo_foreach(ch->in_room, &iter_char_room, inspire_cb, level, ch);
 }
@@ -289,25 +289,14 @@ prayer_inspire(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 prayer_heal(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	victim->hit = UMIN(victim->hit + 100 + level / 10, victim->max_hit);
-	update_pos(victim);
-	act_char("A warm feeling fills your body.", victim);
-	if (ch != victim)
-		act_char("Ok.", ch);
+	focus_positive_energy(ch, (CHAR_DATA *) vo, sn, 100 + level / 10);
 }
 
 void
 prayer_master_healing(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	int bonus = 300 + level + dice(1,40);
-
-	victim->hit = UMIN(victim->hit + bonus, victim->max_hit);
-	update_pos(victim);
-	act_char("A warm feeling fills your body.", victim);
-	if (ch != victim)
-		act_char("Ok.", ch);
+	focus_positive_energy(ch, (CHAR_DATA *) vo, sn,
+	   300 + level + dice(1,40));
 }
 
 void
@@ -327,14 +316,8 @@ prayer_group_heal(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 prayer_superior_heal(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	int bonus = 170 + level + dice(1, 20);
-
-	victim->hit = UMIN(victim->hit + bonus, victim->max_hit);
-	update_pos(victim);
-	act_char("A warm feeling fills your body.", victim);
-	if (ch != victim)
-		act_char("Ok.", ch);
+	focus_positive_energy(ch, (CHAR_DATA *) vo, sn,
+	    170 + level + dice(1, 20));
 }
 
 void
@@ -371,7 +354,7 @@ prayer_dispel_good(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	if (IS_NEUTRAL(victim)) {
-		if (ch == victim) 
+		if (ch == victim)
 			act_char("You do not seem to be affected.", ch);
 		else {
 			act("$N does not seem to be affected.",
@@ -426,45 +409,23 @@ prayer_dispel_evil(const char *sn, int level, CHAR_DATA *ch, void *vo)
 }
 
 void
-prayer_cure_light(const char *sn, int level, CHAR_DATA *ch, void *vo)
+prayer_cure_light_wounds(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	int heal;
-
-	heal = dice(1, 8) + level / 4 + 5;
-	victim->hit = UMIN(victim->hit + heal, victim->max_hit);
-	update_pos(victim);
-	act_char("You feel better!", victim);
-	if (ch != victim)
-		act_char("Ok.", ch);
+	focus_positive_energy(ch, (CHAR_DATA *) vo, sn,
+	    dice(1, 8) + level / 4 + 5);
 }
 
 void
-prayer_cure_serious(const char *sn, int level, CHAR_DATA *ch, void *vo)
+prayer_cure_serious_wounds(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	int heal;
-
-	heal = dice(2, 8) + level / 3 + 10 ;
-	victim->hit = UMIN(victim->hit + heal, victim->max_hit);
-	update_pos(victim);
-	act_char("You feel better!", victim);
-	if (ch != victim)
-		act_char("Ok.", ch);
+	focus_positive_energy(ch, (CHAR_DATA *) vo, sn,
+	    dice(2, 8) + level / 3 + 10);
 }
 
 void
-prayer_cure_critical(const char *sn, int level, CHAR_DATA *ch, void *vo)
+prayer_cure_critical_wounds(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	int heal;
-
-	heal = dice(3, 8) + level / 2 ;
-	victim->hit = UMIN(victim->hit + heal, victim->max_hit);
-	update_pos(victim);
-	act_char("You feel better!", victim);
-	if (ch != victim)
-		act_char("Ok.", ch);
+	focus_positive_energy(ch, (CHAR_DATA *) vo, sn, dice(3, 8) + level / 2);
 }
 
 void
@@ -695,7 +656,7 @@ prayer_severity_force(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	damage(ch, victim, dam, sn, DAM_NONE, DAMF_SHOW);
 }
 
-#define OBJ_VNUM_SPRING 		22
+#define OBJ_VNUM_SPRING			22
 
 void
 prayer_create_spring(const char *sn, int level,CHAR_DATA *ch,void *vo)
@@ -771,7 +732,7 @@ prayer_resilience(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		af.modifier	= 45;
 		af.owner	= NULL;
 		affect_to_char(ch, &af);
-	} else 
+	} else
 		act_char("You are already resistive to draining attacks.", ch);
 }
 
@@ -797,7 +758,7 @@ mass_sanctuary_cb(void *vo, va_list ap)
 }
 
 void
-prayer_mass_sanctuary(const char *sn, int level, CHAR_DATA *ch, void *vo) 
+prayer_mass_sanctuary(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	vo_foreach(ch->in_room, &iter_char_room, mass_sanctuary_cb, level, ch);
 }
@@ -939,8 +900,8 @@ prayer_calm(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	if (number_range(0, chance) >= mlevel) { /* hard to stop large fights */
 		for (vch = ch->in_room->people; vch; vch = vch->next_in_room) {
-			if (IS_NPC(vch)
-			&&  IS_SET(vch->pMobIndex->act, ACT_UNDEAD))
+			if (IS_SET(vch->form, FORM_UNDEAD)
+			||  IS_SET(vch->form, FORM_CONSTRUCT))
 				return;
 
 			if (IS_AFFECTED(vch, AFF_CALM | AFF_BERSERK)
@@ -1118,24 +1079,23 @@ prayer_bless(const char *sn, int level, CHAR_DATA *ch, void *vo)
 }
 
 void
-prayer_cause_light(const char *sn, int level, CHAR_DATA *ch, void *vo)
+prayer_inflict_light_wounds(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	damage(ch, (CHAR_DATA *) vo, dice(1, 8) + level / 3,
-	       sn, DAM_HARM, DAMF_SHOW);
+	focus_negative_energy(ch, (CHAR_DATA *) vo, sn, dice(1, 8) + level / 3);
 }
 
 void
-prayer_cause_serious(const char *sn, int level,CHAR_DATA *ch,void *vo)
+prayer_inflict_serious_wounds(const char *sn, int level,
+			      CHAR_DATA *ch,void *vo)
 {
-	damage(ch, (CHAR_DATA *) vo, dice(2, 8) + level / 2,
-	       sn, DAM_HARM, DAMF_SHOW);
+	focus_negative_energy(ch, (CHAR_DATA *) vo, sn, dice(2, 8) + level / 2);
 }
 
 void
-prayer_cause_critical(const char *sn, int level, CHAR_DATA *ch, void *vo)
+prayer_inflict_critical_wounds(const char *sn, int level,
+			       CHAR_DATA *ch, void *vo)
 {
-	damage(ch, (CHAR_DATA *) vo, dice(3, 8) + level - 6,
-	       sn, DAM_HARM, DAMF_SHOW);
+	focus_negative_energy(ch, (CHAR_DATA *) vo, sn, dice(3, 8) + level - 6);
 }
 
 /* RT replacement demonfire spell */

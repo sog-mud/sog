@@ -1,6 +1,5 @@
 #RACE
 Name spectre~
-Act undead~
 Aff pass_door~
 Form undead intangible~
 Resist bash 100

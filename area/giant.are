@@ -1,5 +1,5 @@
 #AREADATA
-Ver 4
+Ver 5
 Name Castle of Giants~
 VNUMs 13000 13099
 Credits Outlaw~
@@ -248,12 +248,12 @@ beating a gnome to death, he cares not. It is merely part of his well-paid
 job.
 ~
 human~
-BCFGHOT 0 OV 0 0 -1000 0
+BCFGHT 0 OV 0 0 -1000 0
 40 0 1d1+3599 1d1+0 4d9+13 'wrath'
 -14 -14 -14 -10
 ADFHJN
 stand stand male 4000
-0 0 medium unknown
+I 0 medium unknown
 r holy -50
 #13013
 screaming elf~

@@ -1,4 +1,5 @@
 #AREADATA
+Ver 5
 Name Darathorn's Pit~
 VNUMs 15400 15478
 Credits Helt~
@@ -10,284 +11,441 @@ End
 #15400
 Darathorn man human~
 the Arch-Villan Darathorn~
-Darathorn spins around as you enter his domain, and draws his dagger.
-~
+Darathorn spins around as you enter his domain, and draws his dagger.~
 He is short, he could almost be a dwarf, suprising for someone of his
 reputation, but he isn't slow...
 ~
 human~
-ABCFST BDEFJOTZdu -1000 1500
-50 0 1d1+9999 1d1+499 5d8+19 blast
+BCFJST 0 JOTd A ABHL -1000 1500
+50 0 1d1+9999 1d1+499 5d8+19 'blast'
 -20 -20 -20 -2
-ADEFHJKP AB CDELQ 0
+ADEFHJKP
 stand stand male 15400
 0 0 small unknown
+r bash 33
+r pierce 33
+r slash 33
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r poison 33
+r negative 33
+r holy 33
+r energy 33
+r mental 33
+r disease 33
+r light 33
+r harm 33
+r charm 100
+r sound 33
 #15401
 trusted henchman~
 the trusted henchman~
-A trusted henchman hefts his axe and advances towards you.
-~
+A trusted henchman hefts his axe and advances towards you.~
 This henchman was chosen for both his fighting prowess and loyalty to 
 Darathorn. He will willingly fight to the death to save his master... 
 as you will find out.
 ~
 human~
-ACFGT BDFJT 0 1501
-38 0 10d10+1600 1d1+300 5d6+12 beating
+CFGJT 0 T A ABH 0 1501
+38 0 10d10+1600 1d1+300 5d6+12 'beating'
 -15 -15 -15 -2
-CDEFIU AB DLP K
+CDEFIU
 stand stand either 4500
 0 0 large unknown
+r bash 33
+r pierce 33
+r slash 33
+r acid -50
+r poison 33
+r mental 33
+r charm 100
 #15402
 hand second right woman~
 the Hand~
-The frown on the Hand's face is quickly replaced by a sneer as she advances.
-~
+The frown on the Hand's face is quickly replaced by a sneer as she advances.~
 Darathorn's right-hand woman and second in command, is not your average rogue,
 but almost as cunning as Darathorn himself. The evil smirk on her face,
 however, indicates that she enjoys her work... killing!
 ~
 human~
-ABCFSTV BDFJNTu -650 1502
-45 0 25d10+3000 1d1+400 8d4+16 pierce
+BCFJSTV 0 JNT A ABH -650 1502
+45 0 25d10+3000 1d1+400 8d4+16 'pierce'
 -15 -15 -15 -5
-ADEFHJ AB DL KMN
+ADEFHJ
 stand stand female 3100
 0 0 medium unknown
+r bash 33
+r pierce 33
+r slash 33
+r acid -50
+r poison 33
+r negative -50
+r holy -50
+r charm 100
 #15403
 golorth captain thug~
 Golorth, the thug captain~
-Golorth is seeing to his men.
-~
+Golorth is seeing to his men.~
 He is big.. VERY big. The way he swings his 2-handed bastard sword tells you
 that his could have been a mistake.
 ~
 human~
-ACGT DJT 100 1503
-41 0 25d10+2000 1d1+199 4d8+14 punch
+CGJT 0 T 0 AH 100 1503
+41 0 25d10+2000 1d1+199 4d8+14 'punch'
 -10 -10 -10 -1
-CDEFKP AB DEI CH
+CDEFKP
 stand stand male 1120
 0 0 huge unknown
+r bash 33
+r pierce 33
+r slash 33
+r fire -50
+r lightning -50
+r acid -50
+r poison -50
+r negative -50
+r holy -50
+r energy -50
+r mental -50
+r disease -50
+r light -50
+r harm -50
+r charm 33
+r sound -50
 #15404
 Alengrot cleric priest~
 Alengrot, the evil cleric~
-Alengrot's eyes shine, will you be his next sacrifice?
-~
+Alengrot's eyes shine, will you be his next sacrifice?~
 If evil had a partner, it would be Alengrot. His practice in the dark arts
 has cast him out from all society. He now works for those that can pay him to
 destroy their enemies. He does NOT like to be disturbed.
 ~
 human~
-ABFQT DENTdu -1000 1504
-45 0 25d10+3000 1d1+1200 8d4+15 wrath
+BFJQT 0 JNTd 0 AL -1000 1504
+45 0 25d10+3000 1d1+1200 8d4+15 'wrath'
 -20 -20 -20 -2
-ADEFHJ AB CNOP FLM
+ADEFHJ
 stand stand male 2750
 0 0 medium unknown
+r pierce -50
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 33
+r energy 33
+r mental 33
+r disease 33
+r light 33
+r harm 33
+r charm 100
+r sound 33
 #15405
 masked thug guard~
 the masked thug~
-The masked thug stands on guard, you are not welcome.
-~
+The masked thug stands on guard, you are not welcome.~
 His sole purpose is to guard Darathorn. To fail is to die!
 ~
 human~
-ABCFT BCDFJTV -600 1500
-40 0 15d10+1850 1d1+299 4d8+13 stab
+BCFJT 0 TV A ABHK -600 1500
+40 0 15d10+1850 1d1+299 4d8+13 'stab'
 -9 -8 -15 -5
-CDEFIP AB EQ HK
+CDEFIP
 stand stand either 540
 0 0 medium unknown
+r bash 33
+r fire -50
+r acid -50
+r disease 33
+r charm 100
 #15406
 advisor mage tolorian~
 Tolorian, Darathorn's advisor~
-Tolorian ignores you totally.
-~
+Tolorian ignores you totally.~
 Tolorian, the mage, has only two passions, money and power. If you get in his
 way expect to pay with your life.
 ~
 human~
-ABR DENTu -500 1504
-45 0 25d10+3549 1d1+1200 8d4+15 flame
+BJR 0 JNT 0 AL -500 1504
+45 0 25d10+3549 1d1+1200 8d4+15 'flame'
 -15 -15 -15 -3
-AFH AB CP E
+AFH
 stand stand male 3120
 0 0 medium unknown
+r bash -50
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r poison 33
+r negative 33
+r holy 33
+r energy 33
+r mental 33
+r disease 33
+r light 33
+r harm 33
+r charm 100
+r sound 33
 #15407
 mother woman~
 Darathorn's mother~
-An old woman smiles calmly at you.
-~
+An old woman smiles calmly at you.~
 Darathorn's mother stays here to keep Darathorn on the wide and twisted path
 of an thief. It is thought that the true power lies with her and not with
 Darathorn. Upset her and find out.
 ~
 human~
-ABCFQRSTUV DEFHNTZd 0 1505
-50 0 50d10+4500 1d1+1299 5d8+19 divine
+BCFJQRSTUV 0 HNTd 0 ABL 0 1505
+50 0 50d10+4500 1d1+1299 5d8+19 'divine'
 -20 -20 -20 3
-AFHK AB CDP 0
+AFHK
 stand stand female 5000
 0 0 medium unknown
+r bash 33
+r pierce 33
+r slash 33
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r poison 33
+r negative 33
+r holy 33
+r energy 33
+r mental 33
+r disease 33
+r light 33
+r harm 33
+r charm 100
+r sound 33
 #15408
 guardian golem obsidian~
 the obsidian golem~
-The guardian is here to stop you.
-~
+The guardian is here to stop you.~
 Not bright, but it dosen't have to be to crush you with its HUGE hands. It is
 a watchdog... beware it will catch you.
 ~
 human~
-ABFRTU DEFJNVZd 0 1505
-47 0 25d10+3500 1d1+199 6d6+17 crush
+BFJRTU 0 NVd 0 ABHL 0 1505
+47 0 25d10+3500 1d1+199 6d6+17 'crush'
 -17 -17 -17 3
-ACDEFHIKOP ABP DEFMO HJZ
+ACDEFHIKOP
 stand stand male 0
 0 0 giant unknown
+r bash 33
+r pierce 33
+r slash 33
+r fire -50
+r lightning -50
+r negative 33
+r energy 33
+r mental 100
+r charm 100
 #15409
 thug guard minor~
 the minor thug~
-The thug shifts nervously and hefts his weapon.
-~
+The thug shifts nervously and hefts his weapon.~
 He is trying to rise up in the ranks to reach that most coverted of postions..
 the Hand. His main job is to insure no strangers wander around without at
 least one knife in their back.
 ~
 human~
-ABCFT DJ -50 1501
-30 0 6d12+853 1d1+199 4d6+8 slap
+BCFJT 0 0 0 AH -50 1501
+30 0 6d12+853 1d1+199 4d6+8 'slap'
 -9 -9 -9 0
-CDEFJKU A 0 0
+CDEFJKU
 stand stand either 200
 0 0 medium unknown
 #15410
 minor thief~
 the minor thief~
-The minor thief greedily eyes your money pouch.
-~
+The minor thief greedily eyes your money pouch.~
 He is the lowest of the low. Stealing from anyone he can get his hands on.
 Nothing is safe with him in the room.
 ~
 human~
-ACGHS BJQ -100 1506
-25 0 5d10+550 1d1+199 2d10+7 thrust
+CGHJS 0 0 AB H -100 1506
+25 0 5d10+550 1d1+199 2d10+7 'thrust'
 -7 -7 -7 2
-BFJU A FL K
+BFJU
 stand stand either 530
 0 0 medium unknown
+r pierce 33
+r acid -50
+r poison 33
 #15411
 thief~
 the thief~
-The thief reaches for his knife.
-~
+The thief reaches for his knife.~
 He is a cut-throat and will do anything to seperate you and your gold.
 ~
 human~
-ACFGHS BDFJQ -300 1506
-33 0 10d10+1100 1d1+299 6d4+10 stab
+CFGHJS 0 0 AB ABH -300 1506
+33 0 10d10+1100 1d1+299 6d4+10 'stab'
 -11 -11 -11 2
-BDEFU A BFL Q
+BDEFU
 stand stand male 640
 0 0 medium unknown
+r pierce 33
+r poison 33
+r disease -50
+r charm 33
 #15412
 master thief~
 the master thief~
-The master thief peers at your possesions and smiles.
-~
+The master thief peers at your possesions and smiles.~
 He didn't get those scars from shaving. To be a master thief, you need to be
 tough and ruthless. You had better be careful around him.
 ~
 human~
-ACGST BDEFJTV -500 1506
-38 0 10d10+1600 1d1+299 5d6+12 stab
+CGJST 0 TV A ABHL -500 1506
+38 0 10d10+1600 1d1+299 5d6+12 'stab'
 -13 -13 -13 2
-BEFHJKU AB FL 0
+BEFHJKU
 stand stand male 1700
 0 0 medium unknown
+r pierce 33
+r poison 33
+r charm 100
 #15413
 shade guardian~
 the shade guardian~
-The shade's red eyes follow your every move.
-~
+The shade's red eyes follow your every move.~
 You can feel the evil emanating from the shade. It feeds off warm-blooded
 creatures.. just like YOU!
 ~
 human~
-ACFGOT BCDEFJNTV -850 1507
-37 0 10d10+1500 1d1+999 3d10+12 chill
+CFGJT 0 NTV A ABHKL -850 1507
+37 0 10d10+1500 1d1+999 3d10+12 'chill'
 -12 -12 -12 -2
-AFH ABE CDM HJO
+AFH
 stand stand either 0
-0 0 small unknown
+I 0 small unknown
+r bash 100
+r pierce 33
+r slash 33
+r cold 33
+r acid 33
+r poison 33
+r negative 33
+r holy 33
+r mental 33
+r disease 33
+r light 33
+r harm 33
+r charm 100
+r sound 33
 #15414
 assasin deadly~
 the deadly assasin~
-The assasin makes no move until you get too close to escape.
-~
+The assasin makes no move until you get too close to escape.~
 The assasins dead eyes stare straight through you and the pale face is totally
 expressionless. It is like looking into the face of death. These beings are
 idealy suited for visiting death on those that deserve it. This includes YOU!
 The creature doesn't seem totally alive and reminds you of a deadly puppet.
 ~
 human~
-ABCFOT BDEFJPTUV -1000 1502
-42 0 25d10+2250 1d1+499 3d12+14 cleave
+BCFJT 0 TUV AG ABHL -1000 1502
+42 0 25d10+2250 1d1+499 3d12+14 'cleave'
 -14 -14 -14 2
-ABCDEFHIK ABMQ CL HN
+ABCDEFHIK
 stand stand either 0
-0 0 medium unknown
+I 0 medium unknown
+r cold 33
+r lightning 33
+r acid 33
+r poison 33
+r negative 100
+r energy 33
+r mental 33
+r disease 100
+r light 33
+r harm 33
+r charm 100
+r sound 33
 #15415
 prisoner~
 the wretched prisoner~
-A prisoner tries too hide in the corner.
-~
+A prisoner tries too hide in the corner.~
 This could once have been called a human. Now it is just a blind, crippled,
 diseased animal.
 ~
 human~
-AB AX 700 1509
-20 0 3d9+333 1d1+199 2d8+5 bite
+BJ 0 AX 0 0 700 1509
+20 0 3d9+333 1d1+199 2d8+5 'bite'
 -4 -4 -4 4
-F A 0 CD
+F
 sit sit male 0
 0 0 medium unknown
+r bash -50
+r pierce -50
+r slash -50
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r poison -50
+r negative -50
+r holy -50
+r energy -50
+r mental -50
+r disease -50
+r light -50
+r harm -50
+r charm -50
+r sound -50
 #15416
 servant silent~
 the silent servant~
-The servant glides past without a sound.
-~
+The servant glides past without a sound.~
 He has been trained to move without a sound and his tongue has been removed.
 He seems not to take any notice of you or his surroundings.
 ~
 human~
-ACGH BJPT 0 1507
-20 0 3d9+330 1d1+149 2d8+5 scratch
+CGHJ 0 T AG H 0 1507
+20 0 3d9+330 1d1+149 2d8+5 'scratch'
 -4 -4 -4 4
-F A B 0
+F
 stand stand either 220
 0 0 medium unknown
+r charm 33
 #15417
 man barbarian warrior~
 the barbarian warrior~
-The barbarian warrior strolls past.
-~
+The barbarian warrior strolls past.~
 You see a savage barbarian. He is dressed in his rough skins and smells as if
 he hasn't washed in at least a decade. He seems to be a guest and is looking
 at the splendors of Darathorn's Pit.
 ~
 human~
-ACGT JV 0 1508
-43 0 25d10+2500 1d1+199 3d12+15 pound
+CGJT 0 V 0 H 0 1508
+43 0 25d10+2500 1d1+199 3d12+15 'pound'
 -15 -15 -15 3
-CDEFIK A BDEI CH
+CDEFIK
 stand stand male 1200
 0 0 large unknown
+r bash 33
+r pierce 33
+r slash 33
+r fire -50
+r lightning -50
+r acid -50
+r poison -50
+r negative -50
+r holy -50
+r energy -50
+r mental -50
+r disease -50
+r light -50
+r harm -50
+r sound -50
 #15418
 beast kadrdw'ws~
 the kadrdw'ws~
-The kadrdw'ws bares its teeth at you.
-~
+The kadrdw'ws bares its teeth at you.~
 You see a creature straight from a nightmare. It is BIG, it is MEAN, and it is
 ANGRY. Its entire surface is made up of bits of metal, stone and fur. It's
 face is only recognisable as such because of the big hole it uses as its
@@ -295,12 +453,27 @@ mouth and its two small red eyes. It may have been human once, but now it
 seems that some magic has transformed it into a fearsome beast.
 ~
 human~
-ABCFRTV BDEFJNVd 0 1509
-55 0 50d10+7000 1d1+699 10d4+23 crush
+BCFJRTV 0 NVd A ABHL 0 1509
+55 0 50d10+7000 1d1+699 10d4+23 'crush'
 -25 -25 -25 1
-ACDFO ABP CDEI HJ
+ACDFO
 stand stand either 0
 0 0 giant unknown
+r bash 33
+r pierce 33
+r slash 33
+r cold 33
+r acid 33
+r poison 33
+r negative 33
+r holy 33
+r energy 33
+r mental 100
+r disease 33
+r light 33
+r harm 33
+r charm 100
+r sound 33
 #0
 
 #OBJECTS
@@ -309,332 +482,277 @@ dagger seeker iron~
 the Seeker~
 A dull iron dagger lies here.~
 iron~
-weapon BCG AN
-dagger 5 11 sting DE
+weapon BCG 0 AN
+dagger 5 11 'sting' DE
 47 50 16370 P
-A
-1 1
-A
-18 5
-A
-19 5
-G none
+a '' to_object 47 -1 1 1 0
+a '' to_object 47 -1 5 18 0
+a '' to_object 47 -1 5 19 0
 #15401
 power stone~
 the power stone~
 A small sun hovers above the ground.~
 stone~
-light ABG A
+light ABG 0 A
 0 0 -1 0 0
 47 100 21783 P
-A
-18 1
-A
-19 2
-A
-13 100
-G none
+a '' to_object 47 -1 1 18 0
+a '' to_object 47 -1 2 19 0
+a '' to_object 47 -1 100 13 0
 #15402
 ivory statuette warrior blessing~
 the warrior's blessing~
 A small ivory statuette of a fierce warrior rests in the corner.~
 stone~
-treasure ABFGI AO
+treasure ABFGI 0 AO
 0 0 0 0 0
 45 30 10000 P
-A
-18 2
-A
-24 -1
-G none
+a '' to_object 45 -1 2 18 0
+a '' to_object 45 -1 -1 24 0
 #15403
 boots wind~
 the Boots of the Wind~
 A pair of worn leather boots lie here.~
 leather~
-armor AGJ AG
+armor AGJ 0 AG
 12 12 12 6 1
 45 15 14000 P
-F A 14 50 T
-A
-2 1
-G none
+a '' to_resist 45 -1 16692 0 0
+a '' to_resist 45 -1 2058 1 0
+a '' to_resist 45 -1 3391 2 0
+a '' to_resist 45 -1 10278 3 0
+a '' to_resist 45 -1 8 4 0
+a '' to_resist 45 -1 16572 6 0
+a '' to_resist 45 -1 2058 7 0
+a '' to_resist 45 -1 -4840 8 0
+a '' to_resist 45 -1 -16449 9 0
+a '' to_resist 45 -1 6449 10 0
+a '' to_resist 45 -1 2056 11 0
+a '' to_resist 45 -1 -4828 12 0
+a '' to_resist 45 -1 -16449 13 0
+a '' to_resist 45 -1 16500 14 0
+a '' to_resist 45 -1 2058 15 0
+a '' to_resist 45 -1 15 16 0
+a '' to_resist 45 -1 12 18 0
+a '' to_resist 45 -1 26612 20 0
+a '' to_resist 45 -1 2055 21 0
+a '' to_affects 45 -1 50 14 0
+a '' to_object 45 -1 1 2 0
 #15404
 bone dagger~
 bone dagger~
 A dagger made of some white substance lies here.~
 stone~
-weapon ABCEFGHM AN
-dagger 5 9 pierce D
+weapon ABCEFGHM 0 AN
+dagger 5 9 'pierce' D
 40 20 17560 P
-A
-3 -2
-A
-5 2
-A
-1 1
-G none
+a '' to_object 40 -1 -2 3 0
+a '' to_object 40 -1 2 5 0
+a '' to_object 40 -1 1 1 0
 #15405
 cloak grey~
 a grey cloak~
 A pile of grey cloth lies here.~
 cloth~
-armor CFGH AK
+armor CFGH 0 AK
 9 9 9 2 1
 32 250 11845 P
-A
-5 1
-A
-13 50
-A
-12 -50
-G none
+a '' to_object 32 -1 1 5 0
+a '' to_object 32 -1 50 13 0
+a '' to_object 32 -1 -50 12 0
 #15406
 glass knife~
 a glass knife~
 A piece of glass has been shaped into a knife and left here.~
 glass~
-weapon G AN
-dagger 7 5 stab D
+weapon G 0 AN
+dagger 7 5 'stab' D
 32 70 5000 P
-A
-19 3
-G none
+a '' to_object 32 -1 3 19 0
 #15407
 glass knife~
 a glass knife~
 A piece of glass has been shaped into a knife and left here.~
 glass~
-weapon G AN
-dagger 5 7 stab D
+weapon G 0 AN
+dagger 5 7 'stab' D
 36 40 15000 P
-A
-2 1
-A
-19 5
-G none
+a '' to_object 36 -1 1 2 0
+a '' to_object 36 -1 5 19 0
 #15408
 red robe~
 a red robe~
 A pile of soft red cloth lie on the floor.~
 cloth~
-armor ABGI AK
+armor ABGI 0 AK
 14 14 14 6 1
 48 75 22523 P
-A
-3 3
-A
-12 50
-G none
+a '' to_object 48 -1 3 3 0
+a '' to_object 48 -1 50 12 0
 #15409
 sapphire staff~
 a sapphire staff~
 A long, blue staff has been carelessly left here.~
 stone~
-weapon ABG AN
-staff 11 5 blast AF
+weapon ABG 0 AN
+staff 11 5 'blast' AF
 48 110 27450 P
-A
-18 4
-A
-19 3
-A
-23 -15
-G none
+a '' to_object 48 -1 4 18 0
+a '' to_object 48 -1 3 19 0
+a '' to_object 48 -1 -15 23 0
 #15410
 bracer iron~
 a iron bracer~
 A tranished metal bracer is on the ground.~
 iron~
-armor CG AM
+armor CG 0 AM
 9 9 9 1 1
 36 140 6700 P
-A
-1 2
-A
-18 2
-G none
+a '' to_object 36 -1 2 1 0
+a '' to_object 36 -1 2 18 0
 #15411
 wicked battle axe~
 a wicked battle axe~
 A sharp battle axe rest in the corner.~
 iron~
-weapon G AN
-axe 5 10 cleave D
+weapon G 0 AN
+axe 5 10 'cleave' D
 36 270 12500 P
-A
-19 3
-A
-18 5
-G none
+a '' to_object 36 -1 3 19 0
+a '' to_object 36 -1 5 18 0
 #15412
 cloak black~
 a dark black cloak~
 An evil black cloth is waiting for someone to pick it up.~
 cloth~
-armor BCEFGH AC
+armor BCEFGH 0 AC
 10 10 10 2 1
 45 250 17120 P
-A
-13 50
-A
-5 2
-G none
+a '' to_object 45 -1 50 13 0
+a '' to_object 45 -1 2 5 0
 #15413
 fire blade~
 a fire blade~
 A beautiful black sword lies here. It has a flame engraved into the blade.~
 adamantite~
-weapon ABCEG AN
-sword 5 10 slash A
+weapon ABCEG 0 AN
+sword 5 10 'slash' A
 44 130 19000 P
-A
-1 2
-A
-13 25
-A
-19 3
-G none
+a '' to_object 44 -1 2 1 0
+a '' to_object 44 -1 25 13 0
+a '' to_object 44 -1 3 19 0
 #15414
 silver plate breast~
 Silver plate~
 A beautifully made breast plate made from pure silver lies here.~
 silver~
-armor G AD
+armor G 0 AD
 13 13 13 5 1
 40 350 10044 P
-A
-5 3
-A
-2 -1
-G none
+a '' to_object 40 -1 3 5 0
+a '' to_object 40 -1 -1 2 0
 #15415
 bastard sword~
 a massive bastard sword~
 A huge 2-handed sword has been left here.~
 steel~
-weapon BI AN
-sword 13 3 cleave DE
+weapon BI 0 AN
+sword 13 3 'cleave' DE
 40 150 27000 P
-A
-13 50
-A
-14 -50
-G none
+a '' to_object 40 -1 50 13 0
+a '' to_object 40 -1 -50 14 0
 #15416
 green skull cap~
 a green skull cap~
 A small piece of green cloth has be abandoned here.~
 cloth~
-armor CEG AE
+armor CEG 0 AE
 13 13 13 6 1
 44 5 14000 P
-A
-3 2
-A
-12 50
-G none
+a '' to_object 44 -1 2 3 0
+a '' to_object 44 -1 50 12 0
 #15417
 green demon claw~
 a green demon claw~
 A demon has left his claw here for anyone to use.~
 gold~
-weapon ABCEG AN
-exotic 5 10 claw D
+weapon ABCEG 0 AN
+exotic 5 10 'claw' D
 43 25 14000 P
-A
-18 3
-A
-19 3
-A
-3 -2
-G none
+a '' to_object 43 -1 3 18 0
+a '' to_object 43 -1 3 19 0
+a '' to_object 43 -1 -2 3 0
 #15418
 purple wand~
 a purple wand~
 A small purple stick has been left here.~
 silver~
-wand AG AO
+wand AG 0 AO
 55 7 7 'dispel magic' 0
 43 120 23000 P
-G none
 #15419
 iron club~
 a heavy iron club~
 A big piece of metal lies in the dust.~
 iron~
-weapon 0 AN
-mace 5 7 smash 0
+weapon 0 0 AN
+mace 5 7 'smash' 0
 27 180 2300 P
-G none
 #15420
 mask~
 a black mask~
 A black mask has been discarded here.~
 cloth~
-armor CFG AE
+armor CFG 0 AE
 10 10 10 5 1
 38 75 13000 P
-A
-18 1
-A
-19 1
-G none
+a '' to_object 38 -1 1 18 0
+a '' to_object 38 -1 1 19 0
 #15421
 adamantite small sword~
 an adamantite small sword~
 A dull black small sword waits for a new owner.~
 adamantite~
-weapon ABCEGL AN
-sword 5 8 thrust E
+weapon ABCEGL 0 AN
+sword 5 8 'thrust' E
 40 200 14200 P
-A
-1 2
-A
-18 4
-G none
+a '' to_object 40 -1 2 1 0
+a '' to_object 40 -1 4 18 0
 #15422
 shield crow~
 the crow shield~
 A small steel shield with the image of a crow on it, lies here.~
 steel~
-armor BG AJ
+armor BG 0 AJ
 11 11 11 4 0
 38 250 19000 P
-A
-19 1
-A
-23 -1
-G none
+a '' to_object 38 -1 1 19 0
+a '' to_object 38 -1 -1 23 0
 #15423
 rusty blade~
 a rusty blade~
 A small rusty and notched blade lies here.~
 steel~
-weapon 0 AN
-dagger 5 6 stab 0
+weapon 0 0 AN
+dagger 5 6 'stab' 0
 23 140 3500 P
-A
-2 1
-G none
+a '' to_object 23 -1 1 2 0
 #15424
 iron key~
 a plain iron key~
 A plain iron key lies here.~
 iron~
-key HM AO
+key HM 0 AO
 0 0 0 0 0
 20 10 1000 P
-G none
 #15425
 black iron key~
 a black iron key~
 An ugly, black key lies here.~
 iron~
-key BCHM AO
+key BCHM 0 AO
 0 0 0 0 0
 30 20 3400 P
-G none
 #0
 
 #ROOMS
@@ -657,8 +775,12 @@ D0
 A large set of stone doors.
 ~
 doors stone~
+the doors~
+~
 ABZ -1 15401
 D2
+~
+~
 ~
 ~
 Z -1 311
@@ -674,11 +796,15 @@ your own breathing.
 D0
 ~
 ~
+~
+~
 Z -1 15402
 D2
 A large set of stone doors.
 ~
 stone doors~
+the stone~
+~
 ABZ -1 15400
 S
 #15402
@@ -690,13 +816,19 @@ and south into darkness. To the east a wooden door blocks the way.
 D0
 ~
 ~
+~
+~
 Z -1 15404
 D1
 A wooden door.
 ~
 door wooden~
+the door~
+~
 ABZ -1 15403
 D2
+~
+~
 ~
 ~
 Z -1 15401
@@ -717,6 +849,8 @@ D3
 A wooden door.
 ~
 wooden door~
+the wooden~
+~
 ABZ -1 15402
 S
 #15404
@@ -734,8 +868,12 @@ The sign reads: "Go no further, if you are not invited."
 D0
 ~
 ~
+~
+~
 Z -1 15405
 D3
+~
+~
 ~
 ~
 Z -1 15407
@@ -752,8 +890,12 @@ D1
 A wooden door.
 ~
 wooden door~
+the wooden~
+~
 ABZ -1 15406
 D2
+~
+~
 ~
 ~
 Z -1 15404
@@ -769,6 +911,8 @@ D3
 A wooden door.
 ~
 wooden door~
+the wooden~
+~
 ABZ -1 15405
 S
 #15407
@@ -781,12 +925,18 @@ coming from the east.
 D0
 ~
 ~
+~
+~
 Z -1 15412
 D1
 ~
 ~
+~
+~
 Z -1 15404
 D2
+~
+~
 ~
 ~
 Z -1 15408
@@ -802,8 +952,12 @@ In the distance, You can hear a dull roar.
 D0
 ~
 ~
+~
+~
 Z -1 15407
 D2
+~
+~
 ~
 ~
 Z -1 15409
@@ -818,8 +972,12 @@ nearer and reminds you of the sound of falling water hitting rocks.
 D0
 ~
 ~
+~
+~
 Z -1 15408
 D3
+~
+~
 ~
 ~
 Z -1 15410
@@ -837,8 +995,12 @@ D0
 A rainbow.
 ~
 ~
+~
+~
 Z -1 15411
 D1
+~
+~
 ~
 ~
 Z -1 15409
@@ -856,6 +1018,8 @@ the way you came.
 D2
 ~
 ~
+~
+~
 Z -1 15410
 S
 #15412
@@ -870,8 +1034,12 @@ D0
 A small hole.
 ~
 ~
+~
+~
 Z -1 15413
 D2
+~
+~
 ~
 ~
 Z -1 15407
@@ -887,6 +1055,8 @@ D1
 A stout metal door.
 ~
 door metal~
+the door~
+~
 ABCFZ 15424 15414
 S
 #15414
@@ -901,16 +1071,22 @@ D0
 A stone archway.
 ~
 ~
+~
+~
 Z -1 15416
 D1
 A Heavy wooden door.
 ~
 door heavy wooden~
+the door~
+~
 ABCFZ 15424 15415
 D3
 A stout metal door.
 ~
 metal door~
+the metal~
+~
 ABCFZ 15424 15413
 S
 #15415
@@ -924,6 +1100,8 @@ D3
 A heavy wooden door.
 ~
 door heavy wooden~
+the door~
+~
 ABCFZ 15424 15414
 S
 #15416
@@ -938,9 +1116,13 @@ D2
 A stone archway.
 ~
 ~
+~
+~
 Z -1 15414
 D5
 A ladder.
+~
+~
 ~
 ~
 Z -1 15417
@@ -956,9 +1138,13 @@ D4
 Top of the ladder.
 ~
 ~
+~
+~
 Z -1 15416
 D5
 More of the ladder.
+~
+~
 ~
 ~
 Z -1 15418
@@ -974,14 +1160,20 @@ towards the east.
 D1
 ~
 ~
+~
+~
 Z -1 15419
 D4
 More of the ladder.
 ~
 ~
+~
+~
 Z -1 15417
 D5
 More of the ladder.
+~
+~
 ~
 ~
 Z -1 15422
@@ -997,8 +1189,12 @@ and west it goes back to the ladder.
 D1
 ~
 ~
+~
+~
 Z -1 15420
 D3
+~
+~
 ~
 ~
 Z -1 15418
@@ -1019,9 +1215,13 @@ D   ot  o do n. I lo   t o com a  on  w en  hey f ll int  th    it.
 D3
 ~
 ~
+~
+~
 Z -1 15419
 D5
 You see NOTHING that would be worth it.
+~
+~
 ~
 ~
 Z -1 15421
@@ -1043,14 +1243,20 @@ east. You hear the sound of water dripping from somewhere out of sight.
 D1
 ~
 ~
+~
+~
 Z -1 15423
 D4
 More of the ladder.
 ~
 ~
+~
+~
 Z -1 15418
 D5
 More of the ladder.
+~
+~
 ~
 ~
 Z -1 15424
@@ -1063,6 +1269,8 @@ west.
 ~
 0 AD inside
 D3
+~
+~
 ~
 ~
 Z -1 15422
@@ -1079,14 +1287,20 @@ D3
 An opening.
 ~
 ~
+~
+~
 Z -1 15425
 D4
 More of the ladder.
 ~
 ~
+~
+~
 Z -1 15422
 D5
 Still more of the ladder.
+~
+~
 ~
 ~
 Z -1 15432
@@ -1107,8 +1321,12 @@ point, for if you do, you will not return this way again.. ever!"
 D1
 ~
 ~
+~
+~
 Z -1 15424
 D3
+~
+~
 ~
 ~
 Z -1 15426
@@ -1125,8 +1343,12 @@ corridor.
 D0
 ~
 ~
+~
+~
 Z -1 15428
 D1
+~
+~
 ~
 ~
 Z -1 15425
@@ -1141,8 +1363,12 @@ small room.
 D1
 ~
 ~
+~
+~
 Z -1 15476
 D3
+~
+~
 ~
 ~
 Z -1 15428
@@ -1163,12 +1389,18 @@ D0
 A heavy steel door.
 ~
 door steel~
+the door~
+~
 ABZ -1 15429
 D1
 ~
 ~
+~
+~
 Z -1 15427
 D2
+~
+~
 ~
 ~
 Z -1 15426
@@ -1183,8 +1415,12 @@ D2
 A heavy steal door.
 ~
 steel door~
+the steel~
+~
 ABZ -1 15428
 D4
+~
+~
 ~
 ~
 Z -1 15430
@@ -1203,8 +1439,12 @@ D1
 A large black door.
 ~
 black door large~
+the black~
+~
 ABCZ 15425 15431
 D5
+~
+~
 ~
 ~
 Z -1 15429
@@ -1221,6 +1461,8 @@ D3
 A large black door.
 ~
 large black door~
+the large~
+~
 ABCZ 15425 15430
 S
 #15432
@@ -1233,14 +1475,20 @@ to the east.
 D1
 ~
 ~
+~
+~
 Z -1 15433
 D4
 More ladder.
 ~
 ~
+~
+~
 Z -1 15424
 D5
 More ladder.
+~
+~
 ~
 ~
 Z -1 15440
@@ -1260,8 +1508,12 @@ young woman.
 D3
 ~
 ~
+~
+~
 Z -1 15432
 D4
+~
+~
 ~
 ~
 Z -1 15434
@@ -1276,8 +1528,12 @@ every step you take.
 D0
 ~
 ~
+~
+~
 Z -1 15435
 D5
+~
+~
 ~
 ~
 Z -1 15433
@@ -1293,8 +1549,12 @@ somewhere to the east.
 D1
 ~
 ~
+~
+~
 Z -1 15436
 D2
+~
+~
 ~
 ~
 Z -1 15434
@@ -1309,12 +1569,18 @@ east.
 D0
 ~
 ~
+~
+~
 Z -1 15437
 D1
 ~
 ~
+~
+~
 Z -1 15438
 D3
+~
+~
 ~
 ~
 Z -1 15435
@@ -1327,6 +1593,8 @@ dust and the cobwebs. There seems to be no exit except the way you entered.
 ~
 0 AD inside
 D2
+~
+~
 ~
 ~
 Z -1 15436
@@ -1344,8 +1612,12 @@ D2
 A beautifully carved wooden door.
 ~
 door wooden~
+the door~
+~
 ABZ -1 15439
 D3
+~
+~
 ~
 ~
 Z -1 15436
@@ -1363,6 +1635,8 @@ D0
 A beautifully carved wooden door.
 ~
 door wooden~
+the door~
+~
 ABZ -1 15438
 S
 #15440
@@ -1377,14 +1651,20 @@ D2
 A well lit corridor.
 ~
 ~
+~
+~
 Z -1 15441
 D4
 More ladder.
 ~
 ~
+~
+~
 Z -1 15432
 D5
 You see an evil looking mist... NOT a good place to go.
+~
+~
 ~
 ~
 Z -1 15471
@@ -1400,8 +1680,12 @@ south.
 D0
 ~
 ~
+~
+~
 Z -1 15440
 D2
+~
+~
 ~
 ~
 Z -1 15442
@@ -1414,8 +1698,12 @@ The corridor bends here and continues to the north and east.
 D0
 ~
 ~
+~
+~
 Z -1 15441
 D1
+~
+~
 ~
 ~
 Z -1 15443
@@ -1428,8 +1716,12 @@ You continue along the corridor.
 D1
 ~
 ~
+~
+~
 Z -1 15444
 D3
+~
+~
 ~
 ~
 Z -1 15442
@@ -1443,8 +1735,12 @@ the south.
 D2
 ~
 ~
+~
+~
 Z -1 15445
 D3
+~
+~
 ~
 ~
 Z -1 15443
@@ -1458,8 +1754,12 @@ between two points is not the straight path.
 D0
 ~
 ~
+~
+~
 Z -1 15444
 D3
+~
+~
 ~
 ~
 Z -1 15446
@@ -1476,8 +1776,12 @@ walking in a river of blood.
 D1
 ~
 ~
+~
+~
 Z -1 15445
 D3
+~
+~
 ~
 ~
 Z -1 15447
@@ -1490,8 +1794,12 @@ The red corridor stretches of to the east and west.
 D1
 ~
 ~
+~
+~
 Z -1 15446
 D3
+~
+~
 ~
 ~
 Z -1 15448
@@ -1506,12 +1814,18 @@ appears most forbiding.
 D1
 ~
 ~
+~
+~
 Z -1 15447
 D2
 ~
 ~
+~
+~
 Z -1 15453
 D3
+~
+~
 ~
 ~
 Z -1 15449
@@ -1525,8 +1839,12 @@ faintly hear chanting coming from the north.
 D0
 ~
 ~
+~
+~
 Z -1 15450
 D1
+~
+~
 ~
 ~
 Z -1 15448
@@ -1543,13 +1861,19 @@ D0
 An ebony door.
 ~
 door ebony~
+the door~
+~
 ABZ -1 15451
 D1
 A rusty metal door.
 ~
 rusty metal door~
+the rusty~
+~
 ABZ -1 15452
 D2
+~
+~
 ~
 ~
 Z -1 15449
@@ -1577,6 +1901,8 @@ D2
 An ebony door.
 ~
 door ebony~
+the door~
+~
 ABZ -1 15450
 S
 #15452
@@ -1589,6 +1915,8 @@ D3
 A rusty metal door.
 ~
 door rusty metal~
+the door~
+~
 ABZ -1 15450
 S
 #15453
@@ -1599,8 +1927,12 @@ The red corridor continues to the south and to the north.
 D0
 ~
 ~
+~
+~
 Z -1 15448
 D2
+~
+~
 ~
 ~
 Z -1 15454
@@ -1613,8 +1945,12 @@ The red corridor continues to the south and to the north.
 D0
 ~
 ~
+~
+~
 Z -1 15453
 D2
+~
+~
 ~
 ~
 Z -1 15455
@@ -1633,16 +1969,22 @@ The sign reads: "Lord Darathorn the Great."
 D0
 ~
 ~
+~
+~
 Z -1 15454
 D1
 Large Golden doors.
 ~
 golden doors~
+the golden~
+~
 ABZ -1 15456
 D3
 A narrow crystal door.
 ~
 door crystal~
+the door~
+~
 ABZ -1 15477
 S
 #15456
@@ -1656,8 +1998,12 @@ west.
 D0
 ~
 ~
+~
+~
 Z -1 15457
 D1
+~
+~
 ~
 ~
 Z -1 15461
@@ -1665,6 +2011,8 @@ D3
 Large Golden doors.
 ~
 doors golden~
+the doors~
+~
 ABZ -1 15455
 S
 #15457
@@ -1675,12 +2023,18 @@ The great hall continues to the north, south and east.
 D0
 ~
 ~
+~
+~
 Z -1 15458
 D1
 ~
 ~
+~
+~
 Z -1 15460
 D2
+~
+~
 ~
 ~
 Z -1 15456
@@ -1693,8 +2047,12 @@ The hall stretches to the south and the east.
 D1
 ~
 ~
+~
+~
 Z -1 15459
 D2
+~
+~
 ~
 ~
 Z -1 15457
@@ -1708,12 +2066,18 @@ You can see more of the hall to the east, south and the west.
 D1
 ~
 ~
+~
+~
 Z -1 15464
 D2
 ~
 ~
+~
+~
 Z -1 15460
 D3
+~
+~
 ~
 ~
 Z -1 15458
@@ -1733,16 +2097,24 @@ splendor of Darathorn the Great."
 D0
 ~
 ~
+~
+~
 Z -1 15459
 D1
+~
+~
 ~
 ~
 Z -1 15463
 D2
 ~
 ~
+~
+~
 Z -1 15461
 D3
+~
+~
 ~
 ~
 Z -1 15457
@@ -1756,12 +2128,18 @@ north wall. The hall extends away to the north, east and west.
 D0
 ~
 ~
+~
+~
 Z -1 15460
 D1
 ~
 ~
+~
+~
 Z -1 15462
 D3
+~
+~
 ~
 ~
 Z -1 15456
@@ -1774,8 +2152,12 @@ The hall continues to the north and to the west.
 D0
 ~
 ~
+~
+~
 Z -1 15463
 D3
+~
+~
 ~
 ~
 Z -1 15461
@@ -1794,17 +2176,25 @@ A heavy curtain hangs against the wall.
 D0
 ~
 ~
+~
+~
 Z -1 15464
 D1
 A heavy curtain.
 ~
 curtain heavy~
+the curtain~
+~
 ABZ -1 15465
 D2
 ~
 ~
+~
+~
 Z -1 15462
 D3
+~
+~
 ~
 ~
 Z -1 15460
@@ -1819,8 +2209,12 @@ hall. Warmer parts of the hall can be seen to the south and to the west.
 D2
 ~
 ~
+~
+~
 Z -1 15463
 D3
+~
+~
 ~
 ~
 Z -1 15459
@@ -1837,14 +2231,20 @@ D2
 A small door.
 ~
 door~
+the door~
+~
 ABZ -1 15466
 D3
 A heavy curtain.
 ~
 curtain heavy~
+the curtain~
+~
 ABZ -1 15463
 D4
 A large hole.
+~
+~
 ~
 ~
 Z -1 15467
@@ -1859,6 +2259,8 @@ D0
 A small door.
 ~
 door~
+the door~
+~
 ABZ -1 15465
 S
 #15467
@@ -1871,9 +2273,13 @@ D3
 A golden door.
 ~
 door golden~
+the door~
+~
 ABZ -1 15469
 D5
 A large hole.
+~
+~
 ~
 ~
 Z -1 15465
@@ -1886,6 +2292,8 @@ iron ladder that proceeds up into the darkness
 0 AD inside
 D4
 An iron ladder.
+~
+~
 ~
 ~
 Z -1 15472
@@ -1903,11 +2311,15 @@ D0
 A large oak door.
 ~
 door oak~
+the door~
+~
 ABZ -1 15470
 D1
 A golden door.
 ~
 door golden~
+the door~
+~
 ABZ -1 15467
 S
 #15470
@@ -1926,11 +2338,15 @@ D1
 You see yourself staring back.
 ~
 mirror~
+the mirror~
+~
 ABZ -1 15468
 D2
 A large oak door.
 ~
 door oak~
+the door~
+~
 ABZ -1 15469
 S
 #15471
@@ -1951,9 +2367,13 @@ D4
 Iron ladder.
 ~
 ~
+~
+~
 Z -1 15473
 D5
 Iron ladder.
+~
+~
 ~
 ~
 Z -1 15468
@@ -1967,9 +2387,13 @@ D4
 Iron ladder.
 ~
 ~
+~
+~
 Z -1 15474
 D5
 Iron ladder.
+~
+~
 ~
 ~
 Z -1 15472
@@ -1983,9 +2407,13 @@ D4
 Iron ladder.
 ~
 ~
+~
+~
 Z -1 15475
 D5
 Iron ladder.
+~
+~
 ~
 ~
 Z -1 15473
@@ -2004,9 +2432,13 @@ D4
 You see some floorboards.
 ~
 floorboards~
+the floorboards~
+~
 ABZ -1 15403
 D5
 Iron ladder.
+~
+~
 ~
 ~
 Z -1 15474
@@ -2026,6 +2458,8 @@ Yep, they sure look human...
 D3
 ~
 ~
+~
+~
 Z -1 15427
 S
 #15477
@@ -2042,6 +2476,8 @@ D1
 A narrow crystal door.
 ~
 door crystal~
+the door~
+~
 ABZ -1 15455
 S
 #15478
@@ -2071,92 +2507,58 @@ M 15418 spec_cast_undead	* the kadrdw'ws
 S
 
 #RESETS
-D 0 15400 0 1	* The entrance hall: door to the north: closed
-D 0 15401 2 1	* A dark passage: door to the south: closed
-D 0 15402 1 1	* A dark passage: door to the east: closed
-D 0 15403 3 1	* Sleeping Quarters: door to the west: closed
-D 0 15405 1 1	* At the end of the passage: door to the east: closed
-D 0 15406 3 1	* Sleeping quarters: door to the west: closed
-D 0 15413 1 2	* The end of the passage: door to the east: closed and locked
-D 0 15414 1 2	* Meeting hall: door to the east: closed and locked
-D 0 15414 3 2	* Meeting hall: door to the west: closed and locked
-D 0 15415 3 2	* Store room: door to the west: closed and locked
-D 0 15428 0 1	* A small room: door to the north: closed
-D 0 15429 2 1	* A room leading up: door to the south: closed
-D 0 15430 1 2	* A small landing: door to the east: closed and locked
-D 0 15431 3 2	* The resting place: door to the west: closed and locked
-D 0 15438 2 1	* Corridor end: door to the south: closed
-D 0 15439 0 1	* The grand bedroom: door to the north: closed
-D 0 15450 0 1	* End of the passage: door to the north: closed
-D 0 15450 1 1	* End of the passage: door to the east: closed
-D 0 15451 2 1	* Alengrot's Chamber: door to the south: closed
-D 0 15452 3 1	* A old storeroom: door to the west: closed
-D 0 15455 1 1	* End of the red corridor: door to the east: closed
-D 0 15455 3 1	* End of the red corridor: door to the west: closed
-D 0 15456 3 1	* The southwest corner of the great hall: door to the west: closed
-D 0 15463 1 1	* The east end of the great hall: door to the east: closed
-D 0 15465 2 1	* A small room: door to the south: closed
-D 0 15465 3 1	* A small room: door to the west: closed
-D 0 15466 0 1	* The robe room: door to the north: closed
-D 0 15467 3 1	* A room in the air: door to the west: closed
-D 0 15469 0 1	* The outer chamber: door to the north: closed
-D 0 15469 1 1	* The outer chamber: door to the east: closed
-D 0 15470 1 1	* Darathorn's bedroom: door to the east: closed
-D 0 15470 2 1	* Darathorn's bedroom: door to the south: closed
-D 0 15475 4 1	* At the end of the ladder: door to the up: closed
-D 0 15477 1 1	* Tolorian's Laboritory: door to the east: closed
 M 0 15409 12 15401 12	* the minor thug (A dark passage)
-E 0 15419 0 16		*	a heavy iron club: wielded
+E 0 15419 0 16		*	the minor thug<wielded>: a heavy iron club
 M 0 15409 12 15401 12	* the minor thug (A dark passage)
-E 0 15419 0 16		*	a heavy iron club: wielded
+E 0 15419 0 16		*	the minor thug<wielded>: a heavy iron club
 M 0 15410 10 15402 4	* the minor thief (A dark passage)
-E 0 15423 0 16		*	a rusty blade: wielded
+E 0 15423 0 16		*	the minor thief<wielded>: a rusty blade
 M 0 15410 10 15402 4	* the minor thief (A dark passage)
-E 0 15423 0 16		*	a rusty blade: wielded
+E 0 15423 0 16		*	the minor thief<wielded>: a rusty blade
 M 0 15409 12 15403 12	* the minor thug (Sleeping Quarters)
-E 0 15419 0 16		*	a heavy iron club: wielded
+E 0 15419 0 16		*	the minor thug<wielded>: a heavy iron club
 M 0 15409 12 15403 12	* the minor thug (Sleeping Quarters)
-E 0 15419 0 16		*	a heavy iron club: wielded
+E 0 15419 0 16		*	the minor thug<wielded>: a heavy iron club
 M 0 15403 1 15404 1	* Golorth, the thug captain (A bright passage)
-G 0 15424 0		*	a plain iron key
-E 0 15414 0 5		*	Silver plate: on the body
-E 0 15415 0 16		*	a massive bastard sword: wielded
+G 0 15424 0		*	Golorth, the thug captain: a plain iron key
+E 0 15414 0 5		*	Golorth, the thug captain<on the body>: Silver plate
+E 0 15415 0 16		*	Golorth, the thug captain<wielded>: a massive bastard sword
 M 0 15411 6 15405 2	* the thief (At the end of the passage)
-E 0 15405 0 12		*	a grey cloak: about the shoulders
-E 0 15406 0 16		*	a glass knife: wielded
+E 0 15405 0 12		*	the thief<about the shoulders>: a grey cloak
+E 0 15406 0 16		*	the thief<wielded>: a glass knife
 M 0 15409 12 15406 12	* the minor thug (Sleeping quarters)
-E 0 15419 0 16		*	a heavy iron club: wielded
+E 0 15419 0 16		*	the minor thug<wielded>: a heavy iron club
 M 0 15409 12 15406 12	* the minor thug (Sleeping quarters)
-E 0 15419 0 16		*	a heavy iron club: wielded
+E 0 15419 0 16		*	the minor thug<wielded>: a heavy iron club
 M 0 15409 12 15406 12	* the minor thug (Sleeping quarters)
-E 0 15419 0 16		*	a heavy iron club: wielded
+E 0 15419 0 16		*	the minor thug<wielded>: a heavy iron club
 M 0 15409 12 15406 12	* the minor thug (Sleeping quarters)
-E 0 15419 0 16		*	a heavy iron club: wielded
+E 0 15419 0 16		*	the minor thug<wielded>: a heavy iron club
 M 0 15410 10 15408 4	* the minor thief (The dark passage continues)
-E 0 15423 0 16		*	a rusty blade: wielded
+E 0 15423 0 16		*	the minor thief<wielded>: a rusty blade
 M 0 15410 10 15408 4	* the minor thief (The dark passage continues)
-E 0 15423 0 16		*	a rusty blade: wielded
+E 0 15423 0 16		*	the minor thief<wielded>: a rusty blade
 M 0 15409 12 15410 12	* the minor thug (A bend in the passage)
-E 0 15419 0 16		*	a heavy iron club: wielded
+E 0 15419 0 16		*	the minor thug<wielded>: a heavy iron club
 M 0 15409 12 15410 12	* the minor thug (A bend in the passage)
-E 0 15419 0 16		*	a heavy iron club: wielded
+E 0 15419 0 16		*	the minor thug<wielded>: a heavy iron club
 M 0 15411 6 15412 2	* the thief (A choked passage)
-E 0 15405 0 12		*	a grey cloak: about the shoulders
-E 0 15406 0 16		*	a glass knife: wielded
+E 0 15405 0 12		*	the thief<about the shoulders>: a grey cloak
+E 0 15406 0 16		*	the thief<wielded>: a glass knife
 M 0 15411 6 15412 2	* the thief (A choked passage)
-E 0 15405 0 12		*	a grey cloak: about the shoulders
-E 0 15406 0 16		*	a glass knife: wielded
+E 0 15405 0 12		*	the thief<about the shoulders>: a grey cloak
+E 0 15406 0 16		*	the thief<wielded>: a glass knife
 M 0 15410 10 15413 4	* the minor thief (The end of the passage)
-E 0 15423 0 16		*	a rusty blade: wielded
+E 0 15423 0 16		*	the minor thief<wielded>: a rusty blade
 M 0 15410 10 15413 4	* the minor thief (The end of the passage)
-E 0 15423 0 16		*	a rusty blade: wielded
+E 0 15423 0 16		*	the minor thief<wielded>: a rusty blade
 M 0 15409 12 15414 12	* the minor thug (Meeting hall)
-E 0 15419 0 16		*	a heavy iron club: wielded
+E 0 15419 0 16		*	the minor thug<wielded>: a heavy iron club
 M 0 15409 12 15414 12	* the minor thug (Meeting hall)
-E 0 15419 0 16		*	a heavy iron club: wielded
+E 0 15419 0 16		*	the minor thug<wielded>: a heavy iron club
 M 0 15411 6 15414 2	* the thief (Meeting hall)
-E 0 15405 0 12		*	a grey cloak: about the shoulders
-E 0 15406 0 16		*	a glass knife: wielded
+E 0 15405 0 12		*	the thief<about the shoulders>: a grey cloak
+E 0 15406 0 16		*	the thief<wielded>: a glass knife
 M 0 15415 1 15415 1	* the wretched prisoner (Store room)
 M 0 15413 8 15417 4	* the shade guardian (On the ladder)
 M 0 15413 8 15417 4	* the shade guardian (On the ladder)
@@ -2167,117 +2569,117 @@ M 0 15413 8 15422 4	* the shade guardian (A landing)
 M 0 15413 8 15423 4	* the shade guardian (A small crevice)
 M 0 15413 8 15423 4	* the shade guardian (A small crevice)
 M 0 15412 4 15424 2	* the master thief (Still another landing)
-E 0 15405 0 12		*	a grey cloak: about the shoulders
-E 0 15407 0 16		*	a glass knife: wielded
+E 0 15405 0 12		*	the master thief<about the shoulders>: a grey cloak
+E 0 15407 0 16		*	the master thief<wielded>: a glass knife
 M 0 15412 4 15426 2	* the master thief (A turning in the corridor)
-E 0 15405 0 12		*	a grey cloak: about the shoulders
-E 0 15407 0 16		*	a glass knife: wielded
+E 0 15405 0 12		*	the master thief<about the shoulders>: a grey cloak
+E 0 15407 0 16		*	the master thief<wielded>: a glass knife
 M 0 15414 4 15428 2	* the deadly assasin (A small room)
-E 0 15404 0 16		*	bone dagger: wielded
-E 0 15405 0 12		*	a grey cloak: about the shoulders
+E 0 15404 0 16		*	the deadly assasin<wielded>: bone dagger
+E 0 15405 0 12		*	the deadly assasin<about the shoulders>: a grey cloak
 M 0 15414 4 15429 2	* the deadly assasin (A room leading up)
-G 0 15425 0		*	a black iron key
-E 0 15404 0 16		*	bone dagger: wielded
-E 0 15405 0 12		*	a grey cloak: about the shoulders
+G 0 15425 0		*	the deadly assasin: a black iron key
+E 0 15404 0 16		*	the deadly assasin<wielded>: bone dagger
+E 0 15405 0 12		*	the deadly assasin<about the shoulders>: a grey cloak
 M 0 15402 1 15431 1	* the Hand (The resting place)
-E 0 15412 0 3		*	a dark black cloak: around the neck (1)
-E 0 15413 0 16		*	a fire blade: wielded
+E 0 15412 0 3		*	the Hand<around the neck>: a dark black cloak
+E 0 15413 0 16		*	the Hand<wielded>: a fire blade
 M 0 15408 1 15438 1	* the obsidian golem (Corridor end)
 M 0 15407 1 15439 1	* Darathorn's mother (The grand bedroom)
-E 0 15401 0 0		*	the power stone: as a light
-E 0 15408 0 12		*	a red robe: about the shoulders
-E 0 15409 0 16		*	a sapphire staff: wielded
+E 0 15401 0 0		*	Darathorn's mother<as a light>: the power stone
+E 0 15408 0 12		*	Darathorn's mother<about the shoulders>: a red robe
+E 0 15409 0 16		*	Darathorn's mother<wielded>: a sapphire staff
 M 0 15412 4 15441 2	* the master thief (A well lit corridor)
-E 0 15405 0 12		*	a grey cloak: about the shoulders
-E 0 15407 0 16		*	a glass knife: wielded
+E 0 15405 0 12		*	the master thief<about the shoulders>: a grey cloak
+E 0 15407 0 16		*	the master thief<wielded>: a glass knife
 M 0 15416 8 15443 2	* the silent servant (A well lit corridor)
 M 0 15412 4 15444 2	* the master thief (A turn in the corridor)
-E 0 15405 0 12		*	a grey cloak: about the shoulders
-E 0 15407 0 16		*	a glass knife: wielded
+E 0 15405 0 12		*	the master thief<about the shoulders>: a grey cloak
+E 0 15407 0 16		*	the master thief<wielded>: a glass knife
 M 0 15401 8 15446 4	* the trusted henchman (The Red corridor)
-E 0 15410 0 14		*	a iron bracer: on the left wrist
-E 0 15411 0 16		*	a wicked battle axe: wielded
+E 0 15410 0 14		*	the trusted henchman<on the left wrist>: a iron bracer
+E 0 15411 0 16		*	the trusted henchman<wielded>: a wicked battle axe
 M 0 15401 8 15446 4	* the trusted henchman (The Red corridor)
-E 0 15410 0 14		*	a iron bracer: on the left wrist
-E 0 15411 0 16		*	a wicked battle axe: wielded
+E 0 15410 0 14		*	the trusted henchman<on the left wrist>: a iron bracer
+E 0 15411 0 16		*	the trusted henchman<wielded>: a wicked battle axe
 M 0 15416 8 15447 2	* the silent servant (The red corridor)
 M 0 15401 8 15448 4	* the trusted henchman (An intersection)
-E 0 15410 0 14		*	a iron bracer: on the left wrist
-E 0 15411 0 16		*	a wicked battle axe: wielded
+E 0 15410 0 14		*	the trusted henchman<on the left wrist>: a iron bracer
+E 0 15411 0 16		*	the trusted henchman<wielded>: a wicked battle axe
 M 0 15401 8 15448 4	* the trusted henchman (An intersection)
-E 0 15410 0 14		*	a iron bracer: on the left wrist
-E 0 15411 0 16		*	a wicked battle axe: wielded
+E 0 15410 0 14		*	the trusted henchman<on the left wrist>: a iron bracer
+E 0 15411 0 16		*	the trusted henchman<wielded>: a wicked battle axe
 M 0 15414 4 15449 2	* the deadly assasin (A dark bend)
-E 0 15404 0 16		*	bone dagger: wielded
-E 0 15405 0 12		*	a grey cloak: about the shoulders
+E 0 15404 0 16		*	the deadly assasin<wielded>: bone dagger
+E 0 15405 0 12		*	the deadly assasin<about the shoulders>: a grey cloak
 M 0 15404 1 15451 1	* Alengrot, the evil cleric (Alengrot's Chamber)
-E 0 15416 0 6		*	a green skull cap: over the head
-E 0 15417 0 16		*	a green demon claw: wielded
+E 0 15416 0 6		*	Alengrot, the evil cleric<over the head>: a green skull cap
+E 0 15417 0 16		*	Alengrot, the evil cleric<wielded>: a green demon claw
 M 0 15414 4 15452 2	* the deadly assasin (A old storeroom)
-E 0 15404 0 16		*	bone dagger: wielded
-E 0 15405 0 12		*	a grey cloak: about the shoulders
+E 0 15404 0 16		*	the deadly assasin<wielded>: bone dagger
+E 0 15405 0 12		*	the deadly assasin<about the shoulders>: a grey cloak
 M 0 15401 8 15453 4	* the trusted henchman (The red corridor)
-E 0 15410 0 14		*	a iron bracer: on the left wrist
-E 0 15411 0 16		*	a wicked battle axe: wielded
+E 0 15410 0 14		*	the trusted henchman<on the left wrist>: a iron bracer
+E 0 15411 0 16		*	the trusted henchman<wielded>: a wicked battle axe
 M 0 15401 8 15453 4	* the trusted henchman (The red corridor)
-E 0 15410 0 14		*	a iron bracer: on the left wrist
-E 0 15411 0 16		*	a wicked battle axe: wielded
+E 0 15410 0 14		*	the trusted henchman<on the left wrist>: a iron bracer
+E 0 15411 0 16		*	the trusted henchman<wielded>: a wicked battle axe
 M 0 15416 8 15454 2	* the silent servant (The red corridor)
 M 0 15401 8 15455 4	* the trusted henchman (End of the red corridor)
-E 0 15410 0 14		*	a iron bracer: on the left wrist
-E 0 15411 0 16		*	a wicked battle axe: wielded
+E 0 15410 0 14		*	the trusted henchman<on the left wrist>: a iron bracer
+E 0 15411 0 16		*	the trusted henchman<wielded>: a wicked battle axe
 M 0 15401 8 15455 4	* the trusted henchman (End of the red corridor)
-E 0 15410 0 14		*	a iron bracer: on the left wrist
-E 0 15411 0 16		*	a wicked battle axe: wielded
+E 0 15410 0 14		*	the trusted henchman<on the left wrist>: a iron bracer
+E 0 15411 0 16		*	the trusted henchman<wielded>: a wicked battle axe
 M 0 15416 8 15456 2	* the silent servant (The southwest corner of the great hall)
 M 0 15417 1 15457 1	* the barbarian warrior (The west side of the great hall)
 M 0 15416 8 15458 2	* the silent servant (The northwest corner of the great hall)
 M 0 15405 9 15459 4	* the masked thug (The north end of the great hall)
-E 0 15421 0 16		*	an adamantite small sword: wielded
-E 0 15420 0 6		*	a black mask: over the head
-E 0 15422 0 11		*	the crow shield: as a shield
+E 0 15421 0 16		*	the masked thug<wielded>: an adamantite small sword
+E 0 15420 0 6		*	the masked thug<over the head>: a black mask
+E 0 15422 0 11		*	the masked thug<as a shield>: the crow shield
 M 0 15405 9 15459 4	* the masked thug (The north end of the great hall)
-E 0 15421 0 16		*	an adamantite small sword: wielded
-E 0 15420 0 6		*	a black mask: over the head
-E 0 15422 0 11		*	the crow shield: as a shield
+E 0 15421 0 16		*	the masked thug<wielded>: an adamantite small sword
+E 0 15420 0 6		*	the masked thug<over the head>: a black mask
+E 0 15422 0 11		*	the masked thug<as a shield>: the crow shield
 M 0 15405 9 15460 4	* the masked thug (Centre of the great hall)
-E 0 15421 0 16		*	an adamantite small sword: wielded
-E 0 15420 0 6		*	a black mask: over the head
-E 0 15422 0 11		*	the crow shield: as a shield
+E 0 15421 0 16		*	the masked thug<wielded>: an adamantite small sword
+E 0 15420 0 6		*	the masked thug<over the head>: a black mask
+E 0 15422 0 11		*	the masked thug<as a shield>: the crow shield
 M 0 15405 9 15460 4	* the masked thug (Centre of the great hall)
-E 0 15421 0 16		*	an adamantite small sword: wielded
-E 0 15420 0 6		*	a black mask: over the head
-E 0 15422 0 11		*	the crow shield: as a shield
+E 0 15421 0 16		*	the masked thug<wielded>: an adamantite small sword
+E 0 15420 0 6		*	the masked thug<over the head>: a black mask
+E 0 15422 0 11		*	the masked thug<as a shield>: the crow shield
 M 0 15405 9 15461 4	* the masked thug (The south end of the great hall)
-E 0 15421 0 16		*	an adamantite small sword: wielded
-E 0 15420 0 6		*	a black mask: over the head
-E 0 15422 0 11		*	the crow shield: as a shield
+E 0 15421 0 16		*	the masked thug<wielded>: an adamantite small sword
+E 0 15420 0 6		*	the masked thug<over the head>: a black mask
+E 0 15422 0 11		*	the masked thug<as a shield>: the crow shield
 M 0 15405 9 15461 4	* the masked thug (The south end of the great hall)
-E 0 15421 0 16		*	an adamantite small sword: wielded
-E 0 15420 0 6		*	a black mask: over the head
-E 0 15422 0 11		*	the crow shield: as a shield
+E 0 15421 0 16		*	the masked thug<wielded>: an adamantite small sword
+E 0 15420 0 6		*	the masked thug<over the head>: a black mask
+E 0 15422 0 11		*	the masked thug<as a shield>: the crow shield
 M 0 15416 8 15462 2	* the silent servant (The southeast corner of the great hall)
 M 0 15416 8 15466 2	* the silent servant (The robe room)
 M 0 15405 9 15469 4	* the masked thug (The outer chamber)
-E 0 15421 0 16		*	an adamantite small sword: wielded
-E 0 15420 0 6		*	a black mask: over the head
-E 0 15422 0 11		*	the crow shield: as a shield
+E 0 15421 0 16		*	the masked thug<wielded>: an adamantite small sword
+E 0 15420 0 6		*	the masked thug<over the head>: a black mask
+E 0 15422 0 11		*	the masked thug<as a shield>: the crow shield
 M 0 15405 9 15469 4	* the masked thug (The outer chamber)
-E 0 15421 0 16		*	an adamantite small sword: wielded
-E 0 15420 0 6		*	a black mask: over the head
-E 0 15422 0 11		*	the crow shield: as a shield
+E 0 15421 0 16		*	the masked thug<wielded>: an adamantite small sword
+E 0 15420 0 6		*	the masked thug<over the head>: a black mask
+E 0 15422 0 11		*	the masked thug<as a shield>: the crow shield
 M 0 15405 9 15469 4	* the masked thug (The outer chamber)
-E 0 15421 0 16		*	an adamantite small sword: wielded
-E 0 15420 0 6		*	a black mask: over the head
-E 0 15422 0 11		*	the crow shield: as a shield
+E 0 15421 0 16		*	the masked thug<wielded>: an adamantite small sword
+E 0 15420 0 6		*	the masked thug<over the head>: a black mask
+E 0 15422 0 11		*	the masked thug<as a shield>: the crow shield
 M 0 15400 1 15470 4	* the Arch-Villan Darathorn (Darathorn's bedroom)
-E 0 15400 0 16		*	the Seeker: wielded
-E 0 15402 0 17		*	the warrior's blessing: held in the hands
-E 0 15403 0 8		*	the Boots of the Wind: on the feet
+E 0 15400 0 16		*	the Arch-Villan Darathorn<wielded>: the Seeker
+E 0 15402 0 17		*	the Arch-Villan Darathorn<held in the hands>: the warrior's blessing
+E 0 15403 0 8		*	the Arch-Villan Darathorn<on the feet>: the Boots of the Wind
 M 0 15416 8 15470 2	* the silent servant (Darathorn's bedroom)
 M 0 15418 1 15476 1	* the kadrdw'ws (A dead end)
 M 0 15406 1 15477 4	* Tolorian, Darathorn's advisor (Tolorian's Laboritory)
-E 0 15418 0 17		*	a purple wand: held in the hands
+E 0 15418 0 17		*	Tolorian, Darathorn's advisor<held in the hands>: a purple wand
 S
 
 #OLIMITS

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 4
+Ver 5
 Name Invader~
 VNUMs 95600 95699
 Credits Asena~
@@ -122,12 +122,12 @@ darkness~
 ~
 ~
 unique~
-BEJOc 0 JK ACG ABCD -10000 0
+BEJc 0 JK ACG ABCD -10000 0
 200 0 1d1+1000000 0d0+0 0d0+0 'blast'
 0 0 0 0
 G
 stand stand none 0
-0 0 medium unknown
+I 0 medium unknown
 r bash 999
 r pierce 999
 r slash 999
