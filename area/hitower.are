@@ -537,13 +537,30 @@ The master summoner is here holding gateways open to other planes.
 ~
 ~
 human~
-BFGHR 0 0 0 A -200 0
+BGHR D 0 0 A -200 0
 22 0 4d10+360 22d9+100 2d7+5 'none'
 -5 -5 -5 3
 FU
 stand stand male 50
 0 0 medium unknown
 M kill 1300 100~
+r bash 90
+r pierce 90
+r slash 88
+r fire 90
+r cold 90
+r lightning 100
+r acid 90
+r holy 90
+r negative 100
+r energy 100
+r mental 100
+r sound 69
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 95
 #1338
 master charmer~
 the master charmer~
@@ -552,12 +569,29 @@ The master charmer utters the words, 'uuuzzldctz'.
 The master charmer sizes you up, always looking for a new pet.
 ~
 human~
-BFR 0 0 0 A -400 0
-23 0 5d10+400 23d9+100 2d8+5 'none'
--5 -5 -5 3
+BR D 0 0 AN -400 0
+50 0 20d20+400 23d9+100 2d8+5 'none'
+-70 -70 -70 -100
 FU
 stand stand male 233
 0 0 medium unknown
+r bash 90
+r pierce 90
+r slash 90
+r fire 100
+r cold 60
+r lightning 100
+r acid 100
+r holy 90
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 90
+r light 100
 #1339
 golem wooden~
 a wooden golem~
@@ -6418,7 +6452,9 @@ yell Die, $q !
 #0
 
 #PRACTICERS
-M 1334 J	* the Enchanter
+M 1334 Je	* the Enchanter
+M 1337 ab	* the master summoner
+M 1338 Je	* the master charmer
 M 1348 N	* the master of illusions
 M 1364 Q	* The Grand Mistress
 S

@@ -3227,6 +3227,17 @@ Form 6 -а~
 End
 
 #RULE
+Name Нася~
+BaseLen 3
+Form 1 -и~
+Form 2 -е~
+Form 3 -ю~
+Form 4 -ей~
+Form 5 -е~
+Form 6 -ю~
+End
+
+#RULE
 Name шляпка~
 BaseLen 5
 Form 1 -и~
@@ -6135,6 +6146,17 @@ Form 6 -о~
 End
 
 #RULE
+Name вековой~
+BaseLen 5
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ой~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
 Name красивое~
 BaseLen 6
 Form 1 -ого~
@@ -8507,6 +8529,16 @@ Form 6 -ого~
 End
 
 #RULE
+Name растение~
+BaseLen 7
+Form 1 -х~
+Form 2 -м~
+Form 4 -ми~
+Form 5 -х~
+Form 6 -х~
+End
+
+#RULE
 Name невидимые~
 BaseLen 8
 Form 1 -х~
@@ -9917,6 +9949,17 @@ Form 6 -ца~
 End
 
 #RULE
+Name непонятное~
+BaseLen 8
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ое~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ое~
+End
+
+#RULE
 Name ловкий~
 BaseLen 4
 Form 1 -ого~
@@ -10348,6 +10391,16 @@ Form 3 -ую~
 Form 4 -ой~
 Form 5 -ой~
 Form 6 -ую~
+End
+
+#RULE
+Name дикие~
+BaseLen 4
+Form 1 -х~
+Form 2 -м~
+Form 4 -ми~
+Form 5 -х~
+Form 6 -х~
 End
 
 #RULE

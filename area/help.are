@@ -1891,6 +1891,7 @@ their groups:
  {cdefensive{x      >>> {gHeimdall{x                 (Valhalla       )
  {cdraconian{x      >>> {gRulers{x                   (Elemental Can. )
  {cenchantment{x    >>> {gMaster Enchanter{x         (High Tower     ) 
+{c charm          {x>>> {gMaster Charmer           {x(High Tower     )
  {cenhancement{x    >>> {gHealer{x                   (Valley of Titan)
  {cfightmaster{x    >>> {gHeimdall{x                 (Valhalla       )
  {chealing{x        >>> {gHigh Priestess of Ofcol{x  (Ofcol          )
@@ -7398,6 +7399,19 @@ HEED THESE WORDS AND STEP IN!                   .:    ..''     :::.'    :':
                                                  : .''         .:: : : '
                                                   :          .'`::
                                                                 ::
+~
+immortal 'WIZ SETTICK' SETTICK~
+@eng Syntax: {csettick{x <type> <value>
+ 
+This command enables immortal to view and change length of ticks. Types
+of ticks can be viewed by entering this command without arguments.
+1 time unit is equal approx. 0.25 sec.
+@rus Синтаксис: {csettick{x <тип> <значение>
+ 
+Эта команда позволяет посмотреть и установить величины временных
+интервалов в игре. Список доступных полей можно получить, введя эту
+команду буз параметров. 1 временная единица соответствует приблизи-
+тельно 0.25 сек.
 ~
 -1 $~
 
