@@ -1727,6 +1727,7 @@ O 96 wear_prog wear_prog_quest_weapon	* `the %s Weapon of %s'
 O 96 get_prog get_prog_quest_reward	* `the %s Weapon of %s'
 O 97 fight_prog fight_prog_chaos_blade	* `a chaos weapon'
 O 98 wear_prog wear_prog_katana_sword	* `a katana sword'
+O 99 fight_prog fight_prog_golden_weapon	* `a golden lance'
 O 99 death_prog death_prog_golden_weapon	* `a golden lance'
 S
 
