@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.66 1998-07-25 15:02:36 fjoe Exp $
+ * $Id: act_comm.c,v 1.67 1998-07-26 01:32:21 efdi Exp $
  */
 
 /***************************************************************************
@@ -73,13 +73,13 @@ DECLARE_DO_FUN(do_quit_count);
 void do_quit_org	args((CHAR_DATA *ch, const char *argument, bool Count));
 bool proper_order	args((CHAR_DATA *ch, const char *argument));
 char *translate(CHAR_DATA *ch, CHAR_DATA *victim, const char *argument);
+extern int gsn_holler;
 
 void do_afk(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_SET(ch->comm, COMM_AFK)) {
 		REMOVE_BIT(ch->comm, COMM_AFK);
-		char_puts("AFK mode removed. Type 'replay' to see tells.\n\r",
-			  ch);
+		do_replay(ch, "");
 	} else {
 		if (!IS_SET(ch->in_room->room_flags, ROOM_SAFE)
 		&&  ch->level < LEVEL_IMMORTAL) {
@@ -100,6 +100,13 @@ void do_music(CHAR_DATA *ch, const char *argument)
 
 	if (IS_NPC(ch))
 		return;
+
+	if (is_affected(ch, gsn_holler)) {
+		char_puts("You could produce only some bubbles.\n\r", ch);
+		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, "$n wanted to "
+			"music something but could produce only some bubbles.");
+		return;
+	}
 
 	if (argument[0] == '\0') {
 		/* send_to_char("Music what?.\n\r",ch);
@@ -130,7 +137,7 @@ void do_music(CHAR_DATA *ch, const char *argument)
 		if (d->connected == CON_PLAYING && d->character != ch
 		&&  !IS_SET(d->character->comm, COMM_NOMUSIC)) {
 			strcpy(trans, translate(ch,d->character,buf));
-			act_puts("$n music '{W$t{x'",
+			act_puts("$n musics '{W$t{x'",
 		        	 ch, trans, d->character, TO_VICT, POS_DEAD);
 		}
 	}
@@ -146,6 +153,13 @@ void do_gossip(CHAR_DATA *ch, const char *argument)
 
 	if (IS_NPC(ch))
 		return;
+
+	if (is_affected(ch, gsn_holler)) {
+		char_puts("You could produce only some bubbles.\n\r", ch);
+		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, "$n wanted to "
+		      "gossip something but could produce only some bubbles.");
+		return;
+	}
 
 	if (argument[0] == '\0')
 	{
@@ -389,6 +403,13 @@ void do_say(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *vch;
 	char buf[MAX_STRING_LENGTH];
 	char trans[MAX_STRING_LENGTH];
+  
+	if (is_affected(ch, gsn_holler)) {
+		char_puts("You could produce only some bubbles.\n\r", ch);
+		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, "$n wanted to "
+			"say something but could produce only some bubbles.");
+		return;
+	}
 
 	if (argument[0] == '\0') {
 		send_to_char("Say what?\n\r", ch);
@@ -449,6 +470,13 @@ void do_shout(CHAR_DATA *ch, const char *argument)
 
 	if (IS_NPC(ch))
 		return;
+
+	if (is_affected(ch, gsn_holler)) {
+		char_puts("You could produce only some bubbles.\n\r", ch);
+		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, "$n wanted to "
+			"shout something but could produce only some bubbles.");
+		return;
+	}
 
 	if (argument[0] == '\0') {
 		 send_to_char("Shout what?.\n\r",ch);
@@ -548,6 +576,13 @@ void do_tell(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
+	if (is_affected(ch, gsn_holler)) {
+		char_puts("You could produce only some bubbles.\n\r", ch);
+		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, "$n wanted to "
+			"tell something but could produce only some bubbles.");
+		return;
+	}
+
 	argument = one_argument(argument, arg);
 	if (arg[0] == '\0' || argument[0] == '\0') {
 		send_to_char("Tell whom what?\n\r", ch);
@@ -568,6 +603,13 @@ void do_yell(CHAR_DATA *ch, const char *argument)
 	DESCRIPTOR_DATA *d;
 	char buf[MAX_INPUT_LENGTH];
 	char trans[MAX_STRING_LENGTH];
+
+	if (is_affected(ch, gsn_holler)) {
+		char_puts("You could produce only some bubbles.\n\r", ch);
+		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, "$n wanted to "
+			"yell something but could produce only some bubbles.");
+		return;
+	}
 
 	if (argument[0] == '\0')
 	{
@@ -604,6 +646,13 @@ void do_yell(CHAR_DATA *ch, const char *argument)
 void do_emote(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_INPUT_LENGTH];
+
+	if (is_affected(ch, gsn_holler)) {
+		char_puts("You could produce only some bubbles.\n\r", ch);
+		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, "$n wanted to "
+			"emote something but could produce only some bubbles.");
+		return;
+	}
 
 	if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOEMOTE)) {
 		send_to_char("You can't show your emotions.\n\r", ch);
@@ -1005,6 +1054,11 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 
 	if (IS_NPC(ch))
 		return;
+
+	if (is_affected(ch, gsn_holler)) {
+		char_puts("You can't even imagine how to quit.\n\r", ch);
+		return;
+	}
 
 	if (ch->position == POS_FIGHTING) {
 		send_to_char("No way! You are fighting.\n\r", ch);

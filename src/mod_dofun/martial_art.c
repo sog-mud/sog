@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.22 1998-07-25 15:02:39 fjoe Exp $
+ * $Id: martial_art.c,v 1.23 1998-07-26 01:32:22 efdi Exp $
  */
 
 /***************************************************************************
@@ -52,6 +52,7 @@
 #include "log.h"
 #include "lookup.h"
 #include "mlstring.h"
+#include "resource.h"
 
 #ifdef SUNOS
 #	include <stdarg.h>
@@ -3660,5 +3661,59 @@ void do_blindness_dust(CHAR_DATA *ch, const char *argument)
 		if (tmp_vict != ch)
 			multi_hit(tmp_vict,ch,TYPE_UNDEFINED);
 	}
+}
+
+void do_holler(CHAR_DATA *ch, const char *argument)
+{
+	char arg1[MAX_STRING_LENGTH];
+	CHAR_DATA *victim;
+	AFFECT_DATA af;
+
+	if ((IS_NPC(ch)
+	||  str_cmp(ch->name, "Karmael"))
+	&&  !IS_IMMORTAL(ch)) {
+		char_puts("You can't do that.\n\r", ch);
+		return;
+	}
+
+	if (is_affected(ch, gsn_holler_self)) {
+		char_puts("You can't holler right now.\n\r", ch);
+		return;
+	}
+
+	argument = one_argument(argument, arg1);
+	if (!*arg1) {
+		char_puts("Usage: holler <victim>\n\r", ch);
+		return;
+	}
+
+	if (!(victim = get_char_world(ch, arg1))) {
+		char_nputs(THEY_ARENT_HERE, ch);
+		return;
+	}
+
+	if (is_safe(ch, victim))
+		return;
+
+	af.where = TO_AFFECTS;
+	af.type  = gsn_holler;
+	af.level = ch->level;
+	af.duration = ch->level/20 + 2;
+	af.location = APPLY_INT;
+	af.modifier = -get_curr_stat(victim, STAT_INT) + 1;
+	affect_to_char(victim, &af);
+
+	af.where = TO_AFFECTS;
+	af.type  = gsn_holler_self;
+	af.level = ch->level;
+	af.duration = ch->level + 2;
+	af.location = APPLY_NONE;
+	af.modifier = 0;
+	affect_to_char(ch, &af);
+
+	ch->move = 0;
+	char_puts("idiot...\n\r", victim);
+	char_puts("Yeah, alright. *yae*\n\r", ch);
+	return;
 }
 

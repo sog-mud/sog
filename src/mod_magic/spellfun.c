@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.37 1998-07-25 15:02:39 fjoe Exp $
+ * $Id: spellfun.c,v 1.38 1998-07-26 01:32:22 efdi Exp $
  */
 
 /***************************************************************************
@@ -293,6 +293,13 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	 */
 	if (IS_NPC(ch) && ch->desc == NULL)
 		return;
+
+	if (chance(50)
+	&&  is_affected(ch, gsn_holler)) {
+		char_puts("MOO-OO-MOO-OO...\n\r", ch);
+		do_say(ch, "MOO-OO-MOO-OO...\n\r");
+		return;
+	}
 
 	if (is_affected(ch, gsn_shielding)) {
 		char_nputs(REACH_TRUE_SOURCE_STOP, ch);

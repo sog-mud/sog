@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.58 1998-07-25 15:02:39 fjoe Exp $
+ * $Id: merc.h,v 1.59 1998-07-26 01:32:22 efdi Exp $
  */
 
 /***************************************************************************
@@ -122,7 +122,7 @@ typedef void SPELL_FUN	(int sn, int level, CHAR_DATA *ch, void *vo,
  * Game parameters.
  */
 #define MAX_SOCIALS		256
-#define MAX_SKILL		378
+#define MAX_SKILL		380
 #define MAX_ALIAS		50
 #define MAX_CLASS		13
 #define MAX_PC_RACE		19	/* 18 */
@@ -1906,6 +1906,7 @@ struct	char_data
 	int			slang;	/* spoken language */
 	int			lang; /* interface language */
 	CHAR_DATA *		hunter;	/* who quested to slay */
+	int			is_aff_holler;
 };
 
 
@@ -2515,6 +2516,8 @@ extern int  gsn_blindness_dust;
 extern int  gsn_poison_smoke;
 extern int  gsn_mastering_spell;
 extern int  gsn_frenzy;
+extern int  gsn_holler;
+extern int  gsn_holler_self;
 
 /*
  * Utility macros.

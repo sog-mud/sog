@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.46 1998-07-25 15:02:38 fjoe Exp $
+ * $Id: db.c,v 1.47 1998-07-26 01:32:21 efdi Exp $
  */
 
 /***************************************************************************
@@ -361,6 +361,9 @@ int  gsn_wands;
 int  gsn_recall;
 int  gsn_detect_hidden;
 int  gsn_frenzy;
+
+int  gsn_holler;
+int  gsn_holler_self;
 
 
 /*

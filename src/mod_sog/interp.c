@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.46 1998-07-25 15:02:38 fjoe Exp $
+ * $Id: interp.c,v 1.47 1998-07-26 01:32:22 efdi Exp $
  */
 
 /***************************************************************************
@@ -302,6 +302,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "give",		do_give,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "heal",		do_heal,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 }, 
     { "hold",		do_wear,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
+    { "holler",		do_holler,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "layhands",	do_layhands,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
     { "list",		do_list,	POS_RESTING,	 0,  LOG_NORMAL, 1,CMD_KEEP_HIDE | CMD_GHOST },
     { "lock",		do_lock,	POS_RESTING,	 0,  LOG_NORMAL, 1, 0 },

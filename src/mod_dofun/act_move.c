@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.69 1998-07-23 12:11:22 efdi Exp $
+ * $Id: act_move.c,v 1.70 1998-07-26 01:32:21 efdi Exp $
  */
 
 /***************************************************************************
@@ -1905,13 +1905,15 @@ void do_recall(CHAR_DATA *ch, const char *argument)
 {
 	ROOM_INDEX_DATA *location;
 	int point;
-#if 0
-	CHAR_DATA *victim;
-	int lose,skill;
-#endif
  
 	if (IS_NPC(ch) && !IS_SET(ch->act, ACT_PET)) {
 		char_nputs(ONLY_PLAYERS_RECALL, ch);
+		return;
+	}
+
+	if (is_affected(ch, gsn_holler)) {
+		char_puts("Gods laugh under your pray.\n\r", ch);
+		do_say(ch, "RiCFalsch...\n\r");
 		return;
 	}
 

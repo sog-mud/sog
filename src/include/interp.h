@@ -2,7 +2,7 @@
 #define _INTERP_H_
 
 /*
- * $Id: interp.h,v 1.13 1998-07-23 01:25:08 efdi Exp $
+ * $Id: interp.h,v 1.14 1998-07-26 01:32:22 efdi Exp $
  */
 
 /***************************************************************************
@@ -198,6 +198,7 @@ DECLARE_DO_FUN( do_heal		);
 DECLARE_DO_FUN(	do_help		);
 DECLARE_DO_FUN( do_herbs        );
 DECLARE_DO_FUN(	do_hide		);
+DECLARE_DO_FUN(	do_holler	);
 DECLARE_DO_FUN(	do_holylight	);
 DECLARE_DO_FUN( do_human        );
 DECLARE_DO_FUN( do_hunt         );
