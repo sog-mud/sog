@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.18 2000-07-25 12:02:42 fjoe Exp $
+ * $Id: act_wiz.c,v 1.186.2.19 2000-07-27 08:11:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -970,13 +970,11 @@ void do_goto(CHAR_DATA *ch, const char *argument)
 
 	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room) {
 		if (IS_TRUSTED(rch, ch->invis_level)) {
-			if (!IS_NPC(ch)
-			&&  PC(ch)->bamfout[0] != '\0') {
-				act("$t", ch, PC(ch)->bamfout,
-				    rch, TO_VICT);
-			} else {
-				act("$n leaves in a swirling mist.", ch, NULL,
-				    rch, TO_VICT);
+			if (!IS_NPC(ch) && PC(ch)->bamfout[0] != '\0')
+				act("$t", ch, PC(ch)->bamfout, rch, TO_VICT);
+			else {
+				act("$n leaves in a swirling mist.",
+				    ch, NULL, rch, TO_VICT);
 			}
 		}
 	}
@@ -987,12 +985,11 @@ void do_goto(CHAR_DATA *ch, const char *argument)
 
 	for (rch = location->people; rch; rch = rch->next_in_room) {
 		if (IS_TRUSTED(rch, ch->invis_level)) {
-			if (!IS_NPC(ch) && PC(ch)->bamfin[0]) {
-				act("$t",
-				    rch, PC(ch)->bamfin, NULL, TO_CHAR);
-			} else {
-				act("$N appears in a swirling mist.",
-				    rch, NULL, ch, TO_CHAR);
+			if (!IS_NPC(ch) && PC(ch)->bamfin[0])
+				act("$t", ch, PC(ch)->bamfin, rch, TO_VICT);
+			else {
+				act("$n appears in a swirling mist.",
+				    ch, NULL, rch, TO_VICT);
 			}
 		}
 	}
