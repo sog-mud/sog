@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.62 2003-03-04 16:39:18 tatyana Exp $
+ * $Id: spellfun2.c,v 1.139.2.63 2003-09-23 09:42:23 matrim Exp $
  */
 
 /***************************************************************************
@@ -1183,19 +1183,19 @@ void spell_chaos_weapon(int sn, int level, CHAR_DATA *ch, void *vo)
 	blade->value[2] = (level / 10) + 3;  
 	
 	switch(dice(1, 5)) {
-		case 0: /* exotic */
+		case 1: /* exotic */
 			blade->value[0] = WEAPON_EXOTIC;
 			break;	
-		case 1: /* mace */
+		case 2: /* mace */
 			blade->value[0] = WEAPON_MACE;
 			break;
-		case 2: /* polearm */
+		case 3: /* polearm */
 			blade->value[0] = WEAPON_POLEARM;
 			break;
-		case 3: /* sword */
+		case 4: /* sword */
 			blade->value[0] = WEAPON_SWORD;
 			break;
-		case 4: /* dagger */
+		case 5: /* dagger */
 			blade->value[0] = WEAPON_DAGGER;
 			break;
 	}

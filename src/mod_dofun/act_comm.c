@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.45 2003-02-27 16:55:14 tatyana Exp $
+ * $Id: act_comm.c,v 1.187.2.46 2003-09-23 09:42:19 matrim Exp $
  */
 
 /***************************************************************************
@@ -1080,14 +1080,14 @@ void do_group(CHAR_DATA *ch, const char *argument)
 				    ch, NULL, victim, TO_CHAR, POS_SLEEPING);
 				return;
 			}
-			if (IS_GOOD(victim) && IS_EVIL(ch)) {
+			if (IS_EVIL(gch) && IS_GOOD(victim)) {
 				act_puts("You are too pure to join $n's group!",
 				    ch, NULL, victim, TO_VICT, POS_SLEEPING);
 				act_puts("$N is too pure for your group!",
 				    ch, NULL, victim, TO_CHAR,POS_SLEEPING);
 				return;
 			}
-			if (is_in_opposite_clans(ch, gch)) {
+			if (is_in_opposite_clans(gch, victim)) {
 				act_puts("You hate $n's clan, how can you join $n's group?",
 				    gch, NULL, victim, TO_VICT, POS_SLEEPING);
 				if (gch == ch) {
