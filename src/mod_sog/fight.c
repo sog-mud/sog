@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.232 1999-12-10 11:55:09 kostik Exp $
+ * $Id: fight.c,v 1.233 1999-12-11 07:23:00 kostik Exp $
  */
 
 /***************************************************************************
@@ -466,6 +466,7 @@ void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 	CHAR_DATA *vch, *vch_next;
 	flag64_t act = ch->pMobIndex->act;
 	flag64_t off = ch->pMobIndex->off_flags;
+	bool has_second = get_eq_char(ch, WEAR_SECOND_WIELD) ? TRUE : FALSE;
 
 	/* no attack by ridden mobiles except spec_casts */
 	if (RIDDEN(ch)) {
@@ -477,6 +478,12 @@ void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 	}
 
 	one_hit(ch, victim, dt, WEAR_WIELD);
+
+	if (ch->fighting != victim)
+		return;
+
+	if (has_second) 
+		secondary_hit(ch, victim, dt);
 
 	if (ch->fighting != victim)
 		return;
@@ -509,16 +516,29 @@ void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 		one_hit(ch, victim, dt, WEAR_WIELD);
 		if (ch->fighting != victim)
 			return;
+		if (has_second)
+			secondary_hit(ch, victim, dt);
+		if (ch->fighting != victim)
+			return;
+
 	}
 
 	if (number_percent() < get_skill(ch, "third attack") / 4) {
 		one_hit(ch, victim, dt, WEAR_WIELD);
 		if (ch->fighting != victim)
 			return;
+		if (has_second)
+			secondary_hit(ch, victim, dt);
+		if (ch->fighting != victim)
+			return;
 	}
 
 	if (number_percent() < get_skill(ch, "fourth attack") / 6) {
 		one_hit(ch, victim, dt, WEAR_WIELD);
+		if (ch->fighting != victim)
+			return;
+		if (has_second)
+			secondary_hit(ch, victim, dt);
 		if (ch->fighting != victim)
 			return;
 	}
