@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.31 2002-07-14 18:33:30 tatyana Exp $
+ * $Id: act_wiz.c,v 1.186.2.32 2002-08-24 15:15:43 tatyana Exp $
  */
 
 /***************************************************************************
@@ -758,7 +758,6 @@ void do_recho(CHAR_DATA *ch, const char *argument)
 					d->character, NULL, ch,
 					TO_CHAR | ACT_NOLF);
 			}
-				char_puts("local> ",d->character);
 			char_printf(d->character, "%s\n", argument);
 		}
 }
@@ -791,12 +790,12 @@ void do_pecho(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 
 	argument = one_argument(argument, arg, sizeof(arg));
-	
+
 	if (argument[0] == '\0' || arg[0] == '\0') {
 		do_help(ch, "'WIZ PECHO'");
 		return;
 	}
-	 
+
 	if  ((victim = get_char_world(ch, arg)) == NULL) {
 		char_puts("They aren't here.\n", ch);
 		return;
