@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.240 2001-06-26 18:21:44 fjoe Exp $
+ * $Id: spellfun.c,v 1.241 2001-06-30 11:45:50 kostik Exp $
  */
 
 /***************************************************************************
@@ -3068,7 +3068,7 @@ void spell_disintegrate(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	      ch, NULL, victim, TO_NOTVICT, POS_RESTING);
 	act_puts("Your thin light ray ###DISINTEGRATES### $N!", 
 	      ch, NULL, victim, TO_CHAR, POS_RESTING);
-	act_char("You have been KILLED!", victim);
+	act_char("You die..", victim);
 
 	act("$N does not exist anymore!\n", ch, NULL, victim, TO_CHAR);
 	act("$N does not exist anymore!\n", ch, NULL, victim, TO_ROOM);
@@ -3097,7 +3097,7 @@ void spell_disintegrate(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		extract_char(victim, 0);
 		return;
 	}
-	
+
 	rating_update(ch, victim);
 	extract_char(victim, XC_F_INCOMPLETE);
 
@@ -5630,7 +5630,8 @@ void spell_link(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	victim->mana = victim->mana + mana;    
 }
 
-void spell_power_word_kill(const char *sn, int level, CHAR_DATA *ch, void *vo)
+void
+spell_power_word_kill(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
@@ -5666,7 +5667,7 @@ void spell_power_word_kill(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			saves_nega ? DAM_MENTAL : DAM_NEGATIVE,  DAMF_SHOW);
 	} else {
 
-		act_char("You have been KILLED!", victim);
+		act_char("You die..", victim);
 
 		act("$N has been killed!\n", ch, NULL, victim, TO_CHAR);
 		act("$N has been killed!\n", ch, NULL, victim, TO_NOTVICT);
@@ -5702,7 +5703,7 @@ void spell_lion_help(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	AFFECT_DATA af;
 	char arg[MAX_INPUT_LENGTH];
 	int i;
-	
+
 	target_name = one_argument(target_name, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		act_char("Whom do you want to have killed?", ch);
@@ -5716,7 +5717,7 @@ void spell_lion_help(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	if (is_safe(ch, victim)) {
 		return;
-	}	
+	}
 
 	act_char("You call a hunter lion.", ch);
 	act("$n shouts a hunter lion.", ch, NULL, NULL, TO_ROOM);
@@ -7891,7 +7892,7 @@ void spell_phantasmal_force(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			    ch, NULL, victim, TO_VICT);
 			act("You are squeezed by the rock.",
 			    ch, NULL, victim, TO_VICT);
-			act_char("You have been KILLED!", victim);
+			act_char("You die..", victim);
 			act("$N believes $E is squeezed by the large rock fallen from the sky and dies.", ch, NULL, victim, TO_CHAR);
 			act("$n makes $N believe that large rock from the sky squeezes $M.", ch, NULL, victim, TO_NOTVICT);
 			raw_kill(ch, victim);

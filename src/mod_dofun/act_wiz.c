@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.274 2001-06-26 17:29:45 fjoe Exp $
+ * $Id: act_wiz.c,v 1.275 2001-06-30 11:45:47 kostik Exp $
  */
 
 /***************************************************************************
@@ -4781,7 +4781,7 @@ advance(CHAR_DATA *victim, int level)
 		act_char("**** OOOOHHHHHHHHHH  NNNNOOOO ****", victim);
 		temp_prac = PC(victim)->practice;
 		victim->level = 1;
-		PC(victim)->exp	= base_exp(victim);
+		PC(victim)->exp	= 0;
 
 		delta = 20 - victim->perm_hit;
 		victim->perm_hit += delta;

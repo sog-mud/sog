@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.119 2001-06-24 21:12:50 avn Exp $
+ * $Id: skills.c,v 1.120 2001-06-30 11:45:53 kostik Exp $
  */
 
 /***************************************************************************
@@ -52,39 +52,28 @@ hash_t skills;
 
 static int get_mob_skill(const CHAR_DATA *ch, skill_t *sk);
 
-int base_exp(const CHAR_DATA *ch)
+int
+exp_for_level(const CHAR_DATA *ch, int level)
 {
-	int expl;
-	class_t *cl;
-	race_t *r;
-	rclass_t *rcl;
-
-	if (IS_NPC(ch)
-	||  (cl = class_lookup(ch->class)) == NULL
-	||  (r = race_lookup(CPC(ch)->race)) == NULL
-	||  !r->race_pcdata
-	||  (rcl = rclass_lookup(r, cl->name)) == NULL)
-		return 1500;
-
-	expl = 1000 + r->race_pcdata->points + cl->points;
-	return expl * rcl->mult/100;
-}
-
-int exp_for_level(const CHAR_DATA *ch, int level)
-{
-	return base_exp(ch)*level*level*level;
+	level -= 1;
+	/*
+	 * Sum 0..n i*(i+1) = (n^3 + 3*n^2 + 2*n) / 3
+	 */
+	return ((level + 3) * level + 2) * level / 3 * 256;
 }
 
 /*
  * assumes !IS_NPC(ch)
  */
-int exp_to_level(const CHAR_DATA *ch)
+int
+exp_to_level(const CHAR_DATA *ch)
 {
 	return exp_for_level(ch, ch->level+1) - CPC(ch)->exp;
 }
 
 /* checks for skill improvement */
-void check_improve(CHAR_DATA *ch, const char *sn, bool success, int multiplier)
+void
+check_improve(CHAR_DATA *ch, const char *sn, bool success, int multiplier)
 {
 	pc_skill_t *pc_sk;
 	int chance;

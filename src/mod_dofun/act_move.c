@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.258 2001-06-26 18:21:42 fjoe Exp $
+ * $Id: act_move.c,v 1.259 2001-06-30 11:45:47 kostik Exp $
  */
 
 /***************************************************************************
@@ -3417,10 +3417,10 @@ void do_forest(CHAR_DATA* ch, const char* argument)
 		act_char("Huh?", ch);
 		return;
 	}
-	
+
 	one_argument(argument, arg, sizeof(arg));
-	if (arg == '\0') {
-		act_char("Usage: forest {{ attack | defence | normal }", ch);
+	if (*arg == '\0') {
+		act_char("Usage: forest {{ attack | defense | normal }", ch);
 		return;
 	}
 
@@ -3446,10 +3446,10 @@ void do_forest(CHAR_DATA* ch, const char* argument)
 
 	if (is_affected(ch, "forest fighting"))
 		affect_strip(ch, "forest fighting");
-	
-	af.where 	= TO_AFFECTS;
-	af.type  	= "forest fighting";
-	af.level 	= ch->level;
+
+	af.where	= TO_AFFECTS;
+	af.type		= "forest fighting";
+	af.level	= ch->level;
 	af.duration	= -1;
 	af.bitvector	= 0;
 	af.owner	= NULL;

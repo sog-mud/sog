@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.299 2001-06-28 08:59:25 fjoe Exp $
+ * $Id: fight.c,v 1.300 2001-06-30 11:45:49 kostik Exp $
  */
 
 /***************************************************************************
@@ -440,7 +440,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 				act_puts("$n's weapon runs through $N's chest!",
 					ch, NULL, victim,
 					TO_NOTVICT, POS_RESTING);
-				act_char("You have been KILLED!", victim);
+				act_char("You die..", victim);
 				act("$n is DEAD!", victim, NULL, NULL, TO_ROOM);
 				WAIT_STATE(ch, 2);
 				victim->position = POS_DEAD;
@@ -464,7 +464,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 				act_puts("$n's cleave chops $N IN HALF!",
 					 ch, NULL, victim,
 					 TO_NOTVICT, POS_RESTING);
-				act_char("You have been KILLED!", victim);
+				act_char("You die..", victim);
 				act("$n is DEAD!", victim, NULL, NULL, TO_ROOM);
 				WAIT_STATE(ch, 2);
 				victim->position = POS_DEAD;
@@ -485,7 +485,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 				act_puts("$n {R+++ASSASSINATES+++{x you!",
 					 ch, NULL, victim,
 					 TO_VICT, POS_DEAD);
-				act_char("You have been KILLED!", victim);
+				act_char("You die..", victim);
 				act("$n is DEAD!", victim, NULL, victim,
 				    TO_ROOM);
 				check_improve(ch, "assassinate", TRUE, 1);
@@ -577,7 +577,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 				    "chopping your head OFF!",
 				    victim, wield, NULL, TO_CHAR);
 				act("$n is DEAD!", victim, NULL, NULL, TO_ROOM);
-				act_char("You have been KILLED!", victim);
+				act_char("You die..", victim);
 				victim->position = POS_DEAD;
 				handle_death(ch, victim);
 				return;
@@ -1184,7 +1184,7 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 
 	case POS_DEAD:
 		act("$n is DEAD!!", victim, 0, 0, TO_ROOM);
-		act_char("You have been KILLED!!", victim);
+		act_char("You die..", victim);
 		send_to_char("\n", victim);
 		break;
 
@@ -2761,18 +2761,20 @@ static int
 xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 {
 	PC_DATA *pc = PC(gch);
+	int pc_level = gch->level;
 	int xp;
 	int base_exp;
 	int neg_cha = 0, pos_cha = 0;
-	double diff;
 
-	base_exp = 125 * (victim->level + 1);
-	diff = (double) (victim->level + gch->level) / (2.0 * gch->level);
-	diff *= diff;
-	diff *= diff;
-	if (diff > gch->level / 10 + 1)
-		diff = gch->level / 10 + 1;
-	base_exp *= diff;
+	base_exp = (pc_level + 1) * pc_level;
+
+	if (pc_level > victim->level) {
+		base_exp >>= pc_level - victim->level;
+	} else if ((victim->level - pc_level) < 5) {
+		base_exp *= (victim->level - pc_level + 1);
+	} else {
+		base_exp *= (19 + victim->level - pc_level) / 4;
+	}
 
 	if ((IS_EVIL(gch) && IS_GOOD(victim))
 	||  (IS_EVIL(victim) && IS_GOOD(gch)))
@@ -2784,22 +2786,14 @@ xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 	else
 		xp = base_exp;
 
-	/* more exp at the low levels */
-	if (gch->level < 6)
-		xp = 15 * xp / (gch->level + 4);
+	/* more exp at the low levels - NO! */
 
 	/* randomize the rewards */
 	xp = number_range(xp * 3/4, xp * 5/4);
 
-/* adjust for grouping */
+	/* adjust for grouping */
+	xp *= UMIN(members, 3);
 	xp = xp * gch->level/total_levels;
-	if (members == 2 || members == 3) {
-		xp *= members;
-		if (members == 2)
-			xp = xp * 120 / 100;
-		else
-			xp = xp * 125 / 100;
-	}
 
 	if (IS_GOOD(gch)) {
 		if (IS_GOOD(victim)) {
@@ -2848,7 +2842,8 @@ xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 						"neutrals",
 				 TO_CHAR, POS_DEAD);
 			if (gch->perm_stat[STAT_CHA] > 3 && IS_GOOD(gch)) {
-				act_char("So your charisma has reduced by one.", gch);
+				act_char("So your charisma has reduced by one.",
+				    gch);
 				gch->perm_stat[STAT_CHA] -= 1;
 			}
 		}

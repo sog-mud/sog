@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.7 2001-05-21 19:06:30 fjoe Exp $
+ * $Id: prayers.c,v 1.8 2001-06-30 11:45:50 kostik Exp $
  */
 
 /***************************************************************************
@@ -1237,7 +1237,7 @@ prayer_protection_evil(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (IS_AFFECTED(victim, AFF_PROTECT_EVIL) 
+	if (IS_AFFECTED(victim, AFF_PROTECT_EVIL)
 	||  IS_AFFECTED(victim, AFF_PROTECT_GOOD))
 	{
 		if (victim == ch)

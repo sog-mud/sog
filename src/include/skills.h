@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.h,v 1.38 2001-06-24 10:50:40 avn Exp $
+ * $Id: skills.h,v 1.39 2001-06-30 11:45:45 kostik Exp $
  */
 
 #ifndef _SKILLS_H_
@@ -132,7 +132,6 @@ void		say_spell	(CHAR_DATA *ch, const skill_t *spell);
 /*
  * exp_to_level assumes !IS_NPC(ch)
  */
-int		base_exp	(const CHAR_DATA *ch);
 int		exp_to_level	(const CHAR_DATA *ch);
 int		exp_for_level	(const CHAR_DATA *ch, int level);
 void		check_improve	(CHAR_DATA *ch, const char *sn,

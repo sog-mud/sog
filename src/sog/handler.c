@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.291 2001-06-26 17:29:49 fjoe Exp $
+ * $Id: handler.c,v 1.292 2001-06-30 11:45:52 kostik Exp $
  */
 
 /***************************************************************************
@@ -232,10 +232,10 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 		ROOM_INDEX_DATA *room;
 
 		log(LOG_BUG, "char_to_room: NULL");
-		
+
 		if ((room = get_room_index(ROOM_VNUM_TEMPLE)) != NULL)
 			char_to_room(ch, room);
-		
+
 		return;
 	}
 
@@ -4477,7 +4477,8 @@ delevel(CHAR_DATA *ch)
 /*
  * assumes !IS_NPC(ch)
  */
-void gain_exp(CHAR_DATA *ch, int gain)
+void
+gain_exp(CHAR_DATA *ch, int gain)
 {
 	if (ch->level >= LEVEL_HERO)
 		return;
@@ -4512,7 +4513,8 @@ void gain_exp(CHAR_DATA *ch, int gain)
 	}
 }
 
-void bad_effect(CHAR_DATA* ch, int effect)
+void
+bad_effect(CHAR_DATA* ch, int effect)
 {
 	switch(effect) {
 	case FAIL_NONE:
@@ -4529,7 +4531,8 @@ void bad_effect(CHAR_DATA* ch, int effect)
 	}
 }
 
-int get_resist(CHAR_DATA *ch, int dam_class)
+int
+get_resist(CHAR_DATA *ch, int dam_class)
 {
 	int16_t *resists;
 	int16_t bonus=0;

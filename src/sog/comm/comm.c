@@ -1,16 +1,16 @@
 /*
- * $Id: comm.c,v 1.243 2001-06-25 13:08:10 fjoe Exp $
+ * $Id: comm.c,v 1.244 2001-06-30 11:45:54 kostik Exp $
  */
 
 /***************************************************************************
- *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *	
+ *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
  *	 Serdar BULUT {Chronos}		bulut@rorqual.cc.metu.edu.tr       *
- *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *	
- *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *	
- *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *	
+ *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *
+ *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *
+ *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *
  *     By using this code, you have agreed to follow the terms of the      *
- *     ANATOLIA license, in the file Anatolia/anatolia.licence             *	
+ *     ANATOLIA license, in the file Anatolia/anatolia.licence             *
  ***************************************************************************/
 
 /***************************************************************************
@@ -1881,7 +1881,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		 *	HiddenWorlds.
 		 * fjoe: replaced suffix/prefix checks with fnmatch check
 		 */
-		if (check_ban(d, BCL_ALL)) 
+		if (check_ban(d, BCL_ALL))
 			return;
 
 		if (!IS_IMMORTAL(ch)) {
@@ -1893,7 +1893,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 				act_char("Playing twice is restricted...", ch);
 				close_descriptor(d, SAVE_F_NONE);
 				return;
-			} 
+			}
 #endif
 			if (iNumPlayers > MAX_OLDIES
 			&&  !IS_SET(PC(ch)->plr_flags, PLR_NEW)) {
@@ -2307,7 +2307,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			}
 			return;
 		}
- 
+
 		if (PC(ch)->pwd[0] == '\0') {
 			act_char("Warning! Null password!", ch);
 			act_char("Type 'password null <new password>' to fix.", ch);
@@ -2353,7 +2353,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			count = 0;
 			for (d = descriptor_list; d != NULL; d = d->next)
 				if (d->connected == CON_PLAYING)
-			       		count++;
+					count++;
 			top_player = UMAX(count, top_player);
 			if ((fp = dfopen(TMP_PATH, MAXON_FILE, "r"))) {
 				fscanf(fp, "%d", &tmp);
@@ -2392,13 +2392,13 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 				 TO_CHAR, POS_DEAD);
 			ch->gold -= tax;
 		}
-	
+
 		if (ch->level == 0) {
 			OBJ_DATA *wield;
 			OBJ_INDEX_DATA *map;
 
 			ch->level = 1;
-			PC(ch)->exp = base_exp(ch);
+			PC(ch)->exp = 0;
 			PC(ch)->train = 5;
 			PC(ch)->practice += 5;
 			PC(ch)->death = 0;
@@ -2732,7 +2732,7 @@ int align_restrict(CHAR_DATA *ch)
 		act_char("Your character has evil tendencies.", ch);
 		ch->alignment = -1000;
 		return RA_EVIL;
-	}		
+	}
 
 	return RA_NONE;
 }

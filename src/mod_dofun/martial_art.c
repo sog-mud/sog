@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.179 2001-06-25 16:51:16 fjoe Exp $
+ * $Id: martial_art.c,v 1.180 2001-06-30 11:45:48 kostik Exp $
  */
 
 /***************************************************************************
@@ -3405,8 +3405,8 @@ void do_warcry(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_affected(ch, "bless") || is_affected(ch, "warcry")) {
-		act_char("You are already blessed.", ch);
+	if (is_affected(ch, "warcry")) {
+		act_char("The fighting zeal is already with you.", ch);
 		return;
 	}
 

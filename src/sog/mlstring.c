@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.60 2001-06-25 21:46:42 avn Exp $
+ * $Id: mlstring.c,v 1.61 2001-06-30 11:45:52 kostik Exp $
  */
 
 #include <stdio.h>
@@ -353,7 +353,7 @@ bool mlstr_append(CHAR_DATA *ch, mlstring *mlp, const char *arg)
 }
 
 const char *
-mlstr_foreach(mlstring *mlp, 
+mlstr_foreach(mlstring *mlp,
 	      mlstr_foreach_cb_t cb, ...)
 {
 	size_t lang;
