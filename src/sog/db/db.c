@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.221 2000-04-16 09:22:02 fjoe Exp $
+ * $Id: db.c,v 1.222 2000-04-25 13:18:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1842,6 +1842,39 @@ void tail_chain(void)
 }
 
 /*
+ * rip limited eq from containers
+ */
+static void
+rip_limited_eq(CHAR_DATA *ch, OBJ_DATA *container)
+{
+	OBJ_DATA *obj;
+	OBJ_DATA *obj_next;
+
+	for (obj = container->contains; obj != NULL; obj = obj_next) {
+		obj_next = obj->next_content;
+
+		obj->pObjIndex->count++;
+
+		/*
+		 * extract_obj(xxx, XO_F_NORECURSE) will add objects to the
+		 * beginning of the container->contains list --
+		 * check nested containers first
+		 */
+		if (obj->pObjIndex->item_type == ITEM_CONTAINER)
+			rip_limited_eq(ch, obj);
+
+		if (obj->pObjIndex->limit < 0)
+			continue;
+
+		extract_obj(obj, XO_F_NORECURSE);
+		log(LOG_INFO, "scan_pfiles: %s: %s (vnum %d)",
+		    ch->name,
+		    mlstr_mval(&obj->pObjIndex->short_descr),
+		    obj->pObjIndex->vnum);
+	}
+}
+
+/*
  * Count all objects in pfiles
  * Remove limited objects (with probability 1/10)
  * Update rating list
@@ -1898,6 +1931,9 @@ void scan_pfiles()
 			}
 
 			obj->pObjIndex->count++;
+
+			if (obj->pObjIndex->item_type == ITEM_CONTAINER)
+				rip_limited_eq(ch, obj);
 
 			if (obj->pObjIndex->limit < 0
 			||  !should_clear)
