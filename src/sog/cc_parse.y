@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_parse.y,v 1.4 1999-12-16 12:24:50 fjoe Exp $
+ * $Id: cc_parse.y,v 1.5 1999-12-22 05:00:45 fjoe Exp $
  */
 
 #include <setjmp.h>
@@ -37,7 +37,10 @@
 
 #include "cc_lex.h"
 
-extern int yylex(void);
+extern int cc_yylex();
+
+#define yysslim cc_yysslim
+#define yystacksize cc_yystacksize
 
 %}
 
@@ -71,15 +74,13 @@ expr:	FUN '(' STRING ')'	{ $$ = cc_fun_call(&cc_ctx, $1, $3);
 %%
 
 int
-yywrap(void)
+cc_yywrap(void)
 {
 	return 1;
 }
 
-#include <stdio.h>
-
 void
-yyerror(const char *s)
+cc_yyerror(const char *s)
 {
 	log(s);
 	longjmp(cc_jmpbuf, 1);

@@ -18,20 +18,20 @@ ctx_t cc_ctx;
 
 jmp_buf cc_jmpbuf;
 
-char buf[128];
-char *s;
+static char buf[128];
+static char *s;
 
 #define COPYOUT(c)					\
 	do {						\
 		if (s - buf > sizeof(buf) - 1)		\
-			yyerror("string too long");	\
+			cc_yyerror("string too long");	\
 		*s++ = (c);				\
 	} while (0);
 
 #define YY_NO_UNPUT
 
-extern int yyparse();
-extern void yyerror(const char *);
+extern int cc_yyparse();
+extern void cc_yyerror(const char *);
 
 %}
 
@@ -46,8 +46,7 @@ extern void yyerror(const char *);
 <X_STRING>\\\"			{ COPYOUT('\"'); }
 <X_STRING>\"			{ COPYOUT('\0');
 				  BEGIN 0;
-				  yylval.s = str_dup(buf);
-				  fprintf(stderr, "STRING: '%s'\n", yylval.s);
+				  cc_yylval.s = str_dup(buf);
 				  return STRING;
 				}
 <X_STRING>.			{ *s++ = *yytext; }
@@ -55,14 +54,13 @@ extern void yyerror(const char *);
 "&&"				return AND;
 "||"				return OR;
 
-{alpha}{alnum}*			{ yylval.s = str_dup(yytext);
-				  fprintf(stderr, "FUN: '%s'\n", yylval.s);
+{alpha}{alnum}*			{ cc_yylval.s = str_dup(yytext);
 				  return FUN;
 				}
 
 [!()]				return *yytext;
 [ \t\n]				;
-.				yyerror("unknown character");
+.				cc_yyerror("unknown character");
 
 %%
 
@@ -80,7 +78,7 @@ expr_check_cb(void *p, va_list ap)
 	yy_buf = yy_scan_string(e->expr);
 
 	if (!setjmp(cc_jmpbuf)) {
-		yyparse();
+		cc_yyparse();
 		if (cc_ctx.val)
 			rv = (void *) e->mfun;
 		else
@@ -106,7 +104,7 @@ cc_fun_call(ctx_t *ctx, const char *en, const char *arg)
 		snprintf(buf, sizeof(buf),
 			 "cc_fun_call: %s: unknown efun in ruleclass '%s'\n",
 			 en, ctx->rcl->name);
-		yyerror(buf);
+		cc_yyerror(buf);
 	}
 
 	if (efun->fun == NULL)
