@@ -114,7 +114,7 @@ E.g.:
 E.g.:
 	Short descr: [eng] [Black Pawn]
 	Вам нужно сделать следующее:
-                    short rus black pawn
+                    short eng black pawn
 	результатом будет: [eng] [black pawn]
 
 Перевод длинных описаний (long descr)
