@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.34 2001-07-06 08:34:02 fjoe Exp $
+ * $Id: fight.c,v 1.202.2.35 2001-07-25 16:40:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1286,6 +1286,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	&&  (ch != victim || dam_type == DAM_LIGHT_V)) {
 		REMOVE_BIT(victim->affected_by, AFF_SLEEP);
 		affect_bit_strip(victim, TO_AFFECTS, AFF_SLEEP);
+		victim->position = POS_STANDING;
 	}
 
 	/*
