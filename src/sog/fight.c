@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.136 1999-02-17 07:53:19 fjoe Exp $
+ * $Id: fight.c,v 1.137 1999-02-18 10:04:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2406,8 +2406,8 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim,
 		vp = "{R<*>!(*)!<*>> TEARS UP <<*)!(*)!<*>{x";
 	}
 	else {
-		vs = "\007{R=<*) (*>= ! POWER HIT ! =<*) (*>={x\007";
-		vp = "\007{R=<*) (*>= ! POWER HITS ! =<*) (*>={x\007";
+		vs = "{*{R=<*) (*>= ! POWER HIT ! =<*) (*>={x";
+		vp = "{*{R=<*) (*>= ! POWER HITS ! =<*) (*>={x";
 	}
 
 	if (dt == TYPE_HIT || dt == TYPE_HUNGER) {
