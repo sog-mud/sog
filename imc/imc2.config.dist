@@ -1,0 +1,87 @@
+$IMCCONFIG
+
+# This is the IMC2 4.00 Continuum version of the IMC2 config file.
+# When changing this information, be sure you don't remove the tildes!
+# This information can be edited online using the 'imcmsettings' command.
+
+
+# Your connection information goes here.
+
+
+# This is the name that the network will know your mud as.
+LocalName    SomeMudName~
+
+# This is the name of the IMC2 network that your mud will be connected to.
+NetworkName  SomeNetwork~
+
+# This is the network name of the hub that you will connect to.
+HubName   SomeHubName~
+
+# This is the hostname or ip address of the hub that you will connect to.
+HubAddr   SomeHubAddress~
+
+# This is the port on the host of the hub that you will connect to.
+HubPort   4050
+
+# This is the password that you will use to confirm who you are to the server.
+ClientPwd   SomeClientPassword~
+
+# This is the password that the server will use to confirm who it is to you.
+ServerPwd   SomeServerPassword~
+
+# This sets whether your mud will attempt to connect to IMC on startup.
+Autoconnect  1
+
+# This option sets whether your mud will log incoming and outgoing IMC packets.
+Debug        0
+
+
+# Level settings for IMC access go here.
+
+
+# Minimum level for a player to use IMC.
+MinPlayerLevel     2
+
+# Minimum level for someone to achieve immortal privileges.
+MinImmLevel        92
+
+# Minimum level for someone to achieve administrative privileges.
+AdminLevel         92
+
+
+# Information about your mud that you might want other muds to see goes here.
+
+
+# This is the full name of your mud that you wish to display.
+InfoName     Some Mud Name~
+
+# This is the hostname or ip address that you wish to have others connect to.
+InfoHost     SomeMudAddress~
+
+# This is the port that you wish to have others connect to for your mud.
+InfoPort     4000
+
+# This is the email address that you would like to be contacted at.
+InfoEmail    SomeAdmin@SomeMudAddress~
+
+# This is the mud website that you would like interested parties to go to.
+InfoWWW      SomeWebpageAddress~
+
+# This is the codebase that your mud is based upon.
+InfoBase     SomeCodebase~
+
+# This is a description of your mud that you would like other muds to see.
+InfoDetails  SomeDescription~
+
+
+# Miscellaneous Configuration Components.
+
+
+# Sets the color pattern for IMC2, current options are:
+# 0 - Continuum Default 1 - Winter 2 - Fiery Bowels of Hell 3 - IMC2 Classic
+WhoStyle        0
+
+
+End
+
+$END

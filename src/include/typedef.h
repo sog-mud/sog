@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.30.2.3 2001-02-28 19:12:53 fjoe Exp $
+ * $Id: typedef.h,v 1.30.2.4 2003-09-11 13:41:18 matrim Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -69,6 +69,7 @@ typedef struct mptrig			MPTRIG;
 typedef struct mpcode			MPCODE;
 typedef struct qtrouble_t		qtrouble_t;
 typedef struct flag_t			flag_t; 
+typedef struct imcchar_data		IMC_CHARDATA;
 
 typedef struct class_t			class_t;
 typedef struct race_t			race_t;

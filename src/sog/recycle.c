@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.64.2.12 2002-10-26 16:51:33 fjoe Exp $
+ * $Id: recycle.c,v 1.64.2.13 2003-09-11 13:41:22 matrim Exp $
  */
 
 /***************************************************************************
@@ -50,6 +50,7 @@
 #include "merc.h"
 #include "db.h"
 #include "bm.h"
+#include "imc.h"
 
 /*
  * Globals
@@ -362,6 +363,7 @@ void char_free(CHAR_DATA *ch)
 		free_list = &free_pc_list;
 
 		/* free pc stuff */
+		imc_freechardata(ch);
 		varr_destroy(&pc->learned);
 		free_string(pc->pwd);
 		free_string(pc->bamfin);

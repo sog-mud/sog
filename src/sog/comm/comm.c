@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.33 2003-09-08 17:15:38 fjoe Exp $
+ * $Id: comm.c,v 1.200.2.34 2003-09-11 13:41:26 matrim Exp $
  */
 
 /***************************************************************************
@@ -99,6 +99,7 @@
 #include "db.h"
 #include "string_edit.h"
 #include "mccp.h"
+#include "imc.h"
 
 bool class_ok(CHAR_DATA *ch , int class);
 
@@ -340,10 +341,14 @@ int main(int argc, char **argv)
 		exit(1);
 	}
 
+	imc_startup(FALSE); // FALSE arg, so the autoconnect setting can govern it.
+
 	game_loop_unix();
 
 	close_sockets(&control_sockets);
 	close_sockets(&info_sockets);
+
+	imc_shutdown(FALSE);
 
 #if defined (WIN32)
 	WSACleanup();
@@ -733,6 +738,11 @@ void game_loop_unix(void)
 					d->incomm[0]	= '\0';
 			}
 		}
+
+		/*
+		 * Process inter-mud communications
+		 */
+		imc_loop();
 
 		/*
 		 * Autonomous game motion.

@@ -1,0 +1,642 @@
+#AREADATA
+Name IMC2 4.00 Continuum Helps~
+VNUMs 0 0
+Credits Kris~
+Security 9
+LevelRange 0 0
+Flags closed~
+End
+
+#HELPS
+1 IMC2HELPABOUT~
+IMC2 4.00 Continuum Helps Copyright (c) 2003 by Kris Craig
+~
+1 IMC IMC2 CONTINUUM~
+                                      IMC2 4.00 Continuum
+                                      ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+
+ ______________________________________________________________________________________________
+|                                                                                              |
+| Original IMC2 Code Copyright 1996,1997 Oliver Jowett <oliver@jowett.manawatu.planet.co.nz>   |
+| IMC2 Gold versions 1.00-2.00g Copyright 1999-2001 MudWorld www.mudworld.org                  |
+| IMC2 3.10 Mud-Net Copyright 2002 Roger Libiez ( Samson )                                     |
+| Additional code for 3.10 Copyright 2002 Orion Elder                                          |
+| Version 3.10 is registered with the United States Copyright Office.                          |
+| TX 5-555-584.                                                                                |
+| IMC2 4.00 Continuum Copyright (c) 2003 by Rogel                                              |
+| Additional code and documentation for 4.00 Copyright (c) 2003 by Kris Craig                  |
+|                                                                                              |
+ ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+
+
+IMC2 is an intermud-type protocol which connects multiple MUDs and routers 
+(also known as 'Hubs') via a decentralized communications network.
+
+IMC2 4.00 Continuum is a massive cleanup and asthetic overhaul of the previous 
+MUD-Net version.  A lot of antiquated, "legacy" code has been removed, command 
+structure has been re-organized, several bugfixes have been implemented to 
+improve overall stability, and some completely new features have been added!
+
+
+Type 'help imc2 commands index' for additional help.
+~
+1 'IMC2 COMMANDS INDEX'~
+Player Commands:  imcclist, imcminfo, imcmlist, imcpafk, imcpbeep, imcpfind, 
+imcpinfo, imcplist, imcpreply, imcpsettings, and imcptell
+
+Immortal Commands:  imcmfind and imcmstat
+
+Admin Commands:  imccadmin, imccsettings, imccblacklist, imcmsettings, and 
+imcpflags
+
+
+Type 'help <command>' for specific information about each command.
+
+Type 'help imc2 permissions' for details about the new level permissions 
+concept in Continuum.
+~
+1 'IMC2 PERMISSIONS'~
+In Continuum, level-specific ifchecks for commands that you found in previous 
+versions of the client code have been replaced with a broader, simpler set of 
+"Permission Levels".  This was done as part of an effort to make the IMC2 
+client less codebase-dependent.  Here is a breakdown of the 4 permission 
+levels in Continuum:
+
+
+PERM_NONE:  The player is below the imc minlevel (set in imc2.config), and 
+therefore has no permissions whatsoever.  In other words, players that are 
+PERM_NONE have absolutely no access to imc.
+
+PERM_PLAYER:  This applies to all MORTAL players on your MUD that are above 
+the imc minlevel and can therefore use the standard imc player commands and 
+features, but cannot use anything that is reserved for admins/immortals.
+
+PERM_IMMORTAL:  This applies to all non-admin immortals on your MUD.  They 
+retain all player permissions of course, but with some added permissions for 
+immortals.  However, they cannot use anything that is reserved for admins.
+
+PERM_ADMIN:  This applies to all ADMIN immortals on your MUD.  This permission 
+basically gives the admin total access to all of Continuum's commands and 
+features.
+~
+1 IMCCLIST IMCCHANLIST ILIST~
+imcclist <argument>
+    argument can be one of:  'all'
+
+Displays a list of all channels that are audible to the person issuing the 
+command.  'imcclist all' displays a list of ALL channels that the MUD receives 
+and/or has configured locally, whether or not they're audible to the player.
+
+Command form in previous clients:  imcchanlist, ilist
+~
+1 IMCMINFO~
+imcminfo <mudname> <argument>
+    argument can be one of:  'help', 'who', 'info', 'list', 'istats', 
+'finger xxx'
+
+Consolidated command used to obtain various information and/or stats from 
+target mudname.  The following is a list of what each argument does:
+
+help - Displays a brief help on the command
+
+who - Queries a who list from target mudname (equivalent to 'imcplist')
+
+info - Queries detailed info about target mudname
+
+list - Queries target mudname's imcmlist (see 'imcmlist')
+
+istats - Queries target mudname for network traffic statistics
+
+finger xxx - Queries target mudname for finger information on player xxx
+
+Command form in pervious clients: imcquery, rquery
+~
+1 IMCMLIST IMCLIST~
+imcmlist
+
+Displays a list of all MUDs/Hubs connected to the network.  The following is 
+an explanation of each display column output by imcmlist:
+
+Name - localname of each MUD/Hub
+
+IMC Version - what version IMC2 client target MUD/Hub is using, followed by the
+target MUD's codebase
+
+Network - what IMC2 network target MUD/Hub is a part of
+
+Hub - what Hub target MUD/Hub is directly connected to
+
+Command form in previous versions:  imclist
+~
+1 IMCPAFK~
+imcpafk
+
+Toggles your afk status.  When you're imcpafk, you show up as afk on imcplist 
+(imcwho), and private imcptells will not reach you (the person sending the 
+tell will receive a message back telling them that you're afk).
+
+Command form in previous versions: N/A - IMC2 4.00 Continuum Original
+~
+1 IMCPBEEP IMCBEEP RBEEP~
+imcpbeep <person>@<mudname>
+
+Basically a "tap on the shoulder" to someone over the network.  When you 
+impbeep someone, that person sees "Person@MUD imcbeeps you."  
+
+Command form in previous clients:  imcbeep, rbeep
+~
+1 IMCPFIND IMCLOCATE RWHOIS~
+imcpfind <person>
+
+Queries every MUD on the network to see if <person> is online.
+
+Command form in previous clients:  imclocate, rwhois
+~
+1 IMCPINFO IMCFINGER RFINGER~
+imcpinfo <person>@<mudname>
+
+Queries target MUD for finger info on target person.
+
+Command form in previous clients:  imcfinger, rfinger
+~
+1 IMCPLIST IMCWHO RWHO~
+imcplist <mudname>
+
+Queries target MUD for a who list of online players and immortals.  See 
+'who_styles.txt' for additional info on customizing your own MUD's who output 
+display format.
+
+Command form in previous clients:  imcwho, rwho
+~
+1 IMCPREPLY IMCREPLY RREPLY~
+imcpreply
+
+Sends an imcptell to the last person who sent you an imcptell.
+
+Command form in previous clients:  imcreply, rreply
+~
+1 IMCPSETTINGS IMCLISTEN IMCFLAGS RCHANNELS ICHAN~
+imcpsettings <function> +/-<item>
+
+Consolidates several commands from previous clients into one blanket command.
+
+Changes:  'imclisten <channel>' is now 'imcpsettings subscribe <channel>', 
+'imcignore <mud>/<person@mud>' is now 'imcpsettings blacklist 
+<mud>/<person@mud>'
+
+Syntax: imcpsettings show   - lists IMC2 network functions and IMC2 channels
+        imcpsettings subscribe +channel - creates a subscription to a channel
+        imcpsettings subscribe -channel - deletes a subscription to a channel
+        imcpsettings blacklist +mud - adds a mud to the blacklist
+        imcpsettings blacklist -mud - removes a mud from the blacklist
+        imcpsettings blacklist +person@mud - adds a player to the blacklist
+        imcpsettings blacklist -person@mud - removes a player from the 
+blacklist
+        imcpsettings function +nfunction  - switches on a network function
+        imcpsettings function -nfunction  - switches off a network function
+
+Valid network functions are:
+ 'IMC-Status' 'IMC-Chan-FYI' 'imcptell' 'imcpbeep' 'imcpvisible' 'imcpcolor'
+Multiple settings may be given in one command.
+There is also the 'all' option to set or unset all available functions.
+
+Command form in previous clients: imclisten, imcflags, rchannels, ichan
+~
+1 IMCPTELL IMCTELL RTELL~
+imcptell <person@mudname>
+
+Sends a private 'tell' message over the network to person@mud.
+
+Command form in previous clients: imctell, rtell
+~
+1 IMCMFIND IMCPING RPING~
+imcmfind <mudname>
+
+Performs a network traceroute to target MUD.
+
+Command form in previous clients: imcping, rping
+~
+1 IMCMSTAT IMCSTATS ISTATS~
+imcmstat <argument>
+
+Syntax: imcmstat general - displays general information on the mud
+        imcmstat network - displays network statistical information for the 
+mud
+
+Command form in previous clients: imcstats, istats
+~
+92 IMCCADMIN IMCCOMMAND ICOMMAND~
+Syntax: imccadmin <command> <hub:channelname> [<data..>]
+
+Common commands:  create <channel>           - create a channel
+                  refresh <channel>          - refresh channel data
+                  list [<channel>]           - list available commands
+                  destroy <channel>          - destroy a channel
+                  policy <channel> <policy>  - change channel policy
+                  addop <channel> <name>     - add a channel operator
+                  removeop <channel> <name>  - remove an operator
+                  invite <channel> <name>    - add an invited name
+                  uninvite <channel> <name>  - remove an invited name
+                  exclude <channel> <name>   - exclude a name
+                  unexclude <channel> <name> - remove an exclusion
+
+The imccadmin function sends a command to a remote Hub:Channel.  You must 
+either be the administrator of that Hub or an operator of that Hub:Channel in 
+order for it to accept your commands.  Here are some examples....
+
+To create a new channel:  imccadmin create Hub11-Imaginary:BogusChat
+
+To make it a private channel:  imccadmin policy Hub11-Imaginary:BogusChat 
+private
+
+Nope!  Changed your mind!  Let's make it a public channel:  imccadmin policy 
+Hub11-Imaginary:BogusChat public
+
+Let's make your pal Roosta an operator:  imccadmin addop 
+Hub11-Imaginary:BogusChat Roosta@TheGhetto
+
+Ok, Roosta just mugged your sister....  imccadmin removeop 
+Hub11-Imaginary:BogusChat Roosta@TheGhetto
+
+In fact, you don't even want him on this public channel anymore!
+So.... imccadmin exclude Hub11-Imaginary:BogusChat Roosta@TheGhetto
+
+Command form in previous clients: imccommand, icommand
+~
+92 IMCCSETTINGS IMCSETUP ISETUP~
+imccsettings  <channel name> <field> [value]
+
+Configures local channels on your MUD.
+
+Where the field may be one of the following:
+  localize unlocalize rename permlevel regformat emoteformat socformat
+All changes are saved on edit. More information on each field may be obtained
+by tyContinuumng a field name without an accompanying value. Type 
+"imccsettings
+<channel name> show" for a display of the current values for a channel.
+~
+92 IMCMBLACKLIST IMCIGNORE RIGNORE~
+imcmblacklist <command> <mudname>
+
+Adds target MUD to your MUD's blacklist.  All communications packets from that 
+blacklisted MUD will be 'ignored' by your MUD.  This is ideal if a certain MUD 
+is causing problems for you and your players.
+
+Syntax: imcmblacklist list         - lists blacklisted muds
+        imcmblacklist add <mud>    - adds a new mud to the blacklist
+        imcmblacklist remove <mud> - removes a mud from the blacklist
+
+Command form in previous clients: imcignore, rignore
+~
+92 IMCMSETTINGS IMCCONFIG~
+imcmsettings  <field> [value]
+
+Command for configuring your MUD's IMC2 configuration settings.
+
+**HELP NOTE**
+Type 'help imcmsettings <field>' for specific help on an individual field (ex 
+'help imcmsettings debug'.
+
+
+Where the field may be one of the following:
+--Connection Related Fields --
+  connected imcname hubname hubaddr hubport clientpwd serverpwd
+  autoconnect debug netname
+--Privilege Related Fields --
+  minplayerlevel minimmlevel minadminlevel
+--Information Display Related Fields
+  infoname infohost infoport infoemail infowww infobase infodetails
+--Miscellaneous Fields
+  whostyle
+All changes are saved on edit. More information on each field may be obtained
+by typing a field name without an accompanying value. Type 
+"imcmsettings show"
+for a display of the current values for all available fields.
+
+
+The following is a breakdown of what each of the fields does and their syntax:
+
+
+connected <value>
+
+Description: Connected either connects or disconnects the IMC client
+             from the hub. Also, it can stop the reconnect process
+             with "no".
+Accepted Values: Takes the values "yes" and "no".
+
+
+imcname <value>
+
+Description: Imcname is the name that the IMC2 network will know
+             this mud as.
+Accepted Values: Takes any string without spaces up to 20 characters.
+
+
+hubname <value>
+
+Description: Hubname sets the name that IMC will call the hub.
+Accepted Values: Takes any string without spaces up to 20 characters.
+
+
+hubaddr <value>
+
+Description: Hubaddr sets the hostname or ip address that IMC
+             will use to try to connect to the hub.
+Accepted Values: Takes any string without spaces up to 256 characters.
+
+
+hubport <value>
+
+Description: Hubport sets the port that IMC will try to connect
+             to the hub at.
+Accepted Values: Takes any integer between 1 and 65,535.
+
+
+clientpwd <value>
+
+Description: Clientpwd is the password that the IMC client uses to
+             authenticate itself to the hub.
+Accepted Values: Takes any string without spaces up to 20 characters.
+
+
+serverpwd <value>
+
+Description: Serverpwd is the password that the IMC hub uses to
+             authenticate itself to the client.
+Accepted Values: Takes any string without spaces up to 20 characters.
+
+
+autoconnect <value>
+
+Description: Autoconnect sets whether or not IMC will start at mud boot.
+Accepted Values: Takes the values "yes" and "no".
+
+
+debug <value>
+
+Description: Debug sets whether or not all incoming and outgoing
+             packets are logged.
+Accepted Values: Takes the values "yes" and "no".
+
+
+netname <value>
+
+Description: Netname is the name of the IMC2 network that this mud
+             is connected to. The name must be the exact same as the
+             hub in order to connect to a IMC2 3.11 Hermes or later hub.
+Accepted Values: Takes any string without spaces up to 10 characters.
+
+
+minplayerlevel <value>
+
+Description: Minplayerlevel sets the minimum level for a player to use IMC.
+Accepted Values: Takes any integer between 1 and the mud's maximum level.
+
+
+minimmlevel <value>
+
+Description: Minimmlevel sets the minimum level for someone to have
+             immortal privileges in IMC.
+Accepted Values: Takes any integer between 1 and the mud's maximum level.
+
+
+minadminlevel <value>
+
+Description: Minadminlevel sets the minimum level for someone to have
+             administrative privileges.
+Accepted Values: Takes any integer between 1 and the mud's maximum level.
+
+
+infoname <value>
+
+Description: Infoname is what information services such as imcplist
+             and imcminfo will display as this mud's name.
+Accepted Values: Takes any string up to 35 characters.
+
+
+infohost <value>
+
+Description: Infohost is what information services such as imcplist
+             and imcminfo will display as this mud's host.
+Accepted Values: Takes any string without spaces up to 256 characters.
+
+
+infoport <value>
+
+Description: Infoport is what information services such as imcplist
+             and imcminfo will display as this mud's port.
+Accepted Values: Takes any integer between 1 and 65,535.
+
+
+infoemail <value>
+
+Description: Infoemail is what information services such as imcplist
+             and imcminfo will display as this mud's administrative email.
+Accepted Values: Takes any string up to 280 characters.
+
+
+infowww <value>
+
+Description: Infowww is what information services such as imcplist
+             and imcminfo will display as this mud's web address.
+Accepted Values: Takes any string without spaces up to 256 characters.
+
+
+infobase <value>
+
+Description: Infobase is what information services such as imcplist
+             and imcminfo will display as this mud's codebase.
+Accepted Values: Takes any string up to 20 characters.
+
+
+infodetails <value>
+
+Description: Infodetails is what information services such as imcplist
+             and imcminfo will display as the mud's short description.
+Accepted Values: Takes any string up to 256 characters.
+
+
+whostyle <value>
+
+Please refer to who_styles.txt for detailed info.
+
+Description: Whostyle sets the color pattern used for your imcplist.
+Accepted Values: Takes any integer between 0 and the mud's maximum whostyle
+                 or any string up to 25 characters for the whostyle's name.
+Current WhoStyles:
+                 0 - Continuum Default
+                 1 - Winter
+                 2 - Fiery Bowels of Hell
+                 3 - IMC2 Classic
+
+Command form in previous clients: imc, imcconfig
+~
+92 IMCPFLAGS IMCDENY RCHANSET~
+imcpflags <victim> +/-<network function>
+
+Allows a MUD administrator to set allow/deny flags for various IMC2 functions 
+on players.
+
+Syntax: imcpflags <char>                     - check flag settings
+        imcpflags <char> +<network function> - set allow flag
+        imcpflags <char> -<network function> - set deny flag
+        imcpflags <char> =<network function> - reset allow/deny flag
+
+Command form in previous clients: imcdeny, rchanset
+~
+92 'IMCMSETTINGS CONNECTED'~
+imcmsettings connected <value>
+
+Description: Connected either connects or disconnects the IMC client
+             from the hub. Also, it can stop the reconnect process
+             with "no".
+Accepted Values: Takes the values "yes" and "no".
+~
+92 'IMCMSETTINGS IMCNAME~
+imcmsettings imcname <value>
+
+Description: Imcname is the name that the IMC2 network will know
+             this mud as.
+Accepted Values: Takes any string without spaces up to 20 characters.
+~
+92 'IMCMSETTINGS HUBNAME'~
+imcmsettings hubname <value>
+
+Description: Hubname sets the name that IMC will call the hub.
+Accepted Values: Takes any string without spaces up to 20 characters.
+~
+92 'IMCMSETTINGS HUBADDR'~
+imcmsettings hubaddr <value>
+
+Description: Hubaddr sets the hostname or ip address that IMC
+             will use to try to connect to the hub.
+Accepted Values: Takes any string without spaces up to 256 characters.
+~
+63 'IMCMSETTINS HUBPORT'~
+imcmsettings hubport <value>
+
+Description: Hubport sets the port that IMC will try to connect
+             to the hub at.
+Accepted Values: Takes any integer between 1 and 65,535.
+~
+92 'IMCMSETTINGS CLIENTPWD'~
+imcmsettings clientpwd <value>
+
+Description: Clientpwd is the password that the IMC client uses to
+             authenticate itself to the hub.
+Accepted Values: Takes any string without spaces up to 20 characters.
+~
+92 'IMCMSETTINGS SERVERPWD'~
+imcmsettings serverpwd <value>
+
+Description: Serverpwd is the password that the IMC hub uses to
+             authenticate itself to the client.
+Accepted Values: Takes any string without spaces up to 20 characters.
+~
+92 'IMCMSETTINGS AUTOCONNECT'~
+imcmsettings autoconnect <value>
+
+Description: Autoconnect sets whether or not IMC will start at mud boot.
+Accepted Values: Takes the values "yes" and "no".
+~
+92 'IMCMSETTINGS DEBUG'~
+imcmsettings debug <value>
+
+Description: Debug sets whether or not all incoming and outgoing
+             packets are logged.
+Accepted Values: Takes the values "yes" and "no".
+~
+92 'IMCMSETTINGS NETNAME~
+imcmsettings netname <value>
+
+Description: Netname is the name of the IMC2 network that this mud
+             is connected to. The name must be the exact same as the
+             hub in order to connect to a IMC2 3.11 Hermes or later hub.
+Accepted Values: Takes any string without spaces up to 10 characters.
+~
+92 'IMCMSETTINGS MINPLAYERLEVEL'~
+imcmsettings minplayerlevel <value>
+
+Description: Minplayerlevel sets the minimum level for a player to use IMC.
+Accepted Values: Takes any integer between 1 and the mud's maximum level.
+~
+92 'IMCMSETTINGS MINIMMLEVEL'~
+imcmsettings minimmlevel <value>
+
+Description: Minimmlevel sets the minimum level for someone to have
+             immortal privileges in IMC.
+Accepted Values: Takes any integer between 1 and the mud's maximum level.
+~
+92 'IMCMSETTINGS MINADMINLEVEL'~
+imcmsettings minadminlevel <value>
+
+Description: Minadminlevel sets the minimum level for someone to have
+             administrative privileges.
+Accepted Values: Takes any integer between 1 and the mud's maximum level.
+~
+92 'IMCMSETTINGS INFONAME'~
+imcmsettings infoname <value>
+
+Description: Infoname is what information services such as imcplist
+             and imcminfo will display as this mud's name.
+Accepted Values: Takes any string up to 35 characters.
+~
+92 'IMCMSETTINGS INFOHOST'~
+imcmsettings infohost <value>
+
+Description: Infohost is what information services such as imcplist
+             and imcminfo will display as this mud's host.
+Accepted Values: Takes any string without spaces up to 256 characters.
+~
+92 'IMCMSETTINGS INFOPORT'~
+imcmsettings infoport <value>
+
+Description: Infoport is what information services such as imcplist
+             and imcminfo will display as this mud's port.
+Accepted Values: Takes any integer between 1 and 65,535.
+~
+92 'IMCMSETTINGS INFOEMAIL'~
+imcmsettings infoemail <value>
+
+Description: Infoemail is what information services such as imcplist
+             and imcminfo will display as this mud's administrative email.
+Accepted Values: Takes any string up to 280 characters.
+~
+92 'IMCMSETTINGS INFOWWW'~
+imcmsettings infowww <value>
+
+Description: Infowww is what information services such as imcplist
+             and imcminfo will display as this mud's web address.
+Accepted Values: Takes any string without spaces up to 256 characters.
+~
+92 'IMCMSETTINGS INFOBASE'~
+imcmsettings infobase <value>
+
+Description: Infobase is what information services such as imcplist
+             and imcminfo will display as this mud's codebase.
+Accepted Values: Takes any string up to 20 characters.
+~
+92 'IMCMSETTINGS INFODETAILS'~
+imcmsettings infodetails <value>
+
+Description: Infodetails is what information services such as imcplist
+             and imcminfo will display as the mud's short description.
+Accepted Values: Takes any string up to 256 characters.
+~
+92 'IMCMSETTINGS WHOSTYLE'~
+imcmsettings whostyle <value>
+
+Please refer to who_styles.txt for detailed info.
+
+Description: Whostyle sets the color pattern used for your imcplist.
+Accepted Values: Takes any integer between 0 and the mud's maximum whostyle
+                 or any string up to 25 characters for the whostyle's name.
+Current WhoStyles:
+                 0 - Continuum Default
+                 1 - Winter
+                 2 - Fiery Bowels of Hell
+                 3 - IMC2 Classic
+~
+0 $~
+
+#$

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.126.2.20 2003-09-11 10:39:48 tatyana Exp $
+ * $Id: save.c,v 1.126.2.21 2003-09-11 13:41:23 matrim Exp $
  */
 
 /***************************************************************************
@@ -58,6 +58,7 @@
 #include "quest.h"
 #include "db.h"
 #include "bm.h"
+#include "imc.h"
 
 /*
  * Array of containers read for proper re-nesting of objects.
@@ -397,6 +398,8 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 		fwrite_affect(paf, fp);
 	}
 
+	imc_savechar(ch, fp);
+
 	fprintf(fp, "End\n\n");
 }
 
@@ -584,6 +587,8 @@ CHAR_DATA *char_load(const char *name, int flags)
 		return NULL;
 
 	ch = char_new(NULL);
+
+	imc_initchar(ch);
 
 	ch->name = str_dup(capitalize(name));
 	mlstr_init(&ch->short_descr, ch->name);
@@ -837,6 +842,9 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 			break;
 
 		case 'I':
+			if((fMatch = imc_loadchar(ch, fp, word)))
+	            		break;
+
 			KEY("Inco", ch->incog_level, fread_number(fp));
 			KEY("Invi", ch->invis_level, fread_number(fp));
 			break;

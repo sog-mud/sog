@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.39 2003-09-08 17:15:21 fjoe Exp $
+ * $Id: merc.h,v 1.234.2.40 2003-09-11 13:41:16 matrim Exp $
  */
 
 /***************************************************************************
@@ -1574,6 +1574,8 @@ struct pc_data
 	msgq_t			msgq_group;
 	msgq_t			msgq_sog;
 	msgq_t			msgq_chan;
+
+	IMC_CHARDATA *		imcchardata;
 };
 
 /*

@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.11.2.5 2003-09-08 17:15:36 fjoe Exp $
+# $Id: Makefile,v 1.11.2.6 2003-09-11 13:41:21 matrim Exp $
 #
 
 PROG=		sog
@@ -10,7 +10,7 @@ SRCS=		auction.c buffer.c chquest.c clan.c class.c cmd.c\
 		msgq.c namedp.c note.c obj_prog.c quest.c race.c raffect.c\
 		rating.c recycle.c religion.c save.c skills.c\
 		socials.c special.c str.c string_edit.c tables.c update.c\
-		util.c varr.c\
+		util.c varr.c imc.c\
 		${COMM_SRCS} ${DB_SRCS} ${COMPAT_SRCS}
 COMM_SRCS=	ban.c charset.c comm.c comm_act.c\
 		comm_colors.c comm_info.c resolver.c mccp.c

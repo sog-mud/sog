@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.164.2.8 2002-11-22 18:00:14 fjoe Exp $
+ * $Id: interp.c,v 1.164.2.9 2003-09-11 13:41:22 matrim Exp $
  */
 
 /***************************************************************************
@@ -50,6 +50,7 @@
 #include "merc.h"
 #include "cmd.h"
 #include "socials.h"
+#include "imc.h"
 
 #undef IMMORTALS_LOGS
 
@@ -224,6 +225,9 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 			return;
 		}
 
+		if (!IS_NPC(ch)
+		&& imc_command_hook(ch, command, argument))
+			return;
 		/*
 		 * Look for command in socials table.
 		 */
