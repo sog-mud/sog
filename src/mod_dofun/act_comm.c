@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.14 1998-05-07 07:04:56 fjoe Exp $
+ * $Id: act_comm.c,v 1.15 1998-05-08 18:00:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -62,16 +62,16 @@
 DECLARE_DO_FUN(do_quit	);
 DECLARE_DO_FUN(do_quit_count);
 
-void do_quit_org	args( (CHAR_DATA *ch, char *argument, bool Count) );
-bool proper_order	args( (CHAR_DATA *ch, char *argument ) );
+void do_quit_org	args((CHAR_DATA *ch, char *argument, bool Count));
+bool proper_order	args((CHAR_DATA *ch, char *argument));
 char *translate(CHAR_DATA *ch, CHAR_DATA *victim, char *argument);
-int lang_lookup		args( (const char *name ) );
+int lang_lookup		args((const char *name));
 
 void do_ilang(CHAR_DATA *ch, char *argument)
 {
 	int i;
 
-	if( *argument == '\0' ) {
+	if(*argument == '\0') {
 		if (ch->i_lang >= nilang) {
 			char_puts(msg(COMM_INTERFACE_LANGUAGE_UNDEFINED, ch),
 				  ch);
@@ -98,13 +98,13 @@ void do_ilang(CHAR_DATA *ch, char *argument)
 
 /* RT code to delete yourself */
 
-void do_delet( CHAR_DATA *ch, char *argument)
+void do_delet(CHAR_DATA *ch, char *argument)
 {
 	send_to_char("You must type the full command to delete yourself.\n\r",
 		     ch);
 }
 
-void do_delete( CHAR_DATA *ch, char *argument)
+void do_delete(CHAR_DATA *ch, char *argument)
 {
 	char strsave[MAX_INPUT_LENGTH];
 
@@ -118,7 +118,7 @@ void do_delete( CHAR_DATA *ch, char *argument)
 			return;
 		}
 
-		sprintf(strsave, "%s%s", PLAYER_DIR, capitalize( ch->name ) );
+		sprintf(strsave, "%s%s", PLAYER_DIR, capitalize(ch->name));
 		wiznet("$N turns $Mself into line noise.",ch,NULL,0,0,0);
 		ch->last_fight_time = -1;
 		do_quit_count(ch,"");
@@ -142,7 +142,7 @@ void do_delete( CHAR_DATA *ch, char *argument)
 
 /* RT code to display channel status */
 
-void do_channels( CHAR_DATA *ch, char *argument)
+void do_channels(CHAR_DATA *ch, char *argument)
 {
 	/* lists all channels and their status */
 	send_to_char("   channel     status\n\r",ch);
@@ -210,7 +210,7 @@ void garble(char *garbled, char *speech)
 
 /* RT deaf blocks out all shouts */
 
-void do_deaf( CHAR_DATA *ch, char *argument)
+void do_deaf(CHAR_DATA *ch, char *argument)
 {
 	
 	if (IS_SET(ch->comm,COMM_DEAF))
@@ -250,7 +250,7 @@ void do_replay (CHAR_DATA *ch, char *argument)
 	clear_buf(ch->pcdata->buffer);
 }
 
-void do_immtalk( CHAR_DATA *ch, char *argument )
+void do_immtalk(CHAR_DATA *ch, char *argument)
 {
 	DESCRIPTOR_DATA *d;
 
@@ -290,13 +290,13 @@ void do_say(CHAR_DATA *ch, char *argument, ...)
 	va_list ap;
 
 
-	if ( argument[0] == '\0' )
+	if (argument[0] == '\0')
 	{
-	send_to_char( "Say what?\n\r", ch );
+	send_to_char("Say what?\n\r", ch);
 	return;
 	}
-	if ( ch->in_room == NULL )  {
-		 send_to_char( "But, you are not in a room!\n\r", ch );
+	if (ch->in_room == NULL)  {
+		 send_to_char("But, you are not in a room!\n\r", ch);
 		 return;
 	}
 
@@ -316,7 +316,7 @@ void do_say(CHAR_DATA *ch, char *argument, ...)
 	}
 
 	if (!is_affected(ch, gsn_deafen))
-		act_puts( "You say '{G$T{x'", ch, NULL, buf, TO_CHAR,POS_RESTING);
+		act_puts("You say '{G$T{x'", ch, NULL, buf, TO_CHAR,POS_RESTING);
 
 	for (room_char = ch->in_room->people; room_char != NULL;
 		 room_char = room_char->next_in_room)
@@ -343,19 +343,19 @@ void do_say(CHAR_DATA *ch, char *argument, ...)
 
 
 
-void do_shout( CHAR_DATA *ch, char *argument )
+void do_shout(CHAR_DATA *ch, char *argument)
 {
 	DESCRIPTOR_DATA *d;
 	char buf[MAX_INPUT_LENGTH];
 	char trans[MAX_STRING_LENGTH];
 
-	if (argument[0] == '\0' )
+	if (argument[0] == '\0')
 	{
 		 send_to_char("Shout what?.\n\r",ch);
 		 return;
 	}
 
-	WAIT_STATE( ch, 12 );
+	WAIT_STATE(ch, 12);
 
 	if (is_affected(ch,gsn_garble))
 		 garble(buf,argument);
@@ -366,13 +366,13 @@ void do_shout( CHAR_DATA *ch, char *argument )
 		act_puts("You shout '{R$T{x'",
 		       ch, NULL, buf, TO_CHAR,POS_DEAD);
 
-	for ( d = descriptor_list; d != NULL; d = d->next )
+	for (d = descriptor_list; d != NULL; d = d->next)
 	{
 	CHAR_DATA *victim;
 
 	victim = d->original ? d->original : d->character;
 
-	if ( d->connected == CON_PLAYING &&
+	if (d->connected == CON_PLAYING &&
 		 d->character != ch &&
 		 d->character->in_room->area == ch->in_room->area &&
 		     !is_affected(d->character, gsn_deafen))
@@ -391,14 +391,14 @@ void do_tell_raw(CHAR_DATA *ch, char *msg, CHAR_DATA *victim)
 {
 	char buf[MAX_STRING_LENGTH];
 
-	if ( IS_SET(ch->comm, COMM_NOTELL) ) {
+	if (IS_SET(ch->comm, COMM_NOTELL)) {
 		send_to_char("Your message didn't get through.\n\r", ch);
 		return;
 	}
 
 	if (victim == NULL 
 	|| (IS_NPC(victim) && victim->in_room != ch->in_room)) {
-		send_to_char( "They aren't here.\n\r", ch );
+		send_to_char("They aren't here.\n\r", ch);
 		return;
 	}
 
@@ -429,7 +429,7 @@ void do_tell_raw(CHAR_DATA *ch, char *msg, CHAR_DATA *victim)
 	}
 
 	if (!IS_IMMORTAL(victim) && !IS_AWAKE(ch)) {
-		send_to_char( "In your dreams, or what?\n\r", ch );
+		send_to_char("In your dreams, or what?\n\r", ch);
 		return;
 	}
 
@@ -445,13 +445,13 @@ void do_tell_raw(CHAR_DATA *ch, char *msg, CHAR_DATA *victim)
 }
 
 
-void do_tell( CHAR_DATA *ch, char *argument )
+void do_tell(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
-	argument = one_argument( argument, arg );
-	if ( arg[0] == '\0' || argument[0] == '\0' ) {
-		send_to_char( "Tell whom what?\n\r", ch );
+	argument = one_argument(argument, arg);
+	if (arg[0] == '\0' || argument[0] == '\0') {
+		send_to_char("Tell whom what?\n\r", ch);
 		return;
 		}
 
@@ -459,20 +459,20 @@ void do_tell( CHAR_DATA *ch, char *argument )
 }
 
 
-void do_reply( CHAR_DATA *ch, char *argument )
+void do_reply(CHAR_DATA *ch, char *argument)
 {
 	do_tell_raw(ch, argument, ch->reply);
 }
 
-void do_yell( CHAR_DATA *ch, char *argument )
+void do_yell(CHAR_DATA *ch, char *argument)
 {
 	DESCRIPTOR_DATA *d;
 	char buf[MAX_INPUT_LENGTH];
 	char trans[MAX_STRING_LENGTH];
 
-	if ( argument[0] == '\0' )
+	if (argument[0] == '\0')
 	{
-	send_to_char( "Yell what?\n\r", ch );
+	send_to_char("Yell what?\n\r", ch);
 	return;
 	}
 
@@ -485,9 +485,9 @@ void do_yell( CHAR_DATA *ch, char *argument )
 		act_puts("You yell '{M$t{x'",
 		       ch,buf,NULL,TO_CHAR,POS_DEAD);
 
-	for ( d = descriptor_list; d != NULL; d = d->next )
+	for (d = descriptor_list; d != NULL; d = d->next)
 	{
-	if ( d->connected == CON_PLAYING
+	if (d->connected == CON_PLAYING
 	&&   d->character != ch
 	&&   d->character->in_room != NULL
 	&&   d->character->in_room->area == ch->in_room->area 
@@ -502,19 +502,19 @@ void do_yell( CHAR_DATA *ch, char *argument )
 }
 
 
-void do_emote( CHAR_DATA *ch, char *argument )
+void do_emote(CHAR_DATA *ch, char *argument)
 {
 char buf[MAX_INPUT_LENGTH];
 
-	if ( !IS_NPC(ch) && IS_SET(ch->comm, COMM_NOEMOTE) )
+	if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOEMOTE))
 	{
-		send_to_char( "You can't show your emotions.\n\r", ch );
+		send_to_char("You can't show your emotions.\n\r", ch);
 		return;
 	}
 	
-	if ( argument[0] == '\0' )
+	if (argument[0] == '\0')
 	{
-		send_to_char( "Emote what?\n\r", ch );
+		send_to_char("Emote what?\n\r", ch);
 		return;
 	}
 	
@@ -523,32 +523,32 @@ char buf[MAX_INPUT_LENGTH];
 	else
 		 strcpy(buf,argument);
 
-	act( "$n $T", ch, NULL, buf, TO_ROOM );
-	act( "$n $T", ch, NULL, buf, TO_CHAR );
+	act("$n $T", ch, NULL, buf, TO_ROOM);
+	act("$n $T", ch, NULL, buf, TO_CHAR);
 	return;
 }
 
 
-void do_pmote( CHAR_DATA *ch, char *argument )
+void do_pmote(CHAR_DATA *ch, char *argument)
 {
 	CHAR_DATA *vch;
 	char *letter,*name;
 	char last[MAX_INPUT_LENGTH], temp[MAX_STRING_LENGTH];
 	int matches = 0;
 
-	if ( !IS_NPC(ch) && IS_SET(ch->comm, COMM_NOEMOTE) )
+	if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOEMOTE))
 	{
-		send_to_char( "You can't show your emotions.\n\r", ch );
+		send_to_char("You can't show your emotions.\n\r", ch);
 		return;
 	}
 	
-	if ( argument[0] == '\0' )
+	if (argument[0] == '\0')
 	{
-		send_to_char( "Emote what?\n\r", ch );
+		send_to_char("Emote what?\n\r", ch);
 		return;
 	}
 	
-	act( "$n $t", ch, argument, NULL, TO_CHAR );
+	act("$n $t", ch, argument, NULL, TO_CHAR);
 
 	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room)
 	{
@@ -848,161 +848,161 @@ const	struct	pose_table_type	pose_table	[]	=
 
 
 
-void do_pose( CHAR_DATA *ch, char *argument )
+void do_pose(CHAR_DATA *ch, char *argument)
 {
 	int level;
 	int pose;
 
-	if ( IS_NPC(ch) )
+	if (IS_NPC(ch))
 	return;
 
-	level = UMIN( ch->level, sizeof(pose_table) / sizeof(pose_table[0]) - 1 );
+	level = UMIN(ch->level, sizeof(pose_table) / sizeof(pose_table[0]) - 1);
 	pose  = number_range(0, level);
 
-	act( pose_table[pose].message[2*ch->class+0], ch, NULL, NULL, TO_CHAR );
-	act( pose_table[pose].message[2*ch->class+1], ch, NULL, NULL, TO_ROOM );
+	act(pose_table[pose].message[2*ch->class+0], ch, NULL, NULL, TO_CHAR);
+	act(pose_table[pose].message[2*ch->class+1], ch, NULL, NULL, TO_ROOM);
 
 	return;
 }
 
 
 
-void do_bug( CHAR_DATA *ch, char *argument )
+void do_bug(CHAR_DATA *ch, char *argument)
 {
-	append_file( ch, BUG_FILE, argument );
-	send_to_char( "Bug logged.\n\r", ch );
+	append_file(ch, BUG_FILE, argument);
+	send_to_char("Bug logged.\n\r", ch);
 	return;
 }
 
-void do_typo( CHAR_DATA *ch, char *argument )
+void do_typo(CHAR_DATA *ch, char *argument)
 {
-	append_file( ch, TYPO_FILE, argument );
-	send_to_char( "Typo logged.\n\r", ch );
+	append_file(ch, TYPO_FILE, argument);
+	send_to_char("Typo logged.\n\r", ch);
 	return;
 }
 
-void do_rent( CHAR_DATA *ch, char *argument )
+void do_rent(CHAR_DATA *ch, char *argument)
 {
-	send_to_char( "There is no rent here.  Just save and quit.\n\r", ch );
+	send_to_char("There is no rent here.  Just save and quit.\n\r", ch);
 	return;
 }
 
 
-void do_qui( CHAR_DATA *ch, char *argument )
+void do_qui(CHAR_DATA *ch, char *argument)
 {
-	send_to_char( "If you want to QUIT, you have to spell it out.\n\r", ch );
+	send_to_char("If you want to QUIT, you have to spell it out.\n\r", ch);
 	return;
 }
 
 
-void do_quit( CHAR_DATA *ch, char *argument )
+void do_quit(CHAR_DATA *ch, char *argument)
 {
-	do_quit_org(ch, argument, FALSE );
+	do_quit_org(ch, argument, FALSE);
 	return;
 }
 
-void do_quit_count( CHAR_DATA *ch, char *argument )
+void do_quit_count(CHAR_DATA *ch, char *argument)
 {
-	do_quit_org(ch, argument, TRUE );
+	do_quit_org(ch, argument, TRUE);
 	return;
 }
 
-void do_quit_org( CHAR_DATA *ch, char *argument, bool Count )
+void do_quit_org(CHAR_DATA *ch, char *argument, bool Count)
 {
 	DESCRIPTOR_DATA *d, *d_next;
 	CHAR_DATA *vch;
 	OBJ_DATA *obj,*obj_next;
 	int id;
 
-	if ( IS_NPC(ch) )
+	if (IS_NPC(ch))
 	return;
 
-	if ( ch->position == POS_FIGHTING )
+	if (ch->position == POS_FIGHTING)
 	{
-	send_to_char( "No way! You are fighting.\n\r", ch );
+	send_to_char("No way! You are fighting.\n\r", ch);
 	return;
 	}
 
-	if ( ch->position  < POS_STUNNED  )
+	if (ch->position  < POS_STUNNED )
 	{
-	send_to_char( "You're not DEAD yet.\n\r", ch );
+	send_to_char("You're not DEAD yet.\n\r", ch);
 	return;
 	}
 
-	if ( ch->last_fight_time != -1 && !IS_IMMORTAL(ch) &&
+	if (ch->last_fight_time != -1 && !IS_IMMORTAL(ch) &&
 		(current_time - ch->last_fight_time)<FIGHT_DELAY_TIME) 
 		 {
 		send_to_char("Your adrenalin is gushing! You can't quit yet.\n\r",ch);
 		return;
 		 }
 
-	if ( IS_AFFECTED( ch, AFF_CHARM ) )
+	if (IS_AFFECTED(ch, AFF_CHARM))
 	{
-	send_to_char( "You don't want to leave your master.\n\r", ch );
+	send_to_char("You don't want to leave your master.\n\r", ch);
 	return;
 	}
 
-	if ( IS_SET( ch->act, PLR_NO_EXP ) )
+	if (IS_SET(ch->act, PLR_NO_EXP))
 	{
-	send_to_char( "You don't want to lose your spirit.\n\r", ch );
+	send_to_char("You don't want to lose your spirit.\n\r", ch);
 	return;
 	}
 
-	if ( auction->item != NULL && ((ch == auction->buyer) || (ch == auction->seller)) )
+	if (auction->item != NULL && ((ch == auction->buyer) || (ch == auction->seller)))
 	{
 		send_to_char ("Wait till you have sold/bought the item on auction.\n\r",ch);
 		return;
 	}
 
-	if ( !IS_IMMORTAL(ch) && 
-		ch->in_room && IS_RAFFECTED( ch->in_room, AFF_ROOM_ESPIRIT ) )
+	if (!IS_IMMORTAL(ch) && 
+		ch->in_room && IS_RAFFECTED(ch->in_room, AFF_ROOM_ESPIRIT))
 	{
-	send_to_char( "Evil spirits in the area prevents you from leaving.\n\r", ch );
+	send_to_char("Evil spirits in the area prevents you from leaving.\n\r", ch);
 	return;
 	}
 
-	if ( !IS_IMMORTAL(ch) && 
-	ch->cabal != CABAL_INVADER && is_affected(ch, gsn_evil_spirit ))
+	if (!IS_IMMORTAL(ch) && 
+	ch->cabal != CABAL_INVADER && is_affected(ch, gsn_evil_spirit))
 	{
-	send_to_char( "Evil spirits in you prevents you from leaving.\n\r", ch );
+	send_to_char("Evil spirits in you prevents you from leaving.\n\r", ch);
 	return;
 	}
 
-	send_to_char( 
+	send_to_char(
 	"Alas, all good things must come to an end.\n\r",ch);
-	act_puts( "{W$n{x has left the game.", ch, NULL, NULL, TO_ROOM ,POS_DEAD);
+	act_puts("{W$n{x has left the game.", ch, NULL, NULL, TO_ROOM ,POS_DEAD);
 	log_printf("%s has quit.", ch->name);
 	wiznet("{W$N{x rejoins the real world.",ch,NULL,WIZ_LOGINS,0,get_trust(ch));
 
-		for ( obj = object_list; obj != NULL; obj = obj_next )
+		for (obj = object_list; obj != NULL; obj = obj_next)
 		{
 	obj_next = obj->next;
-	if (   obj->pIndexData->vnum == 84 
+	if (  obj->pIndexData->vnum == 84 
 		|| obj->pIndexData->vnum == 85
 		|| obj->pIndexData->vnum == 86 
-		|| obj->pIndexData->vnum == 97 )
+		|| obj->pIndexData->vnum == 97)
 	{
 		if (obj->extra_descr == NULL) extract_obj(obj);
-		else if ( strstr( obj->extra_descr->description, ch->name) != NULL )
-		 extract_obj( obj);
+		else if (strstr(obj->extra_descr->description, ch->name) != NULL)
+		 extract_obj(obj);
 	}
 		}
 
-	for( obj = ch->carrying; obj ; obj = obj_next)
+	for(obj = ch->carrying; obj ; obj = obj_next)
 	{
 		obj_next = obj->next_content;
 		if (obj->pIndexData->vnum == OBJ_VNUM_MAGIC_JAR)
 		  {
-		 extract_obj( obj);
+		 extract_obj(obj);
 		  }
-	if (   obj->pIndexData->vnum == 84 
+	if (  obj->pIndexData->vnum == 84 
 		|| obj->pIndexData->vnum == 85
 		|| obj->pIndexData->vnum == 86 
-		|| obj->pIndexData->vnum == 97 )
+		|| obj->pIndexData->vnum == 97)
 		{
 		 if (obj->extra_descr == NULL) extract_obj(obj);
-		 else if ( strstr( obj->extra_descr->description, ch->name) !=NULL )
-		 extract_obj( obj);
+		 else if (strstr(obj->extra_descr->description, ch->name) !=NULL)
+		 extract_obj(obj);
 		 else {
 		obj_from_char(obj);
 		obj_to_room(obj,ch->in_room);
@@ -1028,7 +1028,7 @@ void do_quit_org( CHAR_DATA *ch, char *argument, bool Count )
 		 if (vch->last_fought == ch)
 	{
 		 vch->last_fought = NULL;
-		back_home( vch );
+		back_home(vch);
 	}
 
 		 if (vch->hunting == ch)
@@ -1046,15 +1046,15 @@ void do_quit_org( CHAR_DATA *ch, char *argument, bool Count )
 	/*
 	 * After extract_char the ch is no longer valid!
 	 */
-	save_char_obj( ch );
+	save_char_obj(ch);
 	id = ch->id;
 	d = ch->desc;
-	if ( Count )
-		 extract_char( ch, TRUE );
+	if (Count)
+		 extract_char(ch, TRUE);
 	else
-		 extract_char_nocount( ch, TRUE );
-	if ( d != NULL )
-	close_socket( d );
+		 extract_char_nocount(ch, TRUE);
+	if (d != NULL)
+	close_socket(d);
 
 
 	/* toast evil cheating bastards    */
@@ -1077,17 +1077,17 @@ void do_quit_org( CHAR_DATA *ch, char *argument, bool Count )
 
 
 
-void do_save( CHAR_DATA *ch, char *argument )
+void do_save(CHAR_DATA *ch, char *argument)
 {
-	if ( IS_NPC(ch) )
+	if (IS_NPC(ch))
 	return;
 
-	if (ch->level < 2 )
+	if (ch->level < 2)
 	{
 		 send_to_char("You must be at least level 2 for saving.\n\r", ch);
 		return;
 	}
-	save_char_obj( ch );
+	save_char_obj(ch);
 	send_to_char("Saving. Remember that Anatolia MUD has automatic saving.\n\r", ch);
 	WAIT_STATE(ch, PULSE_VIOLENCE);
 	return;
@@ -1095,37 +1095,37 @@ void do_save( CHAR_DATA *ch, char *argument )
 
 
 
-void do_follow( CHAR_DATA *ch, char *argument )
+void do_follow(CHAR_DATA *ch, char *argument)
 {
 /* RT changed to allow unlimited following and follow the NOFOLLOW rules */
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 
-	one_argument( argument, arg );
+	one_argument(argument, arg);
 
-	if ( arg[0] == '\0' )
+	if (arg[0] == '\0')
 	{
-	send_to_char( "Follow whom?\n\r", ch );
+	send_to_char("Follow whom?\n\r", ch);
 	return;
 	}
 
-	if ( ( victim = get_char_room( ch, arg ) ) == NULL )
+	if ((victim = get_char_room(ch, arg)) == NULL)
 	{
-	send_to_char( "They aren't here.\n\r", ch );
+	send_to_char("They aren't here.\n\r", ch);
 	return;
 	}
 
-	if ( IS_AFFECTED(ch, AFF_CHARM) && ch->master != NULL )
+	if (IS_AFFECTED(ch, AFF_CHARM) && ch->master != NULL)
 	{
-	act( "But you'd rather follow $N!", ch, NULL, ch->master, TO_CHAR );
+	act("But you'd rather follow $N!", ch, NULL, ch->master, TO_CHAR);
 	return;
 	}
 
-	if ( victim == ch )
+	if (victim == ch)
 	{
-	if ( ch->master == NULL )
+	if (ch->master == NULL)
 	{
-		send_to_char( "You already follow yourself.\n\r", ch );
+		send_to_char("You already follow yourself.\n\r", ch);
 		return;
 	}
 	stop_follower(ch);
@@ -1141,29 +1141,29 @@ void do_follow( CHAR_DATA *ch, char *argument )
 
 	REMOVE_BIT(ch->act,PLR_NOFOLLOW);
 	
-	if ( ch->master != NULL )
-	stop_follower( ch );
+	if (ch->master != NULL)
+	stop_follower(ch);
 
-	add_follower( ch, victim );
+	add_follower(ch, victim);
 	return;
 }
 
 
-void add_follower( CHAR_DATA *ch, CHAR_DATA *master )
+void add_follower(CHAR_DATA *ch, CHAR_DATA *master)
 {
-	if ( ch->master != NULL )
+	if (ch->master != NULL)
 	{
-	bug( "Add_follower: non-null master.", 0 );
+	bug("Add_follower: non-null master.", 0);
 	return;
 	}
 
 	ch->master        = master;
 	ch->leader        = NULL;
 
-	if ( can_see( master, ch ) )
-act_puts( "$n now follows you.", ch, NULL, master, 
+	if (can_see(master, ch))
+act_puts("$n now follows you.", ch, NULL, master, 
 TO_VICT,POS_RESTING);
-act_puts( "You now follow $N.",  ch, NULL, master, 
+act_puts("You now follow $N.",  ch, NULL, master, 
 TO_CHAR,POS_RESTING);
 
 	return;
@@ -1171,25 +1171,25 @@ TO_CHAR,POS_RESTING);
 
 
 
-void stop_follower( CHAR_DATA *ch )
+void stop_follower(CHAR_DATA *ch)
 {
-	if ( ch->master == NULL )
+	if (ch->master == NULL)
 	{
-	bug( "Stop_follower: null master.", 0 );
+	bug("Stop_follower: null master.", 0);
 	return;
 	}
 
-	if ( IS_AFFECTED(ch, AFF_CHARM) )
+	if (IS_AFFECTED(ch, AFF_CHARM))
 	{
-	REMOVE_BIT( ch->affected_by, AFF_CHARM );
-	affect_strip( ch, gsn_charm_person );
+	REMOVE_BIT(ch->affected_by, AFF_CHARM);
+	affect_strip(ch, gsn_charm_person);
 	}
 
-	if ( can_see( ch->master, ch ) && ch->in_room != NULL)
+	if (can_see(ch->master, ch) && ch->in_room != NULL)
 	{
-act_puts( "$n stops following you.",ch, NULL, ch->master, 
+act_puts("$n stops following you.",ch, NULL, ch->master, 
 		TO_VICT,POS_RESTING);
-act_puts( "You stop following $N.", ch, NULL, ch->master, 
+act_puts("You stop following $N.", ch, NULL, ch->master, 
 		TO_CHAR,POS_RESTING);
 	}
 	if (ch->master->pet == ch)
@@ -1201,7 +1201,7 @@ act_puts( "You stop following $N.", ch, NULL, ch->master,
 }
 
 /* nukes charmed monsters and pets */
-void nuke_pets( CHAR_DATA *ch )
+void nuke_pets(CHAR_DATA *ch)
 {    
 	CHAR_DATA *pet;
 
@@ -1219,26 +1219,26 @@ void nuke_pets( CHAR_DATA *ch )
 
 
 
-void die_follower( CHAR_DATA *ch )
+void die_follower(CHAR_DATA *ch)
 {
 	CHAR_DATA *fch;
 	CHAR_DATA *fch_next;
 
-	if ( ch->master != NULL )
+	if (ch->master != NULL)
 	{
 		if (ch->master->pet == ch)
 		    ch->master->pet = NULL;
-	stop_follower( ch );
+	stop_follower(ch);
 	}
 
 	ch->leader = NULL;
 
-	for ( fch = char_list; fch != NULL; fch = fch_next )
+	for (fch = char_list; fch != NULL; fch = fch_next)
 	{
 	fch_next = fch->next;
-	if ( fch->master == ch )
-		stop_follower( fch );
-	if ( fch->leader == ch )
+	if (fch->master == ch)
+		stop_follower(fch);
+	if (fch->leader == ch)
 		fch->leader = fch;
 	}
 
@@ -1246,7 +1246,7 @@ void die_follower( CHAR_DATA *ch )
 }
 
 
-void do_order( CHAR_DATA *ch, char *argument )
+void do_order(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH],arg2[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -1255,7 +1255,7 @@ void do_order( CHAR_DATA *ch, char *argument )
 	bool found;
 	bool fAll;
 
-	argument = one_argument( argument, arg );
+	argument = one_argument(argument, arg);
 	one_argument(argument,arg2);
 
 	if (!str_cmp(arg2,"delete"))
@@ -1264,19 +1264,19 @@ void do_order( CHAR_DATA *ch, char *argument )
 		return;
 	}
 
-	if ( arg[0] == '\0' || argument[0] == '\0' )
+	if (arg[0] == '\0' || argument[0] == '\0')
 	{
-	send_to_char( "Order whom to do what?\n\r", ch );
+	send_to_char("Order whom to do what?\n\r", ch);
 	return;
 	}
 
-	if ( IS_AFFECTED( ch, AFF_CHARM ) )
+	if (IS_AFFECTED(ch, AFF_CHARM))
 	{
-	send_to_char( "You feel like taking, not giving, orders.\n\r", ch );
+	send_to_char("You feel like taking, not giving, orders.\n\r", ch);
 	return;
 	}
 
-	if ( !str_cmp( arg, "all" ) )
+	if (!str_cmp(arg, "all"))
 	{
 	fAll   = TRUE;
 	victim = NULL;
@@ -1284,37 +1284,37 @@ void do_order( CHAR_DATA *ch, char *argument )
 	else
 	{
 	fAll   = FALSE;
-	if ( ( victim = get_char_room( ch, arg ) ) == NULL )
+	if ((victim = get_char_room(ch, arg)) == NULL)
 	{
-		send_to_char( "They aren't here.\n\r", ch );
+		send_to_char("They aren't here.\n\r", ch);
 		return;
 	}
 
-	if ( victim == ch )
+	if (victim == ch)
 	{
-		send_to_char( "Aye aye, right away!\n\r", ch );
+		send_to_char("Aye aye, right away!\n\r", ch);
 		return;
 	}
 
 	if (!IS_AFFECTED(victim, AFF_CHARM) || victim->master != ch 
 	||  (IS_IMMORTAL(victim) && victim->trust >= ch->trust))
 	{
-		send_to_char( "Do it yourself!\n\r", ch );
+		send_to_char("Do it yourself!\n\r", ch);
 		return;
 	}
 	}
 
 	found = FALSE;
-	for ( och = ch->in_room->people; och != NULL; och = och_next )
+	for (och = ch->in_room->people; och != NULL; och = och_next)
 	{
 	och_next = och->next_in_room;
 
-	if ( IS_AFFECTED(och, AFF_CHARM)
+	if (IS_AFFECTED(och, AFF_CHARM)
 	&&   och->master == ch
-	&& ( fAll || och == victim ) )
+	&& (fAll || och == victim))
 	{
 		found = TRUE;
-		if ( !proper_order( och, argument ) )
+		if (!proper_order(och, argument))
 		continue;
 		act_printf(ch, NULL, och, TO_VICT, POS_RESTING,
 			       COMM_ORDERS_YOU_TO, argument);
@@ -1322,71 +1322,71 @@ void do_order( CHAR_DATA *ch, char *argument )
 	}
 	}
 
-	if ( found )
+	if (found)
 	{
 	WAIT_STATE(ch,PULSE_VIOLENCE);
-	send_to_char( "Ok.\n\r", ch );
+	send_to_char("Ok.\n\r", ch);
 	}
 	else
-	send_to_char( "You have no followers here.\n\r", ch );
+	send_to_char("You have no followers here.\n\r", ch);
 	return;
 }
 
-bool proper_order( CHAR_DATA *ch, char *argument )
+bool proper_order(CHAR_DATA *ch, char *argument)
 {
 	char command[MAX_INPUT_LENGTH];
 	bool found;
 	int trust, cmd_num;
 	DO_FUN *cmd;
 
-	if ( !IS_NPC(ch) )     return TRUE;
+	if (!IS_NPC(ch))     return TRUE;
 
-	one_argument( argument, command );
+	one_argument(argument, command);
 	found = FALSE;
 
-	trust = get_trust( ch );
+	trust = get_trust(ch);
 
-	for ( cmd_num = 0; cmd_table[cmd_num].name[0] != '\0'; cmd_num++ )
+	for (cmd_num = 0; cmd_table[cmd_num].name[0] != '\0'; cmd_num++)
 	{
-		 if ( command[0] == cmd_table[cmd_num].name[0]
-		&&   !str_prefix( command, cmd_table[cmd_num].name )
-		&&   cmd_table[cmd_num].level <= trust )
+		 if (command[0] == cmd_table[cmd_num].name[0]
+		&&   !str_prefix(command, cmd_table[cmd_num].name)
+		&&   cmd_table[cmd_num].level <= trust)
 		 {
 		    found = TRUE;
 		    break;
 		 }
 	}
-	if ( !found ) return TRUE;
+	if (!found) return TRUE;
 	cmd = cmd_table[cmd_num].do_fun;
 
-	if ( ((cmd == do_bash) || (cmd == do_dirt) || (cmd == do_kick)
-	|| (cmd == do_murder) || (cmd == do_trip) ) 
-	&& ch->fighting == NULL ) 
+	if (((cmd == do_bash) || (cmd == do_dirt) || (cmd == do_kick)
+	|| (cmd == do_murder) || (cmd == do_trip)) 
+	&& ch->fighting == NULL) 
 	return FALSE;
 
-	if ( (cmd == do_assassinate) || (cmd == do_ambush) || (cmd == do_blackjack) 
+	if ((cmd == do_assassinate) || (cmd == do_ambush) || (cmd == do_blackjack) 
 	|| (cmd == do_cleave) || (cmd == do_kill) || (cmd == do_murder) 
 	|| (cmd == do_recall) || (cmd == do_strangle) || (cmd == do_vtouch))
 	return FALSE;
 
-	if ( cmd == do_close || cmd == do_lock || cmd == do_open ||  
-		  cmd == do_unlock  )  
+	if (cmd == do_close || cmd == do_lock || cmd == do_open ||  
+		  cmd == do_unlock )  
 	{
-	if ( race_table[RACE(ch)].pc_race ) return TRUE;
-	if ( RACE(ch) != 34  &&		/* doll */
+	if (race_table[RACE(ch)].pc_race) return TRUE;
+	if (RACE(ch) != 34  &&		/* doll */
 		 RACE(ch) != 37  &&		/* goblin */
 		 RACE(ch) != 38  &&		/* hobgoblin */
 		 RACE(ch) != 39  &&		/* kobolt */
 		 RACE(ch) != 40  &&		/* lizard */
 		 RACE(ch) != 41  &&		/* modron */
-		 RACE(ch) != 42  )		/* orc */
+		 RACE(ch) != 42 )		/* orc */
 		 return FALSE;
 	else 
 		 return TRUE;
 	}
 
-	if ( (cmd == do_backstab) || (cmd == do_hide) || (cmd == do_pick) 
-	|| (cmd == do_sneak) )
+	if ((cmd == do_backstab) || (cmd == do_hide) || (cmd == do_pick) 
+	|| (cmd == do_sneak))
 		{
 		  if (IS_SET(ch->act, ACT_THIEF))
 		return TRUE;
@@ -1397,14 +1397,14 @@ bool proper_order( CHAR_DATA *ch, char *argument )
 }
 
 
-void do_group( CHAR_DATA *ch, char *argument )
+void do_group(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 
-	one_argument( argument, arg );
+	one_argument(argument, arg);
 
-	if ( arg[0] == '\0' )
+	if (arg[0] == '\0')
 	{
 	CHAR_DATA *gch;
 	CHAR_DATA *leader;
@@ -1412,36 +1412,36 @@ void do_group( CHAR_DATA *ch, char *argument )
 	leader = (ch->leader != NULL) ? ch->leader : ch;
 	char_printf(ch, "%s's group:\n\r", PERS(leader, ch));
 
-	for ( gch = char_list; gch != NULL; gch = gch->next ) {
-		if ( is_same_group( gch, ch ) )
+	for (gch = char_list; gch != NULL; gch = gch->next) {
+		if (is_same_group(gch, ch))
 		  char_printf(ch,
 		  "[%2d %s] %-16s %d/%d hp %d/%d mana %d/%d mv   %5d xp\n\r",
 		    gch->level,
 		    IS_NPC(gch) ? "Mob" : class_table[gch->class].who_name,
-		    capitalize( PERS(gch, ch) ),
+		    capitalize(PERS(gch, ch)),
 		    gch->hit,   gch->max_hit,
 		    gch->mana,  gch->max_mana,
 		    gch->move,  gch->max_move,
-		    gch->exp );
+		    gch->exp);
 	}
 	return;
 	}
 
-	if ( ( victim = get_char_room( ch, arg ) ) == NULL )
+	if ((victim = get_char_room(ch, arg)) == NULL)
 	{
-	send_to_char( "They aren't here.\n\r", ch );
+	send_to_char("They aren't here.\n\r", ch);
 	return;
 	}
 
-	if ( ch->master != NULL || ( ch->leader != NULL && ch->leader != ch ) )
+	if (ch->master != NULL || (ch->leader != NULL && ch->leader != ch))
 	{
-	send_to_char( "But you are following someone else!\n\r", ch );
+	send_to_char("But you are following someone else!\n\r", ch);
 	return;
 	}
 
-	if ( victim->master != ch && ch != victim )
+	if (victim->master != ch && ch != victim)
 	{
-	act( "$N isn't following you.", ch, NULL, victim, TO_CHAR );
+	act("$N isn't following you.", ch, NULL, victim, TO_CHAR);
 	return;
 	}
 	
@@ -1458,7 +1458,7 @@ void do_group( CHAR_DATA *ch, char *argument )
 	}
 
 
-	if ( is_same_group( victim, ch ) && ch != victim )
+	if (is_same_group(victim, ch) && ch != victim)
 	{
 		 if (ch->guarding == victim || victim->guarded_by == ch)
 		{
@@ -1470,11 +1470,11 @@ void do_group( CHAR_DATA *ch, char *argument )
 		}
 
 		 victim->leader = NULL;
-act_puts( "$n removes $N from $s group.",   ch, NULL, victim, 
+act_puts("$n removes $N from $s group.",   ch, NULL, victim, 
 		TO_NOTVICT,POS_SLEEPING);
-act_puts( "$n removes you from $s group.",  ch, NULL, victim, 
+act_puts("$n removes you from $s group.",  ch, NULL, victim, 
 		TO_VICT,POS_SLEEPING);
-act_puts( "You remove $N from your group.", ch, NULL, victim, 
+act_puts("You remove $N from your group.", ch, NULL, victim, 
 		TO_CHAR,POS_SLEEPING);
 
 		 if (victim->guarded_by != NULL &&
@@ -1489,14 +1489,14 @@ act_puts( "You remove $N from your group.", ch, NULL, victim,
 		 return;
 	}
 
-	if ( ch->level - victim->level < -8
-		 ||   ch->level - victim->level > 8 )
+	if (ch->level - victim->level < -8
+		 ||   ch->level - victim->level > 8)
 	{
-act_puts( "$N cannot join $n's group.",     ch, NULL, victim, 
+act_puts("$N cannot join $n's group.",     ch, NULL, victim, 
 		TO_NOTVICT,POS_SLEEPING);
-act_puts( "You cannot join $n's group.",    ch, NULL, victim, 
+act_puts("You cannot join $n's group.",    ch, NULL, victim, 
 		TO_VICT,POS_SLEEPING);
-act_puts( "$N cannot join your group.",     ch, NULL, victim, 
+act_puts("$N cannot join your group.",     ch, NULL, victim, 
 		TO_CHAR ,POS_SLEEPING);
 		 return;
 	}
@@ -1524,7 +1524,7 @@ act_puts("$N is too pure for your group!", ch, NULL, victim,
 	(ch->cabal == CABAL_KNIGHT  && victim->cabal == CABAL_INVADER) ||
 	(ch->cabal == CABAL_INVADER  && victim->cabal == CABAL_KNIGHT) ||
 	(ch->cabal == CABAL_SHALAFI  && victim->cabal == CABAL_BATTLE) ||
-	(ch->cabal == CABAL_BATTLE  && victim->cabal == CABAL_SHALAFI) )
+	(ch->cabal == CABAL_BATTLE  && victim->cabal == CABAL_SHALAFI))
 	{
 act_puts("You hate $n's cabal, how can you join $n's group?!", ch,
 		NULL, victim,TO_VICT,POS_SLEEPING);
@@ -1535,11 +1535,11 @@ act_puts("You hate $N's cabal, how can you want $N to join your group?!",
 
 
 	victim->leader = ch;
-act_puts( "$N joins $n's group.", ch, NULL, victim,TO_NOTVICT,
+act_puts("$N joins $n's group.", ch, NULL, victim,TO_NOTVICT,
 	POS_SLEEPING);
-act_puts( "You join $n's group.", ch, NULL, victim,TO_VICT,
+act_puts("You join $n's group.", ch, NULL, victim,TO_VICT,
 	POS_SLEEPING);
-act_puts( "$N joins your group.", ch, NULL, victim, TO_CHAR,
+act_puts("$N joins your group.", ch, NULL, victim, TO_CHAR,
 	POS_SLEEPING);
 	return;
 
@@ -1550,7 +1550,7 @@ act_puts( "$N joins your group.", ch, NULL, victim, TO_CHAR,
 /*
  * 'Split' originally by Gnort, God of Chaos.
  */
-void do_split( CHAR_DATA *ch, char *argument )
+void do_split(CHAR_DATA *ch, char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	char arg1[MAX_INPUT_LENGTH],arg2[MAX_INPUT_LENGTH];
@@ -1560,48 +1560,48 @@ void do_split( CHAR_DATA *ch, char *argument )
 	int share_gold, share_silver;
 	int extra_gold, extra_silver;
 
-	argument = one_argument( argument, arg1 );
-		   one_argument( argument, arg2 );
+	argument = one_argument(argument, arg1);
+		   one_argument(argument, arg2);
 
-	if ( arg1[0] == '\0' )
+	if (arg1[0] == '\0')
 	{
-	send_to_char( "Split how much?\n\r", ch );
+	send_to_char("Split how much?\n\r", ch);
 	return;
 	}
 	
-	amount_silver = atoi( arg1 );
+	amount_silver = atoi(arg1);
 
 	if (arg2[0] != '\0')
 	amount_gold = atoi(arg2);
 
-	if ( amount_gold < 0 || amount_silver < 0)
+	if (amount_gold < 0 || amount_silver < 0)
 	{
-	send_to_char( "Your group wouldn't like that.\n\r", ch );
+	send_to_char("Your group wouldn't like that.\n\r", ch);
 	return;
 	}
 
-	if ( amount_gold == 0 && amount_silver == 0 )
+	if (amount_gold == 0 && amount_silver == 0)
 	{
-	send_to_char( "You hand out zero coins, but no one notices.\n\r", ch );
+	send_to_char("You hand out zero coins, but no one notices.\n\r", ch);
 	return;
 	}
 
-	if ( ch->gold <  amount_gold || ch->silver < amount_silver)
+	if (ch->gold <  amount_gold || ch->silver < amount_silver)
 	{
-	send_to_char( "You don't have that much to split.\n\r", ch );
+	send_to_char("You don't have that much to split.\n\r", ch);
 	return;
 	}
 	
 	members = 0;
-	for ( gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room )
+	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room)
 	{
-	if ( is_same_group( gch, ch ) && !IS_AFFECTED(gch,AFF_CHARM))
+	if (is_same_group(gch, ch) && !IS_AFFECTED(gch,AFF_CHARM))
 		members++;
 	}
 
-	if ( members < 2 )
+	if (members < 2)
 	{
-	send_to_char( "Just keep it all.\n\r", ch );
+	send_to_char("Just keep it all.\n\r", ch);
 	return;
 	}
 		
@@ -1611,9 +1611,9 @@ void do_split( CHAR_DATA *ch, char *argument )
 	share_gold   = amount_gold / members;
 	extra_gold   = amount_gold % members;
 
-	if ( share_gold == 0 && share_silver == 0 )
+	if (share_gold == 0 && share_silver == 0)
 	{
-	send_to_char( "Don't even bother, cheapskate.\n\r", ch );
+	send_to_char("Don't even bother, cheapskate.\n\r", ch);
 	return;
 	}
 
@@ -1643,9 +1643,9 @@ void do_split( CHAR_DATA *ch, char *argument )
 "$n splits %d silver and %d gold coins, giving you %d silver and %d gold.\n\r",
 		amount_silver,amount_gold,share_silver,share_gold);
 
-	for ( gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room ) {
+	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room) {
 	if (gch != ch && is_same_group(gch,ch) && !IS_AFFECTED(gch,AFF_CHARM)) {
-		act( buf, ch, NULL, gch, TO_VICT );
+		act(buf, ch, NULL, gch, TO_VICT);
 		gch->gold += share_gold;
 		gch->silver += share_silver;
 	}
@@ -1656,21 +1656,21 @@ void do_split( CHAR_DATA *ch, char *argument )
 
 
 
-void do_gtell( CHAR_DATA *ch, char *argument )
+void do_gtell(CHAR_DATA *ch, char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *gch;
 	int i;
 
-	if ( argument[0] == '\0' )
+	if (argument[0] == '\0')
 	{
-	send_to_char( "Tell your group what?\n\r", ch );
+	send_to_char("Tell your group what?\n\r", ch);
 	return;
 	}
 
-	if ( IS_SET( ch->comm, COMM_NOTELL ) )
+	if (IS_SET(ch->comm, COMM_NOTELL))
 	{
-	send_to_char( "Your message didn't get through!\n\r", ch );
+	send_to_char("Your message didn't get through!\n\r", ch);
 	return;
 	}
 
@@ -1683,9 +1683,9 @@ void do_gtell( CHAR_DATA *ch, char *argument )
 	 * Note use of send_to_char, so gtell works on sleepers.
 	 */
 
-	for ( i = 0, gch = char_list; gch != NULL; gch = gch->next )
+	for (i = 0, gch = char_list; gch != NULL; gch = gch->next)
 	{
-		 if ( is_same_group( gch, ch ) && !is_affected(gch, gsn_deafen))
+		 if (is_same_group(gch, ch) && !is_affected(gch, gsn_deafen))
 		{
 		  act_puts("{W$n{x tells the group '{G$t{x'",
 		          ch,buf,gch,TO_VICT,POS_DEAD);
@@ -1696,7 +1696,7 @@ void do_gtell( CHAR_DATA *ch, char *argument )
 	if (i > 1 && !is_affected(ch, gsn_deafen))
 		 act_puts("You tell your group '{G$t{x'",
 		        ch,buf,NULL,TO_CHAR,POS_DEAD);
-	else send_to_char( "Quit talking to yourself. You are all alone.",ch);
+	else send_to_char("Quit talking to yourself. You are all alone.",ch);
 
 	return;
 }
@@ -1709,13 +1709,13 @@ void do_gtell( CHAR_DATA *ch, char *argument )
  * (2) if A ~ B then B ~ A
  * (3) if A ~ B  and B ~ C, then A ~ C
  */
-bool is_same_group_old( CHAR_DATA *ach, CHAR_DATA *bch )
+bool is_same_group_old(CHAR_DATA *ach, CHAR_DATA *bch)
 {
-	if ( ach == NULL || bch == NULL)
+	if (ach == NULL || bch == NULL)
 	return FALSE;
 
-	if ( ach->leader != NULL ) ach = ach->leader;
-	if ( bch->leader != NULL ) bch = bch->leader;
+	if (ach->leader != NULL) ach = ach->leader;
+	if (bch->leader != NULL) bch = bch->leader;
 	return ach == bch;
 }
 
@@ -1723,7 +1723,7 @@ bool is_same_group_old( CHAR_DATA *ach, CHAR_DATA *bch )
 /*
  * New is_same_group by chronos
  */
-bool is_same_group( CHAR_DATA *ach, CHAR_DATA *bch )
+bool is_same_group(CHAR_DATA *ach, CHAR_DATA *bch)
 {
 	CHAR_DATA *ch,*vch,*ch_next,*vch_next;
 
@@ -1740,13 +1740,13 @@ bool is_same_group( CHAR_DATA *ach, CHAR_DATA *bch )
 }
 
 
-void do_cb( CHAR_DATA *ch, char *argument )
+void do_cb(CHAR_DATA *ch, char *argument)
 {
 	DESCRIPTOR_DATA *d;
 	char buf[MAX_STRING_LENGTH];
 	char buf2[MAX_INPUT_LENGTH];
 
-	if ( !(ch->cabal) ) {
+	if (!(ch->cabal)) {
 	send_to_char("You are not in a Cabal.\n\r",ch);
 	return;
 		 }
@@ -1760,8 +1760,8 @@ void do_cb( CHAR_DATA *ch, char *argument )
 
 	if (!is_affected(ch, gsn_deafen))
 		act_puts(buf, ch, argument, NULL, TO_CHAR,POS_DEAD);
-	for ( d = descriptor_list; d != NULL; d = d->next ) {
-	if ( d->connected == CON_PLAYING && 
+	for (d = descriptor_list; d != NULL; d = d->next) {
+	if (d->connected == CON_PLAYING && 
 		 (d->character->cabal == ch->cabal) &&
 /*             !IS_SET(d->character->comm,COMM_NOCB) &&   */
 		 !is_affected(d->character, gsn_deafen))
@@ -1801,7 +1801,7 @@ void do_pray(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-char char_lang_lookup( char c )
+char char_lang_lookup(char c)
 {
 	int i;
 	
@@ -1837,7 +1837,7 @@ char *translate(CHAR_DATA *ch, CHAR_DATA *victim, char *argument)
 	}
 
 	for(i=0 ; *argument != '\0'; argument++,i++) {
-		 c = char_lang_lookup( *argument );
+		 c = char_lang_lookup(*argument);
 		 buf[i] = c;
 	}
 	buf[i] = '\0';
@@ -1847,7 +1847,7 @@ char *translate(CHAR_DATA *ch, CHAR_DATA *victim, char *argument)
 }
 
 
-void do_speak( CHAR_DATA *ch, char *argument )
+void do_speak(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	int language;
@@ -1868,7 +1868,7 @@ void do_speak( CHAR_DATA *ch, char *argument )
 
 	if (language == -1)
 		{
-		send_to_char( "You never heard of that language.\n\r", ch);
+		send_to_char("You never heard of that language.\n\r", ch);
 		return;
 		}
 
@@ -1880,39 +1880,39 @@ void do_speak( CHAR_DATA *ch, char *argument )
 }
 
 /* Thanx zihni@karmi.emu.edu.tr for the code of do_judge */
-void do_judge( CHAR_DATA *ch, char *argument )
+void do_judge(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 
-	one_argument( argument, arg );
+	one_argument(argument, arg);
 
-	if ( ch->cabal != CABAL_RULER ) {
-		send_to_char( "Huh?\n\r", ch );
+	if (ch->cabal != CABAL_RULER) {
+		send_to_char("Huh?\n\r", ch);
 		return;
 	}
 
 	if (!cabal_ok(ch,gsn_judge)) return;
 
-	if ( arg[0] == '\0' ) {
-		send_to_char( "Judge whom?\n\r", ch );
+	if (arg[0] == '\0') {
+		send_to_char("Judge whom?\n\r", ch);
 		return;
 	}
 
 	/* judge thru world */
-	if ( ( victim = get_char_world( ch, arg ) ) == NULL ) {
-		 send_to_char( "They aren't here.\n\r", ch );
+	if ((victim = get_char_world(ch, arg)) == NULL) {
+		 send_to_char("They aren't here.\n\r", ch);
 		 return;
 	}
 
 
 	if (IS_NPC(victim)) {
-		 send_to_char("Not a mobile, of course.\n\r", ch );
+		 send_to_char("Not a mobile, of course.\n\r", ch);
 		 return;
 	}
 
 	if (IS_IMMORTAL(victim) && !IS_IMMORTAL(ch)) {
-		 send_to_char( "You do not have the power to judge Immortals.\n\r",ch);
+		 send_to_char("You do not have the power to judge Immortals.\n\r",ch);
 		return;
 	}
 
@@ -1922,7 +1922,7 @@ void do_judge( CHAR_DATA *ch, char *argument )
 		victim->ethos == 2 ? "Neutral" :
 		victim->ethos == 3 ? "Chaotic" : "unknown",
 		IS_GOOD(victim) ? "Good" :
-		IS_EVIL(victim) ? "Evil" : "Neutral" );
+		IS_EVIL(victim) ? "Evil" : "Neutral");
 
 	return;
 }

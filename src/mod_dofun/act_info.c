@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.27 1998-05-07 07:04:57 fjoe Exp $
+ * $Id: act_info.c,v 1.28 1998-05-08 18:00:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3875,7 +3875,7 @@ void do_pracnew(CHAR_DATA *ch, char *argument)
 
 	if (mob == NULL) {
 		  send_to_char("You can't do that here. "
-			       "USE glist ,slook for more info.\n\r", ch);
+			       "USE glist, slook for more info.\n\r", ch);
 		  return;
 	}
 

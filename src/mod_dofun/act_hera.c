@@ -1,5 +1,5 @@
 /*
- * $Id: act_hera.c,v 1.8 1998-05-06 04:33:22 fjoe Exp $
+ * $Id: act_hera.c,v 1.9 1998-05-08 18:00:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,7 @@
 ***************************************************************************/
 
 /*
- * $Id: act_hera.c,v 1.8 1998-05-06 04:33:22 fjoe Exp $
+ * $Id: act_hera.c,v 1.9 1998-05-08 18:00:49 fjoe Exp $
  */
 #include <sys/types.h>
 #include <sys/time.h>
@@ -77,7 +77,7 @@ ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch)
         &&   !IS_SET(room->room_flags, ROOM_SOLITARY) 
 	&&   !IS_SET(room->room_flags, ROOM_SAFE) 
 	&&   (IS_NPC(ch) || IS_SET(ch->act,ACT_AGGRESSIVE) 
-	||   !IS_SET(room->room_flags,ROOM_LAW)))
+	||   !IS_SET(room->room_flags,ROOM_LAW | ROOM_SAFE)))
             break;
     }
 
@@ -145,7 +145,7 @@ void do_enter( CHAR_DATA *ch, char *argument)
 	}
 
         if (IS_NPC(ch) && IS_SET(ch->act,ACT_AGGRESSIVE)
-        &&  IS_SET(location->room_flags,ROOM_LAW))
+        &&  IS_SET(location->room_flags, ROOM_LAW | ROOM_SAFE))
         {
             send_to_char("Something prevents you from leaving...\n\r",ch);
             return;
