@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.88 1998-11-18 07:43:45 fjoe Exp $
+ * $Id: update.c,v 1.89 1998-11-18 10:28:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -556,7 +556,13 @@ void mobile_update(void)
 		if (ch->position == POS_FIGHTING)
 			SET_FIGHT_TIME(ch);
 
-		/* update pumped state */
+/* permanent spellbane */
+		if (!IS_IMMORTAL(ch) && !IS_NPC(ch)
+		&&  get_skill(ch, gsn_spellbane)
+		&&  !is_affected(ch, gsn_spellbane))
+			do_spellbane(ch, str_empty);
+
+/* update pumped state */
 		if (ch->last_fight_time != -1
 		&&  current_time - ch->last_fight_time >= FIGHT_DELAY_TIME
 		&&  IS_PUMPED(ch)) {
@@ -568,6 +574,7 @@ void mobile_update(void)
 				char_nputs(MSG_YOU_SETTLE_DOWN, ch);
 		}
 
+/* update ghost state */
 		if (ch->last_death_time != -1
 		&&  current_time - ch->last_death_time >= GHOST_DELAY_TIME
 		&&  IS_SET(ch->act, PLR_GHOST)) {
@@ -1006,12 +1013,6 @@ void char_update(void)
 				check_improve(ch, gsn_path_find, FALSE, 16);
 		}
 		
-/* permanent spellbane */
-		if (!IS_IMMORTAL(ch) && !IS_NPC(ch) &&
-		    get_skill(ch, gsn_spellbane) && 
-		    !is_affected(ch, gsn_spellbane))
-			do_spellbane(ch, str_empty);
-
 		if (!ch->fighting) {
 			flag_t skip = AFF_FLYING;
 
@@ -1713,10 +1714,14 @@ void aggr_update(void)
 
 			if (!is_safe_nomessage(ch, victim)) {
 				int dt = TYPE_UNDEFINED;
-				int bs_chance = get_skill(ch, gsn_backstab);
+				int bs_chance;
 
 				victim = check_guard(victim, ch); 
-				if (bs_chance && backstab_ok(NULL, victim))
+				if (get_dam_type(ch,
+						 get_eq_char(ch, WEAR_WIELD),
+						 &dt) == DAM_PIERCE
+				&&  (bs_chance = get_skill(ch, gsn_backstab))
+				&&  backstab_ok(NULL, victim))
 					backstab(ch, victim, bs_chance);
 				else
 					multi_hit(ch, victim, TYPE_UNDEFINED);

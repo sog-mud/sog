@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.52 1998-11-18 07:43:44 fjoe Exp $
+ * $Id: martial_art.c,v 1.53 1998-11-18 10:28:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1698,9 +1698,12 @@ void do_spellbane(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_affected(ch,gsn_spellbane)) {
+	if (is_affected(ch, gsn_spellbane)) {
+#if 0
 		char_puts("You are already deflecting spells.\n\r", ch);
 		return;
+#endif
+		affect_strip(ch, gsn_spellbane);
 	}
 
 	WAIT_STATE(ch, SKILL(gsn_spellbane)->beats);
@@ -1708,12 +1711,12 @@ void do_spellbane(CHAR_DATA *ch, const char *argument)
 	af.where	= TO_AFFECTS;
 	af.type 	= gsn_spellbane;
 	af.level 	= ch->level;
-	af.duration	= ch->level / 3;
+	af.duration	= -1;
 	af.location	= APPLY_SAVING_SPELL;
 	af.modifier	= -ch->level/4;
 	af.bitvector	= 0;
 
-	affect_to_char(ch,&af);
+	affect_to_char(ch, &af);
 
 	act("Your hatred of magic surrounds you.", ch, NULL, NULL, TO_CHAR);
 	act("$n fills the air with $s hatred of magic.",

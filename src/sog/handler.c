@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.87 1998-11-18 07:43:44 fjoe Exp $
+ * $Id: handler.c,v 1.88 1998-11-18 10:28:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -939,12 +939,11 @@ void affect_to_char(CHAR_DATA *ch, AFFECT_DATA *paf)
 
 	paf_new = aff_new();
 
-	*paf_new		= *paf;
+	*paf_new	= *paf;
 	paf_new->next	= ch->affected;
 	ch->affected	= paf_new;
 
 	affect_modify(ch, paf_new, TRUE);
-	return;
 }
 
 /* give an affect to an object */
