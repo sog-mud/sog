@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.82 1998-11-07 11:26:21 fjoe Exp $
+ * $Id: act_wiz.c,v 1.83 1998-11-07 11:46:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2889,38 +2889,41 @@ void do_rset(CHAR_DATA *ch, const char *argument)
 
 void do_sockets(CHAR_DATA *ch, const char *argument)
 {
-	char buf[2 * MAX_STRING_LENGTH];
-	char buf2[MAX_STRING_LENGTH];
+	BUFFER *output;
 	char arg[MAX_INPUT_LENGTH];
 	DESCRIPTOR_DATA *d;
 	int count;
 
-	count	= 0;
-	buf[0]	= '\0';
+	count = 0;
+	output = buf_new(-1);
 
-	one_argument(argument,arg);
-	for (d = descriptor_list; d != NULL; d = d->next)
-		if (d->character != NULL && can_see(ch, d->character) 
-		&& (arg[0] == '\0' || is_name(arg, d->character->name)
-		    || (d->original && is_name(arg, d->original->name)))) {
-		    count++;
-		    sprintf(buf + strlen(buf), "[%3d %2d] %s@%s\n\r",
-			d->descriptor,
-			d->connected,
-			d->original  ? d->original->name  :
-			d->character ? d->character->name : "(none)",
-			d->host
-			);
+	one_argument(argument, arg);
+	for (d = descriptor_list; d != NULL; d = d->next) {
+		CHAR_DATA *vch = d->original ? d->original : d->character;
+
+		if (vch
+		&&  can_see(ch, vch) 
+		&&  (arg[0] == '\0' || is_name(arg, vch->name))) {
+			count++;
+			buf_printf(output, "[%3d %2d] %s@%s (idle %d)\n\r",
+				   d->descriptor,
+				   d->connected,
+				   vch->name,
+				   d->host,
+				   vch->timer);
 		}
+	}
 
 	if (count == 0) {
 		char_puts("No one by that name is connected.\n\r",ch);
+		buf_free(output);
 		return;
 	}
 
-	sprintf(buf2, "%d user%s\n\r", count, count == 1 ? str_empty : "s");
-	strcat(buf,buf2);
-	page_to_char(buf, ch);
+	buf_printf(output, "%d user%s\n\r",
+		   count, count == 1 ? str_empty : "s");
+	page_to_char(buf_string(output), ch);
+	buf_free(output);
 }
 
 /*
@@ -4260,7 +4263,7 @@ DO_FUN(do_grant)
 
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
-	if (arg1[0] == '\0' || arg2[0] == '\0') {
+	if (arg1[0] == '\0') {
 		do_help(ch, "'WIZ GRANT'");
 		return;
 	}
@@ -4272,6 +4275,12 @@ DO_FUN(do_grant)
 
 	if (IS_NPC(victim)) {
 		char_puts("Not on NPC.\n\r", ch);
+		return;
+	}
+
+	if (arg2[0] == '\0') {
+		char_printf(ch, "Granted commands for %s: [%s]\n\r",
+			    victim->name, victim->pcdata->granted);
 		return;
 	}
 

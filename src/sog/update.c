@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.82 1998-11-07 07:30:13 fjoe Exp $
+ * $Id: update.c,v 1.83 1998-11-07 11:46:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1125,11 +1125,8 @@ void char_update(void)
 					char_puts("You disappear into the void.\n\r", ch);
 					if (ch->level > 1)
 						save_char_obj(ch, FALSE);
-					if (ch->level < 10) {
-  						char_from_room(ch);
-						char_to_room(ch, get_room_index(
-							     ROOM_VNUM_LIMBO));
-					}
+  					char_from_room(ch);
+					char_to_room(ch, get_room_index(ROOM_VNUM_LIMBO));
 				}
 			}
 
