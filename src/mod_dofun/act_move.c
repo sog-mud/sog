@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.202.2.3 2000-03-23 14:29:44 fjoe Exp $
+ * $Id: act_move.c,v 1.202.2.4 2000-03-25 11:07:04 avn Exp $
  */
 
 /***************************************************************************
@@ -2603,7 +2603,7 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 	EXIT_DATA *pExit;
 	ROOM_INDEX_DATA *dest_room;
 	AFFECT_DATA *paf;
-	int damroll = 0, hitroll = 0, sn;
+	int damroll = 0, hitroll = 0, sn, dt = TYPE_UNDEFINED;
 	int range_hit = -1;
 	AFFECT_DATA af;
 	
@@ -2752,7 +2752,8 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 			}
 		        else obj_to_room(arrow,victim->in_room); 
 
-			damage(ch, victim, dam, sn, DAM_PIERCE, DAMF_SHOW);
+			damage(ch, victim, dam, sn, 
+				get_dam_type(NULL, arrow, &dt), DAMF_SHOW);
 			if (!IS_EXTRACTED(victim))
 				path_to_track(ch,victim,door);
 		    }

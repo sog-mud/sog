@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.13 2000-03-23 10:38:30 osya Exp $
+ * $Id: handler.c,v 1.182.2.14 2000-03-25 11:07:07 avn Exp $
  */
 
 /***************************************************************************
@@ -1293,6 +1293,23 @@ int apply_ac(OBJ_DATA *obj, int iWear, int type)
 	}
 
 	return 0;
+}
+
+/* find stuck-in objects of certain weapon type */
+OBJ_DATA *get_stuck_eq(CHAR_DATA *ch, int wtype)
+{
+	OBJ_DATA *obj;
+
+	if (!ch)
+		return NULL;
+
+	for (obj = ch->carrying; obj; obj = obj->next_content)
+		if (obj->wear_loc == WEAR_STUCK_IN
+		&&  obj->pObjIndex->item_type == ITEM_WEAPON
+		&&  obj->value[0] == wtype)
+			return obj;
+
+	return NULL;
 }
 
 /*
@@ -4687,14 +4704,14 @@ bool remove_obj(CHAR_DATA * ch, int iWear, bool fReplace)
 		return FALSE;
 	}
 	if (iWear == WEAR_STUCK_IN) {
+		int wsn = get_weapon_sn(obj);
 		unequip_char(ch, obj);
 
-		if (get_eq_char(ch, WEAR_STUCK_IN) == NULL) {
-			if (is_affected(ch, gsn_arrow))
-				affect_strip(ch, gsn_arrow);
-			if (is_affected(ch, gsn_spear))
-				affect_strip(ch, gsn_spear);
-		}
+		if (obj->pObjIndex->item_type == ITEM_WEAPON
+		&&  get_stuck_eq(ch, obj->value[0]) == NULL)
+			if (is_affected(ch, wsn))
+				affect_strip(ch, wsn);
+
 		act_puts("You remove $p, in pain.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		act("$n removes $p, in pain.", ch, obj, NULL, TO_ROOM);
