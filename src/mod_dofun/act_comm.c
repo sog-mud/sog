@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.122 1998-12-09 11:57:48 fjoe Exp $
+ * $Id: act_comm.c,v 1.123 1998-12-09 12:09:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1839,12 +1839,12 @@ DO_FUN(do_wanted)
 		return;
 	}
 
-	if (!in_PK(ch, victim) && ch->level < victim->level) {
+	if (IS_IMMORTAL(victim) && ch->level < victim->level) {
 		act("You do not have the power to arrest $N.",
 		    ch, NULL, victim, TO_CHAR);
 		return;
 	}
-    
+
 	if (victim == ch) {
 		char_puts( "You cannot do that to yourself.\n", ch);
 		return;
