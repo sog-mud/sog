@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.139 2001-12-07 22:20:27 fjoe Exp $
+ * $Id: db_area.c,v 1.140 2001-12-08 10:22:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -561,9 +561,12 @@ DBLOAD_FUN(load_rooms)
 				break;
 
 			if (letter == 'm') {
+				const char *mp_name = genmpname_vnumv(
+				    MP_T_ROOM, pRoomIndex->vnum,
+				    &pRoomIndex->mp_trigs);
+
 				if (trig_fread_list(&pRoomIndex->mp_trigs,
-						    pRoomIndex->vnum,
-						    MP_T_ROOM, fp))
+						    MP_T_ROOM, mp_name, fp))
 					x_room_add(pRoomIndex);
 			} else if (letter == 'H') /* healing room */
 				pRoomIndex->heal_rate = fread_number(fp);
@@ -1220,9 +1223,13 @@ DBLOAD_FUN(load_mobiles)
 				SLIST_ADD(
 				    AFFECT_DATA, pMobIndex->affected, paf);
 			} else if (letter == 'm') {
+				const char *mp_name = genmpname_vnumv(
+				    MP_T_MOB, pMobIndex->vnum,
+				    &pMobIndex->mp_trigs);
+
 				trig_fread_list(
-				    &pMobIndex->mp_trigs, pMobIndex->vnum,
-				    MP_T_MOB, fp);
+				    &pMobIndex->mp_trigs,
+				    MP_T_MOB, mp_name, fp);
 			} else if (letter == 'f') {
 				AFFECT_DATA *paf = aff_fread(
 				    fp, AFF_X_NOTYPE | AFF_X_NOLD);
@@ -1503,6 +1510,7 @@ DBLOAD_FUN(load_objects)
 			int modifier;
 			int16_t resists[MAX_RESIST];
 			int64_t f;
+			const char *mp_name;
 
 			switch (letter = fread_letter(fp)) {
 			case 'a':
@@ -1538,9 +1546,13 @@ DBLOAD_FUN(load_objects)
 				break;
 
 			case 'm':
+				mp_name = genmpname_vnumv(
+				    MP_T_OBJ, pObjIndex->vnum,
+				    &pObjIndex->mp_trigs);
+
 				trig_fread_list(
-				    &pObjIndex->mp_trigs, pObjIndex->vnum,
-				    MP_T_OBJ, fp);
+				    &pObjIndex->mp_trigs,
+				    MP_T_OBJ, mp_name, fp);
 				break;
 
 			case 'A':

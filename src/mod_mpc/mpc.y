@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.43 2001-12-03 22:28:29 fjoe Exp $
+ * $Id: mpc.y,v 1.44 2001-12-08 10:22:46 fjoe Exp $
  */
 
 /*
@@ -1499,8 +1499,8 @@ _mprog_execute(mprog_t *mp, void *arg1, void *arg2, void *arg3, void *arg4)
 	int rv;
 
 	if ((mpc = mpcode_lookup(mp->name)) == NULL) {
-		fprintf(stderr, "Runtime error: %s: mpcode not found\n",
-			mp->name);
+		log(LOG_ERROR, "Runtime error: %s: mpcode not found",
+		    mp->name);
 		return MPC_ERR_RUNTIME;
 	}
 

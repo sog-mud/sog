@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_bootdb.c,v 1.13 2001-12-07 22:20:28 fjoe Exp $
+ * $Id: init_bootdb.c,v 1.14 2001-12-08 10:22:45 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -528,7 +528,7 @@ fix_mprogs(void)
 			spec_t *spec = NULL;
 			int vnum;
 			int trignum;
-			char name[MAX_INPUT_LENGTH];
+			const char *mp_name;
 
 			switch (mp->type) {
 			case MP_T_MOB:
@@ -571,25 +571,22 @@ fix_mprogs(void)
 				continue;
 
 			if (spec != NULL) {
-				snprintf(name, sizeof(name), "@%s$%s",
-					 flag_string(mprog_types, mp->type),
-					 spec->spec_name);
+				mp_name = genmpname_str(
+				    mp->type, spec->spec_name);
 			} else {
-				snprintf(name, sizeof(name), "@%s#%d#%d",
-					 flag_string(mprog_types, mp->type),
-					 vnum, trignum);
+				mp_name = genmpname_vnumn(
+				    mp->type, vnum, trignum);
 			}
 
-
-			if (mprog_lookup(name) != NULL) {
+			if (mprog_lookup(mp_name) != NULL) {
 				log(LOG_ERROR, "%s: %s: duplicate mprog",
-				    __FUNCTION__, name);
+				    __FUNCTION__, mp_name);
 				continue;
 			}
 
-			c_move(&mprogs, mp->name, name);
+			c_move(&mprogs, mp->name, mp_name);
 			free_string(mp->name);
-			mp->name = str_dup(name);
+			mp->name = str_dup(mp_name);
 
 			log(LOG_INFO, "%s: %s -> %s",
 			    __FUNCTION__, trig->trig_prog, mp->name);

@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mprog.c,v 1.11 2001-12-03 22:28:35 fjoe Exp $
+ * $Id: olc_mprog.c,v 1.12 2001-12-08 10:22:49 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -25,6 +25,8 @@ DECLARE_OLC_FUN(mped_code		);
 DECLARE_OLC_FUN(mped_compile		);
 DECLARE_OLC_FUN(mped_dump		);
 
+static DECLARE_VALIDATE_FUN(validate_name);
+
 olced_strkey_t strkey_mprogs = { &mprogs, MPC_PATH, MPC_EXT };
 
 olc_cmd_t olc_cmds_mprog[] =
@@ -38,7 +40,7 @@ olc_cmd_t olc_cmds_mprog[] =
 	{ "show",	mped_show,	NULL,		NULL		},
 	{ "list",	mped_list,	NULL,		NULL		},
 
-	{ "name",	mped_name,	NULL,		&strkey_mprogs	},
+	{ "name",	mped_name,	validate_name,	&strkey_mprogs	},
 	{ "flags",	mped_flags,	NULL,		mprog_flags	},
 	{ "code",	mped_code,	NULL,		NULL		},
 	{ "compile",	mped_compile,	NULL,		NULL		},
@@ -50,7 +52,6 @@ olc_cmd_t olc_cmds_mprog[] =
 	{ NULL, NULL, NULL, NULL }
 };
 
-static bool touch_mprog(mprog_t *mprog);
 static void mprog_update_type(CHAR_DATA *ch, mprog_t *mp);
 
 OLC_FUN(mped_create)
@@ -66,6 +67,12 @@ OLC_FUN(mped_create)
 	first_arg(argument, arg, sizeof(arg), FALSE);
 	if (arg[0] == '\0')
 		OLC_ERROR("'OLC CREATE'");
+
+	if (arg[0] == '@') {
+		act_puts("MProgEd: $t: invalid mprog name.",
+			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+		return FALSE;
+	}
 
 	if ((mp = c_insert(&mprogs, arg)) == NULL) {
 		act_puts("MProgEd: $t: already exists.",
@@ -100,7 +107,8 @@ OLC_FUN(mped_edit)
 	if (argument[0] == '\0')
 		OLC_ERROR("'OLC EDIT'");
 
-	if ((mp = mprog_search(argument)) == NULL) {
+	if (argument[0] == '@'
+	||  (mp = mprog_search(argument)) == NULL) {
 		act_puts("MProgEd: $t: No such mprog.",
 			 ch, argument, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
@@ -121,6 +129,9 @@ OLC_FUN(mped_save)
 	C_FOREACH(mp, &mprogs) {
 		FILE *fp;
 		const char *filename;
+
+		if (mp->name[0] == '@')
+			continue;
 
 		if (!IS_SET(mp->flags, MP_F_CHANGED))
 			continue;
@@ -161,7 +172,8 @@ OLC_FUN(mped_show)
 		else
 			OLC_ERROR("'OLC ASHOW'");
 	} else {
-		if ((mp = mprog_search(argument)) == NULL) {
+		if (argument[0] == '@'
+		||  (mp = mprog_search(argument)) == NULL) {
 			act_puts("MProgEd: $t: No such mprog.",
 				 ch, argument, NULL,
 				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
@@ -182,7 +194,7 @@ OLC_FUN(mped_show)
 
 	if (!IS_NULLSTR(mp->text)) {
 		buf_append(output, "Code:\n");
-		buf_append(output, strdump(mp->text, DL_NONE));
+		buf_append(output, strdump(mp->text, DL_COLOR));
 	}
 
 	page_to_char(buf_string(output), ch);
@@ -193,10 +205,25 @@ OLC_FUN(mped_show)
 
 OLC_FUN(mped_list)
 {
-	BUFFER *buffer = buf_new(0);
-	c_strkey_dump(&mprogs, buffer);
-	page_to_char(buf_string(buffer), ch);
-	buf_free(buffer);
+	BUFFER *buf = buf_new(0);
+	int col = 0;
+	const char **p;
+
+	C_FOREACH(p, &mprogs) {
+		if ((*p)[0] == '@')
+			continue;
+
+		buf_printf(buf, BUF_END, "%-38.37s", *p);	// notrans
+
+		if (++col % 2 == 0)
+			buf_append(buf, "\n");
+	}
+
+	if (col % 2 != 0)
+		buf_append(buf, "\n");
+
+	page_to_char(buf_string(buf), ch);
+	buf_free(buf);
 	return FALSE;
 }
 
@@ -229,12 +256,8 @@ OLC_FUN(mped_code)
 	mprog_t *mp;
 	EDIT_MPROG(ch, mp);
 
-	if (olced_str_text(ch, argument, cmd, &mp->text)) {
-		mp->status = MP_S_DIRTY;
-		return TRUE;
-	}
-
-	return FALSE;
+	mp->status = MP_S_DIRTY;
+	return olced_str_text(ch, argument, cmd, &mp->text);
 }
 
 OLC_FUN(mped_compile)
@@ -261,14 +284,28 @@ OLC_FUN(mped_dump)
 	return FALSE;
 }
 
+bool
+touch_mprog(mprog_t *mprog)
+{
+	SET_BIT(mprog->flags, MP_F_CHANGED);
+	return TRUE;
+}
+
 /*--------------------------------------------------------------------
  * static functions
  */
 
-static bool
-touch_mprog(mprog_t *mprog)
+static
+VALIDATE_FUN(validate_name)
 {
-	SET_BIT(mprog->flags, MP_F_CHANGED);
+	const char *name = (const char *) arg;
+
+	if (name[0] == '@') {
+		act_puts("MprogEd: $t: invalid mprog name.",
+			 ch, name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+		return FALSE;
+	}
+
 	return TRUE;
 }
 

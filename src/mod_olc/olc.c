@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.149 2001-11-30 21:18:00 fjoe Exp $
+ * $Id: olc.c,v 1.150 2001-12-08 10:22:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1290,73 +1290,189 @@ olced_resists(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 }
 
 bool
-olced_trigadd(CHAR_DATA *ch, const char *argument, varr *v)
+olced_trig(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
+	   varr *v, int mp_type, int vnum, void *vo)
 {
-	char arg1[MAX_INPUT_LENGTH];
+	int num;
+	char arg[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
-	int trig_type;
 	trig_t *trig;
 	mprog_t *mp;
 
-	argument = first_arg(argument, arg1, sizeof(arg1), FALSE);
-	argument = first_arg(argument, arg2, sizeof(arg2), FALSE);
-
-	if (!str_cmp(arg1, "?")) {
-		show_flags(ch, mptrig_types);
+	argument = one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0') {
+		dofun("help", ch, "'OLC TRIG'");
 		return FALSE;
 	}
 
-	if ((trig_type = flag_value(mptrig_types, arg1)) < 0) {
-		act_char("Invalid trigger type.", ch);
-		act_char("Use 'trigadd ?' for list of triggers.", ch);
-		return FALSE;
+	if (!str_prefix(arg, "add")) {
+		int trig_type;
+
+		argument = one_argument(argument, arg2, sizeof(arg2));
+		if (arg2[0] == '\0') {
+			return olced_trig(
+			    ch, str_empty, cmd, v, vnum, mp_type, vo);
+		}
+
+		if (!str_cmp(arg2, "?")) {
+			show_flags(ch, mptrig_types);
+			return FALSE;
+		}
+
+		if ((trig_type = flag_value(mptrig_types, arg2)) < 0) {
+			act_char("Invalid trigger type.", ch);
+			act_char("Use 'trigadd ?' for list of triggers.", ch);
+			return FALSE;
+		}
+
+		argument = first_arg(argument, arg2, sizeof(arg2), FALSE);
+		if (arg2[0] == '\0') {
+			const char *mp_name;
+			int trignum = c_size(v);
+
+			do {
+				mp_name = genmpname_vnumn(
+				    mp_type, vnum, trignum++);
+			} while ((mp = c_insert(&mprogs, mp_name)) == NULL);
+
+			mp->name = str_dup(mp_name);
+			mp->type = mp_type;
+
+			trig = trig_new(v, trig_type);
+			trig->trig_prog = str_qdup(mp->name);
+
+			if (mp_type == MP_T_ROOM)
+				x_room_add(vo);
+			act_puts("Trigger [$j] added.",
+				 ch, (const void *) varr_index(v, trig), NULL,
+				 TO_CHAR, POS_DEAD);
+			return TRUE;
+		}
+
+		if ((mp = mprog_lookup(arg2)) == NULL) {
+			act_puts("$t: $T: no such mprog.",
+			    ch, OLCED(ch)->name, arg2,
+			    TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
+			return FALSE;
+		}
+
+		if (mp->name[0] == '@') {
+			act_puts("$t: $T: invalid mprog name.",
+			    ch, OLCED(ch)->name, mp->name,
+			    TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
+			return FALSE;
+		}
+
+		trig = trig_new(v, trig_type);
+		trig->trig_prog = str_qdup(mp->name);
+		log_setchar(ch);
+		trig_set_arg(trig, str_dup(argument));
+		log_unsetchar();
+
+		if (mp_type == MP_T_ROOM)
+			x_room_add(vo);
+		act_puts("External trigger [$j] added.",
+			 ch, (const void *) varr_index(v, trig), NULL,
+			 TO_CHAR, POS_DEAD);
+		return TRUE;
 	}
 
-	if (arg2[0] == '\0') {
-		 act_char("Syntax: trigadd <type> <prog> [arg]", ch);
-		 return FALSE;
-	}
+	/*
+	 * lookup trigger
+	 */
+	argument = one_argument(argument, arg2, sizeof(arg2));
+	if (!is_number(arg2))
+		return olced_trig(ch, str_empty, cmd, v, vnum, mp_type, vo);
 
-	if ((mp = mprog_lookup(arg2)) == NULL) {
-		act_puts("$t: $T: no such mprog.",
-			 ch, OLCED(ch)->name, arg2,
-			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
-		return FALSE;
-	}
-
-	trig = trig_new(v, trig_type);
-	trig->trig_prog = str_qdup(mp->name);
-	log_setchar(ch);
-	trig_set_arg(trig, str_dup(argument));
-	log_unsetchar();
-
-	act_char("Trigger added.", ch);
-	return TRUE;
-}
-
-bool
-olced_trigdel(CHAR_DATA *ch, const char *argument, varr *v)
-{
-	char arg[MAX_INPUT_LENGTH];
-	int num;
-
-	one_argument(argument, arg, sizeof(arg));
-	if (!is_number(arg)) {
-		act_char("Syntax: trigdel <num>", ch);
-		return FALSE;
-	}
-
-	num = atoi(arg);
-	if (varr_get(v, num) == NULL) {
+	num = atoi(arg2);
+	if ((trig = varr_get(v, num)) == NULL) {
 		act_puts("$t: $T: no such trigger.",
-			 ch, OLCED(ch)->name, arg,
-			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
+		    ch, OLCED(ch)->name, arg2,
+		    TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 		return FALSE;
 	}
 
-	act_char("Ok.", ch);
-	varr_ndelete(v, num);
-	return TRUE;
+	if (!str_prefix(arg, "delete")) {
+#if NOTYET
+		if ((mp = mprog_lookup(trig->trig_prog)) == NULL) {
+			act_puts("$t: warning: $T: no such mprog.",
+			     ch, OLCED(ch)->name, trig->trig_prog,
+			     TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
+		} else
+			c_delete(&mprogs, trig->trig_prog);
+#endif
+
+		if (mp_type == MP_T_ROOM)
+			x_room_del(vo);
+		varr_edelete(v, trig);
+		act_char("Ok.", ch);
+		return TRUE;
+	}
+
+	if (!str_prefix(arg, "arg")) {
+		log_setchar(ch);
+		trig_set_arg(trig, str_dup(argument));
+		log_unsetchar();
+
+		act_char("Trigger arg set.", ch);
+		return TRUE;
+	}
+
+	/*
+	 * lookup inline mprog
+	 */
+	if ((mp = mprog_lookup(trig->trig_prog)) == NULL) {
+		act_puts("$t: $T: no such mprog.",
+		     ch, OLCED(ch)->name, trig->trig_prog,
+		     TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
+		return FALSE;
+	}
+
+	if (!str_prefix(arg, "show")) {
+		BUFFER *buf = buf_new(-1);
+
+		buf_append(buf, strdump(mp->text, DL_COLOR));
+		page_to_char(buf_string(buf), ch);
+		buf_free(buf);
+		return FALSE;
+	}
+
+	if (!str_prefix(arg, "edit")) {
+		mp->status = MP_S_DIRTY;
+		if (mp->name[0] != '@')
+			touch_mprog(mp);
+
+		string_append(ch, &mp->text);
+		return FALSE;
+	}
+
+	if (!str_prefix(arg, "compile")) {
+		if (mprog_compile == NULL) {
+			act_char("Module mod_mpc is not loaded.", ch);
+			return FALSE;
+		}
+
+		if (mprog_compile(mp) < 0) {
+			page_to_char(buf_string(mp->errbuf), ch);
+			return FALSE;
+		}
+
+		act_char("Ok.", ch);
+		return FALSE;
+	}
+
+	if (!str_prefix(arg, "flags")) {
+		void *save_arg1 = cmd->arg1;
+
+		cmd->arg1 = mprog_flags;
+		olced_flag(ch, argument, cmd, &mp->flags);
+		cmd->arg1 = save_arg1;
+
+		/* flags are not saved */
+		return FALSE;
+	}
+
+	return olced_trig(ch, str_empty, cmd, v, mp_type, vnum, vo);
 }
 
 VALIDATE_FUN(validate_filename)
@@ -1692,9 +1808,11 @@ dump_resists(BUFFER *buf, int16_t *resists)
 static olc_cmd_t *
 olc_cmd_lookup(olc_cmd_t *cmd_table, const char *name)
 {
-	for (; cmd_table->name; cmd_table++)
+	for (; cmd_table->name; cmd_table++) {
 		if (!str_prefix(name, cmd_table->name))
 			return cmd_table;
+	}
+
 	return NULL;
 }
 
@@ -1715,15 +1833,14 @@ do_olc(CHAR_DATA *ch, const char *argument, int fun)
 	olced_t *olced;
 	OLC_FUN *olc_fun;
 
-	if (ch && IS_NPC(ch))
+	if (ch != NULL && IS_NPC(ch))
 		return;
 
 	argument = one_argument(argument, command, sizeof(command));
 	if ((olced = olced_lookup(command)) == NULL
 	||  (olc_fun = olced->cmd_table[fun].olc_fun) == NULL) {
-		if (ch) {
+		if (ch != NULL)
 			dofun("help", ch, help_topics[fun]);
-		}
 		return;
 	}
 

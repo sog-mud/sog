@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.87 2001-12-03 22:28:32 fjoe Exp $
+ * $Id: olc.h,v 1.88 2001-12-08 10:22:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -178,8 +178,8 @@ bool olced_resists	(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, int16_t *resists);
 bool _olced_mlstrkey	(CHAR_DATA *ch, const char *langname,
 			 const char *argument, olc_cmd_t *cmd);
-bool olced_trigadd	(CHAR_DATA *ch, const char *argument, varr *v);
-bool olced_trigdel	(CHAR_DATA *ch, const char *argument, varr *v);
+bool olced_trig		(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
+			 varr *v, int mp_type, int vnum, void *vo);
 
 DECLARE_VALIDATE_FUN(validate_filename);
 DECLARE_VALIDATE_FUN(validate_room_vnum);
@@ -192,6 +192,7 @@ DECLARE_OLC_FUN(show_version	);
 AREA_DATA *get_edited_area(CHAR_DATA *ch);
 
 bool	touch_clan	(clan_t *clan);
+bool	touch_mprog	(mprog_t *mprog);
 
 void		edit_done	(DESCRIPTOR_DATA *d);
 olced_t *	olced_lookup	(const char * id);
@@ -235,4 +236,3 @@ void		dump_resists(BUFFER *output, int16_t *resets);
 					OLC_MODE_TRANS))
 
 #endif
-

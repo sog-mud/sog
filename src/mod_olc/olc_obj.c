@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.100 2001-11-15 13:51:47 tatyana Exp $
+ * $Id: olc_obj.c,v 1.101 2001-12-08 10:22:49 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -32,6 +32,7 @@
 #include "olc.h"
 #include "adjust.h"
 
+#include <mprog.h>
 #include <quest.h>
 
 #define EDIT_OBJ(ch, obj)	(obj = (OBJ_INDEX_DATA *) ch->desc->pEdit)
@@ -69,8 +70,7 @@ DECLARE_OLC_FUN(objed_condition		);
 DECLARE_OLC_FUN(objed_clone		);
 DECLARE_OLC_FUN(objed_gender		);
 DECLARE_OLC_FUN(objed_where		);
-DECLARE_OLC_FUN(objed_trigadd		);
-DECLARE_OLC_FUN(objed_trigdel		);
+DECLARE_OLC_FUN(objed_trig		);
 
 DECLARE_VALIDATE_FUN(validate_condition);
 
@@ -112,8 +112,7 @@ olc_cmd_t olc_cmds_obj[] =
 	{ "clone",	objed_clone,	NULL,		NULL		},
 	{ "gender",	objed_gender,	NULL,		gender_table	},
 	{ "where",	objed_where,	NULL,		NULL		},
-	{ "trigadd",	objed_trigadd,	NULL,		NULL		},
-	{ "trigdel",	objed_trigdel,	NULL,		NULL		},
+	{ "trig",	objed_trig,	NULL,		NULL		},
 
 	{ "commands",	show_commands,	NULL,		NULL		},
 	{ "version",	show_version,	NULL,		NULL		},
@@ -659,18 +658,12 @@ OLC_FUN(objed_where)
 	return FALSE;
 }
 
-OLC_FUN(objed_trigadd)
+OLC_FUN(objed_trig)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_trigadd(ch, argument, &pObj->mp_trigs);
-}
-
-OLC_FUN(objed_trigdel)
-{
-	OBJ_INDEX_DATA *pObj;
-	EDIT_OBJ(ch, pObj);
-	return olced_trigdel(ch, argument, &pObj->mp_trigs);
+	return olced_trig(
+	    ch, argument, cmd, &pObj->mp_trigs, MP_T_OBJ, pObj->vnum, NULL);
 }
 
 VALIDATE_FUN(validate_condition)

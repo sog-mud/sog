@@ -23,10 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.90 2001-11-28 18:41:50 fjoe Exp $
+ * $Id: olc_mob.c,v 1.91 2001-12-08 10:22:48 fjoe Exp $
  */
 
 #include "olc.h"
+#include <mprog.h>
 
 #define EDIT_MOB(ch, mob)	(mob = (MOB_INDEX_DATA *) ch->desc->pEdit)
 
@@ -69,8 +70,7 @@ DECLARE_OLC_FUN(mobed_gold		);  /* ROM */
 DECLARE_OLC_FUN(mobed_hitroll		);  /* ROM */
 DECLARE_OLC_FUN(mobed_damtype		);  /* ROM */
 DECLARE_OLC_FUN(mobed_group		);  /* ROM */
-DECLARE_OLC_FUN(mobed_trigadd		);  /* ROM */
-DECLARE_OLC_FUN(mobed_trigdel		);  /* ROM */
+DECLARE_OLC_FUN(mobed_trig		);  /* ROM */
 DECLARE_OLC_FUN(mobed_prac		);
 DECLARE_OLC_FUN(mobed_clan		);
 DECLARE_OLC_FUN(mobed_clone		);
@@ -128,8 +128,7 @@ olc_cmd_t olc_cmds_mob[] =
 	{ "damtype",	mobed_damtype,	NULL,		NULL		},
 	{ "group",	mobed_group,	NULL,		NULL		},
 	{ "clan",	mobed_clan,	NULL,		&clans		},
-	{ "trigadd",	mobed_trigadd,	NULL,		NULL		},
-	{ "trigdel",	mobed_trigdel,	NULL,		NULL		},
+	{ "trig",	mobed_trig,	NULL,		NULL		},
 	{ "clone",	mobed_clone,	NULL,		NULL		},
 	{ "wizi",	mobed_wizi,	NULL,		NULL		},
 	{ "incog",	mobed_incog,	NULL,		NULL		},
@@ -986,18 +985,12 @@ OLC_FUN(mobed_clan)
 	return olced_foreign_strkey(ch, argument, cmd, &pMob->clan);
 }
 
-OLC_FUN(mobed_trigadd)
+OLC_FUN(mobed_trig)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_trigadd(ch, argument, &pMob->mp_trigs);
-}
-
-OLC_FUN(mobed_trigdel)
-{
-	MOB_INDEX_DATA *pMob;
-	EDIT_MOB(ch, pMob);
-	return olced_trigdel(ch, argument, &pMob->mp_trigs);
+	return olced_trig(
+	    ch, argument, cmd, &pMob->mp_trigs, MP_T_MOB, pMob->vnum, NULL);
 }
 
 OLC_FUN(mobed_clone)

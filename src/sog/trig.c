@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.27 2001-12-07 22:20:29 fjoe Exp $
+ * $Id: trig.c,v 1.28 2001-12-08 10:22:51 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -40,7 +40,7 @@ static int pull_one_trigger(trig_t *trig, int mp_type,
 			    void *arg1, void *arg2, void *arg3);
 static int pull_trigger_list(int trig_type, varr *v, int mp_type,
 			     void *arg1, void *arg2, void *arg3);
-static bool trig_fread_prog(trig_t *trig, const char *name, int mp_type,
+static bool trig_fread_prog(trig_t *trig, int mp_type, const char *mp_name,
 			    rfile_t *fp);
 
 void
@@ -66,7 +66,7 @@ trig_destroy(trig_t *trig)
 }
 
 void
-trig_fread(trig_t *trig, const char *name, int mp_type, rfile_t *fp)
+trig_fread(trig_t *trig, int mp_type, const char *mp_name, rfile_t *fp)
 {
 	trig->trig_type = fread_fword(mptrig_types, fp);
 	if (trig->trig_type < 0) {
@@ -76,7 +76,7 @@ trig_fread(trig_t *trig, const char *name, int mp_type, rfile_t *fp)
 		return;
 	}
 
-	trig_fread_prog(trig, name, mp_type, fp);
+	trig_fread_prog(trig, mp_type, mp_name, fp);
 }
 
 void
@@ -131,10 +131,9 @@ trig_destroy_list(varr *v)
 }
 
 bool
-trig_fread_list(varr *v, int vnum, int mp_type, rfile_t *fp)
+trig_fread_list(varr *v, int mp_type, const char *mp_name, rfile_t *fp)
 {
 	trig_t *trig;
-	char name[MAX_INPUT_LENGTH];
 
 	int trig_type = fread_fword(mptrig_types, fp);
 	if (trig_type < 0) {
@@ -145,8 +144,7 @@ trig_fread_list(varr *v, int vnum, int mp_type, rfile_t *fp)
 	}
 
 	trig = trig_new(v, trig_type);
-	snprintf(name, sizeof(name), "#%d#%d", vnum, varr_index(v, trig));
-	return trig_fread_prog(trig, name, mp_type, fp);
+	return trig_fread_prog(trig, mp_type, mp_name, fp);
 }
 
 void
@@ -165,14 +163,34 @@ trig_dump_list(varr *v, BUFFER *buf)
 	trig_t *trig;
 
 	C_FOREACH(trig, v) {
+		char buf2[MAX_INPUT_LENGTH];
+		const char *trig_prog;
+
 		if (cnt == 0) {
 			buf_append(buf, "Num  Trigger     Program                    Arg [Flags]\n");
 			buf_append(buf, "---- ----------- -------------------------- -----------------------------------\n");
 		}
 
+		if (trig->trig_prog[0] == '@') {
+			const char *mp_status;
+			mprog_t *mp;
+
+			if ((mp = mprog_lookup(trig->trig_prog)) == NULL)
+				mp_status = "not found";
+			else {
+				mp_status = flag_string(
+				    mprog_states, mp->status);
+			}
+
+			snprintf(buf2, sizeof(buf2), "@inline: %s", mp_status);
+			trig_prog = buf2;
+		} else
+			trig_prog = trig->trig_prog;
+
 		buf_printf(buf, BUF_END, "[%2d] %-11s %-26s %s [%s]\n",
 		    cnt, flag_string(mptrig_types, trig->trig_type),
-		    trig->trig_prog, trig->trig_arg,
+		    trig_prog,
+		    trig->trig_arg,
 		    flag_string(mptrig_flags, trig->trig_flags));
 		cnt++;
 	}
@@ -303,6 +321,32 @@ has_trigger(varr *v, int trig_type)
 	return varr_bsearch(v, &trig_type, cmpint) != NULL;
 }
 
+const char *
+genmpname_str(int mp_type, const char *str)
+{
+	static char buf[MAX_INPUT_LENGTH];
+
+	snprintf(buf, sizeof(buf), "@%s$%s",
+		 flag_string(mprog_types, mp_type), str);
+	return buf;
+}
+
+const char *
+genmpname_vnumn(int mp_type, int vnum, int num)
+{
+	static char buf[MAX_INPUT_LENGTH];
+
+	snprintf(buf, sizeof(buf), "@%s#%d#%d",
+		 flag_string(mprog_types, mp_type), vnum, num);
+	return buf;
+}
+
+const char *
+genmpname_vnumv(int mp_type, int vnum, varr *v)
+{
+	return genmpname_vnumn(mp_type, vnum, c_size(v));
+}
+
 /*--------------------------------------------------------------------
  * local functions
  */
@@ -315,14 +359,32 @@ pull_one_trigger(trig_t *trig, int mp_type,
 	const char *trig_arg;
 	void *arg4 = NULL;
 
-	if (mprog_execute == NULL)
+	if (mprog_execute == NULL) {
+#if 0
+		log(LOG_ERROR, "%s: Module mod_mpc is not loaded",
+		    __FUNCTION__);
+#endif
 		return MPC_ERR_UNLOADED;
+	}
 
-	if ((mp = mprog_lookup(trig->trig_prog)) == NULL)
+	if ((mp = mprog_lookup(trig->trig_prog)) == NULL) {
+#if 0
+		log(LOG_ERROR, "%s: %s: mprog not found",
+		    __FUNCTION__, trig->trig_prog);
+#endif
 		return MPC_ERR_NOTFOUND;
+	}
 
-	if (mp->type != mp_type)
+	if (mp->type != mp_type) {
+#if 0
+		log(LOG_ERROR,
+		    "%s: %s: mprog is type `%s', type `%s' requested",
+		    __FUNCTION__, trig->trig_prog,
+		    flag_string(mprog_types, mp->type),
+		    flag_string(mprog_types, mp_type));
+#endif
 		return MPC_ERR_TYPE_MISMATCH;
+	}
 
 	trig_arg = trig->trig_arg;
 	if (mp->type == MP_T_MOB) {
@@ -447,17 +509,13 @@ pull_trigger_list(int trig_type, varr *v, int mp_type,
 }
 
 static bool
-trig_fread_prog(trig_t *trig, const char *name, int mp_type, rfile_t *fp)
+trig_fread_prog(trig_t *trig, int mp_type, const char *mp_name, rfile_t *fp)
 {
 	trig->trig_prog = fread_sword(fp);
 	trig_set_arg(trig, fread_string(fp));
 
 	if (!str_cmp(trig->trig_prog, "@")) {
 		mprog_t *mp;
-		char mp_name[MAX_INPUT_LENGTH];
-
-		snprintf(mp_name, sizeof(mp_name), "@%s%s",
-			 flag_string(mprog_types, mp_type), name);
 
 		if ((mp = (mprog_t *) c_insert(&mprogs, mp_name)) == NULL) {
 			log(LOG_ERROR, "%s: %s: duplicate mprog",

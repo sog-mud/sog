@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.h,v 1.17 2001-12-07 22:20:26 fjoe Exp $
+ * $Id: trig.h,v 1.18 2001-12-08 10:22:43 fjoe Exp $
  */
 
 #ifndef _TRIG_H_
@@ -131,7 +131,7 @@ void trig_destroy(trig_t *trig);
 /**
  * Read trigger from file
  */
-void trig_fread(trig_t *trig, const char *name, int mp_type, rfile_t *fp);
+void trig_fread(trig_t *trig, int mp_type, const char *mp_name, rfile_t *fp);
 
 /**
  * Write trigger to file
@@ -151,7 +151,7 @@ void trig_destroy_list(varr *v);
 /**
  * Read trigger from file and insert it into trigger list
  */
-bool trig_fread_list(varr *v, int vnum, int mp_type, rfile_t *fp);
+bool trig_fread_list(varr *v, int mp_type, const char *mp_name, rfile_t *fp);
 
 /**
  * Write list of triggers to file
@@ -212,5 +212,20 @@ bool has_trigger(varr *v, int trig_type);
 	has_trigger(&(obj)->pObjIndex->mp_trigs, (trig))
 #define ROOM_HAS_TRIGGER(room, trig)					\
 	has_trigger(&(room)->mp_trigs, (trig))
+
+/**
+ * Generate inline mp name using string
+ */
+const char *genmpname_str(int mp_type, const char *str);
+
+/**
+ * Generate inline mp name for objects with `vnum' and trigger with index `num'
+ */
+const char *genmpname_vnumn(int mp_type, int vnum, int num);
+
+/**
+ * Generate inline mp name for object with `vnum' and trigger in `v'
+ */
+const char *genmpname_vnumv(int mp_type, int vnum, varr *v);
 
 #endif /* _TRIG_H_ */
