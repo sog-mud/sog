@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.osdep.dist,v 1.11 2001-08-28 16:37:28 avn Exp $
+# $Id: Makefile.osdep.dist,v 1.12 2001-08-29 07:56:55 avn Exp $
 #
 
 #
@@ -27,7 +27,7 @@ BINGRP!=	id -gn
 #CFLAGS+=	-DLINUX
 #LDADD+=	-lcrypt -ldl
 #SO_LDFLAGS+=	-rdynamic
-#MAKE=		pmake -m ${.CURDIR}/mk
+#MAKE=		pmake
 #MKDEPCMD=	${.CURDIR}/../mkdep/mkdep
 
 #

@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.49 2001-08-28 16:37:41 avn Exp $
+# $Id: Makefile,v 1.50 2001-08-29 07:57:00 avn Exp $
 #
 
 PROG=		sog
@@ -15,8 +15,5 @@ SRCS+=		${COMPAT_SRCS}
 .endif
 
 .PATH:		${.CURDIR}/.. ${.CURDIR}/../compat
-
-afterdepend:
-	touch -t 197001010000 sog
 
 .include <bsd.prog.mk>
