@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.12 2000-05-06 15:00:10 fjoe Exp $
+ * $Id: act_comm.c,v 1.187.2.13 2000-05-30 14:45:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -424,7 +424,7 @@ void do_immtalk(CHAR_DATA *ch, const char *argument)
 	if (IS_SET(orig->comm, COMM_NOWIZ))
 		do_immtalk(ch, str_empty);
 
-	flags = ACT_SPEECH(orig) & ~ACT_STRANS;
+	flags = ACT_SPEECH(orig) & ~(ACT_STRANS | ACT_NODEAF);
 	act_puts("$n: {C$t{x", orig, argument, NULL, TO_CHAR | flags, POS_DEAD);
 
 	for (vch = char_list; vch != NULL && !IS_NPC(vch); vch = vch_next) {
