@@ -37,7 +37,7 @@ Max 100
 End
 
 #SKILL
-Skill 'throwing weapons'
+Skill 'throw weapon'
 Level 27
 Rating 1
 Min 1
