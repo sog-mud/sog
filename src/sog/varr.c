@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.41 2001-12-03 22:28:49 fjoe Exp $
+ * $Id: varr.c,v 1.42 2003-04-24 13:37:01 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -150,6 +150,7 @@ varr_bsearch(const varr *v, const void *e,
 	return bsearch(e, v->p, v->nused, v->v_data->nsize, cmpfun);
 }
 
+#if !defined(TEST)
 void *
 varr_bsearch_lower(const varr *v, const void *e,
 		   int (*cmpfun)(const void *, const void *))
@@ -158,6 +159,7 @@ varr_bsearch_lower(const varr *v, const void *e,
 		return NULL;
 	return bsearch_lower(e, v->p, v->nused, v->v_data->nsize, cmpfun);
 }
+#endif
 
 void *
 varr_eforeach_first(varr *v, void *start_elem)
@@ -328,6 +330,7 @@ varr_isempty(void *c)
 static void *
 varr_random_elem(void *c)
 {
+#if !defined(TEST)
 	varr *v = (varr *) c;
 	size_t size = v->nused;
 
@@ -335,4 +338,8 @@ varr_random_elem(void *c)
 		return NULL;
 
 	return VARR_GET(v, number_range(1, size) - 1);
+#else
+	UNUSED_ARG(c);
+	return NULL;
+#endif
 }

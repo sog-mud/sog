@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.c,v 1.35 2003-04-17 11:25:59 tatyana Exp $
+ * $Id: str.c,v 1.36 2003-04-24 13:37:01 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -43,7 +43,6 @@ int strcasecmp(const char *s1, const char *s2);
 
 char str_empty[1];
 
-#if !defined(HASHTEST)
 int str_count;
 int str_real_count;
 #if STR_ALLOC_MEM
@@ -165,7 +164,6 @@ str_printf(const char *format,...)
 
 	return str_dup(buf);
 }
-#endif
 
 /*
  * strnzcpy - copy from dest to src and always append terminating '\0'.
@@ -430,7 +428,6 @@ backslash(int ch)
  * static functions
  */
 
-#if !defined(HASHTEST)
 static str *
 str_alloc(const char *p, int hash, size_t len)
 {
@@ -464,4 +461,3 @@ str_lookup(const char *p, int *hash, size_t len)
 	}
 	return NULL;
 }
-#endif

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: container.c,v 1.5 2001-12-03 22:28:46 fjoe Exp $
+ * $Id: container.c,v 1.6 2003-04-24 13:36:59 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -38,6 +38,7 @@
 #include <str.h>
 #include <util.h>
 
+#if !defined(TEST)
 void *
 c_random_elem_foreach(void *c)
 {
@@ -56,6 +57,7 @@ c_random_elem_foreach(void *c)
 
 	return NULL;
 }
+#endif
 
 int
 vnum_ke_cmp(const void *k, const void *e)
@@ -69,13 +71,11 @@ strkey_init(void *p)
 	*(const char **) p = str_empty;
 }
 
-#if !defined(HASHTEST)
 void
 strkey_destroy(void *p)
 {
 	free_string(*(const char **) p);
 }
-#endif
 
 int
 ke_cmp_str(const void *k, const void *e)
@@ -89,7 +89,7 @@ ke_cmp_csstr(const void *k, const void *e)
 	return str_cscmp((const char *) k, *(const char * const *) e);
 }
 
-#if !defined(HASHTEST) && !defined(MPC)
+#if !defined(TEST)
 int
 ke_cmp_mlstr(const void *k, const void *e)
 {
@@ -136,6 +136,7 @@ c_strkey_search(void *c, const char *name)
 	return NULL;
 }
 
+#if !defined(TEST)
 void *
 c_mlstrkey_search(void *c, const char *name)
 {
@@ -202,6 +203,7 @@ c_fread_strkey(const char *ctx, rfile_t *fp, void *c)
 	C_STRKEY_CHECK(ctx, c, name);
 	return name;
 }
+#endif
 
 char *
 strkey_filename(const char *name, const char *ext)

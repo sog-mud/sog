@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: avltree.c,v 1.13 2003-04-17 11:25:59 tatyana Exp $
+ * $Id: avltree.c,v 1.14 2003-04-24 13:36:59 fjoe Exp $
  */
 
 #include <assert.h>
@@ -243,7 +243,12 @@ avltree_isempty(void *c)
 static void *
 avltree_random_elem(void *c)
 {
+#if !defined(TEST)
 	return c_random_elem_foreach(c);
+#else
+	UNUSED_ARG(c);
+	return NULL;
+#endif
 }
 
 /*--------------------------------------------------------------------

@@ -1,4 +1,7 @@
-/* $Id: hashtest.c,v 1.7 2001-09-13 16:21:47 fjoe Exp $ */
+/*
+ * $Id: hashtest.c,v 1.8 2003-04-24 13:36:53 fjoe Exp $
+ */
+
 #include <sys/time.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -7,40 +10,33 @@
 #include <str.h>
 #include <buffer.h>
 #include <varr.h>
-#include <hash.h>
+#include <avltree.h>
+#include <container.h>
+#include <memalloc.h>
 
 varr v;
-hash_t h;
+avltree_t a;
 
 int nelem;
 int niter;
 
-void *
-strkey_cpy(void *p, const void *q)
+static avltree_info_t a_data =
 {
-	return (void *) *(const char **) p = *(const char **) q;
-}
-
-static hashdata_t h_data =
-{
-	sizeof(const char *), 1,
-	NULL,
-	NULL,
-	strkey_cpy,
-
-	STRKEY_HASH_SIZE,
-	k_hash_str,
-	ke_cmp_str
+	&avltree_ops,
+	strkey_init, strkey_destroy,
+	MT_PVOID, sizeof(char *), ke_cmp_str
 };
 
-static varrdata_t v_data =
+static varr_info_t v_data =
 {
+	&varr_ops,
+	strkey_init, strkey_destroy,
 	sizeof(const char *), 4
 };
 
 void search_varr(const char *);
 void bsearch_varr(const char *);
-void search_hash(const char *);
+void search_avltree(const char *);
 
 int
 main(int argc, char *argv[])
@@ -48,11 +44,11 @@ main(int argc, char *argv[])
 	const char *text;
 
 	int i;
-	char **pp;
-	char *p;
+	const char **pp;
+	const char *p;
 
 	if (argc != 4) {
-		printf("Syntax: %s <text> <nelem> <niter>\n", argv[0]);
+		printf("Usage: %s <text> <nelem> <niter>\n", argv[0]);
 		return 1;
 	}
 
@@ -73,19 +69,20 @@ main(int argc, char *argv[])
 	/*
 	 * initialize v
 	 */
-	varr_init(&v, &v_data);
+	c_init(&v, &v_data);
 	for (i = 0; i < nelem; i++) {
 		pp = varr_enew(&v);
-		asprintf(pp, "%04d: %s", i, text);
+		*pp = str_printf("%04d: %s", i, text);
 	}
 
 	/*
 	 * initialize h
 	 */
-	hash_init(&h, &h_data);
+	c_init(&a, &a_data);
 	for (i = 0; i < nelem; i++) {
-		asprintf(&p, "%04d: %s", i, text);
-		hash_insert(&h, p, &p);
+		p = str_printf("%04d: %s", i, text);
+		pp = c_insert(&a, p);
+		*pp = p;
 	}
 
 	printf("%d elems (%d times)\n", nelem, niter);
@@ -94,43 +91,52 @@ main(int argc, char *argv[])
 	/*
 	 * search in varr
 	 */
-	asprintf(&p, "%04d: %s", 0, text);
+	p = str_printf("%04d: %s", 0, text);
 	search_varr(p);
+	free_string(p);
 
-	asprintf(&p, "%04d: %s", nelem/2, text);
+	p = str_printf("%04d: %s", nelem/2, text);
 	search_varr(p);
+	free_string(p);
 
-	asprintf(&p, "%04d: %s", nelem-1, text);
+	p = str_printf("%04d: %s", nelem-1, text);
 	search_varr(p);
+	free_string(p);
 
 	/*
 	 * bsearch in varr
 	 */
-	asprintf(&p, "%04d: %s", nelem/2, text);
+	p = str_printf("%04d: %s", nelem/2, text);
 	bsearch_varr(p);
+	free_string(p);
 
-	asprintf(&p, "%04d: %s", nelem*6/7, text);
+	p = str_printf("%04d: %s", nelem*6/7, text);
 	bsearch_varr(p);
+	free_string(p);
 
-	asprintf(&p, "%04d: %s", nelem-1, text);
+	p = str_printf("%04d: %s", nelem-1, text);
 	bsearch_varr(p);
+	free_string(p);
 
 	/*
 	 * search in hash
 	 */
-	asprintf(&p, "%04d: %s", 0, text);
-	search_hash(p);
+	p = str_printf("%04d: %s", 0, text);
+	search_avltree(p);
+	free_string(p);
 
-	asprintf(&p, "%04d: %s", nelem/2, text);
-	search_hash(p);
+	p = str_printf("%04d: %s", nelem/2, text);
+	search_avltree(p);
+	free_string(p);
 
-	asprintf(&p, "%04d: %s", nelem-1, text);
-	search_hash(p);
+	p = str_printf("%04d: %s", nelem-1, text);
+	search_avltree(p);
+	free_string(p);
 
 	return 0;
 }
 
-void
+static void
 print_stats(struct timeval *t1, struct timeval *t2)
 {
 	long sec_delta = t2->tv_sec - t1->tv_sec;
@@ -144,18 +150,6 @@ print_stats(struct timeval *t1, struct timeval *t2)
 	printf("%ld.%06ld sec\n", sec_delta, usec_delta);
 }
 
-void *
-v_search_cb(void *p, va_list ap)
-{
-	const char **pp = (const char **) p;
-	const char *s = va_arg(ap, const char *);
-
-	if (!str_cmp(*pp, s))
-		return pp;
-
-	return NULL;
-}
-
 void
 search_varr(const char *p)
 {
@@ -166,8 +160,16 @@ search_varr(const char *p)
 	printf("Linear search in varr (%s): ", p);
 	gettimeofday(&t1, NULL);
 	for (i = 0; i < niter; i++) {
-		void *pp = varr_foreach(&v, v_search_cb, p);
-		if (pp == NULL) {
+		const char **pp;
+		bool found = FALSE;
+
+		C_FOREACH(pp, &v) {
+			if (!strcmp(*pp, p)) {
+				found = TRUE;
+				break;
+			}
+		}
+		if (!found) {
 			printf("failed\n");
 			exit(1);
 		}
@@ -197,16 +199,16 @@ bsearch_varr(const char *p)
 }
 
 void
-search_hash(const char *p)
+search_avltree(const char *p)
 {
 	int i;
 	struct timeval t1;
 	struct timeval t2;
 
-	printf("Hash lookup (%s): ", p);
+	printf("AVL tree lookup (%s): ", p);
 	gettimeofday(&t1, NULL);
 	for (i = 0; i < niter; i++) {
-		void *pp = strkey_search(&h, p);
+		void *pp = c_strkey_search(&a, p);
 		if (pp == NULL) {
 			printf("failed\n");
 			exit(1);

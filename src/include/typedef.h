@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.70 2003-04-24 12:41:49 fjoe Exp $
+ * $Id: typedef.h,v 1.71 2003-04-24 13:36:56 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -200,7 +200,6 @@ typedef void	EFFECT_FUN	(void *vo, int level, int dam);
 typedef void (*e_init_t)(void *);
 typedef void (*e_destroy_t)(void *);
 
-typedef int (*k_hash_t)(const void *k, size_t hsize);
 typedef int (*ke_cmp_t)(const void *k, const void *e);
 
 #define IS_SET(flag, bit)	((flag) & (bit))
