@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.116 2001-08-14 16:29:27 fjoe Exp $
+ * $Id: db_area.c,v 1.117 2001-08-18 18:52:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1225,14 +1225,6 @@ DBLOAD_FUN(load_mobiles)
 			}
 		}
 
-		if (area_current->ver < 3)
-			for (i = 0; i < MAX_RESIST; i++) {
-				if (pMobIndex->resists[i] >= 100)
-					pMobIndex->resists[i] = MOB_IMMUNE;
-				else if (r)
-					pMobIndex->resists[i] -= r->resists[i];
-			}
-
 		if (IS_SET(pMobIndex->affected_by, AFF_SANCTUARY)
 		&&  IS_EVIL(pMobIndex)) {
 			TOUCH_VNUM(pMobIndex->vnum);
@@ -1294,6 +1286,15 @@ DBLOAD_FUN(load_mobiles)
 				if ((rresists[i] == 100)
 				&& (pMobIndex->resists[i] < 0))
 					pMobIndex->resists[i] = 0;
+			}
+		}
+
+		if (area_current->ver < 3) {
+			for (i = 0; i < MAX_RESIST; i++) {
+				if (pMobIndex->resists[i] >= 100)
+					pMobIndex->resists[i] = MOB_IMMUNE;
+				else if (r)
+					pMobIndex->resists[i] -= r->resists[i];
 			}
 		}
 
