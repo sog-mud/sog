@@ -1,0 +1,125 @@
+#
+# $Id: hosting.txt,v 1.1 2002-01-23 13:05:43 fjoe Exp $
+#
+
+Common server setup
+===================
+
+1) create user:group `sog:sog' with '*' (for FreeBSD) or 'x' (for Linux)
+as password (to prevent logging in).
+
+If you need quotas, group sog must have ~300M quota.
+
+2) Create users that have direct access to mud server:
+
+	login	| full name		| shell
+	--------+-----------------------+--------------
+	fjoe	| Max Khon		| tcsh (or bash)
+	tatyana	| Tatyana Novikova	| bash
+	mmm	| Marat M. Mirzaev	| bash
+	avn	| Alexey Neyman		| bash
+	cs	| Constantin Svintsoff	| bash
+	matrim	| Sergey A. Menzhulin	| bash
+	murazor	| Dmitriy Shichkov	| bash
+
+All these users should be in group `sog'.
+
+If system policy is to NOT create per-user groups you can set primary
+group to `sog' for all these users instead of default `users' or whatever
+is used on your system.
+
+CVS server setup
+================
+
+1) See 'Common server setup'
+
+2) Unpack SoG CVS root somewhere, preferred location is /usr/local/cvsroot.
+If you unpacked it to some other place please make symbolic link
+from /usr/local/cvsroot to the location where you placed CVS root.
+
+CVS root should be owned by sog:sog with group write permissions on
+directories (files in CVS root do not have 'w' bit set at all and this is ok).
+
+If you are using Linux also set group suid bit on directories (FreeBSD
+inherits group ownership for newly created files from directory they
+are created in by default).
+
+3) Checkout CVSROOT ('cvs -d <cvsroot> co CVSROOT'),
+build mailsend.c ('gcc -o mailsend mailsend.c') and install it into
+/usr/local/bin ('install -u root -g wheel -c mailsend /usr/local/bin'
+for FreeBSD, 'install -u root -g root -c mailsend /usr/local/bin').
+
+Mud server setup
+================
+
+1) See 'Common server setup'
+
+2) Add an ability to switch to user `sog' for all users in group `sog' (sudo)
+
+Sample `%ETCDIR%/sudoers' file:
+
+--- cut here ---
+# User alias specification
+User_Alias SOG=%sog
+
+# Cmnd alias specification
+Cmnd_Alias SUSOG=/bin/su - sog,/bin/su sog
+
+# User privilege specification
+SOG	ALL=NOPASSWD:SUSOG
+--- cut here ---
+
+3) Create scripts to start mud server on system startup.
+
+If you are using FreeBSD simply copy sog/bin/rc.sog.sh to
+/usr/local/etc/rc.d/sog.sh and edit `sog_home' variable in it.
+
+4) All files in `sog' home should be owned by `sog:sog' with group
+write permissions.
+
+If you are using Linux also set group suid bit on directories (FreeBSD
+inherits group ownership for newly created files from directory they
+are created in by default).
+
+Developer environment setup
+===========================
+
+The following steps (except step 4) should be executed on your
+development host.
+
+1) Create an alias for sog cvs server in your ~/.ssh/config.
+
+Sample entry:
+
+--- cut here ---
+Host cvs-sog
+	Hostname sog.me.ru
+--- cut here ---
+
+2) set CVS_RSH environment variable to ssh (add 'setenv CVS_RSH ssh'
+to your ~/.cshrc if you are using tcsh or 'export CVS_RSH=ssh'
+tou ~/.bashrc if you are using bash). This step is not required if
+you are using FreeBSD 4.x and later because FreeBSD cvs uses ssh by default.
+
+3) create ~/.cvsrc
+
+Sample .cvsrc:
+--- cut here ---
+cvs -q
+co -P
+diff -u --show-c-function
+update -Pd
+--- cut here ---
+
+4) make sure that on CVS _SERVER_ you have umask set to 002
+(command `umask' should say `002', if it says something else
+add 'umask 002' to your ~/.cshrc if you are using tcsh or
+to ~/.bashrc if you are using bash.
+
+After all this steps you can checkout SoG 2 sources by issuing command
+
+cvs -d :ext:cvs-sog:/usr/local/cvsroot co sog
+
+If you need to checkout SoG 1 sources use the following command:
+
+cvs -d :ext:cvs-sog:/usr/local/cvsroot co -r SOG_1_0 -d sog1 sog
