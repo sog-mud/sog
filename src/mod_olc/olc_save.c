@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.30 1998-10-02 04:48:47 fjoe Exp $
+ * $Id: olc_save.c,v 1.31 1998-10-02 08:33:05 fjoe Exp $
  */
 
 /**************************************************************************
@@ -965,10 +965,10 @@ void save_clan(CHAR_DATA *ch, CLAN_DATA *clan)
 	fprintf(fp, "Filename %s~\n", clan->file_name);
 	if (clan->recall_vnum)
 		fprintf(fp, "Recall %d\n", clan->recall_vnum);
-	if (!mlstr_null(clan->msg_prays))
-		mlstr_fwrite(fp, "MsgPrays", clan->msg_prays);
-	if (!mlstr_null(clan->msg_vanishes))
-		mlstr_fwrite(fp, "MsgVanishes", clan->msg_vanishes);
+	if (!IS_NULLSTR(clan->msg_prays))
+		fprintf(fp, "MsgPrays %s~\n", clan->msg_prays);
+	if (!IS_NULLSTR(clan->msg_vanishes))
+		fprintf(fp, "MsgVanishes %s~\n", clan->msg_vanishes);
 
 	REMOVE_BIT(clan->flags, CLAN_CHANGED);
 	if (clan->flags)
