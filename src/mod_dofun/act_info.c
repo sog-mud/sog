@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.427 2002-11-23 20:05:07 fjoe Exp $
+ * $Id: act_info.c,v 1.428 2002-11-23 20:10:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4325,7 +4325,7 @@ show_aliases(CHAR_DATA *ch, const char *argument, bool wiz)
 		for (; a[0] != '\0'; p = one_argument(p, a, sizeof(a))) {
 			if (!str_prefix(arg, a)) {
 				act_puts("'$t' as an alias for '$T'.",
-					 ch, arg, cmd->name,
+					 ch, a, cmd->name,
 					 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 				return;
 			}
