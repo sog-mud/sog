@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: objval.c,v 1.19 2002-03-20 19:39:50 fjoe Exp $
+ * $Id: objval.c,v 1.20 2002-03-20 20:14:38 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -226,7 +226,7 @@ fwrite_objval(flag_t item_type, vo_t *v, FILE *fp)
 			SFLAGS(weapon_class, v[0]),
 			INT(v[1]),
 			INT(v[2]),
-			STR(v[3]),
+			DENORMALIZE_DAMTYPE(STR(v[3])),
 			FLAGS(v[4]));
 		break;
 
