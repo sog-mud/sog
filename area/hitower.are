@@ -1906,26 +1906,26 @@ sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
 ~
 0 AN 3
-D0
-The shadows cloud your vision.
-~
-~
-0 -1 1307
-D3
-The shadows cloud your vision.
-~
-~
-0 -1 1303
 D2
 The shadows cloud your vision.
 ~
 ~
 0 -1 1304
+D3
+The shadows cloud your vision.
+~
+~
+0 -1 1303
 D1
 The shadows cloud your vision.
 ~
 ~
 0 -1 1302
+D0
+The shadows cloud your vision.
+~
+~
+0 -1 1307
 S
 #1302
 The Shadow Grove~
@@ -1935,11 +1935,11 @@ sounds moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
 ~
 0 AN 3
-D1
-The shadows cloud your vision.
+D0
+You see a small clearing in the shadows.
 ~
 ~
-0 -1 1303
+0 -1 1311
 D3
 The shadows cloud your vision.
 ~
@@ -1950,11 +1950,11 @@ The shadows cloud your vision.
 ~
 ~
 0 -1 1305
-D0
-You see a small clearing in the shadows.
+D1
+The shadows cloud your vision.
 ~
 ~
-0 -1 1311
+0 -1 1303
 S
 #1303
 The Shadow Grove~
@@ -1993,26 +1993,26 @@ sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
 ~
 0 AN 3
-D2
-The shadows cloud your vision.
-~
-~
-0 -1 1307
-D1
-The shadows cloud your vision.
-~
-~
-0 -1 1305
 D3
 Dark gates loom in the mist.
 ~
 ~
 0 -1 2201
+D1
+The shadows cloud your vision.
+~
+~
+0 -1 1305
 D0
 The shadows cloud your vision.
 ~
 ~
 0 -1 1301
+D2
+The shadows cloud your vision.
+~
+~
+0 -1 1307
 S
 #1305
 The Shadow Grove~
@@ -2022,11 +2022,6 @@ sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
 ~
 0 AN 3
-D1
-The shadows cloud your vision.
-~
-~
-0 -1 1306
 D0
 The shadows cloud your vision.
 ~
@@ -2042,6 +2037,11 @@ The shadows cloud your vision.
 ~
 ~
 0 -1 1304
+D1
+The shadows cloud your vision.
+~
+~
+0 -1 1306
 S
 #1306
 The Shadow Grove~
@@ -2051,6 +2051,11 @@ sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
 ~
 0 AN 3
+D2
+The shadows cloud your vision.
+~
+~
+0 -1 1309
 D0
 The shadows cloud your vision.
 ~
@@ -2066,11 +2071,6 @@ You see a shadowy tavern.
 ~
 ~
 0 -1 9301
-D2
-The shadows cloud your vision.
-~
-~
-0 -1 1309
 S
 #1307
 The Shadow Grove~
@@ -2080,11 +2080,6 @@ sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
 ~
 0 AN 3
-D1
-The shadows cloud your vision.
-~
-~
-0 -1 1308
 D2
 The shadows cloud your vision.
 ~
@@ -2095,6 +2090,11 @@ The shadows cloud your vision.
 ~
 ~
 0 -1 1309
+D1
+The shadows cloud your vision.
+~
+~
+0 -1 1308
 D0
 The shadows cloud your vision.
 ~
@@ -2109,26 +2109,26 @@ sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
 ~
 0 AN 3
-D1
-The shadows cloud your vision.
-~
-~
-0 -1 1309
-D2
-The shadows cloud your vision.
-~
-~
-0 -1 1300
 D3
 The shadows cloud your vision.
 ~
 ~
 0 -1 1307
+D2
+The shadows cloud your vision.
+~
+~
+0 -1 1300
 D0
 The shadows cloud your vision.
 ~
 ~
 0 -1 1305
+D1
+The shadows cloud your vision.
+~
+~
+0 -1 1309
 S
 #1309
 The Shadow Grove~
@@ -2138,11 +2138,6 @@ sounds of moaning and growling come from all directions.
   All directions lead into shadows, you are very confused.
 ~
 0 AN 3
-D1
-The shadows cloud your vision.
-~
-~
-0 -1 1307
 D3
 The shadows cloud your vision.
 ~
@@ -2158,6 +2153,11 @@ The shadows cloud your vision.
 ~
 ~
 0 -1 1306
+D1
+The shadows cloud your vision.
+~
+~
+0 -1 1307
 S
 #1311
 A small clearing~
@@ -2416,7 +2416,7 @@ behind the door.
 D1
 ~
 door~
-1 -1 1328
+0 -1 1328
 D3
 ~
 ~
@@ -2478,7 +2478,7 @@ prisoners survive long enough to spend much time in these dank dungeons.
 D3
 ~
 door~
-1 -1 1324
+0 -1 1324
 S
 #1329
 Below the stagnant pool~
@@ -3360,7 +3360,7 @@ meters in the air of its own force.
 D0
 ~
 ~
-1 -1 1379
+0 -1 1379
 D1
 ~
 door iron~
@@ -3547,10 +3547,10 @@ Nice going!  You might as well wait here until the wizard who built this
 trap comes back to imprison your soul as well as your body.
 ~
 0 DN 0
-D2
+D1
 ~
 ~
-0 0 9141
+0 0 5113
 D5
 ~
 ~
@@ -3559,14 +3559,14 @@ D4
 ~
 ~
 0 0 938
+D2
+~
+~
+0 0 9141
 D3
 ~
 ~
 0 0 7428
-D1
-~
-~
-0 0 5113
 S
 #1393
 A hallway~
@@ -3582,7 +3582,7 @@ D0
 D1
 ~
 door bronze~
-1 -1 1395
+0 -1 1395
 D2
 ~
 ~
@@ -4290,7 +4290,7 @@ D1
 D3
 ~
 door wooden~
-1 -1 1437
+0 -1 1437
 S
 #1437
 The entrance to the library~
@@ -5318,26 +5318,26 @@ M 0 1304 7 1315 1	* a mage (The Hallway)
 M 0 1304 7 1316 1	* a mage (Dining Room)
 M 0 1304 7 1318 1	* a mage (Mages Tavern)
 M 0 1305 1 1318 1	* Strick the bartender (Mages Tavern)
-G 0 1351 0		*	A herbal brew
-G 0 1352 0		*	A waybread
+G 0 1351 0		*	a herbal brew
+G 0 1352 0		*	a waybread
 M 0 1304 7 1319 1	* a mage (The Magic Shop)
 M 0 1306 1 1319 1	* Tatorious (The Magic Shop)
-O 0 1301 0 1320		* An oven (the kitchen)
-P 0 1304 20 1301 1	* An oven: An oven
-O 0 1302 0 1320		* A meat locker (the kitchen)
-P 0 1305 1 1302 1	* A meat locker: A meat locker
-P 0 1306 1 1302 1	* A meat locker: A meat locker
+O 0 1301 0 1320		* an oven (the kitchen)
+P 0 1304 20 1301 1	* an oven: a slice of pizza
+O 0 1302 0 1320		* a meat locker (the kitchen)
+P 0 1305 1 1302 1	* a meat locker: a large chunk of meat
+P 0 1306 1 1302 1	* a meat locker: a finger sandwich
 M 0 1307 1 1320 1	* Ezmerelda (the kitchen)
-E 0 1355 0 16		*	A meat cleaver: wielded
+E 0 1355 0 16		*	a meat cleaver: wielded
 M 0 1308 1 1320 1	* The cook's assistant (the kitchen)
 M 0 1309 1 1327 1	* The prisoner (A dark cell)
-E 0 1356 0 14		*	Some chain shackles: on the left wrist
+E 0 1356 0 14		*	some chain shackles: on the left wrist
 M 0 1310 1 1328 1	* the Jailor (The Jailor's office)
-E 0 1323 0 17		*	An old key: held in the hands
+E 0 1323 0 17		*	an old key: held in the hands
 M 0 1311 2 1333 2	* a broom (A broom closet)
 M 0 1311 2 1333 2	* a broom (A broom closet)
-O 0 1307 0 1333		* A straw broom (A broom closet)
-O 0 1307 0 1333		* A straw broom (A broom closet)
+O 0 1307 0 1333		* a straw broom (A broom closet)
+O 0 1307 0 1333		* a straw broom (A broom closet)
 M 0 1312 10 1335 4	* a pair of disembodied hands (Guardians chamber)
 M 0 1312 10 1335 4	* a pair of disembodied hands (Guardians chamber)
 M 0 1312 10 1335 4	* a pair of disembodied hands (Guardians chamber)
@@ -5370,13 +5370,13 @@ M 0 1324 3 1357 3	* a student of spells (The Amphitheater)
 M 0 1324 3 1357 3	* a student of spells (The Amphitheater)
 M 0 1325 1 1357 1	* a wizard (The Amphitheater)
 M 0 1326 3 1359 3	* a young mage (The training room)
-E 0 3351 0 16		*	A standard issue dagger: wielded
+E 0 3351 0 16		*	a standard issue dagger: wielded
 M 0 1326 3 1359 3	* a young mage (The training room)
-E 0 3351 0 16		*	A standard issue dagger: wielded
+E 0 3351 0 16		*	a standard issue dagger: wielded
 M 0 1326 3 1359 3	* a young mage (The training room)
-E 0 3351 0 16		*	A standard issue dagger: wielded
+E 0 3351 0 16		*	a standard issue dagger: wielded
 M 0 1327 1 1359 1	* the battle mistress (The training room)
-E 0 1357 0 17		*	A silvery dagger: held in the hands
+E 0 1357 0 17		*	a silvery dagger: held in the hands
 M 0 1328 2 1364 2	* a spell teacher (The spellmaster's lounge)
 M 0 1329 1 1365 1	* an aged wizard (A bedroom)
 M 0 1330 1 1367 1	* a scribe (The study)
@@ -5385,55 +5385,55 @@ M 0 1339 5 1368 1	* a wooden golem (Below the stairs)
 M 0 1331 2 1371 2	* a scribe (A small office)
 M 0 1331 2 1371 2	* a scribe (A small office)
 M 0 1332 1 1373 1	* the master scribe (The master scribe's workshop)
-G 0 1359 0		*	A scroll
-G 0 1360 0		*	A bound scroll
-G 0 1361 0		*	A long cylindrical tube
+G 0 1359 0		*	a scroll
+G 0 1360 0		*	a bound scroll
+G 0 1361 0		*	a long cylindrical tube
 M 0 1333 1 1373 1	* the scribe's assistant (The master scribe's workshop)
-G 0 1362 0		*	An old scroll
+G 0 1362 0		*	an old scroll
 M 0 1313 7 1375 1	* a pair of disembodied eyes (A store room)
-O 0 1315 0 1378		* A chest (A hallway)
-P 0 1317 1 1315 1	* A chest: A chest
-P 0 1318 1 1315 1	* A chest: A chest
-P 0 1319 1 1315 1	* A chest: A chest
-O 0 1310 0 1379		* A bar of silver (A store room)
-O 0 1311 0 1379		* A bar of gold (A store room)
-O 0 1312 0 1379		* A bar of mithril (A store room)
-O 0 1313 0 1379		* A bar of adamantite (A store room)
-O 0 1314 0 1381		* A mithril hammer (A very hot room)
-O 0 1316 0 1381		* A small key (A very hot room)
-O 0 1363 0 1381		* A scroll written on blue paper (A very hot room)
+O 0 1315 0 1378		* a chest (A hallway)
+P 0 1317 1 1315 1	* a chest: a long sword
+P 0 1318 1 1315 1	* a chest: a silver dagger
+P 0 1319 1 1315 1	* a chest: a curved scimitar
+O 0 1310 0 1379		* a bar of silver (A store room)
+O 0 1311 0 1379		* a bar of gold (A store room)
+O 0 1312 0 1379		* a bar of mithril (A store room)
+O 0 1313 0 1379		* a bar of adamantite (A store room)
+O 0 1314 0 1381		* a mithril hammer (A very hot room)
+O 0 1316 0 1381		* a small key (A very hot room)
+O 0 1363 0 1381		* a scroll written on blue paper (A very hot room)
 M 0 1334 1 1382 1	* the Enchanter (The master Enchanter's chamber)
 M 0 1335 1 1382 1	* a dancing sword (The master Enchanter's chamber)
 M 0 1336 1 1388 1	* the Mad Alchemist (The Mad Alchemist's workroom)
-E 0 1364 0 17		*	A leather pouch: held in the hands
-P 0 1365 2 1364 1	* A leather pouch: A leather pouch
-P 0 1367 2 1364 1	* A leather pouch: A leather pouch
-P 0 1368 2 1364 1	* A leather pouch: A leather pouch
-P 0 1369 2 1364 1	* A leather pouch: A leather pouch
-P 0 1370 2 1364 1	* A leather pouch: A leather pouch
+E 0 1364 0 17		*	a leather pouch: held in the hands
+P 0 1365 2 1364 1	* a leather pouch: a silver stirring spoon
+P 0 1367 2 1364 1	* a leather pouch: a bright red potion
+P 0 1368 2 1364 1	* a leather pouch: a green potion
+P 0 1369 2 1364 1	* a leather pouch: an effervescent potion
+P 0 1370 2 1364 1	* a leather pouch: a milky white potion
 M 0 1337 1 1390 1	* the master summoner (The pentagram chamber)
-E 0 1371 0 17		*	A black staff: held in the hands
+E 0 1371 0 17		*	a black staff: held in the hands
 R 0 1392 6	* Inside the Energy Field: randomize
 M 0 1338 1 1395 1	* the master charmer (The charm master's chamber)
-E 0 1372 0 17		*	A golden flute: held in the hands
-G 0 1373 0		*	A small figurine
+E 0 1372 0 17		*	a golden flute: held in the hands
+G 0 1373 0		*	a small figurine
 M 0 1339 5 1398 2	* a wooden golem (The end of the hallway)
 M 0 1339 5 1398 2	* a wooden golem (The end of the hallway)
 M 0 1313 7 1400 1	* a pair of disembodied eyes (A hallway)
-O 0 1320 0 1401		* A wooden staff (A store room)
+O 0 1320 0 1401		* a wooden staff (A store room)
 M 0 1340 1 1402 1	* the master spell binder (The master spellbinder's chamber)
-E 0 1325 0 17		*	A silvery key: held in the hands
-E 0 1374 0 13		*	A holstered belt: around the waist
-P 0 1375 2 1374 1	* A holstered belt: A holstered belt
-O 0 1321 0 1403		* A silver chased cabinet (The spellbinder's cache)
-P 0 1326 1 1321 1	* A silver chased cabinet: A silver chased cabinet
-P 0 1327 1 1321 1	* A silver chased cabinet: A silver chased cabinet
-O 0 1322 0 1403		* A silver chased cabinet (The spellbinder's cache)
-P 0 1328 1 1322 1	* A silver chased cabinet: A silver chased cabinet
-P 0 1329 1 1322 1	* A silver chased cabinet: A silver chased cabinet
-P 0 1330 1 1322 1	* A silver chased cabinet: A silver chased cabinet
+E 0 1325 0 17		*	a silvery key: held in the hands
+E 0 1374 0 13		*	a holstered belt: around the waist
+P 0 1375 2 1374 1	* a holstered belt: a blackened wand
+O 0 1321 0 1403		* a silver chased cabinet (The spellbinder's cache)
+P 0 1326 1 1321 1	* a silver chased cabinet: a red and white staff
+P 0 1327 1 1321 1	* a silver chased cabinet: a burnt staff
+O 0 1322 0 1403		* a silver chased cabinet (The spellbinder's cache)
+P 0 1328 1 1322 1	* a silver chased cabinet: a black rod
+P 0 1329 1 1322 1	* a silver chased cabinet: a wooden stick
+P 0 1330 1 1322 1	* a silver chased cabinet: a metal wand
 M 0 1341 1 1409 1	* the golem maker (The golem master's workshop)
-E 0 1376 0 17		*	A runed chisel: held in the hands
+E 0 1376 0 17		*	a runed chisel: held in the hands
 M 0 1342 1 1409 1	* a granite golem (The golem master's workshop)
 M 0 1345 2 1409 2	* a cloth golem (The golem master's workshop)
 M 0 1343 1 1411 1	* a bronze golem (The golem chamber)
@@ -5441,15 +5441,15 @@ M 0 1344 1 1411 1	* a flesh golem (The golem chamber)
 M 0 1346 1 1411 1	* an adamantite golem (The golem chamber)
 M 0 1347 1 1411 1	* a clay golem (The golem chamber)
 M 0 1348 1 1417 1	* the master of illusions (The master of illusion's chamber)
-E 0 1377 0 13		*	A beltpouch: around the waist
-P 0 1378 3 1377 1	* A beltpouch: A beltpouch
+E 0 1377 0 13		*	a beltpouch: around the waist
+P 0 1378 3 1377 1	* a beltpouch: some sparkling dust
 M 0 1349 1 1425 1	* the Necromancer (The Necromancer's Lair)
-E 0 1379 0 3		*	A dark cowl: around the neck (1)
-E 0 1380 0 17		*	An ashen wand: held in the hands
+E 0 1379 0 3		*	a dark cowl: around the neck (1)
+E 0 1380 0 17		*	an ashen wand: held in the hands
 M 0 1350 4 1425 4	* an animated skeleton (The Necromancer's Lair)
 M 0 1350 4 1425 4	* an animated skeleton (The Necromancer's Lair)
 M 0 1351 1 1425 1	* an undead giant (The Necromancer's Lair)
-E 0 1381 0 16		*	A huge spiked club: wielded
+E 0 1381 0 16		*	a huge spiked club: wielded
 M 0 1339 5 1428 2	* a wooden golem (The end of the hallway)
 M 0 1339 5 1428 2	* a wooden golem (The end of the hallway)
 M 0 1312 10 1430 2	* a pair of disembodied hands (A corridor)
@@ -5457,58 +5457,58 @@ M 0 1313 7 1433 2	* a pair of disembodied eyes (An intersection)
 M 0 1352 3 1435 3	* an ugly witch (The scrying chamber)
 M 0 1352 3 1435 3	* an ugly witch (The scrying chamber)
 M 0 1352 3 1435 3	* an ugly witch (The scrying chamber)
-O 0 1331 0 1435		* A black cauldron (The scrying chamber)
-P 0 1332 1 1331 1	* A black cauldron: A black cauldron
-P 0 1333 1 1331 1	* A black cauldron: A black cauldron
+O 0 1331 0 1435		* a black cauldron (The scrying chamber)
+P 0 1332 1 1331 1	* a black cauldron: a small pair of bat wings
+P 0 1333 1 1331 1	* a black cauldron: an eyeball
 M 0 1353 1 1437 1	* the Librarian (The entrance to the library)
-O 0 1334 0 1445		* The book of magic (The reading room)
-P 0 1335 1 1334 1	* The book of magic: The book of magic
+O 0 1334 0 1445		* the book of magic (The reading room)
+P 0 1335 1 1334 1	* the book of magic: a pair of spectacles
 M 0 1313 7 1449 1	* a pair of disembodied eyes (The landing)
 M 0 1354 1 1453 1	* the master's apprentice (The antechamber)
-E 0 1382 0 12		*	A grey robe: about the shoulders
-E 0 1384 0 14		*	A glinting silver bracelet: on the left wrist
+E 0 1382 0 12		*	a grey robe: about the shoulders
+E 0 1384 0 14		*	a glinting silver bracelet: on the left wrist
 M 0 1355 1 1454 1	* a grey cat (The main chamber)
 M 0 1356 1 1454 1	* the master of Neutrality (The main chamber)
-E 0 1383 0 3		*	A long grey cloak: around the neck (1)
-E 0 1385 0 16		*	An iron shod staff: wielded
-E 0 1386 0 17		*	A ward minor: held in the hands
+E 0 1383 0 3		*	a long grey cloak: around the neck (1)
+E 0 1385 0 16		*	an iron shod staff: wielded
+E 0 1386 0 17		*	a ward minor: held in the hands
 M 0 1357 1 1461 1	* a black robed apprentice (The chamber of darkness)
-E 0 1387 0 12		*	A black robe: about the shoulders
-E 0 1388 0 14		*	An onyx bracelet: on the left wrist
+E 0 1387 0 12		*	a black robe: about the shoulders
+E 0 1388 0 14		*	an onyx bracelet: on the left wrist
 M 0 1358 1 1464 1	* a black cat (The inner chamber)
 M 0 1359 1 1464 1	* the master of the black robes (The inner chamber)
-E 0 1389 0 3		*	A dark black cloak: around the neck (1)
-E 0 1390 0 16		*	A sharp shard of obsidian: wielded
-E 0 1386 0 17		*	A ward minor: held in the hands
+E 0 1389 0 3		*	a dark black cloak: around the neck (1)
+E 0 1390 0 16		*	a sharp shard of obsidian: wielded
+E 0 1386 0 17		*	a ward minor: held in the hands
 M 0 1360 1 1467 1	* a white robed apprentice (An antechamber)
-E 0 1391 0 12		*	A white robe: about the shoulders
-E 0 1392 0 14		*	A white gold bracelet: on the left wrist
+E 0 1391 0 12		*	a white robe: about the shoulders
+E 0 1392 0 14		*	a white gold bracelet: on the left wrist
 M 0 1361 1 1469 1	* a white cat (The chamber of the white light)
 M 0 1362 1 1469 1	* The master of goodness (The chamber of the white light)
-E 0 1393 0 3		*	A white cloak: around the neck (1)
-E 0 1394 0 16		*	An ivory hilted dagger: wielded
-E 0 1386 0 17		*	A ward minor: held in the hands
+E 0 1393 0 3		*	a white cloak: around the neck (1)
+E 0 1394 0 16		*	an ivory hilted dagger: wielded
+E 0 1386 0 17		*	a ward minor: held in the hands
 M 0 1363 1 1477 1	* A calico cat (The audience chamber)
-E 0 1395 0 3		*	A spiked collar: around the neck (1)
+E 0 1395 0 3		*	a spiked collar: around the neck (1)
 M 0 1364 1 1477 1	* The Grand Mistress (The audience chamber)
-E 0 1401 0 5		*	A tight fitting green dragon scale shirt: on the body
-E 0 1397 0 1		*	A small emerald ring: on the left finger
-E 0 1398 0 14		*	An emerald bracelet: on the left wrist
-E 0 1399 0 17		*	A ward major: held in the hands
-E 0 1400 0 16		*	The ebony kris: wielded
-G 0 1339 0		*	An intricately carved key
-O 0 1336 0 1480		* A golden altar (The altar)
-P 0 1337 1 1336 1	* A golden altar: A golden altar
-O 0 1338 0 1481		* A large chest (The treasury)
-P 0 1340 1 1338 1	* A large chest: A large chest
-O 0 1341 0 1482		* A brown cloak (A passage)
-O 0 1342 0 1482		* A chameleon poncho (A passage)
-O 0 1343 0 1482		* A pair of old boots (A passage)
-O 0 1345 0 1482		* A leather backpack (A passage)
-P 0 1344 1 1345 1	* A leather backpack: A leather backpack
-O 0 1402 0 1499		* A fridge (Skylar's Hideout)
-P 0 1403 1 1402 1	* A fridge: A fridge
-P 0 1404 1 1402 1	* A fridge: A fridge
+E 0 1401 0 5		*	a tight fitting green dragon scale shirt: on the body
+E 0 1397 0 1		*	a small emerald ring: on the left finger
+E 0 1398 0 14		*	an emerald bracelet: on the left wrist
+E 0 1399 0 17		*	a ward major: held in the hands
+E 0 1400 0 16		*	the ebony kris: wielded
+G 0 1339 0		*	an intricately carved key
+O 0 1336 0 1480		* a golden altar (The altar)
+P 0 1337 1 1336 1	* a golden altar: a heart shaped medallion
+O 0 1338 0 1481		* a large chest (The treasury)
+P 0 1340 1 1338 1	* a large chest: a pile of coins
+O 0 1341 0 1482		* a brown cloak (A passage)
+O 0 1342 0 1482		* a chameleon poncho (A passage)
+O 0 1343 0 1482		* a pair of old boots (A passage)
+O 0 1345 0 1482		* a leather backpack (A passage)
+P 0 1344 1 1345 1	* a leather backpack: a seashell ring
+O 0 1402 0 1499		* a fridge (Skylar's Hideout)
+P 0 1403 1 1402 1	* a fridge: a bottle of Absolut vodka
+P 0 1404 1 1402 1	* a fridge: a bottle of cranberry juice
 S
 
 
@@ -5521,7 +5521,7 @@ S
 
 
 #OLIMITS
-O 1384 3	* a glinting silver bracelet
+O 1384 4	* a glinting silver bracelet
 S
 
 
