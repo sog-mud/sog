@@ -2337,8 +2337,8 @@ Ninja	     Nin      DEX	 ANY    300   	thief/cleric
 AntiPaladin  A-P      STR	 ANY	300	warrior/mage       
 Paladin      Pal      STR	 ANY	400	warrior/cleric     
 Samurai      Sam      STR        ANY    500  	masters of ancient battlearts 
-Vampire      Vam      INT	  M	300	simply vampire
-Necromancer  Nec      INT	  F	300	simply necromancer
+Vampire      Vam      INT	 ANY	300	simply vampire
+Necromancer  Nec      INT	  M	300	simply necromancer
 
 ~
 
