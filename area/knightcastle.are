@@ -1,5 +1,5 @@
 #AREADATA
-Name knight~
+Name Knight~
 VNUMs 95200 95229
 Credits Chronos~
 Security 9
@@ -107,7 +107,7 @@ A pegasus is flying here.
 ~
 ~
 horse~
-BIWZ BDFHJPTUV 1000 0
+ABIWZ BDFHJPTUV 1000 0
 70 30 100d10+9500 1d20+1600 6d10+30 wrath
 -40 -40 -40 -30
 N AB CLQ 0
@@ -120,7 +120,7 @@ A golden dragon is flying here.
 ~
 ~
 horse~
-BIWZ DFHJTUValt 1000 0
+ABIWZ DFHJTUValt 1000 0
 85 50 100d12+16250 1d20+1600 6d15+50 wrath
 -50 -50 -50 -40
 DNO AB CHIJKLMNPQS 0
@@ -324,7 +324,7 @@ You're crossing a small garden. Surrounded by evergreen trees and bushes,
 you hear bird songs and feel that you can stay in this paradise forever. But,
 your duties call you for struggle with the evil ones!
 ~
-0 X forest
+0 KX forest
 D2
 ~
 ~
@@ -337,7 +337,7 @@ S
 #95210
 Before the castle~
 ~
-0 0 inside
+0 K inside
 D0
 ~
 ~
@@ -346,7 +346,7 @@ S
 #95211
 Entrance to the castle~
 ~
-0 0 inside
+0 K inside
 D1
 ~
 ~
@@ -363,7 +363,7 @@ S
 #95212
 Between the wall and moat~
 ~
-0 0 inside
+0 K inside
 D1
 ~
 ~
@@ -376,7 +376,7 @@ S
 #95213
 Stables~
 ~
-0 0 inside
+0 K inside
 D3
 ~
 ~
@@ -385,7 +385,7 @@ S
 #95214
 Between the wall and moat~
 ~
-0 0 inside
+0 K inside
 D0
 ~
 ~
@@ -398,7 +398,7 @@ S
 #95215
 Inner yard~
 ~
-0 0 inside
+0 K inside
 D0
 ~
 ~
@@ -415,7 +415,7 @@ S
 #95216
 Dinner hall~
 ~
-0 0 inside
+0 K inside
 D0
 ~
 ~
@@ -428,7 +428,7 @@ S
 #95217
 Altar~
 ~
-0 0 inside
+0 K inside
 D2
 ~
 ~
@@ -437,7 +437,7 @@ S
 #95218
 In the guardtower~
 ~
-0 0 inside
+0 K inside
 D0
 ~
 ~

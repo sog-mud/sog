@@ -25,6 +25,7 @@
 @eng It's already open.
 @rus Тут уже открыто.
 ~
+@eng $p sails into the room from $T!@rus $p прилетает в комнату $T!~
 @eng the most so far today@rus это максимум на сегодня~
 @eng gold coins@rus золотые монеты~
 @eng You hold $p in your hand.@rus Ты берешь $c3{$p} в руку.~
@@ -64,6 +65,7 @@ Use 'desc edit' to edit your description.
 ~
 @eng $n is burned by $p.@rus $p обжигает $c6{$n}.~
 @eng {csitting{x@rus {cсидишь{x~
+@eng the up@rus сверху (up)~
 @eng You drop $p.@rus Ты бросаешь $c3{$p}.~
 @eng Pick what?
 @rus Взломать что?
@@ -82,6 +84,7 @@ Use 'desc edit' to edit your description.
 ~
 @eng $n picks up some trash.@rus $n подбирает мусор.~
 @eng $N looks very disinterested.@rus $N не заинтересован тобой.~
+@eng the south@rus с юга (south)~
 @eng You stop resting.
 @rus Ты прекращаешь отдыхать.
 ~
@@ -90,7 +93,7 @@ Use 'desc edit' to edit your description.
 @eng thin air??@rus воздухом??~
 @eng You wake and sit in $p.@rus Ты просыпаешься и садишься в $c3{$p}.~
 @eng $p draws life from $n.@rus $p вытягивает жизнь из $c2{$n}.~
-@eng $p flickers and goes out.@rus $p прогорел и погас.~
+@eng $p flickers and goes out.@rus $p $gp{вспыхнул} на прощание и $gp{погас}.~
 @eng The rain stopped.@rus Дождь прекратился.~
 @eng I see no door $T here.@rus Я не вижу здесь дверей на $T.~
 @eng Escape to what direction?
@@ -131,6 +134,7 @@ Use 'desc edit' to edit your description.
 @eng Change your title to what?
 @rus На что ты хочешь поменять свой title?
 ~
+@eng $p decomposes.@rus $p $gp{разложился}.~
 @eng $N says '{GDo you feel lucky, punk?{x'.@rus $N говорит тебе '{GЧувствуешь удачу, шпана?{x'.~
 @eng Your $T increases!@rus Твое $T увеличивается!~
 @eng That's not edible.
@@ -340,6 +344,7 @@ Use 'desc edit' to edit your description.
 @eng I see nothing here.
 @rus Я ничего здесь не вижу.
 ~
+@eng $p has evaporated from disuse.@rus $p $gp{испарился}.~
 @eng $N laughs at you mercilessly.@rus $N смеется над твоей беспомощностью.~
 @eng You stand at $p.@rus Ты встаешь около $c1{$p}.~
 @eng You already wear two wrist items.
@@ -370,6 +375,7 @@ Use 'desc edit' to edit your description.
 @eng You don't see that here.
 @rus Ты не видишь этого тут.
 ~
+@eng $p dries up.@rus $p $gp{пересох}.~
 @eng about half-@rus примерно наполовину~
 @eng Return to questmaster before your time runs out!
 @rus Вернись к тому, кто его тебе дал до того, как истечет отведенное время!
@@ -422,6 +428,7 @@ Use 'desc edit' to edit your description.
 @rus %s: Нет подсказки на это слово.
 ~
 @eng $N {xis sleeping in $p.@rus $N {xспит в $c5{$p}.~
+@eng the down@rus снизу (down)~
 @eng You can't do that here.
 @rus Ты не можешь делать этого здесь.
 ~
@@ -558,7 +565,7 @@ You peek at the inventory:
 @rus Ты лежишь оглушенный и не можешь этого сделать.
 ~
 @eng You are affected by the following spells:
-@rus Ты сейчас под действием следующих заклинаний:
+@rus Ты находишься под действием следующих заклинаний:
 ~
 @eng cranberry juice@rus клюквенный сок~
 @eng <used as light>     $t@rus <освещает>             $t~
@@ -663,6 +670,7 @@ You peek at the inventory:
 @rus Чтобы восстановить потерянный предмет, набери: 'quest trouble <award>'.
 ~
 @eng <worn around neck>  $t@rus <надето на шею>        $t~
+@eng $p crumbles into dust.@rus $p $gp{рассыпался} в пыль.~
 @eng $n is DEAD!!@rus $n $gn{МЕРТВ}!!~
 @eng a lot of objects @rus очень много вещей.~
 @eng You must transform vampire before biting.
@@ -673,7 +681,7 @@ You peek at the inventory:
 @eng Come back later.@rus Приходи попозже~
 @eng $n bites you!@rus $n кусает тебя!~
 @eng You lock $p.@rus Ты замыкаешь $p.~
-@eng That beast is too powerful for you to ride.@rus Этот зверь слишком сильный для того, чтобы ездить на нем верхом.~
+@eng That beast is too powerful for you to ride.@rus на восток (east)~
 @eng $n prays upper lord for transportation!@rus $n молит всевышнего о переносе!~
 @eng Your spellbane deflects the spell!@rus Проклятье на тебе отразило заклинание!~
 @eng You aren't allowed in there.
@@ -687,6 +695,7 @@ You peek at the inventory:
 @eng Go and ask the questor. He'll help you.
 @rus Иди к квестору и попроси у него помощи.
 ~
+@eng the north@rus с севера (north)~
 @eng misses@rus не задевает~
 @eng You eat $p.@rus Ты ешь $c3{$p}.~
 @eng Wow. One gold coin.
@@ -703,6 +712,7 @@ You peek at the inventory:
 @rus Что съесть?
 ~
 @eng {cresting{x@rus {cотдыхаешь{x~
+@eng Do I know you?@rus А ты кто такой?~
 @eng Your quest is ALMOST complete!
 Get back to questor before your time runs out!
 @rus Ты ПОЧТИ выполнил свое задание!
@@ -808,6 +818,7 @@ Get back to questor before your time runs out!
 @eng It won't fit.
 @rus Не входит.
 ~
+@eng $p flickers and vanishes.@rus $p $gp{вспыхнул} и $gp{исчез}.~
 @eng $n's power increases!@rus Энергия $n увеличивается!~
 @eng $n rests in $p.@rus $n садится отдыхать в $c3{$p}.~
 @eng $n is DEAD!@rus $n $gn{МЕРТВ}!~
@@ -825,6 +836,7 @@ Get back to questor before your time runs out!
 @eng You don't have enough power.
 @rus Ты не достотачно силен для этого.
 ~
+@eng $p flickers and vanishes, spilling its contents on the floor.@rus $p $gp{вспыхнул} и $gp{исчез}, разбросав содержимое вокруг.~
 @eng They aren't here.
 @rus Тут нет таких.
 ~
@@ -913,6 +925,7 @@ Get back to questor before your time runs out!
 @eng Close what?
 @rus Закрыть что?
 ~
+@eng $p decays into dust.@rus $p $gp{рассыпался} в прах.~
 @eng $n dismounts from you.@rus $n спешивается с тебя.~
 @eng You're too full to drink more.
 @rus Твой желудок полон. Ты не можешь выпить ни капли.
@@ -956,6 +969,7 @@ Get back to questor before your time runs out!
 @eng It's locked.
 @rus Тут закрыто.
 ~
+@eng $p fades out of existence.@rus $p $gp{растворился} в воздухе.~
 @eng You are still fighting!
 @rus Ты сражаешься!
 ~
@@ -1063,6 +1077,7 @@ Get back to questor before your time runs out!
 @rus Может для начала перестанешь драться?
 ~
 @eng $n drops $p.@rus $n бросает $c3{$p}.~
+@eng the west@rus с запада (west)~
 @eng You wake and stand up.
 @rus Ты просыпаешься и встаешь.
 ~
@@ -1309,6 +1324,7 @@ Get back to questor before your time runs out!
 @eng You sit at $p.@rus Ты садишься за $c3{$p}.~
 @eng You hear someone's death cry.@rus Ты слышишь чей-то предсмертный вопль.~
 @eng $n's head is shattered, and $s brains splash all over you.@rus Голова $c1{$n} разбита, мозги забрызгали все вокруг. Бррр...~
+@eng $n has transferred you.@rus $n $gn{переместил} тебя.~
 @eng fragile@rus совсем плохое~
 @eng You don't know how to bite creatures.
 @rus Ты не умеешь кусаться.
@@ -1385,6 +1401,7 @@ Get back to questor before your time runs out!
 ~
 @eng $p and $P look about the same.@rus $p и $P очень похожи.~
 @eng $n tells you '{G$t{x'@rus $n говорит тебе: "{G$t{x"~
+@eng the east@rus с востока (east)~
 @eng $n sits down on the ground.@rus $n садится на землю.~
 @eng 	You see closed door.
 @rus 	Ты видишь закрытую дверь.

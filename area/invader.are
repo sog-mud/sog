@@ -221,7 +221,7 @@ shadows watching you!
 валуном.  Вдруг, холодок страха плеснул тебе в лицо - ты почуствовал, что
 тени следят за тобой.  
 ~
-0 ACDTX inside
+0 ACDKTX inside
 D0
 ~
 ~
@@ -246,7 +246,7 @@ well.
 огромного человека.  Лучше оставь попытки померятся с ним силами на будущее
 и выбирайся из колодца.  
 ~
-0 ACDNTX inside
+0 ACDKNTX inside
 D0
 @eng The doorway leads to a well lit chamber. On the wall is a huge shadow.
 @rus Путь ведет в хорошо освещенный зал.  На стене перед входом видна огромая
@@ -269,7 +269,7 @@ ever reach it?
 найти ничего, что могло бы помочь выкарабкаться.  Не видя другого выхода ты
 продолжаешь спускаться вниз.  Что ждет тебя на дне?  Кто знает?  
 ~
-0 DNTX inside
+0 DKNTX inside
 D5
 @eng Falling further into the black pit
 @rus Провал уводит дальше, в черную яму.
@@ -287,7 +287,7 @@ ever reach it?
 найти ничего, что могло бы помочь выкарабкаться.  Не видя другого выхода ты
 продолжаешь спускаться вниз.  Что ждет тебя на дне?  Кто знает?
 ~
-0 ADNT inside
+0 ADKNT inside
 D5
 @eng Falling further into the black pit
 @rus Провал уводит дальше, в черную яму.
@@ -305,7 +305,7 @@ ever reach it?
 найти ничего, что могло бы помочь выкарабкаться.  Не видя другого выхода ты
 продолжаешь спускаться вниз.  Что ждет тебя на дне?  Кто знает?
 ~
-0 ADNT inside
+0 ADKNT inside
 D5
 @eng Falling further into the black pit
 @rus Провал уводит дальше, в черную яму.
@@ -323,7 +323,7 @@ ever reach it?
 найти ничего, что могло бы помочь выкарабкаться.  Не видя другого выхода ты
 продолжаешь спускаться вниз.  Что ждет тебя на дне?  Кто знает?
 ~
-0 ADTX inside
+0 ADKTX inside
 D5
 @eng Falling further into the black pit
 @rus Провал уводит дальше, в черную яму.
@@ -343,7 +343,7 @@ have been heard.
 выхода ты продолжаешь спускаться вниз.  ЧТО ждет тебя на дне?  Ты отчаянно
 молишь об освобождении - безнадежно.  Кто услышит тебя?  
 ~
-0 ADNTX inside
+0 ADKNTX inside
 D5
 @eng Falling further into the black pit or to the death.
 @rus Провал уводит дальше, в черную яму и смерти.
@@ -361,7 +361,7 @@ mostly about death, eg. skulls, demon claws, fangs...
 следы мощнейшей магии.  Повсюду высечены изображения демонов, черепов,
 клыков...  Ты вспомнил о смерти...  К чему бы это?  
 ~
-0 ACDNTX inside
+0 ACDKNTX inside
 D0
 It's dark to tell anything.
 ~
@@ -435,7 +435,7 @@ INVADERS!
 отдышаться и убраться отсюда. Ho помни, это НЕ очень удачное место для
 отдыха. Потому что это место сражений ИНВАЙДЕРОВ!
 ~
-0 ADX inside
+0 ADKX inside
 D0
 @eng You see the dark corridor.
 @rus Перед тобой темный проход.
@@ -447,7 +447,7 @@ S
 #95610
 @eng Vampires Lair@rus Логово Вампиров~
 ~
-0 0 inside
+0 K inside
 D0
 ~
 ~
@@ -460,7 +460,7 @@ S
 #95611
 @eng Dark tunnel@rus Темный туннель~
 ~
-0 0 inside
+0 K inside
 D0
 ~
 ~
@@ -480,7 +480,7 @@ S
 смрадной жиже свернувшейся крови ты потрясенно вспоминаешь старую легенду о
 Первом Вампире, возжелавшем попробовать крови самой Земли.  
 ~
-0 ANX inside
+0 AKNX inside
 D2
 ~
 ~
@@ -489,7 +489,7 @@ S
 #95613
 @eng Dark tunnel@rus Темный туннель~
 ~
-0 0 inside
+0 K inside
 D0
 ~
 ~
@@ -502,7 +502,7 @@ S
 #95614
 @eng Dark tunnel@rus Темный туннель~
 ~
-0 AN inside
+0 AKN inside
 D0
 ~
 ~

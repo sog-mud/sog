@@ -3116,7 +3116,7 @@ fine bread fills the room.  The bread and Danish are arranged in fine order
 on the shelves, and seem to be of the finest quality.
 A small sign is on the counter.
 ~
-0 S inside
+0 0 inside
 E
 sign~
 Free instructions provided by the store:
@@ -3349,7 +3349,7 @@ know him as well as its religion.The room is full of mist. You start
 praying with the templeman.
 	Try to talk with templeman about religion.
 ~
-0 DS inside
+0 D inside
 D2
 By the temple altar.
 ~
@@ -3362,7 +3362,7 @@ The Main Street~
 You are on Main Street crossing through this booming town. The market
 square is at east. To the west no roads.
 ~
-0 DS inside
+0 D inside
 D0
 ~
 ~
@@ -3385,7 +3385,7 @@ The Main Street~
 You are on Main Street crossing through this booming town. The market
 square is at east. To the west no roads.
 ~
-0 DS inside
+0 D inside
 D0
 ~
 ~

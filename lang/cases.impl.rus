@@ -249,4 +249,23 @@ Form 5 -е~
 Form 6 -у~
 End
 
+#RULE
+Name -ть~
+BaseLen -1
+Form 1 -и~
+Form 2 -и~
+Form 4 -ью~
+Form 5 -и~
+End
+
+#RULE
+Name -ие~
+BaseLen -1
+Form 1 -х~
+Form 2 -м~
+Form 4 -ми~
+Form 5 -х~
+Form 6 -х~
+End
+
 #$
