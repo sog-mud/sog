@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.126.2.16 2002-10-22 21:15:03 tatyana Exp $
+ * $Id: save.c,v 1.126.2.17 2002-11-20 14:53:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -41,6 +41,9 @@
 ***************************************************************************/
 
 #include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <errno.h>
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
@@ -183,6 +186,34 @@ void char_save(CHAR_DATA *ch, int flags)
 	}
 	fprintf(fp, "#END\n");
 	fclose(fp);
+
+	if (IS_SET(flags, SAVE_F_PSCAN)) {
+		/*
+		 * restore atime/mtime
+		 */
+		struct stat s;
+		struct timeval tv[2];
+		char fname[PATH_MAX];
+
+		if (dstat(PLAYER_PATH, name, &s) < 0) {
+			log("char_save: %s%c%s: stat: %s",
+			    PLAYER_PATH, PATH_SEPARATOR, name, strerror(errno));
+			goto err;
+		}
+
+		TIMESPEC_TO_TIMEVAL(&tv[0], &s.st_atimespec);
+		TIMESPEC_TO_TIMEVAL(&tv[1], &s.st_mtimespec);
+
+		snprintf(fname, sizeof(fname), "%s%c%s",
+			 PLAYER_PATH, PATH_SEPARATOR, TMP_FILE);
+		if (utimes(fname, tv) < 0) {
+			log("char_save: %s: utimes: %s",
+			    fname, strerror(errno));
+			goto err;
+		}
+	}
+
+err:
 	d2rename(PLAYER_PATH, TMP_FILE, PLAYER_PATH, name);
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.169.2.26 2002-10-26 16:51:37 fjoe Exp $
+ * $Id: db.c,v 1.169.2.27 2002-11-20 14:53:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1995,12 +1995,13 @@ void scan_pfiles()
 			continue;
 
 		/* Remove limited eq from the pfile if it's two weeks old */
-		if (dstat(PLAYER_PATH, dp->d_name, &s) < 0)
-			log("scan_pfiles: unable to stat %s.", dp->d_name);
-		else {
-			should_clear =
-			    (current_time - s.st_mtime) > 60*60*24*14;
+		if (dstat(PLAYER_PATH, dp->d_name, &s) < 0) {
+			log("scan_pfiles: %s%c%s: stat: %s",
+			    PLAYER_PATH, PATH_SEPARATOR, dp->d_name,
+			    strerror(errno));
+			continue;
 		}
+		should_clear = (current_time - s.st_mtime) > 60*60*24*14;
 
 		for (obj = ch->carrying; obj; obj = obj_next) {
 			obj_next = obj->next_content;
