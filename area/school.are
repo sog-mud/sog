@@ -8,8 +8,8 @@ End
 
 #MOBILES
 #3700
-acolyte cleric~
-the acolyte of Zump~
+acolyte cleric служитель~
+@eng the acolyte of Zump@rus ~~служитель~~ Зуки~
 @eng An acolyte of Zump welcomes you to mud school.
 @rus Служитель (acolyte) Зуки приглашает тебя в МУД школу.
 ~
@@ -26,8 +26,8 @@ ACEFHIKN ABCD 0 0
 stand stand male 0
 0 0 medium unknown
 #3701
-blob~
-the blob~
+blob пузырь~
+@eng the blob@rus пузырь~
 @eng The blob is here, waiting to eat you up.
 @rus Пузырь (blob) тут, он ждет тебя чтобы съесть!
 ~
@@ -43,11 +43,11 @@ ABGe C 0 0
 5 -5 1d1+49 1d1+99 1d1+0 digestion
 -15 -15 -15 -15
 AN AB CD 0
-stand stand none 0
+stand stand male 0
 BSc 0 large unknown
 #3702
-monster~
-the monster~
+monster монстрик~
+@eng the monster@rus монстрик~
 @eng There is a monster leashed here.
 @rus Монстрик (monster) тут сидит на привязи.
 ~
@@ -61,11 +61,11 @@ AB 0 0 0
 1 0 1d1+7 1d1+99 1d3+0 claw
 10 10 10 10
 0 0 0 0
-stand stand none 10
+stand stand male 10
 0 0 medium unknown
 #3703
-monster wimpy~
-the wimpy monster~
+monster wimpy монстр трусливый~
+@eng the wimpy monster@rus ~~трусливый~~ ~~монстр~~~
 @eng There is a wimpy monster leashed here.
 @rus А тут привязан трусливый монстр (monster).
 ~
@@ -79,11 +79,11 @@ ABH 0 0 0
 1 0 1d1+7 1d1+99 1d2+0 claw
 10 10 10 10
 0 0 0 0
-stand stand none 10
+stand stand male 10
 0 0 medium unknown
 #3704
-monster aggressive~
-the aggressive monster~
+monster aggressive агрессивный монстр~
+@eng the aggressive monster@rus ~~агрессивный~~ ~~монстр~~~
 @eng There is an aggressive monster leashed here.
 @rus Агрессивный монстр (monster) привязан тут.
 ~
@@ -97,11 +97,11 @@ ABF 0 0 0
 1 0 1d1+7 1d1+99 1d4+0 claw
 10 10 10 10
 EK 0 0 0
-stand stand none 10
+stand stand male 10
 0 0 medium unknown
 #3705
-monster wimpy aggressive~
-the wimpy aggressive monster~
+monster wimpy aggressive монстр~
+@eng the wimpy aggressive monster@rus трусливо ~~нападающий~~ ~~монстр~~~
 @eng There is a wimpy aggressive monster leashed here.
 @rus Трусливо нападающий монстр (monster) привязан тут.
 ~
@@ -115,11 +115,11 @@ ABFH 0 0 0
 1 0 1d1+7 1d1+99 1d3+0 claw
 10 10 10 10
 J 0 0 0
-stand stand none 10
+stand stand male 10
 0 0 medium unknown
 #3706
-big creature~
-the big creature~
+big creature создание~
+@eng the big creature@rus ~~большое~~ ~~создание~~~
 @eng There is a big creature hulking over your form.
 @rus Большое создание (creature) неуклюже надвигается на тебя.
 ~
@@ -136,8 +136,8 @@ FN 0 0 0
 stand stand none 25
 0 0 medium unknown
 #3707
-adept cleric~
-the adept of Satin~
+adept cleric последователь~
+@eng the adept of Satin@rus ~~приспешник~~ Аландера~
 @eng An adept of the mighty goddess Satin is here, contemplating your progress.
 @rus Последователь (adept) могучей богини Сатин стоит тут, созерцая твой прогресс.
 ~
@@ -154,8 +154,8 @@ ACEFHIKN ABCD 0 0
 stand stand male 0
 0 0 medium unknown
 #3708
-adept~
-the adept of Alander~
+adept приспешник~
+@eng the adept of Alander@rus ~~приспешник~~ Аландера~
 @eng An adept of Alander is here, smiling at you.
 @rus Приспешник (adept) Аландера тут, он тебе улыбается.
 ~
@@ -170,8 +170,8 @@ ACEFHIKN ABCD 0 0
 stand stand male 0
 0 0 medium unknown
 #3709
-rabbit~
-the rabbit~
+rabbit кролик~
+@eng the rabbit@rus кролик~
 @eng A rabbit is bouncing around here.
 @rus Кролик (rabbit) скачет по окрестностям.
 ~
@@ -186,9 +186,10 @@ AGHU 0 100 0
 0 0 0 0
 stand stand either 0
 0 0 tiny unknown
+V 37002
 #3710
 lizard~
-the lizard~
+@eng the lizard@rus ящер~
 @eng A lizard slithers up to you.
 @rus Ящер (lizard) скользнул к тебе.
 ~
@@ -202,9 +203,10 @@ AGU 0 -100 0
 R 0 0 0
 stand stand either 0
 0 0 small unknown
+V 37003
 #3711
-boar~
-the boar~
+boar кабан~
+@eng the boar@rus кабан~
 @eng A boar tries to run you over.
 @rus Кабан (boar) попытается тебя затоптать.
 ~
@@ -218,14 +220,15 @@ AGU 0 0 0
 CDFR 0 0 0
 stand stand either 0
 0 0 medium unknown
+V 37004
 #3712
-fox~
-the fox~
+fox лис~
+@eng the fox@rus лис~
 @eng A fox is here staring at you.
-@rus Лиса (fox)... пялит на тебя глазенки.
+@rus Лис (fox)... пялит на тебя глазки.
 ~
 @eng It's fur might be worth money.
-@rus Ага... ее мех, наверное, стоит хороших денег!
+@rus Ага... его мех, наверное, стоит хороших денег!
 ~
 fox~
 AGHU 0 100 0
@@ -234,9 +237,10 @@ AGHU 0 100 0
 NR 0 0 0
 stand stand either 0
 0 0 small unknown
+V 37005
 #3713
-snail~
-the snail~
+snail улитка~
+@eng the snail@rus улитка~
 @eng A snail is trying to get out of your way.
 @rus Улитка (snail) тут пытается убраться с твоего пути.
 ~
@@ -248,11 +252,11 @@ AGU 0 0 0
 0 0 1d1+0 1d1+99 1d1+0 digestion
 10 10 10 10
 0 0 0 0
-stand stand none 0
+stand stand female 0
 AGQc AFHM tiny unknown
 #3714
-beast~
-the beast~
+beast скотина~
+@eng the beast@rus скотина~
 @eng A beast tries to feed off of you.
 @rus Скотина (beast) пытается сделать из тебя комбикорма.
 ~
@@ -264,11 +268,11 @@ AFT JZ 0 0
 5 1 5d5+55 1d1+99 1d6+3 bite
 5 5 5 8
 EKM 0 HI 0
-stand stand none 50
+stand stand female 50
 0 0 large unknown
 #3715
-bear~
-the bear~
+bear медведь~
+@eng the bear@rus медведь~
 @eng A bear is here growling at you.
 @rus Медведь (bear) тут, он ворчит на тебя.
 ~
@@ -282,9 +286,10 @@ AGU J 0 0
 CR 0 0 0
 stand stand either 0
 0 0 large unknown
+V 37006
 #3716
-wolf~
-the wolf~
+wolf волк~
+@eng the wolf@rus волк~
 @eng A wolf is here snarling at you.
 @rus Волк (wolf) тут, он рычит на тебя.
 ~
@@ -298,9 +303,10 @@ AGU J 0 0
 NR 0 0 0
 stand stand either 0
 0 0 medium unknown
+V 37007
 #3717
-adept cleric~
-the adept of Selene~
+adept cleric идущий~
+@eng the adept of Selene@rus ~~идущий~~ путем Селены~
 @eng An adept of Selene is here, grinning and selling you things.
 @rus Идущий (adept) путем Селены тут, скалит зубы и продает тебе шмотки.
 ~
@@ -315,8 +321,8 @@ ACEFHIKN ABCD 0 0
 stand stand male 0
 0 0 medium unknown
 #3718
-adept cleric~
-the adept of Furey~
+adept cleric адепт~
+@eng the adept of Furey@rus ~~адепт~~ Фьюри~
 @eng An adept of Furey is here, training young students.
 @rus Адепт (adept) Фьюри стоит тут, он тренирует студентов.
 ~
@@ -331,8 +337,8 @@ ACEFHIKN ABCD 0 0
 stand stand male 0
 0 0 medium unknown
 #3719
-priest cleric~
-the priest of Circe~
+priest cleric жрец~
+@eng the priest of Circe@rus ~~жрец~~ Циркля~
 @eng The priest of Circe is ready to help you practice.
 @rus Жрец (priest) Циркля готов помочь тебе попрактиковаться.
 ~
@@ -347,8 +353,8 @@ ACEFHIKN ABCD 0 0
 stand stand male 0
 0 0 medium unknown
 #3720
-diploma beast~
-the diploma beast~
+diploma beast тварь~
+@eng the diploma beast@rus ~~отвратительная~~ ~~тварь~~~
 @eng The hideous diploma beast is here, holding your graduation present!
 @rus Отвратительная тварь (beast) сидит тут, у нее твой диплом!
 ~
@@ -362,7 +368,7 @@ ABe J 0 0
 3 1 2d4+30 1d1+99 1d6+1 claw
 8 8 8 10
 EFN 0 0 0
-stand stand none 30
+stand stand female 30
 0 0 medium unknown
 #0
 
@@ -382,6 +388,7 @@ mace~
 You see a mace of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
+G none
 #3701
 dagger sub merc~
 a sub issue dagger~
@@ -397,6 +404,7 @@ dagger~
 You see a dagger of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
+G none
 #3702
 sword sub merc~
 a sub issue sword~
@@ -412,6 +420,7 @@ sword~
 You see a sword of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
+G none
 #3703
 vest sub merc~
 a sub issue vest~
@@ -425,6 +434,7 @@ vest~
 You see a vest of great but cheap craftsmanship.  Stamped on the side is:
 Merc Industries
 ~
+G none
 #3704
 shield sub merc~
 a sub issue shield~
@@ -438,6 +448,7 @@ shield~
 You see a shield of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
+G none
 #3705
 cloak sub merc~
 a sub issue cloak~
@@ -451,6 +462,7 @@ cloak~
 You see a cloak of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
+G none
 #3706
 helmet sub merc~
 a sub issue helmet~
@@ -464,6 +476,7 @@ helmet~
 You see a helmet of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
+G none
 #3707
 leggings sub merc~
 a pair of sub issue leggings~
@@ -477,6 +490,7 @@ leggings~
 You see leggings of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
+G none
 #3708
 boots sub merc~
 a pair of sub issue boots~
@@ -490,6 +504,7 @@ boots~
 You see boots of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
+G none
 #3709
 gloves sub merc~
 a pair of sub issue gloves~
@@ -503,6 +518,7 @@ gloves~
 You see gloves of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
+G none
 #3710
 sleeves sub merc~
 a pair of sub issue sleeves~
@@ -516,6 +532,7 @@ sleeves~
 You see sleeves of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
+G none
 #3711
 cape sub merc~
 a sub issue cape~
@@ -529,6 +546,7 @@ cape~
 You see a cape of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
+G none
 #3712
 belt sub merc~
 a sub issue belt~
@@ -542,6 +560,7 @@ belt~
 You see a belt of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
+G none
 #3713
 bracer sub merc~
 a sub issue bracer~
@@ -555,6 +574,7 @@ bracer~
 You see a bracer of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
+G none
 #3714
 key~
 a key~
@@ -563,6 +583,7 @@ brass~
 key P A
 0 0 0 0 0
 0 10 0 P
+G none
 #3715
 diploma~
 a mud school diploma~
@@ -582,6 +603,7 @@ It also has magical effects on your abilities if you hold it!
 
 Merc Industries
 ~
+G none
 #3716
 banner war merc~
 a war banner~
@@ -598,6 +620,7 @@ E
 banner~
 This is the official Merc war banner to see you through the darkest realm!
 ~
+G none
 #3717
 spear sub merc~
 a sub issue spear~
@@ -613,6 +636,7 @@ spear~
 You see a spear of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
+G none
 #3718
 staff sub merc~
 a sub issue staff~
@@ -630,6 +654,7 @@ staff~
 You see a staff of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
+G none
 #3719
 axe sub merc~
 a sub issue axe~
@@ -645,6 +670,7 @@ axe~
 You see an axe of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
+G none
 #3720
 flail sub merc~
 a sub issue flail~
@@ -660,6 +686,7 @@ flail~
 You see a flail of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
+G none
 #3721
 whip sub merc~
 a sub issue whip~
@@ -675,6 +702,7 @@ whip~
 You see a whip of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
+G none
 #3722
 glaive sub merc~
 a sub issue glaive~
@@ -690,6 +718,7 @@ glaive~
 You see a glaive of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
+G none
 #3723
 bow sub merc~
 a sub issue bow~
@@ -705,6 +734,7 @@ bow~
 You see a bow of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
+G none
 #3724
 lance sub merc~
 a sub issue lance~
@@ -720,6 +750,7 @@ lance~
 You see a lance of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
+G none
 #0
 
 #ROOMS

@@ -368,7 +368,7 @@ and suck your blood until you are dead. Better watch out for this
 guy even though he is slower than a turtle.
 @rus Страшная тварь, у которой вся спина покрыта броней, а брюхо сплошь утыкано
 шипами. У нее жутко много ног, каждая из которых заканчивается острым    
-длинным когтем. Ее рот полон отвратительных зубов. И она так и наровит
+длинным когтем. Ее рот полон отвратительных зубов. И она так и норовит
 вцепиться тебе в ногу.
 ~
 human~
@@ -380,7 +380,7 @@ stand stand male 300
 0 0 medium unknown
 #10019
 shadow thing тень странная~
-@eng The SCaRy Shadow THinG@rus странная тень~
+@eng the scary shadow thing@rus странная тень~
 @eng Here is a real SCaRy Shadow THinG that is ready to kill you.
 @rus Странная тень (shadow) уже приготовилась напасть на тебя.
 ~
@@ -422,7 +422,7 @@ stand stand male 300
 0 0 medium unknown
 #10021
 great red dragon дракон красный~
-@eng The Great Red Dragon@rus красный дракон~
+@eng the great red dragon@rus красный дракон~
 @eng You see a giant dragon that Darken Rahl uses to fly around.
 @rus Большой красный дракон (dragon) лежит в стороне от дороги.
 ~
@@ -444,7 +444,7 @@ stand stand female 300
 c L giant unknown
 #10022
 shadow people призрак~
-@eng An evil shadow person@rus призрак~
+@eng an evil shadow person@rus призрак~
 @eng An evil shadow person is here.
 @rus Призрак (shadow) смотрит на тебя, ожидая твоих действий.
 ~
@@ -461,7 +461,7 @@ stand stand male 300
 0 0 medium unknown
 #10023
 bar tender бармен человечек толстый маленький~
-@eng The bar tender@rus бармен~
+@eng the bar tender@rus бармен~
 @eng A fat little bar tender is here serving drinks.
 @rus Толстый маленький человечек (bar tender) суетится вокруг.
 ~
@@ -480,7 +480,7 @@ stand stand male 300
 0 0 medium unknown
 #10024
 drunken villager сельский пьяница~
-@eng A drunken villager@rus сельский пьяница~
+@eng a drunken villager@rus сельский пьяница~
 @eng There is a drunken villager here, drinking beer.
 @rus Сельский пьяница (villager) потягивает свой эль.
 ~
@@ -516,12 +516,16 @@ stand stand male 300
 0 0 medium unknown
 #10026
 snake желтая змейка~
-A yellow snake~
-There is a little yellow snake swimming in the pool of water.
+@eng a yellow snake@rus желтая змейка~
+@eng There is a little yellow snake swimming in the pool of water.
+@rus Маленькая желтая змейка (snake) извивается в луже.
 ~
-He is a tiny snake that is hardly visible to the naked eye. He
+@eng He is a tiny snake that is hardly visible to the naked eye. He
 swims through the waters up to you. You better get away fast
 before he attacks you and your body is never be found again.
+@rus Очаровательная змейка, крошечная, но от этого не менее опасная. Она 
+направляется в твою сторону и лучше бы тебе уйти, пока не случилось
+чего не поправимого.
 ~
 unique~
 ABCGT GJ -1000 0
@@ -532,7 +536,7 @@ stand stand male 300
 0 0 small unknown
 #10027
 underworld beast~
-An underworld beast~
+@eng an underworld beast~
 There is a underworld beast, looking lost here.
 ~
 He has no features at all. Just a plain puff of smoke striking
@@ -546,8 +550,8 @@ CDEFIKN IP 0 0
 stand stand none 300
 0 0 large unknown
 #10028
-cat dopey~
-A dopey little cat~
+cat dopey котенок маленький одурманенный~
+@eng a dopey little cat@rus маленький одурманенный котенок~
 There is a small, dopey cat looking for a place to sleep here.
 ~
 This cat is looking through the trash trying to find a simple
@@ -562,8 +566,8 @@ CDEFIKN IJP 0 0
 stand stand none 300
 0 0 small unknown
 #10029
-mord sith~
-A Evil Mord-Sith~
+mord sith морд-сит~
+@eng a evil mord-sith@rus морд-сит~
 Here sands the dreadful Mord-Sith waiting to take you as her pet.
 ~
 This Mord-Sith does not seem to be afraid of you. She has an item
@@ -578,8 +582,8 @@ CDEFIKN IP I M
 stand stand female 300
 0 0 large unknown
 #10030
-devoter~
-A Devoter of Darken Rahl~
+devoter почитатель~
+@eng a devoter of Darken Rahl@rus почитатель Даркена Рала~
 Here is a devoter chanting something that makes litttle sense.
 ~
 This devoter is chanting words about Darken Rahl. He seems to
@@ -594,8 +598,8 @@ BCDEFIKN IP 0 0
 stand stand male 300
 0 0 medium unknown
 #10031
-darken rahl~
-The Evil Darken Rahl~
+darken rahl рал даркен~
+@eng The Evil Darken Rahl@rus Даркен Рал~
 Standing before you is your worst nightmare, Darken Rahl.
 ~
 You have come all this way and finally you meet up with Darken
@@ -1954,8 +1958,8 @@ S
 #SPECIALS
 M 10017 spec_cast_cleric	* The Bone Woman
 M 10020 spec_cast_mage	* the spirit king
-M 10021 spec_breath_fire	* The Great Red Dragon
-M 10024 spec_breath_any	* A drunken villager
+M 10021 spec_breath_fire	* the great red dragon
+M 10024 spec_breath_any	* a drunken villager
 M 10025 spec_thief	* a little thief
 M 10031 spec_cast_undead	* The Evil Darken Rahl
 S
@@ -1995,10 +1999,10 @@ M 0 10004 4 10015 1	* a blood fly (The Path at the swamp.)
 M 0 10010 4 10015 1	* a heart hound (The Path at the swamp.)
 M 0 10010 4 10015 1	* a heart hound (The Path at the swamp.)
 E 0 10015 0 1		*	a Heart Hound Collar: on the left finger
-M 0 10026 4 10016 1	* A yellow snake (Over the Swamp Waters.)
-M 0 10026 4 10016 1	* A yellow snake (Over the Swamp Waters.)
-M 0 10026 4 10016 1	* A yellow snake (Over the Swamp Waters.)
-M 0 10026 4 10016 1	* A yellow snake (Over the Swamp Waters.)
+M 0 10026 4 10016 1	* a yellow snake (Over the Swamp Waters.)
+M 0 10026 4 10016 1	* a yellow snake (Over the Swamp Waters.)
+M 0 10026 4 10016 1	* a yellow snake (Over the Swamp Waters.)
+M 0 10026 4 10016 1	* a yellow snake (Over the Swamp Waters.)
 M 0 10014 2 10020 1	* a boundary warden (The Trail Through the Woods.)
 E 0 10001 0 16		*	A Boundary Warden's Mace: wielded
 E 0 10006 0 9		*	Boundary Warden Gloves: on the hands
@@ -2014,16 +2018,16 @@ G 0 10019 0		*	a Boundary Warden Sword
 M 0 10025 1 10022 1	* a little thief (The Road Along the Village.)
 G 0 10014 0		*	a Dark Robe
 E 0 10005 0 8		*	A Pair of Black Boots: on the feet
-M 0 10028 1 10022 1	* A dopey little cat (The Road Along the Village.)
+M 0 10028 1 10022 1	* a dopey little cat (The Road Along the Village.)
 G 0 10017 0		*	a BIG cookie!
-M 0 10023 1 10023 1	* The bar tender (The Bar.)
+M 0 10023 1 10023 1	* the bar tender (The Bar.)
 G 0 10004 0		*	A Jug 'o Beer
 G 0 10016 0		*	a Magical Leather Pouch
-M 0 10024 4 10023 1	* A drunken villager (The Bar.)
+M 0 10024 4 10023 1	* a drunken villager (The Bar.)
 G 0 10004 0		*	A Jug 'o Beer
-M 0 10024 4 10023 1	* A drunken villager (The Bar.)
-M 0 10024 4 10023 1	* A drunken villager (The Bar.)
-M 0 10024 4 10023 1	* A drunken villager (The Bar.)
+M 0 10024 4 10023 1	* a drunken villager (The Bar.)
+M 0 10024 4 10023 1	* a drunken villager (The Bar.)
+M 0 10024 4 10023 1	* a drunken villager (The Bar.)
 M 0 10006 4 10025 1	* a quad assassin (The Path to the Bone Woman's Shack.)
 M 0 10006 4 10025 1	* a quad assassin (The Path to the Bone Woman's Shack.)
 M 0 10006 4 10025 1	* a quad assassin (The Path to the Bone Woman's Shack.)
@@ -2034,21 +2038,21 @@ M 0 10018 3 10028 1	* a nasty gripper (The Path Through The Narrows.)
 G 0 10003 0		*	Some grippers teeth
 M 0 10018 3 10028 1	* a nasty gripper (The Path Through The Narrows.)
 M 0 10018 3 10029 1	* a nasty gripper (The Center of the Narrows.)
-M 0 10019 2 10029 1	* The SCaRy Shadow THinG (The Center of the Narrows.)
-M 0 10030 2 10029 1	* A Devoter of Darken Rahl (The Center of the Narrows.)
-M 0 10019 2 10030 1	* The SCaRy Shadow THinG (Near The End of the Narrows.)
+M 0 10019 2 10029 1	* the scary shadow thing (The Center of the Narrows.)
+M 0 10030 2 10029 1	* a devoter of Darken Rahl (The Center of the Narrows.)
+M 0 10019 2 10030 1	* the scary shadow thing (Near The End of the Narrows.)
 M 0 10020 1 10031 1	* the spirit king (The End of The Narrows.)
-M 0 10022 4 10032 1	* An evil shadow person (The Azrith Plains.)
-M 0 10027 2 10032 1	* An underworld beast (The Azrith Plains.)
+M 0 10022 4 10032 1	* an evil shadow person (The Azrith Plains.)
+M 0 10027 2 10032 1	* an underworld beast (The Azrith Plains.)
 G 0 10018 0		*	a BIG piece of cake!
-M 0 10027 2 10032 1	* An underworld beast (The Azrith Plains.)
-M 0 10022 4 10034 1	* An evil shadow person (The Azrith Plains.)
-M 0 10022 4 10034 1	* An evil shadow person (The Azrith Plains.)
-M 0 10021 1 10035 1	* The Great Red Dragon (At the BIG scary DRaGoN!)
-M 0 10029 2 10038 1	* A Evil Mord-Sith (The Long Hallway.)
+M 0 10027 2 10032 1	* an underworld beast (The Azrith Plains.)
+M 0 10022 4 10034 1	* an evil shadow person (The Azrith Plains.)
+M 0 10022 4 10034 1	* an evil shadow person (The Azrith Plains.)
+M 0 10021 1 10035 1	* the great red dragon (At the BIG scary DRaGoN!)
+M 0 10029 2 10038 1	* a evil mord-sith (The Long Hallway.)
 E 0 10023 0 16		*	a Mord-Sith's Agiel: wielded
-M 0 10029 2 10040 1	* A Evil Mord-Sith (The Room of the Mord-Siths.)
-M 0 10030 2 10041 1	* A Devoter of Darken Rahl (The End of The Hallway.)
+M 0 10029 2 10040 1	* a evil mord-sith (The Room of the Mord-Siths.)
+M 0 10030 2 10041 1	* a devoter of Darken Rahl (The End of The Hallway.)
 M 0 10031 1 10042 1	* The Evil Darken Rahl (The Garden of Life.)
 E 0 10024 0 14		*	the Bracer of Power: on the left wrist
 S

@@ -16,6 +16,12 @@ Form 1 -на~
 End
 
 #WORD
+Name насчитал~
+BaseLen 8
+Form 1 -а~
+End
+
+#WORD
 Name разделал~
 BaseLen 8
 Form 1 -а~

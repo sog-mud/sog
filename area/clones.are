@@ -22,6 +22,7 @@ AGH 0 900 0
 NU 0 0 C
 stand stand either 10
 0 0 medium unknown
+V 3061
 #37001
 cityguard guard стражница~
 @eng the cityguard@rus стражница~
@@ -38,6 +39,111 @@ ACGT 0 1000 3000
 CDEKLTU 0 C 0
 stand stand either 150
 0 0 medium unknown
+V 3060
+#37002
+rabbit крольчиха~
+@eng the rabbit@rus крольчиха~
+@eng A rabbit is bouncing around here.
+@rus Крольчиха (rabbit) скачет по окрестностям.
+~
+@eng The rabbit smiles at you, completely harmless!
+@rus Крольчиха тебе улыбнулась, она полностью в твоей власти.
+Она жует морковку.
+~
+rabbit~
+AGHU 0 100 0
+1 0 1d1+10 1d1+99 1d3+0 bite
+10 10 10 10
+0 0 0 0
+stand stand either 0
+0 0 tiny unknown
+V 3709
+#37003
+lizard ящерка~
+@eng the lizard@rus ящерка~
+@eng A lizard slithers up to you.
+@rus Ящерка (lizard) скользнула к тебе.
+~
+@eng It smiles at you, and tries to eat your leg.
+@rus Она тебе улыбнулась и укусила за ногу в попытке съесть ее. БОЛЬНО!!!
+(вот редиска)
+~
+lizard~
+AGU 0 -100 0
+2 0 2d2+20 1d1+99 1d4+1 bite
+8 8 8 10
+R 0 0 0
+stand stand either 0
+0 0 small unknown
+V 3710
+#37004
+pig свинья~
+@eng the pig@rus свинья~
+@eng A pig tries to run you over.
+@rus Свинья (pig) грозно хрюкает на тебя.
+~
+@eng It grunts at you.
+@rus Она тебя обхрюкала.
+~
+pig~
+AGU 0 0 0
+3 1 3d3+30 1d1+99 1d6+1 charge
+7 7 7 9
+CDFR 0 0 0
+stand stand either 0
+0 0 medium unknown
+V 3711
+#37005
+fox лиса~
+@eng the fox@rus лиса~
+@eng A fox is here staring at you.
+@rus Лиса (fox)... пялит на тебя глазенки.
+~
+@eng It's fur might be worth money.
+@rus Ага... ее мех, наверное, стоит хороших денег!
+~
+fox~
+AGHU 0 100 0
+1 1 1d1+12 1d1+99 1d3+1 bite
+8 8 8 10
+NR 0 0 0
+stand stand either 0
+0 0 small unknown
+V 3712
+#37006
+bear медведица~
+@eng the bear@rus медведица~
+@eng A bear is here growling at you.
+@rus Медведица (bear) тут, она ищет своего медвежонка.
+~
+@eng The bear must be bigger than you!  It wants to rip your head off.
+@rus Медведица намного больше тебя. Не ты ли убил ее медвежонка?
+~
+bear~
+AGU J 0 0
+4 1 4d4+44 1d1+99 1d6+2 claw
+6 5 6 7
+CR 0 0 0
+stand stand either 0
+0 0 large unknown
+V 3715
+#37007
+wolf волчица~
+@eng the wolf@rus волчица~
+@eng A wolf is here snarling at you.
+@rus Волчица (wolf) тут, она рычит на тебя.
+~
+@eng The wolf doesn't want to be bothered.
+@rus Волчица не желает чтобы ее беспокоили.
+~
+wolf~
+AGU J 0 0
+4 0 4d4+44 1d1+99 1d6+2 bite
+7 7 7 10
+NR 0 0 0
+stand stand either 0
+0 0 medium unknown
+V 3716
 #0
 
 #SPECIALS

@@ -294,7 +294,7 @@ coin silver gcash монета серебряная монетка серебряный~
 @eng One miserable silver coin.@rus Маленькая серебряная монетка (coin).~
 silver~
 money 0 A
-0 1 0 0 0
+1 0 0 0 0
 0 10 0 P
 G none
 #2
@@ -303,7 +303,7 @@ gold gcash золотая золотой монета coin~
 @eng One valuable gold coin.@rus Ценная золотая монета (gold).~
 gold~
 money 0 A
-1 0 0 0 0
+0 1 0 0 0
 0 10 0 P
 G none
 #3

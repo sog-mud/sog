@@ -35,6 +35,7 @@
 @eng Odd...there's no coins in the pile.
 @rus Странно... в этой куче не ни одной монеты.
 ~
+@eng Odd...there's no coins in the pile.@rus Жаль, но здесь денег нет.~
 @eng Just try to open it.
 @rus Попробуй просто открыть.
 ~
@@ -62,7 +63,7 @@ Use 'desc edit' to edit your description.
 @rus Даже не думай об этом.
 ~
 @eng {csitting{x@rus {cсидишь{x~
-@eng You drop $p.@rus Ты бросаешь $c3{$p}.~
+@eng You drop $p.@rus Ты выбрасываешь $c3{$p}.~
 @eng Pick what?
 @rus Взломать что?
 ~
@@ -155,8 +156,9 @@ Use 'desc edit' to edit your description.
 @eng $n's $U $u you.@rus $U $c1{$n} $u тебя.~
 @eng $n sacrifices $p to gods.@rus $n приносит $p в жертву богам.~
 @eng $n has created $N!@rus $n $gn{создал} $c3{$N}!~
+@eng There are $J gold and $j $qj{silver coins} in the pile.@rus Ты $gn{насчитал} $J $c3{$qJ{золотых}} и $j $c3{$qj{серебряных монет}}.~
 @eng $n wears $p around $s neck.@rus $n надевает $p на шею.~
-@eng $n drops some coins.@rus $n бросает несколько монет.~
+@eng $n drops some coins.@rus $n выбрасывает несколько монет.~
 @eng $N deflects your attack with $S shield.@rus $N блокирует щитом твою атаку.~
 @eng You sell $P for $j silver $qj{pieces}.@rus Ты продаешь $c3{$P} за $j $c3{$qj{серебряных монет}}.~
 @eng You rest on $p.@rus Ты садишься отдыхать на $p.~
@@ -227,9 +229,6 @@ Use 'desc edit' to edit your description.
 ~
 @eng ({yFade{x) @rus ({yБлекло{x) ~
 @eng silver coins@rus серебряные монеты~
-@eng There are %d silver coins in the pile.
-@rus В этой куче %d серебрянных монет.
-~
 @eng $n sells $p.@rus $n продает $c3{$p}.~
 @eng $n quaffs $p.@rus $n пьет $p.~
 @eng You follow $N.@rus Ты следуешь за $N.~
@@ -387,7 +386,7 @@ Use 'desc edit' to edit your description.
 ~
 @eng {Gis covered with bleeding wounds{x.@rus {Gимеет довольно много ран{x.~
 @eng You wear $p around your right wrist.@rus Ты надеваешь $p на правое запястье.~
-@eng You get $p from $P.@rus Ты достаешь $p из $P.~
+@eng You get $p from $P.@rus Ты достаешь $c3{$p} из $c1{$P}.~
 @eng ({DUndead{x) @rus ({DВосставший{x) ~
 @eng $p holds:@rus $p содержит:~
 @eng $n wears $p on $s feet.@rus $n обувается в $p.~
@@ -414,9 +413,6 @@ Use 'desc edit' to edit your description.
 ~
 @eng You gain %d practices!
 @rus Ты получаешь %d практик!
-~
-@eng There are %d gold and %d silver coins in the pile.
-@rus В этой куче %d золотых и %d серебрянных монет.
 ~
 @eng Sorry, {W%s{z, but you don't have your katana with you.@rus Очень жаль, {W%s{z, но у тебя нет с собой твоей катаны.~
 @eng None.
@@ -524,9 +520,6 @@ Players found: %d. Most so far today: %d.
 ~
 @eng $n gives $p to $N.@rus $n отдает $c3{$p} $c2{$N}.~
 @eng You aren't allowed in the city.@rus Тебе не разрешено входить в этот город.~
-@eng There are %d gold coins in the pile.
-@rus В этой куче %d золотых монет.
-~
 @eng Sorry, {W%s{z, but you are not a %s.@rus Очень жаль, {W%s{z, но ты не %s.~
 @eng But you are already vampire. Kill them! Kill them!
 @rus Ты не можешь стать еще большим вампиром чем сейчас!
@@ -574,7 +567,7 @@ You peek at the inventory:
 @eng That is not a container.
 @rus Это не контейнер.
 ~
-@eng $n gets $p.@rus $n берет $p.~
+@eng $n gets $p.@rus $n подбирает $c3{$p}.~
 @eng brandy@rus бренди~
 @eng You can't hold an item while using 2 weapons.@rus Ты не можешь ничего взять в руку, будучи $c4{$gn{вооруженный}} двумя оружиями.~
 @eng Cast which what where?
@@ -792,6 +785,7 @@ Get back to questor before your time runs out!
 ~
 @eng $N grins evilly at you.@rus $N зло ухмыляется тебе.~
 @eng You sell $P for $j gold $qj{pieces}.@rus Ты продаешь $c3{$P} за $j $c3{$qj{золотых монет}}.~
+@eng Wow. One silver coin.@rus Ух-ты, целая серебряная монетка!~
 @eng It won't fit.
 @rus Не входит.
 ~
@@ -909,6 +903,7 @@ Get back to questor before your time runs out!
 ~
 @eng You wake and stand at $p.@rus Ты просыпаешься и встаешь около $p.~
 @eng You sit down in $p and rest.@rus Ты садишься отдыхать в $p.~
+@eng There are $j $qj{silver coins} in the pile.@rus Ты $gn{насчитал} $j $c3{$qj{серебряных монет}}.~
 @eng $p looks better than $P.@rus $p выглядит лучше $P.~
 @eng $n wears $p about $s waist.@rus $n надевает $p на талию.~
 @eng {csleeping{x@rus {cспишь{x~
@@ -993,6 +988,7 @@ Get back to questor before your time runs out!
 @rus Ты ни с кем не сражаешься.
 ~
 @eng $n eats $p.@rus $n ест $c3{$p}.~
+@eng $n's arm is sliced from $s dead body.@rus Рука $c1{$n} отсечена от бездыханного тела.~
 @eng $n wakes you.@rus $n будит тебя.~
 @eng $n locks the $d.@rus $n замыкает $d.~
 @eng You give $N $J $t.@rus Ты даешь $c2{$N} $J $c3{$qJ{$c1{$t}}}.~
@@ -1006,7 +1002,7 @@ Get back to questor before your time runs out!
 @eng $n wakes up and rests on $p.@rus $n просыпается и садится отдыхать на $p.~
 @eng $n informs $N $e has completed $s quest.@rus $n уведомляет $N о выполнении задания.~
 @eng $n gives you $p.@rus $n отдает тебе $c3{$p}.~
-@eng $n gets $p from $P.@rus $n достает $p из $P.~
+@eng $n gets $p from $P.@rus $n достает $c3{$p} из $c1{$P}.~
 @eng $N gives you 60 practices.@rus $N дает тебе 60 практик.~
 @eng milk@rus молоко~
 @eng You try to show yourself even more ugly.
@@ -1051,7 +1047,7 @@ Get back to questor before your time runs out!
 @eng Maybe you should finish fighting first?
 @rus Может для начала перестанешь драться?
 ~
-@eng $n drops $p.@rus $n бросает $c3{$p}.~
+@eng $n drops $p.@rus $n выбрасывает $c3{$p}.~
 @eng You wake and stand up.
 @rus Ты просыпаешься и встаешь.
 ~
@@ -1094,6 +1090,7 @@ Get back to questor before your time runs out!
 @eng There are {W%d{x minutes remaining until you can go on another quest.
 @rus Осталось {W%d{x мин. до того, как ты сможешь получить новое задание.
 ~
+@eng There are $J $qJ{gold coins} in this pile.@rus Ты $gn{насчитал} $J $c3{$qJ{золотых монет}}.~
 @eng It is closed.
 @rus Тут закрыто.
 ~
@@ -1131,6 +1128,7 @@ Get back to questor before your time runs out!
 @rus Так как ты под влиянием не будем говорить чего, оседлать кого-то будет несколько сложнее...
 ~
 @eng You hand {W$p{x to $N.@rus Ты вручаешь {W$p{x $N.~
+@eng Wow. One gold coin.@rus О! Целый золотой!~
 @eng $n wakes and stands on $p.@rus $n просыпается и встает на $p.~
 @eng The witch curse makes $n feel $s life slipping away.
 @rus Ведьмовское проклятие вытягивает жизнь из $n.
@@ -1272,7 +1270,6 @@ Get back to questor before your time runs out!
 @rus Попробуй flee. Может быть это подойдет тебе лучше.
 ~
 @eng $p flickers.@rus $p гаснет.~
-@eng $n's arm sliced from $s dead body.@rus Рука $c1{$n} отсечена от бездыханного тела.~
 @eng silver@rus серебряные~
 @eng Your mount must be standing.
 @rus Твое животное должно стоять.
@@ -1343,7 +1340,7 @@ Get back to questor before your time runs out!
 @eng You fail to reach your mouth.  *Hic*
 @rus Ты не можешь дотянуться до рта. *Иик*
 ~
-@eng You get $p.@rus Ты берешь $c3{$p}.~
+@eng You get $p.@rus Ты подбираешь $c3{$p}.~
 @eng You can't sleep while being ridden.
 @rus Ты не можешь спать оседланным.
 ~

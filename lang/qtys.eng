@@ -1,4 +1,19 @@
 #WORD
+Name gold coins~
+Form 1 gold coin~
+End
+
+#WORD
+Name silver coins~
+Form 1 silver coin~
+End
+
+#WORD
+Name steaks~
+Form 1 steak~
+End
+
+#WORD
 Name coins~
 Form 1 coin~
 End
@@ -6,11 +21,6 @@ End
 #WORD
 Name pieces~
 Form 1 piece~
-End
-
-#WORD
-Name steaks~
-Form 1 steak~
 End
 
 #$
