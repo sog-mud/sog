@@ -327,7 +327,7 @@ wooden bow~
 a wooden bow~
 A wooden arrow lies on the ground.~
 wood~
-weapon 0 AO
+weapon 0 AN
 bow 1 1 blast 0
 1 5 10 P
 #10
@@ -443,9 +443,9 @@ armor 0 AK
 0 0 0 0 0
 0 60 0 P
 A
-6 1
-A
 13 35
+A
+6 1
 #27
 steak~
 a steak from %s~
@@ -479,23 +479,23 @@ weapon AGIOY ANP
 sword 10 4 slash D
 21 100 100000 G
 A
-14 500
-A
-13 200
-A
-12 200
-A
-18 25
-A
-19 25
-A
-6 1
-A
-4 2
+1 2
 A
 2 2
 A
-1 2
+4 2
+A
+6 1
+A
+19 25
+A
+18 25
+A
+12 200
+A
+13 200
+A
+14 500
 #32
 dagger hero~
 the %s Dagger of %s~
@@ -505,23 +505,23 @@ weapon AGIOY ANP
 dagger 10 4 pierce D
 21 100 100000 G
 A
-14 500
-A
-13 200
-A
-12 200
-A
-18 25
-A
-19 25
-A
-6 1
-A
-4 2
+1 2
 A
 2 2
 A
-1 2
+4 2
+A
+6 1
+A
+19 25
+A
+18 25
+A
+12 200
+A
+13 200
+A
+14 500
 #33
 mace hero~
 the %s Mace of %s~
@@ -531,23 +531,23 @@ weapon AGIOY ANP
 mace 10 4 pound D
 21 100 100000 G
 A
-14 500
-A
-13 200
-A
-12 200
-A
-18 25
-A
-19 25
-A
-6 1
-A
-4 2
+1 2
 A
 2 2
 A
-1 2
+4 2
+A
+6 1
+A
+19 25
+A
+18 25
+A
+12 200
+A
+13 200
+A
+14 500
 #35
 conscience karmael~
 the cloud circle around Karmael named Conscience of Karamel~
@@ -557,9 +557,9 @@ trash AEIR APQ
 0 0 0 0 0
 0 0 0 P
 A
-18 8
-A
 2 8
+A
+18 8
 #42
 vial potion~
 a potion vial~
@@ -767,11 +767,11 @@ armor GIKRYZ AJ
 CE CE CE BD 0
 0 310 20000 P
 A
-19 4
+17 -10
 A
 18 3
 A
-17 -10
+19 4
 #74
 tower ruler shield~
 Rulers' Tower Shield~
@@ -805,11 +805,11 @@ armor GIY AD
 BCDE BCDE BCDE BCDE 0
 0 250 10000 P
 A
-18 5
+6 2
 A
 19 5
 A
-6 2
+18 5
 #83
 golden sword~
 a golden sword~
@@ -875,9 +875,9 @@ weapon B AN
 exotic 10 1 pierce D
 15 60 0 P
 A
-6 1
-A
 18 20
+A
+6 1
 E
 sword~
 The letters '%s' is carved on the handle.
@@ -943,30 +943,30 @@ platinum~
 armor AGIOY ALP
 CD CD CD AD B
 21 300 100000 G
-F
-D 0 0 CDEG
-F
-A 17 -30 J
-F
-R 19 10 C
 A
-18 10
-A
-14 500
-A
-13 200
-A
-12 200
-A
-6 1
-A
-3 3
-A
-5 3
+1 2
 A
 4 2
 A
-1 2
+5 3
+A
+3 3
+A
+6 1
+A
+12 200
+A
+13 200
+A
+14 500
+A
+18 10
+F
+R 19 10 C
+F
+A 17 -30 J
+F
+D 0 0 CDEG
 #95
 ring hero~
 the %s Ring of %s~
@@ -975,18 +975,18 @@ platinum~
 armor AGIOY ABP
 CD CD CD AD A
 21 300 100000 G
-F
-A 14 500 TU
 A
-13 150
-A
-12 150
-A
-18 10
+6 1
 A
 17 -20
 A
-6 1
+18 10
+A
+12 150
+A
+13 150
+F
+A 14 500 TU
 #96
 weapon hero~
 the %s Weapon of %s~
@@ -996,23 +996,23 @@ weapon AGIOY ANP
 exotic 10 4 slash D
 21 100 100000 G
 A
-14 500
-A
-13 200
-A
-12 200
-A
-18 25
-A
-19 25
-A
-6 1
-A
-4 2
+1 2
 A
 2 2
 A
-1 2
+4 2
+A
+6 1
+A
+19 25
+A
+18 25
+A
+12 200
+A
+13 200
+A
+14 500
 #97
 chaos blade~
 a chaos blade~
@@ -1074,7 +1074,6 @@ S
 #SPECIALS
 M 11 spec_special_guard	* the guard
 M 13 spec_cast_mage	* a fiery demon
-*M 15 spec_stalker	* the stalker
 M 50 spec_breath_any	* Junkseller
 S
 

@@ -2096,9 +2096,9 @@ armor C AD
 AD AD AD 0 0
 30 5 10 P
 A
-13 1
-A
 1 1
+A
+13 1
 #16002
 blood eye~
 Blood shot eye~
@@ -2140,11 +2140,11 @@ weapon I AN
 mace 4 5 pound 0
 17 4 10 P
 A
-19 5
+13 1
 A
 18 1
 A
-13 1
+19 5
 #16007
 drow sword darkness~
 Sword of darkness~
@@ -2154,11 +2154,11 @@ weapon C AN
 sword 4 4 slice 0
 15 4 10 P
 A
-19 3
+1 1
 A
 18 3
 A
-1 1
+19 3
 #16008
 grey helm~
 Dark grey helm~
@@ -2168,9 +2168,9 @@ armor G AE
 AC AC AC 0 0
 20 3 10 P
 A
-19 2
-A
 1 1
+A
+19 2
 #16009
 sleeves knowledge~
 Sleeves of knowledge~
@@ -2180,9 +2180,9 @@ armor FG AI
 BCD BCD ACD BD 0
 43 3 110 P
 A
-12 15
-A
 3 2
+A
+12 15
 #16010
 blood stone~
 A piece of polished blood stone~
@@ -2200,13 +2200,13 @@ armor AG AD
 ADE ADE ADE CE 0
 43 4 100 P
 A
-19 7
-A
-18 5
+1 5
 A
 13 50
 A
-1 5
+18 5
+A
+19 7
 #16012
 holy symbol xevior~
 A shining holy symbol of Xevior~
@@ -2234,9 +2234,9 @@ armor I AM
 BCD ABCD ACD BC 0
 44 3 220 P
 A
-18 4
-A
 13 25
+A
+18 4
 #16015
 huge purple worm scale~
 Huge purple worm scale~
@@ -2246,11 +2246,11 @@ armor C AJ
 ABCD ABCD E AC 0
 46 4 10 P
 A
-19 4
+12 20
 A
 13 15
 A
-12 20
+19 4
 #16016
 gauntlet eye~
 Gauntlets of the eye~
@@ -2260,9 +2260,9 @@ armor A AH
 BCD ACD BCD AC 0
 43 3 1000 P
 A
-18 4
-A
 13 30
+A
+18 4
 #16017
 helm eye~
 Helm of the eye~
@@ -2272,15 +2272,15 @@ armor A AE
 ABCD BCD BCD BC 0
 46 4 100 P
 A
-24 -2
-A
-17 -5
-A
-13 15
+5 2
 A
 12 15
 A
-5 2
+13 15
+A
+17 -5
+A
+24 -2
 #16018
 pin~
 A very sharp large pin~
@@ -2290,13 +2290,13 @@ weapon F AN
 dagger 5 5 pierce 0
 22 1 10 P
 A
-19 2
-A
-18 2
+1 -3
 A
 13 -15
 A
-1 -3
+18 2
+A
+19 2
 #16019
 muck branch~
 Very muddy branch~
@@ -2306,11 +2306,11 @@ weapon BHL AN
 mace 5 5 blast 0
 21 15 0 P
 A
-19 2
+2 -2
 A
 18 -5
 A
-2 -2
+19 2
 #16020
 dart~
 A small deadly dart~
@@ -2320,11 +2320,11 @@ weapon F AN
 exotic 1 1 slash 0
 1 0 0 P
 A
-18 2
+1 -2
 A
 3 1
 A
-1 -2
+18 2
 #16021
 wand~
 A black wand inlaid with gold symbols~
@@ -2342,9 +2342,9 @@ armor AGM AL
 ABCD BCD ABCD BC 0
 45 2 100 P
 A
-17 -10
-A
 13 20
+A
+17 -10
 #16023
 eyes~
 Dull eyes~
@@ -2364,13 +2364,13 @@ weapon B AN
 sword 5 8 slash 0
 40 45 1000 P
 A
-19 4
-A
-18 2
+1 2
 A
 13 10
 A
-1 2
+18 2
+A
+19 4
 #16025
 stone mace~
 A Huge Stone Mace~
@@ -2380,11 +2380,11 @@ weapon B AN
 mace 4 10 pound 0
 38 25 1000 P
 A
-19 5
+1 1
 A
 18 2
 A
-1 1
+19 5
 #16026
 shield~
 Black Shield of Protection~
@@ -2404,15 +2404,15 @@ armor CFGLM AO
 0 0 0 0 0
 39 1 0 P
 A
-19 -5
-A
-18 -5
-A
-14 -150
+1 -3
 A
 5 -3
 A
-1 -3
+14 -150
+A
+18 -5
+A
+19 -5
 #16028
 horn~
 Demon Horn~
@@ -2422,11 +2422,11 @@ weapon AJ AN
 exotic 4 10 stab 0
 40 4 0 P
 A
-19 4
+17 -10
 A
 18 1
 A
-17 -10
+19 4
 #16029
 translucent robe~
 Translucent Robe~
@@ -2436,9 +2436,9 @@ armor I AK
 C C C 0 0
 13 2 0 P
 A
-13 10
-A
 5 1
+A
+13 10
 #16030
 belt~
 Belt of pleasure~
@@ -2458,11 +2458,11 @@ treasure I AB
 0 0 0 0 0
 14 1 100 P
 A
-19 1
+3 -2
 A
 13 5
 A
-3 -2
+19 1
 #16032
 gold teeth~
 Gold Teeth~
@@ -2472,9 +2472,9 @@ armor I AE
 C C C 0 0
 16 1 0 P
 A
-19 2
-A
 1 -1
+A
+19 2
 #16033
 broken bottle~
 A broken bottle~
@@ -2484,9 +2484,9 @@ weapon C AN
 exotic 3 3 slash 0
 11 2 0 P
 A
-19 2
-A
 2 -1
+A
+19 2
 #16034
 dusty boots~
 A pair of dusty boots~
@@ -2496,11 +2496,11 @@ armor CM AG
 D D D 0 0
 33 2 600 P
 A
-19 -3
+2 -3
 A
 14 -50
 A
-2 -3
+19 -3
 #16035
 gnome hat~
 A gnome hat~
@@ -2510,9 +2510,9 @@ armor B AE
 BD BD BD 0 0
 30 2 2300 P
 A
-18 3
-A
 2 2
+A
+18 3
 #16036
 boots of flying~
 Boots of flying~
@@ -2522,9 +2522,9 @@ armor FGM AG
 BE BE BE AD 0
 31 2 1000 P
 A
-2 4
-A
 14 200
+A
+2 4
 #16037
 bracer strength~
 Bracer of strength~
@@ -2534,9 +2534,9 @@ armor BG AL
 ACE CE ACE CD 0
 30 3 0 P
 A
-19 3
-A
 1 4
+A
+19 3
 #16038
 slaver whip~
 Slaver's Whip~
@@ -2546,13 +2546,13 @@ weapon B AN
 whip 4 7 whip 0
 23 4 900 P
 A
-19 5
-A
-18 -4
+4 -4
 A
 5 -2
 A
-4 -4
+18 -4
+A
+19 5
 #16039
 manacles~
 A pair of manacles~
@@ -2562,11 +2562,11 @@ armor BM AH
 0 0 0 0 0
 20 4 1000 P
 A
-13 -25
+1 -3
 A
 5 -3
 A
-1 -3
+13 -25
 #16040
 cloak~
 A mage cloak~
@@ -2586,9 +2586,9 @@ weapon B AN
 sword 6 5 slash 0
 26 5 1000 P
 A
-18 4
-A
 17 -10
+A
+18 4
 #16042
 ebony dagger~
 An ebony dagger~
@@ -2598,11 +2598,11 @@ weapon B AN
 dagger 6 5 pierce 0
 26 4 4900 P
 A
-19 3
+17 -10
 A
 18 3
 A
-17 -10
+19 3
 #16043
 glowing sphere~
 A glowing sphere~
@@ -2632,11 +2632,11 @@ weapon B AN
 mace 4 5 blast 0
 17 6 1000 P
 A
-19 4
+5 1
 A
 18 2
 A
-5 1
+19 4
 #16046
 drow chainmail~
 Black drow chainmail~
@@ -2646,9 +2646,9 @@ armor B AD
 AC AC AC 0 0
 16 5 120 P
 A
-13 4
-A
 2 1
+A
+13 4
 #16047
 drow sword~
 A drow sword~
@@ -2658,9 +2658,9 @@ weapon G AN
 sword 3 4 slice 0
 10 5 1200 P
 A
-19 1
-A
 18 1
+A
+19 1
 #16048
 drow dagger~
 A drow dagger~
@@ -2670,9 +2670,9 @@ weapon G AN
 dagger 3 3 pierce 0
 11 3 1200 P
 A
-19 1
-A
 18 2
+A
+19 1
 #16049
 drow mace~
 A drow mace~
@@ -2682,9 +2682,9 @@ weapon G AN
 mace 3 3 pound 0
 11 4 1200 P
 A
-19 2
-A
 18 1
+A
+19 2
 #16050
 duergar breastplate~
 Duergar breastplate~
@@ -2800,9 +2800,9 @@ armor G AF
 BC BC BC 0 0
 17 3 110 P
 A
-17 -5
-A
 1 1
+A
+17 -5
 #16063
 necklace nobility~
 Necklace of nobility~
@@ -2812,15 +2812,15 @@ armor G AC
 AC AC AC 0 P
 16 3 100 P
 A
-17 -4
-A
-5 1
-A
-4 -1
+1 1
 A
 3 -1
 A
-1 1
+4 -1
+A
+5 1
+A
+17 -4
 #16064
 broadsword vision~
 A broadsword named 'Vision'~
@@ -2830,13 +2830,13 @@ weapon AB AN
 sword 4 4 slice 0
 17 4 1000 P
 A
-19 2
-A
-18 2
+1 1
 A
 13 10
 A
-1 1
+18 2
+A
+19 2
 #16065
 thieve's patch~
 Thieve's patch~
@@ -2846,9 +2846,9 @@ armor F AM
 AC AC AC 0 0
 16 2 1000 P
 A
-18 5
-A
 2 2
+A
+18 5
 #16066
 thieve's gloves~
 Thieve's gloves~
@@ -2858,9 +2858,9 @@ armor G AH
 AC AC AC 0 0
 18 2 1100 P
 A
-18 3
-A
 2 2
+A
+18 3
 #16067
 gold chain~
 A gold chain~
@@ -2870,17 +2870,17 @@ armor G AC
 AC AC BC 0 0
 19 2 11 P
 A
-24 -2
-A
-23 -1
-A
-22 -2
-A
-21 -2
+18 1
 A
 20 -1
 A
-18 1
+21 -2
+A
+22 -2
+A
+23 -1
+A
+24 -2
 #16068
 lucky dice~
 Lucky dice~
@@ -2890,19 +2890,19 @@ treasure AG AO
 0 0 0 0 0
 20 2 1110 P
 A
-24 -1
-A
-23 -2
-A
-22 -1
-A
-21 -1
-A
-20 -1
+13 20
 A
 18 1
 A
-13 20
+20 -1
+A
+21 -1
+A
+22 -1
+A
+23 -2
+A
+24 -1
 #16069
 dark cloak~
 A dark cloak~
@@ -2912,11 +2912,11 @@ armor CG AC
 ABC BC BC 0 0
 23 3 1000 P
 A
-18 3
+2 2
 A
 17 -4
 A
-2 2
+18 3
 #16070
 golden earring~
 Golden earring~
@@ -2926,11 +2926,11 @@ armor G EFH
 D D D AC 0
 25 1 1000 P
 A
-13 10
+2 1
 A
 3 1
 A
-2 1
+13 10
 #16071
 jewelled dagger~
 A jewelled dagger~
@@ -2940,13 +2940,13 @@ weapon BG AN
 dagger 4 11 pierce D
 47 3 30000 P
 A
-19 2
-A
-18 8
+2 2
 A
 17 -5
 A
-2 2
+18 8
+A
+19 2
 #16072
 hand~
 A hand grasping an orb~
@@ -2956,9 +2956,9 @@ light AG AO
 0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 15 3 0 P
 A
-19 1
-A
 12 50
+A
+19 1
 #16073
 robe~
 A long flowing robe~
@@ -2968,9 +2968,9 @@ armor G AK
 ACD ACD ACD BC 0
 40 4 5000 P
 A
-3 2
-A
 12 50
+A
+3 2
 #16074
 blade of poison~
 A blade of poison~
@@ -2980,9 +2980,9 @@ weapon BCG AN
 dagger 4 5 pierce H
 20 3 100 P
 A
-19 3
-A
 18 1
+A
+19 3
 #16075
 assassin's sleeves~
 Assassin's sleeves~
@@ -2992,9 +2992,9 @@ armor CG AI
 BC BC ABC 0 0
 22 3 100 P
 A
-19 2
-A
 18 1
+A
+19 2
 #16076
 skull tattoo~
 Skull tattoo~
@@ -3004,9 +3004,9 @@ armor G AM
 0 0 0 0 0
 23 1 0 P
 A
-19 2
-A
 13 5
+A
+19 2
 #16077
 choke wire~
 A choke wire~
@@ -3016,9 +3016,9 @@ weapon BC AN
 exotic 5 5 crush 0
 25 1 0 P
 A
-19 4
-A
 18 -5
+A
+19 4
 #16078
 assassin's mask~
 An assassin's mask~
@@ -3028,11 +3028,11 @@ armor CG AE
 AD AD ABC AC 0
 27 3 100 P
 A
-13 20
+1 1
 A
 5 -1
 A
-1 1
+13 20
 #16079
 flaming dagger tattoo~
 Flaming dagger tattoo~
@@ -3052,9 +3052,9 @@ armor G AM
 ABC ABC ABC 0 0
 31 1 100 P
 A
-19 2
-A
 18 1
+A
+19 2
 #16081
 dragon tattoo~
 Dragon tattoo~
@@ -3064,9 +3064,9 @@ armor G AM
 ABE ABE ABE ABC 0
 46 1 100 P
 A
-19 5
-A
 18 5
+A
+19 5
 #16082
 diamond helm~
 A diamond helm~
@@ -3076,9 +3076,9 @@ armor G AE
 ABCD E ABCD D 0
 47 2 1000 P
 A
-19 3
-A
 13 25
+A
+19 3
 #16083
 keeper's shield~
 The keeper's shield~
@@ -3088,15 +3088,15 @@ armor G AJ
 E ABCD E D 0
 49 10 1000 P
 A
-23 -2
-A
-21 -2
-A
-20 -2
+13 50
 A
 17 -15
 A
-13 50
+20 -2
+A
+21 -2
+A
+23 -2
 #16084
 clan ring~
 A demon clan signet ring~
@@ -3106,11 +3106,11 @@ treasure ABEG AB
 0 0 0 0 0
 17 1 100 P
 A
-18 1
+12 10
 A
 13 15
 A
-12 10
+18 1
 #16085
 demon bracer~
 Demon bracer~
@@ -3130,11 +3130,11 @@ weapon BEGJ AN
 dagger 5 6 slash 0
 23 6 1000 P
 A
-19 3
+17 -5
 A
 18 3
 A
-17 -5
+19 3
 #16087
 gem gate~
 Gem of gate~
@@ -3152,9 +3152,9 @@ armor BEGJ AD
 BD BD BD C 0
 30 9 1000 P
 A
-19 2
-A
 17 -5
+A
+19 2
 #16089
 demon fire~
 Demon fire~
@@ -3164,9 +3164,9 @@ armor BEG AJ
 BCE CE CE CD 0
 37 5 1000 P
 A
-19 6
-A
 17 -15
+A
+19 6
 #16090
 fire gem~
 A fire gem~
@@ -3288,12 +3288,12 @@ The hallway continues east and west, there is a door to the north
 ~
 0 DN 1
 E
+door~
+The door is a well crafted wooden door~
+E
 statues~
 The statues are of many different creatures.  The most noticeable is that of
 a large beholder.~
-E
-door~
-The door is a well crafted wooden door~
 D0
 A door waits to be used
 ~
@@ -3417,13 +3417,13 @@ There is a door to the south
 ~
 0 DN 1
 E
-painting paintings~
-The paintings all depict unicorns and other mystical beasts.  They are
-painted in a soft flowing style.~
-E
 door~
 The door is a solid oak door
 ~
+E
+painting paintings~
+The paintings all depict unicorns and other mystical beasts.  They are
+painted in a soft flowing style.~
 D2
 A door waits to be used
 ~
@@ -3441,12 +3441,12 @@ The hallway continues north and south.  There is a door to the east
 ~
 0 DN 1
 E
-door~
-The door is made of oak~
-E
 statues~
 The statues are those of many different creatures.  Every creature you have
 ever seen has been made into a statue of pure solid grey marble.~
+E
+door~
+The door is made of oak~
 D0
 The hallway
 ~
@@ -3495,16 +3495,16 @@ The hallway goes north, there is a door to the east.
 ~
 0 DN 1
 E
-painting~
-The painting is a large gloved hand that is closed about a bunch of gold
-coins.  The glove is black and the background is purple.~
+door~
+The door is a regular wooden door~
 E
 statues~
 The statue in the south eastern corner is a large unicorn and the one in the
 south western corner is a large pegasus.~
 E
-door~
-The door is a regular wooden door~
+painting~
+The painting is a large gloved hand that is closed about a bunch of gold
+coins.  The glove is black and the background is purple.~
 D0
 The hallway
 ~
@@ -3527,11 +3527,11 @@ The sole exit is to the west
 ~
 0 DN 1
 E
-rug~
-The rug is a bearskin rug~
-E
 door~
 The door is a solid oaken door~
+E
+rug~
+The rug is a bearskin rug~
 D3
 A door waits to be used
 ~
@@ -3691,12 +3691,12 @@ The only way out is the door to the north
 ~
 0 ADN 1
 E
+door~
+The door is black and made out of a wood like substance.~
+E
 chest~
 The chest is locked and magically protected, there is no way in the known
 world that you could open it.~
-E
-door~
-The door is black and made out of a wood like substance.~
 D0
 A door stands before you
 ~
@@ -3763,12 +3763,12 @@ The sole exit is the door to the south
 ~
 0 ADN 1
 E
+door~
+The door is solid black.~
+E
 chest~
 The drawers are all filled with clothing, ranging from rich clothing to the
 simple fares of a peasant.~
-E
-door~
-The door is solid black.~
 D2
 A door is ready to be used
 ~
@@ -4158,17 +4158,17 @@ The sole exit is to the south
 ~
 0 ADN 1
 E
-words~
-The words read as follows
-
-      Speak the words and then the name, the game shall appear~
+door~
+The door is black~
 E
 window~
 This window is used to find their targets.  It is large and opaque at the
 moment.~
 E
-door~
-The door is black~
+words~
+The words read as follows
+
+      Speak the words and then the name, the game shall appear~
 D2
 A door blocks the way out
 ~
@@ -4306,13 +4306,13 @@ The hall continues east and south.  There is a door to the west
 ~
 0 ADN 1
 E
+door~
+The door has a face carved into it~
+E
 figure figures~
 The figures when you peer closely enough seem to be half human half
 ghoul.  The combination produces a frightening creature whom you would
 never want to meet in your mortal life.~
-E
-door~
-The door has a face carved into it~
 D1
 The large hall
 ~
@@ -4430,11 +4430,11 @@ There is a door to the north, south and west.
 ~
 0 ADN 1
 E
-cage~
-This is a solid iron door.~
-E
 door~
 The door is a sturdy wooden door~
+E
+cage~
+This is a solid iron door.~
 D0
 A door stands ready
 ~
@@ -4462,12 +4462,12 @@ The sole exit is the door to the east
 ~
 0 ADN 1
 E
+door~
+A sturdy wooden door~
+E
 panel~
 This panel looks as if it can slide out, you test it and see that there is a bed
 behind it, you figure that the keeper must also sleep in this room.~
-E
-door~
-A sturdy wooden door~
 D1
 A door waits to be used
 ~
@@ -5755,10 +5755,6 @@ There are no exits from Silence's Chamber.
 ~
 0 D 1
 E
-mirror~
-The mirror offers a view of the world, constantly changing with such
-complexity that only a god could understand what is being shown. ~
-E
 map~
 The map sits against the north wall.  It is a rough sketch of the Underdark,
 showing only the lay out of the streets.  It looks as follows. 
@@ -5790,6 +5786,10 @@ Well once it looked as follows :)
    #########################################*#########
                                            #-#
 ~
+E
+mirror~
+The mirror offers a view of the world, constantly changing with such
+complexity that only a god could understand what is being shown. ~
 D0
 ~
 map~
@@ -5797,7 +5797,7 @@ map~
 D4
 ~
 ceiling~
-1 -1 4025
+0 -1 4025
 D5
 ~
 floor~
@@ -8003,17 +8003,17 @@ the Slaver's route and farther down, the market area.
 ~
 0 ADN 1
 E
-door entrance~
-An enormous door that is covered with arcane symbols.  There seem to be
-scratch marks on the door.  You wonder if the warning about being unable
-to recall from this place is true...
-~
-E
 floating orbs orb light~
 A small glowing orb of light is floating a few feet above your head.  The
 orb gives out a dim light that barely illuminates everything around you. 
 These orbs seem to be along all the streets in the Underdark.  The orb
 itself is about 4 inches wide and is spherical.
+~
+E
+door entrance~
+An enormous door that is covered with arcane symbols.  There seem to be
+scratch marks on the door.  You wonder if the warning about being unable
+to recall from this place is true...
 ~
 D0
 Sunrise
@@ -8171,16 +8171,16 @@ To the north is the Slaver's route, east and south lies the square
 ~
 0 ADN 1
 E
+stocks~
+You see before the symbol of pure oppression.  Blood stained and well
+used, it stands empty but not for long.
+~
+E
 guillotine~
 This is the guillotine, it is used to dispose of the mischievous slaves who
 for some mistaken reason thought they were actually free to do what they
 wanted.  The blade is rusted with dried up blood.  A faint aroma or death
 emanates from the basket that holds the heads of the chopped bodies. ~
-E
-stocks~
-You see before the symbol of pure oppression.  Blood stained and well
-used, it stands empty but not for long.
-~
 D0
 The slaver's route
 ~
@@ -8260,7 +8260,7 @@ D3
 The door to the slave market
 ~
 door~
-1 -1 16319
+0 -1 16319
 S
 #16101
 The slave's square~
@@ -8337,16 +8337,16 @@ North and west sunrise goes on.  South is the entrance to the cages.
 ~
 0 ADN 1
 E
+door~
+A huge oaken door stands in your way.  Emblazed on it is sketch of an iron
+cage containing many weird and exotic creatures.
+~
+E
 floating orbs orb light~
 A small glowing orb of light is floating a few feet above your head.  The
 orb gives out a dim light that barely illuminates everything around you. 
 These orbs seem to be along all the streets in the Underdark.  The orb
 itself is about 4 inches wide and is spherical.
-~
-E
-door~
-A huge oaken door stands in your way.  Emblazed on it is sketch of an iron
-cage containing many weird and exotic creatures.
 ~
 D0
 Sunrise
@@ -8486,6 +8486,17 @@ To the North lies an entrance to a house, east the street goes onwards
 ~
 0 ADN 1
 E
+door~
+The regular looking door, decorated with the symbol of Silence. ~
+E
+statue githzerai~
+The githzerai is humanoid.  Dressed in a monastic robe there is a sense of
+power that flows from his pose.  The githzerai are a race of humanoids that
+were enslaved by the mind flayers, there they were scarred for all eternity.
+The githzerai is human in height and weight.  Most githzerai are strong,
+and very capable with mental powers.  This statue is very lifelike, and it's
+eyes seem to glow in the weird lighting of the orb.~
+E
 statue silence~
 This is a statue of the god of agility and speed.  He is dressed totally in a
 black ninja outfit.  In one hand he wields a tiger's claw the other hand
@@ -8499,17 +8510,6 @@ You take one final look at this impressive almost life like representation of
 Silence and notice that it's eyes glow purple and seem to be watching your
 every move.
 ~
-E
-statue githzerai~
-The githzerai is humanoid.  Dressed in a monastic robe there is a sense of
-power that flows from his pose.  The githzerai are a race of humanoids that
-were enslaved by the mind flayers, there they were scarred for all eternity.
-The githzerai is human in height and weight.  Most githzerai are strong,
-and very capable with mental powers.  This statue is very lifelike, and it's
-eyes seem to glow in the weird lighting of the orb.~
-E
-door~
-The regular looking door, decorated with the symbol of Silence. ~
 D0
 A door blocks the way into the home
 ~
@@ -8531,14 +8531,14 @@ The street continues east and west, to the north is a door to a home
 ~
 0 AD 1
 E
+door~
+A regular looking door with a huge symbol of Snikt emblazed onto it.~
+E
 statue alien~
 This is a statue of the queen alien.  The queen is a true monstrosity with
 triple jaws, a bony, black head frill, and a spike on her tail about the size
 of your thigh.  She seems to be deep in meditation.
 ~
-E
-door~
-A regular looking door with a huge symbol of Snikt emblazed onto it.~
 D0
 A doorway to a house
 ~
@@ -8568,9 +8568,6 @@ home.  South Sunset goes on.
 ~
 0 ADN 1
 E
-door~
-A plain and simple door, with the symbol of Ironhand engraved into it.~
-E
 symbols ground~
 The symbols are as follows.  They stand out because they glow in a deep
 blue and seem to pulsate.
@@ -8586,6 +8583,9 @@ The go on, but you can't make much sense of them.  Obviously Ironhand
 was way beyond this mortal world and was involved in the workings of the
 world.
 ~
+E
+door~
+A plain and simple door, with the symbol of Ironhand engraved into it.~
 D0
 A door to a home
 ~
@@ -8619,6 +8619,11 @@ the south is the entrance to the darkened root.
 ~
 0 ADN 1
 E
+statue martial artist~
+Before you stands a statue of a martial artist.  He is dressed in long robes
+and holds his hands up in a defensive posture.
+~
+E
 arcane symbols street~
 The following has been engraved into the ground with great care. 
 bool spec_kungfu_poison( CHAR_DATA *ch )
@@ -8633,11 +8638,6 @@ bool spec_kungfu_poison( CHAR_DATA *ch )
 And it goes on, but you can't make much sense of it.  Strahd is one of the
 true gods of merc, knowing enough to alter the very fabric of the mortal
 realms.
-~
-E
-statue martial artist~
-Before you stands a statue of a martial artist.  He is dressed in long robes
-and holds his hands up in a defensive posture.
 ~
 D0
 The gathering place
@@ -8674,15 +8674,15 @@ the south is the entrance to the Sparkling Jewel
 ~
 0 AD 1
 E
-statue monkey~
-Before you stands a statue of a monkey.  The monkey looks like a cute
-little bugger with very sharp little teeth.
-~
-E
 list~
 A list floats above the ground showing off all of Lenny's creations.  These
 creations include his marvellous house, Gilligan's island and Sesame
 street.  Each of the creations being truly unique.
+~
+E
+statue monkey~
+Before you stands a statue of a monkey.  The monkey looks like a cute
+little bugger with very sharp little teeth.
 ~
 D0
 The gathering place
@@ -8797,6 +8797,9 @@ market, and south is Jasper avenue
 ~
 0 ADN 1
 E
+door~
+A simple wooden door, with a guillotine engraved into it~
+E
 arcane mystic road symbols~
 The following symbols rest on the road here.
 
@@ -8811,14 +8814,11 @@ The following symbols rest on the road here.
 
 The presence of Raptor can be felt keenly in Farside
 ~
-E
-door~
-A simple wooden door, with a guillotine engraved into it~
 D0
 A door blocks your entry to the slave's market
 ~
 door~
-1 -1 16319
+0 -1 16319
 D1
 The street of the gods
 ~
@@ -8849,6 +8849,12 @@ the entrance to Shadow's Shadow (a tavern)
 ~
 0 ADN 1
 E
+door~
+A well built oaken door.  On the door is an engraving of a person walking. 
+Behind and below the person is his shadow, and beyond this is yet another
+shadow.
+~
+E
 symbols ground~
 The follow has been carefully written into the ground.
 
@@ -8868,12 +8874,6 @@ written.
 All praises go out to RoX
 
 ~
-E
-door~
-A well built oaken door.  On the door is an engraving of a person walking. 
-Behind and below the person is his shadow, and beyond this is yet another
-shadow.
-~
 D0
 The slave's square
 ~
@@ -8888,7 +8888,7 @@ D2
 The door to Shadow's Shadow
 ~
 door~
-1 -1 16348
+0 -1 16348
 D3
 The street of the gods
 ~
@@ -9078,6 +9078,10 @@ Sunset
 ~
 ~
 0 -1 16125
+D3
+~
+~
+1 0 16361
 S
 #16125
 Sunset~
@@ -10653,18 +10657,18 @@ Death's lane goes on to the north
 ~
 0 AD 1
 E
+wall~
+This is the cavern wall. It is wet and glistens in your light source.  On the
+ground there seem to be footsteps that go right up to the cavern wall. 
+Once you realise this, you look at the wall more carefully.  You now notice
+that there seems to be a rock that could act like a door handle.. ~
+E
 floating orbs orb light~
 A small glowing orb of light is floating a few feet above your head.  The
 orb gives out a dim light that barely illuminates everything around you. 
 These orbs seem to be along all the streets in the Underdark.  The orb
 itself is about 4 inches wide and is spherical.
 ~
-E
-wall~
-This is the cavern wall. It is wet and glistens in your light source.  On the
-ground there seem to be footsteps that go right up to the cavern wall. 
-Once you realise this, you look at the wall more carefully.  You now notice
-that there seems to be a rock that could act like a door handle.. ~
 D0
 Death's lane
 ~
@@ -10710,18 +10714,18 @@ Traveller's crescent goes east and south
 ~
 0 D 1
 E
+wall~
+The cavern wall looms above you to the west.  The wall is covered with
+water that glistens in your light.  Fascinated you look at the reflected light
+and notice that there seems to be an outline of a door on the wall.  You
+look carefully and you are rewarded with a handle to this door. ~
+E
 floating orbs orb light~
 A small glowing orb of light is floating a few feet above your head.  The
 orb gives out a dim light that barely illuminates everything around you. 
 These orbs seem to be along all the streets in the Underdark.  The orb
 itself is about 4 inches wide and is spherical.
 ~
-E
-wall~
-The cavern wall looms above you to the west.  The wall is covered with
-water that glistens in your light.  Fascinated you look at the reflected light
-and notice that there seems to be an outline of a door on the wall.  You
-look carefully and you are rewarded with a handle to this door. ~
 D1
 Traveller's crescent
 ~
@@ -11372,11 +11376,6 @@ A huge door stands to the west, the way to the surface is up.
 ~
 0 AD 1
 E
-door~
-This door is just incredible in it's size, ten people can easily walk through
-it at a time.  The door is made of steel and glint dully in the light. 
-Although huge, the door is well oiled and will open smoothly. ~
-E
 markings wall~
 The following has been scratched into the wall:
 
@@ -11390,6 +11389,11 @@ code is enforced by huge floating eyes.
 Good luck,
           Silence
 ~
+E
+door~
+This door is just incredible in it's size, ten people can easily walk through
+it at a time.  The door is made of steel and glint dully in the light. 
+Although huge, the door is well oiled and will open smoothly. ~
 D3
 A huge door blocks your way into the Underdark.
 ~
@@ -11414,11 +11418,10 @@ The hall delves further into the house to the north.  South is the door
 ~
 0 ADN 1
 E
-door~
-The door is large with no obvious handle.  All you have to do to open this
-door is push on it.  There is a round hole high up on it that you can look
-out onto to the street with.
-~
+fur skin~
+The fur of this skin is a very dark red, so dark that it seems black.  The fur
+is soft and very smooth.  You have no idea as to what animal has this
+colour and texture of fur.  Certainly nothing on the surface. ~
 E
 closet~
 This is a spacious closet, with hooks and hangers to clothing.  There are
@@ -11427,10 +11430,11 @@ closet are a series of small nails, you realise these provide a place for
 weapons.  The closet is currently empty.
 ~
 E
-fur skin~
-The fur of this skin is a very dark red, so dark that it seems black.  The fur
-is soft and very smooth.  You have no idea as to what animal has this
-colour and texture of fur.  Certainly nothing on the surface. ~
+door~
+The door is large with no obvious handle.  All you have to do to open this
+door is push on it.  There is a round hole high up on it that you can look
+out onto to the street with.
+~
 D0
 The hall goes on
 ~
@@ -12021,12 +12025,12 @@ as if it can be opened.  South is a small door.
 ~
 0 ADN 1
 E
-panel~
-A panel on the west wall looks as if it can easily be moved. ~
-E
 door~
 This is a small wooden door
 ~
+E
+panel~
+A panel on the west wall looks as if it can easily be moved. ~
 D0
 The main passage of the warehouse
 ~
@@ -12452,14 +12456,14 @@ A door stands to the north.
 ~
 0 AD 1
 E
-door~
-This door is just a very old door that is made of oak.
-~
-E
 desk~
 The desk is very old and you are afraid to touch it lest it fall apart.  The
 surface of the desk has all sort of scratch marks and there seems to be
 teeth marks on one of the legs.
+~
+E
+door~
+This door is just a very old door that is made of oak.
 ~
 D0
 A door stands here
@@ -12549,13 +12553,13 @@ The door to the rec room is to the east
 ~
 0 ADN 1
 E
-hole~
-This is the hole where people used to deposit their waste.  It no longer
-smells, and you thankfully can't see the bottom. ~
-E
 door~
 The door is just your typical door.
 ~
+E
+hole~
+This is the hole where people used to deposit their waste.  It no longer
+smells, and you thankfully can't see the bottom. ~
 D1
 A door stands here
 ~
@@ -13168,15 +13172,15 @@ The sole exit is the door to the west.
 ~
 0 DN 1
 E
+door~
+The door is a simple wooden door.~
+E
 sign~
 The sign reads as follows:
 
      This building should only be entered if you are over 18 years              
           of age.  All minors shall be persecuted.
 ~
-E
-door~
-The door is a simple wooden door.~
 D3
 The door stands ready to be used
 ~
@@ -13619,11 +13623,11 @@ by going east or south and west goes further into this building
 ~
 0 ADN 1
 E
-door~
-The door is huge and made of oak~
-E
 bars~
 These bars have the shape of a door in them~
+E
+door~
+The door is huge and made of oak~
 D0
 The bars can be opened like a door
 ~
@@ -13633,12 +13637,12 @@ D1
 A door waits to be used
 ~
 door~
-1 -1 16100
+0 -1 16100
 D2
 A door waits to be used
 ~
 door~
-1 -1 16116
+0 -1 16116
 D3
 The slave hall goes on
 ~
@@ -13815,14 +13819,14 @@ A door exits north, a prison cell is east, the hall continues south and west.
 ~
 0 DN 1
 E
+door~
+This door is huge and has no handle on it.  The door is large enough to
+allow the spherical bodies of the guardian eyes to pass freely. ~
+E
 barred door~
 This is the prison door.  It is made of bars like the rest of the way into this
 prison cell
 ~
-E
-door~
-This door is huge and has no handle on it.  The door is large enough to
-allow the spherical bodies of the guardian eyes to pass freely. ~
 D0
 A huge door that has no handle leads out
 ~
@@ -13928,13 +13932,13 @@ The sole exit is the door to the west.
 ~
 0 ADJN 1
 E
-hole~
-This is hole is used for bodily functions.  You can detect the putrid smell
-of raw faeces coming from the hole.~
-E
 door~
 The door is made of solid iron.  You strain against it and it finally gives
 way after placing your entire weight and strength against it.~
+E
+hole~
+This is hole is used for bodily functions.  You can detect the putrid smell
+of raw faeces coming from the hole.~
 D3
 The prison door
 ~
@@ -13951,13 +13955,13 @@ The sole exit is the door to the east
 ~
 0 ADJN 1
 E
-hole~
-This is hole is used for bodily functions.  You can detect the putrid smell
-of raw faeces coming from the hole.~
-E
 door~
 The door is made of solid iron.  You strain against it and it finally gives
 way after placing your entire weight and strength against it.~
+E
+hole~
+This is hole is used for bodily functions.  You can detect the putrid smell
+of raw faeces coming from the hole.~
 D1
 The prison door
 ~
@@ -14011,13 +14015,13 @@ The sole exit is the door to the east
 ~
 0 ADJN 1
 E
-hole~
-This is hole is used for bodily functions.  You can detect the putrid smell
-of raw faeces coming from the hole.~
-E
 door~
 The door is made of solid iron.  You strain against it and it finally gives
 way after placing your entire weight and strength against it.~
+E
+hole~
+This is hole is used for bodily functions.  You can detect the putrid smell
+of raw faeces coming from the hole.~
 D1
 The prison door
 ~
@@ -14034,13 +14038,13 @@ The sole exit is the door to the west
 ~
 0 ADJN 1
 E
-hole~
-This is hole is used for bodily functions.  You can detect the putrid smell
-of raw faeces coming from the hole.~
-E
 door~
 The door is made of solid iron.  You strain against it and it finally gives
 way after placing your entire weight and strength against it.~
+E
+hole~
+This is hole is used for bodily functions.  You can detect the putrid smell
+of raw faeces coming from the hole.~
 D3
 The prison door
 ~
@@ -14094,13 +14098,13 @@ and west the hall continues.
 ~
 0 ADN 1
 E
-prison~
-The prison door is made completely of iron.  The door is about four inches
-thick and looks as if nothing could even dent it.~
-E
 door~
 This door is huge and has no handle, it allows the enforcer eyes to come in
 and out of the building without a problem.~
+E
+prison~
+The prison door is made completely of iron.  The door is about four inches
+thick and looks as if nothing could even dent it.~
 D1
 The entrance door
 ~
@@ -14130,14 +14134,14 @@ the Underdark is west.
 ~
 0 ADN 1
 E
+prison~
+This door is built completely of iron.  It is huge and very very hard to
+budge.~
+E
 door~
 The entrance door is huge.  The door has no handle and to open it all you
 have to do is push it open.
 ~
-E
-prison~
-This door is built completely of iron.  It is huge and very very hard to
-budge.~
 D1
 The prison hall
 ~
@@ -14164,13 +14168,13 @@ The sole exit is the door to the north
 ~
 0 ADJN 1
 E
-hole~
-This is hole is used for bodily functions.  You can detect the putrid smell
-of raw faeces coming from the hole.~
-E
 door~
 The door is made of solid iron.  You strain against it and it finally gives
 way after placing your entire weight and strength against it.~
+E
+hole~
+This is hole is used for bodily functions.  You can detect the putrid smell
+of raw faeces coming from the hole.~
 D0
 The prison door
 ~
@@ -14187,13 +14191,13 @@ The sole exit is the door to the north
 ~
 0 ADJN 1
 E
-hole~
-This is hole is used for bodily functions.  You can detect the putrid smell
-of raw faeces coming from the hole.~
-E
 door~
 The door is made of solid iron.  You strain against it and it finally gives
 way after placing your entire weight and strength against it.~
+E
+hole~
+This is hole is used for bodily functions.  You can detect the putrid smell
+of raw faeces coming from the hole.~
 D0
 The prison door
 ~
@@ -14210,13 +14214,13 @@ The sole exit is the door to the north
 ~
 0 ADJN 1
 E
-hole~
-This is hole is used for bodily functions.  You can detect the putrid smell
-of raw faeces coming from the hole.~
-E
 door~
 The door is made of solid iron.  You strain against it and it finally gives
 way after placing your entire weight and strength against it.~
+E
+hole~
+This is hole is used for bodily functions.  You can detect the putrid smell
+of raw faeces coming from the hole.~
 D0
 The prison door
 ~
@@ -14264,13 +14268,13 @@ The sole exit is through the door to the north
 ~
 0 ADLN 1
 E
-hole~
-This is hole is used for bodily functions.  You can detect the putrid smell
-of raw faeces coming from the hole.~
-E
 door~
 The door is made of solid iron.  You strain against it and it finally gives
 way after placing your entire weight and strength against it.~
+E
+hole~
+This is hole is used for bodily functions.  You can detect the putrid smell
+of raw faeces coming from the hole.~
 D0
 The prison door
 ~
@@ -14316,13 +14320,13 @@ The sole exit is the door to the north
 ~
 0 ADJN 1
 E
-hole~
-This is hole is used for bodily functions.  You can detect the putrid smell
-of raw faeces coming from the hole.~
-E
 door~
 The door is made of solid iron.  You strain against it and it finally gives
 way after placing your entire weight and strength against it.~
+E
+hole~
+This is hole is used for bodily functions.  You can detect the putrid smell
+of raw faeces coming from the hole.~
 D0
 The prison door
 ~
@@ -14391,7 +14395,7 @@ D0
 The door out
 ~
 door~
-1 -1 16117
+0 -1 16117
 D2
 The tavern entrance hall
 ~
@@ -14668,10 +14672,9 @@ E
 door~
 The door is short and made of oak reinforced with bands of iron. ~
 D1
-The door out waits to be used
 ~
-door~
-1 -1 16124
+~
+1 0 16124
 D3
 The hallway
 ~
@@ -14788,12 +14791,12 @@ The sole exit is the door to the west
 ~
 0 ADN 1
 E
-rug~
-The rug is that of a bear, the fur is dark brown and clean. ~
-E
 door~
 The door is small and stout
 ~
+E
+rug~
+The rug is that of a bear, the fur is dark brown and clean. ~
 D3
 A door
 ~
@@ -14855,12 +14858,12 @@ The hall continues to the south, there are doors east and west
 ~
 0 DN 1
 E
-door~
-The door is a beautiful oak door
-~
-E
 exit~
 The exit door is huge and well built.  There is little else to say about it
+~
+E
+door~
+The door is a beautiful oak door
 ~
 D0
 The exit to the city
@@ -14987,18 +14990,18 @@ Door lie north and south, the hallway continues east
 ~
 0 DN 1
 E
-mural~
-Looking closely at this mural you notice the faint outline of a door where
-the gate has been painted, then you notice that the gate's handle looks
-real.~
+door~
+The door is a solid oaken door~
 E
 hand~
 The hand is the amputated hand of some prince that the thieves collected
 while robbing his palace, they cut off his hand so he would always
 remember the thieve's guild.~
 E
-door~
-The door is a solid oaken door~
+mural~
+Looking closely at this mural you notice the faint outline of a door where
+the gate has been painted, then you notice that the gate's handle looks
+real.~
 D0
 A door
 ~
@@ -15411,6 +15414,7 @@ D 0 16108 0 1	* Street of the Gods, Silence: door to the north: closed
 D 0 16109 0 1	* Street of the Gods, Snikt: door to the north: closed
 D 0 16110 0 1	* Street of the Gods, Ironhand: door to the north: closed
 D 0 16122 1 1	* Street of the Gods, Varcel, before the prisons: door to the east: closed
+D 0 16124 3 1	* Sunset: door to the west: closed
 D 0 16137 2 1	* Road Of Shadows: door to the south: closed
 D 0 16159 3 1	* Dark Entrance Way: door to the west: closed
 D 0 16167 3 1	* The Forgotten Alley: door to the west: closed
@@ -15528,6 +15532,7 @@ D 0 16346 2 1	* The end of the prison hallway: door to the south: closed
 D 0 16347 0 1	* Chamber of the Beholder: door to the north: closed
 D 0 16354 3 1	* Dining Area: door to the west: closed
 D 0 16355 1 1	* Washroom of the Shadow's Shadow: door to the east: closed
+D 0 16361 1 1	* Foyer of Svirfneblin Embassy: door to the east: closed
 D 0 16363 1 1	* Svirfneblin Hallway: door to the east: closed
 D 0 16364 3 1	* Svirfneblin Chamber: door to the west: closed
 D 0 16365 1 1	* Svirfneblin Hallway: door to the east: closed
