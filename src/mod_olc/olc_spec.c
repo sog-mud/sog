@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_spec.c,v 1.10 2001-06-25 16:51:24 fjoe Exp $
+ * $Id: olc_spec.c,v 1.11 2001-07-08 17:22:00 fjoe Exp $
  */
 
 #include "olc.h"
@@ -349,11 +349,13 @@ save_spec_cb(void *p, va_list ap)
 	REMOVE_BIT(s->spec_flags, SPF_CHANGED);
 
 	fprintf(fp, "#SPEC\n");
-	fprintf(fp, "Name %s~\n", s->spec_name);
+	fwrite_string(fp, "Name", s->spec_name);
 	fprintf(fp, "Class %s\n", flag_string(spec_classes, s->spec_class));
-	if (s->spec_flags)
+	fwrite_string(fp, "Trigger", s->trigger);
+	if (s->spec_flags) {
 		fprintf(fp, "Flags %s~\n",
 				flag_string(spec_flags, s->spec_flags));
+	}
 	fprintf(fp, "End\n");
 #if 0
 	XXX
