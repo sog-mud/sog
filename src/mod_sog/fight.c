@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.154 1999-03-19 12:34:22 kostik Exp $
+ * $Id: fight.c,v 1.155 1999-04-05 11:38:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -340,6 +340,7 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 			 ch, NULL, victim, TO_VICT, POS_FIGHTING);
 		act_puts("$n seems to be stunned.",
 			 ch, NULL, victim, TO_NOTVICT, POS_FIGHTING);
+		REMOVE_BIT(ch->affected_by, AFF_STUN);
 		affect_bit_strip(ch, TO_AFFECTS, AFF_STUN);
 		SET_BIT(ch->affected_by, AFF_WEAK_STUN);
 		return;
@@ -1208,12 +1209,6 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 		 * Certain attacks are forbidden.
 		 * Most other attacks are returned.
 		 */
-
-#if 0
-		if (cant_kill(ch, victim, F_QUIET))
-			return FALSE;
-#endif
-
 		if (victim->position > POS_STUNNED) {
 			if (victim->fighting == NULL) {
 				set_fighting(victim, ch);
@@ -1391,8 +1386,8 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	/*
 	 * Sleep spells and extremely wounded folks.
 	 */
-	if (!IS_AWAKE(victim))
-		stop_fighting(victim, FALSE);
+	if (!IS_AWAKE(victim) && victim->fighting)
+		victim->fighting = NULL;
 
 	/*
 	 * Payoff for killing things.
@@ -1444,7 +1439,8 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	return TRUE;
 }
 
-bool cant_kill(CHAR_DATA *ch, CHAR_DATA *victim)
+static bool inline
+is_safe_raw(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	/*
 	 * ghosts are safe
@@ -1454,11 +1450,23 @@ bool cant_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 	 * extracted NPCs are safe too
 	 */
 	if (!IS_NPC(victim)) {
-		if (IS_SET(victim->plr_flags, PLR_GHOST))
-			return TRUE;
+		int clan;
+
+		/* ghost cannot attack anyone */
 		if (ch != victim
 		&&  !IS_NPC(ch)
 		&&  IS_SET(ch->plr_flags, PLR_GHOST))
+			return TRUE;
+
+		/* clan defenders can attack anyone in their clan */
+		if (victim->in_room
+		&&  (clan = victim->in_room->area->clan)
+		&&  victim->clan != clan
+		&&  ch->clan == clan)
+			return FALSE;
+
+		/* otherwise ghosts are safe */
+		if (IS_SET(victim->plr_flags, PLR_GHOST))
 			return TRUE;
 	}
 	else if (victim->extracted)
@@ -1470,10 +1478,8 @@ bool cant_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 		return FALSE;
 
 	/* handle ROOM_PEACE flags */
-	if ((victim->in_room &&
-	     IS_SET(victim->in_room->room_flags, ROOM_PEACE))
-	||  (ch->in_room &&
-	     IS_SET(ch->in_room->room_flags, ROOM_PEACE)))
+	if ((victim->in_room && IS_SET(victim->in_room->room_flags, ROOM_PEACE))
+	||  (ch->in_room && IS_SET(ch->in_room->room_flags, ROOM_PEACE)))
 		return TRUE;
 
 	/* link dead players whose adrenalin is not gushing are safe */
@@ -1483,6 +1489,12 @@ bool cant_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 	return !in_PK(ch, victim);
 }
 
+/*
+ * generic safe-checking function wrapper
+ *
+ * all the checks are done is_safe_raw to properly strip PLR_GHOST
+ * flag if victim is not safe. add you checks there
+ */
 bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	bool safe;
@@ -1502,13 +1514,7 @@ bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 	if ((mount = RIDDEN(victim)))
 		return is_safe_nomessage(ch, mount);
 
-	if (victim->in_room != NULL 
-		&& victim->in_room->area->clan != 0
-		&& victim->clan != victim->in_room->area->clan
-		&& ch->clan == victim->in_room->area->clan)
-		return FALSE;
-
-	if ((safe = cant_kill(ch, victim)) || IS_NPC(ch))
+	if ((safe = is_safe_raw(ch, victim)) || IS_NPC(ch))
 		return safe;
 
 	if (victim != ch && IS_SET(ch->plr_flags, PLR_GHOST)) {
@@ -1820,8 +1826,14 @@ bool check_dodge(CHAR_DATA *ch, CHAR_DATA *victim)
 void update_pos(CHAR_DATA *victim)
 {
 	if (victim->hit > 0) {
-		if (victim->position <= POS_STUNNED)
+		if (victim->position <= POS_STUNNED) {
+			if (IS_AFFECTED(victim, AFF_SLEEP)) {
+				REMOVE_BIT(victim->affected_by, AFF_SLEEP);
+				affect_bit_strip(victim, TO_AFFECTS, AFF_SLEEP);
+			}
+
 			victim->position = POS_STANDING;
+		}
 		return;
 	}
 
@@ -1853,11 +1865,20 @@ void set_fighting(CHAR_DATA *ch, CHAR_DATA *victim)
 		return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_SLEEP))
+	if (IS_AFFECTED(ch, AFF_SLEEP)) {
+		REMOVE_BIT(ch->affected_by, AFF_SLEEP);
 		affect_bit_strip(ch, TO_AFFECTS, AFF_SLEEP);
+	}
 
 	ch->fighting = victim;
 	ch->position = POS_FIGHTING;
+}
+
+static void STOP_FIGHTING(CHAR_DATA *ch)
+{
+	ch->fighting = NULL;
+	ch->position = IS_NPC(ch) ? ch->default_pos : POS_STANDING;
+	update_pos(ch);
 }
 
 /*
@@ -1867,13 +1888,13 @@ void stop_fighting(CHAR_DATA *ch, bool fBoth)
 {
 	CHAR_DATA *fch;
 
+	STOP_FIGHTING(ch);
+	if (!fBoth)
+		return;
+
 	for (fch = char_list; fch; fch = fch->next) {
-		if (fch == ch || (fBoth && fch->fighting == ch)) {
-			fch->fighting = NULL;
-			fch->position = IS_NPC(fch) ? ch->default_pos :
-						      POS_STANDING;
-			update_pos(fch);
-		}
+		if (fch->fighting == ch)
+			STOP_FIGHTING(fch);
 	}
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.138 1999-03-27 06:43:01 kostik Exp $
+ * $Id: spellfun.c,v 1.139 1999-04-05 11:38:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -935,7 +935,6 @@ void spell_calm(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 				return;
 
 			char_puts("A wave of calm passes over you.\n", vch);
-
 			if (vch->fighting || vch->position == POS_FIGHTING)
 				stop_fighting(vch, FALSE);
 
