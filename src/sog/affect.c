@@ -1,5 +1,5 @@
 /*
- * $Id: affect.c,v 1.20 1999-12-16 11:38:39 kostik Exp $
+ * $Id: affect.c,v 1.21 1999-12-17 09:00:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -355,8 +355,7 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 	if (!IS_NPC(ch)
 	&&  ch->in_room != NULL
 	&&  (wield = get_eq_char(ch, WEAR_WIELD)) != NULL
-	&&  get_obj_weight(wield) > (str_app[get_curr_stat(ch,STAT_STR)].wield*10))
-	{
+	&&  get_obj_weight(wield) > str_app[get_curr_stat(ch,STAT_STR)].wield) {
 		static int depth;
 
 		if (depth == 0) {

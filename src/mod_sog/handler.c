@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.219 1999-12-16 11:38:40 kostik Exp $
+ * $Id: handler.c,v 1.220 1999-12-17 09:00:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -146,7 +146,7 @@ int can_carry_w(CHAR_DATA *ch)
 			return -1;
 	}
 
-	return str_app[get_curr_stat(ch,STAT_STR)].carry * 10 + ch->level * 25;
+	return str_app[get_curr_stat(ch,STAT_STR)].carry + ch->level * 25;
 }
 
 /*
@@ -1988,7 +1988,7 @@ void format_obj(BUFFER *output, OBJ_DATA *obj)
 		obj->name,
 		flag_string(item_types, obj->pObjIndex->item_type),
 		flag_string(stat_flags, obj->stat_flags & ~ITEM_ENCHANTED),
-		obj->weight / 10,
+		obj->weight,
 		obj->cost,
 		obj->level);
 
@@ -3909,7 +3909,7 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 
 		if (!IS_NPC(ch)
 		&& get_obj_weight(obj) >
-			  str_app[get_curr_stat(ch, STAT_STR)].wield * 10) {
+			  str_app[get_curr_stat(ch, STAT_STR)].wield) {
 			char_puts("It is too heavy for you to wield.\n", ch);
 			if (dual)
 				equip_char(ch, dual, WEAR_SECOND_WIELD);
