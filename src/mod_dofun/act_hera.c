@@ -1,5 +1,5 @@
 /*
- * $Id: act_hera.c,v 1.22 1998-06-21 11:38:36 fjoe Exp $
+ * $Id: act_hera.c,v 1.23 1998-06-24 02:42:22 efdi Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,7 @@
 ***************************************************************************/
 
 /*
- * $Id: act_hera.c,v 1.22 1998-06-21 11:38:36 fjoe Exp $
+ * $Id: act_hera.c,v 1.23 1998-06-24 02:42:22 efdi Exp $
  */
 #include <sys/types.h>
 #include <sys/time.h>
@@ -1226,15 +1226,15 @@ void check_weapon_destroy(CHAR_DATA *ch, CHAR_DATA *victim,bool second)
 
  if (!second)
 	{
-	 if ((wield = get_eq_char(ch,WEAR_WIELD)) == NULL)
+	 if ((wield = get_eq_char(ch, WEAR_WIELD)) == NULL)
 	 return;
- 	 sn = get_weapon_sn(ch);
+ 	 sn = get_weapon_sn(ch, WEAR_WIELD);
  	 skill = get_skill(ch, sn);
 	}
   else  {
 	 if ((wield = get_eq_char(ch,WEAR_SECOND_WIELD)) == NULL)
 	 return;
- 	 sn = get_second_sn(ch);
+ 	 sn = get_weapon_sn(ch, WEAR_SECOND_WIELD);
  	 skill = get_skill(ch, sn);
 	}
  if (is_metal(wield))
@@ -1550,13 +1550,13 @@ void check_shield_destroyed(CHAR_DATA *ch, CHAR_DATA *victim,bool second)
 	{
 	 if ((wield = get_eq_char(ch,WEAR_WIELD)) == NULL)
 	 return;
- 	 sn = get_weapon_sn(ch);
+ 	 sn = get_weapon_sn(ch, WEAR_WIELD);
  	 skill = get_skill(ch, sn);
 	}
   else  {
 	 if ((wield = get_eq_char(ch,WEAR_SECOND_WIELD)) == NULL)
 	 return;
- 	 sn = get_second_sn(ch);
+ 	 sn = get_weapon_sn(ch, WEAR_SECOND_WIELD);
  	 skill = get_skill(ch, sn);
 	}
 
@@ -1653,13 +1653,13 @@ void check_weapon_destroyed(CHAR_DATA *ch, CHAR_DATA *victim,bool second)
 	{
 	 if ((wield = get_eq_char(ch,WEAR_WIELD)) == NULL)
 	 return;
- 	 sn = get_weapon_sn(ch);
+ 	 sn = get_weapon_sn(ch, WEAR_WIELD);
  	 skill = get_skill(ch, sn);
 	}
   else  {
 	 if ((wield = get_eq_char(ch,WEAR_SECOND_WIELD)) == NULL)
 	 return;
- 	 sn = get_second_sn(ch);
+ 	 sn = get_weapon_sn(ch, WEAR_SECOND_WIELD);
  	 skill = get_skill(ch, sn);
 	}
 

@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.36 1998-06-23 22:29:51 efdi Exp $
+ * $Id: merc.h,v 1.37 1998-06-24 02:42:23 efdi Exp $
  */
 
 /***************************************************************************
@@ -2390,7 +2390,7 @@ extern int  gsn_wands;
 extern int  gsn_recall;
 extern int  gsn_detect_hidden;
 
-extern	int	gsn_fourth_attack;
+extern int  gsn_fourth_attack;
 extern int  gsn_dual_backstab;
 extern int  gsn_cleave;
 extern int  gsn_counter;
@@ -2910,8 +2910,7 @@ int	class_lookup	(const char *name);
 int	clan_lookup	(const char *argument);
 bool	is_old_mob	(CHAR_DATA *ch);
 int	get_skill	(CHAR_DATA *ch, int sn);
-int	get_weapon_sn	(CHAR_DATA *ch);
-int	get_second_sn	(CHAR_DATA *ch);
+int	get_weapon_sn	(CHAR_DATA *ch, int type);
 int	get_weapon_skill (CHAR_DATA *ch, int sn);
 int	get_age 	(CHAR_DATA *ch);
 void	reset_char	(CHAR_DATA *ch);

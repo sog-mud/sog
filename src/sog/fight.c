@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.42 1998-06-23 20:08:40 efdi Exp $
+ * $Id: fight.c,v 1.43 1998-06-24 02:42:22 efdi Exp $
  */
 
 /***************************************************************************
@@ -548,7 +548,7 @@ void mob_hit (CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 
 	case (2) :
 		if (IS_SET(ch->off_flags,OFF_DISARM)
-		|| (get_weapon_sn(ch) != gsn_hand_to_hand
+		|| (get_weapon_sn(ch, WEAR_WIELD) != gsn_hand_to_hand
 		&& (IS_SET(ch->act,ACT_WARRIOR)
 		||  IS_SET(ch->act,ACT_THIEF))))
 		    do_disarm(ch,"");
@@ -653,7 +653,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt ,bool secondary)
 		dam_type = DAM_BASH;
 
 	/* get the weapon skill */
-	sn = get_weapon_sn(ch);
+	sn = get_weapon_sn(ch, WEAR_WIELD);
 	skill = 20 + get_weapon_skill(ch,sn);
 
 	/*

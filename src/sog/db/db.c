@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.25 1998-06-20 20:53:25 fjoe Exp $
+ * $Id: db.c,v 1.26 1998-06-24 02:42:22 efdi Exp $
  */
 
 /***************************************************************************
@@ -121,40 +121,37 @@ AUCTION_DATA	*	auction;
 ROOM_INDEX_DATA	*	top_affected_room;
 int			reboot_counter;
 
-/*
- * for limited objects
- */
-long                    total_levels; 
+/* for limited objects */
+long total_levels; 
 
-int			gsn_backstab;
-int			gsn_dodge;
-int			gsn_envenom;
-int			gsn_hide;
-int			gsn_peek;
-int			gsn_pick_lock;
-int			gsn_sneak;
-int			gsn_steal;
-
-int			gsn_disarm;
-int			gsn_enhanced_damage;
-int			gsn_kick;
-int			gsn_parry;
-int			gsn_rescue;
-int			gsn_second_attack;
-int			gsn_third_attack;
-
-int			gsn_blindness;
-int			gsn_charm_person;
-int			gsn_curse;
-int			gsn_remove_curse;
-int			gsn_invis;
-int			gsn_mass_invis;
-int			gsn_poison;
-int			gsn_plague;
-int			gsn_sleep;
-int			gsn_sanctuary;
-int			gsn_fly;
-int			gsn_death_protection;
+/* gsns */
+int  gsn_backstab;
+int  gsn_dodge;
+int  gsn_envenom;
+int  gsn_hide;
+int  gsn_peek;
+int  gsn_pick_lock;
+int  gsn_sneak;
+int  gsn_steal;
+int  gsn_disarm;
+int  gsn_enhanced_damage;
+int  gsn_kick;
+int  gsn_parry;
+int  gsn_rescue;
+int  gsn_second_attack;
+int  gsn_third_attack;
+int  gsn_blindness;
+int  gsn_charm_person;
+int  gsn_curse;
+int  gsn_remove_curse;
+int  gsn_invis;
+int  gsn_mass_invis;
+int  gsn_poison;
+int  gsn_plague;
+int  gsn_sleep;
+int  gsn_sanctuary;
+int  gsn_fly;
+int  gsn_death_protection;
 
 int  gsn_fourth_attack;
 int  gsn_dual_backstab;
@@ -234,19 +231,19 @@ int  gsn_fire_breath;
 int  gsn_frost_breath;
 int  gsn_gas_breath;
 int  gsn_lightning_breath;
-int	gsn_cure_light;
-int	gsn_magic_missile;
-int	gsn_demonfire;
-int	gsn_faerie_fire;
-int	gsn_shield;
-int	gsn_chill_touch;
-int	gsn_second_weapon;
-int	gsn_target;
-int	gsn_sand_storm;
-int	gsn_scream;
-int	gsn_enchant_sword;
-int	gsn_tiger_power;
-int	gsn_lion_call;
+int  gsn_cure_light;
+int  gsn_magic_missile;
+int  gsn_demonfire;
+int  gsn_faerie_fire;
+int  gsn_shield;
+int  gsn_chill_touch;
+int  gsn_second_weapon;
+int  gsn_target;
+int  gsn_sand_storm;
+int  gsn_scream;
+int  gsn_enchant_sword;
+int  gsn_tiger_power;
+int  gsn_lion_call;
 int  gsn_hara_kiri;
 int  gsn_mouse;
 int  gsn_enhanced_armor;
@@ -269,12 +266,12 @@ int  gsn_protection_heat;
 int  gsn_protection_cold;
 int  gsn_teleport;
 int  gsn_witch_curse;
-int	gsn_terangreal;
-int	gsn_kassandra;
-int	gsn_sebat;
-int	gsn_matandra;
+int  gsn_terangreal;
+int  gsn_kassandra;
+int  gsn_sebat;
+int  gsn_matandra;
 int  gsn_armor_use;
-int	gsn_world_find;
+int  gsn_world_find;
 int  gsn_vampiric_touch;
 int  gsn_cure_poison;
 int  gsn_fire_shield;
@@ -290,75 +287,75 @@ int  gsn_imp_invis;
 int  gsn_camp;
 int  gsn_push;
 int  gsn_tail;
-int	gsn_power_stun;
-int	gsn_clan_recall;
-int	gsn_escape;
-int	gsn_lay_hands;
-int	gsn_grip;
-int	gsn_concentrate;
-int	gsn_master_sword;
-int	gsn_master_hand;
-int	gsn_fifth_attack;
-int	gsn_area_attack;
-int	gsn_reserved;
-int	gsn_bandage;
-int	gsn_web;
-int	gsn_bow;
-int	gsn_bash_door;
-int	gsn_katana;
+int  gsn_power_stun;
+int  gsn_clan_recall;
+int  gsn_escape;
+int  gsn_lay_hands;
+int  gsn_grip;
+int  gsn_concentrate;
+int  gsn_master_sword;
+int  gsn_master_hand;
+int  gsn_fifth_attack;
+int  gsn_area_attack;
+int  gsn_reserved;
+int  gsn_bandage;
+int  gsn_web;
+int  gsn_bow;
+int  gsn_bash_door;
+int  gsn_katana;
 int  gsn_bluefire;
-int	gsn_crush;
-int	gsn_perception;
-int	gsn_control_animal;
-int	gsn_sanctify_lands;
-int	gsn_deadly_venom;
-int	gsn_cursed_lands;
-int	gsn_lethargic_mist;
-int	gsn_black_death;
-int	gsn_mysterious_dream;
-int	gsn_sense_life;
-int	gsn_arrow;
-int	gsn_lance;
-int	gsn_evil_spirit;
-int	gsn_make_arrow;
-int	gsn_green_arrow;
-int	gsn_red_arrow;
-int	gsn_white_arrow;
-int	gsn_blue_arrow;
-int	gsn_make_bow;
-int	gsn_blindness_dust;
-int	gsn_poison_smoke;
-int	gsn_mastering_spell;
-int	gsn_judge;
+int  gsn_crush;
+int  gsn_perception;
+int  gsn_control_animal;
+int  gsn_sanctify_lands;
+int  gsn_deadly_venom;
+int  gsn_cursed_lands;
+int  gsn_lethargic_mist;
+int  gsn_black_death;
+int  gsn_mysterious_dream;
+int  gsn_sense_life;
+int  gsn_arrow;
+int  gsn_lance;
+int  gsn_evil_spirit;
+int  gsn_make_arrow;
+int  gsn_green_arrow;
+int  gsn_red_arrow;
+int  gsn_white_arrow;
+int  gsn_blue_arrow;
+int  gsn_make_bow;
+int  gsn_blindness_dust;
+int  gsn_poison_smoke;
+int  gsn_mastering_spell;
+int  gsn_judge;
 
 /* new_gsns */
 
-int  		gsn_axe;
-int  		gsn_dagger;
-int  		gsn_flail;
-int  		gsn_mace;
-int  		gsn_polearm;
-int			gsn_shield_block;
-int  		gsn_spear;
-int  		gsn_sword;
-int  		gsn_whip;
+int  gsn_axe;
+int  gsn_dagger;
+int  gsn_flail;
+int  gsn_mace;
+int  gsn_polearm;
+int  gsn_shield_block;
+int  gsn_spear;
+int  gsn_sword;
+int  gsn_whip;
  
-int  		gsn_bash;
-int  		gsn_berserk;
-int  		gsn_dirt;
-int  		gsn_hand_to_hand;
-int  		gsn_trip;
+int  gsn_bash;
+int  gsn_berserk;
+int  gsn_dirt;
+int  gsn_hand_to_hand;
+int  gsn_trip;
  
-int  		gsn_fast_healing;
-int  		gsn_haggle;
-int  		gsn_lore;
-int  		gsn_meditation;
+int  gsn_fast_healing;
+int  gsn_haggle;
+int  gsn_lore;
+int  gsn_meditation;
  
-int  		gsn_scrolls;
-int  		gsn_staves;
-int  		gsn_wands;
-int  		gsn_recall;
-int  		gsn_detect_hidden;
+int  gsn_scrolls;
+int  gsn_staves;
+int  gsn_wands;
+int  gsn_recall;
+int  gsn_detect_hidden;
 
 
 

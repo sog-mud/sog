@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.52 1998-06-20 23:21:28 efdi Exp $
+ * $Id: comm.c,v 1.53 1998-06-24 02:42:22 efdi Exp $
  */
 
 /***************************************************************************
@@ -2273,8 +2273,8 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 	    if (ch->hometown == 4)
 	  obj_to_char(create_object(get_obj_index(OBJ_VNUM_MAP_OLD),0),ch);
 
-		if (!skill_is_native(ch, get_weapon_sn(ch)))
- 	    		ch->pcdata->learned[get_weapon_sn(ch)] = 40;
+		if (!skill_is_native(ch, get_weapon_sn(ch, WEAR_WIELD)))
+ 	    		ch->pcdata->learned[get_weapon_sn(ch, WEAR_WIELD)] = 40;
 
 	    char_to_room(ch, get_room_index(ROOM_VNUM_SCHOOL));
 	    send_to_char("\n\r",ch);

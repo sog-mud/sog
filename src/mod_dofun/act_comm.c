@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.50 1998-06-24 00:14:57 efdi Exp $
+ * $Id: act_comm.c,v 1.51 1998-06-24 02:42:22 efdi Exp $
  */
 
 /***************************************************************************
@@ -1168,7 +1168,7 @@ void do_follow(CHAR_DATA *ch, char *argument)
 	}
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
-		char_n_puts(THEY_ARENT_HERE, ch);
+		char_nputs(THEY_ARENT_HERE, ch);
 		return;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.25 1998-06-23 20:08:40 efdi Exp $
+ * $Id: handler.c,v 1.26 1998-06-24 02:42:23 efdi Exp $
  */
 
 /***************************************************************************
@@ -655,28 +655,31 @@ int get_skill(CHAR_DATA *ch, int sn)
 }
 
 /* for returning weapon information */
-int get_weapon_sn(CHAR_DATA *ch)
+int get_weapon_sn(CHAR_DATA *ch, int type)
 {
 	OBJ_DATA *wield;
 	int sn;
 
-	wield = get_eq_char(ch, WEAR_WIELD);
+	if (type != WEAR_WIELD && type != WEAR_SECOND_WIELD)
+		return 0;
+
+	wield = get_eq_char(ch, type);
 	if (wield == NULL || wield->item_type != ITEM_WEAPON)
-	    sn = gsn_hand_to_hand;
-	else switch (wield->value[0])
-	{
-	    default :               sn = -1;                break;
-	    case(WEAPON_SWORD):     sn = gsn_sword;         break;
-	    case(WEAPON_DAGGER):    sn = gsn_dagger;        break;
-	    case(WEAPON_SPEAR):     sn = gsn_spear;         break;
-	    case(WEAPON_MACE):      sn = gsn_mace;          break;
-	    case(WEAPON_AXE):       sn = gsn_axe;           break;
-	    case(WEAPON_FLAIL):     sn = gsn_flail;         break;
-	    case(WEAPON_WHIP):      sn = gsn_whip;          break;
-	    case(WEAPON_POLEARM):   sn = gsn_polearm;       break;
-	    case(WEAPON_BOW):   	sn = gsn_bow;       	break;
-	    case(WEAPON_ARROW):   	sn = gsn_arrow;       	break;
-	    case(WEAPON_LANCE):   	sn = gsn_lance;       	break;
+		sn = (type == WEAR_WIELD) ? gsn_hand_to_hand : 0;
+	else
+	switch (wield->value[0]) {
+	    default :               sn = -1;		break;
+	    case(WEAPON_SWORD):     sn = gsn_sword;	break;
+	    case(WEAPON_DAGGER):    sn = gsn_dagger;	break;
+	    case(WEAPON_SPEAR):     sn = gsn_spear;	break;
+	    case(WEAPON_MACE):      sn = gsn_mace;	break;
+	    case(WEAPON_AXE):       sn = gsn_axe;	break;
+	    case(WEAPON_FLAIL):     sn = gsn_flail;	break;
+	    case(WEAPON_WHIP):      sn = gsn_whip;	break;
+	    case(WEAPON_POLEARM):   sn = gsn_polearm;	break;
+	    case(WEAPON_BOW):	    sn = gsn_bow;	break;
+	    case(WEAPON_ARROW):	    sn = gsn_arrow;	break;
+	    case(WEAPON_LANCE):	    sn = gsn_lance;	break;
    }
    return sn;
 }

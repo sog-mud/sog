@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.13 1998-06-21 19:34:25 fjoe Exp $
+ * $Id: martial_art.c,v 1.14 1998-06-24 02:42:23 efdi Exp $
  */
 
 /***************************************************************************
@@ -1182,17 +1182,19 @@ void do_disarm(CHAR_DATA *ch, char *argument)
 		 else disarm_second = 0;    
 		}
 	/* find weapon skills */
-	ch_weapon = get_weapon_skill(ch,get_weapon_sn(ch));
+	ch_weapon = get_weapon_skill(ch,get_weapon_sn(ch, WEAR_WIELD));
 
 	if (disarm_second)
 		{
-	vict_weapon = get_weapon_skill(victim,get_second_sn(victim));
-	ch_vict_weapon = get_weapon_skill(ch,get_second_sn(victim));
+	vict_weapon = get_weapon_skill(victim,
+				      get_weapon_sn(victim, WEAR_SECOND_WIELD));
+	ch_vict_weapon = get_weapon_skill(ch,
+				      get_weapon_sn(victim, WEAR_SECOND_WIELD));
 		}
 	else 
 		{
-	vict_weapon = get_weapon_skill(victim,get_weapon_sn(victim));
-	ch_vict_weapon = get_weapon_skill(ch,get_weapon_sn(victim));
+	vict_weapon = get_weapon_skill(victim,get_weapon_sn(victim, WEAR_WIELD));
+	ch_vict_weapon = get_weapon_skill(ch,get_weapon_sn(victim, WEAR_WIELD));
 		}
 	/* modifiers */
 
@@ -2904,7 +2906,7 @@ void do_shield(CHAR_DATA *ch, char *argument)
 		}
 
 	/* find weapon skills */
-	ch_weapon = get_weapon_skill(ch,get_weapon_sn(ch));
+	ch_weapon = get_weapon_skill(ch,get_weapon_sn(ch, WEAR_WIELD));
 	vict_shield = get_skill(ch,gsn_shield_block);
 	/* modifiers */
 
@@ -2989,8 +2991,8 @@ void do_weapon(CHAR_DATA *ch, char *argument)
 		}
 
 	/* find weapon skills */
-	ch_weapon = get_weapon_skill(ch,get_weapon_sn(ch));
-	vict_weapon = get_weapon_skill(victim,get_weapon_sn(victim));
+	ch_weapon = get_weapon_skill(ch,get_weapon_sn(ch, WEAR_WIELD));
+	vict_weapon = get_weapon_skill(victim,get_weapon_sn(victim, WEAR_WIELD));
 	/* modifiers */
 
 	/* skill */

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.32 1998-06-23 20:07:55 efdi Exp $
+ * $Id: act_obj.c,v 1.33 1998-06-24 02:42:22 efdi Exp $
  */
 
 /***************************************************************************
@@ -834,7 +834,7 @@ do_give(CHAR_DATA * ch, char *argument)
 		return;
 	}
 	if ((obj = get_obj_carry(ch, arg1)) == NULL) {
-		send_to_char("You do not have that item.\n\r", ch);
+		char_nputs(DONT_HAVE_ITEM, ch);
 		return;
 	}
 	if (obj->wear_loc != WEAR_NONE) {
@@ -1060,7 +1060,7 @@ do_pour(CHAR_DATA * ch, char *argument)
 	}
 	if (!str_cmp(argument, "out")) {
 		if (out->value[1] == 0) {
-			send_to_char("It's already empty.\n\r", ch);
+			char_nputs(IT_IS_EMPTY, ch);
 			return;
 		}
 		out->value[1] = 0;
@@ -1149,29 +1149,29 @@ do_drink(CHAR_DATA * ch, char *argument)
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		for (obj = ch->in_room->contents; obj; obj = obj->next_content) {
+		for (obj = ch->in_room->contents; obj; obj= obj->next_content) {
 			if (obj->item_type == ITEM_FOUNTAIN)
 				break;
 		}
 
 		if (obj == NULL) {
-			send_to_char("Drink what?\n\r", ch);
+			char_nputs(DRINK_WHAT, ch);
 			return;
 		}
 	} else {
 		if ((obj = get_obj_here(ch, arg)) == NULL) {
-			send_to_char("You can't find it.\n\r", ch);
+			char_nputs(CANT_FIND_IT, ch);
 			return;
 		}
 	}
 
 	if (!IS_NPC(ch) && ch->pcdata->condition[COND_DRUNK] > 10) {
-		send_to_char("You fail to reach your mouth.  *Hic*\n\r", ch);
+		char_nputs(FAIL_TO_REACH_MOUTH, ch);
 		return;
 	}
 	switch (obj->item_type) {
 	default:
-		send_to_char("You can't drink from that.\n\r", ch);
+		char_nputs(CANT_DRINK_FROM_THAT, ch);
 		return;
 
 	case ITEM_FOUNTAIN:
@@ -1184,7 +1184,7 @@ do_drink(CHAR_DATA * ch, char *argument)
 
 	case ITEM_DRINK_CON:
 		if (obj->value[1] <= 0) {
-			send_to_char("It is already empty.\n\r", ch);
+			char_nputs(IT_IS_EMPTY, ch);
 			return;
 		}
 		if ((liquid = obj->value[2]) < 0) {
@@ -1197,13 +1197,13 @@ do_drink(CHAR_DATA * ch, char *argument)
 	}
 	if (!IS_NPC(ch) && !IS_IMMORTAL(ch)
 	    && ch->pcdata->condition[COND_FULL] > 80) {
-		send_to_char("You're too full to drink more.\n\r", ch);
+		char_nputs(TOO_FULL_TO_DRINK, ch);
 		return;
 	}
-	act("$n drinks $T from $p.",
-	    ch, obj, liq_table[liquid].liq_name, TO_ROOM);
-	act("You drink $T from $p.",
-	    ch, obj, liq_table[liquid].liq_name, TO_CHAR);
+	act_nprintf(ch, obj, liq_table[liquid].liq_name, TO_ROOM, POS_RESTING,
+		    N_DRINKS_T_FROM_P);
+	act_nprintf(ch, obj, liq_table[liquid].liq_name, TO_CHAR, POS_DEAD,
+		    YOU_DRINK_T_FROM_P);
 
 	if (ch->fighting != NULL)
 		WAIT_STATE(ch, 3 * PULSE_VIOLENCE);
@@ -1218,17 +1218,18 @@ do_drink(CHAR_DATA * ch, char *argument)
 		     amount * liq_table[liquid].liq_affect[COND_HUNGER] / 1);
 
 	if (!IS_NPC(ch) && ch->pcdata->condition[COND_DRUNK] > 10)
-		send_to_char("You feel drunk.\n\r", ch);
+		char_nputs(YOU_FEEL_DRUNK, ch);
 	if (!IS_NPC(ch) && ch->pcdata->condition[COND_FULL] > 60)
-		send_to_char("You are full.\n\r", ch);
+		char_nputs(YOU_ARE_FULL, ch);
 	if (!IS_NPC(ch) && ch->pcdata->condition[COND_THIRST] > 60)
-		send_to_char("Your thirst is quenched.\n\r", ch);
+		char_nputs(YOUR_THIRST_QUENCHED, ch);
 
 	if (obj->value[3] != 0) {
 		/* The drink was poisoned ! */
 		AFFECT_DATA     af;
-		act("$n chokes and gags.", ch, NULL, NULL, TO_ROOM);
-		send_to_char("You choke and gag.\n\r", ch);
+		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+			    N_CHOKES_GAGS);
+		char_nputs(YOU_CHOKE_GAG, ch);
 		af.where = TO_AFFECTS;
 		af.type = gsn_poison;
 		af.level = number_fuzzy(amount);
@@ -1254,25 +1255,26 @@ do_eat(CHAR_DATA * ch, char *argument)
 
 	one_argument(argument, arg);
 	if (arg[0] == '\0') {
-		send_to_char("Eat what?\n\r", ch);
+		char_nputs(EAT_WHAT, ch);
 		return;
 	}
 	if ((obj = get_obj_carry(ch, arg)) == NULL) {
-		send_to_char("You do not have that item.\n\r", ch);
+		char_nputs(DONT_HAVE_ITEM, ch);
 		return;
 	}
 	if (!IS_IMMORTAL(ch)) {
-		if (obj->item_type != ITEM_FOOD && obj->item_type != ITEM_PILL) {
-			send_to_char("That's not edible.\n\r", ch);
+		if (obj->item_type != ITEM_FOOD
+		&& obj->item_type != ITEM_PILL) {
+			char_nputs(NOT_EDIBLE, ch);
 			return;
 		}
 		if (!IS_NPC(ch) && ch->pcdata->condition[COND_FULL] > 80) {
-			send_to_char("You are too full to eat more.\n\r", ch);
+			char_nputs(TOO_FULL_TO_EAT, ch);
 			return;
 		}
 	}
-	act("$n eats $p.", ch, obj, NULL, TO_ROOM);
-	act("You eat $p.", ch, obj, NULL, TO_CHAR);
+	act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, N_EATS_P);
+	act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, YOU_EAT_P);
 	if (ch->fighting != NULL)
 		WAIT_STATE(ch, 3 * PULSE_VIOLENCE);
 
@@ -1284,16 +1286,18 @@ do_eat(CHAR_DATA * ch, char *argument)
 			condition = ch->pcdata->condition[COND_HUNGER];
 			gain_condition(ch, COND_FULL, obj->value[0] * 2);
 			gain_condition(ch, COND_HUNGER, obj->value[1] * 2);
-			if (condition == 0 && ch->pcdata->condition[COND_HUNGER] > 0)
-				send_to_char("You are no longer hungry.\n\r", ch);
+			if (!condition
+			&& ch->pcdata->condition[COND_HUNGER] > 0)
+				char_nputs(NO_LONGER_HUNGRY, ch);
 			else if (ch->pcdata->condition[COND_FULL] > 60)
-				send_to_char("You are full.\n\r", ch);
+				char_nputs(YOU_ARE_FULL, ch);
 		}
 		if (obj->value[3] != 0) {
 			/* The food was poisoned! */
 			AFFECT_DATA     af;
-			act("$n chokes and gags.", ch, 0, 0, TO_ROOM);
-			send_to_char("You choke and gag.\n\r", ch);
+			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+				    N_CHOKES_GAGS);
+			char_nputs(YOU_CHOKE_GAG, ch);
 
 			af.where = TO_AFFECTS;
 			af.type = gsn_poison;
@@ -1319,7 +1323,6 @@ do_eat(CHAR_DATA * ch, char *argument)
 }
 
 
-
 /*
  * Remove an object.
  */
@@ -1334,11 +1337,11 @@ remove_obj(CHAR_DATA * ch, int iWear, bool fReplace)
 		return FALSE;
 
 	if (IS_SET(obj->extra_flags, ITEM_NOREMOVE)) {
-		act("You can't remove $p.", ch, obj, NULL, TO_CHAR);
+		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, CANT_REMOVE_IT);
 		return FALSE;
 	}
 	if ((obj->item_type == ITEM_TATTOO) && (!IS_IMMORTAL(ch))) {
-		act("You must scratch it to remove $p.", ch, obj, NULL, TO_CHAR);
+		char_nputs(YOU_MUST_SCRATCH_TO_REMOVE, ch);
 		return FALSE;
 	}
 	if (iWear == WEAR_STUCK_IN) {
@@ -1350,14 +1353,16 @@ remove_obj(CHAR_DATA * ch, int iWear, bool fReplace)
 			if (is_affected(ch, gsn_spear))
 				affect_strip(ch, gsn_spear);
 		}
-		act("You remove $p, in pain.", ch, obj, NULL, TO_CHAR);
-		act("$n remove $p, in pain.", ch, obj, NULL, TO_ROOM);
+		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+			    YOU_REMOVE_P_IN_PAIN);
+		act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+			    N_REMOVES_P_IN_PAIN);
 		WAIT_STATE(ch, 4);
 		return TRUE;
 	}
 	unequip_char(ch, obj);
-	act("$n stops using $p.", ch, obj, NULL, TO_ROOM);
-	act("You stop using $p.", ch, obj, NULL, TO_CHAR);
+	act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, N_STOPS_USING_P);
+	act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, YOU_STOP_USING_P);
 
 	if (iWear == WEAR_WIELD
 	    && (obj = get_eq_char(ch, WEAR_SECOND_WIELD)) != NULL) {
@@ -1604,7 +1609,7 @@ wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		if (dual)
 			equip_char(ch, dual, WEAR_SECOND_WIELD);
 
-		sn = get_weapon_sn(ch);
+		sn = get_weapon_sn(ch, WEAR_WIELD);
 
 		if (sn == gsn_hand_to_hand)
 			return;
@@ -3560,57 +3565,6 @@ do_deposit(CHAR_DATA * ch, char *argument)
 }
 
 
-/* for returning weapon information */
-int 
-get_second_sn(CHAR_DATA * ch)
-{
-	OBJ_DATA       *wield;
-	int             sn;
-	wield = get_eq_char(ch, WEAR_SECOND_WIELD);
-	if (wield == NULL || wield->item_type != ITEM_WEAPON)
-		sn = 0;
-	else
-		switch (wield->value[0]) {
-		default:
-			sn = 0;
-			break;
-		case (WEAPON_SWORD):
-			sn = gsn_sword;
-			break;
-		case (WEAPON_DAGGER):
-			sn = gsn_dagger;
-			break;
-		case (WEAPON_SPEAR):
-			sn = gsn_spear;
-			break;
-		case (WEAPON_MACE):
-			sn = gsn_mace;
-			break;
-		case (WEAPON_AXE):
-			sn = gsn_axe;
-			break;
-		case (WEAPON_FLAIL):
-			sn = gsn_flail;
-			break;
-		case (WEAPON_WHIP):
-			sn = gsn_whip;
-			break;
-		case (WEAPON_POLEARM):
-			sn = gsn_polearm;
-			break;
-		case (WEAPON_BOW):
-			sn = gsn_bow;
-			break;
-		case (WEAPON_ARROW):
-			sn = gsn_arrow;
-			break;
-		case (WEAPON_LANCE):
-			sn = gsn_lance;
-			break;
-		}
-	return sn;
-}
-
 
 /* wear object as a secondary weapon */
 
@@ -3667,7 +3621,7 @@ do_second_wield(CHAR_DATA * ch, char *argument)
 	act("You wield $p in your off-hand.", ch, obj, NULL, TO_CHAR);
 	equip_char(ch, obj, WEAR_SECOND_WIELD);
 
-	sn = get_second_sn(ch);
+	sn = get_weapon_sn(ch, WEAR_SECOND_WIELD);
 	if (sn) {
 		skill = get_weapon_skill(ch, sn);
 
