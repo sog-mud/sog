@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.353 2000-10-07 20:41:03 fjoe Exp $
+ * $Id: act_info.c,v 1.354 2000-10-09 19:16:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -135,8 +135,7 @@ void do_scroll(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
-		char_printf(ch, "You currently display %d pagelen per "
-				"page.\n", d->dvdata->pagelen + 2);
+		char_printf(ch, "You currently display %d pagelen per page.\n", d->dvdata->pagelen + 2);
 		return;
 	}
 
@@ -147,13 +146,13 @@ void do_scroll(CHAR_DATA *ch, const char *argument)
 
 	pagelen = atoi(arg);
 	if (pagelen < MIN_PAGELEN || pagelen > MAX_PAGELEN) {
-		char_printf(ch, "Valid scroll range is %d..%d.\n",
-			    MIN_PAGELEN, MAX_PAGELEN);
+		char_printf(ch, "Valid scroll range is %d..%d.\n", MIN_PAGELEN, MAX_PAGELEN);
 		return;
 	}
 
 	d->dvdata->pagelen = pagelen - 2;
-	char_printf(ch, "Scroll set to %d lines.\n", pagelen);
+	act_puts("Scroll set to $j lines.",
+		 ch, (const void *) pagelen, NULL, TO_CHAR, POS_DEAD);
 }
 
 #define SHOW_SOCIAL(prephrase, phrase)					\
@@ -224,8 +223,10 @@ void do_wizlist(CHAR_DATA *ch, const char *argument)
 
 /* RT this following section holds all the auto commands from ROM, as well as
    replacements for config */
-#define do_print_sw(ch, swname, sw) \
-		char_printf(ch, "%-16s %s\n", swname, sw ? "ON" : "OFF");
+#define do_print_sw(ch, swname, sw)					\
+		act_puts("$F16{$t} $T\n",				\
+			 (ch), (swname), (sw) ? "ON" : "OFF",		\
+			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 
 void do_autolist(CHAR_DATA *ch, const char *argument)
 {
@@ -367,8 +368,9 @@ void do_prompt(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_prefix(argument, "show")) {
-		char_printf(ch, "Current prompt is '%s'.\n",
-			    d->dvdata->prompt);
+		act_puts("Current prompt is '$t'.",
+			 ch, d->dvdata->prompt, NULL,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 		return;
 	}
 
@@ -379,7 +381,8 @@ void do_prompt(CHAR_DATA *ch, const char *argument)
 
 	free_string(d->dvdata->prompt);
 	d->dvdata->prompt = prompt;
-	char_printf(ch, "Prompt set to '%s'.\n", d->dvdata->prompt);
+	act_puts("Prompt set to '$t'.", ch, d->dvdata->prompt, NULL,
+		 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 }
 
 void do_nofollow(CHAR_DATA *ch, const char *argument)
@@ -945,7 +948,8 @@ void do_time(CHAR_DATA *ch, const char *argument)
 
 void do_date(CHAR_DATA *ch, const char *argument)
 {
-	char_printf(ch, "%s\n", strtime(time(NULL)));
+	act_puts("$t", ch, strtime(time(NULL)), NULL,
+		 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 }
 
 void do_weather(CHAR_DATA *ch, const char *argument)
@@ -1080,14 +1084,18 @@ void do_who(CHAR_DATA *ch, const char *argument)
 			if (arg[0]) {
 				if ((i = flag_value(ethos_table, arg)))
 					SET_BIT(rethos, i);
-				else
-					char_printf(ch, "%s: unknown ethos.\n", arg);
+				else {
+					act_puts("$t: unknown ethos.",
+						 ch, arg, NULL, TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
+				}
 			}
 			if (*p) {
 				if ((i = flag_value(ralign_names, p)))
 					SET_BIT(ralign, i);
-				else
-					char_printf(ch, "%s: unknown align.\n", p);
+				else {
+					act_puts("$t: unknown align.",
+						 ch, p, NULL, TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
+				}
 			}
 			continue;
 		}
@@ -1101,9 +1109,10 @@ void do_who(CHAR_DATA *ch, const char *argument)
 				iLevelUpper = atoi(arg);
 				break;
 			default:
-				char_printf(ch,
-					    "%s: explicit argument (skipped)\n",
-					    arg);
+				act_puts("$t: explicit argument (skipped)",
+					 ch, arg, NULL,
+					 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE,
+					 POS_DEAD);
 				break;
 			}
 			continue;
@@ -1396,8 +1405,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 		}
 		if (!found)
 			act_char("None.", ch);
-	}
-	else {
+	} else {
 		found = FALSE;
 		for (victim = char_list; victim; victim = victim->next) {
 			if (victim->in_room
@@ -1495,10 +1503,10 @@ void do_description(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	char_printf(ch, "Your description is:\n"
-			 "%s\n"
-			 "Use 'desc edit' to edit your description.\n",
-		    mlstr_mval(&ch->description));
+	act_char("Your description is:", ch);
+	act_puts("$t", ch, mlstr_mval(&ch->description), NULL,
+		 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
+	act_char("Use 'desc edit' to edit your description.", ch);
 }
 
 void do_report(CHAR_DATA *ch, const char *argument)
@@ -1518,8 +1526,7 @@ void do_wimpy(CHAR_DATA *ch, const char *argument)
 	int wimpy;
 
 	if (!can_flee(ch)) {
-		char_printf(ch, "You don't deal with wimpies, "
-				"or such feary things.\n");
+		act_char("You don't deal with wimpies, or such feary things.", ch);
 		if (ch->wimpy)
 			ch->wimpy = 0;
 		return;
@@ -1544,8 +1551,8 @@ void do_wimpy(CHAR_DATA *ch, const char *argument)
 
 	ch->wimpy	= wimpy;
 
-	char_printf(ch, "Wimpy set to %d hit points.\n", wimpy);
-	return;
+	act_puts("Wimpy set to $j hit points.",
+		 ch, (const void *) wimpy, NULL, TO_CHAR, POS_DEAD);
 }
 
 void do_password(CHAR_DATA *ch, const char *argument)
@@ -1717,7 +1724,8 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (vch) {
-			char_printf(ch, "***** Range %d *****\n", i);
+			act_puts("***** Range $j *****",
+				 ch, (const void *) i, NULL, TO_CHAR, POS_DEAD);
 			show_char_to_char(to_room->people, ch);
 			send_to_char("\n", ch);
 		}
@@ -2689,14 +2697,9 @@ void do_resistances(CHAR_DATA *ch, const char *argument)
 
 		found = TRUE;
 		if (ch->level < MAX_LEVEL / 3) {
-			char_printf(ch, "You are %s %s.\n", 
-				get_resist_alias(res), 
-				flag_string(resist_info_flags, i));
+			char_printf(ch, "You are %s %s.\n", get_resist_alias(res), flag_string(resist_info_flags, i));
 		} else {
-			char_printf(ch, "You are %s %s (%d%%).\n", 
-				get_resist_alias(res),
-				flag_string(resist_info_flags, i),
-				res);
+			char_printf(ch, "You are %s %s (%d%%).\n", get_resist_alias(res), flag_string(resist_info_flags, i), res);
 		}
 	}
 
@@ -2921,8 +2924,9 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 	spec_sk.sn = pc_sk->sn;
 	spec_stats(ch, &spec_sk);
 	if (pc_sk->percent >= spec_sk.adept) {
-		char_printf(ch, "You are already learned at %s.\n",
-			    pc_sk->sn);
+		act_puts("You are already learned at $t.",
+			 ch, pc_sk->sn, NULL,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 		return;
 	}
 
@@ -3014,7 +3018,9 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 
 	spec_stats(ch, &spec_sk);
 	if (pc_sk->percent >= spec_sk.adept) {
-		char_printf(ch, "You are already learned at %s.\n", pc_sk->sn);
+		act_puts("You are already learned at $t.",
+			 ch, pc_sk->sn, NULL,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 		return;
 	}
 
@@ -3319,8 +3325,7 @@ glist_cb(void *p, va_list ap)
 
 	if (group == sk->group) {
 		const char *sn = gmlstr_mval(&sk->sk_name);
-		char_printf(ch, "%c%-18s",
-			    pc_skill_lookup(ch, sn) ?  '*' : ' ', sn);
+		char_printf(ch, "%c%-18s", pc_skill_lookup(ch, sn) ?  '*' : ' ', sn);
 		if (*pcol)
 			send_to_char("\n", ch);
 		*pcol = 1 - *pcol;
@@ -3355,8 +3360,9 @@ void do_glist(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	char_printf(ch, "Now listing group '%s':\n",
-		    flag_string(skill_groups, group));
+	act_puts("Now listing group '$t':",
+		 ch, flag_string(skill_groups, group), NULL,
+		 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 	hash_foreach(&skills, glist_cb, ch, group, &col);
 	if (col)
 		send_to_char("\n", ch);
@@ -3387,9 +3393,7 @@ void do_slook(CHAR_DATA *ch, const char *argument)
 		return; 
 	}
 
-	char_printf(ch, "Skill '%s' in group '%s'.\n",
-		    gmlstr_mval(&sk->sk_name),
-		    flag_string(skill_groups, sk->group));
+	char_printf(ch, "Skill '%s' in group '%s'.\n", gmlstr_mval(&sk->sk_name), flag_string(skill_groups, sk->group));
 }
 
 void do_camp(CHAR_DATA *ch, const char *argument)
@@ -4450,9 +4454,7 @@ static void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	if (!IS_IMMORTAL(doppel)) {
 		char_printf(ch, "(%s) ", doppel->race);
 		if (!IS_NPC(doppel)) {
-			char_printf(ch, "(%s) (%s) ",
-				    doppel->class,
-				    mlstr_mval(&doppel->gender));
+			char_printf(ch, "(%s) (%s) ", doppel->class, mlstr_mval(&doppel->gender));
 		}
 	}
 
@@ -4657,7 +4659,9 @@ void do_clanlist(CHAR_DATA *ch, const char *argument)
 
 	if (IS_IMMORTAL(ch) && arg2[0] != '\0') {
 		if ((clan = clan_search(arg2)) == NULL) {
-			char_printf(ch, "%s: no such clan.\n", arg2);
+			act_puts("$t: no such clan.",
+				 ch, arg2, NULL,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			return;
 		}
 	}
@@ -4707,7 +4711,9 @@ void do_item(CHAR_DATA* ch, const char* argument)
 	one_argument(argument, arg, sizeof(arg));
 	if (IS_IMMORTAL(ch) && arg[0] != '\0') {
 		if ((clan = clan_search(arg)) == NULL) {
-			char_printf(ch, "%s: no such clan.\n", arg);
+			act_puts("$t: no such clan.",
+				 ch, arg, NULL,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			return;
 		}
 	}

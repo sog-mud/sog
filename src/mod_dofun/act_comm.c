@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.214 2000-10-07 20:41:03 fjoe Exp $
+ * $Id: act_comm.c,v 1.215 2000-10-09 19:16:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1143,11 +1143,13 @@ void do_speak(CHAR_DATA *ch, const char *argument)
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		char_printf(ch, "You now speak %s.\n", 
-			flag_string(slang_table, ch->slang));
+		act_puts("You now speak $t.",
+			 ch, flag_string(slang_table, ch->slang), NULL,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 		act_char("You can speak :", ch);
-		char_printf(ch, "       common, %s\n",
-			    flag_string(slang_table, r->race_pcdata->slang));
+		act_puts("       common, $t",
+			 ch, flag_string(slang_table, r->race_pcdata->slang),
+			 NULL, TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 		return;
 	}
 
@@ -1161,8 +1163,9 @@ void do_speak(CHAR_DATA *ch, const char *argument)
 	else
 		ch->slang = language;
 	
-	char_printf(ch,"Now you speak %s.\n",
-		    flag_string(slang_table, ch->slang));
+	act_puts("Now you speak $t.",
+		 ch, flag_string(slang_table, ch->slang), NULL,
+		 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 }
 
 void do_twit(CHAR_DATA *ch, const char *argument)
@@ -1177,8 +1180,7 @@ void do_twit(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
-		char_printf(ch, "Current twitlist is [%s]\n",
-			    PC(ch)->twitlist);
+		char_printf(ch, "Current twitlist is [%s]\n", PC(ch)->twitlist);
 		return;
 	}
 
@@ -1265,10 +1267,12 @@ void do_judge(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	char_printf(ch, "%s is %s-%s.\n",
-		    PERS(victim, ch),
-		    flag_string(ethos_table, victim->ethos),
-		    flag_string(align_names, NALIGN(victim)));
+	act_puts3("$N is $u-$U.",
+		  ch,
+		  flag_string(ethos_table, victim->ethos),
+		  victim,
+		  flag_string(align_names, NALIGN(victim)),
+		  TO_CHAR | ACT_NOTRANS, POS_DEAD);
 }
 
 void do_trust(CHAR_DATA *ch, const char *argument)
@@ -1460,10 +1464,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 	if (IS_NULLSTR(arg1)) {
 		if (pc->clan_status == CLAN_LEADER
 		||  pc->clan_status == CLAN_SECOND) {
-			char_printf(ch,
-				    "Usage: petition %s<accept | reject> "
-				    "<char name>\n",
-				    IS_IMMORTAL(ch) ? "<clan name> " : str_empty);
+			char_printf(ch, "Usage: petition %s<accept | reject> <char name>\n", IS_IMMORTAL(ch) ? "<clan name> " : str_empty);
 		} else if (IS_NULLSTR(ch->clan))
 			act_char("Usage: petition <clan name>", ch);
 		return;
@@ -1670,14 +1671,13 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 
 			if (!found) {
 				found = TRUE;
-				char_printf(ch, "List of players petitioned to %s", clan->name);
+				char_printf(ch, "List of players petitioned to %s:\n", clan->name);
 			}
 			char_printf(ch, "%s\n", vch->name);
 		}
 
 		if (!found) {
-			char_printf(ch, "Noone has petitioned to %s.\n",
-				    clan->name);
+			char_printf(ch, "Noone has petitioned to %s.\n", clan->name);
 		}
 		return;
 	}
@@ -1866,9 +1866,7 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 			||  d->dvdata->alias_sub[pos] == NULL)
 				break;
 
-			char_printf(ch,"    %s:  %s\n",
-				    d->dvdata->alias[pos],
-				    d->dvdata->alias_sub[pos]);
+			char_printf(ch,"    %s:  %s\n", d->dvdata->alias[pos], d->dvdata->alias_sub[pos]);
 		}
 		return;
 	}
@@ -1885,9 +1883,7 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 				break;
 
 			if (!str_cmp(arg, d->dvdata->alias[pos])) {
-				char_printf(ch, "%s aliases to '%s'.\n",
-					    d->dvdata->alias[pos],
-					    d->dvdata->alias_sub[pos]);
+				char_printf(ch, "%s aliases to '%s'.\n", d->dvdata->alias[pos], d->dvdata->alias_sub[pos]);
 				return;
 			}
 		}
@@ -1913,8 +1909,9 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 			free_string(d->dvdata->alias_sub[pos]);
 			d->dvdata->alias_sub[pos] = str_dup(argument);
 
-			char_printf(ch, "%s is now realiased to '%s'.\n",
-				    arg, argument);
+			act_puts("$t is now realiased to '$T'.",
+				 ch, arg, argument,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			return;
 		}
 	}
@@ -1930,7 +1927,8 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 	d->dvdata->alias[pos]		= str_dup(arg);
 	d->dvdata->alias_sub[pos]	= str_dup(argument);
 
-	char_printf(ch, "%s is now aliased to '%s'.\n", arg, argument);
+	act_puts("$t is now aliased to '$T'.", ch, arg, argument,
+		 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 }
 
 void do_unalia(CHAR_DATA *ch, const char *argument)

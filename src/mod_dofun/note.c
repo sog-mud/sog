@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.12 2000-10-07 10:58:00 fjoe Exp $
+ * $Id: note.c,v 1.13 2000-10-09 19:16:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -62,35 +62,33 @@ void do_unread(CHAR_DATA *ch, const char *argument)
 
 	if ((count = count_spool(ch, news_list)) > 0) {
 		found = TRUE;
-		char_printf(ch, "There %s %d new news article%s waiting.\n",
-			    count > 1 ? "are" : "is",
-			    count, count > 1 ? "s" : str_empty);
+		act_puts("You have $j news $qj{articles} waiting.",
+			 ch, (const void *) count, NULL, TO_CHAR, POS_DEAD);
 	}
 
 	if ((count = count_spool(ch, changes_list)) > 0) {
 		found = TRUE;
-		char_printf(ch, "There %s %d change%s waiting to be read.\n",
-			    count > 1 ? "are" : "is",
-			    count, count > 1 ? "s" : str_empty);
+		act_puts("There $qj{are} $j $qj{changes} waiting to be read.",
+			 ch, (const void *) count, NULL, TO_CHAR, POS_DEAD);
 	}
 
 	if ((count = count_spool(ch, note_list)) > 0) {
 		found = TRUE;
-		char_printf(ch, "You have %d new note%s waiting.\n",
-			    count, count > 1 ? "s" : str_empty);
+		act_puts("You have $j new $qj{notes} waiting.",
+			 ch, (const void *) count, NULL, TO_CHAR, POS_DEAD);
 	}
 
 	if ((count = count_spool(ch, idea_list)) > 0) {
 		found = TRUE;
-		char_printf(ch, "You have %d unread idea%s to peruse.\n",
-			    count, count > 1 ? "s" : str_empty);
+		act_puts("You have $j unread $qj{ideas} to peruse.",
+			 ch, (const void *) count, NULL, TO_CHAR, POS_DEAD);
 	}
 
 	if (IS_IMMORTAL(ch) && (count = count_spool(ch, penalty_list)) > 0) {
 		found = TRUE;
-		char_printf(ch, "%d %s been added.\n",
-			    count, count > 1 ? "penalties have" : "penalty has");
-}
+		act_puts("$j $qj{penalties} $qj{have} been added.",
+			 ch, (const void *) count, NULL, TO_CHAR, POS_DEAD);
+	}
 
 	if (!found && str_cmp(argument, "login"))
 		act_char("You have no unread messages.", ch);
@@ -516,7 +514,9 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 			}
 		}
  
-		char_printf(ch,"There aren't that many %s.\n",list_name);
+		act_puts("There aren't that many $t.",
+			 ch, list_name, NULL,
+			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return;
 	}
 
@@ -598,7 +598,9 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 			}
 		}
  
-		char_printf(ch, "There aren't that many %s.", list_name);
+		act_puts("There aren't that many $t.",
+			 ch, list_name, NULL,
+			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return;
 	}
  
@@ -627,8 +629,9 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 
 	if ((type == NOTE_NEWS || type == NOTE_CHANGES)
 	&&  !IS_TRUSTED(ch, LEVEL_IMMORTAL)) {
-		char_printf(ch, "You aren't high enough level to write %s.\n",
-			    list_name);
+		act_puts("You aren't high enough level to write $t.",
+			 ch, list_name, NULL,
+			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return;
 	}
 
@@ -655,7 +658,8 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 			}
 		}
 
-		char_printf(ch,"There aren't that many %s.", list_name);
+		act_puts("There aren't that many $t.",
+			 ch, list_name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return;
 	}
 
@@ -768,8 +772,9 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 				break;
 
 		if (!pnote) {
-			char_printf(ch, "There aren't that many %s.\n",
-				    list_name);
+			act_puts("There aren't that many $t.",
+				 ch, list_name, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return;
 		}
 
@@ -811,8 +816,9 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 				break;
 
 		if (!pnote) {
-			char_printf(ch, "There aren't that many %s.\n",
-				    list_name);
+			act_puts("There aren't that many $t.",
+				 ch, list_name, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return;
 		}
 

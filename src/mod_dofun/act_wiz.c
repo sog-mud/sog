@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.255 2000-10-07 20:41:04 fjoe Exp $
+ * $Id: act_wiz.c,v 1.256 2000-10-09 19:16:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -131,59 +131,82 @@ void do_limited(CHAR_DATA *ch, const char *argument)
 	int	lCount = 0;
 	int	ingameCount;
 	int 	nMatch;
-	int 	vnum;
+	BUFFER *buf;
 
 	if (argument[0] != '\0')  {
-	obj_index = get_obj_index(atoi(argument));
-	if (obj_index == NULL)  {
-	  act_char("Not found.", ch);
-	  return;
-	}
-	if (obj_index->limit == -1)  {
-	  act_char("Thats not a limited item.", ch);
-	  return;
-	}
-	nMatch = 0;
-	      char_printf(ch, "%-35s [%5d]  Limit: %3d  Current: %3d\n", 
+		obj_index = get_obj_index(atoi(argument));
+		if (obj_index == NULL)  {
+			act_char("Not found.", ch);
+			return;
+		}
+
+		if (obj_index->limit == -1)  {
+			act_char("That's not a limited item.", ch);
+			return;
+		}
+
+		nMatch = 0;
+		buf = buf_new(-1);
+		buf_printf(buf, BUF_END,
+			   "%-35s [%5d]  Limit: %3d  Current: %3d\n", 
 			   mlstr_mval(&obj_index->short_descr), 
 			   obj_index->vnum,
 		           obj_index->limit, 
 			   obj_index->count);
-		  ingameCount = 0;
-		  for (obj=object_list; obj != NULL; obj=obj->next)
-		    if (obj->pObjIndex->vnum == obj_index->vnum)  {
-		      ingameCount++;
-		      if (obj->carried_by != NULL) 
-			char_printf(ch, "Carried by %-30s\n", obj->carried_by->name);
-		      else if (obj->in_room != NULL) 
-			char_printf(ch, "At %-20s [%d]\n",
-				mlstr_cval(&obj->in_room->name, ch),
-				obj->in_room->vnum);
-		      else if (obj->in_obj != NULL) 
-			char_printf(ch, "In %-20s [%d] \n",
-				mlstr_mval(&obj->in_obj->short_descr),
-				obj->in_obj->pObjIndex->vnum);
-		    }
-		    char_printf(ch, "  %d found in game. %d should be in pFiles.\n", 
-				ingameCount, obj_index->count-ingameCount);
+
+		ingameCount = 0;
+		for (obj = object_list; obj != NULL; obj = obj->next) {
+			if (obj->pObjIndex->vnum != obj_index->vnum)
+				continue;
+
+			ingameCount++;
+			if (obj->carried_by != NULL) {
+				buf_printf(buf, BUF_END,
+					   "Carried by %-30s\n",
+					   obj->carried_by->name);
+			} else if (obj->in_room != NULL) {
+				buf_printf(buf, BUF_END, "At %-20s [%d]\n",
+					   mlstr_cval(&obj->in_room->name, ch),
+					   obj->in_room->vnum);
+			} else if (obj->in_obj != NULL) {
+				buf_printf(buf, BUF_END, "In %-20s [%d] \n",
+					   mlstr_mval(&obj->in_obj->short_descr),
+					   obj->in_obj->pObjIndex->vnum);
+			}
+		}
+
+		buf_printf(buf, BUF_END,
+			   "  %d found in game. %d should be in pFiles.\n", 
+			   ingameCount, obj_index->count-ingameCount);
 		return;
+	} else {
+		OBJ_INDEX_DATA *obj_index;
+		int i;
+		nMatch = 0;
+
+		buf = buf_new(-1);
+		for (i = 0; i < MAX_KEY_HASH; i++) {
+			for (obj_index = obj_index_hash[i]; obj_index; obj_index = obj_index->next) {
+				nMatch++;
+				if (obj_index->limit == -1)
+					continue;
+
+				lCount++;
+				buf_printf(buf, BUF_END,
+					   "%-37s [%5d]  Limit: %3d  Current: %3d\n", 
+					   mlstr_mval(&obj_index->short_descr), 
+					   obj_index->vnum,
+					   obj_index->limit,
+					   obj_index->count);
+			}
+		}
+
+		buf_printf(buf, BUF_END,
+			   "\n%d of %d objects are limited.\n", lCount, nMatch);
 	}
 
-	nMatch = 0;
-	for (vnum = 0; nMatch < top_obj_index; vnum++)
-	  if ((obj_index = get_obj_index(vnum)) != NULL)
-	  {
-	    nMatch++;
-		if (obj_index->limit != -1)  {
-		  lCount++;
-	      char_printf(ch, "%-37s [%5d]  Limit: %3d  Current: %3d\n", 
-			   mlstr_mval(&obj_index->short_descr), 
-			   obj_index->vnum,
-		           obj_index->limit, 
-			   obj_index->count);
-		}
-	  }
-	char_printf(ch, "\n%d of %d objects are limited.\n", lCount, nMatch);
+	page_to_char(buf_string(buf), ch);
+	buf_free(buf);
 }
 
 void do_wiznet(CHAR_DATA *ch, const char *argument)
@@ -238,12 +261,11 @@ void do_wiznet(CHAR_DATA *ch, const char *argument)
 	}
 	 
 	TOGGLE_BIT(PC(vch)->wiznet, wiznet_table[flag].flag);
-	if (!IS_SET(PC(vch)->wiznet, wiznet_table[flag].flag))
-		char_printf(ch,"You will no longer see %s on wiznet.\n",
-		        wiznet_table[flag].name);
-	else
-		char_printf(ch, "You will now see %s on wiznet.\n",
-			    wiznet_table[flag].name);
+	if (!IS_SET(PC(vch)->wiznet, wiznet_table[flag].flag)) {
+		char_printf(ch,"You will no longer see %s on wiznet.\n", wiznet_table[flag].name);
+	} else {
+		char_printf(ch, "You will now see %s on wiznet.\n", wiznet_table[flag].name);
+	}
 }
 
 void do_nonote(CHAR_DATA *ch, const char *argument)
@@ -362,14 +384,16 @@ void do_smote(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	char_printf(ch, "%s\n", argument);
+	act_puts("$t", ch, argument, NULL,
+		 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 
 	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
 		if (vch->desc == NULL || vch == ch)
 			continue;
 
-		if ((letter = strstr(argument,vch->name)) == NULL) {
-			char_printf(ch, "%s\n", argument);
+		if ((letter = strstr(argument, vch->name)) == NULL) {
+			act_puts("$t", ch, argument, NULL,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			continue;
 		}
 
@@ -411,7 +435,8 @@ void do_smote(CHAR_DATA *ch, const char *argument)
 			last[0] = '\0';
 			name = vch->name;
 		}
-		char_printf(ch, "%s\n", temp);
+		act_puts("$t", ch, temp, NULL,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 	}
 }	
 
@@ -423,7 +448,8 @@ void do_bamfin(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (argument[0] == '\0') {
-		char_printf(ch, "Your poofin is '%s'\n", PC(vch)->bamfin);
+		act_puts("Your poofin is '$t'", ch, PC(vch)->bamfin, NULL,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 		return;
 	}
 
@@ -435,7 +461,8 @@ void do_bamfin(CHAR_DATA *ch, const char *argument)
 	free_string(PC(vch)->bamfin);
 	PC(vch)->bamfin = str_dup(argument);
 
-	char_printf(ch, "Your poofin is now '%s'\n", PC(vch)->bamfin);
+	act_puts("Your poofin is now '$t'", ch, PC(vch)->bamfin, NULL,
+		 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 }
 
 void do_bamfout(CHAR_DATA *ch, const char *argument)
@@ -446,7 +473,8 @@ void do_bamfout(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (argument[0] == '\0') {
-		char_printf(ch, "Your poofout is '%s'\n", PC(ch)->bamfout);
+		act_puts("Your poofout is '$t'", ch, PC(ch)->bamfout, NULL,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 		return;
 	}
 	
@@ -458,7 +486,8 @@ void do_bamfout(CHAR_DATA *ch, const char *argument)
 	free_string(PC(vch)->bamfout);
 	PC(vch)->bamfout = str_dup(argument);
 	
-	char_printf(ch, "Your poofout is now '%s'\n", PC(vch)->bamfout);
+	act_puts("Your poofout is now '$t'", ch, PC(vch)->bamfout, NULL,
+		 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 }
 
 void do_disconnect(CHAR_DATA *ch, const char *argument)
@@ -516,15 +545,17 @@ void do_echo(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 	
-	for (d = descriptor_list; d; d = d->next)
+	for (d = descriptor_list; d; d = d->next) {
 		if (d->connected == CON_PLAYING) {
 			if (IS_TRUSTED(d->character, trust_level(ch))) {
 				act("{W$N:global>{x ",
 					d->character, NULL, ch,
 					TO_CHAR | ACT_NOLF);
 			}
-			char_printf(d->character, "%s\n", argument);
+			act_puts("$t", d->character, argument, NULL,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 		}
+	}
 }
 
 void do_recho(CHAR_DATA *ch, const char *argument)
@@ -544,7 +575,8 @@ void do_recho(CHAR_DATA *ch, const char *argument)
 					d->character, NULL, ch,
 					TO_CHAR | ACT_NOLF);
 			}
-			char_printf(d->character, "%s\n", argument);
+			act_puts("$t", d->character, argument, NULL,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 		}
 	}
 }
@@ -567,7 +599,8 @@ void do_zecho(CHAR_DATA *ch, const char *argument)
 					d->character, NULL, ch,
 					TO_CHAR | ACT_NOLF);
 			}
-			char_printf(d->character, "%s\n", argument);
+			act_puts("$t", d->character, argument, NULL,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 		}
 }
 
@@ -591,8 +624,10 @@ void do_pecho(CHAR_DATA *ch, const char *argument)
 	if (IS_TRUSTED(victim, trust_level(ch)))
 		act("{W$N:personal>{x ", victim, NULL, ch, TO_CHAR | ACT_NOLF);
 
-	char_printf(victim, "%s\n", argument);
-	char_printf(ch, "personal> %s\n", argument);
+	act_puts("$t", victim, argument, NULL,
+		 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
+	act_puts("personal> $t", ch, argument, NULL,
+		 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 }
 
 void do_transfer(CHAR_DATA *ch, const char *argument)
@@ -1415,10 +1450,8 @@ void do_vnum(CHAR_DATA *ch, const char *argument)
 void do_mfind(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
-	MOB_INDEX_DATA *pMobIndex;
-	int vnum;
-	int nMatch;
-	bool found;
+	int i;
+	BUFFER *buf = NULL;
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
@@ -1426,36 +1459,35 @@ void do_mfind(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	found	= FALSE;
-	nMatch	= 0;
+	for (i = 0; i < MAX_KEY_HASH; i++) {
+		MOB_INDEX_DATA *mob_index;
 
-	/*
-	 * Yeah, so iterating over all vnum's takes 10,000 loops.
-	 * Get_mob_index is fast, and I don't feel like threading another link.
-	 * Do you?
-	 * -- Furey
-	 */
-	for (vnum = 0; nMatch < top_mob_index; vnum++)
-		if ((pMobIndex = get_mob_index(vnum)) != NULL) {
-		    nMatch++;
-		    if (is_name(argument, pMobIndex->name)) {
-			found = TRUE;
-			char_printf(ch, "[%5d] %s\n", pMobIndex->vnum,
-				    mlstr_mval(&pMobIndex->short_descr));
-		    }
+		for (mob_index = mob_index_hash[i]; mob_index; mob_index = mob_index->next) { 
+			if (!is_name(argument, mob_index->name))
+				continue;
+
+			if (buf == NULL)
+				buf = buf_new(-1);
+
+			buf_printf(buf, BUF_END, "[%5d] %s\n",
+				   mob_index->vnum,
+				   mlstr_mval(&mob_index->short_descr));
 		}
+	}
 
-	if (!found)
+	if (!buf)
 		act_char("No mobiles by that name.", ch);
+	else {
+		page_to_char(buf_string(buf), ch);
+		buf_free(buf);
+	}
 }
 
 void do_ofind(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
-	OBJ_INDEX_DATA *pObjIndex;
-	int vnum;
-	int nMatch;
-	bool found;
+	int i;
+	BUFFER *buf = NULL;
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
@@ -1463,27 +1495,28 @@ void do_ofind(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	found	= FALSE;
-	nMatch	= 0;
+	for (i = 0; i < MAX_KEY_HASH; i++) {
+		OBJ_INDEX_DATA *obj_index;
 
-	/*
-	 * Yeah, so iterating over all vnum's takes 10,000 loops.
-	 * Get_obj_index is fast, and I don't feel like threading another link.
-	 * Do you?
-	 * -- Furey
-	 */
-	for (vnum = 0; nMatch < top_obj_index; vnum++)
-		if ((pObjIndex = get_obj_index(vnum)) != NULL) {
-		    nMatch++;
-		    if (is_name(argument, pObjIndex->name)) {
-			found = TRUE;
-			char_printf(ch, "[%5d] %s\n", pObjIndex->vnum,
-				    mlstr_mval(&pObjIndex->short_descr));
-		    }
+		for (obj_index = obj_index_hash[i]; obj_index; obj_index = obj_index->next) { 
+			if (!is_name(argument, obj_index->name))
+				continue;
+
+			if (buf == NULL)
+				buf = buf_new(-1);
+
+			buf_printf(buf, BUF_END, "[%5d] %s\n",
+				   obj_index->vnum,
+				   mlstr_mval(&obj_index->short_descr));
 		}
+	}
 
-	if (!found)
+	if (!buf)
 		act_char("No objects by that name.", ch);
+	else {
+		page_to_char(buf_string(buf), ch);
+		buf_free(buf);
+	}
 }
 
 void do_owhere(CHAR_DATA *ch, const char *argument)
@@ -1912,7 +1945,8 @@ void do_mload(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((pMobIndex = get_mob_index(vnum = atoi(arg))) == NULL) {
-		char_printf(ch, "%d: No mob has that vnum.\n", vnum);
+		act_puts("$j: No mob has that vnum.",
+			 ch, (const void *) vnum, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
 
@@ -1941,7 +1975,8 @@ void do_oload(CHAR_DATA *ch, const char *argument)
 	
 	vnum = atoi(arg1);
 	if ((pObjIndex = get_obj_index(vnum)) == NULL) {
-		char_printf(ch, "%d: No objects with this vnum.\n", vnum);
+		act_puts("$j: No objects with this vnum.",
+			 ch, (const void *) vnum, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
 
@@ -2005,7 +2040,8 @@ void do_purge(CHAR_DATA *ch, const char *argument)
 
 		if (!IS_TRUSTED(ch, trust_level(victim))) {
 			act_char("Maybe that wasn't a good idea...", ch);
-			char_printf(ch,"%s tried to purge you!\n",ch->name);
+			act_puts("$t tried to purge you!", ch, ch->name, NULL,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			return;
 		}
 
@@ -2442,7 +2478,8 @@ void do_sset(CHAR_DATA *ch, const char *argument)
 			sn = gmlstr_mval(&sk->sk_name);
 
 		set_skill(victim, sn, value);
-		char_printf(ch, "do_sset: '%s': %d%%\n", sn, value);
+		act_puts("do_sset: '$T': $j%%", ch, (const void *) value, sn,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 	}
 	update_skills(victim);
 }
@@ -2857,8 +2894,9 @@ void do_invis(CHAR_DATA *ch, const char *argument)
 		 */
 		level = atoi(arg);
 		if (level < 2 || level > trust_level(ch)) {
-			char_printf(ch, "Invis level must be in range 2..%d.\n",
-				    trust_level(ch));
+			act_puts("Invis level must be in range 2..$j.",
+				 ch, (const void *) trust_level(ch), NULL,
+				 TO_CHAR, POS_DEAD);
 			return;
 		} else {
 			act("$n slowly fades into thin air.",
@@ -2897,8 +2935,9 @@ void do_incognito(CHAR_DATA *ch, const char *argument)
 		 */
 		level = atoi(arg);
 		if (level < 2 || level > ch->level) {
-			char_printf(ch, "Incog level must be in range 2..%d.\n",
-				    trust_level(ch));
+			act_puts("Incog level must be in range 2..$j.",
+				 ch, (const void *) trust_level(ch), NULL,
+				 TO_CHAR, POS_DEAD);
 			return;
 		} else {
 			ch->incog_level = level;
@@ -2916,9 +2955,7 @@ void do_holylight(CHAR_DATA *ch, const char *argument)
 		return;
 
 	TOGGLE_BIT(PC(vch)->plr_flags, PLR_HOLYLIGHT);
-	char_printf(ch, "Holy light mode %s.\n",
-		    IS_SET(PC(vch)->plr_flags, PLR_HOLYLIGHT) ?
-			"on" : "off");
+	char_printf(ch, "Holy light mode %s.\n", IS_SET(PC(vch)->plr_flags, PLR_HOLYLIGHT) ?  "on" : "off");
 }
 
 /* prefix command: it will put the string typed on each line typed */
@@ -2949,7 +2986,8 @@ void do_prefix(CHAR_DATA *ch, const char *argument)
 
 	free_string(d->dvdata->prefix);
 	d->dvdata->prefix = str_dup(argument);
-	char_printf(ch, "Prefix set to '%s'.\n", argument);
+	act_puts("Prefix set to '$t'.", ch, argument, NULL,
+		 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 }
 
 void do_advance(CHAR_DATA *ch, const char *argument)
@@ -2980,7 +3018,8 @@ void do_advance(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((level = atoi(arg2)) < 1 || level > MAX_LEVEL) {
-		char_printf(ch, "Level must be in range 1..%d.\n", MAX_LEVEL);
+		act_puts("Level must be in range 1..$j.",
+			 ch, (const void *) MAX_LEVEL, NULL, TO_CHAR, POS_DEAD);
 		goto cleanup;
 	}
 
@@ -3043,12 +3082,9 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	 * Set something.
 	 */
 	if (!str_cmp(arg2, "str")) {
-		if (value < 3 || value > get_max_train(victim,STAT_STR))
-		{
-		    char_printf(ch,
-			"Strength range is 3 to %d\n.",
-			get_max_train(victim,STAT_STR));
-		    goto cleanup;
+		if (value < 3 || value > get_max_train(victim,STAT_STR)) {
+			char_printf(ch, "Strength range is 3 to %d\n.", get_max_train(victim, STAT_STR));
+			goto cleanup;
 		}
 
 		victim->perm_stat[STAT_STR] = value;
@@ -3086,10 +3122,11 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 
 		if ((value > PC(ch)->security || value < 0)
 		&& ch->level != MAX_LEVEL) {
-			if (PC(ch)->security != 0)
-				char_printf(ch, "Valid security is 0-%d.\n",
-					    PC(ch)->security);
-			else
+			if (PC(ch)->security != 0) {
+				act_puts("Valid security is 0-$j.",
+					 ch, (const void *) PC(ch)->security,
+					 NULL, TO_CHAR, POS_DEAD);
+			} else
 				act_char("Valid security is 0 only.", ch);
 			goto cleanup;
 		}
@@ -3102,8 +3139,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	{
 	    if (value < 3 || value > get_max_train(victim,STAT_INT))
 	    {
-	        char_printf(ch, "Intelligence range is 3 to %d.\n",
-			get_max_train(victim,STAT_INT));
+	        char_printf(ch, "Intelligence range is 3 to %d.\n", get_max_train(victim, STAT_INT));
 	        goto cleanup;
 	    }
 	
@@ -3157,9 +3193,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	{
 		if (value < 3 || value > get_max_train(victim,STAT_DEX))
 		{
-		    char_printf(ch,
-			"Dexterity ranges is 3 to %d.\n",
-			get_max_train(victim,STAT_DEX));
+		    char_printf(ch, "Dexterity ranges is 3 to %d.\n", get_max_train(victim,STAT_DEX));
 		    goto cleanup;
 		}
 
@@ -3172,9 +3206,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	{
 		if (value < 3 || value > get_max_train(victim,STAT_CON))
 		{
-		    char_printf(ch,
-			"Constitution range is 3 to %d.\n",
-			get_max_train(victim,STAT_CON));
+		    char_printf(ch, "Constitution range is 3 to %d.\n", get_max_train(victim,STAT_CON));
 		    goto cleanup;
 		}
 
@@ -3186,9 +3218,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	{
 		if (value < 3 || value > get_max_train(victim,STAT_CHA))
 		{
-		    char_printf(ch,
-			"Constitution range is 3 to %d.\n",
-			get_max_train(victim,STAT_CHA));
+		    char_printf(ch, "Constitution range is 3 to %d.\n", get_max_train(victim,STAT_CHA));
 		    goto cleanup;
 		}
 
@@ -3932,7 +3962,8 @@ void do_wizpass(CHAR_DATA *ch, const char *argument)
 
 	free_string(PC(victim)->pwd);
 	PC(victim)->pwd = str_dup(pwdnew);
-	char_printf(ch, "%s: password changed to '%s'.\n", victim->name, arg2);
+	act_puts("$t: password changed to '$T'.", ch, victim->name, arg2,
+		 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 
 cleanup:
 	if (loaded) {
@@ -4096,8 +4127,9 @@ void do_grant(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (arg2[0] == '\0') {
-		char_printf(ch, "Granted commands for %s: [%s]\n",
-			    victim->name, PC(victim)->granted);
+		act_puts("Granted commands for $t: [$T]",
+			 ch, victim->name, PC(victim)->granted,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 		goto cleanup;
 	}
 
@@ -4106,7 +4138,9 @@ void do_grant(CHAR_DATA *ch, const char *argument)
 		int lev = atoi(arg2);
 
 		if (lev < LEVEL_IMMORTAL) {
-			char_printf(ch, "grant: granted level must be at least %d\n", LEVEL_IMMORTAL);
+			act_puts("grant: granted level must be at least $j",
+				 ch, (const void *) LEVEL_IMMORTAL, NULL,
+				 TO_CHAR, POS_DEAD);
 			goto cleanup;
 		}
 
@@ -4134,7 +4168,8 @@ void do_grant(CHAR_DATA *ch, const char *argument)
 		if ((cmd = cmd_lookup(arg2)) == NULL
 		&&  str_cmp(arg2, "none")
 		&&  str_cmp(arg2, "all")) {
-			char_printf(ch, "%s: command not found.\n", arg2);
+			act_puts("$t: command not found.", ch, arg2, NULL,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			continue;
 		}
 
@@ -4180,18 +4215,23 @@ void do_disable(CHAR_DATA *ch, const char *argument)
 
 	if (!str_cmp(arg, "?")) {
 		int i;
+
 		act_char("Disabled commands:", ch);
 		for (i = 0; i < commands.nused; i++) {
 			cmd = VARR_GET(&commands, i);
-			if (IS_SET(cmd->cmd_flags, CMD_DISABLED))
-				char_printf(ch, "%s\n", cmd->name);
+			if (IS_SET(cmd->cmd_flags, CMD_DISABLED)) {
+				act_puts("$t", ch, cmd->name, NULL,
+					 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE,
+					 POS_DEAD);
+			}
 		}
 		return;
 	}
 
 	for (; arg[0]; argument = one_argument(argument, arg, sizeof(arg))) {
 		if ((cmd = cmd_lookup(arg)) == NULL) {
-			char_printf(ch, "%s: command not found.\n", arg);
+			act_puts("$t: command not found.", ch, arg, NULL,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			continue;
 		}
 
@@ -4201,7 +4241,8 @@ void do_disable(CHAR_DATA *ch, const char *argument)
 		}
 
 		SET_BIT(cmd->cmd_flags, CMD_DISABLED);
-		char_printf(ch, "%s: command disabled.\n", cmd->name);
+		act_puts("$t: command disabled.", ch, cmd->name, NULL,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 	}
 }
 
@@ -4218,12 +4259,14 @@ void do_enable(CHAR_DATA *ch, const char *argument)
 
 	for (; arg[0]; argument = one_argument(argument, arg, sizeof(arg))) {
 		if ((cmd = cmd_lookup(arg)) == NULL) {
-			char_printf(ch, "%s: command not found.\n", arg);
+			act_puts("$t: command not found.", ch, arg, NULL,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			continue;
 		}
 
 		REMOVE_BIT(cmd->cmd_flags, CMD_DISABLED);
-		char_printf(ch, "%s: command enabled.\n", cmd->name);
+		act_puts("$t: command enabled.", ch, cmd->name, NULL,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 	}
 }
 
@@ -4312,8 +4355,10 @@ void do_ban(CHAR_DATA *ch, const char *argument)
   		}
 
 		act_char("Ban rules:", ch);
-		for (pban = ban_list; pban; pban = pban->next)
-			char_printf(ch, "%s\n", format_ban(pban));
+		for (pban = ban_list; pban; pban = pban->next) {
+			act_puts("$t", ch, format_ban(pban), NULL,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
+		}
 		return;
 	}
 
@@ -4622,12 +4667,7 @@ void do_mpstat(CHAR_DATA *ch, const char *argument)
 
 	for (i = 0, mptrig = victim->pMobIndex->mptrig_list; mptrig != NULL;
 						mptrig = mptrig->next) {
-		char_printf(ch,
-			"[%2d] Trigger [%-8s] Program [%4d] Phrase [%s]\n",
-			++i,
-			flag_string(mptrig_types, mptrig->type),
-			mptrig->vnum,
-			mptrig->phrase);
+		char_printf(ch, "[%2d] Trigger [%-8s] Program [%4d] Phrase [%s]\n", ++i, flag_string(mptrig_types, mptrig->type), mptrig->vnum, mptrig->phrase);
 	}
 }
 
@@ -4648,5 +4688,6 @@ do_maxrnd(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	char_printf(ch, "Current max_rnd_cnt = %d\n", max_rnd_cnt);
+	act_puts("Current max_rnd_cnt = $j",
+		 ch, (const void *) max_rnd_cnt, NULL, TO_CHAR, POS_DEAD);
 }

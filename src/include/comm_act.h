@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.h,v 1.23 2000-10-07 20:41:02 fjoe Exp $
+ * $Id: comm_act.h,v 1.24 2000-10-09 19:16:03 fjoe Exp $
  */
 
 #ifndef _COMM_ACT_H_
@@ -82,9 +82,9 @@ typedef struct actopt_t {
 
 #define act(format, ch, arg1, arg2, type) \
 		act_puts((format), (ch), (arg1), (arg2), (type), POS_RESTING)
-#define act_char(format, ch) \
-		act_puts((format), (ch), NULL, NULL, \
-		TO_CHAR | ACT_NOUCASE, POS_DEAD)
+#define act_char(format, ch)					\
+		act_puts((format), (ch), NULL, NULL,		\
+			 TO_CHAR | ACT_NOUCASE, POS_DEAD)
 #define act_puts(format, ch, arg1, arg2, type, min_pos)		\
 		act_puts3((format), (ch), (arg1), (arg2), NULL,	\
 			  (type), (min_pos))
