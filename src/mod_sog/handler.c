@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.8 1998-05-08 18:00:51 fjoe Exp $
+ * $Id: handler.c,v 1.9 1998-05-26 12:34:46 efdi Exp $
  */
 
 /***************************************************************************
@@ -3320,7 +3320,6 @@ char *act_bit_name(int act_flags)
 	if (act_flags & PLR_GHOST	) strcat(buf, " GHOST");
 	if (act_flags & PLR_CANINDUCT	) strcat(buf, " Cabal_LEADER");
 	if (act_flags & PLR_VAMPIRE	) strcat(buf, " VAMPIRE");
-	if (act_flags & PLR_QUESTOR	) strcat(buf, " questor");
     }
     return (buf[0] != '\0') ? buf+1 : "none";
 }

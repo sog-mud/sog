@@ -2,7 +2,7 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.51 1998-05-24 21:19:23 efdi Exp $
+ * $Id: resource.h,v 1.52 1998-05-26 12:34:48 efdi Exp $
  */
 
 #define msg(msgid, ch) vmsg(msgid, ch, ch)
@@ -513,6 +513,7 @@ enum {
 	UPDATE_CALMING_DOWN,
 	COMM_N_SAYS,
 	COMM_YOU_SAY,
+	QUEST_INFO_LOCATION,
 };
 
 #endif

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.31 1998-05-24 15:19:48 efdi Exp $
+ * $Id: comm.c,v 1.32 1998-05-26 12:34:46 efdi Exp $
  */
 
 /***************************************************************************
@@ -2360,10 +2360,9 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 
 		
 		/* quest code */
-		nextquest = ch->pcdata->countdown > 0 ? 
-				ch->pcdata->countdown : ch->pcdata->nextquest;
+		nextquest = -abs(ch->pcdata->questtime);
 		cancel_quest(ch);
-		ch->pcdata->nextquest = nextquest;
+		ch->pcdata->questtime = nextquest;
 		/* !quest code */
 
 		wiznet("{W$N{x joins us.", ch, NULL, WIZ_LOGINS, 0, 

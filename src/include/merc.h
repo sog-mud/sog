@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.19 1998-05-24 11:11:35 efdi Exp $
+ * $Id: merc.h,v 1.20 1998-05-26 12:34:47 efdi Exp $
  */
 
 /***************************************************************************
@@ -1764,14 +1764,14 @@ struct	kill_data
 #define PLR_LOG 		(W)
 #define PLR_DENY		(X)
 #define PLR_FREEZE		(Y)
-#define PLR_QUESTOR		(bb)
+/* #define PLR_QUESTOR		(bb) */
 #define PLR_VAMPIRE		(cc)
 #define PLR_HARA_KIRI		(dd)
 #define PLR_BLINK_ON		(ee)
 
 
 /* quest done by chronos */
-#define IS_QUESTOR(ch)	(IS_SET((ch)->act , PLR_QUESTOR))
+#define IS_QUESTOR(ch)	(ch->pcdata->questtime > 0)
 #define IS_VAMPIRE(ch)	(!IS_NPC(ch) && IS_SET((ch)->act , PLR_VAMPIRE))
 #define IS_HARA_KIRI(ch) (IS_SET((ch)->act , PLR_HARA_KIRI))
 #define CANT_CHANGE_TITLE(ch) (IS_SET(ch->act , PLR_NO_TITLE))
@@ -2108,10 +2108,11 @@ struct	pc_data
     int 		has_killed;
     sh_int		questgiver;	/* quest */
     int 		questpoints;	/* quest */
-    sh_int		nextquest;	/* quest */
-    sh_int		countdown;	/* quest */
+    sh_int		questcomplete;	/* quest */
+    sh_int		questtime;	/* quest */
     sh_int		questobj;	/* quest */
     sh_int		questmob;	/* quest */
+    ROOM_INDEX_DATA *	questroom;	/* quest */
     sh_int		race;	/* orginal race for polymorph */
     sh_int		adr_stops_shown;
 };

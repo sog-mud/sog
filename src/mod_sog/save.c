@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.18 1998-05-24 11:11:35 efdi Exp $
+ * $Id: save.c,v 1.19 1998-05-26 12:34:48 efdi Exp $
  */
 
 /***************************************************************************
@@ -374,15 +374,13 @@ void fwrite_char( CHAR_DATA *ch, FILE *fp )
 
     if (ch->pcdata->questpoints !=0)
         fprintf( fp, "QuestPnts %d\n", ch->pcdata->questpoints	);
-    if (ch->pcdata->nextquest !=0)
-        fprintf( fp ,"QuestNext %d\n", ch->pcdata->nextquest	);
-    if (IS_QUESTOR(ch))
-	{
-        fprintf( fp ,"QuestCnt %d\n", ch->pcdata->countdown	);
+    if (ch->pcdata->questtime !=0)
+        fprintf( fp ,"QuestTime %d\n", ch->pcdata->questtime	);
+    if (IS_QUESTOR(ch)) {
         fprintf( fp ,"QuestMob %d\n", ch->pcdata->questmob	);
         fprintf( fp ,"QuestObj %d\n", ch->pcdata->questobj	);
         fprintf( fp ,"QuestGiv %d\n", ch->pcdata->questgiver	);
-	}
+    }
 
     fprintf( fp ,"Relig %d\n", 		ch->religion		);    
     fprintf( fp ,"Haskilled %d\n",	ch->pcdata->has_killed	);
@@ -681,10 +679,9 @@ bool load_char_obj( DESCRIPTOR_DATA *d, char *name )
 
     ch->hunter = NULL;
     ch->i_lang = 0;
-    ch->pcdata->nextquest = 0;
     ch->pcdata->questpoints = 0; 
     ch->pcdata->questgiver = 0;
-    ch->pcdata->countdown = 0;
+    ch->pcdata->questtime = 0;
     ch->pcdata->questobj = 0;
     ch->pcdata->questmob = 0;   
     ch->religion = RELIGION_NONE;
@@ -1151,12 +1148,11 @@ void fread_char( CHAR_DATA *ch, FILE *fp )
  	    KEY( "Prom",	ch->prompt,		fread_string( fp ) );
 	    break;
 	case 'Q':
-	    KEY( "QuestCnt",	ch->pcdata->countdown,	fread_number( fp) );
+	    KEY( "QuestTime",	ch->pcdata->questtime,	fread_number( fp) );
 	    KEY( "QuestMob",	ch->pcdata->questmob,	fread_number( fp) );
 	    KEY( "QuestObj",	ch->pcdata->questobj,	fread_number( fp) );
 	    KEY( "QuestGiv",	ch->pcdata->questgiver,	fread_number( fp) );
 	    KEY( "QuestPnts",   ch->pcdata->questpoints,fread_number( fp) );
-            KEY( "QuestNext",   ch->pcdata->nextquest,	fread_number( fp) );
        	    KEY( "Ques",	ch->quest, 		fread_flag( fp)	  );
 	    break;
 

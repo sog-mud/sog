@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.20 1998-05-21 17:14:41 efdi Exp $
+ * $Id: quest.c,v 1.21 1998-05-26 12:34:47 efdi Exp $
  */
 
 /***************************************************************************
@@ -111,7 +111,7 @@ void do_quest(CHAR_DATA *ch, char *argument)
 		return;
 
 	if (!strcmp(arg1, "info")) {
-		if (IS_SET(ch->act, PLR_QUESTOR)) {
+		if (IS_QUESTOR(ch)) {
 			if (ch->pcdata->questmob == -1) {
 				send_to_char(msg(QUEST_IS_ALMOST_COMPLETE, ch), 
 						ch);
@@ -121,10 +121,15 @@ void do_quest(CHAR_DATA *ch, char *argument)
 					char_printf(ch, 
 						msg(QUEST_RECOVER_FABLED, ch), 
 						qinfoobj->name);
+					if (ch->pcdata->questroom)
+					  char_printf(ch, 
+					    msg(QUEST_INFO_LOCATION, ch),
+					    ch->pcdata->questroom->area->name, 
+					    ch->pcdata->questroom->name);
 				} else 
 					send_to_char(
 					     msg(QUEST_ARENT_ON_QUEST, ch), ch);
-				return;
+					return;
 			} else if (ch->pcdata->questmob > 0) {
 				questinfo = 
 				    get_mob_index(ch->pcdata->questmob);
@@ -132,6 +137,11 @@ void do_quest(CHAR_DATA *ch, char *argument)
 					char_printf(ch, 
 					    msg(QUEST_SLAY_DREADED, ch),
 					    questinfo->short_descr);
+					if (ch->pcdata->questroom)
+					  char_printf(ch, 
+					    msg(QUEST_INFO_LOCATION, ch),
+					    ch->pcdata->questroom->area->name, 
+					    ch->pcdata->questroom->name);
 				} else 
 					send_to_char(msg(QUEST_ARENT_ON_QUEST, 
 							ch), ch);
@@ -147,18 +157,18 @@ void do_quest(CHAR_DATA *ch, char *argument)
 				ch->pcdata->questpoints);
 		return;
 	} else if (!strcmp(arg1, "time")) {
-		if (!IS_SET(ch->act, PLR_QUESTOR)) {
+		if (!IS_QUESTOR(ch)) {
 			send_to_char(msg(QUEST_ARENT_ON_QUEST, ch), ch);
-			if (ch->pcdata->nextquest > 1) {
+			if (ch->pcdata->questtime < -1) {
 				sprintf(buf, msg(QUEST_D_MIN_REMAINING, ch), 
-					    ch->pcdata->nextquest);
+					    -ch->pcdata->questtime);
 				send_to_char(buf, ch);
-	    		} else if (ch->pcdata->nextquest == 1) {
+	    		} else if (ch->pcdata->questtime == -1) {
 				send_to_char(msg(QUEST_LESS_MINUTE, ch), ch);
 	    		}
-		} else if (ch->pcdata->countdown > 0) {
+		} else if (ch->pcdata->questtime > 0) {
 			char_printf(ch, msg(QUEST_LEFT_FOR_QUEST, ch), 
-					ch->pcdata->countdown);
+					ch->pcdata->questtime);
 		}
 		return;
 	}
@@ -447,12 +457,12 @@ void do_quest(CHAR_DATA *ch, char *argument)
 				QUEST_N_ASKS_FOR_QUEST);
 		act_printf(ch, NULL, questman, TO_CHAR, POS_DEAD, 
 				QUEST_YOU_ASK_FOR_QUEST);
-		if (IS_SET(ch->act, PLR_QUESTOR)) {
+		if (IS_QUESTOR(ch)) {
 	    		sprintf(buf, msg(QUEST_YOU_ALREADY_ON_QUEST, ch));
 	    		do_tell_quest(ch,questman,buf);
 	    		return;
 		} 
-		if (ch->pcdata->nextquest > 0) {
+		if (ch->pcdata->questtime < 0) {
 	    		sprintf(buf, msg(QUEST_BRAVE_BUT_LET_SOMEONE_ELSE, ch), 
 				ch->name);
 	    		do_tell_quest(ch,questman,buf);
@@ -466,18 +476,17 @@ void do_quest(CHAR_DATA *ch, char *argument)
 
 		generate_quest(ch, questman);
 
-			if (ch->pcdata->questmob > 0 
-			    || ch->pcdata->questobj > 0) {
-				ch->pcdata->countdown = number_range(15,30);
-				SET_BIT(ch->act, PLR_QUESTOR);
-				sprintf(buf, msg(QUEST_YOU_HAVE_D_MINUTES, ch), 
-					ch->pcdata->countdown);
-				do_tell_quest(ch,questman,buf);
-				sprintf(buf, msg(QUEST_MAY_THE_GODS_GO, ch));
-				do_tell_quest(ch, questman, buf);
-			}
-			return;
-		} else if (!strcmp(arg1, "complete")) {
+		if (ch->pcdata->questmob > 0 
+		    || ch->pcdata->questobj > 0) {
+			ch->pcdata->questtime = number_range(15,30);
+			sprintf(buf, msg(QUEST_YOU_HAVE_D_MINUTES, ch), 
+				ch->pcdata->questtime);
+			do_tell_quest(ch,questman,buf);
+			sprintf(buf, msg(QUEST_MAY_THE_GODS_GO, ch));
+			do_tell_quest(ch, questman, buf);
+		}
+		return;
+	} else if (!strcmp(arg1, "complete")) {
 			act_printf(ch, NULL, questman, TO_ROOM, POS_RESTING, 
 					QUEST_INFORMS_COMPLETE);
 			act_printf(ch, NULL, questman, TO_CHAR, POS_DEAD, 
@@ -488,9 +497,9 @@ void do_quest(CHAR_DATA *ch, char *argument)
 				return;
 			}
 
-			if (IS_SET(ch->act, PLR_QUESTOR)) {
+			if (IS_QUESTOR(ch)) {
 				if (ch->pcdata->questmob == -1 
-				    && ch->pcdata->countdown > 0) {
+				    && ch->pcdata->questtime > 0) {
 					int reward = 0, pointreward = 0, 
 					    pracreward = 0, level;
 
@@ -513,18 +522,14 @@ void do_quest(CHAR_DATA *ch, char *argument)
 					ch->practice += pracreward;
 				}
 
-				REMOVE_BIT(ch->act, PLR_QUESTOR);
-				ch->pcdata->questgiver = 0;
-				ch->pcdata->countdown = 0;
-				ch->pcdata->questmob = 0;
-				ch->pcdata->questobj = 0;
-				ch->pcdata->nextquest = 5;
+				cancel_quest(ch);
+				ch->pcdata->questtime = -5;
 				ch->gold += reward;
 				ch->pcdata->questpoints += pointreward;
 
 				return;
 			} else if (ch->pcdata->questobj > 0 
-				   && ch->pcdata->countdown > 0) {
+				   && ch->pcdata->questtime > 0) {
 				bool obj_found = FALSE;
 
 				for (obj = ch->carrying; obj != NULL; obj= obj_next) {
@@ -564,12 +569,8 @@ void do_quest(CHAR_DATA *ch, char *argument)
 						ch->practice += pracreward;
 					}
 
-					REMOVE_BIT(ch->act, PLR_QUESTOR);
-					ch->pcdata->questgiver = 0;
-					ch->pcdata->countdown = 0;
-					ch->pcdata->questmob = 0;
-					ch->pcdata->questobj = 0;
-					ch->pcdata->nextquest = 5;
+					cancel_quest(ch);
+					ch->pcdata->questtime = -5;
 					ch->gold += reward;
 					ch->pcdata->questpoints += pointreward;
 					extract_obj(obj);
@@ -582,13 +583,13 @@ void do_quest(CHAR_DATA *ch, char *argument)
 				return;
 			} else if ((ch->pcdata->questmob > 0 
 				    || ch->pcdata->questobj > 0) 
-				    && ch->pcdata->countdown > 0) {
+				    && ch->pcdata->questtime > 0) {
 					sprintf(buf, msg(QUEST_HAVENT_COMPLETE, ch));
 					do_tell_quest(ch,questman,buf);
 					return;
 				}
 			}
-			if (ch->pcdata->nextquest > 0)
+			if (ch->pcdata->questtime < 0)
 				sprintf(buf, 
 					msg(QUEST_DIDNT_COMPLETE_IN_TIME, ch));
 			else 
@@ -749,7 +750,7 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 	do_tell_quest(ch,questman,buf);
 	sprintf(buf, msg(QUEST_TRY_AGAIN_LATER, ch));
 	do_tell_quest(ch,questman,buf);
-	ch->pcdata->nextquest = 5;
+	ch->pcdata->questtime = -5;
 	return;
        }
 
@@ -759,7 +760,7 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 	do_tell_quest(ch,questman,buf);
 	sprintf(buf, msg(QUEST_TRY_AGAIN_LATER, ch));
 	do_tell_quest(ch,questman,buf);
-	ch->pcdata->nextquest = 5;
+	ch->pcdata->questtime = -5;
 	return;
        }
 
@@ -813,6 +814,7 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 
 	obj_to_room(eyed, room);
 	ch->pcdata->questobj = eyed->pIndexData->vnum;
+	ch->pcdata->questroom = room;
 
 	sprintf(buf, msg(QUEST_VILE_PILFERERS, ch), eyed->short_descr);
 	do_tell_quest(ch,questman,buf);
@@ -832,19 +834,19 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
     else
     {
 	found = number_range(0,mob_count-1);
-	for(i=0; i< mob_count; i++)
-	{
+	for(i=0; i< mob_count; i++) {
 	 if ((vsearch = get_mob_index(mob_buf[found])) == NULL
 	      || (IS_EVIL(vsearch) && !IS_EVIL(ch))
 	      || (IS_GOOD(vsearch) && !IS_GOOD(ch))
-	      || (IS_NEUTRAL(vsearch) && !IS_GOOD(ch)))
-		{
+	      || (IS_NEUTRAL(vsearch) && !IS_GOOD(ch))) {
 		/*
 		 * bug("Error unknown mob in quest: %d",i);
 		 */
 		 found++;
-		 if (found > (mob_count-1)) break;
-		 else continue;
+		 if (found > (mob_count-1)) 
+			break;
+		 else 
+			continue;
 		}
 	 else break;
 	}
@@ -858,7 +860,7 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 	do_tell_quest(ch,questman,buf);
 	sprintf(buf, msg(QUEST_TRY_AGAIN_LATER, ch));
 	do_tell_quest(ch,questman,buf);
-	ch->pcdata->nextquest = 5;
+	ch->pcdata->questtime = -5;
 	return;
      }
 
@@ -888,6 +890,7 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 	   and none of the level stuff. You may want to comment these next two
 	   lines. - Vassago */
 
+	ch->pcdata->questroom = room;
 	sprintf(buf, msg(QUEST_LOCATION_IS_IN_AREA, ch), room->area->name, room->name);
 	do_tell_quest(ch,questman,buf);
      }
@@ -901,12 +904,11 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 void cancel_quest(CHAR_DATA *ch)
 {
 	CHAR_DATA *fch;
-	ch->pcdata->nextquest = 0;
-	REMOVE_BIT(ch->act, PLR_QUESTOR);
+	ch->pcdata->questtime = 0;
 	ch->pcdata->questgiver = 0;
-	ch->pcdata->countdown = 0;
 	ch->pcdata->questmob = 0;
 	ch->pcdata->questobj = 0;
+	ch->pcdata->questroom = 0;
 	/* here remove mob->hunter */
 	for (fch = char_list; fch; fch = fch->next)
 		if (fch->hunter == ch) {
@@ -924,21 +926,21 @@ void quest_update(void)
 
 		if (IS_NPC(ch)) 
 			continue;
-		if (ch->pcdata->nextquest > 0) {
-			ch->pcdata->nextquest--;
+		if (ch->pcdata->questtime < 0) {
+			ch->pcdata->questtime++;
 
-			if (ch->pcdata->nextquest == 0) {
+			if (ch->pcdata->questtime == 0) {
 				send_to_char(msg(QUEST_YOU_MAY_NOW_QUEST_AGAIN,
 						 ch), ch);
 				return;
 			}
-		} else if (IS_SET(ch->act, PLR_QUESTOR)) {
-			if (--ch->pcdata->countdown <= 0) {
+		} else if (IS_QUESTOR(ch)) {
+			if (--ch->pcdata->questtime <= 0) {
 				send_to_char(msg(QUEST_RUN_OUT_TIME, ch), ch);
 				cancel_quest(ch);
 			}
-			if (ch->pcdata->countdown > 0 
-			    && ch->pcdata->countdown < 6) {
+			if (ch->pcdata->questtime > 0 
+			    && ch->pcdata->questtime < 6) {
 				send_to_char(msg(QUEST_BETTER_HURRY, ch), ch);
 				return;
 			}

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.14 1998-05-21 10:16:37 efdi Exp $
+ * $Id: fight.c,v 1.15 1998-05-26 12:34:46 efdi Exp $
  */
 
 /***************************************************************************
@@ -2270,7 +2270,7 @@ void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 		if (victim->hunter == gch) {
 			send_to_char(msg(FIGHT_ALMOST_COMPLETE_QUEST, gch),gch);
 			send_to_char(msg(FIGHT_RETURN_TO_QUESTER, gch), gch);
-			victim->hunter->pcdata->questmob = -1;
+			gch->pcdata->questmob = -1;
 		} else if (victim->hunter) {
 			send_to_char(msg(FIGHT_YOU_COMPLETED_SOMEONES_QUEST, gch), gch);
 			send_to_char(msg(FIGHT_SOMEONE_COMPLETED_YOUR_QUEST, victim->hunter), victim->hunter);

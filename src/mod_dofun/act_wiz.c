@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.11 1998-05-18 14:00:11 efdi Exp $
+ * $Id: act_wiz.c,v 1.12 1998-05-26 12:34:45 efdi Exp $
  */
 
 /***************************************************************************
@@ -2049,21 +2049,22 @@ void do_mstat(CHAR_DATA *ch, char *argument)
 
     if (!(IS_NPC(victim)))
        {
-	if (IS_SET(victim->act,PLR_QUESTOR))
+	if (IS_QUESTOR(victim))
 	{
 	 sprintf(buf,"Questgiver: %d QuestPnts: %d	Questnext: %d\n\r",
 		victim->pcdata->questgiver,victim->pcdata->questpoints,
-		victim->pcdata->nextquest);
+		victim->pcdata->questtime < 0 ? -victim->pcdata->questtime : 0);
 	 send_to_char(buf, ch);
 	 sprintf(buf,"QuestCntDown: %d	QuestObj: %d	Questmob: %d\n\r",
-		victim->pcdata->countdown,victim->pcdata->questobj,
-		victim->pcdata->questmob);
+		victim->pcdata->questtime > 0 ? victim->pcdata->questtime : 0,
+		victim->pcdata->questobj, victim->pcdata->questmob);
 	 send_to_char(buf, ch);
 	}
-	if  (!IS_SET(victim->act,PLR_QUESTOR))
+	if  (!IS_QUESTOR(victim))
 	{
 	 sprintf(buf,"QuestPnts: %d	Questnext: %d    NOT QUESTING\n\r",
-		victim->pcdata->questpoints,victim->pcdata->nextquest);
+		victim->pcdata->questpoints,
+		victim->pcdata->questtime < 0 ? -victim->pcdata->questtime : 0);
 	 send_to_char(buf, ch);
 	}
        }	
@@ -4490,7 +4491,7 @@ void do_mset(CHAR_DATA *ch, char *argument)
     if (!str_cmp(arg2, "questt"))
     {
 	 if (value == -1) value = 30;
-	 if (!IS_NPC(victim)) victim->pcdata->nextquest = value;
+	 if (!IS_NPC(victim)) victim->pcdata->questtime = value;
 	return;
     }
     if (!str_cmp(arg2, "relig"))
